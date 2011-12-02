@@ -1,0 +1,15 @@
+#!/bin/sh
+
+pkgname=mate-file-manager
+
+if [ -f /usr/sbin/mateconfpkg ]; then
+	/usr/sbin/mateconfpkg --install ${pkgname}
+fi
+
+gtk-update-icon-cache -q -t -f /usr/share/icons/hicolor
+
+update-desktop-database -q
+
+update-mime-database /usr/share/mime > /dev/null
+
+exit 0

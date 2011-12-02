@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
+<book xmlns="http://www.devhelp.net/book" title="Caja Extension Reference Manual" link="index.html" author="" name="libcaja-extension" version="2" language="c">
+  <chapters>
+    <sub name="API Reference" link="pt01.html">
+      <sub name="Extension Interfaces" link="ch01.html">
+        <sub name="caja-column-provider" link="libcaja-extension-caja-column-provider.html"/>
+        <sub name="CajaColumn" link="libcaja-extension-caja-column.html"/>
+        <sub name="caja-extension-types" link="libcaja-extension-caja-extension-types.html"/>
+        <sub name="caja-file-info" link="libcaja-extension-caja-file-info.html"/>
+        <sub name="caja-info-provider" link="libcaja-extension-caja-info-provider.html"/>
+        <sub name="caja-location-widget-provider" link="libcaja-extension-caja-location-widget-provider.html"/>
+        <sub name="caja-menu-provider" link="libcaja-extension-caja-menu-provider.html"/>
+        <sub name="CajaMenuItem" link="libcaja-extension-caja-menu.html"/>
+        <sub name="caja-property-page-provider" link="libcaja-extension-caja-property-page-provider.html"/>
+        <sub name="CajaPropertyPage" link="libcaja-extension-caja-property-page.html"/>
+      </sub>
+    </sub>
+    <sub name="Index" link="ix01.html"/>
+  </chapters>
+  <functions>
+    <keyword type="struct" name="CajaColumnProvider" link="libcaja-extension-caja-column-provider.html#CajaColumnProvider-struct"/>
+    <keyword type="struct" name="CajaColumnProviderIface" link="libcaja-extension-caja-column-provider.html#CajaColumnProviderIface"/>
+    <keyword type="function" name="caja_column_provider_get_columns ()" link="libcaja-extension-caja-column-provider.html#caja-column-provider-get-columns"/>
+    <keyword type="struct" name="CajaColumnDetails" link="libcaja-extension-caja-column.html#CajaColumnDetails"/>
+    <keyword type="struct" name="CajaColumn" link="libcaja-extension-caja-column.html#CajaColumn-struct"/>
+    <keyword type="function" name="caja_column_new ()" link="libcaja-extension-caja-column.html#caja-column-new"/>
+    <keyword type="property" name="The &quot;attribute&quot; property" link="libcaja-extension-caja-column.html#CajaColumn--attribute"/>
+    <keyword type="property" name="The &quot;attribute-q&quot; property" link="libcaja-extension-caja-column.html#CajaColumn--attribute-q"/>
+    <keyword type="property" name="The &quot;description&quot; property" link="libcaja-extension-caja-column.html#CajaColumn--description"/>
+    <keyword type="property" name="The &quot;label&quot; property" link="libcaja-extension-caja-column.html#CajaColumn--label"/>
+    <keyword type="property" name="The &quot;name&quot; property" link="libcaja-extension-caja-column.html#CajaColumn--name"/>
+    <keyword type="property" name="The &quot;xalign&quot; property" link="libcaja-extension-caja-column.html#CajaColumn--xalign"/>
+    <keyword type="macro" name="CAJA_TYPE_OPERATION_RESULT" link="libcaja-extension-caja-extension-types.html#CAJA-TYPE-OPERATION-RESULT:CAPS"/>
+    <keyword type="struct" name="CajaOperationHandle" link="libcaja-extension-caja-extension-types.html#CajaOperationHandle"/>
+    <keyword type="enum" name="enum CajaOperationResult" link="libcaja-extension-caja-extension-types.html#CajaOperationResult"/>
+    <keyword type="function" name="caja_operation_result_get_type ()" link="libcaja-extension-caja-extension-types.html#caja-operation-result-get-type"/>
+    <keyword type="function" name="caja_module_initialize ()" link="libcaja-extension-caja-extension-types.html#caja-module-initialize"/>
+    <keyword type="function" name="caja_module_shutdown ()" link="libcaja-extension-caja-extension-types.html#caja-module-shutdown"/>
+    <keyword type="function" name="caja_module_list_types ()" link="libcaja-extension-caja-extension-types.html#caja-module-list-types"/>
+    <keyword type="macro" name="CAJA_FILE_DEFINED" link="libcaja-extension-caja-file-info.html#CAJA-FILE-DEFINED:CAPS"/>
+    <keyword type="typedef" name="CajaFile" link="libcaja-extension-caja-file-info.html#CajaFile"/>
+    <keyword type="typedef" name="CajaFileInfo" link="libcaja-extension-caja-file-info.html#CajaFileInfo"/>
+    <keyword type="struct" name="CajaFileInfoIface" link="libcaja-extension-caja-file-info.html#CajaFileInfoIface"/>
+    <keyword type="function" name="caja_file_info_list_copy ()" link="libcaja-extension-caja-file-info.html#caja-file-info-list-copy"/>
+    <keyword type="function" name="caja_file_info_list_free ()" link="libcaja-extension-caja-file-info.html#caja-file-info-list-free"/>
+    <keyword type="function" name="caja_file_info_is_gone ()" link="libcaja-extension-caja-file-info.html#caja-file-info-is-gone"/>
+    <keyword type="function" name="caja_file_info_get_file_type ()" link="libcaja-extension-caja-file-info.html#caja-file-info-get-file-type"/>
+    <keyword type="function" name="caja_file_info_get_location ()" link="libcaja-extension-caja-file-info.html#caja-file-info-get-location"/>
+    <keyword type="function" name="caja_file_info_get_name ()" link="libcaja-extension-caja-file-info.html#caja-file-info-get-name"/>
+    <keyword type="function" name="caja_file_info_get_uri ()" link="libcaja-extension-caja-file-info.html#caja-file-info-get-uri"/>
+    <keyword type="function" name="caja_file_info_get_activation_uri ()" link="libcaja-extension-caja-file-info.html#caja-file-info-get-activation-uri"/>
+    <keyword type="function" name="caja_file_info_get_parent_location ()" link="libcaja-extension-caja-file-info.html#caja-file-info-get-parent-location"/>
+    <keyword type="function" name="caja_file_info_get_parent_uri ()" link="libcaja-extension-caja-file-info.html#caja-file-info-get-parent-uri"/>
+    <keyword type="function" name="caja_file_info_get_mount ()" link="libcaja-extension-caja-file-info.html#caja-file-info-get-mount"/>
+    <keyword type="function" name="caja_file_info_get_uri_scheme ()" link="libcaja-extension-caja-file-info.html#caja-file-info-get-uri-scheme"/>
+    <keyword type="function" name="caja_file_info_get_parent_info ()" link="libcaja-extension-caja-file-info.html#caja-file-info-get-parent-info"/>
+    <keyword type="function" name="caja_file_info_get_mime_type ()" link="libcaja-extension-caja-file-info.html#caja-file-info-get-mime-type"/>
+    <keyword type="function" name="caja_file_info_is_mime_type ()" link="libcaja-extension-caja-file-info.html#caja-file-info-is-mime-type"/>
+    <keyword type="function" name="caja_file_info_is_directory ()" link="libcaja-extension-caja-file-info.html#caja-file-info-is-directory"/>
+    <keyword type="function" name="caja_file_info_can_write ()" link="libcaja-extension-caja-file-info.html#caja-file-info-can-write"/>
+    <keyword type="function" name="caja_file_info_add_emblem ()" link="libcaja-extension-caja-file-info.html#caja-file-info-add-emblem"/>
+    <keyword type="function" name="caja_file_info_get_string_attribute ()" link="libcaja-extension-caja-file-info.html#caja-file-info-get-string-attribute"/>
+    <keyword type="function" name="caja_file_info_add_string_attribute ()" link="libcaja-extension-caja-file-info.html#caja-file-info-add-string-attribute"/>
+    <keyword type="function" name="caja_file_info_invalidate_extension_info ()" link="libcaja-extension-caja-file-info.html#caja-file-info-invalidate-extension-info"/>
+    <keyword type="struct" name="CajaInfoProvider" link="libcaja-extension-caja-info-provider.html#CajaInfoProvider-struct"/>
+    <keyword type="struct" name="CajaInfoProviderIface" link="libcaja-extension-caja-info-provider.html#CajaInfoProviderIface"/>
+    <keyword type="function" name="CajaInfoProviderUpdateComplete ()" link="libcaja-extension-caja-info-provider.html#CajaInfoProviderUpdateComplete"/>
+    <keyword type="function" name="caja_info_provider_update_file_info ()" link="libcaja-extension-caja-info-provider.html#caja-info-provider-update-file-info"/>
+    <keyword type="function" name="caja_info_provider_cancel_update ()" link="libcaja-extension-caja-info-provider.html#caja-info-provider-cancel-update"/>
+    <keyword type="function" name="caja_info_provider_update_complete_invoke ()" link="libcaja-extension-caja-info-provider.html#caja-info-provider-update-complete-invoke"/>
+    <keyword type="struct" name="CajaLocationWidgetProvider" link="libcaja-extension-caja-location-widget-provider.html#CajaLocationWidgetProvider-struct"/>
+    <keyword type="struct" name="CajaLocationWidgetProviderIface" link="libcaja-extension-caja-location-widget-provider.html#CajaLocationWidgetProviderIface"/>
+    <keyword type="function" name="caja_location_widget_provider_get_widget ()" link="libcaja-extension-caja-location-widget-provider.html#caja-location-widget-provider-get-widget"/>
+    <keyword type="struct" name="CajaMenuProvider" link="libcaja-extension-caja-menu-provider.html#CajaMenuProvider-struct"/>
+    <keyword type="struct" name="CajaMenuProviderIface" link="libcaja-extension-caja-menu-provider.html#CajaMenuProviderIface"/>
+    <keyword type="function" name="caja_menu_provider_get_file_items ()" link="libcaja-extension-caja-menu-provider.html#caja-menu-provider-get-file-items"/>
+    <keyword type="function" name="caja_menu_provider_get_background_items ()" link="libcaja-extension-caja-menu-provider.html#caja-menu-provider-get-background-items"/>
+    <keyword type="function" name="caja_menu_provider_get_toolbar_items ()" link="libcaja-extension-caja-menu-provider.html#caja-menu-provider-get-toolbar-items"/>
+    <keyword type="function" name="caja_menu_provider_emit_items_updated_signal ()" link="libcaja-extension-caja-menu-provider.html#caja-menu-provider-emit-items-updated-signal"/>
+    <keyword type="signal" name="The &quot;items-updated&quot; signal" link="libcaja-extension-caja-menu-provider.html#CajaMenuProvider-items-updated"/>
+    <keyword type="macro" name="CAJA_TYPE_MENU_ITEM" link="libcaja-extension-caja-menu.html#CAJA-TYPE-MENU-ITEM:CAPS"/>
+    <keyword type="macro" name="CAJA_MENU_ITEM()" link="libcaja-extension-caja-menu.html#CAJA-MENU-ITEM:CAPS"/>
+    <keyword type="macro" name="CAJA_MENU_ITEM_CLASS()" link="libcaja-extension-caja-menu.html#CAJA-MENU-ITEM-CLASS:CAPS"/>
+    <keyword type="macro" name="CAJA_MENU_IS_ITEM()" link="libcaja-extension-caja-menu.html#CAJA-MENU-IS-ITEM:CAPS"/>
+    <keyword type="macro" name="CAJA_MENU_IS_ITEM_CLASS()" link="libcaja-extension-caja-menu.html#CAJA-MENU-IS-ITEM-CLASS:CAPS"/>
+    <keyword type="macro" name="CAJA_MENU_ITEM_GET_CLASS()" link="libcaja-extension-caja-menu.html#CAJA-MENU-ITEM-GET-CLASS:CAPS"/>
+    <keyword type="struct" name="CajaMenuPrivate" link="libcaja-extension-caja-menu.html#CajaMenuPrivate"/>
+    <keyword type="struct" name="CajaMenuItemDetails" link="libcaja-extension-caja-menu.html#CajaMenuItemDetails"/>
+    <keyword type="struct" name="CajaMenu" link="libcaja-extension-caja-menu.html#CajaMenu-struct"/>
+    <keyword type="struct" name="CajaMenuItem" link="libcaja-extension-caja-menu.html#CajaMenuItem-struct"/>
+    <keyword type="function" name="caja_menu_new ()" link="libcaja-extension-caja-menu.html#caja-menu-new"/>
+    <keyword type="function" name="caja_menu_append_item ()" link="libcaja-extension-caja-menu.html#caja-menu-append-item"/>
+    <keyword type="function" name="caja_menu_get_items ()" link="libcaja-extension-caja-menu.html#caja-menu-get-items"/>
+    <keyword type="function" name="caja_menu_item_list_free ()" link="libcaja-extension-caja-menu.html#caja-menu-item-list-free"/>
+    <keyword type="function" name="caja_menu_item_get_type ()" link="libcaja-extension-caja-menu.html#caja-menu-item-get-type"/>
+    <keyword type="function" name="caja_menu_item_new ()" link="libcaja-extension-caja-menu.html#caja-menu-item-new"/>
+    <keyword type="function" name="caja_menu_item_activate ()" link="libcaja-extension-caja-menu.html#caja-menu-item-activate"/>
+    <keyword type="function" name="caja_menu_item_set_submenu ()" link="libcaja-extension-caja-menu.html#caja-menu-item-set-submenu"/>
+    <keyword type="property" name="The &quot;icon&quot; property" link="libcaja-extension-caja-menu.html#CajaMenuItem--icon"/>
+    <keyword type="property" name="The &quot;label&quot; property" link="libcaja-extension-caja-menu.html#CajaMenuItem--label"/>
+    <keyword type="property" name="The &quot;menu&quot; property" link="libcaja-extension-caja-menu.html#CajaMenuItem--menu"/>
+    <keyword type="property" name="The &quot;name&quot; property" link="libcaja-extension-caja-menu.html#CajaMenuItem--name"/>
+    <keyword type="property" name="The &quot;priority&quot; property" link="libcaja-extension-caja-menu.html#CajaMenuItem--priority"/>
+    <keyword type="property" name="The &quot;sensitive&quot; property" link="libcaja-extension-caja-menu.html#CajaMenuItem--sensitive"/>
+    <keyword type="property" name="The &quot;tip&quot; property" link="libcaja-extension-caja-menu.html#CajaMenuItem--tip"/>
+    <keyword type="signal" name="The &quot;activate&quot; signal" link="libcaja-extension-caja-menu.html#CajaMenuItem-activate"/>
+    <keyword type="struct" name="CajaPropertyPageProvider" link="libcaja-extension-caja-property-page-provider.html#CajaPropertyPageProvider-struct"/>
+    <keyword type="struct" name="CajaPropertyPageProviderIface" link="libcaja-extension-caja-property-page-provider.html#CajaPropertyPageProviderIface"/>
+    <keyword type="function" name="caja_property_page_provider_get_pages ()" link="libcaja-extension-caja-property-page-provider.html#caja-property-page-provider-get-pages"/>
+    <keyword type="struct" name="CajaPropertyPageDetails" link="libcaja-extension-caja-property-page.html#CajaPropertyPageDetails"/>
+    <keyword type="struct" name="CajaPropertyPage" link="libcaja-extension-caja-property-page.html#CajaPropertyPage-struct"/>
+    <keyword type="function" name="caja_property_page_new ()" link="libcaja-extension-caja-property-page.html#caja-property-page-new"/>
+    <keyword type="property" name="The &quot;label&quot; property" link="libcaja-extension-caja-property-page.html#CajaPropertyPage--label"/>
+    <keyword type="property" name="The &quot;name&quot; property" link="libcaja-extension-caja-property-page.html#CajaPropertyPage--name"/>
+    <keyword type="property" name="The &quot;page&quot; property" link="libcaja-extension-caja-property-page.html#CajaPropertyPage--page"/>
+  </functions>
+</book>

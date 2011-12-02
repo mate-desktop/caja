@@ -1,0 +1,30 @@
+#ifndef CAJA_ICON_NAMES_H
+#define CAJA_ICON_NAMES_H
+
+/* Icons for places */
+#define CAJA_ICON_COMPUTER		"computer"
+#define CAJA_ICON_DESKTOP		"user-desktop"
+#define CAJA_ICON_FILESYSTEM	"drive-harddisk"
+#define CAJA_ICON_FOLDER		"folder"
+#define CAJA_ICON_FOLDER_REMOTE	"folder-remote"
+#define CAJA_ICON_HOME		"user-home"
+#define CAJA_ICON_NETWORK		"network-workgroup"
+#define CAJA_ICON_NETWORK_SERVER	"network-server"
+#define CAJA_ICON_SEARCH		"system-search"
+#define CAJA_ICON_TRASH		"user-trash"
+#define CAJA_ICON_TRASH_FULL	"user-trash-full"
+#define CAJA_ICON_DELETE		"edit-delete"
+
+/* Icons for emblems */
+#define CAJA_ICON_EMBLEM_READONLY	"emblem-readonly"
+#define CAJA_ICON_EMBLEM_UNREADABLE	"emblem-unreadable"
+#define CAJA_ICON_EMBLEM_SYMLINK	"emblem-symbolic-link"
+
+/* Other icons */
+#define CAJA_ICON_TEMPLATE		"text-x-generic-template"
+
+/* Icons not provided by fd.o naming spec or caja itself */
+#define CAJA_ICON_BURN		"caja-cd-burner"
+
+#endif /* CAJA_ICON_NAMES_H */
+

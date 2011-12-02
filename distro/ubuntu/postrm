@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+
+pkgname=mate-file-manager
+
+gtk-update-icon-cache -q -t -f /usr/share/icons/hicolor
+update-desktop-database -q
+update-mime-database /usr/share/mime > /dev/null
+
+exit 0

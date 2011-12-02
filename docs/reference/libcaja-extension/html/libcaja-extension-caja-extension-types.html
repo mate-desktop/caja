@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>caja-extension-types</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Caja Extension Reference Manual">
+<link rel="up" href="ch01.html" title="Extension Interfaces">
+<link rel="prev" href="libcaja-extension-caja-column.html" title="CajaColumn">
+<link rel="next" href="libcaja-extension-caja-file-info.html" title="caja-file-info">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libcaja-extension-caja-column.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Caja Extension Reference Manual</th>
+<td><a accesskey="n" href="libcaja-extension-caja-file-info.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libcaja-extension-caja-extension-types.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libcaja-extension-caja-extension-types.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="caja-extension-types">
+<a name="libcaja-extension-caja-extension-types"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libcaja-extension-caja-extension-types.top_of_page"></a>caja-extension-types</span></h2>
+<p>caja-extension-types</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="libcaja-extension-caja-extension-types.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="libcaja-extension-caja-extension-types.html#CAJA-TYPE-OPERATION-RESULT:CAPS" title="CAJA_TYPE_OPERATION_RESULT">CAJA_TYPE_OPERATION_RESULT</a>
+                    <a class="link" href="libcaja-extension-caja-extension-types.html#CajaOperationHandle" title="CajaOperationHandle">CajaOperationHandle</a>;
+enum                <a class="link" href="libcaja-extension-caja-extension-types.html#CajaOperationResult" title="enum CajaOperationResult">CajaOperationResult</a>;
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               <a class="link" href="libcaja-extension-caja-extension-types.html#caja-operation-result-get-type" title="caja_operation_result_get_type ()">caja_operation_result_get_type</a>  (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libcaja-extension-caja-extension-types.html#caja-module-initialize" title="caja_module_initialize ()">caja_module_initialize</a>          (<em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/GTypeModule.html"><span class="type">GTypeModule</span></a> *module</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libcaja-extension-caja-extension-types.html#caja-module-shutdown" title="caja_module_shutdown ()">caja_module_shutdown</a>            (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libcaja-extension-caja-extension-types.html#caja-module-list-types" title="caja_module_list_types ()">caja_module_list_types</a>          (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> **types</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gnutls/gnutls-crypto.html#int"><span class="type">int</span></a> *num_types</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="libcaja-extension-caja-extension-types.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="libcaja-extension-caja-extension-types.details"></a><h2>Details</h2>
+<div class="refsect2" title="CAJA_TYPE_OPERATION_RESULT">
+<a name="CAJA-TYPE-OPERATION-RESULT:CAPS"></a><h3>CAJA_TYPE_OPERATION_RESULT</h3>
+<pre class="programlisting">#define CAJA_TYPE_OPERATION_RESULT (caja_operation_result_get_type ())
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="CajaOperationHandle">
+<a name="CajaOperationHandle"></a><h3>CajaOperationHandle</h3>
+<pre class="programlisting">typedef struct _CajaOperationHandle CajaOperationHandle;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="enum CajaOperationResult">
+<a name="CajaOperationResult"></a><h3>enum CajaOperationResult</h3>
+<pre class="programlisting">typedef enum {
+	/* Returned if the call succeeded, and the extension is done
+	 * with the request */
+	CAJA_OPERATION_COMPLETE,
+
+	/* Returned if the call failed */
+	CAJA_OPERATION_FAILED,
+
+	/* Returned if the extension has begun an async operation.
+	 * If this is returned, the extension must set the handle
+	 * parameter and call the callback closure when the
+	 * operation is complete. */
+	CAJA_OPERATION_IN_PROGRESS
+} CajaOperationResult;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="caja_operation_result_get_type ()">
+<a name="caja-operation-result-get-type"></a><h3>caja_operation_result_get_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="returnvalue">GType</span></a>               caja_operation_result_get_type  (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="caja_module_initialize ()">
+<a name="caja-module-initialize"></a><h3>caja_module_initialize ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                caja_module_initialize          (<em class="parameter"><code><a href="http://library.gnome.org/devel/gobject/unstable/GTypeModule.html"><span class="type">GTypeModule</span></a> *module</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>module</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="caja_module_shutdown ()">
+<a name="caja-module-shutdown"></a><h3>caja_module_shutdown ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                caja_module_shutdown            (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="caja_module_list_types ()">
+<a name="caja-module-list-types"></a><h3>caja_module_list_types ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                caja_module_list_types          (<em class="parameter"><code>const <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> **types</code></em>,
+                                                         <em class="parameter"><code><a href="/usr/share/gtk-doc/html/gnutls/gnutls-crypto.html#int"><span class="type">int</span></a> *num_types</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>types</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>num_types</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

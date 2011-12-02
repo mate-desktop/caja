@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# fill it
+pkgname=mate-file-manager
+pkgver=2011.11.10
+pkgrel=1
+pkgdesc="The MATE shell and file manager"
+depends=('libexif12' 'libexempi3' 'mate-icon-theme' 'shared-mime-info' 'desktop-file-utils' 'gvfs' 'libunique-1.0-0' 'mate-desktop' 'libgail18')
+makedepends=('pkgconfig' 'intltool')
+url="http://matsusoft.com.ar/projects"
+
+
+# editar esta funcion!
+build() {
+	cd $pkgsrc
+	# descomprimir
+	tar xvzf download
+	# entramos a la carpeta
+	cd ${pkgname}
+
+	./configure --prefix=/usr --sysconfdir=/etc \
+		--localstatedir=/var --disable-static \
+		--libexecdir=/usr/lib/caja --enable-unique \
+		--disable-update-mimedb || return 1
+
+	make || return 1
+	make MATECONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 DESTDIR="${pkgdir}" install || return 1
+
+	install -m755 -d ${pkgdir}/usr/share/mateconf/schemas
+
+	mateconf-merge-schema ${pkgdir}/usr/share/mateconf/schemas/${pkgname}.schemas --domain ${pkgname} ${pkgdir}/etc/mateconf/schemas/*.schemas || return 1
+	rm -f ${pkgdir}/etc/mateconf/schemas/*.schemas
+}
+
+# esto incluye la parte que se repite en la mayoria de los builds
+. /usr/share/mate-doc-utils/mate-debian.sh

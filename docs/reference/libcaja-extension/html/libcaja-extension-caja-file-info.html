@@ -1,0 +1,643 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>caja-file-info</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Caja Extension Reference Manual">
+<link rel="up" href="ch01.html" title="Extension Interfaces">
+<link rel="prev" href="libcaja-extension-caja-extension-types.html" title="caja-extension-types">
+<link rel="next" href="libcaja-extension-caja-info-provider.html" title="caja-info-provider">
+<meta name="generator" content="GTK-Doc V1.15 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libcaja-extension-caja-extension-types.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Caja Extension Reference Manual</th>
+<td><a accesskey="n" href="libcaja-extension-caja-info-provider.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libcaja-extension-caja-file-info.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libcaja-extension-caja-file-info.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#libcaja-extension-caja-file-info.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#libcaja-extension-caja-file-info.prerequisites" class="shortcut">Prerequisites</a>
+</td></tr>
+</table>
+<div class="refentry" title="caja-file-info">
+<a name="libcaja-extension-caja-file-info"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libcaja-extension-caja-file-info.top_of_page"></a>caja-file-info</span></h2>
+<p>caja-file-info</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="libcaja-extension-caja-file-info.synopsis"></a><h2>Synopsis</h2>
+<a name="CajaFileInfo"></a><pre class="synopsis">#define             <a class="link" href="libcaja-extension-caja-file-info.html#CAJA-FILE-DEFINED:CAPS" title="CAJA_FILE_DEFINED">CAJA_FILE_DEFINED</a>
+typedef             <a class="link" href="libcaja-extension-caja-file-info.html#CajaFile" title="CajaFile">CajaFile</a>;
+typedef             <a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo">CajaFileInfo</a>;
+                    <a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfoIface" title="CajaFileInfoIface">CajaFileInfoIface</a>;
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="libcaja-extension-caja-file-info.html#caja-file-info-list-copy" title="caja_file_info_list_copy ()">caja_file_info_list_copy</a>        (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *files</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libcaja-extension-caja-file-info.html#caja-file-info-list-free" title="caja_file_info_list_free ()">caja_file_info_list_free</a>        (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *files</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libcaja-extension-caja-file-info.html#caja-file-info-is-gone" title="caja_file_info_is_gone ()">caja_file_info_is_gone</a>          (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);
+<a href="http://library.gnome.org/devel/gio/unstable/GFileInfo.html#GFileType"><span class="returnvalue">GFileType</span></a>           <a class="link" href="libcaja-extension-caja-file-info.html#caja-file-info-get-file-type" title="caja_file_info_get_file_type ()">caja_file_info_get_file_type</a>    (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);
+<a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="returnvalue">GFile</span></a> *             <a class="link" href="libcaja-extension-caja-file-info.html#caja-file-info-get-location" title="caja_file_info_get_location ()">caja_file_info_get_location</a>     (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="libcaja-extension-caja-file-info.html#caja-file-info-get-name" title="caja_file_info_get_name ()">caja_file_info_get_name</a>         (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="libcaja-extension-caja-file-info.html#caja-file-info-get-uri" title="caja_file_info_get_uri ()">caja_file_info_get_uri</a>          (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="libcaja-extension-caja-file-info.html#caja-file-info-get-activation-uri" title="caja_file_info_get_activation_uri ()">caja_file_info_get_activation_uri</a>
+                                                        (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);
+<a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="returnvalue">GFile</span></a> *             <a class="link" href="libcaja-extension-caja-file-info.html#caja-file-info-get-parent-location" title="caja_file_info_get_parent_location ()">caja_file_info_get_parent_location</a>
+                                                        (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="libcaja-extension-caja-file-info.html#caja-file-info-get-parent-uri" title="caja_file_info_get_parent_uri ()">caja_file_info_get_parent_uri</a>   (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);
+<a href="http://library.gnome.org/devel/gio/unstable/GMount.html"><span class="returnvalue">GMount</span></a> *            <a class="link" href="libcaja-extension-caja-file-info.html#caja-file-info-get-mount" title="caja_file_info_get_mount ()">caja_file_info_get_mount</a>        (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="libcaja-extension-caja-file-info.html#caja-file-info-get-uri-scheme" title="caja_file_info_get_uri_scheme ()">caja_file_info_get_uri_scheme</a>   (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);
+<a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="returnvalue">CajaFileInfo</span></a>*   <a class="link" href="libcaja-extension-caja-file-info.html#caja-file-info-get-parent-info" title="caja_file_info_get_parent_info ()">caja_file_info_get_parent_info</a>  (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="libcaja-extension-caja-file-info.html#caja-file-info-get-mime-type" title="caja_file_info_get_mime_type ()">caja_file_info_get_mime_type</a>    (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libcaja-extension-caja-file-info.html#caja-file-info-is-mime-type" title="caja_file_info_is_mime_type ()">caja_file_info_is_mime_type</a>     (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *mime_type</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libcaja-extension-caja-file-info.html#caja-file-info-is-directory" title="caja_file_info_is_directory ()">caja_file_info_is_directory</a>     (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="libcaja-extension-caja-file-info.html#caja-file-info-can-write" title="caja_file_info_can_write ()">caja_file_info_can_write</a>        (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libcaja-extension-caja-file-info.html#caja-file-info-add-emblem" title="caja_file_info_add_emblem ()">caja_file_info_add_emblem</a>       (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *emblem_name</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="libcaja-extension-caja-file-info.html#caja-file-info-get-string-attribute" title="caja_file_info_get_string_attribute ()">caja_file_info_get_string_attribute</a>
+                                                        (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *attribute_name</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libcaja-extension-caja-file-info.html#caja-file-info-add-string-attribute" title="caja_file_info_add_string_attribute ()">caja_file_info_add_string_attribute</a>
+                                                        (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *attribute_name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libcaja-extension-caja-file-info.html#caja-file-info-invalidate-extension-info" title="caja_file_info_invalidate_extension_info ()">caja_file_info_invalidate_extension_info</a>
+                                                        (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="libcaja-extension-caja-file-info.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GInterface
+   +----CajaFileInfo
+</pre>
+</div>
+<div class="refsect1" title="Prerequisites">
+<a name="libcaja-extension-caja-file-info.prerequisites"></a><h2>Prerequisites</h2>
+<p>
+CajaFileInfo requires
+ <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>.</p>
+</div>
+<div class="refsect1" title="Description">
+<a name="libcaja-extension-caja-file-info.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="libcaja-extension-caja-file-info.details"></a><h2>Details</h2>
+<div class="refsect2" title="CAJA_FILE_DEFINED">
+<a name="CAJA-FILE-DEFINED:CAPS"></a><h3>CAJA_FILE_DEFINED</h3>
+<pre class="programlisting">#define CAJA_FILE_DEFINED
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="CajaFile">
+<a name="CajaFile"></a><h3>CajaFile</h3>
+<pre class="programlisting">typedef struct CajaFile          CajaFile;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="CajaFileInfo">
+<a name="CajaFileInfo"></a><h3>CajaFileInfo</h3>
+<pre class="programlisting">typedef CajaFile                  CajaFileInfo;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="CajaFileInfoIface">
+<a name="CajaFileInfoIface"></a><h3>CajaFileInfoIface</h3>
+<pre class="programlisting">typedef struct {
+	GTypeInterface g_iface;
+
+	gboolean          (*is_gone)              (CajaFileInfo *file);
+
+	char *            (*get_name)             (CajaFileInfo *file);
+	char *            (*get_uri)              (CajaFileInfo *file);
+	char *            (*get_parent_uri)       (CajaFileInfo *file);
+	char *            (*get_uri_scheme)       (CajaFileInfo *file);
+
+	char *            (*get_mime_type)        (CajaFileInfo *file);
+	gboolean          (*is_mime_type)         (CajaFileInfo *file,
+						   const char       *mime_Type);
+	gboolean          (*is_directory)         (CajaFileInfo *file);
+
+	void              (*add_emblem)           (CajaFileInfo *file,
+						   const char       *emblem_name);
+	char *            (*get_string_attribute) (CajaFileInfo *file,
+						   const char       *attribute_name);
+	void              (*add_string_attribute) (CajaFileInfo *file,
+						   const char       *attribute_name,
+						   const char       *value);
+	void              (*invalidate_extension_info) (CajaFileInfo *file);
+
+	char *            (*get_activation_uri)   (CajaFileInfo *file);
+
+	GFileType         (*get_file_type)        (CajaFileInfo *file);
+	GFile *           (*get_location)         (CajaFileInfo *file);
+	GFile *           (*get_parent_location)  (CajaFileInfo *file);
+	CajaFileInfo* (*get_parent_info)      (CajaFileInfo *file);
+	GMount *          (*get_mount)            (CajaFileInfo *file);
+	gboolean          (*can_write)            (CajaFileInfo *file);
+} CajaFileInfoIface;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="caja_file_info_list_copy ()">
+<a name="caja-file-info-list-copy"></a><h3>caja_file_info_list_copy ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             caja_file_info_list_copy        (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *files</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>files</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="caja_file_info_list_free ()">
+<a name="caja-file-info-list-free"></a><h3>caja_file_info_list_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                caja_file_info_list_free        (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *files</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>files</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="caja_file_info_is_gone ()">
+<a name="caja-file-info-is-gone"></a><h3>caja_file_info_is_gone ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            caja_file_info_is_gone          (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="caja_file_info_get_file_type ()">
+<a name="caja-file-info-get-file-type"></a><h3>caja_file_info_get_file_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gio/unstable/GFileInfo.html#GFileType"><span class="returnvalue">GFileType</span></a>           caja_file_info_get_file_type    (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="caja_file_info_get_location ()">
+<a name="caja-file-info-get-location"></a><h3>caja_file_info_get_location ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="returnvalue">GFile</span></a> *             caja_file_info_get_location     (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="caja_file_info_get_name ()">
+<a name="caja-file-info-get-name"></a><h3>caja_file_info_get_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *              caja_file_info_get_name         (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="caja_file_info_get_uri ()">
+<a name="caja-file-info-get-uri"></a><h3>caja_file_info_get_uri ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *              caja_file_info_get_uri          (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="caja_file_info_get_activation_uri ()">
+<a name="caja-file-info-get-activation-uri"></a><h3>caja_file_info_get_activation_uri ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *              caja_file_info_get_activation_uri
+                                                        (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="caja_file_info_get_parent_location ()">
+<a name="caja-file-info-get-parent-location"></a><h3>caja_file_info_get_parent_location ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="returnvalue">GFile</span></a> *             caja_file_info_get_parent_location
+                                                        (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="caja_file_info_get_parent_uri ()">
+<a name="caja-file-info-get-parent-uri"></a><h3>caja_file_info_get_parent_uri ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *              caja_file_info_get_parent_uri   (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="caja_file_info_get_mount ()">
+<a name="caja-file-info-get-mount"></a><h3>caja_file_info_get_mount ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gio/unstable/GMount.html"><span class="returnvalue">GMount</span></a> *            caja_file_info_get_mount        (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="caja_file_info_get_uri_scheme ()">
+<a name="caja-file-info-get-uri-scheme"></a><h3>caja_file_info_get_uri_scheme ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *              caja_file_info_get_uri_scheme   (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="caja_file_info_get_parent_info ()">
+<a name="caja-file-info-get-parent-info"></a><h3>caja_file_info_get_parent_info ()</h3>
+<pre class="programlisting"><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="returnvalue">CajaFileInfo</span></a>*   caja_file_info_get_parent_info  (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="caja_file_info_get_mime_type ()">
+<a name="caja-file-info-get-mime-type"></a><h3>caja_file_info_get_mime_type ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *              caja_file_info_get_mime_type    (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="caja_file_info_is_mime_type ()">
+<a name="caja-file-info-is-mime-type"></a><h3>caja_file_info_is_mime_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            caja_file_info_is_mime_type     (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *mime_type</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mime_type</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="caja_file_info_is_directory ()">
+<a name="caja-file-info-is-directory"></a><h3>caja_file_info_is_directory ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            caja_file_info_is_directory     (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="caja_file_info_can_write ()">
+<a name="caja-file-info-can-write"></a><h3>caja_file_info_can_write ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            caja_file_info_can_write        (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="caja_file_info_add_emblem ()">
+<a name="caja-file-info-add-emblem"></a><h3>caja_file_info_add_emblem ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                caja_file_info_add_emblem       (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *emblem_name</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>emblem_name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="caja_file_info_get_string_attribute ()">
+<a name="caja-file-info-get-string-attribute"></a><h3>caja_file_info_get_string_attribute ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *              caja_file_info_get_string_attribute
+                                                        (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *attribute_name</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attribute_name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="caja_file_info_add_string_attribute ()">
+<a name="caja-file-info-add-string-attribute"></a><h3>caja_file_info_add_string_attribute ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                caja_file_info_add_string_attribute
+                                                        (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *attribute_name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *value</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>attribute_name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="caja_file_info_invalidate_extension_info ()">
+<a name="caja-file-info-invalidate-extension-info"></a><h3>caja_file_info_invalidate_extension_info ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                caja_file_info_invalidate_extension_info
+                                                        (<em class="parameter"><code><a class="link" href="libcaja-extension-caja-file-info.html#CajaFileInfo"><span class="type">CajaFileInfo</span></a> *file</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.15</div>
+</body>
+</html>

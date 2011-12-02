@@ -1,0 +1,8 @@
+#!/bin/sh -e
+
+pkgname=mate-file-manager
+
+if [ -f /usr/sbin/mateconfpkg ]; then
+	/usr/sbin/mateconfpkg --uninstall ${pkgname}
+fi
+
