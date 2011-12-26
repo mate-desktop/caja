@@ -273,6 +273,7 @@ action_stop_callback (GtkAction *action,
     caja_window_slot_stop_loading (slot);
 }
 
+#ifdef TEXT_CHANGE_UNDO
 static void
 action_undo_callback (GtkAction *action,
                       gpointer user_data)
@@ -280,6 +281,7 @@ action_undo_callback (GtkAction *action,
     caja_undo_manager_undo
     (CAJA_WINDOW (user_data)->application->undo_manager);
 }
+#endif
 
 static void
 action_home_callback (GtkAction *action,
@@ -849,10 +851,12 @@ static const GtkActionEntry main_entries[] =
         NULL, N_("Edit Caja preferences"),
         G_CALLBACK (action_preferences_callback)
     },
+    #ifdef TEXT_CHANGE_UNDO
     /* name, stock id, label */  { "Undo", NULL, N_("_Undo"),
         "<control>Z", N_("Undo the last text change"),
         G_CALLBACK (action_undo_callback)
     },
+    #endif
     /* name, stock id, label */  { "Up", GTK_STOCK_GO_UP, N_("Open _Parent"),
         "<alt>Up", N_("Open the parent folder"),
         G_CALLBACK (action_up_callback)

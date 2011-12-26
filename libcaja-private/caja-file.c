@@ -1658,6 +1658,10 @@ caja_file_operation_free (CajaFileOperation *op)
 	if (op->free_data) {
 		op->free_data (op->data);
 	}
+	// Start UNDO-REDO
+	caja_undostack_manager_add_action (caja_undostack_manager_instance(),
+										   op->undo_redo_data);
+	// End UNDO-REDO
 	g_free (op);
 }
 
@@ -1762,6 +1766,9 @@ rename_callback (GObject *source_object,
 						   res, &error);
 
 	if (new_file != NULL) {
+		// Start UNDO-REDO
+		caja_undostack_manager_data_set_rename_information(op->undo_redo_data, G_FILE (source_object), new_file);
+		// End UNDO-REDO
 		g_file_query_info_async (new_file,
 					 CAJA_FILE_DEFAULT_ATTRIBUTES,
 					 0,
@@ -1936,6 +1943,13 @@ caja_file_rename (CajaFile *file,
 	/* Do the renaming. */
 
 	location = caja_file_get_location (file);
+
+	// Start UNDO-REDO
+	if (!caja_undostack_manager_is_undo_redo(caja_undostack_manager_instance())) {
+		op->undo_redo_data = caja_undostack_manager_data_new (CAJA_UNDOSTACK_RENAME, 1);
+	}
+	// End UNDO-REDO
+
 	g_file_set_display_name_async (location,
 				       new_file_name,
 				       G_PRIORITY_DEFAULT,
@@ -5157,6 +5171,15 @@ caja_file_set_permissions (CajaFile *file,
 		return;
 	}
 
+	// Start UNDO-REDO
+	if (!caja_undostack_manager_is_undo_redo(caja_undostack_manager_instance())) {
+		CajaUndoStackActionData* undo_redo_data = caja_undostack_manager_data_new (CAJA_UNDOSTACK_SETPERMISSIONS, 1);
+		caja_undostack_manager_data_set_file_permissions(undo_redo_data, caja_file_get_uri(file), file->details->permissions, new_permissions);
+		caja_undostack_manager_add_action (caja_undostack_manager_instance(),
+										   undo_redo_data);
+	}
+	// End UNDO-REDO
+
 	info = g_file_info_new ();
 	g_file_info_set_attribute_uint32 (info, G_FILE_ATTRIBUTE_UNIX_MODE, new_permissions);
 	caja_file_set_attributes (file, info, callback, callback_data);
@@ -5460,6 +5483,17 @@ caja_file_set_owner (CajaFile *file,
 		return;
 	}
 
+    // Start UNDO-REDO
+	if (!caja_undostack_manager_is_undo_redo(caja_undostack_manager_instance())) {
+		char* current_owner = caja_file_get_owner_as_string (file, FALSE);
+		CajaUndoStackActionData* undo_redo_data = caja_undostack_manager_data_new (CAJA_UNDOSTACK_CHANGEOWNER, 1);
+		caja_undostack_manager_data_set_owner_change_information(undo_redo_data, caja_file_get_uri(file), current_owner, user_name_or_id);
+		caja_undostack_manager_add_action (caja_undostack_manager_instance(),
+										   undo_redo_data);
+        g_free(current_owner);
+	}
+	// End UNDO-REDO
+
 	info = g_file_info_new ();
 	g_file_info_set_attribute_uint32 (info, G_FILE_ATTRIBUTE_UNIX_UID, new_id);
 	caja_file_set_attributes (file, info, callback, callback_data);
@@ -5723,6 +5757,16 @@ caja_file_set_group (CajaFile *file,
 		return;
 	}
 
+	// Start UNDO-REDO
+	if (!caja_undostack_manager_is_undo_redo(caja_undostack_manager_instance())) {
+		char* current_group = caja_file_get_group_name (file);
+		CajaUndoStackActionData* undo_redo_data = caja_undostack_manager_data_new (CAJA_UNDOSTACK_CHANGEGROUP, 1);
+		caja_undostack_manager_data_set_group_change_information(undo_redo_data, caja_file_get_uri(file), current_group, group_name_or_id);
+		caja_undostack_manager_add_action (caja_undostack_manager_instance(),
+											undo_redo_data);
+        g_free(current_group);
+	}
+	/* End UNDO-REDO
 
 	info = g_file_info_new ();
 	g_file_info_set_attribute_uint32 (info, G_FILE_ATTRIBUTE_UNIX_GID, new_id);

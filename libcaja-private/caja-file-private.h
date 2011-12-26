@@ -30,6 +30,7 @@
 #include <libcaja-private/caja-monitor.h>
 #include <eel/eel-glib-extensions.h>
 #include <eel/eel-string.h>
+#include <libcaja-private/caja-undostack-manager.h>
 
 #define CAJA_FILE_LARGE_TOP_LEFT_TEXT_MAXIMUM_CHARACTERS_PER_LINE 80
 #define CAJA_FILE_LARGE_TOP_LEFT_TEXT_MAXIMUM_LINES               24
@@ -242,6 +243,7 @@ typedef struct
 
     gpointer data;
     GDestroyNotify free_data;
+    CajaUndoStackActionData* undo_redo_data;
 } CajaFileOperation;
 
 

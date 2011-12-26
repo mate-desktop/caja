@@ -105,6 +105,8 @@
 #define FM_ACTION_STRETCH "Stretch"
 #define FM_ACTION_UNSTRETCH "Unstretch"
 #define FM_ACTION_ZOOM_ITEMS "Zoom Items"
+#define FM_ACTION_UNDO "Undo"
+#define FM_ACTION_REDO "Redo"
 #define FM_ACTION_SORT_TRASH_TIME "Sort by Trash Time"
 
 #endif /* FM_ACTIONS_H */

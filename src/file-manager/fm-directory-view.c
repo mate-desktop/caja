@@ -81,6 +81,7 @@
 #include <libcaja-private/caja-signaller.h>
 #include <libcaja-private/caja-autorun.h>
 #include <libcaja-private/caja-icon-names.h>
+#include <libcaja-private/caja-undostack-manager.h>
 
 /* Minimum starting update inverval */
 #define UPDATE_INTERVAL_MIN 100
@@ -256,6 +257,13 @@ struct FMDirectoryViewDetails
 	gboolean allow_moves;
 
 	GdkPoint context_menu_position;
+
+	gboolean undo_active;
+	gboolean redo_active;
+	gchar* undo_action_description;
+	gchar* undo_action_label;
+	gchar* redo_action_description;
+	gchar* redo_action_label;
 };
 
 typedef struct {
@@ -385,6 +393,22 @@ static inline void fm_directory_view_widget_to_file_operation_position (FMDirect
 									GdkPoint *position);
 static void        fm_directory_view_widget_to_file_operation_position_xy (FMDirectoryView *view,
 									   int *x, int *y);
+
+/* undo-related actions */
+
+static void undo_redo_menu_update_callback (CajaUndoStackManager* manager, gpointer arg1, gpointer data);
+
+static void undo_update_menu (FMDirectoryView *view);
+
+static void finish_undoredo_callback (gpointer data);
+
+static void real_action_undo (FMDirectoryView *view);
+
+static void real_action_redo (FMDirectoryView *view);
+
+static void action_undo_callback (GtkAction *action, gpointer callback_data);
+
+static void action_redo_callback (GtkAction *action, gpointer callback_data);
 
 EEL_CLASS_BOILERPLATE (FMDirectoryView, fm_directory_view, GTK_TYPE_SCROLLED_WINDOW)
 
@@ -2042,6 +2066,21 @@ fm_directory_view_init (FMDirectoryView *view)
 				      sort_directories_first_changed_callback, view);
 	eel_preferences_add_callback (CAJA_PREFERENCES_LOCKDOWN_COMMAND_LINE,
 				      lockdown_disable_command_line_changed_callback, view);
+
+	/* Update undo actions stuff and connect signals from the undostack manager */
+	view->details->undo_active = FALSE;
+	view->details->redo_active = FALSE;
+	view->details->undo_action_description = NULL;
+	view->details->undo_action_label = NULL;
+	view->details->redo_action_description = NULL;
+	view->details->redo_action_label = NULL;
+
+	CajaUndoStackManager* manager = caja_undostack_manager_instance ();
+
+	g_signal_connect_object (G_OBJECT(manager), "request-menu-update",
+		   G_CALLBACK(undo_redo_menu_update_callback), view, 0);
+
+	caja_undostack_manager_request_menu_update (caja_undostack_manager_instance());
 }
 
 static void
@@ -2770,6 +2809,10 @@ copy_move_done_callback (GHashTable *debuting_files, gpointer data)
 					       (GClosureNotify) debuting_files_data_free,
 					       G_CONNECT_AFTER);
 		}
+
+		/* Schedule menu update for undo items */
+		schedule_update_menus (directory_view);
+		
 	}
 
 	copy_move_done_data_free (copy_move_done_data);
@@ -3224,6 +3267,20 @@ schedule_changes (FMDirectoryView *view)
 
 	view->details->changes_timeout_id =
 		g_timeout_add (UPDATE_INTERVAL_TIMEOUT_INTERVAL, changes_timeout_callback, view);
+}
+
+static void
+action_undo_callback (GtkAction *action,
+			gpointer callback_data)
+{
+	real_action_undo (FM_DIRECTORY_VIEW (callback_data));
+}
+
+static void
+action_redo_callback (GtkAction *action,
+			gpointer callback_data)
+{
+	real_action_redo (FM_DIRECTORY_VIEW (callback_data));
 }
 
 static void
@@ -6218,6 +6275,32 @@ action_paste_files_into_callback (GtkAction *action,
 }
 
 static void
+real_action_undo (FMDirectoryView *view)
+{
+	CajaUndoStackManager *manager = caja_undostack_manager_instance ();
+
+	/* Disable menus because they are in an untrustworthy status */
+	view->details->undo_active = FALSE;
+	view->details->redo_active = FALSE;
+	fm_directory_view_update_menus (view);
+
+	caja_undostack_manager_undo (manager, GTK_WIDGET (view), finish_undoredo_callback);
+}
+
+static void
+real_action_redo (FMDirectoryView *view)
+{
+	CajaUndoStackManager *manager = caja_undostack_manager_instance ();
+
+	/* Disable menus because they are in an untrustworthy status */
+	view->details->undo_active = FALSE;
+	view->details->redo_active = FALSE;
+	fm_directory_view_update_menus (view);
+
+	caja_undostack_manager_redo (manager, GTK_WIDGET (view), finish_undoredo_callback);
+}
+
+static void
 real_action_rename (FMDirectoryView *view,
 		    gboolean select_all)
 {
@@ -7260,6 +7343,15 @@ static const GtkActionEntry directory_view_entries[] = {
   /* label, accelerator */       N_("_Restore"), NULL,
 				 NULL,
                                  G_CALLBACK (action_restore_from_trash_callback) },
+  /* name, stock id */		   { FM_ACTION_UNDO, GTK_STOCK_UNDO,
+  /* label, accelerator */		 N_("_Undo"), "<control>Z",
+  /* tooltip */ 				 	 N_("Undo the last action"),
+								 G_CALLBACK (action_undo_callback) },
+  /* name, stock id */		   { FM_ACTION_REDO, GTK_STOCK_REDO,
+  /* label, accelerator */	     N_("_Redo"), "<control>Y",
+  /* tooltip */     			 	 N_("Redo the last undone action"),
+								 G_CALLBACK (action_redo_callback) },
+ 
   /*
    * multiview-TODO: decide whether "Reset to Defaults" should
    * be window-wide, and not just view-wide.
@@ -8925,6 +9017,8 @@ real_update_menus (FMDirectoryView *view)
 
 	real_update_menus_volumes (view, selection, selection_count);
 
+	undo_update_menu (view);
+
 	caja_file_list_free (selection);
 
 	if (view->details->scripts_invalid) {
@@ -9512,6 +9606,14 @@ metadata_for_files_in_directory_ready_callback (CajaDirectory *directory,
 	view->details->metadata_for_files_in_directory_pending = FALSE;
 
 	finish_loading_if_all_metadata_loaded (view);
+}
+
+static void
+finish_undoredo_callback (gpointer data)
+{
+	FMDirectoryView *view;
+
+	view = FM_DIRECTORY_VIEW (data);
 }
 
 char **
@@ -10933,4 +11035,73 @@ fm_directory_view_class_init (FMDirectoryViewClass *klass)
 
 	klass->trash = real_trash;
 	klass->delete = real_delete;
+}
+
+static void
+undo_redo_menu_update_callback (CajaUndoStackManager* manager, gpointer arg, gpointer data)
+{
+	FMDirectoryView *view;
+	view = FM_DIRECTORY_VIEW (data);
+
+	CajaUndoStackMenuData* menudata = (CajaUndoStackMenuData*) arg;
+
+	g_free(view->details->undo_action_label);
+	g_free(view->details->undo_action_description);
+	g_free(view->details->redo_action_label);
+	g_free(view->details->redo_action_description);
+
+	view->details->undo_active = menudata->undo_label ? TRUE : FALSE;
+	view->details->redo_active = menudata->redo_label ? TRUE : FALSE;
+
+	view->details->undo_action_label = g_strdup (menudata->undo_label);
+	view->details->undo_action_description = g_strdup (menudata->undo_description);
+	view->details->redo_action_label = g_strdup (menudata->redo_label);
+	view->details->redo_action_description =  g_strdup (menudata->redo_description);
+
+	schedule_update_menus (view);
+}
+
+static void
+undo_update_menu (FMDirectoryView *view)
+{
+	GtkAction *action;
+	gboolean available = FALSE;
+	gchar* label;
+	gchar* tooltip;
+
+	/* Update undo entry */
+	action = gtk_action_group_get_action (view->details->dir_action_group,
+					      FM_ACTION_UNDO);
+	available = view->details->undo_active;
+	if (available) {
+		label = view->details->undo_action_label;
+		tooltip = view->details->undo_action_description;
+	} else {
+		/* Reset to default info */
+		label = _("Undo");
+		tooltip = _("Undo the last action");
+	}
+	g_object_set (action,
+		      "label", label,
+		      "tooltip", tooltip,
+		      NULL);
+	gtk_action_set_sensitive (action, available);
+
+    /* Update redo entry */
+    action = gtk_action_group_get_action (view->details->dir_action_group,
+					      FM_ACTION_REDO);
+	available = view->details->redo_active;
+	if (available) {
+		label = view->details->redo_action_label;
+		tooltip = view->details->redo_action_description;
+	} else {
+		/* Reset to default info */
+		label = _("Redo");
+		tooltip = _("Redo the last undone action");
+	}
+	g_object_set (action,
+		      "label", label,
+		      "tooltip", tooltip,
+		      NULL);
+	gtk_action_set_sensitive (action, available);
 }

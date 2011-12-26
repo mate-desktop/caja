@@ -201,6 +201,8 @@ libcaja_private_la_SOURCES = \
 	caja-window-info.h \
 	caja-window-slot-info.c \
 	caja-window-slot-info.h \
+	caja-undostack-manager.c \
+	caja-undostack-manager.h \
 	$(NULL)
 
 $(lib_LTLIBRARIES): $(dependency_static_libs)
