@@ -1697,7 +1697,7 @@ undo_redo_done_transfer_callback (GHashTable * debuting_uris, gpointer data)
     action->locked = FALSE;
   }
 
-  NautilusUndoStackManager *manager = action->manager;
+  CajaUndoStackManager *manager = action->manager;
   manager->priv->undo_redo_flag = FALSE;
 
   /* Update menus */

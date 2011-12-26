@@ -5766,7 +5766,7 @@ caja_file_set_group (CajaFile *file,
 											undo_redo_data);
         g_free(current_group);
 	}
-	/* End UNDO-REDO
+	// End UNDO-REDO
 
 	info = g_file_info_new ();
 	g_file_info_set_attribute_uint32 (info, G_FILE_ATTRIBUTE_UNIX_GID, new_id);
