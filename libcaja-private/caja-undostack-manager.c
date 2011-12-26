@@ -1089,8 +1089,8 @@ stack_clear_n_oldest (GQueue * stack, guint n)
   guint i;
 
   for (i = 0; i < n; i++) {
-    action = (CajaUndoStackActionData *)
-        g_queue_pop_tail (stack);
+    if ((action = (CajaUndoStackActionData *) g_queue_pop_tail (stack)) == NULL)
+        break;
     if (action->locked) {
       action->freed = TRUE;
     } else {
