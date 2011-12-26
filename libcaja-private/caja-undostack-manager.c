@@ -385,7 +385,6 @@ caja_undostack_manager_is_undo_redo (CajaUndoStackManager * manager)
 {
   CajaUndoStackManagerPrivate *priv = manager->priv;
   if (priv->undo_redo_flag) {
-    priv->undo_redo_flag = FALSE;
     return TRUE;
   }
 
@@ -725,6 +724,45 @@ caja_undostack_manager_add_action (CajaUndoStackManager * manager,
 
 }
 
+static GList *
+get_all_trashed_items (GQueue *stack)
+{
+  CajaUndoStackActionData *action = NULL;
+  GList *trash = NULL;
+  GList *l;
+  GQueue *tmp_stack = g_queue_copy(stack);
+
+  while ((action = (CajaUndoStackActionData *) g_queue_pop_tail (tmp_stack)) != NULL)
+    if (action->trashed)
+        for (l = g_hash_table_get_keys (action->trashed); l != NULL; l=l->next) { 
+                trash = g_list_append(trash, l->data);
+        }
+  
+  g_queue_free (tmp_stack);
+  return (trash);
+}
+
+static gboolean 
+is_destination_uri_action_partof_trashed(GList *trash, GList *g)
+{
+    GList *l;
+    char *uri;
+
+    for (l = trash; l != NULL; l=l->next) { 
+        for (; g != NULL; g=g->next) { 
+            //printf ("destinations: %s\n", g_file_get_uri(l->data));
+            uri = g_file_get_uri(g->data);
+            if (!strcmp (uri, l->data)) {
+               //printf ("GG %s\nZZ %s\n", uri, l->data);
+               g_free (uri);
+               return TRUE;
+            }
+            g_free (uri);
+        }
+    }
+
+    return FALSE;
+}
 /** ****************************************************************
  * Callback after emptying the trash
  ** ****************************************************************/
@@ -737,30 +775,32 @@ caja_undostack_manager_trash_has_emptied (CajaUndoStackManager *
   /* Clear actions from the oldest to the newest move to trash */
 
   g_mutex_lock (priv->mutex);
-
   clear_redo_actions (priv);
-
-  /* Search newest move to trash */
-  guint i;
-  guint length = g_queue_get_length (priv->stack);
-  guint newest_move_to_trash_position = -1;
   CajaUndoStackActionData *action = NULL;
 
-  for (i = 0; i < length; i++) {
-    action = (CajaUndoStackActionData *)
-        g_queue_peek_nth (priv->stack, i);
+  GList *g;
+  GQueue *tmp_stack = g_queue_copy(priv->stack);
+  GList *trash = get_all_trashed_items (tmp_stack);
+  while ((action = (CajaUndoStackActionData *) g_queue_pop_tail (tmp_stack)) != NULL)
+  {
+    if (action->destinations && action->dest_dir) {
+        /* what a pain rebuild again and again an uri
+        ** TODO change the struct add uri elements */
+        g = construct_gfile_list (action->destinations, action->dest_dir);
+        /* remove action for trashed item uris == destination action */
+        if (is_destination_uri_action_partof_trashed(trash, g)) {
+                g_queue_remove (priv->stack, action);
+                continue;
+        }
+    }
     if (action->type == CAJA_UNDOSTACK_MOVETOTRASH) {
-      newest_move_to_trash_position = i;
-      break;
+        g_queue_remove (priv->stack, action);
     }
   }
 
-  if (newest_move_to_trash_position >= 0) {
-    guint to_clear = length - newest_move_to_trash_position;
-    stack_clear_n_oldest (priv->stack, to_clear);
-  }
-
+  g_queue_free (tmp_stack);
   g_mutex_unlock (priv->mutex);
+  do_menu_update (manager);
 }
 
 /** ****************************************************************
@@ -1657,6 +1697,9 @@ undo_redo_done_transfer_callback (GHashTable * debuting_uris, gpointer data)
     action->locked = FALSE;
   }
 
+  NautilusUndoStackManager *manager = action->manager;
+  manager->priv->undo_redo_flag = FALSE;
+
   /* Update menus */
   do_menu_update (action->manager);
 }
@@ -1931,7 +1974,7 @@ retrieve_files_to_restore (GHashTable * trashed)
   GFile *item;
   guint64 mtime_item;
   guint64 *mtime;
-  char *origpath;
+  const char *origpath;
   GFile *origfile;
   char *origuri;
   gpointer lookupvalue;
@@ -1950,15 +1993,20 @@ retrieve_files_to_restore (GHashTable * trashed)
       ",trash::orig-path", G_FILE_QUERY_INFO_NOFOLLOW_SYMLINKS, FALSE, NULL);
 
   mtime = 0;
+  
+  guint nb;
+  GList *l;
+  if (!(g_hash_table_size (trashed)) > 0)
+        return NULL;
+  
   if (enumerator) {
     while ((info =
             g_file_enumerator_next_file (enumerator, NULL, NULL)) != NULL) {
       /* Retrieve the original file uri */
-      origpath = g_file_info_get_attribute_as_string (info, "trash::orig-path");
+      origpath = g_file_info_get_attribute_byte_string (info, "trash::orig-path");
       origfile = g_file_new_for_path (origpath);
       origuri = g_file_get_uri (origfile);
       g_object_unref (origfile);
-      g_free (origpath);
 
       lookupvalue = g_hash_table_lookup (trashed, origuri);
 
