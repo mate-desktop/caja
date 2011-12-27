@@ -517,6 +517,9 @@ action_about_caja_callback (GtkAction *action,
         "Robin * Slomkowski",
         "Seth Nickell",
         "Susan Kare",
+        "Perberos",
+        "Steve Zesch",
+        "Stefano Karapetsas",
         NULL
     };
     const gchar *documenters[] =
@@ -550,8 +553,8 @@ action_about_caja_callback (GtkAction *action,
                            "comments", _("Caja lets you organize "
                                          "files and folders, both on "
                                          "your computer and online."),
-                           "copyright", _("Copyright \xC2\xA9 1999-2009 "
-                                          "The Caja authors"),
+                           "copyright", _("Copyright \xC2\xA9 1999-2009 The Nautilus authors\n"
+                                          "Copyright \xC2\xA9 2011 The Caja authors"),
                            "license", license_trans,
                            "wrap-license", TRUE,
                            "authors", authors,
@@ -561,10 +564,9 @@ action_about_caja_callback (GtkAction *action,
                             * box to give credit to the translator(s).
                             */
                            "translator-credits", _("translator-credits"),
-                           "logo-icon-name", "caja",
-                           "website", "https://github.com/Perberos/Mate-Desktop-Environment"
-                           "/wiki/Mate-file-manager",
-                           "website-label", _("Caja Web Site"),
+                           "logo-icon-name", "system-file-manager",
+                           "website", "http://www.mate-desktop.org",
+                           "website-label", _("MATE Web Site"),
                            NULL);
 
     g_free (license_trans);
