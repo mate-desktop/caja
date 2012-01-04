@@ -3795,6 +3795,19 @@ caja_file_peek_display_name (CajaFile *file)
 	const char *name;
 	char *escaped_name;
 
+	/*
+	stefano-k: Imported 15_nautilus_file_peek_crash.patch from debian nautilus
+	Date: Thu, 27 Jan 2011 10:22:10 +0000
+	Subject: Prevent a crash in nautilus_file_peek_display_name() on invalid NautilusFile
+	This is more a workaround only, expect assert failures at other
+	places when something bad happens. There's a race condition somewhere,
+	this patch only prevents immediate crash.
+	Patch by Marcus Husar <marcus.husar@rose.uni-heidelberg.de>
+	https://bugzilla.gnome.org/show_bug.cgi?id=602500
+	*/
+	if (file == NULL || caja_file_is_gone (file))
+		return "";
+
 	/* Default to display name based on filename if its not set yet */
 
 	if (file->details->display_name == NULL) {
