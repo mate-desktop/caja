@@ -425,7 +425,7 @@ caja_icon_info_lookup (GIcon *icon,
         /* 96_no-null-in-g-str-hash.patch from ubuntu natty nautilus
         https://bugs.launchpad.net/ubuntu/+source/nautilus/+bug/718098 */
         if (filename == NULL) {
-                        gtk_icon_info_free (gtkicon_info);
+            gtk_icon_info_free (gtkicon_info);
             return caja_icon_info_new_for_pixbuf (NULL);
         }
         /* patch end */

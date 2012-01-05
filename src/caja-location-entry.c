@@ -90,7 +90,7 @@ try_to_expand_path (gpointer callback_data)
     user_location_length = g_utf8_strlen (user_location, -1);
     entry->details->idle_id = 0;
 
-    if (!g_path_is_absolute (user_location))
+    if (!g_path_is_absolute (user_location) && user_location[0] != '~')
     {
         absolute_location = g_build_filename (entry->details->current_directory, user_location, NULL);
         suffix = g_filename_completer_get_completion_suffix (entry->details->completer,
@@ -361,7 +361,7 @@ caja_location_entry_activate (GtkEntry *entry)
     {
         uri_scheme = g_uri_parse_scheme (entry_text);
 
-        if (!g_path_is_absolute (entry_text) && uri_scheme == NULL)
+        if (!g_path_is_absolute (entry_text) && uri_scheme == NULL && entry_text[0] != '~')
         {
             /* Fix non absolute paths */
             full_path = g_build_filename (loc_entry->details->current_directory, entry_text, NULL);
