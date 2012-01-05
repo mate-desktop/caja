@@ -1765,10 +1765,12 @@ button_data_file_changed (CajaFile *file,
     {
         gint idx, position;
 
-        /* if the current location is gone, don't do anything, as the view
-        * will get the event too and call us back.
-        */
-        if (caja_file_compare_location (file, current_button_data->file) != 0)
+        /* if the current or a parent location are gone, don't do anything, as the view
+         * will get the event too and call us back.
+         */
+        current_location = caja_file_get_location (current_button_data->file);
+        
+        if (g_file_has_prefix (location, current_location))
         {
             /* remove this and the following buttons */
             position = g_list_position (path_bar->button_list,
@@ -1784,6 +1786,7 @@ button_data_file_changed (CajaFile *file,
             }
         }
 
+        g_object_unref (current_location);
         g_object_unref (location);
         return;
     }
