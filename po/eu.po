@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Asier Iturralde Sarasola <asier.iturralde@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: https://github.com/Perberos/Mate-Desktop-Environment/issues\n"
-"POT-Creation-Date: 2011-12-26 22:51+0100\n"
-"PO-Revision-Date: 2012-01-03 13:46+0000\n"
-"Last-Translator: Asier Iturralde Sarasola <asier.iturralde@gmail.com>\n"
+"POT-Creation-Date: 2012-01-05 13:44+0100\n"
+"PO-Revision-Date: 2012-01-05 12:44+0000\n"
+"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
 "Language-Team: Basque (http://www.transifex.net/projects/p/MATE/team/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1954,7 +1955,7 @@ msgstr "Ordezkatu"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:661
 msgid "File conflict"
-msgstr ""
+msgstr "Fitxategi gatazka"
 
 #: ../libcaja-private/caja-file-operations.c:191
 msgid "S_kip All"
@@ -2023,7 +2024,7 @@ msgstr[1] "gutxi gorabehera %'d ordu"
 #. * to that kind of file (e.g. "link to folder").
 #. 
 #: ../libcaja-private/caja-file-operations.c:382
-#: ../libcaja-private/caja-file.c:6425
+#: ../libcaja-private/caja-file.c:6438
 #: ../src/file-manager/fm-directory-view.c:10508
 #, c-format
 msgid "Link to %s"
@@ -2187,7 +2188,7 @@ msgstr "Elementu bat ezabatzen baduzu, betirako galduko duzu."
 
 #: ../libcaja-private/caja-file-operations.c:1344
 msgid "Empty all items from Trash?"
-msgstr ""
+msgstr "Hustu zakarrontziko elementu guztiak?"
 
 #: ../libcaja-private/caja-file-operations.c:1348
 msgid "All items in the Trash will be permanently deleted."
@@ -2764,63 +2765,63 @@ msgstr "Ezin da mahaigaineko fitxategia izenez aldatu"
 #. * off zero padding, and putting a "_" there will use
 #. * space padding instead of zero padding.
 #. 
-#: ../libcaja-private/caja-file.c:4461
+#: ../libcaja-private/caja-file.c:4474
 msgid "today at 00:00:00 PM"
 msgstr "gaur, 00:00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4462
+#: ../libcaja-private/caja-file.c:4475
 #: ../src/caja-file-management-properties.c:499
 msgid "today at %-I:%M:%S %p"
 msgstr "gaur, %-I:%M:%S %p"
 
-#: ../libcaja-private/caja-file.c:4464
+#: ../libcaja-private/caja-file.c:4477
 msgid "today at 00:00 PM"
 msgstr "gaur, 00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4465
+#: ../libcaja-private/caja-file.c:4478
 msgid "today at %-I:%M %p"
 msgstr "gaur, %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4467
+#: ../libcaja-private/caja-file.c:4480
 msgid "today, 00:00 PM"
 msgstr "gaur, 00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4468
+#: ../libcaja-private/caja-file.c:4481
 msgid "today, %-I:%M %p"
 msgstr "gaur, %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4470 ../libcaja-private/caja-file.c:4471
+#: ../libcaja-private/caja-file.c:4483 ../libcaja-private/caja-file.c:4484
 msgid "today"
 msgstr "gaur"
 
 #. Yesterday, use special word.
 #. * Note to localizers: Same issues as "today" string.
 #. 
-#: ../libcaja-private/caja-file.c:4480
+#: ../libcaja-private/caja-file.c:4493
 msgid "yesterday at 00:00:00 PM"
 msgstr "atzo, 00:00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4481
+#: ../libcaja-private/caja-file.c:4494
 msgid "yesterday at %-I:%M:%S %p"
 msgstr "atzo, %-I:%M:%S %p"
 
-#: ../libcaja-private/caja-file.c:4483
+#: ../libcaja-private/caja-file.c:4496
 msgid "yesterday at 00:00 PM"
 msgstr "atzo, 00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4484
+#: ../libcaja-private/caja-file.c:4497
 msgid "yesterday at %-I:%M %p"
 msgstr "atzo, %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4486
+#: ../libcaja-private/caja-file.c:4499
 msgid "yesterday, 00:00 PM"
 msgstr "atzo, 00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4487
+#: ../libcaja-private/caja-file.c:4500
 msgid "yesterday, %-I:%M %p"
 msgstr "atzo, %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4489 ../libcaja-private/caja-file.c:4490
+#: ../libcaja-private/caja-file.c:4502 ../libcaja-private/caja-file.c:4503
 msgid "yesterday"
 msgstr "atzo"
 
@@ -2829,88 +2830,88 @@ msgstr "atzo"
 #. * The width measurement templates correspond to
 #. * the day/month name with the most letters.
 #. 
-#: ../libcaja-private/caja-file.c:4501
+#: ../libcaja-private/caja-file.c:4514
 msgid "Wednesday, September 00 0000 at 00:00:00 PM"
 msgstr "asteazkena, 0000.eko urtarrilak 00, 00:00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4502
+#: ../libcaja-private/caja-file.c:4515
 msgid "%A, %B %-d %Y at %-I:%M:%S %p"
 msgstr "%A, %Y.eko %Bk %-d, %-I:%M:%S %p"
 
-#: ../libcaja-private/caja-file.c:4504
+#: ../libcaja-private/caja-file.c:4517
 msgid "Mon, Oct 00 0000 at 00:00:00 PM"
 msgstr "al., 0000 urr 00, 00:00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4505
+#: ../libcaja-private/caja-file.c:4518
 msgid "%a, %b %-d %Y at %-I:%M:%S %p"
 msgstr "%a, %Y %b %-d, %-I:%M:%S %p"
 
-#: ../libcaja-private/caja-file.c:4507
+#: ../libcaja-private/caja-file.c:4520
 msgid "Mon, Oct 00 0000 at 00:00 PM"
 msgstr "al., 0000 urr 00, 00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4508
+#: ../libcaja-private/caja-file.c:4521
 msgid "%a, %b %-d %Y at %-I:%M %p"
 msgstr "%a, %Y %b %-d, %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4510
+#: ../libcaja-private/caja-file.c:4523
 msgid "Oct 00 0000 at 00:00 PM"
 msgstr "0000 urr 00, 00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4511
+#: ../libcaja-private/caja-file.c:4524
 msgid "%b %-d %Y at %-I:%M %p"
 msgstr "%Y %b %-d, %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4513
+#: ../libcaja-private/caja-file.c:4526
 msgid "Oct 00 0000, 00:00 PM"
 msgstr "0000 urr 00, 00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4514
+#: ../libcaja-private/caja-file.c:4527
 msgid "%b %-d %Y, %-I:%M %p"
 msgstr "%Y %b %-d, %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4516
+#: ../libcaja-private/caja-file.c:4529
 msgid "00/00/00, 00:00 PM"
 msgstr "00/00/00, 00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4517
+#: ../libcaja-private/caja-file.c:4530
 msgid "%m/%-d/%y, %-I:%M %p"
 msgstr "%y/%m/%-d, %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4519
+#: ../libcaja-private/caja-file.c:4532
 msgid "00/00/00"
 msgstr "00/00/00"
 
-#: ../libcaja-private/caja-file.c:4520
+#: ../libcaja-private/caja-file.c:4533
 msgid "%m/%d/%y"
 msgstr "%y/%m/%d"
 
-#: ../libcaja-private/caja-file.c:5159
+#: ../libcaja-private/caja-file.c:5172
 #, c-format
 msgid "Not allowed to set permissions"
 msgstr "Baimenak ezartzea ez dago baimendua"
 
-#: ../libcaja-private/caja-file.c:5453
+#: ../libcaja-private/caja-file.c:5466
 #, c-format
 msgid "Not allowed to set owner"
 msgstr "Jabea ezartzea ez dago baimendua"
 
-#: ../libcaja-private/caja-file.c:5471
+#: ../libcaja-private/caja-file.c:5484
 #, c-format
 msgid "Specified owner '%s' doesn't exist"
 msgstr "Zehaztutako '%s' jabea ez da existitzen"
 
-#: ../libcaja-private/caja-file.c:5731
+#: ../libcaja-private/caja-file.c:5744
 #, c-format
 msgid "Not allowed to set group"
 msgstr "Taldea ezartzea ez dago baimendua"
 
-#: ../libcaja-private/caja-file.c:5749
+#: ../libcaja-private/caja-file.c:5762
 #, c-format
 msgid "Specified group '%s' doesn't exist"
 msgstr "Zehaztutako '%s' taldea ez da existitzen"
 
-#: ../libcaja-private/caja-file.c:5903
+#: ../libcaja-private/caja-file.c:5916
 #: ../src/file-manager/fm-directory-view.c:2374
 #, c-format
 msgid "%'u item"
@@ -2918,14 +2919,14 @@ msgid_plural "%'u items"
 msgstr[0] "Elementu %'u"
 msgstr[1] "%'u elementu"
 
-#: ../libcaja-private/caja-file.c:5904
+#: ../libcaja-private/caja-file.c:5917
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
 msgstr[0] "Karpeta %'u"
 msgstr[1] "%'u karpeta"
 
-#: ../libcaja-private/caja-file.c:5905
+#: ../libcaja-private/caja-file.c:5918
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
@@ -2934,50 +2935,50 @@ msgstr[1] "%'u fitxategi"
 
 #. Do this in a separate stage so that we don't have to put G_GUINT64_FORMAT
 #. in the translated string
-#: ../libcaja-private/caja-file.c:5994
+#: ../libcaja-private/caja-file.c:6007
 msgid "%"
 msgstr "%"
 
-#: ../libcaja-private/caja-file.c:5995
+#: ../libcaja-private/caja-file.c:6008
 #, c-format
 msgid "%s (%s bytes)"
 msgstr "%s (%s byte)"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6311 ../libcaja-private/caja-file.c:6327
+#: ../libcaja-private/caja-file.c:6324 ../libcaja-private/caja-file.c:6340
 msgid "? items"
 msgstr "? elementu"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6317
+#: ../libcaja-private/caja-file.c:6330
 msgid "? bytes"
 msgstr "? byte"
 
-#: ../libcaja-private/caja-file.c:6332
+#: ../libcaja-private/caja-file.c:6345
 msgid "unknown type"
 msgstr "mota ezezaguna"
 
-#: ../libcaja-private/caja-file.c:6335
+#: ../libcaja-private/caja-file.c:6348
 msgid "unknown MIME type"
 msgstr "MIME mota ezezaguna"
 
 #. Fallback, use for both unknown attributes and attributes
 #. * for which we have no more appropriate default.
 #. 
-#: ../libcaja-private/caja-file.c:6349
+#: ../libcaja-private/caja-file.c:6362
 #: ../src/file-manager/fm-properties-window.c:1319
 msgid "unknown"
 msgstr "ezezaguna"
 
-#: ../libcaja-private/caja-file.c:6399
+#: ../libcaja-private/caja-file.c:6412
 msgid "program"
 msgstr "programa"
 
-#: ../libcaja-private/caja-file.c:6419
+#: ../libcaja-private/caja-file.c:6432
 msgid "link"
 msgstr "esteka"
 
-#: ../libcaja-private/caja-file.c:6441
+#: ../libcaja-private/caja-file.c:6454
 msgid "link (broken)"
 msgstr "esteka (hautsita)"
 
@@ -3576,12 +3577,16 @@ msgid ""
 "No other applications are available to view this file. If you copy this file"
 " onto your computer, you may be able to open it."
 msgstr ""
+"Ez dago beste aplikaziorik eskuragarri fitxategi hau ikusteko. Fitxategi hau"
+" zure ordenagailura kopiatzen baduzu, agian irekitzeko gai izango zara."
 
 #: ../libcaja-private/caja-program-choosing.c:131
 msgid ""
 "No other actions are available to view this file. If you copy this file onto"
 " your computer, you may be able to open it."
 msgstr ""
+"Ez dago beste ekintzarik eskuragarri fitxategi hau ikusteko. Fitxategi hau "
+"zure ordenagailura kopiatzen baduzu, agian irekitzeko gai izango zara."
 
 #: ../libcaja-private/caja-program-choosing.c:406
 msgid "Sorry, but you cannot execute commands from a remote site."
@@ -3673,7 +3678,7 @@ msgstr "Berregin edizioa"
 #: ../libcaja-private/caja-undostack-manager.c:1177
 #, c-format
 msgid "Delete %d copied items"
-msgstr ""
+msgstr "Ezabatu kopiatutako %d elementu"
 
 #: ../libcaja-private/caja-undostack-manager.c:1180
 #: ../libcaja-private/caja-undostack-manager.c:1190
@@ -3685,34 +3690,34 @@ msgstr "Ezabatu '%s'"
 #: ../libcaja-private/caja-undostack-manager.c:1187
 #, c-format
 msgid "Delete %d duplicated items"
-msgstr ""
+msgstr "Ezabatu bikoiztutako %d elementu"
 
 #: ../libcaja-private/caja-undostack-manager.c:1198
 #, c-format
 msgid "Move %d items back to '%s'"
-msgstr ""
+msgstr "Eraman %d elementu atzera '%s'(e)ra"
 
 #: ../libcaja-private/caja-undostack-manager.c:1202
 #, c-format
 msgid "Move '%s' back to '%s'"
-msgstr ""
+msgstr "Eraman '%s' atzera '%s'(e)ra"
 
 #: ../libcaja-private/caja-undostack-manager.c:1211
 #: ../libcaja-private/caja-undostack-manager.c:1378
 #, c-format
 msgid "Rename '%s' as '%s'"
-msgstr ""
+msgstr "Berrizendatu '%s' honela: '%s'"
 
 #: ../libcaja-private/caja-undostack-manager.c:1230
 #: ../libcaja-private/caja-undostack-manager.c:1425
 #, c-format
 msgid "Restore %d items from trash"
-msgstr ""
+msgstr "Berrezarri zakarrontziko %d elementu"
 
 #: ../libcaja-private/caja-undostack-manager.c:1238
 #, c-format
 msgid "Restore '%s' to '%s'"
-msgstr ""
+msgstr "Berrezarri '%s' hona: '%s'"
 
 #: ../libcaja-private/caja-undostack-manager.c:1249
 #, c-format
@@ -3727,12 +3732,12 @@ msgstr ""
 #: ../libcaja-private/caja-undostack-manager.c:1261
 #, c-format
 msgid "Delete links to %d items"
-msgstr ""
+msgstr "Ezabatu %d elementurako estekak"
 
 #: ../libcaja-private/caja-undostack-manager.c:1264
 #, c-format
 msgid "Delete link to '%s'"
-msgstr ""
+msgstr "Ezabatu '%s'(e)rako esteka"
 
 #: ../libcaja-private/caja-undostack-manager.c:1274
 #, c-format
@@ -3742,7 +3747,7 @@ msgstr ""
 #: ../libcaja-private/caja-undostack-manager.c:1282
 #, c-format
 msgid "Restore original permissions of '%s'"
-msgstr ""
+msgstr "Leheneratu '%s'(r)en jatorrizko baimenak"
 
 #: ../libcaja-private/caja-undostack-manager.c:1291
 #, c-format
@@ -3762,7 +3767,7 @@ msgstr "Kopiatu %d elementu '%s'-(e)ra"
 #: ../libcaja-private/caja-undostack-manager.c:1344
 #, c-format
 msgid "Copy '%s' to '%s'"
-msgstr ""
+msgstr "Kopiatu '%s' hona: '%s'"
 
 #: ../libcaja-private/caja-undostack-manager.c:1352
 #, c-format
@@ -3772,57 +3777,57 @@ msgstr ""
 #: ../libcaja-private/caja-undostack-manager.c:1357
 #, c-format
 msgid "Duplicate '%s' in '%s'"
-msgstr ""
+msgstr "Bikoiztu '%s' hemen: '%s'"
 
 #: ../libcaja-private/caja-undostack-manager.c:1365
 #, c-format
 msgid "Move %d items to '%s'"
-msgstr ""
+msgstr "Eraman %d elementu '%s'(e)ra"
 
 #: ../libcaja-private/caja-undostack-manager.c:1369
 #, c-format
 msgid "Move '%s' to '%s'"
-msgstr ""
+msgstr "Eraman '%s' hona: '%s'"
 
 #: ../libcaja-private/caja-undostack-manager.c:1387
 #, c-format
 msgid "Create new file '%s' from template "
-msgstr ""
+msgstr "Sortu '%s' fitxategi berria txantiloitik"
 
 #: ../libcaja-private/caja-undostack-manager.c:1394
 #, c-format
 msgid "Create an empty file '%s'"
-msgstr ""
+msgstr "Sortu '%s' fitxategi berri bat"
 
 #: ../libcaja-private/caja-undostack-manager.c:1401
 #, c-format
 msgid "Create a new folder '%s'"
-msgstr ""
+msgstr "Sortu '%s' karpeta berri bat"
 
 #: ../libcaja-private/caja-undostack-manager.c:1409
 #, c-format
 msgid "Move %d items to trash"
-msgstr ""
+msgstr "Bota %d elementu zakarrontzira"
 
 #: ../libcaja-private/caja-undostack-manager.c:1415
 #, c-format
 msgid "Move '%s' to trash"
-msgstr ""
+msgstr "Bota '%s' zakarrontzira"
 
 #: ../libcaja-private/caja-undostack-manager.c:1428
 #, c-format
 msgid "Restore '%s' from trash"
-msgstr ""
+msgstr "Berrezarri '%s' zakarrontzitik"
 
 #: ../libcaja-private/caja-undostack-manager.c:1437
 #, c-format
 msgid "Create links to %d items"
-msgstr ""
+msgstr "Sortu %d elementurako estekak"
 
 #: ../libcaja-private/caja-undostack-manager.c:1440
 #, c-format
 msgid "Create link to '%s'"
-msgstr ""
+msgstr "Sortu '%s'(e)rako esteka"
 
 #: ../libcaja-private/caja-undostack-manager.c:1449
 #, c-format
@@ -3832,219 +3837,219 @@ msgstr ""
 #: ../libcaja-private/caja-undostack-manager.c:1457
 #, c-format
 msgid "Set permissions of '%s'"
-msgstr ""
+msgstr "Ezarri '%s'(r)en baimenak"
 
 #: ../libcaja-private/caja-undostack-manager.c:1466
 #, c-format
 msgid "Set group of '%s' to '%s'"
-msgstr ""
+msgstr "Ezarri '%s'(r)en taldea: '%s'"
 
 #: ../libcaja-private/caja-undostack-manager.c:1476
 #, c-format
 msgid "Set owner of '%s' to '%s'"
-msgstr ""
+msgstr "Ezarri '%s'(r)en jabea: '%s'"
 
 #: ../libcaja-private/caja-undostack-manager.c:1508
 #, c-format
 msgid "_Undo copy of %d item"
 msgid_plural "_Undo copy of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Desegin elementu %d kopiatzea"
+msgstr[1] "_Desegin %d elementu kopiatzea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1513
 #, c-format
 msgid "_Undo duplicate of %d item"
 msgid_plural "_Undo duplicate of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Desegin elementu %d bikoiztea"
+msgstr[1] "_Desegin %d elementu bikoiztea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1518
 #, c-format
 msgid "_Undo move of %d item"
 msgid_plural "_Undo move of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Desegin elementu %d mugitzea"
+msgstr[1] "_Desegin %d elementu mugitzea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1523
 #, c-format
 msgid "_Undo rename of %d item"
 msgid_plural "_Undo rename of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Desegin elementu %d berrizendatzea"
+msgstr[1] "_Desegin %d elementu berrizendatzea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1527
 #, c-format
 msgid "_Undo creation of an empty file"
-msgstr ""
+msgstr "_Desegin fitxategi huts bat sortzea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1530
 #, c-format
 msgid "_Undo creation of a file from template"
-msgstr ""
+msgstr "_Desegin txantiloitik fitxategi bat sortzea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1534
 #, c-format
 msgid "_Undo creation of %d folder"
 msgid_plural "_Undo creation of %d folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Desegin karpeta %d sortzea"
+msgstr[1] "_Desegin %d karpeta sortzea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1539
 #, c-format
 msgid "_Undo move to trash of %d item"
 msgid_plural "_Undo move to trash of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Desegin elementu %d zakarrontzira eramatea"
+msgstr[1] "_Desegin %d elementu zakarrontzira eramatea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1544
 #, c-format
 msgid "_Undo restore from trash of %d item"
 msgid_plural "_Undo restore from trash of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Desegin elementu %d zakarrontzitik berrezartzea"
+msgstr[1] "_Desegin %d elementu zakarrontzitik berrezartzea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1549
 #, c-format
 msgid "_Undo create link to %d item"
 msgid_plural "_Undo create link to %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Desegin elementu %derako esteka sortzea"
+msgstr[1] "_Desegin %d elementurako esteka sortzea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1554
 #, c-format
 msgid "_Undo delete of %d item"
 msgid_plural "_Undo delete of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Desegin elementu %d ezabatzea"
+msgstr[1] "_Desegin %d elementu ezabatzea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1559
 #, c-format
 msgid "Undo recursive change permissions of %d item"
 msgid_plural "Undo recursive change permissions of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Desegin elementu %den baimenak errekurtsiboki aldatzea"
+msgstr[1] "Desegin %d elementuren baimenak errekurtsiboki aldatzea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1565
 #, c-format
 msgid "Undo change permissions of %d item"
 msgid_plural "Undo change permissions of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Desegin elementu %den baimenak aldatzea"
+msgstr[1] "Desegin %d elementuren baimenak aldatzea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1570
 #, c-format
 msgid "Undo change group of %d item"
 msgid_plural "Undo change group of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Desegin elementu %den taldea aldatzea"
+msgstr[1] "Desegin %d elementuren taldea aldatzea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1575
 #, c-format
 msgid "Undo change owner of %d item"
 msgid_plural "Undo change owner of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Desegin elementu %den jabea aldatzea"
+msgstr[1] "Desegin %d elementuren jabea aldatzea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1603
 #, c-format
 msgid "_Redo copy of %d item"
 msgid_plural "_Redo copy of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Berregin elementu %d kopiatzea"
+msgstr[1] "_Berregin %d elementu kopiatzea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1608
 #, c-format
 msgid "_Redo duplicate of %d item"
 msgid_plural "_Redo duplicate of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Berregin elementu %d bikoiztea"
+msgstr[1] "_Berregin %d elementu bikoiztea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1613
 #, c-format
 msgid "_Redo move of %d item"
 msgid_plural "_Redo move of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Berregin elementu %d mugitzea"
+msgstr[1] "_Berregin %d elementu mugitzea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1618
 #, c-format
 msgid "_Redo rename of %d item"
 msgid_plural "_Redo rename of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Berregin elementu %d berrizendatzea"
+msgstr[1] "_Berregin %d elementu berrizendatzea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1622
 #, c-format
 msgid "_Redo creation of an empty file"
-msgstr ""
+msgstr "_Berregin fitxategi huts bat sortzea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1625
 #, c-format
 msgid "_Redo creation of a file from template"
-msgstr ""
+msgstr "_Berregin fitxategi bat txantiloitik sortzea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1629
 #, c-format
 msgid "_Redo creation of %d folder"
 msgid_plural "_Redo creation of %d folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Berregin karpeta %d sortzea"
+msgstr[1] "_Berregin %d karpeta sortzea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1634
 #, c-format
 msgid "_Redo move to trash of %d item"
 msgid_plural "_Redo move to trash of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Berregin elementu %d zakarrontzira botatzea"
+msgstr[1] "_Berregin %d elementu zakarrontzira botatzea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1639
 #, c-format
 msgid "_Redo restore from trash of %d item"
 msgid_plural "_Redo restore from trash of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Berregin elementu %d zakarrontzitik berrezartzea"
+msgstr[1] "_Berregin %d elementu zakarrontzitik berrezartzea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1644
 #, c-format
 msgid "_Redo create link to %d item"
 msgid_plural "_Redo create link to %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Berregin elementu %derako esteka sortzea"
+msgstr[1] "_Berregin %d elementurako esteka sortzea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1649
 #, c-format
 msgid "_Redo delete of %d item"
 msgid_plural "_Redo delete of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Berregin elementu %d ezabatzea"
+msgstr[1] "_Berregin %d elementu ezabatzea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1654
 #, c-format
 msgid "Redo recursive change permissions of %d item"
 msgid_plural "Redo recursive change permissions of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Berregin elementu %den baimenak errekurtsiboki aldatzea"
+msgstr[1] "Berregin %d elementuren baimenak errekurtsiboki aldatzea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1660
 #, c-format
 msgid "Redo change permissions of %d item"
 msgid_plural "Redo change permissions of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Berregin elementu %den baimenak aldatzea"
+msgstr[1] "Berregin %d elementuren baimenak aldatzea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1665
 #, c-format
 msgid "Redo change group of %d item"
 msgid_plural "Redo change group of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Berregin elementu %den taldea aldatzea"
+msgstr[1] "Berregin %d elementuren taldea aldatzea"
 
 #: ../libcaja-private/caja-undostack-manager.c:1670
 #, c-format
 msgid "Redo change owner of %d item"
 msgid_plural "Redo change owner of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Berregin elementu %den jabea aldatzea"
+msgstr[1] "Berregin %d elementuren jabea aldatzea"
 
 #: ../data/caja-autorun-software.desktop.in.in.h:1
 msgid "Autorun Prompt"
@@ -4059,7 +4064,7 @@ msgid "File Browser"
 msgstr "Fitxategi-arakatzailea"
 
 #. tooltip
-#: ../data/caja-computer.desktop.in.in.h:1 ../src/caja-window-menus.c:930
+#: ../data/caja-computer.desktop.in.in.h:1 ../src/caja-window-menus.c:932
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
 msgstr ""
@@ -4080,7 +4085,7 @@ msgstr "Karpeta nagusia"
 
 #. tooltip
 #: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:367
-#: ../src/caja-window-menus.c:925
+#: ../src/caja-window-menus.c:927
 msgid "Open your personal folder"
 msgstr "Ireki karpeta pertsonala"
 
@@ -4252,7 +4257,7 @@ msgstr "%s (%s)"
 #: ../src/file-manager/fm-directory-view.c:2366
 #, c-format
 msgid "Free space: %s"
-msgstr ""
+msgstr "Leku librea: %s"
 
 #: ../src/file-manager/fm-directory-view.c:2377
 #, c-format
@@ -4745,7 +4750,7 @@ msgstr "_Berrezarri"
 #. name, stock id
 #. label, accelerator
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7347 ../src/caja-window-menus.c:855
+#: ../src/file-manager/fm-directory-view.c:7347 ../src/caja-window-menus.c:857
 msgid "_Undo"
 msgstr "D_esegin"
 
@@ -4753,7 +4758,7 @@ msgstr "D_esegin"
 #: ../src/file-manager/fm-directory-view.c:7348
 #: ../src/file-manager/fm-directory-view.c:11082
 msgid "Undo the last action"
-msgstr ""
+msgstr "Desegin azken ekintza"
 
 #. name, stock id
 #. label, accelerator
@@ -4765,7 +4770,7 @@ msgstr "Be_rregin"
 #: ../src/file-manager/fm-directory-view.c:7352
 #: ../src/file-manager/fm-directory-view.c:11100
 msgid "Redo the last undone action"
-msgstr ""
+msgstr "Berregin desegindako azken ekintza"
 
 #. * multiview-TODO: decide whether "Reset to Defaults" should
 #. * be window-wide, and not just view-wide.
@@ -4864,7 +4869,7 @@ msgstr "Hasi hautatutako bolumena"
 #: ../src/file-manager/fm-directory-view.c:8293
 #: ../src/file-manager/fm-directory-view.c:8403
 #: ../src/caja-places-sidebar.c:1573 ../src/caja-places-sidebar.c:2499
-#: ../src/caja-window-menus.c:869
+#: ../src/caja-window-menus.c:871
 msgid "_Stop"
 msgstr "_Gelditu"
 
@@ -5049,7 +5054,7 @@ msgstr "Eraman uneko hautapena leihoaren beste panelera"
 #. name, stock id
 #. label, accelerator
 #: ../src/file-manager/fm-directory-view.c:7519
-#: ../src/file-manager/fm-directory-view.c:7523 ../src/caja-window-menus.c:924
+#: ../src/file-manager/fm-directory-view.c:7523 ../src/caja-window-menus.c:926
 msgid "_Home Folder"
 msgstr "_Karpeta nagusia"
 
@@ -5565,7 +5570,7 @@ msgstr ""
 
 #: ../src/file-manager/fm-icon-view.c:764
 msgid "_Organize Desktop by Name"
-msgstr ""
+msgstr "_Antolatu Mahaigaina izenaren arabera"
 
 #. name, stock id, label
 #: ../src/file-manager/fm-icon-view.c:1694
@@ -5576,7 +5581,7 @@ msgstr "Antolatu _elementuak"
 #. label, accelerator
 #: ../src/file-manager/fm-icon-view.c:1696
 msgid "Resize Icon..."
-msgstr ""
+msgstr "Aldatu ikonoaren tamaina..."
 
 #. tooltip
 #: ../src/file-manager/fm-icon-view.c:1697
@@ -5599,7 +5604,7 @@ msgstr "Hautatutako ikonoak jatorrizko tamainara leheneratzen ditu"
 #. label, accelerator
 #: ../src/file-manager/fm-icon-view.c:1706
 msgid "_Organize by Name"
-msgstr ""
+msgstr "_Antolatu izenaren arabera"
 
 #. tooltip
 #: ../src/file-manager/fm-icon-view.c:1707
@@ -6165,7 +6170,7 @@ msgstr ""
 
 #: ../src/caja-bookmarks-window.c:160
 #: ../src/caja-file-management-properties.c:222
-#: ../src/caja-property-browser.c:1672 ../src/caja-window-menus.c:617
+#: ../src/caja-property-browser.c:1672 ../src/caja-window-menus.c:619
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
@@ -6561,7 +6566,7 @@ msgstr "Inoiz ez"
 
 #: ../src/caja-file-management-properties.ui.h:71
 msgid "Open each _folder in its own window"
-msgstr ""
+msgstr "Ireki _karpeta bakoitza leiho batean"
 
 #: ../src/caja-file-management-properties.ui.h:72
 msgid "Preview"
@@ -7497,7 +7502,7 @@ msgid "Close the side pane"
 msgstr "Itxi albo-panela"
 
 #. Set initial window title
-#: ../src/caja-spatial-window.c:422 ../src/caja-window-menus.c:548
+#: ../src/caja-spatial-window.c:422 ../src/caja-window-menus.c:551
 #: ../src/caja-window.c:163
 msgid "Caja"
 msgstr "Caja"
@@ -7538,11 +7543,11 @@ msgstr ""
 
 #: ../src/caja-trash-bar.c:208
 msgid "Restore Selected Items"
-msgstr ""
+msgstr "Berrezarri hautatutako elementuak"
 
 #: ../src/caja-trash-bar.c:214
 msgid "Restore selected items to their original position"
-msgstr ""
+msgstr "Berrezarri hautatutako elementuak jatorrizko kokalekuetara"
 
 #: ../src/caja-window-bookmarks.c:82
 msgid ""
@@ -7635,7 +7640,7 @@ msgstr ""
 msgid "Go to the location specified by this bookmark"
 msgstr "Laster-marka honek zehaztutako helbidera joaten da"
 
-#: ../src/caja-window-menus.c:530
+#: ../src/caja-window-menus.c:533
 msgid ""
 "Caja is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -7646,7 +7651,7 @@ msgstr ""
 "ek argitaratutako GNU Lizentzia Publiko Orokorraren 2. bertsioan, edo "
 "(nahiago baduzu) beste berriago batean, jasotako baldintzak betez gero."
 
-#: ../src/caja-window-menus.c:534
+#: ../src/caja-window-menus.c:537
 msgid ""
 "Caja is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -7658,7 +7663,7 @@ msgstr ""
 "PARTIKULARRETARAKO ERABILTZEKO. Argibide gehiago nahi izanez gero, ikus GNU "
 "Lizentzia Publiko Orokorra."
 
-#: ../src/caja-window-menus.c:538
+#: ../src/caja-window-menus.c:541
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin "
@@ -7668,68 +7673,70 @@ msgstr ""
 " zenuen; hala ez bada, idatzi hona: Free SoftwareFoundation, Inc., 51 "
 "Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA"
 
-#: ../src/caja-window-menus.c:550
+#: ../src/caja-window-menus.c:553
 msgid ""
 "Caja lets you organize files and folders, both on your computer and online."
 msgstr ""
 "Caja-ek zure fitxategi eta karpetak antolatzea uzten dizu, bai ordenagailu "
 "lokalean bai sarean."
 
-#: ../src/caja-window-menus.c:553
-msgid "Copyright © 1999-2009 The Caja authors"
-msgstr "Copyright-a © 1999-2009 Caja-en egileak"
+#: ../src/caja-window-menus.c:556
+msgid ""
+"Copyright © 1999-2009 The Nautilus authors\n"
+"Copyright © 2011 The Caja authors"
+msgstr ""
 
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
 #. * box to give credit to the translator(s).
 #. 
-#: ../src/caja-window-menus.c:563
+#: ../src/caja-window-menus.c:566
 msgid "translator-credits"
 msgstr ""
 "Hizkuntza Politikarako Sailburuordetza <hizkpol@ej-gv.es>\n"
 "Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
 "Asier Iturralde Sarasola <asier.iturralde@gmail.com>"
 
-#: ../src/caja-window-menus.c:567
-msgid "Caja Web Site"
-msgstr "Caja-en webgunea"
+#: ../src/caja-window-menus.c:569
+msgid "MATE Web Site"
+msgstr ""
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:833
+#: ../src/caja-window-menus.c:835
 msgid "_File"
 msgstr "_Fitxategia"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:834
+#: ../src/caja-window-menus.c:836
 msgid "_Edit"
 msgstr "_Editatu"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:835
+#: ../src/caja-window-menus.c:837
 msgid "_View"
 msgstr "_Ikusi"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:836
+#: ../src/caja-window-menus.c:838
 msgid "_Help"
 msgstr "_Laguntza"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:838
+#: ../src/caja-window-menus.c:840
 msgid "_Close"
 msgstr "_Itxi"
 
 #. tooltip
-#: ../src/caja-window-menus.c:839
+#: ../src/caja-window-menus.c:841
 msgid "Close this folder"
 msgstr "Itxi karpeta hau"
 
-#: ../src/caja-window-menus.c:844
+#: ../src/caja-window-menus.c:846
 msgid "_Backgrounds and Emblems..."
 msgstr "_Atzeko planoak eta ikurrak..."
 
-#: ../src/caja-window-menus.c:845
+#: ../src/caja-window-menus.c:847
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
@@ -7737,167 +7744,167 @@ msgstr ""
 "Itxura pertsonalizatzeko erabil daitezkeen ereduak, koloreak eta ikurrak "
 "bistaratzen ditu"
 
-#: ../src/caja-window-menus.c:850
+#: ../src/caja-window-menus.c:852
 msgid "Prefere_nces"
 msgstr "_Hobespenak"
 
-#: ../src/caja-window-menus.c:851
+#: ../src/caja-window-menus.c:853
 msgid "Edit Caja preferences"
 msgstr "Caja-en hobespenak editatzen ditu"
 
-#: ../src/caja-window-menus.c:856
+#: ../src/caja-window-menus.c:858
 msgid "Undo the last text change"
 msgstr "Desegin azken testu-aldaketa"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:860
+#: ../src/caja-window-menus.c:862
 msgid "Open _Parent"
 msgstr "Ireki g_urasoa"
 
-#: ../src/caja-window-menus.c:861
+#: ../src/caja-window-menus.c:863
 msgid "Open the parent folder"
 msgstr "Ireki karpeta gurasoa"
 
 #. tooltip
-#: ../src/caja-window-menus.c:870
+#: ../src/caja-window-menus.c:872
 msgid "Stop loading the current location"
 msgstr "Gelditu uneko helbidea kargatzea"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:874
+#: ../src/caja-window-menus.c:876
 msgid "_Reload"
 msgstr "_Berritu"
 
 #. tooltip
-#: ../src/caja-window-menus.c:875
+#: ../src/caja-window-menus.c:877
 msgid "Reload the current location"
 msgstr "Kargatu berriro uneko helbidea"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:879
+#: ../src/caja-window-menus.c:881
 msgid "_Contents"
 msgstr "_Edukia"
 
 #. tooltip
-#: ../src/caja-window-menus.c:880
+#: ../src/caja-window-menus.c:882
 msgid "Display Caja help"
 msgstr "Caja-en laguntza bistaratzen du"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:884
+#: ../src/caja-window-menus.c:886
 msgid "_About"
 msgstr "Honi _buruz"
 
 #. tooltip
-#: ../src/caja-window-menus.c:885
+#: ../src/caja-window-menus.c:887
 msgid "Display credits for the creators of Caja"
 msgstr "Caja-en sortzaileen kredituak bistaratzen ditu"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:889
+#: ../src/caja-window-menus.c:891
 msgid "Zoom _In"
 msgstr "_Zooma handiagotu"
 
 #. tooltip
-#: ../src/caja-window-menus.c:890 ../src/caja-zoom-control.c:96
+#: ../src/caja-window-menus.c:892 ../src/caja-zoom-control.c:96
 #: ../src/caja-zoom-control.c:369
 msgid "Increase the view size"
 msgstr "Handiagotu ikuspegiaren tamaina"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:904
+#: ../src/caja-window-menus.c:906
 msgid "Zoom _Out"
 msgstr "Zooma _txikiagotu"
 
 #. tooltip
-#: ../src/caja-window-menus.c:905 ../src/caja-zoom-control.c:97
+#: ../src/caja-window-menus.c:907 ../src/caja-zoom-control.c:97
 #: ../src/caja-zoom-control.c:318
 msgid "Decrease the view size"
 msgstr "Gutxiagotu ikuspegiaren tamaina"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:914
+#: ../src/caja-window-menus.c:916
 msgid "Normal Si_ze"
 msgstr "Tamaina _normala"
 
 #. tooltip
-#: ../src/caja-window-menus.c:915 ../src/caja-zoom-control.c:98
+#: ../src/caja-window-menus.c:917 ../src/caja-zoom-control.c:98
 #: ../src/caja-zoom-control.c:331
 msgid "Use the normal view size"
 msgstr "Erabili ikuspegi normalaren tamaina"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:919
+#: ../src/caja-window-menus.c:921
 msgid "Connect to _Server..."
 msgstr "Konektatu _zerbitzarira..."
 
 #. tooltip
-#: ../src/caja-window-menus.c:920
+#: ../src/caja-window-menus.c:922
 msgid "Connect to a remote computer or shared disk"
 msgstr "Konektatu urruneko ordenagailura edo partekatutako diskora"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:929
+#: ../src/caja-window-menus.c:931
 msgid "_Computer"
 msgstr "_Ordenagailua"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:934
+#: ../src/caja-window-menus.c:936
 msgid "_Network"
 msgstr "_Sarea"
 
 #. tooltip
-#: ../src/caja-window-menus.c:935 ../src/mate-network-scheme.desktop.in.h:1
+#: ../src/caja-window-menus.c:937 ../src/mate-network-scheme.desktop.in.h:1
 msgid "Browse bookmarked and local network locations"
 msgstr "Arakatu laster-markatutako eta sare lokaleko kokalekuak"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:939
+#: ../src/caja-window-menus.c:941
 msgid "T_emplates"
 msgstr "_Txantiloiak"
 
 #. tooltip
-#: ../src/caja-window-menus.c:940
+#: ../src/caja-window-menus.c:942
 msgid "Open your personal templates folder"
 msgstr "Ireki txantiloien karpeta pertsonala"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:944
+#: ../src/caja-window-menus.c:946
 msgid "_Trash"
 msgstr "_Zakarrontzia"
 
 #. tooltip
-#: ../src/caja-window-menus.c:945
+#: ../src/caja-window-menus.c:947
 msgid "Open your personal trash folder"
 msgstr "Ireki zakarrontziaren karpeta pertsonala"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:953
+#: ../src/caja-window-menus.c:955
 msgid "Show _Hidden Files"
 msgstr "Erakutsi ezkutuko _fitxategiak"
 
 #. tooltip
-#: ../src/caja-window-menus.c:954
+#: ../src/caja-window-menus.c:956
 msgid "Toggle the display of hidden files in the current window"
 msgstr "Txandakatu fitxategi ezkutuak bistaratzea uneko leihoan"
 
-#: ../src/caja-window-menus.c:985
+#: ../src/caja-window-menus.c:987
 msgid "_Up"
 msgstr "_Gora"
 
-#: ../src/caja-window-menus.c:988
+#: ../src/caja-window-menus.c:990
 msgid "_Home"
 msgstr "_Karpeta nagusia"
 
