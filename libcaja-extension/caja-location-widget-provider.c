@@ -61,6 +61,14 @@ caja_location_widget_provider_get_type (void)
     return type;
 }
 
+/**
+ * caja_location_widget_provider_get_widget:
+ * @provider: a #CajaLocationWidgetProvider
+ * @uri: the URI of the location
+ * @window: parent #GtkWindow
+ *
+ * Returns: (transfer none): the location widget for @provider at @uri
+ */
 GtkWidget *
 caja_location_widget_provider_get_widget (CajaLocationWidgetProvider     *provider,
         const char                         *uri,

@@ -25,6 +25,13 @@
 
 CajaFileInfo *(*caja_file_info_getter) (GFile *location, gboolean create);
 
+/**
+ * caja_file_info_list_copy:
+ * @files: (element-type CajaFileInfo): the files to copy
+ *
+ * Returns: (element-type CajaFileInfo) (transfer full): a copy of @files.
+ *  Use #caja_file_info_list_free to free the list and unref its contents.
+ */
 GList *
 caja_file_info_list_copy (GList *files)
 {
@@ -40,6 +47,12 @@ caja_file_info_list_copy (GList *files)
     return ret;
 }
 
+/**
+ * caja_file_info_list_free:
+ * @files: (element-type CajaFileInfo): a list created with
+ *   #caja_file_info_list_copy
+ *
+ */
 void
 caja_file_info_list_free (GList *files)
 {
@@ -114,6 +127,12 @@ caja_file_info_get_name (CajaFileInfo *file)
     return CAJA_FILE_INFO_GET_IFACE (file)->get_name (file);
 }
 
+/**
+ * caja_file_info_get_location:
+ * @file: a #CajaFileInfo
+ *
+ * Returns: (transfer full): a #GFile for the location of @file
+ */
 GFile *
 caja_file_info_get_location (CajaFileInfo *file)
 {
@@ -140,6 +159,13 @@ caja_file_info_get_activation_uri (CajaFileInfo *file)
     return CAJA_FILE_INFO_GET_IFACE (file)->get_activation_uri (file);
 }
 
+/**
+ * caja_file_info_get_parent_location:
+ * @file: a #CajaFileInfo
+ *
+ * Returns: (allow-none) (transfer full): a #GFile for the parent location of @file,
+ *   or %NULL if @file has no parent
+ */
 GFile *
 caja_file_info_get_parent_location (CajaFileInfo *file)
 {
@@ -158,6 +184,13 @@ caja_file_info_get_parent_uri (CajaFileInfo *file)
     return CAJA_FILE_INFO_GET_IFACE (file)->get_parent_uri (file);
 }
 
+/**
+ * caja_file_info_get_parent_info:
+ * @file: a #CajaFileInfo
+ *
+ * Returns: (allow-none) (transfer full): a #CajaFileInfo for the parent of @file,
+ *   or %NULL if @file has no parent
+ */
 CajaFileInfo *
 caja_file_info_get_parent_info (CajaFileInfo *file)
 {
@@ -167,6 +200,13 @@ caja_file_info_get_parent_info (CajaFileInfo *file)
     return CAJA_FILE_INFO_GET_IFACE (file)->get_parent_info (file);
 }
 
+/**
+ * caja_file_info_get_mount:
+ * @file: a #CajaFileInfo
+ *
+ * Returns: (allow-none) (transfer full): a #GMount for the mount of @file,
+ *   or %NULL if @file has no mount
+ */
 GMount *
 caja_file_info_get_mount (CajaFileInfo *file)
 {
@@ -269,18 +309,36 @@ caja_file_info_invalidate_extension_info (CajaFileInfo *file)
     CAJA_FILE_INFO_GET_IFACE (file)->invalidate_extension_info (file);
 }
 
+/**
+ * caja_file_info_lookup:
+ * @location: the location to lookup the file info for
+ *
+ * Returns: (transfer full): a #CajaFileInfo
+ */
 CajaFileInfo *
 caja_file_info_lookup (GFile *location)
 {
     return caja_file_info_getter (location, FALSE);
 }
 
+/**
+ * caja_file_info_create:
+ * @location: the location to create the file info for
+ *
+ * Returns: (transfer full): a #CajaFileInfo
+ */
 CajaFileInfo *
 caja_file_info_create (GFile *location)
 {
     return caja_file_info_getter (location, TRUE);
 }
 
+/**
+ * caja_file_info_lookup_for_uri:
+ * @uri: the URI to lookup the file info for
+ *
+ * Returns: (transfer full): a #CajaFileInfo
+ */
 CajaFileInfo *
 caja_file_info_lookup_for_uri (const char *uri)
 {
@@ -294,6 +352,12 @@ caja_file_info_lookup_for_uri (const char *uri)
     return file;
 }
 
+/**
+ * caja_file_info_create_for_uri:
+ * @uri: the URI to lookup the file info for
+ *
+ * Returns: (transfer full): a #CajaFileInfo
+ */
 CajaFileInfo *
 caja_file_info_create_for_uri (const char *uri)
 {
