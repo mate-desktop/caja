@@ -5403,6 +5403,7 @@ caja_icon_container_search_entry_flush_timeout (CajaIconContainer *container)
  */
 static void
 caja_icon_container_search_preedit_changed (GtkEntry *entry,
+        gchar *preedit,
         CajaIconContainer *container)
 {
     container->details->imcontext_changed = 1;
