@@ -65,7 +65,7 @@ caja_property_page_provider_get_type (void)
 /**
  * caja_property_page_provider_get_pages:
  * @provider: a #CajaPropertyPageProvider
- * @files: a #GList of #CajaFileInfo
+ * @files: (element-type CajaFileInfo): a #GList of #CajaFileInfo
  *
  * This function is called by Caja when it wants property page
  * items from the extension.
@@ -73,7 +73,7 @@ caja_property_page_provider_get_type (void)
  * This function is called in the main thread before a property page
  * is shown, so it should return quickly.
  *
- * Returns: A #GList of allocated #CajaPropertyPage items.
+ * Returns: (element-type CajaPropertyPage) (transfer full): A #GList of allocated #CajaPropertyPage items.
  */
 GList *
 caja_property_page_provider_get_pages (CajaPropertyPageProvider *provider,

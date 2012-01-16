@@ -61,6 +61,12 @@ caja_column_provider_get_type (void)
     return type;
 }
 
+/**
+ * caja_column_provider_get_columns:
+ * @provider: a #CajaColumnProvider
+ *
+ * Returns: (element-type CajaColumn) (transfer full): the provided #CajaColumn objects
+ */
 GList *
 caja_column_provider_get_columns (CajaColumnProvider *provider)
 {

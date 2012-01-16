@@ -44,6 +44,12 @@ caja_menu_append_item (CajaMenu *menu, CajaMenuItem *item)
     menu->priv->item_list = g_list_append (menu->priv->item_list, g_object_ref (item));
 }
 
+/**
+ * caja_menu_get_items:
+ * @menu: a #CajaMenu
+ *
+ * Returns: (element-type CajaMenuItem) (transfer full): the provided #CajaMenuItem list
+ */
 GList *
 caja_menu_get_items (CajaMenu *menu)
 {
@@ -57,6 +63,11 @@ caja_menu_get_items (CajaMenu *menu)
     return item_list;
 }
 
+/**
+ * caja_menu_item_list_free:
+ * @item_list: (element-type CajaMenuItem): a list of #CajaMenuItem
+ *
+ */
 void
 caja_menu_item_list_free (GList *item_list)
 {

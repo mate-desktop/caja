@@ -76,6 +76,14 @@ caja_menu_provider_get_type (void)
     return type;
 }
 
+/**
+ * caja_menu_provider_get_file_items:
+ * @provider: a #CajaMenuProvider
+ * @window: the parent #GtkWidget window
+ * @files: (element-type CajaFileInfo): a list of #CajaFileInfo
+ *
+ * Returns: (element-type CajaMenuItem) (transfer full): the provided list of #CajaMenuItem
+ */
 GList *
 caja_menu_provider_get_file_items (CajaMenuProvider *provider,
                                    GtkWidget *window,
@@ -94,6 +102,14 @@ caja_menu_provider_get_file_items (CajaMenuProvider *provider,
     }
 }
 
+/**
+ * caja_menu_provider_get_background_items:
+ * @provider: a #CajaMenuProvider
+ * @window: the parent #GtkWidget window
+ * @current_folder: the folder for which background items are requested
+ *
+ * Returns: (element-type CajaMenuItem) (transfer full): the provided list of #CajaMenuItem
+ */
 GList *
 caja_menu_provider_get_background_items (CajaMenuProvider *provider,
         GtkWidget *window,
