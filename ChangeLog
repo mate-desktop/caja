@@ -1,0 +1,1035 @@
+commit f3100ba42ca406a33d5019a5527b08871e58cd90
+Author: Perberos <perberos@gmail.com>
+Date:   Mon Jan 30 08:12:51 2012 -0300
+
+    adding empty tab page on preferences
+
+ src/caja-file-management-properties.ui |   26 ++++++++++++++++++++++++++
+ 1 files changed, 26 insertions(+), 0 deletions(-)
+
+commit 81ad1b3760e41292620093a4cd143740f6af4f3a
+Merge: 31fb21b 1ee8111
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sun Jan 15 13:24:41 2012 -0800
+
+    Merge pull request #1 from benpicco/master
+    
+    list-view: make sure not to select the extension on rename
+
+commit 1ee81114ffe669470ae5db8d8b2ce92659cb7633
+Author: Benjamin Valentin <benpicco@zedat.fu-berlin.de>
+Date:   Sun Jan 15 06:21:28 2012 +0100
+
+    list-view: make sure not to select the extension on rename
+    Delay calling gtk_editable_select_region() until after
+    gtk_tree_view_set_cursor()
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=627110
+    (cherry picked from commit 5e2edee2e8dc6b4eababdff993176d591cc2a6e6)
+    
+    taken from http://git.gnome.org/browse/nautilus/commit/?h=gnome-2-32&id=0fa8f53c89b84a47fac33eb923a5fb196ca564ee
+
+ src/file-manager/fm-list-view.c |   14 ++++++++++----
+ 1 files changed, 10 insertions(+), 4 deletions(-)
+
+commit 31fb21b2dd8821af384279245baa518d80a57e0b
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Thu Jan 12 17:56:37 2012 +0100
+
+    icon-container: use the right signature for the 'preedit-changed' cb (nautilus patch)
+    this bug is related to ibus
+    http://git.gnome.org/browse/nautilus/commit/?h=gnome-2-32&id=af981252fad7ea623f5e0ec1814408cda8244ff2
+    it solves http://bugzilla.gnome.org/show_bug.cgi?id=629159 on nautilus
+    we have this also on caja: http://forums.linuxmint.com/viewtopic.php?f=206&t=86481&start=160#p525315
+
+ libcaja-private/caja-icon-container.c |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+commit cd65216e37d8cf33e468ad8a2f7714ef1bd6596f
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Thu Jan 12 17:52:42 2012 +0100
+
+    updated de translation
+
+ po/de.po |  217 ++++++++++++++++++++++++++++++++------------------------------
+ 1 files changed, 111 insertions(+), 106 deletions(-)
+
+commit 3c43eac494842d438733e738ee2ac1155abaea98
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Tue Jan 10 13:51:56 2012 -0500
+
+    Changed mate.gr.jp to gnome.gr.jp as requested in Issue #86
+
+ po/ChangeLog |  640 +++++++++++++++++++++++++++++-----------------------------
+ po/ja.po     |    2 +-
+ 2 files changed, 321 insertions(+), 321 deletions(-)
+
+commit 827876affd63a117f802cb38706aadfc7cd38ff9
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Thu Jan 5 13:51:29 2012 +0100
+
+    release 1.1.2
+
+ configure.in              |    2 +-
+ distro/archlinux/PKGBUILD |    2 +-
+ distro/ubuntu/build       |    2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+commit 637c191d190376919631cfbd2398adc05b4a3b75
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Thu Jan 5 13:47:54 2012 +0100
+
+    updated translations (eu, it, ru)
+
+ po/eu.po |  405 +++++++++++++++++++++++++++++++------------------------------
+ po/it.po |  226 ++++++++++++++++++-----------------
+ po/ru.po |  218 +++++++++++++++++-----------------
+ 3 files changed, 432 insertions(+), 417 deletions(-)
+
+commit ed06682bcd7a122b3b4ada110c152ccb3bbd0208
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Thu Jan 5 13:24:04 2012 +0100
+
+    pathbar: remove buttons only if the gone file is below the current
+    This should fix once and for all the crashers when ejecting devices
+    Patch by Cosimo Cecchi <cosimoc@gnome.org>
+    http://git.gnome.org/browse/nautilus/commit/?h=gnome-2-32&id=c3b54e662b52ca15d1dcbe68386b8fa82b12adc5
+
+ src/caja-pathbar.c |   11 +++++++----
+ 1 files changed, 7 insertions(+), 4 deletions(-)
+
+commit b375acb5643b75e65f2573f686f1ad5ad635726c
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Thu Jan 5 13:11:17 2012 +0100
+
+    pathbar: fix crasher when unmounting volumes
+    https://bugzilla.gnome.org/show_bug.cgi?id=627901
+    http://git.gnome.org/browse/nautilus/commit/?h=gnome-2-32&id=1dc416887bf1e88c4b49bd1ac2101e0fb8460af8
+
+ src/caja-pathbar.c |   22 ++++++++++++++--------
+ 1 files changed, 14 insertions(+), 8 deletions(-)
+
+commit 63a4ddb0bb1d98b54dd962831e4ca95365bc7123
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Thu Jan 5 13:00:45 2012 +0100
+
+    location-entry: don't treat '~' as a relative path
+    Based on a patch by Reed Lipman <rmlipman@gmail.com>
+    https://bugzilla.gnome.org/show_bug.cgi?id=628802
+    http://git.gnome.org/browse/nautilus/commit/?h=gnome-2-32&id=5e91bd11bea315b258839890a4ccf4d4b1c49a17
+
+ libcaja-private/caja-icon-info.c |    2 +-
+ src/caja-location-entry.c        |    4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+commit 637b3475d9c8b5ff7c4dbf863c9c6b5953a6150b
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Thu Jan 5 00:07:26 2012 +0100
+
+    applied 96_no-null-in-g-str-hash.patch from ubuntu natty nautilus
+
+ libcaja-private/caja-icon-info.c |    8 ++++++++
+ 1 files changed, 8 insertions(+), 0 deletions(-)
+
+commit 4a58c31e2fad6731f31c314609dc9d7ec30066d9
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Wed Jan 4 21:28:52 2012 +0100
+
+    applied 15_nautilus_file_peek_crash.patch from debian nautilus 2.30.1
+    it solves https://bugzilla.gnome.org/show_bug.cgi?id=602500
+
+ libcaja-private/caja-file.c |   13 +++++++++++++
+ 1 files changed, 13 insertions(+), 0 deletions(-)
+
+commit c514038bc3e83e37a1fb3259a61fa100bc86ba88
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Wed Jan 4 21:03:16 2012 +0100
+
+    updated translations (de, eu)
+
+ po/de.po | 4629 ++++++++++++++++++++++++++++++------------------------------
+ po/eu.po | 4781 +++++++++++++++++++++++++++++++++-----------------------------
+ 2 files changed, 4804 insertions(+), 4606 deletions(-)
+
+commit bd8c97baee24975ad863d86968994e8b92b3f405
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Tue Dec 27 23:02:01 2011 +0100
+
+    fixed about for MATE, use theme icon instead of old nautilus one
+
+ src/caja-window-menus.c |   14 ++++++++------
+ 1 files changed, 8 insertions(+), 6 deletions(-)
+
+commit 1bd5f79286dc74de9987f15e17fdb2fcbc49d81a
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Tue Dec 27 22:30:31 2011 +0100
+
+    updated it and ru translations (thanks OpenRevan, thanks transifex!)
+
+ po/it.po | 4417 ++++++++++++++++++++++++++++++++------------------------------
+ po/ru.po | 4194 ++++++++++++++++++++++++++++++++---------------------------
+ 2 files changed, 4553 insertions(+), 4058 deletions(-)
+
+commit 473ed493eb72fcf0ae0d0a0ca3fce7e83b3aacde
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Mon Dec 26 22:44:59 2011 +0100
+
+    add undo file in POTFILES.in
+
+ po/POTFILES.in |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+commit 584a7c426aafaa0df7ecb7ca907726b94c1e65e7
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Mon Dec 26 21:40:05 2011 +0100
+
+    fix some forgotten things
+
+ libcaja-private/caja-file.c              |    2 +-
+ libcaja-private/caja-undostack-manager.c |    2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 085a8e5bc07254127ab728fc14d64c8245a13575
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Mon Dec 26 20:29:25 2011 +0100
+
+    prepare for 1.1.1 release
+
+ AUTHORS                   |   17 ++++++++++++-----
+ configure.in              |    2 +-
+ distro/archlinux/PKGBUILD |    2 +-
+ distro/ubuntu/build       |    2 +-
+ 4 files changed, 15 insertions(+), 8 deletions(-)
+
+commit 1ecbd2cd9339b1a13551a945f35b4be05f18cb43
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Mon Dec 26 20:10:02 2011 +0100
+
+    updated UNDO-REDO with nautilus-elementary bzr rev 137
+
+ libcaja-private/caja-undostack-manager.c |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+commit bd5fd70b498e935886c0325e51b9962a4e8e5c7a
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Mon Dec 26 20:05:47 2011 +0100
+
+    updated UNDO-REDO with nautilus-elementary bzr rev 138
+
+ libcaja-private/caja-undostack-manager.c |   88 +++++++++++++++++++++++-------
+ 1 files changed, 68 insertions(+), 20 deletions(-)
+
+commit cdd4cad2ce3930bf1d484ab12371a5d6a354ea00
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Mon Dec 26 19:52:59 2011 +0100
+
+    ported nautilus-elementary UNDO-REDO (bzr rev 60)
+
+ libcaja-private/Makefile.am                 |    2 +
+ libcaja-private/caja-file-operations.c      |  137 ++
+ libcaja-private/caja-file-private.h         |    2 +
+ libcaja-private/caja-file.c                 |   44 +
+ libcaja-private/caja-undostack-manager.c    | 1988 +++++++++++++++++++++++++++
+ libcaja-private/caja-undostack-manager.h    |  184 +++
+ src/caja-shell-ui.xml                       |    4 +-
+ src/caja-window-menus.c                     |    4 +
+ src/file-manager/caja-directory-view-ui.xml |    4 +
+ src/file-manager/fm-actions.h               |    2 +
+ src/file-manager/fm-directory-view.c        |  171 +++
+ 11 files changed, 2541 insertions(+), 1 deletions(-)
+
+commit 390b49cb93699309e1250143e744b2e61ac81cfe
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Fri Dec 9 23:28:13 2011 +0100
+
+    remove autogenerated files
+
+ INSTALL                                      |  365 ------
+ aclocal.m4                                   | 1812 --------------------------
+ config.sub                                   | 1705 ------------------------
+ cut-n-paste-code/Makefile.in                 |  646 ---------
+ cut-n-paste-code/libegg/Makefile.in          |  657 ----------
+ docs/reference/Makefile.in                   |  646 ---------
+ docs/reference/libcaja-extension/Makefile.in |  797 -----------
+ gtk-doc.make                                 |  280 ----
+ install-sh                                   |  520 --------
+ 9 files changed, 0 insertions(+), 7428 deletions(-)
+
+commit 9885ec0e487f9a485408de81813a57df23389b58
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Thu Dec 8 22:55:27 2011 -0500
+
+    version updated
+
+ configure.in              |    4 ++--
+ distro/archlinux/PKGBUILD |    2 +-
+ distro/ubuntu/build       |    2 +-
+ 3 files changed, 4 insertions(+), 4 deletions(-)
+
+commit 55d22ad6ea2f1fb943794fbc2225e1cc41f9edfc
+Author: Perberos <perberos@gmail.com>
+Date:   Mon Dec 5 13:08:10 2011 -0300
+
+    removing autogenerated file
+
+ config.guess        | 1501 ---------------------------------------------------
+ config.h.in         |  185 -------
+ depcomp             |  630 ---------------------
+ missing             |  376 -------------
+ mkinstalldirs       |  162 ------
+ 5 files changed, 0 insertions(+), 2854 deletions(-)
+
+commit 4732ed0c09ee3d96fc8b09b3099a72d6748b86fc
+Author: Perberos <perberos@gmail.com>
+Date:   Mon Dec 5 13:06:31 2011 -0300
+
+    the ghost of the past
+
+ libnautilus-extension/README |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+commit 682347c43d016885ad0abd86a7edaec20d57b044
+Author: Perberos <perberos@gmail.com>
+Date:   Sun Dec 4 04:25:45 2011 -0300
+
+    wrong translations
+
+ NEWS         | 1712 ----------------------------------------------------------
+ po/am.po     |    4 +-
+ po/az.po     |    4 +-
+ po/bs.po     |    4 +-
+ po/ha.po     |    2 +-
+ po/ig.po     |    2 +-
+ po/li.po     |    4 +-
+ po/mi.po     |    2 +-
+ po/mn.po     |    4 +-
+ po/sr@ije.po |    4 +-
+ po/tk.po     |    4 +-
+ po/wa.po     |    2 +-
+ po/xh.po     |    3 +-
+ po/yi.po     |    2 +-
+ po/yo.po     |    2 +-
+ po/zu.po     |    4 +-
+ 16 files changed, 23 insertions(+), 1736 deletions(-)
+
+commit 88b35394e2675ffc682ed9cbc66c51b02ae1a2a7
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Fri Dec 2 20:28:37 2011 -0500
+
+    Changed version to 2011.12.01
+
+ configure.in              |    2 +-
+ distro/archlinux/PKGBUILD |    2 +-
+ distro/ubuntu/build       |    2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+commit 0e004c696b0e68b2cff37a4c3315b022a35eaf43
+Author: Perberos <perberos@gmail.com>
+Date:   Thu Dec 1 22:24:23 2011 -0300
+
+    moving from https://github.com/perberos/mate-desktop-environment
+
+ AUTHORS                                            |   60 +
+ COPYING                                            |  351 +
+ COPYING-DOCS                                       |  355 +
+ COPYING.EXTENSIONS                                 |   10 +
+ COPYING.LIB                                        |  482 +
+ HACKING                                            |   57 +
+ INSTALL                                            |  365 +
+ MAINTAINERS                                        |   23 +
+ Makefile.am                                        |   44 +
+ Makefile.shared                                    |    1 +
+ NEWS                                               | 1713 +++
+ README                                             |   31 +
+ README.commits                                     |   68 +
+ THANKS                                             |  621 +
+ TODO                                               |   19 +
+ acconfig.h                                         |   27 +
+ aclocal.m4                                         | 1812 +++
+ add-include-prefix                                 |    1 +
+ autogen.sh                                         |   25 +
+ config.guess                                       | 1501 ++
+ config.h.in                                        |  185 +
+ config.sub                                         | 1705 +++
+ configure.in                                       |  483 +
+ cut-n-paste-code/Makefile.am                       |    2 +
+ cut-n-paste-code/Makefile.in                       |  646 +
+ cut-n-paste-code/README                            |   21 +
+ cut-n-paste-code/libegg/Makefile.am                |   46 +
+ cut-n-paste-code/libegg/Makefile.in                |  657 +
+ cut-n-paste-code/libegg/eggdesktopfile.c           | 1477 ++
+ cut-n-paste-code/libegg/eggdesktopfile.h           |  166 +
+ cut-n-paste-code/libegg/eggsmclient-private.h      |   57 +
+ cut-n-paste-code/libegg/eggsmclient-xsmp.c         | 1371 ++
+ cut-n-paste-code/libegg/eggsmclient.c              |  602 +
+ cut-n-paste-code/libegg/eggsmclient.h              |  123 +
+ cut-n-paste-code/libegg/eggtreemultidnd.c          |  415 +
+ cut-n-paste-code/libegg/eggtreemultidnd.h          |   78 +
+ cut-n-paste-code/libegg/update-from-egg.sh         |   25 +
+ data/Makefile.am                                   |   54 +
+ data/browser.xml                                   |   76 +
+ data/caja-autorun-software.desktop.in.in           |   14 +
+ data/caja-browser.desktop.in.in                    |   15 +
+ data/caja-computer.desktop.in.in                   |   15 +
+ data/caja-extras.placeholder                       |    2 +
+ data/caja-file-management-properties.desktop.in.in |   14 +
+ data/caja-folder-handler.desktop.in.in             |   15 +
+ data/caja-home.desktop.in.in                       |   14 +
+ data/caja-suggested.placeholder                    |    2 +
+ data/caja.desktop.in.in                            |   17 +
+ data/caja.xml.in                                   |    8 +
+ data/icons/Makefile.am                             |   86 +
+ data/icons/hicolor_apps_16x16_caja.png             |  Bin 0 -> 874 bytes
+ data/icons/hicolor_apps_16x16_caja.svg             |  262 +
+ data/icons/hicolor_apps_22x22_caja.png             |  Bin 0 -> 1270 bytes
+ data/icons/hicolor_apps_22x22_caja.svg             |  323 +
+ data/icons/hicolor_apps_24x24_caja.png             |  Bin 0 -> 1310 bytes
+ data/icons/hicolor_apps_32x32_caja.png             |  Bin 0 -> 2345 bytes
+ data/icons/hicolor_apps_32x32_caja.svg             |  314 +
+ data/icons/hicolor_apps_scalable_caja.svg          |  275 +
+ data/icons/hicolor_emblems_16x16_emblem-note.png   |  Bin 0 -> 534 bytes
+ data/icons/hicolor_emblems_24x24_emblem-note.png   |  Bin 0 -> 913 bytes
+ data/icons/hicolor_emblems_48x48_emblem-note.png   |  Bin 0 -> 2454 bytes
+ data/patterns/Makefile.am                          |   39 +
+ data/patterns/blue_gray_rough.png                  |  Bin 0 -> 22418 bytes
+ data/patterns/blue_ridge.png                       |  Bin 0 -> 263 bytes
+ data/patterns/blue_type.png                        |  Bin 0 -> 11060 bytes
+ data/patterns/brushed_metal.png                    |  Bin 0 -> 29181 bytes
+ data/patterns/burlap.jpg                           |  Bin 0 -> 1611 bytes
+ data/patterns/camouflage.png                       |  Bin 0 -> 29561 bytes
+ data/patterns/chalk.jpg                            |  Bin 0 -> 821 bytes
+ data/patterns/cork.png                             |  Bin 0 -> 20928 bytes
+ data/patterns/countertop.png                       |  Bin 0 -> 4787 bytes
+ data/patterns/dark-mate.jpg                        |  Bin 0 -> 9877 bytes
+ data/patterns/dots.png                             |  Bin 0 -> 922 bytes
+ data/patterns/fibers.png                           |  Bin 0 -> 28188 bytes
+ data/patterns/fleur_de_lis.png                     |  Bin 0 -> 28890 bytes
+ data/patterns/floral.png                           |  Bin 0 -> 73080 bytes
+ data/patterns/fossil.png                           |  Bin 0 -> 14478 bytes
+ data/patterns/green_weave.png                      |  Bin 0 -> 8088 bytes
+ data/patterns/ice.png                              |  Bin 0 -> 19562 bytes
+ data/patterns/manila_paper.png                     |  Bin 0 -> 21751 bytes
+ data/patterns/mate.jpg                             |  Bin 0 -> 8316 bytes
+ data/patterns/moss_ridge.png                       |  Bin 0 -> 274 bytes
+ data/patterns/numbers.png                          |  Bin 0 -> 8993 bytes
+ data/patterns/ocean_stripes.png                    |  Bin 0 -> 274 bytes
+ data/patterns/purple_marble.png                    |  Bin 0 -> 12288 bytes
+ data/patterns/reset.png                            |  Bin 0 -> 441 bytes
+ data/patterns/ridged_paper.png                     |  Bin 0 -> 10353 bytes
+ data/patterns/rough_paper.png                      |  Bin 0 -> 3955 bytes
+ data/patterns/sky_ridge.png                        |  Bin 0 -> 264 bytes
+ data/patterns/snow_ridge.png                       |  Bin 0 -> 274 bytes
+ data/patterns/stucco.jpg                           |  Bin 0 -> 2499 bytes
+ data/patterns/terracotta.png                       |  Bin 0 -> 32001 bytes
+ data/patterns/wavy_white.png                       |  Bin 0 -> 1522 bytes
+ depcomp                                            |  630 +
+ distro/archlinux/PKGBUILD                          |   41 +
+ distro/archlinux/mate-file-manager.install         |   28 +
+ distro/ubuntu/build                                |   36 +
+ distro/ubuntu/postinst                             |   15 +
+ distro/ubuntu/postrm                               |   10 +
+ distro/ubuntu/preinst                              |    8 +
+ distro/ubuntu/prerm                                |   11 +
+ docs/Makefile.am                                   |   25 +
+ docs/architecture.txt                              |  160 +
+ docs/caja-connect-server.1                         |   50 +
+ docs/caja-file-management-properties.1             |   49 +
+ docs/caja-internals.pdf                            |  Bin 0 -> 307912 bytes
+ docs/caja-internals.sxw                            |  Bin 0 -> 59282 bytes
+ docs/caja-io.txt                                   |  255 +
+ docs/caja.1                                        |   77 +
+ docs/caja.faq                                      |    7 +
+ docs/dnd.txt                                       |   92 +
+ docs/key_mouse_navigation.txt                      |  112 +
+ docs/load-states.dia                               |  Bin 0 -> 2026 bytes
+ docs/recommended-books.html                        |  167 +
+ docs/reference/Makefile.am                         |    1 +
+ docs/reference/Makefile.in                         |  646 +
+ docs/reference/libcaja-extension/Makefile.am       |   84 +
+ docs/reference/libcaja-extension/Makefile.in       |  797 ++
+ docs/reference/libcaja-extension/html/ch01.html    |   63 +
+ docs/reference/libcaja-extension/html/home.png     |  Bin 0 -> 654 bytes
+ docs/reference/libcaja-extension/html/index.html   |   66 +
+ docs/reference/libcaja-extension/html/index.sgml   |  170 +
+ docs/reference/libcaja-extension/html/ix01.html    |  224 +
+ docs/reference/libcaja-extension/html/left.png     |  Bin 0 -> 459 bytes
+ .../libcaja-extension-caja-column-provider.html    |  117 +
+ .../html/libcaja-extension-caja-column.html        |  182 +
+ .../libcaja-extension-caja-extension-types.html    |  158 +
+ .../html/libcaja-extension-caja-file-info.html     |  643 +
+ .../html/libcaja-extension-caja-info-provider.html |  252 +
+ ...ja-extension-caja-location-widget-provider.html |  133 +
+ .../html/libcaja-extension-caja-menu-provider.html |  267 +
+ .../html/libcaja-extension-caja-menu.html          |  473 +
+ ...caja-extension-caja-property-page-provider.html |  131 +
+ .../html/libcaja-extension-caja-property-page.html |  148 +
+ .../html/libcaja-extension.devhelp                 |  118 +
+ .../html/libcaja-extension.devhelp2                |  118 +
+ docs/reference/libcaja-extension/html/pt01.html    |   68 +
+ docs/reference/libcaja-extension/html/right.png    |  Bin 0 -> 472 bytes
+ docs/reference/libcaja-extension/html/style.css    |  265 +
+ docs/reference/libcaja-extension/html/up.png       |  Bin 0 -> 406 bytes
+ .../libcaja-extension/libcaja-extension-docs.xml   |   36 +
+ .../libcaja-extension-sections.txt                 |  185 +
+ .../libcaja-extension/libcaja-extension.types      |   11 +
+ .../tmpl/caja-column-provider.sgml                 |   45 +
+ .../libcaja-extension/tmpl/caja-column.sgml        |   76 +
+ .../tmpl/caja-extension-types.sgml                 |   78 +
+ .../libcaja-extension/tmpl/caja-file-info.sgml     |  257 +
+ .../libcaja-extension/tmpl/caja-info-provider.sgml |   80 +
+ .../tmpl/caja-location-widget-provider.sgml        |   47 +
+ .../libcaja-extension/tmpl/caja-menu-item.sgml     |   22 +
+ .../libcaja-extension/tmpl/caja-menu-provider.sgml |   86 +
+ .../libcaja-extension/tmpl/caja-menu.sgml          |  208 +
+ .../tmpl/caja-property-page-provider.sgml          |   46 +
+ .../libcaja-extension/tmpl/caja-property-page.sgml |   60 +
+ docs/reference/libcaja-extension/version.xml.in    |    1 +
+ docs/smoketests.html                               |  555 +
+ docs/state-machines.txt                            |   77 +
+ docs/style-guide.html                              |  137 +
+ eel/ChangeLog                                      | 9642 +++++++++++++
+ eel/Makefile.am                                    |  186 +
+ eel/README                                         |    4 +
+ eel/check-eel                                      |    3 +
+ eel/check-program.c                                |   60 +
+ eel/eel-accessibility.c                            |  432 +
+ eel/eel-accessibility.h                            |  153 +
+ eel/eel-alert-dialog.c                             |  490 +
+ eel/eel-alert-dialog.h                             |   60 +
+ eel/eel-art-extensions.c                           |  321 +
+ eel/eel-art-extensions.h                           |  120 +
+ eel/eel-art-gtk-extensions.c                       |  346 +
+ eel/eel-art-gtk-extensions.h                       |   74 +
+ eel/eel-background-box.c                           |   70 +
+ eel/eel-background-box.h                           |   71 +
+ eel/eel-background.c                               | 1273 ++
+ eel/eel-background.h                               |  162 +
+ eel/eel-canvas-rect-ellipse.c                      | 1550 +++
+ eel/eel-canvas-rect-ellipse.h                      |  184 +
+ eel/eel-canvas-util.c                              |  426 +
+ eel/eel-canvas-util.h                              |  110 +
+ eel/eel-canvas.c                                   | 4213 ++++++
+ eel/eel-canvas.h                                   |  545 +
+ eel/eel-debug-drawing.c                            |  566 +
+ eel/eel-debug-drawing.h                            |   72 +
+ eel/eel-debug.c                                    |  135 +
+ eel/eel-debug.h                                    |   52 +
+ eel/eel-editable-label.c                           | 4402 ++++++
+ eel/eel-editable-label.h                           |  145 +
+ eel/eel-enumeration.c                              |  555 +
+ eel/eel-enumeration.h                              |   63 +
+ eel/eel-gdk-extensions.c                           |  971 ++
+ eel/eel-gdk-extensions.h                           |  164 +
+ eel/eel-gdk-pixbuf-extensions.c                    | 1510 ++
+ eel/eel-gdk-pixbuf-extensions.h                    |  162 +
+ eel/eel-glib-extensions.c                          | 1231 ++
+ eel/eel-glib-extensions.h                          |  128 +
+ eel/eel-graphic-effects.c                          |  421 +
+ eel/eel-graphic-effects.h                          |   66 +
+ eel/eel-gtk-container.c                            |  225 +
+ eel/eel-gtk-container.h                            |   47 +
+ eel/eel-gtk-extensions.c                           | 1247 ++
+ eel/eel-gtk-extensions.h                           |  141 +
+ eel/eel-gtk-macros.h                               |  178 +
+ eel/eel-i18n.c                                     |   52 +
+ eel/eel-i18n.h                                     |   55 +
+ eel/eel-image-table.c                              |  601 +
+ eel/eel-image-table.h                              |   99 +
+ eel/eel-labeled-image.c                            | 2493 ++++
+ eel/eel-labeled-image.h                            |  166 +
+ eel/eel-lib-self-check-functions.c                 |   38 +
+ eel/eel-lib-self-check-functions.h                 |   53 +
+ eel/eel-mate-extensions.c                          |  221 +
+ eel/eel-mate-extensions.h                          |   44 +
+ eel/eel-mateconf-extensions.c                      |  687 +
+ eel/eel-mateconf-extensions.h                      |   78 +
+ eel/eel-pango-extensions.c                         |  615 +
+ eel/eel-pango-extensions.h                         |   55 +
+ eel/eel-preferences-builder.c                      |  646 +
+ eel/eel-preferences.c                              | 1764 +++
+ eel/eel-preferences.h                              |  165 +
+ eel/eel-self-checks.c                              |  237 +
+ eel/eel-self-checks.h                              |  101 +
+ eel/eel-stock-dialogs.c                            |  588 +
+ eel/eel-stock-dialogs.h                            |   91 +
+ eel/eel-string.c                                   | 1275 ++
+ eel/eel-string.h                                   |  122 +
+ eel/eel-types.c                                    |   82 +
+ eel/eel-types.h                                    |   32 +
+ eel/eel-vfs-extensions.c                           |  187 +
+ eel/eel-vfs-extensions.h                           |   59 +
+ eel/eel-wrap-table.c                               | 1108 ++
+ eel/eel-wrap-table.h                               |  108 +
+ eel/eel-xml-extensions.c                           |  199 +
+ eel/eel-xml-extensions.h                           |   49 +
+ eel/eel.h                                          |   53 +
+ eel/eelmarshal.list                                |   13 +
+ eel/makeenums.pl                                   |  220 +
+ eel/maketypes.awk                                  |  155 +
+ gtk-doc.make                                       |  280 +
+ icons/Makefile.am                                  |   16 +
+ icons/audio.svg                                    |   43 +
+ icons/backgrounds.png                              |  Bin 0 -> 3735 bytes
+ icons/chit_frame.png                               |  Bin 0 -> 751 bytes
+ icons/colors.png                                   |  Bin 0 -> 3115 bytes
+ icons/emblems.png                                  |  Bin 0 -> 3122 bytes
+ icons/erase.png                                    |  Bin 0 -> 3441 bytes
+ icons/knob.png                                     |  Bin 0 -> 206 bytes
+ icons/thumbnail_frame.png                          |  Bin 0 -> 482 bytes
+ install-sh                                         |  520 +
+ libcaja-extension/Makefile.am                      |   89 +
+ libcaja-extension/caja-column-provider.c           |   74 +
+ libcaja-extension/caja-column-provider.h           |   65 +
+ libcaja-extension/caja-column.c                    |  240 +
+ libcaja-extension/caja-column.h                    |   77 +
+ libcaja-extension/caja-extension-i18n.h            |   24 +
+ libcaja-extension/caja-extension-private.h         |   39 +
+ libcaja-extension/caja-extension-types.c           |   59 +
+ libcaja-extension/caja-extension-types.h           |   72 +
+ libcaja-extension/caja-file-info.c                 |  308 +
+ libcaja-extension/caja-file-info.h                 |  140 +
+ libcaja-extension/caja-info-provider.c             |  122 +
+ libcaja-extension/caja-info-provider.h             |   87 +
+ libcaja-extension/caja-location-widget-provider.c  |   74 +
+ libcaja-extension/caja-location-widget-provider.h  |   69 +
+ libcaja-extension/caja-menu-item.c                 |  342 +
+ libcaja-extension/caja-menu-item.h                 |   30 +
+ libcaja-extension/caja-menu-provider.c             |  143 +
+ libcaja-extension/caja-menu-provider.h             |   85 +
+ libcaja-extension/caja-menu.c                      |  112 +
+ libcaja-extension/caja-menu.h                      |  125 +
+ libcaja-extension/caja-property-page-provider.c    |   89 +
+ libcaja-extension/caja-property-page-provider.h    |   68 +
+ libcaja-extension/caja-property-page.c             |  246 +
+ libcaja-extension/caja-property-page.h             |   74 +
+ .../libcaja-extension-uninstalled.pc.in            |   12 +
+ libcaja-extension/libcaja-extension.pc.in          |   12 +
+ libcaja-private/Makefile.am                        |  246 +
+ libcaja-private/README                             |   13 +
+ libcaja-private/apps_caja_preferences.schemas.in   | 1205 ++
+ libcaja-private/caja-autorun.c                     | 1434 ++
+ libcaja-private/caja-autorun.h                     |   81 +
+ libcaja-private/caja-bookmark.c                    |  672 +
+ libcaja-private/caja-bookmark.h                    |  100 +
+ libcaja-private/caja-cell-renderer-pixbuf-emblem.c |  519 +
+ libcaja-private/caja-cell-renderer-pixbuf-emblem.h |   68 +
+ .../caja-cell-renderer-text-ellipsized.c           |   80 +
+ .../caja-cell-renderer-text-ellipsized.h           |   61 +
+ libcaja-private/caja-clipboard-monitor.c           |  338 +
+ libcaja-private/caja-clipboard-monitor.h           |   85 +
+ libcaja-private/caja-clipboard.c                   |  692 +
+ libcaja-private/caja-clipboard.h                   |   54 +
+ libcaja-private/caja-column-chooser.c              |  670 +
+ libcaja-private/caja-column-chooser.h              |   69 +
+ libcaja-private/caja-column-utilities.c            |  327 +
+ libcaja-private/caja-column-utilities.h            |   41 +
+ libcaja-private/caja-customization-data.c          |  498 +
+ libcaja-private/caja-customization-data.h          |   68 +
+ libcaja-private/caja-debug-log.c                   |  760 +
+ libcaja-private/caja-debug-log.h                   |   58 +
+ libcaja-private/caja-default-file-icon.c           |  537 +
+ libcaja-private/caja-default-file-icon.h           |   32 +
+ libcaja-private/caja-desktop-directory-file.c      |  731 +
+ libcaja-private/caja-desktop-directory-file.h      |   68 +
+ libcaja-private/caja-desktop-directory.c           |  560 +
+ libcaja-private/caja-desktop-directory.h           |   61 +
+ libcaja-private/caja-desktop-icon-file.c           |  410 +
+ libcaja-private/caja-desktop-icon-file.h           |   64 +
+ libcaja-private/caja-desktop-link-monitor.c        |  575 +
+ libcaja-private/caja-desktop-link-monitor.h        |   67 +
+ libcaja-private/caja-desktop-link.c                |  479 +
+ libcaja-private/caja-desktop-link.h                |   84 +
+ libcaja-private/caja-directory-async.c             | 5410 ++++++++
+ libcaja-private/caja-directory-background.c        |  731 +
+ libcaja-private/caja-directory-background.h        |   36 +
+ libcaja-private/caja-directory-notify.h            |   74 +
+ libcaja-private/caja-directory-private.h           |  249 +
+ libcaja-private/caja-directory.c                   | 2004 +++
+ libcaja-private/caja-directory.h                   |  244 +
+ libcaja-private/caja-dnd.c                         | 1446 ++
+ libcaja-private/caja-dnd.h                         |  200 +
+ libcaja-private/caja-emblem-utils.c                |  511 +
+ libcaja-private/caja-emblem-utils.h                |   53 +
+ libcaja-private/caja-entry.c                       |  442 +
+ libcaja-private/caja-entry.h                       |   78 +
+ libcaja-private/caja-file-attributes.h             |   47 +
+ libcaja-private/caja-file-changes-queue.c          |  475 +
+ libcaja-private/caja-file-changes-queue.h          |   42 +
+ libcaja-private/caja-file-conflict-dialog.c        |  670 +
+ libcaja-private/caja-file-conflict-dialog.h        |   80 +
+ libcaja-private/caja-file-dnd.c                    |  186 +
+ libcaja-private/caja-file-dnd.h                    |   44 +
+ libcaja-private/caja-file-operations.c             | 6469 +++++++++
+ libcaja-private/caja-file-operations.h             |  142 +
+ libcaja-private/caja-file-private.h                |  316 +
+ libcaja-private/caja-file-queue.c                  |  133 +
+ libcaja-private/caja-file-queue.h                  |   52 +
+ libcaja-private/caja-file-utilities.c              | 1449 ++
+ libcaja-private/caja-file-utilities.h              |  111 +
+ libcaja-private/caja-file.c                        | 8411 +++++++++++
+ libcaja-private/caja-file.h                        |  590 +
+ libcaja-private/caja-global-preferences.c          |  954 ++
+ libcaja-private/caja-global-preferences.h          |  242 +
+ libcaja-private/caja-horizontal-splitter.c         |  307 +
+ libcaja-private/caja-horizontal-splitter.h         |   76 +
+ libcaja-private/caja-icon-canvas-item.c            | 3874 ++++++
+ libcaja-private/caja-icon-canvas-item.h            |  123 +
+ libcaja-private/caja-icon-container.c              |10612 ++++++++++++++
+ libcaja-private/caja-icon-container.h              |  371 +
+ libcaja-private/caja-icon-dnd.c                    | 2123 +++
+ libcaja-private/caja-icon-dnd.h                    |   63 +
+ libcaja-private/caja-icon-info.c                   |  751 +
+ libcaja-private/caja-icon-info.h                   |   99 +
+ libcaja-private/caja-icon-names.h                  |   30 +
+ libcaja-private/caja-icon-private.h                |  336 +
+ libcaja-private/caja-idle-queue.c                  |  156 +
+ libcaja-private/caja-idle-queue.h                  |   49 +
+ libcaja-private/caja-iso9660.h                     |  110 +
+ libcaja-private/caja-keep-last-vertical-box.c      |  166 +
+ libcaja-private/caja-keep-last-vertical-box.h      |   59 +
+ libcaja-private/caja-lib-self-check-functions.c    |   38 +
+ libcaja-private/caja-lib-self-check-functions.h    |   50 +
+ libcaja-private/caja-link.c                        |  642 +
+ libcaja-private/caja-link.h                        |   54 +
+ libcaja-private/caja-marshal.c                     |    2 +
+ libcaja-private/caja-marshal.list                  |   23 +
+ libcaja-private/caja-merged-directory.c            |  735 +
+ libcaja-private/caja-merged-directory.h            |   69 +
+ libcaja-private/caja-metadata.c                    |   80 +
+ libcaja-private/caja-metadata.h                    |   82 +
+ libcaja-private/caja-mime-actions.c                | 2597 ++++
+ libcaja-private/caja-mime-actions.h                |   62 +
+ libcaja-private/caja-mime-application-chooser.c    |  746 +
+ libcaja-private/caja-mime-application-chooser.h    |   57 +
+ libcaja-private/caja-module.c                      |  293 +
+ libcaja-private/caja-module.h                      |   46 +
+ libcaja-private/caja-monitor.c                     |  157 +
+ libcaja-private/caja-monitor.h                     |   38 +
+ libcaja-private/caja-open-with-dialog.c            | 1183 ++
+ libcaja-private/caja-open-with-dialog.h            |   66 +
+ libcaja-private/caja-program-choosing.c            |  509 +
+ libcaja-private/caja-program-choosing.h            |   57 +
+ libcaja-private/caja-progress-info.c               |  930 ++
+ libcaja-private/caja-progress-info.h               |   85 +
+ libcaja-private/caja-query.c                       |  395 +
+ libcaja-private/caja-query.h                       |   68 +
+ libcaja-private/caja-recent.c                      |   80 +
+ libcaja-private/caja-recent.h                      |   13 +
+ libcaja-private/caja-saved-search-file.c           |   49 +
+ libcaja-private/caja-saved-search-file.h           |   58 +
+ libcaja-private/caja-search-directory-file.c       |  260 +
+ libcaja-private/caja-search-directory-file.h       |   59 +
+ libcaja-private/caja-search-directory.c            |  934 ++
+ libcaja-private/caja-search-directory.h            |   73 +
+ libcaja-private/caja-search-engine-beagle.c        |  443 +
+ libcaja-private/caja-search-engine-beagle.h        |   53 +
+ libcaja-private/caja-search-engine-simple.c        |  464 +
+ libcaja-private/caja-search-engine-simple.h        |   53 +
+ libcaja-private/caja-search-engine-tracker.c       |  580 +
+ libcaja-private/caja-search-engine-tracker.h       |   53 +
+ libcaja-private/caja-search-engine.c               |  216 +
+ libcaja-private/caja-search-engine.h               |   77 +
+ libcaja-private/caja-sidebar-provider.c            |   74 +
+ libcaja-private/caja-sidebar-provider.h            |   61 +
+ libcaja-private/caja-sidebar.c                     |  128 +
+ libcaja-private/caja-sidebar.h                     |   84 +
+ libcaja-private/caja-signaller.c                   |  115 +
+ libcaja-private/caja-signaller.h                   |   46 +
+ libcaja-private/caja-thumbnails.c                  | 1084 ++
+ libcaja-private/caja-thumbnails.h                  |   80 +
+ libcaja-private/caja-trash-monitor.c               |  250 +
+ libcaja-private/caja-trash-monitor.h               |   70 +
+ libcaja-private/caja-tree-view-drag-dest.c         | 1306 ++
+ libcaja-private/caja-tree-view-drag-dest.h         |  106 +
+ libcaja-private/caja-ui-utilities.c                |  256 +
+ libcaja-private/caja-ui-utilities.h                |   43 +
+ libcaja-private/caja-undo-manager.c                |  320 +
+ libcaja-private/caja-undo-manager.h                |   82 +
+ libcaja-private/caja-undo-private.h                |   36 +
+ libcaja-private/caja-undo-signal-handlers.c        |  345 +
+ libcaja-private/caja-undo-signal-handlers.h        |   37 +
+ libcaja-private/caja-undo-transaction.c            |  343 +
+ libcaja-private/caja-undo-transaction.h            |   80 +
+ libcaja-private/caja-undo.c                        |  218 +
+ libcaja-private/caja-undo.h                        |   77 +
+ libcaja-private/caja-users-groups-cache.c          |  295 +
+ libcaja-private/caja-users-groups-cache.h          |   34 +
+ libcaja-private/caja-vfs-directory.c               |  170 +
+ libcaja-private/caja-vfs-directory.h               |   57 +
+ libcaja-private/caja-vfs-file.c                    |  781 ++
+ libcaja-private/caja-vfs-file.h                    |   57 +
+ libcaja-private/caja-view-factory.c                |  126 +
+ libcaja-private/caja-view-factory.h                |   75 +
+ libcaja-private/caja-view.c                        |  330 +
+ libcaja-private/caja-view.h                        |  193 +
+ libcaja-private/caja-window-info.c                 |  291 +
+ libcaja-private/caja-window-info.h                 |  189 +
+ libcaja-private/caja-window-slot-info.c            |  157 +
+ libcaja-private/caja-window-slot-info.h            |   97 +
+ ltmain.sh                                          | 9655 +++++++++++++
+ m4/gtk-doc.m4                                      |   67 +
+ m4/intltool.m4                                     |  216 +
+ m4/libtool.m4                                      | 7982 +++++++++++
+ m4/ltoptions.m4                                    |  384 +
+ m4/ltsugar.m4                                      |  123 +
+ m4/ltversion.m4                                    |   23 +
+ m4/lt~obsolete.m4                                  |   98 +
+ missing                                            |  376 +
+ mkinstalldirs                                      |  162 +
+ po/ChangeLog                                       |14540 ++++++++++++++++++++
+ po/LINGUAS                                         |  111 +
+ po/POTFILES.in                                     |  116 +
+ po/POTFILES.skip                                   |   10 +
+ po/af.po                                           | 9108 ++++++++++++
+ po/am.po                                           | 6957 ++++++++++
+ po/ar.po                                           | 7816 +++++++++++
+ po/as.po                                           | 7860 +++++++++++
+ po/ast.po                                          | 7372 ++++++++++
+ po/az.po                                           | 6869 +++++++++
+ po/be.po                                           | 7584 ++++++++++
+ po/be@latin.po                                     | 6875 +++++++++
+ po/bg.po                                           | 7634 ++++++++++
+ po/bn.po                                           | 7490 ++++++++++
+ po/bn_IN.po                                        | 7456 ++++++++++
+ po/br.po                                           | 6898 ++++++++++
+ po/bs.po                                           | 7124 ++++++++++
+ po/ca.po                                           | 8182 +++++++++++
+ po/ca@valencia.po                                  | 7992 +++++++++++
+ po/crh.po                                          | 9240 +++++++++++++
+ po/cs.po                                           | 7499 ++++++++++
+ po/cy.po                                           | 8976 ++++++++++++
+ po/da.po                                           | 7982 +++++++++++
+ po/de.po                                           | 8137 +++++++++++
+ po/dz.po                                           | 6901 ++++++++++
+ po/el.po                                           | 7334 ++++++++++
+ po/en@shaw.po                                      | 7478 ++++++++++
+ po/en_CA.po                                        | 6248 +++++++++
+ po/en_GB.po                                        | 8484 ++++++++++++
+ po/eo.po                                           | 7520 ++++++++++
+ po/es.po                                           | 8824 ++++++++++++
+ po/et.po                                           | 5838 ++++++++
+ po/eu.po                                           | 7729 +++++++++++
+ po/fa.po                                           | 8218 +++++++++++
+ po/fi.po                                           | 7706 +++++++++++
+ po/fr.po                                           | 7733 +++++++++++
+ po/fur.po                                          | 6349 +++++++++
+ po/fy.po                                           | 6980 ++++++++++
+ po/ga.po                                           | 7167 ++++++++++
+ po/gl.po                                           | 7732 +++++++++++
+ po/gu.po                                           | 7335 ++++++++++
+ po/gv.po                                           | 7811 +++++++++++
+ po/ha.po                                           | 8321 +++++++++++
+ po/he.po                                           | 9223 +++++++++++++
+ po/hi.po                                           | 7304 ++++++++++
+ po/hr.po                                           | 7061 ++++++++++
+ po/hu.po                                           | 7616 ++++++++++
+ po/hy.po                                           | 5520 ++++++++
+ po/id.po                                           | 7621 ++++++++++
+ po/ig.po                                           | 8168 +++++++++++
+ po/io.po                                           | 5852 ++++++++
+ po/is.po                                           | 7393 ++++++++++
+ po/it.po                                           | 7905 +++++++++++
+ po/ja.po                                           | 7627 ++++++++++
+ po/ka.po                                           | 6894 ++++++++++
+ po/kk.po                                           | 7335 ++++++++++
+ po/km.po                                           | 5533 ++++++++
+ po/kn.po                                           | 7606 ++++++++++
+ po/ko.po                                           | 7418 ++++++++++
+ po/ku.po                                           | 6232 +++++++++
+ po/li.po                                           | 8928 ++++++++++++
+ po/lt.po                                           | 7826 +++++++++++
+ po/lv.po                                           | 7695 +++++++++++
+ po/mai.po                                          | 6627 +++++++++
+ po/mg.po                                           | 5752 ++++++++
+ po/mi.po                                           | 6017 ++++++++
+ po/mk.po                                           | 7830 +++++++++++
+ po/ml.po                                           | 7351 ++++++++++
+ po/mn.po                                           | 7140 ++++++++++
+ po/mr.po                                           | 7321 ++++++++++
+ po/ms.po                                           | 8896 ++++++++++++
+ po/nb.po                                           | 7519 ++++++++++
+ po/nds.po                                          | 6746 +++++++++
+ po/ne.po                                           | 6235 +++++++++
+ po/nl.po                                           | 8497 ++++++++++++
+ po/nn.po                                           | 8891 ++++++++++++
+ po/nso.po                                          | 9291 +++++++++++++
+ po/oc.po                                           | 7903 +++++++++++
+ po/or.po                                           | 7378 ++++++++++
+ po/pa.po                                           | 7988 +++++++++++
+ po/pl.po                                           | 7675 +++++++++++
+ po/ps.po                                           | 6634 +++++++++
+ po/pt.po                                           |10496 ++++++++++++++
+ po/pt_BR.po                                        | 8162 +++++++++++
+ po/ro.po                                           | 7815 +++++++++++
+ po/ru.po                                           | 7688 +++++++++++
+ po/rw.po                                           | 7205 ++++++++++
+ po/si.po                                           | 5962 ++++++++
+ po/sk.po                                           | 6909 ++++++++++
+ po/sl.po                                           | 7512 ++++++++++
+ po/sq.po                                           | 7075 ++++++++++
+ po/sr.po                                           | 8059 +++++++++++
+ po/sr@ije.po                                       | 7459 ++++++++++
+ po/sr@latin.po                                     | 8059 +++++++++++
+ po/sv.po                                           | 7095 ++++++++++
+ po/ta.po                                           | 6616 +++++++++
+ po/te.po                                           | 7137 ++++++++++
+ po/th.po                                           | 7388 ++++++++++
+ po/tk.po                                           | 6623 +++++++++
+ po/tr.po                                           | 8164 +++++++++++
+ po/ug.po                                           | 7378 ++++++++++
+ po/uk.po                                           | 7488 ++++++++++
+ po/uz.po                                           | 6214 +++++++++
+ po/uz@cyrillic.po                                  | 6214 +++++++++
+ po/vi.po                                           | 6265 +++++++++
+ po/wa.po                                           | 7277 ++++++++++
+ po/xh.po                                           | 6776 +++++++++
+ po/yi.po                                           | 5857 ++++++++
+ po/yo.po                                           | 8147 +++++++++++
+ po/zh_CN.po                                        | 7439 ++++++++++
+ po/zh_HK.po                                        | 8114 +++++++++++
+ po/zh_TW.po                                        | 8240 +++++++++++
+ po/zu.po                                           | 6638 +++++++++
+ src/Makefile.am                                    |  197 +
+ src/caja-actions.h                                 |   56 +
+ src/caja-application.c                             | 2338 ++++
+ src/caja-application.h                             |  117 +
+ src/caja-autorun-software.c                        |  316 +
+ src/caja-bookmark-list.c                           |  775 ++
+ src/caja-bookmark-list.h                           |   87 +
+ src/caja-bookmarks-window.c                        | 1112 ++
+ src/caja-bookmarks-window.h                        |   39 +
+ src/caja-bookmarks-window.ui                       |  370 +
+ src/caja-connect-server-dialog-main.c              |  235 +
+ src/caja-connect-server-dialog-nonmain.c           |   59 +
+ src/caja-connect-server-dialog.c                   | 1075 ++
+ src/caja-connect-server-dialog.h                   |   61 +
+ src/caja-convert-metadata.c                        |  492 +
+ src/caja-desktop-window.c                          |  277 +
+ src/caja-desktop-window.h                          |   66 +
+ src/caja-emblem-sidebar.c                          | 1174 ++
+ src/caja-emblem-sidebar.h                          |   63 +
+ src/caja-file-management-properties-main.c         |   64 +
+ src/caja-file-management-properties.c              |  891 ++
+ src/caja-file-management-properties.h              |   41 +
+ src/caja-file-management-properties.ui             | 3080 +++++
+ src/caja-history-sidebar.c                         |  423 +
+ src/caja-history-sidebar.h                         |   50 +
+ src/caja-image-properties-page.c                   |  745 +
+ src/caja-image-properties-page.h                   |   57 +
+ src/caja-information-panel.c                       | 1271 ++
+ src/caja-information-panel.h                       |   66 +
+ src/caja-location-bar.c                            |  617 +
+ src/caja-location-bar.h                            |   70 +
+ src/caja-location-dialog.c                         |  275 +
+ src/caja-location-dialog.h                         |   55 +
+ src/caja-location-entry.c                          |  485 +
+ src/caja-location-entry.h                          |   72 +
+ src/caja-main.c                                    |  590 +
+ src/caja-main.h                                    |   37 +
+ src/caja-navigation-action.c                       |  381 +
+ src/caja-navigation-action.h                       |   68 +
+ src/caja-navigation-bar.c                          |  170 +
+ src/caja-navigation-bar.h                          |   77 +
+ src/caja-navigation-window-menus.c                 | 1099 ++
+ src/caja-navigation-window-pane.c                  |  946 ++
+ src/caja-navigation-window-pane.h                  |   92 +
+ src/caja-navigation-window-slot.c                  |  241 +
+ src/caja-navigation-window-slot.h                  |   78 +
+ src/caja-navigation-window-ui.xml                  |   77 +
+ src/caja-navigation-window.c                       | 1426 ++
+ src/caja-navigation-window.h                       |  119 +
+ src/caja-notebook.c                                |  570 +
+ src/caja-notebook.h                                |   99 +
+ src/caja-notes-viewer.c                            |  535 +
+ src/caja-notes-viewer.h                            |   50 +
+ src/caja-pathbar.c                                 | 2165 +++
+ src/caja-pathbar.h                                 |   90 +
+ src/caja-places-sidebar.c                          | 3092 +++++
+ src/caja-places-sidebar.h                          |   49 +
+ src/caja-property-browser.c                        | 2492 ++++
+ src/caja-property-browser.h                        |   71 +
+ src/caja-query-editor.c                            | 1397 ++
+ src/caja-query-editor.h                            |   81 +
+ src/caja-search-bar.c                              |  256 +
+ src/caja-search-bar.h                              |   68 +
+ src/caja-self-check-functions.c                    |   40 +
+ src/caja-self-check-functions.h                    |   47 +
+ src/caja-shell-ui.xml                              |   87 +
+ src/caja-side-pane.c                               |  675 +
+ src/caja-side-pane.h                               |   82 +
+ src/caja-sidebar-title.c                           |  732 +
+ src/caja-sidebar-title.h                           |   76 +
+ src/caja-spatial-window-ui.xml                     |   29 +
+ src/caja-spatial-window.c                          | 1209 ++
+ src/caja-spatial-window.h                          |   71 +
+ src/caja-trash-bar.c                               |  236 +
+ src/caja-trash-bar.h                               |   64 +
+ src/caja-view-as-action.c                          |  288 +
+ src/caja-view-as-action.h                          |   57 +
+ src/caja-window-bookmarks.c                        |  295 +
+ src/caja-window-bookmarks.h                        |   37 +
+ src/caja-window-manage-views.c                     | 2337 ++++
+ src/caja-window-manage-views.h                     |   49 +
+ src/caja-window-menus.c                            | 1163 ++
+ src/caja-window-pane.c                             |  305 +
+ src/caja-window-pane.h                             |   97 +
+ src/caja-window-private.h                          |  250 +
+ src/caja-window-slot.c                             |  710 +
+ src/caja-window-slot.h                             |  186 +
+ src/caja-window-toolbars.c                         |  204 +
+ src/caja-window.c                                  | 2164 +++
+ src/caja-window.h                                  |  164 +
+ src/caja-x-content-bar.c                           |  331 +
+ src/caja-x-content-bar.h                           |   71 +
+ src/caja-zoom-action.c                             |  211 +
+ src/caja-zoom-action.h                             |   57 +
+ src/caja-zoom-control.c                            |  996 ++
+ src/caja-zoom-control.h                            |   91 +
+ src/check-caja                                     |    2 +
+ src/file-manager/Makefile.am                       |   61 +
+ src/file-manager/caja-audio-mime-types.h           |   46 +
+ src/file-manager/caja-desktop-icon-view-ui.xml     |   21 +
+ src/file-manager/caja-directory-view-ui.xml        |  231 +
+ src/file-manager/caja-icon-view-ui.xml             |   56 +
+ src/file-manager/caja-list-view-ui.xml             |    9 +
+ src/file-manager/fm-actions.h                      |  110 +
+ src/file-manager/fm-desktop-icon-view.c            |  881 ++
+ src/file-manager/fm-desktop-icon-view.h            |   60 +
+ src/file-manager/fm-directory-view.c               |10936 +++++++++++++++
+ src/file-manager/fm-directory-view.h               |  495 +
+ src/file-manager/fm-ditem-page.c                   |  563 +
+ src/file-manager/fm-ditem-page.h                   |   51 +
+ src/file-manager/fm-empty-view.c                   |  412 +
+ src/file-manager/fm-empty-view.h                   |   60 +
+ src/file-manager/fm-error-reporting.c              |  380 +
+ src/file-manager/fm-error-reporting.h              |   55 +
+ src/file-manager/fm-icon-container.c               |  625 +
+ src/file-manager/fm-icon-container.h               |   68 +
+ src/file-manager/fm-icon-view.c                    | 3439 +++++
+ src/file-manager/fm-icon-view.h                    |  135 +
+ src/file-manager/fm-list-model.c                   | 1882 +++
+ src/file-manager/fm-list-model.h                   |  148 +
+ src/file-manager/fm-list-view-private.h            |   43 +
+ src/file-manager/fm-list-view.c                    | 3415 +++++
+ src/file-manager/fm-list-view.h                    |   63 +
+ src/file-manager/fm-properties-window.c            | 5835 ++++++++
+ src/file-manager/fm-properties-window.h            |   69 +
+ src/file-manager/fm-tree-model.c                   | 2152 +++
+ src/file-manager/fm-tree-model.h                   |  104 +
+ src/file-manager/fm-tree-view.c                    | 1814 +++
+ src/file-manager/fm-tree-view.h                    |   65 +
+ src/mate-network-scheme.desktop.in                 |   11 +
+ test/Makefile.am                                   |   46 +
+ test/test-caja-directory-async.c                   |  104 +
+ test/test-caja-search-engine.c                     |   58 +
+ test/test-caja-wrap-table.c                        |   96 +
+ test/test-copy.c                                   |   93 +
+ test/test-eel-background.c                         |   38 +
+ test/test-eel-editable-label.c                     |   58 +
+ test/test-eel-image-scrolled.c                     |  187 +
+ test/test-eel-image-table.c                        |  304 +
+ test/test-eel-labeled-image.c                      |   79 +
+ test/test-eel-pixbuf-scale.c                       |   83 +
+ test/test.c                                        |  152 +
+ test/test.h                                        |   38 +
+ 703 files changed, 1088094 insertions(+), 0 deletions(-)
