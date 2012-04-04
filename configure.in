@@ -19,7 +19,7 @@ dnl Interface break is not allowed.
 m4_define(caja_extension_current,  3)
 m4_define(caja_extension_revision, 0)
 
-AC_INIT([caja], [1.2.0], [http://www.mate-desktop.org])
+AC_INIT([caja], [1.2.1], [http://www.mate-desktop.org])
 
 dnl ---------------------------------------------------------------------------
 dnl GTK library version
@@ -101,6 +101,36 @@ GETTEXT_PACKAGE=caja
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE",
     [the gettext translation domain])
+
+AH_TEMPLATE([ENABLE_INSTALLER])
+AH_TEMPLATE([ENABLE_NLS])
+AH_TEMPLATE([ENABLE_PROFILER])
+AH_TEMPLATE([GETTEXT_PACKAGE])
+AH_TEMPLATE([HAVE_CATGETS])
+AH_TEMPLATE([HAVE_GETTEXT])
+AH_TEMPLATE([HAVE_LC_MESSAGES])
+AH_TEMPLATE([HAVE_LIBBZ2])
+AH_TEMPLATE([HAVE_LIBJPEG])
+AH_TEMPLATE([HAVE_MEDUSA])
+AH_TEMPLATE([HAVE_STPCPY])
+AH_TEMPLATE([bzclose])
+AH_TEMPLATE([bzCompress])
+AH_TEMPLATE([bzCompressInit])
+AH_TEMPLATE([bzDecompress])
+AH_TEMPLATE([bzDecompressInit])
+AH_TEMPLATE([bzdopen])
+AH_TEMPLATE([bzerror])
+AH_TEMPLATE([bzflush])
+AH_TEMPLATE([bzopen])
+AH_TEMPLATE([bzread])
+AH_TEMPLATE([bzwrite])
+
+AC_DEFINE([HAVE_GTK_MULTIHEAD], [], [needed for egg-screen-exec functions])
+
+AH_TEMPLATE([HAVE_STARTUP_NOTIFICATION])
+AH_TEMPLATE([HAVE_EXIF])
+AH_TEMPLATE([HAVE_OLD_EXIF])
+AH_TEMPLATE([HAVE_RENDER])
 
 AM_GLIB_GNU_GETTEXT
 GLIB_DEFINE_LOCALEDIR(MATELOCALEDIR)
