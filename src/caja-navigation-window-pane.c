@@ -64,6 +64,9 @@ real_set_active (CajaWindowPane *pane, gboolean is_active)
 
     /* navigation bar (manual entry) */
     caja_location_bar_set_active (CAJA_LOCATION_BAR (nav_pane->navigation_bar), is_active);
+    
+    /* location button */
+    gtk_widget_set_sensitive (gtk_bin_get_child (GTK_BIN (pane->location_button)), is_active);
 }
 
 static gboolean
@@ -211,6 +214,51 @@ path_bar_location_changed_callback (GtkWidget *widget,
     {
         caja_window_slot_go_to (win_pane->active_slot, location, FALSE);
     }
+}
+
+static gboolean
+location_button_should_be_active (CajaNavigationWindowPane *pane)
+{
+    return eel_preferences_get_boolean (CAJA_PREFERENCES_ALWAYS_USE_LOCATION_ENTRY);
+}
+
+static void
+location_button_toggled_cb (GtkToggleButton *toggle,
+                            CajaNavigationWindowPane *pane)
+{
+    gboolean is_active;
+
+    is_active = gtk_toggle_button_get_active (toggle);
+    eel_preferences_set_boolean (CAJA_PREFERENCES_ALWAYS_USE_LOCATION_ENTRY, is_active);
+
+    if (is_active) {
+        caja_navigation_bar_activate (CAJA_NAVIGATION_BAR (pane->navigation_bar));
+    }
+
+    caja_window_set_active_pane (CAJA_WINDOW_PANE (pane)->window, CAJA_WINDOW_PANE (pane));
+}
+
+static GtkWidget *
+location_button_create (CajaNavigationWindowPane *pane)
+{
+    GtkWidget *image;
+    GtkWidget *button;
+
+    image = gtk_image_new_from_stock (GTK_STOCK_EDIT, GTK_ICON_SIZE_BUTTON);
+    gtk_widget_show (image);
+
+    button = g_object_new (GTK_TYPE_TOGGLE_BUTTON,
+                   "image", image,
+                   "focus-on-click", FALSE,
+                   "active", location_button_should_be_active (pane),
+                   NULL);
+
+    gtk_widget_set_tooltip_text (button,
+                     _("Toggle between button and text-based location bar"));
+
+    g_signal_connect (button, "toggled",
+              G_CALLBACK (location_button_toggled_cb), pane);
+    return button;
 }
 
 static gboolean
@@ -647,6 +695,14 @@ caja_navigation_window_pane_always_use_location_entry (CajaNavigationWindowPane 
     {
         caja_navigation_window_pane_set_bar_mode (pane, CAJA_BAR_PATH);
     }
+    
+    g_signal_handlers_block_by_func (pane->location_button,
+                                     G_CALLBACK (location_button_toggled_cb),
+                                     pane);
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (pane->location_button), use_entry);
+    g_signal_handlers_unblock_by_func (pane->location_button,
+                                       G_CALLBACK (location_button_toggled_cb),
+                                       pane);
 }
 
 void
@@ -666,6 +722,11 @@ caja_navigation_window_pane_setup (CajaNavigationWindowPane *pane)
     gtk_widget_show (hbox);
 
     header_size_group = CAJA_NAVIGATION_WINDOW (CAJA_WINDOW_PANE (pane)->window)->details->header_size_group;
+
+    pane->location_button = location_button_create (pane);
+    gtk_size_group_add_widget (pane->navigation_group, pane->location_button);
+    gtk_box_pack_start (GTK_BOX (hbox), pane->location_button, FALSE, FALSE, 0);
+    gtk_widget_show (pane->location_button);
 
     pane->path_bar = g_object_new (CAJA_TYPE_PATH_BAR, NULL);
     gtk_size_group_add_widget (header_size_group, pane->path_bar);
@@ -776,6 +837,7 @@ void
 caja_navigation_window_pane_set_bar_mode (CajaNavigationWindowPane *pane,
         CajaBarMode mode)
 {
+    gboolean use_entry;
     GtkWidget *focus_widget;
     CajaNavigationWindow *window;
 
@@ -799,6 +861,19 @@ caja_navigation_window_pane_set_bar_mode (CajaNavigationWindowPane *pane,
         gtk_widget_hide (pane->path_bar);
         gtk_widget_hide (pane->navigation_bar);
         break;
+    }
+    
+    if (mode == CAJA_BAR_NAVIGATION || mode == CAJA_BAR_PATH) {
+        use_entry = (mode == CAJA_BAR_NAVIGATION);
+
+        g_signal_handlers_block_by_func (pane->location_button,
+                         G_CALLBACK (location_button_toggled_cb),
+                         pane);
+        gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (pane->location_button),
+                          use_entry);
+        g_signal_handlers_unblock_by_func (pane->location_button,
+                           G_CALLBACK (location_button_toggled_cb),
+                           pane);
     }
 
     window = CAJA_NAVIGATION_WINDOW (CAJA_WINDOW_PANE (pane)->window);

@@ -51,6 +51,7 @@ struct _CajaNavigationWindowPane
 
     /* location bar */
     GtkWidget *location_bar;
+    GtkWidget *location_button;
     GtkWidget *navigation_bar;
     GtkWidget *path_bar;
     GtkWidget *search_bar;
