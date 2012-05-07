@@ -66,7 +66,7 @@ real_set_active (CajaWindowPane *pane, gboolean is_active)
     caja_location_bar_set_active (CAJA_LOCATION_BAR (nav_pane->navigation_bar), is_active);
     
     /* location button */
-    gtk_widget_set_sensitive (gtk_bin_get_child (GTK_BIN (pane->location_button)), is_active);
+    gtk_widget_set_sensitive (gtk_bin_get_child (GTK_BIN (nav_pane->location_button)), is_active);
 }
 
 static gboolean
@@ -724,7 +724,7 @@ caja_navigation_window_pane_setup (CajaNavigationWindowPane *pane)
     header_size_group = CAJA_NAVIGATION_WINDOW (CAJA_WINDOW_PANE (pane)->window)->details->header_size_group;
 
     pane->location_button = location_button_create (pane);
-    gtk_size_group_add_widget (pane->navigation_group, pane->location_button);
+    gtk_size_group_add_widget (header_size_group, pane->location_button);
     gtk_box_pack_start (GTK_BOX (hbox), pane->location_button, FALSE, FALSE, 0);
     gtk_widget_show (pane->location_button);
 
