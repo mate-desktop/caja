@@ -1,41 +1,41 @@
 pkgname=mate-file-manager
-pkgver=1.1.2
+pkgver=1.3.1
 pkgrel=1
 pkgdesc="The MATE shell and file manager"
 arch=('i686' 'x86_64')
 license=('GPL')
 depends=('libexif' 'exempi' 'mate-icon-theme' 'shared-mime-info'
          'desktop-file-utils' 'gvfs' 'libunique' 'mate-desktop')
-makedepends=('pkgconfig' 'intltool')
-url="http://matsusoft.com.ar/projects"
+makedepends=('pkgconfig' 'intltool' 'mate-common')
+url="http://matsusoft.com.ar/projects/mate/"
 options=('!libtool' '!emptydirs')
 install=mate-file-manager.install
-source=(http://sourceforge.net/projects/matede/files/${pkgver}/${pkgname}.tar.gz/download)
-sha256sums=('d13e08c13178629d38328783704890073b650d5b19c457ea3009cc13f6eea4e1')
+source=()
+sha256sums=()
 groups=('mate')
 
 build() {
-    cd "${srcdir}/${pkgname}"
+	cd "${srcdir}/../../../"
 
-    ./autogen.sh \
-        --prefix=/usr \
-        --sysconfdir=/etc \
-        --localstatedir=/var \
-        --disable-static \
-        --libexecdir=/usr/lib/caja \
-        --enable-unique \
-        --disable-update-mimedb || return 1
+	./autogen.sh \
+		--prefix=/usr \
+		--sysconfdir=/etc \
+		--localstatedir=/var \
+		--disable-static \
+		--libexecdir=/usr/lib/caja \
+		--enable-unique \
+		--disable-update-mimedb || return 1
 
-    make || return 1
+	make || return 1
 }
 
 package() {
-    cd "${srcdir}/${pkgname}"
+	cd "${srcdir}/../../../"
 
-    make MATECONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 DESTDIR="${pkgdir}" install || return 1
+	make MATECONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 DESTDIR="${pkgdir}" install || return 1
 
-    install -m755 -d ${pkgdir}/usr/share/mateconf/schemas
+	install -m755 -d ${pkgdir}/usr/share/mateconf/schemas
 
-    mateconf-merge-schema ${pkgdir}/usr/share/mateconf/schemas/${pkgname}.schemas --domain ${pkgname} ${pkgdir}/etc/mateconf/schemas/*.schemas || return 1
-    rm -f ${pkgdir}/etc/mateconf/schemas/*.schemas
+	mateconf-merge-schema ${pkgdir}/usr/share/mateconf/schemas/${pkgname}.schemas --domain ${pkgname} ${pkgdir}/etc/mateconf/schemas/*.schemas || return 1
+	rm -f ${pkgdir}/etc/mateconf/schemas/*.schemas
 }
