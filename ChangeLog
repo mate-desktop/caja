@@ -1,3 +1,77 @@
+commit 4fa7bb2c6fe7e6a95bfb099d0364ff15e83b9001
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Wed May 9 11:56:06 2012 -0400
+
+    Fixed keep aligned issue.
+
+ libcaja-private/caja-desktop-directory-file.c |    6 ++++--
+ 1 files changed, 4 insertions(+), 2 deletions(-)
+
+commit aaf4c05d9a382b18eb2eced119eff8fbf0f4c763
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Fri Apr 6 00:55:50 2012 -0400
+
+    Removed ubuntu folder from distro.
+
+ distro/ubuntu/build    |   36 ------------------------------------
+ distro/ubuntu/postinst |   15 ---------------
+ distro/ubuntu/postrm   |   10 ----------
+ distro/ubuntu/preinst  |    8 --------
+ distro/ubuntu/prerm    |   11 -----------
+ 5 files changed, 0 insertions(+), 80 deletions(-)
+
+commit 471bb189349ce7c4fd9ad78f054f140a52978604
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Fri Apr 6 00:18:47 2012 +0200
+
+    fix missing spaces due to caja => nautilus rename
+
+ docs/architecture.txt |   12 ++++++------
+ 1 files changed, 6 insertions(+), 6 deletions(-)
+
+commit 8a6466a545c33e358ccdec400f53c5d3473a6bbb
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Tue Apr 3 23:21:04 2012 -0400
+
+    Removed acconfig.h and replaced with AH_TEMPLATE AND AC_DEFINE.
+
+ acconfig.h   |   27 ---------------------------
+ configure.in |   32 +++++++++++++++++++++++++++++++-
+ 2 files changed, 31 insertions(+), 28 deletions(-)
+
+commit b8da9626e7a3f1bc0ec8f53dc1559ae81396c926
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sun Mar 11 13:57:56 2012 +0100
+
+    fix README file for MATE (thanks to awillson)
+
+ HACKING |   57 ++++-----------------------------------------------------
+ README  |   23 +++--------------------
+ 2 files changed, 7 insertions(+), 73 deletions(-)
+
+commit bc154ccd1f47fd8a2bd1e282659e94e6893f4b70
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Thu Feb 23 13:23:46 2012 +0100
+
+    update translations (bg, et, nl)
+
+ po/bg.po | 4452 ++++++++++++++++++++++++++--------------------------
+ po/et.po | 3094 +++++++++++++++++++++++++++++--------
+ po/nl.po | 5279 ++++++++++++++++++++++++++------------------------------------
+ 3 files changed, 6852 insertions(+), 5973 deletions(-)
+
+commit 853c0d3f6c79eb5dfc6130ffde4d345f66ec51d4
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Wed Feb 22 21:16:34 2012 -0500
+
+    Preparing for 1.2 release
+
+ AUTHORS      |    2 +-
+ ChangeLog    | 1035 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ autogen.sh   |    4 +-
+ configure.in |    2 +-
+ 4 files changed, 1039 insertions(+), 4 deletions(-)
+
 commit f3100ba42ca406a33d5019a5527b08871e58cd90
 Author: Perberos <perberos@gmail.com>
 Date:   Mon Jan 30 08:12:51 2012 -0300
