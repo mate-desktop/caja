@@ -2367,8 +2367,30 @@ bookmarks_key_press_event_cb (GtkWidget             *widget,
                               CajaPlacesSidebar *sidebar)
 {
     guint modifiers;
+    GtkTreeModel *model;
+    GtkTreePath *path;
+    CajaWindowOpenFlags flags = 0;
 
     modifiers = gtk_accelerator_get_default_mod_mask ();
+
+    if (event->keyval == GDK_Return ||
+        event->keyval == GDK_KP_Enter ||
+        event->keyval == GDK_ISO_Enter ||
+        event->keyval == GDK_space)
+    {
+        if ((event->state & modifiers) == GDK_SHIFT_MASK)
+            flags = CAJA_WINDOW_OPEN_FLAG_NEW_TAB;
+        else if ((event->state & modifiers) == GDK_CONTROL_MASK)
+            flags = CAJA_WINDOW_OPEN_FLAG_NEW_WINDOW;
+
+        model = gtk_tree_view_get_model(sidebar->tree_view);
+        gtk_tree_view_get_cursor(sidebar->tree_view, &path, NULL);
+
+        open_selected_bookmark(sidebar, model, path, flags);
+
+        gtk_tree_path_free(path);
+        return TRUE;
+    }
 
     if (event->keyval == GDK_Down &&
             (event->state & modifiers) == GDK_MOD1_MASK)
