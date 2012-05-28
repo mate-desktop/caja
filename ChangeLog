@@ -1,3 +1,59 @@
+commit 9b299865250365f948b523f45a874dce52d125d5
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Mon May 28 15:05:27 2012 -0400
+
+    Bookmarks can now be opened via the enter or space key.
+
+ src/caja-places-sidebar.c |   22 ++++++++++++++++++++++
+ 1 files changed, 22 insertions(+), 0 deletions(-)
+
+commit 03680f2d95687c0f336993bb44663af3bb0c2ffa
+Merge: 896872d 1558f59
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Wed May 16 02:52:20 2012 -0700
+
+    Merge pull request #16 from MDykstra/master
+    
+    better backward compatible dependency on gmodule-2.0
+
+commit 1558f59456ae8abe428c8378910e6a1f26bf9411
+Author: Marcel Dijkstra <marcel.dykstra@gmail.com>
+Date:   Wed May 16 04:13:53 2012 +0200
+
+    only depend on gmodule-2.0 if it exists
+
+ configure.in |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 896872d030fa0ab1fb7c62161c327146e0ad609a
+Merge: f269a73 a57d08c
+Author: Perberos <perberos@gmail.com>
+Date:   Thu May 10 06:24:09 2012 -0700
+
+    Merge pull request #10 from MDykstra/master
+    
+    now linking under up-to-date Arch Linux system
+
+commit f269a73f7bbee46a2217f9d0aa6714605b11ec59
+Author: Perberos <perberos@gmail.com>
+Date:   Wed May 9 06:48:01 2012 -0300
+
+    updating PKGBUILD
+
+ distro/archlinux/PKGBUILD |   40 ++++++++++++++++++++--------------------
+ 1 files changed, 20 insertions(+), 20 deletions(-)
+
+commit a7a3d8e25a4a156e4b7cf8ff2c0d85bca94c5f17
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Wed May 9 12:05:35 2012 -0400
+
+    Fixed keep aligned issue. Bumped version to 1.3.1
+
+ ChangeLog                                     |  113 +++++++++++++++++++++++++
+ configure.in                                  |    2 +-
+ libcaja-private/caja-desktop-directory-file.c |    6 +-
+ 3 files changed, 118 insertions(+), 3 deletions(-)
+
 commit c36dd05635062e69090670f4c125f5834e82eba4
 Author: Stefano Karapetsas <stefano@karapetsas.com>
 Date:   Mon May 7 17:47:06 2012 +0200
@@ -45,6 +101,15 @@ Date:   Fri Apr 27 17:35:23 2012 +0200
  src/caja-navigation-window-pane.c |   75 +++++++++++++++++++++++++++++++++++++
  src/caja-navigation-window-pane.h |    1 +
  2 files changed, 76 insertions(+), 0 deletions(-)
+
+commit a57d08ce5672bcabae2de9a31d6660eac1c5880a
+Author: Marcel Dijkstra <marcel.dykstra@gmail.com>
+Date:   Thu Apr 26 22:16:37 2012 +0200
+
+    linker now requires gmodule-2.0 in mate-file-manager
+
+ configure.in |    3 ++-
+ 1 files changed, 2 insertions(+), 1 deletions(-)
 
 commit aaf4c05d9a382b18eb2eced119eff8fbf0f4c763
 Author: Steve Zesch <stevezesch2@gmail.com>
