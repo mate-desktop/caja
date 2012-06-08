@@ -1708,7 +1708,7 @@ create_and_set_up_tree_view (FMListView *view)
     for (l = caja_columns; l != NULL; l = l->next)
     {
         CajaColumn *caja_column;
-        int column_num;
+        int column_num, font_size;
         char *name;
         char *label;
         float xalign;
@@ -1732,6 +1732,9 @@ create_and_set_up_tree_view (FMListView *view)
             view->details->pixbuf_cell = (GtkCellRendererPixbuf *)cell;
 
             view->details->file_name_column = gtk_tree_view_column_new ();
+            gtk_tree_view_column_set_expand (view->details->file_name_column, TRUE);
+            font_size = PANGO_PIXELS (pango_font_description_get_size (GTK_WIDGET(view)->style->font_desc));
+            gtk_tree_view_column_set_min_width (view->details->file_name_column, 20*font_size);
             g_object_ref_sink (view->details->file_name_column);
             view->details->file_name_column_num = column_num;
 
@@ -1752,7 +1755,11 @@ create_and_set_up_tree_view (FMListView *view)
                                                  "pixbuf_emblem", FM_LIST_MODEL_SMALLEST_EMBLEM_COLUMN,
                                                  NULL);
 
-            cell = caja_cell_renderer_text_ellipsized_new ();
+            cell = gtk_cell_renderer_text_new ();
+            g_object_set (cell,
+                        "ellipsize", PANGO_ELLIPSIZE_END,
+                        "ellipsize-set", TRUE,
+                        NULL);
             view->details->file_name_cell = (GtkCellRendererText *)cell;
             g_signal_connect (cell, "edited", G_CALLBACK (cell_renderer_edited), view);
             g_signal_connect (cell, "editing-canceled", G_CALLBACK (cell_renderer_editing_canceled), view);
