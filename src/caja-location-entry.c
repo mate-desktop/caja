@@ -92,7 +92,7 @@ try_to_expand_path (gpointer callback_data)
 
     uri_scheme = g_uri_parse_scheme (user_location);
 
-    if (!g_path_is_absolute (user_location) && uri_scheme == NULL && user_location[0] != '~') {
+    if (!g_path_is_absolute (user_location) && uri_scheme == NULL && user_location[0] != '~')
     {
         absolute_location = g_build_filename (entry->details->current_directory, user_location, NULL);
         suffix = g_filename_completer_get_completion_suffix (entry->details->completer,
