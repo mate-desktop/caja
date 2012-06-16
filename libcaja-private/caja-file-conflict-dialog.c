@@ -56,6 +56,7 @@ struct _CajaFileConflictDialogDetails
     GtkWidget *entry;
     GtkWidget *checkbox;
     GtkWidget *rename_button;
+    GtkWidget *diff_button;
     GtkWidget *replace_button;
     GtkWidget *dest_image;
     GtkWidget *src_image;
@@ -335,6 +336,25 @@ file_list_ready_cb (GList *files,
         gtk_button_set_label (GTK_BUTTON (details->replace_button),
                               _("Merge"));
     }
+    
+    /* If meld is installed, and source and destination arent binary
+     * files, show the diff button
+     */
+    gtk_widget_hide (details->diff_button);
+    if (!source_is_dir && !dest_is_dir)
+    {
+        if (g_find_program_in_path ("meld")) {
+            
+            gboolean src_is_binary;
+            gboolean dest_is_binary;
+            
+            src_is_binary = caja_file_is_binary (details->source);
+            dest_is_binary = caja_file_is_binary (details->destination);
+            
+            if (!src_is_binary && !dest_is_binary)
+                gtk_widget_show (details->diff_button);
+        }
+    }
 
     caja_file_monitor_add (src, fcd, CAJA_FILE_ATTRIBUTES_FOR_ICON);
     caja_file_monitor_add (dest, fcd, CAJA_FILE_ATTRIBUTES_FOR_ICON);
@@ -487,6 +507,44 @@ reset_button_clicked_cb (GtkButton *w,
 }
 
 static void
+diff_button_clicked_cb (GtkButton *w,
+                        CajaFileConflictDialog *dialog)
+{
+    CajaFileConflictDialogDetails *details;
+    details = dialog->details;
+    
+    GError *error;
+    char *command;
+    char **argv;
+
+    command = g_find_program_in_path ("meld");
+    if (command)
+    {
+        argv = g_new (char *, 4);
+        argv[0] = command;
+        argv[1] = g_file_get_path (caja_file_get_location (details->source));
+        argv[2] = g_file_get_path (caja_file_get_location (details->destination));
+        argv[3] = NULL;
+        
+        error = NULL;
+        if (!g_spawn_async_with_pipes (NULL,
+                                       argv,
+                                       NULL,
+                                       G_SPAWN_STDOUT_TO_DEV_NULL | G_SPAWN_STDERR_TO_DEV_NULL,
+                                       NULL,
+                                       NULL /* user_data */,
+                                       NULL,
+                                       NULL, NULL, NULL,
+                                       &error))
+        {
+            g_warning ("Error opening meld to show differences: %s\n", error->message);
+            g_error_free (error);
+        }
+        g_strfreev (argv);
+    }
+}
+
+static void
 caja_file_conflict_dialog_init (CajaFileConflictDialog *fcd)
 {
     GtkWidget *hbox, *vbox, *vbox2, *alignment;
@@ -558,6 +616,15 @@ caja_file_conflict_dialog_init (CajaFileConflictDialog *fcd)
 
     gtk_widget_show_all (alignment);
 
+    /* Setup the diff button for text files */
+    details->diff_button = gtk_button_new_with_label (_("Differences..."));
+    gtk_button_set_image (GTK_BUTTON (details->diff_button),
+                          gtk_image_new_from_stock (GTK_STOCK_FIND,
+                                  GTK_ICON_SIZE_MENU));
+    gtk_box_pack_start (GTK_BOX (vbox), details->diff_button, FALSE, FALSE, 6);
+    g_signal_connect (details->diff_button, "clicked",
+                      G_CALLBACK (diff_button_clicked_cb), dialog);
+    gtk_widget_hide (details->diff_button);
 
     /* Setup the checkbox to apply the action to all files */
     widget = gtk_check_button_new_with_mnemonic (_("Apply this action to all files"));

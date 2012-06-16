@@ -161,6 +161,7 @@ void                    caja_file_invalidate_all_attributes         (CajaFile   
 
 /* Basic attributes for file objects. */
 gboolean                caja_file_contains_text                     (CajaFile                   *file);
+gboolean                caja_file_is_binary                         (CajaFile                   *file);
 char *                  caja_file_get_display_name                  (CajaFile                   *file);
 char *                  caja_file_get_edit_name                     (CajaFile                   *file);
 char *                  caja_file_get_name                          (CajaFile                   *file);

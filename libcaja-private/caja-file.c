@@ -7135,6 +7135,51 @@ caja_file_contains_text (CajaFile *file)
 }
 
 /**
+ * caja_file_is_binary
+ *
+ * Check if this file is a binary file.
+ * This is private and is used to decide whether or not to show the diff
+ * button in the file conflict dialog.
+ * @file: CajaFile representing the file in question.
+ *
+ * Returns: TRUE if @file is a binary file.
+ *
+ **/
+gboolean
+caja_file_is_binary (CajaFile *file)
+{
+	if (!caja_file_can_read(file))
+	{
+		return FALSE;
+	}
+	
+	gboolean is_binary = FALSE;
+	int c;
+	int i;
+	FILE *fp;
+	
+	/* Check the first 4096 bytes of the files. If these contains a 0,
+	 * we can assume the file is binary.
+	 * This idea is taken from python code of meld.
+	 */
+	
+	fp = g_fopen (g_file_get_path (caja_file_get_location (file)), "r");
+	for (i = 0; i < 4096; i++) {
+		c = fgetc(fp);
+		if (c == EOF) {
+			break;
+		}
+		else if (c == 0) {
+			is_binary = TRUE;
+			break;
+		}
+	}
+	fclose(fp);
+	
+	return is_binary;
+}
+
+/**
  * caja_file_is_executable
  *
  * Check if this file is executable at all.
