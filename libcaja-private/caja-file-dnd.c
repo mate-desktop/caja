@@ -65,7 +65,7 @@ caja_drag_can_accept_files (CajaFile *drop_target_item)
         return TRUE;
     }
 
-    if (caja_is_file_roller_installed () &&
+    if (caja_is_engrampa_installed () &&
             caja_file_is_archive (drop_target_item))
     {
         return TRUE;

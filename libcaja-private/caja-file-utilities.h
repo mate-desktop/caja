@@ -81,7 +81,7 @@ char *   caja_pixmap_file                        (const char *partial_path);
 /* Locate a file in either the uers directory or the datadir. */
 char *   caja_get_data_file_path                 (const char *partial_path);
 
-gboolean caja_is_file_roller_installed           (void);
+gboolean caja_is_engrampa_installed              (void);
 
 /* Inhibit/Uninhibit MATE Power Manager */
 int    caja_inhibit_power_manager                (const char *message) G_GNUC_WARN_UNUSED_RESULT;

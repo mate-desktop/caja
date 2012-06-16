@@ -1103,13 +1103,13 @@ caja_find_file_insensitive_next (GFile *parent, const gchar *name)
 }
 
 gboolean
-caja_is_file_roller_installed (void)
+caja_is_engrampa_installed (void)
 {
     static int installed = - 1;
 
     if (installed < 0)
     {
-        if (g_find_program_in_path ("file-roller"))
+        if (g_find_program_in_path ("engrampa"))
         {
             installed = 1;
         }

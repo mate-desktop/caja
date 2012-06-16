@@ -10137,19 +10137,19 @@ fm_directory_view_move_copy_items (const GList *item_uris,
 				fm_directory_view_get_containing_window (view));
 		return;
 	} else if (copy_action == GDK_ACTION_COPY &&
-		   caja_is_file_roller_installed () &&
+		   caja_is_engrampa_installed () &&
 		   target_file != NULL &&
 		   caja_file_is_archive (target_file)) {
 		char *command, *quoted_uri, *tmp;
 		const GList *l;
 		GdkScreen  *screen;
 
-		/* Handle dropping onto a file-roller archiver file, instead of starting a move/copy */
+		/* Handle dropping onto a engrampa archiver file, instead of starting a move/copy */
 
 		caja_file_unref (target_file);
 
 		quoted_uri = g_shell_quote (target_uri);
-		command = g_strconcat ("file-roller -a ", quoted_uri, NULL);
+		command = g_strconcat ("engrampa -a ", quoted_uri, NULL);
 		g_free (quoted_uri);
 
 		for (l = item_uris; l != NULL; l = l->next) {
