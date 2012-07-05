@@ -1,3 +1,202 @@
+commit ea1d20ed8d53b647bf2f0365ae0eb7b223a125b7
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sun Jun 17 13:27:46 2012 +0200
+
+    sync translations with Transifex
+
+ po/af.po          |11394 +++++++++++++++++++++--------------------------
+ po/am.po          | 9905 ++++++++++++++++++++++-------------------
+ po/ar.po          | 5493 ++++++++++++-----------
+ po/as.po          | 6444 +++++++++++++--------------
+ po/ast.po         | 6012 +++++++++++++------------
+ po/az.po          |10863 +++++++++++++++++++++++---------------------
+ po/be.po          |10246 +++++++++++++++++++++---------------------
+ po/bg.po          | 1727 +++----
+ po/bn.po          | 5840 ++++++++++++------------
+ po/bn_IN.po       | 5818 ++++++++++++------------
+ po/br.po          | 5418 ++++++++++++----------
+ po/bs.po          |11188 ++++++++++++++++++++++++----------------------
+ po/ca.po          | 6078 ++++++++++++-------------
+ po/ca@valencia.po | 6282 ++++++++++++--------------
+ po/crh.po         | 7654 +++++++++++++------------------
+ po/cs.po          | 5783 ++++++++++++------------
+ po/da.po          | 6078 ++++++++++++-------------
+ po/de.po          | 2444 ++++------
+ po/dz.po          |10695 +++++++++++++++++++++++---------------------
+ po/el.po          | 5457 ++++++++++++-----------
+ po/en_CA.po       | 9232 ++++++++++++++++++++++----------------
+ po/en_GB.po       | 6366 ++++++++++++--------------
+ po/eo.po          | 5658 +++++++++++------------
+ po/es.po          | 6741 ++++++++++++----------------
+ po/et.po          | 1793 ++++----
+ po/eu.po          | 2236 ++++------
+ po/fa.po          | 8634 +++++++++++++++++------------------
+ po/fi.po          | 5558 ++++++++++++-----------
+ po/fr.po          | 5696 ++++++++++++------------
+ po/fur.po         | 6165 +++++++++++++++----------
+ po/fy.po          | 4850 +++++++++++---------
+ po/ga.po          | 5423 ++++++++++++----------
+ po/gl.po          | 5826 ++++++++++++------------
+ po/gu.po          | 5737 ++++++++++++------------
+ po/ha.po          |10507 ++++++++++++++++++++-----------------------
+ po/he.po          | 8732 +++++++++++++++---------------------
+ po/hi.po          | 5986 +++++++++++++------------
+ po/hr.po          | 6798 +++++++++++++++-------------
+ po/hu.po          | 5706 ++++++++++++------------
+ po/hy.po          | 8854 ++++++++++++++++++++++--------------
+ po/id.po          | 5533 ++++++++++++-----------
+ po/ig.po          |10426 +++++++++++++++++++++----------------------
+ po/is.po          | 6042 +++++++++++++------------
+ po/it.po          | 2327 ++++------
+ po/ja.po          | 5543 ++++++++++++-----------
+ po/ka.po          | 6562 +++++++++++++++------------
+ po/kk.po          | 4933 ++++++++++----------
+ po/km.po          | 7939 +++++++++++++++++++++------------
+ po/kn.po          | 6052 +++++++++++++------------
+ po/ko.po          | 5252 +++++++++++-----------
+ po/ku.po          | 9276 ++++++++++++++++++++++----------------
+ po/li.po          |12840 ++++++++++++++++++++++++-----------------------------
+ po/lt.po          | 5836 ++++++++++++------------
+ po/lv.po          | 5995 ++++++++++++-------------
+ po/mai.po         | 6139 ++++++++++++++-----------
+ po/mg.po          | 8510 +++++++++++++++++++++--------------
+ po/mi.po          | 8895 ++++++++++++++++++++++---------------
+ po/mk.po          | 6644 ++++++++++++++-------------
+ po/ml.po          | 5701 +++++++++++++-----------
+ po/mn.po          |11510 ++++++++++++++++++++++++-----------------------
+ po/mr.po          | 5705 +++++++++++++-----------
+ po/ms.po          | 8510 +++++++++++++++--------------------
+ po/nb.po          | 5583 +++++++++++------------
+ po/nds.po         | 5268 +++++++++++++---------
+ po/ne.po          | 8827 ++++++++++++++++++++----------------
+ po/nl.po          | 1727 +++----
+ po/nn.po          | 7329 +++++++++++++-----------------
+ po/nso.po         |11533 ++++++++++++++++++++---------------------------
+ po/oc.po          | 6287 +++++++++++++-------------
+ po/or.po          | 5726 ++++++++++++------------
+ po/pa.po          | 5816 ++++++++++++------------
+ po/pl.po          | 5732 ++++++++++++------------
+ po/ps.po          | 5700 ++++++++++++++----------
+ po/pt.po          | 8532 ++++++++++++-----------------------
+ po/pt_BR.po       | 6063 ++++++++++++-------------
+ po/ro.po          | 5947 ++++++++++++-------------
+ po/ru.po          | 2251 ++++------
+ po/rw.po          |11739 +++++++++++++++++++++++++-----------------------
+ po/si.po          | 7826 +++++++++++++++++++-------------
+ po/sk.po          | 6521 +++++++++++++++------------
+ po/sl.po          | 5459 ++++++++++++-----------
+ po/sq.po          | 6757 +++++++++++++++-------------
+ po/sr.po          | 6351 +++++++++++++-------------
+ po/sr@latin.po    | 6351 +++++++++++++-------------
+ po/sv.po          | 5101 +++++++++++----------
+ po/ta.po          | 6566 +++++++++++++++------------
+ po/te.po          | 5821 +++++++++++++-----------
+ po/th.po          | 5358 +++++++++++-----------
+ po/tk.po          |10953 ++++++++++++++++++++++++---------------------
+ po/tr.po          | 6725 +++++++++++++---------------
+ po/ug.po          | 5756 ++++++++++++------------
+ po/uk.po          | 5792 ++++++++++++------------
+ po/uz.po          | 5548 ++++++++++++++---------
+ po/vi.po          | 5645 ++++++++++++++---------
+ po/wa.po          |10801 ++++++++++++++++++++++----------------------
+ po/xh.po          |10081 ++++++++++++++++++++++-------------------
+ po/yi.po          | 8183 +++++++++++++++++++++-------------
+ po/yo.po          |10433 +++++++++++++++++++++----------------------
+ po/zh_CN.po       | 5249 +++++++++++-----------
+ po/zh_HK.po       | 6142 ++++++++++++-------------
+ po/zh_TW.po       | 6302 ++++++++++++--------------
+ po/zu.po          |10712 ++++++++++++++++++++++++--------------------
+ 102 files changed, 356350 insertions(+), 341630 deletions(-)
+
+commit 284192b5fc88484f877dd8033bb40a12e8191cf2
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sun Jun 17 13:13:05 2012 +0200
+
+    add backup of gnome copyrights for po files
+
+ po/gnome-copyrights.txt | 1864 +++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 1864 insertions(+)
+
+commit 16379e27f5cc8a254f766b591b7b208bf5a59d55
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sat Jun 16 11:57:48 2012 +0200
+
+    revert version to 1.3.0, update NEWS file
+
+ NEWS         |    7 ++++++-
+ configure.in |    2 +-
+ 2 files changed, 7 insertions(+), 2 deletions(-)
+
+commit a8789710c20b11eeae3cabe35ea58f77af5f0617
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sat Jun 16 11:41:58 2012 +0200
+
+    use engrampa instead of file-roller
+
+ libcaja-private/caja-file-dnd.c       |    2 +-
+ libcaja-private/caja-file-utilities.c |    4 ++--
+ libcaja-private/caja-file-utilities.h |    2 +-
+ src/file-manager/fm-directory-view.c  |    6 +++---
+ 4 files changed, 7 insertions(+), 7 deletions(-)
+
+commit cbbe010884fe1e3ad1deabbed7f89a77b0098a2f
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Sat Jun 16 11:31:39 2012 +0200
+
+    add diff button for text files in file conflict dialog
+
+ libcaja-private/caja-file-conflict-dialog.c |   67 +++++++++++++++++++++++++++
+ libcaja-private/caja-file.c                 |   45 ++++++++++++++++++
+ libcaja-private/caja-file.h                 |    1 +
+ 3 files changed, 113 insertions(+)
+
+commit dec2e9160bdc72ff9b44582d5484e673e60e27bb
+Merge: 7509b2a d69f6a0
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Thu Jun 14 00:44:18 2012 -0700
+
+    Merge pull request #23 from haxar/patch-1
+    
+    remove extra bracket
+
+commit d69f6a09152b52c371216592936ff9ed6bb6f36c
+Author: haxar <haxaraxah@gmail.com>
+Date:   Wed Jun 13 21:30:39 2012 -0700
+
+    remove extra bracket
+
+ src/caja-location-entry.c |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 7509b2aba6103d4c3c88b82b36b12a8a3a9329be
+Author: Stefano Karapetsas <stefano@karapetsas.com>
+Date:   Wed Jun 13 00:05:10 2012 +0200
+
+    fix autocompletion for remote locations
+    patch from http://git.gnome.org/browse/nautilus/commit/src/nautilus-location-entry.c?id=82fb99a34a6c27f6881e0a049d9882756b615f42
+
+ src/caja-location-entry.c |   10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+
+commit 1b5fa0a349182cd854396bf071a2706ed89d16f1
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Fri Jun 8 13:37:36 2012 -0400
+
+    Applied a patch that makes the filename column expand to its maximum instead of shrinking to a hardcoded value.
+
+ src/file-manager/fm-list-view.c |   11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
+
+commit cfef75e230da0d56d8677be3d3b3478f54c62e57
+Author: Steve Zesch <stevezesch2@gmail.com>
+Date:   Mon May 28 15:06:42 2012 -0400
+
+    Bump to 1.3.2
+
+ ChangeLog    |   65 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ configure.in |    2 +-
+ 2 files changed, 66 insertions(+), 1 deletion(-)
+
 commit 9b299865250365f948b523f45a874dce52d125d5
 Author: Steve Zesch <stevezesch2@gmail.com>
 Date:   Mon May 28 15:05:27 2012 -0400
@@ -5,7 +204,7 @@ Date:   Mon May 28 15:05:27 2012 -0400
     Bookmarks can now be opened via the enter or space key.
 
  src/caja-places-sidebar.c |   22 ++++++++++++++++++++++
- 1 files changed, 22 insertions(+), 0 deletions(-)
+ 1 file changed, 22 insertions(+)
 
 commit 03680f2d95687c0f336993bb44663af3bb0c2ffa
 Merge: 896872d 1558f59
@@ -23,7 +222,7 @@ Date:   Wed May 16 04:13:53 2012 +0200
     only depend on gmodule-2.0 if it exists
 
  configure.in |    4 ++--
- 1 files changed, 2 insertions(+), 2 deletions(-)
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 commit 896872d030fa0ab1fb7c62161c327146e0ad609a
 Merge: f269a73 a57d08c
@@ -41,7 +240,7 @@ Date:   Wed May 9 06:48:01 2012 -0300
     updating PKGBUILD
 
  distro/archlinux/PKGBUILD |   40 ++++++++++++++++++++--------------------
- 1 files changed, 20 insertions(+), 20 deletions(-)
+ 1 file changed, 20 insertions(+), 20 deletions(-)
 
 commit a7a3d8e25a4a156e4b7cf8ff2c0d85bca94c5f17
 Author: Steve Zesch <stevezesch2@gmail.com>
@@ -61,7 +260,7 @@ Date:   Mon May 7 17:47:06 2012 +0200
     fix issues in location bar
 
  src/caja-navigation-window-pane.c |    4 ++--
- 1 files changed, 2 insertions(+), 2 deletions(-)
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 commit 01100fab944b30226de97ac964171808b91ee9be
 Merge: 66a32c7 4dbd82c
@@ -80,7 +279,7 @@ Date:   Wed May 2 19:39:25 2012 +0200
     fix obsoletes mime data in caja-folder-handler.desktop.in.in
 
  data/caja-folder-handler.desktop.in.in |    2 +-
- 1 files changed, 1 insertions(+), 1 deletions(-)
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 commit 66a32c73c581695a0767b248859d10ea78651dfd
 Author: Stefano Karapetsas <stefano@karapetsas.com>
@@ -89,7 +288,7 @@ Date:   Fri Apr 27 17:36:16 2012 +0200
     start of 1.3 version
 
  configure.in |    2 +-
- 1 files changed, 1 insertions(+), 1 deletions(-)
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 commit 416237607d4985738feaede3b7e1b49cae9be149
 Author: Stefano Karapetsas <stefano@karapetsas.com>
@@ -100,7 +299,7 @@ Date:   Fri Apr 27 17:35:23 2012 +0200
 
  src/caja-navigation-window-pane.c |   75 +++++++++++++++++++++++++++++++++++++
  src/caja-navigation-window-pane.h |    1 +
- 2 files changed, 76 insertions(+), 0 deletions(-)
+ 2 files changed, 76 insertions(+)
 
 commit a57d08ce5672bcabae2de9a31d6660eac1c5880a
 Author: Marcel Dijkstra <marcel.dykstra@gmail.com>
@@ -109,7 +308,7 @@ Date:   Thu Apr 26 22:16:37 2012 +0200
     linker now requires gmodule-2.0 in mate-file-manager
 
  configure.in |    3 ++-
- 1 files changed, 2 insertions(+), 1 deletions(-)
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
 commit aaf4c05d9a382b18eb2eced119eff8fbf0f4c763
 Author: Steve Zesch <stevezesch2@gmail.com>
@@ -122,7 +321,7 @@ Date:   Fri Apr 6 00:55:50 2012 -0400
  distro/ubuntu/postrm   |   10 ----------
  distro/ubuntu/preinst  |    8 --------
  distro/ubuntu/prerm    |   11 -----------
- 5 files changed, 0 insertions(+), 80 deletions(-)
+ 5 files changed, 80 deletions(-)
 
 commit 471bb189349ce7c4fd9ad78f054f140a52978604
 Author: Stefano Karapetsas <stefano@karapetsas.com>
@@ -131,7 +330,7 @@ Date:   Fri Apr 6 00:18:47 2012 +0200
     fix missing spaces due to caja => nautilus rename
 
  docs/architecture.txt |   12 ++++++------
- 1 files changed, 6 insertions(+), 6 deletions(-)
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
 commit 8a6466a545c33e358ccdec400f53c5d3473a6bbb
 Author: Steve Zesch <stevezesch2@gmail.com>
@@ -160,7 +359,7 @@ Date:   Thu Feb 23 13:23:46 2012 +0100
     update translations (bg, et, nl)
 
  po/bg.po | 4452 ++++++++++++++++++++++++++--------------------------
- po/et.po | 3094 +++++++++++++++++++++++++++++--------
+ po/et.po | 3094 ++++++++++++++++++++++++++++--------
  po/nl.po | 5279 ++++++++++++++++++++++++++------------------------------------
  3 files changed, 6852 insertions(+), 5973 deletions(-)
 
@@ -183,7 +382,7 @@ Date:   Mon Jan 30 08:12:51 2012 -0300
     adding empty tab page on preferences
 
  src/caja-file-management-properties.ui |   26 ++++++++++++++++++++++++++
- 1 files changed, 26 insertions(+), 0 deletions(-)
+ 1 file changed, 26 insertions(+)
 
 commit 81ad1b3760e41292620093a4cd143740f6af4f3a
 Merge: 31fb21b 1ee8111
@@ -208,7 +407,7 @@ Date:   Sun Jan 15 06:21:28 2012 +0100
     taken from http://git.gnome.org/browse/nautilus/commit/?h=gnome-2-32&id=0fa8f53c89b84a47fac33eb923a5fb196ca564ee
 
  src/file-manager/fm-list-view.c |   14 ++++++++++----
- 1 files changed, 10 insertions(+), 4 deletions(-)
+ 1 file changed, 10 insertions(+), 4 deletions(-)
 
 commit 31fb21b2dd8821af384279245baa518d80a57e0b
 Author: Stefano Karapetsas <stefano@karapetsas.com>
@@ -221,7 +420,7 @@ Date:   Thu Jan 12 17:56:37 2012 +0100
     we have this also on caja: http://forums.linuxmint.com/viewtopic.php?f=206&t=86481&start=160#p525315
 
  libcaja-private/caja-icon-container.c |    1 +
- 1 files changed, 1 insertions(+), 0 deletions(-)
+ 1 file changed, 1 insertion(+)
 
 commit cd65216e37d8cf33e468ad8a2f7714ef1bd6596f
 Author: Stefano Karapetsas <stefano@karapetsas.com>
@@ -230,7 +429,7 @@ Date:   Thu Jan 12 17:52:42 2012 +0100
     updated de translation
 
  po/de.po |  217 ++++++++++++++++++++++++++++++++------------------------------
- 1 files changed, 111 insertions(+), 106 deletions(-)
+ 1 file changed, 111 insertions(+), 106 deletions(-)
 
 commit 3c43eac494842d438733e738ee2ac1155abaea98
 Author: Steve Zesch <stevezesch2@gmail.com>
@@ -259,9 +458,9 @@ Date:   Thu Jan 5 13:47:54 2012 +0100
 
     updated translations (eu, it, ru)
 
- po/eu.po |  405 +++++++++++++++++++++++++++++++------------------------------
+ po/eu.po |  405 ++++++++++++++++++++++++++++++++------------------------------
  po/it.po |  226 ++++++++++++++++++-----------------
- po/ru.po |  218 +++++++++++++++++-----------------
+ po/ru.po |  218 ++++++++++++++++-----------------
  3 files changed, 432 insertions(+), 417 deletions(-)
 
 commit ed06682bcd7a122b3b4ada110c152ccb3bbd0208
@@ -274,7 +473,7 @@ Date:   Thu Jan 5 13:24:04 2012 +0100
     http://git.gnome.org/browse/nautilus/commit/?h=gnome-2-32&id=c3b54e662b52ca15d1dcbe68386b8fa82b12adc5
 
  src/caja-pathbar.c |   11 +++++++----
- 1 files changed, 7 insertions(+), 4 deletions(-)
+ 1 file changed, 7 insertions(+), 4 deletions(-)
 
 commit b375acb5643b75e65f2573f686f1ad5ad635726c
 Author: Stefano Karapetsas <stefano@karapetsas.com>
@@ -285,7 +484,7 @@ Date:   Thu Jan 5 13:11:17 2012 +0100
     http://git.gnome.org/browse/nautilus/commit/?h=gnome-2-32&id=1dc416887bf1e88c4b49bd1ac2101e0fb8460af8
 
  src/caja-pathbar.c |   22 ++++++++++++++--------
- 1 files changed, 14 insertions(+), 8 deletions(-)
+ 1 file changed, 14 insertions(+), 8 deletions(-)
 
 commit 63a4ddb0bb1d98b54dd962831e4ca95365bc7123
 Author: Stefano Karapetsas <stefano@karapetsas.com>
@@ -307,7 +506,7 @@ Date:   Thu Jan 5 00:07:26 2012 +0100
     applied 96_no-null-in-g-str-hash.patch from ubuntu natty nautilus
 
  libcaja-private/caja-icon-info.c |    8 ++++++++
- 1 files changed, 8 insertions(+), 0 deletions(-)
+ 1 file changed, 8 insertions(+)
 
 commit 4a58c31e2fad6731f31c314609dc9d7ec30066d9
 Author: Stefano Karapetsas <stefano@karapetsas.com>
@@ -317,7 +516,7 @@ Date:   Wed Jan 4 21:28:52 2012 +0100
     it solves https://bugzilla.gnome.org/show_bug.cgi?id=602500
 
  libcaja-private/caja-file.c |   13 +++++++++++++
- 1 files changed, 13 insertions(+), 0 deletions(-)
+ 1 file changed, 13 insertions(+)
 
 commit c514038bc3e83e37a1fb3259a61fa100bc86ba88
 Author: Stefano Karapetsas <stefano@karapetsas.com>
@@ -336,7 +535,7 @@ Date:   Tue Dec 27 23:02:01 2011 +0100
     fixed about for MATE, use theme icon instead of old nautilus one
 
  src/caja-window-menus.c |   14 ++++++++------
- 1 files changed, 8 insertions(+), 6 deletions(-)
+ 1 file changed, 8 insertions(+), 6 deletions(-)
 
 commit 1bd5f79286dc74de9987f15e17fdb2fcbc49d81a
 Author: Stefano Karapetsas <stefano@karapetsas.com>
@@ -345,7 +544,7 @@ Date:   Tue Dec 27 22:30:31 2011 +0100
     updated it and ru translations (thanks OpenRevan, thanks transifex!)
 
  po/it.po | 4417 ++++++++++++++++++++++++++++++++------------------------------
- po/ru.po | 4194 ++++++++++++++++++++++++++++++++---------------------------
+ po/ru.po | 4194 +++++++++++++++++++++++++++++++---------------------------
  2 files changed, 4553 insertions(+), 4058 deletions(-)
 
 commit 473ed493eb72fcf0ae0d0a0ca3fce7e83b3aacde
@@ -355,7 +554,7 @@ Date:   Mon Dec 26 22:44:59 2011 +0100
     add undo file in POTFILES.in
 
  po/POTFILES.in |    1 +
- 1 files changed, 1 insertions(+), 0 deletions(-)
+ 1 file changed, 1 insertion(+)
 
 commit 584a7c426aafaa0df7ecb7ca907726b94c1e65e7
 Author: Stefano Karapetsas <stefano@karapetsas.com>
@@ -386,7 +585,7 @@ Date:   Mon Dec 26 20:10:02 2011 +0100
     updated UNDO-REDO with nautilus-elementary bzr rev 137
 
  libcaja-private/caja-undostack-manager.c |    4 ++--
- 1 files changed, 2 insertions(+), 2 deletions(-)
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 commit bd5fd70b498e935886c0325e51b9962a4e8e5c7a
 Author: Stefano Karapetsas <stefano@karapetsas.com>
@@ -395,7 +594,7 @@ Date:   Mon Dec 26 20:05:47 2011 +0100
     updated UNDO-REDO with nautilus-elementary bzr rev 138
 
  libcaja-private/caja-undostack-manager.c |   88 +++++++++++++++++++++++-------
- 1 files changed, 68 insertions(+), 20 deletions(-)
+ 1 file changed, 68 insertions(+), 20 deletions(-)
 
 commit cdd4cad2ce3930bf1d484ab12371a5d6a354ea00
 Author: Stefano Karapetsas <stefano@karapetsas.com>
@@ -414,7 +613,7 @@ Date:   Mon Dec 26 19:52:59 2011 +0100
  src/file-manager/caja-directory-view-ui.xml |    4 +
  src/file-manager/fm-actions.h               |    2 +
  src/file-manager/fm-directory-view.c        |  171 +++
- 11 files changed, 2541 insertions(+), 1 deletions(-)
+ 11 files changed, 2541 insertions(+), 1 deletion(-)
 
 commit 390b49cb93699309e1250143e744b2e61ac81cfe
 Author: Stefano Karapetsas <stefano@karapetsas.com>
@@ -431,7 +630,7 @@ Date:   Fri Dec 9 23:28:13 2011 +0100
  docs/reference/libcaja-extension/Makefile.in |  797 -----------
  gtk-doc.make                                 |  280 ----
  install-sh                                   |  520 --------
- 9 files changed, 0 insertions(+), 7428 deletions(-)
+ 9 files changed, 7428 deletions(-)
 
 commit 9885ec0e487f9a485408de81813a57df23389b58
 Author: Steve Zesch <stevezesch2@gmail.com>
@@ -450,12 +649,12 @@ Date:   Mon Dec 5 13:08:10 2011 -0300
 
     removing autogenerated file
 
- config.guess        | 1501 ---------------------------------------------------
- config.h.in         |  185 -------
- depcomp             |  630 ---------------------
- missing             |  376 -------------
- mkinstalldirs       |  162 ------
- 5 files changed, 0 insertions(+), 2854 deletions(-)
+ config.guess  | 1501 ---------------------------------------------------------
+ config.h.in   |  185 -------
+ depcomp       |  630 ------------------------
+ missing       |  376 ---------------
+ mkinstalldirs |  162 -------
+ 5 files changed, 2854 deletions(-)
 
 commit 4732ed0c09ee3d96fc8b09b3099a72d6748b86fc
 Author: Perberos <perberos@gmail.com>
@@ -464,7 +663,7 @@ Date:   Mon Dec 5 13:06:31 2011 -0300
     the ghost of the past
 
  libnautilus-extension/README |    1 +
- 1 files changed, 1 insertions(+), 0 deletions(-)
+ 1 file changed, 1 insertion(+)
 
 commit 682347c43d016885ad0abd86a7edaec20d57b044
 Author: Perberos <perberos@gmail.com>
@@ -1210,4 +1409,4 @@ Date:   Thu Dec 1 22:24:23 2011 -0300
  test/test-eel-pixbuf-scale.c                       |   83 +
  test/test.c                                        |  152 +
  test/test.h                                        |   38 +
- 703 files changed, 1088094 insertions(+), 0 deletions(-)
+ 703 files changed, 1088094 insertions(+)
