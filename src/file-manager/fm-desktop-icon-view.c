@@ -91,6 +91,7 @@ static void     real_merge_menus                                  (FMDirectoryVi
 static void     real_update_menus                                 (FMDirectoryView        *view);
 static gboolean real_supports_zooming                             (FMDirectoryView        *view);
 static void     fm_desktop_icon_view_update_icon_container_fonts  (FMDesktopIconView      *view);
+static void     font_changed_callback                             (gpointer                callback_data);
 
 EEL_CLASS_BOILERPLATE (FMDesktopIconView,
                        fm_desktop_icon_view,
@@ -302,6 +303,9 @@ fm_desktop_icon_view_finalize (GObject *object)
 
     g_signal_handlers_disconnect_by_func (caja_icon_view_preferences,
                                           default_zoom_level_changed,
+                                          icon_view);
+    g_signal_handlers_disconnect_by_func (caja_preferences,
+                                          font_changed_callback,
                                           icon_view);
 
     eel_preferences_remove_callback (CAJA_PREFERENCES_LOCKDOWN_COMMAND_LINE,
@@ -621,9 +625,10 @@ fm_desktop_icon_view_init (FMDesktopIconView *desktop_icon_view)
                               G_CALLBACK (default_zoom_level_changed),
                               desktop_icon_view);
 
-    eel_preferences_add_callback_while_alive (CAJA_PREFERENCES_DESKTOP_FONT,
-            font_changed_callback,
-            desktop_icon_view, G_OBJECT (desktop_icon_view));
+    g_signal_connect_swapped (caja_preferences,
+                              "changed::" CAJA_PREFERENCES_DESKTOP_FONT,
+                              G_CALLBACK (font_changed_callback),
+                              desktop_icon_view);
 
     default_zoom_level_changed (desktop_icon_view);
     fm_desktop_icon_view_update_icon_container_fonts (desktop_icon_view);
