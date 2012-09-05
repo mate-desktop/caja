@@ -97,7 +97,7 @@ G_BEGIN_DECLS
 #define CAJA_PREFERENCES_CLICK_POLICY			"preferences/click_policy"
 
     /* Activating executable text files */
-#define CAJA_PREFERENCES_EXECUTABLE_TEXT_ACTIVATION		"preferences/executable_text_activation"
+#define CAJA_PREFERENCES_EXECUTABLE_TEXT_ACTIVATION		"executable-text-activation"
 
     /* Installing new packages when unknown mime type activated */
 #define CAJA_PREFERENCES_INSTALL_MIME_ACTIVATION		"preferences/install_mime_activation"

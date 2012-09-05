@@ -822,8 +822,8 @@ get_executable_text_file_action (GtkWindow *parent_window, CajaFile *file)
 
     g_assert (caja_file_contains_text (file));
 
-    preferences_value = eel_preferences_get_enum
-                        (CAJA_PREFERENCES_EXECUTABLE_TEXT_ACTIVATION);
+    preferences_value = g_settings_get_enum (caja_preferences,
+                            CAJA_PREFERENCES_EXECUTABLE_TEXT_ACTIVATION);
     switch (preferences_value)
     {
     case CAJA_EXECUTABLE_TEXT_LAUNCH:
@@ -881,8 +881,8 @@ get_default_executable_text_file_action (void)
 {
     int preferences_value;
 
-    preferences_value = eel_preferences_get_enum
-                        (CAJA_PREFERENCES_EXECUTABLE_TEXT_ACTIVATION);
+    preferences_value = g_settings_get_enum (caja_preferences,
+                            CAJA_PREFERENCES_EXECUTABLE_TEXT_ACTIVATION);
     switch (preferences_value)
     {
     case CAJA_EXECUTABLE_TEXT_LAUNCH:
