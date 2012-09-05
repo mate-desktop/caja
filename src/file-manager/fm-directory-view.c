@@ -2045,8 +2045,10 @@ fm_directory_view_init (FMDirectoryView *view)
 				      text_attribute_names_changed_callback, view);
 	eel_preferences_add_callback (CAJA_PREFERENCES_SHOW_IMAGE_FILE_THUMBNAILS,
 				      image_display_policy_changed_callback, view);
-	eel_preferences_add_callback (CAJA_PREFERENCES_CLICK_POLICY,
-				      click_policy_changed_callback, view);
+	g_signal_connect_swapped (caja_preferences,
+							  "changed::" CAJA_PREFERENCES_CLICK_POLICY,
+							  G_CALLBACK(click_policy_changed_callback),
+							  view);
 	eel_preferences_add_callback (CAJA_PREFERENCES_SORT_DIRECTORIES_FIRST,
 				      sort_directories_first_changed_callback, view);
 	eel_preferences_add_callback (CAJA_PREFERENCES_LOCKDOWN_COMMAND_LINE,
@@ -2174,8 +2176,8 @@ fm_directory_view_finalize (GObject *object)
 					 text_attribute_names_changed_callback, view);
 	eel_preferences_remove_callback (CAJA_PREFERENCES_SHOW_IMAGE_FILE_THUMBNAILS,
 					 image_display_policy_changed_callback, view);
-	eel_preferences_remove_callback (CAJA_PREFERENCES_CLICK_POLICY,
-					 click_policy_changed_callback, view);
+	g_signal_handlers_disconnect_by_func (caja_preferences,
+										  click_policy_changed_callback, view);
 	eel_preferences_remove_callback (CAJA_PREFERENCES_SORT_DIRECTORIES_FIRST,
 					 sort_directories_first_changed_callback, view);
 	eel_preferences_remove_callback (CAJA_PREFERENCES_LOCKDOWN_COMMAND_LINE,

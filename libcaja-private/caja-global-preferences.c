@@ -104,20 +104,6 @@ static EelEnumerationEntry file_size_enum_entries[] =
     { "4294967295",     N_("4 GB"),         4294967295U }
 };
 
-static EelEnumerationEntry click_policy_enum_entries[] =
-{
-    {
-        "single",
-        N_("Activate items with a _single click"),
-        CAJA_CLICK_POLICY_SINGLE
-    },
-    {
-        "double",
-        N_("Activate items with a _double click"),
-        CAJA_CLICK_POLICY_DOUBLE
-    }
-};
-
 static EelEnumerationEntry search_bar_type_enum_entries[] =
 {
     {
@@ -252,13 +238,6 @@ static const PreferenceDefault preference_defaults[] =
         "local_only",
         NULL, NULL,
         "speed_tradeoff"
-    },
-    {
-        CAJA_PREFERENCES_CLICK_POLICY,
-        PREFERENCE_STRING,
-        "double",
-        NULL, NULL,
-        "click_policy"
     },
     {
         CAJA_PREFERENCES_INSTALL_MIME_ACTIVATION,
@@ -569,9 +548,6 @@ global_preferences_register_enumerations (void)
      * populate widgets and route preferences changes between the
      * storage (MateConf) and the displayed values.
      */
-    eel_enumeration_register ("click_policy",
-                              click_policy_enum_entries,
-                              G_N_ELEMENTS (click_policy_enum_entries));
     eel_enumeration_register ("default_folder_viewer",
                               default_folder_viewer_enum_entries,
                               G_N_ELEMENTS (default_folder_viewer_enum_entries));

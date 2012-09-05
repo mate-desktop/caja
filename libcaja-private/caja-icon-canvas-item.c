@@ -283,9 +283,10 @@ caja_icon_canvas_item_init (CajaIconCanvasItem *icon_item)
 
     if (!setup_auto_enums)
     {
-        eel_preferences_add_auto_enum
-        (CAJA_PREFERENCES_CLICK_POLICY,
-         &click_policy_auto_value);
+        eel_g_settings_add_auto_enum
+             (caja_preferences,
+             CAJA_PREFERENCES_CLICK_POLICY,
+             &click_policy_auto_value);
         setup_auto_enums = TRUE;
     }
 

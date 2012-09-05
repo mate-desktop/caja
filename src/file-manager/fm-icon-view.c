@@ -2890,7 +2890,7 @@ fm_icon_view_update_click_mode (FMIconView *icon_view)
     icon_container = get_icon_container (icon_view);
     g_assert (icon_container != NULL);
 
-    click_mode = eel_preferences_get_enum (CAJA_PREFERENCES_CLICK_POLICY);
+    click_mode = g_settings_get_enum (caja_preferences, CAJA_PREFERENCES_CLICK_POLICY);
 
     caja_icon_container_set_single_click_mode (icon_container,
             click_mode == CAJA_CLICK_POLICY_SINGLE);

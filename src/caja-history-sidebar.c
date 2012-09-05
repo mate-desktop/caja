@@ -219,7 +219,7 @@ update_click_policy (CajaHistorySidebar *sidebar)
 {
     int policy;
 
-    policy = eel_preferences_get_enum (CAJA_PREFERENCES_CLICK_POLICY);
+    policy = g_settings_get_enum (caja_preferences, CAJA_PREFERENCES_CLICK_POLICY);
 
     eel_gtk_tree_view_set_activate_on_single_click
     (sidebar->tree_view, policy == CAJA_CLICK_POLICY_SINGLE);
@@ -298,9 +298,10 @@ caja_history_sidebar_init (CajaHistorySidebar *sidebar)
     g_signal_connect (tree_view, "button-press-event",
                       G_CALLBACK (button_press_event_callback), sidebar);
 
-    eel_preferences_add_callback (CAJA_PREFERENCES_CLICK_POLICY,
-                                  click_policy_changed_callback,
-                                  sidebar);
+    g_signal_connect_swapped (caja_preferences,
+                              "changed::" CAJA_PREFERENCES_CLICK_POLICY,
+                              G_CALLBACK(click_policy_changed_callback),
+                              sidebar);
     update_click_policy (sidebar);
 }
 
@@ -311,9 +312,9 @@ caja_history_sidebar_finalize (GObject *object)
 
     sidebar = CAJA_HISTORY_SIDEBAR (object);
 
-    eel_preferences_remove_callback (CAJA_PREFERENCES_CLICK_POLICY,
-                                     click_policy_changed_callback,
-                                     sidebar);
+    g_signal_handlers_disconnect_by_func (caja_preferences,
+                                          click_policy_changed_callback,
+                                          sidebar);
 
     G_OBJECT_CLASS (caja_history_sidebar_parent_class)->finalize (object);
 }
