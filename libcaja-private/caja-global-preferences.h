@@ -164,8 +164,8 @@ G_BEGIN_DECLS
 #define CAJA_PREFERENCES_DESKTOP_TEXT_ELLIPSIS_LIMIT		"text-ellipsis-limit"
 
     /* Compact View */
-#define CAJA_PREFERENCES_COMPACT_VIEW_DEFAULT_ZOOM_LEVEL		"compact_view/default_zoom_level"
-#define CAJA_PREFERENCES_COMPACT_VIEW_ALL_COLUMNS_SAME_WIDTH	"compact_view/all_columns_have_same_width"
+#define CAJA_PREFERENCES_COMPACT_VIEW_DEFAULT_ZOOM_LEVEL		"default-zoom-level"
+#define CAJA_PREFERENCES_COMPACT_VIEW_ALL_COLUMNS_SAME_WIDTH	"all-columns-have-same-width"
 
     /* List View */
 #define CAJA_PREFERENCES_LIST_VIEW_DEFAULT_SORT_IN_REVERSE_ORDER	"list_view/default_sort_in_reverse_order"
@@ -232,6 +232,7 @@ GSettings *caja_window_state;
 GSettings *caja_icon_view_preferences;
 GSettings *caja_desktop_preferences;
 GSettings *caja_tree_sidebar_preferences;
+GSettings *caja_compact_view_preferences;
 
 G_END_DECLS
 

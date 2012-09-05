@@ -201,6 +201,7 @@ static void default_use_tighter_layout_changed_callback    (gpointer callback_da
 static void default_use_manual_layout_changed_callback     (gpointer callback_data);
 static void default_zoom_level_changed_callback            (gpointer callback_data);
 static void labels_beside_icons_changed_callback           (gpointer callback_data);
+static void all_columns_same_width_changed_callback        (gpointer callback_data);
 
 static void fm_icon_view_iface_init (CajaViewIface *iface);
 
@@ -268,7 +269,12 @@ fm_icon_view_finalize (GObject *object)
     g_signal_handlers_disconnect_by_func (caja_icon_view_preferences,
                                           labels_beside_icons_changed_callback,
                                           icon_view);
-
+    g_signal_handlers_disconnect_by_func (caja_compact_view_preferences,
+                                          default_zoom_level_changed_callback,
+                                          icon_view);
+    g_signal_handlers_disconnect_by_func (caja_compact_view_preferences,
+                                          all_columns_same_width_changed_callback,
+                                          icon_view);
     G_OBJECT_CLASS (fm_icon_view_parent_class)->finalize (object);
 }
 
@@ -1237,8 +1243,9 @@ get_default_zoom_level (FMIconView *icon_view)
         eel_g_settings_add_auto_enum (caja_icon_view_preferences,
                                       CAJA_PREFERENCES_ICON_VIEW_DEFAULT_ZOOM_LEVEL,
                                       (int *) &default_zoom_level);
-        eel_preferences_add_auto_enum (CAJA_PREFERENCES_COMPACT_VIEW_DEFAULT_ZOOM_LEVEL,
-                                       (int *) &default_compact_zoom_level);
+        eel_g_settings_add_auto_enum (caja_compact_view_preferences,
+                                      CAJA_PREFERENCES_COMPACT_VIEW_DEFAULT_ZOOM_LEVEL,
+                                      (int *) &default_compact_zoom_level);
     }
 
     return CLAMP (DEFAULT_ZOOM_LEVEL(icon_view), CAJA_ZOOM_LEVEL_SMALLEST, CAJA_ZOOM_LEVEL_LARGEST);
@@ -1276,7 +1283,7 @@ set_columns_same_width (FMIconView *icon_view)
 
     if (fm_icon_view_is_compact (icon_view))
     {
-        all_columns_same_width = eel_preferences_get_boolean (CAJA_PREFERENCES_COMPACT_VIEW_ALL_COLUMNS_SAME_WIDTH);
+        all_columns_same_width = g_settings_get_boolean (caja_compact_view_preferences, CAJA_PREFERENCES_COMPACT_VIEW_ALL_COLUMNS_SAME_WIDTH);
         caja_icon_container_set_all_columns_same_width (get_icon_container (icon_view), all_columns_same_width);
     }
 }
@@ -3344,12 +3351,14 @@ fm_icon_view_init (FMIconView *icon_view)
                               G_CALLBACK (labels_beside_icons_changed_callback),
                               icon_view);
 
-    eel_preferences_add_callback_while_alive (CAJA_PREFERENCES_COMPACT_VIEW_DEFAULT_ZOOM_LEVEL,
-            default_zoom_level_changed_callback,
-            icon_view, G_OBJECT (icon_view));
-    eel_preferences_add_callback_while_alive (CAJA_PREFERENCES_COMPACT_VIEW_ALL_COLUMNS_SAME_WIDTH,
-            all_columns_same_width_changed_callback,
-            icon_view, G_OBJECT (icon_view));
+    g_signal_connect_swapped (caja_compact_view_preferences,
+                              "changed::" CAJA_PREFERENCES_COMPACT_VIEW_DEFAULT_ZOOM_LEVEL,
+                              G_CALLBACK (default_zoom_level_changed_callback),
+                              icon_view);
+    g_signal_connect_swapped (caja_compact_view_preferences,
+                              "changed::" CAJA_PREFERENCES_COMPACT_VIEW_ALL_COLUMNS_SAME_WIDTH,
+                              G_CALLBACK (all_columns_same_width_changed_callback),
+                              icon_view);
 
     g_signal_connect_object (get_icon_container (icon_view), "handle_netscape_url",
                              G_CALLBACK (icon_view_handle_netscape_url), icon_view, 0);

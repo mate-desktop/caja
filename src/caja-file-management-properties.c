@@ -966,9 +966,9 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
     bind_builder_bool (builder, caja_icon_view_preferences,
                        CAJA_FILE_MANAGEMENT_PROPERTIES_LABELS_BESIDE_ICONS_WIDGET,
                        CAJA_PREFERENCES_ICON_VIEW_LABELS_BESIDE_ICONS);
-    eel_preferences_builder_connect_bool (builder,
-                                          CAJA_FILE_MANAGEMENT_PROPERTIES_ALL_COLUMNS_SAME_WIDTH,
-                                          CAJA_PREFERENCES_COMPACT_VIEW_ALL_COLUMNS_SAME_WIDTH);
+    bind_builder_bool (builder, caja_compact_view_preferences,
+                       CAJA_FILE_MANAGEMENT_PROPERTIES_ALL_COLUMNS_SAME_WIDTH,
+                       CAJA_PREFERENCES_COMPACT_VIEW_ALL_COLUMNS_SAME_WIDTH);
     bind_builder_bool (builder, caja_preferences,
                        CAJA_FILE_MANAGEMENT_PROPERTIES_FOLDERS_FIRST_WIDGET,
                        CAJA_PREFERENCES_SORT_DIRECTORIES_FIRST);
@@ -1005,10 +1005,10 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
                        CAJA_FILE_MANAGEMENT_PROPERTIES_ICON_VIEW_ZOOM_WIDGET,
                        CAJA_PREFERENCES_ICON_VIEW_DEFAULT_ZOOM_LEVEL,
                        (const char **) zoom_values);
-    eel_preferences_builder_connect_string_enum_combo_box (builder,
-            CAJA_FILE_MANAGEMENT_PROPERTIES_COMPACT_VIEW_ZOOM_WIDGET,
-            CAJA_PREFERENCES_COMPACT_VIEW_DEFAULT_ZOOM_LEVEL,
-            (const char **) zoom_values);
+    bind_builder_enum (builder, caja_compact_view_preferences,
+                       CAJA_FILE_MANAGEMENT_PROPERTIES_COMPACT_VIEW_ZOOM_WIDGET,
+                       CAJA_PREFERENCES_COMPACT_VIEW_DEFAULT_ZOOM_LEVEL,
+                       (const char **) zoom_values);
     eel_preferences_builder_connect_string_enum_combo_box (builder,
             CAJA_FILE_MANAGEMENT_PROPERTIES_LIST_VIEW_ZOOM_WIDGET,
             CAJA_PREFERENCES_LIST_VIEW_DEFAULT_ZOOM_LEVEL,
