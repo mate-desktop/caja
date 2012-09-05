@@ -637,7 +637,7 @@ action_new_tab_callback (GtkAction *action,
     {
         flags = 0;
 
-        new_slot_position = eel_preferences_get_enum (CAJA_PREFERENCES_NEW_TAB_POSITION);
+        new_slot_position = g_settings_get_enum (caja_preferences, CAJA_PREFERENCES_NEW_TAB_POSITION);
         if (new_slot_position == CAJA_NEW_TAB_POSITION_END)
         {
             flags = CAJA_WINDOW_OPEN_SLOT_APPEND;

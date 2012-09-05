@@ -149,13 +149,6 @@ static EelEnumerationEntry standard_font_size_entries[] =
     { "24",		   N_("24"),	24 }
 };
 
-/* These are not translated, because the text is not used in the ui */
-static EelEnumerationEntry new_tab_position_entries[] =
-{
-    { "after_current_tab",  "After Current Tab",	CAJA_NEW_TAB_POSITION_AFTER_CURRENT_TAB },
-    { "end",		"End",			CAJA_NEW_TAB_POSITION_END }
-};
-
 /*
  * A callback which can be used to fetch dynamic fallback values.
  * For example, values that are dependent on the environment (such as user name)
@@ -283,13 +276,6 @@ static const PreferenceDefault preference_defaults[] =
         "size,date_modified,type",
         NULL, NULL,
         NULL
-    },
-    {
-        CAJA_PREFERENCES_NEW_TAB_POSITION,
-        PREFERENCE_STRING,
-        "after_current_tab",
-        NULL, NULL,
-        "new_tab_position"
     },
     {
         CAJA_PREFERENCES_START_WITH_TOOLBAR,
@@ -564,9 +550,6 @@ global_preferences_register_enumerations (void)
     eel_enumeration_register ("standard_font_size",
                               standard_font_size_entries,
                               G_N_ELEMENTS (standard_font_size_entries));
-    eel_enumeration_register ("new_tab_position",
-                              new_tab_position_entries,
-                              G_N_ELEMENTS (new_tab_position_entries));
 
     /* Set the enumeration ids for preferences that need them */
     for (i = 0; preference_defaults[i].name != NULL; i++)

@@ -104,7 +104,7 @@ G_BEGIN_DECLS
 
     /* Spatial or browser mode */
 #define CAJA_PREFERENCES_ALWAYS_USE_BROWSER       		"always-use-browser"
-#define CAJA_PREFERENCES_NEW_TAB_POSITION       		"preferences/tabs_open_position"
+#define CAJA_PREFERENCES_NEW_TAB_POSITION       		"tabs-open-position"
 
     /* Which views should be displayed for new windows */
 #define CAJA_PREFERENCES_START_WITH_LOCATION_BAR		"preferences/start_with_location_bar"

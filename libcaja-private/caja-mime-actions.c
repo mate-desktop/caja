@@ -1936,7 +1936,7 @@ activate_files (ActivateParameters *parameters)
     {
 
         if ((flags & CAJA_WINDOW_OPEN_FLAG_NEW_TAB) != 0 &&
-                eel_preferences_get_enum (CAJA_PREFERENCES_NEW_TAB_POSITION) ==
+                g_settings_get_enum (caja_preferences, CAJA_PREFERENCES_NEW_TAB_POSITION) ==
                 CAJA_NEW_TAB_POSITION_AFTER_CURRENT_TAB)
         {
             /* When inserting N tabs after the current one,
