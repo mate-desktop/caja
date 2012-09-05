@@ -115,7 +115,9 @@ G_BEGIN_DECLS
 #define CAJA_WINDOW_STATE_SIDEBAR_WIDTH  					"sidebar-width"
 
     /* Sorting order */
-#define CAJA_PREFERENCES_SORT_DIRECTORIES_FIRST		"sort-directories-first"
+#define CAJA_PREFERENCES_SORT_DIRECTORIES_FIRST		        "sort-directories-first"
+#define CAJA_PREFERENCES_DEFAULT_SORT_ORDER			        "default-sort-order"
+#define CAJA_PREFERENCES_DEFAULT_SORT_IN_REVERSE_ORDER	    "default-sort-in-reverse-order"
 
     /* The default folder viewer - one of the two enums below */
 #define CAJA_PREFERENCES_DEFAULT_FOLDER_VIEWER		"default-folder-viewer"
@@ -135,23 +137,12 @@ G_BEGIN_DECLS
 
 
     /* Icon View */
-#define CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_IN_REVERSE_ORDER	"default-sort-in-reverse-order"
-#define CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_ORDER		        "default-sort-order"
 #define CAJA_PREFERENCES_ICON_VIEW_DEFAULT_USE_TIGHTER_LAYOUT	    "default-use-tighter-layout"
 #define CAJA_PREFERENCES_ICON_VIEW_DEFAULT_ZOOM_LEVEL		        "default-zoom-level"
-#define CAJA_PREFERENCES_ICON_VIEW_DEFAULT_USE_MANUAL_LAYOUT	    "default-use-manual-layout"
 
 #define CAJA_PREFERENCES_ICON_VIEW_LABELS_BESIDE_ICONS      	"labels-beside-icons"
 
 
-    /* The icon view uses 2 variables to store the sort order and
-     * whether to use manual layout.  However, the UI for these
-     * preferences presensts them as single option menu.  So we
-     * use the following preference as a proxy for the other two.
-     * In caja-global-preferences.c we install callbacks for
-     * the proxy preference and update the other 2 when it changes
-     */
-#define CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_ORDER_OR_MANUAL_LAYOUT "default-sort-order-or-manual-layout"
 
     /* Which text attributes appear beneath icon names */
 #define CAJA_PREFERENCES_ICON_VIEW_CAPTIONS				"captions"
@@ -168,11 +159,9 @@ G_BEGIN_DECLS
 #define CAJA_PREFERENCES_COMPACT_VIEW_ALL_COLUMNS_SAME_WIDTH	"all-columns-have-same-width"
 
     /* List View */
-#define CAJA_PREFERENCES_LIST_VIEW_DEFAULT_SORT_IN_REVERSE_ORDER	"list_view/default_sort_in_reverse_order"
-#define CAJA_PREFERENCES_LIST_VIEW_DEFAULT_SORT_ORDER		"list_view/default_sort_order"
-#define CAJA_PREFERENCES_LIST_VIEW_DEFAULT_ZOOM_LEVEL		"list_view/default_zoom_level"
-#define CAJA_PREFERENCES_LIST_VIEW_DEFAULT_VISIBLE_COLUMNS	        "list_view/default_visible_columns"
-#define CAJA_PREFERENCES_LIST_VIEW_DEFAULT_COLUMN_ORDER	        "list_view/default_column_order"
+#define CAJA_PREFERENCES_LIST_VIEW_DEFAULT_ZOOM_LEVEL		"default-zoom-level"
+#define CAJA_PREFERENCES_LIST_VIEW_DEFAULT_VISIBLE_COLUMNS	"default-visible-columns"
+#define CAJA_PREFERENCES_LIST_VIEW_DEFAULT_COLUMN_ORDER		"default-column-order"
 
     enum
     {
@@ -229,6 +218,7 @@ GSettings *caja_icon_view_preferences;
 GSettings *caja_desktop_preferences;
 GSettings *caja_tree_sidebar_preferences;
 GSettings *caja_compact_view_preferences;
+GSettings *caja_list_view_preferences;
 
 G_END_DECLS
 

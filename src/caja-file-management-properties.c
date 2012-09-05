@@ -291,8 +291,12 @@ columns_changed_callback (CajaColumnChooser *chooser,
                                       &visible_columns,
                                       &column_order);
 
-    eel_preferences_set_string_array (CAJA_PREFERENCES_LIST_VIEW_DEFAULT_VISIBLE_COLUMNS, visible_columns);
-    eel_preferences_set_string_array (CAJA_PREFERENCES_LIST_VIEW_DEFAULT_COLUMN_ORDER, column_order);
+    g_settings_set_strv (caja_list_view_preferences,
+                         CAJA_PREFERENCES_LIST_VIEW_DEFAULT_VISIBLE_COLUMNS,
+                         (const char * const *)visible_columns);
+    g_settings_set_strv (caja_list_view_preferences,
+                         CAJA_PREFERENCES_LIST_VIEW_DEFAULT_COLUMN_ORDER,
+                         (const char * const *)column_order);
 
     g_strfreev (visible_columns);
     g_strfreev (column_order);
@@ -512,13 +516,15 @@ create_date_format_menu (GtkBuilder *builder)
 }
 
 static void
-set_columns_from_mateconf (CajaColumnChooser *chooser)
+set_columns_from_settings (CajaColumnChooser *chooser)
 {
     char **visible_columns;
     char **column_order;
 
-    visible_columns = eel_preferences_get_string_array (CAJA_PREFERENCES_LIST_VIEW_DEFAULT_VISIBLE_COLUMNS);
-    column_order = eel_preferences_get_string_array (CAJA_PREFERENCES_LIST_VIEW_DEFAULT_COLUMN_ORDER);
+    visible_columns = g_settings_get_strv (caja_list_view_preferences,
+                                           CAJA_PREFERENCES_LIST_VIEW_DEFAULT_VISIBLE_COLUMNS);
+    column_order = g_settings_get_strv (caja_list_view_preferences,
+                                        CAJA_PREFERENCES_LIST_VIEW_DEFAULT_COLUMN_ORDER);
 
     caja_column_chooser_set_settings (CAJA_COLUMN_CHOOSER (chooser),
                                       visible_columns,
@@ -532,9 +538,11 @@ static void
 use_default_callback (CajaColumnChooser *chooser,
                       gpointer user_data)
 {
-    eel_preferences_unset (CAJA_PREFERENCES_LIST_VIEW_DEFAULT_VISIBLE_COLUMNS);
-    eel_preferences_unset (CAJA_PREFERENCES_LIST_VIEW_DEFAULT_COLUMN_ORDER);
-    set_columns_from_mateconf (chooser);
+    g_settings_reset (caja_list_view_preferences,
+                      CAJA_PREFERENCES_LIST_VIEW_DEFAULT_VISIBLE_COLUMNS);
+    g_settings_reset (caja_list_view_preferences,
+                      CAJA_PREFERENCES_LIST_VIEW_DEFAULT_COLUMN_ORDER);
+    set_columns_from_settings (chooser);
 }
 
 static void
@@ -549,7 +557,7 @@ caja_file_management_properties_dialog_setup_list_column_page (GtkBuilder *build
     g_signal_connect (chooser, "use_default",
                       G_CALLBACK (use_default_callback), chooser);
 
-    set_columns_from_mateconf (CAJA_COLUMN_CHOOSER (chooser));
+    set_columns_from_settings (CAJA_COLUMN_CHOOSER (chooser));
 
     gtk_widget_show (chooser);
     box = GTK_WIDGET (gtk_builder_get_object (builder, "list_columns_vbox"));
@@ -1009,17 +1017,14 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
                        CAJA_FILE_MANAGEMENT_PROPERTIES_COMPACT_VIEW_ZOOM_WIDGET,
                        CAJA_PREFERENCES_COMPACT_VIEW_DEFAULT_ZOOM_LEVEL,
                        (const char **) zoom_values);
-    eel_preferences_builder_connect_string_enum_combo_box (builder,
-            CAJA_FILE_MANAGEMENT_PROPERTIES_LIST_VIEW_ZOOM_WIDGET,
-            CAJA_PREFERENCES_LIST_VIEW_DEFAULT_ZOOM_LEVEL,
-            (const char **) zoom_values);
-    bind_builder_enum (builder, caja_icon_view_preferences,
+    bind_builder_enum (builder, caja_list_view_preferences,
+                       CAJA_FILE_MANAGEMENT_PROPERTIES_LIST_VIEW_ZOOM_WIDGET,
+                       CAJA_PREFERENCES_LIST_VIEW_DEFAULT_ZOOM_LEVEL,
+                       (const char **) zoom_values);
+    bind_builder_enum (builder, caja_preferences,
                        CAJA_FILE_MANAGEMENT_PROPERTIES_SORT_ORDER_WIDGET,
-                       CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_ORDER,
+                       CAJA_PREFERENCES_DEFAULT_SORT_ORDER,
                        (const char **) sort_order_values);
-    eel_preferences_builder_connect_string_enum_combo_box_slave (builder,
-            CAJA_FILE_MANAGEMENT_PROPERTIES_SORT_ORDER_WIDGET,
-            CAJA_PREFERENCES_LIST_VIEW_DEFAULT_SORT_ORDER);
     bind_builder_enum (builder, caja_preferences,
                        CAJA_FILE_MANAGEMENT_PROPERTIES_PREVIEW_TEXT_WIDGET,
                        CAJA_PREFERENCES_SHOW_TEXT_IN_ICONS,

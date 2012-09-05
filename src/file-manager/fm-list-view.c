@@ -133,7 +133,7 @@ struct SelectionForeachData
 #define WAIT_FOR_RENAME_ON_ACTIVATE 200
 
 static int                      click_policy_auto_value;
-static char *              	default_sort_order_auto_value;
+static CajaFileSortType         default_sort_order_auto_value;
 static gboolean			default_sort_reversed_auto_value;
 static CajaZoomLevel        default_zoom_level_auto_value;
 static char **                  default_visible_columns_auto_value;
@@ -179,12 +179,24 @@ static const gchar*
 get_default_sort_order (CajaFile *file, gboolean *reversed)
 {
     const gchar *retval;
+    const char *attributes[] = {
+        "name", /* is really "manually" which doesn't apply to lists */
+        "name",
+        "uri",
+        "size",
+        "type",
+        "date_modified",
+        "date_accessed",
+        "emblems",
+        "trashed_on",
+        NULL
+    };
 
     retval = caja_file_get_default_sort_attribute (file, reversed);
 
     if (retval == NULL)
     {
-        retval = default_sort_order_auto_value;
+        retval = attributes[default_sort_order_auto_value];
         *reversed = default_sort_reversed_auto_value;
     }
 
@@ -1264,7 +1276,7 @@ sort_column_changed_callback (GtkTreeSortable *sortable,
         if (sort_attr == default_sort_attr)
         {
             /* use value from preferences */
-            reversed = eel_preferences_get_boolean (CAJA_PREFERENCES_LIST_VIEW_DEFAULT_SORT_IN_REVERSE_ORDER);
+            reversed = g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_DEFAULT_SORT_IN_REVERSE_ORDER);
         }
         else
         {
@@ -3092,6 +3104,19 @@ fm_list_view_finalize (GObject *object)
 
     g_free (list_view->details);
 
+    g_signal_handlers_disconnect_by_func (caja_preferences,
+                                          default_sort_order_changed_callback,
+                                          list_view);
+    g_signal_handlers_disconnect_by_func (caja_list_view_preferences,
+                                          default_zoom_level_changed_callback,
+                                          list_view);
+    g_signal_handlers_disconnect_by_func (caja_list_view_preferences,
+                                          default_visible_columns_changed_callback,
+                                          list_view);
+    g_signal_handlers_disconnect_by_func (caja_list_view_preferences,
+                                          default_column_order_changed_callback,
+                                          list_view);
+
     G_OBJECT_CLASS (parent_class)->finalize (object);
 }
 
@@ -3291,16 +3316,21 @@ fm_list_view_class_init (FMListViewClass *class)
     eel_g_settings_add_auto_enum (caja_preferences,
                                   CAJA_PREFERENCES_CLICK_POLICY,
                                   &click_policy_auto_value);
-    eel_preferences_add_auto_string (CAJA_PREFERENCES_LIST_VIEW_DEFAULT_SORT_ORDER,
-                                     (const char **) &default_sort_order_auto_value);
-    eel_preferences_add_auto_boolean (CAJA_PREFERENCES_LIST_VIEW_DEFAULT_SORT_IN_REVERSE_ORDER,
-                                      &default_sort_reversed_auto_value);
-    eel_preferences_add_auto_enum (CAJA_PREFERENCES_LIST_VIEW_DEFAULT_ZOOM_LEVEL,
-                                   (int *) &default_zoom_level_auto_value);
-    eel_preferences_add_auto_string_array (CAJA_PREFERENCES_LIST_VIEW_DEFAULT_VISIBLE_COLUMNS,
-                                           &default_visible_columns_auto_value);
-    eel_preferences_add_auto_string_array (CAJA_PREFERENCES_LIST_VIEW_DEFAULT_COLUMN_ORDER,
-                                           &default_column_order_auto_value);
+    eel_g_settings_add_auto_enum (caja_preferences,
+                                  CAJA_PREFERENCES_DEFAULT_SORT_ORDER,
+                                  (int *) &default_sort_order_auto_value);
+    eel_g_settings_add_auto_boolean (caja_preferences,
+                                     CAJA_PREFERENCES_DEFAULT_SORT_IN_REVERSE_ORDER,
+                                     &default_sort_reversed_auto_value);
+    eel_g_settings_add_auto_enum (caja_list_view_preferences,
+                                  CAJA_PREFERENCES_LIST_VIEW_DEFAULT_ZOOM_LEVEL,
+                                  (int *) &default_zoom_level_auto_value);
+    eel_g_settings_add_auto_strv (caja_list_view_preferences,
+                                  CAJA_PREFERENCES_LIST_VIEW_DEFAULT_VISIBLE_COLUMNS,
+                                  &default_visible_columns_auto_value);
+    eel_g_settings_add_auto_strv (caja_list_view_preferences,
+                                  CAJA_PREFERENCES_LIST_VIEW_DEFAULT_COLUMN_ORDER,
+                                  &default_column_order_auto_value);
 }
 
 static const char *
@@ -3329,21 +3359,26 @@ fm_list_view_init (FMListView *list_view)
 
     create_and_set_up_tree_view (list_view);
 
-    eel_preferences_add_callback_while_alive (CAJA_PREFERENCES_LIST_VIEW_DEFAULT_SORT_ORDER,
-            default_sort_order_changed_callback,
-            list_view, G_OBJECT (list_view));
-    eel_preferences_add_callback_while_alive (CAJA_PREFERENCES_LIST_VIEW_DEFAULT_SORT_IN_REVERSE_ORDER,
-            default_sort_order_changed_callback,
-            list_view, G_OBJECT (list_view));
-    eel_preferences_add_callback_while_alive (CAJA_PREFERENCES_LIST_VIEW_DEFAULT_ZOOM_LEVEL,
-            default_zoom_level_changed_callback,
-            list_view, G_OBJECT (list_view));
-    eel_preferences_add_callback_while_alive (CAJA_PREFERENCES_LIST_VIEW_DEFAULT_VISIBLE_COLUMNS,
-            default_visible_columns_changed_callback,
-            list_view, G_OBJECT (list_view));
-    eel_preferences_add_callback_while_alive (CAJA_PREFERENCES_LIST_VIEW_DEFAULT_COLUMN_ORDER,
-            default_column_order_changed_callback,
-            list_view, G_OBJECT (list_view));
+    g_signal_connect_swapped (caja_preferences,
+                              "changed::" CAJA_PREFERENCES_DEFAULT_SORT_ORDER,
+                              G_CALLBACK (default_sort_order_changed_callback),
+                              list_view);
+    g_signal_connect_swapped (caja_preferences,
+                              "changed::" CAJA_PREFERENCES_DEFAULT_SORT_IN_REVERSE_ORDER,
+                              G_CALLBACK (default_sort_order_changed_callback),
+                              list_view);
+    g_signal_connect_swapped (caja_list_view_preferences,
+                              "changed::" CAJA_PREFERENCES_LIST_VIEW_DEFAULT_ZOOM_LEVEL,
+                              G_CALLBACK (default_zoom_level_changed_callback),
+                              list_view);
+    g_signal_connect_swapped (caja_list_view_preferences,
+                              "changed::" CAJA_PREFERENCES_LIST_VIEW_DEFAULT_VISIBLE_COLUMNS,
+                              G_CALLBACK (default_visible_columns_changed_callback),
+                              list_view);
+    g_signal_connect_swapped (caja_list_view_preferences,
+                              "changed::" CAJA_PREFERENCES_LIST_VIEW_DEFAULT_COLUMN_ORDER,
+                              G_CALLBACK (default_column_order_changed_callback),
+                              list_view);
 
     fm_list_view_click_policy_changed (FM_DIRECTORY_VIEW (list_view));
 

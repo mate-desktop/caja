@@ -164,27 +164,6 @@ typedef struct
  */
 static const PreferenceDefault preference_defaults[] =
 {
-    /* List View Default Preferences */
-    {
-        CAJA_PREFERENCES_LIST_VIEW_DEFAULT_SORT_ORDER,
-        PREFERENCE_STRING,
-        "name",
-        NULL, NULL,
-        NULL,
-    },
-    {
-        CAJA_PREFERENCES_LIST_VIEW_DEFAULT_SORT_IN_REVERSE_ORDER,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (FALSE)
-    },
-    {
-        CAJA_PREFERENCES_LIST_VIEW_DEFAULT_ZOOM_LEVEL,
-        PREFERENCE_STRING,
-        "smaller",
-        NULL, NULL,
-        "default_zoom_level"
-    },
-
     {
         CAJA_PREFERENCES_LOCKDOWN_COMMAND_LINE,
         PREFERENCE_BOOLEAN,
@@ -350,39 +329,6 @@ caja_global_preferences_get_default_folder_viewer_preference_as_iid (void)
     return g_strdup (viewer_iid);
 }
 
-/* The icon view uses 2 variables to store the sort order and
- * whether to use manual layout.  However, the UI for these
- * preferences presensts them as single option menu.  So we
- * use the following preference as a proxy for the other two.
- * In caja-global-preferences.c we install callbacks for
- * the proxy preference and update the other 2 when it changes
- */
-static void
-default_icon_view_sort_order_or_manual_layout_changed_callback (gpointer callback_data)
-{
-    int default_sort_order_or_manual_layout;
-    int default_sort_order;
-
-    default_sort_order_or_manual_layout =
-        g_settings_get_enum (caja_icon_view_preferences,
-                             CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_ORDER_OR_MANUAL_LAYOUT);
-
-    eel_preferences_set_boolean (CAJA_PREFERENCES_ICON_VIEW_DEFAULT_USE_MANUAL_LAYOUT,
-                                 default_sort_order_or_manual_layout == PREFERENCES_SORT_ORDER_MANUALLY);
-
-    if (default_sort_order_or_manual_layout != PREFERENCES_SORT_ORDER_MANUALLY)
-    {
-        default_sort_order = default_sort_order_or_manual_layout;
-
-        g_return_if_fail (default_sort_order >= CAJA_FILE_SORT_BY_DISPLAY_NAME);
-        g_return_if_fail (default_sort_order <= CAJA_FILE_SORT_BY_EMBLEMS);
-
-        g_settings_set_enum (caja_icon_view_preferences,
-                             CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_ORDER,
-                             default_sort_order);
-    }
-}
-
 void
 caja_global_preferences_init (void)
 {
@@ -416,6 +362,7 @@ caja_global_preferences_init (void)
     caja_compact_view_preferences = g_settings_new("org.mate.caja.compact-view");
     caja_desktop_preferences = g_settings_new("org.mate.caja.desktop");
     caja_tree_sidebar_preferences = g_settings_new("org.mate.caja.sidebar-panels.tree");
+    caja_list_view_preferences = g_settings_new("org.mate.caja.list-view");
 
     /* Set up storage for values accessed in this file */
     g_signal_connect_swapped (caja_icon_view_preferences,
