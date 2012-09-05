@@ -45,14 +45,14 @@ G_BEGIN_DECLS
 #define CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_URI                "side-pane-background-uri"
 
     /* Automount options */
-#define CAJA_PREFERENCES_MEDIA_AUTOMOUNT                "media-automount"
-#define CAJA_PREFERENCES_MEDIA_AUTOMOUNT_OPEN           "media-automount-open"
+#define CAJA_PREFERENCES_MEDIA_AUTOMOUNT                "automount"
+#define CAJA_PREFERENCES_MEDIA_AUTOMOUNT_OPEN           "automount-open"
 
     /* Autorun options */
-#define CAJA_PREFERENCES_MEDIA_AUTORUN_NEVER                 "media-autorun-never"
-#define CAJA_PREFERENCES_MEDIA_AUTORUN_X_CONTENT_START_APP   "media-autorun-x-content-start-app"
-#define CAJA_PREFERENCES_MEDIA_AUTORUN_X_CONTENT_IGNORE      "media-autorun-x-content-ignore"
-#define CAJA_PREFERENCES_MEDIA_AUTORUN_X_CONTENT_OPEN_FOLDER "media-autorun-x-content-open-folder"
+#define CAJA_PREFERENCES_MEDIA_AUTORUN_NEVER                 "autorun-never"
+#define CAJA_PREFERENCES_MEDIA_AUTORUN_X_CONTENT_START_APP   "autorun-x-content-start-app"
+#define CAJA_PREFERENCES_MEDIA_AUTORUN_X_CONTENT_IGNORE      "autorun-x-content-ignore"
+#define CAJA_PREFERENCES_MEDIA_AUTORUN_X_CONTENT_OPEN_FOLDER "autorun-x-content-open-folder"
 
     /* Trash options */
 #define CAJA_PREFERENCES_CONFIRM_TRASH			"confirm-trash"
