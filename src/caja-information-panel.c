@@ -84,7 +84,9 @@ static void     caja_information_panel_drag_data_received    (GtkWidget         
 static void     caja_information_panel_read_defaults         (CajaInformationPanel     *information_panel);
 static void     caja_information_panel_style_set             (GtkWidget                    *widget,
         GtkStyle                     *previous_style);
-static void     caja_information_panel_theme_changed         (gpointer                      user_data);
+static void     caja_information_panel_theme_changed         (GSettings   *settings,
+                                                              const gchar *key,
+                                                              gpointer     user_data);
 static void     caja_information_panel_update_appearance     (CajaInformationPanel     *information_panel);
 static void     caja_information_panel_update_buttons        (CajaInformationPanel     *information_panel);
 static void     background_metadata_changed_callback             (CajaInformationPanel     *information_panel);
@@ -273,9 +275,18 @@ caja_information_panel_init (CajaInformationPanel *information_panel)
     make_button_box (information_panel);
 
     /* add a callback for when the theme changes */
-    eel_preferences_add_callback (CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_SET, caja_information_panel_theme_changed, information_panel);
-    eel_preferences_add_callback (CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_COLOR, caja_information_panel_theme_changed, information_panel);
-    eel_preferences_add_callback (CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_FILENAME, caja_information_panel_theme_changed, information_panel);
+    g_signal_connect (caja_preferences,
+              "changed::" CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_SET,
+              G_CALLBACK(caja_information_panel_theme_changed),
+              information_panel);
+    g_signal_connect (caja_preferences,
+              "changed::" CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_COLOR,
+              G_CALLBACK(caja_information_panel_theme_changed),
+              information_panel);
+    g_signal_connect (caja_preferences,
+              "changed::" CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_URI,
+              G_CALLBACK(caja_information_panel_theme_changed),
+              information_panel);
 
     /* prepare ourselves to receive dropped objects */
     gtk_drag_dest_set (GTK_WIDGET (information_panel),
@@ -303,15 +314,9 @@ caja_information_panel_finalize (GObject *object)
     g_free (information_panel->details->current_background_image);
     g_free (information_panel->details);
 
-    eel_preferences_remove_callback (CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_SET,
-                                     caja_information_panel_theme_changed,
-                                     information_panel);
-    eel_preferences_remove_callback (CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_COLOR,
-                                     caja_information_panel_theme_changed,
-                                     information_panel);
-    eel_preferences_remove_callback (CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_FILENAME,
-                                     caja_information_panel_theme_changed,
-                                     information_panel);
+    g_signal_handlers_disconnect_by_func (caja_preferences,
+                                          caja_information_panel_theme_changed,
+                                          information_panel);
 
     EEL_CALL_PARENT (G_OBJECT_CLASS, finalize, (object));
 }
@@ -375,14 +380,14 @@ caja_information_panel_read_defaults (CajaInformationPanel *information_panel)
     gboolean background_set;
     char *background_color, *background_image;
 
-    background_set = eel_preferences_get_boolean (CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_SET);
+    background_set = g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_SET);
 
     background_color = NULL;
     background_image = NULL;
     if (background_set)
     {
-        background_color = eel_preferences_get (CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_COLOR);
-        background_image = eel_preferences_get (CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_FILENAME);
+        background_color = g_settings_get_string (caja_preferences, CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_COLOR);
+        background_image = g_settings_get_string (caja_preferences, CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_URI);
     }
 
     g_free (information_panel->details->default_background_color);
@@ -409,7 +414,9 @@ caja_information_panel_read_defaults (CajaInformationPanel *information_panel)
 /* handler for handling theme changes */
 
 static void
-caja_information_panel_theme_changed (gpointer user_data)
+caja_information_panel_theme_changed (GSettings   *settings,
+                                      const gchar *key,
+                                      gpointer user_data)
 {
     CajaInformationPanel *information_panel;
 
@@ -737,12 +744,18 @@ background_settings_changed_callback (EelBackground *background, GdkDragAction a
                                 NULL,
                                 NULL);
 
-        eel_preferences_set
-        (CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_COLOR, color ? color : "");
-        eel_preferences_set
-        (CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_FILENAME, image ? image : "");
-        eel_preferences_set_boolean
-        (CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_SET, TRUE);
+        g_signal_handlers_block_by_func (caja_preferences,
+                         G_CALLBACK(caja_information_panel_theme_changed),
+                         information_panel);
+        g_settings_set_string (caja_preferences,
+                       CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_COLOR, color ? color : "");
+        g_settings_set_string (caja_preferences,
+                       CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_URI, image ? image : "");
+        g_settings_set_boolean (caja_preferences,
+                    CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_SET, TRUE);
+        g_signal_handlers_unblock_by_func (caja_preferences,
+                           G_CALLBACK(caja_information_panel_theme_changed),
+                           information_panel);
     }
     else
     {
@@ -819,7 +832,14 @@ background_reset_callback (EelBackground *background, CajaInformationPanel *info
     }
     else
     {
-        eel_preferences_set_boolean (CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_SET, FALSE);
+        g_signal_handlers_block_by_func (caja_preferences,
+                         G_CALLBACK(caja_information_panel_theme_changed),
+                         information_panel);
+        g_settings_set_boolean (caja_preferences,
+                    CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_SET, FALSE);
+        g_signal_handlers_unblock_by_func (caja_preferences,
+                         G_CALLBACK(caja_information_panel_theme_changed),
+                         information_panel);
     }
 
     g_signal_handlers_unblock_by_func (information_panel->details->file,
@@ -1149,7 +1169,7 @@ caja_information_panel_style_set (GtkWidget *widget, GtkStyle *previous_style)
 
     information_panel = CAJA_INFORMATION_PANEL (widget);
 
-    caja_information_panel_theme_changed (information_panel);
+    caja_information_panel_theme_changed (NULL, NULL, information_panel);
 }
 
 static void

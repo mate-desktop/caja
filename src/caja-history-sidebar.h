@@ -31,7 +31,7 @@
 #include <libcaja-private/caja-view.h>
 #include <libcaja-private/caja-window-info.h>
 
-#define CAJA_HISTORY_SIDEBAR_ID    "CajaHistorySidebar"
+#define CAJA_HISTORY_SIDEBAR_ID    "history"
 
 #define CAJA_TYPE_HISTORY_SIDEBAR caja_history_sidebar_get_type()
 #define CAJA_HISTORY_SIDEBAR(obj) \

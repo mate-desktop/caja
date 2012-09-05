@@ -94,7 +94,7 @@ main (int argc, char **argv)
 	g_signal_connect (directory, "files-added", G_CALLBACK (files_added), NULL);
 	g_signal_connect (directory, "files-changed", G_CALLBACK (files_changed), NULL);
 	g_signal_connect (directory, "done-loading", G_CALLBACK (done_loading), NULL);
-	caja_directory_file_monitor_add (directory, client1, TRUE, TRUE,
+	caja_directory_file_monitor_add (directory, client1, TRUE,
 					     CAJA_FILE_ATTRIBUTE_INFO, 
 					     NULL, NULL);
 

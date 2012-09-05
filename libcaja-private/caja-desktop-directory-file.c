@@ -174,7 +174,7 @@ desktop_directory_file_monitor_add (CajaFile *file,
     /* Do the rest ourself */
     caja_directory_monitor_add_internal
     (file->details->directory, file,
-     client, TRUE, TRUE,
+     client, TRUE,
      monitor->non_delegated_attributes,
      NULL, NULL);
 }

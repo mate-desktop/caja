@@ -4452,10 +4452,6 @@ finalize (GObject *object)
 
     details = CAJA_ICON_CONTAINER (object)->details;
 
-    eel_preferences_remove_callback (CAJA_PREFERENCES_THEME,
-                                     caja_icon_container_theme_changed,
-                                     object);
-
     g_hash_table_destroy (details->icon_set);
     details->icon_set = NULL;
 
@@ -6891,9 +6887,6 @@ caja_icon_container_init (CajaIconContainer *container)
 
     /* read in theme-dependent data */
     caja_icon_container_theme_changed (container);
-    eel_preferences_add_callback (CAJA_PREFERENCES_THEME,
-                                  caja_icon_container_theme_changed,
-                                  container);
 
     if (!setup_prefs)
     {

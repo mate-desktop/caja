@@ -12,8 +12,6 @@ INCLUDES = \
 	$(DISABLE_DEPRECATED_CFLAGS) \
 	$(NULL)
 
-
-
 libcaja_file_manager_la_SOURCES = \
 	fm-actions.h \
 	fm-desktop-icon-view.c \

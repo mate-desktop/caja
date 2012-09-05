@@ -48,7 +48,9 @@ static void saved_settings_changed_callback (CajaFile       *file,
 
 static void caja_file_background_receive_mateconf_changes (EelBackground *background);
 
-static void caja_file_background_theme_changed (gpointer user_data);
+static void caja_file_background_theme_changed (GSettings   *settings,
+                                                const gchar *key,
+                                                gpointer     user_data);
 
 void
 caja_connect_desktop_background_to_file_metadata (CajaIconContainer *icon_container,
@@ -80,17 +82,16 @@ caja_file_background_get_default_settings (char **color,
 {
     gboolean background_set;
 
-    background_set = eel_preferences_get_boolean
-                     (CAJA_PREFERENCES_BACKGROUND_SET);
+    background_set = g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_BACKGROUND_SET);
 
     if (background_set && color)
     {
-        *color = eel_preferences_get (CAJA_PREFERENCES_BACKGROUND_COLOR);
+        *color = g_settings_get_string (caja_preferences, CAJA_PREFERENCES_BACKGROUND_COLOR);
     }
 
     if (background_set && image)
     {
-        *image = eel_preferences_get (CAJA_PREFERENCES_BACKGROUND_FILENAME);
+        *image =  g_settings_get_string (caja_preferences, CAJA_PREFERENCES_BACKGROUND_URI);
     }
 
     if (placement)
@@ -449,12 +450,17 @@ background_changed_callback (EelBackground *background,
                                     NULL,
                                     NULL);
 
-            eel_preferences_set
-            (CAJA_PREFERENCES_BACKGROUND_COLOR, color ? color : "");
-            eel_preferences_set
-            (CAJA_PREFERENCES_BACKGROUND_FILENAME, image ? image : "");
-            eel_preferences_set_boolean
-            (CAJA_PREFERENCES_BACKGROUND_SET, TRUE);
+            g_signal_handlers_block_by_func (caja_preferences, G_CALLBACK (caja_file_background_theme_changed), background);
+
+            g_settings_set_string (caja_preferences,
+                                   CAJA_PREFERENCES_BACKGROUND_COLOR, color ? color : "");
+            g_settings_set_string (caja_preferences,
+                                   CAJA_PREFERENCES_BACKGROUND_URI,
+                                   image ? image : "");
+            g_settings_set_boolean (caja_preferences,
+                                    CAJA_PREFERENCES_BACKGROUND_SET, TRUE);
+
+            g_signal_handlers_unblock_by_func (caja_preferences, G_CALLBACK (caja_file_background_theme_changed), background);
         }
         else
         {
@@ -545,7 +551,9 @@ saved_settings_changed_callback (CajaFile *file,
 
 /* handle the theme changing */
 static void
-caja_file_background_theme_changed (gpointer user_data)
+caja_file_background_theme_changed (GSettings   *settings,
+                                    const gchar *key,
+                                    gpointer     user_data)
 {
     CajaFile *file;
     EelBackground *background;
@@ -588,8 +596,11 @@ background_reset_callback (EelBackground *background,
                                         NULL);
         if (!color && !image)
         {
-            eel_preferences_set_boolean (CAJA_PREFERENCES_BACKGROUND_SET,
-                                         FALSE);
+            g_signal_handlers_block_by_func (caja_preferences, G_CALLBACK (caja_file_background_theme_changed), background);
+            g_settings_set_boolean (caja_preferences,
+                                    CAJA_PREFERENCES_BACKGROUND_SET,
+                                    FALSE);
+            g_signal_handlers_unblock_by_func (caja_preferences, G_CALLBACK (caja_file_background_theme_changed), background);
         }
         else
         {
@@ -626,18 +637,9 @@ background_destroyed_callback (EelBackground *background,
     (file,
      G_CALLBACK (saved_settings_changed_callback), background);
     caja_file_monitor_remove (file, background);
-    eel_preferences_remove_callback (CAJA_PREFERENCES_THEME,
-                                     caja_file_background_theme_changed,
-                                     background);
-    eel_preferences_remove_callback (CAJA_PREFERENCES_BACKGROUND_SET,
-                                     caja_file_background_theme_changed,
-                                     background);
-    eel_preferences_remove_callback (CAJA_PREFERENCES_BACKGROUND_COLOR,
-                                     caja_file_background_theme_changed,
-                                     background);
-    eel_preferences_remove_callback (CAJA_PREFERENCES_BACKGROUND_FILENAME,
-                                     caja_file_background_theme_changed,
-                                     background);
+    g_signal_handlers_disconnect_by_func (caja_preferences,
+                                          caja_file_background_theme_changed,
+                                          background);
 }
 
 /* key routine that hooks up a background and location */
@@ -676,18 +678,9 @@ caja_connect_background_to_file_metadata (GtkWidget    *widget,
         (old_file,
          G_CALLBACK (saved_settings_changed_callback), background);
         caja_file_monitor_remove (old_file, background);
-        eel_preferences_remove_callback (CAJA_PREFERENCES_THEME,
-                                         caja_file_background_theme_changed,
-                                         background);
-        eel_preferences_remove_callback (CAJA_PREFERENCES_BACKGROUND_SET,
-                                         caja_file_background_theme_changed,
-                                         background);
-        eel_preferences_remove_callback (CAJA_PREFERENCES_BACKGROUND_COLOR,
-                                         caja_file_background_theme_changed,
-                                         background);
-        eel_preferences_remove_callback (CAJA_PREFERENCES_BACKGROUND_FILENAME,
-                                         caja_file_background_theme_changed,
-                                         background);
+        g_signal_handlers_disconnect_by_func (caja_preferences,
+                                              caja_file_background_theme_changed,
+                                              background);
 
     }
 
@@ -716,14 +709,18 @@ caja_connect_background_to_file_metadata (GtkWidget    *widget,
                                CAJA_FILE_ATTRIBUTE_INFO);
 
         /* arrange for notification when the theme changes */
-        eel_preferences_add_callback (CAJA_PREFERENCES_THEME,
-                                      caja_file_background_theme_changed, background);
-        eel_preferences_add_callback (CAJA_PREFERENCES_BACKGROUND_SET,
-                                      caja_file_background_theme_changed, background);
-        eel_preferences_add_callback (CAJA_PREFERENCES_BACKGROUND_COLOR,
-                                      caja_file_background_theme_changed, background);
-        eel_preferences_add_callback (CAJA_PREFERENCES_BACKGROUND_FILENAME,
-                                      caja_file_background_theme_changed, background);
+        g_signal_connect (caja_preferences,
+                          "changed::" CAJA_PREFERENCES_BACKGROUND_SET,
+                          G_CALLBACK(caja_file_background_theme_changed),
+                          background);
+        g_signal_connect (caja_preferences,
+                          "changed::" CAJA_PREFERENCES_BACKGROUND_COLOR,
+                          G_CALLBACK(caja_file_background_theme_changed),
+                          background);
+        g_signal_connect (caja_preferences,
+                          "changed::" CAJA_PREFERENCES_BACKGROUND_URI,
+                          G_CALLBACK(caja_file_background_theme_changed),
+                          background);
     }
 
     /* Update the background based on the file metadata. */

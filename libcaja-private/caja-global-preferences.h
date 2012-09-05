@@ -27,52 +27,47 @@
 #define CAJA_GLOBAL_PREFERENCES_H
 
 #include <eel/eel-preferences.h>
+#include <gio/gio.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+G_BEGIN_DECLS
 
     /* Whether exit when last window destroyed */
 #define CAJA_PREFERENCES_EXIT_WITH_LAST_WINDOW				"preferences/exit_with_last_window"
 
-    /* Which theme is active */
-#define CAJA_PREFERENCES_THEME				"/desktop/mate/file_views/icon_theme"
-
     /* Desktop Background options */
-#define CAJA_PREFERENCES_BACKGROUND_SET                     "preferences/background_set"
-#define CAJA_PREFERENCES_BACKGROUND_COLOR                   "preferences/background_color"
-#define CAJA_PREFERENCES_BACKGROUND_FILENAME                "preferences/background_filename"
+#define CAJA_PREFERENCES_BACKGROUND_SET                     "background-set"
+#define CAJA_PREFERENCES_BACKGROUND_COLOR                   "background-color"
+#define CAJA_PREFERENCES_BACKGROUND_URI                     "background-uri"
 
     /* Side Pane Background options */
-#define CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_SET                     "preferences/side_pane_background_set"
-#define CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_COLOR                   "preferences/side_pane_background_color"
-#define CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_FILENAME                "preferences/side_pane_background_filename"
+#define CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_SET                     "side-pane-background-set"
+#define CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_COLOR                   "side-pane-background-color"
+#define CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_URI                "side-pane-background-uri"
 
     /* How wide the sidebar is (or how wide it will be when expanded) */
-#define CAJA_PREFERENCES_SIDEBAR_WIDTH  			"preferences/sidebar_width"
+#define CAJA_PREFERENCES_SIDEBAR_WIDTH  			"sidebar-width"
 
     /* Automount options */
-#define CAJA_PREFERENCES_MEDIA_AUTOMOUNT	                "preferences/media_automount"
-#define CAJA_PREFERENCES_MEDIA_AUTOMOUNT_OPEN		"preferences/media_automount_open"
+#define CAJA_PREFERENCES_MEDIA_AUTOMOUNT                "media-automount"
+#define CAJA_PREFERENCES_MEDIA_AUTOMOUNT_OPEN           "media-automount-open"
 
     /* Autorun options */
-#define CAJA_PREFERENCES_MEDIA_AUTORUN_NEVER                "preferences/media_autorun_never"
-#define CAJA_PREFERENCES_MEDIA_AUTORUN_X_CONTENT_START_APP  "preferences/media_autorun_x_content_start_app"
-#define CAJA_PREFERENCES_MEDIA_AUTORUN_X_CONTENT_IGNORE     "preferences/media_autorun_x_content_ignore"
-#define CAJA_PREFERENCES_MEDIA_AUTORUN_X_CONTENT_OPEN_FOLDER "preferences/media_autorun_x_content_open_folder"
+#define CAJA_PREFERENCES_MEDIA_AUTORUN_NEVER                 "media-autorun-never"
+#define CAJA_PREFERENCES_MEDIA_AUTORUN_X_CONTENT_START_APP   "media-autorun-x-content-start-app"
+#define CAJA_PREFERENCES_MEDIA_AUTORUN_X_CONTENT_IGNORE      "media-autorun-x-content-ignore"
+#define CAJA_PREFERENCES_MEDIA_AUTORUN_X_CONTENT_OPEN_FOLDER "media-autorun-x-content-open-folder"
 
     /* Trash options */
-#define CAJA_PREFERENCES_CONFIRM_TRASH			"preferences/confirm_trash"
-#define CAJA_PREFERENCES_ENABLE_DELETE			"preferences/enable_delete"
+#define CAJA_PREFERENCES_CONFIRM_TRASH			"confirm-trash"
+#define CAJA_PREFERENCES_ENABLE_DELETE			"enable-delete"
 
     /* Desktop options */
-#define CAJA_PREFERENCES_SHOW_DESKTOP			"preferences/show_desktop"
-#define CAJA_PREFERENCES_DESKTOP_IS_HOME_DIR                "preferences/desktop_is_home_dir"
-#define CAJA_PREFERENCES_DESKTOP_FONT			"preferences/desktop_font"
+#define CAJA_PREFERENCES_SHOW_DESKTOP			"show-desktop"
+#define CAJA_PREFERENCES_DESKTOP_IS_HOME_DIR    "desktop-is-home-dir"
+#define CAJA_PREFERENCES_DESKTOP_FONT			"desktop-font"
 
     /* Display  */
-#define CAJA_PREFERENCES_SHOW_HIDDEN_FILES  		"/desktop/mate/file_views/show_hidden_files"
-#define CAJA_PREFERENCES_SHOW_BACKUP_FILES  		"/desktop/mate/file_views/show_backup_files"
+#define CAJA_PREFERENCES_SHOW_HIDDEN_FILES  		"show-hidden-files"
 #define CAJA_PREFERENCES_SHOW_ADVANCED_PERMISSIONS		"preferences/show_advanced_permissions"
 #define CAJA_PREFERENCES_DATE_FORMAT			"preferences/date_format"
 
@@ -233,10 +228,12 @@ extern "C" {
     /* Lockdown */
 #define CAJA_PREFERENCES_LOCKDOWN_COMMAND_LINE         "/desktop/mate/lockdown/disable_command_line"
 
-    void caja_global_preferences_init                      (void);
-    char *caja_global_preferences_get_default_folder_viewer_preference_as_iid (void);
-#ifdef __cplusplus
-}
-#endif
+void caja_global_preferences_init                      (void);
+char *caja_global_preferences_get_default_folder_viewer_preference_as_iid (void);
+
+GSettings *caja_preferences;
+GSettings *caja_media_preferences;
+
+G_END_DECLS
 
 #endif /* CAJA_GLOBAL_PREFERENCES_H */

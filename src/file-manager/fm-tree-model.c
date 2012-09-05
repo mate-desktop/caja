@@ -101,7 +101,6 @@ struct FMTreeModelDetails
     guint monitoring_update_idle_id;
 
     gboolean show_hidden_files;
-    gboolean show_backup_files;
     gboolean show_only_directories;
 
     GList *highlighted_files;
@@ -989,7 +988,6 @@ should_show_file (FMTreeModel *model, CajaFile *file)
 
     should = caja_file_should_show (file,
                                     model->details->show_hidden_files,
-                                    model->details->show_backup_files,
                                     TRUE);
 
     if (should
@@ -1226,7 +1224,6 @@ start_monitoring_directory (FMTreeModel *model, TreeNode *node)
     attributes = get_tree_monitor_attributes ();
     caja_directory_file_monitor_add (directory, model,
                                      model->details->show_hidden_files,
-                                     model->details->show_backup_files,
                                      attributes, files_changed_callback, node->root);
 }
 
@@ -1890,7 +1887,6 @@ fm_tree_model_set_show_hidden_files (FMTreeModel *model,
         return;
     }
     model->details->show_hidden_files = show_hidden_files;
-    model->details->show_backup_files = show_hidden_files;
     stop_monitoring (model);
     if (!show_hidden_files)
     {

@@ -496,14 +496,6 @@ main (int argc, char *argv[])
     /* exit_with_last_window being FALSE, caja can run without window. */
     exit_with_last_window = eel_preferences_get_boolean (CAJA_PREFERENCES_EXIT_WITH_LAST_WINDOW);
 
-    if (no_desktop)
-    {
-        eel_preferences_set_is_invisible
-        (CAJA_PREFERENCES_SHOW_DESKTOP, TRUE);
-        eel_preferences_set_is_invisible
-        (CAJA_PREFERENCES_DESKTOP_IS_HOME_DIR, TRUE);
-    }
-
     application = NULL;
 
     /* Do either the self-check or the real work. */

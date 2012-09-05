@@ -118,7 +118,6 @@ typedef struct
 } PrependURIParameters;
 
 static GdkAtom copied_files_atom;
-static gboolean show_delete_command_auto_value;
 
 static void  fm_tree_view_iface_init        (CajaSidebarIface         *iface);
 static void  sidebar_provider_iface_init    (CajaSidebarProviderIface *iface);
@@ -811,7 +810,7 @@ button_pressed_callback (GtkTreeView *treeview, GdkEventButton *event,
         can_move_file_to_trash = caja_file_can_trash (view->details->popup_file);
         gtk_widget_set_sensitive (view->details->popup_trash, can_move_file_to_trash);
 
-        if (show_delete_command_auto_value)
+        if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ENABLE_DELETE))
         {
             parent_file_is_writable = is_parent_writable (view->details->popup_file);
             file_is_home_or_desktop = caja_file_is_home (view->details->popup_file)
@@ -1137,7 +1136,7 @@ fm_tree_view_delete_cb (GtkWidget *menu_item,
 {
     GList *location_list;
 
-    if (!show_delete_command_auto_value)
+    if (!g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ENABLE_DELETE))
     {
         return;
     }
@@ -1533,7 +1532,7 @@ update_filtering_from_preferences (FMTreeView *view)
     {
         fm_tree_model_set_show_hidden_files
         (view->details->child_model,
-         eel_preferences_get_boolean (CAJA_PREFERENCES_SHOW_HIDDEN_FILES));
+         g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SHOW_HIDDEN_FILES));
     }
     else
     {
@@ -1600,10 +1599,10 @@ fm_tree_view_init (FMTreeView *view)
 
     view->details->selecting = FALSE;
 
-    eel_preferences_add_callback_while_alive (CAJA_PREFERENCES_SHOW_HIDDEN_FILES,
-            filtering_changed_callback, view, G_OBJECT (view));
-    eel_preferences_add_callback_while_alive (CAJA_PREFERENCES_SHOW_BACKUP_FILES,
-            filtering_changed_callback, view, G_OBJECT (view));
+    g_signal_connect_swapped (caja_preferences,
+                              "changed::" CAJA_PREFERENCES_SHOW_HIDDEN_FILES,
+                              G_CALLBACK(filtering_changed_callback),
+                              view);
     eel_preferences_add_callback_while_alive (CAJA_PREFERENCES_TREE_SHOW_ONLY_DIRECTORIES,
             filtering_changed_callback, view, G_OBJECT (view));
 
@@ -1679,6 +1678,10 @@ fm_tree_view_dispose (GObject *object)
         view->details->volume_monitor = NULL;
     }
 
+    g_signal_handlers_disconnect_by_func (caja_preferences,
+                                          G_CALLBACK(filtering_changed_callback),
+                                          view);
+
     view->details->window = NULL;
 
     G_OBJECT_CLASS (parent_class)->dispose (object);
@@ -1703,9 +1706,6 @@ fm_tree_view_class_init (FMTreeViewClass *class)
     G_OBJECT_CLASS (class)->finalize = fm_tree_view_finalize;
 
     copied_files_atom = gdk_atom_intern ("x-special/mate-copied-files", FALSE);
-
-    eel_preferences_add_auto_boolean (CAJA_PREFERENCES_ENABLE_DELETE,
-                                      &show_delete_command_auto_value);
 }
 
 static const char *

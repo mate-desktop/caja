@@ -214,26 +214,17 @@ caja-marshal-guts.c: caja-marshal.list $(GLIB_GENMARSHAL)
 
 $(libcaja_private_la_OBJECTS): $(marshal_sources)
 
+gsettingsschema_in_files = org.mate.caja.gschema.xml.in org.mate.media-handling.gschema.xml.in
+gsettings_SCHEMAS = $(gsettingsschema_in_files:.xml.in=.xml)
+.PRECIOUS: $(gsettings_SCHEMAS)
 
-schema_in_files = apps_caja_preferences.schemas.in
-schemadir = $(MATECONF_SCHEMA_FILE_DIR)
-schema_DATA = $(schema_in_files:.schemas.in=.schemas)
+@INTLTOOL_XML_NOMERGE_RULE@
 
-@INTLTOOL_SCHEMAS_RULE@
-
-# don't do this if we are building in eg. rpm
-if MATECONF_SCHEMAS_INSTALL
-install-data-local:
-	if test -z "$(DESTDIR)" ; then \
-		for p in $(schema_DATA) ; do \
-			MATECONF_CONFIG_SOURCE=$(MATECONF_SCHEMA_CONFIG_SOURCE) $(MATECONFTOOL) --makefile-install-rule $$p; \
-		done \
-	fi
-endif
+@GSETTINGS_RULES@
 
 EXTRA_DIST = \
 	caja-marshal.list \
-	$(schema_in_files) \
+	$(gsettingsschema_in_files) \
 	$(BEAGLE_SOURCES) \
 	$(TRACKER_SOURCES) \
 	$(NULL)
@@ -241,6 +232,7 @@ EXTRA_DIST = \
 CLEANFILES = \
 	$(marshal_sources) \
 	$(schema_DATA) \
+	$(gsettings_SCHEMAS) \
 	$(NULL)
 
 dist-hook:

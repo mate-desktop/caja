@@ -62,7 +62,6 @@ typedef struct
     CajaDesktopDirectory *desktop_dir;
 
     gboolean monitor_hidden_files;
-    gboolean monitor_backup_files;
     CajaFileAttributes monitor_attributes;
 } MergedMonitor;
 
@@ -296,7 +295,6 @@ static void
 desktop_monitor_add (CajaDirectory *directory,
                      gconstpointer client,
                      gboolean monitor_hidden_files,
-                     gboolean monitor_backup_files,
                      CajaFileAttributes file_attributes,
                      CajaDirectoryCallback callback,
                      gpointer callback_data)
@@ -323,7 +321,6 @@ desktop_monitor_add (CajaDirectory *directory,
                              (gpointer) client, monitor);
     }
     monitor->monitor_hidden_files = monitor_hidden_files;
-    monitor->monitor_backup_files = monitor_backup_files;
     monitor->monitor_attributes = file_attributes;
 
     /* Call through to the real directory add calls. */
@@ -332,7 +329,7 @@ desktop_monitor_add (CajaDirectory *directory,
     /* Call up to real dir */
     caja_directory_file_monitor_add
     (desktop->details->real_directory, monitor,
-     monitor_hidden_files, monitor_backup_files,
+     monitor_hidden_files,
      file_attributes,
      build_merged_callback_list, &merged_callback_list);
 
@@ -442,9 +439,9 @@ desktop_finalize (GObject *object)
     g_hash_table_destroy (desktop->details->monitors);
     g_free (desktop->details);
 
-    eel_preferences_remove_callback (CAJA_PREFERENCES_DESKTOP_IS_HOME_DIR,
-                                     desktop_directory_changed_callback,
-                                     desktop);
+    g_signal_handlers_disconnect_by_func (caja_preferences,
+                                          desktop_directory_changed_callback,
+                                          desktop);
 
     G_OBJECT_CLASS (caja_desktop_directory_parent_class)->finalize (object);
 }
@@ -529,9 +526,9 @@ caja_desktop_directory_init (CajaDesktopDirectory *desktop)
 
     update_desktop_directory (CAJA_DESKTOP_DIRECTORY (desktop));
 
-    eel_preferences_add_callback (CAJA_PREFERENCES_DESKTOP_IS_HOME_DIR,
-                                  desktop_directory_changed_callback,
-                                  desktop);
+    g_signal_connect_swapped (caja_preferences, "changed::" CAJA_PREFERENCES_DESKTOP_IS_HOME_DIR,
+                              G_CALLBACK(desktop_directory_changed_callback),
+                              desktop);
 }
 
 static void

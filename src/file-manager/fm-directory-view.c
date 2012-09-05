@@ -152,9 +152,6 @@ static guint signals[LAST_SIGNAL];
 
 static GdkAtom copied_files_atom;
 
-static gboolean show_delete_command_auto_value;
-static gboolean confirm_trash_auto_value;
-
 static char *scripts_directory_uri;
 static int scripts_directory_uri_length;
 
@@ -235,7 +232,6 @@ struct FMDirectoryViewDetails
 
 	gboolean show_foreign_files;
 	gboolean show_hidden_files;
-	gboolean show_backup_files;
 	gboolean ignore_hidden_file_preferences;
 
 	gboolean batching_selection_level;
@@ -1766,7 +1762,7 @@ add_directory_to_directory_list (FMDirectoryView *view,
 			CAJA_FILE_ATTRIBUTE_DIRECTORY_ITEM_COUNT;
 
 		caja_directory_file_monitor_add (directory, directory_list,
-						     FALSE, FALSE, attributes,
+						     FALSE, attributes,
 						     (CajaDirectoryCallback)changed_callback, view);
 
 		g_signal_connect_object (directory, "files_added",
@@ -1987,18 +1983,9 @@ fm_directory_view_init_view_iface (CajaViewIface *iface)
 static void
 fm_directory_view_init (FMDirectoryView *view)
 {
-	static gboolean setup_autos = FALSE;
 	CajaDirectory *scripts_directory;
 	CajaDirectory *templates_directory;
 	char *templates_uri;
-
-	if (!setup_autos) {
-		setup_autos = TRUE;
-		eel_preferences_add_auto_boolean (CAJA_PREFERENCES_CONFIRM_TRASH,
-						  &confirm_trash_auto_value);
-		eel_preferences_add_auto_boolean (CAJA_PREFERENCES_ENABLE_DELETE,
-						  &show_delete_command_auto_value);
-	}
 
 	view->details = g_new0 (FMDirectoryViewDetails, 1);
 
@@ -2052,8 +2039,6 @@ fm_directory_view_init (FMDirectoryView *view)
 
 	gtk_widget_show (GTK_WIDGET (view));
 
-	eel_preferences_add_callback (CAJA_PREFERENCES_CONFIRM_TRASH,
-				      schedule_update_menus_callback, view);
 	eel_preferences_add_callback (CAJA_PREFERENCES_ENABLE_DELETE,
 				      schedule_update_menus_callback, view);
 	eel_preferences_add_callback (CAJA_PREFERENCES_ICON_VIEW_CAPTIONS,
@@ -2183,8 +2168,6 @@ fm_directory_view_finalize (GObject *object)
 
 	view = FM_DIRECTORY_VIEW (object);
 
-	eel_preferences_remove_callback (CAJA_PREFERENCES_CONFIRM_TRASH,
-					 schedule_update_menus_callback, view);
 	eel_preferences_remove_callback (CAJA_PREFERENCES_ENABLE_DELETE,
 					 schedule_update_menus_callback, view);
 	eel_preferences_remove_callback (CAJA_PREFERENCES_ICON_VIEW_CAPTIONS,
@@ -3421,7 +3404,6 @@ fm_directory_view_add_subdirectory (FMDirectoryView  *view,
 	caja_directory_file_monitor_add (directory,
 					     &view->details->model,
 					     view->details->show_hidden_files,
-					     view->details->show_backup_files,
 					     attributes,
 					     files_added_callback, view);
 
@@ -5521,7 +5503,7 @@ update_directory_in_scripts_menu (FMDirectoryView *view, CajaDirectory *director
 	g_free (escaped_path);
 
 	file_list = caja_directory_get_file_list (directory);
-	filtered = caja_file_list_filter_hidden_and_backup (file_list, FALSE, FALSE);
+	filtered = caja_file_list_filter_hidden (file_list, FALSE);
 	caja_file_list_free (file_list);
 
 	file_list = caja_file_list_sort_by_display_name (filtered);
@@ -5775,7 +5757,7 @@ update_directory_in_templates_menu (FMDirectoryView *view,
 	g_free (escaped_path);
 
 	file_list = caja_directory_get_file_list (directory);
-	filtered = caja_file_list_filter_hidden_and_backup (file_list, FALSE, FALSE);
+	filtered = caja_file_list_filter_hidden (file_list, FALSE);
 	caja_file_list_free (file_list);
 
 	file_list = caja_file_list_sort_by_display_name (filtered);
@@ -7197,21 +7179,18 @@ fm_directory_view_init_show_hidden_files (FMDirectoryView *view)
 	mode = caja_window_info_get_hidden_files_mode (view->details->window);
 
 	if (mode == CAJA_WINDOW_SHOW_HIDDEN_FILES_DEFAULT) {
-		show_hidden_default_setting = eel_preferences_get_boolean (CAJA_PREFERENCES_SHOW_HIDDEN_FILES);
+		show_hidden_default_setting = g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SHOW_HIDDEN_FILES);
 		if (show_hidden_default_setting != view->details->show_hidden_files) {
 			view->details->show_hidden_files = show_hidden_default_setting;
-			view->details->show_backup_files = show_hidden_default_setting;
 			show_hidden_changed = TRUE;
 		}
 	} else {
 		if (mode == CAJA_WINDOW_SHOW_HIDDEN_FILES_ENABLE) {
 			show_hidden_changed = !view->details->show_hidden_files;
 			view->details->show_hidden_files = TRUE;
-			view->details->show_backup_files = TRUE;
 		} else {
 			show_hidden_changed = view->details->show_hidden_files;
 			view->details->show_hidden_files = FALSE;
-			view->details->show_backup_files = FALSE;
 		}
 	}
 
@@ -8566,7 +8545,7 @@ real_update_location_menu (FMDirectoryView *view)
 	} else {
 		label = _("Mo_ve to Trash");
 		tip = _("Move the open folder to the Trash");
-		show_separate_delete_command = show_delete_command_auto_value;
+		show_separate_delete_command = g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ENABLE_DELETE);
 	}
 
 	action = gtk_action_group_get_action (view->details->dir_action_group,
@@ -8891,7 +8870,7 @@ real_update_menus (FMDirectoryView *view)
 	} else {
 		label = _("Mo_ve to Trash");
 		tip = _("Move each selected item to the Trash");
-		show_separate_delete_command = show_delete_command_auto_value;
+		show_separate_delete_command = g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ENABLE_DELETE);
 	}
 
 	action = gtk_action_group_get_action (view->details->dir_action_group,
@@ -9552,7 +9531,6 @@ finish_loading (FMDirectoryView *view)
 	caja_directory_file_monitor_add (view->details->model,
 					     &view->details->model,
 					     view->details->show_hidden_files,
-					     view->details->show_backup_files,
 					     attributes,
 					     files_added_callback, view);
 
@@ -9948,7 +9926,6 @@ fm_directory_view_should_show_file (FMDirectoryView *view, CajaFile *file)
 {
 	return caja_file_should_show (file,
 					  view->details->show_hidden_files,
-					  view->details->show_backup_files,
 					  view->details->show_foreign_files);
 }
 
@@ -10061,7 +10038,6 @@ fm_directory_view_ignore_hidden_file_preferences (FMDirectoryView *view)
 	}
 
 	view->details->show_hidden_files = FALSE;
-	view->details->show_backup_files = FALSE;
 	view->details->ignore_hidden_file_preferences = TRUE;
 }
 

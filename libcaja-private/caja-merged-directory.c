@@ -59,7 +59,6 @@ typedef struct
     CajaMergedDirectory *merged;
 
     gboolean monitor_hidden_files;
-    gboolean monitor_backup_files;
     CajaFileAttributes monitor_attributes;
 } MergedMonitor;
 
@@ -268,7 +267,6 @@ static void
 merged_monitor_add (CajaDirectory *directory,
                     gconstpointer client,
                     gboolean monitor_hidden_files,
-                    gboolean monitor_backup_files,
                     CajaFileAttributes file_attributes,
                     CajaDirectoryCallback callback,
                     gpointer callback_data)
@@ -296,7 +294,6 @@ merged_monitor_add (CajaDirectory *directory,
                              (gpointer) client, monitor);
     }
     monitor->monitor_hidden_files = monitor_hidden_files;
-    monitor->monitor_backup_files = monitor_backup_files;
     monitor->monitor_attributes = file_attributes;
 
     /* Call through to the real directory add calls. */
@@ -305,7 +302,7 @@ merged_monitor_add (CajaDirectory *directory,
     {
         caja_directory_file_monitor_add
         (node->data, monitor,
-         monitor_hidden_files, monitor_backup_files,
+         monitor_hidden_files,
          file_attributes,
          build_merged_callback_list, &merged_callback_list);
     }
@@ -488,7 +485,6 @@ monitor_add_directory (gpointer key,
     caja_directory_file_monitor_add
     (CAJA_DIRECTORY (callback_data), monitor,
      monitor->monitor_hidden_files,
-     monitor->monitor_backup_files,
      monitor->monitor_attributes,
      forward_files_added_cover, monitor->merged);
 }

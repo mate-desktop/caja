@@ -166,7 +166,6 @@ void               caja_directory_monitor_add_internal            (CajaDirectory
         CajaFile              *file,
         gconstpointer              client,
         gboolean                   monitor_hidden_files,
-        gboolean                   monitor_backup_files,
         CajaFileAttributes     attributes,
         CajaDirectoryCallback  callback,
         gpointer                   callback_data);

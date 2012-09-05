@@ -172,7 +172,6 @@ typedef struct
 {
     CajaFile *file; /* Which file, NULL means all. */
     gboolean monitor_hidden_files; /* defines whether "all" includes hidden files */
-    gboolean monitor_backup_files; /* defines whether "all" includes backup files */
     gconstpointer client;
     Request request;
 } Monitor;
@@ -809,7 +808,6 @@ caja_directory_monitor_add_internal (CajaDirectory *directory,
                                      CajaFile *file,
                                      gconstpointer client,
                                      gboolean monitor_hidden_files,
-                                     gboolean monitor_backup_files,
                                      CajaFileAttributes file_attributes,
                                      CajaDirectoryCallback callback,
                                      gpointer callback_data)
@@ -826,7 +824,6 @@ caja_directory_monitor_add_internal (CajaDirectory *directory,
     monitor = g_new (Monitor, 1);
     monitor->file = file;
     monitor->monitor_hidden_files = monitor_hidden_files;
-    monitor->monitor_backup_files = monitor_backup_files;
     monitor->client = client;
     monitor->request = caja_directory_set_up_request (file_attributes);
 
@@ -906,60 +903,37 @@ set_file_unconfirmed (CajaFile *file, gboolean unconfirmed)
 }
 
 static gboolean show_hidden_files = TRUE;
-static gboolean show_backup_files = TRUE;
 
 static void
 show_hidden_files_changed_callback (gpointer callback_data)
 {
-    show_hidden_files = eel_preferences_get_boolean (CAJA_PREFERENCES_SHOW_HIDDEN_FILES);
-}
-
-static void
-show_backup_files_changed_callback (gpointer callback_data)
-{
-    show_backup_files = eel_preferences_get_boolean (CAJA_PREFERENCES_SHOW_BACKUP_FILES);
+    show_hidden_files = g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SHOW_HIDDEN_FILES);
 }
 
 static gboolean
 should_skip_file (CajaDirectory *directory, GFileInfo *info)
 {
     static gboolean show_hidden_files_changed_callback_installed = FALSE;
-    static gboolean show_backup_files_changed_callback_installed = FALSE;
 
     /* Add the callback once for the life of our process */
     if (!show_hidden_files_changed_callback_installed)
     {
-        eel_preferences_add_callback (CAJA_PREFERENCES_SHOW_HIDDEN_FILES,
-                                      show_hidden_files_changed_callback,
-                                      NULL);
+        g_signal_connect_swapped (caja_preferences,
+                                  "changed::" CAJA_PREFERENCES_SHOW_HIDDEN_FILES,
+                                  G_CALLBACK(show_hidden_files_changed_callback),
+                                  NULL);
         show_hidden_files_changed_callback_installed = TRUE;
 
         /* Peek for the first time */
         show_hidden_files_changed_callback (NULL);
     }
 
-    /* Add the callback once for the life of our process */
-    if (!show_backup_files_changed_callback_installed)
-    {
-        eel_preferences_add_callback (CAJA_PREFERENCES_SHOW_BACKUP_FILES,
-                                      show_backup_files_changed_callback,
-                                      NULL);
-        show_backup_files_changed_callback_installed = TRUE;
-
-        /* Peek for the first time */
-        show_backup_files_changed_callback (NULL);
-    }
-
     if (!show_hidden_files &&
             (g_file_info_get_is_hidden (info) ||
+             g_file_info_get_is_backup (info) ||
              (directory != NULL && directory->details->hidden_file_hash != NULL &&
               g_hash_table_lookup (directory->details->hidden_file_hash,
                                    g_file_info_get_name (info)) != NULL)))
-    {
-        return TRUE;
-    }
-
-    if (!show_backup_files && g_file_info_get_is_backup (info))
     {
         return TRUE;
     }
@@ -2607,7 +2581,6 @@ monitor_includes_file (const Monitor *monitor,
     }
     return caja_file_should_show (file,
                                   monitor->monitor_hidden_files,
-                                  monitor->monitor_backup_files,
                                   TRUE);
 }
 

@@ -89,7 +89,6 @@ enum
     ARG_APP
 };
 
-static int side_pane_width_auto_value = 0;
 
 
 /* Forward and back buttons on the mouse */
@@ -382,11 +381,11 @@ side_pane_size_allocate_callback (GtkWidget *widget,
     if (allocation->width != window->details->side_pane_width)
     {
         window->details->side_pane_width = allocation->width;
-        if (eel_preferences_key_is_writable (CAJA_PREFERENCES_SIDEBAR_WIDTH))
+        if (g_settings_is_writable (caja_preferences, CAJA_PREFERENCES_SIDEBAR_WIDTH))
         {
-            eel_preferences_set_integer
-            (CAJA_PREFERENCES_SIDEBAR_WIDTH,
-             allocation->width <= 1 ? 0 : allocation->width);
+            g_settings_set_int (caja_preferences,
+                                CAJA_PREFERENCES_SIDEBAR_WIDTH,
+                                allocation->width <= 1 ? 0 : allocation->width);
         }
     }
 }
@@ -394,22 +393,14 @@ side_pane_size_allocate_callback (GtkWidget *widget,
 static void
 setup_side_pane_width (CajaNavigationWindow *window)
 {
-    static gboolean setup_auto_value= TRUE;
-
     g_return_if_fail (window->sidebar != NULL);
 
-    if (setup_auto_value)
-    {
-        setup_auto_value = FALSE;
-        eel_preferences_add_auto_integer
-        (CAJA_PREFERENCES_SIDEBAR_WIDTH,
-         &side_pane_width_auto_value);
-    }
-
-    window->details->side_pane_width = side_pane_width_auto_value;
+    window->details->side_pane_width =
+        g_settings_get_int (caja_preferences,
+                            CAJA_PREFERENCES_SIDEBAR_WIDTH);
 
     gtk_paned_set_position (GTK_PANED (window->details->content_paned),
-                            side_pane_width_auto_value);
+                            window->details->side_pane_width);
 }
 
 static void

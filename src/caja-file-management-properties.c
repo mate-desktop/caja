@@ -172,6 +172,8 @@ static const char * const icon_captions_components[] =
     NULL
 };
 
+static void caja_file_management_properties_dialog_update_media_sensitivity (GtkBuilder *builder);
+
 static void
 caja_file_management_properties_size_group_create (GtkBuilder *builder,
         char *prefix,
@@ -268,6 +270,9 @@ caja_file_management_properties_dialog_response_cb (GtkDialog *parent,
         eel_mateconf_monitor_remove ("/apps/caja/list_view");
         eel_mateconf_monitor_remove ("/apps/caja/preferences");
         eel_mateconf_monitor_remove ("/desktop/mate/file_views");
+        g_signal_handlers_disconnect_by_func (caja_media_preferences,
+                                              caja_file_management_properties_dialog_update_media_sensitivity,
+                                              builder);
     }
 }
 
@@ -551,7 +556,7 @@ static void
 caja_file_management_properties_dialog_update_media_sensitivity (GtkBuilder *builder)
 {
     gtk_widget_set_sensitive (GTK_WIDGET (gtk_builder_get_object (builder, "media_handling_vbox")),
-                              ! eel_preferences_get_boolean (CAJA_PREFERENCES_MEDIA_AUTORUN_NEVER));
+                              ! g_settings_get_boolean (caja_media_preferences, CAJA_PREFERENCES_MEDIA_AUTORUN_NEVER));
 }
 
 static void
@@ -699,6 +704,17 @@ skip:
     caja_file_management_properties_dialog_update_media_sensitivity (builder);
 }
 
+static void
+bind_builder_bool (GtkBuilder *builder,
+                   GSettings *settings,
+                   const char *widget_name,
+                   const char *prefs)
+{
+    g_settings_bind (settings, prefs,
+                     gtk_builder_get_object (builder, widget_name),
+                     "active", G_SETTINGS_BIND_DEFAULT);
+}
+
 static  void
 caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *window)
 {
@@ -745,25 +761,23 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
             CAJA_FILE_MANAGEMENT_PROPERTIES_ALWAYS_USE_BROWSER_WIDGET,
             CAJA_PREFERENCES_ALWAYS_USE_BROWSER);
 
-    eel_preferences_builder_connect_bool (builder,
-                                          CAJA_FILE_MANAGEMENT_PROPERTIES_MEDIA_AUTOMOUNT_OPEN,
-                                          CAJA_PREFERENCES_MEDIA_AUTOMOUNT_OPEN);
-    eel_preferences_builder_connect_bool (builder,
-                                          CAJA_FILE_MANAGEMENT_PROPERTIES_MEDIA_AUTORUN_NEVER,
-                                          CAJA_PREFERENCES_MEDIA_AUTORUN_NEVER);
+    bind_builder_bool (builder, caja_media_preferences,
+                       CAJA_FILE_MANAGEMENT_PROPERTIES_MEDIA_AUTOMOUNT_OPEN,
+                       CAJA_PREFERENCES_MEDIA_AUTOMOUNT_OPEN);
+    bind_builder_bool (builder, caja_media_preferences,
+                       CAJA_FILE_MANAGEMENT_PROPERTIES_MEDIA_AUTORUN_NEVER,
+                       CAJA_PREFERENCES_MEDIA_AUTORUN_NEVER);
 
-    eel_preferences_builder_connect_bool (builder,
-                                          CAJA_FILE_MANAGEMENT_PROPERTIES_TRASH_CONFIRM_WIDGET,
-                                          CAJA_PREFERENCES_CONFIRM_TRASH);
-    eel_preferences_builder_connect_bool (builder,
-                                          CAJA_FILE_MANAGEMENT_PROPERTIES_TRASH_DELETE_WIDGET,
-                                          CAJA_PREFERENCES_ENABLE_DELETE);
-    eel_preferences_builder_connect_bool (builder,
-                                          CAJA_FILE_MANAGEMENT_PROPERTIES_SHOW_HIDDEN_WIDGET,
-                                          CAJA_PREFERENCES_SHOW_HIDDEN_FILES);
-    eel_preferences_builder_connect_bool_slave (builder,
-            CAJA_FILE_MANAGEMENT_PROPERTIES_SHOW_HIDDEN_WIDGET,
-            CAJA_PREFERENCES_SHOW_BACKUP_FILES);
+    bind_builder_bool (builder, caja_preferences,
+                       CAJA_FILE_MANAGEMENT_PROPERTIES_TRASH_CONFIRM_WIDGET,
+                       CAJA_PREFERENCES_CONFIRM_TRASH);
+
+    bind_builder_bool (builder, caja_preferences,
+                       CAJA_FILE_MANAGEMENT_PROPERTIES_TRASH_DELETE_WIDGET,
+                       CAJA_PREFERENCES_ENABLE_DELETE);
+    bind_builder_bool (builder, caja_preferences,
+                       CAJA_FILE_MANAGEMENT_PROPERTIES_SHOW_HIDDEN_WIDGET,
+                       CAJA_PREFERENCES_SHOW_HIDDEN_FILES);
     eel_preferences_builder_connect_bool (builder,
                                           CAJA_FILE_MANAGEMENT_PROPERTIES_TREE_VIEW_FOLDERS_WIDGET,
                                           CAJA_PREFERENCES_TREE_SHOW_ONLY_DIRECTORIES);
@@ -831,9 +845,10 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
     caja_file_management_properties_dialog_setup_list_column_page (builder);
     caja_file_management_properties_dialog_setup_media_page (builder);
 
-    eel_preferences_add_callback (CAJA_PREFERENCES_MEDIA_AUTORUN_NEVER,
-                                  (EelPreferencesCallback ) caja_file_management_properties_dialog_update_media_sensitivity,
-                                  g_object_ref (builder));
+    g_signal_connect_swapped (caja_media_preferences,
+                              "changed::" CAJA_PREFERENCES_MEDIA_AUTORUN_NEVER,
+                              G_CALLBACK(caja_file_management_properties_dialog_update_media_sensitivity),
+                              builder);
 
 
     /* UI callbacks */

@@ -41,7 +41,7 @@
 #define CAJA_EMBLEM_SIDEBAR_GET_CLASS(obj) \
   (G_TYPE_INSTANCE_GET_CLASS ((obj), CAJA_TYPE_EMBLEM_SIDEBAR, CajaEmblemSidebarClass))
 
-#define CAJA_EMBLEM_SIDEBAR_ID "CajaEmblemSidebar"
+#define CAJA_EMBLEM_SIDEBAR_ID "emblems"
 
 typedef struct CajaEmblemSidebarDetails CajaEmblemSidebarDetails;
 

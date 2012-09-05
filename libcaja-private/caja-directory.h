@@ -118,7 +118,6 @@ typedef struct
     void     (* file_monitor_add)    (CajaDirectory          *directory,
                                       gconstpointer              client,
                                       gboolean                   monitor_hidden_files,
-                                      gboolean                   monitor_backup_files,
                                       CajaFileAttributes     monitor_attributes,
                                       CajaDirectoryCallback  initial_files_callback,
                                       gpointer                   callback_data);
@@ -195,7 +194,6 @@ void               caja_directory_cancel_callback          (CajaDirectory       
 void               caja_directory_file_monitor_add         (CajaDirectory         *directory,
         gconstpointer              client,
         gboolean                   monitor_hidden_files,
-        gboolean                   monitor_backup_files,
         CajaFileAttributes     attributes,
         CajaDirectoryCallback  initial_files_callback,
         gpointer                   callback_data);

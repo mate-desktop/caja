@@ -49,7 +49,6 @@ static const char *EXTRA_MONITOR_PATHS[] = { "/desktop/mate/file_views",
 /* Forward declarations */
 static void     global_preferences_install_defaults      (void);
 static void     global_preferences_register_enumerations (void);
-static gpointer default_font_callback                    (void);
 static gpointer default_home_link_name                   (void);
 static gpointer default_computer_link_name               (void);
 static gpointer default_trash_link_name                  (void);
@@ -262,26 +261,6 @@ static const PreferenceDefault preference_defaults[] =
         GINT_TO_POINTER (TRUE)
     },
     {
-        CAJA_PREFERENCES_SHOW_HIDDEN_FILES,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (FALSE)
-    },
-    {
-        CAJA_PREFERENCES_SHOW_BACKUP_FILES,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (FALSE)
-    },
-    {
-        CAJA_PREFERENCES_CONFIRM_TRASH,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (TRUE)
-    },
-    {
-        CAJA_PREFERENCES_ENABLE_DELETE,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (FALSE)
-    },
-    {
         CAJA_PREFERENCES_SHOW_TEXT_IN_ICONS,
         PREFERENCE_STRING,
         "local_only",
@@ -320,11 +299,6 @@ static const PreferenceDefault preference_defaults[] =
         GINT_TO_POINTER (TRUE)
     },
     {
-        CAJA_PREFERENCES_THEME,
-        PREFERENCE_STRING,
-        "default"
-    },
-    {
         CAJA_PREFERENCES_SHOW_IMAGE_FILE_THUMBNAILS,
         PREFERENCE_STRING,
         "local_only",
@@ -356,16 +330,6 @@ static const PreferenceDefault preference_defaults[] =
         GINT_TO_POINTER (FALSE)
     },
     {
-        CAJA_PREFERENCES_SHOW_DESKTOP,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (TRUE)
-    },
-    {
-        CAJA_PREFERENCES_DESKTOP_IS_HOME_DIR,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (FALSE)
-    },
-    {
         CAJA_PREFERENCES_SEARCH_BAR_TYPE,
         PREFERENCE_STRING,
         "search_by_text",
@@ -378,11 +342,6 @@ static const PreferenceDefault preference_defaults[] =
         "size,date_modified,type",
         NULL, NULL,
         NULL
-    },
-    {
-        CAJA_PREFERENCES_SIDEBAR_WIDTH,
-        PREFERENCE_INTEGER,
-        GINT_TO_POINTER (148)
     },
     {
         CAJA_PREFERENCES_ALWAYS_USE_BROWSER,
@@ -449,11 +408,6 @@ static const PreferenceDefault preference_defaults[] =
         GINT_TO_POINTER (CAJA_DEFAULT_FOLDER_VIEWER_ICON_VIEW),
         NULL, NULL,
         "default_folder_viewer"
-    },
-    {
-        CAJA_PREFERENCES_DESKTOP_FONT,
-        PREFERENCE_STRING,
-        NULL, default_font_callback, g_free
     },
 
     /* Icon View Default Preferences */
@@ -594,36 +548,6 @@ static const PreferenceDefault preference_defaults[] =
         default_network_link_name, g_free,
     },
 
-    {
-        CAJA_PREFERENCES_MEDIA_AUTOMOUNT,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (TRUE)
-    },
-    {
-        CAJA_PREFERENCES_MEDIA_AUTOMOUNT_OPEN,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (TRUE)
-    },
-    {
-        CAJA_PREFERENCES_MEDIA_AUTORUN_NEVER,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (FALSE)
-    },
-    {
-        CAJA_PREFERENCES_MEDIA_AUTORUN_X_CONTENT_START_APP,
-        PREFERENCE_STRING_ARRAY,
-        "", NULL, NULL, NULL
-    },
-    {
-        CAJA_PREFERENCES_MEDIA_AUTORUN_X_CONTENT_IGNORE,
-        PREFERENCE_STRING_ARRAY,
-        "", NULL, NULL, NULL
-    },
-    {
-        CAJA_PREFERENCES_MEDIA_AUTORUN_X_CONTENT_OPEN_FOLDER,
-        PREFERENCE_STRING_ARRAY,
-        "", NULL, NULL, NULL
-    },
     {
         CAJA_PREFERENCES_DESKTOP_TEXT_ELLIPSIS_LIMIT,
         PREFERENCE_INTEGER,
@@ -838,12 +762,6 @@ global_preferences_install_defaults (void)
     }
 }
 
-static gpointer
-default_font_callback (void)
-{
-    return g_strdup ("sans 12");
-}
-
 /*
  * Public functions
  */
@@ -928,6 +846,9 @@ caja_global_preferences_init (void)
     {
         eel_preferences_monitor_directory (EXTRA_MONITOR_PATHS[i]);
     }
+    
+    caja_preferences = g_settings_new("org.mate.caja.preferences");
+    caja_media_preferences = g_settings_new("org.mate.media-handling");
 
     /* Set up storage for values accessed in this file */
     eel_preferences_add_callback (CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_ORDER_OR_MANUAL_LAYOUT,

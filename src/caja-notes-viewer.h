@@ -30,7 +30,7 @@
 #include <libcaja-private/caja-view.h>
 #include <libcaja-private/caja-window-info.h>
 
-#define CAJA_NOTES_SIDEBAR_ID    "CajaNotesSidebar"
+#define CAJA_NOTES_SIDEBAR_ID    "notes"
 
 #define CAJA_TYPE_NOTES_VIEWER caja_notes_viewer_get_type()
 #define CAJA_NOTES_VIEWER(obj) \

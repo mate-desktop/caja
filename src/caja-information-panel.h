@@ -44,7 +44,7 @@
 
 typedef struct CajaInformationPanelDetails CajaInformationPanelDetails;
 
-#define CAJA_INFORMATION_PANEL_ID "CajaInformationPanel"
+#define CAJA_INFORMATION_PANEL_ID "information"
 
 typedef struct
 {

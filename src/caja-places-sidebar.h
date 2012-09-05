@@ -28,7 +28,7 @@
 #include <libcaja-private/caja-window-info.h>
 #include <gtk/gtk.h>
 
-#define CAJA_PLACES_SIDEBAR_ID    "CajaPlacesSidebar"
+#define CAJA_PLACES_SIDEBAR_ID    "places"
 
 #define CAJA_TYPE_PLACES_SIDEBAR caja_places_sidebar_get_type()
 #define CAJA_PLACES_SIDEBAR(obj) \

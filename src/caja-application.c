@@ -234,7 +234,7 @@ automount_all_volumes (CajaApplication *application)
     GMount *mount;
     GVolume *volume;
 
-    if (eel_preferences_get_boolean (CAJA_PREFERENCES_MEDIA_AUTOMOUNT))
+    if (g_settings_get_boolean (caja_media_preferences, CAJA_PREFERENCES_MEDIA_AUTOMOUNT))
     {
         /* automount all mountable volumes at start-up */
         volumes = g_volume_monitor_get_volumes (application->volume_monitor);
@@ -974,7 +974,7 @@ caja_application_startup (CajaApplication *application,
         char *accel_map_filename;
 
         if (!no_desktop &&
-                !eel_preferences_get_boolean (CAJA_PREFERENCES_SHOW_DESKTOP))
+                !g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SHOW_DESKTOP))
         {
             no_desktop = TRUE;
         }
@@ -999,18 +999,15 @@ caja_application_startup (CajaApplication *application,
         }
 
         /* Monitor the preference to show or hide the desktop */
-        eel_preferences_add_callback_while_alive (CAJA_PREFERENCES_SHOW_DESKTOP,
-                desktop_changed_callback,
-                application,
-                G_OBJECT (application));
+        g_signal_connect_swapped (caja_preferences, "changed::" CAJA_PREFERENCES_SHOW_DESKTOP,
+                                  G_CALLBACK(desktop_changed_callback),
+                                  G_OBJECT (application));
 
         /* Monitor the preference to have the desktop */
         /* point to the Unix home folder */
-        eel_preferences_add_callback_while_alive (CAJA_PREFERENCES_DESKTOP_IS_HOME_DIR,
-                desktop_location_changed_callback,
-                NULL,
-                G_OBJECT (application));
-
+        g_signal_connect_swapped (caja_preferences, "changed::" CAJA_PREFERENCES_DESKTOP_IS_HOME_DIR,
+                                  G_CALLBACK(desktop_location_changed_callback),
+                                  G_OBJECT (application));
         /* Create the other windows. */
         if (urls != NULL || !no_default_window)
         {
@@ -1613,7 +1610,7 @@ desktop_changed_callback (gpointer user_data)
     CajaApplication *application;
 
     application = CAJA_APPLICATION (user_data);
-    if ( eel_preferences_get_boolean (CAJA_PREFERENCES_SHOW_DESKTOP))
+    if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SHOW_DESKTOP))
     {
         caja_application_open_desktop (application);
     }
@@ -1639,7 +1636,7 @@ volume_added_callback (GVolumeMonitor *monitor,
                        GVolume *volume,
                        CajaApplication *application)
 {
-    if (eel_preferences_get_boolean (CAJA_PREFERENCES_MEDIA_AUTOMOUNT) &&
+    if (g_settings_get_boolean (caja_media_preferences, CAJA_PREFERENCES_MEDIA_AUTOMOUNT) &&
             g_volume_should_automount (volume) &&
             g_volume_can_mount (volume))
     {

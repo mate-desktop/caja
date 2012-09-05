@@ -57,7 +57,6 @@ struct CajaSearchDirectoryDetails
 typedef struct
 {
     gboolean monitor_hidden_files;
-    gboolean monitor_backup_files;
     CajaFileAttributes monitor_attributes;
 
     gconstpointer client;
@@ -181,7 +180,6 @@ static void
 search_monitor_add (CajaDirectory *directory,
                     gconstpointer client,
                     gboolean monitor_hidden_files,
-                    gboolean monitor_backup_files,
                     CajaFileAttributes file_attributes,
                     CajaDirectoryCallback callback,
                     gpointer callback_data)
@@ -195,7 +193,6 @@ search_monitor_add (CajaDirectory *directory,
 
     monitor = g_new0 (SearchMonitor, 1);
     monitor->monitor_hidden_files = monitor_hidden_files;
-    monitor->monitor_backup_files = monitor_backup_files;
     monitor->monitor_attributes = file_attributes;
     monitor->client = client;
 

@@ -3,6 +3,7 @@ AC_PREREQ(2.54)
 dnl ===========================================================================
 
 m4_define(glib_minver,                 2.25.9)
+m4_define(gio_minver,                  2.25.0)
 m4_define(mate_desktop_minver,         1.1.0)
 m4_define(pango_minver,                1.1.2)
 m4_define(gtk_minver,                  2.22.0)
@@ -19,7 +20,7 @@ dnl Interface break is not allowed.
 m4_define(caja_extension_current,  5)
 m4_define(caja_extension_revision, 0)
 
-AC_INIT([caja], [1.4.0], [http://www.mate-desktop.org])
+AC_INIT([caja], [1.5.0], [http://www.mate-desktop.org])
 
 dnl ---------------------------------------------------------------------------
 dnl GTK library version
@@ -60,6 +61,7 @@ AM_MAINTAINER_MODE
 AC_SUBST([ACLOCAL_AMFLAGS], ["\${ACLOCAL_FLAGS}"])
 
 AC_SUBST(GLIB_REQUIRED, [glib_minver])
+AC_SUBST(GIO_REQUIRED, [gio_minver])
 AC_SUBST(MATE_DESKTOP_REQUIRED, [mate_desktop_minver])
 AC_SUBST(PANGO_REQUIRED, [pango_minver])
 AC_SUBST(GTK_REQUIRED, [$GTK_REQUIRED])
@@ -89,7 +91,7 @@ PKG_CHECK_MODULES(ALL, [
     mate-desktop-2.0 >= mate_desktop_minver
     gthread-2.0
     gio-unix-2.0
-    gio-2.0
+    gio-2.0 >= gio_minver
     pango >= pango_minver
     gtk+-$GTK_API_VERSION >= $GTK_REQUIRED
     libxml-2.0 >= xml_minver
@@ -424,7 +426,7 @@ AC_SUBST(LIBCAJA_EXTENSION_LIBS)
 
 dnl core caja
 PKG_CHECK_MODULES(GMODULE, gmodule-2.0, [GMODULE_ADD="gmodule-2.0"],[GMODULE_ADD=""])
-CORE_MODULES="glib-2.0 $GMODULE_ADD mate-desktop-2.0 gthread-2.0 gio-2.0 gio-unix-2.0 gail mateconf-2.0 libxml-2.0 $EXTRA_CORE_MODULES gtk+-$GTK_API_VERSION"
+CORE_MODULES="glib-2.0 $GMODULE_ADD mate-desktop-2.0 gthread-2.0 gio-2.0 mateconf-2.0 gio-unix-2.0 gail libxml-2.0 $EXTRA_CORE_MODULES gtk+-$GTK_API_VERSION"
 CORE_CFLAGS="`$PKG_CONFIG --cflags $CORE_MODULES` $x_cflags"
 AC_SUBST(CORE_CFLAGS)
 CORE_LIBS="`$PKG_CONFIG --libs $CORE_MODULES` $x_libs"
@@ -437,16 +439,10 @@ dnl Multimedia keys
 AC_CHECK_HEADERS([X11/XF86keysym.h])
 
 dnl ==============================================
-dnl Special MateConf section
+dnl Special GSettings section
 dnl ==============================================
 
-AC_PATH_PROG(MATECONFTOOL, mateconftool-2, no)
-
-if test x"$MATECONFTOOL" = xno; then
-  AC_MSG_ERROR([mateconftool-2 executable not found in your path - should be installed with MateConf])
-fi
-
-AM_MATECONF_SOURCE_2
+GLIB_GSETTINGS
 
 ##################################################
 # Check for introspection
