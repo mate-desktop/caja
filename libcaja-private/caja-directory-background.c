@@ -369,8 +369,9 @@ caja_file_background_receive_mateconf_changes (EelBackground *background)
 {
     guint notification_id;
 
-    eel_mateconf_monitor_add ("/desktop/mate/background");
-    notification_id = eel_mateconf_notification_add ("/desktop/mate/background", desktop_background_mateconf_notify_cb, background);
+    notification_id = mateconf_client_notify_add (caja_mateconf_client,
+                                                  "/desktop/mate/background", desktop_background_mateconf_notify_cb, background,
+                                                    NULL, NULL);
 
     g_object_set_data (G_OBJECT (background), "desktop_mateconf_notification", GUINT_TO_POINTER (notification_id));
 
