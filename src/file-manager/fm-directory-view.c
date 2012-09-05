@@ -2487,51 +2487,6 @@ fm_directory_view_stop_loading (CajaView *caja_view)
 	fm_directory_view_stop (FM_DIRECTORY_VIEW (caja_view));
 }
 
-static void
-fm_directory_view_file_limit_reached (FMDirectoryView *view)
-{
-	g_assert (FM_IS_DIRECTORY_VIEW (view));
-
-	EEL_CALL_METHOD (FM_DIRECTORY_VIEW_CLASS, view,
-		 	       file_limit_reached, (view));
-}
-
-static void
-real_file_limit_reached (FMDirectoryView *view)
-{
-	CajaFile *file;
-	GtkDialog *dialog;
-	char *directory_name;
-	char *message;
-
-	g_assert (FM_IS_DIRECTORY_VIEW (view));
-
-	file = fm_directory_view_get_directory_as_file (view);
-	directory_name = caja_file_get_display_name (file);
-
-	/* Note that the number of items actually displayed varies somewhat due
-	 * to the way files are collected in batches. So you can't assume that
-	 * no more than the constant limit are displayed.
-	 */
-	message = g_strdup_printf (_("The folder \"%s\" contains more files than "
-			             "Caja can handle."),
-			           directory_name);
-	g_free (directory_name);
-
-	dialog = eel_show_warning_dialog (message,
-					  _("Some files will not be displayed."),
-					  fm_directory_view_get_containing_window (view));
-	g_free (message);
-}
-
-static void
-check_for_directory_hard_limit (FMDirectoryView *view)
-{
-	if (caja_directory_file_list_length_reached (view->details->model)) {
-		fm_directory_view_file_limit_reached (view);
-	}
-}
-
 static gboolean
 reveal_selection_idle_callback (gpointer data)
 {
@@ -2565,7 +2520,6 @@ done_loading (FMDirectoryView *view,
 
 		schedule_update_menus (view);
 		schedule_update_status (view);
-		check_for_directory_hard_limit (view);
 		reset_update_interval (view);
 
 		locations_selected = view->details->pending_locations_selected;
@@ -10945,7 +10899,6 @@ fm_directory_view_class_init (FMDirectoryViewClass *klass)
 		              G_TYPE_NONE, 2, CAJA_TYPE_FILE, CAJA_TYPE_DIRECTORY);
 
 	klass->accepts_dragged_files = real_accepts_dragged_files;
-	klass->file_limit_reached = real_file_limit_reached;
 	klass->file_still_belongs = real_file_still_belongs;
 	klass->get_emblem_names_to_exclude = real_get_emblem_names_to_exclude;
 	klass->get_selected_icon_locations = real_get_selected_icon_locations;

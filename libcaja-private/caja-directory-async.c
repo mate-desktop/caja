@@ -2324,8 +2324,7 @@ more_files_callback (GObject *source_object,
         g_object_unref (info);
     }
 
-    if (caja_directory_file_list_length_reached (directory) ||
-            files == NULL)
+    if (files == NULL)
     {
         directory_load_done (directory, error);
         directory_load_state_free (state);

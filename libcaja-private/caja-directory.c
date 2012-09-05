@@ -718,33 +718,6 @@ caja_directory_remove_file (CajaDirectory *directory, CajaFile *file)
     }
 }
 
-#define CAJA_DIRECTORY_FILE_LIST_DEFAULT_LIMIT 4000
-
-gboolean
-caja_directory_file_list_length_reached (CajaDirectory *directory)
-{
-    static gboolean inited = FALSE;
-    static int directory_limit = 0;
-
-    if (!inited)
-    {
-        eel_preferences_add_auto_integer
-        ("/apps/caja/preferences/directory_limit",
-         &directory_limit);
-        inited = TRUE;
-    }
-    if (directory_limit < 0)    /* unlimited */
-    {
-        return FALSE;
-    }
-    if (directory_limit == 0)   /* dead mateconfd */
-    {
-        directory_limit = CAJA_DIRECTORY_FILE_LIST_DEFAULT_LIMIT;
-    }
-
-    return directory->details->confirmed_file_count >= directory_limit;
-}
-
 GList *
 caja_directory_begin_file_name_change (CajaDirectory *directory,
                                        CajaFile *file)

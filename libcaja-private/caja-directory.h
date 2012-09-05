@@ -222,7 +222,6 @@ gboolean           caja_directory_is_in_trash              (CajaDirectory       
  * Only valid if directory is monitored. Used by the Trash monitor.
  */
 gboolean           caja_directory_is_not_empty             (CajaDirectory         *directory);
-gboolean           caja_directory_file_list_length_reached (CajaDirectory         *directory);
 
 /* Convenience functions for dealing with a list of CajaDirectory objects that each have a ref.
  * These are just convenient names for functions that work on lists of GtkObject *.
