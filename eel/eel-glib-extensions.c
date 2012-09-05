@@ -1025,6 +1025,54 @@ eel_get_filename_charset (const gchar **filename_charset)
 }
 
 static void
+update_auto_boolean (GSettings   *settings,
+                     const gchar *key,
+                     gpointer     user_data)
+{
+    int *storage = user_data;
+
+    *storage = g_settings_get_boolean (settings, key);
+}
+
+void
+eel_g_settings_add_auto_boolean (GSettings *settings,
+                 const char *key,
+                 gboolean *storage)
+{
+    char *signal;
+
+    *storage = g_settings_get_boolean (settings, key);
+    signal = g_strconcat ("changed::", key, NULL);
+    g_signal_connect (settings, signal,
+              G_CALLBACK(update_auto_boolean),
+              storage);
+}
+
+static void
+update_auto_int (GSettings   *settings,
+                 const gchar *key,
+                 gpointer     user_data)
+{
+    int *storage = user_data;
+
+    *storage = g_settings_get_int (settings, key);
+}
+
+void
+eel_g_settings_add_auto_int (GSettings *settings,
+                             const char *key,
+                             int *storage)
+{
+    char *signal;
+
+    *storage = g_settings_get_int (settings, key);
+    signal = g_strconcat ("changed::", key, NULL);
+    g_signal_connect (settings, signal,
+              G_CALLBACK(update_auto_int),
+              storage);
+}
+
+static void
 update_auto_enum (GSettings   *settings,
                   const gchar *key,
                   gpointer     user_data)
@@ -1046,6 +1094,43 @@ eel_g_settings_add_auto_enum (GSettings *settings,
     g_signal_connect (settings, signal,
                       G_CALLBACK(update_auto_enum),
                       storage);
+}
+
+static void
+update_auto_strv_as_quarks (GSettings   *settings,
+                            const gchar *key,
+                            gpointer     user_data)
+{
+    GQuark **storage = user_data;
+    int i = 0;
+    char **value;
+
+    value = g_settings_get_strv (settings, key);
+
+    g_free (*storage);
+    *storage = g_new (GQuark, g_strv_length (value) + 1);
+
+    for (i = 0; value[i] != NULL; ++i) {
+        (*storage)[i] = g_quark_from_string (value[i]);
+    }
+    (*storage)[i] = 0;
+
+    g_strfreev (value);
+}
+
+void
+eel_g_settings_add_auto_strv_as_quarks (GSettings *settings,
+                                        const char *key,
+                                        GQuark **storage)
+{
+    char *signal;
+
+    *storage = NULL;
+    update_auto_strv_as_quarks (settings, key, storage);
+    signal = g_strconcat ("changed::", key, NULL);
+    g_signal_connect (settings, signal,
+              G_CALLBACK(update_auto_strv_as_quarks),
+              storage);
 }
 
 #if !defined (EEL_OMIT_SELF_CHECK)
