@@ -198,11 +198,11 @@ G_BEGIN_DECLS
         CAJA_SPEED_TRADEOFF_NEVER
     } CajaSpeedTradeoffValue;
 
-#define CAJA_PREFERENCES_SHOW_TEXT_IN_ICONS		"show-icon-text"
+#define CAJA_PREFERENCES_SHOW_TEXT_IN_ICONS		    "show-icon-text"
 #define CAJA_PREFERENCES_SHOW_DIRECTORY_ITEM_COUNTS "show-directory-item-counts"
-#define CAJA_PREFERENCES_SHOW_IMAGE_FILE_THUMBNAILS	"preferences/show_image_thumbnails"
-#define CAJA_PREFERENCES_IMAGE_FILE_THUMBNAIL_LIMIT	"preferences/thumbnail_limit"
-#define CAJA_PREFERENCES_PREVIEW_SOUND		"preferences/preview_sound"
+#define CAJA_PREFERENCES_SHOW_IMAGE_FILE_THUMBNAILS	"show-image-thumbnails"
+#define CAJA_PREFERENCES_IMAGE_FILE_THUMBNAIL_LIMIT	"thumbnail-limit"
+#define CAJA_PREFERENCES_PREVIEW_SOUND		        "preview-sound"
 
     typedef enum
     {

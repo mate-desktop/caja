@@ -150,7 +150,7 @@ static const char * const executable_text_values[] =
     NULL
 };
 
-static const guint thumbnail_limit_values[] =
+static const guint64 thumbnail_limit_values[] =
 {
     102400,
     512000,
@@ -792,6 +792,63 @@ bind_builder_enum (GtkBuilder *builder,
 }
 
 typedef struct {
+    const guint64 *values;
+    int n_values;
+} UIntEnumBinding;
+
+static gboolean
+uint_enum_get_mapping (GValue             *value,
+               GVariant           *variant,
+               gpointer            user_data)
+{
+    UIntEnumBinding *binding = user_data;
+    guint64 v;
+    int i;
+
+    v = g_variant_get_uint64 (variant);
+    for (i = 0; i < binding->n_values; i++) {
+        if (binding->values[i] >= v) {
+            g_value_set_int (value, i);
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+static GVariant *
+uint_enum_set_mapping (const GValue       *value,
+               const GVariantType *expected_type,
+               gpointer            user_data)
+{
+    UIntEnumBinding *binding = user_data;
+
+    return g_variant_new_uint64 (binding->values[g_value_get_int (value)]);
+}
+
+static void
+bind_builder_uint_enum (GtkBuilder *builder,
+            GSettings *settings,
+            const char *widget_name,
+            const char *prefs,
+            const guint64 *values,
+            int n_values)
+{
+    UIntEnumBinding *binding;
+
+    binding = g_new (UIntEnumBinding, 1);
+    binding->values = values;
+    binding->n_values = n_values;
+
+    g_settings_bind_with_mapping (settings, prefs,
+                      gtk_builder_get_object (builder, widget_name),
+                      "active", G_SETTINGS_BIND_DEFAULT,
+                      uint_enum_get_mapping,
+                      uint_enum_set_mapping,
+                      binding, g_free);
+}
+
+typedef struct {
     GtkWidget *button;
     const char *value;
     const char *key;
@@ -962,14 +1019,14 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
                        CAJA_FILE_MANAGEMENT_PROPERTIES_PREVIEW_TEXT_WIDGET,
                        CAJA_PREFERENCES_SHOW_TEXT_IN_ICONS,
                        (const char **) preview_values);
-    eel_preferences_builder_connect_string_enum_combo_box (builder,
-            CAJA_FILE_MANAGEMENT_PROPERTIES_PREVIEW_IMAGE_WIDGET,
-            CAJA_PREFERENCES_SHOW_IMAGE_FILE_THUMBNAILS,
-            (const char **) preview_values);
-    eel_preferences_builder_connect_string_enum_combo_box (builder,
-            CAJA_FILE_MANAGEMENT_PROPERTIES_PREVIEW_SOUND_WIDGET,
-            CAJA_PREFERENCES_PREVIEW_SOUND,
-            (const char **) preview_values);
+    bind_builder_enum (builder, caja_preferences,
+                       CAJA_FILE_MANAGEMENT_PROPERTIES_PREVIEW_IMAGE_WIDGET,
+                       CAJA_PREFERENCES_SHOW_IMAGE_FILE_THUMBNAILS,
+                       (const char **) preview_values);
+    bind_builder_enum (builder, caja_preferences,
+                       CAJA_FILE_MANAGEMENT_PROPERTIES_PREVIEW_SOUND_WIDGET,
+                       CAJA_PREFERENCES_PREVIEW_SOUND,
+                       (const char **) preview_values);
     bind_builder_enum (builder, caja_preferences,
                        CAJA_FILE_MANAGEMENT_PROPERTIES_PREVIEW_FOLDER_WIDGET,
                        CAJA_PREFERENCES_SHOW_DIRECTORY_ITEM_COUNTS,
@@ -988,11 +1045,11 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
                         CAJA_PREFERENCES_EXECUTABLE_TEXT_ACTIVATION,
                         (const char **) executable_text_values);
 
-    eel_preferences_builder_connect_uint_enum (builder,
-            CAJA_FILE_MANAGEMENT_PROPERTIES_THUMBNAIL_LIMIT_WIDGET,
-            CAJA_PREFERENCES_IMAGE_FILE_THUMBNAIL_LIMIT,
-            (const guint *) thumbnail_limit_values,
-            G_N_ELEMENTS (thumbnail_limit_values));
+    bind_builder_uint_enum (builder, caja_preferences,
+                            CAJA_FILE_MANAGEMENT_PROPERTIES_THUMBNAIL_LIMIT_WIDGET,
+                            CAJA_PREFERENCES_IMAGE_FILE_THUMBNAIL_LIMIT,
+                            thumbnail_limit_values,
+                            G_N_ELEMENTS (thumbnail_limit_values));
 
     caja_file_management_properties_dialog_setup_icon_caption_page (builder);
     caja_file_management_properties_dialog_setup_list_column_page (builder);

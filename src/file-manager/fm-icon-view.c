@@ -3283,8 +3283,9 @@ fm_icon_view_init (FMIconView *icon_view)
 
     if (!setup_sound_preview)
     {
-        eel_preferences_add_auto_enum (CAJA_PREFERENCES_PREVIEW_SOUND,
-                                       &preview_sound_auto_value);
+        eel_g_settings_add_auto_enum (caja_preferences,
+                                      CAJA_PREFERENCES_PREVIEW_SOUND,
+                                      &preview_sound_auto_value);
 
         setup_sound_preview = TRUE;
     }

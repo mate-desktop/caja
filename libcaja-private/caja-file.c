@@ -4041,7 +4041,7 @@ get_custom_icon (CajaFile *file)
 }
 
 
-static guint cached_thumbnail_limit;
+static guint64 cached_thumbnail_limit;
 int cached_thumbnail_size;
 static int show_image_thumbs;
 
@@ -8160,7 +8160,9 @@ caja_extract_top_left_text (const char *text,
 static void
 thumbnail_limit_changed_callback (gpointer user_data)
 {
-	cached_thumbnail_limit = eel_preferences_get_uint (CAJA_PREFERENCES_IMAGE_FILE_THUMBNAIL_LIMIT);
+	g_settings_get (caja_preferences,
+					CAJA_PREFERENCES_IMAGE_FILE_THUMBNAIL_LIMIT,
+					"t", &cached_thumbnail_limit);
 
 	/* Tell the world that icons might have changed. We could invent a narrower-scope
 	 * signal to mean only "thumbnails might have changed" if this ends up being slow
@@ -8184,7 +8186,7 @@ thumbnail_size_changed_callback (gpointer user_data)
 static void
 show_thumbnails_changed_callback (gpointer user_data)
 {
-	show_image_thumbs = eel_preferences_get_enum (CAJA_PREFERENCES_SHOW_IMAGE_FILE_THUMBNAILS);
+	show_image_thumbs = g_settings_get_enum (caja_preferences, CAJA_PREFERENCES_SHOW_IMAGE_FILE_THUMBNAILS);
 
 	/* Tell the world that icons might have changed. We could invent a narrower-scope
 	 * signal to mean only "thumbnails might have changed" if this ends up being slow
@@ -8281,17 +8283,19 @@ caja_file_class_init (CajaFileClass *class)
 				                  &date_format_pref);
 
 	thumbnail_limit_changed_callback (NULL);
-	eel_preferences_add_callback (CAJA_PREFERENCES_IMAGE_FILE_THUMBNAIL_LIMIT,
-				      thumbnail_limit_changed_callback,
-				      NULL);
+	g_signal_connect_swapped (caja_preferences,
+							  "changed::" CAJA_PREFERENCES_IMAGE_FILE_THUMBNAIL_LIMIT,
+							  G_CALLBACK (thumbnail_limit_changed_callback),
+							  NULL);
 	thumbnail_size_changed_callback (NULL);
 	eel_preferences_add_callback (CAJA_PREFERENCES_ICON_VIEW_THUMBNAIL_SIZE,
 				      thumbnail_size_changed_callback,
 				      NULL);
 	show_thumbnails_changed_callback (NULL);
-	eel_preferences_add_callback (CAJA_PREFERENCES_SHOW_IMAGE_FILE_THUMBNAILS,
-				      show_thumbnails_changed_callback,
-				      NULL);
+	g_signal_connect_swapped (caja_preferences,
+							  "changed::" CAJA_PREFERENCES_SHOW_IMAGE_FILE_THUMBNAILS,
+							  G_CALLBACK (show_thumbnails_changed_callback),
+							  NULL);
 
 	icon_theme = gtk_icon_theme_get_default ();
 	g_signal_connect_object (icon_theme,
