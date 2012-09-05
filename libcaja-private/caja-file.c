@@ -8274,9 +8274,9 @@ caja_file_class_init (CajaFileClass *class)
 
 	g_type_class_add_private (class, sizeof (CajaFileDetails));
 
-
-	eel_preferences_add_auto_enum (CAJA_PREFERENCES_DATE_FORMAT,
-				       &date_format_pref);
+	eel_g_settings_add_auto_enum (caja_preferences,
+				                  CAJA_PREFERENCES_DATE_FORMAT,
+				                  &date_format_pref);
 
 	thumbnail_limit_changed_callback (NULL);
 	eel_preferences_add_callback (CAJA_PREFERENCES_IMAGE_FILE_THUMBNAIL_LIMIT,
