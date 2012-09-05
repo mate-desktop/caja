@@ -4700,7 +4700,7 @@ show_text_in_icons_changed_callback (gpointer callback_data)
 static void
 show_directory_item_count_changed_callback (gpointer callback_data)
 {
-	show_directory_item_count = eel_preferences_get_enum (CAJA_PREFERENCES_SHOW_DIRECTORY_ITEM_COUNTS);
+	show_directory_item_count = g_settings_get_enum (caja_preferences, CAJA_PREFERENCES_SHOW_DIRECTORY_ITEM_COUNTS);
 }
 
 static gboolean
@@ -4752,9 +4752,10 @@ caja_file_should_show_directory_item_count (CajaFile *file)
 
 	/* Add the callback once for the life of our process */
 	if (!show_directory_item_count_callback_added) {
-		eel_preferences_add_callback (CAJA_PREFERENCES_SHOW_DIRECTORY_ITEM_COUNTS,
-						   show_directory_item_count_changed_callback,
-						   NULL);
+		g_signal_connect_swapped (caja_preferences,
+								  "changed::" CAJA_PREFERENCES_SHOW_DIRECTORY_ITEM_COUNTS,
+								  G_CALLBACK(show_directory_item_count_changed_callback),
+								  NULL);
 		show_directory_item_count_callback_added = TRUE;
 
 		/* Peek for the first time */

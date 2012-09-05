@@ -187,18 +187,6 @@ typedef struct
  */
 static const PreferenceDefault preference_defaults[] =
 {
-    /* Don't show remote directory item counts by default
-     * because computing them can be annoyingly slow, especially
-     * for FTP. If we make this fast enough for FTP in particular,
-     * we should change this default to ALWAYS.
-     */
-    {
-        CAJA_PREFERENCES_SHOW_DIRECTORY_ITEM_COUNTS,
-        PREFERENCE_STRING,
-        "local_only",
-        NULL, NULL,
-        "speed_tradeoff"
-    },
     {
         CAJA_PREFERENCES_SHOW_IMAGE_FILE_THUMBNAILS,
         PREFERENCE_STRING,

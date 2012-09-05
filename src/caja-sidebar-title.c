@@ -165,10 +165,10 @@ caja_sidebar_title_init (CajaSidebarTitle *sidebar_title)
     /* initialize the label colors & fonts */
     style_set (GTK_WIDGET (sidebar_title), NULL);
 
-    eel_preferences_add_callback_while_alive (
-        CAJA_PREFERENCES_SHOW_DIRECTORY_ITEM_COUNTS,
-        (EelPreferencesCallback) update_more_info,
-        sidebar_title, G_OBJECT (sidebar_title));
+    g_signal_connect_swapped (caja_preferences,
+                              "changed::" CAJA_PREFERENCES_SHOW_DIRECTORY_ITEM_COUNTS,
+                              G_CALLBACK(update_more_info),
+                              sidebar_title);
 }
 
 /* destroy by throwing away private storage */
@@ -205,6 +205,9 @@ caja_sidebar_title_destroy (GtkObject *object)
         g_free (sidebar_title->details);
         sidebar_title->details = NULL;
     }
+
+    g_signal_handlers_disconnect_by_func (caja_preferences,
+                                          update_more_info, sidebar_title);
 
     EEL_CALL_PARENT (GTK_OBJECT_CLASS, destroy, (object));
 }

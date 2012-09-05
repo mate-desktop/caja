@@ -970,10 +970,10 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
             CAJA_FILE_MANAGEMENT_PROPERTIES_PREVIEW_SOUND_WIDGET,
             CAJA_PREFERENCES_PREVIEW_SOUND,
             (const char **) preview_values);
-    eel_preferences_builder_connect_string_enum_combo_box (builder,
-            CAJA_FILE_MANAGEMENT_PROPERTIES_PREVIEW_FOLDER_WIDGET,
-            CAJA_PREFERENCES_SHOW_DIRECTORY_ITEM_COUNTS,
-            (const char **) preview_values);
+    bind_builder_enum (builder, caja_preferences,
+                       CAJA_FILE_MANAGEMENT_PROPERTIES_PREVIEW_FOLDER_WIDGET,
+                       CAJA_PREFERENCES_SHOW_DIRECTORY_ITEM_COUNTS,
+                       (const char **) preview_values);
     bind_builder_enum (builder, caja_preferences,
                        CAJA_FILE_MANAGEMENT_PROPERTIES_DATE_FORMAT_WIDGET,
                        CAJA_PREFERENCES_DATE_FORMAT,
