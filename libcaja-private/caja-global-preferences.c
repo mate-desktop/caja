@@ -320,11 +320,6 @@ static const PreferenceDefault preference_defaults[] =
         "speed_tradeoff"
     },
     {
-        CAJA_PREFERENCES_SHOW_ADVANCED_PERMISSIONS,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (FALSE)
-    },
-    {
         CAJA_PREFERENCES_SORT_DIRECTORIES_FIRST,
         PREFERENCE_BOOLEAN,
         GINT_TO_POINTER (FALSE)

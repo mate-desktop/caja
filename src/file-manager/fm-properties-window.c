@@ -4846,7 +4846,7 @@ create_permissions_page (FMPropertiesWindow *window)
 				    GTK_WIDGET (page_table),
 				    TRUE, TRUE, 0);
 
-		if (eel_preferences_get_boolean (CAJA_PREFERENCES_SHOW_ADVANCED_PERMISSIONS)) {
+		if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SHOW_ADVANCED_PERMISSIONS)) {
 			window->details->advanced_permissions = TRUE;
 			create_advanced_permissions (window, page_table);
 		} else {
