@@ -409,7 +409,7 @@ create_link_and_add_preference (CajaDesktopLink   **link_ref,
 {
     char *detailed_signal;
 
-    if (g_settings_get_boolean (caja_desktop_preferences, preference_key)) {
+    if (g_settings_get_boolean (caja_desktop_preferences, preference_key))
     {
         *link_ref = caja_desktop_link_new (link_type);
     }
