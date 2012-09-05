@@ -206,8 +206,7 @@ G_BEGIN_DECLS
 #define CAJA_PREFERENCES_DESKTOP_NETWORK_NAME          "network-icon-name"
 
     /* Lockdown */
-#define CAJA_PREFERENCES_LOCKDOWN_COMMAND_LINE         "/desktop/mate/lockdown/disable_command_line"
-#define CAJA_MATECONF_LOCKDOWN_COMMAND_LINE         "/desktop/mate/lockdown/disable_command_line"
+#define CAJA_PREFERENCES_LOCKDOWN_COMMAND_LINE         "disable-command-line"
 
 
 void caja_global_preferences_init                      (void);
@@ -221,6 +220,8 @@ GSettings *caja_desktop_preferences;
 GSettings *caja_tree_sidebar_preferences;
 GSettings *caja_compact_view_preferences;
 GSettings *caja_list_view_preferences;
+
+GSettings *mate_lockdown_preferences;
 
 MateConfClient *caja_mateconf_client;
 

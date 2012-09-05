@@ -253,7 +253,6 @@ struct FMDirectoryViewDetails
 	gboolean allow_moves;
 
 	GdkPoint context_menu_position;
-	guint lockdown_notification_id;
 
 	gboolean undo_active;
 	gboolean redo_active;
@@ -1636,18 +1635,6 @@ sort_directories_first_changed_callback (gpointer callback_data)
 	}
 }
 
-static void
-lockdown_disable_command_line_changed_callback (MateConfClient* client,
-												guint cnxn_id,
-												MateConfEntry *entry,
-												gpointer callback_data)
-{
-	FMDirectoryView *view;
-
-	view = FM_DIRECTORY_VIEW (callback_data);
-	schedule_update_menus (view);
-}
-
 static void set_up_scripts_directory_global(void)
 {
 	if (scripts_directory_uri != NULL)
@@ -2062,13 +2049,9 @@ fm_directory_view_init (FMDirectoryView *view)
 							  "changed::" CAJA_PREFERENCES_SORT_DIRECTORIES_FIRST, 
 							  G_CALLBACK(sort_directories_first_changed_callback),
 							  view);
-	view->details->lockdown_notification_id =
-		mateconf_client_notify_add (caja_mateconf_client,
-					 CAJA_MATECONF_LOCKDOWN_COMMAND_LINE,
-					 lockdown_disable_command_line_changed_callback,
-					 view,
-					 NULL,
-					 NULL);
+	g_signal_connect_swapped (mate_lockdown_preferences,
+							  "changed::" CAJA_PREFERENCES_LOCKDOWN_COMMAND_LINE,
+							  G_CALLBACK (schedule_update_menus), view);
 
 	/* Update undo actions stuff and connect signals from the undostack manager */
 	view->details->undo_active = FALSE;
@@ -2196,8 +2179,8 @@ fm_directory_view_finalize (GObject *object)
 										  click_policy_changed_callback, view);
 	g_signal_handlers_disconnect_by_func (caja_preferences,
 										  sort_directories_first_changed_callback, view);
-	mateconf_client_notify_remove (caja_mateconf_client,
-								   view->details->lockdown_notification_id);
+	g_signal_handlers_disconnect_by_func (mate_lockdown_preferences,
+										  schedule_update_menus, view);
 
 	unschedule_pop_up_location_context_menu (view);
 	if (view->details->location_popup_event != NULL) {
@@ -8960,7 +8943,7 @@ real_update_menus (FMDirectoryView *view)
 
 	real_update_paste_menu (view, selection, selection_count);
 
-	disable_command_line = mateconf_client_get_bool (caja_mateconf_client, CAJA_PREFERENCES_LOCKDOWN_COMMAND_LINE, NULL);
+	disable_command_line = g_settings_get_boolean (mate_lockdown_preferences, CAJA_PREFERENCES_LOCKDOWN_COMMAND_LINE);
 	action = gtk_action_group_get_action (view->details->dir_action_group,
 					      FM_ACTION_NEW_LAUNCHER);
 	gtk_action_set_visible (action, vfolder_directory && !disable_command_line);

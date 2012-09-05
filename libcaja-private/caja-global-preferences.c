@@ -91,6 +91,8 @@ caja_global_preferences_init (void)
     caja_tree_sidebar_preferences = g_settings_new("org.mate.caja.sidebar-panels.tree");
     caja_list_view_preferences = g_settings_new("org.mate.caja.list-view");
 
+    mate_lockdown_preferences = g_settings_new("org.mate.desktop.lockdown");
+
     caja_mateconf_client = mateconf_client_get_default ();
 
     /* Add monitors for any other MateConf paths we have keys in */
