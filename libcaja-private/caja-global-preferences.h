@@ -88,7 +88,7 @@ G_BEGIN_DECLS
     } CajaNewTabPosition;
 
     /* Sidebar panels  */
-#define CAJA_PREFERENCES_TREE_SHOW_ONLY_DIRECTORIES         "sidebar_panels/tree/show_only_directories"
+#define CAJA_PREFERENCES_TREE_SHOW_ONLY_DIRECTORIES         "show-only-directories"
 
     /* Single/Double click preference  */
 #define CAJA_PREFERENCES_CLICK_POLICY			"click-policy"
@@ -231,6 +231,7 @@ GSettings *caja_media_preferences;
 GSettings *caja_window_state;
 GSettings *caja_icon_view_preferences;
 GSettings *caja_desktop_preferences;
+GSettings *caja_tree_sidebar_preferences;
 
 G_END_DECLS
 

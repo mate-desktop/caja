@@ -1542,7 +1542,7 @@ update_filtering_from_preferences (FMTreeView *view)
     }
     fm_tree_model_set_show_only_directories
     (view->details->child_model,
-     eel_preferences_get_boolean (CAJA_PREFERENCES_TREE_SHOW_ONLY_DIRECTORIES));
+     g_settings_get_boolean (caja_tree_sidebar_preferences, CAJA_PREFERENCES_TREE_SHOW_ONLY_DIRECTORIES));
 }
 
 static void
@@ -1603,9 +1603,9 @@ fm_tree_view_init (FMTreeView *view)
                               "changed::" CAJA_PREFERENCES_SHOW_HIDDEN_FILES,
                               G_CALLBACK(filtering_changed_callback),
                               view);
-    eel_preferences_add_callback_while_alive (CAJA_PREFERENCES_TREE_SHOW_ONLY_DIRECTORIES,
-            filtering_changed_callback, view, G_OBJECT (view));
-
+    g_signal_connect_swapped (caja_tree_sidebar_preferences,
+                              "changed::" CAJA_PREFERENCES_TREE_SHOW_ONLY_DIRECTORIES,
+                              G_CALLBACK (filtering_changed_callback), view);
     view->details->popup_file = NULL;
 
     view->details->clipboard_handler_id =
@@ -1679,6 +1679,10 @@ fm_tree_view_dispose (GObject *object)
     }
 
     g_signal_handlers_disconnect_by_func (caja_preferences,
+                                          G_CALLBACK(filtering_changed_callback),
+                                          view);
+
+    g_signal_handlers_disconnect_by_func (caja_tree_sidebar_preferences,
                                           G_CALLBACK(filtering_changed_callback),
                                           view);
 

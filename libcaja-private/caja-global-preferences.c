@@ -164,12 +164,6 @@ typedef struct
  */
 static const PreferenceDefault preference_defaults[] =
 {
-    {
-        CAJA_PREFERENCES_TREE_SHOW_ONLY_DIRECTORIES,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (TRUE)
-    },
-
     /* Compact Icon View Default Preferences */
     {
         CAJA_PREFERENCES_COMPACT_VIEW_DEFAULT_ZOOM_LEVEL,
@@ -429,6 +423,7 @@ caja_global_preferences_init (void)
     caja_window_state = g_settings_new("org.mate.caja.window-state");
     caja_icon_view_preferences = g_settings_new("org.mate.caja.icon-view");
     caja_desktop_preferences = g_settings_new("org.mate.caja.desktop");
+    caja_tree_sidebar_preferences = g_settings_new("org.mate.caja.sidebar-panels.tree");
 
     /* Set up storage for values accessed in this file */
     g_signal_connect_swapped (caja_icon_view_preferences,
