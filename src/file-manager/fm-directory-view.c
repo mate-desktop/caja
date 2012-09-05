@@ -2039,8 +2039,9 @@ fm_directory_view_init (FMDirectoryView *view)
 
 	gtk_widget_show (GTK_WIDGET (view));
 
-	eel_preferences_add_callback (CAJA_PREFERENCES_ENABLE_DELETE,
-				      schedule_update_menus_callback, view);
+	g_signal_connect_swapped (caja_preferences,
+							  "changed::" CAJA_PREFERENCES_ENABLE_DELETE,
+							  G_CALLBACK (schedule_update_menus_callback), view);
 	g_signal_connect_swapped (caja_icon_view_preferences,
 							  "changed::" CAJA_PREFERENCES_ICON_VIEW_CAPTIONS,
 							  G_CALLBACK(text_attribute_names_changed_callback),
@@ -2176,8 +2177,8 @@ fm_directory_view_finalize (GObject *object)
 
 	view = FM_DIRECTORY_VIEW (object);
 
-	eel_preferences_remove_callback (CAJA_PREFERENCES_ENABLE_DELETE,
-					 schedule_update_menus_callback, view);
+	g_signal_handlers_disconnect_by_func (caja_preferences,
+										  schedule_update_menus_callback, view);
 	g_signal_handlers_disconnect_by_func (caja_icon_view_preferences,
 										  text_attribute_names_changed_callback, view);
 	g_signal_handlers_disconnect_by_func (caja_preferences,
