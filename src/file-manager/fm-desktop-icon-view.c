@@ -540,7 +540,7 @@ fm_desktop_icon_view_update_icon_container_fonts (FMDesktopIconView *icon_view)
     icon_container = get_icon_container (icon_view);
     g_assert (icon_container != NULL);
 
-    font = g_settings_get_string (caja_preferences, CAJA_PREFERENCES_DESKTOP_FONT);
+    font = g_settings_get_string (caja_desktop_preferences, CAJA_PREFERENCES_DESKTOP_FONT);
 
     caja_icon_container_set_font (icon_container, font);
 
@@ -625,7 +625,7 @@ fm_desktop_icon_view_init (FMDesktopIconView *desktop_icon_view)
                               G_CALLBACK (default_zoom_level_changed),
                               desktop_icon_view);
 
-    g_signal_connect_swapped (caja_preferences,
+    g_signal_connect_swapped (caja_desktop_preferences,
                               "changed::" CAJA_PREFERENCES_DESKTOP_FONT,
                               G_CALLBACK (font_changed_callback),
                               desktop_icon_view);

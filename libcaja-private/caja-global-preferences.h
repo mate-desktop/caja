@@ -61,7 +61,6 @@ G_BEGIN_DECLS
     /* Desktop options */
 #define CAJA_PREFERENCES_SHOW_DESKTOP			"show-desktop"
 #define CAJA_PREFERENCES_DESKTOP_IS_HOME_DIR    "desktop-is-home-dir"
-#define CAJA_PREFERENCES_DESKTOP_FONT			"desktop-font"
 
     /* Display  */
 #define CAJA_PREFERENCES_SHOW_HIDDEN_FILES  		"show-hidden-files"
@@ -195,6 +194,7 @@ G_BEGIN_DECLS
         CAJA_SIMPLE_SEARCH_BAR
     } CajaSearchBarMode;
 
+#define CAJA_PREFERENCES_DESKTOP_FONT                  "font"
 #define CAJA_PREFERENCES_DESKTOP_HOME_VISIBLE          "home-icon-visible"
 #define CAJA_PREFERENCES_DESKTOP_HOME_NAME             "home-icon-name"
 #define CAJA_PREFERENCES_DESKTOP_COMPUTER_VISIBLE      "computer-icon-visible"
