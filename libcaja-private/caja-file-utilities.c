@@ -786,9 +786,9 @@ caja_is_desktop_directory (GFile *dir)
 
     if (!desktop_dir_changed_callback_installed)
     {
-        eel_preferences_add_callback (CAJA_PREFERENCES_DESKTOP_IS_HOME_DIR,
-                                      desktop_dir_changed_callback,
-                                      NULL);
+        g_signal_connect_swapped (caja_preferences, "changed::" CAJA_PREFERENCES_DESKTOP_IS_HOME_DIR,
+                                  G_CALLBACK(desktop_dir_changed_callback),
+                                  NULL);
         desktop_dir_changed_callback_installed = TRUE;
     }
 
