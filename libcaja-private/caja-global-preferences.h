@@ -174,10 +174,6 @@ G_BEGIN_DECLS
 #define CAJA_PREFERENCES_LIST_VIEW_DEFAULT_VISIBLE_COLUMNS	        "list_view/default_visible_columns"
 #define CAJA_PREFERENCES_LIST_VIEW_DEFAULT_COLUMN_ORDER	        "list_view/default_column_order"
 
-    /* News panel */
-#define CAJA_PREFERENCES_NEWS_MAX_ITEMS				"news/max_items"
-#define CAJA_PREFERENCES_NEWS_UPDATE_INTERVAL			"news/update_interval"
-
     enum
     {
         CAJA_CLICK_POLICY_SINGLE,
