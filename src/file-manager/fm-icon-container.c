@@ -26,6 +26,7 @@
 #include <string.h>
 #include <glib/gi18n.h>
 #include <gio/gio.h>
+#include <eel/eel-glib-extensions.h>
 #include <libcaja-private/caja-global-preferences.h>
 #include <libcaja-private/caja-file-attributes.h>
 #include <libcaja-private/caja-thumbnails.h>
@@ -208,8 +209,9 @@ fm_icon_container_get_icon_text_attributes_from_preferences (void)
 
     if (attributes == NULL)
     {
-        eel_preferences_add_auto_string_array_as_quarks (CAJA_PREFERENCES_ICON_VIEW_CAPTIONS,
-                &attributes);
+        eel_g_settings_add_auto_strv_as_quarks (caja_icon_view_preferences,
+                                                CAJA_PREFERENCES_ICON_VIEW_CAPTIONS,
+                                                &attributes);
     }
 
     /* We don't need to sanity check the attributes list even though it came

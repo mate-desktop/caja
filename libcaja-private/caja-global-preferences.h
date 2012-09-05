@@ -135,13 +135,13 @@ G_BEGIN_DECLS
 
 
     /* Icon View */
-#define CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_IN_REVERSE_ORDER	"icon_view/default_sort_in_reverse_order"
-#define CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_ORDER		"icon_view/default_sort_order"
-#define CAJA_PREFERENCES_ICON_VIEW_DEFAULT_USE_TIGHTER_LAYOUT	"icon_view/default_use_tighter_layout"
-#define CAJA_PREFERENCES_ICON_VIEW_DEFAULT_ZOOM_LEVEL		"icon_view/default_zoom_level"
-#define CAJA_PREFERENCES_ICON_VIEW_DEFAULT_USE_MANUAL_LAYOUT	"icon_view/default_use_manual_layout"
+#define CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_IN_REVERSE_ORDER	"default-sort-in-reverse-order"
+#define CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_ORDER		        "default-sort-order"
+#define CAJA_PREFERENCES_ICON_VIEW_DEFAULT_USE_TIGHTER_LAYOUT	    "default-use-tighter-layout"
+#define CAJA_PREFERENCES_ICON_VIEW_DEFAULT_ZOOM_LEVEL		        "default-zoom-level"
+#define CAJA_PREFERENCES_ICON_VIEW_DEFAULT_USE_MANUAL_LAYOUT	    "default-use-manual-layout"
 
-#define CAJA_PREFERENCES_ICON_VIEW_LABELS_BESIDE_ICONS      	"icon_view/labels_beside_icons"
+#define CAJA_PREFERENCES_ICON_VIEW_LABELS_BESIDE_ICONS      	"labels-beside-icons"
 
 
     /* The icon view uses 2 variables to store the sort order and
@@ -151,16 +151,16 @@ G_BEGIN_DECLS
      * In caja-global-preferences.c we install callbacks for
      * the proxy preference and update the other 2 when it changes
      */
-#define CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_ORDER_OR_MANUAL_LAYOUT "icon_view/default_sort_order_or_manual_layout"
+#define CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_ORDER_OR_MANUAL_LAYOUT "default-sort-order-or-manual-layout"
 
     /* Which text attributes appear beneath icon names */
-#define CAJA_PREFERENCES_ICON_VIEW_CAPTIONS				"icon_view/captions"
+#define CAJA_PREFERENCES_ICON_VIEW_CAPTIONS				"captions"
 
     /* The default size for thumbnail icons */
-#define CAJA_PREFERENCES_ICON_VIEW_THUMBNAIL_SIZE			"icon_view/thumbnail_size"
+#define CAJA_PREFERENCES_ICON_VIEW_THUMBNAIL_SIZE			"thumbnail-size"
 
     /* ellipsization preferences */
-#define CAJA_PREFERENCES_ICON_VIEW_TEXT_ELLIPSIS_LIMIT		"icon_view/text_ellipsis_limit"
+#define CAJA_PREFERENCES_ICON_VIEW_TEXT_ELLIPSIS_LIMIT		"text-ellipsis-limit"
 #define CAJA_PREFERENCES_DESKTOP_TEXT_ELLIPSIS_LIMIT		"desktop/text_ellipsis_limit"
 
     /* Compact View */
@@ -229,6 +229,7 @@ char *caja_global_preferences_get_default_folder_viewer_preference_as_iid (void)
 GSettings *caja_preferences;
 GSettings *caja_media_preferences;
 GSettings *caja_window_state;
+GSettings *caja_icon_view_preferences;
 
 G_END_DECLS
 

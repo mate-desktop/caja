@@ -195,6 +195,12 @@ static void                 update_layout_menus                       (FMIconVie
 static CajaFileSortType get_default_sort_order                    (CajaFile         *file,
         gboolean             *reversed);
 
+static void default_sort_order_changed_callback            (gpointer callback_data);
+static void default_sort_in_reverse_order_changed_callback (gpointer callback_data);
+static void default_use_tighter_layout_changed_callback    (gpointer callback_data);
+static void default_use_manual_layout_changed_callback     (gpointer callback_data);
+static void default_zoom_level_changed_callback            (gpointer callback_data);
+static void labels_beside_icons_changed_callback           (gpointer callback_data);
 
 static void fm_icon_view_iface_init (CajaViewIface *iface);
 
@@ -243,6 +249,25 @@ fm_icon_view_finalize (GObject *object)
     icon_view = FM_ICON_VIEW (object);
 
     g_free (icon_view->details);
+
+    g_signal_handlers_disconnect_by_func (caja_icon_view_preferences,
+                                          default_sort_order_changed_callback,
+                                          icon_view);
+    g_signal_handlers_disconnect_by_func (caja_icon_view_preferences,
+                                          default_sort_in_reverse_order_changed_callback,
+                                          icon_view);
+    g_signal_handlers_disconnect_by_func (caja_icon_view_preferences,
+                                          default_use_tighter_layout_changed_callback,
+                                          icon_view);
+    g_signal_handlers_disconnect_by_func (caja_icon_view_preferences,
+                                          default_use_manual_layout_changed_callback,
+                                          icon_view);
+    g_signal_handlers_disconnect_by_func (caja_icon_view_preferences,
+                                          default_zoom_level_changed_callback,
+                                          icon_view);
+    g_signal_handlers_disconnect_by_func (caja_icon_view_preferences,
+                                          labels_beside_icons_changed_callback,
+                                          icon_view);
 
     G_OBJECT_CLASS (fm_icon_view_parent_class)->finalize (object);
 }
@@ -799,11 +824,12 @@ get_default_sort_order (CajaFile *file, gboolean *reversed)
     if (auto_storaged_added == FALSE)
     {
         auto_storaged_added = TRUE;
-        eel_preferences_add_auto_enum (CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_ORDER,
-                                       (int *) &default_sort_order);
-        eel_preferences_add_auto_boolean (CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_IN_REVERSE_ORDER,
-                                          &default_sort_in_reverse_order);
-
+        eel_g_settings_add_auto_enum (caja_icon_view_preferences,
+                                      CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_ORDER,
+                                      (int *) &default_sort_order);
+        eel_g_settings_add_auto_boolean (caja_icon_view_preferences,
+                                         CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_IN_REVERSE_ORDER,
+                                         &default_sort_in_reverse_order);
     }
 
     retval = caja_file_get_default_sort_type (file, reversed);
@@ -969,8 +995,9 @@ get_default_directory_manual_layout (void)
     if (auto_storaged_added == FALSE)
     {
         auto_storaged_added = TRUE;
-        eel_preferences_add_auto_boolean (CAJA_PREFERENCES_ICON_VIEW_DEFAULT_USE_MANUAL_LAYOUT,
-                                          &default_directory_manual_layout);
+        eel_g_settings_add_auto_boolean (caja_icon_view_preferences,
+                                         CAJA_PREFERENCES_ICON_VIEW_DEFAULT_USE_MANUAL_LAYOUT,
+                                         &default_directory_manual_layout);
     }
 
     return default_directory_manual_layout;
@@ -1056,8 +1083,9 @@ get_default_directory_tighter_layout (void)
     if (auto_storaged_added == FALSE)
     {
         auto_storaged_added = TRUE;
-        eel_preferences_add_auto_boolean (CAJA_PREFERENCES_ICON_VIEW_DEFAULT_USE_TIGHTER_LAYOUT,
-                                          &default_directory_tighter_layout);
+        eel_g_settings_add_auto_boolean (caja_icon_view_preferences,
+                                         CAJA_PREFERENCES_ICON_VIEW_DEFAULT_USE_TIGHTER_LAYOUT,
+                                         &default_directory_tighter_layout);
     }
 
     return default_directory_tighter_layout;
@@ -1206,8 +1234,9 @@ get_default_zoom_level (FMIconView *icon_view)
     if (!auto_storage_added)
     {
         auto_storage_added = TRUE;
-        eel_preferences_add_auto_enum (CAJA_PREFERENCES_ICON_VIEW_DEFAULT_ZOOM_LEVEL,
-                                       (int *) &default_zoom_level);
+        eel_g_settings_add_auto_enum (caja_icon_view_preferences,
+                                      CAJA_PREFERENCES_ICON_VIEW_DEFAULT_ZOOM_LEVEL,
+                                      (int *) &default_zoom_level);
         eel_preferences_add_auto_enum (CAJA_PREFERENCES_COMPACT_VIEW_DEFAULT_ZOOM_LEVEL,
                                        (int *) &default_compact_zoom_level);
     }
@@ -1223,7 +1252,7 @@ set_labels_beside_icons (FMIconView *icon_view)
     if (fm_icon_view_supports_labels_beside_icons (icon_view))
     {
         labels_beside = fm_icon_view_is_compact (icon_view) ||
-                        eel_preferences_get_boolean (CAJA_PREFERENCES_ICON_VIEW_LABELS_BESIDE_ICONS);
+                        g_settings_get_boolean (caja_icon_view_preferences, CAJA_PREFERENCES_ICON_VIEW_LABELS_BESIDE_ICONS);
 
         if (labels_beside)
         {
@@ -3290,24 +3319,30 @@ fm_icon_view_init (FMIconView *icon_view)
         setup_sound_preview = TRUE;
     }
 
-    eel_preferences_add_callback_while_alive (CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_ORDER,
-            default_sort_order_changed_callback,
-            icon_view, G_OBJECT (icon_view));
-    eel_preferences_add_callback_while_alive (CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_IN_REVERSE_ORDER,
-            default_sort_in_reverse_order_changed_callback,
-            icon_view, G_OBJECT (icon_view));
-    eel_preferences_add_callback_while_alive (CAJA_PREFERENCES_ICON_VIEW_DEFAULT_USE_TIGHTER_LAYOUT,
-            default_use_tighter_layout_changed_callback,
-            icon_view, G_OBJECT (icon_view));
-    eel_preferences_add_callback_while_alive (CAJA_PREFERENCES_ICON_VIEW_DEFAULT_USE_MANUAL_LAYOUT,
-            default_use_manual_layout_changed_callback,
-            icon_view, G_OBJECT (icon_view));
-    eel_preferences_add_callback_while_alive (CAJA_PREFERENCES_ICON_VIEW_DEFAULT_ZOOM_LEVEL,
-            default_zoom_level_changed_callback,
-            icon_view, G_OBJECT (icon_view));
-    eel_preferences_add_callback_while_alive (CAJA_PREFERENCES_ICON_VIEW_LABELS_BESIDE_ICONS,
-            labels_beside_icons_changed_callback,
-            icon_view, G_OBJECT (icon_view));
+    g_signal_connect_swapped (caja_icon_view_preferences,
+                              "changed::" CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_ORDER,
+                              G_CALLBACK (default_sort_order_changed_callback),
+                              icon_view);
+    g_signal_connect_swapped (caja_icon_view_preferences,
+                              "changed::" CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_IN_REVERSE_ORDER,
+                              G_CALLBACK (default_sort_in_reverse_order_changed_callback),
+                              icon_view);
+    g_signal_connect_swapped (caja_icon_view_preferences,
+                              "changed::" CAJA_PREFERENCES_ICON_VIEW_DEFAULT_USE_TIGHTER_LAYOUT,
+                              G_CALLBACK (default_use_tighter_layout_changed_callback),
+                              icon_view);
+    g_signal_connect_swapped (caja_icon_view_preferences,
+                              "changed::" CAJA_PREFERENCES_ICON_VIEW_DEFAULT_USE_MANUAL_LAYOUT,
+                              G_CALLBACK (default_use_manual_layout_changed_callback),
+                              icon_view);
+    g_signal_connect_swapped (caja_icon_view_preferences,
+                              "changed::" CAJA_PREFERENCES_ICON_VIEW_DEFAULT_ZOOM_LEVEL,
+                              G_CALLBACK (default_zoom_level_changed_callback),
+                              icon_view);
+    g_signal_connect_swapped (caja_icon_view_preferences,
+                              "changed::" CAJA_PREFERENCES_ICON_VIEW_LABELS_BESIDE_ICONS,
+                              G_CALLBACK (labels_beside_icons_changed_callback),
+                              icon_view);
 
     eel_preferences_add_callback_while_alive (CAJA_PREFERENCES_COMPACT_VIEW_DEFAULT_ZOOM_LEVEL,
             default_zoom_level_changed_callback,

@@ -375,8 +375,9 @@ icon_captions_changed_callback (GtkComboBox *combo_box,
     }
     g_ptr_array_add (captions, NULL);
 
-    eel_preferences_set_string_array (CAJA_PREFERENCES_ICON_VIEW_CAPTIONS,
-                                      (char **)captions->pdata);
+    g_settings_set_strv (caja_icon_view_preferences,
+                         CAJA_PREFERENCES_ICON_VIEW_CAPTIONS,
+                         (const char **)captions->pdata);
     g_ptr_array_free (captions, TRUE);
 }
 
@@ -420,7 +421,7 @@ update_icon_captions_from_mateconf (GtkBuilder *builder)
     char **captions;
     int i, j;
 
-    captions = eel_preferences_get_string_array (CAJA_PREFERENCES_ICON_VIEW_CAPTIONS);
+    captions = g_settings_get_strv (caja_icon_view_preferences, CAJA_PREFERENCES_ICON_VIEW_CAPTIONS);
     if (captions == NULL)
         return;
 
@@ -455,7 +456,7 @@ caja_file_management_properties_dialog_setup_icon_caption_page (GtkBuilder *buil
     int i;
     gboolean writable;
 
-    writable = eel_preferences_key_is_writable (CAJA_PREFERENCES_ICON_VIEW_CAPTIONS);
+    writable = g_settings_is_writable (caja_icon_view_preferences, CAJA_PREFERENCES_ICON_VIEW_CAPTIONS);
 
     columns = caja_get_common_columns ();
 
@@ -955,12 +956,12 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
     create_date_format_menu (builder);
 
     /* setup preferences */
-    eel_preferences_builder_connect_bool (builder,
-                                          CAJA_FILE_MANAGEMENT_PROPERTIES_COMPACT_LAYOUT_WIDGET,
-                                          CAJA_PREFERENCES_ICON_VIEW_DEFAULT_USE_TIGHTER_LAYOUT);
-    eel_preferences_builder_connect_bool (builder,
-                                          CAJA_FILE_MANAGEMENT_PROPERTIES_LABELS_BESIDE_ICONS_WIDGET,
-                                          CAJA_PREFERENCES_ICON_VIEW_LABELS_BESIDE_ICONS);
+    bind_builder_bool (builder, caja_icon_view_preferences,
+                       CAJA_FILE_MANAGEMENT_PROPERTIES_COMPACT_LAYOUT_WIDGET,
+                       CAJA_PREFERENCES_ICON_VIEW_DEFAULT_USE_TIGHTER_LAYOUT);
+    bind_builder_bool (builder, caja_icon_view_preferences,
+                       CAJA_FILE_MANAGEMENT_PROPERTIES_LABELS_BESIDE_ICONS_WIDGET,
+                       CAJA_PREFERENCES_ICON_VIEW_LABELS_BESIDE_ICONS);
     eel_preferences_builder_connect_bool (builder,
                                           CAJA_FILE_MANAGEMENT_PROPERTIES_ALL_COLUMNS_SAME_WIDTH,
                                           CAJA_PREFERENCES_COMPACT_VIEW_ALL_COLUMNS_SAME_WIDTH);
@@ -996,10 +997,10 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
                        CAJA_FILE_MANAGEMENT_PROPERTIES_DEFAULT_VIEW_WIDGET,
                        CAJA_PREFERENCES_DEFAULT_FOLDER_VIEWER,
                        (const char **) default_view_values);
-    eel_preferences_builder_connect_string_enum_combo_box (builder,
-            CAJA_FILE_MANAGEMENT_PROPERTIES_ICON_VIEW_ZOOM_WIDGET,
-            CAJA_PREFERENCES_ICON_VIEW_DEFAULT_ZOOM_LEVEL,
-            (const char **) zoom_values);
+    bind_builder_enum (builder, caja_icon_view_preferences,
+                       CAJA_FILE_MANAGEMENT_PROPERTIES_ICON_VIEW_ZOOM_WIDGET,
+                       CAJA_PREFERENCES_ICON_VIEW_DEFAULT_ZOOM_LEVEL,
+                       (const char **) zoom_values);
     eel_preferences_builder_connect_string_enum_combo_box (builder,
             CAJA_FILE_MANAGEMENT_PROPERTIES_COMPACT_VIEW_ZOOM_WIDGET,
             CAJA_PREFERENCES_COMPACT_VIEW_DEFAULT_ZOOM_LEVEL,
@@ -1008,10 +1009,10 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
             CAJA_FILE_MANAGEMENT_PROPERTIES_LIST_VIEW_ZOOM_WIDGET,
             CAJA_PREFERENCES_LIST_VIEW_DEFAULT_ZOOM_LEVEL,
             (const char **) zoom_values);
-    eel_preferences_builder_connect_string_enum_combo_box (builder,
-            CAJA_FILE_MANAGEMENT_PROPERTIES_SORT_ORDER_WIDGET,
-            CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_ORDER,
-            (const char **) sort_order_values);
+    bind_builder_enum (builder, caja_icon_view_preferences,
+                       CAJA_FILE_MANAGEMENT_PROPERTIES_SORT_ORDER_WIDGET,
+                       CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_ORDER,
+                       (const char **) sort_order_values);
     eel_preferences_builder_connect_string_enum_combo_box_slave (builder,
             CAJA_FILE_MANAGEMENT_PROPERTIES_SORT_ORDER_WIDGET,
             CAJA_PREFERENCES_LIST_VIEW_DEFAULT_SORT_ORDER);

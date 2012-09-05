@@ -180,67 +180,11 @@ typedef struct
 static const PreferenceDefault preference_defaults[] =
 {
     {
-        CAJA_PREFERENCES_ICON_VIEW_CAPTIONS,
-        PREFERENCE_STRING_ARRAY,
-        "size,date_modified,type",
-        NULL, NULL,
-        NULL
-    },
-    {
         CAJA_PREFERENCES_TREE_SHOW_ONLY_DIRECTORIES,
         PREFERENCE_BOOLEAN,
         GINT_TO_POINTER (TRUE)
     },
 
-    /* Icon View Default Preferences */
-    {
-        CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_ORDER,
-        PREFERENCE_STRING,
-        "name",
-        NULL, NULL,
-        "default_icon_view_sort_order"
-    },
-    {
-        CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_ORDER_OR_MANUAL_LAYOUT,
-        PREFERENCE_STRING,
-        "name",
-        NULL, NULL,
-        "default_icon_view_sort_order"
-    },
-    {
-        CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_IN_REVERSE_ORDER,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (FALSE)
-    },
-    {
-        CAJA_PREFERENCES_ICON_VIEW_DEFAULT_USE_TIGHTER_LAYOUT,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (FALSE)
-    },
-    {
-        CAJA_PREFERENCES_ICON_VIEW_DEFAULT_USE_MANUAL_LAYOUT,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (FALSE)
-    },
-    {
-        CAJA_PREFERENCES_ICON_VIEW_DEFAULT_ZOOM_LEVEL,
-        PREFERENCE_STRING,
-        "standard",
-        NULL, NULL,
-        "default_zoom_level"
-    },
-    {
-        CAJA_PREFERENCES_ICON_VIEW_THUMBNAIL_SIZE,
-        PREFERENCE_INTEGER,
-        GINT_TO_POINTER (96)
-    },
-    {
-        CAJA_PREFERENCES_ICON_VIEW_TEXT_ELLIPSIS_LIMIT,
-        PREFERENCE_STRING_ARRAY,
-        "3",
-        NULL,NULL,
-        NULL,
-    },
     /* Compact Icon View Default Preferences */
     {
         CAJA_PREFERENCES_COMPACT_VIEW_DEFAULT_ZOOM_LEVEL,
@@ -550,7 +494,8 @@ default_icon_view_sort_order_or_manual_layout_changed_callback (gpointer callbac
     int default_sort_order;
 
     default_sort_order_or_manual_layout =
-        eel_preferences_get_enum (CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_ORDER_OR_MANUAL_LAYOUT);
+        g_settings_get_enum (caja_icon_view_preferences,
+                             CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_ORDER_OR_MANUAL_LAYOUT);
 
     eel_preferences_set_boolean (CAJA_PREFERENCES_ICON_VIEW_DEFAULT_USE_MANUAL_LAYOUT,
                                  default_sort_order_or_manual_layout == PREFERENCES_SORT_ORDER_MANUALLY);
@@ -562,8 +507,9 @@ default_icon_view_sort_order_or_manual_layout_changed_callback (gpointer callbac
         g_return_if_fail (default_sort_order >= CAJA_FILE_SORT_BY_DISPLAY_NAME);
         g_return_if_fail (default_sort_order <= CAJA_FILE_SORT_BY_EMBLEMS);
 
-        eel_preferences_set_enum (CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_ORDER,
-                                  default_sort_order);
+        g_settings_set_enum (caja_icon_view_preferences,
+                             CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_ORDER,
+                             default_sort_order);
     }
 }
 
@@ -596,11 +542,13 @@ caja_global_preferences_init (void)
     caja_preferences = g_settings_new("org.mate.caja.preferences");
     caja_media_preferences = g_settings_new("org.mate.media-handling");
     caja_window_state = g_settings_new("org.mate.caja.window-state");
+    caja_icon_view_preferences = g_settings_new("org.mate.caja.icon-view");
 
     /* Set up storage for values accessed in this file */
-    eel_preferences_add_callback (CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_ORDER_OR_MANUAL_LAYOUT,
-                                  default_icon_view_sort_order_or_manual_layout_changed_callback,
-                                  NULL);
+    g_signal_connect_swapped (caja_icon_view_preferences,
+                              "changed::" CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_ORDER_OR_MANUAL_LAYOUT,
+                              G_CALLBACK (default_icon_view_sort_order_or_manual_layout_changed_callback), 
+                              NULL);
 
     /* Preload everything in a big batch */
     eel_mateconf_preload_cache ("/apps/caja/preferences",
