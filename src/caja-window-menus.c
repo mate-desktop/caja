@@ -43,7 +43,6 @@
 #include <gio/gio.h>
 #include <glib/gi18n.h>
 #include <eel/eel-gtk-extensions.h>
-#include <eel/eel-preferences.h>
 #include <libcaja-extension/caja-menu-provider.h>
 #include <libcaja-private/caja-file-utilities.h>
 #include <libcaja-private/caja-global-preferences.h>

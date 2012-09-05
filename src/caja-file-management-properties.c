@@ -33,9 +33,7 @@
 
 #include <glib/gi18n.h>
 
-#include <eel/eel-mateconf-extensions.h>
 #include <eel/eel-glib-extensions.h>
-#include <eel/eel-preferences.h>
 
 #include <libcaja-private/caja-column-chooser.h>
 #include <libcaja-private/caja-column-utilities.h>
@@ -269,11 +267,6 @@ caja_file_management_properties_dialog_response_cb (GtkDialog *parent,
     }
     else if (response_id == GTK_RESPONSE_CLOSE)
     {
-        /* remove mateconf monitors */
-        eel_mateconf_monitor_remove ("/apps/caja/icon_view");
-        eel_mateconf_monitor_remove ("/apps/caja/list_view");
-        eel_mateconf_monitor_remove ("/apps/caja/preferences");
-        eel_mateconf_monitor_remove ("/desktop/mate/file_views");
         g_signal_handlers_disconnect_by_func (caja_media_preferences,
                                               caja_file_management_properties_dialog_update_media_sensitivity,
                                               builder);
@@ -424,7 +417,7 @@ update_caption_combo_box (GtkBuilder *builder,
 }
 
 static void
-update_icon_captions_from_mateconf (GtkBuilder *builder)
+update_icon_captions_from_settings (GtkBuilder *builder)
 {
     char **captions;
     int i, j;
@@ -485,7 +478,7 @@ caja_file_management_properties_dialog_setup_icon_caption_page (GtkBuilder *buil
 
     caja_column_list_free (columns);
 
-    update_icon_captions_from_mateconf (builder);
+    update_icon_captions_from_settings (builder);
 }
 
 static void
@@ -942,18 +935,6 @@ static  void
 caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *window)
 {
     GtkWidget *dialog;
-
-    /* setup mateconf stuff */
-    eel_mateconf_monitor_add ("/apps/caja/icon_view");
-    eel_mateconf_preload_cache ("/apps/caja/icon_view", MATECONF_CLIENT_PRELOAD_ONELEVEL);
-    eel_mateconf_monitor_add ("/apps/caja/compact_view");
-    eel_mateconf_preload_cache ("/apps/caja/compact_view", MATECONF_CLIENT_PRELOAD_ONELEVEL);
-    eel_mateconf_monitor_add ("/apps/caja/list_view");
-    eel_mateconf_preload_cache ("/apps/caja/list_view", MATECONF_CLIENT_PRELOAD_ONELEVEL);
-    eel_mateconf_monitor_add ("/apps/caja/preferences");
-    eel_mateconf_preload_cache ("/apps/caja/preferences", MATECONF_CLIENT_PRELOAD_ONELEVEL);
-    eel_mateconf_monitor_add ("/desktop/mate/file_views");
-    eel_mateconf_preload_cache ("/desktop/mate/file_views", MATECONF_CLIENT_PRELOAD_ONELEVEL);
 
     /* setup UI */
     caja_file_management_properties_size_group_create (builder,

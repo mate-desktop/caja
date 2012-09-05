@@ -35,8 +35,6 @@
 #include <libcaja-private/caja-view-factory.h>
 #include <libcaja-private/caja-entry.h>
 
-#include <eel/eel-preferences.h>
-
 
 static void caja_navigation_window_pane_init       (CajaNavigationWindowPane *pane);
 static void caja_navigation_window_pane_class_init (CajaNavigationWindowPaneClass *class);

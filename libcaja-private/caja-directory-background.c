@@ -330,7 +330,7 @@ desktop_background_destroyed_callback (EelBackground *background, void *georgeWB
     guint notification_timeout_id;
 
     notification_id = GPOINTER_TO_UINT (g_object_get_data (G_OBJECT (background), "desktop_mateconf_notification"));
-    eel_mateconf_notification_remove (notification_id);
+    mateconf_client_notify_remove (caja_mateconf_client, notification_id);
 
     notification_timeout_id = GPOINTER_TO_UINT (g_object_get_data (G_OBJECT (background), "desktop_mateconf_notification_timeout"));
     if (notification_timeout_id != 0)

@@ -30,8 +30,6 @@
 #include <libcaja-private/caja-module.h>
 #include <libcaja-private/caja-global-preferences.h>
 
-#include <eel/eel-preferences.h>
-
 #include "caja-file-management-properties.h"
 
 static void
@@ -53,7 +51,6 @@ main (int argc, char *argv[])
 
     gtk_init (&argc, &argv);
 
-    eel_preferences_init ("/apps/caja");
     caja_global_preferences_init ();
 
     caja_module_setup ();

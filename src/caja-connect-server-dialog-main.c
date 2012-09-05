@@ -33,7 +33,6 @@
 
 #include <stdlib.h>
 
-#include <eel/eel-preferences.h>
 #include <eel/eel-stock-dialogs.h>
 
 #include <libcaja-private/caja-icon-names.h>
@@ -205,7 +204,6 @@ main (int argc, char *argv[])
 
     g_option_context_free (context);
 
-    eel_preferences_init ("/apps/caja");
     caja_global_preferences_init ();
 
     gtk_window_set_default_icon_name (CAJA_ICON_FOLDER);

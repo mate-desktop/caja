@@ -28,16 +28,11 @@
 
 #include "caja-file-utilities.h"
 #include "caja-file.h"
-#include <eel/eel-enumeration.h>
 #include <eel/eel-glib-extensions.h>
 #include <eel/eel-gtk-extensions.h>
 #include <eel/eel-stock-dialogs.h>
 #include <eel/eel-string.h>
 #include <glib/gi18n.h>
-
-/* Constants */
-#define STRING_ARRAY_DEFAULT_TOKENS_DELIMETER ","
-#define PREFERENCES_SORT_ORDER_MANUALLY 100
 
 /* Path for mate-vfs preferences */
 static const char *EXTRA_MONITOR_PATHS[] = {
@@ -45,33 +40,6 @@ static const char *EXTRA_MONITOR_PATHS[] = {
         "/desktop/mate/lockdown",
         NULL
                                            };
-
-/* An enumeration used for installing type specific preferences defaults. */
-typedef enum
-{
-    PREFERENCE_BOOLEAN = 1,
-    PREFERENCE_INTEGER,
-    PREFERENCE_STRING,
-    PREFERENCE_STRING_ARRAY
-} PreferenceType;
-
-/*
- * A callback which can be used to fetch dynamic fallback values.
- * For example, values that are dependent on the environment (such as user name)
- * cannot be specified as constants.
- */
-typedef gpointer (*PreferencesDefaultValueCallback) (void);
-
-/* A structure that describes a single preference including defaults and visibility. */
-typedef struct
-{
-    const char *name;
-    PreferenceType type;
-    const gpointer fallback_value;
-    PreferencesDefaultValueCallback fallback_callback;
-    GFreeFunc fallback_callback_result_free_function;
-    const char *enumeration_id;
-} PreferenceDefault;
 
 /*
  * Public functions
@@ -113,8 +81,6 @@ caja_global_preferences_init (void)
     }
 
     initialized = TRUE;
-
-    eel_preferences_init ("/apps/caja");
     
     caja_preferences = g_settings_new("org.mate.caja.preferences");
     caja_media_preferences = g_settings_new("org.mate.media-handling");
@@ -134,22 +100,4 @@ caja_global_preferences_init (void)
                       MATECONF_CLIENT_PRELOAD_ONELEVEL,
                       NULL);
     }
-
-    /* Preload everything in a big batch */
-    eel_mateconf_preload_cache ("/apps/caja/preferences",
-                                MATECONF_CLIENT_PRELOAD_ONELEVEL);
-    eel_mateconf_preload_cache ("/desktop/mate/file_views",
-                                MATECONF_CLIENT_PRELOAD_ONELEVEL);
-    eel_mateconf_preload_cache ("/desktop/mate/background",
-                                MATECONF_CLIENT_PRELOAD_ONELEVEL);
-    eel_mateconf_preload_cache ("/desktop/mate/lockdown",
-                                MATECONF_CLIENT_PRELOAD_ONELEVEL);
-
-    /* These are always needed for the desktop */
-    eel_mateconf_preload_cache ("/apps/caja/desktop",
-                                MATECONF_CLIENT_PRELOAD_ONELEVEL);
-    eel_mateconf_preload_cache ("/apps/caja/icon_view",
-                                MATECONF_CLIENT_PRELOAD_ONELEVEL);
-    eel_mateconf_preload_cache ("/apps/caja/desktop-metadata",
-                                MATECONF_CLIENT_PRELOAD_RECURSIVE);
 }

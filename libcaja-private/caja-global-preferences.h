@@ -26,8 +26,8 @@
 #ifndef CAJA_GLOBAL_PREFERENCES_H
 #define CAJA_GLOBAL_PREFERENCES_H
 
-#include <eel/eel-preferences.h>
 #include <gio/gio.h>
+#include <mateconf/mateconf-client.h>
 
 G_BEGIN_DECLS
 
