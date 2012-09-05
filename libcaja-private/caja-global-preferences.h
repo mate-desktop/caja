@@ -32,7 +32,7 @@
 G_BEGIN_DECLS
 
     /* Whether exit when last window destroyed */
-#define CAJA_PREFERENCES_EXIT_WITH_LAST_WINDOW				"preferences/exit_with_last_window"
+#define CAJA_PREFERENCES_EXIT_WITH_LAST_WINDOW				"exit-with-last-window"
 
     /* Desktop Background options */
 #define CAJA_PREFERENCES_BACKGROUND_SET                     "background-set"

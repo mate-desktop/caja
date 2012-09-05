@@ -209,11 +209,6 @@ typedef struct
 static const PreferenceDefault preference_defaults[] =
 {
     {
-        CAJA_PREFERENCES_EXIT_WITH_LAST_WINDOW,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (TRUE)
-    },
-    {
         CAJA_PREFERENCES_SHOW_TEXT_IN_ICONS,
         PREFERENCE_STRING,
         "local_only",

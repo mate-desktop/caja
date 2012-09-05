@@ -494,7 +494,7 @@ main (int argc, char *argv[])
     caja_global_preferences_init ();
 
     /* exit_with_last_window being FALSE, caja can run without window. */
-    exit_with_last_window = eel_preferences_get_boolean (CAJA_PREFERENCES_EXIT_WITH_LAST_WINDOW);
+    exit_with_last_window = g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_EXIT_WITH_LAST_WINDOW);
 
     application = NULL;
 
