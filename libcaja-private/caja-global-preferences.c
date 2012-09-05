@@ -228,11 +228,6 @@ static const PreferenceDefault preference_defaults[] =
         "speed_tradeoff"
     },
     {
-        CAJA_PREFERENCES_INSTALL_MIME_ACTIVATION,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (TRUE)
-    },
-    {
         CAJA_PREFERENCES_SHOW_IMAGE_FILE_THUMBNAILS,
         PREFERENCE_STRING,
         "local_only",

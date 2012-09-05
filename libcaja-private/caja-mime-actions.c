@@ -1610,7 +1610,7 @@ application_unhandled_uri (ActivateParameters *parameters, char *uri)
 
 #ifdef ENABLE_PACKAGEKIT
     /* allow an admin to disable the PackageKit search functionality */
-    show_install_mime = eel_preferences_get_boolean (CAJA_PREFERENCES_INSTALL_MIME_ACTIVATION);
+    show_install_mime = g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_INSTALL_MIME_ACTIVATION);
 #else
     /* we have no install functionality */
     show_install_mime = FALSE;
