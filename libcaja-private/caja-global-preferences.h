@@ -178,9 +178,6 @@ G_BEGIN_DECLS
 #define CAJA_PREFERENCES_NEWS_MAX_ITEMS				"news/max_items"
 #define CAJA_PREFERENCES_NEWS_UPDATE_INTERVAL			"news/update_interval"
 
-    /* File Indexing */
-#define CAJA_PREFERENCES_SEARCH_BAR_TYPE				"preferences/search_bar_type"
-
     enum
     {
         CAJA_CLICK_POLICY_SINGLE,
