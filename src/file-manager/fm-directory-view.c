@@ -1625,7 +1625,7 @@ sort_directories_first_changed_callback (gpointer callback_data)
 	view = FM_DIRECTORY_VIEW (callback_data);
 
 	preference_value =
-		eel_preferences_get_boolean (CAJA_PREFERENCES_SORT_DIRECTORIES_FIRST);
+		g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SORT_DIRECTORIES_FIRST);
 
 	if (preference_value != view->details->sort_directories_first) {
 		view->details->sort_directories_first = preference_value;
@@ -2024,7 +2024,7 @@ fm_directory_view_init (FMDirectoryView *view)
 				 view, G_CONNECT_SWAPPED);
 
 	view->details->sort_directories_first =
-		eel_preferences_get_boolean (CAJA_PREFERENCES_SORT_DIRECTORIES_FIRST);
+		g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SORT_DIRECTORIES_FIRST);
 
 	g_signal_connect_object (caja_trash_monitor_get (), "trash_state_changed",
 				 G_CALLBACK (fm_directory_view_trash_state_changed_callback), view, 0);
@@ -2049,8 +2049,10 @@ fm_directory_view_init (FMDirectoryView *view)
 							  "changed::" CAJA_PREFERENCES_CLICK_POLICY,
 							  G_CALLBACK(click_policy_changed_callback),
 							  view);
-	eel_preferences_add_callback (CAJA_PREFERENCES_SORT_DIRECTORIES_FIRST,
-				      sort_directories_first_changed_callback, view);
+	g_signal_connect_swapped (caja_preferences,
+							  "changed::" CAJA_PREFERENCES_SORT_DIRECTORIES_FIRST, 
+							  G_CALLBACK(sort_directories_first_changed_callback),
+							  view);
 	eel_preferences_add_callback (CAJA_PREFERENCES_LOCKDOWN_COMMAND_LINE,
 				      lockdown_disable_command_line_changed_callback, view);
 
@@ -2178,8 +2180,8 @@ fm_directory_view_finalize (GObject *object)
 					 image_display_policy_changed_callback, view);
 	g_signal_handlers_disconnect_by_func (caja_preferences,
 										  click_policy_changed_callback, view);
-	eel_preferences_remove_callback (CAJA_PREFERENCES_SORT_DIRECTORIES_FIRST,
-					 sort_directories_first_changed_callback, view);
+	g_signal_handlers_disconnect_by_func (caja_preferences,
+										  sort_directories_first_changed_callback, view);
 	eel_preferences_remove_callback (CAJA_PREFERENCES_LOCKDOWN_COMMAND_LINE,
 					 lockdown_disable_command_line_changed_callback, view);
 
