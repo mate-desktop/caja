@@ -198,7 +198,7 @@ G_BEGIN_DECLS
         CAJA_SPEED_TRADEOFF_NEVER
     } CajaSpeedTradeoffValue;
 
-#define CAJA_PREFERENCES_SHOW_TEXT_IN_ICONS		"preferences/show_icon_text"
+#define CAJA_PREFERENCES_SHOW_TEXT_IN_ICONS		"show-icon-text"
 #define CAJA_PREFERENCES_SHOW_DIRECTORY_ITEM_COUNTS "preferences/show_directory_item_counts"
 #define CAJA_PREFERENCES_SHOW_IMAGE_FILE_THUMBNAILS	"preferences/show_image_thumbnails"
 #define CAJA_PREFERENCES_IMAGE_FILE_THUMBNAIL_LIMIT	"preferences/thumbnail_limit"

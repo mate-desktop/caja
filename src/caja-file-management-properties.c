@@ -115,7 +115,7 @@ static const char * const date_format_values[] =
 static const char * const preview_values[] =
 {
     "always",
-    "local_only",
+    "local-only",
     "never",
     NULL
 };
@@ -958,10 +958,10 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
     eel_preferences_builder_connect_string_enum_combo_box_slave (builder,
             CAJA_FILE_MANAGEMENT_PROPERTIES_SORT_ORDER_WIDGET,
             CAJA_PREFERENCES_LIST_VIEW_DEFAULT_SORT_ORDER);
-    eel_preferences_builder_connect_string_enum_combo_box (builder,
-            CAJA_FILE_MANAGEMENT_PROPERTIES_PREVIEW_TEXT_WIDGET,
-            CAJA_PREFERENCES_SHOW_TEXT_IN_ICONS,
-            (const char **) preview_values);
+    bind_builder_enum (builder, caja_preferences,
+                       CAJA_FILE_MANAGEMENT_PROPERTIES_PREVIEW_TEXT_WIDGET,
+                       CAJA_PREFERENCES_SHOW_TEXT_IN_ICONS,
+                       (const char **) preview_values);
     eel_preferences_builder_connect_string_enum_combo_box (builder,
             CAJA_FILE_MANAGEMENT_PROPERTIES_PREVIEW_IMAGE_WIDGET,
             CAJA_PREFERENCES_SHOW_IMAGE_FILE_THUMBNAILS,

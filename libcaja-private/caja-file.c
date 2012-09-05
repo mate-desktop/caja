@@ -4694,7 +4694,7 @@ static CajaSpeedTradeoffValue show_text_in_icons;
 static void
 show_text_in_icons_changed_callback (gpointer callback_data)
 {
-	show_text_in_icons = eel_preferences_get_enum (CAJA_PREFERENCES_SHOW_TEXT_IN_ICONS);
+	show_text_in_icons = g_settings_get_enum (caja_preferences, CAJA_PREFERENCES_SHOW_TEXT_IN_ICONS);
 }
 
 static void
@@ -4790,9 +4790,10 @@ caja_file_should_get_top_left_text (CajaFile *file)
 
 	/* Add the callback once for the life of our process */
 	if (!show_text_in_icons_callback_added) {
-		eel_preferences_add_callback (CAJA_PREFERENCES_SHOW_TEXT_IN_ICONS,
-						   show_text_in_icons_changed_callback,
-						   NULL);
+		g_signal_connect_swapped (caja_preferences,
+								  "changed::" CAJA_PREFERENCES_SHOW_TEXT_IN_ICONS,
+								  G_CALLBACK (show_text_in_icons_changed_callback),
+								  NULL);
 		show_text_in_icons_callback_added = TRUE;
 
 		/* Peek for the first time */
