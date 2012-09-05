@@ -1556,8 +1556,8 @@ caja_application_create_navigation_window (CajaApplication *application,
 
     window = create_window (application, CAJA_TYPE_NAVIGATION_WINDOW, startup_id, screen);
 
-    maximized = eel_preferences_get_boolean
-                (CAJA_PREFERENCES_NAVIGATION_WINDOW_MAXIMIZED);
+    maximized = g_settings_get_boolean (caja_window_state,
+                    CAJA_WINDOW_STATE_MAXIMIZED);
     if (maximized)
     {
         gtk_window_maximize (GTK_WINDOW (window));
@@ -1567,8 +1567,8 @@ caja_application_create_navigation_window (CajaApplication *application,
         gtk_window_unmaximize (GTK_WINDOW (window));
     }
 
-    geometry_string = eel_preferences_get
-                      (CAJA_PREFERENCES_NAVIGATION_WINDOW_SAVED_GEOMETRY);
+    geometry_string = g_settings_get_string (caja_window_state,
+                        CAJA_WINDOW_STATE_GEOMETRY);
     if (geometry_string != NULL &&
             geometry_string[0] != 0)
     {

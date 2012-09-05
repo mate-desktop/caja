@@ -44,9 +44,6 @@ G_BEGIN_DECLS
 #define CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_COLOR                   "side-pane-background-color"
 #define CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_URI                "side-pane-background-uri"
 
-    /* How wide the sidebar is (or how wide it will be when expanded) */
-#define CAJA_PREFERENCES_SIDEBAR_WIDTH  			"sidebar-width"
-
     /* Automount options */
 #define CAJA_PREFERENCES_MEDIA_AUTOMOUNT                "media-automount"
 #define CAJA_PREFERENCES_MEDIA_AUTOMOUNT_OPEN           "media-automount-open"
@@ -105,16 +102,17 @@ G_BEGIN_DECLS
     /* Spatial or browser mode */
 #define CAJA_PREFERENCES_ALWAYS_USE_BROWSER       		"always-use-browser"
 #define CAJA_PREFERENCES_NEW_TAB_POSITION       		"tabs-open-position"
+#define CAJA_PREFERENCES_ALWAYS_USE_LOCATION_ENTRY			"always-use-location-entry"
 
     /* Which views should be displayed for new windows */
-#define CAJA_PREFERENCES_START_WITH_LOCATION_BAR		"preferences/start_with_location_bar"
-#define CAJA_PREFERENCES_ALWAYS_USE_LOCATION_ENTRY		"preferences/always_use_location_entry"
-#define CAJA_PREFERENCES_START_WITH_STATUS_BAR		"preferences/start_with_status_bar"
-#define CAJA_PREFERENCES_START_WITH_SIDEBAR		 	"preferences/start_with_sidebar"
-#define CAJA_PREFERENCES_START_WITH_TOOLBAR			"preferences/start_with_toolbar"
-#define CAJA_PREFERENCES_SIDE_PANE_VIEW                     "preferences/side_pane_view"
-#define CAJA_PREFERENCES_NAVIGATION_WINDOW_SAVED_GEOMETRY 	"preferences/navigation_window_saved_geometry"
-#define CAJA_PREFERENCES_NAVIGATION_WINDOW_MAXIMIZED        "preferences/navigation_window_saved_maximized"
+#define CAJA_WINDOW_STATE_START_WITH_LOCATION_BAR			"start-with-location-bar"
+#define CAJA_WINDOW_STATE_START_WITH_STATUS_BAR				"start-with-status-bar"
+#define CAJA_WINDOW_STATE_START_WITH_SIDEBAR		 		"start-with-sidebar"
+#define CAJA_WINDOW_STATE_START_WITH_TOOLBAR				"start-with-toolbar"
+#define CAJA_WINDOW_STATE_SIDE_PANE_VIEW                    "side-pane-view"
+#define CAJA_WINDOW_STATE_GEOMETRY 	"geometry"
+#define CAJA_WINDOW_STATE_MAXIMIZED        "maximized"
+#define CAJA_WINDOW_STATE_SIDEBAR_WIDTH  					"sidebar-width"
 
     /* Sorting order */
 #define CAJA_PREFERENCES_SORT_DIRECTORIES_FIRST		"preferences/sort_directories_first"
@@ -233,6 +231,7 @@ char *caja_global_preferences_get_default_folder_viewer_preference_as_iid (void)
 
 GSettings *caja_preferences;
 GSettings *caja_media_preferences;
+GSettings *caja_window_state;
 
 G_END_DECLS
 

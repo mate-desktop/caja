@@ -195,9 +195,10 @@ caja_navigation_window_init (CajaNavigationWindow *window)
     caja_navigation_window_allow_back (window, FALSE);
     caja_navigation_window_allow_forward (window, FALSE);
 
-    eel_preferences_add_callback_while_alive (CAJA_PREFERENCES_ALWAYS_USE_LOCATION_ENTRY,
-            always_use_location_entry_changed,
-            window, G_OBJECT (window));
+    g_signal_connect_swapped (caja_preferences,
+                              "changed::" CAJA_PREFERENCES_ALWAYS_USE_LOCATION_ENTRY,
+                              G_CALLBACK(always_use_location_entry_changed),
+                              window);
 
     g_signal_connect_swapped (caja_preferences,
                               "changed::" CAJA_PREFERENCES_ALWAYS_USE_BROWSER,
@@ -214,7 +215,7 @@ always_use_location_entry_changed (gpointer callback_data)
 
     window = CAJA_NAVIGATION_WINDOW (callback_data);
 
-    use_entry = eel_preferences_get_boolean (CAJA_PREFERENCES_ALWAYS_USE_LOCATION_ENTRY);
+    use_entry = g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_LOCATION_ENTRY);
 
     for (walk = CAJA_WINDOW(window)->details->panes; walk; walk = walk->next)
     {
@@ -382,12 +383,9 @@ side_pane_size_allocate_callback (GtkWidget *widget,
     if (allocation->width != window->details->side_pane_width)
     {
         window->details->side_pane_width = allocation->width;
-        if (g_settings_is_writable (caja_preferences, CAJA_PREFERENCES_SIDEBAR_WIDTH))
-        {
-            g_settings_set_int (caja_preferences,
-                                CAJA_PREFERENCES_SIDEBAR_WIDTH,
-                                allocation->width <= 1 ? 0 : allocation->width);
-        }
+        g_settings_set_int (caja_window_state,
+                            CAJA_WINDOW_STATE_SIDEBAR_WIDTH,
+                            allocation->width <= 1 ? 0 : allocation->width);
     }
 }
 
@@ -397,8 +395,8 @@ setup_side_pane_width (CajaNavigationWindow *window)
     g_return_if_fail (window->sidebar != NULL);
 
     window->details->side_pane_width =
-        g_settings_get_int (caja_preferences,
-                            CAJA_PREFERENCES_SIDEBAR_WIDTH);
+        g_settings_get_int (caja_window_state,
+                            CAJA_WINDOW_STATE_SIDEBAR_WIDTH);
 
     gtk_paned_set_position (GTK_PANED (window->details->content_paned),
                             window->details->side_pane_width);
@@ -441,10 +439,7 @@ side_pane_switch_page_callback (CajaSidePane *side_pane,
     set_current_side_panel (window, sidebar);
 
     id = caja_sidebar_get_sidebar_id (sidebar);
-    if (eel_preferences_key_is_writable (CAJA_PREFERENCES_SIDE_PANE_VIEW))
-    {
-        eel_preferences_set (CAJA_PREFERENCES_SIDE_PANE_VIEW, id);
-    }
+    g_settings_set_string (caja_window_state, CAJA_WINDOW_STATE_SIDE_PANE_VIEW, id);
 }
 
 static void
@@ -523,8 +518,8 @@ caja_navigation_window_state_event (GtkWidget *widget,
 {
     if (event->changed_mask & GDK_WINDOW_STATE_MAXIMIZED)
     {
-        eel_preferences_set_boolean (CAJA_PREFERENCES_NAVIGATION_WINDOW_MAXIMIZED,
-                                     event->new_window_state & GDK_WINDOW_STATE_MAXIMIZED);
+        g_settings_set_boolean (caja_window_state, CAJA_WINDOW_STATE_MAXIMIZED,
+                                event->new_window_state & GDK_WINDOW_STATE_MAXIMIZED);
     }
 
     if (GTK_WIDGET_CLASS (parent_class)->window_state_event != NULL)
@@ -630,6 +625,9 @@ caja_navigation_window_finalize (GObject *object)
     g_signal_handlers_disconnect_by_func (caja_preferences,
                                           always_use_browser_changed,
                                           window);
+    g_signal_handlers_disconnect_by_func (caja_preferences,
+                                          always_use_location_entry_changed,
+                                          window);
 
     G_OBJECT_CLASS (parent_class)->finalize (object);
 }
@@ -679,7 +677,7 @@ caja_navigation_window_add_sidebar_panel (CajaNavigationWindow *window,
 
     /* Show if default */
     sidebar_id = caja_sidebar_get_sidebar_id (sidebar_panel);
-    default_id = eel_preferences_get (CAJA_PREFERENCES_SIDE_PANE_VIEW);
+    default_id = g_settings_get_string (caja_window_state, CAJA_WINDOW_STATE_SIDE_PANE_VIEW);
     if (sidebar_id && default_id && !strcmp (sidebar_id, default_id))
     {
         caja_side_pane_show_panel (window->sidebar,
@@ -956,11 +954,8 @@ caja_navigation_window_hide_status_bar (CajaNavigationWindow *window)
     gtk_widget_hide (CAJA_WINDOW (window)->details->statusbar);
 
     caja_navigation_window_update_show_hide_menu_items (window);
-    if (eel_preferences_key_is_writable (CAJA_PREFERENCES_START_WITH_STATUS_BAR) &&
-            eel_preferences_get_boolean (CAJA_PREFERENCES_START_WITH_STATUS_BAR))
-    {
-        eel_preferences_set_boolean (CAJA_PREFERENCES_START_WITH_STATUS_BAR, FALSE);
-    }
+
+    g_settings_set_boolean (caja_window_state, CAJA_WINDOW_STATE_START_WITH_STATUS_BAR, FALSE);
 }
 
 void
@@ -969,11 +964,8 @@ caja_navigation_window_show_status_bar (CajaNavigationWindow *window)
     gtk_widget_show (CAJA_WINDOW (window)->details->statusbar);
 
     caja_navigation_window_update_show_hide_menu_items (window);
-    if (eel_preferences_key_is_writable (CAJA_PREFERENCES_START_WITH_STATUS_BAR) &&
-            !eel_preferences_get_boolean (CAJA_PREFERENCES_START_WITH_STATUS_BAR))
-    {
-        eel_preferences_set_boolean (CAJA_PREFERENCES_START_WITH_STATUS_BAR, TRUE);
-    }
+
+    g_settings_set_boolean (caja_window_state, CAJA_WINDOW_STATE_START_WITH_STATUS_BAR, TRUE);
 }
 
 gboolean
@@ -993,11 +985,7 @@ caja_navigation_window_hide_toolbar (CajaNavigationWindow *window)
 {
     gtk_widget_hide (window->details->toolbar);
     caja_navigation_window_update_show_hide_menu_items (window);
-    if (eel_preferences_key_is_writable (CAJA_PREFERENCES_START_WITH_TOOLBAR) &&
-            eel_preferences_get_boolean (CAJA_PREFERENCES_START_WITH_TOOLBAR))
-    {
-        eel_preferences_set_boolean (CAJA_PREFERENCES_START_WITH_TOOLBAR, FALSE);
-    }
+    g_settings_set_boolean (caja_window_state, CAJA_WINDOW_STATE_START_WITH_TOOLBAR, FALSE);
 }
 
 void
@@ -1005,11 +993,7 @@ caja_navigation_window_show_toolbar (CajaNavigationWindow *window)
 {
     gtk_widget_show (window->details->toolbar);
     caja_navigation_window_update_show_hide_menu_items (window);
-    if (eel_preferences_key_is_writable (CAJA_PREFERENCES_START_WITH_TOOLBAR) &&
-            !eel_preferences_get_boolean (CAJA_PREFERENCES_START_WITH_TOOLBAR))
-    {
-        eel_preferences_set_boolean (CAJA_PREFERENCES_START_WITH_TOOLBAR, TRUE);
-    }
+    g_settings_set_boolean (caja_window_state, CAJA_WINDOW_STATE_START_WITH_TOOLBAR, TRUE);
 }
 
 void
@@ -1023,11 +1007,7 @@ caja_navigation_window_hide_sidebar (CajaNavigationWindow *window)
     caja_navigation_window_tear_down_sidebar (window);
     caja_navigation_window_update_show_hide_menu_items (window);
 
-    if (eel_preferences_key_is_writable (CAJA_PREFERENCES_START_WITH_SIDEBAR) &&
-            eel_preferences_get_boolean (CAJA_PREFERENCES_START_WITH_SIDEBAR))
-    {
-        eel_preferences_set_boolean (CAJA_PREFERENCES_START_WITH_SIDEBAR, FALSE);
-    }
+    g_settings_set_boolean (caja_window_state, CAJA_WINDOW_STATE_START_WITH_SIDEBAR, FALSE);
 }
 
 void
@@ -1040,11 +1020,7 @@ caja_navigation_window_show_sidebar (CajaNavigationWindow *window)
 
     caja_navigation_window_set_up_sidebar (window);
     caja_navigation_window_update_show_hide_menu_items (window);
-    if (eel_preferences_key_is_writable (CAJA_PREFERENCES_START_WITH_SIDEBAR) &&
-            !eel_preferences_get_boolean (CAJA_PREFERENCES_START_WITH_SIDEBAR))
-    {
-        eel_preferences_set_boolean (CAJA_PREFERENCES_START_WITH_SIDEBAR, TRUE);
-    }
+    g_settings_set_boolean (caja_window_state, CAJA_WINDOW_STATE_START_WITH_SIDEBAR, TRUE);
 }
 
 gboolean
@@ -1108,7 +1084,7 @@ caja_navigation_window_show (GtkWidget *widget)
      * these can be controlled on a per-window basis from View menu items.
      */
 
-    if (eel_preferences_get_boolean (CAJA_PREFERENCES_START_WITH_TOOLBAR))
+    if (g_settings_get_boolean (caja_window_state, CAJA_WINDOW_STATE_START_WITH_TOOLBAR))
     {
         caja_navigation_window_show_toolbar (window);
     }
@@ -1117,8 +1093,8 @@ caja_navigation_window_show (GtkWidget *widget)
         caja_navigation_window_hide_toolbar (window);
     }
 
-    show_location_bar = eel_preferences_get_boolean (CAJA_PREFERENCES_START_WITH_LOCATION_BAR);
-    always_use_location_entry = eel_preferences_get_boolean (CAJA_PREFERENCES_ALWAYS_USE_LOCATION_ENTRY);
+    show_location_bar = g_settings_get_boolean (caja_window_state, CAJA_WINDOW_STATE_START_WITH_LOCATION_BAR);
+    always_use_location_entry = g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_LOCATION_ENTRY);
     for (walk = CAJA_WINDOW(window)->details->panes; walk; walk = walk->next)
     {
         CajaNavigationWindowPane *pane = walk->data;
@@ -1141,7 +1117,7 @@ caja_navigation_window_show (GtkWidget *widget)
         }
     }
 
-    if (eel_preferences_get_boolean (CAJA_PREFERENCES_START_WITH_SIDEBAR))
+    if (g_settings_get_boolean (caja_window_state, CAJA_WINDOW_STATE_START_WITH_SIDEBAR))
     {
         caja_navigation_window_show_sidebar (window);
     }
@@ -1150,7 +1126,7 @@ caja_navigation_window_show (GtkWidget *widget)
         caja_navigation_window_hide_sidebar (window);
     }
 
-    if (eel_preferences_get_boolean (CAJA_PREFERENCES_START_WITH_STATUS_BAR))
+    if (g_settings_get_boolean (caja_window_state, CAJA_WINDOW_STATE_START_WITH_STATUS_BAR))
     {
         caja_navigation_window_show_status_bar (window);
     }
@@ -1176,21 +1152,17 @@ caja_navigation_window_save_geometry (CajaNavigationWindow *window)
         is_maximized = gdk_window_get_state (gtk_widget_get_window (GTK_WIDGET (window)))
                        & GDK_WINDOW_STATE_MAXIMIZED;
 
-        if (eel_preferences_key_is_writable (CAJA_PREFERENCES_NAVIGATION_WINDOW_SAVED_GEOMETRY) &&
-                !is_maximized)
+        if (!is_maximized)
         {
-            eel_preferences_set
-            (CAJA_PREFERENCES_NAVIGATION_WINDOW_SAVED_GEOMETRY,
-             geometry_string);
+            g_settings_set_string (caja_window_state,
+                                   CAJA_WINDOW_STATE_GEOMETRY,
+                                   geometry_string);
         }
         g_free (geometry_string);
 
-        if (eel_preferences_key_is_writable (CAJA_PREFERENCES_NAVIGATION_WINDOW_MAXIMIZED))
-        {
-            eel_preferences_set_boolean
-            (CAJA_PREFERENCES_NAVIGATION_WINDOW_MAXIMIZED,
-             is_maximized);
-        }
+        g_settings_set_boolean (caja_window_state,
+                                CAJA_WINDOW_STATE_MAXIMIZED,
+                                is_maximized);
     }
 }
 

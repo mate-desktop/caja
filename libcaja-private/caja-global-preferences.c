@@ -268,41 +268,6 @@ static const PreferenceDefault preference_defaults[] =
         NULL
     },
     {
-        CAJA_PREFERENCES_START_WITH_TOOLBAR,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (TRUE)
-    },
-    {
-        CAJA_PREFERENCES_START_WITH_LOCATION_BAR,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (TRUE)
-    },
-    {
-        CAJA_PREFERENCES_ALWAYS_USE_LOCATION_ENTRY,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (FALSE)
-    },
-    {
-        CAJA_PREFERENCES_START_WITH_STATUS_BAR,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (TRUE)
-    },
-    {
-        CAJA_PREFERENCES_START_WITH_SIDEBAR,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (TRUE)
-    },
-    {
-        CAJA_PREFERENCES_NAVIGATION_WINDOW_SAVED_GEOMETRY,
-        PREFERENCE_STRING,
-        ""
-    },
-    {
-        CAJA_PREFERENCES_NAVIGATION_WINDOW_MAXIMIZED,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (FALSE)
-    },
-    {
         CAJA_PREFERENCES_TREE_SHOW_ONLY_DIRECTORIES,
         PREFERENCE_BOOLEAN,
         GINT_TO_POINTER (TRUE)
@@ -727,6 +692,7 @@ caja_global_preferences_init (void)
     
     caja_preferences = g_settings_new("org.mate.caja.preferences");
     caja_media_preferences = g_settings_new("org.mate.media-handling");
+    caja_window_state = g_settings_new("org.mate.caja.window-state");
 
     /* Set up storage for values accessed in this file */
     eel_preferences_add_callback (CAJA_PREFERENCES_ICON_VIEW_DEFAULT_SORT_ORDER_OR_MANUAL_LAYOUT,

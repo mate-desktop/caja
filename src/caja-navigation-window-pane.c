@@ -219,7 +219,7 @@ path_bar_location_changed_callback (GtkWidget *widget,
 static gboolean
 location_button_should_be_active (CajaNavigationWindowPane *pane)
 {
-    return eel_preferences_get_boolean (CAJA_PREFERENCES_ALWAYS_USE_LOCATION_ENTRY);
+    return g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_LOCATION_ENTRY);
 }
 
 static void
@@ -229,7 +229,7 @@ location_button_toggled_cb (GtkToggleButton *toggle,
     gboolean is_active;
 
     is_active = gtk_toggle_button_get_active (toggle);
-    eel_preferences_set_boolean (CAJA_PREFERENCES_ALWAYS_USE_LOCATION_ENTRY, is_active);
+    g_settings_set_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_LOCATION_ENTRY, is_active);
 
     if (is_active) {
         caja_navigation_bar_activate (CAJA_NAVIGATION_BAR (pane->navigation_bar));
@@ -653,7 +653,7 @@ caja_navigation_window_pane_hide_temporary_bars (CajaNavigationWindowPane *pane)
         }
         else
         {
-            if (!eel_preferences_get_boolean (CAJA_PREFERENCES_ALWAYS_USE_LOCATION_ENTRY))
+            if (!g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_LOCATION_ENTRY))
             {
                 caja_navigation_window_pane_set_bar_mode (pane, CAJA_BAR_PATH);
             }
@@ -667,7 +667,7 @@ caja_navigation_window_pane_hide_temporary_bars (CajaNavigationWindowPane *pane)
     {
         CajaNavigationWindow *window;
 
-        if (!eel_preferences_get_boolean (CAJA_PREFERENCES_ALWAYS_USE_LOCATION_ENTRY))
+        if (!g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_LOCATION_ENTRY))
         {
             caja_navigation_window_pane_set_bar_mode (pane, CAJA_BAR_PATH);
         }
@@ -910,9 +910,9 @@ caja_navigation_window_pane_hide_location_bar (CajaNavigationWindowPane *pane, g
     gtk_widget_hide(pane->location_bar);
     caja_navigation_window_update_show_hide_menu_items(
         CAJA_NAVIGATION_WINDOW (CAJA_WINDOW_PANE (pane)->window));
-    if (save_preference && eel_preferences_key_is_writable(CAJA_PREFERENCES_START_WITH_LOCATION_BAR))
+    if (save_preference)
     {
-        eel_preferences_set_boolean(CAJA_PREFERENCES_START_WITH_LOCATION_BAR, FALSE);
+        g_settings_set_boolean (caja_window_state, CAJA_WINDOW_STATE_START_WITH_LOCATION_BAR, FALSE);
     }
 }
 
@@ -921,9 +921,9 @@ caja_navigation_window_pane_show_location_bar (CajaNavigationWindowPane *pane, g
 {
     gtk_widget_show(pane->location_bar);
     caja_navigation_window_update_show_hide_menu_items(CAJA_NAVIGATION_WINDOW (CAJA_WINDOW_PANE (pane)->window));
-    if (save_preference && eel_preferences_key_is_writable(CAJA_PREFERENCES_START_WITH_LOCATION_BAR))
+    if (save_preference)
     {
-        eel_preferences_set_boolean(CAJA_PREFERENCES_START_WITH_LOCATION_BAR, TRUE);
+        g_settings_set_boolean (caja_window_state, CAJA_WINDOW_STATE_START_WITH_LOCATION_BAR, TRUE);
     }
 }
 
