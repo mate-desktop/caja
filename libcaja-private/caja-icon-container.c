@@ -4456,6 +4456,9 @@ finalize (GObject *object)
     g_signal_handlers_disconnect_by_func (caja_icon_view_preferences,
                                           text_ellipsis_limit_changed_container_callback,
                                           object);
+    g_signal_handlers_disconnect_by_func (caja_desktop_preferences,
+                                          text_ellipsis_limit_changed_container_callback,
+                                          object);
 
     g_hash_table_destroy (details->icon_set);
     details->icon_set = NULL;
@@ -6202,9 +6205,10 @@ caja_icon_container_constructor (GType                  type,
     container = CAJA_ICON_CONTAINER (object);
     if (caja_icon_container_get_is_desktop (container))
     {
-        eel_preferences_add_callback_while_alive (CAJA_PREFERENCES_DESKTOP_TEXT_ELLIPSIS_LIMIT,
-                text_ellipsis_limit_changed_container_callback,
-                container, G_OBJECT (container));
+        g_signal_connect_swapped (caja_desktop_preferences,
+                                  "changed::" CAJA_PREFERENCES_DESKTOP_TEXT_ELLIPSIS_LIMIT,
+                                  G_CALLBACK (text_ellipsis_limit_changed_container_callback),
+                                  container);
     }
     else
     {
@@ -6850,7 +6854,7 @@ desktop_text_ellipsis_limit_changed_callback (gpointer callback_data)
 {
     int pref;
 
-    pref = eel_preferences_get_integer (CAJA_PREFERENCES_DESKTOP_TEXT_ELLIPSIS_LIMIT);
+    pref = g_settings_get_int (caja_desktop_preferences, CAJA_PREFERENCES_DESKTOP_TEXT_ELLIPSIS_LIMIT);
     desktop_text_ellipsis_limit = pref;
 }
 
@@ -6902,9 +6906,10 @@ caja_icon_container_init (CajaIconContainer *container)
                                   NULL);
         text_ellipsis_limit_changed_callback (NULL);
 
-        eel_preferences_add_callback (CAJA_PREFERENCES_DESKTOP_TEXT_ELLIPSIS_LIMIT,
-                                      desktop_text_ellipsis_limit_changed_callback,
-                                      NULL);
+        g_signal_connect_swapped (caja_icon_view_preferences,
+                                  "changed::" CAJA_PREFERENCES_DESKTOP_TEXT_ELLIPSIS_LIMIT,
+                                  G_CALLBACK (desktop_text_ellipsis_limit_changed_callback),
+                                  NULL);
         desktop_text_ellipsis_limit_changed_callback (NULL);
 
         setup_prefs = TRUE;

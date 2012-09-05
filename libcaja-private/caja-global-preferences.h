@@ -161,7 +161,7 @@ G_BEGIN_DECLS
 
     /* ellipsization preferences */
 #define CAJA_PREFERENCES_ICON_VIEW_TEXT_ELLIPSIS_LIMIT		"text-ellipsis-limit"
-#define CAJA_PREFERENCES_DESKTOP_TEXT_ELLIPSIS_LIMIT		"desktop/text_ellipsis_limit"
+#define CAJA_PREFERENCES_DESKTOP_TEXT_ELLIPSIS_LIMIT		"text-ellipsis-limit"
 
     /* Compact View */
 #define CAJA_PREFERENCES_COMPACT_VIEW_DEFAULT_ZOOM_LEVEL		"compact_view/default_zoom_level"
@@ -210,15 +210,15 @@ G_BEGIN_DECLS
         CAJA_SIMPLE_SEARCH_BAR
     } CajaSearchBarMode;
 
-#define CAJA_PREFERENCES_DESKTOP_HOME_VISIBLE          "desktop/home_icon_visible"
-#define CAJA_PREFERENCES_DESKTOP_HOME_NAME             "desktop/home_icon_name"
-#define CAJA_PREFERENCES_DESKTOP_COMPUTER_VISIBLE      "desktop/computer_icon_visible"
-#define CAJA_PREFERENCES_DESKTOP_COMPUTER_NAME         "desktop/computer_icon_name"
-#define CAJA_PREFERENCES_DESKTOP_TRASH_VISIBLE         "desktop/trash_icon_visible"
-#define CAJA_PREFERENCES_DESKTOP_TRASH_NAME            "desktop/trash_icon_name"
-#define CAJA_PREFERENCES_DESKTOP_VOLUMES_VISIBLE	   "desktop/volumes_visible"
-#define CAJA_PREFERENCES_DESKTOP_NETWORK_VISIBLE       "desktop/network_icon_visible"
-#define CAJA_PREFERENCES_DESKTOP_NETWORK_NAME          "desktop/network_icon_name"
+#define CAJA_PREFERENCES_DESKTOP_HOME_VISIBLE          "home-icon-visible"
+#define CAJA_PREFERENCES_DESKTOP_HOME_NAME             "home-icon-name"
+#define CAJA_PREFERENCES_DESKTOP_COMPUTER_VISIBLE      "computer-icon-visible"
+#define CAJA_PREFERENCES_DESKTOP_COMPUTER_NAME         "computer-icon-name"
+#define CAJA_PREFERENCES_DESKTOP_TRASH_VISIBLE         "trash-icon-visible"
+#define CAJA_PREFERENCES_DESKTOP_TRASH_NAME            "trash-icon-name"
+#define CAJA_PREFERENCES_DESKTOP_VOLUMES_VISIBLE       "volumes-visible"
+#define CAJA_PREFERENCES_DESKTOP_NETWORK_VISIBLE       "network-icon-visible"
+#define CAJA_PREFERENCES_DESKTOP_NETWORK_NAME          "network-icon-name"
 
     /* Lockdown */
 #define CAJA_PREFERENCES_LOCKDOWN_COMMAND_LINE         "/desktop/mate/lockdown/disable_command_line"
@@ -230,6 +230,7 @@ GSettings *caja_preferences;
 GSettings *caja_media_preferences;
 GSettings *caja_window_state;
 GSettings *caja_icon_view_preferences;
+GSettings *caja_desktop_preferences;
 
 G_END_DECLS
 

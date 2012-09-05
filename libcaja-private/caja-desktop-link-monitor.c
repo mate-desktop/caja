@@ -228,7 +228,7 @@ create_mount_link (CajaDesktopLinkMonitor *monitor,
         return;
 
     if ((!g_mount_is_shadowed (mount)) &&
-            eel_preferences_get_boolean (CAJA_PREFERENCES_DESKTOP_VOLUMES_VISIBLE))
+            g_settings_get_boolean (caja_desktop_preferences, CAJA_PREFERENCES_DESKTOP_VOLUMES_VISIBLE))
     {
         link = caja_desktop_link_new_from_mount (mount);
         monitor->details->mount_links = g_list_prepend (monitor->details->mount_links, link);
@@ -302,7 +302,7 @@ update_link_visibility (CajaDesktopLinkMonitor *monitor,
                         CajaDesktopLinkType     link_type,
                         const char                 *preference_key)
 {
-    if (eel_preferences_get_boolean (preference_key))
+    if (g_settings_get_boolean (caja_desktop_preferences, preference_key))
     {
         if (*link_ref == NULL)
         {
@@ -379,7 +379,7 @@ desktop_volumes_visible_changed (gpointer callback_data)
 
     monitor = CAJA_DESKTOP_LINK_MONITOR (callback_data);
 
-    if (eel_preferences_get_boolean (CAJA_PREFERENCES_DESKTOP_VOLUMES_VISIBLE))
+    if (g_settings_get_boolean (caja_desktop_preferences, CAJA_PREFERENCES_DESKTOP_VOLUMES_VISIBLE))
     {
         if (monitor->details->mount_links == NULL)
         {
@@ -404,15 +404,20 @@ static void
 create_link_and_add_preference (CajaDesktopLink   **link_ref,
                                 CajaDesktopLinkType link_type,
                                 const char             *preference_key,
-                                EelPreferencesCallback  callback,
+                                GCallback               callback,
                                 gpointer                callback_data)
 {
-    if (eel_preferences_get_boolean (preference_key))
+    char *detailed_signal;
+
+    if (g_settings_get_boolean (caja_desktop_preferences, preference_key)) {
     {
         *link_ref = caja_desktop_link_new (link_type);
     }
 
-    eel_preferences_add_callback (preference_key, callback, callback_data);
+    detailed_signal = g_strconcat ("changed::", preference_key, NULL);
+    g_signal_connect_swapped (caja_desktop_preferences,
+                              detailed_signal,
+                              callback, callback_data);
 }
 
 static void
@@ -438,25 +443,25 @@ caja_desktop_link_monitor_init (gpointer object, gpointer klass)
     create_link_and_add_preference (&monitor->details->home_link,
                                     CAJA_DESKTOP_LINK_HOME,
                                     CAJA_PREFERENCES_DESKTOP_HOME_VISIBLE,
-                                    desktop_home_visible_changed,
+                                    G_CALLBACK (desktop_home_visible_changed),
                                     monitor);
 
     create_link_and_add_preference (&monitor->details->computer_link,
                                     CAJA_DESKTOP_LINK_COMPUTER,
                                     CAJA_PREFERENCES_DESKTOP_COMPUTER_VISIBLE,
-                                    desktop_computer_visible_changed,
+                                    G_CALLBACK (desktop_computer_visible_changed),
                                     monitor);
 
     create_link_and_add_preference (&monitor->details->trash_link,
                                     CAJA_DESKTOP_LINK_TRASH,
                                     CAJA_PREFERENCES_DESKTOP_TRASH_VISIBLE,
-                                    desktop_trash_visible_changed,
+                                    G_CALLBACK (desktop_trash_visible_changed),
                                     monitor);
 
     create_link_and_add_preference (&monitor->details->network_link,
                                     CAJA_DESKTOP_LINK_NETWORK,
                                     CAJA_PREFERENCES_DESKTOP_NETWORK_VISIBLE,
-                                    desktop_network_visible_changed,
+                                    G_CALLBACK (desktop_network_visible_changed),
                                     monitor);
 
     /* Mount links */
@@ -470,9 +475,10 @@ caja_desktop_link_monitor_init (gpointer object, gpointer klass)
     }
     g_list_free (mounts);
 
-    eel_preferences_add_callback (CAJA_PREFERENCES_DESKTOP_VOLUMES_VISIBLE,
-                                  desktop_volumes_visible_changed,
-                                  monitor);
+    g_signal_connect_swapped (caja_desktop_preferences,
+                              "changed::" CAJA_PREFERENCES_DESKTOP_VOLUMES_VISIBLE,
+                              G_CALLBACK (desktop_volumes_visible_changed),
+                              monitor);
 
     monitor->details->mount_id =
         g_signal_connect_object (monitor->details->volume_monitor, "mount_added",
@@ -498,7 +504,8 @@ remove_link_and_preference (CajaDesktopLink   **link_ref,
         *link_ref = NULL;
     }
 
-    eel_preferences_remove_callback (preference_key, callback, callback_data);
+    g_signal_handlers_disconnect_by_func (caja_desktop_preferences,
+                                          callback, callback_data);
 }
 
 static void
@@ -541,9 +548,9 @@ desktop_link_monitor_finalize (GObject *object)
     caja_directory_unref (monitor->details->desktop_dir);
     monitor->details->desktop_dir = NULL;
 
-    eel_preferences_remove_callback (CAJA_PREFERENCES_DESKTOP_VOLUMES_VISIBLE,
-                                     desktop_volumes_visible_changed,
-                                     monitor);
+    g_signal_handlers_disconnect_by_func (caja_desktop_preferences,
+                                          desktop_volumes_visible_changed,
+                                          monitor);
 
     if (monitor->details->mount_id != 0)
     {

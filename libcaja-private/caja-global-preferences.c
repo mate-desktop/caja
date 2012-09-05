@@ -49,10 +49,6 @@ static const char *EXTRA_MONITOR_PATHS[] = { "/desktop/mate/file_views",
 /* Forward declarations */
 static void     global_preferences_install_defaults      (void);
 static void     global_preferences_register_enumerations (void);
-static gpointer default_home_link_name                   (void);
-static gpointer default_computer_link_name               (void);
-static gpointer default_trash_link_name                  (void);
-static gpointer default_network_link_name                (void);
 
 
 /* An enumeration used for installing type specific preferences defaults. */
@@ -94,17 +90,6 @@ static EelEnumerationEntry file_size_enum_entries[] =
     { "1073741824",     N_("1 GB"),         1073741824 },
     { "2147483648",     N_("2 GB"),         2147483648U },
     { "4294967295",     N_("4 GB"),         4294967295U }
-};
-
-static EelEnumerationEntry default_icon_view_sort_order_enum_entries[] =
-{
-    { "manually",	       N_("Manually"),		    PREFERENCES_SORT_ORDER_MANUALLY },
-    { "--------",             "--------" },
-    { "name",	       N_("By Name"),		    CAJA_FILE_SORT_BY_DISPLAY_NAME },
-    { "size",	       N_("By Size"),		    CAJA_FILE_SORT_BY_SIZE },
-    { "type",	       N_("By Type"),		    CAJA_FILE_SORT_BY_TYPE },
-    { "modification_date", N_("By Modification Date"),  CAJA_FILE_SORT_BY_MTIME },
-    { "emblems",	       N_("By Emblems"),	    CAJA_FILE_SORT_BY_EMBLEMS }
 };
 
 static EelEnumerationEntry standard_font_size_entries[] =
@@ -215,70 +200,6 @@ static const PreferenceDefault preference_defaults[] =
         "default_zoom_level"
     },
 
-    /* Desktop Preferences */
-    {
-        CAJA_PREFERENCES_DESKTOP_HOME_VISIBLE,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (FALSE)
-    },
-
-    {
-        CAJA_PREFERENCES_DESKTOP_HOME_NAME,
-        PREFERENCE_STRING,
-        NULL,
-        default_home_link_name, g_free,
-    },
-
-    {
-        CAJA_PREFERENCES_DESKTOP_COMPUTER_VISIBLE,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (TRUE)
-    },
-
-    {
-        CAJA_PREFERENCES_DESKTOP_COMPUTER_NAME,
-        PREFERENCE_STRING,
-        NULL,
-        default_computer_link_name, g_free,
-    },
-
-    {
-        CAJA_PREFERENCES_DESKTOP_TRASH_VISIBLE,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (TRUE)
-    },
-
-    {
-        CAJA_PREFERENCES_DESKTOP_TRASH_NAME,
-        PREFERENCE_STRING,
-        NULL,
-        default_trash_link_name, g_free,
-    },
-
-    {
-        CAJA_PREFERENCES_DESKTOP_VOLUMES_VISIBLE,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (TRUE)
-    },
-
-    {
-        CAJA_PREFERENCES_DESKTOP_NETWORK_VISIBLE,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (FALSE)
-    },
-
-    {
-        CAJA_PREFERENCES_DESKTOP_NETWORK_NAME,
-        PREFERENCE_STRING,
-        NULL,
-        default_network_link_name, g_free,
-    },
-
-    {
-        CAJA_PREFERENCES_DESKTOP_TEXT_ELLIPSIS_LIMIT,
-        PREFERENCE_INTEGER,
-        GINT_TO_POINTER (3)
-    },
     {
         CAJA_PREFERENCES_LOCKDOWN_COMMAND_LINE,
         PREFERENCE_BOOLEAN,
@@ -286,39 +207,6 @@ static const PreferenceDefault preference_defaults[] =
     },
     { NULL }
 };
-
-static gpointer
-default_home_link_name (void)
-{
-    /* Note to translators: If it's hard to compose a good home
-     * icon name from the user name, you can use a string without
-     * an "%s" here, in which case the home icon name will not
-     * include the user's name, which should be fine. To avoid a
-     * warning, put "%.0s" somewhere in the string, which will
-     * match the user name string passed by the C code, but not
-     * put the user name in the final string.
-     */
-    return g_strdup_printf (_("%s's Home"), g_get_user_name ());
-}
-
-static gpointer
-default_computer_link_name (void)
-{
-    return g_strdup (_("Computer"));
-}
-
-static gpointer
-default_trash_link_name (void)
-{
-    return g_strdup (_("Trash"));
-}
-
-static gpointer
-default_network_link_name (void)
-{
-    return g_strdup (_("Network Servers"));
-}
-
 
 
 /**
@@ -340,9 +228,6 @@ global_preferences_register_enumerations (void)
      * populate widgets and route preferences changes between the
      * storage (MateConf) and the displayed values.
      */
-    eel_enumeration_register ("default_icon_view_sort_order",
-                              default_icon_view_sort_order_enum_entries,
-                              G_N_ELEMENTS (default_icon_view_sort_order_enum_entries));
     eel_enumeration_register ("default_zoom_level",
                               default_zoom_level_enum_entries,
                               G_N_ELEMENTS (default_zoom_level_enum_entries));
@@ -543,6 +428,7 @@ caja_global_preferences_init (void)
     caja_media_preferences = g_settings_new("org.mate.media-handling");
     caja_window_state = g_settings_new("org.mate.caja.window-state");
     caja_icon_view_preferences = g_settings_new("org.mate.caja.icon-view");
+    caja_desktop_preferences = g_settings_new("org.mate.caja.desktop");
 
     /* Set up storage for values accessed in this file */
     g_signal_connect_swapped (caja_icon_view_preferences,
