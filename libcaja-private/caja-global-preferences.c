@@ -36,7 +36,6 @@
 
 /* Path for mate-vfs preferences */
 static const char *EXTRA_MONITOR_PATHS[] = {
-        "/desktop/mate/background",
         "/desktop/mate/lockdown",
         NULL
                                            };
