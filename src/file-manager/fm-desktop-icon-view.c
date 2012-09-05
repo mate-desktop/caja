@@ -78,6 +78,8 @@ struct FMDesktopIconViewDetails
     gulong delayed_init_signal;
     guint reload_desktop_timeout;
     gboolean pending_rescan;
+
+    guint lockdown_notification_id;
 };
 
 static void     fm_desktop_icon_view_init                   (FMDesktopIconView      *desktop_icon_view);
@@ -108,7 +110,10 @@ desktop_directory_changed_callback (gpointer callback_data)
 }
 
 static void
-lockdown_disable_command_line_changed_callback (gpointer callback_data)
+lockdown_disable_command_line_changed_callback (MateConfClient* client,
+                                                guint cnxn_id,
+                                                MateConfEntry *entry,
+                                                gpointer callback_data)
 {
     fm_directory_view_update_menus (FM_DIRECTORY_VIEW (callback_data));
 }
@@ -308,10 +313,8 @@ fm_desktop_icon_view_finalize (GObject *object)
                                           font_changed_callback,
                                           icon_view);
 
-    eel_preferences_remove_callback (CAJA_PREFERENCES_LOCKDOWN_COMMAND_LINE,
-                                     lockdown_disable_command_line_changed_callback,
-                                     icon_view);
-
+    mateconf_client_notify_remove (caja_mateconf_client,
+                                icon_view->details->lockdown_notification_id);
     g_signal_handlers_disconnect_by_func (caja_preferences,
                                           desktop_directory_changed_callback,
                                           NULL);
@@ -633,9 +636,13 @@ fm_desktop_icon_view_init (FMDesktopIconView *desktop_icon_view)
     default_zoom_level_changed (desktop_icon_view);
     fm_desktop_icon_view_update_icon_container_fonts (desktop_icon_view);
 
-    eel_preferences_add_callback (CAJA_PREFERENCES_LOCKDOWN_COMMAND_LINE,
-                                  lockdown_disable_command_line_changed_callback,
-                                  desktop_icon_view);
+    desktop_icon_view->details->lockdown_notification_id =
+            mateconf_client_notify_add (caja_mateconf_client,
+                         CAJA_MATECONF_LOCKDOWN_COMMAND_LINE,
+                         lockdown_disable_command_line_changed_callback,
+                         desktop_icon_view,
+                         NULL,
+                         NULL);
 
 }
 
@@ -727,7 +734,7 @@ real_update_menus (FMDirectoryView *view)
     desktop_view = FM_DESKTOP_ICON_VIEW (view);
 
     /* New Launcher */
-    disable_command_line = eel_preferences_get_boolean (CAJA_PREFERENCES_LOCKDOWN_COMMAND_LINE);
+    disable_command_line = mateconf_client_get_bool (caja_mateconf_client, CAJA_PREFERENCES_LOCKDOWN_COMMAND_LINE, NULL);
     action = gtk_action_group_get_action (desktop_view->details->desktop_action_group,
                                           FM_ACTION_NEW_LAUNCHER_DESKTOP);
     gtk_action_set_visible (action,

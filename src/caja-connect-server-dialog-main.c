@@ -37,6 +37,7 @@
 #include <eel/eel-stock-dialogs.h>
 
 #include <libcaja-private/caja-icon-names.h>
+#include <libcaja-private/caja-global-preferences.h>
 
 #include "caja-window.h"
 #include "caja-connect-server-dialog.h"

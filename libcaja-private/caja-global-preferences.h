@@ -207,6 +207,8 @@ G_BEGIN_DECLS
 
     /* Lockdown */
 #define CAJA_PREFERENCES_LOCKDOWN_COMMAND_LINE         "/desktop/mate/lockdown/disable_command_line"
+#define CAJA_MATECONF_LOCKDOWN_COMMAND_LINE         "/desktop/mate/lockdown/disable_command_line"
+
 
 void caja_global_preferences_init                      (void);
 char *caja_global_preferences_get_default_folder_viewer_preference_as_iid (void);
@@ -219,6 +221,8 @@ GSettings *caja_desktop_preferences;
 GSettings *caja_tree_sidebar_preferences;
 GSettings *caja_compact_view_preferences;
 GSettings *caja_list_view_preferences;
+
+MateConfClient *caja_mateconf_client;
 
 G_END_DECLS
 
