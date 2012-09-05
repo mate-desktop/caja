@@ -76,9 +76,9 @@
 
 static const char * const default_view_values[] =
 {
-    "icon_view",
-    "list_view",
-    "compact_view",
+    "icon-view",
+    "list-view",
+    "compact-view",
     NULL
 };
 
@@ -935,10 +935,10 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
                                           CAJA_FILE_MANAGEMENT_PROPERTIES_TREE_VIEW_FOLDERS_WIDGET,
                                           CAJA_PREFERENCES_TREE_SHOW_ONLY_DIRECTORIES);
 
-    eel_preferences_builder_connect_string_enum_combo_box (builder,
-            CAJA_FILE_MANAGEMENT_PROPERTIES_DEFAULT_VIEW_WIDGET,
-            CAJA_PREFERENCES_DEFAULT_FOLDER_VIEWER,
-            (const char **) default_view_values);
+    bind_builder_enum (builder, caja_preferences,
+                       CAJA_FILE_MANAGEMENT_PROPERTIES_DEFAULT_VIEW_WIDGET,
+                       CAJA_PREFERENCES_DEFAULT_FOLDER_VIEWER,
+                       (const char **) default_view_values);
     eel_preferences_builder_connect_string_enum_combo_box (builder,
             CAJA_FILE_MANAGEMENT_PROPERTIES_ICON_VIEW_ZOOM_WIDGET,
             CAJA_PREFERENCES_ICON_VIEW_DEFAULT_ZOOM_LEVEL,

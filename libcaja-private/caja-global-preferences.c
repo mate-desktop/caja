@@ -118,13 +118,6 @@ static EelEnumerationEntry search_bar_type_enum_entries[] =
     }
 };
 
-static EelEnumerationEntry default_folder_viewer_enum_entries[] =
-{
-    { "icon_view",	    N_("Icon View"),	CAJA_DEFAULT_FOLDER_VIEWER_ICON_VIEW },
-    { "compact_view",   N_("Compact View"),	CAJA_DEFAULT_FOLDER_VIEWER_COMPACT_VIEW },
-    { "list_view",	    N_("List View"),	CAJA_DEFAULT_FOLDER_VIEWER_LIST_VIEW }
-};
-
 static EelEnumerationEntry default_icon_view_sort_order_enum_entries[] =
 {
     { "manually",	       N_("Manually"),		    PREFERENCES_SORT_ORDER_MANUALLY },
@@ -266,13 +259,6 @@ static const PreferenceDefault preference_defaults[] =
         CAJA_PREFERENCES_TREE_SHOW_ONLY_DIRECTORIES,
         PREFERENCE_BOOLEAN,
         GINT_TO_POINTER (TRUE)
-    },
-    {
-        CAJA_PREFERENCES_DEFAULT_FOLDER_VIEWER,
-        PREFERENCE_INTEGER,
-        GINT_TO_POINTER (CAJA_DEFAULT_FOLDER_VIEWER_ICON_VIEW),
-        NULL, NULL,
-        "default_folder_viewer"
     },
 
     /* Icon View Default Preferences */
@@ -479,9 +465,6 @@ global_preferences_register_enumerations (void)
      * populate widgets and route preferences changes between the
      * storage (MateConf) and the displayed values.
      */
-    eel_enumeration_register ("default_folder_viewer",
-                              default_folder_viewer_enum_entries,
-                              G_N_ELEMENTS (default_folder_viewer_enum_entries));
     eel_enumeration_register ("default_icon_view_sort_order",
                               default_icon_view_sort_order_enum_entries,
                               G_N_ELEMENTS (default_icon_view_sort_order_enum_entries));
@@ -610,7 +593,7 @@ caja_global_preferences_get_default_folder_viewer_preference_as_iid (void)
     const char *viewer_iid;
 
     preference_value =
-        eel_preferences_get_enum (CAJA_PREFERENCES_DEFAULT_FOLDER_VIEWER);
+        g_settings_get_enum (caja_preferences, CAJA_PREFERENCES_DEFAULT_FOLDER_VIEWER);
 
     if (preference_value == CAJA_DEFAULT_FOLDER_VIEWER_LIST_VIEW)
     {

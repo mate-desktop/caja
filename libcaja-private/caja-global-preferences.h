@@ -118,7 +118,7 @@ G_BEGIN_DECLS
 #define CAJA_PREFERENCES_SORT_DIRECTORIES_FIRST		"sort-directories-first"
 
     /* The default folder viewer - one of the two enums below */
-#define CAJA_PREFERENCES_DEFAULT_FOLDER_VIEWER		"preferences/default_folder_viewer"
+#define CAJA_PREFERENCES_DEFAULT_FOLDER_VIEWER		"default-folder-viewer"
 
     enum
     {
