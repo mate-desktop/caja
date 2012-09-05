@@ -8466,7 +8466,7 @@ real_update_location_menu (FMDirectoryView *view)
 	show_open_in_new_tab = FALSE;
 
 	if (caja_window_info_get_window_type (view->details->window) == CAJA_WINDOW_NAVIGATION) {
-		if (eel_preferences_get_boolean (CAJA_PREFERENCES_ALWAYS_USE_BROWSER)) {
+		if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_BROWSER)) {
 			label = _("Open in New _Window");
 		} else {
 			label = _("Browse in New _Window");
@@ -8489,7 +8489,7 @@ real_update_location_menu (FMDirectoryView *view)
 	gtk_action_set_visible (action, show_open_in_new_tab);
 
 	if (show_open_in_new_tab) {
-		if (eel_preferences_get_boolean (CAJA_PREFERENCES_ALWAYS_USE_BROWSER)) {
+		if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_BROWSER)) {
 			label = _("Open in New _Tab");
 		} else {
 			label = _("Browse in New _Tab");
@@ -8772,10 +8772,10 @@ real_update_menus (FMDirectoryView *view)
 	show_open_alternate = file_list_all_are_folders (selection) &&
 				selection_count > 0 &&
 				!(caja_window_info_get_window_type (view->details->window) == CAJA_WINDOW_DESKTOP &&
-					eel_preferences_get_boolean (CAJA_PREFERENCES_ALWAYS_USE_BROWSER));
+					g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_BROWSER));
 	show_open_folder_window = FALSE;
 	if (caja_window_info_get_window_type (view->details->window) == CAJA_WINDOW_NAVIGATION) {
-		if (eel_preferences_get_boolean (CAJA_PREFERENCES_ALWAYS_USE_BROWSER)) {
+		if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_BROWSER)) {
 			if (selection_count == 0 || selection_count == 1) {
 				label_with_underscore = g_strdup (_("Open in New _Window"));
 			} else {
@@ -8814,7 +8814,7 @@ real_update_menus (FMDirectoryView *view)
 	/* Open in New Tab action */
 	if (caja_window_info_get_window_type (view->details->window) == CAJA_WINDOW_NAVIGATION) {
 
-		if (eel_preferences_get_boolean (CAJA_PREFERENCES_ALWAYS_USE_BROWSER)) {
+		if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_BROWSER)) {
 			if (selection_count == 0 || selection_count == 1) {
 				label_with_underscore = g_strdup (_("Open in New _Tab"));
 			} else {

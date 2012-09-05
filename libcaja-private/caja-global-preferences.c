@@ -285,11 +285,6 @@ static const PreferenceDefault preference_defaults[] =
         NULL
     },
     {
-        CAJA_PREFERENCES_ALWAYS_USE_BROWSER,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (TRUE)
-    },
-    {
         CAJA_PREFERENCES_NEW_TAB_POSITION,
         PREFERENCE_STRING,
         "after_current_tab",

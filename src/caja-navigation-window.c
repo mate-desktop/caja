@@ -199,9 +199,10 @@ caja_navigation_window_init (CajaNavigationWindow *window)
             always_use_location_entry_changed,
             window, G_OBJECT (window));
 
-    eel_preferences_add_callback_while_alive (CAJA_PREFERENCES_ALWAYS_USE_BROWSER,
-            always_use_browser_changed,
-            window, G_OBJECT (window));
+    g_signal_connect_swapped (caja_preferences,
+                              "changed::" CAJA_PREFERENCES_ALWAYS_USE_BROWSER,
+                              G_CALLBACK(always_use_browser_changed),
+                              window);
 }
 
 static void
@@ -626,6 +627,10 @@ caja_navigation_window_finalize (GObject *object)
 
     caja_navigation_window_remove_go_menu_callback (window);
 
+    g_signal_handlers_disconnect_by_func (caja_preferences,
+                                          always_use_browser_changed,
+                                          window);
+
     G_OBJECT_CLASS (parent_class)->finalize (object);
 }
 
@@ -757,7 +762,7 @@ real_sync_title (CajaWindow *window,
         /* if spatial mode is default, we keep "File Browser" in the window title
          * to recognize browser windows. Otherwise, we default to the directory name.
          */
-        if (!eel_preferences_get_boolean (CAJA_PREFERENCES_ALWAYS_USE_BROWSER))
+        if (!g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_BROWSER))
         {
             full_title = g_strdup_printf (_("%s - File Browser"), slot->title);
             window_title = eel_str_middle_truncate (full_title, MAX_TITLE_LENGTH);

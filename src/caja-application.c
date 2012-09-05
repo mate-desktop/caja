@@ -785,7 +785,7 @@ open_window (CajaApplication *application,
     CajaWindow *window;
 
     if (browser_window ||
-            eel_preferences_get_boolean (CAJA_PREFERENCES_ALWAYS_USE_BROWSER))
+            g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_BROWSER))
     {
         window = caja_application_create_navigation_window (application,
                  startup_id,
@@ -1713,8 +1713,8 @@ autorun_show_window (GMount *mount, gpointer user_data)
 
     location = g_mount_get_root (mount);
 
-    /* Ther should probably be an easier way to do this */
-    if (eel_preferences_get_boolean (CAJA_PREFERENCES_ALWAYS_USE_BROWSER))
+    /* There should probably be an easier way to do this */
+    if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_BROWSER))
     {
         CajaWindow *window;
         window = caja_application_create_navigation_window (application,

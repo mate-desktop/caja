@@ -551,7 +551,7 @@ caja_window_slot_open_location_full (CajaWindowSlot *slot,
     switch (mode)
     {
     case CAJA_WINDOW_OPEN_ACCORDING_TO_MODE :
-        if (eel_preferences_get_boolean (CAJA_PREFERENCES_ALWAYS_USE_BROWSER))
+        if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_BROWSER))
         {
             target_window = window;
             if (CAJA_IS_SPATIAL_WINDOW (window))

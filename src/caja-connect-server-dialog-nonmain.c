@@ -38,7 +38,7 @@ caja_connect_server_dialog_present_uri (CajaApplication *application,
 {
     CajaWindow *window;
 
-    if (eel_preferences_get_boolean (CAJA_PREFERENCES_ALWAYS_USE_BROWSER))
+    if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_BROWSER))
     {
         window = caja_application_create_navigation_window (application,
                  NULL,

@@ -345,7 +345,7 @@ caja_navigation_window_update_spatial_menu_item (CajaNavigationWindow *window)
     action = gtk_action_group_get_action (window->details->navigation_action_group,
                                           CAJA_ACTION_FOLDER_WINDOW);
     gtk_action_set_visible (action,
-                            !eel_preferences_get_boolean (CAJA_PREFERENCES_ALWAYS_USE_BROWSER));
+                            !g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_BROWSER));
 }
 
 static void

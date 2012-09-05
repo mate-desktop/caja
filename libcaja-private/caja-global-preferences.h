@@ -103,7 +103,7 @@ G_BEGIN_DECLS
 #define CAJA_PREFERENCES_INSTALL_MIME_ACTIVATION		"preferences/install_mime_activation"
 
     /* Spatial or browser mode */
-#define CAJA_PREFERENCES_ALWAYS_USE_BROWSER       		"preferences/always_use_browser"
+#define CAJA_PREFERENCES_ALWAYS_USE_BROWSER       		"always-use-browser"
 #define CAJA_PREFERENCES_NEW_TAB_POSITION       		"preferences/tabs_open_position"
 
     /* Which views should be displayed for new windows */
