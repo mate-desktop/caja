@@ -72,9 +72,9 @@ G_BEGIN_DECLS
 #define CAJA_PREFERENCES_DATE_FORMAT				"date-format"
 
     /* Mouse */
-#define CAJA_PREFERENCES_MOUSE_USE_EXTRA_BUTTONS 		"preferences/mouse_use_extra_buttons"
-#define CAJA_PREFERENCES_MOUSE_FORWARD_BUTTON		"preferences/mouse_forward_button"
-#define CAJA_PREFERENCES_MOUSE_BACK_BUTTON			"preferences/mouse_back_button"
+#define CAJA_PREFERENCES_MOUSE_USE_EXTRA_BUTTONS 	"mouse-use-extra-buttons"
+#define CAJA_PREFERENCES_MOUSE_FORWARD_BUTTON		"mouse-forward-button"
+#define CAJA_PREFERENCES_MOUSE_BACK_BUTTON			"mouse-back-button"
 
     typedef enum
     {

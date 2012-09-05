@@ -245,7 +245,7 @@ mouse_back_button_changed (gpointer callback_data)
 {
     int new_back_button;
 
-    new_back_button = eel_preferences_get_integer (CAJA_PREFERENCES_MOUSE_BACK_BUTTON);
+    new_back_button = g_settings_get_int (caja_preferences, CAJA_PREFERENCES_MOUSE_BACK_BUTTON);
 
     /* Bounds checking */
     if (new_back_button < 6 || new_back_button > UPPER_MOUSE_LIMIT)
@@ -259,7 +259,7 @@ mouse_forward_button_changed (gpointer callback_data)
 {
     int new_forward_button;
 
-    new_forward_button = eel_preferences_get_integer (CAJA_PREFERENCES_MOUSE_FORWARD_BUTTON);
+    new_forward_button = g_settings_get_int (caja_preferences, CAJA_PREFERENCES_MOUSE_FORWARD_BUTTON);
 
     /* Bounds checking */
     if (new_forward_button < 6 || new_forward_button > UPPER_MOUSE_LIMIT)
@@ -271,7 +271,7 @@ mouse_forward_button_changed (gpointer callback_data)
 static void
 use_extra_mouse_buttons_changed (gpointer callback_data)
 {
-    mouse_extra_buttons = eel_preferences_get_boolean (CAJA_PREFERENCES_MOUSE_USE_EXTRA_BUTTONS);
+    mouse_extra_buttons = g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_MOUSE_USE_EXTRA_BUTTONS);
 }
 
 void
@@ -1286,18 +1286,20 @@ caja_navigation_window_class_init (CajaNavigationWindowClass *class)
 
     g_type_class_add_private (G_OBJECT_CLASS (class), sizeof (CajaNavigationWindowDetails));
 
+    g_signal_connect_swapped (caja_preferences,
+                              "changed::" CAJA_PREFERENCES_MOUSE_BACK_BUTTON,
+                              G_CALLBACK(mouse_back_button_changed),
+                              NULL);
 
-    eel_preferences_add_callback (CAJA_PREFERENCES_MOUSE_BACK_BUTTON,
-                                  mouse_back_button_changed,
-                                  NULL);
+    g_signal_connect_swapped (caja_preferences,
+                              "changed::" CAJA_PREFERENCES_MOUSE_FORWARD_BUTTON,
+                              G_CALLBACK(mouse_forward_button_changed),
+                              NULL);
 
-    eel_preferences_add_callback (CAJA_PREFERENCES_MOUSE_FORWARD_BUTTON,
-                                  mouse_forward_button_changed,
-                                  NULL);
-
-    eel_preferences_add_callback (CAJA_PREFERENCES_MOUSE_USE_EXTRA_BUTTONS,
-                                  use_extra_mouse_buttons_changed,
-                                  NULL);
+    g_signal_connect_swapped (caja_preferences,
+                              "changed::" CAJA_PREFERENCES_MOUSE_USE_EXTRA_BUTTONS,
+                              G_CALLBACK(use_extra_mouse_buttons_changed),
+                              NULL);
 }
 
 static CajaWindowSlot *

@@ -535,21 +535,6 @@ static const PreferenceDefault preference_defaults[] =
         GINT_TO_POINTER (3)
     },
     {
-        CAJA_PREFERENCES_MOUSE_USE_EXTRA_BUTTONS,
-        PREFERENCE_BOOLEAN,
-        GINT_TO_POINTER (TRUE)
-    },
-    {
-        CAJA_PREFERENCES_MOUSE_FORWARD_BUTTON,
-        PREFERENCE_INTEGER,
-        GINT_TO_POINTER (9)
-    },
-    {
-        CAJA_PREFERENCES_MOUSE_BACK_BUTTON,
-        PREFERENCE_INTEGER,
-        GINT_TO_POINTER (8)
-    },
-    {
         CAJA_PREFERENCES_LOCKDOWN_COMMAND_LINE,
         PREFERENCE_BOOLEAN,
         GINT_TO_POINTER (FALSE)
