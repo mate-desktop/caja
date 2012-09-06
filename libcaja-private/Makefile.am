@@ -74,6 +74,8 @@ libcaja_private_la_SOURCES = \
 	caja-desktop-link-monitor.h \
 	caja-desktop-link.c \
 	caja-desktop-link.h \
+	caja-desktop-metadata.c \
+	caja-desktop-metadata.h \
 	caja-directory-async.c \
 	caja-directory-background.c \
 	caja-directory-background.h \

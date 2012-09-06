@@ -118,7 +118,7 @@ void                        eel_background_receive_dropped_background_image (Eel
 
 /* Gets or creates a background so that it's attached to a widget. */
 EelBackground *             eel_get_widget_background                       (GtkWidget                   *widget);
-void			    eel_background_save_to_mateconf                    (EelBackground               *background);
+void			    eel_background_save_to_settings                    (EelBackground               *background);
 
 /* Set activity status of background. Inactive backgrounds are drawn in the theme's INSENSITIVE color. */
 void                        eel_background_set_active                       (EelBackground               *background,

@@ -74,9 +74,6 @@
 #define CAJA_METADATA_KEY_SCREEN				"screen"
 #define CAJA_METADATA_KEY_EMBLEMS				"emblems"
 
-/* This is where desktop item metadata are stored in mateconf */
-#define CAJA_DESKTOP_METADATA_MATECONF_PATH "/apps/caja/desktop-metadata"
-
 guint caja_metadata_get_id (const char *metadata);
 
 #endif /* CAJA_METADATA_H */

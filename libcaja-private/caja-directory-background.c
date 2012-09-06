@@ -46,7 +46,7 @@ static void background_reset_callback       (EelBackground *background,
 static void saved_settings_changed_callback (CajaFile       *file,
         EelBackground *background);
 
-static void caja_file_background_receive_mateconf_changes (EelBackground *background);
+static void caja_file_background_receive_settings_changes (EelBackground *background);
 
 static void caja_file_background_theme_changed (GSettings   *settings,
                                                 const gchar *key,
@@ -72,7 +72,7 @@ caja_connect_desktop_background_to_file_metadata (CajaIconContainer *icon_contai
      */
     caja_connect_background_to_file_metadata (GTK_WIDGET (icon_container), file, CAJA_DND_ACTION_SET_AS_FOLDER_BACKGROUND);
 
-    caja_file_background_receive_mateconf_changes (background);
+    caja_file_background_receive_settings_changes (background);
 }
 
 static void
@@ -101,20 +101,20 @@ caja_file_background_get_default_settings (char **color,
 }
 
 
-#define BG_PREFERENCES_DRAW_BACKGROUND    "/desktop/mate/background/draw_background"
-#define BG_PREFERENCES_PRIMARY_COLOR      "/desktop/mate/background/primary_color"
-#define BG_PREFERENCES_SECONDARY_COLOR    "/desktop/mate/background/secondary_color"
-#define BG_PREFERENCES_COLOR_SHADING_TYPE "/desktop/mate/background/color_shading_type"
-#define BG_PREFERENCES_PICTURE_OPTIONS    "/desktop/mate/background/picture_options"
-#define BG_PREFERENCES_PICTURE_OPACITY    "/desktop/mate/background/picture_opacity"
-#define BG_PREFERENCES_PICTURE_FILENAME   "/desktop/mate/background/picture_filename"
+#define BG_PREFERENCES_DRAW_BACKGROUND    "draw-background"
+#define BG_PREFERENCES_PRIMARY_COLOR      "primary-color"
+#define BG_PREFERENCES_SECONDARY_COLOR    "secondary-color"
+#define BG_PREFERENCES_COLOR_SHADING_TYPE "color-shading-type"
+#define BG_PREFERENCES_PICTURE_OPTIONS    "picture-options"
+#define BG_PREFERENCES_PICTURE_OPACITY    "picture-opacity"
+#define BG_PREFERENCES_PICTURE_FILENAME   "picture-filename"
 
 static void
-read_color (MateConfClient *client, const char *key, GdkColor *color)
+read_color (const char *key, GdkColor *color)
 {
     gchar *tmp;
 
-    tmp = mateconf_client_get_string (client, key, NULL);
+    tmp = g_settings_get_string (mate_background_preferences, key);
 
     if (tmp != NULL)
     {
@@ -135,7 +135,6 @@ caja_file_background_read_desktop_settings (char **color,
         char **image,
         EelBackgroundImagePlacement *placement)
 {
-    MateConfClient *client;
     gboolean enabled;
     GdkColor primary, secondary;
     gchar *tmp, *filename;
@@ -146,13 +145,11 @@ caja_file_background_read_desktop_settings (char **color,
 
     filename = NULL;
 
-    client = mateconf_client_get_default ();
-
     /* Get the image filename */
-    enabled = mateconf_client_get_bool (client, BG_PREFERENCES_DRAW_BACKGROUND, NULL);
+    enabled = g_settings_get_boolean (mate_background_preferences, BG_PREFERENCES_DRAW_BACKGROUND);
     if (enabled)
     {
-        tmp = mateconf_client_get_string (client, BG_PREFERENCES_PICTURE_FILENAME, NULL);
+        tmp = g_settings_get_string (mate_background_preferences, BG_PREFERENCES_PICTURE_FILENAME);
         if (tmp != NULL)
         {
             if (g_utf8_validate (tmp, -1, NULL) && g_file_test (tmp, G_FILE_TEST_EXISTS))
@@ -182,7 +179,7 @@ caja_file_background_read_desktop_settings (char **color,
     }
 
     /* Get the placement */
-    tmp = mateconf_client_get_string (client, BG_PREFERENCES_PICTURE_OPTIONS, NULL);
+    tmp = g_settings_get_string (mate_background_preferences, BG_PREFERENCES_PICTURE_OPTIONS);
     if (tmp != NULL)
     {
         if (strcmp (tmp, "wallpaper") == 0)
@@ -228,7 +225,7 @@ caja_file_background_read_desktop_settings (char **color,
     g_free (tmp);
 
     /* Get the color */
-    tmp = mateconf_client_get_string (client, BG_PREFERENCES_COLOR_SHADING_TYPE, NULL);
+    tmp = g_settings_get_string (mate_background_preferences, BG_PREFERENCES_COLOR_SHADING_TYPE);
     if (tmp != NULL)
     {
         if (strcmp (tmp, "solid") == 0)
@@ -259,8 +256,8 @@ caja_file_background_read_desktop_settings (char **color,
     }
     g_free (tmp);
 
-    read_color (client, BG_PREFERENCES_PRIMARY_COLOR, &primary);
-    read_color (client, BG_PREFERENCES_SECONDARY_COLOR, &secondary);
+    read_color (BG_PREFERENCES_PRIMARY_COLOR, &primary);
+    read_color (BG_PREFERENCES_SECONDARY_COLOR, &secondary);
 
     start_color   = eel_gdk_rgb_to_color_spec (eel_gdk_color_to_rgb (&primary));
     end_color     = eel_gdk_rgb_to_color_spec (eel_gdk_color_to_rgb (&secondary));
@@ -278,38 +275,6 @@ caja_file_background_read_desktop_settings (char **color,
     g_free (end_color);
 }
 
-static void
-caja_file_background_write_desktop_default_settings (void)
-{
-    /* We just unset all the mateconf keys so they go back to
-     * defaults
-     */
-    MateConfClient *client;
-    MateConfChangeSet *set;
-
-    client = mateconf_client_get_default ();
-    set = mateconf_change_set_new ();
-
-    /* the list of keys here has to be kept in sync with libmate
-     * schemas, which isn't the most maintainable thing ever.
-     */
-    mateconf_change_set_unset (set, "/desktop/mate/background/picture_options");
-    mateconf_change_set_unset (set, "/desktop/mate/background/picture_filename");
-    mateconf_change_set_unset (set, "/desktop/mate/background/picture_opacity");
-    mateconf_change_set_unset (set, "/desktop/mate/background/primary_color");
-    mateconf_change_set_unset (set, "/desktop/mate/background/secondary_color");
-    mateconf_change_set_unset (set, "/desktop/mate/background/color_shading_type");
-
-    /* this isn't atomic yet so it'll be a bit inefficient, but
-     * someday it might be atomic.
-     */
-    mateconf_client_commit_change_set (client, set, FALSE, NULL);
-
-    mateconf_change_set_unref (set);
-
-    g_object_unref (G_OBJECT (client));
-}
-
 static int
 call_settings_changed (EelBackground *background)
 {
@@ -319,61 +284,34 @@ call_settings_changed (EelBackground *background)
     {
         saved_settings_changed_callback (file, background);
     }
-    g_object_set_data (G_OBJECT (background), "desktop_mateconf_notification_timeout", GUINT_TO_POINTER (0));
     return FALSE;
+}
+
+static void
+desktop_background_settings_notify_cb (GSettings *settings, gchar *key, gpointer data)
+{
+    EelBackground *background;
+
+    background = EEL_BACKGROUND (data);
+
+    call_settings_changed (background);
 }
 
 static void
 desktop_background_destroyed_callback (EelBackground *background, void *georgeWBush)
 {
-    guint notification_id;
-    guint notification_timeout_id;
-
-    notification_id = GPOINTER_TO_UINT (g_object_get_data (G_OBJECT (background), "desktop_mateconf_notification"));
-    mateconf_client_notify_remove (caja_mateconf_client, notification_id);
-
-    notification_timeout_id = GPOINTER_TO_UINT (g_object_get_data (G_OBJECT (background), "desktop_mateconf_notification_timeout"));
-    if (notification_timeout_id != 0)
-    {
-        g_source_remove (notification_timeout_id);
-    }
+    g_signal_handlers_disconnect_by_func(mate_background_preferences,
+                                         G_CALLBACK (desktop_background_settings_notify_cb),
+                                         background);
 }
 
 static void
-desktop_background_mateconf_notify_cb (MateConfClient *client, guint notification_id, MateConfEntry *entry, gpointer data)
+caja_file_background_receive_settings_changes (EelBackground *background)
 {
-    EelBackground *background;
-    guint notification_timeout_id;
-
-    background = EEL_BACKGROUND (data);
-
-    notification_timeout_id = GPOINTER_TO_UINT (g_object_get_data (G_OBJECT (background), "desktop_mateconf_notification_timeout"));
-
-    if (strcmp (entry->key, "/desktop/mate/background/stamp") == 0)
-    {
-        if (notification_timeout_id != 0)
-            g_source_remove (notification_timeout_id);
-
-        call_settings_changed (background);
-    }
-    else if (notification_timeout_id == 0)
-    {
-        notification_timeout_id = g_timeout_add (300, (GSourceFunc) call_settings_changed, background);
-
-        g_object_set_data (G_OBJECT (background), "desktop_mateconf_notification_timeout", GUINT_TO_POINTER (notification_timeout_id));
-    }
-}
-
-static void
-caja_file_background_receive_mateconf_changes (EelBackground *background)
-{
-    guint notification_id;
-
-    notification_id = mateconf_client_notify_add (caja_mateconf_client,
-                                                  "/desktop/mate/background", desktop_background_mateconf_notify_cb, background,
-                                                    NULL, NULL);
-
-    g_object_set_data (G_OBJECT (background), "desktop_mateconf_notification", GUINT_TO_POINTER (notification_id));
+    g_signal_connect (mate_background_preferences,
+                      "changed",
+                      G_CALLBACK (desktop_background_settings_notify_cb),
+                      background);
 
     g_signal_connect (background, "destroy",
                       G_CALLBACK (desktop_background_destroyed_callback), NULL);
@@ -418,7 +356,7 @@ background_changed_callback (EelBackground *background,
 
     if (eel_background_is_desktop (background))
     {
-        eel_background_save_to_mateconf (background);
+        eel_background_save_to_settings (background);
     }
     else
     {
@@ -575,11 +513,7 @@ background_reset_callback (EelBackground *background,
     char *color;
     char *image;
 
-    if (eel_background_is_desktop (background))
-    {
-        caja_file_background_write_desktop_default_settings ();
-    }
-    else
+    if (!eel_background_is_desktop (background))
     {
         /* Block the other handler while we are writing metadata so it doesn't
          * try to change the background.

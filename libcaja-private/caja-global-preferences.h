@@ -27,7 +27,6 @@
 #define CAJA_GLOBAL_PREFERENCES_H
 
 #include <gio/gio.h>
-#include <mateconf/mateconf-client.h>
 
 G_BEGIN_DECLS
 
@@ -221,9 +220,8 @@ GSettings *caja_tree_sidebar_preferences;
 GSettings *caja_compact_view_preferences;
 GSettings *caja_list_view_preferences;
 
+GSettings *mate_background_preferences;
 GSettings *mate_lockdown_preferences;
-
-MateConfClient *caja_mateconf_client;
 
 G_END_DECLS
 

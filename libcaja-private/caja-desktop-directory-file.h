@@ -54,15 +54,5 @@ typedef struct
 } CajaDesktopDirectoryFileClass;
 
 GType    caja_desktop_directory_file_get_type    (void);
-gboolean caja_desktop_update_metadata_from_mateconf (CajaFile  *file,
-        const char    *name);
-void     caja_desktop_set_metadata_string        (CajaFile  *file,
-        const char    *name,
-        const char    *key,
-        const char    *string);
-void     caja_desktop_set_metadata_stringv       (CajaFile  *file,
-        const char    *name,
-        const char    *key,
-        char         **stringv);
 
 #endif /* CAJA_DESKTOP_DIRECTORY_FILE_H */

@@ -26,6 +26,7 @@
 #include <config.h>
 #include "caja-desktop-icon-file.h"
 
+#include "caja-desktop-metadata.h"
 #include "caja-desktop-directory-file.h"
 #include "caja-directory-notify.h"
 #include "caja-directory-private.h"
@@ -294,7 +295,7 @@ caja_desktop_icon_file_new (CajaDesktopLink *link)
 
     update_info_from_link (icon_file);
 
-    caja_desktop_update_metadata_from_mateconf (file, file->details->name);
+    caja_desktop_update_metadata_from_keyfile (file, file->details->name);
 
     caja_directory_add_file (directory, file);
 
@@ -378,7 +379,7 @@ caja_desktop_icon_file_set_metadata_as_list (CajaFile           *file,
     CajaDesktopIconFile *desktop_file;
 
     desktop_file = CAJA_DESKTOP_ICON_FILE (file);
-    caja_desktop_set_metadata_stringv (file, file->details->name, key, value);
+    caja_desktop_set_metadata_stringv (file, file->details->name, key, (const gchar **) value);
 }
 
 static void

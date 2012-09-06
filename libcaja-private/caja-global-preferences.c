@@ -34,12 +34,6 @@
 #include <eel/eel-string.h>
 #include <glib/gi18n.h>
 
-/* Path for mate-vfs preferences */
-static const char *EXTRA_MONITOR_PATHS[] = {
-        "/desktop/mate/lockdown",
-        NULL
-                                           };
-
 /*
  * Public functions
  */
@@ -90,15 +84,6 @@ caja_global_preferences_init (void)
     caja_tree_sidebar_preferences = g_settings_new("org.mate.caja.sidebar-panels.tree");
     caja_list_view_preferences = g_settings_new("org.mate.caja.list-view");
 
-    mate_lockdown_preferences = g_settings_new("org.mate.desktop.lockdown");
-
-    caja_mateconf_client = mateconf_client_get_default ();
-
-    /* Add monitors for any other MateConf paths we have keys in */
-    for (i=0; EXTRA_MONITOR_PATHS[i] != NULL; i++) {
-        mateconf_client_add_dir (caja_mateconf_client,
-                      EXTRA_MONITOR_PATHS[i],
-                      MATECONF_CLIENT_PRELOAD_ONELEVEL,
-                      NULL);
-    }
+    mate_background_preferences = g_settings_new("org.mate.background");
+    mate_lockdown_preferences = g_settings_new("org.mate.lockdown");
 }

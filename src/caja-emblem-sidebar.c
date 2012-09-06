@@ -43,7 +43,6 @@
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
-#include <mateconf/mateconf-client.h>
 #include <libcaja-private/caja-icon-dnd.h>
 #include <libcaja-private/caja-emblem-utils.h>
 #include <libcaja-private/caja-file-utilities.h>
@@ -54,7 +53,6 @@
 struct CajaEmblemSidebarDetails
 {
     CajaWindowInfo *window;
-    MateConfClient *client;
     GtkWidget *emblems_table;
     GtkWidget *popup;
     GtkWidget *popup_remove;
@@ -1040,8 +1038,6 @@ caja_emblem_sidebar_init (CajaEmblemSidebar *emblem_sidebar)
 
     emblem_sidebar->details = g_new0 (CajaEmblemSidebarDetails, 1);
 
-    emblem_sidebar->details->client = mateconf_client_get_default ();
-
     create_popup_menu (emblem_sidebar);
 
     widget = caja_emblem_sidebar_create_container (emblem_sidebar);
@@ -1065,11 +1061,6 @@ caja_emblem_sidebar_finalize (GObject *object)
 
     if (emblem_sidebar->details != NULL)
     {
-        if (emblem_sidebar->details->client != NULL)
-        {
-            g_object_unref (emblem_sidebar->details->client);
-        }
-
         g_free (emblem_sidebar->details);
     }
 

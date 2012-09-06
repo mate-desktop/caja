@@ -26,6 +26,7 @@
 #include <config.h>
 #include "caja-desktop-directory-file.h"
 
+#include "caja-desktop-metadata.h"
 #include "caja-directory-notify.h"
 #include "caja-directory-private.h"
 #include "caja-file-attributes.h"
@@ -33,8 +34,6 @@
 #include "caja-file-utilities.h"
 #include <eel/eel-glib-extensions.h>
 #include <eel/eel-gtk-macros.h>
-#include <mateconf/mateconf-client.h>
-#include <mateconf/mateconf-value.h>
 #include "caja-desktop-directory.h"
 #include "caja-metadata.h"
 #include <gtk/gtk.h>
@@ -225,7 +224,7 @@ desktop_callback_check_done (DesktopCallback *desktop_callback)
     }
 
     /* Ensure our metadata is updated before calling back. */
-    caja_desktop_update_metadata_from_mateconf(CAJA_FILE (desktop_callback->desktop_file),
+    caja_desktop_update_metadata_from_keyfile(CAJA_FILE (desktop_callback->desktop_file),
                                                "directory");
 
     /* Remove from the hash table before sending it. */
@@ -467,156 +466,6 @@ monitor_destroy (gpointer data)
     g_free (monitor);
 }
 
-static char *
-get_metadata_mateconf_path (const char *name,
-                            const char *key)
-{
-    char *res, *escaped_name;
-
-    escaped_name = mateconf_escape_key (name, -1);
-    res = g_build_filename (CAJA_DESKTOP_METADATA_MATECONF_PATH, escaped_name, key, NULL);
-    g_free (escaped_name);
-
-    return res;
-}
-
-void
-caja_desktop_set_metadata_string (CajaFile *file,
-                                  const char *name,
-                                  const char *key,
-                                  const char *string)
-{
-    MateConfClient *client;
-    char *mateconf_key;
-
-    client = mateconf_client_get_default ();
-    mateconf_key = get_metadata_mateconf_path (name, key);
-
-    if (string)
-    {
-        mateconf_client_set_string (client, mateconf_key, string, NULL);
-    }
-    else
-    {
-        mateconf_client_unset (client, mateconf_key, NULL);
-    }
-
-    g_free (mateconf_key);
-    g_object_unref (client);
-
-    if (caja_desktop_update_metadata_from_mateconf (file, name))
-    {
-        caja_file_changed (file);
-    }
-}
-
-void
-caja_desktop_set_metadata_stringv (CajaFile *file,
-                                   const char *name,
-                                   const char *key,
-                                   char **stringv)
-{
-    MateConfClient *client;
-    char *mateconf_key;
-    GSList *list;
-    int i;
-
-    client = mateconf_client_get_default ();
-    mateconf_key = get_metadata_mateconf_path (name, key);
-
-    list = NULL;
-    for (i = 0; stringv[i] != NULL; i++)
-    {
-        list = g_slist_prepend (list, stringv[i]);
-    }
-    list = g_slist_reverse (list);
-
-    mateconf_client_set_list (client, mateconf_key,
-                              MATECONF_VALUE_STRING,
-                              list, NULL);
-
-    g_slist_free (list);
-    g_free (mateconf_key);
-    g_object_unref (client);
-
-    if (caja_desktop_update_metadata_from_mateconf (file, name))
-    {
-        caja_file_changed (file);
-    }
-}
-
-gboolean
-caja_desktop_update_metadata_from_mateconf (CajaFile *file,
-        const char *name)
-{
-    MateConfClient *client;
-    GSList *entries, *l;
-    char *dir;
-    const char *key;
-    MateConfEntry *entry;
-    MateConfValue *value;
-    GFileInfo *info;
-    gboolean changed;
-    char *gio_key;
-    GSList *value_list;
-    char **strv;
-    int i;
-
-    client = mateconf_client_get_default ();
-
-    dir = get_metadata_mateconf_path (name, NULL);
-    entries = mateconf_client_all_entries (client, dir, NULL);
-    g_free (dir);
-
-    info = g_file_info_new ();
-
-    for (l = entries; l != NULL; l = l->next)
-    {
-        entry = l->data;
-
-        key = mateconf_entry_get_key (entry);
-        value = mateconf_entry_get_value (entry);
-
-        if (value == NULL)
-        {
-            continue;
-        }
-        key = strrchr (key, '/') + 1;
-
-        gio_key = g_strconcat ("metadata::", key, NULL);
-        if (value->type == MATECONF_VALUE_STRING)
-        {
-            g_file_info_set_attribute_string (info, gio_key,
-                                              mateconf_value_get_string (value));
-        }
-        else if (value->type == MATECONF_VALUE_LIST &&
-                 mateconf_value_get_list_type (value) == MATECONF_VALUE_STRING)
-        {
-            value_list = mateconf_value_get_list (value);
-            strv = g_new (char *, g_slist_length (value_list) + 1);
-            for (i = 0; value_list != NULL; i++, value_list = value_list->next)
-            {
-                strv[i] = l->data;
-            }
-            strv[i] = NULL;
-            g_file_info_set_attribute_stringv (info, gio_key, strv);
-            g_free (strv);
-        }
-
-        g_free (gio_key);
-
-        mateconf_entry_unref (entry);
-    }
-    g_slist_free (entries);
-
-    changed = caja_file_update_metadata_from_info (file, info);
-
-    g_object_unref (info);
-    g_object_unref (client);
-
-    return changed;
-}
-
 static void
 caja_desktop_directory_file_set_metadata (CajaFile           *file,
         const char             *key,
@@ -630,7 +479,7 @@ caja_desktop_directory_file_set_metadata_as_list (CajaFile           *file,
         const char             *key,
         char                  **value)
 {
-    caja_desktop_set_metadata_stringv (file, "directory", key, value);
+    caja_desktop_set_metadata_stringv (file, "directory", key, (const gchar **) value);
 }
 
 static void

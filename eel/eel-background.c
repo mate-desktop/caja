@@ -1230,12 +1230,10 @@ eel_background_receive_dropped_color (EelBackground *background,
 }
 
 void
-eel_background_save_to_mateconf (EelBackground *background)
+eel_background_save_to_settings (EelBackground *background)
 {
-    MateConfClient *client = mateconf_client_get_default ();
-
     if (background->details->bg)
-        mate_bg_save_to_preferences (background->details->bg, client);
+        mate_bg_save_to_preferences (background->details->bg);
 }
 
 void
