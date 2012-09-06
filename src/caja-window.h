@@ -30,6 +30,7 @@
 #include <gtk/gtk.h>
 #include <eel/eel-glib-extensions.h>
 #include <libcaja-private/caja-bookmark.h>
+#include <libcaja-private/caja-entry.h>
 #include <libcaja-private/caja-window-info.h>
 #include <libcaja-private/caja-search-directory.h>
 #include "caja-application.h"

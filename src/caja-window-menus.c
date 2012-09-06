@@ -49,7 +49,6 @@
 #include <libcaja-private/caja-icon-names.h>
 #include <libcaja-private/caja-ui-utilities.h>
 #include <libcaja-private/caja-module.h>
-#include <libcaja-private/caja-undo-manager.h>
 #include <libcaja-private/caja-search-directory.h>
 #include <libcaja-private/caja-search-engine.h>
 #include <libcaja-private/caja-signaller.h>
@@ -271,16 +270,6 @@ action_stop_callback (GtkAction *action,
 
     caja_window_slot_stop_loading (slot);
 }
-
-#ifdef TEXT_CHANGE_UNDO
-static void
-action_undo_callback (GtkAction *action,
-                      gpointer user_data)
-{
-    caja_undo_manager_undo
-    (CAJA_WINDOW (user_data)->application->undo_manager);
-}
-#endif
 
 static void
 action_home_callback (GtkAction *action,
@@ -852,12 +841,6 @@ static const GtkActionEntry main_entries[] =
         NULL, N_("Edit Caja preferences"),
         G_CALLBACK (action_preferences_callback)
     },
-    #ifdef TEXT_CHANGE_UNDO
-    /* name, stock id, label */  { "Undo", NULL, N_("_Undo"),
-        "<control>Z", N_("Undo the last text change"),
-        G_CALLBACK (action_undo_callback)
-    },
-    #endif
     /* name, stock id, label */  { "Up", GTK_STOCK_GO_UP, N_("Open _Parent"),
         "<alt>Up", N_("Open the parent folder"),
         G_CALLBACK (action_up_callback)

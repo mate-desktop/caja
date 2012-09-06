@@ -55,9 +55,7 @@
 #include <libcaja-private/caja-link.h>
 #include <libcaja-private/caja-metadata.h>
 #include <libcaja-private/caja-module.h>
-#include <libcaja-private/caja-undo-signal-handlers.h>
 #include <libcaja-private/caja-mime-actions.h>
-#include <libcaja-private/caja-undo.h>
 #include <string.h>
 #include <sys/stat.h>
 #include <cairo.h>
@@ -615,20 +613,6 @@ set_name_field (FMPropertiesWindow *window, const gchar *original_name,
 					  GTK_FILL, 0,
 					  0, 0);
 			gtk_label_set_mnemonic_widget (GTK_LABEL (window->details->name_label), window->details->name_field);
-
-			/* FIXME bugzilla.gnome.org 42151:
-			 * With this (and one place elsewhere in this file, not sure which is the
-			 * trouble-causer) code in place, bug 2151 happens (crash on quit). Since
-			 * we've removed Undo from Caja for now, I'm just ifdeffing out this
-			 * code rather than trying to fix 2151 now. Note that it might be possible
-			 * to fix 2151 without making Undo actually work, it's just not worth the
-			 * trouble.
-			 */
-#ifdef UNDO_ENABLED
-			/* Set up name field for undo */
-			caja_undo_set_up_caja_entry_for_undo ( CAJA_ENTRY (window->details->name_field));
-			caja_undo_editable_set_undo_key (GTK_EDITABLE (window->details->name_field), TRUE);
-#endif
 
 			g_signal_connect_object (window->details->name_field, "focus_out_event",
 						 G_CALLBACK (name_field_focus_out), window, 0);
@@ -5384,13 +5368,6 @@ is_directory_ready_callback (CajaFile *file,
 
 		remove_pending (startup_data, FALSE, TRUE, TRUE);
 
-/* FIXME bugzilla.gnome.org 42151:
- * See comment elsewhere in this file about bug 2151.
- */
-#ifdef UNDO_ENABLED
-		caja_undo_share_undo_manager (GTK_OBJECT (new_window),
-						  GTK_OBJECT (callback_data));
-#endif
 		gtk_window_present (GTK_WINDOW (new_window));
 	}
 }

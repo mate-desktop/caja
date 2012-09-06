@@ -31,7 +31,6 @@
 #include <gio/gio.h>
 #include <unique/unique.h>
 #include <libegg/eggsmclient.h>
-#include <libcaja-private/caja-undo-manager.h>
 
 #define CAJA_DESKTOP_ICON_VIEW_IID "OAFIID:Caja_File_Manager_Desktop_Icon_View"
 
@@ -65,7 +64,6 @@ typedef struct
     GObject parent;
     UniqueApp* unique_app;
     EggSMClient* smclient;
-    CajaUndoManager* undo_manager;
     GVolumeMonitor* volume_monitor;
     unsigned int automount_idle_id;
     GDBusProxy* proxy;

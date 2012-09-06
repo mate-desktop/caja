@@ -33,7 +33,6 @@
 #include "caja-bookmarks-window.h"
 #include "caja-window-bookmarks.h"
 #include "caja-window-private.h"
-#include <libcaja-private/caja-undo-manager.h>
 #include <eel/eel-debug.h>
 #include <eel/eel-stock-dialogs.h>
 #include <eel/eel-vfs-extensions.h>
@@ -102,18 +101,14 @@ show_bogus_bookmark_window (CajaWindow *window,
 static GtkWindow *
 get_or_create_bookmarks_window (CajaWindow *window)
 {
-    GObject *undo_manager_source;
-
-    undo_manager_source = G_OBJECT (window);
-
     if (bookmarks_window == NULL)
     {
         bookmarks_window = create_bookmarks_window (window->details->bookmark_list,
-                           undo_manager_source);
+                           window);
     }
     else
     {
-        edit_bookmarks_dialog_set_signals (undo_manager_source);
+        edit_bookmarks_dialog_set_signals (window);
     }
 
     return bookmarks_window;

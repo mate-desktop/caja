@@ -62,7 +62,6 @@
 #include <libcaja-private/caja-program-choosing.h>
 #include <libcaja-private/caja-view-factory.h>
 #include <libcaja-private/caja-clipboard.h>
-#include <libcaja-private/caja-undo.h>
 #include <libcaja-private/caja-search-directory.h>
 #include <libcaja-private/caja-signaller.h>
 #include <math.h>
@@ -531,7 +530,6 @@ caja_window_constructed (GObject *self)
 
     caja_window_initialize_bookmarks_menu (window);
     caja_window_set_initial_window_geometry (window);
-    caja_undo_manager_attach (window->application->undo_manager, G_OBJECT (window));
 }
 
 static void

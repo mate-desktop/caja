@@ -30,11 +30,9 @@
 #include "caja-window.h"
 #include "caja-navigation-window.h"
 #include "caja-spatial-window.h"
-#include <libcaja-private/caja-undo.h>
 #include <libcaja-private/caja-global-preferences.h>
 #include <eel/eel-gtk-extensions.h>
 #include <eel/eel-mate-extensions.h>
-#include <libcaja-private/caja-undo-signal-handlers.h>
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 
@@ -252,7 +250,7 @@ edit_bookmarks_dialog_reset_signals (gpointer data,
  * Return value: A pointer to the new window.
  **/
 GtkWindow *
-create_bookmarks_window (CajaBookmarkList *list, GObject *undo_manager_source)
+create_bookmarks_window (CajaBookmarkList *list, CajaWindow *window_source)
 {
     GtkWidget         *window;
     GtkTreeViewColumn *col;
@@ -274,9 +272,9 @@ create_bookmarks_window (CajaBookmarkList *list, GObject *undo_manager_source)
     remove_button = (GtkWidget *)gtk_builder_get_object (builder, "bookmark_delete_button");
     jump_button = (GtkWidget *)gtk_builder_get_object (builder, "bookmark_jump_button");
 
-    application = CAJA_WINDOW (undo_manager_source)->application;
+    application = window_source->application;
 
-    if (CAJA_IS_NAVIGATION_WINDOW (undo_manager_source))
+    if (CAJA_IS_NAVIGATION_WINDOW (window_source))
     {
         parent_is_browser_window = TRUE;
     }
@@ -286,13 +284,12 @@ create_bookmarks_window (CajaBookmarkList *list, GObject *undo_manager_source)
     }
 
     set_up_close_accelerator (window);
-    caja_undo_share_undo_manager (G_OBJECT (window), undo_manager_source);
 
     gtk_window_set_wmclass (GTK_WINDOW (window), "bookmarks", "Caja");
     caja_bookmarks_window_restore_geometry (window);
 
-    g_object_weak_ref (G_OBJECT (undo_manager_source), edit_bookmarks_dialog_reset_signals,
-                       undo_manager_source);
+    g_object_weak_ref (G_OBJECT (window_source), edit_bookmarks_dialog_reset_signals,
+                       window_source);
 
     bookmark_list_widget = GTK_TREE_VIEW (gtk_builder_get_object (builder, "bookmark_tree_view"));
 
@@ -336,7 +333,6 @@ create_bookmarks_window (CajaBookmarkList *list, GObject *undo_manager_source)
     gtk_widget_show (name_field);
     gtk_box_pack_start (GTK_BOX (gtk_builder_get_object (builder, "bookmark_name_placeholder")),
                         name_field, TRUE, TRUE, 0);
-    caja_undo_editable_set_undo_key (GTK_EDITABLE (name_field), TRUE);
 
     gtk_label_set_mnemonic_widget (
         GTK_LABEL (gtk_builder_get_object (builder, "bookmark_name_label")),
@@ -346,7 +342,6 @@ create_bookmarks_window (CajaBookmarkList *list, GObject *undo_manager_source)
     gtk_widget_show (uri_field);
     gtk_box_pack_start (GTK_BOX (gtk_builder_get_object (builder, "bookmark_location_placeholder")),
                         uri_field, TRUE, TRUE, 0);
-    caja_undo_editable_set_undo_key (GTK_EDITABLE (uri_field), TRUE);
 
     gtk_label_set_mnemonic_widget (
         GTK_LABEL (gtk_builder_get_object (builder, "bookmark_location_label")),
@@ -363,7 +358,7 @@ create_bookmarks_window (CajaBookmarkList *list, GObject *undo_manager_source)
                           G_CALLBACK (on_row_deleted), NULL);
     row_activated_signal_id =
         g_signal_connect (bookmark_list_widget, "row_activated",
-                          G_CALLBACK (on_row_activated), undo_manager_source);
+                          G_CALLBACK (on_row_activated), window_source);
     button_pressed_signal_id =
         g_signal_connect (bookmark_list_widget, "button_press_event",
                           G_CALLBACK (on_button_pressed), NULL);
@@ -404,7 +399,7 @@ create_bookmarks_window (CajaBookmarkList *list, GObject *undo_manager_source)
                       G_CALLBACK (on_remove_button_clicked), NULL);
     jump_button_signal_id =
         g_signal_connect (jump_button, "clicked",
-                          G_CALLBACK (on_jump_button_clicked), undo_manager_source);
+                          G_CALLBACK (on_jump_button_clicked), window_source);
 
     gtk_tree_selection_set_mode (bookmark_selection, GTK_SELECTION_BROWSE);
 
@@ -417,7 +412,7 @@ create_bookmarks_window (CajaBookmarkList *list, GObject *undo_manager_source)
 }
 
 void
-edit_bookmarks_dialog_set_signals (GObject *undo_manager_source)
+edit_bookmarks_dialog_set_signals (CajaWindow *window)
 {
 
     g_signal_handler_disconnect (GTK_OBJECT (jump_button),
@@ -427,13 +422,13 @@ edit_bookmarks_dialog_set_signals (GObject *undo_manager_source)
 
     jump_button_signal_id =
         g_signal_connect (jump_button, "clicked",
-                          G_CALLBACK (on_jump_button_clicked), undo_manager_source);
+                          G_CALLBACK (on_jump_button_clicked), window);
     row_activated_signal_id =
         g_signal_connect (bookmark_list_widget, "row_activated",
-                          G_CALLBACK (on_row_activated), undo_manager_source);
+                          G_CALLBACK (on_row_activated), window);
 
-    g_object_weak_ref (G_OBJECT (undo_manager_source), edit_bookmarks_dialog_reset_signals,
-                       undo_manager_source);
+    g_object_weak_ref (G_OBJECT (window), edit_bookmarks_dialog_reset_signals,
+                       window);
 }
 
 static CajaBookmark *
@@ -961,10 +956,6 @@ on_window_hide_event (GtkWidget *widget,
                       gpointer user_data)
 {
     caja_bookmarks_window_save_geometry (GTK_WINDOW (widget));
-
-    /* Disable undo for entry widgets */
-    caja_undo_unregister (G_OBJECT (name_field));
-    caja_undo_unregister (G_OBJECT (uri_field));
 
     /* restore_geometry only works after window is hidden */
     g_idle_add (restore_geometry, widget);

@@ -29,7 +29,6 @@
 
 #include <string.h>
 #include "caja-global-preferences.h"
-#include "caja-undo-signal-handlers.h"
 #include <eel/eel-gdk-extensions.h>
 #include <eel/eel-gtk-macros.h>
 #include <gdk/gdkkeysyms.h>
@@ -69,8 +68,6 @@ caja_entry_init (CajaEntry *entry)
     entry->details = g_new0 (CajaEntryDetails, 1);
 
     entry->details->user_edit = TRUE;
-
-    caja_undo_set_up_caja_entry_for_undo (entry);
 }
 
 GtkWidget *

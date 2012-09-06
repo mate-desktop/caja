@@ -180,15 +180,6 @@ libcaja_private_la_SOURCES = \
 	caja-tree-view-drag-dest.h \
 	caja-ui-utilities.c \
 	caja-ui-utilities.h \
-	caja-undo-manager.c \
-	caja-undo-manager.h \
-	caja-undo-private.h \
-	caja-undo-signal-handlers.c \
-	caja-undo-signal-handlers.h \
-	caja-undo-transaction.c \
-	caja-undo-transaction.h \
-	caja-undo.c \
-	caja-undo.h \
 	caja-users-groups-cache.c \
 	caja-users-groups-cache.h \
 	caja-vfs-directory.c \

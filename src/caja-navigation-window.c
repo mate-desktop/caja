@@ -63,7 +63,6 @@
 #include <libcaja-private/caja-sidebar.h>
 #include <libcaja-private/caja-view-factory.h>
 #include <libcaja-private/caja-clipboard.h>
-#include <libcaja-private/caja-undo.h>
 #include <libcaja-private/caja-module.h>
 #include <libcaja-private/caja-sidebar-provider.h>
 #include <libcaja-private/caja-search-directory.h>

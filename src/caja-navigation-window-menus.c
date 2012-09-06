@@ -54,7 +54,6 @@
 #include <libcaja-private/caja-file-utilities.h>
 #include <libcaja-private/caja-global-preferences.h>
 #include <libcaja-private/caja-ui-utilities.h>
-#include <libcaja-private/caja-undo-manager.h>
 #include <libcaja-private/caja-search-engine.h>
 #include <libcaja-private/caja-signaller.h>
 

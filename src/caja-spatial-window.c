@@ -60,7 +60,6 @@
 #include <libcaja-private/caja-metadata.h>
 #include <libcaja-private/caja-mime-actions.h>
 #include <libcaja-private/caja-program-choosing.h>
-#include <libcaja-private/caja-undo.h>
 #include <libcaja-private/caja-search-directory.h>
 #include <libcaja-private/caja-search-engine.h>
 #include <libcaja-private/caja-signaller.h>

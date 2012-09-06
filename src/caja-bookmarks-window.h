@@ -30,10 +30,11 @@
 
 #include <gtk/gtk.h>
 #include "caja-bookmark-list.h"
+#include "caja-window.h"
 
 GtkWindow *create_bookmarks_window                 (CajaBookmarkList *bookmarks,
-        GObject              *undo_manager_source);
-void       caja_bookmarks_window_save_geometry (GtkWindow            *window);
-void	   edit_bookmarks_dialog_set_signals	   (GObject 		 *undo_manager_source);
+                                                    CajaWindow       *window_source);
+void       caja_bookmarks_window_save_geometry     (GtkWindow        *window);
+void	   edit_bookmarks_dialog_set_signals	   (CajaWindow       *window);
 
 #endif /* CAJA_BOOKMARKS_WINDOW_H */

@@ -69,7 +69,6 @@
 #include <libcaja-private/caja-file-utilities.h>
 #include <libcaja-private/caja-global-preferences.h>
 #include <libcaja-private/caja-module.h>
-#include <libcaja-private/caja-undo-manager.h>
 #include <libcaja-private/caja-desktop-link-monitor.h>
 #include <libcaja-private/caja-directory-private.h>
 #include <libcaja-private/caja-signaller.h>
@@ -291,9 +290,6 @@ smclient_quit_cb (EggSMClient   *client,
 static void
 caja_application_init (CajaApplication *application)
 {
-    /* Create an undo manager */
-    application->undo_manager = caja_undo_manager_new ();
-
     application->unique_app = unique_app_new_with_commands ("org.mate.Caja", NULL,
                               "start_desktop", COMMAND_START_DESKTOP,
                               "stop_desktop", COMMAND_STOP_DESKTOP,
@@ -349,8 +345,6 @@ caja_application_finalize (GObject *object)
     application = CAJA_APPLICATION (object);
 
     caja_bookmarks_exiting ();
-
-    g_object_unref (application->undo_manager);
 
     if (application->volume_monitor)
     {
