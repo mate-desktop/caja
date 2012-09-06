@@ -22,7 +22,7 @@
 
 #include <eel/eel-vfs-extensions.h>
 
-#define DEFAULT_APP_EXEC "mate-open %u"
+#define DEFAULT_APP_EXEC "gvfs-open %u"
 
 static GtkRecentManager *
 caja_recent_get_manager (void)
