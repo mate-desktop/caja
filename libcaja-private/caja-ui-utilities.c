@@ -254,3 +254,60 @@ caja_toolbar_action_from_menu_item (CajaMenuItem *item)
 
     return action;
 }
+
+static GdkPixbuf *
+caja_get_thumbnail_frame (void)
+{
+    char *image_path;
+    static GdkPixbuf *thumbnail_frame = NULL;
+
+    if (thumbnail_frame == NULL)
+    {
+        image_path = caja_pixmap_file ("thumbnail_frame.png");
+        if (image_path != NULL)
+        {
+            thumbnail_frame = gdk_pixbuf_new_from_file (image_path, NULL);
+        }
+        g_free (image_path);
+    }
+
+    return thumbnail_frame;
+}
+
+#define CAJA_THUMBNAIL_FRAME_LEFT 3
+#define CAJA_THUMBNAIL_FRAME_TOP 3
+#define CAJA_THUMBNAIL_FRAME_RIGHT 3
+#define CAJA_THUMBNAIL_FRAME_BOTTOM 3
+
+void
+caja_ui_frame_image (GdkPixbuf **pixbuf)
+{
+    GdkPixbuf *pixbuf_with_frame, *frame;
+    int left_offset, top_offset, right_offset, bottom_offset;
+    int size;
+
+    frame = caja_get_thumbnail_frame ();
+    if (frame == NULL) {
+        return;
+    }
+
+    size = MAX (gdk_pixbuf_get_width (*pixbuf),
+            gdk_pixbuf_get_height (*pixbuf));
+
+    /* We don't want frames around small icons */
+    if (size < 128 && gdk_pixbuf_get_has_alpha (*pixbuf)) {
+        return;
+    }
+
+    left_offset = CAJA_THUMBNAIL_FRAME_LEFT;
+    top_offset = CAJA_THUMBNAIL_FRAME_TOP;
+    right_offset = CAJA_THUMBNAIL_FRAME_RIGHT;
+    bottom_offset = CAJA_THUMBNAIL_FRAME_BOTTOM;
+
+    pixbuf_with_frame = eel_embed_image_in_frame
+        (*pixbuf, frame,
+         left_offset, top_offset, right_offset, bottom_offset);
+    g_object_unref (*pixbuf);
+
+    *pixbuf = pixbuf_with_frame;
+}

@@ -71,18 +71,6 @@ typedef struct
     time_t original_file_mtime;
 } CajaThumbnailInfo;
 
-struct CajaThumbnailAsyncLoadHandle
-{
-    GCancellable *cancellable;
-    char *file_path;
-    guint base_size;
-    guint nominal_size;
-    gboolean force_nominal;
-    CajaThumbnailAsyncLoadFunc load_func;
-    gpointer load_func_user_data;
-};
-
-
 /*
  * Thumbnail thread state.
  */
@@ -100,11 +88,6 @@ static pthread_mutex_t thumbnails_mutex = PTHREAD_MUTEX_INITIALIZER;
    start more than one. Lock thumbnails_mutex when accessing this. */
 static volatile gboolean thumbnail_thread_is_running = FALSE;
 
-/* Added in glib 2.14 */
-#ifndef G_QUEUE_INIT
-#define G_QUEUE_INIT { NULL, NULL, 0 }
-#endif
-
 /* The list of CajaThumbnailInfo structs containing information about the
    thumbnails we are making. Lock thumbnails_mutex when accessing this. */
 static volatile GQueue thumbnails_to_make = G_QUEUE_INIT;
@@ -117,8 +100,6 @@ static GHashTable *thumbnails_to_make_hash = NULL;
 static CajaThumbnailInfo *currently_thumbnailing = NULL;
 
 static MateDesktopThumbnailFactory *thumbnail_factory = NULL;
-
-static int thumbnail_icon_size = 0;
 
 static gboolean
 get_file_mtime (const char *file_uri, time_t* mtime)
@@ -211,428 +192,6 @@ thumbnail_thread_starter_cb (gpointer data)
 }
 
 void
-caja_update_thumbnail_file_copied (const char *source_file_uri,
-                                   const char *destination_file_uri)
-{
-    char *old_thumbnail_path;
-    time_t mtime;
-    GdkPixbuf *pixbuf;
-    MateDesktopThumbnailFactory *factory;
-
-    old_thumbnail_path = mate_desktop_thumbnail_path_for_uri (source_file_uri, MATE_DESKTOP_THUMBNAIL_SIZE_NORMAL);
-    if (old_thumbnail_path != NULL &&
-            g_file_test (old_thumbnail_path, G_FILE_TEST_EXISTS))
-    {
-        if (get_file_mtime (destination_file_uri, &mtime))
-        {
-            pixbuf = gdk_pixbuf_new_from_file (old_thumbnail_path, NULL);
-
-            if (pixbuf && mate_desktop_thumbnail_has_uri (pixbuf, source_file_uri))
-            {
-                factory = get_thumbnail_factory ();
-                mate_desktop_thumbnail_factory_save_thumbnail (factory,
-                        pixbuf,
-                        destination_file_uri,
-                        mtime);
-            }
-
-            if (pixbuf)
-            {
-                g_object_unref (pixbuf);
-            }
-        }
-    }
-
-    g_free (old_thumbnail_path);
-}
-
-void
-caja_update_thumbnail_file_renamed (const char *source_file_uri,
-                                    const char *destination_file_uri)
-{
-    caja_update_thumbnail_file_copied (source_file_uri, destination_file_uri);
-    caja_remove_thumbnail_for_file (source_file_uri);
-}
-
-void
-caja_remove_thumbnail_for_file (const char *file_uri)
-{
-    char *thumbnail_path;
-
-    thumbnail_path = mate_desktop_thumbnail_path_for_uri (file_uri, MATE_DESKTOP_THUMBNAIL_SIZE_NORMAL);
-    if (thumbnail_path != NULL)
-    {
-        unlink (thumbnail_path);
-    }
-    g_free (thumbnail_path);
-}
-
-static GdkPixbuf *
-caja_get_thumbnail_frame (void)
-{
-    char *image_path;
-    static GdkPixbuf *thumbnail_frame = NULL;
-
-    if (thumbnail_frame == NULL)
-    {
-        image_path = caja_pixmap_file ("thumbnail_frame.png");
-        if (image_path != NULL)
-        {
-            thumbnail_frame = gdk_pixbuf_new_from_file (image_path, NULL);
-        }
-        g_free (image_path);
-    }
-
-    return thumbnail_frame;
-}
-
-
-void
-caja_thumbnail_frame_image (GdkPixbuf **pixbuf)
-{
-    GdkPixbuf *pixbuf_with_frame, *frame;
-    int left_offset, top_offset, right_offset, bottom_offset;
-
-    /* The pixbuf isn't already framed (i.e., it was not made by
-     * an old Caja), so we must embed it in a frame.
-     */
-
-    frame = caja_get_thumbnail_frame ();
-    if (frame == NULL)
-    {
-        return;
-    }
-
-    left_offset = CAJA_THUMBNAIL_FRAME_LEFT;
-    top_offset = CAJA_THUMBNAIL_FRAME_TOP;
-    right_offset = CAJA_THUMBNAIL_FRAME_RIGHT;
-    bottom_offset = CAJA_THUMBNAIL_FRAME_BOTTOM;
-
-    pixbuf_with_frame = eel_embed_image_in_frame
-                        (*pixbuf, frame,
-                         left_offset, top_offset, right_offset, bottom_offset);
-    g_object_unref (*pixbuf);
-
-    *pixbuf = pixbuf_with_frame;
-}
-
-GdkPixbuf *
-caja_thumbnail_unframe_image (GdkPixbuf *pixbuf)
-{
-    GdkPixbuf *pixbuf_without_frame, *frame;
-    int left_offset, top_offset, right_offset, bottom_offset;
-    int w, h;
-
-    /* The pixbuf isn't already framed (i.e., it was not made by
-     * an old Caja), so we must embed it in a frame.
-     */
-
-    frame = caja_get_thumbnail_frame ();
-    if (frame == NULL)
-    {
-        return NULL;
-    }
-
-    left_offset = CAJA_THUMBNAIL_FRAME_LEFT;
-    top_offset = CAJA_THUMBNAIL_FRAME_TOP;
-    right_offset = CAJA_THUMBNAIL_FRAME_RIGHT;
-    bottom_offset = CAJA_THUMBNAIL_FRAME_BOTTOM;
-
-    w = gdk_pixbuf_get_width (pixbuf) - left_offset - right_offset;
-    h = gdk_pixbuf_get_height (pixbuf) - top_offset - bottom_offset;
-    pixbuf_without_frame =
-        gdk_pixbuf_new (gdk_pixbuf_get_colorspace (pixbuf),
-                        gdk_pixbuf_get_has_alpha (pixbuf),
-                        gdk_pixbuf_get_bits_per_sample (pixbuf),
-                        w, h);
-
-    gdk_pixbuf_copy_area (pixbuf,
-                          left_offset, top_offset,
-                          w, h,
-                          pixbuf_without_frame, 0, 0);
-
-    return pixbuf_without_frame;
-}
-
-typedef struct
-{
-    gboolean is_thumbnail;
-    guint base_size;
-    guint nominal_size;
-    gboolean force_nominal;
-    int original_height;
-    int original_width;
-    double *scale_x_out;
-    double *scale_y_out;
-} ThumbnailLoadArgs;
-
-static void
-thumbnail_loader_size_prepared (GdkPixbufLoader *loader,
-                                int width,
-                                int height,
-                                ThumbnailLoadArgs *args)
-{
-    int size = MAX (width, height);
-
-    args->original_width = width;
-    args->original_height = height;
-
-    if (args->force_nominal)
-    {
-        args->base_size = size;
-    }
-    else if (args->base_size == 0)
-    {
-        if (args->is_thumbnail)
-        {
-            args->base_size = 128 * CAJA_ICON_SIZE_STANDARD / thumbnail_icon_size;
-        }
-        else
-        {
-            if (size > args->nominal_size * thumbnail_icon_size / CAJA_ICON_SIZE_STANDARD)
-            {
-                args->base_size = size * CAJA_ICON_SIZE_STANDARD / thumbnail_icon_size;
-            }
-            else if (size > CAJA_ICON_SIZE_STANDARD)
-            {
-                args->base_size = args->nominal_size;
-            }
-            else
-            {
-                /* Don't scale up small icons */
-                args->base_size = CAJA_ICON_SIZE_STANDARD;
-            }
-        }
-    }
-
-    if (args->base_size != args->nominal_size)
-    {
-        double scale;
-
-        scale = (double) args->nominal_size / args->base_size;
-
-        if ((int) (width * scale) > CAJA_ICON_MAXIMUM_SIZE ||
-                (int) (height * scale) > CAJA_ICON_MAXIMUM_SIZE)
-        {
-            scale = MIN ((double) CAJA_ICON_MAXIMUM_SIZE / width,
-                         (double) CAJA_ICON_MAXIMUM_SIZE / height);
-        }
-
-        width = MAX (1, floor (width * scale + 0.5));
-        height = MAX (1, floor (height * scale + 0.5));
-
-        gdk_pixbuf_loader_set_size (loader, width, height);
-    }
-
-}
-
-static void
-thumbnail_loader_area_prepared (GdkPixbufLoader *loader,
-                                ThumbnailLoadArgs *args)
-{
-    GdkPixbuf *pixbuf;
-
-    pixbuf = gdk_pixbuf_loader_get_pixbuf (loader);
-
-    *args->scale_x_out = (double) gdk_pixbuf_get_width (pixbuf) / args->original_width;
-    *args->scale_y_out = (double) gdk_pixbuf_get_height (pixbuf) / args->original_height;
-}
-
-static GdkPixbuf *
-get_pixbuf_from_data (const unsigned char *buffer,
-                      gsize buflen,
-                      const char *path,
-                      guint base_size,
-                      guint nominal_size,
-                      gboolean force_nominal,
-                      double *scale_x_out,
-                      double *scale_y_out)
-{
-    GdkPixbufLoader *loader;
-    GdkPixbuf *pixbuf;
-    ThumbnailLoadArgs args;
-    GError *error;
-
-    if (thumbnail_icon_size == 0)
-    {
-        eel_g_settings_add_auto_int (caja_icon_view_preferences,
-                                     CAJA_PREFERENCES_ICON_VIEW_THUMBNAIL_SIZE,
-                                     &thumbnail_icon_size);
-    }
-
-    loader = gdk_pixbuf_loader_new ();
-    g_signal_connect (loader, "size-prepared",
-                      G_CALLBACK (thumbnail_loader_size_prepared),
-                      &args);
-    g_signal_connect (loader, "area-prepared",
-                      G_CALLBACK (thumbnail_loader_area_prepared),
-                      &args);
-
-    args.is_thumbnail = strstr (path, "/.thumbnails/") != NULL;
-    args.base_size = base_size;
-    args.nominal_size = nominal_size;
-    args.force_nominal = force_nominal;
-    args.scale_x_out = scale_x_out;
-    args.scale_y_out = scale_y_out;
-
-    error = NULL;
-
-    if (!gdk_pixbuf_loader_write (loader, buffer, buflen, &error))
-    {
-        g_message ("Failed to write %s to thumbnail pixbuf loader: %s", path, error->message);
-
-        gdk_pixbuf_loader_close (loader, NULL);
-        g_object_unref (G_OBJECT (loader));
-        g_error_free (error);
-
-        return NULL;
-    }
-
-    error = NULL;
-
-    if (!gdk_pixbuf_loader_close (loader, &error) ||
-            /* Seems we have to check this even if it returned TRUE (#403255) */
-            error != NULL)
-    {
-        /* In some cases, we don't get an error even with FALSE returns (#538888) */
-        if (error != NULL)
-        {
-            g_message ("Failed to close thumbnail pixbuf loader for %s: %s", path, error->message);
-        }
-        else
-        {
-            g_message ("Failed to close thumbnail pixbuf loader for %s", path);
-        }
-
-        g_object_unref (G_OBJECT (loader));
-        g_error_free (error);
-
-        return NULL;
-    }
-
-    pixbuf = g_object_ref (gdk_pixbuf_loader_get_pixbuf (loader));
-
-    g_object_unref (G_OBJECT (loader));
-
-    return pixbuf;
-}
-
-
-/* routine to load an image from the passed-in path
- */
-GdkPixbuf *
-caja_thumbnail_load_image (const char *path,
-                           guint base_size,
-                           guint nominal_size,
-                           gboolean force_nominal,
-                           double *scale_x_out,
-                           double *scale_y_out)
-{
-    GdkPixbuf *pixbuf;
-    guchar *buffer;
-    gsize buflen;
-    GError *error;
-
-    error = NULL;
-
-    if (!g_file_get_contents (path, (gchar **) &buffer, &buflen, &error))
-    {
-        g_message ("Failed to load %s into memory: %s", path, error->message);
-
-        g_error_free (error);
-
-        return NULL;
-    }
-
-    pixbuf = get_pixbuf_from_data (buffer, buflen, path,
-                                   base_size, nominal_size, force_nominal,
-                                   scale_x_out, scale_y_out);
-
-    g_free (buffer);
-
-    return pixbuf;
-}
-
-static void
-async_thumbnail_read_image (GObject *source_object,
-                            GAsyncResult *res,
-                            gpointer callback_data)
-{
-    CajaThumbnailAsyncLoadHandle *handle = callback_data;
-    GdkPixbuf *pixbuf;
-    double scale_x, scale_y;
-    gsize file_size;
-    char *file_contents;
-
-    pixbuf = NULL;
-    scale_x = scale_y = 1.0;
-
-    if (g_file_load_contents_finish (G_FILE (source_object),
-                                     res,
-                                     &file_contents, &file_size,
-                                     NULL, NULL))
-    {
-        pixbuf = get_pixbuf_from_data (file_contents, file_size,
-                                       handle->file_path,
-                                       handle->base_size,
-                                       handle->nominal_size,
-                                       handle->force_nominal,
-                                       &scale_x, &scale_y);
-        g_free (file_contents);
-    }
-
-    handle->load_func (handle,
-                       handle->file_path,
-                       pixbuf, scale_x, scale_y,
-                       handle->load_func_user_data);
-
-    g_object_unref (pixbuf);
-
-    g_object_unref (handle->cancellable);
-    g_free (handle->file_path);
-    g_free (handle);
-}
-
-CajaThumbnailAsyncLoadHandle *
-caja_thumbnail_load_image_async (const char *path,
-                                 guint base_size,
-                                 guint nominal_size,
-                                 gboolean force_nominal,
-                                 CajaThumbnailAsyncLoadFunc load_func,
-                                 gpointer load_func_user_data)
-{
-    CajaThumbnailAsyncLoadHandle *handle;
-    GFile *location;
-
-
-    handle = g_new (CajaThumbnailAsyncLoadHandle, 1);
-    handle->cancellable = g_cancellable_new ();
-    handle->file_path = g_strdup (path);
-    handle->base_size = base_size;
-    handle->nominal_size = nominal_size;
-    handle->force_nominal = force_nominal;
-    handle->load_func = load_func;
-    handle->load_func_user_data = load_func_user_data;
-
-
-    location = g_file_new_for_path (path);
-    g_file_load_contents_async (location, handle->cancellable,
-                                async_thumbnail_read_image,
-                                handle);
-    g_object_unref (location);
-
-    return handle;
-}
-
-void
-caja_thumbnail_load_image_cancel (CajaThumbnailAsyncLoadHandle *handle)
-{
-    g_assert (handle != NULL);
-
-    g_cancellable_cancel  (handle->cancellable);
-}
-
-void
 caja_thumbnail_remove_from_queue (const char *file_uri)
 {
     GList *node;
@@ -664,47 +223,6 @@ caja_thumbnail_remove_from_queue (const char *file_uri)
 
 #ifdef DEBUG_THUMBNAILS
     g_message ("(Remove from queue) Unlocking mutex\n");
-#endif
-    pthread_mutex_unlock (&thumbnails_mutex);
-}
-
-void
-caja_thumbnail_remove_all_from_queue (void)
-{
-    CajaThumbnailInfo *info;
-    GList *l, *next;
-
-#ifdef DEBUG_THUMBNAILS
-    g_message ("(Remove all from queue) Locking mutex\n");
-#endif
-    pthread_mutex_lock (&thumbnails_mutex);
-
-    /*********************************
-     * MUTEX LOCKED
-     *********************************/
-
-    l = thumbnails_to_make.head;
-    while (l != NULL)
-    {
-        info = l->data;
-        next = l->next;
-        if (info != currently_thumbnailing)
-        {
-            g_hash_table_remove (thumbnails_to_make_hash,
-                                 info->image_uri);
-            free_thumbnail_info (info);
-            g_queue_delete_link ((GQueue *)&thumbnails_to_make, l);
-        }
-
-        l = next;
-    }
-
-    /*********************************
-     * MUTEX UNLOCKED
-     *********************************/
-
-#ifdef DEBUG_THUMBNAILS
-    g_message ("(Remove all from queue) Unlocking mutex\n");
 #endif
     pthread_mutex_unlock (&thumbnails_mutex);
 }
@@ -759,8 +277,6 @@ thumbnail_thread_notify_file_changed (gpointer image_uri)
 {
     CajaFile *file;
 
-    GDK_THREADS_ENTER ();
-
     file = caja_file_get_by_uri ((char *) image_uri);
 #ifdef DEBUG_THUMBNAILS
     g_message ("(Thumbnail Thread) Notifying file changed file:%p uri: %s\n", file, (char*) image_uri);
@@ -775,8 +291,6 @@ thumbnail_thread_notify_file_changed (gpointer image_uri)
         caja_file_unref (file);
     }
     g_free (image_uri);
-
-    GDK_THREADS_LEAVE ();
 
     return FALSE;
 }
@@ -794,15 +308,13 @@ get_types_table (void)
         image_mime_types =
             g_hash_table_new_full (g_str_hash, g_str_equal,
                                    g_free, NULL);
-        eel_debug_call_at_shutdown_with_data ((GFreeFunc)g_hash_table_destroy,
-                                              image_mime_types);
 
         format_list = gdk_pixbuf_get_formats ();
         for (l = format_list; l; l = l->next)
         {
             types = gdk_pixbuf_format_get_mime_types (l->data);
 
-            for (i = 0; i < G_N_ELEMENTS (types); i++)
+            for (i = 0; types[i] != NULL; i++)
             {
                 g_hash_table_insert (image_mime_types,
                                      types [i],
@@ -1064,6 +576,10 @@ thumbnail_thread_start (gpointer data)
 
         if (pixbuf)
         {
+#ifdef DEBUG_THUMBNAILS
+			g_message ("(Thumbnail Thread) Saving thumbnail: %s\n",
+				   info->image_uri);
+#endif
             mate_desktop_thumbnail_factory_save_thumbnail (thumbnail_factory,
                     pixbuf,
                     info->image_uri,
@@ -1072,6 +588,10 @@ thumbnail_thread_start (gpointer data)
         }
         else
         {
+#ifdef DEBUG_THUMBNAILS
+			g_message ("(Thumbnail Thread) Thumbnail failed: %s\n",
+				   info->image_uri);
+#endif
             mate_desktop_thumbnail_factory_create_failed_thumbnail (thumbnail_factory,
                     info->image_uri,
                     current_orig_mtime);

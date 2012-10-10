@@ -43,6 +43,7 @@
 #include "caja-search-directory.h"
 #include "caja-search-directory-file.h"
 #include "caja-thumbnails.h"
+#include "caja-ui-utilities.h"
 #include "caja-users-groups-cache.h"
 #include "caja-vfs-file.h"
 #include "caja-saved-search-file.h"
@@ -2791,7 +2792,7 @@ compare_files_by_size (CajaFile *file_1, CajaFile *file_2)
 	 */
 
 	Knowledge size_known_1, size_known_2;
-	goffset size_1, size_2;
+	goffset size_1 = 0, size_2 = 0;
 
 	size_known_1 = get_size (file_1, &size_1);
 	size_known_2 = get_size (file_2, &size_2);
@@ -4267,8 +4268,20 @@ caja_file_get_icon (CajaFile *file,
 
 	gicon = get_custom_icon (file);
 	if (gicon) {
+		GdkPixbuf *pixbuf;
+
 		icon = caja_icon_info_lookup (gicon, size);
 		g_object_unref (gicon);
+
+		pixbuf = caja_icon_info_get_pixbuf (icon);
+		if (pixbuf != NULL) {
+			caja_ui_frame_image (&pixbuf);
+			g_object_unref (icon);
+
+			icon = caja_icon_info_new_for_pixbuf (pixbuf);
+			g_object_unref (pixbuf);
+		}
+
 		return icon;
 	}
 
@@ -4302,13 +4315,11 @@ caja_file_get_icon (CajaFile *file,
 			}
 
 			scaled_pixbuf = gdk_pixbuf_scale_simple (raw_pixbuf,
-								 w * scale, h * scale,
+								 MAX (w * scale, 1),
+								 MAX (h * scale, 1),
 								 GDK_INTERP_BILINEAR);
 
-			/* We don't want frames around small icons */
-			if (!gdk_pixbuf_get_has_alpha(raw_pixbuf) || s >= 128) {
-				caja_thumbnail_frame_image (&scaled_pixbuf);
-			}
+			caja_ui_frame_image (&scaled_pixbuf);
 			g_object_unref (raw_pixbuf);
 
 			/* Don't scale up if more than 25%, then read the original

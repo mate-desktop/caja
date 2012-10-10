@@ -39,5 +39,6 @@ void        caja_ui_prepare_merge_ui           (GtkUIManager      *ui_manager,
 GtkAction * caja_action_from_menu_item         (CajaMenuItem  *item);
 GtkAction * caja_toolbar_action_from_menu_item (CajaMenuItem  *item);
 const char *caja_ui_string_get                 (const char        *filename);
+void   caja_ui_frame_image                     (GdkPixbuf        **pixbuf);
 
 #endif /* CAJA_UI_UTILITIES_H */
