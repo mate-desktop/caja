@@ -29,6 +29,7 @@
 #include <gio/gio.h>
 
 #include <gtk/gtk.h>
+#include <gdk-pixbuf/gdk-pixbuf.h>
 #include <eel/eel-debug.h>
 #include <eel/eel-graphic-effects.h>
 
