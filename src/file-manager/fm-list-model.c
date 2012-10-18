@@ -166,13 +166,6 @@ fm_list_model_get_column_type (GtkTreeModel *tree_model, int index)
     case FM_LIST_MODEL_LARGE_ICON_COLUMN:
     case FM_LIST_MODEL_LARGER_ICON_COLUMN:
     case FM_LIST_MODEL_LARGEST_ICON_COLUMN:
-    case FM_LIST_MODEL_SMALLEST_EMBLEM_COLUMN:
-    case FM_LIST_MODEL_SMALLER_EMBLEM_COLUMN:
-    case FM_LIST_MODEL_SMALL_EMBLEM_COLUMN:
-    case FM_LIST_MODEL_STANDARD_EMBLEM_COLUMN:
-    case FM_LIST_MODEL_LARGE_EMBLEM_COLUMN:
-    case FM_LIST_MODEL_LARGER_EMBLEM_COLUMN:
-    case FM_LIST_MODEL_LARGEST_EMBLEM_COLUMN:
         return GDK_TYPE_PIXBUF;
     case FM_LIST_MODEL_FILE_NAME_IS_EDITABLE_COLUMN:
         return G_TYPE_BOOLEAN;
@@ -277,10 +270,12 @@ fm_list_model_get_value (GtkTreeModel *tree_model, GtkTreeIter *iter, int column
     CajaFile *file;
     char *str;
     GdkPixbuf *icon, *rendered_icon;
+    GIcon *gicon, *emblemed_icon, *emblem_icon;
+    CajaIconInfo *icon_info;
+    GEmblem *emblem;
+    GList *emblem_icons, *l;
     int icon_size;
-    guint emblem_size;
     CajaZoomLevel zoom_level;
-    GList *emblem_pixbufs;
     CajaFile *parent_file;
     char *emblems_to_ignore[3];
     int i;
@@ -344,7 +339,51 @@ fm_list_model_get_value (GtkTreeModel *tree_model, GtkTreeIter *iter, int column
                 }
             }
 
-            icon = caja_file_get_icon_pixbuf (file, icon_size, TRUE, flags);
+            gicon = caja_file_get_gicon (file, flags);
+
+            /* render emblems with GEmblemedIcon */
+            parent_file = caja_file_get_parent (file);
+            i = 0;
+            emblems_to_ignore[i++] = CAJA_FILE_EMBLEM_NAME_TRASH;
+            if (parent_file) {
+            	if (!caja_file_can_write (parent_file)) {
+                    emblems_to_ignore[i++] = CAJA_FILE_EMBLEM_NAME_CANT_WRITE;
+            	}
+            	caja_file_unref (parent_file);
+            }
+            emblems_to_ignore[i++] = NULL;
+
+            emblem = NULL;
+            emblem_icons = caja_file_get_emblem_icons (file,
+            					       emblems_to_ignore);
+
+            if (emblem_icons != NULL) {
+                emblem_icon = emblem_icons->data;
+                emblem = g_emblem_new (emblem_icon);
+                emblemed_icon = g_emblemed_icon_new (gicon, emblem);
+
+                g_object_unref (emblem);
+
+            	for (l = emblem_icons->next; l != NULL; l = l->next) {
+            	    emblem_icon = l->data;
+            	    emblem = g_emblem_new (emblem_icon);
+            	    g_emblemed_icon_add_emblem
+            	        (G_EMBLEMED_ICON (emblemed_icon), emblem);
+
+                    g_object_unref (emblem);
+            	}
+
+            	eel_g_object_list_free (emblem_icons);
+
+            	g_object_unref (gicon);
+            	gicon = emblemed_icon;
+            }
+
+            icon_info = caja_icon_info_lookup (gicon, icon_size);
+            icon = caja_icon_info_get_pixbuf_at_size (icon_info, icon_size);
+
+            g_object_unref (icon_info);
+            g_object_unref (gicon);
 
             if (model->details->highlight_files != NULL &&
                     g_list_find_custom (model->details->highlight_files,
@@ -361,48 +400,6 @@ fm_list_model_get_value (GtkTreeModel *tree_model, GtkTreeIter *iter, int column
 
             g_value_set_object (value, icon);
             g_object_unref (icon);
-        }
-        break;
-    case FM_LIST_MODEL_SMALLEST_EMBLEM_COLUMN:
-    case FM_LIST_MODEL_SMALLER_EMBLEM_COLUMN:
-    case FM_LIST_MODEL_SMALL_EMBLEM_COLUMN:
-    case FM_LIST_MODEL_STANDARD_EMBLEM_COLUMN:
-    case FM_LIST_MODEL_LARGE_EMBLEM_COLUMN:
-    case FM_LIST_MODEL_LARGER_EMBLEM_COLUMN:
-    case FM_LIST_MODEL_LARGEST_EMBLEM_COLUMN:
-        g_value_init (value, GDK_TYPE_PIXBUF);
-
-        if (file != NULL)
-        {
-            parent_file = caja_file_get_parent (file);
-            i = 0;
-            emblems_to_ignore[i++] = CAJA_FILE_EMBLEM_NAME_TRASH;
-            if (parent_file)
-            {
-                if (!caja_file_can_write (parent_file))
-                {
-                    emblems_to_ignore[i++] = CAJA_FILE_EMBLEM_NAME_CANT_WRITE;
-                }
-                caja_file_unref (parent_file);
-            }
-            emblems_to_ignore[i++] = NULL;
-
-            zoom_level = fm_list_model_get_zoom_level_from_emblem_column_id (column);
-            icon_size = caja_get_icon_size_for_zoom_level (zoom_level);
-            emblem_size = caja_icon_get_emblem_size_for_icon_size (icon_size);
-            if (emblem_size != 0)
-            {
-                emblem_pixbufs = caja_file_get_emblem_pixbufs (file,
-                                 emblem_size,
-                                 TRUE,
-                                 emblems_to_ignore);
-                if (emblem_pixbufs != NULL)
-                {
-                    icon = emblem_pixbufs->data;
-                    g_value_set_object (value, icon);
-                }
-                eel_gdk_pixbuf_list_free (emblem_pixbufs);
-            }
         }
         break;
     case FM_LIST_MODEL_FILE_NAME_IS_EDITABLE_COLUMN:
@@ -1553,54 +1550,6 @@ fm_list_model_get_column_id_from_zoom_level (CajaZoomLevel zoom_level)
     }
 
     g_return_val_if_reached (FM_LIST_MODEL_STANDARD_ICON_COLUMN);
-}
-
-CajaZoomLevel
-fm_list_model_get_zoom_level_from_emblem_column_id (int column)
-{
-    switch (column)
-    {
-    case FM_LIST_MODEL_SMALLEST_EMBLEM_COLUMN:
-        return CAJA_ZOOM_LEVEL_SMALLEST;
-    case FM_LIST_MODEL_SMALLER_EMBLEM_COLUMN:
-        return CAJA_ZOOM_LEVEL_SMALLER;
-    case FM_LIST_MODEL_SMALL_EMBLEM_COLUMN:
-        return CAJA_ZOOM_LEVEL_SMALL;
-    case FM_LIST_MODEL_STANDARD_EMBLEM_COLUMN:
-        return CAJA_ZOOM_LEVEL_STANDARD;
-    case FM_LIST_MODEL_LARGE_EMBLEM_COLUMN:
-        return CAJA_ZOOM_LEVEL_LARGE;
-    case FM_LIST_MODEL_LARGER_EMBLEM_COLUMN:
-        return CAJA_ZOOM_LEVEL_LARGER;
-    case FM_LIST_MODEL_LARGEST_EMBLEM_COLUMN:
-        return CAJA_ZOOM_LEVEL_LARGEST;
-    }
-
-    g_return_val_if_reached (CAJA_ZOOM_LEVEL_STANDARD);
-}
-
-int
-fm_list_model_get_emblem_column_id_from_zoom_level (CajaZoomLevel zoom_level)
-{
-    switch (zoom_level)
-    {
-    case CAJA_ZOOM_LEVEL_SMALLEST:
-        return FM_LIST_MODEL_SMALLEST_EMBLEM_COLUMN;
-    case CAJA_ZOOM_LEVEL_SMALLER:
-        return FM_LIST_MODEL_SMALLER_EMBLEM_COLUMN;
-    case CAJA_ZOOM_LEVEL_SMALL:
-        return FM_LIST_MODEL_SMALL_EMBLEM_COLUMN;
-    case CAJA_ZOOM_LEVEL_STANDARD:
-        return FM_LIST_MODEL_STANDARD_EMBLEM_COLUMN;
-    case CAJA_ZOOM_LEVEL_LARGE:
-        return FM_LIST_MODEL_LARGE_EMBLEM_COLUMN;
-    case CAJA_ZOOM_LEVEL_LARGER:
-        return FM_LIST_MODEL_LARGER_EMBLEM_COLUMN;
-    case CAJA_ZOOM_LEVEL_LARGEST:
-        return FM_LIST_MODEL_LARGEST_EMBLEM_COLUMN;
-    }
-
-    g_return_val_if_reached (FM_LIST_MODEL_STANDARD_EMBLEM_COLUMN);
 }
 
 void
