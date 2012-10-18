@@ -84,9 +84,11 @@
 static void begin_location_change                     (CajaWindowSlot         *slot,
         GFile                      *location,
         GList                      *new_selection,
-        CajaLocationChangeType  type,
+        CajaLocationChangeType      type,
         guint                       distance,
-        const char                 *scroll_pos);
+        const char                 *scroll_pos,
+        CajaWindowGoToCallback      callback,
+        gpointer                    user_data);
 static void free_location_change                      (CajaWindowSlot         *slot);
 static void end_location_change                       (CajaWindowSlot         *slot);
 static void cancel_location_change                    (CajaWindowSlot         *slot);
@@ -697,7 +699,7 @@ caja_window_slot_open_location_full (CajaWindowSlot *slot,
     }
 
     begin_location_change (target_slot, location, new_selection,
-                           CAJA_LOCATION_CHANGE_STANDARD, 0, NULL);
+                           CAJA_LOCATION_CHANGE_STANDARD, 0, NULL, callback, user_data);
 
     /* Additionally, load this in all slots that have no location, this means
        we load both panes in e.g. a newly opened dual pane window. */
@@ -705,10 +707,9 @@ caja_window_slot_open_location_full (CajaWindowSlot *slot,
     {
         pane = l->data;
         slot = pane->active_slot;
-        if (slot->location == NULL && slot->pending_location == NULL)
-        {
+        if (slot->location == NULL && slot->pending_location == NULL) {
             begin_location_change (slot, location, new_selection,
-                                   CAJA_LOCATION_CHANGE_STANDARD, 0, NULL);
+                                   CAJA_LOCATION_CHANGE_STANDARD, 0, NULL, NULL, NULL);
         }
     }
 }
@@ -862,6 +863,20 @@ caja_window_slot_content_view_matches_iid (CajaWindowSlot *slot,
     return eel_strcmp (caja_view_get_view_id (slot->content_view), iid) == 0;
 }
 
+static gboolean
+report_callback (CajaWindowSlot *slot,
+                 GError *error)
+{
+    if (slot->open_callback != NULL) {
+        slot->open_callback (slot->pane->window, error, slot->open_callback_user_data);
+        slot->open_callback = NULL;
+        slot->open_callback_user_data = NULL;
+
+        return TRUE;
+    }
+
+    return FALSE;
+}
 
 /*
  * begin_location_change
@@ -874,6 +889,8 @@ caja_window_slot_content_view_matches_iid (CajaWindowSlot *slot,
  * @distance: If type is back or forward, the index into the back or forward chain. If
  * type is standard or reload, this is ignored, and must be 0.
  * @scroll_pos: The file to scroll to when the location is loaded.
+ * @callback: function to be called when the location is changed.
+ * @user_data: data for @callback.
  *
  * This is the core function for changing the location of a window. Every change to the
  * location begins here.
@@ -884,7 +901,9 @@ begin_location_change (CajaWindowSlot *slot,
                        GList *new_selection,
                        CajaLocationChangeType type,
                        guint distance,
-                       const char *scroll_pos)
+                       const char *scroll_pos,
+                       CajaWindowGoToCallback callback,
+                       gpointer user_data)
 {
     CajaWindow *window;
     CajaDirectory *directory;
@@ -917,6 +936,9 @@ begin_location_change (CajaWindowSlot *slot,
     slot->pending_selection = eel_g_object_list_copy (new_selection);
 
     slot->pending_scroll_to = g_strdup (scroll_pos);
+
+    slot->open_callback = callback;
+    slot->open_callback_user_data = user_data;
 
     directory = caja_directory_get (location);
 
@@ -1249,11 +1271,15 @@ got_file_info_for_view_selection_callback (CajaFile *file,
         }
         create_content_view (slot, view_id);
         g_free (view_id);
+
+        report_callback (slot, NULL);
     }
     else
     {
-        display_view_selection_failure (window, file,
-                                        location, error);
+    	if (!report_callback (slot, error)) {
+        	display_view_selection_failure (window, file,
+                	                        location, error);
+        }
 
         if (!gtk_widget_get_visible (GTK_WIDGET (window)))
         {
@@ -1265,11 +1291,6 @@ got_file_info_for_view_selection_callback (CajaFile *file,
             {
                 g_assert (caja_application_get_n_windows () == 1);
 
-                /* Make sure we re-use this window */
-                if (CAJA_IS_SPATIAL_WINDOW (window))
-                {
-                    CAJA_SPATIAL_WINDOW (window)->affect_spatial_window_on_next_location_change = TRUE;
-                }
                 /* the user could have typed in a home directory that doesn't exist,
                    in which case going home would cause an infinite loop, so we
                    better test for that */
@@ -2038,7 +2059,7 @@ caja_window_report_view_failed (CajaWindow *window,
     {
         /* We loose the pending selection change here, but who cares... */
         begin_location_change (slot, fallback_load_location, NULL,
-                               CAJA_LOCATION_CHANGE_FALLBACK, 0, NULL);
+                               CAJA_LOCATION_CHANGE_FALLBACK, 0, NULL, NULL, NULL);
         g_object_unref (fallback_load_location);
     }
 
@@ -2289,7 +2310,8 @@ caja_navigation_window_back_or_forward (CajaNavigationWindow *window,
          location, NULL,
          back ? CAJA_LOCATION_CHANGE_BACK : CAJA_LOCATION_CHANGE_FORWARD,
          distance,
-         scroll_pos);
+         scroll_pos,
+         NULL, NULL);
 
         g_free (scroll_pos);
     }
@@ -2325,7 +2347,8 @@ caja_window_slot_reload (CajaWindowSlot *slot)
     }
     begin_location_change
     (slot, location, selection,
-     CAJA_LOCATION_CHANGE_RELOAD, 0, current_pos);
+     CAJA_LOCATION_CHANGE_RELOAD, 0, current_pos,
+     NULL, NULL);
     g_free (current_pos);
     g_object_unref (location);
     eel_g_object_list_free (selection);

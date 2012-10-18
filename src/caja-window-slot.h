@@ -109,6 +109,8 @@ struct CajaWindowSlot
     GCancellable *mount_cancellable;
     GError *mount_error;
     gboolean tried_mount;
+    CajaWindowGoToCallback open_callback;
+    gpointer open_callback_user_data;
 
     GCancellable *find_mount_cancellable;
 
