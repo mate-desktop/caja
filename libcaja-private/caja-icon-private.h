@@ -219,7 +219,6 @@ struct CajaIconContainerDetails
     guint32    normal_icon_color_rgba;
 
     /* colors for text labels */
-    GdkGC   *label_gcs    [LAST_LABEL_COLOR];
     GdkColor label_colors [LAST_LABEL_COLOR];
 
     /* State used so arrow keys don't wander if icons aren't lined up.
@@ -327,10 +326,10 @@ gboolean      caja_icon_container_scroll                      (CajaIconContainer
 void          caja_icon_container_update_scroll_region        (CajaIconContainer *container);
 
 /* label color for items */
-GdkGC        *caja_icon_container_get_label_color_and_gc      (CajaIconContainer *container,
+void          caja_icon_container_get_label_color             (CajaIconContainer *container,
         GdkColor             **color,
         gboolean               first_line,
         gboolean               needs_highlight,
-        gboolean		     is_prelit);
+        gboolean	       is_prelit);
 
 #endif /* CAJA_ICON_CONTAINER_PRIVATE_H */
