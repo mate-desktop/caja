@@ -31,7 +31,6 @@
 #include <gdk/gdk.h>
 #include <gio/gio.h>
 
-#define EEL_STANDARD_ALPHA_THRESHHOLD 128
 #define EEL_OPACITY_FULLY_TRANSPARENT 0
 #define EEL_OPACITY_FULLY_OPAQUE      255
 
@@ -100,13 +99,9 @@ void                 eel_gdk_pixbuf_unref_if_not_null         (GdkPixbuf        
 /* Copy a pixbuf to an area of a GdkDrawable */
 void                 eel_gdk_pixbuf_draw_to_drawable          (const GdkPixbuf       *pixbuf,
         GdkDrawable           *drawable,
-        GdkGC                 *gc,
         int                    source_x,
         int                    source_y,
-        EelIRect               destination_area,
-        GdkRgbDither           dither,
-        GdkPixbufAlphaMode     alpha_compositing_mode,
-        int                    alpha_threshold);
+							       EelIRect               destination_area);
 
 /* Copy a pixbuf to an area of another pixbuf */
 void                 eel_gdk_pixbuf_draw_to_pixbuf            (const GdkPixbuf       *pixbuf,
