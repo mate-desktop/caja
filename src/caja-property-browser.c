@@ -34,7 +34,6 @@
 
 #include <eel/eel-gdk-extensions.h>
 #include <eel/eel-gdk-pixbuf-extensions.h>
-#include <eel/eel-glib-extensions.h>
 #include <eel/eel-gtk-extensions.h>
 #include <eel/eel-image-table.h>
 #include <eel/eel-labeled-image.h>
@@ -233,7 +232,8 @@ caja_property_browser_dispose (GObject *object)
     g_free (property_browser->details->dragged_file);
     g_free (property_browser->details->drag_type);
 
-    eel_g_list_free_deep (property_browser->details->keywords);
+    g_list_foreach (property_browser->details->keywords, (GFunc) g_free, NULL);
+    g_list_free(property_browser->details->keywords);
 
     if (property_browser->details->property_chit)
     {
@@ -1796,7 +1796,8 @@ make_properties_from_directories (CajaPropertyBrowser *property_browser)
 
     if (property_browser->details->category_type == CAJA_PROPERTY_EMBLEM)
     {
-        eel_g_list_free_deep (property_browser->details->keywords);
+        g_list_foreach(property_browser->details->keywords, (GFunc) g_free, NULL);
+        g_list_free(property_browser->details->keywords);
         property_browser->details->keywords = NULL;
 
         icons = caja_emblem_list_available ();
@@ -1850,7 +1851,8 @@ make_properties_from_directories (CajaPropertyBrowser *property_browser)
                 g_object_unref (object_pixbuf);
             }
         }
-        eel_g_list_free_deep (icons);
+        g_list_foreach(icons, (GFunc) g_free, NULL);
+        g_list_free(icons);
     }
     else
     {

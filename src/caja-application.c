@@ -257,7 +257,8 @@ automount_all_volumes (CajaApplication *application)
             /* pass NULL as GMountOperation to avoid user interaction */
             g_volume_mount (volume, 0, NULL, NULL, startup_volume_mount_cb, NULL);
         }
-        eel_g_object_list_free (volumes);
+    	g_list_foreach(volumes, (GFunc) g_object_unref, NULL);
+    	g_list_free(volumes);
     }
 
 }

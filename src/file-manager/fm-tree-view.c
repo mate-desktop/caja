@@ -35,9 +35,7 @@
 #include "fm-tree-model.h"
 #include "fm-properties-window.h"
 #include <string.h>
-#include <eel/eel-glib-extensions.h>
 #include <eel/eel-gtk-extensions.h>
-#include <eel/eel-stock-dialogs.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 #include <gio/gio.h>
@@ -1061,7 +1059,8 @@ paste_clipboard_data (FMTreeView *view,
             gtk_clipboard_clear (caja_clipboard_get (GTK_WIDGET (view)));
         }
 
-        eel_g_list_free_deep (item_uris);
+    	g_list_foreach(item_uris, (GFunc) g_free, NULL);
+    	g_list_free(item_uris);
     }
 }
 
@@ -1124,7 +1123,8 @@ fm_tree_view_trash_cb (GtkWidget *menu_item,
     caja_file_operations_trash_or_delete (list,
                                           fm_tree_view_get_containing_window (view),
                                           NULL, NULL);
-    eel_g_object_list_free (list);
+    g_list_foreach(list, (GFunc) g_object_unref, NULL);
+    g_list_free(list);
 }
 
 static void
@@ -1142,7 +1142,8 @@ fm_tree_view_delete_cb (GtkWidget *menu_item,
                                     caja_file_get_location (view->details->popup_file));
 
     caja_file_operations_delete (location_list, fm_tree_view_get_containing_window (view), NULL, NULL);
-    eel_g_object_list_free (location_list);
+    g_list_foreach(location_list, (GFunc) g_object_unref, NULL);
+    g_list_free(location_list);
 }
 
 static void

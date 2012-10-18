@@ -860,7 +860,7 @@ caja_window_slot_content_view_matches_iid (CajaWindowSlot *slot,
     {
         return FALSE;
     }
-    return eel_strcmp (caja_view_get_view_id (slot->content_view), iid) == 0;
+    return g_strcmp0 (caja_view_get_view_id (slot->content_view), iid) == 0;
 }
 
 static gboolean
@@ -1390,7 +1390,7 @@ create_content_view (CajaWindowSlot *slot,
     }
 
     if (slot->content_view != NULL &&
-            eel_strcmp (caja_view_get_view_id (slot->content_view),
+            g_strcmp0 (caja_view_get_view_id (slot->content_view),
                         view_id) == 0)
     {
         /* reuse existing content view */
@@ -1421,7 +1421,8 @@ create_content_view (CajaWindowSlot *slot,
                            FALSE,
                            TRUE);
 
-        eel_g_object_list_free (slot->pending_selection);
+    	g_list_foreach(slot->pending_selection, (GFunc) g_object_unref, NULL);
+    	g_list_free(slot->pending_selection);
         slot->pending_selection = NULL;
     }
     else if (slot->location != NULL)
@@ -1432,7 +1433,8 @@ create_content_view (CajaWindowSlot *slot,
                            selection,
                            FALSE,
                            TRUE);
-        eel_g_object_list_free (selection);
+    	g_list_foreach(selection, (GFunc) g_object_unref, NULL);
+    	g_list_free(selection);
     }
     else
     {
@@ -1490,7 +1492,8 @@ load_new_location (CajaWindowSlot *slot,
         caja_view_set_selection (view, selection_copy);
     }
 
-    eel_g_object_list_free (selection_copy);
+    g_list_foreach(selection_copy, (GFunc) g_object_unref, NULL);
+    g_list_free(selection_copy);
 }
 
 /* A view started to load the location its viewing, either due to
@@ -1947,7 +1950,8 @@ free_location_change (CajaWindowSlot *slot)
     }
     slot->pending_location = NULL;
 
-    eel_g_object_list_free (slot->pending_selection);
+    g_list_foreach(slot->pending_selection, (GFunc) g_object_unref, NULL);
+    g_list_free(slot->pending_selection);
     slot->pending_selection = NULL;
 
     /* Don't free pending_scroll_to, since thats needed until
@@ -2001,7 +2005,8 @@ cancel_location_change (CajaWindowSlot *slot)
                            selection,
                            TRUE,
                            FALSE);
-        eel_g_object_list_free (selection);
+    	g_list_foreach(selection, (GFunc) g_object_unref, NULL);
+    	g_list_free(selection);
     }
 
     end_location_change (slot);
@@ -2351,7 +2356,8 @@ caja_window_slot_reload (CajaWindowSlot *slot)
      NULL, NULL);
     g_free (current_pos);
     g_object_unref (location);
-    eel_g_object_list_free (selection);
+    g_list_foreach(selection, (GFunc) g_object_unref, NULL);
+    g_list_free(selection);
 }
 
 void

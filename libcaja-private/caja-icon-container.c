@@ -7775,7 +7775,7 @@ caja_icon_container_update_icon (CajaIconContainer *container,
      * happened to be typing at that moment.
      */
     if (icon == get_icon_being_renamed (container) &&
-            eel_strcmp (editable_text,
+            g_strcmp0 (editable_text,
                         caja_icon_canvas_item_get_editable_text (icon->item)) != 0)
     {
         end_renaming_mode (container, FALSE);
@@ -7795,7 +7795,8 @@ caja_icon_container_update_icon (CajaIconContainer *container,
 
     /* Let the pixbufs go. */
     g_object_unref (pixbuf);
-    eel_gdk_pixbuf_list_free (emblem_pixbufs);
+    g_list_foreach(emblem_pixbufs, (GFunc) g_object_unref, NULL);
+    g_list_free(emblem_pixbufs);
 
     g_free (editable_text);
     g_free (additional_text);
@@ -9678,7 +9679,7 @@ caja_icon_container_set_font (CajaIconContainer *container,
 {
     g_return_if_fail (CAJA_IS_ICON_CONTAINER (container));
 
-    if (eel_strcmp (container->details->font, font) == 0)
+    if (g_strcmp0 (container->details->font, font) == 0)
     {
         return;
     }

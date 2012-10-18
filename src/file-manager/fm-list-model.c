@@ -29,8 +29,6 @@
 #include <libegg/eggtreemultidnd.h>
 
 #include <string.h>
-#include <eel/eel-gtk-macros.h>
-#include <eel/eel-glib-extensions.h>
 #include <eel/eel-gdk-pixbuf-extensions.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
@@ -373,7 +371,8 @@ fm_list_model_get_value (GtkTreeModel *tree_model, GtkTreeIter *iter, int column
                     g_object_unref (emblem);
             	}
 
-            	eel_g_object_list_free (emblem_icons);
+                g_list_foreach (emblem_icons, (GFunc) g_object_unref, NULL);
+                g_list_free(emblem_icons);
 
             	g_object_unref (gicon);
             	gicon = emblemed_icon;
@@ -679,7 +678,8 @@ fm_list_model_get_first_iter_for_file (FMListModel          *model,
         res = TRUE;
         *iter = *(GtkTreeIter *)list->data;
     }
-    eel_g_list_free_deep (list);
+    g_list_foreach(list, (GFunc) g_free, NULL);
+    g_list_free(list);
 
     return res;
 }
@@ -1806,7 +1806,8 @@ refresh_row (gpointer data,
         gtk_tree_path_free (path);
     }
 
-    eel_g_list_free_deep (iters);
+    g_list_foreach(iters, (GFunc) g_free, NULL);
+    g_list_free(iters);
 }
 
 void

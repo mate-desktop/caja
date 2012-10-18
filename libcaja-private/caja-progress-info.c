@@ -26,9 +26,9 @@
 #include <math.h>
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
-#include <eel/eel-string.h>
 #include <eel/eel-glib-extensions.h>
 #include "caja-progress-info.h"
+#include <string.h>
 
 enum
 {
@@ -800,7 +800,7 @@ caja_progress_info_take_status (CajaProgressInfo *info,
 {
     G_LOCK (progress_info);
 
-    if (eel_strcmp (info->status, status) != 0)
+    if (g_strcmp0 (info->status, status) != 0)
     {
         g_free (info->status);
         info->status = status;
@@ -822,7 +822,7 @@ caja_progress_info_set_status (CajaProgressInfo *info,
 {
     G_LOCK (progress_info);
 
-    if (eel_strcmp (info->status, status) != 0)
+    if (g_strcmp0 (info->status, status) != 0)
     {
         g_free (info->status);
         info->status = g_strdup (status);
@@ -841,7 +841,7 @@ caja_progress_info_take_details (CajaProgressInfo *info,
 {
     G_LOCK (progress_info);
 
-    if (eel_strcmp (info->details, details) != 0)
+    if (g_strcmp0 (info->details, details) != 0)
     {
         g_free (info->details);
         info->details = details;
@@ -863,7 +863,7 @@ caja_progress_info_set_details (CajaProgressInfo *info,
 {
     G_LOCK (progress_info);
 
-    if (eel_strcmp (info->details, details) != 0)
+    if (g_strcmp0 (info->details, details) != 0)
     {
         g_free (info->details);
         info->details = g_strdup (details);

@@ -864,8 +864,8 @@ type_add_rows_from_query (CajaQueryEditor    *editor,
                                         &iter);
     }
 
-    eel_g_list_free_deep (mime_types);
-
+    g_list_foreach(mime_types, (GFunc) g_free, NULL);
+    g_list_free(mime_types);
 }
 
 /* End of row types */

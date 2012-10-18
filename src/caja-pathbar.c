@@ -20,10 +20,6 @@
 
 #include <config.h>
 #include <string.h>
-#include <eel/eel-debug.h>
-#include <eel/eel-gtk-extensions.h>
-#include <eel/eel-glib-extensions.h>
-#include <eel/eel-string.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 #include <gio/gio.h>
@@ -1754,7 +1750,8 @@ setup_file_path_mounted_mount (GFile *location, ButtonData *button_data)
         g_object_unref (default_location);
         g_object_unref (root);
     }
-    eel_g_object_list_free (mounts);
+    g_list_foreach(mounts, (GFunc) g_object_unref, NULL);
+    g_list_free(mounts);
     return result;
 }
 
@@ -1963,7 +1960,7 @@ button_data_file_changed (CajaFile *file,
     if (button_data->type != MOUNT_BUTTON)
     {
         display_name = caja_file_get_display_name (file);
-        if (eel_strcmp (display_name, button_data->dir_name) != 0)
+        if (g_strcmp0 (display_name, button_data->dir_name) != 0)
         {
             g_free (button_data->dir_name);
             button_data->dir_name = g_strdup (display_name);

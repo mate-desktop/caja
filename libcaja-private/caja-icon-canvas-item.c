@@ -327,7 +327,8 @@ caja_icon_canvas_item_finalize (GObject *object)
         g_object_unref (details->text_util);
     }
 
-    eel_gdk_pixbuf_list_free (details->emblem_pixbufs);
+    g_list_foreach(details->emblem_pixbufs, (GFunc) g_object_unref, NULL);
+    g_list_free(details->emblem_pixbufs);
     g_free (details->editable_text);
     g_free (details->additional_text);
     g_free (details->attach_points);
@@ -419,7 +420,7 @@ caja_icon_canvas_item_set_property (GObject        *object,
     {
 
     case PROP_EDITABLE_TEXT:
-        if (eel_strcmp (details->editable_text,
+        if (g_strcmp0 (details->editable_text,
                         g_value_get_string (value)) == 0)
         {
             return;
@@ -446,7 +447,7 @@ caja_icon_canvas_item_set_property (GObject        *object,
         break;
 
     case PROP_ADDITIONAL_TEXT:
-        if (eel_strcmp (details->additional_text,
+        if (g_strcmp0 (details->additional_text,
                         g_value_get_string (value)) == 0)
         {
             return;
@@ -763,7 +764,8 @@ caja_icon_canvas_item_set_emblems (CajaIconCanvasItem *item,
 
     /* Take in the new list of emblems. */
     eel_gdk_pixbuf_list_ref (emblem_pixbufs);
-    eel_gdk_pixbuf_list_free (item->details->emblem_pixbufs);
+    g_list_foreach(item->details->emblem_pixbufs, (GFunc) g_object_unref, NULL);
+    g_list_free(item->details->emblem_pixbufs);
     item->details->emblem_pixbufs = g_list_copy (emblem_pixbufs);
 
     caja_icon_canvas_item_invalidate_bounds_cache (item);

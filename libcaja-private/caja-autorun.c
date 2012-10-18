@@ -33,7 +33,6 @@
 #include <gdk/gdkkeysyms.h>
 
 #include <eel/eel-glib-extensions.h>
-#include <eel/eel-stock-dialogs.h>
 
 #include "caja-icon-info.h"
 #include "caja-global-preferences.h"
@@ -652,7 +651,8 @@ caja_autorun_prepare_combo_box (GtkWidget *combo_box,
     {
         g_object_unref (default_app_info);
     }
-    eel_g_object_list_free (app_info_list);
+    g_list_foreach (app_info_list, (GFunc) g_object_unref, NULL);
+    g_list_free(app_info_list);
 
     gtk_combo_box_set_model (GTK_COMBO_BOX (combo_box), GTK_TREE_MODEL (list_store));
     g_object_unref (G_OBJECT (list_store));

@@ -1025,7 +1025,8 @@ delete_selected_files (FMDirectoryView *view)
 
 	caja_file_operations_delete (locations, fm_directory_view_get_containing_window (view), NULL, NULL);
 
-	eel_g_object_list_free (locations);
+	g_list_foreach(locations, (GFunc) g_object_unref, NULL);
+	g_list_free(locations);
         caja_file_list_free (selection);
 }
 
@@ -1934,7 +1935,8 @@ fm_directory_view_set_selection_locations (CajaView *caja_view,
 		/* If we are still loading, set the list of pending URIs instead.
 		 * done_loading() will eventually select the pending URIs and reveal them.
 		 */
-		eel_g_object_list_free (view->details->pending_locations_selected);
+		g_list_foreach(view->details->pending_locations_selected, (GFunc) g_object_unref, NULL);
+		g_list_free(view->details->pending_locations_selected);
 		view->details->pending_locations_selected =
 			eel_g_object_list_copy (selection_locations);
 	}
@@ -2548,7 +2550,8 @@ done_loading (FMDirectoryView *view,
 				fm_directory_view_reveal_selection (view);
 			}
 		}
-		eel_g_object_list_free (locations_selected);
+		g_list_foreach(locations_selected, (GFunc) g_object_unref, NULL);
+		g_list_free(locations_selected);
 		fm_directory_view_display_selection_info (view);
 	}
 
@@ -3790,7 +3793,8 @@ fm_directory_view_create_links_for_files (FMDirectoryView *view, GList *files,
 	caja_file_operations_copy_move (uris, relative_item_points, dir_uri, GDK_ACTION_LINK,
 					    GTK_WIDGET (view), copy_move_done_callback, copy_move_done_data);
 	g_free (dir_uri);
-	eel_g_list_free_deep (uris);
+	g_list_foreach(uris, (GFunc) g_free, NULL);
+	g_list_free(uris);
 }
 
 static void
@@ -3822,7 +3826,8 @@ fm_directory_view_duplicate_selection (FMDirectoryView *view, GList *files,
         copy_move_done_data = pre_copy_move (view);
 	caja_file_operations_copy_move (uris, relative_item_points, NULL, GDK_ACTION_COPY,
 		GTK_WIDGET (view), copy_move_done_callback, copy_move_done_data);
-	eel_g_list_free_deep (uris);
+	g_list_foreach(uris, (GFunc) g_free, NULL);
+	g_list_free(uris);
 }
 
 /* special_link_in_selection
@@ -3926,7 +3931,8 @@ trash_or_delete_files (GtkWindow *parent_window,
 						  parent_window,
 						  (CajaDeleteCallback) trash_or_delete_done_cb,
 						  view);
-	eel_g_object_list_free (locations);
+	g_list_foreach(locations, (GFunc) g_object_unref, NULL);
+	g_list_free(locations);
 }
 
 static gboolean
@@ -4675,7 +4681,8 @@ reset_open_with_menu (FMDirectoryView *view, GList *selection)
 						   index,
 						   menu_path, popup_path, submenu_visible);
 	}
-	eel_g_object_list_free (applications);
+	g_list_foreach(applications, (GFunc) g_object_unref, NULL);
+	g_list_free(applications);
 	if (default_app != NULL) {
 		g_object_unref (default_app);
 	}
@@ -5970,7 +5977,8 @@ move_copy_selection_to_location (FMDirectoryView *view,
 					   0, 0,
 					   view);
 
-	eel_g_list_free_deep (uris);
+	g_list_foreach(uris, (GFunc) g_free, NULL);
+	g_list_free(uris);
 	caja_file_list_free (selection);
 }
 
@@ -6110,7 +6118,10 @@ paste_clipboard_data (FMDirectoryView *view,
 			gtk_clipboard_clear (caja_clipboard_get (GTK_WIDGET (view)));
 		}
 
-		eel_g_list_free_deep (item_uris);
+    		g_list_foreach(item_uris, (GFunc) g_free, NULL);
+    		g_list_free(item_uris);
+		g_list_foreach(item_uris, (GFunc) g_free, NULL);
+		g_list_free(item_uris);
 	}
 }
 
@@ -7104,7 +7115,8 @@ action_location_delete_callback (GtkAction *action,
 	caja_file_operations_delete (files, fm_directory_view_get_containing_window (view),
 					 NULL, NULL);
 
-	eel_g_object_list_free (files);
+	g_list_foreach(files, (GFunc) g_object_unref, NULL);
+	g_list_free(files);
 }
 
 static void
@@ -9787,7 +9799,8 @@ fm_directory_view_stop (FMDirectoryView *view)
 	view->details->old_added_files = NULL;
 	file_and_directory_list_free (view->details->old_changed_files);
 	view->details->old_changed_files = NULL;
-	eel_g_object_list_free (view->details->pending_locations_selected);
+	g_list_foreach(view->details->pending_locations_selected, (GFunc) g_object_unref, NULL);
+	g_list_free(view->details->pending_locations_selected);
 	view->details->pending_locations_selected = NULL;
 
 	if (view->details->model != NULL) {
@@ -10565,7 +10578,8 @@ fm_directory_view_handle_uri_list_drop (FMDirectoryView  *view,
 					   target_uri != NULL ? target_uri : container_uri,
 					   action, x, y, view);
 
-	eel_g_list_free_deep (real_uri_list);
+	g_list_foreach(real_uri_list, (GFunc) g_free, NULL);
+	g_list_free(real_uri_list);
 
 	if (points != NULL)
 		g_array_free (points, TRUE);

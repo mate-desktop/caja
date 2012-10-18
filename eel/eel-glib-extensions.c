@@ -376,63 +376,6 @@ eel_g_str_list_index (GList *str_list,
 }
 
 /**
- * eel_g_list_free_deep_custom
- *
- * Frees the elements of a list and then the list, using a custom free function.
- *
- * @list: List of elements that can be freed with the provided free function.
- * @element_free_func: function to call with the data pointer and user_data to free it.
- * @user_data: User data to pass to element_free_func
- **/
-void
-eel_g_list_free_deep_custom (GList *list, GFunc element_free_func, gpointer user_data)
-{
-    g_list_foreach (list, element_free_func, user_data);
-    g_list_free (list);
-}
-
-/**
- * eel_g_list_free_deep
- *
- * Frees the elements of a list and then the list.
- * @list: List of elements that can be freed with g_free.
- **/
-void
-eel_g_list_free_deep (GList *list)
-{
-    eel_g_list_free_deep_custom (list, (GFunc) g_free, NULL);
-}
-
-/**
- * eel_g_list_free_deep_custom
- *
- * Frees the elements of a list and then the list, using a custom free function.
- *
- * @list: List of elements that can be freed with the provided free function.
- * @element_free_func: function to call with the data pointer and user_data to free it.
- * @user_data: User data to pass to element_free_func
- **/
-void
-eel_g_slist_free_deep_custom (GSList *list, GFunc element_free_func, gpointer user_data)
-{
-    g_slist_foreach (list, element_free_func, user_data);
-    g_slist_free (list);
-}
-
-/**
- * eel_g_slist_free_deep
- *
- * Frees the elements of a list and then the list.
- * @list: List of elements that can be freed with g_free.
- **/
-void
-eel_g_slist_free_deep (GSList *list)
-{
-    eel_g_slist_free_deep_custom (list, (GFunc) g_free, NULL);
-}
-
-
-/**
  * eel_g_strv_find
  *
  * Get index of string in array of strings.
@@ -759,31 +702,6 @@ eel_g_object_list_ref (GList *list)
 {
     g_list_foreach (list, (GFunc) g_object_ref, NULL);
     return list;
-}
-
-/**
- * eel_g_object_list_unref
- *
- * Unref all the objects in a list.
- * @list: GList of objects.
- **/
-void
-eel_g_object_list_unref (GList *list)
-{
-    g_list_foreach (list, (GFunc) g_object_unref, NULL);
-}
-
-/**
- * eel_g_object_list_free
- *
- * Free a list of objects after unrefing them.
- * @list: GList of objects.
- **/
-void
-eel_g_object_list_free (GList *list)
-{
-    eel_g_object_list_unref (list);
-    g_list_free (list);
 }
 
 /**
@@ -1214,11 +1132,16 @@ eel_self_check_glib_extensions (void)
     EEL_CHECK_BOOLEAN_RESULT (eel_g_str_list_equal (compare_list_1, compare_list_4), FALSE);
     EEL_CHECK_BOOLEAN_RESULT (eel_g_str_list_equal (compare_list_1, compare_list_5), FALSE);
 
-    eel_g_list_free_deep (compare_list_1);
-    eel_g_list_free_deep (compare_list_2);
-    eel_g_list_free_deep (compare_list_3);
-    eel_g_list_free_deep (compare_list_4);
-    eel_g_list_free_deep (compare_list_5);
+    g_list_foreach (compare_list_1, (GFunc) g_free, NULL);
+    g_list_free(compare_list_1);
+    g_list_foreach (compare_list_2, (GFunc) g_free, NULL);
+    g_list_free(compare_list_2);
+    g_list_foreach (compare_list_3, (GFunc) g_free, NULL);
+    g_list_free(compare_list_3);
+    g_list_foreach (compare_list_4, (GFunc) g_free, NULL);
+    g_list_free(compare_list_4);
+    g_list_foreach (compare_list_5, (GFunc) g_free, NULL);
+    g_list_free(compare_list_5);
 
     /* eel_g_list_partition */
 

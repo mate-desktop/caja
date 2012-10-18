@@ -32,8 +32,6 @@
 #include "caja-emblem-sidebar.h"
 
 #include <stdio.h>
-#include <eel/eel-glib-extensions.h>
-#include <eel/eel-string.h>
 #include <eel/eel-wrap-table.h>
 #include <eel/eel-labeled-image.h>
 #include <eel/eel-graphic-effects.h>
@@ -1008,7 +1006,8 @@ caja_emblem_sidebar_populate (CajaEmblemSidebar *emblem_sidebar)
 
         widgets = g_list_prepend (widgets, emblem_widget);
     }
-    eel_g_list_free_deep (icons);
+    g_list_foreach(icons, (GFunc) g_free, NULL);
+    g_list_free(icons);
 
     /* sort the emblems by display name */
     widgets = g_list_sort (widgets, emblem_widget_sort_func);

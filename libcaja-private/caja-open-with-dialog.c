@@ -29,7 +29,6 @@
 #include "caja-open-with-dialog.h"
 #include "caja-signaller.h"
 
-#include <eel/eel-glib-extensions.h>
 #include <eel/eel-stock-dialogs.h>
 
 #include <string.h>
@@ -291,7 +290,8 @@ add_or_find_application (CajaOpenWithDialog *dialog)
 
         if (applications != NULL)
         {
-            eel_g_object_list_free (applications);
+            g_list_foreach(applications, (GFunc) g_object_unref, NULL);
+            g_list_free(applications);
         }
     }
 

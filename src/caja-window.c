@@ -343,7 +343,8 @@ caja_window_go_up (CajaWindow *window, gboolean close_behind, gboolean new_tab)
 
     g_object_unref (parent);
 
-    eel_g_object_list_free (selection);
+    g_list_foreach(selection, (GFunc) g_object_unref, NULL);
+    g_list_free(selection);
 }
 
 static void
@@ -605,9 +606,8 @@ caja_window_get_property (GObject *object,
 static void
 free_stored_viewers (CajaWindow *window)
 {
-    eel_g_list_free_deep_custom (window->details->short_list_viewers,
-                                 (GFunc) g_free,
-                                 NULL);
+    g_list_foreach(window->details->short_list_viewers, (GFunc) g_free, NULL);
+    g_list_free(window->details->short_list_viewers);
     window->details->short_list_viewers = NULL;
     g_free (window->details->extra_viewer);
     window->details->extra_viewer = NULL;
@@ -1760,7 +1760,8 @@ caja_send_history_list_changed (void)
 static void
 free_history_list (void)
 {
-    eel_g_object_list_free (history_list);
+    g_list_foreach(history_list, (GFunc) g_object_unref, NULL);
+    g_list_free(history_list);
     history_list = NULL;
 }
 

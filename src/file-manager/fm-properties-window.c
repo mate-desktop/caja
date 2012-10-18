@@ -37,7 +37,6 @@
 #include <eel/eel-gtk-extensions.h>
 #include <eel/eel-labeled-image.h>
 #include <eel/eel-stock-dialogs.h>
-#include <eel/eel-string.h>
 #include <eel/eel-vfs-extensions.h>
 #include <eel/eel-wrap-table.h>
 #include <gtk/gtk.h>
@@ -700,7 +699,7 @@ update_name_field (FMPropertiesWindow *window)
 		set_name_field (window, original_name, current_name);
 
 		if (original_name == NULL ||
-		    eel_strcmp (original_name, current_name) != 0) {
+		    g_strcmp0 (original_name, current_name) != 0) {
 			g_object_set_data_full (G_OBJECT (window->details->name_field),
 						"original_name",
 						current_name,
@@ -842,7 +841,8 @@ file_has_keyword (CajaFile *file, const char *keyword)
 
 	keywords = caja_file_get_keywords (file);
 	word = g_list_find_custom (keywords, keyword, (GCompareFunc) strcmp);
-	eel_g_list_free_deep (keywords);
+    	g_list_foreach(keywords, (GFunc) g_free, NULL);
+    	g_list_free(keywords);
 
 	return (word != NULL);
 }
@@ -932,7 +932,8 @@ emblem_button_toggled (GtkToggleButton *button,
 			keywords = g_list_prepend (keywords, g_strdup (name));
 		}
 		caja_file_set_keywords (file, keywords);
-		eel_g_list_free_deep (keywords);
+    		g_list_foreach(keywords, (GFunc) g_free, NULL);
+    		g_list_free(keywords);
 	}
 
 	for (l = files_off; l != NULL; l = l->next) {
@@ -945,10 +946,12 @@ emblem_button_toggled (GtkToggleButton *button,
 		word = g_list_find_custom (keywords, name,  (GCompareFunc)strcmp);
 		if (word) {
 			keywords = g_list_remove_link (keywords, word);
-			eel_g_list_free_deep (word);
+    			g_list_foreach(word, (GFunc) g_free, NULL);
+    			g_list_free(word);
 		}
 		caja_file_set_keywords (file, keywords);
-		eel_g_list_free_deep (keywords);
+    		g_list_foreach(keywords, (GFunc) g_free, NULL);
+    		g_list_free(keywords);
 	}
 
 	g_list_free (files_on);
@@ -1204,7 +1207,8 @@ properties_window_update (FMPropertiesWindow *window,
 			refresh_extension_pages (window);
 		}
 
-		eel_g_list_free_deep (window->details->mime_list);
+	    	g_list_foreach(window->details->mime_list, (GFunc) g_free, NULL);
+    		g_list_free(window->details->mime_list);
 		window->details->mime_list = mime_list;
 	}
 }
@@ -1813,7 +1817,8 @@ synch_groups_combo_box (GtkComboBox *combo_box, CajaFile *file)
 	gtk_combo_box_set_active (combo_box, current_group_index);
 
 	g_free (current_group_name);
-	eel_g_list_free_deep (groups);
+    	g_list_foreach(groups, (GFunc) g_free, NULL);
+    	g_list_free(groups);
 }
 
 static gboolean
@@ -2168,7 +2173,8 @@ synch_user_menu (GtkComboBox *combo_box, CajaFile *file)
 	gtk_combo_box_set_active (combo_box, owner_index);
 
 	g_free (owner_name);
-	eel_g_list_free_deep (users);
+    	g_list_foreach(users, (GFunc) g_free, NULL);
+    	g_list_free(users);
 }
 
 static GtkComboBox*
@@ -3424,7 +3430,7 @@ get_initial_emblems (GList *files)
 	ret = g_hash_table_new_full (g_direct_hash,
 				     g_direct_equal,
 				     NULL,
-				     (GDestroyNotify)eel_g_list_free_deep);
+				     (GFunc) g_free);
 
 	for (l = files; l != NULL; l = l->next) {
 		CajaFile *file;
@@ -3563,7 +3569,8 @@ create_emblems_page (FMPropertiesWindow *window)
 
 		gtk_container_add (GTK_CONTAINER (emblems_table), button);
 	}
-	eel_g_list_free_deep (icons);
+    	g_list_foreach(icons, (GFunc) g_free, NULL);
+    	g_list_free(icons);
 	gtk_widget_show_all (emblems_table);
 }
 
@@ -5047,7 +5054,8 @@ get_pending_key (GList *file_list)
 		g_string_append (key, ";");
 	}
 
-	eel_g_list_free_deep (uris);
+    	g_list_foreach(uris, (GFunc) g_free, NULL);
+    	g_list_free(uris);
 
 	ret = key->str;
 	g_string_free (key, FALSE);
@@ -5620,7 +5628,8 @@ real_finalize (GObject *object)
 
 	window = FM_PROPERTIES_WINDOW (object);
 
-	eel_g_list_free_deep (window->details->mime_list);
+    	g_list_foreach(window->details->mime_list, (GFunc) g_free, NULL);
+    	g_list_free(window->details->mime_list);
 
 	g_free (window->details->pending_name);
 	g_free (window->details);

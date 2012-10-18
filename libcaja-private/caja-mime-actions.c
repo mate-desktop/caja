@@ -230,7 +230,8 @@ static void
 application_launch_parameters_free (ApplicationLaunchParameters *parameters)
 {
     g_object_unref (parameters->application);
-    eel_g_list_free_deep (parameters->uris);
+    g_list_foreach(parameters->uris, (GFunc) g_free, NULL);
+    g_list_free(parameters->uris);
 
     g_free (parameters);
 }
@@ -512,7 +513,8 @@ caja_mime_has_any_applications_for_file (CajaFile *file)
     if (apps)
     {
         result = TRUE;
-        eel_g_object_list_free (apps);
+        g_list_foreach(apps, (GFunc) g_object_unref, NULL);
+        g_list_free(apps);
     }
     else
     {
@@ -733,7 +735,8 @@ trash_or_delete_files (GtkWindow *parent_window,
     caja_file_operations_trash_or_delete (locations,
                                           parent_window,
                                           NULL, NULL);
-    eel_g_object_list_free (locations);
+    g_list_foreach(locations, (GFunc) g_object_unref, NULL);
+    g_list_free(locations);
 }
 
 static void

@@ -42,7 +42,6 @@
 #include "caja-search-bar.h"
 #include "caja-window-manage-views.h"
 #include "caja-zoom-control.h"
-#include <eel/eel-glib-extensions.h>
 #include <eel/eel-gtk-extensions.h>
 #include <eel/eel-gtk-macros.h>
 #include <eel/eel-string.h>
@@ -556,7 +555,8 @@ location_menu_item_activated_callback (GtkWidget *menu_item,
         caja_window_slot_open_location_with_selection
         (slot, dest, selection, close_behind);
 
-        eel_g_object_list_free (selection);
+    	g_list_foreach(selection, (GFunc) g_object_unref, NULL);
+    	g_list_free(selection);
     }
 
     if (event != NULL) {

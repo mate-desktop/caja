@@ -32,8 +32,6 @@
 #include "caja-signaller.h"
 #include "caja-file.h"
 #include <eel/eel-stock-dialogs.h>
-#include <eel/eel-glib-extensions.h>
-#include <eel/eel-string.h>
 
 #include <string.h>
 #include <glib/gi18n-lib.h>
@@ -565,7 +563,8 @@ refresh_model (CajaMimeApplicationChooser *chooser)
         g_object_unref (default_app);
     }
 
-    eel_g_object_list_free (applications);
+    g_list_foreach(applications, (GFunc) g_object_unref, NULL);
+    g_list_free(applications);
 }
 
 static void
@@ -673,8 +672,7 @@ set_uri_and_type_for_multiple_files (CajaMimeApplicationChooser *chooser,
         char *extension_current;
 
         extension_current = get_extension_from_file (CAJA_FILE (iter->data));
-        if (eel_strcmp (first_extension, extension_current))
-        {
+        if (g_strcmp0 (first_extension, extension_current)) {
             same_extension = FALSE;
             g_free (extension_current);
             break;

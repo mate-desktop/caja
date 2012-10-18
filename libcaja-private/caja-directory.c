@@ -37,8 +37,8 @@
 #include "caja-vfs-directory.h"
 #include <eel/eel-glib-extensions.h>
 #include <eel/eel-gtk-macros.h>
-#include <eel/eel-string.h>
 #include <gtk/gtk.h>
+#include <string.h>
 
 enum
 {
@@ -175,7 +175,8 @@ caja_directory_finalize (GObject *object)
     if (directory->details->monitor_list != NULL)
     {
         g_warning ("destroying a CajaDirectory while it's being monitored");
-        eel_g_list_free_deep (directory->details->monitor_list);
+        g_list_foreach(directory->details->monitor_list, (GFunc) g_free, NULL);
+        g_list_free(directory->details->monitor_list);
     }
 
     if (directory->details->monitor != NULL)
@@ -212,7 +213,8 @@ caja_directory_finalize (GObject *object)
     g_assert (directory->details->directory_load_in_progress == NULL);
     g_assert (directory->details->count_in_progress == NULL);
     g_assert (directory->details->dequeue_pending_idle_id == 0);
-    eel_g_object_list_free (directory->details->pending_file_info);
+    g_list_foreach(directory->details->pending_file_info, (GFunc) g_object_unref, NULL);
+    g_list_free(directory->details->pending_file_info);
 
     EEL_CALL_PARENT (G_OBJECT_CLASS, finalize, (object));
 }
@@ -758,7 +760,7 @@ caja_directory_find_file_by_internal_filename (CajaDirectory *directory,
 {
     CajaFile *result;
 
-    if (eel_strcmp (internal_filename, ".") == 0)
+    if (g_strcmp0 (internal_filename, ".") == 0)
     {
         result = caja_directory_get_existing_corresponding_file (directory);
         if (result != NULL)
@@ -1092,7 +1094,8 @@ caja_directory_notify_files_added_by_uri (GList *uris)
 
     files = caja_file_list_from_uris (uris);
     caja_directory_notify_files_added (files);
-    eel_g_object_list_free (files);
+    g_list_foreach(files, (GFunc) g_object_unref, NULL);
+    g_list_free(files);
 }
 
 void
@@ -1141,7 +1144,8 @@ caja_directory_notify_files_changed_by_uri (GList *uris)
 
     files = caja_file_list_from_uris (uris);
     caja_directory_notify_files_changed (files);
-    eel_g_object_list_free (files);
+    g_list_foreach(files, (GFunc) g_object_unref, NULL);
+    g_list_free(files);
 }
 
 void
@@ -1202,7 +1206,8 @@ caja_directory_notify_files_removed_by_uri (GList *uris)
 
     files = caja_file_list_from_uris (uris);
     caja_directory_notify_files_changed (files);
-    eel_g_object_list_free (files);
+    g_list_foreach(files, (GFunc) g_object_unref, NULL);
+    g_list_free(files);
 }
 
 static void

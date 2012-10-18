@@ -589,7 +589,8 @@ real_directory_notify_files_removed (CajaDirectory *real_directory)
         caja_directory_notify_files_removed_by_uri (files);
     }
 
-    eel_g_list_free_deep (files);
+    g_list_foreach(files, (GFunc) g_free, NULL);
+    g_list_free(files);
 }
 
 static void

@@ -32,10 +32,8 @@
 #include <eel/eel-gdk-extensions.h>
 #include <eel/eel-gdk-extensions.h>
 #include <eel/eel-gdk-pixbuf-extensions.h>
-#include <eel/eel-glib-extensions.h>
 #include <eel/eel-gtk-extensions.h>
 #include <eel/eel-vfs-extensions.h>
-#include <eel/eel-string.h>
 #include <eel/eel-xml-extensions.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <glib.h>
@@ -260,7 +258,7 @@ caja_customization_data_get_next_element_for_display (CajaCustomizationData *dat
                 label_out);
     }
 
-    is_reset_image = eel_strcmp(g_file_info_get_name (current_file_info), RESET_IMAGE_NAME) == 0;
+    is_reset_image = g_strcmp0(g_file_info_get_name (current_file_info), RESET_IMAGE_NAME) == 0;
 
     *emblem_name = g_strdup (g_file_info_get_name (current_file_info));
 
@@ -306,8 +304,10 @@ caja_customization_data_destroy (CajaCustomizationData *data)
         g_object_unref (data->pattern_frame);
     }
 
-    eel_g_object_list_free (data->public_file_list);
-    eel_g_object_list_free (data->private_file_list);
+    g_list_foreach(data->public_file_list, (GFunc) g_object_unref, NULL);
+    g_list_free(data->public_file_list);
+    g_list_foreach(data->private_file_list, (GFunc) g_object_unref, NULL);
+    g_list_free(data->private_file_list);
 
     if (data->name_map_hash != NULL)
     {
@@ -427,7 +427,7 @@ format_name_for_display (CajaCustomizationData *data, const char* name)
 {
     char *formatted_str, *mapped_name;
 
-    if (!eel_strcmp(name, RESET_IMAGE_NAME))
+    if (!g_strcmp0(name, RESET_IMAGE_NAME))
     {
         return g_strdup (_("Reset"));
     }

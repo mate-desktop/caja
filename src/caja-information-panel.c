@@ -1228,7 +1228,8 @@ selection_changed_callback (CajaWindowInfo *window,
 
     caja_information_panel_set_uri (panel, uri, name);
 
-    eel_g_object_list_unref (selection);
+    g_list_foreach (selection, (GFunc) g_object_unref, NULL);
+    g_list_free (selection);
     g_free (uri);
     g_free (name);
 }
