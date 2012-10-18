@@ -372,9 +372,6 @@ extern "C" {
         /* If non-NULL, the currently focused item */
         EelCanvasItem *focused_item;
 
-        /* GC for temporary draw pixmap */
-        GdkGC *pixmap_gc;
-
         /* Event on which selection of current item is based */
         GdkEvent pick_event;
 
@@ -527,16 +524,6 @@ extern "C" {
      */
     int eel_canvas_get_color (EelCanvas *canvas, const char *spec, GdkColor *color);
 
-    /* Allocates a color from the RGB value passed into this function. */
-    gulong eel_canvas_get_color_pixel (EelCanvas *canvas,
-                                       guint        rgba);
-
-
-    /* Sets the stipple origin of the specified gc so that it will be aligned with
-     * all the stipples used in the specified canvas.  This is intended for use only
-     * by canvas item implementations.
-     */
-    void eel_canvas_set_stipple_origin (EelCanvas *canvas, GdkGC *gc);
 
 #ifdef __cplusplus
 }
