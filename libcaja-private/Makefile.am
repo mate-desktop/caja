@@ -46,8 +46,6 @@ libcaja_private_la_SOURCES = \
 	caja-autorun.h \
 	caja-bookmark.c \
 	caja-bookmark.h \
-	caja-cell-renderer-pixbuf-emblem.c \
-	caja-cell-renderer-pixbuf-emblem.h \
 	caja-cell-renderer-text-ellipsized.c \
 	caja-cell-renderer-text-ellipsized.h \
 	caja-clipboard-monitor.c \
