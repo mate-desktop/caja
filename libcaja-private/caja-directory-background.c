@@ -126,8 +126,6 @@ read_color (const char *key, GdkColor *color)
     {
         gdk_color_parse ("black", color);
     }
-
-    gdk_rgb_find_color (gdk_rgb_get_colormap (), color);
 }
 
 static void
