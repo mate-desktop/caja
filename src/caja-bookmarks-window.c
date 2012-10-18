@@ -582,34 +582,34 @@ open_selected_bookmark (gpointer user_data, GdkScreen *screen)
 
     if (CAJA_IS_NAVIGATION_WINDOW (user_data))
     {
-        caja_window_go_to (CAJA_WINDOW (user_data), location);
+        window = user_data;
     }
     else if (CAJA_IS_SPATIAL_WINDOW (user_data))
     {
-        window = caja_application_present_spatial_window (application,
-                 NULL,
-                 NULL,
-                 location,
-                 screen);
-    }
-    else     /* window that opened bookmarks window has been closed */
-    {
-        if (parent_is_browser_window || g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_BROWSER))
-        {
+        window = caja_application_get_spatial_window (application,
+                                                      NULL,
+                                                      NULL,
+                                                      location,
+                                                      screen,
+                                                      NULL);
+    } else { /* window that opened bookmarks window has been closed */
+        if (parent_is_browser_window || g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_BROWSER)) {
             window = caja_application_create_navigation_window (application,
                      NULL,
                      screen);
-            caja_window_go_to (window, location);
         }
         else
         {
-            window = caja_application_present_spatial_window (application,
-                     NULL,
-                     NULL,
-                     location,
-                     screen);
+            window = caja_application_get_spatial_window (application,
+                                                          NULL,
+                                                          NULL,
+                                                          location,
+                                                          screen,
+                                                          NULL);
         }
     }
+
+    caja_window_go_to (window, location);
 
     g_object_unref (location);
 }
