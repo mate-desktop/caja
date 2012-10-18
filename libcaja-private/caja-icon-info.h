@@ -90,6 +90,8 @@ extern "C" {
     gint  caja_get_icon_size_for_stock_size          (GtkIconSize        size);
     guint caja_icon_get_emblem_size_for_icon_size    (guint              size);
 
+gboolean caja_icon_theme_can_render              (GThemedIcon *icon);
+
 
 #ifdef __cplusplus
 }
