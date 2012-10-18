@@ -236,6 +236,17 @@ caja_window_go_to (CajaWindow *window, GFile *location)
 }
 
 void
+caja_window_go_to_full (CajaWindow *window,
+                        GFile                 *location,
+                        CajaWindowGoToCallback callback,
+                        gpointer               user_data)
+{
+    g_return_if_fail (CAJA_IS_WINDOW (window));
+
+    caja_window_slot_go_to_full (window->details->active_pane->active_slot, location, FALSE, callback, user_data);
+}
+
+void
 caja_window_go_to_with_selection (CajaWindow *window, GFile *location, GList *new_selection)
 {
     g_return_if_fail (CAJA_IS_WINDOW (window));
@@ -324,7 +335,8 @@ caja_window_go_up (CajaWindow *window, gboolean close_behind, gboolean new_tab)
     caja_window_slot_open_location_full (slot, parent,
                                          CAJA_WINDOW_OPEN_ACCORDING_TO_MODE,
                                          flags,
-                                         selection);
+                                         selection,
+                                         NULL, NULL);
 
     g_object_unref (parent);
 

@@ -139,7 +139,9 @@ void			caja_window_slot_open_location_full       (CajaWindowSlot	*slot,
         GFile			*location,
         CajaWindowOpenMode	 mode,
         CajaWindowOpenFlags	 flags,
-        GList			*new_selection);
+        GList			*new_selection,
+        CajaWindowGoToCallback   callback,
+        gpointer		 user_data);
 void			caja_window_slot_stop_loading	      (CajaWindowSlot	*slot);
 
 void			caja_window_slot_set_content_view	      (CajaWindowSlot	*slot,
@@ -156,7 +158,12 @@ void                    caja_window_slot_disconnect_content_view  (CajaWindowSlo
 #define caja_window_slot_go_to(slot,location, new_tab) \
 	caja_window_slot_open_location_full(slot, location, CAJA_WINDOW_OPEN_ACCORDING_TO_MODE, \
 						(new_tab ? CAJA_WINDOW_OPEN_FLAG_NEW_TAB : 0), \
-						NULL)
+						NULL, NULL, NULL)
+
+#define caja_window_slot_go_to_full(slot, location, new_tab, callback, user_data) \
+	caja_window_slot_open_location_full(slot, location, CAJA_WINDOW_OPEN_ACCORDING_TO_MODE, \
+						(new_tab ? CAJA_WINDOW_OPEN_FLAG_NEW_TAB : 0), \
+						NULL, callback, user_data)
 
 #define caja_window_slot_go_to_with_selection(slot,location,new_selection) \
 	caja_window_slot_open_location_with_selection(slot, location, new_selection, FALSE)

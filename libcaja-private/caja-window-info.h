@@ -88,6 +88,10 @@ extern "C" {
 
     typedef struct _CajaWindowInfoIface CajaWindowInfoIface;
 
+    typedef void (* CajaWindowGoToCallback) (CajaWindow *window,
+    					     GError *error,
+    					     gpointer user_data);
+
     struct _CajaWindowInfoIface
     {
         GTypeInterface g_iface;

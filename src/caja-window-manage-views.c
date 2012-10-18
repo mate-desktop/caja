@@ -724,7 +724,7 @@ caja_window_slot_open_location (CajaWindowSlot *slot,
 
     caja_window_slot_open_location_full (slot, location,
                                          CAJA_WINDOW_OPEN_ACCORDING_TO_MODE,
-                                         flags, NULL);
+                                         flags, NULL, NULL, NULL);
 }
 
 void
@@ -742,7 +742,7 @@ caja_window_slot_open_location_with_selection (CajaWindowSlot *slot,
     }
     caja_window_slot_open_location_full (slot, location,
                                          CAJA_WINDOW_OPEN_ACCORDING_TO_MODE,
-                                         flags, selection);
+                                         flags, selection, NULL, NULL);
 }
 
 
@@ -766,7 +766,7 @@ caja_window_slot_go_home (CajaWindowSlot *slot, gboolean new_tab)
     home = g_file_new_for_path (g_get_home_dir ());
     caja_window_slot_open_location_full (slot, home,
                                          CAJA_WINDOW_OPEN_ACCORDING_TO_MODE,
-                                         flags, NULL);
+                                         flags, NULL, NULL, NULL);
     g_object_unref (home);
 }
 
@@ -2273,7 +2273,7 @@ caja_navigation_window_back_or_forward (CajaNavigationWindow *window,
         caja_window_slot_open_location_full (slot, location,
                                              CAJA_WINDOW_OPEN_ACCORDING_TO_MODE,
                                              CAJA_WINDOW_OPEN_FLAG_NEW_TAB,
-                                             NULL);
+                                             NULL, NULL, NULL);
     }
     else
     {
