@@ -53,8 +53,6 @@ struct _CajaSpatialWindow
 {
     CajaWindow parent_object;
 
-    gboolean affect_spatial_window_on_next_location_change;
-
     CajaSpatialWindowDetails *details;
 };
 

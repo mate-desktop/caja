@@ -1012,8 +1012,6 @@ caja_spatial_window_init (CajaSpatialWindow *window)
     pane = caja_window_pane_new (win);
     win->details->panes = g_list_prepend (win->details->panes, pane);
 
-    window->affect_spatial_window_on_next_location_change = TRUE;
-
     vbox = gtk_vbox_new (FALSE, 0);
     gtk_table_attach (GTK_TABLE (CAJA_WINDOW (window)->details->table),
                       vbox,
