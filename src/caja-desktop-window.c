@@ -39,6 +39,8 @@
 struct CajaDesktopWindowDetails
 {
     gulong size_changed_id;
+
+    gboolean loaded;
 };
 
 G_DEFINE_TYPE (CajaDesktopWindow, caja_desktop_window,
@@ -94,9 +96,10 @@ caja_desktop_window_update_directory (CajaDesktopWindow *window)
 
     g_assert (CAJA_IS_DESKTOP_WINDOW (window));
 
-    CAJA_SPATIAL_WINDOW (window)->affect_spatial_window_on_next_location_change = TRUE;
     location = g_file_new_for_uri (EEL_DESKTOP_URI);
     caja_window_go_to (CAJA_WINDOW (window), location);
+    window->details->loaded = TRUE;
+
     g_object_unref (location);
 }
 
@@ -267,3 +270,10 @@ caja_desktop_window_class_init (CajaDesktopWindowClass *klass)
 
 	g_type_class_add_private (klass, sizeof (CajaDesktopWindowDetails));
 }
+
+gboolean
+caja_desktop_window_loaded (CajaDesktopWindow *window)
+{
+    return window->details->loaded;
+}
+
