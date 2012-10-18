@@ -98,7 +98,6 @@ create_selection_shadow (CajaIconContainer *container,
 {
     EelCanvasGroup *group;
     EelCanvas *canvas;
-    GdkBitmap *stipple;
     int max_x, max_y;
     int min_x, min_y;
     GList *p;
@@ -114,9 +113,6 @@ create_selection_shadow (CajaIconContainer *container,
     {
         return NULL;
     }
-
-    stipple = container->details->dnd_info->stipple;
-    g_return_val_if_fail (stipple != NULL, NULL);
 
     canvas = EEL_CANVAS (container);
     gtk_widget_get_allocation (GTK_WIDGET (container), &allocation);
@@ -164,7 +160,6 @@ create_selection_shadow (CajaIconContainer *container,
              "x2", (double) x2,
              "y2", (double) y2,
              "outline_color", "black",
-             "outline_stipple", stipple,
              "width_pixels", 1,
              NULL);
     }
@@ -1664,6 +1659,7 @@ drag_highlight_expose (GtkWidget      *widget,
 {
     gint x, y, width, height;
     GdkWindow *window;
+    cairo_t *cr;
 
     x = gtk_adjustment_get_value (gtk_layout_get_hadjustment (GTK_LAYOUT (widget)));
     y = gtk_adjustment_get_value (gtk_layout_get_vadjustment (GTK_LAYOUT (widget)));
@@ -1682,10 +1678,12 @@ drag_highlight_expose (GtkWidget      *widget,
                       NULL, widget, "dnd",
                       x, y, width, height);
 
-    gdk_draw_rectangle (window,
-                        (gtk_widget_get_style(widget))->black_gc,
-                        FALSE,
-                        x, y, width - 1, height - 1);
+    cr = gdk_cairo_create (window);
+    cairo_set_line_width (cr, 1.0);
+    cairo_set_source_rgb (cr, 0, 0, 0);
+    cairo_rectangle (cr, x + 0.5, y + 0.5, width - 1, height - 1);
+    cairo_stroke (cr);
+    cairo_destroy (cr);
 
     return FALSE;
 }
@@ -2029,25 +2027,7 @@ drag_data_received_callback (GtkWidget *widget,
 }
 
 void
-caja_icon_dnd_set_stipple (CajaIconContainer *container,
-                           GdkBitmap             *stipple)
-{
-    if (stipple != NULL)
-    {
-        g_object_ref (stipple);
-    }
-
-    if (container->details->dnd_info->stipple != NULL)
-    {
-        g_object_unref (container->details->dnd_info->stipple);
-    }
-
-    container->details->dnd_info->stipple = stipple;
-}
-
-void
-caja_icon_dnd_init (CajaIconContainer *container,
-                    GdkBitmap *stipple)
+caja_icon_dnd_init (CajaIconContainer *container)
 {
     GtkTargetList *targets;
     int n_elements;
@@ -2096,11 +2076,6 @@ caja_icon_dnd_init (CajaIconContainer *container,
                       G_CALLBACK (drag_drop_callback), NULL);
     g_signal_connect (container, "drag_leave",
                       G_CALLBACK (drag_leave_callback), NULL);
-
-    if (stipple != NULL)
-    {
-        container->details->dnd_info->stipple = g_object_ref (stipple);
-    }
 }
 
 void
@@ -2111,11 +2086,6 @@ caja_icon_dnd_fini (CajaIconContainer *container)
     if (container->details->dnd_info != NULL)
     {
         stop_auto_scroll (container);
-
-        if (container->details->dnd_info->stipple != NULL)
-        {
-            g_object_unref (container->details->dnd_info->stipple);
-        }
 
         caja_drag_finalize (&container->details->dnd_info->drag_info);
         container->details->dnd_info = NULL;
