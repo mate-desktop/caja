@@ -298,34 +298,29 @@ get_menu_icon_for_file (TreeNode *node,
             emblems_to_ignore[i++] = CAJA_FILE_EMBLEM_NAME_CANT_WRITE;
         }
     }
-    
+
     emblems_to_ignore[i++] = NULL;
 
     emblem = NULL;
     emblem_icons = caja_file_get_emblem_icons (node->file,
                 		       emblems_to_ignore);
 
-    if (emblem_icons != NULL) {
-        emblem_icon = emblem_icons->data;
-        emblem = g_emblem_new (emblem_icon);
-        emblemed_icon = g_emblemed_icon_new (gicon, emblem);
-
-        g_object_unref (emblem);
-
-        for (l = emblem_icons->next; l != NULL; l = l->next) {
-            emblem_icon = l->data;
+    /* pick only the first emblem we can render for the tree view */
+    for (l = emblem_icons; l != NULL; l = l->next) {
+        emblem_icon = l->data;
+        if (caja_icon_theme_can_render (G_THEMED_ICON (emblem_icon))) {
             emblem = g_emblem_new (emblem_icon);
-            g_emblemed_icon_add_emblem
-                (G_EMBLEMED_ICON (emblemed_icon), emblem);
+            emblemed_icon = g_emblemed_icon_new (gicon, emblem);
 
+            g_object_unref (gicon);
             g_object_unref (emblem);
+            gicon = emblemed_icon;
+
+            break;
         }
-
-        eel_g_object_list_free (emblem_icons);
-
-        g_object_unref (gicon);
-        gicon = emblemed_icon;
     }
+
+    eel_g_object_list_free (emblem_icons);
 
     info = caja_icon_info_lookup (gicon, size);
     retval = caja_icon_info_get_pixbuf_nodefault_at_size (info, size);
