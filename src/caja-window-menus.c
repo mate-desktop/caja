@@ -512,7 +512,7 @@ action_about_caja_callback (GtkAction *action,
     };
     const gchar *documenters[] =
     {
-        "MATE Documentation Team",
+        "GNOME Documentation Team",
         "Sun Microsystem",
         NULL
     };
@@ -542,7 +542,7 @@ action_about_caja_callback (GtkAction *action,
                                          "files and folders, both on "
                                          "your computer and online."),
                            "copyright", _("Copyright \xC2\xA9 1999-2009 The Nautilus authors\n"
-                                          "Copyright \xC2\xA9 2011 The Caja authors"),
+                                          "Copyright \xC2\xA9 2011-2012 The Caja authors"),
                            "license", license_trans,
                            "wrap-license", TRUE,
                            "authors", authors,
