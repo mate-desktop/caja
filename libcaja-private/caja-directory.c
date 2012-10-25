@@ -266,9 +266,7 @@ collect_all_directories (gpointer key, gpointer value, gpointer callback_data)
 {
     CajaDirectory *directory;
     GList **dirs;
-    GFile *location;
 
-    location = (GFile *) key;
     directory = CAJA_DIRECTORY (value);
     dirs = callback_data;
 

@@ -331,7 +331,7 @@ icon_set_position (CajaIcon *icon,
     int container_x, container_y, container_width, container_height;
     EelDRect icon_bounds;
     int item_width, item_height;
-    int height_above, height_below, width_left, width_right;
+    int height_above, width_left;
     int min_x, max_x, min_y, max_y;
 
     if (icon->x == x && icon->y == y)
@@ -385,9 +385,7 @@ icon_set_position (CajaIcon *icon,
 
         /* determine icon rectangle relative to item rectangle */
         height_above = icon_bounds.y0 - y1;
-        height_below = y2 - icon_bounds.y1;
         width_left = icon_bounds.x0 - x1;
-        width_right = x2 - icon_bounds.x1;
 
         min_x = container_left + DESKTOP_PAD_HORIZONTAL + width_left;
         max_x = container_right - DESKTOP_PAD_HORIZONTAL - item_width + width_left;
@@ -742,7 +740,6 @@ static void
 reveal_icon (CajaIconContainer *container,
              CajaIcon *icon)
 {
-    CajaIconContainerDetails *details;
     GtkAllocation allocation;
     GtkAdjustment *hadj, *vadj;
     EelIRect bounds;
@@ -754,7 +751,6 @@ reveal_icon (CajaIconContainer *container,
 
     set_pending_icon_to_reveal (container, NULL);
 
-    details = container->details;
     gtk_widget_get_allocation (GTK_WIDGET (container), &allocation);
 
     hadj = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container));
@@ -1367,7 +1363,7 @@ lay_down_icons_horizontal (CajaIconContainer *container,
 {
     GList *p, *line_start;
     CajaIcon *icon;
-    double canvas_width, y, canvas_height;
+    double canvas_width, y;
     GArray *positions;
     IconPositions *position;
     EelDRect bounds;
@@ -1395,8 +1391,6 @@ lay_down_icons_horizontal (CajaIconContainer *container,
 
     /* Lay out icons a line at a time. */
     canvas_width = CANVAS_WIDTH(container, allocation);
-    canvas_height = CANVAS_HEIGHT(container, allocation);
-
     max_icon_width = max_text_width = 0.0;
 
     if (container->details->label_position == CAJA_ICON_LABEL_POSITION_BESIDE)
@@ -1596,12 +1590,11 @@ lay_down_icons_vertical (CajaIconContainer *container,
 {
     GList *p, *line_start;
     CajaIcon *icon;
-    double canvas_width, x, canvas_height;
+    double x, canvas_height;
     GArray *positions;
     IconPositions *position;
     EelDRect icon_bounds;
     EelDRect text_bounds;
-    EelCanvasItem *item;
     GtkAllocation allocation;
 
     double line_height;
@@ -1631,7 +1624,6 @@ lay_down_icons_vertical (CajaIconContainer *container,
     gtk_widget_get_allocation (GTK_WIDGET (container), &allocation);
 
     /* Lay out icons a column at a time. */
-    canvas_width = CANVAS_WIDTH(container, allocation);
     canvas_height = CANVAS_HEIGHT(container, allocation);
 
     max_icon_width = max_text_width = 0.0;
@@ -1659,7 +1651,6 @@ lay_down_icons_vertical (CajaIconContainer *container,
     for (p = icons; p != NULL; p = p->next)
     {
         icon = p->data;
-        item = EEL_CANVAS_ITEM (icon->item);
 
         /* If this icon doesn't fit, it's time to lay out the column that's queued up. */
 
@@ -2131,14 +2122,13 @@ lay_down_icons_vertical_desktop (CajaIconContainer *container, GList *icons)
     GList *p, *placed_icons, *unplaced_icons;
     int total, new_length, placed;
     CajaIcon *icon;
-    int width, height, max_width, column_width, icon_width, icon_height;
+    int height, max_width, column_width, icon_width, icon_height;
     int x, y, x1, x2, y1, y2;
     EelDRect icon_rect;
     GtkAllocation allocation;
 
     /* Get container dimensions */
     gtk_widget_get_allocation (GTK_WIDGET (container), &allocation);
-    width  = CANVAS_WIDTH(container, allocation);
     height = CANVAS_HEIGHT(container, allocation);
 
     /* Determine which icons have and have not been placed */
@@ -5527,7 +5517,6 @@ caja_icon_container_search_move (GtkWidget *window,
 {
     gboolean ret;
     gint len;
-    gint count = 0;
     const gchar *text;
 
     text = gtk_entry_get_text (GTK_ENTRY (container->details->search_entry));
@@ -5565,7 +5554,6 @@ caja_icon_container_search_move (GtkWidget *window,
     else
     {
         /* return to old iter */
-        count = 0;
         caja_icon_container_search_iter (container, text,
                                          container->details->selected_iter);
     }
@@ -5711,9 +5699,7 @@ caja_icon_container_search_init (GtkWidget   *entry,
 static void
 caja_icon_container_ensure_interactive_directory (CajaIconContainer *container)
 {
-    GtkWidget *frame, *vbox, *toplevel;
-
-    toplevel = gtk_widget_get_toplevel (GTK_WIDGET (container));
+    GtkWidget *frame, *vbox;
 
     if (container->details->search_window != NULL)
     {
@@ -7066,11 +7052,9 @@ item_event_callback (EelCanvasItem *item,
                      gpointer data)
 {
     CajaIconContainer *container;
-    CajaIconContainerDetails *details;
     CajaIcon *icon;
 
     container = CAJA_ICON_CONTAINER (data);
-    details = container->details;
 
     icon = CAJA_ICON_CANVAS_ITEM (item)->user_data;
     g_assert (icon != NULL);
@@ -7252,7 +7236,6 @@ caja_icon_container_scroll_to_icon (CajaIconContainer  *container,
     GList *l;
     CajaIcon *icon;
     GtkAdjustment *hadj, *vadj;
-    EelCanvasItem *item;
     EelIRect bounds;
     GtkAllocation allocation;
 
@@ -7270,8 +7253,6 @@ caja_icon_container_scroll_to_icon (CajaIconContainer  *container,
 
         if (icon->data == data &&
                 icon_is_positioned (icon)) {
-
-            item = EEL_CANVAS_ITEM (icon->item);
 
             if (caja_icon_container_is_auto_layout (container)) {
                 /* ensure that we reveal the entire row/column */

@@ -32,9 +32,6 @@ G_DEFINE_TYPE(CajaSavedSearchFile, caja_saved_search_file, CAJA_TYPE_VFS_FILE)
 static void
 caja_saved_search_file_init (CajaSavedSearchFile *search_file)
 {
-    CajaFile *file;
-
-    file = CAJA_FILE (search_file);
 }
 
 static void

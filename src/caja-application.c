@@ -464,12 +464,10 @@ menu_provider_items_updated_handler (CajaMenuProvider *provider, GtkWidget* pare
 static void
 menu_provider_init_callback (void)
 {
-    GList *items;
     GList *providers;
     GList *l;
 
     providers = caja_module_get_extensions_for_type (CAJA_TYPE_MENU_PROVIDER);
-    items = NULL;
 
     for (l = providers; l != NULL; l = l->next)
     {
@@ -784,15 +782,12 @@ open_window (CajaApplication *application,
 {
     GFile *location;
     CajaWindow *window;
-    gboolean existing;
 
     if (uri == NULL) {
     	location = g_file_new_for_path (g_get_home_dir ());
     } else {
     	location = g_file_new_for_uri (uri);
     }
-
-	existing = FALSE;
 
     if (browser_window ||
             g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_BROWSER)) {

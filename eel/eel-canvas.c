@@ -1381,12 +1381,10 @@ static void
 eel_canvas_group_get_property (GObject *gobject, guint param_id,
                                GValue *value, GParamSpec *pspec)
 {
-    EelCanvasItem *item;
     EelCanvasGroup *group;
 
     g_return_if_fail (EEL_IS_CANVAS_GROUP (gobject));
 
-    item = EEL_CANVAS_ITEM (gobject);
     group = EEL_CANVAS_GROUP (gobject);
 
     switch (param_id)
@@ -2851,9 +2849,6 @@ pick_current_item (EelCanvas *canvas, GdkEvent *event)
             && !canvas->left_grabbed_item)
     {
         GdkEvent new_event;
-        EelCanvasItem *item;
-
-        item = canvas->current_item;
 
         new_event = canvas->pick_event;
         new_event.type = GDK_LEAVE_NOTIFY;

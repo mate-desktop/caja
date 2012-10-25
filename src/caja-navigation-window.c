@@ -509,16 +509,6 @@ caja_navigation_window_tear_down_sidebar (CajaNavigationWindow *window)
     window->sidebar = NULL;
 }
 
-static void
-caja_navigation_window_unrealize (GtkWidget *widget)
-{
-    CajaNavigationWindow *window;
-
-    window = CAJA_NAVIGATION_WINDOW (widget);
-
-    GTK_WIDGET_CLASS (parent_class)->unrealize (widget);
-}
-
 static gboolean
 caja_navigation_window_state_event (GtkWidget *widget,
                                     GdkEventWindowState *event)
@@ -759,13 +749,10 @@ static void
 real_sync_title (CajaWindow *window,
                  CajaWindowSlot *slot)
 {
-    CajaNavigationWindow *navigation_window;
     CajaNavigationWindowPane *pane;
     CajaNotebook *notebook;
     char *full_title;
     char *window_title;
-
-    navigation_window = CAJA_NAVIGATION_WINDOW (window);
 
     EEL_CALL_PARENT (CAJA_WINDOW_CLASS,
                      sync_title, (window, slot));
@@ -1265,7 +1252,6 @@ caja_navigation_window_class_init (CajaNavigationWindowClass *class)
     GTK_OBJECT_CLASS (class)->destroy = caja_navigation_window_destroy;
 #endif
     GTK_WIDGET_CLASS (class)->show = caja_navigation_window_show;
-    GTK_WIDGET_CLASS (class)->unrealize = caja_navigation_window_unrealize;
     GTK_WIDGET_CLASS (class)->window_state_event = caja_navigation_window_state_event;
     GTK_WIDGET_CLASS (class)->key_press_event = caja_navigation_window_key_press_event;
     GTK_WIDGET_CLASS (class)->button_press_event = caja_navigation_window_button_press_event;
