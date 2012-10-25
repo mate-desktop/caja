@@ -23,10 +23,10 @@
 
 #include <config.h>
 #include "caja-query-editor.h"
+#include "caja-src-marshal.h"
 #include "caja-window-slot.h"
 
 #include <string.h>
-#include <libcaja-private/caja-marshal.h>
 #include <glib/gi18n.h>
 #include <gio/gio.h>
 #include <eel/eel-gtk-macros.h>
@@ -197,7 +197,7 @@ caja_query_editor_class_init (CajaQueryEditorClass *class)
                       G_SIGNAL_RUN_LAST,
                       G_STRUCT_OFFSET (CajaQueryEditorClass, changed),
                       NULL, NULL,
-                      caja_marshal_VOID__OBJECT_BOOLEAN,
+                      caja_src_marshal_VOID__OBJECT_BOOLEAN,
                       G_TYPE_NONE, 2, CAJA_TYPE_QUERY, G_TYPE_BOOLEAN);
 
     signals[CANCEL] =

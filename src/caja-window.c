@@ -40,6 +40,7 @@
 #include "caja-zoom-control.h"
 #include "caja-search-bar.h"
 #include "caja-navigation-window-pane.h"
+#include "caja-src-marshal.h"
 #include <eel/eel-debug.h>
 #include <eel/eel-marshal.h>
 #include <eel/eel-gtk-macros.h>
@@ -57,7 +58,6 @@
 #include <libcaja-private/caja-global-preferences.h>
 #include <libcaja-private/caja-horizontal-splitter.h>
 #include <libcaja-private/caja-metadata.h>
-#include <libcaja-private/caja-marshal.h>
 #include <libcaja-private/caja-mime-actions.h>
 #include <libcaja-private/caja-program-choosing.h>
 #include <libcaja-private/caja-view-factory.h>
@@ -2117,7 +2117,7 @@ caja_window_class_init (CajaWindowClass *class)
                       G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
                       G_STRUCT_OFFSET (CajaWindowClass, go_up),
                       g_signal_accumulator_true_handled, NULL,
-                      eel_marshal_BOOLEAN__BOOLEAN,
+                      caja_src_marshal_BOOLEAN__BOOLEAN,
                       G_TYPE_BOOLEAN, 1, G_TYPE_BOOLEAN);
     signals[RELOAD] =
         g_signal_new ("reload",
@@ -2141,7 +2141,7 @@ caja_window_class_init (CajaWindowClass *class)
                       G_SIGNAL_RUN_LAST,
                       0,
                       NULL, NULL,
-                      caja_marshal_VOID__INT_BOOLEAN_BOOLEAN_BOOLEAN_BOOLEAN,
+                      caja_src_marshal_VOID__INT_BOOLEAN_BOOLEAN_BOOLEAN_BOOLEAN,
                       G_TYPE_NONE, 5,
                       G_TYPE_INT, G_TYPE_BOOLEAN, G_TYPE_BOOLEAN,
                       G_TYPE_BOOLEAN, G_TYPE_BOOLEAN);
