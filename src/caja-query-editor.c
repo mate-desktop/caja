@@ -967,11 +967,11 @@ caja_query_editor_add_row (CajaQueryEditor *editor,
     gtk_widget_show (hbox);
     gtk_box_pack_start (GTK_BOX (editor->details->visible_vbox), hbox, FALSE, FALSE, 0);
 
-    combo = gtk_combo_box_new_text ();
+    combo = gtk_combo_box_text_new ();
     row->combo = combo;
     for (i = 0; i < CAJA_QUERY_EDITOR_ROW_LAST; i++)
     {
-        gtk_combo_box_append_text (GTK_COMBO_BOX (combo), gettext (row_type[i].name));
+        gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combo), gettext (row_type[i].name));
     }
     gtk_widget_show (combo);
     gtk_box_pack_start (GTK_BOX (hbox), combo, FALSE, FALSE, 0);

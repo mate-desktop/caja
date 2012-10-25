@@ -1635,7 +1635,7 @@ changed_group_callback (GtkComboBox *combo_box, CajaFile *file)
 	g_assert (GTK_IS_COMBO_BOX (combo_box));
 	g_assert (CAJA_IS_FILE (file));
 
-	group = gtk_combo_box_get_active_text (combo_box);
+	group = gtk_combo_box_text_get_active_text (GTK_COMBO_BOX_TEXT (combo_box));
 	cur_group = caja_file_get_group_name (file);
 
 	if (group != NULL && strcmp (group, cur_group) != 0) {
@@ -1790,7 +1790,7 @@ synch_groups_combo_box (GtkComboBox *combo_box, CajaFile *file)
 
 		for (node = groups, group_index = 0; node != NULL; node = node->next, ++group_index) {
 			group_name = (const char *)node->data;
-			gtk_combo_box_append_text (combo_box, group_name);
+			gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combo_box), group_name);
 		}
 	}
 
@@ -1804,10 +1804,10 @@ synch_groups_combo_box (GtkComboBox *combo_box, CajaFile *file)
 	if (current_group_index < 0 && current_group_name != NULL) {
 		if (groups != NULL) {
 			/* add separator */
-			gtk_combo_box_prepend_text (combo_box, "-");
+			gtk_combo_box_text_prepend_text (GTK_COMBO_BOX_TEXT (combo_box), "-");
 		}
 
-		gtk_combo_box_prepend_text (combo_box, current_group_name);
+		gtk_combo_box_text_prepend_text (GTK_COMBO_BOX_TEXT (combo_box), current_group_name);
 		current_group_index = 0;
 	}
 	gtk_combo_box_set_active (combo_box, current_group_index);
@@ -1849,7 +1849,7 @@ attach_combo_box (GtkTable *table,
 	GtkWidget *aligner;
 
 	if (!two_columns) {
-		combo_box = gtk_combo_box_new_text ();
+		combo_box = gtk_combo_box_text_new ();
 	} else {
 		GtkTreeModel *model;
 		GtkCellRenderer *renderer;
