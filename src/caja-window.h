@@ -122,7 +122,6 @@ struct CajaWindow
 
     CajaWindowDetails *details;
 
-    /** CORBA-related elements **/
     CajaApplication *application;
 };
 
@@ -147,7 +146,6 @@ void             caja_window_go_up                (CajaWindow    *window,
         gboolean           new_tab);
 void             caja_window_prompt_for_location  (CajaWindow    *window,
         const char        *initial);
-void             caja_window_launch_cd_burner     (CajaWindow    *window);
 void             caja_window_display_error        (CajaWindow    *window,
         const char        *error_msg);
 void		 caja_window_reload		      (CajaWindow	 *window);
@@ -157,8 +155,6 @@ void             caja_window_allow_reload         (CajaWindow    *window,
 void             caja_window_allow_up             (CajaWindow    *window,
         gboolean           allow);
 void             caja_window_allow_stop           (CajaWindow    *window,
-        gboolean           allow);
-void             caja_window_allow_burn_cd        (CajaWindow    *window,
         gboolean           allow);
 GtkUIManager *   caja_window_get_ui_manager       (CajaWindow    *window);
 

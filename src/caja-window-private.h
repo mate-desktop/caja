@@ -178,9 +178,6 @@ void               caja_menus_append_bookmark_to_menu                (CajaWindow
         guint              merge_id,
         GCallback          refresh_callback,
         CajaBookmarkFailedCallback failed_callback);
-#ifdef NEW_UI_COMPLETE
-void               caja_window_go_up                                 (CajaWindow    *window);
-#endif
 void               caja_window_update_find_menu_item                 (CajaWindow    *window);
 void               caja_window_zoom_in                               (CajaWindow    *window);
 void               caja_window_zoom_out                              (CajaWindow    *window);
