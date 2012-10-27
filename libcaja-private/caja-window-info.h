@@ -28,7 +28,6 @@
 #include <glib-object.h>
 #include <libcaja-private/caja-view.h>
 #include <gtk/gtk.h>
-#include "../src/caja-bookmark-list.h"
 
 #ifdef __cplusplus
 extern "C" {

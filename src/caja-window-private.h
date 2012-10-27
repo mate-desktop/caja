@@ -33,6 +33,7 @@
 #include "caja-window-pane.h"
 #include "caja-spatial-window.h"
 #include "caja-navigation-window.h"
+#include "caja-bookmark-list.h"
 
 #include <libcaja-private/caja-directory.h>
 
