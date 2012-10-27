@@ -256,7 +256,6 @@ caja_property_browser_init (GtkObject *object)
     gtk_window_set_title (GTK_WINDOW (widget), _("Backgrounds and Emblems"));
     gtk_window_set_wmclass (GTK_WINDOW (widget), "property_browser", "Caja");
     gtk_window_set_type_hint (GTK_WINDOW (widget), GDK_WINDOW_TYPE_HINT_DIALOG);
-    eel_gtk_window_set_up_close_accelerator (GTK_WINDOW (widget));
 
     /* create the main vbox. */
     vbox = gtk_vbox_new (FALSE, 12);
