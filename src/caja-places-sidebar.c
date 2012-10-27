@@ -3012,20 +3012,22 @@ caja_places_sidebar_dispose (GObject *object)
 
     free_drag_data (sidebar);
 
-    if (sidebar->store != NULL)
-    {
+    if (sidebar->eject_highlight_path != NULL) {
+        gtk_tree_path_free (sidebar->eject_highlight_path);
+        sidebar->eject_highlight_path = NULL;
+    }
+
+    if (sidebar->store != NULL) {
         g_object_unref (sidebar->store);
         sidebar->store = NULL;
     }
 
-    if (sidebar->volume_monitor != NULL)
-    {
+    if (sidebar->volume_monitor != NULL) {
         g_object_unref (sidebar->volume_monitor);
         sidebar->volume_monitor = NULL;
     }
 
-    if (sidebar->bookmarks != NULL)
-    {
+    if (sidebar->bookmarks != NULL) {
         g_object_unref (sidebar->bookmarks);
         sidebar->bookmarks = NULL;
     }
