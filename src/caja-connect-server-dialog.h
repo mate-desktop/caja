@@ -49,8 +49,7 @@ struct _CajaConnectServerDialogClass
 };
 
 GType      caja_connect_server_dialog_get_type (void);
-GtkWidget* caja_connect_server_dialog_new      (CajaWindow *window,
-        GFile *location);
+GtkWidget* caja_connect_server_dialog_new      (CajaWindow *window);
 
 /* Private internal calls */
 
