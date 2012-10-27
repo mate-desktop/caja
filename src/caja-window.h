@@ -161,6 +161,5 @@ void             caja_window_allow_stop           (CajaWindow    *window,
 void             caja_window_allow_burn_cd        (CajaWindow    *window,
         gboolean           allow);
 GtkUIManager *   caja_window_get_ui_manager       (CajaWindow    *window);
-gboolean         caja_window_has_menubar_and_statusbar (CajaWindow *window);
 
 #endif

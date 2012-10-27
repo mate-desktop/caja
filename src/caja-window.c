@@ -2179,19 +2179,3 @@ caja_window_class_init (CajaWindowClass *class)
 
     g_type_class_add_private (G_OBJECT_CLASS (class), sizeof (CajaWindowDetails));
 }
-
-/**
- * caja_window_has_menubar_and_statusbar:
- * @window: A #CajaWindow
- *
- * Queries whether the window should have a menubar and statusbar, based on the
- * window_type from its class structure.
- *
- * Return value: TRUE if the window should have a menubar and statusbar; FALSE
- * otherwise.
- **/
-gboolean
-caja_window_has_menubar_and_statusbar (CajaWindow *window)
-{
-    return (caja_window_get_window_type (window) != CAJA_WINDOW_DESKTOP);
-}
