@@ -629,19 +629,23 @@ static void
 action_folder_window_callback (GtkAction *action,
                                gpointer user_data)
 {
-    CajaWindow *current_window;
+    CajaWindow *current_window, *window;
     CajaWindowSlot *slot;
     GFile *current_location;
 
     current_window = CAJA_WINDOW (user_data);
     slot = current_window->details->active_pane->active_slot;
     current_location = caja_window_slot_get_location (slot);
-    caja_application_present_spatial_window (
-        current_window->application,
-        current_window,
-        NULL,
-        current_location,
-        gtk_window_get_screen (GTK_WINDOW (current_window)));
+    window = caja_application_get_spatial_window
+            (current_window->application,
+             current_window,
+             NULL,
+             current_location,
+             gtk_window_get_screen (GTK_WINDOW (current_window)),
+             NULL);
+
+    caja_window_go_to (window, current_location);
+
     if (current_location != NULL)
     {
         g_object_unref (current_location);
