@@ -68,6 +68,8 @@ caja_SOURCES = \
 	caja-connect-server-dialog.c \
 	caja-connect-server-dialog.h \
 	caja-connect-server-dialog-nonmain.c \
+	caja-connect-server-operation.c	\
+	caja-connect-server-operation.h	\
 	caja-desktop-window.c \
 	caja-desktop-window.h \
 	caja-emblem-sidebar.c \
@@ -184,8 +186,8 @@ caja_connect_server_SOURCES = \
 	caja-connect-server-dialog.c \
 	caja-connect-server-dialog.h \
 	caja-connect-server-dialog-main.c \
-	caja-location-entry.c \
-	caja-location-entry.h \
+	caja-connect-server-operation.c     \
+	caja-connect-server-operation.h     \
 	$(NULL)
 
 caja_convert_metadata_SOURCES = \
