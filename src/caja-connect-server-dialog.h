@@ -1,9 +1,9 @@
 /* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*- */
-
 /*
  * Caja
  *
  * Copyright (C) 2003 Red Hat, Inc.
+ * Copyright (C) 2010 Cosimo Cecchi <cosimoc@gnome.org>
  *
  * Caja is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -26,15 +26,22 @@
 
 #include <gio/gio.h>
 #include <gtk/gtk.h>
+
 #include "caja-window.h"
 
-#define CAJA_TYPE_CONNECT_SERVER_DIALOG         (caja_connect_server_dialog_get_type ())
-#define CAJA_CONNECT_SERVER_DIALOG(obj)         (G_TYPE_CHECK_INSTANCE_CAST ((obj), CAJA_TYPE_CONNECT_SERVER_DIALOG, CajaConnectServerDialog))
-#define CAJA_CONNECT_SERVER_DIALOG_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), CAJA_TYPE_CONNECT_SERVER_DIALOG, CajaConnectServerDialogClass))
-#define CAJA_IS_CONNECT_SERVER_DIALOG(obj)      (G_TYPE_INSTANCE_CHECK_TYPE ((obj), CAJA_TYPE_CONNECT_SERVER_DIALOG)
+#define CAJA_TYPE_CONNECT_SERVER_DIALOG\
+	(caja_connect_server_dialog_get_type ())
+#define CAJA_CONNECT_SERVER_DIALOG(obj)\
+        (G_TYPE_CHECK_INSTANCE_CAST ((obj), CAJA_TYPE_CONNECT_SERVER_DIALOG,\
+				     CajaConnectServerDialog))
+#define CAJA_CONNECT_SERVER_DIALOG_CLASS(klass)\
+	(G_TYPE_CHECK_CLASS_CAST ((klass), CAJA_TYPE_CONNECT_SERVER_DIALOG,\
+				  CajaConnectServerDialogClass))
+#define CAJA_IS_CONNECT_SERVER_DIALOG(obj)\
+	(G_TYPE_INSTANCE_CHECK_TYPE ((obj), CAJA_TYPE_CONNECT_SERVER_DIALOG)
 
-typedef struct _CajaConnectServerDialog        CajaConnectServerDialog;
-typedef struct _CajaConnectServerDialogClass   CajaConnectServerDialogClass;
+typedef struct _CajaConnectServerDialog CajaConnectServerDialog;
+typedef struct _CajaConnectServerDialogClass CajaConnectServerDialogClass;
 typedef struct _CajaConnectServerDialogDetails CajaConnectServerDialogDetails;
 
 struct _CajaConnectServerDialog
@@ -48,13 +55,27 @@ struct _CajaConnectServerDialogClass
     GtkDialogClass parent_class;
 };
 
-GType      caja_connect_server_dialog_get_type (void);
-GtkWidget* caja_connect_server_dialog_new      (CajaWindow *window);
+GType caja_connect_server_dialog_get_type (void);
 
-/* Private internal calls */
+GtkWidget* caja_connect_server_dialog_new (CajaWindow *window);
 
-void       caja_connect_server_dialog_present_uri (CajaApplication *application,
-        GFile *location,
-        GtkWidget *widget);
+void caja_connect_server_dialog_display_location_async (CajaConnectServerDialog *self,
+							    CajaApplication *application,
+							    GFile *location,
+							    GAsyncReadyCallback callback,
+							    gpointer user_data);
+gboolean caja_connect_server_dialog_display_location_finish (CajaConnectServerDialog *self,
+								 GAsyncResult *result,
+								 GError **error);
+
+void caja_connect_server_dialog_fill_details_async (CajaConnectServerDialog *self,
+							GMountOperation *operation,
+							const gchar *default_user,
+							const gchar *default_domain,
+							GAskPasswordFlags flags,
+							GAsyncReadyCallback callback,
+							gpointer user_data);
+gboolean caja_connect_server_dialog_fill_details_finish (CajaConnectServerDialog *self,
+							     GAsyncResult *result);
 
 #endif /* CAJA_CONNECT_SERVER_DIALOG_H */
