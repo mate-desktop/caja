@@ -20,7 +20,7 @@
 #define CAJA_ICON_EMBLEM_UNREADABLE	"emblem-unreadable"
 #define CAJA_ICON_EMBLEM_SYMLINK	"emblem-symbolic-link"
 
-#define CAJA_ICON_FOLDER_DESKTOP    "folder-documents"
+#define CAJA_ICON_FOLDER_DESKTOP    "user-desktop"
 #define CAJA_ICON_FOLDER_DOCUMENTS  "folder-documents"
 #define CAJA_ICON_FOLDER_DOWNLOAD   "folder-download"
 #define CAJA_ICON_FOLDER_MUSIC      "folder-music"
