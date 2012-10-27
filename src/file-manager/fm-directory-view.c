@@ -35,6 +35,7 @@
 
 #include "fm-actions.h"
 #include "fm-error-reporting.h"
+#include "fm-marshal.h"
 #include "fm-properties-window.h"
 #include "libcaja-private/caja-open-with-dialog.h"
 
@@ -71,7 +72,6 @@
 #include <libcaja-private/caja-file-private.h> /* for caja_file_get_existing_by_uri */
 #include <libcaja-private/caja-global-preferences.h>
 #include <libcaja-private/caja-link.h>
-#include <libcaja-private/caja-marshal.h>
 #include <libcaja-private/caja-metadata.h>
 #include <libcaja-private/caja-mime-actions.h>
 #include <libcaja-private/caja-module.h>
@@ -10815,7 +10815,7 @@ fm_directory_view_class_init (FMDirectoryViewClass *klass)
 		              G_SIGNAL_RUN_LAST,
 		              G_STRUCT_OFFSET (FMDirectoryViewClass, add_file),
 		              NULL, NULL,
-		              caja_marshal_VOID__OBJECT_OBJECT,
+		              fm_marshal_VOID__OBJECT_OBJECT,
 		              G_TYPE_NONE, 2, CAJA_TYPE_FILE, CAJA_TYPE_DIRECTORY);
 	signals[BEGIN_FILE_CHANGES] =
 		g_signal_new ("begin_file_changes",
@@ -10871,7 +10871,7 @@ fm_directory_view_class_init (FMDirectoryViewClass *klass)
 		              G_SIGNAL_RUN_LAST,
 		              G_STRUCT_OFFSET (FMDirectoryViewClass, file_changed),
 		              NULL, NULL,
-		              caja_marshal_VOID__OBJECT_OBJECT,
+		              fm_marshal_VOID__OBJECT_OBJECT,
 		              G_TYPE_NONE, 2, CAJA_TYPE_FILE, CAJA_TYPE_DIRECTORY);
 	signals[LOAD_ERROR] =
 		g_signal_new ("load_error",
@@ -10887,7 +10887,7 @@ fm_directory_view_class_init (FMDirectoryViewClass *klass)
 		              G_SIGNAL_RUN_LAST,
 		              G_STRUCT_OFFSET (FMDirectoryViewClass, remove_file),
 		              NULL, NULL,
-		              caja_marshal_VOID__OBJECT_OBJECT,
+		              fm_marshal_VOID__OBJECT_OBJECT,
 		              G_TYPE_NONE, 2, CAJA_TYPE_FILE, CAJA_TYPE_DIRECTORY);
 
 	klass->accepts_dragged_files = real_accepts_dragged_files;
@@ -10944,7 +10944,7 @@ fm_directory_view_class_init (FMDirectoryViewClass *klass)
 			      G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
 			      G_STRUCT_OFFSET (FMDirectoryViewClass, trash),
 			      g_signal_accumulator_true_handled, NULL,
-			      eel_marshal_BOOLEAN__VOID,
+			      fm_marshal_BOOLEAN__VOID,
 			      G_TYPE_BOOLEAN, 0);
 	signals[DELETE] =
 		g_signal_new ("delete",
@@ -10952,7 +10952,7 @@ fm_directory_view_class_init (FMDirectoryViewClass *klass)
 			      G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
 			      G_STRUCT_OFFSET (FMDirectoryViewClass, delete),
 			      g_signal_accumulator_true_handled, NULL,
-			      eel_marshal_BOOLEAN__VOID,
+			      fm_marshal_BOOLEAN__VOID,
 			      G_TYPE_BOOLEAN, 0);
 
 	binding_set = gtk_binding_set_by_class (klass);
