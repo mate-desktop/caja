@@ -243,17 +243,9 @@ action_connect_to_server_callback (GtkAction *action,
                                    gpointer user_data)
 {
     CajaWindow *window = CAJA_WINDOW (user_data);
-    CajaWindowSlot *slot;
     GtkWidget *dialog;
-    GFile *location;
 
-    slot = caja_window_get_active_slot (window);
-    location = caja_window_slot_get_location (slot);
-    dialog = caja_connect_server_dialog_new (window, location);
-    if (location)
-    {
-        g_object_unref (location);
-    }
+    dialog = caja_connect_server_dialog_new (window);
 
     gtk_widget_show (dialog);
 }
