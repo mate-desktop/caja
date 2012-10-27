@@ -95,7 +95,8 @@ static const GtkTargetEntry location_button_drag_types[] =
 G_DEFINE_TYPE(CajaSpatialWindow, caja_spatial_window, CAJA_TYPE_WINDOW)
 #define parent_class caja_spatial_window_parent_class
 
-static void caja_spatial_window_save_geometry (CajaWindowSlot *slot);
+static void caja_spatial_window_save_geometry (CajaSpatialWindow *window,
+						   CajaFile *viewed_file);
 
 static gboolean
 save_window_geometry_timeout (gpointer callback_data)
@@ -108,7 +109,7 @@ save_window_geometry_timeout (gpointer callback_data)
 
     if (slot != NULL)
     {
-        caja_spatial_window_save_geometry (slot);
+        caja_spatial_window_save_geometry (window, slot->viewed_file);
     }
 
     window->details->save_geometry_timeout_id = 0;
@@ -121,7 +122,6 @@ caja_spatial_window_configure_event (GtkWidget *widget,
                                      GdkEventConfigure *event)
 {
     CajaSpatialWindow *window;
-    char *geometry_string;
 
     window = CAJA_SPATIAL_WINDOW (widget);
 
@@ -134,34 +134,9 @@ caja_spatial_window_configure_event (GtkWidget *widget,
     {
         g_source_remove (window->details->save_geometry_timeout_id);
     }
-    if (gtk_widget_get_visible (GTK_WIDGET (window)) && !CAJA_IS_DESKTOP_WINDOW (window))
-    {
-        geometry_string = eel_gtk_window_get_geometry_string (GTK_WINDOW (window));
 
-        /* If the last geometry is NULL the window must have just
-         * been shown. No need to save geometry to disk since it
-         * must be the same.
-         */
-        if (window->details->last_geometry == NULL)
-        {
-            window->details->last_geometry = geometry_string;
-            return FALSE;
-        }
-
-        /* Don't save geometry if it's the same as before. */
-        if (!strcmp (window->details->last_geometry,
-                     geometry_string))
-        {
-            g_free (geometry_string);
-            return FALSE;
-        }
-
-        g_free (window->details->last_geometry);
-        window->details->last_geometry = geometry_string;
-
-        window->details->save_geometry_timeout_id =
-            g_timeout_add_seconds (1, save_window_geometry_timeout, window);
-    }
+	window->details->save_geometry_timeout_id =
+		g_timeout_add_seconds (1, save_window_geometry_timeout, window);
 
     return FALSE;
 }
@@ -184,7 +159,7 @@ caja_spatial_window_unrealize (GtkWidget *widget)
 
         if (slot != NULL)
         {
-            caja_spatial_window_save_geometry (slot);
+            caja_spatial_window_save_geometry (window, slot->viewed_file);
         }
     }
 }
@@ -242,42 +217,22 @@ caja_spatial_window_state_event (GtkWidget *widget,
 }
 
 static void
-caja_spatial_window_destroy (GtkObject *object)
-{
-    CajaSpatialWindow *window;
-
-    window = CAJA_SPATIAL_WINDOW (object);
-
-    window->details->content_box = NULL;
-
-    GTK_OBJECT_CLASS (caja_spatial_window_parent_class)->destroy (object);
-}
-
-static void
 caja_spatial_window_finalize (GObject *object)
 {
     CajaSpatialWindow *window;
 
     window = CAJA_SPATIAL_WINDOW (object);
 
-    if (window->details->last_geometry != NULL)
-    {
-        g_free (window->details->last_geometry);
-    }
+    g_free (window->details->last_geometry);
 
     G_OBJECT_CLASS (caja_spatial_window_parent_class)->finalize (object);
 }
 
 static void
-caja_spatial_window_save_geometry (CajaWindowSlot *slot)
+caja_spatial_window_save_geometry (CajaSpatialWindow *window,
+        		   CajaFile *viewed_file)
 {
-    CajaWindow *window;
-    CajaFile *viewed_file;
     char *geometry_string;
-
-    window = CAJA_WINDOW (slot->pane->window);
-
-    viewed_file = slot->viewed_file;
 
     if (viewed_file == NULL)
     {
@@ -286,26 +241,33 @@ caja_spatial_window_save_geometry (CajaWindowSlot *slot)
     }
 
     if (gtk_widget_get_window (GTK_WIDGET (window)) &&
-            !(gdk_window_get_state (gtk_widget_get_window (GTK_WIDGET(window))) & GDK_WINDOW_STATE_MAXIMIZED))
-    {
+    	    gtk_widget_get_visible (GTK_WIDGET (window)) &&
+	    !CAJA_IS_DESKTOP_WINDOW (window) &&
+            !(gdk_window_get_state (gtk_widget_get_window (GTK_WIDGET(window))) & GDK_WINDOW_STATE_MAXIMIZED)) {
+
         geometry_string = eel_gtk_window_get_geometry_string (GTK_WINDOW (window));
+
+        if (!g_strcmp0 (window->details->last_geometry, geometry_string)) {
+        	/* Don't save geometry if it's the same as before. */
+        	g_free (geometry_string);
+        	return;
+        }
+
+        g_free (window->details->last_geometry);
+        window->details->last_geometry = geometry_string;
 
         caja_file_set_metadata (viewed_file,
                                 CAJA_METADATA_KEY_WINDOW_GEOMETRY,
                                 NULL,
                                 geometry_string);
-
-        g_free (geometry_string);
     }
 }
 
 static void
-caja_spatial_window_save_scroll_position (CajaWindowSlot *slot)
+caja_spatial_window_save_scroll_position (CajaSpatialWindow *window,
+					  CajaWindowSlot *slot)
 {
-    CajaWindow *window;
     char *scroll_string;
-
-    window = CAJA_WINDOW (slot->pane->window);
 
     if (slot->content_view == NULL ||
             slot->viewed_file == NULL)
@@ -322,31 +284,25 @@ caja_spatial_window_save_scroll_position (CajaWindowSlot *slot)
 }
 
 static void
-caja_spatial_window_save_show_hidden_files_mode (CajaWindowSlot *slot)
+caja_spatial_window_save_show_hidden_files_mode (CajaSpatialWindow *window,
+						 CajaFile *viewed_file)
 {
-    CajaWindow *window;
     char *show_hidden_file_setting;
     CajaWindowShowHiddenFilesMode mode;
 
-    if (slot->viewed_file == NULL)
-    {
+    if (viewed_file == NULL) {
         return;
     }
 
-    window = CAJA_WINDOW (slot->pane->window);
-
     mode = CAJA_WINDOW (window)->details->show_hidden_files_mode;
-    if (mode != CAJA_WINDOW_SHOW_HIDDEN_FILES_DEFAULT)
-    {
-        if (mode == CAJA_WINDOW_SHOW_HIDDEN_FILES_ENABLE)
-        {
+
+    if (mode != CAJA_WINDOW_SHOW_HIDDEN_FILES_DEFAULT) {
+        if (mode == CAJA_WINDOW_SHOW_HIDDEN_FILES_ENABLE) {
             show_hidden_file_setting = "1";
-        }
-        else
-        {
+        } else {
             show_hidden_file_setting = "0";
         }
-        caja_file_set_metadata (slot->viewed_file,
+        caja_file_set_metadata (viewed_file,
                                 CAJA_METADATA_KEY_WINDOW_SHOW_HIDDEN_FILES,
                                 NULL,
                                 show_hidden_file_setting);
@@ -510,48 +466,53 @@ real_open_slot (CajaWindowPane *pane,
 }
 
 static void
-save_spatial_data (CajaWindowSlot *slot)
+save_spatial_data (CajaSpatialWindow *window,
+		   CajaWindowSlot *slot)
 {
-    caja_spatial_window_save_geometry (slot);
-    caja_spatial_window_save_scroll_position (slot);
-    caja_spatial_window_save_show_hidden_files_mode (slot);
+    caja_spatial_window_save_geometry (window, slot->viewed_file);
+    caja_spatial_window_save_scroll_position (window, slot);
+    caja_spatial_window_save_show_hidden_files_mode (window, slot->viewed_file);
 }
 
 static void
 real_close_slot (CajaWindowPane *pane,
                  CajaWindowSlot *slot)
 {
+    CajaSpatialWindow *window;
+
+    window = CAJA_SPATIAL_WINDOW (pane->window);
+
     /* Save spatial data for close if we didn't already */
-    if (!CAJA_SPATIAL_WINDOW (pane->window)->details->saved_data_on_close)
-    {
-        save_spatial_data (slot);
+    if (!window->details->saved_data_on_close) {
+        save_spatial_data (window, slot);
     }
 
-    EEL_CALL_PARENT (CAJA_WINDOW_CLASS,
-                     close_slot, (pane, slot));
+    CAJA_WINDOW_CLASS (caja_spatial_window_parent_class)->close_slot (pane, slot);
 }
 
 static void
 real_window_close (CajaWindow *window)
 {
     CajaWindowSlot *slot;
+    CajaSpatialWindow *self;
+
+    self = CAJA_SPATIAL_WINDOW (window);
 
     /* We're closing the window, save the geometry. */
     /* Note that we do this in window close, not slot close, because slot
      * close is too late, by then the widgets have been unrealized.
      * This is for the close by WM case, if you're closing via Ctrl-W that
      * means we close the slots first and this is not an issue */
-    if (window->details->active_pane != NULL &&
-            window->details->active_pane->active_slot != NULL)
-    {
-        slot = window->details->active_pane->active_slot;
+    slot = caja_window_get_active_slot (window);
 
-        save_spatial_data (slot);
-        CAJA_SPATIAL_WINDOW (window)->details->saved_data_on_close = TRUE;
+    if (slot != NULL) {
+        save_spatial_data (self, slot);
+        self->details->saved_data_on_close = TRUE;
     }
 
-    EEL_CALL_PARENT (CAJA_WINDOW_CLASS,
-                     close, (window));
+    if (CAJA_WINDOW_CLASS (caja_spatial_window_parent_class)->close != NULL) {
+        CAJA_WINDOW_CLASS (caja_spatial_window_parent_class)->close (window);
+    }
 }
 
 static void
@@ -559,18 +520,13 @@ location_menu_item_activated_callback (GtkWidget *menu_item,
                                        CajaWindow *window)
 {
     CajaWindowSlot *slot;
-    char *location;
     GFile *current;
     GFile *dest;
     GdkEvent *event;
 
-    slot = window->details->active_pane->active_slot;
-
-    location = caja_window_slot_get_location_uri (slot);
-    current = g_file_new_for_uri (location);
-    g_free (location);
-
-    dest = g_object_get_data (G_OBJECT (menu_item), "uri");
+	slot = caja_window_get_active_slot (window);
+	current = caja_window_slot_get_location (slot);
+	dest = g_object_get_data (G_OBJECT (menu_item), "location");
 
     event = gtk_get_current_event();
 
@@ -583,16 +539,14 @@ location_menu_item_activated_callback (GtkWidget *menu_item,
         close_behind = FALSE;
         selection = NULL;
 
-        child = g_object_get_data (G_OBJECT(menu_item), "child_uri");
-        if (child != NULL)
-        {
+        child = g_object_get_data (G_OBJECT(menu_item), "child_location");
+        if (child != NULL) {
             selection = g_list_prepend (NULL, g_object_ref (child));
         }
 
         if (event != NULL && ((GdkEventAny *) event)->type == GDK_BUTTON_RELEASE &&
                 (((GdkEventButton *) event)->button == 2 ||
-                 (((GdkEventButton *) event)->state & GDK_SHIFT_MASK) != 0))
-        {
+                 (((GdkEventButton *) event)->state & GDK_SHIFT_MASK) != 0)) {
             close_behind = TRUE;
         }
 
@@ -602,8 +556,7 @@ location_menu_item_activated_callback (GtkWidget *menu_item,
         eel_g_object_list_free (selection);
     }
 
-    if (event != NULL)
-    {
+    if (event != NULL) {
         gdk_event_free (event);
     }
 
@@ -697,9 +650,11 @@ location_button_pressed_callback (GtkWidget      *widget,
                                   GdkEventButton *event,
                                   CajaWindow *window)
 {
+	CajaWindowSlot *slot;
     CajaView *view;
 
-    view = window->details->active_pane->active_slot->content_view;
+	slot = caja_window_get_active_slot (window);
+	view = slot->content_view;
 
     if (event->button == 3 && view != NULL)
     {
@@ -715,37 +670,31 @@ location_button_clicked_callback (GtkWidget             *widget,
 {
     CajaWindowSlot *slot;
     GtkWidget *popup, *menu_item, *first_item = NULL;
-    char *location;
-    GFile *uri;
-    GFile *child_uri;
+    GFile *location;
+    GFile *child_location;
     GMainLoop *loop;
 
-    slot = CAJA_WINDOW (window)->details->active_pane->active_slot;
+    slot = caja_window_get_active_slot (CAJA_WINDOW (window));
 
     popup = gtk_menu_new ();
     first_item = NULL;
 
-    location = caja_window_slot_get_location_uri (slot);
+    location = caja_window_slot_get_location (slot);
     g_return_if_fail (location != NULL);
 
-    uri = g_file_new_for_uri (location);
-    g_free (location);
-
-    child_uri = NULL;
-    while (uri != NULL)
-    {
+    child_location = NULL;
+    while (location != NULL) {
         CajaFile *file;
         char *name;
 
-        file = caja_file_get (uri);
+        file = caja_file_get (location);
 
         name = caja_file_get_display_name (file);
         menu_item = gtk_image_menu_item_new_with_label (name);
         gtk_image_menu_item_set_always_show_image (GTK_IMAGE_MENU_ITEM (menu_item), TRUE);
         g_free (name);
 
-        if (first_item == NULL)
-        {
+        if (first_item == NULL) {
             first_item = menu_item;
         }
 
@@ -761,35 +710,31 @@ location_button_clicked_callback (GtkWidget             *widget,
                           window);
 
         g_object_set_data_full (G_OBJECT (menu_item),
-                                "uri",
-                                g_object_ref (uri),
+                                "location",
+                                g_object_ref (location),
                                 (GDestroyNotify)g_object_unref);
 
-        if (child_uri)
-        {
+        if (child_location) {
             g_object_set_data_full (G_OBJECT (menu_item),
-                                    "child_uri",
-                                    g_object_ref (child_uri),
+                                    "child_location",
+                                    g_object_ref (child_location),
                                     (GDestroyNotify)g_object_unref);
         }
 
         gtk_menu_shell_prepend (GTK_MENU_SHELL (popup), menu_item);
 
-        if (child_uri)
-        {
-            g_object_unref (child_uri);
+        if (child_location) {
+            g_object_unref (child_location);
         }
-        child_uri = uri;
-        uri = g_file_get_parent (uri);
+        child_location = location;
+        location = g_file_get_parent (location);
     }
 
-    if (child_uri)
-    {
-        g_object_unref (child_uri);
+    if (child_location) {
+        g_object_unref (child_location);
     }
-    if (uri)
-    {
-        g_object_unref (uri);
+    if (location) {
+        g_object_unref (location);
     }
 
     gtk_menu_set_screen (GTK_MENU (popup), gtk_widget_get_screen (widget));
@@ -813,12 +758,12 @@ location_button_clicked_callback (GtkWidget             *widget,
 static int
 get_dnd_icon_size (CajaSpatialWindow *window)
 {
-    CajaWindow *parent;
+	CajaWindowSlot *active_slot;
     CajaView *view;
     CajaZoomLevel zoom_level;
 
-    parent = CAJA_WINDOW(window);
-    view = parent->details->active_pane->active_slot->content_view;
+	active_slot = caja_window_get_active_slot (CAJA_WINDOW (window));
+	view = active_slot->content_view;
 
     if (view == NULL)
     {
@@ -829,7 +774,6 @@ get_dnd_icon_size (CajaSpatialWindow *window)
         zoom_level = caja_view_get_zoom_level (view);
         return caja_get_icon_size_for_zoom_level (zoom_level);
     }
-
 }
 
 static void
@@ -1164,39 +1108,33 @@ caja_spatial_window_init (CajaSpatialWindow *window)
 }
 
 static void
-caja_spatial_window_class_init (CajaSpatialWindowClass *class)
+caja_spatial_window_class_init (CajaSpatialWindowClass *klass)
 {
     GtkBindingSet *binding_set;
+	CajaWindowClass *nclass = CAJA_WINDOW_CLASS (klass);
+	GtkWidgetClass *wclass = GTK_WIDGET_CLASS (klass);
 
-    CAJA_WINDOW_CLASS (class)->window_type = CAJA_WINDOW_SPATIAL;
-    CAJA_WINDOW_CLASS (class)->bookmarks_placeholder = MENU_PATH_SPATIAL_BOOKMARKS_PLACEHOLDER;
+	nclass->window_type = CAJA_WINDOW_SPATIAL;
+	nclass->bookmarks_placeholder = MENU_PATH_SPATIAL_BOOKMARKS_PLACEHOLDER;
+	nclass->prompt_for_location = real_prompt_for_location;
+	nclass->get_icon = real_get_icon;
+	nclass->sync_title = real_sync_title;
+	nclass->get_min_size = real_get_min_size;
+	nclass->get_default_size = real_get_default_size;
+	nclass->sync_allow_stop = real_sync_allow_stop;
+	nclass->set_allow_up = real_set_allow_up;
+	nclass->open_slot = real_open_slot;
+	nclass->close = real_window_close;
+	nclass->close_slot = real_close_slot;
 
-    G_OBJECT_CLASS (class)->finalize = caja_spatial_window_finalize;
-    GTK_OBJECT_CLASS (class)->destroy = caja_spatial_window_destroy;
-    GTK_WIDGET_CLASS (class)->show = caja_spatial_window_show;
-    GTK_WIDGET_CLASS (class)->configure_event = caja_spatial_window_configure_event;
-    GTK_WIDGET_CLASS (class)->unrealize = caja_spatial_window_unrealize;
-    GTK_WIDGET_CLASS (class)->window_state_event = caja_spatial_window_state_event;
+	wclass->show = caja_spatial_window_show;
+	wclass->configure_event = caja_spatial_window_configure_event;
+	wclass->unrealize = caja_spatial_window_unrealize;
+	wclass->window_state_event = caja_spatial_window_state_event;
 
-    CAJA_WINDOW_CLASS (class)->prompt_for_location =
-        real_prompt_for_location;
-    CAJA_WINDOW_CLASS (class)->get_icon =
-        real_get_icon;
-    CAJA_WINDOW_CLASS (class)->sync_title =
-        real_sync_title;
-    CAJA_WINDOW_CLASS(class)->get_min_size = real_get_min_size;
-    CAJA_WINDOW_CLASS(class)->get_default_size = real_get_default_size;
+	G_OBJECT_CLASS (klass)->finalize = caja_spatial_window_finalize;
 
-    CAJA_WINDOW_CLASS(class)->sync_allow_stop =
-        real_sync_allow_stop;
-    CAJA_WINDOW_CLASS(class)->set_allow_up =
-        real_set_allow_up;
-
-    CAJA_WINDOW_CLASS (class)->open_slot = real_open_slot;
-    CAJA_WINDOW_CLASS (class)->close = real_window_close;
-    CAJA_WINDOW_CLASS (class)->close_slot = real_close_slot;
-
-    binding_set = gtk_binding_set_by_class (class);
+	binding_set = gtk_binding_set_by_class (klass);
     gtk_binding_entry_add_signal (binding_set, GDK_BackSpace, GDK_SHIFT_MASK,
                                   "go_up", 1,
                                   G_TYPE_BOOLEAN, TRUE);
@@ -1204,5 +1142,5 @@ caja_spatial_window_class_init (CajaSpatialWindowClass *class)
                                   "go_up", 1,
                                   G_TYPE_BOOLEAN, TRUE);
 
-    g_type_class_add_private (G_OBJECT_CLASS (class), sizeof(CajaSpatialWindowDetails));
+	g_type_class_add_private (klass, sizeof(CajaSpatialWindowDetails));
 }
