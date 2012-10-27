@@ -40,7 +40,6 @@
 #include <gdk/gdkkeysyms.h>
 #include <libcaja-private/caja-file-utilities.h>
 #include <libcaja-private/caja-global-preferences.h>
-#include <libcaja-private/caja-marshal.h>
 #include <math.h>
 #include <stdlib.h>
 #include <string.h>

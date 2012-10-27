@@ -32,7 +32,6 @@
 #include "caja-search-directory.h"
 #include "caja-global-preferences.h"
 #include "caja-lib-self-check-functions.h"
-#include "caja-marshal.h"
 #include "caja-metadata.h"
 #include "caja-desktop-directory.h"
 #include "caja-vfs-directory.h"
