@@ -208,6 +208,7 @@ ui_DATA = \
 	$(NULL)
 
 CLEANFILES = \
+	caja-src-marshal.list \
 	$(BUILT_SOURCES) \
 	$(desktop_files) \
 	$(server_DATA) \
