@@ -59,19 +59,16 @@ caja_navigation_window_set_spinner_active (CajaNavigationWindow *window,
         gboolean allow)
 {
     if (( window->details->spinner_active &&  allow) ||
-            (!window->details->spinner_active && !allow))
-    {
+            (!window->details->spinner_active && !allow)) {
         return;
     }
 
     window->details->spinner_active = allow;
-    if (allow)
-    {
+    if (allow) {
+        gtk_widget_show (window->details->spinner);
         gtk_spinner_start (GTK_SPINNER (window->details->spinner));
-    }
-    else
-    {
-        gtk_spinner_stop (GTK_SPINNER (window->details->spinner));
+    } else {
+        gtk_widget_hide (window->details->spinner);
     }
 }
 
