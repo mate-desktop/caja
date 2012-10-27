@@ -262,6 +262,10 @@ caja_file_management_properties_dialog_response_cb (GtkDialog *parent,
             break;
         case 4:
             section = "goscaja-60";
+            break;
+        case 5:
+            section = "goscaja-61";
+            break;
         }
         preferences_show_help (GTK_WINDOW (parent), "user-guide", section);
     }
