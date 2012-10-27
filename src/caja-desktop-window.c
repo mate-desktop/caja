@@ -30,7 +30,6 @@
 #include <X11/Xatom.h>
 #include <gdk/gdkx.h>
 #include <gtk/gtk.h>
-#include <eel/eel-gtk-macros.h>
 #include <eel/eel-vfs-extensions.h>
 #include <libcaja-private/caja-file-utilities.h>
 #include <libcaja-private/caja-icon-names.h>
@@ -39,10 +38,8 @@
 
 struct CajaDesktopWindowDetails
 {
-    int dummy;
+    gulong size_changed_id;
 };
-
-static void set_wmspec_desktop_hint (GdkWindow *window);
 
 G_DEFINE_TYPE (CajaDesktopWindow, caja_desktop_window,
                CAJA_TYPE_SPATIAL_WINDOW);
@@ -53,7 +50,8 @@ caja_desktop_window_init (CajaDesktopWindow *window)
     GtkAction *action;
     AtkObject *accessible;
 
-    window->details = g_new0 (CajaDesktopWindowDetails, 1);
+	window->details = G_TYPE_INSTANCE_GET_PRIVATE (window, CAJA_TYPE_DESKTOP_WINDOW,
+						       CajaDesktopWindowDetails);
 
     gtk_window_move (GTK_WINDOW (window), 0, 0);
 
@@ -76,8 +74,10 @@ caja_desktop_window_init (CajaDesktopWindow *window)
 
     /* Set the accessible name so that it doesn't inherit the cryptic desktop URI. */
     accessible = gtk_widget_get_accessible (GTK_WIDGET (window));
-    if (accessible)
+
+	if (accessible) {
         atk_object_set_name (accessible, _("Desktop"));
+	}
 }
 
 static gint
@@ -147,18 +147,6 @@ caja_desktop_window_new (CajaApplication *application,
 }
 
 static void
-finalize (GObject *object)
-{
-    CajaDesktopWindow *window;
-
-    window = CAJA_DESKTOP_WINDOW (object);
-
-    g_free (window->details);
-
-    G_OBJECT_CLASS (caja_desktop_window_parent_class)->finalize (object);
-}
-
-static void
 map (GtkWidget *widget)
 {
     /* Chain up to realize our children */
@@ -166,14 +154,15 @@ map (GtkWidget *widget)
     gdk_window_lower (gtk_widget_get_window (widget));
 }
 
-
 static void
 unrealize (GtkWidget *widget)
 {
     CajaDesktopWindow *window;
+	CajaDesktopWindowDetails *details;
     GdkWindow *root_window;
 
     window = CAJA_DESKTOP_WINDOW (widget);
+	details = window->details;
 
     root_window = gdk_screen_get_root_window (
                       gtk_window_get_screen (GTK_WINDOW (window)));
@@ -181,9 +170,11 @@ unrealize (GtkWidget *widget)
     gdk_property_delete (root_window,
                          gdk_atom_intern ("CAJA_DESKTOP_WINDOW_ID", TRUE));
 
-    g_signal_handlers_disconnect_by_func (gtk_window_get_screen (GTK_WINDOW (window)),
-                                          G_CALLBACK (caja_desktop_window_screen_size_changed),
-                                          window);
+	if (details->size_changed_id != 0) {
+		g_signal_handler_disconnect (gtk_window_get_screen (GTK_WINDOW (window)),
+					     details->size_changed_id);
+		details->size_changed_id = 0;
+	}
 
     GTK_WIDGET_CLASS (caja_desktop_window_parent_class)->unrealize (widget);
 }
@@ -225,8 +216,10 @@ static void
 realize (GtkWidget *widget)
 {
     CajaDesktopWindow *window;
+	CajaDesktopWindowDetails *details;
 
     window = CAJA_DESKTOP_WINDOW (widget);
+	details = window->details;
 
     /* Make sure we get keyboard events */
     gtk_widget_set_events (widget, gtk_widget_get_events (widget)
@@ -240,8 +233,9 @@ realize (GtkWidget *widget)
 
     set_desktop_window_id (window, gtk_widget_get_window (widget));
 
-    g_signal_connect (gtk_window_get_screen (GTK_WINDOW (window)), "size_changed",
-                      G_CALLBACK (caja_desktop_window_screen_size_changed), window);
+	details->size_changed_id =
+		g_signal_connect (gtk_window_get_screen (GTK_WINDOW (window)), "size_changed",
+				  G_CALLBACK (caja_desktop_window_screen_size_changed), window);
 }
 
 static char *
@@ -258,20 +252,18 @@ real_get_icon (CajaWindow *window,
 }
 
 static void
-caja_desktop_window_class_init (CajaDesktopWindowClass *class)
+caja_desktop_window_class_init (CajaDesktopWindowClass *klass)
 {
-    G_OBJECT_CLASS (class)->finalize = finalize;
-    GTK_WIDGET_CLASS (class)->realize = realize;
-    GTK_WIDGET_CLASS (class)->unrealize = unrealize;
+	GtkWidgetClass *wclass = GTK_WIDGET_CLASS (klass);
+	CajaWindowClass *nclass = CAJA_WINDOW_CLASS (klass);
 
+	wclass->realize = realize;
+	wclass->unrealize = unrealize;
+	wclass->map = map;
 
-    GTK_WIDGET_CLASS (class)->map = map;
+	nclass->window_type = CAJA_WINDOW_DESKTOP;
+	nclass->get_title = real_get_title;
+	nclass->get_icon = real_get_icon;
 
-    CAJA_WINDOW_CLASS (class)->window_type = CAJA_WINDOW_DESKTOP;
-
-    CAJA_WINDOW_CLASS (class)->get_title
-        = real_get_title;
-    CAJA_WINDOW_CLASS (class)->get_icon
-        = real_get_icon;
-
+	g_type_class_add_private (klass, sizeof (CajaDesktopWindowDetails));
 }
