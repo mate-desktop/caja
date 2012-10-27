@@ -20,6 +20,15 @@
 #define CAJA_ICON_EMBLEM_UNREADABLE	"emblem-unreadable"
 #define CAJA_ICON_EMBLEM_SYMLINK	"emblem-symbolic-link"
 
+#define CAJA_ICON_FOLDER_DESKTOP    "folder-documents"
+#define CAJA_ICON_FOLDER_DOCUMENTS  "folder-documents"
+#define CAJA_ICON_FOLDER_DOWNLOAD   "folder-download"
+#define CAJA_ICON_FOLDER_MUSIC      "folder-music"
+#define CAJA_ICON_FOLDER_PICTURES   "folder-pictures"
+#define CAJA_ICON_FOLDER_PUBLIC_SHARE "folder-publicshare"
+#define CAJA_ICON_FOLDER_TEMPLATES  "folder-templates"
+#define CAJA_ICON_FOLDER_VIDEOS     "folder-videos"
+
 /* Other icons */
 #define CAJA_ICON_TEMPLATE		"text-x-generic-template"
 
