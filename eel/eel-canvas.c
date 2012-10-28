@@ -523,11 +523,6 @@ eel_canvas_item_set_valist (EelCanvasItem *item, const gchar *first_arg_name, va
 
     g_object_set_valist (G_OBJECT (item), first_arg_name, args);
 
-#if 0
-    /* I commented this out, because item implementations have to schedule update/redraw */
-    eel_canvas_item_request_redraw (item);
-#endif
-
     item->canvas->need_repick = TRUE;
 }
 
