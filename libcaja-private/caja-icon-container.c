@@ -610,8 +610,8 @@ caja_icon_container_scroll (CajaIconContainer *container,
     old_h_value = gtk_adjustment_get_value (hadj);
     old_v_value = gtk_adjustment_get_value (vadj);
 
-    eel_gtk_adjustment_set_value (hadj, gtk_adjustment_get_value (hadj) + delta_x);
-    eel_gtk_adjustment_set_value (vadj, gtk_adjustment_get_value (vadj) + delta_y);
+    gtk_adjustment_set_value (hadj, gtk_adjustment_get_value (hadj) + delta_x);
+    gtk_adjustment_set_value (vadj, gtk_adjustment_get_value (vadj) + delta_y);
 
     /* return TRUE if we did scroll */
     return gtk_adjustment_get_value (hadj) != old_h_value || gtk_adjustment_get_value (vadj) != old_v_value;
@@ -715,24 +715,20 @@ icon_get_row_and_column_bounds (CajaIconContainer *container,
 
     item_get_canvas_bounds (EEL_CANVAS_ITEM (icon->item), bounds, safety_pad);
 
-    for (p = container->details->icons; p != NULL; p = p->next)
-    {
+    for (p = container->details->icons; p != NULL; p = p->next) {
         one_icon = p->data;
 
-        if (icon == one_icon)
-        {
+        if (icon == one_icon) {
             continue;
         }
 
-        if (compare_icons_horizontal (container, icon, one_icon) == 0)
-        {
+        if (compare_icons_horizontal (container, icon, one_icon) == 0) {
             item_get_canvas_bounds (EEL_CANVAS_ITEM (one_icon->item), &one_bounds, safety_pad);
             bounds->x0 = MIN (bounds->x0, one_bounds.x0);
             bounds->x1 = MAX (bounds->x1, one_bounds.x1);
         }
 
-        if (compare_icons_vertical (container, icon, one_icon) == 0)
-        {
+        if (compare_icons_vertical (container, icon, one_icon) == 0) {
             item_get_canvas_bounds (EEL_CANVAS_ITEM (one_icon->item), &one_bounds, safety_pad);
             bounds->y0 = MIN (bounds->y0, one_bounds.y0);
             bounds->y1 = MAX (bounds->y1, one_bounds.y1);
@@ -751,8 +747,7 @@ reveal_icon (CajaIconContainer *container,
     GtkAdjustment *hadj, *vadj;
     EelIRect bounds;
 
-    if (!icon_is_positioned (icon))
-    {
+    if (!icon_is_positioned (icon)) {
         set_pending_icon_to_reveal (container, icon);
         return;
     }
@@ -765,33 +760,24 @@ reveal_icon (CajaIconContainer *container,
     hadj = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container));
     vadj = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container));
 
-    if (caja_icon_container_is_auto_layout (container))
-    {
+    if (caja_icon_container_is_auto_layout (container)) {
         /* ensure that we reveal the entire row/column */
         icon_get_row_and_column_bounds (container, icon, &bounds, TRUE);
-    }
-    else
-    {
+    } else {
         item_get_canvas_bounds (EEL_CANVAS_ITEM (icon->item), &bounds, TRUE);
     }
-    if (bounds.y0 < gtk_adjustment_get_value (vadj))
-    {
-        eel_gtk_adjustment_set_value (vadj, bounds.y0);
-    }
-    else if (bounds.y1 > gtk_adjustment_get_value (vadj) + allocation.height)
-    {
-        eel_gtk_adjustment_set_value
-        (vadj, bounds.y1 - allocation.height);
+    if (bounds.y0 < gtk_adjustment_get_value (vadj)) {
+        gtk_adjustment_set_value (vadj, bounds.y0);
+    } else if (bounds.y1 > gtk_adjustment_get_value (vadj) + allocation.height) {
+        gtk_adjustment_set_value
+                (vadj, bounds.y1 - allocation.height);
     }
 
-    if (bounds.x0 < gtk_adjustment_get_value (hadj))
-    {
-        eel_gtk_adjustment_set_value (hadj, bounds.x0);
-    }
-    else if (bounds.x1 > gtk_adjustment_get_value (hadj) + allocation.width)
-    {
-        eel_gtk_adjustment_set_value
-        (hadj, bounds.x1 - allocation.width);
+    if (bounds.x0 < gtk_adjustment_get_value (hadj)) {
+        gtk_adjustment_set_value (hadj, bounds.x0);
+    } else if (bounds.x1 > gtk_adjustment_get_value (hadj) + allocation.width) {
+        gtk_adjustment_set_value
+                (hadj, bounds.x1 - allocation.width);
     }
 }
 
@@ -802,8 +788,7 @@ process_pending_icon_to_reveal (CajaIconContainer *container)
 
     pending_icon_to_reveal = get_pending_icon_to_reveal (container);
 
-    if (pending_icon_to_reveal != NULL)
-    {
+    if (pending_icon_to_reveal != NULL) {
         reveal_icon (container, pending_icon_to_reveal);
     }
 }
@@ -827,8 +812,7 @@ keyboard_icon_reveal_timeout_callback (gpointer data)
      * (see bugzilla.gnome.org 40612).
      */
     if (icon == container->details->keyboard_focus
-            || icon->is_selected)
-    {
+            || icon->is_selected) {
         reveal_icon (container, icon);
     }
     container->details->keyboard_icon_reveal_timer_id = 0;
@@ -843,8 +827,7 @@ unschedule_keyboard_icon_reveal (CajaIconContainer *container)
 
     details = container->details;
 
-    if (details->keyboard_icon_reveal_timer_id != 0)
-    {
+    if (details->keyboard_icon_reveal_timer_id != 0) {
         g_source_remove (details->keyboard_icon_reveal_timer_id);
     }
 }
@@ -1236,12 +1219,6 @@ caja_icon_container_update_scroll_region (CajaIconContainer *container)
         gtk_adjustment_set_step_increment (vadj, step_increment);
         gtk_adjustment_changed (vadj);
     }
-
-    /* Now that we have a new scroll region, clamp the
-     * adjustments so we are within the valid scroll area.
-     */
-    eel_gtk_adjustment_clamp_value (hadj);
-    eel_gtk_adjustment_clamp_value (vadj);
 }
 
 static int
@@ -7288,40 +7265,29 @@ caja_icon_container_scroll_to_icon (CajaIconContainer  *container,
     caja_icon_container_layout_now (container);
 
     l = container->details->icons;
-    while (l != NULL)
-    {
+    while (l != NULL) {
         icon = l->data;
 
         if (icon->data == data &&
-                icon_is_positioned (icon))
-        {
+                icon_is_positioned (icon)) {
 
             item = EEL_CANVAS_ITEM (icon->item);
 
-            if (caja_icon_container_is_auto_layout (container))
-            {
+            if (caja_icon_container_is_auto_layout (container)) {
                 /* ensure that we reveal the entire row/column */
                 icon_get_row_and_column_bounds (container, icon, &bounds, TRUE);
-            }
-            else
-            {
+            } else {
                 item_get_canvas_bounds (EEL_CANVAS_ITEM (icon->item), &bounds, TRUE);
             }
 
-            if (caja_icon_container_is_layout_vertical (container))
-            {
-                if (caja_icon_container_is_layout_rtl (container))
-                {
-                    eel_gtk_adjustment_set_value (hadj, bounds.x1 - allocation.width);
+            if (caja_icon_container_is_layout_vertical (container)) {
+                if (caja_icon_container_is_layout_rtl (container)) {
+                    gtk_adjustment_set_value (hadj, bounds.x1 - allocation.width);
+                } else {
+                    gtk_adjustment_set_value (hadj, bounds.x0);
                 }
-                else
-                {
-                    eel_gtk_adjustment_set_value (hadj, bounds.x0);
-                }
-            }
-            else
-            {
-                eel_gtk_adjustment_set_value (vadj, bounds.y0);
+            } else {
+                gtk_adjustment_set_value (vadj, bounds.y0);
             }
         }
 
