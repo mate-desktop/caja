@@ -29,7 +29,6 @@
 #include "eel-art-gtk-extensions.h"
 #include "eel-gtk-extensions.h"
 #include "eel-gtk-macros.h"
-#include "eel-types.h"
 #include <gtk/gtk.h>
 
 /* Arguments */
@@ -135,9 +134,6 @@ eel_wrap_table_class_init (EelWrapTableClass *wrap_table_class)
     container_class->forall = eel_wrap_table_forall;
     container_class->child_type = eel_wrap_table_child_type;
 
-    /* Register some the enum types we need */
-    eel_type_init ();
-
     /* Arguments */
     g_object_class_install_property
     (gobject_class,
@@ -155,16 +151,16 @@ eel_wrap_table_class_init (EelWrapTableClass *wrap_table_class)
     (gobject_class,
      PROP_X_JUSTIFICATION,
      g_param_spec_enum ("x_justification", NULL, NULL,
-                        EEL_TYPE_JUSTIFICATION,
-                        EEL_JUSTIFICATION_BEGINNING,
+                        GTK_TYPE_JUSTIFICATION,
+                        GTK_JUSTIFY_LEFT,
                         G_PARAM_READWRITE));
 
     g_object_class_install_property
     (gobject_class,
      PROP_Y_JUSTIFICATION,
      g_param_spec_enum ("y_justification", NULL, NULL,
-                        EEL_TYPE_JUSTIFICATION,
-                        EEL_JUSTIFICATION_BEGINNING,
+                        GTK_TYPE_JUSTIFICATION,
+                        GTK_JUSTIFY_LEFT,
                         G_PARAM_READWRITE));
 
     g_object_class_install_property
