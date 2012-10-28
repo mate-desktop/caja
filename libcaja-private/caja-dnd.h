@@ -188,7 +188,7 @@ void			    caja_drag_autoscroll_calculate_delta	(GtkWidget			      *widget,
         float				      *y_scroll_delta);
 void			    caja_drag_autoscroll_start		(CajaDragInfo		      *drag_info,
         GtkWidget			      *widget,
-        GtkFunction			       callback,
+        GSourceFunc			       callback,
         gpointer			       user_data);
 void			    caja_drag_autoscroll_stop		(CajaDragInfo		      *drag_info);
 

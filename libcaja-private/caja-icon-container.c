@@ -4964,7 +4964,7 @@ continue_stretching (CajaIconContainer *container,
 
     if (container->details->stretch_idle_id == 0)
     {
-        container->details->stretch_idle_id = g_idle_add ((GtkFunction) update_stretch_at_idle, container);
+        container->details->stretch_idle_id = g_idle_add ((GSourceFunc) update_stretch_at_idle, container);
     }
 }
 
