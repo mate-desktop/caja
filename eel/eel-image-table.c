@@ -88,6 +88,13 @@ static void    image_table_emit_signal              (EelImageTable      *image_t
         guint               state,
         GdkEvent           *event);
 
+/* Ancestor methods */
+GtkWidget *    find_windowed_ancestor               (GtkWidget          *widget);
+static void    signal_connect_while_realized        (GtkObject          *object,
+    						     const char         *name,
+    						     GCallback           callback,
+    						     gpointer            callback_data,
+    						     GtkWidget          *realized_widget);
 /* Ancestor callbacks */
 static int     ancestor_enter_notify_event          (GtkWidget          *widget,
         GdkEventCrossing   *event,
@@ -209,7 +216,7 @@ eel_image_table_realize (GtkWidget *widget)
     /* Chain realize */
     EEL_CALL_PARENT (GTK_WIDGET_CLASS, realize, (widget));
 
-    windowed_ancestor = eel_gtk_widget_find_windowed_ancestor (widget);
+    windowed_ancestor = find_windowed_ancestor (widget);
     g_assert (GTK_IS_WIDGET (windowed_ancestor));
 
     gtk_widget_add_events (windowed_ancestor,
@@ -220,35 +227,35 @@ eel_image_table_realize (GtkWidget *widget)
                            | GDK_LEAVE_NOTIFY_MASK
                            | GDK_POINTER_MOTION_MASK);
 
-    eel_gtk_signal_connect_while_realized (GTK_OBJECT (windowed_ancestor),
-                                           "enter_notify_event",
-                                           G_CALLBACK (ancestor_enter_notify_event),
-                                           widget,
-                                           widget);
+    signal_connect_while_realized (GTK_OBJECT (windowed_ancestor),
+    				   "enter_notify_event",
+    				   G_CALLBACK (ancestor_enter_notify_event),
+    				   widget,
+    				   widget);
 
-    eel_gtk_signal_connect_while_realized (GTK_OBJECT (windowed_ancestor),
-                                           "leave_notify_event",
-                                           G_CALLBACK (ancestor_leave_notify_event),
-                                           widget,
-                                           widget);
+    signal_connect_while_realized (GTK_OBJECT (windowed_ancestor),
+    				   "leave_notify_event",
+    				   G_CALLBACK (ancestor_leave_notify_event),
+    				   widget,
+    				   widget);
 
-    eel_gtk_signal_connect_while_realized (GTK_OBJECT (windowed_ancestor),
-                                           "motion_notify_event",
-                                           G_CALLBACK (ancestor_motion_notify_event),
-                                           widget,
-                                           widget);
+    signal_connect_while_realized (GTK_OBJECT (windowed_ancestor),
+    				   "motion_notify_event",
+    				   G_CALLBACK (ancestor_motion_notify_event),
+    				   widget,
+    				   widget);
 
-    eel_gtk_signal_connect_while_realized (GTK_OBJECT (windowed_ancestor),
-                                           "button_press_event",
-                                           G_CALLBACK (ancestor_button_press_event),
-                                           widget,
-                                           widget);
+    signal_connect_while_realized (GTK_OBJECT (windowed_ancestor),
+    				   "button_press_event",
+    				   G_CALLBACK (ancestor_button_press_event),
+    				   widget,
+    				   widget);
 
-    eel_gtk_signal_connect_while_realized (GTK_OBJECT (windowed_ancestor),
-                                           "button_release_event",
-                                           G_CALLBACK (ancestor_button_release_event),
-                                           widget,
-                                           widget);
+    signal_connect_while_realized (GTK_OBJECT (windowed_ancestor),
+    				   "button_release_event",
+    				   G_CALLBACK (ancestor_button_release_event),
+    				   widget,
+    				   widget);
 }
 
 static void
@@ -399,6 +406,107 @@ image_table_handle_motion (EelImageTable *image_table,
                                  0,
                                  (GdkEvent *)event);
     }
+}
+
+GtkWidget *
+find_windowed_ancestor (GtkWidget *widget)
+{
+    g_return_val_if_fail (GTK_IS_WIDGET (widget), NULL);
+
+    while (widget && !gtk_widget_get_has_window (widget))
+    {
+        widget = gtk_widget_get_parent (widget);
+    }
+
+    return widget;
+}
+
+typedef struct
+{
+    GtkObject *object;
+    guint object_destroy_handler;
+
+    GtkWidget *realized_widget;
+    guint realized_widget_destroy_handler;
+    guint realized_widget_unrealized_handler;
+
+    guint signal_handler;
+} RealizeDisconnectInfo;
+
+static void
+while_realized_disconnecter (GtkObject *object,
+                             RealizeDisconnectInfo *info)
+{
+    g_assert (GTK_IS_OBJECT (object));
+    g_assert (info != NULL);
+    g_assert (GTK_IS_OBJECT (info->object));
+    g_assert (info->object_destroy_handler != 0);
+    g_assert (info->object_destroy_handler != 0);
+    g_assert (info->realized_widget_destroy_handler != 0);
+    g_assert (info->realized_widget_unrealized_handler != 0);
+
+    g_signal_handler_disconnect (info->object, info->object_destroy_handler);
+    g_signal_handler_disconnect (info->object, info->signal_handler);
+    g_signal_handler_disconnect (info->realized_widget, info->realized_widget_destroy_handler);
+    g_signal_handler_disconnect (info->realized_widget, info->realized_widget_unrealized_handler);
+    g_free (info);
+}
+
+/**
+ * signal_connect_while_realized:
+ *
+ * @object: Object to connect to.
+ * @name: Name of signal to connect to.
+ * @callback: Caller's callback.
+ * @callback_data: Caller's callback_data.
+ * @realized_widget: Widget to monitor for realized state.  Signal is connected
+ *                   while this wigget is realized.
+ *
+ * Connect to a signal of an object while another widget is realized.  This is
+ * useful for non windowed widgets that need to monitor events in their ancestored
+ * windowed widget.  The signal is automatically disconnected when &widget is
+ * unrealized.  Also, the signal is automatically disconnected when either &object
+ * or &widget are destroyed.
+ **/
+static void
+signal_connect_while_realized (GtkObject *object,
+    				const char *name,
+    				GCallback callback,
+    				gpointer callback_data,
+    				GtkWidget *realized_widget)
+{
+    RealizeDisconnectInfo *info;
+
+    g_return_if_fail (GTK_IS_OBJECT (object));
+    g_return_if_fail (name != NULL);
+    g_return_if_fail (name[0] != '\0');
+    g_return_if_fail (callback != NULL);
+    g_return_if_fail (GTK_IS_WIDGET (realized_widget));
+    g_return_if_fail (gtk_widget_get_realized (realized_widget));
+
+    info = g_new0 (RealizeDisconnectInfo, 1);
+
+    info->object = object;
+    info->object_destroy_handler =
+        g_signal_connect (G_OBJECT (info->object),
+                          "destroy",
+                          G_CALLBACK (while_realized_disconnecter),
+                          info);
+
+    info->realized_widget = realized_widget;
+    info->realized_widget_destroy_handler =
+        g_signal_connect (G_OBJECT (info->realized_widget),
+                          "destroy",
+                          G_CALLBACK (while_realized_disconnecter),
+                          info);
+    info->realized_widget_unrealized_handler =
+        g_signal_connect_after (G_OBJECT (info->realized_widget),
+                                "unrealize",
+                                G_CALLBACK (while_realized_disconnecter),
+                                info);
+
+    info->signal_handler = g_signal_connect (G_OBJECT (info->object),
+                           name, callback, callback_data);
 }
 
 static int
