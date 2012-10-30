@@ -45,7 +45,6 @@
 #include <glib/gi18n.h>
 #include <libmateui/mate-desktop-thumbnail.h>
 #include <libcaja-extension/caja-property-page-provider.h>
-#include <libcaja-private/caja-customization-data.h>
 #include <libcaja-private/caja-entry.h>
 #include <libcaja-private/caja-file-attributes.h>
 #include <libcaja-private/caja-file-operations.h>

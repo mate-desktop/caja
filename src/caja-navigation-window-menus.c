@@ -47,7 +47,6 @@
 #include <eel/eel-mate-extensions.h>
 #include <eel/eel-stock-dialogs.h>
 #include <eel/eel-string.h>
-#include <eel/eel-xml-extensions.h>
 #include <libxml/parser.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
