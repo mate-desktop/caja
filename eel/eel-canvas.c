@@ -73,6 +73,12 @@
 
 #include "eel-marshal.h"
 
+/* Some compatibility defines to let us build on both Gtk2 and Gtk3 */
+#if !GTK_CHECK_VERSION (3, 0, 0)
+#define cairo_region_contains_rectangle gdk_region_rect_in
+#define CAIRO_REGION_OVERLAP_OUT GDK_OVERLAP_RECTANGLE_OUT
+#endif
+
 static void eel_canvas_request_update (EelCanvas      *canvas);
 static void group_add                   (EelCanvasGroup *group,
         EelCanvasItem  *item);
@@ -1553,7 +1559,7 @@ eel_canvas_group_draw (EelCanvasItem *item, GdkDrawable *drawable,
             child_rect.width = child->x2 - child->x1 + 1;
             child_rect.height = child->y2 - child->y1 + 1;
 
-            if (gdk_region_rect_in (expose->region, &child_rect) != GDK_OVERLAP_RECTANGLE_OUT)
+            if (cairo_region_contains_rectangle (expose->region, &child_rect) != CAIRO_REGION_OVERLAP_OUT)
                 (* EEL_CANVAS_ITEM_GET_CLASS (child)->draw) (child, drawable, expose);
         }
     }
