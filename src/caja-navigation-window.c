@@ -593,7 +593,11 @@ caja_navigation_window_button_press_event (GtkWidget *widget,
 }
 
 static void
+#if GTK_CHECK_VERSION (3, 0, 0)
+caja_navigation_window_destroy (GtkWidget *object)
+#else
 caja_navigation_window_destroy (GtkObject *object)
+#endif
 {
     CajaNavigationWindow *window;
 
@@ -609,7 +613,11 @@ caja_navigation_window_destroy (GtkObject *object)
     window->details->content_paned = NULL;
     window->details->split_view_hpane = NULL;
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GTK_WIDGET_CLASS (parent_class)->destroy (object);
+#else
     GTK_OBJECT_CLASS (parent_class)->destroy (object);
+#endif
 }
 
 static void
@@ -1243,7 +1251,11 @@ caja_navigation_window_class_init (CajaNavigationWindowClass *class)
     CAJA_WINDOW_CLASS (class)->bookmarks_placeholder = MENU_PATH_BOOKMARKS_PLACEHOLDER;
 
     G_OBJECT_CLASS (class)->finalize = caja_navigation_window_finalize;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GTK_WIDGET_CLASS (class)->destroy = caja_navigation_window_destroy;
+#else
     GTK_OBJECT_CLASS (class)->destroy = caja_navigation_window_destroy;
+#endif
     GTK_WIDGET_CLASS (class)->show = caja_navigation_window_show;
     GTK_WIDGET_CLASS (class)->unrealize = caja_navigation_window_unrealize;
     GTK_WIDGET_CLASS (class)->window_state_event = caja_navigation_window_state_event;

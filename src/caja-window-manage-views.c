@@ -1313,13 +1313,13 @@ got_file_info_for_view_selection_callback (CajaFile *file,
                 }
                 else
                 {
-                    gtk_object_destroy (GTK_OBJECT (window));
+                    gtk_widget_destroy (GTK_WIDGET (window));
                 }
             }
             else
             {
                 /* Since this is a window, destroying it will also unref it. */
-                gtk_object_destroy (GTK_OBJECT (window));
+                gtk_widget_destroy (GTK_WIDGET (window));
             }
         }
         else

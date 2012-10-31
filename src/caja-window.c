@@ -188,10 +188,14 @@ caja_window_init (CajaWindow *window)
     g_signal_connect_object (caja_signaller_get_current (), "popup_menu_changed",
                              G_CALLBACK (caja_window_load_extension_menus), window, G_CONNECT_SWAPPED);
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+    gtk_quit_add_destroy (1, GTK_WIDGET (window));
+#else
     gtk_quit_add_destroy (1, GTK_OBJECT (window));
+#endif
 
     /* Keep the main event loop alive as long as the window exists */
-    caja_main_event_loop_register (GTK_OBJECT (window));
+    caja_main_event_loop_register (GTK_WIDGET (window));
 }
 
 /* Unconditionally synchronize the GtkUIManager of WINDOW. */
@@ -621,8 +625,11 @@ free_stored_viewers (CajaWindow *window)
     window->details->extra_viewer = NULL;
 }
 
-static void
+#if GTK_CHECK_VERSION (3, 0, 0)
+caja_window_destroy (GtkWidget *object)
+#else
 caja_window_destroy (GtkObject *object)
+#endif
 {
     CajaWindow *window;
     GList *panes_copy;
@@ -638,7 +645,11 @@ caja_window_destroy (GtkObject *object)
     g_assert (window->details->panes == NULL);
     g_assert (window->details->active_pane == NULL);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GTK_WIDGET_CLASS (caja_window_parent_class)->destroy (object);
+#else
     GTK_OBJECT_CLASS (caja_window_parent_class)->destroy (object);
+#endif
 }
 
 static void
@@ -2099,12 +2110,18 @@ caja_window_class_init (CajaWindowClass *class)
 {
     GtkBindingSet *binding_set;
 
-    G_OBJECT_CLASS (class)->finalize = caja_window_finalize;
     G_OBJECT_CLASS (class)->constructor = caja_window_constructor;
     G_OBJECT_CLASS (class)->constructed = caja_window_constructed;
     G_OBJECT_CLASS (class)->get_property = caja_window_get_property;
     G_OBJECT_CLASS (class)->set_property = caja_window_set_property;
+    G_OBJECT_CLASS (class)->finalize = caja_window_finalize;
+
+#if !GTK_CHECK_VERSION (3, 0, 0)
     GTK_OBJECT_CLASS (class)->destroy = caja_window_destroy;
+#else
+    GTK_WIDGET_CLASS (class)->destroy = caja_window_destroy;
+#endif
+
     GTK_WIDGET_CLASS (class)->show = caja_window_show;
     GTK_WIDGET_CLASS (class)->size_request = caja_window_size_request;
     GTK_WIDGET_CLASS (class)->realize = caja_window_realize;

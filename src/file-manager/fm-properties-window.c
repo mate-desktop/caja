@@ -5482,7 +5482,11 @@ real_response (GtkDialog *dialog,
 }
 
 static void
+#if GTK_CHECK_VERSION (3, 0, 0)
+real_destroy (GtkWidget *object)
+#else
 real_destroy (GtkObject *object)
+#endif
 {
 	FMPropertiesWindow *window;
 	GList *l;
@@ -5540,7 +5544,11 @@ real_destroy (GtkObject *object)
 		window->details->update_files_timeout_id = 0;
 	}
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+	GTK_WIDGET_CLASS (parent_class)->destroy (object);
+#else
 	GTK_OBJECT_CLASS (parent_class)->destroy (object);
+#endif
 }
 
 static void
@@ -5795,7 +5803,11 @@ fm_properties_window_class_init (FMPropertiesWindowClass *class)
 	GtkBindingSet *binding_set;
 
 	G_OBJECT_CLASS (class)->finalize = real_finalize;
+#if !GTK_CHECK_VERSION (3, 0, 0)
 	GTK_OBJECT_CLASS (class)->destroy = real_destroy;
+#else
+	GTK_WIDGET_CLASS (class)->destroy = real_destroy;
+#endif
 	GTK_DIALOG_CLASS (class)->response = real_response;
 
 	binding_set = gtk_binding_set_by_class (class);

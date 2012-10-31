@@ -62,16 +62,6 @@ caja_location_dialog_finalize (GObject *object)
 }
 
 static void
-caja_location_dialog_destroy (GtkObject *object)
-{
-    CajaLocationDialog *dialog;
-
-    dialog = CAJA_LOCATION_DIALOG (object);
-
-    EEL_CALL_PARENT (GTK_OBJECT_CLASS, destroy, (object));
-}
-
-static void
 open_current_location (CajaLocationDialog *dialog)
 {
     GFile *location;
@@ -136,14 +126,7 @@ entry_activate_callback (GtkEntry *entry,
 static void
 caja_location_dialog_class_init (CajaLocationDialogClass *class)
 {
-    GObjectClass *gobject_class;
-    GtkObjectClass *object_class;
-
-    gobject_class = G_OBJECT_CLASS (class);
-    gobject_class->finalize = caja_location_dialog_finalize;
-
-    object_class = GTK_OBJECT_CLASS (class);
-    object_class->destroy = caja_location_dialog_destroy;
+    G_OBJECT_CLASS (class)->finalize = caja_location_dialog_finalize;
 }
 
 static void

@@ -54,14 +54,11 @@ EEL_IMPLEMENT_MUST_OVERRIDE_SIGNAL (caja_navigation_bar, set_location)
 static void
 caja_navigation_bar_class_init (CajaNavigationBarClass *klass)
 {
-    GtkObjectClass *object_class;
     GtkBindingSet *binding_set;
-
-    object_class = GTK_OBJECT_CLASS (klass);
 
     signals[ACTIVATE] = g_signal_new
                         ("activate",
-                         G_TYPE_FROM_CLASS (object_class),
+                         G_TYPE_FROM_CLASS (klass),
                          G_SIGNAL_RUN_LAST,
                          G_STRUCT_OFFSET (CajaNavigationBarClass,
                                           activate),
@@ -71,7 +68,7 @@ caja_navigation_bar_class_init (CajaNavigationBarClass *klass)
 
     signals[CANCEL] = g_signal_new
                       ("cancel",
-                       G_TYPE_FROM_CLASS (object_class),
+                       G_TYPE_FROM_CLASS (klass),
                        G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
                        G_STRUCT_OFFSET (CajaNavigationBarClass,
                                         cancel),
@@ -81,7 +78,7 @@ caja_navigation_bar_class_init (CajaNavigationBarClass *klass)
 
     signals[LOCATION_CHANGED] = g_signal_new
                                 ("location_changed",
-                                 G_TYPE_FROM_CLASS (object_class),
+                                 G_TYPE_FROM_CLASS (klass),
                                  G_SIGNAL_RUN_LAST,
                                  G_STRUCT_OFFSET (CajaNavigationBarClass,
                                          location_changed),

@@ -361,12 +361,10 @@ static void
 caja_path_bar_class_init (CajaPathBarClass *path_bar_class)
 {
     GObjectClass *gobject_class;
-    GtkObjectClass *object_class;
     GtkWidgetClass *widget_class;
     GtkContainerClass *container_class;
 
     gobject_class = (GObjectClass *) path_bar_class;
-    object_class = (GtkObjectClass *) path_bar_class;
     widget_class = (GtkWidgetClass *) path_bar_class;
     container_class = (GtkContainerClass *) path_bar_class;
 
@@ -388,7 +386,7 @@ caja_path_bar_class_init (CajaPathBarClass *path_bar_class)
 
     path_bar_signals [PATH_CLICKED] =
         g_signal_new ("path-clicked",
-                      G_OBJECT_CLASS_TYPE (object_class),
+                      G_OBJECT_CLASS_TYPE (path_bar_class),
                       G_SIGNAL_RUN_FIRST,
                       G_STRUCT_OFFSET (CajaPathBarClass, path_clicked),
                       NULL, NULL,
@@ -397,7 +395,7 @@ caja_path_bar_class_init (CajaPathBarClass *path_bar_class)
                       G_TYPE_FILE);
     path_bar_signals [PATH_SET] =
         g_signal_new ("path-set",
-                      G_OBJECT_CLASS_TYPE (object_class),
+                      G_OBJECT_CLASS_TYPE (path_bar_class),
                       G_SIGNAL_RUN_FIRST,
                       G_STRUCT_OFFSET (CajaPathBarClass, path_set),
                       NULL, NULL,
