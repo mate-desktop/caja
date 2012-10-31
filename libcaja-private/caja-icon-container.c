@@ -4379,10 +4379,12 @@ select_previous_or_next_icon (CajaIconContainer *container,
 }
 #endif
 
-/* GtkObject methods.  */
-
 static void
+#if GTK_CHECK_VERSION(3, 0, 0)
+destroy (GtkWidget *object)
+#else
 destroy (GtkObject *object)
+#endif
 {
     CajaIconContainer *container;
 
@@ -4439,8 +4441,11 @@ destroy (GtkObject *object)
         }
     }
 
-
+#if GTK_CHECK_VERSION(3, 0, 0)
+    GTK_WIDGET_CLASS (caja_icon_container_parent_class)->destroy (object);
+#else
     GTK_OBJECT_CLASS (caja_icon_container_parent_class)->destroy (object);
+#endif
 }
 
 static void
@@ -6213,7 +6218,12 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
 
     G_OBJECT_CLASS (class)->constructor = caja_icon_container_constructor;
     G_OBJECT_CLASS (class)->finalize = finalize;
+
+#if GTK_CHECK_VERSION(3, 0, 0)
+    GTK_WIDGET_CLASS (class)->destroy = destroy;
+#else
     GTK_OBJECT_CLASS (class)->destroy = destroy;
+#endif
 
     /* Signals.  */
 

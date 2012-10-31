@@ -793,7 +793,7 @@ report_broken_symbolic_link (GtkWindow *parent_window, CajaFile *file)
      */
 
     response = gtk_dialog_run (dialog);
-    gtk_object_destroy (GTK_OBJECT (dialog));
+    gtk_widget_destroy (GTK_WIDGET (dialog));
 
     if (response == GTK_RESPONSE_YES)
     {
@@ -860,7 +860,7 @@ get_executable_text_file_action (GtkWindow *parent_window, CajaFile *file)
     g_free (detail);
 
     response = gtk_dialog_run (dialog);
-    gtk_object_destroy (GTK_OBJECT (dialog));
+    gtk_widget_destroy (GTK_WIDGET (dialog));
 
     switch (response)
     {
@@ -1223,7 +1223,7 @@ confirm_multiple_windows (GtkWindow *parent_window,
     g_free (detail);
 
     response = gtk_dialog_run (dialog);
-    gtk_object_destroy (GTK_OBJECT (dialog));
+    gtk_widget_destroy (GTK_WIDGET (dialog));
 
     return response == GTK_RESPONSE_YES;
 }
