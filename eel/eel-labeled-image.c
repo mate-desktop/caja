@@ -30,7 +30,6 @@
 #include "eel-debug-drawing.h"
 #include "eel-gtk-container.h"
 #include "eel-gtk-extensions.h"
-#include "eel-gtk-macros.h"
 #include "eel-accessibility.h"
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
@@ -89,46 +88,8 @@ static GType         eel_labeled_image_check_button_get_type  (void);
 static GType         eel_labeled_image_radio_button_get_type  (void);
 static GType         eel_labeled_image_toggle_button_get_type (void);
 
-
-static void          eel_labeled_image_class_init         (EelLabeledImageClass  *labeled_image_class);
-static void          eel_labeled_image_init               (EelLabeledImage       *image);
-static void          eel_labeled_image_finalize           (GObject               *object);
-
-
-
-/* GObjectClass methods */
-static void          eel_labeled_image_set_property       (GObject               *object,
-        guint                  property_id,
-        const GValue          *value,
-        GParamSpec            *pspec);
-static void          eel_labeled_image_get_property       (GObject               *object,
-        guint                  property_id,
-        GValue                *value,
-        GParamSpec            *pspec);
-
-/* GtkObjectClass methods */
-static void          eel_labeled_image_destroy            (GtkObject             *object);
-
 /* GtkWidgetClass methods */
-static void          eel_labeled_image_size_request       (GtkWidget             *widget,
-        GtkRequisition        *requisition);
-static int           eel_labeled_image_expose_event       (GtkWidget             *widget,
-        GdkEventExpose        *event);
-static void          eel_labeled_image_size_allocate      (GtkWidget             *widget,
-        GtkAllocation         *allocation);
-static void          eel_labeled_image_map                (GtkWidget             *widget);
-static void          eel_labeled_image_unmap              (GtkWidget             *widget);
 static AtkObject    *eel_labeled_image_get_accessible     (GtkWidget             *widget);
-
-/* GtkContainerClass methods */
-static void          eel_labeled_image_add                (GtkContainer          *container,
-        GtkWidget             *widget);
-static void          eel_labeled_image_remove             (GtkContainer          *container,
-        GtkWidget             *widget);
-static void          eel_labeled_image_forall             (GtkContainer          *container,
-        gboolean               include_internals,
-        GtkCallback            callback,
-        gpointer               callback_data);
 
 /* Private EelLabeledImage methods */
 static EelDimensions labeled_image_get_image_dimensions   (const EelLabeledImage *labeled_image);
@@ -143,158 +104,16 @@ static gboolean      labeled_image_show_image             (const EelLabeledImage
 
 static guint labeled_image_signals[LAST_SIGNAL] = { 0 };
 
-EEL_CLASS_BOILERPLATE (EelLabeledImage, eel_labeled_image, GTK_TYPE_CONTAINER)
-
-/* Class init methods */
-static void
-eel_labeled_image_class_init (EelLabeledImageClass *labeled_image_class)
-{
-    GObjectClass *gobject_class = G_OBJECT_CLASS (labeled_image_class);
-    GtkObjectClass *object_class = GTK_OBJECT_CLASS (labeled_image_class);
-    GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (labeled_image_class);
-    GtkContainerClass *container_class = GTK_CONTAINER_CLASS (labeled_image_class);
-    GtkBindingSet *binding_set;
-
-    gobject_class->finalize = eel_labeled_image_finalize;
-
-    /* GObjectClass */
-    gobject_class->set_property = eel_labeled_image_set_property;
-    gobject_class->get_property = eel_labeled_image_get_property;
-
-    /* GtkObjectClass */
-    object_class->destroy = eel_labeled_image_destroy;
-
-    /* GtkWidgetClass */
-    widget_class->size_request = eel_labeled_image_size_request;
-    widget_class->size_allocate = eel_labeled_image_size_allocate;
-    widget_class->expose_event = eel_labeled_image_expose_event;
-    widget_class->map = eel_labeled_image_map;
-    widget_class->unmap = eel_labeled_image_unmap;
-    widget_class->get_accessible = eel_labeled_image_get_accessible;
-
-    /* GtkContainerClass */
-    container_class->add = eel_labeled_image_add;
-    container_class->remove = eel_labeled_image_remove;
-    container_class->forall = eel_labeled_image_forall;
-
-    labeled_image_signals[ACTIVATE] =
-        g_signal_new ("activate",
-                      G_TYPE_FROM_CLASS (labeled_image_class),
-                      G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
-                      G_STRUCT_OFFSET (EelLabeledImageClass,
-                                       activate),
-                      NULL, NULL,
-                      g_cclosure_marshal_VOID__VOID,
-                      G_TYPE_NONE, 0);
-    widget_class->activate_signal = labeled_image_signals[ACTIVATE];
-
-    binding_set = gtk_binding_set_by_class (gobject_class);
-
-    gtk_binding_entry_add_signal (binding_set,
-                                  GDK_KEY_Return, 0,
-                                  "activate", 0);
-    gtk_binding_entry_add_signal (binding_set,
-                                  GDK_KEY_KP_Enter, 0,
-                                  "activate", 0);
-    gtk_binding_entry_add_signal (binding_set,
-                                  GDK_KEY_space, 0,
-                                  "activate", 0);
-
-
-    /* Properties */
-    g_object_class_install_property (
-        gobject_class,
-        PROP_PIXBUF,
-        g_param_spec_object ("pixbuf", NULL, NULL,
-                             GDK_TYPE_PIXBUF, G_PARAM_READWRITE));
-
-    g_object_class_install_property (
-        gobject_class,
-        PROP_LABEL,
-        g_param_spec_string ("label", NULL, NULL,
-                             "", G_PARAM_READWRITE));
-
-
-    g_object_class_install_property (
-        gobject_class,
-        PROP_LABEL_POSITION,
-        g_param_spec_enum ("label_position", NULL, NULL,
-                           GTK_TYPE_POSITION_TYPE,
-                           GTK_POS_BOTTOM,
-                           G_PARAM_READWRITE));
-
-    g_object_class_install_property (
-        gobject_class,
-        PROP_SHOW_LABEL,
-        g_param_spec_boolean ("show_label", NULL, NULL,
-                              TRUE, G_PARAM_READWRITE));
-
-    g_object_class_install_property (
-        gobject_class,
-        PROP_SHOW_IMAGE,
-        g_param_spec_boolean ("show_image", NULL, NULL,
-                              TRUE, G_PARAM_READWRITE));
-
-
-    g_object_class_install_property (
-        gobject_class,
-        PROP_SPACING,
-        g_param_spec_uint ("spacing", NULL, NULL,
-                           0,
-                           G_MAXINT,
-                           DEFAULT_SPACING,
-                           G_PARAM_READWRITE));
-
-    g_object_class_install_property (
-        gobject_class,
-        PROP_X_PADDING,
-        g_param_spec_int ("x_padding", NULL, NULL,
-                          0,
-                          G_MAXINT,
-                          DEFAULT_X_PADDING,
-                          G_PARAM_READWRITE));
-
-    g_object_class_install_property (
-        gobject_class,
-        PROP_Y_PADDING,
-        g_param_spec_int ("y_padding", NULL, NULL,
-                          0,
-                          G_MAXINT,
-                          DEFAULT_Y_PADDING,
-                          G_PARAM_READWRITE));
-
-    g_object_class_install_property (
-        gobject_class,
-        PROP_X_ALIGNMENT,
-        g_param_spec_float ("x_alignment", NULL, NULL,
-                            0.0,
-                            1.0,
-                            DEFAULT_X_ALIGNMENT,
-                            G_PARAM_READWRITE));
-
-    g_object_class_install_property (
-        gobject_class,
-        PROP_Y_ALIGNMENT,
-        g_param_spec_float ("y_alignment", NULL, NULL,
-                            0.0,
-                            1.0,
-                            DEFAULT_Y_ALIGNMENT,
-                            G_PARAM_READWRITE));
-
-    g_object_class_install_property (
-        gobject_class,
-        PROP_FILL,
-        g_param_spec_boolean ("fill", NULL, NULL,
-                              FALSE,
-                              G_PARAM_READWRITE));
-}
+G_DEFINE_TYPE (EelLabeledImage, eel_labeled_image, GTK_TYPE_CONTAINER)
 
 static void
 eel_labeled_image_init (EelLabeledImage *labeled_image)
 {
     gtk_widget_set_has_window (GTK_WIDGET (labeled_image), FALSE);
 
-    labeled_image->details = g_new0 (EelLabeledImageDetails, 1);
+    labeled_image->details = G_TYPE_INSTANCE_GET_PRIVATE (labeled_image,
+    							  EEL_TYPE_LABELED_IMAGE,
+    							  EelLabeledImageDetails);
     labeled_image->details->show_label = TRUE;
     labeled_image->details->show_image = TRUE;
     labeled_image->details->label_position = GTK_POS_BOTTOM;
@@ -309,20 +128,11 @@ eel_labeled_image_init (EelLabeledImage *labeled_image)
 }
 
 static void
-eel_labeled_image_finalize (GObject *object)
-{
-    EelLabeledImage *labeled_image;
-
-    labeled_image = EEL_LABELED_IMAGE (object);
-
-    g_free (labeled_image->details);
-
-    EEL_CALL_PARENT (G_OBJECT_CLASS, finalize, (object));
-}
-
-
-static void
+#if GTK_CHECK_VERSION (3, 0, 0)
+eel_labeled_image_destroy (GtkWidget *object)
+#else
 eel_labeled_image_destroy (GtkObject *object)
+#endif
 {
     EelLabeledImage *labeled_image;
 
@@ -338,7 +148,11 @@ eel_labeled_image_destroy (GtkObject *object)
         gtk_widget_destroy (labeled_image->details->label);
     }
 
-    EEL_CALL_PARENT (GTK_OBJECT_CLASS, destroy, (object));
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GTK_WIDGET_CLASS (eel_labeled_image_parent_class)->destroy (object);
+#else
+    GTK_OBJECT_CLASS (eel_labeled_image_parent_class)->destroy (object);
+#endif
 }
 
 /* GObjectClass methods */
@@ -692,6 +506,152 @@ eel_labeled_image_forall (GtkContainer *container,
             (* callback) (labeled_image->details->label, callback_data);
         }
     }
+}
+
+/* Class init methods */
+static void
+eel_labeled_image_class_init (EelLabeledImageClass *labeled_image_class)
+{
+    GObjectClass *gobject_class = G_OBJECT_CLASS (labeled_image_class);
+    GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (labeled_image_class);
+    GtkContainerClass *container_class = GTK_CONTAINER_CLASS (labeled_image_class);
+    GtkBindingSet *binding_set;
+
+    /* GObjectClass */
+    gobject_class->set_property = eel_labeled_image_set_property;
+    gobject_class->get_property = eel_labeled_image_get_property;
+
+#if !GTK_CHECK_VERSION (3, 0, 0)
+    GTK_OBJECT_CLASS (labeled_image_class)->destroy = eel_labeled_image_destroy;
+#else
+    widget_class->destroy = eel_labeled_image_destroy;
+#endif
+
+    /* GtkWidgetClass */
+    widget_class->size_request = eel_labeled_image_size_request;
+    widget_class->size_allocate = eel_labeled_image_size_allocate;
+    widget_class->expose_event = eel_labeled_image_expose_event;
+    widget_class->map = eel_labeled_image_map;
+    widget_class->unmap = eel_labeled_image_unmap;
+    widget_class->get_accessible = eel_labeled_image_get_accessible;
+
+    /* GtkContainerClass */
+    container_class->add = eel_labeled_image_add;
+    container_class->remove = eel_labeled_image_remove;
+    container_class->forall = eel_labeled_image_forall;
+
+    labeled_image_signals[ACTIVATE] =
+    g_signal_new ("activate",
+                  G_TYPE_FROM_CLASS (labeled_image_class),
+                  G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
+                  G_STRUCT_OFFSET (EelLabeledImageClass,
+                                   activate),
+                  NULL, NULL,
+                  g_cclosure_marshal_VOID__VOID,
+                  G_TYPE_NONE, 0);
+    widget_class->activate_signal = labeled_image_signals[ACTIVATE];
+
+    binding_set = gtk_binding_set_by_class (gobject_class);
+
+    gtk_binding_entry_add_signal (binding_set,
+                                  GDK_KEY_Return, 0,
+                                  "activate", 0);
+    gtk_binding_entry_add_signal (binding_set,
+                                  GDK_KEY_KP_Enter, 0,
+                                  "activate", 0);
+    gtk_binding_entry_add_signal (binding_set,
+                                  GDK_KEY_space, 0,
+                                  "activate", 0);
+
+
+    /* Properties */
+    g_object_class_install_property (
+        gobject_class,
+        PROP_PIXBUF,
+        g_param_spec_object ("pixbuf", NULL, NULL,
+                             GDK_TYPE_PIXBUF, G_PARAM_READWRITE));
+
+    g_object_class_install_property (
+        gobject_class,
+        PROP_LABEL,
+        g_param_spec_string ("label", NULL, NULL,
+                             "", G_PARAM_READWRITE));
+
+
+    g_object_class_install_property (
+        gobject_class,
+        PROP_LABEL_POSITION,
+        g_param_spec_enum ("label_position", NULL, NULL,
+                           GTK_TYPE_POSITION_TYPE,
+                           GTK_POS_BOTTOM,
+                           G_PARAM_READWRITE));
+
+    g_object_class_install_property (
+        gobject_class,
+        PROP_SHOW_LABEL,
+        g_param_spec_boolean ("show_label", NULL, NULL,
+                              TRUE, G_PARAM_READWRITE));
+
+    g_object_class_install_property (
+        gobject_class,
+        PROP_SHOW_IMAGE,
+        g_param_spec_boolean ("show_image", NULL, NULL,
+                              TRUE, G_PARAM_READWRITE));
+
+
+    g_object_class_install_property (
+        gobject_class,
+        PROP_SPACING,
+        g_param_spec_uint ("spacing", NULL, NULL,
+                           0,
+                           G_MAXINT,
+                           DEFAULT_SPACING,
+                           G_PARAM_READWRITE));
+
+    g_object_class_install_property (
+        gobject_class,
+        PROP_X_PADDING,
+        g_param_spec_int ("x_padding", NULL, NULL,
+                          0,
+                          G_MAXINT,
+                          DEFAULT_X_PADDING,
+                          G_PARAM_READWRITE));
+
+    g_object_class_install_property (
+        gobject_class,
+        PROP_Y_PADDING,
+        g_param_spec_int ("y_padding", NULL, NULL,
+                          0,
+                          G_MAXINT,
+                          DEFAULT_Y_PADDING,
+                          G_PARAM_READWRITE));
+
+    g_object_class_install_property (
+        gobject_class,
+        PROP_X_ALIGNMENT,
+        g_param_spec_float ("x_alignment", NULL, NULL,
+                            0.0,
+                            1.0,
+                            DEFAULT_X_ALIGNMENT,
+                            G_PARAM_READWRITE));
+
+    g_object_class_install_property (
+        gobject_class,
+        PROP_Y_ALIGNMENT,
+        g_param_spec_float ("y_alignment", NULL, NULL,
+                            0.0,
+                            1.0,
+                            DEFAULT_Y_ALIGNMENT,
+                            G_PARAM_READWRITE));
+
+    g_object_class_install_property (
+        gobject_class,
+        PROP_FILL,
+        g_param_spec_boolean ("fill", NULL, NULL,
+                              FALSE,
+                              G_PARAM_READWRITE));
+
+    g_type_class_add_private (labeled_image_class, sizeof (EelLabeledImageDetails));
 }
 
 /* Private EelLabeledImage methods */
@@ -1308,7 +1268,7 @@ labeled_image_show_label (const EelLabeledImage *labeled_image)
  * be created as neeeded.
  *
  * Thus, using this widget in place of EelImage or EelLabel is "free" with
- * only the GtkObject and function call overhead.
+ * only the GtkWidget and function call overhead.
  *
  */
 GtkWidget*
