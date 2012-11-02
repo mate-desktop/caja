@@ -228,6 +228,7 @@ caja_property_browser_init (GtkObject *object)
     GtkWidget *widget, *temp_box, *temp_hbox, *temp_frame, *vbox;
     GtkWidget *temp_button;
     GtkWidget *viewport;
+    PangoAttrList *attrs;
     char *temp_str;
 
     property_browser = CAJA_PROPERTY_BROWSER (object);
@@ -316,9 +317,12 @@ caja_property_browser_init (GtkObject *object)
     gtk_container_add(GTK_CONTAINER(temp_frame), temp_hbox);
 
     /* add the title label */
+    attrs = pango_attr_list_new ();
+    pango_attr_list_insert (attrs, pango_attr_scale_new (PANGO_SCALE_X_LARGE));
+    pango_attr_list_insert (attrs, pango_attr_weight_new (PANGO_WEIGHT_BOLD));
     property_browser->details->title_label = gtk_label_new ("");
-    eel_gtk_label_set_scale (GTK_LABEL (property_browser->details->title_label), PANGO_SCALE_X_LARGE);
-    eel_gtk_label_make_bold (GTK_LABEL (property_browser->details->title_label));
+    gtk_label_set_attributes (GTK_LABEL (property_browser->details->title_label), attrs);
+    pango_attr_list_unref (attrs);
 
     gtk_widget_show(property_browser->details->title_label);
     gtk_box_pack_start (GTK_BOX(temp_hbox), property_browser->details->title_label, FALSE, FALSE, 0);
