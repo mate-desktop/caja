@@ -300,7 +300,7 @@ static void
 icon_free (CajaIcon *icon)
 {
     /* Destroy this canvas item; the parent will unref it. */
-    gtk_object_destroy (GTK_OBJECT (icon->item));
+    eel_canvas_item_destroy (EEL_CANVAS_ITEM (icon->item));
     g_free (icon);
 }
 
@@ -2990,7 +2990,7 @@ stop_rubberbanding (CajaIconContainer *container,
 
     /* Destroy this canvas item; the parent will unref it. */
     eel_canvas_item_ungrab (band_info->selection_rectangle, time);
-    gtk_object_destroy (GTK_OBJECT (band_info->selection_rectangle));
+    eel_canvas_item_destroy (band_info->selection_rectangle);
     band_info->selection_rectangle = NULL;
 
     /* if only one item has been selected, use it as range
