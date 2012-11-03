@@ -38,7 +38,6 @@
 #include <eel/eel-gtk-macros.h>
 #include <eel/eel-image-table.h>
 #include <eel/eel-labeled-image.h>
-#include <eel/eel-pango-extensions.h>
 #include <eel/eel-self-checks.h>
 #include <eel/eel-stock-dialogs.h>
 #include <eel/eel-string.h>

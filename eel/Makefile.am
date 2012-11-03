@@ -49,7 +49,6 @@ libeel_2_la_SOURCES = \
 	eel-image-table.c \
 	eel-labeled-image.c \
 	eel-lib-self-check-functions.c \
-	eel-pango-extensions.c \
 	eel-self-checks.c \
 	eel-stock-dialogs.c \
 	eel-string.c \
@@ -83,7 +82,6 @@ eel_headers = \
 	eel-gtk-macros.h \
 	eel-image-table.h \
 	eel-labeled-image.h \
-	eel-pango-extensions.h \
 	eel-self-checks.h \
 	eel-stock-dialogs.h \
 	eel-string.h \
