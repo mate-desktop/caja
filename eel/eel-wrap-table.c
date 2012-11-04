@@ -98,6 +98,8 @@ static EelDimensions wrap_table_irect_max_dimensions     (const EelDimensions *o
 static EelDimensions wrap_table_get_max_child_dimensions (const EelWrapTable  *wrap_table);
 static EelDimensions wrap_table_get_content_dimensions   (const EelWrapTable  *wrap_table);
 static EelIRect      wrap_table_get_content_bounds       (const EelWrapTable  *wrap_table);
+static gboolean      wrap_table_child_visible_in         (GtkWidget           *child,
+							  GtkWidget           *scrolled);
 static gboolean      wrap_table_child_focus_in           (GtkWidget           *widget,
         GdkEventFocus       *event,
         gpointer             data);
@@ -744,23 +746,55 @@ wrap_table_get_content_bounds (const EelWrapTable *wrap_table)
     return content_bounds;
 }
 
+/**
+ * wrap_table_child_visible_in
+ *
+ * Get child position relative to parent, then determine whether
+ * the whole child rectangle is visible in the scrolled window
+ **/
+static gboolean
+wrap_table_child_visible_in (GtkWidget *child, GtkWidget *scrolled)
+{
+    gint x, y;
+    GtkAllocation child_alloc, scroll_alloc;
+
+    gtk_widget_translate_coordinates (child, scrolled, 0, 0, &x, &y);
+    gtk_widget_get_allocation(child, &child_alloc);
+    gtk_widget_get_allocation(scrolled, &scroll_alloc);
+
+    return (x >= 0 && y >= 0)
+        && x + child_alloc.width <= scroll_alloc.width
+        && y + child_alloc.height <= scroll_alloc.height;
+}
+
 static gboolean
 wrap_table_child_focus_in (GtkWidget *widget,
                            GdkEventFocus *event,
                            gpointer data)
 {
-    GtkWidget *parent, *pparent;
-    GtkAllocation allocation;
+    gint x, y;
+    GtkWidget *container, *viewport;
+    GtkAdjustment *hadj, *vadj;
 
-    parent = gtk_widget_get_parent (widget);
-    if (parent)
-        pparent = gtk_widget_get_parent (parent);
-    g_assert (parent && pparent);
-    g_assert (GTK_IS_VIEWPORT (pparent));
+    container = gtk_widget_get_parent (widget);
+    if (container)
+    {
+        viewport = gtk_widget_get_parent (container);
+    }
+    g_assert (container && viewport);
+    g_assert (GTK_IS_VIEWPORT (viewport));
+    g_return_val_if_fail (gtk_widget_get_realized (viewport), FALSE);
 
-    gtk_widget_get_allocation (widget, &allocation);
-    eel_gtk_viewport_scroll_to_rect (GTK_VIEWPORT (pparent),
-                                     &allocation);
+    if (!wrap_table_child_visible_in (widget, viewport))
+    {
+        hadj = gtk_viewport_get_hadjustment (GTK_VIEWPORT (viewport));
+        vadj = gtk_viewport_get_vadjustment (GTK_VIEWPORT (viewport));
+
+        gtk_widget_translate_coordinates (widget, container, 0, 0, &x, &y);
+
+        gtk_adjustment_set_value (hadj, MIN (x, hadj->upper - hadj->page_size));
+        gtk_adjustment_set_value (vadj, MIN (y, vadj->upper - vadj->page_size));
+    }
 
     return FALSE;
 }
@@ -977,16 +1011,12 @@ void
 eel_wrap_table_set_homogeneous (EelWrapTable *wrap_table,
                                 gboolean homogeneous)
 {
-    g_return_if_fail (EEL_IS_WRAP_TABLE (wrap_table));
-
-    if (wrap_table->details->homogeneous == homogeneous)
+    if (EEL_IS_WRAP_TABLE (wrap_table) &&
+        wrap_table->details->homogeneous != homogeneous)
     {
-        return;
+        wrap_table->details->homogeneous = homogeneous;
+        gtk_widget_queue_resize (GTK_WIDGET (wrap_table));
     }
-
-    wrap_table->details->homogeneous = homogeneous;
-
-    gtk_widget_queue_resize (GTK_WIDGET (wrap_table));
 }
 
 /**
