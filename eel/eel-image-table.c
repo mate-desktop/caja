@@ -46,7 +46,6 @@ struct EelImageTableDetails
 {
     GtkWidget *child_under_pointer;
     GtkWidget *child_being_pressed;
-    GdkGC     *clear_gc;
 };
 
 /* Signals */
@@ -71,7 +70,6 @@ static void    eel_image_table_finalize             (GObject            *object)
 
 /* GtkWidgetClass methods */
 static void    eel_image_table_realize              (GtkWidget          *widget);
-static void    eel_image_table_unrealize            (GtkWidget          *widget);
 
 /* GtkContainerClass methods */
 static void    eel_image_table_remove               (GtkContainer       *container,
@@ -126,7 +124,6 @@ eel_image_table_class_init (EelImageTableClass *image_table_class)
 
     /* GtkWidgetClass */
     widget_class->realize = eel_image_table_realize;
-    widget_class->unrealize = eel_image_table_unrealize;
 
     /* GtkContainerClass */
     container_class->remove = eel_image_table_remove;
@@ -256,25 +253,6 @@ eel_image_table_realize (GtkWidget *widget)
     				   G_CALLBACK (ancestor_button_release_event),
     				   widget,
     				   widget);
-}
-
-static void
-eel_image_table_unrealize (GtkWidget *widget)
-{
-    EelImageTable *image_table;
-
-    g_assert (EEL_IS_IMAGE_TABLE (widget));
-
-    image_table = EEL_IMAGE_TABLE (widget);
-
-    if (image_table->details->clear_gc != NULL)
-    {
-        g_object_unref (image_table->details->clear_gc);
-        image_table->details->clear_gc = NULL;
-    }
-
-    /* Chain unrealize */
-    EEL_CALL_PARENT (GTK_WIDGET_CLASS, unrealize, (widget));
 }
 
 /* GtkContainerClass methods */
