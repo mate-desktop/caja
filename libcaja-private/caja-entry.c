@@ -35,6 +35,10 @@
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 
+#if !GTK_CHECK_VERSION(3, 0, 0)
+#define GtkEditableInterface GtkEditableClass
+#endif
+
 struct CajaEntryDetails
 {
     gboolean user_edit;
@@ -51,13 +55,13 @@ enum
 };
 static guint signals[LAST_SIGNAL];
 
-static void caja_entry_editable_init (GtkEditableClass *iface);
+static void caja_entry_editable_init (GtkEditableInterface *iface);
 
 G_DEFINE_TYPE_WITH_CODE (CajaEntry, caja_entry, GTK_TYPE_ENTRY,
                          G_IMPLEMENT_INTERFACE (GTK_TYPE_EDITABLE,
                                  caja_entry_editable_init));
 
-static GtkEditableClass *parent_editable_interface = NULL;
+static GtkEditableInterface *parent_editable_interface = NULL;
 
 static void
 caja_entry_init (CajaEntry *entry)
@@ -373,7 +377,7 @@ caja_entry_selection_clear (GtkWidget *widget,
 }
 
 static void
-caja_entry_editable_init (GtkEditableClass *iface)
+caja_entry_editable_init (GtkEditableInterface *iface)
 {
     parent_editable_interface = g_type_interface_peek_parent (iface);
 
