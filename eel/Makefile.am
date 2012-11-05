@@ -4,15 +4,13 @@ noinst_LTLIBRARIES=libeel-2.la
 
 INCLUDES = \
 	-DG_LOG_DOMAIN=\"Eel\" \
-	-I$(top_srcdir) \
+	-I$(top_builddir) \
 	$(CORE_CFLAGS) \
 	$(WARNING_CFLAGS) \
+	$(DISABLE_DEPRECATED_CFLAGS) \
 	-DDATADIR=\""$(datadir)"\" \
 	-DSOURCE_DATADIR=\""$(top_srcdir)/data"\" \
 	-DMATELOCALEDIR=\""$(prefix)/${DATADIRNAME}/locale"\" \
-	-DG_DISABLE_DEPRECATED \
-	-DGDK_PIXBUF_DISABLE_DEPRECATED \
-	-DMATEMENU_I_KNOW_THIS_IS_UNSTABLE  \
 	$(NULL)
 
 BUILT_SOURCES = \
@@ -29,37 +27,6 @@ libeel_2_la_LIBADD = \
 	$(CORE_LIBS) \
 	$(RENDER_LIBS) \
 	$(X_LIBS) \
-	$(NULL)
-
-libeel_2_la_SOURCES = \
-	eel-accessibility.c \
-	eel-art-extensions.c \
-	eel-art-gtk-extensions.c \
-	eel-background.c \
-	eel-background-box.c \
-	eel-canvas.c \
-	eel-canvas-util.c \
-	eel-canvas-rect-ellipse.c \
-	eel-debug-drawing.c \
-	eel-debug.c \
-	eel-editable-label.c \
-	eel-gdk-extensions.c \
-	eel-gdk-pixbuf-extensions.c \
-	eel-glib-extensions.c \
-	eel-mate-extensions.c \
-	eel-graphic-effects.c \
-	eel-gtk-container.c \
-	eel-gtk-extensions.c \
-	eel-image-table.c \
-	eel-labeled-image.c \
-	eel-lib-self-check-functions.c \
-	eel-self-checks.c \
-	eel-stock-dialogs.c \
-	eel-string.c \
-	eel-vfs-extensions.c \
-	eel-wrap-table.c \
-	eel-xml-extensions.c \
-	eel-lib-self-check-functions.h \
 	$(NULL)
 
 eel_headers = \
@@ -91,6 +58,37 @@ eel_headers = \
 	eel-wrap-table.h \
 	eel-xml-extensions.h \
 	eel.h \
+	$(NULL)
+
+libeel_2_la_SOURCES = \
+	eel-accessibility.c \
+	eel-art-extensions.c \
+	eel-art-gtk-extensions.c \
+	eel-background.c \
+	eel-background-box.c \
+	eel-canvas.c \
+	eel-canvas-util.c \
+	eel-canvas-rect-ellipse.c \
+	eel-debug-drawing.c \
+	eel-debug.c \
+	eel-editable-label.c \
+	eel-gdk-extensions.c \
+	eel-gdk-pixbuf-extensions.c \
+	eel-glib-extensions.c \
+	eel-mate-extensions.c \
+	eel-graphic-effects.c \
+	eel-gtk-container.c \
+	eel-gtk-extensions.c \
+	eel-image-table.c \
+	eel-labeled-image.c \
+	eel-lib-self-check-functions.c \
+	eel-self-checks.c \
+	eel-stock-dialogs.c \
+	eel-string.c \
+	eel-vfs-extensions.c \
+	eel-wrap-table.c \
+	eel-xml-extensions.c \
+	eel-lib-self-check-functions.h \
 	$(NULL)
 
 nodist_libeel_2_la_SOURCES = \
@@ -125,9 +123,8 @@ check_program_LDFLAGS = $(check_program_DEPENDENCIES) -lm
 TESTS = check-eel
 
 EXTRA_DIST = \
-	$(eel_headers) \
 	check-eel \
-	eel-marshal.list			\
+	eel-marshal.list \
 	$(NULL)
 
 CLEANFILES = \
