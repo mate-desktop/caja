@@ -2577,10 +2577,10 @@ bookmarks_key_press_event_cb (GtkWidget             *widget,
 
     modifiers = gtk_accelerator_get_default_mod_mask ();
 
-    if (event->keyval == GDK_Return ||
-        event->keyval == GDK_KP_Enter ||
-        event->keyval == GDK_ISO_Enter ||
-        event->keyval == GDK_space)
+    if (event->keyval == GDK_KEY_Return ||
+        event->keyval == GDK_KEY_KP_Enter ||
+        event->keyval == GDK_KEY_ISO_Enter ||
+        event->keyval == GDK_KEY_space)
     {
         if ((event->state & modifiers) == GDK_SHIFT_MASK)
             flags = CAJA_WINDOW_OPEN_FLAG_NEW_TAB;
@@ -2596,21 +2596,21 @@ bookmarks_key_press_event_cb (GtkWidget             *widget,
         return TRUE;
     }
 
-    if (event->keyval == GDK_Down &&
+    if (event->keyval == GDK_KEY_Down &&
             (event->state & modifiers) == GDK_MOD1_MASK)
     {
         return eject_or_unmount_selection (sidebar);
     }
 
-    if ((event->keyval == GDK_Delete
-            || event->keyval == GDK_KP_Delete)
+    if ((event->keyval == GDK_KEY_Delete
+            || event->keyval == GDK_KEY_KP_Delete)
             && (event->state & modifiers) == 0)
     {
         remove_selected_bookmarks (sidebar);
         return TRUE;
     }
 
-    if ((event->keyval == GDK_F2)
+    if ((event->keyval == GDK_KEY_F2)
             && (event->state & modifiers) == 0)
     {
         rename_selected_bookmark (sidebar);

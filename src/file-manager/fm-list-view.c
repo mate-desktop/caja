@@ -1108,14 +1108,14 @@ key_press_callback (GtkWidget *widget, GdkEventKey *event, gpointer callback_dat
 
     switch (event->keyval)
     {
-    case GDK_F10:
+    case GDK_KEY_F10:
         if (event->state & GDK_CONTROL_MASK)
         {
             fm_directory_view_pop_up_background_context_menu (view, &button_event);
             handled = TRUE;
         }
         break;
-    case GDK_Right:
+    case GDK_KEY_Right:
         gtk_tree_view_get_cursor (tree_view, &path, NULL);
         if (path)
         {
@@ -1124,7 +1124,7 @@ key_press_callback (GtkWidget *widget, GdkEventKey *event, gpointer callback_dat
         }
         handled = TRUE;
         break;
-    case GDK_Left:
+	case GDK_KEY_Left:
         gtk_tree_view_get_cursor (tree_view, &path, NULL);
         if (path)
         {
@@ -1133,7 +1133,7 @@ key_press_callback (GtkWidget *widget, GdkEventKey *event, gpointer callback_dat
         }
         handled = TRUE;
         break;
-    case GDK_space:
+    case GDK_KEY_space:
         if (event->state & GDK_CONTROL_MASK)
         {
             handled = FALSE;
@@ -1154,8 +1154,8 @@ key_press_callback (GtkWidget *widget, GdkEventKey *event, gpointer callback_dat
         }
         handled = TRUE;
         break;
-    case GDK_Return:
-    case GDK_KP_Enter:
+    case GDK_KEY_Return:
+    case GDK_KEY_KP_Enter:
         if ((event->state & GDK_SHIFT_MASK) != 0)
         {
             activate_selected_items_alternate (FM_LIST_VIEW (view), NULL, TRUE);
@@ -1166,7 +1166,7 @@ key_press_callback (GtkWidget *widget, GdkEventKey *event, gpointer callback_dat
         }
         handled = TRUE;
         break;
-    case GDK_v:
+	case GDK_KEY_v:
         /* Eat Control + v to not enable type ahead */
         if ((event->state & GDK_CONTROL_MASK) != 0)
         {
@@ -1641,7 +1641,7 @@ create_and_set_up_tree_view (FMListView *view)
 
     /* Don't handle backspace key. It's used to open the parent folder. */
     binding_set = gtk_binding_set_by_class (GTK_WIDGET_GET_CLASS (view->details->tree_view));
-    gtk_binding_entry_remove (binding_set, GDK_BackSpace, 0);
+	gtk_binding_entry_remove (binding_set, GDK_KEY_BackSpace, 0);
 
     view->details->drag_dest =
         caja_tree_view_drag_dest_new (view->details->tree_view);
