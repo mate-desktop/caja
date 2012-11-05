@@ -362,8 +362,6 @@ eel_debug_show_pixbuf (GdkPixbuf *pixbuf)
 
         gtk_box_pack_start (GTK_BOX (vbox), debug_image, TRUE, TRUE, 0);
 
-        eel_gtk_widget_set_background_color (debug_window, "white");
-
         eel_debug_call_at_shutdown (destroy_debug_window);
 
         gtk_widget_show (debug_image);
