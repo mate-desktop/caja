@@ -191,13 +191,13 @@ eel_labeled_image_class_init (EelLabeledImageClass *labeled_image_class)
     binding_set = gtk_binding_set_by_class (gobject_class);
 
     gtk_binding_entry_add_signal (binding_set,
-                                  GDK_Return, 0,
+                                  GDK_KEY_Return, 0,
                                   "activate", 0);
     gtk_binding_entry_add_signal (binding_set,
-                                  GDK_KP_Enter, 0,
+                                  GDK_KEY_KP_Enter, 0,
                                   "activate", 0);
     gtk_binding_entry_add_signal (binding_set,
-                                  GDK_space, 0,
+                                  GDK_KEY_space, 0,
                                   "activate", 0);
 
 
