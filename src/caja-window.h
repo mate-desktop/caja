@@ -141,6 +141,7 @@ void             caja_window_go_to_with_selection (CajaWindow    *window,
         GFile             *location,
         GList             *new_selection);
 void             caja_window_go_home              (CajaWindow    *window);
+void             caja_window_new_tab              (CajaWindow    *window);
 void             caja_window_go_up                (CajaWindow    *window,
         gboolean           close_behind,
         gboolean           new_tab);

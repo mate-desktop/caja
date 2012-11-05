@@ -620,40 +620,9 @@ action_new_tab_callback (GtkAction *action,
                          gpointer user_data)
 {
     CajaWindow *window;
-    CajaWindowSlot *current_slot;
-    CajaWindowSlot *new_slot;
-    CajaWindowOpenFlags flags;
-    GFile *location;
-    int new_slot_position;
-    char *scheme;
 
     window = CAJA_WINDOW (user_data);
-    current_slot = window->details->active_pane->active_slot;
-    location = caja_window_slot_get_location (current_slot);
-
-    if (location != NULL)
-    {
-        flags = 0;
-
-        new_slot_position = g_settings_get_enum (caja_preferences, CAJA_PREFERENCES_NEW_TAB_POSITION);
-        if (new_slot_position == CAJA_NEW_TAB_POSITION_END)
-        {
-            flags = CAJA_WINDOW_OPEN_SLOT_APPEND;
-        }
-
-        scheme = g_file_get_uri_scheme (location);
-        if (!strcmp (scheme, "x-caja-search"))
-        {
-            g_object_unref (location);
-            location = g_file_new_for_path (g_get_home_dir ());
-        }
-        g_free (scheme);
-
-        new_slot = caja_window_open_slot (current_slot->pane, flags);
-        caja_window_set_active_slot (window, new_slot);
-        caja_window_slot_go_to (new_slot, location, FALSE);
-        g_object_unref (location);
-    }
+    caja_window_new_tab (window);
 }
 
 static void
