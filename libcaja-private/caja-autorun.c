@@ -749,7 +749,11 @@ is_shift_pressed (void)
     gdk_error_trap_push ();
     status = XkbGetState (GDK_DISPLAY_XDISPLAY (gdk_display_get_default ()),
     			  XkbUseCoreKbd, &state);
+#if GTK_CHECK_VERSION(3,0,0)
+    gdk_error_trap_pop_ignored ();
+#else
     gdk_error_trap_pop ();
+#endif
 
     if (status == Success)
     {
