@@ -105,8 +105,6 @@ libcaja_private_la_SOURCES = \
 	caja-file.h \
 	caja-global-preferences.c \
 	caja-global-preferences.h \
-	caja-horizontal-splitter.c \
-	caja-horizontal-splitter.h \
 	caja-icon-canvas-item.c \
 	caja-icon-canvas-item.h \
 	caja-icon-container.c \

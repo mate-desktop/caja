@@ -55,7 +55,6 @@
 #include <libcaja-private/caja-file-utilities.h>
 #include <libcaja-private/caja-file-attributes.h>
 #include <libcaja-private/caja-global-preferences.h>
-#include <libcaja-private/caja-horizontal-splitter.h>
 #include <libcaja-private/caja-metadata.h>
 #include <libcaja-private/caja-mime-actions.h>
 #include <libcaja-private/caja-program-choosing.h>

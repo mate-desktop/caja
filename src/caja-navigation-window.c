@@ -55,7 +55,6 @@
 #include <libcaja-private/caja-file-utilities.h>
 #include <libcaja-private/caja-file-attributes.h>
 #include <libcaja-private/caja-global-preferences.h>
-#include <libcaja-private/caja-horizontal-splitter.h>
 #include <libcaja-private/caja-icon-info.h>
 #include <libcaja-private/caja-metadata.h>
 #include <libcaja-private/caja-mime-actions.h>
@@ -141,7 +140,7 @@ caja_navigation_window_init (CajaNavigationWindow *window)
     window->details->header_size_group = gtk_size_group_new (GTK_SIZE_GROUP_VERTICAL);
     gtk_size_group_set_ignore_hidden (window->details->header_size_group, FALSE);
 
-    window->details->content_paned = caja_horizontal_splitter_new ();
+    window->details->content_paned = gtk_hpaned_new ();
     gtk_table_attach (GTK_TABLE (CAJA_WINDOW (window)->details->table),
                       window->details->content_paned,
                       /* X direction */                   /* Y direction */
@@ -151,7 +150,8 @@ caja_navigation_window_init (CajaNavigationWindow *window)
     gtk_widget_show (window->details->content_paned);
 
     vbox = gtk_vbox_new (FALSE, 0);
-    caja_horizontal_splitter_pack2 (CAJA_HORIZONTAL_SPLITTER (window->details->content_paned), vbox);
+    gtk_paned_pack2 (GTK_PANED (window->details->content_paned), vbox,
+    		     TRUE, FALSE);
     gtk_widget_show (vbox);
 
     hpaned = gtk_hpaned_new ();
@@ -1036,7 +1036,7 @@ caja_navigation_window_sidebar_showing (CajaNavigationWindow *window)
     g_return_val_if_fail (CAJA_IS_NAVIGATION_WINDOW (window), FALSE);
 
     return (window->sidebar != NULL)
-           && caja_horizontal_splitter_is_hidden (CAJA_HORIZONTAL_SPLITTER (window->details->content_paned));
+           && gtk_widget_get_visible (gtk_paned_get_child1 (GTK_PANED (window->details->content_paned)));
 }
 
 /**
