@@ -32,7 +32,6 @@
 #include "eel-gdk-pixbuf-extensions.h"
 #include "eel-gtk-extensions.h"
 #include "eel-gtk-extensions.h"
-#include "eel-gtk-macros.h"
 
 #include <gtk/gtk.h>
 
@@ -73,29 +72,7 @@ struct DebugPixbufViewerClass
     GtkWidgetClass parent_class;
 };
 
-/* GtkObjectClass methods */
-static void debug_pixbuf_viewer_class_init (DebugPixbufViewerClass *pixbuf_viewer_class);
-static void debug_pixbuf_viewer_init       (DebugPixbufViewer      *pixbuf_viewer);
-static void debug_pixbuf_viewer_finalize         (GObject                *object);
-
-/* GtkWidgetClass methods */
-static void debug_pixbuf_viewer_size_request     (GtkWidget              *widget,
-        GtkRequisition         *requisition);
-static int  debug_pixbuf_viewer_expose_event     (GtkWidget              *widget,
-        GdkEventExpose         *event);
-
-EEL_CLASS_BOILERPLATE (DebugPixbufViewer, debug_pixbuf_viewer, GTK_TYPE_WIDGET)
-
-static void
-debug_pixbuf_viewer_class_init (DebugPixbufViewerClass *pixbuf_viewer_class)
-{
-    GObjectClass *object_class = G_OBJECT_CLASS (pixbuf_viewer_class);
-    GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (pixbuf_viewer_class);
-
-    object_class->finalize = debug_pixbuf_viewer_finalize;
-    widget_class->size_request = debug_pixbuf_viewer_size_request;
-    widget_class->expose_event = debug_pixbuf_viewer_expose_event;
-}
+G_DEFINE_TYPE (DebugPixbufViewer, debug_pixbuf_viewer, GTK_TYPE_WIDGET)
 
 static void
 debug_pixbuf_viewer_init (DebugPixbufViewer *viewer)
@@ -113,7 +90,7 @@ debug_pixbuf_viewer_finalize (GObject *object)
     eel_gdk_pixbuf_unref_if_not_null (viewer->pixbuf);
     viewer->pixbuf = NULL;
 
-    EEL_CALL_PARENT (G_OBJECT_CLASS, finalize, (object));
+    G_OBJECT_CLASS (debug_pixbuf_viewer_parent_class)->finalize (object);
 }
 
 static void
@@ -196,6 +173,17 @@ debug_pixbuf_viewer_expose_event (GtkWidget *widget, GdkEventExpose *event)
     bounds.y1 += 1;
 
     return TRUE;
+}
+
+static void
+debug_pixbuf_viewer_class_init (DebugPixbufViewerClass *pixbuf_viewer_class)
+{
+    GObjectClass *object_class = G_OBJECT_CLASS (pixbuf_viewer_class);
+    GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (pixbuf_viewer_class);
+
+    object_class->finalize = debug_pixbuf_viewer_finalize;
+    widget_class->size_request = debug_pixbuf_viewer_size_request;
+    widget_class->expose_event = debug_pixbuf_viewer_expose_event;
 }
 
 static void
