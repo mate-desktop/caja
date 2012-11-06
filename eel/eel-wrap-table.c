@@ -28,7 +28,6 @@
 #include "eel-art-extensions.h"
 #include "eel-art-gtk-extensions.h"
 #include "eel-gtk-extensions.h"
-#include "eel-gtk-macros.h"
 #include <gtk/gtk.h>
 
 /* Arguments */
@@ -56,41 +55,6 @@ struct EelWrapTableDetails
     guint cols;
 };
 
-static void          eel_wrap_table_class_init           (EelWrapTableClass   *wrap_table_class);
-static void          eel_wrap_table_init                 (EelWrapTable        *wrap);
-/* GObjectClass methods */
-static void          eel_wrap_table_finalize             (GObject             *object);
-static void          eel_wrap_table_set_property         (GObject             *object,
-        guint                property_id,
-        const GValue        *value,
-        GParamSpec          *pspec);
-static void          eel_wrap_table_get_property         (GObject             *object,
-        guint                property_id,
-        GValue              *value,
-        GParamSpec          *pspec);
-/* GtkWidgetClass methods */
-static void          eel_wrap_table_size_request         (GtkWidget           *widget,
-        GtkRequisition      *requisition);
-static int           eel_wrap_table_expose_event         (GtkWidget           *widget,
-        GdkEventExpose      *event);
-static void          eel_wrap_table_size_allocate        (GtkWidget           *widget,
-        GtkAllocation       *allocation);
-static void          eel_wrap_table_map                  (GtkWidget           *widget);
-static void          eel_wrap_table_unmap                (GtkWidget           *widget);
-static void          eel_wrap_table_realize              (GtkWidget           *widget);
-
-/* GtkContainerClass methods */
-static void          eel_wrap_table_add                  (GtkContainer        *container,
-        GtkWidget           *widget);
-static void          eel_wrap_table_remove               (GtkContainer        *container,
-        GtkWidget           *widget);
-static void          eel_wrap_table_forall               (GtkContainer        *container,
-        gboolean             include_internals,
-        GtkCallback          callback,
-        gpointer             callback_data);
-static GType         eel_wrap_table_child_type           (GtkContainer        *container);
-
-
 /* Private EelWrapTable methods */
 static EelDimensions wrap_table_irect_max_dimensions     (const EelDimensions *one,
         const EelDimensions *two);
@@ -105,77 +69,16 @@ static gboolean      wrap_table_child_focus_in           (GtkWidget           *w
 static void          wrap_table_layout                   (EelWrapTable        *wrap_table);
 
 
-EEL_CLASS_BOILERPLATE (EelWrapTable, eel_wrap_table, GTK_TYPE_CONTAINER)
-
-/* Class init methods */
-static void
-eel_wrap_table_class_init (EelWrapTableClass *wrap_table_class)
-{
-    GObjectClass *gobject_class = G_OBJECT_CLASS (wrap_table_class);
-    GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (wrap_table_class);
-    GtkContainerClass *container_class = GTK_CONTAINER_CLASS (wrap_table_class);
-
-    /* GObjectClass */
-    gobject_class->finalize = eel_wrap_table_finalize;
-    gobject_class->set_property = eel_wrap_table_set_property;
-    gobject_class->get_property = eel_wrap_table_get_property;
-
-    /* GtkWidgetClass */
-    widget_class->size_request = eel_wrap_table_size_request;
-    widget_class->size_allocate = eel_wrap_table_size_allocate;
-    widget_class->expose_event = eel_wrap_table_expose_event;
-    widget_class->map = eel_wrap_table_map;
-    widget_class->unmap = eel_wrap_table_unmap;
-    widget_class->realize = eel_wrap_table_realize;
-
-    /* GtkContainerClass */
-    container_class->add = eel_wrap_table_add;
-    container_class->remove = eel_wrap_table_remove;
-    container_class->forall = eel_wrap_table_forall;
-    container_class->child_type = eel_wrap_table_child_type;
-
-    /* Arguments */
-    g_object_class_install_property
-    (gobject_class,
-     PROP_X_SPACING,
-     g_param_spec_uint ("x_spacing", NULL, NULL,
-                        0, G_MAXINT, 0, G_PARAM_READWRITE));
-
-    g_object_class_install_property
-    (gobject_class,
-     PROP_Y_SPACING,
-     g_param_spec_uint ("y_spacing", NULL, NULL,
-                        0, G_MAXINT, 0, G_PARAM_READWRITE));
-
-    g_object_class_install_property
-    (gobject_class,
-     PROP_X_JUSTIFICATION,
-     g_param_spec_enum ("x_justification", NULL, NULL,
-                        GTK_TYPE_JUSTIFICATION,
-                        GTK_JUSTIFY_LEFT,
-                        G_PARAM_READWRITE));
-
-    g_object_class_install_property
-    (gobject_class,
-     PROP_Y_JUSTIFICATION,
-     g_param_spec_enum ("y_justification", NULL, NULL,
-                        GTK_TYPE_JUSTIFICATION,
-                        GTK_JUSTIFY_LEFT,
-                        G_PARAM_READWRITE));
-
-    g_object_class_install_property
-    (gobject_class,
-     PROP_HOMOGENEOUS,
-     g_param_spec_boolean ("homogenous", NULL, NULL,
-                           FALSE, G_PARAM_READWRITE));
-}
+G_DEFINE_TYPE (EelWrapTable, eel_wrap_table, GTK_TYPE_CONTAINER)
 
 static void
 eel_wrap_table_init (EelWrapTable *wrap_table)
 {
     gtk_widget_set_has_window (GTK_WIDGET (wrap_table), FALSE);
 
-    wrap_table->details = g_new0 (EelWrapTableDetails, 1);
+    wrap_table->details = G_TYPE_INSTANCE_GET_PRIVATE (wrap_table,
+    						       EEL_TYPE_WRAP_TABLE,
+    						       EelWrapTableDetails);
     wrap_table->details->x_justification = EEL_JUSTIFICATION_BEGINNING;
     wrap_table->details->y_justification = EEL_JUSTIFICATION_END;
     wrap_table->details->cols = 1;
@@ -189,9 +92,8 @@ eel_wrap_table_finalize (GObject *object)
     wrap_table = EEL_WRAP_TABLE (object);
 
     g_list_free (wrap_table->details->children);
-    g_free (wrap_table->details);
 
-    EEL_CALL_PARENT (G_OBJECT_CLASS, finalize, (object));
+    G_OBJECT_CLASS (eel_wrap_table_parent_class)->finalize (object);
 }
 
 /* GObjectClass methods */
@@ -389,7 +291,7 @@ eel_wrap_table_realize (GtkWidget *widget)
 {
     g_assert (EEL_IS_WRAP_TABLE (widget));
 
-    GTK_WIDGET_CLASS (parent_class)->realize (widget);
+    GTK_WIDGET_CLASS (eel_wrap_table_parent_class)->realize (widget);
 
     gtk_widget_queue_resize (widget);
 }
@@ -493,6 +395,71 @@ static GType
 eel_wrap_table_child_type (GtkContainer   *container)
 {
     return GTK_TYPE_WIDGET;
+}
+
+/* Class init methods */
+static void
+eel_wrap_table_class_init (EelWrapTableClass *wrap_table_class)
+{
+    GObjectClass *gobject_class = G_OBJECT_CLASS (wrap_table_class);
+    GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (wrap_table_class);
+    GtkContainerClass *container_class = GTK_CONTAINER_CLASS (wrap_table_class);
+
+    /* GObjectClass */
+    gobject_class->finalize = eel_wrap_table_finalize;
+    gobject_class->set_property = eel_wrap_table_set_property;
+    gobject_class->get_property = eel_wrap_table_get_property;
+
+    /* GtkWidgetClass */
+    widget_class->size_request = eel_wrap_table_size_request;
+    widget_class->size_allocate = eel_wrap_table_size_allocate;
+    widget_class->expose_event = eel_wrap_table_expose_event;
+    widget_class->map = eel_wrap_table_map;
+    widget_class->unmap = eel_wrap_table_unmap;
+    widget_class->realize = eel_wrap_table_realize;
+
+    /* GtkContainerClass */
+    container_class->add = eel_wrap_table_add;
+    container_class->remove = eel_wrap_table_remove;
+    container_class->forall = eel_wrap_table_forall;
+    container_class->child_type = eel_wrap_table_child_type;
+
+    /* Arguments */
+    g_object_class_install_property
+    (gobject_class,
+     PROP_X_SPACING,
+     g_param_spec_uint ("x_spacing", NULL, NULL,
+                        0, G_MAXINT, 0, G_PARAM_READWRITE));
+
+    g_object_class_install_property
+    (gobject_class,
+     PROP_Y_SPACING,
+     g_param_spec_uint ("y_spacing", NULL, NULL,
+                        0, G_MAXINT, 0, G_PARAM_READWRITE));
+
+    g_object_class_install_property
+    (gobject_class,
+     PROP_X_JUSTIFICATION,
+     g_param_spec_enum ("x_justification", NULL, NULL,
+                        GTK_TYPE_JUSTIFICATION,
+                        GTK_JUSTIFY_LEFT,
+                        G_PARAM_READWRITE));
+
+    g_object_class_install_property
+    (gobject_class,
+     PROP_Y_JUSTIFICATION,
+     g_param_spec_enum ("y_justification", NULL, NULL,
+                        GTK_TYPE_JUSTIFICATION,
+                        GTK_JUSTIFY_LEFT,
+                        G_PARAM_READWRITE));
+
+    g_object_class_install_property
+    (gobject_class,
+     PROP_HOMOGENEOUS,
+     g_param_spec_boolean ("homogenous", NULL, NULL,
+                           FALSE, G_PARAM_READWRITE));
+
+    g_type_class_add_private (wrap_table_class, sizeof (EelWrapTableDetails));
 }
 
 /* Private EelWrapTable methods */
