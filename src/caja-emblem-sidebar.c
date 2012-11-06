@@ -32,7 +32,6 @@
 #include "caja-emblem-sidebar.h"
 
 #include <stdio.h>
-#include <eel/eel-gtk-macros.h>
 #include <eel/eel-glib-extensions.h>
 #include <eel/eel-string.h>
 #include <eel/eel-wrap-table.h>
@@ -67,12 +66,10 @@ struct CajaEmblemSidebarDetails
 #define STANDARD_EMBLEM_HEIGHT			52
 #define EMBLEM_LABEL_SPACING			2
 
-static void caja_emblem_sidebar_iface_init        (CajaSidebarIface         *iface);
-static void caja_emblem_sidebar_finalize          (GObject                      *object);
 static void caja_emblem_sidebar_populate          (CajaEmblemSidebar        *emblem_sidebar);
 static void caja_emblem_sidebar_refresh           (CajaEmblemSidebar        *emblem_sidebar);
 static void caja_emblem_sidebar_iface_init        (CajaSidebarIface         *iface);
-static void sidebar_provider_iface_init               (CajaSidebarProviderIface *iface);
+static void sidebar_provider_iface_init           (CajaSidebarProviderIface *iface);
 static GType caja_emblem_sidebar_provider_get_type (void);
 
 static const GtkTargetEntry drag_types[] =
@@ -111,8 +108,6 @@ typedef struct
 {
     GObjectClass parent;
 } CajaEmblemSidebarProviderClass;
-
-
 
 
 G_DEFINE_TYPE_WITH_CODE (CajaEmblemSidebar, caja_emblem_sidebar, GTK_TYPE_VBOX,
