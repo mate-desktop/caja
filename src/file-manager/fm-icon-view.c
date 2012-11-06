@@ -2192,6 +2192,8 @@ play_file (gpointer callback_data)
     char **argv;
     GError *error;
     char *uri;
+    GFile *gfile;
+    char *path;
 
     icon_view = FM_ICON_VIEW (callback_data);
 
@@ -2199,7 +2201,21 @@ play_file (gpointer callback_data)
     icon_view->details->audio_preview_timeout = 0;
 
     file = icon_view->details->audio_preview_file;
-    uri = caja_file_get_uri (file);
+    gfile = caja_file_get_location (file);
+    path = g_file_get_path (gfile);
+
+    /* if we have a local path, use that instead of the native URI.
+     * this can be useful for special GVfs mounts, such as cdda://
+     */
+    if (path) {
+        uri = g_filename_to_uri (path, NULL, NULL);
+    } else {
+        uri = caja_file_get_uri (file);
+    }
+
+    g_object_unref (gfile);
+    g_free (path);
+
     argv = get_preview_argv (uri);
     g_free (uri);
     if (argv == NULL)
