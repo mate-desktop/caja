@@ -186,35 +186,42 @@ remove_expand_timeout (CajaTreeViewDragDest *dest)
 }
 
 static gboolean
+#if GTK_CHECK_VERSION(3,0,0)
+highlight_draw (GtkWidget *widget,
+		cairo_t   *cr,
+                gpointer data)
+#else
 highlight_expose (GtkWidget *widget,
                   GdkEventExpose *event,
                   gpointer data)
+#endif
 {
     GdkWindow *bin_window;
     int width;
     int height;
 
-    if (gtk_widget_is_drawable (widget))
-    {
-        bin_window =
-            gtk_tree_view_get_bin_window (GTK_TREE_VIEW (widget));
+    /* FIXMEchpe: is bin window right here??? */
+    bin_window = gtk_tree_view_get_bin_window (GTK_TREE_VIEW (widget));
 
 #if GTK_CHECK_VERSION(3, 0, 0)
-        width = gdk_window_get_width(GDK_WINDOW(bin_window));
-        height = gdk_window_get_height(GDK_WINDOW(bin_window));
+    width = gdk_window_get_width(bin_window);
+    height = gdk_window_get_height(bin_window);
 #else
-        gdk_drawable_get_size(bin_window, &width, &height);
+    gdk_drawable_get_size(bin_window, &width, &height);
 #endif
 
-
-        gtk_paint_focus (gtk_widget_get_style (widget),
-                         bin_window,
-                         gtk_widget_get_state (widget),
-                         NULL,
-                         widget,
-                         "treeview-drop-indicator",
-                         0, 0, width, height);
-    }
+    gtk_paint_focus (gtk_widget_get_style (widget),
+#if GTK_CHECK_VERSION(3,0,0)
+                     cr,
+                     gtk_widget_get_state (widget),
+#else
+                     bin_window,
+                     gtk_widget_get_state (widget),
+                     NULL,
+#endif
+                     widget,
+                     "treeview-drop-indicator",
+                     0, 0, width, height);
 
     return FALSE;
 }
@@ -234,8 +241,13 @@ set_widget_highlight (CajaTreeViewDragDest *dest, gboolean highlight)
     {
         dest->details->highlight_id =
             g_signal_connect_object (dest->details->tree_view,
+#if GTK_CHECK_VERSION(3,0,0)
+                                     "draw",
+                                     G_CALLBACK (highlight_draw),
+#else
                                      "expose_event",
                                      G_CALLBACK (highlight_expose),
+#endif
                                      dest, 0);
         gtk_widget_queue_draw (GTK_WIDGET (dest->details->tree_view));
     }

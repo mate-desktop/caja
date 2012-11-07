@@ -5246,7 +5246,7 @@ caja_icon_container_search_position_func (CajaIconContainer *container,
 
 
     cont_window = gtk_widget_get_window (GTK_WIDGET (container));
-    screen = gdk_drawable_get_screen (cont_window);
+    screen = gdk_window_get_screen (cont_window);
 
     monitor_num = gdk_screen_get_monitor_at_window (screen, cont_window);
     gdk_screen_get_monitor_geometry (screen, monitor_num, &monitor);
@@ -5256,10 +5256,10 @@ caja_icon_container_search_position_func (CajaIconContainer *container,
     gdk_window_get_origin (cont_window, &cont_x, &cont_y);
 
 #if GTK_CHECK_VERSION(3, 0, 0)
-    cont_width = gdk_window_get_width(GDK_WINDOW(cont_window));
-    cont_height = gdk_window_get_height(GDK_WINDOW(cont_window));
+    cont_width = gdk_window_get_width (cont_window);
+    cont_height = gdk_window_get_height (cont_window);
 #else
-    gdk_drawable_get_size(cont_window, &cont_width, &cont_height);
+    gdk_drawable_get_size (cont_window, &cont_width, &cont_height);
 #endif
 
     gtk_widget_size_request (search_dialog, &requisition);
@@ -6110,12 +6110,17 @@ popup_menu (GtkWidget *widget)
 
 static void
 draw_canvas_background (EelCanvas *canvas,
+#if GTK_CHECK_VERSION(3,0,0)
+                        cairo_t   *cr)
+#else
                         int x, int y, int width, int height)
+#endif
 {
     /* Don't chain up to the parent to avoid clearing and redrawing */
 }
 
 
+#if !GTK_CHECK_VERSION(3,0,0)
 static gboolean
 expose_event (GtkWidget      *widget,
               GdkEventExpose *event)
@@ -6127,6 +6132,7 @@ expose_event (GtkWidget      *widget,
 
     return GTK_WIDGET_CLASS (caja_icon_container_parent_class)->expose_event (widget, event);
 }
+#endif
 
 static AtkObject *
 get_accessible (GtkWidget *widget)
@@ -6585,7 +6591,9 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
     widget_class->popup_menu = popup_menu;
     widget_class->get_accessible = get_accessible;
     widget_class->style_set = style_set;
+#if !GTK_CHECK_VERSION(3,0,0)
     widget_class->expose_event = expose_event;
+#endif
     widget_class->grab_notify = grab_notify_cb;
 
     canvas_class = EEL_CANVAS_CLASS (class);

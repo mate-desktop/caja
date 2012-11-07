@@ -215,41 +215,57 @@ G_DEFINE_TYPE_WITH_CODE (CajaIconCanvasItem, caja_icon_canvas_item, EEL_TYPE_CAN
 
 /* private */
 static void     draw_label_text                      (CajaIconCanvasItem        *item,
-        GdkDrawable                   *drawable,
-        gboolean                       create_mask,
-        EelIRect                       icon_rect);
+#if GTK_CHECK_VERSION(3,0,0)
+    						      cairo_t                   *cr,
+#else
+    						      GdkDrawable               *drawable,
+#endif
+    						      gboolean                  create_mask,
+    						      EelIRect                  icon_rect);
 static void     measure_label_text                   (CajaIconCanvasItem        *item);
 static void     get_icon_canvas_rectangle            (CajaIconCanvasItem        *item,
-        EelIRect                      *rect);
-static void     emblem_layout_reset                  (EmblemLayout                  *layout,
-        CajaIconCanvasItem        *icon_item,
-        EelIRect                       icon_rect,
-        gboolean			     is_rtl);
-static gboolean emblem_layout_next                   (EmblemLayout                  *layout,
-        GdkPixbuf                    **emblem_pixbuf,
-        EelIRect                      *emblem_rect,
-        gboolean			     is_rtl);
-static void     draw_pixbuf                          (GdkPixbuf                     *pixbuf,
-        GdkDrawable                   *drawable,
-        int                            x,
-        int                            y);
-static PangoLayout *get_label_layout                 (PangoLayout                  **layout,
-        CajaIconCanvasItem        *item,
-        const char                    *text);
+    						      EelIRect                  *rect);
+static void     emblem_layout_reset                  (EmblemLayout              *layout,
+    						      CajaIconCanvasItem        *icon_item,
+    						      EelIRect                  icon_rect,
+    						      gboolean			is_rtl);
+static gboolean emblem_layout_next                   (EmblemLayout              *layout,
+    						      GdkPixbuf                 **emblem_pixbuf,
+    						      EelIRect                  *emblem_rect,
+    						      gboolean			is_rtl);
+static void     draw_pixbuf                          (GdkPixbuf                 *pixbuf,
+#if GTK_CHECK_VERSION(3,0,0)
+    						      cairo_t                   *cr,
+#else
+    						      GdkDrawable               *drawable,
+#endif
+    						      int                       x,
+    						      int                       y);
+static PangoLayout *get_label_layout                 (PangoLayout               **layout,
+    						      CajaIconCanvasItem        *item,
+    						      const char                *text);
 static void     draw_label_layout                    (CajaIconCanvasItem        *item,
-        GdkDrawable                   *drawable,
-        PangoLayout                   *layout,
-        gboolean                       highlight,
-        GdkColor                      *label_color,
-        int                            x,
-        int                            y);
+#if GTK_CHECK_VERSION(3,0,0)
+    						      cairo_t                   *cr,
+#else
+    						      GdkDrawable               *drawable,
+#endif
+    						      PangoLayout               *layout,
+    						      gboolean                  highlight,
+    						      GdkColor                  *label_color,
+    						      int                       x,
+    						      int                       y);
 static gboolean hit_test_stretch_handle              (CajaIconCanvasItem        *item,
-        EelIRect                       canvas_rect,
-        GtkCornerType *corner);
+    						      EelIRect                  canvas_rect,
+    						      GtkCornerType *corner);
 static void      draw_embedded_text                  (CajaIconCanvasItem        *icon_item,
-        GdkDrawable                   *drawable,
-        int                            x,
-        int                            y);
+#if GTK_CHECK_VERSION(3,0,0)
+    						      cairo_t                   *cr,
+#else
+    						      GdkDrawable               *drawable,
+#endif
+    						      int                       x,
+    						      int                       y);
 
 static void       caja_icon_canvas_item_ensure_bounds_up_to_date (CajaIconCanvasItem *icon_item);
 
@@ -538,12 +554,21 @@ caja_icon_canvas_item_get_property (GObject        *object,
     }
 }
 
+#if GTK_CHECK_VERSION(3,0,0)
+cairo_surface_t *
+caja_icon_canvas_item_get_drag_surface (CajaIconCanvasItem *item)
+#else
 GdkPixmap *
 caja_icon_canvas_item_get_image (CajaIconCanvasItem *item,
                                  GdkBitmap **mask,
                                  GdkColormap *colormap)
+#endif
 {
+#if GTK_CHECK_VERSION(3,0,0)
+    cairo_surface_t *surface;
+#else
     GdkPixmap *pixmap;
+#endif
     EelCanvas *canvas;
     GdkScreen *screen;
     int width, height;
@@ -560,7 +585,11 @@ caja_icon_canvas_item_get_image (CajaIconCanvasItem *item,
     g_return_val_if_fail (CAJA_IS_ICON_CANVAS_ITEM (item), NULL);
 
     canvas = EEL_CANVAS_ITEM (item)->canvas;
+#if GTK_CHECK_VERSION(3,0,0)
+    screen = gtk_widget_get_screen (GTK_WIDGET (canvas));
+#else
     screen = gdk_colormap_get_screen (colormap);
+#endif
 
     /* Assume we're updated so canvas item data is right */
 
@@ -577,10 +606,16 @@ caja_icon_canvas_item_get_image (CajaIconCanvasItem *item,
     width = EEL_CANVAS_ITEM (item)->x2 - EEL_CANVAS_ITEM (item)->x1;
     height = EEL_CANVAS_ITEM (item)->y2 - EEL_CANVAS_ITEM (item)->y1;
 
+#if GTK_CHECK_VERSION(3,0,0)
+    surface = gdk_window_create_similar_surface (gdk_screen_get_root_window (screen),
+    						 CAIRO_CONTENT_COLOR_ALPHA,
+    						 width, height);
+#else
     pixmap = gdk_pixmap_new (gdk_screen_get_root_window (screen),
                              width,	height,
                              gdk_visual_get_depth (gdk_colormap_get_visual (colormap)));
     gdk_drawable_set_colormap (GDK_DRAWABLE (pixmap), colormap);
+#endif
 
     pixbuf = gdk_pixbuf_new (GDK_COLORSPACE_RGB,
                              TRUE,
@@ -616,12 +651,23 @@ caja_icon_canvas_item_get_image (CajaIconCanvasItem *item,
     }
 
     /* draw pixbuf to mask and pixmap */
+#if GTK_CHECK_VERSION(3,0,0)
+    cr = cairo_create (surface);
+#else
     cr = gdk_cairo_create (pixmap);
+#endif
     cairo_set_operator (cr, CAIRO_OPERATOR_SOURCE);
     gdk_cairo_set_source_pixbuf (cr, pixbuf, 0, 0);
     cairo_paint (cr);
+
+#if GTK_CHECK_VERSION(3,0,0)
+    draw_embedded_text (item, cr,
+    			item_offset_x, item_offset_y);
+    draw_label_text (item, cr, FALSE, icon_rect);
+#endif
     cairo_destroy (cr);
 
+#if !GTK_CHECK_VERSION(3,0,0)
     *mask = gdk_pixmap_new (gdk_screen_get_root_window (screen),
                             width, height,
                             1);
@@ -636,10 +682,15 @@ caja_icon_canvas_item_get_image (CajaIconCanvasItem *item,
 
     draw_label_text (item, GDK_DRAWABLE (pixmap), FALSE, icon_rect);
     draw_label_text (item, GDK_DRAWABLE (*mask), TRUE, icon_rect);
+#endif
 
     g_object_unref (pixbuf);
 
+#if GTK_CHECK_VERSION(3,0,0)
+    return surface;
+#else
     return pixmap;
+#endif
 }
 
 void
@@ -1016,7 +1067,11 @@ make_round_rect (cairo_t *cr,
 
 static void
 draw_frame (CajaIconCanvasItem *item,
+#if GTK_CHECK_VERSION(3,0,0)
+            cairo_t *cr,
+#else
             GdkDrawable *drawable,
+#endif
             guint color,
             gboolean create_mask,
             int x,
@@ -1025,12 +1080,14 @@ draw_frame (CajaIconCanvasItem *item,
             int height)
 {
     CajaIconContainer *container;
-    cairo_t *cr;
 
     container = CAJA_ICON_CONTAINER (EEL_CANVAS_ITEM (item)->canvas);
 
-    /* Get a cairo context */
-    cr = gdk_cairo_create (drawable);
+#if GTK_CHECK_VERSION(3,0,0)
+    cairo_save (cr);
+#else
+    cairo_t *cr = gdk_cairo_create (drawable);
+#endif
 
     /* Set the rounded rect clip region. Magic rounding value taken
      * from old code.
@@ -1054,8 +1111,11 @@ draw_frame (CajaIconCanvasItem *item,
     /* Paint into drawable now that we have set up the color and opacity */
     cairo_fill (cr);
 
-    /* Clean up now that drawing is complete */
+#if GTK_CHECK_VERSION(3,0,0)
+    cairo_restore (cr);
+#else
     cairo_destroy (cr);
+#endif
 }
 
 /* Keep these for a bit while we work on performance of draw_or_measure_label_text. */
@@ -1363,7 +1423,11 @@ measure_label_text (CajaIconCanvasItem *item)
 
 static void
 draw_label_text (CajaIconCanvasItem *item,
+#if GTK_CHECK_VERSION(3,0,0)
+                 cairo_t *cr,
+#else
                  GdkDrawable *drawable,
+#endif
                  gboolean create_mask,
                  EelIRect icon_rect)
 {
@@ -1414,7 +1478,11 @@ draw_label_text (CajaIconCanvasItem *item,
     if (needs_highlight && !details->is_renaming)
     {
         draw_frame (item,
+#if GTK_CHECK_VERSION(3,0,0)
+                    cr,
+#else
                     drawable,
+#endif
                     gtk_widget_has_focus (GTK_WIDGET (container)) ? container->details->highlight_color_rgba : container->details->active_color_rgba,
                     create_mask,
                     is_rtl_label_beside ? text_rect.x0 + item->details->text_dx : text_rect.x0,
@@ -1427,11 +1495,24 @@ draw_label_text (CajaIconCanvasItem *item,
               details->is_highlighted_as_keyboard_focus))
     {
         /* clear the underlying icons, where the text or overlaps them. */
+#if GTK_CHECK_VERSION(3,0,0)
+        cairo_save (cr);
+        /* FIMXEchpe draw the background here? */
+        cairo_set_source_rgb (cr, 1., 1., 1.);
+        cairo_rectangle (cr,
+                         text_rect.x0,
+                         text_rect.y0,
+                         text_rect.x1 - text_rect.x0,
+                         text_rect.y1 - text_rect.y0);
+        cairo_fill (cr);
+        cairo_restore (cr);
+#else
         gdk_window_clear_area (gtk_layout_get_bin_window (&EEL_CANVAS (container)->layout),
                                text_rect.x0,
                                text_rect.y0,
                                text_rect.x1 - text_rect.x0,
                                text_rect.y1 - text_rect.y0);
+#endif
     }
 
     if (container->details->label_position == CAJA_ICON_LABEL_POSITION_BESIDE)
@@ -1457,7 +1538,11 @@ draw_label_text (CajaIconCanvasItem *item,
             if (!(prelight_label && item->details->is_prelit))
             {
                 draw_frame (item,
+#if GTK_CHECK_VERSION(3,0,0)
+                            cr,
+#else
                             drawable,
+#endif
                             container->details->normal_color_rgba,
                             create_mask,
                             text_rect.x0,
@@ -1468,7 +1553,11 @@ draw_label_text (CajaIconCanvasItem *item,
             else
             {
                 draw_frame (item,
+#if GTK_CHECK_VERSION(3,0,0)
+                            cr,
+#else
                             drawable,
+#endif
                             container->details->prelight_color_rgba,
                             create_mask,
                             text_rect.x0,
@@ -1483,7 +1572,12 @@ draw_label_text (CajaIconCanvasItem *item,
               &label_color, TRUE, needs_highlight,
               prelight_label & item->details->is_prelit);
 
-        draw_label_layout (item, drawable,
+        draw_label_layout (item,
+#if GTK_CHECK_VERSION(3,0,0)
+                           cr,
+#else
+                           drawable,
+#endif
                            editable_layout, needs_highlight,
                            label_color,
                            x,
@@ -1500,7 +1594,12 @@ draw_label_text (CajaIconCanvasItem *item,
               &label_color, FALSE, needs_highlight,
               FALSE);
 
-        draw_label_layout (item, drawable,
+        draw_label_layout (item,
+#if GTK_CHECK_VERSION(3,0,0)
+                           cr,
+#else
+                           drawable,
+#endif
                            additional_layout, needs_highlight,
                            label_color,
                            x,
@@ -1510,7 +1609,11 @@ draw_label_text (CajaIconCanvasItem *item,
     if (!create_mask && item->details->is_highlighted_as_keyboard_focus)
     {
         gtk_paint_focus (gtk_widget_get_style (GTK_WIDGET (EEL_CANVAS_ITEM (item)->canvas)),
+#if GTK_CHECK_VERSION(3,0,0)
+                         cr,
+#else
                          drawable,
+#endif
                          needs_highlight ? GTK_STATE_SELECTED : GTK_STATE_NORMAL,
                          NULL,
                          GTK_WIDGET (EEL_CANVAS_ITEM (item)->canvas),
@@ -1592,14 +1695,18 @@ get_knob_pixbuf (void)
 }
 
 static void
+#if GTK_CHECK_VERSION(3,0,0)
+draw_stretch_handles (CajaIconCanvasItem *item,
+                      cairo_t *cr,
+#else
 draw_stretch_handles (CajaIconCanvasItem *item, GdkDrawable *drawable,
+#endif
                       const EelIRect *rect)
 {
     GtkWidget *widget;
     GdkPixbuf *knob_pixbuf;
     int knob_width, knob_height;
     double dash = { 2.0 };
-    cairo_t *cr;
 
     if (!item->details->show_stretch_handles)
     {
@@ -1608,7 +1715,11 @@ draw_stretch_handles (CajaIconCanvasItem *item, GdkDrawable *drawable,
 
     widget = GTK_WIDGET (EEL_CANVAS_ITEM (item)->canvas);
 
-    cr = gdk_cairo_create (drawable);
+#if GTK_CHECK_VERSION(3,0,0)
+    cairo_save (cr);
+#else
+    cairo_t *cr = gdk_cairo_create (drawable);
+#endif
     knob_pixbuf = get_knob_pixbuf ();
     knob_width = gdk_pixbuf_get_width (knob_pixbuf);
     knob_height = gdk_pixbuf_get_height (knob_pixbuf);
@@ -1624,13 +1735,22 @@ draw_stretch_handles (CajaIconCanvasItem *item, GdkDrawable *drawable,
              rect->y1 - rect->y0 - 1);
     cairo_stroke (cr);
 
-    cairo_destroy (cr);
+#if GTK_CHECK_VERSION(3,0,0)
+    cairo_restore (cr);
 
     /* draw the stretch handles themselves */
+    draw_pixbuf (knob_pixbuf, cr, rect->x0, rect->y0);
+    draw_pixbuf (knob_pixbuf, cr, rect->x0, rect->y1 - knob_height);
+    draw_pixbuf (knob_pixbuf, cr, rect->x1 - knob_width, rect->y0);
+    draw_pixbuf (knob_pixbuf, cr, rect->x1 - knob_width, rect->y1 - knob_height);
+#else
+    cairo_destroy (cr);
+
     draw_pixbuf (knob_pixbuf, drawable, rect->x0, rect->y0);
     draw_pixbuf (knob_pixbuf, drawable, rect->x0, rect->y1 - knob_height);
     draw_pixbuf (knob_pixbuf, drawable, rect->x1 - knob_width, rect->y0);
     draw_pixbuf (knob_pixbuf, drawable, rect->x1 - knob_width, rect->y1 - knob_height);
+#endif
 
     g_object_unref (knob_pixbuf);
 }
@@ -1793,15 +1913,25 @@ emblem_layout_next (EmblemLayout *layout,
 }
 
 static void
+#if GTK_CHECK_VERSION(3,0,0)
+draw_pixbuf (GdkPixbuf *pixbuf,
+             cairo_t *cr,
+             int x, int y)
+{
+    cairo_save (cr);
+    gdk_cairo_set_source_pixbuf (cr, pixbuf, x, y);
+    cairo_paint (cr);
+    cairo_restore (cr);
+}
+#else
 draw_pixbuf (GdkPixbuf *pixbuf, GdkDrawable *drawable, int x, int y)
 {
     cairo_t *cr = gdk_cairo_create (drawable);
-
     gdk_cairo_set_source_pixbuf (cr, pixbuf, x, y);
     cairo_paint (cr);
-
     cairo_destroy (cr);
 }
+#endif
 
 /* shared code to highlight or dim the passed-in pixbuf */
 static GdkPixbuf *
@@ -1967,13 +2097,16 @@ map_pixbuf (CajaIconCanvasItem *icon_item)
 
 static void
 draw_embedded_text (CajaIconCanvasItem *item,
+#if GTK_CHECK_VERSION(3,0,0)
+                    cairo_t *cr,
+#else
                     GdkDrawable *drawable,
+#endif
                     int x, int y)
 {
     PangoLayout *layout;
     PangoContext *context;
     PangoFontDescription *desc;
-    cairo_t *cr;
 
     if (item->details->embedded_text == NULL ||
             item->details->embedded_text_rect.width == 0 ||
@@ -2002,7 +2135,11 @@ draw_embedded_text (CajaIconCanvasItem *item,
         }
     }
 
-    cr = gdk_cairo_create (drawable);
+#if GTK_CHECK_VERSION(3,0,0)
+    cairo_save (cr);
+#else
+    cairo_t *cr = gdk_cairo_create (drawable);
+#endif
 
     cairo_rectangle (cr,
                      x + item->details->embedded_text_rect.x,
@@ -2017,13 +2154,23 @@ draw_embedded_text (CajaIconCanvasItem *item,
     	           y + item->details->embedded_text_rect.y);
     pango_cairo_show_layout (cr, layout);
 
+#if GTK_CHECK_VERSION(3,0,0)
+    cairo_restore (cr);
+#else
     cairo_destroy (cr);
+#endif
 }
 
 /* Draw the icon item for non-anti-aliased mode. */
 static void
+#if GTK_CHECK_VERSION(3,0,0)
+caja_icon_canvas_item_draw (EelCanvasItem *item,
+                            cairo_t *cr,
+                            cairo_region_t *region)
+#else
 caja_icon_canvas_item_draw (EelCanvasItem *item, GdkDrawable *drawable,
                             GdkEventExpose *expose)
+#endif
 {
     CajaIconCanvasItem *icon_item;
     CajaIconCanvasItemDetails *details;
@@ -2032,7 +2179,6 @@ caja_icon_canvas_item_draw (EelCanvasItem *item, GdkDrawable *drawable,
     GdkPixbuf *emblem_pixbuf, *temp_pixbuf;
     GdkRectangle pixbuf_rect;
     gboolean is_rtl;
-    cairo_t *cr;
 
     icon_item = CAJA_ICON_CANVAS_ITEM (item);
     details = icon_item->details;
@@ -2053,16 +2199,28 @@ caja_icon_canvas_item_draw (EelCanvasItem *item, GdkDrawable *drawable,
     pixbuf_rect.width = gdk_pixbuf_get_width (temp_pixbuf);
     pixbuf_rect.height = gdk_pixbuf_get_height (temp_pixbuf);
 
-    cr = gdk_cairo_create (drawable);
+#if GTK_CHECK_VERSION(3,0,0)
+    cairo_save (cr);
+#else
+    cairo_t *cr = gdk_cairo_create (drawable);
     gdk_cairo_rectangle (cr, &expose->area);
     cairo_clip (cr);
+#endif
     gdk_cairo_set_source_pixbuf (cr, temp_pixbuf, pixbuf_rect.x, pixbuf_rect.y);
     gdk_cairo_rectangle (cr, &pixbuf_rect);
     cairo_fill (cr);
+#if GTK_CHECK_VERSION(3,0,0)
+    cairo_restore (cr);
+#else
     cairo_destroy (cr);
+#endif
     g_object_unref (temp_pixbuf);
 
+#if GTK_CHECK_VERSION(3,0,0)
+    draw_embedded_text (icon_item, cr, icon_rect.x0, icon_rect.y0);
+#else
     draw_embedded_text (icon_item, drawable,  icon_rect.x0, icon_rect.y0);
+#endif
 
     is_rtl = caja_icon_container_is_layout_rtl (CAJA_ICON_CONTAINER (item->canvas));
 
@@ -2070,14 +2228,23 @@ caja_icon_canvas_item_draw (EelCanvasItem *item, GdkDrawable *drawable,
     emblem_layout_reset (&emblem_layout, icon_item, icon_rect, is_rtl);
     while (emblem_layout_next (&emblem_layout, &emblem_pixbuf, &emblem_rect, is_rtl))
     {
+#if GTK_CHECK_VERSION(3,0,0)
+        draw_pixbuf (emblem_pixbuf, cr, emblem_rect.x0, emblem_rect.y0);
+#else
         draw_pixbuf (emblem_pixbuf, drawable, emblem_rect.x0, emblem_rect.y0);
+#endif
     }
 
+#if GTK_CHECK_VERSION(3,0,0)
     /* Draw stretching handles (if necessary). */
-    draw_stretch_handles (icon_item, drawable, &icon_rect);
+    draw_stretch_handles (icon_item, cr, &icon_rect);
 
     /* Draw the label text. */
+    draw_label_text (icon_item, cr, FALSE, icon_rect);
+#else
+    draw_stretch_handles (icon_item, drawable, &icon_rect);
     draw_label_text (icon_item, drawable, FALSE, icon_rect);
+#endif
 }
 
 #define ZERO_WIDTH_SPACE "\xE2\x80\x8B"
@@ -2195,17 +2362,20 @@ get_label_layout (PangoLayout **layout_cache,
 
 static void
 draw_label_layout (CajaIconCanvasItem *item,
+#if GTK_CHECK_VERSION(3,0,0)
+                   cairo_t *cr,
+#else
                    GdkDrawable *drawable,
+#endif
                    PangoLayout *layout,
                    gboolean highlight,
                    GdkColor *label_color,
                    int x,
                    int y)
 {
-    if (drawable == NULL)
-    {
-        return;
-    }
+#if !GTK_CHECK_VERSION(3,0,0)
+    g_return_if_fail (drawable != NULL);
+#endif
 
     if (item->details->is_renaming)
     {
@@ -2215,7 +2385,11 @@ draw_label_layout (CajaIconCanvasItem *item,
     if (!highlight && (CAJA_ICON_CONTAINER (EEL_CANVAS_ITEM (item)->canvas)->details->use_drop_shadows))
     {
         /* draw a drop shadow */
+#if GTK_CHECK_VERSION(3,0,0)
+        eel_cairo_draw_layout_with_drop_shadow (cr,
+#else
         eel_gdk_draw_layout_with_drop_shadow (drawable,
+#endif
                                               label_color,
                                               &gtk_widget_get_style (GTK_WIDGET (EEL_CANVAS_ITEM (item)->canvas))->black,
                                               x, y,
@@ -2223,12 +2397,20 @@ draw_label_layout (CajaIconCanvasItem *item,
     }
     else
     {
+#if GTK_CHECK_VERSION(3,0,0)
+        cairo_save (cr);
+#else
         cairo_t *cr = gdk_cairo_create (drawable);
+#endif
 
         gdk_cairo_set_source_color (cr, label_color);
         cairo_move_to (cr, x, y);
         pango_cairo_show_layout (cr, layout);
+#if GTK_CHECK_VERSION(3,0,0)
+        cairo_restore (cr);
+#else
         cairo_destroy (cr);
+#endif
     }
 }
 

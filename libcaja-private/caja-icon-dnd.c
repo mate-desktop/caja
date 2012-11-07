@@ -1495,18 +1495,23 @@ drag_begin_callback (GtkWidget      *widget,
                      GdkDragContext *context,
                      gpointer        data)
 {
+#if GTK_CHECK_VERSION(3,0,0)
+    cairo_surface_t *surface;
+#else
     CajaIconContainer *container;
     GdkScreen *screen;
     GdkColormap *colormap;
     GdkPixmap *pixmap;
     GdkBitmap *mask;
+    gboolean use_mask;
+#endif
     double x1, y1, x2, y2, winx, winy;
     int x_offset, y_offset;
     int start_x, start_y;
-    gboolean use_mask;
 
     container = CAJA_ICON_CONTAINER (widget);
 
+#if !GTK_CHECK_VERSION(3,0,0)
     screen = gtk_widget_get_screen (widget);
     colormap = NULL;
     if (gdk_screen_is_composited (screen))
@@ -1524,12 +1529,17 @@ drag_begin_callback (GtkWidget      *widget,
         colormap = gtk_widget_get_colormap (widget);
         use_mask = TRUE;
     }
+#endif
 
     start_x = container->details->dnd_info->drag_info.start_x + gtk_adjustment_get_value (gtk_layout_get_hadjustment (GTK_LAYOUT (container)));
     start_y = container->details->dnd_info->drag_info.start_y + gtk_adjustment_get_value (gtk_layout_get_vadjustment (GTK_LAYOUT (container)));
 
     /* create a pixmap and mask to drag with */
+#if GTK_CHECK_VERSION(3,0,0)
+    surface = caja_icon_canvas_item_get_drag_surface (container->details->drag_icon->item);
+#else
     pixmap = caja_icon_canvas_item_get_image (container->details->drag_icon->item, &mask, colormap);
+#endif
 
     /* we want to drag semi-transparent pixbufs, but X is too slow dealing with
     stippled masks, so we had to remove the code; this comment is left as a memorial
@@ -1543,6 +1553,11 @@ drag_begin_callback (GtkWidget      *widget,
     x_offset = start_x - winx;
     y_offset = start_y - winy;
 
+#if GTK_CHECK_VERSION(3,0,0)
+    cairo_surface_set_device_offset (surface, x_offset, y_offset);
+    gtk_drag_set_icon_surface (context, surface);
+    cairo_surface_destroy (surface);
+#else
     if (!use_mask && pixmap != NULL)
     {
         cairo_t *cr;
@@ -1559,6 +1574,7 @@ drag_begin_callback (GtkWidget      *widget,
                               colormap,
                               pixmap, (use_mask ? mask : NULL),
                               x_offset, y_offset);
+#endif
 }
 
 void
@@ -1593,37 +1609,50 @@ caja_icon_dnd_begin_drag (CajaIconContainer *container,
 }
 
 static gboolean
+#if GTK_CHECK_VERSION(3,0,0)
+drag_highlight_draw (GtkWidget *widget,
+                     cairo_t   *cr,
+                     gpointer   user_data)
+#else
 drag_highlight_expose (GtkWidget      *widget,
                        GdkEventExpose *event,
                        gpointer        data)
+#endif
 {
     gint x, y, width, height;
     GdkWindow *window;
-    cairo_t *cr;
 
     x = gtk_adjustment_get_value (gtk_layout_get_hadjustment (GTK_LAYOUT (widget)));
     y = gtk_adjustment_get_value (gtk_layout_get_vadjustment (GTK_LAYOUT (widget)));
 
+    window = gtk_widget_get_window (widget);
 #if GTK_CHECK_VERSION(3, 0, 0)
-    width = gdk_window_get_width(GDK_WINDOW(gtk_widget_get_window(widget)));
-    height = gdk_window_get_height(GDK_WINDOW(gtk_widget_get_window(widget)));
-#else
-    gdk_drawable_get_size(gtk_widget_get_window(widget), &width, &height);
-#endif
+    width = gdk_window_get_width (window);
+    height = gdk_window_get_height (window);
 
-    window = gtk_layout_get_bin_window (GTK_LAYOUT (widget));
+    gtk_paint_shadow (gtk_widget_get_style (widget),
+                      cr,
+                      GTK_STATE_NORMAL, GTK_SHADOW_OUT,
+                      widget, "dnd",
+                      x, y, width, height);
+#else
+    gdk_drawable_get_size(window, &width, &height);
 
     gtk_paint_shadow (gtk_widget_get_style (widget), window,
                       GTK_STATE_NORMAL, GTK_SHADOW_OUT,
                       NULL, widget, "dnd",
                       x, y, width, height);
 
-    cr = gdk_cairo_create (window);
+    cairo_t *cr = gdk_cairo_create (window);
+#endif
+
     cairo_set_line_width (cr, 1.0);
     cairo_set_source_rgb (cr, 0, 0, 0);
     cairo_rectangle (cr, x + 0.5, y + 0.5, width - 1, height - 1);
     cairo_stroke (cr);
+#if !GTK_CHECK_VERSION(3,0,0)
     cairo_destroy (cr);
+#endif
 
     return FALSE;
 }
@@ -1682,8 +1711,13 @@ start_dnd_highlight (GtkWidget *widget)
     if (!dnd_info->highlighted)
     {
         dnd_info->highlighted = TRUE;
+#if GTK_CHECK_VERSION(3,0,0)
+        g_signal_connect_after (widget, "draw",
+                                G_CALLBACK (drag_highlight_draw),
+#else
         g_signal_connect_after (widget, "expose_event",
                                 G_CALLBACK (drag_highlight_expose),
+#endif
                                 NULL);
         dnd_highlight_queue_redraw (widget);
     }
@@ -1699,7 +1733,11 @@ stop_dnd_highlight (GtkWidget *widget)
     if (dnd_info->highlighted)
     {
         g_signal_handlers_disconnect_by_func (widget,
+#if GTK_CHECK_VERSION(3,0,0)
+                                              drag_highlight_draw,
+#else
                                               drag_highlight_expose,
+#endif
                                               NULL);
         dnd_highlight_queue_redraw (widget);
         dnd_info->highlighted = FALSE;
