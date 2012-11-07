@@ -28,6 +28,10 @@
 
 #include <gdk/gdk.h>
 
+#ifndef GTK_CHECK_VERSION
+#include <gtk/gtk.h>
+#endif
+
 #define EEL_RGB_COLOR_RED	0xFF0000
 #define EEL_RGB_COLOR_GREEN	0x00FF00
 #define EEL_RGB_COLOR_BLUE	0x0000FF
@@ -118,10 +122,14 @@ EelGdkGeometryFlags eel_gdk_parse_geometry                 (const char          
         int                 *y_return,
         guint               *width_return,
         guint               *height_return);
+#if GTK_CHECK_VERSION(3,0,0)
+void                eel_cairo_draw_layout_with_drop_shadow (cairo_t             *cr,
+#else
 void                eel_gdk_draw_layout_with_drop_shadow   (GdkDrawable         *drawable,
-        GdkColor            *text_color,
-        GdkColor            *shadow_color,
-        int                  x,
-        int                  y,
-        PangoLayout         *layout);
+#endif
+        						    GdkColor            *text_color,
+        						    GdkColor            *shadow_color,
+        						    int                  x,
+        						    int                  y,
+        						    PangoLayout         *layout);
 #endif /* EEL_GDK_EXTENSIONS_H */

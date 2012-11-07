@@ -477,16 +477,23 @@ eel_gdk_parse_geometry (const char *string, int *x_return, int *y_return,
 }
 
 void
+#if GTK_CHECK_VERSION(3,0,0)
+eel_cairo_draw_layout_with_drop_shadow (cairo_t             *cr,
+#else
 eel_gdk_draw_layout_with_drop_shadow (GdkDrawable         *drawable,
+#endif
                                       GdkColor            *text_color,
                                       GdkColor            *shadow_color,
                                       int                  x,
                                       int                  y,
                                       PangoLayout         *layout)
 {
+#if GTK_CHECK_VERSION(3,0,0)
+    cairo_save (cr);
+#else
     cairo_t *cr;
-
     cr = gdk_cairo_create (drawable);
+#endif
 
     gdk_cairo_set_source_color (cr, shadow_color);
     cairo_move_to (cr, x+1, y+1);
@@ -496,7 +503,11 @@ eel_gdk_draw_layout_with_drop_shadow (GdkDrawable         *drawable,
     cairo_move_to (cr, x, y);
     pango_cairo_show_layout (cr, layout);
 
+#if GTK_CHECK_VERSION(3,0,0)
+    cairo_restore
+#else
     cairo_destroy (cr);
+#endif
 }
 
 #if ! defined (EEL_OMIT_SELF_CHECK)
