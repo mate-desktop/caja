@@ -44,6 +44,10 @@
 #include <stdlib.h>
 #include <string.h>
 
+#if !GTK_CHECK_VERSION(3,0,0)
+#define gtk_widget_get_preferred_size(x,y,z) gtk_widget_size_request(x,y)
+#endif
+
 enum
 {
     ZOOM_IN,
@@ -153,8 +157,8 @@ menu_position_under_widget (GtkMenu   *menu,
     container = gtk_widget_get_ancestor (widget, GTK_TYPE_CONTAINER);
     g_assert (container != NULL);
 
-    gtk_widget_size_request (widget, &req);
-    gtk_widget_size_request (GTK_WIDGET (menu), &menu_req);
+    gtk_widget_get_preferred_size (GTK_WIDGET (menu), &menu_req, NULL);
+    gtk_widget_get_preferred_size (widget, &req, NULL);
     gtk_widget_get_allocation (widget, &allocation);
 
     screen = gtk_widget_get_screen (GTK_WIDGET (menu));

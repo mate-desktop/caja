@@ -64,6 +64,10 @@
 #include <libcaja-private/caja-search-engine.h>
 #include <libcaja-private/caja-signaller.h>
 
+#if !GTK_CHECK_VERSION(3,0,0)
+#define gtk_widget_get_preferred_size(x,y,z) gtk_widget_size_request(x,y)
+#endif
+
 #define MAX_TITLE_LENGTH 180
 #define MAX_SHORTNAME_PATH 16
 
@@ -632,8 +636,8 @@ menu_popup_pos (GtkMenu   *menu,
 
     widget = user_data;
 
-    gtk_widget_size_request (GTK_WIDGET (menu), &menu_requisition);
-    gtk_widget_size_request (widget, &button_requisition);
+    gtk_widget_get_preferred_size (GTK_WIDGET (menu), &menu_requisition, NULL);
+    gtk_widget_get_preferred_size (widget, &button_requisition, NULL);
     gtk_widget_get_allocation (widget, &allocation);
 
     gdk_window_get_origin (gtk_widget_get_window (widget), x, y);
