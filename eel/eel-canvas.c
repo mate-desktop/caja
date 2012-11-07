@@ -69,15 +69,12 @@
 #include <gdk/gdkprivate.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n-lib.h>
+#if GTK_CHECK_VERSION(3,0,0)
+# include <cairo/cairo-gobject.h>
+#endif
 #include "eel-canvas.h"
 
 #include "eel-marshal.h"
-
-/* Some compatibility defines to let us build on both Gtk2 and Gtk3 */
-#if !GTK_CHECK_VERSION (3, 0, 0)
-#define cairo_region_contains_rectangle gdk_region_rect_in
-#define CAIRO_REGION_OVERLAP_OUT GDK_OVERLAP_RECTANGLE_OUT
-#endif
 
 static void eel_canvas_request_update (EelCanvas      *canvas);
 static void group_add                   (EelCanvasGroup *group,
@@ -1222,8 +1219,14 @@ static void   eel_canvas_group_update      (EelCanvasItem *item,
 static void   eel_canvas_group_unrealize   (EelCanvasItem *item);
 static void   eel_canvas_group_map         (EelCanvasItem *item);
 static void   eel_canvas_group_unmap       (EelCanvasItem *item);
+#if GTK_CHECK_VERSION(3,0,0)
+static void   eel_canvas_group_draw        (EelCanvasItem  *item,
+                                            cairo_t        *cr,
+                                            cairo_region_t *region);
+#else
 static void   eel_canvas_group_draw        (EelCanvasItem *item, GdkDrawable *drawable,
         GdkEventExpose *expose);
+#endif
 static double eel_canvas_group_point       (EelCanvasItem *item, double x, double y,
         int cx, int cy,
         EelCanvasItem **actual_item);
@@ -1546,8 +1549,14 @@ eel_canvas_group_unmap (EelCanvasItem *item)
 
 /* Draw handler for canvas groups */
 static void
+#if GTK_CHECK_VERSION(3,0,0)
+eel_canvas_group_draw (EelCanvasItem  *item,
+                       cairo_t        *cr,
+                       cairo_region_t *region)
+#else
 eel_canvas_group_draw (EelCanvasItem *item, GdkDrawable *drawable,
                        GdkEventExpose *expose)
+#endif
 {
     EelCanvasGroup *group;
     GList *list;
@@ -1569,8 +1578,13 @@ eel_canvas_group_draw (EelCanvasItem *item, GdkDrawable *drawable,
             child_rect.width = child->x2 - child->x1 + 1;
             child_rect.height = child->y2 - child->y1 + 1;
 
-            if (cairo_region_contains_rectangle (expose->region, &child_rect) != CAIRO_REGION_OVERLAP_OUT)
+#if GTK_CHECK_VERSION (3, 0, 0)
+            if (cairo_region_contains_rectangle (region, &child_rect) != CAIRO_REGION_OVERLAP_OUT)
+                EEL_CANVAS_ITEM_GET_CLASS (child)->draw (child, cr, region);
+#else
+            if (gdk_region_rect_in (expose->region, &child_rect) != GDK_OVERLAP_RECTANGLE_OUT)
                 (* EEL_CANVAS_ITEM_GET_CLASS (child)->draw) (child, drawable, expose);
+#endif
         }
     }
 }
@@ -1813,8 +1827,13 @@ static gint eel_canvas_button              (GtkWidget        *widget,
         GdkEventButton   *event);
 static gint eel_canvas_motion              (GtkWidget        *widget,
         GdkEventMotion   *event);
+#if GTK_CHECK_VERSION (3, 0, 0)
+static gint eel_canvas_draw                (GtkWidget        *widget,
+                                            cairo_t          *cr);
+#else
 static gint eel_canvas_expose              (GtkWidget        *widget,
         GdkEventExpose   *event);
+#endif
 static gint eel_canvas_key                 (GtkWidget        *widget,
         GdkEventKey      *event);
 static gint eel_canvas_crossing            (GtkWidget        *widget,
@@ -1825,11 +1844,14 @@ static gint eel_canvas_focus_out           (GtkWidget        *widget,
         GdkEventFocus    *event);
 static void eel_canvas_request_update_real (EelCanvas      *canvas);
 static void eel_canvas_draw_background     (EelCanvas      *canvas,
+#if GTK_CHECK_VERSION (3, 0, 0)
+                                            cairo_t        *cr);
+#else
         int               x,
         int               y,
         int               width,
         int               height);
-
+#endif
 
 static GtkLayoutClass *canvas_parent_class;
 
@@ -2140,7 +2162,11 @@ eel_canvas_class_init (EelCanvasClass *klass)
     widget_class->button_press_event = eel_canvas_button;
     widget_class->button_release_event = eel_canvas_button;
     widget_class->motion_notify_event = eel_canvas_motion;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    widget_class->draw = eel_canvas_draw;
+#else
     widget_class->expose_event = eel_canvas_expose;
+#endif
     widget_class->key_press_event = eel_canvas_key;
     widget_class->key_release_event = eel_canvas_key;
     widget_class->enter_notify_event = eel_canvas_crossing;
@@ -2157,9 +2183,15 @@ eel_canvas_class_init (EelCanvasClass *klass)
                       G_SIGNAL_RUN_LAST,
                       G_STRUCT_OFFSET (EelCanvasClass, draw_background),
                       NULL, NULL,
+#if GTK_CHECK_VERSION (3, 0, 0)
+                      g_cclosure_marshal_VOID__BOXED,
+                      G_TYPE_NONE, 1,
+                      CAIRO_GOBJECT_TYPE_CONTEXT);
+#else
                       eel_marshal_VOID__INT_INT_INT_INT,
                       G_TYPE_NONE, 4,
                       G_TYPE_INT, G_TYPE_INT, G_TYPE_INT, G_TYPE_INT);
+#endif
 
     atk_registry_set_factory_type (atk_get_default_registry (),
                                    EEL_TYPE_CANVAS,
@@ -3018,18 +3050,80 @@ eel_canvas_focus_out (GtkWidget *widget, GdkEventFocus *event)
         return FALSE;
 }
 
+
+#if GTK_CHECK_VERSION(3,0,0)
+static cairo_region_t *
+eel_cairo_get_clip_region (cairo_t *cr)
+{
+    cairo_rectangle_list_t *list;
+    cairo_region_t *region;
+    int i;
+
+    list = cairo_copy_clip_rectangle_list (cr);
+    if (list->status == CAIRO_STATUS_CLIP_NOT_REPRESENTABLE) {
+        cairo_rectangle_int_t clip_rect;
+
+        cairo_rectangle_list_destroy (list);
+
+        if (!gdk_cairo_get_clip_rectangle (cr, &clip_rect))
+            return NULL;
+        return cairo_region_create_rectangle (&clip_rect);
+    }
+
+
+    region = cairo_region_create ();
+    for (i = list->num_rectangles - 1; i >= 0; --i) {
+        cairo_rectangle_t *rect = &list->rectangles[i];
+        cairo_rectangle_int_t clip_rect;
+
+        clip_rect.x = floor (rect->x);
+        clip_rect.y = floor (rect->y);
+        clip_rect.width = ceil (rect->x + rect->width) - clip_rect.x;
+        clip_rect.height = ceil (rect->y + rect->height) - clip_rect.y;
+
+        if (cairo_region_union_rectangle (region, &clip_rect) != CAIRO_STATUS_SUCCESS) {
+            cairo_region_destroy (region);
+            region = NULL;
+            break;
+        }
+    }
+
+    cairo_rectangle_list_destroy (list);
+    return region;
+}
+#endif
+
 /* Expose handler for the canvas */
+#if GTK_CHECK_VERSION(3,0,0)
+static gboolean
+eel_canvas_draw (GtkWidget *widget, cairo_t *cr)
+#else
 static gint
 eel_canvas_expose (GtkWidget *widget, GdkEventExpose *event)
+#endif
 {
-    EelCanvas *canvas;
+    EelCanvas *canvas = EEL_CANVAS (widget);
+#if GTK_CHECK_VERSION(3,0,0)
+    GdkWindow *bin_window;
+    cairo_region_t *region;
 
-    canvas = EEL_CANVAS (widget);
+    if (!gdk_cairo_get_clip_rectangle (cr, NULL))
+        return FALSE;
 
+    bin_window = gtk_layout_get_bin_window (GTK_LAYOUT (widget));
+    gtk_cairo_transform_to_window (cr, widget, bin_window);
+
+    region = eel_cairo_get_clip_region (cr);
+    if (region == NULL)
+        return FALSE;
+#else
     if (!gtk_widget_is_drawable (widget) || (event->window != gtk_layout_get_bin_window (&canvas->layout))) return FALSE;
+#endif
 
-#ifdef VERBOSE
-    g_print ("Expose\n");
+#if defined VERBOSE && GTK_CHECK_VERSION(3,0,0)
+      g_print ("Draw\n");
+#elif defined VERBOSE
+      g_print ("Expose\n");
 #endif
     /* If there are any outstanding items that need updating, do them now */
     if (canvas->idle_id)
@@ -3054,31 +3148,59 @@ eel_canvas_expose (GtkWidget *widget, GdkEventExpose *event)
     /* Hmmm. Would like to queue antiexposes if the update marked
        anything that is gonna get redrawn as invalid */
 
-
     g_signal_emit (G_OBJECT (canvas), canvas_signals[DRAW_BACKGROUND], 0,
+#if GTK_CHECK_VERSION(3,0,0)
+                   cr);
+#else
                    event->area.x, event->area.y,
                    event->area.width, event->area.height);
+#endif
 
     if (canvas->root->flags & EEL_CANVAS_ITEM_MAPPED)
-        (* EEL_CANVAS_ITEM_GET_CLASS (canvas->root)->draw) (canvas->root,
-                gtk_layout_get_bin_window (&canvas->layout),
-                event);
-
-
+        EEL_CANVAS_ITEM_GET_CLASS (canvas->root)->draw (canvas->root,
+#if GTK_CHECK_VERSION(3,0,0)
+    							cr, region);
+#else
+    							gtk_layout_get_bin_window (&canvas->layout),
+    							event);
+#endif
 
     /* Chain up to get exposes on child widgets */
+#if !GTK_CHECK_VERSION(3,0,0)
     GTK_WIDGET_CLASS (canvas_parent_class)->expose_event (widget, event);
+#else
+    if (GTK_WIDGET_CLASS (canvas_parent_class)->draw)
+        GTK_WIDGET_CLASS (canvas_parent_class)->draw (widget, cr);
 
+    cairo_region_destroy (region);
+#endif
     return FALSE;
 }
 
+
+#if GTK_CHECK_VERSION(3,0,0)
+static void
+eel_canvas_draw_background (EelCanvas *canvas,
+                            cairo_t   *cr)
+{
+    cairo_rectangle_int_t rect;
+
+    if (!gdk_cairo_get_clip_rectangle (cr, &rect))
+        return;
+
+    cairo_save (cr);
+    /* By default, we use the style background. */
+    gdk_cairo_set_source_color (cr, &gtk_widget_get_style (GTK_WIDGET (canvas))->bg[GTK_STATE_NORMAL]);
+    gdk_cairo_rectangle (cr, &rect);
+    cairo_fill (cr);
+    cairo_restore (cr);
+}
+#else /* GTK_CHECK_VERSION(3,0,0) */
 static void
 eel_canvas_draw_background (EelCanvas *canvas,
                             int x, int y, int width, int height)
 {
-    cairo_t *cr;
-
-    cr = gdk_cairo_create (gtk_layout_get_bin_window (&canvas->layout));
+    cairo_t *cr = gdk_cairo_create (gtk_layout_get_bin_window (&canvas->layout));
 
     /* By default, we use the style background. */
     gdk_cairo_set_source_color (cr, &gtk_widget_get_style (GTK_WIDGET (canvas))->bg[GTK_STATE_NORMAL]);
@@ -3087,6 +3209,7 @@ eel_canvas_draw_background (EelCanvas *canvas,
 
     cairo_destroy (cr);
 }
+#endif /* GTK_CHECK_VERSION(3,0,0) */
 
 static void
 do_update (EelCanvas *canvas)
@@ -3349,14 +3472,20 @@ eel_canvas_set_pixels_per_unit (EelCanvas *canvas, double n)
         attributes.height = allocation.height;
         attributes.wclass = GDK_INPUT_OUTPUT;
         attributes.visual = gtk_widget_get_visual (widget);
-        attributes.colormap = gtk_widget_get_colormap (widget);
         attributes.event_mask = GDK_VISIBILITY_NOTIFY_MASK;
 
+#if GTK_CHECK_VERSION(3,0,0)
+        attributes_mask = GDK_WA_X | GDK_WA_Y | GDK_WA_VISUAL;
+#else
+        attributes.colormap = gtk_widget_get_colormap (widget);
         attributes_mask = GDK_WA_X | GDK_WA_Y | GDK_WA_VISUAL | GDK_WA_COLORMAP;
+#endif
 
         window = gdk_window_new (gtk_widget_get_parent_window (widget),
                                  &attributes, attributes_mask);
+#if !GTK_CHECK_VERSION(3,0,0)
         gdk_window_set_back_pixmap (window, NULL, FALSE);
+#endif
         gdk_window_set_user_data (window, widget);
 
         gdk_window_show (window);

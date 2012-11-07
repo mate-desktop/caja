@@ -621,7 +621,11 @@ static void eel_canvas_rect_init (EelCanvasRect *rect);
 static void eel_canvas_rect_finalize (GObject *object);
 static void eel_canvas_rect_realize  (EelCanvasItem *item);
 
+#if GTK_CHECK_VERSION(3,0,0)
+static void   eel_canvas_rect_draw   (EelCanvasItem *item, cairo_t *cr, cairo_region_t *region);
+#else
 static void   eel_canvas_rect_draw   (EelCanvasItem *item, GdkDrawable *drawable, GdkEventExpose *expose);
+#endif
 static double eel_canvas_rect_point  (EelCanvasItem *item, double x, double y, int cx, int cy,
                                       EelCanvasItem **actual_item);
 
@@ -749,10 +753,13 @@ eel_canvas_set_source_color (cairo_t *cr,
 #define DASH_ON 0.8
 #define DASH_OFF 1.7
 static void
+#if GTK_CHECK_VERSION(3,0,0)
+eel_canvas_rect_draw (EelCanvasItem *item, cairo_t *cr, cairo_region_t *region)
+#else
 eel_canvas_rect_draw (EelCanvasItem *item, GdkDrawable *drawable, GdkEventExpose *expose)
+#endif
 {
     EelCanvasRE *re;
-    cairo_t *cr;
     double x1, y1, x2, y2;
     int cx1, cy1, cx2, cy2;
     double i2w_dx, i2w_dy;
@@ -776,9 +783,13 @@ eel_canvas_rect_draw (EelCanvasItem *item, GdkDrawable *drawable, GdkEventExpose
         return;
     }
 
-    cr = gdk_cairo_create (drawable);
+#if GTK_CHECK_VERSION(3,0,0)
+    cairo_save (cr);
+#else
+    cairo_t *cr = gdk_cairo_create (drawable);
     gdk_cairo_region (cr, expose->region);
     cairo_clip (cr);
+#endif
 
     if (re->fill_set)
     {
@@ -812,7 +823,11 @@ eel_canvas_rect_draw (EelCanvasItem *item, GdkDrawable *drawable, GdkEventExpose
         cairo_stroke (cr);
     }
 
+#if GTK_CHECK_VERSION(3,0,0)
+    cairo_restore (cr);
+#else
     cairo_destroy (cr);
+#endif
 }
 
 static double
@@ -1008,7 +1023,11 @@ eel_canvas_rect_update (EelCanvasItem *item, double i2w_dx, double i2w_dy, gint 
 
 static void eel_canvas_ellipse_class_init (EelCanvasEllipseClass *klass);
 
+#if GTK_CHECK_VERSION(3,0,0)
+static void   eel_canvas_ellipse_draw   (EelCanvasItem *item, cairo_t *cr, cairo_region_t *region);
+#else
 static void   eel_canvas_ellipse_draw   (EelCanvasItem *item, GdkDrawable *drawable, GdkEventExpose *expose);
+#endif
 static double eel_canvas_ellipse_point  (EelCanvasItem *item, double x, double y, int cx, int cy,
         EelCanvasItem **actual_item);
 
@@ -1056,12 +1075,15 @@ eel_canvas_ellipse_class_init (EelCanvasEllipseClass *klass)
 }
 
 static void
+#if GTK_CHECK_VERSION(3,0,0)
+eel_canvas_ellipse_draw (EelCanvasItem *item, cairo_t *cr, cairo_region_t *region)
+#else
 eel_canvas_ellipse_draw (EelCanvasItem *item, GdkDrawable *drawable, GdkEventExpose *expose)
+#endif
 {
     EelCanvasRE *re;
     int x1, y1, x2, y2;
     double i2w_dx, i2w_dy;
-    cairo_t *cr;
 
     re = EEL_CANVAS_RE (item);
 
@@ -1080,9 +1102,13 @@ eel_canvas_ellipse_draw (EelCanvasItem *item, GdkDrawable *drawable, GdkEventExp
                     re->y2 + i2w_dy,
                     &x2, &y2);
 
-    cr = gdk_cairo_create (drawable);
+#if GTK_CHECK_VERSION(3,0,0)
+    cairo_save (cr);
+#else
+    cairo_t *cr = gdk_cairo_create (drawable);
     gdk_cairo_region (cr, expose->region);
     cairo_clip (cr);
+#endif
 
     cairo_save (cr);
     cairo_translate (cr, (x1 + x2) / 2., (y1 + y2) / 2.);
@@ -1108,7 +1134,11 @@ eel_canvas_ellipse_draw (EelCanvasItem *item, GdkDrawable *drawable, GdkEventExp
         cairo_stroke_preserve (cr);
     }
 
+#if GTK_CHECK_VERSION(3,0,0)
+    cairo_restore (cr);
+#else
     cairo_destroy (cr);
+#endif
 }
 
 static double

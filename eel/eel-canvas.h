@@ -159,7 +159,11 @@ extern "C" {
          * coordinates of the drawable, a temporary pixmap, where things get
          * drawn.  (width, height) are the dimensions of the drawable.
          */
+#if GTK_CHECK_VERSION(3,0,0)
+	void (* draw) (EelCanvasItem *item, cairo_t *cr, cairo_region_t *region);
+#else
         void (* draw) (EelCanvasItem *item, GdkDrawable *drawable, GdkEventExpose *expose);
+#endif
 
         /* Calculate the distance from an item to the specified point.  It also
              * returns a canvas item which is the item itself in the case of the
@@ -434,7 +438,11 @@ extern "C" {
         /* Draw the background for the area given.
          */
         void (* draw_background) (EelCanvas *canvas,
+#if GTK_CHECK_VERSION(3,0,0)
+                                  cairo_t *cr);
+#else
                                   int x, int y, int width, int height);
+#endif
 
         /* Private Virtual methods for groping the canvas inside matecomponent */
         void (* request_update) (EelCanvas *canvas);
