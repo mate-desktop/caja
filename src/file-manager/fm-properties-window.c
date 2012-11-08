@@ -2743,10 +2743,15 @@ should_show_volume_usage (FMPropertiesWindow *window)
 }
 
 static void
-paint_used_legend (GtkWidget *widget, GdkEventExpose *eev, gpointer data)
+paint_used_legend (GtkWidget *widget,
+#if GTK_CHECK_VERSION(3,0,0)
+                   cairo_t *cr,
+#else
+                   GdkEventExpose *eev,
+#endif
+                   gpointer data)
 {
 	FMPropertiesWindow *window;
-	cairo_t *cr;
 	gint width, height;
 	GtkAllocation allocation;
 
@@ -2757,7 +2762,9 @@ paint_used_legend (GtkWidget *widget, GdkEventExpose *eev, gpointer data)
 
 	window = FM_PROPERTIES_WINDOW (data);
 
-	cr = gdk_cairo_create (gtk_widget_get_window (widget));
+#if !GTK_CHECK_VERSION(3,0,0)
+	cairo_t *cr = gdk_cairo_create (gtk_widget_get_window (widget));
+#endif
 
 	cairo_rectangle  (cr,
 			  2,
@@ -2771,14 +2778,20 @@ paint_used_legend (GtkWidget *widget, GdkEventExpose *eev, gpointer data)
 	cairo_set_source_rgb (cr, (double) window->details->used_stroke_color.red / 65535, (double) window->details->used_stroke_color.green / 65535, (double) window->details->used_stroke_color.blue / 65535);
 	cairo_stroke (cr);
 
+#if !GTK_CHECK_VERSION(3,0,0)
 	cairo_destroy (cr);
+#endif
 }
 
 static void
-paint_free_legend (GtkWidget *widget, GdkEventExpose *eev, gpointer data)
+paint_free_legend (GtkWidget *widget,
+#if GTK_CHECK_VERSION(3,0,0)
+                   cairo_t *cr, gpointer data)
+#else
+                   GdkEventExpose *eev, gpointer data)
+#endif
 {
 	FMPropertiesWindow *window;
-	cairo_t *cr;
 	gint width, height;
 	GtkAllocation allocation;
 
@@ -2787,7 +2800,9 @@ paint_free_legend (GtkWidget *widget, GdkEventExpose *eev, gpointer data)
 
   	width  = allocation.width;
   	height = allocation.height;
-  	cr = gdk_cairo_create (gtk_widget_get_window (widget));
+#if !GTK_CHECK_VERSION(3,0,0)
+  	cairo_t *cr = gdk_cairo_create (gtk_widget_get_window (widget));
+#endif
 
 	cairo_rectangle (cr,
 			 2,
@@ -2801,15 +2816,22 @@ paint_free_legend (GtkWidget *widget, GdkEventExpose *eev, gpointer data)
 	cairo_set_source_rgb (cr, (double) window->details->free_stroke_color.red / 65535, (double) window->details->free_stroke_color.green / 65535, (double) window->details->free_stroke_color.blue / 65535);
 	cairo_stroke (cr);
 
+#if !GTK_CHECK_VERSION(3,0,0)
 	cairo_destroy (cr);
+#endif
 }
 
 static void
-paint_pie_chart (GtkWidget *widget, GdkEventExpose *eev, gpointer data)
+paint_pie_chart (GtkWidget *widget,
+#if GTK_CHECK_VERSION(3,0,0)
+                 cairo_t *cr,
+#else
+                 GdkEventExpose *eev,
+#endif
+                 gpointer data)
 {
 
   	FMPropertiesWindow *window;
-  	cairo_t *cr;
 	gint width, height;
 	double free, used;
 	double angle1, angle2, split, xc, yc, radius;
@@ -2831,7 +2853,9 @@ paint_pie_chart (GtkWidget *widget, GdkEventExpose *eev, gpointer data)
 	xc = width / 2;
 	yc = height / 2;
 
-  	cr = gdk_cairo_create (gtk_widget_get_window (widget));
+#if !GTK_CHECK_VERSION(3,0,0)
+  	cairo_t *cr = gdk_cairo_create (gtk_widget_get_window (widget));
+#endif
 
 	if (width < height) {
 		radius = width / 2 - 8;
@@ -2883,7 +2907,9 @@ paint_pie_chart (GtkWidget *widget, GdkEventExpose *eev, gpointer data)
 		cairo_stroke (cr);
 	}
 
+#if !GTK_CHECK_VERSION(3,0,0)
   	cairo_destroy (cr);
+#endif
 }
 
 
@@ -3172,9 +3198,21 @@ create_pie_widget (FMPropertiesWindow *window)
 	gtk_table_attach (table, capacity_label , 1, 3, 2, 3, GTK_FILL, 0,          5, 5);
 	gtk_table_attach (table, fstype_label , 1, 3, 3, 4, GTK_FILL, 0,          5, 5);
 
-	g_signal_connect (G_OBJECT (pie_canvas), "expose-event", G_CALLBACK (paint_pie_chart), window);
-	g_signal_connect (G_OBJECT (used_canvas), "expose-event", G_CALLBACK (paint_used_legend), window);
-	g_signal_connect (G_OBJECT (free_canvas), "expose-event", G_CALLBACK (paint_free_legend), window);
+#if GTK_CHECK_VERSION(3,0,0)
+	g_signal_connect (pie_canvas, "draw",
+	                  G_CALLBACK (paint_pie_chart), window);
+	g_signal_connect (used_canvas, "draw",
+	                  G_CALLBACK (paint_used_legend), window);
+	g_signal_connect (free_canvas, "draw",
+	                  G_CALLBACK (paint_free_legend), window);
+#else
+	g_signal_connect (G_OBJECT (pie_canvas), "expose-event",
+	                  G_CALLBACK (paint_pie_chart), window);
+	g_signal_connect (G_OBJECT (used_canvas), "expose-event",
+	                  G_CALLBACK (paint_used_legend), window);
+	g_signal_connect (G_OBJECT (free_canvas), "expose-event",
+	                  G_CALLBACK (paint_free_legend), window);
+#endif
 
 	return GTK_WIDGET (table);
 }
