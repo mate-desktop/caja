@@ -4493,15 +4493,6 @@ finalize (GObject *object)
 
 /* GtkWidget methods.  */
 
-static void
-size_request (GtkWidget *widget,
-              GtkRequisition *requisition)
-{
-    GTK_WIDGET_CLASS (caja_icon_container_parent_class)->size_request (widget, requisition);
-    requisition->width = 1;
-    requisition->height = 1;
-}
-
 static gboolean
 clear_size_allocation_count (gpointer data)
 {
@@ -6588,7 +6579,6 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
     /* GtkWidget class.  */
 
     widget_class = GTK_WIDGET_CLASS (class);
-    widget_class->size_request = size_request;
     widget_class->size_allocate = size_allocate;
     widget_class->realize = realize;
     widget_class->unrealize = unrealize;
