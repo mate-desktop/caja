@@ -527,30 +527,18 @@ static void
 caja_window_set_initial_window_geometry (CajaWindow *window)
 {
     GdkScreen *screen;
-    guint max_width_for_screen, max_height_for_screen, min_width, min_height;
+    guint max_width_for_screen, max_height_for_screen;
+#if !GTK_CHECK_VERSION(3,0,0)
+    guint min_width, min_height;
+#endif
     guint default_width, default_height;
 
     screen = gtk_window_get_screen (GTK_WINDOW (window));
 
-    /* Don't let GTK determine the minimum size
-     * automatically. It will insist that the window be
-     * really wide based on some misguided notion about
-     * the content view area. Also, it might start the
-     * window wider (or taller) than the screen, which
-     * is evil. So we choose semi-arbitrary initial and
-     * minimum widths instead of letting GTK decide.
-     */
-    /* FIXME - the above comment suggests that the size request
-     * of the content view area is wrong, probably because of
-     * another stupid set_usize someplace. If someone gets the
-     * content view area's size request right then we can
-     * probably remove this broken set_size_request() here.
-     * - hp@redhat.com
-     */
-
     max_width_for_screen = get_max_forced_width (screen);
     max_height_for_screen = get_max_forced_height (screen);
 
+#if !GTK_CHECK_VERSION(3,0,0)
     EEL_CALL_METHOD (CAJA_WINDOW_CLASS, window,
                      get_min_size, (window, &min_width, &min_height));
 
@@ -559,6 +547,7 @@ caja_window_set_initial_window_geometry (CajaWindow *window)
                                       max_width_for_screen),
                                  MIN (min_height,
                                       max_height_for_screen));
+#endif
 
     EEL_CALL_METHOD (CAJA_WINDOW_CLASS, window,
                      get_default_size, (window, &default_width, &default_height));
@@ -1003,6 +992,51 @@ caja_window_slot_close (CajaWindowSlot *slot)
     caja_window_pane_slot_close (slot->pane, slot);
 }
 
+#if GTK_CHECK_VERSION(3,0,0)
+static void
+caja_window_get_preferred_width (GtkWidget *widget,
+    			     gint *minimal_width,
+    			     gint *natural_width)
+{
+    GdkScreen *screen;
+    gint max_w, min_w, min_h, default_w, default_h;
+    CajaWindow *window = CAJA_WINDOW (widget);
+
+    screen = gtk_window_get_screen (GTK_WINDOW (widget));	
+
+    max_w = get_max_forced_width (screen);
+    EEL_CALL_METHOD (CAJA_WINDOW_CLASS, window,
+    		 get_min_size, (window, &min_w, &min_h));
+    EEL_CALL_METHOD (CAJA_WINDOW_CLASS, window,
+    		 get_default_size, (window, &default_w, &default_h));
+
+    *minimal_width = MIN (min_w, max_w);
+    *natural_width = MIN (default_w, max_w);
+}
+
+static void
+caja_window_get_preferred_height (GtkWidget *widget,
+    			      gint *minimal_height,
+    			      gint *natural_height)
+{
+    GdkScreen *screen;
+    gint max_h, min_w, min_h, default_w, default_h;
+    CajaWindow *window = CAJA_WINDOW (widget);
+
+    screen = gtk_window_get_screen (GTK_WINDOW (widget));	
+
+    max_h = get_max_forced_height (screen);
+    EEL_CALL_METHOD (CAJA_WINDOW_CLASS, window,
+    		 get_min_size, (window, &min_w, &min_h));
+    EEL_CALL_METHOD (CAJA_WINDOW_CLASS, window,
+    		 get_default_size, (window, &default_w, &default_h));
+
+    *minimal_height = MIN (min_h, max_h);
+    *natural_height = MIN (default_h, max_h);
+}
+
+#else /* GTK_CHECK_VERSION(3,0,0) */
+
 static void
 caja_window_size_request (GtkWidget		*widget,
                           GtkRequisition	*requisition)
@@ -1044,6 +1078,7 @@ caja_window_size_request (GtkWidget		*widget,
         requisition->height = max_height;
     }
 }
+#endif  /* GTK_CHECK_VERSION(3,0,0) */
 
 static void
 caja_window_realize (GtkWidget *widget)
@@ -2122,7 +2157,12 @@ caja_window_class_init (CajaWindowClass *class)
 #endif
 
     GTK_WIDGET_CLASS (class)->show = caja_window_show;
+#if GTK_CHECK_VERSION(3,0,0)
+    GTK_WIDGET_CLASS (class)->get_preferred_width = caja_window_get_preferred_width;
+    GTK_WIDGET_CLASS (class)->get_preferred_height = caja_window_get_preferred_height;
+#else
     GTK_WIDGET_CLASS (class)->size_request = caja_window_size_request;
+#endif
     GTK_WIDGET_CLASS (class)->realize = caja_window_realize;
     GTK_WIDGET_CLASS (class)->key_press_event = caja_window_key_press_event;
     class->get_title = real_get_title;
