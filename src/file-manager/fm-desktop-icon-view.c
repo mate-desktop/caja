@@ -59,6 +59,12 @@
 #include <sys/types.h>
 #include <unistd.h>
 
+#if !GTK_CHECK_VERSION(3, 0, 0)
+#define gtk_scrollable_get_hadjustment gtk_layout_get_hadjustment
+#define gtk_scrollable_get_vadjustment gtk_layout_get_vadjustment
+#define GTK_SCROLLABLE GTK_LAYOUT
+#endif
+
 /* Timeout to check the desktop directory for updates */
 #define RESCAN_TIMEOUT 4
 
@@ -566,8 +572,8 @@ fm_desktop_icon_view_init (FMDesktopIconView *desktop_icon_view)
 
     gtk_widget_queue_resize (GTK_WIDGET (icon_container));
 
-    hadj = gtk_layout_get_hadjustment (GTK_LAYOUT (icon_container));
-    vadj = gtk_layout_get_vadjustment (GTK_LAYOUT (icon_container));
+    hadj = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (icon_container));
+    vadj = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (icon_container));
 
     eel_gtk_adjustment_set_value (hadj, 0);
     eel_gtk_adjustment_set_value (vadj, 0);

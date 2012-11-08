@@ -60,6 +60,12 @@
 #include <stdio.h>
 #include <string.h>
 
+#if !GTK_CHECK_VERSION(3, 0, 0)
+#define gtk_scrollable_get_hadjustment gtk_layout_get_hadjustment
+#define gtk_scrollable_get_vadjustment gtk_layout_get_vadjustment
+#define GTK_SCROLLABLE GTK_LAYOUT
+#endif
+
 static const GtkTargetEntry drag_types [] =
 {
     { CAJA_ICON_DND_MATE_ICON_LIST_TYPE, 0, CAJA_ICON_DND_MATE_ICON_LIST },
@@ -197,6 +203,10 @@ canvas_rect_world_to_widget (EelCanvas *canvas,
                              EelIRect *widget_rect)
 {
     EelDRect window_rect;
+    GtkAdjustment *hadj, *vadj;
+
+    hadj = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (canvas));
+    vadj = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (canvas));
 
     eel_canvas_world_to_window (canvas,
                                 world_rect->x0, world_rect->y0,
@@ -204,10 +214,10 @@ canvas_rect_world_to_widget (EelCanvas *canvas,
     eel_canvas_world_to_window (canvas,
                                 world_rect->x1, world_rect->y1,
                                 &window_rect.x1, &window_rect.y1);
-    widget_rect->x0 = (int) window_rect.x0 - gtk_adjustment_get_value (gtk_layout_get_hadjustment (GTK_LAYOUT (canvas)));
-    widget_rect->y0 = (int) window_rect.y0 - gtk_adjustment_get_value (gtk_layout_get_vadjustment (GTK_LAYOUT (canvas)));
-    widget_rect->x1 = (int) window_rect.x1 - gtk_adjustment_get_value (gtk_layout_get_hadjustment (GTK_LAYOUT (canvas)));
-    widget_rect->y1 = (int) window_rect.y1 - gtk_adjustment_get_value (gtk_layout_get_vadjustment (GTK_LAYOUT (canvas)));
+    widget_rect->x0 = (int) window_rect.x0 - gtk_adjustment_get_value (hadj);
+    widget_rect->y0 = (int) window_rect.y0 - gtk_adjustment_get_value (vadj);
+    widget_rect->x1 = (int) window_rect.x1 - gtk_adjustment_get_value (hadj);
+    widget_rect->y1 = (int) window_rect.y1 - gtk_adjustment_get_value (vadj);
 }
 
 static void
@@ -216,8 +226,8 @@ canvas_widget_to_world (EelCanvas *canvas,
                         double *world_x, double *world_y)
 {
     eel_canvas_window_to_world (canvas,
-                                widget_x + gtk_adjustment_get_value (gtk_layout_get_hadjustment (GTK_LAYOUT (canvas))),
-                                widget_y + gtk_adjustment_get_value (gtk_layout_get_vadjustment (GTK_LAYOUT (canvas))),
+    			    widget_x + gtk_adjustment_get_value (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (canvas))),
+    			    widget_y + gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (canvas))),
                                 world_x, world_y);
 }
 
@@ -1267,8 +1277,8 @@ caja_icon_container_receive_dropped_icons (CajaIconContainer *container,
     if (real_action > 0)
     {
         eel_canvas_window_to_world (EEL_CANVAS (container),
-                                    x + gtk_adjustment_get_value (gtk_layout_get_hadjustment (GTK_LAYOUT (container))),
-                                    y + gtk_adjustment_get_value (gtk_layout_get_vadjustment (GTK_LAYOUT (container))),
+    				    x + gtk_adjustment_get_value (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container))),
+    				    y + gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container))),
                                     &world_x, &world_y);
 
         drop_target = caja_icon_container_find_drop_target (container,
@@ -1531,8 +1541,10 @@ drag_begin_callback (GtkWidget      *widget,
     }
 #endif
 
-    start_x = container->details->dnd_info->drag_info.start_x + gtk_adjustment_get_value (gtk_layout_get_hadjustment (GTK_LAYOUT (container)));
-    start_y = container->details->dnd_info->drag_info.start_y + gtk_adjustment_get_value (gtk_layout_get_vadjustment (GTK_LAYOUT (container)));
+    start_x = container->details->dnd_info->drag_info.start_x +
+    	gtk_adjustment_get_value (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container)));
+    start_y = container->details->dnd_info->drag_info.start_y +
+    	gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container)));
 
     /* create a pixmap and mask to drag with */
 #if GTK_CHECK_VERSION(3,0,0)
@@ -1593,8 +1605,10 @@ caja_icon_dnd_begin_drag (CajaIconContainer *container,
     /* Notice that the event is in bin_window coordinates, because of
            the way the canvas handles events.
     */
-    dnd_info->drag_info.start_x = start_x - gtk_adjustment_get_value (gtk_layout_get_hadjustment (GTK_LAYOUT (container)));
-    dnd_info->drag_info.start_y = start_y - gtk_adjustment_get_value (gtk_layout_get_vadjustment (GTK_LAYOUT (container)));
+    dnd_info->drag_info.start_x = start_x -
+    	gtk_adjustment_get_value (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container)));
+    dnd_info->drag_info.start_y = start_y -
+    	gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container)));	
 
     /* start the drag */
     context = gtk_drag_begin (GTK_WIDGET (container),
@@ -1618,8 +1632,8 @@ drag_highlight_expose (GtkWidget      *widget,
     gint x, y, width, height;
     GdkWindow *window;
 
-    x = gtk_adjustment_get_value (gtk_layout_get_hadjustment (GTK_LAYOUT (widget)));
-    y = gtk_adjustment_get_value (gtk_layout_get_vadjustment (GTK_LAYOUT (widget)));
+    x = gtk_adjustment_get_value (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (widget)));
+    y = gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (widget)));
 
     window = gtk_widget_get_window (widget);
 #if GTK_CHECK_VERSION(3, 0, 0)

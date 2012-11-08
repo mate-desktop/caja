@@ -52,6 +52,12 @@
 #include <stdio.h>
 #include <string.h>
 
+#if !GTK_CHECK_VERSION(3, 0, 0)
+#define gtk_scrollable_get_hadjustment gtk_layout_get_hadjustment
+#define gtk_scrollable_get_vadjustment gtk_layout_get_vadjustment
+#define GTK_SCROLLABLE GTK_LAYOUT
+#endif
+
 #define TAB_NAVIGATION_DISABLED
 
 /* Interval for updating the rubberband selection, in milliseconds.  */
@@ -591,8 +597,8 @@ caja_icon_container_scroll (CajaIconContainer *container,
     GtkAdjustment *hadj, *vadj;
     int old_h_value, old_v_value;
 
-    hadj = gtk_layout_get_hadjustment (GTK_LAYOUT (container));
-    vadj = gtk_layout_get_vadjustment (GTK_LAYOUT (container));
+    hadj = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container));
+    vadj = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container));
 
     /* Store the old ajustment values so we can tell if we
      * ended up actually scrolling. We may not have in a case
@@ -754,8 +760,8 @@ reveal_icon (CajaIconContainer *container,
     details = container->details;
     gtk_widget_get_allocation (GTK_WIDGET (container), &allocation);
 
-    hadj = gtk_layout_get_hadjustment (GTK_LAYOUT (container));
-    vadj = gtk_layout_get_vadjustment (GTK_LAYOUT (container));
+    hadj = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container));
+    vadj = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container));
 
     if (caja_icon_container_is_auto_layout (container))
     {
@@ -1087,8 +1093,8 @@ canvas_set_scroll_region_include_visible_area (EelCanvas *canvas,
     width = (allocation.width) / canvas->pixels_per_unit;
     height = (allocation.height) / canvas->pixels_per_unit;
 
-    old_scroll_x = gtk_adjustment_get_value (GTK_ADJUSTMENT (gtk_layout_get_hadjustment (GTK_LAYOUT (canvas))));
-    old_scroll_y = gtk_adjustment_get_value (GTK_ADJUSTMENT (gtk_layout_get_vadjustment (GTK_LAYOUT (canvas))));
+    old_scroll_x = gtk_adjustment_get_value (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (canvas)));
+    old_scroll_y = gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (canvas)));
 
     x1 = MIN (x1, old_x1 + old_scroll_x);
     y1 = MIN (y1, old_y1 + old_scroll_y);
@@ -1212,8 +1218,8 @@ caja_icon_container_update_scroll_region (CajaIconContainer *container)
          x1, y1, x2, y2);
     }
 
-    hadj = gtk_layout_get_hadjustment (GTK_LAYOUT (container));
-    vadj = gtk_layout_get_vadjustment (GTK_LAYOUT (container));
+    hadj = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container));
+    vadj = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container));
 
     /* Scroll by 1/4 icon each time you click. */
     step_increment = caja_get_icon_size_for_zoom_level
@@ -2775,14 +2781,14 @@ rubberband_timeout_callback (gpointer data)
     adj_changed = FALSE;
     gtk_widget_get_allocation (widget, &allocation);
 
-    adj_x = gtk_adjustment_get_value (gtk_layout_get_hadjustment (GTK_LAYOUT (container)));
+    adj_x = gtk_adjustment_get_value (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container)));
     if (adj_x != band_info->last_adj_x)
     {
         band_info->last_adj_x = adj_x;
         adj_changed = TRUE;
     }
 
-    adj_y = gtk_adjustment_get_value (gtk_layout_get_vadjustment (GTK_LAYOUT (container)));
+    adj_y = gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container)));
     if (adj_y != band_info->last_adj_y)
     {
         band_info->last_adj_y = adj_y;
@@ -2831,8 +2837,8 @@ rubberband_timeout_callback (gpointer data)
 
     /* Remember to convert from widget to scrolled window coords */
     eel_canvas_window_to_world (EEL_CANVAS (container),
-                                x + gtk_adjustment_get_value (gtk_layout_get_hadjustment (GTK_LAYOUT (container))),
-                                y + gtk_adjustment_get_value (gtk_layout_get_vadjustment (GTK_LAYOUT (container))),
+    			    x + gtk_adjustment_get_value (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container))),
+    			    y + gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container))),
                                 &world_x, &world_y);
 
     if (world_x < band_info->start_x)
@@ -2953,8 +2959,8 @@ start_rubberbanding (CajaIconContainer *container,
     atk_object_set_name (accessible, "selection");
     atk_object_set_description (accessible, _("The selection rectangle"));
 
-    band_info->prev_x = event->x - gtk_adjustment_get_value (gtk_layout_get_hadjustment (GTK_LAYOUT (container)));
-    band_info->prev_y = event->y - gtk_adjustment_get_value (gtk_layout_get_vadjustment (GTK_LAYOUT (container)));
+    band_info->prev_x = event->x - gtk_adjustment_get_value (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container)));
+    band_info->prev_y = event->y - gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container)));
 
     band_info->active = TRUE;
 
@@ -4588,11 +4594,11 @@ realize (GtkWidget *widget)
 
     setup_label_gcs (container);
 
-    hadj = gtk_layout_get_hadjustment (GTK_LAYOUT (widget));
+    hadj = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (widget));
     g_signal_connect (hadj, "value_changed",
                       G_CALLBACK (handle_hadjustment_changed), widget);
 
-    vadj = gtk_layout_get_vadjustment (GTK_LAYOUT (widget));
+    vadj = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (widget));
     g_signal_connect (vadj, "value_changed",
                       G_CALLBACK (handle_vadjustment_changed), widget);
 
@@ -7192,9 +7198,9 @@ caja_icon_container_get_first_visible_icon (CajaIconContainer *container)
     gboolean better_icon;
     gboolean compare_lt;
 
-    hadj_v = gtk_adjustment_get_value (gtk_layout_get_hadjustment (GTK_LAYOUT (container)));
-    vadj_v = gtk_adjustment_get_value (gtk_layout_get_vadjustment (GTK_LAYOUT (container)));
-    h_page_size = gtk_adjustment_get_page_size (gtk_layout_get_hadjustment (GTK_LAYOUT (container)));
+    hadj_v = gtk_adjustment_get_value (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container)));
+    vadj_v = gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container)));
+    h_page_size = gtk_adjustment_get_page_size (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container)));
 
     if (caja_icon_container_is_layout_rtl (container))
     {
@@ -7283,8 +7289,8 @@ caja_icon_container_scroll_to_icon (CajaIconContainer  *container,
     EelIRect bounds;
     GtkAllocation allocation;
 
-    hadj = gtk_layout_get_hadjustment (GTK_LAYOUT (container));
-    vadj = gtk_layout_get_vadjustment (GTK_LAYOUT (container));
+    hadj = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container));
+    vadj = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container));
     gtk_widget_get_allocation (GTK_WIDGET (container), &allocation);
 
     /* We need to force a relayout now if there are updates queued
@@ -7616,8 +7622,8 @@ caja_icon_container_update_visible_icons (CajaIconContainer *container)
     gboolean visible;
     GtkAllocation allocation;
 
-    hadj = gtk_layout_get_hadjustment (GTK_LAYOUT (container));
-    vadj = gtk_layout_get_vadjustment (GTK_LAYOUT (container));
+    hadj = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container));
+    vadj = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container));
     gtk_widget_get_allocation (GTK_WIDGET (container), &allocation);
 
     min_x = gtk_adjustment_get_value (hadj);
