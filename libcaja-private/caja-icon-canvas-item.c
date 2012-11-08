@@ -1497,8 +1497,7 @@ draw_label_text (CajaIconCanvasItem *item,
         /* clear the underlying icons, where the text or overlaps them. */
 #if GTK_CHECK_VERSION(3,0,0)
         cairo_save (cr);
-        /* FIMXEchpe draw the background here? */
-        cairo_set_source_rgb (cr, 1., 1., 1.);
+        cairo_set_source_rgba (cr, 0, 0, 0, 0);
         cairo_rectangle (cr,
                          text_rect.x0,
                          text_rect.y0,
