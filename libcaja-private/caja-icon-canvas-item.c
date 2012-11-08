@@ -568,6 +568,7 @@ caja_icon_canvas_item_get_image (CajaIconCanvasItem *item,
     cairo_surface_t *surface;
 #else
     GdkPixmap *pixmap;
+    GdkPixbuf *pixbuf;
 #endif
     EelCanvas *canvas;
     GdkScreen *screen;
@@ -575,7 +576,6 @@ caja_icon_canvas_item_get_image (CajaIconCanvasItem *item,
     int item_offset_x, item_offset_y;
     EelIRect icon_rect;
     EelIRect emblem_rect;
-    GdkPixbuf *pixbuf;
     GdkPixbuf *emblem_pixbuf;
     EmblemLayout emblem_layout;
     double item_x, item_y;
@@ -610,12 +610,19 @@ caja_icon_canvas_item_get_image (CajaIconCanvasItem *item,
     surface = gdk_window_create_similar_surface (gdk_screen_get_root_window (screen),
     						 CAIRO_CONTENT_COLOR_ALPHA,
     						 width, height);
+
+    cr = cairo_create (surface);
+    gdk_cairo_set_source_pixbuf (cr, item->details->pixbuf,
+                     item_offset_x, item_offset_y);
+    cairo_rectangle (cr, item_offset_x, item_offset_y,
+             gdk_pixbuf_get_width (item->details->pixbuf),
+             gdk_pixbuf_get_height (item->details->pixbuf));
+    cairo_fill (cr);
 #else
     pixmap = gdk_pixmap_new (gdk_screen_get_root_window (screen),
                              width,	height,
                              gdk_visual_get_depth (gdk_colormap_get_visual (colormap)));
     gdk_drawable_set_colormap (GDK_DRAWABLE (pixmap), colormap);
-#endif
 
     pixbuf = gdk_pixbuf_new (GDK_COLORSPACE_RGB,
                              TRUE,
@@ -629,16 +636,33 @@ caja_icon_canvas_item_get_image (CajaIconCanvasItem *item,
                           gdk_pixbuf_get_height (item->details->pixbuf),
                           item_offset_x, item_offset_y, 1.0, 1.0,
                           GDK_INTERP_BILINEAR, 255);
+#endif
 
     icon_rect.x0 = item_offset_x;
     icon_rect.y0 = item_offset_y;
     icon_rect.x1 = item_offset_x + gdk_pixbuf_get_width (item->details->pixbuf);
     icon_rect.y1 = item_offset_y + gdk_pixbuf_get_height (item->details->pixbuf);
 
-
     is_rtl = caja_icon_container_is_layout_rtl (CAJA_ICON_CONTAINER (canvas));
 
     emblem_layout_reset (&emblem_layout, item, icon_rect, is_rtl);
+#if GTK_CHECK_VERSION(3,0,0)
+    while (emblem_layout_next (&emblem_layout, &emblem_pixbuf, &emblem_rect, is_rtl))
+    {
+        gdk_cairo_set_source_pixbuf (cr, emblem_pixbuf, emblem_rect.x0, emblem_rect.y0);
+        cairo_rectangle (cr, emblem_rect.x0, emblem_rect.y0,
+                         gdk_pixbuf_get_width (emblem_pixbuf),
+                         gdk_pixbuf_get_height (emblem_pixbuf));
+        cairo_fill (cr);
+    }
+
+    draw_embedded_text (item, cr,
+    			item_offset_x, item_offset_y);
+    draw_label_text (item, cr, FALSE, icon_rect);
+    cairo_destroy (cr);
+
+    return surface;
+#else
     while (emblem_layout_next (&emblem_layout, &emblem_pixbuf, &emblem_rect, is_rtl))
     {
         gdk_pixbuf_composite (emblem_pixbuf, pixbuf,
@@ -651,23 +675,12 @@ caja_icon_canvas_item_get_image (CajaIconCanvasItem *item,
     }
 
     /* draw pixbuf to mask and pixmap */
-#if GTK_CHECK_VERSION(3,0,0)
-    cr = cairo_create (surface);
-#else
     cr = gdk_cairo_create (pixmap);
-#endif
     cairo_set_operator (cr, CAIRO_OPERATOR_SOURCE);
     gdk_cairo_set_source_pixbuf (cr, pixbuf, 0, 0);
     cairo_paint (cr);
-
-#if GTK_CHECK_VERSION(3,0,0)
-    draw_embedded_text (item, cr,
-    			item_offset_x, item_offset_y);
-    draw_label_text (item, cr, FALSE, icon_rect);
-#endif
     cairo_destroy (cr);
 
-#if !GTK_CHECK_VERSION(3,0,0)
     *mask = gdk_pixmap_new (gdk_screen_get_root_window (screen),
                             width, height,
                             1);
@@ -682,13 +695,9 @@ caja_icon_canvas_item_get_image (CajaIconCanvasItem *item,
 
     draw_label_text (item, GDK_DRAWABLE (pixmap), FALSE, icon_rect);
     draw_label_text (item, GDK_DRAWABLE (*mask), TRUE, icon_rect);
-#endif
 
     g_object_unref (pixbuf);
 
-#if GTK_CHECK_VERSION(3,0,0)
-    return surface;
-#else
     return pixmap;
 #endif
 }
