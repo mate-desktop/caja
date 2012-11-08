@@ -1494,13 +1494,16 @@ eel_editable_label_draw_cursor (EelEditableLabel  *label, gint xoffset, gint yof
                                            gtk_widget_get_window (widget),
                                            NULL, &cursor_location,
 #endif
-                                           FALSE, dir1, TRUE);
+                                           FALSE, dir2, TRUE);
             }
         }
         else /* Block cursor */
         {
             cairo_region_t *clip;
-#if !GTK_CHECK_VERSION(3,0,0)
+
+#if GTK_CHECK_VERSION(3,0,0)
+            cairo_save (cr);
+#else
             cairo_t *cr = gdk_cairo_create (gtk_widget_get_window (widget));
 #endif
 
@@ -1510,6 +1513,9 @@ eel_editable_label_draw_cursor (EelEditableLabel  *label, gint xoffset, gint yof
                              yoffset + PANGO_PIXELS (strong_pos.y),
                              PANGO_PIXELS (strong_pos.width),
                              PANGO_PIXELS (strong_pos.height));
+#if GTK_CHECK_VERSION(3,0,0)
+            cairo_fill (cr);
+#endif
 
             if (!block_at_line_end)
             {
@@ -1519,11 +1525,6 @@ eel_editable_label_draw_cursor (EelEditableLabel  *label, gint xoffset, gint yof
 
                 gdk_cairo_region (cr, clip);
                 cairo_clip (cr);
-
-                /* FIXME should use gtk_paint, but it can't use a clip
-                 * region
-                 */
-
                 gdk_cairo_set_source_color (cr,
 					    &gtk_widget_get_style (widget)->base[GTK_STATE_NORMAL]);
                 cairo_move_to (cr, xoffset, yoffset);
@@ -1532,7 +1533,9 @@ eel_editable_label_draw_cursor (EelEditableLabel  *label, gint xoffset, gint yof
                 cairo_region_destroy (clip);
             }
 
-#if !GTK_CHECK_VERSION(3,0,0)
+#if GTK_CHECK_VERSION(3,0,0)
+            cairo_restore (cr);
+#else
             cairo_destroy (cr);
 #endif
         }
@@ -1609,13 +1612,15 @@ eel_editable_label_expose (GtkWidget      *widget,
                 range[1] = tmp;
             }
 
-#if !GTK_CHECK_VERSION(3,0,0)
+            clip = gdk_pango_layout_get_clip_region (label->layout,
+        					     x, y,
+        					     range,
+        					     1);
+#if GTK_CHECK_VERSION(3,0,0)
+            cairo_save (cr);
+#else
             cairo_t *cr = gdk_cairo_create (gtk_widget_get_window (widget));
 #endif
-            clip = gdk_pango_layout_get_clip_region (label->layout,
-                    x, y,
-                    range,
-                    1);
             gdk_cairo_region (cr, clip);
             cairo_clip (cr);
 
@@ -1630,7 +1635,9 @@ eel_editable_label_expose (GtkWidget      *widget,
             cairo_move_to (cr, x, y);
             pango_cairo_show_layout (cr, label->layout);
 
-#if !GTK_CHECK_VERSION(3,0,0)
+#if GTK_CHECK_VERSION(3,0,0)
+            cairo_restore (cr);
+#else
             cairo_destroy (cr);
 #endif
             cairo_region_destroy (clip);
