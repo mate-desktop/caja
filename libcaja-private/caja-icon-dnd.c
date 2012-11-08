@@ -1541,10 +1541,6 @@ drag_begin_callback (GtkWidget      *widget,
     pixmap = caja_icon_canvas_item_get_image (container->details->drag_icon->item, &mask, colormap);
 #endif
 
-    /* we want to drag semi-transparent pixbufs, but X is too slow dealing with
-    stippled masks, so we had to remove the code; this comment is left as a memorial
-    to it, with the hope that we get it back someday as X Windows improves */
-
     /* compute the image's offset */
     eel_canvas_item_get_bounds (EEL_CANVAS_ITEM (container->details->drag_icon->item),
                                 &x1, &y1, &x2, &y2);
