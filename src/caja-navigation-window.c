@@ -140,7 +140,11 @@ caja_navigation_window_init (CajaNavigationWindow *window)
     window->details->header_size_group = gtk_size_group_new (GTK_SIZE_GROUP_VERTICAL);
     gtk_size_group_set_ignore_hidden (window->details->header_size_group, FALSE);
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+    window->details->content_paned = gtk_paned_new (GTK_ORIENTATION_HORIZONTAL);
+#else
     window->details->content_paned = gtk_hpaned_new ();
+#endif
     gtk_table_attach (GTK_TABLE (CAJA_WINDOW (window)->details->table),
                       window->details->content_paned,
                       /* X direction */                   /* Y direction */
@@ -154,7 +158,11 @@ caja_navigation_window_init (CajaNavigationWindow *window)
     		     TRUE, FALSE);
     gtk_widget_show (vbox);
 
+#if GTK_CHECK_VERSION(3, 0, 0)    
+    hpaned = gtk_paned_new (GTK_ORIENTATION_HORIZONTAL);
+#else
     hpaned = gtk_hpaned_new ();
+#endif
     gtk_box_pack_start (GTK_BOX (vbox), hpaned, TRUE, TRUE, 0);
     gtk_widget_show (hpaned);
     window->details->split_view_hpane = hpaned;
