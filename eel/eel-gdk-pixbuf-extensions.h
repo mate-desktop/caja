@@ -41,10 +41,6 @@ typedef void (* EelPixbufLoadCallback) (GError         *error,
                                         GdkPixbuf      *pixbuf,
                                         gpointer        callback_data);
 
-/* Convenience functions for lists of GdkPixbuf objects. */
-void                 eel_gdk_pixbuf_list_ref                  (GList                 *pixbuf_list);
-
-
 /* Loading a GdkPixbuf with a URI. */
 GdkPixbuf *          eel_gdk_pixbuf_load                      (const char            *uri);
 GdkPixbuf *          eel_gdk_pixbuf_load_from_stream          (GInputStream          *stream);

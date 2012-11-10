@@ -54,18 +54,6 @@ struct EelPixbufLoadHandle
     char buffer[LOAD_BUFFER_SIZE];
 };
 
-/**
- * eel_gdk_pixbuf_list_ref
- * @pixbuf_list: A list of GdkPixbuf objects.
- *
- * Refs all the pixbufs.
- **/
-void
-eel_gdk_pixbuf_list_ref (GList *pixbuf_list)
-{
-    g_list_foreach (pixbuf_list, (GFunc) g_object_ref, NULL);
-}
-
 GdkPixbuf *
 eel_gdk_pixbuf_load (const char *uri)
 {

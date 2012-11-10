@@ -35,7 +35,6 @@
 #include <eel/eel-gdk-extensions.h>
 #include <eel/eel-gdk-pixbuf-extensions.h>
 #include <eel/eel-glib-extensions.h>
-#include <eel/eel-mate-extensions.h>
 #include <eel/eel-graphic-effects.h>
 #include <eel/eel-gtk-macros.h>
 #include <eel/eel-string.h>
@@ -763,7 +762,7 @@ caja_icon_canvas_item_set_emblems (CajaIconCanvasItem *item,
     }
 
     /* Take in the new list of emblems. */
-    eel_gdk_pixbuf_list_ref (emblem_pixbufs);
+    eel_g_object_list_ref (emblem_pixbufs);
     g_list_foreach(item->details->emblem_pixbufs, (GFunc) g_object_unref, NULL);
     g_list_free(item->details->emblem_pixbufs);
     item->details->emblem_pixbufs = g_list_copy (emblem_pixbufs);
