@@ -31,7 +31,6 @@
 #include <eel/eel-background.h>
 #include <eel/eel-glib-extensions.h>
 #include <eel/eel-gtk-extensions.h>
-#include <eel/eel-gtk-macros.h>
 #include <eel/eel-stock-dialogs.h>
 #include <eel/eel-string.h>
 #include <eel/eel-vfs-extensions.h>
@@ -146,8 +145,6 @@ typedef struct
 G_DEFINE_TYPE_WITH_CODE (CajaInformationPanel, caja_information_panel, EEL_TYPE_BACKGROUND_BOX,
                          G_IMPLEMENT_INTERFACE (CAJA_TYPE_SIDEBAR,
                                  caja_information_panel_iface_init));
-/* for EEL_CALL_PARENT */
-#define parent_class caja_information_panel_parent_class
 
 G_DEFINE_TYPE_WITH_CODE (CajaInformationPanelProvider, caja_information_panel_provider, G_TYPE_OBJECT,
                          G_IMPLEMENT_INTERFACE (CAJA_TYPE_SIDEBAR_PROVIDER,
@@ -221,6 +218,8 @@ caja_information_panel_class_init (CajaInformationPanelClass *klass)
                                  NULL, NULL,
                                  g_cclosure_marshal_VOID__STRING,
                                  G_TYPE_NONE, 1, G_TYPE_STRING);
+
+    g_type_class_add_private (klass, sizeof (CajaInformationPanelDetails));
 }
 
 /* utility routine to allocate the box the holds the command buttons */
@@ -245,11 +244,9 @@ make_button_box (CajaInformationPanel *information_panel)
 static void
 caja_information_panel_init (CajaInformationPanel *information_panel)
 {
-    GtkWidget *widget;
-
-    widget = GTK_WIDGET (information_panel);
-
-    information_panel->details = g_new0 (CajaInformationPanelDetails, 1);
+    information_panel->details = G_TYPE_INSTANCE_GET_PRIVATE (information_panel,
+    							      CAJA_TYPE_INFORMATION_PANEL,
+    							      CajaInformationPanelDetails);
 
     /* load the default background */
     caja_information_panel_read_defaults (information_panel);
@@ -312,13 +309,12 @@ caja_information_panel_finalize (GObject *object)
     g_free (information_panel->details->default_background_image);
     g_free (information_panel->details->current_background_color);
     g_free (information_panel->details->current_background_image);
-    g_free (information_panel->details);
 
     g_signal_handlers_disconnect_by_func (caja_preferences,
                                           caja_information_panel_theme_changed,
                                           information_panel);
 
-    EEL_CALL_PARENT (G_OBJECT_CLASS, finalize, (object));
+    G_OBJECT_CLASS (caja_information_panel_parent_class)->finalize (object);
 }
 
 /* callback to handle resetting the background */
