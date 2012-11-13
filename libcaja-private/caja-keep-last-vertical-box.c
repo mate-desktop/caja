@@ -26,14 +26,13 @@
 #include <config.h>
 #include "caja-keep-last-vertical-box.h"
 
-#include <eel/eel-gtk-macros.h>
-
 static void     caja_keep_last_vertical_box_class_init  (CajaKeepLastVerticalBoxClass *class);
 static void     caja_keep_last_vertical_box_init        (CajaKeepLastVerticalBox      *box);
 static void	caja_keep_last_vertical_box_size_allocate 	  (GtkWidget 			    *widget,
         GtkAllocation 		    *allocation);
 
-EEL_CLASS_BOILERPLATE (CajaKeepLastVerticalBox, caja_keep_last_vertical_box, GTK_TYPE_VBOX)
+G_DEFINE_TYPE (CajaKeepLastVerticalBox, caja_keep_last_vertical_box, GTK_TYPE_VBOX)
+#define parent_class caja_keep_last_vertical_box_parent_class
 
 /* Standard class initialization function */
 static void
@@ -96,10 +95,10 @@ caja_keep_last_vertical_box_size_allocate (GtkWidget *widget,
     g_return_if_fail (CAJA_IS_KEEP_LAST_VERTICAL_BOX (widget));
     g_return_if_fail (allocation != NULL);
 
-    EEL_CALL_PARENT (GTK_WIDGET_CLASS, size_allocate, (widget, allocation));
+    GTK_WIDGET_CLASS (caja_keep_last_vertical_box_parent_class)->size_allocate (widget, allocation);
 
     box = GTK_BOX (widget);
-    children = gtk_container_get_children (GTK_CONTAINER(widget));
+    children = gtk_container_get_children (GTK_CONTAINER (widget));
     l = g_list_last (children);
 
     if (l != NULL)
