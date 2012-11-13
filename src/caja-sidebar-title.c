@@ -36,9 +36,8 @@
 #include <eel/eel-glib-extensions.h>
 #include <eel/eel-gtk-extensions.h>
 #include <eel/eel-gtk-macros.h>
-#include <eel/eel-pango-extensions.h>
-#include <eel/eel-string.h>
 #include <gtk/gtk.h>
+#include <pango/pango.h>
 #include <glib/gi18n.h>
 #include <libcaja-private/caja-file-attributes.h>
 #include <libcaja-private/caja-global-preferences.h>
@@ -399,15 +398,16 @@ update_icon (CajaSidebarTitle *sidebar_title)
 static void
 update_title_font (CajaSidebarTitle *sidebar_title)
 {
-    int available_width;
-    PangoFontDescription *title_font;
-    int largest_fitting_font_size;
-    int max_style_font_size;
+    int available_width, width;
+    int max_fit_font_size, max_style_font_size;
     GtkStyle *style;
     GtkAllocation allocation;
+    PangoFontDescription *title_font, *tmp_font;
+    PangoLayout *layout;
 
     /* Make sure theres work to do */
-    if (eel_strlen (sidebar_title->details->title_text) < 1)
+    if (sidebar_title->details->title_text == NULL
+        || strlen (sidebar_title->details->title_text) < 1)
     {
         return;
     }
@@ -430,19 +430,29 @@ update_title_font (CajaSidebarTitle *sidebar_title)
         max_style_font_size = MIN_TITLE_FONT_SIZE + 1;
     }
 
-    largest_fitting_font_size = eel_pango_font_description_get_largest_fitting_font_size (
-                                    title_font,
-                                    gtk_widget_get_pango_context (sidebar_title->details->title_label),
-                                    sidebar_title->details->title_text,
-                                    available_width,
-                                    MIN_TITLE_FONT_SIZE,
-                                    max_style_font_size);
-    pango_font_description_set_size (title_font, largest_fitting_font_size * PANGO_SCALE);
+    /* Calculate largest-fitting font size */
+    layout = pango_layout_new (gtk_widget_get_pango_context (sidebar_title->details->title_label));
+    pango_layout_set_text (layout, sidebar_title->details->title_text, -1);
+    pango_layout_set_font_description (layout, title_font);
+    tmp_font = pango_font_description_new ();
 
+    max_fit_font_size = max_style_font_size;
+    for (; max_fit_font_size >= MIN_TITLE_FONT_SIZE; max_fit_font_size--)
+    {
+        pango_font_description_set_size (tmp_font, max_fit_font_size * PANGO_SCALE);
+        pango_layout_set_font_description (layout, tmp_font);
+        pango_layout_get_pixel_size (layout, &width, NULL);
+
+        if (width <= available_width)
+            break;
+    }
+
+    pango_font_description_free (tmp_font);
+    g_object_unref (layout);
+
+    pango_font_description_set_size (title_font, max_fit_font_size * PANGO_SCALE);
     pango_font_description_set_weight (title_font, PANGO_WEIGHT_BOLD);
-
-    gtk_widget_modify_font (sidebar_title->details->title_label,
-                            title_font);
+    gtk_widget_modify_font (sidebar_title->details->title_label, title_font);
     pango_font_description_free (title_font);
 }
 
@@ -455,7 +465,7 @@ update_title (CajaSidebarTitle *sidebar_title)
     label = GTK_LABEL (sidebar_title->details->title_label);
     text = sidebar_title->details->title_text;
 
-    if (eel_strcmp (text, gtk_label_get_text (label)) == 0)
+    if (g_strcmp0 (text, gtk_label_get_text (label)) == 0)
     {
         return;
     }
