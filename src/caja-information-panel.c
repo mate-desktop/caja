@@ -1072,9 +1072,7 @@ caja_information_panel_update_appearance (CajaInformationPanel *information_pane
         eel_background_set_image_uri (background, background_image);
         eel_background_set_color (background, background_color);
 
-        caja_sidebar_title_select_text_color
-        (information_panel->details->title, background,
-         !information_panel_has_background (information_panel));
+        caja_sidebar_title_select_text_color (information_panel->details->title, background);
     }
 
     g_free (background_color);

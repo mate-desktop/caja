@@ -70,7 +70,6 @@ gboolean   caja_sidebar_title_hit_test_icon     (CajaSidebarTitle *sidebar_title
         int                   x,
         int                   y);
 void       caja_sidebar_title_select_text_color (CajaSidebarTitle *sidebar_title,
-        EelBackground        *background,
-        gboolean              is_default);
+        					 EelBackground        *background);
 
 #endif /* CAJA_SIDEBAR_TITLE_H */

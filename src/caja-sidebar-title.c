@@ -51,11 +51,13 @@
 #define MAX_TITLE_SIZE 		256
 #define MINIMUM_INFO_WIDTH	32
 #define SIDEBAR_INFO_MARGIN	4
-#define SHADOW_OFFSET		1
 
 #define MORE_INFO_FONT_SIZE 	 12
 #define MIN_TITLE_FONT_SIZE 	 12
 #define TITLE_PADDING		  4
+
+#define DEFAULT_LIGHT_INFO_COLOR 0xFFFFFF
+#define DEFAULT_DARK_INFO_COLOR  0x2A2A2A
 
 static void                caja_sidebar_title_class_init (CajaSidebarTitleClass *klass);
 static void                caja_sidebar_title_destroy          (GtkObject                 *object);
@@ -72,20 +74,32 @@ static void                style_set                               (GtkWidget   
         GtkStyle                  *previous_style);
 static guint		   get_best_icon_size 			   (CajaSidebarTitle      *sidebar_title);
 
+enum
+{
+    LABEL_COLOR,
+    LABEL_COLOR_HIGHLIGHT,
+    LABEL_COLOR_ACTIVE,
+    LABEL_COLOR_PRELIGHT,
+    LABEL_INFO_COLOR,
+    LABEL_INFO_COLOR_HIGHLIGHT,
+    LABEL_INFO_COLOR_ACTIVE,
+    LAST_LABEL_COLOR
+};
+
 struct CajaSidebarTitleDetails
 {
     CajaFile		*file;
-    guint			 file_changed_connection;
-    gboolean                 monitoring_count;
+    guint		 file_changed_connection;
+    gboolean		 monitoring_count;
 
-    char			*title_text;
+    char		*title_text;
     GtkWidget		*icon;
     GtkWidget		*title_label;
     GtkWidget		*more_info_label;
     GtkWidget		*emblem_box;
 
-    guint                    best_icon_size;
-
+    GdkColor		 label_colors [LAST_LABEL_COLOR];
+    guint		 best_icon_size;
     gboolean		 determined_icon;
 };
 
@@ -219,58 +233,82 @@ caja_sidebar_title_new (void)
     return gtk_widget_new (caja_sidebar_title_get_type (), NULL);
 }
 
+static void
+setup_gc_with_fg (CajaSidebarTitle *sidebar_title, int idx, guint32 color)
+{
+    sidebar_title->details->label_colors [idx] = eel_gdk_rgb_to_color (color);
+}
+
 void
 caja_sidebar_title_select_text_color (CajaSidebarTitle *sidebar_title,
-                                      EelBackground        *background,
-                                      gboolean              is_default)
+                                      EelBackground    *background)
 {
-    char *sidebar_title_color;
-    char *sidebar_info_title_color;
-    char *sidebar_title_shadow_color;
+    GdkColor *light_info_color, *dark_info_color;
+    guint light_info_value, dark_info_value;
+    GtkStyle *style;
 
-    g_return_if_fail (background != NULL);
+    g_assert (CAJA_IS_SIDEBAR_TITLE (sidebar_title));
+    g_return_if_fail (!gtk_widget_get_realized (GTK_WIDGET (sidebar_title)));
 
-    /* if the background is set to the default, the theme can explicitly
-     * define the title colors.  Check if the background has been customized
-     * and if the theme specified any colors
-     */
-    sidebar_title_color = NULL;
-    sidebar_info_title_color = NULL;
-    sidebar_title_shadow_color = NULL;
+    /* read the info colors from the current theme; use a reasonable default if undefined */
+    gtk_widget_style_get (GTK_WIDGET (sidebar_title),
+                          "light_info_color", &light_info_color,
+                          "dark_info_color", &dark_info_color,
+                          NULL);
+    style = gtk_widget_get_style (GTK_WIDGET (sidebar_title));
 
-    /* FIXME bugzilla.gnome.org 42496: for now, both the title and info
-     * colors are the same - and hard coded */
-    if (eel_background_is_dark (background))
+    if (light_info_color)
     {
-        sidebar_title_color = g_strdup ("#FFFFFF");
-        sidebar_info_title_color = g_strdup ("#FFFFFF");
-        sidebar_title_shadow_color = g_strdup ("#000000");
+        light_info_value = eel_gdk_color_to_rgb (light_info_color);
+        gdk_color_free (light_info_color);
     }
     else
     {
-        sidebar_title_color = g_strdup ("#000000");
-        sidebar_info_title_color = g_strdup ("#000000");
-        sidebar_title_shadow_color = g_strdup ("#FFFFFF");
+        light_info_value = DEFAULT_LIGHT_INFO_COLOR;
     }
 
-    eel_gtk_widget_set_foreground_color (sidebar_title->details->title_label,
-                                         sidebar_title_color);
-    eel_gtk_widget_set_foreground_color (sidebar_title->details->more_info_label,
-                                         sidebar_info_title_color);
+    if (dark_info_color)
+    {
+        dark_info_value = eel_gdk_color_to_rgb (dark_info_color);
+        gdk_color_free (dark_info_color);
+    }
+    else
+    {
+        dark_info_value = DEFAULT_DARK_INFO_COLOR;
+    }
 
-    eel_gtk_label_set_drop_shadow_color (GTK_LABEL (sidebar_title->details->title_label),
-                                         eel_parse_rgb_with_white_default (sidebar_title_shadow_color));
-    eel_gtk_label_set_drop_shadow_color (GTK_LABEL (sidebar_title->details->more_info_label),
-                                         eel_parse_rgb_with_white_default (sidebar_title_shadow_color));
 
-    eel_gtk_label_set_drop_shadow_offset (GTK_LABEL (sidebar_title->details->title_label),
-                                          SHADOW_OFFSET);
-    eel_gtk_label_set_drop_shadow_offset (GTK_LABEL (sidebar_title->details->more_info_label),
-                                          SHADOW_OFFSET);
+    setup_gc_with_fg (sidebar_title, LABEL_COLOR_HIGHLIGHT,
+                      eel_gdk_color_to_rgb (&style->text[GTK_STATE_SELECTED]));
+    setup_gc_with_fg (sidebar_title, LABEL_COLOR_ACTIVE,
+                      eel_gdk_color_to_rgb (&style->text[GTK_STATE_ACTIVE]));
+    setup_gc_with_fg (sidebar_title, LABEL_COLOR_PRELIGHT,
+                      eel_gdk_color_to_rgb (&style->text[GTK_STATE_PRELIGHT]));
+    setup_gc_with_fg (sidebar_title, LABEL_INFO_COLOR_HIGHLIGHT,
+                      eel_gdk_color_is_dark (&style->base[GTK_STATE_SELECTED]) ? light_info_value : dark_info_value);
+    setup_gc_with_fg (sidebar_title, LABEL_INFO_COLOR_ACTIVE,
+                      eel_gdk_color_is_dark (&style->base[GTK_STATE_ACTIVE]) ? light_info_value : dark_info_value);
 
-    g_free (sidebar_title_color);
-    g_free (sidebar_info_title_color);
-    g_free (sidebar_title_shadow_color);
+    /* If EelBackground is not set in the widget, we can safely
+     * use the foreground color from the theme, because it will
+     * always be displayed against the gtk background */
+    if (!eel_background_is_set(background))
+    {
+        setup_gc_with_fg (sidebar_title, LABEL_COLOR,
+                          eel_gdk_color_to_rgb (&style->text[GTK_STATE_NORMAL]));
+        setup_gc_with_fg (sidebar_title, LABEL_INFO_COLOR,
+                          eel_gdk_color_is_dark (&style->base[GTK_STATE_NORMAL]) ? light_info_value : dark_info_value);
+    }
+    else if (eel_background_is_dark (background))
+    {
+        setup_gc_with_fg (sidebar_title, LABEL_COLOR, 0xEFEFEF);
+        setup_gc_with_fg (sidebar_title, LABEL_INFO_COLOR, light_info_value);
+    }
+    else     /* converse */
+    {
+        setup_gc_with_fg (sidebar_title, LABEL_COLOR, 0x000000);
+        setup_gc_with_fg (sidebar_title, LABEL_INFO_COLOR, dark_info_value);
+    }
 }
 
 static char*
