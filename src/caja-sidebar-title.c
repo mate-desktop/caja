@@ -738,9 +738,21 @@ caja_sidebar_title_size_allocate (GtkWidget *widget,
 gboolean
 caja_sidebar_title_hit_test_icon (CajaSidebarTitle *sidebar_title, int x, int y)
 {
+    GtkAllocation *allocation;
+    gboolean icon_hit;
+
     g_return_val_if_fail (CAJA_IS_SIDEBAR_TITLE (sidebar_title), FALSE);
 
-    return eel_point_in_widget (sidebar_title->details->icon, x, y);
+    allocation = g_new0 (GtkAllocation, 1);
+    gtk_widget_get_allocation (GTK_WIDGET (sidebar_title->details->icon), allocation);
+    g_return_val_if_fail (allocation != NULL, FALSE);
+
+    icon_hit = x >= allocation->x && y >= allocation->y
+               && x < allocation->x + allocation->width
+               && y < allocation->y + allocation->height;
+    g_free (allocation);
+
+    return icon_hit;
 }
 
 static GtkWidget *

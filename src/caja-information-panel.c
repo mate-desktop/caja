@@ -432,12 +432,24 @@ static InformationPanelPart
 hit_test (CajaInformationPanel *information_panel,
           int x, int y)
 {
+    GtkAllocation *allocation;
+    gboolean bg_hit;
+
     if (caja_sidebar_title_hit_test_icon (information_panel->details->title, x, y))
     {
         return ICON_PART;
     }
 
-    if (eel_point_in_widget (GTK_WIDGET (information_panel), x, y))
+    allocation = g_new0 (GtkAllocation, 1);
+    gtk_widget_get_allocation (GTK_WIDGET (information_panel), allocation);
+
+    bg_hit = allocation != NULL
+             && x >= allocation->x && y >= allocation->y
+             && x < allocation->x + allocation->width
+             && y < allocation->y + allocation->height;
+    g_free (allocation);
+
+    if (bg_hit)
     {
         return BACKGROUND_PART;
     }
