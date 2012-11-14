@@ -762,9 +762,16 @@ static GtkWidget *
 sidebar_title_create_more_info_label (void)
 {
     GtkWidget *more_info_label;
+    PangoAttrList *attrs;
+
+    attrs = pango_attr_list_new ();
+    pango_attr_list_insert (attrs, pango_attr_scale_new (PANGO_SCALE_SMALL));
 
     more_info_label = gtk_label_new ("");
-    eel_gtk_label_set_scale (GTK_LABEL (more_info_label), PANGO_SCALE_SMALL);
+
+    gtk_label_set_attributes (GTK_LABEL (more_info_label), attrs);
+    pango_attr_list_unref (attrs);
+
     gtk_label_set_justify (GTK_LABEL (more_info_label), GTK_JUSTIFY_CENTER);
     gtk_label_set_selectable (GTK_LABEL (more_info_label), TRUE);
     gtk_label_set_ellipsize (GTK_LABEL (more_info_label), PANGO_ELLIPSIZE_END);
