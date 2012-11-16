@@ -62,16 +62,6 @@ caja_location_dialog_finalize (GObject *object)
 }
 
 static void
-caja_location_dialog_destroy (GtkObject *object)
-{
-    CajaLocationDialog *dialog;
-
-    dialog = CAJA_LOCATION_DIALOG (object);
-
-    EEL_CALL_PARENT (GTK_OBJECT_CLASS, destroy, (object));
-}
-
-static void
 open_current_location (CajaLocationDialog *dialog)
 {
     GFile *location;
@@ -136,14 +126,7 @@ entry_activate_callback (GtkEntry *entry,
 static void
 caja_location_dialog_class_init (CajaLocationDialogClass *class)
 {
-    GObjectClass *gobject_class;
-    GtkObjectClass *object_class;
-
-    gobject_class = G_OBJECT_CLASS (class);
-    gobject_class->finalize = caja_location_dialog_finalize;
-
-    object_class = GTK_OBJECT_CLASS (class);
-    object_class->destroy = caja_location_dialog_destroy;
+    G_OBJECT_CLASS (class)->finalize = caja_location_dialog_finalize;
 }
 
 static void
@@ -174,7 +157,6 @@ caja_location_dialog_init (CajaLocationDialog *dialog)
     gtk_window_set_title (GTK_WINDOW (dialog), _("Open Location"));
     gtk_window_set_default_size (GTK_WINDOW (dialog), 300, -1);
     gtk_window_set_destroy_with_parent (GTK_WINDOW (dialog), TRUE);
-    gtk_dialog_set_has_separator (GTK_DIALOG (dialog), FALSE);
     gtk_container_set_border_width (GTK_CONTAINER (dialog), 5);
     gtk_box_set_spacing (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), 2);
 

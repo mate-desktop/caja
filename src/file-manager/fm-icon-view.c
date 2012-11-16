@@ -209,7 +209,11 @@ G_DEFINE_TYPE_WITH_CODE (FMIconView, fm_icon_view, FM_TYPE_DIRECTORY_VIEW,
                                  fm_icon_view_iface_init));
 
 static void
+#if GTK_CHECK_VERSION (3, 0, 0)
+fm_icon_view_destroy (GtkWidget *object)
+#else
 fm_icon_view_destroy (GtkObject *object)
+#endif
 {
     FMIconView *icon_view;
 
@@ -237,9 +241,12 @@ fm_icon_view_destroy (GtkObject *object)
         icon_view->details->icons_not_positioned = NULL;
     }
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GTK_WIDGET_CLASS (fm_icon_view_parent_class)->destroy (object);
+#else
     GTK_OBJECT_CLASS (fm_icon_view_parent_class)->destroy (object);
+#endif
 }
-
 
 static void
 fm_icon_view_finalize (GObject *object)
@@ -271,6 +278,7 @@ fm_icon_view_finalize (GObject *object)
     g_signal_handlers_disconnect_by_func (caja_compact_view_preferences,
                                           all_columns_same_width_changed_callback,
                                           icon_view);
+
     G_OBJECT_CLASS (fm_icon_view_parent_class)->finalize (object);
 }
 
@@ -2184,6 +2192,8 @@ play_file (gpointer callback_data)
     char **argv;
     GError *error;
     char *uri;
+    GFile *gfile;
+    char *path;
 
     icon_view = FM_ICON_VIEW (callback_data);
 
@@ -2191,7 +2201,21 @@ play_file (gpointer callback_data)
     icon_view->details->audio_preview_timeout = 0;
 
     file = icon_view->details->audio_preview_file;
-    uri = caja_file_get_uri (file);
+    gfile = caja_file_get_location (file);
+    path = g_file_get_path (gfile);
+
+    /* if we have a local path, use that instead of the native URI.
+     * this can be useful for special GVfs mounts, such as cdda://
+     */
+    if (path) {
+        uri = g_filename_to_uri (path, NULL, NULL);
+    } else {
+        uri = caja_file_get_uri (file);
+    }
+
+    g_object_unref (gfile);
+    g_free (path);
+
     argv = get_preview_argv (uri);
     g_free (uri);
     if (argv == NULL)
@@ -2829,8 +2853,6 @@ fm_icon_view_sort_directories_first_changed (FMDirectoryView *directory_view)
     }
 }
 
-/* GtkObject methods. */
-
 static gboolean
 icon_view_can_accept_item (CajaIconContainer *container,
                            CajaFile *target_item,
@@ -3145,9 +3167,11 @@ fm_icon_view_class_init (FMIconViewClass *klass)
 
     G_OBJECT_CLASS (klass)->set_property = fm_icon_view_set_property;
     G_OBJECT_CLASS (klass)->finalize = fm_icon_view_finalize;
-
+#if !GTK_CHECK_VERSION (3, 0, 0)
     GTK_OBJECT_CLASS (klass)->destroy = fm_icon_view_destroy;
-
+#else
+    GTK_WIDGET_CLASS (klass)->destroy = fm_icon_view_destroy;
+#endif
     GTK_WIDGET_CLASS (klass)->screen_changed = fm_icon_view_screen_changed;
     GTK_WIDGET_CLASS (klass)->scroll_event = fm_icon_view_scroll_event;
 

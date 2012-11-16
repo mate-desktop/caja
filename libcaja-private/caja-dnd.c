@@ -129,7 +129,8 @@ caja_drag_uri_array_from_selection_list (const GList *selection_list)
 
     uri_list = caja_drag_uri_list_from_selection_list (selection_list);
     uris = caja_drag_uri_array_from_list (uri_list);
-    eel_g_list_free_deep (uri_list);
+    g_list_foreach(uri_list, (GFunc) g_free, NULL);
+    g_list_free(uri_list);
 
     return uris;
 }
@@ -1315,7 +1316,9 @@ slot_proxy_handle_drop (GtkWidget                *widget,
                                                 uri_list,
                                                 target_uri,
                                                 gdk_drag_context_get_selected_action (context));
-            eel_g_list_free_deep (uri_list);
+            g_list_foreach(uri_list, (GFunc) g_free, NULL);
+            g_list_free(uri_list);
+
         }
         else if (drag_info->info == CAJA_ICON_DND_URI_LIST)
         {

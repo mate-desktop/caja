@@ -1428,7 +1428,8 @@ caja_restore_files_from_trash (GList *files,
              parent_window,
              NULL, NULL);
 
-            eel_g_object_list_free (locations);
+            g_list_foreach(locations, (GFunc) g_object_unref, NULL);
+            g_list_free(locations);
             g_object_unref (original_dir_location);
         }
 

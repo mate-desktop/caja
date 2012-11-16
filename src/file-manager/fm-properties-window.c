@@ -37,7 +37,6 @@
 #include <eel/eel-gtk-extensions.h>
 #include <eel/eel-labeled-image.h>
 #include <eel/eel-stock-dialogs.h>
-#include <eel/eel-string.h>
 #include <eel/eel-vfs-extensions.h>
 #include <eel/eel-wrap-table.h>
 #include <gtk/gtk.h>
@@ -45,7 +44,6 @@
 #include <glib/gi18n.h>
 #include <libmateui/mate-desktop-thumbnail.h>
 #include <libcaja-extension/caja-property-page-provider.h>
-#include <libcaja-private/caja-customization-data.h>
 #include <libcaja-private/caja-entry.h>
 #include <libcaja-private/caja-file-attributes.h>
 #include <libcaja-private/caja-file-operations.h>
@@ -701,7 +699,7 @@ update_name_field (FMPropertiesWindow *window)
 		set_name_field (window, original_name, current_name);
 
 		if (original_name == NULL ||
-		    eel_strcmp (original_name, current_name) != 0) {
+		    g_strcmp0 (original_name, current_name) != 0) {
 			g_object_set_data_full (G_OBJECT (window->details->name_field),
 						"original_name",
 						current_name,
@@ -843,7 +841,8 @@ file_has_keyword (CajaFile *file, const char *keyword)
 
 	keywords = caja_file_get_keywords (file);
 	word = g_list_find_custom (keywords, keyword, (GCompareFunc) strcmp);
-	eel_g_list_free_deep (keywords);
+    	g_list_foreach(keywords, (GFunc) g_free, NULL);
+    	g_list_free(keywords);
 
 	return (word != NULL);
 }
@@ -933,7 +932,8 @@ emblem_button_toggled (GtkToggleButton *button,
 			keywords = g_list_prepend (keywords, g_strdup (name));
 		}
 		caja_file_set_keywords (file, keywords);
-		eel_g_list_free_deep (keywords);
+    		g_list_foreach(keywords, (GFunc) g_free, NULL);
+    		g_list_free(keywords);
 	}
 
 	for (l = files_off; l != NULL; l = l->next) {
@@ -946,10 +946,12 @@ emblem_button_toggled (GtkToggleButton *button,
 		word = g_list_find_custom (keywords, name,  (GCompareFunc)strcmp);
 		if (word) {
 			keywords = g_list_remove_link (keywords, word);
-			eel_g_list_free_deep (word);
+    			g_list_foreach(word, (GFunc) g_free, NULL);
+    			g_list_free(word);
 		}
 		caja_file_set_keywords (file, keywords);
-		eel_g_list_free_deep (keywords);
+    		g_list_foreach(keywords, (GFunc) g_free, NULL);
+    		g_list_free(keywords);
 	}
 
 	g_list_free (files_on);
@@ -1205,7 +1207,8 @@ properties_window_update (FMPropertiesWindow *window,
 			refresh_extension_pages (window);
 		}
 
-		eel_g_list_free_deep (window->details->mime_list);
+	    	g_list_foreach(window->details->mime_list, (GFunc) g_free, NULL);
+    		g_list_free(window->details->mime_list);
 		window->details->mime_list = mime_list;
 	}
 }
@@ -1636,7 +1639,7 @@ changed_group_callback (GtkComboBox *combo_box, CajaFile *file)
 	g_assert (GTK_IS_COMBO_BOX (combo_box));
 	g_assert (CAJA_IS_FILE (file));
 
-	group = gtk_combo_box_get_active_text (combo_box);
+	group = gtk_combo_box_text_get_active_text (GTK_COMBO_BOX_TEXT (combo_box));
 	cur_group = caja_file_get_group_name (file);
 
 	if (group != NULL && strcmp (group, cur_group) != 0) {
@@ -1791,7 +1794,7 @@ synch_groups_combo_box (GtkComboBox *combo_box, CajaFile *file)
 
 		for (node = groups, group_index = 0; node != NULL; node = node->next, ++group_index) {
 			group_name = (const char *)node->data;
-			gtk_combo_box_append_text (combo_box, group_name);
+			gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combo_box), group_name);
 		}
 	}
 
@@ -1805,16 +1808,17 @@ synch_groups_combo_box (GtkComboBox *combo_box, CajaFile *file)
 	if (current_group_index < 0 && current_group_name != NULL) {
 		if (groups != NULL) {
 			/* add separator */
-			gtk_combo_box_prepend_text (combo_box, "-");
+			gtk_combo_box_text_prepend_text (GTK_COMBO_BOX_TEXT (combo_box), "-");
 		}
 
-		gtk_combo_box_prepend_text (combo_box, current_group_name);
+		gtk_combo_box_text_prepend_text (GTK_COMBO_BOX_TEXT (combo_box), current_group_name);
 		current_group_index = 0;
 	}
 	gtk_combo_box_set_active (combo_box, current_group_index);
 
 	g_free (current_group_name);
-	eel_g_list_free_deep (groups);
+    	g_list_foreach(groups, (GFunc) g_free, NULL);
+    	g_list_free(groups);
 }
 
 static gboolean
@@ -1850,7 +1854,7 @@ attach_combo_box (GtkTable *table,
 	GtkWidget *aligner;
 
 	if (!two_columns) {
-		combo_box = gtk_combo_box_new_text ();
+		combo_box = gtk_combo_box_text_new ();
 	} else {
 		GtkTreeModel *model;
 		GtkCellRenderer *renderer;
@@ -2169,7 +2173,8 @@ synch_user_menu (GtkComboBox *combo_box, CajaFile *file)
 	gtk_combo_box_set_active (combo_box, owner_index);
 
 	g_free (owner_name);
-	eel_g_list_free_deep (users);
+    	g_list_foreach(users, (GFunc) g_free, NULL);
+    	g_list_free(users);
 }
 
 static GtkComboBox*
@@ -2744,10 +2749,15 @@ should_show_volume_usage (FMPropertiesWindow *window)
 }
 
 static void
-paint_used_legend (GtkWidget *widget, GdkEventExpose *eev, gpointer data)
+paint_used_legend (GtkWidget *widget,
+#if GTK_CHECK_VERSION(3,0,0)
+                   cairo_t *cr,
+#else
+                   GdkEventExpose *eev,
+#endif
+                   gpointer data)
 {
 	FMPropertiesWindow *window;
-	cairo_t *cr;
 	gint width, height;
 	GtkAllocation allocation;
 
@@ -2758,7 +2768,9 @@ paint_used_legend (GtkWidget *widget, GdkEventExpose *eev, gpointer data)
 
 	window = FM_PROPERTIES_WINDOW (data);
 
-	cr = gdk_cairo_create (gtk_widget_get_window (widget));
+#if !GTK_CHECK_VERSION(3,0,0)
+	cairo_t *cr = gdk_cairo_create (gtk_widget_get_window (widget));
+#endif
 
 	cairo_rectangle  (cr,
 			  2,
@@ -2766,20 +2778,32 @@ paint_used_legend (GtkWidget *widget, GdkEventExpose *eev, gpointer data)
 			  width - 4,
 			  height - 4);
 
-	cairo_set_source_rgb (cr, (double) window->details->used_color.red / 65535, (double) window->details->used_color.green / 65535, (double) window->details->used_color.blue / 65535);
+	cairo_set_source_rgb (cr,
+	                      (double) window->details->used_color.red / 65535,
+	                      (double) window->details->used_color.green / 65535,
+	                      (double) window->details->used_color.blue / 65535);
 	cairo_fill_preserve (cr);
 
-	cairo_set_source_rgb (cr, (double) window->details->used_stroke_color.red / 65535, (double) window->details->used_stroke_color.green / 65535, (double) window->details->used_stroke_color.blue / 65535);
+	cairo_set_source_rgb (cr,
+	                      (double) window->details->used_stroke_color.red / 65535,
+	                      (double) window->details->used_stroke_color.green / 65535,
+	                      (double) window->details->used_stroke_color.blue / 65535);
 	cairo_stroke (cr);
 
+#if !GTK_CHECK_VERSION(3,0,0)
 	cairo_destroy (cr);
+#endif
 }
 
 static void
-paint_free_legend (GtkWidget *widget, GdkEventExpose *eev, gpointer data)
+paint_free_legend (GtkWidget *widget,
+#if GTK_CHECK_VERSION(3,0,0)
+                   cairo_t *cr, gpointer data)
+#else
+                   GdkEventExpose *eev, gpointer data)
+#endif
 {
 	FMPropertiesWindow *window;
-	cairo_t *cr;
 	gint width, height;
 	GtkAllocation allocation;
 
@@ -2788,7 +2812,9 @@ paint_free_legend (GtkWidget *widget, GdkEventExpose *eev, gpointer data)
 
   	width  = allocation.width;
   	height = allocation.height;
-  	cr = gdk_cairo_create (gtk_widget_get_window (widget));
+#if !GTK_CHECK_VERSION(3,0,0)
+  	cairo_t *cr = gdk_cairo_create (gtk_widget_get_window (widget));
+#endif
 
 	cairo_rectangle (cr,
 			 2,
@@ -2796,21 +2822,34 @@ paint_free_legend (GtkWidget *widget, GdkEventExpose *eev, gpointer data)
 			 width - 4,
 			 height - 4);
 
-	cairo_set_source_rgb (cr, (double) window->details->free_color.red / 65535, (double) window->details->free_color.green / 65535, (double) window->details->free_color.blue / 65535);
+	cairo_set_source_rgb (cr,
+	                      (double) window->details->free_color.red / 65535,
+	                      (double) window->details->free_color.green / 65535,
+	                      (double) window->details->free_color.blue / 65535);
 	cairo_fill_preserve(cr);
 
-	cairo_set_source_rgb (cr, (double) window->details->free_stroke_color.red / 65535, (double) window->details->free_stroke_color.green / 65535, (double) window->details->free_stroke_color.blue / 65535);
+	cairo_set_source_rgb (cr,
+	                      (double) window->details->free_stroke_color.red / 65535,
+	                      (double) window->details->free_stroke_color.green / 65535,
+	                      (double) window->details->free_stroke_color.blue / 65535);
 	cairo_stroke (cr);
 
+#if !GTK_CHECK_VERSION(3,0,0)
 	cairo_destroy (cr);
+#endif
 }
 
 static void
-paint_pie_chart (GtkWidget *widget, GdkEventExpose *eev, gpointer data)
+paint_pie_chart (GtkWidget *widget,
+#if GTK_CHECK_VERSION(3,0,0)
+                 cairo_t *cr,
+#else
+                 GdkEventExpose *eev,
+#endif
+                 gpointer data)
 {
 
   	FMPropertiesWindow *window;
-  	cairo_t *cr;
 	gint width, height;
 	double free, used;
 	double angle1, angle2, split, xc, yc, radius;
@@ -2832,7 +2871,9 @@ paint_pie_chart (GtkWidget *widget, GdkEventExpose *eev, gpointer data)
 	xc = width / 2;
 	yc = height / 2;
 
-  	cr = gdk_cairo_create (gtk_widget_get_window (widget));
+#if !GTK_CHECK_VERSION(3,0,0)
+  	cairo_t *cr = gdk_cairo_create (gtk_widget_get_window (widget));
+#endif
 
 	if (width < height) {
 		radius = width / 2 - 8;
@@ -2859,10 +2900,16 @@ paint_pie_chart (GtkWidget *widget, GdkEventExpose *eev, gpointer data)
 			cairo_line_to (cr,xc,yc);
 		}
 
-		cairo_set_source_rgb (cr, (double) window->details->used_color.red / 65535, (double) window->details->used_color.green / 65535, (double) window->details->used_color.blue / 65535);
+		cairo_set_source_rgb (cr,
+		                      (double) window->details->used_color.red / 65535,
+		                      (double) window->details->used_color.green / 65535,
+		                      (double) window->details->used_color.blue / 65535);
 		cairo_fill_preserve (cr);
 
-		cairo_set_source_rgb (cr, (double) window->details->used_stroke_color.red / 65535, (double) window->details->used_stroke_color.green / 65535, (double) window->details->used_stroke_color.blue / 65535);
+		cairo_set_source_rgb (cr,
+		                      (double) window->details->used_stroke_color.red / 65535,
+		                      (double) window->details->used_stroke_color.green / 65535,
+		                      (double) window->details->used_stroke_color.blue / 65535);
 		cairo_stroke (cr);
 	}
 
@@ -2877,14 +2924,22 @@ paint_pie_chart (GtkWidget *widget, GdkEventExpose *eev, gpointer data)
 			cairo_line_to (cr,xc,yc);
 		}
 
-		cairo_set_source_rgb (cr, (double) window->details->free_color.red / 65535, (double) window->details->free_color.green / 65535,(double) window->details->free_color.blue / 65535);
+		cairo_set_source_rgb (cr,
+		                      (double) window->details->free_color.red / 65535,
+		                      (double) window->details->free_color.green / 65535,
+		                      (double) window->details->free_color.blue / 65535);
 		cairo_fill_preserve(cr);
 
-		cairo_set_source_rgb (cr, (double) window->details->free_stroke_color.red / 65535, (double) window->details->free_stroke_color.green / 65535, (double) window->details->free_stroke_color.blue / 65535);
+		cairo_set_source_rgb (cr,
+		                      (double) window->details->free_stroke_color.red / 65535,
+		                      (double) window->details->free_stroke_color.green / 65535,
+		                      (double) window->details->free_stroke_color.blue / 65535);
 		cairo_stroke (cr);
 	}
 
+#if !GTK_CHECK_VERSION(3,0,0)
   	cairo_destroy (cr);
+#endif
 }
 
 
@@ -3173,9 +3228,21 @@ create_pie_widget (FMPropertiesWindow *window)
 	gtk_table_attach (table, capacity_label , 1, 3, 2, 3, GTK_FILL, 0,          5, 5);
 	gtk_table_attach (table, fstype_label , 1, 3, 3, 4, GTK_FILL, 0,          5, 5);
 
-	g_signal_connect (G_OBJECT (pie_canvas), "expose-event", G_CALLBACK (paint_pie_chart), window);
-	g_signal_connect (G_OBJECT (used_canvas), "expose-event", G_CALLBACK (paint_used_legend), window);
-	g_signal_connect (G_OBJECT (free_canvas), "expose-event", G_CALLBACK (paint_free_legend), window);
+#if GTK_CHECK_VERSION(3,0,0)
+	g_signal_connect (pie_canvas, "draw",
+	                  G_CALLBACK (paint_pie_chart), window);
+	g_signal_connect (used_canvas, "draw",
+	                  G_CALLBACK (paint_used_legend), window);
+	g_signal_connect (free_canvas, "draw",
+	                  G_CALLBACK (paint_free_legend), window);
+#else
+	g_signal_connect (G_OBJECT (pie_canvas), "expose-event",
+	                  G_CALLBACK (paint_pie_chart), window);
+	g_signal_connect (G_OBJECT (used_canvas), "expose-event",
+	                  G_CALLBACK (paint_used_legend), window);
+	g_signal_connect (G_OBJECT (free_canvas), "expose-event",
+	                  G_CALLBACK (paint_free_legend), window);
+#endif
 
 	return GTK_WIDGET (table);
 }
@@ -3363,7 +3430,7 @@ get_initial_emblems (GList *files)
 	ret = g_hash_table_new_full (g_direct_hash,
 				     g_direct_equal,
 				     NULL,
-				     (GDestroyNotify)eel_g_list_free_deep);
+				     (GFunc) g_free);
 
 	for (l = files; l != NULL; l = l->next) {
 		CajaFile *file;
@@ -3502,7 +3569,8 @@ create_emblems_page (FMPropertiesWindow *window)
 
 		gtk_container_add (GTK_CONTAINER (emblems_table), button);
 	}
-	eel_g_list_free_deep (icons);
+    	g_list_foreach(icons, (GFunc) g_free, NULL);
+    	g_list_free(icons);
 	gtk_widget_show_all (emblems_table);
 }
 
@@ -4986,7 +5054,8 @@ get_pending_key (GList *file_list)
 		g_string_append (key, ";");
 	}
 
-	eel_g_list_free_deep (uris);
+    	g_list_foreach(uris, (GFunc) g_free, NULL);
+    	g_list_free(uris);
 
 	ret = key->str;
 	g_string_free (key, FALSE);
@@ -5235,7 +5304,6 @@ create_properties_window (StartupData *startup_data)
 	gtk_container_set_border_width (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (window))), 12);
 	gtk_container_set_border_width (GTK_CONTAINER (gtk_dialog_get_action_area (GTK_DIALOG (window))), 0);
 	gtk_box_set_spacing (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (window))), 12);
-	gtk_dialog_set_has_separator (GTK_DIALOG (window), FALSE);
 
 	/* Update from initial state */
 	properties_window_update (window, NULL);
@@ -5484,7 +5552,11 @@ real_response (GtkDialog *dialog,
 }
 
 static void
+#if GTK_CHECK_VERSION (3, 0, 0)
+real_destroy (GtkWidget *object)
+#else
 real_destroy (GtkObject *object)
+#endif
 {
 	FMPropertiesWindow *window;
 	GList *l;
@@ -5542,7 +5614,11 @@ real_destroy (GtkObject *object)
 		window->details->update_files_timeout_id = 0;
 	}
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+	GTK_WIDGET_CLASS (parent_class)->destroy (object);
+#else
 	GTK_OBJECT_CLASS (parent_class)->destroy (object);
+#endif
 }
 
 static void
@@ -5552,7 +5628,8 @@ real_finalize (GObject *object)
 
 	window = FM_PROPERTIES_WINDOW (object);
 
-	eel_g_list_free_deep (window->details->mime_list);
+    	g_list_foreach(window->details->mime_list, (GFunc) g_free, NULL);
+    	g_list_free(window->details->mime_list);
 
 	g_free (window->details->pending_name);
 	g_free (window->details);
@@ -5797,11 +5874,15 @@ fm_properties_window_class_init (FMPropertiesWindowClass *class)
 	GtkBindingSet *binding_set;
 
 	G_OBJECT_CLASS (class)->finalize = real_finalize;
+#if !GTK_CHECK_VERSION (3, 0, 0)
 	GTK_OBJECT_CLASS (class)->destroy = real_destroy;
+#else
+	GTK_WIDGET_CLASS (class)->destroy = real_destroy;
+#endif
 	GTK_DIALOG_CLASS (class)->response = real_response;
 
 	binding_set = gtk_binding_set_by_class (class);
-	gtk_binding_entry_add_signal (binding_set, GDK_Escape, 0,
+	gtk_binding_entry_add_signal (binding_set, GDK_KEY_Escape, 0,
 				      "close", 0);
 }
 

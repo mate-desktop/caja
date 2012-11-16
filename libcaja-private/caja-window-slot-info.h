@@ -72,18 +72,27 @@ struct _CajaWindowSlotInfoIface
                                    GFile *location,
                                    CajaWindowOpenMode mode,
                                    CajaWindowOpenFlags flags,
-                                   GList *selection);
+                                   GList *selection,
+                                   CajaWindowGoToCallback callback,
+                                   gpointer user_data);
     void   (* make_hosting_pane_active) (CajaWindowSlotInfo *slot);
 };
 
 
 GType                             caja_window_slot_info_get_type            (void);
 CajaWindowInfo *              caja_window_slot_info_get_window          (CajaWindowSlotInfo            *slot);
-void                              caja_window_slot_info_open_location       (CajaWindowSlotInfo            *slot,
+#define caja_window_slot_info_open_location(slot, location, mode, flags, selection) \
+	caja_window_slot_info_open_location_full(slot, location, mode, \
+						 flags, selection, NULL, NULL)
+
+void                              caja_window_slot_info_open_location_full
+	(CajaWindowSlotInfo *slot,
         GFile                             *location,
-        CajaWindowOpenMode             mode,
-        CajaWindowOpenFlags            flags,
-        GList                             *selection);
+        CajaWindowOpenMode                 mode,
+        CajaWindowOpenFlags                flags,
+        GList                             *selection,
+        CajaWindowGoToCallback		   callback,
+        gpointer			   user_data);
 void                              caja_window_slot_info_set_status          (CajaWindowSlotInfo            *slot,
         const char *status);
 void                              caja_window_slot_info_make_hosting_pane_active (CajaWindowSlotInfo       *slot);

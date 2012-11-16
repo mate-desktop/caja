@@ -27,11 +27,11 @@
 */
 
 #include <config.h>
-#include "eel-i18n.h"
 #include "eel-vfs-extensions.h"
 #include "eel-glib-extensions.h"
 #include "eel-lib-self-check-functions.h"
 #include <glib.h>
+#include <glib/gi18n-lib.h>
 #include <gio/gio.h>
 
 #include "eel-string.h"
@@ -97,34 +97,6 @@ eel_make_valid_utf8 (const char *name)
     g_assert (g_utf8_validate (string->str, -1, NULL));
 
     return g_string_free (string, FALSE);
-}
-
-/**
- * eel_format_uri_for_display:
- *
- * Filter, modify, unescape and change URIs to make them appropriate
- * to display to users. The conversion is done such that the roundtrip
- * to UTf8 is reversible.
- *
- * Rules:
- * 	file: URI's without fragments should appear as local paths
- * 	file: URI's with fragments should appear as file: URI's
- * 	All other URI's appear as expected
- *
- * @uri: a URI
- *
- * returns a g_malloc'd UTF8 string
- **/
-char *
-eel_format_uri_for_display (const char *uri)
-{
-    GFile *file;
-    char *res;
-
-    file = g_file_new_for_uri (uri);
-    res = g_file_get_parse_name (file);
-    g_object_unref (file);
-    return res;
 }
 
 char *

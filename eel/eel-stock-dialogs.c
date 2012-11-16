@@ -25,11 +25,10 @@
 #include <config.h>
 #include "eel-stock-dialogs.h"
 
-#include "eel-alert-dialog.h"
 #include "eel-glib-extensions.h"
-#include "eel-mate-extensions.h"
-#include "eel-string.h"
-#include "eel-i18n.h"
+#include "eel-gtk-extensions.h"
+
+#include <glib/gi18n-lib.h>
 #include <gtk/gtk.h>
 
 #define TIMED_WAIT_STANDARD_DURATION 2000
@@ -61,7 +60,7 @@ typedef struct
 
 static GHashTable *timed_wait_hash_table;
 
-static void timed_wait_dialog_destroy_callback (GtkObject *object, gpointer callback_data);
+static void timed_wait_dialog_destroy_callback (GtkWidget *object, gpointer callback_data);
 
 static guint
 timed_wait_hash (gconstpointer value)
@@ -87,7 +86,7 @@ timed_wait_hash_equal (gconstpointer value1, gconstpointer value2)
 }
 
 static void
-timed_wait_delayed_close_destroy_dialog_callback (GtkObject *object, gpointer callback_data)
+timed_wait_delayed_close_destroy_dialog_callback (GtkWidget *object, gpointer callback_data)
 {
     g_source_remove (GPOINTER_TO_UINT (callback_data));
 }
@@ -104,7 +103,7 @@ timed_wait_delayed_close_timeout_callback (gpointer callback_data)
                                           G_CALLBACK (timed_wait_delayed_close_destroy_dialog_callback),
                                           GUINT_TO_POINTER (handler_id));
 
-    gtk_object_destroy (GTK_OBJECT (callback_data));
+	gtk_widget_destroy (GTK_WIDGET (callback_data));
 
     return FALSE;
 }
@@ -154,7 +153,7 @@ timed_wait_free (TimedWait *wait)
         }
         else
         {
-            gtk_object_destroy (GTK_OBJECT (wait->dialog));
+            gtk_widget_destroy (GTK_WIDGET (wait->dialog));
         }
     }
 
@@ -163,7 +162,7 @@ timed_wait_free (TimedWait *wait)
 }
 
 static void
-timed_wait_dialog_destroy_callback (GtkObject *object, gpointer callback_data)
+timed_wait_dialog_destroy_callback (GtkWidget *object, gpointer callback_data)
 {
     TimedWait *wait;
 
@@ -203,12 +202,16 @@ timed_wait_callback (gpointer callback_data)
 
     /* Put up the timed wait window. */
     button = wait->cancel_callback != NULL ? GTK_STOCK_CANCEL : GTK_STOCK_OK;
-    dialog = GTK_DIALOG (eel_alert_dialog_new (wait->parent_window,
-                         0,
-                         GTK_MESSAGE_INFO,
-                         GTK_BUTTONS_NONE,
-                         wait->wait_message,
-                         _("You can stop this operation by clicking cancel.")));
+	dialog = GTK_DIALOG (gtk_message_dialog_new (wait->parent_window,
+						     0,
+						     GTK_MESSAGE_INFO,
+						     GTK_BUTTONS_NONE,
+						     NULL));
+
+	g_object_set (dialog,
+		      "text", wait->wait_message,
+		      "secondary-text", _("You can stop this operation by clicking cancel."),
+		      NULL);
 
     gtk_dialog_add_button (GTK_DIALOG (dialog), button, GTK_RESPONSE_OK);
     gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_OK);
@@ -340,12 +343,16 @@ eel_run_simple_dialog (GtkWidget *parent, gboolean ignore_close_box,
     }
 
     /* Create the dialog. */
-    dialog = eel_alert_dialog_new (GTK_WINDOW (chosen_parent),
-                                   0,
-                                   message_type,
-                                   GTK_BUTTONS_NONE,
-                                   primary_text,
-                                   secondary_text);
+	dialog = gtk_message_dialog_new (GTK_WINDOW (chosen_parent), 
+					 0,
+					 message_type,
+					 GTK_BUTTONS_NONE,
+					 NULL);
+
+	g_object_set (dialog,
+		      "text", primary_text,
+		      "secondary-text", secondary_text,
+		      NULL);
 
     va_start (button_title_args, secondary_text);
     response_id = 0;
@@ -370,7 +377,7 @@ eel_run_simple_dialog (GtkWidget *parent, gboolean ignore_close_box,
         gtk_widget_show (GTK_WIDGET (dialog));
         result = gtk_dialog_run (GTK_DIALOG (dialog));
     }
-    gtk_object_destroy (GTK_OBJECT (dialog));
+	gtk_widget_destroy (dialog);
 
     return result;
 }
@@ -384,12 +391,17 @@ create_message_dialog (const char *primary_text,
 {
     GtkWidget *dialog;
 
-    dialog = eel_alert_dialog_new (parent,
-                                   0,
-                                   type,
-                                   buttons_type,
-                                   primary_text,
-                                   secondary_text);
+	dialog = gtk_message_dialog_new (parent,
+					 0,
+					 type,
+					 buttons_type,
+					 NULL);
+
+	g_object_set (dialog,
+		      "text", primary_text,
+		      "secondary-text", secondary_text,
+		      NULL);
+
     return GTK_DIALOG (dialog);
 }
 
@@ -405,14 +417,14 @@ show_message_dialog (const char *primary_text,
 
     dialog = create_message_dialog (primary_text, secondary_text, type,
                                     buttons_type, parent);
-    if (details_text != NULL)
-    {
-        eel_alert_dialog_set_details_label (EEL_ALERT_DIALOG (dialog), details_text);
+    if (details_text != NULL) {
+        eel_gtk_message_dialog_set_details_label (GTK_MESSAGE_DIALOG (dialog),
+						  details_text);
     }
     gtk_widget_show (GTK_WIDGET (dialog));
 
     g_signal_connect (dialog, "response",
-                      G_CALLBACK (gtk_object_destroy), NULL);
+			  G_CALLBACK (gtk_widget_destroy), NULL);
 
     return dialog;
 }

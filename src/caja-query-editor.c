@@ -23,10 +23,10 @@
 
 #include <config.h>
 #include "caja-query-editor.h"
+#include "caja-src-marshal.h"
 #include "caja-window-slot.h"
 
 #include <string.h>
-#include <libcaja-private/caja-marshal.h>
 #include <glib/gi18n.h>
 #include <gio/gio.h>
 #include <eel/eel-gtk-macros.h>
@@ -197,7 +197,7 @@ caja_query_editor_class_init (CajaQueryEditorClass *class)
                       G_SIGNAL_RUN_LAST,
                       G_STRUCT_OFFSET (CajaQueryEditorClass, changed),
                       NULL, NULL,
-                      caja_marshal_VOID__OBJECT_BOOLEAN,
+                      caja_src_marshal_VOID__OBJECT_BOOLEAN,
                       G_TYPE_NONE, 2, CAJA_TYPE_QUERY, G_TYPE_BOOLEAN);
 
     signals[CANCEL] =
@@ -210,7 +210,7 @@ caja_query_editor_class_init (CajaQueryEditorClass *class)
                       G_TYPE_NONE, 0);
 
     binding_set = gtk_binding_set_by_class (class);
-    gtk_binding_entry_add_signal (binding_set, GDK_Escape, 0, "cancel", 0);
+	gtk_binding_entry_add_signal (binding_set, GDK_KEY_Escape, 0, "cancel", 0);
 }
 
 static void
@@ -587,7 +587,7 @@ type_combo_changed (GtkComboBox *combo_box, CajaQueryEditorRow *row)
         toplevel = gtk_widget_get_toplevel (GTK_WIDGET (combo_box));
         dialog = gtk_dialog_new_with_buttons (_("Select type"),
                                               GTK_WINDOW (toplevel),
-                                              GTK_DIALOG_NO_SEPARATOR,
+                                              0,
                                               GTK_STOCK_OK, GTK_RESPONSE_OK,
                                               NULL);
         gtk_window_set_default_size (GTK_WINDOW (dialog), 400, 600);
@@ -864,8 +864,8 @@ type_add_rows_from_query (CajaQueryEditor    *editor,
                                         &iter);
     }
 
-    eel_g_list_free_deep (mime_types);
-
+    g_list_foreach(mime_types, (GFunc) g_free, NULL);
+    g_list_free(mime_types);
 }
 
 /* End of row types */
@@ -967,11 +967,11 @@ caja_query_editor_add_row (CajaQueryEditor *editor,
     gtk_widget_show (hbox);
     gtk_box_pack_start (GTK_BOX (editor->details->visible_vbox), hbox, FALSE, FALSE, 0);
 
-    combo = gtk_combo_box_new_text ();
+    combo = gtk_combo_box_text_new ();
     row->combo = combo;
     for (i = 0; i < CAJA_QUERY_EDITOR_ROW_LAST; i++)
     {
-        gtk_combo_box_append_text (GTK_COMBO_BOX (combo), gettext (row_type[i].name));
+        gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combo), gettext (row_type[i].name));
     }
     gtk_widget_show (combo);
     gtk_box_pack_start (GTK_BOX (hbox), combo, FALSE, FALSE, 0);

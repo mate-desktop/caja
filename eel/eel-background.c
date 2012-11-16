@@ -25,15 +25,8 @@
 #include <config.h>
 #include "eel-background.h"
 #include "eel-gdk-extensions.h"
-#include "eel-gdk-pixbuf-extensions.h"
 #include "eel-glib-extensions.h"
-#include "eel-mate-extensions.h"
-#include "eel-gtk-macros.h"
 #include "eel-lib-self-check-functions.h"
-#include "eel-string.h"
-#include "eel-marshal.h"
-#include "eel-types.h"
-#include "eel-type-builtins.h"
 #include <gtk/gtk.h>
 #include <eel/eel-canvas.h>
 #include <eel/eel-canvas-util.h>
@@ -44,10 +37,6 @@
 #define MATE_DESKTOP_USE_UNSTABLE_API
 #include <libmateui/mate-bg.h>
 
-static void       eel_background_class_init                (gpointer       klass);
-static void       eel_background_init                      (gpointer       object,
-        gpointer       klass);
-static void       eel_background_finalize                  (GObject       *object);
 static GdkPixmap *eel_background_get_pixmap_and_color      (EelBackground *background,
         GdkWindow     *window,
         GdkColor      *color);
@@ -57,7 +46,7 @@ static void set_image_properties (EelBackground *background);
 static void init_fade (EelBackground *background, GtkWidget *widget);
 static void free_fade (EelBackground *background);
 
-EEL_CLASS_BOILERPLATE (EelBackground, eel_background, GTK_TYPE_OBJECT)
+G_DEFINE_TYPE (EelBackground, eel_background, G_TYPE_OBJECT);
 
 enum
 {
@@ -106,49 +95,6 @@ struct EelBackgroundDetails
 };
 
 static void
-eel_background_class_init (gpointer klass)
-{
-    GObjectClass *object_class;
-
-    object_class = G_OBJECT_CLASS (klass);
-
-    eel_type_init ();
-
-    signals[APPEARANCE_CHANGED] =
-        g_signal_new ("appearance_changed",
-                      G_TYPE_FROM_CLASS (object_class),
-                      G_SIGNAL_RUN_LAST | G_SIGNAL_NO_RECURSE,
-                      G_STRUCT_OFFSET (EelBackgroundClass,
-                                       appearance_changed),
-                      NULL, NULL,
-                      g_cclosure_marshal_VOID__VOID,
-                      G_TYPE_NONE,
-                      0);
-    signals[SETTINGS_CHANGED] =
-        g_signal_new ("settings_changed",
-                      G_TYPE_FROM_CLASS (object_class),
-                      G_SIGNAL_RUN_LAST | G_SIGNAL_NO_RECURSE,
-                      G_STRUCT_OFFSET (EelBackgroundClass,
-                                       settings_changed),
-                      NULL, NULL,
-                      g_cclosure_marshal_VOID__INT,
-                      G_TYPE_NONE,
-                      1, G_TYPE_INT);
-    signals[RESET] =
-        g_signal_new ("reset",
-                      G_TYPE_FROM_CLASS (object_class),
-                      G_SIGNAL_RUN_LAST | G_SIGNAL_NO_RECURSE,
-                      G_STRUCT_OFFSET (EelBackgroundClass,
-                                       reset),
-                      NULL, NULL,
-                      g_cclosure_marshal_VOID__VOID,
-                      G_TYPE_NONE,
-                      0);
-
-    object_class->finalize = eel_background_finalize;
-}
-
-static void
 on_bg_changed (MateBG *bg, EelBackground *background)
 {
     init_fade (background, background->details->widget);
@@ -165,13 +111,13 @@ on_bg_transitioned (MateBG *bg, EelBackground *background)
 }
 
 static void
-eel_background_init (gpointer object, gpointer klass)
+eel_background_init (EelBackground *background)
 {
-    EelBackground *background;
+    background->details =
+    		G_TYPE_INSTANCE_GET_PRIVATE (background,
+    					     EEL_TYPE_BACKGROUND,
+    					     EelBackgroundDetails);
 
-    background = EEL_BACKGROUND (object);
-
-    background->details = g_new0 (EelBackgroundDetails, 1);
     background->details->default_color.red = 0xffff;
     background->details->default_color.green = 0xffff;
     background->details->default_color.blue = 0xffff;
@@ -235,25 +181,6 @@ free_background_pixmap (EelBackground *background)
 }
 
 
-static void
-eel_background_finalize (GObject *object)
-{
-    EelBackground *background;
-
-    background = EEL_BACKGROUND (object);
-
-    g_free (background->details->color);
-    eel_background_remove_current_image (background);
-
-    free_background_pixmap (background);
-
-    free_fade (background);
-
-    g_free (background->details);
-
-    EEL_CALL_PARENT (G_OBJECT_CLASS, finalize, (object));
-}
-
 static EelBackgroundImagePlacement
 placement_mate_to_eel (MateBGPlacement p)
 {
@@ -314,6 +241,67 @@ eel_background_set_image_placement (EelBackground              *background,
 
     mate_bg_set_placement (background->details->bg,
                            placement_eel_to_mate (new_placement));
+}
+
+
+static void
+eel_background_finalize (GObject *object)
+{
+    EelBackground *background;
+
+    background = EEL_BACKGROUND (object);
+
+    g_free (background->details->color);
+    eel_background_remove_current_image (background);
+
+    free_background_pixmap (background);
+
+    free_fade (background);
+
+    G_OBJECT_CLASS (eel_background_parent_class)->finalize (object);
+}
+
+static void
+eel_background_class_init (EelBackgroundClass *klass)
+{
+    GObjectClass *object_class;
+
+    object_class = G_OBJECT_CLASS (klass);
+
+    signals[APPEARANCE_CHANGED] =
+        g_signal_new ("appearance_changed",
+                      G_TYPE_FROM_CLASS (object_class),
+                      G_SIGNAL_RUN_LAST | G_SIGNAL_NO_RECURSE,
+                      G_STRUCT_OFFSET (EelBackgroundClass,
+                                       appearance_changed),
+                      NULL, NULL,
+                      g_cclosure_marshal_VOID__VOID,
+                      G_TYPE_NONE,
+                      0);
+    signals[SETTINGS_CHANGED] =
+        g_signal_new ("settings_changed",
+                      G_TYPE_FROM_CLASS (object_class),
+                      G_SIGNAL_RUN_LAST | G_SIGNAL_NO_RECURSE,
+                      G_STRUCT_OFFSET (EelBackgroundClass,
+                                       settings_changed),
+                      NULL, NULL,
+                      g_cclosure_marshal_VOID__INT,
+                      G_TYPE_NONE,
+                      1, G_TYPE_INT);
+    signals[RESET] =
+        g_signal_new ("reset",
+                      G_TYPE_FROM_CLASS (object_class),
+                      G_SIGNAL_RUN_LAST | G_SIGNAL_NO_RECURSE,
+                      G_STRUCT_OFFSET (EelBackgroundClass,
+                                       reset),
+                      NULL, NULL,
+                      g_cclosure_marshal_VOID__VOID,
+                      G_TYPE_NONE,
+                      0);
+
+    object_class->finalize = eel_background_finalize;
+
+    g_type_class_add_private (klass, sizeof (EelBackgroundDetails));
 }
 
 EelBackground *
@@ -390,7 +378,6 @@ eel_background_ensure_realized (EelBackground *background, GdkWindow *window)
             background->details->default_color = style->bg[GTK_STATE_NORMAL];
         }
 
-        gdk_rgb_find_color (style->colormap, &(background->details->default_color));
     }
 
     /* If the window size is the same as last time, don't update */
@@ -491,10 +478,8 @@ eel_background_expose (GtkWidget                   *widget,
     int window_width;
     int window_height;
     GdkPixmap *pixmap;
-    GdkGC *gc;
-    GdkGCValues gc_values;
-    GdkGCValuesMask value_mask;
     GdkWindow *widget_window;
+    cairo_t *cr;
 
     EelBackground *background;
 
@@ -511,30 +496,22 @@ eel_background_expose (GtkWidget                   *widget,
     pixmap = eel_background_get_pixmap_and_color (background,
              widget_window,
              &color);
+    cr = gdk_cairo_create (widget_window);
 
-    if (pixmap)
-    {
-        gc_values.tile = pixmap;
-        gc_values.ts_x_origin = 0;
-        gc_values.ts_y_origin = 0;
-        gc_values.fill = GDK_TILED;
-        value_mask = GDK_GC_FILL | GDK_GC_TILE | GDK_GC_TS_X_ORIGIN | GDK_GC_TS_Y_ORIGIN;
-    }
-    else
-    {
-        gdk_rgb_find_color (gtk_widget_get_colormap (widget), &color);
-        gc_values.foreground = color;
-        gc_values.fill = GDK_SOLID;
-        value_mask = GDK_GC_FILL | GDK_GC_FOREGROUND;
+    if (pixmap) {
+        gdk_cairo_set_source_pixmap (cr, pixmap, 0, 0);
+        cairo_pattern_set_extend (cairo_get_source (cr), CAIRO_EXTEND_REPEAT);
+    } else {
+        gdk_cairo_set_source_color (cr, &color);
     }
 
-    gc = gdk_gc_new_with_values (widget_window, &gc_values, value_mask);
+    gdk_cairo_rectangle (cr, &event->area);
+    cairo_clip (cr);
 
-    gdk_gc_set_clip_rectangle (gc, &event->area);
+    cairo_rectangle (cr, 0, 0, window_width, window_height);
+    cairo_fill (cr);
 
-    gdk_draw_rectangle (widget_window, gc, TRUE, 0, 0, window_width, window_height);
-
-    g_object_unref (gc);
+    cairo_destroy (cr);
 
     if (pixmap)
     {
@@ -618,7 +595,7 @@ void
 eel_background_set_color (EelBackground *background,
                           const char *color)
 {
-    if (eel_strcmp (background->details->color, color) != 0)
+    if (g_strcmp0 (background->details->color, color) != 0)
     {
         g_free (background->details->color);
         background->details->color = g_strdup (color);
@@ -647,7 +624,7 @@ eel_background_set_image_uri_helper (EelBackground *background,
 
     if (emit_signal)
     {
-        g_signal_emit (GTK_OBJECT (background), signals[SETTINGS_CHANGED], 0, GDK_ACTION_COPY);
+        g_signal_emit (background, signals[SETTINGS_CHANGED], 0, GDK_ACTION_COPY);
     }
 
     set_image_properties (background);
@@ -722,7 +699,7 @@ eel_background_reset (EelBackground *background)
 {
     g_return_if_fail (EEL_IS_BACKGROUND (background));
 
-    g_signal_emit (GTK_OBJECT (background), signals[RESET], 0);
+    g_signal_emit (background, signals[RESET], 0);
 }
 
 static void
@@ -813,8 +790,6 @@ eel_background_set_up_widget (EelBackground *background, GtkWidget *widget)
              &color);
 
     style = gtk_widget_get_style (widget);
-
-    gdk_rgb_find_color (style->colormap, &color);
 
     if (EEL_IS_CANVAS (widget))
     {
@@ -1118,7 +1093,6 @@ eel_get_widget_background (GtkWidget *widget)
 
     /* Store the background in the widget's data. */
     background = eel_background_new ();
-    g_object_ref_sink (background);
     g_object_set_data_full (G_OBJECT (widget), "eel_background",
                             background, g_object_unref);
     background->details->widget = widget;

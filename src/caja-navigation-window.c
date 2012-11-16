@@ -55,7 +55,6 @@
 #include <libcaja-private/caja-file-utilities.h>
 #include <libcaja-private/caja-file-attributes.h>
 #include <libcaja-private/caja-global-preferences.h>
-#include <libcaja-private/caja-horizontal-splitter.h>
 #include <libcaja-private/caja-icon-info.h>
 #include <libcaja-private/caja-metadata.h>
 #include <libcaja-private/caja-mime-actions.h>
@@ -141,7 +140,11 @@ caja_navigation_window_init (CajaNavigationWindow *window)
     window->details->header_size_group = gtk_size_group_new (GTK_SIZE_GROUP_VERTICAL);
     gtk_size_group_set_ignore_hidden (window->details->header_size_group, FALSE);
 
-    window->details->content_paned = caja_horizontal_splitter_new ();
+#if GTK_CHECK_VERSION(3, 0, 0)
+    window->details->content_paned = gtk_paned_new (GTK_ORIENTATION_HORIZONTAL);
+#else
+    window->details->content_paned = gtk_hpaned_new ();
+#endif
     gtk_table_attach (GTK_TABLE (CAJA_WINDOW (window)->details->table),
                       window->details->content_paned,
                       /* X direction */                   /* Y direction */
@@ -151,10 +154,15 @@ caja_navigation_window_init (CajaNavigationWindow *window)
     gtk_widget_show (window->details->content_paned);
 
     vbox = gtk_vbox_new (FALSE, 0);
-    caja_horizontal_splitter_pack2 (CAJA_HORIZONTAL_SPLITTER (window->details->content_paned), vbox);
+    gtk_paned_pack2 (GTK_PANED (window->details->content_paned), vbox,
+    		     TRUE, FALSE);
     gtk_widget_show (vbox);
 
+#if GTK_CHECK_VERSION(3, 0, 0)    
+    hpaned = gtk_paned_new (GTK_ORIENTATION_HORIZONTAL);
+#else
     hpaned = gtk_hpaned_new ();
+#endif
     gtk_box_pack_start (GTK_BOX (vbox), hpaned, TRUE, TRUE, 0);
     gtk_widget_show (hpaned);
     window->details->split_view_hpane = hpaned;
@@ -593,7 +601,11 @@ caja_navigation_window_button_press_event (GtkWidget *widget,
 }
 
 static void
+#if GTK_CHECK_VERSION (3, 0, 0)
+caja_navigation_window_destroy (GtkWidget *object)
+#else
 caja_navigation_window_destroy (GtkObject *object)
+#endif
 {
     CajaNavigationWindow *window;
 
@@ -609,7 +621,11 @@ caja_navigation_window_destroy (GtkObject *object)
     window->details->content_paned = NULL;
     window->details->split_view_hpane = NULL;
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GTK_WIDGET_CLASS (parent_class)->destroy (object);
+#else
     GTK_OBJECT_CLASS (parent_class)->destroy (object);
+#endif
 }
 
 static void
@@ -1028,7 +1044,7 @@ caja_navigation_window_sidebar_showing (CajaNavigationWindow *window)
     g_return_val_if_fail (CAJA_IS_NAVIGATION_WINDOW (window), FALSE);
 
     return (window->sidebar != NULL)
-           && caja_horizontal_splitter_is_hidden (CAJA_HORIZONTAL_SPLITTER (window->details->content_paned));
+           && gtk_widget_get_visible (gtk_paned_get_child1 (GTK_PANED (window->details->content_paned)));
 }
 
 /**
@@ -1243,7 +1259,11 @@ caja_navigation_window_class_init (CajaNavigationWindowClass *class)
     CAJA_WINDOW_CLASS (class)->bookmarks_placeholder = MENU_PATH_BOOKMARKS_PLACEHOLDER;
 
     G_OBJECT_CLASS (class)->finalize = caja_navigation_window_finalize;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GTK_WIDGET_CLASS (class)->destroy = caja_navigation_window_destroy;
+#else
     GTK_OBJECT_CLASS (class)->destroy = caja_navigation_window_destroy;
+#endif
     GTK_WIDGET_CLASS (class)->show = caja_navigation_window_show;
     GTK_WIDGET_CLASS (class)->unrealize = caja_navigation_window_unrealize;
     GTK_WIDGET_CLASS (class)->window_state_event = caja_navigation_window_state_event;

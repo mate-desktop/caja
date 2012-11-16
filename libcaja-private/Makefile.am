@@ -18,6 +18,11 @@ INCLUDES = \
 	$(UNIQUE_CFLAGS) \
 	$(NULL)
 
+BUILT_SOURCES = \
+	caja-marshal.c \
+	caja-marshal.h \
+	$(NULL)
+
 dependency_static_libs = \
 	$(top_builddir)/cut-n-paste-code/libegg/libegg.la \
 	$(NULL)
@@ -36,18 +41,11 @@ libcaja_private_la_LIBADD = \
 	$(CORE_LIBS) \
 	$(NULL)
 
-marshal_sources = \
-	caja-marshal.h \
-	caja-marshal-guts.c \
-	$(NULL)
-
 libcaja_private_la_SOURCES = \
 	caja-autorun.c \
 	caja-autorun.h \
 	caja-bookmark.c \
 	caja-bookmark.h \
-	caja-cell-renderer-pixbuf-emblem.c \
-	caja-cell-renderer-pixbuf-emblem.h \
 	caja-cell-renderer-text-ellipsized.c \
 	caja-cell-renderer-text-ellipsized.h \
 	caja-clipboard-monitor.c \
@@ -107,8 +105,6 @@ libcaja_private_la_SOURCES = \
 	caja-file.h \
 	caja-global-preferences.c \
 	caja-global-preferences.h \
-	caja-horizontal-splitter.c \
-	caja-horizontal-splitter.h \
 	caja-icon-canvas-item.c \
 	caja-icon-canvas-item.h \
 	caja-icon-container.c \
@@ -121,15 +117,12 @@ libcaja_private_la_SOURCES = \
 	caja-icon-names.h \
 	caja-idle-queue.c \
 	caja-idle-queue.h \
-	caja-iso9660.h \
 	caja-keep-last-vertical-box.c \
 	caja-keep-last-vertical-box.h \
 	caja-lib-self-check-functions.c \
 	caja-lib-self-check-functions.h \
 	caja-link.c \
 	caja-link.h \
-	caja-marshal.c \
-	caja-marshal.h \
 	caja-merged-directory.c \
 	caja-merged-directory.h \
 	caja-metadata.h \
@@ -198,14 +191,29 @@ libcaja_private_la_SOURCES = \
 	caja-undostack-manager.h \
 	$(NULL)
 
+nodist_libcaja_private_la_SOURCES =\
+	$(BUILT_SOURCES) \
+	$(NULL)
+
 $(lib_LTLIBRARIES): $(dependency_static_libs)
 
-caja-marshal.h: caja-marshal.list $(GLIB_GENMARSHAL)
-	$(AM_V_GEN)$(GLIB_GENMARSHAL) $< --header --prefix=caja_marshal > $@
-caja-marshal-guts.c: caja-marshal.list $(GLIB_GENMARSHAL)
-	$(AM_V_GEN)$(GLIB_GENMARSHAL) $< --body --prefix=caja_marshal > $@
+caja-marshal.list: $(libcaja_private_la_SOURCES) Makefile.am
+	$(AM_V_GEN)( cd $(srcdir) && \
+	sed -n -e 's/.*caja_marshal_\([[:upper:][:digit:]]*__[[:upper:][:digit:]_]*\).*/\1/p' \
+	$(libcaja_private_la_SOURCES) ) \
+	| sed -e 's/__/:/' -e 'y/_/,/' | sort -u > $@.tmp
+	@if cmp -s $@.tmp $@; then \
+		rm $@.tmp; \
+	else \
+		mv $@.tmp $@; \
+	fi
 
-$(libcaja_private_la_OBJECTS): $(marshal_sources)
+%-marshal.h: %-marshal.list Makefile
+	$(AM_V_GEN)$(GLIB_GENMARSHAL) --header --prefix=$(subst -,_,$*)_marshal $< > $*-marshal.h
+
+%-marshal.c: %-marshal.list Makefile
+	$(AM_V_GEN)echo "#include \"caja-marshal.h\"" > $@ && \
+	$(GLIB_GENMARSHAL) --body --prefix=$(subst -,_,$*)_marshal $< >> $*-marshal.c
 
 gsettingsschema_in_files = org.mate.caja.gschema.xml.in org.mate.media-handling.gschema.xml.in
 gsettings_SCHEMAS = $(gsettingsschema_in_files:.xml.in=.xml)
@@ -223,9 +231,10 @@ EXTRA_DIST = \
 	$(NULL)
 
 CLEANFILES = \
-	$(marshal_sources) \
+	$(BUILT_SOURCES) \
 	$(schema_DATA) \
 	$(gsettings_SCHEMAS) \
+	caja-marshal.list				\
 	$(NULL)
 
 dist-hook:

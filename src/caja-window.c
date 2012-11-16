@@ -40,8 +40,8 @@
 #include "caja-zoom-control.h"
 #include "caja-search-bar.h"
 #include "caja-navigation-window-pane.h"
+#include "caja-src-marshal.h"
 #include <eel/eel-debug.h>
-#include <eel/eel-marshal.h>
 #include <eel/eel-gtk-macros.h>
 #include <eel/eel-string.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
@@ -55,9 +55,7 @@
 #include <libcaja-private/caja-file-utilities.h>
 #include <libcaja-private/caja-file-attributes.h>
 #include <libcaja-private/caja-global-preferences.h>
-#include <libcaja-private/caja-horizontal-splitter.h>
 #include <libcaja-private/caja-metadata.h>
-#include <libcaja-private/caja-marshal.h>
 #include <libcaja-private/caja-mime-actions.h>
 #include <libcaja-private/caja-program-choosing.h>
 #include <libcaja-private/caja-view-factory.h>
@@ -189,10 +187,14 @@ caja_window_init (CajaWindow *window)
     g_signal_connect_object (caja_signaller_get_current (), "popup_menu_changed",
                              G_CALLBACK (caja_window_load_extension_menus), window, G_CONNECT_SWAPPED);
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+    gtk_quit_add_destroy (1, GTK_WIDGET (window));
+#else
     gtk_quit_add_destroy (1, GTK_OBJECT (window));
+#endif
 
     /* Keep the main event loop alive as long as the window exists */
-    caja_main_event_loop_register (GTK_OBJECT (window));
+    caja_main_event_loop_register (GTK_WIDGET (window));
 }
 
 /* Unconditionally synchronize the GtkUIManager of WINDOW. */
@@ -237,6 +239,17 @@ caja_window_go_to (CajaWindow *window, GFile *location)
 }
 
 void
+caja_window_go_to_full (CajaWindow *window,
+                        GFile                 *location,
+                        CajaWindowGoToCallback callback,
+                        gpointer               user_data)
+{
+    g_return_if_fail (CAJA_IS_WINDOW (window));
+
+    caja_window_slot_go_to_full (window->details->active_pane->active_slot, location, FALSE, callback, user_data);
+}
+
+void
 caja_window_go_to_with_selection (CajaWindow *window, GFile *location, GList *new_selection)
 {
     g_return_if_fail (CAJA_IS_WINDOW (window));
@@ -249,6 +262,41 @@ caja_window_go_up_signal (CajaWindow *window, gboolean close_behind)
 {
     caja_window_go_up (window, close_behind, FALSE);
     return TRUE;
+}
+
+void
+caja_window_new_tab (CajaWindow *window)
+{
+    CajaWindowSlot *current_slot;
+    CajaWindowSlot *new_slot;
+    CajaWindowOpenFlags flags;
+    GFile *location;
+    int new_slot_position;
+    char *scheme;
+
+    current_slot = window->details->active_pane->active_slot;
+    location = caja_window_slot_get_location (current_slot);
+
+    if (location != NULL) {
+    	flags = 0;
+
+    	new_slot_position = g_settings_get_enum (caja_preferences, CAJA_PREFERENCES_NEW_TAB_POSITION);
+    	if (new_slot_position == CAJA_NEW_TAB_POSITION_END) {
+    		flags = CAJA_WINDOW_OPEN_SLOT_APPEND;
+    	}
+
+    	scheme = g_file_get_uri_scheme (location);
+    	if (!strcmp (scheme, "x-caja-search")) {
+    		g_object_unref (location);
+    		location = g_file_new_for_path (g_get_home_dir ());
+    	}
+    	g_free (scheme);
+
+    	new_slot = caja_window_open_slot (current_slot->pane, flags);
+    	caja_window_set_active_slot (window, new_slot);
+    	caja_window_slot_go_to (new_slot, location, FALSE);
+    	g_object_unref (location);
+    }
 }
 
 void
@@ -290,11 +338,13 @@ caja_window_go_up (CajaWindow *window, gboolean close_behind, gboolean new_tab)
     caja_window_slot_open_location_full (slot, parent,
                                          CAJA_WINDOW_OPEN_ACCORDING_TO_MODE,
                                          flags,
-                                         selection);
+                                         selection,
+                                         NULL, NULL);
 
     g_object_unref (parent);
 
-    eel_g_object_list_free (selection);
+    g_list_foreach(selection, (GFunc) g_object_unref, NULL);
+    g_list_free(selection);
 }
 
 static void
@@ -478,30 +528,18 @@ static void
 caja_window_set_initial_window_geometry (CajaWindow *window)
 {
     GdkScreen *screen;
-    guint max_width_for_screen, max_height_for_screen, min_width, min_height;
+    guint max_width_for_screen, max_height_for_screen;
+#if !GTK_CHECK_VERSION(3,0,0)
+    guint min_width, min_height;
+#endif
     guint default_width, default_height;
 
     screen = gtk_window_get_screen (GTK_WINDOW (window));
 
-    /* Don't let GTK determine the minimum size
-     * automatically. It will insist that the window be
-     * really wide based on some misguided notion about
-     * the content view area. Also, it might start the
-     * window wider (or taller) than the screen, which
-     * is evil. So we choose semi-arbitrary initial and
-     * minimum widths instead of letting GTK decide.
-     */
-    /* FIXME - the above comment suggests that the size request
-     * of the content view area is wrong, probably because of
-     * another stupid set_usize someplace. If someone gets the
-     * content view area's size request right then we can
-     * probably remove this broken set_size_request() here.
-     * - hp@redhat.com
-     */
-
     max_width_for_screen = get_max_forced_width (screen);
     max_height_for_screen = get_max_forced_height (screen);
 
+#if !GTK_CHECK_VERSION(3,0,0)
     EEL_CALL_METHOD (CAJA_WINDOW_CLASS, window,
                      get_min_size, (window, &min_width, &min_height));
 
@@ -510,6 +548,7 @@ caja_window_set_initial_window_geometry (CajaWindow *window)
                                       max_width_for_screen),
                                  MIN (min_height,
                                       max_height_for_screen));
+#endif
 
     EEL_CALL_METHOD (CAJA_WINDOW_CLASS, window,
                      get_default_size, (window, &default_width, &default_height));
@@ -567,16 +606,18 @@ caja_window_get_property (GObject *object,
 static void
 free_stored_viewers (CajaWindow *window)
 {
-    eel_g_list_free_deep_custom (window->details->short_list_viewers,
-                                 (GFunc) g_free,
-                                 NULL);
+    g_list_foreach(window->details->short_list_viewers, (GFunc) g_free, NULL);
+    g_list_free(window->details->short_list_viewers);
     window->details->short_list_viewers = NULL;
     g_free (window->details->extra_viewer);
     window->details->extra_viewer = NULL;
 }
 
-static void
+#if GTK_CHECK_VERSION (3, 0, 0)
+caja_window_destroy (GtkWidget *object)
+#else
 caja_window_destroy (GtkObject *object)
+#endif
 {
     CajaWindow *window;
     GList *panes_copy;
@@ -592,7 +633,11 @@ caja_window_destroy (GtkObject *object)
     g_assert (window->details->panes == NULL);
     g_assert (window->details->active_pane == NULL);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GTK_WIDGET_CLASS (caja_window_parent_class)->destroy (object);
+#else
     GTK_OBJECT_CLASS (caja_window_parent_class)->destroy (object);
+#endif
 }
 
 static void
@@ -947,6 +992,51 @@ caja_window_slot_close (CajaWindowSlot *slot)
     caja_window_pane_slot_close (slot->pane, slot);
 }
 
+#if GTK_CHECK_VERSION(3,0,0)
+static void
+caja_window_get_preferred_width (GtkWidget *widget,
+    			     gint *minimal_width,
+    			     gint *natural_width)
+{
+    GdkScreen *screen;
+    gint max_w, min_w, min_h, default_w, default_h;
+    CajaWindow *window = CAJA_WINDOW (widget);
+
+    screen = gtk_window_get_screen (GTK_WINDOW (widget));	
+
+    max_w = get_max_forced_width (screen);
+    EEL_CALL_METHOD (CAJA_WINDOW_CLASS, window,
+    		 get_min_size, (window, &min_w, &min_h));
+    EEL_CALL_METHOD (CAJA_WINDOW_CLASS, window,
+    		 get_default_size, (window, &default_w, &default_h));
+
+    *minimal_width = MIN (min_w, max_w);
+    *natural_width = MIN (default_w, max_w);
+}
+
+static void
+caja_window_get_preferred_height (GtkWidget *widget,
+    			      gint *minimal_height,
+    			      gint *natural_height)
+{
+    GdkScreen *screen;
+    gint max_h, min_w, min_h, default_w, default_h;
+    CajaWindow *window = CAJA_WINDOW (widget);
+
+    screen = gtk_window_get_screen (GTK_WINDOW (widget));	
+
+    max_h = get_max_forced_height (screen);
+    EEL_CALL_METHOD (CAJA_WINDOW_CLASS, window,
+    		 get_min_size, (window, &min_w, &min_h));
+    EEL_CALL_METHOD (CAJA_WINDOW_CLASS, window,
+    		 get_default_size, (window, &default_w, &default_h));
+
+    *minimal_height = MIN (min_h, max_h);
+    *natural_height = MIN (default_h, max_h);
+}
+
+#else /* GTK_CHECK_VERSION(3,0,0) */
+
 static void
 caja_window_size_request (GtkWidget		*widget,
                           GtkRequisition	*requisition)
@@ -988,6 +1078,7 @@ caja_window_size_request (GtkWidget		*widget,
         requisition->height = max_height;
     }
 }
+#endif  /* GTK_CHECK_VERSION(3,0,0) */
 
 static void
 caja_window_realize (GtkWidget *widget)
@@ -1099,7 +1190,7 @@ add_view_as_menu_item (CajaWindow *window,
         g_snprintf (accel_path, sizeof (accel_path), "<Caja-Window>/%s", action_name);
 
         accel_keyval = gdk_keyval_from_name (accel);
-        g_assert (accel_keyval != GDK_VoidSymbol);
+		g_assert (accel_keyval != GDK_KEY_VoidSymbol);
 
         gtk_accel_map_add_entry (accel_path, accel_keyval, GDK_CONTROL_MASK);
         gtk_action_set_accel_path (GTK_ACTION (action), accel_path);
@@ -1669,7 +1760,8 @@ caja_send_history_list_changed (void)
 static void
 free_history_list (void)
 {
-    eel_g_object_list_free (history_list);
+    g_list_foreach(history_list, (GFunc) g_object_unref, NULL);
+    g_list_free(history_list);
     history_list = NULL;
 }
 
@@ -2053,14 +2145,25 @@ caja_window_class_init (CajaWindowClass *class)
 {
     GtkBindingSet *binding_set;
 
-    G_OBJECT_CLASS (class)->finalize = caja_window_finalize;
     G_OBJECT_CLASS (class)->constructor = caja_window_constructor;
     G_OBJECT_CLASS (class)->constructed = caja_window_constructed;
     G_OBJECT_CLASS (class)->get_property = caja_window_get_property;
     G_OBJECT_CLASS (class)->set_property = caja_window_set_property;
+    G_OBJECT_CLASS (class)->finalize = caja_window_finalize;
+
+#if !GTK_CHECK_VERSION (3, 0, 0)
     GTK_OBJECT_CLASS (class)->destroy = caja_window_destroy;
+#else
+    GTK_WIDGET_CLASS (class)->destroy = caja_window_destroy;
+#endif
+
     GTK_WIDGET_CLASS (class)->show = caja_window_show;
+#if GTK_CHECK_VERSION(3,0,0)
+    GTK_WIDGET_CLASS (class)->get_preferred_width = caja_window_get_preferred_width;
+    GTK_WIDGET_CLASS (class)->get_preferred_height = caja_window_get_preferred_height;
+#else
     GTK_WIDGET_CLASS (class)->size_request = caja_window_size_request;
+#endif
     GTK_WIDGET_CLASS (class)->realize = caja_window_realize;
     GTK_WIDGET_CLASS (class)->key_press_event = caja_window_key_press_event;
     class->get_title = real_get_title;
@@ -2082,7 +2185,7 @@ caja_window_class_init (CajaWindowClass *class)
                       G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
                       G_STRUCT_OFFSET (CajaWindowClass, go_up),
                       g_signal_accumulator_true_handled, NULL,
-                      eel_marshal_BOOLEAN__BOOLEAN,
+                      caja_src_marshal_BOOLEAN__BOOLEAN,
                       G_TYPE_BOOLEAN, 1, G_TYPE_BOOLEAN);
     signals[RELOAD] =
         g_signal_new ("reload",
@@ -2106,7 +2209,7 @@ caja_window_class_init (CajaWindowClass *class)
                       G_SIGNAL_RUN_LAST,
                       0,
                       NULL, NULL,
-                      caja_marshal_VOID__INT_BOOLEAN_BOOLEAN_BOOLEAN_BOOLEAN,
+                      caja_src_marshal_VOID__INT_BOOLEAN_BOOLEAN_BOOLEAN_BOOLEAN,
                       G_TYPE_NONE, 5,
                       G_TYPE_INT, G_TYPE_BOOLEAN, G_TYPE_BOOLEAN,
                       G_TYPE_BOOLEAN, G_TYPE_BOOLEAN);
@@ -2120,12 +2223,12 @@ caja_window_class_init (CajaWindowClass *class)
                       G_TYPE_NONE, 0);
 
     binding_set = gtk_binding_set_by_class (class);
-    gtk_binding_entry_add_signal (binding_set, GDK_BackSpace, 0,
+	gtk_binding_entry_add_signal (binding_set, GDK_KEY_BackSpace, 0,
                                   "go_up", 1,
                                   G_TYPE_BOOLEAN, FALSE);
-    gtk_binding_entry_add_signal (binding_set, GDK_F5, 0,
+	gtk_binding_entry_add_signal (binding_set, GDK_KEY_F5, 0,
                                   "reload", 0);
-    gtk_binding_entry_add_signal (binding_set, GDK_slash, 0,
+	gtk_binding_entry_add_signal (binding_set, GDK_KEY_slash, 0,
                                   "prompt-for-location", 1,
                                   G_TYPE_STRING, "/");
 
@@ -2143,20 +2246,4 @@ caja_window_class_init (CajaWindowClass *class)
                          "\n");
 
     g_type_class_add_private (G_OBJECT_CLASS (class), sizeof (CajaWindowDetails));
-}
-
-/**
- * caja_window_has_menubar_and_statusbar:
- * @window: A #CajaWindow
- *
- * Queries whether the window should have a menubar and statusbar, based on the
- * window_type from its class structure.
- *
- * Return value: TRUE if the window should have a menubar and statusbar; FALSE
- * otherwise.
- **/
-gboolean
-caja_window_has_menubar_and_statusbar (CajaWindow *window)
-{
-    return (caja_window_get_window_type (window) != CAJA_WINDOW_DESKTOP);
 }

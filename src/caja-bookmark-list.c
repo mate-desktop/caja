@@ -31,9 +31,9 @@
 #include <libcaja-private/caja-file-utilities.h>
 #include <libcaja-private/caja-file.h>
 #include <libcaja-private/caja-icon-names.h>
-#include <eel/eel-glib-extensions.h>
-#include <eel/eel-string.h>
+
 #include <gio/gio.h>
+#include <string.h>
 
 #define MAX_BOOKMARK_LENGTH 80
 #define LOAD_JOB 1
@@ -167,7 +167,8 @@ static void
 clear (CajaBookmarkList *bookmarks)
 {
     g_list_foreach (bookmarks->list, stop_monitoring_one, bookmarks);
-    eel_g_object_list_free (bookmarks->list);
+    g_list_foreach(bookmarks->list, (GFunc) g_object_unref, NULL);
+    g_list_free(bookmarks->list);
     bookmarks->list = NULL;
 }
 
@@ -407,7 +408,7 @@ caja_bookmark_list_delete_items_with_uri (CajaBookmarkList *bookmarks,
         next = node->next;
 
         bookmark_uri = caja_bookmark_get_uri (CAJA_BOOKMARK (node->data));
-        if (eel_strcmp (bookmark_uri, uri) == 0)
+        if (g_strcmp0 (bookmark_uri, uri) == 0)
         {
             bookmarks->list = g_list_remove_link (bookmarks->list, node);
             stop_monitoring_bookmark (bookmarks, CAJA_BOOKMARK (node->data));

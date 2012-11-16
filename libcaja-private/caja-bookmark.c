@@ -29,10 +29,10 @@
 #include <eel/eel-gdk-pixbuf-extensions.h>
 #include <eel/eel-gtk-extensions.h>
 #include <eel/eel-gtk-macros.h>
-#include <eel/eel-string.h>
 #include <eel/eel-vfs-extensions.h>
 #include <gtk/gtk.h>
 #include <gio/gio.h>
+#include <string.h>
 #include <libcaja-private/caja-file.h>
 #include <libcaja-private/caja-icon-names.h>
 
@@ -143,7 +143,7 @@ caja_bookmark_compare_with (gconstpointer a, gconstpointer b)
     bookmark_a = CAJA_BOOKMARK (a);
     bookmark_b = CAJA_BOOKMARK (b);
 
-    if (eel_strcmp (bookmark_a->details->name,
+    if (g_strcmp0 (bookmark_a->details->name,
                     bookmark_b->details->name) != 0)
     {
         return 1;

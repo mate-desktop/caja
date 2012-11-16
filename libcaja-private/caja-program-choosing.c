@@ -31,10 +31,8 @@
 #include "caja-icon-info.h"
 #include "caja-recent.h"
 #include "caja-desktop-icon-file.h"
-#include <eel/eel-glib-extensions.h>
 #include <eel/eel-mate-extensions.h>
 #include <eel/eel-stock-dialogs.h>
-#include <eel/eel-string.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 #include <gio/gio.h>
@@ -98,7 +96,7 @@ application_cannot_open_location (GAppInfo *application,
                          GTK_STOCK_CANCEL,
                          parent_window);
         response = gtk_dialog_run (message_dialog);
-        gtk_object_destroy (GTK_OBJECT (message_dialog));
+        gtk_widget_destroy (GTK_WIDGET (message_dialog));
 
         if (response == GTK_RESPONSE_YES)
         {
@@ -165,7 +163,8 @@ caja_launch_application (GAppInfo *application,
     uris = g_list_reverse (uris);
     caja_launch_application_by_uri (application, uris,
                                     parent_window);
-    eel_g_list_free_deep (uris);
+    g_list_foreach(uris, (GFunc) g_free, NULL);
+    g_list_free(uris);
 }
 
 void
@@ -274,7 +273,8 @@ caja_launch_application_by_uri (GAppInfo *application,
         }
     }
 
-    eel_g_object_list_free (locations);
+    g_list_foreach(locations, (GFunc) g_object_unref, NULL);
+    g_list_free(locations);
 }
 
 /**
@@ -450,7 +450,8 @@ caja_launch_desktop_file (GdkScreen   *screen,
                " drop them again."),
              parent_window);
 
-            eel_g_object_list_free (files);
+            g_list_foreach(files, (GFunc) g_object_unref, NULL);
+            g_list_free(files);
             g_object_unref (app_info);
             return;
         }
@@ -502,7 +503,8 @@ caja_launch_desktop_file (GdkScreen   *screen,
         g_free (message);
     }
 
-    eel_g_object_list_free (files);
+    g_list_foreach(files, (GFunc) g_object_unref, NULL);
+    g_list_free(files);
     g_object_unref (context);
     g_object_unref (app_info);
 }

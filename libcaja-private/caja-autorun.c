@@ -33,7 +33,6 @@
 #include <gdk/gdkkeysyms.h>
 
 #include <eel/eel-glib-extensions.h>
-#include <eel/eel-stock-dialogs.h>
 
 #include "caja-icon-info.h"
 #include "caja-global-preferences.h"
@@ -274,7 +273,7 @@ dialog_response_cb (GtkDialog *dialog,
 }
 
 static void
-dialog_destroy_cb (GtkObject *object,
+dialog_destroy_cb (GtkWidget *object,
                    CajaAutorunComboBoxData *data)
 {
     handle_dialog_closure (data);
@@ -652,7 +651,8 @@ caja_autorun_prepare_combo_box (GtkWidget *combo_box,
     {
         g_object_unref (default_app_info);
     }
-    eel_g_object_list_free (app_info_list);
+    g_list_foreach (app_info_list, (GFunc) g_object_unref, NULL);
+    g_list_free(app_info_list);
 
     gtk_combo_box_set_model (GTK_COMBO_BOX (combo_box), GTK_TREE_MODEL (list_store));
     g_object_unref (G_OBJECT (list_store));
@@ -747,8 +747,13 @@ is_shift_pressed (void)
     ret = FALSE;
 
     gdk_error_trap_push ();
-    status = XkbGetState (GDK_DISPLAY (), XkbUseCoreKbd, &state);
+    status = XkbGetState (GDK_DISPLAY_XDISPLAY (gdk_display_get_default ()),
+    			  XkbUseCoreKbd, &state);
+#if GTK_CHECK_VERSION(3,0,0)
+    gdk_error_trap_pop_ignored ();
+#else
     gdk_error_trap_pop ();
+#endif
 
     if (status == Success)
     {
@@ -907,7 +912,7 @@ autorun_always_toggled (GtkToggleButton *togglebutton, AutorunDialogData *data)
 static gboolean
 combo_box_enter_ok (GtkWidget *togglebutton, GdkEventKey *event, GtkDialog *dialog)
 {
-    if (event->keyval == GDK_KP_Enter || event->keyval == GDK_Return)
+    if (event->keyval == GDK_KEY_KP_Enter || event->keyval == GDK_KEY_Return)
     {
         gtk_dialog_response (dialog, GTK_RESPONSE_OK);
         return TRUE;
@@ -992,7 +997,6 @@ show_dialog:
 
     dialog = gtk_dialog_new ();
 
-    gtk_dialog_set_has_separator (GTK_DIALOG (dialog), FALSE);
     hbox = gtk_hbox_new (FALSE, 12);
     gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), hbox, TRUE, TRUE, 0);
     gtk_container_set_border_width (GTK_CONTAINER (hbox), 12);

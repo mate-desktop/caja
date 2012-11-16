@@ -59,7 +59,6 @@
 #include <libcaja-private/caja-tree-view-drag-dest.h>
 #include <libcaja-private/caja-view-factory.h>
 #include <libcaja-private/caja-clipboard.h>
-#include <libcaja-private/caja-cell-renderer-pixbuf-emblem.h>
 #include <libcaja-private/caja-cell-renderer-text-ellipsized.h>
 
 struct FMListViewDetails
@@ -1109,14 +1108,14 @@ key_press_callback (GtkWidget *widget, GdkEventKey *event, gpointer callback_dat
 
     switch (event->keyval)
     {
-    case GDK_F10:
+    case GDK_KEY_F10:
         if (event->state & GDK_CONTROL_MASK)
         {
             fm_directory_view_pop_up_background_context_menu (view, &button_event);
             handled = TRUE;
         }
         break;
-    case GDK_Right:
+    case GDK_KEY_Right:
         gtk_tree_view_get_cursor (tree_view, &path, NULL);
         if (path)
         {
@@ -1125,7 +1124,7 @@ key_press_callback (GtkWidget *widget, GdkEventKey *event, gpointer callback_dat
         }
         handled = TRUE;
         break;
-    case GDK_Left:
+	case GDK_KEY_Left:
         gtk_tree_view_get_cursor (tree_view, &path, NULL);
         if (path)
         {
@@ -1134,7 +1133,7 @@ key_press_callback (GtkWidget *widget, GdkEventKey *event, gpointer callback_dat
         }
         handled = TRUE;
         break;
-    case GDK_space:
+    case GDK_KEY_space:
         if (event->state & GDK_CONTROL_MASK)
         {
             handled = FALSE;
@@ -1155,8 +1154,8 @@ key_press_callback (GtkWidget *widget, GdkEventKey *event, gpointer callback_dat
         }
         handled = TRUE;
         break;
-    case GDK_Return:
-    case GDK_KP_Enter:
+    case GDK_KEY_Return:
+    case GDK_KEY_KP_Enter:
         if ((event->state & GDK_SHIFT_MASK) != 0)
         {
             activate_selected_items_alternate (FM_LIST_VIEW (view), NULL, TRUE);
@@ -1167,7 +1166,7 @@ key_press_callback (GtkWidget *widget, GdkEventKey *event, gpointer callback_dat
         }
         handled = TRUE;
         break;
-    case GDK_v:
+	case GDK_KEY_v:
         /* Eat Control + v to not enable type ahead */
         if ((event->state & GDK_CONTROL_MASK) != 0)
         {
@@ -1642,7 +1641,7 @@ create_and_set_up_tree_view (FMListView *view)
 
     /* Don't handle backspace key. It's used to open the parent folder. */
     binding_set = gtk_binding_set_by_class (GTK_WIDGET_GET_CLASS (view->details->tree_view));
-    gtk_binding_entry_remove (binding_set, GDK_BackSpace, 0);
+	gtk_binding_entry_remove (binding_set, GDK_KEY_BackSpace, 0);
 
     view->details->drag_dest =
         caja_tree_view_drag_dest_new (view->details->tree_view);
@@ -1740,7 +1739,7 @@ create_and_set_up_tree_view (FMListView *view)
         if (!strcmp (name, "name"))
         {
             /* Create the file name column */
-            cell = caja_cell_renderer_pixbuf_emblem_new ();
+            cell = gtk_cell_renderer_pixbuf_new ();
             view->details->pixbuf_cell = (GtkCellRendererPixbuf *)cell;
 
             view->details->file_name_column = gtk_tree_view_column_new ();
@@ -1764,7 +1763,6 @@ create_and_set_up_tree_view (FMListView *view)
             gtk_tree_view_column_set_attributes (view->details->file_name_column,
                                                  cell,
                                                  "pixbuf", FM_LIST_MODEL_SMALLEST_ICON_COLUMN,
-                                                 "pixbuf_emblem", FM_LIST_MODEL_SMALLEST_EMBLEM_COLUMN,
                                                  NULL);
 
             cell = gtk_cell_renderer_text_new ();
@@ -2327,7 +2325,8 @@ fm_list_view_set_selection (FMDirectoryView *view, GList *selection)
             gtk_tree_selection_select_iter (tree_selection,
                                             (GtkTreeIter *)l->data);
         }
-        eel_g_list_free_deep (iters);
+    	g_list_foreach(iters, (GFunc) g_free, NULL);
+    	g_list_free(iters);
     }
 
     g_signal_handlers_unblock_by_func (tree_selection, list_selection_changed_callback, view);
@@ -2364,7 +2363,8 @@ fm_list_view_invert_selection (FMDirectoryView *view)
             gtk_tree_selection_unselect_iter (tree_selection,
                                               (GtkTreeIter *)l->data);
         }
-        eel_g_list_free_deep (iters);
+    	g_list_foreach(iters, (GFunc) g_free, NULL);
+    	g_list_free(iters);
     }
 
     g_list_free (selection);
@@ -2734,7 +2734,7 @@ fm_list_view_set_zoom_level (FMListView *view,
                              gboolean always_emit)
 {
     int icon_size;
-    int column, emblem_column;
+    int column;
 
     g_return_if_fail (FM_IS_LIST_VIEW (view));
     g_return_if_fail (new_level >= CAJA_ZOOM_LEVEL_SMALLEST &&
@@ -2760,11 +2760,9 @@ fm_list_view_set_zoom_level (FMListView *view,
 
     /* Select correctly scaled icons. */
     column = fm_list_model_get_column_id_from_zoom_level (new_level);
-    emblem_column = fm_list_model_get_emblem_column_id_from_zoom_level (new_level);
     gtk_tree_view_column_set_attributes (view->details->file_name_column,
                                          GTK_CELL_RENDERER (view->details->pixbuf_cell),
                                          "pixbuf", column,
-                                         "pixbuf_emblem", emblem_column,
                                          NULL);
 
     /* Scale text. */

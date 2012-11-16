@@ -54,13 +54,6 @@ enum
     FM_LIST_MODEL_LARGE_ICON_COLUMN,
     FM_LIST_MODEL_LARGER_ICON_COLUMN,
     FM_LIST_MODEL_LARGEST_ICON_COLUMN,
-    FM_LIST_MODEL_SMALLEST_EMBLEM_COLUMN,
-    FM_LIST_MODEL_SMALLER_EMBLEM_COLUMN,
-    FM_LIST_MODEL_SMALL_EMBLEM_COLUMN,
-    FM_LIST_MODEL_STANDARD_EMBLEM_COLUMN,
-    FM_LIST_MODEL_LARGE_EMBLEM_COLUMN,
-    FM_LIST_MODEL_LARGER_EMBLEM_COLUMN,
-    FM_LIST_MODEL_LARGEST_EMBLEM_COLUMN,
     FM_LIST_MODEL_FILE_NAME_IS_EDITABLE_COLUMN,
     FM_LIST_MODEL_NUM_COLUMNS
 };
@@ -115,8 +108,6 @@ void     fm_list_model_sort_files                        (FMListModel *model,
 
 CajaZoomLevel fm_list_model_get_zoom_level_from_column_id (int               column);
 int               fm_list_model_get_column_id_from_zoom_level (CajaZoomLevel zoom_level);
-CajaZoomLevel fm_list_model_get_zoom_level_from_emblem_column_id (int               column);
-int               fm_list_model_get_emblem_column_id_from_zoom_level (CajaZoomLevel zoom_level);
 
 CajaFile *    fm_list_model_file_for_path (FMListModel *model, GtkTreePath *path);
 gboolean          fm_list_model_load_subdirectory (FMListModel *model, GtkTreePath *path, CajaDirectory **directory);

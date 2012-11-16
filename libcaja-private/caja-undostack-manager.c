@@ -33,7 +33,6 @@
 #include <glib/gi18n.h>
 #include <locale.h>
 #include <gdk/gdk.h>
-#include <eel/eel-glib-extensions.h>
 
 /* *****************************************************************
  Private fields
@@ -432,7 +431,8 @@ caja_undostack_manager_redo (CajaUndoStackManager * manager,
         uris = construct_gfile_list (action->sources, action->src_dir);
         caja_file_operations_copy (uris, NULL,
             action->dest_dir, NULL, undo_redo_done_transfer_callback, action);
-        eel_g_object_list_free (uris);
+    	g_list_foreach(uris, (GFunc) g_object_unref, NULL);
+    	g_list_free(uris);
         break;
       case CAJA_UNDOSTACK_CREATEFILEFROMTEMPLATE:
         puri = get_uri_parent (action->target_uri);
@@ -448,14 +448,16 @@ caja_undostack_manager_redo (CajaUndoStackManager * manager,
         uris = construct_gfile_list (action->sources, action->src_dir);
         caja_file_operations_duplicate (uris, NULL, NULL,
             undo_redo_done_transfer_callback, action);
-        eel_g_object_list_free (uris);
+    	g_list_foreach(uris, (GFunc) g_object_unref, NULL);
+    	g_list_free(uris);
         break;
       case CAJA_UNDOSTACK_RESTOREFROMTRASH:
       case CAJA_UNDOSTACK_MOVE:
         uris = construct_gfile_list (action->sources, action->src_dir);
         caja_file_operations_move (uris, NULL,
             action->dest_dir, NULL, undo_redo_done_transfer_callback, action);
-        eel_g_object_list_free (uris);
+    	g_list_foreach(uris, (GFunc) g_object_unref, NULL);
+    	g_list_free(uris);
         break;
       case CAJA_UNDOSTACK_RENAME:
         new_name = get_uri_basename (action->new_uri);
@@ -489,14 +491,16 @@ caja_undostack_manager_redo (CajaUndoStackManager * manager,
           caja_file_operations_trash_or_delete
               (uris, NULL, undo_redo_done_delete_callback, action);
           g_list_free (uri_to_trash);
-          eel_g_object_list_free (uris);
+    	  g_list_foreach(uris, (GFunc) g_object_unref, NULL);
+    	  g_list_free(uris);
         }
         break;
       case CAJA_UNDOSTACK_CREATELINK:
         uris = construct_gfile_list (action->sources, action->src_dir);
         caja_file_operations_link (uris, NULL,
             action->dest_dir, NULL, undo_redo_done_transfer_callback, action);
-        eel_g_object_list_free (uris);
+    	g_list_foreach(uris, (GFunc) g_object_unref, NULL);
+    	g_list_free(uris);
         break;
       case CAJA_UNDOSTACK_SETPERMISSIONS:
         file = caja_file_get_by_uri (action->target_uri);
@@ -579,7 +583,8 @@ caja_undostack_manager_undo (CajaUndoStackManager * manager,
         if (priv->confirm_delete) {
           caja_file_operations_delete (uris, NULL,
               undo_redo_done_delete_callback, action);
-          eel_g_object_list_free (uris);
+    	  g_list_foreach(uris, (GFunc) g_object_unref, NULL);
+    	  g_list_free(uris);
         } else {
           /* We skip the confirmation message
            */
@@ -600,7 +605,8 @@ caja_undostack_manager_undo (CajaUndoStackManager * manager,
         uris = construct_gfile_list (action->destinations, action->dest_dir);
         caja_file_operations_trash_or_delete (uris, NULL,
             undo_redo_done_delete_callback, action);
-        eel_g_object_list_free (uris);
+    	g_list_foreach(uris, (GFunc) g_object_unref, NULL);
+    	g_list_free(uris);
         break;
       case CAJA_UNDOSTACK_MOVETOTRASH:
         files_to_restore = retrieve_files_to_restore (action->trashed);
@@ -630,7 +636,8 @@ caja_undostack_manager_undo (CajaUndoStackManager * manager,
         uris = construct_gfile_list (action->destinations, action->dest_dir);
         caja_file_operations_move (uris, NULL,
             action->src_dir, NULL, undo_redo_done_transfer_callback, action);
-        eel_g_object_list_free (uris);
+    	g_list_foreach(uris, (GFunc) g_object_unref, NULL);
+    	g_list_free(uris);
         break;
       case CAJA_UNDOSTACK_RENAME:
         new_name = get_uri_basename (action->old_uri);

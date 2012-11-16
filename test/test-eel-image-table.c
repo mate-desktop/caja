@@ -63,7 +63,7 @@ labeled_image_new (const char *text,
 {
 	GtkWidget *image;
 	GdkPixbuf *pixbuf = NULL;
-	
+
 	if (icon_name) {
 		float sizes[] = { 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0,
 					1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0 };
@@ -194,7 +194,7 @@ image_table_size_allocate (GtkWidget *image_table,
 	gtk_widget_get_allocation (GTK_WIDGET (image_table), &w_allocation);
 	if (0) gtk_widget_size_allocate (GTK_WIDGET (image_table),
 					 &w_allocation);
-	
+
 	g_print ("%s(%d)\n", G_STRFUNC, recursion_count);
 
 	recursion_count--;
@@ -264,8 +264,6 @@ image_table_new_scrolled (void)
 			    G_CALLBACK (image_table_child_clicked_callback),
 			    NULL);
 
-	eel_gtk_widget_set_background_color (viewport, BG_COLOR_SPEC);
-
 	for (i = 0; i < 100; i++) {
 		char *text;
 		GtkWidget *image;
@@ -283,11 +281,11 @@ image_table_new_scrolled (void)
 	gtk_widget_show (viewport);
 	gtk_widget_show (scrolled);
 	gtk_widget_show (image_table);
-	
+
 	return window;
 }
 
-int 
+int
 main (int argc, char* argv[])
 {
 	GtkWidget *window = NULL;
@@ -295,10 +293,10 @@ main (int argc, char* argv[])
 	test_init (&argc, &argv);
 
 	window = image_table_new_scrolled ();
-	
+
 	gtk_widget_show (window);
-	
+
 	gtk_main ();
-	
+
 	return 0;
 }

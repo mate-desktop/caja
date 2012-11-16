@@ -62,5 +62,6 @@ GType                  caja_desktop_window_get_type            (void);
 CajaDesktopWindow *caja_desktop_window_new                 (CajaApplication *application,
         GdkScreen           *screen);
 void                   caja_desktop_window_update_directory    (CajaDesktopWindow *window);
+gboolean               caja_desktop_window_loaded              (CajaDesktopWindow *window);
 
 #endif /* CAJA_DESKTOP_WINDOW_H */

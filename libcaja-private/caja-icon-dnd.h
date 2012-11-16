@@ -39,19 +39,13 @@ typedef struct
 
     gboolean highlighted;
 
-    /* Stipple for drawing icon shadows during DnD.  */
-    GdkBitmap *stipple;
-
     /* Shadow for the icons being dragged.  */
     EelCanvasItem *shadow;
 } CajaIconDndInfo;
 
 
-void   caja_icon_dnd_init                  (CajaIconContainer *container,
-        GdkBitmap             *stipple);
+void   caja_icon_dnd_init                  (CajaIconContainer *container);
 void   caja_icon_dnd_fini                  (CajaIconContainer *container);
-void   caja_icon_dnd_set_stipple           (CajaIconContainer *container,
-        GdkBitmap             *stipple);
 void   caja_icon_dnd_begin_drag            (CajaIconContainer *container,
         GdkDragAction          actions,
         gint                   button,

@@ -81,20 +81,13 @@ extern "C" {
     {
         EelCanvasItem item;
 
-        GdkBitmap *fill_stipple;	/* Stipple for fill */
-        GdkBitmap *outline_stipple;	/* Stipple for outline */
-
-        GdkGC *fill_gc;			/* GC for filling */
-        GdkGC *outline_gc;		/* GC for outline */
-
-        gulong fill_pixel;		/* Fill color */
-        gulong outline_pixel;		/* Outline color */
-
         double x1, y1, x2, y2;		/* Corners of item */
         double width;			/* Outline width */
 
         guint fill_color;		/* Fill color, RGBA */
         guint outline_color;		/* Outline color, RGBA */
+
+	gboolean outline_stippling;
 
         /* Configuration flags */
 

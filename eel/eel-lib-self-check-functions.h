@@ -43,7 +43,6 @@ void eel_run_lib_self_checks (void);
 	macro (eel_self_check_gdk_extensions) \
 	macro (eel_self_check_gdk_pixbuf_extensions) \
 	macro (eel_self_check_glib_extensions) \
-	macro (eel_self_check_pango_extensions) \
 	macro (eel_self_check_string) \
 /* Add new self-check functions to the list above this line. */
 

@@ -26,8 +26,8 @@
 #include "eel-xml-extensions.h"
 
 #include "eel-string.h"
-#include "eel-i18n.h"
 #include <glib.h>
+#include <glib/gi18n-lib.h>
 
 #include <libxml/parser.h>
 #include <stdlib.h>

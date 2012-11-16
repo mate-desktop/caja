@@ -33,6 +33,7 @@
 #include "caja-window-pane.h"
 #include "caja-spatial-window.h"
 #include "caja-navigation-window.h"
+#include "caja-bookmark-list.h"
 
 #include <libcaja-private/caja-directory.h>
 
@@ -178,9 +179,6 @@ void               caja_menus_append_bookmark_to_menu                (CajaWindow
         guint              merge_id,
         GCallback          refresh_callback,
         CajaBookmarkFailedCallback failed_callback);
-#ifdef NEW_UI_COMPLETE
-void               caja_window_go_up                                 (CajaWindow    *window);
-#endif
 void               caja_window_update_find_menu_item                 (CajaWindow    *window);
 void               caja_window_zoom_in                               (CajaWindow    *window);
 void               caja_window_zoom_out                              (CajaWindow    *window);

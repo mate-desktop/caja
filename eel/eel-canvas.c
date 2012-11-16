@@ -68,10 +68,21 @@
 #include <stdio.h>
 #include <gdk/gdkprivate.h>
 #include <gtk/gtk.h>
+#include <glib/gi18n-lib.h>
+#if GTK_CHECK_VERSION(3,0,0)
+# include <cairo/cairo-gobject.h>
+#endif
 #include "eel-canvas.h"
-#include "eel-i18n.h"
 
 #include "eel-marshal.h"
+
+#if !GTK_CHECK_VERSION(3, 0, 0)
+#define gtk_scrollable_get_hadjustment gtk_layout_get_hadjustment
+#define gtk_scrollable_get_vadjustment gtk_layout_get_vadjustment
+#define gtk_scrollable_set_hadjustment gtk_layout_set_hadjustment
+#define gtk_scrollable_set_vadjustment gtk_layout_set_vadjustment
+#define GTK_SCROLLABLE GTK_LAYOUT
+#endif
 
 static void eel_canvas_request_update (EelCanvas      *canvas);
 static void group_add                   (EelCanvasGroup *group,
@@ -95,6 +106,7 @@ enum
 
 enum
 {
+    ITEM_DESTROY,
     ITEM_EVENT,
     ITEM_LAST_SIGNAL
 };
@@ -105,7 +117,7 @@ static int  emit_event                       (EelCanvas *canvas, GdkEvent *event
 
 static guint item_signals[ITEM_LAST_SIGNAL];
 
-static GtkObjectClass *item_parent_class;
+static GObjectClass *item_parent_class;
 
 static gpointer accessible_item_parent_class;
 static gpointer accessible_parent_class;
@@ -139,10 +151,10 @@ eel_canvas_item_get_type (void)
             (GInstanceInitFunc) eel_canvas_item_init
         };
 
-        canvas_item_type = g_type_register_static (gtk_object_get_type (),
-                           "EelCanvasItem",
-                           &canvas_item_info,
-                           0);
+        canvas_item_type = g_type_register_static (G_TYPE_INITIALLY_UNOWNED,
+        					   "EelCanvasItem",
+        					   &canvas_item_info,
+        					   0);
     }
 
     return canvas_item_type;
@@ -353,9 +365,21 @@ eel_canvas_item_dispose (GObject *object)
         item->canvas = NULL;
     }
 
+    g_object_set_data (object, "in-destruction", GINT_TO_POINTER (1));
+    g_signal_emit (object, item_signals[ITEM_DESTROY], 0);
+
+    g_object_set_data (object, "in-destruction", NULL);
+
     G_OBJECT_CLASS (item_parent_class)->dispose (object);
 }
 
+void
+eel_canvas_item_destroy (EelCanvasItem *item)
+{
+	if (g_object_get_data (G_OBJECT (item), "in-destruction") == NULL) {
+		g_object_run_dispose (G_OBJECT (item));
+	}
+}
 
 /* Realize handler for canvas items */
 static void
@@ -1194,7 +1218,7 @@ static void eel_canvas_group_get_property(GObject               *object,
         GValue                *value,
         GParamSpec            *pspec);
 
-static void eel_canvas_group_destroy     (GtkObject             *object);
+static void eel_canvas_group_destroy     (EelCanvasItem         *object);
 
 static void   eel_canvas_group_update      (EelCanvasItem *item,
         double           i2w_dx,
@@ -1203,8 +1227,14 @@ static void   eel_canvas_group_update      (EelCanvasItem *item,
 static void   eel_canvas_group_unrealize   (EelCanvasItem *item);
 static void   eel_canvas_group_map         (EelCanvasItem *item);
 static void   eel_canvas_group_unmap       (EelCanvasItem *item);
+#if GTK_CHECK_VERSION(3,0,0)
+static void   eel_canvas_group_draw        (EelCanvasItem  *item,
+                                            cairo_t        *cr,
+                                            cairo_region_t *region);
+#else
 static void   eel_canvas_group_draw        (EelCanvasItem *item, GdkDrawable *drawable,
         GdkEventExpose *expose);
+#endif
 static double eel_canvas_group_point       (EelCanvasItem *item, double x, double y,
         int cx, int cy,
         EelCanvasItem **actual_item);
@@ -1260,11 +1290,9 @@ static void
 eel_canvas_group_class_init (EelCanvasGroupClass *klass)
 {
     GObjectClass *gobject_class;
-    GtkObjectClass *object_class;
     EelCanvasItemClass *item_class;
 
     gobject_class = (GObjectClass *) klass;
-    object_class = (GtkObjectClass *) klass;
     item_class = (EelCanvasItemClass *) klass;
 
     group_parent_class = g_type_class_peek_parent (klass);
@@ -1287,8 +1315,7 @@ eel_canvas_group_class_init (EelCanvasGroupClass *klass)
                           -G_MAXDOUBLE, G_MAXDOUBLE, 0.0,
                           G_PARAM_READWRITE));
 
-    object_class->destroy = eel_canvas_group_destroy;
-
+    item_class->destroy = eel_canvas_group_destroy;
     item_class->update = eel_canvas_group_update;
     item_class->unrealize = eel_canvas_group_unrealize;
     item_class->map = eel_canvas_group_map;
@@ -1385,7 +1412,7 @@ eel_canvas_group_get_property (GObject *gobject, guint param_id,
 
 /* Destroy handler for canvas groups */
 static void
-eel_canvas_group_destroy (GtkObject *object)
+eel_canvas_group_destroy (EelCanvasItem *object)
 {
     EelCanvasGroup *group;
     EelCanvasItem *child;
@@ -1401,11 +1428,11 @@ eel_canvas_group_destroy (GtkObject *object)
         child = list->data;
         list = list->next;
 
-        gtk_object_destroy (GTK_OBJECT (child));
+        eel_canvas_item_destroy (child);
     }
 
-    if (GTK_OBJECT_CLASS (group_parent_class)->destroy)
-        (* GTK_OBJECT_CLASS (group_parent_class)->destroy) (object);
+    if (EEL_CANVAS_ITEM_CLASS (group_parent_class)->destroy)
+        (* EEL_CANVAS_ITEM_CLASS (group_parent_class)->destroy) (object);
 }
 
 /* Update handler for canvas groups */
@@ -1530,8 +1557,14 @@ eel_canvas_group_unmap (EelCanvasItem *item)
 
 /* Draw handler for canvas groups */
 static void
+#if GTK_CHECK_VERSION(3,0,0)
+eel_canvas_group_draw (EelCanvasItem  *item,
+                       cairo_t        *cr,
+                       cairo_region_t *region)
+#else
 eel_canvas_group_draw (EelCanvasItem *item, GdkDrawable *drawable,
                        GdkEventExpose *expose)
+#endif
 {
     EelCanvasGroup *group;
     GList *list;
@@ -1553,8 +1586,13 @@ eel_canvas_group_draw (EelCanvasItem *item, GdkDrawable *drawable,
             child_rect.width = child->x2 - child->x1 + 1;
             child_rect.height = child->y2 - child->y1 + 1;
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+            if (cairo_region_contains_rectangle (region, &child_rect) != CAIRO_REGION_OVERLAP_OUT)
+                EEL_CANVAS_ITEM_GET_CLASS (child)->draw (child, cr, region);
+#else
             if (gdk_region_rect_in (expose->region, &child_rect) != GDK_OVERLAP_RECTANGLE_OUT)
                 (* EEL_CANVAS_ITEM_GET_CLASS (child)->draw) (child, drawable, expose);
+#endif
         }
     }
 }
@@ -1714,12 +1752,7 @@ eel_canvas_group_bounds (EelCanvasItem *item, double *x1, double *y1, double *x2
 static void
 group_add (EelCanvasGroup *group, EelCanvasItem *item)
 {
-#if GLIB_CHECK_VERSION(2,10,0) && GTK_CHECK_VERSION(2,8,14)
     g_object_ref_sink (item);
-#else
-    g_object_ref (item);
-    gtk_object_sink (GTK_OBJECT (item));
-#endif
 
     if (!group->item_list)
     {
@@ -1787,7 +1820,11 @@ enum
 
 static void eel_canvas_class_init          (EelCanvasClass *klass);
 static void eel_canvas_init                (EelCanvas      *canvas);
+#if GTK_CHECK_VERSION (3, 0, 0)
+static void eel_canvas_destroy             (GtkWidget        *object);
+#else
 static void eel_canvas_destroy             (GtkObject        *object);
+#endif
 static void eel_canvas_map                 (GtkWidget        *widget);
 static void eel_canvas_unmap               (GtkWidget        *widget);
 static void eel_canvas_realize             (GtkWidget        *widget);
@@ -1798,8 +1835,13 @@ static gint eel_canvas_button              (GtkWidget        *widget,
         GdkEventButton   *event);
 static gint eel_canvas_motion              (GtkWidget        *widget,
         GdkEventMotion   *event);
+#if GTK_CHECK_VERSION (3, 0, 0)
+static gint eel_canvas_draw                (GtkWidget        *widget,
+                                            cairo_t          *cr);
+#else
 static gint eel_canvas_expose              (GtkWidget        *widget,
         GdkEventExpose   *event);
+#endif
 static gint eel_canvas_key                 (GtkWidget        *widget,
         GdkEventKey      *event);
 static gint eel_canvas_crossing            (GtkWidget        *widget,
@@ -1810,11 +1852,14 @@ static gint eel_canvas_focus_out           (GtkWidget        *widget,
         GdkEventFocus    *event);
 static void eel_canvas_request_update_real (EelCanvas      *canvas);
 static void eel_canvas_draw_background     (EelCanvas      *canvas,
+#if GTK_CHECK_VERSION (3, 0, 0)
+                                            cairo_t        *cr);
+#else
         int               x,
         int               y,
         int               width,
         int               height);
-
+#endif
 
 static GtkLayoutClass *canvas_parent_class;
 
@@ -1907,11 +1952,11 @@ eel_canvas_accessible_initialize (AtkObject *obj,
         ATK_OBJECT_CLASS (accessible_parent_class)->initialize (obj, data);
 
     canvas = EEL_CANVAS (data);
-    g_signal_connect (gtk_layout_get_hadjustment (&canvas->layout),
+    g_signal_connect (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (canvas)),
                       "value_changed",
                       G_CALLBACK (eel_canvas_accessible_adjustment_changed),
                       obj);
-    g_signal_connect (gtk_layout_get_vadjustment (&canvas->layout),
+    g_signal_connect (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (canvas)),
                       "value_changed",
                       G_CALLBACK (eel_canvas_accessible_adjustment_changed),
                       obj);
@@ -2102,11 +2147,9 @@ static void
 eel_canvas_class_init (EelCanvasClass *klass)
 {
     GObjectClass   *gobject_class;
-    GtkObjectClass *object_class;
     GtkWidgetClass *widget_class;
 
     gobject_class = (GObjectClass *)klass;
-    object_class  = (GtkObjectClass *) klass;
     widget_class  = (GtkWidgetClass *) klass;
 
     canvas_parent_class = g_type_class_peek_parent (klass);
@@ -2114,8 +2157,11 @@ eel_canvas_class_init (EelCanvasClass *klass)
     gobject_class->set_property = eel_canvas_set_property;
     gobject_class->get_property = eel_canvas_get_property;
 
-    object_class->destroy = eel_canvas_destroy;
-
+#if !GTK_CHECK_VERSION (3, 0, 0)
+    GTK_OBJECT_CLASS (klass)->destroy = eel_canvas_destroy;
+#else
+    widget_class->destroy = eel_canvas_destroy;
+#endif
     widget_class->map = eel_canvas_map;
     widget_class->unmap = eel_canvas_unmap;
     widget_class->realize = eel_canvas_realize;
@@ -2124,7 +2170,11 @@ eel_canvas_class_init (EelCanvasClass *klass)
     widget_class->button_press_event = eel_canvas_button;
     widget_class->button_release_event = eel_canvas_button;
     widget_class->motion_notify_event = eel_canvas_motion;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    widget_class->draw = eel_canvas_draw;
+#else
     widget_class->expose_event = eel_canvas_expose;
+#endif
     widget_class->key_press_event = eel_canvas_key;
     widget_class->key_release_event = eel_canvas_key;
     widget_class->enter_notify_event = eel_canvas_crossing;
@@ -2137,13 +2187,19 @@ eel_canvas_class_init (EelCanvasClass *klass)
 
     canvas_signals[DRAW_BACKGROUND] =
         g_signal_new ("draw_background",
-                      G_TYPE_FROM_CLASS (object_class),
+                      G_TYPE_FROM_CLASS (klass),
                       G_SIGNAL_RUN_LAST,
                       G_STRUCT_OFFSET (EelCanvasClass, draw_background),
                       NULL, NULL,
+#if GTK_CHECK_VERSION (3, 0, 0)
+                      g_cclosure_marshal_VOID__BOXED,
+                      G_TYPE_NONE, 1,
+                      CAIRO_GOBJECT_TYPE_CONTEXT);
+#else
                       eel_marshal_VOID__INT_INT_INT_INT,
                       G_TYPE_NONE, 4,
                       G_TYPE_INT, G_TYPE_INT, G_TYPE_INT, G_TYPE_INT);
+#endif
 
     atk_registry_set_factory_type (atk_get_default_registry (),
                                    EEL_TYPE_CANVAS,
@@ -2154,7 +2210,7 @@ eel_canvas_class_init (EelCanvasClass *klass)
  * never ever do this, so we panic if this happens.
  */
 static void
-panic_root_destroyed (GtkObject *object, gpointer data)
+panic_root_destroyed (GtkWidget *object, gpointer data)
 {
     g_error ("Eeeek, root item %p of canvas %p was destroyed!", object, data);
 }
@@ -2170,7 +2226,7 @@ eel_canvas_init (EelCanvas *canvas)
 
     canvas->scroll_x1 = 0.0;
     canvas->scroll_y1 = 0.0;
-    gtk_layout_get_size (&canvas->layout,
+    gtk_layout_get_size (GTK_LAYOUT (canvas),
                          &width, &height);
     canvas->scroll_x2 = width;
     canvas->scroll_y2 = height;
@@ -2181,20 +2237,15 @@ eel_canvas_init (EelCanvas *canvas)
     canvas->pick_event.crossing.x = 0;
     canvas->pick_event.crossing.y = 0;
 
-    gtk_layout_set_hadjustment (GTK_LAYOUT (canvas), NULL);
-    gtk_layout_set_vadjustment (GTK_LAYOUT (canvas), NULL);
+    gtk_scrollable_set_hadjustment (GTK_SCROLLABLE (canvas), NULL);
+    gtk_scrollable_set_vadjustment (GTK_SCROLLABLE (canvas), NULL);
 
     /* Create the root item as a special case */
 
     canvas->root = EEL_CANVAS_ITEM (g_object_new (eel_canvas_group_get_type (), NULL));
     canvas->root->canvas = canvas;
 
-#if GLIB_CHECK_VERSION(2,10,0) && GTK_CHECK_VERSION(2,8,14)
     g_object_ref_sink (canvas->root);
-#else
-    g_object_ref (canvas->root);
-    gtk_object_sink (GTK_OBJECT (canvas->root));
-#endif
 
     canvas->root_destroy_id = g_signal_connect (G_OBJECT (canvas->root),
                               "destroy", G_CALLBACK (panic_root_destroyed), canvas);
@@ -2240,7 +2291,11 @@ shutdown_transients (EelCanvas *canvas)
 
 /* Destroy handler for EelCanvas */
 static void
+#if GTK_CHECK_VERSION (3, 0, 0)
+eel_canvas_destroy (GtkWidget *object)
+#else
 eel_canvas_destroy (GtkObject *object)
+#endif
 {
     EelCanvas *canvas;
 
@@ -2259,14 +2314,19 @@ eel_canvas_destroy (GtkObject *object)
     {
         EelCanvasItem *root = canvas->root;
         canvas->root = NULL;
-        gtk_object_destroy (GTK_OBJECT (root));
+        eel_canvas_item_destroy (root);
         g_object_unref (root);
     }
 
     shutdown_transients (canvas);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    if (GTK_WIDGET_CLASS (canvas_parent_class)->destroy)
+        (* GTK_WIDGET_CLASS (canvas_parent_class)->destroy) (object);
+#else
     if (GTK_OBJECT_CLASS (canvas_parent_class)->destroy)
         (* GTK_OBJECT_CLASS (canvas_parent_class)->destroy) (object);
+#endif
 }
 
 /**
@@ -2347,8 +2407,8 @@ eel_canvas_realize (GtkWidget *widget)
 
     canvas = EEL_CANVAS (widget);
 
-    gdk_window_set_events (gtk_layout_get_bin_window (&canvas->layout),
-                           (gdk_window_get_events (gtk_layout_get_bin_window (&canvas->layout))
+    gdk_window_set_events (gtk_layout_get_bin_window (GTK_LAYOUT (canvas)),
+    		       (gdk_window_get_events (gtk_layout_get_bin_window (GTK_LAYOUT (canvas)))
                             | GDK_EXPOSURE_MASK
                             | GDK_BUTTON_PRESS_MASK
                             | GDK_BUTTON_RELEASE_MASK
@@ -2360,8 +2420,6 @@ eel_canvas_realize (GtkWidget *widget)
                             | GDK_FOCUS_CHANGE_MASK));
 
     /* Create our own temporary pixmap gc and realize all the items */
-
-    canvas->pixmap_gc = gdk_gc_new (gtk_layout_get_bin_window (&canvas->layout));
 
     (* EEL_CANVAS_ITEM_GET_CLASS (canvas->root)->realize) (canvas->root);
 }
@@ -2381,9 +2439,6 @@ eel_canvas_unrealize (GtkWidget *widget)
     /* Unrealize items and parent widget */
 
     (* EEL_CANVAS_ITEM_GET_CLASS (canvas->root)->unrealize) (canvas->root);
-
-    g_object_unref (canvas->pixmap_gc);
-    canvas->pixmap_gc = NULL;
 
     if (GTK_WIDGET_CLASS (canvas_parent_class)->unrealize)
         (* GTK_WIDGET_CLASS (canvas_parent_class)->unrealize) (widget);
@@ -2482,8 +2537,8 @@ scroll_to (EelCanvas *canvas, int cx, int cy)
         gtk_widget_queue_draw (GTK_WIDGET (canvas));
     }
 
-    hadjustment = gtk_layout_get_hadjustment (&canvas->layout);
-    vadjustment = gtk_layout_get_vadjustment (&canvas->layout);
+    hadjustment = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (canvas));
+    vadjustment = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (canvas));
 
     if (((int) gtk_adjustment_get_value (hadjustment)) != cx)
     {
@@ -2527,8 +2582,8 @@ eel_canvas_size_allocate (GtkWidget *widget, GtkAllocation *allocation)
 
     /* Recenter the view, if appropriate */
 
-    hadjustment = gtk_layout_get_hadjustment (&canvas->layout);
-    vadjustment = gtk_layout_get_vadjustment (&canvas->layout);
+    hadjustment = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (canvas));
+    vadjustment = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (canvas));
 
     gtk_adjustment_set_page_size (hadjustment, allocation->width);
     gtk_adjustment_set_page_increment (hadjustment, allocation->width / 2);
@@ -2672,14 +2727,14 @@ emit_event (EelCanvas *canvas, GdkEvent *event)
 
     while (item && !finished)
     {
-        g_object_ref (GTK_OBJECT (item));
+        g_object_ref (item);
 
         g_signal_emit (
             G_OBJECT (item), item_signals[ITEM_EVENT], 0,
             &ev, &finished);
 
         parent = item->parent;
-        g_object_unref (GTK_OBJECT (item));
+        g_object_unref (item);
 
         item = parent;
     }
@@ -2861,7 +2916,7 @@ eel_canvas_button (GtkWidget *widget, GdkEventButton *event)
      * dispatch normally regardless of the event's window if an item has
      * has a pointer grab in effect
      */
-    if (!canvas->grabbed_item && event->window != gtk_layout_get_bin_window (&canvas->layout))
+    if (!canvas->grabbed_item && event->window != gtk_layout_get_bin_window (GTK_LAYOUT (canvas)))
         return retval;
 
     switch (event->button)
@@ -2929,7 +2984,7 @@ eel_canvas_motion (GtkWidget *widget, GdkEventMotion *event)
 
     canvas = EEL_CANVAS (widget);
 
-    if (event->window != gtk_layout_get_bin_window (&canvas->layout))
+    if (event->window != gtk_layout_get_bin_window (GTK_LAYOUT (canvas)))
         return FALSE;
 
     canvas->state = event->state;
@@ -2968,7 +3023,7 @@ eel_canvas_crossing (GtkWidget *widget, GdkEventCrossing *event)
 
     canvas = EEL_CANVAS (widget);
 
-    if (event->window != gtk_layout_get_bin_window (&canvas->layout))
+    if (event->window != gtk_layout_get_bin_window (GTK_LAYOUT (canvas)))
         return FALSE;
 
     canvas->state = event->state;
@@ -3003,18 +3058,80 @@ eel_canvas_focus_out (GtkWidget *widget, GdkEventFocus *event)
         return FALSE;
 }
 
+
+#if GTK_CHECK_VERSION(3,0,0)
+static cairo_region_t *
+eel_cairo_get_clip_region (cairo_t *cr)
+{
+    cairo_rectangle_list_t *list;
+    cairo_region_t *region;
+    int i;
+
+    list = cairo_copy_clip_rectangle_list (cr);
+    if (list->status == CAIRO_STATUS_CLIP_NOT_REPRESENTABLE) {
+        cairo_rectangle_int_t clip_rect;
+
+        cairo_rectangle_list_destroy (list);
+
+        if (!gdk_cairo_get_clip_rectangle (cr, &clip_rect))
+            return NULL;
+        return cairo_region_create_rectangle (&clip_rect);
+    }
+
+
+    region = cairo_region_create ();
+    for (i = list->num_rectangles - 1; i >= 0; --i) {
+        cairo_rectangle_t *rect = &list->rectangles[i];
+        cairo_rectangle_int_t clip_rect;
+
+        clip_rect.x = floor (rect->x);
+        clip_rect.y = floor (rect->y);
+        clip_rect.width = ceil (rect->x + rect->width) - clip_rect.x;
+        clip_rect.height = ceil (rect->y + rect->height) - clip_rect.y;
+
+        if (cairo_region_union_rectangle (region, &clip_rect) != CAIRO_STATUS_SUCCESS) {
+            cairo_region_destroy (region);
+            region = NULL;
+            break;
+        }
+    }
+
+    cairo_rectangle_list_destroy (list);
+    return region;
+}
+#endif
+
 /* Expose handler for the canvas */
+#if GTK_CHECK_VERSION(3,0,0)
+static gboolean
+eel_canvas_draw (GtkWidget *widget, cairo_t *cr)
+#else
 static gint
 eel_canvas_expose (GtkWidget *widget, GdkEventExpose *event)
+#endif
 {
-    EelCanvas *canvas;
+    EelCanvas *canvas = EEL_CANVAS (widget);
+#if GTK_CHECK_VERSION(3,0,0)
+    GdkWindow *bin_window;
+    cairo_region_t *region;
 
-    canvas = EEL_CANVAS (widget);
+    if (!gdk_cairo_get_clip_rectangle (cr, NULL))
+        return FALSE;
 
+    bin_window = gtk_layout_get_bin_window (GTK_LAYOUT (widget));
+    gtk_cairo_transform_to_window (cr, widget, bin_window);
+
+    region = eel_cairo_get_clip_region (cr);
+    if (region == NULL)
+        return FALSE;
+#else
     if (!gtk_widget_is_drawable (widget) || (event->window != gtk_layout_get_bin_window (&canvas->layout))) return FALSE;
+#endif
 
-#ifdef VERBOSE
-    g_print ("Expose\n");
+#if defined VERBOSE && GTK_CHECK_VERSION(3,0,0)
+      g_print ("Draw\n");
+#elif defined VERBOSE
+      g_print ("Expose\n");
 #endif
     /* If there are any outstanding items that need updating, do them now */
     if (canvas->idle_id)
@@ -3039,37 +3156,68 @@ eel_canvas_expose (GtkWidget *widget, GdkEventExpose *event)
     /* Hmmm. Would like to queue antiexposes if the update marked
        anything that is gonna get redrawn as invalid */
 
-
     g_signal_emit (G_OBJECT (canvas), canvas_signals[DRAW_BACKGROUND], 0,
+#if GTK_CHECK_VERSION(3,0,0)
+                   cr);
+#else
                    event->area.x, event->area.y,
                    event->area.width, event->area.height);
+#endif
 
     if (canvas->root->flags & EEL_CANVAS_ITEM_MAPPED)
-        (* EEL_CANVAS_ITEM_GET_CLASS (canvas->root)->draw) (canvas->root,
-                gtk_layout_get_bin_window (&canvas->layout),
-                event);
-
-
+        EEL_CANVAS_ITEM_GET_CLASS (canvas->root)->draw (canvas->root,
+#if GTK_CHECK_VERSION(3,0,0)
+    							cr, region);
+#else
+    							gtk_layout_get_bin_window (&canvas->layout),
+    							event);
+#endif
 
     /* Chain up to get exposes on child widgets */
+#if !GTK_CHECK_VERSION(3,0,0)
     GTK_WIDGET_CLASS (canvas_parent_class)->expose_event (widget, event);
+#else
+    if (GTK_WIDGET_CLASS (canvas_parent_class)->draw)
+        GTK_WIDGET_CLASS (canvas_parent_class)->draw (widget, cr);
 
+    cairo_region_destroy (region);
+#endif
     return FALSE;
 }
 
+
+#if GTK_CHECK_VERSION(3,0,0)
+static void
+eel_canvas_draw_background (EelCanvas *canvas,
+                            cairo_t   *cr)
+{
+    cairo_rectangle_int_t rect;
+
+    if (!gdk_cairo_get_clip_rectangle (cr, &rect))
+        return;
+
+    cairo_save (cr);
+    /* By default, we use the style background. */
+    gdk_cairo_set_source_color (cr, &gtk_widget_get_style (GTK_WIDGET (canvas))->bg[GTK_STATE_NORMAL]);
+    gdk_cairo_rectangle (cr, &rect);
+    cairo_fill (cr);
+    cairo_restore (cr);
+}
+#else /* GTK_CHECK_VERSION(3,0,0) */
 static void
 eel_canvas_draw_background (EelCanvas *canvas,
                             int x, int y, int width, int height)
 {
+    cairo_t *cr = gdk_cairo_create (gtk_layout_get_bin_window (&canvas->layout));
+
     /* By default, we use the style background. */
-    gdk_gc_set_foreground (canvas->pixmap_gc,
-                           &gtk_widget_get_style (GTK_WIDGET (canvas))->bg[GTK_STATE_NORMAL]);
-    gdk_draw_rectangle (gtk_layout_get_bin_window (&canvas->layout),
-                        canvas->pixmap_gc,
-                        TRUE,
-                        x, y,
-                        width, height);
+    gdk_cairo_set_source_color (cr, &gtk_widget_get_style (GTK_WIDGET (canvas))->bg[GTK_STATE_NORMAL]);
+    cairo_rectangle (cr, x, y, width, height);
+    cairo_fill (cr);
+
+    cairo_destroy (cr);
 }
+#endif /* GTK_CHECK_VERSION(3,0,0) */
 
 static void
 do_update (EelCanvas *canvas)
@@ -3193,8 +3341,8 @@ eel_canvas_set_scroll_region (EelCanvas *canvas, double x1, double y1, double x2
      * Set the new scrolling region.  If possible, do not move the visible contents of the
      * canvas.
      */
-    hadjustment = gtk_layout_get_hadjustment (GTK_LAYOUT (canvas));
-    vadjustment = gtk_layout_get_vadjustment (GTK_LAYOUT (canvas));
+    hadjustment = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (canvas));
+    vadjustment = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (canvas));
 
     eel_canvas_c2w (canvas,
                     gtk_adjustment_get_value (hadjustment) + canvas->zoom_xofs,
@@ -3260,8 +3408,8 @@ eel_canvas_set_center_scroll_region (EelCanvas *canvas,
 
     canvas->center_scroll_region = center_scroll_region != 0;
 
-    hadjustment = gtk_layout_get_hadjustment (&canvas->layout);
-    vadjustment = gtk_layout_get_vadjustment (&canvas->layout);
+    hadjustment = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (&canvas->layout));
+    vadjustment = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (&canvas->layout));
 
     scroll_to (canvas,
                gtk_adjustment_get_value (hadjustment),
@@ -3300,8 +3448,8 @@ eel_canvas_set_pixels_per_unit (EelCanvas *canvas, double n)
     center_y = allocation.height / 2;
 
     /* Find the coordinates of the screen center in units. */
-    hadjustment = gtk_layout_get_hadjustment (&canvas->layout);
-    vadjustment = gtk_layout_get_vadjustment (&canvas->layout);
+    hadjustment = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (canvas));
+    vadjustment = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (canvas));
     cx = (gtk_adjustment_get_value (hadjustment) + center_x) / canvas->pixels_per_unit + canvas->scroll_x1 + canvas->zoom_xofs;
     cy = (gtk_adjustment_get_value (vadjustment) + center_y) / canvas->pixels_per_unit + canvas->scroll_y1 + canvas->zoom_yofs;
 
@@ -3332,14 +3480,20 @@ eel_canvas_set_pixels_per_unit (EelCanvas *canvas, double n)
         attributes.height = allocation.height;
         attributes.wclass = GDK_INPUT_OUTPUT;
         attributes.visual = gtk_widget_get_visual (widget);
-        attributes.colormap = gtk_widget_get_colormap (widget);
         attributes.event_mask = GDK_VISIBILITY_NOTIFY_MASK;
 
+#if GTK_CHECK_VERSION(3,0,0)
+        attributes_mask = GDK_WA_X | GDK_WA_Y | GDK_WA_VISUAL;
+#else
+        attributes.colormap = gtk_widget_get_colormap (widget);
         attributes_mask = GDK_WA_X | GDK_WA_Y | GDK_WA_VISUAL | GDK_WA_COLORMAP;
+#endif
 
         window = gdk_window_new (gtk_widget_get_parent_window (widget),
                                  &attributes, attributes_mask);
+#if !GTK_CHECK_VERSION(3,0,0)
         gdk_window_set_back_pixmap (window, NULL, FALSE);
+#endif
         gdk_window_set_user_data (window, widget);
 
         gdk_window_show (window);
@@ -3399,8 +3553,8 @@ eel_canvas_get_scroll_offsets (EelCanvas *canvas, int *cx, int *cy)
 
     g_return_if_fail (EEL_IS_CANVAS (canvas));
 
-    hadjustment = gtk_layout_get_hadjustment (&canvas->layout);
-    vadjustment = gtk_layout_get_vadjustment (&canvas->layout);
+    hadjustment = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (canvas));
+    vadjustment = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (canvas));
 
     if (cx)
         *cx = gtk_adjustment_get_value (hadjustment);
@@ -3500,7 +3654,7 @@ eel_canvas_request_redraw (EelCanvas *canvas, int x1, int y1, int x2, int y2)
     bbox.width = x2 - x1;
     bbox.height = y2 - y1;
 
-    gdk_window_invalidate_rect (gtk_layout_get_bin_window (&canvas->layout),
+    gdk_window_invalidate_rect (gtk_layout_get_bin_window (GTK_LAYOUT (canvas)),
                                 &bbox, FALSE);
 }
 
@@ -3679,8 +3833,6 @@ eel_canvas_world_to_window (EelCanvas *canvas, double worldx, double worldy,
 int
 eel_canvas_get_color (EelCanvas *canvas, const char *spec, GdkColor *color)
 {
-    GdkColormap *colormap;
-
     g_return_val_if_fail (EEL_IS_CANVAS (canvas), FALSE);
     g_return_val_if_fail (color != NULL, FALSE);
 
@@ -3695,61 +3847,7 @@ eel_canvas_get_color (EelCanvas *canvas, const char *spec, GdkColor *color)
 
     gdk_color_parse (spec, color);
 
-    colormap = gtk_widget_get_colormap (GTK_WIDGET (canvas));
-
-    gdk_rgb_find_color (colormap, color);
-
     return TRUE;
-}
-
-/**
- * eel_canvas_get_color_pixel:
- * @canvas: A canvas.
- * @rgba: RGBA color specification.
- *
- * Allocates a color from the RGBA value passed into this function.  The alpha
- * opacity value is discarded, since normal X colors do not support it.
- *
- * Return value: Allocated pixel value corresponding to the specified color.
- **/
-gulong
-eel_canvas_get_color_pixel (EelCanvas *canvas, guint rgba)
-{
-    GdkColormap *colormap;
-    GdkColor color;
-
-    g_return_val_if_fail (EEL_IS_CANVAS (canvas), 0);
-
-    color.red = ((rgba & 0xff000000) >> 16) + ((rgba & 0xff000000) >> 24);
-    color.green = ((rgba & 0x00ff0000) >> 8) + ((rgba & 0x00ff0000) >> 16);
-    color.blue = (rgba & 0x0000ff00) + ((rgba & 0x0000ff00) >> 8);
-    color.pixel = 0;
-
-    colormap = gtk_widget_get_colormap (GTK_WIDGET (canvas));
-
-    gdk_rgb_find_color (colormap, &color);
-
-    return color.pixel;
-}
-
-
-/* FIXME: This function is not useful anymore */
-/**
- * eel_canvas_set_stipple_origin:
- * @canvas: A canvas.
- * @gc: GC on which to set the stipple origin.
- *
- * Sets the stipple origin of the specified GC as is appropriate for the canvas,
- * so that it will be aligned with other stipple patterns used by canvas items.
- * This is typically only needed by item implementations.
- **/
-void
-eel_canvas_set_stipple_origin (EelCanvas *canvas, GdkGC *gc)
-{
-    g_return_if_fail (EEL_IS_CANVAS (canvas));
-    g_return_if_fail (GDK_IS_GC (gc));
-
-    gdk_gc_set_ts_origin (gc, 0, 0);
 }
 
 static gboolean
@@ -4068,7 +4166,7 @@ eel_canvas_item_accessible_get_type (void)
         GTypeInfo tinfo = { 0 };
 
         factory = atk_registry_get_factory (atk_get_default_registry(),
-                                            GTK_TYPE_OBJECT);
+                                            G_TYPE_INITIALLY_UNOWNED);
         if (!factory)
         {
             return G_TYPE_INVALID;
@@ -4200,6 +4298,15 @@ eel_canvas_item_class_init (EelCanvasItemClass *klass)
                       eel_marshal_BOOLEAN__BOXED,
                       G_TYPE_BOOLEAN, 1,
                       GDK_TYPE_EVENT | G_SIGNAL_TYPE_STATIC_SCOPE);
+
+    item_signals[ITEM_DESTROY] =
+        g_signal_new ("destroy",
+		      G_TYPE_FROM_CLASS (klass),
+		      G_SIGNAL_RUN_CLEANUP | G_SIGNAL_NO_RECURSE | G_SIGNAL_NO_HOOKS,
+		      G_STRUCT_OFFSET (EelCanvasItemClass, destroy),
+		      NULL, NULL,
+		      g_cclosure_marshal_VOID__VOID,
+		      G_TYPE_NONE, 0);
 
     klass->realize = eel_canvas_item_realize;
     klass->unrealize = eel_canvas_item_unrealize;

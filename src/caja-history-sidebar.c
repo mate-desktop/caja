@@ -27,9 +27,7 @@
 
 #include <config.h>
 
-#include <eel/eel-debug.h>
 #include <eel/eel-gtk-extensions.h>
-#include <eel/eel-glib-extensions.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 #include <libcaja-private/caja-bookmark.h>
@@ -123,7 +121,8 @@ update_history (CajaHistorySidebar *sidebar)
         }
         g_free (name);
     }
-    eel_g_object_list_free (history);
+    g_list_foreach(history, (GFunc) g_object_unref, NULL);
+    g_list_free(history);
 
     selection = GTK_TREE_SELECTION (gtk_tree_view_get_selection (sidebar->tree_view));
 

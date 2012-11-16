@@ -30,7 +30,6 @@
 #include "caja-dnd.h"
 #include "caja-directory.h"
 #include "caja-file-utilities.h"
-#include <eel/eel-glib-extensions.h>
 #include <string.h>
 
 static gboolean
@@ -182,5 +181,6 @@ caja_drag_file_receive_dropped_keyword (CajaFile *file,
     }
 
     caja_file_set_keywords (file, keywords);
-    eel_g_list_free_deep (keywords);
+    g_list_foreach(keywords, (GFunc) g_free, NULL);
+    g_list_free(keywords);
 }

@@ -47,7 +47,6 @@
 #include <eel/eel-mate-extensions.h>
 #include <eel/eel-stock-dialogs.h>
 #include <eel/eel-string.h>
-#include <eel/eel-xml-extensions.h>
 #include <libxml/parser.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
@@ -117,7 +116,7 @@ forget_history_if_yes (GtkDialog *dialog, int response, gpointer callback_data)
     {
         caja_forget_history ();
     }
-    gtk_object_destroy (GTK_OBJECT (dialog));
+    gtk_widget_destroy (GTK_WIDGET (dialog));
 }
 
 static void
@@ -621,59 +620,32 @@ action_new_tab_callback (GtkAction *action,
                          gpointer user_data)
 {
     CajaWindow *window;
-    CajaWindowSlot *current_slot;
-    CajaWindowSlot *new_slot;
-    CajaWindowOpenFlags flags;
-    GFile *location;
-    int new_slot_position;
-    char *scheme;
 
     window = CAJA_WINDOW (user_data);
-    current_slot = window->details->active_pane->active_slot;
-    location = caja_window_slot_get_location (current_slot);
-
-    if (location != NULL)
-    {
-        flags = 0;
-
-        new_slot_position = g_settings_get_enum (caja_preferences, CAJA_PREFERENCES_NEW_TAB_POSITION);
-        if (new_slot_position == CAJA_NEW_TAB_POSITION_END)
-        {
-            flags = CAJA_WINDOW_OPEN_SLOT_APPEND;
-        }
-
-        scheme = g_file_get_uri_scheme (location);
-        if (!strcmp (scheme, "x-caja-search"))
-        {
-            g_object_unref (location);
-            location = g_file_new_for_path (g_get_home_dir ());
-        }
-        g_free (scheme);
-
-        new_slot = caja_window_open_slot (current_slot->pane, flags);
-        caja_window_set_active_slot (window, new_slot);
-        caja_window_slot_go_to (new_slot, location, FALSE);
-        g_object_unref (location);
-    }
+    caja_window_new_tab (window);
 }
 
 static void
 action_folder_window_callback (GtkAction *action,
                                gpointer user_data)
 {
-    CajaWindow *current_window;
+    CajaWindow *current_window, *window;
     CajaWindowSlot *slot;
     GFile *current_location;
 
     current_window = CAJA_WINDOW (user_data);
     slot = current_window->details->active_pane->active_slot;
     current_location = caja_window_slot_get_location (slot);
-    caja_application_present_spatial_window (
-        current_window->application,
-        current_window,
-        NULL,
-        current_location,
-        gtk_window_get_screen (GTK_WINDOW (current_window)));
+    window = caja_application_get_spatial_window
+            (current_window->application,
+             current_window,
+             NULL,
+             current_location,
+             gtk_window_get_screen (GTK_WINDOW (current_window)),
+             NULL);
+
+    caja_window_go_to (window, current_location);
+
     if (current_location != NULL)
     {
         g_object_unref (current_location);

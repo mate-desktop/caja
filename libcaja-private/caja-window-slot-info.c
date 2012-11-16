@@ -108,11 +108,13 @@ caja_window_slot_info_make_hosting_pane_active (CajaWindowSlotInfo *slot)
 }
 
 void
-caja_window_slot_info_open_location (CajaWindowSlotInfo  *slot,
+caja_window_slot_info_open_location_full (CajaWindowSlotInfo  *slot,
                                      GFile                   *location,
-                                     CajaWindowOpenMode   mode,
-                                     CajaWindowOpenFlags  flags,
-                                     GList                   *selection)
+                                     CajaWindowOpenMode       mode,
+                                     CajaWindowOpenFlags      flags,
+                                     GList                   *selection,
+                                     CajaWindowGoToCallback   callback,
+                                     gpointer user_data)
 {
     g_assert (CAJA_IS_WINDOW_SLOT_INFO (slot));
 
@@ -120,7 +122,9 @@ caja_window_slot_info_open_location (CajaWindowSlotInfo  *slot,
             location,
             mode,
             flags,
-            selection);
+            selection,
+            callback,
+            user_data);
 }
 
 char *

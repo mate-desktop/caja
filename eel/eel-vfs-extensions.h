@@ -46,7 +46,6 @@ extern "C" {
     gboolean eel_uri_is_search(const char* uri);
 
 
-    char* eel_format_uri_for_display(const char* uri);
     char* eel_make_valid_utf8(const char* name);
 
     char* eel_filename_strip_extension(const char* filename);

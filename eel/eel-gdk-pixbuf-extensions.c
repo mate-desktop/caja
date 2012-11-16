@@ -26,8 +26,6 @@
 #include <config.h>
 #include "eel-gdk-pixbuf-extensions.h"
 
-#include "eel-art-gtk-extensions.h"
-#include "eel-debug-drawing.h"
 #include "eel-debug.h"
 #include "eel-gdk-extensions.h"
 #include "eel-glib-extensions.h"
@@ -55,30 +53,6 @@ struct EelPixbufLoadHandle
     GdkPixbufLoader *loader;
     char buffer[LOAD_BUFFER_SIZE];
 };
-
-/**
- * eel_gdk_pixbuf_list_ref
- * @pixbuf_list: A list of GdkPixbuf objects.
- *
- * Refs all the pixbufs.
- **/
-void
-eel_gdk_pixbuf_list_ref (GList *pixbuf_list)
-{
-    g_list_foreach (pixbuf_list, (GFunc) g_object_ref, NULL);
-}
-
-/**
- * eel_gdk_pixbuf_list_free
- * @pixbuf_list: A list of GdkPixbuf objects.
- *
- * Unrefs all the pixbufs, then frees the list.
- **/
-void
-eel_gdk_pixbuf_list_free (GList *pixbuf_list)
-{
-    eel_g_list_free_deep_custom (pixbuf_list, (GFunc) g_object_unref, NULL);
-}
 
 GdkPixbuf *
 eel_gdk_pixbuf_load (const char *uri)
@@ -649,13 +623,9 @@ eel_gdk_pixbuf_unref_if_not_null (GdkPixbuf *pixbuf_or_null)
 void
 eel_gdk_pixbuf_draw_to_drawable (const GdkPixbuf *pixbuf,
                                  GdkDrawable *drawable,
-                                 GdkGC *gc,
                                  int source_x,
                                  int source_y,
-                                 EelIRect destination_area,
-                                 GdkRgbDither dither,
-                                 GdkPixbufAlphaMode alpha_compositing_mode,
-                                 int alpha_threshold)
+				 EelIRect destination_area)
 {
     EelDimensions dimensions;
     EelIRect target;
@@ -664,15 +634,11 @@ eel_gdk_pixbuf_draw_to_drawable (const GdkPixbuf *pixbuf,
     int target_height;
     int source_width;
     int source_height;
+	cairo_t *cr;
 
     g_return_if_fail (eel_gdk_pixbuf_is_valid (pixbuf));
     g_return_if_fail (drawable != NULL);
-    g_return_if_fail (gc != NULL);
     g_return_if_fail (!eel_irect_is_empty (&destination_area));
-    g_return_if_fail (alpha_threshold > EEL_OPACITY_FULLY_TRANSPARENT);
-    g_return_if_fail (alpha_threshold <= EEL_OPACITY_FULLY_OPAQUE);
-    g_return_if_fail (alpha_compositing_mode >= GDK_PIXBUF_ALPHA_BILEVEL);
-    g_return_if_fail (alpha_compositing_mode <= GDK_PIXBUF_ALPHA_FULL);
 
     dimensions = eel_gdk_pixbuf_get_dimensions (pixbuf);
 
@@ -707,16 +673,14 @@ eel_gdk_pixbuf_draw_to_drawable (const GdkPixbuf *pixbuf,
     target.x1 = target.x0 + MIN (target_width, source_width);
     target.y1 = target.y0 + MIN (target_height, source_height);
 
-    gdk_draw_pixbuf (drawable, gc, (GdkPixbuf *) pixbuf,
-                     source.x0,
-                     source.y0,
-                     target.x0,
-                     target.y0,
+	cr = gdk_cairo_create (drawable);
+	gdk_cairo_set_source_pixbuf (cr, (GdkPixbuf *) pixbuf,
+				     source.x0 - target.x0, source.y0 - target.y0);
+	cairo_rectangle (cr, target.x0, target.y0, 
                      target.x1 - target.x0,
-                     target.y1 - target.y0,
-                     dither,
-                     0,
-                     0);
+			 target.y1 - target.y0);
+	cairo_fill (cr);
+	cairo_destroy (cr);
 }
 
 /**
