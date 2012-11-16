@@ -118,7 +118,10 @@ caja_query_get_mime_types (CajaQuery *query)
 void
 caja_query_set_mime_types (CajaQuery *query, GList *mime_types)
 {
-    eel_g_list_free_deep (query->details->mime_types);
+    g_list_foreach(query->details->mime_types, (GFunc) g_free, NULL);
+    g_list_free(query->details->mime_types);
+    g_list_foreach(query->details->mime_types, (GFunc) g_free, NULL);
+    g_list_free(query->details->mime_types);
     query->details->mime_types = eel_g_str_list_copy (mime_types);
 }
 

@@ -24,7 +24,6 @@
 #include <config.h>
 #include "caja-search-engine-tracker.h"
 #include <eel/eel-gtk-macros.h>
-#include <eel/eel-glib-extensions.h>
 #include <gmodule.h>
 #include <string.h>
 
@@ -462,7 +461,8 @@ caja_search_engine_tracker_start (CajaSearchEngine *engine)
 
     tracker->details->query_pending = TRUE;
     g_free (search_text);
-    eel_g_list_free_deep (mimetypes);
+    g_list_foreach(mimetypes, (GFunc) g_free, NULL);
+    g_list_free(mimetypes);
 }
 
 static void

@@ -356,7 +356,11 @@ finalize (GObject *object)
 }
 
 static void
+#if GTK_CHECK_VERSION (3, 0, 0)
+destroy (GtkWidget *object)
+#else
 destroy (GtkObject *object)
+#endif
 {
     CajaLocationBar *bar;
 
@@ -372,21 +376,25 @@ destroy (GtkObject *object)
     g_free (bar->details->last_location);
     bar->details->last_location = NULL;
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    EEL_CALL_PARENT (GTK_WIDGET_CLASS, destroy, (object));
+#else
     EEL_CALL_PARENT (GTK_OBJECT_CLASS, destroy, (object));
+#endif
 }
 
 static void
 caja_location_bar_class_init (CajaLocationBarClass *class)
 {
-    GObjectClass *gobject_class;
-    GtkObjectClass *object_class;
     CajaNavigationBarClass *navigation_bar_class;
 
-    gobject_class = G_OBJECT_CLASS (class);
-    gobject_class->finalize = finalize;
+    G_OBJECT_CLASS (class)->finalize = finalize;
 
-    object_class = GTK_OBJECT_CLASS (class);
-    object_class->destroy = destroy;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GTK_WIDGET_CLASS (class)->destroy = destroy;
+#else
+    GTK_OBJECT_CLASS (class)->destroy = destroy;
+#endif
 
     navigation_bar_class = CAJA_NAVIGATION_BAR_CLASS (class);
 

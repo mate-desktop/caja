@@ -44,9 +44,7 @@
 
 #include "caja-progress-info.h"
 
-#include <eel/eel-alert-dialog.h>
 #include <eel/eel-glib-extensions.h>
-#include <eel/eel-pango-extensions.h>
 #include <eel/eel-gtk-extensions.h>
 #include <eel/eel-stock-dialogs.h>
 #include <eel/eel-vfs-extensions.h>
@@ -1066,12 +1064,16 @@ do_run_simple_dialog (gpointer _data)
 	int response_id;
 
 	/* Create the dialog. */
-	dialog = eel_alert_dialog_new (*data->parent_window,
-	                               0,
-	                               data->message_type,
-	                               GTK_BUTTONS_NONE,
-	                               data->primary_text,
-	                               data->secondary_text);
+	dialog = gtk_message_dialog_new (*data->parent_window,
+					 0,
+					 data->message_type,
+					 GTK_BUTTONS_NONE,
+					 NULL);
+
+	g_object_set (dialog,
+		      "text", data->primary_text,
+		      "secondary-text", data->secondary_text,
+		      NULL);
 
 	for (response_id = 0;
 	     data->button_titles[response_id] != NULL;
@@ -1086,8 +1088,8 @@ do_run_simple_dialog (gpointer _data)
 	}
 
 	if (data->details_text) {
-		eel_alert_dialog_set_details_label (EEL_ALERT_DIALOG (dialog),
-						    data->details_text);
+		eel_gtk_message_dialog_set_details_label (GTK_MESSAGE_DIALOG (dialog),
+							  data->details_text);
 	}
 
 	/* Run it. */
@@ -1099,7 +1101,7 @@ do_run_simple_dialog (gpointer _data)
 		result = gtk_dialog_run (GTK_DIALOG (dialog));
 	}
 
-	gtk_object_destroy (GTK_OBJECT (dialog));
+	gtk_widget_destroy (dialog);
 
 	data->result = result;
 
@@ -1856,7 +1858,8 @@ delete_job_done (gpointer user_data)
 
 	job = user_data;
 
-	eel_g_object_list_free (job->files);
+    	g_list_foreach(job->files, (GFunc) g_object_unref, NULL);
+    	g_list_free(job->files);
 
 	if (job->done_callback) {
 		debuting_uris = g_hash_table_new_full (g_file_hash, (GEqualFunc)g_file_equal, g_object_unref, NULL);
@@ -2185,7 +2188,8 @@ has_trash_files (GMount *mount)
 		}
 	}
 
-	eel_g_object_list_free (dirs);
+    	g_list_foreach(dirs, (GFunc) g_object_unref, NULL);
+    	g_list_free(dirs);
 
 	return res;
 }
@@ -4458,7 +4462,8 @@ copy_job_done (gpointer user_data)
 		job->done_callback (job->debuting_files, job->done_callback_data);
 	}
 
-	eel_g_object_list_free (job->files);
+    	g_list_foreach(job->files, (GFunc) g_object_unref, NULL);
+    	g_list_free(job->files);
 	if (job->destination) {
 		g_object_unref (job->destination);
 	}
@@ -4985,7 +4990,8 @@ move_job_done (gpointer user_data)
 		job->done_callback (job->debuting_files, job->done_callback_data);
 	}
 
-	eel_g_object_list_free (job->files);
+    	g_list_foreach(job->files, (GFunc) g_object_unref, NULL);
+    	g_list_free(job->files);
 	g_object_unref (job->destination);
 	g_hash_table_unref (job->debuting_files);
 	g_free (job->icon_positions);
@@ -5065,7 +5071,8 @@ move_job (GIOSchedulerJob *io_job,
 		    &source_info, &transfer_info);
 
  aborted:
-	eel_g_list_free_deep (fallbacks);
+    	g_list_foreach(fallbacks, (GFunc) g_free, NULL);
+    	g_list_free(fallbacks);
 
 	g_free (dest_fs_id);
 	g_free (dest_fs_type);
@@ -5319,7 +5326,8 @@ link_job_done (gpointer user_data)
 		job->done_callback (job->debuting_files, job->done_callback_data);
 	}
 
-	eel_g_object_list_free (job->files);
+    	g_list_foreach(job->files, (GFunc) g_object_unref, NULL);
+    	g_list_free(job->files);
 	g_object_unref (job->destination);
 	g_hash_table_unref (job->debuting_files);
 	g_free (job->icon_positions);
@@ -5771,7 +5779,8 @@ caja_file_operations_copy_move (const GList *item_uris,
 					       done_callback, done_callback_data);
 	}
 
-	eel_g_object_list_free (locations);
+    	g_list_foreach(locations, (GFunc) g_object_unref, NULL);
+    	g_list_free(locations);
 	if (dest) {
 		g_object_unref (dest);
 	}
@@ -6249,7 +6258,8 @@ empty_trash_job_done (gpointer user_data)
 
 	job = user_data;
 
-	eel_g_object_list_free (job->trash_dirs);
+    	g_list_foreach(job->trash_dirs, (GFunc) g_object_unref, NULL);
+    	g_list_free(job->trash_dirs);
 
 	if (job->done_callback) {
 		job->done_callback (job->done_callback_data);

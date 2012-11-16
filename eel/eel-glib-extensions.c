@@ -30,7 +30,6 @@
 #include "eel-debug.h"
 #include "eel-lib-self-check-functions.h"
 #include "eel-string.h"
-#include "eel-i18n.h"
 #include <glib-object.h>
 #include <math.h>
 #include <stdlib.h>
@@ -377,63 +376,6 @@ eel_g_str_list_index (GList *str_list,
 }
 
 /**
- * eel_g_list_free_deep_custom
- *
- * Frees the elements of a list and then the list, using a custom free function.
- *
- * @list: List of elements that can be freed with the provided free function.
- * @element_free_func: function to call with the data pointer and user_data to free it.
- * @user_data: User data to pass to element_free_func
- **/
-void
-eel_g_list_free_deep_custom (GList *list, GFunc element_free_func, gpointer user_data)
-{
-    g_list_foreach (list, element_free_func, user_data);
-    g_list_free (list);
-}
-
-/**
- * eel_g_list_free_deep
- *
- * Frees the elements of a list and then the list.
- * @list: List of elements that can be freed with g_free.
- **/
-void
-eel_g_list_free_deep (GList *list)
-{
-    eel_g_list_free_deep_custom (list, (GFunc) g_free, NULL);
-}
-
-/**
- * eel_g_list_free_deep_custom
- *
- * Frees the elements of a list and then the list, using a custom free function.
- *
- * @list: List of elements that can be freed with the provided free function.
- * @element_free_func: function to call with the data pointer and user_data to free it.
- * @user_data: User data to pass to element_free_func
- **/
-void
-eel_g_slist_free_deep_custom (GSList *list, GFunc element_free_func, gpointer user_data)
-{
-    g_slist_foreach (list, element_free_func, user_data);
-    g_slist_free (list);
-}
-
-/**
- * eel_g_slist_free_deep
- *
- * Frees the elements of a list and then the list.
- * @list: List of elements that can be freed with g_free.
- **/
-void
-eel_g_slist_free_deep (GSList *list)
-{
-    eel_g_slist_free_deep_custom (list, (GFunc) g_free, NULL);
-}
-
-
-/**
  * eel_g_strv_find
  *
  * Get index of string in array of strings.
@@ -749,74 +691,6 @@ eel_round (double d)
     return val;
 }
 
-GList *
-eel_g_list_from_g_slist (GSList *slist)
-{
-    GList *list;
-    GSList *node;
-
-    list = NULL;
-    for (node = slist; node != NULL; node = node->next)
-    {
-        list = g_list_prepend (list, node->data);
-    }
-    return g_list_reverse (list);
-}
-
-GSList *
-eel_g_slist_from_g_list (GList *list)
-{
-    GSList *slist;
-    GList *node;
-
-    slist = NULL;
-    for (node = list; node != NULL; node = node->next)
-    {
-        slist = g_slist_prepend (slist, node->data);
-    }
-    return g_slist_reverse (slist);
-}
-
-/* Return the operating system name: Linux, Solaris, etc. */
-char *
-eel_get_operating_system_name (void)
-{
-    struct utsname buffer;
-
-    if (uname (&buffer) != -1)
-    {
-        /* Check for special sysnames for which there is
-         * more accepted names.
-         */
-        if (eel_str_is_equal (buffer.sysname, "SunOS"))
-        {
-            return g_strdup ("Solaris");
-        }
-
-        return g_strdup (buffer.sysname);
-    }
-
-    return g_strdup ("Unix");
-}
-
-int
-eel_compare_integer (gconstpointer a,
-                     gconstpointer b)
-{
-    int int_a;
-    int int_b;
-
-    int_a = GPOINTER_TO_INT (a);
-    int_b = GPOINTER_TO_INT (b);
-
-    if (int_a == int_b)
-    {
-        return 0;
-    }
-
-    return int_a < int_b ? -1 : 1;
-}
-
 /**
  * eel_g_object_list_ref
  *
@@ -828,31 +702,6 @@ eel_g_object_list_ref (GList *list)
 {
     g_list_foreach (list, (GFunc) g_object_ref, NULL);
     return list;
-}
-
-/**
- * eel_g_object_list_unref
- *
- * Unref all the objects in a list.
- * @list: GList of objects.
- **/
-void
-eel_g_object_list_unref (GList *list)
-{
-    g_list_foreach (list, (GFunc) g_object_unref, NULL);
-}
-
-/**
- * eel_g_object_list_free
- *
- * Free a list of objects after unrefing them.
- * @list: GList of objects.
- **/
-void
-eel_g_object_list_free (GList *list)
-{
-    eel_g_object_list_unref (list);
-    g_list_free (list);
 }
 
 /**
@@ -924,104 +773,6 @@ eel_remove_weak_pointer (gpointer pointer_location)
                                   object_location);
 
     *object_location = NULL;
-}
-
-/* Get the filename encoding, returns TRUE if utf8 */
-
-typedef struct _EelFilenameCharsetCache EelFilenameCharsetCache;
-
-struct _EelFilenameCharsetCache
-{
-    gboolean is_utf8;
-    gchar *charset;
-    gchar *filename_charset;
-};
-
-static void
-filename_charset_cache_free (gpointer data)
-{
-    EelFilenameCharsetCache *cache = data;
-    g_free (cache->charset);
-    g_free (cache->filename_charset);
-    g_free (cache);
-}
-
-/*
- * eel_get_filename_charset:
- * @charset: return location for the name of the filename encoding
- *
- * Determines the character set used for filenames by consulting the
- * environment variables G_FILENAME_ENCODING and G_BROKEN_FILENAMES.
- *
- * G_FILENAME_ENCODING may be set to a comma-separated list of character
- * set names. The special token "@locale" is taken to mean the character set
- * for the current locale. The first character set from the list is taken
- * as the filename encoding.
- * If G_FILENAME_ENCODING is not set, but G_BROKEN_FILENAMES is, the
- * character set of the current locale is taken as the filename encoding.
- *
- * The returned @charset belongs to Eel and must not be freed.
- *
- * Return value: %TRUE if the charset used for filename is UTF-8.
- */
-gboolean
-eel_get_filename_charset (const gchar **filename_charset)
-{
-    static GStaticPrivate cache_private = G_STATIC_PRIVATE_INIT;
-    EelFilenameCharsetCache *cache = g_static_private_get (&cache_private);
-    const gchar *charset;
-
-    if (!cache)
-    {
-        cache = g_new0 (EelFilenameCharsetCache, 1);
-        g_static_private_set (&cache_private, cache, filename_charset_cache_free);
-    }
-
-    g_get_charset (&charset);
-
-    if (!(cache->charset && strcmp (cache->charset, charset) == 0))
-    {
-        const gchar *new_charset;
-        gchar *p, *q;
-
-        g_free (cache->charset);
-        g_free (cache->filename_charset);
-        cache->charset = g_strdup (charset);
-
-        p = getenv ("G_FILENAME_ENCODING");
-        if (p != NULL)
-        {
-            q = strchr (p, ',');
-            if (!q)
-                q = p + strlen (p);
-
-            if (strncmp ("@locale", p, q - p) == 0)
-            {
-                cache->is_utf8 = g_get_charset (&new_charset);
-                cache->filename_charset = g_strdup (new_charset);
-            }
-            else
-            {
-                cache->filename_charset = g_strndup (p, q - p);
-                cache->is_utf8 = (strcmp (cache->filename_charset, "UTF-8") == 0);
-            }
-        }
-        else if (getenv ("G_BROKEN_FILENAMES") != NULL)
-        {
-            cache->is_utf8 = g_get_charset (&new_charset);
-            cache->filename_charset = g_strdup (new_charset);
-        }
-        else
-        {
-            cache->filename_charset = g_strdup ("UTF-8");
-            cache->is_utf8 = TRUE;
-        }
-    }
-
-    if (filename_charset)
-        *filename_charset = cache->filename_charset;
-
-    return cache->is_utf8;
 }
 
 static void
@@ -1283,11 +1034,16 @@ eel_self_check_glib_extensions (void)
     EEL_CHECK_BOOLEAN_RESULT (eel_g_str_list_equal (compare_list_1, compare_list_4), FALSE);
     EEL_CHECK_BOOLEAN_RESULT (eel_g_str_list_equal (compare_list_1, compare_list_5), FALSE);
 
-    eel_g_list_free_deep (compare_list_1);
-    eel_g_list_free_deep (compare_list_2);
-    eel_g_list_free_deep (compare_list_3);
-    eel_g_list_free_deep (compare_list_4);
-    eel_g_list_free_deep (compare_list_5);
+    g_list_foreach (compare_list_1, (GFunc) g_free, NULL);
+    g_list_free(compare_list_1);
+    g_list_foreach (compare_list_2, (GFunc) g_free, NULL);
+    g_list_free(compare_list_2);
+    g_list_foreach (compare_list_3, (GFunc) g_free, NULL);
+    g_list_free(compare_list_3);
+    g_list_foreach (compare_list_4, (GFunc) g_free, NULL);
+    g_list_free(compare_list_4);
+    g_list_foreach (compare_list_5, (GFunc) g_free, NULL);
+    g_list_free(compare_list_5);
 
     /* eel_g_list_partition */
 
@@ -1340,27 +1096,6 @@ eel_self_check_glib_extensions (void)
     setlocale (LC_TIME, "");
 
     g_free (huge_string);
-
-    /* eel_shell_quote */
-    EEL_CHECK_STRING_RESULT (g_shell_quote (""), "''");
-    EEL_CHECK_STRING_RESULT (g_shell_quote ("a"), "'a'");
-    EEL_CHECK_STRING_RESULT (g_shell_quote ("("), "'('");
-    EEL_CHECK_STRING_RESULT (g_shell_quote ("'"), "''\\'''");
-    EEL_CHECK_STRING_RESULT (g_shell_quote ("'a"), "''\\''a'");
-    EEL_CHECK_STRING_RESULT (g_shell_quote ("a'"), "'a'\\'''");
-    EEL_CHECK_STRING_RESULT (g_shell_quote ("a'a"), "'a'\\''a'");
-
-    /* eel_compare_integer */
-    EEL_CHECK_INTEGER_RESULT (eel_compare_integer (GINT_TO_POINTER (0), GINT_TO_POINTER (0)), 0);
-    EEL_CHECK_INTEGER_RESULT (eel_compare_integer (GINT_TO_POINTER (0), GINT_TO_POINTER (1)), -1);
-    EEL_CHECK_INTEGER_RESULT (eel_compare_integer (GINT_TO_POINTER (1), GINT_TO_POINTER (0)), 1);
-    EEL_CHECK_INTEGER_RESULT (eel_compare_integer (GINT_TO_POINTER (-1), GINT_TO_POINTER (0)), -1);
-    EEL_CHECK_INTEGER_RESULT (eel_compare_integer (GINT_TO_POINTER (0), GINT_TO_POINTER (-1)), 1);
-    EEL_CHECK_INTEGER_RESULT (eel_compare_integer (GINT_TO_POINTER (-1), GINT_TO_POINTER (-1)), 0);
-
-#ifdef __linux__
-    EEL_CHECK_STRING_RESULT (eel_get_operating_system_name (), "Linux");
-#endif
 }
 
 #endif /* !EEL_OMIT_SELF_CHECK */

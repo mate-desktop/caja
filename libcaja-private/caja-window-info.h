@@ -28,7 +28,6 @@
 #include <glib-object.h>
 #include <libcaja-private/caja-view.h>
 #include <gtk/gtk.h>
-#include "../src/caja-bookmark-list.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -88,6 +87,10 @@ extern "C" {
     typedef CajaWindow                  CajaWindowInfo;
 
     typedef struct _CajaWindowInfoIface CajaWindowInfoIface;
+
+    typedef void (* CajaWindowGoToCallback) (CajaWindow *window,
+    					     GError *error,
+    					     gpointer user_data);
 
     struct _CajaWindowInfoIface
     {

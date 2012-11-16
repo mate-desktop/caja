@@ -102,7 +102,7 @@ caja_search_bar_class_init (CajaSearchBarClass *class)
                       G_TYPE_NONE, 0);
 
     binding_set = gtk_binding_set_by_class (class);
-    gtk_binding_entry_add_signal (binding_set, GDK_Escape, 0, "cancel", 0);
+	gtk_binding_entry_add_signal (binding_set, GDK_KEY_Escape, 0, "cancel", 0);
 }
 
 static gboolean
@@ -198,7 +198,7 @@ caja_search_bar_borrow_entry (CajaSearchBar *bar)
     bar->details->entry_borrowed = TRUE;
 
     binding_set = gtk_binding_set_by_class (G_OBJECT_GET_CLASS (bar));
-    gtk_binding_entry_remove (binding_set, GDK_Escape, 0);
+	gtk_binding_entry_remove (binding_set, GDK_KEY_Escape, 0);
     return bar->details->entry;
 }
 
@@ -210,7 +210,7 @@ caja_search_bar_return_entry (CajaSearchBar *bar)
     bar->details->entry_borrowed = FALSE;
 
     binding_set = gtk_binding_set_by_class (G_OBJECT_GET_CLASS (bar));
-    gtk_binding_entry_add_signal (binding_set, GDK_Escape, 0, "cancel", 0);
+	gtk_binding_entry_add_signal (binding_set, GDK_KEY_Escape, 0, "cancel", 0);
 }
 
 GtkWidget *

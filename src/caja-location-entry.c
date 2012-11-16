@@ -133,19 +133,19 @@ entry_would_have_inserted_characters (const GdkEventKey *event)
 {
     switch (event->keyval)
     {
-    case GDK_BackSpace:
-    case GDK_Clear:
-    case GDK_Insert:
-    case GDK_Delete:
-    case GDK_Home:
-    case GDK_End:
-    case GDK_KP_Home:
-    case GDK_KP_End:
-    case GDK_Left:
-    case GDK_Right:
-    case GDK_KP_Left:
-    case GDK_KP_Right:
-    case GDK_Return:
+    case GDK_KEY_BackSpace:
+    case GDK_KEY_Clear:
+    case GDK_KEY_Insert:
+    case GDK_KEY_Delete:
+    case GDK_KEY_Home:
+    case GDK_KEY_End:
+    case GDK_KEY_KP_Home:
+    case GDK_KEY_KP_End:
+    case GDK_KEY_Left:
+    case GDK_KEY_Right:
+    case GDK_KEY_KP_Left:
+    case GDK_KEY_KP_Right:
+    case GDK_KEY_Return:
         return FALSE;
     default:
         if (event->keyval >= 0x20 && event->keyval <= 0xFF)
@@ -235,7 +235,7 @@ editable_event_after_callback (GtkEntry *entry,
      * likely an auto-completion. We ignore shift / control since
      * they can validly be used to extend the selection.
      */
-    if ((keyevent->keyval == GDK_Right || keyevent->keyval == GDK_End) &&
+	if ((keyevent->keyval == GDK_KEY_Right || keyevent->keyval == GDK_KEY_End) &&
             !(keyevent->state & (GDK_SHIFT_MASK | GDK_CONTROL_MASK)) &&
             gtk_editable_get_selection_bounds (editable, NULL, NULL))
     {
@@ -285,7 +285,11 @@ finalize (GObject *object)
 }
 
 static void
+#if GTK_CHECK_VERSION (3, 0, 0)
+destroy (GtkWidget *object)
+#else
 destroy (GtkObject *object)
+#endif
 {
     CajaLocationEntry *entry;
 
@@ -301,7 +305,11 @@ destroy (GtkObject *object)
     g_free (entry->details->current_directory);
     entry->details->current_directory = NULL;
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    EEL_CALL_PARENT (GTK_WIDGET_CLASS, destroy, (object));
+#else
     EEL_CALL_PARENT (GTK_OBJECT_CLASS, destroy, (object));
+#endif
 }
 
 static void
@@ -382,22 +390,17 @@ caja_location_entry_activate (GtkEntry *entry)
 static void
 caja_location_entry_class_init (CajaLocationEntryClass *class)
 {
-    GtkWidgetClass *widget_class;
-    GObjectClass *gobject_class;
-    GtkObjectClass *object_class;
-    GtkEntryClass *entry_class;
+    GTK_WIDGET_CLASS (class)->focus_in_event = caja_location_entry_focus_in;
 
-    widget_class = GTK_WIDGET_CLASS (class);
-    widget_class->focus_in_event = caja_location_entry_focus_in;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GTK_WIDGET_CLASS (class)->destroy = destroy;
+#else
+    GTK_OBJECT_CLASS (class)->destroy = destroy;
+#endif
 
-    gobject_class = G_OBJECT_CLASS (class);
-    gobject_class->finalize = finalize;
+    G_OBJECT_CLASS (class)->finalize = finalize;
 
-    object_class = GTK_OBJECT_CLASS (class);
-    object_class->destroy = destroy;
-
-    entry_class = GTK_ENTRY_CLASS (class);
-    entry_class->activate = caja_location_entry_activate;
+    GTK_ENTRY_CLASS (class)->activate = caja_location_entry_activate;
 }
 
 void

@@ -74,9 +74,13 @@ extern "C" {
     /* attributes */
     void        caja_icon_canvas_item_set_image                (CajaIconCanvasItem       *item,
             GdkPixbuf                    *image);
+#if GTK_CHECK_VERSION(3,0,0)
+    cairo_surface_t* caja_icon_canvas_item_get_drag_surface    (CajaIconCanvasItem       *item);
+#else
     GdkPixmap * caja_icon_canvas_item_get_image                (CajaIconCanvasItem       *item,
-            GdkBitmap                   **mask,
-            GdkColormap		     *colormap);
+    								GdkBitmap                **mask,
+    								GdkColormap		 *colormap);
+#endif
     void        caja_icon_canvas_item_set_emblems              (CajaIconCanvasItem       *item,
             GList                        *emblem_pixbufs);
     void        caja_icon_canvas_item_set_show_stretch_handles (CajaIconCanvasItem       *item,

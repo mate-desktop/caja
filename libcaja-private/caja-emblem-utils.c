@@ -37,7 +37,6 @@
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
 
-#include <eel/eel-glib-extensions.h>
 #include <eel/eel-gdk-pixbuf-extensions.h>
 #include <eel/eel-stock-dialogs.h>
 
@@ -120,7 +119,8 @@ is_reserved_keyword (const char *keyword)
     result = g_list_find_custom (available,
                                  (char *) icon_name,
                                  (GCompareFunc) g_ascii_strcasecmp) != NULL;
-    eel_g_list_free_deep (available);
+    g_list_foreach(available, (GFunc) g_free, NULL);
+    g_list_free(available);
     g_free (icon_name);
     return result;
 }

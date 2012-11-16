@@ -229,9 +229,9 @@ static void
 edit_bookmarks_dialog_reset_signals (gpointer data,
                                      GObject *obj)
 {
-    g_signal_handler_disconnect (GTK_OBJECT (jump_button),
+    g_signal_handler_disconnect (jump_button,
                                  jump_button_signal_id);
-    g_signal_handler_disconnect (GTK_OBJECT (bookmark_list_widget),
+    g_signal_handler_disconnect (bookmark_list_widget,
                                  row_activated_signal_id);
     jump_button_signal_id =
         g_signal_connect (jump_button, "clicked",
@@ -415,9 +415,9 @@ void
 edit_bookmarks_dialog_set_signals (CajaWindow *window)
 {
 
-    g_signal_handler_disconnect (GTK_OBJECT (jump_button),
+    g_signal_handler_disconnect (jump_button,
                                  jump_button_signal_id);
-    g_signal_handler_disconnect (GTK_OBJECT (bookmark_list_widget),
+    g_signal_handler_disconnect (bookmark_list_widget,
                                  row_activated_signal_id);
 
     jump_button_signal_id =
@@ -582,34 +582,34 @@ open_selected_bookmark (gpointer user_data, GdkScreen *screen)
 
     if (CAJA_IS_NAVIGATION_WINDOW (user_data))
     {
-        caja_window_go_to (CAJA_WINDOW (user_data), location);
+        window = user_data;
     }
     else if (CAJA_IS_SPATIAL_WINDOW (user_data))
     {
-        window = caja_application_present_spatial_window (application,
-                 NULL,
-                 NULL,
-                 location,
-                 screen);
-    }
-    else     /* window that opened bookmarks window has been closed */
-    {
-        if (parent_is_browser_window || g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_BROWSER))
-        {
+        window = caja_application_get_spatial_window (application,
+                                                      NULL,
+                                                      NULL,
+                                                      location,
+                                                      screen,
+                                                      NULL);
+    } else { /* window that opened bookmarks window has been closed */
+        if (parent_is_browser_window || g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_BROWSER)) {
             window = caja_application_create_navigation_window (application,
                      NULL,
                      screen);
-            caja_window_go_to (window, location);
         }
         else
         {
-            window = caja_application_present_spatial_window (application,
-                     NULL,
-                     NULL,
-                     location,
-                     screen);
+            window = caja_application_get_spatial_window (application,
+                                                          NULL,
+                                                          NULL,
+                                                          location,
+                                                          screen,
+                                                          NULL);
         }
     }
+
+    caja_window_go_to (window, location);
 
     g_object_unref (location);
 }
@@ -749,7 +749,7 @@ on_key_pressed (GtkTreeView *view,
                 GdkEventKey *event,
                 gpointer user_data)
 {
-    if (event->keyval == GDK_Delete || event->keyval == GDK_KP_Delete)
+    if (event->keyval == GDK_KEY_Delete || event->keyval == GDK_KEY_KP_Delete)
     {
         bookmarks_delete_bookmark ();
         return TRUE;
@@ -1082,8 +1082,7 @@ handle_close_accelerator (GtkWindow *window,
     g_assert (event != NULL);
     g_assert (user_data == NULL);
 
-    if (eel_gtk_window_event_is_close_accelerator (window, event))
-    {
+	if (event->state & GDK_CONTROL_MASK && event->keyval == GDK_KEY_w) {
         gtk_widget_hide (GTK_WIDGET (window));
         return TRUE;
     }

@@ -29,7 +29,6 @@
 #include "eel-art-gtk-extensions.h"
 #include "eel-debug-drawing.h"
 #include "eel-gtk-extensions.h"
-#include "eel-gtk-macros.h"
 #include "eel-labeled-image.h"
 #include "eel-marshal.h"
 #include <gtk/gtk.h>
@@ -46,7 +45,6 @@ struct EelImageTableDetails
 {
     GtkWidget *child_under_pointer;
     GtkWidget *child_being_pressed;
-    GdkGC     *clear_gc;
 };
 
 /* Signals */
@@ -63,31 +61,17 @@ typedef enum
 /* Signals */
 static guint image_table_signals[LAST_SIGNAL] = { 0 };
 
-static void    eel_image_table_class_init     (EelImageTableClass *image_table_class);
-static void    eel_image_table_init           (EelImageTable      *image);
-
-/* GObjectClass methods */
-static void    eel_image_table_finalize             (GObject            *object);
-
-/* GtkWidgetClass methods */
-static void    eel_image_table_realize              (GtkWidget          *widget);
-static void    eel_image_table_unrealize            (GtkWidget          *widget);
-
-/* GtkContainerClass methods */
-static void    eel_image_table_remove               (GtkContainer       *container,
-        GtkWidget          *widget);
-static GType   eel_image_table_child_type           (GtkContainer       *container);
-
-/* Private EelImageTable methods */
-static void    image_table_emit_signal              (EelImageTable      *image_table,
-        GtkWidget          *child,
-        guint               signal_index,
-        int                 x,
-        int                 y,
-        int                 button,
-        guint               state,
-        GdkEvent           *event);
-
+/* Ancestor methods */
+GtkWidget *    find_windowed_ancestor               (GtkWidget          *widget);
+#if GTK_CHECK_VERSION (3, 0, 0)
+static void    signal_connect_while_realized        (GtkWidget          *object,
+#else
+static void    signal_connect_while_realized        (GtkObject          *object,
+#endif
+    						     const char         *name,
+    						     GCallback           callback,
+    						     gpointer            callback_data,
+    						     GtkWidget          *realized_widget);
 /* Ancestor callbacks */
 static int     ancestor_enter_notify_event          (GtkWidget          *widget,
         GdkEventCrossing   *event,
@@ -105,7 +89,146 @@ static int     ancestor_button_release_event        (GtkWidget          *widget,
         GdkEventButton     *event,
         gpointer            event_data);
 
-EEL_CLASS_BOILERPLATE (EelImageTable, eel_image_table, EEL_TYPE_WRAP_TABLE)
+G_DEFINE_TYPE (EelImageTable, eel_image_table, EEL_TYPE_WRAP_TABLE)
+
+static void
+eel_image_table_init (EelImageTable *image_table)
+{
+    gtk_widget_set_has_window (GTK_WIDGET (image_table), FALSE);
+
+    image_table->details = G_TYPE_INSTANCE_GET_PRIVATE (image_table,
+    							EEL_TYPE_IMAGE_TABLE,
+    							EelImageTableDetails);
+}
+
+/* GObjectClass methods */
+static void
+eel_image_table_finalize (GObject *object)
+{
+    EelImageTable *image_table;
+
+    image_table = EEL_IMAGE_TABLE (object);
+
+    G_OBJECT_CLASS (eel_image_table_parent_class)->finalize (object);
+}
+
+static void
+eel_image_table_realize (GtkWidget *widget)
+{
+    GtkWidget *windowed_ancestor;
+
+    g_assert (EEL_IS_IMAGE_TABLE (widget));
+
+    /* Chain realize */
+    GTK_WIDGET_CLASS (eel_image_table_parent_class)->realize (widget);
+
+    windowed_ancestor = find_windowed_ancestor (widget);
+    g_assert (GTK_IS_WIDGET (windowed_ancestor));
+
+    gtk_widget_add_events (windowed_ancestor,
+                           GDK_BUTTON_PRESS_MASK
+                           | GDK_BUTTON_RELEASE_MASK
+                           | GDK_BUTTON_MOTION_MASK
+                           | GDK_ENTER_NOTIFY_MASK
+                           | GDK_LEAVE_NOTIFY_MASK
+                           | GDK_POINTER_MOTION_MASK);
+
+#if !GTK_CHECK_VERSION (3, 0, 0)
+#define windowed_ancestor GTK_OBJECT(windowed_ancestor)
+#endif
+
+    signal_connect_while_realized (windowed_ancestor,
+    				   "enter_notify_event",
+    				   G_CALLBACK (ancestor_enter_notify_event),
+    				   widget,
+    				   widget);
+
+    signal_connect_while_realized (windowed_ancestor,
+    				   "leave_notify_event",
+    				   G_CALLBACK (ancestor_leave_notify_event),
+    				   widget,
+    				   widget);
+
+    signal_connect_while_realized (windowed_ancestor,
+    				   "motion_notify_event",
+    				   G_CALLBACK (ancestor_motion_notify_event),
+    				   widget,
+    				   widget);
+
+    signal_connect_while_realized (windowed_ancestor,
+    				   "button_press_event",
+    				   G_CALLBACK (ancestor_button_press_event),
+    				   widget,
+    				   widget);
+
+    signal_connect_while_realized (windowed_ancestor,
+    				   "button_release_event",
+    				   G_CALLBACK (ancestor_button_release_event),
+    				   widget,
+    				   widget);
+}
+
+/* GtkContainerClass methods */
+static void
+eel_image_table_remove (GtkContainer *container,
+                        GtkWidget *child)
+{
+    EelImageTable *image_table;
+
+    g_assert (EEL_IS_IMAGE_TABLE (container));
+    g_assert (EEL_IS_LABELED_IMAGE (child));
+
+    image_table = EEL_IMAGE_TABLE (container);
+
+    if (child == image_table->details->child_under_pointer)
+    {
+        image_table->details->child_under_pointer = NULL;
+    }
+
+    if (child == image_table->details->child_being_pressed)
+    {
+        image_table->details->child_being_pressed = NULL;
+    }
+
+    GTK_CONTAINER_CLASS (eel_image_table_parent_class)->remove (container, child);
+}
+
+static GType
+eel_image_table_child_type (GtkContainer *container)
+{
+    return EEL_TYPE_LABELED_IMAGE;
+}
+
+/* Private EelImageTable methods */
+
+static void
+image_table_emit_signal (EelImageTable *image_table,
+                         GtkWidget *child,
+                         guint signal_index,
+                         int x,
+                         int y,
+                         int button,
+                         guint state,
+                         GdkEvent *gdk_event)
+{
+    EelImageTableEvent event;
+
+    g_assert (EEL_IS_IMAGE_TABLE (image_table));
+    g_assert (GTK_IS_WIDGET (child));
+    g_assert (signal_index < LAST_SIGNAL);
+
+    event.x = x;
+    event.y = y;
+    event.button = button;
+    event.state = state;
+    event.event = gdk_event;
+
+    g_signal_emit (image_table,
+                   image_table_signals[signal_index],
+                   0,
+                   child,
+                   &event);
+}
 
 static void
 eel_image_table_class_init (EelImageTableClass *image_table_class)
@@ -119,7 +242,6 @@ eel_image_table_class_init (EelImageTableClass *image_table_class)
 
     /* GtkWidgetClass */
     widget_class->realize = eel_image_table_realize;
-    widget_class->unrealize = eel_image_table_unrealize;
 
     /* GtkContainerClass */
     container_class->remove = eel_image_table_remove;
@@ -176,160 +298,8 @@ eel_image_table_class_init (EelImageTableClass *image_table_class)
                                          2,
                                          GTK_TYPE_WIDGET,
                                          G_TYPE_POINTER);
-}
 
-static void
-eel_image_table_init (EelImageTable *image_table)
-{
-    gtk_widget_set_has_window (GTK_WIDGET (image_table), FALSE);
-
-    image_table->details = g_new0 (EelImageTableDetails, 1);
-}
-
-/* GObjectClass methods */
-static void
-eel_image_table_finalize (GObject *object)
-{
-    EelImageTable *image_table;
-
-    image_table = EEL_IMAGE_TABLE (object);
-
-    g_free (image_table->details);
-
-    EEL_CALL_PARENT (G_OBJECT_CLASS, finalize, (object));
-}
-
-static void
-eel_image_table_realize (GtkWidget *widget)
-{
-    GtkWidget *windowed_ancestor;
-
-    g_assert (EEL_IS_IMAGE_TABLE (widget));
-
-    /* Chain realize */
-    EEL_CALL_PARENT (GTK_WIDGET_CLASS, realize, (widget));
-
-    windowed_ancestor = eel_gtk_widget_find_windowed_ancestor (widget);
-    g_assert (GTK_IS_WIDGET (windowed_ancestor));
-
-    gtk_widget_add_events (windowed_ancestor,
-                           GDK_BUTTON_PRESS_MASK
-                           | GDK_BUTTON_RELEASE_MASK
-                           | GDK_BUTTON_MOTION_MASK
-                           | GDK_ENTER_NOTIFY_MASK
-                           | GDK_LEAVE_NOTIFY_MASK
-                           | GDK_POINTER_MOTION_MASK);
-
-    eel_gtk_signal_connect_while_realized (GTK_OBJECT (windowed_ancestor),
-                                           "enter_notify_event",
-                                           G_CALLBACK (ancestor_enter_notify_event),
-                                           widget,
-                                           widget);
-
-    eel_gtk_signal_connect_while_realized (GTK_OBJECT (windowed_ancestor),
-                                           "leave_notify_event",
-                                           G_CALLBACK (ancestor_leave_notify_event),
-                                           widget,
-                                           widget);
-
-    eel_gtk_signal_connect_while_realized (GTK_OBJECT (windowed_ancestor),
-                                           "motion_notify_event",
-                                           G_CALLBACK (ancestor_motion_notify_event),
-                                           widget,
-                                           widget);
-
-    eel_gtk_signal_connect_while_realized (GTK_OBJECT (windowed_ancestor),
-                                           "button_press_event",
-                                           G_CALLBACK (ancestor_button_press_event),
-                                           widget,
-                                           widget);
-
-    eel_gtk_signal_connect_while_realized (GTK_OBJECT (windowed_ancestor),
-                                           "button_release_event",
-                                           G_CALLBACK (ancestor_button_release_event),
-                                           widget,
-                                           widget);
-}
-
-static void
-eel_image_table_unrealize (GtkWidget *widget)
-{
-    EelImageTable *image_table;
-
-    g_assert (EEL_IS_IMAGE_TABLE (widget));
-
-    image_table = EEL_IMAGE_TABLE (widget);
-
-    if (image_table->details->clear_gc != NULL)
-    {
-        g_object_unref (image_table->details->clear_gc);
-        image_table->details->clear_gc = NULL;
-    }
-
-    /* Chain unrealize */
-    EEL_CALL_PARENT (GTK_WIDGET_CLASS, unrealize, (widget));
-}
-
-/* GtkContainerClass methods */
-static void
-eel_image_table_remove (GtkContainer *container,
-                        GtkWidget *child)
-{
-    EelImageTable *image_table;
-
-    g_assert (EEL_IS_IMAGE_TABLE (container));
-    g_assert (EEL_IS_LABELED_IMAGE (child));
-
-    image_table = EEL_IMAGE_TABLE (container);
-
-    if (child == image_table->details->child_under_pointer)
-    {
-        image_table->details->child_under_pointer = NULL;
-    }
-
-    if (child == image_table->details->child_being_pressed)
-    {
-        image_table->details->child_being_pressed = NULL;
-    }
-
-    EEL_CALL_PARENT (GTK_CONTAINER_CLASS, remove, (container, child));
-}
-
-static GType
-eel_image_table_child_type (GtkContainer *container)
-{
-    return EEL_TYPE_LABELED_IMAGE;
-}
-
-/* Private EelImageTable methods */
-
-static void
-image_table_emit_signal (EelImageTable *image_table,
-                         GtkWidget *child,
-                         guint signal_index,
-                         int x,
-                         int y,
-                         int button,
-                         guint state,
-                         GdkEvent *gdk_event)
-{
-    EelImageTableEvent event;
-
-    g_assert (EEL_IS_IMAGE_TABLE (image_table));
-    g_assert (GTK_IS_WIDGET (child));
-    g_assert (signal_index < LAST_SIGNAL);
-
-    event.x = x;
-    event.y = y;
-    event.button = button;
-    event.state = state;
-    event.event = gdk_event;
-
-    g_signal_emit (image_table,
-                   image_table_signals[signal_index],
-                   0,
-                   child,
-                   &event);
+    g_type_class_add_private (image_table_class, sizeof (EelImageTableDetails));
 }
 
 static void
@@ -399,6 +369,115 @@ image_table_handle_motion (EelImageTable *image_table,
                                  0,
                                  (GdkEvent *)event);
     }
+}
+
+GtkWidget *
+find_windowed_ancestor (GtkWidget *widget)
+{
+    g_return_val_if_fail (GTK_IS_WIDGET (widget), NULL);
+
+    while (widget && !gtk_widget_get_has_window (widget))
+    {
+        widget = gtk_widget_get_parent (widget);
+    }
+
+    return widget;
+}
+
+typedef struct
+{
+    GObject *object;
+    guint object_destroy_handler;
+
+    GtkWidget *realized_widget;
+    guint realized_widget_destroy_handler;
+    guint realized_widget_unrealized_handler;
+
+    guint signal_handler;
+} RealizeDisconnectInfo;
+
+static void
+while_realized_disconnecter (GObject *object,
+                             RealizeDisconnectInfo *info)
+{
+    g_assert (G_IS_OBJECT (object));
+    g_assert (info != NULL);
+    g_assert (G_IS_OBJECT (info->object));
+    g_assert (info->object_destroy_handler != 0);
+    g_assert (info->object_destroy_handler != 0);
+    g_assert (info->realized_widget_destroy_handler != 0);
+    g_assert (info->realized_widget_unrealized_handler != 0);
+
+    g_signal_handler_disconnect (info->object, info->object_destroy_handler);
+    g_signal_handler_disconnect (info->object, info->signal_handler);
+    g_signal_handler_disconnect (info->realized_widget, info->realized_widget_destroy_handler);
+    g_signal_handler_disconnect (info->realized_widget, info->realized_widget_unrealized_handler);
+    g_free (info);
+}
+
+/**
+ * signal_connect_while_realized:
+ *
+ * @object: Object to connect to.
+ * @name: Name of signal to connect to.
+ * @callback: Caller's callback.
+ * @callback_data: Caller's callback_data.
+ * @realized_widget: Widget to monitor for realized state.  Signal is connected
+ *                   while this wigget is realized.
+ *
+ * Connect to a signal of an object while another widget is realized.  This is
+ * useful for non windowed widgets that need to monitor events in their ancestored
+ * windowed widget.  The signal is automatically disconnected when &widget is
+ * unrealized.  Also, the signal is automatically disconnected when either &object
+ * or &widget are destroyed.
+ **/
+static void
+#if GTK_CHECK_VERSION (3, 0, 0)
+signal_connect_while_realized (GtkWidget *object,
+#else
+signal_connect_while_realized (GtkObject *object,
+#endif
+    				const char *name,
+    				GCallback callback,
+    				gpointer callback_data,
+    				GtkWidget *realized_widget)
+{
+    RealizeDisconnectInfo *info;
+
+#if GTK_CHECK_VERSION (3, 0, 0)
+    g_return_if_fail (GTK_IS_WIDGET (object));
+#else
+    g_return_if_fail (GTK_IS_OBJECT (object));
+#endif
+    g_return_if_fail (name != NULL);
+    g_return_if_fail (name[0] != '\0');
+    g_return_if_fail (callback != NULL);
+    g_return_if_fail (GTK_IS_WIDGET (realized_widget));
+    g_return_if_fail (gtk_widget_get_realized (realized_widget));
+
+    info = g_new0 (RealizeDisconnectInfo, 1);
+
+    info->object = object;
+    info->object_destroy_handler =
+        g_signal_connect (G_OBJECT (info->object),
+                          "destroy",
+                          G_CALLBACK (while_realized_disconnecter),
+                          info);
+
+    info->realized_widget = realized_widget;
+    info->realized_widget_destroy_handler =
+        g_signal_connect (G_OBJECT (info->realized_widget),
+                          "destroy",
+                          G_CALLBACK (while_realized_disconnecter),
+                          info);
+    info->realized_widget_unrealized_handler =
+        g_signal_connect_after (G_OBJECT (info->realized_widget),
+                                "unrealize",
+                                G_CALLBACK (while_realized_disconnecter),
+                                info);
+
+    info->signal_handler = g_signal_connect (G_OBJECT (info->object),
+                           name, callback, callback_data);
 }
 
 static int

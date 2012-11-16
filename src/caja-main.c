@@ -101,7 +101,7 @@ static void eel_gtk_main_quit_all (void)
     g_idle_add (quit_if_in_main_loop, NULL);
 }
 
-static void event_loop_unregister (GtkObject *object)
+static void event_loop_unregister (GtkWidget *object)
 {
     event_loop_registrants = g_slist_remove (event_loop_registrants, object);
     
@@ -111,13 +111,17 @@ static void event_loop_unregister (GtkObject *object)
     }
 }
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+void caja_main_event_loop_register (GtkWidget *object)
+#else
 void caja_main_event_loop_register (GtkObject *object)
+#endif
 {
     g_signal_connect (object, "destroy", G_CALLBACK (event_loop_unregister), NULL);
-    event_loop_registrants = g_slist_prepend (event_loop_registrants, object);
+    event_loop_registrants = g_slist_prepend (event_loop_registrants, GTK_WIDGET (object));
 }
 
-gboolean caja_main_is_event_loop_mainstay (GtkObject *object)
+gboolean caja_main_is_event_loop_mainstay (GtkWidget *object)
 {
     return g_slist_length (event_loop_registrants) == 1
            && event_loop_registrants->data == object;
@@ -148,7 +152,7 @@ void caja_main_event_loop_quit (gboolean explicit)
     }
     while (event_loop_registrants != NULL)
     {
-        gtk_object_destroy (event_loop_registrants->data);
+        gtk_widget_destroy (event_loop_registrants->data);
     }
 }
 

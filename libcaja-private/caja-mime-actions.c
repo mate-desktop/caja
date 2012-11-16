@@ -27,7 +27,6 @@
 
 #include <eel/eel-glib-extensions.h>
 #include <eel/eel-stock-dialogs.h>
-#include <eel/eel-alert-dialog.h>
 #include <eel/eel-string.h>
 #include <glib/gi18n.h>
 #include <glib/gstdio.h>
@@ -231,7 +230,8 @@ static void
 application_launch_parameters_free (ApplicationLaunchParameters *parameters)
 {
     g_object_unref (parameters->application);
-    eel_g_list_free_deep (parameters->uris);
+    g_list_foreach(parameters->uris, (GFunc) g_free, NULL);
+    g_list_free(parameters->uris);
 
     g_free (parameters);
 }
@@ -513,7 +513,8 @@ caja_mime_has_any_applications_for_file (CajaFile *file)
     if (apps)
     {
         result = TRUE;
-        eel_g_object_list_free (apps);
+        g_list_foreach(apps, (GFunc) g_object_unref, NULL);
+        g_list_free(apps);
     }
     else
     {
@@ -734,7 +735,8 @@ trash_or_delete_files (GtkWindow *parent_window,
     caja_file_operations_trash_or_delete (locations,
                                           parent_window,
                                           NULL, NULL);
-    eel_g_object_list_free (locations);
+    g_list_foreach(locations, (GFunc) g_object_unref, NULL);
+    g_list_free(locations);
 }
 
 static void
@@ -794,7 +796,7 @@ report_broken_symbolic_link (GtkWindow *parent_window, CajaFile *file)
      */
 
     response = gtk_dialog_run (dialog);
-    gtk_object_destroy (GTK_OBJECT (dialog));
+    gtk_widget_destroy (GTK_WIDGET (dialog));
 
     if (response == GTK_RESPONSE_YES)
     {
@@ -861,7 +863,7 @@ get_executable_text_file_action (GtkWindow *parent_window, CajaFile *file)
     g_free (detail);
 
     response = gtk_dialog_run (dialog);
-    gtk_object_destroy (GTK_OBJECT (dialog));
+    gtk_widget_destroy (GTK_WIDGET (dialog));
 
     switch (response)
     {
@@ -1224,7 +1226,7 @@ confirm_multiple_windows (GtkWindow *parent_window,
     g_free (detail);
 
     response = gtk_dialog_run (dialog);
-    gtk_object_destroy (GTK_OBJECT (dialog));
+    gtk_widget_destroy (GTK_WIDGET (dialog));
 
     return response == GTK_RESPONSE_YES;
 }
@@ -1372,26 +1374,29 @@ show_unhandled_type_error (ActivateParametersInstall *parameters)
 
     char *mime_type = caja_file_get_mime_type (parameters->file);
     char *error_message = get_application_no_mime_type_handler_message (parameters->file, parameters->uri);
-    if (g_content_type_is_unknown (mime_type))
-    {
-        dialog = eel_alert_dialog_new (parameters->parent_window,
-                                       GTK_DIALOG_DESTROY_WITH_PARENT,
-                                       GTK_MESSAGE_ERROR,
-                                       0,
-                                       error_message,
-                                       _("The file is of an unknown type"));
-    }
-    else
-    {
+    if (g_content_type_is_unknown (mime_type)) {
+        dialog = gtk_message_dialog_new (parameters->parent_window,
+        				 GTK_DIALOG_DESTROY_WITH_PARENT,
+        				 GTK_MESSAGE_ERROR,
+        				 0,
+        				 NULL);
+        g_object_set (dialog,
+        	      "text", error_message,
+        	      "secondary-text", _("The file is of an unknown type"),
+        	      NULL);
+    } else {
         char *text;
         text = g_strdup_printf (_("There is no application installed for %s files"), g_content_type_get_description (mime_type));
 
-        dialog = eel_alert_dialog_new (parameters->parent_window,
-                                       GTK_DIALOG_DESTROY_WITH_PARENT,
-                                       GTK_MESSAGE_ERROR,
-                                       0,
-                                       error_message,
-                                       text);
+        dialog = gtk_message_dialog_new (parameters->parent_window,
+        				 GTK_DIALOG_DESTROY_WITH_PARENT,
+        				 GTK_MESSAGE_ERROR,
+        				 0,
+        				 NULL);
+        g_object_set (dialog,
+        	      "text", error_message,
+        	      "secondary-text", text,
+        	      NULL);
 
         g_free (text);
     }
@@ -1734,12 +1739,15 @@ activate_desktop_file (ActivateParameters *parameters,
                               ),
                              display_name);
 
-        dialog = eel_alert_dialog_new (parameters->parent_window,
-                                       0,
-                                       GTK_MESSAGE_WARNING,
-                                       GTK_BUTTONS_NONE,
-                                       primary,
-                                       secondary);
+		dialog = gtk_message_dialog_new (parameters->parent_window,
+						 0,
+						 GTK_MESSAGE_WARNING,
+						 GTK_BUTTONS_NONE,
+						 NULL);
+		g_object_set (dialog,
+			      "text", primary,
+			      "secondary-text", secondary,
+			      NULL);
         gtk_dialog_add_button (GTK_DIALOG (dialog),
                                _("_Launch Anyway"), RESPONSE_RUN);
         if (caja_file_can_set_permissions (file))

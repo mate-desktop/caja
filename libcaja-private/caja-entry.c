@@ -35,6 +35,10 @@
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 
+#if !GTK_CHECK_VERSION(3, 0, 0)
+#define GtkEditableInterface GtkEditableClass
+#endif
+
 struct CajaEntryDetails
 {
     gboolean user_edit;
@@ -51,13 +55,13 @@ enum
 };
 static guint signals[LAST_SIGNAL];
 
-static void caja_entry_editable_init (GtkEditableClass *iface);
+static void caja_entry_editable_init (GtkEditableInterface *iface);
 
 G_DEFINE_TYPE_WITH_CODE (CajaEntry, caja_entry, GTK_TYPE_ENTRY,
                          G_IMPLEMENT_INTERFACE (GTK_TYPE_EDITABLE,
                                  caja_entry_editable_init));
 
-static GtkEditableClass *parent_editable_interface = NULL;
+static GtkEditableInterface *parent_editable_interface = NULL;
 
 static void
 caja_entry_init (CajaEntry *entry)
@@ -123,7 +127,7 @@ caja_entry_key_press (GtkWidget *widget, GdkEventKey *event)
 
     switch (event->keyval)
     {
-    case GDK_Tab:
+    case GDK_KEY_Tab:
         /* The location bar entry wants TAB to work kind of
          * like it does in the shell for command completion,
          * so if we get a tab and there's a selection, we
@@ -373,7 +377,7 @@ caja_entry_selection_clear (GtkWidget *widget,
 }
 
 static void
-caja_entry_editable_init (GtkEditableClass *iface)
+caja_entry_editable_init (GtkEditableInterface *iface)
 {
     parent_editable_interface = g_type_interface_peek_parent (iface);
 
@@ -391,12 +395,10 @@ static void
 caja_entry_class_init (CajaEntryClass *class)
 {
     GtkWidgetClass *widget_class;
-    GtkObjectClass *object_class;
     GObjectClass *gobject_class;
 
     widget_class = GTK_WIDGET_CLASS (class);
     gobject_class = G_OBJECT_CLASS (class);
-    object_class = GTK_OBJECT_CLASS (class);
 
     widget_class->button_press_event = caja_entry_button_press;
     widget_class->button_release_event = caja_entry_button_release;
@@ -409,19 +411,17 @@ caja_entry_class_init (CajaEntryClass *class)
     /* Set up signals */
     signals[USER_CHANGED] = g_signal_new
                             ("user_changed",
-                             G_TYPE_FROM_CLASS (object_class),
+                             G_TYPE_FROM_CLASS (class),
                              G_SIGNAL_RUN_LAST,
-                             G_STRUCT_OFFSET (CajaEntryClass,
-                                     user_changed),
+                             G_STRUCT_OFFSET (CajaEntryClass, user_changed),
                              NULL, NULL,
                              g_cclosure_marshal_VOID__VOID,
                              G_TYPE_NONE, 0);
     signals[SELECTION_CHANGED] = g_signal_new
                                  ("selection_changed",
-                                  G_TYPE_FROM_CLASS (object_class),
+                                  G_TYPE_FROM_CLASS (class),
                                   G_SIGNAL_RUN_LAST,
-                                  G_STRUCT_OFFSET (CajaEntryClass,
-                                          selection_changed),
+                                  G_STRUCT_OFFSET (CajaEntryClass, selection_changed),
                                   NULL, NULL,
                                   g_cclosure_marshal_VOID__VOID,
                                   G_TYPE_NONE, 0);

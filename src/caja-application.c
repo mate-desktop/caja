@@ -257,7 +257,8 @@ automount_all_volumes (CajaApplication *application)
             /* pass NULL as GMountOperation to avoid user interaction */
             g_volume_mount (volume, 0, NULL, NULL, startup_volume_mount_cb, NULL);
         }
-        eel_g_object_list_free (volumes);
+    	g_list_foreach(volumes, (GFunc) g_object_unref, NULL);
+    	g_list_free(volumes);
     }
 
 }
@@ -432,7 +433,7 @@ check_required_directories (CajaApplication *application)
 
         dialog = eel_show_error_dialog (error_string, detail_string, NULL);
         /* We need the main event loop so the user has a chance to see the dialog. */
-        caja_main_event_loop_register (GTK_OBJECT (dialog));
+        caja_main_event_loop_register (GTK_WIDGET (dialog));
 
         g_string_free (directories_as_string, TRUE);
         g_free (error_string);
@@ -777,42 +778,33 @@ open_window (CajaApplication *application,
 {
     GFile *location;
     CajaWindow *window;
+    gboolean existing;
+
+    if (uri == NULL) {
+    	location = g_file_new_for_path (g_get_home_dir ());
+    } else {
+    	location = g_file_new_for_uri (uri);
+    }
+
+	existing = FALSE;
 
     if (browser_window ||
-            g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_BROWSER))
-    {
+            g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_BROWSER)) {
         window = caja_application_create_navigation_window (application,
                  startup_id,
                  screen);
-        if (uri == NULL)
-        {
-            caja_window_go_home (window);
-        }
-        else
-        {
-            location = g_file_new_for_uri (uri);
-            caja_window_go_to (window, location);
-            g_object_unref (location);
-        }
-    }
-    else
-    {
-        if (uri == NULL)
-        {
-            location = g_file_new_for_path (g_get_home_dir ());
-        }
-        else
-        {
-            location = g_file_new_for_uri (uri);
-        }
-
-        window = caja_application_present_spatial_window (application,
+    } else {
+        window = caja_application_get_spatial_window (application,
                  NULL,
                  startup_id,
                  location,
-                 screen);
-        g_object_unref (location);
+                 screen,
+                 NULL);
     }
+
+    caja_window_go_to (window, location);
+
+    g_object_unref (location);
 
     if (geometry != NULL && !gtk_widget_get_visible (GTK_WIDGET (window)))
     {
@@ -1225,22 +1217,25 @@ caja_application_get_existing_spatial_window (GFile *location)
 {
     GList *l;
     CajaWindowSlot *slot;
+    GFile *window_location;
 
     for (l = caja_application_get_spatial_window_list ();
-            l != NULL; l = l->next)
-    {
-        GFile *window_location;
-
+            l != NULL; l = l->next) {
         slot = CAJA_WINDOW (l->data)->details->active_pane->active_slot;
-        window_location = slot->location;
-        if (window_location != NULL)
-        {
-            if (g_file_equal (location, window_location))
-            {
-                return CAJA_SPATIAL_WINDOW (l->data);
+
+        window_location = slot->pending_location;
+
+        if (window_location == NULL) {
+        	window_location = slot->location;
+        }
+
+        if (window_location != NULL) {
+        	if (g_file_equal (location, window_location)) {
+            	return CAJA_SPATIAL_WINDOW (l->data);
             }
         }
     }
+
     return NULL;
 }
 
@@ -1352,7 +1347,11 @@ caja_application_close_all_spatial_windows (void)
 }
 
 static void
+#if GTK_CHECK_VERSION (3, 0, 0)
+caja_application_destroyed_window (GtkWidget *object, CajaApplication *application)
+#else
 caja_application_destroyed_window (GtkObject *object, CajaApplication *application)
+#endif
 {
     caja_application_window_list = g_list_remove (caja_application_window_list, object);
 }
@@ -1416,67 +1415,31 @@ spatial_window_destroyed_callback (void *user_data, GObject *window)
 }
 
 CajaWindow *
-caja_application_present_spatial_window (CajaApplication *application,
-        CajaWindow      *requesting_window,
-        const char          *startup_id,
-        GFile               *location,
-        GdkScreen           *screen)
-{
-    return caja_application_present_spatial_window_with_selection (application,
-            requesting_window,
-            startup_id,
-            location,
-            NULL,
-            screen);
-}
-
-CajaWindow *
-caja_application_present_spatial_window_with_selection (CajaApplication *application,
-        CajaWindow      *requesting_window,
-        const char          *startup_id,
-        GFile               *location,
-        GList		*new_selection,
-        GdkScreen           *screen)
+caja_application_get_spatial_window (CajaApplication *application,
+                                    CajaWindow      *requesting_window,
+                                    const char      *startup_id,
+                                    GFile           *location,
+                                    GdkScreen       *screen,
+                                    gboolean        *existing)
 {
     CajaWindow *window;
-    GList *l;
-    char *uri;
+    gchar *uri;
 
     g_return_val_if_fail (CAJA_IS_APPLICATION (application), NULL);
+    window = CAJA_WINDOW
+    		(caja_application_get_existing_spatial_window (location));
 
-    for (l = caja_application_get_spatial_window_list ();
-            l != NULL; l = l->next)
-    {
-        CajaWindow *existing_window;
-        CajaWindowSlot *slot;
-        GFile *existing_location;
-
-        existing_window = CAJA_WINDOW (l->data);
-        slot = existing_window->details->active_pane->active_slot;
-        existing_location = slot->pending_location;
-
-        if (existing_location == NULL)
-        {
-            existing_location = slot->location;
+	if (window != NULL) {
+		if (existing != NULL) {
+			*existing = TRUE;
         }
 
-        if (g_file_equal (existing_location, location))
-        {
-            gtk_window_present (GTK_WINDOW (existing_window));
-            if (new_selection &&
-                    slot->content_view != NULL)
-            {
-                caja_view_set_selection (slot->content_view, new_selection);
-            }
-
-            uri = g_file_get_uri (location);
-            caja_debug_log (FALSE, CAJA_DEBUG_LOG_DOMAIN_USER,
-                            "present EXISTING spatial window=%p: %s",
-                            existing_window, uri);
-            g_free (uri);
-            return existing_window;
-        }
+		return window;
     }
+
+	if (existing != NULL) {
+		*existing = FALSE;
+	}
 
     window = create_window (application, CAJA_TYPE_SPATIAL_WINDOW, startup_id, screen);
     if (requesting_window)
@@ -1507,8 +1470,6 @@ caja_application_present_spatial_window_with_selection (CajaApplication *applica
     caja_application_spatial_window_list = g_list_prepend (caja_application_spatial_window_list, window);
     g_object_weak_ref (G_OBJECT (window),
                        spatial_window_destroyed_callback, NULL);
-
-    caja_window_go_to_with_selection (window, location, new_selection);
 
     uri = g_file_get_uri (location);
     caja_debug_log (FALSE, CAJA_DEBUG_LOG_DOMAIN_USER,
@@ -1704,27 +1665,30 @@ autorun_show_window (GMount *mount, gpointer user_data)
 {
     GFile *location;
     CajaApplication *application = user_data;
+    CajaWindow *window;
+    gboolean existing;
 
     location = g_mount_get_root (mount);
+    existing = FALSE;
 
     /* There should probably be an easier way to do this */
-    if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_BROWSER))
-    {
-        CajaWindow *window;
+    if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_BROWSER)) {
         window = caja_application_create_navigation_window (application,
-                 NULL,
-                 gdk_screen_get_default ());
-        caja_window_go_to (window, location);
-
+                                                            NULL,
+                                                            gdk_screen_get_default ());
     }
     else
     {
-        caja_application_present_spatial_window (application,
-                NULL,
-                NULL,
-                location,
-                gdk_screen_get_default ());
+        window = caja_application_get_spatial_window (application,
+                                                      NULL,
+                                                      NULL,
+                                                      location,
+                                                      gdk_screen_get_default (),
+                                                      NULL);
     }
+
+    caja_window_go_to (window, location);
+
     g_object_unref (location);
 }
 
@@ -2285,7 +2249,12 @@ caja_application_load_session (CajaApplication *application)
                 else if (!strcmp (type, "spatial"))
                 {
                     location = g_file_new_for_uri (location_uri);
-                    window = caja_application_present_spatial_window (application, NULL, NULL, location, gdk_screen_get_default ());
+                    window = caja_application_get_spatial_window (application, NULL, NULL, 
+                    											  location, gdk_screen_get_default (),
+                    											  NULL);
+
+					caja_window_go_to (window, location);
+
                     g_object_unref (location);
                 }
                 else

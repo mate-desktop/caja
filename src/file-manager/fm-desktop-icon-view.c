@@ -31,13 +31,8 @@
 
 #include <X11/Xatom.h>
 #include <gtk/gtk.h>
-#include <dirent.h>
 #include <eel/eel-glib-extensions.h>
-#include <eel/eel-mate-extensions.h>
 #include <eel/eel-gtk-extensions.h>
-#include <eel/eel-gtk-macros.h>
-#include <eel/eel-stock-dialogs.h>
-#include <eel/eel-string.h>
 #include <eel/eel-vfs-extensions.h>
 #include <fcntl.h>
 #include <gdk/gdkx.h>
@@ -64,6 +59,12 @@
 #include <sys/types.h>
 #include <unistd.h>
 
+#if !GTK_CHECK_VERSION(3, 0, 0)
+#define gtk_scrollable_get_hadjustment gtk_layout_get_hadjustment
+#define gtk_scrollable_get_vadjustment gtk_layout_get_vadjustment
+#define GTK_SCROLLABLE GTK_LAYOUT
+#endif
+
 /* Timeout to check the desktop directory for updates */
 #define RESCAN_TIMEOUT 4
 
@@ -80,8 +81,6 @@ struct FMDesktopIconViewDetails
     gboolean pending_rescan;
 };
 
-static void     fm_desktop_icon_view_init                   (FMDesktopIconView      *desktop_icon_view);
-static void     fm_desktop_icon_view_class_init             (FMDesktopIconViewClass *klass);
 static void     default_zoom_level_changed                        (gpointer                user_data);
 static gboolean real_supports_auto_layout                         (FMIconView             *view);
 static gboolean real_supports_scaling	                          (FMIconView             *view);
@@ -93,9 +92,7 @@ static gboolean real_supports_zooming                             (FMDirectoryVi
 static void     fm_desktop_icon_view_update_icon_container_fonts  (FMDesktopIconView      *view);
 static void     font_changed_callback                             (gpointer                callback_data);
 
-EEL_CLASS_BOILERPLATE (FMDesktopIconView,
-                       fm_desktop_icon_view,
-                       FM_TYPE_ICON_VIEW)
+G_DEFINE_TYPE (FMDesktopIconView, fm_desktop_icon_view, FM_TYPE_ICON_VIEW)
 
 static char *desktop_directory;
 static time_t desktop_dir_modify_time;
@@ -226,7 +223,7 @@ net_workarea_changed (FMDesktopIconView *icon_view,
     }
     else
     {
-        screen = gdk_drawable_get_screen (GDK_DRAWABLE (window));
+        screen = gdk_window_get_screen (window);
 
         icon_container_set_workarea (
             icon_container, screen, workareas, length_returned / sizeof (long));
@@ -263,7 +260,7 @@ desktop_icon_view_property_filter (GdkXEvent *gdk_xevent,
 }
 
 static void
-fm_desktop_icon_view_destroy (GtkObject *object)
+fm_desktop_icon_view_dispose (GObject *object)
 {
     FMDesktopIconView *icon_view;
     GtkUIManager *ui_manager;
@@ -285,16 +282,6 @@ fm_desktop_icon_view_destroy (GtkObject *object)
                             &icon_view->details->desktop_action_group);
     }
 
-    GTK_OBJECT_CLASS (parent_class)->destroy (object);
-}
-
-static void
-fm_desktop_icon_view_finalize (GObject *object)
-{
-    FMDesktopIconView *icon_view;
-
-    icon_view = FM_DESKTOP_ICON_VIEW (object);
-
     g_signal_handlers_disconnect_by_func (caja_icon_view_preferences,
                                           default_zoom_level_changed,
                                           icon_view);
@@ -309,17 +296,13 @@ fm_desktop_icon_view_finalize (GObject *object)
                                           desktop_directory_changed_callback,
                                           NULL);
 
-    g_free (icon_view->details);
-
-    G_OBJECT_CLASS (parent_class)->finalize (object);
+    G_OBJECT_CLASS (fm_desktop_icon_view_parent_class)->dispose (object);
 }
 
 static void
 fm_desktop_icon_view_class_init (FMDesktopIconViewClass *class)
 {
-    G_OBJECT_CLASS (class)->finalize = fm_desktop_icon_view_finalize;
-
-    GTK_OBJECT_CLASS (class)->destroy = fm_desktop_icon_view_destroy;
+    G_OBJECT_CLASS (class)->dispose = fm_desktop_icon_view_dispose;
 
     FM_DIRECTORY_VIEW_CLASS (class)->merge_menus = real_merge_menus;
     FM_DIRECTORY_VIEW_CLASS (class)->update_menus = real_update_menus;
@@ -329,6 +312,8 @@ fm_desktop_icon_view_class_init (FMDesktopIconViewClass *class)
     FM_ICON_VIEW_CLASS (class)->supports_scaling = real_supports_scaling;
     FM_ICON_VIEW_CLASS (class)->supports_keep_aligned = real_supports_keep_aligned;
     FM_ICON_VIEW_CLASS (class)->supports_labels_beside_icons = real_supports_labels_beside_icons;
+
+    g_type_class_add_private (class, sizeof (FMDesktopIconViewDetails));
 }
 
 static void
@@ -352,7 +337,7 @@ fm_desktop_icon_view_handle_middle_click (CajaIconContainer *icon_container,
     /* build an X event to represent the middle click. */
     x_event.type = ButtonPress;
     x_event.send_event = True;
-    x_event.display = GDK_DISPLAY ();
+    x_event.display = GDK_DISPLAY_XDISPLAY (gdk_display_get_default ());
     x_event.window = GDK_ROOT_WINDOW ();
     x_event.root = GDK_ROOT_WINDOW ();
     x_event.subwindow = 0;
@@ -366,7 +351,7 @@ fm_desktop_icon_view_handle_middle_click (CajaIconContainer *icon_container,
     x_event.same_screen = True;
 
     /* Send it to the root window, the window manager will handle it. */
-    XSendEvent (GDK_DISPLAY (), GDK_ROOT_WINDOW (), True,
+    XSendEvent (GDK_DISPLAY_XDISPLAY (gdk_display_get_default ()), GDK_ROOT_WINDOW (), True,
                 ButtonPressMask, (XEvent *) &x_event);
 }
 
@@ -481,7 +466,8 @@ do_desktop_rescan (gpointer data)
 }
 
 static void
-done_loading (GtkObject *DirectoryView, FMDesktopIconView *desktop_icon_view)
+done_loading (CajaDirectory *model,
+	      FMDesktopIconView *desktop_icon_view)
 {
     struct stat buf;
 
@@ -547,6 +533,10 @@ fm_desktop_icon_view_init (FMDesktopIconView *desktop_icon_view)
     GtkAllocation allocation;
     GtkAdjustment *hadj, *vadj;
 
+    desktop_icon_view->details = G_TYPE_INSTANCE_GET_PRIVATE (desktop_icon_view,
+    							      FM_TYPE_DESKTOP_ICON_VIEW,
+    							      FMDesktopIconViewDetails);
+
     if (desktop_directory == NULL)
     {
         g_signal_connect_swapped (caja_preferences, "changed::" CAJA_PREFERENCES_DESKTOP_IS_HOME_DIR,
@@ -559,9 +549,6 @@ fm_desktop_icon_view_init (FMDesktopIconView *desktop_icon_view)
     icon_container = get_icon_container (desktop_icon_view);
     caja_icon_container_set_use_drop_shadows (icon_container, TRUE);
     fm_icon_container_set_sort_desktop (FM_ICON_CONTAINER (icon_container), TRUE);
-
-    /* Set up details */
-    desktop_icon_view->details = g_new0 (FMDesktopIconViewDetails, 1);
 
     /* Do a reload on the desktop if we don't have FAM, a smarter
      * way to keep track of the items on the desktop.
@@ -585,8 +572,8 @@ fm_desktop_icon_view_init (FMDesktopIconView *desktop_icon_view)
 
     gtk_widget_queue_resize (GTK_WIDGET (icon_container));
 
-    hadj = gtk_layout_get_hadjustment (GTK_LAYOUT (icon_container));
-    vadj = gtk_layout_get_vadjustment (GTK_LAYOUT (icon_container));
+    hadj = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (icon_container));
+    vadj = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (icon_container));
 
     eel_gtk_adjustment_set_value (hadj, 0);
     eel_gtk_adjustment_set_value (vadj, 0);
@@ -716,7 +703,7 @@ real_update_menus (FMDirectoryView *view)
 
     g_assert (FM_IS_DESKTOP_ICON_VIEW (view));
 
-    EEL_CALL_PARENT (FM_DIRECTORY_VIEW_CLASS, update_menus, (view));
+    FM_DIRECTORY_VIEW_CLASS (fm_desktop_icon_view_parent_class)->update_menus (view);
 
     desktop_view = FM_DESKTOP_ICON_VIEW (view);
 
@@ -782,7 +769,7 @@ real_merge_menus (FMDirectoryView *view)
     GtkActionGroup *action_group;
     const char *ui;
 
-    EEL_CALL_PARENT (FM_DIRECTORY_VIEW_CLASS, merge_menus, (view));
+    FM_DIRECTORY_VIEW_CLASS (fm_desktop_icon_view_parent_class)->merge_menus (view);
 
     desktop_view = FM_DESKTOP_ICON_VIEW (view);
 

@@ -25,7 +25,6 @@
 #include "caja-search-engine-beagle.h"
 
 #include <eel/eel-gtk-macros.h>
-#include <eel/eel-glib-extensions.h>
 #include <gmodule.h>
 
 typedef struct _BeagleHit BeagleHit;
@@ -342,7 +341,8 @@ caja_search_engine_beagle_start (CajaSearchEngine *engine)
 
     /* These must live during the lifetime of the query */
     g_free (text);
-    eel_g_list_free_deep (mimetypes);
+    g_list_foreach(mimetypes, (GFunc) g_free, NULL);
+    g_list_free(mimetypes);
 }
 
 static void

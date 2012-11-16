@@ -35,10 +35,7 @@
 #include "fm-tree-model.h"
 #include "fm-properties-window.h"
 #include <string.h>
-#include <eel/eel-alert-dialog.h>
-#include <eel/eel-glib-extensions.h>
 #include <eel/eel-gtk-extensions.h>
-#include <eel/eel-stock-dialogs.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 #include <gio/gio.h>
@@ -53,7 +50,6 @@
 #include <libcaja-private/caja-icon-names.h>
 #include <libcaja-private/caja-program-choosing.h>
 #include <libcaja-private/caja-tree-view-drag-dest.h>
-#include <libcaja-private/caja-cell-renderer-pixbuf-emblem.h>
 #include <libcaja-private/caja-sidebar-provider.h>
 #include <libcaja-private/caja-module.h>
 #include <libcaja-private/caja-window-info.h>
@@ -1063,7 +1059,8 @@ paste_clipboard_data (FMTreeView *view,
             gtk_clipboard_clear (caja_clipboard_get (GTK_WIDGET (view)));
         }
 
-        eel_g_list_free_deep (item_uris);
+    	g_list_foreach(item_uris, (GFunc) g_free, NULL);
+    	g_list_free(item_uris);
     }
 }
 
@@ -1126,7 +1123,8 @@ fm_tree_view_trash_cb (GtkWidget *menu_item,
     caja_file_operations_trash_or_delete (list,
                                           fm_tree_view_get_containing_window (view),
                                           NULL, NULL);
-    eel_g_object_list_free (list);
+    g_list_foreach(list, (GFunc) g_object_unref, NULL);
+    g_list_free(list);
 }
 
 static void
@@ -1144,7 +1142,8 @@ fm_tree_view_delete_cb (GtkWidget *menu_item,
                                     caja_file_get_location (view->details->popup_file));
 
     caja_file_operations_delete (location_list, fm_tree_view_get_containing_window (view), NULL, NULL);
-    eel_g_object_list_free (location_list);
+    g_list_foreach(location_list, (GFunc) g_object_unref, NULL);
+    g_list_free(location_list);
 }
 
 static void
@@ -1475,13 +1474,12 @@ create_tree (FMTreeView *view)
     /* Create column */
     column = gtk_tree_view_column_new ();
 
-    cell = caja_cell_renderer_pixbuf_emblem_new ();
+    cell = gtk_cell_renderer_pixbuf_new ();
     gtk_tree_view_column_pack_start (column, cell, FALSE);
     gtk_tree_view_column_set_attributes (column, cell,
                                          "pixbuf", FM_TREE_MODEL_CLOSED_PIXBUF_COLUMN,
                                          "pixbuf_expander_closed", FM_TREE_MODEL_CLOSED_PIXBUF_COLUMN,
                                          "pixbuf_expander_open", FM_TREE_MODEL_OPEN_PIXBUF_COLUMN,
-                                         "pixbuf_emblem", FM_TREE_MODEL_EMBLEM_PIXBUF_COLUMN,
                                          NULL);
 
     cell = gtk_cell_renderer_text_new ();

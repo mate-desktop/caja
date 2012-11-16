@@ -34,7 +34,6 @@
 #include "caja-link.h"
 #include "caja-marshal.h"
 #include <eel/eel-glib-extensions.h>
-#include <eel/eel-string.h>
 #include <gtk/gtk.h>
 #include <libxml/parser.h>
 #include <stdio.h>
@@ -1080,7 +1079,8 @@ dequeue_pending_idle_callback (gpointer callback_data)
 
             file->details->got_mime_list = TRUE;
             file->details->mime_list_is_up_to_date = TRUE;
-            eel_g_list_free_deep (file->details->mime_list);
+            g_list_foreach (file->details->mime_list, (GFunc) g_free, NULL);
+            g_list_free(file->details->mime_list);
             file->details->mime_list = istr_set_get_as_list
                                        (dir_load_state->load_mime_list_hash);
 
@@ -1093,7 +1093,8 @@ dequeue_pending_idle_callback (gpointer callback_data)
     }
 
 drain:
-    eel_g_object_list_free (pending_file_info);
+    g_list_foreach (pending_file_info, (GFunc) g_object_unref, NULL);
+    g_list_free(pending_file_info);
 
     /* Get the state machine running again. */
     caja_directory_async_state_changed (directory);
@@ -1181,7 +1182,8 @@ file_list_cancel (CajaDirectory *directory)
 
     if (directory->details->pending_file_info != NULL)
     {
-        eel_g_object_list_free  (directory->details->pending_file_info);
+	g_list_foreach (directory->details->pending_file_info, (GFunc) g_object_unref, NULL);
+    	g_list_free(directory->details->pending_file_info);
         directory->details->pending_file_info = NULL;
     }
 
@@ -2786,7 +2788,8 @@ count_more_files_callback (GObject *source_object,
                                             state);
     }
 
-    eel_g_object_list_free (files);
+    g_list_foreach (files, (GFunc) g_object_unref, NULL);
+    g_list_free(files);
 
     if (error)
     {
@@ -3011,7 +3014,8 @@ deep_count_state_free (DeepCountState *state)
     {
         g_object_unref (state->deep_count_location);
     }
-    eel_g_object_list_free (state->deep_count_subdirectories);
+    g_list_foreach (state->deep_count_subdirectories, (GFunc) g_object_unref, NULL);
+    g_list_free(state->deep_count_subdirectories);
     g_array_free (state->seen_deep_count_inodes, TRUE);
     g_free (state);
 }
@@ -3319,7 +3323,8 @@ mime_list_done (MimeListState *state, gboolean success)
     file = state->mime_list_file;
 
     file->details->mime_list_is_up_to_date = TRUE;
-    eel_g_list_free_deep (file->details->mime_list);
+    g_list_foreach(file->details->mime_list, (GFunc) g_free, NULL);
+    g_list_free(file->details->mime_list);
     if (success)
     {
         file->details->mime_list_failed = TRUE;
@@ -4574,7 +4579,8 @@ get_mount_at (GFile *target)
         g_object_unref (root);
     }
 
-    eel_g_object_list_free (mounts);
+    g_list_foreach (mounts, (GFunc) g_object_unref, NULL);
+    g_list_free(mounts);
 
     g_object_unref (monitor);
 

@@ -115,7 +115,7 @@ extern "C" {
 
     struct _EelCanvasItem
     {
-        GtkObject object;
+        GInitiallyUnowned object;
 
         /* Parent canvas for this item */
         EelCanvas *canvas;
@@ -132,7 +132,9 @@ extern "C" {
 
     struct _EelCanvasItemClass
     {
-        GtkObjectClass parent_class;
+        GInitiallyUnownedClass parent_class;
+
+        void (* destroy) (EelCanvasItem *item);
 
         /* Tell the item to update itself.  The flags are from the update flags
          * defined above.  The item should update its internal state from its
@@ -157,7 +159,11 @@ extern "C" {
          * coordinates of the drawable, a temporary pixmap, where things get
          * drawn.  (width, height) are the dimensions of the drawable.
          */
+#if GTK_CHECK_VERSION(3,0,0)
+	void (* draw) (EelCanvasItem *item, cairo_t *cr, cairo_region_t *region);
+#else
         void (* draw) (EelCanvasItem *item, GdkDrawable *drawable, GdkEventExpose *expose);
+#endif
 
         /* Calculate the distance from an item to the specified point.  It also
              * returns a canvas item which is the item itself in the case of the
@@ -194,6 +200,8 @@ extern "C" {
      */
     EelCanvasItem *eel_canvas_item_new (EelCanvasGroup *parent, GType type,
                                         const gchar *first_arg_name, ...);
+
+    void eel_canvas_item_destroy (EelCanvasItem *item);
 
     /* Constructors for use in derived classes and language wrappers */
     void eel_canvas_item_construct (EelCanvasItem *item, EelCanvasGroup *parent,
@@ -372,9 +380,6 @@ extern "C" {
         /* If non-NULL, the currently focused item */
         EelCanvasItem *focused_item;
 
-        /* GC for temporary draw pixmap */
-        GdkGC *pixmap_gc;
-
         /* Event on which selection of current item is based */
         GdkEvent pick_event;
 
@@ -433,7 +438,11 @@ extern "C" {
         /* Draw the background for the area given.
          */
         void (* draw_background) (EelCanvas *canvas,
+#if GTK_CHECK_VERSION(3,0,0)
+                                  cairo_t *cr);
+#else
                                   int x, int y, int width, int height);
+#endif
 
         /* Private Virtual methods for groping the canvas inside matecomponent */
         void (* request_update) (EelCanvas *canvas);
@@ -527,16 +536,6 @@ extern "C" {
      */
     int eel_canvas_get_color (EelCanvas *canvas, const char *spec, GdkColor *color);
 
-    /* Allocates a color from the RGB value passed into this function. */
-    gulong eel_canvas_get_color_pixel (EelCanvas *canvas,
-                                       guint        rgba);
-
-
-    /* Sets the stipple origin of the specified gc so that it will be aligned with
-     * all the stipples used in the specified canvas.  This is intended for use only
-     * by canvas item implementations.
-     */
-    void eel_canvas_set_stipple_origin (EelCanvas *canvas, GdkGC *gc);
 
 #ifdef __cplusplus
 }

@@ -52,6 +52,11 @@ desktopdir = $(datadir)/mate/network/
 schemedir = $(datadir)/applications
 scheme_DATA = mate-network-scheme.desktop
 
+BUILT_SOURCES = \
+	caja-src-marshal.c \
+	caja-src-marshal.h \
+	$(NULL)
+
 caja_SOURCES = \
 	caja-actions.h \
 	caja-application.c \
@@ -63,6 +68,8 @@ caja_SOURCES = \
 	caja-connect-server-dialog.c \
 	caja-connect-server-dialog.h \
 	caja-connect-server-dialog-nonmain.c \
+	caja-connect-server-operation.c	\
+	caja-connect-server-operation.h	\
 	caja-desktop-window.c \
 	caja-desktop-window.h \
 	caja-emblem-sidebar.c \
@@ -141,6 +148,28 @@ caja_SOURCES = \
 	caja-zoom-control.h \
 	$(NULL)
 
+nodist_caja_SOURCES = \
+	$(BUILT_SOURCES) \
+	$(NULL)
+
+caja-src-marshal.list: $(caja_SOURCES) Makefile.am
+	$(AM_V_GEN)( cd $(srcdir) && \
+	sed -n -e 's/.*caja_src_marshal_\([[:upper:][:digit:]]*__[[:upper:][:digit:]_]*\).*/\1/p' \
+	$(caja_SOURCES) ) \
+	| sed -e 's/__/:/' -e 'y/_/,/' | sort -u > $@.tmp
+	@if cmp -s $@.tmp $@; then \
+		rm $@.tmp; \
+	else \
+		mv $@.tmp $@; \
+	fi
+
+%-marshal.c: %-marshal.list Makefile
+	$(AM_V_GEN)echo "#include \"caja-src-marshal.h\"" > $@ && \
+	$(GLIB_GENMARSHAL) --body --prefix=$(subst -,_,$*)_marshal $< >> $*-marshal.c
+
+%-marshal.h: %-marshal.list Makefile
+	$(AM_V_GEN)$(GLIB_GENMARSHAL) --header --prefix=$(subst -,_,$*)_marshal $< > $*-marshal.h
+
 caja_file_management_properties_SOURCES = \
 	caja-file-management-properties.c \
 	caja-file-management-properties.h \
@@ -157,8 +186,8 @@ caja_connect_server_SOURCES = \
 	caja-connect-server-dialog.c \
 	caja-connect-server-dialog.h \
 	caja-connect-server-dialog-main.c \
-	caja-location-entry.c \
-	caja-location-entry.h \
+	caja-connect-server-operation.c     \
+	caja-connect-server-operation.h     \
 	$(NULL)
 
 caja_convert_metadata_SOURCES = \
@@ -179,18 +208,18 @@ ui_DATA = \
 	$(NULL)
 
 CLEANFILES = \
+	caja-src-marshal.list \
+	$(BUILT_SOURCES) \
 	$(desktop_files) \
 	$(server_DATA) \
 	$(NULL)
 
 EXTRA_DIST = \
+	caja-src-marshal.list \
 	$(server_in_files) \
 	$(ui_DATA) \
 	check-caja \
 	$(desktop_in_files) \
-	$(NULL)
-
-BUILT_SOURCES = \
 	$(NULL)
 
 dist-hook:

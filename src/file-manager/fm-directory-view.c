@@ -35,6 +35,7 @@
 
 #include "fm-actions.h"
 #include "fm-error-reporting.h"
+#include "fm-marshal.h"
 #include "fm-properties-window.h"
 #include "libcaja-private/caja-open-with-dialog.h"
 
@@ -46,7 +47,6 @@
 #include <eel/eel-stock-dialogs.h>
 #include <eel/eel-string.h>
 #include <eel/eel-vfs-extensions.h>
-#include <eel/eel-marshal.h>
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
@@ -71,7 +71,6 @@
 #include <libcaja-private/caja-file-private.h> /* for caja_file_get_existing_by_uri */
 #include <libcaja-private/caja-global-preferences.h>
 #include <libcaja-private/caja-link.h>
-#include <libcaja-private/caja-marshal.h>
 #include <libcaja-private/caja-metadata.h>
 #include <libcaja-private/caja-mime-actions.h>
 #include <libcaja-private/caja-module.h>
@@ -660,7 +659,7 @@ fm_directory_view_confirm_multiple (GtkWindow *parent_window,
 	g_free (detail);
 
 	response = gtk_dialog_run (dialog);
-	gtk_object_destroy (GTK_OBJECT (dialog));
+	gtk_widget_destroy (GTK_WIDGET (dialog));
 
 	return response == GTK_RESPONSE_YES;
 }
@@ -1026,7 +1025,8 @@ delete_selected_files (FMDirectoryView *view)
 
 	caja_file_operations_delete (locations, fm_directory_view_get_containing_window (view), NULL, NULL);
 
-	eel_g_object_list_free (locations);
+	g_list_foreach(locations, (GFunc) g_object_unref, NULL);
+	g_list_free(locations);
         caja_file_list_free (selection);
 }
 
@@ -1204,7 +1204,6 @@ select_pattern (FMDirectoryView *view)
 			NULL);
 	gtk_dialog_set_default_response (GTK_DIALOG (dialog),
 					 GTK_RESPONSE_OK);
-	gtk_dialog_set_has_separator (GTK_DIALOG (dialog), FALSE);
 	gtk_container_set_border_width (GTK_CONTAINER (dialog), 5);
 	gtk_box_set_spacing (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), 2);
 
@@ -1334,7 +1333,7 @@ action_save_search_as_callback (GtkAction *action,
 
 		dialog = gtk_dialog_new_with_buttons (_("Save Search as"),
 						      fm_directory_view_get_containing_window (directory_view),
-						      GTK_DIALOG_NO_SEPARATOR,
+						      0,
 						      GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
 						      NULL);
 		save_button = gtk_dialog_add_button (GTK_DIALOG (dialog),
@@ -1936,7 +1935,8 @@ fm_directory_view_set_selection_locations (CajaView *caja_view,
 		/* If we are still loading, set the list of pending URIs instead.
 		 * done_loading() will eventually select the pending URIs and reveal them.
 		 */
-		eel_g_object_list_free (view->details->pending_locations_selected);
+		g_list_foreach(view->details->pending_locations_selected, (GFunc) g_object_unref, NULL);
+		g_list_free(view->details->pending_locations_selected);
 		view->details->pending_locations_selected =
 			eel_g_object_list_copy (selection_locations);
 	}
@@ -2098,7 +2098,11 @@ real_unmerge_menus (FMDirectoryView *view)
 }
 
 static void
+#if GTK_CHECK_VERSION (3, 0, 0)
+fm_directory_view_destroy (GtkWidget *object)
+#else
 fm_directory_view_destroy (GtkObject *object)
+#endif
 {
 	FMDirectoryView *view;
 	GList *node, *next;
@@ -2159,7 +2163,11 @@ fm_directory_view_destroy (GtkObject *object)
 		view->details->directory_as_file = NULL;
 	}
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+	EEL_CALL_PARENT (GTK_WIDGET_CLASS, destroy, (object));
+#else
 	EEL_CALL_PARENT (GTK_OBJECT_CLASS, destroy, (object));
+#endif
 }
 
 static void
@@ -2170,17 +2178,17 @@ fm_directory_view_finalize (GObject *object)
 	view = FM_DIRECTORY_VIEW (object);
 
 	g_signal_handlers_disconnect_by_func (caja_preferences,
-										  schedule_update_menus_callback, view);
+        				      schedule_update_menus_callback, view);
 	g_signal_handlers_disconnect_by_func (caja_icon_view_preferences,
-										  text_attribute_names_changed_callback, view);
+        				      text_attribute_names_changed_callback, view);
 	g_signal_handlers_disconnect_by_func (caja_preferences,
-										  image_display_policy_changed_callback, view);
+        				      image_display_policy_changed_callback, view);
 	g_signal_handlers_disconnect_by_func (caja_preferences,
-										  click_policy_changed_callback, view);
+        				      click_policy_changed_callback, view);
 	g_signal_handlers_disconnect_by_func (caja_preferences,
-										  sort_directories_first_changed_callback, view);
+        				      sort_directories_first_changed_callback, view);
 	g_signal_handlers_disconnect_by_func (mate_lockdown_preferences,
-										  schedule_update_menus, view);
+        				      schedule_update_menus, view);
 
 	unschedule_pop_up_location_context_menu (view);
 	if (view->details->location_popup_event != NULL) {
@@ -2542,7 +2550,8 @@ done_loading (FMDirectoryView *view,
 				fm_directory_view_reveal_selection (view);
 			}
 		}
-		eel_g_object_list_free (locations_selected);
+		g_list_foreach(locations_selected, (GFunc) g_object_unref, NULL);
+		g_list_free(locations_selected);
 		fm_directory_view_display_selection_info (view);
 	}
 
@@ -2740,7 +2749,7 @@ copy_move_done_callback (GHashTable *debuting_files, gpointer data)
 			 * operate on. The ADD_FILE signal is registered as G_SIGNAL_RUN_LAST, so we
 			 * must use connect_after.
 			 */
-			g_signal_connect_data (GTK_OBJECT (directory_view),
+			g_signal_connect_data (directory_view,
 					       "add_file",
 					       G_CALLBACK (debuting_files_add_file_callback),
 					       debuting_files_data,
@@ -3784,7 +3793,8 @@ fm_directory_view_create_links_for_files (FMDirectoryView *view, GList *files,
 	caja_file_operations_copy_move (uris, relative_item_points, dir_uri, GDK_ACTION_LINK,
 					    GTK_WIDGET (view), copy_move_done_callback, copy_move_done_data);
 	g_free (dir_uri);
-	eel_g_list_free_deep (uris);
+	g_list_foreach(uris, (GFunc) g_free, NULL);
+	g_list_free(uris);
 }
 
 static void
@@ -3816,7 +3826,8 @@ fm_directory_view_duplicate_selection (FMDirectoryView *view, GList *files,
         copy_move_done_data = pre_copy_move (view);
 	caja_file_operations_copy_move (uris, relative_item_points, NULL, GDK_ACTION_COPY,
 		GTK_WIDGET (view), copy_move_done_callback, copy_move_done_data);
-	eel_g_list_free_deep (uris);
+	g_list_foreach(uris, (GFunc) g_free, NULL);
+	g_list_free(uris);
 }
 
 /* special_link_in_selection
@@ -3920,7 +3931,8 @@ trash_or_delete_files (GtkWindow *parent_window,
 						  parent_window,
 						  (CajaDeleteCallback) trash_or_delete_done_cb,
 						  view);
-	eel_g_object_list_free (locations);
+	g_list_foreach(locations, (GFunc) g_object_unref, NULL);
+	g_list_free(locations);
 }
 
 static gboolean
@@ -4669,7 +4681,8 @@ reset_open_with_menu (FMDirectoryView *view, GList *selection)
 						   index,
 						   menu_path, popup_path, submenu_visible);
 	}
-	eel_g_object_list_free (applications);
+	g_list_foreach(applications, (GFunc) g_object_unref, NULL);
+	g_list_free(applications);
 	if (default_app != NULL) {
 		g_object_unref (default_app);
 	}
@@ -5964,7 +5977,8 @@ move_copy_selection_to_location (FMDirectoryView *view,
 					   0, 0,
 					   view);
 
-	eel_g_list_free_deep (uris);
+	g_list_foreach(uris, (GFunc) g_free, NULL);
+	g_list_free(uris);
 	caja_file_list_free (selection);
 }
 
@@ -6104,7 +6118,10 @@ paste_clipboard_data (FMDirectoryView *view,
 			gtk_clipboard_clear (caja_clipboard_get (GTK_WIDGET (view)));
 		}
 
-		eel_g_list_free_deep (item_uris);
+    		g_list_foreach(item_uris, (GFunc) g_free, NULL);
+    		g_list_free(item_uris);
+		g_list_foreach(item_uris, (GFunc) g_free, NULL);
+		g_list_free(item_uris);
 	}
 }
 
@@ -6901,7 +6918,7 @@ action_connect_to_server_link_callback (GtkAction *action,
 		title = g_strdup_printf (_("Connect to Server %s"), name);
 		dialog = gtk_dialog_new_with_buttons (title,
 						      fm_directory_view_get_containing_window (view),
-						      GTK_DIALOG_NO_SEPARATOR,
+						      0,
 						      GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
 						      _("_Connect"), GTK_RESPONSE_OK,
 						      NULL);
@@ -7098,7 +7115,8 @@ action_location_delete_callback (GtkAction *action,
 	caja_file_operations_delete (files, fm_directory_view_get_containing_window (view),
 					 NULL, NULL);
 
-	eel_g_object_list_free (files);
+	g_list_foreach(files, (GFunc) g_object_unref, NULL);
+	g_list_free(files);
 }
 
 static void
@@ -9781,7 +9799,8 @@ fm_directory_view_stop (FMDirectoryView *view)
 	view->details->old_added_files = NULL;
 	file_and_directory_list_free (view->details->old_changed_files);
 	view->details->old_changed_files = NULL;
-	eel_g_object_list_free (view->details->pending_locations_selected);
+	g_list_foreach(view->details->pending_locations_selected, (GFunc) g_object_unref, NULL);
+	g_list_free(view->details->pending_locations_selected);
 	view->details->pending_locations_selected = NULL;
 
 	if (view->details->model != NULL) {
@@ -10559,7 +10578,8 @@ fm_directory_view_handle_uri_list_drop (FMDirectoryView  *view,
 					   target_uri != NULL ? target_uri : container_uri,
 					   action, x, y, view);
 
-	eel_g_list_free_deep (real_uri_list);
+	g_list_foreach(real_uri_list, (GFunc) g_free, NULL);
+	g_list_free(real_uri_list);
 
 	if (points != NULL)
 		g_array_free (points, TRUE);
@@ -10796,11 +10816,13 @@ fm_directory_view_class_init (FMDirectoryViewClass *klass)
 	widget_class = GTK_WIDGET_CLASS (klass);
 	scrolled_window_class = GTK_SCROLLED_WINDOW_CLASS (klass);
 
-	G_OBJECT_CLASS (klass)->finalize = fm_directory_view_finalize;
 	G_OBJECT_CLASS (klass)->set_property = fm_directory_view_set_property;
-
+	G_OBJECT_CLASS (klass)->finalize = fm_directory_view_finalize;
+#if !GTK_CHECK_VERSION (3, 0, 0)
 	GTK_OBJECT_CLASS (klass)->destroy = fm_directory_view_destroy;
-
+#else
+	widget_class->destroy = fm_directory_view_destroy;
+#endif
 	widget_class->scroll_event = fm_directory_view_scroll_event;
 	widget_class->parent_set = fm_directory_view_parent_set;
 
@@ -10815,7 +10837,7 @@ fm_directory_view_class_init (FMDirectoryViewClass *klass)
 		              G_SIGNAL_RUN_LAST,
 		              G_STRUCT_OFFSET (FMDirectoryViewClass, add_file),
 		              NULL, NULL,
-		              caja_marshal_VOID__OBJECT_OBJECT,
+		              fm_marshal_VOID__OBJECT_OBJECT,
 		              G_TYPE_NONE, 2, CAJA_TYPE_FILE, CAJA_TYPE_DIRECTORY);
 	signals[BEGIN_FILE_CHANGES] =
 		g_signal_new ("begin_file_changes",
@@ -10871,7 +10893,7 @@ fm_directory_view_class_init (FMDirectoryViewClass *klass)
 		              G_SIGNAL_RUN_LAST,
 		              G_STRUCT_OFFSET (FMDirectoryViewClass, file_changed),
 		              NULL, NULL,
-		              caja_marshal_VOID__OBJECT_OBJECT,
+		              fm_marshal_VOID__OBJECT_OBJECT,
 		              G_TYPE_NONE, 2, CAJA_TYPE_FILE, CAJA_TYPE_DIRECTORY);
 	signals[LOAD_ERROR] =
 		g_signal_new ("load_error",
@@ -10887,7 +10909,7 @@ fm_directory_view_class_init (FMDirectoryViewClass *klass)
 		              G_SIGNAL_RUN_LAST,
 		              G_STRUCT_OFFSET (FMDirectoryViewClass, remove_file),
 		              NULL, NULL,
-		              caja_marshal_VOID__OBJECT_OBJECT,
+		              fm_marshal_VOID__OBJECT_OBJECT,
 		              G_TYPE_NONE, 2, CAJA_TYPE_FILE, CAJA_TYPE_DIRECTORY);
 
 	klass->accepts_dragged_files = real_accepts_dragged_files;
@@ -10944,7 +10966,7 @@ fm_directory_view_class_init (FMDirectoryViewClass *klass)
 			      G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
 			      G_STRUCT_OFFSET (FMDirectoryViewClass, trash),
 			      g_signal_accumulator_true_handled, NULL,
-			      eel_marshal_BOOLEAN__VOID,
+			      fm_marshal_BOOLEAN__VOID,
 			      G_TYPE_BOOLEAN, 0);
 	signals[DELETE] =
 		g_signal_new ("delete",
@@ -10952,15 +10974,15 @@ fm_directory_view_class_init (FMDirectoryViewClass *klass)
 			      G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
 			      G_STRUCT_OFFSET (FMDirectoryViewClass, delete),
 			      g_signal_accumulator_true_handled, NULL,
-			      eel_marshal_BOOLEAN__VOID,
+			      fm_marshal_BOOLEAN__VOID,
 			      G_TYPE_BOOLEAN, 0);
 
 	binding_set = gtk_binding_set_by_class (klass);
-	gtk_binding_entry_add_signal (binding_set, GDK_Delete, 0,
+	gtk_binding_entry_add_signal (binding_set, GDK_KEY_Delete, 0,
 				      "trash", 0);
-	gtk_binding_entry_add_signal (binding_set, GDK_KP_Delete, 0,
+	gtk_binding_entry_add_signal (binding_set, GDK_KEY_KP_Delete, 0,
 				      "trash", 0);
-	gtk_binding_entry_add_signal (binding_set, GDK_KP_Delete, GDK_SHIFT_MASK,
+	gtk_binding_entry_add_signal (binding_set, GDK_KEY_KP_Delete, GDK_SHIFT_MASK,
 				      "delete", 0);
 
 	klass->trash = real_trash;

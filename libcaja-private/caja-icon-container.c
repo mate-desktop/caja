@@ -43,7 +43,6 @@
 #include <eel/eel-gtk-extensions.h>
 #include <eel/eel-art-extensions.h>
 #include <eel/eel-editable-label.h>
-#include <eel/eel-marshal.h>
 #include <eel/eel-string.h>
 #include <eel/eel-canvas-rect-ellipse.h>
 #include <gdk/gdkkeysyms.h>
@@ -52,6 +51,12 @@
 #include <glib/gi18n.h>
 #include <stdio.h>
 #include <string.h>
+
+#if !GTK_CHECK_VERSION(3, 0, 0)
+#define gtk_scrollable_get_hadjustment gtk_layout_get_hadjustment
+#define gtk_scrollable_get_vadjustment gtk_layout_get_vadjustment
+#define GTK_SCROLLABLE GTK_LAYOUT
+#endif
 
 #define TAB_NAVIGATION_DISABLED
 
@@ -301,7 +306,7 @@ static void
 icon_free (CajaIcon *icon)
 {
     /* Destroy this canvas item; the parent will unref it. */
-    gtk_object_destroy (GTK_OBJECT (icon->item));
+    eel_canvas_item_destroy (EEL_CANVAS_ITEM (icon->item));
     g_free (icon);
 }
 
@@ -592,8 +597,8 @@ caja_icon_container_scroll (CajaIconContainer *container,
     GtkAdjustment *hadj, *vadj;
     int old_h_value, old_v_value;
 
-    hadj = gtk_layout_get_hadjustment (GTK_LAYOUT (container));
-    vadj = gtk_layout_get_vadjustment (GTK_LAYOUT (container));
+    hadj = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container));
+    vadj = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container));
 
     /* Store the old ajustment values so we can tell if we
      * ended up actually scrolling. We may not have in a case
@@ -755,8 +760,8 @@ reveal_icon (CajaIconContainer *container,
     details = container->details;
     gtk_widget_get_allocation (GTK_WIDGET (container), &allocation);
 
-    hadj = gtk_layout_get_hadjustment (GTK_LAYOUT (container));
-    vadj = gtk_layout_get_vadjustment (GTK_LAYOUT (container));
+    hadj = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container));
+    vadj = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container));
 
     if (caja_icon_container_is_auto_layout (container))
     {
@@ -1088,8 +1093,8 @@ canvas_set_scroll_region_include_visible_area (EelCanvas *canvas,
     width = (allocation.width) / canvas->pixels_per_unit;
     height = (allocation.height) / canvas->pixels_per_unit;
 
-    old_scroll_x = gtk_adjustment_get_value (GTK_ADJUSTMENT (gtk_layout_get_hadjustment (GTK_LAYOUT (canvas))));
-    old_scroll_y = gtk_adjustment_get_value (GTK_ADJUSTMENT (gtk_layout_get_vadjustment (GTK_LAYOUT (canvas))));
+    old_scroll_x = gtk_adjustment_get_value (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (canvas)));
+    old_scroll_y = gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (canvas)));
 
     x1 = MIN (x1, old_x1 + old_scroll_x);
     y1 = MIN (y1, old_y1 + old_scroll_y);
@@ -1213,8 +1218,8 @@ caja_icon_container_update_scroll_region (CajaIconContainer *container)
          x1, y1, x2, y2);
     }
 
-    hadj = gtk_layout_get_hadjustment (GTK_LAYOUT (container));
-    vadj = gtk_layout_get_vadjustment (GTK_LAYOUT (container));
+    hadj = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container));
+    vadj = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container));
 
     /* Scroll by 1/4 icon each time you click. */
     step_increment = caja_get_icon_size_for_zoom_level
@@ -2776,14 +2781,14 @@ rubberband_timeout_callback (gpointer data)
     adj_changed = FALSE;
     gtk_widget_get_allocation (widget, &allocation);
 
-    adj_x = gtk_adjustment_get_value (gtk_layout_get_hadjustment (GTK_LAYOUT (container)));
+    adj_x = gtk_adjustment_get_value (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container)));
     if (adj_x != band_info->last_adj_x)
     {
         band_info->last_adj_x = adj_x;
         adj_changed = TRUE;
     }
 
-    adj_y = gtk_adjustment_get_value (gtk_layout_get_vadjustment (GTK_LAYOUT (container)));
+    adj_y = gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container)));
     if (adj_y != band_info->last_adj_y)
     {
         band_info->last_adj_y = adj_y;
@@ -2832,8 +2837,8 @@ rubberband_timeout_callback (gpointer data)
 
     /* Remember to convert from widget to scrolled window coords */
     eel_canvas_window_to_world (EEL_CANVAS (container),
-                                x + gtk_adjustment_get_value (gtk_layout_get_hadjustment (GTK_LAYOUT (container))),
-                                y + gtk_adjustment_get_value (gtk_layout_get_vadjustment (GTK_LAYOUT (container))),
+    			    x + gtk_adjustment_get_value (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container))),
+    			    y + gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container))),
                                 &world_x, &world_y);
 
     if (world_x < band_info->start_x)
@@ -2954,8 +2959,8 @@ start_rubberbanding (CajaIconContainer *container,
     atk_object_set_name (accessible, "selection");
     atk_object_set_description (accessible, _("The selection rectangle"));
 
-    band_info->prev_x = event->x - gtk_adjustment_get_value (gtk_layout_get_hadjustment (GTK_LAYOUT (container)));
-    band_info->prev_y = event->y - gtk_adjustment_get_value (gtk_layout_get_vadjustment (GTK_LAYOUT (container)));
+    band_info->prev_x = event->x - gtk_adjustment_get_value (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container)));
+    band_info->prev_y = event->y - gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container)));
 
     band_info->active = TRUE;
 
@@ -2991,7 +2996,7 @@ stop_rubberbanding (CajaIconContainer *container,
 
     /* Destroy this canvas item; the parent will unref it. */
     eel_canvas_item_ungrab (band_info->selection_rectangle, time);
-    gtk_object_destroy (GTK_OBJECT (band_info->selection_rectangle));
+    eel_canvas_item_destroy (band_info->selection_rectangle);
     band_info->selection_rectangle = NULL;
 
     /* if only one item has been selected, use it as range
@@ -4380,10 +4385,12 @@ select_previous_or_next_icon (CajaIconContainer *container,
 }
 #endif
 
-/* GtkObject methods.  */
-
 static void
+#if GTK_CHECK_VERSION(3, 0, 0)
+destroy (GtkWidget *object)
+#else
 destroy (GtkObject *object)
+#endif
 {
     CajaIconContainer *container;
 
@@ -4440,8 +4447,11 @@ destroy (GtkObject *object)
         }
     }
 
-
+#if GTK_CHECK_VERSION(3, 0, 0)
+    GTK_WIDGET_CLASS (caja_icon_container_parent_class)->destroy (object);
+#else
     GTK_OBJECT_CLASS (caja_icon_container_parent_class)->destroy (object);
+#endif
 }
 
 static void
@@ -4482,15 +4492,6 @@ finalize (GObject *object)
 }
 
 /* GtkWidget methods.  */
-
-static void
-size_request (GtkWidget *widget,
-              GtkRequisition *requisition)
-{
-    GTK_WIDGET_CLASS (caja_icon_container_parent_class)->size_request (widget, requisition);
-    requisition->width = 1;
-    requisition->height = 1;
-}
 
 static gboolean
 clear_size_allocation_count (gpointer data)
@@ -4565,7 +4566,6 @@ size_allocate (GtkWidget *widget,
 static void
 realize (GtkWidget *widget)
 {
-    GdkBitmap *stipple;
     GtkAdjustment *vadj, *hadj;
     CajaIconContainer *container;
 
@@ -4581,20 +4581,15 @@ realize (GtkWidget *widget)
     }
 
     /* Set up DnD.  */
-    caja_icon_dnd_init (container, NULL);
+    caja_icon_dnd_init (container);
 
     setup_label_gcs (container);
 
-    stipple = eel_stipple_bitmap_for_screen
-              (gdk_drawable_get_screen (GDK_DRAWABLE (gtk_widget_get_window (widget))));
-
-    caja_icon_dnd_set_stipple (container, stipple);
-
-    hadj = gtk_layout_get_hadjustment (GTK_LAYOUT (widget));
+    hadj = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (widget));
     g_signal_connect (hadj, "value_changed",
                       G_CALLBACK (handle_hadjustment_changed), widget);
 
-    vadj = gtk_layout_get_vadjustment (GTK_LAYOUT (widget));
+    vadj = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (widget));
     g_signal_connect (vadj, "value_changed",
                       G_CALLBACK (handle_vadjustment_changed), widget);
 
@@ -4603,19 +4598,9 @@ realize (GtkWidget *widget)
 static void
 unrealize (GtkWidget *widget)
 {
-    int i;
     CajaIconContainer *container;
 
     container = CAJA_ICON_CONTAINER (widget);
-
-    for (i = 0; i < LAST_LABEL_COLOR; i++)
-    {
-        if (container->details->label_gcs [i])
-        {
-            g_object_unref (container->details->label_gcs [i]);
-            container->details->label_gcs [i] = NULL;
-        }
-    }
 
     caja_icon_dnd_fini (container);
 
@@ -4946,7 +4931,7 @@ start_stretching (CajaIconContainer *container)
     toplevel = gtk_widget_get_toplevel (GTK_WIDGET (container));
     if (toplevel != NULL && gtk_widget_get_realized (toplevel))
     {
-        eel_gdk_window_focus (gtk_widget_get_window (toplevel), GDK_CURRENT_TIME);
+        gdk_window_focus (gtk_widget_get_window (toplevel), GDK_CURRENT_TIME);
     }
 
     return TRUE;
@@ -5022,17 +5007,17 @@ keyboard_stretching (CajaIconContainer *container,
 
     switch (event->keyval)
     {
-    case GDK_equal:
-    case GDK_plus:
-    case GDK_KP_Add:
+    case GDK_KEY_equal:
+    case GDK_KEY_plus:
+    case GDK_KEY_KP_Add:
         icon_set_size (container, icon, size + 5, FALSE, FALSE);
         break;
-    case GDK_minus:
-    case GDK_KP_Subtract:
+    case GDK_KEY_minus:
+    case GDK_KEY_KP_Subtract:
         icon_set_size (container, icon, size - 5, FALSE, FALSE);
         break;
-    case GDK_0:
-    case GDK_KP_0:
+    case GDK_KEY_0:
+    case GDK_KEY_KP_0:
         caja_icon_container_move_icon (container, icon,
                                        icon->x, icon->y,
                                        1.0,
@@ -5258,7 +5243,7 @@ caja_icon_container_search_position_func (CajaIconContainer *container,
 
 
     cont_window = gtk_widget_get_window (GTK_WIDGET (container));
-    screen = gdk_drawable_get_screen (cont_window);
+    screen = gdk_window_get_screen (cont_window);
 
     monitor_num = gdk_screen_get_monitor_at_window (screen, cont_window);
     gdk_screen_get_monitor_geometry (screen, monitor_num, &monitor);
@@ -5268,13 +5253,15 @@ caja_icon_container_search_position_func (CajaIconContainer *container,
     gdk_window_get_origin (cont_window, &cont_x, &cont_y);
 
 #if GTK_CHECK_VERSION(3, 0, 0)
-    cont_width = gdk_window_get_width(GDK_WINDOW(cont_window));
-    cont_height = gdk_window_get_height(GDK_WINDOW(cont_window));
+    cont_width = gdk_window_get_width (cont_window);
+    cont_height = gdk_window_get_height (cont_window);
+
+    gtk_widget_get_preferred_size (search_dialog, &requisition, NULL);
 #else
-    gdk_drawable_get_size(cont_window, &cont_width, &cont_height);
-#endif
+    gdk_drawable_get_size (cont_window, &cont_width, &cont_height);
 
     gtk_widget_size_request (search_dialog, &requisition);
+#endif
 
     if (cont_x + cont_width - requisition.width > gdk_screen_get_width (screen))
     {
@@ -5649,14 +5636,14 @@ caja_icon_container_search_key_press_event (GtkWidget *widget,
     g_assert (CAJA_IS_ICON_CONTAINER (container));
 
     /* close window and cancel the search */
-    if (event->keyval == GDK_Escape || event->keyval == GDK_Tab)
+    if (event->keyval == GDK_KEY_Escape || event->keyval == GDK_KEY_Tab)
     {
         caja_icon_container_search_dialog_hide (widget, container);
         return TRUE;
     }
 
     /* close window and activate alternate */
-    if (event->keyval == GDK_Return && event->state & GDK_SHIFT_MASK)
+    if (event->keyval == GDK_KEY_Return && event->state & GDK_SHIFT_MASK)
     {
         caja_icon_container_search_dialog_hide (widget,
                                                 container);
@@ -5666,28 +5653,28 @@ caja_icon_container_search_key_press_event (GtkWidget *widget,
     }
 
     /* select previous matching iter */
-    if (event->keyval == GDK_Up || event->keyval == GDK_KP_Up)
+    if (event->keyval == GDK_KEY_Up || event->keyval == GDK_KEY_KP_Up)
     {
         caja_icon_container_search_move (widget, container, TRUE);
         retval = TRUE;
     }
 
     if (((event->state & (GDK_CONTROL_MASK | GDK_SHIFT_MASK)) == (GDK_CONTROL_MASK | GDK_SHIFT_MASK))
-            && (event->keyval == GDK_g || event->keyval == GDK_G))
+            && (event->keyval == GDK_KEY_g || event->keyval == GDK_KEY_G))
     {
         caja_icon_container_search_move (widget, container, TRUE);
         retval = TRUE;
     }
 
     /* select next matching iter */
-    if (event->keyval == GDK_Down || event->keyval == GDK_KP_Down)
+    if (event->keyval == GDK_KEY_Down || event->keyval == GDK_KEY_KP_Down)
     {
         caja_icon_container_search_move (widget, container, FALSE);
         retval = TRUE;
     }
 
     if (((event->state & (GDK_CONTROL_MASK | GDK_SHIFT_MASK)) == GDK_CONTROL_MASK)
-            && (event->keyval == GDK_g || event->keyval == GDK_G))
+            && (event->keyval == GDK_KEY_g || event->keyval == GDK_KEY_G))
     {
         caja_icon_container_search_move (widget, container, FALSE);
         retval = TRUE;
@@ -5896,12 +5883,12 @@ key_press_event (GtkWidget *widget,
     {
         switch (event->keyval)
         {
-        case GDK_Return:
-        case GDK_KP_Enter:
+        case GDK_KEY_Return:
+        case GDK_KEY_KP_Enter:
             end_renaming_mode (container, TRUE);
             handled = TRUE;
             break;
-        case GDK_Escape:
+        case GDK_KEY_Escape:
             end_renaming_mode (container, FALSE);
             handled = TRUE;
             break;
@@ -5913,18 +5900,18 @@ key_press_event (GtkWidget *widget,
     {
         switch (event->keyval)
         {
-        case GDK_Home:
-        case GDK_KP_Home:
+        case GDK_KEY_Home:
+        case GDK_KEY_KP_Home:
             keyboard_home (container, event);
             handled = TRUE;
             break;
-        case GDK_End:
-        case GDK_KP_End:
+        case GDK_KEY_End:
+        case GDK_KEY_KP_End:
             keyboard_end (container, event);
             handled = TRUE;
             break;
-        case GDK_Left:
-        case GDK_KP_Left:
+        case GDK_KEY_Left:
+        case GDK_KEY_KP_Left:
             /* Don't eat Alt-Left, as that is used for history browsing */
             if ((event->state & GDK_MOD1_MASK) == 0)
             {
@@ -5932,8 +5919,8 @@ key_press_event (GtkWidget *widget,
                 handled = TRUE;
             }
             break;
-        case GDK_Up:
-        case GDK_KP_Up:
+        case GDK_KEY_Up:
+        case GDK_KEY_KP_Up:
             /* Don't eat Alt-Up, as that is used for alt-shift-Up */
             if ((event->state & GDK_MOD1_MASK) == 0)
             {
@@ -5941,8 +5928,8 @@ key_press_event (GtkWidget *widget,
                 handled = TRUE;
             }
             break;
-        case GDK_Right:
-        case GDK_KP_Right:
+        case GDK_KEY_Right:
+        case GDK_KEY_KP_Right:
             /* Don't eat Alt-Right, as that is used for history browsing */
             if ((event->state & GDK_MOD1_MASK) == 0)
             {
@@ -5950,8 +5937,8 @@ key_press_event (GtkWidget *widget,
                 handled = TRUE;
             }
             break;
-        case GDK_Down:
-        case GDK_KP_Down:
+        case GDK_KEY_Down:
+        case GDK_KEY_KP_Down:
             /* Don't eat Alt-Down, as that is used for Open */
             if ((event->state & GDK_MOD1_MASK) == 0)
             {
@@ -5959,20 +5946,20 @@ key_press_event (GtkWidget *widget,
                 handled = TRUE;
             }
             break;
-        case GDK_space:
+        case GDK_KEY_space:
             keyboard_space (container, event);
             handled = TRUE;
             break;
 #ifndef TAB_NAVIGATION_DISABLED
-        case GDK_Tab:
-        case GDK_ISO_Left_Tab:
+        case GDK_KEY_Tab:
+        case GDK_KEY_ISO_Left_Tab:
             select_previous_or_next_icon (container,
                                           (event->state & GDK_SHIFT_MASK) == 0, event);
             handled = TRUE;
             break;
 #endif
-        case GDK_Return:
-        case GDK_KP_Enter:
+        case GDK_KEY_Return:
+        case GDK_KEY_KP_Enter:
             if ((event->state & GDK_SHIFT_MASK) != 0)
             {
                 activate_selected_items_alternate (container, NULL);
@@ -5984,22 +5971,22 @@ key_press_event (GtkWidget *widget,
 
             handled = TRUE;
             break;
-        case GDK_Escape:
+        case GDK_KEY_Escape:
             handled = undo_stretching (container);
             break;
-        case GDK_plus:
-        case GDK_minus:
-        case GDK_equal:
-        case GDK_KP_Add:
-        case GDK_KP_Subtract:
-        case GDK_0:
-        case GDK_KP_0:
+        case GDK_KEY_plus:
+        case GDK_KEY_minus:
+        case GDK_KEY_equal:
+        case GDK_KEY_KP_Add:
+        case GDK_KEY_KP_Subtract:
+        case GDK_KEY_0:
+        case GDK_KEY_KP_0:
             if (event->state & GDK_CONTROL_MASK)
             {
                 handled = keyboard_stretching (container, event);
             }
             break;
-        case GDK_F10:
+        case GDK_KEY_F10:
             /* handle Ctrl+F10 because we want to display the
              * background popup even if something is selected.
              * The other cases are handled by popup_menu().
@@ -6010,7 +5997,7 @@ key_press_event (GtkWidget *widget,
                                          "context_click_background");
             }
             break;
-        case GDK_v:
+        case GDK_KEY_v:
             /* Eat Control + v to not enable type ahead */
             if ((event->state & GDK_CONTROL_MASK) != 0)
             {
@@ -6031,9 +6018,9 @@ key_press_event (GtkWidget *widget,
      * start the typeahead find capabilities.
      * Copied from CajaIconContainer */
     if (!handled &&
-            event->keyval != GDK_slash /* don't steal slash key event, used for "go to" */ &&
-            event->keyval != GDK_BackSpace &&
-            event->keyval != GDK_Delete)
+            event->keyval != GDK_KEY_slash /* don't steal slash key event, used for "go to" */ &&
+            event->keyval != GDK_KEY_BackSpace &&
+            event->keyval != GDK_KEY_Delete)
     {
         GdkEvent *new_event;
         GdkWindow *window;
@@ -6122,12 +6109,17 @@ popup_menu (GtkWidget *widget)
 
 static void
 draw_canvas_background (EelCanvas *canvas,
+#if GTK_CHECK_VERSION(3,0,0)
+                        cairo_t   *cr)
+#else
                         int x, int y, int width, int height)
+#endif
 {
     /* Don't chain up to the parent to avoid clearing and redrawing */
 }
 
 
+#if !GTK_CHECK_VERSION(3,0,0)
 static gboolean
 expose_event (GtkWidget      *widget,
               GdkEventExpose *event)
@@ -6139,6 +6131,7 @@ expose_event (GtkWidget      *widget,
 
     return GTK_WIDGET_CLASS (caja_icon_container_parent_class)->expose_event (widget, event);
 }
+#endif
 
 static AtkObject *
 get_accessible (GtkWidget *widget)
@@ -6230,7 +6223,12 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
 
     G_OBJECT_CLASS (class)->constructor = caja_icon_container_constructor;
     G_OBJECT_CLASS (class)->finalize = finalize;
+
+#if GTK_CHECK_VERSION(3, 0, 0)
+    GTK_WIDGET_CLASS (class)->destroy = destroy;
+#else
     GTK_OBJECT_CLASS (class)->destroy = destroy;
+#endif
 
     /* Signals.  */
 
@@ -6362,7 +6360,7 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                         G_STRUCT_OFFSET (CajaIconContainerClass,
                                          get_icon_uri),
                         NULL, NULL,
-                        eel_marshal_STRING__POINTER,
+		                caja_marshal_STRING__POINTER,
                         G_TYPE_STRING, 1,
                         G_TYPE_POINTER);
     signals[GET_ICON_DROP_TARGET_URI]
@@ -6372,7 +6370,7 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                         G_STRUCT_OFFSET (CajaIconContainerClass,
                                          get_icon_drop_target_uri),
                         NULL, NULL,
-                        eel_marshal_STRING__POINTER,
+		                caja_marshal_STRING__POINTER,
                         G_TYPE_STRING, 1,
                         G_TYPE_POINTER);
     signals[MOVE_COPY_ITEMS]
@@ -6455,7 +6453,7 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                         G_STRUCT_OFFSET (CajaIconContainerClass,
                                          get_container_uri),
                         NULL, NULL,
-                        eel_marshal_STRING__VOID,
+		                caja_marshal_STRING__VOID,
                         G_TYPE_STRING, 0);
     signals[CAN_ACCEPT_ITEM]
         = g_signal_new ("can_accept_item",
@@ -6464,7 +6462,7 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                         G_STRUCT_OFFSET (CajaIconContainerClass,
                                          can_accept_item),
                         NULL, NULL,
-                        eel_marshal_INT__POINTER_STRING,
+		                caja_marshal_INT__POINTER_STRING,
                         G_TYPE_INT, 2,
                         G_TYPE_POINTER,
                         G_TYPE_STRING);
@@ -6475,7 +6473,7 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                         G_STRUCT_OFFSET (CajaIconContainerClass,
                                          get_stored_icon_position),
                         NULL, NULL,
-                        eel_marshal_BOOLEAN__POINTER_POINTER,
+		                caja_marshal_BOOLEAN__POINTER_POINTER,
                         G_TYPE_BOOLEAN, 2,
                         G_TYPE_POINTER,
                         G_TYPE_POINTER);
@@ -6486,7 +6484,7 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                         G_STRUCT_OFFSET (CajaIconContainerClass,
                                          get_stored_layout_timestamp),
                         NULL, NULL,
-                        eel_marshal_BOOLEAN__POINTER_POINTER,
+		                caja_marshal_BOOLEAN__POINTER_POINTER,
                         G_TYPE_BOOLEAN, 2,
                         G_TYPE_POINTER,
                         G_TYPE_POINTER);
@@ -6497,7 +6495,7 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                         G_STRUCT_OFFSET (CajaIconContainerClass,
                                          store_layout_timestamp),
                         NULL, NULL,
-                        eel_marshal_BOOLEAN__POINTER_POINTER,
+		                caja_marshal_BOOLEAN__POINTER_POINTER,
                         G_TYPE_BOOLEAN, 2,
                         G_TYPE_POINTER,
                         G_TYPE_POINTER);
@@ -6581,7 +6579,6 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
     /* GtkWidget class.  */
 
     widget_class = GTK_WIDGET_CLASS (class);
-    widget_class->size_request = size_request;
     widget_class->size_allocate = size_allocate;
     widget_class->realize = realize;
     widget_class->unrealize = unrealize;
@@ -6592,7 +6589,9 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
     widget_class->popup_menu = popup_menu;
     widget_class->get_accessible = get_accessible;
     widget_class->style_set = style_set;
+#if !GTK_CHECK_VERSION(3,0,0)
     widget_class->expose_event = expose_event;
+#endif
     widget_class->grab_notify = grab_notify_cb;
 
     canvas_class = EEL_CANVAS_CLASS (class);
@@ -6733,8 +6732,8 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
 
     binding_set = gtk_binding_set_by_class (class);
 
-    gtk_binding_entry_add_signal (binding_set, GDK_f, GDK_CONTROL_MASK, "start_interactive_search", 0);
-    gtk_binding_entry_add_signal (binding_set, GDK_F, GDK_CONTROL_MASK, "start_interactive_search", 0);
+    gtk_binding_entry_add_signal (binding_set, GDK_KEY_f, GDK_CONTROL_MASK, "start_interactive_search", 0);
+    gtk_binding_entry_add_signal (binding_set, GDK_KEY_F, GDK_CONTROL_MASK, "start_interactive_search", 0);
 }
 
 static void
@@ -7189,9 +7188,9 @@ caja_icon_container_get_first_visible_icon (CajaIconContainer *container)
     gboolean better_icon;
     gboolean compare_lt;
 
-    hadj_v = gtk_adjustment_get_value (gtk_layout_get_hadjustment (GTK_LAYOUT (container)));
-    vadj_v = gtk_adjustment_get_value (gtk_layout_get_vadjustment (GTK_LAYOUT (container)));
-    h_page_size = gtk_adjustment_get_page_size (gtk_layout_get_hadjustment (GTK_LAYOUT (container)));
+    hadj_v = gtk_adjustment_get_value (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container)));
+    vadj_v = gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container)));
+    h_page_size = gtk_adjustment_get_page_size (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container)));
 
     if (caja_icon_container_is_layout_rtl (container))
     {
@@ -7280,8 +7279,8 @@ caja_icon_container_scroll_to_icon (CajaIconContainer  *container,
     EelIRect bounds;
     GtkAllocation allocation;
 
-    hadj = gtk_layout_get_hadjustment (GTK_LAYOUT (container));
-    vadj = gtk_layout_get_vadjustment (GTK_LAYOUT (container));
+    hadj = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container));
+    vadj = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container));
     gtk_widget_get_allocation (GTK_WIDGET (container), &allocation);
 
     /* We need to force a relayout now if there are updates queued
@@ -7613,8 +7612,8 @@ caja_icon_container_update_visible_icons (CajaIconContainer *container)
     gboolean visible;
     GtkAllocation allocation;
 
-    hadj = gtk_layout_get_hadjustment (GTK_LAYOUT (container));
-    vadj = gtk_layout_get_vadjustment (GTK_LAYOUT (container));
+    hadj = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container));
+    vadj = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container));
     gtk_widget_get_allocation (GTK_WIDGET (container), &allocation);
 
     min_x = gtk_adjustment_get_value (hadj);
@@ -7776,7 +7775,7 @@ caja_icon_container_update_icon (CajaIconContainer *container,
      * happened to be typing at that moment.
      */
     if (icon == get_icon_being_renamed (container) &&
-            eel_strcmp (editable_text,
+            g_strcmp0 (editable_text,
                         caja_icon_canvas_item_get_editable_text (icon->item)) != 0)
     {
         end_renaming_mode (container, FALSE);
@@ -7796,7 +7795,8 @@ caja_icon_container_update_icon (CajaIconContainer *container,
 
     /* Let the pixbufs go. */
     g_object_unref (pixbuf);
-    eel_gdk_pixbuf_list_free (emblem_pixbufs);
+    g_list_foreach(emblem_pixbufs, (GFunc) g_object_unref, NULL);
+    g_list_free(emblem_pixbufs);
 
     g_free (editable_text);
     g_free (additional_text);
@@ -9331,8 +9331,8 @@ caja_icon_container_set_single_click_mode (CajaIconContainer *container,
 
 /* update the label color when the background changes */
 
-GdkGC *
-caja_icon_container_get_label_color_and_gc (CajaIconContainer *container,
+void
+caja_icon_container_get_label_color (CajaIconContainer *container,
         GdkColor             **color,
         gboolean               is_name,
         gboolean               is_highlight,
@@ -9388,28 +9388,12 @@ caja_icon_container_get_label_color_and_gc (CajaIconContainer *container,
     {
         *color = &container->details->label_colors [idx];
     }
-
-    return container->details->label_gcs [idx];
 }
 
 static void
 setup_gc_with_fg (CajaIconContainer *container, int idx, guint32 color)
 {
-    GdkGC *gc;
-    GdkColor gcolor;
-
-    gcolor = eel_gdk_rgb_to_color (color);
-    container->details->label_colors [idx] = gcolor;
-
-    gc = gdk_gc_new (gtk_layout_get_bin_window (GTK_LAYOUT (container)));
-    gdk_gc_set_rgb_fg_color (gc, &gcolor);
-
-    if (container->details->label_gcs [idx])
-    {
-        g_object_unref (container->details->label_gcs [idx]);
-    }
-
-    container->details->label_gcs [idx] = gc;
+    container->details->label_colors [idx] = eel_gdk_rgb_to_color (color);
 }
 
 static void
@@ -9695,7 +9679,7 @@ caja_icon_container_set_font (CajaIconContainer *container,
 {
     g_return_if_fail (CAJA_IS_ICON_CONTAINER (container));
 
-    if (eel_strcmp (container->details->font, font) == 0)
+    if (g_strcmp0 (container->details->font, font) == 0)
     {
         return;
     }

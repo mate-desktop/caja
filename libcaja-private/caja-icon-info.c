@@ -1,3 +1,4 @@
+/* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*- */
 /* caja-icon-info.c
  * Copyright (C) 2007  Red Hat, Inc.,  Alexander Larsson <alexl@redhat.com>
  *
@@ -20,6 +21,7 @@
 #include <config.h>
 #include <string.h>
 #include "caja-icon-info.h"
+#include "caja-icon-names.h"
 #include "caja-default-file-icon.h"
 #include <gtk/gtk.h>
 #include <gio/gio.h>
@@ -756,4 +758,50 @@ caja_icon_get_emblem_size_for_icon_size (guint size)
         return 12;
 
     return 0; /* no emblems for smaller sizes */
+}
+
+gboolean
+caja_icon_theme_can_render (GThemedIcon *icon)
+{
+	GtkIconTheme *icon_theme;
+	const gchar * const *names;
+	gint idx;
+
+	names = g_themed_icon_get_names (icon);
+
+	icon_theme = gtk_icon_theme_get_default ();
+
+	for (idx = 0; names[idx] != NULL; idx++) {
+		if (gtk_icon_theme_has_icon (icon_theme, names[idx])) {
+			return TRUE;
+		}
+	}
+
+	return FALSE;
+}
+
+GIcon *
+caja_user_special_directory_get_gicon (GUserDirectory directory)
+{
+
+	#define ICON_CASE(x) \
+		case G_USER_DIRECTORY_ ## x:\
+			return g_themed_icon_new (CAJA_ICON_FOLDER_ ## x);
+
+	switch (directory) {
+
+		ICON_CASE (DESKTOP);
+		ICON_CASE (DOCUMENTS);
+		ICON_CASE (DOWNLOAD);
+		ICON_CASE (MUSIC);
+		ICON_CASE (PICTURES);
+		ICON_CASE (PUBLIC_SHARE);
+		ICON_CASE (TEMPLATES);
+		ICON_CASE (VIDEOS);
+
+	default:
+		return g_themed_icon_new ("folder");
+	}
+
+	#undef ICON_CASE
 }

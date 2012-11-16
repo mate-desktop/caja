@@ -88,7 +88,8 @@ caja_navigation_window_slot_clear_forward_list (CajaNavigationWindowSlot *slot)
 {
     g_assert (CAJA_IS_NAVIGATION_WINDOW_SLOT (slot));
 
-    eel_g_object_list_free (slot->forward_list);
+    g_list_foreach(slot->forward_list, (GFunc) g_object_unref, NULL);
+    g_list_free(slot->forward_list);
     slot->forward_list = NULL;
 }
 
@@ -97,7 +98,8 @@ caja_navigation_window_slot_clear_back_list (CajaNavigationWindowSlot *slot)
 {
     g_assert (CAJA_IS_NAVIGATION_WINDOW_SLOT (slot));
 
-    eel_g_object_list_free (slot->back_list);
+    g_list_foreach(slot->back_list, (GFunc) g_object_unref, NULL);
+    g_list_free(slot->back_list);
     slot->back_list = NULL;
 }
 

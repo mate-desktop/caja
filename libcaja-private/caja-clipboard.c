@@ -33,7 +33,6 @@
 
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
-#include <eel/eel-glib-extensions.h>
 #include <string.h>
 
 typedef struct _TargetCallbackData TargetCallbackData;
@@ -432,7 +431,7 @@ owner_change_callback (GtkClipboard        *clipboard,
 }
 
 static void
-target_destroy_callback (GtkObject *object,
+target_destroy_callback (GtkWidget *object,
                          gpointer callback_data)
 {
     TargetCallbackData *target_data;
@@ -440,7 +439,7 @@ target_destroy_callback (GtkObject *object,
     g_assert (callback_data != NULL);
     target_data = callback_data;
 
-    if (clipboard_items_are_merged_in (GTK_WIDGET(object)))
+    if (clipboard_items_are_merged_in (object))
     {
         merge_out_clipboard_menu_items (G_OBJECT (object), callback_data);
     }
@@ -662,31 +661,27 @@ caja_clipboard_clear_if_colliding_uris (GtkWidget *widget,
     collision = FALSE;
     data = gtk_clipboard_wait_for_contents (caja_clipboard_get (widget),
                                             copied_files_atom);
-    if (data == NULL)
-    {
+    if (data == NULL) {
         return;
     }
 
     clipboard_item_uris = caja_clipboard_get_uri_list_from_selection_data (data, NULL,
                           copied_files_atom);
 
-    for (l = (GList *) item_uris; l; l = l->next)
-    {
+    for (l = (GList *) item_uris; l; l = l->next) {
         if (g_list_find_custom ((GList *) item_uris, l->data,
-                                (GCompareFunc) g_strcmp0))
-        {
+                                (GCompareFunc) g_strcmp0)) {
             collision = TRUE;
             break;
         }
     }
 
-    if (collision)
-    {
+    if (collision) {
         gtk_clipboard_clear (caja_clipboard_get (widget));
     }
 
-    if (clipboard_item_uris)
-    {
-        eel_g_list_free_deep (clipboard_item_uris);
+    if (clipboard_item_uris) {
+        g_list_foreach (clipboard_item_uris, (GFunc) g_free, NULL);
+    	g_list_free(clipboard_item_uris);
     }
 }

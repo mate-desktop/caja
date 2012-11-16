@@ -32,7 +32,6 @@
 #include "eel-gdk-pixbuf-extensions.h"
 #include "eel-gtk-extensions.h"
 #include "eel-gtk-extensions.h"
-#include "eel-gtk-macros.h"
 
 #include <gtk/gtk.h>
 
@@ -73,29 +72,7 @@ struct DebugPixbufViewerClass
     GtkWidgetClass parent_class;
 };
 
-/* GtkObjectClass methods */
-static void debug_pixbuf_viewer_class_init (DebugPixbufViewerClass *pixbuf_viewer_class);
-static void debug_pixbuf_viewer_init       (DebugPixbufViewer      *pixbuf_viewer);
-static void debug_pixbuf_viewer_finalize         (GObject                *object);
-
-/* GtkWidgetClass methods */
-static void debug_pixbuf_viewer_size_request     (GtkWidget              *widget,
-        GtkRequisition         *requisition);
-static int  debug_pixbuf_viewer_expose_event     (GtkWidget              *widget,
-        GdkEventExpose         *event);
-
-EEL_CLASS_BOILERPLATE (DebugPixbufViewer, debug_pixbuf_viewer, GTK_TYPE_WIDGET)
-
-static void
-debug_pixbuf_viewer_class_init (DebugPixbufViewerClass *pixbuf_viewer_class)
-{
-    GObjectClass *object_class = G_OBJECT_CLASS (pixbuf_viewer_class);
-    GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (pixbuf_viewer_class);
-
-    object_class->finalize = debug_pixbuf_viewer_finalize;
-    widget_class->size_request = debug_pixbuf_viewer_size_request;
-    widget_class->expose_event = debug_pixbuf_viewer_expose_event;
-}
+G_DEFINE_TYPE (DebugPixbufViewer, debug_pixbuf_viewer, GTK_TYPE_WIDGET)
 
 static void
 debug_pixbuf_viewer_init (DebugPixbufViewer *viewer)
@@ -113,7 +90,7 @@ debug_pixbuf_viewer_finalize (GObject *object)
     eel_gdk_pixbuf_unref_if_not_null (viewer->pixbuf);
     viewer->pixbuf = NULL;
 
-    EEL_CALL_PARENT (G_OBJECT_CLASS, finalize, (object));
+    G_OBJECT_CLASS (debug_pixbuf_viewer_parent_class)->finalize (object);
 }
 
 static void
@@ -184,13 +161,9 @@ debug_pixbuf_viewer_expose_event (GtkWidget *widget, GdkEventExpose *event)
 
             eel_gdk_pixbuf_draw_to_drawable (viewer->pixbuf,
                                              event->window,
-                                             gtk_widget_get_style (widget)->white_gc,
                                              clipped_bounds.x0 - bounds.x0,
                                              clipped_bounds.y0 - bounds.y0,
-                                             clipped_bounds,
-                                             GDK_RGB_DITHER_NONE,
-                                             GDK_PIXBUF_ALPHA_BILEVEL,
-                                             EEL_STANDARD_ALPHA_THRESHHOLD);
+                                             clipped_bounds);
         }
     }
 
@@ -200,6 +173,17 @@ debug_pixbuf_viewer_expose_event (GtkWidget *widget, GdkEventExpose *event)
     bounds.y1 += 1;
 
     return TRUE;
+}
+
+static void
+debug_pixbuf_viewer_class_init (DebugPixbufViewerClass *pixbuf_viewer_class)
+{
+    GObjectClass *object_class = G_OBJECT_CLASS (pixbuf_viewer_class);
+    GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (pixbuf_viewer_class);
+
+    object_class->finalize = debug_pixbuf_viewer_finalize;
+    widget_class->size_request = debug_pixbuf_viewer_size_request;
+    widget_class->expose_event = debug_pixbuf_viewer_expose_event;
 }
 
 static void
@@ -229,7 +213,7 @@ eel_debug_draw_rectangle_and_cross (GdkDrawable *drawable,
                                     guint32 color,
                                     gboolean draw_cross)
 {
-    GdkGC *gc;
+    cairo_t *cr;
     GdkColor color_gdk = { 0 };
 
     int width;
@@ -241,43 +225,32 @@ eel_debug_draw_rectangle_and_cross (GdkDrawable *drawable,
     width = rectangle.x1 - rectangle.x0;
     height = rectangle.y1 - rectangle.y0;
 
-    gc = gdk_gc_new (drawable);
-    gdk_gc_set_function (gc, GDK_COPY);
+    cr = gdk_cairo_create (drawable);
 
     color_gdk.red   = ((color >> 16) & 0xff) << 8;
     color_gdk.green = ((color >>  8) & 0xff) << 8;
     color_gdk.blue  = ((color      ) & 0xff) << 8;
-    gdk_colormap_alloc_color (
-        gdk_drawable_get_colormap (drawable),
-        &color_gdk, FALSE, FALSE);
-    gdk_gc_set_rgb_fg_color (gc, &color_gdk);
+    gdk_cairo_set_source_color (cr, &color_gdk);
+    cairo_set_line_width (cr, 1.0);
 
-    gdk_draw_rectangle (drawable,
-                        gc,
-                        FALSE,
-                        rectangle.x0,
-                        rectangle.y0,
-                        width - 1,
-                        height - 1);
+    cairo_rectangle (cr,
+                     rectangle.x0 + 0.5,
+                     rectangle.y0 + 0.5,
+                     width,
+                     height);
 
     if (draw_cross)
     {
-        gdk_draw_line (drawable,
-                       gc,
-                       rectangle.x0,
-                       rectangle.y0,
-                       rectangle.x0 + width - 1,
-                       rectangle.y0 + height - 1);
+        cairo_move_to (cr, rectangle.x0, rectangle.y0);
+        cairo_line_to (cr, rectangle.x0 + width, rectangle.y0 + height);
 
-        gdk_draw_line (drawable,
-                       gc,
-                       rectangle.x0 + width - 1,
-                       rectangle.y0,
-                       rectangle.x0,
-                       rectangle.y0 + height - 1);
+        cairo_move_to (cr, rectangle.x0 + width, rectangle.y0);
+        cairo_line_to (cr, rectangle.x0, rectangle.y0 + height);
     }
 
-    g_object_unref (gc);
+    cairo_stroke (cr);
+
+    cairo_destroy (cr);
 }
 
 /**
@@ -376,8 +349,6 @@ eel_debug_show_pixbuf (GdkPixbuf *pixbuf)
         debug_image = gtk_widget_new (debug_pixbuf_viewer_get_type (), NULL);
 
         gtk_box_pack_start (GTK_BOX (vbox), debug_image, TRUE, TRUE, 0);
-
-        eel_gtk_widget_set_background_color (debug_window, "white");
 
         eel_debug_call_at_shutdown (destroy_debug_window);
 

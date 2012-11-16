@@ -26,31 +26,77 @@
 
 #include "caja-cell-renderer-text-ellipsized.h"
 
-#define ELLIPSIZE_PROP "ellipsize"
-
-static void caja_cell_renderer_text_ellipsized_get_size   (GtkCellRenderer				*cell,
-        GtkWidget				*widget,
-        GdkRectangle				*rectangle,
-        gint					*x_offset,
-        gint					*y_offset,
-        gint					*width,
-        gint					*height);
-
 G_DEFINE_TYPE (CajaCellRendererTextEllipsized, caja_cell_renderer_text_ellipsized,
                GTK_TYPE_CELL_RENDERER_TEXT);
 
+#if GTK_CHECK_VERSION(3,0,0)
 static void
 caja_cell_renderer_text_ellipsized_init (CajaCellRendererTextEllipsized *cell)
 {
-    g_object_set (cell, ELLIPSIZE_PROP, PANGO_ELLIPSIZE_END, NULL);
+    g_object_set (cell,
+                  "ellipsize", PANGO_ELLIPSIZE_END,
+                  "ellipsize-set", TRUE,
+                  NULL);
 }
+
+static void
+nautilus_cell_renderer_text_ellipsized_get_preferred_width (GtkCellRenderer *cell,
+        						    GtkWidget       *widget,
+        						    gint            *minimum_size,
+        						    gint            *natural_size)
+{
+    g_object_set (cell,
+                  "ellipsize", PANGO_ELLIPSIZE_NONE,
+                  "ellipsize-set", FALSE,
+                  NULL);
+
+    GTK_CELL_RENDERER_CLASS
+            (nautilus_cell_renderer_text_ellipsized_parent_class)->get_preferred_width (cell, widget,
+        										minimum_size, natural_size);
+
+    g_object_set (cell,
+                  "ellipsize", PANGO_ELLIPSIZE_END,
+                  "ellipsize-set", TRUE,
+                  NULL);
+}
+#else /* GTK_CHECK_VERSION(3,0,0) */
+static void
+caja_cell_renderer_text_ellipsized_init (CajaCellRendererTextEllipsized *cell)
+{
+    g_object_set (cell, "ellipsize", PANGO_ELLIPSIZE_END, NULL);
+}
+
+static void
+caja_cell_renderer_text_ellipsized_get_size (GtkCellRenderer *cell,
+    					     GtkWidget       *widget,
+    					     GdkRectangle    *cell_area,
+    					     gint            *x_offset,
+    					     gint            *y_offset,
+    					     gint            *width,
+    					     gint            *height)
+{
+    g_object_set (cell, "ellipsize", PANGO_ELLIPSIZE_NONE, NULL);
+
+    GTK_CELL_RENDERER_CLASS 
+            (caja_cell_renderer_text_ellipsized_parent_class)->get_size (cell, widget,
+            								 cell_area,
+            								 x_offset, y_offset,
+            								 width, height);
+
+    g_object_set (cell, "ellipsize", PANGO_ELLIPSIZE_END, NULL);
+}
+#endif /* GTK_CHECK_VERSION(3,0,0) */
 
 static void
 caja_cell_renderer_text_ellipsized_class_init (CajaCellRendererTextEllipsizedClass *klass)
 {
     GtkCellRendererClass *cell_class = GTK_CELL_RENDERER_CLASS (klass);
 
+#if GTK_CHECK_VERSION(3,0,0)
+    cell_class->get_preferred_width = caja_cell_renderer_text_ellipsized_get_preferred_width;
+#else
     cell_class->get_size = caja_cell_renderer_text_ellipsized_get_size;
+#endif
 }
 
 GtkCellRenderer *
@@ -58,23 +104,3 @@ caja_cell_renderer_text_ellipsized_new (void)
 {
     return g_object_new (CAJA_TYPE_CELL_RENDERER_TEXT_ELLIPSIZED, NULL);
 }
-
-static void
-caja_cell_renderer_text_ellipsized_get_size (GtkCellRenderer *cell,
-        GtkWidget       *widget,
-        GdkRectangle    *cell_area,
-        gint            *x_offset,
-        gint            *y_offset,
-        gint            *width,
-        gint            *height)
-{
-    g_object_set (cell, ELLIPSIZE_PROP, PANGO_ELLIPSIZE_NONE, NULL);
-
-    (* GTK_CELL_RENDERER_CLASS (caja_cell_renderer_text_ellipsized_parent_class)->get_size)
-    (cell, widget, cell_area,
-     x_offset, y_offset,
-     width, height);
-
-    g_object_set (cell, ELLIPSIZE_PROP, PANGO_ELLIPSIZE_END, NULL);
-}
-

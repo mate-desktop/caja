@@ -126,8 +126,6 @@ read_color (const char *key, GdkColor *color)
     {
         gdk_color_parse ("black", color);
     }
-
-    gdk_rgb_find_color (gdk_rgb_get_colormap (), color);
 }
 
 static void
@@ -298,11 +296,12 @@ desktop_background_settings_notify_cb (GSettings *settings, gchar *key, gpointer
 }
 
 static void
-desktop_background_destroyed_callback (EelBackground *background, void *georgeWBush)
+desktop_background_weak_notify (gpointer data,
+                                GObject *object)
 {
     g_signal_handlers_disconnect_by_func(mate_background_preferences,
                                          G_CALLBACK (desktop_background_settings_notify_cb),
-                                         background);
+                                         object);
 }
 
 static void
@@ -311,10 +310,10 @@ caja_file_background_receive_settings_changes (EelBackground *background)
     g_signal_connect (mate_background_preferences,
                       "changed",
                       G_CALLBACK (desktop_background_settings_notify_cb),
-                      background);
+                      G_OBJECT (background));
 
-    g_signal_connect (background, "destroy",
-                      G_CALLBACK (desktop_background_destroyed_callback), NULL);
+    g_object_weak_ref (G_OBJECT (background),
+                      desktop_background_weak_notify, NULL);
 }
 
 /* return true if the background is not in the default state */
@@ -565,9 +564,11 @@ background_reset_callback (EelBackground *background,
 
 /* handle the background destroyed signal */
 static void
-background_destroyed_callback (EelBackground *background,
-                               CajaFile *file)
+background_weak_notify (gpointer data,
+                        GObject *background)
 {
+    CajaFile *file = CAJA_FILE (data);
+
     g_signal_handlers_disconnect_by_func
     (file,
      G_CALLBACK (saved_settings_changed_callback), background);
@@ -600,23 +601,26 @@ caja_connect_background_to_file_metadata (GtkWidget    *widget,
     if (old_file != NULL)
     {
         g_assert (CAJA_IS_FILE (old_file));
-        g_signal_handlers_disconnect_by_func
-        (background,
-         G_CALLBACK (background_changed_callback), old_file);
-        g_signal_handlers_disconnect_by_func
-        (background,
-         G_CALLBACK (background_destroyed_callback), old_file);
-        g_signal_handlers_disconnect_by_func
-        (background,
-         G_CALLBACK (background_reset_callback), old_file);
-        g_signal_handlers_disconnect_by_func
-        (old_file,
-         G_CALLBACK (saved_settings_changed_callback), background);
+
+        g_signal_handlers_disconnect_by_func (background,
+                                              G_CALLBACK (background_changed_callback),
+                                              old_file);
+
+        g_signal_handlers_disconnect_by_func (background,
+                                              G_CALLBACK (background_reset_callback),
+                                              old_file);
+
+        g_object_weak_unref (G_OBJECT (background), background_weak_notify, old_file);
+
+        g_signal_handlers_disconnect_by_func (old_file,
+                                              G_CALLBACK (saved_settings_changed_callback),
+                                              background);
+
         caja_file_monitor_remove (old_file, background);
+
         g_signal_handlers_disconnect_by_func (caja_preferences,
                                               caja_file_background_theme_changed,
                                               background);
-
     }
 
     /* Attach the new directory. */
@@ -631,12 +635,14 @@ caja_connect_background_to_file_metadata (GtkWidget    *widget,
     {
         g_signal_connect_object (background, "settings_changed",
                                  G_CALLBACK (background_changed_callback), file, 0);
-        g_signal_connect_object (background, "destroy",
-                                 G_CALLBACK (background_destroyed_callback), file, 0);
+
         g_signal_connect_object (background, "reset",
                                  G_CALLBACK (background_reset_callback), file, 0);
+
         g_signal_connect_object (file, "changed",
                                  G_CALLBACK (saved_settings_changed_callback), background, 0);
+
+        g_object_weak_ref (G_OBJECT (background), background_weak_notify, file);
 
         /* arrange to receive file metadata */
         caja_file_monitor_add (file,

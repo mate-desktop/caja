@@ -25,13 +25,12 @@
 #include <config.h>
 #include "eel-background-box.h"
 
-#include "eel-gtk-macros.h"
 #include "eel-background.h"
 
 static void eel_background_box_class_init   (EelBackgroundBoxClass *background_box_class);
 static void eel_background_box_init         (EelBackgroundBox      *background);
 
-EEL_CLASS_BOILERPLATE (EelBackgroundBox, eel_background_box, GTK_TYPE_EVENT_BOX)
+G_DEFINE_TYPE (EelBackgroundBox, eel_background_box, GTK_TYPE_EVENT_BOX)
 
 static gboolean
 eel_background_box_expose_event (GtkWidget *widget,

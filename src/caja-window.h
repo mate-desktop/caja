@@ -122,7 +122,6 @@ struct CajaWindow
 
     CajaWindowDetails *details;
 
-    /** CORBA-related elements **/
     CajaApplication *application;
 };
 
@@ -137,16 +136,20 @@ void             caja_window_disconnect_content_view (CajaWindow    *window,
 
 void             caja_window_go_to                (CajaWindow    *window,
         GFile             *location);
+void             caja_window_go_to_full           (CajaWindow    *window,
+        GFile             *location,
+        CajaWindowGoToCallback callback,
+        gpointer           user_data);
 void             caja_window_go_to_with_selection (CajaWindow    *window,
         GFile             *location,
         GList             *new_selection);
 void             caja_window_go_home              (CajaWindow    *window);
+void             caja_window_new_tab              (CajaWindow    *window);
 void             caja_window_go_up                (CajaWindow    *window,
         gboolean           close_behind,
         gboolean           new_tab);
 void             caja_window_prompt_for_location  (CajaWindow    *window,
         const char        *initial);
-void             caja_window_launch_cd_burner     (CajaWindow    *window);
 void             caja_window_display_error        (CajaWindow    *window,
         const char        *error_msg);
 void		 caja_window_reload		      (CajaWindow	 *window);
@@ -157,9 +160,6 @@ void             caja_window_allow_up             (CajaWindow    *window,
         gboolean           allow);
 void             caja_window_allow_stop           (CajaWindow    *window,
         gboolean           allow);
-void             caja_window_allow_burn_cd        (CajaWindow    *window,
-        gboolean           allow);
 GtkUIManager *   caja_window_get_ui_manager       (CajaWindow    *window);
-gboolean         caja_window_has_menubar_and_statusbar (CajaWindow *window);
 
 #endif

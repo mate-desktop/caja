@@ -88,17 +88,12 @@ GList *              caja_application_get_window_list           (void);
 GList *              caja_application_get_spatial_window_list    (void);
 unsigned int         caja_application_get_n_windows            (void);
 
-CajaWindow *     caja_application_present_spatial_window     (CajaApplication *application,
+CajaWindow *     caja_application_get_spatial_window     (CajaApplication *application,
         CajaWindow      *requesting_window,
-        const char          *startup_id,
-        GFile               *location,
-        GdkScreen           *screen);
-CajaWindow *     caja_application_present_spatial_window_with_selection (CajaApplication *application,
-        CajaWindow      *requesting_window,
-        const char          *startup_id,
-        GFile               *location,
-        GList		     *new_selection,
-        GdkScreen           *screen);
+        const char      *startup_id,
+        GFile           *location,
+        GdkScreen       *screen,
+        gboolean        *existing);
 
 CajaWindow *     caja_application_create_navigation_window     (CajaApplication *application,
         const char          *startup_id,

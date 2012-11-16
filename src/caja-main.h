@@ -29,8 +29,12 @@
 
 #include <gtk/gtk.h>
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+void     caja_main_event_loop_register    (GtkWidget *object);
+#else
 void     caja_main_event_loop_register    (GtkObject *object);
-gboolean caja_main_is_event_loop_mainstay (GtkObject *object);
+#endif
+gboolean caja_main_is_event_loop_mainstay (GtkWidget *object);
 void     caja_main_event_loop_quit        (gboolean explicit);
 
 #endif /* CAJA_MAIN_H */

@@ -31,7 +31,6 @@
 
 #include <eel/eel-debug.h>
 #include <eel/eel-gtk-extensions.h>
-#include <eel/eel-string.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 #include <libcaja-private/caja-file-attributes.h>
@@ -141,7 +140,7 @@ set_saved_text (CajaNotesViewer *notes, char *new_notes)
     old_text = notes->details->previous_saved_text;
     notes->details->previous_saved_text = new_notes;
 
-    if (eel_strcmp (old_text, new_notes) != 0)
+    if (g_strcmp0 (old_text, new_notes) != 0)
     {
         g_signal_emit_by_name (CAJA_SIDEBAR (notes),
                                "tab_icon_changed");
@@ -207,7 +206,7 @@ load_note_text_from_metadata (CajaFile *file,
     /* This fn is called for any change signal on the file, so make sure that the
      * metadata has actually changed.
      */
-    if (eel_strcmp (saved_text, notes->details->previous_saved_text) != 0)
+    if (g_strcmp0 (saved_text, notes->details->previous_saved_text) != 0)
     {
         set_saved_text (notes, saved_text);
         cancel_pending_save (notes);

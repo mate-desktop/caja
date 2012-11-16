@@ -70,7 +70,8 @@ restore_button_clicked_cb (GtkWidget *button,
     caja_restore_files_from_trash (files, GTK_WINDOW (gtk_widget_get_toplevel (button)));
 
     caja_file_list_free (files);
-    eel_g_object_list_free (locations);
+    g_list_foreach(locations, (GFunc) g_object_unref, NULL);
+    g_list_free(locations);
 }
 
 static void

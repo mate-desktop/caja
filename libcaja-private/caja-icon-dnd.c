@@ -60,6 +60,12 @@
 #include <stdio.h>
 #include <string.h>
 
+#if !GTK_CHECK_VERSION(3, 0, 0)
+#define gtk_scrollable_get_hadjustment gtk_layout_get_hadjustment
+#define gtk_scrollable_get_vadjustment gtk_layout_get_vadjustment
+#define GTK_SCROLLABLE GTK_LAYOUT
+#endif
+
 static const GtkTargetEntry drag_types [] =
 {
     { CAJA_ICON_DND_MATE_ICON_LIST_TYPE, 0, CAJA_ICON_DND_MATE_ICON_LIST },
@@ -98,7 +104,6 @@ create_selection_shadow (CajaIconContainer *container,
 {
     EelCanvasGroup *group;
     EelCanvas *canvas;
-    GdkBitmap *stipple;
     int max_x, max_y;
     int min_x, min_y;
     GList *p;
@@ -114,9 +119,6 @@ create_selection_shadow (CajaIconContainer *container,
     {
         return NULL;
     }
-
-    stipple = container->details->dnd_info->stipple;
-    g_return_val_if_fail (stipple != NULL, NULL);
 
     canvas = EEL_CANVAS (container);
     gtk_widget_get_allocation (GTK_WIDGET (container), &allocation);
@@ -164,7 +166,7 @@ create_selection_shadow (CajaIconContainer *container,
              "x2", (double) x2,
              "y2", (double) y2,
              "outline_color", "black",
-             "outline_stipple", stipple,
+             "outline-stippling", TRUE,
              "width_pixels", 1,
              NULL);
     }
@@ -201,6 +203,10 @@ canvas_rect_world_to_widget (EelCanvas *canvas,
                              EelIRect *widget_rect)
 {
     EelDRect window_rect;
+    GtkAdjustment *hadj, *vadj;
+
+    hadj = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (canvas));
+    vadj = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (canvas));
 
     eel_canvas_world_to_window (canvas,
                                 world_rect->x0, world_rect->y0,
@@ -208,10 +214,10 @@ canvas_rect_world_to_widget (EelCanvas *canvas,
     eel_canvas_world_to_window (canvas,
                                 world_rect->x1, world_rect->y1,
                                 &window_rect.x1, &window_rect.y1);
-    widget_rect->x0 = (int) window_rect.x0 - gtk_adjustment_get_value (gtk_layout_get_hadjustment (GTK_LAYOUT (canvas)));
-    widget_rect->y0 = (int) window_rect.y0 - gtk_adjustment_get_value (gtk_layout_get_vadjustment (GTK_LAYOUT (canvas)));
-    widget_rect->x1 = (int) window_rect.x1 - gtk_adjustment_get_value (gtk_layout_get_hadjustment (GTK_LAYOUT (canvas)));
-    widget_rect->y1 = (int) window_rect.y1 - gtk_adjustment_get_value (gtk_layout_get_vadjustment (GTK_LAYOUT (canvas)));
+    widget_rect->x0 = (int) window_rect.x0 - gtk_adjustment_get_value (hadj);
+    widget_rect->y0 = (int) window_rect.y0 - gtk_adjustment_get_value (vadj);
+    widget_rect->x1 = (int) window_rect.x1 - gtk_adjustment_get_value (hadj);
+    widget_rect->y1 = (int) window_rect.y1 - gtk_adjustment_get_value (vadj);
 }
 
 static void
@@ -220,8 +226,8 @@ canvas_widget_to_world (EelCanvas *canvas,
                         double *world_x, double *world_y)
 {
     eel_canvas_window_to_world (canvas,
-                                widget_x + gtk_adjustment_get_value (gtk_layout_get_hadjustment (GTK_LAYOUT (canvas))),
-                                widget_y + gtk_adjustment_get_value (gtk_layout_get_vadjustment (GTK_LAYOUT (canvas))),
+    			    widget_x + gtk_adjustment_get_value (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (canvas))),
+    			    widget_y + gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (canvas))),
                                 world_x, world_y);
 }
 
@@ -379,7 +385,7 @@ caja_icon_container_dropped_icon_feedback (GtkWidget *widget,
     {
         /* FIXME bugzilla.gnome.org 42484:
          * Is a destroy really sufficient here? Who does the unref? */
-        gtk_object_destroy (GTK_OBJECT (dnd_info->shadow));
+        eel_canvas_item_destroy (dnd_info->shadow);
     }
 
     /* Build the selection list and the shadow. */
@@ -944,63 +950,6 @@ stop_auto_scroll (CajaIconContainer *container)
     caja_drag_autoscroll_stop (&container->details->dnd_info->drag_info);
 }
 
-static gboolean
-confirm_switch_to_manual_layout (CajaIconContainer *container)
-{
-#if 0
-    const char *message;
-    const char *detail;
-    GtkDialog *dialog;
-    int response;
-
-    /* FIXME bugzilla.gnome.org 40915: Use of the word "directory"
-     * makes this FMIconView specific. Move these messages into
-     * FMIconView so CajaIconContainer can be used for things
-     * that are not directories?
-     */
-    if (caja_icon_container_has_stored_icon_positions (container))
-    {
-        if (eel_g_list_exactly_one_item (container->details->dnd_info->drag_info.selection_list))
-        {
-            message = no_translate("Do you want to switch to manual layout and leave this item where you dropped it? "
-                                   "This will clobber the stored manual layout.");
-            detail = no_translate("This folder uses automatic layout.");
-        }
-        else
-        {
-            message = no_translate("Do you want to switch to manual layout and leave these items where you dropped them? "
-                                   "This will clobber the stored manual layout.");
-            detail = no_translate("This folder uses automatic layout.");
-        }
-    }
-    else
-    {
-        if (eel_g_list_exactly_one_item (container->details->dnd_info->drag_info.selection_list))
-        {
-            message = no_translate("Do you want to switch to manual layout and leave this item where you dropped it?");
-            detail = no_translate("This folder uses automatic layout.");
-        }
-        else
-        {
-            message = no_translate("Do you want to switch to manual layout and leave these items where you dropped them?");
-            detail = no_translate("This folder uses automatic layout.");
-
-        }
-    }
-
-    dialog = eel_show_yes_no_dialog (message, detail, _("Switch to Manual Layout?"),
-                                     GTK_STOCK_CANCEL,
-                                     GTK_WINDOW (gtk_widget_get_toplevel(GTK_WIDGET(container))));
-
-    response = gtk_dialog_run (dialog);
-    gtk_object_destroy (GTK_OBJECT (dialog));
-
-    return response == GTK_RESPONSE_YES;
-#else
-    return FALSE;
-#endif
-}
-
 static void
 handle_local_move (CajaIconContainer *container,
                    double world_x, double world_y)
@@ -1015,11 +964,7 @@ handle_local_move (CajaIconContainer *container,
 
     if (container->details->auto_layout)
     {
-        if (!confirm_switch_to_manual_layout (container))
-        {
-            return;
-        }
-        caja_icon_container_freeze_icon_positions (container);
+        return;
     }
 
     time (&now);
@@ -1332,8 +1277,8 @@ caja_icon_container_receive_dropped_icons (CajaIconContainer *container,
     if (real_action > 0)
     {
         eel_canvas_window_to_world (EEL_CANVAS (container),
-                                    x + gtk_adjustment_get_value (gtk_layout_get_hadjustment (GTK_LAYOUT (container))),
-                                    y + gtk_adjustment_get_value (gtk_layout_get_vadjustment (GTK_LAYOUT (container))),
+    				    x + gtk_adjustment_get_value (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container))),
+    				    y + gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container))),
                                     &world_x, &world_y);
 
         drop_target = caja_icon_container_find_drop_target (container,
@@ -1518,7 +1463,7 @@ caja_icon_container_free_drag_data (CajaIconContainer *container)
 
     if (dnd_info->shadow != NULL)
     {
-        gtk_object_destroy (GTK_OBJECT (dnd_info->shadow));
+        eel_canvas_item_destroy (dnd_info->shadow);
         dnd_info->shadow = NULL;
     }
 
@@ -1560,18 +1505,23 @@ drag_begin_callback (GtkWidget      *widget,
                      GdkDragContext *context,
                      gpointer        data)
 {
+#if GTK_CHECK_VERSION(3,0,0)
+    cairo_surface_t *surface;
+#else
     CajaIconContainer *container;
     GdkScreen *screen;
     GdkColormap *colormap;
     GdkPixmap *pixmap;
     GdkBitmap *mask;
+    gboolean use_mask;
+#endif
     double x1, y1, x2, y2, winx, winy;
     int x_offset, y_offset;
     int start_x, start_y;
-    gboolean use_mask;
 
     container = CAJA_ICON_CONTAINER (widget);
 
+#if !GTK_CHECK_VERSION(3,0,0)
     screen = gtk_widget_get_screen (widget);
     colormap = NULL;
     if (gdk_screen_is_composited (screen))
@@ -1589,16 +1539,19 @@ drag_begin_callback (GtkWidget      *widget,
         colormap = gtk_widget_get_colormap (widget);
         use_mask = TRUE;
     }
+#endif
 
-    start_x = container->details->dnd_info->drag_info.start_x + gtk_adjustment_get_value (gtk_layout_get_hadjustment (GTK_LAYOUT (container)));
-    start_y = container->details->dnd_info->drag_info.start_y + gtk_adjustment_get_value (gtk_layout_get_vadjustment (GTK_LAYOUT (container)));
+    start_x = container->details->dnd_info->drag_info.start_x +
+    	gtk_adjustment_get_value (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container)));
+    start_y = container->details->dnd_info->drag_info.start_y +
+    	gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container)));
 
     /* create a pixmap and mask to drag with */
+#if GTK_CHECK_VERSION(3,0,0)
+    surface = caja_icon_canvas_item_get_drag_surface (container->details->drag_icon->item);
+#else
     pixmap = caja_icon_canvas_item_get_image (container->details->drag_icon->item, &mask, colormap);
-
-    /* we want to drag semi-transparent pixbufs, but X is too slow dealing with
-    stippled masks, so we had to remove the code; this comment is left as a memorial
-    to it, with the hope that we get it back someday as X Windows improves */
+#endif
 
     /* compute the image's offset */
     eel_canvas_item_get_bounds (EEL_CANVAS_ITEM (container->details->drag_icon->item),
@@ -1608,6 +1561,11 @@ drag_begin_callback (GtkWidget      *widget,
     x_offset = start_x - winx;
     y_offset = start_y - winy;
 
+#if GTK_CHECK_VERSION(3,0,0)
+    cairo_surface_set_device_offset (surface, -x_offset, -y_offset);
+    gtk_drag_set_icon_surface (context, surface);
+    cairo_surface_destroy (surface);
+#else
     if (!use_mask && pixmap != NULL)
     {
         cairo_t *cr;
@@ -1624,6 +1582,7 @@ drag_begin_callback (GtkWidget      *widget,
                               colormap,
                               pixmap, (use_mask ? mask : NULL),
                               x_offset, y_offset);
+#endif
 }
 
 void
@@ -1646,8 +1605,10 @@ caja_icon_dnd_begin_drag (CajaIconContainer *container,
     /* Notice that the event is in bin_window coordinates, because of
            the way the canvas handles events.
     */
-    dnd_info->drag_info.start_x = start_x - gtk_adjustment_get_value (gtk_layout_get_hadjustment (GTK_LAYOUT (container)));
-    dnd_info->drag_info.start_y = start_y - gtk_adjustment_get_value (gtk_layout_get_vadjustment (GTK_LAYOUT (container)));
+    dnd_info->drag_info.start_x = start_x -
+    	gtk_adjustment_get_value (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container)));
+    dnd_info->drag_info.start_y = start_y -
+    	gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container)));	
 
     /* start the drag */
     context = gtk_drag_begin (GTK_WIDGET (container),
@@ -1658,34 +1619,50 @@ caja_icon_dnd_begin_drag (CajaIconContainer *container,
 }
 
 static gboolean
+#if GTK_CHECK_VERSION(3,0,0)
+drag_highlight_draw (GtkWidget *widget,
+                     cairo_t   *cr,
+                     gpointer   user_data)
+#else
 drag_highlight_expose (GtkWidget      *widget,
                        GdkEventExpose *event,
                        gpointer        data)
+#endif
 {
     gint x, y, width, height;
     GdkWindow *window;
 
-    x = gtk_adjustment_get_value (gtk_layout_get_hadjustment (GTK_LAYOUT (widget)));
-    y = gtk_adjustment_get_value (gtk_layout_get_vadjustment (GTK_LAYOUT (widget)));
+    x = gtk_adjustment_get_value (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (widget)));
+    y = gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (widget)));
 
+    window = gtk_widget_get_window (widget);
 #if GTK_CHECK_VERSION(3, 0, 0)
-    width = gdk_window_get_width(GDK_WINDOW(gtk_widget_get_window(widget)));
-    height = gdk_window_get_height(GDK_WINDOW(gtk_widget_get_window(widget)));
-#else
-    gdk_drawable_get_size(gtk_widget_get_window(widget), &width, &height);
-#endif
+    width = gdk_window_get_width (window);
+    height = gdk_window_get_height (window);
 
-    window = gtk_layout_get_bin_window (GTK_LAYOUT (widget));
+    gtk_paint_shadow (gtk_widget_get_style (widget),
+                      cr,
+                      GTK_STATE_NORMAL, GTK_SHADOW_OUT,
+                      widget, "dnd",
+                      x, y, width, height);
+#else
+    gdk_drawable_get_size(window, &width, &height);
 
     gtk_paint_shadow (gtk_widget_get_style (widget), window,
                       GTK_STATE_NORMAL, GTK_SHADOW_OUT,
                       NULL, widget, "dnd",
                       x, y, width, height);
 
-    gdk_draw_rectangle (window,
-                        (gtk_widget_get_style(widget))->black_gc,
-                        FALSE,
-                        x, y, width - 1, height - 1);
+    cairo_t *cr = gdk_cairo_create (window);
+#endif
+
+    cairo_set_line_width (cr, 1.0);
+    cairo_set_source_rgb (cr, 0, 0, 0);
+    cairo_rectangle (cr, x + 0.5, y + 0.5, width - 1, height - 1);
+    cairo_stroke (cr);
+#if !GTK_CHECK_VERSION(3,0,0)
+    cairo_destroy (cr);
+#endif
 
     return FALSE;
 }
@@ -1744,8 +1721,13 @@ start_dnd_highlight (GtkWidget *widget)
     if (!dnd_info->highlighted)
     {
         dnd_info->highlighted = TRUE;
+#if GTK_CHECK_VERSION(3,0,0)
+        g_signal_connect_after (widget, "draw",
+                                G_CALLBACK (drag_highlight_draw),
+#else
         g_signal_connect_after (widget, "expose_event",
                                 G_CALLBACK (drag_highlight_expose),
+#endif
                                 NULL);
         dnd_highlight_queue_redraw (widget);
     }
@@ -1761,7 +1743,11 @@ stop_dnd_highlight (GtkWidget *widget)
     if (dnd_info->highlighted)
     {
         g_signal_handlers_disconnect_by_func (widget,
+#if GTK_CHECK_VERSION(3,0,0)
+                                              drag_highlight_draw,
+#else
                                               drag_highlight_expose,
+#endif
                                               NULL);
         dnd_highlight_queue_redraw (widget);
         dnd_info->highlighted = FALSE;
@@ -2029,25 +2015,7 @@ drag_data_received_callback (GtkWidget *widget,
 }
 
 void
-caja_icon_dnd_set_stipple (CajaIconContainer *container,
-                           GdkBitmap             *stipple)
-{
-    if (stipple != NULL)
-    {
-        g_object_ref (stipple);
-    }
-
-    if (container->details->dnd_info->stipple != NULL)
-    {
-        g_object_unref (container->details->dnd_info->stipple);
-    }
-
-    container->details->dnd_info->stipple = stipple;
-}
-
-void
-caja_icon_dnd_init (CajaIconContainer *container,
-                    GdkBitmap *stipple)
+caja_icon_dnd_init (CajaIconContainer *container)
 {
     GtkTargetList *targets;
     int n_elements;
@@ -2096,11 +2064,6 @@ caja_icon_dnd_init (CajaIconContainer *container,
                       G_CALLBACK (drag_drop_callback), NULL);
     g_signal_connect (container, "drag_leave",
                       G_CALLBACK (drag_leave_callback), NULL);
-
-    if (stipple != NULL)
-    {
-        container->details->dnd_info->stipple = g_object_ref (stipple);
-    }
 }
 
 void
@@ -2111,11 +2074,6 @@ caja_icon_dnd_fini (CajaIconContainer *container)
     if (container->details->dnd_info != NULL)
     {
         stop_auto_scroll (container);
-
-        if (container->details->dnd_info->stipple != NULL)
-        {
-            g_object_unref (container->details->dnd_info->stipple);
-        }
 
         caja_drag_finalize (&container->details->dnd_info->drag_info);
         container->details->dnd_info = NULL;

@@ -35,10 +35,8 @@
 #include <eel/eel-gdk-pixbuf-extensions.h>
 #include <eel/eel-glib-extensions.h>
 #include <eel/eel-gtk-extensions.h>
-#include <eel/eel-gtk-macros.h>
-#include <eel/eel-pango-extensions.h>
-#include <eel/eel-string.h>
 #include <gtk/gtk.h>
+#include <pango/pango.h>
 #include <glib/gi18n.h>
 #include <libcaja-private/caja-file-attributes.h>
 #include <libcaja-private/caja-global-preferences.h>
@@ -51,60 +49,57 @@
 #define MAX_TITLE_SIZE 		256
 #define MINIMUM_INFO_WIDTH	32
 #define SIDEBAR_INFO_MARGIN	4
-#define SHADOW_OFFSET		1
 
 #define MORE_INFO_FONT_SIZE 	 12
 #define MIN_TITLE_FONT_SIZE 	 12
 #define TITLE_PADDING		  4
 
-static void                caja_sidebar_title_class_init (CajaSidebarTitleClass *klass);
-static void                caja_sidebar_title_destroy          (GtkObject                 *object);
-static void                caja_sidebar_title_init       (CajaSidebarTitle      *pixmap);
-static void                caja_sidebar_title_size_allocate    (GtkWidget                 *widget,
-        GtkAllocation             *allocation);
-static void                update_icon                             (CajaSidebarTitle      *sidebar_title);
-static GtkWidget *         sidebar_title_create_title_label        (void);
-static GtkWidget *         sidebar_title_create_more_info_label    (void);
-static void		   update_all 				   (CajaSidebarTitle      *sidebar_title);
-static void		   update_more_info			   (CajaSidebarTitle      *sidebar_title);
-static void		   update_title_font			   (CajaSidebarTitle      *sidebar_title);
-static void                style_set                               (GtkWidget                 *widget,
-        GtkStyle                  *previous_style);
-static guint		   get_best_icon_size 			   (CajaSidebarTitle      *sidebar_title);
+#define DEFAULT_LIGHT_INFO_COLOR 0xFFFFFF
+#define DEFAULT_DARK_INFO_COLOR  0x2A2A2A
+
+static void                caja_sidebar_title_size_allocate     (GtkWidget             *widget,
+        							 GtkAllocation         *allocation);
+static void                update_icon                          (CajaSidebarTitle      *sidebar_title);
+static GtkWidget *         sidebar_title_create_title_label     (void);
+static GtkWidget *         sidebar_title_create_more_info_label (void);
+static void		   update_all 				(CajaSidebarTitle      *sidebar_title);
+static void		   update_more_info			(CajaSidebarTitle      *sidebar_title);
+static void		   update_title_font			(CajaSidebarTitle      *sidebar_title);
+static void                style_set                            (GtkWidget             *widget,
+        							 GtkStyle              *previous_style);
+static guint		   get_best_icon_size 			(CajaSidebarTitle      *sidebar_title);
+
+enum
+{
+    LABEL_COLOR,
+    LABEL_COLOR_HIGHLIGHT,
+    LABEL_COLOR_ACTIVE,
+    LABEL_COLOR_PRELIGHT,
+    LABEL_INFO_COLOR,
+    LABEL_INFO_COLOR_HIGHLIGHT,
+    LABEL_INFO_COLOR_ACTIVE,
+    LAST_LABEL_COLOR
+};
 
 struct CajaSidebarTitleDetails
 {
     CajaFile		*file;
-    guint			 file_changed_connection;
-    gboolean                 monitoring_count;
+    guint		 file_changed_connection;
+    gboolean		 monitoring_count;
 
-    char			*title_text;
+    char		*title_text;
     GtkWidget		*icon;
     GtkWidget		*title_label;
     GtkWidget		*more_info_label;
     GtkWidget		*emblem_box;
 
-    guint                    best_icon_size;
-
+    GdkColor		 label_colors [LAST_LABEL_COLOR];
+    guint		 best_icon_size;
     gboolean		 determined_icon;
 };
 
-EEL_CLASS_BOILERPLATE (CajaSidebarTitle, caja_sidebar_title, gtk_vbox_get_type ())
+G_DEFINE_TYPE (CajaSidebarTitle, caja_sidebar_title, GTK_TYPE_VBOX)
 
-static void
-caja_sidebar_title_class_init (CajaSidebarTitleClass *class)
-{
-    GtkObjectClass *object_class;
-    GtkWidgetClass *widget_class;
-
-    object_class = (GtkObjectClass*) class;
-    widget_class = (GtkWidgetClass*) class;
-
-    object_class->destroy = caja_sidebar_title_destroy;
-    widget_class->size_allocate = caja_sidebar_title_size_allocate;
-    widget_class->style_set = style_set;
-
-}
 
 static void
 style_set (GtkWidget *widget,
@@ -137,7 +132,9 @@ style_set (GtkWidget *widget,
 static void
 caja_sidebar_title_init (CajaSidebarTitle *sidebar_title)
 {
-    sidebar_title->details = g_new0 (CajaSidebarTitleDetails, 1);
+    sidebar_title->details = G_TYPE_INSTANCE_GET_PRIVATE (sidebar_title,
+    							  CAJA_TYPE_SIDEBAR_TITLE,
+    							  CajaSidebarTitleDetails);
 
     /* Create the icon */
     sidebar_title->details->icon = gtk_image_new ();
@@ -191,7 +188,7 @@ release_file (CajaSidebarTitle *sidebar_title)
 }
 
 static void
-caja_sidebar_title_destroy (GtkObject *object)
+caja_sidebar_title_finalize (GObject *object)
 {
     CajaSidebarTitle *sidebar_title;
 
@@ -202,14 +199,23 @@ caja_sidebar_title_destroy (GtkObject *object)
         release_file (sidebar_title);
 
         g_free (sidebar_title->details->title_text);
-        g_free (sidebar_title->details);
-        sidebar_title->details = NULL;
     }
 
     g_signal_handlers_disconnect_by_func (caja_preferences,
                                           update_more_info, sidebar_title);
 
-    EEL_CALL_PARENT (GTK_OBJECT_CLASS, destroy, (object));
+    G_OBJECT_CLASS (caja_sidebar_title_parent_class)->finalize (object);
+}
+
+static void
+caja_sidebar_title_class_init (CajaSidebarTitleClass *klass)
+{
+    g_type_class_add_private (klass, sizeof (CajaSidebarTitleDetails));
+
+    G_OBJECT_CLASS (klass)->finalize = caja_sidebar_title_finalize;
+
+    GTK_WIDGET_CLASS (klass)->size_allocate = caja_sidebar_title_size_allocate;
+    GTK_WIDGET_CLASS (klass)->style_set = style_set;
 }
 
 /* return a new index title object */
@@ -219,58 +225,82 @@ caja_sidebar_title_new (void)
     return gtk_widget_new (caja_sidebar_title_get_type (), NULL);
 }
 
+static void
+setup_gc_with_fg (CajaSidebarTitle *sidebar_title, int idx, guint32 color)
+{
+    sidebar_title->details->label_colors [idx] = eel_gdk_rgb_to_color (color);
+}
+
 void
 caja_sidebar_title_select_text_color (CajaSidebarTitle *sidebar_title,
-                                      EelBackground        *background,
-                                      gboolean              is_default)
+                                      EelBackground    *background)
 {
-    char *sidebar_title_color;
-    char *sidebar_info_title_color;
-    char *sidebar_title_shadow_color;
+    GdkColor *light_info_color, *dark_info_color;
+    guint light_info_value, dark_info_value;
+    GtkStyle *style;
 
-    g_return_if_fail (background != NULL);
+    g_assert (CAJA_IS_SIDEBAR_TITLE (sidebar_title));
+    g_return_if_fail (!gtk_widget_get_realized (GTK_WIDGET (sidebar_title)));
 
-    /* if the background is set to the default, the theme can explicitly
-     * define the title colors.  Check if the background has been customized
-     * and if the theme specified any colors
-     */
-    sidebar_title_color = NULL;
-    sidebar_info_title_color = NULL;
-    sidebar_title_shadow_color = NULL;
+    /* read the info colors from the current theme; use a reasonable default if undefined */
+    gtk_widget_style_get (GTK_WIDGET (sidebar_title),
+                          "light_info_color", &light_info_color,
+                          "dark_info_color", &dark_info_color,
+                          NULL);
+    style = gtk_widget_get_style (GTK_WIDGET (sidebar_title));
 
-    /* FIXME bugzilla.gnome.org 42496: for now, both the title and info
-     * colors are the same - and hard coded */
-    if (eel_background_is_dark (background))
+    if (light_info_color)
     {
-        sidebar_title_color = g_strdup ("#FFFFFF");
-        sidebar_info_title_color = g_strdup ("#FFFFFF");
-        sidebar_title_shadow_color = g_strdup ("#000000");
+        light_info_value = eel_gdk_color_to_rgb (light_info_color);
+        gdk_color_free (light_info_color);
     }
     else
     {
-        sidebar_title_color = g_strdup ("#000000");
-        sidebar_info_title_color = g_strdup ("#000000");
-        sidebar_title_shadow_color = g_strdup ("#FFFFFF");
+        light_info_value = DEFAULT_LIGHT_INFO_COLOR;
     }
 
-    eel_gtk_widget_set_foreground_color (sidebar_title->details->title_label,
-                                         sidebar_title_color);
-    eel_gtk_widget_set_foreground_color (sidebar_title->details->more_info_label,
-                                         sidebar_info_title_color);
+    if (dark_info_color)
+    {
+        dark_info_value = eel_gdk_color_to_rgb (dark_info_color);
+        gdk_color_free (dark_info_color);
+    }
+    else
+    {
+        dark_info_value = DEFAULT_DARK_INFO_COLOR;
+    }
 
-    eel_gtk_label_set_drop_shadow_color (GTK_LABEL (sidebar_title->details->title_label),
-                                         eel_parse_rgb_with_white_default (sidebar_title_shadow_color));
-    eel_gtk_label_set_drop_shadow_color (GTK_LABEL (sidebar_title->details->more_info_label),
-                                         eel_parse_rgb_with_white_default (sidebar_title_shadow_color));
 
-    eel_gtk_label_set_drop_shadow_offset (GTK_LABEL (sidebar_title->details->title_label),
-                                          SHADOW_OFFSET);
-    eel_gtk_label_set_drop_shadow_offset (GTK_LABEL (sidebar_title->details->more_info_label),
-                                          SHADOW_OFFSET);
+    setup_gc_with_fg (sidebar_title, LABEL_COLOR_HIGHLIGHT,
+                      eel_gdk_color_to_rgb (&style->text[GTK_STATE_SELECTED]));
+    setup_gc_with_fg (sidebar_title, LABEL_COLOR_ACTIVE,
+                      eel_gdk_color_to_rgb (&style->text[GTK_STATE_ACTIVE]));
+    setup_gc_with_fg (sidebar_title, LABEL_COLOR_PRELIGHT,
+                      eel_gdk_color_to_rgb (&style->text[GTK_STATE_PRELIGHT]));
+    setup_gc_with_fg (sidebar_title, LABEL_INFO_COLOR_HIGHLIGHT,
+                      eel_gdk_color_is_dark (&style->base[GTK_STATE_SELECTED]) ? light_info_value : dark_info_value);
+    setup_gc_with_fg (sidebar_title, LABEL_INFO_COLOR_ACTIVE,
+                      eel_gdk_color_is_dark (&style->base[GTK_STATE_ACTIVE]) ? light_info_value : dark_info_value);
 
-    g_free (sidebar_title_color);
-    g_free (sidebar_info_title_color);
-    g_free (sidebar_title_shadow_color);
+    /* If EelBackground is not set in the widget, we can safely
+     * use the foreground color from the theme, because it will
+     * always be displayed against the gtk background */
+    if (!eel_background_is_set(background))
+    {
+        setup_gc_with_fg (sidebar_title, LABEL_COLOR,
+                          eel_gdk_color_to_rgb (&style->text[GTK_STATE_NORMAL]));
+        setup_gc_with_fg (sidebar_title, LABEL_INFO_COLOR,
+                          eel_gdk_color_is_dark (&style->base[GTK_STATE_NORMAL]) ? light_info_value : dark_info_value);
+    }
+    else if (eel_background_is_dark (background))
+    {
+        setup_gc_with_fg (sidebar_title, LABEL_COLOR, 0xEFEFEF);
+        setup_gc_with_fg (sidebar_title, LABEL_INFO_COLOR, light_info_value);
+    }
+    else     /* converse */
+    {
+        setup_gc_with_fg (sidebar_title, LABEL_COLOR, 0x000000);
+        setup_gc_with_fg (sidebar_title, LABEL_INFO_COLOR, dark_info_value);
+    }
 }
 
 static char*
@@ -361,15 +391,16 @@ update_icon (CajaSidebarTitle *sidebar_title)
 static void
 update_title_font (CajaSidebarTitle *sidebar_title)
 {
-    int available_width;
-    PangoFontDescription *title_font;
-    int largest_fitting_font_size;
-    int max_style_font_size;
+    int available_width, width;
+    int max_fit_font_size, max_style_font_size;
     GtkStyle *style;
     GtkAllocation allocation;
+    PangoFontDescription *title_font, *tmp_font;
+    PangoLayout *layout;
 
     /* Make sure theres work to do */
-    if (eel_strlen (sidebar_title->details->title_text) < 1)
+    if (sidebar_title->details->title_text == NULL
+        || strlen (sidebar_title->details->title_text) < 1)
     {
         return;
     }
@@ -392,19 +423,29 @@ update_title_font (CajaSidebarTitle *sidebar_title)
         max_style_font_size = MIN_TITLE_FONT_SIZE + 1;
     }
 
-    largest_fitting_font_size = eel_pango_font_description_get_largest_fitting_font_size (
-                                    title_font,
-                                    gtk_widget_get_pango_context (sidebar_title->details->title_label),
-                                    sidebar_title->details->title_text,
-                                    available_width,
-                                    MIN_TITLE_FONT_SIZE,
-                                    max_style_font_size);
-    pango_font_description_set_size (title_font, largest_fitting_font_size * PANGO_SCALE);
+    /* Calculate largest-fitting font size */
+    layout = pango_layout_new (gtk_widget_get_pango_context (sidebar_title->details->title_label));
+    pango_layout_set_text (layout, sidebar_title->details->title_text, -1);
+    pango_layout_set_font_description (layout, title_font);
+    tmp_font = pango_font_description_new ();
 
+    max_fit_font_size = max_style_font_size;
+    for (; max_fit_font_size >= MIN_TITLE_FONT_SIZE; max_fit_font_size--)
+    {
+        pango_font_description_set_size (tmp_font, max_fit_font_size * PANGO_SCALE);
+        pango_layout_set_font_description (layout, tmp_font);
+        pango_layout_get_pixel_size (layout, &width, NULL);
+
+        if (width <= available_width)
+            break;
+    }
+
+    pango_font_description_free (tmp_font);
+    g_object_unref (layout);
+
+    pango_font_description_set_size (title_font, max_fit_font_size * PANGO_SCALE);
     pango_font_description_set_weight (title_font, PANGO_WEIGHT_BOLD);
-
-    gtk_widget_modify_font (sidebar_title->details->title_label,
-                            title_font);
+    gtk_widget_modify_font (sidebar_title->details->title_label, title_font);
     pango_font_description_free (title_font);
 }
 
@@ -417,7 +458,7 @@ update_title (CajaSidebarTitle *sidebar_title)
     label = GTK_LABEL (sidebar_title->details->title_label);
     text = sidebar_title->details->title_text;
 
-    if (eel_strcmp (text, gtk_label_get_text (label)) == 0)
+    if (g_strcmp0 (text, gtk_label_get_text (label)) == 0)
     {
         return;
     }
@@ -678,7 +719,7 @@ caja_sidebar_title_size_allocate (GtkWidget *widget,
     gtk_widget_get_allocation (widget, &old_allocation);
     old_width = old_allocation.width;
 
-    EEL_CALL_PARENT (GTK_WIDGET_CLASS, size_allocate, (widget, allocation));
+    GTK_WIDGET_CLASS (caja_sidebar_title_parent_class)->size_allocate (widget, allocation);
 
     gtk_widget_get_allocation (widget, &new_allocation);
 
@@ -700,9 +741,21 @@ caja_sidebar_title_size_allocate (GtkWidget *widget,
 gboolean
 caja_sidebar_title_hit_test_icon (CajaSidebarTitle *sidebar_title, int x, int y)
 {
+    GtkAllocation *allocation;
+    gboolean icon_hit;
+
     g_return_val_if_fail (CAJA_IS_SIDEBAR_TITLE (sidebar_title), FALSE);
 
-    return eel_point_in_widget (sidebar_title->details->icon, x, y);
+    allocation = g_new0 (GtkAllocation, 1);
+    gtk_widget_get_allocation (GTK_WIDGET (sidebar_title->details->icon), allocation);
+    g_return_val_if_fail (allocation != NULL, FALSE);
+
+    icon_hit = x >= allocation->x && y >= allocation->y
+               && x < allocation->x + allocation->width
+               && y < allocation->y + allocation->height;
+    g_free (allocation);
+
+    return icon_hit;
 }
 
 static GtkWidget *
@@ -724,9 +777,16 @@ static GtkWidget *
 sidebar_title_create_more_info_label (void)
 {
     GtkWidget *more_info_label;
+    PangoAttrList *attrs;
+
+    attrs = pango_attr_list_new ();
+    pango_attr_list_insert (attrs, pango_attr_scale_new (PANGO_SCALE_SMALL));
 
     more_info_label = gtk_label_new ("");
-    eel_gtk_label_set_scale (GTK_LABEL (more_info_label), PANGO_SCALE_SMALL);
+
+    gtk_label_set_attributes (GTK_LABEL (more_info_label), attrs);
+    pango_attr_list_unref (attrs);
+
     gtk_label_set_justify (GTK_LABEL (more_info_label), GTK_JUSTIFY_CENTER);
     gtk_label_set_selectable (GTK_LABEL (more_info_label), TRUE);
     gtk_label_set_ellipsize (GTK_LABEL (more_info_label), PANGO_ELLIPSIZE_END);

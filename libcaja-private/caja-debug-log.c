@@ -27,7 +27,6 @@
 #include <string.h>
 #include <time.h>
 #include <sys/time.h>
-#include <eel/eel-glib-extensions.h>
 #include "caja-debug-log.h"
 #include "caja-file.h"
 
@@ -309,7 +308,8 @@ caja_debug_log_with_file_list (gboolean is_milestone, const char *domain, GList 
     caja_debug_logv (is_milestone, domain, uris, format, args);
     va_end (args);
 
-    eel_g_list_free_deep (uris);
+    g_list_foreach (uris, (GFunc) g_free, NULL);
+    g_list_free(uris);
 }
 
 gboolean

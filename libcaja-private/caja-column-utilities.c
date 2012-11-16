@@ -113,6 +113,7 @@ get_builtin_columns (void)
                                            "label", _("MIME Type"),
                                            "description", _("The mime type of the file."),
                                            NULL));
+#ifdef HAVE_SELINUX
     columns = g_list_append (columns,
                              g_object_new (CAJA_TYPE_COLUMN,
                                            "name", "selinux_context",
@@ -120,13 +121,13 @@ get_builtin_columns (void)
                                            "label", _("SELinux Context"),
                                            "description", _("The SELinux security context of the file."),
                                            NULL));
+#endif
     columns = g_list_append (columns,
                              g_object_new (CAJA_TYPE_COLUMN,
                                            "name", "where",
                                            "attribute", "where",
                                            "label", _("Location"),
-                                           /* TODO: Change after string freeze over */
-                                           "description", _("Location"),
+                                           "description", _("The location of the file."),
                                            NULL));
 
     return columns;

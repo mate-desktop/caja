@@ -29,7 +29,6 @@
 #include "caja-open-with-dialog.h"
 #include "caja-signaller.h"
 
-#include <eel/eel-glib-extensions.h>
 #include <eel/eel-stock-dialogs.h>
 
 #include <string.h>
@@ -118,12 +117,6 @@ caja_open_with_dialog_finalize (GObject *object)
     g_free (dialog->details);
 
     G_OBJECT_CLASS (caja_open_with_dialog_parent_class)->finalize (object);
-}
-
-static void
-caja_open_with_dialog_destroy (GtkObject *object)
-{
-    GTK_OBJECT_CLASS (caja_open_with_dialog_parent_class)->destroy (object);
 }
 
 /* An application is valid if:
@@ -297,7 +290,8 @@ add_or_find_application (CajaOpenWithDialog *dialog)
 
         if (applications != NULL)
         {
-            eel_g_object_list_free (applications);
+            g_list_foreach(applications, (GFunc) g_object_unref, NULL);
+            g_list_free(applications);
         }
     }
 
@@ -397,17 +391,13 @@ static void
 caja_open_with_dialog_class_init (CajaOpenWithDialogClass *class)
 {
     GObjectClass *gobject_class;
-    GtkObjectClass *object_class;
 
     gobject_class = G_OBJECT_CLASS (class);
     gobject_class->finalize = caja_open_with_dialog_finalize;
 
-    object_class = GTK_OBJECT_CLASS (class);
-    object_class->destroy = caja_open_with_dialog_destroy;
-
     signals[APPLICATION_SELECTED] =
         g_signal_new ("application_selected",
-                      G_TYPE_FROM_CLASS (object_class),
+                      G_TYPE_FROM_CLASS (class),
                       G_SIGNAL_RUN_LAST,
                       G_STRUCT_OFFSET (CajaOpenWithDialogClass,
                                        application_selected),
@@ -850,7 +840,6 @@ caja_open_with_dialog_init (CajaOpenWithDialog *dialog)
     dialog->details = g_new0 (CajaOpenWithDialogDetails, 1);
 
     gtk_window_set_title (GTK_WINDOW (dialog), _("Open With"));
-    gtk_dialog_set_has_separator (GTK_DIALOG (dialog), FALSE);
     gtk_container_set_border_width (GTK_CONTAINER (dialog), 5);
     gtk_window_set_resizable (GTK_WINDOW (dialog), FALSE);
     gtk_window_set_destroy_with_parent (GTK_WINDOW (dialog), TRUE);

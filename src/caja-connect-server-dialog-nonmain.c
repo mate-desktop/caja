@@ -31,29 +31,69 @@
  * caja-connect-server-dialog-main.c for the standalone version.
  */
 
+static GSimpleAsyncResult *display_location_res = NULL;
+
+static void
+window_go_to_cb (CajaWindow *window,
+		 GError *error,
+		 gpointer user_data)
+{
+    CajaConnectServerDialog *self;
+
+    self = user_data;
+
+    if (error != NULL) {
+    	g_simple_async_result_set_from_error (display_location_res, error);
+    }
+
+    g_simple_async_result_complete (display_location_res);
+
+    g_object_unref (display_location_res);
+    display_location_res = NULL;
+}
+
+gboolean
+caja_connect_server_dialog_display_location_finish (CajaConnectServerDialog *self,
+						    GAsyncResult *res,
+						    GError **error)
+{
+    if (g_simple_async_result_propagate_error (G_SIMPLE_ASYNC_RESULT (res), error)) {
+    	return FALSE;
+    }
+
+    return TRUE;
+}
+
 void
-caja_connect_server_dialog_present_uri (CajaApplication *application,
-                                        GFile *location,
-                                        GtkWidget *widget)
+caja_connect_server_dialog_display_location_async (CajaConnectServerDialog *self,
+    						   CajaApplication *application,
+    						   GFile *location,
+    						   GAsyncReadyCallback callback,
+    						   gpointer user_data)
 {
     CajaWindow *window;
+    GtkWidget *widget;
 
-    if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_BROWSER))
-    {
+    widget = GTK_WIDGET (self);
+
+    display_location_res =
+        g_simple_async_result_new (G_OBJECT (self),
+        			   callback, user_data,
+        			   caja_connect_server_dialog_display_location_async);
+
+    if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_BROWSER)) {
         window = caja_application_create_navigation_window (application,
-                 NULL,
-                 gtk_widget_get_screen (widget));
-        caja_window_go_to (window, location);
-    }
-    else
-    {
-        caja_application_present_spatial_window (application,
-                NULL,
-                NULL,
-                location,
-                gtk_widget_get_screen (widget));
+        						    NULL,
+        						    gtk_widget_get_screen (widget));
+    } else {
+    	window = caja_application_get_spatial_window (application,
+    							  NULL,
+    							  NULL,
+    							  location,
+    							  gtk_widget_get_screen (widget),
+    							  NULL);
     }
 
-    gtk_widget_destroy (widget);
-    g_object_unref (location);
+    caja_window_go_to_full (window, location,
+    			    window_go_to_cb, self);
 }
