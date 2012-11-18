@@ -30,7 +30,7 @@
 #include <gtk/gtk.h>
 
 #if GTK_CHECK_VERSION(3, 0, 0)
-void     caja_main_event_loop_register    (GtkWidget *object);
+void     caja_main_event_loop_register    (GtkObject *object);
 #else
 void     caja_main_event_loop_register    (GtkObject *object);
 #endif
