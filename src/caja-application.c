@@ -131,7 +131,7 @@ _unique_message_data_set_geometry_and_uris (UniqueMessageData  *message_data,
 {
     GString *list;
     gint i;
-    gchar *result;
+    guchar *result;
     gsize length;
 
     list = g_string_new (NULL);
