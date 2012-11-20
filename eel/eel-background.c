@@ -461,7 +461,7 @@ eel_background_expose (GtkWidget      *widget,
     widget_window = gtk_widget_get_window (widget);
 
 #if !GTK_CHECK_VERSION (3, 0, 0)
-    g_return_if_fail (event->window != widget_window);
+    g_return_if_fail (event->window == widget_window);
 #endif
 
     EelBackground *background = eel_get_widget_background (widget);
