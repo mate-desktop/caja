@@ -210,12 +210,28 @@ caja_sidebar_title_finalize (GObject *object)
 static void
 caja_sidebar_title_class_init (CajaSidebarTitleClass *klass)
 {
-    g_type_class_add_private (klass, sizeof (CajaSidebarTitleDetails));
+    GtkWidgetClass *widget_class;
 
     G_OBJECT_CLASS (klass)->finalize = caja_sidebar_title_finalize;
 
-    GTK_WIDGET_CLASS (klass)->size_allocate = caja_sidebar_title_size_allocate;
-    GTK_WIDGET_CLASS (klass)->style_set = style_set;
+    widget_class = GTK_WIDGET_CLASS (klass);
+    widget_class->size_allocate = caja_sidebar_title_size_allocate;
+    widget_class->style_set = style_set;
+
+    gtk_widget_class_install_style_property (widget_class,
+            g_param_spec_boxed ("light_info_color",
+                                "Light Info Color",
+                                "Color used for information text against a dark background",
+                                GDK_TYPE_COLOR,
+                                G_PARAM_READABLE));
+    gtk_widget_class_install_style_property (widget_class,
+            g_param_spec_boxed ("dark_info_color",
+                                "Dark Info Color",
+                                "Color used for information text against a light background",
+                                GDK_TYPE_COLOR,
+                                G_PARAM_READABLE));
+
+    g_type_class_add_private (klass, sizeof (CajaSidebarTitleDetails));
 }
 
 /* return a new index title object */
@@ -240,7 +256,7 @@ caja_sidebar_title_select_text_color (CajaSidebarTitle *sidebar_title,
     GtkStyle *style;
 
     g_assert (CAJA_IS_SIDEBAR_TITLE (sidebar_title));
-    g_return_if_fail (!gtk_widget_get_realized (GTK_WIDGET (sidebar_title)));
+    g_return_if_fail (gtk_widget_get_realized (GTK_WIDGET (sidebar_title)));
 
     /* read the info colors from the current theme; use a reasonable default if undefined */
     gtk_widget_style_get (GTK_WIDGET (sidebar_title),
