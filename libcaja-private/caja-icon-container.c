@@ -5252,14 +5252,12 @@ caja_icon_container_search_position_func (CajaIconContainer *container,
 
     gdk_window_get_origin (cont_window, &cont_x, &cont_y);
 
-#if GTK_CHECK_VERSION(3, 0, 0)
     cont_width = gdk_window_get_width (cont_window);
     cont_height = gdk_window_get_height (cont_window);
 
+#if GTK_CHECK_VERSION(3, 0, 0)
     gtk_widget_get_preferred_size (search_dialog, &requisition, NULL);
 #else
-    gdk_drawable_get_size (cont_window, &cont_width, &cont_height);
-
     gtk_widget_size_request (search_dialog, &requisition);
 #endif
 
