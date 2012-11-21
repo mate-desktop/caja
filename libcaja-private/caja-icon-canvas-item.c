@@ -622,7 +622,7 @@ caja_icon_canvas_item_get_image (CajaIconCanvasItem *item,
     pixmap = gdk_pixmap_new (gdk_screen_get_root_window (screen),
                              width,	height,
                              gdk_visual_get_depth (gdk_colormap_get_visual (colormap)));
-    gdk_drawable_set_colormap (GDK_DRAWABLE (pixmap), colormap);
+    gdk_drawable_set_colormap (pixmap, colormap);
 
     pixbuf = gdk_pixbuf_new (GDK_COLORSPACE_RGB,
                              TRUE,
@@ -690,11 +690,11 @@ caja_icon_canvas_item_get_image (CajaIconCanvasItem *item,
     cairo_paint (cr);
     cairo_destroy (cr);
 
-    draw_embedded_text (item, GDK_DRAWABLE (pixmap),
+    draw_embedded_text (item, pixmap,
                         item_offset_x, item_offset_y);
 
-    draw_label_text (item, GDK_DRAWABLE (pixmap), FALSE, icon_rect);
-    draw_label_text (item, GDK_DRAWABLE (*mask), TRUE, icon_rect);
+    draw_label_text (item, pixmap, FALSE, icon_rect);
+    draw_label_text (item, *mask, TRUE, icon_rect);
 
     g_object_unref (pixbuf);
 
@@ -1624,7 +1624,9 @@ draw_label_text (CajaIconCanvasItem *item,
                          drawable,
 #endif
                          needs_highlight ? GTK_STATE_SELECTED : GTK_STATE_NORMAL,
+#if !GTK_CHECK_VERSION(3,0,0)
                          NULL,
+#endif
                          GTK_WIDGET (EEL_CANVAS_ITEM (item)->canvas),
                          "icon-container",
                          text_rect.x0,
@@ -1704,11 +1706,11 @@ get_knob_pixbuf (void)
 }
 
 static void
-#if GTK_CHECK_VERSION(3,0,0)
 draw_stretch_handles (CajaIconCanvasItem *item,
+#if GTK_CHECK_VERSION(3,0,0)
                       cairo_t *cr,
 #else
-draw_stretch_handles (CajaIconCanvasItem *item, GdkDrawable *drawable,
+                      GdkDrawable *drawable,
 #endif
                       const EelIRect *rect)
 {
@@ -2228,7 +2230,7 @@ caja_icon_canvas_item_draw (EelCanvasItem *item, GdkDrawable *drawable,
 #if GTK_CHECK_VERSION(3,0,0)
     draw_embedded_text (icon_item, cr, icon_rect.x0, icon_rect.y0);
 #else
-    draw_embedded_text (icon_item, drawable,  icon_rect.x0, icon_rect.y0);
+    draw_embedded_text (icon_item, drawable, icon_rect.x0, icon_rect.y0);
 #endif
 
     is_rtl = caja_icon_container_is_layout_rtl (CAJA_ICON_CONTAINER (item->canvas));

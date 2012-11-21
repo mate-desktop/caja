@@ -1505,15 +1505,15 @@ drag_begin_callback (GtkWidget      *widget,
                      GdkDragContext *context,
                      gpointer        data)
 {
+    CajaIconContainer *container;
 #if GTK_CHECK_VERSION(3,0,0)
     cairo_surface_t *surface;
 #else
-    CajaIconContainer *container;
-    GdkScreen *screen;
-    GdkColormap *colormap;
+    GdkScreen *screen = gtk_widget_get_screen (widget);
+    GdkColormap *colormap = NULL;
     GdkPixmap *pixmap;
     GdkBitmap *mask;
-    gboolean use_mask;
+    gboolean use_mask = FALSE;
 #endif
     double x1, y1, x2, y2, winx, winy;
     int x_offset, y_offset;
@@ -1522,16 +1522,8 @@ drag_begin_callback (GtkWidget      *widget,
     container = CAJA_ICON_CONTAINER (widget);
 
 #if !GTK_CHECK_VERSION(3,0,0)
-    screen = gtk_widget_get_screen (widget);
-    colormap = NULL;
     if (gdk_screen_is_composited (screen))
-    {
         colormap = gdk_screen_get_rgba_colormap (screen);
-        if (colormap != NULL)
-        {
-            use_mask = FALSE;
-        }
-    }
 
     /* Fall back on using the same colormap as the widget */
     if (colormap == NULL)
@@ -1568,18 +1560,15 @@ drag_begin_callback (GtkWidget      *widget,
 #else
     if (!use_mask && pixmap != NULL)
     {
-        cairo_t *cr;
-
         /* If composite works, make the icons partially transparent */
-        cr = gdk_cairo_create (pixmap);
+        cairo_t *cr = gdk_cairo_create (pixmap);
         cairo_set_operator (cr, CAIRO_OPERATOR_DEST_OUT);
         cairo_set_source_rgba(cr, 1,0,0,0.35);
         cairo_paint (cr);
         cairo_destroy (cr);
     }
 
-    gtk_drag_set_icon_pixmap (context,
-                              colormap,
+    gtk_drag_set_icon_pixmap (context, colormap,
                               pixmap, (use_mask ? mask : NULL),
                               x_offset, y_offset);
 #endif
@@ -1636,18 +1625,16 @@ drag_highlight_expose (GtkWidget      *widget,
     y = gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (widget)));
 
     window = gtk_widget_get_window (widget);
-#if GTK_CHECK_VERSION(3, 0, 0)
     width = gdk_window_get_width (window);
     height = gdk_window_get_height (window);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
     gtk_paint_shadow (gtk_widget_get_style (widget),
                       cr,
                       GTK_STATE_NORMAL, GTK_SHADOW_OUT,
                       widget, "dnd",
                       x, y, width, height);
 #else
-    gdk_drawable_get_size(window, &width, &height);
-
     gtk_paint_shadow (gtk_widget_get_style (widget), window,
                       GTK_STATE_NORMAL, GTK_SHADOW_OUT,
                       NULL, widget, "dnd",
