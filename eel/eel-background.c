@@ -1103,7 +1103,7 @@ eel_background_receive_dropped_color (EelBackground *background,
                                       const GtkSelectionData *selection_data)
 {
     guint16 *channels;
-    char *color_spec;
+    char *color_spec, *gradient_spec;
     char *new_gradient_spec;
     int left_border, right_border, top_border, bottom_border;
     GtkAllocation allocation;
@@ -1134,21 +1134,32 @@ eel_background_receive_dropped_color (EelBackground *background,
     right_border = allocation.width - 32;
     top_border = 32;
     bottom_border = allocation.height - 32;
+
+    /* If a custom background color isn't set, get the GtkStyle's bg color. */
+    if (!background->details->color)
+    {
+        gradient_spec = gdk_color_to_string (&gtk_widget_get_style (widget)->bg[GTK_STATE_NORMAL]);
+    }
+    else
+    {
+        gradient_spec = background->details->color;
+    }
+
     if (drop_location_x < left_border && drop_location_x <= right_border)
     {
-        new_gradient_spec = eel_gradient_set_left_color_spec (background->details->color, color_spec);
+        new_gradient_spec = eel_gradient_set_left_color_spec (gradient_spec, color_spec);
     }
     else if (drop_location_x >= left_border && drop_location_x > right_border)
     {
-        new_gradient_spec = eel_gradient_set_right_color_spec (background->details->color, color_spec);
+        new_gradient_spec = eel_gradient_set_right_color_spec (gradient_spec, color_spec);
     }
     else if (drop_location_y < top_border && drop_location_y <= bottom_border)
     {
-        new_gradient_spec = eel_gradient_set_top_color_spec (background->details->color, color_spec);
+        new_gradient_spec = eel_gradient_set_top_color_spec (gradient_spec, color_spec);
     }
     else if (drop_location_y >= top_border && drop_location_y > bottom_border)
     {
-        new_gradient_spec = eel_gradient_set_bottom_color_spec (background->details->color, color_spec);
+        new_gradient_spec = eel_gradient_set_bottom_color_spec (gradient_spec, color_spec);
     }
     else
     {
@@ -1156,6 +1167,7 @@ eel_background_receive_dropped_color (EelBackground *background,
     }
 
     g_free (color_spec);
+    g_free (gradient_spec);
 
     eel_background_set_image_uri_and_color (background, action, NULL, new_gradient_spec);
 
