@@ -1142,7 +1142,7 @@ eel_background_receive_dropped_color (EelBackground *background,
     }
     else
     {
-        gradient_spec = background->details->color;
+        gradient_spec = g_strdup (background->details->color);
     }
 
     if (drop_location_x < left_border && drop_location_x <= right_border)
