@@ -75,6 +75,8 @@
 #include <libcaja-extension/caja-menu-provider.h>
 #include <libcaja-private/caja-autorun.h>
 
+#include "glibcompat.h" /* for g_list_free_full */
+
 enum {
 	COMMAND_0, /* unused: 0 is an invalid command */
 
@@ -257,8 +259,7 @@ automount_all_volumes (CajaApplication *application)
             /* pass NULL as GMountOperation to avoid user interaction */
             g_volume_mount (volume, 0, NULL, NULL, startup_volume_mount_cb, NULL);
         }
-    	g_list_foreach(volumes, (GFunc) g_object_unref, NULL);
-    	g_list_free(volumes);
+    	g_list_free_full (volumes, g_object_unref);
     }
 
 }
@@ -433,7 +434,11 @@ check_required_directories (CajaApplication *application)
 
         dialog = eel_show_error_dialog (error_string, detail_string, NULL);
         /* We need the main event loop so the user has a chance to see the dialog. */
+#if GTK_CHECK_VERSION (3, 0, 0)
         caja_main_event_loop_register (GTK_WIDGET (dialog));
+#else
+        caja_main_event_loop_register (GTK_OBJECT (dialog));
+#endif
 
         g_string_free (directories_as_string, TRUE);
         g_free (error_string);
@@ -761,8 +766,7 @@ finish_startup (CajaApplication *application,
     /* listen for eject button presses */
     drives = g_volume_monitor_get_connected_drives (application->volume_monitor);
     g_list_foreach (drives, (GFunc) drive_listen_for_eject_button, application);
-    g_list_foreach (drives, (GFunc) g_object_unref, NULL);
-    g_list_free (drives);
+    g_list_free_full (drives, g_object_unref);
 
     application->automount_idle_id =
         g_idle_add_full (G_PRIORITY_LOW,
@@ -1171,9 +1175,7 @@ caja_application_close_desktop (void)
 {
     if (caja_application_desktop_windows != NULL)
     {
-        g_list_foreach (caja_application_desktop_windows,
-                        (GFunc) gtk_widget_destroy, NULL);
-        g_list_free (caja_application_desktop_windows);
+        g_list_free_full (caja_application_desktop_windows, (GDestroyNotify) gtk_widget_destroy);
         caja_application_desktop_windows = NULL;
     }
 }

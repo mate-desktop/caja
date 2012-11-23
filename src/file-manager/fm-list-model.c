@@ -35,6 +35,7 @@
 #include <libcaja-private/caja-dnd.h>
 #include <glib.h>
 
+#include <src/glibcompat.h> /* for g_list_free_full */
 
 enum
 {
@@ -371,8 +372,7 @@ fm_list_model_get_value (GtkTreeModel *tree_model, GtkTreeIter *iter, int column
                     g_object_unref (emblem);
             	}
 
-                g_list_foreach (emblem_icons, (GFunc) g_object_unref, NULL);
-                g_list_free(emblem_icons);
+                g_list_free_full (emblem_icons, g_object_unref);
 
             	g_object_unref (gicon);
             	gicon = emblemed_icon;
@@ -678,8 +678,7 @@ fm_list_model_get_first_iter_for_file (FMListModel          *model,
         res = TRUE;
         *iter = *(GtkTreeIter *)list->data;
     }
-    g_list_foreach(list, (GFunc) g_free, NULL);
-    g_list_free(list);
+    g_list_free_full (list, g_free);
 
     return res;
 }
@@ -1806,8 +1805,7 @@ refresh_row (gpointer data,
         gtk_tree_path_free (path);
     }
 
-    g_list_foreach(iters, (GFunc) g_free, NULL);
-    g_list_free(iters);
+    g_list_free_full (iters, g_free);
 }
 
 void

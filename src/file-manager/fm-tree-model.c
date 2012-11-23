@@ -37,6 +37,8 @@
 #include <gtk/gtk.h>
 #include <string.h>
 
+#include <src/glibcompat.h> /* for g_list_free_full */
+
 enum
 {
     ROW_LOADED,
@@ -319,8 +321,7 @@ get_menu_icon_for_file (TreeNode *node,
         }
     }
 
-    g_list_foreach (emblem_icons, (GFunc) g_object_unref, NULL);
-    g_list_free(emblem_icons);
+    g_list_free_full (emblem_icons, g_object_unref);
 
     info = caja_icon_info_lookup (gicon, size);
     retval = caja_icon_info_get_pixbuf_nodefault_at_size (info, size);

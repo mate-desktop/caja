@@ -49,6 +49,8 @@
 #include <libcaja-private/caja-sidebar-provider.h>
 #include <libcaja-private/caja-module.h>
 
+#include "glibcompat.h" /* for g_list_free_full */
+
 struct CajaInformationPanelDetails
 {
     GtkVBox *container;
@@ -1228,8 +1230,7 @@ selection_changed_callback (CajaWindowInfo *window,
 
     caja_information_panel_set_uri (panel, uri, name);
 
-    g_list_foreach (selection, (GFunc) g_object_unref, NULL);
-    g_list_free (selection);
+    g_list_free_full (selection, g_object_unref);
     g_free (uri);
     g_free (name);
 }

@@ -30,6 +30,8 @@
 #include <eel/eel-gtk-macros.h>
 #include <gio/gio.h>
 
+#include <src/glibcompat.h> /* for g_list_free_full */
+
 #define BATCH_SIZE 500
 
 typedef struct
@@ -137,10 +139,8 @@ search_thread_data_free (SearchThreadData *data)
     g_hash_table_destroy (data->visited);
     g_object_unref (data->cancellable);
     g_strfreev (data->words);
-    g_list_foreach(data->mime_types, (GFunc) g_free, NULL);
-    g_list_free(data->mime_types);
-    g_list_foreach(data->uri_hits, (GFunc) g_free, NULL);
-    g_list_free(data->uri_hits);
+    g_list_free_full (data->mime_types, g_free);
+    g_list_free_full (data->uri_hits, g_free);
     g_free (data);
 }
 
@@ -182,8 +182,7 @@ search_thread_add_hits_idle (gpointer user_data)
                                        hits->uris);
     }
 
-    g_list_foreach(hits->uris, (GFunc) g_free, NULL);
-    g_list_free(hits->uris);
+    g_list_free_full (hits->uris, g_free);
     g_free (hits);
 
     return FALSE;

@@ -70,6 +70,8 @@
 #include <unistd.h>
 #include <sys/stat.h>
 
+#include <src/glibcompat.h> /* for g_list_free_full */
+
 #ifdef HAVE_SELINUX
 #include <selinux/selinux.h>
 #endif
@@ -816,14 +818,10 @@ finalize (GObject *object)
 
 	eel_ref_str_unref (file->details->filesystem_id);
 
-        g_list_foreach(file->details->mime_list, (GFunc) g_free, NULL);
-        g_list_free(file->details->mime_list);
-        g_list_foreach(file->details->pending_extension_emblems, (GFunc) g_free, NULL);
-        g_list_free(file->details->pending_extension_emblems);
-        g_list_foreach(file->details->extension_emblems, (GFunc) g_free, NULL);
-        g_list_free(file->details->extension_emblems);
-        g_list_foreach(file->details->pending_info_providers, (GFunc) g_object_unref, NULL);
-        g_list_free(file->details->pending_info_providers);
+	g_list_free_full (file->details->mime_list, g_free);
+	g_list_free_full (file->details->pending_extension_emblems, g_free);
+	g_list_free_full (file->details->extension_emblems, g_free);
+	g_list_free_full (file->details->pending_info_providers, g_object_unref);
 
 	if (file->details->pending_extension_attributes) {
 		g_hash_table_destroy (file->details->pending_extension_attributes);
@@ -2997,8 +2995,7 @@ fill_emblem_cache_if_needed (CajaFile *file)
 	/* Zero-terminate so we can tell where the list ends. */
 	*scanner = 0;
 
-        g_list_foreach(keywords, (GFunc) g_free, NULL);
-        g_list_free(keywords);
+        g_list_free_full (keywords, g_free);
 }
 
 static int
@@ -6605,8 +6602,7 @@ caja_file_get_emblem_icons (CajaFile *file,
 		icons = g_list_prepend (icons, icon);
 	}
 
-        g_list_foreach(keywords, (GFunc) g_free, NULL);
-        g_list_free(keywords);
+        g_list_free_full (keywords, g_free);
 
 	return icons;
 }
@@ -6665,8 +6661,7 @@ sort_keyword_list_and_remove_duplicates (GList *keywords)
 			if (strcmp ((const char *) p->data, (const char *) p->next->data) == 0) {
 				duplicate_link = p->next;
 				keywords = g_list_remove_link (keywords, duplicate_link);
-				g_list_foreach(duplicate_link, (GFunc) g_free, NULL);
-				g_list_free(duplicate_link);
+				g_list_free_full (duplicate_link, g_free);
 			} else {
 				p = p->next;
 			}
@@ -7560,8 +7555,7 @@ void
 caja_file_invalidate_extension_info_internal (CajaFile *file)
 {
 	if (file->details->pending_info_providers)
-		g_list_foreach(file->details->pending_info_providers, (GFunc) g_object_unref, NULL);
-		g_list_free(file->details->pending_info_providers);
+		g_list_free_full (file->details->pending_info_providers, g_object_unref);
 
 	file->details->pending_info_providers =
 		caja_module_get_extensions_for_type (CAJA_TYPE_INFO_PROVIDER);
@@ -8383,8 +8377,7 @@ caja_file_invalidate_extension_info (CajaFile *file)
 void
 caja_file_info_providers_done (CajaFile *file)
 {
-	g_list_foreach(file->details->extension_emblems, (GFunc) g_free, NULL);
-	g_list_free(file->details->extension_emblems);
+	g_list_free_full (file->details->extension_emblems, g_free);
 	file->details->extension_emblems = file->details->pending_extension_emblems;
 	file->details->pending_extension_emblems = NULL;
 

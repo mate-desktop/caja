@@ -38,6 +38,8 @@
 #include <time.h>
 #include <locale.h>
 
+#include <src/glibcompat.h> /* for g_list_free_full */
+
 /* Legal conversion specifiers, as specified in the C standard. */
 #define C_STANDARD_STRFTIME_CHARACTERS "aAbBcdHIjmMpSUwWxXyYZ"
 #define C_STANDARD_NUMERIC_STRFTIME_CHARACTERS "dHIjmMSUwWyY"
@@ -1034,16 +1036,11 @@ eel_self_check_glib_extensions (void)
     EEL_CHECK_BOOLEAN_RESULT (eel_g_str_list_equal (compare_list_1, compare_list_4), FALSE);
     EEL_CHECK_BOOLEAN_RESULT (eel_g_str_list_equal (compare_list_1, compare_list_5), FALSE);
 
-    g_list_foreach (compare_list_1, (GFunc) g_free, NULL);
-    g_list_free(compare_list_1);
-    g_list_foreach (compare_list_2, (GFunc) g_free, NULL);
-    g_list_free(compare_list_2);
-    g_list_foreach (compare_list_3, (GFunc) g_free, NULL);
-    g_list_free(compare_list_3);
-    g_list_foreach (compare_list_4, (GFunc) g_free, NULL);
-    g_list_free(compare_list_4);
-    g_list_foreach (compare_list_5, (GFunc) g_free, NULL);
-    g_list_free(compare_list_5);
+    g_list_free_full (compare_list_1, g_free);
+    g_list_free_full (compare_list_2, g_free);
+    g_list_free_full (compare_list_3, g_free);
+    g_list_free_full (compare_list_4, g_free);
+    g_list_free_full (compare_list_5, g_free);
 
     /* eel_g_list_partition */
 

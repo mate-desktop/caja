@@ -74,6 +74,8 @@
  */
 #include "caja-desktop-window.h"
 
+#include "glibcompat.h" /* for g_list_free_full */
+
 /* This number controls a maximum character count for a URL that is
  * displayed as part of a dialog. It's fairly arbitrary -- big enough
  * to allow most "normal" URIs to display in full, but small enough to
@@ -1421,8 +1423,7 @@ create_content_view (CajaWindowSlot *slot,
                            FALSE,
                            TRUE);
 
-    	g_list_foreach(slot->pending_selection, (GFunc) g_object_unref, NULL);
-    	g_list_free(slot->pending_selection);
+    	g_list_free_full (slot->pending_selection, g_object_unref);
         slot->pending_selection = NULL;
     }
     else if (slot->location != NULL)
@@ -1433,8 +1434,7 @@ create_content_view (CajaWindowSlot *slot,
                            selection,
                            FALSE,
                            TRUE);
-    	g_list_foreach(selection, (GFunc) g_object_unref, NULL);
-    	g_list_free(selection);
+    	g_list_free_full (selection, g_object_unref);
     }
     else
     {
@@ -1492,8 +1492,7 @@ load_new_location (CajaWindowSlot *slot,
         caja_view_set_selection (view, selection_copy);
     }
 
-    g_list_foreach(selection_copy, (GFunc) g_object_unref, NULL);
-    g_list_free(selection_copy);
+    g_list_free_full (selection_copy, g_object_unref);
 }
 
 /* A view started to load the location its viewing, either due to
@@ -1950,8 +1949,7 @@ free_location_change (CajaWindowSlot *slot)
     }
     slot->pending_location = NULL;
 
-    g_list_foreach(slot->pending_selection, (GFunc) g_object_unref, NULL);
-    g_list_free(slot->pending_selection);
+    g_list_free_full (slot->pending_selection, g_object_unref);
     slot->pending_selection = NULL;
 
     /* Don't free pending_scroll_to, since thats needed until
@@ -2005,8 +2003,7 @@ cancel_location_change (CajaWindowSlot *slot)
                            selection,
                            TRUE,
                            FALSE);
-    	g_list_foreach(selection, (GFunc) g_object_unref, NULL);
-    	g_list_free(selection);
+    	g_list_free_full (selection, g_object_unref);
     }
 
     end_location_change (slot);
@@ -2356,8 +2353,7 @@ caja_window_slot_reload (CajaWindowSlot *slot)
      NULL, NULL);
     g_free (current_pos);
     g_object_unref (location);
-    g_list_foreach(selection, (GFunc) g_object_unref, NULL);
-    g_list_free(selection);
+    g_list_free_full (selection, g_object_unref);
 }
 
 void

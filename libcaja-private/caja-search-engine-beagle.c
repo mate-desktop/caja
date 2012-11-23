@@ -27,6 +27,8 @@
 #include <eel/eel-gtk-macros.h>
 #include <gmodule.h>
 
+#include <src/glibcompat.h> /* for g_list_free_full */
+
 typedef struct _BeagleHit BeagleHit;
 typedef struct _BeagleQuery BeagleQuery;
 typedef struct _BeagleClient BeagleClient;
@@ -341,8 +343,7 @@ caja_search_engine_beagle_start (CajaSearchEngine *engine)
 
     /* These must live during the lifetime of the query */
     g_free (text);
-    g_list_foreach(mimetypes, (GFunc) g_free, NULL);
-    g_list_free(mimetypes);
+    g_list_free_full (mimetypes, g_free);
 }
 
 static void

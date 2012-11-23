@@ -43,6 +43,8 @@
 #include "caja-desktop-icon-file.h"
 #include "caja-file-utilities.h"
 
+#include <src/glibcompat.h> /* for g_list_free_full */
+
 enum
 {
     AUTORUN_ASK,
@@ -651,8 +653,7 @@ caja_autorun_prepare_combo_box (GtkWidget *combo_box,
     {
         g_object_unref (default_app_info);
     }
-    g_list_foreach (app_info_list, (GFunc) g_object_unref, NULL);
-    g_list_free(app_info_list);
+    g_list_free_full (app_info_list, g_object_unref);
 
     gtk_combo_box_set_model (GTK_COMBO_BOX (combo_box), GTK_TREE_MODEL (list_store));
     g_object_unref (G_OBJECT (list_store));

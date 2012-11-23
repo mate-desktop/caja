@@ -32,6 +32,8 @@
 #include "caja-file-utilities.h"
 #include <string.h>
 
+#include <src/glibcompat.h> /* for g_list_free_full */
+
 static gboolean
 caja_drag_can_accept_files (CajaFile *drop_target_item)
 {
@@ -181,6 +183,5 @@ caja_drag_file_receive_dropped_keyword (CajaFile *file,
     }
 
     caja_file_set_keywords (file, keywords);
-    g_list_foreach(keywords, (GFunc) g_free, NULL);
-    g_list_free(keywords);
+    g_list_free_full (keywords, g_free);
 }

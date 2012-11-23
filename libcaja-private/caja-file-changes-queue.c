@@ -25,6 +25,8 @@
 
 #include "caja-directory-notify.h"
 
+#include <src/glibcompat.h> /* for g_list_free_full */
+
 #ifdef G_THREADS_ENABLED
 #define MUTEX_LOCK(a)	if ((a) != NULL) g_mutex_lock (a)
 #define MUTEX_UNLOCK(a)	if ((a) != NULL) g_mutex_unlock (a)
@@ -288,8 +290,7 @@ pairs_list_free (GList *pairs)
     }
 
     /* delete the list and the now empty pair structs */
-    g_list_foreach(pairs, (GFunc) g_free, NULL);
-    g_list_free(pairs);
+    g_list_free_full (pairs, g_free);
 }
 
 static void
@@ -304,8 +305,7 @@ position_set_list_free (GList *list)
         g_object_unref (item->location);
     }
     /* delete the list and the now empty structs */
-    g_list_foreach(list, (GFunc) g_free, NULL);
-    g_list_free(list);
+    g_list_free_full (list, g_free);
 }
 
 /* go through changes in the change queue, send ones with the same kind
@@ -387,8 +387,7 @@ caja_file_changes_consume_changes (gboolean consume_all)
             {
                 deletions = g_list_reverse (deletions);
                 caja_directory_notify_files_removed (deletions);
-    		g_list_foreach(deletions, (GFunc) g_object_unref, NULL);
-    		g_list_free(deletions);
+    		g_list_free_full (deletions, g_object_unref);
                 deletions = NULL;
             }
             if (moves != NULL)
@@ -402,16 +401,14 @@ caja_file_changes_consume_changes (gboolean consume_all)
             {
                 additions = g_list_reverse (additions);
                 caja_directory_notify_files_added (additions);
-    		g_list_foreach(additions, (GFunc) g_object_unref, NULL);
-    		g_list_free(additions);
+    		g_list_free_full (additions, g_object_unref);
                 additions = NULL;
             }
             if (changes != NULL)
             {
                 changes = g_list_reverse (changes);
                 caja_directory_notify_files_changed (changes);
-    		g_list_foreach(changes, (GFunc) g_object_unref, NULL);
-    		g_list_free(changes);
+    		g_list_free_full (changes, g_object_unref);
                 changes = NULL;
             }
             if (position_set_requests != NULL)

@@ -43,6 +43,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+#include <src/glibcompat.h> /* for g_list_free_full */
+
 #define CAJA_USER_DIRECTORY_NAME ".config/caja"
 #define DEFAULT_CAJA_DIRECTORY_MODE (0755)
 
@@ -1428,8 +1430,7 @@ caja_restore_files_from_trash (GList *files,
              parent_window,
              NULL, NULL);
 
-            g_list_foreach(locations, (GFunc) g_object_unref, NULL);
-            g_list_free(locations);
+            g_list_free_full (locations, g_object_unref);
             g_object_unref (original_dir_location);
         }
 

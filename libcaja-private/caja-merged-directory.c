@@ -33,6 +33,8 @@
 #include <eel/eel-gtk-macros.h>
 #include <gtk/gtk.h>
 
+#include <src/glibcompat.h> /* for g_list_free_full */
+
 struct CajaMergedDirectoryDetails
 {
     GList *directories;
@@ -589,8 +591,7 @@ real_directory_notify_files_removed (CajaDirectory *real_directory)
         caja_directory_notify_files_removed_by_uri (files);
     }
 
-    g_list_foreach(files, (GFunc) g_free, NULL);
-    g_list_free(files);
+    g_list_free_full (files, g_free);
 }
 
 static void

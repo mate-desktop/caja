@@ -53,6 +53,8 @@
 #include "caja-places-sidebar.h"
 #include "caja-window.h"
 
+#include "glibcompat.h" /* for g_list_free_full */
+
 #define EJECT_BUTTON_XPAD 6
 #define ICON_CELL_XPAD 6
 
@@ -842,8 +844,7 @@ update_places (CajaPlacesSidebar *sidebar)
         g_free (tooltip);
     }
 
-    g_list_foreach (network_mounts, (GFunc) g_object_unref, NULL);
-    g_list_free(network_mounts);
+    g_list_free_full (network_mounts, g_object_unref);
 
     /* network:// */
     mount_uri = "network:///"; /* No need to strdup */

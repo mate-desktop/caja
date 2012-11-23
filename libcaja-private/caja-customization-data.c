@@ -43,6 +43,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include <src/glibcompat.h> /* for g_list_free_full */
+
 typedef enum
 {
     READ_PUBLIC_CUSTOMIZATIONS,
@@ -304,10 +306,8 @@ caja_customization_data_destroy (CajaCustomizationData *data)
         g_object_unref (data->pattern_frame);
     }
 
-    g_list_foreach(data->public_file_list, (GFunc) g_object_unref, NULL);
-    g_list_free(data->public_file_list);
-    g_list_foreach(data->private_file_list, (GFunc) g_object_unref, NULL);
-    g_list_free(data->private_file_list);
+    g_list_free_full (data->public_file_list, g_object_unref);
+    g_list_free_full (data->private_file_list, g_object_unref);
 
     if (data->name_map_hash != NULL)
     {
