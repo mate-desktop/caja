@@ -3425,7 +3425,7 @@ get_initial_emblems (GList *files)
 	ret = g_hash_table_new_full (g_direct_hash,
 				     g_direct_equal,
 				     NULL,
-				     (GFunc) g_free);
+				     (GDestroyNotify) g_free);
 
 	for (l = files; l != NULL; l = l->next) {
 		CajaFile *file;

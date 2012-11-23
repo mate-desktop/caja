@@ -451,7 +451,7 @@ get_filtered_selection_refs (GtkTreeView *tree_view)
 static void
 ref_list_free (GList *ref_list)
 {
-    g_list_free_full (ref_list, gtk_tree_row_reference_free);
+    g_list_free_full (ref_list, (GDestroyNotify) gtk_tree_row_reference_free);
 }
 
 static void

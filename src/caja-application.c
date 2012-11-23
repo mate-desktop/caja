@@ -434,7 +434,11 @@ check_required_directories (CajaApplication *application)
 
         dialog = eel_show_error_dialog (error_string, detail_string, NULL);
         /* We need the main event loop so the user has a chance to see the dialog. */
+#if GTK_CHECK_VERSION (3, 0, 0)
         caja_main_event_loop_register (GTK_WIDGET (dialog));
+#else
+        caja_main_event_loop_register (GTK_OBJECT (dialog));
+#endif
 
         g_string_free (directories_as_string, TRUE);
         g_free (error_string);
@@ -1171,7 +1175,7 @@ caja_application_close_desktop (void)
 {
     if (caja_application_desktop_windows != NULL)
     {
-        g_list_free_full (caja_application_desktop_windows, gtk_widget_destroy);
+        g_list_free_full (caja_application_desktop_windows, (GDestroyNotify) gtk_widget_destroy);
         caja_application_desktop_windows = NULL;
     }
 }

@@ -191,12 +191,13 @@ caja_window_init (CajaWindow *window)
 
 #if GTK_CHECK_VERSION(3, 0, 0)
     gtk_quit_add_destroy (1, GTK_WIDGET (window));
-#else
-    gtk_quit_add_destroy (1, GTK_OBJECT (window));
-#endif
 
     /* Keep the main event loop alive as long as the window exists */
     caja_main_event_loop_register (GTK_WIDGET (window));
+#else
+    gtk_quit_add_destroy (1, GTK_OBJECT (window));
+    caja_main_event_loop_register (GTK_OBJECT (window));
+#endif
 }
 
 /* Unconditionally synchronize the GtkUIManager of WINDOW. */
@@ -613,6 +614,7 @@ free_stored_viewers (CajaWindow *window)
     window->details->extra_viewer = NULL;
 }
 
+static void
 #if GTK_CHECK_VERSION (3, 0, 0)
 caja_window_destroy (GtkWidget *object)
 #else
@@ -626,7 +628,7 @@ caja_window_destroy (GtkObject *object)
 
     /* close all panes safely */
     panes_copy = g_list_copy (window->details->panes);
-    g_list_free_full (panes_copy, caja_window_close_pane);
+    g_list_free_full (panes_copy, (GDestroyNotify) caja_window_close_pane);
 
     /* the panes list should now be empty */
     g_assert (window->details->panes == NULL);
@@ -2156,7 +2158,7 @@ caja_window_class_init (CajaWindowClass *class)
 #endif
 
     GTK_WIDGET_CLASS (class)->show = caja_window_show;
-#if GTK_CHECK_VERSION(3,0,0)
+#if GTK_CHECK_VERSION (3,0,0)
     GTK_WIDGET_CLASS (class)->get_preferred_width = caja_window_get_preferred_width;
     GTK_WIDGET_CLASS (class)->get_preferred_height = caja_window_get_preferred_height;
 #else
