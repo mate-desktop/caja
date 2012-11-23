@@ -146,6 +146,7 @@ caja_SOURCES = \
 	caja-zoom-action.h \
 	caja-zoom-control.c \
 	caja-zoom-control.h \
+	glibcompat.h \
 	$(NULL)
 
 nodist_caja_SOURCES = \
