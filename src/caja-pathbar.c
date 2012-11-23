@@ -35,6 +35,8 @@
 #include "caja-window-private.h"
 #include "caja-window-slot.h"
 
+#include "glibcompat.h" /* for g_list_free_full */
+
 #if !GTK_CHECK_VERSION(3,0,0)
 #define gtk_widget_get_preferred_size(x,y,z) gtk_widget_size_request(x,y)
 #endif
@@ -1750,8 +1752,7 @@ setup_file_path_mounted_mount (GFile *location, ButtonData *button_data)
         g_object_unref (default_location);
         g_object_unref (root);
     }
-    g_list_foreach(mounts, (GFunc) g_object_unref, NULL);
-    g_list_free(mounts);
+    g_list_free_full (mounts, g_object_unref);
     return result;
 }
 

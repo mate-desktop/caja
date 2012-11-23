@@ -34,6 +34,8 @@
 #include <locale.h>
 #include <gdk/gdk.h>
 
+#include <src/glibcompat.h> /* for g_list_free_full */
+
 /* *****************************************************************
  Private fields
  ***************************************************************** */
@@ -431,8 +433,7 @@ caja_undostack_manager_redo (CajaUndoStackManager * manager,
         uris = construct_gfile_list (action->sources, action->src_dir);
         caja_file_operations_copy (uris, NULL,
             action->dest_dir, NULL, undo_redo_done_transfer_callback, action);
-    	g_list_foreach(uris, (GFunc) g_object_unref, NULL);
-    	g_list_free(uris);
+    	g_list_free_full (uris, g_object_unref);
         break;
       case CAJA_UNDOSTACK_CREATEFILEFROMTEMPLATE:
         puri = get_uri_parent (action->target_uri);
@@ -448,16 +449,14 @@ caja_undostack_manager_redo (CajaUndoStackManager * manager,
         uris = construct_gfile_list (action->sources, action->src_dir);
         caja_file_operations_duplicate (uris, NULL, NULL,
             undo_redo_done_transfer_callback, action);
-    	g_list_foreach(uris, (GFunc) g_object_unref, NULL);
-    	g_list_free(uris);
+    	g_list_free_full (uris, g_object_unref);
         break;
       case CAJA_UNDOSTACK_RESTOREFROMTRASH:
       case CAJA_UNDOSTACK_MOVE:
         uris = construct_gfile_list (action->sources, action->src_dir);
         caja_file_operations_move (uris, NULL,
             action->dest_dir, NULL, undo_redo_done_transfer_callback, action);
-    	g_list_foreach(uris, (GFunc) g_object_unref, NULL);
-    	g_list_free(uris);
+    	g_list_free_full (uris, g_object_unref);
         break;
       case CAJA_UNDOSTACK_RENAME:
         new_name = get_uri_basename (action->new_uri);
@@ -491,16 +490,14 @@ caja_undostack_manager_redo (CajaUndoStackManager * manager,
           caja_file_operations_trash_or_delete
               (uris, NULL, undo_redo_done_delete_callback, action);
           g_list_free (uri_to_trash);
-    	  g_list_foreach(uris, (GFunc) g_object_unref, NULL);
-    	  g_list_free(uris);
+    	  g_list_free_full (uris, g_object_unref);
         }
         break;
       case CAJA_UNDOSTACK_CREATELINK:
         uris = construct_gfile_list (action->sources, action->src_dir);
         caja_file_operations_link (uris, NULL,
             action->dest_dir, NULL, undo_redo_done_transfer_callback, action);
-    	g_list_foreach(uris, (GFunc) g_object_unref, NULL);
-    	g_list_free(uris);
+    	g_list_free_full (uris, g_object_unref);
         break;
       case CAJA_UNDOSTACK_SETPERMISSIONS:
         file = caja_file_get_by_uri (action->target_uri);
@@ -583,8 +580,7 @@ caja_undostack_manager_undo (CajaUndoStackManager * manager,
         if (priv->confirm_delete) {
           caja_file_operations_delete (uris, NULL,
               undo_redo_done_delete_callback, action);
-    	  g_list_foreach(uris, (GFunc) g_object_unref, NULL);
-    	  g_list_free(uris);
+    	  g_list_free_full (uris, g_object_unref);
         } else {
           /* We skip the confirmation message
            */
@@ -605,8 +601,7 @@ caja_undostack_manager_undo (CajaUndoStackManager * manager,
         uris = construct_gfile_list (action->destinations, action->dest_dir);
         caja_file_operations_trash_or_delete (uris, NULL,
             undo_redo_done_delete_callback, action);
-    	g_list_foreach(uris, (GFunc) g_object_unref, NULL);
-    	g_list_free(uris);
+    	g_list_free_full (uris, g_object_unref);
         break;
       case CAJA_UNDOSTACK_MOVETOTRASH:
         files_to_restore = retrieve_files_to_restore (action->trashed);
@@ -636,8 +631,7 @@ caja_undostack_manager_undo (CajaUndoStackManager * manager,
         uris = construct_gfile_list (action->destinations, action->dest_dir);
         caja_file_operations_move (uris, NULL,
             action->src_dir, NULL, undo_redo_done_transfer_callback, action);
-    	g_list_foreach(uris, (GFunc) g_object_unref, NULL);
-    	g_list_free(uris);
+    	g_list_free_full (uris, g_object_unref);
         break;
       case CAJA_UNDOSTACK_RENAME:
         new_name = get_uri_basename (action->old_uri);
@@ -1766,12 +1760,10 @@ free_undostack_action (gpointer data, gpointer user_data)
   g_free (action->new_user_name_or_id);
 
   if (action->sources) {
-    g_list_foreach (action->sources, (GFunc) g_free, NULL);
-    g_list_free (action->sources);
+    g_list_free_full (action->sources, g_free);
   }
   if (action->destinations) {
-    g_list_foreach (action->destinations, (GFunc) g_free, NULL);
-    g_list_free (action->destinations);
+    g_list_free_full (action->destinations, g_free);
   }
 
   if (action->trashed) {

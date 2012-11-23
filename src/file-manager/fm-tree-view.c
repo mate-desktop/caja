@@ -55,6 +55,8 @@
 #include <libcaja-private/caja-window-info.h>
 #include <libcaja-private/caja-window-slot-info.h>
 
+#include <src/glibcompat.h> /* for g_list_free_full */
+
 typedef struct
 {
     GObject parent;
@@ -1059,8 +1061,7 @@ paste_clipboard_data (FMTreeView *view,
             gtk_clipboard_clear (caja_clipboard_get (GTK_WIDGET (view)));
         }
 
-    	g_list_foreach(item_uris, (GFunc) g_free, NULL);
-    	g_list_free(item_uris);
+    	g_list_free_full (item_uris, g_free);
     }
 }
 
@@ -1123,8 +1124,7 @@ fm_tree_view_trash_cb (GtkWidget *menu_item,
     caja_file_operations_trash_or_delete (list,
                                           fm_tree_view_get_containing_window (view),
                                           NULL, NULL);
-    g_list_foreach(list, (GFunc) g_object_unref, NULL);
-    g_list_free(list);
+    g_list_free_full (list, g_free);
 }
 
 static void
@@ -1142,8 +1142,7 @@ fm_tree_view_delete_cb (GtkWidget *menu_item,
                                     caja_file_get_location (view->details->popup_file));
 
     caja_file_operations_delete (location_list, fm_tree_view_get_containing_window (view), NULL, NULL);
-    g_list_foreach(location_list, (GFunc) g_object_unref, NULL);
-    g_list_free(location_list);
+    g_list_free_full (location_list, g_object_unref);
 }
 
 static void

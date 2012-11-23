@@ -27,6 +27,7 @@
 #include <gmodule.h>
 #include <string.h>
 
+#include <src/glibcompat.h> /* for g_list_free_full */
 
 typedef struct _TrackerClient TrackerClient;
 
@@ -306,8 +307,7 @@ search_callback (gpointer results, GError *error, gpointer user_data)
 
     caja_search_engine_hits_added (CAJA_SEARCH_ENGINE (tracker), hit_uris);
     caja_search_engine_finished (CAJA_SEARCH_ENGINE (tracker));
-    g_list_foreach (hit_uris, (GFunc) g_free, NULL);
-    g_list_free (hit_uris);
+    g_list_free_full (hit_uris, g_free);
 }
 
 
@@ -461,8 +461,7 @@ caja_search_engine_tracker_start (CajaSearchEngine *engine)
 
     tracker->details->query_pending = TRUE;
     g_free (search_text);
-    g_list_foreach(mimetypes, (GFunc) g_free, NULL);
-    g_list_free(mimetypes);
+    g_list_free_full (mimetypes, g_free);
 }
 
 static void

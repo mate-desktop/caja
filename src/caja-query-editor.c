@@ -34,6 +34,8 @@
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
 
+#include "glibcompat.h" /* for g_list_free_full */
+
 typedef enum
 {
     CAJA_QUERY_EDITOR_ROW_LOCATION,
@@ -864,8 +866,7 @@ type_add_rows_from_query (CajaQueryEditor    *editor,
                                         &iter);
     }
 
-    g_list_foreach(mime_types, (GFunc) g_free, NULL);
-    g_list_free(mime_types);
+    g_list_free_full (mime_types, g_free);
 }
 
 /* End of row types */

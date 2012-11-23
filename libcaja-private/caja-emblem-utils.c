@@ -43,6 +43,8 @@
 #include "caja-file.h"
 #include "caja-emblem-utils.h"
 
+#include <src/glibcompat.h> /* for g_list_free_full */
+
 #define EMBLEM_NAME_TRASH   "emblem-trash"
 #define EMBLEM_NAME_SYMLINK "emblem-symbolic-link"
 #define EMBLEM_NAME_NOREAD  "emblem-noread"
@@ -119,8 +121,7 @@ is_reserved_keyword (const char *keyword)
     result = g_list_find_custom (available,
                                  (char *) icon_name,
                                  (GCompareFunc) g_ascii_strcasecmp) != NULL;
-    g_list_foreach(available, (GFunc) g_free, NULL);
-    g_list_free(available);
+    g_list_free_full (available, g_free);
     g_free (icon_name);
     return result;
 }

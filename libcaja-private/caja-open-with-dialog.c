@@ -36,6 +36,8 @@
 #include <gtk/gtk.h>
 #include <gio/gio.h>
 
+#include <src/glibcompat.h> /* for g_list_free_full */
+
 #define sure_string(s)                    ((const char *)((s)!=NULL?(s):""))
 #define DESKTOP_ENTRY_GROUP		  "Desktop Entry"
 
@@ -290,8 +292,7 @@ add_or_find_application (CajaOpenWithDialog *dialog)
 
         if (applications != NULL)
         {
-            g_list_foreach(applications, (GFunc) g_object_unref, NULL);
-            g_list_free(applications);
+            g_list_free_full (applications, g_object_unref);
         }
     }
 

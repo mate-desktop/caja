@@ -42,6 +42,8 @@
 #include <gdk/gdk.h>
 #include <gdk/gdkx.h>
 
+#include <src/glibcompat.h> /* for g_list_free_full */
+
 /**
  * application_cannot_open_location
  *
@@ -163,8 +165,7 @@ caja_launch_application (GAppInfo *application,
     uris = g_list_reverse (uris);
     caja_launch_application_by_uri (application, uris,
                                     parent_window);
-    g_list_foreach(uris, (GFunc) g_free, NULL);
-    g_list_free(uris);
+    g_list_free_full (uris, g_free);
 }
 
 void
@@ -273,8 +274,7 @@ caja_launch_application_by_uri (GAppInfo *application,
         }
     }
 
-    g_list_foreach(locations, (GFunc) g_object_unref, NULL);
-    g_list_free(locations);
+    g_list_free_full (locations, g_object_unref);
 }
 
 /**
@@ -450,8 +450,7 @@ caja_launch_desktop_file (GdkScreen   *screen,
                " drop them again."),
              parent_window);
 
-            g_list_foreach(files, (GFunc) g_object_unref, NULL);
-            g_list_free(files);
+            g_list_free_full (files, g_object_unref);
             g_object_unref (app_info);
             return;
         }
@@ -503,8 +502,7 @@ caja_launch_desktop_file (GdkScreen   *screen,
         g_free (message);
     }
 
-    g_list_foreach(files, (GFunc) g_object_unref, NULL);
-    g_list_free(files);
+    g_list_free_full (files, g_object_unref);
     g_object_unref (context);
     g_object_unref (app_info);
 }

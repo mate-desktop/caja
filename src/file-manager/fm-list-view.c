@@ -61,6 +61,8 @@
 #include <libcaja-private/caja-clipboard.h>
 #include <libcaja-private/caja-cell-renderer-text-ellipsized.h>
 
+#include <src/glibcompat.h> /* for g_list_free_full */
+
 struct FMListViewDetails
 {
     GtkTreeView *tree_view;
@@ -449,8 +451,7 @@ get_filtered_selection_refs (GtkTreeView *tree_view)
 static void
 ref_list_free (GList *ref_list)
 {
-    g_list_foreach (ref_list, (GFunc) gtk_tree_row_reference_free, NULL);
-    g_list_free (ref_list);
+    g_list_free_full (ref_list, (GDestroyNotify) gtk_tree_row_reference_free);
 }
 
 static void
@@ -2325,8 +2326,7 @@ fm_list_view_set_selection (FMDirectoryView *view, GList *selection)
             gtk_tree_selection_select_iter (tree_selection,
                                             (GtkTreeIter *)l->data);
         }
-    	g_list_foreach(iters, (GFunc) g_free, NULL);
-    	g_list_free(iters);
+    	g_list_free_full (iters, g_free);
     }
 
     g_signal_handlers_unblock_by_func (tree_selection, list_selection_changed_callback, view);
@@ -2363,8 +2363,7 @@ fm_list_view_invert_selection (FMDirectoryView *view)
             gtk_tree_selection_unselect_iter (tree_selection,
                                               (GtkTreeIter *)l->data);
         }
-    	g_list_foreach(iters, (GFunc) g_free, NULL);
-    	g_list_free(iters);
+    	g_list_free_full (iters, g_free);
     }
 
     g_list_free (selection);

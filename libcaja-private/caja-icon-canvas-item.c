@@ -50,6 +50,8 @@
 #include <stdio.h>
 #include <string.h>
 
+#include <src/glibcompat.h> /* for g_list_free_full */
+
 #define EMBLEM_SPACING 2
 
 /* gap between bottom of icon and start of text box */
@@ -326,8 +328,7 @@ caja_icon_canvas_item_finalize (GObject *object)
         g_object_unref (details->text_util);
     }
 
-    g_list_foreach(details->emblem_pixbufs, (GFunc) g_object_unref, NULL);
-    g_list_free(details->emblem_pixbufs);
+    g_list_free_full (details->emblem_pixbufs, g_object_unref);
     g_free (details->editable_text);
     g_free (details->additional_text);
     g_free (details->attach_points);
@@ -763,8 +764,7 @@ caja_icon_canvas_item_set_emblems (CajaIconCanvasItem *item,
 
     /* Take in the new list of emblems. */
     eel_g_object_list_ref (emblem_pixbufs);
-    g_list_foreach(item->details->emblem_pixbufs, (GFunc) g_object_unref, NULL);
-    g_list_free(item->details->emblem_pixbufs);
+    g_list_free_full (item->details->emblem_pixbufs, g_object_unref);
     item->details->emblem_pixbufs = g_list_copy (emblem_pixbufs);
 
     caja_icon_canvas_item_invalidate_bounds_cache (item);

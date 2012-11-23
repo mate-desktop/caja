@@ -47,6 +47,8 @@
 #include <libcaja-private/caja-module.h>
 #include <libcaja-private/caja-signaller.h>
 
+#include "glibcompat.h" /* for g_list_free_full */
+
 struct CajaEmblemSidebarDetails
 {
     CajaWindowInfo *window;
@@ -1006,8 +1008,7 @@ caja_emblem_sidebar_populate (CajaEmblemSidebar *emblem_sidebar)
 
         widgets = g_list_prepend (widgets, emblem_widget);
     }
-    g_list_foreach(icons, (GFunc) g_free, NULL);
-    g_list_free(icons);
+    g_list_free_full (icons, g_free);
 
     /* sort the emblems by display name */
     widgets = g_list_sort (widgets, emblem_widget_sort_func);

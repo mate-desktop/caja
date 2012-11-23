@@ -33,6 +33,8 @@
 #include <libcaja-private/caja-file.h>
 #include <libcaja-private/caja-trash-monitor.h>
 
+#include "glibcompat.h" /* for g_list_free_full */
+
 #define CAJA_TRASH_BAR_GET_PRIVATE(o)\
 	(G_TYPE_INSTANCE_GET_PRIVATE ((o), CAJA_TYPE_TRASH_BAR, CajaTrashBarPrivate))
 
@@ -70,8 +72,7 @@ restore_button_clicked_cb (GtkWidget *button,
     caja_restore_files_from_trash (files, GTK_WINDOW (gtk_widget_get_toplevel (button)));
 
     caja_file_list_free (files);
-    g_list_foreach(locations, (GFunc) g_object_unref, NULL);
-    g_list_free(locations);
+    g_list_free_full (locations, g_object_unref);
 }
 
 static void

@@ -33,6 +33,8 @@
 #include <eel/eel-gtk-macros.h>
 #include <eel/eel-string.h>
 
+#include "glibcompat.h" /* for g_list_free_full */
+
 static void caja_window_slot_init       (CajaWindowSlot *slot);
 static void caja_window_slot_class_init (CajaWindowSlotClass *class);
 static void caja_window_slot_dispose    (GObject *object);
@@ -662,8 +664,7 @@ caja_window_slot_dispose (GObject *object)
         g_object_ref (slot->location);
     }
 
-    g_list_foreach(slot->pending_selection, (GFunc) g_free, NULL);
-    g_list_free(slot->pending_selection);
+    g_list_free_full (slot->pending_selection, g_free);
     slot->pending_selection = NULL;
 
     if (slot->current_location_bookmark != NULL)
