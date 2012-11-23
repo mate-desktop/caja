@@ -39,6 +39,8 @@
 #include <gtk/gtk.h>
 #include <gio/gio.h>
 
+#include <src/glibcompat.h> /* for g_list_free_full */
+
 struct _CajaMimeApplicationChooserDetails
 {
     char *uri;
@@ -563,8 +565,7 @@ refresh_model (CajaMimeApplicationChooser *chooser)
         g_object_unref (default_app);
     }
 
-    g_list_foreach(applications, (GFunc) g_object_unref, NULL);
-    g_list_free(applications);
+    g_list_free_full (applications, g_object_unref);
 }
 
 static void

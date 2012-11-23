@@ -30,6 +30,8 @@
 #include "caja-debug-log.h"
 #include "caja-file.h"
 
+#include <src/glibcompat.h> /* for g_list_free_full */
+
 #define DEFAULT_RING_BUFFER_NUM_LINES 1000
 
 #define KEY_FILE_GROUP		"debug log"
@@ -308,8 +310,7 @@ caja_debug_log_with_file_list (gboolean is_milestone, const char *domain, GList 
     caja_debug_logv (is_milestone, domain, uris, format, args);
     va_end (args);
 
-    g_list_foreach (uris, (GFunc) g_free, NULL);
-    g_list_free(uris);
+    g_list_free_full (uris, g_free);
 }
 
 gboolean

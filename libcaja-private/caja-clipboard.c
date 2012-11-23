@@ -35,6 +35,8 @@
 #include <gtk/gtk.h>
 #include <string.h>
 
+#include <src/glibcompat.h> /* for g_list_free_full */
+
 typedef struct _TargetCallbackData TargetCallbackData;
 
 typedef void (* SelectAllCallback)    (gpointer target);
@@ -681,7 +683,6 @@ caja_clipboard_clear_if_colliding_uris (GtkWidget *widget,
     }
 
     if (clipboard_item_uris) {
-        g_list_foreach (clipboard_item_uris, (GFunc) g_free, NULL);
-    	g_list_free(clipboard_item_uris);
+        g_list_free_full (clipboard_item_uris, g_free);
     }
 }

@@ -55,6 +55,8 @@
 #include <libcaja-private/caja-signaller.h>
 #include <atk/atkrelationset.h>
 
+#include "glibcompat.h" /* for g_list_free_full */
+
 /* property types */
 
 typedef enum
@@ -232,8 +234,7 @@ caja_property_browser_dispose (GObject *object)
     g_free (property_browser->details->dragged_file);
     g_free (property_browser->details->drag_type);
 
-    g_list_foreach (property_browser->details->keywords, (GFunc) g_free, NULL);
-    g_list_free(property_browser->details->keywords);
+    g_list_free_full (property_browser->details->keywords, g_free);
 
     if (property_browser->details->property_chit)
     {
@@ -1796,8 +1797,7 @@ make_properties_from_directories (CajaPropertyBrowser *property_browser)
 
     if (property_browser->details->category_type == CAJA_PROPERTY_EMBLEM)
     {
-        g_list_foreach(property_browser->details->keywords, (GFunc) g_free, NULL);
-        g_list_free(property_browser->details->keywords);
+        g_list_free_full (property_browser->details->keywords, g_free);
         property_browser->details->keywords = NULL;
 
         icons = caja_emblem_list_available ();
@@ -1851,8 +1851,7 @@ make_properties_from_directories (CajaPropertyBrowser *property_browser)
                 g_object_unref (object_pixbuf);
             }
         }
-        g_list_foreach(icons, (GFunc) g_free, NULL);
-        g_list_free(icons);
+        g_list_free_full (icons, g_free);
     }
     else
     {

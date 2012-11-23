@@ -62,6 +62,8 @@
 #include <libcaja-private/caja-search-engine.h>
 #include <libcaja-private/caja-signaller.h>
 
+#include "glibcompat.h" /* for g_list_free_full */
+
 #if !GTK_CHECK_VERSION(3,0,0)
 #define gtk_widget_get_preferred_size(x,y,z) gtk_widget_size_request(x,y)
 #endif
@@ -555,8 +557,7 @@ location_menu_item_activated_callback (GtkWidget *menu_item,
         caja_window_slot_open_location_with_selection
         (slot, dest, selection, close_behind);
 
-    	g_list_foreach(selection, (GFunc) g_object_unref, NULL);
-    	g_list_free(selection);
+    	g_list_free_full (selection, g_object_unref);
     }
 
     if (event != NULL) {

@@ -67,6 +67,8 @@
 #include <sys/mount.h>
 #endif
 
+#include <src/glibcompat.h> /* for g_list_free_full */
+
 #define USED_FILL_R  (0.988235294 * 65535)
 #define USED_FILL_G  (0.91372549 * 65535)
 #define USED_FILL_B  (0.309803922 * 65535)
@@ -841,8 +843,7 @@ file_has_keyword (CajaFile *file, const char *keyword)
 
 	keywords = caja_file_get_keywords (file);
 	word = g_list_find_custom (keywords, keyword, (GCompareFunc) strcmp);
-    	g_list_foreach(keywords, (GFunc) g_free, NULL);
-    	g_list_free(keywords);
+    	g_list_free_full (keywords, g_free);
 
 	return (word != NULL);
 }
@@ -932,8 +933,7 @@ emblem_button_toggled (GtkToggleButton *button,
 			keywords = g_list_prepend (keywords, g_strdup (name));
 		}
 		caja_file_set_keywords (file, keywords);
-    		g_list_foreach(keywords, (GFunc) g_free, NULL);
-    		g_list_free(keywords);
+    		g_list_free_full (keywords, g_free);
 	}
 
 	for (l = files_off; l != NULL; l = l->next) {
@@ -946,12 +946,10 @@ emblem_button_toggled (GtkToggleButton *button,
 		word = g_list_find_custom (keywords, name,  (GCompareFunc)strcmp);
 		if (word) {
 			keywords = g_list_remove_link (keywords, word);
-    			g_list_foreach(word, (GFunc) g_free, NULL);
-    			g_list_free(word);
+    			g_list_free_full (word, g_free);
 		}
 		caja_file_set_keywords (file, keywords);
-    		g_list_foreach(keywords, (GFunc) g_free, NULL);
-    		g_list_free(keywords);
+    		g_list_free_full (keywords, g_free);
 	}
 
 	g_list_free (files_on);
@@ -1207,8 +1205,7 @@ properties_window_update (FMPropertiesWindow *window,
 			refresh_extension_pages (window);
 		}
 
-	    	g_list_foreach(window->details->mime_list, (GFunc) g_free, NULL);
-    		g_list_free(window->details->mime_list);
+	    	g_list_free_full (window->details->mime_list, g_free);
 		window->details->mime_list = mime_list;
 	}
 }
@@ -1817,8 +1814,7 @@ synch_groups_combo_box (GtkComboBox *combo_box, CajaFile *file)
 	gtk_combo_box_set_active (combo_box, current_group_index);
 
 	g_free (current_group_name);
-    	g_list_foreach(groups, (GFunc) g_free, NULL);
-    	g_list_free(groups);
+    	g_list_free_full (groups, g_free);
 }
 
 static gboolean
@@ -2173,8 +2169,7 @@ synch_user_menu (GtkComboBox *combo_box, CajaFile *file)
 	gtk_combo_box_set_active (combo_box, owner_index);
 
 	g_free (owner_name);
-    	g_list_foreach(users, (GFunc) g_free, NULL);
-    	g_list_free(users);
+    	g_list_free_full (users, g_free);
 }
 
 static GtkComboBox*
@@ -3569,8 +3564,7 @@ create_emblems_page (FMPropertiesWindow *window)
 
 		gtk_container_add (GTK_CONTAINER (emblems_table), button);
 	}
-    	g_list_foreach(icons, (GFunc) g_free, NULL);
-    	g_list_free(icons);
+    	g_list_free_full (icons, g_free);
 	gtk_widget_show_all (emblems_table);
 }
 
@@ -5054,8 +5048,7 @@ get_pending_key (GList *file_list)
 		g_string_append (key, ";");
 	}
 
-    	g_list_foreach(uris, (GFunc) g_free, NULL);
-    	g_list_free(uris);
+    	g_list_free_full (uris, g_free);
 
 	ret = key->str;
 	g_string_free (key, FALSE);
@@ -5628,8 +5621,7 @@ real_finalize (GObject *object)
 
 	window = FM_PROPERTIES_WINDOW (object);
 
-    	g_list_foreach(window->details->mime_list, (GFunc) g_free, NULL);
-    	g_list_free(window->details->mime_list);
+    	g_list_free_full (window->details->mime_list, g_free);
 
 	g_free (window->details->pending_name);
 	g_free (window->details);

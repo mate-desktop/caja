@@ -82,6 +82,8 @@
 #include <libcaja-private/caja-icon-names.h>
 #include <libcaja-private/caja-undostack-manager.h>
 
+#include <src/glibcompat.h> /* for g_list_free_full */
+
 /* Minimum starting update inverval */
 #define UPDATE_INTERVAL_MIN 100
 /* Maximum update interval */
@@ -1025,8 +1027,7 @@ delete_selected_files (FMDirectoryView *view)
 
 	caja_file_operations_delete (locations, fm_directory_view_get_containing_window (view), NULL, NULL);
 
-	g_list_foreach(locations, (GFunc) g_object_unref, NULL);
-	g_list_free(locations);
+	g_list_free_full (locations, g_object_unref);
         caja_file_list_free (selection);
 }
 
@@ -1935,8 +1936,7 @@ fm_directory_view_set_selection_locations (CajaView *caja_view,
 		/* If we are still loading, set the list of pending URIs instead.
 		 * done_loading() will eventually select the pending URIs and reveal them.
 		 */
-		g_list_foreach(view->details->pending_locations_selected, (GFunc) g_object_unref, NULL);
-		g_list_free(view->details->pending_locations_selected);
+		g_list_free_full (view->details->pending_locations_selected, g_object_unref);
 		view->details->pending_locations_selected =
 			eel_g_object_list_copy (selection_locations);
 	}
@@ -2550,8 +2550,7 @@ done_loading (FMDirectoryView *view,
 				fm_directory_view_reveal_selection (view);
 			}
 		}
-		g_list_foreach(locations_selected, (GFunc) g_object_unref, NULL);
-		g_list_free(locations_selected);
+		g_list_free_full (locations_selected, g_object_unref);
 		fm_directory_view_display_selection_info (view);
 	}
 
@@ -3793,8 +3792,7 @@ fm_directory_view_create_links_for_files (FMDirectoryView *view, GList *files,
 	caja_file_operations_copy_move (uris, relative_item_points, dir_uri, GDK_ACTION_LINK,
 					    GTK_WIDGET (view), copy_move_done_callback, copy_move_done_data);
 	g_free (dir_uri);
-	g_list_foreach(uris, (GFunc) g_free, NULL);
-	g_list_free(uris);
+	g_list_free_full (uris, g_free);
 }
 
 static void
@@ -3826,8 +3824,7 @@ fm_directory_view_duplicate_selection (FMDirectoryView *view, GList *files,
         copy_move_done_data = pre_copy_move (view);
 	caja_file_operations_copy_move (uris, relative_item_points, NULL, GDK_ACTION_COPY,
 		GTK_WIDGET (view), copy_move_done_callback, copy_move_done_data);
-	g_list_foreach(uris, (GFunc) g_free, NULL);
-	g_list_free(uris);
+	g_list_free_full (uris, g_free);
 }
 
 /* special_link_in_selection
@@ -3931,8 +3928,7 @@ trash_or_delete_files (GtkWindow *parent_window,
 						  parent_window,
 						  (CajaDeleteCallback) trash_or_delete_done_cb,
 						  view);
-	g_list_foreach(locations, (GFunc) g_object_unref, NULL);
-	g_list_free(locations);
+	g_list_free_full (locations, g_object_unref);
 }
 
 static gboolean
@@ -4681,8 +4677,7 @@ reset_open_with_menu (FMDirectoryView *view, GList *selection)
 						   index,
 						   menu_path, popup_path, submenu_visible);
 	}
-	g_list_foreach(applications, (GFunc) g_object_unref, NULL);
-	g_list_free(applications);
+	g_list_free_full (applications, g_object_unref);
 	if (default_app != NULL) {
 		g_object_unref (default_app);
 	}
@@ -4997,8 +4992,7 @@ reset_extension_actions_menu (FMDirectoryView *view, GList *selection)
 	if (items != NULL) {
 		add_extension_menu_items (view, selection, items, "");
 
-		g_list_foreach (items, (GFunc) g_object_unref, NULL);
-		g_list_free (items);
+		g_list_free_full (items, g_object_unref);
 	}
 }
 
@@ -5977,8 +5971,7 @@ move_copy_selection_to_location (FMDirectoryView *view,
 					   0, 0,
 					   view);
 
-	g_list_foreach(uris, (GFunc) g_free, NULL);
-	g_list_free(uris);
+	g_list_free_full (uris, g_free);
 	caja_file_list_free (selection);
 }
 
@@ -6118,8 +6111,7 @@ paste_clipboard_data (FMDirectoryView *view,
 			gtk_clipboard_clear (caja_clipboard_get (GTK_WIDGET (view)));
 		}
 
-    		g_list_foreach(item_uris, (GFunc) g_free, NULL);
-    		g_list_free(item_uris);
+    		g_list_free_full (item_uris, g_free);
 	}
 }
 
@@ -7113,8 +7105,7 @@ action_location_delete_callback (GtkAction *action,
 	caja_file_operations_delete (files, fm_directory_view_get_containing_window (view),
 					 NULL, NULL);
 
-	g_list_foreach(files, (GFunc) g_object_unref, NULL);
-	g_list_free(files);
+	g_list_free_full (files, g_object_unref);
 }
 
 static void
@@ -9797,8 +9788,7 @@ fm_directory_view_stop (FMDirectoryView *view)
 	view->details->old_added_files = NULL;
 	file_and_directory_list_free (view->details->old_changed_files);
 	view->details->old_changed_files = NULL;
-	g_list_foreach(view->details->pending_locations_selected, (GFunc) g_object_unref, NULL);
-	g_list_free(view->details->pending_locations_selected);
+	g_list_free_full (view->details->pending_locations_selected, g_object_unref);
 	view->details->pending_locations_selected = NULL;
 
 	if (view->details->model != NULL) {
@@ -10576,8 +10566,7 @@ fm_directory_view_handle_uri_list_drop (FMDirectoryView  *view,
 					   target_uri != NULL ? target_uri : container_uri,
 					   action, x, y, view);
 
-	g_list_foreach(real_uri_list, (GFunc) g_free, NULL);
-	g_list_free(real_uri_list);
+	g_list_free_full (real_uri_list, g_free);
 
 	if (points != NULL)
 		g_array_free (points, TRUE);

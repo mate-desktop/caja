@@ -35,6 +35,8 @@
 #include <gio/gio.h>
 #include <string.h>
 
+#include "glibcompat.h" /* for g_list_free_full */
+
 #define MAX_BOOKMARK_LENGTH 80
 #define LOAD_JOB 1
 #define SAVE_JOB 2
@@ -167,8 +169,7 @@ static void
 clear (CajaBookmarkList *bookmarks)
 {
     g_list_foreach (bookmarks->list, stop_monitoring_one, bookmarks);
-    g_list_foreach(bookmarks->list, (GFunc) g_object_unref, NULL);
-    g_list_free(bookmarks->list);
+    g_list_free_full (bookmarks->list, g_object_unref);
     bookmarks->list = NULL;
 }
 

@@ -30,6 +30,8 @@
 #include <glib/gi18n.h>
 #include <libcaja-private/caja-file-utilities.h>
 
+#include <src/glibcompat.h> /* for g_list_free_full */
+
 struct CajaQueryDetails
 {
     char *text;
@@ -118,10 +120,7 @@ caja_query_get_mime_types (CajaQuery *query)
 void
 caja_query_set_mime_types (CajaQuery *query, GList *mime_types)
 {
-    g_list_foreach(query->details->mime_types, (GFunc) g_free, NULL);
-    g_list_free(query->details->mime_types);
-    g_list_foreach(query->details->mime_types, (GFunc) g_free, NULL);
-    g_list_free(query->details->mime_types);
+    g_list_free_full (query->details->mime_types, g_free);
     query->details->mime_types = eel_g_str_list_copy (mime_types);
 }
 
