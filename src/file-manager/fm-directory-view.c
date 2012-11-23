@@ -6120,8 +6120,6 @@ paste_clipboard_data (FMDirectoryView *view,
 
     		g_list_foreach(item_uris, (GFunc) g_free, NULL);
     		g_list_free(item_uris);
-		g_list_foreach(item_uris, (GFunc) g_free, NULL);
-		g_list_free(item_uris);
 	}
 }
 
