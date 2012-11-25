@@ -614,7 +614,6 @@ free_stored_viewers (CajaWindow *window)
     window->details->extra_viewer = NULL;
 }
 
-static void
 #if GTK_CHECK_VERSION (3, 0, 0)
 static void
 caja_window_destroy (GtkWidget *object)
