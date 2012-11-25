@@ -903,10 +903,35 @@ widget_style_set_cb (GtkWidget *widget, GtkStyle *previous_style, gpointer data)
     }
 }
 
+#define VERBOSE
+
 static void
 screen_size_changed (GdkScreen *screen, EelBackground *background)
 {
-    g_signal_emit (background, signals[APPEARANCE_CHANGED], 0);
+    GdkWindow *window;
+    int w, h;
+
+    window = gdk_screen_get_root_window(screen);
+ 
+    /* Find the monitor where our desktop window is, then get its geometry */
+//    GdkRectangle rect;
+//    gint monitor;
+//    monitor = gdk_screen_get_monitor_at_window (screen, window);
+//    gdk_screen_get_monitor_geometry (screen, monitor, &rect);
+//    g_message ("Resized GdkWindow = %dx%d\n", rect.width, rect.height);
+
+    drawable_get_adjusted_size (background, window, &w, &h);
+    if (w != background->details->background_entire_width ||
+        h != background->details->background_entire_height)
+    {
+#ifdef VERBOSE
+        g_message ("size changed: %dx%d -> %dx%d. Emitting changed signal.\n",
+                   background->details->background_entire_width,
+                   background->details->background_entire_height,
+                   w, h);
+#endif
+        g_signal_emit (background, signals[APPEARANCE_CHANGED], 0);
+    }
 }
 
 static void
