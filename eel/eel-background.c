@@ -41,6 +41,7 @@
 #include <stdio.h>
 #define MATE_DESKTOP_USE_UNSTABLE_API
 #include <libmateui/mate-bg.h>
+#include <libcaja-private/caja-global-preferences.h>
 
 #if !GTK_CHECK_VERSION(3, 0, 0)
 #define cairo_surface_t         GdkPixmap
@@ -454,9 +455,16 @@ static void
 init_fade (EelBackground *self)
 {
     GtkWidget *widget = self->details->widget;
+    gboolean do_fade;
 
     if (!self->details->is_desktop || widget == NULL || !gtk_widget_get_realized (widget)) {
         return;
+    }
+
+    do_fade = g_settings_get_boolean (mate_background_preferences,
+                                      MATE_BG_KEY_BACKGROUND_FADE);
+    if (!do_fade) {
+    	return;
     }
 
     if (self->details->fade == NULL)
