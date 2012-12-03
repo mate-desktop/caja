@@ -1301,7 +1301,7 @@ fm_icon_view_begin_loading (FMDirectoryView *view)
      */
     if (FM_IS_DESKTOP_ICON_VIEW (view))
     {
-        caja_connect_desktop_background_to_file_metadata (CAJA_ICON_CONTAINER (icon_container), file);
+        caja_connect_desktop_background_to_settings (CAJA_ICON_CONTAINER (icon_container));
     }
     else
     {
@@ -1316,10 +1316,7 @@ fm_icon_view_begin_loading (FMDirectoryView *view)
             default_action = CAJA_DND_ACTION_SET_AS_FOLDER_BACKGROUND;
         }
 
-        caja_connect_background_to_file_metadata
-        (icon_container,
-         file,
-         default_action);
+        caja_connect_background_to_file_metadata (icon_container, file, default_action);
     }
 
 

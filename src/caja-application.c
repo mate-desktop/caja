@@ -74,6 +74,8 @@
 #include <libcaja-private/caja-signaller.h>
 #include <libcaja-extension/caja-menu-provider.h>
 #include <libcaja-private/caja-autorun.h>
+#define MATE_DESKTOP_USE_UNSTABLE_API
+#include <libmateui/mate-bg.h>
 
 #include "glibcompat.h" /* for g_list_free_full */
 
@@ -964,7 +966,7 @@ caja_application_startup (CajaApplication *application,
         char *accel_map_filename;
 
         if (!no_desktop &&
-                !g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SHOW_DESKTOP))
+            !g_settings_get_boolean (mate_background_preferences, MATE_BG_KEY_SHOW_DESKTOP))
         {
             no_desktop = TRUE;
         }
@@ -989,7 +991,8 @@ caja_application_startup (CajaApplication *application,
         }
 
         /* Monitor the preference to show or hide the desktop */
-        g_signal_connect_swapped (caja_preferences, "changed::" CAJA_PREFERENCES_SHOW_DESKTOP,
+        g_signal_connect_swapped (mate_background_preferences,
+                                  "changed::" MATE_BG_KEY_SHOW_DESKTOP,
                                   G_CALLBACK(desktop_changed_callback),
                                   G_OBJECT (application));
 
@@ -1567,7 +1570,7 @@ desktop_changed_callback (gpointer user_data)
     CajaApplication *application;
 
     application = CAJA_APPLICATION (user_data);
-    if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SHOW_DESKTOP))
+    if (g_settings_get_boolean (mate_background_preferences, MATE_BG_KEY_SHOW_DESKTOP))
     {
         caja_application_open_desktop (application);
     }

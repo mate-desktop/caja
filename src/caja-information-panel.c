@@ -488,6 +488,7 @@ receive_dropped_uri_list (CajaInformationPanel *information_panel,
     char **uris;
     gboolean exactly_one;
     GtkWindow *window;
+    EelBackground *background;
 
     uris = g_uri_list_extract_uris ((gchar *) gtk_selection_data_get_data (selection_data));
     exactly_one = uris[0] != NULL && (uris[1] == NULL || uris[1][0] == '\0');
@@ -504,22 +505,19 @@ receive_dropped_uri_list (CajaInformationPanel *information_panel,
         {
             if (action == GDK_ACTION_ASK)
             {
-                action = caja_drag_drop_background_ask (GTK_WIDGET (information_panel), CAJA_DND_ACTION_SET_AS_BACKGROUND | CAJA_DND_ACTION_SET_AS_GLOBAL_BACKGROUND);
+                action = caja_drag_drop_background_ask (GTK_WIDGET (information_panel),
+                             CAJA_DND_ACTION_SET_AS_BACKGROUND | CAJA_DND_ACTION_SET_AS_GLOBAL_BACKGROUND);
             }
 
             if (action > 0)
             {
-                eel_background_receive_dropped_background_image
-                (eel_get_widget_background (GTK_WIDGET (information_panel)),
-                 action,
-                 uris[0]);
+                background = eel_get_widget_background (GTK_WIDGET (information_panel));
+                eel_background_set_dropped_image (background, action, uris[0]);
             }
         }
         else if (exactly_one)
         {
-            g_signal_emit (information_panel,
-                           signals[LOCATION_CHANGED], 0,
-                           uris[0]);
+            g_signal_emit (information_panel, signals[LOCATION_CHANGED], 0, uris[0]);
         }
         break;
     case ICON_PART:
@@ -584,6 +582,7 @@ receive_dropped_color (CajaInformationPanel *information_panel,
 {
     guint16 *channels;
     char color_spec[8];
+    EelBackground *background;
 
     if (gtk_selection_data_get_length (selection_data) != 8 ||
             gtk_selection_data_get_format (selection_data) != 16)
@@ -605,16 +604,15 @@ receive_dropped_color (CajaInformationPanel *information_panel,
     case BACKGROUND_PART:
         if (action == GDK_ACTION_ASK)
         {
-            action = caja_drag_drop_background_ask (GTK_WIDGET (information_panel), CAJA_DND_ACTION_SET_AS_BACKGROUND | CAJA_DND_ACTION_SET_AS_GLOBAL_BACKGROUND);
+            action = caja_drag_drop_background_ask (GTK_WIDGET (information_panel),
+                         CAJA_DND_ACTION_SET_AS_BACKGROUND | CAJA_DND_ACTION_SET_AS_GLOBAL_BACKGROUND);
         }
 
         if (action > 0)
         {
-            /* Let the background change based on the dropped color. */
-            eel_background_receive_dropped_color
-            (eel_get_widget_background (GTK_WIDGET (information_panel)),
-             GTK_WIDGET (information_panel),
-             action, x, y, selection_data);
+            background = eel_get_widget_background (GTK_WIDGET (information_panel));
+            eel_background_set_dropped_color (background, GTK_WIDGET (information_panel),
+                                              action, x, y, selection_data);
         }
 
         break;
@@ -892,9 +890,7 @@ command_button_callback (GtkWidget *button, GAppInfo *application)
 static void
 metadata_button_callback (GtkWidget *button, const char *command_str)
 {
-    CajaInformationPanel *information_panel;
-
-    information_panel = CAJA_INFORMATION_PANEL (g_object_get_data (G_OBJECT (button), "user_data"));
+    //CajaInformationPanel *self = CAJA_INFORMATION_PANEL (g_object_get_data (G_OBJECT (button), "user_data"));
 }
 
 /* utility routine that allocates the command buttons from the command list */

@@ -5,6 +5,7 @@
                                     that is viewing a particular directory.
 
    Copyright (C) 2000 Eazel, Inc.
+   Copyright (C) 2012 Jasmine Hassan <jasmine.aura@gmail.com>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public License as
@@ -21,16 +22,16 @@
    Free Software Foundation, Inc., 51 Franklin St, Fifth Floor,
    Boston, MA 02110-1301, USA.
 
-   Author: Darin Adler <darin@bentspoon.com>
+   Authors: Darin Adler <darin@bentspoon.com>
+            Jasmine Hassan <jasmine.aura@gmail.com>
 */
 
 #include <eel/eel-background.h>
 #include <libcaja-private/caja-file.h>
 #include <libcaja-private/caja-icon-container.h>
 
-void     caja_connect_background_to_file_metadata         (GtkWidget             *widget,
-        CajaFile          *file,
-        GdkDragAction          default_drag_action);
-void     caja_connect_desktop_background_to_file_metadata (CajaIconContainer *icon_container,
-        CajaFile          *file);
-gboolean caja_file_background_is_set                      (EelBackground         *background);
+void     caja_connect_background_to_file_metadata    (GtkWidget         *widget,
+                                                      CajaFile          *file,
+                                                      GdkDragAction      default_drag_action);
+
+void     caja_connect_desktop_background_to_settings (CajaIconContainer *icon_container);
