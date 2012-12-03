@@ -652,32 +652,15 @@ eel_background_transitioned (MateBG *bg, gpointer user_data)
     g_signal_emit (G_OBJECT (self), signals[APPEARANCE_CHANGED], 0);
 }
 
-#define VERBOSE
-
 static void
 screen_size_changed (GdkScreen *screen, EelBackground *background)
 {
     int w, h;
 
-    /* Find the monitor where our desktop window is, then get its geometry */
-/*
-    GdkRectangle rect;
-    gint monitor;
-    GdkWindow *window = gdk_screen_get_root_window(screen);
-    monitor = gdk_screen_get_monitor_at_window (screen, window);
-    gdk_screen_get_monitor_geometry (screen, monitor, &rect);
-    g_message ("Resized GdkWindow = %dx%d\n", rect.width, rect.height);
-*/
     drawable_get_adjusted_size (background, &w, &h);
     if (w != background->details->bg_entire_width ||
         h != background->details->bg_entire_height)
     {
-#ifdef VERBOSE
-        g_message ("size changed: %dx%d -> %dx%d. Emitting changed signal.\n",
-                   background->details->bg_entire_width,
-                   background->details->bg_entire_height,
-                   w, h);
-#endif
         g_signal_emit (background, signals[APPEARANCE_CHANGED], 0);
     }
 }
