@@ -30,79 +30,77 @@
 
 G_BEGIN_DECLS
 
-    /* Whether exit when last window destroyed */
-#define CAJA_PREFERENCES_EXIT_WITH_LAST_WINDOW				"exit-with-last-window"
+/* Whether exit when last window destroyed */
+#define CAJA_PREFERENCES_EXIT_WITH_LAST_WINDOW		"exit-with-last-window"
 
-    /* Desktop Background options */
-#define CAJA_PREFERENCES_BACKGROUND_SET                     "background-set"
-#define CAJA_PREFERENCES_BACKGROUND_COLOR                   "background-color"
-#define CAJA_PREFERENCES_BACKGROUND_URI                     "background-uri"
+/* Desktop Background options */
+#define CAJA_PREFERENCES_BACKGROUND_SET			"background-set"
+#define CAJA_PREFERENCES_BACKGROUND_COLOR		"background-color"
+#define CAJA_PREFERENCES_BACKGROUND_URI			"background-uri"
 
-    /* Side Pane Background options */
-#define CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_SET                     "side-pane-background-set"
-#define CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_COLOR                   "side-pane-background-color"
-#define CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_URI                "side-pane-background-uri"
+/* Side Pane Background options */
+#define CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_SET	"side-pane-background-set"
+#define CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_COLOR	"side-pane-background-color"
+#define CAJA_PREFERENCES_SIDE_PANE_BACKGROUND_URI	"side-pane-background-uri"
 
-    /* Automount options */
-#define CAJA_PREFERENCES_MEDIA_AUTOMOUNT                "automount"
-#define CAJA_PREFERENCES_MEDIA_AUTOMOUNT_OPEN           "automount-open"
+/* Automount options */
+#define CAJA_PREFERENCES_MEDIA_AUTOMOUNT		"automount"
+#define CAJA_PREFERENCES_MEDIA_AUTOMOUNT_OPEN		"automount-open"
 
-    /* Autorun options */
-#define CAJA_PREFERENCES_MEDIA_AUTORUN_NEVER                 "autorun-never"
-#define CAJA_PREFERENCES_MEDIA_AUTORUN_X_CONTENT_START_APP   "autorun-x-content-start-app"
-#define CAJA_PREFERENCES_MEDIA_AUTORUN_X_CONTENT_IGNORE      "autorun-x-content-ignore"
-#define CAJA_PREFERENCES_MEDIA_AUTORUN_X_CONTENT_OPEN_FOLDER "autorun-x-content-open-folder"
+/* Autorun options */
+#define CAJA_PREFERENCES_MEDIA_AUTORUN_NEVER			"autorun-never"
+#define CAJA_PREFERENCES_MEDIA_AUTORUN_X_CONTENT_START_APP	"autorun-x-content-start-app"
+#define CAJA_PREFERENCES_MEDIA_AUTORUN_X_CONTENT_IGNORE		"autorun-x-content-ignore"
+#define CAJA_PREFERENCES_MEDIA_AUTORUN_X_CONTENT_OPEN_FOLDER	"autorun-x-content-open-folder"
 
-    /* Trash options */
+/* Trash options */
 #define CAJA_PREFERENCES_CONFIRM_TRASH			"confirm-trash"
 #define CAJA_PREFERENCES_ENABLE_DELETE			"enable-delete"
 
-    /* Desktop options */
-#define CAJA_PREFERENCES_SHOW_DESKTOP			"show-desktop"
-#define CAJA_PREFERENCES_DESKTOP_IS_HOME_DIR    "desktop-is-home-dir"
+/* Desktop options */
+#define CAJA_PREFERENCES_DESKTOP_IS_HOME_DIR		"desktop-is-home-dir"
 
-    /* Display  */
+/* Display  */
 #define CAJA_PREFERENCES_SHOW_HIDDEN_FILES  		"show-hidden-files"
 #define CAJA_PREFERENCES_SHOW_ADVANCED_PERMISSIONS	"show-advanced-permissions"
-#define CAJA_PREFERENCES_DATE_FORMAT				"date-format"
+#define CAJA_PREFERENCES_DATE_FORMAT			"date-format"
 
-    /* Mouse */
+/* Mouse */
 #define CAJA_PREFERENCES_MOUSE_USE_EXTRA_BUTTONS 	"mouse-use-extra-buttons"
 #define CAJA_PREFERENCES_MOUSE_FORWARD_BUTTON		"mouse-forward-button"
-#define CAJA_PREFERENCES_MOUSE_BACK_BUTTON			"mouse-back-button"
+#define CAJA_PREFERENCES_MOUSE_BACK_BUTTON		"mouse-back-button"
 
-    typedef enum
-    {
-        CAJA_DATE_FORMAT_LOCALE,
-        CAJA_DATE_FORMAT_ISO,
-        CAJA_DATE_FORMAT_INFORMAL
-    }
-    CajaDateFormat;
+typedef enum
+{
+    CAJA_DATE_FORMAT_LOCALE,
+    CAJA_DATE_FORMAT_ISO,
+    CAJA_DATE_FORMAT_INFORMAL
+} CajaDateFormat;
 
-    typedef enum
-    {
-        CAJA_NEW_TAB_POSITION_AFTER_CURRENT_TAB,
-        CAJA_NEW_TAB_POSITION_END,
-    } CajaNewTabPosition;
+typedef enum
+{
+    CAJA_NEW_TAB_POSITION_AFTER_CURRENT_TAB,
+    CAJA_NEW_TAB_POSITION_END,
+} CajaNewTabPosition;
 
-    /* Sidebar panels  */
+/* Sidebar panels  */
 #define CAJA_PREFERENCES_TREE_SHOW_ONLY_DIRECTORIES         "show-only-directories"
 
-    /* Single/Double click preference  */
+/* Single/Double click preference  */
 #define CAJA_PREFERENCES_CLICK_POLICY			"click-policy"
 
-    /* Activating executable text files */
+/* Activating executable text files */
 #define CAJA_PREFERENCES_EXECUTABLE_TEXT_ACTIVATION		"executable-text-activation"
 
-    /* Installing new packages when unknown mime type activated */
+/* Installing new packages when unknown mime type activated */
 #define CAJA_PREFERENCES_INSTALL_MIME_ACTIVATION		"install-mime-activation"
 
-    /* Spatial or browser mode */
+/* Spatial or browser mode */
 #define CAJA_PREFERENCES_ALWAYS_USE_BROWSER       		"always-use-browser"
 #define CAJA_PREFERENCES_NEW_TAB_POSITION       		"tabs-open-position"
 #define CAJA_PREFERENCES_ALWAYS_USE_LOCATION_ENTRY			"always-use-location-entry"
 
-    /* Which views should be displayed for new windows */
+/* Which views should be displayed for new windows */
 #define CAJA_WINDOW_STATE_START_WITH_LOCATION_BAR			"start-with-location-bar"
 #define CAJA_WINDOW_STATE_START_WITH_STATUS_BAR				"start-with-status-bar"
 #define CAJA_WINDOW_STATE_START_WITH_SIDEBAR		 		"start-with-sidebar"
@@ -112,12 +110,12 @@ G_BEGIN_DECLS
 #define CAJA_WINDOW_STATE_MAXIMIZED        "maximized"
 #define CAJA_WINDOW_STATE_SIDEBAR_WIDTH  					"sidebar-width"
 
-    /* Sorting order */
+/* Sorting order */
 #define CAJA_PREFERENCES_SORT_DIRECTORIES_FIRST		        "sort-directories-first"
 #define CAJA_PREFERENCES_DEFAULT_SORT_ORDER			        "default-sort-order"
 #define CAJA_PREFERENCES_DEFAULT_SORT_IN_REVERSE_ORDER	    "default-sort-in-reverse-order"
 
-    /* The default folder viewer - one of the two enums below */
+/* The default folder viewer - one of the two enums below */
 #define CAJA_PREFERENCES_DEFAULT_FOLDER_VIEWER		"default-folder-viewer"
 
     enum

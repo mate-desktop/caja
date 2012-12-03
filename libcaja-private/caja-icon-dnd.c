@@ -684,10 +684,9 @@ receive_dropped_color (CajaIconContainer *container,
                         "dropped color on icon container displaying %s", uri);
         g_free (uri);
 
-        eel_background_receive_dropped_color
-        (eel_get_widget_background (GTK_WIDGET (container)),
-         GTK_WIDGET (container),
-         action, x, y, data);
+        eel_background_set_dropped_color (eel_get_widget_background (GTK_WIDGET (container)),
+        				  GTK_WIDGET (container),
+        				  action, x, y, data);
     }
 }
 
@@ -708,10 +707,8 @@ receive_dropped_tile_image (CajaIconContainer *container, GdkDragAction action, 
                         "dropped tile image on icon container displaying %s", uri);
         g_free (uri);
 
-        eel_background_receive_dropped_background_image
-        (eel_get_widget_background (GTK_WIDGET (container)),
-         action,
-         gtk_selection_data_get_data (data));
+        eel_background_set_dropped_image (eel_get_widget_background (GTK_WIDGET (container)),
+                                          action, gtk_selection_data_get_data (data));
     }
 }
 
@@ -1260,17 +1257,14 @@ caja_icon_container_receive_dropped_icons (CajaIconContainer *container,
                 action |= CAJA_DND_ACTION_SET_AS_BACKGROUND;
             }
         }
-        real_action = caja_drag_drop_action_ask
-                      (GTK_WIDGET (container), action);
+        real_action = caja_drag_drop_action_ask (GTK_WIDGET (container), action);
     }
 
     if (real_action == (GdkDragAction) CAJA_DND_ACTION_SET_AS_BACKGROUND)
     {
         selected_item = container->details->dnd_info->drag_info.selection_list->data;
-        eel_background_receive_dropped_background_image
-        (eel_get_widget_background (GTK_WIDGET (container)),
-         real_action,
-         selected_item->uri);
+        eel_background_set_dropped_image (eel_get_widget_background (GTK_WIDGET (container)),
+                                          real_action, selected_item->uri);
         return;
     }
 

@@ -43,7 +43,7 @@ eel_background_box_draw (GtkWidget *widget,
                                   gtk_bin_get_child (GTK_BIN (widget)),
                                   cr);
 #else
-    eel_background_expose (widget, event);
+    eel_background_draw (widget, event);
     gtk_container_propagate_expose (GTK_CONTAINER (widget),
                                     gtk_bin_get_child (GTK_BIN (widget)),
                                     event);
