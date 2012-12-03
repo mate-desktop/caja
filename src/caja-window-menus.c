@@ -500,6 +500,7 @@ action_about_caja_callback (GtkAction *action,
         "Perberos",
         "Steve Zesch",
         "Stefano Karapetsas",
+        "Jasmine Hassan",
         NULL
     };
     const gchar *documenters[] =
