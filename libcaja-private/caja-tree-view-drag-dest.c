@@ -203,12 +203,8 @@ highlight_expose (GtkWidget *widget,
     /* FIXMEchpe: is bin window right here??? */
     bin_window = gtk_tree_view_get_bin_window (GTK_TREE_VIEW (widget));
 
-#if GTK_CHECK_VERSION(3, 0, 0)
     width = gdk_window_get_width(bin_window);
     height = gdk_window_get_height(bin_window);
-#else
-    gdk_drawable_get_size(bin_window, &width, &height);
-#endif
 
     gtk_paint_focus (gtk_widget_get_style (widget),
 #if GTK_CHECK_VERSION(3,0,0)
