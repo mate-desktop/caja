@@ -133,11 +133,9 @@ caja_navigation_window_slot_update_query_editor (CajaWindowSlot *slot)
     CajaDirectory *directory;
     CajaSearchDirectory *search_directory;
     CajaQuery *query;
-    CajaNavigationWindow *navigation_window;
     GtkWidget *query_editor;
 
     g_assert (slot->pane->window != NULL);
-    navigation_window = CAJA_NAVIGATION_WINDOW (slot->pane->window);
 
     query_editor = NULL;
 
@@ -192,11 +190,9 @@ static void
 caja_navigation_window_slot_active (CajaWindowSlot *slot)
 {
     CajaNavigationWindow *window;
-    CajaNavigationWindowSlot *navigation_slot;
     CajaNavigationWindowPane *pane;
     int page_num;
 
-    navigation_slot = CAJA_NAVIGATION_WINDOW_SLOT (slot);
     pane = CAJA_NAVIGATION_WINDOW_PANE (slot->pane);
     window = CAJA_NAVIGATION_WINDOW (slot->pane->window);
 

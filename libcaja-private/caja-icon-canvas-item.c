@@ -1089,10 +1089,6 @@ draw_frame (CajaIconCanvasItem *item,
             int width,
             int height)
 {
-    CajaIconContainer *container;
-
-    container = CAJA_ICON_CONTAINER (EEL_CANVAS_ITEM (item)->canvas);
-
 #if GTK_CHECK_VERSION(3,0,0)
     cairo_save (cr);
 #else
@@ -1293,11 +1289,9 @@ measure_label_text (CajaIconCanvasItem *item)
     CajaIconContainer *container;
     gint editable_height, editable_height_for_layout, editable_height_for_entire_text, editable_width, editable_dx;
     gint additional_height, additional_width, additional_dx;
-    EelCanvasItem *canvas_item;
     PangoLayout *editable_layout;
     PangoLayout *additional_layout;
-    gboolean have_editable, have_additional, needs_highlight;
-    int max_text_width;
+    gboolean have_editable, have_additional;
 
     /* check to see if the cached values are still valid; if so, there's
      * no work necessary
@@ -1309,7 +1303,6 @@ measure_label_text (CajaIconCanvasItem *item)
     }
 
     details = item->details;
-    needs_highlight = details->is_highlighted_for_selection || details->is_highlighted_for_drop;
 
     have_editable = details->editable_text != NULL && details->editable_text[0] != '\0';
     have_additional = details->additional_text != NULL && details->additional_text[0] != '\0';
@@ -1333,8 +1326,6 @@ measure_label_text (CajaIconCanvasItem *item)
     return;
 #endif
 
-    canvas_item = EEL_CANVAS_ITEM (item);
-
     editable_width = 0;
     editable_height = 0;
     editable_height_for_layout = 0;
@@ -1343,8 +1334,6 @@ measure_label_text (CajaIconCanvasItem *item)
     additional_width = 0;
     additional_height = 0;
     additional_dx = 0;
-
-    max_text_width = floor (caja_icon_canvas_item_get_max_text_width (item));
 
     container = CAJA_ICON_CONTAINER (EEL_CANVAS_ITEM (item)->canvas);
     editable_layout = NULL;
@@ -3153,7 +3142,6 @@ caja_icon_canvas_item_accessible_do_action (AtkAction *accessible, int i)
 {
     CajaIconCanvasItem *item;
     CajaIconCanvasItemAccessibleActionContext *ctx;
-    CajaIcon *icon;
     CajaIconContainer *container;
 
     g_assert (i < LAST_ACTION);
@@ -3163,7 +3151,6 @@ caja_icon_canvas_item_accessible_do_action (AtkAction *accessible, int i)
     {
         return FALSE;
     }
-    icon = item->user_data;
     container = CAJA_ICON_CONTAINER (EEL_CANVAS_ITEM (item)->canvas);
     switch (i)
     {

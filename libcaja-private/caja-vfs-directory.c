@@ -41,9 +41,6 @@ EEL_CLASS_BOILERPLATE (CajaVFSDirectory,
 static void
 caja_vfs_directory_init (gpointer object, gpointer klass)
 {
-    CajaVFSDirectory *directory;
-
-    directory = CAJA_VFS_DIRECTORY (object);
 }
 
 static gboolean
@@ -151,10 +148,8 @@ vfs_is_not_empty (CajaDirectory *directory)
 static void
 caja_vfs_directory_class_init (gpointer klass)
 {
-    GObjectClass *object_class;
     CajaDirectoryClass *directory_class;
 
-    object_class = G_OBJECT_CLASS (klass);
     directory_class = CAJA_DIRECTORY_CLASS (klass);
 
     directory_class->contains_file = vfs_contains_file;

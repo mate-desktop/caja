@@ -739,13 +739,11 @@ static void
 rename_callback (CajaFile *file, GFile *res_loc, GError *error, gpointer callback_data)
 {
 	FMPropertiesWindow *window;
-	char *new_name;
 
 	window = FM_PROPERTIES_WINDOW (callback_data);
 
 	/* Complain to user if rename failed. */
 	if (error != NULL) {
-		new_name = window->details->pending_name;
 		fm_report_error_renaming_file (file,
 					       window->details->pending_name,
 					       error,
@@ -5226,7 +5224,7 @@ create_properties_window (StartupData *startup_data)
 			CAJA_FILE_ATTRIBUTE_INFO |
 			CAJA_FILE_ATTRIBUTE_LINK_INFO;
 
-		caja_file_monitor_add (CAJA_FILE (l->data),
+		caja_file_monitor_add (file,
 					   &window->details->original_files,
 					   attributes);
 	}

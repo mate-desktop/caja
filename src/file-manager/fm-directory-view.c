@@ -1189,10 +1189,8 @@ select_pattern (FMDirectoryView *view)
 	GtkWidget *example;
 	GtkWidget *table;
 	GtkWidget *entry;
-	GList *ret;
 	char *example_pattern;
 
-	ret = NULL;
 	dialog = gtk_dialog_new_with_buttons (_("Select Items Matching"),
 			fm_directory_view_get_containing_window (view),
 			GTK_DIALOG_DESTROY_WITH_PARENT,
@@ -1318,7 +1316,6 @@ action_save_search_as_callback (GtkAction *action,
 {
 	FMDirectoryView	*directory_view;
 	CajaSearchDirectory *search;
-	CajaQuery *query;
 	GtkWidget *dialog, *table, *label, *entry, *chooser, *save_button;
 	const char *entry_text;
 	char *filename, *filename_utf8, *dirname, *path, *uri;
@@ -1329,8 +1326,6 @@ action_save_search_as_callback (GtkAction *action,
 	if (directory_view->details->model &&
 	    CAJA_IS_SEARCH_DIRECTORY (directory_view->details->model)) {
 		search = CAJA_SEARCH_DIRECTORY (directory_view->details->model);
-
-		query = caja_search_directory_get_query (search);
 
 		dialog = gtk_dialog_new_with_buttons (_("Save Search as"),
 						      fm_directory_view_get_containing_window (directory_view),
@@ -6834,6 +6829,7 @@ connect_to_server_response_callback (GtkDialog *dialog,
 				     int response_id,
 				     gpointer data)
 {
+#ifdef GIO_CONVERSION_DONE
 	GtkEntry *entry;
 	char *uri;
 	const char *name;
@@ -6846,9 +6842,7 @@ connect_to_server_response_callback (GtkDialog *dialog,
 		uri = g_object_get_data (G_OBJECT (dialog), "link-uri");
 		icon = g_object_get_data (G_OBJECT (dialog), "link-icon");
 		name = gtk_entry_get_text (entry);
-#ifdef GIO_CONVERSION_DONE
 		mate_vfs_connect_to_server (uri, (char *)name, icon);
-#endif
 		gtk_widget_destroy (GTK_WIDGET (dialog));
 		break;
 	case GTK_RESPONSE_NONE:
@@ -6859,6 +6853,9 @@ connect_to_server_response_callback (GtkDialog *dialog,
 	default :
 		g_assert_not_reached ();
 	}
+#endif
+	/* FIXME: the above code should make a server connection permanent */
+	gtk_widget_destroy (GTK_WIDGET (dialog));
 }
 
 static void
@@ -9551,9 +9548,6 @@ metadata_for_files_in_directory_ready_callback (CajaDirectory *directory,
 static void
 finish_undoredo_callback (gpointer data)
 {
-	FMDirectoryView *view;
-
-	view = FM_DIRECTORY_VIEW (data);
 }
 
 char **

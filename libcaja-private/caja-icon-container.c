@@ -331,7 +331,7 @@ icon_set_position (CajaIcon *icon,
     int container_x, container_y, container_width, container_height;
     EelDRect icon_bounds;
     int item_width, item_height;
-    int height_above, height_below, width_left, width_right;
+    int height_above, width_left;
     int min_x, max_x, min_y, max_y;
 
     if (icon->x == x && icon->y == y)
@@ -385,9 +385,7 @@ icon_set_position (CajaIcon *icon,
 
         /* determine icon rectangle relative to item rectangle */
         height_above = icon_bounds.y0 - y1;
-        height_below = y2 - icon_bounds.y1;
         width_left = icon_bounds.x0 - x1;
-        width_right = x2 - icon_bounds.x1;
 
         min_x = container_left + DESKTOP_PAD_HORIZONTAL + width_left;
         max_x = container_right - DESKTOP_PAD_HORIZONTAL - item_width + width_left;
@@ -610,8 +608,8 @@ caja_icon_container_scroll (CajaIconContainer *container,
     old_h_value = gtk_adjustment_get_value (hadj);
     old_v_value = gtk_adjustment_get_value (vadj);
 
-    eel_gtk_adjustment_set_value (hadj, gtk_adjustment_get_value (hadj) + delta_x);
-    eel_gtk_adjustment_set_value (vadj, gtk_adjustment_get_value (vadj) + delta_y);
+    gtk_adjustment_set_value (hadj, gtk_adjustment_get_value (hadj) + delta_x);
+    gtk_adjustment_set_value (vadj, gtk_adjustment_get_value (vadj) + delta_y);
 
     /* return TRUE if we did scroll */
     return gtk_adjustment_get_value (hadj) != old_h_value || gtk_adjustment_get_value (vadj) != old_v_value;
@@ -715,24 +713,20 @@ icon_get_row_and_column_bounds (CajaIconContainer *container,
 
     item_get_canvas_bounds (EEL_CANVAS_ITEM (icon->item), bounds, safety_pad);
 
-    for (p = container->details->icons; p != NULL; p = p->next)
-    {
+    for (p = container->details->icons; p != NULL; p = p->next) {
         one_icon = p->data;
 
-        if (icon == one_icon)
-        {
+        if (icon == one_icon) {
             continue;
         }
 
-        if (compare_icons_horizontal (container, icon, one_icon) == 0)
-        {
+        if (compare_icons_horizontal (container, icon, one_icon) == 0) {
             item_get_canvas_bounds (EEL_CANVAS_ITEM (one_icon->item), &one_bounds, safety_pad);
             bounds->x0 = MIN (bounds->x0, one_bounds.x0);
             bounds->x1 = MAX (bounds->x1, one_bounds.x1);
         }
 
-        if (compare_icons_vertical (container, icon, one_icon) == 0)
-        {
+        if (compare_icons_vertical (container, icon, one_icon) == 0) {
             item_get_canvas_bounds (EEL_CANVAS_ITEM (one_icon->item), &one_bounds, safety_pad);
             bounds->y0 = MIN (bounds->y0, one_bounds.y0);
             bounds->y1 = MAX (bounds->y1, one_bounds.y1);
@@ -746,52 +740,40 @@ static void
 reveal_icon (CajaIconContainer *container,
              CajaIcon *icon)
 {
-    CajaIconContainerDetails *details;
     GtkAllocation allocation;
     GtkAdjustment *hadj, *vadj;
     EelIRect bounds;
 
-    if (!icon_is_positioned (icon))
-    {
+    if (!icon_is_positioned (icon)) {
         set_pending_icon_to_reveal (container, icon);
         return;
     }
 
     set_pending_icon_to_reveal (container, NULL);
 
-    details = container->details;
     gtk_widget_get_allocation (GTK_WIDGET (container), &allocation);
 
     hadj = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container));
     vadj = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container));
 
-    if (caja_icon_container_is_auto_layout (container))
-    {
+    if (caja_icon_container_is_auto_layout (container)) {
         /* ensure that we reveal the entire row/column */
         icon_get_row_and_column_bounds (container, icon, &bounds, TRUE);
-    }
-    else
-    {
+    } else {
         item_get_canvas_bounds (EEL_CANVAS_ITEM (icon->item), &bounds, TRUE);
     }
-    if (bounds.y0 < gtk_adjustment_get_value (vadj))
-    {
-        eel_gtk_adjustment_set_value (vadj, bounds.y0);
-    }
-    else if (bounds.y1 > gtk_adjustment_get_value (vadj) + allocation.height)
-    {
-        eel_gtk_adjustment_set_value
-        (vadj, bounds.y1 - allocation.height);
+    if (bounds.y0 < gtk_adjustment_get_value (vadj)) {
+        gtk_adjustment_set_value (vadj, bounds.y0);
+    } else if (bounds.y1 > gtk_adjustment_get_value (vadj) + allocation.height) {
+        gtk_adjustment_set_value
+                (vadj, bounds.y1 - allocation.height);
     }
 
-    if (bounds.x0 < gtk_adjustment_get_value (hadj))
-    {
-        eel_gtk_adjustment_set_value (hadj, bounds.x0);
-    }
-    else if (bounds.x1 > gtk_adjustment_get_value (hadj) + allocation.width)
-    {
-        eel_gtk_adjustment_set_value
-        (hadj, bounds.x1 - allocation.width);
+    if (bounds.x0 < gtk_adjustment_get_value (hadj)) {
+        gtk_adjustment_set_value (hadj, bounds.x0);
+    } else if (bounds.x1 > gtk_adjustment_get_value (hadj) + allocation.width) {
+        gtk_adjustment_set_value
+                (hadj, bounds.x1 - allocation.width);
     }
 }
 
@@ -802,8 +784,7 @@ process_pending_icon_to_reveal (CajaIconContainer *container)
 
     pending_icon_to_reveal = get_pending_icon_to_reveal (container);
 
-    if (pending_icon_to_reveal != NULL)
-    {
+    if (pending_icon_to_reveal != NULL) {
         reveal_icon (container, pending_icon_to_reveal);
     }
 }
@@ -827,8 +808,7 @@ keyboard_icon_reveal_timeout_callback (gpointer data)
      * (see bugzilla.gnome.org 40612).
      */
     if (icon == container->details->keyboard_focus
-            || icon->is_selected)
-    {
+            || icon->is_selected) {
         reveal_icon (container, icon);
     }
     container->details->keyboard_icon_reveal_timer_id = 0;
@@ -843,8 +823,7 @@ unschedule_keyboard_icon_reveal (CajaIconContainer *container)
 
     details = container->details;
 
-    if (details->keyboard_icon_reveal_timer_id != 0)
-    {
+    if (details->keyboard_icon_reveal_timer_id != 0) {
         g_source_remove (details->keyboard_icon_reveal_timer_id);
     }
 }
@@ -1236,12 +1215,6 @@ caja_icon_container_update_scroll_region (CajaIconContainer *container)
         gtk_adjustment_set_step_increment (vadj, step_increment);
         gtk_adjustment_changed (vadj);
     }
-
-    /* Now that we have a new scroll region, clamp the
-     * adjustments so we are within the valid scroll area.
-     */
-    eel_gtk_adjustment_clamp_value (hadj);
-    eel_gtk_adjustment_clamp_value (vadj);
 }
 
 static int
@@ -1390,7 +1363,7 @@ lay_down_icons_horizontal (CajaIconContainer *container,
 {
     GList *p, *line_start;
     CajaIcon *icon;
-    double canvas_width, y, canvas_height;
+    double canvas_width, y;
     GArray *positions;
     IconPositions *position;
     EelDRect bounds;
@@ -1418,8 +1391,6 @@ lay_down_icons_horizontal (CajaIconContainer *container,
 
     /* Lay out icons a line at a time. */
     canvas_width = CANVAS_WIDTH(container, allocation);
-    canvas_height = CANVAS_HEIGHT(container, allocation);
-
     max_icon_width = max_text_width = 0.0;
 
     if (container->details->label_position == CAJA_ICON_LABEL_POSITION_BESIDE)
@@ -1619,12 +1590,11 @@ lay_down_icons_vertical (CajaIconContainer *container,
 {
     GList *p, *line_start;
     CajaIcon *icon;
-    double canvas_width, x, canvas_height;
+    double x, canvas_height;
     GArray *positions;
     IconPositions *position;
     EelDRect icon_bounds;
     EelDRect text_bounds;
-    EelCanvasItem *item;
     GtkAllocation allocation;
 
     double line_height;
@@ -1654,7 +1624,6 @@ lay_down_icons_vertical (CajaIconContainer *container,
     gtk_widget_get_allocation (GTK_WIDGET (container), &allocation);
 
     /* Lay out icons a column at a time. */
-    canvas_width = CANVAS_WIDTH(container, allocation);
     canvas_height = CANVAS_HEIGHT(container, allocation);
 
     max_icon_width = max_text_width = 0.0;
@@ -1682,7 +1651,6 @@ lay_down_icons_vertical (CajaIconContainer *container,
     for (p = icons; p != NULL; p = p->next)
     {
         icon = p->data;
-        item = EEL_CANVAS_ITEM (icon->item);
 
         /* If this icon doesn't fit, it's time to lay out the column that's queued up. */
 
@@ -2154,14 +2122,13 @@ lay_down_icons_vertical_desktop (CajaIconContainer *container, GList *icons)
     GList *p, *placed_icons, *unplaced_icons;
     int total, new_length, placed;
     CajaIcon *icon;
-    int width, height, max_width, column_width, icon_width, icon_height;
+    int height, max_width, column_width, icon_width, icon_height;
     int x, y, x1, x2, y1, y2;
     EelDRect icon_rect;
     GtkAllocation allocation;
 
     /* Get container dimensions */
     gtk_widget_get_allocation (GTK_WIDGET (container), &allocation);
-    width  = CANVAS_WIDTH(container, allocation);
     height = CANVAS_HEIGHT(container, allocation);
 
     /* Determine which icons have and have not been placed */
@@ -4987,7 +4954,7 @@ continue_stretching (CajaIconContainer *container,
 
     if (container->details->stretch_idle_id == 0)
     {
-        container->details->stretch_idle_id = g_idle_add ((GtkFunction) update_stretch_at_idle, container);
+        container->details->stretch_idle_id = g_idle_add ((GSourceFunc) update_stretch_at_idle, container);
     }
 }
 
@@ -5550,7 +5517,6 @@ caja_icon_container_search_move (GtkWidget *window,
 {
     gboolean ret;
     gint len;
-    gint count = 0;
     const gchar *text;
 
     text = gtk_entry_get_text (GTK_ENTRY (container->details->search_entry));
@@ -5588,7 +5554,6 @@ caja_icon_container_search_move (GtkWidget *window,
     else
     {
         /* return to old iter */
-        count = 0;
         caja_icon_container_search_iter (container, text,
                                          container->details->selected_iter);
     }
@@ -5734,9 +5699,7 @@ caja_icon_container_search_init (GtkWidget   *entry,
 static void
 caja_icon_container_ensure_interactive_directory (CajaIconContainer *container)
 {
-    GtkWidget *frame, *vbox, *toplevel;
-
-    toplevel = gtk_widget_get_toplevel (GTK_WIDGET (container));
+    GtkWidget *frame, *vbox;
 
     if (container->details->search_window != NULL)
     {
@@ -7089,11 +7052,9 @@ item_event_callback (EelCanvasItem *item,
                      gpointer data)
 {
     CajaIconContainer *container;
-    CajaIconContainerDetails *details;
     CajaIcon *icon;
 
     container = CAJA_ICON_CONTAINER (data);
-    details = container->details;
 
     icon = CAJA_ICON_CANVAS_ITEM (item)->user_data;
     g_assert (icon != NULL);
@@ -7275,7 +7236,6 @@ caja_icon_container_scroll_to_icon (CajaIconContainer  *container,
     GList *l;
     CajaIcon *icon;
     GtkAdjustment *hadj, *vadj;
-    EelCanvasItem *item;
     EelIRect bounds;
     GtkAllocation allocation;
 
@@ -7288,40 +7248,27 @@ caja_icon_container_scroll_to_icon (CajaIconContainer  *container,
     caja_icon_container_layout_now (container);
 
     l = container->details->icons;
-    while (l != NULL)
-    {
+    while (l != NULL) {
         icon = l->data;
 
         if (icon->data == data &&
-                icon_is_positioned (icon))
-        {
+                icon_is_positioned (icon)) {
 
-            item = EEL_CANVAS_ITEM (icon->item);
-
-            if (caja_icon_container_is_auto_layout (container))
-            {
+            if (caja_icon_container_is_auto_layout (container)) {
                 /* ensure that we reveal the entire row/column */
                 icon_get_row_and_column_bounds (container, icon, &bounds, TRUE);
-            }
-            else
-            {
+            } else {
                 item_get_canvas_bounds (EEL_CANVAS_ITEM (icon->item), &bounds, TRUE);
             }
 
-            if (caja_icon_container_is_layout_vertical (container))
-            {
-                if (caja_icon_container_is_layout_rtl (container))
-                {
-                    eel_gtk_adjustment_set_value (hadj, bounds.x1 - allocation.width);
+            if (caja_icon_container_is_layout_vertical (container)) {
+                if (caja_icon_container_is_layout_rtl (container)) {
+                    gtk_adjustment_set_value (hadj, bounds.x1 - allocation.width);
+                } else {
+                    gtk_adjustment_set_value (hadj, bounds.x0);
                 }
-                else
-                {
-                    eel_gtk_adjustment_set_value (hadj, bounds.x0);
-                }
-            }
-            else
-            {
-                eel_gtk_adjustment_set_value (vadj, bounds.y0);
+            } else {
+                gtk_adjustment_set_value (vadj, bounds.y0);
             }
         }
 

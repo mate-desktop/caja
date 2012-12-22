@@ -90,13 +90,8 @@ eel_gdk_window_get_bounds (GdkWindow *gdk_window)
 
     gdk_window_get_position (gdk_window, &bounds.x0, &bounds.y0);
 
-#if GTK_CHECK_VERSION(3, 0, 0)
     width = gdk_window_get_width(gdk_window);
     height = gdk_window_get_height(gdk_window);
-#else
-    gdk_drawable_get_size (gdk_window, &width, &height);
-#endif
-
 
     bounds.x1 = bounds.x0 + width;
     bounds.y1 = bounds.y0 + height;
@@ -128,12 +123,8 @@ eel_gdk_window_get_screen_relative_bounds (GdkWindow *gdk_window)
         return eel_irect_empty;
     }
 
-#if GTK_CHECK_VERSION(3, 0, 0)
     width = gdk_window_get_width(gdk_window);
     height = gdk_window_get_height(gdk_window);
-#else
-    gdk_drawable_get_size(gdk_window, &width, &height);
-#endif
 
     screen_bounds.x1 = screen_bounds.x0 + width;
     screen_bounds.y1 = screen_bounds.y0 + height;
@@ -321,12 +312,8 @@ eel_gdk_window_get_dimensions (GdkWindow *gdk_window)
 
     g_return_val_if_fail (gdk_window != NULL, eel_dimensions_empty);
 
-#if GTK_CHECK_VERSION(3, 0, 0)
     dimensions.width = gdk_window_get_width(gdk_window);
     dimensions.height = gdk_window_get_height(gdk_window);
-#else
-    gdk_drawable_get_size (gdk_window, &dimensions.width, &dimensions.height);
-#endif
 
     return dimensions;
 }

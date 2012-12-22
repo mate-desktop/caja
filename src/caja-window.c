@@ -1395,12 +1395,9 @@ refresh_stored_viewers (CajaWindow *window)
 static void
 load_view_as_menu (CajaWindow *window)
 {
-    CajaWindowSlot *slot;
     GList *node;
     int index;
     guint merge_id;
-
-    slot = window->details->active_pane->active_slot;
 
     if (window->details->short_list_merge_id != 0)
     {
