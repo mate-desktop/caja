@@ -17,7 +17,9 @@ INCLUDES = \
 	-I$(top_srcdir) \
 	-I$(top_srcdir)/cut-n-paste-code \
 	-I$(top_builddir)/libcaja-private \
-	$(CORE_CFLAGS) \
+	$(BASE_CFLAGS) 						\
+	$(COMMON_CFLAGS)					\
+	$(CAJA_CFLAGS)					\
 	$(WARNING_CFLAGS) \
 	$(EXIF_CFLAGS) \
 	$(EXEMPI_CFLAGS) \
@@ -37,6 +39,9 @@ INCLUDES = \
 LDADD = \
 	$(top_builddir)/src/file-manager/libcaja-file-manager.la \
 	$(top_builddir)/libcaja-private/libcaja-private.la \
+	$(BASE_LIBS) \
+	$(COMMON_LIBS) \
+	$(CAJA_LIBS) \
 	$(CORE_LIBS) \
 	$(EXIF_LIBS) \
 	$(EXEMPI_LIBS) \

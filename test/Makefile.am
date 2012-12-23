@@ -2,7 +2,9 @@ NULL=
 
 INCLUDES =\
 	-I$(top_srcdir) \
-	$(CORE_CFLAGS) \
+	$(BASE_CFLAGS) \
+	$(COMMON_CFLAGS) \
+	$(CAJA_CFLAGS) \
 	$(WARNING_CFLAGS) \
 	-DVERSION="\"$(VERSION)\"" \
 	-DCAJA_DATADIR=\""$(datadir)/caja"\" \
@@ -11,7 +13,9 @@ INCLUDES =\
 
 LDADD =\
 	$(top_builddir)/libcaja-private/libcaja-private.la \
-	$(CORE_LIBS) \
+	$(BASE_LIBS) \
+	$(COMMON_LIBS) \
+	$(CAJA_LIBS) \
 	$(NULL)
 
 noinst_PROGRAMS =\
