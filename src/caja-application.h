@@ -1,9 +1,11 @@
 /* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*- */
 
 /*
- * Caja
+ * caja-application: main Caja application class.
  *
  * Copyright (C) 2000 Red Hat, Inc.
+ * Copyright (C) 2010 Cosimo Cecchi <cosimoc@gnome.org>
+ * Copyright (C) 2012 Jasmine Hassan <jasmine.aura@gmail.com>
  *
  * Caja is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -21,15 +23,13 @@
  * Boston, MA 02110-1301, USA.
  */
 
-/* caja-application.h
- */
-
-#ifndef CAJA_APPLICATION_H
-#define CAJA_APPLICATION_H
+#ifndef __CAJA_APPLICATION_H__
+#define __CAJA_APPLICATION_H__
 
 #include <gdk/gdk.h>
 #include <gio/gio.h>
-#include <unique/unique.h>
+#include <gtk/gtk.h>
+
 #include <libegg/eggsmclient.h>
 
 #define CAJA_DESKTOP_ICON_VIEW_IID "OAFIID:Caja_File_Manager_Desktop_Icon_View"
@@ -57,12 +57,14 @@ typedef struct CajaWindow CajaWindow;
 typedef struct _CajaSpatialWindow CajaSpatialWindow;
 #endif
 
-typedef struct CajaShell CajaShell;
-
 typedef struct
 {
-    GObject parent;
-    UniqueApp* unique_app;
+#  if GTK_CHECK_VERSION(3, 0, 0)
+    GtkApplication parent;
+#  else
+    GApplication parent;
+#  endif
+
     EggSMClient* smclient;
     GVolumeMonitor* volume_monitor;
     unsigned int automount_idle_id;
@@ -72,23 +74,21 @@ typedef struct
 
 typedef struct
 {
-    GObjectClass parent_class;
+#  if GTK_CHECK_VERSION(3, 0, 0)
+    GtkApplicationClass parent_class;
+#  else
+    GApplicationClass parent_class;
+#  endif
 } CajaApplicationClass;
 
-GType                caja_application_get_type          (void);
-CajaApplication *caja_application_new               (void);
-void                 caja_application_startup           (CajaApplication *application,
-        gboolean             kill_shell,
-        gboolean             no_default_window,
-        gboolean             no_desktop,
-        gboolean             browser_window,
-        const char          *default_geometry,
-        char               **urls);
-GList *              caja_application_get_window_list           (void);
-GList *              caja_application_get_spatial_window_list    (void);
-unsigned int         caja_application_get_n_windows            (void);
+GType            caja_application_get_type          (void);
 
-CajaWindow *     caja_application_get_spatial_window     (CajaApplication *application,
+CajaApplication *caja_application_dup_singleton     (void);
+
+GList *          caja_application_get_window_list   (CajaApplication *self);
+guint            caja_application_get_n_windows     (CajaApplication *self);
+
+CajaWindow *     caja_application_get_spatial_window    (CajaApplication *application,
         CajaWindow      *requesting_window,
         const char      *startup_id,
         GFile           *location,
@@ -99,7 +99,7 @@ CajaWindow *     caja_application_create_navigation_window     (CajaApplication 
         const char          *startup_id,
         GdkScreen           *screen);
 
-void caja_application_close_all_navigation_windows (void);
+void caja_application_close_all_navigation_windows (CajaApplication *self);
 void caja_application_close_parent_windows     (CajaSpatialWindow *window);
 void caja_application_close_all_spatial_windows  (void);
 void caja_application_open_desktop      (CajaApplication *application);
@@ -107,4 +107,4 @@ void caja_application_close_desktop     (void);
 gboolean caja_application_save_accel_map    (gpointer data);
 
 
-#endif /* CAJA_APPLICATION_H */
+#endif /* __CAJA_APPLICATION_H__ */
