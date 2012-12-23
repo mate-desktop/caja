@@ -30,11 +30,13 @@
 #include <X11/Xatom.h>
 #include <gdk/gdkx.h>
 #include <gtk/gtk.h>
+#include <gio/gio.h>
+#include <glib/gi18n.h>
+
 #include <eel/eel-vfs-extensions.h>
 #include <libcaja-private/caja-file-utilities.h>
 #include <libcaja-private/caja-icon-names.h>
-#include <gio/gio.h>
-#include <glib/gi18n.h>
+#include <libcaja-private/caja-global-preferences.h>
 
 struct CajaDesktopWindowDetails
 {
@@ -77,9 +79,15 @@ caja_desktop_window_init (CajaDesktopWindow *window)
     /* Set the accessible name so that it doesn't inherit the cryptic desktop URI. */
     accessible = gtk_widget_get_accessible (GTK_WIDGET (window));
 
-	if (accessible) {
+    if (accessible) {
         atk_object_set_name (accessible, _("Desktop"));
-	}
+    }
+
+    /* Monitor the preference to have the desktop */
+    /* point to the Unix home folder */
+    g_signal_connect_swapped (caja_preferences, "changed::" CAJA_PREFERENCES_DESKTOP_IS_HOME_DIR,
+        		      G_CALLBACK (caja_desktop_window_update_directory),
+        		      window);
 }
 
 static gint
