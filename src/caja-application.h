@@ -86,7 +86,6 @@ GType            caja_application_get_type          (void);
 CajaApplication *caja_application_dup_singleton     (void);
 
 GList *          caja_application_get_window_list   (CajaApplication *self);
-guint            caja_application_get_n_windows     (CajaApplication *self);
 
 CajaWindow *     caja_application_get_spatial_window    (CajaApplication *application,
         CajaWindow      *requesting_window,

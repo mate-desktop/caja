@@ -147,13 +147,6 @@ caja_application_get_spatial_window_list (void)
     return caja_application_spatial_window_list;
 }
 
-guint
-caja_application_get_n_windows (CajaApplication *self)
-{
-    return g_list_length (caja_application_get_window_list (self)) +
-           g_list_length (caja_application_desktop_windows);
-}
-
 static void
 startup_volume_mount_cb (GObject *source_object,
                          GAsyncResult *res,
@@ -767,6 +760,12 @@ desktop_unrealize_cb (GtkWidget        *widget,
                       GtkWidget        *selection_widget)
 {
     gtk_widget_destroy (selection_widget);
+
+# if !GTK_CHECK_VERSION(3, 0, 0)
+    CajaApplication *app = caja_application_dup_singleton ();
+
+    g_application_release (G_APPLICATION (app));
+# endif
 }
 
 static gboolean
@@ -816,9 +815,14 @@ caja_application_create_desktop_windows (CajaApplication *application)
             gtk_widget_realize (GTK_WIDGET (window));
             gdk_flush ();
 
-
             caja_application_desktop_windows =
                 g_list_prepend (caja_application_desktop_windows, window);
+
+#         if GTK_CHECK_VERSION (3, 0, 0)
+            gtk_application_add_window (GTK_APPLICATION (application), GTK_WINDOW (window));
+#         else
+            g_application_hold (G_APPLICATION (application));
+#         endif
         }
     }
 }

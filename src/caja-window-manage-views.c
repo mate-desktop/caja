@@ -1277,8 +1277,8 @@ got_file_info_for_view_selection_callback (CajaFile *file,
             CajasApplication *app;
 
             app = caja_application_dup_singleton ();
-            
-            if (caja_application_get_n_windows (app) == 1)
+
+            if (g_list_length (caja_application_get_window_list (app)) == 1)
             {
                 /* the user could have typed in a home directory that doesn't exist,
                    in which case going home would cause an infinite loop, so we
