@@ -26,7 +26,8 @@
 
 #include "caja-application.h"
 
-void caja_application_smclient_init (CajaApplication *self);
-void caja_application_smclient_load (CajaApplication *self);
+void caja_application_smclient_startup (CajaApplication *self);
+void caja_application_smclient_load (CajaApplication *self,
+					 gboolean *no_default_window);
 
 #endif /* __CAJA_APPLICATION_SMCLIENT_H__ */
