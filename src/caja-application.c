@@ -51,6 +51,7 @@
 #include "caja-navigation-window-slot.h"
 #include "caja-notes-viewer.h"
 #include "caja-places-sidebar.h"
+#include "caja-self-check-functions.h"
 #include "caja-spatial-window.h"
 #include "caja-window-bookmarks.h"
 #include "caja-window-manage-views.h"
@@ -64,6 +65,7 @@
 #include <libcaja-private/caja-file-utilities.h>
 #include "libcaja-private/caja-file-operations.h"
 #include <libcaja-private/caja-global-preferences.h>
+#include <libcaja-private/caja-lib-self-check-functions.h>
 #include <libcaja-private/caja-module.h>
 #include <libcaja-private/caja-signaller.h>
 #include <libcaja-extension/caja-menu-provider.h>
@@ -1644,6 +1646,23 @@ caja_application_command_line (GApplication *app,
 		retval = EXIT_FAILURE;
 		goto out;
 	}
+
+        /* Do either the self-check or the real work. */
+        if (perform_self_check) {
+#         ifndef CAJA_OMIT_SELF_CHECK
+            /* Run the checks (each twice) for caja and libcaja-private. */
+            caja_run_self_checks ();
+            caja_run_lib_self_checks ();
+            eel_exit_if_self_checks_failed ();
+
+            caja_run_self_checks ();
+            caja_run_lib_self_checks ();
+            eel_exit_if_self_checks_failed ();
+
+            retval = EXIT_SUCCESS;
+            goto out;
+#         endif
+        }
 
 	/* Check the user's ~/.config/caja directories and post warnings
 	 * if there are problems.
