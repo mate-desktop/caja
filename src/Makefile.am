@@ -61,6 +61,8 @@ caja_SOURCES = \
 	caja-actions.h \
 	caja-application.c \
 	caja-application.h \
+	caja-application-smclient.c		\
+	caja-application-smclient.h		\
 	caja-bookmark-list.c \
 	caja-bookmark-list.h \
 	caja-bookmarks-window.c \
