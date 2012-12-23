@@ -1608,13 +1608,25 @@ caja_application_command_line (GApplication *app,
 	gint argc = 0;
 	gchar **argv = NULL, **uris = NULL;
 	gint retval = EXIT_SUCCESS;
+	gboolean exit_with_last_window;
 
 	context = g_option_context_new (_("\n\nBrowse the file system with the file manager"));
 	g_option_context_add_main_entries (context, options, NULL);
 	g_option_context_add_group (context, gtk_get_option_group (TRUE));
-	g_option_context_add_group (context, egg_sm_client_get_option_group ());
+
+	if (!self->initialized) {
+		g_option_context_add_group (context, egg_sm_client_get_option_group ());
+	}
 
 	argv = g_application_command_line_get_arguments (command_line, &argc);
+
+	/* we need to do this here, as parsing the EggSMClient option context,
+	 * unsets this variable.
+	 */
+	autostart_id = g_getenv ("DESKTOP_AUTOSTART_ID");
+	if (autostart_id != NULL && *autostart_id != '\0') {
+		autostart_mode = TRUE;
+        }
 
 	if (!g_option_context_parse (context, &argc, &argv, &error)) {
 		g_printerr ("Could not parse arguments: %s\n", error->message);
@@ -1673,11 +1685,6 @@ caja_application_command_line (GApplication *app,
 		goto out;
 	}
 
-	autostart_id = g_getenv ("DESKTOP_AUTOSTART_ID");
-	if (autostart_id != NULL && *autostart_id != '\0') {
-		autostart_mode = TRUE;
-        }
-
 	/* If in autostart mode (aka started by mate-session), we need to ensure 
          * caja starts with the correct options.
          */
@@ -1686,40 +1693,63 @@ caja_application_command_line (GApplication *app,
 		no_desktop = FALSE;
 	}
 
+	exit_with_last_window =
+		g_settings_get_boolean (caja_preferences,
+					CAJA_PREFERENCES_EXIT_WITH_LAST_WINDOW);
+
 	if (kill_shell) {
 		caja_application_close_desktop ();
 		g_application_release (app);
-	} else {
-		char *accel_map_filename;
 
-		if (!self->sm_initialized) {
+		if (!exit_with_last_window) {
+			g_application_release (app);
+		}
+	} else {
+		if (!self->initialized) {
+			char *accel_map_filename;
+
 			caja_application_smclient_init (self);
 
 			if (egg_sm_client_is_resumed (self->smclient)) {
 				no_default_window = TRUE;
 			}
+
+			if (!no_desktop &&
+			    !g_settings_get_boolean (mate_background_preferences,
+						     MATE_BG_KEY_SHOW_DESKTOP)) {
+				no_desktop = TRUE;
+			}
+
+			if (!no_desktop) {
+				caja_application_open_desktop (self);
+			}
+
+			if (!exit_with_last_window) {
+				g_application_hold (app);
+			}
+
+			finish_startup (self, no_desktop);
+
+			/* Monitor the preference to show or hide the desktop */
+			g_signal_connect_swapped (mate_background_preferences,
+						  "changed::" MATE_BG_KEY_SHOW_DESKTOP,
+						  G_CALLBACK (desktop_changed_callback), self);
+
+			/* load accelerator map, and register save callback */
+			accel_map_filename = caja_get_accel_map_file ();
+			if (accel_map_filename) {
+				gtk_accel_map_load (accel_map_filename);
+				g_free (accel_map_filename);
+			}
+
+			g_signal_connect (gtk_accel_map_get (), "changed",
+					  G_CALLBACK (queue_accel_map_save_callback), NULL);
+
+			/* Load session info if available */
+			caja_application_smclient_load (self);
+
+			self->initialized = TRUE;
 		}
-
-		if (!no_desktop &&
-		    !g_settings_get_boolean (mate_background_preferences,
-					     MATE_BG_KEY_SHOW_DESKTOP)) {
-			no_desktop = TRUE;
-		}
-
-		if (!no_desktop) {
-			caja_application_open_desktop (self);
-		}
-
-		if (no_default_window && no_desktop) {
-			g_application_hold (app);
-		}
-
-		finish_startup (self, no_desktop);
-
-		/* Monitor the preference to show or hide the desktop */
-		g_signal_connect_swapped (mate_background_preferences, "changed::" MATE_BG_KEY_SHOW_DESKTOP,
-					  G_CALLBACK (desktop_changed_callback),
-					  self);
 
 		/* Convert args to URIs */
 		if (remaining != NULL) {
@@ -1754,22 +1784,6 @@ caja_application_command_line (GApplication *app,
 				      geometry,
 				      browser_window);
 		}
-
-		if (!self->sm_initialized) {
-			/* Load session info if availible */
-			caja_application_smclient_load (self);
-			self->sm_initialized = TRUE;
-		}
-
-		/* load accelerator map, and register save callback */
-		accel_map_filename = caja_get_accel_map_file ();
-		if (accel_map_filename) {
-			gtk_accel_map_load (accel_map_filename);
-			g_free (accel_map_filename);
-		}
-
-		g_signal_connect (gtk_accel_map_get (), "changed",
-				  G_CALLBACK (queue_accel_map_save_callback), NULL);
 	}
 
  out:
