@@ -71,7 +71,7 @@ typedef struct
     GDBusProxy* proxy;
     gboolean session_is_active;
 
-	gboolean initialized;
+    gboolean initialized;
 } CajaApplication;
 
 typedef struct
@@ -86,6 +86,8 @@ typedef struct
 GType            caja_application_get_type          (void);
 
 CajaApplication *caja_application_dup_singleton     (void);
+
+void             caja_application_quit              (CajaApplication *self);
 
 GList *          caja_application_get_window_list   (CajaApplication *self);
 

@@ -1567,6 +1567,24 @@ caja_application_finalize (GObject *object)
     G_OBJECT_CLASS (caja_application_parent_class)->finalize (object);
 }
 
+void
+caja_application_quit (CajaApplication *self)
+{
+	GApplication *app = G_APPLICATION (self);
+	gboolean exit_with_last_window;
+
+	exit_with_last_window =
+		g_settings_get_boolean (caja_preferences,
+					CAJA_PREFERENCES_EXIT_WITH_LAST_WINDOW);
+
+	caja_application_close_desktop ();
+	g_application_release (app);
+
+	if (!exit_with_last_window) {
+		g_application_release (app);
+	}
+}
+
 static gint
 caja_application_command_line (GApplication *app,
 				   GApplicationCommandLine *command_line)
@@ -1698,21 +1716,10 @@ caja_application_command_line (GApplication *app,
 					CAJA_PREFERENCES_EXIT_WITH_LAST_WINDOW);
 
 	if (kill_shell) {
-		caja_application_close_desktop ();
-		g_application_release (app);
-
-		if (!exit_with_last_window) {
-			g_application_release (app);
-		}
+		caja_application_quit (self);
 	} else {
 		if (!self->initialized) {
 			char *accel_map_filename;
-
-			caja_application_smclient_init (self);
-
-			if (egg_sm_client_is_resumed (self->smclient)) {
-				no_default_window = TRUE;
-			}
 
 			if (!no_desktop &&
 			    !g_settings_get_boolean (mate_background_preferences,
@@ -1745,8 +1752,8 @@ caja_application_command_line (GApplication *app,
 			g_signal_connect (gtk_accel_map_get (), "changed",
 					  G_CALLBACK (queue_accel_map_save_callback), NULL);
 
-			/* Load session info if available */
-			caja_application_smclient_load (self);
+			/* Initialize SMClient and load session info if availible */
+			caja_application_smclient_load (self, &no_default_window);
 
 			self->initialized = TRUE;
 		}
@@ -1804,7 +1811,7 @@ caja_application_startup (GApplication *app)
 	G_APPLICATION_CLASS (caja_application_parent_class)->startup (app);
 
 	/* initialize the session manager client */
-	egg_sm_client_set_mode (EGG_SM_CLIENT_MODE_DISABLED);
+	caja_application_smclient_startup (self);
 
 	/* Initialize preferences. This is needed to create the
 	 * global GSettings objects.

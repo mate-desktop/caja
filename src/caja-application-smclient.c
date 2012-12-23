@@ -28,6 +28,7 @@
 #include "caja-window-slot.h"
 
 #include <eel/eel-gtk-extensions.h>
+#include <eel/eel-vfs-extensions.h>
 #include <libxml/xmlsave.h>
 
 static char *
@@ -95,8 +96,24 @@ caja_application_get_session_data (CajaApplication *self)
 
 		window = l->data;
 
-		win_node = xmlNewChild (root_node, NULL, "window", NULL);
+		slots = caja_window_get_slots (window);
+		active_slot = caja_window_get_active_slot (window);
 
+		/* store one slot as window location. Otherwise
+		 * older Caja versions will bail when reading the file. */
+		tmp = caja_window_slot_get_location_uri (active_slot);
+
+		if (eel_uri_is_desktop (tmp)) {
+			g_list_free (slots);
+			g_free (tmp);
+			continue;
+		}
+
+		win_node = xmlNewChild (root_node, NULL, "window", NULL);
+		
+		xmlNewProp (win_node, "location", tmp);
+		g_free (tmp);
+		
 		xmlNewProp (win_node, "type", CAJA_IS_NAVIGATION_WINDOW (window) ? "navigation" : "spatial");
 
 		if (CAJA_IS_NAVIGATION_WINDOW (window)) { /* spatial windows store their state as file metadata */
@@ -123,15 +140,6 @@ caja_application_get_session_data (CajaApplication *self)
 				xmlNewProp (win_node, "keep-above", "TRUE");
 			}
 		}
-
-		slots = caja_window_get_slots (window);
-		active_slot = caja_window_get_active_slot (window);
-
-		/* store one slot as window location. Otherwise
-		 * older Caja versions will bail when reading the file. */
-		tmp = caja_window_slot_get_location_uri (active_slot);
-		xmlNewProp (win_node, "location", tmp);
-		g_free (tmp);
 
 		for (m = slots; m != NULL; m = m->next) {
 			slot = CAJA_WINDOW_SLOT (m->data);
@@ -167,14 +175,58 @@ caja_application_get_session_data (CajaApplication *self)
 	return data;
 }
 
+static void
+smclient_save_state_cb (EggSMClient *client,
+			GKeyFile *state_file,
+			CajaApplication *application)
+{
+	char *data;
+
+	data = caja_application_get_session_data (application);
+
+	if (data != NULL) {
+		g_key_file_set_string (state_file,
+				       "Caja",
+				       "documents", 
+				       data);
+	}
+
+	g_free (data);
+}
+
+static void
+smclient_quit_cb (EggSMClient   *client,
+		  CajaApplication *application)
+{
+	caja_application_quit (application);
+}
+
+static void
+caja_application_smclient_initialize (CajaApplication *self)
+{
+	egg_sm_client_set_mode (EGG_SM_CLIENT_MODE_NORMAL);
+
+	g_signal_connect (self->smclient, "save_state",
+                          G_CALLBACK (smclient_save_state_cb),
+                          self);
+	g_signal_connect (self->smclient, "quit",
+			  G_CALLBACK (smclient_quit_cb),
+			  self);
+
+	/* TODO: Should connect to quit_requested and block logout on active transfer? */
+}
+
 void
-caja_application_smclient_load (CajaApplication *application)
+caja_application_smclient_load (CajaApplication *application,
+				    gboolean *no_default_window)
 {
 	xmlDocPtr doc;
 	gboolean bail;
 	xmlNodePtr root_node;
 	GKeyFile *state_file;
 	char *data;
+
+	caja_application_smclient_initialize (application);
 
 	if (!egg_sm_client_is_resumed (application->smclient)) {
 		return;
@@ -192,7 +244,8 @@ caja_application_smclient_load (CajaApplication *application)
 	if (data == NULL) {
 		return;
 	}
-	
+
+	*no_default_window = TRUE;
 	bail = TRUE;
 
 	doc = xmlReadMemory (data, strlen (data), NULL, "UTF-8", 0);
@@ -372,46 +425,11 @@ caja_application_smclient_load (CajaApplication *application)
 	} 
 }
 
-static void
-smclient_save_state_cb (EggSMClient *client,
-			GKeyFile *state_file,
-			CajaApplication *application)
-{
-	char *data;
-
-	data = caja_application_get_session_data (application);
-
-	if (data != NULL) {
-		g_key_file_set_string (state_file,
-				       "Caja",
-				       "documents", 
-				       data);
-	}
-
-	g_free (data);
-}
-
-static void
-smclient_quit_cb (EggSMClient   *client,
-		  CajaApplication *application)
-{
-	g_application_release (G_APPLICATION (application));
-}
-
 void
-caja_application_smclient_init (CajaApplication *self)
+caja_application_smclient_startup (CajaApplication *self)
 {
 	g_assert (self->smclient == NULL);
 
-	egg_sm_client_set_mode (EGG_SM_CLIENT_MODE_NORMAL);
-
-	/* TODO: Should connect to quit_requested and block logout on active transfer? */
-        self->smclient = egg_sm_client_get ();
-        g_signal_connect (self->smclient, "save_state",
-                          G_CALLBACK (smclient_save_state_cb),
-                          self);
-	g_signal_connect (self->smclient, "quit",
-			  G_CALLBACK (smclient_quit_cb),
-			  self);
-	/* TODO: Should connect to quit_requested and block logout on active transfer? */
+	egg_sm_client_set_mode (EGG_SM_CLIENT_MODE_DISABLED);
+	self->smclient = egg_sm_client_get ();
 }
