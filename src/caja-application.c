@@ -1693,8 +1693,12 @@ caja_application_command_line (GApplication *app,
 	} else {
 		char *accel_map_filename;
 
-		if (egg_sm_client_is_resumed (self->smclient)) {
-			no_default_window = TRUE;
+		if (!self->sm_initialized) {
+			caja_application_smclient_init (self);
+
+			if (egg_sm_client_is_resumed (self->smclient)) {
+				no_default_window = TRUE;
+			}
 		}
 
 		if (!no_desktop &&
@@ -1752,8 +1756,11 @@ caja_application_command_line (GApplication *app,
 				      browser_window);
 		}
 
-		/* Load session info if availible */
-		caja_application_smclient_load (self);
+		if (!self->sm_initialized) {
+			/* Load session info if availible */
+			caja_application_smclient_load (self);
+			self->sm_initialized = TRUE;
+		}
 
 		/* load accelerator map, and register save callback */
 		accel_map_filename = caja_get_accel_map_file ();
@@ -1784,7 +1791,7 @@ caja_application_startup (GApplication *app)
 	G_APPLICATION_CLASS (caja_application_parent_class)->startup (app);
 
 	/* initialize the session manager client */
-	caja_application_smclient_init (self);
+	egg_sm_client_set_mode (EGG_SM_CLIENT_MODE_DISABLED);
 
 	/* Initialize preferences. This is needed to create the
 	 * global GSettings objects.
