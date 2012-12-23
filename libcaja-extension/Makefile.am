@@ -7,7 +7,7 @@ lib_LTLIBRARIES=libcaja-extension.la
 INCLUDES = \
 	-I$(top_srcdir) \
 	-I$(top_builddir) \
-	$(LIBCAJA_EXTENSION_CFLAGS) \
+	$(BASE_CFLAGS) \
 	$(WARNING_CFLAGS) \
 	$(DISABLE_DEPRECATED_CFLAGS) \
 	-DDATADIR=\""$(datadir)"\" \
@@ -19,7 +19,7 @@ libcaja_extension_la_LDFLAGS=\
 	-no-undefined \
 	$(NULL)
 
-libcaja_extension_la_LIBADD = $(LIBCAJA_EXTENSION_LIBS)
+libcaja_extension_la_LIBADD = $(BASE_LIBS)
 
 libcaja_extension_includedir=$(includedir)/caja/libcaja-extension
 
@@ -74,7 +74,7 @@ Caja_2_0_gir_INCLUDES = Gtk-2.0 Gio-2.0 GLib-2.0
 Caja_2_0_gir_CFLAGS = \
 	-I$(top_srcdir) \
 	-I$(top_builddir) \
-	$(LIBCAJA_EXTENSION_CFLAGS)
+	$(BASE_CFLAGS)
 Caja_2_0_gir_LIBS = libcaja-extension.la
 Caja_2_0_gir_FILES = $(addprefix $(srcdir)/, $(introspection_files))
 INTROSPECTION_GIRS += Caja-2.0.gir
