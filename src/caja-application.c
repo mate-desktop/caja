@@ -1578,13 +1578,15 @@ caja_application_command_line (GApplication *app,
 	gboolean no_desktop = FALSE;
 	gboolean browser_window = FALSE;
 	gboolean kill_shell = FALSE;
+	gboolean autostart_mode = FALSE;
+	const gchar *autostart_id;
 	gchar *geometry = NULL;
 	gchar **remaining = NULL;
 	const GOptionEntry options[] = {
-#ifndef CAJA_OMIT_SELF_CHECK
+#            ifndef CAJA_OMIT_SELF_CHECK
 		{ "check", 'c', 0, G_OPTION_ARG_NONE, &perform_self_check, 
 		  N_("Perform a quick set of self-check tests."), NULL },
-#endif
+#            endif
 		{ "version", '\0', 0, G_OPTION_ARG_NONE, &version,
 		  N_("Show the version of the program."), NULL },
 		{ "geometry", 'g', 0, G_OPTION_ARG_STRING, &geometry,
@@ -1672,6 +1674,19 @@ caja_application_command_line (GApplication *app,
 		goto out;
 	}
 
+	autostart_id = g_getenv ("DESKTOP_AUTOSTART_ID");
+	if (autostart_id != NULL && *autostart_id != '\0') {
+		autostart_mode = TRUE;
+        }
+
+	/* If in autostart mode (aka started by mate-session), we need to ensure 
+         * caja starts with the correct options.
+         */
+	if (autostart_mode) {
+		no_default_window = TRUE;
+		no_desktop = FALSE;
+	}
+
 	if (kill_shell) {
 		g_application_release (app);
 	} else {
@@ -1689,6 +1704,10 @@ caja_application_command_line (GApplication *app,
 
 		if (!no_desktop) {
 			caja_application_open_desktop (self);
+		}
+
+		if (no_default_window && no_desktop) {
+			g_application_hold (app);
 		}
 
 		finish_startup (self, no_desktop);
