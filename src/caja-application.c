@@ -1688,6 +1688,7 @@ caja_application_command_line (GApplication *app,
 	}
 
 	if (kill_shell) {
+		caja_application_close_desktop ();
 		g_application_release (app);
 	} else {
 		char *accel_map_filename;
