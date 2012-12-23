@@ -748,10 +748,6 @@ vfs_file_poll_for_media (CajaFile *file)
 static void
 caja_vfs_file_init (gpointer object, gpointer klass)
 {
-    CajaVFSFile *file;
-
-    file = CAJA_VFS_FILE (object);
-
 }
 
 static void

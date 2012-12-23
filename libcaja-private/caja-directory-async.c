@@ -3162,9 +3162,6 @@ deep_count_callback (GObject *source_object,
 static void
 deep_count_load (DeepCountState *state, GFile *location)
 {
-    CajaDirectory *directory;
-
-    directory = state->directory;
     state->deep_count_location = g_object_ref (location);
 
 #ifdef DEBUG_LOAD_DIRECTORY

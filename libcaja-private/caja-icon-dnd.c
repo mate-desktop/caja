@@ -456,7 +456,7 @@ set_direct_save_uri (GtkWidget *widget, GdkDragContext *context, CajaDragInfo *d
         g_object_unref (child);
 
         /* Change the uri property */
-        gdk_property_change (GDK_DRAWABLE (gdk_drag_context_get_source_window (context)),
+        gdk_property_change (gdk_drag_context_get_source_window (context),
                              gdk_atom_intern (CAJA_ICON_DND_XDNDDIRECTSAVE_TYPE, FALSE),
                              gdk_atom_intern ("text/plain", FALSE), 8,
                              GDK_PROP_MODE_REPLACE, (const guchar *) uri,
@@ -1577,7 +1577,6 @@ caja_icon_dnd_begin_drag (CajaIconContainer *container,
                           int                    start_y)
 {
     CajaIconDndInfo *dnd_info;
-    GdkDragContext *context;
 
     g_return_if_fail (CAJA_IS_ICON_CONTAINER (container));
     g_return_if_fail (event != NULL);
@@ -1594,11 +1593,11 @@ caja_icon_dnd_begin_drag (CajaIconContainer *container,
     	gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container)));	
 
     /* start the drag */
-    context = gtk_drag_begin (GTK_WIDGET (container),
-                              dnd_info->drag_info.target_list,
-                              actions,
-                              button,
-                              (GdkEvent *) event);
+    gtk_drag_begin (GTK_WIDGET (container),
+                    dnd_info->drag_info.target_list,
+                    actions,
+                    button,
+                    (GdkEvent *) event);
 }
 
 static gboolean

@@ -100,12 +100,11 @@ file_list_ready_cb (GList *files,
     CajaFileConflictDialog *fcd = user_data;
     CajaFile *src, *dest, *dest_dir;
     time_t src_mtime, dest_mtime;
-    GtkDialog *dialog;
     gboolean source_is_dir,	dest_is_dir, should_show_type;
     CajaFileConflictDialogDetails *details;
     char *primary_text, *message, *secondary_text;
     const gchar *message_extra;
-    char *src_name, *dest_name, *dest_dir_name, *edit_name;
+    char *dest_name, *dest_dir_name, *edit_name;
     char *label_text;
     char *size, *date, *type = NULL;
     GdkPixbuf *pixbuf;
@@ -113,7 +112,6 @@ file_list_ready_cb (GList *files,
     GString *str;
     PangoFontDescription *desc;
 
-    dialog = GTK_DIALOG (fcd);
     details = fcd->details;
 
     details->handle = NULL;
@@ -125,7 +123,6 @@ file_list_ready_cb (GList *files,
     src_mtime = caja_file_get_mtime (src);
     dest_mtime = caja_file_get_mtime (dest);
 
-    src_name = caja_file_get_display_name (src);
     dest_name = caja_file_get_display_name (dest);
     dest_dir_name = caja_file_get_display_name (dest_dir);
 

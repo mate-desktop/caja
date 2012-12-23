@@ -365,9 +365,6 @@ caja_desktop_icon_file_set_metadata (CajaFile           *file,
                                      const char             *key,
                                      const char             *value)
 {
-    CajaDesktopIconFile *desktop_file;
-
-    desktop_file = CAJA_DESKTOP_ICON_FILE (file);
     caja_desktop_set_metadata_string (file, file->details->name, key, value);
 }
 
@@ -376,9 +373,6 @@ caja_desktop_icon_file_set_metadata_as_list (CajaFile           *file,
         const char             *key,
         char                  **value)
 {
-    CajaDesktopIconFile *desktop_file;
-
-    desktop_file = CAJA_DESKTOP_ICON_FILE (file);
     caja_desktop_set_metadata_stringv (file, file->details->name, key, (const gchar **) value);
 }
 

@@ -531,7 +531,6 @@ motion_notify_callback (GtkWidget *widget,
                         gpointer callback_data)
 {
     FMListView *view;
-    GdkDragContext *context;
 
     view = FM_LIST_VIEW (callback_data);
 
@@ -581,7 +580,7 @@ motion_notify_callback (GtkWidget *widget,
                                       event->x,
                                       event->y))
         {
-            context = gtk_drag_begin
+            gtk_drag_begin
                       (widget,
                        source_target_list,
                        GDK_ACTION_MOVE | GDK_ACTION_COPY | GDK_ACTION_LINK | GDK_ACTION_ASK,
@@ -663,7 +662,6 @@ button_press_callback (GtkWidget *widget, GdkEventButton *event, gpointer callba
     GtkTreeView *tree_view;
     GtkTreePath *path;
     gboolean call_parent;
-    gboolean allow_drag;
     GtkTreeSelection *selection;
     GtkWidgetClass *tree_view_class;
     gint64 current_time;
@@ -715,7 +713,6 @@ button_press_callback (GtkWidget *widget, GdkEventButton *event, gpointer callba
     view->details->ignore_button_release = FALSE;
 
     call_parent = TRUE;
-    allow_drag = FALSE;
     if (gtk_tree_view_get_path_at_pos (tree_view, event->x, event->y,
                                        &path, NULL, NULL, NULL))
     {
@@ -1220,10 +1217,7 @@ sort_criterion_changes_due_to_user (GtkTreeView *tree_view)
     GList *columns, *p;
     GtkTreeViewColumn *column;
     GSignalInvocationHint *ihint;
-    unsigned int sort_signal_id;
     gboolean ret;
-
-    sort_signal_id = g_signal_lookup ("clicked", gtk_tree_view_column_get_type ());
 
     ret = FALSE;
 

@@ -436,10 +436,7 @@ static void
 target_destroy_callback (GtkWidget *object,
                          gpointer callback_data)
 {
-    TargetCallbackData *target_data;
-
     g_assert (callback_data != NULL);
-    target_data = callback_data;
 
     if (clipboard_items_are_merged_in (object))
     {

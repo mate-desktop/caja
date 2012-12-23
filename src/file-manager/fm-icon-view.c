@@ -1470,12 +1470,10 @@ fm_icon_view_set_zoom_level (FMIconView *view,
 static void
 fm_icon_view_bump_zoom_level (FMDirectoryView *view, int zoom_increment)
 {
-    FMIconView *icon_view;
     CajaZoomLevel new_level;
 
     g_return_if_fail (FM_IS_ICON_VIEW (view));
 
-    icon_view = FM_ICON_VIEW (view);
     new_level = fm_icon_view_get_zoom_level (view) + zoom_increment;
 
     if (new_level >= CAJA_ZOOM_LEVEL_SMALLEST &&

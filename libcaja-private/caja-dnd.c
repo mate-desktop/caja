@@ -1040,7 +1040,7 @@ caja_drag_autoscroll_calculate_delta (GtkWidget *widget, float *x_scroll_delta, 
 void
 caja_drag_autoscroll_start (CajaDragInfo *drag_info,
                             GtkWidget        *widget,
-                            GtkFunction       callback,
+                            GSourceFunc       callback,
                             gpointer          user_data)
 {
     if (caja_drag_autoscroll_in_scroll_region (widget))

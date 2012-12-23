@@ -98,13 +98,10 @@ search_directory_file_get_item_count (CajaFile *file,
                                       guint *count,
                                       gboolean *count_unreadable)
 {
-    CajaSearchDirectory *search_dir;
     GList *file_list;
 
     if (count)
     {
-        search_dir = CAJA_SEARCH_DIRECTORY (file->details->directory);
-
         file_list = caja_directory_get_file_list (file->details->directory);
 
         *count = g_list_length (file_list);
@@ -122,13 +119,10 @@ search_directory_file_get_deep_counts (CajaFile *file,
                                        guint *unreadable_directory_count,
                                        goffset *total_size)
 {
-    CajaSearchDirectory *search_dir;
     CajaFile *dir_file;
     GList *file_list, *l;
     guint dirs, files;
     GFileType type;
-
-    search_dir = CAJA_SEARCH_DIRECTORY (file->details->directory);
 
     file_list = caja_directory_get_file_list (file->details->directory);
 
@@ -241,10 +235,8 @@ caja_search_directory_file_init (CajaSearchDirectoryFile *search_file)
 static void
 caja_search_directory_file_class_init (CajaSearchDirectoryFileClass *klass)
 {
-    GObjectClass *object_class;
     CajaFileClass *file_class;
 
-    object_class = G_OBJECT_CLASS (klass);
     file_class = CAJA_FILE_CLASS (klass);
 
     file_class->default_file_type = G_FILE_TYPE_DIRECTORY;

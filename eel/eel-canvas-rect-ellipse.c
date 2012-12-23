@@ -530,46 +530,26 @@ eel_canvas_re_get_property (GObject              *object,
 static void
 eel_canvas_re_update_shared (EelCanvasItem *item, double i2w_dx, double i2w_dy, int flags)
 {
-    EelCanvasRE *re;
-
 #ifdef VERBOSE
     g_print ("eel_canvas_re_update_shared\n");
 #endif
-    re = EEL_CANVAS_RE (item);
-
     if (re_parent_class->update)
         (* re_parent_class->update) (item, i2w_dx, i2w_dy, flags);
-
-#ifdef OLD_XFORM
-    recalc_bounds (re);
-#endif
 }
 
 static void
 eel_canvas_re_realize (EelCanvasItem *item)
 {
-    EelCanvasRE *re;
-
 #ifdef VERBOSE
     g_print ("eel_canvas_re_realize\n");
 #endif
-    re = EEL_CANVAS_RE (item);
-
     if (re_parent_class->realize)
         (* re_parent_class->realize) (item);
-
-#ifdef OLD_XFORM
-    (* EEL_CANVAS_ITEM_CLASS (item->object.klass)->update) (item, NULL, NULL, 0);
-#endif
 }
 
 static void
 eel_canvas_re_unrealize (EelCanvasItem *item)
 {
-    EelCanvasRE *re;
-
-    re = EEL_CANVAS_RE (item);
-
     if (re_parent_class->unrealize)
         (* re_parent_class->unrealize) (item);
 }
@@ -717,7 +697,7 @@ eel_canvas_rect_realize  (EelCanvasItem *item)
 
     priv = EEL_CANVAS_RECT (item)->priv;
 
-    dpy = gdk_x11_drawable_get_xdisplay (gtk_widget_get_window (GTK_WIDGET (item->canvas)));
+    dpy = GDK_WINDOW_XDISPLAY (gtk_widget_get_window (GTK_WIDGET (item->canvas)));
     priv->use_render = XRenderQueryExtension (dpy, &event_base, &error_base);
 
     if (priv->use_render)
