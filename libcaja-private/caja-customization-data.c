@@ -43,7 +43,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <src/glibcompat.h> /* for g_list_free_full */
 
 typedef enum
 {

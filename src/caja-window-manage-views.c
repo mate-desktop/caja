@@ -73,7 +73,6 @@
  */
 #include "caja-desktop-window.h"
 
-#include "glibcompat.h" /* for g_list_free_full */
 
 /* This number controls a maximum character count for a URL that is
  * displayed as part of a dialog. It's fairly arbitrary -- big enough

@@ -42,7 +42,6 @@
 #include <gdk/gdk.h>
 #include <gdk/gdkx.h>
 
-#include <src/glibcompat.h> /* for g_list_free_full */
 
 /**
  * application_cannot_open_location

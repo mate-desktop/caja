@@ -67,7 +67,6 @@
 #include <sys/mount.h>
 #endif
 
-#include <src/glibcompat.h> /* for g_list_free_full */
 
 #define USED_FILL_R  (0.988235294 * 65535)
 #define USED_FILL_G  (0.91372549 * 65535)

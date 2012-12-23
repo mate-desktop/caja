@@ -85,7 +85,6 @@
 #define MATE_DESKTOP_USE_UNSTABLE_API
 #include <libmateui/mate-bg.h>
 
-#include "glibcompat.h" /* for g_list_free_full */
 
 
 /* Keep window from shrinking down ridiculously small; numbers are somewhat arbitrary */

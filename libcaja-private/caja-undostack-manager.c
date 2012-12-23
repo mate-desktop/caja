@@ -34,7 +34,6 @@
 #include <locale.h>
 #include <gdk/gdk.h>
 
-#include <src/glibcompat.h> /* for g_list_free_full */
 
 /* *****************************************************************
  Private fields

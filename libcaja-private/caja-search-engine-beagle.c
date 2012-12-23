@@ -27,7 +27,6 @@
 #include <eel/eel-gtk-macros.h>
 #include <gmodule.h>
 
-#include <src/glibcompat.h> /* for g_list_free_full */
 
 typedef struct _BeagleHit BeagleHit;
 typedef struct _BeagleQuery BeagleQuery;

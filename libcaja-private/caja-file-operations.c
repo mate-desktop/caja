@@ -68,7 +68,6 @@
 #include "caja-file-conflict-dialog.h"
 #include "caja-undostack-manager.h"
 
-#include <src/glibcompat.h> /* for g_list_free_full */
 
 /* TODO: TESTING!!! */
 

@@ -61,7 +61,6 @@
 #include <libcaja-private/caja-clipboard.h>
 #include <libcaja-private/caja-cell-renderer-text-ellipsized.h>
 
-#include <src/glibcompat.h> /* for g_list_free_full */
 
 struct FMListViewDetails
 {

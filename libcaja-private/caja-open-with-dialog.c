@@ -36,7 +36,6 @@
 #include <gtk/gtk.h>
 #include <gio/gio.h>
 
-#include <src/glibcompat.h> /* for g_list_free_full */
 
 #define sure_string(s)                    ((const char *)((s)!=NULL?(s):""))
 #define DESKTOP_ENTRY_GROUP		  "Desktop Entry"

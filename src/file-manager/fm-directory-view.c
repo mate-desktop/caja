@@ -82,7 +82,6 @@
 #include <libcaja-private/caja-icon-names.h>
 #include <libcaja-private/caja-undostack-manager.h>
 
-#include <src/glibcompat.h> /* for g_list_free_full */
 
 /* Minimum starting update inverval */
 #define UPDATE_INTERVAL_MIN 100
