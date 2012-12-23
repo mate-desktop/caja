@@ -84,7 +84,7 @@ caja_application_get_session_data (CajaApplication *self)
 		}
 	}
 
-	window_list = caja_application_get_window_list ();
+	window_list = caja_application_get_window_list (self);
 
 	for (l = window_list; l != NULL; l = l->next) {
 		xmlNodePtr win_node, slot_node;
@@ -395,7 +395,7 @@ static void
 smclient_quit_cb (EggSMClient   *client,
 		  CajaApplication *application)
 {
-	caja_main_event_loop_quit (TRUE);
+	g_application_release (G_APPLICATION (application));
 }
 
 void
