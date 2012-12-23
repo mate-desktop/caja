@@ -70,7 +70,6 @@
 #include <unistd.h>
 #include <sys/stat.h>
 
-#include <src/glibcompat.h> /* for g_list_free_full */
 
 #ifdef HAVE_SELINUX
 #include <selinux/selinux.h>

@@ -30,7 +30,6 @@
 #include <eel/eel-gtk-macros.h>
 #include <gio/gio.h>
 
-#include <src/glibcompat.h> /* for g_list_free_full */
 
 #define BATCH_SIZE 500
 

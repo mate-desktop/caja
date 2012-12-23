@@ -64,7 +64,6 @@
 #include <math.h>
 #include <sys/time.h>
 
-#include "glibcompat.h" /* for g_list_free_full */
 
 #define MAX_HISTORY_ITEMS 50
 

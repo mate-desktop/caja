@@ -39,7 +39,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include <src/glibcompat.h> /* for g_list_free_full */
 
 /* turn this on to see messages about each load_directory call: */
 #if 0

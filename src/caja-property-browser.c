@@ -55,7 +55,6 @@
 #include <libcaja-private/caja-signaller.h>
 #include <atk/atkrelationset.h>
 
-#include "glibcompat.h" /* for g_list_free_full */
 
 /* property types */
 

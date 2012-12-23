@@ -44,7 +44,6 @@
 #include "caja-debug-log.h"
 #include "caja-open-with-dialog.h"
 
-#include <src/glibcompat.h> /* for g_list_free_full */
 
 typedef enum
 {
