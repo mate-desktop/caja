@@ -29,7 +29,6 @@
 #include <config.h>
 
 #include "caja-application.h"
-#include "caja-self-check-functions.h"
 #include "caja-window.h"
 #include <dlfcn.h>
 #include <signal.h>
@@ -44,7 +43,6 @@
 #include <gio/gdesktopappinfo.h>
 #include <libcaja-private/caja-debug-log.h>
 #include <libcaja-private/caja-global-preferences.h>
-#include <libcaja-private/caja-lib-self-check-functions.h>
 #include <libcaja-private/caja-icon-names.h>
 #include <libxml/parser.h>
 #ifdef HAVE_LOCALE_H
@@ -227,7 +225,6 @@ main (int argc, char *argv[])
     gboolean autostart_mode;
     gint retval;
     const char *autostart_id;
-    gboolean perform_self_check = FALSE;
     CajaApplication *application;
 
 #if defined (HAVE_MALLOPT) && defined(M_MMAP_THRESHOLD)
@@ -292,29 +289,13 @@ main (int argc, char *argv[])
     /* Initialize the services that we use. */
     LIBXML_TEST_VERSION
 
-    /* Do either the self-check or the real work. */
-    if (perform_self_check)
-    {
-#     ifndef CAJA_OMIT_SELF_CHECK
-        /* Run the checks (each twice) for caja and libcaja-private. */
-        caja_run_self_checks ();
-        caja_run_lib_self_checks ();
-        eel_exit_if_self_checks_failed ();
+    /* Run the caja application. */
+    application = caja_application_dup_singleton ();
 
-        caja_run_self_checks ();
-        caja_run_lib_self_checks ();
-        eel_exit_if_self_checks_failed ();
+    retval = g_application_run (G_APPLICATION (application),
+        			argc, argv);
 
-        retval = EXIT_SUCCESS;
-#     endif
-    }
-    else
-    {
-        application = caja_application_dup_singleton ();
-
-        retval = g_application_run (G_APPLICATION (application),
-        			    argc, argv);
-    }
+    g_object_unref (application);
 
     eel_debug_shut_down ();
 
