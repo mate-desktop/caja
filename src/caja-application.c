@@ -682,7 +682,7 @@ open_windows (CajaApplication *application,
     }
 }
 
-gboolean
+static gboolean
 caja_application_save_accel_map (gpointer data)
 {
     if (save_of_accel_map_requested)
@@ -823,7 +823,7 @@ caja_application_create_desktop_windows (CajaApplication *application)
     }
 }
 
-void
+static void
 caja_application_open_desktop (CajaApplication *application)
 {
     if (caja_application_desktop_windows == NULL)
@@ -832,7 +832,7 @@ caja_application_open_desktop (CajaApplication *application)
     }
 }
 
-void
+static void
 caja_application_close_desktop (void)
 {
     if (caja_application_desktop_windows != NULL)
@@ -1736,6 +1736,11 @@ caja_application_startup (GApplication *app)
 	/* initialize the session manager client */
 	caja_application_smclient_init (self);
 
+	/* Initialize preferences. This is needed to create the
+	 * global GSettings objects.
+	 */
+	caja_global_preferences_init ();
+
 	/* register views */
 	fm_icon_view_register ();
 	fm_desktop_icon_view_register ();
@@ -1762,6 +1767,15 @@ caja_application_startup (GApplication *app)
 }
 
 static void
+caja_application_quit_mainloop (GApplication *app)
+{
+	caja_icon_info_clear_caches ();
+ 	caja_application_save_accel_map (NULL);
+
+	G_APPLICATION_CLASS (caja_application_parent_class)->quit_mainloop (app);
+}
+
+static void
 caja_application_class_init (CajaApplicationClass *class)
 {
     GObjectClass *object_class;
@@ -1774,6 +1788,7 @@ caja_application_class_init (CajaApplicationClass *class)
     application_class = G_APPLICATION_CLASS (class);
     application_class->startup = caja_application_startup;
     application_class->command_line = caja_application_command_line;
+    application_class->quit_mainloop = caja_application_quit_mainloop;
 }
 
 CajaApplication *

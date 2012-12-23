@@ -292,19 +292,6 @@ main (int argc, char *argv[])
     /* Initialize the services that we use. */
     LIBXML_TEST_VERSION
 
-    /* Initialize preferences. This is needed so that proper
-     * defaults are available before any preference peeking
-     * happens.
-     */
-    caja_global_preferences_init ();
-
-#if 0
-    /* exit_with_last_window being FALSE, caja can run without window. */
-    exit_with_last_window = g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_EXIT_WITH_LAST_WINDOW);
-#endif
-
-    application = NULL;
-
     /* Do either the self-check or the real work. */
     if (perform_self_check)
     {
@@ -329,11 +316,7 @@ main (int argc, char *argv[])
         			    argc, argv);
     }
 
-    caja_icon_info_clear_caches ();
-    g_object_unref (application);
     eel_debug_shut_down ();
-
-    caja_application_save_accel_map (NULL);
 
     return retval;
 }

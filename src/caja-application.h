@@ -102,9 +102,5 @@ CajaWindow *     caja_application_create_navigation_window     (CajaApplication 
 void caja_application_close_all_navigation_windows (CajaApplication *self);
 void caja_application_close_parent_windows     (CajaSpatialWindow *window);
 void caja_application_close_all_spatial_windows  (void);
-void caja_application_open_desktop      (CajaApplication *application);
-void caja_application_close_desktop     (void);
-gboolean caja_application_save_accel_map    (gpointer data);
-
 
 #endif /* __CAJA_APPLICATION_H__ */
