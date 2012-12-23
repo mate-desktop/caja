@@ -37,7 +37,6 @@
 #include "caja-desktop-window.h"
 #include "caja-bookmarks-window.h"
 #include "caja-location-dialog.h"
-#include "caja-main.h"
 #include "caja-query-editor.h"
 #include "caja-search-bar.h"
 #include "caja-window-manage-views.h"

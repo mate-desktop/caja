@@ -23,7 +23,6 @@
 
 #include "caja-application-smclient.h"
 
-#include "caja-main.h"
 #include "caja-navigation-window.h"
 #include "caja-window-private.h"
 #include "caja-window-slot.h"

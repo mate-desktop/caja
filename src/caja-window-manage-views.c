@@ -33,7 +33,6 @@
 #include "caja-location-bar.h"
 #include "caja-search-bar.h"
 #include "caja-pathbar.h"
-#include "caja-main.h"
 #include "caja-window-private.h"
 #include "caja-window-slot.h"
 #include "caja-navigation-window-slot.h"

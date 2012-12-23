@@ -47,7 +47,6 @@
 #include "caja-history-sidebar.h"
 #include "caja-image-properties-page.h"
 #include "caja-information-panel.h"
-#include "caja-main.h"
 #include "caja-navigation-window.h"
 #include "caja-navigation-window-slot.h"
 #include "caja-notes-viewer.h"

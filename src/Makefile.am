@@ -91,7 +91,6 @@ caja_SOURCES = \
 	caja-location-entry.c \
 	caja-location-entry.h \
 	caja-main.c \
-	caja-main.h \
 	caja-navigation-action.c \
 	caja-navigation-action.h \
 	caja-navigation-bar.c \

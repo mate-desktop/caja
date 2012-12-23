@@ -27,7 +27,6 @@
 /* caja-main.c: Implementation of the routines that drive program lifecycle and main window creation/destruction. */
 
 #include <config.h>
-#include "caja-main.h"
 
 #include "caja-application.h"
 #include "caja-self-check-functions.h"
@@ -49,112 +48,18 @@
 #include <libcaja-private/caja-icon-names.h>
 #include <libxml/parser.h>
 #ifdef HAVE_LOCALE_H
-	#include <locale.h>
+# include <locale.h>
 #endif
 #ifdef HAVE_MALLOC_H
-	#include <malloc.h>
+# include <malloc.h>
 #endif
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 
 #ifdef HAVE_EXEMPI
-	#include <exempi/xmp.h>
+# include <exempi/xmp.h>
 #endif
-
-/* Keeps track of everyone who wants the main event loop kept active */
-static GSList* event_loop_registrants;
-
-static gboolean exit_with_last_window = TRUE;
-
-static gboolean is_event_loop_needed(void)
-{
-	return event_loop_registrants != NULL || !exit_with_last_window;
-}
-
-static int quit_if_in_main_loop (gpointer callback_data)
-{
-    guint level;
-
-    g_assert (callback_data == NULL);
-
-    level = gtk_main_level ();
-
-    /* We can be called even outside the main loop,
-     * so check that we are in a loop before calling quit.
-     */
-    if (level != 0)
-    {
-        gtk_main_quit ();
-    }
-
-    /* We need to be called again if we quit a nested loop. */
-    return level > 1;
-}
-
-static void eel_gtk_main_quit_all (void)
-{
-    /* Calling gtk_main_quit directly only kills the current/top event loop.
-     * This idler will be run by the current event loop, killing it, and then
-     * by the next event loop, ...
-     */
-    g_idle_add (quit_if_in_main_loop, NULL);
-}
-
-static void event_loop_unregister (GtkWidget *object)
-{
-    event_loop_registrants = g_slist_remove (event_loop_registrants, object);
-    
-    if (!is_event_loop_needed ())
-    {
-        eel_gtk_main_quit_all ();
-    }
-}
-
-#if GTK_CHECK_VERSION(3, 0, 0)
-void caja_main_event_loop_register (GtkWidget *object)
-#else
-void caja_main_event_loop_register (GtkObject *object)
-#endif
-{
-    g_signal_connect (object, "destroy", G_CALLBACK (event_loop_unregister), NULL);
-    event_loop_registrants = g_slist_prepend (event_loop_registrants, GTK_WIDGET (object));
-}
-
-gboolean caja_main_is_event_loop_mainstay (GtkWidget *object)
-{
-    return g_slist_length (event_loop_registrants) == 1
-           && event_loop_registrants->data == object;
-}
-
-void caja_main_event_loop_quit (gboolean explicit)
-{
-    if (explicit)
-    {
-        /* Explicit --quit, make sure we don't restart */
-
-        /* To quit all instances, reset exit_with_last_window */
-        exit_with_last_window = TRUE;
-
-        if (event_loop_registrants == NULL)
-        {
-            /* If this is reached, caja must run in "daemon" mode
-             * (i.e. !exit_with_last_window) with no windows open.
-             * We need to quit_all here because the below loop won't
-             * trigger a quit.
-             */
-            eel_gtk_main_quit_all();
-        }
-
-        /* TODO: With the old session we needed to set restart
-           style to MATE_RESTART_IF_RUNNING here, but i don't think we need
-           that now since mate-session doesn't restart apps except on startup. */
-    }
-    while (event_loop_registrants != NULL)
-    {
-        gtk_widget_destroy (event_loop_registrants->data);
-    }
-}
 
 static void dump_debug_log (void)
 {
@@ -317,61 +222,13 @@ setup_debug_log (void)
 int
 main (int argc, char *argv[])
 {
-    gboolean kill_shell;
     gboolean no_default_window;
-    gboolean browser_window;
     gboolean no_desktop;
-    gboolean version;
     gboolean autostart_mode;
+    gint retval;
     const char *autostart_id;
-    gchar *geometry;
-    gchar **remaining;
-    gboolean perform_self_check;
+    gboolean perform_self_check = FALSE;
     CajaApplication *application;
-    GOptionContext *context;
-    GFile *file;
-    char *uri;
-    char **uris;
-    GPtrArray *uris_array;
-    GError *error;
-    int i;
-
-    const GOptionEntry options[] =
-    {
-#ifndef CAJA_OMIT_SELF_CHECK
-        {
-            "check", 'c', 0, G_OPTION_ARG_NONE, &perform_self_check,
-            N_("Perform a quick set of self-check tests."), NULL
-        },
-#endif
-        {
-            "version", '\0', 0, G_OPTION_ARG_NONE, &version,
-            N_("Show the version of the program."), NULL
-        },
-        {
-            "geometry", 'g', 0, G_OPTION_ARG_STRING, &geometry,
-            N_("Create the initial window with the given geometry."), N_("GEOMETRY")
-        },
-        {
-            "no-default-window", 'n', 0, G_OPTION_ARG_NONE, &no_default_window,
-            N_("Only create windows for explicitly specified URIs."), NULL
-        },
-        {
-            "no-desktop", '\0', 0, G_OPTION_ARG_NONE, &no_desktop,
-            N_("Do not manage the desktop (ignore the preference set in the preferences dialog)."), NULL
-        },
-        {
-            "browser", '\0', 0, G_OPTION_ARG_NONE, &browser_window,
-            N_("open a browser window."), NULL
-        },
-        {
-            "quit", 'q', 0, G_OPTION_ARG_NONE, &kill_shell,
-            N_("Quit Caja."), NULL
-        },
-        { G_OPTION_REMAINING, 0, 0, G_OPTION_ARG_STRING_ARRAY, &remaining, NULL,  N_("[URI...]") },
-
-        { NULL }
-    };
 
 #if defined (HAVE_MALLOPT) && defined(M_MMAP_THRESHOLD)
     /* Caja uses lots and lots of small and medium size allocations,
@@ -387,6 +244,7 @@ main (int argc, char *argv[])
     mallopt (M_MMAP_THRESHOLD, 128 *1024);
 #endif
 
+    g_type_init ();
     g_thread_init (NULL);
 
     /* This will be done by gtk+ later, but for now, force it to MATE */
@@ -410,15 +268,13 @@ main (int argc, char *argv[])
         autostart_mode = TRUE;
     }
 
-    /* Get parameters. */
-    remaining = NULL;
-    geometry = NULL;
-    version = FALSE;
-    kill_shell = FALSE;
-    no_default_window = FALSE;
-    no_desktop = FALSE;
-    perform_self_check = FALSE;
-    browser_window = FALSE;
+    /* If in autostart mode (aka started by mate-session), we need to ensure 
+     * caja starts with the correct options.
+     */
+    if (autostart_mode) {
+    	no_default_window = TRUE;
+    	no_desktop = FALSE;
+    }
 
     g_set_prgname ("caja");
 
@@ -427,66 +283,11 @@ main (int argc, char *argv[])
         egg_set_desktop_file (DATADIR "/applications/caja.desktop");
     }
 
-    context = g_option_context_new (_("\n\nBrowse the file system with the file manager"));
-    g_option_context_add_main_entries (context, options, NULL);
-
-    g_option_context_add_group (context, gtk_get_option_group (TRUE));
-    g_option_context_add_group (context, egg_sm_client_get_option_group ());
-
-    error = NULL;
-    if (!g_option_context_parse (context, &argc, &argv, &error))
-    {
-        g_printerr ("Could not parse arguments: %s\n", error->message);
-        g_error_free (error);
-        return 1;
-    }
-
-    g_option_context_free (context);
-
-    if (version)
-    {
-        g_print ("MATE caja " PACKAGE_VERSION "\n");
-        return 0;
-    }
-
 #ifdef HAVE_EXEMPI
     xmp_init();
 #endif
 
     setup_debug_log ();
-
-    /* If in autostart mode (aka started by mate-session), we need to ensure
-         * caja starts with the correct options.
-         */
-    if (autostart_mode)
-    {
-        no_default_window = TRUE;
-        no_desktop = FALSE;
-    }
-
-    if (perform_self_check && remaining != NULL)
-    {
-        /* translators: %s is an option (e.g. --check) */
-        fprintf (stderr, _("caja: %s cannot be used with URIs.\n"),
-                 "--check");
-        return EXIT_FAILURE;
-    }
-    if (perform_self_check && kill_shell)
-    {
-        fprintf (stderr, _("caja: --check cannot be used with other options.\n"));
-        return EXIT_FAILURE;
-    }
-    if (kill_shell && remaining != NULL)
-    {
-        fprintf (stderr, _("caja: %s cannot be used with URIs.\n"),
-                 "--quit");
-        return EXIT_FAILURE;
-    }
-    if (geometry != NULL && remaining != NULL && remaining[0] != NULL && remaining[1] != NULL)
-    {
-        fprintf (stderr, _("caja: --geometry cannot be used with more than one URI.\n"));
-        return EXIT_FAILURE;
-    }
 
     /* Initialize the services that we use. */
     LIBXML_TEST_VERSION
@@ -497,90 +298,42 @@ main (int argc, char *argv[])
      */
     caja_global_preferences_init ();
 
+#if 0
     /* exit_with_last_window being FALSE, caja can run without window. */
     exit_with_last_window = g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_EXIT_WITH_LAST_WINDOW);
+#endif
 
     application = NULL;
 
     /* Do either the self-check or the real work. */
     if (perform_self_check)
     {
-		#ifndef CAJA_OMIT_SELF_CHECK
-			/* Run the checks (each twice) for caja and libcaja-private. */
+#     ifndef CAJA_OMIT_SELF_CHECK
+        /* Run the checks (each twice) for caja and libcaja-private. */
+        caja_run_self_checks ();
+        caja_run_lib_self_checks ();
+        eel_exit_if_self_checks_failed ();
 
-			caja_run_self_checks ();
-			caja_run_lib_self_checks ();
-			eel_exit_if_self_checks_failed ();
+        caja_run_self_checks ();
+        caja_run_lib_self_checks ();
+        eel_exit_if_self_checks_failed ();
 
-			caja_run_self_checks ();
-			caja_run_lib_self_checks ();
-			eel_exit_if_self_checks_failed ();
-		#endif
+        retval = EXIT_SUCCESS;
+#     endif
     }
     else
     {
-        /* Convert args to URIs */
-        uris = NULL;
-        if (remaining != NULL)
-        {
-            uris_array = g_ptr_array_new ();
-            for (i = 0; remaining[i] != NULL; i++)
-            {
-                file = g_file_new_for_commandline_arg (remaining[i]);
-                if (file != NULL)
-                {
-                    uri = g_file_get_uri (file);
-                    g_object_unref (file);
-                    if (uri)
-                    {
-                        g_ptr_array_add (uris_array, uri);
-                    }
-                }
-            }
-            g_ptr_array_add (uris_array, NULL);
-            uris = (char**) g_ptr_array_free (uris_array, FALSE);
-            g_strfreev (remaining);
-        }
+        application = caja_application_dup_singleton ();
 
-
-        /* Run the caja application. */
-        application = caja_application_new ();
-
-        if (egg_sm_client_is_resumed (application->smclient))
-        {
-            no_default_window = TRUE;
-        }
-
-        caja_application_startup
-        (application,
-         kill_shell, no_default_window, no_desktop,
-         browser_window,
-         geometry,
-         uris);
-        g_strfreev (uris);
-
-        if (unique_app_is_running (application->unique_app) ||
-                kill_shell)
-        {
-            exit_with_last_window = TRUE;
-        }
-
-        if (is_event_loop_needed ())
-        {
-            gtk_main ();
-        }
+        retval = g_application_run (G_APPLICATION (application),
+        			    argc, argv);
     }
 
     caja_icon_info_clear_caches ();
-
-    if (application != NULL)
-    {
-        g_object_unref (application);
-    }
-
+    g_object_unref (application);
     eel_debug_shut_down ();
 
     caja_application_save_accel_map (NULL);
 
-    return EXIT_SUCCESS;
+    return retval;
 }
