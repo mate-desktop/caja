@@ -1728,6 +1728,11 @@ caja_application_startup (GApplication *app)
 {
 	CajaApplication *self = CAJA_APPLICATION (app);
 
+	/* chain up to the GTK+ implementation early, so gtk_init()
+	 * is called for us.
+	 */
+	G_APPLICATION_CLASS (caja_application_parent_class)->startup (app);
+
 	/* initialize the session manager client */
 	caja_application_smclient_init (self);
 
