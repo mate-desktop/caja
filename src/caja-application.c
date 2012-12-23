@@ -788,12 +788,14 @@ caja_application_create_desktop_windows (CajaApplication *application)
     CajaDesktopWindow *window;
     GtkWidget *selection_widget;
     int screens, i;
-
-    g_return_if_fail (caja_application_desktop_windows == NULL);
-    g_return_if_fail (CAJA_IS_APPLICATION (application));
+    gboolean exit_with_last_window;
 
     display = gdk_display_get_default ();
     screens = gdk_display_get_n_screens (display);
+
+    exit_with_last_window =
+            g_settings_get_boolean (caja_preferences,
+            			    CAJA_PREFERENCES_EXIT_WITH_LAST_WINDOW);
 
     for (i = 0; i < screens; i++)
     {
@@ -818,11 +820,16 @@ caja_application_create_desktop_windows (CajaApplication *application)
             caja_application_desktop_windows =
                 g_list_prepend (caja_application_desktop_windows, window);
 
-#         if GTK_CHECK_VERSION (3, 0, 0)
-            gtk_application_add_window (GTK_APPLICATION (application), GTK_WINDOW (window));
-#         else
-            g_application_hold (G_APPLICATION (application));
-#         endif
+            /* don't add the desktop windows to the GtkApplication hold toplevels
+             * if we should exit when the last window is closed.
+             */
+            if (!exit_with_last_window) {
+#             if GTK_CHECK_VERSION (3, 0, 0)
+                gtk_application_add_window (GTK_APPLICATION (application), GTK_WINDOW (window));
+#             else
+                g_application_hold (G_APPLICATION (application));
+#             endif
+            }
         }
     }
 }
