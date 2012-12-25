@@ -52,7 +52,7 @@ static CajaIconInfo *
 fm_icon_container_get_icon_images (CajaIconContainer *container,
                                    CajaIconData      *data,
                                    int                    size,
-                                   GList                **emblem_pixbufs,
+                                   GList                **emblem_icons,
                                    char                 **embedded_text,
                                    gboolean               for_drag_accept,
                                    gboolean               need_large_embeddded_text,
@@ -64,7 +64,6 @@ fm_icon_container_get_icon_images (CajaIconContainer *container,
     CajaFile *file;
     gboolean use_embedding;
     CajaFileIconFlags flags;
-    guint emblem_size;
 
     file = (CajaFile *) data;
 
@@ -79,22 +78,13 @@ fm_icon_container_get_icon_images (CajaIconContainer *container,
         use_embedding = *embedded_text != NULL;
     }
 
-    if (emblem_pixbufs != NULL)
+    if (emblem_icons != NULL)
     {
-        emblem_size = caja_icon_get_emblem_size_for_icon_size (size);
-        /* don't return images larger than the actual icon size */
-        emblem_size = MIN (emblem_size, size);
-
-        if (emblem_size > 0)
-        {
-            emblems_to_ignore = fm_directory_view_get_emblem_names_to_exclude
-                                (FM_DIRECTORY_VIEW (icon_view));
-            *emblem_pixbufs = caja_file_get_emblem_pixbufs (file,
-                              emblem_size,
-                              FALSE,
-                              emblems_to_ignore);
-            g_strfreev (emblems_to_ignore);
-        }
+        emblems_to_ignore = fm_directory_view_get_emblem_names_to_exclude
+                            (FM_DIRECTORY_VIEW (icon_view));
+        *emblem_icons = caja_file_get_emblem_icons (file,
+                                                      emblems_to_ignore);
+        g_strfreev (emblems_to_ignore);
     }
 
     *has_window_open = caja_file_has_open_window (file);
