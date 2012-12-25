@@ -39,7 +39,6 @@
 #include <gtk/gtk.h>
 #include <gio/gio.h>
 
-#include <src/glibcompat.h> /* for g_list_free_full */
 
 struct _CajaMimeApplicationChooserDetails
 {

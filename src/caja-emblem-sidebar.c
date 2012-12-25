@@ -47,7 +47,6 @@
 #include <libcaja-private/caja-module.h>
 #include <libcaja-private/caja-signaller.h>
 
-#include "glibcompat.h" /* for g_list_free_full */
 
 struct CajaEmblemSidebarDetails
 {

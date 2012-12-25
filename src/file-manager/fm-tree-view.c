@@ -55,7 +55,6 @@
 #include <libcaja-private/caja-window-info.h>
 #include <libcaja-private/caja-window-slot-info.h>
 
-#include <src/glibcompat.h> /* for g_list_free_full */
 
 typedef struct
 {
