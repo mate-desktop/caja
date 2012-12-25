@@ -52,8 +52,6 @@
 
 #include <src/glibcompat.h> /* for g_list_free_full */
 
-#define EMBLEM_SPACING 2
-
 /* gap between bottom of icon and start of text box */
 #define LABEL_OFFSET 1
 #define LABEL_LINE_SPACING 0
@@ -87,7 +85,6 @@ struct CajaIconCanvasItemDetails
     double x, y;
     GdkPixbuf *pixbuf;
     GdkPixbuf *rendered_pixbuf;
-    GList *emblem_pixbufs;
     char *editable_text;		/* Text that can be modified by a renaming function */
     char *additional_text;		/* Text that cannot be modifed, such as file size, etc. */
     GdkPoint *attach_points;
@@ -146,7 +143,6 @@ struct CajaIconCanvasItemDetails
     /* Cached rectangle in canvas coordinates */
     EelIRect canvas_rect;
     EelIRect text_rect;
-    EelIRect emblem_rect;
 
     EelIRect bounds_cache;
     EelIRect bounds_cache_for_layout;
@@ -196,16 +192,6 @@ typedef struct
     gint action_number;
 } CajaIconCanvasItemAccessibleActionContext;
 
-typedef struct
-{
-    CajaIconCanvasItem *icon_item;
-    EelIRect icon_rect;
-    RectangleSide side;
-    int position;
-    int index;
-    GList *emblem;
-} EmblemLayout;
-
 static int click_policy_auto_value;
 
 static void caja_icon_canvas_item_text_interface_init (EelAccessibleTextIface *iface);
@@ -226,14 +212,6 @@ static void     draw_label_text                      (CajaIconCanvasItem        
 static void     measure_label_text                   (CajaIconCanvasItem        *item);
 static void     get_icon_canvas_rectangle            (CajaIconCanvasItem        *item,
     						      EelIRect                  *rect);
-static void     emblem_layout_reset                  (EmblemLayout              *layout,
-    						      CajaIconCanvasItem        *icon_item,
-    						      EelIRect                  icon_rect,
-    						      gboolean			is_rtl);
-static gboolean emblem_layout_next                   (EmblemLayout              *layout,
-    						      GdkPixbuf                 **emblem_pixbuf,
-    						      EelIRect                  *emblem_rect,
-    						      gboolean			is_rtl);
 static void     draw_pixbuf                          (GdkPixbuf                 *pixbuf,
 #if GTK_CHECK_VERSION(3,0,0)
     						      cairo_t                   *cr,
@@ -328,7 +306,6 @@ caja_icon_canvas_item_finalize (GObject *object)
         g_object_unref (details->text_util);
     }
 
-    g_list_free_full (details->emblem_pixbufs, g_object_unref);
     g_free (details->editable_text);
     g_free (details->additional_text);
     g_free (details->attach_points);
@@ -576,11 +553,7 @@ caja_icon_canvas_item_get_image (CajaIconCanvasItem *item,
     int width, height;
     int item_offset_x, item_offset_y;
     EelIRect icon_rect;
-    EelIRect emblem_rect;
-    GdkPixbuf *emblem_pixbuf;
-    EmblemLayout emblem_layout;
     double item_x, item_y;
-    gboolean is_rtl;
     cairo_t *cr;
 
     g_return_val_if_fail (CAJA_IS_ICON_CANVAS_ITEM (item), NULL);
@@ -644,19 +617,7 @@ caja_icon_canvas_item_get_image (CajaIconCanvasItem *item,
     icon_rect.x1 = item_offset_x + gdk_pixbuf_get_width (item->details->pixbuf);
     icon_rect.y1 = item_offset_y + gdk_pixbuf_get_height (item->details->pixbuf);
 
-    is_rtl = caja_icon_container_is_layout_rtl (CAJA_ICON_CONTAINER (canvas));
-
-    emblem_layout_reset (&emblem_layout, item, icon_rect, is_rtl);
 #if GTK_CHECK_VERSION(3,0,0)
-    while (emblem_layout_next (&emblem_layout, &emblem_pixbuf, &emblem_rect, is_rtl))
-    {
-        gdk_cairo_set_source_pixbuf (cr, emblem_pixbuf, emblem_rect.x0, emblem_rect.y0);
-        cairo_rectangle (cr, emblem_rect.x0, emblem_rect.y0,
-                         gdk_pixbuf_get_width (emblem_pixbuf),
-                         gdk_pixbuf_get_height (emblem_pixbuf));
-        cairo_fill (cr);
-    }
-
     draw_embedded_text (item, cr,
     			item_offset_x, item_offset_y);
     draw_label_text (item, cr, FALSE, icon_rect);
@@ -664,17 +625,6 @@ caja_icon_canvas_item_get_image (CajaIconCanvasItem *item,
 
     return surface;
 #else
-    while (emblem_layout_next (&emblem_layout, &emblem_pixbuf, &emblem_rect, is_rtl))
-    {
-        gdk_pixbuf_composite (emblem_pixbuf, pixbuf,
-                              emblem_rect.x0, emblem_rect.y0,
-                              gdk_pixbuf_get_width (emblem_pixbuf),
-                              gdk_pixbuf_get_height (emblem_pixbuf),
-                              emblem_rect.x0, emblem_rect.y0,
-                              1.0, 1.0,
-                              GDK_INTERP_BILINEAR, 255);
-    }
-
     /* draw pixbuf to mask and pixmap */
     cr = gdk_cairo_create (pixmap);
     cairo_set_operator (cr, CAIRO_OPERATOR_SOURCE);
@@ -733,39 +683,6 @@ caja_icon_canvas_item_set_image (CajaIconCanvasItem *item,
     }
 
     details->pixbuf = image;
-
-    caja_icon_canvas_item_invalidate_bounds_cache (item);
-    eel_canvas_item_request_update (EEL_CANVAS_ITEM (item));
-}
-
-void
-caja_icon_canvas_item_set_emblems (CajaIconCanvasItem *item,
-                                   GList *emblem_pixbufs)
-{
-    GList *p;
-
-    g_return_if_fail (CAJA_IS_ICON_CANVAS_ITEM (item));
-
-    g_assert (item->details->emblem_pixbufs != emblem_pixbufs || emblem_pixbufs == NULL);
-
-    /* The case where the emblems are identical is fairly common,
-     * so lets take the time to check for it.
-     */
-    if (eel_g_list_equal (item->details->emblem_pixbufs, emblem_pixbufs))
-    {
-        return;
-    }
-
-    /* Check if they are acceptable. */
-    for (p = emblem_pixbufs; p != NULL; p = p->next)
-    {
-        g_return_if_fail (pixbuf_is_acceptable (p->data));
-    }
-
-    /* Take in the new list of emblems. */
-    eel_g_object_list_ref (emblem_pixbufs);
-    g_list_free_full (item->details->emblem_pixbufs, g_object_unref);
-    item->details->emblem_pixbufs = g_list_copy (emblem_pixbufs);
 
     caja_icon_canvas_item_invalidate_bounds_cache (item);
     eel_canvas_item_request_update (EEL_CANVAS_ITEM (item));
@@ -970,11 +887,8 @@ void
 caja_icon_canvas_item_update_bounds (CajaIconCanvasItem *item,
                                      double i2w_dx, double i2w_dy)
 {
-    EelIRect before, after, emblem_rect;
-    EmblemLayout emblem_layout;
+    EelIRect before, after;
     EelCanvasItem *canvas_item;
-    GdkPixbuf *emblem_pixbuf;
-    gboolean is_rtl;
 
     canvas_item = EEL_CANVAS_ITEM (item);
 
@@ -984,28 +898,14 @@ caja_icon_canvas_item_update_bounds (CajaIconCanvasItem *item,
     after = get_current_canvas_bounds (canvas_item);
 
     /* If the bounds didn't change, we are done. */
-    if (eel_irect_equal (before, after))
-    {
+    if (eel_irect_equal (before, after)) {
         return;
     }
-
-    is_rtl = caja_icon_container_is_layout_rtl (CAJA_ICON_CONTAINER (canvas_item->canvas));
 
     /* Update canvas and text rect cache */
     get_icon_canvas_rectangle (item, &item->details->canvas_rect);
     item->details->text_rect = compute_text_rectangle (item, item->details->canvas_rect,
                                TRUE, BOUNDS_USAGE_FOR_DISPLAY);
-
-    /* Update emblem rect cache */
-    item->details->emblem_rect.x0 = 0;
-    item->details->emblem_rect.x1 = 0;
-    item->details->emblem_rect.y0 = 0;
-    item->details->emblem_rect.y1 = 0;
-    emblem_layout_reset (&emblem_layout, item, item->details->canvas_rect, is_rtl);
-    while (emblem_layout_next (&emblem_layout, &emblem_pixbuf, &emblem_rect, is_rtl))
-    {
-        eel_irect_union (&item->details->emblem_rect, &item->details->emblem_rect, &emblem_rect);
-    }
 
     /* queue a redraw. */
     eel_canvas_request_redraw (canvas_item->canvas,
@@ -1755,165 +1655,8 @@ draw_stretch_handles (CajaIconCanvasItem *item,
     g_object_unref (knob_pixbuf);
 }
 
-static void
-emblem_layout_reset (EmblemLayout *layout, CajaIconCanvasItem *icon_item, EelIRect icon_rect, gboolean is_rtl)
-{
-    layout->icon_item = icon_item;
-    layout->icon_rect = icon_rect;
-    layout->side = is_rtl ? LEFT_SIDE : RIGHT_SIDE;
-    layout->position = 0;
-    layout->index = 0;
-    layout->emblem = icon_item->details->emblem_pixbufs;
-}
-
-static gboolean
-emblem_layout_next (EmblemLayout *layout,
-                    GdkPixbuf **emblem_pixbuf,
-                    EelIRect *emblem_rect,
-                    gboolean is_rtl)
-{
-    GdkPixbuf *pixbuf;
-    int width, height, x, y;
-    GdkPoint *attach_points;
-
-    /* Check if we have layed out all of the pixbufs. */
-    if (layout->emblem == NULL)
-    {
-        return FALSE;
-    }
-
-    /* Get the pixbuf. */
-    pixbuf = layout->emblem->data;
-    width = gdk_pixbuf_get_width (pixbuf);
-    height = gdk_pixbuf_get_height (pixbuf);
-
-
-    /* Advance to the next emblem. */
-    layout->emblem = layout->emblem->next;
-
-    attach_points = layout->icon_item->details->attach_points;
-    if (attach_points != NULL)
-    {
-        if (layout->index >= layout->icon_item->details->n_attach_points)
-        {
-            return FALSE;
-        }
-
-        x = layout->icon_rect.x0 + attach_points[layout->index].x;
-        y = layout->icon_rect.y0 + attach_points[layout->index].y;
-
-        layout->index += 1;
-
-        /* Return the rectangle and pixbuf. */
-        *emblem_pixbuf = pixbuf;
-        emblem_rect->x0 = x - width / 2;
-        emblem_rect->y0 = y - height / 2;
-        emblem_rect->x1 = emblem_rect->x0 + width;
-        emblem_rect->y1 = emblem_rect->y0 + height;
-
-        return TRUE;
-
-    }
-
-    for (;;)
-    {
-
-        /* Find the side to lay out along. */
-        switch (layout->side)
-        {
-        case RIGHT_SIDE:
-            x = layout->icon_rect.x1;
-            y = is_rtl ? layout->icon_rect.y1 : layout->icon_rect.y0;
-            break;
-        case BOTTOM_SIDE:
-            x = is_rtl ? layout->icon_rect.x0 : layout->icon_rect.x1;
-            y = layout->icon_rect.y1;
-            break;
-        case LEFT_SIDE:
-            x = layout->icon_rect.x0;
-            y = is_rtl ? layout->icon_rect.y0 : layout->icon_rect.y1;
-            break;
-        case TOP_SIDE:
-            x = is_rtl ? layout->icon_rect.x1 : layout->icon_rect.x0;
-            y = layout->icon_rect.y0;
-            break;
-        default:
-            g_assert_not_reached ();
-            x = 0;
-            y = 0;
-            break;
-        }
-        if (layout->position != 0)
-        {
-            switch (layout->side)
-            {
-            case RIGHT_SIDE:
-                y += (is_rtl ? -1 : 1) * (layout->position + height / 2);
-                break;
-            case BOTTOM_SIDE:
-                x += (is_rtl ? 1 : -1 ) * (layout->position + width / 2);
-                break;
-            case LEFT_SIDE:
-                y += (is_rtl ? 1 : -1) * (layout->position + height / 2);
-                break;
-            case TOP_SIDE:
-                x += (is_rtl ? -1 : 1) * (layout->position + width / 2);
-                break;
-            }
-        }
-
-        /* Check to see if emblem fits in current side. */
-        if (x >= layout->icon_rect.x0 && x <= layout->icon_rect.x1
-                && y >= layout->icon_rect.y0 && y <= layout->icon_rect.y1)
-        {
-
-            /* It fits. */
-
-            /* Advance along the side. */
-            switch (layout->side)
-            {
-            case RIGHT_SIDE:
-            case LEFT_SIDE:
-                layout->position += height + EMBLEM_SPACING;
-                break;
-            case BOTTOM_SIDE:
-            case TOP_SIDE:
-                layout->position += width + EMBLEM_SPACING;
-                break;
-            }
-
-            /* Return the rectangle and pixbuf. */
-            *emblem_pixbuf = pixbuf;
-            emblem_rect->x0 = x - width / 2;
-            emblem_rect->y0 = y - height / 2;
-            emblem_rect->x1 = emblem_rect->x0 + width;
-            emblem_rect->y1 = emblem_rect->y0 + height;
-
-            return TRUE;
-        }
-
-        /* It doesn't fit, so move to the next side. */
-        switch (layout->side)
-        {
-        case RIGHT_SIDE:
-            layout->side = is_rtl ? TOP_SIDE : BOTTOM_SIDE;
-            break;
-        case BOTTOM_SIDE:
-            layout->side = is_rtl ? RIGHT_SIDE : LEFT_SIDE;
-            break;
-        case LEFT_SIDE:
-            layout->side = is_rtl ? BOTTOM_SIDE : TOP_SIDE;
-            break;
-        case TOP_SIDE:
-        default:
-            return FALSE;
-        }
-        layout->position = 0;
-    }
-}
-
-static void
 #if GTK_CHECK_VERSION(3,0,0)
+static void
 draw_pixbuf (GdkPixbuf *pixbuf,
              cairo_t *cr,
              int x, int y)
@@ -1924,6 +1667,7 @@ draw_pixbuf (GdkPixbuf *pixbuf,
     cairo_restore (cr);
 }
 #else
+static void
 draw_pixbuf (GdkPixbuf *pixbuf, GdkDrawable *drawable, int x, int y)
 {
     cairo_t *cr = gdk_cairo_create (drawable);
@@ -2168,17 +1912,16 @@ caja_icon_canvas_item_draw (EelCanvasItem *item,
                             cairo_t *cr,
                             cairo_region_t *region)
 #else
-caja_icon_canvas_item_draw (EelCanvasItem *item, GdkDrawable *drawable,
+caja_icon_canvas_item_draw (EelCanvasItem *item,
+                            GdkDrawable *drawable,
                             GdkEventExpose *expose)
 #endif
 {
     CajaIconCanvasItem *icon_item;
     CajaIconCanvasItemDetails *details;
-    EelIRect icon_rect, emblem_rect;
-    EmblemLayout emblem_layout;
-    GdkPixbuf *emblem_pixbuf, *temp_pixbuf;
+    EelIRect icon_rect;
+    GdkPixbuf *temp_pixbuf;
     GdkRectangle pixbuf_rect;
-    gboolean is_rtl;
 
     icon_item = CAJA_ICON_CANVAS_ITEM (item);
     details = icon_item->details;
@@ -2221,19 +1964,6 @@ caja_icon_canvas_item_draw (EelCanvasItem *item, GdkDrawable *drawable,
 #else
     draw_embedded_text (icon_item, drawable, icon_rect.x0, icon_rect.y0);
 #endif
-
-    is_rtl = caja_icon_container_is_layout_rtl (CAJA_ICON_CONTAINER (item->canvas));
-
-    /* Draw the emblem pixbufs. */
-    emblem_layout_reset (&emblem_layout, icon_item, icon_rect, is_rtl);
-    while (emblem_layout_next (&emblem_layout, &emblem_pixbuf, &emblem_rect, is_rtl))
-    {
-#if GTK_CHECK_VERSION(3,0,0)
-        draw_pixbuf (emblem_pixbuf, cr, emblem_rect.x0, emblem_rect.y0);
-#else
-        draw_pixbuf (emblem_pixbuf, drawable, emblem_rect.x0, emblem_rect.y0);
-#endif
-    }
 
 #if GTK_CHECK_VERSION(3,0,0)
     /* Draw stretching handles (if necessary). */
@@ -2499,72 +2229,15 @@ caja_icon_canvas_item_event (EelCanvasItem *item, GdkEvent *event)
 }
 
 static gboolean
-hit_test_pixbuf (GdkPixbuf *pixbuf, EelIRect pixbuf_location, EelIRect probe_rect)
-{
-    EelIRect relative_rect, pixbuf_rect;
-    int x, y;
-    guint8 *pixel;
-
-    /* You can get here without a pixbuf in some strange cases. */
-    if (pixbuf == NULL)
-    {
-        return FALSE;
-    }
-
-    /* Check to see if it's within the rectangle at all. */
-    relative_rect.x0 = probe_rect.x0 - pixbuf_location.x0;
-    relative_rect.y0 = probe_rect.y0 - pixbuf_location.y0;
-    relative_rect.x1 = probe_rect.x1 - pixbuf_location.x0;
-    relative_rect.y1 = probe_rect.y1 - pixbuf_location.y0;
-    pixbuf_rect.x0 = 0;
-    pixbuf_rect.y0 = 0;
-    pixbuf_rect.x1 = gdk_pixbuf_get_width (pixbuf);
-    pixbuf_rect.y1 = gdk_pixbuf_get_height (pixbuf);
-    eel_irect_intersect (&relative_rect, &relative_rect, &pixbuf_rect);
-    if (eel_irect_is_empty (&relative_rect))
-    {
-        return FALSE;
-    }
-
-    /* If there's no alpha channel, it's opaque and we have a hit. */
-    if (!gdk_pixbuf_get_has_alpha (pixbuf))
-    {
-        return TRUE;
-    }
-    g_assert (gdk_pixbuf_get_n_channels (pixbuf) == 4);
-
-    /* Check the alpha channel of the pixel to see if we have a hit. */
-    for (x = relative_rect.x0; x < relative_rect.x1; x++)
-    {
-        for (y = relative_rect.y0; y < relative_rect.y1; y++)
-        {
-            pixel = gdk_pixbuf_get_pixels (pixbuf)
-                    + y * gdk_pixbuf_get_rowstride (pixbuf)
-                    + x * 4;
-            if (pixel[3] > 1)
-            {
-                return TRUE;
-            }
-        }
-    }
-    return FALSE;
-}
-
-static gboolean
 hit_test (CajaIconCanvasItem *icon_item, EelIRect canvas_rect)
 {
     CajaIconCanvasItemDetails *details;
-    EelIRect emblem_rect;
-    EmblemLayout emblem_layout;
-    GdkPixbuf *emblem_pixbuf;
-    gboolean is_rtl;
 
     details = icon_item->details;
 
-    /* Quick check to see if the rect hits the icon, text or emblems at all. */
+    /* Quick check to see if the rect hits the icon or text at all. */
     if (!eel_irect_hits_irect (icon_item->details->canvas_rect, canvas_rect)
-            && (!eel_irect_hits_irect (details->text_rect, canvas_rect))
-            && (!eel_irect_hits_irect (details->emblem_rect, canvas_rect)))
+            && (!eel_irect_hits_irect (details->text_rect, canvas_rect)))
     {
         return FALSE;
     }
@@ -2586,18 +2259,6 @@ hit_test (CajaIconCanvasItem *icon_item, EelIRect canvas_rect)
             && !icon_item->details->is_renaming)
     {
         return TRUE;
-    }
-
-    is_rtl = caja_icon_container_is_layout_rtl (CAJA_ICON_CONTAINER (EEL_CANVAS_ITEM (icon_item)->canvas));
-
-    /* Check for hit in the emblem pixbufs. */
-    emblem_layout_reset (&emblem_layout, icon_item, icon_item->details->canvas_rect, is_rtl);
-    while (emblem_layout_next (&emblem_layout, &emblem_pixbuf, &emblem_rect, is_rtl))
-    {
-        if (hit_test_pixbuf (emblem_pixbuf, emblem_rect, canvas_rect))
-        {
-            return TRUE;
-        }
     }
 
     return FALSE;
@@ -2740,13 +2401,11 @@ static void
 caja_icon_canvas_item_ensure_bounds_up_to_date (CajaIconCanvasItem *icon_item)
 {
     CajaIconCanvasItemDetails *details;
-    EelIRect icon_rect, emblem_rect, icon_rect_raw;
+    EelIRect icon_rect, icon_rect_raw;
     EelIRect text_rect, text_rect_for_layout, text_rect_for_entire_text;
     EelIRect total_rect, total_rect_for_layout, total_rect_for_entire_text;
     EelCanvasItem *item;
     double pixels_per_unit;
-    EmblemLayout emblem_layout;
-    GdkPixbuf *emblem_pixbuf;
     gboolean is_rtl;
 
     details = icon_item->details;
@@ -2785,22 +2444,10 @@ caja_icon_canvas_item_ensure_bounds_up_to_date (CajaIconCanvasItem *icon_item)
 
         is_rtl = caja_icon_container_is_layout_rtl (CAJA_ICON_CONTAINER (item->canvas));
 
-        /* Compute total rectangle, adding in emblem rectangles. */
+        /* Compute total rectangle. */
         eel_irect_union (&total_rect, &icon_rect, &text_rect);
         eel_irect_union (&total_rect_for_layout, &icon_rect, &text_rect_for_layout);
         eel_irect_union (&total_rect_for_entire_text, &icon_rect, &text_rect_for_entire_text);
-        emblem_layout_reset (&emblem_layout, icon_item, icon_rect_raw, is_rtl);
-        while (emblem_layout_next (&emblem_layout, &emblem_pixbuf, &emblem_rect, is_rtl))
-        {
-            emblem_rect.x0 = floor (emblem_rect.x0 / pixels_per_unit);
-            emblem_rect.y0 = floor (emblem_rect.y0 / pixels_per_unit);
-            emblem_rect.x1 = ceil (emblem_rect.x1 / pixels_per_unit);
-            emblem_rect.y1 = ceil (emblem_rect.y1 / pixels_per_unit);
-
-            eel_irect_union (&total_rect, &total_rect, &emblem_rect);
-            eel_irect_union (&total_rect_for_layout, &total_rect_for_layout, &emblem_rect);
-            eel_irect_union (&total_rect_for_entire_text, &total_rect_for_entire_text, &emblem_rect);
-        }
 
         details->bounds_cache = total_rect;
         details->bounds_cache_for_layout = total_rect_for_layout;
@@ -3536,21 +3183,6 @@ caja_icon_canvas_item_accessible_get_image_position
             }
             itmp = item->details->canvas_rect.y0 -
                    item->details->text_rect.y0;
-            if (itmp > y_offset)
-            {
-                y_offset = itmp;
-            }
-        }
-        if (item->details->emblem_pixbufs)
-        {
-            itmp = item->details->canvas_rect.x0 -
-                   item->details->emblem_rect.x0;
-            if (itmp > x_offset)
-            {
-                x_offset = itmp;
-            }
-            itmp = item->details->canvas_rect.y0 -
-                   item->details->emblem_rect.y0;
             if (itmp > y_offset)
             {
                 y_offset = itmp;
