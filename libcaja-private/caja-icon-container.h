@@ -146,7 +146,6 @@ typedef struct
     CajaIconInfo *(* get_icon_images)     (CajaIconContainer *container,
                                            CajaIconData *data,
                                            int icon_size,
-                                           GList **emblem_icons,
                                            char **embedded_text,
                                            gboolean for_drag_accept,
                                            gboolean need_large_embeddded_text,
