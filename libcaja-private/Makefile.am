@@ -223,6 +223,9 @@ gsettings_SCHEMAS = $(gsettingsschema_in_files:.xml.in=.xml)
 
 @GSETTINGS_RULES@
 
+convertdir = $(datadir)/MateConf/gsettings
+convert_DATA = caja.convert
+
 EXTRA_DIST = \
 	caja-marshal.list \
 	$(gsettingsschema_in_files) \
@@ -234,6 +237,7 @@ CLEANFILES = \
 	$(BUILT_SOURCES) \
 	$(schema_DATA) \
 	$(gsettings_SCHEMAS) \
+	$(convert_DATA) \
 	caja-marshal.list				\
 	$(NULL)
 
