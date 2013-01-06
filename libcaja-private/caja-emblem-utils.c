@@ -43,7 +43,6 @@
 #include "caja-file.h"
 #include "caja-emblem-utils.h"
 
-#include <src/glibcompat.h> /* for g_list_free_full */
 
 #define EMBLEM_NAME_TRASH   "emblem-trash"
 #define EMBLEM_NAME_SYMLINK "emblem-symbolic-link"

@@ -33,7 +33,6 @@
 #include "caja-location-bar.h"
 #include "caja-search-bar.h"
 #include "caja-pathbar.h"
-#include "caja-main.h"
 #include "caja-window-private.h"
 #include "caja-window-slot.h"
 #include "caja-navigation-window-slot.h"
@@ -74,7 +73,6 @@
  */
 #include "caja-desktop-window.h"
 
-#include "glibcompat.h" /* for g_list_free_full */
 
 /* This number controls a maximum character count for a URL that is
  * displayed as part of a dialog. It's fairly arbitrary -- big enough
@@ -1275,10 +1273,12 @@ got_file_info_for_view_selection_callback (CajaFile *file,
              * happens when a new window cannot display its initial URI.
              */
             /* if this is the only window, we don't want to quit, so we redirect it to home */
-            if (caja_application_get_n_windows () <= 1)
-            {
-                g_assert (caja_application_get_n_windows () == 1);
+            CajaApplication *app;
 
+            app = caja_application_dup_singleton ();
+
+            if (g_list_length (caja_application_get_window_list (app)) == 1)
+            {
                 /* the user could have typed in a home directory that doesn't exist,
                    in which case going home would cause an infinite loop, so we
                    better test for that */
@@ -1309,6 +1309,8 @@ got_file_info_for_view_selection_callback (CajaFile *file,
                 /* Since this is a window, destroying it will also unref it. */
                 gtk_widget_destroy (GTK_WIDGET (window));
             }
+
+            g_object_unref (app);
         }
         else
         {

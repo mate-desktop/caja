@@ -17,7 +17,9 @@ INCLUDES = \
 	-I$(top_srcdir) \
 	-I$(top_srcdir)/cut-n-paste-code \
 	-I$(top_builddir)/libcaja-private \
-	$(CORE_CFLAGS) \
+	$(BASE_CFLAGS) 						\
+	$(COMMON_CFLAGS)					\
+	$(CAJA_CFLAGS)					\
 	$(WARNING_CFLAGS) \
 	$(EXIF_CFLAGS) \
 	$(EXEMPI_CFLAGS) \
@@ -37,6 +39,9 @@ INCLUDES = \
 LDADD = \
 	$(top_builddir)/src/file-manager/libcaja-file-manager.la \
 	$(top_builddir)/libcaja-private/libcaja-private.la \
+	$(BASE_LIBS) \
+	$(COMMON_LIBS) \
+	$(CAJA_LIBS) \
 	$(CORE_LIBS) \
 	$(EXIF_LIBS) \
 	$(EXEMPI_LIBS) \
@@ -61,6 +66,8 @@ caja_SOURCES = \
 	caja-actions.h \
 	caja-application.c \
 	caja-application.h \
+	caja-application-smclient.c		\
+	caja-application-smclient.h		\
 	caja-bookmark-list.c \
 	caja-bookmark-list.h \
 	caja-bookmarks-window.c \
@@ -89,7 +96,6 @@ caja_SOURCES = \
 	caja-location-entry.c \
 	caja-location-entry.h \
 	caja-main.c \
-	caja-main.h \
 	caja-navigation-action.c \
 	caja-navigation-action.h \
 	caja-navigation-bar.c \
@@ -146,7 +152,6 @@ caja_SOURCES = \
 	caja-zoom-action.h \
 	caja-zoom-control.c \
 	caja-zoom-control.h \
-	glibcompat.h \
 	$(NULL)
 
 nodist_caja_SOURCES = \

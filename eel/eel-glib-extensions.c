@@ -38,7 +38,6 @@
 #include <time.h>
 #include <locale.h>
 
-#include <src/glibcompat.h> /* for g_list_free_full */
 
 /* Legal conversion specifiers, as specified in the C standard. */
 #define C_STANDARD_STRFTIME_CHARACTERS "aAbBcdHIjmMpSUwWxXyYZ"
@@ -46,15 +45,6 @@
 #define SUS_EXTENDED_STRFTIME_MODIFIERS "EO"
 
 #define SAFE_SHELL_CHARACTERS "-_0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-
-typedef struct
-{
-    GHashTable *hash_table;
-    char *display_name;
-    gboolean keys_known_to_be_strings;
-} HashTableToFree;
-
-static GList *hash_tables_to_free_at_exit;
 
 /**
  * eel_g_date_new_tm:
@@ -554,81 +544,6 @@ eel_get_system_time (void)
 
     gettimeofday (&tmp, NULL);
     return (gint64)tmp.tv_usec + (gint64)tmp.tv_sec * G_GINT64_CONSTANT (1000000);
-}
-
-static void
-print_key_string (gpointer key, gpointer value, gpointer callback_data)
-{
-    g_assert (callback_data == NULL);
-
-    g_print ("--> %s\n", (char *) key);
-}
-
-static void
-free_hash_tables_at_exit (void)
-{
-    GList *p;
-    HashTableToFree *hash_table_to_free;
-    guint size;
-
-    for (p = hash_tables_to_free_at_exit; p != NULL; p = p->next)
-    {
-        hash_table_to_free = p->data;
-
-        size = g_hash_table_size (hash_table_to_free->hash_table);
-        if (size != 0)
-        {
-            if (hash_table_to_free->keys_known_to_be_strings)
-            {
-                g_print ("\n--- Hash table keys for warning below:\n");
-                g_hash_table_foreach (hash_table_to_free->hash_table,
-                                      print_key_string,
-                                      NULL);
-            }
-            g_warning ("\"%s\" hash table still has %u element%s at quit time%s",
-                       hash_table_to_free->display_name, size,
-                       size == 1 ? "" : "s",
-                       hash_table_to_free->keys_known_to_be_strings
-                       ? " (keys above)" : "");
-        }
-
-        g_hash_table_destroy (hash_table_to_free->hash_table);
-        g_free (hash_table_to_free->display_name);
-        g_free (hash_table_to_free);
-    }
-    g_list_free (hash_tables_to_free_at_exit);
-    hash_tables_to_free_at_exit = NULL;
-}
-
-GHashTable *
-eel_g_hash_table_new_free_at_exit (GHashFunc hash_func,
-                                   GCompareFunc key_compare_func,
-                                   const char *display_name)
-{
-    GHashTable *hash_table;
-    HashTableToFree *hash_table_to_free;
-
-    /* FIXME: We can take out the CAJA_DEBUG check once we
-     * have fixed more of the leaks. For now, it's a bit too noisy
-     * for the general public.
-     */
-    if (hash_tables_to_free_at_exit == NULL)
-    {
-        eel_debug_call_at_shutdown (free_hash_tables_at_exit);
-    }
-
-    hash_table = g_hash_table_new (hash_func, key_compare_func);
-
-    hash_table_to_free = g_new (HashTableToFree, 1);
-    hash_table_to_free->hash_table = hash_table;
-    hash_table_to_free->display_name = g_strdup (display_name);
-    hash_table_to_free->keys_known_to_be_strings =
-        hash_func == g_str_hash;
-
-    hash_tables_to_free_at_exit = g_list_prepend
-                                  (hash_tables_to_free_at_exit, hash_table_to_free);
-
-    return hash_table;
 }
 
 typedef struct

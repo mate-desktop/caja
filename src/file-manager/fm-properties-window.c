@@ -67,7 +67,6 @@
 #include <sys/mount.h>
 #endif
 
-#include <src/glibcompat.h> /* for g_list_free_full */
 
 #define USED_FILL_R  (0.988235294 * 65535)
 #define USED_FILL_G  (0.91372549 * 65535)
@@ -5448,13 +5447,11 @@ fm_properties_window_present (GList *original_files,
 
 	/* Create the hash tables first time through. */
 	if (windows == NULL) {
-		windows = eel_g_hash_table_new_free_at_exit
-			(NULL, NULL, "property windows");
+		windows = g_hash_table_new (NULL, NULL);
 	}
 
 	if (pending_lists == NULL) {
-		pending_lists = eel_g_hash_table_new_free_at_exit
-			(g_str_hash, g_str_equal, "pending property window files");
+		pending_lists = g_hash_table_new (g_str_hash, g_str_equal);
 	}
 
 	/* Look to see if there's already a window for this file. */

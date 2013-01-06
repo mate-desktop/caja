@@ -50,7 +50,6 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <src/glibcompat.h> /* for g_list_free_full */
 
 #define EMBLEM_SPACING 2
 

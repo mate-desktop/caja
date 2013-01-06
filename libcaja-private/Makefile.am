@@ -6,7 +6,9 @@ INCLUDES = \
 	-I$(top_srcdir) \
 	-I$(top_builddir) \
 	-I$(top_srcdir)/cut-n-paste-code \
-	$(CORE_CFLAGS) \
+	$(BASE_CFLAGS)					\
+	$(COMMON_CFLAGS)				\
+	$(CAJA_CFLAGS)				\
 	$(WARNING_CFLAGS) \
 	$(DISABLE_DEPRECATED_CFLAGS) \
 	$(TRACKER_CFLAGS) \
@@ -38,7 +40,9 @@ libcaja_private_la_LIBADD = \
 	$(TRACKER_LIBS) \
 	$(top_builddir)/eel/libeel-2.la \
 	$(top_builddir)/libcaja-extension/libcaja-extension.la \
-	$(CORE_LIBS) \
+	$(BASE_LIBS)			\
+	$(COMMON_LIBS)			\
+	$(CAJA_LIBS)		\
 	$(NULL)
 
 libcaja_private_la_SOURCES = \

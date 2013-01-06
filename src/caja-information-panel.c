@@ -49,7 +49,6 @@
 #include <libcaja-private/caja-sidebar-provider.h>
 #include <libcaja-private/caja-module.h>
 
-#include "glibcompat.h" /* for g_list_free_full */
 
 struct CajaInformationPanelDetails
 {

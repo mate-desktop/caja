@@ -34,7 +34,6 @@
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
 
-#include "glibcompat.h" /* for g_list_free_full */
 
 typedef enum
 {

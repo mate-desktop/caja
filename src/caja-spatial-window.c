@@ -37,7 +37,6 @@
 #include "caja-desktop-window.h"
 #include "caja-bookmarks-window.h"
 #include "caja-location-dialog.h"
-#include "caja-main.h"
 #include "caja-query-editor.h"
 #include "caja-search-bar.h"
 #include "caja-window-manage-views.h"
@@ -62,7 +61,6 @@
 #include <libcaja-private/caja-search-engine.h>
 #include <libcaja-private/caja-signaller.h>
 
-#include "glibcompat.h" /* for g_list_free_full */
 
 #if !GTK_CHECK_VERSION(3,0,0)
 #define gtk_widget_get_preferred_size(x,y,z) gtk_widget_size_request(x,y)

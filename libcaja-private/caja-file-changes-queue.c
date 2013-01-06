@@ -25,7 +25,6 @@
 
 #include "caja-directory-notify.h"
 
-#include <src/glibcompat.h> /* for g_list_free_full */
 
 #ifdef G_THREADS_ENABLED
 #define MUTEX_LOCK(a)	if ((a) != NULL) g_mutex_lock (a)

@@ -32,7 +32,6 @@
 #include "caja-file-utilities.h"
 #include <string.h>
 
-#include <src/glibcompat.h> /* for g_list_free_full */
 
 static gboolean
 caja_drag_can_accept_files (CajaFile *drop_target_item)

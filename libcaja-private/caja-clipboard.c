@@ -35,7 +35,6 @@
 #include <gtk/gtk.h>
 #include <string.h>
 
-#include <src/glibcompat.h> /* for g_list_free_full */
 
 typedef struct _TargetCallbackData TargetCallbackData;
 

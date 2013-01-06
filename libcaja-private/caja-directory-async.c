@@ -39,7 +39,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include <src/glibcompat.h> /* for g_list_free_full */
 
 /* turn this on to see messages about each load_directory call: */
 #if 0
@@ -396,9 +395,7 @@ async_job_start (CajaDirectory *directory,
     {
         if (waiting_directories == NULL)
         {
-            waiting_directories = eel_g_hash_table_new_free_at_exit
-                                  (NULL, NULL,
-                                   "caja-directory-async.c: waiting_directories");
+            waiting_directories = g_hash_table_new (NULL, NULL);
         }
 
         g_hash_table_insert (waiting_directories,
@@ -413,9 +410,7 @@ async_job_start (CajaDirectory *directory,
         char *uri;
         if (async_jobs == NULL)
         {
-            async_jobs = eel_g_hash_table_new_free_at_exit
-                         (g_str_hash, g_str_equal,
-                          "caja-directory-async.c: async_jobs");
+            async_jobs = g_hash_table_new (g_str_hash, g_str_equal);
         }
         uri = caja_directory_get_uri (directory);
         key = g_strconcat (uri, ": ", job, NULL);

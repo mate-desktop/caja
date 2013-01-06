@@ -30,7 +30,6 @@
 #include "caja-debug-log.h"
 #include "caja-file.h"
 
-#include <src/glibcompat.h> /* for g_list_free_full */
 
 #define DEFAULT_RING_BUFFER_NUM_LINES 1000
 

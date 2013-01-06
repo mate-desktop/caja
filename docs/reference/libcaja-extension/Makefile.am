@@ -68,12 +68,12 @@ GTKDOC_CFLAGS = \
 	-I$(top_srcdir)/libcaja-extension      \
 	-I$(top_builddir)                          \
 	-I$(top_builddir)/libcaja-extension    \
-	$(LIBCAJA_EXTENSION_CFLAGS)            \
+	$(BASE_CFLAGS)            \
 	$(NULL)
 
 GTKDOC_LIBS = \
 	$(top_builddir)/libcaja-extension/libcaja-extension.la       \
-	$(LIBCAJA_EXTENSION_LIBS)                                        \
+	$(BASE_LIBS)                                        \
 	$(NULL)
 
 # This includes the standard gtk-doc make rules, copied by gtkdocize.

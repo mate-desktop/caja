@@ -40,7 +40,6 @@
 #include <gtk/gtk.h>
 #include <string.h>
 
-#include <src/glibcompat.h> /* for g_list_free_full */
 
 enum
 {
@@ -361,8 +360,7 @@ caja_directory_get_internal (GFile *location, gboolean create)
     /* Create the hash table first time through. */
     if (directories == NULL)
     {
-        directories = eel_g_hash_table_new_free_at_exit
-                      (g_file_hash, (GCompareFunc)g_file_equal, "caja-directory.c: directories");
+        directories = g_hash_table_new (g_file_hash, (GCompareFunc) g_file_equal);
 
         add_preferences_callbacks ();
     }
