@@ -55,7 +55,7 @@
     <value nick="end" value="1"/>
   </enum>
 
-  <schema id="org.mate.caja" path="/apps/caja/" gettext-domain="caja">
+  <schema id="org.mate.caja" path="/org/mate/caja/" gettext-domain="caja">
     <child name="preferences" schema="org.mate.caja.preferences"/>
     <child name="icon-view" schema="org.mate.caja.icon-view"/>
     <child name="compact-view" schema="org.mate.caja.compact-view"/>
@@ -65,7 +65,7 @@
     <child name="window-state" schema="org.mate.caja.window-state"/>
   </schema>
 
-  <schema id="org.mate.caja.preferences" path="/apps/caja/preferences/" gettext-domain="caja">
+  <schema id="org.mate.caja.preferences" path="/org/mate/caja/preferences/" gettext-domain="caja">
     <key name="tabs-open-position" enum="org.mate.caja.TabPosition">
       <aliases>
     <alias value='after_current_tab' target='after-current-tab'/>
@@ -238,7 +238,7 @@
     </key>
   </schema>
 
-  <schema id="org.mate.caja.icon-view" path="/apps/caja/icon-view/" gettext-domain="caja">
+  <schema id="org.mate.caja.icon-view" path="/org/mate/caja/icon-view/" gettext-domain="caja">
     <key name="captions" type="as">
       <default>[ 'none', 'size', 'date_modified' ]</default>
       <_summary>List of possible captions on icons</_summary>
@@ -293,7 +293,7 @@
     </key>
   </schema>
 
-  <schema id="org.mate.caja.compact-view" path="/apps/caja/compact-view/" gettext-domain="caja">
+  <schema id="org.mate.caja.compact-view" path="/org/mate/caja/compact-view/" gettext-domain="caja">
     <key name="default-zoom-level" enum="org.mate.caja.ZoomLevel">
       <default>'standard'</default>
       <_summary>Default compact view zoom level</_summary>
@@ -306,7 +306,7 @@
     </key>
   </schema>
 
-  <schema id="org.mate.caja.list-view" path="/apps/caja/list-view/" gettext-domain="caja">
+  <schema id="org.mate.caja.list-view" path="/org/mate/caja/list-view/" gettext-domain="caja">
     <key name="default-zoom-level" enum="org.mate.caja.ZoomLevel">
       <default>'smaller'</default>
       <_summary>Default list zoom level</_summary>
@@ -324,11 +324,11 @@
     </key>
   </schema>
 
-  <schema id="org.mate.caja.sidebar-panels" path="/apps/caja/sidebar-panels/" gettext-domain="caja">
+  <schema id="org.mate.caja.sidebar-panels" path="/org/mate/caja/sidebar-panels/" gettext-domain="caja">
     <child name="tree" schema="org.mate.caja.sidebar-panels.tree"/>
   </schema>
 
-  <schema id="org.mate.caja.sidebar-panels.tree" path="/apps/caja/sidebar-panels/tree/" gettext-domain="caja">
+  <schema id="org.mate.caja.sidebar-panels.tree" path="/org/mate/caja/sidebar-panels/tree/" gettext-domain="caja">
     <key name="show-only-directories" type="b">
       <default>true</default>
       <_summary>Only show folders in the tree side pane</_summary>
@@ -336,7 +336,7 @@
     </key>
   </schema>
 
-  <schema id="org.mate.caja.desktop" path="/apps/caja/desktop/" gettext-domain="caja">
+  <schema id="org.mate.caja.desktop" path="/org/mate/caja/desktop/" gettext-domain="caja">
     <key name="font" type="s">
       <default l10n="messages" context="desktop-font">'Sans 10'</default>
       <_summary>Desktop font</_summary>
@@ -394,7 +394,7 @@
     </key>
   </schema>
 
-  <schema id="org.mate.caja.window-state" path="/apps/caja/window-state/" gettext-domain="caja">
+  <schema id="org.mate.caja.window-state" path="/org/mate/caja/window-state/" gettext-domain="caja">
     <key name="geometry" type="s">
       <default>''</default>
       <_summary>The geometry string for a navigation window.</_summary>
