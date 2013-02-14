@@ -330,6 +330,7 @@ main (int argc, char *argv[])
     CajaApplication *application;
     GOptionContext *context;
     GFile *file;
+    GFileInfo *fileinfo;
     char *uri;
     char **uris;
     GPtrArray *uris_array;
@@ -530,12 +531,28 @@ main (int argc, char *argv[])
                 if (file != NULL)
                 {
                     uri = g_file_get_uri (file);
-                    g_object_unref (file);
                     if (uri)
                     {
-                        g_ptr_array_add (uris_array, uri);
+                        fileinfo = g_file_query_info (file, "standard::type", G_FILE_QUERY_INFO_NONE, NULL, NULL);
+                        if (g_file_info_get_file_type(fileinfo) == G_FILE_TYPE_DIRECTORY)
+                        {
+                            g_ptr_array_add (uris_array, uri);
+                        }
+                        else
+                        {
+                            g_app_info_launch_default_for_uri (uri, NULL, NULL);
+                            g_free (uri);
+                        }
+                        g_object_unref (fileinfo);
                     }
+                    g_object_unref (file);
                 }
+            }
+            if (uris_array->len == 0)
+            {
+                /* Caja is being used only to open files (not directories), so closing */
+                g_strfreev (remaining);
+                return EXIT_SUCCESS;
             }
             g_ptr_array_add (uris_array, NULL);
             uris = (char**) g_ptr_array_free (uris_array, FALSE);
