@@ -331,6 +331,7 @@ main (int argc, char *argv[])
     GOptionContext *context;
     GFile *file;
     GFileInfo *fileinfo;
+    GAppInfo *appinfo;
     char *uri;
     char **uris;
     GPtrArray *uris_array;
@@ -533,14 +534,29 @@ main (int argc, char *argv[])
                     uri = g_file_get_uri (file);
                     if (uri)
                     {
-                        fileinfo = g_file_query_info (file, "standard::type", G_FILE_QUERY_INFO_NONE, NULL, NULL);
+                        fileinfo = g_file_query_info (file, G_FILE_ATTRIBUTE_STANDARD_TYPE, G_FILE_QUERY_INFO_NONE, NULL, NULL);
                         if (g_file_info_get_file_type(fileinfo) == G_FILE_TYPE_DIRECTORY)
                         {
                             g_ptr_array_add (uris_array, uri);
                         }
                         else
                         {
-                            g_app_info_launch_default_for_uri (uri, NULL, NULL);
+                            g_object_unref (fileinfo);
+                            fileinfo = g_file_query_info (file, G_FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE, G_FILE_QUERY_INFO_NONE, NULL, NULL);
+                            appinfo = g_app_info_get_default_for_type (g_file_info_get_content_type (fileinfo), TRUE);
+                            if (appinfo)
+                            {
+                                if (g_strcmp0 (g_app_info_get_executable (appinfo), "caja") != 0)
+                                {
+                                    g_app_info_launch_default_for_uri (uri, NULL, NULL);
+                                }
+                                else
+                                {
+                                    fprintf (stderr, _("caja: set erroneously as default application for '%s' content type.\n"),
+                                             g_file_info_get_content_type (fileinfo));
+                                }
+                                g_object_unref (appinfo);
+                            }
                             g_free (uri);
                         }
                         g_object_unref (fileinfo);
