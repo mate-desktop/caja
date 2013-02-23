@@ -43,6 +43,19 @@ LDADD = \
 	$(POPT_LIBS) \
 	$(NULL)
 
+dbus_freedesktop_built_sources =			\
+	caja-freedesktop-generated.c		\
+	caja-freedesktop-generated.h
+
+$(dbus_freedesktop_built_sources) : Makefile.am $(top_srcdir)/data/freedesktop-dbus-interfaces.xml
+	gdbus-codegen									\
+		--interface-prefix org.freedesktop.					\
+		--c-namespace CajaFreedesktop					\
+		--c-generate-object-manager						\
+		--generate-c-code caja-freedesktop-generated			\
+		$(top_srcdir)/data/freedesktop-dbus-interfaces.xml			\
+		$(NULL)
+
 @INTLTOOL_DESKTOP_RULE@
 
 desktop_in_files=mate-network-scheme.desktop.in
@@ -55,6 +68,7 @@ scheme_DATA = mate-network-scheme.desktop
 BUILT_SOURCES = \
 	caja-src-marshal.c \
 	caja-src-marshal.h \
+	$(dbus_freedesktop_built_sources) \
 	$(NULL)
 
 caja_SOURCES = \
@@ -76,6 +90,8 @@ caja_SOURCES = \
 	caja-emblem-sidebar.h \
 	caja-file-management-properties.c \
 	caja-file-management-properties.h \
+	caja-freedesktop-dbus.c \
+	caja-freedesktop-dbus.h \
 	caja-history-sidebar.c \
 	caja-history-sidebar.h \
 	caja-image-properties-page.c \

@@ -55,6 +55,7 @@
 #include "libcaja-private/caja-file-operations.h"
 #include "caja-window-private.h"
 #include "caja-window-manage-views.h"
+#include "caja-freedesktop-dbus.h"
 #include <unistd.h>
 #include <libxml/xmlsave.h>
 #include <glib/gstdio.h>
@@ -106,6 +107,9 @@ static GList *caja_application_spatial_window_list;
 
 /* The saving of the accelerator map was requested  */
 static gboolean save_of_accel_map_requested = FALSE;
+
+/* File Manager DBus Interface */
+static CajaFreedesktopDBus *fdb_manager = NULL;
 
 static void     desktop_changed_callback          (gpointer                  user_data);
 static void     desktop_location_changed_callback (gpointer                  user_data);
@@ -368,6 +372,12 @@ caja_application_finalize (GObject *object)
     {
         g_object_unref (application->proxy);
         application->proxy = NULL;
+    }
+
+    if (fdb_manager != NULL)
+    {
+        g_object_unref (fdb_manager);
+        fdb_manager = NULL;
     }
 
     G_OBJECT_CLASS (caja_application_parent_class)->finalize (object);
@@ -846,6 +856,29 @@ open_windows (CajaApplication *application,
     }
 }
 
+void
+caja_application_open_location (CajaApplication *application,
+                                GFile *location,
+                                GFile *selection,
+                                const char *startup_id)
+{
+    CajaWindow *window;
+    GList *sel_list = NULL;
+
+    window = caja_application_create_navigation_window (application, startup_id, gdk_screen_get_default ());
+
+    if (selection != NULL) {
+        sel_list = g_list_prepend (NULL, g_object_ref (selection));
+    }
+
+    caja_window_slot_open_location_full (caja_window_get_active_slot (window), location,
+                                         0, CAJA_WINDOW_OPEN_FLAG_NEW_WINDOW, sel_list, NULL, NULL);
+
+    if (sel_list != NULL) {
+        caja_file_list_free (sel_list);
+    }
+}
+
 static UniqueResponse
 message_received_cb (UniqueApp         *unique_app,
                      gint               command,
@@ -984,6 +1017,9 @@ caja_application_startup (CajaApplication *application,
             finish_startup (application, no_desktop);
             g_signal_connect (application->unique_app, "message-received", G_CALLBACK (message_received_cb), application);
         }
+
+        /* Start the File Manager DBus Interface */
+        fdb_manager = caja_freedesktop_dbus_new (application);
 
         /* Monitor the preference to show or hide the desktop */
         g_signal_connect_swapped (mate_background_preferences,

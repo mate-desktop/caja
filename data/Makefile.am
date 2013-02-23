@@ -19,6 +19,14 @@ desktop_in_files = \
 mimedir = $(datadir)/mime/packages
 mime_DATA = $(xml_files)
 
+servicedir = $(datadir)/dbus-1/services
+service_DATA = $(service_in_files:.service.in=.service)
+service_in_files = 				\
+	org.mate.freedesktop.FileManager1.service.in
+
+org.mate.freedesktop.FileManager1.service: org.mate.freedesktop.FileManager1.service.in Makefile
+	$(AM_V_GEN) sed -e "s|\@bindir\@|$(bindir)|" $< > $@
+
 cajadatadir = $(datadir)/caja
 
 cajadata_DATA = \
@@ -30,6 +38,7 @@ cajadata_DATA = \
 EXTRA_DIST = $(cajadata_DATA) \
 	caja.desktop \
 	caja.desktop.in \
+	freedesktop-dbus-interfaces.xml \
 	$(xml_in_files) \
 	$(desktop_in_files) \
 	$(NULL)
