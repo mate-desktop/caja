@@ -1055,9 +1055,9 @@ loading_uri_callback (CajaWindowInfo *window,
                       CajaPlacesSidebar *sidebar)
 {
     GtkTreeSelection *selection;
-    GtkTreeIter 	 iter;
-    gboolean 	 valid;
-    char  		 *uri;
+    GtkTreeIter       iter;
+    gboolean          valid;
+    char             *uri;
 
     if (strcmp (sidebar->uri, location) != 0)
     {
@@ -1195,8 +1195,8 @@ free_drag_data (CajaPlacesSidebar *sidebar)
 static gboolean
 can_accept_file_as_bookmark (CajaFile *file)
 {
-	return (caja_file_is_directory (file) &&
-		!is_built_in_bookmark (file));
+    return (caja_file_is_directory (file) &&
+            !is_built_in_bookmark (file));
 }
 
 static gboolean
@@ -1435,7 +1435,7 @@ get_selected_iter (CajaPlacesSidebar *sidebar,
 /* Reorders the selected bookmark to the specified position */
 static void
 reorder_bookmarks (CajaPlacesSidebar *sidebar,
-                   int                   new_position)
+                   int                new_position)
 {
     GtkTreeIter iter;
     PlaceType type;
@@ -1894,10 +1894,10 @@ drive_start_from_bookmark_cb (GObject      *source_object,
 }
 
 static void
-open_selected_bookmark (CajaPlacesSidebar *sidebar,
-                        GtkTreeModel	      *model,
-                        GtkTreePath	      *path,
-                        CajaWindowOpenFlags	      flags)
+open_selected_bookmark (CajaPlacesSidebar   *sidebar,
+                        GtkTreeModel        *model,
+                        GtkTreePath         *path,
+                        CajaWindowOpenFlags  flags)
 {
     CajaWindowSlotInfo *slot;
     GtkTreeIter iter;
@@ -1989,8 +1989,8 @@ open_selected_bookmark (CajaPlacesSidebar *sidebar,
 }
 
 static void
-open_shortcut_from_menu (CajaPlacesSidebar *sidebar,
-                         CajaWindowOpenFlags	       flags)
+open_shortcut_from_menu (CajaPlacesSidebar   *sidebar,
+                         CajaWindowOpenFlags  flags)
 {
     GtkTreeModel *model;
     GtkTreePath *path;
@@ -2004,21 +2004,21 @@ open_shortcut_from_menu (CajaPlacesSidebar *sidebar,
 }
 
 static void
-open_shortcut_cb (GtkMenuItem		*item,
-                  CajaPlacesSidebar	*sidebar)
+open_shortcut_cb (GtkMenuItem       *item,
+                  CajaPlacesSidebar *sidebar)
 {
     open_shortcut_from_menu (sidebar, 0);
 }
 
 static void
-open_shortcut_in_new_window_cb (GtkMenuItem	      *item,
+open_shortcut_in_new_window_cb (GtkMenuItem       *item,
                                 CajaPlacesSidebar *sidebar)
 {
     open_shortcut_from_menu (sidebar, CAJA_WINDOW_OPEN_FLAG_NEW_WINDOW);
 }
 
 static void
-open_shortcut_in_new_tab_cb (GtkMenuItem	      *item,
+open_shortcut_in_new_tab_cb (GtkMenuItem       *item,
                              CajaPlacesSidebar *sidebar)
 {
     open_shortcut_from_menu (sidebar, CAJA_WINDOW_OPEN_FLAG_NEW_TAB);
@@ -2977,8 +2977,8 @@ bookmarks_edited (GtkCellRenderer       *cell,
     g_object_set (cell, "editable", FALSE, NULL);
 
     path = gtk_tree_path_new_from_string (path_string);
-	gtk_tree_model_get_iter (GTK_TREE_MODEL (sidebar->filter_model), &iter, path);
-	gtk_tree_model_get (GTK_TREE_MODEL (sidebar->filter_model), &iter,
+    gtk_tree_model_get_iter (GTK_TREE_MODEL (sidebar->filter_model), &iter, path);
+    gtk_tree_model_get (GTK_TREE_MODEL (sidebar->filter_model), &iter,
                         PLACES_SIDEBAR_COLUMN_INDEX, &index,
                         -1);
     gtk_tree_path_free (path);
@@ -2998,7 +2998,7 @@ bookmarks_editing_canceled (GtkCellRenderer       *cell,
 }
 
 static void
-trash_state_changed_cb (CajaTrashMonitor *trash_monitor,
+trash_state_changed_cb (CajaTrashMonitor    *trash_monitor,
                         gboolean             state,
                         gpointer             data)
 {
