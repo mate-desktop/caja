@@ -171,32 +171,30 @@ make_color_inactive (EelBackground *self,
     double intensity, saturation;
     gushort t;
 
-    if (self->details->is_active) {
-        return;
-    }
+    if (!self->details->is_active) {
+        saturation = 0.7;
+        intensity = color->red * 0.30 + color->green * 0.59 + color->blue * 0.11;
+        color->red = SATURATE (color->red);
+        color->green = SATURATE (color->green);
+        color->blue = SATURATE (color->blue);
 
-    saturation = 0.7;
-    intensity = color->red * 0.30 + color->green * 0.59 + color->blue * 0.11;
-    color->red = SATURATE (color->red);
-    color->green = SATURATE (color->green);
-    color->blue = SATURATE (color->blue);
+        if (intensity > G_MAXUSHORT / 2)
+        {
+           color->red *= 0.9;
+           color->green *= 0.9;
+           color->blue *= 0.9;
+        }
+        else
+        {
+           color->red *= 1.25;
+           color->green *= 1.25;
+           color->blue *= 1.25;
+        }
 
-    if (intensity > G_MAXUSHORT / 2)
-    {
-       color->red *= 0.9;
-       color->green *= 0.9;
-       color->blue *= 0.9;
+        color->red = CLAMP_COLOR (color->red);
+        color->green = CLAMP_COLOR (color->green);
+        color->blue = CLAMP_COLOR (color->blue);
     }
-    else
-    {
-       color->red *= 1.25;
-       color->green *= 1.25;
-       color->blue *= 1.25;
-    }
-
-    color->red = CLAMP_COLOR (color->red);
-    color->green = CLAMP_COLOR (color->green);
-    color->blue = CLAMP_COLOR (color->blue);
 }
 
 gchar *
@@ -383,13 +381,13 @@ void
 eel_background_draw (GtkWidget *widget,
 #  if GTK_CHECK_VERSION (3, 0, 0)
                      cairo_t   *cr)
-{
 #  else
                      GdkEventExpose *event)
-{
 #  endif
+{
     int width, height;
     GdkWindow *window = gtk_widget_get_window (widget);
+    GdkColor color;
 
 #  if !GTK_CHECK_VERSION (3, 0, 0)
     if (event->window != window)
@@ -401,7 +399,8 @@ eel_background_draw (GtkWidget *widget,
     drawable_get_adjusted_size (self, &width, &height);
 
     eel_background_ensure_realized (self);
-    make_color_inactive (self, &self->details->default_color);
+    color = self->details->default_color;
+    make_color_inactive (self, &color);
 
 #  if GTK_CHECK_VERSION(3,0,0)
     cairo_save (cr);
@@ -413,7 +412,7 @@ eel_background_draw (GtkWidget *widget,
         cairo_set_source_surface (cr, self->details->bg_surface, 0, 0);
         cairo_pattern_set_extend (cairo_get_source (cr), CAIRO_EXTEND_REPEAT);
     } else {
-        gdk_cairo_set_source_color (cr, &self->details->default_color);
+        gdk_cairo_set_source_color (cr, &color);
     }
 
 #  if !GTK_CHECK_VERSION (3, 0, 0)
@@ -542,13 +541,15 @@ eel_background_set_up_widget (EelBackground *self)
 {
     GdkWindow *window;
     GtkWidget *widget = self->details->widget;
+    GdkColor color;
     gboolean in_fade = FALSE;
 
     if (!gtk_widget_get_realized (widget))
         return;
 
     eel_background_ensure_realized (self);
-    make_color_inactive (self, &self->details->default_color);
+    color = self->details->default_color;
+    make_color_inactive (self, &color);
 
     if (self->details->bg_surface == NULL)
         return;
@@ -580,7 +581,7 @@ eel_background_set_up_widget (EelBackground *self)
         }
         else
         {
-            gdk_window_set_background (window, &self->details->default_color);
+            gdk_window_set_background (window, &color);
 #  if !GTK_CHECK_VERSION (3, 0, 0)
             gdk_window_set_back_pixmap (window, self->details->bg_surface, FALSE);
 #  endif
