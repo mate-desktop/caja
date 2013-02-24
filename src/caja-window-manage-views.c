@@ -85,6 +85,7 @@
 
 static void begin_location_change                     (CajaWindowSlot         *slot,
         GFile                      *location,
+        GFile                      *previous_location,
         GList                      *new_selection,
         CajaLocationChangeType      type,
         guint                       distance,
@@ -683,12 +684,7 @@ caja_window_slot_open_location_full (CajaWindowSlot *slot,
         return;
     }
 
-    if (old_location)
-    {
-        g_object_unref (old_location);
-    }
-
-    begin_location_change (target_slot, location, new_selection,
+    begin_location_change (target_slot, location, old_location, new_selection,
                            CAJA_LOCATION_CHANGE_STANDARD, 0, NULL, callback, user_data);
 
     /* Additionally, load this in all slots that have no location, this means
@@ -698,9 +694,14 @@ caja_window_slot_open_location_full (CajaWindowSlot *slot,
         pane = l->data;
         slot = pane->active_slot;
         if (slot->location == NULL && slot->pending_location == NULL) {
-            begin_location_change (slot, location, new_selection,
+            begin_location_change (slot, location, old_location, new_selection,
                                    CAJA_LOCATION_CHANGE_STANDARD, 0, NULL, NULL, NULL);
         }
+    }
+
+    if (old_location)
+    {
+        g_object_unref (old_location);
     }
 }
 
@@ -874,6 +875,7 @@ report_callback (CajaWindowSlot *slot,
  * Change a window's location.
  * @window: The CajaWindow whose location should be changed.
  * @location: A url specifying the location to load
+ * @previous_location: The url that was previously shown in the window that initialized the change, if any
  * @new_selection: The initial selection to present after loading the location
  * @type: Which type of location change is this? Standard, back, forward, or reload?
  * @distance: If type is back or forward, the index into the back or forward chain. If
@@ -888,6 +890,7 @@ report_callback (CajaWindowSlot *slot,
 static void
 begin_location_change (CajaWindowSlot *slot,
                        GFile *location,
+                       GFile *previous_location,
                        GList *new_selection,
                        CajaLocationChangeType type,
                        guint distance,
@@ -900,12 +903,33 @@ begin_location_change (CajaWindowSlot *slot,
     CajaFile *file;
     gboolean force_reload;
     char *current_pos;
+    GFile *from_folder;
+    GFile *parent;
 
     g_assert (slot != NULL);
     g_assert (location != NULL);
     g_assert (type == CAJA_LOCATION_CHANGE_BACK
               || type == CAJA_LOCATION_CHANGE_FORWARD
               || distance == 0);
+
+    /* If there is no new selection and the new location is
+     * a (grand)parent of the old location then we automatically
+     * select the folder the previous location was in */
+    if (new_selection == NULL && previous_location != NULL &&
+        g_file_has_prefix (previous_location, location)) {
+        from_folder = g_object_ref (previous_location);
+        parent = g_file_get_parent (from_folder);
+        while (parent != NULL && !g_file_equal (parent, location)) {
+            g_object_unref (from_folder);
+            from_folder = parent;
+            parent = g_file_get_parent (from_folder);
+        }
+        if (parent != NULL) {
+            new_selection = g_list_prepend (NULL, g_object_ref(from_folder));
+        }
+        g_object_unref (from_folder);
+        g_object_unref (parent);
+    }
 
     window = slot->pane->window;
     g_assert (CAJA_IS_WINDOW (window));
@@ -2043,7 +2067,7 @@ caja_window_report_view_failed (CajaWindow *window,
     if (fallback_load_location != NULL)
     {
         /* We loose the pending selection change here, but who cares... */
-        begin_location_change (slot, fallback_load_location, NULL,
+        begin_location_change (slot, fallback_load_location, NULL, NULL,
                                CAJA_LOCATION_CHANGE_FALLBACK, 0, NULL, NULL, NULL);
         g_object_unref (fallback_load_location);
     }
@@ -2256,6 +2280,7 @@ caja_navigation_window_back_or_forward (CajaNavigationWindow *window,
     CajaNavigationWindowSlot *navigation_slot;
     GList *list;
     GFile *location;
+    GFile *old_location;
     guint len;
     CajaBookmark *bookmark;
 
@@ -2288,14 +2313,19 @@ caja_navigation_window_back_or_forward (CajaNavigationWindow *window,
     {
         char *scroll_pos;
 
+        old_location = caja_window_slot_get_location (slot);
         scroll_pos = caja_bookmark_get_scroll_pos (bookmark);
         begin_location_change
         (slot,
-         location, NULL,
+         location, old_location, NULL,
          back ? CAJA_LOCATION_CHANGE_BACK : CAJA_LOCATION_CHANGE_FORWARD,
          distance,
          scroll_pos,
          NULL, NULL);
+
+        if (old_location) {
+            g_object_unref (old_location);
+        }
 
         g_free (scroll_pos);
     }
@@ -2330,7 +2360,7 @@ caja_window_slot_reload (CajaWindowSlot *slot)
         selection = caja_view_get_selection (slot->content_view);
     }
     begin_location_change
-    (slot, location, selection,
+    (slot, location, location, selection,
      CAJA_LOCATION_CHANGE_RELOAD, 0, current_pos,
      NULL, NULL);
     g_free (current_pos);
