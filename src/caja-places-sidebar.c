@@ -465,6 +465,7 @@ update_places (CajaPlacesSidebar *sidebar)
     CajaWindowSlotInfo *slot;
     char *tooltip;
     GList *network_mounts;
+    GList *xdg_dirs;
     CajaFile *file;
 
     model = NULL;
@@ -725,6 +726,7 @@ update_places (CajaPlacesSidebar *sidebar)
 
     
     /* XDG directories */
+    xdg_dirs = NULL;
     for (index = 0; index < G_USER_N_DIRECTORIES; index++) {
 
         if (index == G_USER_DIRECTORY_DESKTOP ||
@@ -735,7 +737,13 @@ update_places (CajaPlacesSidebar *sidebar)
 
         path = g_get_user_special_dir (index);
 
-        if (!path) {
+        /* xdg resets special dirs to the home directory in case
+         * it's not finiding what it expects. We don't want the home
+         * to be added multiple times in that weird configuration.
+         */
+        if (path == NULL
+            || g_strcmp0 (path, g_get_home_dir ()) == 0
+            || g_list_find_custom (xdg_dirs, path, (GCompareFunc) g_strcmp0) != NULL) {
             continue;
         }
 
@@ -758,7 +766,10 @@ update_places (CajaPlacesSidebar *sidebar)
         g_object_unref (icon);
         g_free (mount_uri);
         g_free (tooltip);
+
+        xdg_dirs = g_list_prepend (xdg_dirs, (char *)path);
     }
+    g_list_free (xdg_dirs);
 
     /* add mounts that has no volume (/etc/mtab mounts, ftp, sftp,...) */
     network_mounts = NULL;
