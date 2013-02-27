@@ -91,6 +91,41 @@ mount_changed_callback (GMount *mount, CajaDesktopLink *link)
 }
 
 static void
+caja_desktop_link_ensure_display_name (CajaDesktopLink *link)
+{
+    if (link->details->display_name[0] == 0) {
+        g_free (link->details->display_name);
+
+        switch (link->details->type)
+        {
+        case CAJA_DESKTOP_LINK_HOME:
+            /* Note to translators: If it's hard to compose a good home
+             * icon name from the user name, you can use a string without
+             * an "%s" here, in which case the home icon name will not
+             * include the user's name, which should be fine. To avoid a
+             * warning, put "%.0s" somewhere in the string, which will
+             * match the user name string passed by the C code, but not
+             * put the user name in the final string.
+             */
+            link->details->display_name = g_strdup_printf (_("%s's Home"), g_get_user_name ());
+            break;
+        case CAJA_DESKTOP_LINK_COMPUTER:
+            link->details->display_name = g_strdup (_("Computer"));
+            break;
+        case CAJA_DESKTOP_LINK_NETWORK:
+            link->details->display_name = g_strdup (_("Network Servers"));
+            break;
+        case CAJA_DESKTOP_LINK_TRASH:
+            link->details->display_name = g_strdup (_("Trash"));
+            break;
+        default:
+        case CAJA_DESKTOP_LINK_MOUNT:
+            g_assert_not_reached();
+        }
+    }
+}
+
+static void
 trash_state_changed_callback (CajaTrashMonitor *trash_monitor,
                               gboolean state,
                               gpointer callback_data)
@@ -121,19 +156,8 @@ home_name_changed (gpointer callback_data)
 
     link->details->display_name = g_settings_get_string (caja_desktop_preferences,
                                                          CAJA_PREFERENCES_DESKTOP_HOME_NAME);
-    if (link->details->display_name[0] == 0) {
-        g_free (link->details->display_name);
-        /* Note to translators: If it's hard to compose a good home
-         * icon name from the user name, you can use a string without
-         * an "%s" here, in which case the home icon name will not
-         * include the user's name, which should be fine. To avoid a
-         * warning, put "%.0s" somewhere in the string, which will
-         * match the user name string passed by the C code, but not
-         * put the user name in the final string.
-         */
-        link->details->display_name = g_strdup_printf (_("%s's Home"), g_get_user_name ());
-    }
 
+    caja_desktop_link_ensure_display_name (link);
     caja_desktop_link_changed (link);
 }
 
@@ -148,6 +172,7 @@ computer_name_changed (gpointer callback_data)
     g_free (link->details->display_name);
     link->details->display_name = g_settings_get_string (caja_desktop_preferences, CAJA_PREFERENCES_DESKTOP_COMPUTER_NAME);
 
+    caja_desktop_link_ensure_display_name (link);
     caja_desktop_link_changed (link);
 }
 
@@ -161,6 +186,8 @@ trash_name_changed (gpointer callback_data)
 
     g_free (link->details->display_name);
     link->details->display_name = g_settings_get_string (caja_desktop_preferences, CAJA_PREFERENCES_DESKTOP_TRASH_NAME);
+
+    caja_desktop_link_ensure_display_name (link);
     caja_desktop_link_changed (link);
 }
 
@@ -174,6 +201,8 @@ network_name_changed (gpointer callback_data)
 
     g_free (link->details->display_name);
     link->details->display_name = g_settings_get_string (caja_desktop_preferences, CAJA_PREFERENCES_DESKTOP_NETWORK_NAME);
+
+    caja_desktop_link_ensure_display_name (link);
     caja_desktop_link_changed (link);
 }
 
@@ -247,6 +276,7 @@ caja_desktop_link_new (CajaDesktopLinkType type)
         g_assert_not_reached();
     }
 
+    caja_desktop_link_ensure_display_name (link);
     create_icon_file (link);
 
     return link;
