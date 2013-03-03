@@ -1411,7 +1411,7 @@ report_delete_progress (CommonJob *job,
 	guint64 now;
 	char *files_left_s;
 
-	now = g_thread_gettime ();
+	now = g_get_monotonic_time () * 1000;
 	if (transfer_info->last_report_time != 0 &&
 	    ABS ((gint64)(transfer_info->last_report_time - now)) < 100 * NSEC_PER_MSEC) {
 		return;
@@ -2881,7 +2881,7 @@ report_copy_progress (CopyMoveJob *copy_job,
 
 	is_move = copy_job->is_move;
 
-	now = g_thread_gettime ();
+	now = g_get_monotonic_time () * 1000;
 
 	if (transfer_info->last_report_time != 0 &&
 	    ABS ((gint64)(transfer_info->last_report_time - now)) < 100 * NSEC_PER_MSEC) {

@@ -57,7 +57,7 @@ G_DEFINE_TYPE (CajaIconInfo,
 static void
 caja_icon_info_init (CajaIconInfo *icon)
 {
-    icon->last_use_time = g_thread_gettime ();
+    icon->last_use_time = g_get_monotonic_time () * 1000;
     icon->sole_owner = TRUE;
 }
 
@@ -80,7 +80,7 @@ pixbuf_toggle_notify (gpointer      info,
         g_object_remove_toggle_ref (object,
                                     pixbuf_toggle_notify,
                                     info);
-        icon->last_use_time = g_thread_gettime ();
+        icon->last_use_time = g_get_monotonic_time () * 1000;
         schedule_reap_cache ();
     }
 }
@@ -228,7 +228,7 @@ reap_cache (gpointer data)
 
     reapable_icons_left = TRUE;
 
-    time_now = g_thread_gettime ();
+    time_now = g_get_monotonic_time () * 1000;
 
     if (loadable_icon_cache)
     {
