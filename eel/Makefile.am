@@ -5,6 +5,7 @@ noinst_LTLIBRARIES=libeel-2.la
 INCLUDES = \
 	-DG_LOG_DOMAIN=\"Eel\" \
 	-I$(top_builddir) \
+	-I$(top_srcdir) \
 	$(CORE_CFLAGS) \
 	$(WARNING_CFLAGS) \
 	$(DISABLE_DEPRECATED_CFLAGS) \
