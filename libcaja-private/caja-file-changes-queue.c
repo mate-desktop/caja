@@ -60,7 +60,11 @@ typedef struct
     GList *head;
     GList *tail;
 #ifdef G_THREADS_ENABLED
+# if GLIB_CHECK_VERSION(3, 32, 0)
+    GMutex mutex;
+# else
     GMutex *mutex;
+# endif
 #endif
 } CajaFileChangesQueue;
 
@@ -72,7 +76,11 @@ caja_file_changes_queue_new (void)
     result = g_new0 (CajaFileChangesQueue, 1);
 
 #ifdef G_THREADS_ENABLED
+# if GLIB_CHECK_VERSION(3, 32, 0)
+    g_mutex_init (&result->mutex);
+# else
     result->mutex = g_mutex_new ();
+# endif
 #endif
     return result;
 }
@@ -127,7 +135,11 @@ caja_file_changes_queue_free (CajaFileChangesQueue *queue)
     g_list_free (queue->head);
 
 #ifdef G_THREADS_ENABLED
+# if GLIB_CHECK_VERSION(3, 32, 0)
+    g_mutex_clear (&queue->mutex);
+# else
     g_mutex_free (queue->mutex);
+# endif
 #endif
     g_free (queue);
 }
@@ -139,13 +151,21 @@ caja_file_changes_queue_add_common (CajaFileChangesQueue *queue,
                                     CajaFileChange *new_item)
 {
     /* enqueue the new queue item while locking down the list */
+#if GLIB_CHECK_VERSION(3, 32, 0)
+    MUTEX_LOCK (&queue->mutex);
+#else
     MUTEX_LOCK (queue->mutex);
+#endif
 
     queue->head = g_list_prepend (queue->head, new_item);
     if (queue->tail == NULL)
         queue->tail = queue->head;
 
-    MUTEX_UNLOCK (queue->mutex);
+#if GLIB_CHECK_VERSION(3, 32, 0)
+    MUTEX_UNLOCK (&queue->mutex);
+#else
+    MUTEX_UNLOCK (&queue->mutex);
+#endif
 }
 
 void
@@ -247,7 +267,11 @@ caja_file_changes_queue_get_change (CajaFileChangesQueue *queue)
     g_assert (queue != NULL);
 
     /* dequeue the tail item while locking down the list */
+#if GLIB_CHECK_VERSION (3, 32, 0)
+    MUTEX_LOCK (&queue->mutex);
+#else
     MUTEX_LOCK (queue->mutex);
+#endif
 
     if (queue->tail == NULL)
     {
@@ -263,7 +287,11 @@ caja_file_changes_queue_get_change (CajaFileChangesQueue *queue)
         queue->tail = new_tail;
     }
 
+#if GLIB_CHECK_VERSION (3, 32, 0)
+    MUTEX_UNLOCK (&queue->mutex);
+#else
     MUTEX_UNLOCK (queue->mutex);
+#endif
 
     return result;
 }

@@ -100,7 +100,11 @@ struct _CajaUndoStackManagerPrivate
   GQueue *stack;
   guint undo_levels;
   guint index;
+#if GLIB_CHECK_VERSION(3, 32, 0)
+  GMutex mutex;                /* Used to protect access to stack (because of async file ops) */
+#else
   GMutex *mutex;                /* Used to protect access to stack (because of async file ops) */
+#endif
   gboolean dispose_has_run;
   gboolean undo_redo_flag;
   gboolean confirm_delete;
@@ -269,7 +273,11 @@ caja_undostack_manager_init (CajaUndoStackManager * self)
 
   /* Initialize private fields */
   priv->stack = g_queue_new ();
+#if GLIB_CHECK_VERSION(3, 32, 0)
+  g_mutex_init (&priv->mutex);
+#else
   priv->mutex = g_mutex_new ();
+#endif
   priv->index = 0;
   priv->dispose_has_run = FALSE;
   priv->undo_redo_flag = FALSE;
@@ -285,14 +293,22 @@ caja_undostack_manager_dispose (GObject * object)
   if (priv->dispose_has_run)
     return;
 
+#if GLIB_CHECK_VERSION(3, 32, 0)
+  g_mutex_lock (&priv->mutex);
+#else
   g_mutex_lock (priv->mutex);
+#endif
 
   /* Free each undoable action in the stack and the stack itself */
   undostack_dispose_all (priv->stack);
   g_queue_free (priv->stack);
+#if GLIB_CHECK_VERSION(3, 32, 0)
+  g_mutex_unlock (&priv->mutex);
+  g_mutex_clear (&priv->mutex);
+#else
   g_mutex_unlock (priv->mutex);
-
   g_mutex_free (priv->mutex);
+#endif
 
   priv->dispose_has_run = TRUE;
 
@@ -323,9 +339,17 @@ caja_undostack_manager_set_property (GObject * object, guint prop_id,
       new_undo_levels = g_value_get_uint (value);
       if (new_undo_levels > 0 && (priv->undo_levels != new_undo_levels)) {
         priv->undo_levels = new_undo_levels;
+#if GLIB_CHECK_VERSION(3, 32, 0)
+        g_mutex_lock (&priv->mutex);
+#else
         g_mutex_lock (priv->mutex);
+#endif
         stack_fix_size (priv);
+#if GLIB_CHECK_VERSION(3, 32, 0)
+        g_mutex_unlock (&priv->mutex);
+#else
         g_mutex_unlock (priv->mutex);
+#endif
         do_menu_update (manager);
       }
       break;
@@ -412,7 +436,12 @@ caja_undostack_manager_redo (CajaUndoStackManager * manager,
   char *puri;
   CajaUndoStackManagerPrivate *priv = manager->priv;
 
+#if GLIB_CHECK_VERSION(3, 32, 0)
+  g_mutex_lock (&priv->mutex);
+#else
   g_mutex_lock (priv->mutex);
+#endif
+
 
   CajaUndoStackActionData *action = stack_scroll_left (priv);
 
@@ -421,7 +450,12 @@ caja_undostack_manager_redo (CajaUndoStackManager * manager,
     action->locked = TRUE;
   }
 
+#if GLIB_CHECK_VERSION(3, 32, 0)
+  g_mutex_unlock (&priv->mutex);
+#else
   g_mutex_unlock (priv->mutex);
+#endif
+
 
   do_menu_update (manager);
 
@@ -551,7 +585,11 @@ caja_undostack_manager_undo (CajaUndoStackManager * manager,
   char *new_name;
   CajaUndoStackManagerPrivate *priv = manager->priv;
 
+#if GLIB_CHECK_VERSION(3, 32, 0)
+  g_mutex_lock (&priv->mutex);
+#else
   g_mutex_lock (priv->mutex);
+#endif
 
   CajaUndoStackActionData *action = stack_scroll_right (priv);
 
@@ -559,7 +597,11 @@ caja_undostack_manager_undo (CajaUndoStackManager * manager,
     action->locked = TRUE;
   }
 
+#if GLIB_CHECK_VERSION(3, 32, 0)
+  g_mutex_unlock (&priv->mutex);
+#else
   g_mutex_unlock (priv->mutex);
+#endif
 
   do_menu_update (manager);
 
@@ -715,11 +757,19 @@ caja_undostack_manager_add_action (CajaUndoStackManager * manager,
 
   action->manager = manager;
 
+#if GLIB_CHECK_VERSION(3, 32, 0)
+  g_mutex_lock (&priv->mutex);
+#else
   g_mutex_lock (priv->mutex);
+#endif
 
   stack_push_action (priv, action);
 
+#if GLIB_CHECK_VERSION(3, 32, 0)
+  g_mutex_unlock (&priv->mutex);
+#else
   g_mutex_unlock (priv->mutex);
+#endif
 
   do_menu_update (manager);
 
@@ -775,7 +825,12 @@ caja_undostack_manager_trash_has_emptied (CajaUndoStackManager *
 
   /* Clear actions from the oldest to the newest move to trash */
 
+#if GLIB_CHECK_VERSION(3, 32, 0)
+  g_mutex_lock (&priv->mutex);
+#else
   g_mutex_lock (priv->mutex);
+#endif
+
   clear_redo_actions (priv);
   CajaUndoStackActionData *action = NULL;
 
@@ -800,7 +855,11 @@ caja_undostack_manager_trash_has_emptied (CajaUndoStackManager *
   }
 
   g_queue_free (tmp_stack);
+#if GLIB_CHECK_VERSION(3, 32, 0)
+  g_mutex_unlock (&priv->mutex);
+#else
   g_mutex_unlock (priv->mutex);
+#endif
   do_menu_update (manager);
 }
 
@@ -1863,7 +1922,11 @@ do_menu_update (CajaUndoStackManager * manager)
   CajaUndoStackManagerPrivate *priv = manager->priv;
   CajaUndoStackMenuData *data = g_slice_new0 (CajaUndoStackMenuData);
 
+#if GLIB_CHECK_VERSION(3, 32, 0)
+  g_mutex_lock (&priv->mutex);
+#else
   g_mutex_lock (priv->mutex);
+#endif
 
   action = get_next_undo_action (priv);
   data->undo_label = get_undo_label (action);
@@ -1874,7 +1937,11 @@ do_menu_update (CajaUndoStackManager * manager)
   data->redo_label = get_redo_label (action);
   data->redo_description = get_redo_description (action);
 
+#if GLIB_CHECK_VERSION(3, 32, 0)
+  g_mutex_unlock (&priv->mutex);
+#else
   g_mutex_unlock (priv->mutex);
+#endif
 
   /* Update menus */
   g_signal_emit_by_name (manager, "request-menu-update", data);
