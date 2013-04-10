@@ -164,7 +164,7 @@ caja_file_changes_queue_add_common (CajaFileChangesQueue *queue,
 #if GLIB_CHECK_VERSION(3, 32, 0)
     MUTEX_UNLOCK (&queue->mutex);
 #else
-    MUTEX_UNLOCK (&queue->mutex);
+    MUTEX_UNLOCK (queue->mutex);
 #endif
 }
 
