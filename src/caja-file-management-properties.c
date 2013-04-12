@@ -94,7 +94,6 @@ static const char * const zoom_values[] =
 
 static const char * const sort_order_values[] =
 {
-    "manually",
     "name",
     "directory",
     "size",
