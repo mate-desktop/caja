@@ -527,7 +527,7 @@ caja_window_slot_open_location_full (CajaWindowSlot *slot,
     char *old_uri, *new_uri;
     int new_slot_position;
     GList *l;
-    gboolean target_navigation, target_same;
+    gboolean target_navigation = FALSE, target_same = FALSE;
     gboolean is_desktop;
 
     window = slot->pane->window;
