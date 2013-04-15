@@ -1361,24 +1361,20 @@ caja_application_close_parent_windows (CajaSpatialWindow *window)
 void
 caja_application_close_all_spring_loaded_windows (void)
 {
-    GList *list_copy;
     GList *l;
     
-    list_copy = g_list_copy (caja_application_spring_loaded_window_list);
     /* Not hiding them first as below, because having the spring stay open 
        after the snap feels comfortable. */
-    for (l = list_copy; l != NULL; l = l->next)
+    for (l = caja_application_spring_loaded_window_list; l != NULL; l = l->next)
     {
         CajaWindow *window;
         
         window = CAJA_WINDOW (l->data);
         
-        if (CAJA_IS_SPATIAL_WINDOW (window))
-        {
-            caja_window_close (window);
-        }
+        caja_window_close (window);
     }
-    g_list_free (list_copy);
+    g_list_free (caja_application_spring_loaded_window_list);
+    caja_application_spring_loaded_window_list = NULL;
 }
 
 void
