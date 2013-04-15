@@ -55,7 +55,8 @@ extern "C" {
         CAJA_WINDOW_OPEN_FLAG_CLOSE_BEHIND = 1<<0,
         /* used in navigation mode */
         CAJA_WINDOW_OPEN_FLAG_NEW_WINDOW = 1<<1,
-        CAJA_WINDOW_OPEN_FLAG_NEW_TAB = 1<<2
+        CAJA_WINDOW_OPEN_FLAG_NEW_TAB = 1<<2,
+        CAJA_WINDOW_OPEN_FLAG_SPRING_LOADED = 1<<3
     } CajaWindowOpenFlags;
 
     typedef	enum
@@ -105,6 +106,7 @@ extern "C" {
         void           (* title_changed)            (CajaWindowInfo *window,
                 const char         *title);
         void           (* hidden_files_mode_changed)(CajaWindowInfo *window);
+        void           (* spring_loaded_done)       (CajaWindowInfo *window);
 
         /* VTable: */
         /* A view calls this once after a load_location, once it starts loading the

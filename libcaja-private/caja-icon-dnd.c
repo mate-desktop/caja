@@ -1401,6 +1401,8 @@ set_drop_target (CajaIconContainer *container,
     container->details->drop_target = icon;
     caja_icon_container_update_icon (container, old_icon);
     caja_icon_container_update_icon (container, icon);
+    
+    caja_icon_container_drop_target_changed (container, icon ? icon->data : NULL);
 }
 
 static void

@@ -236,6 +236,8 @@ typedef struct
             CajaIconData *data);
     void         (* icon_removed)             (CajaIconContainer *container,
             CajaIconData *data);
+    void         (* icon_drop_target_changed) (CajaIconContainer *container,
+                                               CajaIconData *data);        
     void         (* cleared)                  (CajaIconContainer *container);
     gboolean     (* start_interactive_search) (CajaIconContainer *container);
 } CajaIconContainerClass;
@@ -339,6 +341,8 @@ void              caja_icon_container_set_use_drop_shadows          (CajaIconCon
         gboolean                use_drop_shadows);
 char*             caja_icon_container_get_icon_description          (CajaIconContainer  *container,
         CajaIconData       *data);
+void              caja_icon_container_drop_target_changed           (CajaIconContainer  *container,
+                                                                     CajaIconData       *icon_data);
 gboolean          caja_icon_container_get_allow_moves               (CajaIconContainer  *container);
 void              caja_icon_container_set_allow_moves               (CajaIconContainer  *container,
         gboolean                allow_moves);

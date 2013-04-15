@@ -1854,76 +1854,81 @@ activate_files (ActivateParameters *parameters)
         }
     }
 
-    launch_desktop_files = g_list_reverse (launch_desktop_files);
-    for (l = launch_desktop_files; l != NULL; l = l->next)
-    {
-        file = CAJA_FILE (l->data);
+    flags = parameters->flags;
 
-        activate_desktop_file (parameters, file);
-    }
+    /* If spring loading, we want to ignore anything but folders*/
+    if ((flags & CAJA_WINDOW_OPEN_FLAG_SPRING_LOADED) == 0)
+    { 
+	    launch_desktop_files = g_list_reverse (launch_desktop_files);
+	    for (l = launch_desktop_files; l != NULL; l = l->next)
+	    {
+		file = CAJA_FILE (l->data);
 
-    old_working_dir = NULL;
-    if (parameters->activation_directory &&
-            (launch_files != NULL || launch_in_terminal_files != NULL))
-    {
-        old_working_dir = g_get_current_dir ();
-        g_chdir (parameters->activation_directory);
+		activate_desktop_file (parameters, file);
+	    }
 
-    }
+	    old_working_dir = NULL;
+	    if (parameters->activation_directory &&
+		    (launch_files != NULL || launch_in_terminal_files != NULL))
+	    {
+		old_working_dir = g_get_current_dir ();
+		g_chdir (parameters->activation_directory);
 
-    launch_files = g_list_reverse (launch_files);
-    for (l = launch_files; l != NULL; l = l->next)
-    {
-        file = CAJA_FILE (l->data);
+	    }
 
-        uri = caja_file_get_activation_uri (file);
-        executable_path = g_filename_from_uri (uri, NULL, NULL);
-        quoted_path = g_shell_quote (executable_path);
-        name = caja_file_get_name (file);
+	    launch_files = g_list_reverse (launch_files);
+	    for (l = launch_files; l != NULL; l = l->next)
+	    {
+		file = CAJA_FILE (l->data);
 
-        caja_debug_log (FALSE, CAJA_DEBUG_LOG_DOMAIN_USER,
-                        "directory view activate_callback launch_file window=%p: %s",
-                        parameters->parent_window, quoted_path);
+		uri = caja_file_get_activation_uri (file);
+		executable_path = g_filename_from_uri (uri, NULL, NULL);
+		quoted_path = g_shell_quote (executable_path);
+		name = caja_file_get_name (file);
 
-        caja_launch_application_from_command (screen, name, quoted_path, FALSE, NULL);
-        g_free (name);
-        g_free (quoted_path);
-        g_free (executable_path);
-        g_free (uri);
+		caja_debug_log (FALSE, CAJA_DEBUG_LOG_DOMAIN_USER,
+		                "directory view activate_callback launch_file window=%p: %s",
+		                parameters->parent_window, quoted_path);
 
-    }
+		caja_launch_application_from_command (screen, name, quoted_path, FALSE, NULL);
+		g_free (name);
+		g_free (quoted_path);
+		g_free (executable_path);
+		g_free (uri);
 
-    launch_in_terminal_files = g_list_reverse (launch_in_terminal_files);
-    for (l = launch_in_terminal_files; l != NULL; l = l->next)
-    {
-        file = CAJA_FILE (l->data);
+	    }
 
-        uri = caja_file_get_activation_uri (file);
-        executable_path = g_filename_from_uri (uri, NULL, NULL);
-        quoted_path = g_shell_quote (executable_path);
-        name = caja_file_get_name (file);
+	    launch_in_terminal_files = g_list_reverse (launch_in_terminal_files);
+	    for (l = launch_in_terminal_files; l != NULL; l = l->next)
+	    {
+		file = CAJA_FILE (l->data);
 
-        caja_debug_log (FALSE, CAJA_DEBUG_LOG_DOMAIN_USER,
-                        "directory view activate_callback launch_in_terminal window=%p: %s",
-                        parameters->parent_window, quoted_path);
+		uri = caja_file_get_activation_uri (file);
+		executable_path = g_filename_from_uri (uri, NULL, NULL);
+		quoted_path = g_shell_quote (executable_path);
+		name = caja_file_get_name (file);
 
-        caja_launch_application_from_command (screen, name, quoted_path, TRUE, NULL);
-        g_free (name);
-        g_free (quoted_path);
-        g_free (executable_path);
-        g_free (uri);
-    }
+		caja_debug_log (FALSE, CAJA_DEBUG_LOG_DOMAIN_USER,
+		                "directory view activate_callback launch_in_terminal window=%p: %s",
+		                parameters->parent_window, quoted_path);
 
-    if (old_working_dir != NULL)
-    {
-        g_chdir (old_working_dir);
-        g_free (old_working_dir);
+		caja_launch_application_from_command (screen, name, quoted_path, TRUE, NULL);
+		g_free (name);
+		g_free (quoted_path);
+		g_free (executable_path);
+		g_free (uri);
+	    }
+
+	    if (old_working_dir != NULL)
+	    {
+		g_chdir (old_working_dir);
+		g_free (old_working_dir);
+	    }
     }
 
     open_in_view_files = g_list_reverse (open_in_view_files);
     count = g_list_length (open_in_view_files);
 
-    flags = parameters->flags;
     if (count > 1)
     {
         if ((parameters->flags & CAJA_WINDOW_OPEN_FLAG_NEW_WINDOW) == 0)
