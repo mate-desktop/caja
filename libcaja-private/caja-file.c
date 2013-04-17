@@ -7158,6 +7158,10 @@ caja_file_is_binary (CajaFile *file)
 	 */
 	
 	fp = g_fopen (g_file_get_path (caja_file_get_location (file)), "r");
+	if (fp == NULL)
+	{
+		return FALSE;
+	}
 	for (i = 0; i < 4096; i++) {
 		c = fgetc(fp);
 		if (c == EOF) {
