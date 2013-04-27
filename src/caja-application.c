@@ -102,6 +102,9 @@ static GList *caja_application_desktop_windows;
 /* Keeps track of all the caja windows. */
 static GList *caja_application_window_list;
 
+/* Keeps track of all spring loaded windows */
+static GList *caja_application_spring_loaded_window_list;
+
 /* Keeps track of all the object windows */
 static GList *caja_application_spatial_window_list;
 
@@ -215,6 +218,12 @@ caja_application_get_window_list (void)
 
 GList *
 caja_application_get_spatial_window_list (void)
+{
+    return caja_application_spatial_window_list;
+}
+
+GList *
+caja_application_get_spring_loaded_window_list (void)
 {
     return caja_application_spatial_window_list;
 }
@@ -810,7 +819,8 @@ open_window (CajaApplication *application,
                  startup_id,
                  location,
                  screen,
-                 NULL);
+                 NULL,
+                 FALSE);
     }
 
     caja_window_go_to (window, location);
@@ -1349,6 +1359,25 @@ caja_application_close_parent_windows (CajaSpatialWindow *window)
 }
 
 void
+caja_application_close_all_spring_loaded_windows (void)
+{
+    GList *l;
+    
+    /* Not hiding them first as below, because having the spring stay open 
+       after the snap feels comfortable. */
+    for (l = caja_application_spring_loaded_window_list; l != NULL; l = l->next)
+    {
+        CajaWindow *window;
+        
+        window = CAJA_WINDOW (l->data);
+        
+        caja_window_close (window);
+    }
+    g_list_free (caja_application_spring_loaded_window_list);
+    caja_application_spring_loaded_window_list = NULL;
+}
+
+void
 caja_application_close_all_spatial_windows (void)
 {
     GList *list_copy;
@@ -1456,7 +1485,8 @@ caja_application_get_spatial_window (CajaApplication *application,
                                     const char      *startup_id,
                                     GFile           *location,
                                     GdkScreen       *screen,
-                                    gboolean        *existing)
+                                    gboolean        *existing,
+                                    gboolean        spring_loaded)
 {
     CajaWindow *window;
     gchar *uri;
@@ -1504,6 +1534,10 @@ caja_application_get_spatial_window (CajaApplication *application,
     }
 
     caja_application_spatial_window_list = g_list_prepend (caja_application_spatial_window_list, window);
+    
+    if (spring_loaded)
+        caja_application_spring_loaded_window_list = g_list_prepend (caja_application_spring_loaded_window_list, window);
+    
     g_object_weak_ref (G_OBJECT (window),
                        spatial_window_destroyed_callback, NULL);
 
@@ -1720,7 +1754,8 @@ autorun_show_window (GMount *mount, gpointer user_data)
                                                       NULL,
                                                       location,
                                                       gdk_screen_get_default (),
-                                                      NULL);
+                                                      NULL,
+                                                      FALSE);
     }
 
     caja_window_go_to (window, location);
@@ -2287,7 +2322,8 @@ caja_application_load_session (CajaApplication *application)
                     location = g_file_new_for_uri (location_uri);
                     window = caja_application_get_spatial_window (application, NULL, NULL, 
                     											  location, gdk_screen_get_default (),
-                    											  NULL);
+                    											  NULL,
+                    											  FALSE);
 
 					caja_window_go_to (window, location);
 

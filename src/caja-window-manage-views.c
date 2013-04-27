@@ -83,6 +83,9 @@
  */
 #define MAX_URI_IN_DIALOG_LENGTH 60
 
+/* Having a brief delay before spring-loaded folders snap shut feels comfortable*/
+#define SPRING_LOADED_CLOSE_DELAY 500
+
 static void begin_location_change                     (CajaWindowSlot         *slot,
         GFile                      *location,
         GFile                      *previous_location,
@@ -507,6 +510,18 @@ new_window_show_callback (GtkWidget *widget,
                                           user_data);
 }
 
+static gboolean
+spring_loaded_close_callback (gpointer data)
+{
+	caja_application_close_all_spring_loaded_windows ();
+	return FALSE;
+}
+
+static void
+spring_loaded_done_callback (gpointer data)
+{
+	g_timeout_add (SPRING_LOADED_CLOSE_DELAY, spring_loaded_close_callback, data);
+}
 
 void
 caja_window_slot_open_location_full (CajaWindowSlot *slot,
@@ -601,7 +616,8 @@ caja_window_slot_open_location_full (CajaWindowSlot *slot,
              NULL,
              location,
              gtk_window_get_screen (GTK_WINDOW (window)),
-             &existing);
+             &existing,
+             ((flags & CAJA_WINDOW_OPEN_FLAG_SPRING_LOADED) != 0));
     }
 
     /* if the spatial window is already showing, present it and set the
@@ -659,6 +675,15 @@ caja_window_slot_open_location_full (CajaWindowSlot *slot,
                                          G_CONNECT_AFTER);
             }
         }
+    }
+
+    if ((flags & CAJA_WINDOW_OPEN_FLAG_SPRING_LOADED) != 0)
+    {
+        g_signal_connect_object (CAJA_WINDOW_INFO (window),
+                                 "spring_loaded_done",
+                                 G_CALLBACK (spring_loaded_done_callback),
+                                 NULL,
+                                 G_CONNECT_AFTER);
     }
 
     if (target_slot == NULL)

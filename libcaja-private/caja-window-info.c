@@ -31,6 +31,7 @@ enum
     SELECTION_CHANGED,
     TITLE_CHANGED,
     HIDDEN_FILES_MODE_CHANGED,
+    SPRING_LOADED_DONE,
     LAST_SIGNAL
 };
 
@@ -81,6 +82,15 @@ caja_window_info_base_init (gpointer g_class)
                           g_cclosure_marshal_VOID__VOID,
                           G_TYPE_NONE, 0);
 
+        caja_window_info_signals[SPRING_LOADED_DONE] =
+            g_signal_new ("spring_loaded_done",
+                          CAJA_TYPE_WINDOW_INFO,
+                          G_SIGNAL_RUN_LAST,
+                          G_STRUCT_OFFSET (CajaWindowInfoIface, spring_loaded_done),
+                          NULL, NULL,
+                          g_cclosure_marshal_VOID__VOID,
+                          G_TYPE_NONE, 0);
+        
         initialized = TRUE;
     }
 }

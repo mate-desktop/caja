@@ -86,6 +86,7 @@ void                 caja_application_startup           (CajaApplication *applic
         char               **urls);
 GList *              caja_application_get_window_list           (void);
 GList *              caja_application_get_spatial_window_list    (void);
+GList *              caja_application_get_spring_loaded_window_list (void);
 unsigned int         caja_application_get_n_windows            (void);
 
 CajaWindow *     caja_application_get_spatial_window     (CajaApplication *application,
@@ -93,7 +94,8 @@ CajaWindow *     caja_application_get_spatial_window     (CajaApplication *appli
         const char      *startup_id,
         GFile           *location,
         GdkScreen       *screen,
-        gboolean        *existing);
+        gboolean        *existing,
+        gboolean        spring_loaded);
 
 CajaWindow *     caja_application_create_navigation_window     (CajaApplication *application,
         const char          *startup_id,
@@ -102,6 +104,7 @@ CajaWindow *     caja_application_create_navigation_window     (CajaApplication 
 void caja_application_close_all_navigation_windows (void);
 void caja_application_close_parent_windows     (CajaSpatialWindow *window);
 void caja_application_close_all_spatial_windows  (void);
+void caja_application_close_all_spring_loaded_windows (void);
 void caja_application_open_desktop      (CajaApplication *application);
 void caja_application_close_desktop     (void);
 gboolean caja_application_save_accel_map    (gpointer data);

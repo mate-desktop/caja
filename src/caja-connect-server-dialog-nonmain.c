@@ -91,7 +91,8 @@ caja_connect_server_dialog_display_location_async (CajaConnectServerDialog *self
     							  NULL,
     							  location,
     							  gtk_widget_get_screen (widget),
-    							  NULL);
+    							  NULL,
+    							  FALSE);
     }
 
     caja_window_go_to_full (window, location,

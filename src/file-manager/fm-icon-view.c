@@ -66,6 +66,7 @@
 #include "caja-audio-mime-types.h"
 
 #define POPUP_PATH_ICON_APPEARANCE		"/selection/Icon Appearance Items"
+#define SPRING_FOLDERS_DELAY			500
 
 enum
 {
@@ -113,6 +114,9 @@ struct FMIconViewDetails
     gboolean compact;
 
     gulong clipboard_handler_id;
+    
+    guint spring_id;
+    CajaFile *spring_drop_target;
 };
 
 
@@ -2540,6 +2544,55 @@ selection_changed_callback (CajaIconContainer *container,
     fm_directory_view_notify_selection_changed (FM_DIRECTORY_VIEW (icon_view));
 }
 
+static gboolean
+spring_folder (gpointer data)
+{
+    FMIconView *icon_view;
+    icon_view = data;
+    
+    fm_directory_view_activate_file (FM_DIRECTORY_VIEW (icon_view),
+                                     icon_view->details->spring_drop_target,
+                                     CAJA_WINDOW_OPEN_ACCORDING_TO_MODE,
+                                     CAJA_WINDOW_OPEN_FLAG_SPRING_LOADED);
+    
+    icon_view->details->spring_id = 0;
+    return FALSE;
+}
+
+static void
+drop_target_changed_callback (CajaIconContainer *container,
+			      CajaIconData *data,
+			      FMIconView *icon_view)
+{
+    if (icon_view->details->spring_id > 0)
+    {
+        g_source_remove (icon_view->details->spring_id);
+    }
+    
+    if (data == NULL)
+    {
+        return;
+    }
+    
+    icon_view->details->spring_drop_target = CAJA_FILE (data);
+    icon_view->details->spring_id = g_timeout_add (SPRING_FOLDERS_DELAY, spring_folder, icon_view);
+}
+
+static void
+drag_end_callback (CajaIconContainer *container,
+		   GdkDragContext *context,
+		   FMIconView *icon_view)
+{
+
+	if (icon_view->details->spring_id > 0) {
+		g_source_remove (icon_view->details->spring_id);
+		icon_view->details->spring_id = 0;
+	}
+	
+	g_signal_emit_by_name (fm_directory_view_get_caja_window (FM_DIRECTORY_VIEW(icon_view)), "spring_loaded_done");
+
+}
+
 static void
 icon_container_context_click_selection_callback (CajaIconContainer *container,
         GdkEventButton *event,
@@ -3001,6 +3054,10 @@ create_icon_container (FMIconView *icon_view)
                              G_CALLBACK (fm_icon_view_icon_text_changed_callback), icon_view, 0);
     g_signal_connect_object (icon_container, "selection_changed",
                              G_CALLBACK (selection_changed_callback), icon_view, 0);
+    g_signal_connect_object (icon_container, "icon_drop_target_changed",
+                             G_CALLBACK (drop_target_changed_callback), icon_view, 0);
+    g_signal_connect_object (icon_container, "drag_end",
+                             G_CALLBACK (drag_end_callback), icon_view, 0);
     /* FIXME: many of these should move into fm-icon-container as virtual methods */
     g_signal_connect_object (icon_container, "get_icon_uri",
                              G_CALLBACK (get_icon_uri_callback), icon_view, 0);

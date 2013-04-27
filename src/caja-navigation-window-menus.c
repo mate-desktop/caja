@@ -642,7 +642,8 @@ action_folder_window_callback (GtkAction *action,
              NULL,
              current_location,
              gtk_window_get_screen (GTK_WINDOW (current_window)),
-             NULL);
+             NULL,
+             FALSE);
 
     caja_window_go_to (window, current_location);
 

@@ -143,7 +143,8 @@ skeleton_handle_show_item_properties_cb (CajaFreedesktopFileManager1 *object,
                                                       startup_id,
                                                       file,
                                                       gdk_screen_get_default (),
-                                                      NULL);
+                                                      NULL,
+                                                      FALSE);
         fm_properties_window_present (files, window);
         g_object_unref (file);
     }

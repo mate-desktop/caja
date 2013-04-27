@@ -286,6 +286,7 @@ enum
     SELECTION_CHANGED,
     ICON_ADDED,
     ICON_REMOVED,
+    ICON_DROP_TARGET_CHANGED,
     CLEARED,
     START_INTERACTIVE_SEARCH,
     LAST_SIGNAL
@@ -6524,6 +6525,16 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                         g_cclosure_marshal_VOID__POINTER,
                         G_TYPE_NONE, 1, G_TYPE_POINTER);
 
+    signals[ICON_DROP_TARGET_CHANGED]
+        = g_signal_new ("icon_drop_target_changed",
+                        G_TYPE_FROM_CLASS (class),
+                        G_SIGNAL_RUN_LAST,
+                        G_STRUCT_OFFSET (CajaIconContainerClass,
+                                         icon_drop_target_changed),
+                        NULL, NULL,
+                        g_cclosure_marshal_VOID__POINTER,
+                        G_TYPE_NONE, 1, G_TYPE_POINTER);				
+
     signals[CLEARED]
         = g_signal_new ("cleared",
                         G_TYPE_FROM_CLASS (class),
@@ -10385,6 +10396,14 @@ caja_icon_container_accessible_get_type (void)
     }
 
     return type;
+}
+
+void
+caja_icon_container_drop_target_changed (CajaIconContainer *container,
+				   	     CajaIconData *icon_data)
+{
+	g_signal_emit (G_OBJECT (container), signals[ICON_DROP_TARGET_CHANGED],
+		       0, icon_data);
 }
 
 #if ! defined (CAJA_OMIT_SELF_CHECK)
