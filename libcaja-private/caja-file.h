@@ -218,10 +218,6 @@ void                    caja_file_set_keywords                      (CajaFile   
         GList                          *keywords);
 GList *                 caja_file_get_emblem_icons                  (CajaFile                   *file,
         char                          **exclude);
-GList *                 caja_file_get_emblem_pixbufs                (CajaFile                   *file,
-        int                             size,
-        gboolean                        force_size,
-        char                          **exclude);
 char *                  caja_file_get_top_left_text                 (CajaFile                   *file);
 char *                  caja_file_peek_top_left_text                (CajaFile                   *file,
         gboolean                        need_large_text,

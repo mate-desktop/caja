@@ -583,8 +583,10 @@ add_emblem (CajaSidebarTitle *sidebar_title, GdkPixbuf *pixbuf)
 static void
 update_emblems (CajaSidebarTitle *sidebar_title)
 {
-    GList *pixbufs, *p;
-    GdkPixbuf *pixbuf;
+    GList        *emblem_icons, *l;
+    GIcon        *icon;
+    CajaIconInfo *icon_info;
+    GdkPixbuf    *pixbuf;
 
     /* exit if we don't have the file yet */
     if (sidebar_title->details->file == NULL)
@@ -598,19 +600,23 @@ update_emblems (CajaSidebarTitle *sidebar_title)
                            NULL);
 
     /* fetch the emblem icons from metadata */
-    pixbufs = caja_file_get_emblem_pixbufs (sidebar_title->details->file,
-                                            caja_icon_get_emblem_size_for_icon_size (CAJA_ICON_SIZE_STANDARD),
-                                            FALSE,
-                                            NULL);
+    emblem_icons = caja_file_get_emblem_icons (sidebar_title->details->file, NULL);
 
     /* loop through the list of emblems, installing them in the box */
-    for (p = pixbufs; p != NULL; p = p->next)
+    for (l = emblem_icons; l != NULL; l = l->next)
     {
-        pixbuf = p->data;
+        icon = l->data;
+        icon_info = caja_icon_info_lookup (icon,
+        			caja_icon_get_emblem_size_for_icon_size (CAJA_ICON_SIZE_STANDARD));
+
+        pixbuf = caja_icon_info_get_pixbuf_nodefault (icon_info);
         add_emblem (sidebar_title, pixbuf);
+
         g_object_unref (pixbuf);
+        g_object_unref (icon_info);
+        g_object_unref (icon);
     }
-    g_list_free (pixbufs);
+    g_list_free (emblem_icons);
 }
 
 /* return the filename text */

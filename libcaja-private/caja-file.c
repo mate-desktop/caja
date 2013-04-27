@@ -6607,46 +6607,6 @@ caja_file_get_emblem_icons (CajaFile *file,
 	return icons;
 }
 
-GList *
-caja_file_get_emblem_pixbufs (CajaFile *file,
-				  int size,
-				  gboolean force_size,
-				  char **exclude)
-{
-	GList *icons, *l;
-	GList *pixbufs;
-	GIcon *icon;
-	GdkPixbuf *pixbuf;
-	CajaIconInfo *icon_info;
-
-	icons = caja_file_get_emblem_icons (file, exclude);
-	pixbufs = NULL;
-
-	for (l = icons; l != NULL; l = l->next) {
-		icon = l->data;
-
-		icon_info = caja_icon_info_lookup (icon, size);
-		if (force_size) {
-			pixbuf = caja_icon_info_get_pixbuf_nodefault_at_size (icon_info, size);
-		} else {
-			pixbuf = caja_icon_info_get_pixbuf_nodefault (icon_info);
-		}
-
-		if (pixbuf) {
-			pixbufs = g_list_prepend (pixbufs, pixbuf);
-		}
-
-
-		g_object_unref (icon_info);
-		g_object_unref (icon);
-	}
-	g_list_free (icons);
-
-	return g_list_reverse (pixbufs);
-
-
-}
-
 static GList *
 sort_keyword_list_and_remove_duplicates (GList *keywords)
 {

@@ -1208,12 +1208,10 @@ caja_icon_container_update_scroll_region (CajaIconContainer *container)
     if (gtk_adjustment_get_step_increment (hadj) != step_increment)
     {
         gtk_adjustment_set_step_increment (hadj, step_increment);
-        gtk_adjustment_changed (hadj);
     }
     if (gtk_adjustment_get_step_increment (vadj) != step_increment)
     {
         gtk_adjustment_set_step_increment (vadj, step_increment);
-        gtk_adjustment_changed (vadj);
     }
     /* Now that we have a new scroll region, clamp the
      * adjustments so we are within the valid scroll area.
@@ -4551,7 +4549,7 @@ realize (GtkWidget *widget)
        set on it is drawn by X. */
     if (container->details->is_desktop)
     {
-        gdk_x11_drawable_get_xid (gtk_layout_get_bin_window (GTK_LAYOUT (widget)));
+        GDK_WINDOW_XID (gtk_layout_get_bin_window (GTK_LAYOUT (widget)));
     }
 
     /* Set up DnD.  */
@@ -7475,7 +7473,6 @@ static CajaIconInfo *
 caja_icon_container_get_icon_images (CajaIconContainer *container,
                                      CajaIconData      *data,
                                      int                    size,
-                                     GList                **emblem_pixbufs,
                                      char                 **embedded_text,
                                      gboolean               for_drag_accept,
                                      gboolean               need_large_embeddded_text,
@@ -7487,7 +7484,7 @@ caja_icon_container_get_icon_images (CajaIconContainer *container,
     klass = CAJA_ICON_CONTAINER_GET_CLASS (container);
     g_assert (klass->get_icon_images != NULL);
 
-    return klass->get_icon_images (container, data, size, emblem_pixbufs, embedded_text, for_drag_accept, need_large_embeddded_text, embedded_text_needs_loading, has_open_window);
+    return klass->get_icon_images (container, data, size, embedded_text, for_drag_accept, need_large_embeddded_text, embedded_text_needs_loading, has_open_window);
 }
 
 static void
@@ -7656,7 +7653,6 @@ caja_icon_container_update_icon (CajaIconContainer *container,
     int n_attach_points;
     gboolean has_embedded_text_rect;
     GdkPixbuf *pixbuf;
-    GList *emblem_pixbufs;
     char *editable_text, *additional_text;
     char *embedded_text;
     GdkRectangle embedded_text_rect;
@@ -7689,25 +7685,30 @@ caja_icon_container_update_icon (CajaIconContainer *container,
     icon_size = MAX (icon_size, min_image_size);
     icon_size = MIN (icon_size, max_image_size);
 
+    //DEBUG ("Icon size, getting for size %d", icon_size);
+
     /* Get the icons. */
-    emblem_pixbufs = NULL;
     embedded_text = NULL;
     large_embedded_text = icon_size > ICON_SIZE_FOR_LARGE_EMBEDDED_TEXT;
     icon_info = caja_icon_container_get_icon_images (container, icon->data, icon_size,
-                &emblem_pixbufs,
                 &embedded_text,
                 icon == details->drop_target,
                 large_embedded_text, &embedded_text_needs_loading,
                 &has_open_window);
 
-
     if (container->details->forced_icon_size > 0)
+    {
         pixbuf = caja_icon_info_get_pixbuf_at_size (icon_info, icon_size);
+    }
     else
+    {
         pixbuf = caja_icon_info_get_pixbuf (icon_info);
+    }
+
     caja_icon_info_get_attach_points (icon_info, &attach_points, &n_attach_points);
-    has_embedded_text_rect = caja_icon_info_get_embedded_rect (icon_info,
-                             &embedded_text_rect);
+    has_embedded_text_rect = caja_icon_info_get_embedded_rect (icon_info, &embedded_text_rect);
+
+    g_object_unref (icon_info);
 
     if (has_embedded_text_rect && embedded_text_needs_loading)
     {
@@ -7741,18 +7742,14 @@ caja_icon_container_update_icon (CajaIconContainer *container,
 
     caja_icon_canvas_item_set_image (icon->item, pixbuf);
     caja_icon_canvas_item_set_attach_points (icon->item, attach_points, n_attach_points);
-    caja_icon_canvas_item_set_emblems (icon->item, emblem_pixbufs);
     caja_icon_canvas_item_set_embedded_text_rect (icon->item, &embedded_text_rect);
     caja_icon_canvas_item_set_embedded_text (icon->item, embedded_text);
 
     /* Let the pixbufs go. */
     g_object_unref (pixbuf);
-    g_list_free_full (emblem_pixbufs, g_object_unref);
 
     g_free (editable_text);
     g_free (additional_text);
-
-    g_object_unref (icon_info);
 }
 
 static gboolean

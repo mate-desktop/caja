@@ -81,8 +81,6 @@ extern "C" {
     								GdkBitmap                **mask,
     								GdkColormap		 *colormap);
 #endif
-    void        caja_icon_canvas_item_set_emblems              (CajaIconCanvasItem       *item,
-            GList                        *emblem_pixbufs);
     void        caja_icon_canvas_item_set_show_stretch_handles (CajaIconCanvasItem       *item,
             gboolean                      show_stretch_handles);
     void        caja_icon_canvas_item_set_attach_points        (CajaIconCanvasItem       *item,

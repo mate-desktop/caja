@@ -289,7 +289,7 @@ get_menu_icon_for_file (TreeNode *node,
 
     size = caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU);
 
-    gicon = caja_file_get_gicon (file, flags);
+    gicon = G_ICON (caja_file_get_icon_pixbuf (file, size, TRUE, flags));
 
     i = 0;
     emblems_to_ignore[i++] = CAJA_FILE_EMBLEM_NAME_TRASH;
