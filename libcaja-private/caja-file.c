@@ -7149,7 +7149,7 @@ caja_file_is_binary (CajaFile *file)
 	
 	gboolean is_binary = FALSE;
 	int c;
-	int i;
+	int i = 0;
 	FILE *fp;
 	
 	/* Check the first 4096 bytes of the files. If these contains a 0,
@@ -7162,15 +7162,17 @@ caja_file_is_binary (CajaFile *file)
 	{
 		return FALSE;
 	}
-	for (i = 0; i < 4096; i++) {
-		c = fgetc(fp);
-		if (c == EOF) {
+	
+	while (!feof (fp)) {
+		if (i > 4096) {
 			break;
 		}
-		else if (c == 0) {
+		c = fgetc(fp);
+		if (c == 0) {
 			is_binary = TRUE;
 			break;
 		}
+		i++;
 	}
 	fclose(fp);
 	
