@@ -329,11 +329,11 @@ main (int argc, char *argv[])
     gboolean perform_self_check;
     CajaApplication *application;
     GOptionContext *context;
-    GFile *file;
-    GFileInfo *fileinfo;
-    GAppInfo *appinfo;
-    char *uri;
-    char **uris;
+    GFile *file = NULL;
+    GFileInfo *fileinfo = NULL;
+    GAppInfo *appinfo = NULL;
+    char *uri = NULL;
+    char **uris = NULL;
     GPtrArray *uris_array;
     GError *error;
     int i;
@@ -522,7 +522,6 @@ main (int argc, char *argv[])
     else
     {
         /* Convert args to URIs */
-        uris = NULL;
         if (remaining != NULL)
         {
             uris_array = g_ptr_array_new ();
@@ -535,33 +534,43 @@ main (int argc, char *argv[])
                     if (uri)
                     {
                         fileinfo = g_file_query_info (file, G_FILE_ATTRIBUTE_STANDARD_TYPE, G_FILE_QUERY_INFO_NONE, NULL, NULL);
-                        if (g_file_info_get_file_type(fileinfo) == G_FILE_TYPE_DIRECTORY)
+                        if (fileinfo && g_file_info_get_file_type(fileinfo) == G_FILE_TYPE_DIRECTORY)
                         {
                             g_ptr_array_add (uris_array, uri);
                         }
                         else
                         {
-                            g_object_unref (fileinfo);
+                            if (fileinfo)
+                                g_object_unref (fileinfo);
                             fileinfo = g_file_query_info (file, G_FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE, G_FILE_QUERY_INFO_NONE, NULL, NULL);
-                            appinfo = g_app_info_get_default_for_type (g_file_info_get_content_type (fileinfo), TRUE);
-                            if (appinfo)
+                            if (fileinfo)
                             {
-                                if (g_strcmp0 (g_app_info_get_executable (appinfo), "caja") != 0)
+                                appinfo = g_app_info_get_default_for_type (g_file_info_get_content_type (fileinfo), TRUE);
+                                if (appinfo)
                                 {
-                                    g_app_info_launch_default_for_uri (uri, NULL, NULL);
+                                    if (g_strcmp0 (g_app_info_get_executable (appinfo), "caja") != 0)
+                                    {
+                                        g_app_info_launch_default_for_uri (uri, NULL, NULL);
+                                    }
+                                    else
+                                    {
+                                        fprintf (stderr, _("caja: set erroneously as default application for '%s' content type.\n"),
+                                                 g_file_info_get_content_type (fileinfo));
+                                    }
+                                    g_object_unref (appinfo);
                                 }
-                                else
-                                {
-                                    fprintf (stderr, _("caja: set erroneously as default application for '%s' content type.\n"),
-                                             g_file_info_get_content_type (fileinfo));
-                                }
-                                g_object_unref (appinfo);
+                                g_free (uri);
                             }
-                            g_free (uri);
+                            else
+                            {
+                                g_ptr_array_add (uris_array, uri);
+                            }
                         }
-                        g_object_unref (fileinfo);
+                        if (fileinfo)
+                            g_object_unref (fileinfo);
                     }
-                    g_object_unref (file);
+                    if (file)
+                        g_object_unref (file);
                 }
             }
             if (uris_array->len == 0)
