@@ -229,6 +229,7 @@ convert_DATA = caja.convert
 EXTRA_DIST = \
 	caja-marshal.list \
 	$(gsettingsschema_in_files) \
+	$(convert_DATA) \
 	$(BEAGLE_SOURCES) \
 	$(TRACKER_SOURCES) \
 	$(NULL)
@@ -237,7 +238,6 @@ CLEANFILES = \
 	$(BUILT_SOURCES) \
 	$(schema_DATA) \
 	$(gsettings_SCHEMAS) \
-	$(convert_DATA) \
 	caja-marshal.list				\
 	$(NULL)
 

@@ -90,6 +90,7 @@ libeel_2_la_SOURCES = \
 	eel-wrap-table.c \
 	eel-xml-extensions.c \
 	eel-lib-self-check-functions.h \
+	$(eel_headers) \
 	$(NULL)
 
 nodist_libeel_2_la_SOURCES = \

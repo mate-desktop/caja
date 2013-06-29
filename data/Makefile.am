@@ -41,10 +41,12 @@ EXTRA_DIST = $(cajadata_DATA) \
 	freedesktop-dbus-interfaces.xml \
 	$(xml_in_files) \
 	$(desktop_in_files) \
+	$(service_in_files) \
 	$(NULL)
 
 CLEANFILES = $(xml_files) \
 	$(desktop_DATA) \
+	$(service_DATA) \
 	$(NULL)
 
 SUBDIRS = \
