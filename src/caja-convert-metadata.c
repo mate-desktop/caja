@@ -338,7 +338,9 @@ main (int argc, char *argv[])
     GError *error = NULL;
     int i;
 
+#if !GLIB_CHECK_VERSION (2, 36, 0)
     g_type_init ();
+#endif
 
     context = g_option_context_new ("<caja metadata files> - convert caja metadata");
     g_option_context_add_main_entries (context, entries, NULL);
