@@ -13,7 +13,7 @@ libexec_PROGRAMS = \
 	caja-convert-metadata \
 	$(NULL)
 
-INCLUDES = \
+AM_CPPFLAGS = \
 	-I$(top_srcdir) \
 	-I$(top_srcdir)/cut-n-paste-code \
 	-I$(top_builddir)/libcaja-private \

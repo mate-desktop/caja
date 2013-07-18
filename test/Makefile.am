@@ -1,6 +1,6 @@
 NULL=
 
-INCLUDES =\
+AM_CPPFLAGS =\
 	-I$(top_srcdir) \
 	$(CORE_CFLAGS) \
 	$(WARNING_CFLAGS) \
