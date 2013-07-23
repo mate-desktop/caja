@@ -96,7 +96,7 @@ gboolean                    eel_background_is_set                (EelBackground 
 /* Helper function for widgets using EelBackground */
 void                        eel_background_draw                  (GtkWidget       *widget,
 #if GTK_CHECK_VERSION (3, 0, 0)
-        							  cairo_t         *cr)
+        							  cairo_t         *cr);
 #else
         							  GdkEventExpose  *event);
 #endif
