@@ -622,10 +622,14 @@ eel_gdk_pixbuf_unref_if_not_null (GdkPixbuf *pixbuf_or_null)
 
 void
 eel_gdk_pixbuf_draw_to_drawable (const GdkPixbuf *pixbuf,
+#if GTK_CHECK_VERSION (3, 0, 0)
+                                 cairo_t  *cr,
+#else
                                  GdkDrawable *drawable,
+#endif
                                  int source_x,
                                  int source_y,
-				 EelIRect destination_area)
+                                 EelIRect destination_area)
 {
     EelDimensions dimensions;
     EelIRect target;
@@ -634,10 +638,16 @@ eel_gdk_pixbuf_draw_to_drawable (const GdkPixbuf *pixbuf,
     int target_height;
     int source_width;
     int source_height;
-	cairo_t *cr;
+#if !GTK_CHECK_VERSION (3, 0, 0)
+    cairo_t *cr;
+#endif
 
     g_return_if_fail (eel_gdk_pixbuf_is_valid (pixbuf));
+#if GTK_CHECK_VERSION (3, 0, 0)
+    g_return_if_fail (cr != NULL);
+#else
     g_return_if_fail (drawable != NULL);
+#endif
     g_return_if_fail (!eel_irect_is_empty (&destination_area));
 
     dimensions = eel_gdk_pixbuf_get_dimensions (pixbuf);
@@ -673,7 +683,9 @@ eel_gdk_pixbuf_draw_to_drawable (const GdkPixbuf *pixbuf,
     target.x1 = target.x0 + MIN (target_width, source_width);
     target.y1 = target.y0 + MIN (target_height, source_height);
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
 	cr = gdk_cairo_create (drawable);
+#endif
 	gdk_cairo_set_source_pixbuf (cr, (GdkPixbuf *) pixbuf,
 				     source.x0 - target.x0, source.y0 - target.y0);
 	cairo_rectangle (cr, target.x0, target.y0, 

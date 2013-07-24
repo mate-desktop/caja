@@ -117,8 +117,34 @@ debug_pixbuf_viewer_size_request (GtkWidget *widget, GtkRequisition *requisition
     requisition->height = MAX (2, dimensions.height);
 }
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+static void
+debug_pixbuf_viewer_get_preferred_width (GtkWidget *widget,
+                                        gint *minimum_width,
+                                        gint *natural_width)
+{
+    GtkRequisition req;
+    debug_pixbuf_viewer_size_request (widget, &req);
+    *minimum_width = *natural_width = req.width;
+}
+
+static void
+debug_pixbuf_viewer_get_preferred_height (GtkWidget *widget,
+                                         gint *minimum_height,
+                                         gint *natural_height)
+{
+    GtkRequisition req;
+    debug_pixbuf_viewer_size_request (widget, &req);
+    *minimum_height = *natural_height = req.height;
+}
+#endif
+
 static int
+#if GTK_CHECK_VERSION (3, 0, 0)
+debug_pixbuf_viewer_draw (GtkWidget *widget, cairo_t *cr)
+#else
 debug_pixbuf_viewer_expose_event (GtkWidget *widget, GdkEventExpose *event)
+#endif
 {
     DebugPixbufViewer *viewer;
     EelIRect clipped_dirty_area;
@@ -127,8 +153,12 @@ debug_pixbuf_viewer_expose_event (GtkWidget *widget, GdkEventExpose *event)
     GtkAllocation allocation;
 
     g_assert (DEBUG_IS_PIXBUF_VIEWER (widget));
+#if GTK_CHECK_VERSION (3, 0, 0)
+    g_assert (cr != NULL);
+#else
     g_assert (event != NULL);
     g_assert (event->window == gtk_widget_get_window (widget));
+#endif
     g_assert (gtk_widget_get_realized (widget));
 
     viewer = DEBUG_PIXBUF_VIEWER (widget);
@@ -145,9 +175,15 @@ debug_pixbuf_viewer_expose_event (GtkWidget *widget, GdkEventExpose *event)
     bounds.y1 = bounds.y0 + gdk_pixbuf_get_height (viewer->pixbuf);
 
     /* Clip the dirty area to the screen; bail if no work to do */
+#if GTK_CHECK_VERSION (3, 0, 0)
+    clipped_dirty_area = eel_gdk_window_clip_dirty_area_to_screen (gtk_widget_get_window (widget),
+                         dirty_area);
+#else
     dirty_area = eel_gdk_rectangle_to_eel_irect (event->area);
     clipped_dirty_area = eel_gdk_window_clip_dirty_area_to_screen (event->window,
                          dirty_area);
+#endif
+
     if (!eel_irect_is_empty (&clipped_dirty_area))
     {
         EelIRect clipped_bounds;
@@ -160,7 +196,11 @@ debug_pixbuf_viewer_expose_event (GtkWidget *widget, GdkEventExpose *event)
             g_assert (clipped_bounds.y0 >= bounds.y0);
 
             eel_gdk_pixbuf_draw_to_drawable (viewer->pixbuf,
+#if GTK_CHECK_VERSION (3, 0, 0)
+                                             cr,
+#else
                                              event->window,
+#endif
                                              clipped_bounds.x0 - bounds.x0,
                                              clipped_bounds.y0 - bounds.y0,
                                              clipped_bounds);
@@ -182,8 +222,14 @@ debug_pixbuf_viewer_class_init (DebugPixbufViewerClass *pixbuf_viewer_class)
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (pixbuf_viewer_class);
 
     object_class->finalize = debug_pixbuf_viewer_finalize;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    widget_class->get_preferred_width = debug_pixbuf_viewer_get_preferred_width;
+    widget_class->get_preferred_height = debug_pixbuf_viewer_get_preferred_height;
+    widget_class->draw = debug_pixbuf_viewer_draw;
+#else
     widget_class->size_request = debug_pixbuf_viewer_size_request;
     widget_class->expose_event = debug_pixbuf_viewer_expose_event;
+#endif
 }
 
 static void

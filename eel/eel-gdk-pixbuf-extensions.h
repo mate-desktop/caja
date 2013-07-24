@@ -30,6 +30,7 @@
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gdk/gdk.h>
 #include <gio/gio.h>
+#include <gtk/gtk.h>
 
 #define EEL_OPACITY_FULLY_TRANSPARENT 0
 #define EEL_OPACITY_FULLY_OPAQUE      255
@@ -92,7 +93,11 @@ void                 eel_gdk_pixbuf_unref_if_not_null         (GdkPixbuf        
 
 /* Copy a pixbuf to an area of a GdkDrawable */
 void                 eel_gdk_pixbuf_draw_to_drawable          (const GdkPixbuf       *pixbuf,
+#if GTK_CHECK_VERSION (3, 0, 0)
+        cairo_t               *cr,
+#else
         GdkDrawable           *drawable,
+#endif
         int                    source_x,
         int                    source_y,
 							       EelIRect               destination_area);

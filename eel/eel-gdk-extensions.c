@@ -504,7 +504,7 @@ eel_gdk_draw_layout_with_drop_shadow (GdkDrawable         *drawable,
     pango_cairo_show_layout (cr, layout);
 
 #if GTK_CHECK_VERSION(3,0,0)
-    cairo_restore
+    cairo_restore (cr);
 #else
     cairo_destroy (cr);
 #endif

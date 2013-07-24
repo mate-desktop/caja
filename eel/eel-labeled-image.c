@@ -320,6 +320,28 @@ eel_labeled_image_size_request (GtkWidget *widget,
         2 * labeled_image->details->y_padding;
 }
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+static void
+eel_labeled_image_get_preferred_width (GtkWidget *widget,
+                                       gint *minimum_width,
+                                       gint *natural_width)
+{
+    GtkRequisition req;
+    eel_labeled_image_size_request (widget, &req);
+    *minimum_width = *natural_width = req.width;
+}
+
+static void
+eel_labeled_image_get_preferred_height (GtkWidget *widget,
+                                        gint *minimum_height,
+                                        gint *natural_height)
+{
+    GtkRequisition req;
+    eel_labeled_image_size_request (widget, &req);
+    *minimum_height = *natural_height = req.height;
+}
+#endif
+
 static void
 eel_labeled_image_size_allocate (GtkWidget *widget,
                                  GtkAllocation *allocation)
@@ -347,8 +369,13 @@ eel_labeled_image_size_allocate (GtkWidget *widget,
 }
 
 static int
+#if GTK_CHECK_VERSION (3, 0, 0)
+eel_labeled_image_draw (GtkWidget *widget,
+                        cairo_t *cr)
+#else
 eel_labeled_image_expose_event (GtkWidget *widget,
                                 GdkEventExpose *event)
+#endif
 {
     EelLabeledImage *labeled_image;
     EelIRect label_bounds;
@@ -357,7 +384,9 @@ eel_labeled_image_expose_event (GtkWidget *widget,
 
     g_assert (EEL_IS_LABELED_IMAGE (widget));
     g_assert (gtk_widget_get_realized (widget));
+#if !GTK_CHECK_VERSION (3, 0, 0)
     g_assert (event != NULL);
+#endif
 
     labeled_image = EEL_LABELED_IMAGE (widget);
 
@@ -369,10 +398,16 @@ eel_labeled_image_expose_event (GtkWidget *widget,
         label_bounds = eel_labeled_image_get_label_bounds (EEL_LABELED_IMAGE (widget));
 
         gtk_paint_flat_box (style,
+#if GTK_CHECK_VERSION (3, 0, 0)
+                            cr,
+#else
                             window,
+#endif
                             gtk_widget_get_state (widget),
                             GTK_SHADOW_NONE,
+#if !GTK_CHECK_VERSION (3, 0, 0)
                             &event->area,
+#endif
                             widget,
                             "eel-labeled-image",
                             label_bounds.x0, label_bounds.y0,
@@ -384,22 +419,38 @@ eel_labeled_image_expose_event (GtkWidget *widget,
     {
         eel_gtk_container_child_expose_event (GTK_CONTAINER (widget),
                                               labeled_image->details->label,
+#if GTK_CHECK_VERSION (3, 0, 0)
+                                              cr);
+#else
                                               event);
+#endif
     }
 
     if (labeled_image_show_image (labeled_image))
     {
         eel_gtk_container_child_expose_event (GTK_CONTAINER (widget),
                                               labeled_image->details->image,
+#if GTK_CHECK_VERSION (3, 0, 0)
+                                              cr);
+#else
                                               event);
+#endif
     }
 
     if (gtk_widget_has_focus (widget))
     {
         label_bounds = eel_labeled_image_get_image_bounds (EEL_LABELED_IMAGE (widget));
-        gtk_paint_focus (style, window,
+        gtk_paint_focus (style,
+#if GTK_CHECK_VERSION (3, 0, 0)
+                         cr,
+#else
+                         window,
+#endif
                          GTK_STATE_NORMAL,
-                         &event->area, widget,
+#if !GTK_CHECK_VERSION (3, 0, 0)
+                         &event->area,
+#endif
+                         widget,
                          "eel-focusable-labeled-image",
                          label_bounds.x0, label_bounds.y0,
                          label_bounds.x1 - label_bounds.x0,
@@ -528,9 +579,15 @@ eel_labeled_image_class_init (EelLabeledImageClass *labeled_image_class)
 #endif
 
     /* GtkWidgetClass */
-    widget_class->size_request = eel_labeled_image_size_request;
     widget_class->size_allocate = eel_labeled_image_size_allocate;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    widget_class->get_preferred_width = eel_labeled_image_get_preferred_width;
+    widget_class->get_preferred_height = eel_labeled_image_get_preferred_height;
+    widget_class->draw = eel_labeled_image_draw;
+#else
+    widget_class->size_request = eel_labeled_image_size_request;
     widget_class->expose_event = eel_labeled_image_expose_event;
+#endif
     widget_class->map = eel_labeled_image_map;
     widget_class->unmap = eel_labeled_image_unmap;
     widget_class->get_accessible = eel_labeled_image_get_accessible;
