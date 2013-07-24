@@ -207,6 +207,7 @@ debug_pixbuf_viewer_set_pixbuf (DebugPixbufViewer *viewer, GdkPixbuf *pixbuf)
  *
  * Draw a rectangle and cross.  Useful for debugging exposure events.
  */
+#if !GTK_CHECK_VERSION (3, 0, 0)
 void
 eel_debug_draw_rectangle_and_cross (GdkDrawable *drawable,
                                     EelIRect rectangle,
@@ -252,6 +253,7 @@ eel_debug_draw_rectangle_and_cross (GdkDrawable *drawable,
 
     cairo_destroy (cr);
 }
+#endif
 
 /**
  * eel_debug_show_pixbuf_in_external_viewer:

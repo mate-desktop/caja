@@ -25,13 +25,16 @@
 #ifndef EEL_DEBUG_DRAWING_H
 #define EEL_DEBUG_DRAWING_H
 
+#include <gtk/gtk.h>
 #include <eel/eel-gdk-pixbuf-extensions.h>
 
 /* Draw a rectangle and cross on the given window */
+#if !GTK_CHECK_VERSION (3, 0, 0)
 void eel_debug_draw_rectangle_and_cross       (GdkDrawable     *drawable,
         EelIRect         rectangle,
         guint32          color,
         gboolean         draw_cross);
+#endif
 
 /* Show the given pixbuf in an external out of process viewer */
 void eel_debug_show_pixbuf_in_external_viewer (const GdkPixbuf *pixbuf,
