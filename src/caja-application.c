@@ -76,7 +76,7 @@
 #include <libcaja-extension/caja-menu-provider.h>
 #include <libcaja-private/caja-autorun.h>
 #define MATE_DESKTOP_USE_UNSTABLE_API
-#include <libmateui/mate-bg.h>
+#include <libmate-desktop/mate-bg.h>
 
 #include "glibcompat.h" /* for g_list_free_full */
 

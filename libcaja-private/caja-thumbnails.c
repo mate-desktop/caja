@@ -45,7 +45,7 @@
 #include <sys/wait.h>
 #include <unistd.h>
 #include <signal.h>
-#include <libmateui/mate-desktop-thumbnail.h>
+#include <libmate-desktop/mate-desktop-thumbnail.h>
 
 #include "caja-file-private.h"
 

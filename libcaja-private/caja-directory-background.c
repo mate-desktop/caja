@@ -39,7 +39,7 @@
 #include <gtk/gtk.h>
 #include <string.h>
 #define MATE_DESKTOP_USE_UNSTABLE_API
-#include <libmateui/mate-bg.h>
+#include <libmate-desktop/mate-bg.h>
 
 static void caja_background_changed_cb (EelBackground *background,
                                         GdkDragAction  action,

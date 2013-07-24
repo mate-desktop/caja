@@ -48,7 +48,7 @@
 #include <gdk-pixbuf/gdk-pixbuf.h>
 
 #define MATE_DESKTOP_USE_UNSTABLE_API
-#include <libmateui/mate-bg.h>
+#include <libmate-desktop/mate-bg.h>
 
 typedef struct EelBackground EelBackground;
 typedef struct EelBackgroundClass EelBackgroundClass;

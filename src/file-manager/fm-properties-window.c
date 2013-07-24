@@ -42,7 +42,7 @@
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 #include <glib/gi18n.h>
-#include <libmateui/mate-desktop-thumbnail.h>
+#include <libmate-desktop/mate-desktop-thumbnail.h>
 #include <libcaja-extension/caja-property-page-provider.h>
 #include <libcaja-private/caja-entry.h>
 #include <libcaja-private/caja-file-attributes.h>
