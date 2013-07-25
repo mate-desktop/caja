@@ -856,7 +856,7 @@ caja_path_bar_size_allocate (GtkWidget     *widget,
         if (need_sliders && direction == GTK_TEXT_DIR_RTL)
         {
 #if GTK_CHECK_VERSION(3,0,0)
-            if (child_allocation.x - path_bar->spacing - path_bar->slider_width < widget_allocation.x) {
+            if (child_allocation.x - path_bar->spacing - path_bar->slider_width < widget_allocation.x)
 #else
             if (child_allocation.x - path_bar->spacing - path_bar->slider_width < widget_allocation.x + border_width)
 #endif
@@ -869,7 +869,7 @@ caja_path_bar_size_allocate (GtkWidget     *widget,
             if (need_sliders && direction == GTK_TEXT_DIR_LTR)
             {
 #if GTK_CHECK_VERSION(3,0,0)
-                if (child_allocation.x + child_allocation.width + path_bar->spacing + path_bar->slider_width > widget_allocation.x + allocation_width) {
+                if (child_allocation.x + child_allocation.width + path_bar->spacing + path_bar->slider_width > widget_allocation.x + allocation_width)
 #else
                 if (child_allocation.x + child_allocation.width + path_bar->spacing + path_bar->slider_width > widget_allocation.x + border_width + allocation_width)
 #endif

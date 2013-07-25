@@ -1739,7 +1739,14 @@ create_and_set_up_tree_view (FMListView *view)
 
             view->details->file_name_column = gtk_tree_view_column_new ();
             gtk_tree_view_column_set_expand (view->details->file_name_column, TRUE);
+#if GTK_CHECK_VERSION (3, 0, 0)
+            GtkStyleContext *context;
+            context = gtk_widget_get_style_context (GTK_WIDGET(view));
+            font_size = PANGO_PIXELS (pango_font_description_get_size (
+                gtk_style_context_get_font (context, GTK_STATE_FLAG_NORMAL)));
+#else
             font_size = PANGO_PIXELS (pango_font_description_get_size (GTK_WIDGET(view)->style->font_desc));
+#endif
             gtk_tree_view_column_set_min_width (view->details->file_name_column, 20*font_size);
             g_object_ref_sink (view->details->file_name_column);
             view->details->file_name_column_num = column_num;

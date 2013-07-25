@@ -207,7 +207,11 @@ set_desktop_window_id (CajaDesktopWindow *window,
     root_window = gdk_screen_get_root_window (
                       gtk_window_get_screen (GTK_WINDOW (window)));
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    window_xid = GDK_WINDOW_XID (gdkwindow);
+#else
     window_xid = GDK_WINDOW_XWINDOW (gdkwindow);
+#endif
 
     gdk_property_change (root_window,
                          gdk_atom_intern ("CAJA_DESKTOP_WINDOW_ID", FALSE),
