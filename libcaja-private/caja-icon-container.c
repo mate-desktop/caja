@@ -4551,7 +4551,11 @@ realize (GtkWidget *widget)
        set on it is drawn by X. */
     if (container->details->is_desktop)
     {
+#if GTK_CHECK_VERSION (3, 0, 0)
+        gdk_x11_window_get_xid (gtk_layout_get_bin_window (GTK_LAYOUT (widget)));
+#else
         gdk_x11_drawable_get_xid (gtk_layout_get_bin_window (GTK_LAYOUT (widget)));
+#endif
     }
 
     /* Set up DnD.  */

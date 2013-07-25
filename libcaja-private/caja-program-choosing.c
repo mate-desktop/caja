@@ -322,7 +322,24 @@ caja_launch_application_from_command (GdkScreen  *screen,
     }
     else
     {
+#if GTK_CHECK_VERSION (3, 0, 0)
+        GdkAppLaunchContext *launch_context;
+        GAppInfo *app_info = NULL;
+        app_info = g_app_info_create_from_commandline (full_command,
+                                                       NULL,
+                                                       G_APP_INFO_CREATE_NONE,
+                                                       NULL);
+        if (app_info != NULL)
+        {
+            launch_context = gdk_app_launch_context_new ();
+            gdk_app_launch_context_set_screen (launch_context, screen);
+            g_app_info_launch (app_info, NULL, G_APP_LAUNCH_CONTEXT (launch_context), NULL);
+            g_object_unref (launch_context);
+            g_object_unref (app_info);
+        }
+#else
         gdk_spawn_command_line_on_screen (screen, full_command, NULL);
+#endif
     }
 
     g_free (full_command);
@@ -370,7 +387,24 @@ caja_launch_application_from_command_array (GdkScreen  *screen,
     }
     else
     {
+#if GTK_CHECK_VERSION (3, 0, 0)
+        GdkAppLaunchContext *launch_context;
+        GAppInfo *app_info = NULL;
+        app_info = g_app_info_create_from_commandline (full_command,
+                                                       NULL,
+                                                       G_APP_INFO_CREATE_NONE,
+                                                       NULL);
+        if (app_info != NULL)
+        {
+            launch_context = gdk_app_launch_context_new ();
+            gdk_app_launch_context_set_screen (launch_context, screen);
+            g_app_info_launch (app_info, NULL, G_APP_LAUNCH_CONTEXT (launch_context), NULL);
+            g_object_unref (launch_context);
+            g_object_unref (app_info);
+        }
+#else
         gdk_spawn_command_line_on_screen (screen, full_command, NULL);
+#endif
     }
 
     g_free (full_command);
