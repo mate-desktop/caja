@@ -272,10 +272,9 @@ if test "x$enable_packagekit" != "xno"; then
 fi
 
 
-dnl ============================================================================
-dnl | se comprueba unique
-dnl | de lo contrario, se intenta utilizar libunique
-dnl ============================================================================
+#============================================================================
+# libunique
+#============================================================================
 case "$with_gtk" in
     2.0) LIBUNIQUE_VERSION=1.0
         ;;
@@ -293,8 +292,8 @@ AC_ARG_ENABLE(unique, [  --enable-unique         enable the use of libunique ins
 if test "x$enable_libunique" = "xyes"; then
     UNIQUE_CFLAGS="$UNIQUE_CFLAGS -DUSE_UNIQUE=1"
     # fix for deprecated on 2.26
-    # unique en la version 1.0, contiene simbolos no definidos a partir de
-    # glib 2.26, pero puede ser obviado si se utiliza -DG_CONST_RETURN=const
+    # unique, on 1.0 version, has deprecated symbols in glib 2.26, but
+    # we avoid problems using -DG_CONST_RETURN=const
     if $PKG_CONFIG --atleast-version 2.26 glib-2.0; then
         UNIQUE_CFLAGS="$UNIQUE_CFLAGS -DG_CONST_RETURN=const"
     fi
