@@ -29,7 +29,7 @@
 
 #include <glib.h>
 #include <glib-object.h>
-#include <gtk/gtkwidget.h>
+#include <gtk/gtk.h>
 #include <gio/gio.h>
 
 /* Begin action structures */
