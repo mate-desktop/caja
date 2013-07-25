@@ -43,9 +43,11 @@ AC_MSG_RESULT([$with_gtk])
 case "$with_gtk" in
   2.0) GTK_API_VERSION=2.0
        GTK_REQUIRED=2.24.0
+       GAIL_API_VERSION=
        ;;
   3.0) GTK_API_VERSION=3.0
        GTK_REQUIRED=3.0.0
+       GAIL_API_VERSION=-3.0
        ;;
 esac
 
@@ -95,7 +97,7 @@ PKG_CHECK_MODULES(ALL, [
     pango >= pango_minver
     gtk+-$GTK_API_VERSION >= $GTK_REQUIRED
     libxml-2.0 >= xml_minver
-    gail >= gail_minver
+    gail$GAIL_API_VERSION >= gail_minver
 ])
 dnl ==========================================================================
 
@@ -301,9 +303,8 @@ if test "x$enable_libunique" = "xyes"; then
 fi
 
 
-dnl ==========================================================================
-
-dnl Turn on the additional warnings last, so -Werror doesn't affect other tests.
+# ==========================================================================
+# Turn on the additional warnings last, so -Werror doesn't affect other tests.
 
 WARNING_CFLAGS=""
 
@@ -406,7 +407,7 @@ AC_SUBST(LIBCAJA_EXTENSION_LIBS)
 
 dnl core caja
 PKG_CHECK_MODULES(GMODULE, gmodule-2.0, [GMODULE_ADD="gmodule-2.0"],[GMODULE_ADD=""])
-CORE_MODULES="glib-2.0 $GMODULE_ADD mate-desktop-2.0 gthread-2.0 gio-2.0 gio-unix-2.0 gail libxml-2.0 $EXTRA_CORE_MODULES gtk+-$GTK_API_VERSION"
+CORE_MODULES="glib-2.0 $GMODULE_ADD mate-desktop-2.0 gthread-2.0 gio-2.0 gio-unix-2.0 gail$GAIL_API_VERSION libxml-2.0 $EXTRA_CORE_MODULES gtk+-$GTK_API_VERSION"
 CORE_CFLAGS="`$PKG_CONFIG --cflags $CORE_MODULES` $x_cflags"
 AC_SUBST(CORE_CFLAGS)
 CORE_LIBS="`$PKG_CONFIG --libs $CORE_MODULES` $x_libs"
