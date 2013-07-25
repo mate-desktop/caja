@@ -40,7 +40,7 @@ caja_cell_renderer_text_ellipsized_init (CajaCellRendererTextEllipsized *cell)
 }
 
 static void
-nautilus_cell_renderer_text_ellipsized_get_preferred_width (GtkCellRenderer *cell,
+caja_cell_renderer_text_ellipsized_get_preferred_width (GtkCellRenderer *cell,
         						    GtkWidget       *widget,
         						    gint            *minimum_size,
         						    gint            *natural_size)
@@ -51,7 +51,7 @@ nautilus_cell_renderer_text_ellipsized_get_preferred_width (GtkCellRenderer *cel
                   NULL);
 
     GTK_CELL_RENDERER_CLASS
-            (nautilus_cell_renderer_text_ellipsized_parent_class)->get_preferred_width (cell, widget,
+            (caja_cell_renderer_text_ellipsized_parent_class)->get_preferred_width (cell, widget,
         										minimum_size, natural_size);
 
     g_object_set (cell,
