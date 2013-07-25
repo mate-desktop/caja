@@ -574,15 +574,31 @@ action_caja_manual_callback (GtkAction *action,
 
     if (CAJA_IS_DESKTOP_WINDOW (window))
     {
-#if GTK_CHECK_VERSION(2, 24, 0)
+#if GTK_CHECK_VERSION (3, 0, 0)
+        GdkScreen *screen;
+        GdkAppLaunchContext *launch_context;
+        GAppInfo *app_info = NULL;
+        app_info = g_app_info_create_from_commandline ("mate-help",
+                                                       NULL,
+                                                       G_APP_INFO_CREATE_NONE,
+                                                       &error);
+        if (error == NULL)
+        {
+            screen = gtk_window_get_screen(GTK_WINDOW(window));
+            launch_context = gdk_app_launch_context_new ();
+            gdk_app_launch_context_set_screen (launch_context, screen);
+            g_app_info_launch (app_info, NULL, G_APP_LAUNCH_CONTEXT (launch_context), &error);
+            g_object_unref (launch_context);
+        }
+        if (app_info != NULL)
+            g_object_unref (app_info);
+#else
+#if GTK_CHECK_VERSION (2, 24, 0)
         gdk_spawn_command_line_on_screen(gtk_window_get_screen(GTK_WINDOW(window)), "mate-help", &error);
 #else
-
-
-
         g_spawn_command_line_async("mate-help", &error);
 #endif
-
+#endif
     }
     else
     {
