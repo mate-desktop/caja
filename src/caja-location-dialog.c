@@ -95,7 +95,7 @@ response_callback (CajaLocationDialog *dialog,
     case GTK_RESPONSE_HELP :
         error = NULL;
         gtk_show_uri (gtk_window_get_screen (GTK_WINDOW (dialog)),
-                      "ghelp:user-guide#caja-open-location",
+                      "help:user-guide#caja-open-location",
                       gtk_get_current_event_time (), &error);
         if (error)
         {
