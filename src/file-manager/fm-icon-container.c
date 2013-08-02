@@ -65,6 +65,7 @@ fm_icon_container_get_icon_images (CajaIconContainer *container,
     gboolean use_embedding;
     CajaFileIconFlags flags;
     guint emblem_size;
+    gint scale;
 
     file = (CajaFile *) data;
 
@@ -119,7 +120,9 @@ fm_icon_container_get_icon_images (CajaIconContainer *container,
         flags |= CAJA_FILE_ICON_FLAGS_FOR_DRAG_ACCEPT;
     }
 
-    return caja_file_get_icon (file, size, flags);
+    scale = gtk_widget_get_scale_factor (GTK_WIDGET (icon_view));
+
+    return caja_file_get_icon (file, size, scale, flags);
 }
 
 static char *

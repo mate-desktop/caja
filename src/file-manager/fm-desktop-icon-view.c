@@ -120,11 +120,10 @@ icon_container_set_workarea (CajaIconContainer *icon_container,
 
     left = right = top = bottom = 0;
 
-    screen_width  = WidthOfScreen (gdk_x11_screen_get_xscreen (screen));
-    screen_height = HeightOfScreen (gdk_x11_screen_get_xscreen (screen));
-
     scale = gdk_window_get_scale_factor (gdk_screen_get_root_window (screen));
-    scale = scale ? scale : 1;
+
+    screen_width  = WidthOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
+    screen_height = HeightOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
 
     for (i = 0; i < n_items; i += 4)
     {

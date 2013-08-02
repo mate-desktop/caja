@@ -756,7 +756,8 @@ static CajaIconInfo *
 real_get_icon (CajaWindow *window,
                CajaWindowSlot *slot)
 {
-    return caja_file_get_icon (slot->viewed_file, 48,
+    return caja_file_get_icon (slot->viewed_file,
+                               48, gtk_widget_get_scale_factor (GTK_WIDGET (window)),
                                CAJA_FILE_ICON_FLAGS_IGNORE_VISITING |
                                CAJA_FILE_ICON_FLAGS_USE_MOUNT_ICON);
 }

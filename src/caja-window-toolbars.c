@@ -181,7 +181,7 @@ caja_navigation_window_load_extension_toolbar_items (CajaNavigationWindow *windo
     {
         item = CAJA_MENU_ITEM (l->data);
 
-        action = caja_toolbar_action_from_menu_item (item);
+        action = caja_toolbar_action_from_menu_item (item, GTK_WIDGET (window));
 
         gtk_action_group_add_action (action_group,
                                      GTK_ACTION (action));

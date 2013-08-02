@@ -4288,6 +4288,7 @@ get_default_file_icon (CajaFileIconFlags flags)
 CajaIconInfo *
 caja_file_get_icon (CajaFile *file,
 			int size,
+			int scale,
 			CajaFileIconFlags flags)
 {
 	CajaIconInfo *icon;
@@ -4303,7 +4304,7 @@ caja_file_get_icon (CajaFile *file,
 	if (gicon) {
 		GdkPixbuf *pixbuf;
 
-		icon = caja_icon_info_lookup (gicon, size);
+		icon = caja_icon_info_lookup (gicon, size, scale);
 		g_object_unref (gicon);
 
 		pixbuf = caja_icon_info_get_pixbuf (icon);
@@ -4313,7 +4314,7 @@ caja_file_get_icon (CajaFile *file,
 			}
 			g_object_unref (icon);
 
-			icon = caja_icon_info_new_for_pixbuf (pixbuf);
+			icon = caja_icon_info_new_for_pixbuf (pixbuf, scale);
 			g_object_unref (pixbuf);
 		}
 
@@ -4329,7 +4330,7 @@ caja_file_get_icon (CajaFile *file,
 	    caja_file_should_show_thumbnail (file)) {
 		if (file->details->thumbnail) {
 			int w, h, s;
-			double scale;
+			double thumb_scale;
 
 			raw_pixbuf = g_object_ref (file->details->thumbnail);
 
@@ -4339,19 +4340,19 @@ caja_file_get_icon (CajaFile *file,
 			s = MAX (w, h);
 			/* Don't scale up small thumbnails in the standard view */
 			if (s <= cached_thumbnail_size) {
-				scale = (double)size / CAJA_ICON_SIZE_STANDARD;
+				thumb_scale = (double)size / CAJA_ICON_SIZE_STANDARD;
 			}
 			else {
-				scale = (double)modified_size / s;
+				thumb_scale = (double)modified_size / s;
 			}
 			/* Make sure that icons don't get smaller than CAJA_ICON_SIZE_SMALLEST */
-			if (s*scale <= CAJA_ICON_SIZE_SMALLEST) {
-				scale = (double) CAJA_ICON_SIZE_SMALLEST / s;
+			if (s*thumb_scale <= CAJA_ICON_SIZE_SMALLEST) {
+				thumb_scale = (double) CAJA_ICON_SIZE_SMALLEST / s;
 			}
 
 			scaled_pixbuf = gdk_pixbuf_scale_simple (raw_pixbuf,
-								 MAX (w * scale, 1),
-								 MAX (h * scale, 1),
+								 MAX (w * thumb_scale, 1),
+								 MAX (h * thumb_scale, 1),
 								 GDK_INTERP_BILINEAR);
 
 			/* Render frames only for thumbnails of non-image files 
@@ -4377,7 +4378,7 @@ caja_file_get_icon (CajaFile *file,
 				caja_file_invalidate_attributes (file, CAJA_FILE_ATTRIBUTE_THUMBNAIL);
 			}
 
-			icon = caja_icon_info_new_for_pixbuf (scaled_pixbuf);
+			icon = caja_icon_info_new_for_pixbuf (scaled_pixbuf, scale);
 			g_object_unref (scaled_pixbuf);
 			return icon;
 		} else if (file->details->thumbnail_path == NULL &&
@@ -4397,15 +4398,15 @@ caja_file_get_icon (CajaFile *file,
 		gicon = caja_file_get_gicon (file, flags);
 
 	if (gicon) {
-		icon = caja_icon_info_lookup (gicon, size);
+		icon = caja_icon_info_lookup (gicon, size, scale);
 		if (caja_icon_info_is_fallback (icon)) {
 			g_object_unref (icon);
-			icon = caja_icon_info_lookup (get_default_file_icon (flags), size);
+			icon = caja_icon_info_lookup (get_default_file_icon (flags), size, scale);
 		}
 		g_object_unref (gicon);
 		return icon;
 	} else {
-		return caja_icon_info_lookup (get_default_file_icon (flags), size);
+		return caja_icon_info_lookup (get_default_file_icon (flags), size, scale);
 	}
 }
 
@@ -4413,12 +4414,13 @@ GdkPixbuf *
 caja_file_get_icon_pixbuf (CajaFile *file,
 			       int size,
 			       gboolean force_size,
+			       int scale,
 			       CajaFileIconFlags flags)
 {
 	CajaIconInfo *info;
 	GdkPixbuf *pixbuf;
 
-	info = caja_file_get_icon (file, size, flags);
+	info = caja_file_get_icon (file, size, scale, flags);
 	if (force_size) {
 		pixbuf =  caja_icon_info_get_pixbuf_at_size (info, size);
 	} else {
@@ -6719,7 +6721,7 @@ caja_file_get_emblem_pixbufs (CajaFile *file,
 	for (l = icons; l != NULL; l = l->next) {
 		icon = l->data;
 
-		icon_info = caja_icon_info_lookup (icon, size);
+		icon_info = caja_icon_info_lookup (icon, size, 1);
 		if (force_size) {
 			pixbuf = caja_icon_info_get_pixbuf_nodefault_at_size (icon_info, size);
 		} else {

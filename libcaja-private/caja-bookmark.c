@@ -220,7 +220,7 @@ caja_bookmark_get_pixbuf (CajaBookmark *bookmark,
     GdkPixbuf *result;
     GIcon *icon;
     CajaIconInfo *info;
-    int pixel_size;
+    int pixel_size, pixel_scale;
 
 
     g_return_val_if_fail (CAJA_IS_BOOKMARK (bookmark), NULL);
@@ -232,7 +232,8 @@ caja_bookmark_get_pixbuf (CajaBookmark *bookmark,
     }
 
     pixel_size = caja_get_icon_size_for_stock_size (stock_size);
-    info = caja_icon_info_lookup (icon, pixel_size);
+    pixel_scale = gdk_window_get_scale_factor (gdk_get_default_root_window ());
+    info = caja_icon_info_lookup (icon, pixel_size, pixel_scale);
     result = caja_icon_info_get_pixbuf_at_size (info, pixel_size);
     g_object_unref (info);
 

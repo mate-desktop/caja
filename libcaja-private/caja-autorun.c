@@ -469,7 +469,7 @@ caja_autorun_prepare_combo_box (GtkWidget *combo_box,
     GtkListStore *list_store;
     GtkTreeIter iter;
     GdkPixbuf *pixbuf;
-    int icon_size;
+    int icon_size, icon_scale;
     int set_active;
     int n;
     int num_apps;
@@ -485,6 +485,7 @@ caja_autorun_prepare_combo_box (GtkWidget *combo_box,
     pref_ask = !pref_start_app && !pref_ignore && !pref_open_folder;
 
     icon_size = caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU);
+    icon_scale = gtk_widget_get_scale_factor (combo_box);
 
     set_active = -1;
     data = NULL;
@@ -594,7 +595,7 @@ caja_autorun_prepare_combo_box (GtkWidget *combo_box,
              */
 
             icon = g_app_info_get_icon (app_info);
-            icon_info = caja_icon_info_lookup (icon, icon_size);
+            icon_info = caja_icon_info_lookup (icon, icon_size, icon_scale);
             pixbuf = caja_icon_info_get_pixbuf_at_size (icon_info, icon_size);
             g_object_unref (icon_info);
 
@@ -935,7 +936,7 @@ do_autorun_for_content_type (GMount *mount, const char *x_content_type, CajaAuto
     GIcon *icon;
     GdkPixbuf *pixbuf;
     CajaIconInfo *icon_info;
-    int icon_size;
+    int icon_size, icon_scale;
     gboolean user_forced_dialog;
     gboolean pref_ask;
     gboolean pref_start_app;
@@ -999,7 +1000,8 @@ show_dialog:
 
     icon = g_mount_get_icon (mount);
     icon_size = caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_DIALOG);
-    icon_info = caja_icon_info_lookup (icon, icon_size);
+    icon_scale = gtk_widget_get_scale_factor (dialog);
+    icon_info = caja_icon_info_lookup (icon, icon_size, icon_scale);
     pixbuf = caja_icon_info_get_pixbuf_at_size (icon_info, icon_size);
     g_object_unref (icon_info);
     g_object_unref (icon);

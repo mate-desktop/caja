@@ -244,7 +244,9 @@ caja_launch_application_by_uri (GAppInfo *application,
     }
 
     file = caja_file_get_by_uri (uris->data);
-    icon = caja_file_get_icon (file, 48, 0);
+    icon = caja_file_get_icon (file,
+                               48, gtk_widget_get_scale_factor (GTK_WIDGET (parent_window)),
+                               0);
     caja_file_unref (file);
     if (icon)
     {

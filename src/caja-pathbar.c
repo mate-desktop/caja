@@ -206,8 +206,10 @@ trash_state_changed_cb (CajaTrashMonitor *monitor,
 {
     GFile *file;
     GList *list;
+    gint scale;
 
     file = g_file_new_for_uri ("trash:///");
+    scale = gtk_widget_get_scale_factor (GTK_WIDGET (path_bar));
     for (list = path_bar->button_list; list; list = list->next)
     {
         ButtonData *button_data;
@@ -219,7 +221,7 @@ trash_state_changed_cb (CajaTrashMonitor *monitor,
             GdkPixbuf *pixbuf;
 
             icon = caja_trash_monitor_get_icon ();
-            icon_info = caja_icon_info_lookup (icon, CAJA_PATH_BAR_ICON_SIZE);
+            icon_info = caja_icon_info_lookup (icon, CAJA_PATH_BAR_ICON_SIZE, scale);
             pixbuf = caja_icon_info_get_pixbuf_at_size (icon_info, CAJA_PATH_BAR_ICON_SIZE);
             gtk_image_set_from_pixbuf (GTK_IMAGE (button_data->image), pixbuf);
         }
@@ -1339,25 +1341,30 @@ button_clicked_cb (GtkWidget *button,
 static CajaIconInfo *
 get_type_icon_info (ButtonData *button_data)
 {
+    gint icon_scale = gtk_widget_get_scale_factor (GTK_WIDGET (button_data->button));
+
     switch (button_data->type)
     {
     case ROOT_BUTTON:
         return caja_icon_info_lookup_from_name (CAJA_ICON_FILESYSTEM,
-                                                CAJA_PATH_BAR_ICON_SIZE);
+                                                CAJA_PATH_BAR_ICON_SIZE,
+                                                icon_scale);
 
     case HOME_BUTTON:
         return caja_icon_info_lookup_from_name (CAJA_ICON_HOME,
-                                                CAJA_PATH_BAR_ICON_SIZE);
+                                                CAJA_PATH_BAR_ICON_SIZE,
+                                                icon_scale);
 
     case DESKTOP_BUTTON:
         return caja_icon_info_lookup_from_name (CAJA_ICON_DESKTOP,
-                                                CAJA_PATH_BAR_ICON_SIZE);
+                                                CAJA_PATH_BAR_ICON_SIZE,
+                                                icon_scale);
 
     case NORMAL_BUTTON:
         if (button_data->is_base_dir)
         {
             return caja_file_get_icon (button_data->file,
-                                       CAJA_PATH_BAR_ICON_SIZE,
+                                       CAJA_PATH_BAR_ICON_SIZE, icon_scale,
                                        CAJA_FILE_ICON_FLAGS_NONE);
         }
 
@@ -1529,10 +1536,12 @@ setup_file_path_mounted_mount (GFile *location, ButtonData *button_data)
     GIcon *icon;
     CajaIconInfo *info;
     GFile *root, *default_location;
+    gint scale;
 
     result = FALSE;
     volume_monitor = g_volume_monitor_get ();
     mounts = g_volume_monitor_get_mounts (volume_monitor);
+    scale = gtk_widget_get_scale_factor (GTK_WIDGET (button_data->button));
     for (l = mounts; l != NULL; l = l->next)
     {
         mount = l->data;
@@ -1556,7 +1565,7 @@ setup_file_path_mounted_mount (GFile *location, ButtonData *button_data)
                 {
                     icon = g_themed_icon_new (CAJA_ICON_FOLDER);
                 }
-                info = caja_icon_info_lookup (icon, CAJA_PATH_BAR_ICON_SIZE);
+                info = caja_icon_info_lookup (icon, CAJA_PATH_BAR_ICON_SIZE, scale);
                 g_object_unref (icon);
                 button_data->custom_icon = caja_icon_info_get_pixbuf_at_size (info, CAJA_PATH_BAR_ICON_SIZE);
                 g_object_unref (info);
@@ -1580,7 +1589,7 @@ setup_file_path_mounted_mount (GFile *location, ButtonData *button_data)
                 {
                     icon = g_themed_icon_new (CAJA_ICON_FOLDER);
                 }
-                info = caja_icon_info_lookup (icon, CAJA_PATH_BAR_ICON_SIZE);
+                info = caja_icon_info_lookup (icon, CAJA_PATH_BAR_ICON_SIZE, scale);
                 g_object_unref (icon);
                 button_data->custom_icon = caja_icon_info_get_pixbuf_at_size (info, CAJA_PATH_BAR_ICON_SIZE);
                 g_object_unref (info);

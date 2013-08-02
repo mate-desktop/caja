@@ -40,6 +40,8 @@ struct _CajaIconInfo
     GdkPoint *attach_points;
     char *display_name;
     char *icon_name;
+
+    gint  orig_scale;
 };
 
 struct _CajaIconInfoClass
@@ -121,7 +123,8 @@ caja_icon_info_class_init (CajaIconInfoClass *icon_info_class)
 }
 
 CajaIconInfo *
-caja_icon_info_new_for_pixbuf (GdkPixbuf *pixbuf)
+caja_icon_info_new_for_pixbuf (GdkPixbuf *pixbuf,
+                               gint       scale)
 {
     CajaIconInfo *icon;
 
@@ -132,11 +135,14 @@ caja_icon_info_new_for_pixbuf (GdkPixbuf *pixbuf)
         icon->pixbuf = g_object_ref (pixbuf);
     }
 
+    icon->orig_scale = scale;
+
     return icon;
 }
 
 static CajaIconInfo *
-caja_icon_info_new_for_icon_info (GtkIconInfo *icon_info)
+caja_icon_info_new_for_icon_info (GtkIconInfo *icon_info,
+                                  gint         scale)
 {
     CajaIconInfo *icon;
     GdkPoint *points;
@@ -170,6 +176,8 @@ caja_icon_info_new_for_icon_info (GtkIconInfo *icon_info)
         }
         icon->icon_name = basename;
     }
+
+    icon->orig_scale = scale;
 
     return icon;
 }
@@ -347,7 +355,8 @@ themed_icon_key_free (ThemedIconKey *key)
 
 CajaIconInfo *
 caja_icon_info_lookup (GIcon *icon,
-                       int size)
+                       int size,
+                       int scale)
 {
     CajaIconInfo *icon_info;
     GdkPixbuf *pixbuf;
@@ -378,18 +387,19 @@ caja_icon_info_lookup (GIcon *icon,
 
         pixbuf = NULL;
         stream = g_loadable_icon_load (G_LOADABLE_ICON (icon),
-                                       size,
+                                       size * scale,
                                        NULL, NULL, NULL);
         if (stream)
         {
             pixbuf = gdk_pixbuf_new_from_stream_at_scale (stream,
-                                                          size, size, TRUE,
+                                                          size * scale, size * scale,
+                                                          TRUE,
                                                           NULL, NULL);
             g_input_stream_close (stream, NULL, NULL);
             g_object_unref (stream);
         }
 
-        icon_info = caja_icon_info_new_for_pixbuf (pixbuf);
+        icon_info = caja_icon_info_new_for_pixbuf (pixbuf, scale);
 
         key = loadable_icon_key_new (icon, size);
         g_hash_table_insert (loadable_icon_cache, key, icon_info);
@@ -417,17 +427,18 @@ caja_icon_info_lookup (GIcon *icon,
         names = g_themed_icon_get_names (G_THEMED_ICON (icon));
 
         icon_theme = gtk_icon_theme_get_default ();
-        gtkicon_info = gtk_icon_theme_choose_icon (icon_theme, (const char **)names, size, 0);
+        gtkicon_info = gtk_icon_theme_choose_icon_for_scale (icon_theme, (const char **)names,
+                                                             size, scale, 0);
 
         if (gtkicon_info == NULL)
         {
-            return caja_icon_info_new_for_pixbuf (NULL);
+            return caja_icon_info_new_for_pixbuf (NULL, scale);
         }
 
         filename = gtk_icon_info_get_filename (gtkicon_info);
         if (filename == NULL) {
             g_object_unref (gtkicon_info);
-            return caja_icon_info_new_for_pixbuf (NULL);
+            return caja_icon_info_new_for_pixbuf (NULL, scale);
         }
 
         lookup_key.filename = (char *)filename;
@@ -440,7 +451,7 @@ caja_icon_info_lookup (GIcon *icon,
             return g_object_ref (icon_info);
         }
 
-        icon_info = caja_icon_info_new_for_icon_info (gtkicon_info);
+        icon_info = caja_icon_info_new_for_icon_info (gtkicon_info, scale);
 
         key = themed_icon_key_new (filename, size);
         g_hash_table_insert (themed_icon_cache, key, icon_info);
@@ -454,9 +465,10 @@ caja_icon_info_lookup (GIcon *icon,
         GdkPixbuf *pixbuf;
         GtkIconInfo *gtk_icon_info;
 
-        gtk_icon_info = gtk_icon_theme_lookup_by_gicon (gtk_icon_theme_get_default (),
+        gtk_icon_info = gtk_icon_theme_lookup_by_gicon_for_scale (gtk_icon_theme_get_default (),
                         icon,
                         size,
+                        scale,
                         GTK_ICON_LOOKUP_FORCE_SIZE);
         if (gtk_icon_info != NULL)
         {
@@ -468,7 +480,7 @@ caja_icon_info_lookup (GIcon *icon,
             pixbuf = NULL;
         }
 
-        icon_info = caja_icon_info_new_for_pixbuf (pixbuf);
+        icon_info = caja_icon_info_new_for_pixbuf (pixbuf, scale);
 
         if (pixbuf != NULL) {
                 g_object_unref (pixbuf);
@@ -480,20 +492,22 @@ caja_icon_info_lookup (GIcon *icon,
 
 CajaIconInfo *
 caja_icon_info_lookup_from_name (const char *name,
-                                 int size)
+                                 int size,
+                                 int scale)
 {
     GIcon *icon;
     CajaIconInfo *info;
 
     icon = g_themed_icon_new (name);
-    info = caja_icon_info_lookup (icon, size);
+    info = caja_icon_info_lookup (icon, size, scale);
     g_object_unref (icon);
     return info;
 }
 
 CajaIconInfo *
 caja_icon_info_lookup_from_path (const char *path,
-                                 int size)
+                                 int size,
+                                 int scale)
 {
     GFile *icon_file;
     GIcon *icon;
@@ -501,7 +515,7 @@ caja_icon_info_lookup_from_path (const char *path,
 
     icon_file = g_file_new_for_path (path);
     icon = g_file_icon_new (icon_file);
-    info = caja_icon_info_lookup (icon, size);
+    info = caja_icon_info_lookup (icon, size, scale);
     g_object_unref (icon);
     g_object_unref (icon_file);
     return info;
@@ -568,8 +582,8 @@ caja_icon_info_get_pixbuf_nodefault_at_size (CajaIconInfo  *icon,
     if (pixbuf == NULL)
         return NULL;
 
-    w = gdk_pixbuf_get_width (pixbuf);
-    h = gdk_pixbuf_get_height (pixbuf);
+    w = gdk_pixbuf_get_width (pixbuf) / icon->orig_scale;
+    h = gdk_pixbuf_get_height (pixbuf) / icon->orig_scale;
     s = MAX (w, h);
     if (s == forced_size)
     {
@@ -595,8 +609,8 @@ caja_icon_info_get_pixbuf_at_size (CajaIconInfo  *icon,
 
     pixbuf = caja_icon_info_get_pixbuf (icon);
 
-    w = gdk_pixbuf_get_width (pixbuf);
-    h = gdk_pixbuf_get_height (pixbuf);
+    w = gdk_pixbuf_get_width (pixbuf) / icon->orig_scale;
+    h = gdk_pixbuf_get_height (pixbuf) / icon->orig_scale;
     s = MAX (w, h);
     if (s == forced_size)
     {

@@ -268,7 +268,8 @@ static CajaIconInfo *
 real_get_icon (CajaWindow *window,
                CajaWindowSlot *slot)
 {
-    return caja_icon_info_lookup_from_name (CAJA_ICON_DESKTOP, 48);
+    gint scale = gtk_widget_get_scale_factor (GTK_WIDGET (window));
+    return caja_icon_info_lookup_from_name (CAJA_ICON_DESKTOP, 48, scale);
 }
 
 static void

@@ -363,17 +363,24 @@ get_image_for_properties_window (FMPropertiesWindow *window,
 {
 	CajaIconInfo *icon, *new_icon;
 	GList *l;
+	gint icon_scale;
 
 	icon = NULL;
+	icon_scale = gtk_widget_get_scale_factor (GTK_WIDGET (window->details->notebook));
+
 	for (l = window->details->original_files; l != NULL; l = l->next) {
 		CajaFile *file;
 
 		file = CAJA_FILE (l->data);
 
 		if (!icon) {
-			icon = caja_file_get_icon (file, CAJA_ICON_SIZE_STANDARD, CAJA_FILE_ICON_FLAGS_USE_THUMBNAILS | CAJA_FILE_ICON_FLAGS_IGNORE_VISITING);
+			icon = caja_file_get_icon (file, CAJA_ICON_SIZE_STANDARD, icon_scale,
+						   CAJA_FILE_ICON_FLAGS_USE_THUMBNAILS |
+						   CAJA_FILE_ICON_FLAGS_IGNORE_VISITING);
 		} else {
-			new_icon = caja_file_get_icon (file, CAJA_ICON_SIZE_STANDARD, CAJA_FILE_ICON_FLAGS_USE_THUMBNAILS | CAJA_FILE_ICON_FLAGS_IGNORE_VISITING);
+			new_icon = caja_file_get_icon (file, CAJA_ICON_SIZE_STANDARD, icon_scale,
+						       CAJA_FILE_ICON_FLAGS_USE_THUMBNAILS |
+						       CAJA_FILE_ICON_FLAGS_IGNORE_VISITING);
 			if (!new_icon || new_icon != icon) {
 				g_object_unref (icon);
 				g_object_unref (new_icon);
@@ -385,7 +392,9 @@ get_image_for_properties_window (FMPropertiesWindow *window,
 	}
 
 	if (!icon) {
-		icon = caja_icon_info_lookup_from_name ("text-x-generic", CAJA_ICON_SIZE_STANDARD);
+		icon = caja_icon_info_lookup_from_name ("text-x-generic",
+							CAJA_ICON_SIZE_STANDARD,
+							icon_scale);
 	}
 
 	if (icon_name != NULL) {
@@ -3412,6 +3421,7 @@ create_emblems_page (FMPropertiesWindow *window)
 	char *label;
 	GList *icons, *l;
 	CajaIconInfo *info;
+	gint scale;
 
 	/* The emblems wrapped table */
 	scroller = eel_scrolled_wrap_table_new (TRUE, GTK_SHADOW_NONE, &emblems_table);
@@ -3427,6 +3437,7 @@ create_emblems_page (FMPropertiesWindow *window)
 				  scroller, gtk_label_new (_("Emblems")));
 
 	icons = caja_emblem_list_available ();
+	scale = gtk_widget_get_scale_factor (scroller);
 
 	window->details->initial_emblems = get_initial_emblems (window->details->original_files);
 
@@ -3439,7 +3450,7 @@ create_emblems_page (FMPropertiesWindow *window)
 			continue;
 		}
 
-		info = caja_icon_info_lookup_from_name (emblem_name, CAJA_ICON_SIZE_SMALL);
+		info = caja_icon_info_lookup_from_name (emblem_name, CAJA_ICON_SIZE_SMALL, scale);
 		pixbuf = caja_icon_info_get_pixbuf_nodefault_at_size (info, CAJA_ICON_SIZE_SMALL);
 
 		if (pixbuf == NULL) {
@@ -3454,8 +3465,8 @@ create_emblems_page (FMPropertiesWindow *window)
 		}
 
 		button = eel_labeled_image_check_button_new (label, pixbuf);
-		eel_labeled_image_set_fixed_image_height (EEL_LABELED_IMAGE (gtk_bin_get_child (GTK_BIN (button))), STANDARD_EMBLEM_HEIGHT);
-		eel_labeled_image_set_spacing (EEL_LABELED_IMAGE (gtk_bin_get_child (GTK_BIN (button))), EMBLEM_LABEL_SPACING);
+		eel_labeled_image_set_fixed_image_height (EEL_LABELED_IMAGE (gtk_bin_get_child (GTK_BIN (button))), STANDARD_EMBLEM_HEIGHT * scale);
+		eel_labeled_image_set_spacing (EEL_LABELED_IMAGE (gtk_bin_get_child (GTK_BIN (button))), EMBLEM_LABEL_SPACING * scale);
 
 		g_free (label);
 		g_object_unref (pixbuf);
