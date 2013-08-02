@@ -138,18 +138,23 @@ extension_action_sensitive_callback (CajaMenuItem *item,
 }
 
 static GdkPixbuf *
-get_action_icon (const char *icon_name, int size)
+get_action_icon (const char *icon_name,
+                 int         size,
+                 GtkWidget  *parent_widget)
 {
     CajaIconInfo *info;
     GdkPixbuf *pixbuf;
+    int scale;
+
+    scale = gtk_widget_get_scale_factor (parent_widget);
 
     if (g_path_is_absolute (icon_name))
     {
-        info = caja_icon_info_lookup_from_path (icon_name, size);
+        info = caja_icon_info_lookup_from_path (icon_name, size, scale);
     }
     else
     {
-        info = caja_icon_info_lookup_from_name (icon_name, size);
+        info = caja_icon_info_lookup_from_name (icon_name, size, scale);
     }
     pixbuf = caja_icon_info_get_pixbuf_nodefault_at_size (info, size);
     g_object_unref (info);
@@ -158,7 +163,8 @@ get_action_icon (const char *icon_name, int size)
 }
 
 GtkAction *
-caja_action_from_menu_item (CajaMenuItem *item)
+caja_action_from_menu_item (CajaMenuItem *item,
+                            GtkWidget    *parent_widget)
 {
     char *name, *label, *tip, *icon_name;
     gboolean sensitive, priority;
@@ -180,7 +186,8 @@ caja_action_from_menu_item (CajaMenuItem *item)
     if (icon_name != NULL)
     {
         pixbuf = get_action_icon (icon_name,
-                                  caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU));
+                                  caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU),
+                                  parent_widget);
         if (pixbuf != NULL)
         {
             g_object_set_data_full (G_OBJECT (action), "menu-icon",
@@ -206,7 +213,7 @@ caja_action_from_menu_item (CajaMenuItem *item)
 }
 
 GtkAction *
-caja_toolbar_action_from_menu_item (CajaMenuItem *item)
+caja_toolbar_action_from_menu_item (CajaMenuItem *item, GtkWidget *parent_widget)
 {
     char *name, *label, *tip, *icon_name;
     gboolean sensitive, priority;
@@ -228,7 +235,8 @@ caja_toolbar_action_from_menu_item (CajaMenuItem *item)
     if (icon_name != NULL)
     {
         pixbuf = get_action_icon (icon_name,
-                                  caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_LARGE_TOOLBAR));
+                                  caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_LARGE_TOOLBAR),
+                                  parent_widget);
         if (pixbuf != NULL)
         {
             g_object_set_data_full (G_OBJECT (action), "toolbar-icon",

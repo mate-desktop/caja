@@ -356,7 +356,8 @@ static CajaIconInfo *
 real_get_icon (CajaWindow *window,
                CajaWindowSlot *slot)
 {
-    return caja_file_get_icon (slot->viewed_file, 48,
+    return caja_file_get_icon (slot->viewed_file,
+                               48, gtk_widget_get_scale_factor (GTK_WIDGET (window)),
                                CAJA_FILE_ICON_FLAGS_IGNORE_VISITING |
                                CAJA_FILE_ICON_FLAGS_USE_MOUNT_ICON);
 }
@@ -581,6 +582,7 @@ got_file_info_for_location_menu_callback (CajaFile *file,
     pixbuf = caja_file_get_icon_pixbuf (file,
                                         caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU),
                                         TRUE,
+                                        gtk_widget_get_scale_factor (GTK_WIDGET (menu_item)),
                                         CAJA_FILE_ICON_FLAGS_IGNORE_VISITING);
 
     if (pixbuf != NULL)
@@ -785,6 +787,7 @@ location_button_drag_begin_callback (GtkWidget             *widget,
     pixbuf = caja_file_get_icon_pixbuf (slot->viewed_file,
                                         get_dnd_icon_size (window),
                                         FALSE,
+                                        gtk_widget_get_scale_factor (widget),
                                         CAJA_FILE_ICON_FLAGS_IGNORE_VISITING | CAJA_FILE_ICON_FLAGS_FOR_DRAG_ACCEPT);
 
     gtk_drag_set_icon_pixbuf (context, pixbuf, 0, 0);
@@ -862,6 +865,7 @@ caja_spatial_window_set_location_button  (CajaSpatialWindow *window,
             pixbuf = caja_file_get_icon_pixbuf (file,
                                                 caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU),
                                                 TRUE,
+                                                gtk_widget_get_scale_factor (window->details->location_button),
                                                 CAJA_FILE_ICON_FLAGS_IGNORE_VISITING);
 
             if (pixbuf != NULL)

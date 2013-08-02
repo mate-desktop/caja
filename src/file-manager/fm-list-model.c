@@ -34,10 +34,12 @@
 #include <glib/gi18n.h>
 #include <libcaja-private/caja-dnd.h>
 #include <glib.h>
+#include <cairo-gobject.h>
 
 enum
 {
     SUBDIRECTORY_UNLOADED,
+    GET_ICON_SCALE,
     LAST_SIGNAL
 };
 
@@ -163,7 +165,7 @@ fm_list_model_get_column_type (GtkTreeModel *tree_model, int index)
     case FM_LIST_MODEL_LARGE_ICON_COLUMN:
     case FM_LIST_MODEL_LARGER_ICON_COLUMN:
     case FM_LIST_MODEL_LARGEST_ICON_COLUMN:
-        return GDK_TYPE_PIXBUF;
+        return CAIRO_GOBJECT_TYPE_SURFACE;
     case FM_LIST_MODEL_FILE_NAME_IS_EDITABLE_COLUMN:
         return G_TYPE_BOOLEAN;
     default:
@@ -259,6 +261,21 @@ fm_list_model_get_path (GtkTreeModel *tree_model, GtkTreeIter *iter)
     return path;
 }
 
+static gint
+fm_list_model_get_icon_scale (FMListModel *model)
+{
+    gint retval = -1;
+
+    g_signal_emit (model, list_model_signals[GET_ICON_SCALE], 0,
+                   &retval);
+
+    if (retval == -1) {
+        retval = gdk_screen_get_monitor_scale_factor (gdk_screen_get_default (), 0);
+    }
+
+    return retval;
+}
+
 static void
 fm_list_model_get_value (GtkTreeModel *tree_model, GtkTreeIter *iter, int column, GValue *value)
 {
@@ -271,12 +288,13 @@ fm_list_model_get_value (GtkTreeModel *tree_model, GtkTreeIter *iter, int column
     CajaIconInfo *icon_info;
     GEmblem *emblem;
     GList *emblem_icons, *l;
-    int icon_size;
+    int icon_size, icon_scale;
     CajaZoomLevel zoom_level;
     CajaFile *parent_file;
     char *emblems_to_ignore[3];
     int i;
     CajaFileIconFlags flags;
+    cairo_surface_t *surface;
 
     model = (FMListModel *)tree_model;
 
@@ -305,12 +323,13 @@ fm_list_model_get_value (GtkTreeModel *tree_model, GtkTreeIter *iter, int column
     case FM_LIST_MODEL_LARGE_ICON_COLUMN:
     case FM_LIST_MODEL_LARGER_ICON_COLUMN:
     case FM_LIST_MODEL_LARGEST_ICON_COLUMN:
-        g_value_init (value, GDK_TYPE_PIXBUF);
+        g_value_init (value, CAIRO_GOBJECT_TYPE_SURFACE);
 
         if (file != NULL)
         {
             zoom_level = fm_list_model_get_zoom_level_from_column_id (column);
             icon_size = caja_get_icon_size_for_zoom_level (zoom_level);
+            icon_scale = fm_list_model_get_icon_scale (model);
 
             flags = CAJA_FILE_ICON_FLAGS_USE_THUMBNAILS |
                     CAJA_FILE_ICON_FLAGS_FORCE_THUMBNAIL_SIZE |
@@ -376,7 +395,7 @@ fm_list_model_get_value (GtkTreeModel *tree_model, GtkTreeIter *iter, int column
             	gicon = emblemed_icon;
             }
 
-            icon_info = caja_icon_info_lookup (gicon, icon_size);
+            icon_info = caja_icon_info_lookup (gicon, icon_size, icon_scale);
             icon = caja_icon_info_get_pixbuf_at_size (icon_info, icon_size);
 
             g_object_unref (icon_info);
@@ -395,7 +414,8 @@ fm_list_model_get_value (GtkTreeModel *tree_model, GtkTreeIter *iter, int column
                 }
             }
 
-            g_value_set_object (value, icon);
+            surface = gdk_cairo_surface_create_from_pixbuf (icon, icon_scale, NULL);
+            g_value_take_boxed (value, surface);
             g_object_unref (icon);
         }
         break;
@@ -1675,6 +1695,14 @@ fm_list_model_class_init (FMListModelClass *klass)
                       g_cclosure_marshal_VOID__OBJECT,
                       G_TYPE_NONE, 1,
                       CAJA_TYPE_DIRECTORY);
+
+    list_model_signals[GET_ICON_SCALE] =
+        g_signal_new ("get-icon-scale",
+                      FM_TYPE_LIST_MODEL,
+                      G_SIGNAL_RUN_FIRST | G_SIGNAL_RUN_LAST,
+                      0, NULL, NULL,
+                      NULL,
+                      G_TYPE_INT, 0);
 }
 
 static void

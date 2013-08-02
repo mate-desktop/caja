@@ -233,11 +233,12 @@ get_eject_icon (gboolean highlighted)
 {
     GdkPixbuf *eject;
     CajaIconInfo *eject_icon_info;
-    int icon_size;
+    int icon_size, icon_scale;
 
     icon_size = caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU);
+    icon_scale = gdk_window_get_scale_factor (gdk_get_default_root_window ());
 
-    eject_icon_info = caja_icon_info_lookup_from_name ("media-eject", icon_size);
+    eject_icon_info = caja_icon_info_lookup_from_name ("media-eject", icon_size, icon_scale);
     eject = caja_icon_info_get_pixbuf_at_size (eject_icon_info, icon_size);
 
     if (highlighted) {
@@ -342,6 +343,7 @@ add_place (CajaPlacesSidebar *sidebar,
     GdkPixbuf      *eject;
     CajaIconInfo   *icon_info;
     int             icon_size;
+    int             icon_scale;
     gboolean        show_eject;
     gboolean        show_unmount;
     gboolean        show_eject_button;
@@ -349,7 +351,8 @@ add_place (CajaPlacesSidebar *sidebar,
     check_heading_for_section (sidebar, section_type);
 
     icon_size = caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU);
-    icon_info = caja_icon_info_lookup (icon, icon_size);
+    icon_scale = gtk_widget_get_scale_factor (GTK_WIDGET (sidebar));
+    icon_info = caja_icon_info_lookup (icon, icon_size, icon_scale);
 
     pixbuf = caja_icon_info_get_pixbuf_at_size (icon_info, icon_size);
     g_object_unref (icon_info);

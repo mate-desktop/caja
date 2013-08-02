@@ -453,10 +453,12 @@ GIcon *                 caja_file_get_gicon                         (CajaFile   
         CajaFileIconFlags           flags);
 CajaIconInfo *      caja_file_get_icon                          (CajaFile                   *file,
         int                             size,
+        int                             scale,
         CajaFileIconFlags           flags);
 GdkPixbuf *             caja_file_get_icon_pixbuf                   (CajaFile                   *file,
         int                             size,
         gboolean                        force_size,
+        int                             scale,
         CajaFileIconFlags           flags);
 
 gboolean                caja_file_has_open_window                   (CajaFile                   *file);
