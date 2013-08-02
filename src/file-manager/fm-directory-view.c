@@ -4888,18 +4888,20 @@ extension_action_callback (GtkAction *action,
 }
 
 static GdkPixbuf *
-get_menu_icon (const char *icon_name)
+get_menu_icon (const char *icon_name,
+	       GtkWidget  *widget)
 {
 	CajaIconInfo *info;
 	GdkPixbuf *pixbuf;
-	int size;
+	int size, scale;
 
 	size = caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU);
+	scale = gtk_widget_get_scale_factor (widget);
 
 	if (g_path_is_absolute (icon_name)) {
-		info = caja_icon_info_lookup_from_path (icon_name, size);
+		info = caja_icon_info_lookup_from_path (icon_name, size, scale);
 	} else {
-		info = caja_icon_info_lookup_from_name (icon_name, size);
+		info = caja_icon_info_lookup_from_name (icon_name, size, scale);
 	}
 	pixbuf = caja_icon_info_get_pixbuf_nodefault_at_size (info, size);
 	g_object_unref (info);
@@ -4908,15 +4910,17 @@ get_menu_icon (const char *icon_name)
 }
 
 static GdkPixbuf *
-get_menu_icon_for_file (CajaFile *file)
+get_menu_icon_for_file (CajaFile  *file,
+			GtkWidget *widget)
 {
 	CajaIconInfo *info;
 	GdkPixbuf *pixbuf;
-	int size;
+	int size, scale;
 
 	size = caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU);
+	scale = gtk_widget_get_scale_factor (widget);
 
-	info = caja_file_get_icon (file, size, 0);
+	info = caja_file_get_icon (file, size, scale, 0);
 	pixbuf = caja_icon_info_get_pixbuf_nodefault_at_size (info, size);
 	g_object_unref (info);
 
@@ -4947,7 +4951,7 @@ add_extension_action_for_files (FMDirectoryView *view,
 				 icon);
 
 	if (icon != NULL) {
-		pixbuf = get_menu_icon (icon);
+		pixbuf = get_menu_icon (icon, GTK_WIDGET (view));
 		if (pixbuf != NULL) {
 			g_object_set_data_full (G_OBJECT (action), "menu-icon",
 						pixbuf,
@@ -5414,7 +5418,7 @@ add_script_to_scripts_menus (FMDirectoryView *directory_view,
 				 tip,
 				 NULL);
 
-	pixbuf = get_menu_icon_for_file (file);
+	pixbuf = get_menu_icon_for_file (file, GTK_WIDGET (directory_view));
 	if (pixbuf != NULL) {
 		g_object_set_data_full (G_OBJECT (action), "menu-icon",
 					pixbuf,
@@ -5478,7 +5482,7 @@ add_submenu_to_directory_menus (FMDirectoryView *directory_view,
 	ui_manager = caja_window_info_get_ui_manager (directory_view->details->window);
 	uri = caja_file_get_uri (file);
 	name = caja_file_get_display_name (file);
-	pixbuf = get_menu_icon_for_file (file);
+	pixbuf = get_menu_icon_for_file (file, GTK_WIDGET (directory_view));
 	add_submenu (ui_manager, action_group, merge_id, menu_path, uri, name, pixbuf, TRUE);
 	add_submenu (ui_manager, action_group, merge_id, popup_path, uri, name, pixbuf, FALSE);
 	add_submenu (ui_manager, action_group, merge_id, popup_bg_path, uri, name, pixbuf, FALSE);
@@ -5665,7 +5669,7 @@ add_template_to_templates_menus (FMDirectoryView *directory_view,
 				 tip,
 				 NULL);
 
-	pixbuf = get_menu_icon_for_file (file);
+	pixbuf = get_menu_icon_for_file (file, GTK_WIDGET (directory_view));
 	if (pixbuf != NULL) {
 		g_object_set_data_full (G_OBJECT (action), "menu-icon",
 					pixbuf,
@@ -6963,6 +6967,7 @@ action_connect_to_server_link_callback (GtkAction *action,
 	GtkWidget *entry;
 	GtkWidget *box;
 	char *title;
+	gint scale;
 
         view = FM_DIRECTORY_VIEW (data);
 
@@ -6974,9 +6979,10 @@ action_connect_to_server_link_callback (GtkAction *action,
 	}
 
 	file = CAJA_FILE (selection->data);
+	scale = gtk_widget_get_scale_factor (GTK_WIDGET (view));
 
 	uri = caja_file_get_activation_uri (file);
-	icon = caja_file_get_icon (file, CAJA_ICON_SIZE_STANDARD, 0);
+	icon = caja_file_get_icon (file, CAJA_ICON_SIZE_STANDARD, scale, 0);
 	icon_name = caja_icon_info_get_used_name (icon);
 	name = caja_file_get_display_name (file);
 
@@ -7561,7 +7567,7 @@ connect_proxy (FMDirectoryView *view,
 
 	if (strcmp (gtk_action_get_name (action), FM_ACTION_NEW_EMPTY_FILE) == 0 &&
 	    GTK_IS_IMAGE_MENU_ITEM (proxy)) {
-		pixbuf = get_menu_icon ("text-x-generic");
+		pixbuf = get_menu_icon ("text-x-generic", GTK_WIDGET (view));
 		if (pixbuf != NULL) {
 			image = gtk_image_new_from_pixbuf (pixbuf);
 			gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (proxy), image);

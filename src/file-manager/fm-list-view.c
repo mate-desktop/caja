@@ -1637,6 +1637,13 @@ focus_in_event_callback (GtkWidget *widget, GdkEventFocus *event, gpointer user_
     return FALSE;
 }
 
+static gint
+get_icon_scale_callback (FMListModel *model,
+                         FMListView  *view)
+{
+    return gtk_widget_get_scale_factor (GTK_WIDGET (view->details->tree_view));
+}
+
 static void
 create_and_set_up_tree_view (FMListView *view)
 {
@@ -1726,6 +1733,9 @@ create_and_set_up_tree_view (FMListView *view)
     g_signal_connect_object (view->details->model, "subdirectory_unloaded",
                              G_CALLBACK (subdirectory_unloaded_callback), view, 0);
 
+    g_signal_connect_object (view->details->model, "get-icon-scale",
+                             G_CALLBACK (get_icon_scale_callback), view, 0);
+
     gtk_tree_selection_set_mode (gtk_tree_view_get_selection (view->details->tree_view), GTK_SELECTION_MULTIPLE);
 
     caja_columns = caja_get_all_columns ();
@@ -1781,7 +1791,7 @@ create_and_set_up_tree_view (FMListView *view)
             gtk_tree_view_column_pack_start (view->details->file_name_column, cell, FALSE);
             gtk_tree_view_column_set_attributes (view->details->file_name_column,
                                                  cell,
-                                                 "pixbuf", FM_LIST_MODEL_SMALLEST_ICON_COLUMN,
+                                                 "surface", FM_LIST_MODEL_SMALLEST_ICON_COLUMN,
                                                  NULL);
 
             cell = gtk_cell_renderer_text_new ();
@@ -2773,7 +2783,7 @@ fm_list_view_set_zoom_level (FMListView *view,
     column = fm_list_model_get_column_id_from_zoom_level (new_level);
     gtk_tree_view_column_set_attributes (view->details->file_name_column,
                                          GTK_CELL_RENDERER (view->details->pixbuf_cell),
-                                         "pixbuf", column,
+                                         "surface", column,
                                          NULL);
 
     /* Scale text. */

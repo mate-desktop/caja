@@ -324,13 +324,15 @@ caja_notes_viewer_init (CajaNotesViewer *sidebar)
 {
     CajaNotesViewerDetails *details;
     CajaIconInfo *info;
+    gint scale;
 
     details = g_new0 (CajaNotesViewerDetails, 1);
     sidebar->details = details;
 
     details->uri = g_strdup ("");
 
-    info = caja_icon_info_lookup_from_name ("emblem-note", 16);
+    scale = gdk_window_get_scale_factor (gdk_get_default_root_window ());
+    info = caja_icon_info_lookup_from_name ("emblem-note", 16, scale);
     details->icon = caja_icon_info_get_pixbuf (info);
 
     /* create the text container */

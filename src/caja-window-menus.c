@@ -1051,7 +1051,7 @@ add_extension_menu_items (CajaWindow *window,
 
         g_object_get (item, "menu", &menu, NULL);
 
-        action = caja_action_from_menu_item (item);
+        action = caja_action_from_menu_item (item, GTK_WIDGET (window));
         gtk_action_group_add_action_with_accel (action_group, action, NULL);
 
         path = g_build_path ("/", POPUP_PATH_EXTENSION_ACTIONS, subdirectory, NULL);

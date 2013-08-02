@@ -722,6 +722,7 @@ make_drag_image (CajaPropertyBrowser *property_browser, const char* file_name)
     char *icon_name;
     gboolean is_reset;
     CajaIconInfo *info;
+    gint icon_scale;
 
     if (property_browser->details->category_type == CAJA_PROPERTY_EMBLEM)
     {
@@ -739,7 +740,8 @@ make_drag_image (CajaPropertyBrowser *property_browser, const char* file_name)
         else
         {
             icon_name = caja_emblem_get_icon_name_from_keyword (file_name);
-            info = caja_icon_info_lookup_from_name (icon_name, CAJA_ICON_SIZE_STANDARD);
+            icon_scale = gtk_widget_get_scale_factor (GTK_WIDGET (property_browser->details->content_table));
+            info = caja_icon_info_lookup_from_name (icon_name, CAJA_ICON_SIZE_STANDARD, icon_scale);
             pixbuf = caja_icon_info_get_pixbuf_at_size (info, CAJA_ICON_SIZE_STANDARD);
             g_object_unref (info);
             g_free (icon_name);
@@ -1795,6 +1797,7 @@ make_properties_from_directories (CajaPropertyBrowser *property_browser)
     guint num_images;
     char *path;
     CajaIconInfo *info;
+    gint icon_scale;
 
     g_return_if_fail (CAJA_IS_PROPERTY_BROWSER (property_browser));
     g_return_if_fail (EEL_IS_IMAGE_TABLE (property_browser->details->content_table));
@@ -1807,6 +1810,7 @@ make_properties_from_directories (CajaPropertyBrowser *property_browser)
         property_browser->details->keywords = NULL;
 
         icons = caja_emblem_list_available ();
+        icon_scale = gtk_widget_get_scale_factor (GTK_WIDGET (property_browser->details->content_table));
 
         property_browser->details->has_local = FALSE;
         l = icons;
@@ -1830,7 +1834,7 @@ make_properties_from_directories (CajaPropertyBrowser *property_browser)
                 g_free (object_name);
                 continue;
             }
-            info = caja_icon_info_lookup_from_name (icon_name, CAJA_ICON_SIZE_STANDARD);
+            info = caja_icon_info_lookup_from_name (icon_name, CAJA_ICON_SIZE_STANDARD, icon_scale);
             object_pixbuf = caja_icon_info_get_pixbuf_at_size (info, CAJA_ICON_SIZE_STANDARD);
             object_label = g_strdup (caja_icon_info_get_display_name (info));
             g_object_unref (info);

@@ -79,6 +79,7 @@ file_icons_changed (CajaFile *file,
     pixbuf = caja_file_get_icon_pixbuf (fcd->details->destination,
                                         CAJA_ICON_SIZE_LARGE,
                                         TRUE,
+                                        gtk_widget_get_scale_factor (fcd->details->dest_image),
                                         CAJA_FILE_ICON_FLAGS_USE_THUMBNAILS);
 
     gtk_image_set_from_pixbuf (GTK_IMAGE (fcd->details->dest_image), pixbuf);
@@ -87,6 +88,7 @@ file_icons_changed (CajaFile *file,
     pixbuf = caja_file_get_icon_pixbuf (fcd->details->source,
                                         CAJA_ICON_SIZE_LARGE,
                                         TRUE,
+                                        gtk_widget_get_scale_factor (fcd->details->src_image),
                                         CAJA_FILE_ICON_FLAGS_USE_THUMBNAILS);
 
     gtk_image_set_from_pixbuf (GTK_IMAGE (fcd->details->src_image), pixbuf);
@@ -238,6 +240,7 @@ file_list_ready_cb (GList *files,
     pixbuf = caja_file_get_icon_pixbuf (dest,
                                         CAJA_ICON_SIZE_LARGE,
                                         TRUE,
+                                        gtk_widget_get_scale_factor (fcd->details->titles_vbox),
                                         CAJA_FILE_ICON_FLAGS_USE_THUMBNAILS);
     details->dest_image = gtk_image_new_from_pixbuf (pixbuf);
     gtk_box_pack_start (GTK_BOX (details->first_hbox),
@@ -248,6 +251,7 @@ file_list_ready_cb (GList *files,
     pixbuf = caja_file_get_icon_pixbuf (src,
                                         CAJA_ICON_SIZE_LARGE,
                                         TRUE,
+                                        gtk_widget_get_scale_factor (fcd->details->titles_vbox),
                                         CAJA_FILE_ICON_FLAGS_USE_THUMBNAILS);
     details->src_image = gtk_image_new_from_pixbuf (pixbuf);
     gtk_box_pack_start (GTK_BOX (details->second_hbox),

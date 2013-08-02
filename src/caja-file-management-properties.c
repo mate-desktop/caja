@@ -735,7 +735,7 @@ caja_file_management_properties_dialog_setup_media_page (GtkBuilder *builder)
         GIcon *icon;
         CajaIconInfo *icon_info;
         GdkPixbuf *pixbuf;
-        int icon_size;
+        int icon_size, icon_scale;
 
         if (!g_str_has_prefix (content_type, "x-content/"))
             continue;
@@ -748,13 +748,14 @@ caja_file_management_properties_dialog_setup_media_page (GtkBuilder *builder)
         }
 
         icon_size = caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU);
+        icon_scale = gtk_widget_get_scale_factor (other_type_combo_box);
 
         description = g_content_type_get_description (content_type);
         gtk_list_store_append (other_type_list_store, &iter);
         icon = g_content_type_get_icon (content_type);
         if (icon != NULL)
         {
-            icon_info = caja_icon_info_lookup (icon, icon_size);
+            icon_info = caja_icon_info_lookup (icon, icon_size, icon_scale);
             g_object_unref (icon);
             pixbuf = caja_icon_info_get_pixbuf_nodefault_at_size (icon_info, icon_size);
             g_object_unref (icon_info);

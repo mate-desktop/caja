@@ -130,10 +130,11 @@ caja_x_content_bar_set_x_content_type (CajaXContentBar *bar, const char *x_conte
         if (icon != NULL)
         {
             GdkPixbuf *pixbuf;
-            int icon_size;
+            int icon_size, icon_scale;
             CajaIconInfo *icon_info;
             icon_size = caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_BUTTON);
-            icon_info = caja_icon_info_lookup (icon, icon_size);
+            icon_scale = gtk_widget_get_scale_factor (GTK_WIDGET (bar));
+            icon_info = caja_icon_info_lookup (icon, icon_size, icon_scale);
             pixbuf = caja_icon_info_get_pixbuf_at_size (icon_info, icon_size);
             image = gtk_image_new_from_pixbuf (pixbuf);
             g_object_unref (pixbuf);

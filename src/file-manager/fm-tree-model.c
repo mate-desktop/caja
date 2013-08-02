@@ -258,11 +258,12 @@ get_menu_icon (GIcon *icon)
 {
     CajaIconInfo *info;
     GdkPixbuf *pixbuf;
-    int size;
+    int size, scale;
 
     size = caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU);
+    scale = gdk_window_get_scale_factor (gdk_get_default_root_window ());
 
-    info = caja_icon_info_lookup (icon, size);
+    info = caja_icon_info_lookup (icon, size, scale);
     pixbuf = caja_icon_info_get_pixbuf_nodefault_at_size (info, size);
     g_object_unref (info);
 
@@ -279,13 +280,14 @@ get_menu_icon_for_file (TreeNode *node,
     GEmblem *emblem;
     GdkPixbuf *pixbuf, *retval;
     gboolean highlight;
-    int size;
+    int size, scale;
     FMTreeModel *model;
     GList *emblem_icons, *l;
     char *emblems_to_ignore[3];
     int i;
 
     size = caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU);
+    scale = gdk_window_get_scale_factor (gdk_get_default_root_window ());
 
     gicon = caja_file_get_gicon (file, flags);
 
@@ -321,7 +323,7 @@ get_menu_icon_for_file (TreeNode *node,
 
     g_list_free_full (emblem_icons, g_object_unref);
 
-    info = caja_icon_info_lookup (gicon, size);
+    info = caja_icon_info_lookup (gicon, size, scale);
     retval = caja_icon_info_get_pixbuf_nodefault_at_size (info, size);
     model = node->root->model;
 

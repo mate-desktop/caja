@@ -230,7 +230,8 @@ present_autorun_for_software_dialog (GMount *mount)
 
     icon = g_mount_get_icon (mount);
     icon_size = caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_DIALOG);
-    icon_info = caja_icon_info_lookup (icon, icon_size);
+    icon_info = caja_icon_info_lookup (icon, icon_size,
+                                       gtk_widget_get_scale_factor (GTK_WIDGET (dialog)));
     pixbuf = caja_icon_info_get_pixbuf_at_size (icon_info, icon_size);
     image = gtk_image_new_from_pixbuf (pixbuf);
     gtk_widget_set_halign (image, GTK_ALIGN_CENTER);

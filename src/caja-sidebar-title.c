@@ -356,16 +356,18 @@ update_icon (CajaSidebarTitle *sidebar_title)
     CajaIconInfo *info;
     char *icon_name;
     gboolean leave_pixbuf_unchanged;
+    gint icon_scale;
 
     leave_pixbuf_unchanged = FALSE;
 
     /* see if the current content view is specifying an icon */
     icon_name = get_property_from_component (sidebar_title, "icon_name");
+    icon_scale = gtk_widget_get_scale_factor (GTK_WIDGET (sidebar_title));
 
     pixbuf = NULL;
     if (icon_name != NULL && icon_name[0] != '\0')
     {
-        info = caja_icon_info_lookup_from_name (icon_name, CAJA_ICON_SIZE_LARGE);
+        info = caja_icon_info_lookup_from_name (icon_name, CAJA_ICON_SIZE_LARGE, icon_scale);
         pixbuf = caja_icon_info_get_pixbuf_at_size (info,  CAJA_ICON_SIZE_LARGE);
         g_object_unref (info);
     }
@@ -376,6 +378,7 @@ update_icon (CajaSidebarTitle *sidebar_title)
         pixbuf = caja_file_get_icon_pixbuf (sidebar_title->details->file,
                                             sidebar_title->details->best_icon_size,
                                             TRUE,
+                                            icon_scale,
                                             CAJA_FILE_ICON_FLAGS_USE_THUMBNAILS |
                                             CAJA_FILE_ICON_FLAGS_USE_MOUNT_ICON_AS_EMBLEM);
     }
