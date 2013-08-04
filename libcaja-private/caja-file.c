@@ -4322,9 +4322,9 @@ caja_file_get_icon (CajaFile *file,
 	}
 
 	if (flags & CAJA_FILE_ICON_FLAGS_FORCE_THUMBNAIL_SIZE) {
-		modified_size = size;
+		modified_size = size * scale;
 	} else {
-		modified_size = size * cached_thumbnail_size / CAJA_ICON_SIZE_STANDARD;
+		modified_size = size * scale * cached_thumbnail_size / CAJA_ICON_SIZE_STANDARD;
 	}
 	if (flags & CAJA_FILE_ICON_FLAGS_USE_THUMBNAILS &&
 	    caja_file_should_show_thumbnail (file)) {
@@ -4370,7 +4370,7 @@ caja_file_get_icon (CajaFile *file,
 			   image instead. We don't want to compare to exactly 100%,
 			   since the zoom level 150% gives thumbnails at 144, which is
 			   ok to scale up from 128. */
-			if (modified_size > 128*1.25 &&
+			if (modified_size > 128 * 1.25 * scale &&
 			    !file->details->thumbnail_wants_original &&
 			    caja_can_thumbnail_internally (file)) {
 				/* Invalidate if we resize upward */
