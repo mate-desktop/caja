@@ -410,13 +410,11 @@ get_image_for_properties_window (FMPropertiesWindow *window,
 
 
 static void
-update_properties_window_icon (GtkImage *image)
+update_properties_window_icon (FMPropertiesWindow *window)
 {
-	FMPropertiesWindow *window;
 	GdkPixbuf *pixbuf;
+	cairo_surface_t *surface;
 	char *name;
-
-	window = g_object_get_data (G_OBJECT (image), "properties_window");
 
 	get_image_for_properties_window (window, &name, &pixbuf);
 
@@ -426,10 +424,13 @@ update_properties_window_icon (GtkImage *image)
 		gtk_window_set_icon (GTK_WINDOW (window), pixbuf);
 	}
 
-	gtk_image_set_from_pixbuf (image, pixbuf);
+	surface = gdk_cairo_surface_create_from_pixbuf (pixbuf, gtk_widget_get_scale_factor (GTK_WIDGET (window)),
+							gtk_widget_get_window (GTK_WIDGET (window)));
+	gtk_image_set_from_surface (GTK_IMAGE (window->details->icon_image), surface);
 
 	g_free (name);
 	g_object_unref (pixbuf);
+	cairo_surface_destroy (surface);
 }
 
 /* utility to test if a uri refers to a local image */
@@ -535,11 +536,11 @@ create_image_widget (FMPropertiesWindow *window,
 {
  	GtkWidget *button;
 	GtkWidget *image;
-	GdkPixbuf *pixbuf;
-
-	get_image_for_properties_window (window, NULL, &pixbuf);
 
 	image = gtk_image_new ();
+	window->details->icon_image = image;
+
+	update_properties_window_icon (window);
 	gtk_widget_show (image);
 
 	button = NULL;
@@ -559,13 +560,6 @@ create_image_widget (FMPropertiesWindow *window,
 				  G_CALLBACK (select_image_button_callback), window);
 	}
 
-	gtk_image_set_from_pixbuf (GTK_IMAGE (image), pixbuf);
-
-	g_object_unref (pixbuf);
-
-	g_object_set_data (G_OBJECT (image), "properties_window", window);
-
-	window->details->icon_image = image;
 	window->details->icon_button = button;
 
 	return button != NULL ? button : image;
@@ -1163,8 +1157,7 @@ properties_window_update (FMPropertiesWindow *window,
 
 	if (dirty_original) {
 		update_properties_window_title (window);
-		update_properties_window_icon (GTK_IMAGE (window->details->icon_image));
-
+		update_properties_window_icon (window);
 		update_name_field (window);
 
 		for (l = window->details->emblem_buttons; l != NULL; l = l->next) {
