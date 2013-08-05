@@ -460,13 +460,13 @@ stop_drag_check (FMListView *view)
     view->details->drag_button = 0;
 }
 
-static GdkPixbuf *
-get_drag_pixbuf (FMListView *view)
+static cairo_surface_t *
+get_drag_surface (FMListView *view)
 {
     GtkTreeModel *model;
     GtkTreePath *path;
     GtkTreeIter iter;
-    GdkPixbuf *ret;
+    cairo_surface_t *ret;
     GdkRectangle cell_area;
 
     ret = NULL;
@@ -500,15 +500,12 @@ drag_begin_callback (GtkWidget *widget,
                      FMListView *view)
 {
     GList *ref_list;
-    GdkPixbuf *pixbuf;
+    cairo_surface_t *surface;
 
-    pixbuf = get_drag_pixbuf (view);
-    if (pixbuf)
-    {
-        gtk_drag_set_icon_pixbuf (context,
-                                  pixbuf,
-                                  0, 0);
-        g_object_unref (pixbuf);
+    surface = get_drag_surface (view);
+    if (surface) {
+        gtk_drag_set_icon_surface (context, surface);
+        cairo_surface_destroy (surface);
     }
     else
     {
