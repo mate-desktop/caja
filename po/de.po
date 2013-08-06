@@ -3,15 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <benpicco@zedat.fu-berlin.de>, 2012.
-#   <lebendig2002@yahoo.de>, 2012-2013.
+# benpicco <benpicco@zedat.fu-berlin.de>, 2012
+# desperateCoder <a.dawtjan@gmx.de>, 2013
+# crazyd <lebendig2002@yahoo.de>, 2012-2013
+# muesli4 <muesli4@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
 "POT-Creation-Date: 2013-02-24 14:02+0100\n"
-"PO-Revision-Date: 2013-02-24 13:03+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"PO-Revision-Date: 2013-04-30 09:52+0000\n"
+"Last-Translator: desperateCoder <a.dawtjan@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/MATE/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +24,7 @@ msgstr ""
 #: ../cut-n-paste-code/libegg/eggdesktopfile.c:166
 #, c-format
 msgid "File is not a valid .desktop file"
-msgstr "Dies ist keine gültige .desktop-Datei"
+msgstr "Diese Datei ist keine gültige .desktop-Datei"
 
 #: ../cut-n-paste-code/libegg/eggdesktopfile.c:189
 #, c-format
@@ -2749,7 +2751,7 @@ msgid ""
 "If set to \"after-current-tab\", then new tabs are inserted after the "
 "current tab. If set to \"end\", then new tabs are appended to the end of the"
 " tab list."
-msgstr ""
+msgstr "Falls dieser Schlüssel »after_current_tab« gesetzt ist, werden neue Reiter nach dem aktuell gewählten Reiter eingefügt. Ist dieser Wert »end«, werden neue Reiter am Ende der Reiterliste eingefügt."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:3
 msgid "Caja will exit when last window destroyed."
@@ -2771,7 +2773,7 @@ msgid ""
 "If set to true, then all Caja windows will be browser windows. This is how "
 "Nautilus used to behave before version 2.6, and some people prefer this "
 "behavior."
-msgstr ""
+msgstr "Falls dieser Schlüssel wahr ist, sind alle Caja-Fenster Browser-Fenster. So verhielt sich Caja vor Version 2.6 und manche Anwender bevorzugen dieses Verhalten."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:7
 msgid "Always use the location entry, instead of the pathbar"
@@ -2815,7 +2817,7 @@ msgid ""
 "folder is on a remote server. If set to \"local-only\" then only show "
 "previews for local file systems. If set to \"never\" then never bother to "
 "read preview data."
-msgstr ""
+msgstr "Legt fest, wann eine Vorschau auf den Inhalt von Textdateien in deren Dateisymbol angezeigt werden soll. Zulässige Werte: »always«: immer anzeigen, selbst wenn sie sich auf einem entfernten Server befinden, »local_only«: nur anzeigen, falls sie sich auf einem lokalen Dateisystem befinden,  »never«: keinesfalls anzeigen."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:15
 msgid "When to show number of items in a folder"
@@ -2827,7 +2829,7 @@ msgid ""
 "\"always\" then always show item counts, even if the folder is on a remote "
 "server. If set to \"local-only\" then only show counts for local file "
 "systems. If set to \"never\" then never bother to compute item counts."
-msgstr ""
+msgstr "Legt fest, wann die Anzahl der Objekte in einem Ordner angezeigt werden soll. Zulässige Werte: »always«: immer anzeigen, selbst wenn er sich auf einem entfernten Server befindet, »local_only«: nur anzeigen, falls er sich auf einem lokalen Dateisystem befindet, »never«: keinesfalls anzeigen."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:17
 msgid "Type of click used to launch/open files"
@@ -2904,7 +2906,7 @@ msgid ""
 "If set to \"local-only\" then only show thumbnails for local file systems. "
 "If set to \"never\" then never bother to thumbnail images, just use a "
 "generic icon."
-msgstr ""
+msgstr "Legt fest, wann Miniatur-Vorschaubilder von Bildern angelegt werden sollen. Zulässige Werte: »always«: immer anlegen, selbst wenn sie sich auf einem entfernten Server befinden, »local_only«: nur anlegen, falls sie sich auf einem lokalen Dateisystem befinden, »never«: keinesfalls anlegen."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:31
 msgid "Maximum image size for thumbnailing"
@@ -2927,7 +2929,7 @@ msgid ""
 "icon. If set to \"always\" then always plays the sound, even if the file is "
 "on a remote server. If set to \"local-only\" then only plays previews on "
 "local file systems. If set to \"never\" then it never previews sound."
-msgstr ""
+msgstr "Legt fest, wann eine Vorschau auf Audio-Dateien angezeigt werden soll, sobald sich die Maus über deren Symbol befindet. Zulässige Werte: »always«: immer wiedergeben, selbst wenn sie sich auf einem entfernten Server befinden, »local_only«: nur wiedergeben, falls sie sich auf einem lokalen Dateisystem befinden, »never«: keinesfalls wiedergeben."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:35
 msgid "Show advanced permissions in the file property dialog"
@@ -2957,7 +2959,7 @@ msgstr "Voreingestellte Sortierreihenfolge"
 msgid ""
 "The default sort-order for items in the icon view. Possible values are "
 "\"name\", \"size\", \"type\", \"mtime\", and \"emblems\"."
-msgstr ""
+msgstr "Die voreingestellte Sortierreihenfolge für Objekte in der Symbolansicht. Zulässige Werte: »name« , »size« , »type« , »mtime« sowie »emblems«."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:41
 msgid "Reverse sort order in new windows"
@@ -3006,7 +3008,7 @@ msgstr "Dateiname des Vorgabehintergrunds"
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:50
 msgid ""
 "Uri of the default folder background. Only used if background_set is true."
-msgstr ""
+msgstr "Uri des standard Ordner-Hintergrundes. Wird nur Angewandt, wenn background_set aktiviert wurde."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:51
 msgid "Custom Side Pane Background Set"
@@ -3034,7 +3036,7 @@ msgstr "Dateiname des voreingestellten Seitenleistenhintergrunds"
 msgid ""
 "Uri of the default side pane background. Only used if "
 "side_pane_background_set is true."
-msgstr ""
+msgstr "Uri des standard Seitenpanel-Hintergrundes. Wird nur Angewandt, wenn side_pane_background_set aktiviert wurde."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:57
 msgid "Default folder viewer"
@@ -5562,7 +5564,7 @@ msgstr "Verbinde..."
 msgid ""
 "Can't load the supported server method list.\n"
 "Please check your GVfs installation."
-msgstr ""
+msgstr "Kann unterstützte Server-Methodenliste nicht laden.\nBitte überprüfen Sie Ihre GVfs-Installation."
 
 #: ../src/caja-connect-server-dialog.c:293
 #, c-format
@@ -6303,7 +6305,7 @@ msgstr "caja: --geometry kann nicht mit mehr als einer URI verwendet werden.\n"
 #: ../src/caja-main.c:555
 #, c-format
 msgid "caja: set erroneously as default application for '%s' content type.\n"
-msgstr ""
+msgstr "Caja: Setze \"erroneously\" als Standardanwendung für '%s' als Inhalt\n"
 
 #: ../src/caja-navigation-window-menus.c:127
 msgid "Are you sure you want to clear the list of locations you have visited?"
@@ -7120,7 +7122,7 @@ msgstr "Caja hilft Ihnen beim Organisieren Ihrer Dateien und Ordner, egal ob die
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2013 The Caja authors"
-msgstr ""
+msgstr "Copyright © 1999-2009 Die Nautilus Authoren⏎ Copyright © 2011-2013 Die Caja Authoren"
 
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about

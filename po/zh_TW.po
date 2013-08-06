@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Wei-Lun Chao <bluebat@member.fsf.org>, 2012.
+# Wei-Lun Chao <bluebat@member.fsf.org>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
 "POT-Creation-Date: 2013-02-24 14:02+0100\n"
-"PO-Revision-Date: 2013-02-24 13:03+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"PO-Revision-Date: 2013-05-27 15:42+0000\n"
+"Last-Translator: Wei-Lun Chao <bluebat@member.fsf.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/MATE/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -697,7 +697,7 @@ msgstr "位置"
 
 #: ../libcaja-private/caja-column-utilities.c:130
 msgid "The location of the file."
-msgstr ""
+msgstr "檔案的位置。"
 
 #: ../libcaja-private/caja-column-utilities.c:173
 msgid "Trashed On"
@@ -1787,7 +1787,7 @@ msgstr "昨天"
 #. 
 #: ../libcaja-private/caja-file.c:4506
 msgid "Wednesday, September 00 0000 at 00:00:00 PM"
-msgstr "公元0000年00月00日(週三)於下午 00時00分00秒"
+msgstr "0000年00月00日(週三) 下午 00時00分00秒"
 
 #: ../libcaja-private/caja-file.c:4507
 msgid "%A, %B %-d %Y at %-I:%M:%S %p"
@@ -1827,19 +1827,19 @@ msgstr "%Y年%m月%-d日%p %-I:%M"
 
 #: ../libcaja-private/caja-file.c:4521
 msgid "00/00/00, 00:00 PM"
-msgstr "00/00/00 下午 00:00"
+msgstr "00-00-00 下午 00:00"
 
 #: ../libcaja-private/caja-file.c:4522
 msgid "%m/%-d/%y, %-I:%M %p"
-msgstr "%y/%m/%-d %p %-I:%M"
+msgstr "%y-%m-%-d %p %-I:%M"
 
 #: ../libcaja-private/caja-file.c:4524
 msgid "00/00/00"
-msgstr "00/00/00"
+msgstr "00-00-00"
 
 #: ../libcaja-private/caja-file.c:4525
 msgid "%m/%d/%y"
-msgstr "%y/%m/%d"
+msgstr "%y-%m-%d"
 
 #: ../libcaja-private/caja-file.c:5166
 #, c-format
@@ -2704,7 +2704,7 @@ msgid ""
 "If set to true, then Caja will exit when all windows are destroyed. This is "
 "the default setting. If set to false, it can be started without any window, "
 "so caja can serve as a daemon to monitor media automount, or similar tasks."
-msgstr "如果設為 true，Caja 會在所有的視窗關閉時結束。這是預設的設定值。如果設為 false，它可以不開啟任何視窗而啟動，這樣便可以作為伺服程式進行監控媒體的自動掛載，或類似的工作。"
+msgstr "如果設為 true，Caja 會在所有的視窗關閉時結束。這是預設的設定值。如果設為 false，它可以不開啟任何視窗而啟動，這樣便可以作為守護程式進行監控媒體的自動掛載，或類似的工作。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:5
 msgid "Enables the classic Caja behavior, where all windows are browsers"
@@ -2715,7 +2715,7 @@ msgid ""
 "If set to true, then all Caja windows will be browser windows. This is how "
 "Nautilus used to behave before version 2.6, and some people prefer this "
 "behavior."
-msgstr ""
+msgstr "如果設定為‘true’，那麼所有的 Caja 視窗將會是瀏覽器視窗。這是 Nautilus 於版本 2.6 之前的行為, 而某些人偏好這個行為。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:7
 msgid "Always use the location entry, instead of the pathbar"
@@ -3476,7 +3476,7 @@ msgstr "啟動桌面顯示模式時發生錯誤。"
 #, c-format
 msgid "This will open %'d separate tab."
 msgid_plural "This will open %'d separate tabs."
-msgstr[0] "這將開啟 %'d 個分隔頁標。"
+msgstr[0] "這將開啟 %'d 個分隔的頁標。"
 
 #: ../src/file-manager/fm-directory-view.c:655
 #, c-format
@@ -5476,35 +5476,35 @@ msgstr "Secure WebDAV (HTTPS)"
 
 #: ../src/caja-connect-server-dialog.c:191
 msgid "Connecting..."
-msgstr ""
+msgstr "連接…"
 
 #: ../src/caja-connect-server-dialog.c:215
 msgid ""
 "Can't load the supported server method list.\n"
 "Please check your GVfs installation."
-msgstr ""
+msgstr "無法載入支援的伺服器方法清單。\n請檢查您的 GVfs 安裝。"
 
 #: ../src/caja-connect-server-dialog.c:293
 #, c-format
 msgid "The folder \"%s\" cannot be opened on \"%s\"."
-msgstr ""
+msgstr "資料夾「%s」無法開啟於「%s」。"
 
 #: ../src/caja-connect-server-dialog.c:303
 #, c-format
 msgid "The server at \"%s\" cannot be found."
-msgstr ""
+msgstr "找不到位於「%s」的伺服器。"
 
 #: ../src/caja-connect-server-dialog.c:338
 msgid "Try Again"
-msgstr ""
+msgstr "再試一次"
 
 #: ../src/caja-connect-server-dialog.c:404
 msgid "Please verify your user details."
-msgstr ""
+msgstr "請驗證您的使用者細節。"
 
 #: ../src/caja-connect-server-dialog.c:434
 msgid "Continue"
-msgstr ""
+msgstr "繼續"
 
 #: ../src/caja-connect-server-dialog.c:710
 #: ../src/caja-connect-server-dialog.c:1108
@@ -5518,7 +5518,7 @@ msgstr "連接伺服器"
 
 #: ../src/caja-connect-server-dialog.c:848
 msgid "Server Details"
-msgstr ""
+msgstr "伺服器細節"
 
 #. first row: server entry + port spinbutton
 #: ../src/caja-connect-server-dialog.c:868
@@ -5528,41 +5528,41 @@ msgstr "伺服器(_S):"
 #. port
 #: ../src/caja-connect-server-dialog.c:890
 msgid "_Port:"
-msgstr "連接埠(_P):"
+msgstr "通訊埠(_P):"
 
 #. third row: share entry
 #: ../src/caja-connect-server-dialog.c:986
 msgid "Share:"
-msgstr ""
+msgstr "共享："
 
 #. fourth row: folder entry
 #: ../src/caja-connect-server-dialog.c:1003
 msgid "Folder:"
-msgstr ""
+msgstr "資料夾："
 
 #: ../src/caja-connect-server-dialog.c:1021
 msgid "User Details"
-msgstr ""
+msgstr "使用者細節"
 
 #. first row: domain entry
 #: ../src/caja-connect-server-dialog.c:1040
 msgid "Domain Name:"
-msgstr ""
+msgstr "網域名稱："
 
 #. second row: username entry
 #: ../src/caja-connect-server-dialog.c:1057
 msgid "User Name:"
-msgstr ""
+msgstr "使用者名稱："
 
 #. third row: password entry
 #: ../src/caja-connect-server-dialog.c:1074
 msgid "Password:"
-msgstr ""
+msgstr "密碼："
 
 #. fourth row: remember checkbox
 #: ../src/caja-connect-server-dialog.c:1092
 msgid "Remember this password"
-msgstr ""
+msgstr "記住這個密碼"
 
 #: ../src/caja-desktop-window.c:81 ../src/caja-desktop-window.c:247
 #: ../src/caja-pathbar.c:1524 ../src/caja-places-sidebar.c:704
@@ -6220,7 +6220,7 @@ msgstr "caja：--geometry 不適用於多於一個 URI。\n"
 #: ../src/caja-main.c:555
 #, c-format
 msgid "caja: set erroneously as default application for '%s' content type.\n"
-msgstr ""
+msgstr "caja：設定做為『%s』內容類型的預設應用程式有誤。\n"
 
 #: ../src/caja-navigation-window-menus.c:127
 msgid "Are you sure you want to clear the list of locations you have visited?"
@@ -6491,7 +6491,7 @@ msgstr "於按鈕和基於文字的位置列間切換"
 
 #: ../src/caja-navigation-window-pane.c:455
 msgid "_New Tab"
-msgstr ""
+msgstr "新分頁(_N)"
 
 #: ../src/caja-navigation-window-pane.c:484
 msgid "_Close Tab"
@@ -6516,11 +6516,11 @@ msgstr "顯示備忘"
 
 #: ../src/caja-places-sidebar.c:313
 msgid "Devices"
-msgstr ""
+msgstr "裝置"
 
 #: ../src/caja-places-sidebar.c:321
 msgid "Bookmarks"
-msgstr ""
+msgstr "書籤"
 
 #: ../src/caja-places-sidebar.c:541 ../src/caja-places-sidebar.c:569
 #, c-format
@@ -6549,7 +6549,7 @@ msgstr "網路"
 
 #: ../src/caja-places-sidebar.c:866
 msgid "Browse Network"
-msgstr ""
+msgstr "瀏覽網路"
 
 #: ../src/caja-places-sidebar.c:868
 msgid "Browse the contents of the network"
@@ -7026,7 +7026,7 @@ msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301 USA"
-msgstr "您應該已經和程式一起收到一份 GNU 通用公共許可證的副本。如果還沒有，寫信給：  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA"
+msgstr "您應該已收到附於 Caja 的 GNU 通用公共授權的副本。如果沒有，請寫信至：Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA"
 
 #: ../src/caja-window-menus.c:534
 msgid ""
@@ -7037,7 +7037,7 @@ msgstr "Caja 讓您組織檔案和資料夾，不管是在您的電腦或是在�
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2013 The Caja authors"
-msgstr ""
+msgstr "著作權©1999-2009 Nautilus 作者群\n著作權©2011-2013 Caja 作者群"
 
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
