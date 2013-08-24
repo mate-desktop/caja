@@ -4276,7 +4276,9 @@ caja_file_get_icon (CajaFile *file,
 
 		pixbuf = caja_icon_info_get_pixbuf (icon);
 		if (pixbuf != NULL) {
-			caja_ui_frame_image (&pixbuf);
+			if (!file->details->is_launcher && !gdk_pixbuf_get_has_alpha (pixbuf)) {
+				caja_ui_frame_image (&pixbuf);
+			}
 			g_object_unref (icon);
 
 			icon = caja_icon_info_new_for_pixbuf (pixbuf);
@@ -4320,7 +4322,14 @@ caja_file_get_icon (CajaFile *file,
 								 MAX (h * scale, 1),
 								 GDK_INTERP_BILINEAR);
 
-			caja_ui_frame_image (&scaled_pixbuf);
+			/* Render frames only for thumbnails of non-image files 
+			   and for images with no alpha channel. */ 
+			gboolean is_image = strncmp(eel_ref_str_peek (file->details->mime_type), "image/", 6) == 0;
+     			if (!is_image || 
+     			    is_image && !gdk_pixbuf_get_has_alpha (raw_pixbuf)) {
+				caja_ui_frame_image (&scaled_pixbuf);
+     			}
+     			
 			g_object_unref (raw_pixbuf);
 
 			/* Don't scale up if more than 25%, then read the original
