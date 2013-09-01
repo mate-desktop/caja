@@ -2061,7 +2061,7 @@ icon_container_activate_alternate_callback (CajaIconContainer *container,
     g_assert (FM_IS_ICON_VIEW (icon_view));
     g_assert (container == get_icon_container (icon_view));
 
-    open_in_tab = FALSE;
+    open_in_tab = TRUE;
 
     window_info = fm_directory_view_get_caja_window (FM_DIRECTORY_VIEW (icon_view));
 
