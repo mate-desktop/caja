@@ -65,7 +65,7 @@
 /* Keeps track of everyone who wants the main event loop kept active */
 static GSList* event_loop_registrants;
 
-static gboolean exit_with_last_window = TRUE;
+static gboolean exit_with_last_window = FALSE;
 
 static gboolean is_event_loop_needed(void)
 {
@@ -497,10 +497,7 @@ main (int argc, char *argv[])
      * defaults are available before any preference peeking
      * happens.
      */
-    caja_global_preferences_init ();
-
-    /* exit_with_last_window being FALSE, caja can run without window. */
-    exit_with_last_window = g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_EXIT_WITH_LAST_WINDOW);
+    caja_global_preferences_init ();  
 
     application = NULL;
 
