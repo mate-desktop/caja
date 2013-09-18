@@ -2170,6 +2170,8 @@ audio_child_died (GPid     pid,
 {
     FMIconView *icon_view;
 
+    g_return_if_fail (FM_IS_ICON_VIEW (data));
+
     icon_view = FM_ICON_VIEW (data);
 
     icon_view->details->audio_preview_child_watch = 0;
