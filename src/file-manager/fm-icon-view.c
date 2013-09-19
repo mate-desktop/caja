@@ -2639,12 +2639,11 @@ fm_icon_view_icon_text_changed_callback (CajaIconContainer *container,
         FMIconView *icon_view)
 {
     g_assert (CAJA_IS_FILE (file));
-    g_assert (new_name != NULL);
 
     /* Don't allow a rename with an empty string. Revert to original
      * without notifying the user.
      */
-    if (new_name[0] == '\0')
+    if ((new_name == NULL) || (new_name[0] == '\0'))
     {
         return;
     }
