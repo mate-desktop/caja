@@ -528,7 +528,7 @@ caja_window_slot_open_location_full (CajaWindowSlot *slot,
     int new_slot_position;
     GList *l;
     gboolean target_navigation = FALSE, target_same = FALSE;
-    gboolean is_desktop;
+    gboolean is_desktop, is_navigation;
 
     window = slot->pane->window;
 
@@ -553,6 +553,7 @@ caja_window_slot_open_location_full (CajaWindowSlot *slot,
                 (flags & CAJA_WINDOW_OPEN_FLAG_NEW_TAB) != 0));
 
     is_desktop = CAJA_IS_DESKTOP_WINDOW (window);
+    is_navigation = CAJA_IS_NAVIGATION_WINDOW (window);
     target_same = is_desktop &&
     		!caja_desktop_window_loaded (CAJA_DESKTOP_WINDOW (window));
 
@@ -575,6 +576,8 @@ caja_window_slot_open_location_full (CajaWindowSlot *slot,
              * the target is a navigation.
              */
             target_navigation = TRUE;
+        } else if (is_navigation) {
+            target_same = TRUE;
         }
         break;
     case CAJA_WINDOW_OPEN_IN_NAVIGATION :
