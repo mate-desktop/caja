@@ -1094,9 +1094,36 @@ caja_window_key_press_event (GtkWidget *widget,
                              GdkEventKey *event)
 {
     CajaWindow *window;
+    CajaWindowSlot *active_slot;
+    CajaView *view;
+    GtkWidget *focus_widget;
     int i;
 
     window = CAJA_WINDOW (widget);
+
+    active_slot = caja_window_get_active_slot (window);
+    view = active_slot->content_view;
+
+    if (view != NULL && focus_widget != NULL &&
+        GTK_IS_EDITABLE (focus_widget)) {
+            /* if we have input focus on a GtkEditable (e.g. a GtkEntry), forward
+             * the event to it before activating accelerator bindings too.
+             */
+            if (gtk_window_propagate_key_event (GTK_WINDOW (window), event)) {
+                return TRUE;
+            }
+    }
+
+    focus_widget = gtk_window_get_focus (GTK_WINDOW (window));
+    if (view != NULL && focus_widget != NULL &&
+        GTK_IS_EDITABLE (focus_widget)) {
+            /* if we have input focus on a GtkEditable (e.g. a GtkEntry), forward
+             * the event to it before activating accelerator bindings too.
+             */
+            if (gtk_window_propagate_key_event (GTK_WINDOW (window), event)) {
+                return TRUE;
+            }
+    }
 
     for (i = 0; i < G_N_ELEMENTS (extra_window_keybindings); i++)
     {
