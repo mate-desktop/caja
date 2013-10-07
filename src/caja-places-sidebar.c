@@ -1130,11 +1130,12 @@ compute_drop_position (GtkTreeView *tree_view,
                         PLACES_SIDEBAR_COLUMN_SECTION_TYPE, &section_type,
                         -1);
 
-    if (place_type == PLACES_HEADING && section_type != SECTION_BOOKMARKS) {
+	if (section_type != SECTION_BOOKMARKS &&
+	    place_type == PLACES_HEADING) {
         /* never drop on headings, but special case the bookmarks heading,
-         * so we can drop bookmarks in between it and the first item.
+         * so we can drop bookmarks in between it and the first item when
+         * reordering.
          */
-
         gtk_tree_path_free (*path);
         *path = NULL;
 
@@ -1145,25 +1146,18 @@ compute_drop_position (GtkTreeView *tree_view,
         sidebar->drag_data_received &&
         sidebar->drag_data_info == GTK_TREE_MODEL_ROW) {
         /* don't allow dropping bookmarks into non-bookmark areas */
-
-    gtk_tree_path_free (*path);
-    *path = NULL;
+        gtk_tree_path_free (*path);
+        *path = NULL;
 
         return FALSE;
     }
 
-    if (section_type == SECTION_BOOKMARKS) {
-        *pos = GTK_TREE_VIEW_DROP_AFTER;
-    } else {
-        /* non-bookmark shortcuts can only be dragged into */
-        *pos = GTK_TREE_VIEW_DROP_INTO_OR_BEFORE;
-    }
-
-    if (*pos != GTK_TREE_VIEW_DROP_BEFORE &&
-        sidebar->drag_data_received &&
+    if (sidebar->drag_data_received &&
         sidebar->drag_data_info == GTK_TREE_MODEL_ROW) {
-        /* bookmark rows are never dragged into other bookmark rows */
-        *pos = GTK_TREE_VIEW_DROP_AFTER;
+            /* bookmark rows can only be reordered */
+            *pos = GTK_TREE_VIEW_DROP_AFTER;
+    } else {
+            *pos = GTK_TREE_VIEW_DROP_INTO_OR_BEFORE;
     }
 
     return TRUE;
@@ -1204,38 +1198,6 @@ free_drag_data (CajaPlacesSidebar *sidebar)
 }
 
 static gboolean
-can_accept_file_as_bookmark (CajaFile *file)
-{
-    return (caja_file_is_directory (file) &&
-            !is_built_in_bookmark (file));
-}
-
-static gboolean
-can_accept_items_as_bookmarks (const GList *items)
-{
-    int max;
-    char *uri;
-    CajaFile *file;
-
-    /* Iterate through selection checking if item will get accepted as a bookmark.
-     * If more than 100 items selected, return an over-optimistic result.
-     */
-    for (max = 100; items != NULL && max >= 0; items = items->next, max--)
-    {
-        uri = ((CajaDragSelectionItem *)items->data)->uri;
-        file = caja_file_get_by_uri (uri);
-        if (!can_accept_file_as_bookmark (file))
-        {
-            caja_file_unref (file);
-            return FALSE;
-        }
-        caja_file_unref (file);
-    }
-
-    return TRUE;
-}
-
-static gboolean
 drag_motion_callback (GtkTreeView *tree_view,
                       GdkDragContext *context,
                       int x,
@@ -1265,17 +1227,12 @@ drag_motion_callback (GtkTreeView *tree_view,
         goto out;
     }
 
-    if (pos == GTK_TREE_VIEW_DROP_BEFORE ||
-            pos == GTK_TREE_VIEW_DROP_AFTER )
+    if (pos == GTK_TREE_VIEW_DROP_AFTER )
     {
         if (sidebar->drag_data_received &&
                 sidebar->drag_data_info == GTK_TREE_MODEL_ROW)
         {
             action = GDK_ACTION_MOVE;
-        }
-        else if (can_accept_items_as_bookmarks (sidebar->drag_list))
-        {
-            action = GDK_ACTION_COPY;
         }
         else
         {
@@ -1333,60 +1290,8 @@ drag_leave_callback (GtkTreeView *tree_view,
                      CajaPlacesSidebar *sidebar)
 {
     free_drag_data (sidebar);
-    gtk_tree_view_set_drag_dest_row (tree_view, NULL, GTK_TREE_VIEW_DROP_BEFORE);
+    gtk_tree_view_set_drag_dest_row (tree_view, NULL, 0);
     g_signal_stop_emission_by_name (tree_view, "drag-leave");
-}
-
-/* Parses a "text/uri-list" string and inserts its URIs as bookmarks */
-static void
-bookmarks_drop_uris (CajaPlacesSidebar *sidebar,
-                     GtkSelectionData      *selection_data,
-                     int                    position)
-{
-    CajaBookmark *bookmark;
-    CajaFile *file;
-    char *uri, *name;
-    char **uris;
-    int i;
-    GFile *location;
-    GIcon *icon;
-
-    uris = gtk_selection_data_get_uris (selection_data);
-    if (!uris)
-        return;
-
-    for (i = 0; uris[i]; i++)
-    {
-        uri = uris[i];
-        file = caja_file_get_by_uri (uri);
-
-        if (!can_accept_file_as_bookmark (file))
-        {
-            caja_file_unref (file);
-            continue;
-        }
-
-        uri = caja_file_get_drop_target_uri (file);
-        location = g_file_new_for_uri (uri);
-        caja_file_unref (file);
-
-        name = caja_compute_title_for_location (location);
-        icon = g_themed_icon_new (CAJA_ICON_FOLDER);
-        bookmark = caja_bookmark_new (location, name, TRUE, icon);
-
-        if (!caja_bookmark_list_contains (sidebar->bookmarks, bookmark))
-        {
-            caja_bookmark_list_insert_item (sidebar->bookmarks, bookmark, position++);
-        }
-
-        g_object_unref (location);
-        g_object_unref (bookmark);
-        g_object_unref (icon);
-        g_free (name);
-        g_free (uri);
-    }
-
-    g_strfreev (uris);
 }
 
 static GList *
@@ -1526,9 +1431,7 @@ drag_data_received_callback (GtkWidget *widget,
 
     success = FALSE;
 
-    if (tree_pos == GTK_TREE_VIEW_DROP_BEFORE ||
-            tree_pos == GTK_TREE_VIEW_DROP_AFTER)
-    {
+    if (tree_pos == GTK_TREE_VIEW_DROP_AFTER) {
         model = gtk_tree_view_get_model (tree_view);
 
         if (!gtk_tree_model_get_iter (model, &iter, tree_path))
@@ -1553,10 +1456,6 @@ drag_data_received_callback (GtkWidget *widget,
 
         switch (info)
         {
-        case TEXT_URI_LIST:
-            bookmarks_drop_uris (sidebar, selection_data, position);
-            success = TRUE;
-            break;
         case GTK_TREE_MODEL_ROW:
             reorder_bookmarks (sidebar, position);
             success = TRUE;
