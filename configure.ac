@@ -50,6 +50,7 @@ case "$with_gtk" in
        GAIL_API_VERSION=-3.0
        ;;
 esac
+AC_SUBST([GTK_API_VERSION])
 
 dnl ===========================================================================
 
