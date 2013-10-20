@@ -439,6 +439,13 @@ AC_ARG_ENABLE(update-mimedb,
     enable_update_mimedb=yes)
 AM_CONDITIONAL(ENABLE_UPDATE_MIMEDB, test x$enable_update_mimedb = xyes)
 
+AC_ARG_ENABLE(icon-update, AC_HELP_STRING([--disable-icon-update],
+                                        [Disable icon cache update]))
+if (test "$enable_icon_update" != no); then
+        AC_PATH_PROG(UPDATE_ICON_CACHE, [gtk-update-icon-cache])
+fi
+AM_CONDITIONAL([ICON_UPDATE], [test -n "$UPDATE_ICON_CACHE"])
+
 AC_CONFIG_FILES([
 Makefile
 cut-n-paste-code/Makefile
