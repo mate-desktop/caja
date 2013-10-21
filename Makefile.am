@@ -32,7 +32,7 @@ DISTCLEANFILES = \
 	intltool-merge \
 	intltool-update
 
-DISTCHECK_CONFIGURE_FLAGS = --disable-update-mimedb --enable-gtk-doc
+DISTCHECK_CONFIGURE_FLAGS = --disable-update-mimedb --disable-icon-update --enable-gtk-doc
 
 ACLOCAL_AMFLAGS = -I m4
 
