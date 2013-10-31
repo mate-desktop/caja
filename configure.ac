@@ -25,9 +25,6 @@ AC_INIT([caja], [1.7.0], [http://www.mate-desktop.org])
 dnl ---------------------------------------------------------------------------
 dnl GTK library version
 dnl ---------------------------------------------------------------------------
-GTK_API_VERSION=2.0
-GTK_REQUIRED=2.24.0
-
 AC_MSG_CHECKING([which gtk+ version to compile against])
 AC_ARG_WITH([gtk],
     [AS_HELP_STRING([--with-gtk=2.0|3.0],[which gtk+ version to compile against (default: 2.0)])],
