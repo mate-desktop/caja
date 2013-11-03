@@ -133,33 +133,6 @@ select_panel (CajaSidePane *side_pane, SidePanel *panel)
     (GTK_NOTEBOOK (side_pane->details->notebook), page_num);
 }
 
-static void
-caja_side_pane_size_allocate (GtkWidget *widget,
-                              GtkAllocation *allocation)
-{
-    int width;
-    GtkAllocation child_allocation, frame_allocation;
-    CajaSidePane *pane;
-    GtkWidget *frame;
-    GtkWidget *hbox;
-    GtkRequisition child_requisition;
-
-    GTK_WIDGET_CLASS (parent_class)->size_allocate (widget, allocation);
-
-    pane = CAJA_SIDE_PANE(widget);
-    frame = pane->details->title_frame;
-    hbox = pane->details->title_hbox;
-
-    gtk_widget_get_preferred_size (hbox, &child_requisition, NULL);
-    width = child_requisition.width;
-
-    gtk_widget_get_allocation (frame, &frame_allocation);
-    child_allocation = frame_allocation;
-    child_allocation.width = MAX (width, frame_allocation.width);
-
-    gtk_widget_size_allocate (frame, &child_allocation);
-}
-
 /* initializing the class object by installing the operations we override */
 static void
 caja_side_pane_class_init (CajaSidePaneClass *klass)
@@ -172,7 +145,6 @@ caja_side_pane_class_init (CajaSidePaneClass *klass)
 
     gobject_class->finalize = caja_side_pane_finalize;
     gobject_class->dispose = caja_side_pane_dispose;
-    widget_class->size_allocate = caja_side_pane_size_allocate;
 
     signals[CLOSE_REQUESTED] = g_signal_new
                                ("close_requested",
