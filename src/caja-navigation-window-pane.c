@@ -242,7 +242,7 @@ location_button_create (CajaNavigationWindowPane *pane)
     GtkWidget *image;
     GtkWidget *button;
 
-    image = gtk_image_new_from_stock (GTK_STOCK_EDIT, GTK_ICON_SIZE_BUTTON);
+    image = gtk_image_new_from_stock (GTK_STOCK_EDIT, GTK_ICON_SIZE_MENU);
     gtk_widget_show (image);
 
     button = g_object_new (GTK_TYPE_TOGGLE_BUTTON,
