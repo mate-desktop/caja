@@ -185,6 +185,9 @@ caja_navigation_window_init (CajaNavigationWindow *window)
 
     ui_manager = caja_window_get_ui_manager (CAJA_WINDOW (window));
     toolbar = gtk_ui_manager_get_widget (ui_manager, "/Toolbar");
+#if GTK_CHECK_VERSION(3, 0, 0)
+    gtk_style_context_add_class (gtk_widget_get_style_context (toolbar), GTK_STYLE_CLASS_PRIMARY_TOOLBAR);
+#endif
     window->details->toolbar = toolbar;
     gtk_table_attach (GTK_TABLE (CAJA_WINDOW (window)->details->table),
                       toolbar,
