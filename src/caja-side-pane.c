@@ -48,7 +48,6 @@ struct _CajaSidePaneDetails
     GtkWidget *notebook;
     GtkWidget *menu;
 
-    GtkWidget *title_frame;
     GtkWidget *title_hbox;
     GtkWidget *title_label;
     GtkWidget *shortcut_box;
@@ -302,7 +301,6 @@ static void
 caja_side_pane_init (GObject *object)
 {
     CajaSidePane *side_pane;
-    GtkWidget *frame;
     GtkWidget *hbox;
     GtkWidget *close_button;
     GtkWidget *select_button;
@@ -314,19 +312,11 @@ caja_side_pane_init (GObject *object)
 
     side_pane->details = G_TYPE_INSTANCE_GET_PRIVATE (object, CAJA_TYPE_SIDE_PANE, CajaSidePaneDetails);
 
-    /* The frame (really a vbox) has the border */
-    frame = gtk_vbox_new (FALSE, 0);
-    gtk_container_set_border_width (GTK_CONTAINER (frame), 4);
-    side_pane->details->title_frame = frame;
-    gtk_widget_show (frame);
-    gtk_box_pack_start (GTK_BOX (side_pane), frame, FALSE, FALSE, 0);
-
-    /* And the title_hbox is what gets the same size as the other
-       headers */
     hbox = gtk_hbox_new (FALSE, 0);
+    gtk_container_set_border_width (GTK_CONTAINER (hbox), 4);
     side_pane->details->title_hbox = hbox;
     gtk_widget_show (hbox);
-    gtk_container_add (GTK_CONTAINER (frame), hbox);
+    gtk_box_pack_start (GTK_BOX (side_pane), hbox, FALSE, FALSE, 0);
 
     select_button = gtk_toggle_button_new ();
     gtk_button_set_relief (GTK_BUTTON (select_button), GTK_RELIEF_NONE);
