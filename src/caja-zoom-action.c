@@ -90,7 +90,6 @@ connect_proxy (GtkAction *action,
         GtkWidget *zoom_control;
 
         zoom_control = caja_zoom_control_new ();
-        gtk_container_set_border_width (GTK_CONTAINER (item), 4);
         gtk_container_add (GTK_CONTAINER (item),  zoom_control);
         gtk_widget_show (zoom_control);
 
