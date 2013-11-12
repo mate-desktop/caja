@@ -20,14 +20,11 @@ dnl Interface break is not allowed.
 m4_define(caja_extension_current,  5)
 m4_define(caja_extension_revision, 0)
 
-AC_INIT([mate-file-manager], [1.6.2], [http://www.mate-desktop.org])
+AC_INIT([caja], [1.7.0], [http://www.mate-desktop.org])
 
 dnl ---------------------------------------------------------------------------
 dnl GTK library version
 dnl ---------------------------------------------------------------------------
-GTK_API_VERSION=2.0
-GTK_REQUIRED=2.24.0
-
 AC_MSG_CHECKING([which gtk+ version to compile against])
 AC_ARG_WITH([gtk],
     [AS_HELP_STRING([--with-gtk=2.0|3.0],[which gtk+ version to compile against (default: 2.0)])],
@@ -50,6 +47,7 @@ case "$with_gtk" in
        GAIL_API_VERSION=-3.0
        ;;
 esac
+AC_SUBST([GTK_API_VERSION])
 
 dnl ===========================================================================
 
@@ -438,6 +436,13 @@ AC_ARG_ENABLE(update-mimedb,
                    [disable the update-mime-database after install [default=no]]),,
     enable_update_mimedb=yes)
 AM_CONDITIONAL(ENABLE_UPDATE_MIMEDB, test x$enable_update_mimedb = xyes)
+
+AC_ARG_ENABLE(icon-update, AC_HELP_STRING([--disable-icon-update],
+                                        [Disable icon cache update]))
+if (test "$enable_icon_update" != no); then
+        AC_PATH_PROG(UPDATE_ICON_CACHE, [gtk-update-icon-cache])
+fi
+AM_CONDITIONAL([ICON_UPDATE], [test -n "$UPDATE_ICON_CACHE"])
 
 AC_CONFIG_FILES([
 Makefile

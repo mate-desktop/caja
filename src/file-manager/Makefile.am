@@ -2,7 +2,7 @@ include $(top_srcdir)/Makefile.shared
 
 noinst_LTLIBRARIES=libcaja-file-manager.la
 
-INCLUDES = \
+AM_CPPFLAGS = \
 	-I$(top_srcdir) \
 	-I$(top_srcdir)/cut-n-paste-code \
 	$(CORE_CFLAGS) \

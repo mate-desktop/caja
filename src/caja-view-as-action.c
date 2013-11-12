@@ -176,7 +176,6 @@ connect_proxy (GtkAction *action,
         view_as_menu_vbox = gtk_vbox_new (FALSE, 4);
         gtk_widget_show (view_as_menu_vbox);
 
-        gtk_container_set_border_width (GTK_CONTAINER (item), 4);
         gtk_container_add (GTK_CONTAINER (item), view_as_menu_vbox);
 
         view_as_combo_box = gtk_combo_box_text_new ();
