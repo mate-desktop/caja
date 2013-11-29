@@ -48,7 +48,6 @@ struct _CajaSidePaneDetails
     GtkWidget *notebook;
     GtkWidget *menu;
 
-    GtkWidget *title_frame;
     GtkWidget *title_hbox;
     GtkWidget *title_label;
     GtkWidget *shortcut_box;
@@ -133,33 +132,6 @@ select_panel (CajaSidePane *side_pane, SidePanel *panel)
     (GTK_NOTEBOOK (side_pane->details->notebook), page_num);
 }
 
-static void
-caja_side_pane_size_allocate (GtkWidget *widget,
-                              GtkAllocation *allocation)
-{
-    int width;
-    GtkAllocation child_allocation, frame_allocation;
-    CajaSidePane *pane;
-    GtkWidget *frame;
-    GtkWidget *hbox;
-    GtkRequisition child_requisition;
-
-    GTK_WIDGET_CLASS (parent_class)->size_allocate (widget, allocation);
-
-    pane = CAJA_SIDE_PANE(widget);
-    frame = pane->details->title_frame;
-    hbox = pane->details->title_hbox;
-
-    gtk_widget_get_preferred_size (hbox, &child_requisition, NULL);
-    width = child_requisition.width;
-
-    gtk_widget_get_allocation (frame, &frame_allocation);
-    child_allocation = frame_allocation;
-    child_allocation.width = MAX (width, frame_allocation.width);
-
-    gtk_widget_size_allocate (frame, &child_allocation);
-}
-
 /* initializing the class object by installing the operations we override */
 static void
 caja_side_pane_class_init (CajaSidePaneClass *klass)
@@ -172,7 +144,6 @@ caja_side_pane_class_init (CajaSidePaneClass *klass)
 
     gobject_class->finalize = caja_side_pane_finalize;
     gobject_class->dispose = caja_side_pane_dispose;
-    widget_class->size_allocate = caja_side_pane_size_allocate;
 
     signals[CLOSE_REQUESTED] = g_signal_new
                                ("close_requested",
@@ -330,7 +301,6 @@ static void
 caja_side_pane_init (GObject *object)
 {
     CajaSidePane *side_pane;
-    GtkWidget *frame;
     GtkWidget *hbox;
     GtkWidget *close_button;
     GtkWidget *select_button;
@@ -342,19 +312,11 @@ caja_side_pane_init (GObject *object)
 
     side_pane->details = G_TYPE_INSTANCE_GET_PRIVATE (object, CAJA_TYPE_SIDE_PANE, CajaSidePaneDetails);
 
-    /* The frame (really a vbox) has the border */
-    frame = gtk_vbox_new (FALSE, 0);
-    gtk_container_set_border_width (GTK_CONTAINER (frame), 4);
-    side_pane->details->title_frame = frame;
-    gtk_widget_show (frame);
-    gtk_box_pack_start (GTK_BOX (side_pane), frame, FALSE, FALSE, 0);
-
-    /* And the title_hbox is what gets the same size as the other
-       headers */
     hbox = gtk_hbox_new (FALSE, 0);
+    gtk_container_set_border_width (GTK_CONTAINER (hbox), 4);
     side_pane->details->title_hbox = hbox;
     gtk_widget_show (hbox);
-    gtk_container_add (GTK_CONTAINER (frame), hbox);
+    gtk_box_pack_start (GTK_BOX (side_pane), hbox, FALSE, FALSE, 0);
 
     select_button = gtk_toggle_button_new ();
     gtk_button_set_relief (GTK_BUTTON (select_button), GTK_RELIEF_NONE);

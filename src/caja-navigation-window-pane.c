@@ -242,7 +242,7 @@ location_button_create (CajaNavigationWindowPane *pane)
     GtkWidget *image;
     GtkWidget *button;
 
-    image = gtk_image_new_from_stock (GTK_STOCK_EDIT, GTK_ICON_SIZE_BUTTON);
+    image = gtk_image_new_from_stock (GTK_STOCK_EDIT, GTK_ICON_SIZE_MENU);
     gtk_widget_show (image);
 
     button = g_object_new (GTK_TYPE_TOGGLE_BUTTON,
@@ -739,15 +739,15 @@ caja_navigation_window_pane_setup (CajaNavigationWindowPane *pane)
                         FALSE, FALSE, 0);
     gtk_widget_show (hbox);
 
+    /* the header size group ensures that the location bar has the same height as the sidebar header */
     header_size_group = CAJA_NAVIGATION_WINDOW (CAJA_WINDOW_PANE (pane)->window)->details->header_size_group;
+    gtk_size_group_add_widget (header_size_group, pane->location_bar);
 
     pane->location_button = location_button_create (pane);
-    gtk_size_group_add_widget (header_size_group, pane->location_button);
     gtk_box_pack_start (GTK_BOX (hbox), pane->location_button, FALSE, FALSE, 0);
     gtk_widget_show (pane->location_button);
 
     pane->path_bar = g_object_new (CAJA_TYPE_PATH_BAR, NULL);
-    gtk_size_group_add_widget (header_size_group, pane->path_bar);
     gtk_widget_show (pane->path_bar);
 
     g_signal_connect_object (pane->path_bar, "path_clicked",
@@ -760,7 +760,6 @@ caja_navigation_window_pane_setup (CajaNavigationWindowPane *pane)
                         TRUE, TRUE, 0);
 
     pane->navigation_bar = caja_location_bar_new (pane);
-    gtk_size_group_add_widget (header_size_group, pane->navigation_bar);
     g_signal_connect_object (pane->navigation_bar, "location_changed",
                              G_CALLBACK (navigation_bar_location_changed_callback), pane, 0);
     g_signal_connect_object (pane->navigation_bar, "cancel",
@@ -774,7 +773,6 @@ caja_navigation_window_pane_setup (CajaNavigationWindowPane *pane)
                         TRUE, TRUE, 0);
 
     pane->search_bar = caja_search_bar_new ();
-    gtk_size_group_add_widget (header_size_group, pane->search_bar);
     g_signal_connect_object (pane->search_bar, "activate",
                              G_CALLBACK (search_bar_activate_callback), pane, 0);
     g_signal_connect_object (pane->search_bar, "cancel",
