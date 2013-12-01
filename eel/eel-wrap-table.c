@@ -535,6 +535,9 @@ wrap_table_layout (EelWrapTable *wrap_table)
     g_assert (EEL_IS_WRAP_TABLE (wrap_table));
 
     max_child_dimensions = wrap_table_get_max_child_dimensions (wrap_table);
+    max_child_dimensions.width = MAX (max_child_dimensions.width, 1);
+    max_child_dimensions.height = MAX (max_child_dimensions.height, 1);
+
     content_bounds = wrap_table_get_content_bounds (wrap_table);
     pos.x = content_bounds.x0;
     pos.y = content_bounds.y0;
