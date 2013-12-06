@@ -224,7 +224,7 @@ caja_launch_application_by_uri (GAppInfo *application,
         location = g_file_new_for_uri (uri);
         if (g_file_is_native (location))
         {
-            count;
+            count++;
         }
         locations = g_list_prepend (locations, location);
     }
