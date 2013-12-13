@@ -183,7 +183,6 @@ char* caja_get_user_directory(void)
 char* caja_get_accel_map_file(void)
 {
 	const gchar* override;
-	const gchar* config_dir;
 
 	override = g_getenv ("MATE22_USER_DIR");
 

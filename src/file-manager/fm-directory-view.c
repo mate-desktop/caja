@@ -1168,7 +1168,7 @@ pattern_select_response_cb (GtkWidget *dialog, int response, gpointer user_data)
 	case GTK_RESPONSE_HELP :
 		error = NULL;
 		gtk_show_uri (gtk_window_get_screen (GTK_WINDOW (dialog)),
-			      "ghelp:user-guide#caja-select-pattern",
+			      "help:user-guide#caja-select-pattern",
 			      gtk_get_current_event_time (), &error);
 		if (error) {
 			eel_show_error_dialog (_("There was an error displaying help."), error->message,
@@ -1639,7 +1639,6 @@ static void set_up_scripts_directory_global(void)
 
 	char* scripts_directory_path;
 	const char* override = g_getenv ("MATE22_USER_DIR"); //TODO: quitar?
-
 
 	if (override)
 	{
@@ -10099,7 +10098,23 @@ fm_directory_view_move_copy_items (const GList *item_uris,
 		if (screen == NULL) {
 			screen = gdk_screen_get_default ();
 		}
+#if GTK_CHECK_VERSION (3, 0, 0)
+		GdkAppLaunchContext *launch_context;
+		GAppInfo *app_info = NULL;
+		app_info = g_app_info_create_from_commandline (command,
+													   NULL,
+													   G_APP_INFO_CREATE_NONE,
+													   NULL);
+		if (app_info != NULL) {
+			launch_context = gdk_app_launch_context_new ();
+			gdk_app_launch_context_set_screen (launch_context, screen);
+			g_app_info_launch (app_info, NULL, G_APP_LAUNCH_CONTEXT (launch_context), NULL);
+			g_object_unref (launch_context);
+			g_object_unref (app_info);
+		}
+#else
 		gdk_spawn_command_line_on_screen (screen, command, NULL);
+#endif
 		g_free (command);
 
 		return;
