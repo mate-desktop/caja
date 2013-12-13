@@ -1168,7 +1168,7 @@ pattern_select_response_cb (GtkWidget *dialog, int response, gpointer user_data)
 	case GTK_RESPONSE_HELP :
 		error = NULL;
 		gtk_show_uri (gtk_window_get_screen (GTK_WINDOW (dialog)),
-			      "help:user-guide#caja-select-pattern",
+			      "ghelp:user-guide#caja-select-pattern",
 			      gtk_get_current_event_time (), &error);
 		if (error) {
 			eel_show_error_dialog (_("There was an error displaying help."), error->message,
@@ -1640,13 +1640,14 @@ static void set_up_scripts_directory_global(void)
 	char* scripts_directory_path;
 	const char* override = g_getenv ("MATE22_USER_DIR"); //TODO: quitar?
 
+
 	if (override)
 	{
 		scripts_directory_path = g_build_filename(override, "caja", "scripts", NULL);
 	}
 	else
 	{
-		scripts_directory_path = g_build_filename(g_get_home_dir(), ".config", "caja", "scripts", NULL);
+		scripts_directory_path = g_build_filename(g_get_home_dir(), ".config", "mate", "caja", "scripts", NULL);
 	}
 
 	if (g_mkdir_with_parents(scripts_directory_path, 0755) == 0)
@@ -1660,7 +1661,7 @@ static void set_up_scripts_directory_global(void)
 
 		if (g_file_test(nautilus_scripts_path, G_FILE_TEST_IS_DIR) == TRUE)
 		{
-			char* nautilus_syslink = g_build_filename(g_get_home_dir(), ".config", "caja", "scripts", "nautilus", NULL);
+			char* nautilus_syslink = g_build_filename(g_get_home_dir(), ".config", "mate", "caja", "scripts", "nautilus", NULL);
 			// G_FILE_TEST_IS_REGULAR
 			/* En caso de que exista el enlace, o algún otro tipo de archivo con
 			 * el mismo nombre, ignoramos. Incluso si es una carpeta. */
@@ -10098,23 +10099,7 @@ fm_directory_view_move_copy_items (const GList *item_uris,
 		if (screen == NULL) {
 			screen = gdk_screen_get_default ();
 		}
-#if GTK_CHECK_VERSION (3, 0, 0)
-		GdkAppLaunchContext *launch_context;
-		GAppInfo *app_info = NULL;
-		app_info = g_app_info_create_from_commandline (command,
-													   NULL,
-													   G_APP_INFO_CREATE_NONE,
-													   NULL);
-		if (app_info != NULL) {
-			launch_context = gdk_app_launch_context_new ();
-			gdk_app_launch_context_set_screen (launch_context, screen);
-			g_app_info_launch (app_info, NULL, G_APP_LAUNCH_CONTEXT (launch_context), NULL);
-			g_object_unref (launch_context);
-			g_object_unref (app_info);
-		}
-#else
 		gdk_spawn_command_line_on_screen (screen, command, NULL);
-#endif
 		g_free (command);
 
 		return;
