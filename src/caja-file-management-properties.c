@@ -209,7 +209,7 @@ preferences_show_help (GtkWindow *parent,
     g_assert (helpfile != NULL);
     g_assert (sect_id != NULL);
 
-    help_string = g_strdup_printf ("help:%s#%s", helpfile, sect_id);
+    help_string = g_strdup_printf ("help:%s/%s", helpfile, sect_id);
 
     gtk_show_uri (gtk_window_get_screen (parent),
                   help_string, gtk_get_current_event_time (),
@@ -266,7 +266,7 @@ caja_file_management_properties_dialog_response_cb (GtkDialog *parent,
             section = "goscaja-61";
             break;
         }
-        preferences_show_help (GTK_WINDOW (parent), "user-guide", section);
+        preferences_show_help (GTK_WINDOW (parent), "mate-user-guide", section);
     }
     else if (response_id == GTK_RESPONSE_CLOSE)
     {

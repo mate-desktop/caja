@@ -685,7 +685,7 @@ connect_dialog_response_cb (CajaConnectServerDialog *dialog,
     case GTK_RESPONSE_HELP :
         error = NULL;
         gtk_show_uri (gtk_window_get_screen (GTK_WINDOW (dialog)),
-                      "help:user-guide#caja-server-connect",
+                      "help:mate-user-guide/caja-server-connect",
                       gtk_get_current_event_time (), &error);
         if (error)
         {
