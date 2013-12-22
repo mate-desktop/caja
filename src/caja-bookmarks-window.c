@@ -145,7 +145,7 @@ caja_bookmarks_window_response_callback (GtkDialog *dialog,
         GError *error = NULL;
 
         gtk_show_uri (gtk_window_get_screen (GTK_WINDOW (dialog)),
-                      "help:user-guide#goscaja-36",
+                      "help:mate-user-guide/goscaja-36",
                       gtk_get_current_event_time (), &error);
 
         if (error)

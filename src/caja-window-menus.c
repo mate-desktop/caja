@@ -603,7 +603,7 @@ action_caja_manual_callback (GtkAction *action,
     else
     {
         gtk_show_uri (gtk_window_get_screen (GTK_WINDOW (window)),
-                      "help:user-guide#goscaja-1",
+                      "help:mate-user-guide/goscaja-1",
                       gtk_get_current_event_time (), &error);
     }
 
