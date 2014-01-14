@@ -44,6 +44,11 @@
 #define GtkEditableInterface GtkEditableClass
 #endif
 
+/* g_memmove is removed in glib 2.40 */
+#if GLIB_CHECK_VERSION (2, 39, 0)
+#define g_memmove memmove
+#endif
+
 enum
 {
     MOVE_CURSOR,
