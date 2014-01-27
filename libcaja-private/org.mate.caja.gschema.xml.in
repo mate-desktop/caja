@@ -236,6 +236,11 @@
       <_summary>Whether to show hidden files</_summary>
       <_description>If set to true, then hidden files are shown by default in the file manager.  Hidden files are either dotfiles, listed in the folder's .hidden file or backup files ending with a tilde (~).</_description>
     </key>
+    <key name="use-iec-units" type="b">
+      <default>false</default>
+      <_summary>Whether to show file sizes with IEC units</_summary>
+      <_description>If set to true, file sizes are shown using IEC (base 1024) units with "KiB" style suffixes, instead of default with SI units.</_description>
+    </key>
   </schema>
 
   <schema id="org.mate.caja.icon-view" path="/org/mate/caja/icon-view/" gettext-domain="caja">

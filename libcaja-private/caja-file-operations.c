@@ -852,7 +852,10 @@ custom_size_to_string (char *format, va_list va)
 	size = va_arg (va, goffset);
 
 	#if GLIB_CHECK_VERSION(2, 30, 0)
-		return g_format_size(size);
+		if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_USE_IEC_UNITS))
+			return g_format_size_full (size, G_FORMAT_SIZE_IEC_UNITS);
+		else
+			return g_format_size(size);
 	#else
 		return g_format_size_for_display(size);
 	#endif

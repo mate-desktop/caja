@@ -2321,7 +2321,10 @@ directory_contents_value_field_update (FMPropertiesWindow *window)
 		char *size_str;
 
 		#if GLIB_CHECK_VERSION(2, 30, 0)
-			size_str = g_format_size(total_size);
+			if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_USE_IEC_UNITS))
+				size_str = g_format_size_full (total_size, G_FORMAT_SIZE_IEC_UNITS);
+			else
+				size_str = g_format_size(total_size);
 		#else
 			size_str = g_format_size_for_display(total_size);
 		#endif
@@ -3144,9 +3147,16 @@ create_pie_widget (FMPropertiesWindow *window)
 	GFileInfo *info;
 
 	#if GLIB_CHECK_VERSION(2, 30, 0)
-		capacity = g_format_size(window->details->volume_capacity);
-		free = g_format_size(window->details->volume_free);
-		used = g_format_size(window->details->volume_capacity - window->details->volume_free);
+		if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_USE_IEC_UNITS)) {
+			capacity = g_format_size_full(window->details->volume_capacity, G_FORMAT_SIZE_IEC_UNITS);
+			free = g_format_size_full(window->details->volume_free, G_FORMAT_SIZE_IEC_UNITS);
+			used = g_format_size_full(window->details->volume_capacity - window->details->volume_free, G_FORMAT_SIZE_IEC_UNITS);
+		}
+		else {
+			capacity = g_format_size(window->details->volume_capacity);
+			free = g_format_size(window->details->volume_free);
+			used = g_format_size(window->details->volume_capacity - window->details->volume_free);
+		}
 	#else
 		capacity = g_format_size_for_display(window->details->volume_capacity);
 		free = g_format_size_for_display(window->details->volume_free);
