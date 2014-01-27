@@ -4311,6 +4311,16 @@ open_with_launch_application_callback (GtkAction *action,
 		 fm_directory_view_get_containing_window (launch_parameters->directory_view));
 }
 
+static void
+open_parent_folder_callback (GtkAction *action,
+			     gpointer callback_data)
+{
+	gchar *uri;
+
+	uri = (gchar *) callback_data;
+	g_app_info_launch_default_for_uri (uri, NULL, NULL);
+}
+
 static char *
 escape_action_name (const char *action_name,
 		    const char *prefix)
@@ -4527,6 +4537,82 @@ add_application_to_open_with_menu (FMDirectoryView *view,
 }
 
 static void
+add_parent_folder_to_open_menu (FMDirectoryView *view,
+				GList *files,
+				const char *menu_placeholder,
+				const char *popup_placeholder)
+{
+	CajaFile *file;
+	gchar *uri;
+	char *tip;
+	char *label;
+	char *action_name;
+	char *path;
+	GtkAction *action;
+	GtkWidget *menuitem;
+
+	file = g_list_first(files)->data;
+
+	if (caja_file_is_directory (file))
+		return;
+
+	uri = caja_file_get_parent_uri (file);
+
+	label = g_strdup (_("Open parent location"));
+	tip = g_strdup (_("Open parent location for the selected item"));
+	action_name = g_strdup ("open_location");
+
+	action = gtk_action_new (action_name,
+				 label,
+				 tip,
+				 NULL);
+
+	gtk_action_set_icon_name (action, "folder");
+
+	g_signal_connect_data (action, "activate",
+			       G_CALLBACK (open_parent_folder_callback),
+			       uri, (GClosureNotify)g_free, 0);
+
+	gtk_action_group_add_action (view->details->open_with_action_group,
+				     action);
+	g_object_unref (action);
+
+	gtk_ui_manager_add_ui (caja_window_info_get_ui_manager (view->details->window),
+			       view->details->open_with_merge_id,
+			       menu_placeholder,
+			       action_name,
+			       action_name,
+			       GTK_UI_MANAGER_MENUITEM,
+			       FALSE);
+
+	path = g_strdup_printf ("%s/%s", menu_placeholder, action_name);
+	menuitem = gtk_ui_manager_get_widget (
+			caja_window_info_get_ui_manager (view->details->window),
+			path);
+	gtk_image_menu_item_set_always_show_image (GTK_IMAGE_MENU_ITEM (menuitem), TRUE);
+	g_free (path);
+
+	gtk_ui_manager_add_ui (caja_window_info_get_ui_manager (view->details->window),
+			       view->details->open_with_merge_id,
+			       popup_placeholder,
+			       action_name,
+			       action_name,
+			       GTK_UI_MANAGER_MENUITEM,
+			       FALSE);
+
+	path = g_strdup_printf ("%s/%s", popup_placeholder, action_name);
+	menuitem = gtk_ui_manager_get_widget (
+			caja_window_info_get_ui_manager (view->details->window),
+			path);
+	gtk_image_menu_item_set_always_show_image (GTK_IMAGE_MENU_ITEM (menuitem), TRUE);
+
+	g_free (path);
+	g_free (action_name);
+	g_free (label);
+	g_free (tip);
+}
+
+static void
 get_x_content_async_callback (char **content,
 			      gpointer user_data)
 {
@@ -4671,11 +4757,19 @@ reset_open_with_menu (FMDirectoryView *view, GList *selection)
 						   selection,
 						   index,
 						   menu_path, popup_path, submenu_visible);
+
 	}
 	g_list_free_full (applications, g_object_unref);
 	if (default_app != NULL) {
 		g_object_unref (default_app);
 	}
+
+	/* Show open parent folder action if we are in search mode */
+	if (eel_uri_is_search (fm_directory_view_get_uri (view)) && g_list_length (selection) == 1)
+		add_parent_folder_to_openmenu (view,
+					       selection,
+					       FM_DIRECTORY_VIEW_MENU_PATH_OPEN,
+					       FM_DIRECTORY_VIEW_POPUP_PATH_OPEN);
 
 	open_with_chooser_visible = other_applications_visible &&
 				    g_list_length (selection) == 1;
