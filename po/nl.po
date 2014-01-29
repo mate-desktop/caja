@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Michael Steenbeek <m.o.steenbeek@gmail.com>, 2012-2013.
+# Michael Steenbeek <m.o.steenbeek@gmail.com>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
-"Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
-"POT-Creation-Date: 2013-02-24 14:02+0100\n"
-"PO-Revision-Date: 2013-02-24 13:03+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-01-27 16:56+0100\n"
+"PO-Revision-Date: 2014-01-27 15:58+0000\n"
 "Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/MATE/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -367,57 +367,61 @@ msgstr "X"
 msgid "Y"
 msgstr "Y"
 
-#: ../eel/eel-editable-label.c:340
+#: ../eel/eel-editable-label.c:345
 msgid "Text"
 msgstr "Tekst"
 
-#: ../eel/eel-editable-label.c:341
+#: ../eel/eel-editable-label.c:346
 msgid "The text of the label."
 msgstr "De tekst van het label."
 
-#: ../eel/eel-editable-label.c:347
+#: ../eel/eel-editable-label.c:352
 msgid "Justification"
 msgstr "Opvulling"
 
-#: ../eel/eel-editable-label.c:348
+#: ../eel/eel-editable-label.c:353
 msgid ""
 "The alignment of the lines in the text of the label relative to each other. "
 "This does NOT affect the alignment of the label within its allocation. See "
 "GtkMisc::xalign for that."
 msgstr "De uitlijning van de regels in de tekst van het label, relatief tot elkaar. Dit beïnvloedt NIET de uitlijning van het label binnen de ruimte waar het in zit. Zie daarvoor GtkMisc::xalign."
 
-#: ../eel/eel-editable-label.c:356
+#: ../eel/eel-editable-label.c:361
 msgid "Line wrap"
 msgstr "Regelterugloop"
 
-#: ../eel/eel-editable-label.c:357
+#: ../eel/eel-editable-label.c:362
 msgid "If set, wrap lines if the text becomes too wide."
 msgstr "Indien ingeschakeld worden regels afgebroken als ze te lang worden."
 
-#: ../eel/eel-editable-label.c:364
+#: ../eel/eel-editable-label.c:369
 msgid "Cursor Position"
 msgstr "Aanwijzerpositie"
 
-#: ../eel/eel-editable-label.c:365
+#: ../eel/eel-editable-label.c:370
 msgid "The current position of the insertion cursor in chars."
 msgstr "De huidige positie van de invoegaanwijzer in tekens."
 
-#: ../eel/eel-editable-label.c:374
+#: ../eel/eel-editable-label.c:379
 msgid "Selection Bound"
 msgstr "Selectieband"
 
-#: ../eel/eel-editable-label.c:375
+#: ../eel/eel-editable-label.c:380
 msgid ""
 "The position of the opposite end of the selection from the cursor in chars."
 msgstr "De positie van het uiteinde van de selectie, in tekens vanaf de aanwijzer."
 
-#: ../eel/eel-editable-label.c:3191
+#: ../eel/eel-editable-label.c:3196
 msgid "Select All"
 msgstr "Alles selecteren"
 
-#: ../eel/eel-editable-label.c:3202
+#: ../eel/eel-editable-label.c:3207
 msgid "Input Methods"
 msgstr "Invoermethodes"
+
+#: ../eel/eel-gtk-extensions.c:476
+msgid "Show more _details"
+msgstr ""
 
 #: ../eel/eel-stock-dialogs.c:213
 msgid "You can stop this operation by clicking cancel."
@@ -440,7 +444,7 @@ msgid "Do Nothing"
 msgstr "Niets doen"
 
 #: ../libcaja-private/caja-autorun.c:569
-#: ../data/caja-folder-handler.desktop.in.in.h:1
+#: ../data/caja-folder-handler.desktop.in.in.h:2
 msgid "Open Folder"
 msgstr "Map openen"
 
@@ -535,9 +539,9 @@ msgstr "_Altijd deze actie uitvoeren"
 #. label, accelerator
 #. add the "Eject" menu item
 #: ../libcaja-private/caja-autorun.c:1141
-#: ../src/file-manager/fm-directory-view.c:7316
-#: ../src/file-manager/fm-directory-view.c:7344
-#: ../src/file-manager/fm-directory-view.c:7425
+#: ../src/file-manager/fm-directory-view.c:7413
+#: ../src/file-manager/fm-directory-view.c:7441
+#: ../src/file-manager/fm-directory-view.c:7522
 #: ../src/file-manager/fm-tree-view.c:1371 ../src/caja-places-sidebar.c:2711
 msgid "_Eject"
 msgstr "Uit_werpen"
@@ -546,9 +550,9 @@ msgstr "Uit_werpen"
 #. label, accelerator
 #. add the "Unmount" menu item
 #: ../libcaja-private/caja-autorun.c:1154
-#: ../src/file-manager/fm-directory-view.c:7312
-#: ../src/file-manager/fm-directory-view.c:7340
-#: ../src/file-manager/fm-directory-view.c:7421
+#: ../src/file-manager/fm-directory-view.c:7409
+#: ../src/file-manager/fm-directory-view.c:7437
+#: ../src/file-manager/fm-directory-view.c:7518
 #: ../src/file-manager/fm-tree-view.c:1362 ../src/caja-places-sidebar.c:2704
 msgid "_Unmount"
 msgstr "_Ontkoppelen"
@@ -577,7 +581,7 @@ msgstr "De bewaarde tekst vanaf het klembord plakken"
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-clipboard.c:472
-#: ../src/file-manager/fm-directory-view.c:7245
+#: ../src/file-manager/fm-directory-view.c:7342
 msgid "Select _All"
 msgstr "_Alles selecteren"
 
@@ -600,7 +604,7 @@ msgstr "S_tandaard gebruiken"
 
 #: ../libcaja-private/caja-column-utilities.c:43
 #: ../libcaja-private/caja-mime-application-chooser.c:276
-#: ../src/file-manager/fm-list-view.c:1754
+#: ../src/file-manager/fm-list-view.c:1761
 msgid "Name"
 msgstr "Naam"
 
@@ -658,7 +662,7 @@ msgid "The group of the file."
 msgstr "De groep van het bestand."
 
 #: ../libcaja-private/caja-column-utilities.c:97
-#: ../src/file-manager/fm-properties-window.c:4868
+#: ../src/file-manager/fm-properties-window.c:4878
 msgid "Permissions"
 msgstr "Rechten"
 
@@ -751,11 +755,24 @@ msgstr "Indien u het volume wilt ontkoppelen, gebruikt u dan ‘Volume ontkoppel
 #. * warning, put "%.0s" somewhere in the string, which will
 #. * match the user name string passed by the C code, but not
 #. * put the user name in the final string.
-#. 
-#: ../libcaja-private/caja-desktop-link.c:134
+#: ../libcaja-private/caja-desktop-link.c:110
 #, c-format
 msgid "%s's Home"
 msgstr "Persoonlijke map van %s"
+
+#: ../libcaja-private/caja-desktop-link.c:113
+#: ../data/caja-computer.desktop.in.in.h:1 ../src/caja-places-sidebar.c:674
+msgid "Computer"
+msgstr "Computer"
+
+#: ../libcaja-private/caja-desktop-link.c:116
+msgid "Network Servers"
+msgstr ""
+
+#: ../libcaja-private/caja-desktop-link.c:119 ../src/caja-places-sidebar.c:824
+#: ../src/caja-trash-bar.c:192
+msgid "Trash"
+msgstr "Prullenbak"
 
 #: ../libcaja-private/caja-dnd.c:843
 msgid "_Move Here"
@@ -805,7 +822,6 @@ msgstr "Trefwoorden voor emblemen mogen alleen letters, cijfers en spaties bevat
 #. this really should never happen, as a user has no idea
 #. * what a keyword is, and people should be passing a unique
 #. * keyword to us anyway
-#. 
 #: ../libcaja-private/caja-emblem-utils.c:249
 #, c-format
 msgid "Sorry, but there is already an emblem named \"%s\"."
@@ -894,14 +910,14 @@ msgstr "Oorspronkelijk bestand"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:271
 #: ../libcaja-private/caja-file-conflict-dialog.c:304
-#: ../src/file-manager/fm-properties-window.c:3367
+#: ../src/file-manager/fm-properties-window.c:3377
 msgid "Size:"
 msgstr "Grootte:"
 
 #. second row: type combobox
 #: ../libcaja-private/caja-file-conflict-dialog.c:275
 #: ../libcaja-private/caja-file-conflict-dialog.c:308
-#: ../src/file-manager/fm-properties-window.c:3349
+#: ../src/file-manager/fm-properties-window.c:3359
 #: ../src/caja-connect-server-dialog.c:908
 msgid "Type:"
 msgstr "Type:"
@@ -1016,10 +1032,9 @@ msgstr[1] "ongeveer %'d uur"
 #. Note to localizers: convert file type string for file
 #. * (e.g. "folder", "plain text") to file type for symbolic link
 #. * to that kind of file (e.g. "link to folder").
-#. 
 #: ../libcaja-private/caja-file-operations.c:380
-#: ../libcaja-private/caja-file.c:6432
-#: ../src/file-manager/fm-directory-view.c:10440
+#: ../libcaja-private/caja-file.c:6451
+#: ../src/file-manager/fm-directory-view.c:10553
 #, c-format
 msgid "Link to %s"
 msgstr "Verwijzing naar %s"
@@ -1033,7 +1048,6 @@ msgstr "Nog een verwijzing naar %s"
 #. Localizers: Feel free to leave out the "st" suffix
 #. * if there's no way to do that nicely for a
 #. * particular language.
-#. 
 #: ../libcaja-private/caja-file-operations.c:400
 #, c-format
 msgid "%'dst link to %s"
@@ -1060,7 +1074,6 @@ msgstr "%'de verwijzing naar %s"
 #. Localizers:
 #. * Feel free to leave out the st, nd, rd and th suffix or
 #. * make some or all of them match.
-#. 
 #. localizers: tag used to detect the first copy of a file
 #: ../libcaja-private/caja-file-operations.c:451
 msgid " (copy)"
@@ -1126,7 +1139,6 @@ msgstr "%s (%'de kopie)%s"
 #. * plurals, you can leave the st, nd, rd suffixes out and just make all the
 #. translated
 #. * strings look like "%s (copy %'d)%s".
-#. 
 #. localizers: appended to x1st file copy
 #: ../libcaja-private/caja-file-operations.c:501
 #, c-format
@@ -1156,11 +1168,11 @@ msgstr " ("
 msgid " (%'d"
 msgstr " (%'d"
 
-#: ../libcaja-private/caja-file-operations.c:1315
+#: ../libcaja-private/caja-file-operations.c:1318
 msgid "Are you sure you want to permanently delete \"%B\" from the trash?"
 msgstr "Weet u zeker dat u ‘%B’ blijvend wilt verwijderen uit de prullenbak?"
 
-#: ../libcaja-private/caja-file-operations.c:1318
+#: ../libcaja-private/caja-file-operations.c:1321
 #, c-format
 msgid ""
 "Are you sure you want to permanently delete the %'d selected item from the "
@@ -1171,31 +1183,31 @@ msgid_plural ""
 msgstr[0] "Weet u zeker dat u het geselecteerde item blijvend wilt verwijderen uit de prullenbak?"
 msgstr[1] "Weet u zeker dat u de %'d geselecteerde items blijvend wilt verwijderen uit de prullenbak?"
 
-#: ../libcaja-private/caja-file-operations.c:1328
-#: ../libcaja-private/caja-file-operations.c:1394
+#: ../libcaja-private/caja-file-operations.c:1331
+#: ../libcaja-private/caja-file-operations.c:1397
 msgid "If you delete an item, it will be permanently lost."
 msgstr "Als u een item verwijdert, zal het voorgoed verloren gaan."
 
-#: ../libcaja-private/caja-file-operations.c:1348
+#: ../libcaja-private/caja-file-operations.c:1351
 msgid "Empty all items from Trash?"
 msgstr "Alle objecten uit de prullenbak weggooien?"
 
-#: ../libcaja-private/caja-file-operations.c:1352
+#: ../libcaja-private/caja-file-operations.c:1355
 msgid "All items in the Trash will be permanently deleted."
 msgstr "Alle objecten uit de prullenbak zullen voorgoed weg zijn."
 
 #. Empty Trash menu item
-#: ../libcaja-private/caja-file-operations.c:1355
-#: ../libcaja-private/caja-file-operations.c:2223
+#: ../libcaja-private/caja-file-operations.c:1358
+#: ../libcaja-private/caja-file-operations.c:2226
 #: ../src/caja-places-sidebar.c:2748 ../src/caja-trash-bar.c:196
 msgid "Empty _Trash"
 msgstr "_Prullenbak legen"
 
-#: ../libcaja-private/caja-file-operations.c:1382
+#: ../libcaja-private/caja-file-operations.c:1385
 msgid "Are you sure you want to permanently delete \"%B\"?"
 msgstr "Weet u zeker dat u ‘%B’ blijvend wilt verwijderen?"
 
-#: ../libcaja-private/caja-file-operations.c:1385
+#: ../libcaja-private/caja-file-operations.c:1388
 #, c-format
 msgid "Are you sure you want to permanently delete the %'d selected item?"
 msgid_plural ""
@@ -1203,271 +1215,270 @@ msgid_plural ""
 msgstr[0] "Weet u zeker dat u het geselecteerde item blijvend wilt verwijderen?"
 msgstr[1] "Weet u zeker dat u de %'d geselecteerde items blijvend wilt verwijderen?"
 
-#: ../libcaja-private/caja-file-operations.c:1428
+#: ../libcaja-private/caja-file-operations.c:1431
 #, c-format
 msgid "%'d file left to delete"
 msgid_plural "%'d files left to delete"
 msgstr[0] "%'d te verwijderen bestand over"
 msgstr[1] "%'d te verwijderen bestanden over"
 
-#: ../libcaja-private/caja-file-operations.c:1434
+#: ../libcaja-private/caja-file-operations.c:1437
 msgid "Deleting files"
 msgstr "Bezig met wissen bestanden"
 
 #. To translators: %T will expand to a time like "2 minutes".
 #. * The singular/plural form will be used depending on the remaining time
 #. (i.e. the %T argument).
-#. 
-#: ../libcaja-private/caja-file-operations.c:1448
+#: ../libcaja-private/caja-file-operations.c:1451
 msgid "%T left"
 msgid_plural "%T left"
 msgstr[0] "%T resterend"
 msgstr[1] "%T resterend"
 
-#: ../libcaja-private/caja-file-operations.c:1515
-#: ../libcaja-private/caja-file-operations.c:1549
-#: ../libcaja-private/caja-file-operations.c:1588
-#: ../libcaja-private/caja-file-operations.c:1665
-#: ../libcaja-private/caja-file-operations.c:2468
+#: ../libcaja-private/caja-file-operations.c:1518
+#: ../libcaja-private/caja-file-operations.c:1552
+#: ../libcaja-private/caja-file-operations.c:1591
+#: ../libcaja-private/caja-file-operations.c:1668
+#: ../libcaja-private/caja-file-operations.c:2471
 msgid "Error while deleting."
 msgstr "Fout tijdens het verwijderen."
 
-#: ../libcaja-private/caja-file-operations.c:1519
+#: ../libcaja-private/caja-file-operations.c:1522
 msgid ""
 "Files in the folder \"%B\" cannot be deleted because you do not have "
 "permissions to see them."
 msgstr "Bestanden in de map ‘%B’ kunnen niet worden gewist omdat u geen rechten heeft om ze te zien."
 
-#: ../libcaja-private/caja-file-operations.c:1522
-#: ../libcaja-private/caja-file-operations.c:2527
-#: ../libcaja-private/caja-file-operations.c:3496
+#: ../libcaja-private/caja-file-operations.c:1525
+#: ../libcaja-private/caja-file-operations.c:2530
+#: ../libcaja-private/caja-file-operations.c:3499
 msgid ""
 "There was an error getting information about the files in the folder \"%B\"."
 msgstr "Er is een fout opgetreden bij het ophalen van informatie over bestanden in de map ‘%B’."
 
-#: ../libcaja-private/caja-file-operations.c:1531
-#: ../libcaja-private/caja-file-operations.c:3505
+#: ../libcaja-private/caja-file-operations.c:1534
+#: ../libcaja-private/caja-file-operations.c:3508
 msgid "_Skip files"
 msgstr "Bestanden _overslaan"
 
-#: ../libcaja-private/caja-file-operations.c:1552
+#: ../libcaja-private/caja-file-operations.c:1555
 msgid ""
 "The folder \"%B\" cannot be deleted because you do not have permissions to "
 "read it."
 msgstr "De map ‘%B’ kan niet verwijderd worden, want u heeft geen rechten om hem te lezen."
 
-#: ../libcaja-private/caja-file-operations.c:1555
-#: ../libcaja-private/caja-file-operations.c:2566
-#: ../libcaja-private/caja-file-operations.c:3541
+#: ../libcaja-private/caja-file-operations.c:1558
+#: ../libcaja-private/caja-file-operations.c:2569
+#: ../libcaja-private/caja-file-operations.c:3544
 msgid "There was an error reading the folder \"%B\"."
 msgstr "Er is een fout opgetreden bij het lezen van de map ‘%B’."
 
-#: ../libcaja-private/caja-file-operations.c:1589
+#: ../libcaja-private/caja-file-operations.c:1592
 msgid "Could not remove the folder %B."
 msgstr "Kon de map %B niet verwijderen."
 
-#: ../libcaja-private/caja-file-operations.c:1666
+#: ../libcaja-private/caja-file-operations.c:1669
 msgid "There was an error deleting %B."
 msgstr "Er is een fout opgetreden bij het verwijderen van %B."
 
-#: ../libcaja-private/caja-file-operations.c:1746
+#: ../libcaja-private/caja-file-operations.c:1749
 msgid "Moving files to trash"
 msgstr "Bestanden in de prullenbak gooien…"
 
-#: ../libcaja-private/caja-file-operations.c:1748
+#: ../libcaja-private/caja-file-operations.c:1751
 #, c-format
 msgid "%'d file left to trash"
 msgid_plural "%'d files left to trash"
 msgstr[0] "%'d bestand over om in de prullenbak te gooien"
 msgstr[1] "%'d bestanden over om in de prullenbak te gooien"
 
-#: ../libcaja-private/caja-file-operations.c:1803
+#: ../libcaja-private/caja-file-operations.c:1806
 msgid "Cannot move file to trash, do you want to delete immediately?"
 msgstr "Kan bestand niet in de prullenbak gooien. Wilt u het direct verwijderen?"
 
-#: ../libcaja-private/caja-file-operations.c:1804
+#: ../libcaja-private/caja-file-operations.c:1807
 msgid "The file \"%B\" cannot be moved to the trash."
 msgstr "Het bestand ‘%B’ kan niet in de prullenbak worden gegooid."
 
-#: ../libcaja-private/caja-file-operations.c:1981
+#: ../libcaja-private/caja-file-operations.c:1984
 msgid "Trashing Files"
 msgstr "Bestanden in prullenbak gooien"
 
-#: ../libcaja-private/caja-file-operations.c:1983
+#: ../libcaja-private/caja-file-operations.c:1986
 msgid "Deleting Files"
 msgstr "Bestanden wissen"
 
-#: ../libcaja-private/caja-file-operations.c:2056
+#: ../libcaja-private/caja-file-operations.c:2059
 msgid "Unable to eject %V"
 msgstr "Kan %V niet uitwerpen"
 
-#: ../libcaja-private/caja-file-operations.c:2058
+#: ../libcaja-private/caja-file-operations.c:2061
 msgid "Unable to unmount %V"
 msgstr "Kan %V niet ontkoppelen"
 
-#: ../libcaja-private/caja-file-operations.c:2213
+#: ../libcaja-private/caja-file-operations.c:2216
 msgid "Do you want to empty the trash before you unmount?"
 msgstr "Wilt u de prullenbak legen vóór het ontkoppelen?"
 
-#: ../libcaja-private/caja-file-operations.c:2215
+#: ../libcaja-private/caja-file-operations.c:2218
 msgid ""
 "In order to regain the free space on this volume the trash must be emptied. "
 "All trashed items on the volume will be permanently lost."
 msgstr "Om de vrije ruimte op dit apparaat terug te winnen, dient de prullenbak geleegd te worden. Alle weggegooide objecten op het volumen zullen definitief verloren gaan."
 
-#: ../libcaja-private/caja-file-operations.c:2221
+#: ../libcaja-private/caja-file-operations.c:2224
 msgid "Do _not Empty Trash"
 msgstr "Prullenbak _niet legen"
 
-#: ../libcaja-private/caja-file-operations.c:2337
+#: ../libcaja-private/caja-file-operations.c:2340
 #, c-format
 msgid "Unable to mount %s"
 msgstr "Niet in staat %s aan te koppelen"
 
-#: ../libcaja-private/caja-file-operations.c:2415
+#: ../libcaja-private/caja-file-operations.c:2418
 #, c-format
 msgid "Preparing to copy %'d file (%S)"
 msgid_plural "Preparing to copy %'d files (%S)"
 msgstr[0] "Kopiëren van %'d bestand voorbereiden (%S)"
 msgstr[1] "Kopiëren van %'d bestanden voorbereiden (%S)"
 
-#: ../libcaja-private/caja-file-operations.c:2421
+#: ../libcaja-private/caja-file-operations.c:2424
 #, c-format
 msgid "Preparing to move %'d file (%S)"
 msgid_plural "Preparing to move %'d files (%S)"
 msgstr[0] "Verplaatsen van %'d bestand voorbereiden (%S)"
 msgstr[1] "Verplaatsen van %'d bestanden voorbereiden (%S)"
 
-#: ../libcaja-private/caja-file-operations.c:2427
+#: ../libcaja-private/caja-file-operations.c:2430
 #, c-format
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
 msgstr[0] "Verwijderen van %'d bestand voorbereiden (%S)"
 msgstr[1] "Verwijderen van %'d bestanden voorbereiden (%S)"
 
-#: ../libcaja-private/caja-file-operations.c:2433
+#: ../libcaja-private/caja-file-operations.c:2436
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
 msgstr[0] "In prullenbak gooien van %'d bestand voorbereiden…"
 msgstr[1] "In prullenbak gooien van %'d bestanden voorbereiden…"
 
-#: ../libcaja-private/caja-file-operations.c:2464
-#: ../libcaja-private/caja-file-operations.c:3359
-#: ../libcaja-private/caja-file-operations.c:3488
-#: ../libcaja-private/caja-file-operations.c:3533
+#: ../libcaja-private/caja-file-operations.c:2467
+#: ../libcaja-private/caja-file-operations.c:3362
+#: ../libcaja-private/caja-file-operations.c:3491
+#: ../libcaja-private/caja-file-operations.c:3536
 msgid "Error while copying."
 msgstr "Fout tijdens het kopiëren."
 
-#: ../libcaja-private/caja-file-operations.c:2466
-#: ../libcaja-private/caja-file-operations.c:3486
-#: ../libcaja-private/caja-file-operations.c:3531
+#: ../libcaja-private/caja-file-operations.c:2469
+#: ../libcaja-private/caja-file-operations.c:3489
+#: ../libcaja-private/caja-file-operations.c:3534
 msgid "Error while moving."
 msgstr "Fout tijdens het verplaatsen."
 
-#: ../libcaja-private/caja-file-operations.c:2470
+#: ../libcaja-private/caja-file-operations.c:2473
 msgid "Error while moving files to trash."
 msgstr "Er is een fout opgetreden bij het in de prullenbak gooien van bestanden"
 
-#: ../libcaja-private/caja-file-operations.c:2524
+#: ../libcaja-private/caja-file-operations.c:2527
 msgid ""
 "Files in the folder \"%B\" cannot be handled because you do not have "
 "permissions to see them."
 msgstr "Bestanden in de map ‘%B’ kunnen niet worden afgehandeld omdat u geen rechten heeft om ze te zien."
 
-#: ../libcaja-private/caja-file-operations.c:2563
+#: ../libcaja-private/caja-file-operations.c:2566
 msgid ""
 "The folder \"%B\" cannot be handled because you do not have permissions to "
 "read it."
 msgstr "De map ‘%B’ kan niet worden afgehandeld omdat u er geen leesrechten voor heeft"
 
-#: ../libcaja-private/caja-file-operations.c:2640
+#: ../libcaja-private/caja-file-operations.c:2643
 msgid ""
 "The file \"%B\" cannot be handled because you do not have permissions to "
 "read it."
 msgstr "Het bestand ‘%B’ kan niet worden afgehandeld omdat u er geen leesrechten voor heeft."
 
-#: ../libcaja-private/caja-file-operations.c:2643
+#: ../libcaja-private/caja-file-operations.c:2646
 msgid "There was an error getting information about \"%B\"."
 msgstr "Er is een fout opgetreden bij het ophalen van informatie over ‘%B’."
 
-#: ../libcaja-private/caja-file-operations.c:2743
-#: ../libcaja-private/caja-file-operations.c:2785
-#: ../libcaja-private/caja-file-operations.c:2818
-#: ../libcaja-private/caja-file-operations.c:2848
+#: ../libcaja-private/caja-file-operations.c:2746
+#: ../libcaja-private/caja-file-operations.c:2788
+#: ../libcaja-private/caja-file-operations.c:2821
+#: ../libcaja-private/caja-file-operations.c:2851
 msgid "Error while copying to \"%B\"."
 msgstr "Fout tijdens het kopiëren naar ‘%B’."
 
-#: ../libcaja-private/caja-file-operations.c:2747
+#: ../libcaja-private/caja-file-operations.c:2750
 msgid "You do not have permissions to access the destination folder."
 msgstr "U beschikt niet over de rechten om de doelmap te benaderen."
 
-#: ../libcaja-private/caja-file-operations.c:2749
+#: ../libcaja-private/caja-file-operations.c:2752
 msgid "There was an error getting information about the destination."
 msgstr "Er is een fout opgetreden bij het ophalen van informatie over het doel."
 
-#: ../libcaja-private/caja-file-operations.c:2786
+#: ../libcaja-private/caja-file-operations.c:2789
 msgid "The destination is not a folder."
 msgstr "Het doel is geen map."
 
-#: ../libcaja-private/caja-file-operations.c:2819
+#: ../libcaja-private/caja-file-operations.c:2822
 msgid ""
 "There is not enough space on the destination. Try to remove files to make "
 "space."
 msgstr "Er is onvoldoende ruimte op de bestemmingslocatie. Probeer enkele bestanden te verwijderen om ruimte te maken."
 
-#: ../libcaja-private/caja-file-operations.c:2821
+#: ../libcaja-private/caja-file-operations.c:2824
 #, c-format
 msgid "There is %S available, but %S is required."
 msgstr "Er is %S beschikbaar, maar %S is vereist."
 
-#: ../libcaja-private/caja-file-operations.c:2849
+#: ../libcaja-private/caja-file-operations.c:2852
 msgid "The destination is read-only."
 msgstr "Het doel is alleen-lezen."
 
-#: ../libcaja-private/caja-file-operations.c:2908
+#: ../libcaja-private/caja-file-operations.c:2911
 msgid "Moving \"%B\" to \"%B\""
 msgstr "Verplaatsen van ‘%B’ naar ‘%B’"
 
-#: ../libcaja-private/caja-file-operations.c:2909
+#: ../libcaja-private/caja-file-operations.c:2912
 msgid "Copying \"%B\" to \"%B\""
 msgstr "Kopiëren van ‘%B’ naar ‘%B’"
 
-#: ../libcaja-private/caja-file-operations.c:2914
+#: ../libcaja-private/caja-file-operations.c:2917
 msgid "Duplicating \"%B\""
 msgstr "Dupliceren van ‘%B’"
 
-#: ../libcaja-private/caja-file-operations.c:2922
+#: ../libcaja-private/caja-file-operations.c:2925
 msgid "Moving %'d file (in \"%B\") to \"%B\""
 msgid_plural "Moving %'d files (in \"%B\") to \"%B\""
 msgstr[0] "Verplaatsen van %'d bestand (in ‘%B’) naar ‘%B’"
 msgstr[1] "Verplaatsen van %'d bestanden (in ‘%B’) naar ‘%B’"
 
-#: ../libcaja-private/caja-file-operations.c:2926
+#: ../libcaja-private/caja-file-operations.c:2929
 msgid "Copying %'d file (in \"%B\") to \"%B\""
 msgid_plural "Copying %'d files (in \"%B\") to \"%B\""
 msgstr[0] "Kopiëren van %'d bestand (in ‘%B’) naar ‘%B’"
 msgstr[1] "Kopiëren van %'d bestanden (in ‘%B’) naar ‘%B’"
 
-#: ../libcaja-private/caja-file-operations.c:2934
+#: ../libcaja-private/caja-file-operations.c:2937
 msgid "Duplicating %'d file (in \"%B\")"
 msgid_plural "Duplicating %'d files (in \"%B\")"
 msgstr[0] "Dupliceren van %'d bestand (in ‘%B’)"
 msgstr[1] "Dupliceren van %'d bestanden (in ‘%B’)"
 
-#: ../libcaja-private/caja-file-operations.c:2944
+#: ../libcaja-private/caja-file-operations.c:2947
 msgid "Moving %'d file to \"%B\""
 msgid_plural "Moving %'d files to \"%B\""
 msgstr[0] "Verplaatsen van %'d bestand naar ‘%B’"
 msgstr[1] "Verplaatsen van %'d bestanden naar ‘%B’"
 
-#: ../libcaja-private/caja-file-operations.c:2948
+#: ../libcaja-private/caja-file-operations.c:2951
 msgid "Copying %'d file to \"%B\""
 msgid_plural "Copying %'d files to \"%B\""
 msgstr[0] "Kopiëren van %'d bestand naar ‘%B’"
 msgstr[1] "Kopiëren van %'d bestanden naar ‘%B’"
 
-#: ../libcaja-private/caja-file-operations.c:2954
+#: ../libcaja-private/caja-file-operations.c:2957
 #, c-format
 msgid "Duplicating %'d file"
 msgid_plural "Duplicating %'d files"
@@ -1476,7 +1487,7 @@ msgstr[1] "Dupliceren van %'d bestanden"
 
 #. To translators: %S will expand to a size like "2 bytes" or "3 MB", so
 #. something like "4 kb of 4 MB"
-#: ../libcaja-private/caja-file-operations.c:2974
+#: ../libcaja-private/caja-file-operations.c:2977
 #, c-format
 msgid "%S of %S"
 msgstr "%S van %S"
@@ -1488,188 +1499,187 @@ msgstr "%S van %S"
 #. *
 #. * The singular/plural form will be used depending on the remaining time
 #. (i.e. the %T argument).
-#. 
-#: ../libcaja-private/caja-file-operations.c:2985
+#: ../libcaja-private/caja-file-operations.c:2988
 msgid "%S of %S — %T left (%S/sec)"
 msgid_plural "%S of %S — %T left (%S/sec)"
 msgstr[0] "%S van %S — %T resterend (%S/sec)"
 msgstr[1] "%S van %S — %T resterend (%S/sec)"
 
-#: ../libcaja-private/caja-file-operations.c:3363
+#: ../libcaja-private/caja-file-operations.c:3366
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "create it in the destination."
 msgstr "Kan de map ‘%B’ niet kopiëren omdat u geen rechten heeft om deze aan te maken in het doel."
 
-#: ../libcaja-private/caja-file-operations.c:3366
+#: ../libcaja-private/caja-file-operations.c:3369
 msgid "There was an error creating the folder \"%B\"."
 msgstr "Er is een fout opgetreden bij het aanmaken van de map ‘%B’."
 
-#: ../libcaja-private/caja-file-operations.c:3493
+#: ../libcaja-private/caja-file-operations.c:3496
 msgid ""
 "Files in the folder \"%B\" cannot be copied because you do not have "
 "permissions to see them."
 msgstr "Kan bestanden in de map ‘%B’ niet kopiëren omdat u geen rechten heeft om ze te zien."
 
-#: ../libcaja-private/caja-file-operations.c:3538
+#: ../libcaja-private/caja-file-operations.c:3541
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "read it."
 msgstr "Kan de map ‘%B’ niet kopiëren omdat u er geen leesrechten voor heeft"
 
-#: ../libcaja-private/caja-file-operations.c:3583
-#: ../libcaja-private/caja-file-operations.c:4273
-#: ../libcaja-private/caja-file-operations.c:4847
+#: ../libcaja-private/caja-file-operations.c:3586
+#: ../libcaja-private/caja-file-operations.c:4276
+#: ../libcaja-private/caja-file-operations.c:4850
 msgid "Error while moving \"%B\"."
 msgstr "Er is een fout opgetreden tijdens het verplaatsen van ‘%B’."
 
-#: ../libcaja-private/caja-file-operations.c:3584
+#: ../libcaja-private/caja-file-operations.c:3587
 msgid "Could not remove the source folder."
 msgstr "Kon de bronmap niet verwijderen."
 
-#: ../libcaja-private/caja-file-operations.c:3669
-#: ../libcaja-private/caja-file-operations.c:3710
-#: ../libcaja-private/caja-file-operations.c:4275
-#: ../libcaja-private/caja-file-operations.c:4346
+#: ../libcaja-private/caja-file-operations.c:3672
+#: ../libcaja-private/caja-file-operations.c:3713
+#: ../libcaja-private/caja-file-operations.c:4278
+#: ../libcaja-private/caja-file-operations.c:4349
 msgid "Error while copying \"%B\"."
 msgstr "Er is een fout opgetreden tijdens het kopiëren van ‘%B’."
 
-#: ../libcaja-private/caja-file-operations.c:3670
+#: ../libcaja-private/caja-file-operations.c:3673
 #, c-format
 msgid "Could not remove files from the already existing folder %F."
 msgstr "Kon bestanden niet verwijderen uit de reeds bestaande map %F."
 
-#: ../libcaja-private/caja-file-operations.c:3711
+#: ../libcaja-private/caja-file-operations.c:3714
 #, c-format
 msgid "Could not remove the already existing file %F."
 msgstr "Kon het reeds bestaande bestand %F niet verwijderen."
 
 #. the run_warning() frees all strings passed in automatically
-#: ../libcaja-private/caja-file-operations.c:4029
-#: ../libcaja-private/caja-file-operations.c:4688
+#: ../libcaja-private/caja-file-operations.c:4032
+#: ../libcaja-private/caja-file-operations.c:4691
 msgid "You cannot move a folder into itself."
 msgstr "Een map kan niet naar zichzelf verplaatst worden."
 
-#: ../libcaja-private/caja-file-operations.c:4030
-#: ../libcaja-private/caja-file-operations.c:4689
+#: ../libcaja-private/caja-file-operations.c:4033
+#: ../libcaja-private/caja-file-operations.c:4692
 msgid "You cannot copy a folder into itself."
 msgstr "Een map kan niet naar zichzelf gekopieerd worden."
 
-#: ../libcaja-private/caja-file-operations.c:4031
-#: ../libcaja-private/caja-file-operations.c:4690
+#: ../libcaja-private/caja-file-operations.c:4034
+#: ../libcaja-private/caja-file-operations.c:4693
 msgid "The destination folder is inside the source folder."
 msgstr "De doelmap bevindt zich binnenin de bronmap."
 
 #. the run_warning() frees all strings passed in automatically
-#: ../libcaja-private/caja-file-operations.c:4062
+#: ../libcaja-private/caja-file-operations.c:4065
 msgid "You cannot move a file over itself."
 msgstr "Een bestand kan niet naar zichzelf verplaatst worden."
 
-#: ../libcaja-private/caja-file-operations.c:4063
+#: ../libcaja-private/caja-file-operations.c:4066
 msgid "You cannot copy a file over itself."
 msgstr "Een bestand kan niet naar zichzelf gekopieerd worden."
 
-#: ../libcaja-private/caja-file-operations.c:4064
+#: ../libcaja-private/caja-file-operations.c:4067
 msgid "The source file would be overwritten by the destination."
 msgstr "Het bronbestand zou door het doelbestand overschreven worden."
 
-#: ../libcaja-private/caja-file-operations.c:4277
+#: ../libcaja-private/caja-file-operations.c:4280
 #, c-format
 msgid "Could not remove the already existing file with the same name in %F."
 msgstr "Kon het bestaande bestand met dezelfde naam in %F niet verwijderen."
 
-#: ../libcaja-private/caja-file-operations.c:4347
+#: ../libcaja-private/caja-file-operations.c:4350
 #, c-format
 msgid "There was an error copying the file into %F."
 msgstr "Er is een fout opgetreden tijdens het kopiëren van het bestand naar %F."
 
-#: ../libcaja-private/caja-file-operations.c:4571
+#: ../libcaja-private/caja-file-operations.c:4574
 msgid "Copying Files"
 msgstr "Bestanden kopiëren"
 
-#: ../libcaja-private/caja-file-operations.c:4598
+#: ../libcaja-private/caja-file-operations.c:4601
 msgid "Preparing to Move to \"%B\""
 msgstr "Voorbereiden van verplaatsen naar ‘%B’"
 
-#: ../libcaja-private/caja-file-operations.c:4602
+#: ../libcaja-private/caja-file-operations.c:4605
 #, c-format
 msgid "Preparing to move %'d file"
 msgid_plural "Preparing to move %'d files"
 msgstr[0] "Verplaatsen van %'d bestand voorbereiden"
 msgstr[1] "Verplaatsen van %'d bestanden voorbereiden"
 
-#: ../libcaja-private/caja-file-operations.c:4848
+#: ../libcaja-private/caja-file-operations.c:4851
 #, c-format
 msgid "There was an error moving the file into %F."
 msgstr "Er is een fout opgetreden tijdens het verplaatsten van het bestand naar %F."
 
-#: ../libcaja-private/caja-file-operations.c:5108
+#: ../libcaja-private/caja-file-operations.c:5111
 msgid "Moving Files"
 msgstr "Verplaatsen van bestanden"
 
-#: ../libcaja-private/caja-file-operations.c:5139
+#: ../libcaja-private/caja-file-operations.c:5142
 msgid "Creating links in \"%B\""
 msgstr "Aanmaken van verwijzingen in ‘%B’."
 
-#: ../libcaja-private/caja-file-operations.c:5143
+#: ../libcaja-private/caja-file-operations.c:5146
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
 msgstr[0] "Aanmaken van verwijzing naar %'d bestand"
 msgstr[1] "Aanmaken van verwijzingen naar %'d bestanden"
 
-#: ../libcaja-private/caja-file-operations.c:5275
+#: ../libcaja-private/caja-file-operations.c:5278
 msgid "Error while creating link to %B."
 msgstr "Fout bij het aanmaken van een verwijzing naar %B."
 
-#: ../libcaja-private/caja-file-operations.c:5277
+#: ../libcaja-private/caja-file-operations.c:5280
 msgid "Symbolic links only supported for local files"
 msgstr "Symbolische verwijzingen alleen ondersteund voor lokale bestanden"
 
-#: ../libcaja-private/caja-file-operations.c:5280
+#: ../libcaja-private/caja-file-operations.c:5283
 msgid "The target doesn't support symbolic links."
 msgstr "Dit doel ondersteunt geen symbolische verwijzingen."
 
-#: ../libcaja-private/caja-file-operations.c:5283
+#: ../libcaja-private/caja-file-operations.c:5286
 #, c-format
 msgid "There was an error creating the symlink in %F."
 msgstr "Er is een fout opgetreden bij het aanmaken van de symbolische verwijzing in %F."
 
-#: ../libcaja-private/caja-file-operations.c:5595
+#: ../libcaja-private/caja-file-operations.c:5598
 msgid "Setting permissions"
 msgstr "Toegangsrechten instellen"
 
 #. localizers: the initial name of a new folder
-#: ../libcaja-private/caja-file-operations.c:5854
+#: ../libcaja-private/caja-file-operations.c:5857
 msgid "untitled folder"
 msgstr "naamloze map"
 
 #. localizers: the initial name of a new empty file
-#: ../libcaja-private/caja-file-operations.c:5862
+#: ../libcaja-private/caja-file-operations.c:5865
 msgid "new file"
 msgstr "nieuw bestand"
 
-#: ../libcaja-private/caja-file-operations.c:6033
+#: ../libcaja-private/caja-file-operations.c:6036
 msgid "Error while creating directory %B."
 msgstr "Er is een fout opgetreden bij het aanmaken van de map %B"
 
-#: ../libcaja-private/caja-file-operations.c:6035
+#: ../libcaja-private/caja-file-operations.c:6038
 msgid "Error while creating file %B."
 msgstr "Er is een fout opgetreden bij het aanmaken van het bestand %B."
 
-#: ../libcaja-private/caja-file-operations.c:6037
+#: ../libcaja-private/caja-file-operations.c:6040
 #, c-format
 msgid "There was an error creating the directory in %F."
 msgstr "Er is een fout opgetreden bij het aanmaken van de map %F."
 
-#: ../libcaja-private/caja-file-operations.c:6313
+#: ../libcaja-private/caja-file-operations.c:6316
 msgid "Emptying Trash"
 msgstr "Bezig met prullenbak legen"
 
-#: ../libcaja-private/caja-file-operations.c:6360
-#: ../libcaja-private/caja-file-operations.c:6401
-#: ../libcaja-private/caja-file-operations.c:6436
-#: ../libcaja-private/caja-file-operations.c:6471
+#: ../libcaja-private/caja-file-operations.c:6363
+#: ../libcaja-private/caja-file-operations.c:6404
+#: ../libcaja-private/caja-file-operations.c:6439
+#: ../libcaja-private/caja-file-operations.c:6474
 msgid "Unable to mark launcher trusted (executable)"
 msgstr "Kan starter niet markeren als vertrouwd (uitvoerbaar bestand)"
 
@@ -1741,64 +1751,62 @@ msgstr "Niet in staat werkbladbestand te hernoemen"
 #. * between the "%" and any numeric directive will turn
 #. * off zero padding, and putting a "_" there will use
 #. * space padding instead of zero padding.
-#. 
-#: ../libcaja-private/caja-file.c:4466
+#: ../libcaja-private/caja-file.c:4476
 msgid "today at 00:00:00 PM"
 msgstr "vandaag om 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4467
-#: ../src/caja-file-management-properties.c:511
+#: ../libcaja-private/caja-file.c:4477
+#: ../src/caja-file-management-properties.c:510
 msgid "today at %-I:%M:%S %p"
 msgstr "vandaag om %H:%M:%S"
 
-#: ../libcaja-private/caja-file.c:4469
+#: ../libcaja-private/caja-file.c:4479
 msgid "today at 00:00 PM"
 msgstr "vandaag om %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4470
+#: ../libcaja-private/caja-file.c:4480
 msgid "today at %-I:%M %p"
 msgstr "vandaag om %H:%M"
 
-#: ../libcaja-private/caja-file.c:4472
+#: ../libcaja-private/caja-file.c:4482
 msgid "today, 00:00 PM"
 msgstr "vandaag, 00:00"
 
-#: ../libcaja-private/caja-file.c:4473
+#: ../libcaja-private/caja-file.c:4483
 msgid "today, %-I:%M %p"
 msgstr "vandaag om %H:%M"
 
-#: ../libcaja-private/caja-file.c:4475 ../libcaja-private/caja-file.c:4476
+#: ../libcaja-private/caja-file.c:4485 ../libcaja-private/caja-file.c:4486
 msgid "today"
 msgstr "vandaag"
 
 #. Yesterday, use special word.
 #. * Note to localizers: Same issues as "today" string.
-#. 
-#: ../libcaja-private/caja-file.c:4485
+#: ../libcaja-private/caja-file.c:4495
 msgid "yesterday at 00:00:00 PM"
 msgstr "gisteren om 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4486
+#: ../libcaja-private/caja-file.c:4496
 msgid "yesterday at %-I:%M:%S %p"
 msgstr "gisteren om %H:%M:%S"
 
-#: ../libcaja-private/caja-file.c:4488
+#: ../libcaja-private/caja-file.c:4498
 msgid "yesterday at 00:00 PM"
 msgstr "gisteren om 00:00"
 
-#: ../libcaja-private/caja-file.c:4489
+#: ../libcaja-private/caja-file.c:4499
 msgid "yesterday at %-I:%M %p"
 msgstr "gisteren om %H:%M"
 
-#: ../libcaja-private/caja-file.c:4491
+#: ../libcaja-private/caja-file.c:4501
 msgid "yesterday, 00:00 PM"
 msgstr "gisteren, 00:00"
 
-#: ../libcaja-private/caja-file.c:4492
+#: ../libcaja-private/caja-file.c:4502
 msgid "yesterday, %-I:%M %p"
 msgstr "gisteren om %H:%M"
 
-#: ../libcaja-private/caja-file.c:4494 ../libcaja-private/caja-file.c:4495
+#: ../libcaja-private/caja-file.c:4504 ../libcaja-private/caja-file.c:4505
 msgid "yesterday"
 msgstr "gisteren"
 
@@ -1806,104 +1814,103 @@ msgstr "gisteren"
 #. * Note to localizers: Same issues as "today" string.
 #. * The width measurement templates correspond to
 #. * the day/month name with the most letters.
-#. 
-#: ../libcaja-private/caja-file.c:4506
+#: ../libcaja-private/caja-file.c:4516
 msgid "Wednesday, September 00 0000 at 00:00:00 PM"
 msgstr "Woensdag 00 september 00 0000 om 00:00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4507
+#: ../libcaja-private/caja-file.c:4517
 msgid "%A, %B %-d %Y at %-I:%M:%S %p"
 msgstr "%A %-d %B %Y om %H:%M:%S"
 
-#: ../libcaja-private/caja-file.c:4509
+#: ../libcaja-private/caja-file.c:4519
 msgid "Mon, Oct 00 0000 at 00:00:00 PM"
 msgstr "Ma 00 okt 0000 om 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4510
+#: ../libcaja-private/caja-file.c:4520
 msgid "%a, %b %-d %Y at %-I:%M:%S %p"
 msgstr "%a %-d %b %Y om %H:%M:%S"
 
-#: ../libcaja-private/caja-file.c:4512
+#: ../libcaja-private/caja-file.c:4522
 msgid "Mon, Oct 00 0000 at 00:00 PM"
 msgstr "Ma 00 okt 0000 om 00:00"
 
-#: ../libcaja-private/caja-file.c:4513
+#: ../libcaja-private/caja-file.c:4523
 msgid "%a, %b %-d %Y at %-I:%M %p"
 msgstr "%a %-d %b %Y om %H:%M"
 
-#: ../libcaja-private/caja-file.c:4515
+#: ../libcaja-private/caja-file.c:4525
 msgid "Oct 00 0000 at 00:00 PM"
 msgstr "00 okt 0000 om 00:00"
 
-#: ../libcaja-private/caja-file.c:4516
+#: ../libcaja-private/caja-file.c:4526
 msgid "%b %-d %Y at %-I:%M %p"
 msgstr "%-d %b %Y om %H:%M"
 
-#: ../libcaja-private/caja-file.c:4518
+#: ../libcaja-private/caja-file.c:4528
 msgid "Oct 00 0000, 00:00 PM"
 msgstr "00 okt 0000, 00:00"
 
-#: ../libcaja-private/caja-file.c:4519
+#: ../libcaja-private/caja-file.c:4529
 msgid "%b %-d %Y, %-I:%M %p"
 msgstr "%-d %b %Y, %H:%M"
 
-#: ../libcaja-private/caja-file.c:4521
+#: ../libcaja-private/caja-file.c:4531
 msgid "00/00/00, 00:00 PM"
 msgstr "00/00/00, 00:00"
 
-#: ../libcaja-private/caja-file.c:4522
+#: ../libcaja-private/caja-file.c:4532
 msgid "%m/%-d/%y, %-I:%M %p"
 msgstr "%-d/%m/%y, %H:%M"
 
-#: ../libcaja-private/caja-file.c:4524
+#: ../libcaja-private/caja-file.c:4534
 msgid "00/00/00"
 msgstr "00/00/00"
 
-#: ../libcaja-private/caja-file.c:4525
+#: ../libcaja-private/caja-file.c:4535
 msgid "%m/%d/%y"
 msgstr "%d/%m/%y"
 
-#: ../libcaja-private/caja-file.c:5166
+#: ../libcaja-private/caja-file.c:5176
 #, c-format
 msgid "Not allowed to set permissions"
 msgstr "Instellen van rechten niet toegestaan"
 
-#: ../libcaja-private/caja-file.c:5460
+#: ../libcaja-private/caja-file.c:5470
 #, c-format
 msgid "Not allowed to set owner"
 msgstr "Eigenaar instellen niet toegestaan"
 
-#: ../libcaja-private/caja-file.c:5478
+#: ../libcaja-private/caja-file.c:5488
 #, c-format
 msgid "Specified owner '%s' doesn't exist"
 msgstr "Gespecificeerde eigenaar ‘%s’ bestaat niet"
 
-#: ../libcaja-private/caja-file.c:5738
+#: ../libcaja-private/caja-file.c:5748
 #, c-format
 msgid "Not allowed to set group"
 msgstr "Groep instellen niet toegestaan"
 
-#: ../libcaja-private/caja-file.c:5756
+#: ../libcaja-private/caja-file.c:5766
 #, c-format
 msgid "Specified group '%s' doesn't exist"
 msgstr "Gespecificeerde groep ‘%s’ bestaat niet"
 
-#: ../libcaja-private/caja-file.c:5910
-#: ../src/file-manager/fm-directory-view.c:2361
+#: ../libcaja-private/caja-file.c:5920
+#: ../src/file-manager/fm-directory-view.c:2364
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
 msgstr[0] "%'u item"
 msgstr[1] "%'u items"
 
-#: ../libcaja-private/caja-file.c:5911
+#: ../libcaja-private/caja-file.c:5921
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
 msgstr[0] "%'u map"
 msgstr[1] "%'u mappen"
 
-#: ../libcaja-private/caja-file.c:5912
+#: ../libcaja-private/caja-file.c:5922
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
@@ -1912,54 +1919,53 @@ msgstr[1] "%'u bestanden"
 
 #. Do this in a separate stage so that we don't have to put G_GUINT64_FORMAT
 #. in the translated string
-#: ../libcaja-private/caja-file.c:6001
+#: ../libcaja-private/caja-file.c:6017
 msgid "%"
 msgstr "%"
 
-#: ../libcaja-private/caja-file.c:6002
+#: ../libcaja-private/caja-file.c:6018
 #, c-format
 msgid "%s (%s bytes)"
 msgstr "%s (%s bytes)"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6318 ../libcaja-private/caja-file.c:6334
+#: ../libcaja-private/caja-file.c:6337 ../libcaja-private/caja-file.c:6353
 msgid "? items"
 msgstr "? items"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6324
+#: ../libcaja-private/caja-file.c:6343
 msgid "? bytes"
 msgstr "? bytes"
 
-#: ../libcaja-private/caja-file.c:6339
+#: ../libcaja-private/caja-file.c:6358
 msgid "unknown type"
 msgstr "onbekend type"
 
-#: ../libcaja-private/caja-file.c:6342
+#: ../libcaja-private/caja-file.c:6361
 msgid "unknown MIME type"
 msgstr "onbekend MIME-type"
 
 #. Fallback, use for both unknown attributes and attributes
 #. * for which we have no more appropriate default.
-#. 
-#: ../libcaja-private/caja-file.c:6356
+#: ../libcaja-private/caja-file.c:6375
 #: ../src/file-manager/fm-properties-window.c:1301
 msgid "unknown"
 msgstr "onbekend"
 
-#: ../libcaja-private/caja-file.c:6406
+#: ../libcaja-private/caja-file.c:6425
 msgid "program"
 msgstr "programma"
 
-#: ../libcaja-private/caja-file.c:6426
+#: ../libcaja-private/caja-file.c:6445
 msgid "link"
 msgstr "verwijzing"
 
-#: ../libcaja-private/caja-file.c:6448
+#: ../libcaja-private/caja-file.c:6467
 msgid "link (broken)"
 msgstr "verwijzing (gebroken)"
 
-#: ../libcaja-private/caja-icon-container.c:2929
+#: ../libcaja-private/caja-icon-container.c:2934
 msgid "The selection rectangle"
 msgstr "De selectierechthoek"
 
@@ -1985,10 +1991,10 @@ msgstr "Deze verwijzing kan niet gebruikt worden, omdat haar doel ‘%s’ niet 
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-mime-actions.c:783
-#: ../src/file-manager/fm-directory-view.c:7273
-#: ../src/file-manager/fm-directory-view.c:7405
-#: ../src/file-manager/fm-directory-view.c:8505
-#: ../src/file-manager/fm-directory-view.c:8830
+#: ../src/file-manager/fm-directory-view.c:7370
+#: ../src/file-manager/fm-directory-view.c:7502
+#: ../src/file-manager/fm-directory-view.c:8602
+#: ../src/file-manager/fm-directory-view.c:8927
 #: ../src/file-manager/fm-tree-view.c:1335
 msgid "Mo_ve to Trash"
 msgstr "In _prullenbak gooien"
@@ -2036,12 +2042,12 @@ msgstr[0] "Dit zal %d nieuw venster openen."
 msgstr[1] "Dit zal %d nieuwe vensters openen."
 
 #: ../libcaja-private/caja-mime-actions.c:1297
-#: ../src/caja-window-manage-views.c:2108
-#: ../src/caja-window-manage-views.c:2116
-#: ../src/caja-window-manage-views.c:2136
-#: ../src/caja-window-manage-views.c:2150
-#: ../src/caja-window-manage-views.c:2156
-#: ../src/caja-window-manage-views.c:2183
+#: ../src/caja-window-manage-views.c:2111
+#: ../src/caja-window-manage-views.c:2119
+#: ../src/caja-window-manage-views.c:2139
+#: ../src/caja-window-manage-views.c:2153
+#: ../src/caja-window-manage-views.c:2159
+#: ../src/caja-window-manage-views.c:2186
 #, c-format
 msgid "Could not display \"%s\"."
 msgstr "Kon ‘%s’ niet weergeven."
@@ -2095,12 +2101,12 @@ msgstr "Als _vertrouwd markeren"
 
 #: ../libcaja-private/caja-mime-actions.c:2051
 #: ../libcaja-private/caja-mime-actions.c:2357
-#: ../src/file-manager/fm-directory-view.c:6291
+#: ../src/file-manager/fm-directory-view.c:6388
 msgid "Unable to mount location"
 msgstr "Kan de locatie niet aankoppelen"
 
 #: ../libcaja-private/caja-mime-actions.c:2445
-#: ../src/file-manager/fm-directory-view.c:6465
+#: ../src/file-manager/fm-directory-view.c:6562
 msgid "Unable to start location"
 msgstr "Kan de locatie niet starten"
 
@@ -2190,7 +2196,7 @@ msgid "Select an Application"
 msgstr "Kies een toepassing"
 
 #: ../libcaja-private/caja-open-with-dialog.c:843
-#: ../src/file-manager/fm-properties-window.c:5186
+#: ../src/file-manager/fm-properties-window.c:5196
 msgid "Open With"
 msgstr "Openen met"
 
@@ -2209,8 +2215,8 @@ msgstr "_Bladeren…"
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-open-with-dialog.c:957
-#: ../src/file-manager/fm-directory-view.c:7189
-#: ../src/file-manager/fm-directory-view.c:8699
+#: ../src/file-manager/fm-directory-view.c:7286
+#: ../src/file-manager/fm-directory-view.c:8796
 #: ../src/file-manager/fm-tree-view.c:1256 ../src/caja-places-sidebar.c:2653
 msgid "_Open"
 msgstr "_Openen"
@@ -2301,37 +2307,37 @@ msgid ""
 " your computer, you may be able to open it."
 msgstr "Geen andere acties zijn beschikbaar om dit bestand weer te geven. Wellicht kunt u het bestand wel openen als u het naar uw computer kopieert."
 
-#: ../libcaja-private/caja-program-choosing.c:405
+#: ../libcaja-private/caja-program-choosing.c:439
 msgid "Sorry, but you cannot execute commands from a remote site."
 msgstr "U kunt geen opdrachten vanaf een locatie op afstand uitvoeren."
 
-#: ../libcaja-private/caja-program-choosing.c:407
+#: ../libcaja-private/caja-program-choosing.c:441
 msgid "This is disabled due to security considerations."
 msgstr "Dit is uitgeschakeld vanuit veiligheidsoverwegingen."
 
-#: ../libcaja-private/caja-program-choosing.c:419
-#: ../libcaja-private/caja-program-choosing.c:497
+#: ../libcaja-private/caja-program-choosing.c:453
+#: ../libcaja-private/caja-program-choosing.c:531
 msgid "There was an error launching the application."
 msgstr "Er is een fout opgetreden bij het starten van de toepassing."
 
-#: ../libcaja-private/caja-program-choosing.c:448
-#: ../libcaja-private/caja-program-choosing.c:461
+#: ../libcaja-private/caja-program-choosing.c:482
+#: ../libcaja-private/caja-program-choosing.c:495
 msgid "This drop target only supports local files."
 msgstr "Dit sleepdoel accepteert alleen lokale bestanden."
 
-#: ../libcaja-private/caja-program-choosing.c:449
+#: ../libcaja-private/caja-program-choosing.c:483
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again."
 msgstr "Om niet-lokale bestanden te openen, dient u ze naar een lokale map te kopiëren en ze opnieuw neer te zetten."
 
-#: ../libcaja-private/caja-program-choosing.c:462
+#: ../libcaja-private/caja-program-choosing.c:496
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again. The local files you dropped have already been opened."
 msgstr "Om niet-lokale bestanden te openen, dient u ze naar een lokale map te kopiëren en ze opnieuw neer te zetten. De lokale bestanden die u heeft gesleept zijn reeds geopend."
 
-#: ../libcaja-private/caja-program-choosing.c:495
+#: ../libcaja-private/caja-program-choosing.c:529
 msgid "Details: "
 msgstr "Details: "
 
@@ -2363,376 +2369,376 @@ msgstr "Zoekopdracht"
 msgid "Search for \"%s\""
 msgstr "Zoeken naar ‘%s’"
 
-#: ../libcaja-private/caja-undostack-manager.c:1178
+#: ../libcaja-private/caja-undostack-manager.c:1237
 #, c-format
 msgid "Delete %d copied items"
 msgstr "%d gekopieerde items verwijderen"
 
-#: ../libcaja-private/caja-undostack-manager.c:1181
-#: ../libcaja-private/caja-undostack-manager.c:1191
-#: ../libcaja-private/caja-undostack-manager.c:1222
+#: ../libcaja-private/caja-undostack-manager.c:1240
+#: ../libcaja-private/caja-undostack-manager.c:1250
+#: ../libcaja-private/caja-undostack-manager.c:1281
 #, c-format
 msgid "Delete '%s'"
 msgstr "'%s' verwijderen"
 
-#: ../libcaja-private/caja-undostack-manager.c:1188
+#: ../libcaja-private/caja-undostack-manager.c:1247
 #, c-format
 msgid "Delete %d duplicated items"
 msgstr "Verwijderen van %d gedupliceerde items"
 
-#: ../libcaja-private/caja-undostack-manager.c:1199
+#: ../libcaja-private/caja-undostack-manager.c:1258
 #, c-format
 msgid "Move %d items back to '%s'"
 msgstr "%d items terugplaatsen naar '%s'"
 
-#: ../libcaja-private/caja-undostack-manager.c:1203
+#: ../libcaja-private/caja-undostack-manager.c:1262
 #, c-format
 msgid "Move '%s' back to '%s'"
 msgstr "'%s' terugplaatsen naar '%s'"
 
-#: ../libcaja-private/caja-undostack-manager.c:1212
-#: ../libcaja-private/caja-undostack-manager.c:1379
+#: ../libcaja-private/caja-undostack-manager.c:1271
+#: ../libcaja-private/caja-undostack-manager.c:1438
 #, c-format
 msgid "Rename '%s' as '%s'"
 msgstr "'%s hernoemen naar '%s'"
 
-#: ../libcaja-private/caja-undostack-manager.c:1231
-#: ../libcaja-private/caja-undostack-manager.c:1426
+#: ../libcaja-private/caja-undostack-manager.c:1290
+#: ../libcaja-private/caja-undostack-manager.c:1485
 #, c-format
 msgid "Restore %d items from trash"
 msgstr "%d items terugzetten uit de prullenbak"
 
-#: ../libcaja-private/caja-undostack-manager.c:1239
+#: ../libcaja-private/caja-undostack-manager.c:1298
 #, c-format
 msgid "Restore '%s' to '%s'"
 msgstr "'%s' terugplaatsen naar '%s'"
 
-#: ../libcaja-private/caja-undostack-manager.c:1250
+#: ../libcaja-private/caja-undostack-manager.c:1309
 #, c-format
 msgid "Move %d items back to trash"
 msgstr "%d items terugplaatsen naar de prullenbak"
 
-#: ../libcaja-private/caja-undostack-manager.c:1253
+#: ../libcaja-private/caja-undostack-manager.c:1312
 #, c-format
 msgid "Move '%s' back to trash"
 msgstr "'%s' terugplaatsen naar de prullenbak"
 
-#: ../libcaja-private/caja-undostack-manager.c:1262
+#: ../libcaja-private/caja-undostack-manager.c:1321
 #, c-format
 msgid "Delete links to %d items"
 msgstr "Verwijzingen naar %d items verwijderen"
 
-#: ../libcaja-private/caja-undostack-manager.c:1265
+#: ../libcaja-private/caja-undostack-manager.c:1324
 #, c-format
 msgid "Delete link to '%s'"
 msgstr "Verwijzing naar '%s' verwijderen"
 
-#: ../libcaja-private/caja-undostack-manager.c:1275
+#: ../libcaja-private/caja-undostack-manager.c:1334
 #, c-format
 msgid "Restore original permissions of items enclosed in '%s'"
 msgstr "Oorspronkelijke rechten van items onder '%s' terugzetten"
 
-#: ../libcaja-private/caja-undostack-manager.c:1283
+#: ../libcaja-private/caja-undostack-manager.c:1342
 #, c-format
 msgid "Restore original permissions of '%s'"
 msgstr "Oorspronkelijke rechten van '%s' terugzetten"
 
-#: ../libcaja-private/caja-undostack-manager.c:1292
+#: ../libcaja-private/caja-undostack-manager.c:1351
 #, c-format
 msgid "Restore group of '%s' to '%s'"
 msgstr "Groep terugveranderen van '%s' naar '%s'"
 
-#: ../libcaja-private/caja-undostack-manager.c:1302
+#: ../libcaja-private/caja-undostack-manager.c:1361
 #, c-format
 msgid "Restore owner of '%s' to '%s'"
 msgstr "Eigenaar terugveranderen van '%s' naar '%s'"
 
-#: ../libcaja-private/caja-undostack-manager.c:1341
+#: ../libcaja-private/caja-undostack-manager.c:1400
 #, c-format
 msgid "Copy %d items to '%s'"
 msgstr "%d items naar '%s' kopiëren"
 
-#: ../libcaja-private/caja-undostack-manager.c:1345
+#: ../libcaja-private/caja-undostack-manager.c:1404
 #, c-format
 msgid "Copy '%s' to '%s'"
 msgstr "'%s' naar '%s' kopiëren"
 
-#: ../libcaja-private/caja-undostack-manager.c:1353
+#: ../libcaja-private/caja-undostack-manager.c:1412
 #, c-format
 msgid "Duplicate of %d items in '%s'"
 msgstr "%d items dupliceren in '%s'"
 
-#: ../libcaja-private/caja-undostack-manager.c:1358
+#: ../libcaja-private/caja-undostack-manager.c:1417
 #, c-format
 msgid "Duplicate '%s' in '%s'"
 msgstr "'%s' dupliceren in '%s'"
 
-#: ../libcaja-private/caja-undostack-manager.c:1366
+#: ../libcaja-private/caja-undostack-manager.c:1425
 #, c-format
 msgid "Move %d items to '%s'"
 msgstr "%d items naar '%s' verplaatsen"
 
-#: ../libcaja-private/caja-undostack-manager.c:1370
+#: ../libcaja-private/caja-undostack-manager.c:1429
 #, c-format
 msgid "Move '%s' to '%s'"
 msgstr "'%s' naar '%s' verplaatsen"
 
-#: ../libcaja-private/caja-undostack-manager.c:1388
+#: ../libcaja-private/caja-undostack-manager.c:1447
 #, c-format
 msgid "Create new file '%s' from template "
 msgstr "Nieuw bestand '%s' aanmaken uit sjabloon"
 
-#: ../libcaja-private/caja-undostack-manager.c:1395
+#: ../libcaja-private/caja-undostack-manager.c:1454
 #, c-format
 msgid "Create an empty file '%s'"
 msgstr "Leeg bestand '%s' aanmaken"
 
-#: ../libcaja-private/caja-undostack-manager.c:1402
+#: ../libcaja-private/caja-undostack-manager.c:1461
 #, c-format
 msgid "Create a new folder '%s'"
 msgstr "Nieuwe map '%s' aanmaken"
 
-#: ../libcaja-private/caja-undostack-manager.c:1410
+#: ../libcaja-private/caja-undostack-manager.c:1469
 #, c-format
 msgid "Move %d items to trash"
 msgstr "%d items naar de prullenbak verplaatsen"
 
-#: ../libcaja-private/caja-undostack-manager.c:1416
+#: ../libcaja-private/caja-undostack-manager.c:1475
 #, c-format
 msgid "Move '%s' to trash"
 msgstr "'%s' naar de prullenbak verplaatsen"
 
-#: ../libcaja-private/caja-undostack-manager.c:1429
+#: ../libcaja-private/caja-undostack-manager.c:1488
 #, c-format
 msgid "Restore '%s' from trash"
 msgstr "'%s' terugzetten uit de prullenbak"
 
-#: ../libcaja-private/caja-undostack-manager.c:1438
+#: ../libcaja-private/caja-undostack-manager.c:1497
 #, c-format
 msgid "Create links to %d items"
 msgstr "Verwijzingen aanmaken naar %d items"
 
-#: ../libcaja-private/caja-undostack-manager.c:1441
+#: ../libcaja-private/caja-undostack-manager.c:1500
 #, c-format
 msgid "Create link to '%s'"
 msgstr "Verwijzingen naar '%s' aanmaken"
 
-#: ../libcaja-private/caja-undostack-manager.c:1450
+#: ../libcaja-private/caja-undostack-manager.c:1509
 #, c-format
 msgid "Set permissions of items enclosed in '%s'"
 msgstr "Rechten van items onder '%s' instellen"
 
-#: ../libcaja-private/caja-undostack-manager.c:1458
+#: ../libcaja-private/caja-undostack-manager.c:1517
 #, c-format
 msgid "Set permissions of '%s'"
 msgstr "Rechten van '%s' instellen"
 
-#: ../libcaja-private/caja-undostack-manager.c:1467
+#: ../libcaja-private/caja-undostack-manager.c:1526
 #, c-format
 msgid "Set group of '%s' to '%s'"
 msgstr "Group van '%s' veranderen naar '%s'"
 
-#: ../libcaja-private/caja-undostack-manager.c:1477
+#: ../libcaja-private/caja-undostack-manager.c:1536
 #, c-format
 msgid "Set owner of '%s' to '%s'"
 msgstr "Eigenaar van '%s' veranderen naar '%s'"
 
-#: ../libcaja-private/caja-undostack-manager.c:1509
+#: ../libcaja-private/caja-undostack-manager.c:1568
 #, c-format
 msgid "_Undo copy of %d item"
 msgid_plural "_Undo copy of %d items"
 msgstr[0] "Kopiëren van %d item ongedaan maken"
 msgstr[1] "Kopiëren van %d items ongedaan maken"
 
-#: ../libcaja-private/caja-undostack-manager.c:1514
+#: ../libcaja-private/caja-undostack-manager.c:1573
 #, c-format
 msgid "_Undo duplicate of %d item"
 msgid_plural "_Undo duplicate of %d items"
 msgstr[0] "Dupliceren van %d item ongedaan maken"
 msgstr[1] "Dupliceren van %d items ongedaan maken"
 
-#: ../libcaja-private/caja-undostack-manager.c:1519
+#: ../libcaja-private/caja-undostack-manager.c:1578
 #, c-format
 msgid "_Undo move of %d item"
 msgid_plural "_Undo move of %d items"
 msgstr[0] "Verplaatsen van %d item ongedaan maken"
 msgstr[1] "Verplaatsen van %d items ongedaan maken"
 
-#: ../libcaja-private/caja-undostack-manager.c:1524
+#: ../libcaja-private/caja-undostack-manager.c:1583
 #, c-format
 msgid "_Undo rename of %d item"
 msgid_plural "_Undo rename of %d items"
 msgstr[0] "Hernoemen van %d item ongedaan maken"
 msgstr[1] "Hernoemen van %d items ongedaan maken"
 
-#: ../libcaja-private/caja-undostack-manager.c:1528
+#: ../libcaja-private/caja-undostack-manager.c:1587
 #, c-format
 msgid "_Undo creation of an empty file"
 msgstr "Aanmaken van leeg bestand ongedaan maken"
 
-#: ../libcaja-private/caja-undostack-manager.c:1531
+#: ../libcaja-private/caja-undostack-manager.c:1590
 #, c-format
 msgid "_Undo creation of a file from template"
 msgstr "Aanmaken van bestand uit sjabloon ongedaan maken"
 
-#: ../libcaja-private/caja-undostack-manager.c:1535
+#: ../libcaja-private/caja-undostack-manager.c:1594
 #, c-format
 msgid "_Undo creation of %d folder"
 msgid_plural "_Undo creation of %d folders"
 msgstr[0] "Aanmaken van %d map ongedaan maken"
 msgstr[1] "Aanmaken van %d mappen ongedaan maken"
 
-#: ../libcaja-private/caja-undostack-manager.c:1540
+#: ../libcaja-private/caja-undostack-manager.c:1599
 #, c-format
 msgid "_Undo move to trash of %d item"
 msgid_plural "_Undo move to trash of %d items"
 msgstr[0] "Naar prullenbak verplaatsen van %d item ongedaan maken"
 msgstr[1] "Naar prullenbak verplaatsen van %d items ongedaan maken"
 
-#: ../libcaja-private/caja-undostack-manager.c:1545
+#: ../libcaja-private/caja-undostack-manager.c:1604
 #, c-format
 msgid "_Undo restore from trash of %d item"
 msgid_plural "_Undo restore from trash of %d items"
 msgstr[0] "Terugzetten uit prullenbak van %d item ongedaan maken"
 msgstr[1] "Terugzetten uit prullenbak van %d items ongedaan maken"
 
-#: ../libcaja-private/caja-undostack-manager.c:1550
+#: ../libcaja-private/caja-undostack-manager.c:1609
 #, c-format
 msgid "_Undo create link to %d item"
 msgid_plural "_Undo create link to %d items"
 msgstr[0] "Aanmaken van verwijzing naar %d item ongedaan maken"
 msgstr[1] "Aanmaken van verwijzing naar%d items ongedaan maken"
 
-#: ../libcaja-private/caja-undostack-manager.c:1555
+#: ../libcaja-private/caja-undostack-manager.c:1614
 #, c-format
 msgid "_Undo delete of %d item"
 msgid_plural "_Undo delete of %d items"
 msgstr[0] "Verwijderen van %d item ongedaan maken"
 msgstr[1] "Verwijderen van %d items ongedaan maken"
 
-#: ../libcaja-private/caja-undostack-manager.c:1560
+#: ../libcaja-private/caja-undostack-manager.c:1619
 #, c-format
 msgid "Undo recursive change permissions of %d item"
 msgid_plural "Undo recursive change permissions of %d items"
 msgstr[0] "Recursief veranderen van rechten op %d item ongedaan maken"
 msgstr[1] "Recursief veranderen van rechten op %d items ongedaan maken"
 
-#: ../libcaja-private/caja-undostack-manager.c:1566
+#: ../libcaja-private/caja-undostack-manager.c:1625
 #, c-format
 msgid "Undo change permissions of %d item"
 msgid_plural "Undo change permissions of %d items"
 msgstr[0] "Veranderen van rechten op %d item ongedaan maken"
 msgstr[1] "Veranderen van rechten op %d items ongedaan maken"
 
-#: ../libcaja-private/caja-undostack-manager.c:1571
+#: ../libcaja-private/caja-undostack-manager.c:1630
 #, c-format
 msgid "Undo change group of %d item"
 msgid_plural "Undo change group of %d items"
 msgstr[0] "Groep veranderen van %d item ongedaan maken"
 msgstr[1] "Groep veranderen van %d items ongedaan maken"
 
-#: ../libcaja-private/caja-undostack-manager.c:1576
+#: ../libcaja-private/caja-undostack-manager.c:1635
 #, c-format
 msgid "Undo change owner of %d item"
 msgid_plural "Undo change owner of %d items"
 msgstr[0] "Eigenaar veranderen van %d item ongedaan maken"
 msgstr[1] "Eigenaar veranderen van %d items ongedaan maken"
 
-#: ../libcaja-private/caja-undostack-manager.c:1604
+#: ../libcaja-private/caja-undostack-manager.c:1663
 #, c-format
 msgid "_Redo copy of %d item"
 msgid_plural "_Redo copy of %d items"
 msgstr[0] "Opnieuw %d item kopiëren"
 msgstr[1] "Opnieuw %d items kopiëren"
 
-#: ../libcaja-private/caja-undostack-manager.c:1609
+#: ../libcaja-private/caja-undostack-manager.c:1668
 #, c-format
 msgid "_Redo duplicate of %d item"
 msgid_plural "_Redo duplicate of %d items"
 msgstr[0] "Dupliceren van %d item opnieuw uitvoeren"
 msgstr[1] "Dupliceren van %d items opnieuw uitvoeren"
 
-#: ../libcaja-private/caja-undostack-manager.c:1614
+#: ../libcaja-private/caja-undostack-manager.c:1673
 #, c-format
 msgid "_Redo move of %d item"
 msgid_plural "_Redo move of %d items"
 msgstr[0] "Verplaatsen van %d item opnieuw uitvoeren"
 msgstr[1] "Verplaatsen van %d items opnieuw uitvoeren"
 
-#: ../libcaja-private/caja-undostack-manager.c:1619
+#: ../libcaja-private/caja-undostack-manager.c:1678
 #, c-format
 msgid "_Redo rename of %d item"
 msgid_plural "_Redo rename of %d items"
 msgstr[0] "Hernoemen van %d item opnieuw uitvoeren"
 msgstr[1] "Hernoemen van %d items opnieuw uitvoeren"
 
-#: ../libcaja-private/caja-undostack-manager.c:1623
+#: ../libcaja-private/caja-undostack-manager.c:1682
 #, c-format
 msgid "_Redo creation of an empty file"
 msgstr "Aanmaken van leeg bestand opnieuw uitvoeren"
 
-#: ../libcaja-private/caja-undostack-manager.c:1626
+#: ../libcaja-private/caja-undostack-manager.c:1685
 #, c-format
 msgid "_Redo creation of a file from template"
 msgstr "Aanmaken van bestand uit sjabloon opnieuw uitvoeren"
 
-#: ../libcaja-private/caja-undostack-manager.c:1630
+#: ../libcaja-private/caja-undostack-manager.c:1689
 #, c-format
 msgid "_Redo creation of %d folder"
 msgid_plural "_Redo creation of %d folders"
 msgstr[0] "Aanmaken van %d map opnieuw uitvoeren"
 msgstr[1] "Aanmaken van %d mappen opnieuw uitvoeren"
 
-#: ../libcaja-private/caja-undostack-manager.c:1635
+#: ../libcaja-private/caja-undostack-manager.c:1694
 #, c-format
 msgid "_Redo move to trash of %d item"
 msgid_plural "_Redo move to trash of %d items"
 msgstr[0] "Naar de prullenbak verplaatsen van %d item opnieuw uitvoeren"
 msgstr[1] "Naar de prullenbak verplaatsen van %d items opnieuw uitvoeren"
 
-#: ../libcaja-private/caja-undostack-manager.c:1640
+#: ../libcaja-private/caja-undostack-manager.c:1699
 #, c-format
 msgid "_Redo restore from trash of %d item"
 msgid_plural "_Redo restore from trash of %d items"
 msgstr[0] "Terugzetten uit de prullenbak van %d item opnieuw uitvoeren"
 msgstr[1] "Terugzetten uit de prullenbak van %d items opnieuw uitvoeren"
 
-#: ../libcaja-private/caja-undostack-manager.c:1645
+#: ../libcaja-private/caja-undostack-manager.c:1704
 #, c-format
 msgid "_Redo create link to %d item"
 msgid_plural "_Redo create link to %d items"
 msgstr[0] "Verwijzing maken naar %d item opnieuw uitvoeren"
 msgstr[1] "Verwijzing maken naar %d items opnieuw uitvoeren"
 
-#: ../libcaja-private/caja-undostack-manager.c:1650
+#: ../libcaja-private/caja-undostack-manager.c:1709
 #, c-format
 msgid "_Redo delete of %d item"
 msgid_plural "_Redo delete of %d items"
 msgstr[0] "Verwijderen van %d item opnieuw uitvoeren"
 msgstr[1] "Verwijderen van %d items opnieuw uitvoeren"
 
-#: ../libcaja-private/caja-undostack-manager.c:1655
+#: ../libcaja-private/caja-undostack-manager.c:1714
 #, c-format
 msgid "Redo recursive change permissions of %d item"
 msgid_plural "Redo recursive change permissions of %d items"
 msgstr[0] "Recursief aanpassen van rechten van %d item opnieuw uitvoeren"
 msgstr[1] "Recursief aanpassen van rechten van %d items opnieuw uitvoeren"
 
-#: ../libcaja-private/caja-undostack-manager.c:1661
+#: ../libcaja-private/caja-undostack-manager.c:1720
 #, c-format
 msgid "Redo change permissions of %d item"
 msgid_plural "Redo change permissions of %d items"
 msgstr[0] "Aanpassen van rechten van %d item opnieuw uitvoeren"
 msgstr[1] "Aanpassen van rechten van %d items opnieuw uitvoeren"
 
-#: ../libcaja-private/caja-undostack-manager.c:1666
+#: ../libcaja-private/caja-undostack-manager.c:1725
 #, c-format
 msgid "Redo change group of %d item"
 msgid_plural "Redo change group of %d items"
 msgstr[0] "Groep veranderen van %d item opnieuw uitvoeren"
 msgstr[1] "Groep veranderen van %d items opnieuw uitvoeren"
 
-#: ../libcaja-private/caja-undostack-manager.c:1671
+#: ../libcaja-private/caja-undostack-manager.c:1730
 #, c-format
 msgid "Redo change owner of %d item"
 msgid_plural "Redo change owner of %d items"
@@ -3068,10 +3074,20 @@ msgid ""
 msgstr "Wanneer dit aanstaat, worden verborgen bestanden standaard weergeven in de bestandsbeheerder. Verborgen bestanden zijn bestanden waarvan de naam met een punt begint, die in het bestand .hidden in een map staan of backupbestanden die eindigen met een tilde (~)."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:63
+msgid "Whether to show file sizes with IEC units"
+msgstr ""
+
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:64
+msgid ""
+"If set to true, file sizes are shown using IEC (base 1024) units with "
+"\"KiB\" style suffixes, instead of default with SI units."
+msgstr ""
+
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:65
 msgid "List of possible captions on icons"
 msgstr "Lijst van mogelijke bijschriften bij pictogrammen"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:64
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:66
 msgid ""
 "A list of captions below an icon in the icon view and the desktop. The "
 "actual number of captions shown depends on the zoom level. Some possible "
@@ -3080,44 +3096,44 @@ msgid ""
 "\"octal_permissions\" and \"mime_type\"."
 msgstr "Een lijst van bijschriften onder een pictogram in pictogrammenweergave en op het bureaublad. Het werkelijke aantal getoonde bijschriften hangt af van de zoomfactor. Mogelijke waarden zijn: ‘size’, ‘type’, ‘date_modified’, ‘date_changed’, ‘date_accessed’, ‘owner’, ‘group’, ‘permissions’, ‘octal_permissions’, en ‘mime_type’."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:65
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:67
 msgid "Use tighter layout in new windows"
 msgstr "Strakkere lay-out in nieuwe vensters"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:66
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:68
 msgid "If true, icons will be laid out tighter by default in new windows."
 msgstr "Indien ingeschakeld worden pictogrammen standaard dichter op elkaar gezet in nieuwe vensters."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:67
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:69
 msgid "Put labels beside icons"
 msgstr "Bijschriften naast pictogrammen plaatsen"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:68
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:70
 msgid ""
 "If true, labels will be placed beside icons rather than underneath them."
 msgstr "Indien ingeschakeld worden bijschriften naast pictogrammen geplaatst, in plaats van eronder."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:69
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:71
 msgid "Default icon zoom level"
 msgstr "Standaard zoomfactor pictogrammenweergave"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:70
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:72
 msgid "Default zoom level used by the icon view."
 msgstr "Standaard zoomfactor bij pictogrammenweergave"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:71
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:73
 msgid "Default Thumbnail Icon Size"
 msgstr "Standaardgrootte miniatuur-pictogrammen"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:72
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:74
 msgid "The default size of an icon for a thumbnail in the icon view."
 msgstr "Standaard afmetingen van een pictogram van een miniatuur in pictogrammenweergave."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:73
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:75
 msgid "Text Ellipsis Limit"
 msgstr "Tekstafkortingsgrens"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:75
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:77
 #, no-c-format
 msgid ""
 "A string specifying how parts of overlong file names should be replaced by "
@@ -3136,157 +3152,157 @@ msgid ""
 "larger (200%), largest (400%)"
 msgstr "Een tekenreeks die aangeeft hoe delen van zeer lange bestandsnamen vervangen dienen te worden door puntjes, afhankelijk van het zoomniveau. Elk item in de lijst is van de vorm \"Zoomniveau:Integer\". Voor elk aangegeven zoomniveau geldt dat als de gegeven integer groter is dan 0, zal de bestandsnaam het gegeven aantal regels niet overschrijden. Als de integer 0 of kleiner is, wordt er geen grens gesteld aan het aangegeven zoomniveau. Een standaarditem van de vorm \"Integer\" zonder enig aangegeven zoomniveau is ook toegestaan. Het definieert het maximum aantal regels voor alle andere zoomniveaus. Voorbeelden: 0 - te lange bestandsnamen altijd weergeven; 3 - bestandsnamen inkorten als ze drie regels overschrijden; smallest:5,smaller:4,0 - bestandsnamen inkorten als ze vijf regels voor zoomniveau \"smallest\" overschrijden. Bestandsnamen inkorten als ze vier regels overschrijden voor zoomniveau \"smaller\". Bestandsnamen niet inkorten voor andere zoomniveaus. Beschikbare zoomniveaus: smallest (33%), smaller (50%), small (66%), standard (100%), large (150%), larger (200%), largest (400%)"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:76
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:78
 msgid "Default compact view zoom level"
 msgstr "Standaard zoomfactor compacte weergave"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:77
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:79
 msgid "Default zoom level used by the compact view."
 msgstr "Standaard zoomfactor bij compacte weergave"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:78
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:80
 msgid "All columns have same width"
 msgstr "Alle kolommen hebben dezelfde breedte"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:79
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:81
 msgid ""
 "If this preference is set, all columns in the compact view have the same "
 "width. Otherwise, the width of each column is determined seperately."
 msgstr "Indien ingeschakeld krijgen alle kolommen in de compacte weergave dezelfde breedte. Anders wordt de breedte van elke kolom afzonderlijk bepaald."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:80
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:82
 msgid "Default list zoom level"
 msgstr "Standaard zoomfactor lijstweergave"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:81
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:83
 msgid "Default zoom level used by the list view."
 msgstr "Standaard zoomfactor bij lijstweergave"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:82
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:84
 msgid "Default list of columns visible in the list view"
 msgstr "Standaard kolommenlijst zichtbaar in lijstweergave"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:83
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:85
 msgid "Default list of columns visible in the list view."
 msgstr "Standaard kolommenlijst zichtbaar in lijstweergave."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:84
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:86
 msgid "Default column order in the list view"
 msgstr "Standaard kolomvolgorde in lijstweergave"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:85
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:87
 msgid "Default column order in the list view."
 msgstr "Standaard kolomvolgorde in lijstweergave."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:86
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:88
 msgid "Only show folders in the tree side pane"
 msgstr "Alleen mappen in de boom-zijpaneel tonen"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:87
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:89
 msgid ""
 "If set to true, Caja will only show folders in the tree side pane. Otherwise"
 " it will show both folders and files."
 msgstr "Indien ingeschakeld toont Caja alleen mappen in het boom-zijpaneel. Anders toont het zowel mappen als bestanden."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:88
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:90
 msgid "Desktop font"
 msgstr "Bureaubladlettertype"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:89
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:91
 msgid "The font _description used for the icons on the desktop."
 msgstr "_De lettertypeomschrijving voor de pictogrammen op het bureaublad."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:90
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:92
 msgid "Home icon visible on desktop"
 msgstr "Persoonlijke map-pictogram zichtbaar op bureaublad"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:91
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:93
 msgid ""
 "If this is set to true, an icon linking to the home folder will be put on "
 "the desktop."
 msgstr "Indien ingeschakeld wordt een pictogram dat verwijst naar de persoonlijke map op het bureaublad gezet."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:92
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:94
 msgid "Computer icon visible on desktop"
 msgstr "Computer-pictogram zichtbaar op bureaublad"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:93
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:95
 msgid ""
 "If this is set to true, an icon linking to the computer location will be put"
 " on the desktop."
 msgstr "Indien ingeschakeld wordt een pictogram dat verwijst naar de computer-locatie op het bureaublad gezet."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:94
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:96
 msgid "Trash icon visible on desktop"
 msgstr "Prullenbak-pictogram zichtbaar op bureaublad"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:95
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:97
 msgid ""
 "If this is set to true, an icon linking to the trash will be put on the "
 "desktop."
 msgstr "Indien ingeschakeld wordt een pictogram dat verwijst naar de prullenbak op het bureaublad gezet."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:96
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:98
 msgid "Show mounted volumes on the desktop"
 msgstr "Gekoppelde volumina tonen op het bureaublad"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:97
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:99
 msgid ""
 "If this is set to true, icons linking to mounted volumes will be put on the "
 "desktop."
 msgstr "Indien ingeschakeld worden pictogrammen die verwijzen naar gekoppelde volumina op het bureaublad gezet."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:98
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:100
 msgid "Network Servers icon visible on the desktop"
 msgstr "Netwerkservers-pictogram zichtbaar op bureaublad"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:99
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:101
 msgid ""
 "If this is set to true, an icon linking to the Network Servers view will be "
 "put on the desktop."
 msgstr "Indien ingeschakeld wordt een pictogram dat verwijst naar de weergave van de netwerkservers op het bureaublad gezet."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:100
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:102
 msgid "Desktop computer icon name"
 msgstr "Naam van computerpictogram op bureaublad"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:101
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:103
 msgid ""
 "This name can be set if you want a custom name for the computer icon on the "
 "desktop."
 msgstr "Deze naam kan ingesteld worden indien u een aangepaste naam wilt voor het computerpictogram op het bureaublad."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:102
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:104
 msgid "Desktop home icon name"
 msgstr "Naam van persoonlijke map-pictogram op bureaublad"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:103
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:105
 msgid ""
 "This name can be set if you want a custom name for the home icon on the "
 "desktop."
 msgstr "Deze naam kan ingesteld worden indien u een aangepaste naam wilt voor het persoonlijke map-pictogram op het bureaublad."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:104
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:106
 msgid "Desktop trash icon name"
 msgstr "Naam van prullenbak-pictogram op bureaublad"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:105
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:107
 msgid ""
 "This name can be set if you want a custom name for the trash icon on the "
 "desktop."
 msgstr "Deze naam kan ingesteld worden indien u een aangepaste naam wilt voor de verwijzing naar het prullenbak-pictogram op het bureaublad."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:106
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:108
 msgid "Network servers icon name"
 msgstr "Pictogramnaam van netwerkservers"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:107
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:109
 msgid ""
 "This name can be set if you want a custom name for the network servers icon "
 "on the desktop."
 msgstr "Deze naam kan ingesteld worden indien u een aangepaste naam wilt voor het Netwerkservers-pictogram op het bureaublad."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:108
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:110
 msgid ""
 "An integer specifying how parts of overlong file names should be replaced by"
 " ellipses on the desktop. If the number is larger than 0, the file name will"
@@ -3294,70 +3310,70 @@ msgid ""
 "limit is imposed on the number of displayed lines."
 msgstr "Een integer die aangeeft hoe delen van zeer lange bestandsnamen vervangen dienen te worden door puntjes op het bureaublad. Als het getal groter is dan 0, dan zal de bestandsnaam het gegeven aantal regels niet overschrijden. Als het getal 0 of kleiner is, dan wordt geen grens gesteld aan het aantal weergegeven regels."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:109
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:111
 msgid "The geometry string for a navigation window."
 msgstr "De afmetingen-tekenreeks voor een navigatievenster."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:110
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:112
 msgid ""
 "A string containing the saved geometry and coordinates string for navigation"
 " windows."
 msgstr "Een tekenreeks met daarin de opgeslagen afmetingen en coördinaten voor navigatievensters."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:111
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:113
 msgid "Whether the navigation window should be maximized."
 msgstr "Of het navigatievenster moet worden gemaximaliseerd."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:112
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:114
 msgid "Whether the navigation window should be maximized by default."
 msgstr "Of het navigatievenster standaard moet worden gemaximaliseerd."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:113
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:115
 msgid "Width of the side pane"
 msgstr "Breedte van het zijpaneel"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:114
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:116
 msgid "The default width of the side pane in new windows."
 msgstr "De standaardbreedte van het zijpaneel in nieuwe vensters."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:115
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:117
 msgid "Show toolbar in new windows"
 msgstr "Werkbalk tonen in nieuwe vensters"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:116
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:118
 msgid "If set to true, newly opened windows will have toolbars visible."
 msgstr "Indien ingeschakeld zijn de werkbalken zichtbaar in nieuw geopende vensters."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:117
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:119
 msgid "Show location bar in new windows"
 msgstr "Locatiebalk tonen in nieuwe vensters"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:118
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:120
 msgid ""
 "If set to true, newly opened windows will have the location bar visible."
 msgstr "Indien ingeschakeld is de locatiebalk zichtbaar in nieuw geopende vensters."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:119
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:121
 msgid "Show status bar in new windows"
 msgstr "Statusbalk tonen in nieuwe vensters"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:120
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:122
 msgid "If set to true, newly opened windows will have the status bar visible."
 msgstr "Indien ingeschakeld is de statusbalk zichtbaar in nieuw geopende vensters."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:121
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:123
 msgid "Show side pane in new windows"
 msgstr "Zijpaneel tonen in nieuwe vensters"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:122
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:124
 msgid "If set to true, newly opened windows will have the side pane visible."
 msgstr "Indien ingeschakeld is het zijpaneel zichtbaar in nieuw geopende vensters."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:123
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:125
 msgid "Side pane view"
 msgstr "Zijpaneel-weergave"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:124
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:126
 msgid "The side pane view to show in newly opened windows."
 msgstr "De zijpaneelweergave om in nieuw geopende vensters te tonen."
 
@@ -3431,20 +3447,24 @@ msgstr "Lijst van x-content/*-types waarvoor de gebruiker \"Map openen\" heeft g
 msgid "Autorun Prompt"
 msgstr "Autorun dialoogvenster"
 
+#. Set initial window title
 #: ../data/caja-browser.desktop.in.in.h:1
+#: ../data/caja-folder-handler.desktop.in.in.h:1
+#: ../data/caja.desktop.in.in.h:1 ../src/caja-spatial-window.c:381
+#: ../src/caja-window-menus.c:532 ../src/caja-window.c:162
+msgid "Caja"
+msgstr "Caja"
+
+#: ../data/caja-browser.desktop.in.in.h:2
 msgid "File Browser"
 msgstr "Bestandsbeheer"
 
-#: ../data/caja-browser.desktop.in.in.h:2
+#: ../data/caja-browser.desktop.in.in.h:3
 msgid "Browse the file system with the file manager"
 msgstr "Bestandssysteem doorbladeren met het bestandsbeheer"
 
-#: ../data/caja-computer.desktop.in.in.h:1 ../src/caja-places-sidebar.c:674
-msgid "Computer"
-msgstr "Computer"
-
 #. tooltip
-#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:907
+#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:923
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
 msgstr "Bladeren door lokale schijven en schijven op afstand"
@@ -3463,11 +3483,11 @@ msgstr "Persoonlijke map"
 
 #. tooltip
 #: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:690
-#: ../src/caja-window-menus.c:902
+#: ../src/caja-window-menus.c:918
 msgid "Open your personal folder"
 msgstr "Persoonlijke map openen"
 
-#: ../data/caja.desktop.in.in.h:1
+#: ../data/caja.desktop.in.in.h:2
 msgid "File Manager"
 msgstr "Bestandsbeheer"
 
@@ -3478,8 +3498,8 @@ msgstr "Achtergrond"
 #. name, stock id
 #. label, accelerator
 #: ../src/file-manager/fm-desktop-icon-view.c:725
-#: ../src/file-manager/fm-directory-view.c:7221
-#: ../src/file-manager/fm-directory-view.c:8899
+#: ../src/file-manager/fm-directory-view.c:7318
+#: ../src/file-manager/fm-directory-view.c:8996
 msgid "E_mpty Trash"
 msgstr "Prulle_nbak legen"
 
@@ -3487,13 +3507,13 @@ msgstr "Prulle_nbak legen"
 #. name, stock id
 #. label, accelerator
 #: ../src/file-manager/fm-desktop-icon-view.c:739
-#: ../src/file-manager/fm-directory-view.c:7185
+#: ../src/file-manager/fm-directory-view.c:7282
 msgid "Create L_auncher..."
 msgstr "Nieuwe st_arter…"
 
 #. tooltip
 #: ../src/file-manager/fm-desktop-icon-view.c:741
-#: ../src/file-manager/fm-directory-view.c:7186
+#: ../src/file-manager/fm-directory-view.c:7283
 msgid "Create a new launcher"
 msgstr "Nieuwe starter aanmaken"
 
@@ -3515,7 +3535,7 @@ msgstr "Prullenbak legen"
 
 #. tooltip
 #: ../src/file-manager/fm-desktop-icon-view.c:759
-#: ../src/file-manager/fm-directory-view.c:7222 ../src/caja-trash-bar.c:203
+#: ../src/file-manager/fm-directory-view.c:7319 ../src/caja-trash-bar.c:203
 msgid "Delete all items in the Trash"
 msgstr "Alle items uit de prullenbak verwijderen"
 
@@ -3542,7 +3562,7 @@ msgstr[0] "Dit zal %'d afzonderlijk venster openen."
 msgstr[1] "Dit zal %'d nieuwe vensters openen."
 
 #: ../src/file-manager/fm-directory-view.c:1174
-#: ../src/file-manager/fm-properties-window.c:5527
+#: ../src/file-manager/fm-properties-window.c:5537
 #: ../src/caja-connect-server-dialog.c:692 ../src/caja-location-dialog.c:102
 msgid "There was an error displaying help."
 msgstr "Er is een fout opgetreden bij de hulpweergave."
@@ -3623,18 +3643,17 @@ msgstr[1] "%'d andere items geselecteerd"
 #. * needs to use something other than parentheses. The
 #. * first message gives the number of items selected;
 #. * the message in parentheses the size of those items.
-#. 
-#: ../src/file-manager/fm-directory-view.c:2340
+#: ../src/file-manager/fm-directory-view.c:2343
 #, c-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-directory-view.c:2353
+#: ../src/file-manager/fm-directory-view.c:2356
 #, c-format
 msgid "Free space: %s"
 msgstr "Vrije ruimte: %s"
 
-#: ../src/file-manager/fm-directory-view.c:2364
+#: ../src/file-manager/fm-directory-view.c:2367
 #, c-format
 msgid "%s, Free space: %s"
 msgstr "%s, Vrije ruimte: %s"
@@ -3643,8 +3662,7 @@ msgstr "%s, Vrije ruimte: %s"
 #. * might want to change "," to something else.
 #. * After the comma the amount of free space will
 #. * be shown.
-#. 
-#: ../src/file-manager/fm-directory-view.c:2379
+#: ../src/file-manager/fm-directory-view.c:2382
 #, c-format
 msgid "%s, %s"
 msgstr "%s, %s"
@@ -3653,16 +3671,14 @@ msgstr "%s, %s"
 #. * might want to change "," to something else.
 #. * After the comma the amount of free space will
 #. * be shown.
-#. 
 #. This is marked for translation in case a localizer
 #. * needs to change ", " to something else. The comma
 #. * is between the message about the number of folders
 #. * and the number of items in those folders and the
 #. * message about the number of other items and the
 #. * total size of those items.
-#. 
-#: ../src/file-manager/fm-directory-view.c:2398
-#: ../src/file-manager/fm-directory-view.c:2412
+#: ../src/file-manager/fm-directory-view.c:2401
+#: ../src/file-manager/fm-directory-view.c:2415
 #, c-format
 msgid "%s%s, %s"
 msgstr "%s%s, %s"
@@ -3674,46 +3690,53 @@ msgstr "%s%s, %s"
 #. * message about the number of other items and the
 #. * total size of those items. After the second comma
 #. * the free space is written.
-#. 
-#: ../src/file-manager/fm-directory-view.c:2425
+#: ../src/file-manager/fm-directory-view.c:2428
 #, c-format
 msgid "%s%s, %s, %s"
 msgstr "%s%s, %s, %s"
 
-#: ../src/file-manager/fm-directory-view.c:4460
+#: ../src/file-manager/fm-directory-view.c:4473
 #: ../src/caja-information-panel.c:907
 #, c-format
 msgid "Open With %s"
 msgstr "Openen met %s"
 
-#: ../src/file-manager/fm-directory-view.c:4462
+#: ../src/file-manager/fm-directory-view.c:4475
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
 msgstr[0] "Gebruik ‘%s’ om het geselecteerde item te openen"
 msgstr[1] "Gebruik ‘%s’ om de geselecteerde items te openen"
 
-#: ../src/file-manager/fm-directory-view.c:5326
+#: ../src/file-manager/fm-directory-view.c:4564
+msgid "Open parent location"
+msgstr ""
+
+#: ../src/file-manager/fm-directory-view.c:4565
+msgid "Open parent location for the selected item"
+msgstr ""
+
+#: ../src/file-manager/fm-directory-view.c:5423
 #, c-format
 msgid "Run \"%s\" on any selected items"
 msgstr "‘%s’ uitvoeren op ieder geselecteerd item"
 
-#: ../src/file-manager/fm-directory-view.c:5577
+#: ../src/file-manager/fm-directory-view.c:5674
 #, c-format
 msgid "Create Document from template \"%s\""
 msgstr "Document aanmaken vanaf sjabloon ‘%s’"
 
-#: ../src/file-manager/fm-directory-view.c:5827
+#: ../src/file-manager/fm-directory-view.c:5924
 msgid "All executable files in this folder will appear in the Scripts menu."
 msgstr "Alle uitvoerbare bestanden in deze map zullen getoond worden in het Scripts-menu."
 
-#: ../src/file-manager/fm-directory-view.c:5829
+#: ../src/file-manager/fm-directory-view.c:5926
 msgid ""
 "Choosing a script from the menu will run that script with any selected items"
 " as input."
 msgstr "Door een script te kiezen uit het menu wordt het script uitgevoerd met de geselecteerde items als invoer."
 
-#: ../src/file-manager/fm-directory-view.c:5831
+#: ../src/file-manager/fm-directory-view.c:5928
 msgid ""
 "All executable files in this folder will appear in the Scripts menu. Choosing a script from the menu will run that script.\n"
 "\n"
@@ -3736,19 +3759,19 @@ msgid ""
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI for current location in the inactive pane of a split-view window"
 msgstr "Alle uitvoerbare bestanden in deze map worden getoond in het Scripts-menu. Door een script te kiezen uit het menu wordt het script uitgevoerd.\n\nWanneer dit wordt gedaan in een lokale map, dan worden de geselecteerde bestandsnamen doorgegeven aan het script. Wanneer dit wordt gedaan vanuit een non-lokale map (bijv. een map op een web- of ftp-server), dan worden geen parameters doorgegeven aan het script.\n\nIn alle gevallen worden de volgende omgevingsvariabelen gezet door Caja, die gebruikt kunnen worden door de scripts:\n\nCAJA_SCRIPT_SELECTED_FILE_PATHS: paden van geselecteerde bestanden, gescheiden door regeleindes (alleen indien lokaal)\n\nCAJA_SCRIPT_SELECTED_URIS: URI's van de geselecteerde bestanden, gescheiden door regeleindes\n\nCAJA_SCRIPT_CURRENT_URI: URI van de huidige locatie\n\nCAJA_SCRIPT_WINDOW_GEOMETRY: positie en afmetingen van het huidige venster\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_FILE_PATHS: paden van geselecteerde bestanden in het inactieve paneel van een gesplitst venster, gescheiden door regeleindes (alleen indien lokaal)\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: URI's van de geselecteerde bestanden in het inactieve paneel van een gesplitst venster, gescheiden door regeleindes\n\nCAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI van de huidige locatie in het inactieve paneel van een gesplitst venster"
 
-#: ../src/file-manager/fm-directory-view.c:5899
+#: ../src/file-manager/fm-directory-view.c:5996
 #: ../src/file-manager/fm-tree-view.c:998
 #, c-format
 msgid "\"%s\" will be moved if you select the Paste command"
 msgstr "‘%s’ wordt verplaatst als u de opdracht 'Plakken' geeft"
 
-#: ../src/file-manager/fm-directory-view.c:5903
+#: ../src/file-manager/fm-directory-view.c:6000
 #: ../src/file-manager/fm-tree-view.c:1004
 #, c-format
 msgid "\"%s\" will be copied if you select the Paste command"
 msgstr "‘%s’ wordt gekopieerd als u de opdracht 'Plakken' geeft"
 
-#: ../src/file-manager/fm-directory-view.c:5910
+#: ../src/file-manager/fm-directory-view.c:6007
 #, c-format
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
@@ -3756,7 +3779,7 @@ msgid_plural ""
 msgstr[0] "Het geselecteerde item wordt verplaatst als u de opdracht Plakken geeft"
 msgstr[1] "De %'d geselecteerde items worden verplaatst als u de opdracht Plakken geeft"
 
-#: ../src/file-manager/fm-directory-view.c:5917
+#: ../src/file-manager/fm-directory-view.c:6014
 #, c-format
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
@@ -3764,98 +3787,98 @@ msgid_plural ""
 msgstr[0] "Het geselecteerde item wordt gekopieerd als u de opdracht Plakken geeft"
 msgstr[1] "De %'d geselecteerde items worden gekopieerd als u de opdracht Plakken geeft"
 
-#: ../src/file-manager/fm-directory-view.c:6097
+#: ../src/file-manager/fm-directory-view.c:6194
 #: ../src/file-manager/fm-tree-view.c:1044
 msgid "There is nothing on the clipboard to paste."
 msgstr "Er staat niets op het klembord om te plakken."
 
-#: ../src/file-manager/fm-directory-view.c:6312
+#: ../src/file-manager/fm-directory-view.c:6409
 msgid "Unable to unmount location"
 msgstr "Kan de locatie niet ontkoppelen"
 
-#: ../src/file-manager/fm-directory-view.c:6333
+#: ../src/file-manager/fm-directory-view.c:6430
 msgid "Unable to eject location"
 msgstr "Kan de locatie niet uitwerpen"
 
-#: ../src/file-manager/fm-directory-view.c:6348
+#: ../src/file-manager/fm-directory-view.c:6445
 msgid "Unable to stop drive"
 msgstr "Kan het station niet stoppen"
 
-#: ../src/file-manager/fm-directory-view.c:6905
+#: ../src/file-manager/fm-directory-view.c:7002
 #, c-format
 msgid "Connect to Server %s"
 msgstr "Verbinden met server %s"
 
-#: ../src/file-manager/fm-directory-view.c:6910
-#: ../src/file-manager/fm-directory-view.c:8118
-#: ../src/file-manager/fm-directory-view.c:8210
-#: ../src/file-manager/fm-directory-view.c:8320
+#: ../src/file-manager/fm-directory-view.c:7007
+#: ../src/file-manager/fm-directory-view.c:8215
+#: ../src/file-manager/fm-directory-view.c:8307
+#: ../src/file-manager/fm-directory-view.c:8417
 msgid "_Connect"
 msgstr "_Verbinden"
 
-#: ../src/file-manager/fm-directory-view.c:6924
+#: ../src/file-manager/fm-directory-view.c:7021
 msgid "Link _name:"
 msgstr "Verwijzings_naam:"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7163
+#: ../src/file-manager/fm-directory-view.c:7260
 msgid "Create _Document"
 msgstr "_Document aanmaken"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7164
+#: ../src/file-manager/fm-directory-view.c:7261
 msgid "Open Wit_h"
 msgstr "Openen _met"
 
-#: ../src/file-manager/fm-directory-view.c:7165
+#: ../src/file-manager/fm-directory-view.c:7262
 msgid "Choose a program with which to open the selected item"
 msgstr "Kies een programma om de geselecteerde items mee te openen"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7167
-#: ../src/file-manager/fm-directory-view.c:7446
+#: ../src/file-manager/fm-directory-view.c:7264
+#: ../src/file-manager/fm-directory-view.c:7543
 msgid "_Properties"
 msgstr "_Eigenschappen"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7168
-#: ../src/file-manager/fm-directory-view.c:8886
+#: ../src/file-manager/fm-directory-view.c:7265
+#: ../src/file-manager/fm-directory-view.c:8983
 msgid "View or modify the properties of each selected item"
 msgstr "De eigenschappen per geselecteerd item bekijken of wijzigen"
 
 #. name, stock id
 #. label, accelerator
 #. add the "create folder" menu item
-#: ../src/file-manager/fm-directory-view.c:7175
+#: ../src/file-manager/fm-directory-view.c:7272
 #: ../src/file-manager/fm-tree-view.c:1287
 msgid "Create _Folder"
 msgstr "_Map aanmaken"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7176
+#: ../src/file-manager/fm-directory-view.c:7273
 msgid "Create a new empty folder inside this folder"
 msgstr "Nieuwe lege map aanmaken in deze map"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7178
+#: ../src/file-manager/fm-directory-view.c:7275
 msgid "No templates installed"
 msgstr "Geen Sjablonen geïnstalleerd"
 
 #. name, stock id
 #. translators: this is used to indicate that a file doesn't contain anything
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7181
+#: ../src/file-manager/fm-directory-view.c:7278
 msgid "_Empty File"
 msgstr "_Leeg bestand"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7182
+#: ../src/file-manager/fm-directory-view.c:7279
 msgid "Create a new empty file inside this folder"
 msgstr "Nieuw leeg bestand aanmaken in deze map"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7190
+#: ../src/file-manager/fm-directory-view.c:7287
 msgid "Open the selected item in this window"
 msgstr "Geselecteerd item in dit venster openen"
 
@@ -3864,91 +3887,91 @@ msgstr "Geselecteerd item in dit venster openen"
 #. Location-specific actions
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7197
-#: ../src/file-manager/fm-directory-view.c:7378
+#: ../src/file-manager/fm-directory-view.c:7294
+#: ../src/file-manager/fm-directory-view.c:7475
 msgid "Open in Navigation Window"
 msgstr "Openen in navigatievenster"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7198
+#: ../src/file-manager/fm-directory-view.c:7295
 msgid "Open each selected item in a navigation window"
 msgstr "Elk geselecteerd item in een navigatievenster openen"
 
 #. name, stock id
 #. label, accelerator
 #. add the "open in new tab" menu item
-#: ../src/file-manager/fm-directory-view.c:7201
-#: ../src/file-manager/fm-directory-view.c:7382
-#: ../src/file-manager/fm-directory-view.c:8450
-#: ../src/file-manager/fm-directory-view.c:8776
+#: ../src/file-manager/fm-directory-view.c:7298
+#: ../src/file-manager/fm-directory-view.c:7479
+#: ../src/file-manager/fm-directory-view.c:8547
+#: ../src/file-manager/fm-directory-view.c:8873
 #: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2661
 msgid "Open in New _Tab"
 msgstr "Openen in nieuw _tabblad"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7202
+#: ../src/file-manager/fm-directory-view.c:7299
 msgid "Open each selected item in a new tab"
 msgstr "Elk geselecteerd item in een nieuw tabblad openen"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7205
-#: ../src/file-manager/fm-directory-view.c:7387
+#: ../src/file-manager/fm-directory-view.c:7302
+#: ../src/file-manager/fm-directory-view.c:7484
 msgid "Open in _Folder Window"
 msgstr "Openen in _mapvenster"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7206
+#: ../src/file-manager/fm-directory-view.c:7303
 msgid "Open each selected item in a folder window"
 msgstr "Elk geselecteerd item in een mapvenster openen"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7209
+#: ../src/file-manager/fm-directory-view.c:7306
 msgid "Other _Application..."
 msgstr "Andere _toepassing…"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7210
-#: ../src/file-manager/fm-directory-view.c:7214
+#: ../src/file-manager/fm-directory-view.c:7307
+#: ../src/file-manager/fm-directory-view.c:7311
 msgid "Choose another application with which to open the selected item"
 msgstr "Andere toepassing kiezen om het geselecteerde item mee te openen"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7213
+#: ../src/file-manager/fm-directory-view.c:7310
 msgid "Open With Other _Application..."
 msgstr "Met _andere toepassing openen…"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7217
+#: ../src/file-manager/fm-directory-view.c:7314
 msgid "_Open Scripts Folder"
 msgstr "_Scriptsmap openen"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7218
+#: ../src/file-manager/fm-directory-view.c:7315
 msgid "Show the folder containing the scripts that appear in this menu"
 msgstr "De map met scripts die in dit menu staan tonen"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7226
+#: ../src/file-manager/fm-directory-view.c:7323
 msgid "Prepare the selected files to be moved with a Paste command"
 msgstr "Geselecteerde bestanden klaarmaken om verplaatst te worden met de Plakken-opdracht"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7230
+#: ../src/file-manager/fm-directory-view.c:7327
 msgid "Prepare the selected files to be copied with a Paste command"
 msgstr "Geselecteerde bestanden klaarmaken om gekopieerd te worden met de Plakken-opdracht"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7234
+#: ../src/file-manager/fm-directory-view.c:7331
 msgid "Move or copy files previously selected by a Cut or Copy command"
 msgstr "Bestanden verplaatsen of kopiëren die eerder bij een Knippen- of Plakken-opdracht waren geselecteerd"
 
@@ -3956,140 +3979,140 @@ msgstr "Bestanden verplaatsen of kopiëren die eerder bij een Knippen- of Plakke
 #. accelerator for paste
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7239
-#: ../src/file-manager/fm-directory-view.c:7400
+#: ../src/file-manager/fm-directory-view.c:7336
+#: ../src/file-manager/fm-directory-view.c:7497
 #: ../src/file-manager/fm-tree-view.c:1319
 msgid "_Paste Into Folder"
 msgstr "In map _plakken"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7240
+#: ../src/file-manager/fm-directory-view.c:7337
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into the "
 "selected folder"
 msgstr "Bestanden die eerder door een Knippen- of Kopiëren-opdracht waren geselecteerd, verplaatsen of kopiëren naar de geselecteerde map"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7242
+#: ../src/file-manager/fm-directory-view.c:7339
 msgid "Cop_y to"
 msgstr "_Kopiëren naar"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7243
+#: ../src/file-manager/fm-directory-view.c:7340
 msgid "M_ove to"
 msgstr "_Verplaatsen naar"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7246
+#: ../src/file-manager/fm-directory-view.c:7343
 msgid "Select all items in this window"
 msgstr "Alle items in dit venster selecteren"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7249
+#: ../src/file-manager/fm-directory-view.c:7346
 msgid "Select I_tems Matching..."
 msgstr "I_tems selecteren overeenkomend met…"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7250
+#: ../src/file-manager/fm-directory-view.c:7347
 msgid "Select items in this window matching a given pattern"
 msgstr "Items selecteren in dit venster overeenkomend met een bepaald patroon"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7253
+#: ../src/file-manager/fm-directory-view.c:7350
 msgid "_Invert Selection"
 msgstr "_Selectie omkeren"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7254
+#: ../src/file-manager/fm-directory-view.c:7351
 msgid "Select all and only the items that are not currently selected"
 msgstr "Alleen die items selecteren die nu niet geselecteerd zijn"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7257
+#: ../src/file-manager/fm-directory-view.c:7354
 msgid "D_uplicate"
 msgstr "Klo_nen"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7258
+#: ../src/file-manager/fm-directory-view.c:7355
 msgid "Duplicate each selected item"
 msgstr "Elk geselecteerd item klonen"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7261
-#: ../src/file-manager/fm-directory-view.c:8870
+#: ../src/file-manager/fm-directory-view.c:7358
+#: ../src/file-manager/fm-directory-view.c:8967
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
 msgstr[0] "Verwij_zing maken"
 msgstr[1] "Verwij_zingen maken"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7262
+#: ../src/file-manager/fm-directory-view.c:7359
 msgid "Create a symbolic link for each selected item"
 msgstr "Symbolische verwijzing maken voor elk geselecteerd item"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7265
+#: ../src/file-manager/fm-directory-view.c:7362
 msgid "_Rename..."
 msgstr "_Hernoemen…"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7266
+#: ../src/file-manager/fm-directory-view.c:7363
 msgid "Rename selected item"
 msgstr "Geselecteerde item hernoemen"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7274
-#: ../src/file-manager/fm-directory-view.c:8831
+#: ../src/file-manager/fm-directory-view.c:7371
+#: ../src/file-manager/fm-directory-view.c:8928
 msgid "Move each selected item to the Trash"
 msgstr "Alle geselecteerde items in de prullenbak gooien"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7277
-#: ../src/file-manager/fm-directory-view.c:7409
-#: ../src/file-manager/fm-directory-view.c:8851
+#: ../src/file-manager/fm-directory-view.c:7374
+#: ../src/file-manager/fm-directory-view.c:7506
+#: ../src/file-manager/fm-directory-view.c:8948
 #: ../src/file-manager/fm-tree-view.c:1349
 msgid "_Delete"
 msgstr "_Verwijderen"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7278
+#: ../src/file-manager/fm-directory-view.c:7375
 msgid "Delete each selected item, without moving to the Trash"
 msgstr "Elk geselecteerd item wissen, zonder het in de prullenbak te gooien."
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7281
-#: ../src/file-manager/fm-directory-view.c:7413
+#: ../src/file-manager/fm-directory-view.c:7378
+#: ../src/file-manager/fm-directory-view.c:7510
 msgid "_Restore"
 msgstr "Te_rughalen"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7285
+#: ../src/file-manager/fm-directory-view.c:7382
 msgid "_Undo"
 msgstr "_Ongedaan maken"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7286
-#: ../src/file-manager/fm-directory-view.c:11015
+#: ../src/file-manager/fm-directory-view.c:7383
+#: ../src/file-manager/fm-directory-view.c:11128
 msgid "Undo the last action"
 msgstr "Laatste actie ongedaan maken"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7289
+#: ../src/file-manager/fm-directory-view.c:7386
 msgid "_Redo"
 msgstr "Opnieuw"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7290
-#: ../src/file-manager/fm-directory-view.c:11033
+#: ../src/file-manager/fm-directory-view.c:7387
+#: ../src/file-manager/fm-directory-view.c:11146
 msgid "Redo the last undone action"
 msgstr "De laatst ongedaan gemaakte actie opnieuw uitvoeren"
 
@@ -4097,618 +4120,616 @@ msgstr "De laatst ongedaan gemaakte actie opnieuw uitvoeren"
 #. * be window-wide, and not just view-wide.
 #. * Since this also resets the "Show hidden files" mode,
 #. * it is a mixture of both ATM.
-#. 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7300
+#: ../src/file-manager/fm-directory-view.c:7397
 msgid "Reset View to _Defaults"
 msgstr "Terug naar s_tandaardweergave"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7301
+#: ../src/file-manager/fm-directory-view.c:7398
 msgid "Reset sorting order and zoom level to match preferences for this view"
 msgstr "Sorteervolgorde en zoomfactor terugzetten overeenkomend met voorkeuren voor deze weergave"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7304
+#: ../src/file-manager/fm-directory-view.c:7401
 msgid "Connect To This Server"
 msgstr "Verbinden met deze server"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7305
+#: ../src/file-manager/fm-directory-view.c:7402
 msgid "Make a permanent connection to this server"
 msgstr "Permanente verbinding maken met deze server"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7308
-#: ../src/file-manager/fm-directory-view.c:7336
-#: ../src/file-manager/fm-directory-view.c:7417
+#: ../src/file-manager/fm-directory-view.c:7405
+#: ../src/file-manager/fm-directory-view.c:7433
+#: ../src/file-manager/fm-directory-view.c:7514
 #: ../src/caja-places-sidebar.c:2697
 msgid "_Mount"
 msgstr "_Koppelen"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7309
+#: ../src/file-manager/fm-directory-view.c:7406
 msgid "Mount the selected volume"
 msgstr "Het geselecteerde volumen aankoppelen."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7313
+#: ../src/file-manager/fm-directory-view.c:7410
 msgid "Unmount the selected volume"
 msgstr "Het geselecteerde volumen ontkoppelen."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7317
+#: ../src/file-manager/fm-directory-view.c:7414
 msgid "Eject the selected volume"
 msgstr "Het geselecteerde volumen uitwerpen"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7320
-#: ../src/file-manager/fm-directory-view.c:7348
-#: ../src/file-manager/fm-directory-view.c:7429
+#: ../src/file-manager/fm-directory-view.c:7417
+#: ../src/file-manager/fm-directory-view.c:7445
+#: ../src/file-manager/fm-directory-view.c:7526
 #: ../src/caja-places-sidebar.c:2725
 msgid "_Format"
 msgstr "_Formatteren"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7321
+#: ../src/file-manager/fm-directory-view.c:7418
 msgid "Format the selected volume"
 msgstr "Het geselecteerde volumen formatteren"
 
 #. name, stock id
 #. label, accelerator
 #. Adjust start/stop items to reflect the type of the drive
-#: ../src/file-manager/fm-directory-view.c:7324
-#: ../src/file-manager/fm-directory-view.c:7352
-#: ../src/file-manager/fm-directory-view.c:7433
-#: ../src/file-manager/fm-directory-view.c:8110
-#: ../src/file-manager/fm-directory-view.c:8114
-#: ../src/file-manager/fm-directory-view.c:8202
-#: ../src/file-manager/fm-directory-view.c:8206
-#: ../src/file-manager/fm-directory-view.c:8312
-#: ../src/file-manager/fm-directory-view.c:8316
+#: ../src/file-manager/fm-directory-view.c:7421
+#: ../src/file-manager/fm-directory-view.c:7449
+#: ../src/file-manager/fm-directory-view.c:7530
+#: ../src/file-manager/fm-directory-view.c:8207
+#: ../src/file-manager/fm-directory-view.c:8211
+#: ../src/file-manager/fm-directory-view.c:8299
+#: ../src/file-manager/fm-directory-view.c:8303
+#: ../src/file-manager/fm-directory-view.c:8409
+#: ../src/file-manager/fm-directory-view.c:8413
 #: ../src/caja-places-sidebar.c:1792 ../src/caja-places-sidebar.c:2732
 msgid "_Start"
 msgstr "_Starten"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7325
+#: ../src/file-manager/fm-directory-view.c:7422
 msgid "Start the selected volume"
 msgstr "Het geselecteerde volumen starten"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7328
-#: ../src/file-manager/fm-directory-view.c:7356
-#: ../src/file-manager/fm-directory-view.c:7437
-#: ../src/file-manager/fm-directory-view.c:8139
-#: ../src/file-manager/fm-directory-view.c:8231
-#: ../src/file-manager/fm-directory-view.c:8341
+#: ../src/file-manager/fm-directory-view.c:7425
+#: ../src/file-manager/fm-directory-view.c:7453
+#: ../src/file-manager/fm-directory-view.c:7534
+#: ../src/file-manager/fm-directory-view.c:8236
+#: ../src/file-manager/fm-directory-view.c:8328
+#: ../src/file-manager/fm-directory-view.c:8438
 #: ../src/caja-places-sidebar.c:1793 ../src/caja-places-sidebar.c:2739
-#: ../src/caja-window-menus.c:846
+#: ../src/caja-window-menus.c:862
 msgid "_Stop"
 msgstr "_Stoppen"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7329
-#: ../src/file-manager/fm-directory-view.c:8342
+#: ../src/file-manager/fm-directory-view.c:7426
+#: ../src/file-manager/fm-directory-view.c:8439
 msgid "Stop the selected volume"
 msgstr "Het geselecteerde volumen stoppen."
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7332
-#: ../src/file-manager/fm-directory-view.c:7360
-#: ../src/file-manager/fm-directory-view.c:7441
+#: ../src/file-manager/fm-directory-view.c:7429
+#: ../src/file-manager/fm-directory-view.c:7457
+#: ../src/file-manager/fm-directory-view.c:7538
 #: ../src/caja-places-sidebar.c:2718
 msgid "_Detect Media"
 msgstr "_Media bespeuren"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7333
-#: ../src/file-manager/fm-directory-view.c:7361
-#: ../src/file-manager/fm-directory-view.c:7442
+#: ../src/file-manager/fm-directory-view.c:7430
+#: ../src/file-manager/fm-directory-view.c:7458
+#: ../src/file-manager/fm-directory-view.c:7539
 msgid "Detect media in the selected drive"
 msgstr "Media in het geselecteerde station bespeuren"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7337
+#: ../src/file-manager/fm-directory-view.c:7434
 msgid "Mount the volume associated with the open folder"
 msgstr "Het aan de geopende map verbonden volumen aankoppelen"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7341
+#: ../src/file-manager/fm-directory-view.c:7438
 msgid "Unmount the volume associated with the open folder"
 msgstr "Het aan de geopende map verbonden volumen ontkoppelen"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7345
+#: ../src/file-manager/fm-directory-view.c:7442
 msgid "Eject the volume associated with the open folder"
 msgstr "Het aan de geopende map verbonden volumen uitwerpen"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7349
+#: ../src/file-manager/fm-directory-view.c:7446
 msgid "Format the volume associated with the open folder"
 msgstr "Het met de geopende map verbonden volumen formatteren"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7353
+#: ../src/file-manager/fm-directory-view.c:7450
 msgid "Start the volume associated with the open folder"
 msgstr "Het met de geopende map verbonden volumen starten"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7357
+#: ../src/file-manager/fm-directory-view.c:7454
 msgid "Stop the volume associated with the open folder"
 msgstr "Het met de geopende map verbonden volumen stoppen"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7364
+#: ../src/file-manager/fm-directory-view.c:7461
 msgid "Open File and Close window"
 msgstr "Bestand openen en venster sluiten"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7368
+#: ../src/file-manager/fm-directory-view.c:7465
 msgid "Sa_ve Search"
 msgstr "Zoekopdracht op_slaan"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7369
+#: ../src/file-manager/fm-directory-view.c:7466
 msgid "Save the edited search"
 msgstr "De aangepaste zoekopdracht opslaan"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7372
+#: ../src/file-manager/fm-directory-view.c:7469
 msgid "Sa_ve Search As..."
 msgstr "Zoekopdracht opslaan _als…"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7373
+#: ../src/file-manager/fm-directory-view.c:7470
 msgid "Save the current search as a file"
 msgstr "De huidige zoekopdracht opslaan als een bestand"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7379
+#: ../src/file-manager/fm-directory-view.c:7476
 msgid "Open this folder in a navigation window"
 msgstr "Deze map in een navigatievenster openen"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7383
+#: ../src/file-manager/fm-directory-view.c:7480
 msgid "Open this folder in a new tab"
 msgstr "Deze map in een nieuw tabblad openen"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7388
+#: ../src/file-manager/fm-directory-view.c:7485
 msgid "Open this folder in a folder window"
 msgstr "Deze map in een mapvenster openen"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7393
+#: ../src/file-manager/fm-directory-view.c:7490
 msgid "Prepare this folder to be moved with a Paste command"
 msgstr "Deze map klaarmaken om verplaatst te worden met een Plakken-opdracht"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7397
+#: ../src/file-manager/fm-directory-view.c:7494
 msgid "Prepare this folder to be copied with a Paste command"
 msgstr "Deze map klaarmaken om gekopieerd te worden met een Plakken-opdracht"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7401
+#: ../src/file-manager/fm-directory-view.c:7498
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into this "
 "folder"
 msgstr "Bestanden die eerder door een Knippen- of Kopiëren-opdracht waren geselecteerd, verplaatsen of kopiëren naar deze map"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7406
+#: ../src/file-manager/fm-directory-view.c:7503
 msgid "Move this folder to the Trash"
 msgstr "Deze map in de prullenbak gooien"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7410
+#: ../src/file-manager/fm-directory-view.c:7507
 msgid "Delete this folder, without moving to the Trash"
 msgstr "Deze map wissen, zonder hem in de prullenbak te gooien."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7418
+#: ../src/file-manager/fm-directory-view.c:7515
 msgid "Mount the volume associated with this folder"
 msgstr "Het aan deze map verbonden volumen aankoppelen"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7422
+#: ../src/file-manager/fm-directory-view.c:7519
 msgid "Unmount the volume associated with this folder"
 msgstr "Het aan deze map verbonden volumen ontkoppelen"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7426
+#: ../src/file-manager/fm-directory-view.c:7523
 msgid "Eject the volume associated with this folder"
 msgstr "Het aan deze map verbonden volumen uitwerpen"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7430
+#: ../src/file-manager/fm-directory-view.c:7527
 msgid "Format the volume associated with this folder"
 msgstr "Het met deze map verbonden volumen formatteren"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7434
+#: ../src/file-manager/fm-directory-view.c:7531
 msgid "Start the volume associated with this folder"
 msgstr "Het met deze map verbonden volumen starten"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7438
+#: ../src/file-manager/fm-directory-view.c:7535
 msgid "Stop the volume associated with this folder"
 msgstr "Het met deze map verbonden volumen stoppen"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7447
+#: ../src/file-manager/fm-directory-view.c:7544
 msgid "View or modify the properties of this folder"
 msgstr "De eigenschappen van deze map bekijken of wijzigen"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7450
-#: ../src/file-manager/fm-directory-view.c:7453
+#: ../src/file-manager/fm-directory-view.c:7547
+#: ../src/file-manager/fm-directory-view.c:7550
 msgid "_Other pane"
 msgstr "_Ander paneel"
 
-#: ../src/file-manager/fm-directory-view.c:7451
+#: ../src/file-manager/fm-directory-view.c:7548
 msgid "Copy the current selection to the other pane in the window"
 msgstr "De huidige selectie kopiëren naar het andere paneel in dit venster"
 
-#: ../src/file-manager/fm-directory-view.c:7454
+#: ../src/file-manager/fm-directory-view.c:7551
 msgid "Move the current selection to the other pane in the window"
 msgstr "De huidige selectie verplaatsen naar het andere paneel in dit venster"
 
 #. name, stock id, label
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7457
-#: ../src/file-manager/fm-directory-view.c:7461 ../src/caja-window-menus.c:901
+#: ../src/file-manager/fm-directory-view.c:7554
+#: ../src/file-manager/fm-directory-view.c:7558 ../src/caja-window-menus.c:917
 msgid "_Home Folder"
 msgstr "_Persoonlijke map"
 
-#: ../src/file-manager/fm-directory-view.c:7458
+#: ../src/file-manager/fm-directory-view.c:7555
 msgid "Copy the current selection to the home folder"
 msgstr "De huidige selectie kopiëren naar de persoonlijke map"
 
-#: ../src/file-manager/fm-directory-view.c:7462
+#: ../src/file-manager/fm-directory-view.c:7559
 msgid "Move the current selection to the home folder"
 msgstr "De huidige selectie verplaatsen naar de persoonlijke map"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7465
-#: ../src/file-manager/fm-directory-view.c:7469
+#: ../src/file-manager/fm-directory-view.c:7562
+#: ../src/file-manager/fm-directory-view.c:7566
 msgid "_Desktop"
 msgstr "_Bureaublad"
 
-#: ../src/file-manager/fm-directory-view.c:7466
+#: ../src/file-manager/fm-directory-view.c:7563
 msgid "Copy the current selection to the desktop"
 msgstr "De huidige selectie kopiëren naar het bureaublad"
 
-#: ../src/file-manager/fm-directory-view.c:7470
+#: ../src/file-manager/fm-directory-view.c:7567
 msgid "Move the current selection to the desktop"
 msgstr "De huidige selectie verplaatsen naar het bureaublad"
 
 #. Translators: %s is a directory
-#: ../src/file-manager/fm-directory-view.c:7550
+#: ../src/file-manager/fm-directory-view.c:7647
 #, c-format
 msgid "Run or manage scripts from %s"
 msgstr "Scripts in %s uitvoeren of beheren"
 
 #. Create a script action here specially because its tooltip is dynamic
-#: ../src/file-manager/fm-directory-view.c:7552
+#: ../src/file-manager/fm-directory-view.c:7649
 msgid "_Scripts"
 msgstr "S_cripts"
 
-#: ../src/file-manager/fm-directory-view.c:7958
+#: ../src/file-manager/fm-directory-view.c:8055
 #, c-format
 msgid "Move the open folder out of the trash to \"%s\""
 msgstr "De geopende map uit de prullenbak verplaatsen naar ‘%s’"
 
-#: ../src/file-manager/fm-directory-view.c:7961
+#: ../src/file-manager/fm-directory-view.c:8058
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
 msgstr[0] "De geselecteerde map uit de prullenbak verplaatsen naar ‘%s’"
 msgstr[1] "De geselecteerde mappen uit de prullenbak verplaatsen naar ‘%s’"
 
-#: ../src/file-manager/fm-directory-view.c:7965
+#: ../src/file-manager/fm-directory-view.c:8062
 #, c-format
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
 msgstr[0] "De geselecteerde map uit de prullenbak halen"
 msgstr[1] "De geselecteerde mappen uit de prullenbak halen"
 
-#: ../src/file-manager/fm-directory-view.c:7971
+#: ../src/file-manager/fm-directory-view.c:8068
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
 msgstr[0] "Het geselecteerde bestand uit de prullenbak naar ‘%s’ verplaatsen"
 msgstr[1] "De geselecteerde bestanden uit de prullenbak naar ‘%s’ verplaatsen"
 
-#: ../src/file-manager/fm-directory-view.c:7975
+#: ../src/file-manager/fm-directory-view.c:8072
 #, c-format
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
 msgstr[0] "Het geselecteerde bestand uit de prullenbak halen"
 msgstr[1] "De geselecteerde bestanden uit de prullenbak halen"
 
-#: ../src/file-manager/fm-directory-view.c:7981
+#: ../src/file-manager/fm-directory-view.c:8078
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
 msgstr[0] "Het geselecteerde item uit de prullenbak naar ‘%s’ verplaatsen"
 msgstr[1] "De geselecteerde items uit de prullenbak naar ‘%s’ verplaatsen"
 
-#: ../src/file-manager/fm-directory-view.c:7985
+#: ../src/file-manager/fm-directory-view.c:8082
 #, c-format
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
 msgstr[0] "Het geselecteerde item uit de prullenbak halen"
 msgstr[1] "De geselecteerde items uit de prullenbak halen"
 
-#: ../src/file-manager/fm-directory-view.c:8111
-#: ../src/file-manager/fm-directory-view.c:8115
-#: ../src/file-manager/fm-directory-view.c:8313
-#: ../src/file-manager/fm-directory-view.c:8317
+#: ../src/file-manager/fm-directory-view.c:8208
+#: ../src/file-manager/fm-directory-view.c:8212
+#: ../src/file-manager/fm-directory-view.c:8410
+#: ../src/file-manager/fm-directory-view.c:8414
 msgid "Start the selected drive"
 msgstr "De geselecteerde schijf starten"
 
-#: ../src/file-manager/fm-directory-view.c:8119
-#: ../src/file-manager/fm-directory-view.c:8321
+#: ../src/file-manager/fm-directory-view.c:8216
+#: ../src/file-manager/fm-directory-view.c:8418
 msgid "Connect to the selected drive"
 msgstr "Verbinden met het geselecteerde station"
 
-#: ../src/file-manager/fm-directory-view.c:8122
-#: ../src/file-manager/fm-directory-view.c:8214
-#: ../src/file-manager/fm-directory-view.c:8324
+#: ../src/file-manager/fm-directory-view.c:8219
+#: ../src/file-manager/fm-directory-view.c:8311
+#: ../src/file-manager/fm-directory-view.c:8421
 msgid "_Start Multi-disk Drive"
 msgstr "Multi-schijfstation _starten"
 
-#: ../src/file-manager/fm-directory-view.c:8123
-#: ../src/file-manager/fm-directory-view.c:8325
+#: ../src/file-manager/fm-directory-view.c:8220
+#: ../src/file-manager/fm-directory-view.c:8422
 msgid "Start the selected multi-disk drive"
 msgstr "Het geselecteerde multi-schijfstation starten"
 
-#: ../src/file-manager/fm-directory-view.c:8126
+#: ../src/file-manager/fm-directory-view.c:8223
 msgid "U_nlock Drive"
 msgstr "Station _vrijgeven"
 
-#: ../src/file-manager/fm-directory-view.c:8127
-#: ../src/file-manager/fm-directory-view.c:8329
+#: ../src/file-manager/fm-directory-view.c:8224
+#: ../src/file-manager/fm-directory-view.c:8426
 msgid "Unlock the selected drive"
 msgstr "Het geselecteerde station vrijgeven"
 
-#: ../src/file-manager/fm-directory-view.c:8140
+#: ../src/file-manager/fm-directory-view.c:8237
 msgid "Stop the selected drive"
 msgstr "Het geselecteerde station stoppen"
 
-#: ../src/file-manager/fm-directory-view.c:8143
-#: ../src/file-manager/fm-directory-view.c:8235
-#: ../src/file-manager/fm-directory-view.c:8345
+#: ../src/file-manager/fm-directory-view.c:8240
+#: ../src/file-manager/fm-directory-view.c:8332
+#: ../src/file-manager/fm-directory-view.c:8442
 #: ../src/caja-places-sidebar.c:1801
 msgid "_Safely Remove Drive"
 msgstr "_Station veilig verwijderen"
 
-#: ../src/file-manager/fm-directory-view.c:8144
-#: ../src/file-manager/fm-directory-view.c:8346
+#: ../src/file-manager/fm-directory-view.c:8241
+#: ../src/file-manager/fm-directory-view.c:8443
 msgid "Safely remove the selected drive"
 msgstr "Het geselecteerde station veilig verwijderen"
 
-#: ../src/file-manager/fm-directory-view.c:8147
-#: ../src/file-manager/fm-directory-view.c:8239
-#: ../src/file-manager/fm-directory-view.c:8349
+#: ../src/file-manager/fm-directory-view.c:8244
+#: ../src/file-manager/fm-directory-view.c:8336
+#: ../src/file-manager/fm-directory-view.c:8446
 msgid "_Disconnect"
 msgstr "Ver_breken"
 
-#: ../src/file-manager/fm-directory-view.c:8148
-#: ../src/file-manager/fm-directory-view.c:8350
+#: ../src/file-manager/fm-directory-view.c:8245
+#: ../src/file-manager/fm-directory-view.c:8447
 msgid "Disconnect the selected drive"
 msgstr "Verbinding met het geselecteerde station verbreken."
 
-#: ../src/file-manager/fm-directory-view.c:8151
-#: ../src/file-manager/fm-directory-view.c:8243
-#: ../src/file-manager/fm-directory-view.c:8353
+#: ../src/file-manager/fm-directory-view.c:8248
+#: ../src/file-manager/fm-directory-view.c:8340
+#: ../src/file-manager/fm-directory-view.c:8450
 msgid "_Stop Multi-disk Drive"
 msgstr "Multi-schijfstation _stoppen"
 
-#: ../src/file-manager/fm-directory-view.c:8152
-#: ../src/file-manager/fm-directory-view.c:8354
+#: ../src/file-manager/fm-directory-view.c:8249
+#: ../src/file-manager/fm-directory-view.c:8451
 msgid "Stop the selected multi-disk drive"
 msgstr "Het geselecteerde multi-schrijfstation stoppen"
 
-#: ../src/file-manager/fm-directory-view.c:8155
-#: ../src/file-manager/fm-directory-view.c:8247
-#: ../src/file-manager/fm-directory-view.c:8357
+#: ../src/file-manager/fm-directory-view.c:8252
+#: ../src/file-manager/fm-directory-view.c:8344
+#: ../src/file-manager/fm-directory-view.c:8454
 #: ../src/caja-places-sidebar.c:1814
 msgid "_Lock Drive"
 msgstr "Station ver_grendelen"
 
-#: ../src/file-manager/fm-directory-view.c:8156
-#: ../src/file-manager/fm-directory-view.c:8358
+#: ../src/file-manager/fm-directory-view.c:8253
+#: ../src/file-manager/fm-directory-view.c:8455
 msgid "Lock the selected drive"
 msgstr "Het geselecteerde station vergrendelen"
 
-#: ../src/file-manager/fm-directory-view.c:8203
-#: ../src/file-manager/fm-directory-view.c:8207
+#: ../src/file-manager/fm-directory-view.c:8300
+#: ../src/file-manager/fm-directory-view.c:8304
 msgid "Start the drive associated with the open folder"
 msgstr "Het met de geopende map verbonden station starten"
 
-#: ../src/file-manager/fm-directory-view.c:8211
+#: ../src/file-manager/fm-directory-view.c:8308
 msgid "Connect to the drive associated with the open folder"
 msgstr "Verbinden met het met de geopende map geassocieerde station"
 
-#: ../src/file-manager/fm-directory-view.c:8215
+#: ../src/file-manager/fm-directory-view.c:8312
 msgid "Start the multi-disk drive associated with the open folder"
 msgstr "Het met de geopende map verbonden multi-schijfstation starten"
 
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
-#: ../src/file-manager/fm-directory-view.c:8218
-#: ../src/file-manager/fm-directory-view.c:8328
+#: ../src/file-manager/fm-directory-view.c:8315
+#: ../src/file-manager/fm-directory-view.c:8425
 #: ../src/caja-places-sidebar.c:1813
 msgid "_Unlock Drive"
 msgstr "Station vrij_geven"
 
-#: ../src/file-manager/fm-directory-view.c:8219
+#: ../src/file-manager/fm-directory-view.c:8316
 msgid "Unlock the drive associated with the open folder"
 msgstr "De bij de geopende map behorende schijf vrijgeven"
 
-#: ../src/file-manager/fm-directory-view.c:8232
+#: ../src/file-manager/fm-directory-view.c:8329
 msgid "_Stop the drive associated with the open folder"
 msgstr "De bij de geopende map behorende schijf _stoppen"
 
-#: ../src/file-manager/fm-directory-view.c:8236
+#: ../src/file-manager/fm-directory-view.c:8333
 msgid "Safely remove the drive associated with the open folder"
 msgstr "De bij de geopende map behorende schijf veilig verwijderen"
 
-#: ../src/file-manager/fm-directory-view.c:8240
+#: ../src/file-manager/fm-directory-view.c:8337
 msgid "Disconnect the drive associated with the open folder"
 msgstr "De bij de geopende map behorende schijf loskoppelen"
 
-#: ../src/file-manager/fm-directory-view.c:8244
+#: ../src/file-manager/fm-directory-view.c:8341
 msgid "Stop the multi-disk drive associated with the open folder"
 msgstr "De bij de geopende map behorende multi-disk-drive loskoppelen"
 
-#: ../src/file-manager/fm-directory-view.c:8248
+#: ../src/file-manager/fm-directory-view.c:8345
 msgid "Lock the drive associated with the open folder"
 msgstr "De bij de geopende map behorende schijf vergrendelen"
 
 #. add the "open in new window" menu item
-#: ../src/file-manager/fm-directory-view.c:8427
-#: ../src/file-manager/fm-directory-view.c:8737
+#: ../src/file-manager/fm-directory-view.c:8524
+#: ../src/file-manager/fm-directory-view.c:8834
 #: ../src/file-manager/fm-tree-view.c:1276 ../src/caja-places-sidebar.c:2668
 msgid "Open in New _Window"
 msgstr "Openen in _nieuw venster"
 
-#: ../src/file-manager/fm-directory-view.c:8429
-#: ../src/file-manager/fm-directory-view.c:8746
+#: ../src/file-manager/fm-directory-view.c:8526
+#: ../src/file-manager/fm-directory-view.c:8843
 msgid "Browse in New _Window"
 msgstr "In _nieuw venster doorbladeren"
 
-#: ../src/file-manager/fm-directory-view.c:8435
-#: ../src/file-manager/fm-directory-view.c:8756
+#: ../src/file-manager/fm-directory-view.c:8532
+#: ../src/file-manager/fm-directory-view.c:8853
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
 msgstr[0] "Map door_bladeren"
 msgstr[1] "Mappen door_bladeren"
 
-#: ../src/file-manager/fm-directory-view.c:8452
-#: ../src/file-manager/fm-directory-view.c:8785
+#: ../src/file-manager/fm-directory-view.c:8549
+#: ../src/file-manager/fm-directory-view.c:8882
 msgid "Browse in New _Tab"
 msgstr "In nieuw _tabblad doorbladeren"
 
-#: ../src/file-manager/fm-directory-view.c:8501
-#: ../src/file-manager/fm-directory-view.c:8826
+#: ../src/file-manager/fm-directory-view.c:8598
+#: ../src/file-manager/fm-directory-view.c:8923
 msgid "_Delete Permanently"
 msgstr "Permanent ver_wijderen"
 
-#: ../src/file-manager/fm-directory-view.c:8502
+#: ../src/file-manager/fm-directory-view.c:8599
 msgid "Delete the open folder permanently"
 msgstr "De geopende map permanent verwijderen"
 
-#: ../src/file-manager/fm-directory-view.c:8506
+#: ../src/file-manager/fm-directory-view.c:8603
 msgid "Move the open folder to the Trash"
 msgstr "De geopende map in de prullenbak gooien"
 
-#: ../src/file-manager/fm-directory-view.c:8686
+#: ../src/file-manager/fm-directory-view.c:8783
 #, c-format
 msgid "_Open With %s"
 msgstr "_Openen met %s"
 
-#: ../src/file-manager/fm-directory-view.c:8739
+#: ../src/file-manager/fm-directory-view.c:8836
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
 msgstr[0] "In %'d nieuw venster openen"
 msgstr[1] "In %'d nieuwe vensters openen"
 
-#: ../src/file-manager/fm-directory-view.c:8748
+#: ../src/file-manager/fm-directory-view.c:8845
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
 msgstr[0] "In %'d _nieuw venster doorbladeren"
 msgstr[1] "In %'d _nieuwe vensters doorbladeren"
 
-#: ../src/file-manager/fm-directory-view.c:8778
+#: ../src/file-manager/fm-directory-view.c:8875
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
 msgstr[0] "In %'d nieuw _tabblad openen"
 msgstr[1] "In %'d nieuwe _tabbladen openen"
 
-#: ../src/file-manager/fm-directory-view.c:8787
+#: ../src/file-manager/fm-directory-view.c:8884
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
 msgstr[0] "In %'d nieuw _tabblad doorbladeren"
 msgstr[1] "In %'d nieuwe _tabbladen doorbladeren"
 
-#: ../src/file-manager/fm-directory-view.c:8827
+#: ../src/file-manager/fm-directory-view.c:8924
 msgid "Delete all selected items permanently"
 msgstr "Verwijder alle geselecteerde items blijvend"
 
-#: ../src/file-manager/fm-directory-view.c:8884
+#: ../src/file-manager/fm-directory-view.c:8981
 msgid "View or modify the properties of the open folder"
 msgstr "De eigenschappen van de geopende map bekijken of wijzigen"
 
-#: ../src/file-manager/fm-directory-view.c:10192
+#: ../src/file-manager/fm-directory-view.c:10305
 msgid "Download location?"
 msgstr "Locatie downloaden?"
 
-#: ../src/file-manager/fm-directory-view.c:10195
+#: ../src/file-manager/fm-directory-view.c:10308
 msgid "You can download it or make a link to it."
 msgstr "U kunt het downloaden of er een verwijzing naar maken."
 
-#: ../src/file-manager/fm-directory-view.c:10198
+#: ../src/file-manager/fm-directory-view.c:10311
 msgid "Make a _Link"
 msgstr "Verwij_zing maken"
 
-#: ../src/file-manager/fm-directory-view.c:10202
+#: ../src/file-manager/fm-directory-view.c:10315
 msgid "_Download"
 msgstr "_Downloaden"
 
-#: ../src/file-manager/fm-directory-view.c:10363
-#: ../src/file-manager/fm-directory-view.c:10421
-#: ../src/file-manager/fm-directory-view.c:10526
+#: ../src/file-manager/fm-directory-view.c:10476
+#: ../src/file-manager/fm-directory-view.c:10534
+#: ../src/file-manager/fm-directory-view.c:10639
 msgid "Drag and drop is not supported."
 msgstr "Slepen en neerzetten is niet ondersteund."
 
-#: ../src/file-manager/fm-directory-view.c:10364
+#: ../src/file-manager/fm-directory-view.c:10477
 msgid "Drag and drop is only supported on local file systems."
 msgstr "Slepen en neerzetten is alleen ondersteund op lokale bestandssystemen."
 
-#: ../src/file-manager/fm-directory-view.c:10422
-#: ../src/file-manager/fm-directory-view.c:10527
+#: ../src/file-manager/fm-directory-view.c:10535
+#: ../src/file-manager/fm-directory-view.c:10640
 msgid "An invalid drag type was used."
 msgstr "Er werd een ongeldig sleeptype gebruikt."
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10604
+#: ../src/file-manager/fm-directory-view.c:10717
 msgid "dropped text.txt"
 msgstr "versleepte tekst.txt"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#. 
-#: ../src/file-manager/fm-directory-view.c:10649
+#: ../src/file-manager/fm-directory-view.c:10762
 msgid "dropped data"
 msgstr "versleepte data"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11014
+#: ../src/file-manager/fm-directory-view.c:11127
 msgid "Undo"
 msgstr "Ongedaan maken"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11032
+#: ../src/file-manager/fm-directory-view.c:11145
 msgid "Redo"
 msgstr "Opnieuw"
 
@@ -4829,7 +4850,7 @@ msgstr "Hernoemen van ‘%s’ naar ‘%s’."
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: ../src/file-manager/fm-icon-container.c:609
-#: ../src/file-manager/fm-icon-view.c:3401
+#: ../src/file-manager/fm-icon-view.c:3402
 #: ../src/caja-file-management-properties.ui.h:1
 msgid "Icon View"
 msgstr "Pictogrammen"
@@ -5000,49 +5021,49 @@ msgstr "Op _weggooitijdstip"
 msgid "Restore Icon's Original Si_ze"
 msgstr "Oorspronkelijke pictogram_grootte herstellen"
 
-#: ../src/file-manager/fm-icon-view.c:2386
+#: ../src/file-manager/fm-icon-view.c:2388
 #, c-format
 msgid "pointing at \"%s\""
 msgstr "wijst naar ‘%s’"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3403
+#: ../src/file-manager/fm-icon-view.c:3404
 msgid "_Icons"
 msgstr "_Pictogrammen"
 
-#: ../src/file-manager/fm-icon-view.c:3404
+#: ../src/file-manager/fm-icon-view.c:3405
 msgid "The icon view encountered an error."
 msgstr "De pictogrammenweergave is op een fout gestuit."
 
-#: ../src/file-manager/fm-icon-view.c:3405
+#: ../src/file-manager/fm-icon-view.c:3406
 msgid "The icon view encountered an error while starting up."
 msgstr "Er trad een fout op bij het starten van de pictogrammenweergave."
 
-#: ../src/file-manager/fm-icon-view.c:3406
+#: ../src/file-manager/fm-icon-view.c:3407
 msgid "Display this location with the icon view."
 msgstr "Deze locatie als pictogrammen weergeven."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-icon-view.c:3416
+#: ../src/file-manager/fm-icon-view.c:3417
 #: ../src/caja-file-management-properties.ui.h:3
 msgid "Compact View"
 msgstr "Compact"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3418
+#: ../src/file-manager/fm-icon-view.c:3419
 msgid "_Compact"
 msgstr "_Compact"
 
-#: ../src/file-manager/fm-icon-view.c:3419
+#: ../src/file-manager/fm-icon-view.c:3420
 msgid "The compact view encountered an error."
 msgstr "De compacte weergave is op een fout gestuit."
 
-#: ../src/file-manager/fm-icon-view.c:3420
+#: ../src/file-manager/fm-icon-view.c:3421
 msgid "The compact view encountered an error while starting up."
 msgstr "Er trad een fout op bij het starten van de compacte weergave."
 
-#: ../src/file-manager/fm-icon-view.c:3421
+#: ../src/file-manager/fm-icon-view.c:3422
 msgid "Display this location with the compact view."
 msgstr "Deze locatie met compacte weergave tonen."
 
@@ -5058,46 +5079,46 @@ msgstr "Laden…"
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-list-view.c:1814
-#: ../src/file-manager/fm-list-view.c:3429
+#: ../src/file-manager/fm-list-view.c:1821
+#: ../src/file-manager/fm-list-view.c:3436
 #: ../src/caja-file-management-properties.ui.h:2
 msgid "List View"
 msgstr "Lijst"
 
-#: ../src/file-manager/fm-list-view.c:2509
+#: ../src/file-manager/fm-list-view.c:2516
 #, c-format
 msgid "%s Visible Columns"
 msgstr "%s zichtbare kolommen"
 
-#: ../src/file-manager/fm-list-view.c:2528
+#: ../src/file-manager/fm-list-view.c:2535
 msgid "Choose the order of information to appear in this folder:"
 msgstr "Kies de volgorde waarin informatie in deze map verschijnt:"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-list-view.c:2586
+#: ../src/file-manager/fm-list-view.c:2593
 msgid "Visible _Columns..."
 msgstr "Zichtbare _kolommen…"
 
 #. tooltip
-#: ../src/file-manager/fm-list-view.c:2587
+#: ../src/file-manager/fm-list-view.c:2594
 msgid "Select the columns visible in this folder"
 msgstr "De zichtbare kolommen in deze map selecteren"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-list-view.c:3431
+#: ../src/file-manager/fm-list-view.c:3438
 msgid "_List"
 msgstr "_Lijst"
 
-#: ../src/file-manager/fm-list-view.c:3432
+#: ../src/file-manager/fm-list-view.c:3439
 msgid "The list view encountered an error."
 msgstr "De lijstweergave is op een fout gestuit."
 
-#: ../src/file-manager/fm-list-view.c:3433
+#: ../src/file-manager/fm-list-view.c:3440
 msgid "The list view encountered an error while starting up."
 msgstr "Er trad een fout op bij het starten van de lijstweergave."
 
-#: ../src/file-manager/fm-list-view.c:3434
+#: ../src/file-manager/fm-list-view.c:3441
 msgid "Display this location with the list view."
 msgstr "Deze locatie als lijst weergeven."
 
@@ -5164,14 +5185,14 @@ msgstr "niets"
 msgid "unreadable"
 msgstr "onleesbaar"
 
-#: ../src/file-manager/fm-properties-window.c:2329
+#: ../src/file-manager/fm-properties-window.c:2332
 #, c-format
 msgid "%'d item, with size %s"
 msgid_plural "%'d items, totalling %s"
 msgstr[0] "%'d item, met grootte %s"
 msgstr[1] "%'d items, in totaal %s"
 
-#: ../src/file-manager/fm-properties-window.c:2338
+#: ../src/file-manager/fm-properties-window.c:2341
 msgid "(some contents unreadable)"
 msgstr "(sommige inhoud niet leesbaar)"
 
@@ -5180,242 +5201,239 @@ msgstr "(sommige inhoud niet leesbaar)"
 #. * "Contents:" title to line up with the first line of the
 #. * 2-line value. Maybe there's a better way to do this, but I
 #. * couldn't think of one.
-#. 
-#: ../src/file-manager/fm-properties-window.c:2355
+#: ../src/file-manager/fm-properties-window.c:2358
 msgid "Contents:"
 msgstr "Inhoud:"
 
 #. Translators: "used" refers to the capacity of the filesystem
-#: ../src/file-manager/fm-properties-window.c:3185
+#: ../src/file-manager/fm-properties-window.c:3195
 msgid "used"
 msgstr "gebruikt"
 
 #. Translators: "free" refers to the capacity of the filesystem
-#: ../src/file-manager/fm-properties-window.c:3190
+#: ../src/file-manager/fm-properties-window.c:3200
 msgid "free"
 msgstr "vrij"
 
-#: ../src/file-manager/fm-properties-window.c:3192
+#: ../src/file-manager/fm-properties-window.c:3202
 msgid "Total capacity:"
 msgstr "Totale opslagruimte:"
 
-#: ../src/file-manager/fm-properties-window.c:3201
+#: ../src/file-manager/fm-properties-window.c:3211
 msgid "Filesystem type:"
 msgstr "Type bestandssysteem:"
 
-#: ../src/file-manager/fm-properties-window.c:3289
+#: ../src/file-manager/fm-properties-window.c:3299
 msgid "Basic"
 msgstr "Eenvoudig"
 
-#: ../src/file-manager/fm-properties-window.c:3357
+#: ../src/file-manager/fm-properties-window.c:3367
 msgid "Link target:"
 msgstr "Verwijzingsdoel:"
 
-#: ../src/file-manager/fm-properties-window.c:3376
+#: ../src/file-manager/fm-properties-window.c:3386
 #: ../src/caja-location-bar.c:56
 msgid "Location:"
 msgstr "Locatie:"
 
-#: ../src/file-manager/fm-properties-window.c:3382
+#: ../src/file-manager/fm-properties-window.c:3392
 msgid "Volume:"
 msgstr "Volumen:"
 
-#: ../src/file-manager/fm-properties-window.c:3391
+#: ../src/file-manager/fm-properties-window.c:3401
 msgid "Accessed:"
 msgstr "Gebruikt:"
 
-#: ../src/file-manager/fm-properties-window.c:3395
+#: ../src/file-manager/fm-properties-window.c:3405
 msgid "Modified:"
 msgstr "Gewijzigd:"
 
-#: ../src/file-manager/fm-properties-window.c:3404
+#: ../src/file-manager/fm-properties-window.c:3414
 msgid "Free space:"
 msgstr "Vrije ruimte:"
 
-#: ../src/file-manager/fm-properties-window.c:3514
+#: ../src/file-manager/fm-properties-window.c:3524
 #: ../src/caja-emblem-sidebar.c:1087
 msgid "Emblems"
 msgstr "Emblemen"
 
-#: ../src/file-manager/fm-properties-window.c:3917
+#: ../src/file-manager/fm-properties-window.c:3927
 msgid "_Read"
 msgstr "_Lezen"
 
-#: ../src/file-manager/fm-properties-window.c:3919
+#: ../src/file-manager/fm-properties-window.c:3929
 msgid "_Write"
 msgstr "_Schrijven"
 
-#: ../src/file-manager/fm-properties-window.c:3921
+#: ../src/file-manager/fm-properties-window.c:3931
 msgid "E_xecute"
 msgstr "_Uitvoeren"
 
 #. translators: this gets concatenated to "no read",
 #. * "no access", etc. (see following strings)
-#. 
-#: ../src/file-manager/fm-properties-window.c:4189
-#: ../src/file-manager/fm-properties-window.c:4200
-#: ../src/file-manager/fm-properties-window.c:4212
+#: ../src/file-manager/fm-properties-window.c:4199
+#: ../src/file-manager/fm-properties-window.c:4210
+#: ../src/file-manager/fm-properties-window.c:4222
 msgid "no "
 msgstr "niet "
 
-#: ../src/file-manager/fm-properties-window.c:4192
+#: ../src/file-manager/fm-properties-window.c:4202
 msgid "list"
 msgstr "inventariseren"
 
-#: ../src/file-manager/fm-properties-window.c:4194
+#: ../src/file-manager/fm-properties-window.c:4204
 msgid "read"
 msgstr "lezen"
 
-#: ../src/file-manager/fm-properties-window.c:4203
+#: ../src/file-manager/fm-properties-window.c:4213
 msgid "create/delete"
 msgstr "aanmaken/verwijderen"
 
-#: ../src/file-manager/fm-properties-window.c:4205
+#: ../src/file-manager/fm-properties-window.c:4215
 msgid "write"
 msgstr "schrijven"
 
-#: ../src/file-manager/fm-properties-window.c:4214
+#: ../src/file-manager/fm-properties-window.c:4224
 msgid "access"
 msgstr "toegang"
 
-#: ../src/file-manager/fm-properties-window.c:4263
+#: ../src/file-manager/fm-properties-window.c:4273
 msgid "Access:"
 msgstr "Toegang:"
 
-#: ../src/file-manager/fm-properties-window.c:4265
+#: ../src/file-manager/fm-properties-window.c:4275
 msgid "Folder access:"
 msgstr "Maptoegang:"
 
-#: ../src/file-manager/fm-properties-window.c:4267
+#: ../src/file-manager/fm-properties-window.c:4277
 msgid "File access:"
 msgstr "Bestandstoegang:"
 
 #. Translators: this is referred to the permissions
 #. * the user has in a directory.
-#. 
 #. Translators: this is referred to captions under icons.
-#: ../src/file-manager/fm-properties-window.c:4282
-#: ../src/file-manager/fm-properties-window.c:4293
-#: ../src/caja-file-management-properties.c:319
+#: ../src/file-manager/fm-properties-window.c:4292
+#: ../src/file-manager/fm-properties-window.c:4303
+#: ../src/caja-file-management-properties.c:318
 msgid "None"
 msgstr "Geen"
 
-#: ../src/file-manager/fm-properties-window.c:4285
+#: ../src/file-manager/fm-properties-window.c:4295
 msgid "List files only"
 msgstr "Alleen inventariseren"
 
-#: ../src/file-manager/fm-properties-window.c:4287
+#: ../src/file-manager/fm-properties-window.c:4297
 msgid "Access files"
 msgstr "Bestanden gebruiken"
 
-#: ../src/file-manager/fm-properties-window.c:4289
+#: ../src/file-manager/fm-properties-window.c:4299
 msgid "Create and delete files"
 msgstr "Bestanden aanmaken en verwijderen"
 
-#: ../src/file-manager/fm-properties-window.c:4296
+#: ../src/file-manager/fm-properties-window.c:4306
 msgid "Read-only"
 msgstr "Alleen lezen"
 
-#: ../src/file-manager/fm-properties-window.c:4298
+#: ../src/file-manager/fm-properties-window.c:4308
 msgid "Read and write"
 msgstr "Lezen en schrijven"
 
-#: ../src/file-manager/fm-properties-window.c:4365
+#: ../src/file-manager/fm-properties-window.c:4375
 msgid "Set _user ID"
 msgstr "Gebruikers-ID instellen (suid)"
 
-#: ../src/file-manager/fm-properties-window.c:4368
+#: ../src/file-manager/fm-properties-window.c:4378
 msgid "Special flags:"
 msgstr "Speciale instellingen:"
 
-#: ../src/file-manager/fm-properties-window.c:4370
+#: ../src/file-manager/fm-properties-window.c:4380
 msgid "Set gro_up ID"
 msgstr "Groeps-ID instellen (sgid)"
 
-#: ../src/file-manager/fm-properties-window.c:4371
+#: ../src/file-manager/fm-properties-window.c:4381
 msgid "_Sticky"
 msgstr "_Vast (sticky)"
 
-#: ../src/file-manager/fm-properties-window.c:4453
-#: ../src/file-manager/fm-properties-window.c:4661
+#: ../src/file-manager/fm-properties-window.c:4463
+#: ../src/file-manager/fm-properties-window.c:4671
 msgid "_Owner:"
 msgstr "_Eigenaar:"
 
-#: ../src/file-manager/fm-properties-window.c:4459
-#: ../src/file-manager/fm-properties-window.c:4557
-#: ../src/file-manager/fm-properties-window.c:4669
+#: ../src/file-manager/fm-properties-window.c:4469
+#: ../src/file-manager/fm-properties-window.c:4567
+#: ../src/file-manager/fm-properties-window.c:4679
 msgid "Owner:"
 msgstr "Eigenaar:"
 
-#: ../src/file-manager/fm-properties-window.c:4483
-#: ../src/file-manager/fm-properties-window.c:4681
+#: ../src/file-manager/fm-properties-window.c:4493
+#: ../src/file-manager/fm-properties-window.c:4691
 msgid "_Group:"
 msgstr "_Groep:"
 
-#: ../src/file-manager/fm-properties-window.c:4492
-#: ../src/file-manager/fm-properties-window.c:4558
-#: ../src/file-manager/fm-properties-window.c:4690
+#: ../src/file-manager/fm-properties-window.c:4502
+#: ../src/file-manager/fm-properties-window.c:4568
+#: ../src/file-manager/fm-properties-window.c:4700
 msgid "Group:"
 msgstr "Groep:"
 
-#: ../src/file-manager/fm-properties-window.c:4518
+#: ../src/file-manager/fm-properties-window.c:4528
 msgid "Others"
 msgstr "Anderen"
 
-#: ../src/file-manager/fm-properties-window.c:4536
+#: ../src/file-manager/fm-properties-window.c:4546
 msgid "Execute:"
 msgstr "Uitvoeren:"
 
-#: ../src/file-manager/fm-properties-window.c:4540
+#: ../src/file-manager/fm-properties-window.c:4550
 msgid "Allow _executing file as program"
 msgstr "_Uitvoeren van bestand toestaan"
 
-#: ../src/file-manager/fm-properties-window.c:4559
+#: ../src/file-manager/fm-properties-window.c:4569
 msgid "Others:"
 msgstr "Anderen:"
 
-#: ../src/file-manager/fm-properties-window.c:4709
+#: ../src/file-manager/fm-properties-window.c:4719
 msgid "Folder Permissions:"
 msgstr "Rechten (map):"
 
-#: ../src/file-manager/fm-properties-window.c:4722
+#: ../src/file-manager/fm-properties-window.c:4732
 msgid "File Permissions:"
 msgstr "Rechten (bestanden):"
 
-#: ../src/file-manager/fm-properties-window.c:4733
+#: ../src/file-manager/fm-properties-window.c:4743
 msgid "Text view:"
 msgstr "Tekstweergave:"
 
-#: ../src/file-manager/fm-properties-window.c:4881
+#: ../src/file-manager/fm-properties-window.c:4891
 msgid "You are not the owner, so you cannot change these permissions."
 msgstr "U bent niet de eigenaar en kunt dus geen eigenschappen wijzigen."
 
-#: ../src/file-manager/fm-properties-window.c:4906
+#: ../src/file-manager/fm-properties-window.c:4916
 msgid "SELinux context:"
 msgstr "SELinux-context:"
 
-#: ../src/file-manager/fm-properties-window.c:4911
+#: ../src/file-manager/fm-properties-window.c:4921
 msgid "Last changed:"
 msgstr "Laatste wijziging:"
 
-#: ../src/file-manager/fm-properties-window.c:4925
+#: ../src/file-manager/fm-properties-window.c:4935
 msgid "Apply Permissions to Enclosed Files"
 msgstr "Rechten op bestanden in de map toepassen"
 
-#: ../src/file-manager/fm-properties-window.c:4935
+#: ../src/file-manager/fm-properties-window.c:4945
 #, c-format
 msgid "The permissions of \"%s\" could not be determined."
 msgstr "De eigenschappen van ‘%s’ kunnen niet worden bepaald."
 
-#: ../src/file-manager/fm-properties-window.c:4938
+#: ../src/file-manager/fm-properties-window.c:4948
 msgid "The permissions of the selected file could not be determined."
 msgstr "De eigenschappen van het geselecteerde bestand kunnen niet worden bepaald."
 
-#: ../src/file-manager/fm-properties-window.c:5500
+#: ../src/file-manager/fm-properties-window.c:5510
 msgid "Creating Properties window."
 msgstr "Aanmaken eigenschappenvenster."
 
-#: ../src/file-manager/fm-properties-window.c:5798
+#: ../src/file-manager/fm-properties-window.c:5808
 msgid "Select Custom Icon"
 msgstr "Aangepast pictogram selecteren"
 
@@ -5492,8 +5510,8 @@ msgid ""
 msgstr "De software zal direct vanaf het medium ‘%s’ uitgevoerd worden. U zou nooit software moeten uitvoeren die u niet vertrouwt.\n\nBij twijfel klikt u op Annuleren."
 
 #: ../src/caja-bookmarks-window.c:158
-#: ../src/caja-file-management-properties.c:226
-#: ../src/caja-property-browser.c:1654 ../src/caja-window-menus.c:600
+#: ../src/caja-file-management-properties.c:225
+#: ../src/caja-property-browser.c:1654 ../src/caja-window-menus.c:616
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
@@ -5643,7 +5661,7 @@ msgstr "Wachtwoord:"
 msgid "Remember this password"
 msgstr "Dit wachtwoord onthouden"
 
-#: ../src/caja-desktop-window.c:81 ../src/caja-desktop-window.c:247
+#: ../src/caja-desktop-window.c:81 ../src/caja-desktop-window.c:251
 #: ../src/caja-pathbar.c:1524 ../src/caja-places-sidebar.c:704
 msgid "Desktop"
 msgstr "Bureaublad"
@@ -6276,7 +6294,7 @@ msgstr "Caja afsluiten"
 msgid "[URI...]"
 msgstr "[URI...]"
 
-#: ../src/caja-main.c:432
+#: ../src/caja-main.c:434
 msgid ""
 "\n"
 "\n"
@@ -6284,22 +6302,22 @@ msgid ""
 msgstr "\n\nBestandssysteem doorbladeren met het bestandsbeheer"
 
 #. translators: %s is an option (e.g. --check)
-#: ../src/caja-main.c:472 ../src/caja-main.c:483
+#: ../src/caja-main.c:474 ../src/caja-main.c:485
 #, c-format
 msgid "caja: %s cannot be used with URIs.\n"
 msgstr "caja: %s kan niet gebruikt worden met URI's.\n"
 
-#: ../src/caja-main.c:478
+#: ../src/caja-main.c:480
 #, c-format
 msgid "caja: --check cannot be used with other options.\n"
 msgstr "caja: --check kan niet gebruik worden met andere opties.\n"
 
-#: ../src/caja-main.c:489
+#: ../src/caja-main.c:491
 #, c-format
 msgid "caja: --geometry cannot be used with more than one URI.\n"
 msgstr "caja: --geometry kan niet worden gebruik met meer dan één URI.\n"
 
-#: ../src/caja-main.c:555
+#: ../src/caja-main.c:559
 #, c-format
 msgid "caja: set erroneously as default application for '%s' content type.\n"
 msgstr "caja: foutief ingesteld als standaardtoepassing van bestanden van het type '%s'.\n"
@@ -6579,7 +6597,7 @@ msgstr "_Nieuw tabblad"
 msgid "_Close Tab"
 msgstr "Tabblad sl_uiten"
 
-#: ../src/caja-navigation-window.c:767
+#: ../src/caja-navigation-window.c:770
 #, c-format
 msgid "%s - File Browser"
 msgstr "%s - Bestandsbeheer"
@@ -6616,10 +6634,6 @@ msgstr "De inhoud van het bureaublad in een map openen"
 #: ../src/caja-places-sidebar.c:721
 msgid "Open the contents of the File System"
 msgstr "De inhoud van het bestandssysteem openen"
-
-#: ../src/caja-places-sidebar.c:824 ../src/caja-trash-bar.c:192
-msgid "Trash"
-msgstr "Prullenbak"
 
 #: ../src/caja-places-sidebar.c:826
 msgid "Open the trash"
@@ -6951,15 +6965,9 @@ msgstr "Zoekresultaten"
 msgid "Search:"
 msgstr "Zoeken:"
 
-#: ../src/caja-side-pane.c:441
+#: ../src/caja-side-pane.c:403
 msgid "Close the side pane"
 msgstr "Zijpaneel sluiten"
-
-#. Set initial window title
-#: ../src/caja-spatial-window.c:381 ../src/caja-window-menus.c:532
-#: ../src/caja-window.c:162
-msgid "Caja"
-msgstr "Caja"
 
 #. name, stock id, label
 #: ../src/caja-spatial-window.c:948
@@ -7011,53 +7019,53 @@ msgstr "Wilt u bladwijzers met de niet-bestaande locatie uit uw lijst verwijdere
 msgid "Bookmark for Nonexistent Location"
 msgstr "Bladwijzer voor niet-bestaande locatie"
 
-#: ../src/caja-window-manage-views.c:811
+#: ../src/caja-window-manage-views.c:814
 msgid "You can choose another view or go to a different location."
 msgstr "U kunt een andere weergave kiezen of naar een andere locatie gaan."
 
-#: ../src/caja-window-manage-views.c:830
+#: ../src/caja-window-manage-views.c:833
 msgid "The location cannot be displayed with this viewer."
 msgstr "Kan de locatie niet weergeven met deze weergavemethode."
 
-#: ../src/caja-window-manage-views.c:1419
+#: ../src/caja-window-manage-views.c:1422
 msgid "Content View"
 msgstr "Inhoudsweergave"
 
-#: ../src/caja-window-manage-views.c:1420
+#: ../src/caja-window-manage-views.c:1423
 msgid "View of the current folder"
 msgstr "Weergave van de huidige map"
 
-#: ../src/caja-window-manage-views.c:2111
+#: ../src/caja-window-manage-views.c:2114
 msgid "Caja has no installed viewer capable of displaying the folder."
 msgstr "Caja heeft geen component geïnstalleerd die de map kan weergeven."
 
-#: ../src/caja-window-manage-views.c:2119
+#: ../src/caja-window-manage-views.c:2122
 msgid "The location is not a folder."
 msgstr "De locatie is geen map."
 
-#: ../src/caja-window-manage-views.c:2128
+#: ../src/caja-window-manage-views.c:2131
 #, c-format
 msgid "Could not find \"%s\"."
 msgstr "Kon ‘%s’ niet vinden."
 
-#: ../src/caja-window-manage-views.c:2131
+#: ../src/caja-window-manage-views.c:2134
 msgid "Please check the spelling and try again."
 msgstr "Controleer de spelling en probeer opnieuw."
 
-#: ../src/caja-window-manage-views.c:2140
+#: ../src/caja-window-manage-views.c:2143
 #, c-format
 msgid "Caja cannot handle \"%s\" locations."
 msgstr "Caja kan niet omgaan met ‘%s’-locaties."
 
-#: ../src/caja-window-manage-views.c:2145
+#: ../src/caja-window-manage-views.c:2148
 msgid "Caja cannot handle this kind of location."
 msgstr "Caja kan niet omgaan met dit type locaties."
 
-#: ../src/caja-window-manage-views.c:2152
+#: ../src/caja-window-manage-views.c:2155
 msgid "Unable to mount the location."
 msgstr "De locatie kon niet worden aangekoppeld."
 
-#: ../src/caja-window-manage-views.c:2158
+#: ../src/caja-window-manage-views.c:2161
 msgid "Access was denied."
 msgstr "Toegang geweigerd."
 
@@ -7065,18 +7073,17 @@ msgstr "Toegang geweigerd."
 #. * the code that guesses web addresses when there's no initial "/".
 #. * But this case is also hit for legitimate web addresses when
 #. * the proxy is set up wrong.
-#. 
-#: ../src/caja-window-manage-views.c:2167
+#: ../src/caja-window-manage-views.c:2170
 #, c-format
 msgid "Could not display \"%s\", because the host could not be found."
 msgstr "Kon ‘%s’ niet weergeven, omdat de computer onvindbaar is."
 
-#: ../src/caja-window-manage-views.c:2169
+#: ../src/caja-window-manage-views.c:2172
 msgid ""
 "Check that the spelling is correct and that your proxy settings are correct."
 msgstr "Controleer de spelling en uw proxy-instellingen."
 
-#: ../src/caja-window-manage-views.c:2185
+#: ../src/caja-window-manage-views.c:2188
 #, c-format
 msgid ""
 "Error: %s\n"
@@ -7119,12 +7126,11 @@ msgstr "Caja laat u uw bestanden en mappen beheren, zowel op uw eigen computer a
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2013 The Caja authors"
-msgstr ""
+msgstr "Copyright © 1999-2009 Auteurs van Nautilus\nCopyright © 2011-2013 Auteurs van Caja"
 
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
 #. * box to give credit to the translator(s).
-#. 
 #: ../src/caja-window-menus.c:547
 msgid "translator-credits"
 msgstr "Michael Steenbeek\nWouter Bolsterlee\nReinout van Schouwen\nTino Meinen\nVincent van Adrighem\nDennis Smit\nDirk-Jan C. Binnema\nMendel Mobach\nAlmer S. Tigelaar,\nLudootje\nRonald Hummelink\nJordi Bosveld\nHannie Dumoleyn\n\nKijk voor meer informatie op http://www.mate-desktop.org/"
@@ -7134,203 +7140,203 @@ msgid "MATE Web Site"
 msgstr "Website van MATE"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:816
+#: ../src/caja-window-menus.c:832
 msgid "_File"
 msgstr "_Bestand"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:817
+#: ../src/caja-window-menus.c:833
 msgid "_Edit"
 msgstr "Be_werken"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:818
+#: ../src/caja-window-menus.c:834
 msgid "_View"
 msgstr "Beel_d"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:819
+#: ../src/caja-window-menus.c:835
 msgid "_Help"
 msgstr "_Hulp"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:821
+#: ../src/caja-window-menus.c:837
 msgid "_Close"
 msgstr "Sl_uiten"
 
 #. tooltip
-#: ../src/caja-window-menus.c:822
+#: ../src/caja-window-menus.c:838
 msgid "Close this folder"
 msgstr "Deze map sluiten"
 
-#: ../src/caja-window-menus.c:827
+#: ../src/caja-window-menus.c:843
 msgid "_Backgrounds and Emblems..."
 msgstr "Achtergronden en _emblemen…"
 
-#: ../src/caja-window-menus.c:828
+#: ../src/caja-window-menus.c:844
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
 msgstr "Patronen, kleuren en emblemen voor aanpassen van weergave tonen"
 
-#: ../src/caja-window-menus.c:833
+#: ../src/caja-window-menus.c:849
 msgid "Prefere_nces"
 msgstr "_Voorkeuren"
 
-#: ../src/caja-window-menus.c:834
+#: ../src/caja-window-menus.c:850
 msgid "Edit Caja preferences"
 msgstr "Cajavoorkeuren bewerken"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:837
+#: ../src/caja-window-menus.c:853
 msgid "Open _Parent"
 msgstr "O_uder openen"
 
-#: ../src/caja-window-menus.c:838
+#: ../src/caja-window-menus.c:854
 msgid "Open the parent folder"
 msgstr "Oudermap openen"
 
 #. tooltip
-#: ../src/caja-window-menus.c:847
+#: ../src/caja-window-menus.c:863
 msgid "Stop loading the current location"
 msgstr "Stoppen met laden van de huidige locatie"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:851
+#: ../src/caja-window-menus.c:867
 msgid "_Reload"
 msgstr "He_rladen"
 
 #. tooltip
-#: ../src/caja-window-menus.c:852
+#: ../src/caja-window-menus.c:868
 msgid "Reload the current location"
 msgstr "De huidige locatie herladen"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:856
+#: ../src/caja-window-menus.c:872
 msgid "_Contents"
 msgstr "In_houd"
 
 #. tooltip
-#: ../src/caja-window-menus.c:857
+#: ../src/caja-window-menus.c:873
 msgid "Display Caja help"
 msgstr "Caja-hulp weergeven"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:861
+#: ../src/caja-window-menus.c:877
 msgid "_About"
 msgstr "I_nfo"
 
 #. tooltip
-#: ../src/caja-window-menus.c:862
+#: ../src/caja-window-menus.c:878
 msgid "Display credits for the creators of Caja"
 msgstr "Dankbetuiging aan de schrijvers van Caja weergeven"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:866
+#: ../src/caja-window-menus.c:882
 msgid "Zoom _In"
 msgstr "In_zoomen"
 
 #. tooltip
-#: ../src/caja-window-menus.c:867 ../src/caja-zoom-control.c:99
+#: ../src/caja-window-menus.c:883 ../src/caja-zoom-control.c:99
 #: ../src/caja-zoom-control.c:372
 msgid "Increase the view size"
 msgstr "Het beeld vergroten"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:881
+#: ../src/caja-window-menus.c:897
 msgid "Zoom _Out"
 msgstr "_Uitzoomen"
 
 #. tooltip
-#: ../src/caja-window-menus.c:882 ../src/caja-zoom-control.c:100
+#: ../src/caja-window-menus.c:898 ../src/caja-zoom-control.c:100
 #: ../src/caja-zoom-control.c:321
 msgid "Decrease the view size"
 msgstr "Het beeld verkleinen"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:891
+#: ../src/caja-window-menus.c:907
 msgid "Normal Si_ze"
 msgstr "Normale _grootte"
 
 #. tooltip
-#: ../src/caja-window-menus.c:892 ../src/caja-zoom-control.c:101
+#: ../src/caja-window-menus.c:908 ../src/caja-zoom-control.c:101
 #: ../src/caja-zoom-control.c:334
 msgid "Use the normal view size"
 msgstr "De normale beeldgrootte gebruiken"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:896
+#: ../src/caja-window-menus.c:912
 msgid "Connect to _Server..."
 msgstr "Verbinden met _server…"
 
 #. tooltip
-#: ../src/caja-window-menus.c:897
+#: ../src/caja-window-menus.c:913
 msgid "Connect to a remote computer or shared disk"
 msgstr "Verbinding maken met een andere computer of een gedeelde schijf"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:906
+#: ../src/caja-window-menus.c:922
 msgid "_Computer"
 msgstr "_Computer"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:911
+#: ../src/caja-window-menus.c:927
 msgid "_Network"
 msgstr "_Netwerk"
 
 #. tooltip
-#: ../src/caja-window-menus.c:912 ../src/mate-network-scheme.desktop.in.h:2
+#: ../src/caja-window-menus.c:928 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
 msgstr "Bladeren door opgeslagen en lokale netwerklocaties"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:916
+#: ../src/caja-window-menus.c:932
 msgid "T_emplates"
 msgstr "S_jablonen"
 
 #. tooltip
-#: ../src/caja-window-menus.c:917
+#: ../src/caja-window-menus.c:933
 msgid "Open your personal templates folder"
 msgstr "De persoonlijke sjablonenmap openen"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:921
+#: ../src/caja-window-menus.c:937
 msgid "_Trash"
 msgstr "_Prullenbak"
 
 #. tooltip
-#: ../src/caja-window-menus.c:922
+#: ../src/caja-window-menus.c:938
 msgid "Open your personal trash folder"
 msgstr "De persoonlijke prullenpak openen"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:930
+#: ../src/caja-window-menus.c:946
 msgid "Show _Hidden Files"
 msgstr "Ver_borgen bestanden tonen"
 
 #. tooltip
-#: ../src/caja-window-menus.c:931
+#: ../src/caja-window-menus.c:947
 msgid "Toggle the display of hidden files in the current window"
 msgstr "De weergave van verborgen bestanden in het huidige venster omschakelen"
 
-#: ../src/caja-window-menus.c:962
+#: ../src/caja-window-menus.c:978
 msgid "_Up"
 msgstr "_Omhoog"
 
-#: ../src/caja-window-menus.c:965
+#: ../src/caja-window-menus.c:981
 msgid "_Home"
 msgstr "Persoonlijke _map"
 

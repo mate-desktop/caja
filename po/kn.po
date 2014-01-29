@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
-"Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
-"POT-Creation-Date: 2013-02-24 14:02+0100\n"
-"PO-Revision-Date: 2013-02-24 13:03+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-01-27 16:56+0100\n"
+"PO-Revision-Date: 2014-01-27 15:58+0000\n"
 "Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
 "Language-Team: Kannada (http://www.transifex.com/projects/p/MATE/language/kn/)\n"
 "MIME-Version: 1.0\n"
@@ -366,57 +366,61 @@ msgstr "X"
 msgid "Y"
 msgstr "Y"
 
-#: ../eel/eel-editable-label.c:340
+#: ../eel/eel-editable-label.c:345
 msgid "Text"
 msgstr "ಪಠ್ಯ"
 
-#: ../eel/eel-editable-label.c:341
+#: ../eel/eel-editable-label.c:346
 msgid "The text of the label."
 msgstr "ಶೀರ್ಷಿಕೆಯ ಪಠ್ಯ."
 
-#: ../eel/eel-editable-label.c:347
+#: ../eel/eel-editable-label.c:352
 msgid "Justification"
 msgstr "ಜಸ್ಟಿಫಿಕೇಶನ್"
 
-#: ../eel/eel-editable-label.c:348
+#: ../eel/eel-editable-label.c:353
 msgid ""
 "The alignment of the lines in the text of the label relative to each other. "
 "This does NOT affect the alignment of the label within its allocation. See "
 "GtkMisc::xalign for that."
 msgstr "ಲೇಬಲ್ಲಿನಲ್ಲಿನ ಪಠ್ಯದ ಸಾಲುಗಳ ವಾಲಿಕೆಯು ಪರಸ್ಪರ ಒಂದಕ್ಕೊಂದು ಸಂಬಂಧಿತವಾಗಿರುತ್ತದೆ. ಇದರಿಂದ ಲೇಬಲ್‌ ಅನ್ನು ನಿಯೋಜಿಸಲಾದ ಸ್ಥಳದಲ್ಲಿ ಅದರ ವಾಲಿಕೆಯ ಮೇಲೆ ಯಾವುದೆ ಪರಿಣಾಮ ಬೀರುವುದಿಲ್ಲ. ಇದಕ್ಕಾಗಿ GtkMisc::xalign ಅನ್ನು ನೋಡಿ."
 
-#: ../eel/eel-editable-label.c:356
+#: ../eel/eel-editable-label.c:361
 msgid "Line wrap"
 msgstr "ಸಾಲು ಆವರಿಕೆ(ವ್ರಾಪ್)"
 
-#: ../eel/eel-editable-label.c:357
+#: ../eel/eel-editable-label.c:362
 msgid "If set, wrap lines if the text becomes too wide."
 msgstr "ಹೊಂದಿಸಿದಲ್ಲಿ, ಪಠ್ಯವು ಅಂತ್ಯಂತ ಅಗಲವಾಗಿದ್ದಲ್ಲಿ ಸಾಲುಗಳನ್ನು ವ್ರಾಪ್ ಮಾಡುತ್ತದೆ."
 
-#: ../eel/eel-editable-label.c:364
+#: ../eel/eel-editable-label.c:369
 msgid "Cursor Position"
 msgstr "ತೆರೆ ಸೂಚಕದ ಸ್ಥಾನ"
 
-#: ../eel/eel-editable-label.c:365
+#: ../eel/eel-editable-label.c:370
 msgid "The current position of the insertion cursor in chars."
 msgstr "ಸೇರಿಸುವ ಕರ್ಸರಿನ ಈಗಿನ ಸ್ಥಳ, ಅಕ್ಷರಗಳಲ್ಲಿ."
 
-#: ../eel/eel-editable-label.c:374
+#: ../eel/eel-editable-label.c:379
 msgid "Selection Bound"
 msgstr "ಆಯ್ಕೆಯ ಮಿತಿ"
 
-#: ../eel/eel-editable-label.c:375
+#: ../eel/eel-editable-label.c:380
 msgid ""
 "The position of the opposite end of the selection from the cursor in chars."
 msgstr "ತೆರೆಸೂಚಕದಿಂದ ಆಯ್ಕೆಯ ವಿರುದ್ಧ ತುದಿಯಲ್ಲಿನ ಸ್ಥಾನ, ಅಕ್ಷರಗಳಲ್ಲಿ."
 
-#: ../eel/eel-editable-label.c:3191
+#: ../eel/eel-editable-label.c:3196
 msgid "Select All"
 msgstr "ಎಲ್ಲವನ್ನೂ ಅಯ್ಕೆಮಾಡು"
 
-#: ../eel/eel-editable-label.c:3202
+#: ../eel/eel-editable-label.c:3207
 msgid "Input Methods"
 msgstr "ಆದಾನ ಕ್ರಮಗಳು"
+
+#: ../eel/eel-gtk-extensions.c:476
+msgid "Show more _details"
+msgstr ""
 
 #: ../eel/eel-stock-dialogs.c:213
 msgid "You can stop this operation by clicking cancel."
@@ -439,7 +443,7 @@ msgid "Do Nothing"
 msgstr "ಏನನ್ನೂ ಮಾಡಬೇಡ"
 
 #: ../libcaja-private/caja-autorun.c:569
-#: ../data/caja-folder-handler.desktop.in.in.h:1
+#: ../data/caja-folder-handler.desktop.in.in.h:2
 msgid "Open Folder"
 msgstr "ಕಡತಕೋಶವನ್ನು ತೆರೆ"
 
@@ -534,9 +538,9 @@ msgstr "ಪ್ರತಿ ಬಾರಿಯೂ ಈ ಕೆಲಸವನ್ನು ಮ�
 #. label, accelerator
 #. add the "Eject" menu item
 #: ../libcaja-private/caja-autorun.c:1141
-#: ../src/file-manager/fm-directory-view.c:7316
-#: ../src/file-manager/fm-directory-view.c:7344
-#: ../src/file-manager/fm-directory-view.c:7425
+#: ../src/file-manager/fm-directory-view.c:7413
+#: ../src/file-manager/fm-directory-view.c:7441
+#: ../src/file-manager/fm-directory-view.c:7522
 #: ../src/file-manager/fm-tree-view.c:1371 ../src/caja-places-sidebar.c:2711
 msgid "_Eject"
 msgstr "ಹೊರತಳ್ಳು(_Eject)"
@@ -545,9 +549,9 @@ msgstr "ಹೊರತಳ್ಳು(_Eject)"
 #. label, accelerator
 #. add the "Unmount" menu item
 #: ../libcaja-private/caja-autorun.c:1154
-#: ../src/file-manager/fm-directory-view.c:7312
-#: ../src/file-manager/fm-directory-view.c:7340
-#: ../src/file-manager/fm-directory-view.c:7421
+#: ../src/file-manager/fm-directory-view.c:7409
+#: ../src/file-manager/fm-directory-view.c:7437
+#: ../src/file-manager/fm-directory-view.c:7518
 #: ../src/file-manager/fm-tree-view.c:1362 ../src/caja-places-sidebar.c:2704
 msgid "_Unmount"
 msgstr "ಅವರೋಹಿಸು(_U)"
@@ -576,7 +580,7 @@ msgstr "ಕ್ಲಿಪ್‌ಬೋರ್ಡಿನಲ್ಲಿರುವ ಪಠ�
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-clipboard.c:472
-#: ../src/file-manager/fm-directory-view.c:7245
+#: ../src/file-manager/fm-directory-view.c:7342
 msgid "Select _All"
 msgstr "ಎಲ್ಲವನ್ನೂ ಆರಿಸು(_A)"
 
@@ -599,7 +603,7 @@ msgstr "ಪೂರ್ವನಿಯೋಜಿತವನ್ನು ಆರಿಸು(_f)"
 
 #: ../libcaja-private/caja-column-utilities.c:43
 #: ../libcaja-private/caja-mime-application-chooser.c:276
-#: ../src/file-manager/fm-list-view.c:1754
+#: ../src/file-manager/fm-list-view.c:1761
 msgid "Name"
 msgstr "ಹೆಸರು"
 
@@ -657,7 +661,7 @@ msgid "The group of the file."
 msgstr "ಕಡತದ ಸಮೂಹ."
 
 #: ../libcaja-private/caja-column-utilities.c:97
-#: ../src/file-manager/fm-properties-window.c:4868
+#: ../src/file-manager/fm-properties-window.c:4878
 msgid "Permissions"
 msgstr "ಅನುಮತಿಗಳು"
 
@@ -750,11 +754,24 @@ msgstr "ನೀವು ಪರಿಮಾಣವನ್ನು ಅವರೋಹಿಸಲ�
 #. * warning, put "%.0s" somewhere in the string, which will
 #. * match the user name string passed by the C code, but not
 #. * put the user name in the final string.
-#. 
-#: ../libcaja-private/caja-desktop-link.c:134
+#: ../libcaja-private/caja-desktop-link.c:110
 #, c-format
 msgid "%s's Home"
 msgstr "%s ನ ನೆಲೆ(Home)"
+
+#: ../libcaja-private/caja-desktop-link.c:113
+#: ../data/caja-computer.desktop.in.in.h:1 ../src/caja-places-sidebar.c:674
+msgid "Computer"
+msgstr "ಗಣಕ"
+
+#: ../libcaja-private/caja-desktop-link.c:116
+msgid "Network Servers"
+msgstr ""
+
+#: ../libcaja-private/caja-desktop-link.c:119 ../src/caja-places-sidebar.c:824
+#: ../src/caja-trash-bar.c:192
+msgid "Trash"
+msgstr "ಕಸಬುಟ್ಟಿ"
 
 #: ../libcaja-private/caja-dnd.c:843
 msgid "_Move Here"
@@ -804,7 +821,6 @@ msgstr "ಕ್ಷಮಿಸಿ, ಲಾಂಛನದ ಮುಖ್ಯಪದಗಳು
 #. this really should never happen, as a user has no idea
 #. * what a keyword is, and people should be passing a unique
 #. * keyword to us anyway
-#. 
 #: ../libcaja-private/caja-emblem-utils.c:249
 #, c-format
 msgid "Sorry, but there is already an emblem named \"%s\"."
@@ -893,14 +909,14 @@ msgstr ""
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:271
 #: ../libcaja-private/caja-file-conflict-dialog.c:304
-#: ../src/file-manager/fm-properties-window.c:3367
+#: ../src/file-manager/fm-properties-window.c:3377
 msgid "Size:"
 msgstr "ಗಾತ್ರ:"
 
 #. second row: type combobox
 #: ../libcaja-private/caja-file-conflict-dialog.c:275
 #: ../libcaja-private/caja-file-conflict-dialog.c:308
-#: ../src/file-manager/fm-properties-window.c:3349
+#: ../src/file-manager/fm-properties-window.c:3359
 #: ../src/caja-connect-server-dialog.c:908
 msgid "Type:"
 msgstr "ಬಗೆ:"
@@ -1011,10 +1027,9 @@ msgstr[0] ""
 #. Note to localizers: convert file type string for file
 #. * (e.g. "folder", "plain text") to file type for symbolic link
 #. * to that kind of file (e.g. "link to folder").
-#. 
 #: ../libcaja-private/caja-file-operations.c:380
-#: ../libcaja-private/caja-file.c:6432
-#: ../src/file-manager/fm-directory-view.c:10440
+#: ../libcaja-private/caja-file.c:6451
+#: ../src/file-manager/fm-directory-view.c:10553
 #, c-format
 msgid "Link to %s"
 msgstr "%s ಗೆ ಕೊಂಡಿ"
@@ -1028,7 +1043,6 @@ msgstr "%s ಗೆ ಇನ್ನೊಂದು ಕೊಂಡಿ"
 #. Localizers: Feel free to leave out the "st" suffix
 #. * if there's no way to do that nicely for a
 #. * particular language.
-#. 
 #: ../libcaja-private/caja-file-operations.c:400
 #, c-format
 msgid "%'dst link to %s"
@@ -1055,7 +1069,6 @@ msgstr "%'d ನೆಯ ಕೊಂಡಿ (%s ಗೆ)"
 #. Localizers:
 #. * Feel free to leave out the st, nd, rd and th suffix or
 #. * make some or all of them match.
-#. 
 #. localizers: tag used to detect the first copy of a file
 #: ../libcaja-private/caja-file-operations.c:451
 msgid " (copy)"
@@ -1121,7 +1134,6 @@ msgstr "%s (%'d ನೆಯ ಪ್ರತಿ)%s"
 #. * plurals, you can leave the st, nd, rd suffixes out and just make all the
 #. translated
 #. * strings look like "%s (copy %'d)%s".
-#. 
 #. localizers: appended to x1st file copy
 #: ../libcaja-private/caja-file-operations.c:501
 #, c-format
@@ -1151,11 +1163,11 @@ msgstr " ("
 msgid " (%'d"
 msgstr " (%'d"
 
-#: ../libcaja-private/caja-file-operations.c:1315
+#: ../libcaja-private/caja-file-operations.c:1318
 msgid "Are you sure you want to permanently delete \"%B\" from the trash?"
 msgstr "\"%B\" ವನ್ನು ಕಸದ ಬುಟ್ಟಿಯಿಂದ ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಬೇಕೆಂದು ನೀವು ಖಾತ್ರಿಯೆ?"
 
-#: ../libcaja-private/caja-file-operations.c:1318
+#: ../libcaja-private/caja-file-operations.c:1321
 #, c-format
 msgid ""
 "Are you sure you want to permanently delete the %'d selected item from the "
@@ -1165,290 +1177,289 @@ msgid_plural ""
 "trash?"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-file-operations.c:1328
-#: ../libcaja-private/caja-file-operations.c:1394
+#: ../libcaja-private/caja-file-operations.c:1331
+#: ../libcaja-private/caja-file-operations.c:1397
 msgid "If you delete an item, it will be permanently lost."
 msgstr "ನೀವು ಒಂದು ಅಂಶವನ್ನು ಅಳಿಸಿದರೆ, ಅದು ಶಾಶ್ವತವಾಗಿ ನಾಶಗೊಳ್ಳುತ್ತದೆ."
 
-#: ../libcaja-private/caja-file-operations.c:1348
+#: ../libcaja-private/caja-file-operations.c:1351
 msgid "Empty all items from Trash?"
 msgstr ""
 
-#: ../libcaja-private/caja-file-operations.c:1352
+#: ../libcaja-private/caja-file-operations.c:1355
 msgid "All items in the Trash will be permanently deleted."
 msgstr ""
 
 #. Empty Trash menu item
-#: ../libcaja-private/caja-file-operations.c:1355
-#: ../libcaja-private/caja-file-operations.c:2223
+#: ../libcaja-private/caja-file-operations.c:1358
+#: ../libcaja-private/caja-file-operations.c:2226
 #: ../src/caja-places-sidebar.c:2748 ../src/caja-trash-bar.c:196
 msgid "Empty _Trash"
 msgstr "ಕಸದಬುಟ್ಟಿಯನ್ನು ಖಾಲಿಮಾಡು(_T)"
 
-#: ../libcaja-private/caja-file-operations.c:1382
+#: ../libcaja-private/caja-file-operations.c:1385
 msgid "Are you sure you want to permanently delete \"%B\"?"
 msgstr "\"%B\" ವನ್ನು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಬೇಕೆಂದು ನೀವು ಖಾತ್ರಿಯೆ?"
 
-#: ../libcaja-private/caja-file-operations.c:1385
+#: ../libcaja-private/caja-file-operations.c:1388
 #, c-format
 msgid "Are you sure you want to permanently delete the %'d selected item?"
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items?"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-file-operations.c:1428
+#: ../libcaja-private/caja-file-operations.c:1431
 #, c-format
 msgid "%'d file left to delete"
 msgid_plural "%'d files left to delete"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-file-operations.c:1434
+#: ../libcaja-private/caja-file-operations.c:1437
 msgid "Deleting files"
 msgstr "ಕಡತಗಳನ್ನು ಅಳಿಸಲಾಗುತ್ತ್ತಿದೆ"
 
 #. To translators: %T will expand to a time like "2 minutes".
 #. * The singular/plural form will be used depending on the remaining time
 #. (i.e. the %T argument).
-#. 
-#: ../libcaja-private/caja-file-operations.c:1448
+#: ../libcaja-private/caja-file-operations.c:1451
 msgid "%T left"
 msgid_plural "%T left"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-file-operations.c:1515
-#: ../libcaja-private/caja-file-operations.c:1549
-#: ../libcaja-private/caja-file-operations.c:1588
-#: ../libcaja-private/caja-file-operations.c:1665
-#: ../libcaja-private/caja-file-operations.c:2468
+#: ../libcaja-private/caja-file-operations.c:1518
+#: ../libcaja-private/caja-file-operations.c:1552
+#: ../libcaja-private/caja-file-operations.c:1591
+#: ../libcaja-private/caja-file-operations.c:1668
+#: ../libcaja-private/caja-file-operations.c:2471
 msgid "Error while deleting."
 msgstr "ಅಳಿಸುವಾಗ ದೋಷ."
 
-#: ../libcaja-private/caja-file-operations.c:1519
+#: ../libcaja-private/caja-file-operations.c:1522
 msgid ""
 "Files in the folder \"%B\" cannot be deleted because you do not have "
 "permissions to see them."
 msgstr "\"%B\" ಕಡತಕೋಶದಲ್ಲಿನ ಕಡತಗಳನ್ನು ಅಳಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ ಏಕೆಂದರೆ ನಿಮ್ಮಲ್ಲಿ ಅವುಗಳನ್ನು ನೋಡಲು ಬೇಕಿರುವ ಅನುಮತಿಗಳಿಲ್ಲ."
 
-#: ../libcaja-private/caja-file-operations.c:1522
-#: ../libcaja-private/caja-file-operations.c:2527
-#: ../libcaja-private/caja-file-operations.c:3496
+#: ../libcaja-private/caja-file-operations.c:1525
+#: ../libcaja-private/caja-file-operations.c:2530
+#: ../libcaja-private/caja-file-operations.c:3499
 msgid ""
 "There was an error getting information about the files in the folder \"%B\"."
 msgstr "\"%B\" ಕಡತಕೋಶದಲ್ಲಿನ ಕಡತಗಳ ಬಗ್ಗೆ ಮಾಹಿತಿಯನ್ನು ಪಡೆಯುವಲ್ಲಿ ದೋಷ ಉಂಟಾಗಿದೆ."
 
-#: ../libcaja-private/caja-file-operations.c:1531
-#: ../libcaja-private/caja-file-operations.c:3505
+#: ../libcaja-private/caja-file-operations.c:1534
+#: ../libcaja-private/caja-file-operations.c:3508
 msgid "_Skip files"
 msgstr "ಕಡತಗಳನ್ನು ಉಪೇಕ್ಷಿಸಿ (_S)"
 
-#: ../libcaja-private/caja-file-operations.c:1552
+#: ../libcaja-private/caja-file-operations.c:1555
 msgid ""
 "The folder \"%B\" cannot be deleted because you do not have permissions to "
 "read it."
 msgstr "\"%B\" ಕಡತಕೋಶವನ್ನು ಅಳಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ ಏಕೆಂದರೆ ನಿಮ್ಮಲ್ಲಿ ಅದನ್ನು ಓದಲು ಬೇಕಿರುವ ಅನುಮತಿಗಳಿಲ್ಲ."
 
-#: ../libcaja-private/caja-file-operations.c:1555
-#: ../libcaja-private/caja-file-operations.c:2566
-#: ../libcaja-private/caja-file-operations.c:3541
+#: ../libcaja-private/caja-file-operations.c:1558
+#: ../libcaja-private/caja-file-operations.c:2569
+#: ../libcaja-private/caja-file-operations.c:3544
 msgid "There was an error reading the folder \"%B\"."
 msgstr "\"%B\" ಕಡತಕೋಶವನ್ನು ಓದುವಾಗ ದೋಷ ಉಂಟಾಗಿದೆ."
 
-#: ../libcaja-private/caja-file-operations.c:1589
+#: ../libcaja-private/caja-file-operations.c:1592
 msgid "Could not remove the folder %B."
 msgstr "%B ಕಡತಕೋಶವನ್ನು ಸ್ಥಳಾಂತರಿಸಲಾಗಿಲ್ಲ."
 
-#: ../libcaja-private/caja-file-operations.c:1666
+#: ../libcaja-private/caja-file-operations.c:1669
 msgid "There was an error deleting %B."
 msgstr "%B ಅಳಿಸುವಾಗ ಒಂದು ದೋಷ ಉಂಟಾಗಿದೆ."
 
-#: ../libcaja-private/caja-file-operations.c:1746
+#: ../libcaja-private/caja-file-operations.c:1749
 msgid "Moving files to trash"
 msgstr "ಕಡತಗಳನ್ನು ಕಸದ ಬುಟ್ಟಿಗೆ ಸ್ಥಳಾಂತರಿಸಲಾಗುತ್ತಿದೆ"
 
-#: ../libcaja-private/caja-file-operations.c:1748
+#: ../libcaja-private/caja-file-operations.c:1751
 #, c-format
 msgid "%'d file left to trash"
 msgid_plural "%'d files left to trash"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-file-operations.c:1803
+#: ../libcaja-private/caja-file-operations.c:1806
 msgid "Cannot move file to trash, do you want to delete immediately?"
 msgstr "ಕಸದ ಬುಟ್ಟಿಗೆ ಸ್ಥಳಾಂತರಿಸಲಾಗಲಿಲ್ಲ, ಅದನ್ನು ಈ ತಕ್ಷಣ ಅಳಿಸಲು ನೀವು ಬಯಸುತ್ತ್ತಿರೆ?"
 
-#: ../libcaja-private/caja-file-operations.c:1804
+#: ../libcaja-private/caja-file-operations.c:1807
 msgid "The file \"%B\" cannot be moved to the trash."
 msgstr "ಕಡತ \"%B\" ಅನ್ನು ಕಸದ ಬುಟ್ಟಿಗೆ ಸ್ಥಳಾಂತರಿಸಲಾಗಲಿಲ್ಲ."
 
-#: ../libcaja-private/caja-file-operations.c:1981
+#: ../libcaja-private/caja-file-operations.c:1984
 msgid "Trashing Files"
 msgstr "ಕಡತಗಳನ್ನು ಕಸದಬುಟ್ಟಿಗೆ ಜರುಗಿಸಲಾಗುತ್ತಿದೆ"
 
-#: ../libcaja-private/caja-file-operations.c:1983
+#: ../libcaja-private/caja-file-operations.c:1986
 msgid "Deleting Files"
 msgstr "ಕಡತಗಳನ್ನು ಅಳಿಸಲಾಗುತ್ತ್ತಿದೆ"
 
-#: ../libcaja-private/caja-file-operations.c:2056
+#: ../libcaja-private/caja-file-operations.c:2059
 msgid "Unable to eject %V"
 msgstr "%V ಅನ್ನು ಹೊರ ತಳ್ಳಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ"
 
-#: ../libcaja-private/caja-file-operations.c:2058
+#: ../libcaja-private/caja-file-operations.c:2061
 msgid "Unable to unmount %V"
 msgstr "%V ಅನ್ನು ಅವರೋಹಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ"
 
-#: ../libcaja-private/caja-file-operations.c:2213
+#: ../libcaja-private/caja-file-operations.c:2216
 msgid "Do you want to empty the trash before you unmount?"
 msgstr "ಅವರೋಹಿಸುವ ಮೊದಲು ನೀವು ಕಸದಬುಟ್ಟಿಯನ್ನು ಖಾಲಿ ಮಾಡಲು ಬಯಸುತ್ತೀರೆ?"
 
-#: ../libcaja-private/caja-file-operations.c:2215
+#: ../libcaja-private/caja-file-operations.c:2218
 msgid ""
 "In order to regain the free space on this volume the trash must be emptied. "
 "All trashed items on the volume will be permanently lost."
 msgstr "ಈ ಪರಿಮಾಣದಲ್ಲಿ ಖಾಳಿ ಜಾಗವನ್ನು ಮರಳಿ ಪಡೆಯಲು ಕಸದ ಬುಟ್ಟಿಯನ್ನು ಖಾಲಿ ಮಾಡಿಬೇಕಾಗುತ್ತದೆ. ಕಸದ ಬುಟ್ಟಿಗೆ ಕಳುಹಿಸಲಾದ ಈ ಪರಿಮಾಣದಲ್ಲಿನ ಎಲ್ಲಾ ವಸ್ತುಗಳು ಶಾಶ್ವತವಾಗಿ ಇಲ್ಲವಾಗುತ್ತವೆ."
 
-#: ../libcaja-private/caja-file-operations.c:2221
+#: ../libcaja-private/caja-file-operations.c:2224
 msgid "Do _not Empty Trash"
 msgstr "ಕಸಬುಟ್ಟಿಯನ್ನು ಖಾಲಿಮಾಡಬೇಡ(_n)"
 
-#: ../libcaja-private/caja-file-operations.c:2337
+#: ../libcaja-private/caja-file-operations.c:2340
 #, c-format
 msgid "Unable to mount %s"
 msgstr "%s ಅನ್ನು ಆರೋಹಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ"
 
-#: ../libcaja-private/caja-file-operations.c:2415
+#: ../libcaja-private/caja-file-operations.c:2418
 #, c-format
 msgid "Preparing to copy %'d file (%S)"
 msgid_plural "Preparing to copy %'d files (%S)"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-file-operations.c:2421
+#: ../libcaja-private/caja-file-operations.c:2424
 #, c-format
 msgid "Preparing to move %'d file (%S)"
 msgid_plural "Preparing to move %'d files (%S)"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-file-operations.c:2427
+#: ../libcaja-private/caja-file-operations.c:2430
 #, c-format
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-file-operations.c:2433
+#: ../libcaja-private/caja-file-operations.c:2436
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-file-operations.c:2464
-#: ../libcaja-private/caja-file-operations.c:3359
-#: ../libcaja-private/caja-file-operations.c:3488
-#: ../libcaja-private/caja-file-operations.c:3533
+#: ../libcaja-private/caja-file-operations.c:2467
+#: ../libcaja-private/caja-file-operations.c:3362
+#: ../libcaja-private/caja-file-operations.c:3491
+#: ../libcaja-private/caja-file-operations.c:3536
 msgid "Error while copying."
 msgstr "ಕಾಪಿ ಮಾಡುವಾಗ ದೋಷ."
 
-#: ../libcaja-private/caja-file-operations.c:2466
-#: ../libcaja-private/caja-file-operations.c:3486
-#: ../libcaja-private/caja-file-operations.c:3531
+#: ../libcaja-private/caja-file-operations.c:2469
+#: ../libcaja-private/caja-file-operations.c:3489
+#: ../libcaja-private/caja-file-operations.c:3534
 msgid "Error while moving."
 msgstr "ಸ್ಥಳಾಂತರಿಸುವಾದ ದೋಷ."
 
-#: ../libcaja-private/caja-file-operations.c:2470
+#: ../libcaja-private/caja-file-operations.c:2473
 msgid "Error while moving files to trash."
 msgstr "ಕಡತವನ್ನು ಕಸದಬುಟ್ಟಿಗೆ ಸ್ಥಳಾಂತರಿಸುವಾಗ ದೋಷ."
 
-#: ../libcaja-private/caja-file-operations.c:2524
+#: ../libcaja-private/caja-file-operations.c:2527
 msgid ""
 "Files in the folder \"%B\" cannot be handled because you do not have "
 "permissions to see them."
 msgstr "\"%s\" ನ ಹೆಸರನ್ನು ಬದಲಾಯಿಸಲು ನಿಮಗೆ ಅಗತ್ಯ ಅನುಮತಿಗಳಿಲ್ಲ."
 
-#: ../libcaja-private/caja-file-operations.c:2563
+#: ../libcaja-private/caja-file-operations.c:2566
 msgid ""
 "The folder \"%B\" cannot be handled because you do not have permissions to "
 "read it."
 msgstr "\"%B\" ಕಡತಕೋಶವನ್ನು ನಿಭಾಯಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ ಏಕೆಂದರೆ ನಿಮ್ಮಲ್ಲಿ ಅದನ್ನು ಓದಲು ಬೇಕಿರುವ ಅನುಮತಿಗಳಿಲ್ಲ."
 
-#: ../libcaja-private/caja-file-operations.c:2640
+#: ../libcaja-private/caja-file-operations.c:2643
 msgid ""
 "The file \"%B\" cannot be handled because you do not have permissions to "
 "read it."
 msgstr "\"%B\" ಕಡತವನ್ನು ನಿಭಾಯಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ ಏಕೆಂದರೆ ನಿಮ್ಮಲ್ಲಿ ಅದನ್ನು ಓದಲು ಬೇಕಿರುವ ಅನುಮತಿಗಳಿಲ್ಲ."
 
-#: ../libcaja-private/caja-file-operations.c:2643
+#: ../libcaja-private/caja-file-operations.c:2646
 msgid "There was an error getting information about \"%B\"."
 msgstr "\"%B\" ಬಗ್ಗೆ ಮಾಹಿತಿಯನ್ನು ಪಡೆದುಕೊಳ್ಳುವಾಗ ದೋಷ ಉಂಟಾಗಿದೆ."
 
-#: ../libcaja-private/caja-file-operations.c:2743
-#: ../libcaja-private/caja-file-operations.c:2785
-#: ../libcaja-private/caja-file-operations.c:2818
-#: ../libcaja-private/caja-file-operations.c:2848
+#: ../libcaja-private/caja-file-operations.c:2746
+#: ../libcaja-private/caja-file-operations.c:2788
+#: ../libcaja-private/caja-file-operations.c:2821
+#: ../libcaja-private/caja-file-operations.c:2851
 msgid "Error while copying to \"%B\"."
 msgstr "\"%B\" ಗೆ ಕಾಪಿ ಮಾಡುವಾಗ ದೋಷ ಕಂಡುಬಂದಿದೆ."
 
-#: ../libcaja-private/caja-file-operations.c:2747
+#: ../libcaja-private/caja-file-operations.c:2750
 msgid "You do not have permissions to access the destination folder."
 msgstr "ಉದ್ದೇಶಿತ ಕಡತಕೋಶವನ್ನು ನಿಲುಕಿಸಿಕೊಳ್ಳಲು ನಿಮಗೆ ಅಗತ್ಯ ಅನುಮತಿಗಳಿಲ್ಲ."
 
-#: ../libcaja-private/caja-file-operations.c:2749
+#: ../libcaja-private/caja-file-operations.c:2752
 msgid "There was an error getting information about the destination."
 msgstr "ಉದ್ದೇಶಿತ ಸ್ಥಳದ ಬಗ್ಗೆ ಮಾಹಿತಿಯನ್ನು ಪಡೆಯುವಾಗ ದೋಷ ಉಂಟಾಗಿದೆ."
 
-#: ../libcaja-private/caja-file-operations.c:2786
+#: ../libcaja-private/caja-file-operations.c:2789
 msgid "The destination is not a folder."
 msgstr "ಉದ್ದೇಶಿತ ಸ್ಥಳವು ಒಂದು ಕಡತಕೋಶವಾಗಿಲ್ಲ."
 
-#: ../libcaja-private/caja-file-operations.c:2819
+#: ../libcaja-private/caja-file-operations.c:2822
 msgid ""
 "There is not enough space on the destination. Try to remove files to make "
 "space."
 msgstr "ಉದ್ದೇಶಿತ ಸ್ಥಳದಲ್ಲಿ ಸಾಕಷ್ಟು ಜಾಗವಿಲ್ಲ. ಒಂದಿಷ್ಟು ಕಡತಗಳನ್ನು ತೆಗೆದು ಹಾಕಿ ನಂತರ ಇನ್ನೊಮ್ಮೆ ಪ್ರಯತ್ನಿಸಿ."
 
-#: ../libcaja-private/caja-file-operations.c:2821
+#: ../libcaja-private/caja-file-operations.c:2824
 #, c-format
 msgid "There is %S available, but %S is required."
 msgstr "%S ಲಭ್ಯವಿದೆ, ಆದರೆ %S ಅಗತ್ಯವಿದೆ."
 
-#: ../libcaja-private/caja-file-operations.c:2849
+#: ../libcaja-private/caja-file-operations.c:2852
 msgid "The destination is read-only."
 msgstr "ಉದ್ದೆಶಿತ ಕಡತಕೋಶವು ಓದಲು ಮಾತ್ರವಾಗಿದೆ."
 
-#: ../libcaja-private/caja-file-operations.c:2908
+#: ../libcaja-private/caja-file-operations.c:2911
 msgid "Moving \"%B\" to \"%B\""
 msgstr "\"%B\" ಅನ್ನು \"%B\" ಗೆ ವರ್ಗಾಯಿಸಲಾಗುತ್ತಿದೆ"
 
-#: ../libcaja-private/caja-file-operations.c:2909
+#: ../libcaja-private/caja-file-operations.c:2912
 msgid "Copying \"%B\" to \"%B\""
 msgstr "\"%B\" ಅನ್ನು \"%B\" ಗೆ ಕಾಪಿ ಮಾಡಲಾಗುತ್ತಿದೆ"
 
-#: ../libcaja-private/caja-file-operations.c:2914
+#: ../libcaja-private/caja-file-operations.c:2917
 msgid "Duplicating \"%B\""
 msgstr "\"%B\" ಅನ್ನು ನಕಲು ಪ್ರತಿ ಮಾಡಲಾಗುತ್ತಿದೆ"
 
-#: ../libcaja-private/caja-file-operations.c:2922
+#: ../libcaja-private/caja-file-operations.c:2925
 msgid "Moving %'d file (in \"%B\") to \"%B\""
 msgid_plural "Moving %'d files (in \"%B\") to \"%B\""
 msgstr[0] ""
 
-#: ../libcaja-private/caja-file-operations.c:2926
+#: ../libcaja-private/caja-file-operations.c:2929
 msgid "Copying %'d file (in \"%B\") to \"%B\""
 msgid_plural "Copying %'d files (in \"%B\") to \"%B\""
 msgstr[0] ""
 
-#: ../libcaja-private/caja-file-operations.c:2934
+#: ../libcaja-private/caja-file-operations.c:2937
 msgid "Duplicating %'d file (in \"%B\")"
 msgid_plural "Duplicating %'d files (in \"%B\")"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-file-operations.c:2944
+#: ../libcaja-private/caja-file-operations.c:2947
 msgid "Moving %'d file to \"%B\""
 msgid_plural "Moving %'d files to \"%B\""
 msgstr[0] ""
 
-#: ../libcaja-private/caja-file-operations.c:2948
+#: ../libcaja-private/caja-file-operations.c:2951
 msgid "Copying %'d file to \"%B\""
 msgid_plural "Copying %'d files to \"%B\""
 msgstr[0] ""
 
-#: ../libcaja-private/caja-file-operations.c:2954
+#: ../libcaja-private/caja-file-operations.c:2957
 #, c-format
 msgid "Duplicating %'d file"
 msgid_plural "Duplicating %'d files"
@@ -1456,7 +1467,7 @@ msgstr[0] ""
 
 #. To translators: %S will expand to a size like "2 bytes" or "3 MB", so
 #. something like "4 kb of 4 MB"
-#: ../libcaja-private/caja-file-operations.c:2974
+#: ../libcaja-private/caja-file-operations.c:2977
 #, c-format
 msgid "%S of %S"
 msgstr "%S, %S ನಲ್ಲಿ"
@@ -1468,185 +1479,184 @@ msgstr "%S, %S ನಲ್ಲಿ"
 #. *
 #. * The singular/plural form will be used depending on the remaining time
 #. (i.e. the %T argument).
-#. 
-#: ../libcaja-private/caja-file-operations.c:2985
+#: ../libcaja-private/caja-file-operations.c:2988
 msgid "%S of %S — %T left (%S/sec)"
 msgid_plural "%S of %S — %T left (%S/sec)"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-file-operations.c:3363
+#: ../libcaja-private/caja-file-operations.c:3366
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "create it in the destination."
 msgstr "ಕಡತಕೋಶ \"%B\" ಅನ್ನು ಕಾಪಿ ಮಾಡಲು ಸಾಧ್ಯವಿಲ್ಲ ಏಕೆಂದರೆ ನಿಮಲ್ಲಿ ಅದನ್ನು ಉದ್ದೇಶಿತ ಸ್ಥಳದಲ್ಲಿ ನಿರ್ಮಿಸಲು ಅಗತ್ಯವಿರುವ ಅನುಮತಿಗಳಿಲ್ಲ."
 
-#: ../libcaja-private/caja-file-operations.c:3366
+#: ../libcaja-private/caja-file-operations.c:3369
 msgid "There was an error creating the folder \"%B\"."
 msgstr "\"%B\" ಕಡತಕೋಶವನ್ನು ರಚಿಸುವಾಗ ದೋಷ ಉಂಟಾಗಿದೆ."
 
-#: ../libcaja-private/caja-file-operations.c:3493
+#: ../libcaja-private/caja-file-operations.c:3496
 msgid ""
 "Files in the folder \"%B\" cannot be copied because you do not have "
 "permissions to see them."
 msgstr "\"%B\" ಕಡತಕೋಶದಲ್ಲಿನ ಕಡತಗಳನ್ನು ಕಾಪಿ ಮಾಡಲು ಸಾಧ್ಯವಿಲ್ಲ ಏಕೆಂದರೆ ನಿಮಲ್ಲಿ ಇದಕ್ಕೆ ಅಗತ್ಯವಿರುವ ಅನುಮತಿಗಳಿಲ್ಲ."
 
-#: ../libcaja-private/caja-file-operations.c:3538
+#: ../libcaja-private/caja-file-operations.c:3541
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "read it."
 msgstr "ಕಡತಕೋಶ \"%B\" ಅನ್ನು ಕಾಪಿ ಮಾಡಲು ಸಾಧ್ಯವಿಲ್ಲ ಏಕೆಂದರೆ ನಿಮಲ್ಲಿ ಇದಕ್ಕೆ ಅಗತ್ಯವಿರುವ ಅನುಮತಿಗಳಿಲ್ಲ."
 
-#: ../libcaja-private/caja-file-operations.c:3583
-#: ../libcaja-private/caja-file-operations.c:4273
-#: ../libcaja-private/caja-file-operations.c:4847
+#: ../libcaja-private/caja-file-operations.c:3586
+#: ../libcaja-private/caja-file-operations.c:4276
+#: ../libcaja-private/caja-file-operations.c:4850
 msgid "Error while moving \"%B\"."
 msgstr "\"%B\" ಸ್ಥಳಾಂತರಿಸುವಾಗ ದೋಷ."
 
-#: ../libcaja-private/caja-file-operations.c:3584
+#: ../libcaja-private/caja-file-operations.c:3587
 msgid "Could not remove the source folder."
 msgstr "ಮೂಲ ಕಡತಕೋಶವನ್ನು ತೆಗೆದು ಹಾಕಲಾಗಲಿಲ್ಲ."
 
-#: ../libcaja-private/caja-file-operations.c:3669
-#: ../libcaja-private/caja-file-operations.c:3710
-#: ../libcaja-private/caja-file-operations.c:4275
-#: ../libcaja-private/caja-file-operations.c:4346
+#: ../libcaja-private/caja-file-operations.c:3672
+#: ../libcaja-private/caja-file-operations.c:3713
+#: ../libcaja-private/caja-file-operations.c:4278
+#: ../libcaja-private/caja-file-operations.c:4349
 msgid "Error while copying \"%B\"."
 msgstr "\"%B\" ಗೆ ಕಾಪಿ ಮಾಡುವಾಗ ದೋಷ ಉಂಟಾಗಿದೆ."
 
-#: ../libcaja-private/caja-file-operations.c:3670
+#: ../libcaja-private/caja-file-operations.c:3673
 #, c-format
 msgid "Could not remove files from the already existing folder %F."
 msgstr "ಈಗಾಗಲೆ ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ %F ಕಡತಕೋಶದಿಂದ ಕಡತಗಳನ್ನು ತೆಗೆದು ಹಾಕಲಾಗಲಿಲ್ಲ."
 
-#: ../libcaja-private/caja-file-operations.c:3711
+#: ../libcaja-private/caja-file-operations.c:3714
 #, c-format
 msgid "Could not remove the already existing file %F."
 msgstr "ಈಗಾಗಲೆ ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ %F ಅನ್ನು ತೆಗೆದು ಹಾಕಲಾಗಲಿಲ್ಲ."
 
 #. the run_warning() frees all strings passed in automatically
-#: ../libcaja-private/caja-file-operations.c:4029
-#: ../libcaja-private/caja-file-operations.c:4688
+#: ../libcaja-private/caja-file-operations.c:4032
+#: ../libcaja-private/caja-file-operations.c:4691
 msgid "You cannot move a folder into itself."
 msgstr "ಒಂದು ಕಡತಕೋಶವನ್ನು ಅದೇ ಕಡತಕೋಶಕ್ಕೆ ನೀವು ಸ್ಥಳಾಂತರಿಸಲಾಗುವುದಿಲ್ಲ."
 
-#: ../libcaja-private/caja-file-operations.c:4030
-#: ../libcaja-private/caja-file-operations.c:4689
+#: ../libcaja-private/caja-file-operations.c:4033
+#: ../libcaja-private/caja-file-operations.c:4692
 msgid "You cannot copy a folder into itself."
 msgstr "ಒಂದು ಕಡತಕೋಶವನ್ನು ಅದೇ ಕಡತಕೋಶಕ್ಕೆ ನೀವು ಕಾಪಿ ಮಾಡಲಾಗುವುದಿಲ್ಲ."
 
-#: ../libcaja-private/caja-file-operations.c:4031
-#: ../libcaja-private/caja-file-operations.c:4690
+#: ../libcaja-private/caja-file-operations.c:4034
+#: ../libcaja-private/caja-file-operations.c:4693
 msgid "The destination folder is inside the source folder."
 msgstr "ಉದ್ದೇಶಿತ ಕಡತವು ಮೂಲ ಕಡತದ ಒಳಗೆ ಇದೆ."
 
 #. the run_warning() frees all strings passed in automatically
-#: ../libcaja-private/caja-file-operations.c:4062
+#: ../libcaja-private/caja-file-operations.c:4065
 msgid "You cannot move a file over itself."
 msgstr "ನೀವು ಒಂದು ಕಡತಕೋಶವನ್ನು ಸ್ವತಃ ಅದರ ಮೇಲೆಯೆ ಸ್ಥಳಾಂತರಿಸಲಾಗುವುದಿಲ್ಲ."
 
-#: ../libcaja-private/caja-file-operations.c:4063
+#: ../libcaja-private/caja-file-operations.c:4066
 msgid "You cannot copy a file over itself."
 msgstr "ನೀವು ಒಂದು ಕಡತಕೋಶವನ್ನು ಅದರ ಮೇಲೆ ಕಾಪಿ ಮಾಡಲಾಗುವುದಿಲ್ಲ."
 
-#: ../libcaja-private/caja-file-operations.c:4064
+#: ../libcaja-private/caja-file-operations.c:4067
 msgid "The source file would be overwritten by the destination."
 msgstr "ಮೂಲ ಕಡತವನ್ನು ಅದರ ಗುರಿಯಿಂದ ತಿದ್ದಿ ಬರೆಯಬಹುದಾಗಿದೆ."
 
-#: ../libcaja-private/caja-file-operations.c:4277
+#: ../libcaja-private/caja-file-operations.c:4280
 #, c-format
 msgid "Could not remove the already existing file with the same name in %F."
 msgstr "%F ಯಲ್ಲಿ ಇದೇ ಹೆಸರಿನೊಂದಿಗೆ ಈಗಾಗಲೆ ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ ಕಡತವನ್ನು ತೆಗೆದು ಹಾಕಲಾಗಲಿಲ್ಲ."
 
-#: ../libcaja-private/caja-file-operations.c:4347
+#: ../libcaja-private/caja-file-operations.c:4350
 #, c-format
 msgid "There was an error copying the file into %F."
 msgstr "%F ಗೆ ಕಡತವನ್ನು ನಕಲಿಸುವಾಗ ದೋಷ ಉಂಟಾಗಿದೆ."
 
-#: ../libcaja-private/caja-file-operations.c:4571
+#: ../libcaja-private/caja-file-operations.c:4574
 msgid "Copying Files"
 msgstr "ಕಡತಗಳನ್ನು ಕಾಪಿ ಮಾಡಲಾಗುತ್ತಿದೆ"
 
-#: ../libcaja-private/caja-file-operations.c:4598
+#: ../libcaja-private/caja-file-operations.c:4601
 msgid "Preparing to Move to \"%B\""
 msgstr "\"%B\" ಗೆ ಸ್ಥಳಾಂತರಿಸಲು ತಯಾರಾಗುತ್ತಿದೆ"
 
-#: ../libcaja-private/caja-file-operations.c:4602
+#: ../libcaja-private/caja-file-operations.c:4605
 #, c-format
 msgid "Preparing to move %'d file"
 msgid_plural "Preparing to move %'d files"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-file-operations.c:4848
+#: ../libcaja-private/caja-file-operations.c:4851
 #, c-format
 msgid "There was an error moving the file into %F."
 msgstr "%F ಗೆ ಕಡತವನ್ನು ಸ್ಥಳಾಂತರಗೊಳಿಸುವಾಗ ದೋಷ ಉಂಟಾಗಿದೆ."
 
-#: ../libcaja-private/caja-file-operations.c:5108
+#: ../libcaja-private/caja-file-operations.c:5111
 msgid "Moving Files"
 msgstr "ಕಡತಗಳನ್ನು ಸ್ಥಳಾಂತರಿಸಲಾಗುತ್ತಿದೆ"
 
-#: ../libcaja-private/caja-file-operations.c:5139
+#: ../libcaja-private/caja-file-operations.c:5142
 msgid "Creating links in \"%B\""
 msgstr "\"%B\" ಗೆ ಕೊಂಡಿಗಳನ್ನು ನಿರ್ಮಿಸಲಾಗುತ್ತಿದೆ"
 
-#: ../libcaja-private/caja-file-operations.c:5143
+#: ../libcaja-private/caja-file-operations.c:5146
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-file-operations.c:5275
+#: ../libcaja-private/caja-file-operations.c:5278
 msgid "Error while creating link to %B."
 msgstr "\"%B\" ಗೆ ಕೊಂಡಿ ರಚಿಸುವಾಗ ದೋಷ ಉಂಟಾಗಿದೆ."
 
-#: ../libcaja-private/caja-file-operations.c:5277
+#: ../libcaja-private/caja-file-operations.c:5280
 msgid "Symbolic links only supported for local files"
 msgstr "ಸಾಂಕೇತಿಕ ಕೊಂಡಿಗಳು ಸ್ಥಳೀಯ ಕಡತಗಳಲ್ಲಿ ಬೆಂಬಲಿತವಾಗಿಲ್ಲ"
 
-#: ../libcaja-private/caja-file-operations.c:5280
+#: ../libcaja-private/caja-file-operations.c:5283
 msgid "The target doesn't support symbolic links."
 msgstr "ಉದ್ದೇಶಿತ ಸ್ಥಳವು ಸಾಂಕೇತಿಕ ಕೊಂಡಿಗಳನ್ನು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ."
 
-#: ../libcaja-private/caja-file-operations.c:5283
+#: ../libcaja-private/caja-file-operations.c:5286
 #, c-format
 msgid "There was an error creating the symlink in %F."
 msgstr "%F ನಲ್ಲಿ ಸಾಂಕೇತಿಕ ಕೊಂಡಿಯನ್ನು ರಚಿಸುವಾಗ ದೋಷ ಉಂಟಾಗಿದೆ."
 
-#: ../libcaja-private/caja-file-operations.c:5595
+#: ../libcaja-private/caja-file-operations.c:5598
 msgid "Setting permissions"
 msgstr "ಅನುಮತಿಗಳು ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ"
 
 #. localizers: the initial name of a new folder
-#: ../libcaja-private/caja-file-operations.c:5854
+#: ../libcaja-private/caja-file-operations.c:5857
 msgid "untitled folder"
 msgstr "ಶೀರ್ಷಿಕೆ ಇಲ್ಲದ ಕಡತಕೋಶ"
 
 #. localizers: the initial name of a new empty file
-#: ../libcaja-private/caja-file-operations.c:5862
+#: ../libcaja-private/caja-file-operations.c:5865
 msgid "new file"
 msgstr "ಹೊಸ ಕಡತ"
 
-#: ../libcaja-private/caja-file-operations.c:6033
+#: ../libcaja-private/caja-file-operations.c:6036
 msgid "Error while creating directory %B."
 msgstr "%B ಕೋಶವನ್ನು ರಚಿಸುವಾಗ ದೋಷ."
 
-#: ../libcaja-private/caja-file-operations.c:6035
+#: ../libcaja-private/caja-file-operations.c:6038
 msgid "Error while creating file %B."
 msgstr "%B ಕಡತವನ್ನು ರಚಿಸುವಾಗ ದೋಷ ಉಂಟಾಗಿದೆ."
 
-#: ../libcaja-private/caja-file-operations.c:6037
+#: ../libcaja-private/caja-file-operations.c:6040
 #, c-format
 msgid "There was an error creating the directory in %F."
 msgstr "%F ಯಲ್ಲಿ ಒಂದು ಕೋಶವನ್ನು ರಚಿಸುವಾಗ ದೋಷ ಉಂಟಾಗಿದೆ."
 
-#: ../libcaja-private/caja-file-operations.c:6313
+#: ../libcaja-private/caja-file-operations.c:6316
 msgid "Emptying Trash"
 msgstr "ಕಸಬುಟ್ಟಿಯನ್ನು ಖಾಲಿಮಾಡು"
 
-#: ../libcaja-private/caja-file-operations.c:6360
-#: ../libcaja-private/caja-file-operations.c:6401
-#: ../libcaja-private/caja-file-operations.c:6436
-#: ../libcaja-private/caja-file-operations.c:6471
+#: ../libcaja-private/caja-file-operations.c:6363
+#: ../libcaja-private/caja-file-operations.c:6404
+#: ../libcaja-private/caja-file-operations.c:6439
+#: ../libcaja-private/caja-file-operations.c:6474
 msgid "Unable to mark launcher trusted (executable)"
 msgstr "ಆರಂಭಗಾರನನ್ನು ನಂಬಿಕಾರ್ಹ ಎಂದು ಗುರುತು ಹಾಕಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ (ಕಾರ್ಯಗತಗೊಳಿಸಬಲ್ಲ)"
 
@@ -1718,64 +1728,62 @@ msgstr "ಗಣಕತೆರೆ ಕಡತದ ಹೆಸರನ್ನು ಬದಲಾ
 #. * between the "%" and any numeric directive will turn
 #. * off zero padding, and putting a "_" there will use
 #. * space padding instead of zero padding.
-#. 
-#: ../libcaja-private/caja-file.c:4466
+#: ../libcaja-private/caja-file.c:4476
 msgid "today at 00:00:00 PM"
 msgstr "ಇಂದು ಅಪರಾಹ್ನ 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4467
-#: ../src/caja-file-management-properties.c:511
+#: ../libcaja-private/caja-file.c:4477
+#: ../src/caja-file-management-properties.c:510
 msgid "today at %-I:%M:%S %p"
 msgstr "ಇಂದು %-I:%M:%S %p ಹೊತ್ತಿಗೆ"
 
-#: ../libcaja-private/caja-file.c:4469
+#: ../libcaja-private/caja-file.c:4479
 msgid "today at 00:00 PM"
 msgstr "ಇಂದು, ಅಪರಾಹ್ನ 00:00"
 
-#: ../libcaja-private/caja-file.c:4470
+#: ../libcaja-private/caja-file.c:4480
 msgid "today at %-I:%M %p"
 msgstr "ಇಂದು %-I:%M %p ಹೊತ್ತಿಗೆ"
 
-#: ../libcaja-private/caja-file.c:4472
+#: ../libcaja-private/caja-file.c:4482
 msgid "today, 00:00 PM"
 msgstr "ಇಂದು, ಅಪರಾಹ್ನ 00:00"
 
-#: ../libcaja-private/caja-file.c:4473
+#: ../libcaja-private/caja-file.c:4483
 msgid "today, %-I:%M %p"
 msgstr "ಒಂದು, %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4475 ../libcaja-private/caja-file.c:4476
+#: ../libcaja-private/caja-file.c:4485 ../libcaja-private/caja-file.c:4486
 msgid "today"
 msgstr "ಇಂದು"
 
 #. Yesterday, use special word.
 #. * Note to localizers: Same issues as "today" string.
-#. 
-#: ../libcaja-private/caja-file.c:4485
+#: ../libcaja-private/caja-file.c:4495
 msgid "yesterday at 00:00:00 PM"
 msgstr "ನಿನ್ನೆ ಅಪರಾಹ್ನ 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4486
+#: ../libcaja-private/caja-file.c:4496
 msgid "yesterday at %-I:%M:%S %p"
 msgstr "ನಿನ್ನೆ %-I:%M:%S %p ಹೊತ್ತಿಗೆ"
 
-#: ../libcaja-private/caja-file.c:4488
+#: ../libcaja-private/caja-file.c:4498
 msgid "yesterday at 00:00 PM"
 msgstr "ನಿನ್ನೆ ಅಪರಾಹ್ನ 00:00"
 
-#: ../libcaja-private/caja-file.c:4489
+#: ../libcaja-private/caja-file.c:4499
 msgid "yesterday at %-I:%M %p"
 msgstr "ನಿನ್ನೆ %-I:%M %p ಹೊತ್ತಿಗೆ"
 
-#: ../libcaja-private/caja-file.c:4491
+#: ../libcaja-private/caja-file.c:4501
 msgid "yesterday, 00:00 PM"
 msgstr "ನಿನ್ನೆ, ಅಪರಾಹ್ನ 00:00"
 
-#: ../libcaja-private/caja-file.c:4492
+#: ../libcaja-private/caja-file.c:4502
 msgid "yesterday, %-I:%M %p"
 msgstr "ನಿನ್ನೆ, %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4494 ../libcaja-private/caja-file.c:4495
+#: ../libcaja-private/caja-file.c:4504 ../libcaja-private/caja-file.c:4505
 msgid "yesterday"
 msgstr "ನಿನ್ನೆ"
 
@@ -1783,102 +1791,101 @@ msgstr "ನಿನ್ನೆ"
 #. * Note to localizers: Same issues as "today" string.
 #. * The width measurement templates correspond to
 #. * the day/month name with the most letters.
-#. 
-#: ../libcaja-private/caja-file.c:4506
+#: ../libcaja-private/caja-file.c:4516
 msgid "Wednesday, September 00 0000 at 00:00:00 PM"
 msgstr "ಬುಧವಾರ, ಸಪ್ಟೆಂಬರ್ 00 0000 ಅಪರಾಹ್ನ 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4507
+#: ../libcaja-private/caja-file.c:4517
 msgid "%A, %B %-d %Y at %-I:%M:%S %p"
 msgstr "%A, %B %-d %Y at %-I:%M:%S %p"
 
-#: ../libcaja-private/caja-file.c:4509
+#: ../libcaja-private/caja-file.c:4519
 msgid "Mon, Oct 00 0000 at 00:00:00 PM"
 msgstr "ಸೋಮ, ಅಕ್ಟೋ 00 0000 ಅಪರಾಹ್ನ 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4510
+#: ../libcaja-private/caja-file.c:4520
 msgid "%a, %b %-d %Y at %-I:%M:%S %p"
 msgstr "%a, %b %-d %Y at %-I:%M:%S %p"
 
-#: ../libcaja-private/caja-file.c:4512
+#: ../libcaja-private/caja-file.c:4522
 msgid "Mon, Oct 00 0000 at 00:00 PM"
 msgstr "ಸೋಮ, ಅಕ್ಟೋ 00 0000 ಅಪರಾಹ್ನ 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4513
+#: ../libcaja-private/caja-file.c:4523
 msgid "%a, %b %-d %Y at %-I:%M %p"
 msgstr "%a, %b %-d %Y at %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4515
+#: ../libcaja-private/caja-file.c:4525
 msgid "Oct 00 0000 at 00:00 PM"
 msgstr "ಅಕ್ಟೋ 00 0000 ಅಪರಾಹ್ನ 00:00"
 
-#: ../libcaja-private/caja-file.c:4516
+#: ../libcaja-private/caja-file.c:4526
 msgid "%b %-d %Y at %-I:%M %p"
 msgstr "%b %-d %Y at %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4518
+#: ../libcaja-private/caja-file.c:4528
 msgid "Oct 00 0000, 00:00 PM"
 msgstr "ಅಕ್ಟೋ 00 0000 ಅಪರಾಹ್ನ 00:00"
 
-#: ../libcaja-private/caja-file.c:4519
+#: ../libcaja-private/caja-file.c:4529
 msgid "%b %-d %Y, %-I:%M %p"
 msgstr "%b %-d %Y, %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4521
+#: ../libcaja-private/caja-file.c:4531
 msgid "00/00/00, 00:00 PM"
 msgstr "00/00/00 ಅಪರಾಹ್ನ 00:00"
 
-#: ../libcaja-private/caja-file.c:4522
+#: ../libcaja-private/caja-file.c:4532
 msgid "%m/%-d/%y, %-I:%M %p"
 msgstr "%m/%-d/%y, %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4524
+#: ../libcaja-private/caja-file.c:4534
 msgid "00/00/00"
 msgstr "00/00/00"
 
-#: ../libcaja-private/caja-file.c:4525
+#: ../libcaja-private/caja-file.c:4535
 msgid "%m/%d/%y"
 msgstr "%m/%d/%y"
 
-#: ../libcaja-private/caja-file.c:5166
+#: ../libcaja-private/caja-file.c:5176
 #, c-format
 msgid "Not allowed to set permissions"
 msgstr "ಅನುಮತಿಗಳನ್ನು ಹೊಂದಿಸಲು ಅನುಮತಿ ಇಲ್ಲ"
 
-#: ../libcaja-private/caja-file.c:5460
+#: ../libcaja-private/caja-file.c:5470
 #, c-format
 msgid "Not allowed to set owner"
 msgstr "ಮಾಲಿಕರನ್ನು ನೇಮಿಸಲು ಅನುಮತಿ ಇಲ್ಲ"
 
-#: ../libcaja-private/caja-file.c:5478
+#: ../libcaja-private/caja-file.c:5488
 #, c-format
 msgid "Specified owner '%s' doesn't exist"
 msgstr "ಸೂಚಿಸಲಾದ ಮಾಲಿಕ \"%s\" ಅಸ್ತಿತ್ವದಲ್ಲಿಲ್ಲ"
 
-#: ../libcaja-private/caja-file.c:5738
+#: ../libcaja-private/caja-file.c:5748
 #, c-format
 msgid "Not allowed to set group"
 msgstr "ಸಮೂಹವನ್ನು ರಚಿಸಲು ಅನುಮತಿ ಇಲ್ಲ"
 
-#: ../libcaja-private/caja-file.c:5756
+#: ../libcaja-private/caja-file.c:5766
 #, c-format
 msgid "Specified group '%s' doesn't exist"
 msgstr "ಸೂಚಿಸಲಾದ '%s' ಸಮೂಹವು ಅಸ್ತಿತ್ವದಲ್ಲಿಲ್ಲ"
 
-#: ../libcaja-private/caja-file.c:5910
-#: ../src/file-manager/fm-directory-view.c:2361
+#: ../libcaja-private/caja-file.c:5920
+#: ../src/file-manager/fm-directory-view.c:2364
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-file.c:5911
+#: ../libcaja-private/caja-file.c:5921
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-file.c:5912
+#: ../libcaja-private/caja-file.c:5922
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
@@ -1886,54 +1893,53 @@ msgstr[0] ""
 
 #. Do this in a separate stage so that we don't have to put G_GUINT64_FORMAT
 #. in the translated string
-#: ../libcaja-private/caja-file.c:6001
+#: ../libcaja-private/caja-file.c:6017
 msgid "%"
 msgstr "%"
 
-#: ../libcaja-private/caja-file.c:6002
+#: ../libcaja-private/caja-file.c:6018
 #, c-format
 msgid "%s (%s bytes)"
 msgstr "%s (%s ಬೈಟುಗಳು)"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6318 ../libcaja-private/caja-file.c:6334
+#: ../libcaja-private/caja-file.c:6337 ../libcaja-private/caja-file.c:6353
 msgid "? items"
 msgstr "? ಅಂಶಗಳು"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6324
+#: ../libcaja-private/caja-file.c:6343
 msgid "? bytes"
 msgstr "? ಬೈಟುಗಳು"
 
-#: ../libcaja-private/caja-file.c:6339
+#: ../libcaja-private/caja-file.c:6358
 msgid "unknown type"
 msgstr "ಅಜ್ಞಾತ ಬಗೆ"
 
-#: ../libcaja-private/caja-file.c:6342
+#: ../libcaja-private/caja-file.c:6361
 msgid "unknown MIME type"
 msgstr "ಅಜ್ಞಾತ MIME ಬಗೆ"
 
 #. Fallback, use for both unknown attributes and attributes
 #. * for which we have no more appropriate default.
-#. 
-#: ../libcaja-private/caja-file.c:6356
+#: ../libcaja-private/caja-file.c:6375
 #: ../src/file-manager/fm-properties-window.c:1301
 msgid "unknown"
 msgstr "ಅಜ್ಞಾತ"
 
-#: ../libcaja-private/caja-file.c:6406
+#: ../libcaja-private/caja-file.c:6425
 msgid "program"
 msgstr "ಪ್ರೋಗ್ರಾಂ"
 
-#: ../libcaja-private/caja-file.c:6426
+#: ../libcaja-private/caja-file.c:6445
 msgid "link"
 msgstr "ಕೊಂಡಿ (link)"
 
-#: ../libcaja-private/caja-file.c:6448
+#: ../libcaja-private/caja-file.c:6467
 msgid "link (broken)"
 msgstr "ಕೊಂಡಿ (ತುಂಡಾದ)"
 
-#: ../libcaja-private/caja-icon-container.c:2929
+#: ../libcaja-private/caja-icon-container.c:2934
 msgid "The selection rectangle"
 msgstr "ಆರಿಸಲ್ಪಟ್ಟ ಆಯತ"
 
@@ -1959,10 +1965,10 @@ msgstr "ಈ ಕೊಂಡಿಯನ್ನು ಬಳಸಲಾಗುವುದಿಲ�
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-mime-actions.c:783
-#: ../src/file-manager/fm-directory-view.c:7273
-#: ../src/file-manager/fm-directory-view.c:7405
-#: ../src/file-manager/fm-directory-view.c:8505
-#: ../src/file-manager/fm-directory-view.c:8830
+#: ../src/file-manager/fm-directory-view.c:7370
+#: ../src/file-manager/fm-directory-view.c:7502
+#: ../src/file-manager/fm-directory-view.c:8602
+#: ../src/file-manager/fm-directory-view.c:8927
 #: ../src/file-manager/fm-tree-view.c:1335
 msgid "Mo_ve to Trash"
 msgstr "ಕಸದ ಬುಟ್ಟಿಗೆ ಜರುಗಿಸು(_v)"
@@ -2008,12 +2014,12 @@ msgid_plural "This will open %d separate windows."
 msgstr[0] ""
 
 #: ../libcaja-private/caja-mime-actions.c:1297
-#: ../src/caja-window-manage-views.c:2108
-#: ../src/caja-window-manage-views.c:2116
-#: ../src/caja-window-manage-views.c:2136
-#: ../src/caja-window-manage-views.c:2150
-#: ../src/caja-window-manage-views.c:2156
-#: ../src/caja-window-manage-views.c:2183
+#: ../src/caja-window-manage-views.c:2111
+#: ../src/caja-window-manage-views.c:2119
+#: ../src/caja-window-manage-views.c:2139
+#: ../src/caja-window-manage-views.c:2153
+#: ../src/caja-window-manage-views.c:2159
+#: ../src/caja-window-manage-views.c:2186
 #, c-format
 msgid "Could not display \"%s\"."
 msgstr "\"%s\" ಅನ್ನು ತೋರಿಸಲಾಗಿಲ್ಲ."
@@ -2067,12 +2073,12 @@ msgstr "ನಂಬಿಕಾರ್ಹ ಎಂದು ಗುರುತುಹಾಕು(
 
 #: ../libcaja-private/caja-mime-actions.c:2051
 #: ../libcaja-private/caja-mime-actions.c:2357
-#: ../src/file-manager/fm-directory-view.c:6291
+#: ../src/file-manager/fm-directory-view.c:6388
 msgid "Unable to mount location"
 msgstr "ಸ್ಥಳವನ್ನು ಆರೋಹಿಸಲಾಗಿಲ್ಲ"
 
 #: ../libcaja-private/caja-mime-actions.c:2445
-#: ../src/file-manager/fm-directory-view.c:6465
+#: ../src/file-manager/fm-directory-view.c:6562
 msgid "Unable to start location"
 msgstr "ಸ್ಥಳವನ್ನು ಆರಂಭಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ"
 
@@ -2161,7 +2167,7 @@ msgid "Select an Application"
 msgstr "ಒಂದು ಅನ್ವಯವನ್ನು ಆರಿಸು"
 
 #: ../libcaja-private/caja-open-with-dialog.c:843
-#: ../src/file-manager/fm-properties-window.c:5186
+#: ../src/file-manager/fm-properties-window.c:5196
 msgid "Open With"
 msgstr "ಇದರಿಂದ ತೆರೆ"
 
@@ -2180,8 +2186,8 @@ msgstr "ವೀಕ್ಷಿಸು(_B)..."
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-open-with-dialog.c:957
-#: ../src/file-manager/fm-directory-view.c:7189
-#: ../src/file-manager/fm-directory-view.c:8699
+#: ../src/file-manager/fm-directory-view.c:7286
+#: ../src/file-manager/fm-directory-view.c:8796
 #: ../src/file-manager/fm-tree-view.c:1256 ../src/caja-places-sidebar.c:2653
 msgid "_Open"
 msgstr "ತೆರೆ(_Open)"
@@ -2272,37 +2278,37 @@ msgid ""
 " your computer, you may be able to open it."
 msgstr ""
 
-#: ../libcaja-private/caja-program-choosing.c:405
+#: ../libcaja-private/caja-program-choosing.c:439
 msgid "Sorry, but you cannot execute commands from a remote site."
 msgstr "ಕ್ಷಮಿಸಿ, ನೀವು ಒಂದು ದೂರಸ್ಥ ಸ್ಥಳದಿಂದ ಆಜ್ಞೆಗಳನ್ನು ಕಾರ್ಯಗತಗೊಳಿಸಲಾಗುವುದಿಲ್ಲ."
 
-#: ../libcaja-private/caja-program-choosing.c:407
+#: ../libcaja-private/caja-program-choosing.c:441
 msgid "This is disabled due to security considerations."
 msgstr "ಸುರಕ್ಷತಾ ಕಾರಣದಿಂದಾಗಿ ಇದನ್ನು ಅಶಕ್ತಗೊಳಿಸಲಾಗಿದೆ."
 
-#: ../libcaja-private/caja-program-choosing.c:419
-#: ../libcaja-private/caja-program-choosing.c:497
+#: ../libcaja-private/caja-program-choosing.c:453
+#: ../libcaja-private/caja-program-choosing.c:531
 msgid "There was an error launching the application."
 msgstr "ಅನ್ವಯವನ್ನು ಆರಂಭಿಸುವಾಗ ಒಂದು ದೋಷ ಉಂಟಾಗಿದೆ."
 
-#: ../libcaja-private/caja-program-choosing.c:448
-#: ../libcaja-private/caja-program-choosing.c:461
+#: ../libcaja-private/caja-program-choosing.c:482
+#: ../libcaja-private/caja-program-choosing.c:495
 msgid "This drop target only supports local files."
 msgstr "ಸೇರಿಸಬಹುದಾದ ಈ ಸ್ಥಳವು ಕೇವಲ ಸ್ಥಳೀಯ ಕಡತಗಳನ್ನು ಮಾತ್ರ ಬೆಂಬಲಿಸುತ್ತದೆ."
 
-#: ../libcaja-private/caja-program-choosing.c:449
+#: ../libcaja-private/caja-program-choosing.c:483
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again."
 msgstr "ಸ್ಥಳೀಯವಲ್ಲದ ಕಡತಗಳನ್ನು ತೆರೆಯಲು, ಅವನ್ನು ಒಂದು ಸ್ಥಳೀಯ ಕಡತಕೋಶಕ್ಕೆ ಕಾಪಿ ಮಾಡಿ ಹಾಗು ಪುನಃ ಅವನ್ನು ಇಲ್ಲಿಗೆ ಸೇರಿಸಿ."
 
-#: ../libcaja-private/caja-program-choosing.c:462
+#: ../libcaja-private/caja-program-choosing.c:496
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again. The local files you dropped have already been opened."
 msgstr "ಸ್ಥಳೀಯವಲ್ಲದ ಕಡತಗಳನ್ನು ತೆರೆಯಲು, ಅವನ್ನು ಒಂದು ಸ್ಥಳೀಯ ಕಡತಕೋಶಕ್ಕೆ ಕಾಪಿ ಮಾಡಿ ಹಾಗು ಪುನಃ ಅವನ್ನು ಇಲ್ಲಿಗೆ ಸೇರಿಸಿ. ನೀವು ಸೇರಿಸಿದ ಸ್ಥಳೀಯ ಕಡತಗಳು ಈಗಾಗಲೆ ತೆರೆಯಲ್ಪಟ್ಟಿವೆ."
 
-#: ../libcaja-private/caja-program-choosing.c:495
+#: ../libcaja-private/caja-program-choosing.c:529
 msgid "Details: "
 msgstr "ವಿವರಗಳು: "
 
@@ -2333,351 +2339,351 @@ msgstr "ಹುಡುಕು"
 msgid "Search for \"%s\""
 msgstr "\"%s\" ಗಾಗಿ ಹುಡುಕು"
 
-#: ../libcaja-private/caja-undostack-manager.c:1178
+#: ../libcaja-private/caja-undostack-manager.c:1237
 #, c-format
 msgid "Delete %d copied items"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1181
-#: ../libcaja-private/caja-undostack-manager.c:1191
-#: ../libcaja-private/caja-undostack-manager.c:1222
+#: ../libcaja-private/caja-undostack-manager.c:1240
+#: ../libcaja-private/caja-undostack-manager.c:1250
+#: ../libcaja-private/caja-undostack-manager.c:1281
 #, c-format
 msgid "Delete '%s'"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1188
+#: ../libcaja-private/caja-undostack-manager.c:1247
 #, c-format
 msgid "Delete %d duplicated items"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1199
+#: ../libcaja-private/caja-undostack-manager.c:1258
 #, c-format
 msgid "Move %d items back to '%s'"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1203
+#: ../libcaja-private/caja-undostack-manager.c:1262
 #, c-format
 msgid "Move '%s' back to '%s'"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1212
-#: ../libcaja-private/caja-undostack-manager.c:1379
+#: ../libcaja-private/caja-undostack-manager.c:1271
+#: ../libcaja-private/caja-undostack-manager.c:1438
 #, c-format
 msgid "Rename '%s' as '%s'"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1231
-#: ../libcaja-private/caja-undostack-manager.c:1426
+#: ../libcaja-private/caja-undostack-manager.c:1290
+#: ../libcaja-private/caja-undostack-manager.c:1485
 #, c-format
 msgid "Restore %d items from trash"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1239
+#: ../libcaja-private/caja-undostack-manager.c:1298
 #, c-format
 msgid "Restore '%s' to '%s'"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1250
+#: ../libcaja-private/caja-undostack-manager.c:1309
 #, c-format
 msgid "Move %d items back to trash"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1253
+#: ../libcaja-private/caja-undostack-manager.c:1312
 #, c-format
 msgid "Move '%s' back to trash"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1262
+#: ../libcaja-private/caja-undostack-manager.c:1321
 #, c-format
 msgid "Delete links to %d items"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1265
+#: ../libcaja-private/caja-undostack-manager.c:1324
 #, c-format
 msgid "Delete link to '%s'"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1275
+#: ../libcaja-private/caja-undostack-manager.c:1334
 #, c-format
 msgid "Restore original permissions of items enclosed in '%s'"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1283
+#: ../libcaja-private/caja-undostack-manager.c:1342
 #, c-format
 msgid "Restore original permissions of '%s'"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1292
+#: ../libcaja-private/caja-undostack-manager.c:1351
 #, c-format
 msgid "Restore group of '%s' to '%s'"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1302
+#: ../libcaja-private/caja-undostack-manager.c:1361
 #, c-format
 msgid "Restore owner of '%s' to '%s'"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1341
+#: ../libcaja-private/caja-undostack-manager.c:1400
 #, c-format
 msgid "Copy %d items to '%s'"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1345
+#: ../libcaja-private/caja-undostack-manager.c:1404
 #, c-format
 msgid "Copy '%s' to '%s'"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1353
+#: ../libcaja-private/caja-undostack-manager.c:1412
 #, c-format
 msgid "Duplicate of %d items in '%s'"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1358
+#: ../libcaja-private/caja-undostack-manager.c:1417
 #, c-format
 msgid "Duplicate '%s' in '%s'"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1366
+#: ../libcaja-private/caja-undostack-manager.c:1425
 #, c-format
 msgid "Move %d items to '%s'"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1370
+#: ../libcaja-private/caja-undostack-manager.c:1429
 #, c-format
 msgid "Move '%s' to '%s'"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1388
+#: ../libcaja-private/caja-undostack-manager.c:1447
 #, c-format
 msgid "Create new file '%s' from template "
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1395
+#: ../libcaja-private/caja-undostack-manager.c:1454
 #, c-format
 msgid "Create an empty file '%s'"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1402
+#: ../libcaja-private/caja-undostack-manager.c:1461
 #, c-format
 msgid "Create a new folder '%s'"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1410
+#: ../libcaja-private/caja-undostack-manager.c:1469
 #, c-format
 msgid "Move %d items to trash"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1416
+#: ../libcaja-private/caja-undostack-manager.c:1475
 #, c-format
 msgid "Move '%s' to trash"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1429
+#: ../libcaja-private/caja-undostack-manager.c:1488
 #, c-format
 msgid "Restore '%s' from trash"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1438
+#: ../libcaja-private/caja-undostack-manager.c:1497
 #, c-format
 msgid "Create links to %d items"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1441
+#: ../libcaja-private/caja-undostack-manager.c:1500
 #, c-format
 msgid "Create link to '%s'"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1450
+#: ../libcaja-private/caja-undostack-manager.c:1509
 #, c-format
 msgid "Set permissions of items enclosed in '%s'"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1458
+#: ../libcaja-private/caja-undostack-manager.c:1517
 #, c-format
 msgid "Set permissions of '%s'"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1467
+#: ../libcaja-private/caja-undostack-manager.c:1526
 #, c-format
 msgid "Set group of '%s' to '%s'"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1477
+#: ../libcaja-private/caja-undostack-manager.c:1536
 #, c-format
 msgid "Set owner of '%s' to '%s'"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1509
+#: ../libcaja-private/caja-undostack-manager.c:1568
 #, c-format
 msgid "_Undo copy of %d item"
 msgid_plural "_Undo copy of %d items"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1514
+#: ../libcaja-private/caja-undostack-manager.c:1573
 #, c-format
 msgid "_Undo duplicate of %d item"
 msgid_plural "_Undo duplicate of %d items"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1519
+#: ../libcaja-private/caja-undostack-manager.c:1578
 #, c-format
 msgid "_Undo move of %d item"
 msgid_plural "_Undo move of %d items"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1524
+#: ../libcaja-private/caja-undostack-manager.c:1583
 #, c-format
 msgid "_Undo rename of %d item"
 msgid_plural "_Undo rename of %d items"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1528
+#: ../libcaja-private/caja-undostack-manager.c:1587
 #, c-format
 msgid "_Undo creation of an empty file"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1531
+#: ../libcaja-private/caja-undostack-manager.c:1590
 #, c-format
 msgid "_Undo creation of a file from template"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1535
+#: ../libcaja-private/caja-undostack-manager.c:1594
 #, c-format
 msgid "_Undo creation of %d folder"
 msgid_plural "_Undo creation of %d folders"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1540
+#: ../libcaja-private/caja-undostack-manager.c:1599
 #, c-format
 msgid "_Undo move to trash of %d item"
 msgid_plural "_Undo move to trash of %d items"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1545
+#: ../libcaja-private/caja-undostack-manager.c:1604
 #, c-format
 msgid "_Undo restore from trash of %d item"
 msgid_plural "_Undo restore from trash of %d items"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1550
+#: ../libcaja-private/caja-undostack-manager.c:1609
 #, c-format
 msgid "_Undo create link to %d item"
 msgid_plural "_Undo create link to %d items"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1555
+#: ../libcaja-private/caja-undostack-manager.c:1614
 #, c-format
 msgid "_Undo delete of %d item"
 msgid_plural "_Undo delete of %d items"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1560
+#: ../libcaja-private/caja-undostack-manager.c:1619
 #, c-format
 msgid "Undo recursive change permissions of %d item"
 msgid_plural "Undo recursive change permissions of %d items"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1566
+#: ../libcaja-private/caja-undostack-manager.c:1625
 #, c-format
 msgid "Undo change permissions of %d item"
 msgid_plural "Undo change permissions of %d items"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1571
+#: ../libcaja-private/caja-undostack-manager.c:1630
 #, c-format
 msgid "Undo change group of %d item"
 msgid_plural "Undo change group of %d items"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1576
+#: ../libcaja-private/caja-undostack-manager.c:1635
 #, c-format
 msgid "Undo change owner of %d item"
 msgid_plural "Undo change owner of %d items"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1604
+#: ../libcaja-private/caja-undostack-manager.c:1663
 #, c-format
 msgid "_Redo copy of %d item"
 msgid_plural "_Redo copy of %d items"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1609
+#: ../libcaja-private/caja-undostack-manager.c:1668
 #, c-format
 msgid "_Redo duplicate of %d item"
 msgid_plural "_Redo duplicate of %d items"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1614
+#: ../libcaja-private/caja-undostack-manager.c:1673
 #, c-format
 msgid "_Redo move of %d item"
 msgid_plural "_Redo move of %d items"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1619
+#: ../libcaja-private/caja-undostack-manager.c:1678
 #, c-format
 msgid "_Redo rename of %d item"
 msgid_plural "_Redo rename of %d items"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1623
+#: ../libcaja-private/caja-undostack-manager.c:1682
 #, c-format
 msgid "_Redo creation of an empty file"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1626
+#: ../libcaja-private/caja-undostack-manager.c:1685
 #, c-format
 msgid "_Redo creation of a file from template"
 msgstr ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1630
+#: ../libcaja-private/caja-undostack-manager.c:1689
 #, c-format
 msgid "_Redo creation of %d folder"
 msgid_plural "_Redo creation of %d folders"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1635
+#: ../libcaja-private/caja-undostack-manager.c:1694
 #, c-format
 msgid "_Redo move to trash of %d item"
 msgid_plural "_Redo move to trash of %d items"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1640
+#: ../libcaja-private/caja-undostack-manager.c:1699
 #, c-format
 msgid "_Redo restore from trash of %d item"
 msgid_plural "_Redo restore from trash of %d items"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1645
+#: ../libcaja-private/caja-undostack-manager.c:1704
 #, c-format
 msgid "_Redo create link to %d item"
 msgid_plural "_Redo create link to %d items"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1650
+#: ../libcaja-private/caja-undostack-manager.c:1709
 #, c-format
 msgid "_Redo delete of %d item"
 msgid_plural "_Redo delete of %d items"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1655
+#: ../libcaja-private/caja-undostack-manager.c:1714
 #, c-format
 msgid "Redo recursive change permissions of %d item"
 msgid_plural "Redo recursive change permissions of %d items"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1661
+#: ../libcaja-private/caja-undostack-manager.c:1720
 #, c-format
 msgid "Redo change permissions of %d item"
 msgid_plural "Redo change permissions of %d items"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1666
+#: ../libcaja-private/caja-undostack-manager.c:1725
 #, c-format
 msgid "Redo change group of %d item"
 msgid_plural "Redo change group of %d items"
 msgstr[0] ""
 
-#: ../libcaja-private/caja-undostack-manager.c:1671
+#: ../libcaja-private/caja-undostack-manager.c:1730
 #, c-format
 msgid "Redo change owner of %d item"
 msgid_plural "Redo change owner of %d items"
@@ -3012,10 +3018,20 @@ msgid ""
 msgstr ""
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:63
+msgid "Whether to show file sizes with IEC units"
+msgstr ""
+
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:64
+msgid ""
+"If set to true, file sizes are shown using IEC (base 1024) units with "
+"\"KiB\" style suffixes, instead of default with SI units."
+msgstr ""
+
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:65
 msgid "List of possible captions on icons"
 msgstr "ಸಾಧ್ಯವಿರುವ ಚಿಹ್ನೆಗಳ ಶೀರ್ಷಿಕೆಗಳ ಪಟ್ಟಿ"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:64
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:66
 msgid ""
 "A list of captions below an icon in the icon view and the desktop. The "
 "actual number of captions shown depends on the zoom level. Some possible "
@@ -3024,44 +3040,44 @@ msgid ""
 "\"octal_permissions\" and \"mime_type\"."
 msgstr ""
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:65
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:67
 msgid "Use tighter layout in new windows"
 msgstr "ಹೊಸ ವಿಂಡೋಗಳಲ್ಲಿ ಒತ್ತಾದ ವಿನ್ಯಾಸವನ್ನು ಬಳಸು"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:66
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:68
 msgid "If true, icons will be laid out tighter by default in new windows."
 msgstr "ನಿಜವಾದಲ್ಲಿ, ಚಿಹ್ನೆಗಳು ಹೊಸ ವಿಂಡೋಗಳಲ್ಲಿ ಪೂರ್ವನಿಯೋಜಿತವಾಗಿ ಒತ್ತೊತ್ತಾಗಿ ಜೋಡಿಸಲ್ಪಡುತ್ತವೆ."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:67
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:69
 msgid "Put labels beside icons"
 msgstr "ಚಿಹ್ನೆಗಳ ಪಕ್ಕದಲ್ಲಿ ಲೇಬಲ್‌ಗಳನ್ನು ಸೇರಿಸು"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:68
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:70
 msgid ""
 "If true, labels will be placed beside icons rather than underneath them."
 msgstr "ನಿಜವಾದಲ್ಲಿ, ಲೇಬಲ್‌ಗಳನ್ನು ಚಿಹ್ನೆಗಳ ಕೆಳಗಡೆ ಇರಿಸುವ ಬದಲು ಅವುಗಳ ಒಳಗೆ ಇರಿಸಲಾಗುತ್ತದೆ."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:69
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:71
 msgid "Default icon zoom level"
 msgstr "ಪೂರ್ವನಿಯೋಜಿತ ಲಾಂಛನ ಹಿಗ್ಗಿಸುವ ಮಟ್ಟ"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:70
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:72
 msgid "Default zoom level used by the icon view."
 msgstr "ಲಾಂಛನ ನೋಟದಲ್ಲಿ ಬಳಸಲಾದ ಪೂರ್ವನಿಯೋಜಿತ ಹಿಗ್ಗಿಸುವ ಮಟ್ಟ."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:71
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:73
 msgid "Default Thumbnail Icon Size"
 msgstr "ಪೂರ್ವನಿಯೋಜಿತ ಲಾಂಛನದ ತಂಬ್‍ನೈಲ್‍ನ ಗಾತ್ರ"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:72
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:74
 msgid "The default size of an icon for a thumbnail in the icon view."
 msgstr "ಚಿಹ್ನೆ ನೋಟದಲ್ಲಿನ ಒಂದು ತಂಬ್‌ನೈಲ್‌ಗಾಗಿ ಚಿಹ್ನೆಯ ಪೂರ್ವನಿಯೋಜಿತ ಗಾತ್ರ."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:73
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:75
 msgid "Text Ellipsis Limit"
 msgstr "ಪಠ್ಯ ಎಲಿಪ್ಸಿಸ್ ಮಿತಿ"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:75
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:77
 #, no-c-format
 msgid ""
 "A string specifying how parts of overlong file names should be replaced by "
@@ -3080,157 +3096,157 @@ msgid ""
 "larger (200%), largest (400%)"
 msgstr "ಹಿಗ್ಗಿಸುವ ಮಟ್ಟಕ್ಕೆ ಅಧರಿತವಾಗಿ ದೊಡ್ಡದಾದ ಕಡತದ ಹೆಸರುಗಳ ಭಾಗಗಳನ್ನು ಹೇಗೆ ದೀರ್ಘವೃತ್ತದಿಂದ ಬದಲಾಯಿಸಬೇಕು ಎಂದು ಸೂಚಿಸುವ ಒಂದು ವಾಕ್ಯ. ಪ್ರತಿಯೊಂದು ನಮೂದುಗಳು \"Zoom Level:Integer\" ಬಗೆಯಲ್ಲಿ ಇರಬೇಕು. ಸೂಚಿಸಲಾದ ಪ್ರತಿಯೊಂದು ಹಿಗ್ಗಿಸುವ ಮಟ್ಟಕ್ಕಾಗಿ, ಒದಗಿಸಲಾದ ಪೂರ್ಣಾಂಕವು 0 ಗಿಂತ ದೊಡ್ಡದಾಗಿದ್ದರೆ, ಒದಗಿಸಲಾದ ಸಾಲುಗಳ ಸಂಖ್ಯೆಗಿಂತ ಕಡತದ ಹೆಸರು ದೊಡ್ಡದಾಗಿರುವುದಿಲ್ಲ. ಎಲ್ಲಿಯಾದರೂ ಪೂರ್ಣಾಂಕವು 0 ಗೆ ಆಗಿದ್ದರೆ ಅಥವ 0 ಗಿಂತ ಚಿಕ್ಕದಾಗಿದ್ದರೆ, ಸೂಚಿಸಲಾಗುವ ಹಿಗ್ಗಿಸುವ ಮಟ್ಟಕ್ಕೆ ಯಾವುದೆ ಮಿತಿ ಇರುವುದಿಲ್ಲ. ಯಾವುದೆ ನಿಶ್ಚಿತ ಹಿಗ್ಗಿಸುವ ಮಟ್ಟವನ್ನು ಸೂಚಿಸದೆ ಕೇವಲ \"Integer\" (ಪೂರ್ಣಾಂಕ) ಬಗೆಯ ಒಂದು ಪೂರ್ವನಿಯೋಜಿತ ನಮೂದಿಗೂ ಸಹ ಅನುಮತಿ ಇದೆ. ಇದು ಎಲ್ಲಾ ಹಿಗ್ಗಿಸುವ ಮಟ್ಟಕ್ಕೆ ಗರಿಷ್ಟ ಸಂಖ್ಯೆಯ ಸಾಲಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ. ಉದಾಹರಣೆಗೆ: 0 - ಯಾವಾಗಲೂ ದೊಡ್ಡದಾದ ಕಡತದ ಹೆಸರುಗಳನ್ನು ಸೂಚಿಸುತ್ತದೆ; 3 - ಕಡತದ ಹೆಸರುಗಳು ಮೂರು ಸಾಲುಗಳಿಗಿಂತ ದೊಡ್ಡದಾಗಿದ್ದಲ್ಲಿ ಅವನ್ನು ಚಿಕ್ಕದಾಗಿಸುತ್ತದೆ; ಅತ್ಯಂತ ಚಿಕ್ಕದಾದ:5, ಅತಿ ಚಿಕ್ಕದಾದ:4,0 - ಹಿಗ್ಗಿಸುವ ಮಟ್ಟ \"smallest\"(ಅತ್ಯಂತ ಚಿಕ್ಕದಾದ) ಗಾಗಿನ ಐದು ಸಾಲುಗಳಿಗಿಂತ ಹೆಚ್ಚಿದ್ದಲ್ಲಿ ಕಡತದ ಹೆಸರನ್ನು ಚಿಕ್ಕದಾಗಿಸುತ್ತದೆ. ಹಿಗ್ಗಿಸುವ ಮಟ್ಟ \"smaller\"(ಅತಿ ಚಿಕ್ಕದಾದ) ಗಾಗಿನ ಐದು ಸಾಲುಗಳಿಗಿಂತ ಹೆಚ್ಚಿದ್ದಲ್ಲಿ ಕಡತದ ಹೆಸರನ್ನು ಚಿಕ್ಕದಾಗಿಸುತ್ತದೆ. ಬೇರೆ ಹಿಗ್ಗಿಸುವ ಮಟ್ಟಗಳಿಗಾಗಿ ಕಡತದ ಹೆಸರುಗಳನ್ನು ಚಿಕ್ಕದಾಗಿಸುವುದಿಲ್ಲ. ಲಭ್ಯವಿರುವ ಹಿಗ್ಗಿಸುವ ಮಟ್ಟಗಳೆಂದರೆ: smallest(ಅತ್ಯಂತ ಚಿಕ್ಕದಾದ) (33%), smaller (ಅತಿ ಚಿಕ್ಕದಾದ)(50%), small(ಚಿಕ್ಕದಾದ) (66%), standard (ಸಾಧಾರಣ)(100%), large (ದೊಡ್ಡದಾದ)(150%), larger (ಅತ್ಯಂತ ದೊಡ್ಡದಾದ) (200%), largest (ಬೃಹತ್ತ)(400%)"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:76
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:78
 msgid "Default compact view zoom level"
 msgstr "ಪೂರ್ವನಿಯೋಜಿತ ಸಾಂದ್ರ ನೋಟದ ಹಿಗ್ಗಿಸುವ ಮಟ್ಟ"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:77
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:79
 msgid "Default zoom level used by the compact view."
 msgstr "ಸಾಂದ್ರ ನೋಟದಲ್ಲಿ ಬಳಸಲಾದ ಪೂರ್ವನಿಯೋಜಿತ ಹಿಗ್ಗಿಸುವ ಮಟ್ಟ."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:78
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:80
 msgid "All columns have same width"
 msgstr "ಎಲ್ಲಾ ಕಾಲಂ ಒಂದೇ ಬಗೆಯ ಅಗಲವನ್ನು ಹೊಂದಿವೆ"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:79
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:81
 msgid ""
 "If this preference is set, all columns in the compact view have the same "
 "width. Otherwise, the width of each column is determined seperately."
 msgstr "ಈ ಆದ್ಯತೆಯನ್ನು ಹೊಂದಿಸಿದಲ್ಲಿ, ಸಾಂದ್ರ ನೋಟದಲ್ಲಿನ ಎಲ್ಲಾ ಕಾಲಂಗಳು ಒಂದೇ ಅಗಲವನ್ನು ಹೊಂದಿರುತ್ತವೆ. ಇಲ್ಲದೆ ಹೋದಲ್ಲಿ, ಪ್ರತಿಯೊಂದು ಕಾಲಂಗಳ ಅಗಲವನ್ನು ಪ್ರತ್ಯೇಕವಾಗಿ ಸೂಚಿಸಬೇಕಾಗುತ್ತದೆ."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:80
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:82
 msgid "Default list zoom level"
 msgstr "ಪಟ್ಟಿಯ ಪೂರ್ವನಿಯೋಜಿತ ಹಿಗ್ಗಿಸುವ ಮಟ್ಟ"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:81
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:83
 msgid "Default zoom level used by the list view."
 msgstr "ಪಟ್ಟಿ ನೋಟದಲ್ಲಿ ಬಳಸಲಾದ ಪೂರ್ವನಿಯೋಜಿತ ಹಿಗ್ಗಿಸುವ ಮಟ್ಟ."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:82
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:84
 msgid "Default list of columns visible in the list view"
 msgstr "ಪಟ್ಟಿ ನೋಟದಲ್ಲಿ ಕಾಣಿಸುವ ಪೂರ್ವನಿಯೋಜಿತ ಕಾಲಂಗಳ ಪಟ್ಟಿ"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:83
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:85
 msgid "Default list of columns visible in the list view."
 msgstr "ಪಟ್ಟಿ ನೋಟದಲ್ಲಿ ಕಾಣಿಸುವ ಕಾಲಂಗಳ ಪೂರ್ವನಿಯೋಜಿತ ಪಟ್ಟಿ."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:84
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:86
 msgid "Default column order in the list view"
 msgstr "ಪಟ್ಟಿ ನೋಟದಲ್ಲಿ ಪೂರ್ವನಿಯೋಜಿತ ಕಾಲಂ ಅನುಕ್ರಮ"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:85
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:87
 msgid "Default column order in the list view."
 msgstr "ಪಟ್ಟಿ ನೋಟದಲ್ಲಿ ಪೂರ್ವನಿಯೋಜಿತ ಕಾಲಂ ಅನುಕ್ರಮ."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:86
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:88
 msgid "Only show folders in the tree side pane"
 msgstr "ಕೇವಲ ವೃಕ್ಷ ಅಂಚಿನ ಫಲಕದಲ್ಲಿ ಕಡತಕೋಶಗಳನ್ನು ತೋರಿಸು"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:87
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:89
 msgid ""
 "If set to true, Caja will only show folders in the tree side pane. Otherwise"
 " it will show both folders and files."
 msgstr "ನಿಜ ಎಂದಾದಲ್ಲಿ, Caja ಕಡತಕೋಶಗಳನ್ನು ಕೇವಲ ವೃಕ್ಷ ನೋಟದಲ್ಲಿ ತೋರಿಸುತ್ತದೆ. ಇಲ್ಲದೆ ಹೋದಲ್ಲಿ ಕಡತಕೋಶ ಹಾಗು ಕಡತಗಳೆರಡನ್ನೂ ತೋರಿಸುತ್ತದೆ."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:88
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:90
 msgid "Desktop font"
 msgstr "ಗಣಕತೆರೆ ಅಕ್ಷರ ಶೈಲಿ"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:89
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:91
 msgid "The font _description used for the icons on the desktop."
 msgstr ""
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:90
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:92
 msgid "Home icon visible on desktop"
 msgstr "ಗಣಕತೆರೆಯಲ್ಲಿ ಕಾಣಿಸುವ ನೆಲೆಯ ಲಾಂಛನ"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:91
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:93
 msgid ""
 "If this is set to true, an icon linking to the home folder will be put on "
 "the desktop."
 msgstr "ಇದು ನಿಜ ಎಂದಾಗಿದ್ದಲ್ಲಿ, ನೆಲೆ ಕಡತಕೋಶಕ್ಕೆ ಕೊಂಡಿ ಜೋಡಿಸುವ ಒಂದು ಚಿಹ್ನೆಯನ್ನು ಗಣಕತೆರೆಯಲ್ಲಿ ಇರಿಸಲಾಗುತ್ತದೆ."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:92
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:94
 msgid "Computer icon visible on desktop"
 msgstr "ಗಣಕತೆರೆಯಲ್ಲಿ ಕಾಣುವ ಗಣಕ ಚಿಹ್ನೆ"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:93
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:95
 msgid ""
 "If this is set to true, an icon linking to the computer location will be put"
 " on the desktop."
 msgstr "ಇದು ನಿಜ ಎಂದಾಗಿದ್ದಲ್ಲಿ, ಗಣಕದ ತಾಣಕ್ಕೆ ಕೊಂಡಿ ಜೋಡಿಸುವ ಒಂದು ಚಿಹ್ನೆಯು ಗಣಕತೆರೆಯಲ್ಲಿ ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತದೆ."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:94
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:96
 msgid "Trash icon visible on desktop"
 msgstr "ಗಣಕತೆರೆಯಲ್ಲಿ ಕಾಣಿಸಿಕೊಳ್ಳುವ ಕಸದಬುಟ್ಟಿಯ ಚಿಹ್ನೆ"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:95
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:97
 msgid ""
 "If this is set to true, an icon linking to the trash will be put on the "
 "desktop."
 msgstr "ಇದು ನಿಜ ಎಂದಾಗಿದ್ದಲ್ಲಿ, ಕಸದ ಬುಟ್ಟಿಗೆ ಕೊಂಡಿ ಜೋಡಿಸುವ ಒಂದು ಚಿಹ್ನೆಯನ್ನು ಗಣಕತೆರೆಯಲ್ಲಿ ಇರಿಸಲಾಗುತ್ತದೆ."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:96
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:98
 msgid "Show mounted volumes on the desktop"
 msgstr "ಆರೋಹಿಸಲಾದ ಪರಿಮಾಣಗಳನ್ನು ಗಣಕದಲ್ಲಿ ತೋರಿಸು"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:97
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:99
 msgid ""
 "If this is set to true, icons linking to mounted volumes will be put on the "
 "desktop."
 msgstr "ಇದು ನಿಜ ಎಂದಾಗಿದ್ದಲ್ಲಿ, ಆರೋಹಿಸಲಾದ ಪರಿಮಾಣಗಳಿಗೆ ಕೊಂಡಿ ಜೋಡಿಸುವ ಒಂದು ಚಿಹ್ನೆಯನ್ನು ಗಣಕತೆರೆಯಲ್ಲಿ ಇರಿಸಲಾಗುತ್ತದೆ."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:98
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:100
 msgid "Network Servers icon visible on the desktop"
 msgstr "ಗಣಕತೆರೆಯ ಮೇಲೆ ಕಾಣಿಸಿಕೊಳ್ಳುವ ಜಾಲಬಂಧ ಪರಿಚಾರಕಗಳ ಲಾಂಛನ"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:99
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:101
 msgid ""
 "If this is set to true, an icon linking to the Network Servers view will be "
 "put on the desktop."
 msgstr "ನಿಜ ಎಂದಾದಲ್ಲಿ, ಜಾಲ ಬಂಧ ಪರಿಚಾರಕಕ್ಕೆ ಕೊಂಡಿ ಜೋಡಿಸುವ ಒಂದು ಚಿಹ್ನೆಯು ಗಣಕತೆರೆಯಲ್ಲಿ ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತದೆ."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:100
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:102
 msgid "Desktop computer icon name"
 msgstr "ಗಣಕತೆರೆ ಗಣಕ ಲಾಂಛನದ ಹೆಸರು"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:101
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:103
 msgid ""
 "This name can be set if you want a custom name for the computer icon on the "
 "desktop."
 msgstr "ಗಣಕತೆರೆಯಲ್ಲಿರುವ ಗಣಕದ ಚಿಹ್ನೆಯು ನಿಮ್ಮ ಇಚ್ಛೆಯ ಒಂದು ಹೆಸರನ್ನು ನೀಡಲು ನೀವು ಬಯಸಿದಲ್ಲಿ ಇದನ್ನು ಹೊಂದಿಸಬಹುದು."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:102
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:104
 msgid "Desktop home icon name"
 msgstr "ಗಣಕತೆರೆಯ ನೆಲೆ ಲಾಂಛನದ ಹೆಸರು"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:103
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:105
 msgid ""
 "This name can be set if you want a custom name for the home icon on the "
 "desktop."
 msgstr "ಗಣಕತೆರೆಯಲ್ಲಿರುವ ನೆಲೆಯ ಚಿಹ್ನೆಯು ನಿಮ್ಮ ಇಚ್ಛೆಯ ಒಂದು ಹೆಸರನ್ನು ನೀಡಲು ನೀವು ಬಯಸಿದಲ್ಲಿ ಇದನ್ನು ಹೊಂದಿಸಬಹುದು."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:104
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:106
 msgid "Desktop trash icon name"
 msgstr "ಗಣಕತೆರೆಯ ಕಸದ ಬುಟ್ಟಿಯ ಲಾಂಛನದ ಹೆಸರು"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:105
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:107
 msgid ""
 "This name can be set if you want a custom name for the trash icon on the "
 "desktop."
 msgstr "ಗಣಕತೆರೆಯಲ್ಲಿರುವ ಕಸದಬುಟ್ಟಿ ಚಿಹ್ನೆಯು ನಿಮ್ಮ ಇಚ್ಛೆಯ ಒಂದು ಹೆಸರನ್ನು ನೀಡಲು ನೀವು ಬಯಸಿದಲ್ಲಿ ಇದನ್ನು ಹೊಂದಿಸಬಹುದು."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:106
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:108
 msgid "Network servers icon name"
 msgstr "ಜಾಲಬಂಧ ಪರಿಚಾರಕಗಳ ಲಾಂಛನ ಹೆಸರು"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:107
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:109
 msgid ""
 "This name can be set if you want a custom name for the network servers icon "
 "on the desktop."
 msgstr "ಗಣಕತೆರೆಯಲ್ಲಿರುವ ಜಾಲಬಂಧ ಪರಿಚಾರಕಗಳ ಚಿಹ್ನೆಗೆ ನಿಮ್ಮ ಇಚ್ಛೆಯ ಒಂದು ಹೆಸರನ್ನು ನೀಡಲು ನೀವು ಬಯಸಿದಲ್ಲಿ ಇದನ್ನು ಹೊಂದಿಸಬಹುದು."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:108
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:110
 msgid ""
 "An integer specifying how parts of overlong file names should be replaced by"
 " ellipses on the desktop. If the number is larger than 0, the file name will"
@@ -3238,70 +3254,70 @@ msgid ""
 "limit is imposed on the number of displayed lines."
 msgstr "ದೊಡ್ಡದಾದ ಕಡತದ ಹೆಸರುಗಳ ಭಾಗಗಳನ್ನು ಹೇಗೆ ಗಣಕತೆರೆಯಲ್ಲಿನ ದೀರ್ಘವೃತ್ತಗಳಿಂದ ಬದಲಾಯಿಸಬೇಕು ಎಂದು ಸೂಚಿಸುವ ಒಂದು ಪೂರ್ಣಾಂಕ. ಸಂಖ್ಯೆಯು 0 ಗಿಂತ ದೊಡ್ಡದಾಗಿದ್ದಲ್ಲಿ, ಕಡತದ ಹೆಸರುಗಳು ಒದಗಿಸಲಾದ ಸಾಲುಗಳ ಸಂಖ್ಯೆಯನ್ನು ಮೀರುವುದಿಲ್ಲ. ಸಂಖ್ಯೆಯು 0 ಅಥವ 0 ಗಿಂತ ಸಣ್ಣದಾಗಿದ್ದರೆ, ತೋರಿಸಲಾಗುವ ಸಾಲುಗಳ ಮೇಲೆ ಯಾವುದೆ ಮಿತಿಯನ್ನು ಹೇರಲಾಗುವುದಿಲ್ಲ."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:109
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:111
 msgid "The geometry string for a navigation window."
 msgstr ""
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:110
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:112
 msgid ""
 "A string containing the saved geometry and coordinates string for navigation"
 " windows."
 msgstr ""
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:111
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:113
 msgid "Whether the navigation window should be maximized."
 msgstr ""
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:112
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:114
 msgid "Whether the navigation window should be maximized by default."
 msgstr ""
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:113
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:115
 msgid "Width of the side pane"
 msgstr "ಅಂಚಿನ ಫಲಕದ ಅಗಲ"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:114
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:116
 msgid "The default width of the side pane in new windows."
 msgstr "ಹೊಸ ವಿಂಡೋಗಳ ಅಂಚಿನ ಫಲಕದ ಪೂರ್ವನಿಯೋಜಿತ ಅಗಲ."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:115
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:117
 msgid "Show toolbar in new windows"
 msgstr "ಹೊಸ ವಿಂಡೋಗಳಲ್ಲಿ ಉಪಕರಣಪಟ್ಟಿಯನ್ನು ತೋರಿಸು"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:116
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:118
 msgid "If set to true, newly opened windows will have toolbars visible."
 msgstr "ನಿಜ ಎಂದಾದಲ್ಲಿ, ಹೊಸದಾಗಿ ತೆರೆಯಲಾದ ವಿಂಡೋಗಳ ಉಪಕರಣ ಪಟ್ಟಿಗಳು ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತದೆ."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:117
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:119
 msgid "Show location bar in new windows"
 msgstr "ಸ್ಥಳದ ಪಟ್ಟಿಯನ್ನು ಹೊಸ ವಿಂಡೋಗಳಲ್ಲಿ ತೋರಿಸು"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:118
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:120
 msgid ""
 "If set to true, newly opened windows will have the location bar visible."
 msgstr "ನಿಜ ಎಂದಾದಲ್ಲಿ, ಹೊಸದಾಗಿ ತೆರೆಯಲಾದ ವಿಂಡೋಗಳ ಸ್ಥಳ ಪಟ್ಟಿಯು ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತದೆ."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:119
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:121
 msgid "Show status bar in new windows"
 msgstr "ಹೊಸ ವಿಂಡೋಗಳಲ್ಲಿ ಸ್ಥಿತಿಪಟ್ಟಿಯನ್ನು ತೋರಿಸು"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:120
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:122
 msgid "If set to true, newly opened windows will have the status bar visible."
 msgstr "ನಿಜ ಎಂದಾದಲ್ಲಿ, ಹೊಸದಾಗಿ ತೆರೆಯಲಾದ ವಿಂಡೋಗಳ ಸ್ಥಿತಿ ಪಟ್ಟಿಯು ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತದೆ."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:121
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:123
 msgid "Show side pane in new windows"
 msgstr "ಹೊಸ ವಿಂಡೋಗಳಲ್ಲಿ ಅಂಚಿನ ಫಲಕವನ್ನು ತೋರಿಸು"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:122
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:124
 msgid "If set to true, newly opened windows will have the side pane visible."
 msgstr "ನಿಜ ಎಂದಾದಲ್ಲಿ, ಹೊಸದಾಗಿ ತೆರೆಯಲಾದ ವಿಂಡೋಗಳ ಅಂಚಿನ ಫಲಕವು ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತದೆ."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:123
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:125
 msgid "Side pane view"
 msgstr "ಅಂಚಿನ ಫಲಕದ ನೋಟ"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:124
+#: ../libcaja-private/org.mate.caja.gschema.xml.in.h:126
 msgid "The side pane view to show in newly opened windows."
 msgstr "ಹೊಸದಾಗಿ ತೆರೆಯಲಾದ ವಿಂಡೋಗಳನ್ನು ತೋರಿಸಲು ಬಲ ಅಂಚಿನ ಫಲಕ."
 
@@ -3375,20 +3391,24 @@ msgstr "ಆದ್ಯತೆಗಳ capplet ನಲ್ಲಿ ಬಳಕೆದಾರ�
 msgid "Autorun Prompt"
 msgstr "ತಾನಾಗಿಯೆ ಚಲಾಯಿಸುವ ಪ್ರಾಪ್ಟ್"
 
+#. Set initial window title
 #: ../data/caja-browser.desktop.in.in.h:1
+#: ../data/caja-folder-handler.desktop.in.in.h:1
+#: ../data/caja.desktop.in.in.h:1 ../src/caja-spatial-window.c:381
+#: ../src/caja-window-menus.c:532 ../src/caja-window.c:162
+msgid "Caja"
+msgstr "Caja‍"
+
+#: ../data/caja-browser.desktop.in.in.h:2
 msgid "File Browser"
 msgstr "ಕಡತ ವೀಕ್ಷಕ"
 
-#: ../data/caja-browser.desktop.in.in.h:2
+#: ../data/caja-browser.desktop.in.in.h:3
 msgid "Browse the file system with the file manager"
 msgstr "ಕಡತ ವ್ಯವಸ್ಥಾಪಕದೊಂದಿಗೆ ಕಡತ ವ್ಯವಸ್ಥೆಯನ್ನು ಶೋಧಿಸು"
 
-#: ../data/caja-computer.desktop.in.in.h:1 ../src/caja-places-sidebar.c:674
-msgid "Computer"
-msgstr "ಗಣಕ"
-
 #. tooltip
-#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:907
+#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:923
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
 msgstr "ಈ ಗಣಕಿದಿಂದ ನಿಲುಕಿಸಿಕೊಳ್ಳಬಹುದಾದಂತಹ ಸ್ಥಳೀಯ ಹಾಗು ದೂರಸ್ಥ ಡಿಸ್ಕುಗಳನ್ನು ಮತ್ತು ಕಡತಕೋಶಗಳನ್ನು ವೀಕ್ಷಿಸು"
@@ -3407,11 +3427,11 @@ msgstr "ನೆಲೆ (Home) ಕಡತಕೋಶ"
 
 #. tooltip
 #: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:690
-#: ../src/caja-window-menus.c:902
+#: ../src/caja-window-menus.c:918
 msgid "Open your personal folder"
 msgstr "ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಕಡತಕೋಶವನ್ನು ತೆರೆಯಿರಿ"
 
-#: ../data/caja.desktop.in.in.h:1
+#: ../data/caja.desktop.in.in.h:2
 msgid "File Manager"
 msgstr "ಕಡತ ವ್ಯವಸ್ಥಾಪಕ"
 
@@ -3422,8 +3442,8 @@ msgstr "ಹಿಂಭಾಗ"
 #. name, stock id
 #. label, accelerator
 #: ../src/file-manager/fm-desktop-icon-view.c:725
-#: ../src/file-manager/fm-directory-view.c:7221
-#: ../src/file-manager/fm-directory-view.c:8899
+#: ../src/file-manager/fm-directory-view.c:7318
+#: ../src/file-manager/fm-directory-view.c:8996
 msgid "E_mpty Trash"
 msgstr "ಕಸಬುಟ್ಟಿಯನ್ನು ಖಾಲಿಮಾಡು(_m)"
 
@@ -3431,13 +3451,13 @@ msgstr "ಕಸಬುಟ್ಟಿಯನ್ನು ಖಾಲಿಮಾಡು(_m)"
 #. name, stock id
 #. label, accelerator
 #: ../src/file-manager/fm-desktop-icon-view.c:739
-#: ../src/file-manager/fm-directory-view.c:7185
+#: ../src/file-manager/fm-directory-view.c:7282
 msgid "Create L_auncher..."
 msgstr "ಆರಂಭಕವನ್ನು ರಚಿಸಿ(_a)..."
 
 #. tooltip
 #: ../src/file-manager/fm-desktop-icon-view.c:741
-#: ../src/file-manager/fm-directory-view.c:7186
+#: ../src/file-manager/fm-directory-view.c:7283
 msgid "Create a new launcher"
 msgstr "ಹೊಸ ಆರಂಭಕವನ್ನು ರಚಿಸಿ"
 
@@ -3459,7 +3479,7 @@ msgstr "ಕಸಬುಟ್ಟಿಯನ್ನು ಖಾಲಿಮಾಡು"
 
 #. tooltip
 #: ../src/file-manager/fm-desktop-icon-view.c:759
-#: ../src/file-manager/fm-directory-view.c:7222 ../src/caja-trash-bar.c:203
+#: ../src/file-manager/fm-directory-view.c:7319 ../src/caja-trash-bar.c:203
 msgid "Delete all items in the Trash"
 msgstr "ಕಸದ ಬುಟ್ಟಿಯಲ್ಲಿನ ಎಲ್ಲಾ ಅಂಶಗಳನ್ನು ಅಳಿಸಿಹಾಕು"
 
@@ -3484,7 +3504,7 @@ msgid_plural "This will open %'d separate windows."
 msgstr[0] ""
 
 #: ../src/file-manager/fm-directory-view.c:1174
-#: ../src/file-manager/fm-properties-window.c:5527
+#: ../src/file-manager/fm-properties-window.c:5537
 #: ../src/caja-connect-server-dialog.c:692 ../src/caja-location-dialog.c:102
 msgid "There was an error displaying help."
 msgstr "ಸಹಾಯವನ್ನು ತೋರಿಸುವಾಗ ಒಂದು ದೋಷ ಉಂಟಾಗಿದೆ."
@@ -3560,18 +3580,17 @@ msgstr[0] ""
 #. * needs to use something other than parentheses. The
 #. * first message gives the number of items selected;
 #. * the message in parentheses the size of those items.
-#. 
-#: ../src/file-manager/fm-directory-view.c:2340
+#: ../src/file-manager/fm-directory-view.c:2343
 #, c-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-directory-view.c:2353
+#: ../src/file-manager/fm-directory-view.c:2356
 #, c-format
 msgid "Free space: %s"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:2364
+#: ../src/file-manager/fm-directory-view.c:2367
 #, c-format
 msgid "%s, Free space: %s"
 msgstr "%s, ಮುಕ್ತ ಸ್ಥಳ: %s"
@@ -3580,8 +3599,7 @@ msgstr "%s, ಮುಕ್ತ ಸ್ಥಳ: %s"
 #. * might want to change "," to something else.
 #. * After the comma the amount of free space will
 #. * be shown.
-#. 
-#: ../src/file-manager/fm-directory-view.c:2379
+#: ../src/file-manager/fm-directory-view.c:2382
 #, c-format
 msgid "%s, %s"
 msgstr ""
@@ -3590,16 +3608,14 @@ msgstr ""
 #. * might want to change "," to something else.
 #. * After the comma the amount of free space will
 #. * be shown.
-#. 
 #. This is marked for translation in case a localizer
 #. * needs to change ", " to something else. The comma
 #. * is between the message about the number of folders
 #. * and the number of items in those folders and the
 #. * message about the number of other items and the
 #. * total size of those items.
-#. 
-#: ../src/file-manager/fm-directory-view.c:2398
-#: ../src/file-manager/fm-directory-view.c:2412
+#: ../src/file-manager/fm-directory-view.c:2401
+#: ../src/file-manager/fm-directory-view.c:2415
 #, c-format
 msgid "%s%s, %s"
 msgstr "%s%s, %s"
@@ -3611,45 +3627,52 @@ msgstr "%s%s, %s"
 #. * message about the number of other items and the
 #. * total size of those items. After the second comma
 #. * the free space is written.
-#. 
-#: ../src/file-manager/fm-directory-view.c:2425
+#: ../src/file-manager/fm-directory-view.c:2428
 #, c-format
 msgid "%s%s, %s, %s"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:4460
+#: ../src/file-manager/fm-directory-view.c:4473
 #: ../src/caja-information-panel.c:907
 #, c-format
 msgid "Open With %s"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:4462
+#: ../src/file-manager/fm-directory-view.c:4475
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
 msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:5326
+#: ../src/file-manager/fm-directory-view.c:4564
+msgid "Open parent location"
+msgstr ""
+
+#: ../src/file-manager/fm-directory-view.c:4565
+msgid "Open parent location for the selected item"
+msgstr ""
+
+#: ../src/file-manager/fm-directory-view.c:5423
 #, c-format
 msgid "Run \"%s\" on any selected items"
 msgstr "\"%s\" ಅನ್ನು ಯಾವುದೇ ಆರಿಸಲ್ಪಟ್ಟ ಅಂಶಗಳೊಂದಿಗೆ ಚಲಾಯಿಸು"
 
-#: ../src/file-manager/fm-directory-view.c:5577
+#: ../src/file-manager/fm-directory-view.c:5674
 #, c-format
 msgid "Create Document from template \"%s\""
 msgstr "\"%s\" ನಮೂನೆಯಿಂದ ದಸ್ತಾವೇಜನ್ನು ರಚಿಸು"
 
-#: ../src/file-manager/fm-directory-view.c:5827
+#: ../src/file-manager/fm-directory-view.c:5924
 msgid "All executable files in this folder will appear in the Scripts menu."
 msgstr "ಈ ಕಡತಕೋಶದಲ್ಲಿರುವ ಕಾರ್ಯಗತಗೊಳಿಸಬಹುದಾದಂತಹ ಎಲ್ಲಾ ಕಡತಗಳು ಸ್ಕ್ರಿಪ್ಟುಗಳ ಮೆನುವಿಲ್ಲಿ ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತದೆ."
 
-#: ../src/file-manager/fm-directory-view.c:5829
+#: ../src/file-manager/fm-directory-view.c:5926
 msgid ""
 "Choosing a script from the menu will run that script with any selected items"
 " as input."
 msgstr "ಮೆನುವಿನಿಂದ ಒಂದು ಸ್ಕ್ರಿಪ್ಟನ್ನು ಆರಿಸಿದಾಗ, ಆ ಸ್ಕ್ರಿಪ್ಟ್ ಆರಿಸಲಾದ ಯಾವುದಾದರು ಅಂಶಗಳನ್ನು ಇನ್‌ಪುಟ್‌ಗಳೆಂದು ಪರಿಗಣಿಸಿ ಅವುಗಳೊಂದಿಗೆ ಚಲಾಯಿಸಲ್ಪಡುತ್ತದೆ."
 
-#: ../src/file-manager/fm-directory-view.c:5831
+#: ../src/file-manager/fm-directory-view.c:5928
 msgid ""
 "All executable files in this folder will appear in the Scripts menu. Choosing a script from the menu will run that script.\n"
 "\n"
@@ -3672,124 +3695,124 @@ msgid ""
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI for current location in the inactive pane of a split-view window"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:5899
+#: ../src/file-manager/fm-directory-view.c:5996
 #: ../src/file-manager/fm-tree-view.c:998
 #, c-format
 msgid "\"%s\" will be moved if you select the Paste command"
 msgstr "ಅಂಟಿಸು ಆಜ್ಞೆಯನ್ನು ನೀವು ಆರಿಸಿದಲ್ಲಿ \"%s\" ಸ್ಥಳಾಂತರ ಮಾಡಲ್ಪಡುತ್ತದೆ"
 
-#: ../src/file-manager/fm-directory-view.c:5903
+#: ../src/file-manager/fm-directory-view.c:6000
 #: ../src/file-manager/fm-tree-view.c:1004
 #, c-format
 msgid "\"%s\" will be copied if you select the Paste command"
 msgstr "ಅಂಟಿಸು ಆಜ್ಞೆಯನ್ನು ನೀವು ಆರಿಸಿದಲ್ಲಿ \"%s\" ಕಾಪಿ ಮಾಡಲ್ಪಡುತ್ತದೆ"
 
-#: ../src/file-manager/fm-directory-view.c:5910
+#: ../src/file-manager/fm-directory-view.c:6007
 #, c-format
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be moved if you select the Paste command"
 msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:5917
+#: ../src/file-manager/fm-directory-view.c:6014
 #, c-format
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be copied if you select the Paste command"
 msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:6097
+#: ../src/file-manager/fm-directory-view.c:6194
 #: ../src/file-manager/fm-tree-view.c:1044
 msgid "There is nothing on the clipboard to paste."
 msgstr "ಅಂಟಿಸಲು ಕ್ಲಿಪ್‌ಬೋರ್ಡಿನಲ್ಲಿ ಏನೂ ಇಲ್ಲ."
 
-#: ../src/file-manager/fm-directory-view.c:6312
+#: ../src/file-manager/fm-directory-view.c:6409
 msgid "Unable to unmount location"
 msgstr "ಸ್ಥಳವನ್ನು ಅವರೋಹಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ"
 
-#: ../src/file-manager/fm-directory-view.c:6333
+#: ../src/file-manager/fm-directory-view.c:6430
 msgid "Unable to eject location"
 msgstr "ಸ್ಥಳವನ್ನು ಹೊರತಳ್ಳಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ"
 
-#: ../src/file-manager/fm-directory-view.c:6348
+#: ../src/file-manager/fm-directory-view.c:6445
 msgid "Unable to stop drive"
 msgstr "ಡ್ರೈವನ್ನು ನಿಲ್ಲಿಸಲಾಗಿಲ್ಲ"
 
-#: ../src/file-manager/fm-directory-view.c:6905
+#: ../src/file-manager/fm-directory-view.c:7002
 #, c-format
 msgid "Connect to Server %s"
 msgstr "%s ಪರಿಚಾರಕಕ್ಕೆ ಸಂಪರ್ಕ ಕಲ್ಪಿಸು"
 
-#: ../src/file-manager/fm-directory-view.c:6910
-#: ../src/file-manager/fm-directory-view.c:8118
-#: ../src/file-manager/fm-directory-view.c:8210
-#: ../src/file-manager/fm-directory-view.c:8320
+#: ../src/file-manager/fm-directory-view.c:7007
+#: ../src/file-manager/fm-directory-view.c:8215
+#: ../src/file-manager/fm-directory-view.c:8307
+#: ../src/file-manager/fm-directory-view.c:8417
 msgid "_Connect"
 msgstr "ಸಂಪರ್ಕ ಕಲ್ಪಿಸು(_C)"
 
-#: ../src/file-manager/fm-directory-view.c:6924
+#: ../src/file-manager/fm-directory-view.c:7021
 msgid "Link _name:"
 msgstr "ಕೊಂಡಿಯ ಹೆಸರು(_n):"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7163
+#: ../src/file-manager/fm-directory-view.c:7260
 msgid "Create _Document"
 msgstr "ದಸ್ತಾವೇಜನ್ನು ನಿರ್ಮಿಸು(_D)"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7164
+#: ../src/file-manager/fm-directory-view.c:7261
 msgid "Open Wit_h"
 msgstr "ಇದರಿಂದ ತೆರೆ(_h)"
 
-#: ../src/file-manager/fm-directory-view.c:7165
+#: ../src/file-manager/fm-directory-view.c:7262
 msgid "Choose a program with which to open the selected item"
 msgstr "ಆರಿಸಲ್ಪಟ್ಟ ಅಂಶವನ್ನು ತೆರೆಯಲು ಒಂದು ಪ್ರೋಗ್ರಾಂ ಅನ್ನು ಆರಿಸಿ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7167
-#: ../src/file-manager/fm-directory-view.c:7446
+#: ../src/file-manager/fm-directory-view.c:7264
+#: ../src/file-manager/fm-directory-view.c:7543
 msgid "_Properties"
 msgstr "ಗುಣಲಕ್ಷಣಗಳು(_P)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7168
-#: ../src/file-manager/fm-directory-view.c:8886
+#: ../src/file-manager/fm-directory-view.c:7265
+#: ../src/file-manager/fm-directory-view.c:8983
 msgid "View or modify the properties of each selected item"
 msgstr "ಆರಿಸಲ್ಪಟ್ಟ ಪ್ರತಿ ಅಂಶದ ಗುಣಲಕ್ಷಣಗಳನ್ನು ವೀಕ್ಷಿಸು ಅಥವ ಮಾರ್ಪಡಿಸು"
 
 #. name, stock id
 #. label, accelerator
 #. add the "create folder" menu item
-#: ../src/file-manager/fm-directory-view.c:7175
+#: ../src/file-manager/fm-directory-view.c:7272
 #: ../src/file-manager/fm-tree-view.c:1287
 msgid "Create _Folder"
 msgstr "ಕಡತಕೋಶವನ್ನು ಸೃಷ್ಟಿಸು(_F)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7176
+#: ../src/file-manager/fm-directory-view.c:7273
 msgid "Create a new empty folder inside this folder"
 msgstr "ಈ ಕಡತಕೋಶದಲ್ಲಿ ಒಂದು ಹೊಸ ಖಾಲಿ ಕಡತಕೋಶವನ್ನು ರಚಿಸು"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7178
+#: ../src/file-manager/fm-directory-view.c:7275
 msgid "No templates installed"
 msgstr "ಯಾವುದೇ ನಮೂನೆಗಳು ಅನುಸ್ಥಾಪಿತಗೊಂಡಿಲ್ಲ"
 
 #. name, stock id
 #. translators: this is used to indicate that a file doesn't contain anything
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7181
+#: ../src/file-manager/fm-directory-view.c:7278
 msgid "_Empty File"
 msgstr "ಖಾಲಿ ಕಡತ(_E)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7182
+#: ../src/file-manager/fm-directory-view.c:7279
 msgid "Create a new empty file inside this folder"
 msgstr "ಈ ಕಡತಕೋಶದಲ್ಲಿ ಒಂದು ಹೊಸ ಖಾಲಿ ಕಡತವನ್ನು ರಚಿಸು"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7190
+#: ../src/file-manager/fm-directory-view.c:7287
 msgid "Open the selected item in this window"
 msgstr "ಆರಿಸಲ್ಪಟ್ಟ ಪ್ರತಿಯೊಂದು ಅಂಶವನ್ನೂ ಈ ವಿಂಡೋದಲ್ಲಿ ತೆರೆ"
 
@@ -3798,91 +3821,91 @@ msgstr "ಆರಿಸಲ್ಪಟ್ಟ ಪ್ರತಿಯೊಂದು ಅಂಶ�
 #. Location-specific actions
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7197
-#: ../src/file-manager/fm-directory-view.c:7378
+#: ../src/file-manager/fm-directory-view.c:7294
+#: ../src/file-manager/fm-directory-view.c:7475
 msgid "Open in Navigation Window"
 msgstr "ನ್ಯಾವಿಗೇಶನ್ ವಿಂಡೋದಲ್ಲಿ ತೆರೆ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7198
+#: ../src/file-manager/fm-directory-view.c:7295
 msgid "Open each selected item in a navigation window"
 msgstr "ಆರಿಸಲ್ಪಟ್ಟ ಪ್ರತಿಯೊಂದು ಅಂಶವನ್ನೂ ನ್ಯಾವಿಗೇಶನ್ ವಿಂಡೋದಲ್ಲಿ ತೆರೆ"
 
 #. name, stock id
 #. label, accelerator
 #. add the "open in new tab" menu item
-#: ../src/file-manager/fm-directory-view.c:7201
-#: ../src/file-manager/fm-directory-view.c:7382
-#: ../src/file-manager/fm-directory-view.c:8450
-#: ../src/file-manager/fm-directory-view.c:8776
+#: ../src/file-manager/fm-directory-view.c:7298
+#: ../src/file-manager/fm-directory-view.c:7479
+#: ../src/file-manager/fm-directory-view.c:8547
+#: ../src/file-manager/fm-directory-view.c:8873
 #: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2661
 msgid "Open in New _Tab"
 msgstr "ಹೊಸ ಹಾಳೆಯಲ್ಲಿ ತೆರೆ (_T)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7202
+#: ../src/file-manager/fm-directory-view.c:7299
 msgid "Open each selected item in a new tab"
 msgstr "ಆರಿಸಲ್ಪಟ್ಟ ಪ್ರತಿಯೊಂದು ಅಂಶವನ್ನೂ ಹೊಸ ಹಾಳೆಯಲ್ಲಿ ತೆರೆ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7205
-#: ../src/file-manager/fm-directory-view.c:7387
+#: ../src/file-manager/fm-directory-view.c:7302
+#: ../src/file-manager/fm-directory-view.c:7484
 msgid "Open in _Folder Window"
 msgstr "ಕಡತಕೋಶ ವಿಂಡೊದಲ್ಲಿ ತೆರೆ(_F)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7206
+#: ../src/file-manager/fm-directory-view.c:7303
 msgid "Open each selected item in a folder window"
 msgstr "ಆರಿಸಲ್ಪಟ್ಟ ಪ್ರತಿಯೊಂದು ಅಂಶವನ್ನು ಒಂದು ಕಡತಕೋಶ ವಿಂಡೋದಲ್ಲಿ ತೆರೆ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7209
+#: ../src/file-manager/fm-directory-view.c:7306
 msgid "Other _Application..."
 msgstr "ಇತರೆ ಅನ್ವಯ(_A)..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7210
-#: ../src/file-manager/fm-directory-view.c:7214
+#: ../src/file-manager/fm-directory-view.c:7307
+#: ../src/file-manager/fm-directory-view.c:7311
 msgid "Choose another application with which to open the selected item"
 msgstr "ಆರಿಸಲಾದ ಅಂಶವನ್ನು ತೆರೆಯಲು ಬೇರೊಂದು ಅನ್ವಯವನ್ನು ಆರಿಸು"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7213
+#: ../src/file-manager/fm-directory-view.c:7310
 msgid "Open With Other _Application..."
 msgstr ""
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7217
+#: ../src/file-manager/fm-directory-view.c:7314
 msgid "_Open Scripts Folder"
 msgstr "ಸ್ಕ್ರಿಪ್ಟುಗಳ ಕಡತವನ್ನು ತೆರೆಯಿರಿ(_O)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7218
+#: ../src/file-manager/fm-directory-view.c:7315
 msgid "Show the folder containing the scripts that appear in this menu"
 msgstr "ಈ ಮೆನುವಿನಲ್ಲಿ ಕಾಣಿಸಿಕೊಳ್ಳುವ ಸ್ಕ್ರಿಪ್ಟನ್ನು ಹೊಂದಿದ ಕಡತಕೋಶವನ್ನು ತೋರಿಸು"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7226
+#: ../src/file-manager/fm-directory-view.c:7323
 msgid "Prepare the selected files to be moved with a Paste command"
 msgstr "ಆರಿಸಲಾದ ಕಡತಗಳನ್ನು 'ಅಂಟಿಸು' ಆಜ್ಞೆಯನ್ನು ಬಳಸಿಕೊಂಡು ಸ್ಥಳಾಂತರಿಸಲು ತಯಾರುಗೊಳಿಸು"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7230
+#: ../src/file-manager/fm-directory-view.c:7327
 msgid "Prepare the selected files to be copied with a Paste command"
 msgstr "ಆರಿಸಲಾದ ಕಡತಗಳನ್ನು 'ಅಂಟಿಸು' ಆಜ್ಞೆಯನ್ನು ಬಳಸಿಕೊಂಡು ಕಾಪಿ ಮಾಡಲು ತಯಾರುಗೊಳಿಸು"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7234
+#: ../src/file-manager/fm-directory-view.c:7331
 msgid "Move or copy files previously selected by a Cut or Copy command"
 msgstr "ಈ ಹಿಂದೆ ಆರಿಸಲಾದ ಕಡತಗಳನ್ನು 'ಕತ್ತರಿಸು' ಅಥವ 'ಕಾಪಿ ಮಾಡು' ಆಜ್ಞೆಯಿಂದ ಸ್ಥಳಾಂತರಿಸು ಅಥವ ಕಾಪಿ ಮಾಡು"
 
@@ -3890,139 +3913,139 @@ msgstr "ಈ ಹಿಂದೆ ಆರಿಸಲಾದ ಕಡತಗಳನ್ನು '�
 #. accelerator for paste
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7239
-#: ../src/file-manager/fm-directory-view.c:7400
+#: ../src/file-manager/fm-directory-view.c:7336
+#: ../src/file-manager/fm-directory-view.c:7497
 #: ../src/file-manager/fm-tree-view.c:1319
 msgid "_Paste Into Folder"
 msgstr "ಕಡತಕೋಶಕ್ಕೆ ಅಂಟಿಸು(_P)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7240
+#: ../src/file-manager/fm-directory-view.c:7337
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into the "
 "selected folder"
 msgstr "ಈ ಹಿಂದೆ ಆರಿಸಲಾದ ಕಡತಗಳನ್ನು 'ಕತ್ತರಿಸು' ಅಥವ 'ಕಾಪಿ ಮಾಡು' ಆಜ್ಞೆಯಿಂದ ಈ ಕಡತಕೋಶಕ್ಕೆ ಸ್ಥಳಾಂತರಿಸು ಅಥವ ಕಾಪಿ ಮಾಡು"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7242
+#: ../src/file-manager/fm-directory-view.c:7339
 msgid "Cop_y to"
 msgstr ""
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7243
+#: ../src/file-manager/fm-directory-view.c:7340
 msgid "M_ove to"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7246
+#: ../src/file-manager/fm-directory-view.c:7343
 msgid "Select all items in this window"
 msgstr "ಈ ವಿಂಡೋದ ಎಲ್ಲಾ ಅಂಶಗಳನ್ನು ಆರಿಸು"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7249
+#: ../src/file-manager/fm-directory-view.c:7346
 msgid "Select I_tems Matching..."
 msgstr "ತಾಳೆಯಾಗುವ ಅಂಶಗಳನ್ನು ಆರಿಸಿ(_t)..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7250
+#: ../src/file-manager/fm-directory-view.c:7347
 msgid "Select items in this window matching a given pattern"
 msgstr "ಒಂದು ಒದಗಿಸಲಾದ ವಿನ್ಯಾಸಕ್ಕೆ ಹೋಲುವ ಈ ವಿಂಡೋದಲ್ಲಿನ ಅಂಶಗಳನ್ನು ಮಾತ್ರವೆ ಆರಿಸು"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7253
+#: ../src/file-manager/fm-directory-view.c:7350
 msgid "_Invert Selection"
 msgstr "ತಿರುಗುಮುರುಗಾದ ಆಯ್ಕೆ(_I)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7254
+#: ../src/file-manager/fm-directory-view.c:7351
 msgid "Select all and only the items that are not currently selected"
 msgstr "ಈಗ ಆರಿಸಲಾದುದನ್ನು ಹೊರತುಪಡಿಸಿ ಮಿಕ್ಕೆಲ್ಲವನ್ನು ಮಾತ್ರ ಆಯ್ಕೆ ಮಾಡು"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7257
+#: ../src/file-manager/fm-directory-view.c:7354
 msgid "D_uplicate"
 msgstr "ತದ್ರೂಪು ಪ್ರತಿ(_u)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7258
+#: ../src/file-manager/fm-directory-view.c:7355
 msgid "Duplicate each selected item"
 msgstr "ಆರಿಸಲ್ಪಟ್ಟ ಪ್ರತಿ ಅಂಶದ ತದ್ರೂಪು ಪ್ರತಿ ಮಾಡು"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7261
-#: ../src/file-manager/fm-directory-view.c:8870
+#: ../src/file-manager/fm-directory-view.c:7358
+#: ../src/file-manager/fm-directory-view.c:8967
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
 msgstr[0] ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7262
+#: ../src/file-manager/fm-directory-view.c:7359
 msgid "Create a symbolic link for each selected item"
 msgstr "ಆರಿಸಲ್ಪಟ್ಟ ಪ್ರತಿಯೊಂದು ಅಂಶಕ್ಕೂ ಸಾಂಕೇತಿಕ ಕೊಂಡಿಯನ್ನು ರಚಿಸು"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7265
+#: ../src/file-manager/fm-directory-view.c:7362
 msgid "_Rename..."
 msgstr "ಹೆಸರನ್ನು ಬದಲಾಯಿಸು(_R)..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7266
+#: ../src/file-manager/fm-directory-view.c:7363
 msgid "Rename selected item"
 msgstr "ಆರಿಸಲಾದ ಅಂಶದ ಹೆಸರನ್ನು ಬದಲಾಯಿಸು"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7274
-#: ../src/file-manager/fm-directory-view.c:8831
+#: ../src/file-manager/fm-directory-view.c:7371
+#: ../src/file-manager/fm-directory-view.c:8928
 msgid "Move each selected item to the Trash"
 msgstr "ಆರಿಸಲಾದ ಪ್ರತಿಯೊಂದು ಅಂಶವನ್ನೂ ಕಸದ ಬುಟ್ಟಿಗೆ ಸ್ಥಳಾಂತರಿಸು"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7277
-#: ../src/file-manager/fm-directory-view.c:7409
-#: ../src/file-manager/fm-directory-view.c:8851
+#: ../src/file-manager/fm-directory-view.c:7374
+#: ../src/file-manager/fm-directory-view.c:7506
+#: ../src/file-manager/fm-directory-view.c:8948
 #: ../src/file-manager/fm-tree-view.c:1349
 msgid "_Delete"
 msgstr "ಅಳಿಸು(_D)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7278
+#: ../src/file-manager/fm-directory-view.c:7375
 msgid "Delete each selected item, without moving to the Trash"
 msgstr "ಆರಿಸಲಾದ ಅಂಶಗಳನ್ನು ಕಸದ ಬುಟ್ಟಿಗೆ ಸ್ಥಳಾಂತರಿಸದೆ ಅಳಿಸಿ ಹಾಕು"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7281
-#: ../src/file-manager/fm-directory-view.c:7413
+#: ../src/file-manager/fm-directory-view.c:7378
+#: ../src/file-manager/fm-directory-view.c:7510
 msgid "_Restore"
 msgstr "ಮರುಸ್ಥಾಪಿಸು(_R)"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7285
+#: ../src/file-manager/fm-directory-view.c:7382
 msgid "_Undo"
 msgstr "ರದ್ದು ಮಾಡು(_Undo)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7286
-#: ../src/file-manager/fm-directory-view.c:11015
+#: ../src/file-manager/fm-directory-view.c:7383
+#: ../src/file-manager/fm-directory-view.c:11128
 msgid "Undo the last action"
 msgstr ""
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7289
+#: ../src/file-manager/fm-directory-view.c:7386
 msgid "_Redo"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7290
-#: ../src/file-manager/fm-directory-view.c:11033
+#: ../src/file-manager/fm-directory-view.c:7387
+#: ../src/file-manager/fm-directory-view.c:11146
 msgid "Redo the last undone action"
 msgstr ""
 
@@ -4030,607 +4053,605 @@ msgstr ""
 #. * be window-wide, and not just view-wide.
 #. * Since this also resets the "Show hidden files" mode,
 #. * it is a mixture of both ATM.
-#. 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7300
+#: ../src/file-manager/fm-directory-view.c:7397
 msgid "Reset View to _Defaults"
 msgstr "ನೋಟಗಳನ್ನು ಪೂರ್ವನಿಯೋಜಿತಕ್ಕೆ ಮರು ಹೊಂದಿಸು(_D)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7301
+#: ../src/file-manager/fm-directory-view.c:7398
 msgid "Reset sorting order and zoom level to match preferences for this view"
 msgstr "ಈ ನೋಟಕ್ಕೆ ಆದ್ಯತೆಗಳು ತಾಳೆಯಾಗುವಂತೆ ವಿಂಗಡಣಾ ಕ್ರಮ ಹಾಗು ಗಾತ್ರಬದಲಿಸುವ ಮಟ್ಟವನ್ನು ಮರು ಹೊಂದಿಸು"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7304
+#: ../src/file-manager/fm-directory-view.c:7401
 msgid "Connect To This Server"
 msgstr "ಈ ಪರಿಚಾರಕಕ್ಕೆ ಸಂಪರ್ಕ ಕಲ್ಪಿಸು"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7305
+#: ../src/file-manager/fm-directory-view.c:7402
 msgid "Make a permanent connection to this server"
 msgstr "ಈ ಪರಿಚಾರಕಕ್ಕೆ ಒಂದು ಶಾಶ್ವತವಾದ ಸಂಪರ್ಕವನ್ನು ಕಲ್ಪಿಸು"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7308
-#: ../src/file-manager/fm-directory-view.c:7336
-#: ../src/file-manager/fm-directory-view.c:7417
+#: ../src/file-manager/fm-directory-view.c:7405
+#: ../src/file-manager/fm-directory-view.c:7433
+#: ../src/file-manager/fm-directory-view.c:7514
 #: ../src/caja-places-sidebar.c:2697
 msgid "_Mount"
 msgstr "ಆರೋಹಿಸು(_M)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7309
+#: ../src/file-manager/fm-directory-view.c:7406
 msgid "Mount the selected volume"
 msgstr "ಆರಿಸಲಾದ ಪರಿಮಾಣವನ್ನು ಅವರೋಹಿಸು"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7313
+#: ../src/file-manager/fm-directory-view.c:7410
 msgid "Unmount the selected volume"
 msgstr "ಆರಿಸಲಾದ ಪರಿಮಾಣವನ್ನು ಅವರೋಹಿಸು"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7317
+#: ../src/file-manager/fm-directory-view.c:7414
 msgid "Eject the selected volume"
 msgstr "ಆರಿಸಲ್ಪಟ್ಟ ಪರಿಮಾಣವನ್ನು ಹೊರತಳ್ಳು"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7320
-#: ../src/file-manager/fm-directory-view.c:7348
-#: ../src/file-manager/fm-directory-view.c:7429
+#: ../src/file-manager/fm-directory-view.c:7417
+#: ../src/file-manager/fm-directory-view.c:7445
+#: ../src/file-manager/fm-directory-view.c:7526
 #: ../src/caja-places-sidebar.c:2725
 msgid "_Format"
 msgstr "ಫಾರ್ಮ್ಯಾಟ್(_F)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7321
+#: ../src/file-manager/fm-directory-view.c:7418
 msgid "Format the selected volume"
 msgstr "ಆರಿಸಲ್ಪಟ್ಟ ಪರಿಮಾಣವನ್ನು ಫಾರ್ಮ್ಯಾಟ್ ಮಾಡು"
 
 #. name, stock id
 #. label, accelerator
 #. Adjust start/stop items to reflect the type of the drive
-#: ../src/file-manager/fm-directory-view.c:7324
-#: ../src/file-manager/fm-directory-view.c:7352
-#: ../src/file-manager/fm-directory-view.c:7433
-#: ../src/file-manager/fm-directory-view.c:8110
-#: ../src/file-manager/fm-directory-view.c:8114
-#: ../src/file-manager/fm-directory-view.c:8202
-#: ../src/file-manager/fm-directory-view.c:8206
-#: ../src/file-manager/fm-directory-view.c:8312
-#: ../src/file-manager/fm-directory-view.c:8316
+#: ../src/file-manager/fm-directory-view.c:7421
+#: ../src/file-manager/fm-directory-view.c:7449
+#: ../src/file-manager/fm-directory-view.c:7530
+#: ../src/file-manager/fm-directory-view.c:8207
+#: ../src/file-manager/fm-directory-view.c:8211
+#: ../src/file-manager/fm-directory-view.c:8299
+#: ../src/file-manager/fm-directory-view.c:8303
+#: ../src/file-manager/fm-directory-view.c:8409
+#: ../src/file-manager/fm-directory-view.c:8413
 #: ../src/caja-places-sidebar.c:1792 ../src/caja-places-sidebar.c:2732
 msgid "_Start"
 msgstr "ಆರಂಭಿಸು(_S)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7325
+#: ../src/file-manager/fm-directory-view.c:7422
 msgid "Start the selected volume"
 msgstr "ಆರಿಸಲ್ಪಟ್ಟ ಪರಿಮಾಣವನ್ನು ಆರಂಭಿಸಿ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7328
-#: ../src/file-manager/fm-directory-view.c:7356
-#: ../src/file-manager/fm-directory-view.c:7437
-#: ../src/file-manager/fm-directory-view.c:8139
-#: ../src/file-manager/fm-directory-view.c:8231
-#: ../src/file-manager/fm-directory-view.c:8341
+#: ../src/file-manager/fm-directory-view.c:7425
+#: ../src/file-manager/fm-directory-view.c:7453
+#: ../src/file-manager/fm-directory-view.c:7534
+#: ../src/file-manager/fm-directory-view.c:8236
+#: ../src/file-manager/fm-directory-view.c:8328
+#: ../src/file-manager/fm-directory-view.c:8438
 #: ../src/caja-places-sidebar.c:1793 ../src/caja-places-sidebar.c:2739
-#: ../src/caja-window-menus.c:846
+#: ../src/caja-window-menus.c:862
 msgid "_Stop"
 msgstr "ನಿಲ್ಲು(_S)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7329
-#: ../src/file-manager/fm-directory-view.c:8342
+#: ../src/file-manager/fm-directory-view.c:7426
+#: ../src/file-manager/fm-directory-view.c:8439
 msgid "Stop the selected volume"
 msgstr "ಆರಿಸಲಾದ ಪರಿಮಾಣವನ್ನು ನಿಲ್ಲಿಸಿ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7332
-#: ../src/file-manager/fm-directory-view.c:7360
-#: ../src/file-manager/fm-directory-view.c:7441
+#: ../src/file-manager/fm-directory-view.c:7429
+#: ../src/file-manager/fm-directory-view.c:7457
+#: ../src/file-manager/fm-directory-view.c:7538
 #: ../src/caja-places-sidebar.c:2718
 msgid "_Detect Media"
 msgstr "ಮಾಧ್ಯಮವನ್ನು ಪತ್ತೆ ಮಾಡು(_D)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7333
-#: ../src/file-manager/fm-directory-view.c:7361
-#: ../src/file-manager/fm-directory-view.c:7442
+#: ../src/file-manager/fm-directory-view.c:7430
+#: ../src/file-manager/fm-directory-view.c:7458
+#: ../src/file-manager/fm-directory-view.c:7539
 msgid "Detect media in the selected drive"
 msgstr "ಆರಿಸಲ್ಪಟ್ಟ ಡ್ರೈವ್‌ನಲ್ಲಿನ ಮಾಧ್ಯಮವನ್ನು ಗುರುತಿಸಿ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7337
+#: ../src/file-manager/fm-directory-view.c:7434
 msgid "Mount the volume associated with the open folder"
 msgstr "ತೆರೆಯಲಾದ ಕಡತಕೋಶಕ್ಕೆ ಹೊಂದಿಕೊಂಡಿರುವ ಪರಿಮಾಣವನ್ನು ಆರೋಹಿಸಿ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7341
+#: ../src/file-manager/fm-directory-view.c:7438
 msgid "Unmount the volume associated with the open folder"
 msgstr "ತೆರೆಯಲಾದ ಕಡತಕೋಶಕ್ಕೆ ಹೊಂದಿಕೊಂಡಿರುವ ಪರಿಮಾಣವನ್ನು ಅವರೋಹಿಸಿ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7345
+#: ../src/file-manager/fm-directory-view.c:7442
 msgid "Eject the volume associated with the open folder"
 msgstr "ತೆರೆಯಲಾದ ಕಡತಕೋಶಕ್ಕೆ ಹೊಂದಿಕೊಂಡಿರುವ ಪರಿಮಾಣವನ್ನು ಹೊರ ತಳ್ಳಿ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7349
+#: ../src/file-manager/fm-directory-view.c:7446
 msgid "Format the volume associated with the open folder"
 msgstr "ತೆರೆಯಲಾದ ಕಡತಕೋಶಕ್ಕೆ ಹೊಂದಿಕೊಂಡಿರುವ ಪರಿಮಾಣವನ್ನು ಫಾರ್ಮಾಟ್ ಮಾಡಿ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7353
+#: ../src/file-manager/fm-directory-view.c:7450
 msgid "Start the volume associated with the open folder"
 msgstr "ತೆರೆಯಲಾದ ಕಡತಕೋಶಕ್ಕೆ ಹೊಂದಿಕೊಂಡಿರುವ ಪರಿಮಾಣವನ್ನು ಆರಂಭಿಸಿ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7357
+#: ../src/file-manager/fm-directory-view.c:7454
 msgid "Stop the volume associated with the open folder"
 msgstr "ತೆರೆಯಲಾದ ಕಡತಕೋಶಕ್ಕೆ ಹೊಂದಿಕೊಂಡಿರುವ ಪರಿಮಾಣವನ್ನು ನಿಲ್ಲಿಸಿ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7364
+#: ../src/file-manager/fm-directory-view.c:7461
 msgid "Open File and Close window"
 msgstr "ಕಡತವನ್ನು ತೆರೆ ಹಾಗು ವಿಂಡೋವನ್ನು ಮುಚ್ಚಿ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7368
+#: ../src/file-manager/fm-directory-view.c:7465
 msgid "Sa_ve Search"
 msgstr "ಹುಡುಕಲಾಗಿದ್ದನ್ನು ಉಳಿಸು(_v)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7369
+#: ../src/file-manager/fm-directory-view.c:7466
 msgid "Save the edited search"
 msgstr "ಸಂಪಾದಿಸಲಾದ ಹುಡುಕನ್ನು ಉಳಿಸಿ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7372
+#: ../src/file-manager/fm-directory-view.c:7469
 msgid "Sa_ve Search As..."
 msgstr "ಹುಡುಕಿದ್ದನ್ನು ಹೀಗೆ ಉಳಿಸು(_v)..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7373
+#: ../src/file-manager/fm-directory-view.c:7470
 msgid "Save the current search as a file"
 msgstr "ಈಗಿನ ಹುಡುಕನ್ನು ಒಂದು ಕಡತವಾಗಿ ಉಳಿಸಿ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7379
+#: ../src/file-manager/fm-directory-view.c:7476
 msgid "Open this folder in a navigation window"
 msgstr "ಈ ಕಡತಕೋಶವನ್ನು ಒಂದು ನ್ಯಾವಿಗೇಶನ್ ವಿಂಡೋದಲ್ಲಿ ತೆರೆ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7383
+#: ../src/file-manager/fm-directory-view.c:7480
 msgid "Open this folder in a new tab"
 msgstr "ಈ ಕಡತಕೋಶವನ್ನು ಒಂದು ಹೊಸ ಹಾಳೆಯಲ್ಲಿ ತೆರೆ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7388
+#: ../src/file-manager/fm-directory-view.c:7485
 msgid "Open this folder in a folder window"
 msgstr "ಈ ಕಡತಕೋಶವನ್ನು ಒಂದು ಕಡತಕೋಶ ವಿಂಡೋದಲ್ಲಿ ತೆರೆ"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7393
+#: ../src/file-manager/fm-directory-view.c:7490
 msgid "Prepare this folder to be moved with a Paste command"
 msgstr "'ಅಂಟಿಸು' ಆಜ್ಞೆಯನ್ನು ಬಳಸಿಕೊಂಡು ಸ್ಥಳಾಂತರಿಸಲು ಈ ಕಡತಕೋಶವನ್ನು ತಯಾರುಗೊಳಿಸಿ"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7397
+#: ../src/file-manager/fm-directory-view.c:7494
 msgid "Prepare this folder to be copied with a Paste command"
 msgstr "'ಅಂಟಿಸು' ಆಜ್ಞೆಯನ್ನು ಬಳಸಿಕೊಂಡು ಕಾಪಿ ಮಾಡಲು ಈ ಕಡತಕೋಶವನ್ನು ತಯಾರುಗೊಳಿಸಿ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7401
+#: ../src/file-manager/fm-directory-view.c:7498
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into this "
 "folder"
 msgstr "ಈ ಹಿಂದೆ ಆರಿಸಲಾದ ಕಡತಗಳನ್ನು 'ಕತ್ತರಿಸು' ಅಥವ 'ಕಾಪಿ ಮಾಡು' ಆಜ್ಞೆಯಿಂದ ಈ ಕಡತಕೋಶಕ್ಕೆ ಸ್ಥಳಾಂತರಿಸಿ ಅಥವ ಕಾಪಿ ಮಾಡು"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7406
+#: ../src/file-manager/fm-directory-view.c:7503
 msgid "Move this folder to the Trash"
 msgstr "ಈ ಕಡತಕೋಶವನ್ನು ಕಸದ ಬುಟ್ಟಿಗೆ ಸ್ಥಳಾಂತರಿಸಿ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7410
+#: ../src/file-manager/fm-directory-view.c:7507
 msgid "Delete this folder, without moving to the Trash"
 msgstr "ಕಸದ ಬುಟ್ಟಿಗೆ ಸ್ಥಳಾಂತರಿಸದೆ, ಈ ಕಡತಕೋಶವನ್ನು ಅಳಿಸಿ ಹಾಕು"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7418
+#: ../src/file-manager/fm-directory-view.c:7515
 msgid "Mount the volume associated with this folder"
 msgstr "ಈ ಕಡತಕೋಶಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಪರಿಮಾಣವನ್ನು ಆರೋಹಿಸಿ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7422
+#: ../src/file-manager/fm-directory-view.c:7519
 msgid "Unmount the volume associated with this folder"
 msgstr "ಈ ಕಡತಕೋಶಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಪರಿಮಾಣವನ್ನು ಅವರೋಹಿಸಿ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7426
+#: ../src/file-manager/fm-directory-view.c:7523
 msgid "Eject the volume associated with this folder"
 msgstr "ಈ ಕಡತಕೋಶಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಪರಿಮಾಣವನ್ನು ಹೊರ ತೆಗೆ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7430
+#: ../src/file-manager/fm-directory-view.c:7527
 msgid "Format the volume associated with this folder"
 msgstr "ಈ ಕಡತಕೋಶಗಳಿಗೆ ಸಂಬಂಧಿತವಾದ ಪರಿಮಾಣವನ್ನು ಫಾರ್ಮಾಟ್ ಮಾಡು"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7434
+#: ../src/file-manager/fm-directory-view.c:7531
 msgid "Start the volume associated with this folder"
 msgstr "ಈ ಕಡತಕೋಶಗಳಿಗೆ ಸಂಬಂಧಿತವಾದ ಪರಿಮಾಣವನ್ನು ಆರಂಭಿಸಿ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7438
+#: ../src/file-manager/fm-directory-view.c:7535
 msgid "Stop the volume associated with this folder"
 msgstr "ಈ ಕಡತಕೋಶಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಪರಿಮಾಣವನ್ನು ನಿಲ್ಲಿಸಿ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7447
+#: ../src/file-manager/fm-directory-view.c:7544
 msgid "View or modify the properties of this folder"
 msgstr "ಈ ಕಡತಕೋಶದ ಗುಣಲಕ್ಷಣಗಳನ್ನು ವೀಕ್ಷಿಸಿ ಅಥವ ಮಾರ್ಪಡಿಸಿ"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7450
-#: ../src/file-manager/fm-directory-view.c:7453
+#: ../src/file-manager/fm-directory-view.c:7547
+#: ../src/file-manager/fm-directory-view.c:7550
 msgid "_Other pane"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7451
+#: ../src/file-manager/fm-directory-view.c:7548
 msgid "Copy the current selection to the other pane in the window"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7454
+#: ../src/file-manager/fm-directory-view.c:7551
 msgid "Move the current selection to the other pane in the window"
 msgstr ""
 
 #. name, stock id, label
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7457
-#: ../src/file-manager/fm-directory-view.c:7461 ../src/caja-window-menus.c:901
+#: ../src/file-manager/fm-directory-view.c:7554
+#: ../src/file-manager/fm-directory-view.c:7558 ../src/caja-window-menus.c:917
 msgid "_Home Folder"
 msgstr "ನೆಲೆ(_Home) ಕಡತಕೋಶ"
 
-#: ../src/file-manager/fm-directory-view.c:7458
+#: ../src/file-manager/fm-directory-view.c:7555
 msgid "Copy the current selection to the home folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7462
+#: ../src/file-manager/fm-directory-view.c:7559
 msgid "Move the current selection to the home folder"
 msgstr ""
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7465
-#: ../src/file-manager/fm-directory-view.c:7469
+#: ../src/file-manager/fm-directory-view.c:7562
+#: ../src/file-manager/fm-directory-view.c:7566
 msgid "_Desktop"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7466
+#: ../src/file-manager/fm-directory-view.c:7563
 msgid "Copy the current selection to the desktop"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7470
+#: ../src/file-manager/fm-directory-view.c:7567
 msgid "Move the current selection to the desktop"
 msgstr ""
 
 #. Translators: %s is a directory
-#: ../src/file-manager/fm-directory-view.c:7550
+#: ../src/file-manager/fm-directory-view.c:7647
 #, c-format
 msgid "Run or manage scripts from %s"
 msgstr "%s ಇಂದ ಸ್ಕ್ರಿಪ್ಟುಗಳನ್ನು ಚಲಾಯಿಸಿ ಅಥವ ನಿರ್ವಹಿಸಿ"
 
 #. Create a script action here specially because its tooltip is dynamic
-#: ../src/file-manager/fm-directory-view.c:7552
+#: ../src/file-manager/fm-directory-view.c:7649
 msgid "_Scripts"
 msgstr "ಸ್ಕ್ರಿಪ್ಟುಗಳು(_S)"
 
-#: ../src/file-manager/fm-directory-view.c:7958
+#: ../src/file-manager/fm-directory-view.c:8055
 #, c-format
 msgid "Move the open folder out of the trash to \"%s\""
 msgstr "ತೆರೆಯಲಾದ ಕಡತಕೋಶಗಳನ್ನು ಕಸದಬುಟ್ಟಿಯಿಂದ \"%s\" ಗೆ ಸ್ಥಳಾಂತರಿಸಿ"
 
-#: ../src/file-manager/fm-directory-view.c:7961
+#: ../src/file-manager/fm-directory-view.c:8058
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
 msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:7965
+#: ../src/file-manager/fm-directory-view.c:8062
 #, c-format
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
 msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:7971
+#: ../src/file-manager/fm-directory-view.c:8068
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
 msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:7975
+#: ../src/file-manager/fm-directory-view.c:8072
 #, c-format
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
 msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:7981
+#: ../src/file-manager/fm-directory-view.c:8078
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
 msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:7985
+#: ../src/file-manager/fm-directory-view.c:8082
 #, c-format
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
 msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:8111
-#: ../src/file-manager/fm-directory-view.c:8115
-#: ../src/file-manager/fm-directory-view.c:8313
-#: ../src/file-manager/fm-directory-view.c:8317
+#: ../src/file-manager/fm-directory-view.c:8208
+#: ../src/file-manager/fm-directory-view.c:8212
+#: ../src/file-manager/fm-directory-view.c:8410
+#: ../src/file-manager/fm-directory-view.c:8414
 msgid "Start the selected drive"
 msgstr "ಆರಿಸಲ್ಪಟ್ಟ ಡ್ರೈವನ್ನು ಆರಂಭಿಸಿ"
 
-#: ../src/file-manager/fm-directory-view.c:8119
-#: ../src/file-manager/fm-directory-view.c:8321
+#: ../src/file-manager/fm-directory-view.c:8216
+#: ../src/file-manager/fm-directory-view.c:8418
 msgid "Connect to the selected drive"
 msgstr "ಆರಿಸಲಾದ ಡ್ರೈವಿಗೆ ಸಂಪರ್ಕ ಕಲ್ಪಿಸಿ"
 
-#: ../src/file-manager/fm-directory-view.c:8122
-#: ../src/file-manager/fm-directory-view.c:8214
-#: ../src/file-manager/fm-directory-view.c:8324
+#: ../src/file-manager/fm-directory-view.c:8219
+#: ../src/file-manager/fm-directory-view.c:8311
+#: ../src/file-manager/fm-directory-view.c:8421
 msgid "_Start Multi-disk Drive"
 msgstr "ಬಹು-ಡಿಸ್ಕ್ ಡ್ರೈವನ್ನು ಆರಂಭಿಸು(_S)"
 
-#: ../src/file-manager/fm-directory-view.c:8123
-#: ../src/file-manager/fm-directory-view.c:8325
+#: ../src/file-manager/fm-directory-view.c:8220
+#: ../src/file-manager/fm-directory-view.c:8422
 msgid "Start the selected multi-disk drive"
 msgstr "ಆರಿಸಲಾದ ಬಹು-ಡಿಸ್ಕ್ ಡ್ರೈವನ್ನು ಆರಂಭಿಸಿ"
 
-#: ../src/file-manager/fm-directory-view.c:8126
+#: ../src/file-manager/fm-directory-view.c:8223
 msgid "U_nlock Drive"
 msgstr "ಡ್ರೈವನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡು(_n)"
 
-#: ../src/file-manager/fm-directory-view.c:8127
-#: ../src/file-manager/fm-directory-view.c:8329
+#: ../src/file-manager/fm-directory-view.c:8224
+#: ../src/file-manager/fm-directory-view.c:8426
 msgid "Unlock the selected drive"
 msgstr "ಆರಿಸಲಾದ ಡ್ರೈವನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡಿ"
 
-#: ../src/file-manager/fm-directory-view.c:8140
+#: ../src/file-manager/fm-directory-view.c:8237
 msgid "Stop the selected drive"
 msgstr "ಆರಿಸಲಾದ ಡ್ರೈವನ್ನು ನಿಲ್ಲಿಸಿ"
 
-#: ../src/file-manager/fm-directory-view.c:8143
-#: ../src/file-manager/fm-directory-view.c:8235
-#: ../src/file-manager/fm-directory-view.c:8345
+#: ../src/file-manager/fm-directory-view.c:8240
+#: ../src/file-manager/fm-directory-view.c:8332
+#: ../src/file-manager/fm-directory-view.c:8442
 #: ../src/caja-places-sidebar.c:1801
 msgid "_Safely Remove Drive"
 msgstr "ಡ್ರೈವನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ತೆಗೆದು ಹಾಕು(_a)"
 
-#: ../src/file-manager/fm-directory-view.c:8144
-#: ../src/file-manager/fm-directory-view.c:8346
+#: ../src/file-manager/fm-directory-view.c:8241
+#: ../src/file-manager/fm-directory-view.c:8443
 msgid "Safely remove the selected drive"
 msgstr "ಆರಿಸಲ್ಪಟ್ಟ ಡ್ರೈವನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ತೆಗೆದು ಹಾಕಿ"
 
-#: ../src/file-manager/fm-directory-view.c:8147
-#: ../src/file-manager/fm-directory-view.c:8239
-#: ../src/file-manager/fm-directory-view.c:8349
+#: ../src/file-manager/fm-directory-view.c:8244
+#: ../src/file-manager/fm-directory-view.c:8336
+#: ../src/file-manager/fm-directory-view.c:8446
 msgid "_Disconnect"
 msgstr "ಸಂಪರ್ಕ ಕಡಿದುಹಾಕು (_D)"
 
-#: ../src/file-manager/fm-directory-view.c:8148
-#: ../src/file-manager/fm-directory-view.c:8350
+#: ../src/file-manager/fm-directory-view.c:8245
+#: ../src/file-manager/fm-directory-view.c:8447
 msgid "Disconnect the selected drive"
 msgstr "ಆರಿಸಲಾದ ಡ್ರೈವಿನ ಸಂಪರ್ಕ ತಪ್ಪಿಸಿ"
 
-#: ../src/file-manager/fm-directory-view.c:8151
-#: ../src/file-manager/fm-directory-view.c:8243
-#: ../src/file-manager/fm-directory-view.c:8353
+#: ../src/file-manager/fm-directory-view.c:8248
+#: ../src/file-manager/fm-directory-view.c:8340
+#: ../src/file-manager/fm-directory-view.c:8450
 msgid "_Stop Multi-disk Drive"
 msgstr "ಬಹು-ಡಿಸ್ಕ್ ಡ್ರೈವನ್ನು ನಿಲ್ಲಿಸು(_S)"
 
-#: ../src/file-manager/fm-directory-view.c:8152
-#: ../src/file-manager/fm-directory-view.c:8354
+#: ../src/file-manager/fm-directory-view.c:8249
+#: ../src/file-manager/fm-directory-view.c:8451
 msgid "Stop the selected multi-disk drive"
 msgstr "ಆರಿಸಲಾದ ಬಹು-ಡಿಸ್ಕ್ ಡ್ರೈವನ್ನು ನಿಲ್ಲಿಸಿ"
 
-#: ../src/file-manager/fm-directory-view.c:8155
-#: ../src/file-manager/fm-directory-view.c:8247
-#: ../src/file-manager/fm-directory-view.c:8357
+#: ../src/file-manager/fm-directory-view.c:8252
+#: ../src/file-manager/fm-directory-view.c:8344
+#: ../src/file-manager/fm-directory-view.c:8454
 #: ../src/caja-places-sidebar.c:1814
 msgid "_Lock Drive"
 msgstr "ಡ್ರೈವನ್ನು ಲಾಕ್ ಮಾಡು(_L)"
 
-#: ../src/file-manager/fm-directory-view.c:8156
-#: ../src/file-manager/fm-directory-view.c:8358
+#: ../src/file-manager/fm-directory-view.c:8253
+#: ../src/file-manager/fm-directory-view.c:8455
 msgid "Lock the selected drive"
 msgstr "ಆರಿಸಲಾದ ಡ್ರೈವನ್ನು ಲಾಕ್ ಮಾಡಿ"
 
-#: ../src/file-manager/fm-directory-view.c:8203
-#: ../src/file-manager/fm-directory-view.c:8207
+#: ../src/file-manager/fm-directory-view.c:8300
+#: ../src/file-manager/fm-directory-view.c:8304
 msgid "Start the drive associated with the open folder"
 msgstr "ತೆರೆಯಲಾದ ಕಡತಕೋಶಕ್ಕೆ ಹೊಂದಿಕೊಂಡಿರುವ ಡ್ರೈವನ್ನು ಆರಂಭಿಸಿ"
 
-#: ../src/file-manager/fm-directory-view.c:8211
+#: ../src/file-manager/fm-directory-view.c:8308
 msgid "Connect to the drive associated with the open folder"
 msgstr "ತೆರೆಯಲಾದ ಕಡತಕೋಶಕ್ಕೆ ಹೊಂದಿಕೊಂಡಿರುವ ಡ್ರೈವಿನೊಂದಿಗೆ ಸಂಪರ್ಕಸಾಧಿಸಿ"
 
-#: ../src/file-manager/fm-directory-view.c:8215
+#: ../src/file-manager/fm-directory-view.c:8312
 msgid "Start the multi-disk drive associated with the open folder"
 msgstr "ತೆರೆಯಲಾದ ಕಡತಕೋಶಕ್ಕೆ ಹೊಂದಿಕೊಂಡಿರುವ ಬಹು-ಡಿಸ್ಕ್ ಡ್ರೈವನ್ನು ಆರಂಭಿಸಿ"
 
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
-#: ../src/file-manager/fm-directory-view.c:8218
-#: ../src/file-manager/fm-directory-view.c:8328
+#: ../src/file-manager/fm-directory-view.c:8315
+#: ../src/file-manager/fm-directory-view.c:8425
 #: ../src/caja-places-sidebar.c:1813
 msgid "_Unlock Drive"
 msgstr "ಡ್ರೈವನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡು(_U)"
 
-#: ../src/file-manager/fm-directory-view.c:8219
+#: ../src/file-manager/fm-directory-view.c:8316
 msgid "Unlock the drive associated with the open folder"
 msgstr "ತೆರೆಯಲಾದ ಕಡತಕೋಶಕ್ಕೆ ಹೊಂದಿಕೊಂಡಿರುವ ಡ್ರೈವನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡಿ"
 
-#: ../src/file-manager/fm-directory-view.c:8232
+#: ../src/file-manager/fm-directory-view.c:8329
 msgid "_Stop the drive associated with the open folder"
 msgstr "ತೆರೆಯಲಾದ ಕಡತಕೋಶಕ್ಕೆ ಹೊಂದಿಕೊಂಡಿರುವ ಡ್ರೈವನ್ನು ನಿಲ್ಲಿಸು(_S)"
 
-#: ../src/file-manager/fm-directory-view.c:8236
+#: ../src/file-manager/fm-directory-view.c:8333
 msgid "Safely remove the drive associated with the open folder"
 msgstr "ತೆರೆಯಲಾದ ಕಡತಕೋಶಕ್ಕೆ ಹೊಂದಿಕೊಂಡಿರುವ ಡ್ರೈವನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ತೆಗೆದು ಹಾಕಿ"
 
-#: ../src/file-manager/fm-directory-view.c:8240
+#: ../src/file-manager/fm-directory-view.c:8337
 msgid "Disconnect the drive associated with the open folder"
 msgstr "ತೆರೆಯಲಾದ ಕಡತಕೋಶಕ್ಕೆ ಹೊಂದಿಕೊಂಡಿರುವ ಡ್ರೈವಿನೊಂದಿಗೆ ಸಂಪರ್ಕ ಕಡಿದು ಹಾಕಿ"
 
-#: ../src/file-manager/fm-directory-view.c:8244
+#: ../src/file-manager/fm-directory-view.c:8341
 msgid "Stop the multi-disk drive associated with the open folder"
 msgstr "ತೆರೆಯಲಾದ ಕಡತಕೋಶಕ್ಕೆ ಹೊಂದಿಕೊಂಡಿರುವ ಬಹು-ಡಿಸ್ಕ್ ಡ್ರೈವನ್ನು ನಿಲ್ಲಿಸಿ"
 
-#: ../src/file-manager/fm-directory-view.c:8248
+#: ../src/file-manager/fm-directory-view.c:8345
 msgid "Lock the drive associated with the open folder"
 msgstr "ತೆರೆಯಲಾದ ಕಡತಕೋಶಕ್ಕೆ ಹೊಂದಿಕೊಂಡಿರುವ ಡ್ರೈವನ್ನು ಲಾಕ್ ಮಾಡಿ"
 
 #. add the "open in new window" menu item
-#: ../src/file-manager/fm-directory-view.c:8427
-#: ../src/file-manager/fm-directory-view.c:8737
+#: ../src/file-manager/fm-directory-view.c:8524
+#: ../src/file-manager/fm-directory-view.c:8834
 #: ../src/file-manager/fm-tree-view.c:1276 ../src/caja-places-sidebar.c:2668
 msgid "Open in New _Window"
 msgstr "ಹೊಸ ವಿಂಡೋದಲ್ಲಿ ತೆರೆ (_W)"
 
-#: ../src/file-manager/fm-directory-view.c:8429
-#: ../src/file-manager/fm-directory-view.c:8746
+#: ../src/file-manager/fm-directory-view.c:8526
+#: ../src/file-manager/fm-directory-view.c:8843
 msgid "Browse in New _Window"
 msgstr "ಹೊಸ ವಿಂಡೊದಲ್ಲಿ ವೀಕ್ಷಿಸು(_W)"
 
-#: ../src/file-manager/fm-directory-view.c:8435
-#: ../src/file-manager/fm-directory-view.c:8756
+#: ../src/file-manager/fm-directory-view.c:8532
+#: ../src/file-manager/fm-directory-view.c:8853
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
 msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:8452
-#: ../src/file-manager/fm-directory-view.c:8785
+#: ../src/file-manager/fm-directory-view.c:8549
+#: ../src/file-manager/fm-directory-view.c:8882
 msgid "Browse in New _Tab"
 msgstr "ಹೊಸ ಹಾಳೆಯಲ್ಲಿ ವೀಕ್ಷಿಸು(_T)"
 
-#: ../src/file-manager/fm-directory-view.c:8501
-#: ../src/file-manager/fm-directory-view.c:8826
+#: ../src/file-manager/fm-directory-view.c:8598
+#: ../src/file-manager/fm-directory-view.c:8923
 msgid "_Delete Permanently"
 msgstr "ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಿಹಾಕು(_D)"
 
-#: ../src/file-manager/fm-directory-view.c:8502
+#: ../src/file-manager/fm-directory-view.c:8599
 msgid "Delete the open folder permanently"
 msgstr "ತೆರೆಯಲ್ಪಟ್ಟ ಕಡತಕೋಶವನ್ನು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಿಹಾಕು"
 
-#: ../src/file-manager/fm-directory-view.c:8506
+#: ../src/file-manager/fm-directory-view.c:8603
 msgid "Move the open folder to the Trash"
 msgstr "ತೆರೆಯಲ್ಪಟ್ಟ ಕಡತಕೋಶವನ್ನು ಕಸದಬುಟ್ಟಿಗೆ ಸ್ಥಳಾಂತರಿಸಿ"
 
-#: ../src/file-manager/fm-directory-view.c:8686
+#: ../src/file-manager/fm-directory-view.c:8783
 #, c-format
 msgid "_Open With %s"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8739
+#: ../src/file-manager/fm-directory-view.c:8836
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
 msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:8748
+#: ../src/file-manager/fm-directory-view.c:8845
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
 msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:8778
+#: ../src/file-manager/fm-directory-view.c:8875
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
 msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:8787
+#: ../src/file-manager/fm-directory-view.c:8884
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
 msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:8827
+#: ../src/file-manager/fm-directory-view.c:8924
 msgid "Delete all selected items permanently"
 msgstr "ಆರಿಸಲ್ಪಟ್ಟ ಎಲ್ಲಾ ಅಂಶಗಳನ್ನು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಿಹಾಕು"
 
-#: ../src/file-manager/fm-directory-view.c:8884
+#: ../src/file-manager/fm-directory-view.c:8981
 msgid "View or modify the properties of the open folder"
 msgstr "ತೆರೆಯಲ್ಪಟ್ಟ ಕಡತಕೋಶದ ಗುಣಲಕ್ಷಣಗಳನ್ನು ವೀಕ್ಷಿಸು ಅಥವ ಮಾರ್ಪಡಿಸು"
 
-#: ../src/file-manager/fm-directory-view.c:10192
+#: ../src/file-manager/fm-directory-view.c:10305
 msgid "Download location?"
 msgstr "ತಾಣವನ್ನು ಡೌನ್ ಲೋಡ್ ಮಾಡಬೇಕೆ?"
 
-#: ../src/file-manager/fm-directory-view.c:10195
+#: ../src/file-manager/fm-directory-view.c:10308
 msgid "You can download it or make a link to it."
 msgstr "ನೀವದನ್ನು ಡೌನ್‌ಲೋಡ್‌ ಮಾಡಬಹುದು ಅಥವ ಅದಕ್ಕೆ ಲಿಂಕ್ ನೀಡಬಹುದು."
 
-#: ../src/file-manager/fm-directory-view.c:10198
+#: ../src/file-manager/fm-directory-view.c:10311
 msgid "Make a _Link"
 msgstr "ಒಂದು ಸಂಪರ್ಕಕೊಂಡಿಯನ್ನು ಮಾಡು(_L)"
 
-#: ../src/file-manager/fm-directory-view.c:10202
+#: ../src/file-manager/fm-directory-view.c:10315
 msgid "_Download"
 msgstr "ಡೌನ್ ಲೋಡ್(_D)"
 
-#: ../src/file-manager/fm-directory-view.c:10363
-#: ../src/file-manager/fm-directory-view.c:10421
-#: ../src/file-manager/fm-directory-view.c:10526
+#: ../src/file-manager/fm-directory-view.c:10476
+#: ../src/file-manager/fm-directory-view.c:10534
+#: ../src/file-manager/fm-directory-view.c:10639
 msgid "Drag and drop is not supported."
 msgstr "ಎಳೆದು ಸೇರಿಸುವಿಕೆಯು ಬೆಂಬಲಿತವಾಗಿಲ್ಲ."
 
-#: ../src/file-manager/fm-directory-view.c:10364
+#: ../src/file-manager/fm-directory-view.c:10477
 msgid "Drag and drop is only supported on local file systems."
 msgstr "ಎಳೆದು ಸೇರಿಸುವಿಕೆಯು ಕೇವಲ ಸ್ಥಳೀಯ ಕಡತ ವ್ಯವಸ್ಥೆಗಳಲ್ಲಿ ಮಾತ್ರ ಬೆಂಬಲಿತವಾಗಿದೆ."
 
-#: ../src/file-manager/fm-directory-view.c:10422
-#: ../src/file-manager/fm-directory-view.c:10527
+#: ../src/file-manager/fm-directory-view.c:10535
+#: ../src/file-manager/fm-directory-view.c:10640
 msgid "An invalid drag type was used."
 msgstr "ಒಂದು ಸರಿಯಲ್ಲದ ರೀತಿಯ ಎಳೆಯುವಿಕೆಯನ್ನು ಬಳಸಲಾಗಿದೆ."
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10604
+#: ../src/file-manager/fm-directory-view.c:10717
 msgid "dropped text.txt"
 msgstr "dropped text.txt"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#. 
-#: ../src/file-manager/fm-directory-view.c:10649
+#: ../src/file-manager/fm-directory-view.c:10762
 msgid "dropped data"
 msgstr ""
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11014
+#: ../src/file-manager/fm-directory-view.c:11127
 msgid "Undo"
 msgstr ""
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11032
+#: ../src/file-manager/fm-directory-view.c:11145
 msgid "Redo"
 msgstr ""
 
@@ -4751,7 +4772,7 @@ msgstr "\"%s\" ನ ಹೆಸರನ್ನು \"%s\" ಗೆ ಬದಲಾಯಿಸ�
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: ../src/file-manager/fm-icon-container.c:609
-#: ../src/file-manager/fm-icon-view.c:3401
+#: ../src/file-manager/fm-icon-view.c:3402
 #: ../src/caja-file-management-properties.ui.h:1
 msgid "Icon View"
 msgstr "ಲಾಂಛನ ನೋಟ"
@@ -4922,49 +4943,49 @@ msgstr ""
 msgid "Restore Icon's Original Si_ze"
 msgstr "ಚಿಹ್ನೆಯ ಮೂಲ ಗಾತ್ರಕ್ಕೆ ಮರಳಿಸು(_z)"
 
-#: ../src/file-manager/fm-icon-view.c:2386
+#: ../src/file-manager/fm-icon-view.c:2388
 #, c-format
 msgid "pointing at \"%s\""
 msgstr "\"%s\" ಗೆ ನಿರ್ದೇಶಿತಗೊಂಡಿದೆ"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3403
+#: ../src/file-manager/fm-icon-view.c:3404
 msgid "_Icons"
 msgstr "ಚಿಹ್ನೆಗಳು(_I)"
 
-#: ../src/file-manager/fm-icon-view.c:3404
+#: ../src/file-manager/fm-icon-view.c:3405
 msgid "The icon view encountered an error."
 msgstr "ಪಟ್ಟಿ ನೋಟದಲ್ಲಿ ಒಂದು ದೋಷವು ಎದುರಾಗಿದೆ."
 
-#: ../src/file-manager/fm-icon-view.c:3405
+#: ../src/file-manager/fm-icon-view.c:3406
 msgid "The icon view encountered an error while starting up."
 msgstr "ಚಿಹ್ನೆಯ ನೋಟವು ಆರಂಭಗೊಳ್ಳುವಾಗ ಒಂದು ದೋಷವು ಎದುರಾಗಿದೆ."
 
-#: ../src/file-manager/fm-icon-view.c:3406
+#: ../src/file-manager/fm-icon-view.c:3407
 msgid "Display this location with the icon view."
 msgstr "ಈ ಚಿಹ್ನೆಯ ನೋಟದೊಂದಿಗೆ ಈ ತಾಣವನ್ನು ತೋರಿಸು."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-icon-view.c:3416
+#: ../src/file-manager/fm-icon-view.c:3417
 #: ../src/caja-file-management-properties.ui.h:3
 msgid "Compact View"
 msgstr "ಸಾಂದ್ರ ನೋಟ"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3418
+#: ../src/file-manager/fm-icon-view.c:3419
 msgid "_Compact"
 msgstr "ಸಾಂದ್ರ(_Compact)"
 
-#: ../src/file-manager/fm-icon-view.c:3419
+#: ../src/file-manager/fm-icon-view.c:3420
 msgid "The compact view encountered an error."
 msgstr "ಸಾಂದ್ರ ನೋಟದಲ್ಲಿ ಒಂದು ದೋಷವು ಎದುರಾಗಿದೆ."
 
-#: ../src/file-manager/fm-icon-view.c:3420
+#: ../src/file-manager/fm-icon-view.c:3421
 msgid "The compact view encountered an error while starting up."
 msgstr "ಸಾಂದ್ರ ನೋಟವು ಆರಂಭಗೊಳ್ಳುವಾಗ ಒಂದು ದೋಷವು ಎದುರಾಗಿದೆ."
 
-#: ../src/file-manager/fm-icon-view.c:3421
+#: ../src/file-manager/fm-icon-view.c:3422
 msgid "Display this location with the compact view."
 msgstr "ಈ ತಾಣವನ್ನು ಸಾಂದ್ರ ನೋಟದೊಂದಿಗೆ ತೋರಿಸು."
 
@@ -4980,46 +5001,46 @@ msgstr "ಲೋಡ್ ಆಗುತ್ತಿದೆ..."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-list-view.c:1814
-#: ../src/file-manager/fm-list-view.c:3429
+#: ../src/file-manager/fm-list-view.c:1821
+#: ../src/file-manager/fm-list-view.c:3436
 #: ../src/caja-file-management-properties.ui.h:2
 msgid "List View"
 msgstr "ಪಟ್ಟಿ ನೋಟ"
 
-#: ../src/file-manager/fm-list-view.c:2509
+#: ../src/file-manager/fm-list-view.c:2516
 #, c-format
 msgid "%s Visible Columns"
 msgstr "%s ಗೋಚರಿಸುವ ಕಾಲಂಗಳು"
 
-#: ../src/file-manager/fm-list-view.c:2528
+#: ../src/file-manager/fm-list-view.c:2535
 msgid "Choose the order of information to appear in this folder:"
 msgstr "ಈ ಕಡತಕೋಶದಲ್ಲಿ ಕಾಣಿಸಬೇಕಿರುವ ಮಾಹಿತಿಯ ಅನುಕ್ರಮವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ:"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-list-view.c:2586
+#: ../src/file-manager/fm-list-view.c:2593
 msgid "Visible _Columns..."
 msgstr "ಗೋಚರಿಸುವ ಕಾಲಂಗಳು(_C)..."
 
 #. tooltip
-#: ../src/file-manager/fm-list-view.c:2587
+#: ../src/file-manager/fm-list-view.c:2594
 msgid "Select the columns visible in this folder"
 msgstr "ಈ ಕಡತಕೋಶದಲ್ಲಿ ಗೋಚರಿಸುವ ಕಾಲಂಗಳನು ಆರಿಸು"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-list-view.c:3431
+#: ../src/file-manager/fm-list-view.c:3438
 msgid "_List"
 msgstr "ಪಟ್ಟಿ(_L)"
 
-#: ../src/file-manager/fm-list-view.c:3432
+#: ../src/file-manager/fm-list-view.c:3439
 msgid "The list view encountered an error."
 msgstr "ಪಟ್ಟಿ ನೋಟದಲ್ಲಿ ದೋಷವು ಎದುರಾಗಿದೆ."
 
-#: ../src/file-manager/fm-list-view.c:3433
+#: ../src/file-manager/fm-list-view.c:3440
 msgid "The list view encountered an error while starting up."
 msgstr "ಪಟ್ಟಿ ನೋಟವು ಆರಂಭಗೊಳ್ಳುವಾಗ ಒಂದು ದೋಷವು ಎದುರಾಗಿದೆ."
 
-#: ../src/file-manager/fm-list-view.c:3434
+#: ../src/file-manager/fm-list-view.c:3441
 msgid "Display this location with the list view."
 msgstr "ಈ ತಾಣವನ್ನು ಪಟ್ಟಿ ನೋಟದಲ್ಲಿ ತೋರಿಸು."
 
@@ -5085,13 +5106,13 @@ msgstr "ಏನೂ ಇಲ್ಲ"
 msgid "unreadable"
 msgstr "ಓದಲಾಗದ"
 
-#: ../src/file-manager/fm-properties-window.c:2329
+#: ../src/file-manager/fm-properties-window.c:2332
 #, c-format
 msgid "%'d item, with size %s"
 msgid_plural "%'d items, totalling %s"
 msgstr[0] ""
 
-#: ../src/file-manager/fm-properties-window.c:2338
+#: ../src/file-manager/fm-properties-window.c:2341
 msgid "(some contents unreadable)"
 msgstr "(ಕೆಲವೊಂದು ಒಳಅಂಶಗಳನ್ನು ಓದಲಾಗಿಲ್ಲ)"
 
@@ -5100,242 +5121,239 @@ msgstr "(ಕೆಲವೊಂದು ಒಳಅಂಶಗಳನ್ನು ಓದಲಾ
 #. * "Contents:" title to line up with the first line of the
 #. * 2-line value. Maybe there's a better way to do this, but I
 #. * couldn't think of one.
-#. 
-#: ../src/file-manager/fm-properties-window.c:2355
+#: ../src/file-manager/fm-properties-window.c:2358
 msgid "Contents:"
 msgstr "ಒಳ ಅಂಶಗಳು:"
 
 #. Translators: "used" refers to the capacity of the filesystem
-#: ../src/file-manager/fm-properties-window.c:3185
+#: ../src/file-manager/fm-properties-window.c:3195
 msgid "used"
 msgstr "ಬಳಸಿದ"
 
 #. Translators: "free" refers to the capacity of the filesystem
-#: ../src/file-manager/fm-properties-window.c:3190
+#: ../src/file-manager/fm-properties-window.c:3200
 msgid "free"
 msgstr "ಮುಕ್ತ"
 
-#: ../src/file-manager/fm-properties-window.c:3192
+#: ../src/file-manager/fm-properties-window.c:3202
 msgid "Total capacity:"
 msgstr "ಒಟ್ಟು ಸಾಮರ್ಥ್ಯ:"
 
-#: ../src/file-manager/fm-properties-window.c:3201
+#: ../src/file-manager/fm-properties-window.c:3211
 msgid "Filesystem type:"
 msgstr "ಕಡತವ್ಯವಸ್ಥೆಯ ಬಗೆ:"
 
-#: ../src/file-manager/fm-properties-window.c:3289
+#: ../src/file-manager/fm-properties-window.c:3299
 msgid "Basic"
 msgstr "ಮೂಲಭೂತ"
 
-#: ../src/file-manager/fm-properties-window.c:3357
+#: ../src/file-manager/fm-properties-window.c:3367
 msgid "Link target:"
 msgstr "ಸೂಚಿತ ಕೊಂಡಿ:"
 
-#: ../src/file-manager/fm-properties-window.c:3376
+#: ../src/file-manager/fm-properties-window.c:3386
 #: ../src/caja-location-bar.c:56
 msgid "Location:"
 msgstr "ತಾಣ:"
 
-#: ../src/file-manager/fm-properties-window.c:3382
+#: ../src/file-manager/fm-properties-window.c:3392
 msgid "Volume:"
 msgstr "ಪರಿಮಾಣ:"
 
-#: ../src/file-manager/fm-properties-window.c:3391
+#: ../src/file-manager/fm-properties-window.c:3401
 msgid "Accessed:"
 msgstr "ನಿಲುಕಿಸಿಕೊಂಡಿದ್ದು:"
 
-#: ../src/file-manager/fm-properties-window.c:3395
+#: ../src/file-manager/fm-properties-window.c:3405
 msgid "Modified:"
 msgstr "ಮಾರ್ಪಾಟುಗೊಂಡಿದ್ದು:"
 
-#: ../src/file-manager/fm-properties-window.c:3404
+#: ../src/file-manager/fm-properties-window.c:3414
 msgid "Free space:"
 msgstr "ಮುಕ್ತ ಸ್ಥಳ:"
 
-#: ../src/file-manager/fm-properties-window.c:3514
+#: ../src/file-manager/fm-properties-window.c:3524
 #: ../src/caja-emblem-sidebar.c:1087
 msgid "Emblems"
 msgstr "ಲಾಂಛನಗಳು"
 
-#: ../src/file-manager/fm-properties-window.c:3917
+#: ../src/file-manager/fm-properties-window.c:3927
 msgid "_Read"
 msgstr "ಓದು(_R)"
 
-#: ../src/file-manager/fm-properties-window.c:3919
+#: ../src/file-manager/fm-properties-window.c:3929
 msgid "_Write"
 msgstr "ಬರೆ(_Write)"
 
-#: ../src/file-manager/fm-properties-window.c:3921
+#: ../src/file-manager/fm-properties-window.c:3931
 msgid "E_xecute"
 msgstr "ಕಾರ್ಯಗತಗೊಳಿಸು(_x)"
 
 #. translators: this gets concatenated to "no read",
 #. * "no access", etc. (see following strings)
-#. 
-#: ../src/file-manager/fm-properties-window.c:4189
-#: ../src/file-manager/fm-properties-window.c:4200
-#: ../src/file-manager/fm-properties-window.c:4212
+#: ../src/file-manager/fm-properties-window.c:4199
+#: ../src/file-manager/fm-properties-window.c:4210
+#: ../src/file-manager/fm-properties-window.c:4222
 msgid "no "
 msgstr "ಇಲ್ಲ "
 
-#: ../src/file-manager/fm-properties-window.c:4192
+#: ../src/file-manager/fm-properties-window.c:4202
 msgid "list"
 msgstr "ಪಟ್ಟಿ"
 
-#: ../src/file-manager/fm-properties-window.c:4194
+#: ../src/file-manager/fm-properties-window.c:4204
 msgid "read"
 msgstr "ಓದು"
 
-#: ../src/file-manager/fm-properties-window.c:4203
+#: ../src/file-manager/fm-properties-window.c:4213
 msgid "create/delete"
 msgstr "ನಿರ್ಮಿಸು/ಅಳಿಸು"
 
-#: ../src/file-manager/fm-properties-window.c:4205
+#: ../src/file-manager/fm-properties-window.c:4215
 msgid "write"
 msgstr "ಬರೆ(write)"
 
-#: ../src/file-manager/fm-properties-window.c:4214
+#: ../src/file-manager/fm-properties-window.c:4224
 msgid "access"
 msgstr "ನಿಲುಕಣೆ"
 
-#: ../src/file-manager/fm-properties-window.c:4263
+#: ../src/file-manager/fm-properties-window.c:4273
 msgid "Access:"
 msgstr "ನಿಲುಕಣೆ:"
 
-#: ../src/file-manager/fm-properties-window.c:4265
+#: ../src/file-manager/fm-properties-window.c:4275
 msgid "Folder access:"
 msgstr "ಕಡತಕೋಶದ ನಿಲುಕಣೆ:"
 
-#: ../src/file-manager/fm-properties-window.c:4267
+#: ../src/file-manager/fm-properties-window.c:4277
 msgid "File access:"
 msgstr "ಕಡತ ನಿಲುಕಣೆ:"
 
 #. Translators: this is referred to the permissions
 #. * the user has in a directory.
-#. 
 #. Translators: this is referred to captions under icons.
-#: ../src/file-manager/fm-properties-window.c:4282
-#: ../src/file-manager/fm-properties-window.c:4293
-#: ../src/caja-file-management-properties.c:319
+#: ../src/file-manager/fm-properties-window.c:4292
+#: ../src/file-manager/fm-properties-window.c:4303
+#: ../src/caja-file-management-properties.c:318
 msgid "None"
 msgstr "ಯಾವುದೂ ಇಲ್ಲ"
 
-#: ../src/file-manager/fm-properties-window.c:4285
+#: ../src/file-manager/fm-properties-window.c:4295
 msgid "List files only"
 msgstr "ಪಟ್ಟಿ ಕಡತಗಳು ಮಾತ್ರ"
 
-#: ../src/file-manager/fm-properties-window.c:4287
+#: ../src/file-manager/fm-properties-window.c:4297
 msgid "Access files"
 msgstr "ಕಡತಗಳನ್ನು ನಿಲುಕಿಸು"
 
-#: ../src/file-manager/fm-properties-window.c:4289
+#: ../src/file-manager/fm-properties-window.c:4299
 msgid "Create and delete files"
 msgstr "ಕಡತಗಳನ್ನು ನಿರ್ಮಿಸು ಹಾಗು ಅಳಿಸು"
 
-#: ../src/file-manager/fm-properties-window.c:4296
+#: ../src/file-manager/fm-properties-window.c:4306
 msgid "Read-only"
 msgstr "ಓದಲು ಮಾತ್ರ"
 
-#: ../src/file-manager/fm-properties-window.c:4298
+#: ../src/file-manager/fm-properties-window.c:4308
 msgid "Read and write"
 msgstr "ಓದು ಹಾಗು ಬರೆ "
 
-#: ../src/file-manager/fm-properties-window.c:4365
+#: ../src/file-manager/fm-properties-window.c:4375
 msgid "Set _user ID"
 msgstr "ಬಳಕೆದಾರ ಐಡಿಯನ್ನು ಹೊಂದಿಸು(_u)"
 
-#: ../src/file-manager/fm-properties-window.c:4368
+#: ../src/file-manager/fm-properties-window.c:4378
 msgid "Special flags:"
 msgstr "ವಿಶೇಷ ಗುರುತುಗಳು:"
 
-#: ../src/file-manager/fm-properties-window.c:4370
+#: ../src/file-manager/fm-properties-window.c:4380
 msgid "Set gro_up ID"
 msgstr "ಸಮೂಹ ಐಡಿಯನ್ನು ಹೊಂದಿಸು(_u)"
 
-#: ../src/file-manager/fm-properties-window.c:4371
+#: ../src/file-manager/fm-properties-window.c:4381
 msgid "_Sticky"
 msgstr "ಸ್ಟಿಕಿ(_S)"
 
-#: ../src/file-manager/fm-properties-window.c:4453
-#: ../src/file-manager/fm-properties-window.c:4661
+#: ../src/file-manager/fm-properties-window.c:4463
+#: ../src/file-manager/fm-properties-window.c:4671
 msgid "_Owner:"
 msgstr "ಮಾಲಿಕ(_O):"
 
-#: ../src/file-manager/fm-properties-window.c:4459
-#: ../src/file-manager/fm-properties-window.c:4557
-#: ../src/file-manager/fm-properties-window.c:4669
+#: ../src/file-manager/fm-properties-window.c:4469
+#: ../src/file-manager/fm-properties-window.c:4567
+#: ../src/file-manager/fm-properties-window.c:4679
 msgid "Owner:"
 msgstr "ಮಾಲೀಕ:"
 
-#: ../src/file-manager/fm-properties-window.c:4483
-#: ../src/file-manager/fm-properties-window.c:4681
+#: ../src/file-manager/fm-properties-window.c:4493
+#: ../src/file-manager/fm-properties-window.c:4691
 msgid "_Group:"
 msgstr "ಸಮೂಹ(_G):"
 
-#: ../src/file-manager/fm-properties-window.c:4492
-#: ../src/file-manager/fm-properties-window.c:4558
-#: ../src/file-manager/fm-properties-window.c:4690
+#: ../src/file-manager/fm-properties-window.c:4502
+#: ../src/file-manager/fm-properties-window.c:4568
+#: ../src/file-manager/fm-properties-window.c:4700
 msgid "Group:"
 msgstr "ಸಮೂಹ:"
 
-#: ../src/file-manager/fm-properties-window.c:4518
+#: ../src/file-manager/fm-properties-window.c:4528
 msgid "Others"
 msgstr "ಇತರರು"
 
-#: ../src/file-manager/fm-properties-window.c:4536
+#: ../src/file-manager/fm-properties-window.c:4546
 msgid "Execute:"
 msgstr "ಕಾರ್ಯಗತಗೊಳಿಸು:"
 
-#: ../src/file-manager/fm-properties-window.c:4540
+#: ../src/file-manager/fm-properties-window.c:4550
 msgid "Allow _executing file as program"
 msgstr "ಕಡತವನ್ನು ಒಂದು ಪ್ರೋಗ್ರಾಂ ಆಗಿ ಕಾರ್ಯಗತಗೊಳಿಸಲು ಅನುಮತಿಸು(_e)"
 
-#: ../src/file-manager/fm-properties-window.c:4559
+#: ../src/file-manager/fm-properties-window.c:4569
 msgid "Others:"
 msgstr "ಇತರರು:"
 
-#: ../src/file-manager/fm-properties-window.c:4709
+#: ../src/file-manager/fm-properties-window.c:4719
 msgid "Folder Permissions:"
 msgstr "ಕಡತ ಕೋಶ ಅನುಮತಿಗಳು:"
 
-#: ../src/file-manager/fm-properties-window.c:4722
+#: ../src/file-manager/fm-properties-window.c:4732
 msgid "File Permissions:"
 msgstr "ಕಡತ ಅನುಮತಿಗಳು:"
 
-#: ../src/file-manager/fm-properties-window.c:4733
+#: ../src/file-manager/fm-properties-window.c:4743
 msgid "Text view:"
 msgstr "ಪಠ್ಯ ನೋಟ:"
 
-#: ../src/file-manager/fm-properties-window.c:4881
+#: ../src/file-manager/fm-properties-window.c:4891
 msgid "You are not the owner, so you cannot change these permissions."
 msgstr "ನೀವು ಮಾಲಿಕರಲ್ಲ, ಆದ್ದರಿಂದ ಈ ಅನುಮತಿಗಳನ್ನು ನೀವು ಬದಲಾಯಿಸುವಂತಿಲ್ಲ."
 
-#: ../src/file-manager/fm-properties-window.c:4906
+#: ../src/file-manager/fm-properties-window.c:4916
 msgid "SELinux context:"
 msgstr "SELinux ಸನ್ನಿವೇಶ:"
 
-#: ../src/file-manager/fm-properties-window.c:4911
+#: ../src/file-manager/fm-properties-window.c:4921
 msgid "Last changed:"
 msgstr "ಕೊನೆಯ ಬಾರಿಗೆ ಬದಲಾಯಿಸಿದ್ದು:"
 
-#: ../src/file-manager/fm-properties-window.c:4925
+#: ../src/file-manager/fm-properties-window.c:4935
 msgid "Apply Permissions to Enclosed Files"
 msgstr "ಲಗತ್ತಿಸಲಾದ ಕಡತಗಳಿಗೆ ಅನುಮತಿಗಳನ್ನು ಅನ್ವಯಿಸು"
 
-#: ../src/file-manager/fm-properties-window.c:4935
+#: ../src/file-manager/fm-properties-window.c:4945
 #, c-format
 msgid "The permissions of \"%s\" could not be determined."
 msgstr "ಆರಿಸಲಾದ \"%s\" ಗೆ ಅನುಮತಿಗಳನ್ನು ನಿರ್ಧರಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: ../src/file-manager/fm-properties-window.c:4938
+#: ../src/file-manager/fm-properties-window.c:4948
 msgid "The permissions of the selected file could not be determined."
 msgstr "ಆರಿಸಲಾದ ಕಡತದ ಅನುಮತಿಗಳನ್ನು ನಿರ್ಧರಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: ../src/file-manager/fm-properties-window.c:5500
+#: ../src/file-manager/fm-properties-window.c:5510
 msgid "Creating Properties window."
 msgstr "ಗುಣಲಕ್ಷಣಗಳ ವಿಂಡೋವನ್ನು ನಿರ್ಮಿಸಲಾಗುತ್ತಿದೆ."
 
-#: ../src/file-manager/fm-properties-window.c:5798
+#: ../src/file-manager/fm-properties-window.c:5808
 msgid "Select Custom Icon"
 msgstr "ಕಸ್ಟಮ್ ಚಿಹ್ನೆಯನ್ನು ಆರಿಸಿ"
 
@@ -5412,8 +5430,8 @@ msgid ""
 msgstr "ತಂತ್ರಾಂಶವು ನೇರವಾಗಿ \"%s\" ಮಾಧ್ಯಮದಿಂದ ಚಲಾಯಿಸಲ್ಪಡುತ್ತದೆ. ನೀವು ನಂಬದೆ ಇರುವಂತಹ ತಂತ್ರಾಂಶವನ್ನು ಎಂದಿಗೂ ಸಹ ಚಲಾಯಿಸಬಾರದು.\n\nಸಂದೇಹಗಳಿದ್ದಲ್ಲಿ, ರದ್ದುಗೊಳಿಸು ಅನ್ನು ಕ್ಲಿಕ್ಕಿಸಿ."
 
 #: ../src/caja-bookmarks-window.c:158
-#: ../src/caja-file-management-properties.c:226
-#: ../src/caja-property-browser.c:1654 ../src/caja-window-menus.c:600
+#: ../src/caja-file-management-properties.c:225
+#: ../src/caja-property-browser.c:1654 ../src/caja-window-menus.c:616
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
@@ -5563,7 +5581,7 @@ msgstr ""
 msgid "Remember this password"
 msgstr ""
 
-#: ../src/caja-desktop-window.c:81 ../src/caja-desktop-window.c:247
+#: ../src/caja-desktop-window.c:81 ../src/caja-desktop-window.c:251
 #: ../src/caja-pathbar.c:1524 ../src/caja-places-sidebar.c:704
 msgid "Desktop"
 msgstr "ಗಣಕತೆರೆ"
@@ -6193,7 +6211,7 @@ msgstr "Caja‍ ನಿಂದ ನಿರ್ಗಮಿಸು."
 msgid "[URI...]"
 msgstr "[URI...]"
 
-#: ../src/caja-main.c:432
+#: ../src/caja-main.c:434
 msgid ""
 "\n"
 "\n"
@@ -6201,22 +6219,22 @@ msgid ""
 msgstr "\n\nಕಡತ ಮ್ಯಾನೇಜರನ್ನು ಬಳಸಿಕೊಂಡು ಕಡತ ವ್ಯವಸ್ಥೆಯನ್ನು ವೀಕ್ಷಿಸಿ"
 
 #. translators: %s is an option (e.g. --check)
-#: ../src/caja-main.c:472 ../src/caja-main.c:483
+#: ../src/caja-main.c:474 ../src/caja-main.c:485
 #, c-format
 msgid "caja: %s cannot be used with URIs.\n"
 msgstr "caja: %s ಅನ್ನು ಯುಆರ್ಐಗಳೊಂದಿಗೆ ಬಳಸಲಾಗುವುದಿಲ್ಲ.\n"
 
-#: ../src/caja-main.c:478
+#: ../src/caja-main.c:480
 #, c-format
 msgid "caja: --check cannot be used with other options.\n"
 msgstr "Caja: --check ಅನ್ನು ಬೇರೆ ಆಯ್ಕೆಗಳೊಂದಿಗೆ ಬಳಸುವಂತಿಲ್ಲ.\n"
 
-#: ../src/caja-main.c:489
+#: ../src/caja-main.c:491
 #, c-format
 msgid "caja: --geometry cannot be used with more than one URI.\n"
 msgstr "Caja: --geometry ಅನ್ನು ಒಂದಕ್ಕಿಂತ ಹೆಚ್ಚಿನ ಯುಆರ್ಐ ಜೊತೆಗೆ ಬಳಸುವ ಹಾಗಿಲ್ಲ.\n"
 
-#: ../src/caja-main.c:555
+#: ../src/caja-main.c:559
 #, c-format
 msgid "caja: set erroneously as default application for '%s' content type.\n"
 msgstr ""
@@ -6496,7 +6514,7 @@ msgstr ""
 msgid "_Close Tab"
 msgstr "ಹಾಳೆಯನ್ನು ಮುಚ್ಚು (_C)"
 
-#: ../src/caja-navigation-window.c:767
+#: ../src/caja-navigation-window.c:770
 #, c-format
 msgid "%s - File Browser"
 msgstr "%s - ಕಡತ ವೀಕ್ಷಕ"
@@ -6533,10 +6551,6 @@ msgstr "ನಿಮ್ಮ ಗಣಕತೆರೆಯಲ್ಲಿರುವವುಗ�
 #: ../src/caja-places-sidebar.c:721
 msgid "Open the contents of the File System"
 msgstr ""
-
-#: ../src/caja-places-sidebar.c:824 ../src/caja-trash-bar.c:192
-msgid "Trash"
-msgstr "ಕಸಬುಟ್ಟಿ"
 
 #: ../src/caja-places-sidebar.c:826
 msgid "Open the trash"
@@ -6868,15 +6882,9 @@ msgstr "ಶೋಧನೆಯ ಫಲಿತಾಂಶಗಳು"
 msgid "Search:"
 msgstr "ಶೋಧಿಸು:"
 
-#: ../src/caja-side-pane.c:441
+#: ../src/caja-side-pane.c:403
 msgid "Close the side pane"
 msgstr "ಅಂಚಿನ ಫಲಕವನ್ನು ಮುಚ್ಚು"
-
-#. Set initial window title
-#: ../src/caja-spatial-window.c:381 ../src/caja-window-menus.c:532
-#: ../src/caja-window.c:162
-msgid "Caja"
-msgstr "Caja‍"
 
 #. name, stock id, label
 #: ../src/caja-spatial-window.c:948
@@ -6928,53 +6936,53 @@ msgstr "ಅಸ್ತಿತ್ವದಲ್ಲಿರದ ತಾಣದೊಂದಿ�
 msgid "Bookmark for Nonexistent Location"
 msgstr "ಅಸ್ತಿತ್ವದಲ್ಲಿರದೆ ಇರುವಂತಹ ತಾಣಕ್ಕಾಗಿನ ಬುಕ್‍ಮಾರ್ಕ್"
 
-#: ../src/caja-window-manage-views.c:811
+#: ../src/caja-window-manage-views.c:814
 msgid "You can choose another view or go to a different location."
 msgstr "ನೀವು ಬೇರೊಂದು ನೋಟವನ್ನು ಆರಿಸಬಹುದು ಅಥವ ಬೇರೊಂದು ಸ್ಥಳಕ್ಕೆ ತೆರಳಬಹುದು."
 
-#: ../src/caja-window-manage-views.c:830
+#: ../src/caja-window-manage-views.c:833
 msgid "The location cannot be displayed with this viewer."
 msgstr "ತಾಣವನ್ನು ಈ ವೀಕ್ಷಕದೊಂದಿಗೆ ಪ್ರದರ್ಶಿಸಲಾಗುವುದಿಲ್ಲ."
 
-#: ../src/caja-window-manage-views.c:1419
+#: ../src/caja-window-manage-views.c:1422
 msgid "Content View"
 msgstr "ಒಳ ಅಂಶದ ನೋಟ"
 
-#: ../src/caja-window-manage-views.c:1420
+#: ../src/caja-window-manage-views.c:1423
 msgid "View of the current folder"
 msgstr "ಪ್ರಸ್ತುತ ಕಡತದ ನೋಟ"
 
-#: ../src/caja-window-manage-views.c:2111
+#: ../src/caja-window-manage-views.c:2114
 msgid "Caja has no installed viewer capable of displaying the folder."
 msgstr "Caja‍ನಲ್ಲಿ ಈ ಕಡತಕೋಶವನ್ನು ತೋರಿಸುವಂತಹ ಯಾವುದೆ ಅನುಸ್ಥಾಪಿತ ವೀಕ್ಷಕವಿಲ್ಲ."
 
-#: ../src/caja-window-manage-views.c:2119
+#: ../src/caja-window-manage-views.c:2122
 msgid "The location is not a folder."
 msgstr "ತಾಣವು ಒಂದು ಕಡತಕೋಶವಲ್ಲ."
 
-#: ../src/caja-window-manage-views.c:2128
+#: ../src/caja-window-manage-views.c:2131
 #, c-format
 msgid "Could not find \"%s\"."
 msgstr "\"%s\" ಅನ್ನು ಪತ್ತೆ ಮಾಡಲಾಗಲಿಲ್ಲ."
 
-#: ../src/caja-window-manage-views.c:2131
+#: ../src/caja-window-manage-views.c:2134
 msgid "Please check the spelling and try again."
 msgstr "ದಯವಿಟ್ಟಿ ಕಾಗುಣಿತವನ್ನು ಪರೀಕ್ಷಿಸಿ ಹಾಗು ನಂತರ ಪ್ರಯತ್ನಿಸಿ."
 
-#: ../src/caja-window-manage-views.c:2140
+#: ../src/caja-window-manage-views.c:2143
 #, c-format
 msgid "Caja cannot handle \"%s\" locations."
 msgstr "%s ತಾಣಗಳನ್ನು ನಿಭಾಯಿಸಲು Caja‌ಗೆ ಸಾಧ್ಯವಿಲ್ಲ."
 
-#: ../src/caja-window-manage-views.c:2145
+#: ../src/caja-window-manage-views.c:2148
 msgid "Caja cannot handle this kind of location."
 msgstr "Caja‍ಗೆ ಈ ಬಗೆಯ ಸ್ಥಳವನ್ನು ನಿಭಾಯಿಸಲು ಸಾಧ್ಯವಾಗುವುದಿಲ್ಲ."
 
-#: ../src/caja-window-manage-views.c:2152
+#: ../src/caja-window-manage-views.c:2155
 msgid "Unable to mount the location."
 msgstr "ತಾಣವನ್ನು ಆರೋಹಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: ../src/caja-window-manage-views.c:2158
+#: ../src/caja-window-manage-views.c:2161
 msgid "Access was denied."
 msgstr "ಅನುಮತಿಯು ನಿರಾಕರಿಸಲ್ಪಟ್ಟಿದೆ."
 
@@ -6982,18 +6990,17 @@ msgstr "ಅನುಮತಿಯು ನಿರಾಕರಿಸಲ್ಪಟ್ಟಿ�
 #. * the code that guesses web addresses when there's no initial "/".
 #. * But this case is also hit for legitimate web addresses when
 #. * the proxy is set up wrong.
-#. 
-#: ../src/caja-window-manage-views.c:2167
+#: ../src/caja-window-manage-views.c:2170
 #, c-format
 msgid "Could not display \"%s\", because the host could not be found."
 msgstr "\"%s\" ಅನ್ನು ತೋರಿಸಲಾಗಿಲ್ಲ, ಏಕೆಂದರೆ ಅತಿಥೇಯವನ್ನು ಪತ್ತೆ ಮಾಡಲಾಗಿಲ್ಲ."
 
-#: ../src/caja-window-manage-views.c:2169
+#: ../src/caja-window-manage-views.c:2172
 msgid ""
 "Check that the spelling is correct and that your proxy settings are correct."
 msgstr "ಕಾಗುಣಿತವು ಸರಿ ಇದೆಯೆ ಹಾಗು ನಿಮ್ಮ ಪ್ರಾಕ್ಸಿ ಸಿದ್ಧತೆಗಳು ಸರಿ ಇವೆಯೆ ಎಂದು ಪರೀಕ್ಷಿಸಿ."
 
-#: ../src/caja-window-manage-views.c:2185
+#: ../src/caja-window-manage-views.c:2188
 #, c-format
 msgid ""
 "Error: %s\n"
@@ -7041,7 +7048,6 @@ msgstr ""
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
 #. * box to give credit to the translator(s).
-#. 
 #: ../src/caja-window-menus.c:547
 msgid "translator-credits"
 msgstr "ಅನುವಾದಕರ-ಮನ್ನಣೆಗಳು"
@@ -7051,203 +7057,203 @@ msgid "MATE Web Site"
 msgstr ""
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:816
+#: ../src/caja-window-menus.c:832
 msgid "_File"
 msgstr "ಕಡತ(_F)"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:817
+#: ../src/caja-window-menus.c:833
 msgid "_Edit"
 msgstr "ಪರಿಷ್ಕರಿಸು(_E)"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:818
+#: ../src/caja-window-menus.c:834
 msgid "_View"
 msgstr "ನೋಟ (_V)"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:819
+#: ../src/caja-window-menus.c:835
 msgid "_Help"
 msgstr "ಸಹಾಯ(_H)"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:821
+#: ../src/caja-window-menus.c:837
 msgid "_Close"
 msgstr "ಮುಚ್ಚು (_C)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:822
+#: ../src/caja-window-menus.c:838
 msgid "Close this folder"
 msgstr "ಈ ಕಡತಕೋಶವನ್ನು ಮುಚ್ಚು"
 
-#: ../src/caja-window-menus.c:827
+#: ../src/caja-window-menus.c:843
 msgid "_Backgrounds and Emblems..."
 msgstr "ಹಿನ್ನಲೆಗಳು ಹಾಗು ಲಾಂಛನಗಳು(_B)..."
 
-#: ../src/caja-window-menus.c:828
+#: ../src/caja-window-menus.c:844
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
 msgstr "ತೋರಿಕೆಯನ್ನು ನಿಮ್ಮಿಷ್ಟಕ್ಕೆ ಬದಲಾವಣೆ ಮಾಡಲು ಬಳಸಬಹುದಾದಂತಹ ಮಾದರಿಗಳು, ಬಣ್ಣಗಳು, ಹಾಗು ಲಾಂಛನಗಳು"
 
-#: ../src/caja-window-menus.c:833
+#: ../src/caja-window-menus.c:849
 msgid "Prefere_nces"
 msgstr "ಆದ್ಯತೆಗಳು (Prefere_nces)"
 
-#: ../src/caja-window-menus.c:834
+#: ../src/caja-window-menus.c:850
 msgid "Edit Caja preferences"
 msgstr "Caja‍ ಆದ್ಯತೆಗಳನ್ನು ಸಂಪಾದಿಸು"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:837
+#: ../src/caja-window-menus.c:853
 msgid "Open _Parent"
 msgstr "ಮೂಲವನ್ನು ತೆರೆ(_P)"
 
-#: ../src/caja-window-menus.c:838
+#: ../src/caja-window-menus.c:854
 msgid "Open the parent folder"
 msgstr "ಮೂಲ ಕಡತಕೋಶವನ್ನು ತೆರೆ"
 
 #. tooltip
-#: ../src/caja-window-menus.c:847
+#: ../src/caja-window-menus.c:863
 msgid "Stop loading the current location"
 msgstr "ಪ್ರಸಕ್ತ ತಾಣವನ್ನು ಲೋಡ್ ಮಾಡುವುದನ್ನು ನಿಲ್ಲಿಸು"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:851
+#: ../src/caja-window-menus.c:867
 msgid "_Reload"
 msgstr "ಪುನ: ಲೋಡ್ ಮಾಡು(_R)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:852
+#: ../src/caja-window-menus.c:868
 msgid "Reload the current location"
 msgstr "ಪ್ರಸಕ್ತ ತಾಣವನ್ನು ಪುನಃ ಲೋಡ್ ಮಾಡು"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:856
+#: ../src/caja-window-menus.c:872
 msgid "_Contents"
 msgstr "ವಿಷಯಗಳು (_C)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:857
+#: ../src/caja-window-menus.c:873
 msgid "Display Caja help"
 msgstr "Caja‍ ಸಹಾಯವನ್ನು ತೋರಿಸು"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:861
+#: ../src/caja-window-menus.c:877
 msgid "_About"
 msgstr "ಬಗ್ಗೆ (_A)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:862
+#: ../src/caja-window-menus.c:878
 msgid "Display credits for the creators of Caja"
 msgstr "Caja‍ನ ನಿರ್ಮಾತೃಗಳಿಗೆ ಮನ್ನಣೆಗಳನ್ನು ತೋರಿಸು"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:866
+#: ../src/caja-window-menus.c:882
 msgid "Zoom _In"
 msgstr "ಹಿಗ್ಗಿಸು(_I)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:867 ../src/caja-zoom-control.c:99
+#: ../src/caja-window-menus.c:883 ../src/caja-zoom-control.c:99
 #: ../src/caja-zoom-control.c:372
 msgid "Increase the view size"
 msgstr "ನೋಟದ ಗಾತ್ರವನ್ನು ಹಿಗ್ಗಿಸು"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:881
+#: ../src/caja-window-menus.c:897
 msgid "Zoom _Out"
 msgstr "ಕುಗ್ಗಿಸು(_O)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:882 ../src/caja-zoom-control.c:100
+#: ../src/caja-window-menus.c:898 ../src/caja-zoom-control.c:100
 #: ../src/caja-zoom-control.c:321
 msgid "Decrease the view size"
 msgstr "ನೋಟದ ಗಾತ್ರವನ್ನು ಚಿಕ್ಕದಾಗಿಸು"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:891
+#: ../src/caja-window-menus.c:907
 msgid "Normal Si_ze"
 msgstr "ಸಾಮಾನ್ಯ ಗಾತ್ರ(_z)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:892 ../src/caja-zoom-control.c:101
+#: ../src/caja-window-menus.c:908 ../src/caja-zoom-control.c:101
 #: ../src/caja-zoom-control.c:334
 msgid "Use the normal view size"
 msgstr "ಸಾಮಾನ್ಯ ನೋಟದ ಗಾತ್ರವನ್ನು ಬಳಸಿ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:896
+#: ../src/caja-window-menus.c:912
 msgid "Connect to _Server..."
 msgstr "ಪರಿಚಾರಕಕ್ಕೆ ಸಂಪರ್ಕ ಕಲ್ಪಿಸು(_S)..."
 
 #. tooltip
-#: ../src/caja-window-menus.c:897
+#: ../src/caja-window-menus.c:913
 msgid "Connect to a remote computer or shared disk"
 msgstr "ಒಂದು ದೂರದ ಗಣಕಕ್ಕೆ ಅಥವ ಹಂಚಿಕೆ ಮಾಡಲಾದ ಡಿಸ್ಕ್‍ಗೆ ಸಂಪರ್ಕ ಕಲ್ಪಿಸು"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:906
+#: ../src/caja-window-menus.c:922
 msgid "_Computer"
 msgstr "ಗಣಕ(_C)"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:911
+#: ../src/caja-window-menus.c:927
 msgid "_Network"
 msgstr "ಜಾಲಬಂಧ(_N)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:912 ../src/mate-network-scheme.desktop.in.h:2
+#: ../src/caja-window-menus.c:928 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
 msgstr "ಬುಕ್‍ಮಾರ್ಕ್ ಮಾಡಲಾದ ಹಾಗು ಸ್ಥಳೀಯ ಜಾಲಬಂಧ ಸ್ಥಳಗಳನ್ನು ವೀಕ್ಷಿಸು"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:916
+#: ../src/caja-window-menus.c:932
 msgid "T_emplates"
 msgstr "ಮಾದರಿಗಳು(T_emplates)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:917
+#: ../src/caja-window-menus.c:933
 msgid "Open your personal templates folder"
 msgstr "ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಮಾದರಿಗಳ ಕೋಶವನ್ನು ತೆರೆಯಿರಿ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:921
+#: ../src/caja-window-menus.c:937
 msgid "_Trash"
 msgstr "ಕಸದಬುಟ್ಟಿ(_Trash)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:922
+#: ../src/caja-window-menus.c:938
 msgid "Open your personal trash folder"
 msgstr "ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಕಸದಬುಟ್ಟಿ ಕೋಶವನ್ನು ತೆರೆಯಿರಿ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:930
+#: ../src/caja-window-menus.c:946
 msgid "Show _Hidden Files"
 msgstr "ಗೌಪ್ಯವಾಗಿರಸಲಾದ ಕಡತಗಳನ್ನು ತೋರಿಸು (_H)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:931
+#: ../src/caja-window-menus.c:947
 msgid "Toggle the display of hidden files in the current window"
 msgstr "ಪ್ರಸಕ್ತ ವಿಂಡೋದಲ್ಲಿ ಅಡಗಿಸಲಾದ ಕಡತಗಳನ್ನು ತೋರಿಸಲು ಟಾಗಲ್ ಮಾಡು"
 
-#: ../src/caja-window-menus.c:962
+#: ../src/caja-window-menus.c:978
 msgid "_Up"
 msgstr "ಮೇಲೆ(_U)"
 
-#: ../src/caja-window-menus.c:965
+#: ../src/caja-window-menus.c:981
 msgid "_Home"
 msgstr "ನೆಲೆ(_H)"
 
