@@ -13,7 +13,8 @@ SUBDIRS = \
 	docs \
 	$(NULL)
 
-EXTRA_DIST= \
+EXTRA_DIST = \
+	autogen.sh \
 	COPYING.LIB \
 	COPYING.EXTENSIONS \
 	COPYING-DOCS \
