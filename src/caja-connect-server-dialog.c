@@ -65,6 +65,8 @@ struct _CajaConnectServerDialogDetails
     GtkWidget *password_entry;
     GtkWidget *remember_checkbox;
     GtkWidget *connect_button;
+    GtkWidget *bookmark_checkbox;
+    GtkWidget *name_entry;
 
     GList *iconized_entries;
 
@@ -616,6 +618,26 @@ connect_dialog_connect_to_server (CajaConnectServerDialog *dialog)
     location = g_file_new_for_uri (uri);
     g_free (uri);
 
+    /* add to bookmarks */
+    if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (dialog->details->bookmark_checkbox)))
+    {
+        char *name;
+        CajaBookmark *bookmark;
+        CajaBookmarkList *list;
+        GIcon *icon;
+
+        name = gtk_editable_get_chars (GTK_EDITABLE (dialog->details->name_entry), 0, -1);
+        icon = g_themed_icon_new (CAJA_ICON_FOLDER_REMOTE);
+        bookmark = caja_bookmark_new (location, strlen (name) ? name : NULL, TRUE, icon);
+        list = caja_bookmark_list_new ();
+        if (!caja_bookmark_list_contains (list, bookmark))
+            caja_bookmark_list_append (list, bookmark);
+        g_object_unref (bookmark);
+        g_object_unref (list);
+        g_object_unref (icon);
+        g_free (name);
+    }
+
 	connect_dialog_set_connecting (dialog);
 	connect_dialog_present_uri_async (dialog,
 					  dialog->details->application,
@@ -819,7 +841,7 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
     GtkWidget *alignment;
     GtkWidget *content_area;
     GtkWidget *combo ,* table;
-	GtkWidget *hbox, *connect_button, *checkbox;
+	GtkWidget *vbox, *hbox, *connect_button, *checkbox;
     GtkListStore *store;
     GtkCellRenderer *renderer;
     gchar *str;
@@ -1097,6 +1119,32 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
 	dialog->details->remember_checkbox = checkbox;
 
 	bind_visibility (dialog, dialog->details->password_entry, checkbox);
+
+    /* add as bookmark */
+    vbox = gtk_vbox_new (FALSE, 12);
+    gtk_box_pack_start (GTK_BOX (content_area), vbox, FALSE, FALSE, 6);
+
+    dialog->details->bookmark_checkbox = gtk_check_button_new_with_mnemonic (_("Add _bookmark"));
+    gtk_box_pack_start (GTK_BOX (vbox), dialog->details->bookmark_checkbox, TRUE, TRUE, 0);
+    gtk_widget_show (dialog->details->bookmark_checkbox);
+
+    hbox = gtk_hbox_new (FALSE, 12);
+    gtk_box_pack_start (GTK_BOX (vbox), hbox, TRUE, TRUE, 0);
+
+    label = gtk_label_new (_("Bookmark Name:"));
+    gtk_box_pack_start (GTK_BOX (hbox), label, TRUE, TRUE, 0);
+
+    dialog->details->name_entry = gtk_entry_new ();
+    gtk_box_pack_start (GTK_BOX (hbox), dialog->details->name_entry, TRUE, TRUE, 0);
+
+    gtk_widget_show_all (vbox);
+
+    g_object_bind_property (dialog->details->bookmark_checkbox, "active",
+                            dialog->details->name_entry, "sensitive",
+                            G_BINDING_DEFAULT |
+                            G_BINDING_SYNC_CREATE);
+
+
 
     gtk_dialog_add_button (GTK_DIALOG (dialog),
                            GTK_STOCK_HELP,
