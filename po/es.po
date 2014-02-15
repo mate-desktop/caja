@@ -5,16 +5,16 @@
 # Translators:
 # Adolfo Jayme Barrientos <fitoschido@ubuntu.com>, 2013
 # Art O. Pal <artopal@fastmail.fm>, 2012
-# Lluís Tusquellas <lutusq@gmail.com>, 2013
+# Lluís Tusquellas <lutusq@gmail.com>, 2013-2014
 # Lluís Tusquellas <lutusq@gmail.com>, 2012-2013
 # Lluís Tusquellas <lutusq@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-27 16:56+0100\n"
-"PO-Revision-Date: 2014-01-27 15:58+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"POT-Creation-Date: 2014-02-12 19:04+0100\n"
+"PO-Revision-Date: 2014-02-14 22:23+0000\n"
+"Last-Translator: Lluís Tusquellas <lutusq@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/MATE/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -425,7 +425,7 @@ msgstr "Métodos de entrada"
 
 #: ../eel/eel-gtk-extensions.c:476
 msgid "Show more _details"
-msgstr ""
+msgstr "Mostrar más _detalles"
 
 #: ../eel/eel-stock-dialogs.c:213
 msgid "You can stop this operation by clicking cancel."
@@ -771,7 +771,7 @@ msgstr "Equipo"
 
 #: ../libcaja-private/caja-desktop-link.c:116
 msgid "Network Servers"
-msgstr ""
+msgstr "Servidores de red"
 
 #: ../libcaja-private/caja-desktop-link.c:119 ../src/caja-places-sidebar.c:824
 #: ../src/caja-trash-bar.c:192
@@ -922,7 +922,7 @@ msgstr "Tamaño:"
 #: ../libcaja-private/caja-file-conflict-dialog.c:275
 #: ../libcaja-private/caja-file-conflict-dialog.c:308
 #: ../src/file-manager/fm-properties-window.c:3359
-#: ../src/caja-connect-server-dialog.c:908
+#: ../src/caja-connect-server-dialog.c:930
 msgid "Type:"
 msgstr "Tipo:"
 
@@ -3079,13 +3079,13 @@ msgstr "Si se establece en verdadero, los archivos ocultos se muestran de forma 
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:63
 msgid "Whether to show file sizes with IEC units"
-msgstr ""
+msgstr "Indica si se deben mostrar los tamaños de archivos con unidades IEC"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:64
 msgid ""
 "If set to true, file sizes are shown using IEC (base 1024) units with "
 "\"KiB\" style suffixes, instead of default with SI units."
-msgstr ""
+msgstr "Si se establece en \"verdadero\", los tamaños de archivos se mostrarán en unidades IEC (base 1024) con sufijos \"KiB\", en lugar de hacerlo por defecto con sufijos SI"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:65
 msgid "List of possible captions on icons"
@@ -3567,7 +3567,7 @@ msgstr[1] "Esto abrirá %'d ventanas separadas."
 
 #: ../src/file-manager/fm-directory-view.c:1174
 #: ../src/file-manager/fm-properties-window.c:5537
-#: ../src/caja-connect-server-dialog.c:692 ../src/caja-location-dialog.c:102
+#: ../src/caja-connect-server-dialog.c:714 ../src/caja-location-dialog.c:102
 msgid "There was an error displaying help."
 msgstr "Hubo un error al mostrar la ayuda."
 
@@ -3714,11 +3714,11 @@ msgstr[1] "Usar «%s» para abrir los elementos seleccionados"
 
 #: ../src/file-manager/fm-directory-view.c:4564
 msgid "Open parent location"
-msgstr ""
+msgstr "Abrir el lugar contenedor"
 
 #: ../src/file-manager/fm-directory-view.c:4565
 msgid "Open parent location for the selected item"
-msgstr ""
+msgstr "Abrir el lugar contenedor para el elemento seleccionado"
 
 #: ../src/file-manager/fm-directory-view.c:5423
 #, c-format
@@ -5551,119 +5551,127 @@ msgid ""
 "Add connect to server mount"
 msgstr "\n\nAñadir conexión a montaje de servidor"
 
-#: ../src/caja-connect-server-dialog.c:132
+#: ../src/caja-connect-server-dialog.c:134
 msgid "SSH"
 msgstr "SSH"
 
-#: ../src/caja-connect-server-dialog.c:135
+#: ../src/caja-connect-server-dialog.c:137
 msgid "Public FTP"
 msgstr "FTP público"
 
-#: ../src/caja-connect-server-dialog.c:137
+#: ../src/caja-connect-server-dialog.c:139
 msgid "FTP (with login)"
 msgstr "FTP (con login)"
 
-#: ../src/caja-connect-server-dialog.c:140
+#: ../src/caja-connect-server-dialog.c:142
 msgid "Windows share"
 msgstr "Compartido por Windows"
 
-#: ../src/caja-connect-server-dialog.c:142
+#: ../src/caja-connect-server-dialog.c:144
 msgid "WebDAV (HTTP)"
 msgstr "WebDAV (HTTP)"
 
-#: ../src/caja-connect-server-dialog.c:144
+#: ../src/caja-connect-server-dialog.c:146
 msgid "Secure WebDAV (HTTPS)"
 msgstr "WebDAV seguro (HTTPS)"
 
-#: ../src/caja-connect-server-dialog.c:191
+#: ../src/caja-connect-server-dialog.c:193
 msgid "Connecting..."
 msgstr "Conectando..."
 
-#: ../src/caja-connect-server-dialog.c:215
+#: ../src/caja-connect-server-dialog.c:217
 msgid ""
 "Can't load the supported server method list.\n"
 "Please check your GVfs installation."
 msgstr "No se puede cargar la lista admitida del método de servidores. Compruebe, por favor, su instalación CVfs."
 
-#: ../src/caja-connect-server-dialog.c:293
+#: ../src/caja-connect-server-dialog.c:295
 #, c-format
 msgid "The folder \"%s\" cannot be opened on \"%s\"."
 msgstr "La carpeta \"%s\" no puede ser abierta en \"%s\"."
 
-#: ../src/caja-connect-server-dialog.c:303
+#: ../src/caja-connect-server-dialog.c:305
 #, c-format
 msgid "The server at \"%s\" cannot be found."
 msgstr "No pudo ser encontrado el servidor en \"%s\"."
 
-#: ../src/caja-connect-server-dialog.c:338
+#: ../src/caja-connect-server-dialog.c:340
 msgid "Try Again"
 msgstr "Inténtelo de nuevo."
 
-#: ../src/caja-connect-server-dialog.c:404
+#: ../src/caja-connect-server-dialog.c:406
 msgid "Please verify your user details."
 msgstr "Verifique sus detalles de usuario."
 
-#: ../src/caja-connect-server-dialog.c:434
+#: ../src/caja-connect-server-dialog.c:436
 msgid "Continue"
 msgstr "Continuar"
 
-#: ../src/caja-connect-server-dialog.c:710
-#: ../src/caja-connect-server-dialog.c:1108
+#: ../src/caja-connect-server-dialog.c:732
+#: ../src/caja-connect-server-dialog.c:1156
 msgid "C_onnect"
 msgstr "C_onectar"
 
 #. set dialog properties
-#: ../src/caja-connect-server-dialog.c:834
+#: ../src/caja-connect-server-dialog.c:856
 msgid "Connect to Server"
 msgstr "Conectar con el servidor"
 
-#: ../src/caja-connect-server-dialog.c:848
+#: ../src/caja-connect-server-dialog.c:870
 msgid "Server Details"
 msgstr "Detalles del servidor"
 
 #. first row: server entry + port spinbutton
-#: ../src/caja-connect-server-dialog.c:868
+#: ../src/caja-connect-server-dialog.c:890
 msgid "_Server:"
 msgstr "_Servidor:"
 
 #. port
-#: ../src/caja-connect-server-dialog.c:890
+#: ../src/caja-connect-server-dialog.c:912
 msgid "_Port:"
 msgstr "_Puerto:"
 
 #. third row: share entry
-#: ../src/caja-connect-server-dialog.c:986
+#: ../src/caja-connect-server-dialog.c:1008
 msgid "Share:"
 msgstr "Compartir:"
 
 #. fourth row: folder entry
-#: ../src/caja-connect-server-dialog.c:1003
+#: ../src/caja-connect-server-dialog.c:1025
 msgid "Folder:"
 msgstr "Carpeta:"
 
-#: ../src/caja-connect-server-dialog.c:1021
+#: ../src/caja-connect-server-dialog.c:1043
 msgid "User Details"
 msgstr "Detalles de usuario:"
 
 #. first row: domain entry
-#: ../src/caja-connect-server-dialog.c:1040
+#: ../src/caja-connect-server-dialog.c:1062
 msgid "Domain Name:"
 msgstr "Nombre del dominio:"
 
 #. second row: username entry
-#: ../src/caja-connect-server-dialog.c:1057
+#: ../src/caja-connect-server-dialog.c:1079
 msgid "User Name:"
 msgstr "Nombre de usuario:"
 
 #. third row: password entry
-#: ../src/caja-connect-server-dialog.c:1074
+#: ../src/caja-connect-server-dialog.c:1096
 msgid "Password:"
 msgstr "Contraseña:"
 
 #. fourth row: remember checkbox
-#: ../src/caja-connect-server-dialog.c:1092
+#: ../src/caja-connect-server-dialog.c:1114
 msgid "Remember this password"
 msgstr "Recordar contraseña"
+
+#: ../src/caja-connect-server-dialog.c:1127
+msgid "Add _bookmark"
+msgstr "Añadir _marcador"
+
+#: ../src/caja-connect-server-dialog.c:1134
+msgid "Bookmark Name:"
+msgstr "_Nombre del marcador:"
 
 #: ../src/caja-desktop-window.c:81 ../src/caja-desktop-window.c:251
 #: ../src/caja-pathbar.c:1524 ../src/caja-places-sidebar.c:704

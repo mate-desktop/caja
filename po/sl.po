@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-27 16:56+0100\n"
-"PO-Revision-Date: 2014-02-08 19:49+0000\n"
+"POT-Creation-Date: 2014-02-12 19:04+0100\n"
+"PO-Revision-Date: 2014-02-12 18:39+0000\n"
 "Last-Translator: jierro <jierro@windowslive.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/MATE/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -921,7 +921,7 @@ msgstr "Velikost:"
 #: ../libcaja-private/caja-file-conflict-dialog.c:275
 #: ../libcaja-private/caja-file-conflict-dialog.c:308
 #: ../src/file-manager/fm-properties-window.c:3359
-#: ../src/caja-connect-server-dialog.c:908
+#: ../src/caja-connect-server-dialog.c:930
 msgid "Type:"
 msgstr "Vrsta:"
 
@@ -3680,7 +3680,7 @@ msgstr[3] "To bo odprlo %'d ločena okna."
 
 #: ../src/file-manager/fm-directory-view.c:1174
 #: ../src/file-manager/fm-properties-window.c:5537
-#: ../src/caja-connect-server-dialog.c:692 ../src/caja-location-dialog.c:102
+#: ../src/caja-connect-server-dialog.c:714 ../src/caja-location-dialog.c:102
 msgid "There was an error displaying help."
 msgstr "Prišlo je do napake med prikazovanem pomoči."
 
@@ -5708,119 +5708,127 @@ msgid ""
 "Add connect to server mount"
 msgstr "\n\nDodaj povezavo priklopu strežnika"
 
-#: ../src/caja-connect-server-dialog.c:132
+#: ../src/caja-connect-server-dialog.c:134
 msgid "SSH"
 msgstr "SSH"
 
-#: ../src/caja-connect-server-dialog.c:135
+#: ../src/caja-connect-server-dialog.c:137
 msgid "Public FTP"
 msgstr "Javni FTP"
 
-#: ../src/caja-connect-server-dialog.c:137
+#: ../src/caja-connect-server-dialog.c:139
 msgid "FTP (with login)"
 msgstr "FTP (s prijavo)"
 
-#: ../src/caja-connect-server-dialog.c:140
+#: ../src/caja-connect-server-dialog.c:142
 msgid "Windows share"
 msgstr "Souporaba z Windows sistemom"
 
-#: ../src/caja-connect-server-dialog.c:142
+#: ../src/caja-connect-server-dialog.c:144
 msgid "WebDAV (HTTP)"
 msgstr "WebDAV (HTTP)"
 
-#: ../src/caja-connect-server-dialog.c:144
+#: ../src/caja-connect-server-dialog.c:146
 msgid "Secure WebDAV (HTTPS)"
 msgstr "Varen WebDAV (HTTPS)"
 
-#: ../src/caja-connect-server-dialog.c:191
+#: ../src/caja-connect-server-dialog.c:193
 msgid "Connecting..."
 msgstr "Povezovanje ..."
 
-#: ../src/caja-connect-server-dialog.c:215
+#: ../src/caja-connect-server-dialog.c:217
 msgid ""
 "Can't load the supported server method list.\n"
 "Please check your GVfs installation."
 msgstr "Seznama podprtega načina strežnika ni mogoče naložiti.\nPreverite vaše namestitev GVfs."
 
-#: ../src/caja-connect-server-dialog.c:293
+#: ../src/caja-connect-server-dialog.c:295
 #, c-format
 msgid "The folder \"%s\" cannot be opened on \"%s\"."
 msgstr "Mape \"%s\" ni mogoče odpreti na \"%s\"."
 
-#: ../src/caja-connect-server-dialog.c:303
+#: ../src/caja-connect-server-dialog.c:305
 #, c-format
 msgid "The server at \"%s\" cannot be found."
 msgstr "Strežnika pri \"%s\" ni mogoče najti."
 
-#: ../src/caja-connect-server-dialog.c:338
+#: ../src/caja-connect-server-dialog.c:340
 msgid "Try Again"
 msgstr "Poskusite znova"
 
-#: ../src/caja-connect-server-dialog.c:404
+#: ../src/caja-connect-server-dialog.c:406
 msgid "Please verify your user details."
 msgstr "Preverite vaše uporabniške podrobnosti."
 
-#: ../src/caja-connect-server-dialog.c:434
+#: ../src/caja-connect-server-dialog.c:436
 msgid "Continue"
 msgstr "Nadaljuj"
 
-#: ../src/caja-connect-server-dialog.c:710
-#: ../src/caja-connect-server-dialog.c:1108
+#: ../src/caja-connect-server-dialog.c:732
+#: ../src/caja-connect-server-dialog.c:1156
 msgid "C_onnect"
 msgstr "_Poveži se"
 
 #. set dialog properties
-#: ../src/caja-connect-server-dialog.c:834
+#: ../src/caja-connect-server-dialog.c:856
 msgid "Connect to Server"
 msgstr "Povezava s strežnikom"
 
-#: ../src/caja-connect-server-dialog.c:848
+#: ../src/caja-connect-server-dialog.c:870
 msgid "Server Details"
 msgstr "Podrobnosti strežnika"
 
 #. first row: server entry + port spinbutton
-#: ../src/caja-connect-server-dialog.c:868
+#: ../src/caja-connect-server-dialog.c:890
 msgid "_Server:"
 msgstr "_Strežnik:"
 
 #. port
-#: ../src/caja-connect-server-dialog.c:890
+#: ../src/caja-connect-server-dialog.c:912
 msgid "_Port:"
 msgstr "_Vrata:"
 
 #. third row: share entry
-#: ../src/caja-connect-server-dialog.c:986
+#: ../src/caja-connect-server-dialog.c:1008
 msgid "Share:"
 msgstr "Souporaba:"
 
 #. fourth row: folder entry
-#: ../src/caja-connect-server-dialog.c:1003
+#: ../src/caja-connect-server-dialog.c:1025
 msgid "Folder:"
 msgstr "Mapa:"
 
-#: ../src/caja-connect-server-dialog.c:1021
+#: ../src/caja-connect-server-dialog.c:1043
 msgid "User Details"
 msgstr "Podrobnosti uporabnika"
 
 #. first row: domain entry
-#: ../src/caja-connect-server-dialog.c:1040
+#: ../src/caja-connect-server-dialog.c:1062
 msgid "Domain Name:"
 msgstr "Ime domene:"
 
 #. second row: username entry
-#: ../src/caja-connect-server-dialog.c:1057
+#: ../src/caja-connect-server-dialog.c:1079
 msgid "User Name:"
 msgstr "Uporabniško ime:"
 
 #. third row: password entry
-#: ../src/caja-connect-server-dialog.c:1074
+#: ../src/caja-connect-server-dialog.c:1096
 msgid "Password:"
 msgstr "Geslo:"
 
 #. fourth row: remember checkbox
-#: ../src/caja-connect-server-dialog.c:1092
+#: ../src/caja-connect-server-dialog.c:1114
 msgid "Remember this password"
 msgstr "Shrani to geslo"
+
+#: ../src/caja-connect-server-dialog.c:1127
+msgid "Add _bookmark"
+msgstr "Dodaj _zaznamek"
+
+#: ../src/caja-connect-server-dialog.c:1134
+msgid "Bookmark Name:"
+msgstr "Ime zaznamka:"
 
 #: ../src/caja-desktop-window.c:81 ../src/caja-desktop-window.c:251
 #: ../src/caja-pathbar.c:1524 ../src/caja-places-sidebar.c:704

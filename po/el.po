@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-27 16:56+0100\n"
-"PO-Revision-Date: 2014-01-27 15:58+0000\n"
+"POT-Creation-Date: 2014-02-12 19:04+0100\n"
+"PO-Revision-Date: 2014-02-12 18:06+0000\n"
 "Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/MATE/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -921,7 +921,7 @@ msgstr "Μέγεθος:"
 #: ../libcaja-private/caja-file-conflict-dialog.c:275
 #: ../libcaja-private/caja-file-conflict-dialog.c:308
 #: ../src/file-manager/fm-properties-window.c:3359
-#: ../src/caja-connect-server-dialog.c:908
+#: ../src/caja-connect-server-dialog.c:930
 msgid "Type:"
 msgstr "Τύπος:"
 
@@ -3566,7 +3566,7 @@ msgstr[1] "Θα ανοίξουν %'d νέα παράθυρα."
 
 #: ../src/file-manager/fm-directory-view.c:1174
 #: ../src/file-manager/fm-properties-window.c:5537
-#: ../src/caja-connect-server-dialog.c:692 ../src/caja-location-dialog.c:102
+#: ../src/caja-connect-server-dialog.c:714 ../src/caja-location-dialog.c:102
 msgid "There was an error displaying help."
 msgstr "Παρουσιάστηκε σφάλμα κατά την εμφάνιση της βοήθειας."
 
@@ -5550,119 +5550,127 @@ msgid ""
 "Add connect to server mount"
 msgstr "\n\nΠροσθήκη προσάρτησης για σύνδεση σε εξυπηρετητή"
 
-#: ../src/caja-connect-server-dialog.c:132
+#: ../src/caja-connect-server-dialog.c:134
 msgid "SSH"
 msgstr "SSH"
 
-#: ../src/caja-connect-server-dialog.c:135
+#: ../src/caja-connect-server-dialog.c:137
 msgid "Public FTP"
 msgstr "Δημόσιο FTP"
 
-#: ../src/caja-connect-server-dialog.c:137
+#: ../src/caja-connect-server-dialog.c:139
 msgid "FTP (with login)"
 msgstr "FTP (με είσοδο)"
 
-#: ../src/caja-connect-server-dialog.c:140
+#: ../src/caja-connect-server-dialog.c:142
 msgid "Windows share"
 msgstr "Κοινόχρηστο Windows"
 
-#: ../src/caja-connect-server-dialog.c:142
+#: ../src/caja-connect-server-dialog.c:144
 msgid "WebDAV (HTTP)"
 msgstr "WebDAV (HTTP)"
 
-#: ../src/caja-connect-server-dialog.c:144
+#: ../src/caja-connect-server-dialog.c:146
 msgid "Secure WebDAV (HTTPS)"
 msgstr "Ασφαλές WebDAV (HTTPS)"
 
-#: ../src/caja-connect-server-dialog.c:191
+#: ../src/caja-connect-server-dialog.c:193
 msgid "Connecting..."
 msgstr "Συνδέεται..."
 
-#: ../src/caja-connect-server-dialog.c:215
+#: ../src/caja-connect-server-dialog.c:217
 msgid ""
 "Can't load the supported server method list.\n"
 "Please check your GVfs installation."
 msgstr "Δεν είναι δυνατή η φόρτωση της λίστας της υποστηριζόμενης μεθόδου διακομιστή. ⏎ Παρακαλούμε ελέγξτε Gvfs εγκατάσταση σας."
 
-#: ../src/caja-connect-server-dialog.c:293
+#: ../src/caja-connect-server-dialog.c:295
 #, c-format
 msgid "The folder \"%s\" cannot be opened on \"%s\"."
 msgstr "Ο φάκελος \"%s\" δεν μπορεί να ανοιχτεί στο \"%s\""
 
-#: ../src/caja-connect-server-dialog.c:303
+#: ../src/caja-connect-server-dialog.c:305
 #, c-format
 msgid "The server at \"%s\" cannot be found."
 msgstr "Ο εξυπηρετητής στο \"%s\" δεν μπορεί να βρεθεί."
 
-#: ../src/caja-connect-server-dialog.c:338
+#: ../src/caja-connect-server-dialog.c:340
 msgid "Try Again"
 msgstr "Προσπαθήστε Ξανά"
 
-#: ../src/caja-connect-server-dialog.c:404
+#: ../src/caja-connect-server-dialog.c:406
 msgid "Please verify your user details."
 msgstr "Παρακαλώ επικυρώστε τις προσωπικές επιλογές σας "
 
-#: ../src/caja-connect-server-dialog.c:434
+#: ../src/caja-connect-server-dialog.c:436
 msgid "Continue"
 msgstr "Συνέχεια"
 
-#: ../src/caja-connect-server-dialog.c:710
-#: ../src/caja-connect-server-dialog.c:1108
+#: ../src/caja-connect-server-dialog.c:732
+#: ../src/caja-connect-server-dialog.c:1156
 msgid "C_onnect"
 msgstr "Σύν_δεση"
 
 #. set dialog properties
-#: ../src/caja-connect-server-dialog.c:834
+#: ../src/caja-connect-server-dialog.c:856
 msgid "Connect to Server"
 msgstr "Σύνδεση σε εξυπηρετητή"
 
-#: ../src/caja-connect-server-dialog.c:848
+#: ../src/caja-connect-server-dialog.c:870
 msgid "Server Details"
 msgstr "Χαρακτηριστικά Σέρβερ"
 
 #. first row: server entry + port spinbutton
-#: ../src/caja-connect-server-dialog.c:868
+#: ../src/caja-connect-server-dialog.c:890
 msgid "_Server:"
 msgstr "Ε_ξυπηρετητής:"
 
 #. port
-#: ../src/caja-connect-server-dialog.c:890
+#: ../src/caja-connect-server-dialog.c:912
 msgid "_Port:"
 msgstr "_Θύρα:"
 
 #. third row: share entry
-#: ../src/caja-connect-server-dialog.c:986
+#: ../src/caja-connect-server-dialog.c:1008
 msgid "Share:"
 msgstr "_Κοινόχρηστος φάκελος:"
 
 #. fourth row: folder entry
-#: ../src/caja-connect-server-dialog.c:1003
+#: ../src/caja-connect-server-dialog.c:1025
 msgid "Folder:"
 msgstr "Φάκελος:"
 
-#: ../src/caja-connect-server-dialog.c:1021
+#: ../src/caja-connect-server-dialog.c:1043
 msgid "User Details"
 msgstr "Ρυθμίσεις χρήστη"
 
 #. first row: domain entry
-#: ../src/caja-connect-server-dialog.c:1040
+#: ../src/caja-connect-server-dialog.c:1062
 msgid "Domain Name:"
 msgstr "Όνομα τ_ομέα:"
 
 #. second row: username entry
-#: ../src/caja-connect-server-dialog.c:1057
+#: ../src/caja-connect-server-dialog.c:1079
 msgid "User Name:"
 msgstr "Όνομα Χρήστη:"
 
 #. third row: password entry
-#: ../src/caja-connect-server-dialog.c:1074
+#: ../src/caja-connect-server-dialog.c:1096
 msgid "Password:"
 msgstr "Συνθηματικό:"
 
 #. fourth row: remember checkbox
-#: ../src/caja-connect-server-dialog.c:1092
+#: ../src/caja-connect-server-dialog.c:1114
 msgid "Remember this password"
 msgstr "Αποθήκευση του συνθηματικού"
+
+#: ../src/caja-connect-server-dialog.c:1127
+msgid "Add _bookmark"
+msgstr ""
+
+#: ../src/caja-connect-server-dialog.c:1134
+msgid "Bookmark Name:"
+msgstr ""
 
 #: ../src/caja-desktop-window.c:81 ../src/caja-desktop-window.c:251
 #: ../src/caja-pathbar.c:1524 ../src/caja-places-sidebar.c:704
@@ -6323,7 +6331,7 @@ msgstr "caja: το --geometry χρησιμοποιείται μόνο με έν�
 #: ../src/caja-main.c:559
 #, c-format
 msgid "caja: set erroneously as default application for '%s' content type.\n"
-msgstr "Το caja ορίστηκε κατά λάθος ως προεπιλεγμένη εφαρμογή για τύπου αντικειμένου '%s' \n"
+msgstr "Το caja ορίστηκε κατά λάθος ως προεπιλεγμένη εφαρμογή για τύπου αντικειμένου '%s' \\n"
 
 #: ../src/caja-navigation-window-menus.c:127
 msgid "Are you sure you want to clear the list of locations you have visited?"

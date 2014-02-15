@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# moceap <moceap@hotmail.com>, 2013
+# moceap <moceap@hotmail.com>, 2013-2014
 # noureddin <noureddin@barid.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-27 16:56+0100\n"
-"PO-Revision-Date: 2014-01-27 15:58+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"POT-Creation-Date: 2014-02-12 19:04+0100\n"
+"PO-Revision-Date: 2014-02-15 07:35+0000\n"
+"Last-Translator: moceap <moceap@hotmail.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/MATE/language/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -422,7 +422,7 @@ msgstr "طرق الإدخال"
 
 #: ../eel/eel-gtk-extensions.c:476
 msgid "Show more _details"
-msgstr ""
+msgstr "أ_ظهر مزيدًا من التّفاصيل"
 
 #: ../eel/eel-stock-dialogs.c:213
 msgid "You can stop this operation by clicking cancel."
@@ -768,7 +768,7 @@ msgstr "الحاسوب"
 
 #: ../libcaja-private/caja-desktop-link.c:116
 msgid "Network Servers"
-msgstr ""
+msgstr "خواديم الشّبكة"
 
 #: ../libcaja-private/caja-desktop-link.c:119 ../src/caja-places-sidebar.c:824
 #: ../src/caja-trash-bar.c:192
@@ -919,7 +919,7 @@ msgstr "الحجم:"
 #: ../libcaja-private/caja-file-conflict-dialog.c:275
 #: ../libcaja-private/caja-file-conflict-dialog.c:308
 #: ../src/file-manager/fm-properties-window.c:3359
-#: ../src/caja-connect-server-dialog.c:908
+#: ../src/caja-connect-server-dialog.c:930
 msgid "Type:"
 msgstr "النوع:"
 
@@ -3296,13 +3296,13 @@ msgstr "إذا ضبط كصحيح، فستعرض الملفات المخفية ف
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:63
 msgid "Whether to show file sizes with IEC units"
-msgstr ""
+msgstr "ما إذا سيتّم عرض حجوم الملفات وفق وحدات IEC"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:64
 msgid ""
 "If set to true, file sizes are shown using IEC (base 1024) units with "
 "\"KiB\" style suffixes, instead of default with SI units."
-msgstr ""
+msgstr "في حال الضبط، فإنّ الحجوم ستظهر بطريقة IEC (بأساس 1024) وبنمط \"كب\"، بدلًا من الوحدات الافتراضية SI."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:65
 msgid "List of possible captions on icons"
@@ -3792,7 +3792,7 @@ msgstr[5] "سيفتح هذا %I'd نافذة منفصلة."
 
 #: ../src/file-manager/fm-directory-view.c:1174
 #: ../src/file-manager/fm-properties-window.c:5537
-#: ../src/caja-connect-server-dialog.c:692 ../src/caja-location-dialog.c:102
+#: ../src/caja-connect-server-dialog.c:714 ../src/caja-location-dialog.c:102
 msgid "There was an error displaying help."
 msgstr "حدث خطأ عند عرض المساعدة."
 
@@ -3963,11 +3963,11 @@ msgstr[5] "استعمل \"%s\" لفتح العناصر المختارة"
 
 #: ../src/file-manager/fm-directory-view.c:4564
 msgid "Open parent location"
-msgstr ""
+msgstr "افتح الدليل الأصل"
 
 #: ../src/file-manager/fm-directory-view.c:4565
 msgid "Open parent location for the selected item"
-msgstr ""
+msgstr "افتح الدّليل الأصل للعنصر المحدّد"
 
 #: ../src/file-manager/fm-directory-view.c:5423
 #, c-format
@@ -5864,119 +5864,127 @@ msgid ""
 "Add connect to server mount"
 msgstr "\n\nأضف اتصال لضم الخادوم"
 
-#: ../src/caja-connect-server-dialog.c:132
+#: ../src/caja-connect-server-dialog.c:134
 msgid "SSH"
 msgstr "SSH"
 
-#: ../src/caja-connect-server-dialog.c:135
+#: ../src/caja-connect-server-dialog.c:137
 msgid "Public FTP"
 msgstr "آف تي بي عام (FTP)"
 
-#: ../src/caja-connect-server-dialog.c:137
+#: ../src/caja-connect-server-dialog.c:139
 msgid "FTP (with login)"
 msgstr "‏FTP (بتسجيل دخول)"
 
-#: ../src/caja-connect-server-dialog.c:140
+#: ../src/caja-connect-server-dialog.c:142
 msgid "Windows share"
 msgstr "مشاركة ويندوز"
 
-#: ../src/caja-connect-server-dialog.c:142
+#: ../src/caja-connect-server-dialog.c:144
 msgid "WebDAV (HTTP)"
 msgstr "WebDAV (HTTP)"
 
-#: ../src/caja-connect-server-dialog.c:144
+#: ../src/caja-connect-server-dialog.c:146
 msgid "Secure WebDAV (HTTPS)"
 msgstr "وبداف آمن ((Secure WebDAV (HTTPS)"
 
-#: ../src/caja-connect-server-dialog.c:191
+#: ../src/caja-connect-server-dialog.c:193
 msgid "Connecting..."
 msgstr "يجري الاتصال..."
 
-#: ../src/caja-connect-server-dialog.c:215
+#: ../src/caja-connect-server-dialog.c:217
 msgid ""
 "Can't load the supported server method list.\n"
 "Please check your GVfs installation."
 msgstr "تعذّر تحميل قائمة طرق الخواديم المدعومة.\nافحص تثبيت GVfs رجاءً."
 
-#: ../src/caja-connect-server-dialog.c:293
+#: ../src/caja-connect-server-dialog.c:295
 #, c-format
 msgid "The folder \"%s\" cannot be opened on \"%s\"."
 msgstr "المجلد \"%s\" لم يستطع فتحه في \"%s\"."
 
-#: ../src/caja-connect-server-dialog.c:303
+#: ../src/caja-connect-server-dialog.c:305
 #, c-format
 msgid "The server at \"%s\" cannot be found."
 msgstr "الخادوم في \"%s\" لم يتم العثور عليه"
 
-#: ../src/caja-connect-server-dialog.c:338
+#: ../src/caja-connect-server-dialog.c:340
 msgid "Try Again"
 msgstr "حاول ثانيةً"
 
-#: ../src/caja-connect-server-dialog.c:404
+#: ../src/caja-connect-server-dialog.c:406
 msgid "Please verify your user details."
 msgstr "تأكّد من تفاصيل المستخدم رجاءً."
 
-#: ../src/caja-connect-server-dialog.c:434
+#: ../src/caja-connect-server-dialog.c:436
 msgid "Continue"
 msgstr "استمر"
 
-#: ../src/caja-connect-server-dialog.c:710
-#: ../src/caja-connect-server-dialog.c:1108
+#: ../src/caja-connect-server-dialog.c:732
+#: ../src/caja-connect-server-dialog.c:1156
 msgid "C_onnect"
 msgstr "اتّ_صل"
 
 #. set dialog properties
-#: ../src/caja-connect-server-dialog.c:834
+#: ../src/caja-connect-server-dialog.c:856
 msgid "Connect to Server"
 msgstr "اتصل بالخادوم"
 
-#: ../src/caja-connect-server-dialog.c:848
+#: ../src/caja-connect-server-dialog.c:870
 msgid "Server Details"
 msgstr "تفاصيل الخادوم"
 
 #. first row: server entry + port spinbutton
-#: ../src/caja-connect-server-dialog.c:868
+#: ../src/caja-connect-server-dialog.c:890
 msgid "_Server:"
 msgstr "ال_خادوم:"
 
 #. port
-#: ../src/caja-connect-server-dialog.c:890
+#: ../src/caja-connect-server-dialog.c:912
 msgid "_Port:"
 msgstr "ال_منفذ:"
 
 #. third row: share entry
-#: ../src/caja-connect-server-dialog.c:986
+#: ../src/caja-connect-server-dialog.c:1008
 msgid "Share:"
 msgstr "المشاركة:"
 
 #. fourth row: folder entry
-#: ../src/caja-connect-server-dialog.c:1003
+#: ../src/caja-connect-server-dialog.c:1025
 msgid "Folder:"
 msgstr "المجلد:"
 
-#: ../src/caja-connect-server-dialog.c:1021
+#: ../src/caja-connect-server-dialog.c:1043
 msgid "User Details"
 msgstr "تفاصيل المستخدم"
 
 #. first row: domain entry
-#: ../src/caja-connect-server-dialog.c:1040
+#: ../src/caja-connect-server-dialog.c:1062
 msgid "Domain Name:"
 msgstr "اسم النطاق:"
 
 #. second row: username entry
-#: ../src/caja-connect-server-dialog.c:1057
+#: ../src/caja-connect-server-dialog.c:1079
 msgid "User Name:"
 msgstr "اسم المستخدم:"
 
 #. third row: password entry
-#: ../src/caja-connect-server-dialog.c:1074
+#: ../src/caja-connect-server-dialog.c:1096
 msgid "Password:"
 msgstr "كلمة المرور:"
 
 #. fourth row: remember checkbox
-#: ../src/caja-connect-server-dialog.c:1092
+#: ../src/caja-connect-server-dialog.c:1114
 msgid "Remember this password"
 msgstr "تذكر كلمة المرور هذه"
+
+#: ../src/caja-connect-server-dialog.c:1127
+msgid "Add _bookmark"
+msgstr "أضف _علامة"
+
+#: ../src/caja-connect-server-dialog.c:1134
+msgid "Bookmark Name:"
+msgstr "اسم العلامة:"
 
 #: ../src/caja-desktop-window.c:81 ../src/caja-desktop-window.c:251
 #: ../src/caja-pathbar.c:1524 ../src/caja-places-sidebar.c:704

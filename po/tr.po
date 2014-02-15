@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-27 16:56+0100\n"
-"PO-Revision-Date: 2014-01-28 14:44+0000\n"
+"POT-Creation-Date: 2014-02-12 19:04+0100\n"
+"PO-Revision-Date: 2014-02-13 12:52+0000\n"
 "Last-Translator: mauron\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/MATE/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -921,7 +921,7 @@ msgstr "Boyut:"
 #: ../libcaja-private/caja-file-conflict-dialog.c:275
 #: ../libcaja-private/caja-file-conflict-dialog.c:308
 #: ../src/file-manager/fm-properties-window.c:3359
-#: ../src/caja-connect-server-dialog.c:908
+#: ../src/caja-connect-server-dialog.c:930
 msgid "Type:"
 msgstr "Tür:"
 
@@ -3566,7 +3566,7 @@ msgstr[1] "Bu %'d ayrı pencere açacak."
 
 #: ../src/file-manager/fm-directory-view.c:1174
 #: ../src/file-manager/fm-properties-window.c:5537
-#: ../src/caja-connect-server-dialog.c:692 ../src/caja-location-dialog.c:102
+#: ../src/caja-connect-server-dialog.c:714 ../src/caja-location-dialog.c:102
 msgid "There was an error displaying help."
 msgstr "Yardım görüntülenirken bir hata oluştu."
 
@@ -5550,119 +5550,127 @@ msgid ""
 "Add connect to server mount"
 msgstr "\n\nSunucu bağlamaya bağlantı ekle"
 
-#: ../src/caja-connect-server-dialog.c:132
+#: ../src/caja-connect-server-dialog.c:134
 msgid "SSH"
 msgstr "SSH"
 
-#: ../src/caja-connect-server-dialog.c:135
+#: ../src/caja-connect-server-dialog.c:137
 msgid "Public FTP"
 msgstr "Herkese Açık FTP"
 
-#: ../src/caja-connect-server-dialog.c:137
+#: ../src/caja-connect-server-dialog.c:139
 msgid "FTP (with login)"
 msgstr "FTP (giriş gerektiren)"
 
-#: ../src/caja-connect-server-dialog.c:140
+#: ../src/caja-connect-server-dialog.c:142
 msgid "Windows share"
 msgstr "Windows paylaşımı"
 
-#: ../src/caja-connect-server-dialog.c:142
+#: ../src/caja-connect-server-dialog.c:144
 msgid "WebDAV (HTTP)"
 msgstr "WebDAV (HTTP)"
 
-#: ../src/caja-connect-server-dialog.c:144
+#: ../src/caja-connect-server-dialog.c:146
 msgid "Secure WebDAV (HTTPS)"
 msgstr "Güvenli WebDAV (HTTPS)"
 
-#: ../src/caja-connect-server-dialog.c:191
+#: ../src/caja-connect-server-dialog.c:193
 msgid "Connecting..."
 msgstr "Bağlanıyor..."
 
-#: ../src/caja-connect-server-dialog.c:215
+#: ../src/caja-connect-server-dialog.c:217
 msgid ""
 "Can't load the supported server method list.\n"
 "Please check your GVfs installation."
 msgstr "Desteklenen sunucu yöntem listesi yüklenemiyor.\nLütfen GVfs kurulumunuzu kontrol edin."
 
-#: ../src/caja-connect-server-dialog.c:293
+#: ../src/caja-connect-server-dialog.c:295
 #, c-format
 msgid "The folder \"%s\" cannot be opened on \"%s\"."
 msgstr "\"%s\" klasörü \"%s\" konumunda açılamadı."
 
-#: ../src/caja-connect-server-dialog.c:303
+#: ../src/caja-connect-server-dialog.c:305
 #, c-format
 msgid "The server at \"%s\" cannot be found."
 msgstr "\"%s\" konumundaki sunucu bulunamadı."
 
-#: ../src/caja-connect-server-dialog.c:338
+#: ../src/caja-connect-server-dialog.c:340
 msgid "Try Again"
 msgstr "Tekrar Dene"
 
-#: ../src/caja-connect-server-dialog.c:404
+#: ../src/caja-connect-server-dialog.c:406
 msgid "Please verify your user details."
 msgstr "Kullanıcı parametrelerinizi kontrol edin."
 
-#: ../src/caja-connect-server-dialog.c:434
+#: ../src/caja-connect-server-dialog.c:436
 msgid "Continue"
 msgstr "Devam et"
 
-#: ../src/caja-connect-server-dialog.c:710
-#: ../src/caja-connect-server-dialog.c:1108
+#: ../src/caja-connect-server-dialog.c:732
+#: ../src/caja-connect-server-dialog.c:1156
 msgid "C_onnect"
 msgstr "_Bağlan"
 
 #. set dialog properties
-#: ../src/caja-connect-server-dialog.c:834
+#: ../src/caja-connect-server-dialog.c:856
 msgid "Connect to Server"
 msgstr "Sunucuya Bağlan"
 
-#: ../src/caja-connect-server-dialog.c:848
+#: ../src/caja-connect-server-dialog.c:870
 msgid "Server Details"
 msgstr "Sunucu Parametreleri"
 
 #. first row: server entry + port spinbutton
-#: ../src/caja-connect-server-dialog.c:868
+#: ../src/caja-connect-server-dialog.c:890
 msgid "_Server:"
 msgstr "_Sunucu:"
 
 #. port
-#: ../src/caja-connect-server-dialog.c:890
+#: ../src/caja-connect-server-dialog.c:912
 msgid "_Port:"
 msgstr "_Port:"
 
 #. third row: share entry
-#: ../src/caja-connect-server-dialog.c:986
+#: ../src/caja-connect-server-dialog.c:1008
 msgid "Share:"
 msgstr "Paylaşım:"
 
 #. fourth row: folder entry
-#: ../src/caja-connect-server-dialog.c:1003
+#: ../src/caja-connect-server-dialog.c:1025
 msgid "Folder:"
 msgstr "Klasör:"
 
-#: ../src/caja-connect-server-dialog.c:1021
+#: ../src/caja-connect-server-dialog.c:1043
 msgid "User Details"
 msgstr "Kullanıcı Parametreleri"
 
 #. first row: domain entry
-#: ../src/caja-connect-server-dialog.c:1040
+#: ../src/caja-connect-server-dialog.c:1062
 msgid "Domain Name:"
 msgstr "Alan Adı:"
 
 #. second row: username entry
-#: ../src/caja-connect-server-dialog.c:1057
+#: ../src/caja-connect-server-dialog.c:1079
 msgid "User Name:"
 msgstr "Kullanıcı İsmi:"
 
 #. third row: password entry
-#: ../src/caja-connect-server-dialog.c:1074
+#: ../src/caja-connect-server-dialog.c:1096
 msgid "Password:"
 msgstr "Parola:"
 
 #. fourth row: remember checkbox
-#: ../src/caja-connect-server-dialog.c:1092
+#: ../src/caja-connect-server-dialog.c:1114
 msgid "Remember this password"
 msgstr "Bu parolayı hatırla"
+
+#: ../src/caja-connect-server-dialog.c:1127
+msgid "Add _bookmark"
+msgstr "_Yer imi ekle"
+
+#: ../src/caja-connect-server-dialog.c:1134
+msgid "Bookmark Name:"
+msgstr "Yer imi ismi:"
 
 #: ../src/caja-desktop-window.c:81 ../src/caja-desktop-window.c:251
 #: ../src/caja-pathbar.c:1524 ../src/caja-places-sidebar.c:704

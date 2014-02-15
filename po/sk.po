@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-27 16:56+0100\n"
-"PO-Revision-Date: 2014-02-02 19:21+0000\n"
-"Last-Translator: tibbi <tibbi@centrum.sk>\n"
+"POT-Creation-Date: 2014-02-12 19:04+0100\n"
+"PO-Revision-Date: 2014-02-12 18:06+0000\n"
+"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
 "Language-Team: Slovak (http://www.transifex.com/projects/p/MATE/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -74,7 +74,7 @@ msgstr "Určte identifikátor správy relácií"
 
 #: ../cut-n-paste-code/libegg/eggsmclient.c:239
 msgid "ID"
-msgstr "Identifikátor"
+msgstr "ID"
 
 #: ../cut-n-paste-code/libegg/eggsmclient.c:265
 msgid "Session management options:"
@@ -532,11 +532,11 @@ msgstr "Vyberte ktorá aplikácia sa má spustiť."
 msgid ""
 "Select how to open \"%s\" and whether to perform this action in the future "
 "for other media of type \"%s\"."
-msgstr "Vyberte, ako otvoriť „%s“ a či by sa táto akcia mala vykonať pre médiá typu „%s“ aj v budúcnosti."
+msgstr "Vyberte, ako otvoriť „%s“ a či by sa táto operácia mala vykonať pre médiá typu „%s“ aj v budúcnosti."
 
 #: ../libcaja-private/caja-autorun.c:1124
 msgid "_Always perform this action"
-msgstr "Vždy vykon_ať túto činnosť."
+msgstr "Vždy vykon_ať túto operáciu."
 
 #. name, stock id
 #. label, accelerator
@@ -586,7 +586,7 @@ msgstr "Vložiť text uložený v schránke"
 #: ../libcaja-private/caja-clipboard.c:472
 #: ../src/file-manager/fm-directory-view.c:7342
 msgid "Select _All"
-msgstr "Vybrať všetk_o"
+msgstr "Vybr_ať všetko"
 
 #. tooltip
 #: ../libcaja-private/caja-clipboard.c:473
@@ -921,7 +921,7 @@ msgstr "Veľkosť:"
 #: ../libcaja-private/caja-file-conflict-dialog.c:275
 #: ../libcaja-private/caja-file-conflict-dialog.c:308
 #: ../src/file-manager/fm-properties-window.c:3359
-#: ../src/caja-connect-server-dialog.c:908
+#: ../src/caja-connect-server-dialog.c:930
 msgid "Type:"
 msgstr "Typ:"
 
@@ -1310,7 +1310,7 @@ msgstr "Nie je možné presunúť súbor do Koša, chcete ho odstrániť okamži
 
 #: ../libcaja-private/caja-file-operations.c:1807
 msgid "The file \"%B\" cannot be moved to the trash."
-msgstr "Súbor „%%B“ nie je možné presunúť do Koša."
+msgstr "Súbor „%B“ nie je možné presunúť do Koša."
 
 #: ../libcaja-private/caja-file-operations.c:1984
 msgid "Trashing Files"
@@ -1659,7 +1659,7 @@ msgstr "Chyba pri vytváraní odkazu na %B."
 
 #: ../libcaja-private/caja-file-operations.c:5280
 msgid "Symbolic links only supported for local files"
-msgstr "Symbolické odkazy sú podporované iba pre miestne súbory"
+msgstr "Symbolické odkazy sú podporované iba pre lokálne súbory"
 
 #: ../libcaja-private/caja-file-operations.c:5283
 msgid "The target doesn't support symbolic links."
@@ -1745,7 +1745,7 @@ msgstr "Lomky nie sú v názvoch súborov povolené"
 #: ../libcaja-private/caja-file.c:1836
 #, c-format
 msgid "File not found"
-msgstr "Súbor nenájdený"
+msgstr "Súbor nebol nájdený"
 
 #: ../libcaja-private/caja-file.c:1864
 #, c-format
@@ -1795,11 +1795,11 @@ msgstr "dnes o %-I:%M %p"
 
 #: ../libcaja-private/caja-file.c:4482
 msgid "today, 00:00 PM"
-msgstr "dnes o 00:00 PM"
+msgstr "dnes, 00:00 PM"
 
 #: ../libcaja-private/caja-file.c:4483
 msgid "today, %-I:%M %p"
-msgstr "dnes o %-I:%M %p"
+msgstr "dnes, %-I:%M %p"
 
 #: ../libcaja-private/caja-file.c:4485 ../libcaja-private/caja-file.c:4486
 msgid "today"
@@ -1829,7 +1829,7 @@ msgstr "včera o 00:00 PM"
 
 #: ../libcaja-private/caja-file.c:4502
 msgid "yesterday, %-I:%M %p"
-msgstr "včera o %-I:%M %p"
+msgstr "včera, %-I:%M %p"
 
 #: ../libcaja-private/caja-file.c:4504 ../libcaja-private/caja-file.c:4505
 msgid "yesterday"
@@ -1849,7 +1849,7 @@ msgstr "%A, %B %-d %Y o %-I:%M:%S %p"
 
 #: ../libcaja-private/caja-file.c:4519
 msgid "Mon, Oct 00 0000 at 00:00:00 PM"
-msgstr "Pod, 00. Okt 0000 o 00:00:00 PM"
+msgstr "Pon, 00. Okt 0000 o 00:00:00 PM"
 
 #: ../libcaja-private/caja-file.c:4520
 msgid "%a, %b %-d %Y at %-I:%M:%S %p"
@@ -2336,7 +2336,7 @@ msgstr "Žiadna iná aplikácia pre zobrazenie tohto súboru nie je k dispozíci
 msgid ""
 "No other actions are available to view this file. If you copy this file onto"
 " your computer, you may be able to open it."
-msgstr "Žiadna iná akcia pre zobrazenie tohto súboru nie je k dispozícii. Ak skopírujete tento súbor na váš počítač, budete ho možno vedieť otvoriť."
+msgstr "Žiadne iné operácie pre zobrazenie tohto súboru nie sú k dispozícii. Ak skopírujete tento súbor na váš počítač, budete ho možno vedieť otvoriť."
 
 #: ../libcaja-private/caja-program-choosing.c:439
 msgid "Sorry, but you cannot execute commands from a remote site."
@@ -2354,19 +2354,19 @@ msgstr "Pri spúšťaní aplikácie nastala chyba."
 #: ../libcaja-private/caja-program-choosing.c:482
 #: ../libcaja-private/caja-program-choosing.c:495
 msgid "This drop target only supports local files."
-msgstr "Táto plocha na pustenie podporuje len miestne súbory."
+msgstr "Táto plocha na pustenie podporuje len lokálne súbory."
 
 #: ../libcaja-private/caja-program-choosing.c:483
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again."
-msgstr "Ak chcete otvoriť súbory, ktoré nie sú miestne, skopírujte ich do miestneho priečinka a potom ich znova pusťte."
+msgstr "Ak chcete otvoriť súbory, ktoré nie sú lokálne, skopírujte ich do lokálneho priečinka a potom ich znova pusťte."
 
 #: ../libcaja-private/caja-program-choosing.c:496
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again. The local files you dropped have already been opened."
-msgstr "Ak chcete otvoriť súbory, ktoré nie sú miestne, skopírujte ich do miestneho priečinka a potom ich znova pusťte. Miestne súbory, ktoré ste pustili, už boli otvorené."
+msgstr "Ak chcete otvoriť súbory, ktoré nie sú lokálne, skopírujte ich do lokálneho priečinka a potom ich znova pusťte. Lokálne súbory, ktoré ste pustili, už boli otvorené."
 
 #: ../libcaja-private/caja-program-choosing.c:529
 msgid "Details: "
@@ -2610,7 +2610,7 @@ msgstr[2] "_Vrátiť premenovanie %d položiek"
 #: ../libcaja-private/caja-undostack-manager.c:1587
 #, c-format
 msgid "_Undo creation of an empty file"
-msgstr "_Vrátiť vytvorenie prázdneho súbora"
+msgstr "_Vrátiť vytvorenie prázdneho súboru"
 
 #: ../libcaja-private/caja-undostack-manager.c:1590
 #, c-format
@@ -2878,7 +2878,7 @@ msgid ""
 "folder is on a remote server. If set to \"local-only\" then only show "
 "previews for local file systems. If set to \"never\" then never bother to "
 "read preview data."
-msgstr "Kompromis rýchlosti pri náhľade textových súborov v ikone. Ak je nastavené na „always“, náhľad sa zobrazí vždy, aj keď je priečinok na vzdialenom serveri. Ak je nastavené „local_only“ zobrazia sa iba pre miestne súbory. Ak je nastavené „never“, náhľady nebudú nikdy zobrazené."
+msgstr "Kompromis rýchlosti pri náhľade textových súborov v ikone. Ak je nastavené na „always“, náhľad sa zobrazí vždy, aj keď je priečinok na vzdialenom serveri. Ak je nastavené „local_only“ zobrazia sa iba pre lokálne súbory. Ak je nastavené „never“, náhľady nebudú nikdy zobrazené."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:15
 msgid "When to show number of items in a folder"
@@ -2890,7 +2890,7 @@ msgid ""
 "\"always\" then always show item counts, even if the folder is on a remote "
 "server. If set to \"local-only\" then only show counts for local file "
 "systems. If set to \"never\" then never bother to compute item counts."
-msgstr "Kompromis rýchlosti pri zobrazení počtu súborov v priečinku. Ak je nastavené na „always“, položky sa vždy spočítajú, aj keď je priečinok na vzdialenom serveri. Ak je nastavené na „local_only“, počet sa zobrazí iba pre miestne priečinky. Ak je nastavené „never“, počítanie počtu položiek sa vypne."
+msgstr "Kompromis rýchlosti pri zobrazení počtu súborov v priečinku. Ak je nastavené na „always“, položky sa vždy spočítajú, aj keď je priečinok na vzdialenom serveri. Ak je nastavené na „local_only“, počet sa zobrazí iba pre lokálne priečinky. Ak je nastavené „never“, počítanie počtu položiek sa vypne."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:17
 msgid "Type of click used to launch/open files"
@@ -2967,7 +2967,7 @@ msgid ""
 "If set to \"local-only\" then only show thumbnails for local file systems. "
 "If set to \"never\" then never bother to thumbnail images, just use a "
 "generic icon."
-msgstr "Kompromis rýchlosti pri zobrazení obrázkov ako miniatúr. Ak je nastavené na „always“, náhľad sa zobrazí vždy, aj keď je priečinok na vzdialenom serveri. Ak je nastavené na „local_only“ zobrazia sa iba miniatúry miestnych súborov. Ak je nastavené na „never“, miniatúry sa nikdy nebudú vytvárať a použije sa všeobecná ikona."
+msgstr "Kompromis rýchlosti pri zobrazení obrázkov ako miniatúr. Ak je nastavené na „always“, náhľad sa zobrazí vždy, aj keď je priečinok na vzdialenom serveri. Ak je nastavené na „local_only“ zobrazia sa iba miniatúry lokálnych súborov. Ak je nastavené na „never“, miniatúry sa nikdy nebudú vytvárať a použije sa všeobecná ikona."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:31
 msgid "Maximum image size for thumbnailing"
@@ -2990,11 +2990,11 @@ msgid ""
 "icon. If set to \"always\" then always plays the sound, even if the file is "
 "on a remote server. If set to \"local-only\" then only plays previews on "
 "local file systems. If set to \"never\" then it never previews sound."
-msgstr "Kompromis rýchlosti pri náhľade zvukových súborov pod kurzorom myši. Ak je nastavené na „always“, zvuk sa vždy prehrá, aj keď je na vzdialenom serveri. Ak je nastavené na „local_only“ prehrajú sa iba zvuky miestnych súborov. Zvolenie „never“ náhľady zvukov vypne."
+msgstr "Kompromis rýchlosti pri náhľade zvukových súborov pod kurzorom myši. Ak je nastavené na „always“, zvuk sa vždy prehrá, aj keď je na vzdialenom serveri. Ak je nastavené na „local_only“ prehrajú sa iba zvuky lokálnych súborov. Zvolenie „never“ náhľady zvukov vypne."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:35
 msgid "Show advanced permissions in the file property dialog"
-msgstr "Zobraziť pokročilé oprávnenia v dialógu vlastností súbora"
+msgstr "Zobraziť pokročilé oprávnenia v dialógu vlastností súboru"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:36
 msgid ""
@@ -3208,15 +3208,15 @@ msgid ""
 "not shorten file names for other zoom levels. Available zoom levels: "
 "smallest (33%), smaller (50%), small (66%), standard (100%), large (150%), "
 "larger (200%), largest (400%)"
-msgstr "Reťazec určujúci ako by sa mali časti príliš dlhých názvov súborov skracovať v závislosti od úrovne zväčšenia. Každá z položiek zoznamu je v tvare „Zoom Level:Integer“. Pre každú uvedenú úroveň zväčšenia platí, že ak je zadané celé číslo väčšie ako 0, neprekročí názov súboru daný počet riadkov. Ak je zadané celé číslo 0 alebo menšie, na určenej úrovni zväčšenia sa neuplatňuje žiadne obmedzenie. Predvolený záznam v tvare „Integer“ bez uvedenej úrovne zväčšenia je tiež povolený. Definuje maximálny počet riadkov pre všetky ostatné úrovne zväčšenia. Príklady: 0 - vždy zobrazovať príliš dlhé názvy súborov; 3 - skracovať názvy súborov ak prekročia tri riadky; najmenšie:5,menšie:4,0 - skracovať názvy súborov ak prekročia päť riadkov pri úrovni priblíženia „smallest“. Skracovať názvy súborov ak prekročia päť riadkov pri úrovni priblíženia „smaller“. Neskracovať názvy súborov pri ostatných úrovniach priblíženia. Dostupné úrovne priblíženia: smallest (33%), smaller (50%), small (66%), standard (100%), large (150%), larger (200%), largest (400%)"
+msgstr "Reťazec určujúci ako by sa mali časti príliš dlhých názvov súborov skracovať v závislosti od úrovne priblíženia. Každá z položiek zoznamu je v tvare „Zoom Level:Integer“. Pre každú uvedenú úroveň priblíženia platí, že ak je zadané celé číslo väčšie ako 0, neprekročí názov súboru daný počet riadkov. Ak je zadané celé číslo 0 alebo menšie, na určenej úrovni priblíženia sa neuplatňuje žiadne obmedzenie. Predvolený záznam v tvare „Integer“ bez uvedenej úrovne priblíženia je tiež povolený. Definuje maximálny počet riadkov pre všetky ostatné úrovne priblíženia. Príklady: 0 - vždy zobrazovať príliš dlhé názvy súborov; 3 - skracovať názvy súborov ak prekročia tri riadky; najmenšie:5,menšie:4,0 - skracovať názvy súborov ak prekročia päť riadkov pri úrovni priblíženia „smallest“. Skracovať názvy súborov ak prekročia päť riadkov pri úrovni priblíženia „smaller“. Neskracovať názvy súborov pri ostatných úrovniach priblíženia. Dostupné úrovne priblíženia: smallest (33%), smaller (50%), small (66%), standard (100%), large (150%), larger (200%), largest (400%)"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:78
 msgid "Default compact view zoom level"
-msgstr "Predvolená úroveň zväčšenia kompaktného zobrazenia"
+msgstr "Predvolená úroveň priblíženia kompaktného zobrazenia"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:79
 msgid "Default zoom level used by the compact view."
-msgstr "Predvolená úroveň zväčšenia použitá kompaktným zobrazením."
+msgstr "Predvolená úroveň priblíženia použitá kompaktným zobrazením."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:80
 msgid "All columns have same width"
@@ -3230,11 +3230,11 @@ msgstr "Ak je toto nastavenie zvolené, všetky stĺpce budú mať v kompaktnom 
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:82
 msgid "Default list zoom level"
-msgstr "Predvolená úroveň zväčšenia zoznamu"
+msgstr "Predvolená úroveň priblíženia zoznamu"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:83
 msgid "Default zoom level used by the list view."
-msgstr "Predvolená úroveň zväčšenia v zobrazení zoznamu."
+msgstr "Predvolená úroveň priblíženia v zobrazení zoznamu."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:84
 msgid "Default list of columns visible in the list view"
@@ -3338,7 +3338,7 @@ msgstr "Názov ikony pre Domovský priečinok"
 msgid ""
 "This name can be set if you want a custom name for the home icon on the "
 "desktop."
-msgstr "Názov pre ikonu Domovského priečinka, ak nechcete používať predvolený."
+msgstr "Názov pre ikonu domovského priečinka, ak nechcete používať predvolený."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:106
 msgid "Desktop trash icon name"
@@ -3437,7 +3437,7 @@ msgstr "Bočný panel zobrazovaný v nových oknách."
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.in.h:1
 msgid "Whether to automatically mount media"
-msgstr "Určuje, či automaticky pripájať média"
+msgstr "Určuje, či automaticky pripájať médiá"
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.in.h:2
 msgid ""
@@ -3525,7 +3525,7 @@ msgstr "Prehliadať súborový systém správcom súborov"
 #: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:923
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
-msgstr "Prehliadať všetky miestne a vzdialené disky a priečinky prístupné z tohto počítača"
+msgstr "Prehliadať všetky lokálne a vzdialené disky a priečinky prístupné z tohto počítača"
 
 #: ../data/caja-file-management-properties.desktop.in.in.h:1
 msgid "File Management"
@@ -3623,7 +3623,7 @@ msgstr[2] "Toto otvorí %'d samostatných okien."
 
 #: ../src/file-manager/fm-directory-view.c:1174
 #: ../src/file-manager/fm-properties-window.c:5537
-#: ../src/caja-connect-server-dialog.c:692 ../src/caja-location-dialog.c:102
+#: ../src/caja-connect-server-dialog.c:714 ../src/caja-location-dialog.c:102
 msgid "There was an error displaying help."
 msgstr "Pri zobrazovaní Pomocníka nastala chyba."
 
@@ -3823,7 +3823,7 @@ msgid ""
 "CAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: newline-delimited URIs for selected files in the inactive pane of a split-view window\n"
 "\n"
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI for current location in the inactive pane of a split-view window"
-msgstr "Všetky spustiteľné súbory v tomto priečinku budú zobrazené v ponuke Skripty. Vybraním skriptu z ponuky ho spustíte.\n\nKeď bude spustený v miestnom priečinku, skriptu budú odovzdané názvy vybraných súborov. Pri spustení vo vzdialenom priečinku (napr. priečinku na WWW alebo FTP serveri), skript nedostane žiadne parametre.\n\nV každom prípade budú Cajou nastavené nasledovné premenné prostredia, ktoré môže skript používať:\n\nCAJA_SCRIPT_SELECTED_FILE_PATHS: cesty k vybraným súborom oddelené novými riadkami (len pre miestne súbory)\n\nCAJA_SCRIPT_SELECTED_URIS: URI vybraných súborov oddelené novými riadkami\n\nCAJA_SCRIPT_CURRENT_URI: URI aktuálneho umiestnenia\n\nCAJA_SCRIPT_WINDOW_GEOMETRY: umiestnenie a veľkosť aktuálneho okna\nCAJA_SCRIPT_NEXT_PANE_SELECTED_FILE_PATHS: cesty k vybraným súborom v neaktívnom panely okna s rozdeleným zobrazením oddelené novými riadkami (len pre miestne súbory)\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: URI vybraných súborov v neaktívnom panely okna s rozdeleným zobrazením oddelené novými riadkami\n\nCAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI pre aktuálne umiestnenie v neaktívnom panely okna s rozdeleným zobrazením"
+msgstr "Všetky spustiteľné súbory v tomto priečinku budú zobrazené v ponuke Skripty. Vybraním skriptu z ponuky ho spustíte.\n\nKeď bude spustený v lokálnom priečinku, skriptu budú odovzdané názvy vybraných súborov. Pri spustení vo vzdialenom priečinku (napr. priečinku na WWW alebo FTP serveri), skript nedostane žiadne parametre.\n\nV každom prípade budú programom Caja nastavené nasledovné premenné prostredia, ktoré môže skript používať:\n\nCAJA_SCRIPT_SELECTED_FILE_PATHS: cesty k vybraným súborom oddelené novými riadkami (len pre lokálne súbory)\n\nCAJA_SCRIPT_SELECTED_URIS: URI vybraných súborov oddelené novými riadkami\n\nCAJA_SCRIPT_CURRENT_URI: URI aktuálneho umiestnenia\n\nCAJA_SCRIPT_WINDOW_GEOMETRY: umiestnenie a veľkosť aktuálneho okna\nCAJA_SCRIPT_NEXT_PANE_SELECTED_FILE_PATHS: cesty k vybraným súborom v neaktívnom panely okna s rozdeleným zobrazením oddelené novými riadkami (len pre lokálne súbory)\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: URI vybraných súborov v neaktívnom panely okna s rozdeleným zobrazením oddelené novými riadkami\n\nCAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI pre aktuálne umiestnenie v neaktívnom panely okna s rozdeleným zobrazením"
 
 #: ../src/file-manager/fm-directory-view.c:5996
 #: ../src/file-manager/fm-tree-view.c:998
@@ -3842,7 +3842,7 @@ msgstr "Ak použijete príkaz Vložiť, „%s“ bude skopírovaný"
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be moved if you select the Paste command"
-msgstr[0] "Ak vyberiete príkaz Vložiť, vybraná položka bude presunutá"
+msgstr[0] "Ak vyberiete príkaz Vložiť, %'d vybraná položka bude presunutá"
 msgstr[1] "Ak vyberiete príkaz Vložiť, %'d vybrané položky budú presunuté"
 msgstr[2] "Ak vyberiete príkaz Vložiť, %'d vybraných položiek bude presunutých"
 
@@ -3851,7 +3851,7 @@ msgstr[2] "Ak vyberiete príkaz Vložiť, %'d vybraných položiek bude presunut
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be copied if you select the Paste command"
-msgstr[0] "Ak vyberiete príkaz Vložiť, vybraná položka bude skopírovaná"
+msgstr[0] "Ak vyberiete príkaz Vložiť, %'d vybraná položka bude skopírovaná"
 msgstr[1] "Ak vyberiete príkaz Vložiť, %'d vybrané položky budú skopírované"
 msgstr[2] "Ak vyberiete príkaz Vložiť, %'d vybraných položiek bude skopírovaných"
 
@@ -4452,11 +4452,11 @@ msgstr "_Druhý panel"
 
 #: ../src/file-manager/fm-directory-view.c:7548
 msgid "Copy the current selection to the other pane in the window"
-msgstr "Skopírovať aktuálny výber do druhého panela okna"
+msgstr "Skopírovať aktuálny výber do druhého panelu okna"
 
 #: ../src/file-manager/fm-directory-view.c:7551
 msgid "Move the current selection to the other pane in the window"
-msgstr "Presunúť aktuálny výber do druhého panela okna"
+msgstr "Presunúť aktuálny výber do druhého panelu okna"
 
 #. name, stock id, label
 #. name, stock id
@@ -4468,11 +4468,11 @@ msgstr "_Domovský priečinok"
 
 #: ../src/file-manager/fm-directory-view.c:7555
 msgid "Copy the current selection to the home folder"
-msgstr "Skopírovať aktuálny výber do Domovského priečinka"
+msgstr "Skopírovať aktuálny výber do domovského priečinka"
 
 #: ../src/file-manager/fm-directory-view.c:7559
 msgid "Move the current selection to the home folder"
-msgstr "Presunúť aktuálny výber do Domovského priečinka"
+msgstr "Presunúť aktuálny výber do domovského priečinka"
 
 #. name, stock id, label
 #: ../src/file-manager/fm-directory-view.c:7562
@@ -4785,7 +4785,7 @@ msgstr "Funkcia „Ťahaj a pusť“ nie je podporovaná."
 
 #: ../src/file-manager/fm-directory-view.c:10477
 msgid "Drag and drop is only supported on local file systems."
-msgstr "Funkcia „Ťahaj a pusť“ je podporovaná iba na miestnych súborových systémoch."
+msgstr "Funkcia „Ťahaj a pusť“ je podporovaná iba na lokálnych súborových systémoch."
 
 #: ../src/file-manager/fm-directory-view.c:10535
 #: ../src/file-manager/fm-directory-view.c:10640
@@ -4835,7 +4835,7 @@ msgstr "Príkaz"
 #: ../src/file-manager/fm-error-reporting.c:69
 #, c-format
 msgid "You do not have the permissions necessary to view the contents of \"%s\"."
-msgstr "Nemáte dostatočné oprávnenie pre zobrazenie obsahu súbora „%s“."
+msgstr "Nemáte dostatočné oprávnenie pre zobrazenie obsahu súboru „%s“."
 
 #: ../src/file-manager/fm-error-reporting.c:73
 #, c-format
@@ -4845,7 +4845,7 @@ msgstr "Súbor „%s“ sa nepodarilo nájsť. Možno bol nedávno odstránený.
 #: ../src/file-manager/fm-error-reporting.c:77
 #, c-format
 msgid "Sorry, could not display all the contents of \"%s\": %s"
-msgstr "Prepáčte, nepodarilo sa zobraziť celý obsah súbora „%s“: %s"
+msgstr "Prepáčte, nepodarilo sa zobraziť celý obsah súboru „%s“: %s"
 
 #: ../src/file-manager/fm-error-reporting.c:86
 msgid "The folder contents could not be displayed."
@@ -5214,13 +5214,13 @@ msgstr "Na nastavenie vlastnej ikony prosím pretiahnite a pusťte iba jeden obr
 #: ../src/file-manager/fm-properties-window.c:518
 #: ../src/caja-information-panel.c:557
 msgid "The file that you dropped is not local."
-msgstr "Súbor, ktorý ste pustili, nie je miestny."
+msgstr "Súbor, ktorý ste pustili, nie je lokálny."
 
 #: ../src/file-manager/fm-properties-window.c:519
 #: ../src/file-manager/fm-properties-window.c:525
 #: ../src/caja-information-panel.c:558
 msgid "You can only use local images as custom icons."
-msgstr "Ako vlastné ikony môžete použiť iba miestne obrázky."
+msgstr "Ako vlastné ikony môžete použiť iba lokálne obrázky."
 
 #: ../src/file-manager/fm-properties-window.c:524
 #: ../src/caja-information-panel.c:565
@@ -5303,7 +5303,7 @@ msgstr "Celková kapacita:"
 
 #: ../src/file-manager/fm-properties-window.c:3211
 msgid "Filesystem type:"
-msgstr "Typ systému súborov:"
+msgstr "Typ súborového systému:"
 
 #: ../src/file-manager/fm-properties-window.c:3299
 msgid "Basic"
@@ -5480,7 +5480,7 @@ msgstr "Oprávnenia priečinka:"
 
 #: ../src/file-manager/fm-properties-window.c:4732
 msgid "File Permissions:"
-msgstr "Oprávnenia súbora:"
+msgstr "Oprávnenia súboru:"
 
 #: ../src/file-manager/fm-properties-window.c:4743
 msgid "Text view:"
@@ -5549,7 +5549,7 @@ msgstr "Pred spustením Caja prosím vytvorte tento priečinok, alebo nastavte o
 #: ../src/caja-application.c:441
 #, c-format
 msgid "Caja could not create the following required folders: %s."
-msgstr "Caji sa nepodarilo vytvoriť tieto požadované priečinky: %s."
+msgstr "Programu Caja sa nepodarilo vytvoriť tieto požadované priečinky: %s."
 
 #: ../src/caja-application.c:443
 msgid ""
@@ -5629,119 +5629,127 @@ msgid ""
 "Add connect to server mount"
 msgstr "\n\nPridať pripojenie k zväzku na serveri"
 
-#: ../src/caja-connect-server-dialog.c:132
+#: ../src/caja-connect-server-dialog.c:134
 msgid "SSH"
 msgstr "SSH"
 
-#: ../src/caja-connect-server-dialog.c:135
+#: ../src/caja-connect-server-dialog.c:137
 msgid "Public FTP"
 msgstr "Verejné FTP"
 
-#: ../src/caja-connect-server-dialog.c:137
+#: ../src/caja-connect-server-dialog.c:139
 msgid "FTP (with login)"
 msgstr "FTP (s prihlásením)"
 
-#: ../src/caja-connect-server-dialog.c:140
-msgid "Windows share"
-msgstr "Zdieľanie Windows"
-
 #: ../src/caja-connect-server-dialog.c:142
+msgid "Windows share"
+msgstr "Sieťový disk Windows"
+
+#: ../src/caja-connect-server-dialog.c:144
 msgid "WebDAV (HTTP)"
 msgstr "WebDAV (HTTP)"
 
-#: ../src/caja-connect-server-dialog.c:144
+#: ../src/caja-connect-server-dialog.c:146
 msgid "Secure WebDAV (HTTPS)"
 msgstr "Bezpečné WebDAV (HTTPS)"
 
-#: ../src/caja-connect-server-dialog.c:191
+#: ../src/caja-connect-server-dialog.c:193
 msgid "Connecting..."
 msgstr "Pripája sa..."
 
-#: ../src/caja-connect-server-dialog.c:215
+#: ../src/caja-connect-server-dialog.c:217
 msgid ""
 "Can't load the supported server method list.\n"
 "Please check your GVfs installation."
 msgstr "Nepodarilo sa načítať podporovaný zoznam serverových metód.\nProsím skontrolujte vašu inštaláciu GVfs."
 
-#: ../src/caja-connect-server-dialog.c:293
+#: ../src/caja-connect-server-dialog.c:295
 #, c-format
 msgid "The folder \"%s\" cannot be opened on \"%s\"."
 msgstr "Priečinok „%s“ nemôže byť na „%s“ otvorený."
 
-#: ../src/caja-connect-server-dialog.c:303
+#: ../src/caja-connect-server-dialog.c:305
 #, c-format
 msgid "The server at \"%s\" cannot be found."
 msgstr "Server „%s“ sa nedá nájsť."
 
-#: ../src/caja-connect-server-dialog.c:338
+#: ../src/caja-connect-server-dialog.c:340
 msgid "Try Again"
 msgstr "Skúsiť znovu"
 
-#: ../src/caja-connect-server-dialog.c:404
+#: ../src/caja-connect-server-dialog.c:406
 msgid "Please verify your user details."
 msgstr "Prosím overte vaše používateľské detaily."
 
-#: ../src/caja-connect-server-dialog.c:434
+#: ../src/caja-connect-server-dialog.c:436
 msgid "Continue"
 msgstr "Pokračovať"
 
-#: ../src/caja-connect-server-dialog.c:710
-#: ../src/caja-connect-server-dialog.c:1108
+#: ../src/caja-connect-server-dialog.c:732
+#: ../src/caja-connect-server-dialog.c:1156
 msgid "C_onnect"
 msgstr "_Pripojiť"
 
 #. set dialog properties
-#: ../src/caja-connect-server-dialog.c:834
+#: ../src/caja-connect-server-dialog.c:856
 msgid "Connect to Server"
 msgstr "Pripojiť sa k serveru"
 
-#: ../src/caja-connect-server-dialog.c:848
+#: ../src/caja-connect-server-dialog.c:870
 msgid "Server Details"
 msgstr "Detaily servera"
 
 #. first row: server entry + port spinbutton
-#: ../src/caja-connect-server-dialog.c:868
+#: ../src/caja-connect-server-dialog.c:890
 msgid "_Server:"
 msgstr "_Server:"
 
 #. port
-#: ../src/caja-connect-server-dialog.c:890
+#: ../src/caja-connect-server-dialog.c:912
 msgid "_Port:"
 msgstr "_Port:"
 
 #. third row: share entry
-#: ../src/caja-connect-server-dialog.c:986
+#: ../src/caja-connect-server-dialog.c:1008
 msgid "Share:"
 msgstr "Zdieľať:"
 
 #. fourth row: folder entry
-#: ../src/caja-connect-server-dialog.c:1003
+#: ../src/caja-connect-server-dialog.c:1025
 msgid "Folder:"
 msgstr "Priečinok:"
 
-#: ../src/caja-connect-server-dialog.c:1021
+#: ../src/caja-connect-server-dialog.c:1043
 msgid "User Details"
 msgstr "Používateľské detaily"
 
 #. first row: domain entry
-#: ../src/caja-connect-server-dialog.c:1040
+#: ../src/caja-connect-server-dialog.c:1062
 msgid "Domain Name:"
 msgstr "Názov domény:"
 
 #. second row: username entry
-#: ../src/caja-connect-server-dialog.c:1057
+#: ../src/caja-connect-server-dialog.c:1079
 msgid "User Name:"
 msgstr "Používateľské meno:"
 
 #. third row: password entry
-#: ../src/caja-connect-server-dialog.c:1074
+#: ../src/caja-connect-server-dialog.c:1096
 msgid "Password:"
 msgstr "Heslo:"
 
 #. fourth row: remember checkbox
-#: ../src/caja-connect-server-dialog.c:1092
+#: ../src/caja-connect-server-dialog.c:1114
 msgid "Remember this password"
 msgstr "Zapamätať si toto heslo"
+
+#: ../src/caja-connect-server-dialog.c:1127
+msgid "Add _bookmark"
+msgstr ""
+
+#: ../src/caja-connect-server-dialog.c:1134
+msgid "Bookmark Name:"
+msgstr ""
 
 #: ../src/caja-desktop-window.c:81 ../src/caja-desktop-window.c:251
 #: ../src/caja-pathbar.c:1524 ../src/caja-places-sidebar.c:704
@@ -5894,7 +5902,7 @@ msgstr "Vždy"
 
 #: ../src/caja-file-management-properties.ui.h:27
 msgid "Local Files Only"
-msgstr "Iba miestne súbory"
+msgstr "Iba lokálne súbory"
 
 #: ../src/caja-file-management-properties.ui.h:28
 msgid "Never"
@@ -5970,7 +5978,7 @@ msgstr "<b>Predvoľby zobrazenia ikon</b>"
 
 #: ../src/caja-file-management-properties.ui.h:46
 msgid "Default _zoom level:"
-msgstr "Predvolené _zväčšenie:"
+msgstr "Predvolená úroveň _priblíženia:"
 
 #: ../src/caja-file-management-properties.ui.h:47
 msgid "_Use compact layout"
@@ -5986,7 +5994,7 @@ msgstr "<b>Predvoľby zobrazenia ikon</b>"
 
 #: ../src/caja-file-management-properties.ui.h:50
 msgid "_Default zoom level:"
-msgstr "Pr_edvolené zväčšenie:"
+msgstr "Pre_dvolená úroveň priblíženia:"
 
 #: ../src/caja-file-management-properties.ui.h:51
 msgid "A_ll columns have the same width"
@@ -6042,7 +6050,7 @@ msgstr "Otvorením _zobraziť spustiteľné textové súbory"
 
 #: ../src/caja-file-management-properties.ui.h:64
 msgid "_Ask each time"
-msgstr "Vždy sa _opýtať"
+msgstr "Vždy sa _spýtať"
 
 #: ../src/caja-file-management-properties.ui.h:65
 msgid "<b>Trash</b>"
@@ -6050,7 +6058,7 @@ msgstr "<b>Kôš</b>"
 
 #: ../src/caja-file-management-properties.ui.h:66
 msgid "Ask before _emptying the Trash or deleting files"
-msgstr "Opý_tať sa pred odstránením položiek z Koša alebo odstránením súborov"
+msgstr "Spý_tať sa pred odstránením položiek z Koša alebo odstránením súborov"
 
 #: ../src/caja-file-management-properties.ui.h:67
 msgid "I_nclude a Delete command that bypasses Trash"
@@ -6173,7 +6181,7 @@ msgstr "Tu môžu byť nastavené zriedkavejšie formáty médií"
 
 #: ../src/caja-file-management-properties.ui.h:96
 msgid "Acti_on:"
-msgstr "A_kcia:"
+msgstr "_Operácia:"
 
 #: ../src/caja-file-management-properties.ui.h:97
 msgid "_Type:"
@@ -6329,7 +6337,7 @@ msgstr "Prejsť na:"
 #, c-format
 msgid "Do you want to view %d location?"
 msgid_plural "Do you want to view %d locations?"
-msgstr[0] "Chcete zobraziť toto miesto?"
+msgstr[0] "Chcete zobraziť toto %d miesto?"
 msgstr[1] "Chcete zobraziť tieto %d miesta?"
 msgstr[2] "Chcete zobraziť týchto %d miest?"
 
@@ -6527,11 +6535,11 @@ msgstr "Zobraziť okno, ktoré umožňuje upraviť záložky v tejto ponuke"
 
 #: ../src/caja-navigation-window-menus.c:865
 msgid "_Previous Tab"
-msgstr "_Predošlá karta"
+msgstr "_Predchádzajúca karta"
 
 #: ../src/caja-navigation-window-menus.c:866
 msgid "Activate previous tab"
-msgstr "Aktivovať predošlú kartu"
+msgstr "Aktivovať predchádzajúcu kartu"
 
 #: ../src/caja-navigation-window-menus.c:870
 msgid "_Next Tab"
@@ -6571,12 +6579,12 @@ msgstr "Zobraziť vyhľadávanie"
 #. label, accelerator
 #: ../src/caja-navigation-window-menus.c:894
 msgid "_Main Toolbar"
-msgstr "_Hlavná lišta nástrojov"
+msgstr "_Hlavný panel nástrojov"
 
 #. tooltip
 #: ../src/caja-navigation-window-menus.c:895
 msgid "Change the visibility of this window's main toolbar"
-msgstr "Zmeniť viditeľnosť hlavnej lišty nástrojov tohto okna"
+msgstr "Zmeniť viditeľnosť hlavného panela nástrojov tohto okna"
 
 #. name, stock id
 #. label, accelerator
@@ -6587,7 +6595,7 @@ msgstr "_Bočný panel"
 #. tooltip
 #: ../src/caja-navigation-window-menus.c:901
 msgid "Change the visibility of this window's side pane"
-msgstr "Zmeniť viditeľnosť bočného panelu tohoto okna"
+msgstr "Zmeniť viditeľnosť bočného panela tohoto okna"
 
 #. name, stock id
 #. label, accelerator
@@ -6609,7 +6617,7 @@ msgstr "_Stavový riadok"
 #. tooltip
 #: ../src/caja-navigation-window-menus.c:913
 msgid "Change the visibility of this window's statusbar"
-msgstr "Zmeniť viditeľnosť stavového riadka tohto okna"
+msgstr "Zmeniť viditeľnosť stavového riadk tohto okna"
 
 #. name, stock id
 #. label, accelerator
@@ -6980,7 +6988,7 @@ msgstr "Ilustrácia"
 
 #: ../src/caja-query-editor.c:467
 msgid "Spreadsheet"
-msgstr "Pracovný zošit"
+msgstr "Tabuľka"
 
 #: ../src/caja-query-editor.c:485
 msgid "Presentation"
@@ -7067,11 +7075,11 @@ msgstr "Otvoriť u_miestnenie..."
 #. name, stock id, label
 #: ../src/caja-spatial-window.c:955
 msgid "Close P_arent Folders"
-msgstr "Zatvoriť _rodičovské priečinky"
+msgstr "Zatvoriť n_adradené priečinky"
 
 #: ../src/caja-spatial-window.c:956
 msgid "Close this folder's parents"
-msgstr "Zatvoriť rodičovské priečinky tohto priečinka"
+msgstr "Zatvoriť nadradené priečinky tohto priečinka"
 
 #. name, stock id, label
 #: ../src/caja-spatial-window.c:960
@@ -7140,11 +7148,11 @@ msgstr "Prosím, skontrolujte preklepy a skúste to znovu."
 #: ../src/caja-window-manage-views.c:2143
 #, c-format
 msgid "Caja cannot handle \"%s\" locations."
-msgstr "Caja nie je schopný pracovať s „%s“ umiestneniami."
+msgstr "Program Caja nie je schopný pracovať s „%s“ umiestneniami."
 
 #: ../src/caja-window-manage-views.c:2148
 msgid "Caja cannot handle this kind of location."
-msgstr "Caja nie je schopný pracovať s týmto druhom umiestnenia."
+msgstr "Program Caja nie je schopný pracovať s týmto druhom umiestnenia."
 
 #: ../src/caja-window-manage-views.c:2155
 msgid "Unable to mount the location."
@@ -7193,7 +7201,7 @@ msgid ""
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details."
-msgstr "Caja je šírený v nádeji, že bude užitočný, ale BEZ AKEJKOĽVEK ZÁRUKY, dokonca bez predpokladanej záruky PREDAJNOSTI alebo VHODNOSTI NA AKÝKOĽVEK ÚČEL. Ďalšie podrobnosti sa dočítate v GNU General Public License."
+msgstr "Program Caja je šírený v nádeji, že bude užitočný, ale BEZ AKEJKOĽVEK ZÁRUKY, dokonca bez predpokladanej záruky PREDAJNOSTI alebo VHODNOSTI NA KONKRÉTNY ÚČEL. Ďalšie podrobnosti sa dočítate v GNU General Public License."
 
 #: ../src/caja-window-menus.c:522
 msgid ""
@@ -7276,11 +7284,11 @@ msgstr "Upraviť predvoľby programu Caja"
 #. name, stock id, label
 #: ../src/caja-window-menus.c:853
 msgid "Open _Parent"
-msgstr "Otvoriť rodičovský _priečinok"
+msgstr "Otvoriť nadradený _priečinok"
 
 #: ../src/caja-window-menus.c:854
 msgid "Open the parent folder"
-msgstr "Otvoriť rodičovský priečinok"
+msgstr "Otvoriť nadradený priečinok"
 
 #. tooltip
 #: ../src/caja-window-menus.c:863
@@ -7382,7 +7390,7 @@ msgstr "_Sieť"
 #. tooltip
 #: ../src/caja-window-menus.c:928 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
-msgstr "Prehliadať záložky a umiestnenia v miestnej sieti"
+msgstr "Prehliadať záložky a umiestnenia v lokálnej sieti"
 
 #. name, stock id
 #. label, accelerator
@@ -7481,12 +7489,12 @@ msgstr "Zmenšiť"
 
 #: ../src/caja-zoom-control.c:87
 msgid "Zoom to Default"
-msgstr "Nastaviť predvolené zväčšenie"
+msgstr "Nastaviť predvolené priblíženie"
 
 #: ../src/caja-zoom-control.c:929
 msgid "Zoom"
-msgstr "Zväčšiť"
+msgstr "Priblíženie"
 
 #: ../src/caja-zoom-control.c:934
 msgid "Set the zoom level of the current view"
-msgstr "Nastaviť zväčšenie aktuálneho zobrazenia"
+msgstr "Nastaviť priblíženie aktuálneho zobrazenia"

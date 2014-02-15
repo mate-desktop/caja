@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-27 16:56+0100\n"
-"PO-Revision-Date: 2014-01-27 15:58+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"POT-Creation-Date: 2014-02-12 19:04+0100\n"
+"PO-Revision-Date: 2014-02-15 13:00+0000\n"
+"Last-Translator: CroatianFan <meluksic@yahoo.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/projects/p/MATE/language/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -922,7 +922,7 @@ msgstr "Veličina:"
 #: ../libcaja-private/caja-file-conflict-dialog.c:275
 #: ../libcaja-private/caja-file-conflict-dialog.c:308
 #: ../src/file-manager/fm-properties-window.c:3359
-#: ../src/caja-connect-server-dialog.c:908
+#: ../src/caja-connect-server-dialog.c:930
 msgid "Type:"
 msgstr "Vrsta:"
 
@@ -3624,7 +3624,7 @@ msgstr[2] "Ovo će otvoriti %'d odvojenih prozora."
 
 #: ../src/file-manager/fm-directory-view.c:1174
 #: ../src/file-manager/fm-properties-window.c:5537
-#: ../src/caja-connect-server-dialog.c:692 ../src/caja-location-dialog.c:102
+#: ../src/caja-connect-server-dialog.c:714 ../src/caja-location-dialog.c:102
 msgid "There was an error displaying help."
 msgstr "Došlo je do neispravnosti u prikazivanju pomoći."
 
@@ -5423,15 +5423,15 @@ msgstr "Čitaj i zapisuj"
 
 #: ../src/file-manager/fm-properties-window.c:4375
 msgid "Set _user ID"
-msgstr "Postavi _ID korisnika (SUID)"
+msgstr "Postavi _korisnikovu identifikaciju – ID"
 
 #: ../src/file-manager/fm-properties-window.c:4378
 msgid "Special flags:"
-msgstr "Posebne oznake:"
+msgstr "Posebne zastavice:"
 
 #: ../src/file-manager/fm-properties-window.c:4380
 msgid "Set gro_up ID"
-msgstr "Postavi ID _grupe (SGID)"
+msgstr "Postavi identifikaciju skup_ine – ID"
 
 #: ../src/file-manager/fm-properties-window.c:4381
 msgid "_Sticky"
@@ -5469,31 +5469,31 @@ msgstr "Izvrši:"
 
 #: ../src/file-manager/fm-properties-window.c:4550
 msgid "Allow _executing file as program"
-msgstr "Dozvoli _izvršavanje datoteke kao programa"
+msgstr "Dopusti _izvršavanje datoteke kao programa"
 
 #: ../src/file-manager/fm-properties-window.c:4569
 msgid "Others:"
-msgstr "Drugi:"
+msgstr "Ostali:"
 
 #: ../src/file-manager/fm-properties-window.c:4719
 msgid "Folder Permissions:"
-msgstr "Dozvole mape:"
+msgstr "Dopuštenja mape:"
 
 #: ../src/file-manager/fm-properties-window.c:4732
 msgid "File Permissions:"
-msgstr "Dozvole datoteke:"
+msgstr "Dopuštenja datoteke:"
 
 #: ../src/file-manager/fm-properties-window.c:4743
 msgid "Text view:"
-msgstr "Tekstualni pregled:"
+msgstr "Napisni prikaz:"
 
 #: ../src/file-manager/fm-properties-window.c:4891
 msgid "You are not the owner, so you cannot change these permissions."
-msgstr "Niste vlasnik, pa ne možete promjeniti ove dozvole."
+msgstr "Ti nisi vlasnik, stoga ne možeš promijeniti ova dopuštenja."
 
 #: ../src/file-manager/fm-properties-window.c:4916
 msgid "SELinux context:"
-msgstr ""
+msgstr "Kontekst SELinuxa:"
 
 #: ../src/file-manager/fm-properties-window.c:4921
 msgid "Last changed:"
@@ -5501,16 +5501,16 @@ msgstr "Zadnja promjena:"
 
 #: ../src/file-manager/fm-properties-window.c:4935
 msgid "Apply Permissions to Enclosed Files"
-msgstr ""
+msgstr "Primijeni dopuštenja na obuhvaćene datoteke"
 
 #: ../src/file-manager/fm-properties-window.c:4945
 #, c-format
 msgid "The permissions of \"%s\" could not be determined."
-msgstr "Ne mogu utvrditi dozvole od \"%s\"."
+msgstr "Dopuštenja za \"%s\" ne mogu se utvrditi."
 
 #: ../src/file-manager/fm-properties-window.c:4948
 msgid "The permissions of the selected file could not be determined."
-msgstr "Ne mogu utvrditi dozvole odabrane datoteke."
+msgstr "Dopuštenja odabrane datoteke ne mogu se utvrditi."
 
 #: ../src/file-manager/fm-properties-window.c:5510
 msgid "Creating Properties window."
@@ -5518,11 +5518,11 @@ msgstr "Stvaranje prozora sa svojstvima."
 
 #: ../src/file-manager/fm-properties-window.c:5808
 msgid "Select Custom Icon"
-msgstr "Odaberi prilagođenu ikonu"
+msgstr "Odaberi prilagođenu sličicu"
 
 #: ../src/file-manager/fm-tree-view.c:1427 ../src/caja-places-sidebar.c:719
 msgid "File System"
-msgstr "File System"
+msgstr "Datotečni sustav"
 
 #: ../src/file-manager/fm-tree-view.c:1431
 msgid "Network Neighbourhood"
@@ -5539,24 +5539,24 @@ msgstr "Prikaži stablo"
 #: ../src/caja-application.c:434
 #, c-format
 msgid "Caja could not create the required folder \"%s\"."
-msgstr "Caja nije mogao stvoriti potrebnu mapu \"%s\"."
+msgstr "Caja nije mogla stvoriti zahtijevanu mapu \"%s\"."
 
 #: ../src/caja-application.c:436
 msgid ""
 "Before running Caja, please create the following folder, or set permissions "
 "such that Caja can create it."
-msgstr "Prije pokretanja Cajaa  napravite ovu mapu ili postavite dozvole kako bi je Caja sam mogao napraviti."
+msgstr "Molim da prije pokretanja Caje stvoriš sljedeću mapu ili postaviš takva dopuštenja da je Caja može stvoriti."
 
 #: ../src/caja-application.c:441
 #, c-format
 msgid "Caja could not create the following required folders: %s."
-msgstr "Caja ne može napraviti slijedeće tražene mape: %s."
+msgstr "Caja nije mogla stvoriti sljedeće zahtijevane mape: %s."
 
 #: ../src/caja-application.c:443
 msgid ""
 "Before running Caja, please create these folders, or set permissions such "
 "that Caja can create them."
-msgstr "Prije pokretanja Cajaa, napravite ove mape, ili postavite dozvole  kako bi ih Caja sam mogao napraviti."
+msgstr "Molim da prije pokretanja Caje stvoriš sljedeće mape ili postaviš takva dopuštenja da ih Caja može stvoriti."
 
 #: ../src/caja-application.c:1660 ../src/caja-places-sidebar.c:2200
 #: ../src/caja-places-sidebar.c:2231 ../src/caja-places-sidebar.c:2262
@@ -5630,119 +5630,127 @@ msgid ""
 "Add connect to server mount"
 msgstr ""
 
-#: ../src/caja-connect-server-dialog.c:132
+#: ../src/caja-connect-server-dialog.c:134
 msgid "SSH"
 msgstr "SSH"
 
-#: ../src/caja-connect-server-dialog.c:135
+#: ../src/caja-connect-server-dialog.c:137
 msgid "Public FTP"
 msgstr "Javni FTP"
 
-#: ../src/caja-connect-server-dialog.c:137
+#: ../src/caja-connect-server-dialog.c:139
 msgid "FTP (with login)"
 msgstr "FTP (sa login podacima)"
 
-#: ../src/caja-connect-server-dialog.c:140
+#: ../src/caja-connect-server-dialog.c:142
 msgid "Windows share"
 msgstr "Windows share"
 
-#: ../src/caja-connect-server-dialog.c:142
+#: ../src/caja-connect-server-dialog.c:144
 msgid "WebDAV (HTTP)"
 msgstr "webDAV (HTTP)"
 
-#: ../src/caja-connect-server-dialog.c:144
+#: ../src/caja-connect-server-dialog.c:146
 msgid "Secure WebDAV (HTTPS)"
 msgstr "Secure WebDAV (HTTPS)"
 
-#: ../src/caja-connect-server-dialog.c:191
+#: ../src/caja-connect-server-dialog.c:193
 msgid "Connecting..."
 msgstr "Spajanje..."
 
-#: ../src/caja-connect-server-dialog.c:215
+#: ../src/caja-connect-server-dialog.c:217
 msgid ""
 "Can't load the supported server method list.\n"
 "Please check your GVfs installation."
 msgstr ""
 
-#: ../src/caja-connect-server-dialog.c:293
+#: ../src/caja-connect-server-dialog.c:295
 #, c-format
 msgid "The folder \"%s\" cannot be opened on \"%s\"."
 msgstr ""
 
-#: ../src/caja-connect-server-dialog.c:303
+#: ../src/caja-connect-server-dialog.c:305
 #, c-format
 msgid "The server at \"%s\" cannot be found."
 msgstr ""
 
-#: ../src/caja-connect-server-dialog.c:338
+#: ../src/caja-connect-server-dialog.c:340
 msgid "Try Again"
 msgstr "Pokušaj ponovno"
 
-#: ../src/caja-connect-server-dialog.c:404
+#: ../src/caja-connect-server-dialog.c:406
 msgid "Please verify your user details."
 msgstr ""
 
-#: ../src/caja-connect-server-dialog.c:434
+#: ../src/caja-connect-server-dialog.c:436
 msgid "Continue"
 msgstr "Nastavi"
 
-#: ../src/caja-connect-server-dialog.c:710
-#: ../src/caja-connect-server-dialog.c:1108
+#: ../src/caja-connect-server-dialog.c:732
+#: ../src/caja-connect-server-dialog.c:1156
 msgid "C_onnect"
 msgstr "_Spoji"
 
 #. set dialog properties
-#: ../src/caja-connect-server-dialog.c:834
+#: ../src/caja-connect-server-dialog.c:856
 msgid "Connect to Server"
 msgstr "Spoji s poslužiteljem"
 
-#: ../src/caja-connect-server-dialog.c:848
+#: ../src/caja-connect-server-dialog.c:870
 msgid "Server Details"
 msgstr "Pojedinosti poslužitelja"
 
 #. first row: server entry + port spinbutton
-#: ../src/caja-connect-server-dialog.c:868
+#: ../src/caja-connect-server-dialog.c:890
 msgid "_Server:"
 msgstr "_Poslužitelj:"
 
 #. port
-#: ../src/caja-connect-server-dialog.c:890
+#: ../src/caja-connect-server-dialog.c:912
 msgid "_Port:"
 msgstr "P_ort:"
 
 #. third row: share entry
-#: ../src/caja-connect-server-dialog.c:986
+#: ../src/caja-connect-server-dialog.c:1008
 msgid "Share:"
 msgstr "Dijeli:"
 
 #. fourth row: folder entry
-#: ../src/caja-connect-server-dialog.c:1003
+#: ../src/caja-connect-server-dialog.c:1025
 msgid "Folder:"
 msgstr "Mapa:"
 
-#: ../src/caja-connect-server-dialog.c:1021
+#: ../src/caja-connect-server-dialog.c:1043
 msgid "User Details"
 msgstr "Pojedinosti o korisniku"
 
 #. first row: domain entry
-#: ../src/caja-connect-server-dialog.c:1040
+#: ../src/caja-connect-server-dialog.c:1062
 msgid "Domain Name:"
 msgstr "Ime domene:"
 
 #. second row: username entry
-#: ../src/caja-connect-server-dialog.c:1057
+#: ../src/caja-connect-server-dialog.c:1079
 msgid "User Name:"
 msgstr "Korisničko ime:"
 
 #. third row: password entry
-#: ../src/caja-connect-server-dialog.c:1074
+#: ../src/caja-connect-server-dialog.c:1096
 msgid "Password:"
 msgstr "Lozinka:"
 
 #. fourth row: remember checkbox
-#: ../src/caja-connect-server-dialog.c:1092
+#: ../src/caja-connect-server-dialog.c:1114
 msgid "Remember this password"
 msgstr "Zapamti ovu lozinku"
+
+#: ../src/caja-connect-server-dialog.c:1127
+msgid "Add _bookmark"
+msgstr ""
+
+#: ../src/caja-connect-server-dialog.c:1134
+msgid "Bookmark Name:"
+msgstr ""
 
 #: ../src/caja-desktop-window.c:81 ../src/caja-desktop-window.c:251
 #: ../src/caja-pathbar.c:1524 ../src/caja-places-sidebar.c:704
@@ -6178,7 +6186,7 @@ msgstr "Rad_nja:"
 
 #: ../src/caja-file-management-properties.ui.h:97
 msgid "_Type:"
-msgstr "_Tip:"
+msgstr "_Vrsta:"
 
 #: ../src/caja-file-management-properties.ui.h:98
 msgid "_Never prompt or start programs on media insertion"

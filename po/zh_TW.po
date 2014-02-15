@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Wei-Lun Chao <bluebat@member.fsf.org>, 2012-2013
+# 柏諺 黃 <s8321414@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-27 16:56+0100\n"
-"PO-Revision-Date: 2014-01-27 15:58+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"POT-Creation-Date: 2014-02-12 19:04+0100\n"
+"PO-Revision-Date: 2014-02-15 13:32+0000\n"
+"Last-Translator: 柏諺 黃 <s8321414@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/MATE/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -421,7 +422,7 @@ msgstr "輸入法"
 
 #: ../eel/eel-gtk-extensions.c:476
 msgid "Show more _details"
-msgstr ""
+msgstr "顯示更多訊息(_D)"
 
 #: ../eel/eel-stock-dialogs.c:213
 msgid "You can stop this operation by clicking cancel."
@@ -767,7 +768,7 @@ msgstr "電腦"
 
 #: ../libcaja-private/caja-desktop-link.c:116
 msgid "Network Servers"
-msgstr ""
+msgstr "網路伺服器"
 
 #: ../libcaja-private/caja-desktop-link.c:119 ../src/caja-places-sidebar.c:824
 #: ../src/caja-trash-bar.c:192
@@ -918,7 +919,7 @@ msgstr "大小:"
 #: ../libcaja-private/caja-file-conflict-dialog.c:275
 #: ../libcaja-private/caja-file-conflict-dialog.c:308
 #: ../src/file-manager/fm-properties-window.c:3359
-#: ../src/caja-connect-server-dialog.c:908
+#: ../src/caja-connect-server-dialog.c:930
 msgid "Type:"
 msgstr "類型:"
 
@@ -3020,13 +3021,13 @@ msgstr "如果設定為真，那麼隱藏檔案將預設顯示在檔案管理員
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:63
 msgid "Whether to show file sizes with IEC units"
-msgstr ""
+msgstr "是否以 IEC 單位顯示檔案大小"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:64
 msgid ""
 "If set to true, file sizes are shown using IEC (base 1024) units with "
 "\"KiB\" style suffixes, instead of default with SI units."
-msgstr ""
+msgstr "如果設定為真，檔案大小會使用 IEC（1024為一單位）單位，並以\"KiB\"結尾縮寫代表，而不會使用預設的 SI 單位。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:65
 msgid "List of possible captions on icons"
@@ -3506,7 +3507,7 @@ msgstr[0] "這將開啟 %'d 個分隔視窗。"
 
 #: ../src/file-manager/fm-directory-view.c:1174
 #: ../src/file-manager/fm-properties-window.c:5537
-#: ../src/caja-connect-server-dialog.c:692 ../src/caja-location-dialog.c:102
+#: ../src/caja-connect-server-dialog.c:714 ../src/caja-location-dialog.c:102
 msgid "There was an error displaying help."
 msgstr "顯示說明文件時發生錯誤。"
 
@@ -3647,11 +3648,11 @@ msgstr[0] "使用「%s」以開啟所選項目"
 
 #: ../src/file-manager/fm-directory-view.c:4564
 msgid "Open parent location"
-msgstr ""
+msgstr "開啟父位置"
 
 #: ../src/file-manager/fm-directory-view.c:4565
 msgid "Open parent location for the selected item"
-msgstr ""
+msgstr "為選定的項目開啟父位置"
 
 #: ../src/file-manager/fm-directory-view.c:5423
 #, c-format
@@ -5468,119 +5469,127 @@ msgid ""
 "Add connect to server mount"
 msgstr "\n\n加入伺服器掛載連接"
 
-#: ../src/caja-connect-server-dialog.c:132
+#: ../src/caja-connect-server-dialog.c:134
 msgid "SSH"
 msgstr "SSH"
 
-#: ../src/caja-connect-server-dialog.c:135
+#: ../src/caja-connect-server-dialog.c:137
 msgid "Public FTP"
 msgstr "公共 FTP"
 
-#: ../src/caja-connect-server-dialog.c:137
+#: ../src/caja-connect-server-dialog.c:139
 msgid "FTP (with login)"
 msgstr "FTP (需登入)"
 
-#: ../src/caja-connect-server-dialog.c:140
+#: ../src/caja-connect-server-dialog.c:142
 msgid "Windows share"
 msgstr "Windows 分享"
 
-#: ../src/caja-connect-server-dialog.c:142
+#: ../src/caja-connect-server-dialog.c:144
 msgid "WebDAV (HTTP)"
 msgstr "WebDAV (HTTP)"
 
-#: ../src/caja-connect-server-dialog.c:144
+#: ../src/caja-connect-server-dialog.c:146
 msgid "Secure WebDAV (HTTPS)"
 msgstr "Secure WebDAV (HTTPS)"
 
-#: ../src/caja-connect-server-dialog.c:191
+#: ../src/caja-connect-server-dialog.c:193
 msgid "Connecting..."
 msgstr "連接…"
 
-#: ../src/caja-connect-server-dialog.c:215
+#: ../src/caja-connect-server-dialog.c:217
 msgid ""
 "Can't load the supported server method list.\n"
 "Please check your GVfs installation."
 msgstr "無法載入支援的伺服器方法清單。\n請檢查您的 GVfs 安裝。"
 
-#: ../src/caja-connect-server-dialog.c:293
+#: ../src/caja-connect-server-dialog.c:295
 #, c-format
 msgid "The folder \"%s\" cannot be opened on \"%s\"."
 msgstr "資料夾「%s」無法開啟於「%s」。"
 
-#: ../src/caja-connect-server-dialog.c:303
+#: ../src/caja-connect-server-dialog.c:305
 #, c-format
 msgid "The server at \"%s\" cannot be found."
 msgstr "找不到位於「%s」的伺服器。"
 
-#: ../src/caja-connect-server-dialog.c:338
+#: ../src/caja-connect-server-dialog.c:340
 msgid "Try Again"
 msgstr "再試一次"
 
-#: ../src/caja-connect-server-dialog.c:404
+#: ../src/caja-connect-server-dialog.c:406
 msgid "Please verify your user details."
 msgstr "請驗證您的使用者細節。"
 
-#: ../src/caja-connect-server-dialog.c:434
+#: ../src/caja-connect-server-dialog.c:436
 msgid "Continue"
 msgstr "繼續"
 
-#: ../src/caja-connect-server-dialog.c:710
-#: ../src/caja-connect-server-dialog.c:1108
+#: ../src/caja-connect-server-dialog.c:732
+#: ../src/caja-connect-server-dialog.c:1156
 msgid "C_onnect"
 msgstr "連線(_O)"
 
 #. set dialog properties
-#: ../src/caja-connect-server-dialog.c:834
+#: ../src/caja-connect-server-dialog.c:856
 msgid "Connect to Server"
 msgstr "連接伺服器"
 
-#: ../src/caja-connect-server-dialog.c:848
+#: ../src/caja-connect-server-dialog.c:870
 msgid "Server Details"
 msgstr "伺服器細節"
 
 #. first row: server entry + port spinbutton
-#: ../src/caja-connect-server-dialog.c:868
+#: ../src/caja-connect-server-dialog.c:890
 msgid "_Server:"
 msgstr "伺服器(_S):"
 
 #. port
-#: ../src/caja-connect-server-dialog.c:890
+#: ../src/caja-connect-server-dialog.c:912
 msgid "_Port:"
 msgstr "通訊埠(_P):"
 
 #. third row: share entry
-#: ../src/caja-connect-server-dialog.c:986
+#: ../src/caja-connect-server-dialog.c:1008
 msgid "Share:"
 msgstr "共享："
 
 #. fourth row: folder entry
-#: ../src/caja-connect-server-dialog.c:1003
+#: ../src/caja-connect-server-dialog.c:1025
 msgid "Folder:"
 msgstr "資料夾："
 
-#: ../src/caja-connect-server-dialog.c:1021
+#: ../src/caja-connect-server-dialog.c:1043
 msgid "User Details"
 msgstr "使用者細節"
 
 #. first row: domain entry
-#: ../src/caja-connect-server-dialog.c:1040
+#: ../src/caja-connect-server-dialog.c:1062
 msgid "Domain Name:"
 msgstr "網域名稱："
 
 #. second row: username entry
-#: ../src/caja-connect-server-dialog.c:1057
+#: ../src/caja-connect-server-dialog.c:1079
 msgid "User Name:"
 msgstr "使用者名稱："
 
 #. third row: password entry
-#: ../src/caja-connect-server-dialog.c:1074
+#: ../src/caja-connect-server-dialog.c:1096
 msgid "Password:"
 msgstr "密碼："
 
 #. fourth row: remember checkbox
-#: ../src/caja-connect-server-dialog.c:1092
+#: ../src/caja-connect-server-dialog.c:1114
 msgid "Remember this password"
 msgstr "記住這個密碼"
+
+#: ../src/caja-connect-server-dialog.c:1127
+msgid "Add _bookmark"
+msgstr "加入書籤(_B)"
+
+#: ../src/caja-connect-server-dialog.c:1134
+msgid "Bookmark Name:"
+msgstr "書籤名稱(_N):"
 
 #: ../src/caja-desktop-window.c:81 ../src/caja-desktop-window.c:251
 #: ../src/caja-pathbar.c:1524 ../src/caja-places-sidebar.c:704
@@ -7051,7 +7060,7 @@ msgstr "著作權©1999-2009 Nautilus 作者群\n著作權©2011-2013 Caja 作�
 #. * box to give credit to the translator(s).
 #: ../src/caja-window-menus.c:547
 msgid "translator-credits"
-msgstr "趙惟倫 <bluebat@member.fsf.org>, 2012\nWoodman Tuen <wmtuen@gmail.com>, 2004-2006\nAbel Cheung <abel@oaka.org>, 2001-2004\nGong Yi LIAO <granziliao@sinamail.com>, 2000"
+msgstr "黃柏諺 <s8321414@gmail.com>,2013-14\n趙惟倫 <bluebat@member.fsf.org>, 2012\nWoodman Tuen <wmtuen@gmail.com>, 2004-2006\nAbel Cheung <abel@oaka.org>, 2001-2004\nGong Yi LIAO <granziliao@sinamail.com>, 2000"
 
 #: ../src/caja-window-menus.c:550
 msgid "MATE Web Site"
