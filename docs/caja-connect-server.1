@@ -1,50 +1,40 @@
-.\"                                      Hey, EMACS: -*- nroff -*-
-.\" First parameter, NAME, should be all caps
-.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
-.\" other parameters are allowed: see man(7), man(1)
-.TH caja-connect-server 1 "05 Jan 2008"
+.\" Man page for caja-connect-server
+.TH CAJA-CONNECT-SERVER 1 "29 January 2014" "MATE Desktop Environment" "General Manual"
 .\" Please adjust this date whenever revising the manpage.
 .\"
-.\" Some roff macros, for reference:
-.\" .nh        disable hyphenation
-.\" .hy        enable hyphenation
-.\" .ad l      left justify
-.\" .ad b      justify to both left and right margins
-.\" .nf        disable filling
-.\" .fi        enable filling
-.\" .br        insert line break
-.\" .sp <n>    insert n+1 empty lines
-.\" for manpage-specific macros, see man(7)
-.SH NAME
-caja-connect-server \- To Access a remote server
-.SH SYNOPSIS
-.B caja-connect-server
-.RI [ options ]
-.RI [ URI ]
-.SH DESCRIPTION
-This manual page documents briefly the
-.B caja-connect-server
-command.
+.SH "NAME"
+Caja\-connect\-server \- Connect to Server dialog for Caja
+.SH "SYNOPSIS"
+.B caja\-connect\-server [OPTIONS]
+.SH "DESCRIPTION"
+Caja Connect Server is the connection manager for Caja/MATE. It is provided as a part of the Caja package for the MATE Desktop Environment.
 .PP
-Caja Connect Server is the connection manager for the MATE desktop.
+Simply running "\fBcaja\-connection\-server\fR" will open a simple dialog allowing you to select the server type, and specify the server address, port, and login credentials for the server you want to connect to. This is the same dialog accessible via the Caja "File" menu, and the MATE Desktop "Places" menu.
 .PP
-You can use the file manager to access a remote server, be it an FTP site,
-a Windows share, a WebDav server or an SSH server.
-.SH OPTIONS
-Caja follows the usual GNU command line syntax, with long options starting
-with two dashes (`-'). A summary of options is included below.
+You can use the Caja file manager to access remote servers such as SSH, FTP, and WebDav (HTTP/HTTPS) Servers.
+.PP
+If you desire to mount and access remote servers via console commands, you should use \fBcaja\fR directly. See: \fBcaja\fR(1)
+.SH "OPTIONS"
 .TP
-.B \-\-help
-Show a summary of options.
+\fB\-\-display=DISPLAY\fR
+X display to use.
 .TP
-.B \-\-version
-Show version.
+\fB\-?, \-h, \-\-help\fR
+Print standard command line options.
 .TP
-Other standard MATE options not listed here are also supported.
-.SH SEE ALSO
-Caja Connect Server documentation can be found from the "Help" menu, or by pressing the
-F1 key. Caja also has a website at http://www.gnome.org/projects/caja/
-.SH AUTHOR
-This manual page was written by Julian Andres Klode <jak@jak-linux.org> for the
-Debian GNU/Linux system (but may be used by others), based on a manpage by
-Fernando Ribeiro <fernando@staff.nerdgroup.org>.
+\fB\-\-help\-all\fR
+Print all command line options.
+.SH "BUGS"
+.SS Should you encounter any bugs, they may be reported at: 
+http://github.com/mate-desktop/caja/issues
+.SH "AUTHORS"
+.SS This Man Page has been written for the MATE Desktop Environment by:
+Adam Erdman <hekel@archlinux.info> (2014)
+.SH "SEE ALSO"
+.SS
+Caja documentation can be found from the "Help" menu, or by pressing the F1 key. 
+Further information may also be available at: http://wiki.mate-desktop.org/docs
+.P
+.BR "caja" (1),
+.BR "caja-autorun-software" (1),
+.BR "caja-file-management-properties" (1)
