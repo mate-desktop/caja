@@ -79,10 +79,10 @@ Caja_2_0_gir_LIBS = libcaja-extension.la
 Caja_2_0_gir_FILES = $(addprefix $(srcdir)/, $(introspection_files))
 INTROSPECTION_GIRS += Caja-2.0.gir
 
-girdir = $(INTROSPECTION_GIRDIR)
+girdir = $(datadir)/gir-1.0/
 gir_DATA = $(INTROSPECTION_GIRS)
 
-typelibsdir = $(INTROSPECTION_TYPELIBDIR)
+typelibsdir = $(libdir)/girepository-1.0/
 typelibs_DATA = $(INTROSPECTION_GIRS:.gir=.typelib)
 
 CLEANFILES += $(gir_DATA) $(typelibs_DATA)
