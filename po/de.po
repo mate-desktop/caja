@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-12 19:04+0100\n"
-"PO-Revision-Date: 2014-02-13 01:12+0000\n"
+"PO-Revision-Date: 2014-02-18 14:43+0000\n"
 "Last-Translator: to_ba\n"
 "Language-Team: German (http://www.transifex.com/projects/p/MATE/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -3018,7 +3018,7 @@ msgstr "Dateiname des Vorgabehintergrunds"
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:50
 msgid ""
 "Uri of the default folder background. Only used if background_set is true."
-msgstr "Uri des standard Ordner-Hintergrundes. Wird nur Angewandt, wenn background_set aktiviert wurde."
+msgstr "Adresse des vorgegebenen Hintergrundes der Ordner. Wird nur angewandt, wenn background_set aktiviert wurde."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:51
 msgid "Custom Side Pane Background Set"
@@ -3046,7 +3046,7 @@ msgstr "Dateiname des voreingestellten Seitenleistenhintergrunds"
 msgid ""
 "Uri of the default side pane background. Only used if "
 "side_pane_background_set is true."
-msgstr "Uri des standard Seitenpanel-Hintergrundes. Wird nur Angewandt, wenn side_pane_background_set aktiviert wurde."
+msgstr "Adresse des vorgegebenen Hintergrundes der Seitenleiste. Wird nur angewandt, wenn side_pane_background_set aktiviert wurde."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:57
 msgid "Default folder viewer"
@@ -3078,7 +3078,7 @@ msgid ""
 "If set to true, then hidden files are shown by default in the file manager. "
 "Hidden files are either dotfiles, listed in the folder's .hidden file or "
 "backup files ending with a tilde (~)."
-msgstr "Falls dieser Schlüssel wahr ist, werden versteckte Dateien standardmäßig im Datei-Manager angezeigt. Versteckte Dateien sind entweder dot-Dateien, in einem Ordner. Versteckte Dateien oder Backup-Dateien mit der Endung einer Tilde (~)."
+msgstr "Falls dieser Schlüssel wahr ist, werden versteckte Dateien standardmäßig in der Dateiverwaltung angezeigt. Versteckte Dateien sind entweder dot-Dateien, in einem Ordner. Versteckte Dateien oder Sicherungsdateien mit der Endung einer Tilde (~)."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:63
 msgid "Whether to show file sizes with IEC units"
@@ -3468,7 +3468,7 @@ msgstr "Datei-Browser"
 
 #: ../data/caja-browser.desktop.in.in.h:3
 msgid "Browse the file system with the file manager"
-msgstr "Das Dateisystem mit Hilfe des Dateimanagers anzeigen"
+msgstr "Das Dateisystem mit Hilfe der Dateiverwaltung anzeigen"
 
 #. tooltip
 #: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:923
@@ -3496,7 +3496,7 @@ msgstr "Den persönlichen Ordner öffnen"
 
 #: ../data/caja.desktop.in.in.h:2
 msgid "File Manager"
-msgstr "Dateimanager"
+msgstr "Dateiverwaltung"
 
 #: ../src/file-manager/fm-desktop-icon-view.c:648
 msgid "Background"
@@ -6307,14 +6307,14 @@ msgstr "Caja beenden."
 
 #: ../src/caja-main.c:373
 msgid "[URI...]"
-msgstr "[URI …]"
+msgstr "[Adresse …]"
 
 #: ../src/caja-main.c:434
 msgid ""
 "\n"
 "\n"
 "Browse the file system with the file manager"
-msgstr "\n\nDas Dateisystem mit Hilfe des Dateimanagers anzeigen"
+msgstr "\n\nDas Dateisystem mit Hilfe der Dateiverwaltung anzeigen"
 
 #. translators: %s is an option (e.g. --check)
 #: ../src/caja-main.c:474 ../src/caja-main.c:485
