@@ -1161,7 +1161,7 @@ caja_path_bar_scroll_down (CajaPathBar *path_bar)
     * from the end, removing buttons until we get all the space we
     * need. */
     gtk_widget_get_allocation (BUTTON_DATA (up_button->data)->button, &button_allocation);
-    while (space_available < space_needed)
+    while (space_available < space_needed && up_button)
     {
         space_available += button_allocation.width + path_bar->spacing;
         up_button = up_button->prev;
