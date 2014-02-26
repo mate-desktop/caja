@@ -45,7 +45,7 @@
 
 #include <src/glibcompat.h> /* for g_list_free_full */
 
-#define CAJA_USER_DIRECTORY_NAME ".config/caja"
+#define CAJA_USER_DIRECTORY_NAME ".config/mate/caja"
 #define DEFAULT_CAJA_DIRECTORY_MODE (0755)
 
 #define DESKTOP_DIRECTORY_NAME "Desktop"
@@ -106,7 +106,7 @@ char* caja_get_user_directory(void)
 	 * Si alguien tiene tiempo, puede enviar este codigo a Nautilus.
 	 * Obviamente, con los comentarios traducidos al Inglés.
 	 */
-	char* user_directory = g_build_filename(g_get_home_dir(), ".config", "caja", NULL);
+	char* user_directory = g_build_filename(g_get_home_dir(), ".config", "mate", "caja", NULL);
 	/* Se necesita que esta dirección sea una carpeta, con los permisos
 	 * DEFAULT_CAJA_DIRECTORY_MODE. Pero si es un archivo, el programa intentará
 	 * eliminar el archivo silenciosamente. */
@@ -192,7 +192,8 @@ char* caja_get_accel_map_file(void)
 	}
 	else
 	{
-		return g_build_filename(g_get_home_dir(), ".config", "accels", "caja", NULL);
+		config_dir=caja_get_user_directory();
+		return g_build_filename(config_dir, "caja.accel", NULL);
 	}
 }
 
@@ -1293,7 +1294,7 @@ caja_is_in_system_dir (GFile *file)
     if (!res)
     {
         /* Panel desktop files are here, trust them */
-        mate2 = g_build_filename(g_get_home_dir(), ".mate2", NULL);
+        mate2 = g_build_filename(g_get_home_dir(), ".config/mate", NULL);
 
         if (g_str_has_prefix (path, mate2))
         {
