@@ -20,7 +20,7 @@ dnl Interface break is not allowed.
 m4_define(caja_extension_current,  5)
 m4_define(caja_extension_revision, 0)
 
-AC_INIT([caja], [1.7.90], [http://www.mate-desktop.org])
+AC_INIT([caja], [1.8.0], [http://www.mate-desktop.org])
 
 dnl ---------------------------------------------------------------------------
 dnl GTK library version
