@@ -168,6 +168,34 @@ caja_launch_application (GAppInfo *application,
     g_list_free_full (uris, g_free);
 }
 
+/*
+ * Set the DISPLAY variable, to be use by g_spawn_async.
+ */
+static void
+set_environment (gpointer display)
+{
+    g_setenv("DISPLAY", display, TRUE);
+}
+
+static void
+dummy_child_watch (GPid     pid,
+                   gint     status,
+                   gpointer user_data)
+{
+  /* Nothing, this is just to ensure we don't double fork
+   * and break pkexec:
+   * https://bugzilla.gnome.org/show_bug.cgi?id=675789
+   */
+}
+
+static void
+gather_pid_callback (GDesktopAppInfo *appinfo,
+                     GPid            pid,
+                     gpointer        data)
+{
+    g_child_watch_add(pid, dummy_child_watch, NULL);
+}
+
 void
 caja_launch_application_by_uri (GAppInfo *application,
                                 GList *uris,
@@ -219,25 +247,13 @@ caja_launch_application_by_uri (GAppInfo *application,
 
     error = NULL;
 
-    if (count == total)
-    {
-        /* All files are local, so we can use g_app_info_launch () with
-         * the file list we constructed before.
-         */
-        result = g_app_info_launch (application,
-                                    locations,
-                                    G_APP_LAUNCH_CONTEXT (launch_context),
-                                    &error);
-    }
-    else
-    {
-        /* Some files are non local, better use g_app_info_launch_uris ().
-         */
-        result = g_app_info_launch_uris (application,
-                                         uris,
-                                         G_APP_LAUNCH_CONTEXT (launch_context),
-                                         &error);
-    }
+    result = g_desktop_app_info_launch_uris_as_manager (G_DESKTOP_APP_INFO (application),
+                                                        uris,
+                                                        G_APP_LAUNCH_CONTEXT (launch_context),
+                                                        G_SPAWN_SEARCH_PATH | G_SPAWN_DO_NOT_REAP_CHILD,
+                                                        NULL, NULL,
+                                                        gather_pid_callback, application,
+                                                        &error);
 
     g_object_unref (launch_context);
 
@@ -338,7 +354,36 @@ caja_launch_application_from_command (GdkScreen  *screen,
             g_object_unref (app_info);
         }
 #else
-        gdk_spawn_command_line_on_screen (screen, full_command, NULL);
+        GError *error = NULL;
+        gchar **argv = NULL;
+        char* display;
+        GPid  pid;
+
+        if (!g_shell_parse_argv (full_command, NULL, &argv, &error)) {
+            g_error_free (error);
+            g_free (full_command);
+            return;
+        }
+
+        display = gdk_screen_make_display_name (screen);
+
+        g_spawn_async (
+            NULL, /* working directory */
+            argv,
+            NULL, /* envp */
+            G_SPAWN_SEARCH_PATH | G_SPAWN_DO_NOT_REAP_CHILD,
+            set_environment,
+            display,
+            &pid,
+            &error);
+
+        if (error != NULL) {
+            g_error_free (error);
+        } else {
+            g_child_watch_add(pid, dummy_child_watch, NULL);
+        }
+ 
+        g_free(display);
 #endif
     }
 
@@ -403,7 +448,36 @@ caja_launch_application_from_command_array (GdkScreen  *screen,
             g_object_unref (app_info);
         }
 #else
-        gdk_spawn_command_line_on_screen (screen, full_command, NULL);
+        GError *error = NULL;
+        gchar **argv = NULL;
+        char* display;
+        GPid  pid;
+
+        if (!g_shell_parse_argv (full_command, NULL, &argv, &error)) {
+            g_error_free (error);
+            g_free (full_command);
+            return;
+        }
+
+        display = gdk_screen_make_display_name (screen);
+
+        g_spawn_async (
+            NULL, /* working directory */
+            argv,
+            NULL, /* envp */
+            G_SPAWN_SEARCH_PATH | G_SPAWN_DO_NOT_REAP_CHILD,
+            set_environment,
+            display,
+            &pid,
+            &error);
+
+        if (error != NULL) {
+            g_error_free (error);
+        } else {
+            g_child_watch_add(pid, dummy_child_watch, NULL);
+        }
+ 
+        g_free(display);
 #endif
     }
 
@@ -505,25 +579,13 @@ caja_launch_desktop_file (GdkScreen   *screen,
     gdk_app_launch_context_set_timestamp (context, GDK_CURRENT_TIME);
     gdk_app_launch_context_set_screen (context,
                                        gtk_window_get_screen (parent_window));
-    if (count == total)
-    {
-        /* All files are local, so we can use g_app_info_launch () with
-         * the file list we constructed before.
-         */
-        g_app_info_launch (G_APP_INFO (app_info),
-                           files,
-                           G_APP_LAUNCH_CONTEXT (context),
-                           &error);
-    }
-    else
-    {
-        /* Some files are non local, better use g_app_info_launch_uris ().
-         */
-        g_app_info_launch_uris (G_APP_INFO (app_info),
-                                (GList *) parameter_uris,
-                                G_APP_LAUNCH_CONTEXT (context),
-                                &error);
-    }
+    g_desktop_app_info_launch_uris_as_manager (app_info,
+                                               (GList *) parameter_uris,
+                                               G_APP_LAUNCH_CONTEXT (context),
+                                               G_SPAWN_SEARCH_PATH | G_SPAWN_DO_NOT_REAP_CHILD,
+                                               NULL, NULL,
+                                               gather_pid_callback, app_info,
+                                               &error);
     if (error != NULL)
     {
         message = g_strconcat (_("Details: "), error->message, NULL);
