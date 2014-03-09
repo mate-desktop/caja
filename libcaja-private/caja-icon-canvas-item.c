@@ -176,26 +176,6 @@ typedef enum
     TOP_SIDE
 } RectangleSide;
 
-enum
-{
-    ACTION_OPEN,
-    ACTION_MENU,
-    LAST_ACTION
-};
-
-typedef struct
-{
-    char *action_descriptions[LAST_ACTION];
-    char *image_description;
-    char *description;
-} CajaIconCanvasItemAccessiblePrivate;
-
-typedef struct
-{
-    CajaIconCanvasItem *item;
-    gint action_number;
-} CajaIconCanvasItemAccessibleActionContext;
-
 typedef struct
 {
     CajaIconCanvasItem *icon_item;
@@ -209,6 +189,7 @@ typedef struct
 static int click_policy_auto_value;
 
 static void caja_icon_canvas_item_text_interface_init (EelAccessibleTextIface *iface);
+static GType caja_icon_canvas_item_accessible_factory_get_type (void);
 
 G_DEFINE_TYPE_WITH_CODE (CajaIconCanvasItem, caja_icon_canvas_item, EEL_TYPE_CANVAS_ITEM,
                          G_IMPLEMENT_INTERFACE (EEL_TYPE_ACCESSIBLE_TEXT,
@@ -269,25 +250,6 @@ static void      draw_embedded_text                  (CajaIconCanvasItem        
     						      int                       y);
 
 static void       caja_icon_canvas_item_ensure_bounds_up_to_date (CajaIconCanvasItem *icon_item);
-
-
-static gpointer accessible_parent_class = NULL;
-
-static GQuark accessible_private_data_quark = 0;
-
-static const char *caja_icon_canvas_item_accessible_action_names[] =
-{
-    "open",
-    "menu",
-    NULL
-};
-
-static const char *caja_icon_canvas_item_accessible_action_descriptions[] =
-{
-    "Open item",
-    "Popup context menu",
-    NULL
-};
 
 
 /* Object initialization function for the icon item. */
@@ -434,7 +396,7 @@ caja_icon_canvas_item_set_property (GObject        *object,
 
             gail_text_util_text_setup (details->text_util,
                                        details->editable_text);
-            accessible = eel_accessibility_get_atk_object (item);
+            accessible = atk_gobject_accessible_for_object (G_OBJECT (item));
             g_object_notify (G_OBJECT(accessible), "accessible-name");
         }
 
@@ -482,7 +444,7 @@ caja_icon_canvas_item_set_property (GObject        *object,
 
         if (details->is_highlighted_as_keyboard_focus)
         {
-            AtkObject *atk_object = eel_accessibility_for_object (object);
+            AtkObject *atk_object = atk_gobject_accessible_for_object (object);
             atk_focus_tracker_notify (atk_object);
         }
         break;
@@ -3072,20 +3034,143 @@ caja_icon_canvas_item_get_max_text_width (CajaIconCanvasItem *item)
 
 }
 
-/* CajaIconCanvasItemAccessible */
-
-static CajaIconCanvasItemAccessiblePrivate *
-accessible_get_priv (AtkObject *accessible)
+void
+caja_icon_canvas_item_set_entire_text (CajaIconCanvasItem       *item,
+					   gboolean                      entire_text)
 {
-    CajaIconCanvasItemAccessiblePrivate *priv;
+	if (item->details->entire_text != entire_text) {
+		item->details->entire_text = entire_text;
 
-    priv = g_object_get_qdata (G_OBJECT (accessible),
-                               accessible_private_data_quark);
-
-    return priv;
+		caja_icon_canvas_item_invalidate_label_size (item);
+		eel_canvas_item_request_update (EEL_CANVAS_ITEM (item));
+	}
 }
 
-/* AtkAction interface */
+/* Class initialization function for the icon canvas item. */
+static void
+caja_icon_canvas_item_class_init (CajaIconCanvasItemClass *class)
+{
+	GObjectClass *object_class;
+	EelCanvasItemClass *item_class;
+
+	object_class = G_OBJECT_CLASS (class);
+	item_class = EEL_CANVAS_ITEM_CLASS (class);
+
+	object_class->finalize = caja_icon_canvas_item_finalize;
+	object_class->set_property = caja_icon_canvas_item_set_property;
+	object_class->get_property = caja_icon_canvas_item_get_property;
+
+        g_object_class_install_property (
+		object_class,
+		PROP_EDITABLE_TEXT,
+		g_param_spec_string ("editable_text",
+				     "editable text",
+				     "the editable label",
+				     "", G_PARAM_READWRITE));
+
+        g_object_class_install_property (
+		object_class,
+		PROP_ADDITIONAL_TEXT,
+		g_param_spec_string ("additional_text",
+				     "additional text",
+				     "some more text",
+				     "", G_PARAM_READWRITE));
+
+        g_object_class_install_property (
+		object_class,
+		PROP_HIGHLIGHTED_FOR_SELECTION,
+		g_param_spec_boolean ("highlighted_for_selection",
+				      "highlighted for selection",
+				      "whether we are highlighted for a selection",
+				      FALSE, G_PARAM_READWRITE)); 
+
+        g_object_class_install_property (
+		object_class,
+		PROP_HIGHLIGHTED_AS_KEYBOARD_FOCUS,
+		g_param_spec_boolean ("highlighted_as_keyboard_focus",
+				      "highlighted as keyboard focus",
+				      "whether we are highlighted to render keyboard focus",
+				      FALSE, G_PARAM_READWRITE)); 
+
+
+        g_object_class_install_property (
+		object_class,
+		PROP_HIGHLIGHTED_FOR_DROP,
+		g_param_spec_boolean ("highlighted_for_drop",
+				      "highlighted for drop",
+				      "whether we are highlighted for a D&D drop",
+				      FALSE, G_PARAM_READWRITE));
+
+	g_object_class_install_property (
+		object_class,
+		PROP_HIGHLIGHTED_FOR_CLIPBOARD,
+		g_param_spec_boolean ("highlighted_for_clipboard",
+				      "highlighted for clipboard",
+				      "whether we are highlighted for a clipboard paste (after we have been cut)",
+ 				      FALSE, G_PARAM_READWRITE));
+
+	item_class->update = caja_icon_canvas_item_update;
+	item_class->draw = caja_icon_canvas_item_draw;
+	item_class->point = caja_icon_canvas_item_point;
+	item_class->translate = caja_icon_canvas_item_translate;
+	item_class->bounds = caja_icon_canvas_item_bounds;
+	item_class->event = caja_icon_canvas_item_event;
+
+	atk_registry_set_factory_type (atk_get_default_registry (),
+				       CAJA_TYPE_ICON_CANVAS_ITEM,
+				       caja_icon_canvas_item_accessible_factory_get_type ());
+
+	g_type_class_add_private (class, sizeof (CajaIconCanvasItemDetails));
+}
+
+static GailTextUtil *
+caja_icon_canvas_item_get_text (GObject *text)
+{
+	return CAJA_ICON_CANVAS_ITEM (text)->details->text_util;
+}
+
+static void
+caja_icon_canvas_item_text_interface_init (EelAccessibleTextIface *iface)
+{
+	iface->get_text = caja_icon_canvas_item_get_text;
+}
+
+/* ============================= a11y interfaces =========================== */
+
+static const char *caja_icon_canvas_item_accessible_action_names[] = {
+        "open",
+        "menu",
+        NULL
+};
+
+static const char *caja_icon_canvas_item_accessible_action_descriptions[] = {
+        "Open item",
+        "Popup context menu",
+        NULL
+};
+
+enum {
+	ACTION_OPEN,
+	ACTION_MENU,
+	LAST_ACTION
+};
+
+typedef struct {
+        char *action_descriptions[LAST_ACTION];
+	char *image_description;
+	char *description;
+} CajaIconCanvasItemAccessiblePrivate;
+
+typedef struct {
+	CajaIconCanvasItem *item;
+	gint action_number;
+} CajaIconCanvasItemAccessibleActionContext;
+
+static GType caja_icon_canvas_item_accessible_get_type (void);
+
+#define GET_PRIV(o) G_TYPE_INSTANCE_GET_PRIVATE(o, caja_icon_canvas_item_accessible_get_type (), CajaIconCanvasItemAccessiblePrivate);
+
+/* accessible AtkAction interface */
 
 static gboolean
 caja_icon_canvas_item_accessible_idle_do_action (gpointer data)
@@ -3146,7 +3231,7 @@ caja_icon_canvas_item_accessible_do_action (AtkAction *accessible, int i)
 
     g_assert (i < LAST_ACTION);
 
-    item = eel_accessibility_get_gobject (ATK_OBJECT (accessible));
+    item = CAJA_ICON_CANVAS_ITEM (atk_gobject_accessible_get_object (ATK_GOBJECT_ACCESSIBLE (accessible)));
     if (!item)
     {
         return FALSE;
@@ -3191,7 +3276,7 @@ caja_icon_canvas_item_accessible_action_get_description (AtkAction *accessible,
 
     g_assert (i < LAST_ACTION);
 
-    priv = accessible_get_priv (ATK_OBJECT (accessible));
+    priv = GET_PRIV (accessible);
     if (priv->action_descriptions[i])
     {
         return priv->action_descriptions[i];
@@ -3228,7 +3313,7 @@ caja_icon_canvas_item_accessible_action_set_description (AtkAction *accessible,
 
     g_assert (i < LAST_ACTION);
 
-    priv = accessible_get_priv (ATK_OBJECT (accessible));
+    priv = GET_PRIV (accessible);
 
     if (priv->action_descriptions[i])
     {
@@ -3259,7 +3344,7 @@ static const gchar* caja_icon_canvas_item_accessible_get_name(AtkObject* accessi
         return accessible->name;
     }
 
-    item = eel_accessibility_get_gobject(accessible);
+    item = CAJA_ICON_CANVAS_ITEM (atk_gobject_accessible_get_object (ATK_GOBJECT_ACCESSIBLE (accessible)));
 
     if (!item)
     {
@@ -3273,7 +3358,7 @@ static const gchar* caja_icon_canvas_item_accessible_get_description(AtkObject* 
 {
     CajaIconCanvasItem* item;
 
-    item = eel_accessibility_get_gobject(accessible);
+    item = CAJA_ICON_CANVAS_ITEM (atk_gobject_accessible_get_object (ATK_GOBJECT_ACCESSIBLE (accessible)));
 
     if (!item)
     {
@@ -3288,7 +3373,7 @@ caja_icon_canvas_item_accessible_get_parent (AtkObject *accessible)
 {
     CajaIconCanvasItem *item;
 
-    item = eel_accessibility_get_gobject (accessible);
+    item = CAJA_ICON_CANVAS_ITEM (atk_gobject_accessible_get_object (ATK_GOBJECT_ACCESSIBLE (accessible)));
     if (!item)
     {
         return NULL;
@@ -3306,7 +3391,7 @@ caja_icon_canvas_item_accessible_get_index_in_parent (AtkObject *accessible)
     CajaIcon *icon;
     int i;
 
-    item = eel_accessibility_get_gobject (accessible);
+    item = CAJA_ICON_CANVAS_ITEM (atk_gobject_accessible_get_object (ATK_GOBJECT_ACCESSIBLE (accessible)));
     if (!item)
     {
         return -1;
@@ -3332,122 +3417,6 @@ caja_icon_canvas_item_accessible_get_index_in_parent (AtkObject *accessible)
     return -1;
 }
 
-static AtkStateSet*
-caja_icon_canvas_item_accessible_ref_state_set (AtkObject *accessible)
-{
-    AtkStateSet *state_set;
-    CajaIconCanvasItem *item;
-    CajaIconContainer *container;
-    CajaIcon *icon;
-    GList *l;
-    gboolean one_item_selected;
-
-    state_set = ATK_OBJECT_CLASS (accessible_parent_class)->ref_state_set (accessible);
-
-    item = eel_accessibility_get_gobject (accessible);
-    if (!item)
-    {
-        atk_state_set_add_state (state_set, ATK_STATE_DEFUNCT);
-        return state_set;
-    }
-    container = CAJA_ICON_CONTAINER (EEL_CANVAS_ITEM (item)->canvas);
-    if (item->details->is_highlighted_as_keyboard_focus)
-    {
-        atk_state_set_add_state (state_set, ATK_STATE_FOCUSED);
-    }
-    else if (!container->details->keyboard_focus)
-    {
-
-        one_item_selected = FALSE;
-        l = container->details->icons;
-        while (l)
-        {
-            icon = l->data;
-
-            if (icon->item == item)
-            {
-                if (icon->is_selected)
-                {
-                    one_item_selected = TRUE;
-                }
-                else
-                {
-                    break;
-                }
-            }
-            else if (icon->is_selected)
-            {
-                one_item_selected = FALSE;
-                break;
-            }
-
-            l = l->next;
-        }
-
-        if (one_item_selected)
-        {
-            atk_state_set_add_state (state_set, ATK_STATE_FOCUSED);
-        }
-    }
-
-    return state_set;
-}
-
-static void
-caja_icon_canvas_item_accessible_initialize (AtkObject *accessible,
-        gpointer data)
-{
-    CajaIconCanvasItemAccessiblePrivate *priv;
-
-    if (ATK_OBJECT_CLASS (accessible_parent_class)->initialize)
-    {
-        ATK_OBJECT_CLASS (accessible_parent_class)->initialize (accessible, data);
-    }
-
-    priv = g_new0 (CajaIconCanvasItemAccessiblePrivate, 1);
-    g_object_set_qdata (G_OBJECT (accessible),
-                        accessible_private_data_quark,
-                        priv);
-}
-
-static void
-caja_icon_canvas_item_accessible_finalize (GObject *object)
-{
-    CajaIconCanvasItemAccessiblePrivate *priv;
-    int i;
-
-    priv = accessible_get_priv (ATK_OBJECT (object));
-
-    for (i = 0; i < LAST_ACTION; i++)
-    {
-        g_free (priv->action_descriptions[i]);
-    }
-    g_free (priv->image_description);
-    g_free (priv->description);
-
-    g_free (priv);
-
-    G_OBJECT_CLASS (accessible_parent_class)->finalize (object);
-}
-
-static void
-caja_icon_canvas_item_accessible_class_init (AtkObjectClass *klass)
-{
-    GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
-
-    accessible_parent_class = g_type_class_peek_parent (klass);
-
-    gobject_class->finalize = caja_icon_canvas_item_accessible_finalize;
-
-    klass->get_name = caja_icon_canvas_item_accessible_get_name;
-    klass->get_description = caja_icon_canvas_item_accessible_get_description;
-    klass->get_parent = caja_icon_canvas_item_accessible_get_parent;
-    klass->get_index_in_parent = caja_icon_canvas_item_accessible_get_index_in_parent;
-    klass->ref_state_set = caja_icon_canvas_item_accessible_ref_state_set;
-    klass->initialize = caja_icon_canvas_item_accessible_initialize;
-    accessible_private_data_quark = g_quark_from_static_string ("icon-canvas-item-accessible-private-data");
-}
-
 
 static const gchar* caja_icon_canvas_item_accessible_get_image_description(AtkImage* image)
 {
@@ -3457,7 +3426,7 @@ static const gchar* caja_icon_canvas_item_accessible_get_image_description(AtkIm
     CajaIconContainer* container;
     char* description;
 
-    priv = accessible_get_priv(ATK_OBJECT(image));
+    priv = GET_PRIV (image);
 
     if (priv->image_description)
     {
@@ -3465,7 +3434,7 @@ static const gchar* caja_icon_canvas_item_accessible_get_image_description(AtkIm
     }
     else
     {
-        item = eel_accessibility_get_gobject(ATK_OBJECT (image));
+        item = CAJA_ICON_CANVAS_ITEM (atk_gobject_accessible_get_object (ATK_GOBJECT_ACCESSIBLE (image)));
 
         if (item == NULL)
         {
@@ -3490,7 +3459,7 @@ caja_icon_canvas_item_accessible_get_image_size
 {
     CajaIconCanvasItem *item;
 
-    item = eel_accessibility_get_gobject (ATK_OBJECT (image));
+    item = CAJA_ICON_CANVAS_ITEM (atk_gobject_accessible_get_object (ATK_GOBJECT_ACCESSIBLE (image)));
 
     if (!item || !item->details->pixbuf)
     {
@@ -3513,7 +3482,7 @@ caja_icon_canvas_item_accessible_get_image_position
     CajaIconCanvasItem *item;
     gint x_offset, y_offset, itmp;
 
-    item = eel_accessibility_get_gobject (ATK_OBJECT (image));
+    item = CAJA_ICON_CANVAS_ITEM (atk_gobject_accessible_get_object (ATK_GOBJECT_ACCESSIBLE (image)));
     if (!item)
     {
         return;
@@ -3569,7 +3538,7 @@ caja_icon_canvas_item_accessible_set_image_description
 {
     CajaIconCanvasItemAccessiblePrivate *priv;
 
-    priv = accessible_get_priv (ATK_OBJECT (image));
+    priv = GET_PRIV (image);
 
     g_free (priv->image_description);
     priv->image_description = g_strdup (description);
@@ -3610,7 +3579,7 @@ caja_icon_canvas_item_accessible_get_offset_at_point (AtkText	 *text,
     x -= real_x;
     y -= real_y;
 
-    item = eel_accessibility_get_gobject (ATK_OBJECT (text));
+    item = CAJA_ICON_CANVAS_ITEM (atk_gobject_accessible_get_object (ATK_GOBJECT_ACCESSIBLE (text)));
 
     if (item->details->pixbuf)
     {
@@ -3734,7 +3703,7 @@ caja_icon_canvas_item_accessible_get_character_extents (AtkText	   *text,
     gint text_offset;
 
     atk_component_get_position (ATK_COMPONENT (text), &pos_x, &pos_y, coords);
-    item = eel_accessibility_get_gobject (ATK_OBJECT (text));
+    item = CAJA_ICON_CANVAS_ITEM (atk_gobject_accessible_get_object (ATK_GOBJECT_ACCESSIBLE (text)));
 
     if (item->details->pixbuf)
     {
@@ -3815,76 +3784,140 @@ caja_icon_canvas_item_accessible_text_interface_init (AtkTextIface *iface)
     iface->get_offset_at_point     = caja_icon_canvas_item_accessible_get_offset_at_point;
 }
 
-static GType
-caja_icon_canvas_item_accessible_get_type (void)
+typedef struct {
+	AtkGObjectAccessible parent;
+} CajaIconCanvasItemAccessible;
+
+typedef struct {
+	AtkGObjectAccessibleClass parent_class;
+} CajaIconCanvasItemAccessibleClass;
+
+G_DEFINE_TYPE_WITH_CODE (CajaIconCanvasItemAccessible,
+			 caja_icon_canvas_item_accessible,
+			 ATK_TYPE_GOBJECT_ACCESSIBLE,
+			 G_IMPLEMENT_INTERFACE (ATK_TYPE_IMAGE,
+						caja_icon_canvas_item_accessible_image_interface_init)
+			 G_IMPLEMENT_INTERFACE (ATK_TYPE_TEXT,
+						caja_icon_canvas_item_accessible_text_interface_init)
+			 G_IMPLEMENT_INTERFACE (ATK_TYPE_ACTION,
+						caja_icon_canvas_item_accessible_action_interface_init));
+
+static AtkStateSet*
+caja_icon_canvas_item_accessible_ref_state_set (AtkObject *accessible)
 {
-    static GType type = 0;
+	AtkStateSet *state_set;
+	CajaIconCanvasItem *item;
+	CajaIconContainer *container;
+	CajaIcon *icon;
+	GList *l;
+	gboolean one_item_selected;
 
-    if (!type)
-    {
-        const GInterfaceInfo atk_image_info =
-        {
-            (GInterfaceInitFunc)
-            caja_icon_canvas_item_accessible_image_interface_init,
-            (GInterfaceFinalizeFunc) NULL,
-            NULL
-        };
+	state_set = ATK_OBJECT_CLASS (caja_icon_canvas_item_accessible_parent_class)->ref_state_set (accessible);
 
-        const GInterfaceInfo atk_text_info =
-        {
-            (GInterfaceInitFunc)
-            caja_icon_canvas_item_accessible_text_interface_init,
-            (GInterfaceFinalizeFunc) NULL,
-            NULL
-        };
+	item = CAJA_ICON_CANVAS_ITEM (atk_gobject_accessible_get_object (ATK_GOBJECT_ACCESSIBLE (accessible)));
+	if (!item) {
+		atk_state_set_add_state (state_set, ATK_STATE_DEFUNCT);
+		return state_set;
+	}
+	container = CAJA_ICON_CONTAINER (EEL_CANVAS_ITEM (item)->canvas);
+	if (item->details->is_highlighted_as_keyboard_focus) {
+		atk_state_set_add_state (state_set, ATK_STATE_FOCUSED);
+	} else if (!container->details->keyboard_focus) {
 
-        const GInterfaceInfo atk_action_info =
-        {
-            (GInterfaceInitFunc)
-            caja_icon_canvas_item_accessible_action_interface_init,
-            (GInterfaceFinalizeFunc) NULL,
-            NULL
-        };
+		one_item_selected = FALSE;
+		l = container->details->icons;
+		while (l) {
+			icon = l->data;
+		
+			if (icon->item == item) {
+				if (icon->is_selected) {
+					one_item_selected = TRUE;
+				} else {
+					break;
+				}
+			} else if (icon->is_selected) {
+				one_item_selected = FALSE;
+				break;
+			}
 
-        type = eel_accessibility_create_derived_type (
-                   "CajaIconCanvasItemAccessibility",
-                   EEL_TYPE_CANVAS_ITEM,
-                   caja_icon_canvas_item_accessible_class_init);
+			l = l->next;
+		}
 
-        if (type != G_TYPE_INVALID)
-        {
-            g_type_add_interface_static (
-                type, ATK_TYPE_IMAGE, &atk_image_info);
+		if (one_item_selected) {
+			atk_state_set_add_state (state_set, ATK_STATE_FOCUSED);
+		}
+	}
 
-            g_type_add_interface_static (
-                type, ATK_TYPE_TEXT, &atk_text_info);
-
-            g_type_add_interface_static (
-                type, ATK_TYPE_ACTION, &atk_action_info);
-
-        }
-    }
-
-    return type;
+	return state_set;
 }
 
-static AtkObject *
-caja_icon_canvas_item_accessible_create (GObject *for_object)
+static void
+caja_icon_canvas_item_accessible_finalize (GObject *object)
 {
-    GType type;
+	CajaIconCanvasItemAccessiblePrivate *priv;
+	int i;
+
+	priv = GET_PRIV (object);
+
+	for (i = 0; i < LAST_ACTION; i++) {
+		g_free (priv->action_descriptions[i]);
+	}
+	g_free (priv->image_description);
+	g_free (priv->description);
+
+        G_OBJECT_CLASS (caja_icon_canvas_item_accessible_parent_class)->finalize (object);
+}
+
+static void
+caja_icon_canvas_item_accessible_initialize (AtkObject *accessible,
+						 gpointer widget)
+{
+	ATK_OBJECT_CLASS (caja_icon_canvas_item_accessible_parent_class)->initialize (accessible, widget);
+
+	atk_object_set_role (accessible, ATK_ROLE_ICON);
+}
+
+static void
+caja_icon_canvas_item_accessible_class_init (CajaIconCanvasItemAccessibleClass *klass)
+{
+	AtkObjectClass *aclass = ATK_OBJECT_CLASS (klass);
+	GObjectClass *oclass = G_OBJECT_CLASS (klass);
+
+	oclass->finalize = caja_icon_canvas_item_accessible_finalize;
+
+	aclass->initialize = caja_icon_canvas_item_accessible_initialize;
+
+	aclass->get_name = caja_icon_canvas_item_accessible_get_name;
+	aclass->get_description = caja_icon_canvas_item_accessible_get_description;
+	aclass->get_parent = caja_icon_canvas_item_accessible_get_parent;
+	aclass->get_index_in_parent = caja_icon_canvas_item_accessible_get_index_in_parent;
+	aclass->ref_state_set = caja_icon_canvas_item_accessible_ref_state_set;
+
+	g_type_class_add_private (klass, sizeof (CajaIconCanvasItemAccessiblePrivate));
+}
+
+static void
+caja_icon_canvas_item_accessible_init (CajaIconCanvasItemAccessible *self)
+{
+}
+
+/* dummy typedef */
+typedef AtkObjectFactory      CajaIconCanvasItemAccessibleFactory;
+typedef AtkObjectFactoryClass CajaIconCanvasItemAccessibleFactoryClass;
+
+G_DEFINE_TYPE (CajaIconCanvasItemAccessibleFactory, caja_icon_canvas_item_accessible_factory,
+	       ATK_TYPE_OBJECT_FACTORY);
+
+
+static AtkObject *
+caja_icon_canvas_item_accessible_factory_create_accessible (GObject *for_object)
+{
     AtkObject *accessible;
     CajaIconCanvasItem *item;
     GString *item_text;
 
     item = CAJA_ICON_CANVAS_ITEM (for_object);
     g_assert (item != NULL);
-
-    type = caja_icon_canvas_item_accessible_get_type ();
-
-    if (type == G_TYPE_INVALID)
-    {
-        return atk_no_op_object_new (for_object);
-    }
 
     item_text = g_string_new (NULL);
     if (item->details->editable_text)
@@ -3900,119 +3933,26 @@ caja_icon_canvas_item_accessible_create (GObject *for_object)
                                item_text->str);
     g_string_free (item_text, TRUE);
 
-    accessible = g_object_new (type, NULL);
-    accessible = eel_accessibility_set_atk_object_return
-                 (for_object, accessible);
-    atk_object_set_role (accessible, ATK_ROLE_ICON);
+    accessible = g_object_new (caja_icon_canvas_item_accessible_get_type (), NULL);
+    atk_object_initialize (accessible, for_object);
     return accessible;
 }
 
-EEL_ACCESSIBLE_FACTORY (caja_icon_canvas_item_accessible_get_type (),
-                        "CajaIconCanvasItemAccessibilityFactory",
-                        caja_icon_canvas_item_accessible,
-                        caja_icon_canvas_item_accessible_create)
-
-
-static GailTextUtil *
-caja_icon_canvas_item_get_text (GObject *text)
+static GType
+caja_icon_canvas_item_accessible_factory_get_accessible_type (void)
 {
-    return CAJA_ICON_CANVAS_ITEM (text)->details->text_util;
+    return caja_icon_canvas_item_accessible_get_type ();
 }
 
 static void
-caja_icon_canvas_item_text_interface_init (EelAccessibleTextIface *iface)
+caja_icon_canvas_item_accessible_factory_init (CajaIconCanvasItemAccessibleFactory *self)
 {
-    iface->get_text = caja_icon_canvas_item_get_text;
 }
 
-void
-caja_icon_canvas_item_set_entire_text (CajaIconCanvasItem       *item,
-                                       gboolean                      entire_text)
-{
-    if (item->details->entire_text != entire_text)
-    {
-        item->details->entire_text = entire_text;
-
-        caja_icon_canvas_item_invalidate_label_size (item);
-        eel_canvas_item_request_update (EEL_CANVAS_ITEM (item));
-    }
-}
-
-
-/* Class initialization function for the icon canvas item. */
 static void
-caja_icon_canvas_item_class_init (CajaIconCanvasItemClass *class)
+caja_icon_canvas_item_accessible_factory_class_init (CajaIconCanvasItemAccessibleFactoryClass *klass)
 {
-    GObjectClass *object_class;
-    EelCanvasItemClass *item_class;
-
-    object_class = G_OBJECT_CLASS (class);
-    item_class = EEL_CANVAS_ITEM_CLASS (class);
-
-    object_class->finalize = caja_icon_canvas_item_finalize;
-    object_class->set_property = caja_icon_canvas_item_set_property;
-    object_class->get_property = caja_icon_canvas_item_get_property;
-
-    g_object_class_install_property (
-        object_class,
-        PROP_EDITABLE_TEXT,
-        g_param_spec_string ("editable_text",
-                             "editable text",
-                             "the editable label",
-                             "", G_PARAM_READWRITE));
-
-    g_object_class_install_property (
-        object_class,
-        PROP_ADDITIONAL_TEXT,
-        g_param_spec_string ("additional_text",
-                             "additional text",
-                             "some more text",
-                             "", G_PARAM_READWRITE));
-
-    g_object_class_install_property (
-        object_class,
-        PROP_HIGHLIGHTED_FOR_SELECTION,
-        g_param_spec_boolean ("highlighted_for_selection",
-                              "highlighted for selection",
-                              "whether we are highlighted for a selection",
-                              FALSE, G_PARAM_READWRITE));
-
-    g_object_class_install_property (
-        object_class,
-        PROP_HIGHLIGHTED_AS_KEYBOARD_FOCUS,
-        g_param_spec_boolean ("highlighted_as_keyboard_focus",
-                              "highlighted as keyboard focus",
-                              "whether we are highlighted to render keyboard focus",
-                              FALSE, G_PARAM_READWRITE));
-
-
-    g_object_class_install_property (
-        object_class,
-        PROP_HIGHLIGHTED_FOR_DROP,
-        g_param_spec_boolean ("highlighted_for_drop",
-                              "highlighted for drop",
-                              "whether we are highlighted for a D&D drop",
-                              FALSE, G_PARAM_READWRITE));
-
-    g_object_class_install_property (
-        object_class,
-        PROP_HIGHLIGHTED_FOR_CLIPBOARD,
-        g_param_spec_boolean ("highlighted_for_clipboard",
-                              "highlighted for clipboard",
-                              "whether we are highlighted for a clipboard paste (after we have been cut)",
-                              FALSE, G_PARAM_READWRITE));
-
-    item_class->update = caja_icon_canvas_item_update;
-    item_class->draw = caja_icon_canvas_item_draw;
-    item_class->point = caja_icon_canvas_item_point;
-    item_class->translate = caja_icon_canvas_item_translate;
-    item_class->bounds = caja_icon_canvas_item_bounds;
-    item_class->event = caja_icon_canvas_item_event;
-
-    EEL_OBJECT_SET_FACTORY (CAJA_TYPE_ICON_CANVAS_ITEM,
-                            caja_icon_canvas_item_accessible);
-
-    g_type_class_add_private (class, sizeof (CajaIconCanvasItemDetails));
+	klass->create_accessible = caja_icon_canvas_item_accessible_factory_create_accessible;
+	klass->get_accessible_type = caja_icon_canvas_item_accessible_factory_get_accessible_type;
 }
-
 
