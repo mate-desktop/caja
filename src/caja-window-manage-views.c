@@ -49,6 +49,7 @@
 #include <eel/eel-gtk-macros.h>
 #include <eel/eel-stock-dialogs.h>
 #include <eel/eel-string.h>
+#include <eel/eel-vfs-extensions.h>
 #include <gtk/gtk.h>
 #include <gdk/gdkx.h>
 #include <glib/gi18n.h>
@@ -527,8 +528,10 @@ caja_window_slot_open_location_full (CajaWindowSlot *slot,
     char *old_uri, *new_uri;
     int new_slot_position;
     GList *l;
-    gboolean target_navigation = FALSE, target_same = FALSE;
-    gboolean is_desktop, is_navigation;
+    gboolean target_navigation = FALSE;
+    gboolean target_same = FALSE;
+    gboolean is_desktop = FALSE;
+    gboolean is_navigation = FALSE;
 
     window = slot->pane->window;
 
@@ -567,7 +570,12 @@ caja_window_slot_open_location_full (CajaWindowSlot *slot,
             * otherwise it's the same window.
             */
             if (is_desktop) {
-            	target_navigation = TRUE;
+                new_uri = g_file_get_uri (location);
+                if (g_str_has_prefix (new_uri, EEL_DESKTOP_URI))
+                    target_same = TRUE;
+                else
+                    target_navigation = TRUE;
+                g_free (new_uri);
             } else {
             	target_same = TRUE;
             }
@@ -676,7 +684,7 @@ caja_window_slot_open_location_full (CajaWindowSlot *slot,
         }
     }
 
-    if ((target_window == window && target_slot == slot &&
+    if (!(is_desktop && target_same) && (target_window == window && target_slot == slot &&
              old_location && g_file_equal (old_location, location))) {
 
         if (callback != NULL) {
@@ -688,7 +696,7 @@ caja_window_slot_open_location_full (CajaWindowSlot *slot,
     }
 
     begin_location_change (target_slot, location, old_location, new_selection,
-                           CAJA_LOCATION_CHANGE_STANDARD, 0, NULL, callback, user_data);
+                           (is_desktop && target_same) ? CAJA_LOCATION_CHANGE_RELOAD : CAJA_LOCATION_CHANGE_STANDARD, 0, NULL, callback, user_data);
 
     /* Additionally, load this in all slots that have no location, this means
        we load both panes in e.g. a newly opened dual pane window. */
