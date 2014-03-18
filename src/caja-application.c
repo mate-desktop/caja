@@ -961,6 +961,15 @@ queue_accel_map_save_callback (GtkAccelMap *object, gchar *accel_path,
     }
 }
 
+static gboolean
+desktop_changed_callback_connect (CajaApplication *application)
+{
+    g_signal_connect_swapped (caja_preferences, "changed::" CAJA_PREFERENCES_DESKTOP_IS_HOME_DIR,
+                              G_CALLBACK(desktop_location_changed_callback),
+                              G_OBJECT (application));
+    return FALSE;
+}
+
 void
 caja_application_startup (CajaApplication *application,
                           gboolean kill_shell,
@@ -1029,9 +1038,8 @@ caja_application_startup (CajaApplication *application,
 
         /* Monitor the preference to have the desktop */
         /* point to the Unix home folder */
-        g_signal_connect_swapped (caja_preferences, "changed::" CAJA_PREFERENCES_DESKTOP_IS_HOME_DIR,
-                                  G_CALLBACK(desktop_location_changed_callback),
-                                  G_OBJECT (application));
+        g_timeout_add_seconds (30, (GSourceFunc) desktop_changed_callback_connect, application);
+
         /* Create the other windows. */
         if (urls != NULL || !no_default_window)
         {
