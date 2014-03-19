@@ -66,8 +66,6 @@ typedef struct
     EggSMClient* smclient;
     GVolumeMonitor* volume_monitor;
     unsigned int automount_idle_id;
-    GDBusProxy* proxy;
-    gboolean session_is_active;
 } CajaApplication;
 
 typedef struct
