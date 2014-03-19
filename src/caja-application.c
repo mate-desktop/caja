@@ -368,12 +368,6 @@ caja_application_finalize (GObject *object)
         application->automount_idle_id = 0;
     }
 
-    if (application->proxy != NULL)
-    {
-        g_object_unref (application->proxy);
-        application->proxy = NULL;
-    }
-
     if (fdb_manager != NULL)
     {
         g_object_unref (fdb_manager);
@@ -559,151 +553,6 @@ out:
     g_free (do_once_file);
 }
 
-#define CK_NAME       "org.freedesktop.ConsoleKit"
-#define CK_PATH       "/org/freedesktop/ConsoleKit"
-#define CK_INTERFACE  "org.freedesktop.ConsoleKit"
-
-static void
-ck_session_proxy_signal_cb (GDBusProxy *proxy,
-                            const char *sender_name,
-                            const char *signal_name,
-                            GVariant   *parameters,
-                            gpointer    user_data)
-{
-    CajaApplication *application = user_data;
-
-    if (g_strcmp0 (signal_name, "ActiveChanged") == 0)
-    {
-        g_variant_get (parameters, "(b)", &application->session_is_active);
-    }
-}
-
-static void
-ck_call_is_active_cb (GDBusProxy   *proxy,
-                      GAsyncResult *result,
-                      gpointer      user_data)
-{
-    CajaApplication *application = user_data;
-    GVariant *variant;
-    GError *error = NULL;
-
-    variant = g_dbus_proxy_call_finish (proxy, result, &error);
-
-    if (variant == NULL)
-    {
-        g_warning ("Error when calling IsActive(): %s\n", error->message);
-        application->session_is_active = TRUE;
-
-        g_error_free (error);
-        return;
-    }
-
-    g_variant_get (variant, "(b)", &application->session_is_active);
-
-    g_variant_unref (variant);
-}
-
-static void
-session_proxy_appeared (GObject       *source,
-                        GAsyncResult *res,
-                        gpointer      user_data)
-{
-    CajaApplication *application = user_data;
-    GDBusProxy *proxy;
-    GError *error = NULL;
-
-    proxy = g_dbus_proxy_new_for_bus_finish (res, &error);
-
-    if (error != NULL)
-    {
-        g_warning ("Failed to get the current CK session: %s", error->message);
-        g_error_free (error);
-
-        application->session_is_active = TRUE;
-        return;
-    }
-
-    g_signal_connect (proxy, "g-signal",
-                      G_CALLBACK (ck_session_proxy_signal_cb),
-                      application);
-
-    g_dbus_proxy_call (proxy,
-                       "IsActive",
-                       g_variant_new ("()"),
-                       G_DBUS_CALL_FLAGS_NONE,
-                       -1,
-                       NULL,
-                       (GAsyncReadyCallback) ck_call_is_active_cb,
-                       application);
-
-    application->proxy = proxy;
-}
-
-static void
-ck_get_current_session_cb (GDBusConnection *connection,
-                           GAsyncResult    *result,
-                           gpointer         user_data)
-{
-    CajaApplication *application = user_data;
-    GVariant *variant;
-    const char *session_path = NULL;
-    GError *error = NULL;
-
-    variant = g_dbus_connection_call_finish (connection, result, &error);
-
-    if (variant == NULL)
-    {
-        g_warning ("Failed to get the current CK session: %s", error->message);
-        g_error_free (error);
-
-        application->session_is_active = TRUE;
-        return;
-    }
-
-    g_variant_get (variant, "(&o)", &session_path);
-
-    g_dbus_proxy_new_for_bus (G_BUS_TYPE_SYSTEM,
-                              G_DBUS_PROXY_FLAGS_NONE,
-                              NULL,
-                              CK_NAME,
-                              session_path,
-                              CK_INTERFACE ".Session",
-                              NULL,
-                              session_proxy_appeared,
-                              application);
-
-    g_variant_unref (variant);
-}
-
-static void
-do_initialize_consolekit (CajaApplication *application)
-{
-    GDBusConnection *connection;
-
-    connection = g_bus_get_sync (G_BUS_TYPE_SYSTEM, NULL, NULL);
-
-    if (connection == NULL)
-    {
-        application->session_is_active = TRUE;
-        return;
-    }
-
-    g_dbus_connection_call (connection,
-                            CK_NAME,
-                            CK_PATH "/Manager",
-                            CK_INTERFACE ".Manager",
-                            "GetCurrentSession",
-                            g_variant_new ("()"),
-                            G_VARIANT_TYPE ("(o)"),
-                            G_DBUS_CALL_FLAGS_NONE,
-                            -1,
-                            NULL,
-                            (GAsyncReadyCallback) ck_get_current_session_cb,
-                            application);
-
-    g_object_unref (connection);
-}
-
 static void
 do_upgrades_once (CajaApplication *application,
                   gboolean no_desktop)
@@ -751,9 +600,6 @@ finish_startup (CajaApplication *application,
 
     /* Initialize the desktop link monitor singleton */
     caja_desktop_link_monitor_get ();
-
-    /* Initialize the ConsoleKit listener for active session */
-    do_initialize_consolekit (application);
 
     /* Watch for mounts so we can restore open windows This used
      * to be for showing new window on mount, but is not used
@@ -1743,11 +1589,6 @@ mount_added_callback (GVolumeMonitor *monitor,
 {
     CajaDirectory *directory;
     GFile *root;
-
-    if (!application->session_is_active)
-    {
-        return;
-    }
 
     root = g_mount_get_root (mount);
     directory = caja_directory_get_existing (root);
