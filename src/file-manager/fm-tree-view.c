@@ -1426,11 +1426,10 @@ create_tree (FMTreeView *view)
     icon = g_themed_icon_new (CAJA_ICON_FILESYSTEM);
     fm_tree_model_add_root_uri (view->details->child_model, "file:///", _("File System"), icon, NULL);
     g_object_unref (icon);
-#ifdef NOT_YET_USABLE /* Do we really want this? */
-    icon = g_themed_icon_new (CAJA_ICON_NETWORK);
-    fm_tree_model_add_root_uri (view->details->child_model, "network:///", _("Network Neighbourhood"), icon, NULL);
+    icon = g_themed_icon_new (CAJA_ICON_TRASH);
+    fm_tree_model_add_root_uri (view->details->child_model, "trash:///", _("Trash"), icon, NULL);
     g_object_unref (icon);
-#endif
+
 
     volume_monitor = g_volume_monitor_get ();
     view->details->volume_monitor = volume_monitor;
