@@ -45,7 +45,9 @@ main (int argc, char* argv[])
 	GList *infos;
 	CajaProgressInfo *progress_info;
 	
-	g_thread_init (NULL);
+#if !GLIB_CHECK_VERSION (2, 32, 0)
+    g_thread_init (NULL);
+#endif
 	
 	test_init (&argc, &argv);
 
