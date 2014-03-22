@@ -51,7 +51,7 @@ struct EelPixbufLoadHandle
     EelPixbufLoadCallback callback;
     gpointer callback_data;
     GdkPixbufLoader *loader;
-    char buffer[LOAD_BUFFER_SIZE];
+    guchar buffer[LOAD_BUFFER_SIZE];
 };
 
 GdkPixbuf *
@@ -112,7 +112,7 @@ GdkPixbuf *
 eel_gdk_pixbuf_load_from_stream_at_size (GInputStream  *stream,
         int            size)
 {
-    char buffer[LOAD_BUFFER_SIZE];
+    guchar buffer[LOAD_BUFFER_SIZE];
     gssize bytes_read;
     GdkPixbufLoader *loader;
     GdkPixbuf *pixbuf;
