@@ -43,6 +43,7 @@
 #include <gio/gio.h>
 #include <glib/gi18n.h>
 #include <eel/eel-gtk-extensions.h>
+#include <libmate-desktop/mate-aboutdialog.h>
 #include <libcaja-extension/caja-menu-provider.h>
 #include <libcaja-private/caja-file-utilities.h>
 #include <libcaja-private/caja-global-preferences.h>
@@ -528,14 +529,14 @@ action_about_caja_callback (GtkAction *action,
     license_trans = g_strjoin ("\n\n", _(license[0]), _(license[1]),
                                _(license[2]), NULL);
 
-    gtk_show_about_dialog (GTK_WINDOW (user_data),
+    mate_show_about_dialog (GTK_WINDOW (user_data),
                            "program-name", _("Caja"),
                            "version", VERSION,
                            "comments", _("Caja lets you organize "
                                          "files and folders, both on "
                                          "your computer and online."),
                            "copyright", _("Copyright \xC2\xA9 1999-2009 The Nautilus authors\n"
-                                          "Copyright \xC2\xA9 2011-2013 The Caja authors"),
+                                          "Copyright \xC2\xA9 2011-2014 The Caja authors"),
                            "license", license_trans,
                            "wrap-license", TRUE,
                            "authors", authors,
