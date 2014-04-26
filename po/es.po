@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Adolfo Jayme Barrientos <fitoschido@ubuntu.com>, 2013
+# Adolfo Jayme Barrientos <fitoschido@ubuntu.com>, 2014
 # Art O. Pal <artopal@fastmail.fm>, 2012
 # Lluís Tusquellas <lutusq@gmail.com>, 2013-2014
 # Lluís Tusquellas <lutusq@gmail.com>, 2012-2013
@@ -13,8 +14,8 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-12 19:04+0100\n"
-"PO-Revision-Date: 2014-02-14 22:23+0000\n"
-"Last-Translator: Lluís Tusquellas <lutusq@gmail.com>\n"
+"PO-Revision-Date: 2014-04-24 10:32+0000\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitoschido@ubuntu.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/MATE/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,7 +46,7 @@ msgstr "La aplicación no acepta documentos en la línea de órdenes"
 #: ../cut-n-paste-code/libegg/eggdesktopfile.c:1170
 #, c-format
 msgid "Unrecognized launch option: %d"
-msgstr "Opción de lanzamiento no reconocida: %d"
+msgstr "No se reconoce la opción de apertura: %d"
 
 #: ../cut-n-paste-code/libegg/eggdesktopfile.c:1375
 #, c-format
@@ -71,11 +72,11 @@ msgstr "ARCHIVO"
 
 #: ../cut-n-paste-code/libegg/eggsmclient.c:239
 msgid "Specify session management ID"
-msgstr "Especificar el ID se gestión de sesión"
+msgstr "Especificar el identificador de gestión de sesión"
 
 #: ../cut-n-paste-code/libegg/eggsmclient.c:239
 msgid "ID"
-msgstr "ID"
+msgstr "Id."
 
 #: ../cut-n-paste-code/libegg/eggsmclient.c:265
 msgid "Session management options:"
@@ -433,7 +434,7 @@ msgstr "Puede parar esta operación pulsando cancelar."
 
 #: ../eel/eel-vfs-extensions.c:96
 msgid " (invalid Unicode)"
-msgstr " (Unicode inválido)"
+msgstr " (Unicode no válido)"
 
 #: ../libcaja-private/caja-autorun.c:519
 msgid "No applications found"
@@ -1061,7 +1062,7 @@ msgstr "%'der enlace hacia %s"
 #: ../libcaja-private/caja-file-operations.c:404
 #, c-format
 msgid "%'dnd link to %s"
-msgstr "%'dº enlace hacia %s"
+msgstr "%'d.º enlace hacia %s"
 
 #. appended to new link file
 #: ../libcaja-private/caja-file-operations.c:408
@@ -1073,7 +1074,7 @@ msgstr "%'der enlace hacia %s"
 #: ../libcaja-private/caja-file-operations.c:412
 #, c-format
 msgid "%'dth link to %s"
-msgstr "%'dº enlace hacia %s"
+msgstr "%'d.º enlace hacia %s"
 
 #. Localizers:
 #. * Feel free to leave out the st, nd, rd and th suffix or
@@ -1136,7 +1137,7 @@ msgstr "%s (otra copia)%s"
 #: ../libcaja-private/caja-file-operations.c:507
 #, c-format
 msgid "%s (%'dth copy)%s"
-msgstr "%s (%'dª copia)%s"
+msgstr "%s (%'d.ª copia)%s"
 
 #. localizers: if in your language there's no difference between 1st, 2nd, 3rd
 #. and nth
@@ -1147,19 +1148,19 @@ msgstr "%s (%'dª copia)%s"
 #: ../libcaja-private/caja-file-operations.c:501
 #, c-format
 msgid "%s (%'dst copy)%s"
-msgstr "%s (%'dª copia)%s"
+msgstr "%s (%'d.ª copia)%s"
 
 #. localizers: appended to x2nd file copy
 #: ../libcaja-private/caja-file-operations.c:503
 #, c-format
 msgid "%s (%'dnd copy)%s"
-msgstr "%s (%'dª copia)%s"
+msgstr "%s (%'d.ª copia)%s"
 
 #. localizers: appended to x3rd file copy
 #: ../libcaja-private/caja-file-operations.c:505
 #, c-format
 msgid "%s (%'drd copy)%s"
-msgstr "%s (%'dª copia)%s"
+msgstr "%s (%'d.ª copia)%s"
 
 #. localizers: opening parentheses to match the "th copy)" string
 #: ../libcaja-private/caja-file-operations.c:605
@@ -1209,7 +1210,7 @@ msgstr "Vaciar la _papelera"
 
 #: ../libcaja-private/caja-file-operations.c:1385
 msgid "Are you sure you want to permanently delete \"%B\"?"
-msgstr "¿Está seguro que desea eliminar permanentemente «%B»?"
+msgstr "¿Está seguro de que quiere eliminar permanentemente «%B»?"
 
 #: ../libcaja-private/caja-file-operations.c:1388
 #, c-format
@@ -1506,8 +1507,8 @@ msgstr "%S de %S"
 #: ../libcaja-private/caja-file-operations.c:2988
 msgid "%S of %S — %T left (%S/sec)"
 msgid_plural "%S of %S — %T left (%S/sec)"
-msgstr[0] "%S de %S — queda %T (%S/seg)"
-msgstr[1] "%S de %S — quedan %T (%S/seg)"
+msgstr[0] "%S de %S; queda %T (%S/s)"
+msgstr[1] "%S de %S; quedan %T (%S/s)"
 
 #: ../libcaja-private/caja-file-operations.c:3366
 msgid ""
@@ -2383,12 +2384,12 @@ msgstr "Eliminar el elemento %d copiado"
 #: ../libcaja-private/caja-undostack-manager.c:1281
 #, c-format
 msgid "Delete '%s'"
-msgstr "Borrar '%s'"
+msgstr "Eliminar «%s»"
 
 #: ../libcaja-private/caja-undostack-manager.c:1247
 #, c-format
 msgid "Delete %d duplicated items"
-msgstr "Eliminar el elemento %d duplicado"
+msgstr "Eliminar %d elementos duplicados"
 
 #: ../libcaja-private/caja-undostack-manager.c:1258
 #, c-format
@@ -2398,7 +2399,7 @@ msgstr "Mover elemento %d a '%s'"
 #: ../libcaja-private/caja-undostack-manager.c:1262
 #, c-format
 msgid "Move '%s' back to '%s'"
-msgstr "Mover '%s' a '%s'"
+msgstr "Mover «%s» a «%s»"
 
 #: ../libcaja-private/caja-undostack-manager.c:1271
 #: ../libcaja-private/caja-undostack-manager.c:1438
@@ -2465,7 +2466,7 @@ msgstr "Copiar elementos %d a '%s'"
 #: ../libcaja-private/caja-undostack-manager.c:1404
 #, c-format
 msgid "Copy '%s' to '%s'"
-msgstr "Copiar '%s' a '%s'"
+msgstr "Copiar «%s» en «%s»"
 
 #: ../libcaja-private/caja-undostack-manager.c:1412
 #, c-format
@@ -3135,7 +3136,7 @@ msgstr "El tamaño predeterminado para la miniatura de un icono en la vista como
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:75
 msgid "Text Ellipsis Limit"
-msgstr "Límite de la elipsis del texto"
+msgstr "Límite de puntos suspensivos en texto"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:77
 #, no-c-format
@@ -3210,7 +3211,7 @@ msgstr "Si se establece a cierto, Caja mostrará solo las carpetas en el árbol 
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:90
 msgid "Desktop font"
-msgstr "Tipografía del escritorio"
+msgstr "Tipo de letra del escritorio"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:91
 msgid "The font _description used for the icons on the desktop."
@@ -5588,12 +5589,12 @@ msgstr "No se puede cargar la lista admitida del método de servidores. Comprueb
 #: ../src/caja-connect-server-dialog.c:295
 #, c-format
 msgid "The folder \"%s\" cannot be opened on \"%s\"."
-msgstr "La carpeta \"%s\" no puede ser abierta en \"%s\"."
+msgstr "La carpeta «%s» no se puede abrir en «%s»."
 
 #: ../src/caja-connect-server-dialog.c:305
 #, c-format
 msgid "The server at \"%s\" cannot be found."
-msgstr "No pudo ser encontrado el servidor en \"%s\"."
+msgstr "No se encontró el servidor en «%s»."
 
 #: ../src/caja-connect-server-dialog.c:340
 msgid "Try Again"
@@ -5786,37 +5787,37 @@ msgstr "Según la fecha de eliminación"
 #: ../src/caja-file-management-properties.ui.h:13
 #, no-c-format
 msgid "33%"
-msgstr "33%"
+msgstr "33 %"
 
 #: ../src/caja-file-management-properties.ui.h:15
 #, no-c-format
 msgid "50%"
-msgstr "50 %"
+msgstr "50 %"
 
 #: ../src/caja-file-management-properties.ui.h:17
 #, no-c-format
 msgid "66%"
-msgstr "66%"
+msgstr "66 %"
 
 #: ../src/caja-file-management-properties.ui.h:19
 #, no-c-format
 msgid "100%"
-msgstr "100 %"
+msgstr "100 %"
 
 #: ../src/caja-file-management-properties.ui.h:21
 #, no-c-format
 msgid "150%"
-msgstr "150 %"
+msgstr "150 %"
 
 #: ../src/caja-file-management-properties.ui.h:23
 #, no-c-format
 msgid "200%"
-msgstr "200 %"
+msgstr "200 %"
 
 #: ../src/caja-file-management-properties.ui.h:25
 #, no-c-format
 msgid "400%"
-msgstr "400 %"
+msgstr "400 %"
 
 #: ../src/caja-file-management-properties.ui.h:26
 msgid "Always"
@@ -6341,7 +6342,7 @@ msgstr "¿Está seguro de querer limpiar la lista de lugares que ha visitado?"
 #: ../src/caja-navigation-window-menus.c:404 ../src/caja-window-bookmarks.c:83
 #, c-format
 msgid "The location \"%s\" does not exist."
-msgstr "El lugar «%s» no existe."
+msgstr "La ubicación «%s» no existe."
 
 #: ../src/caja-navigation-window-menus.c:406
 msgid "The history location doesn't exist."
