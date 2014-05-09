@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-12 19:04+0100\n"
-"PO-Revision-Date: 2014-04-20 13:25+0000\n"
+"PO-Revision-Date: 2014-04-29 23:23+0000\n"
 "Last-Translator: to_ba\n"
 "Language-Team: German (http://www.transifex.com/projects/p/MATE/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -520,7 +520,7 @@ msgstr "Ein digitales Musikwiedergabegerät wurde angeschlossen."
 msgid ""
 "You have just inserted a medium with software intended to be automatically "
 "started."
-msgstr "Ein Datenträger mit Software, die automatisch ausgeführt werden soll, wurde eingelegt."
+msgstr "Sie haben gerade ein Medium, mit Anwendungen dazu bestimmt automatisch gestartet zu werden, eingelegt."
 
 #. fallback to generic greeting
 #: ../libcaja-private/caja-autorun.c:1086
@@ -2907,7 +2907,7 @@ msgstr "Bei Benutzern, die eine Maus mit Tasten für »Vorwärts« und »Zurück
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:29
 msgid "When to show thumbnails of image files"
-msgstr "Wann Miniatur-Vorschaubilder von Bilddateien angezeigt werden sollen"
+msgstr "Wann Vorschaubilder von Bilddateien angezeigt werden sollen"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:30
 msgid ""
@@ -2916,22 +2916,22 @@ msgid ""
 "If set to \"local-only\" then only show thumbnails for local file systems. "
 "If set to \"never\" then never bother to thumbnail images, just use a "
 "generic icon."
-msgstr "Legt fest, wann Miniatur-Vorschaubilder von Bildern angelegt werden sollen. Zulässige Werte: »always«: immer anlegen, selbst wenn sie sich auf einem entfernten Server befinden, »local_only«: nur anlegen, falls sie sich auf einem lokalen Dateisystem befinden, »never«: keinesfalls anlegen."
+msgstr "Legt fest, wann Vorschaubilder von Bildern angelegt werden sollen. Zulässige Werte: »always«: immer anlegen, selbst wenn sie sich auf einem entfernten Server befinden, »local_only«: nur anlegen, falls sie sich auf einem lokalen Dateisystem befinden, »never«: keinesfalls anlegen."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:31
 msgid "Maximum image size for thumbnailing"
-msgstr "Maximale Bildgröße für Miniatur-Vorschaubilder"
+msgstr "Maximale Bildgröße für Vorschaubilder"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:32
 msgid ""
 "Images over this size (in bytes) won't be thumbnailed. The purpose of this "
 "setting is to avoid thumbnailing large images that may take a long time to "
 "load or use lots of memory."
-msgstr "Von Bildern, die Größer sind als dieser Wert (in Byte), wird kein Miniatur-Vorschaubild angelegt. Der Zweck dieses Schlüssels besteht darin, das Anlegen von Miniatur-Vorschaubildern großer Bilder zu verhindern, da dies lange Ladezeiten oder hohen Speicherverbrauch zur Folge hätte."
+msgstr "Von Bildern, die Größer sind als dieser Wert (in Byte), wird kein Vorschaubild angelegt. Der Zweck dieses Schlüssels besteht darin, das Anlegen von Vorschaubildern großer Bilder zu verhindern, da dies lange Ladezeiten oder hohen Speicherverbrauch zur Folge hätte."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:33
 msgid "Whether to preview sounds when mousing over an icon"
-msgstr "Legt fest, ob eine Vorschau auf Audio-Dateien angezeigt werden soll, wenn die Maus sich über deren Symbol befindet."
+msgstr "Legt fest, ob eine Vorschau auf Klangdateien angezeigt werden soll, wenn die Maus sich über deren Symbol befindet."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:34
 msgid ""
@@ -2939,7 +2939,7 @@ msgid ""
 "icon. If set to \"always\" then always plays the sound, even if the file is "
 "on a remote server. If set to \"local-only\" then only plays previews on "
 "local file systems. If set to \"never\" then it never previews sound."
-msgstr "Legt fest, wann eine Vorschau auf Audio-Dateien angezeigt werden soll, sobald sich die Maus über deren Symbol befindet. Zulässige Werte: »always«: immer wiedergeben, selbst wenn sie sich auf einem entfernten Server befinden, »local_only«: nur wiedergeben, falls sie sich auf einem lokalen Dateisystem befinden, »never«: keinesfalls wiedergeben."
+msgstr "Legt fest, wann eine Vorschau auf Klangdateien angezeigt werden soll, sobald sich die Maus über deren Symbol befindet. Zulässige Werte: »always«: immer wiedergeben, selbst wenn sie sich auf einem entfernten Server befinden, »local_only«: nur wiedergeben, falls sie sich auf einem lokalen Dateisystem befinden, »never«: keinesfalls wiedergeben."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:35
 msgid "Show advanced permissions in the file property dialog"
@@ -3130,11 +3130,11 @@ msgstr "Voreingestellte Vergrößerungsstufe der Symbolansicht."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:73
 msgid "Default Thumbnail Icon Size"
-msgstr "Voreingestellte Symbolgröße der Miniatur-Vorschaubilder"
+msgstr "Voreingestellte Symbolgröße der Vorschaubilder"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:74
 msgid "The default size of an icon for a thumbnail in the icon view."
-msgstr "Die Standardgröße eines Symbols für ein Miniatur-Vorschaubild in der Symbolansicht."
+msgstr "Die Standardgröße eines Symbols für ein Vorschaubild in der Symbolansicht."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:75
 msgid "Text Ellipsis Limit"
@@ -3452,7 +3452,7 @@ msgstr "Liste der »x-content/*«-Typen, bei denen in den Einstellungen »In Ord
 
 #: ../data/caja-autorun-software.desktop.in.in.h:1
 msgid "Autorun Prompt"
-msgstr "Autostart-Nachfrage"
+msgstr "Autostartnachfrage"
 
 #. Set initial window title
 #: ../data/caja-browser.desktop.in.in.h:1
@@ -5506,7 +5506,7 @@ msgstr "<big><b>Fehler beim automatischen Starten</b></big>"
 msgid ""
 "<big><b>This medium contains software intended to be automatically started. "
 "Would you like to run it?</b></big>"
-msgstr "<big><b>Dieser Datenträger enthält Software, die automatisch ausgeführt werden soll. Soll diese Software gestartet werden?</b></big>"
+msgstr "<big><b>Dieser Datenträger enthält eine Anwendung, die automatisch gestartet werden soll. Soll diese Anwendung gestartet werden?</b></big>"
 
 #: ../src/caja-autorun-software.c:219
 #, c-format
@@ -5514,7 +5514,7 @@ msgid ""
 "The software will run directly from the medium \"%s\". You should never run software that you don't trust.\n"
 "\n"
 "If in doubt, press Cancel."
-msgstr "Die Software wird direkt vom Datenträger »%s« starten. Sie sollten niemals Software starten, der Sie nicht vertrauen.\n\nKlicken Sie im Zweifelsfall auf »Abbrechen«."
+msgstr "Die Anwendung wird direkt vom Datenträger »%s« starten. Sie sollten niemals Anwendungen starten, der Sie nicht vertrauen.\n\nKlicken Sie im Zweifelsfall auf »Abbrechen«."
 
 #: ../src/caja-bookmarks-window.c:158
 #: ../src/caja-file-management-properties.c:225
@@ -6041,7 +6041,7 @@ msgstr "<b>Andere Dateien mit Möglichkeit zur Vorschau</b>"
 
 #: ../src/caja-file-management-properties.ui.h:80
 msgid "Show _thumbnails:"
-msgstr "_Miniatur-Vorschaubilder anzeigen:"
+msgstr "_Vorschaubilder anzeigen:"
 
 #: ../src/caja-file-management-properties.ui.h:81
 msgid "_Only for files smaller than:"
@@ -6049,11 +6049,11 @@ msgstr "_Nur für Dateien kleiner als:"
 
 #: ../src/caja-file-management-properties.ui.h:82
 msgid "<b>Sound Files</b>"
-msgstr "<b>Audio-Dateien</b>"
+msgstr "<b>Klangdateien</b>"
 
 #: ../src/caja-file-management-properties.ui.h:83
 msgid "Preview _sound files:"
-msgstr "_Vorschau auf Audio-Dateien:"
+msgstr "_Vorschau auf Klangdateien:"
 
 #: ../src/caja-file-management-properties.ui.h:84
 msgid "<b>Folders</b>"
@@ -6094,7 +6094,7 @@ msgstr "_Fotos:"
 
 #: ../src/caja-file-management-properties.ui.h:93
 msgid "_Software:"
-msgstr "_Software:"
+msgstr "_Anwendungen:"
 
 #: ../src/caja-file-management-properties.ui.h:94
 msgid "<b>Other Media</b>"
@@ -6126,7 +6126,7 @@ msgstr "Datenträger"
 
 #: ../src/caja-file-management-properties.ui.h:101
 msgid "Plugins"
-msgstr "Plugins"
+msgstr "Erweiterungen"
 
 #: ../src/caja-history-sidebar.c:338
 msgid "History"
@@ -6183,7 +6183,7 @@ msgstr "Brennweite"
 
 #: ../src/caja-image-properties-page.c:301
 msgid "Software"
-msgstr "Software"
+msgstr "Anwendungen"
 
 #: ../src/caja-image-properties-page.c:377
 msgid "Keywords"
@@ -7115,7 +7115,7 @@ msgid ""
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version."
-msgstr "Caja ist freie Software. Sie können es unter den Bedingungen der GNU General Public License, wie von der Free Software Foundation veröffentlicht, weitergeben und/oder modifizieren, entweder gemäß Version 2 der Lizenz oder (nach Ihrer Option) jeder späteren Version."
+msgstr "Caja ist eine freie Anwendung. Sie können es unter den Bedingungen der GNU General Public License, wie von der Free Software Foundation veröffentlicht, weitergeben und/oder modifizieren, entweder gemäß Version 2 der Lizenz oder (nach Ihrer Option) jeder späteren Version."
 
 #: ../src/caja-window-menus.c:518
 msgid ""
@@ -7393,7 +7393,7 @@ msgstr "Diese Dateien befinden sich auf einem digitalen Musikwiedergabegerät."
 
 #: ../src/caja-x-content-bar.c:106
 msgid "The media contains software."
-msgstr "Dieser Datenträger enthält Programme."
+msgstr "Dieser Datenträger enthält Anwendungen."
 
 #. fallback to generic greeting
 #: ../src/caja-x-content-bar.c:111
