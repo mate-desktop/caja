@@ -9706,7 +9706,7 @@ fm_directory_view_unmerge_menus (FMDirectoryView *view)
 }
 
 static void
-disconnect_handler (GObject *object, int *id)
+disconnect_handler (GObject *object, guint *id)
 {
 	if (*id != 0) {
 		g_signal_handler_disconnect (object, *id);
@@ -9715,13 +9715,13 @@ disconnect_handler (GObject *object, int *id)
 }
 
 static void
-disconnect_directory_handler (FMDirectoryView *view, int *id)
+disconnect_directory_handler (FMDirectoryView *view, guint *id)
 {
 	disconnect_handler (G_OBJECT (view->details->model), id);
 }
 
 static void
-disconnect_directory_as_file_handler (FMDirectoryView *view, int *id)
+disconnect_directory_as_file_handler (FMDirectoryView *view, guint *id)
 {
 	disconnect_handler (G_OBJECT (view->details->directory_as_file), id);
 }
