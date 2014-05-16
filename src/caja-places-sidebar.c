@@ -2690,7 +2690,6 @@ bookmarks_button_release_event_cb (GtkWidget *widget,
     GtkTreePath *path;
     GtkTreeModel *model;
     GtkTreeView *tree_view;
-    gboolean ret;
 
     path = NULL;
 
@@ -2701,9 +2700,9 @@ bookmarks_button_release_event_cb (GtkWidget *widget,
 
     if (clicked_eject_button (sidebar, &path))
     {
-        ret = eject_or_unmount_bookmark (sidebar, path);
+        eject_or_unmount_bookmark (sidebar, path);
         gtk_tree_path_free (path);
-        return ret;
+        return FALSE;
     }
 
     tree_view = GTK_TREE_VIEW (widget);
