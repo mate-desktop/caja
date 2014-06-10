@@ -994,6 +994,31 @@ fm_icon_view_set_directory_keep_aligned (FMIconView *icon_view,
      keep_aligned);
 }
 
+
+/* maintainence of auto layout boolean */
+static gboolean default_directory_manual_layout = FALSE;
+
+static gboolean
+get_default_directory_manual_layout (void)
+{
+    static gboolean auto_storaged_added = FALSE;
+
+    if (auto_storaged_added == FALSE)
+    {
+        auto_storaged_added = TRUE;
+        int default_sort_order_enum = 0;
+
+        eel_g_settings_add_auto_enum (caja_preferences,
+                                      CAJA_PREFERENCES_DEFAULT_SORT_ORDER,
+                                      &default_sort_order_enum);
+
+        default_directory_manual_layout = (default_sort_order_enum == 0);
+    }
+
+    return default_directory_manual_layout;
+}
+
+
 static gboolean
 fm_icon_view_get_directory_auto_layout (FMIconView *icon_view,
                                         CajaFile *file)
@@ -1017,10 +1042,8 @@ static gboolean
 fm_icon_view_real_get_directory_auto_layout (FMIconView *icon_view,
         CajaFile *file)
 {
-
-
     return caja_file_get_boolean_metadata
-           (file, CAJA_METADATA_KEY_ICON_VIEW_AUTO_LAYOUT, TRUE);
+           (file, CAJA_METADATA_KEY_ICON_VIEW_AUTO_LAYOUT, !get_default_directory_manual_layout ());
 }
 
 static void
@@ -1050,7 +1073,7 @@ fm_icon_view_real_set_directory_auto_layout (FMIconView *icon_view,
 
     caja_file_set_boolean_metadata
     (file, CAJA_METADATA_KEY_ICON_VIEW_AUTO_LAYOUT,
-     TRUE,
+     !get_default_directory_manual_layout (),
      auto_layout);
 }
 /* maintainence of tighter layout boolean */
@@ -1949,6 +1972,15 @@ fm_icon_view_reset_to_defaults (FMDirectoryView *view)
     (icon_container, get_default_directory_tighter_layout ());
 
     caja_icon_container_sort (icon_container);
+
+    /* Switch to manual layout of the default calls for it.
+     * This needs to happen last for the sort order menus
+     * to be in sync.
+     */
+    if (get_default_directory_manual_layout ())
+    {
+        switch_to_manual_layout (icon_view);
+    }
 
     update_layout_menus (icon_view);
 
