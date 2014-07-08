@@ -146,13 +146,31 @@ caja_desktop_set_metadata_string (CajaFile *file,
                                       const gchar *string)
 {
     GKeyFile *keyfile;
+    GError *error = NULL;
 
     keyfile = get_keyfile ();
 
-    g_key_file_set_string (keyfile,
-                   name,
-                   key,
-                   string);
+    if (string != NULL) {
+	    g_key_file_set_string (keyfile,
+		           name,
+		           key,
+		           string);
+    } else {
+	    /* NULL as value is taken to mean that we want to remove the key */
+
+	    g_key_file_remove_key (keyfile,
+		                   name,
+		                   key,
+		                   &error);
+
+	    if (error != NULL) {
+		g_warning ("Couldn't remove the key '%s' from '%s' in the keyfile: %s",
+		       key,
+		       name,
+		       error->message);
+		g_error_free (error);
+	    }
+    }
 
     save_in_idle (keyfile);
 
