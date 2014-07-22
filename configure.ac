@@ -41,10 +41,12 @@ case "$with_gtk" in
   2.0) GTK_API_VERSION=2.0
        GTK_REQUIRED=2.24.0
        GAIL_API_VERSION=
+       LIBUNIQUE_VERSION=1.0
        ;;
   3.0) GTK_API_VERSION=3.0
        GTK_REQUIRED=3.0.0
        GAIL_API_VERSION=-3.0
+       LIBUNIQUE_VERSION=3.0
        ;;
 esac
 AC_SUBST([GTK_API_VERSION])
@@ -273,13 +275,6 @@ fi
 #============================================================================
 # libunique
 #============================================================================
-case "$with_gtk" in
-    2.0) LIBUNIQUE_VERSION=1.0
-        ;;
-    3.0) LIBUNIQUE_VERSION=3.0
-        ;;
-esac
-
 PKG_CHECK_MODULES(UNIQUE, unique-$LIBUNIQUE_VERSION, enable_libunique=yes, enable_libunique=no)
 
 AC_SUBST([UNIQUE_CFLAGS])
