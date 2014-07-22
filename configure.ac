@@ -280,7 +280,7 @@ PKG_CHECK_MODULES(UNIQUE, unique-$LIBUNIQUE_VERSION, enable_libunique=yes, enabl
 AC_SUBST([UNIQUE_CFLAGS])
 AC_SUBST([UNIQUE_LIBS])
 
-AC_ARG_ENABLE(unique, [  --enable-unique         enable the use of libunique instead of g_application or gtk_application], enable_libunique=yes,)
+#AC_ARG_ENABLE(unique, [  --enable-unique         enable the use of libunique instead of g_application or gtk_application], enable_libunique=yes,)
 
 if test "x$enable_libunique" = "xyes"; then
     UNIQUE_CFLAGS="$UNIQUE_CFLAGS -DUSE_UNIQUE=1"
@@ -292,6 +292,8 @@ if test "x$enable_libunique" = "xyes"; then
     fi
 
     EXTRA_CORE_MODULES="$EXTRA_CORE_MODULES unique-$LIBUNIQUE_VERSION"
+else
+    AC_ERROR([LIBUNIQUE ${LIBUNIQUE_VERSION} not found])
 fi
 
 
