@@ -865,6 +865,22 @@ fm_icon_view_real_get_directory_sort_by (FMIconView *icon_view,
 {
     const SortCriterion *default_sort_criterion;
     default_sort_criterion = get_sort_criterion_by_sort_type (get_default_sort_order (file, NULL));
+
+	if( default_sort_criterion == NULL )
+	{
+        /*
+         * default_sort_criterion will be NULL if default sort order is set to:
+         * 'directory' or 'atime'
+         * get_sort_criterion_by_sort_type() enumerates through 'sort_criteria' table
+         * but this table doesn't have 'directory' and 'atime' items
+         *
+         * may 'sort_criteria' table should have those two items too?
+         *
+         * temporarily changing it to 'sort by display name'
+         */
+        default_sort_criterion = &sort_criteria[0];
+	}
+
     g_return_val_if_fail (default_sort_criterion != NULL, NULL);
 
     return caja_file_get_metadata
@@ -994,6 +1010,35 @@ fm_icon_view_set_directory_keep_aligned (FMIconView *icon_view,
      keep_aligned);
 }
 
+
+/* maintainence of auto layout boolean
+ * it will be changed in default_sort_order_changed_callback()
+ */
+static gboolean default_directory_manual_layout = FALSE;
+
+static gboolean
+get_default_directory_manual_layout (void)
+{
+    static gboolean auto_storaged_added = FALSE;
+
+    if (auto_storaged_added == FALSE)
+    {
+        auto_storaged_added = TRUE;
+        int default_sort_order_enum = 0;
+
+        /* only read the value here, it will be changed in
+         * default_sort_order_changed_callback() callback in the future
+         */
+        default_sort_order_enum = g_settings_get_enum(caja_preferences,
+                                                      CAJA_PREFERENCES_DEFAULT_SORT_ORDER);
+
+        default_directory_manual_layout = (default_sort_order_enum == 0);
+    }
+
+    return default_directory_manual_layout;
+}
+
+
 static gboolean
 fm_icon_view_get_directory_auto_layout (FMIconView *icon_view,
                                         CajaFile *file)
@@ -1017,10 +1062,8 @@ static gboolean
 fm_icon_view_real_get_directory_auto_layout (FMIconView *icon_view,
         CajaFile *file)
 {
-
-
     return caja_file_get_boolean_metadata
-           (file, CAJA_METADATA_KEY_ICON_VIEW_AUTO_LAYOUT, TRUE);
+           (file, CAJA_METADATA_KEY_ICON_VIEW_AUTO_LAYOUT, !get_default_directory_manual_layout ());
 }
 
 static void
@@ -1050,7 +1093,7 @@ fm_icon_view_real_set_directory_auto_layout (FMIconView *icon_view,
 
     caja_file_set_boolean_metadata
     (file, CAJA_METADATA_KEY_ICON_VIEW_AUTO_LAYOUT,
-     TRUE,
+     !get_default_directory_manual_layout (),
      auto_layout);
 }
 /* maintainence of tighter layout boolean */
@@ -1950,6 +1993,15 @@ fm_icon_view_reset_to_defaults (FMDirectoryView *view)
 
     caja_icon_container_sort (icon_container);
 
+    /* Switch to manual layout of the default calls for it.
+     * This needs to happen last for the sort order menus
+     * to be in sync.
+     */
+    if (get_default_directory_manual_layout ())
+    {
+        switch_to_manual_layout (icon_view);
+    }
+
     update_layout_menus (icon_view);
 
     fm_icon_view_restore_default_zoom_level (view);
@@ -2722,18 +2774,41 @@ default_sort_order_changed_callback (gpointer callback_data)
     CajaFile *file;
     char *sort_name;
     CajaIconContainer *icon_container;
+    int default_sort_order_local;
 
     g_return_if_fail (FM_IS_ICON_VIEW (callback_data));
 
     icon_view = FM_ICON_VIEW (callback_data);
-
     file = fm_directory_view_get_directory_as_file (FM_DIRECTORY_VIEW (icon_view));
-    sort_name = fm_icon_view_get_directory_sort_by (icon_view, file);
-    set_sort_criterion (icon_view, get_sort_criterion_by_metadata_text (sort_name));
-    g_free (sort_name);
-
     icon_container = get_icon_container (icon_view);
     g_return_if_fail (CAJA_IS_ICON_CONTAINER (icon_container));
+
+    default_sort_order_local = g_settings_get_enum (caja_preferences,
+    		                                        CAJA_PREFERENCES_DEFAULT_SORT_ORDER);
+
+    default_sort_order = (CajaFileSortType)default_sort_order_local;
+
+    if( default_sort_order == 0 )
+	{
+        /* default sort order is set as 'manually' */
+        default_directory_manual_layout = TRUE;
+
+        caja_icon_container_set_auto_layout (
+            icon_container,
+            fm_icon_view_get_directory_auto_layout(icon_view, file) );
+    }
+    else
+    {
+        default_directory_manual_layout = FALSE;
+
+        caja_icon_container_set_auto_layout (
+            icon_container,
+            fm_icon_view_get_directory_auto_layout(icon_view, file) );
+
+        sort_name = fm_icon_view_get_directory_sort_by (icon_view, file);
+        set_sort_criterion (icon_view, get_sort_criterion_by_metadata_text (sort_name));
+        g_free (sort_name);
+    }
 
     caja_icon_container_request_update_all (icon_container);
 }
