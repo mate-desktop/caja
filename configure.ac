@@ -20,7 +20,7 @@ dnl Interface break is not allowed.
 m4_define(caja_extension_current,  5)
 m4_define(caja_extension_revision, 0)
 
-AC_INIT([caja], [1.9.0], [http://www.mate-desktop.org])
+AC_INIT([caja], [1.9.1], [http://www.mate-desktop.org])
 
 dnl ---------------------------------------------------------------------------
 dnl GTK library version
@@ -41,10 +41,12 @@ case "$with_gtk" in
   2.0) GTK_API_VERSION=2.0
        GTK_REQUIRED=2.24.0
        GAIL_API_VERSION=
+       LIBUNIQUE_VERSION=1.0
        ;;
   3.0) GTK_API_VERSION=3.0
        GTK_REQUIRED=3.0.0
        GAIL_API_VERSION=-3.0
+       LIBUNIQUE_VERSION=3.0
        ;;
 esac
 AC_SUBST([GTK_API_VERSION])
@@ -273,19 +275,12 @@ fi
 #============================================================================
 # libunique
 #============================================================================
-case "$with_gtk" in
-    2.0) LIBUNIQUE_VERSION=1.0
-        ;;
-    3.0) LIBUNIQUE_VERSION=3.0
-        ;;
-esac
-
 PKG_CHECK_MODULES(UNIQUE, unique-$LIBUNIQUE_VERSION, enable_libunique=yes, enable_libunique=no)
 
 AC_SUBST([UNIQUE_CFLAGS])
 AC_SUBST([UNIQUE_LIBS])
 
-AC_ARG_ENABLE(unique, [  --enable-unique         enable the use of libunique instead of g_application or gtk_application], enable_libunique=yes,)
+#AC_ARG_ENABLE(unique, [  --enable-unique         enable the use of libunique instead of g_application or gtk_application], enable_libunique=yes,)
 
 if test "x$enable_libunique" = "xyes"; then
     UNIQUE_CFLAGS="$UNIQUE_CFLAGS -DUSE_UNIQUE=1"
@@ -297,6 +292,8 @@ if test "x$enable_libunique" = "xyes"; then
     fi
 
     EXTRA_CORE_MODULES="$EXTRA_CORE_MODULES unique-$LIBUNIQUE_VERSION"
+else
+    AC_ERROR([LIBUNIQUE ${LIBUNIQUE_VERSION} not found])
 fi
 
 

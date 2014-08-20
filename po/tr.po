@@ -3,8 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# tarakbumba . <tarakbumba@gmail.com>, 2013
-# emfi <emrefirat93@gmail.com>, 2013
+# Atilla Öntaş <tarakbumba@gmail.com>, 2013
+# Atilla Öntaş <tarakbumba@gmail.com>, 2013-2014
+# Emre FIRAT <emrefirat93@gmail.com>, 2013
+# Emre FIRAT <emrefirat93@gmail.com>, 2013
+# mauron, 2012-2014
 # mauron, 2013-2014
 # mauron, 2012
 msgid ""
@@ -12,8 +15,8 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-12 19:04+0100\n"
-"PO-Revision-Date: 2014-02-13 12:52+0000\n"
-"Last-Translator: mauron\n"
+"PO-Revision-Date: 2014-05-24 23:33+0000\n"
+"Last-Translator: Atilla Öntaş <tarakbumba@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/MATE/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -449,7 +452,7 @@ msgstr "Hiçbir Şey Yapma"
 #: ../libcaja-private/caja-autorun.c:569
 #: ../data/caja-folder-handler.desktop.in.in.h:2
 msgid "Open Folder"
-msgstr "Klasör Aç"
+msgstr "Dizin Aç"
 
 #: ../libcaja-private/caja-autorun.c:602 ../src/caja-x-content-bar.c:148
 #, c-format
@@ -761,7 +764,7 @@ msgstr "Birimin bağını kaldırmak istiyorsanız, lütfen birimin açılan men
 #: ../libcaja-private/caja-desktop-link.c:110
 #, c-format
 msgid "%s's Home"
-msgstr "%s Ev Klasörü"
+msgstr "%s Ev Dizini"
 
 #: ../libcaja-private/caja-desktop-link.c:113
 #: ../data/caja-computer.desktop.in.in.h:1 ../src/caja-places-sidebar.c:674
@@ -799,11 +802,11 @@ msgstr "İptal"
 
 #: ../libcaja-private/caja-dnd.c:907
 msgid "Set as background for _all folders"
-msgstr "_Tüm klasörler için arkaplan resmi olarak tanımla"
+msgstr "_Tüm dizinler için arkaplan resmi olarak tanımla"
 
 #: ../libcaja-private/caja-dnd.c:912
 msgid "Set as background for _this folder"
-msgstr "_Bu klasör için arkaplan resmi olarak tanımla"
+msgstr "_Bu dizin için arkaplan resmi olarak tanımla"
 
 #: ../libcaja-private/caja-emblem-utils.c:229
 #: ../libcaja-private/caja-emblem-utils.c:236
@@ -846,42 +849,42 @@ msgstr "Üzgünüm, özel amblem ismi kaydedilemedi."
 #: ../libcaja-private/caja-file-conflict-dialog.c:144
 #, c-format
 msgid "Merge folder \"%s\"?"
-msgstr "\"%s\" klasörü birleştirilsin mi?"
+msgstr "\"%s\" dizini birleştirilsin mi?"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:148
 msgid ""
 "Merging will ask for confirmation before replacing any files in the folder "
 "that conflict with the files being copied."
-msgstr "Birleştirme işlemi klasörde kopyalanan dosyalarla çakışan dosyaların üzerine yazılacağı zaman onay için soracak."
+msgstr "Birleştirme işlemi dizinde kopyalanan dosyalarla çakışan dosyaların üzerine yazılacağı zaman onay için soracak."
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:154
 #, c-format
 msgid "An older folder with the same name already exists in \"%s\"."
-msgstr "\"%s\" içinde aynı isimde daha eski bir klasör zaten mevcut."
+msgstr "\"%s\" içinde aynı isimde daha eski bir dizin zaten mevcut."
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:160
 #, c-format
 msgid "A newer folder with the same name already exists in \"%s\"."
-msgstr "\"%s\" içinde aynı isimde daha yeni bir klasör zaten mevcut."
+msgstr "\"%s\" içinde aynı isimde daha yeni bir dizin zaten mevcut."
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:166
 #, c-format
 msgid "Another folder with the same name already exists in \"%s\"."
-msgstr "\"%s\" içinde aynı isimde başka bir klasör zaten mevcut."
+msgstr "\"%s\" içinde aynı isimde başka bir dizin zaten mevcut."
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:173
 msgid "Replacing it will remove all files in the folder."
-msgstr "Yerine koymak klasördeki tüm dosyaların silinmesine sebep olacaktır."
+msgstr "Yerine koymak dizindeki tüm dosyaların silinmesine sebep olacaktır."
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:175
 #, c-format
 msgid "Replace folder \"%s\"?"
-msgstr "\"%s\" klasörünün yerine konulsun mu?"
+msgstr "\"%s\" dizininün yerine konulsun mu?"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:177
 #, c-format
 msgid "A folder with the same name already exists in \"%s\"."
-msgstr "Aynı isimde bir klasör \"%s\" içinde zaten mevcut."
+msgstr "Aynı isimde bir dizin \"%s\" içinde zaten mevcut."
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:184
 #, c-format
@@ -1222,7 +1225,7 @@ msgstr[1] "%'d seçili öğeyi kalıcı olarak silmek istediğinizden emin misin
 #, c-format
 msgid "%'d file left to delete"
 msgid_plural "%'d files left to delete"
-msgstr[0] "%'d dosya silmek için bekliyor"
+msgstr[0] "Silinmek üzere %'d dosya kaldı"
 msgstr[1] "Silinmek üzere %'d dosya kaldı"
 
 #: ../libcaja-private/caja-file-operations.c:1437
@@ -1235,7 +1238,7 @@ msgstr "Dosyalar siliniyor"
 #: ../libcaja-private/caja-file-operations.c:1451
 msgid "%T left"
 msgid_plural "%T left"
-msgstr[0] "%T sol"
+msgstr[0] "%T kaldı"
 msgstr[1] "%T kaldı"
 
 #: ../libcaja-private/caja-file-operations.c:1518
@@ -1250,14 +1253,14 @@ msgstr "Silinirken hata oluştu."
 msgid ""
 "Files in the folder \"%B\" cannot be deleted because you do not have "
 "permissions to see them."
-msgstr "\"%B\" klasöründeki dosyalar silinemiyor çünkü onları görmek için yeterli izne sahip değilsiniz."
+msgstr "\"%B\" dizinindeki dosyalar silinemiyor çünkü onları görmek için yeterli izne sahip değilsiniz."
 
 #: ../libcaja-private/caja-file-operations.c:1525
 #: ../libcaja-private/caja-file-operations.c:2530
 #: ../libcaja-private/caja-file-operations.c:3499
 msgid ""
 "There was an error getting information about the files in the folder \"%B\"."
-msgstr "\"%B\" klasöründeki dosyalar hakkında bilgi alınırken hata oluştu."
+msgstr "\"%B\" dizinindeki dosyalar hakkında bilgi alınırken hata oluştu."
 
 #: ../libcaja-private/caja-file-operations.c:1534
 #: ../libcaja-private/caja-file-operations.c:3508
@@ -1268,17 +1271,17 @@ msgstr "_Dosyaları atla"
 msgid ""
 "The folder \"%B\" cannot be deleted because you do not have permissions to "
 "read it."
-msgstr "\"%B\" klasörü silinemiyor çünkü onu okumak için yeterli erişim hakkınız yok."
+msgstr "\"%B\" dizini silinemiyor çünkü onu okumak için yeterli erişim hakkınız yok."
 
 #: ../libcaja-private/caja-file-operations.c:1558
 #: ../libcaja-private/caja-file-operations.c:2569
 #: ../libcaja-private/caja-file-operations.c:3544
 msgid "There was an error reading the folder \"%B\"."
-msgstr "\"%B\" klasörü okunurken hata oluştu."
+msgstr "\"%B\" dizini okunurken hata oluştu."
 
 #: ../libcaja-private/caja-file-operations.c:1592
 msgid "Could not remove the folder %B."
-msgstr "%B klasörü silinemedi."
+msgstr "%B dizini silinemedi."
 
 #: ../libcaja-private/caja-file-operations.c:1669
 msgid "There was an error deleting %B."
@@ -1292,7 +1295,7 @@ msgstr "Dosyalar çöpe taşınıyor"
 #, c-format
 msgid "%'d file left to trash"
 msgid_plural "%'d files left to trash"
-msgstr[0] "%'d dosya çöp için kaldı"
+msgstr[0] "Çöpe atılacak %'d dosya kaldı"
 msgstr[1] "Çöpe atılacak %'d dosya kaldı"
 
 #: ../libcaja-private/caja-file-operations.c:1806
@@ -1387,13 +1390,13 @@ msgstr "Dosyalar çöpe taşınırken hata."
 msgid ""
 "Files in the folder \"%B\" cannot be handled because you do not have "
 "permissions to see them."
-msgstr "\"%B\" klasöründeki dosyalar işlenemiyor çünkü onları okumak için yeterli erişim hakkınız yok."
+msgstr "\"%B\" dizinindeki dosyalar işlenemiyor çünkü onları okumak için yeterli erişim hakkınız yok."
 
 #: ../libcaja-private/caja-file-operations.c:2566
 msgid ""
 "The folder \"%B\" cannot be handled because you do not have permissions to "
 "read it."
-msgstr "\"%B\" klasörü işlenemiyor çünkü onu okumak için yeterli erişim hakkınız yok."
+msgstr "\"%B\" dizini işlenemiyor çünkü onu okumak için yeterli erişim hakkınız yok."
 
 #: ../libcaja-private/caja-file-operations.c:2643
 msgid ""
@@ -1414,7 +1417,7 @@ msgstr "\"%B\" hedefine kopyalanırken hata."
 
 #: ../libcaja-private/caja-file-operations.c:2750
 msgid "You do not have permissions to access the destination folder."
-msgstr "Hedef klasöre erişim için yeterli izne sahip değilsiniz."
+msgstr "Hedef dizine erişim için yeterli izne sahip değilsiniz."
 
 #: ../libcaja-private/caja-file-operations.c:2752
 msgid "There was an error getting information about the destination."
@@ -1422,7 +1425,7 @@ msgstr "Hedef hakkında bilgi alırken bir hata oluştu."
 
 #: ../libcaja-private/caja-file-operations.c:2789
 msgid "The destination is not a folder."
-msgstr "Hedef bir klasör değil."
+msgstr "Hedef bir dizin değil."
 
 #: ../libcaja-private/caja-file-operations.c:2822
 msgid ""
@@ -1512,23 +1515,23 @@ msgstr[1] "%S / %S — %T kaldı (%S/sn)"
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "create it in the destination."
-msgstr "\"%B\" klasörü kopyalanamıyor çünkü onu hedefte oluşturmak için yeterli erişim hakkınız yok."
+msgstr "\"%B\" dizini kopyalanamıyor çünkü onu hedefte oluşturmak için yeterli erişim hakkınız yok."
 
 #: ../libcaja-private/caja-file-operations.c:3369
 msgid "There was an error creating the folder \"%B\"."
-msgstr "\"%B\" klasörü oluşturulurken hata oluştu."
+msgstr "\"%B\" dizini oluşturulurken hata oluştu."
 
 #: ../libcaja-private/caja-file-operations.c:3496
 msgid ""
 "Files in the folder \"%B\" cannot be copied because you do not have "
 "permissions to see them."
-msgstr "\"%B\" klasörü içerisindeki dosyalar kopyalanamıyor çünkü onları görmek için yeterli erişim hakkınız yok."
+msgstr "\"%B\" dizini içerisindeki dosyalar kopyalanamıyor çünkü onları görmek için yeterli erişim hakkınız yok."
 
 #: ../libcaja-private/caja-file-operations.c:3541
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "read it."
-msgstr "\"%B\" klasörü kopyalanamıyor çünkü onu okumak için yeterli erişim hakkınız yok."
+msgstr "\"%B\" dizini kopyalanamıyor çünkü onu okumak için yeterli erişim hakkınız yok."
 
 #: ../libcaja-private/caja-file-operations.c:3586
 #: ../libcaja-private/caja-file-operations.c:4276
@@ -1538,7 +1541,7 @@ msgstr "\"%B\" taşınırken hata oluştu."
 
 #: ../libcaja-private/caja-file-operations.c:3587
 msgid "Could not remove the source folder."
-msgstr "Hedef klasör silinemedi."
+msgstr "Hedef dizin silinemedi."
 
 #: ../libcaja-private/caja-file-operations.c:3672
 #: ../libcaja-private/caja-file-operations.c:3713
@@ -1550,7 +1553,7 @@ msgstr "\"%B\" kopyalanırken hata."
 #: ../libcaja-private/caja-file-operations.c:3673
 #, c-format
 msgid "Could not remove files from the already existing folder %F."
-msgstr "Zaten mevcut olan %F klasöründen dosyalar silinemedi."
+msgstr "Zaten mevcut olan %F dizininden dosyalar silinemedi."
 
 #: ../libcaja-private/caja-file-operations.c:3714
 #, c-format
@@ -1561,17 +1564,17 @@ msgstr "Zaten mevcut olan %F dosyası silinemedi."
 #: ../libcaja-private/caja-file-operations.c:4032
 #: ../libcaja-private/caja-file-operations.c:4691
 msgid "You cannot move a folder into itself."
-msgstr "Bir klasörü kendi üzerine taşıyamazsınız."
+msgstr "Bir dizini kendi üzerine taşıyamazsınız."
 
 #: ../libcaja-private/caja-file-operations.c:4033
 #: ../libcaja-private/caja-file-operations.c:4692
 msgid "You cannot copy a folder into itself."
-msgstr "Bir klasörü kendi üzerine kopyalayamazsınız."
+msgstr "Bir dizini kendi üzerine kopyalayamazsınız."
 
 #: ../libcaja-private/caja-file-operations.c:4034
 #: ../libcaja-private/caja-file-operations.c:4693
 msgid "The destination folder is inside the source folder."
-msgstr "Hedef klasör kaynak klasörünün içerisinde."
+msgstr "Hedef dizin kaynak dizininün içerisinde."
 
 #. the run_warning() frees all strings passed in automatically
 #: ../libcaja-private/caja-file-operations.c:4065
@@ -1655,7 +1658,7 @@ msgstr "İzinler atanıyor"
 #. localizers: the initial name of a new folder
 #: ../libcaja-private/caja-file-operations.c:5857
 msgid "untitled folder"
-msgstr "isimsiz klasör"
+msgstr "isimsiz dizin"
 
 #. localizers: the initial name of a new empty file
 #: ../libcaja-private/caja-file-operations.c:5865
@@ -1910,8 +1913,8 @@ msgstr[1] "%'u öğe"
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
-msgstr[0] "%'u klasör"
-msgstr[1] "%'u klasör"
+msgstr[0] "%'u dizin"
+msgstr[1] "%'u dizin"
 
 #: ../libcaja-private/caja-file.c:5922
 #, c-format
@@ -2332,13 +2335,13 @@ msgstr "Bu bırakma hedefi sadece yerel dosyalar için destekleniyor."
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again."
-msgstr "Yerel olmayan dosyaları açmak için, onları yerel bir klasöre kopyalayın daha sonra tekrar bırakmayı deneyin."
+msgstr "Yerel olmayan dosyaları açmak için, onları yerel bir dizine kopyalayın daha sonra tekrar bırakmayı deneyin."
 
 #: ../libcaja-private/caja-program-choosing.c:496
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again. The local files you dropped have already been opened."
-msgstr "Yerel olmayan dosyaları açmak için bunları önce yerel bir klasöre kopyalayın ve tekrar bırakın. Bıraktığınız yerel dosyalar zaten açıldı."
+msgstr "Yerel olmayan dosyaları açmak için bunları önce yerel bir dizine kopyalayın ve tekrar bırakın. Bıraktığınız yerel dosyalar zaten açıldı."
 
 #: ../libcaja-private/caja-program-choosing.c:529
 msgid "Details: "
@@ -2499,7 +2502,7 @@ msgstr "Boş '%s' dosyası oluştur"
 #: ../libcaja-private/caja-undostack-manager.c:1461
 #, c-format
 msgid "Create a new folder '%s'"
-msgstr "Yeni bir klasör oluştur '%s'"
+msgstr "Yeni bir dizin oluştur '%s'"
 
 #: ../libcaja-private/caja-undostack-manager.c:1469
 #, c-format
@@ -2550,8 +2553,8 @@ msgstr "'%s' unsurunun sahibini '%s' olarak tanımla"
 #, c-format
 msgid "_Undo copy of %d item"
 msgid_plural "_Undo copy of %d items"
-msgstr[0] "%d unsurun kopyalanmasını _geri al\t"
-msgstr[1] "%d unsurun kopyalanmasını _geri al\t"
+msgstr[0] "%d unsurun kopyalanmasını _geri al"
+msgstr[1] "%d unsurun kopyalanmasını _geri al"
 
 #: ../libcaja-private/caja-undostack-manager.c:1573
 #, c-format
@@ -2588,8 +2591,8 @@ msgstr "Şablondan dosya oluşturulmasını _geri al"
 #, c-format
 msgid "_Undo creation of %d folder"
 msgid_plural "_Undo creation of %d folders"
-msgstr[0] "%d klasörün oluşturulmasını _geri al"
-msgstr[1] "%d klasörün oluşturulmasını _geri al"
+msgstr[0] "%d dizinin oluşturulmasını _geri al"
+msgstr[1] "%d dizinin oluşturulmasını _geri al"
 
 #: ../libcaja-private/caja-undostack-manager.c:1599
 #, c-format
@@ -2689,8 +2692,8 @@ msgstr "Şablondan boş dosya oluşturulmasını _tekrarla"
 #, c-format
 msgid "_Redo creation of %d folder"
 msgid_plural "_Redo creation of %d folders"
-msgstr[0] "%d klasör oluşturulmasını _tekrarla"
-msgstr[1] "%d klasör oluşturulmasını _tekrarla"
+msgstr[0] "%d dizin oluşturulmasını _tekrarla"
+msgstr[1] "%d dizin oluşturulmasını _tekrarla"
 
 #: ../libcaja-private/caja-undostack-manager.c:1694
 #, c-format
@@ -2827,7 +2830,7 @@ msgstr "Metin dosyalarının içeriğinin ne zaman dosya simgesinde önizlemesin
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:15
 msgid "When to show number of items in a folder"
-msgstr "Bir klasördeki öğe sayısının gösterilmesi"
+msgstr "Bir dizindeki öğe sayısının gösterilmesi"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:16
 msgid ""
@@ -2835,7 +2838,7 @@ msgid ""
 "\"always\" then always show item counts, even if the folder is on a remote "
 "server. If set to \"local-only\" then only show counts for local file "
 "systems. If set to \"never\" then never bother to compute item counts."
-msgstr "Klasörlerdeki dosya sayılarının ne zaman gösterileceği. Eğer \"always\" ise dosyalar uzaktaki bir sunucuda olsa bile sayılır. Eğer \"local_only\" ayarlıysa, sadece yerel dosya sistemlerindeki dosyaların miktarı sayılır. \"never\" ayarlıysa hiçbir zaman dosyalar sayılmaz."
+msgstr "Dizinlerdeki dosya sayılarının ne zaman gösterileceği. Eğer \"always\" ise dosyalar uzaktaki bir sunucuda olsa bile sayılır. Eğer \"local_only\" ayarlıysa, sadece yerel dosya sistemlerindeki dosyaların miktarı sayılır. \"never\" ayarlıysa hiçbir zaman dosyalar sayılmaz."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:17
 msgid "Type of click used to launch/open files"
@@ -2949,13 +2952,13 @@ msgstr "Eğer seçiliyse, Caja dosya tercihleri penceresinde unix yoluyla düzen
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:37
 msgid "Show folders first in windows"
-msgstr "Pencere içinde önce klasörleri göster"
+msgstr "Pencere içinde önce dizinleri göster"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:38
 msgid ""
 "If set to true, then Caja shows folders prior to showing files in the icon "
 "and list views."
-msgstr "Eğer seçiliyse, Caja simge ve liste görünümlerinde klasörleri dosyalardan önce gösterir."
+msgstr "Eğer seçiliyse, Caja simge ve liste görünümlerinde dizinleri dosyalardan önce gösterir."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:39
 msgid "Default sort order"
@@ -2981,13 +2984,13 @@ msgstr "Eğer seçiliyse, yeni pencerelerdeki dosyalar ters sırayla dizilecekle
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:43
 msgid "Caja uses the users home folder as the desktop"
-msgstr "Caja'nın kullanıcıların ev klasörlerini masaüstü olarak kullanması"
+msgstr "Caja'nın kullanıcıların ev dizinlerini masaüstü olarak kullanması"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:44
 msgid ""
 "If set to true, then Caja will use the user's home folder as the desktop. If"
 " it is false, then it will use ~/Desktop as the desktop."
-msgstr "Eğer seçiliyse, Caja kullanıcının ev klasörünü masaüstü olarak kullanacak. Eğer seçili değilse, o zaman ~/Desktop masaüstü olacak."
+msgstr "Eğer seçiliyse, Caja kullanıcının ev dizininü masaüstü olarak kullanacak. Eğer seçili değilse, o zaman ~/Desktop masaüstü olacak."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:45
 msgid "Custom Background"
@@ -2995,7 +2998,7 @@ msgstr "Özel Arkaplan"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:46
 msgid "Whether a custom default folder background has been set."
-msgstr "Özel bir öntanımlı klasör arkaplanının ayarlanması."
+msgstr "Özel bir öntanımlı dizin arkaplanının ayarlanması."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:47
 msgid "Default Background Color"
@@ -3005,7 +3008,7 @@ msgstr "Öntanımlı Arkaplan Rengi"
 msgid ""
 "Color for the default folder background. Only used if background_set is "
 "true."
-msgstr "Öntanımlı klasör arkaplanı için renk. Sadece background_set seçiliyse kullanılır."
+msgstr "Öntanımlı dizin arkaplanı için renk. Sadece background_set seçiliyse kullanılır."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:49
 msgid "Default Background Filename"
@@ -3014,7 +3017,7 @@ msgstr "Öntanımlı Arkaplan Dosya Adı"
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:50
 msgid ""
 "Uri of the default folder background. Only used if background_set is true."
-msgstr "Öntanımlı klasör zemini için URI. Sadece background_set seçiliyse kullanılır."
+msgstr "Öntanımlı dizin zemini için URI. Sadece background_set seçiliyse kullanılır."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:51
 msgid "Custom Side Pane Background Set"
@@ -3046,14 +3049,14 @@ msgstr "Öntanımlı yan panel zemini için URI. Sadece side_pane_background_set
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:57
 msgid "Default folder viewer"
-msgstr "Öntanımlı klasör görüntüleyici"
+msgstr "Öntanımlı dizin görüntüleyici"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:58
 msgid ""
 "When a folder is visited this viewer is used unless you have selected "
 "another view for that particular folder. Possible values are \"list-view\", "
 "\"icon-view\" and \"compact-view\"."
-msgstr "Belirli bir klasör için farklı bir görüntüleyici seçmediyseniz, bir klasör ziyaret edildiğinde bu görüntüleyici kullanılacak. Geçerli değerler, \"list_view\", \"icon_view\" ve \"compact_view\"."
+msgstr "Belirli bir dizin için farklı bir görüntüleyici seçmediyseniz, bir dizin ziyaret edildiğinde bu görüntüleyici kullanılacak. Geçerli değerler, \"list_view\", \"icon_view\" ve \"compact_view\"."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:59
 msgid "Date Format"
@@ -3074,7 +3077,7 @@ msgid ""
 "If set to true, then hidden files are shown by default in the file manager. "
 "Hidden files are either dotfiles, listed in the folder's .hidden file or "
 "backup files ending with a tilde (~)."
-msgstr "Eğer true (doğru) olarak ayarlanırsa, gizli dosyalar dosya yöneticisinde öntanımlı olarak gösterilir. Gizli dosyalar ya klasörün .hidden dosyasında listelenen nokta dosyalar ya da bir uzatma işareti (~) ile biten yedek dosyalarıdır."
+msgstr "Eğer true (doğru) olarak ayarlanırsa, gizli dosyalar dosya yöneticisinde öntanımlı olarak gösterilir. Gizli dosyalar ya dizinin .hidden dosyasında listelenen nokta dosyalar ya da bir uzatma işareti (~) ile biten yedek dosyalarıdır."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:63
 msgid "Whether to show file sizes with IEC units"
@@ -3199,13 +3202,13 @@ msgstr "Liste görünümünde öntanımlı sütun sırası."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:88
 msgid "Only show folders in the tree side pane"
-msgstr "Ağaç kenar panelinde sadece klasörleri göster"
+msgstr "Ağaç kenar panelinde sadece dizinleri göster"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:89
 msgid ""
 "If set to true, Caja will only show folders in the tree side pane. Otherwise"
 " it will show both folders and files."
-msgstr "Eğer seçiliyse, Caja klasörleri sadece ağaç yan panelinde gösterir. Aksi halde hem klasörleri hem de dosyaları gösterir."
+msgstr "Eğer seçiliyse, Caja dizinleri sadece ağaç yan panelinde gösterir. Aksi halde hem dizinleri hem de dosyaları gösterir."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:90
 msgid "Desktop font"
@@ -3223,7 +3226,7 @@ msgstr "Ev simgesi masaüstünde görünür"
 msgid ""
 "If this is set to true, an icon linking to the home folder will be put on "
 "the desktop."
-msgstr "Eğer bu seçiliyse, ev klasörüne olan simge bağı masaüstüne konacak."
+msgstr "Eğer bu seçiliyse, ev dizinine olan simge bağı masaüstüne konacak."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:94
 msgid "Computer icon visible on desktop"
@@ -3392,7 +3395,7 @@ msgstr "Eğer seçiliyse, Caja kullanıcının görebileceği sabit diskleri ve 
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.in.h:3
 msgid "Whether to automatically open a folder for automounted media"
-msgstr "Kendiliğinden bağlanan ortam için bir klasörün kendiliğinden açılması"
+msgstr "Kendiliğinden bağlanan ortam için bir dizinin kendiliğinden açılması"
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.in.h:4
 msgid ""
@@ -3400,7 +3403,7 @@ msgid ""
 "automounted. This only applies to media where no known x-content/* type was "
 "detected; for media where a known x-content type is detected, the user "
 "configurable action will be taken instead."
-msgstr "Eğer seçiliyse, Caja ortam kendiliğinden bağlandığında bir klasörü kendiliğinden açacak. Bu sadece hiçbir bilinen x-content/* türü tespit edilmediğinde uygulanır; bilinen x-content türü tespit edildiğinde kullanıcı tarafından yapılandırılabilen eylem gerçekleştirilir."
+msgstr "Eğer seçiliyse, Caja ortam kendiliğinden bağlandığında bir dizini kendiliğinden açacak. Bu sadece hiçbir bilinen x-content/* türü tespit edilmediğinde uygulanır; bilinen x-content türü tespit edildiğinde kullanıcı tarafından yapılandırılabilen eylem gerçekleştirilir."
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.in.h:5
 msgid "Never prompt or autorun/autostart programs when media are inserted"
@@ -3437,14 +3440,14 @@ msgstr "Tercih yapılandırma uygulamasında \"Hiçbir Şey Yapma\" seçili x-co
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.in.h:11
 msgid "List of x-content/* types set to \"Open Folder\""
-msgstr "\"Klasör Aç\" olarak atanan x-content/* türlerinin listesi"
+msgstr "\"Dizin Aç\" olarak atanan x-content/* türlerinin listesi"
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.in.h:12
 msgid ""
 "List of x-content/* types for which the user have chosen \"Open Folder\" in "
 "the preferences capplet. A folder window will be opened on insertion of "
 "media matching these types."
-msgstr "Tercih yapılandırma uygulamasında \"Klasör Aç\" seçili x-content/* türlerinin listesi. Bu türlerle eşleşen ortam takıldığında bir klasör penceresi açılacak."
+msgstr "Tercih yapılandırma uygulamasında \"Dizin Aç\" seçili x-content/* türlerinin listesi. Bu türlerle eşleşen ortam takıldığında bir dizin penceresi açılacak."
 
 #: ../data/caja-autorun-software.desktop.in.in.h:1
 msgid "Autorun Prompt"
@@ -3470,7 +3473,7 @@ msgstr "Dosya yöneticisi ile dosya sistemine gözat"
 #: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:923
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
-msgstr "Bu bilgisayardan tüm yerel ve uzaktaki disklere ve klasörlere göz atın"
+msgstr "Bu bilgisayardan tüm yerel ve uzaktaki disklere ve dizinlere göz atın"
 
 #: ../data/caja-file-management-properties.desktop.in.in.h:1
 msgid "File Management"
@@ -3482,13 +3485,13 @@ msgstr "Dosya yönetici pencerelerinin işleyişini ve görünümünü değişti
 
 #: ../data/caja-home.desktop.in.in.h:1 ../src/file-manager/fm-tree-view.c:1423
 msgid "Home Folder"
-msgstr "Ev Klasörü"
+msgstr "Ev Dizini"
 
 #. tooltip
 #: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:690
 #: ../src/caja-window-menus.c:918
 msgid "Open your personal folder"
-msgstr "Kişisel klasörünü aç"
+msgstr "Kişisel dizininü aç"
 
 #: ../data/caja.desktop.in.in.h:2
 msgid "File Manager"
@@ -3592,11 +3595,11 @@ msgstr "Arama _adı:"
 
 #: ../src/file-manager/fm-directory-view.c:1364
 msgid "_Folder:"
-msgstr "_Klasör:"
+msgstr "_Dizin:"
 
 #: ../src/file-manager/fm-directory-view.c:1369
 msgid "Select Folder to Save Search In"
-msgstr "Aramanın Kaydedileceği Klasörü Seçin"
+msgstr "Aramanın Kaydedileceği Dizini Seçin"
 
 #: ../src/file-manager/fm-directory-view.c:2273
 #: ../src/file-manager/fm-directory-view.c:2310
@@ -3608,8 +3611,8 @@ msgstr "\"%s\" seçildi"
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
-msgstr[0] "%'d klasör seçildi"
-msgstr[1] "%'d klasör seçildi"
+msgstr[0] "%'d dizin seçildi"
+msgstr[1] "%'d dizin seçildi"
 
 #: ../src/file-manager/fm-directory-view.c:2285
 #, c-format
@@ -3731,7 +3734,7 @@ msgstr "\"%s\" şablonundan Belge oluştur"
 
 #: ../src/file-manager/fm-directory-view.c:5924
 msgid "All executable files in this folder will appear in the Scripts menu."
-msgstr "Bu klasördeki tüm çalıştırılabilir dosyalar Betikler menüsünde görünecek."
+msgstr "Bu dizindeki tüm çalıştırılabilir dosyalar Betikler menüsünde görünecek."
 
 #: ../src/file-manager/fm-directory-view.c:5926
 msgid ""
@@ -3760,7 +3763,7 @@ msgid ""
 "CAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: newline-delimited URIs for selected files in the inactive pane of a split-view window\n"
 "\n"
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI for current location in the inactive pane of a split-view window"
-msgstr "Bu klasördeki tüm çalıştırılabilir dosyalar Betikler menüsünde ortaya çıkacak. Menüden bir betik seçimi onu çalıştırır.\n\nYerel bir klasörden çalıştırıldığında, betikler seçili dosya adlarını alacak. Uzak bir klasörden (örn, web veya ftp içerikli bir klasörden) çalıştırıldığında, betikler parametresiz olarak geçilecek.\n\nBütün durumlarda, aşağıdaki ortam değişkenleri Caja tarafından ayarlanır. Bu betikler şunlardır:\n\nCAJA_SCRIPT_SELECTED_FILE_PATHS: seçili dosyalar için yeni satır ile sınırlanan yollar (sadece yerelse)\n\nCAJA_SCRIPT_SELECTED_URIS: seçili dosyalar için yeni satır ile sınırlanan URI'ler\n\nCAJA_SCRIPT_CURRENT_URI: mevcut yerleşim için URI\n\nCAJA_SCRIPT_WINDOW_GEOMETRY: mevcut pencerenin konumu ve boyutu\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_FILE_PATHS: bir bölme gösterim penceresinin aktif olmayan kısmındaki seçili dosyalar için yeni satırla sınırlanan yollar (sadece yerelse)\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: bir bölme gösterim penceresinin aktif olmayan kısmındaki seçili dosyalar için yeni satırla sınırlanan URI'ler\n\nCAJA_SCRIPT_NEXT_PANE_CURRENT_URI: bir bölme gösterim penceresinin aktif olmayan kısmındaki mevcut yerleşim için URI"
+msgstr "Bu dizindeki tüm çalıştırılabilir dosyalar Betikler menüsünde ortaya çıkacak. Menüden bir betik seçimi onu çalıştırır.\n\nYerel bir dizinden çalıştırıldığında, betikler seçili dosya adlarını alacak. Uzak bir dizinden (örn, web veya ftp içerikli bir dizinden) çalıştırıldığında, betikler parametresiz olarak geçilecek.\n\nBütün durumlarda, aşağıdaki ortam değişkenleri Caja tarafından ayarlanır. Bu betikler şunlardır:\n\nCAJA_SCRIPT_SELECTED_FILE_PATHS: seçili dosyalar için yeni satır ile sınırlanan yollar (sadece yerelse)\n\nCAJA_SCRIPT_SELECTED_URIS: seçili dosyalar için yeni satır ile sınırlanan URI'ler\n\nCAJA_SCRIPT_CURRENT_URI: mevcut yerleşim için URI\n\nCAJA_SCRIPT_WINDOW_GEOMETRY: mevcut pencerenin konumu ve boyutu\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_FILE_PATHS: bir bölme gösterim penceresinin aktif olmayan kısmındaki seçili dosyalar için yeni satırla sınırlanan yollar (sadece yerelse)\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: bir bölme gösterim penceresinin aktif olmayan kısmındaki seçili dosyalar için yeni satırla sınırlanan URI'ler\n\nCAJA_SCRIPT_NEXT_PANE_CURRENT_URI: bir bölme gösterim penceresinin aktif olmayan kısmındaki mevcut yerleşim için URI"
 
 #: ../src/file-manager/fm-directory-view.c:5996
 #: ../src/file-manager/fm-tree-view.c:998
@@ -3856,12 +3859,12 @@ msgstr "Seçili her öğenin özelliklerini göster ya da değiştir"
 #: ../src/file-manager/fm-directory-view.c:7272
 #: ../src/file-manager/fm-tree-view.c:1287
 msgid "Create _Folder"
-msgstr "_Klasör Oluştur"
+msgstr "_Dizin Oluştur"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7273
 msgid "Create a new empty folder inside this folder"
-msgstr "Bu klasör içinde boş bir klasör oluştur"
+msgstr "Bu dizin içinde boş bir dizin oluştur"
 
 #. name, stock id, label
 #: ../src/file-manager/fm-directory-view.c:7275
@@ -3878,7 +3881,7 @@ msgstr "_Boş Dosya"
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7279
 msgid "Create a new empty file inside this folder"
-msgstr "Bu klasör içinde boş bir dosya oluştur"
+msgstr "Bu dizin içinde boş bir dosya oluştur"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7287
@@ -3921,12 +3924,12 @@ msgstr "Her seçili öğeyi yeni bir sekmede aç"
 #: ../src/file-manager/fm-directory-view.c:7302
 #: ../src/file-manager/fm-directory-view.c:7484
 msgid "Open in _Folder Window"
-msgstr "_Klasör Penceresinde Aç"
+msgstr "_Dizin Penceresinde Aç"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7303
 msgid "Open each selected item in a folder window"
-msgstr "Her seçili öğeyi bir klasör penceresinde aç"
+msgstr "Her seçili öğeyi bir dizin penceresinde aç"
 
 #. name, stock id
 #. label, accelerator
@@ -3950,12 +3953,12 @@ msgstr "Farklı _Uygulama ile Aç...."
 #. label, accelerator
 #: ../src/file-manager/fm-directory-view.c:7314
 msgid "_Open Scripts Folder"
-msgstr "_Betikler Klasörünü Aç"
+msgstr "_Betikler Dizinini Aç"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7315
 msgid "Show the folder containing the scripts that appear in this menu"
-msgstr "Bu menüde görüntülenen betikleri içeren klasörü göster"
+msgstr "Bu menüde görüntülenen betikleri içeren dizini göster"
 
 #. name, stock id
 #. label, accelerator
@@ -3986,14 +3989,14 @@ msgstr "Daha önce Kes ya da Kopyala komutu yardımıyla seçilen dosyaları ta�
 #: ../src/file-manager/fm-directory-view.c:7497
 #: ../src/file-manager/fm-tree-view.c:1319
 msgid "_Paste Into Folder"
-msgstr "_Klasörün İçine Yapıştır"
+msgstr "_Dizinin İçine Yapıştır"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7337
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into the "
 "selected folder"
-msgstr "Daha önce Kes ya da Kopyala komutu yardımıyla seçilen dosyaları seçilen klasöre taşı ya da kopyala"
+msgstr "Daha önce Kes ya da Kopyala komutu yardımıyla seçilen dosyaları seçilen dizine taşı ya da kopyala"
 
 #. name, stock id, label
 #: ../src/file-manager/fm-directory-view.c:7339
@@ -4242,32 +4245,32 @@ msgstr "Seçilen sürücüdeki ortamı tanı"
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7434
 msgid "Mount the volume associated with the open folder"
-msgstr "Açık olan klasör ile ilişkili birimi bağla"
+msgstr "Açık olan dizin ile ilişkili birimi bağla"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7438
 msgid "Unmount the volume associated with the open folder"
-msgstr "Açık olan klasör ile ilişkili birimin bağını kaldır"
+msgstr "Açık olan dizin ile ilişkili birimin bağını kaldır"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7442
 msgid "Eject the volume associated with the open folder"
-msgstr "Açılı klasör ile ilişkili birimi çıkart"
+msgstr "Açılı dizin ile ilişkili birimi çıkart"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7446
 msgid "Format the volume associated with the open folder"
-msgstr "Açık klasör ile ilişkili birimi biçimlendir"
+msgstr "Açık dizin ile ilişkili birimi biçimlendir"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7450
 msgid "Start the volume associated with the open folder"
-msgstr "Açık klasör ile ilişkili birimi başlat"
+msgstr "Açık dizin ile ilişkili birimi başlat"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7454
 msgid "Stop the volume associated with the open folder"
-msgstr "Açık olan klasör ile ilişkili birimi durdur"
+msgstr "Açık olan dizin ile ilişkili birimi durdur"
 
 #. name, stock id
 #. label, accelerator
@@ -4300,83 +4303,83 @@ msgstr "Mevcut aramayı dosya olarak kaydet"
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7476
 msgid "Open this folder in a navigation window"
-msgstr "Bu klasörü bir seyir penceresinde aç"
+msgstr "Bu dizini bir seyir penceresinde aç"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7480
 msgid "Open this folder in a new tab"
-msgstr "Bu klasörü yeni bir sekmede aç"
+msgstr "Bu dizini yeni bir sekmede aç"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7485
 msgid "Open this folder in a folder window"
-msgstr "Bu klasörü bir klasör penceresinde aç"
+msgstr "Bu dizini bir dizin penceresinde aç"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7490
 msgid "Prepare this folder to be moved with a Paste command"
-msgstr "Bu klasörü Yapıştır konumuyla taşınacak şekilde hazırla"
+msgstr "Bu dizini Yapıştır konumuyla taşınacak şekilde hazırla"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7494
 msgid "Prepare this folder to be copied with a Paste command"
-msgstr "Bu klasörü Yapıştır konumuyla kopyalanacak şekilde hazırla"
+msgstr "Bu dizini Yapıştır konumuyla kopyalanacak şekilde hazırla"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7498
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into this "
 "folder"
-msgstr "Daha önce Kes ya da Kopyala komutu yardımıyla seçilen dosyaları bu klasöre taşı ya da kopyala"
+msgstr "Daha önce Kes ya da Kopyala komutu yardımıyla seçilen dosyaları bu dizine taşı ya da kopyala"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7503
 msgid "Move this folder to the Trash"
-msgstr "Bu klasörü Çöp'e taşı"
+msgstr "Bu dizini Çöp'e taşı"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7507
 msgid "Delete this folder, without moving to the Trash"
-msgstr "Bu klasörü Çöp'e taşımadan sil"
+msgstr "Bu dizini Çöp'e taşımadan sil"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7515
 msgid "Mount the volume associated with this folder"
-msgstr "Bu klasörle ilişkili birimi bağla"
+msgstr "Bu dizinle ilişkili birimi bağla"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7519
 msgid "Unmount the volume associated with this folder"
-msgstr "Bu klasör ile ilişkili birimin bağını kaldır"
+msgstr "Bu dizin ile ilişkili birimin bağını kaldır"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7523
 msgid "Eject the volume associated with this folder"
-msgstr "Bu klasör ile ilişkili birimi çıkart"
+msgstr "Bu dizin ile ilişkili birimi çıkart"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7527
 msgid "Format the volume associated with this folder"
-msgstr "Bu klasör ile ilişkili birimi biçimlendir"
+msgstr "Bu dizin ile ilişkili birimi biçimlendir"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7531
 msgid "Start the volume associated with this folder"
-msgstr "Bu klasör ile ilişkili birimi başlat"
+msgstr "Bu dizin ile ilişkili birimi başlat"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7535
 msgid "Stop the volume associated with this folder"
-msgstr "Bu klasörle ilişkili birimi durdur"
+msgstr "Bu dizinle ilişkili birimi durdur"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7544
 msgid "View or modify the properties of this folder"
-msgstr "Bu klasörün özelliklerini görüntüle ya da değiştir"
+msgstr "Bu dizinin özelliklerini görüntüle ya da değiştir"
 
 #. name, stock id, label
 #: ../src/file-manager/fm-directory-view.c:7547
@@ -4398,15 +4401,15 @@ msgstr "Güncel seçimi penceredeki diğer panele taşı"
 #: ../src/file-manager/fm-directory-view.c:7554
 #: ../src/file-manager/fm-directory-view.c:7558 ../src/caja-window-menus.c:917
 msgid "_Home Folder"
-msgstr "_Başlangıç Klasörü"
+msgstr "_Ev Dizini"
 
 #: ../src/file-manager/fm-directory-view.c:7555
 msgid "Copy the current selection to the home folder"
-msgstr "Güncel seçimi ev klasörüne kopyala"
+msgstr "Güncel seçimi ev dizinine kopyala"
 
 #: ../src/file-manager/fm-directory-view.c:7559
 msgid "Move the current selection to the home folder"
-msgstr "Güncel seçimi ev klasörüne taşı"
+msgstr "Güncel seçimi ev dizinine taşı"
 
 #. name, stock id, label
 #: ../src/file-manager/fm-directory-view.c:7562
@@ -4436,21 +4439,21 @@ msgstr "_Betikler"
 #: ../src/file-manager/fm-directory-view.c:8055
 #, c-format
 msgid "Move the open folder out of the trash to \"%s\""
-msgstr "Açık olan klasörü çöpün dışındaki \"%s\" konumuna taşı"
+msgstr "Açık olan dizini çöpün dışındaki \"%s\" konumuna taşı"
 
 #: ../src/file-manager/fm-directory-view.c:8058
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
-msgstr[0] "Tüm seçili klasörleri çöpün dışındaki \"%s\" konumuna taşı"
-msgstr[1] "Tüm seçili klasörleri çöpün dışındaki \"%s\" konumuna taşı"
+msgstr[0] "Tüm seçili dizinleri çöpün dışındaki \"%s\" konumuna taşı"
+msgstr[1] "Tüm seçili dizinleri çöpün dışındaki \"%s\" konumuna taşı"
 
 #: ../src/file-manager/fm-directory-view.c:8062
 #, c-format
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
-msgstr[0] "Tüm seçili klasörleri çöpün dışına taşı"
-msgstr[1] "Tüm seçili klasörleri çöpün dışına taşı"
+msgstr[0] "Tüm seçili dizinleri çöpün dışına taşı"
+msgstr[1] "Tüm seçili dizinleri çöpün dışına taşı"
 
 #: ../src/file-manager/fm-directory-view.c:8068
 #, c-format
@@ -4565,15 +4568,15 @@ msgstr "Seçilen sürücüyü kilitle"
 #: ../src/file-manager/fm-directory-view.c:8300
 #: ../src/file-manager/fm-directory-view.c:8304
 msgid "Start the drive associated with the open folder"
-msgstr "Açık klasör ile ilişkili sürücüyü başlat"
+msgstr "Açık dizin ile ilişkili sürücüyü başlat"
 
 #: ../src/file-manager/fm-directory-view.c:8308
 msgid "Connect to the drive associated with the open folder"
-msgstr "Açık olan klasör ile ilişkili sürücüye bağlan"
+msgstr "Açık olan dizin ile ilişkili sürücüye bağlan"
 
 #: ../src/file-manager/fm-directory-view.c:8312
 msgid "Start the multi-disk drive associated with the open folder"
-msgstr "Açık klasör ile ilişkili çoklu disk sürücünü başlat"
+msgstr "Açık dizin ile ilişkili çoklu disk sürücünü başlat"
 
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
 #: ../src/file-manager/fm-directory-view.c:8315
@@ -4584,27 +4587,27 @@ msgstr "_Sürücü Kilidini Kaldır"
 
 #: ../src/file-manager/fm-directory-view.c:8316
 msgid "Unlock the drive associated with the open folder"
-msgstr "Açık olan klasör ile ilişkili sürücünün kilidini kaldır"
+msgstr "Açık olan dizin ile ilişkili sürücünün kilidini kaldır"
 
 #: ../src/file-manager/fm-directory-view.c:8329
 msgid "_Stop the drive associated with the open folder"
-msgstr "Açık olan klasör ile ilişkili sürücüyü _durdur"
+msgstr "Açık olan dizin ile ilişkili sürücüyü _durdur"
 
 #: ../src/file-manager/fm-directory-view.c:8333
 msgid "Safely remove the drive associated with the open folder"
-msgstr "Açık klasör ile ilişkili sürücüyü güvenle kaldır"
+msgstr "Açık dizin ile ilişkili sürücüyü güvenle kaldır"
 
 #: ../src/file-manager/fm-directory-view.c:8337
 msgid "Disconnect the drive associated with the open folder"
-msgstr "Açık olan klasör ile ilişkili sürücünün bağlantısını kes"
+msgstr "Açık olan dizin ile ilişkili sürücünün bağlantısını kes"
 
 #: ../src/file-manager/fm-directory-view.c:8341
 msgid "Stop the multi-disk drive associated with the open folder"
-msgstr "Açık olan klasör ile ilişkili çoklu disk sürücüsünü durdur"
+msgstr "Açık olan dizin ile ilişkili çoklu disk sürücüsünü durdur"
 
 #: ../src/file-manager/fm-directory-view.c:8345
 msgid "Lock the drive associated with the open folder"
-msgstr "Açık olan klasör ile ilişkili sürücüyü kilitle"
+msgstr "Açık olan dizin ile ilişkili sürücüyü kilitle"
 
 #. add the "open in new window" menu item
 #: ../src/file-manager/fm-directory-view.c:8524
@@ -4622,8 +4625,8 @@ msgstr "_Yeni Pencerede Göz At"
 #: ../src/file-manager/fm-directory-view.c:8853
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
-msgstr[0] "_Klasöre Gözat"
-msgstr[1] "_Klasöre Gözat"
+msgstr[0] "_Dizine Gözat"
+msgstr[1] "_Dizine Gözat"
 
 #: ../src/file-manager/fm-directory-view.c:8549
 #: ../src/file-manager/fm-directory-view.c:8882
@@ -4637,11 +4640,11 @@ msgstr "_Kalıcı Olarak Sil"
 
 #: ../src/file-manager/fm-directory-view.c:8599
 msgid "Delete the open folder permanently"
-msgstr "Açık olan klasörü kalıcı olarak sil"
+msgstr "Açık olan dizini kalıcı olarak sil"
 
 #: ../src/file-manager/fm-directory-view.c:8603
 msgid "Move the open folder to the Trash"
-msgstr "Açık olan klasörü Çöp'e taşı"
+msgstr "Açık olan dizini Çöp'e taşı"
 
 #: ../src/file-manager/fm-directory-view.c:8783
 #, c-format
@@ -4682,7 +4685,7 @@ msgstr "Seçili öğeleri kalıcı olarak sil"
 
 #: ../src/file-manager/fm-directory-view.c:8981
 msgid "View or modify the properties of the open folder"
-msgstr "Açık olan klasörün özelliklerini göster ya da değiştir"
+msgstr "Açık olan dizinin özelliklerini göster ya da değiştir"
 
 #: ../src/file-manager/fm-directory-view.c:10305
 msgid "Download location?"
@@ -4772,18 +4775,18 @@ msgstr "Üzgünüm, \"%s\" dosyasının bütün içeriği gösterilemiyor: %s"
 
 #: ../src/file-manager/fm-error-reporting.c:86
 msgid "The folder contents could not be displayed."
-msgstr "Klasör içeriği gösterilemiyor."
+msgstr "Dizin içeriği gösterilemiyor."
 
 #: ../src/file-manager/fm-error-reporting.c:117
 #, c-format
 msgid ""
 "The name \"%s\" is already used in this folder. Please use a different name."
-msgstr "\"%s\" adı bu klasörde zaten kullanılıyor. Lütfen başka bir isim kullanın."
+msgstr "\"%s\" adı bu dizinde zaten kullanılıyor. Lütfen başka bir isim kullanın."
 
 #: ../src/file-manager/fm-error-reporting.c:122
 #, c-format
 msgid "There is no \"%s\" in this folder. Perhaps it was just moved or deleted?"
-msgstr "Bu klasörde \"%s\" bulunamadı. Silinmiş, ya da taşınmış olabilir mi?"
+msgstr "Bu dizinde \"%s\" bulunamadı. Silinmiş, ya da taşınmış olabilir mi?"
 
 #: ../src/file-manager/fm-error-reporting.c:127
 #, c-format
@@ -5095,7 +5098,7 @@ msgstr "%s Görünen Sütunları"
 
 #: ../src/file-manager/fm-list-view.c:2535
 msgid "Choose the order of information to appear in this folder:"
-msgstr "Bu klasörde görünecek bilgi sırasını seçin:"
+msgstr "Bu dizinde görünecek bilgi sırasını seçin:"
 
 #. name, stock id
 #. label, accelerator
@@ -5106,7 +5109,7 @@ msgstr "Gösterilecek _Sütunlar..."
 #. tooltip
 #: ../src/file-manager/fm-list-view.c:2594
 msgid "Select the columns visible in this folder"
-msgstr "Bu klasör için gösterilecek sütunları seçin"
+msgstr "Bu dizin için gösterilecek sütunları seçin"
 
 #. translators: this is used in the view menu
 #: ../src/file-manager/fm-list-view.c:3438
@@ -5306,7 +5309,7 @@ msgstr "Erişim:"
 
 #: ../src/file-manager/fm-properties-window.c:4275
 msgid "Folder access:"
-msgstr "Klasör erişimi:"
+msgstr "Dizin erişimi:"
 
 #: ../src/file-manager/fm-properties-window.c:4277
 msgid "File access:"
@@ -5397,7 +5400,7 @@ msgstr "Diğerleri:"
 
 #: ../src/file-manager/fm-properties-window.c:4719
 msgid "Folder Permissions:"
-msgstr "Klasör İzinleri:"
+msgstr "Dizin İzinleri:"
 
 #: ../src/file-manager/fm-properties-window.c:4732
 msgid "File Permissions:"
@@ -5459,24 +5462,24 @@ msgstr "Ağacı Göster"
 #: ../src/caja-application.c:434
 #, c-format
 msgid "Caja could not create the required folder \"%s\"."
-msgstr "Caja gerekli \"%s\" klasörünü oluşturamadı."
+msgstr "Caja gerekli \"%s\" dizininü oluşturamadı."
 
 #: ../src/caja-application.c:436
 msgid ""
 "Before running Caja, please create the following folder, or set permissions "
 "such that Caja can create it."
-msgstr "Caja'yı çalıştırmadan önce, lütfen aşağıdaki klasörü oluşturun, ya da Caja'nın oluşturabileceği şekilde erişim haklarını ayarlayın."
+msgstr "Caja'yı çalıştırmadan önce, lütfen aşağıdaki dizini oluşturun, ya da Caja'nın oluşturabileceği şekilde erişim haklarını ayarlayın."
 
 #: ../src/caja-application.c:441
 #, c-format
 msgid "Caja could not create the following required folders: %s."
-msgstr "Caja aşağıdaki gereken klasörleri oluşturamadı: %s."
+msgstr "Caja aşağıdaki gereken dizinleri oluşturamadı: %s."
 
 #: ../src/caja-application.c:443
 msgid ""
 "Before running Caja, please create these folders, or set permissions such "
 "that Caja can create them."
-msgstr "Caja'yı çalıştırmadan önce, lütfen aşağıdaki klasörü oluşturun, ya da Caja'nın oluşturabileceği şekilde erişim haklarını ayarlayın."
+msgstr "Caja'yı çalıştırmadan önce, lütfen aşağıdaki dizini oluşturun, ya da Caja'nın oluşturabileceği şekilde erişim haklarını ayarlayın."
 
 #: ../src/caja-application.c:1660 ../src/caja-places-sidebar.c:2200
 #: ../src/caja-places-sidebar.c:2231 ../src/caja-places-sidebar.c:2262
@@ -5587,7 +5590,7 @@ msgstr "Desteklenen sunucu yöntem listesi yüklenemiyor.\nLütfen GVfs kurulumu
 #: ../src/caja-connect-server-dialog.c:295
 #, c-format
 msgid "The folder \"%s\" cannot be opened on \"%s\"."
-msgstr "\"%s\" klasörü \"%s\" konumunda açılamadı."
+msgstr "\"%s\" dizini \"%s\" konumunda açılamadı."
 
 #: ../src/caja-connect-server-dialog.c:305
 #, c-format
@@ -5638,7 +5641,7 @@ msgstr "Paylaşım:"
 #. fourth row: folder entry
 #: ../src/caja-connect-server-dialog.c:1025
 msgid "Folder:"
-msgstr "Klasör:"
+msgstr "Dizin:"
 
 #: ../src/caja-connect-server-dialog.c:1043
 msgid "User Details"
@@ -5879,7 +5882,7 @@ msgstr "<b>Öntanımlı Görünüm</b>"
 
 #: ../src/caja-file-management-properties.ui.h:41
 msgid "View _new folders using:"
-msgstr "_Yeni klasörleri bunu kullanarak görüntüle:"
+msgstr "_Yeni dizinleri bunu kullanarak görüntüle:"
 
 #: ../src/caja-file-management-properties.ui.h:42
 msgid "_Arrange items:"
@@ -5887,7 +5890,7 @@ msgstr "Öğ_eleri düzenle:"
 
 #: ../src/caja-file-management-properties.ui.h:43
 msgid "Sort _folders before files"
-msgstr "_Klasörleri dosyalardan önce sırala"
+msgstr "_Dizinleri dosyalardan önce sırala"
 
 #: ../src/caja-file-management-properties.ui.h:44
 msgid "Show hidden and _backup files"
@@ -5935,7 +5938,7 @@ msgstr "<b>Öntanımlı Ağaç Görünümü</b>"
 
 #: ../src/caja-file-management-properties.ui.h:55
 msgid "Show _only folders"
-msgstr "_Sadece klasörleri göster"
+msgstr "_Sadece dizinleri göster"
 
 #: ../src/caja-file-management-properties.ui.h:56
 msgid "Views"
@@ -5955,7 +5958,7 @@ msgstr "Öğ_eleri açmak için çift tıklayın"
 
 #: ../src/caja-file-management-properties.ui.h:60
 msgid "Open each _folder in its own window"
-msgstr "Her _klasörü kendi penceresinde aç"
+msgstr "Her _dizini kendi penceresinde aç"
 
 #: ../src/caja-file-management-properties.ui.h:61
 msgid "<b>Executable Text Files</b>"
@@ -6053,7 +6056,7 @@ msgstr "_Ses dosyaları önizleme:"
 
 #: ../src/caja-file-management-properties.ui.h:84
 msgid "<b>Folders</b>"
-msgstr "<b>Klasörler</b>"
+msgstr "<b>Dizinler</b>"
 
 #: ../src/caja-file-management-properties.ui.h:85
 msgid "Count _number of items:"
@@ -6382,11 +6385,11 @@ msgstr "Gösterilen konum için başka bir sekme aç"
 #. name, stock id, label
 #: ../src/caja-navigation-window-menus.c:832
 msgid "Open Folder W_indow"
-msgstr "_Pencere Klasörü Aç"
+msgstr "_Pencere Dizini Aç"
 
 #: ../src/caja-navigation-window-menus.c:833
 msgid "Open a folder window for the displayed location"
-msgstr "Gösterilen konum için bir klasör penceresi aç"
+msgstr "Gösterilen konum için bir dizin penceresi aç"
 
 #. name, stock id, label
 #: ../src/caja-navigation-window-menus.c:836
@@ -6548,7 +6551,7 @@ msgstr "_Dosyalar için ara..."
 #. tooltip
 #: ../src/caja-navigation-window-menus.c:920
 msgid "Search documents and folders by name"
-msgstr "Belgeleri ve klasörleri isme göre arayın"
+msgstr "Belgeleri ve dizinleri isme göre arayın"
 
 #. label, accelerator
 #: ../src/caja-navigation-window-menus.c:926
@@ -6558,7 +6561,7 @@ msgstr "İlâve Pan_el"
 #. tooltip
 #: ../src/caja-navigation-window-menus.c:927
 msgid "Open an extra folder view side-by-side"
-msgstr "Yan yana ek bir klasör görünümü aç"
+msgstr "Yan yana ek bir dizin görünümü aç"
 
 #: ../src/caja-navigation-window-menus.c:953
 msgid "_Back"
@@ -6640,7 +6643,7 @@ msgstr "%s'i bağla ve aç"
 
 #: ../src/caja-places-sidebar.c:706
 msgid "Open the contents of your desktop in a folder"
-msgstr "Masaüstünüzün içeriklerini bir klasörde aç"
+msgstr "Masaüstünüzün içeriklerini bir dizinde aç"
 
 #: ../src/caja-places-sidebar.c:721
 msgid "Open the contents of the File System"
@@ -6882,7 +6885,7 @@ msgstr "Dosya Türü"
 
 #: ../src/caja-query-editor.c:279
 msgid "Select folder to search in"
-msgstr "Arama yapılacak klasörü seçin"
+msgstr "Arama yapılacak dizini seçin"
 
 #: ../src/caja-query-editor.c:375
 msgid "Documents"
@@ -6938,7 +6941,7 @@ msgstr "Aramadan bu kıstası kaldır"
 
 #: ../src/caja-query-editor.c:1042
 msgid "Search Folder"
-msgstr "Arama Klasörü"
+msgstr "Arama Dizini"
 
 #: ../src/caja-query-editor.c:1048
 msgid "Edit"
@@ -6993,24 +6996,24 @@ msgstr "_Adres Aç..."
 #. name, stock id, label
 #: ../src/caja-spatial-window.c:955
 msgid "Close P_arent Folders"
-msgstr "_Üst Klasörleri Kapat"
+msgstr "_Üst Dizinleri Kapat"
 
 #: ../src/caja-spatial-window.c:956
 msgid "Close this folder's parents"
-msgstr "Klasörün üst klasörlerini kapat"
+msgstr "Dizinin üst dizinlerini kapat"
 
 #. name, stock id, label
 #: ../src/caja-spatial-window.c:960
 msgid "Clos_e All Folders"
-msgstr "_Tüm Klasörleri Kapat"
+msgstr "_Tüm Dizinleri Kapat"
 
 #: ../src/caja-spatial-window.c:961
 msgid "Close all folder windows"
-msgstr "Tüm klasör pencerelerini kapat"
+msgstr "Tüm dizin pencerelerini kapat"
 
 #: ../src/caja-spatial-window.c:973
 msgid "Locate documents and folders on this computer by name or content"
-msgstr "Bu bilgisayardaki belgeleri ve klasörleri ismi ya da içeriği ile konumlandırın"
+msgstr "Bu bilgisayardaki belgeleri ve dizinleri ismi ya da içeriği ile konumlandırın"
 
 #: ../src/caja-trash-bar.c:210
 msgid "Restore Selected Items"
@@ -7044,15 +7047,15 @@ msgstr "İçerik Görünümü"
 
 #: ../src/caja-window-manage-views.c:1423
 msgid "View of the current folder"
-msgstr "Mevcut klasörün görünümü"
+msgstr "Mevcut dizinin görünümü"
 
 #: ../src/caja-window-manage-views.c:2114
 msgid "Caja has no installed viewer capable of displaying the folder."
-msgstr "Caja'ya klasörü gösterebilecek yetenekte bir görüntüleyici kurulmamış."
+msgstr "Caja'ya dizini gösterebilecek yetenekte bir görüntüleyici kurulmamış."
 
 #: ../src/caja-window-manage-views.c:2122
 msgid "The location is not a folder."
-msgstr "Konum bir klasör değil."
+msgstr "Konum bir dizin değil."
 
 #: ../src/caja-window-manage-views.c:2131
 #, c-format
@@ -7131,7 +7134,7 @@ msgstr "GNU Genel Kamu Lisansını Caja ile birlikte almış olmalısınız, eğ
 #: ../src/caja-window-menus.c:534
 msgid ""
 "Caja lets you organize files and folders, both on your computer and online."
-msgstr "Caja, bilgisayarınızdaki ve çevrimiçindeki dosyalarınızı ve klasörlerinizi düzenlemenizi sağlar."
+msgstr "Caja, bilgisayarınızdaki ve çevrimiçindeki dosyalarınızı ve dizinlerinizi düzenlemenizi sağlar."
 
 #: ../src/caja-window-menus.c:537
 msgid ""
@@ -7179,7 +7182,7 @@ msgstr "_Kapat"
 #. tooltip
 #: ../src/caja-window-menus.c:838
 msgid "Close this folder"
-msgstr "Bu klasörü kapat"
+msgstr "Bu dizini kapat"
 
 #: ../src/caja-window-menus.c:843
 msgid "_Backgrounds and Emblems..."
@@ -7202,11 +7205,11 @@ msgstr "Caja tercihlerini düzenle"
 #. name, stock id, label
 #: ../src/caja-window-menus.c:853
 msgid "Open _Parent"
-msgstr "_Üst Klasör Aç"
+msgstr "_Üst Dizin Aç"
 
 #: ../src/caja-window-menus.c:854
 msgid "Open the parent folder"
-msgstr "Üst klasörü aç"
+msgstr "Üst dizini aç"
 
 #. tooltip
 #: ../src/caja-window-menus.c:863
@@ -7319,7 +7322,7 @@ msgstr "_Şablonlar"
 #. tooltip
 #: ../src/caja-window-menus.c:933
 msgid "Open your personal templates folder"
-msgstr "Kişisel sablom klasörünüzü açın"
+msgstr "Kişisel sablom dizininüzü açın"
 
 #. name, stock id
 #. label, accelerator
@@ -7330,7 +7333,7 @@ msgstr "Çö_p"
 #. tooltip
 #: ../src/caja-window-menus.c:938
 msgid "Open your personal trash folder"
-msgstr "Kişisel çöp klasörünüzü açın"
+msgstr "Kişisel çöp dizininüzü açın"
 
 #. name, stock id
 #. label, accelerator
