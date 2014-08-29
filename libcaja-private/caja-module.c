@@ -152,6 +152,7 @@ module_object_weak_notify (gpointer user_data, GObject *object)
 static void
 add_module_objects (CajaModule *module)
 {
+    GObject *object;
     const GType *types;
     int num_types;
     int i;
@@ -164,8 +165,10 @@ add_module_objects (CajaModule *module)
         {
             break;
         }
-        caja_module_add_type (types[i]);
+        object = caja_module_add_type (types[i]);
     }
+    gchar *filename = g_path_get_basename (module->path);
+    caja_extension_register (filename, object);
 }
 
 static CajaModule *
@@ -210,10 +213,8 @@ load_module_dir (const char *dirname)
                                              name,
                                              NULL);
                 caja_module_load_file (filename);
-                g_free (filename);
             }
         }
-
         g_dir_close (dir);
     }
 }
@@ -236,6 +237,7 @@ void
 caja_module_setup (void)
 {
     static gboolean initialized = FALSE;
+    GList *res;
 
     if (!initialized)
     {
@@ -279,7 +281,7 @@ caja_module_extension_list_free (GList *extensions)
     g_list_free (extensions);
 }
 
-void
+GObject *
 caja_module_add_type (GType type)
 {
     GObject *object;
@@ -290,4 +292,5 @@ caja_module_add_type (GType type)
                        NULL);
 
     module_objects = g_list_prepend (module_objects, object);
+    return object;
 }

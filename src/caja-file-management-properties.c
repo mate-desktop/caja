@@ -37,6 +37,7 @@
 
 #include <libcaja-private/caja-column-chooser.h>
 #include <libcaja-private/caja-column-utilities.h>
+#include <libcaja-private/caja-extensions.h>
 #include <libcaja-private/caja-global-preferences.h>
 #include <libcaja-private/caja-module.h>
 
@@ -172,6 +173,14 @@ static const char * const icon_captions_components[] =
     "captions_1_combobox",
     "captions_2_combobox",
     NULL
+};
+
+enum
+{
+	EXT_STATE_COLUMN,
+    EXT_ICON_COLUMN,
+	EXT_INFO_COLUMN,
+    EXT_STRUCT_COLUMN
 };
 
 static void caja_file_management_properties_dialog_update_media_sensitivity (GtkBuilder *builder);
@@ -604,6 +613,38 @@ out:
     g_free (x_content_type);
 }
 
+static void
+extension_state_toggled (GtkCellRendererToggle *cell, gchar *path_str, gpointer data)
+{
+	GtkTreeIter iter;
+	GtkTreePath *path;
+	GtkTreeModel *model;
+    gboolean new_state;
+    Extension *ext;
+    
+	path = gtk_tree_path_new_from_string (path_str);
+	model = gtk_tree_view_get_model (GTK_TREE_VIEW (data));
+    
+    g_object_get (G_OBJECT (cell), "active", &new_state, NULL);
+    gtk_tree_model_get_iter_from_string (model, &iter, path_str);
+    
+    
+    
+    new_state ^= 1;
+
+	if (&iter != NULL)
+    {
+        gtk_tree_model_get (model, &iter, EXT_STRUCT_COLUMN, &ext, -1);
+        
+        if (caja_extension_set_state (ext, new_state))
+        {
+            gtk_list_store_set (GTK_LIST_STORE (model), &iter, 
+                                EXT_STATE_COLUMN, new_state, -1);
+        }
+    }
+    gtk_tree_path_free (path);
+}
+
 
 static void
 caja_file_management_properties_dialog_setup_media_page (GtkBuilder *builder)
@@ -713,6 +754,57 @@ skip:
     gtk_combo_box_set_active (GTK_COMBO_BOX (other_type_combo_box), 0);
 
     caja_file_management_properties_dialog_update_media_sensitivity (builder);
+}
+
+static void
+caja_file_management_properties_dialog_setup_extension_page (GtkBuilder *builder)
+{
+    GtkCellRendererToggle *toggle;
+    GtkListStore *store;
+    GtkTreeView *view;
+    GtkTreeIter iter;
+    GtkIconTheme *icon_theme;
+    GdkPixbuf *ext_pixbuf_icon;
+    gchar *ext_text_info;
+    
+    GList *extensions;
+    int i;
+    
+    extensions = caja_extensions_get_list ();
+    
+    view = GTK_TREE_VIEW (
+                    gtk_builder_get_object (builder, "extension_view"));
+    store = GTK_LIST_STORE (
+                    gtk_builder_get_object (builder, "extension_store"));
+                    
+    toggle = GTK_CELL_RENDERER_TOGGLE (
+                    gtk_builder_get_object (builder, "extension_toggle"));
+    g_object_set (toggle, "xpad", 6, NULL);
+                    
+    g_signal_connect (toggle, "toggled",
+                      G_CALLBACK (extension_state_toggled), view);
+    
+    icon_theme = gtk_icon_theme_get_default();
+    ext_pixbuf_icon = gtk_icon_theme_load_icon (icon_theme, "gtk-open", 
+                            GTK_ICON_SIZE_SMALL_TOOLBAR,
+                            GTK_ICON_LOOKUP_USE_BUILTIN, NULL);
+    
+    for (i = 0; i < g_list_length (extensions); i++)
+    {
+        Extension* ext = EXTENSION (g_list_nth_data (extensions, i));
+        
+        ext_text_info = g_markup_printf_escaped ("<b>%s</b>\n%s",
+                                                 ext->filename,
+                                                 "This is a placeholder.");
+        
+        gtk_list_store_append (store, &iter);
+		gtk_list_store_set (store, &iter,
+                            EXT_STATE_COLUMN, ext->state,
+                            EXT_ICON_COLUMN, ext_pixbuf_icon, 
+                            EXT_INFO_COLUMN, ext_text_info,
+                            EXT_STRUCT_COLUMN, ext, -1);
+    }
+    g_free (ext_text_info);
 }
 
 static void
@@ -1010,6 +1102,7 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
     caja_file_management_properties_dialog_setup_icon_caption_page (builder);
     caja_file_management_properties_dialog_setup_list_column_page (builder);
     caja_file_management_properties_dialog_setup_media_page (builder);
+    caja_file_management_properties_dialog_setup_extension_page (builder);
 
     g_signal_connect_swapped (caja_media_preferences,
                               "changed::" CAJA_PREFERENCES_MEDIA_AUTORUN_NEVER,

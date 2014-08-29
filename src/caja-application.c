@@ -69,7 +69,7 @@
 #include <libcaja-private/caja-debug-log.h>
 #include <libcaja-private/caja-file-utilities.h>
 #include <libcaja-private/caja-global-preferences.h>
-#include <libcaja-private/caja-module.h>
+#include <libcaja-private/caja-extensions.h>
 #include <libcaja-private/caja-desktop-link-monitor.h>
 #include <libcaja-private/caja-directory-private.h>
 #include <libcaja-private/caja-signaller.h>
@@ -471,7 +471,7 @@ menu_provider_init_callback (void)
     GList *providers;
     GList *l;
 
-    providers = caja_module_get_extensions_for_type (CAJA_TYPE_MENU_PROVIDER);
+    providers = caja_extensions_get_for_type (CAJA_TYPE_MENU_PROVIDER);
 
     for (l = providers; l != NULL; l = l->next)
     {

@@ -45,6 +45,7 @@
 #include <eel/eel-gtk-extensions.h>
 #include <libmate-desktop/mate-aboutdialog.h>
 #include <libcaja-extension/caja-menu-provider.h>
+#include <libcaja-private/caja-extensions.h>
 #include <libcaja-private/caja-file-utilities.h>
 #include <libcaja-private/caja-global-preferences.h>
 #include <libcaja-private/caja-icon-names.h>
@@ -1019,7 +1020,7 @@ get_extension_menus (CajaWindow *window)
     GList *items;
     GList *l;
 
-    providers = caja_module_get_extensions_for_type (CAJA_TYPE_MENU_PROVIDER);
+    providers = caja_extensions_get_for_type (CAJA_TYPE_MENU_PROVIDER);
     items = NULL;
 
     slot = caja_window_get_active_slot (window);

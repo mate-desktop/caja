@@ -45,6 +45,7 @@
 #include <libmate-desktop/mate-desktop-thumbnail.h>
 #include <libcaja-extension/caja-property-page-provider.h>
 #include <libcaja-private/caja-entry.h>
+#include <libcaja-private/caja-extensions.h>
 #include <libcaja-private/caja-file-attributes.h>
 #include <libcaja-private/caja-file-operations.h>
 #include <libcaja-private/caja-desktop-icon-file.h>
@@ -4959,7 +4960,7 @@ append_extension_pages (FMPropertiesWindow *window)
 	GList *providers;
 	GList *p;
 
- 	providers = caja_module_get_extensions_for_type (CAJA_TYPE_PROPERTY_PAGE_PROVIDER);
+ 	providers = caja_extensions_get_for_type (CAJA_TYPE_PROPERTY_PAGE_PROVIDER);
 
 	for (p = providers; p != NULL; p = p->next) {
 		CajaPropertyPageProvider *provider;

@@ -55,6 +55,7 @@
 #include <glib/gi18n.h>
 #include <libcaja-extension/caja-location-widget-provider.h>
 #include <libcaja-private/caja-debug-log.h>
+#include <libcaja-private/caja-extensions.h>
 #include <libcaja-private/caja-file-attributes.h>
 #include <libcaja-private/caja-file-utilities.h>
 #include <libcaja-private/caja-file.h>
@@ -1648,7 +1649,7 @@ slot_add_extension_extra_widgets (CajaWindowSlot *slot)
     GtkWidget *widget;
     char *uri;
 
-    providers = caja_module_get_extensions_for_type (CAJA_TYPE_LOCATION_WIDGET_PROVIDER);
+    providers = caja_extensions_get_for_type (CAJA_TYPE_LOCATION_WIDGET_PROVIDER);
 
     uri = g_file_get_uri (slot->location);
     for (l = providers; l != NULL; l = l->next)

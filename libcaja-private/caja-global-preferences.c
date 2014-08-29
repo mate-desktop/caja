@@ -83,6 +83,7 @@ caja_global_preferences_init (void)
     caja_desktop_preferences = g_settings_new("org.mate.caja.desktop");
     caja_tree_sidebar_preferences = g_settings_new("org.mate.caja.sidebar-panels.tree");
     caja_list_view_preferences = g_settings_new("org.mate.caja.list-view");
+    caja_extension_preferences = g_settings_new("org.mate.caja.extensions");
 
     mate_background_preferences = g_settings_new("org.mate.background");
     mate_lockdown_preferences = g_settings_new("org.mate.lockdown");

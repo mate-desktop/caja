@@ -37,7 +37,7 @@ extern "C" {
 
     /* Add a type to the module interface - allows caja to add its own modules
      * without putting them in separate shared libraries */
-    void   caja_module_add_type                (GType  type);
+    GObject *caja_module_add_type              (GType  type);
 
 #ifdef __cplusplus
 }
