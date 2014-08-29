@@ -85,6 +85,8 @@ libcaja_private_la_SOURCES = \
 	caja-dnd.h \
 	caja-emblem-utils.c \
 	caja-emblem-utils.h \
+	caja-extensions.c \
+	caja-extensions.h \
 	caja-entry.c \
 	caja-entry.h \
 	caja-file-attributes.h \

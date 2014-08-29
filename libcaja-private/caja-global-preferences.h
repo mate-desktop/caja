@@ -202,10 +202,8 @@ typedef enum
 #define CAJA_PREFERENCES_DESKTOP_VOLUMES_VISIBLE       "volumes-visible"
 #define CAJA_PREFERENCES_DESKTOP_NETWORK_VISIBLE       "network-icon-visible"
 #define CAJA_PREFERENCES_DESKTOP_NETWORK_NAME          "network-icon-name"
-
-    /* Lockdown */
 #define CAJA_PREFERENCES_LOCKDOWN_COMMAND_LINE         "disable-command-line"
-
+#define CAJA_PREFERENCES_DISABLED_EXTENSIONS           "disabled-extensions"
 
 void caja_global_preferences_init                      (void);
 char *caja_global_preferences_get_default_folder_viewer_preference_as_iid (void);
@@ -218,6 +216,7 @@ GSettings *caja_desktop_preferences;
 GSettings *caja_tree_sidebar_preferences;
 GSettings *caja_compact_view_preferences;
 GSettings *caja_list_view_preferences;
+GSettings *caja_extension_preferences;
 
 GSettings *mate_background_preferences;
 GSettings *mate_lockdown_preferences;
