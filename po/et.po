@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Ivar Smolin <okul@linux.ee>, 2014
 # xpander0 <xpander0@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-12 19:04+0100\n"
-"PO-Revision-Date: 2014-02-12 18:06+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"PO-Revision-Date: 2014-09-13 07:37+0000\n"
+"Last-Translator: Ivar Smolin <okul@linux.ee>\n"
 "Language-Team: Estonian (http://www.transifex.com/projects/p/MATE/language/et/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +27,7 @@ msgstr "Fail pole korrektne .desktop fail"
 #: ../cut-n-paste-code/libegg/eggdesktopfile.c:189
 #, c-format
 msgid "Unrecognized desktop file Version '%s'"
-msgstr "Tundmatu töölauafaili versioon '%s'"
+msgstr "Töölauafaili tundmatu versioon '%s'"
 
 #: ../cut-n-paste-code/libegg/eggdesktopfile.c:959
 #, c-format
@@ -36,7 +37,7 @@ msgstr "Käivitamine: %s"
 #: ../cut-n-paste-code/libegg/eggdesktopfile.c:1102
 #, c-format
 msgid "Application does not accept documents on command line"
-msgstr "Rakendusele ei saa avamiseks anda käsureal faile"
+msgstr "Rakendus ei toeta käsurealt määratavaid dokumente"
 
 #: ../cut-n-paste-code/libegg/eggdesktopfile.c:1170
 #, c-format
@@ -59,7 +60,7 @@ msgstr "Seansihalduriga ühendumise keelamine"
 
 #: ../cut-n-paste-code/libegg/eggsmclient.c:234
 msgid "Specify file containing saved configuration"
-msgstr "Määra salvestatud seadistuse fail"
+msgstr "Salvestatud sätteid sisaldava faili määramine"
 
 #: ../cut-n-paste-code/libegg/eggsmclient.c:234
 msgid "FILE"
@@ -67,7 +68,7 @@ msgstr "FAIL"
 
 #: ../cut-n-paste-code/libegg/eggsmclient.c:239
 msgid "Specify session management ID"
-msgstr "Määra seansihalduse ID"
+msgstr "Seansihalduse ID määramine"
 
 #: ../cut-n-paste-code/libegg/eggsmclient.c:239
 msgid "ID"
@@ -377,7 +378,7 @@ msgstr "Sildi tekst."
 
 #: ../eel/eel-editable-label.c:352
 msgid "Justification"
-msgstr "Joondamine"
+msgstr "Joondus"
 
 #: ../eel/eel-editable-label.c:353
 msgid ""
@@ -392,7 +393,7 @@ msgstr "Reamurdmine"
 
 #: ../eel/eel-editable-label.c:362
 msgid "If set, wrap lines if the text becomes too wide."
-msgstr "Vastava seade korral murtakse ridu, kui tekst on liiga pikk."
+msgstr "Määramise korral murtakse liiga pika tekstiga ridu."
 
 #: ../eel/eel-editable-label.c:369
 msgid "Cursor Position"
@@ -421,7 +422,7 @@ msgstr "Sisestusmeetodid"
 
 #: ../eel/eel-gtk-extensions.c:476
 msgid "Show more _details"
-msgstr ""
+msgstr "_Näita üksikasjalisemalt"
 
 #: ../eel/eel-stock-dialogs.c:213
 msgid "You can stop this operation by clicking cancel."
@@ -446,7 +447,7 @@ msgstr "Ei tehta midagi"
 #: ../libcaja-private/caja-autorun.c:569
 #: ../data/caja-folder-handler.desktop.in.in.h:2
 msgid "Open Folder"
-msgstr "Avatakse kataloog"
+msgstr "Avatakse kaust"
 
 #: ../libcaja-private/caja-autorun.c:602 ../src/caja-x-content-bar.c:148
 #, c-format
@@ -529,7 +530,7 @@ msgstr "Vali käivitatav rakendus."
 msgid ""
 "Select how to open \"%s\" and whether to perform this action in the future "
 "for other media of type \"%s\"."
-msgstr "Vali, mismoodi tuleb \"%s\" käivitada ning kas ka tulevikus tuleb \"%s\"-liigilise meediumi korral sedasama teha."
+msgstr "Vali, mismoodi tuleb \"%s\" avada ning kas ka tulevikus tuleb \"%s\" liigiga meediumi korral sedasama teha."
 
 #: ../libcaja-private/caja-autorun.c:1124
 msgid "_Always perform this action"
@@ -562,14 +563,14 @@ msgstr "_Ühenda lahti"
 #. tooltip
 #: ../libcaja-private/caja-clipboard.c:458
 msgid "Cut the selected text to the clipboard"
-msgstr "Märgitud teksti lõikamine lõikelauale"
+msgstr "Valitud teksti lõikamine lõikelauale"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
 #: ../libcaja-private/caja-clipboard.c:463
 msgid "Copy the selected text to the clipboard"
-msgstr "Märgitud teksti kopeerimine lõikelauale"
+msgstr "Valitud teksti kopeerimine lõikelauale"
 
 #. name, stock id
 #. label, accelerator
@@ -635,15 +636,15 @@ msgstr "Muutmisaeg"
 
 #: ../libcaja-private/caja-column-utilities.c:66
 msgid "The date the file was modified."
-msgstr "Faili viimase muutmise aeg."
+msgstr "Viimane faili muutmise aeg."
 
 #: ../libcaja-private/caja-column-utilities.c:73
 msgid "Date Accessed"
-msgstr "Viimase pöördumise aeg"
+msgstr "Kasutamise aeg"
 
 #: ../libcaja-private/caja-column-utilities.c:74
 msgid "The date the file was accessed."
-msgstr "Faili viimase kasutamise aeg."
+msgstr "Viimane faili kasutamise aeg."
 
 #: ../libcaja-private/caja-column-utilities.c:81
 msgid "Owner"
@@ -701,11 +702,11 @@ msgstr "Asukoht"
 
 #: ../libcaja-private/caja-column-utilities.c:130
 msgid "The location of the file."
-msgstr ""
+msgstr "Faili asukoht."
 
 #: ../libcaja-private/caja-column-utilities.c:173
 msgid "Trashed On"
-msgstr "Kustutati"
+msgstr "Kustutamine"
 
 #: ../libcaja-private/caja-column-utilities.c:174
 msgid "Date when file was moved to the Trash"
@@ -717,7 +718,7 @@ msgstr "Algne asukoht"
 
 #: ../libcaja-private/caja-column-utilities.c:181
 msgid "Original location of file before moved to the Trash"
-msgstr "Faili esialgne asukoht enne prügikasti viskamist"
+msgstr "Faili algne asukoht enne prügikasti viskamist"
 
 #: ../libcaja-private/caja-customization-data.c:432
 #: ../libcaja-private/caja-file-conflict-dialog.c:606
@@ -734,19 +735,19 @@ msgstr "töölaual"
 #: ../libcaja-private/caja-desktop-link-monitor.c:105
 #, c-format
 msgid "You cannot move the volume \"%s\" to the trash."
-msgstr "Sul pole võimalik kettaseadet \"%s\" prügikasti visata."
+msgstr "Sul pole võimalik köidet \"%s\" prügikasti visata."
 
 #: ../libcaja-private/caja-desktop-link-monitor.c:116
 msgid ""
 "If you want to eject the volume, please use \"Eject\" in the popup menu of "
 "the volume."
-msgstr "Kui soovid kettaseadet väljastada, vali paremklõpsuga avanevast menüüst \"Väljasta\"."
+msgstr "Kui soovid köidet väljastada, vali paremklõpsuga avanevast menüüst \"Väljasta\"."
 
 #: ../libcaja-private/caja-desktop-link-monitor.c:127
 msgid ""
 "If you want to unmount the volume, please use \"Unmount Volume\" in the "
 "popup menu of the volume."
-msgstr "Kui soovid kettaseadet lahti haakida, vali paremklõpsuga avanevast menüüst \"Haagi ketas lahti\"'."
+msgstr "Kui soovid köidet lahti haakida, vali paremklõpsuga avanevast menüüst \"Haagi ketas lahti\"'."
 
 #. Note to translators: If it's hard to compose a good home
 #. * icon name from the user name, you can use a string without
@@ -767,7 +768,7 @@ msgstr "Arvuti"
 
 #: ../libcaja-private/caja-desktop-link.c:116
 msgid "Network Servers"
-msgstr ""
+msgstr "Võrguserverid"
 
 #: ../libcaja-private/caja-desktop-link.c:119 ../src/caja-places-sidebar.c:824
 #: ../src/caja-trash-bar.c:192
@@ -784,11 +785,11 @@ msgstr "_Kopeeri siia"
 
 #: ../libcaja-private/caja-dnd.c:853
 msgid "_Link Here"
-msgstr "L_ingi siia"
+msgstr "_Lingi siia"
 
 #: ../libcaja-private/caja-dnd.c:858
 msgid "Set as _Background"
-msgstr "Säti _taustapildiks"
+msgstr "Säti tausta_pildiks"
 
 #: ../libcaja-private/caja-dnd.c:865 ../libcaja-private/caja-dnd.c:919
 msgid "Cancel"
@@ -796,11 +797,11 @@ msgstr "Loobu"
 
 #: ../libcaja-private/caja-dnd.c:907
 msgid "Set as background for _all folders"
-msgstr "Säti taustapildiks _kõikidele kataloogidele"
+msgstr "_Määra kõigi kaustade taustapildiks"
 
 #: ../libcaja-private/caja-dnd.c:912
 msgid "Set as background for _this folder"
-msgstr "Säti taustapildiks _sellele kataloogile"
+msgstr "Määra _sellele kausta taustapildiks"
 
 #: ../libcaja-private/caja-emblem-utils.c:229
 #: ../libcaja-private/caja-emblem-utils.c:236
@@ -843,7 +844,7 @@ msgstr "Vabandust, kohandatud embleemi nime pole võimalik salvestada."
 #: ../libcaja-private/caja-file-conflict-dialog.c:144
 #, c-format
 msgid "Merge folder \"%s\"?"
-msgstr "Kas liita kataloog \"%s\"?"
+msgstr "Kas liita kaust \"%s\"?"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:148
 msgid ""
@@ -854,17 +855,17 @@ msgstr "Liitmise korral küsitakse kinnitust enne konfliktsete failide asendamis
 #: ../libcaja-private/caja-file-conflict-dialog.c:154
 #, c-format
 msgid "An older folder with the same name already exists in \"%s\"."
-msgstr "Sama nimega kataloog on juba \"%s\" all olemas."
+msgstr "Sama nimega kaust on juba \"%s\" all olemas."
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:160
 #, c-format
 msgid "A newer folder with the same name already exists in \"%s\"."
-msgstr "Uuem sama nimega kataloog on juba \"%s\" all olemas."
+msgstr "Uuem sama nimega kaust on juba \"%s\" all olemas."
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:166
 #, c-format
 msgid "Another folder with the same name already exists in \"%s\"."
-msgstr "Veel üks sama nimega kataloog on juba \"%s\" all olemas."
+msgstr "Veel üks sama nimega kaust on juba \"%s\" all olemas."
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:173
 msgid "Replacing it will remove all files in the folder."
@@ -873,12 +874,12 @@ msgstr "Asendamine kustutab kõik selles kaustas olevad failid."
 #: ../libcaja-private/caja-file-conflict-dialog.c:175
 #, c-format
 msgid "Replace folder \"%s\"?"
-msgstr "Kas asendada kataloog \"%s\"?"
+msgstr "Kas asendada kaust \"%s\"?"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:177
 #, c-format
 msgid "A folder with the same name already exists in \"%s\"."
-msgstr "Sama nimega kataloog on juba \"%s\" all olemas."
+msgstr "Sama nimega kaust on juba \"%s\" all olemas."
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:184
 #, c-format
@@ -943,7 +944,7 @@ msgstr "_Vali sihtfailile uus nimi"
 #. Setup the diff button for text files
 #: ../libcaja-private/caja-file-conflict-dialog.c:617
 msgid "Differences..."
-msgstr ""
+msgstr "Erinevused..."
 
 #. Setup the checkbox to apply the action to all files
 #: ../libcaja-private/caja-file-conflict-dialog.c:627
@@ -1254,7 +1255,7 @@ msgstr "Kaustas \"%B\" asuvaid faile pole võimalik kustutada, kuna sul pole nen
 #: ../libcaja-private/caja-file-operations.c:3499
 msgid ""
 "There was an error getting information about the files in the folder \"%B\"."
-msgstr "Kataloogis \"%B\" asuvate failide andmete hankimisel tekkis viga."
+msgstr "Kaustas \"%B\" asuvate failide andmete hankimisel tekkis viga."
 
 #: ../libcaja-private/caja-file-operations.c:1534
 #: ../libcaja-private/caja-file-operations.c:3508
@@ -1271,11 +1272,11 @@ msgstr "Kausta \"%B\" pole võimalik kustutada, kuna sul puuduvad selle õigused
 #: ../libcaja-private/caja-file-operations.c:2569
 #: ../libcaja-private/caja-file-operations.c:3544
 msgid "There was an error reading the folder \"%B\"."
-msgstr "Kataloogi \"%B\" lugemisel tekkis viga."
+msgstr "Kausta \"%B\" lugemisel tekkis viga."
 
 #: ../libcaja-private/caja-file-operations.c:1592
 msgid "Could not remove the folder %B."
-msgstr "Kataloogi %B pole võimalik eemaldada."
+msgstr "Kausta %B pole võimalik eemaldada."
 
 #: ../libcaja-private/caja-file-operations.c:1669
 msgid "There was an error deleting %B."
@@ -1324,7 +1325,7 @@ msgstr "Kas soovid enne lahtihaakimist tühjendada prügikasti?"
 msgid ""
 "In order to regain the free space on this volume the trash must be emptied. "
 "All trashed items on the volume will be permanently lost."
-msgstr "Sellele seadmele täiendava vaba ruumi tekitamiseks tuleks prügikast tühjaks teha. Kõik prügikastis olevad kirjed lähevad siis jäädavalt kaotsi."
+msgstr "Sellele köitele täiendava vaba ruumi tekitamiseks tuleks prügikast tühjaks teha. Kõik prügikastis olevad kirjed lähevad siis jäädavalt kaotsi."
 
 #: ../libcaja-private/caja-file-operations.c:2224
 msgid "Do _not Empty Trash"
@@ -1384,13 +1385,13 @@ msgstr "Viga failide prügikasti viskamisel."
 msgid ""
 "Files in the folder \"%B\" cannot be handled because you do not have "
 "permissions to see them."
-msgstr "Kataloogis \"%B\" olevaid faile pole võimalik käsitleda, kuna sul puuduvad õigused nende nägemiseks."
+msgstr "Kaustas \"%B\" olevaid faile pole võimalik käsitleda, kuna sul puuduvad õigused nende nägemiseks."
 
 #: ../libcaja-private/caja-file-operations.c:2566
 msgid ""
 "The folder \"%B\" cannot be handled because you do not have permissions to "
 "read it."
-msgstr "Kataloogi \"%B\" pole võimalik käsitleda, kuna sul pole õigust seda lugeda."
+msgstr "Kausta \"%B\" pole võimalik käsitleda, kuna sul pole õigust seda lugeda."
 
 #: ../libcaja-private/caja-file-operations.c:2643
 msgid ""
@@ -1411,7 +1412,7 @@ msgstr "Viga \"%B\" kopeerimisel."
 
 #: ../libcaja-private/caja-file-operations.c:2750
 msgid "You do not have permissions to access the destination folder."
-msgstr "Sul pole õigust sihtkataloogile ligi pääseda."
+msgstr "Sul pole õigust sihtkaustale ligi pääseda."
 
 #: ../libcaja-private/caja-file-operations.c:2752
 msgid "There was an error getting information about the destination."
@@ -1419,7 +1420,7 @@ msgstr "Sihtkoha kohta andmete hankimisel tekkis viga."
 
 #: ../libcaja-private/caja-file-operations.c:2789
 msgid "The destination is not a folder."
-msgstr "Sihtkoht ei ole kataloog."
+msgstr "Sihtkoht ei ole kaust."
 
 #: ../libcaja-private/caja-file-operations.c:2822
 msgid ""
@@ -1509,23 +1510,23 @@ msgstr[1] "%S %S-st, jäänud %T (%S sekundis)"
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "create it in the destination."
-msgstr "Kataloogi \"%B\" pole võimalik kopeerida, kuna sul puuduvad sihtkohas õigused selle loomiseks."
+msgstr "Kausta \"%B\" pole võimalik kopeerida, kuna sul puuduvad sihtkohas õigused selle loomiseks."
 
 #: ../libcaja-private/caja-file-operations.c:3369
 msgid "There was an error creating the folder \"%B\"."
-msgstr "Kataloogi \"%B\" loomisel tekkis viga."
+msgstr "Kausta \"%B\" loomisel tekkis viga."
 
 #: ../libcaja-private/caja-file-operations.c:3496
 msgid ""
 "Files in the folder \"%B\" cannot be copied because you do not have "
 "permissions to see them."
-msgstr "Kataloogis \"%B\" olevaid faile pole võimalik kopeerida, kuna sul pole õigust neid näha."
+msgstr "Kaustas \"%B\" olevaid faile pole võimalik kopeerida, kuna sul pole õigust neid näha."
 
 #: ../libcaja-private/caja-file-operations.c:3541
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "read it."
-msgstr "Kataloogi \"%B\" pole võimalik kopeerida, kuna sul pole õigust seda lugeda."
+msgstr "Kausta \"%B\" pole võimalik kopeerida, kuna sul pole õigust seda lugeda."
 
 #: ../libcaja-private/caja-file-operations.c:3586
 #: ../libcaja-private/caja-file-operations.c:4276
@@ -1535,7 +1536,7 @@ msgstr "Viga \"%B\" ümbertõstmisel."
 
 #: ../libcaja-private/caja-file-operations.c:3587
 msgid "Could not remove the source folder."
-msgstr "Lähtekataloogi pole võimalik eemaldada."
+msgstr "Lähtekausta pole võimalik eemaldada."
 
 #: ../libcaja-private/caja-file-operations.c:3672
 #: ../libcaja-private/caja-file-operations.c:3713
@@ -1547,7 +1548,7 @@ msgstr "Viga \"%B\" kopeerimisel."
 #: ../libcaja-private/caja-file-operations.c:3673
 #, c-format
 msgid "Could not remove files from the already existing folder %F."
-msgstr "Juba olemasolevast kataloogist %F pole võimalik faile eemaldada."
+msgstr "Juba olemasolevast kaustast %F pole võimalik faile eemaldada."
 
 #: ../libcaja-private/caja-file-operations.c:3714
 #, c-format
@@ -1558,17 +1559,17 @@ msgstr "Juba olemasolevat faili %F pole võimalik eemaldada."
 #: ../libcaja-private/caja-file-operations.c:4032
 #: ../libcaja-private/caja-file-operations.c:4691
 msgid "You cannot move a folder into itself."
-msgstr "Kataloogi pole võimalik iseendasse tõsta."
+msgstr "Kausta pole võimalik iseendasse tõsta."
 
 #: ../libcaja-private/caja-file-operations.c:4033
 #: ../libcaja-private/caja-file-operations.c:4692
 msgid "You cannot copy a folder into itself."
-msgstr "Kataloogi pole võimalik iseendasse kopeerida."
+msgstr "Kausta pole võimalik iseendasse kopeerida."
 
 #: ../libcaja-private/caja-file-operations.c:4034
 #: ../libcaja-private/caja-file-operations.c:4693
 msgid "The destination folder is inside the source folder."
-msgstr "Sihtkataloog asub lähtekataloogi sees."
+msgstr "Sihtkaust asub lähtekausta sees."
 
 #. the run_warning() frees all strings passed in automatically
 #: ../libcaja-private/caja-file-operations.c:4065
@@ -1652,7 +1653,7 @@ msgstr "Õiguste seadmine"
 #. localizers: the initial name of a new folder
 #: ../libcaja-private/caja-file-operations.c:5857
 msgid "untitled folder"
-msgstr "nimetu kataloog"
+msgstr "nimetu kaust"
 
 #. localizers: the initial name of a new empty file
 #: ../libcaja-private/caja-file-operations.c:5865
@@ -1661,7 +1662,7 @@ msgstr "uus fail"
 
 #: ../libcaja-private/caja-file-operations.c:6036
 msgid "Error while creating directory %B."
-msgstr "Viga kataloogi %B loomisel."
+msgstr "Viga kausta %B loomisel."
 
 #: ../libcaja-private/caja-file-operations.c:6038
 msgid "Error while creating file %B."
@@ -1670,7 +1671,7 @@ msgstr "Viga faili %B loomisel."
 #: ../libcaja-private/caja-file-operations.c:6040
 #, c-format
 msgid "There was an error creating the directory in %F."
-msgstr "%F sisse kataloogi loomisel tekkis viga."
+msgstr "%F sisse kausta loomisel tekkis viga."
 
 #: ../libcaja-private/caja-file-operations.c:6316
 msgid "Emptying Trash"
@@ -1907,8 +1908,8 @@ msgstr[1] "%'u kirjet"
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
-msgstr[0] "%'u kataloog"
-msgstr[1] "%'u kataloogi"
+msgstr[0] "%'u kaust"
+msgstr[1] "%'u kausta"
 
 #: ../libcaja-private/caja-file.c:5922
 #, c-format
@@ -2054,7 +2055,7 @@ msgstr "\"%s\" ei ole kuvatav."
 
 #: ../libcaja-private/caja-mime-actions.c:1384
 msgid "The file is of an unknown type"
-msgstr "Tundmatut tüüpi fail"
+msgstr "Tundmatut liiki fail"
 
 #: ../libcaja-private/caja-mime-actions.c:1388
 #, c-format
@@ -2548,73 +2549,73 @@ msgstr "Määra '%s' omanik '%s'-ks"
 msgid "_Undo copy of %d item"
 msgid_plural "_Undo copy of %d items"
 msgstr[0] "_Tagasta %d asja koopia"
-msgstr[1] "_Tagasta %d asjade koopia"
+msgstr[1] "_Tühista %d kirje kopeerimine"
 
 #: ../libcaja-private/caja-undostack-manager.c:1573
 #, c-format
 msgid "_Undo duplicate of %d item"
 msgid_plural "_Undo duplicate of %d items"
 msgstr[0] "_Tagasta %d asja duplikaat"
-msgstr[1] "_Tagasta %d asjade duplikaat"
+msgstr[1] "_Tühista %d kirje duplikaadi loomine"
 
 #: ../libcaja-private/caja-undostack-manager.c:1578
 #, c-format
 msgid "_Undo move of %d item"
 msgid_plural "_Undo move of %d items"
 msgstr[0] "_Tagasta%d asja asetus"
-msgstr[1] "_Tagasta %d asjade asetus"
+msgstr[1] "_Tühista %d kirje ümbertõstmine"
 
 #: ../libcaja-private/caja-undostack-manager.c:1583
 #, c-format
 msgid "_Undo rename of %d item"
 msgid_plural "_Undo rename of %d items"
 msgstr[0] "_Tagasta %d asja ümbernimetus"
-msgstr[1] "_Tagasta %d asjade ümbernimetus"
+msgstr[1] "_Tühista %d kirje ümbernimetamine"
 
 #: ../libcaja-private/caja-undostack-manager.c:1587
 #, c-format
 msgid "_Undo creation of an empty file"
-msgstr "_Tagasta tühja faili loomine"
+msgstr "_Tühista tühja faili loomine"
 
 #: ../libcaja-private/caja-undostack-manager.c:1590
 #, c-format
 msgid "_Undo creation of a file from template"
-msgstr "_Tagasta faili loomine šabloonist"
+msgstr "_Tühista malli abil tehtud faili loomine"
 
 #: ../libcaja-private/caja-undostack-manager.c:1594
 #, c-format
 msgid "_Undo creation of %d folder"
 msgid_plural "_Undo creation of %d folders"
 msgstr[0] "_Tagasta %d kausta loomine"
-msgstr[1] "_Tagasta %d kaustade loomine"
+msgstr[1] "_Tühista %d kausta loomine"
 
 #: ../libcaja-private/caja-undostack-manager.c:1599
 #, c-format
 msgid "_Undo move to trash of %d item"
 msgid_plural "_Undo move to trash of %d items"
 msgstr[0] "_Tagasta %d asja prügikasti asetamine"
-msgstr[1] "_Tagasta %d asjade prügikasti asetamine"
+msgstr[1] "_Tühista %d kirje prügikasti viskamine"
 
 #: ../libcaja-private/caja-undostack-manager.c:1604
 #, c-format
 msgid "_Undo restore from trash of %d item"
 msgid_plural "_Undo restore from trash of %d items"
 msgstr[0] "_Tagasta %d asja prügikastist taastamine"
-msgstr[1] "_Tagasta %d asjade prügikastist taastamine"
+msgstr[1] "_Tühista %d kirje prügikastist taastamine"
 
 #: ../libcaja-private/caja-undostack-manager.c:1609
 #, c-format
 msgid "_Undo create link to %d item"
 msgid_plural "_Undo create link to %d items"
 msgstr[0] "_Tagasta %d asja linki loomine"
-msgstr[1] "_Tagasta %d asjade linki loomine"
+msgstr[1] "_Tühista %d kirje viitade loomine"
 
 #: ../libcaja-private/caja-undostack-manager.c:1614
 #, c-format
 msgid "_Undo delete of %d item"
 msgid_plural "_Undo delete of %d items"
 msgstr[0] "_Tagasta %d asja kustutamine"
-msgstr[1] "_Tagasta %d asjade kustutamine"
+msgstr[1] "_Tühista %d kirje kustutamine"
 
 #: ../libcaja-private/caja-undostack-manager.c:1619
 #, c-format
@@ -2769,7 +2770,7 @@ msgstr "Kui tõene, lõpetab Caja töö, kui kõik aknad suletakse. See on vaiki
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:5
 msgid "Enables the classic Caja behavior, where all windows are browsers"
-msgstr "Cajae klassikalise käitumise lubamine, kus kõik aknad on sirvijad"
+msgstr "Caja klassikalise käitumise lubamine, kus kõik aknad on sirvijad"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:6
 msgid ""
@@ -2786,7 +2787,7 @@ msgstr "Rajariba asemel alati asukohakirje kasutamine"
 msgid ""
 "If set to true, then Caja browser windows will always use a textual input "
 "entry for the location toolbar, instead of the pathbar."
-msgstr "Kui märgitud, siis Cajae sirvimisaknad kasutavad asukoha tööribal rajariba asemel alati tekstilist sisendit."
+msgstr "Kui märgitud, siis Caja sirvimisaknad kasutavad asukoha tööribal rajariba asemel alati tekstilist sisendit."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:9
 msgid "Whether to ask for confirmation when deleting files, or emptying Trash"
@@ -2824,7 +2825,7 @@ msgstr ""
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:15
 msgid "When to show number of items in a folder"
-msgstr "Kas kataloogis olevate kirjete arvu näidatakse või mitte"
+msgstr "Kas kaustas olevate kirjete arvu näidatakse või mitte"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:16
 msgid ""
@@ -2858,17 +2859,17 @@ msgstr "Mida tehakse käivitatavate tekstifailidega nende aktiveerimisel (üksik
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:21
 msgid "Show the package installer for unknown mime types"
-msgstr "Tundmatute mime-tüüpide jaoks pakipaigaldaja näitamine"
+msgstr "Tundmatute mime-liikide jaoks pakipaigaldaja näitamine"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:22
 msgid ""
 "Whether to show the user a package installer dialog in case an unknown mime "
 "type is opened, in order to search for an application to handle it."
-msgstr "Kas tundmatute mime-tüüpide avamisel tuleb sobiva rakenduse leidmiseks näidata pakipaigaldaja dialoogi või mitte."
+msgstr "Kas tundmatute mime-liikide avamisel tuleb sobiva rakenduse leidmiseks näidata pakipaigaldaja dialoogi või mitte."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:23
 msgid "Use extra mouse button events in Caja' browser window"
-msgstr "Cajae aknas kasutatakse hiire lisanuppe"
+msgstr "Caja aknas kasutatakse hiire lisanuppe"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:24
 msgid ""
@@ -2946,13 +2947,13 @@ msgstr "Kui märgitud, siis Caja võimaldab failieelistuste dialoogis redigeerid
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:37
 msgid "Show folders first in windows"
-msgstr "Akendes kataloogide esimesena näitamine"
+msgstr "Akendes kaustade esimesena näitamine"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:38
 msgid ""
 "If set to true, then Caja shows folders prior to showing files in the icon "
 "and list views."
-msgstr "Kui märgitud, siis Caja näitab ikooni- ja nimekirjavaates katalooge failidest eespool."
+msgstr "Kui märgitud, siis Caja näitab ikooni- ja nimekirjavaates kaustu failidest eespool."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:39
 msgid "Default sort order"
@@ -2978,13 +2979,13 @@ msgstr "Kui märgitud, siis uutes akendes sorditakse failid pööratud järjestu
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:43
 msgid "Caja uses the users home folder as the desktop"
-msgstr "Caja kasutab kodukataloogi kui töölauda"
+msgstr "Caja kasutab kodukausta kui töölauda"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:44
 msgid ""
 "If set to true, then Caja will use the user's home folder as the desktop. If"
 " it is false, then it will use ~/Desktop as the desktop."
-msgstr "Kui märgitud, kasutab Caja kasutaja kodukataloogi kui töölauda. Kui valik on aktiveerimata, kasutatakse töölauana kataloogi ~/Desktop."
+msgstr "Kui märgitud, kasutab Caja kasutaja kodukausta kui töölauda. Kui valik on aktiveerimata, kasutatakse töölauana kausta ~/Desktop."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:45
 msgid "Custom Background"
@@ -2992,7 +2993,7 @@ msgstr "Kohandatud taust"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:46
 msgid "Whether a custom default folder background has been set."
-msgstr "Kas kataloogi vaikimisi taust on seatud või mitte."
+msgstr "Kas kausta vaikimisi taust on seatud või mitte."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:47
 msgid "Default Background Color"
@@ -3002,7 +3003,7 @@ msgstr "Vaikimisi taustavärv"
 msgid ""
 "Color for the default folder background. Only used if background_set is "
 "true."
-msgstr "Kataloogi vaikimisi tausta värvus. Kasutatakse ainult siis, kui võti background_set on märgitud."
+msgstr "Kausta vaikimisi tausta värvus. Kasutatakse ainult siis, kui võti background_set on märgitud."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:49
 msgid "Default Background Filename"
@@ -3043,7 +3044,7 @@ msgstr ""
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:57
 msgid "Default folder viewer"
-msgstr "Kataloogide vaikimisi vaataja"
+msgstr "Kaustade vaikimisi vaataja"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:58
 msgid ""
@@ -3075,7 +3076,7 @@ msgstr ""
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:63
 msgid "Whether to show file sizes with IEC units"
-msgstr ""
+msgstr "Kas failide suurusi näidatakse IEC ühikutes"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:64
 msgid ""
@@ -3196,13 +3197,13 @@ msgstr "Nimekirjavaate vaikimisi suurendus."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:88
 msgid "Only show folders in the tree side pane"
-msgstr "Külgpaani puuvaates kuvatakse ainult katalooge"
+msgstr "Külgpaani puuvaates kuvatakse ainult kaustu"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:89
 msgid ""
 "If set to true, Caja will only show folders in the tree side pane. Otherwise"
 " it will show both folders and files."
-msgstr "Kui märgitud, näitab Caja külgpaanis ainult katalooge. Vastasel juhul näitab Caja katalooge ja faile."
+msgstr "Kui märgitud, siis näitab Caja külgpaanis ainult kaustu. Vastasel juhul näitab Caja kaustu ja faile."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:90
 msgid "Desktop font"
@@ -3214,13 +3215,13 @@ msgstr ""
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:92
 msgid "Home icon visible on desktop"
-msgstr "Kodukataloogi ikoon on töölaual nähtav"
+msgstr "Kodukausta ikoon on töölaual nähtav"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:93
 msgid ""
 "If this is set to true, an icon linking to the home folder will be put on "
 "the desktop."
-msgstr "Kui märgitud, siis on kodukataloogile viitav ikoon töölaual nähtav."
+msgstr "Kui märgitud, siis on kaustale viitav ikoon töölaual nähtav."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:94
 msgid "Computer icon visible on desktop"
@@ -3244,13 +3245,13 @@ msgstr "Kui märgitud, siis on prügikastile viitav ikoon töölaual nähtav."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:98
 msgid "Show mounted volumes on the desktop"
-msgstr "Haagitud kettaseadmete näitamine töölaual"
+msgstr "Haagitud köidete näitamine töölaual"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:99
 msgid ""
 "If this is set to true, icons linking to mounted volumes will be put on the "
 "desktop."
-msgstr "Kui märgitud, siis on haagitud kettaseadmete ikoonid töölaual nähtaval."
+msgstr "Kui märgitud, siis on haagitud köidete ikoonid töölaual nähtaval."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:100
 msgid "Network Servers icon visible on the desktop"
@@ -3274,13 +3275,13 @@ msgstr "See nimi määratakse juhul, kui soovitakse töölaual oleva arvutiikoon
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:104
 msgid "Desktop home icon name"
-msgstr "Kodukataloogi ikooni nimi töölaual"
+msgstr "Kodukausta ikooni nimi töölaual"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:105
 msgid ""
 "This name can be set if you want a custom name for the home icon on the "
 "desktop."
-msgstr "See nimi määratakse juhul, kui soovitakse töölaual oleva kodukataloogiikooni nime kohandada."
+msgstr "See nimi määratakse juhul, kui soovitakse töölaual oleva koduikooni nime kohandada."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:106
 msgid "Desktop trash icon name"
@@ -3389,7 +3390,7 @@ msgstr "Kui märgitud, siis haagib Caja käivitumisel või meediumi sisestamisel
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.in.h:3
 msgid "Whether to automatically open a folder for automounted media"
-msgstr "Kas automaatselt külge haagitud meediumi kataloog avatakse automaatselt või mitte"
+msgstr "Kas automaatselt külge haagitud meediumi kaust avatakse automaatselt või mitte"
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.in.h:4
 msgid ""
@@ -3397,7 +3398,7 @@ msgid ""
 "automounted. This only applies to media where no known x-content/* type was "
 "detected; for media where a known x-content type is detected, the user "
 "configurable action will be taken instead."
-msgstr "Kui märgitud, siis avab Caja meediumi automaatsel haakimisel kataloogi. See rakendub ainult meediumile, mille kohta pole x-content/* tüüpi tuvastatud. Tuvastatud x-content tüübiga meediumi korral rakendatakse aga kasutaja poolt määratud tegevus."
+msgstr "Kui märgitud, siis avab Caja meediumi automaatsel haakimisel selle kausta. See rakendub ainult meediumile, mille kohta pole x-content/* liiki tuvastatud. Tuvastatud x-content tüübiga meediumi korral rakendatakse aga kasutaja poolt määratud tegevus."
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.in.h:5
 msgid "Never prompt or autorun/autostart programs when media are inserted"
@@ -3434,14 +3435,14 @@ msgstr "Nimekiri x-content/* liikidest, millede kohta kasutaja on eelistuste rak
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.in.h:11
 msgid "List of x-content/* types set to \"Open Folder\""
-msgstr "Nimekiri x-content/* liikidest, millele on määratud \"Avatakse kataloog\""
+msgstr "Nimekiri x-content/* liikidest, millele on määratud \"Avatakse kaust\""
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.in.h:12
 msgid ""
 "List of x-content/* types for which the user have chosen \"Open Folder\" in "
 "the preferences capplet. A folder window will be opened on insertion of "
 "media matching these types."
-msgstr "Nimekiri x-content/* liikidest, millede kohta kasutaja on eelistuste rakendist valinud \"Avatakse kataloog\". Nendele liikidele vastava meediumi sisestamisel avatakse kataloogiaken."
+msgstr "Nimekiri x-content/* liikidest, millede kohta kasutaja on eelistuste rakendist valinud \"Avatakse kaust\". Nendele liikidele vastava meediumi sisestamisel avatakse kaustaaken."
 
 #: ../data/caja-autorun-software.desktop.in.in.h:1
 msgid "Autorun Prompt"
@@ -3461,13 +3462,13 @@ msgstr "Faililehitseja"
 
 #: ../data/caja-browser.desktop.in.in.h:3
 msgid "Browse the file system with the file manager"
-msgstr "Sirvi failihalduriga failisüsteemi"
+msgstr "Failisüsteemi sirvimine failihalduriga"
 
 #. tooltip
 #: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:923
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
-msgstr "Kõikide kohalike ja kaugkataloogide ning ketaste sirvimine"
+msgstr "Kõikide kohalike ja kaugkaustade ning ketaste sirvimine"
 
 #: ../data/caja-file-management-properties.desktop.in.in.h:1
 msgid "File Management"
@@ -3479,13 +3480,13 @@ msgstr "Failihalduri akende käitumise ja välimuse muutmine"
 
 #: ../data/caja-home.desktop.in.in.h:1 ../src/file-manager/fm-tree-view.c:1423
 msgid "Home Folder"
-msgstr "Kodukataloog"
+msgstr "Kodukaust"
 
 #. tooltip
 #: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:690
 #: ../src/caja-window-menus.c:918
 msgid "Open your personal folder"
-msgstr "Isikliku kataloogi avamine"
+msgstr "Isikliku kausta avamine"
 
 #: ../data/caja.desktop.in.in.h:2
 msgid "File Manager"
@@ -3589,11 +3590,11 @@ msgstr "Otsingu _nimi:"
 
 #: ../src/file-manager/fm-directory-view.c:1364
 msgid "_Folder:"
-msgstr "_Kataloog:"
+msgstr "_Kaust:"
 
 #: ../src/file-manager/fm-directory-view.c:1369
 msgid "Select Folder to Save Search In"
-msgstr "Otsingu salvestamiseks kataloogi valimine"
+msgstr "Otsingu salvestamiseks kausta valimine"
 
 #: ../src/file-manager/fm-directory-view.c:2273
 #: ../src/file-manager/fm-directory-view.c:2310
@@ -3605,8 +3606,8 @@ msgstr "Valitud \"%s\""
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
-msgstr[0] "Valitud %'d kataloog"
-msgstr[1] "Valitud %'d kataloogi"
+msgstr[0] "Valitud %'d kaust"
+msgstr[1] "Valitud %'d kausta"
 
 #: ../src/file-manager/fm-directory-view.c:2285
 #, c-format
@@ -3728,7 +3729,7 @@ msgstr "Dokumendi loomine mallist \"%s\""
 
 #: ../src/file-manager/fm-directory-view.c:5924
 msgid "All executable files in this folder will appear in the Scripts menu."
-msgstr "Kõik käivitatavad failid selles kataloogis ilmuvad Skriptide menüüsse."
+msgstr "Kõik selles kaustas olevad käivitatavad failid ilmuvad Skriptide menüüsse."
 
 #: ../src/file-manager/fm-directory-view.c:5926
 msgid ""
@@ -3757,7 +3758,7 @@ msgid ""
 "CAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: newline-delimited URIs for selected files in the inactive pane of a split-view window\n"
 "\n"
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI for current location in the inactive pane of a split-view window"
-msgstr "Kõik selles kataloogis olevad käivitatavad failid ilmuvad Skriptide menüüsse. Menüüst skripti valides käivitatakse see.\n\nKohalikust kataloogist käivitamisel edastatakse skriptidele valitud failide nimed. Võrgukataloogist (näiteks veebi või ftp sisu näitavast kataloogist) käivitamisel skriptile parameetreid ei edastata.\n\nKõikide ülalkirjeldatud juhtumite korral edastab Caja skriptile järgnevad keskkonnamuutujad:\n\nCAJA_SCRIPT_SELECTED_FILE_PATHS: valitud failide reavahetustega eraldatud rajad (kui need on kohalikud)\n\nCAJA_SCRIPT_SELECTED_URIS: valitud failide reavahetustega eraldatud URI-d\n\nCAJA_SCRIPT_CURRENT_URI: käesoleva asukoha URI\n\nCAJA_SCRIPT_WINDOW_GEOMETRY: käesoleva akna suurus ja asukoht\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_FILE_PATHS: jagatud vaate mitteaktiivsel paneelil valitud failide reavahetustega eraldatud rajad (kui need on kohalikud)\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: jagatud vaate mitteaktiivsel paneelil valitud failide reavahetustega eraldatud URI-d\n\nCAJA_SCRIPT_NEXT_PANE_CURRENT_URI: jagatud vaate mitteaktiivse paneeli käesoleva asukoha URI"
+msgstr "Kõik selles kaustas olevad käivitatavad failid ilmuvad Skriptide menüüsse. Menüüst skripti valides käivitatakse see.\n\nKohalikust kaustast käivitamisel edastatakse skriptidele valitud failide nimed. Võrgukaustast (näiteks veebi või ftp sisu näitavast kaustast) käivitamisel skriptile parameetreid ei edastata.\n\nKõikide ülalkirjeldatud juhtumite korral edastab Caja skriptile järgnevad keskkonnamuutujad:\n\nCAJA_SCRIPT_SELECTED_FILE_PATHS: valitud failide reavahetustega eraldatud rajad (kui need on kohalikud)\n\nCAJA_SCRIPT_SELECTED_URIS: valitud failide reavahetustega eraldatud URI-d\n\nCAJA_SCRIPT_CURRENT_URI: käesoleva asukoha URI\n\nCAJA_SCRIPT_WINDOW_GEOMETRY: käesoleva akna suurus ja asukoht\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_FILE_PATHS: jagatud vaate mitteaktiivsel paneelil valitud failide reavahetustega eraldatud rajad (kui need on kohalikud)\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: jagatud vaate mitteaktiivsel paneelil valitud failide reavahetustega eraldatud URI-d\n\nCAJA_SCRIPT_NEXT_PANE_CURRENT_URI: jagatud vaate mitteaktiivse paneeli käesoleva asukoha URI"
 
 #: ../src/file-manager/fm-directory-view.c:5996
 #: ../src/file-manager/fm-tree-view.c:998
@@ -3807,7 +3808,7 @@ msgstr "Ketta seiskamine pole võimalik"
 #: ../src/file-manager/fm-directory-view.c:7002
 #, c-format
 msgid "Connect to Server %s"
-msgstr "Ühendumine serverisse %s"
+msgstr "Ühendumine serveriga %s"
 
 #: ../src/file-manager/fm-directory-view.c:7007
 #: ../src/file-manager/fm-directory-view.c:8215
@@ -3853,12 +3854,12 @@ msgstr "Valitud kirje omaduste vaatamine või muutmine"
 #: ../src/file-manager/fm-directory-view.c:7272
 #: ../src/file-manager/fm-tree-view.c:1287
 msgid "Create _Folder"
-msgstr "Loo _kataloog"
+msgstr "Loo _kaust"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7273
 msgid "Create a new empty folder inside this folder"
-msgstr "Selle kataloogi sisse uue tühja kataloogi loomine"
+msgstr "Selle kausta sisse uue tühja kausta loomine"
 
 #. name, stock id, label
 #: ../src/file-manager/fm-directory-view.c:7275
@@ -3875,7 +3876,7 @@ msgstr "_Tühi fail"
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7279
 msgid "Create a new empty file inside this folder"
-msgstr "Selle kataloogi sisse uue tühja faili loomine"
+msgstr "Selle kausta sisse uue tühja faili loomine"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7287
@@ -3918,12 +3919,12 @@ msgstr "Iga valitud kirje avamine uuel kaardil"
 #: ../src/file-manager/fm-directory-view.c:7302
 #: ../src/file-manager/fm-directory-view.c:7484
 msgid "Open in _Folder Window"
-msgstr "Ava _kataloogiaknas"
+msgstr "Ava _kaustaaknas"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7303
 msgid "Open each selected item in a folder window"
-msgstr "Iga valitud kirje avamine kataloogiaknas"
+msgstr "Iga valitud kirje avamine kausta aknas"
 
 #. name, stock id
 #. label, accelerator
@@ -3941,18 +3942,18 @@ msgstr "Valitud kirje avamiseks teise rakenduse valimine"
 #. label, accelerator
 #: ../src/file-manager/fm-directory-view.c:7310
 msgid "Open With Other _Application..."
-msgstr "_Ava mõne muu rakendusega..."
+msgstr "Ava mõne muu _rakendusega..."
 
 #. name, stock id
 #. label, accelerator
 #: ../src/file-manager/fm-directory-view.c:7314
 msgid "_Open Scripts Folder"
-msgstr "_Ava skriptide kataloog"
+msgstr "_Ava skriptide kaust"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7315
 msgid "Show the folder containing the scripts that appear in this menu"
-msgstr "Selles menüüs olevate skriptide kataloogi avamine"
+msgstr "Selles menüüs olevate skriptide kausta avamine"
 
 #. name, stock id
 #. label, accelerator
@@ -3983,14 +3984,14 @@ msgstr "Eelnevalt Lõika või Kopeeri käskudega valitud failide ümbertõstmine
 #: ../src/file-manager/fm-directory-view.c:7497
 #: ../src/file-manager/fm-tree-view.c:1319
 msgid "_Paste Into Folder"
-msgstr "_Aseta failid kataloogi"
+msgstr "_Aseta failid kausta"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7337
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into the "
 "selected folder"
-msgstr "Eelnevalt käskudega Lõika/Kopeeri fail valitud failide valitud kataloogi ümbertõstmine või kopeerimine"
+msgstr "Eelnevalt käskudega Lõika/Kopeeri fail valitud failide valitud kausta ümbertõstmine või kopeerimine"
 
 #. name, stock id, label
 #: ../src/file-manager/fm-directory-view.c:7339
@@ -4135,7 +4136,7 @@ msgstr "Sortimisjärjestuse ja suurendusastme lähtestamine selle vaate jaoks va
 #. label, accelerator
 #: ../src/file-manager/fm-directory-view.c:7401
 msgid "Connect To This Server"
-msgstr "Ühendu sellesse võrguserverisse"
+msgstr "Ühendu selle võrguserveriga"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7402
@@ -4154,17 +4155,17 @@ msgstr "Ü_henda"
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7406
 msgid "Mount the selected volume"
-msgstr "Valitud kettaseadme haakimine"
+msgstr "Valitud köite haakimine"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7410
 msgid "Unmount the selected volume"
-msgstr "Valitud kettaseadme lahtihaakimine"
+msgstr "Valitud köite lahtihaakimine"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7414
 msgid "Eject the selected volume"
-msgstr "Valitud andmekandja väljastamine"
+msgstr "Valitud köite väljastamine"
 
 #. name, stock id
 #. label, accelerator
@@ -4178,7 +4179,7 @@ msgstr "_Vorming"
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7418
 msgid "Format the selected volume"
-msgstr "Valitud kettaseadme vormindamine"
+msgstr "Valitud köite vormindamine"
 
 #. name, stock id
 #. label, accelerator
@@ -4199,7 +4200,7 @@ msgstr "_Käivita"
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7422
 msgid "Start the selected volume"
-msgstr "Valitud andmeruumi käivitamine"
+msgstr "Valitud köite käivitamine"
 
 #. name, stock id
 #. label, accelerator
@@ -4218,7 +4219,7 @@ msgstr "_Peata"
 #: ../src/file-manager/fm-directory-view.c:7426
 #: ../src/file-manager/fm-directory-view.c:8439
 msgid "Stop the selected volume"
-msgstr "Valitud andmeruumi peatamine"
+msgstr "Valitud köite peatamine"
 
 #. name, stock id
 #. label, accelerator
@@ -4239,32 +4240,32 @@ msgstr "Tuvastab andmekandja valitud seadmes"
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7434
 msgid "Mount the volume associated with the open folder"
-msgstr "Avatud kataloogiga seotud kettaseadme haakimine"
+msgstr "Avatud kaustaga seotud köite haakimine"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7438
 msgid "Unmount the volume associated with the open folder"
-msgstr "Avatud kataloogiga seotud kettaseadme lahtihaakimine"
+msgstr "Avatud kaustaga seotud köite lahtihaakimine"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7442
 msgid "Eject the volume associated with the open folder"
-msgstr "Avatud kataloogiga seotud ketta väljastamine"
+msgstr "Avatud kaustaga seotud köite väljastamine"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7446
 msgid "Format the volume associated with the open folder"
-msgstr "Avatud kataloogiga seotud kettaseadme vormindamine"
+msgstr "Avatud kaustaga seotud köite vormindamine"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7450
 msgid "Start the volume associated with the open folder"
-msgstr "Käivitab avatud kaustaga seotud andmeruumi"
+msgstr "Avatud kaustaga seotud köite käivitamine"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7454
 msgid "Stop the volume associated with the open folder"
-msgstr "Seiskab avatud kaustaga seotud andmeruumi"
+msgstr "Avatud kaustaga seotud köite seiskamine"
 
 #. name, stock id
 #. label, accelerator
@@ -4297,83 +4298,83 @@ msgstr "Praegune otsingu salvestamine failina"
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7476
 msgid "Open this folder in a navigation window"
-msgstr "Kataloogi avamine navigeerimisaknas"
+msgstr "Kausta avamine navigeerimisaknas"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7480
 msgid "Open this folder in a new tab"
-msgstr "Selle kataloogi avamine uuel kaardil"
+msgstr "Selle kausta avamine uuel kaardil"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7485
 msgid "Open this folder in a folder window"
-msgstr "Selle kataloogi avamine kataloogiaknas"
+msgstr "Selle kausta avamine kaustaaknas"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7490
 msgid "Prepare this folder to be moved with a Paste command"
-msgstr "Selle kataloogi ettevalmistamine ümbertõstmiseks \"Aseta\" käsuga"
+msgstr "Selle kausta ettevalmistamine ümbertõstmiseks \"Aseta\" käsuga"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7494
 msgid "Prepare this folder to be copied with a Paste command"
-msgstr "Selle kataloogi ettevalmistamine kopeerimiseks \"Aseta\" käsuga"
+msgstr "Selle kausta ettevalmistamine kopeerimiseks \"Aseta\" käsuga"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7498
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into this "
 "folder"
-msgstr "Eelnevalt \"Lõika\" või \"Kopeeri\" käskudega valitud failide ümbertõstmine või kopeerimine sellesse kataloogi"
+msgstr "Eelnevalt \"Lõika\" või \"Kopeeri\" käskudega valitud failide ümbertõstmine või kopeerimine sellesse kausta"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7503
 msgid "Move this folder to the Trash"
-msgstr "Selle kataloogi prügikasti viskamine"
+msgstr "Selle kausta viskamine prügikasti"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7507
 msgid "Delete this folder, without moving to the Trash"
-msgstr "Selle kataloogi kustutamine ilma prügikasti viskamata"
+msgstr "Selle kausta kustutamine ilma prügikasti viskamata"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7515
 msgid "Mount the volume associated with this folder"
-msgstr "Selle kataloogiga seotud kettaseadme haakimine"
+msgstr "Selle kaustaga seotud köite haakimine"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7519
 msgid "Unmount the volume associated with this folder"
-msgstr "Selle kataloogiga seotud kettaseadme lahtihaakimine"
+msgstr "Selle kaustaga seotud köite lahtihaakimine"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7523
 msgid "Eject the volume associated with this folder"
-msgstr "Selle kataloogiga seotud ketta väljastamine"
+msgstr "Selle kaustaga seotud köite väljastamine"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7527
 msgid "Format the volume associated with this folder"
-msgstr "Selle kataloogiga seotud kettaseadme vormindamine"
+msgstr "Selle kaustaga seotud köite vormindamine"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7531
 msgid "Start the volume associated with this folder"
-msgstr "Käivitab selle kaustaga seotud andmeruumi"
+msgstr "Selle kaustaga seotud köite käivitamine"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7535
 msgid "Stop the volume associated with this folder"
-msgstr "Seiskab selle kaustaga seotud andmeruumi"
+msgstr "Selle kaustaga seotud köite seiskamine"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7544
 msgid "View or modify the properties of this folder"
-msgstr "Selle kataloogi omaduste vaatamine või muutmine"
+msgstr "Selle kausta omaduste vaatamine või muutmine"
 
 #. name, stock id, label
 #: ../src/file-manager/fm-directory-view.c:7547
@@ -4395,15 +4396,15 @@ msgstr "Valiku ümbertõstmine sama akna kõrvalpaanile"
 #: ../src/file-manager/fm-directory-view.c:7554
 #: ../src/file-manager/fm-directory-view.c:7558 ../src/caja-window-menus.c:917
 msgid "_Home Folder"
-msgstr "_Kodukataloogi"
+msgstr "_Kodukausta"
 
 #: ../src/file-manager/fm-directory-view.c:7555
 msgid "Copy the current selection to the home folder"
-msgstr "Valiku kopeerimine kodukataloogi"
+msgstr "Valiku kopeerimine kodukausta"
 
 #: ../src/file-manager/fm-directory-view.c:7559
 msgid "Move the current selection to the home folder"
-msgstr "Valiku ümbertõstmine kodukataloogi"
+msgstr "Valiku ümbertõstmine kodukausta"
 
 #. name, stock id, label
 #: ../src/file-manager/fm-directory-view.c:7562
@@ -4423,7 +4424,7 @@ msgstr "Valiku ümbertõstmine töölauale"
 #: ../src/file-manager/fm-directory-view.c:7647
 #, c-format
 msgid "Run or manage scripts from %s"
-msgstr "Skriptide käivitamine või korrastamine kataloogis %s"
+msgstr "Skriptide käivitamine või korrastamine kaustas %s"
 
 #. Create a script action here specially because its tooltip is dynamic
 #: ../src/file-manager/fm-directory-view.c:7649
@@ -4433,21 +4434,21 @@ msgstr "_Skriptid"
 #: ../src/file-manager/fm-directory-view.c:8055
 #, c-format
 msgid "Move the open folder out of the trash to \"%s\""
-msgstr "Avatud kataloogi väljatõstmine prügikastist asukohale \"%s\""
+msgstr "Avatud kausta väljatõstmine prügikastist asukohale \"%s\""
 
 #: ../src/file-manager/fm-directory-view.c:8058
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
-msgstr[0] "Valitud kataloogi prügikastist väljatõstmine asukohale \"%s\""
-msgstr[1] "Valitud kataloogide prügikastist väljatõstmine asukohale \"%s\""
+msgstr[0] "Valitud kausta prügikastist väljatõstmine asukohale \"%s\""
+msgstr[1] "Valitud kaustade prügikastist väljatõstmine asukohale \"%s\""
 
 #: ../src/file-manager/fm-directory-view.c:8062
 #, c-format
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
-msgstr[0] "Valitud kataloogi prügikasti viskamine"
-msgstr[1] "Valitud kataloogide prügikasti viskamine"
+msgstr[0] "Valitud kausta viskamine prügikasti "
+msgstr[1] "Valitud kaustade viskamine prügikasti "
 
 #: ../src/file-manager/fm-directory-view.c:8068
 #, c-format
@@ -4562,15 +4563,15 @@ msgstr "Valitud kettaseadme lukustamine"
 #: ../src/file-manager/fm-directory-view.c:8300
 #: ../src/file-manager/fm-directory-view.c:8304
 msgid "Start the drive associated with the open folder"
-msgstr "Avatud kataloogiga seotud kettaseadme käivitamine"
+msgstr "Avatud kaustaga seotud kettaseadme käivitamine"
 
 #: ../src/file-manager/fm-directory-view.c:8308
 msgid "Connect to the drive associated with the open folder"
-msgstr "Avatud kataloogiga seotud kettaseadme ühendamine"
+msgstr "Avatud kaustaga seotud kettaseadme ühendamine"
 
 #: ../src/file-manager/fm-directory-view.c:8312
 msgid "Start the multi-disk drive associated with the open folder"
-msgstr "Avatud kataloogiga seotud mitmekettaseadme käivitamine"
+msgstr "Avatud kaustaga seotud mitmekettaseadme käivitamine"
 
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
 #: ../src/file-manager/fm-directory-view.c:8315
@@ -4581,34 +4582,34 @@ msgstr "_Võta ketas lukust lahti"
 
 #: ../src/file-manager/fm-directory-view.c:8316
 msgid "Unlock the drive associated with the open folder"
-msgstr "Avatud kataloogiga seotud kettaseadme lukust lahti võtmine"
+msgstr "Avatud kaustaga seotud kettaseadme lukust lahti võtmine"
 
 #: ../src/file-manager/fm-directory-view.c:8329
 msgid "_Stop the drive associated with the open folder"
-msgstr "Avatud kataloogiga seotud kettaseadme _seiskamine"
+msgstr "Avatud kaustaga seotud kettaseadme _seiskamine"
 
 #: ../src/file-manager/fm-directory-view.c:8333
 msgid "Safely remove the drive associated with the open folder"
-msgstr "Avatud kataloogiga seotud kettaseadme turvaline eemaldamine"
+msgstr "Avatud kaustaga seotud kettaseadme turvaline eemaldamine"
 
 #: ../src/file-manager/fm-directory-view.c:8337
 msgid "Disconnect the drive associated with the open folder"
-msgstr "Avatud kataloogiga seotud kettaseadme lahtiühendamine"
+msgstr "Avatud kaustaga seotud kettaseadme lahtiühendamine"
 
 #: ../src/file-manager/fm-directory-view.c:8341
 msgid "Stop the multi-disk drive associated with the open folder"
-msgstr "Avatud kataloogiga seotud mitmekettaseadme seiskamine"
+msgstr "Avatud kaustaga seotud mitmekettaseadme seiskamine"
 
 #: ../src/file-manager/fm-directory-view.c:8345
 msgid "Lock the drive associated with the open folder"
-msgstr "Avatud kataloogiga seotud kettaseadme lukustamine"
+msgstr "Avatud kaustaga seotud kettaseadme lukustamine"
 
 #. add the "open in new window" menu item
 #: ../src/file-manager/fm-directory-view.c:8524
 #: ../src/file-manager/fm-directory-view.c:8834
 #: ../src/file-manager/fm-tree-view.c:1276 ../src/caja-places-sidebar.c:2668
 msgid "Open in New _Window"
-msgstr "Ava uues _aknas"
+msgstr "Ava _uues aknas"
 
 #: ../src/file-manager/fm-directory-view.c:8526
 #: ../src/file-manager/fm-directory-view.c:8843
@@ -4619,8 +4620,8 @@ msgstr "Sirvi uues _aknas"
 #: ../src/file-manager/fm-directory-view.c:8853
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
-msgstr[0] "_Sirvi kataloogi"
-msgstr[1] "_Sirvi katalooge"
+msgstr[0] "_Sirvi kausta"
+msgstr[1] "_Sirvi kaustu"
 
 #: ../src/file-manager/fm-directory-view.c:8549
 #: ../src/file-manager/fm-directory-view.c:8882
@@ -4634,23 +4635,23 @@ msgstr "Kustuta _jäädavalt"
 
 #: ../src/file-manager/fm-directory-view.c:8599
 msgid "Delete the open folder permanently"
-msgstr "Avatud kataloogi jäädavalt kustutamine"
+msgstr "Avatud kausta lõplik kustutamine"
 
 #: ../src/file-manager/fm-directory-view.c:8603
 msgid "Move the open folder to the Trash"
-msgstr "Avatud kataloogi prügikasti viskamine"
+msgstr "Avatud kausta viskamine prügikasti "
 
 #: ../src/file-manager/fm-directory-view.c:8783
 #, c-format
 msgid "_Open With %s"
-msgstr "_Ava programmiga %s"
+msgstr "Ava p_rogrammiga %s"
 
 #: ../src/file-manager/fm-directory-view.c:8836
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
 msgstr[0] "Ava uues _aknas"
-msgstr[1] "Ava %'d-s uues _aknas"
+msgstr[1] "Ava %'d-s _uues aknas"
 
 #: ../src/file-manager/fm-directory-view.c:8845
 #, c-format
@@ -4679,7 +4680,7 @@ msgstr "Kõigi kirjete lõplik kustutamine"
 
 #: ../src/file-manager/fm-directory-view.c:8981
 msgid "View or modify the properties of the open folder"
-msgstr "Avatud kataloogi omaduste vaatamine või muutmine"
+msgstr "Avatud kausta omaduste vaatamine või muutmine"
 
 #: ../src/file-manager/fm-directory-view.c:10305
 msgid "Download location?"
@@ -4691,7 +4692,7 @@ msgstr "Sa võid selle alla laadida või sellele viida luua."
 
 #: ../src/file-manager/fm-directory-view.c:10311
 msgid "Make a _Link"
-msgstr "Loo _viit"
+msgstr "Loo vii_t"
 
 #: ../src/file-manager/fm-directory-view.c:10315
 msgid "_Download"
@@ -4765,22 +4766,22 @@ msgstr "\"%s\" pole võimalik leida. Ilmselt on see hiljuti kustutatud."
 #: ../src/file-manager/fm-error-reporting.c:77
 #, c-format
 msgid "Sorry, could not display all the contents of \"%s\": %s"
-msgstr "Vabandust, kataloogi \"%s\" kogu sisu pole võimalik kuvada: %s"
+msgstr "Vabandust, kausta \"%s\" kogu sisu pole võimalik kuvada: %s"
 
 #: ../src/file-manager/fm-error-reporting.c:86
 msgid "The folder contents could not be displayed."
-msgstr "Kataloogi sisu pole võimalik kuvada."
+msgstr "Kausta sisu pole võimalik kuvada."
 
 #: ../src/file-manager/fm-error-reporting.c:117
 #, c-format
 msgid ""
 "The name \"%s\" is already used in this folder. Please use a different name."
-msgstr "Nimi \"%s\" on siin kataloogis juba kasutusel. Palun vali teine nimi."
+msgstr "Nimi \"%s\" on siin kaustas juba kasutusel. Palun vali teine nimi."
 
 #: ../src/file-manager/fm-error-reporting.c:122
 #, c-format
 msgid "There is no \"%s\" in this folder. Perhaps it was just moved or deleted?"
-msgstr "\"%s\" ei ole siin kataloogis. Võib-olla on see äsja ümber tõstetud või kustutatud?"
+msgstr "\"%s\" ei ole siin kaustas. Võib-olla on see äsja ümber tõstetud või kustutatud?"
 
 #: ../src/file-manager/fm-error-reporting.c:127
 #, c-format
@@ -5088,11 +5089,11 @@ msgstr "Nimekirjavaade"
 #: ../src/file-manager/fm-list-view.c:2516
 #, c-format
 msgid "%s Visible Columns"
-msgstr "Kataloogis %s nähtavad veerud"
+msgstr "Kaustas %s nähtavad veerud"
 
 #: ../src/file-manager/fm-list-view.c:2535
 msgid "Choose the order of information to appear in this folder:"
-msgstr "Vali, mismoodi selles kataloogis andmeid järjestatakse:"
+msgstr "Vali, mismoodi selles kaustas andmeid järjestatakse:"
 
 #. name, stock id
 #. label, accelerator
@@ -5103,7 +5104,7 @@ msgstr "Nähtavad _veerud..."
 #. tooltip
 #: ../src/file-manager/fm-list-view.c:2594
 msgid "Select the columns visible in this folder"
-msgstr "Valib veerud, mida selles kataloogis näidata"
+msgstr "Selles kaustas näidatavate veergude valimine"
 
 #. translators: this is used in the view menu
 #: ../src/file-manager/fm-list-view.c:3438
@@ -5238,7 +5239,7 @@ msgstr "Asukoht:"
 
 #: ../src/file-manager/fm-properties-window.c:3392
 msgid "Volume:"
-msgstr "Ketas:"
+msgstr "Köide:"
 
 #: ../src/file-manager/fm-properties-window.c:3401
 msgid "Accessed:"
@@ -5303,7 +5304,7 @@ msgstr "Pääsuõigused:"
 
 #: ../src/file-manager/fm-properties-window.c:4275
 msgid "Folder access:"
-msgstr "Kataloogi pääsuõigused:"
+msgstr "Ligipääs kaustale:"
 
 #: ../src/file-manager/fm-properties-window.c:4277
 msgid "File access:"
@@ -5320,7 +5321,7 @@ msgstr "Puudub"
 
 #: ../src/file-manager/fm-properties-window.c:4295
 msgid "List files only"
-msgstr "Ainult failide loendile"
+msgstr "Ainult failide nimekiri"
 
 #: ../src/file-manager/fm-properties-window.c:4297
 msgid "Access files"
@@ -5332,7 +5333,7 @@ msgstr "Failide loomine ja kustutamine"
 
 #: ../src/file-manager/fm-properties-window.c:4306
 msgid "Read-only"
-msgstr "Ainult loetav"
+msgstr "Ainult lugemine"
 
 #: ../src/file-manager/fm-properties-window.c:4308
 msgid "Read and write"
@@ -5394,7 +5395,7 @@ msgstr "Teised:"
 
 #: ../src/file-manager/fm-properties-window.c:4719
 msgid "Folder Permissions:"
-msgstr "Kataloogi õigused:"
+msgstr "Kausta pääsuõigused:"
 
 #: ../src/file-manager/fm-properties-window.c:4732
 msgid "File Permissions:"
@@ -5451,29 +5452,29 @@ msgstr "Puu"
 
 #: ../src/file-manager/fm-tree-view.c:1722
 msgid "Show Tree"
-msgstr "Näita kataloogipuud"
+msgstr "Näita kaustapuud"
 
 #: ../src/caja-application.c:434
 #, c-format
 msgid "Caja could not create the required folder \"%s\"."
-msgstr "Cajael pole võimalik kataloogi \"%s\" luua."
+msgstr "Cajal pole võimalik kausta \"%s\" luua."
 
 #: ../src/caja-application.c:436
 msgid ""
 "Before running Caja, please create the following folder, or set permissions "
 "such that Caja can create it."
-msgstr "Enne Cajae käivitamist loo palun järgnev kataloog või säti pääsuõigused selliselt, et Caja saaks vajalikud kataloogid luua."
+msgstr "Enne Caja käivitamist loo palun järgnev kaust või säti pääsuõigused selliselt, et Caja saaks vajalikud kaustad ise luua."
 
 #: ../src/caja-application.c:441
 #, c-format
 msgid "Caja could not create the following required folders: %s."
-msgstr "Cajael pole võimalik luua järgmisi vajalikke katalooge: %s."
+msgstr "Cajal pole võimalik luua järgmisi vajalikke kaustu: %s."
 
 #: ../src/caja-application.c:443
 msgid ""
 "Before running Caja, please create these folders, or set permissions such "
 "that Caja can create them."
-msgstr "Enne Cajae käivitamist loo palun järgnevad kataloogid või säti pääsuõigused selliselt, et Caja saaks vajalikud kataloogid luua."
+msgstr "Enne Caja käivitamist loo palun järgnevad kaustad või säti pääsuõigused selliselt, et Caja saaks vajalikud kaustad ise luua."
 
 #: ../src/caja-application.c:1660 ../src/caja-places-sidebar.c:2200
 #: ../src/caja-places-sidebar.c:2231 ../src/caja-places-sidebar.c:2262
@@ -5545,7 +5546,7 @@ msgid ""
 "\n"
 "\n"
 "Add connect to server mount"
-msgstr "\n\nÜhenduse lisamine serveri jagatud kataloogile"
+msgstr "\n\nÜhenduse lisamine serveri jagatud kaustale"
 
 #: ../src/caja-connect-server-dialog.c:134
 msgid "SSH"
@@ -5561,7 +5562,7 @@ msgstr "FTP (sisselogimisega)"
 
 #: ../src/caja-connect-server-dialog.c:142
 msgid "Windows share"
-msgstr "Windowsi jagatud kataloog"
+msgstr "Windowsi jagatud kaust"
 
 #: ../src/caja-connect-server-dialog.c:144
 msgid "WebDAV (HTTP)"
@@ -5573,13 +5574,13 @@ msgstr "Turvaline WebDAV (HTTPS)"
 
 #: ../src/caja-connect-server-dialog.c:193
 msgid "Connecting..."
-msgstr ""
+msgstr "Ühendumine..."
 
 #: ../src/caja-connect-server-dialog.c:217
 msgid ""
 "Can't load the supported server method list.\n"
 "Please check your GVfs installation."
-msgstr ""
+msgstr "Toetatud serverite meetodite nimekirja pole võimalik laadida.\nPalun kontrolli oma GVfs'i paigaldust."
 
 #: ../src/caja-connect-server-dialog.c:295
 #, c-format
@@ -5593,7 +5594,7 @@ msgstr ""
 
 #: ../src/caja-connect-server-dialog.c:340
 msgid "Try Again"
-msgstr ""
+msgstr "Proovi uuesti"
 
 #: ../src/caja-connect-server-dialog.c:406
 msgid "Please verify your user details."
@@ -5601,7 +5602,7 @@ msgstr ""
 
 #: ../src/caja-connect-server-dialog.c:436
 msgid "Continue"
-msgstr ""
+msgstr "Jätka"
 
 #: ../src/caja-connect-server-dialog.c:732
 #: ../src/caja-connect-server-dialog.c:1156
@@ -5611,11 +5612,11 @@ msgstr "Ü_hendu"
 #. set dialog properties
 #: ../src/caja-connect-server-dialog.c:856
 msgid "Connect to Server"
-msgstr "Ühendumine serverisse"
+msgstr "Serveriga ühendumine"
 
 #: ../src/caja-connect-server-dialog.c:870
 msgid "Server Details"
-msgstr ""
+msgstr "Serveri üksikasjad"
 
 #. first row: server entry + port spinbutton
 #: ../src/caja-connect-server-dialog.c:890
@@ -5635,39 +5636,39 @@ msgstr ""
 #. fourth row: folder entry
 #: ../src/caja-connect-server-dialog.c:1025
 msgid "Folder:"
-msgstr ""
+msgstr "Kaust:"
 
 #: ../src/caja-connect-server-dialog.c:1043
 msgid "User Details"
-msgstr ""
+msgstr "Kasutaja üksikasjad"
 
 #. first row: domain entry
 #: ../src/caja-connect-server-dialog.c:1062
 msgid "Domain Name:"
-msgstr ""
+msgstr "Domeeni nimi:"
 
 #. second row: username entry
 #: ../src/caja-connect-server-dialog.c:1079
 msgid "User Name:"
-msgstr ""
+msgstr "Kasutaja nimi:"
 
 #. third row: password entry
 #: ../src/caja-connect-server-dialog.c:1096
 msgid "Password:"
-msgstr ""
+msgstr "Parool:"
 
 #. fourth row: remember checkbox
 #: ../src/caja-connect-server-dialog.c:1114
 msgid "Remember this password"
-msgstr ""
+msgstr "Parool jäetakse meelde"
 
 #: ../src/caja-connect-server-dialog.c:1127
 msgid "Add _bookmark"
-msgstr ""
+msgstr "Lisa _järjehoidja"
 
 #: ../src/caja-connect-server-dialog.c:1134
 msgid "Bookmark Name:"
-msgstr ""
+msgstr "Järjehoidja nimi:"
 
 #: ../src/caja-desktop-window.c:81 ../src/caja-desktop-window.c:251
 #: ../src/caja-pathbar.c:1524 ../src/caja-places-sidebar.c:704
@@ -5876,7 +5877,7 @@ msgstr "<b>Vaikimisi vaade</b>"
 
 #: ../src/caja-file-management-properties.ui.h:41
 msgid "View _new folders using:"
-msgstr "_Uusi katalooge näidatakse kasutades:"
+msgstr "_Uusi kaustu näidatakse kasutades:"
 
 #: ../src/caja-file-management-properties.ui.h:42
 msgid "_Arrange items:"
@@ -5884,7 +5885,7 @@ msgstr "Kir_jed järjestatakse:"
 
 #: ../src/caja-file-management-properties.ui.h:43
 msgid "Sort _folders before files"
-msgstr "_Kataloogid sorditakse enne faile"
+msgstr "_Kaustad sorditakse enne faile"
 
 #: ../src/caja-file-management-properties.ui.h:44
 msgid "Show hidden and _backup files"
@@ -5932,7 +5933,7 @@ msgstr "<b>Puuvaate vaikeväärtused</b>"
 
 #: ../src/caja-file-management-properties.ui.h:55
 msgid "Show _only folders"
-msgstr "Näidatakse ai_nult katalooge"
+msgstr "Näidatakse ai_nult kaustu"
 
 #: ../src/caja-file-management-properties.ui.h:56
 msgid "Views"
@@ -5952,7 +5953,7 @@ msgstr "Kirjed avatakse _topeltklõpsuga"
 
 #: ../src/caja-file-management-properties.ui.h:60
 msgid "Open each _folder in its own window"
-msgstr "_Iga kataloogi avaneb oma aknas"
+msgstr "_Iga kaust avaneb oma aknas"
 
 #: ../src/caja-file-management-properties.ui.h:61
 msgid "<b>Executable Text Files</b>"
@@ -6026,7 +6027,7 @@ msgstr "<b>Tekstifailid</b>"
 
 #: ../src/caja-file-management-properties.ui.h:78
 msgid "Show te_xt in icons:"
-msgstr "_Teksti näidatakse ikoonidel:"
+msgstr "Ikoonidel _teksti näitamine:"
 
 #: ../src/caja-file-management-properties.ui.h:79
 msgid "<b>Other Previewable Files</b>"
@@ -6034,7 +6035,7 @@ msgstr "<b>Muud eelvaadeldavad failid</b>"
 
 #: ../src/caja-file-management-properties.ui.h:80
 msgid "Show _thumbnails:"
-msgstr "_Pisipilte näidatakse:"
+msgstr "_Pisipiltide näitamine:"
 
 #: ../src/caja-file-management-properties.ui.h:81
 msgid "_Only for files smaller than:"
@@ -6046,19 +6047,19 @@ msgstr "<b>Helifailid</b>"
 
 #: ../src/caja-file-management-properties.ui.h:83
 msgid "Preview _sound files:"
-msgstr "_Helifaile eelvaadeldakse:"
+msgstr "_Helifailide eelvaatlemine:"
 
 #: ../src/caja-file-management-properties.ui.h:84
 msgid "<b>Folders</b>"
-msgstr "<b>Kataloogid</b>"
+msgstr "<b>Kaustad</b>"
 
 #: ../src/caja-file-management-properties.ui.h:85
 msgid "Count _number of items:"
-msgstr "_Kirjete arvu loendatakse:"
+msgstr "_Kirjete arvu loendamine:"
 
 #: ../src/caja-file-management-properties.ui.h:86
 msgid "Preview"
-msgstr "Eelvaatlemine"
+msgstr "Eelvaade"
 
 #: ../src/caja-file-management-properties.ui.h:87
 msgid "<b>Media Handling</b>"
@@ -6107,7 +6108,7 @@ msgstr "_Liik:"
 
 #: ../src/caja-file-management-properties.ui.h:98
 msgid "_Never prompt or start programs on media insertion"
-msgstr "Meediumi sisestamisel ei käivitata _programme ega küsita"
+msgstr "Meediumi sisestamisel ei käivitata _programme ega küsita kinnitust"
 
 #: ../src/caja-file-management-properties.ui.h:99
 msgid "B_rowse media when inserted"
@@ -6119,7 +6120,7 @@ msgstr "Meedium"
 
 #: ../src/caja-file-management-properties.ui.h:101
 msgid "Plugins"
-msgstr ""
+msgstr "Pluginad"
 
 #: ../src/caja-history-sidebar.c:338
 msgid "History"
@@ -6296,7 +6297,7 @@ msgstr "Sirvija akna avamine."
 
 #: ../src/caja-main.c:371
 msgid "Quit Caja."
-msgstr "Cajaest väljumine."
+msgstr "Cajast väljumine."
 
 #: ../src/caja-main.c:373
 msgid "[URI...]"
@@ -6361,11 +6362,11 @@ msgstr "_Kaardid"
 #. name, stock id, label
 #: ../src/caja-navigation-window-menus.c:824
 msgid "New _Window"
-msgstr "_Uus aken"
+msgstr "Uus _aken"
 
 #: ../src/caja-navigation-window-menus.c:825
 msgid "Open another Caja window for the displayed location"
-msgstr "Näidatava asukoha jaoks Cajae uue akna avamine"
+msgstr "Näidatava asukoha jaoks Caja uue akna avamine"
 
 #. name, stock id, label
 #: ../src/caja-navigation-window-menus.c:828
@@ -6374,16 +6375,16 @@ msgstr "_Uus kaart"
 
 #: ../src/caja-navigation-window-menus.c:829
 msgid "Open another tab for the displayed location"
-msgstr "Näidatava asukoha jaoks Cajae uue kaardi avamine"
+msgstr "Näidatava asukoha jaoks Caja uue kaardi avamine"
 
 #. name, stock id, label
 #: ../src/caja-navigation-window-menus.c:832
 msgid "Open Folder W_indow"
-msgstr "Ava _kataloogiaken"
+msgstr "Ava _kaustaaken"
 
 #: ../src/caja-navigation-window-menus.c:833
 msgid "Open a folder window for the displayed location"
-msgstr "Näidatava asukoha jaoks uue kataloogiakna avamine"
+msgstr "Näidatava asukoha jaoks uue kaustaakna avamine"
 
 #. name, stock id, label
 #: ../src/caja-navigation-window-menus.c:836
@@ -6545,7 +6546,7 @@ msgstr "_Failide otsing..."
 #. tooltip
 #: ../src/caja-navigation-window-menus.c:920
 msgid "Search documents and folders by name"
-msgstr "Dokumentide ja kataloogide otsing nime järgi"
+msgstr "Dokumentide ja kaustade otsimine nime järgi"
 
 #. label, accelerator
 #: ../src/caja-navigation-window-menus.c:926
@@ -6555,7 +6556,7 @@ msgstr "_Lisapaan"
 #. tooltip
 #: ../src/caja-navigation-window-menus.c:927
 msgid "Open an extra folder view side-by-side"
-msgstr "Kataloogi lisavaate avamine eelmise kõrvale"
+msgstr "Kausta lisavaate avamine eelmise kõrvale"
 
 #: ../src/caja-navigation-window-menus.c:953
 msgid "_Back"
@@ -6624,11 +6625,11 @@ msgstr "Näita märkmeid"
 
 #: ../src/caja-places-sidebar.c:313
 msgid "Devices"
-msgstr ""
+msgstr "Seadmed"
 
 #: ../src/caja-places-sidebar.c:321
 msgid "Bookmarks"
-msgstr ""
+msgstr "Järjehoidjad"
 
 #: ../src/caja-places-sidebar.c:541 ../src/caja-places-sidebar.c:569
 #, c-format
@@ -6653,7 +6654,7 @@ msgstr "Võrk"
 
 #: ../src/caja-places-sidebar.c:866
 msgid "Browse Network"
-msgstr ""
+msgstr "Võrgu sirvimine"
 
 #: ../src/caja-places-sidebar.c:868
 msgid "Browse the contents of the network"
@@ -6879,7 +6880,7 @@ msgstr "Faili liik"
 
 #: ../src/caja-query-editor.c:279
 msgid "Select folder to search in"
-msgstr "Kataloogi valimine, millest otsida"
+msgstr "Kausta valimine, millest otsida"
 
 #: ../src/caja-query-editor.c:375
 msgid "Documents"
@@ -6935,7 +6936,7 @@ msgstr "Otsingukriteeriumi eemaldamine otsingust"
 
 #: ../src/caja-query-editor.c:1042
 msgid "Search Folder"
-msgstr "Otsingukataloog"
+msgstr "Otsingukaust"
 
 #: ../src/caja-query-editor.c:1048
 msgid "Edit"
@@ -6990,24 +6991,24 @@ msgstr "_Ava asukoht..."
 #. name, stock id, label
 #: ../src/caja-spatial-window.c:955
 msgid "Close P_arent Folders"
-msgstr "Su_lge ülemised kataloogid"
+msgstr "Su_lge ülemised kaustad"
 
 #: ../src/caja-spatial-window.c:956
 msgid "Close this folder's parents"
-msgstr "Sulgeb selle kataloogi ülemised kataloogid"
+msgstr "Selle kausta ülemiste kaustade sulgemine"
 
 #. name, stock id, label
 #: ../src/caja-spatial-window.c:960
 msgid "Clos_e All Folders"
-msgstr "_Sulge kõik kataloogid"
+msgstr "_Sulge kõik kaustad"
 
 #: ../src/caja-spatial-window.c:961
 msgid "Close all folder windows"
-msgstr "Kõigi kataloogiakende sulgemine"
+msgstr "Kõigi kaustaakende sulgemine"
 
 #: ../src/caja-spatial-window.c:973
 msgid "Locate documents and folders on this computer by name or content"
-msgstr "Arvutis asuvate dokumentide ja kataloogide otsing nime või sisu järgi"
+msgstr "Arvutis asuvate dokumentide ja kaustade otsimine nime või sisu järgi"
 
 #: ../src/caja-trash-bar.c:210
 msgid "Restore Selected Items"
@@ -7041,15 +7042,15 @@ msgstr "Sisuvaade"
 
 #: ../src/caja-window-manage-views.c:1423
 msgid "View of the current folder"
-msgstr "Käesoleva kataloogi vaade"
+msgstr "Käesoleva kausta vaade"
 
 #: ../src/caja-window-manage-views.c:2114
 msgid "Caja has no installed viewer capable of displaying the folder."
-msgstr "Cajaele ei ole paigaldatud vaatlemisprogrammi, millega saaks seda kataloogi kuvada."
+msgstr "Cajale ei ole paigaldatud sellist näitamisprogrammi, mis selle kaustaga hakkama saaks."
 
 #: ../src/caja-window-manage-views.c:2122
 msgid "The location is not a folder."
-msgstr "Asukoht ei ole kataloog."
+msgstr "Asukoht ei ole kaust."
 
 #: ../src/caja-window-manage-views.c:2131
 #, c-format
@@ -7063,11 +7064,11 @@ msgstr "Palun kontrolli õigekirja ja proovi uuesti."
 #: ../src/caja-window-manage-views.c:2143
 #, c-format
 msgid "Caja cannot handle \"%s\" locations."
-msgstr "Cajael pole võimalik \"%s\" asukohti käsitleda."
+msgstr "Cajal pole võimalik \"%s\" asukohti käsitleda."
 
 #: ../src/caja-window-manage-views.c:2148
 msgid "Caja cannot handle this kind of location."
-msgstr "Cajael pole võimalik seda liiki asukohta käsitleda."
+msgstr "Cajal pole võimalik seda liiki asukohta käsitleda."
 
 #: ../src/caja-window-manage-views.c:2155
 msgid "Unable to mount the location."
@@ -7123,25 +7124,25 @@ msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301 USA"
-msgstr "Koos Cajaega oleks sa pidanud saama ka koopia GNU Üldisest Avalikust Litsentsist; juhul kui sa seda ei saanud, siis kirjuta aadressil Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA"
+msgstr "Te peaks olema saanud GNU Üldise Avaliku Litsentsi koopia koos Cajaga; kui ei, siis võtke ühendust Free Software Foundation'iga, 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA"
 
 #: ../src/caja-window-menus.c:534
 msgid ""
 "Caja lets you organize files and folders, both on your computer and online."
-msgstr "Cajae abil saab korras hoida nii enda arvutis kui internetis olevaid faile ja kaustu."
+msgstr "Caja abil saab korras hoida nii enda arvutis kui internetis olevaid faile ja kaustu."
 
 #: ../src/caja-window-menus.c:537
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2013 The Caja authors"
-msgstr ""
+msgstr "Autoriõigus © 1999-2009 Nautiluse autorid\nAutoriõigus © 2011-2013 Caja autorid"
 
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
 #. * box to give credit to the translator(s).
 #: ../src/caja-window-menus.c:547
 msgid "translator-credits"
-msgstr "Lauri Kasvandik <lauri.kasvandik mail.ee>, 2002.\nIlmar Kerm <ikerm hot ee>, 2002.\nTõivo Leedjärv <toivo linux ee>, 2003.\nAllan Sims <allsi eau ee>, 2003.\nSven Sapelson <sven.sapelson gmail com>,2005.\nPriit Laes <plaes+gi18n plaes org>, 2004-2008.\nIvar Smolin <okul linux ee>, 2005-2010.\nMattias Põldaru <mahfiaz gmail com>, 2009-2010."
+msgstr "Lauri Kasvandik <lauri.kasvandik mail.ee>, 2002.\nIlmar Kerm <ikerm hot ee>, 2002.\nTõivo Leedjärv <toivo linux ee>, 2003.\nAllan Sims <allsi eau ee>, 2003.\nSven Sapelson <sven.sapelson gmail com>,2005.\nPriit Laes <plaes+gi18n plaes org>, 2004-2008.\nIvar Smolin <okul linux ee>, 2005-2010, 2014.\nMattias Põldaru <mahfiaz gmail com>, 2009-2010."
 
 #: ../src/caja-window-menus.c:550
 msgid "MATE Web Site"
@@ -7176,7 +7177,7 @@ msgstr "Sul_ge"
 #. tooltip
 #: ../src/caja-window-menus.c:838
 msgid "Close this folder"
-msgstr "Sulgeb selle kataloogi"
+msgstr "Selle kausta sulgemine"
 
 #: ../src/caja-window-menus.c:843
 msgid "_Backgrounds and Emblems..."
@@ -7194,7 +7195,7 @@ msgstr "_Eelistused"
 
 #: ../src/caja-window-menus.c:850
 msgid "Edit Caja preferences"
-msgstr "Cajae eelistuste muutmine"
+msgstr "Caja eelistuste muutmine"
 
 #. name, stock id, label
 #: ../src/caja-window-menus.c:853
@@ -7203,7 +7204,7 @@ msgstr "Ava ü_lemine"
 
 #: ../src/caja-window-menus.c:854
 msgid "Open the parent folder"
-msgstr "Ülemise kataloogi avamine"
+msgstr "Ülemise kausta avamine"
 
 #. tooltip
 #: ../src/caja-window-menus.c:863
@@ -7230,18 +7231,18 @@ msgstr "_Sisukord"
 #. tooltip
 #: ../src/caja-window-menus.c:873
 msgid "Display Caja help"
-msgstr "Cajae abiteabe kuvamine"
+msgstr "Caja abiteabe kuvamine"
 
 #. name, stock id
 #. label, accelerator
 #: ../src/caja-window-menus.c:877
 msgid "_About"
-msgstr "Cajaest _lähemalt"
+msgstr "Cajast _lähemalt"
 
 #. tooltip
 #: ../src/caja-window-menus.c:878
 msgid "Display credits for the creators of Caja"
-msgstr "Teabe kuvamine Cajae autorite ja tõlkijate kohta"
+msgstr "Teabe kuvamine Caja autorite ja tõlkijate kohta"
 
 #. name, stock id
 #. label, accelerator
@@ -7283,7 +7284,7 @@ msgstr "Vaate hariliku suuruse kasutamine"
 #. label, accelerator
 #: ../src/caja-window-menus.c:912
 msgid "Connect to _Server..."
-msgstr "Ühendu _serverisse..."
+msgstr "Ühendu _serveriga..."
 
 #. tooltip
 #: ../src/caja-window-menus.c:913
@@ -7316,7 +7317,7 @@ msgstr "_Mallid"
 #. tooltip
 #: ../src/caja-window-menus.c:933
 msgid "Open your personal templates folder"
-msgstr "Isikliku mallikataloogi avamine"
+msgstr "Isikliku mallikausta avamine"
 
 #. name, stock id
 #. label, accelerator
@@ -7327,7 +7328,7 @@ msgstr "_Prügikast"
 #. tooltip
 #: ../src/caja-window-menus.c:938
 msgid "Open your personal trash folder"
-msgstr "Oma isikliku prügikataloogi avamine"
+msgstr "Oma isikliku prügikausta avamine"
 
 #. name, stock id
 #. label, accelerator
@@ -7346,7 +7347,7 @@ msgstr "_Üles"
 
 #: ../src/caja-window-menus.c:981
 msgid "_Home"
-msgstr "_Kodukataloog"
+msgstr "_Kodu"
 
 #: ../src/caja-x-content-bar.c:70
 msgid "These files are on an Audio CD."
