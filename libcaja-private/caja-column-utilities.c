@@ -29,6 +29,7 @@
 #include <eel/eel-glib-extensions.h>
 #include <glib/gi18n.h>
 #include <libcaja-extension/caja-column-provider.h>
+#include <libcaja-private/caja-extensions.h>
 #include <libcaja-private/caja-module.h>
 
 static GList *
@@ -140,7 +141,7 @@ get_extension_columns (void)
     GList *providers;
     GList *l;
 
-    providers = caja_module_get_extensions_for_type (CAJA_TYPE_COLUMN_PROVIDER);
+    providers = caja_extensions_get_for_type (CAJA_TYPE_COLUMN_PROVIDER);
 
     columns = NULL;
 

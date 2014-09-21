@@ -62,6 +62,8 @@
 
 #include <libcaja-extension/caja-file-info.h>
 #include <libcaja-extension/caja-extension-private.h>
+#include <libcaja-private/caja-extensions.h>
+
 #include <libxml/parser.h>
 #include <pwd.h>
 #include <stdlib.h>
@@ -7586,7 +7588,7 @@ caja_file_invalidate_extension_info_internal (CajaFile *file)
 		g_list_free_full (file->details->pending_info_providers, g_object_unref);
 
 	file->details->pending_info_providers =
-		caja_module_get_extensions_for_type (CAJA_TYPE_INFO_PROVIDER);
+		caja_extensions_get_for_type (CAJA_TYPE_INFO_PROVIDER);
 }
 
 void

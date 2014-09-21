@@ -41,6 +41,7 @@
 #include <glib/gi18n.h>
 #include <libcaja-extension/caja-menu-provider.h>
 #include <libcaja-private/caja-bookmark.h>
+#include <libcaja-private/caja-extensions.h>
 #include <libcaja-private/caja-file-utilities.h>
 #include <libcaja-private/caja-ui-utilities.h>
 #include <libcaja-private/caja-global-preferences.h>
@@ -117,7 +118,7 @@ get_extension_toolbar_items (CajaNavigationWindow *window)
     GList *providers;
     GList *l;
 
-    providers = caja_module_get_extensions_for_type (CAJA_TYPE_MENU_PROVIDER);
+    providers = caja_extensions_get_for_type (CAJA_TYPE_MENU_PROVIDER);
     items = NULL;
 
     slot = CAJA_WINDOW (window)->details->active_pane->active_slot;

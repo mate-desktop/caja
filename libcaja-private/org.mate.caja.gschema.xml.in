@@ -457,4 +457,13 @@
       <_description>The side pane view to show in newly opened windows.</_description>
     </key>
   </schema>
+
+  <schema path="/org/mate/caja/extensions/" id="org.mate.caja.extensions" gettext-domain="caja">
+    <key type="as" name="disabled-extensions">
+      <default>[  ]</default>
+      <summary>List of extensions in disabled state.</summary>
+      <description>This list contains the extensions that are currently de-activated.</description>
+    </key>
+  </schema>
+
 </schemalist>

@@ -59,6 +59,7 @@
 #include <libcaja-private/caja-debug-log.h>
 #include <libcaja-private/caja-desktop-icon-file.h>
 #include <libcaja-private/caja-desktop-directory.h>
+#include <libcaja-private/caja-extensions.h>
 #include <libcaja-private/caja-search-directory.h>
 #include <libcaja-private/caja-directory-background.h>
 #include <libcaja-private/caja-directory.h>
@@ -4802,7 +4803,7 @@ get_all_extension_menu_items (GtkWidget *window,
 	GList *providers;
 	GList *l;
 
-	providers = caja_module_get_extensions_for_type (CAJA_TYPE_MENU_PROVIDER);
+	providers = caja_extensions_get_for_type (CAJA_TYPE_MENU_PROVIDER);
 	items = NULL;
 
 	for (l = providers; l != NULL; l = l->next) {

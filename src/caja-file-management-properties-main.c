@@ -27,8 +27,8 @@
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 
-#include <libcaja-private/caja-module.h>
 #include <libcaja-private/caja-global-preferences.h>
+#include <libcaja-private/caja-module.h>
 
 #include "caja-file-management-properties.h"
 
