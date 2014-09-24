@@ -1052,11 +1052,11 @@ show_dialog:
     {
         media_greeting = _("You have just inserted a blank DVD.");
     }
-    else if (strcmp (x_content_type, "x-content/blank-cd") == 0)
+    else if (strcmp (x_content_type, "x-content/blank-bd") == 0)
     {
         media_greeting = _("You have just inserted a blank Blu-Ray disc.");
     }
-    else if (strcmp (x_content_type, "x-content/blank-cd") == 0)
+    else if (strcmp (x_content_type, "x-content/blank-hddvd") == 0)
     {
         media_greeting = _("You have just inserted a blank HD DVD.");
     }
