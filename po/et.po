@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-12 19:04+0100\n"
-"PO-Revision-Date: 2014-09-13 07:37+0000\n"
+"PO-Revision-Date: 2014-10-01 09:12+0000\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee>\n"
 "Language-Team: Estonian (http://www.transifex.com/projects/p/MATE/language/et/)\n"
 "MIME-Version: 1.0\n"
@@ -2373,7 +2373,7 @@ msgstr "\"%s\" otsimine"
 #: ../libcaja-private/caja-undostack-manager.c:1237
 #, c-format
 msgid "Delete %d copied items"
-msgstr "Kustuta %d kopeeritud asjad"
+msgstr "%d kopeeritud kirje kustutamine"
 
 #: ../libcaja-private/caja-undostack-manager.c:1240
 #: ../libcaja-private/caja-undostack-manager.c:1250
@@ -2385,12 +2385,12 @@ msgstr "Kustuta '%s'"
 #: ../libcaja-private/caja-undostack-manager.c:1247
 #, c-format
 msgid "Delete %d duplicated items"
-msgstr "Kustuta %d mitmekordsed asjad"
+msgstr "%d dubleeritud kirje kustutamine"
 
 #: ../libcaja-private/caja-undostack-manager.c:1258
 #, c-format
 msgid "Move %d items back to '%s'"
-msgstr "Liiguta %d asjad tagasi '%s' "
+msgstr "%d kirje tagasitõstmine asukohale '%s'"
 
 #: ../libcaja-private/caja-undostack-manager.c:1262
 #, c-format
@@ -2407,7 +2407,7 @@ msgstr "Nimeta '%s' ümber '%s'ks"
 #: ../libcaja-private/caja-undostack-manager.c:1485
 #, c-format
 msgid "Restore %d items from trash"
-msgstr "Taasta %d asjad pürgikastist"
+msgstr "%d kirje taastamine pürgikastist"
 
 #: ../libcaja-private/caja-undostack-manager.c:1298
 #, c-format
@@ -2417,7 +2417,7 @@ msgstr "Taasta '%s' tagasi '%s'"
 #: ../libcaja-private/caja-undostack-manager.c:1309
 #, c-format
 msgid "Move %d items back to trash"
-msgstr "Liiguta %d asjad tagasi prügikasti"
+msgstr "%d kirje viskamine tagasi prügikasti"
 
 #: ../libcaja-private/caja-undostack-manager.c:1312
 #, c-format
@@ -2427,7 +2427,7 @@ msgstr "Liiguta '%s' tagasi prügikasti"
 #: ../libcaja-private/caja-undostack-manager.c:1321
 #, c-format
 msgid "Delete links to %d items"
-msgstr "Kustuta %d asjade linkid"
+msgstr "%d kirje viitade kustutamine"
 
 #: ../libcaja-private/caja-undostack-manager.c:1324
 #, c-format
@@ -2437,7 +2437,7 @@ msgstr "Kustuta link '%s'"
 #: ../libcaja-private/caja-undostack-manager.c:1334
 #, c-format
 msgid "Restore original permissions of items enclosed in '%s'"
-msgstr "Taasta originaal õigused lisatud asjadel '%s'is"
+msgstr "'%s' all olevate kirjete algsete õiguste taastamine"
 
 #: ../libcaja-private/caja-undostack-manager.c:1342
 #, c-format
@@ -2457,7 +2457,7 @@ msgstr "Taasta '%s' omanik \"'%s'ks"
 #: ../libcaja-private/caja-undostack-manager.c:1400
 #, c-format
 msgid "Copy %d items to '%s'"
-msgstr "Kopeeri %d asjad '%s' i"
+msgstr "%d kirje kopeerimine asukohale '%s'"
 
 #: ../libcaja-private/caja-undostack-manager.c:1404
 #, c-format
@@ -2477,7 +2477,7 @@ msgstr "Duubelda '%s' '%s'-is"
 #: ../libcaja-private/caja-undostack-manager.c:1425
 #, c-format
 msgid "Move %d items to '%s'"
-msgstr "Liiguta %d asjad '%s'-i"
+msgstr "%d kirje ümbertõstmine asukohale '%s'"
 
 #: ../libcaja-private/caja-undostack-manager.c:1429
 #, c-format
@@ -2502,7 +2502,7 @@ msgstr "Loo uus kaust '%s'"
 #: ../libcaja-private/caja-undostack-manager.c:1469
 #, c-format
 msgid "Move %d items to trash"
-msgstr "Liiguta %d asjad prügikasti"
+msgstr "%d kirje viskamine prügikasti"
 
 #: ../libcaja-private/caja-undostack-manager.c:1475
 #, c-format
@@ -2517,7 +2517,7 @@ msgstr "Taasta '%s' prügikastist"
 #: ../libcaja-private/caja-undostack-manager.c:1497
 #, c-format
 msgid "Create links to %d items"
-msgstr "Loo link %d asjadega"
+msgstr "%d kirjele viitade loomine"
 
 #: ../libcaja-private/caja-undostack-manager.c:1500
 #, c-format
@@ -2548,28 +2548,28 @@ msgstr "Määra '%s' omanik '%s'-ks"
 #, c-format
 msgid "_Undo copy of %d item"
 msgid_plural "_Undo copy of %d items"
-msgstr[0] "_Tagasta %d asja koopia"
+msgstr[0] "_Tühista %d kirje kopeerimine"
 msgstr[1] "_Tühista %d kirje kopeerimine"
 
 #: ../libcaja-private/caja-undostack-manager.c:1573
 #, c-format
 msgid "_Undo duplicate of %d item"
 msgid_plural "_Undo duplicate of %d items"
-msgstr[0] "_Tagasta %d asja duplikaat"
+msgstr[0] "_Tühista %d kirje duplikaadi loomine"
 msgstr[1] "_Tühista %d kirje duplikaadi loomine"
 
 #: ../libcaja-private/caja-undostack-manager.c:1578
 #, c-format
 msgid "_Undo move of %d item"
 msgid_plural "_Undo move of %d items"
-msgstr[0] "_Tagasta%d asja asetus"
+msgstr[0] "_Tühista %d kirje ümbertõstmine"
 msgstr[1] "_Tühista %d kirje ümbertõstmine"
 
 #: ../libcaja-private/caja-undostack-manager.c:1583
 #, c-format
 msgid "_Undo rename of %d item"
 msgid_plural "_Undo rename of %d items"
-msgstr[0] "_Tagasta %d asja ümbernimetus"
+msgstr[0] "_Tühista %d kirje ümbernimetamine"
 msgstr[1] "_Tühista %d kirje ümbernimetamine"
 
 #: ../libcaja-private/caja-undostack-manager.c:1587
@@ -2593,57 +2593,57 @@ msgstr[1] "_Tühista %d kausta loomine"
 #, c-format
 msgid "_Undo move to trash of %d item"
 msgid_plural "_Undo move to trash of %d items"
-msgstr[0] "_Tagasta %d asja prügikasti asetamine"
-msgstr[1] "_Tühista %d kirje prügikasti viskamine"
+msgstr[0] "_Tühista %d kirje viskamine prügikasti"
+msgstr[1] "_Tühista %d kirje viskamine prügikasti"
 
 #: ../libcaja-private/caja-undostack-manager.c:1604
 #, c-format
 msgid "_Undo restore from trash of %d item"
 msgid_plural "_Undo restore from trash of %d items"
-msgstr[0] "_Tagasta %d asja prügikastist taastamine"
+msgstr[0] "_Tühista %d kirje prügikastist taastamine"
 msgstr[1] "_Tühista %d kirje prügikastist taastamine"
 
 #: ../libcaja-private/caja-undostack-manager.c:1609
 #, c-format
 msgid "_Undo create link to %d item"
 msgid_plural "_Undo create link to %d items"
-msgstr[0] "_Tagasta %d asja linki loomine"
-msgstr[1] "_Tühista %d kirje viitade loomine"
+msgstr[0] "_Tühista %d kirjele viida loomine"
+msgstr[1] "_Tühista %d kirjele viitade loomine"
 
 #: ../libcaja-private/caja-undostack-manager.c:1614
 #, c-format
 msgid "_Undo delete of %d item"
 msgid_plural "_Undo delete of %d items"
-msgstr[0] "_Tagasta %d asja kustutamine"
+msgstr[0] "_Tühista %d kirje kustutamine"
 msgstr[1] "_Tühista %d kirje kustutamine"
 
 #: ../libcaja-private/caja-undostack-manager.c:1619
 #, c-format
 msgid "Undo recursive change permissions of %d item"
 msgid_plural "Undo recursive change permissions of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tühista %d kirje pääsuõiguste rekursiivne muutmine"
+msgstr[1] "Tühista %d kirje pääsuõiguste rekursiivne muutmine"
 
 #: ../libcaja-private/caja-undostack-manager.c:1625
 #, c-format
 msgid "Undo change permissions of %d item"
 msgid_plural "Undo change permissions of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tühista %d kirje pääsuõiguste muutmine"
+msgstr[1] "Tühista %d kirje pääsuõiguste muutmine"
 
 #: ../libcaja-private/caja-undostack-manager.c:1630
 #, c-format
 msgid "Undo change group of %d item"
 msgid_plural "Undo change group of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tühista %d kirje kasutajagrupi muutmine"
+msgstr[1] "Tühista %d kirje kasutajagrupi muutmine"
 
 #: ../libcaja-private/caja-undostack-manager.c:1635
 #, c-format
 msgid "Undo change owner of %d item"
 msgid_plural "Undo change owner of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tühista %d kirje omaniku muutmine"
+msgstr[1] "Tühista %d kirje omaniku muutmine"
 
 #: ../libcaja-private/caja-undostack-manager.c:1663
 #, c-format
@@ -3538,7 +3538,7 @@ msgstr "Tühjenda prügikast"
 #: ../src/file-manager/fm-desktop-icon-view.c:759
 #: ../src/file-manager/fm-directory-view.c:7319 ../src/caja-trash-bar.c:203
 msgid "Delete all items in the Trash"
-msgstr "Prügikastist kõikide asjade kustutamine"
+msgstr "Kogu prügikasti sisu kustutamine"
 
 #: ../src/file-manager/fm-desktop-icon-view.c:859
 msgid "The desktop view encountered an error."
@@ -4103,7 +4103,7 @@ msgstr "_Tühista"
 #: ../src/file-manager/fm-directory-view.c:7383
 #: ../src/file-manager/fm-directory-view.c:11128
 msgid "Undo the last action"
-msgstr "Tagasta viimane tegevus"
+msgstr "Viimase tegevuse tagasivõtmine"
 
 #. name, stock id
 #. label, accelerator
@@ -4115,7 +4115,7 @@ msgstr "_Taasta"
 #: ../src/file-manager/fm-directory-view.c:7387
 #: ../src/file-manager/fm-directory-view.c:11146
 msgid "Redo the last undone action"
-msgstr "Taasta viimane tegemata tegevus"
+msgstr "Viimati tagasivõetud tegevuse uuestitegemine"
 
 #. * multiview-TODO: decide whether "Reset to Defaults" should
 #. * be window-wide, and not just view-wide.
@@ -4727,7 +4727,7 @@ msgstr "hiirega lohistatud andmed"
 #. Reset to default info
 #: ../src/file-manager/fm-directory-view.c:11127
 msgid "Undo"
-msgstr "Tagasta"
+msgstr "Võta tagasi"
 
 #. Reset to default info
 #: ../src/file-manager/fm-directory-view.c:11145
