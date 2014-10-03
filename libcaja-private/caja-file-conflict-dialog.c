@@ -589,7 +589,7 @@ caja_file_conflict_dialog_init (CajaFileConflictDialog *fcd)
     details->second_hbox = hbox;
 
     /* Setup the expander for the rename action */
-    details->expander = gtk_expander_new_with_mnemonic (_("_Select a new name for the destination"));
+    details->expander = gtk_expander_new_with_mnemonic (_("Select a new name for the _destination"));
     gtk_box_pack_start (GTK_BOX (vbox2), details->expander, FALSE, FALSE, 0);
     g_signal_connect (details->expander, "activate",
                       G_CALLBACK (expander_activated_cb), dialog);
