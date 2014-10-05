@@ -565,7 +565,7 @@ do_upgrades_once (CajaApplication *application,
         mark_desktop_files_trusted ();
     }
 
-    metafile_dir = g_build_filename(g_get_home_dir(), ".config", "caja", "metafiles", NULL);
+    metafile_dir = g_build_filename(g_get_user_config_dir(), "caja", "metafiles", NULL);
 
     if (g_file_test (metafile_dir, G_FILE_TEST_IS_DIR))
     {

@@ -359,7 +359,7 @@ main (int argc, char *argv[])
 
         /* Convert all metafiles */
 
-        metafile_dir = g_build_filename (g_get_home_dir (), ".config", "caja", "metafiles", NULL);
+        metafile_dir = g_build_filename (g_get_user_config_dir (), "caja", "metafiles", NULL);
 
         dir = g_dir_open (metafile_dir, 0, NULL);
         if (dir)

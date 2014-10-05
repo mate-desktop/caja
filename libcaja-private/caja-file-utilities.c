@@ -106,7 +106,7 @@ char* caja_get_user_directory(void)
 	 * Si alguien tiene tiempo, puede enviar este codigo a Nautilus.
 	 * Obviamente, con los comentarios traducidos al Inglés.
 	 */
-	char* user_directory = g_build_filename(g_get_home_dir(), ".config", "caja", NULL);
+	char* user_directory = g_build_filename(g_get_user_config_dir(), "caja", NULL);
 	/* Se necesita que esta dirección sea una carpeta, con los permisos
 	 * DEFAULT_CAJA_DIRECTORY_MODE. Pero si es un archivo, el programa intentará
 	 * eliminar el archivo silenciosamente. */
