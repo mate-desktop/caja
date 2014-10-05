@@ -192,7 +192,7 @@ char* caja_get_accel_map_file(void)
 	}
 	else
 	{
-		return g_build_filename(g_get_home_dir(), ".config", "accels", "caja", NULL);
+		return g_build_filename(g_get_user_config_dir(), "caja", "accels", NULL);
 	}
 }
 
