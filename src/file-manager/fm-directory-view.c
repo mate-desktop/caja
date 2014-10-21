@@ -1638,7 +1638,7 @@ static void set_up_scripts_directory_global(void)
 	}
 
 	char* scripts_directory_path;
-	const char* override = g_getenv ("MATE22_USER_DIR"); //TODO: quitar?
+	const char* override = g_getenv ("MATE22_USER_DIR"); //TODO: remove?
 
 	if (override)
 	{
@@ -1654,27 +1654,24 @@ static void set_up_scripts_directory_global(void)
 		scripts_directory_uri = g_filename_to_uri(scripts_directory_path, NULL, NULL);
 		scripts_directory_uri_length = strlen(scripts_directory_uri);
 
-		/* Emulación de GNOME Nautilus scripts
+		/* Support for GNOME Nautilus scripts
 		 */
 		char* nautilus_scripts_path = g_build_filename(g_get_home_dir(), ".gnome2", "nautilus-scripts", NULL);
 
 		if (g_file_test(nautilus_scripts_path, G_FILE_TEST_IS_DIR) == TRUE)
 		{
 			char* nautilus_syslink = g_build_filename(g_get_user_config_dir(), "caja", "scripts", "nautilus", NULL);
-			// G_FILE_TEST_IS_REGULAR
-			/* En caso de que exista el enlace, o algún otro tipo de archivo con
-			 * el mismo nombre, ignoramos. Incluso si es una carpeta. */
+			/* If link already exists, or also any other kind of file/dir with same name, ignore it */
 			if (g_file_test(nautilus_syslink, G_FILE_TEST_IS_SYMLINK) == FALSE &&
 				g_file_test(nautilus_syslink, G_FILE_TEST_EXISTS) == FALSE &&
 				g_file_test(nautilus_syslink, G_FILE_TEST_IS_DIR) == FALSE)
 			{
-				/* Nos fijamos si es necesario crear un enlace */
+				/* Check if we need to create a link */
 				GDir* dir = g_dir_open(nautilus_scripts_path, 0, NULL);
 
 				if (dir)
 				{
-					/* Con tener más de un elemento en la carpeta, podemos hacer
-					 * el enlace */
+					/* If directory contains files, we can create the link */
 					int count = 0;
 
 					while (g_dir_read_name(dir) != NULL)
@@ -1684,8 +1681,10 @@ static void set_up_scripts_directory_global(void)
 
 					if (count > 0)
 					{
-						/* creamos un enlace a la carpeta de nautilus */
-						symlink(nautilus_scripts_path, nautilus_syslink);
+						/* Create link to nautilus folder */
+						int res = symlink (nautilus_scripts_path, nautilus_syslink);
+						if (res != 0)
+							g_warning ("Can't create symlink to nautilus scripts folder");
 					}
 
 					g_dir_close(dir);
