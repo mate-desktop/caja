@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Bagban Afzal <bagbanafzal@gmail.com>, 2013
+# BAgBAn <bagbanafzal@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-12 19:04+0100\n"
-"PO-Revision-Date: 2014-02-12 18:06+0000\n"
+"POT-Creation-Date: 2014-10-03 13:54+0200\n"
+"PO-Revision-Date: 2014-10-03 11:56+0000\n"
 "Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
 "Language-Team: Urdu (http://www.transifex.com/projects/p/MATE/language/ur/)\n"
 "MIME-Version: 1.0\n"
@@ -542,7 +542,7 @@ msgstr "_ہمیشہ یہی عمل انجام دیں"
 #: ../src/file-manager/fm-directory-view.c:7413
 #: ../src/file-manager/fm-directory-view.c:7441
 #: ../src/file-manager/fm-directory-view.c:7522
-#: ../src/file-manager/fm-tree-view.c:1371 ../src/caja-places-sidebar.c:2711
+#: ../src/file-manager/fm-tree-view.c:1371 ../src/caja-places-sidebar.c:2612
 msgid "_Eject"
 msgstr "_نکالیں"
 
@@ -553,7 +553,7 @@ msgstr "_نکالیں"
 #: ../src/file-manager/fm-directory-view.c:7409
 #: ../src/file-manager/fm-directory-view.c:7437
 #: ../src/file-manager/fm-directory-view.c:7518
-#: ../src/file-manager/fm-tree-view.c:1362 ../src/caja-places-sidebar.c:2704
+#: ../src/file-manager/fm-tree-view.c:1362 ../src/caja-places-sidebar.c:2605
 msgid "_Unmount"
 msgstr "_ان ماؤنٹ کریں"
 
@@ -761,7 +761,7 @@ msgid "%s's Home"
 msgstr "%s کا گھر"
 
 #: ../libcaja-private/caja-desktop-link.c:113
-#: ../data/caja-computer.desktop.in.in.h:1 ../src/caja-places-sidebar.c:674
+#: ../data/caja-computer.desktop.in.in.h:1 ../src/caja-places-sidebar.c:494
 msgid "Computer"
 msgstr "کمپیوٹر"
 
@@ -769,7 +769,8 @@ msgstr "کمپیوٹر"
 msgid "Network Servers"
 msgstr ""
 
-#: ../libcaja-private/caja-desktop-link.c:119 ../src/caja-places-sidebar.c:824
+#: ../libcaja-private/caja-desktop-link.c:119
+#: ../src/file-manager/fm-tree-view.c:1430 ../src/caja-places-sidebar.c:598
 #: ../src/caja-trash-bar.c:192
 msgid "Trash"
 msgstr "ردی"
@@ -937,8 +938,8 @@ msgstr "ضم کریں"
 
 #. Setup the expander for the rename action
 #: ../libcaja-private/caja-file-conflict-dialog.c:592
-msgid "_Select a new name for the destination"
-msgstr "منزلِ مقصود کا نیا نام _چُنیں:"
+msgid "Select a new name for the _destination"
+msgstr ""
 
 #. Setup the diff button for text files
 #: ../libcaja-private/caja-file-conflict-dialog.c:617
@@ -1199,7 +1200,7 @@ msgstr "ردی کے تمام عناصر مستقل طور پر حذف کردیے
 #. Empty Trash menu item
 #: ../libcaja-private/caja-file-operations.c:1358
 #: ../libcaja-private/caja-file-operations.c:2226
-#: ../src/caja-places-sidebar.c:2748 ../src/caja-trash-bar.c:196
+#: ../src/caja-places-sidebar.c:2649 ../src/caja-trash-bar.c:196
 msgid "Empty _Trash"
 msgstr "_ردی خالی کریں"
 
@@ -1529,7 +1530,7 @@ msgstr "فولڈر \"%B\" کاپی نہیں کیا جاسکتا کیونکہ آ�
 
 #: ../libcaja-private/caja-file-operations.c:3586
 #: ../libcaja-private/caja-file-operations.c:4276
-#: ../libcaja-private/caja-file-operations.c:4850
+#: ../libcaja-private/caja-file-operations.c:4844
 msgid "Error while moving \"%B\"."
 msgstr "\"%B\" کو منتقل کرتے وقت غلطی."
 
@@ -1608,78 +1609,78 @@ msgid_plural "Preparing to move %'d files"
 msgstr[0] "%'d فائل منتقل کرنے کی تاری"
 msgstr[1] "%'d فائلیں منتقل کرنے کی تیاری"
 
-#: ../libcaja-private/caja-file-operations.c:4851
+#: ../libcaja-private/caja-file-operations.c:4845
 #, c-format
 msgid "There was an error moving the file into %F."
 msgstr "فائل کو %F منتقل کرنے میں غلطی."
 
-#: ../libcaja-private/caja-file-operations.c:5111
+#: ../libcaja-private/caja-file-operations.c:5105
 msgid "Moving Files"
 msgstr "فائلیں منتقل کی جارہی ہیں"
 
-#: ../libcaja-private/caja-file-operations.c:5142
+#: ../libcaja-private/caja-file-operations.c:5136
 msgid "Creating links in \"%B\""
 msgstr "\"%B\" میں ربط بنائے جارہے ہیں"
 
-#: ../libcaja-private/caja-file-operations.c:5146
+#: ../libcaja-private/caja-file-operations.c:5140
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
 msgstr[0] "%'d فائل تک ربط بنایا جارہا ہے"
 msgstr[1] "%'d فائلوں تک ربط بنایا جارہا ہے"
 
-#: ../libcaja-private/caja-file-operations.c:5278
+#: ../libcaja-private/caja-file-operations.c:5272
 msgid "Error while creating link to %B."
 msgstr "ربط بنانے میں غلطی تا %B"
 
-#: ../libcaja-private/caja-file-operations.c:5280
+#: ../libcaja-private/caja-file-operations.c:5274
 msgid "Symbolic links only supported for local files"
 msgstr "علامتی روابط کی معاونت فقط مقامی فائلوں کے لیے ہے."
 
-#: ../libcaja-private/caja-file-operations.c:5283
+#: ../libcaja-private/caja-file-operations.c:5277
 msgid "The target doesn't support symbolic links."
 msgstr "ہدف علامتی روابط کی معاونت نہیں رکھتا."
 
-#: ../libcaja-private/caja-file-operations.c:5286
+#: ../libcaja-private/caja-file-operations.c:5280
 #, c-format
 msgid "There was an error creating the symlink in %F."
 msgstr "%F میں علامتی ربط بنانے میں غلطی."
 
-#: ../libcaja-private/caja-file-operations.c:5598
+#: ../libcaja-private/caja-file-operations.c:5592
 msgid "Setting permissions"
 msgstr "اجازے مرتب کیے جارہے ہیں"
 
 #. localizers: the initial name of a new folder
-#: ../libcaja-private/caja-file-operations.c:5857
+#: ../libcaja-private/caja-file-operations.c:5851
 msgid "untitled folder"
 msgstr "بے عُنوان فولڈر"
 
 #. localizers: the initial name of a new empty file
-#: ../libcaja-private/caja-file-operations.c:5865
+#: ../libcaja-private/caja-file-operations.c:5859
 msgid "new file"
 msgstr "نئی فائل"
 
-#: ../libcaja-private/caja-file-operations.c:6036
+#: ../libcaja-private/caja-file-operations.c:6030
 msgid "Error while creating directory %B."
 msgstr "ڈائریکٹری بنانے میں غلطی %B."
 
-#: ../libcaja-private/caja-file-operations.c:6038
+#: ../libcaja-private/caja-file-operations.c:6032
 msgid "Error while creating file %B."
 msgstr "فائل %B بنانے میں غلطی."
 
-#: ../libcaja-private/caja-file-operations.c:6040
+#: ../libcaja-private/caja-file-operations.c:6034
 #, c-format
 msgid "There was an error creating the directory in %F."
 msgstr "%F میں ڈائریکٹری بنانے میں غلطی."
 
-#: ../libcaja-private/caja-file-operations.c:6316
+#: ../libcaja-private/caja-file-operations.c:6310
 msgid "Emptying Trash"
 msgstr "ردی خالی کی جارہی ہے"
 
-#: ../libcaja-private/caja-file-operations.c:6363
-#: ../libcaja-private/caja-file-operations.c:6404
-#: ../libcaja-private/caja-file-operations.c:6439
-#: ../libcaja-private/caja-file-operations.c:6474
+#: ../libcaja-private/caja-file-operations.c:6357
+#: ../libcaja-private/caja-file-operations.c:6398
+#: ../libcaja-private/caja-file-operations.c:6433
+#: ../libcaja-private/caja-file-operations.c:6468
 msgid "Unable to mark launcher trusted (executable)"
 msgstr "لانچر کو بطور معتبر (قابلِ نفاذ) نشان زد کرنے سے قاصر"
 
@@ -1756,7 +1757,7 @@ msgid "today at 00:00:00 PM"
 msgstr "آج بوقت 00:00:00 شام"
 
 #: ../libcaja-private/caja-file.c:4477
-#: ../src/caja-file-management-properties.c:510
+#: ../src/caja-file-management-properties.c:511
 msgid "today at %-I:%M:%S %p"
 msgstr "آج بتاریخ %-I:%M:%S %p"
 
@@ -2042,12 +2043,12 @@ msgstr[0] "اس سے %d الگ دریچہ کھلے گا."
 msgstr[1] "اس سے %d الگ دریچے کھلیں گے."
 
 #: ../libcaja-private/caja-mime-actions.c:1297
-#: ../src/caja-window-manage-views.c:2111
 #: ../src/caja-window-manage-views.c:2119
-#: ../src/caja-window-manage-views.c:2139
-#: ../src/caja-window-manage-views.c:2153
-#: ../src/caja-window-manage-views.c:2159
-#: ../src/caja-window-manage-views.c:2186
+#: ../src/caja-window-manage-views.c:2127
+#: ../src/caja-window-manage-views.c:2147
+#: ../src/caja-window-manage-views.c:2161
+#: ../src/caja-window-manage-views.c:2167
+#: ../src/caja-window-manage-views.c:2194
 #, c-format
 msgid "Could not display \"%s\"."
 msgstr "\"%s\" کو ظاہر نہیں کیا جاسکتا."
@@ -2217,7 +2218,7 @@ msgstr "ا_نتخاب..."
 #: ../libcaja-private/caja-open-with-dialog.c:957
 #: ../src/file-manager/fm-directory-view.c:7286
 #: ../src/file-manager/fm-directory-view.c:8796
-#: ../src/file-manager/fm-tree-view.c:1256 ../src/caja-places-sidebar.c:2653
+#: ../src/file-manager/fm-tree-view.c:1256 ../src/caja-places-sidebar.c:2554
 msgid "_Open"
 msgstr "_کھولیں"
 
@@ -2307,37 +2308,37 @@ msgid ""
 " your computer, you may be able to open it."
 msgstr "اس فائل کو دیکھنے کے لیے کوئی دوسرا فعل دستیاب نہیں. اگر آپ یہ فائل اپنے کمپیوٹر پر کاپی کردیں تو ممکن ہے کہ آپ اسے کھول سکیں."
 
-#: ../libcaja-private/caja-program-choosing.c:439
+#: ../libcaja-private/caja-program-choosing.c:513
 msgid "Sorry, but you cannot execute commands from a remote site."
 msgstr "معذرت، مگر آپ بعید مقام سے کمانڈ نہیں چلا سکتے."
 
-#: ../libcaja-private/caja-program-choosing.c:441
+#: ../libcaja-private/caja-program-choosing.c:515
 msgid "This is disabled due to security considerations."
 msgstr "یہ حفاظتی نقطہء نگاہ کے پیشِ نظر معطل ہے."
 
-#: ../libcaja-private/caja-program-choosing.c:453
-#: ../libcaja-private/caja-program-choosing.c:531
+#: ../libcaja-private/caja-program-choosing.c:527
+#: ../libcaja-private/caja-program-choosing.c:593
 msgid "There was an error launching the application."
 msgstr "اطلاقیے کو چلانے میں غلطی."
 
-#: ../libcaja-private/caja-program-choosing.c:482
-#: ../libcaja-private/caja-program-choosing.c:495
+#: ../libcaja-private/caja-program-choosing.c:556
+#: ../libcaja-private/caja-program-choosing.c:569
 msgid "This drop target only supports local files."
 msgstr "چھوڑنے کا یہ ہدف فقط مقامی فائلوں کی معاونت رکھتا ہے."
 
-#: ../libcaja-private/caja-program-choosing.c:483
+#: ../libcaja-private/caja-program-choosing.c:557
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again."
 msgstr "غیر-مقامی فائلیں کھولنے کے لیے انہیں مقامی فولڈر میں کاپی کریں پھر انہیں دوبارہ چھوڑیں (drop)."
 
-#: ../libcaja-private/caja-program-choosing.c:496
+#: ../libcaja-private/caja-program-choosing.c:570
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again. The local files you dropped have already been opened."
 msgstr "غیر مقامی فائلیں کھولنے کے لیے انہیں مقامی فولڈر میں کاپی کریں اور پھر انہیں دوبارہ چھوڑیں (ڈراپ کریں). جو مقامی فائلیں آپ نے چھوڑی ہیں وہ پہلے ہی کھولی جاچکی ہیں."
 
-#: ../libcaja-private/caja-program-choosing.c:529
+#: ../libcaja-private/caja-program-choosing.c:591
 msgid "Details: "
 msgstr "تفصیلات:"
 
@@ -3451,7 +3452,7 @@ msgstr "آٹو رن لقمیہ"
 #: ../data/caja-browser.desktop.in.in.h:1
 #: ../data/caja-folder-handler.desktop.in.in.h:1
 #: ../data/caja.desktop.in.in.h:1 ../src/caja-spatial-window.c:381
-#: ../src/caja-window-menus.c:532 ../src/caja-window.c:162
+#: ../src/caja-window-menus.c:533 ../src/caja-window.c:162
 msgid "Caja"
 msgstr "Caja"
 
@@ -3464,7 +3465,7 @@ msgid "Browse the file system with the file manager"
 msgstr "فائل نظام فائل منیجر سے دیکھیں"
 
 #. tooltip
-#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:923
+#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:924
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
 msgstr "اس کمپیوٹر سے قابلِ رسائی تمام مقامی اور بعید ڈسک اور فولڈر دیکھیں"
@@ -3482,8 +3483,8 @@ msgid "Home Folder"
 msgstr "گھر کا فولڈر"
 
 #. tooltip
-#: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:690
-#: ../src/caja-window-menus.c:918
+#: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:510
+#: ../src/caja-window-menus.c:919
 msgid "Open your personal folder"
 msgstr "اپنا ذاتی فولڈر کھولیں"
 
@@ -3904,7 +3905,7 @@ msgstr "ہر منتخب کردہ عنصر کو نئے دریچے میں کھول
 #: ../src/file-manager/fm-directory-view.c:7479
 #: ../src/file-manager/fm-directory-view.c:8547
 #: ../src/file-manager/fm-directory-view.c:8873
-#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2661
+#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2562
 msgid "Open in New _Tab"
 msgstr "نئے _ٹیب میں کھولیں"
 
@@ -4147,7 +4148,7 @@ msgstr "اس سرور سے مستقل اتصال بنائیں"
 #: ../src/file-manager/fm-directory-view.c:7405
 #: ../src/file-manager/fm-directory-view.c:7433
 #: ../src/file-manager/fm-directory-view.c:7514
-#: ../src/caja-places-sidebar.c:2697
+#: ../src/caja-places-sidebar.c:2598
 msgid "_Mount"
 msgstr "_ماؤنٹ کریں"
 
@@ -4171,7 +4172,7 @@ msgstr "منتخب کردہ حُجم کو نکالیں"
 #: ../src/file-manager/fm-directory-view.c:7417
 #: ../src/file-manager/fm-directory-view.c:7445
 #: ../src/file-manager/fm-directory-view.c:7526
-#: ../src/caja-places-sidebar.c:2725
+#: ../src/caja-places-sidebar.c:2626
 msgid "_Format"
 msgstr "_فارمیٹ کریں"
 
@@ -4192,7 +4193,7 @@ msgstr "منتخب کردہ حُجم کو فارمیٹ کریں"
 #: ../src/file-manager/fm-directory-view.c:8303
 #: ../src/file-manager/fm-directory-view.c:8409
 #: ../src/file-manager/fm-directory-view.c:8413
-#: ../src/caja-places-sidebar.c:1792 ../src/caja-places-sidebar.c:2732
+#: ../src/caja-places-sidebar.c:1693 ../src/caja-places-sidebar.c:2633
 msgid "_Start"
 msgstr "_چلائیں"
 
@@ -4209,8 +4210,8 @@ msgstr "منتخب کردہ حُجم کو چلائیں"
 #: ../src/file-manager/fm-directory-view.c:8236
 #: ../src/file-manager/fm-directory-view.c:8328
 #: ../src/file-manager/fm-directory-view.c:8438
-#: ../src/caja-places-sidebar.c:1793 ../src/caja-places-sidebar.c:2739
-#: ../src/caja-window-menus.c:862
+#: ../src/caja-places-sidebar.c:1694 ../src/caja-places-sidebar.c:2640
+#: ../src/caja-window-menus.c:863
 msgid "_Stop"
 msgstr "_روکیں"
 
@@ -4225,7 +4226,7 @@ msgstr "منتخب کردہ حُجم کو روکیں"
 #: ../src/file-manager/fm-directory-view.c:7429
 #: ../src/file-manager/fm-directory-view.c:7457
 #: ../src/file-manager/fm-directory-view.c:7538
-#: ../src/caja-places-sidebar.c:2718
+#: ../src/caja-places-sidebar.c:2619
 msgid "_Detect Media"
 msgstr "میڈیا _دریافت کریں"
 
@@ -4393,7 +4394,7 @@ msgstr "انتخاب اس دریچے کے دوسرے جھروکے میں منت�
 #. name, stock id
 #. label, accelerator
 #: ../src/file-manager/fm-directory-view.c:7554
-#: ../src/file-manager/fm-directory-view.c:7558 ../src/caja-window-menus.c:917
+#: ../src/file-manager/fm-directory-view.c:7558 ../src/caja-window-menus.c:918
 msgid "_Home Folder"
 msgstr "_گھر کا فولڈر"
 
@@ -4516,7 +4517,7 @@ msgstr "منتخب کردہ ڈرائیو روکیں"
 #: ../src/file-manager/fm-directory-view.c:8240
 #: ../src/file-manager/fm-directory-view.c:8332
 #: ../src/file-manager/fm-directory-view.c:8442
-#: ../src/caja-places-sidebar.c:1801
+#: ../src/caja-places-sidebar.c:1702
 msgid "_Safely Remove Drive"
 msgstr "ڈرائیو م_حفوظ انداز میں نکالیں"
 
@@ -4550,7 +4551,7 @@ msgstr "منتخب کردہ متعدد-ڈسک ڈرائیو روکیں"
 #: ../src/file-manager/fm-directory-view.c:8252
 #: ../src/file-manager/fm-directory-view.c:8344
 #: ../src/file-manager/fm-directory-view.c:8454
-#: ../src/caja-places-sidebar.c:1814
+#: ../src/caja-places-sidebar.c:1715
 msgid "_Lock Drive"
 msgstr "ڈرائیو م_قفل کریں"
 
@@ -4575,7 +4576,7 @@ msgstr "کھلے فولڈر سے متعلقہ متعدد-ڈسک ڈرائیو چ�
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
 #: ../src/file-manager/fm-directory-view.c:8315
 #: ../src/file-manager/fm-directory-view.c:8425
-#: ../src/caja-places-sidebar.c:1813
+#: ../src/caja-places-sidebar.c:1714
 msgid "_Unlock Drive"
 msgstr "ڈرائیو _غیر مقفل کریں"
 
@@ -4606,7 +4607,7 @@ msgstr "کھلے فولڈر سے متعلقہ ڈرائیو مقفل کریں"
 #. add the "open in new window" menu item
 #: ../src/file-manager/fm-directory-view.c:8524
 #: ../src/file-manager/fm-directory-view.c:8834
-#: ../src/file-manager/fm-tree-view.c:1276 ../src/caja-places-sidebar.c:2668
+#: ../src/file-manager/fm-tree-view.c:1276 ../src/caja-places-sidebar.c:2569
 msgid "Open in New _Window"
 msgstr "نئے _دریچے میں کھولیں"
 
@@ -5314,7 +5315,7 @@ msgstr "فائل رسائی:"
 #. Translators: this is referred to captions under icons.
 #: ../src/file-manager/fm-properties-window.c:4292
 #: ../src/file-manager/fm-properties-window.c:4303
-#: ../src/caja-file-management-properties.c:318
+#: ../src/caja-file-management-properties.c:319
 msgid "None"
 msgstr "کچھ نہیں"
 
@@ -5437,46 +5438,42 @@ msgstr "خصوصیات کا دریچہ بنایا جارہا ہے."
 msgid "Select Custom Icon"
 msgstr "مخصوص آئکن منتخب کریں"
 
-#: ../src/file-manager/fm-tree-view.c:1427 ../src/caja-places-sidebar.c:719
+#: ../src/file-manager/fm-tree-view.c:1427 ../src/caja-places-sidebar.c:539
 msgid "File System"
 msgstr "فائل نظام"
 
-#: ../src/file-manager/fm-tree-view.c:1431
-msgid "Network Neighbourhood"
-msgstr "ہمسائے نیٹ ورک"
-
-#: ../src/file-manager/fm-tree-view.c:1716
+#: ../src/file-manager/fm-tree-view.c:1715
 msgid "Tree"
 msgstr "شجرہ"
 
-#: ../src/file-manager/fm-tree-view.c:1722
+#: ../src/file-manager/fm-tree-view.c:1721
 msgid "Show Tree"
 msgstr "شجرہ دکھائیں"
 
-#: ../src/caja-application.c:434
+#: ../src/caja-application.c:428
 #, c-format
 msgid "Caja could not create the required folder \"%s\"."
 msgstr "کاجا مطلوبہ فولڈر \"%s\" نہیں بنا سکتا."
 
-#: ../src/caja-application.c:436
+#: ../src/caja-application.c:430
 msgid ""
 "Before running Caja, please create the following folder, or set permissions "
 "such that Caja can create it."
 msgstr "کاجا کو چلانے سے پہلے مندرجہ ذیل فولڈر بنا لیں، یا اس طرح کے اجازے متعین کریں کہ کاجا انہیں بنا سکے."
 
-#: ../src/caja-application.c:441
+#: ../src/caja-application.c:435
 #, c-format
 msgid "Caja could not create the following required folders: %s."
 msgstr "کاجا مندرجہ ذیل درکار فولڈر نہیں بنا سکتا: %s."
 
-#: ../src/caja-application.c:443
+#: ../src/caja-application.c:437
 msgid ""
 "Before running Caja, please create these folders, or set permissions such "
 "that Caja can create them."
 msgstr "کاجا کو چلانے سے پہلے یہ فولڈر بنا لیں، یا اس طرح کے اجازے متعین کریں کہ کاجا انہیں بنا سکے."
 
-#: ../src/caja-application.c:1660 ../src/caja-places-sidebar.c:2200
-#: ../src/caja-places-sidebar.c:2231 ../src/caja-places-sidebar.c:2262
+#: ../src/caja-application.c:1514 ../src/caja-places-sidebar.c:2101
+#: ../src/caja-places-sidebar.c:2132 ../src/caja-places-sidebar.c:2163
 #, c-format
 msgid "Unable to eject %s"
 msgstr "%s کو نکالنے سے قاصر"
@@ -5510,8 +5507,8 @@ msgid ""
 msgstr "اطلاقیہ وسیط \"%s\" سے براہ راست چلے گا. آپ کو ایسا کوئی اطلاقیہ نہیں چلانا چاہیے جس پر آپ کو اعتبار نہ ہو.\n\nاگر آپ کو کوئی شک وشبہ ہے تو ملتوی کردیں."
 
 #: ../src/caja-bookmarks-window.c:158
-#: ../src/caja-file-management-properties.c:225
-#: ../src/caja-property-browser.c:1654 ../src/caja-window-menus.c:616
+#: ../src/caja-file-management-properties.c:226
+#: ../src/caja-property-browser.c:1654 ../src/caja-window-menus.c:617
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
@@ -5670,7 +5667,7 @@ msgid "Bookmark Name:"
 msgstr ""
 
 #: ../src/caja-desktop-window.c:81 ../src/caja-desktop-window.c:251
-#: ../src/caja-pathbar.c:1524 ../src/caja-places-sidebar.c:704
+#: ../src/caja-pathbar.c:1524 ../src/caja-places-sidebar.c:524
 msgid "Desktop"
 msgstr "ڈیسک ٹاپ"
 
@@ -6005,119 +6002,127 @@ msgid "_Format:"
 msgstr "_ساخت:"
 
 #: ../src/caja-file-management-properties.ui.h:73
+msgid "<b>Size</b>"
+msgstr ""
+
+#: ../src/caja-file-management-properties.ui.h:74
+msgid "_Show file sizes with IEC units"
+msgstr ""
+
+#: ../src/caja-file-management-properties.ui.h:75
 msgid "Display"
 msgstr "منظر"
 
-#: ../src/caja-file-management-properties.ui.h:74
+#: ../src/caja-file-management-properties.ui.h:76
 msgid "<b>List Columns</b>"
 msgstr "<b>کالموں کی فہرست</b>"
 
-#: ../src/caja-file-management-properties.ui.h:75
+#: ../src/caja-file-management-properties.ui.h:77
 msgid "Choose the order of information to appear in the list view."
 msgstr "فہرست منظر میں ظاہر ہونے والی معلومات کی ترتیب منتخب کریں."
 
-#: ../src/caja-file-management-properties.ui.h:76
+#: ../src/caja-file-management-properties.ui.h:78
 msgid "List Columns"
 msgstr "کالم فہرست"
 
-#: ../src/caja-file-management-properties.ui.h:77
+#: ../src/caja-file-management-properties.ui.h:79
 msgid "<b>Text Files</b>"
 msgstr "<b>متن فائلیں</b>"
 
-#: ../src/caja-file-management-properties.ui.h:78
+#: ../src/caja-file-management-properties.ui.h:80
 msgid "Show te_xt in icons:"
 msgstr "آئکنز میں _متن دکھائیں:"
 
-#: ../src/caja-file-management-properties.ui.h:79
+#: ../src/caja-file-management-properties.ui.h:81
 msgid "<b>Other Previewable Files</b>"
 msgstr "<b>دیگر قابلِ معائنہ فائلیں</b>"
 
-#: ../src/caja-file-management-properties.ui.h:80
+#: ../src/caja-file-management-properties.ui.h:82
 msgid "Show _thumbnails:"
 msgstr "ت_صویرچے دکھائیں:"
 
-#: ../src/caja-file-management-properties.ui.h:81
+#: ../src/caja-file-management-properties.ui.h:83
 msgid "_Only for files smaller than:"
 msgstr "_صرف وہ فائلیں جو چھوٹی ہوں:"
 
-#: ../src/caja-file-management-properties.ui.h:82
+#: ../src/caja-file-management-properties.ui.h:84
 msgid "<b>Sound Files</b>"
 msgstr "<b>صوتی فائلیں</b>"
 
-#: ../src/caja-file-management-properties.ui.h:83
+#: ../src/caja-file-management-properties.ui.h:85
 msgid "Preview _sound files:"
 msgstr "_صوتی فائلوں کا معائنہ:"
 
-#: ../src/caja-file-management-properties.ui.h:84
+#: ../src/caja-file-management-properties.ui.h:86
 msgid "<b>Folders</b>"
 msgstr "<b>فولڈر</b>"
 
-#: ../src/caja-file-management-properties.ui.h:85
+#: ../src/caja-file-management-properties.ui.h:87
 msgid "Count _number of items:"
 msgstr "عناصر شمار کریں:"
 
-#: ../src/caja-file-management-properties.ui.h:86
+#: ../src/caja-file-management-properties.ui.h:88
 msgid "Preview"
 msgstr "معائنہ"
 
-#: ../src/caja-file-management-properties.ui.h:87
+#: ../src/caja-file-management-properties.ui.h:89
 msgid "<b>Media Handling</b>"
 msgstr "<b>میڈیا کی ادارت</b>"
 
-#: ../src/caja-file-management-properties.ui.h:88
+#: ../src/caja-file-management-properties.ui.h:90
 msgid ""
 "Choose what happens when inserting media or connecting devices to the system"
 msgstr "منتخب کریں کہ نظام میں میڈیا داخل کرنے یا آلات متصل کرنے پر کیا ہو"
 
-#: ../src/caja-file-management-properties.ui.h:89
+#: ../src/caja-file-management-properties.ui.h:91
 msgid "CD _Audio:"
 msgstr "_صوتی سی ڈی:"
 
-#: ../src/caja-file-management-properties.ui.h:90
+#: ../src/caja-file-management-properties.ui.h:92
 msgid "_DVD Video:"
 msgstr "_ڈی وی ڈی ویڈیو:"
 
-#: ../src/caja-file-management-properties.ui.h:91
+#: ../src/caja-file-management-properties.ui.h:93
 msgid "_Music Player:"
 msgstr "_موسیقی سازندہ:"
 
-#: ../src/caja-file-management-properties.ui.h:92
+#: ../src/caja-file-management-properties.ui.h:94
 msgid "_Photos:"
 msgstr "_تصاویر:"
 
-#: ../src/caja-file-management-properties.ui.h:93
+#: ../src/caja-file-management-properties.ui.h:95
 msgid "_Software:"
 msgstr "_سوفٹ ویئر:"
 
-#: ../src/caja-file-management-properties.ui.h:94
+#: ../src/caja-file-management-properties.ui.h:96
 msgid "<b>Other Media</b>"
 msgstr "<b>دیگر میڈیا</b>"
 
-#: ../src/caja-file-management-properties.ui.h:95
+#: ../src/caja-file-management-properties.ui.h:97
 msgid "Less common media formats can be configured here"
 msgstr "کچھ عمومی میڈیا ساختیں یہاں تشکیل دی جاسکتی ہیں"
 
-#: ../src/caja-file-management-properties.ui.h:96
+#: ../src/caja-file-management-properties.ui.h:98
 msgid "Acti_on:"
 msgstr "_عمل:"
 
-#: ../src/caja-file-management-properties.ui.h:97
+#: ../src/caja-file-management-properties.ui.h:99
 msgid "_Type:"
 msgstr "_نوعیت:"
 
-#: ../src/caja-file-management-properties.ui.h:98
+#: ../src/caja-file-management-properties.ui.h:100
 msgid "_Never prompt or start programs on media insertion"
 msgstr "میڈیا کے ادراج پر کوئی پروگرام چلائیں _نہ سوال کریں"
 
-#: ../src/caja-file-management-properties.ui.h:99
+#: ../src/caja-file-management-properties.ui.h:101
 msgid "B_rowse media when inserted"
 msgstr "داخل کیے جانے پر میڈیا _کھولیں"
 
-#: ../src/caja-file-management-properties.ui.h:100
+#: ../src/caja-file-management-properties.ui.h:102
 msgid "Media"
 msgstr "میڈیا"
 
-#: ../src/caja-file-management-properties.ui.h:101
+#: ../src/caja-file-management-properties.ui.h:103
 msgid "Plugins"
 msgstr "دخیلے"
 
@@ -6630,84 +6635,84 @@ msgstr "آلات"
 msgid "Bookmarks"
 msgstr "پسندیدہ"
 
-#: ../src/caja-places-sidebar.c:541 ../src/caja-places-sidebar.c:569
+#: ../src/caja-places-sidebar.c:526
+msgid "Open the contents of your desktop in a folder"
+msgstr "اپنے ڈیسک ٹاپ کا مواد فولڈر میں کھولیں"
+
+#: ../src/caja-places-sidebar.c:541
+msgid "Open the contents of the File System"
+msgstr "فائل نظام کا مواد کھولیں"
+
+#: ../src/caja-places-sidebar.c:600
+msgid "Open the trash"
+msgstr "ردی کھولیں"
+
+#: ../src/caja-places-sidebar.c:655 ../src/caja-places-sidebar.c:683
 #, c-format
 msgid "Mount and open %s"
 msgstr "%s کو ماؤنٹ کریں اور کھولیں"
 
-#: ../src/caja-places-sidebar.c:706
-msgid "Open the contents of your desktop in a folder"
-msgstr "اپنے ڈیسک ٹاپ کا مواد فولڈر میں کھولیں"
-
-#: ../src/caja-places-sidebar.c:721
-msgid "Open the contents of the File System"
-msgstr "فائل نظام کا مواد کھولیں"
-
-#: ../src/caja-places-sidebar.c:826
-msgid "Open the trash"
-msgstr "ردی کھولیں"
-
-#: ../src/caja-places-sidebar.c:834 ../src/mate-network-scheme.desktop.in.h:1
+#: ../src/caja-places-sidebar.c:836 ../src/mate-network-scheme.desktop.in.h:1
 msgid "Network"
 msgstr "نیٹ ورک"
 
-#: ../src/caja-places-sidebar.c:866
+#: ../src/caja-places-sidebar.c:868
 msgid "Browse Network"
 msgstr "نیٹ ورک دیکھیں"
 
-#: ../src/caja-places-sidebar.c:868
+#: ../src/caja-places-sidebar.c:870
 msgid "Browse the contents of the network"
 msgstr "نیٹ ورک کا مواد دیکھیں"
 
 #. start() for type G_DRIVE_START_STOP_TYPE_SHUTDOWN is normally not used
-#: ../src/caja-places-sidebar.c:1800
+#: ../src/caja-places-sidebar.c:1701
 msgid "_Power On"
 msgstr "_پاور آن کریں"
 
-#: ../src/caja-places-sidebar.c:1804
+#: ../src/caja-places-sidebar.c:1705
 msgid "_Connect Drive"
 msgstr "ڈرائیو _متصل کریں"
 
-#: ../src/caja-places-sidebar.c:1805
+#: ../src/caja-places-sidebar.c:1706
 msgid "_Disconnect Drive"
 msgstr "ڈرائیو _غیر متصل کریں"
 
-#: ../src/caja-places-sidebar.c:1808
+#: ../src/caja-places-sidebar.c:1709
 msgid "_Start Multi-disk Device"
 msgstr "متعدد-ڈسک آلہ _چلائیں"
 
-#: ../src/caja-places-sidebar.c:1809
+#: ../src/caja-places-sidebar.c:1710
 msgid "_Stop Multi-disk Device"
 msgstr "متعدد-ڈسک آلہ _بند کریں"
 
-#: ../src/caja-places-sidebar.c:1896 ../src/caja-places-sidebar.c:2474
+#: ../src/caja-places-sidebar.c:1797 ../src/caja-places-sidebar.c:2375
 #, c-format
 msgid "Unable to start %s"
 msgstr "%s کو چلانے میں ناکامی"
 
-#: ../src/caja-places-sidebar.c:2418
+#: ../src/caja-places-sidebar.c:2319
 #, c-format
 msgid "Unable to poll %s for media changes"
 msgstr "میڈیا کی تبدیلیوں کے لیے %s کو شمار کرنے سے قاصر"
 
-#: ../src/caja-places-sidebar.c:2534
+#: ../src/caja-places-sidebar.c:2435
 #, c-format
 msgid "Unable to stop %s"
 msgstr "%s کو روکنے میں ناکامی"
 
-#: ../src/caja-places-sidebar.c:2676
+#: ../src/caja-places-sidebar.c:2577
 msgid "Remove"
 msgstr "حذف کریں"
 
-#: ../src/caja-places-sidebar.c:2685
+#: ../src/caja-places-sidebar.c:2586
 msgid "Rename..."
 msgstr "نام بدلیں..."
 
-#: ../src/caja-places-sidebar.c:3378
+#: ../src/caja-places-sidebar.c:3278
 msgid "Places"
 msgstr "مقامات"
 
-#: ../src/caja-places-sidebar.c:3384
+#: ../src/caja-places-sidebar.c:3284
 msgid "Show Places"
 msgstr "مقامات ظاہر کریں"
 
@@ -7027,53 +7032,53 @@ msgstr "کیا آپ اپنی فہرست سے ہر وہ پسندیدہ حذف ک�
 msgid "Bookmark for Nonexistent Location"
 msgstr "پسندیدہ برائے غیر موجود مقام"
 
-#: ../src/caja-window-manage-views.c:814
+#: ../src/caja-window-manage-views.c:822
 msgid "You can choose another view or go to a different location."
 msgstr "آپ دوسرا منظر منتخب کر سکتے ہیں یا دوسرے مقام پر جاسکتے ہیں."
 
-#: ../src/caja-window-manage-views.c:833
+#: ../src/caja-window-manage-views.c:841
 msgid "The location cannot be displayed with this viewer."
 msgstr "مقام اس ناظر کے ذریعہ نہیں دیکھا جاسکتا."
 
-#: ../src/caja-window-manage-views.c:1422
+#: ../src/caja-window-manage-views.c:1430
 msgid "Content View"
 msgstr "مواد مشاہدہ"
 
-#: ../src/caja-window-manage-views.c:1423
+#: ../src/caja-window-manage-views.c:1431
 msgid "View of the current folder"
 msgstr "حالیہ فولڈر کا مشاہدہ"
 
-#: ../src/caja-window-manage-views.c:2114
+#: ../src/caja-window-manage-views.c:2122
 msgid "Caja has no installed viewer capable of displaying the folder."
 msgstr "کاجا کے پاس ایسا کوئی ناظر نصب نہیں ہے جو فولڈر کو دکھانے کے قابل ہو."
 
-#: ../src/caja-window-manage-views.c:2122
+#: ../src/caja-window-manage-views.c:2130
 msgid "The location is not a folder."
 msgstr "مقام فولڈر نہیں ہے."
 
-#: ../src/caja-window-manage-views.c:2131
+#: ../src/caja-window-manage-views.c:2139
 #, c-format
 msgid "Could not find \"%s\"."
 msgstr "\"%s\" تلاش نہیں کیا جاسکتا."
 
-#: ../src/caja-window-manage-views.c:2134
+#: ../src/caja-window-manage-views.c:2142
 msgid "Please check the spelling and try again."
 msgstr "ازراہِ کرم املاء چیک کر کے دوبارہ کوشش فرمائیں."
 
-#: ../src/caja-window-manage-views.c:2143
+#: ../src/caja-window-manage-views.c:2151
 #, c-format
 msgid "Caja cannot handle \"%s\" locations."
 msgstr "کاجا \"%s\" مقامات کو ہینڈل نہیں کرسکتا."
 
-#: ../src/caja-window-manage-views.c:2148
+#: ../src/caja-window-manage-views.c:2156
 msgid "Caja cannot handle this kind of location."
 msgstr "کاجا اس قسم کے مقامات کو ہینڈل نہیں کرسکتا."
 
-#: ../src/caja-window-manage-views.c:2155
+#: ../src/caja-window-manage-views.c:2163
 msgid "Unable to mount the location."
 msgstr "مقام کو ماؤنٹ کرنے سے قاصر."
 
-#: ../src/caja-window-manage-views.c:2161
+#: ../src/caja-window-manage-views.c:2169
 msgid "Access was denied."
 msgstr "رسائی روک دی گئی."
 
@@ -7081,28 +7086,28 @@ msgstr "رسائی روک دی گئی."
 #. * the code that guesses web addresses when there's no initial "/".
 #. * But this case is also hit for legitimate web addresses when
 #. * the proxy is set up wrong.
-#: ../src/caja-window-manage-views.c:2170
+#: ../src/caja-window-manage-views.c:2178
 #, c-format
 msgid "Could not display \"%s\", because the host could not be found."
 msgstr "\"%s\" کو نہیں دکھایا جاسکتا، کیونکہ میزبان (ہوسٹ) نہیں پایا گیا."
 
-#: ../src/caja-window-manage-views.c:2172
+#: ../src/caja-window-manage-views.c:2180
 msgid ""
 "Check that the spelling is correct and that your proxy settings are correct."
 msgstr "دیکھیں کہ کیا آپ کی املاء درست ہے اور یہ کہ کیا آپ کی پراکسی کی ترتیبات بھی درست ہیں."
 
-#: ../src/caja-window-manage-views.c:2188
+#: ../src/caja-window-manage-views.c:2196
 #, c-format
 msgid ""
 "Error: %s\n"
 "Please select another viewer and try again."
 msgstr "غلطی: %s\nازراہ کرم دوسرا ناظر منتخب کر کے دوبارہ کوشش فرمائیں."
 
-#: ../src/caja-window-menus.c:192
+#: ../src/caja-window-menus.c:193
 msgid "Go to the location specified by this bookmark"
 msgstr "اس پسندیدہ کے متعین کردہ مقام پر جائیں"
 
-#: ../src/caja-window-menus.c:514
+#: ../src/caja-window-menus.c:515
 msgid ""
 "Caja is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -7110,7 +7115,7 @@ msgid ""
 "version."
 msgstr "کاجا ایک مفت سوفٹ ویئر ہے، آپ اسے فری سوفٹ ویئر فاونڈیشن کی طرف سے جاری کردہ گنو جنرل پبلک لائسنس ورژن 2 یا (اپنی مرضی سے) بعد کے کسی ورژن کی شرائط کے تحت تقسیم / یا تبدیل کرسکتے ہیں."
 
-#: ../src/caja-window-menus.c:518
+#: ../src/caja-window-menus.c:519
 msgid ""
 "Caja is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -7118,233 +7123,233 @@ msgid ""
 "details."
 msgstr "کاجا اس امید کے ساتھ تقسیم کیا جاتا ہے کہ یہ مفید اور کارآمد ثابت ہوگا تاہم کسی بھی ضمانت کے بغیر؛ تجارت یا کسی مخصوص کام کے  قابل ہونے کی ایسی ضمانت کے بھی بغیر جس کی طرف یہ دلالت کرتا ہو۔ مزید تفصیلات کے لیے گنو کا عمومی عوامی اجازہ GNU GPL دیکھیں۔"
 
-#: ../src/caja-window-menus.c:522
+#: ../src/caja-window-menus.c:523
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301 USA"
 msgstr "کاجا کے ساتھ آپ کو گنو کے عمومی عوامی اجازے کی ایک نقل ملی ہوگی، اگر نہیں تو آزاد سوفٹ ویئر فاؤنڈیشن کو لکھیے: Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA"
 
-#: ../src/caja-window-menus.c:534
+#: ../src/caja-window-menus.c:535
 msgid ""
 "Caja lets you organize files and folders, both on your computer and online."
 msgstr "کاجا آن لائن اور آپ کے کمپیوٹر پر فائلیں اور فولڈر منظم کرنے کی صلاحیت دیتا ہے."
 
-#: ../src/caja-window-menus.c:537
+#: ../src/caja-window-menus.c:538
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
-"Copyright © 2011-2013 The Caja authors"
-msgstr "حقِ اشاعت © 1999-2009 ناٹیلس کے مصنفین\nحقِ اشاعت © 2011-2013 کاجا کے مصنفین"
+"Copyright © 2011-2014 The Caja authors"
+msgstr ""
 
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
 #. * box to give credit to the translator(s).
-#: ../src/caja-window-menus.c:547
+#: ../src/caja-window-menus.c:548
 msgid "translator-credits"
 msgstr "محمد علی مکی\nmakki@hacari.org\nمکی کا بلاگ\nhttp://makki.urducoder.com\nاردو کوڈر لینکس فورم\nhttp://www.urducoder.com"
 
-#: ../src/caja-window-menus.c:550
+#: ../src/caja-window-menus.c:551
 msgid "MATE Web Site"
 msgstr "میٹ کی ویب سائیٹ"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:832
+#: ../src/caja-window-menus.c:833
 msgid "_File"
 msgstr "_فائل"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:833
+#: ../src/caja-window-menus.c:834
 msgid "_Edit"
 msgstr "_تدوین"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:834
+#: ../src/caja-window-menus.c:835
 msgid "_View"
 msgstr "_منظر"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:835
+#: ../src/caja-window-menus.c:836
 msgid "_Help"
 msgstr "_ہدایات"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:837
+#: ../src/caja-window-menus.c:838
 msgid "_Close"
 msgstr "_بند کریں"
 
 #. tooltip
-#: ../src/caja-window-menus.c:838
+#: ../src/caja-window-menus.c:839
 msgid "Close this folder"
 msgstr "یہ فولڈر بند کریں"
 
-#: ../src/caja-window-menus.c:843
+#: ../src/caja-window-menus.c:844
 msgid "_Backgrounds and Emblems..."
 msgstr "_پس منظر اور علامتیں..."
 
-#: ../src/caja-window-menus.c:844
+#: ../src/caja-window-menus.c:845
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
 msgstr "نقوش، رنگ اور علامتیں ظاہر کریں جو شکل وصورت کو بدلنے میں استعمال ہوتی ہیں"
 
-#: ../src/caja-window-menus.c:849
+#: ../src/caja-window-menus.c:850
 msgid "Prefere_nces"
 msgstr "_ترجیحات"
 
-#: ../src/caja-window-menus.c:850
+#: ../src/caja-window-menus.c:851
 msgid "Edit Caja preferences"
 msgstr "کاجا کی ترجیحات کی تدوین کریں"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:853
+#: ../src/caja-window-menus.c:854
 msgid "Open _Parent"
 msgstr "_آبائی کھولیں"
 
-#: ../src/caja-window-menus.c:854
+#: ../src/caja-window-menus.c:855
 msgid "Open the parent folder"
 msgstr "آبائی فولڈر کھولیں"
 
 #. tooltip
-#: ../src/caja-window-menus.c:863
+#: ../src/caja-window-menus.c:864
 msgid "Stop loading the current location"
 msgstr "حالیہ مقام کے لادنے کا عمل روکیں"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:867
+#: ../src/caja-window-menus.c:868
 msgid "_Reload"
 msgstr "_تازگی"
 
 #. tooltip
-#: ../src/caja-window-menus.c:868
+#: ../src/caja-window-menus.c:869
 msgid "Reload the current location"
 msgstr "حالیہ مقام کو تازہ کریں"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:872
+#: ../src/caja-window-menus.c:873
 msgid "_Contents"
 msgstr "_ہدایات کے موضوعات"
 
 #. tooltip
-#: ../src/caja-window-menus.c:873
+#: ../src/caja-window-menus.c:874
 msgid "Display Caja help"
 msgstr "میٹ کے بارے میں مدد حاصل کریں"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:877
+#: ../src/caja-window-menus.c:878
 msgid "_About"
 msgstr "_بابت"
 
 #. tooltip
-#: ../src/caja-window-menus.c:878
+#: ../src/caja-window-menus.c:879
 msgid "Display credits for the creators of Caja"
 msgstr "کاجا کے مصنفین کے بارے میں جانیں"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:882
+#: ../src/caja-window-menus.c:883
 msgid "Zoom _In"
 msgstr "_نزدیک کریں"
 
 #. tooltip
-#: ../src/caja-window-menus.c:883 ../src/caja-zoom-control.c:99
+#: ../src/caja-window-menus.c:884 ../src/caja-zoom-control.c:99
 #: ../src/caja-zoom-control.c:372
 msgid "Increase the view size"
 msgstr "مشاہدے کا حجم بڑھائیں"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:897
+#: ../src/caja-window-menus.c:898
 msgid "Zoom _Out"
 msgstr "_دور کریں"
 
 #. tooltip
-#: ../src/caja-window-menus.c:898 ../src/caja-zoom-control.c:100
+#: ../src/caja-window-menus.c:899 ../src/caja-zoom-control.c:100
 #: ../src/caja-zoom-control.c:321
 msgid "Decrease the view size"
 msgstr "مشاہدے کا حجم کم کریں"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:907
+#: ../src/caja-window-menus.c:908
 msgid "Normal Si_ze"
 msgstr "سادہ _حجم"
 
 #. tooltip
-#: ../src/caja-window-menus.c:908 ../src/caja-zoom-control.c:101
+#: ../src/caja-window-menus.c:909 ../src/caja-zoom-control.c:101
 #: ../src/caja-zoom-control.c:334
 msgid "Use the normal view size"
 msgstr "مشاہدے کا سادہ حجم استعمال کریں"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:912
+#: ../src/caja-window-menus.c:913
 msgid "Connect to _Server..."
 msgstr "_سرور سے متصل ہوں..."
 
 #. tooltip
-#: ../src/caja-window-menus.c:913
+#: ../src/caja-window-menus.c:914
 msgid "Connect to a remote computer or shared disk"
 msgstr "بعید کمپیوٹر یا شیئر کردہ ڈسک سے متصل ہوں"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:922
+#: ../src/caja-window-menus.c:923
 msgid "_Computer"
 msgstr "_کمپیوٹر"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:927
+#: ../src/caja-window-menus.c:928
 msgid "_Network"
 msgstr "_نیٹ ورک"
 
 #. tooltip
-#: ../src/caja-window-menus.c:928 ../src/mate-network-scheme.desktop.in.h:2
+#: ../src/caja-window-menus.c:929 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
 msgstr "پسندیدہ اور مقامی نیٹ ورک مقامات دیکھیں"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:932
+#: ../src/caja-window-menus.c:933
 msgid "T_emplates"
 msgstr "_سانچے"
 
 #. tooltip
-#: ../src/caja-window-menus.c:933
+#: ../src/caja-window-menus.c:934
 msgid "Open your personal templates folder"
 msgstr "اپنا ذاتی سانچوں کا فولڈر کھولیں"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:937
+#: ../src/caja-window-menus.c:938
 msgid "_Trash"
 msgstr "_ردی"
 
 #. tooltip
-#: ../src/caja-window-menus.c:938
+#: ../src/caja-window-menus.c:939
 msgid "Open your personal trash folder"
 msgstr "اپنی ذاتی ردی کا فولڈر کھولیں"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:946
+#: ../src/caja-window-menus.c:947
 msgid "Show _Hidden Files"
 msgstr "_پوشیدہ فائلیں ظاہر کریں"
 
 #. tooltip
-#: ../src/caja-window-menus.c:947
+#: ../src/caja-window-menus.c:948
 msgid "Toggle the display of hidden files in the current window"
 msgstr "حالیہ دریچے میں پوشیدہ فائلیں ظاہر کریں"
 
-#: ../src/caja-window-menus.c:978
+#: ../src/caja-window-menus.c:979
 msgid "_Up"
 msgstr "_اوپر"
 
-#: ../src/caja-window-menus.c:981
+#: ../src/caja-window-menus.c:982
 msgid "_Home"
 msgstr "_گھر"
 

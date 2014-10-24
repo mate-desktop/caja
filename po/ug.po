@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-12 19:04+0100\n"
-"PO-Revision-Date: 2014-02-12 18:06+0000\n"
+"POT-Creation-Date: 2014-10-03 13:54+0200\n"
+"PO-Revision-Date: 2014-10-03 11:56+0000\n"
 "Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
 "Language-Team: Uighur (http://www.transifex.com/projects/p/MATE/language/ug/)\n"
 "MIME-Version: 1.0\n"
@@ -541,7 +541,7 @@ msgstr "ھەمىشە بۇ مەشغۇلاتنى ئىجرا قىل(_A)"
 #: ../src/file-manager/fm-directory-view.c:7413
 #: ../src/file-manager/fm-directory-view.c:7441
 #: ../src/file-manager/fm-directory-view.c:7522
-#: ../src/file-manager/fm-tree-view.c:1371 ../src/caja-places-sidebar.c:2711
+#: ../src/file-manager/fm-tree-view.c:1371 ../src/caja-places-sidebar.c:2612
 msgid "_Eject"
 msgstr "قاڭقىت(_E)"
 
@@ -552,7 +552,7 @@ msgstr "قاڭقىت(_E)"
 #: ../src/file-manager/fm-directory-view.c:7409
 #: ../src/file-manager/fm-directory-view.c:7437
 #: ../src/file-manager/fm-directory-view.c:7518
-#: ../src/file-manager/fm-tree-view.c:1362 ../src/caja-places-sidebar.c:2704
+#: ../src/file-manager/fm-tree-view.c:1362 ../src/caja-places-sidebar.c:2605
 msgid "_Unmount"
 msgstr "يۈك چۈشۈر(_U)"
 
@@ -760,7 +760,7 @@ msgid "%s's Home"
 msgstr "%s نىڭ باش قىسقۇچى"
 
 #: ../libcaja-private/caja-desktop-link.c:113
-#: ../data/caja-computer.desktop.in.in.h:1 ../src/caja-places-sidebar.c:674
+#: ../data/caja-computer.desktop.in.in.h:1 ../src/caja-places-sidebar.c:494
 msgid "Computer"
 msgstr "كومپيۇتېر"
 
@@ -768,7 +768,8 @@ msgstr "كومپيۇتېر"
 msgid "Network Servers"
 msgstr ""
 
-#: ../libcaja-private/caja-desktop-link.c:119 ../src/caja-places-sidebar.c:824
+#: ../libcaja-private/caja-desktop-link.c:119
+#: ../src/file-manager/fm-tree-view.c:1430 ../src/caja-places-sidebar.c:598
 #: ../src/caja-trash-bar.c:192
 msgid "Trash"
 msgstr "ئەخلەتخانا"
@@ -936,7 +937,7 @@ msgstr ""
 
 #. Setup the expander for the rename action
 #: ../libcaja-private/caja-file-conflict-dialog.c:592
-msgid "_Select a new name for the destination"
+msgid "Select a new name for the _destination"
 msgstr ""
 
 #. Setup the diff button for text files
@@ -1193,7 +1194,7 @@ msgstr ""
 #. Empty Trash menu item
 #: ../libcaja-private/caja-file-operations.c:1358
 #: ../libcaja-private/caja-file-operations.c:2226
-#: ../src/caja-places-sidebar.c:2748 ../src/caja-trash-bar.c:196
+#: ../src/caja-places-sidebar.c:2649 ../src/caja-trash-bar.c:196
 msgid "Empty _Trash"
 msgstr "ئەخلەتخانانى بوشات(_T)"
 
@@ -1508,7 +1509,7 @@ msgstr "\"%B\" قىسقۇچنى كۆچۈرەلمىدى چۈنكى ئۇنى ئو�
 
 #: ../libcaja-private/caja-file-operations.c:3586
 #: ../libcaja-private/caja-file-operations.c:4276
-#: ../libcaja-private/caja-file-operations.c:4850
+#: ../libcaja-private/caja-file-operations.c:4844
 msgid "Error while moving \"%B\"."
 msgstr "\"%B\" يۆتكەۋاتقاندا خاتالىق كۆرۈلدى."
 
@@ -1586,77 +1587,77 @@ msgid "Preparing to move %'d file"
 msgid_plural "Preparing to move %'d files"
 msgstr[0] "%'d ھۆججەتنى يۆتكەشكە تەييارلىنىۋاتىدۇ"
 
-#: ../libcaja-private/caja-file-operations.c:4851
+#: ../libcaja-private/caja-file-operations.c:4845
 #, c-format
 msgid "There was an error moving the file into %F."
 msgstr "ھۆججەتنى %F غا يۆتكەشتە خاتالىق كۆرۈلدى."
 
-#: ../libcaja-private/caja-file-operations.c:5111
+#: ../libcaja-private/caja-file-operations.c:5105
 msgid "Moving Files"
 msgstr "ھۆججەت يۆتكەۋاتىدۇ"
 
-#: ../libcaja-private/caja-file-operations.c:5142
+#: ../libcaja-private/caja-file-operations.c:5136
 msgid "Creating links in \"%B\""
 msgstr "\"%B\" نى كۆرسەتكەن ئۇلانما قۇرۇۋاتىدۇ"
 
-#: ../libcaja-private/caja-file-operations.c:5146
+#: ../libcaja-private/caja-file-operations.c:5140
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
 msgstr[0] "%'d ھۆججەت ئۇلانمىسى قۇرۇۋاتىدۇ"
 
-#: ../libcaja-private/caja-file-operations.c:5278
+#: ../libcaja-private/caja-file-operations.c:5272
 msgid "Error while creating link to %B."
 msgstr "%B غا ئۇلانما قۇرغاندا خاتالىق كۆرۈلدى."
 
-#: ../libcaja-private/caja-file-operations.c:5280
+#: ../libcaja-private/caja-file-operations.c:5274
 msgid "Symbolic links only supported for local files"
 msgstr "بەلگە ئۇلانمىسى يەرلىك ھۆججەتنىلا قوللايدۇ"
 
-#: ../libcaja-private/caja-file-operations.c:5283
+#: ../libcaja-private/caja-file-operations.c:5277
 msgid "The target doesn't support symbolic links."
 msgstr "نىشان بەلگە ئۇلانمىنى قوللىمايدۇ."
 
-#: ../libcaja-private/caja-file-operations.c:5286
+#: ../libcaja-private/caja-file-operations.c:5280
 #, c-format
 msgid "There was an error creating the symlink in %F."
 msgstr "%F غا بەلگە ئۇلىنىشى قۇرغاندا خاتالىق كۆرۈلدى."
 
-#: ../libcaja-private/caja-file-operations.c:5598
+#: ../libcaja-private/caja-file-operations.c:5592
 msgid "Setting permissions"
 msgstr "ھوقۇق تەڭشەك"
 
 #. localizers: the initial name of a new folder
-#: ../libcaja-private/caja-file-operations.c:5857
+#: ../libcaja-private/caja-file-operations.c:5851
 msgid "untitled folder"
 msgstr "ماۋزۇسىز قىسقۇچ"
 
 #. localizers: the initial name of a new empty file
-#: ../libcaja-private/caja-file-operations.c:5865
+#: ../libcaja-private/caja-file-operations.c:5859
 msgid "new file"
 msgstr "يېڭى ھۆججەت"
 
-#: ../libcaja-private/caja-file-operations.c:6036
+#: ../libcaja-private/caja-file-operations.c:6030
 msgid "Error while creating directory %B."
 msgstr "%B مۇندەرىجە قۇرۇشتا خاتالىق كۆرۈلدى."
 
-#: ../libcaja-private/caja-file-operations.c:6038
+#: ../libcaja-private/caja-file-operations.c:6032
 msgid "Error while creating file %B."
 msgstr "%B ھۆججەت قۇرۇشتا خاتالىق كۆرۈلدى."
 
-#: ../libcaja-private/caja-file-operations.c:6040
+#: ../libcaja-private/caja-file-operations.c:6034
 #, c-format
 msgid "There was an error creating the directory in %F."
 msgstr "%F غا مۇندەرىجە قۇرغاندا خاتالىق كۆرۈلدى."
 
-#: ../libcaja-private/caja-file-operations.c:6316
+#: ../libcaja-private/caja-file-operations.c:6310
 msgid "Emptying Trash"
 msgstr "ئەخلەتخانانى بوشىتىۋاتىدۇ"
 
-#: ../libcaja-private/caja-file-operations.c:6363
-#: ../libcaja-private/caja-file-operations.c:6404
-#: ../libcaja-private/caja-file-operations.c:6439
-#: ../libcaja-private/caja-file-operations.c:6474
+#: ../libcaja-private/caja-file-operations.c:6357
+#: ../libcaja-private/caja-file-operations.c:6398
+#: ../libcaja-private/caja-file-operations.c:6433
+#: ../libcaja-private/caja-file-operations.c:6468
 msgid "Unable to mark launcher trusted (executable)"
 msgstr "قوزغاتقۇچقا ئىشەنچلىك بەلگىسى قويالمىدى (ئىجراچان)"
 
@@ -1733,7 +1734,7 @@ msgid "today at 00:00:00 PM"
 msgstr "بۈگۈن چ ك 00:00:00"
 
 #: ../libcaja-private/caja-file.c:4477
-#: ../src/caja-file-management-properties.c:510
+#: ../src/caja-file-management-properties.c:511
 msgid "today at %-I:%M:%S %p"
 msgstr "بۈگۈن %-I:%M:%S %p"
 
@@ -2014,12 +2015,12 @@ msgid_plural "This will open %d separate windows."
 msgstr[0] "%d مۇستەقىل كۆزنەك ئاچىدۇ."
 
 #: ../libcaja-private/caja-mime-actions.c:1297
-#: ../src/caja-window-manage-views.c:2111
 #: ../src/caja-window-manage-views.c:2119
-#: ../src/caja-window-manage-views.c:2139
-#: ../src/caja-window-manage-views.c:2153
-#: ../src/caja-window-manage-views.c:2159
-#: ../src/caja-window-manage-views.c:2186
+#: ../src/caja-window-manage-views.c:2127
+#: ../src/caja-window-manage-views.c:2147
+#: ../src/caja-window-manage-views.c:2161
+#: ../src/caja-window-manage-views.c:2167
+#: ../src/caja-window-manage-views.c:2194
 #, c-format
 msgid "Could not display \"%s\"."
 msgstr "\"%s\" كۆرسىتەلمەيدۇ."
@@ -2188,7 +2189,7 @@ msgstr "_كۆز يۈگۈرت..."
 #: ../libcaja-private/caja-open-with-dialog.c:957
 #: ../src/file-manager/fm-directory-view.c:7286
 #: ../src/file-manager/fm-directory-view.c:8796
-#: ../src/file-manager/fm-tree-view.c:1256 ../src/caja-places-sidebar.c:2653
+#: ../src/file-manager/fm-tree-view.c:1256 ../src/caja-places-sidebar.c:2554
 msgid "_Open"
 msgstr "ئاچ(_O)"
 
@@ -2278,37 +2279,37 @@ msgid ""
 " your computer, you may be able to open it."
 msgstr ""
 
-#: ../libcaja-private/caja-program-choosing.c:439
+#: ../libcaja-private/caja-program-choosing.c:513
 msgid "Sorry, but you cannot execute commands from a remote site."
 msgstr "كەچۈرۈڭ، سىز يىراق بېكەتتىكى بۇيرۇقنى ئىجرا قىلالمايسىز."
 
-#: ../libcaja-private/caja-program-choosing.c:441
+#: ../libcaja-private/caja-program-choosing.c:515
 msgid "This is disabled due to security considerations."
 msgstr "بىخەتەرلىكنى ئويلىشىپ بۇ ئىقتىدار چەكلەنگەن."
 
-#: ../libcaja-private/caja-program-choosing.c:453
-#: ../libcaja-private/caja-program-choosing.c:531
+#: ../libcaja-private/caja-program-choosing.c:527
+#: ../libcaja-private/caja-program-choosing.c:593
 msgid "There was an error launching the application."
 msgstr "قوللىنىشچان پروگراممىنى قوزغىتىشتا خاتالىق كۆرۈلدى."
 
-#: ../libcaja-private/caja-program-choosing.c:482
-#: ../libcaja-private/caja-program-choosing.c:495
+#: ../libcaja-private/caja-program-choosing.c:556
+#: ../libcaja-private/caja-program-choosing.c:569
 msgid "This drop target only supports local files."
 msgstr "بۇ نىشاننى سۆرەش يەرلىك ھۆججەتنىلا قوللايدۇ."
 
-#: ../libcaja-private/caja-program-choosing.c:483
+#: ../libcaja-private/caja-program-choosing.c:557
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again."
 msgstr "يەرلىك بولمىغان ھۆججەتنى ئېچىشتا، ئۇلارنى يەرلىك قىسقۇچقا كۆچۈرۈپ ئاندىن ئۇلارنى سۆرەڭ."
 
-#: ../libcaja-private/caja-program-choosing.c:496
+#: ../libcaja-private/caja-program-choosing.c:570
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again. The local files you dropped have already been opened."
 msgstr "يەرلىك بولمىغان ھۆججەتنى ئېچىشتا، ئۇلارنى يەرلىك قىسقۇچقا كۆچۈرۈپ ئاندىن ئۇلارنى سۆرەڭ. سىز سۆرىگەن يەرلىك ھۆججەت ئوچۇق."
 
-#: ../libcaja-private/caja-program-choosing.c:529
+#: ../libcaja-private/caja-program-choosing.c:591
 msgid "Details: "
 msgstr "تەپسىلاتى: "
 
@@ -3395,7 +3396,7 @@ msgstr "ئۆزلۈكىدىن ئىجرا ئەسكەرتىشى"
 #: ../data/caja-browser.desktop.in.in.h:1
 #: ../data/caja-folder-handler.desktop.in.in.h:1
 #: ../data/caja.desktop.in.in.h:1 ../src/caja-spatial-window.c:381
-#: ../src/caja-window-menus.c:532 ../src/caja-window.c:162
+#: ../src/caja-window-menus.c:533 ../src/caja-window.c:162
 msgid "Caja"
 msgstr "Caja"
 
@@ -3408,7 +3409,7 @@ msgid "Browse the file system with the file manager"
 msgstr "ھۆججەت باشقۇرغۇچتا ھۆججەت سىستېمىسىغا كۆز يۈگۈرت"
 
 #. tooltip
-#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:923
+#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:924
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
 msgstr "بۇ كومپيۇتېردا زىيارەت قىلغىلى بولىدىغان ھەممە يەرلىك ۋە يىراقتىكى دىسكا ۋە قىسقۇچقا كۆز يۈگۈرت"
@@ -3426,8 +3427,8 @@ msgid "Home Folder"
 msgstr "باش مۇندەرىجە"
 
 #. tooltip
-#: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:690
-#: ../src/caja-window-menus.c:918
+#: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:510
+#: ../src/caja-window-menus.c:919
 msgid "Open your personal folder"
 msgstr "شەخسىي قىسقۇچىڭىزنى ئاچىدۇ"
 
@@ -3838,7 +3839,7 @@ msgstr "تاللانغان ھەر بىر تۈر يولباشچى كۆزنەكت�
 #: ../src/file-manager/fm-directory-view.c:7479
 #: ../src/file-manager/fm-directory-view.c:8547
 #: ../src/file-manager/fm-directory-view.c:8873
-#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2661
+#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2562
 msgid "Open in New _Tab"
 msgstr "يېڭى بەتكۈچتە ئاچ(_T)"
 
@@ -4080,7 +4081,7 @@ msgstr "بۇ مۇلازىمىتىرغا مەڭگۈلۈك ئۇلا"
 #: ../src/file-manager/fm-directory-view.c:7405
 #: ../src/file-manager/fm-directory-view.c:7433
 #: ../src/file-manager/fm-directory-view.c:7514
-#: ../src/caja-places-sidebar.c:2697
+#: ../src/caja-places-sidebar.c:2598
 msgid "_Mount"
 msgstr "يۈكلە(_M)"
 
@@ -4104,7 +4105,7 @@ msgstr "تاللانغان ئەننى قاڭقىتىدۇ"
 #: ../src/file-manager/fm-directory-view.c:7417
 #: ../src/file-manager/fm-directory-view.c:7445
 #: ../src/file-manager/fm-directory-view.c:7526
-#: ../src/caja-places-sidebar.c:2725
+#: ../src/caja-places-sidebar.c:2626
 msgid "_Format"
 msgstr "فورمات(_F)"
 
@@ -4125,7 +4126,7 @@ msgstr "تاللانغان ئەننى فورماتلايدۇ"
 #: ../src/file-manager/fm-directory-view.c:8303
 #: ../src/file-manager/fm-directory-view.c:8409
 #: ../src/file-manager/fm-directory-view.c:8413
-#: ../src/caja-places-sidebar.c:1792 ../src/caja-places-sidebar.c:2732
+#: ../src/caja-places-sidebar.c:1693 ../src/caja-places-sidebar.c:2633
 msgid "_Start"
 msgstr "باشلا(_S)"
 
@@ -4142,8 +4143,8 @@ msgstr "تاللانغان ئەننى باشلا"
 #: ../src/file-manager/fm-directory-view.c:8236
 #: ../src/file-manager/fm-directory-view.c:8328
 #: ../src/file-manager/fm-directory-view.c:8438
-#: ../src/caja-places-sidebar.c:1793 ../src/caja-places-sidebar.c:2739
-#: ../src/caja-window-menus.c:862
+#: ../src/caja-places-sidebar.c:1694 ../src/caja-places-sidebar.c:2640
+#: ../src/caja-window-menus.c:863
 msgid "_Stop"
 msgstr "توختا(_S)"
 
@@ -4158,7 +4159,7 @@ msgstr "تاللانغان ئەننى توختات"
 #: ../src/file-manager/fm-directory-view.c:7429
 #: ../src/file-manager/fm-directory-view.c:7457
 #: ../src/file-manager/fm-directory-view.c:7538
-#: ../src/caja-places-sidebar.c:2718
+#: ../src/caja-places-sidebar.c:2619
 msgid "_Detect Media"
 msgstr "ۋاسىتە بايقا(_D)"
 
@@ -4326,7 +4327,7 @@ msgstr "تاللانغان مەزمۇن كۆزنەكنىڭ باشقا كۆزنە
 #. name, stock id
 #. label, accelerator
 #: ../src/file-manager/fm-directory-view.c:7554
-#: ../src/file-manager/fm-directory-view.c:7558 ../src/caja-window-menus.c:917
+#: ../src/file-manager/fm-directory-view.c:7558 ../src/caja-window-menus.c:918
 msgid "_Home Folder"
 msgstr "باش قىسقۇچ(_H)"
 
@@ -4443,7 +4444,7 @@ msgstr "تاللانغان قوزغاتقۇچنى توختات"
 #: ../src/file-manager/fm-directory-view.c:8240
 #: ../src/file-manager/fm-directory-view.c:8332
 #: ../src/file-manager/fm-directory-view.c:8442
-#: ../src/caja-places-sidebar.c:1801
+#: ../src/caja-places-sidebar.c:1702
 msgid "_Safely Remove Drive"
 msgstr "قوزغاتقۇچنى بىخەتەر چىقىرىۋەت(_S)"
 
@@ -4477,7 +4478,7 @@ msgstr "تاللانغان كۆپ دىسكا قوزغاتقۇچنى توختات
 #: ../src/file-manager/fm-directory-view.c:8252
 #: ../src/file-manager/fm-directory-view.c:8344
 #: ../src/file-manager/fm-directory-view.c:8454
-#: ../src/caja-places-sidebar.c:1814
+#: ../src/caja-places-sidebar.c:1715
 msgid "_Lock Drive"
 msgstr "قوزغاتقۇچنى قۇلۇپلا(_L)"
 
@@ -4502,7 +4503,7 @@ msgstr "ئېچىلغان قىسقۇچ بىلەن باغلانغان كۆپ دى�
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
 #: ../src/file-manager/fm-directory-view.c:8315
 #: ../src/file-manager/fm-directory-view.c:8425
-#: ../src/caja-places-sidebar.c:1813
+#: ../src/caja-places-sidebar.c:1714
 msgid "_Unlock Drive"
 msgstr "قوزغاتقۇچنى قۇلۇپلىما(_L)"
 
@@ -4533,7 +4534,7 @@ msgstr "ئېچىلغان قىسقۇچ بىلەن باغلانغان قوزغات
 #. add the "open in new window" menu item
 #: ../src/file-manager/fm-directory-view.c:8524
 #: ../src/file-manager/fm-directory-view.c:8834
-#: ../src/file-manager/fm-tree-view.c:1276 ../src/caja-places-sidebar.c:2668
+#: ../src/file-manager/fm-tree-view.c:1276 ../src/caja-places-sidebar.c:2569
 msgid "Open in New _Window"
 msgstr "يېڭى كۆزنەكتە ئاچ(_W)"
 
@@ -5234,7 +5235,7 @@ msgstr "ھۆججەت زىيارىتى:"
 #. Translators: this is referred to captions under icons.
 #: ../src/file-manager/fm-properties-window.c:4292
 #: ../src/file-manager/fm-properties-window.c:4303
-#: ../src/caja-file-management-properties.c:318
+#: ../src/caja-file-management-properties.c:319
 msgid "None"
 msgstr "يوق"
 
@@ -5357,46 +5358,42 @@ msgstr "خاسلىق كۆزنەك قۇرۇۋاتىدۇ."
 msgid "Select Custom Icon"
 msgstr "ئىختىيارى سىنبەلگە تاللا"
 
-#: ../src/file-manager/fm-tree-view.c:1427 ../src/caja-places-sidebar.c:719
+#: ../src/file-manager/fm-tree-view.c:1427 ../src/caja-places-sidebar.c:539
 msgid "File System"
 msgstr "ھۆججەت سىستېمىسى"
 
-#: ../src/file-manager/fm-tree-view.c:1431
-msgid "Network Neighbourhood"
-msgstr "تور قوشنا"
-
-#: ../src/file-manager/fm-tree-view.c:1716
+#: ../src/file-manager/fm-tree-view.c:1715
 msgid "Tree"
 msgstr "دەرەخ"
 
-#: ../src/file-manager/fm-tree-view.c:1722
+#: ../src/file-manager/fm-tree-view.c:1721
 msgid "Show Tree"
 msgstr "دەرەخنى كۆرسەت"
 
-#: ../src/caja-application.c:434
+#: ../src/caja-application.c:428
 #, c-format
 msgid "Caja could not create the required folder \"%s\"."
 msgstr "Caja ئېھتىياجلىق بولغان قىسقۇچ \"%s\" نى قۇرالمايدۇ."
 
-#: ../src/caja-application.c:436
+#: ../src/caja-application.c:430
 msgid ""
 "Before running Caja, please create the following folder, or set permissions "
 "such that Caja can create it."
 msgstr "Caja نى ئىجرا قىلىشتىن ئىلگىرى، تۆۋەندىكى قىسقۇچنى قۇرۇڭ ياكى ھوقۇقنى ئۆزگەرتىپ Caja قۇرالايدىغان قىلىپ تەڭشەڭ."
 
-#: ../src/caja-application.c:441
+#: ../src/caja-application.c:435
 #, c-format
 msgid "Caja could not create the following required folders: %s."
 msgstr "Caja تۆۋەندىكى ئېھتىياجلىق بولغان قىسقۇچنى قۇرالمايدۇ:%s"
 
-#: ../src/caja-application.c:443
+#: ../src/caja-application.c:437
 msgid ""
 "Before running Caja, please create these folders, or set permissions such "
 "that Caja can create them."
 msgstr "Caja نى ئىجرا قىلىشتىن ئىلگىرى، تۆۋەندىكى قىسقۇچلارنى قۇرۇڭ ياكى ھوقۇقنى ئۆزگەرتىپ Caja نى قۇرالايدىغان قىلىپ تەڭشەڭ."
 
-#: ../src/caja-application.c:1660 ../src/caja-places-sidebar.c:2200
-#: ../src/caja-places-sidebar.c:2231 ../src/caja-places-sidebar.c:2262
+#: ../src/caja-application.c:1514 ../src/caja-places-sidebar.c:2101
+#: ../src/caja-places-sidebar.c:2132 ../src/caja-places-sidebar.c:2163
 #, c-format
 msgid "Unable to eject %s"
 msgstr "%s قاڭقىتالمايدۇ"
@@ -5430,8 +5427,8 @@ msgid ""
 msgstr "يۇمشاق دېتال \"%s\" ۋاسىتىدە بىۋاسىتە ئىجرا بولىدۇ. سىز ئىشەنمەيدىغان يۇمشاق دېتالنى ھەرگىز ئىجرا قىلماڭ.\n\nئەگەر گۇمانلانسىڭىز، ۋاز كەچنى چېكىڭ"
 
 #: ../src/caja-bookmarks-window.c:158
-#: ../src/caja-file-management-properties.c:225
-#: ../src/caja-property-browser.c:1654 ../src/caja-window-menus.c:616
+#: ../src/caja-file-management-properties.c:226
+#: ../src/caja-property-browser.c:1654 ../src/caja-window-menus.c:617
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
@@ -5590,7 +5587,7 @@ msgid "Bookmark Name:"
 msgstr ""
 
 #: ../src/caja-desktop-window.c:81 ../src/caja-desktop-window.c:251
-#: ../src/caja-pathbar.c:1524 ../src/caja-places-sidebar.c:704
+#: ../src/caja-pathbar.c:1524 ../src/caja-places-sidebar.c:524
 msgid "Desktop"
 msgstr "ئۈستەل ئۈستى"
 
@@ -5925,119 +5922,127 @@ msgid "_Format:"
 msgstr "فورمات(_F):"
 
 #: ../src/caja-file-management-properties.ui.h:73
+msgid "<b>Size</b>"
+msgstr ""
+
+#: ../src/caja-file-management-properties.ui.h:74
+msgid "_Show file sizes with IEC units"
+msgstr ""
+
+#: ../src/caja-file-management-properties.ui.h:75
 msgid "Display"
 msgstr "كۆرسەت"
 
-#: ../src/caja-file-management-properties.ui.h:74
+#: ../src/caja-file-management-properties.ui.h:76
 msgid "<b>List Columns</b>"
 msgstr "<b>تىزىملىك ئىستونى</b>"
 
-#: ../src/caja-file-management-properties.ui.h:75
+#: ../src/caja-file-management-properties.ui.h:77
 msgid "Choose the order of information to appear in the list view."
 msgstr "ئۇچۇرنىڭ تىزىملىك كۆرۈنۈشىدە كۆرۈنىدىغان تەرتىپىنى تاللاڭ."
 
-#: ../src/caja-file-management-properties.ui.h:76
+#: ../src/caja-file-management-properties.ui.h:78
 msgid "List Columns"
 msgstr "تىزىملىك ئىستونى"
 
-#: ../src/caja-file-management-properties.ui.h:77
+#: ../src/caja-file-management-properties.ui.h:79
 msgid "<b>Text Files</b>"
 msgstr "<b>تېكست ھۆججەتلەر</b>"
 
-#: ../src/caja-file-management-properties.ui.h:78
+#: ../src/caja-file-management-properties.ui.h:80
 msgid "Show te_xt in icons:"
 msgstr "سىنبەلگىدە تېكست كۆرسەت(_X):"
 
-#: ../src/caja-file-management-properties.ui.h:79
+#: ../src/caja-file-management-properties.ui.h:81
 msgid "<b>Other Previewable Files</b>"
 msgstr "<b>باشقا ئالدىن كۆزىتىشچان ھۆججەتلەر</b>"
 
-#: ../src/caja-file-management-properties.ui.h:80
+#: ../src/caja-file-management-properties.ui.h:82
 msgid "Show _thumbnails:"
 msgstr "كىچىك سۈرەتنى كۆرسەت(_T):"
 
-#: ../src/caja-file-management-properties.ui.h:81
+#: ../src/caja-file-management-properties.ui.h:83
 msgid "_Only for files smaller than:"
 msgstr "بەلگىلەنگەن چوڭلۇقتىن كىچىك ھۆججەتنىلا كۆرسەت(_O):"
 
-#: ../src/caja-file-management-properties.ui.h:82
+#: ../src/caja-file-management-properties.ui.h:84
 msgid "<b>Sound Files</b>"
 msgstr "<b>ئاۋاز ھۆججەتلەر</b>"
 
-#: ../src/caja-file-management-properties.ui.h:83
+#: ../src/caja-file-management-properties.ui.h:85
 msgid "Preview _sound files:"
 msgstr "ئاۋاز ھۆججەتنى ئاڭلات(_S):"
 
-#: ../src/caja-file-management-properties.ui.h:84
+#: ../src/caja-file-management-properties.ui.h:86
 msgid "<b>Folders</b>"
 msgstr "<b>قىسقۇچلار</b>"
 
-#: ../src/caja-file-management-properties.ui.h:85
+#: ../src/caja-file-management-properties.ui.h:87
 msgid "Count _number of items:"
 msgstr "تۈر سانىنى سانا(_N):"
 
-#: ../src/caja-file-management-properties.ui.h:86
+#: ../src/caja-file-management-properties.ui.h:88
 msgid "Preview"
 msgstr "ئالدىن كۆزەت"
 
-#: ../src/caja-file-management-properties.ui.h:87
+#: ../src/caja-file-management-properties.ui.h:89
 msgid "<b>Media Handling</b>"
 msgstr "<b>ۋاسىتە بىر تەرەپ قىلىش</b>"
 
-#: ../src/caja-file-management-properties.ui.h:88
+#: ../src/caja-file-management-properties.ui.h:90
 msgid ""
 "Choose what happens when inserting media or connecting devices to the system"
 msgstr "ۋاسىتە قىستۇرۇلغان ياكى ئۈسكۈنە سىستېمىغا چېتىلغاندا قايسى مەشغۇلاتنى ئىجرا قىلىدىغانلىقىنى تاللاڭ."
 
-#: ../src/caja-file-management-properties.ui.h:89
+#: ../src/caja-file-management-properties.ui.h:91
 msgid "CD _Audio:"
 msgstr "ئۈن CD(_A):"
 
-#: ../src/caja-file-management-properties.ui.h:90
+#: ../src/caja-file-management-properties.ui.h:92
 msgid "_DVD Video:"
 msgstr "سىن _DVD :"
 
-#: ../src/caja-file-management-properties.ui.h:91
+#: ../src/caja-file-management-properties.ui.h:93
 msgid "_Music Player:"
 msgstr "نەغمە قويغۇچ(_M):"
 
-#: ../src/caja-file-management-properties.ui.h:92
+#: ../src/caja-file-management-properties.ui.h:94
 msgid "_Photos:"
 msgstr "سۈرەتلەر(_P):"
 
-#: ../src/caja-file-management-properties.ui.h:93
+#: ../src/caja-file-management-properties.ui.h:95
 msgid "_Software:"
 msgstr "يۇمشاق دېتال(_S):"
 
-#: ../src/caja-file-management-properties.ui.h:94
+#: ../src/caja-file-management-properties.ui.h:96
 msgid "<b>Other Media</b>"
 msgstr "<b>باشقا ۋاسىتە</b>"
 
-#: ../src/caja-file-management-properties.ui.h:95
+#: ../src/caja-file-management-properties.ui.h:97
 msgid "Less common media formats can be configured here"
 msgstr "ئانچە كۆپ ئۇچرىمايدىغان ۋاسىتە تىپى بۇ جايدا سەپلىنىدۇ"
 
-#: ../src/caja-file-management-properties.ui.h:96
+#: ../src/caja-file-management-properties.ui.h:98
 msgid "Acti_on:"
 msgstr "مەشغۇلات(_O):"
 
-#: ../src/caja-file-management-properties.ui.h:97
+#: ../src/caja-file-management-properties.ui.h:99
 msgid "_Type:"
 msgstr "تىپى(_T):"
 
-#: ../src/caja-file-management-properties.ui.h:98
+#: ../src/caja-file-management-properties.ui.h:100
 msgid "_Never prompt or start programs on media insertion"
 msgstr "ۋاسىتە قىستۇرۇلغاندا ھەرگىز ئەسكەرتمە ياكى پروگرامما قوزغاتما(_N)"
 
-#: ../src/caja-file-management-properties.ui.h:99
+#: ../src/caja-file-management-properties.ui.h:101
 msgid "B_rowse media when inserted"
 msgstr "ۋاسىتە قىستۇرغاندا كۆز يۈگۈرت(_R)"
 
-#: ../src/caja-file-management-properties.ui.h:100
+#: ../src/caja-file-management-properties.ui.h:102
 msgid "Media"
 msgstr "ۋاسىتە"
 
-#: ../src/caja-file-management-properties.ui.h:101
+#: ../src/caja-file-management-properties.ui.h:103
 msgid "Plugins"
 msgstr ""
 
@@ -6547,84 +6552,84 @@ msgstr ""
 msgid "Bookmarks"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:541 ../src/caja-places-sidebar.c:569
+#: ../src/caja-places-sidebar.c:526
+msgid "Open the contents of your desktop in a folder"
+msgstr "بىر قىسقۇچتا ئۈستەل ئۈستى مەزمۇنىنى ئاچ"
+
+#: ../src/caja-places-sidebar.c:541
+msgid "Open the contents of the File System"
+msgstr "ھۆججەت سىستېمىسىنىڭ مۇندەرىجىسىنى ئاچ"
+
+#: ../src/caja-places-sidebar.c:600
+msgid "Open the trash"
+msgstr "ئەخلەتخانا ئاچ"
+
+#: ../src/caja-places-sidebar.c:655 ../src/caja-places-sidebar.c:683
 #, c-format
 msgid "Mount and open %s"
 msgstr "%s نى يۈكلەپ ئاچ"
 
-#: ../src/caja-places-sidebar.c:706
-msgid "Open the contents of your desktop in a folder"
-msgstr "بىر قىسقۇچتا ئۈستەل ئۈستى مەزمۇنىنى ئاچ"
-
-#: ../src/caja-places-sidebar.c:721
-msgid "Open the contents of the File System"
-msgstr "ھۆججەت سىستېمىسىنىڭ مۇندەرىجىسىنى ئاچ"
-
-#: ../src/caja-places-sidebar.c:826
-msgid "Open the trash"
-msgstr "ئەخلەتخانا ئاچ"
-
-#: ../src/caja-places-sidebar.c:834 ../src/mate-network-scheme.desktop.in.h:1
+#: ../src/caja-places-sidebar.c:836 ../src/mate-network-scheme.desktop.in.h:1
 msgid "Network"
 msgstr "تور"
 
-#: ../src/caja-places-sidebar.c:866
+#: ../src/caja-places-sidebar.c:868
 msgid "Browse Network"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:868
+#: ../src/caja-places-sidebar.c:870
 msgid "Browse the contents of the network"
 msgstr "تور مۇندەرىجىسىگە كۆز يۈگۈرت"
 
 #. start() for type G_DRIVE_START_STOP_TYPE_SHUTDOWN is normally not used
-#: ../src/caja-places-sidebar.c:1800
+#: ../src/caja-places-sidebar.c:1701
 msgid "_Power On"
 msgstr "مەنبەنى ئاچ(_P)"
 
-#: ../src/caja-places-sidebar.c:1804
+#: ../src/caja-places-sidebar.c:1705
 msgid "_Connect Drive"
 msgstr "قوزغاتقۇچقا ئۇلا(_C)"
 
-#: ../src/caja-places-sidebar.c:1805
+#: ../src/caja-places-sidebar.c:1706
 msgid "_Disconnect Drive"
 msgstr "قوزغاتقۇچنى ئۈز"
 
-#: ../src/caja-places-sidebar.c:1808
+#: ../src/caja-places-sidebar.c:1709
 msgid "_Start Multi-disk Device"
 msgstr "كۆپ دىسكا ئۈسكۈنىنى باشلا(_S)"
 
-#: ../src/caja-places-sidebar.c:1809
+#: ../src/caja-places-sidebar.c:1710
 msgid "_Stop Multi-disk Device"
 msgstr "كۆپ دىسكا ئۈسكۈنىنى توختات(_S)"
 
-#: ../src/caja-places-sidebar.c:1896 ../src/caja-places-sidebar.c:2474
+#: ../src/caja-places-sidebar.c:1797 ../src/caja-places-sidebar.c:2375
 #, c-format
 msgid "Unable to start %s"
 msgstr "%s نى قوزغىتالمايدۇ"
 
-#: ../src/caja-places-sidebar.c:2418
+#: ../src/caja-places-sidebar.c:2319
 #, c-format
 msgid "Unable to poll %s for media changes"
 msgstr "%s نىڭ ۋاسىتە ئۆزگۈرۈشىنى سۈرۈشتۈرەلمەيدۇ"
 
-#: ../src/caja-places-sidebar.c:2534
+#: ../src/caja-places-sidebar.c:2435
 #, c-format
 msgid "Unable to stop %s"
 msgstr "%s نى توختىتالمايدۇ"
 
-#: ../src/caja-places-sidebar.c:2676
+#: ../src/caja-places-sidebar.c:2577
 msgid "Remove"
 msgstr "چىقىرىۋەت"
 
-#: ../src/caja-places-sidebar.c:2685
+#: ../src/caja-places-sidebar.c:2586
 msgid "Rename..."
 msgstr "ئات ئۆزگەرت…"
 
-#: ../src/caja-places-sidebar.c:3378
+#: ../src/caja-places-sidebar.c:3278
 msgid "Places"
 msgstr "ئورۇن"
 
-#: ../src/caja-places-sidebar.c:3384
+#: ../src/caja-places-sidebar.c:3284
 msgid "Show Places"
 msgstr "ئورۇن كۆرسەت"
 
@@ -6944,53 +6949,53 @@ msgstr "تىزىملىكتىن بۇ ئورۇننىڭ ھەممە بەتكۈچلى
 msgid "Bookmark for Nonexistent Location"
 msgstr "مەۋجۇد بولمىغان ئورۇننىڭ خەتكۈچى"
 
-#: ../src/caja-window-manage-views.c:814
+#: ../src/caja-window-manage-views.c:822
 msgid "You can choose another view or go to a different location."
 msgstr "سىز باشقا كۆرۈنۈشنى تاللىيالايسىز ياكى باشقا ئورۇنغا يۆتكىلەلەيسىز."
 
-#: ../src/caja-window-manage-views.c:833
+#: ../src/caja-window-manage-views.c:841
 msgid "The location cannot be displayed with this viewer."
 msgstr "بۇ ئورۇننى مەزكۇر كۆرگۈچتە كۆرسەتكىلى بولمايدۇ."
 
-#: ../src/caja-window-manage-views.c:1422
+#: ../src/caja-window-manage-views.c:1430
 msgid "Content View"
 msgstr "مەزمۇن كۆرۈنۈشى"
 
-#: ../src/caja-window-manage-views.c:1423
+#: ../src/caja-window-manage-views.c:1431
 msgid "View of the current folder"
 msgstr "نۆۋەتتىكى قىسقۇچ كۆرۈنۈشى"
 
-#: ../src/caja-window-manage-views.c:2114
+#: ../src/caja-window-manage-views.c:2122
 msgid "Caja has no installed viewer capable of displaying the folder."
 msgstr "Caja غا قىسقۇچ كۆرسىتەلەيدىغان كۆرگۈچ ئورنىتىلمىغان."
 
-#: ../src/caja-window-manage-views.c:2122
+#: ../src/caja-window-manage-views.c:2130
 msgid "The location is not a folder."
 msgstr "بۇ ئورۇن قىسقۇچ ئەمەس."
 
-#: ../src/caja-window-manage-views.c:2131
+#: ../src/caja-window-manage-views.c:2139
 #, c-format
 msgid "Could not find \"%s\"."
 msgstr "\"%s\" تاپالمىدى."
 
-#: ../src/caja-window-manage-views.c:2134
+#: ../src/caja-window-manage-views.c:2142
 msgid "Please check the spelling and try again."
 msgstr "ئىملانى تەكشۈرۈپ قايتا سىناڭ."
 
-#: ../src/caja-window-manage-views.c:2143
+#: ../src/caja-window-manage-views.c:2151
 #, c-format
 msgid "Caja cannot handle \"%s\" locations."
 msgstr "\"%s\" ئورۇننى Caja بىر تەرەپ قىلالمىدى."
 
-#: ../src/caja-window-manage-views.c:2148
+#: ../src/caja-window-manage-views.c:2156
 msgid "Caja cannot handle this kind of location."
 msgstr "بۇ خىل ئورۇنلارنى Caja بىر تەرەپ قىلالمىدى."
 
-#: ../src/caja-window-manage-views.c:2155
+#: ../src/caja-window-manage-views.c:2163
 msgid "Unable to mount the location."
 msgstr "ئورۇننى يۈكلىيەلمىدى."
 
-#: ../src/caja-window-manage-views.c:2161
+#: ../src/caja-window-manage-views.c:2169
 msgid "Access was denied."
 msgstr "زىيارەت رەت قىلىندى."
 
@@ -6998,28 +7003,28 @@ msgstr "زىيارەت رەت قىلىندى."
 #. * the code that guesses web addresses when there's no initial "/".
 #. * But this case is also hit for legitimate web addresses when
 #. * the proxy is set up wrong.
-#: ../src/caja-window-manage-views.c:2170
+#: ../src/caja-window-manage-views.c:2178
 #, c-format
 msgid "Could not display \"%s\", because the host could not be found."
 msgstr "\"%s\" كۆرسىتەلمىدى، چۈنكى باش ئاپپاراتنى تاپالمىدى."
 
-#: ../src/caja-window-manage-views.c:2172
+#: ../src/caja-window-manage-views.c:2180
 msgid ""
 "Check that the spelling is correct and that your proxy settings are correct."
 msgstr "ئىملانى تەكشۈرۈڭ ھەمدە ۋاكالەت مۇلازىمىتىر تەڭشىكىنىڭ توغرىلىقىنى تەكشۈرۈڭ."
 
-#: ../src/caja-window-manage-views.c:2188
+#: ../src/caja-window-manage-views.c:2196
 #, c-format
 msgid ""
 "Error: %s\n"
 "Please select another viewer and try again."
 msgstr "خاتالىق: %s\nباشقا كۆرگۈچنى تاللاپ ئاندىن قايتا سىناڭ"
 
-#: ../src/caja-window-menus.c:192
+#: ../src/caja-window-menus.c:193
 msgid "Go to the location specified by this bookmark"
 msgstr "بۇ خەتكۈچ بەلگىلىگەن جايغا يۆتكەل"
 
-#: ../src/caja-window-menus.c:514
+#: ../src/caja-window-menus.c:515
 msgid ""
 "Caja is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -7027,7 +7032,7 @@ msgid ""
 "version."
 msgstr "Caja ئەركىن يۇمشاق دېتال؛ سىز ئەركىن يۇمشاق دېتال فوندى تارقاتقان GNU ئادەتتىكى ئاممىۋى ئىجازەت كېلىشىمىگە ئاساسەن ئۇنى ئەركىن تارقىتىپ ياكى ئۆزگەرتسىڭىز بولىدۇ؛  ئىجازەتنامىنىڭ ئىككىنچى نەشرى ياكى ئۇنىڭدىن كېيىنكى نەشرىنى ئىشلىتىڭ."
 
-#: ../src/caja-window-menus.c:518
+#: ../src/caja-window-menus.c:519
 msgid ""
 "Caja is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -7035,233 +7040,233 @@ msgid ""
 "details."
 msgstr "Caja نى تارقىتىشنىڭ مەقسىتى ئۇنىڭ سىزگە كېرەكلىك بولۇشى ئۈچۈن، ئەمما ئۇنىڭ ھېچقانداق كاپالىتى يوق؛ ئۇنى ئىشلىتىپ كېلىپ چىققان ھەر قانداق بىۋاسىتە ياكى ۋاسىتىلىك ئاقىۋەتكە ھېچقانداق مەسئۇلىيەتنى ئۈستىگە ئالمايمىز. GNU ئادەتتىكى ئاممىۋى ئىجازەت كېلىشىمىدىكى تەپسلاتنى كۆرۈڭ."
 
-#: ../src/caja-window-menus.c:522
+#: ../src/caja-window-menus.c:523
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301 USA"
 msgstr "سىز Caja نى تاپشۇرۇۋېلىش بىلەن بىللە GNU ئادەتتىكى ئاممىۋى ئىجازەت كېلىشىمىدىن بىر نۇسخا تاپشۇرۇۋالىسىز؛ ئەگەر تاپشۇرۇۋالمىغان بولسىڭىز، ئەركىن يۇمشاق دېتال فوندىغا خەت يېزىڭ، مەنزىل: 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA"
 
-#: ../src/caja-window-menus.c:534
+#: ../src/caja-window-menus.c:535
 msgid ""
 "Caja lets you organize files and folders, both on your computer and online."
 msgstr "Caja سىزنىڭ يەرلىك كومپيۇتېر ۋە توردىكى ھۆججەت ۋە قىسقۇچلارنى تەشكىللىشىڭىزگە يول قويىدۇ."
 
-#: ../src/caja-window-menus.c:537
+#: ../src/caja-window-menus.c:538
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
-"Copyright © 2011-2013 The Caja authors"
+"Copyright © 2011-2014 The Caja authors"
 msgstr ""
 
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
 #. * box to give credit to the translator(s).
-#: ../src/caja-window-menus.c:547
+#: ../src/caja-window-menus.c:548
 msgid "translator-credits"
 msgstr "تەرجىمان تۆھپىكارلار"
 
-#: ../src/caja-window-menus.c:550
+#: ../src/caja-window-menus.c:551
 msgid "MATE Web Site"
 msgstr ""
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:832
+#: ../src/caja-window-menus.c:833
 msgid "_File"
 msgstr "ھۆججەت(_F)"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:833
+#: ../src/caja-window-menus.c:834
 msgid "_Edit"
 msgstr "تەھرىر(_E)"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:834
+#: ../src/caja-window-menus.c:835
 msgid "_View"
 msgstr "كۆرۈنۈش(_V)"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:835
+#: ../src/caja-window-menus.c:836
 msgid "_Help"
 msgstr "ياردەم(_H)"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:837
+#: ../src/caja-window-menus.c:838
 msgid "_Close"
 msgstr "ياپ(_C)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:838
+#: ../src/caja-window-menus.c:839
 msgid "Close this folder"
 msgstr "بۇ قىسقۇچنى ياپ"
 
-#: ../src/caja-window-menus.c:843
+#: ../src/caja-window-menus.c:844
 msgid "_Backgrounds and Emblems..."
 msgstr "تەگلىك ۋە كاكار(_B)…"
 
-#: ../src/caja-window-menus.c:844
+#: ../src/caja-window-menus.c:845
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
 msgstr "سىرتقى كۆرۈنۈشكە ئىشلىتىلىدىغان نۇسخا، رەڭ ۋە كاكارلارنى كۆرسىتىدۇ"
 
-#: ../src/caja-window-menus.c:849
+#: ../src/caja-window-menus.c:850
 msgid "Prefere_nces"
 msgstr "مايىللىق(_N)"
 
-#: ../src/caja-window-menus.c:850
+#: ../src/caja-window-menus.c:851
 msgid "Edit Caja preferences"
 msgstr "Caja مايىللىق تەھرىر"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:853
+#: ../src/caja-window-menus.c:854
 msgid "Open _Parent"
 msgstr "ئاتا قىسقۇچنى ئاچ(_P)"
 
-#: ../src/caja-window-menus.c:854
+#: ../src/caja-window-menus.c:855
 msgid "Open the parent folder"
 msgstr "ئاتا قىسقۇچنى ئاچ"
 
 #. tooltip
-#: ../src/caja-window-menus.c:863
+#: ../src/caja-window-menus.c:864
 msgid "Stop loading the current location"
 msgstr "نۆۋەتتىكى ئورۇننى يۈكلەشنى توختات"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:867
+#: ../src/caja-window-menus.c:868
 msgid "_Reload"
 msgstr "قايتا يۈكلە(_R)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:868
+#: ../src/caja-window-menus.c:869
 msgid "Reload the current location"
 msgstr "نۆۋەتتىكى ئورۇننى قايتا يۈكلە"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:872
+#: ../src/caja-window-menus.c:873
 msgid "_Contents"
 msgstr "مۇندەرىجە(_C)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:873
+#: ../src/caja-window-menus.c:874
 msgid "Display Caja help"
 msgstr "Caja ياردەمنى كۆرسەت"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:877
+#: ../src/caja-window-menus.c:878
 msgid "_About"
 msgstr "ھەققىدە(_A)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:878
+#: ../src/caja-window-menus.c:879
 msgid "Display credits for the creators of Caja"
 msgstr "Caja نىڭ تۆھپىكارلىرىنى كۆرسەت"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:882
+#: ../src/caja-window-menus.c:883
 msgid "Zoom _In"
 msgstr "چوڭايت(_I)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:883 ../src/caja-zoom-control.c:99
+#: ../src/caja-window-menus.c:884 ../src/caja-zoom-control.c:99
 #: ../src/caja-zoom-control.c:372
 msgid "Increase the view size"
 msgstr "كۆرۈنۈش چوڭلۇقىنى كەڭەيت"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:897
+#: ../src/caja-window-menus.c:898
 msgid "Zoom _Out"
 msgstr "كىچىكلەت(_O) "
 
 #. tooltip
-#: ../src/caja-window-menus.c:898 ../src/caja-zoom-control.c:100
+#: ../src/caja-window-menus.c:899 ../src/caja-zoom-control.c:100
 #: ../src/caja-zoom-control.c:321
 msgid "Decrease the view size"
 msgstr "كۆرۈنۈش چوڭلۇقىنى تارايت"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:907
+#: ../src/caja-window-menus.c:908
 msgid "Normal Si_ze"
 msgstr "ئادەتتىكى چوڭلۇق(_Z)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:908 ../src/caja-zoom-control.c:101
+#: ../src/caja-window-menus.c:909 ../src/caja-zoom-control.c:101
 #: ../src/caja-zoom-control.c:334
 msgid "Use the normal view size"
 msgstr "ئادەتتىكى چوڭلۇقتىكى كۆرۈنۈشنى ئىشلەت"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:912
+#: ../src/caja-window-menus.c:913
 msgid "Connect to _Server..."
 msgstr "مۇلازىمىتىرغا ئۇلان(_S)…"
 
 #. tooltip
-#: ../src/caja-window-menus.c:913
+#: ../src/caja-window-menus.c:914
 msgid "Connect to a remote computer or shared disk"
 msgstr "يىراقتىكى كومپيۇتېر ياكى ھەمبەھىر دىسكىغا ئۇلان"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:922
+#: ../src/caja-window-menus.c:923
 msgid "_Computer"
 msgstr "كومپيۇتېر(_C)"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:927
+#: ../src/caja-window-menus.c:928
 msgid "_Network"
 msgstr "تور(_N)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:928 ../src/mate-network-scheme.desktop.in.h:2
+#: ../src/caja-window-menus.c:929 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
 msgstr "خەتكۈچ ۋە يەرلىك توردىكى ئورۇنغا كۆز يۈگۈرت"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:932
+#: ../src/caja-window-menus.c:933
 msgid "T_emplates"
 msgstr "قېلىپلار(_E)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:933
+#: ../src/caja-window-menus.c:934
 msgid "Open your personal templates folder"
 msgstr "شەخسىي قىلىپ قىسقۇچىڭىزنى ئاچىدۇ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:937
+#: ../src/caja-window-menus.c:938
 msgid "_Trash"
 msgstr "ئەخلەتخانا(_T)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:938
+#: ../src/caja-window-menus.c:939
 msgid "Open your personal trash folder"
 msgstr "شەخسىي ئەخلەتخانا قىسقۇچىڭىزنى ئاچىدۇ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:946
+#: ../src/caja-window-menus.c:947
 msgid "Show _Hidden Files"
 msgstr "يوشۇرۇن ھۆججەتلەرنى كۆرسەت(_H)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:947
+#: ../src/caja-window-menus.c:948
 msgid "Toggle the display of hidden files in the current window"
 msgstr "نۆۋەتتىكى كۆزنەكتە يوشۇرۇن ھۆججەت كۆرسىتىش كۆرسەتمەسلىكنى ئالماشتۇرىدۇ"
 
-#: ../src/caja-window-menus.c:978
+#: ../src/caja-window-menus.c:979
 msgid "_Up"
 msgstr "ئۈستىگە(_U)"
 
-#: ../src/caja-window-menus.c:981
+#: ../src/caja-window-menus.c:982
 msgid "_Home"
 msgstr "باش بەت(_H)"
 

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-12 19:04+0100\n"
-"PO-Revision-Date: 2014-02-12 18:06+0000\n"
+"POT-Creation-Date: 2014-10-03 13:54+0200\n"
+"PO-Revision-Date: 2014-10-03 11:56+0000\n"
 "Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
 "Language-Team: Serbian (Latin) (http://www.transifex.com/projects/p/MATE/language/sr@latin/)\n"
 "MIME-Version: 1.0\n"
@@ -541,7 +541,7 @@ msgstr "_Uvek izvrši ovu radnju"
 #: ../src/file-manager/fm-directory-view.c:7413
 #: ../src/file-manager/fm-directory-view.c:7441
 #: ../src/file-manager/fm-directory-view.c:7522
-#: ../src/file-manager/fm-tree-view.c:1371 ../src/caja-places-sidebar.c:2711
+#: ../src/file-manager/fm-tree-view.c:1371 ../src/caja-places-sidebar.c:2612
 msgid "_Eject"
 msgstr "I_zbaci"
 
@@ -552,7 +552,7 @@ msgstr "I_zbaci"
 #: ../src/file-manager/fm-directory-view.c:7409
 #: ../src/file-manager/fm-directory-view.c:7437
 #: ../src/file-manager/fm-directory-view.c:7518
-#: ../src/file-manager/fm-tree-view.c:1362 ../src/caja-places-sidebar.c:2704
+#: ../src/file-manager/fm-tree-view.c:1362 ../src/caja-places-sidebar.c:2605
 msgid "_Unmount"
 msgstr "_Demontiraj"
 
@@ -760,7 +760,7 @@ msgid "%s's Home"
 msgstr "Lična fascikla (%s)"
 
 #: ../libcaja-private/caja-desktop-link.c:113
-#: ../data/caja-computer.desktop.in.in.h:1 ../src/caja-places-sidebar.c:674
+#: ../data/caja-computer.desktop.in.in.h:1 ../src/caja-places-sidebar.c:494
 msgid "Computer"
 msgstr "Računar"
 
@@ -768,7 +768,8 @@ msgstr "Računar"
 msgid "Network Servers"
 msgstr ""
 
-#: ../libcaja-private/caja-desktop-link.c:119 ../src/caja-places-sidebar.c:824
+#: ../libcaja-private/caja-desktop-link.c:119
+#: ../src/file-manager/fm-tree-view.c:1430 ../src/caja-places-sidebar.c:598
 #: ../src/caja-trash-bar.c:192
 msgid "Trash"
 msgstr "Smeće"
@@ -936,8 +937,8 @@ msgstr "Spoji"
 
 #. Setup the expander for the rename action
 #: ../libcaja-private/caja-file-conflict-dialog.c:592
-msgid "_Select a new name for the destination"
-msgstr "Izaberite _novo ime za odredište"
+msgid "Select a new name for the _destination"
+msgstr ""
 
 #. Setup the diff button for text files
 #: ../libcaja-private/caja-file-conflict-dialog.c:617
@@ -1203,7 +1204,7 @@ msgstr "Sve stavke iz smeća će biti trajno uklonjene."
 #. Empty Trash menu item
 #: ../libcaja-private/caja-file-operations.c:1358
 #: ../libcaja-private/caja-file-operations.c:2226
-#: ../src/caja-places-sidebar.c:2748 ../src/caja-trash-bar.c:196
+#: ../src/caja-places-sidebar.c:2649 ../src/caja-trash-bar.c:196
 msgid "Empty _Trash"
 msgstr "Izbaci _smeće"
 
@@ -1548,7 +1549,7 @@ msgstr "Ne mogu da umnožim fasciklu „%B“ zato što nemate ovlašćenja da j
 
 #: ../libcaja-private/caja-file-operations.c:3586
 #: ../libcaja-private/caja-file-operations.c:4276
-#: ../libcaja-private/caja-file-operations.c:4850
+#: ../libcaja-private/caja-file-operations.c:4844
 msgid "Error while moving \"%B\"."
 msgstr "Greška pri premeštanju „%B“."
 
@@ -1628,20 +1629,20 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: ../libcaja-private/caja-file-operations.c:4851
+#: ../libcaja-private/caja-file-operations.c:4845
 #, c-format
 msgid "There was an error moving the file into %F."
 msgstr "Došlo je do greške pri premeštanju u %F."
 
-#: ../libcaja-private/caja-file-operations.c:5111
+#: ../libcaja-private/caja-file-operations.c:5105
 msgid "Moving Files"
 msgstr "Premeštam datoteke"
 
-#: ../libcaja-private/caja-file-operations.c:5142
+#: ../libcaja-private/caja-file-operations.c:5136
 msgid "Creating links in \"%B\""
 msgstr "Pravim veze u „%B“"
 
-#: ../libcaja-private/caja-file-operations.c:5146
+#: ../libcaja-private/caja-file-operations.c:5140
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
@@ -1649,58 +1650,58 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: ../libcaja-private/caja-file-operations.c:5278
+#: ../libcaja-private/caja-file-operations.c:5272
 msgid "Error while creating link to %B."
 msgstr "Greška pri pravljenju veze ka „%B“."
 
-#: ../libcaja-private/caja-file-operations.c:5280
+#: ../libcaja-private/caja-file-operations.c:5274
 msgid "Symbolic links only supported for local files"
 msgstr "Simboličke veze su moguće samo nad lokalnim datotekama"
 
-#: ../libcaja-private/caja-file-operations.c:5283
+#: ../libcaja-private/caja-file-operations.c:5277
 msgid "The target doesn't support symbolic links."
 msgstr "Odredište ne podržava simboličke veze."
 
-#: ../libcaja-private/caja-file-operations.c:5286
+#: ../libcaja-private/caja-file-operations.c:5280
 #, c-format
 msgid "There was an error creating the symlink in %F."
 msgstr "Došlo je do greške pri obrazovanju simboličke veze u %F."
 
-#: ../libcaja-private/caja-file-operations.c:5598
+#: ../libcaja-private/caja-file-operations.c:5592
 msgid "Setting permissions"
 msgstr "Postavljam ovlašćenja"
 
 #. localizers: the initial name of a new folder
-#: ../libcaja-private/caja-file-operations.c:5857
+#: ../libcaja-private/caja-file-operations.c:5851
 msgid "untitled folder"
 msgstr "nova fascikla"
 
 #. localizers: the initial name of a new empty file
-#: ../libcaja-private/caja-file-operations.c:5865
+#: ../libcaja-private/caja-file-operations.c:5859
 msgid "new file"
 msgstr "nova datoteka"
 
-#: ../libcaja-private/caja-file-operations.c:6036
+#: ../libcaja-private/caja-file-operations.c:6030
 msgid "Error while creating directory %B."
 msgstr "Greška pri obrazovanju direktorijuma %B."
 
-#: ../libcaja-private/caja-file-operations.c:6038
+#: ../libcaja-private/caja-file-operations.c:6032
 msgid "Error while creating file %B."
 msgstr "Greška pri obrazovanju datoteke %B."
 
-#: ../libcaja-private/caja-file-operations.c:6040
+#: ../libcaja-private/caja-file-operations.c:6034
 #, c-format
 msgid "There was an error creating the directory in %F."
 msgstr "Došlo je do greške pro obrazovanju direktorijuma u %F."
 
-#: ../libcaja-private/caja-file-operations.c:6316
+#: ../libcaja-private/caja-file-operations.c:6310
 msgid "Emptying Trash"
 msgstr "Praznim smeće"
 
-#: ../libcaja-private/caja-file-operations.c:6363
-#: ../libcaja-private/caja-file-operations.c:6404
-#: ../libcaja-private/caja-file-operations.c:6439
-#: ../libcaja-private/caja-file-operations.c:6474
+#: ../libcaja-private/caja-file-operations.c:6357
+#: ../libcaja-private/caja-file-operations.c:6398
+#: ../libcaja-private/caja-file-operations.c:6433
+#: ../libcaja-private/caja-file-operations.c:6468
 msgid "Unable to mark launcher trusted (executable)"
 msgstr "Ne mogu da označim pokretač kao poverljiv"
 
@@ -1777,7 +1778,7 @@ msgid "today at 00:00:00 PM"
 msgstr "danas u 14:33:24"
 
 #: ../libcaja-private/caja-file.c:4477
-#: ../src/caja-file-management-properties.c:510
+#: ../src/caja-file-management-properties.c:511
 msgid "today at %-I:%M:%S %p"
 msgstr "danas u %-H:%M:%S"
 
@@ -2068,12 +2069,12 @@ msgstr[1] ""
 msgstr[2] ""
 
 #: ../libcaja-private/caja-mime-actions.c:1297
-#: ../src/caja-window-manage-views.c:2111
 #: ../src/caja-window-manage-views.c:2119
-#: ../src/caja-window-manage-views.c:2139
-#: ../src/caja-window-manage-views.c:2153
-#: ../src/caja-window-manage-views.c:2159
-#: ../src/caja-window-manage-views.c:2186
+#: ../src/caja-window-manage-views.c:2127
+#: ../src/caja-window-manage-views.c:2147
+#: ../src/caja-window-manage-views.c:2161
+#: ../src/caja-window-manage-views.c:2167
+#: ../src/caja-window-manage-views.c:2194
 #, c-format
 msgid "Could not display \"%s\"."
 msgstr "Ne mogu da prikažem „%s“."
@@ -2244,7 +2245,7 @@ msgstr "_Razgledaj..."
 #: ../libcaja-private/caja-open-with-dialog.c:957
 #: ../src/file-manager/fm-directory-view.c:7286
 #: ../src/file-manager/fm-directory-view.c:8796
-#: ../src/file-manager/fm-tree-view.c:1256 ../src/caja-places-sidebar.c:2653
+#: ../src/file-manager/fm-tree-view.c:1256 ../src/caja-places-sidebar.c:2554
 msgid "_Open"
 msgstr "_Otvori"
 
@@ -2334,37 +2335,37 @@ msgid ""
 " your computer, you may be able to open it."
 msgstr "Nema drugih radnji za ovaj tip datoteka.  Ukoliko je prebacite na vaš računar, možda ćete moći da je otvorite."
 
-#: ../libcaja-private/caja-program-choosing.c:439
+#: ../libcaja-private/caja-program-choosing.c:513
 msgid "Sorry, but you cannot execute commands from a remote site."
 msgstr "Nažalost, ne možete izvršavati naredbe sa udaljenog mesta."
 
-#: ../libcaja-private/caja-program-choosing.c:441
+#: ../libcaja-private/caja-program-choosing.c:515
 msgid "This is disabled due to security considerations."
 msgstr "Ovo je onemogućeno iz bezbednosnih razloga."
 
-#: ../libcaja-private/caja-program-choosing.c:453
-#: ../libcaja-private/caja-program-choosing.c:531
+#: ../libcaja-private/caja-program-choosing.c:527
+#: ../libcaja-private/caja-program-choosing.c:593
 msgid "There was an error launching the application."
 msgstr "Došlo je do greške pri pokretanju programa."
 
-#: ../libcaja-private/caja-program-choosing.c:482
-#: ../libcaja-private/caja-program-choosing.c:495
+#: ../libcaja-private/caja-program-choosing.c:556
+#: ../libcaja-private/caja-program-choosing.c:569
 msgid "This drop target only supports local files."
 msgstr "Ovo odredište prevlačenja podržava samo lokalne datoteke."
 
-#: ../libcaja-private/caja-program-choosing.c:483
+#: ../libcaja-private/caja-program-choosing.c:557
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again."
 msgstr "Da biste otvorili udaljene datoteke, prebacite ih u lokalnu fasciklu, i prevucite ih ponovo."
 
-#: ../libcaja-private/caja-program-choosing.c:496
+#: ../libcaja-private/caja-program-choosing.c:570
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again. The local files you dropped have already been opened."
 msgstr "Da biste otvorili udaljene datoteke, prebacite ih u lokalnu fasciklu, i prevucite ih ponovo. Lokalne datoteke koje ste prevukli su već otvorene."
 
-#: ../libcaja-private/caja-program-choosing.c:529
+#: ../libcaja-private/caja-program-choosing.c:591
 msgid "Details: "
 msgstr "Detalji:"
 
@@ -3505,7 +3506,7 @@ msgstr "Automatsko pokretanje"
 #: ../data/caja-browser.desktop.in.in.h:1
 #: ../data/caja-folder-handler.desktop.in.in.h:1
 #: ../data/caja.desktop.in.in.h:1 ../src/caja-spatial-window.c:381
-#: ../src/caja-window-menus.c:532 ../src/caja-window.c:162
+#: ../src/caja-window-menus.c:533 ../src/caja-window.c:162
 msgid "Caja"
 msgstr "Caja"
 
@@ -3518,7 +3519,7 @@ msgid "Browse the file system with the file manager"
 msgstr "Razgledajte sistem datoteka pomoću upravljača datotekama"
 
 #. tooltip
-#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:923
+#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:924
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
 msgstr "Razgledaj sve lokalne i udaljene diskove i fascikle dostupne sa ovog računara"
@@ -3536,8 +3537,8 @@ msgid "Home Folder"
 msgstr "Lična fascikla"
 
 #. tooltip
-#: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:690
-#: ../src/caja-window-menus.c:918
+#: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:510
+#: ../src/caja-window-menus.c:919
 msgid "Open your personal folder"
 msgstr "Otvara ličnu fasciklu"
 
@@ -3968,7 +3969,7 @@ msgstr "Otvara svaku izabranu stavku u upravljačkom prozoru"
 #: ../src/file-manager/fm-directory-view.c:7479
 #: ../src/file-manager/fm-directory-view.c:8547
 #: ../src/file-manager/fm-directory-view.c:8873
-#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2661
+#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2562
 msgid "Open in New _Tab"
 msgstr "Otvori u novom _listu"
 
@@ -4212,7 +4213,7 @@ msgstr "Pravi trajnu vezu sa ovim serverom"
 #: ../src/file-manager/fm-directory-view.c:7405
 #: ../src/file-manager/fm-directory-view.c:7433
 #: ../src/file-manager/fm-directory-view.c:7514
-#: ../src/caja-places-sidebar.c:2697
+#: ../src/caja-places-sidebar.c:2598
 msgid "_Mount"
 msgstr "_Montiraj"
 
@@ -4236,7 +4237,7 @@ msgstr "Izbacuje izabrani disk"
 #: ../src/file-manager/fm-directory-view.c:7417
 #: ../src/file-manager/fm-directory-view.c:7445
 #: ../src/file-manager/fm-directory-view.c:7526
-#: ../src/caja-places-sidebar.c:2725
+#: ../src/caja-places-sidebar.c:2626
 msgid "_Format"
 msgstr "_Formatiraj"
 
@@ -4257,7 +4258,7 @@ msgstr "Formatira izabrani disk"
 #: ../src/file-manager/fm-directory-view.c:8303
 #: ../src/file-manager/fm-directory-view.c:8409
 #: ../src/file-manager/fm-directory-view.c:8413
-#: ../src/caja-places-sidebar.c:1792 ../src/caja-places-sidebar.c:2732
+#: ../src/caja-places-sidebar.c:1693 ../src/caja-places-sidebar.c:2633
 msgid "_Start"
 msgstr "_Pokreni"
 
@@ -4274,8 +4275,8 @@ msgstr "Pokreće izabrani disk"
 #: ../src/file-manager/fm-directory-view.c:8236
 #: ../src/file-manager/fm-directory-view.c:8328
 #: ../src/file-manager/fm-directory-view.c:8438
-#: ../src/caja-places-sidebar.c:1793 ../src/caja-places-sidebar.c:2739
-#: ../src/caja-window-menus.c:862
+#: ../src/caja-places-sidebar.c:1694 ../src/caja-places-sidebar.c:2640
+#: ../src/caja-window-menus.c:863
 msgid "_Stop"
 msgstr "_Zaustavi"
 
@@ -4290,7 +4291,7 @@ msgstr "Zaustavlja izabrani disk"
 #: ../src/file-manager/fm-directory-view.c:7429
 #: ../src/file-manager/fm-directory-view.c:7457
 #: ../src/file-manager/fm-directory-view.c:7538
-#: ../src/caja-places-sidebar.c:2718
+#: ../src/caja-places-sidebar.c:2619
 msgid "_Detect Media"
 msgstr "Pro_nađi medijum"
 
@@ -4458,7 +4459,7 @@ msgstr "Premešta izabrano u drugu površ prozora"
 #. name, stock id
 #. label, accelerator
 #: ../src/file-manager/fm-directory-view.c:7554
-#: ../src/file-manager/fm-directory-view.c:7558 ../src/caja-window-menus.c:917
+#: ../src/file-manager/fm-directory-view.c:7558 ../src/caja-window-menus.c:918
 msgid "_Home Folder"
 msgstr "_Lična fascikla"
 
@@ -4587,7 +4588,7 @@ msgstr "Zaustavlja izabrani uređaj"
 #: ../src/file-manager/fm-directory-view.c:8240
 #: ../src/file-manager/fm-directory-view.c:8332
 #: ../src/file-manager/fm-directory-view.c:8442
-#: ../src/caja-places-sidebar.c:1801
+#: ../src/caja-places-sidebar.c:1702
 msgid "_Safely Remove Drive"
 msgstr "_Bezbedno ukloni uređaj"
 
@@ -4621,7 +4622,7 @@ msgstr "Zaustavlja izabrani uređaj sa više diska"
 #: ../src/file-manager/fm-directory-view.c:8252
 #: ../src/file-manager/fm-directory-view.c:8344
 #: ../src/file-manager/fm-directory-view.c:8454
-#: ../src/caja-places-sidebar.c:1814
+#: ../src/caja-places-sidebar.c:1715
 msgid "_Lock Drive"
 msgstr "_Zaključaj uređaj"
 
@@ -4646,7 +4647,7 @@ msgstr "Pokreće uređaj sa više diskova koji je pridružen otvorenoj fascikli"
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
 #: ../src/file-manager/fm-directory-view.c:8315
 #: ../src/file-manager/fm-directory-view.c:8425
-#: ../src/caja-places-sidebar.c:1813
+#: ../src/caja-places-sidebar.c:1714
 msgid "_Unlock Drive"
 msgstr "O_tključaj uređaj"
 
@@ -4677,7 +4678,7 @@ msgstr "Zaključava uređaj koji je pridružen otvorenoj fascikli"
 #. add the "open in new window" menu item
 #: ../src/file-manager/fm-directory-view.c:8524
 #: ../src/file-manager/fm-directory-view.c:8834
-#: ../src/file-manager/fm-tree-view.c:1276 ../src/caja-places-sidebar.c:2668
+#: ../src/file-manager/fm-tree-view.c:1276 ../src/caja-places-sidebar.c:2569
 msgid "Open in New _Window"
 msgstr "Otvori u _novom prozoru"
 
@@ -5392,7 +5393,7 @@ msgstr "Dozvole za datoteku:"
 #. Translators: this is referred to captions under icons.
 #: ../src/file-manager/fm-properties-window.c:4292
 #: ../src/file-manager/fm-properties-window.c:4303
-#: ../src/caja-file-management-properties.c:318
+#: ../src/caja-file-management-properties.c:319
 msgid "None"
 msgstr "Ništa"
 
@@ -5515,46 +5516,42 @@ msgstr "Obrazujem prozor sa osobinama."
 msgid "Select Custom Icon"
 msgstr "Izaberite vašu ikonicu"
 
-#: ../src/file-manager/fm-tree-view.c:1427 ../src/caja-places-sidebar.c:719
+#: ../src/file-manager/fm-tree-view.c:1427 ../src/caja-places-sidebar.c:539
 msgid "File System"
 msgstr "Sistem datoteka"
 
-#: ../src/file-manager/fm-tree-view.c:1431
-msgid "Network Neighbourhood"
-msgstr "Mreža"
-
-#: ../src/file-manager/fm-tree-view.c:1716
+#: ../src/file-manager/fm-tree-view.c:1715
 msgid "Tree"
 msgstr "Stablo"
 
-#: ../src/file-manager/fm-tree-view.c:1722
+#: ../src/file-manager/fm-tree-view.c:1721
 msgid "Show Tree"
 msgstr "Prikaži stablo"
 
-#: ../src/caja-application.c:434
+#: ../src/caja-application.c:428
 #, c-format
 msgid "Caja could not create the required folder \"%s\"."
 msgstr "Ne mogu da obrazujem neophodnu fasciklu „%s“."
 
-#: ../src/caja-application.c:436
+#: ../src/caja-application.c:430
 msgid ""
 "Before running Caja, please create the following folder, or set permissions "
 "such that Caja can create it."
 msgstr "Pre pokretanja Cajaa, napravite ovu fasciklu, ili postavite ovlašćenja tako da je Caja može napraviti."
 
-#: ../src/caja-application.c:441
+#: ../src/caja-application.c:435
 #, c-format
 msgid "Caja could not create the following required folders: %s."
 msgstr "Caja ne može da napravi sledeće neophodne fascikle: %s."
 
-#: ../src/caja-application.c:443
+#: ../src/caja-application.c:437
 msgid ""
 "Before running Caja, please create these folders, or set permissions such "
 "that Caja can create them."
 msgstr "Pre pokretanja Cajaa, napravite ove fascikle, ili postavite ovlašćenja tako da ih Caja može napraviti."
 
-#: ../src/caja-application.c:1660 ../src/caja-places-sidebar.c:2200
-#: ../src/caja-places-sidebar.c:2231 ../src/caja-places-sidebar.c:2262
+#: ../src/caja-application.c:1514 ../src/caja-places-sidebar.c:2101
+#: ../src/caja-places-sidebar.c:2132 ../src/caja-places-sidebar.c:2163
 #, c-format
 msgid "Unable to eject %s"
 msgstr "Ne mogu da izbacim %s"
@@ -5588,8 +5585,8 @@ msgid ""
 msgstr "Ovaj program će se sam pokrenuti sa medijuma „%s“. Nemojte pokretati programe u koje nemate poverenja.\n\nUkoliko se dvoumite izaberite „Odustani“."
 
 #: ../src/caja-bookmarks-window.c:158
-#: ../src/caja-file-management-properties.c:225
-#: ../src/caja-property-browser.c:1654 ../src/caja-window-menus.c:616
+#: ../src/caja-file-management-properties.c:226
+#: ../src/caja-property-browser.c:1654 ../src/caja-window-menus.c:617
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
@@ -5748,7 +5745,7 @@ msgid "Bookmark Name:"
 msgstr ""
 
 #: ../src/caja-desktop-window.c:81 ../src/caja-desktop-window.c:251
-#: ../src/caja-pathbar.c:1524 ../src/caja-places-sidebar.c:704
+#: ../src/caja-pathbar.c:1524 ../src/caja-places-sidebar.c:524
 msgid "Desktop"
 msgstr "Radna površ"
 
@@ -6083,119 +6080,127 @@ msgid "_Format:"
 msgstr "_Oblik:"
 
 #: ../src/caja-file-management-properties.ui.h:73
+msgid "<b>Size</b>"
+msgstr ""
+
+#: ../src/caja-file-management-properties.ui.h:74
+msgid "_Show file sizes with IEC units"
+msgstr ""
+
+#: ../src/caja-file-management-properties.ui.h:75
 msgid "Display"
 msgstr "Prikaži"
 
-#: ../src/caja-file-management-properties.ui.h:74
+#: ../src/caja-file-management-properties.ui.h:76
 msgid "<b>List Columns</b>"
 msgstr "<b>Kolone spiska</b>"
 
-#: ../src/caja-file-management-properties.ui.h:75
+#: ../src/caja-file-management-properties.ui.h:77
 msgid "Choose the order of information to appear in the list view."
 msgstr "Izaberite redosled podataka pri prikazu spiska."
 
-#: ../src/caja-file-management-properties.ui.h:76
+#: ../src/caja-file-management-properties.ui.h:78
 msgid "List Columns"
 msgstr "Kolone spiska"
 
-#: ../src/caja-file-management-properties.ui.h:77
+#: ../src/caja-file-management-properties.ui.h:79
 msgid "<b>Text Files</b>"
 msgstr "<b>Tekstualne datoteke</b>"
 
-#: ../src/caja-file-management-properties.ui.h:78
+#: ../src/caja-file-management-properties.ui.h:80
 msgid "Show te_xt in icons:"
 msgstr "Prikaži _tekst sa ikonicama:"
 
-#: ../src/caja-file-management-properties.ui.h:79
+#: ../src/caja-file-management-properties.ui.h:81
 msgid "<b>Other Previewable Files</b>"
 msgstr "<b>Ostale datoteke koje je moguće gledati</b>"
 
-#: ../src/caja-file-management-properties.ui.h:80
+#: ../src/caja-file-management-properties.ui.h:82
 msgid "Show _thumbnails:"
 msgstr "Prikaži _umanjeni pregled:"
 
-#: ../src/caja-file-management-properties.ui.h:81
+#: ../src/caja-file-management-properties.ui.h:83
 msgid "_Only for files smaller than:"
 msgstr "_Samo za datoteke manje od:"
 
-#: ../src/caja-file-management-properties.ui.h:82
+#: ../src/caja-file-management-properties.ui.h:84
 msgid "<b>Sound Files</b>"
 msgstr "<b>Zvučne datoteke</b>"
 
-#: ../src/caja-file-management-properties.ui.h:83
+#: ../src/caja-file-management-properties.ui.h:85
 msgid "Preview _sound files:"
 msgstr "Pusti _zvučnie datoteke:"
 
-#: ../src/caja-file-management-properties.ui.h:84
+#: ../src/caja-file-management-properties.ui.h:86
 msgid "<b>Folders</b>"
 msgstr "<b>Fascikle</b>"
 
-#: ../src/caja-file-management-properties.ui.h:85
+#: ../src/caja-file-management-properties.ui.h:87
 msgid "Count _number of items:"
 msgstr "Pre_broj stavke:"
 
-#: ../src/caja-file-management-properties.ui.h:86
+#: ../src/caja-file-management-properties.ui.h:88
 msgid "Preview"
 msgstr "Pregled"
 
-#: ../src/caja-file-management-properties.ui.h:87
+#: ../src/caja-file-management-properties.ui.h:89
 msgid "<b>Media Handling</b>"
 msgstr "<b>Upravljanje medijumima</b>"
 
-#: ../src/caja-file-management-properties.ui.h:88
+#: ../src/caja-file-management-properties.ui.h:90
 msgid ""
 "Choose what happens when inserting media or connecting devices to the system"
 msgstr "Izaberite šta se dešava po ubacivanju medijuma ili povezivanju uređaja na sistem"
 
-#: ../src/caja-file-management-properties.ui.h:89
+#: ../src/caja-file-management-properties.ui.h:91
 msgid "CD _Audio:"
 msgstr "_Zvuči disk:"
 
-#: ../src/caja-file-management-properties.ui.h:90
+#: ../src/caja-file-management-properties.ui.h:92
 msgid "_DVD Video:"
 msgstr "Video _DVD:"
 
-#: ../src/caja-file-management-properties.ui.h:91
+#: ../src/caja-file-management-properties.ui.h:93
 msgid "_Music Player:"
 msgstr "_Muzički uređaj:"
 
-#: ../src/caja-file-management-properties.ui.h:92
+#: ../src/caja-file-management-properties.ui.h:94
 msgid "_Photos:"
 msgstr "_Fotografije:"
 
-#: ../src/caja-file-management-properties.ui.h:93
+#: ../src/caja-file-management-properties.ui.h:95
 msgid "_Software:"
 msgstr "_Programi:"
 
-#: ../src/caja-file-management-properties.ui.h:94
+#: ../src/caja-file-management-properties.ui.h:96
 msgid "<b>Other Media</b>"
 msgstr "<b>Ostali medijumi</b>"
 
-#: ../src/caja-file-management-properties.ui.h:95
+#: ../src/caja-file-management-properties.ui.h:97
 msgid "Less common media formats can be configured here"
 msgstr "Ovde možete podesiti neuobičajene vrste medija"
 
-#: ../src/caja-file-management-properties.ui.h:96
+#: ../src/caja-file-management-properties.ui.h:98
 msgid "Acti_on:"
 msgstr "_Radnja:"
 
-#: ../src/caja-file-management-properties.ui.h:97
+#: ../src/caja-file-management-properties.ui.h:99
 msgid "_Type:"
 msgstr "_Vrsta:"
 
-#: ../src/caja-file-management-properties.ui.h:98
+#: ../src/caja-file-management-properties.ui.h:100
 msgid "_Never prompt or start programs on media insertion"
 msgstr "_Ne pokreći programe po ubacivanju medijuma"
 
-#: ../src/caja-file-management-properties.ui.h:99
+#: ../src/caja-file-management-properties.ui.h:101
 msgid "B_rowse media when inserted"
 msgstr "_Razgledaj medijum po ubacivanju"
 
-#: ../src/caja-file-management-properties.ui.h:100
+#: ../src/caja-file-management-properties.ui.h:102
 msgid "Media"
 msgstr "Medijumi"
 
-#: ../src/caja-file-management-properties.ui.h:101
+#: ../src/caja-file-management-properties.ui.h:103
 msgid "Plugins"
 msgstr ""
 
@@ -6711,84 +6716,84 @@ msgstr ""
 msgid "Bookmarks"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:541 ../src/caja-places-sidebar.c:569
+#: ../src/caja-places-sidebar.c:526
+msgid "Open the contents of your desktop in a folder"
+msgstr "Prikazuje sadržaj radne površi u vidu fascikle"
+
+#: ../src/caja-places-sidebar.c:541
+msgid "Open the contents of the File System"
+msgstr "Prikazuje sadržaj sistema datoteka"
+
+#: ../src/caja-places-sidebar.c:600
+msgid "Open the trash"
+msgstr "Otvori smeće"
+
+#: ../src/caja-places-sidebar.c:655 ../src/caja-places-sidebar.c:683
 #, c-format
 msgid "Mount and open %s"
 msgstr "Montiraj i otvori %s"
 
-#: ../src/caja-places-sidebar.c:706
-msgid "Open the contents of your desktop in a folder"
-msgstr "Prikazuje sadržaj radne površi u vidu fascikle"
-
-#: ../src/caja-places-sidebar.c:721
-msgid "Open the contents of the File System"
-msgstr "Prikazuje sadržaj sistema datoteka"
-
-#: ../src/caja-places-sidebar.c:826
-msgid "Open the trash"
-msgstr "Otvori smeće"
-
-#: ../src/caja-places-sidebar.c:834 ../src/mate-network-scheme.desktop.in.h:1
+#: ../src/caja-places-sidebar.c:836 ../src/mate-network-scheme.desktop.in.h:1
 msgid "Network"
 msgstr "Mreža"
 
-#: ../src/caja-places-sidebar.c:866
+#: ../src/caja-places-sidebar.c:868
 msgid "Browse Network"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:868
+#: ../src/caja-places-sidebar.c:870
 msgid "Browse the contents of the network"
 msgstr "Razgleda sadržaj na mreži"
 
 #. start() for type G_DRIVE_START_STOP_TYPE_SHUTDOWN is normally not used
-#: ../src/caja-places-sidebar.c:1800
+#: ../src/caja-places-sidebar.c:1701
 msgid "_Power On"
 msgstr "_Uključi"
 
-#: ../src/caja-places-sidebar.c:1804
+#: ../src/caja-places-sidebar.c:1705
 msgid "_Connect Drive"
 msgstr "_Poveži uređaj"
 
-#: ../src/caja-places-sidebar.c:1805
+#: ../src/caja-places-sidebar.c:1706
 msgid "_Disconnect Drive"
 msgstr "_Otkači uređaj"
 
-#: ../src/caja-places-sidebar.c:1808
+#: ../src/caja-places-sidebar.c:1709
 msgid "_Start Multi-disk Device"
 msgstr "Po_kreni uređaj sa više diskova"
 
-#: ../src/caja-places-sidebar.c:1809
+#: ../src/caja-places-sidebar.c:1710
 msgid "_Stop Multi-disk Device"
 msgstr "_Zaustavi uređaj sa više diskova"
 
-#: ../src/caja-places-sidebar.c:1896 ../src/caja-places-sidebar.c:2474
+#: ../src/caja-places-sidebar.c:1797 ../src/caja-places-sidebar.c:2375
 #, c-format
 msgid "Unable to start %s"
 msgstr "Ne mogu da pokrenem %s"
 
-#: ../src/caja-places-sidebar.c:2418
+#: ../src/caja-places-sidebar.c:2319
 #, c-format
 msgid "Unable to poll %s for media changes"
 msgstr "Ne mogu da pratim promene na %s"
 
-#: ../src/caja-places-sidebar.c:2534
+#: ../src/caja-places-sidebar.c:2435
 #, c-format
 msgid "Unable to stop %s"
 msgstr "Ne mogu da zaustavim %s"
 
-#: ../src/caja-places-sidebar.c:2676
+#: ../src/caja-places-sidebar.c:2577
 msgid "Remove"
 msgstr "Ukloni"
 
-#: ../src/caja-places-sidebar.c:2685
+#: ../src/caja-places-sidebar.c:2586
 msgid "Rename..."
 msgstr "Preimenuj..."
 
-#: ../src/caja-places-sidebar.c:3378
+#: ../src/caja-places-sidebar.c:3278
 msgid "Places"
 msgstr "Mesta"
 
-#: ../src/caja-places-sidebar.c:3384
+#: ../src/caja-places-sidebar.c:3284
 msgid "Show Places"
 msgstr "Prikaži mesta"
 
@@ -7108,53 +7113,53 @@ msgstr "Želite li da uklonite sve obeleživače sa nepostojeće putanje iz vaš
 msgid "Bookmark for Nonexistent Location"
 msgstr "Obeleživač za nepostojeću putanju"
 
-#: ../src/caja-window-manage-views.c:814
+#: ../src/caja-window-manage-views.c:822
 msgid "You can choose another view or go to a different location."
 msgstr "Možete da izaberete neki drugi pregled ili da odete na drugu putanju."
 
-#: ../src/caja-window-manage-views.c:833
+#: ../src/caja-window-manage-views.c:841
 msgid "The location cannot be displayed with this viewer."
 msgstr "Putanja se ne može prikazati ovim pregledačem."
 
-#: ../src/caja-window-manage-views.c:1422
+#: ../src/caja-window-manage-views.c:1430
 msgid "Content View"
 msgstr "Pregled sadržaja"
 
-#: ../src/caja-window-manage-views.c:1423
+#: ../src/caja-window-manage-views.c:1431
 msgid "View of the current folder"
 msgstr "Pregled tekuće fascikle"
 
-#: ../src/caja-window-manage-views.c:2114
+#: ../src/caja-window-manage-views.c:2122
 msgid "Caja has no installed viewer capable of displaying the folder."
 msgstr "Caja nema postavljen pregledač za prikazivanje ove fascikle."
 
-#: ../src/caja-window-manage-views.c:2122
+#: ../src/caja-window-manage-views.c:2130
 msgid "The location is not a folder."
 msgstr "Putanja nije fascikla."
 
-#: ../src/caja-window-manage-views.c:2131
+#: ../src/caja-window-manage-views.c:2139
 #, c-format
 msgid "Could not find \"%s\"."
 msgstr "Ne mogu da nađem „%s“."
 
-#: ../src/caja-window-manage-views.c:2134
+#: ../src/caja-window-manage-views.c:2142
 msgid "Please check the spelling and try again."
 msgstr "Proverite da li ste dobro ukucali i pokušajte ponovo."
 
-#: ../src/caja-window-manage-views.c:2143
+#: ../src/caja-window-manage-views.c:2151
 #, c-format
 msgid "Caja cannot handle \"%s\" locations."
 msgstr "Caja ne podržava „%s“ mesta."
 
-#: ../src/caja-window-manage-views.c:2148
+#: ../src/caja-window-manage-views.c:2156
 msgid "Caja cannot handle this kind of location."
 msgstr "Caja ne podržava ovaj tip mesta."
 
-#: ../src/caja-window-manage-views.c:2155
+#: ../src/caja-window-manage-views.c:2163
 msgid "Unable to mount the location."
 msgstr "Ne mogu da montiram mesto."
 
-#: ../src/caja-window-manage-views.c:2161
+#: ../src/caja-window-manage-views.c:2169
 msgid "Access was denied."
 msgstr "Pristup odbijen."
 
@@ -7162,28 +7167,28 @@ msgstr "Pristup odbijen."
 #. * the code that guesses web addresses when there's no initial "/".
 #. * But this case is also hit for legitimate web addresses when
 #. * the proxy is set up wrong.
-#: ../src/caja-window-manage-views.c:2170
+#: ../src/caja-window-manage-views.c:2178
 #, c-format
 msgid "Could not display \"%s\", because the host could not be found."
 msgstr "Ne mogu da prikažem „%s“ zato što nije pronađen domaćin."
 
-#: ../src/caja-window-manage-views.c:2172
+#: ../src/caja-window-manage-views.c:2180
 msgid ""
 "Check that the spelling is correct and that your proxy settings are correct."
 msgstr "Proverite da li ste dobro ukucali i da li su postavke vašeg posrednika ispravne. "
 
-#: ../src/caja-window-manage-views.c:2188
+#: ../src/caja-window-manage-views.c:2196
 #, c-format
 msgid ""
 "Error: %s\n"
 "Please select another viewer and try again."
 msgstr "Greška: %s\nIzaberite neki drugi pregledač i pokušajte ponovo."
 
-#: ../src/caja-window-menus.c:192
+#: ../src/caja-window-menus.c:193
 msgid "Go to the location specified by this bookmark"
 msgstr "Idi na putanju navedenu u ovom obeleživaču"
 
-#: ../src/caja-window-menus.c:514
+#: ../src/caja-window-menus.c:515
 msgid ""
 "Caja is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -7191,7 +7196,7 @@ msgid ""
 "version."
 msgstr "Caja je slobodan softver; možete ga raspodeljivati i/ili ga menjati pod uslovima GNU Opšte Javne Licence (GNU GPL) kako je objavljuje Zadužbina za Slobodni Softver (FSF); bilo verzije 2 te Licence, bilo (po vašem nahođenju) bilo koje novije verzije."
 
-#: ../src/caja-window-menus.c:518
+#: ../src/caja-window-menus.c:519
 msgid ""
 "Caja is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -7199,233 +7204,233 @@ msgid ""
 "details."
 msgstr "Caja se raspodeljuje u nadi da će biti od koristi, ali BEZ IKAKVIH GARANCIJA; čak i bez podrazumevane garancije KORISNOSTI ili PRILAGOĐENOSTI ODREĐENOJ NAMENI.  Vidite GNU Opštu Javnu Licencu za više detalja."
 
-#: ../src/caja-window-menus.c:522
+#: ../src/caja-window-menus.c:523
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301 USA"
 msgstr "Trebali ste da primite primerak GNU Opšte Javne Licence uz Caja; ako niste, pišite Zadužbini za Slobodni Softver (Free Software Foundation, Inc.), 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA"
 
-#: ../src/caja-window-menus.c:534
+#: ../src/caja-window-menus.c:535
 msgid ""
 "Caja lets you organize files and folders, both on your computer and online."
 msgstr "Caja vam dozvoljava da organizujete datoteke i fascikle, bilo na vašem računaru ili na Internetu."
 
-#: ../src/caja-window-menus.c:537
+#: ../src/caja-window-menus.c:538
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
-"Copyright © 2011-2013 The Caja authors"
+"Copyright © 2011-2014 The Caja authors"
 msgstr ""
 
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
 #. * box to give credit to the translator(s).
-#: ../src/caja-window-menus.c:547
+#: ../src/caja-window-menus.c:548
 msgid "translator-credits"
 msgstr "Danilo Šegan <danilo@prevod.org>\nMiloš Popović <gpopac@gmail.com>\n\nhttp://prevod.org — prevod na srpski jezik."
 
-#: ../src/caja-window-menus.c:550
+#: ../src/caja-window-menus.c:551
 msgid "MATE Web Site"
 msgstr ""
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:832
+#: ../src/caja-window-menus.c:833
 msgid "_File"
 msgstr "_Datoteka"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:833
+#: ../src/caja-window-menus.c:834
 msgid "_Edit"
 msgstr "_Uređivanje"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:834
+#: ../src/caja-window-menus.c:835
 msgid "_View"
 msgstr "P_regled"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:835
+#: ../src/caja-window-menus.c:836
 msgid "_Help"
 msgstr "_Pomoć"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:837
+#: ../src/caja-window-menus.c:838
 msgid "_Close"
 msgstr "_Zatvori"
 
 #. tooltip
-#: ../src/caja-window-menus.c:838
+#: ../src/caja-window-menus.c:839
 msgid "Close this folder"
 msgstr "Zatvara ovu fasciklu"
 
-#: ../src/caja-window-menus.c:843
+#: ../src/caja-window-menus.c:844
 msgid "_Backgrounds and Emblems..."
 msgstr "Pozadine i obe_ležja..."
 
-#: ../src/caja-window-menus.c:844
+#: ../src/caja-window-menus.c:845
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
 msgstr "Prikzuje obrasce, boje i obeležja kojima se može prilagoditi izgled"
 
-#: ../src/caja-window-menus.c:849
+#: ../src/caja-window-menus.c:850
 msgid "Prefere_nces"
 msgstr "Pos_tavke"
 
-#: ../src/caja-window-menus.c:850
+#: ../src/caja-window-menus.c:851
 msgid "Edit Caja preferences"
 msgstr "Uređuje postavke za Caja"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:853
+#: ../src/caja-window-menus.c:854
 msgid "Open _Parent"
 msgstr "Ot_vori nadfasciklu"
 
-#: ../src/caja-window-menus.c:854
+#: ../src/caja-window-menus.c:855
 msgid "Open the parent folder"
 msgstr "Otvara nadfasciklu"
 
 #. tooltip
-#: ../src/caja-window-menus.c:863
+#: ../src/caja-window-menus.c:864
 msgid "Stop loading the current location"
 msgstr "Prekida učitavanje tekuće putanje"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:867
+#: ../src/caja-window-menus.c:868
 msgid "_Reload"
 msgstr "_Osveži"
 
 #. tooltip
-#: ../src/caja-window-menus.c:868
+#: ../src/caja-window-menus.c:869
 msgid "Reload the current location"
 msgstr "Osvežava tekuću putanju"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:872
+#: ../src/caja-window-menus.c:873
 msgid "_Contents"
 msgstr "_Sadržaj"
 
 #. tooltip
-#: ../src/caja-window-menus.c:873
+#: ../src/caja-window-menus.c:874
 msgid "Display Caja help"
 msgstr "Prikazuje Cajaovu pomoć"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:877
+#: ../src/caja-window-menus.c:878
 msgid "_About"
 msgstr "_O programu"
 
 #. tooltip
-#: ../src/caja-window-menus.c:878
+#: ../src/caja-window-menus.c:879
 msgid "Display credits for the creators of Caja"
 msgstr "Prikazuje zasluge za tvorce Cajaa"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:882
+#: ../src/caja-window-menus.c:883
 msgid "Zoom _In"
 msgstr "U_većaj"
 
 #. tooltip
-#: ../src/caja-window-menus.c:883 ../src/caja-zoom-control.c:99
+#: ../src/caja-window-menus.c:884 ../src/caja-zoom-control.c:99
 #: ../src/caja-zoom-control.c:372
 msgid "Increase the view size"
 msgstr "Povećava pregled"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:897
+#: ../src/caja-window-menus.c:898
 msgid "Zoom _Out"
 msgstr "U_manji"
 
 #. tooltip
-#: ../src/caja-window-menus.c:898 ../src/caja-zoom-control.c:100
+#: ../src/caja-window-menus.c:899 ../src/caja-zoom-control.c:100
 #: ../src/caja-zoom-control.c:321
 msgid "Decrease the view size"
 msgstr "Umanjuje pregled"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:907
+#: ../src/caja-window-menus.c:908
 msgid "Normal Si_ze"
 msgstr "_Uobičajena veličina"
 
 #. tooltip
-#: ../src/caja-window-menus.c:908 ../src/caja-zoom-control.c:101
+#: ../src/caja-window-menus.c:909 ../src/caja-zoom-control.c:101
 #: ../src/caja-zoom-control.c:334
 msgid "Use the normal view size"
 msgstr "Vraća pregled na uobičajenu veličinu"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:912
+#: ../src/caja-window-menus.c:913
 msgid "Connect to _Server..."
 msgstr "Po_veži se na server..."
 
 #. tooltip
-#: ../src/caja-window-menus.c:913
+#: ../src/caja-window-menus.c:914
 msgid "Connect to a remote computer or shared disk"
 msgstr "Povezuje se na udaljeni računar ili deljeni disk"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:922
+#: ../src/caja-window-menus.c:923
 msgid "_Computer"
 msgstr "_Računar"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:927
+#: ../src/caja-window-menus.c:928
 msgid "_Network"
 msgstr "M_reža"
 
 #. tooltip
-#: ../src/caja-window-menus.c:928 ../src/mate-network-scheme.desktop.in.h:2
+#: ../src/caja-window-menus.c:929 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
 msgstr "Razgleda ranije obeležena i lokalna mrežna mesta"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:932
+#: ../src/caja-window-menus.c:933
 msgid "T_emplates"
 msgstr "_Šabloni"
 
 #. tooltip
-#: ../src/caja-window-menus.c:933
+#: ../src/caja-window-menus.c:934
 msgid "Open your personal templates folder"
 msgstr "Otvara fasciklu sa šablonima"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:937
+#: ../src/caja-window-menus.c:938
 msgid "_Trash"
 msgstr "_Smeće"
 
 #. tooltip
-#: ../src/caja-window-menus.c:938
+#: ../src/caja-window-menus.c:939
 msgid "Open your personal trash folder"
 msgstr "Otvara fasciklu sa smećem"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:946
+#: ../src/caja-window-menus.c:947
 msgid "Show _Hidden Files"
 msgstr "Prikaži _skrivene datoteke"
 
 #. tooltip
-#: ../src/caja-window-menus.c:947
+#: ../src/caja-window-menus.c:948
 msgid "Toggle the display of hidden files in the current window"
 msgstr "Određuje da li da se prikazuju skrivene datoteke u tekućem prozoru"
 
-#: ../src/caja-window-menus.c:978
+#: ../src/caja-window-menus.c:979
 msgid "_Up"
 msgstr "_Gore"
 
-#: ../src/caja-window-menus.c:981
+#: ../src/caja-window-menus.c:982
 msgid "_Home"
 msgstr "_Lični"
 

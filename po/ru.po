@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-12 19:04+0100\n"
-"PO-Revision-Date: 2014-05-17 10:18+0000\n"
-"Last-Translator: Alexander <alex.grushetskiy@gmail.com>\n"
+"POT-Creation-Date: 2014-10-03 13:54+0200\n"
+"PO-Revision-Date: 2014-10-03 12:04+0000\n"
+"Last-Translator: Alexei Sorokin <sor.alexei@meowr.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/MATE/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -544,7 +544,7 @@ msgstr "_Всегда выполнять это действие"
 #: ../src/file-manager/fm-directory-view.c:7413
 #: ../src/file-manager/fm-directory-view.c:7441
 #: ../src/file-manager/fm-directory-view.c:7522
-#: ../src/file-manager/fm-tree-view.c:1371 ../src/caja-places-sidebar.c:2711
+#: ../src/file-manager/fm-tree-view.c:1371 ../src/caja-places-sidebar.c:2612
 msgid "_Eject"
 msgstr "_Извлечь"
 
@@ -555,7 +555,7 @@ msgstr "_Извлечь"
 #: ../src/file-manager/fm-directory-view.c:7409
 #: ../src/file-manager/fm-directory-view.c:7437
 #: ../src/file-manager/fm-directory-view.c:7518
-#: ../src/file-manager/fm-tree-view.c:1362 ../src/caja-places-sidebar.c:2704
+#: ../src/file-manager/fm-tree-view.c:1362 ../src/caja-places-sidebar.c:2605
 msgid "_Unmount"
 msgstr "О_тсоединить том"
 
@@ -763,7 +763,7 @@ msgid "%s's Home"
 msgstr "Домашняя папка %s"
 
 #: ../libcaja-private/caja-desktop-link.c:113
-#: ../data/caja-computer.desktop.in.in.h:1 ../src/caja-places-sidebar.c:674
+#: ../data/caja-computer.desktop.in.in.h:1 ../src/caja-places-sidebar.c:494
 msgid "Computer"
 msgstr "Компьютер"
 
@@ -771,7 +771,8 @@ msgstr "Компьютер"
 msgid "Network Servers"
 msgstr "Сетевые серверы"
 
-#: ../libcaja-private/caja-desktop-link.c:119 ../src/caja-places-sidebar.c:824
+#: ../libcaja-private/caja-desktop-link.c:119
+#: ../src/file-manager/fm-tree-view.c:1430 ../src/caja-places-sidebar.c:598
 #: ../src/caja-trash-bar.c:192
 msgid "Trash"
 msgstr "Корзина"
@@ -939,8 +940,8 @@ msgstr "Совместить"
 
 #. Setup the expander for the rename action
 #: ../libcaja-private/caja-file-conflict-dialog.c:592
-msgid "_Select a new name for the destination"
-msgstr "Введите новое имя назначения"
+msgid "Select a new name for the _destination"
+msgstr "Введите новое имя _назначения"
 
 #. Setup the diff button for text files
 #: ../libcaja-private/caja-file-conflict-dialog.c:617
@@ -1206,7 +1207,7 @@ msgstr "Все элементы в корзине будут окончател�
 #. Empty Trash menu item
 #: ../libcaja-private/caja-file-operations.c:1358
 #: ../libcaja-private/caja-file-operations.c:2226
-#: ../src/caja-places-sidebar.c:2748 ../src/caja-trash-bar.c:196
+#: ../src/caja-places-sidebar.c:2649 ../src/caja-trash-bar.c:196
 msgid "Empty _Trash"
 msgstr "О_чистить корзину"
 
@@ -1551,7 +1552,7 @@ msgstr "Нельзя скопировать папку «%B», потому чт
 
 #: ../libcaja-private/caja-file-operations.c:3586
 #: ../libcaja-private/caja-file-operations.c:4276
-#: ../libcaja-private/caja-file-operations.c:4850
+#: ../libcaja-private/caja-file-operations.c:4844
 msgid "Error while moving \"%B\"."
 msgstr "Произошла ошибка при перемещении «%B»."
 
@@ -1631,20 +1632,20 @@ msgstr[0] "Идёт подготовка к перемещению %'d файл�
 msgstr[1] "Идёт подготовка к перемещению %'d файлов"
 msgstr[2] "Идёт подготовка к перемещению %'d файлов"
 
-#: ../libcaja-private/caja-file-operations.c:4851
+#: ../libcaja-private/caja-file-operations.c:4845
 #, c-format
 msgid "There was an error moving the file into %F."
 msgstr "Произошла ошибка при перемещении файла в %F."
 
-#: ../libcaja-private/caja-file-operations.c:5111
+#: ../libcaja-private/caja-file-operations.c:5105
 msgid "Moving Files"
 msgstr "Перемещаются файлы"
 
-#: ../libcaja-private/caja-file-operations.c:5142
+#: ../libcaja-private/caja-file-operations.c:5136
 msgid "Creating links in \"%B\""
 msgstr "Идёт создание ссылок в «%B»"
 
-#: ../libcaja-private/caja-file-operations.c:5146
+#: ../libcaja-private/caja-file-operations.c:5140
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
@@ -1652,58 +1653,58 @@ msgstr[0] "Идёт создание ссылок на %'d файл"
 msgstr[1] "Идёт создание ссылок на %'d файла"
 msgstr[2] "Идёт создание ссылок на %'d файлов"
 
-#: ../libcaja-private/caja-file-operations.c:5278
+#: ../libcaja-private/caja-file-operations.c:5272
 msgid "Error while creating link to %B."
 msgstr "Произошла ошибка при создании ссылки на %B."
 
-#: ../libcaja-private/caja-file-operations.c:5280
+#: ../libcaja-private/caja-file-operations.c:5274
 msgid "Symbolic links only supported for local files"
 msgstr "Символьные ссылки поддерживаются только для локальных файлов"
 
-#: ../libcaja-private/caja-file-operations.c:5283
+#: ../libcaja-private/caja-file-operations.c:5277
 msgid "The target doesn't support symbolic links."
 msgstr "Место назначения не поддерживает символьные ссылки."
 
-#: ../libcaja-private/caja-file-operations.c:5286
+#: ../libcaja-private/caja-file-operations.c:5280
 #, c-format
 msgid "There was an error creating the symlink in %F."
 msgstr "Произошла ошибка при создании символьной ссылки в %F."
 
-#: ../libcaja-private/caja-file-operations.c:5598
+#: ../libcaja-private/caja-file-operations.c:5592
 msgid "Setting permissions"
 msgstr "Идёт установка прав"
 
 #. localizers: the initial name of a new folder
-#: ../libcaja-private/caja-file-operations.c:5857
+#: ../libcaja-private/caja-file-operations.c:5851
 msgid "untitled folder"
 msgstr "новая папка"
 
 #. localizers: the initial name of a new empty file
-#: ../libcaja-private/caja-file-operations.c:5865
+#: ../libcaja-private/caja-file-operations.c:5859
 msgid "new file"
 msgstr "новый файл"
 
-#: ../libcaja-private/caja-file-operations.c:6036
+#: ../libcaja-private/caja-file-operations.c:6030
 msgid "Error while creating directory %B."
 msgstr "Произошла ошибка при создании каталога %B."
 
-#: ../libcaja-private/caja-file-operations.c:6038
+#: ../libcaja-private/caja-file-operations.c:6032
 msgid "Error while creating file %B."
 msgstr "Произошла ошибка при создании файла %B."
 
-#: ../libcaja-private/caja-file-operations.c:6040
+#: ../libcaja-private/caja-file-operations.c:6034
 #, c-format
 msgid "There was an error creating the directory in %F."
 msgstr "Произошла ошибка при создании каталога в %F."
 
-#: ../libcaja-private/caja-file-operations.c:6316
+#: ../libcaja-private/caja-file-operations.c:6310
 msgid "Emptying Trash"
 msgstr "Очистка корзины"
 
-#: ../libcaja-private/caja-file-operations.c:6363
-#: ../libcaja-private/caja-file-operations.c:6404
-#: ../libcaja-private/caja-file-operations.c:6439
-#: ../libcaja-private/caja-file-operations.c:6474
+#: ../libcaja-private/caja-file-operations.c:6357
+#: ../libcaja-private/caja-file-operations.c:6398
+#: ../libcaja-private/caja-file-operations.c:6433
+#: ../libcaja-private/caja-file-operations.c:6468
 msgid "Unable to mark launcher trusted (executable)"
 msgstr "Не удалось отметить значок запуска проверенным (выполняемый)"
 
@@ -1780,7 +1781,7 @@ msgid "today at 00:00:00 PM"
 msgstr "сегодня в 00:00:00"
 
 #: ../libcaja-private/caja-file.c:4477
-#: ../src/caja-file-management-properties.c:510
+#: ../src/caja-file-management-properties.c:511
 msgid "today at %-I:%M:%S %p"
 msgstr "сегодня в %-H:%M:%S %p"
 
@@ -2071,12 +2072,12 @@ msgstr[1] "Будет открыто %d отдельных окна."
 msgstr[2] "Будет открыто %d отдельных окон."
 
 #: ../libcaja-private/caja-mime-actions.c:1297
-#: ../src/caja-window-manage-views.c:2111
 #: ../src/caja-window-manage-views.c:2119
-#: ../src/caja-window-manage-views.c:2139
-#: ../src/caja-window-manage-views.c:2153
-#: ../src/caja-window-manage-views.c:2159
-#: ../src/caja-window-manage-views.c:2186
+#: ../src/caja-window-manage-views.c:2127
+#: ../src/caja-window-manage-views.c:2147
+#: ../src/caja-window-manage-views.c:2161
+#: ../src/caja-window-manage-views.c:2167
+#: ../src/caja-window-manage-views.c:2194
 #, c-format
 msgid "Could not display \"%s\"."
 msgstr "Не удалось показать «%s»."
@@ -2247,7 +2248,7 @@ msgstr "_Просмотреть..."
 #: ../libcaja-private/caja-open-with-dialog.c:957
 #: ../src/file-manager/fm-directory-view.c:7286
 #: ../src/file-manager/fm-directory-view.c:8796
-#: ../src/file-manager/fm-tree-view.c:1256 ../src/caja-places-sidebar.c:2653
+#: ../src/file-manager/fm-tree-view.c:1256 ../src/caja-places-sidebar.c:2554
 msgid "_Open"
 msgstr "_Открыть"
 
@@ -2337,37 +2338,37 @@ msgid ""
 " your computer, you may be able to open it."
 msgstr "Нет других действий для просмотра этого файла. Возможно, вы сможете открыть этот файл, если скопируете его на свой компьютер."
 
-#: ../libcaja-private/caja-program-choosing.c:439
+#: ../libcaja-private/caja-program-choosing.c:513
 msgid "Sorry, but you cannot execute commands from a remote site."
 msgstr "Нельзя выполнять команды с удалённого узла."
 
-#: ../libcaja-private/caja-program-choosing.c:441
+#: ../libcaja-private/caja-program-choosing.c:515
 msgid "This is disabled due to security considerations."
 msgstr "Это отключено по соображениям безопасности."
 
-#: ../libcaja-private/caja-program-choosing.c:453
-#: ../libcaja-private/caja-program-choosing.c:531
+#: ../libcaja-private/caja-program-choosing.c:527
+#: ../libcaja-private/caja-program-choosing.c:593
 msgid "There was an error launching the application."
 msgstr "Произошла ошибка при запуске приложения."
 
-#: ../libcaja-private/caja-program-choosing.c:482
-#: ../libcaja-private/caja-program-choosing.c:495
+#: ../libcaja-private/caja-program-choosing.c:556
+#: ../libcaja-private/caja-program-choosing.c:569
 msgid "This drop target only supports local files."
 msgstr "Цель для перетаскивания поддерживает только локальные файлы."
 
-#: ../libcaja-private/caja-program-choosing.c:483
+#: ../libcaja-private/caja-program-choosing.c:557
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again."
 msgstr "Чтобы открыть так файлы с сетевого ресурса, скопируйте их в локальную папку и перетащите их снова."
 
-#: ../libcaja-private/caja-program-choosing.c:496
+#: ../libcaja-private/caja-program-choosing.c:570
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again. The local files you dropped have already been opened."
 msgstr "Чтобы открыть так файлы с сетевого ресурса, скопируйте их в локальную папку и перетащите их снова. Перетащенные вами локальные файлы уже открыты."
 
-#: ../libcaja-private/caja-program-choosing.c:529
+#: ../libcaja-private/caja-program-choosing.c:591
 msgid "Details: "
 msgstr "Подробности: "
 
@@ -3508,7 +3509,7 @@ msgstr "Предложение автозапуска"
 #: ../data/caja-browser.desktop.in.in.h:1
 #: ../data/caja-folder-handler.desktop.in.in.h:1
 #: ../data/caja.desktop.in.in.h:1 ../src/caja-spatial-window.c:381
-#: ../src/caja-window-menus.c:532 ../src/caja-window.c:162
+#: ../src/caja-window-menus.c:533 ../src/caja-window.c:162
 msgid "Caja"
 msgstr "Caja"
 
@@ -3521,7 +3522,7 @@ msgid "Browse the file system with the file manager"
 msgstr "Просмотр файловой системы в менеджере файлов"
 
 #. tooltip
-#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:923
+#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:924
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
 msgstr "Просмотреть все локальные и удалённые диски и папки, доступные с этого компьютера"
@@ -3539,8 +3540,8 @@ msgid "Home Folder"
 msgstr "Домашняя папка"
 
 #. tooltip
-#: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:690
-#: ../src/caja-window-menus.c:918
+#: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:510
+#: ../src/caja-window-menus.c:919
 msgid "Open your personal folder"
 msgstr "Открыть вашу личную папку"
 
@@ -3971,7 +3972,7 @@ msgstr "Открыть каждый выделенный объект в окн�
 #: ../src/file-manager/fm-directory-view.c:7479
 #: ../src/file-manager/fm-directory-view.c:8547
 #: ../src/file-manager/fm-directory-view.c:8873
-#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2661
+#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2562
 msgid "Open in New _Tab"
 msgstr "Открыть в новой вк_ладке"
 
@@ -4215,7 +4216,7 @@ msgstr "Создать постоянное соединение с этим с�
 #: ../src/file-manager/fm-directory-view.c:7405
 #: ../src/file-manager/fm-directory-view.c:7433
 #: ../src/file-manager/fm-directory-view.c:7514
-#: ../src/caja-places-sidebar.c:2697
+#: ../src/caja-places-sidebar.c:2598
 msgid "_Mount"
 msgstr "_Присоединить"
 
@@ -4239,7 +4240,7 @@ msgstr "Извлечь выделенный том"
 #: ../src/file-manager/fm-directory-view.c:7417
 #: ../src/file-manager/fm-directory-view.c:7445
 #: ../src/file-manager/fm-directory-view.c:7526
-#: ../src/caja-places-sidebar.c:2725
+#: ../src/caja-places-sidebar.c:2626
 msgid "_Format"
 msgstr "_Форматировать"
 
@@ -4260,7 +4261,7 @@ msgstr "Форматировать выделенный том"
 #: ../src/file-manager/fm-directory-view.c:8303
 #: ../src/file-manager/fm-directory-view.c:8409
 #: ../src/file-manager/fm-directory-view.c:8413
-#: ../src/caja-places-sidebar.c:1792 ../src/caja-places-sidebar.c:2732
+#: ../src/caja-places-sidebar.c:1693 ../src/caja-places-sidebar.c:2633
 msgid "_Start"
 msgstr "_Запуск"
 
@@ -4277,8 +4278,8 @@ msgstr "Запустить выделенный том"
 #: ../src/file-manager/fm-directory-view.c:8236
 #: ../src/file-manager/fm-directory-view.c:8328
 #: ../src/file-manager/fm-directory-view.c:8438
-#: ../src/caja-places-sidebar.c:1793 ../src/caja-places-sidebar.c:2739
-#: ../src/caja-window-menus.c:862
+#: ../src/caja-places-sidebar.c:1694 ../src/caja-places-sidebar.c:2640
+#: ../src/caja-window-menus.c:863
 msgid "_Stop"
 msgstr "Ос_тановить"
 
@@ -4293,7 +4294,7 @@ msgstr "Остановить выделенный том"
 #: ../src/file-manager/fm-directory-view.c:7429
 #: ../src/file-manager/fm-directory-view.c:7457
 #: ../src/file-manager/fm-directory-view.c:7538
-#: ../src/caja-places-sidebar.c:2718
+#: ../src/caja-places-sidebar.c:2619
 msgid "_Detect Media"
 msgstr "Опреде_лить носитель"
 
@@ -4461,7 +4462,7 @@ msgstr "Переместить текущее выделение в другую
 #. name, stock id
 #. label, accelerator
 #: ../src/file-manager/fm-directory-view.c:7554
-#: ../src/file-manager/fm-directory-view.c:7558 ../src/caja-window-menus.c:917
+#: ../src/file-manager/fm-directory-view.c:7558 ../src/caja-window-menus.c:918
 msgid "_Home Folder"
 msgstr "_Домашняя папка"
 
@@ -4590,7 +4591,7 @@ msgstr "Остановить выбранный привод"
 #: ../src/file-manager/fm-directory-view.c:8240
 #: ../src/file-manager/fm-directory-view.c:8332
 #: ../src/file-manager/fm-directory-view.c:8442
-#: ../src/caja-places-sidebar.c:1801
+#: ../src/caja-places-sidebar.c:1702
 msgid "_Safely Remove Drive"
 msgstr "_Безопасно удалить привод"
 
@@ -4624,7 +4625,7 @@ msgstr "Остановить выбранный мультидисковый п�
 #: ../src/file-manager/fm-directory-view.c:8252
 #: ../src/file-manager/fm-directory-view.c:8344
 #: ../src/file-manager/fm-directory-view.c:8454
-#: ../src/caja-places-sidebar.c:1814
+#: ../src/caja-places-sidebar.c:1715
 msgid "_Lock Drive"
 msgstr "Б_локировать привод"
 
@@ -4649,7 +4650,7 @@ msgstr "Запустить мультидисковый привод, связа
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
 #: ../src/file-manager/fm-directory-view.c:8315
 #: ../src/file-manager/fm-directory-view.c:8425
-#: ../src/caja-places-sidebar.c:1813
+#: ../src/caja-places-sidebar.c:1714
 msgid "_Unlock Drive"
 msgstr "_Разблокировать привод"
 
@@ -4680,7 +4681,7 @@ msgstr "Заблокировать привод, связанный с откр�
 #. add the "open in new window" menu item
 #: ../src/file-manager/fm-directory-view.c:8524
 #: ../src/file-manager/fm-directory-view.c:8834
-#: ../src/file-manager/fm-tree-view.c:1276 ../src/caja-places-sidebar.c:2668
+#: ../src/file-manager/fm-tree-view.c:1276 ../src/caja-places-sidebar.c:2569
 msgid "Open in New _Window"
 msgstr "Открыть в _новом окне"
 
@@ -5395,7 +5396,7 @@ msgstr "Доступ к файлу:"
 #. Translators: this is referred to captions under icons.
 #: ../src/file-manager/fm-properties-window.c:4292
 #: ../src/file-manager/fm-properties-window.c:4303
-#: ../src/caja-file-management-properties.c:318
+#: ../src/caja-file-management-properties.c:319
 msgid "None"
 msgstr "Нет"
 
@@ -5518,46 +5519,42 @@ msgstr "Идёт создание окна свойств."
 msgid "Select Custom Icon"
 msgstr "Выбрать другой значок"
 
-#: ../src/file-manager/fm-tree-view.c:1427 ../src/caja-places-sidebar.c:719
+#: ../src/file-manager/fm-tree-view.c:1427 ../src/caja-places-sidebar.c:539
 msgid "File System"
 msgstr "Файловая система"
 
-#: ../src/file-manager/fm-tree-view.c:1431
-msgid "Network Neighbourhood"
-msgstr "Сетевое окружение"
-
-#: ../src/file-manager/fm-tree-view.c:1716
+#: ../src/file-manager/fm-tree-view.c:1715
 msgid "Tree"
 msgstr "Дерево"
 
-#: ../src/file-manager/fm-tree-view.c:1722
+#: ../src/file-manager/fm-tree-view.c:1721
 msgid "Show Tree"
 msgstr "Показать дерево"
 
-#: ../src/caja-application.c:434
+#: ../src/caja-application.c:428
 #, c-format
 msgid "Caja could not create the required folder \"%s\"."
 msgstr "Программе Caja не удалось создать требуемую папку «%s»."
 
-#: ../src/caja-application.c:436
+#: ../src/caja-application.c:430
 msgid ""
 "Before running Caja, please create the following folder, or set permissions "
 "such that Caja can create it."
 msgstr "Перед запуском Caja создайте эту папку, либо установите права так, чтобы Caja мог её создать."
 
-#: ../src/caja-application.c:441
+#: ../src/caja-application.c:435
 #, c-format
 msgid "Caja could not create the following required folders: %s."
 msgstr "Программе Caja не удалось создать следующие необходимые папки: %s."
 
-#: ../src/caja-application.c:443
+#: ../src/caja-application.c:437
 msgid ""
 "Before running Caja, please create these folders, or set permissions such "
 "that Caja can create them."
 msgstr "Перед запуском Caja создайте эти папки, либо установите права так, чтобы Caja мог их создать."
 
-#: ../src/caja-application.c:1660 ../src/caja-places-sidebar.c:2200
-#: ../src/caja-places-sidebar.c:2231 ../src/caja-places-sidebar.c:2262
+#: ../src/caja-application.c:1514 ../src/caja-places-sidebar.c:2101
+#: ../src/caja-places-sidebar.c:2132 ../src/caja-places-sidebar.c:2163
 #, c-format
 msgid "Unable to eject %s"
 msgstr "Не удалось извлечь %s"
@@ -5591,8 +5588,8 @@ msgid ""
 msgstr "Эта программа будет запущена непосредственно с носителя «%s». Никогда не запускайте программы, которым вы не доверяете.\n\nЕсли вы сомневаетесь, нажмите Отмена."
 
 #: ../src/caja-bookmarks-window.c:158
-#: ../src/caja-file-management-properties.c:225
-#: ../src/caja-property-browser.c:1654 ../src/caja-window-menus.c:616
+#: ../src/caja-file-management-properties.c:226
+#: ../src/caja-property-browser.c:1654 ../src/caja-window-menus.c:617
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
@@ -5751,7 +5748,7 @@ msgid "Bookmark Name:"
 msgstr "Им_я закладки:"
 
 #: ../src/caja-desktop-window.c:81 ../src/caja-desktop-window.c:251
-#: ../src/caja-pathbar.c:1524 ../src/caja-places-sidebar.c:704
+#: ../src/caja-pathbar.c:1524 ../src/caja-places-sidebar.c:524
 msgid "Desktop"
 msgstr "Рабочий стол"
 
@@ -6086,119 +6083,127 @@ msgid "_Format:"
 msgstr "_Формат:"
 
 #: ../src/caja-file-management-properties.ui.h:73
+msgid "<b>Size</b>"
+msgstr "<b>Размер</b>"
+
+#: ../src/caja-file-management-properties.ui.h:74
+msgid "_Show file sizes with IEC units"
+msgstr "_Показывать размеры файлов с приставками МЭК"
+
+#: ../src/caja-file-management-properties.ui.h:75
 msgid "Display"
 msgstr "Отображение"
 
-#: ../src/caja-file-management-properties.ui.h:74
+#: ../src/caja-file-management-properties.ui.h:76
 msgid "<b>List Columns</b>"
 msgstr "<b>Столбцы списка</b>"
 
-#: ../src/caja-file-management-properties.ui.h:75
+#: ../src/caja-file-management-properties.ui.h:77
 msgid "Choose the order of information to appear in the list view."
 msgstr "Выберите порядок, в котором будут возникать сведения в режиме списка."
 
-#: ../src/caja-file-management-properties.ui.h:76
+#: ../src/caja-file-management-properties.ui.h:78
 msgid "List Columns"
 msgstr "Столбцы списка"
 
-#: ../src/caja-file-management-properties.ui.h:77
+#: ../src/caja-file-management-properties.ui.h:79
 msgid "<b>Text Files</b>"
 msgstr "<b>Текстовые файлы</b>"
 
-#: ../src/caja-file-management-properties.ui.h:78
+#: ../src/caja-file-management-properties.ui.h:80
 msgid "Show te_xt in icons:"
 msgstr "Показывать текст в зн_ачках:"
 
-#: ../src/caja-file-management-properties.ui.h:79
+#: ../src/caja-file-management-properties.ui.h:81
 msgid "<b>Other Previewable Files</b>"
 msgstr "<b>Другие просматриваемые файлы</b>"
 
-#: ../src/caja-file-management-properties.ui.h:80
+#: ../src/caja-file-management-properties.ui.h:82
 msgid "Show _thumbnails:"
 msgstr "Показывать _миниатюры:"
 
-#: ../src/caja-file-management-properties.ui.h:81
+#: ../src/caja-file-management-properties.ui.h:83
 msgid "_Only for files smaller than:"
 msgstr "То_лько для файлов меньше, чем:"
 
-#: ../src/caja-file-management-properties.ui.h:82
+#: ../src/caja-file-management-properties.ui.h:84
 msgid "<b>Sound Files</b>"
 msgstr "<b>Звуковые файлы</b>"
 
-#: ../src/caja-file-management-properties.ui.h:83
+#: ../src/caja-file-management-properties.ui.h:85
 msgid "Preview _sound files:"
 msgstr "Прослушивать зв_уковые файлы:"
 
-#: ../src/caja-file-management-properties.ui.h:84
+#: ../src/caja-file-management-properties.ui.h:86
 msgid "<b>Folders</b>"
 msgstr "<b>Папки</b>"
 
-#: ../src/caja-file-management-properties.ui.h:85
+#: ../src/caja-file-management-properties.ui.h:87
 msgid "Count _number of items:"
 msgstr "Показывать _число элементов в папках"
 
-#: ../src/caja-file-management-properties.ui.h:86
+#: ../src/caja-file-management-properties.ui.h:88
 msgid "Preview"
 msgstr "Образцы"
 
-#: ../src/caja-file-management-properties.ui.h:87
+#: ../src/caja-file-management-properties.ui.h:89
 msgid "<b>Media Handling</b>"
 msgstr "<b>Работа с носителями</b>"
 
-#: ../src/caja-file-management-properties.ui.h:88
+#: ../src/caja-file-management-properties.ui.h:90
 msgid ""
 "Choose what happens when inserting media or connecting devices to the system"
 msgstr "Выберите, что должно происходить при вставке носителей или присоединении устройств к системе."
 
-#: ../src/caja-file-management-properties.ui.h:89
+#: ../src/caja-file-management-properties.ui.h:91
 msgid "CD _Audio:"
 msgstr "_Звуковые CD:"
 
-#: ../src/caja-file-management-properties.ui.h:90
+#: ../src/caja-file-management-properties.ui.h:92
 msgid "_DVD Video:"
 msgstr "_Видео на DVD:"
 
-#: ../src/caja-file-management-properties.ui.h:91
+#: ../src/caja-file-management-properties.ui.h:93
 msgid "_Music Player:"
 msgstr "_Музыкальные плееры:"
 
-#: ../src/caja-file-management-properties.ui.h:92
+#: ../src/caja-file-management-properties.ui.h:94
 msgid "_Photos:"
 msgstr "_Фотографии:"
 
-#: ../src/caja-file-management-properties.ui.h:93
+#: ../src/caja-file-management-properties.ui.h:95
 msgid "_Software:"
 msgstr "П_рограммы:"
 
-#: ../src/caja-file-management-properties.ui.h:94
+#: ../src/caja-file-management-properties.ui.h:96
 msgid "<b>Other Media</b>"
 msgstr "<b>Другие носители</b>"
 
-#: ../src/caja-file-management-properties.ui.h:95
+#: ../src/caja-file-management-properties.ui.h:97
 msgid "Less common media formats can be configured here"
 msgstr "Менее распространённые виды носителей можно настроить здесь."
 
-#: ../src/caja-file-management-properties.ui.h:96
+#: ../src/caja-file-management-properties.ui.h:98
 msgid "Acti_on:"
 msgstr "_Действие:"
 
-#: ../src/caja-file-management-properties.ui.h:97
+#: ../src/caja-file-management-properties.ui.h:99
 msgid "_Type:"
 msgstr "_Тип:"
 
-#: ../src/caja-file-management-properties.ui.h:98
+#: ../src/caja-file-management-properties.ui.h:100
 msgid "_Never prompt or start programs on media insertion"
 msgstr "_Никогда не спрашивать и не запускать программы при вставке носителей"
 
-#: ../src/caja-file-management-properties.ui.h:99
+#: ../src/caja-file-management-properties.ui.h:101
 msgid "B_rowse media when inserted"
 msgstr "_Просматривать носители при вставке"
 
-#: ../src/caja-file-management-properties.ui.h:100
+#: ../src/caja-file-management-properties.ui.h:102
 msgid "Media"
 msgstr "Носители"
 
-#: ../src/caja-file-management-properties.ui.h:101
+#: ../src/caja-file-management-properties.ui.h:103
 msgid "Plugins"
 msgstr "Плагины"
 
@@ -6714,84 +6719,84 @@ msgstr "Устройства"
 msgid "Bookmarks"
 msgstr "Закладки"
 
-#: ../src/caja-places-sidebar.c:541 ../src/caja-places-sidebar.c:569
+#: ../src/caja-places-sidebar.c:526
+msgid "Open the contents of your desktop in a folder"
+msgstr "Показать содержимое рабочего стола в папке"
+
+#: ../src/caja-places-sidebar.c:541
+msgid "Open the contents of the File System"
+msgstr "Показать содержимое файловой системы"
+
+#: ../src/caja-places-sidebar.c:600
+msgid "Open the trash"
+msgstr "Открыть корзину"
+
+#: ../src/caja-places-sidebar.c:655 ../src/caja-places-sidebar.c:683
 #, c-format
 msgid "Mount and open %s"
 msgstr "Присоединить и открыть %s"
 
-#: ../src/caja-places-sidebar.c:706
-msgid "Open the contents of your desktop in a folder"
-msgstr "Показать содержимое рабочего стола в папке"
-
-#: ../src/caja-places-sidebar.c:721
-msgid "Open the contents of the File System"
-msgstr "Показать содержимое файловой системы"
-
-#: ../src/caja-places-sidebar.c:826
-msgid "Open the trash"
-msgstr "Открыть корзину"
-
-#: ../src/caja-places-sidebar.c:834 ../src/mate-network-scheme.desktop.in.h:1
+#: ../src/caja-places-sidebar.c:836 ../src/mate-network-scheme.desktop.in.h:1
 msgid "Network"
 msgstr "Сеть"
 
-#: ../src/caja-places-sidebar.c:866
+#: ../src/caja-places-sidebar.c:868
 msgid "Browse Network"
 msgstr "Просмотреть сеть"
 
-#: ../src/caja-places-sidebar.c:868
+#: ../src/caja-places-sidebar.c:870
 msgid "Browse the contents of the network"
 msgstr "Показать содержимое сети"
 
 #. start() for type G_DRIVE_START_STOP_TYPE_SHUTDOWN is normally not used
-#: ../src/caja-places-sidebar.c:1800
+#: ../src/caja-places-sidebar.c:1701
 msgid "_Power On"
 msgstr "_Включить"
 
-#: ../src/caja-places-sidebar.c:1804
+#: ../src/caja-places-sidebar.c:1705
 msgid "_Connect Drive"
 msgstr "_Подключить привод"
 
-#: ../src/caja-places-sidebar.c:1805
+#: ../src/caja-places-sidebar.c:1706
 msgid "_Disconnect Drive"
 msgstr "_Отключить привод"
 
-#: ../src/caja-places-sidebar.c:1808
+#: ../src/caja-places-sidebar.c:1709
 msgid "_Start Multi-disk Device"
 msgstr "_Запустить мультидисковый привод"
 
-#: ../src/caja-places-sidebar.c:1809
+#: ../src/caja-places-sidebar.c:1710
 msgid "_Stop Multi-disk Device"
 msgstr "О_становить мультидисковый привод"
 
-#: ../src/caja-places-sidebar.c:1896 ../src/caja-places-sidebar.c:2474
+#: ../src/caja-places-sidebar.c:1797 ../src/caja-places-sidebar.c:2375
 #, c-format
 msgid "Unable to start %s"
 msgstr "Не удалось запустить %s"
 
-#: ../src/caja-places-sidebar.c:2418
+#: ../src/caja-places-sidebar.c:2319
 #, c-format
 msgid "Unable to poll %s for media changes"
 msgstr "Не удалось опросить %s на предмет изменений носителя"
 
-#: ../src/caja-places-sidebar.c:2534
+#: ../src/caja-places-sidebar.c:2435
 #, c-format
 msgid "Unable to stop %s"
 msgstr "Не удалось остановить %s"
 
-#: ../src/caja-places-sidebar.c:2676
+#: ../src/caja-places-sidebar.c:2577
 msgid "Remove"
 msgstr "Удалить"
 
-#: ../src/caja-places-sidebar.c:2685
+#: ../src/caja-places-sidebar.c:2586
 msgid "Rename..."
 msgstr "Переименовать..."
 
-#: ../src/caja-places-sidebar.c:3378
+#: ../src/caja-places-sidebar.c:3278
 msgid "Places"
 msgstr "Места"
 
-#: ../src/caja-places-sidebar.c:3384
+#: ../src/caja-places-sidebar.c:3284
 msgid "Show Places"
 msgstr "Показать места"
 
@@ -7111,53 +7116,53 @@ msgstr "Хотите удалить из вашего списка все зак
 msgid "Bookmark for Nonexistent Location"
 msgstr "Закладка на несуществующий адрес"
 
-#: ../src/caja-window-manage-views.c:814
+#: ../src/caja-window-manage-views.c:822
 msgid "You can choose another view or go to a different location."
 msgstr "Вы можете выбрать другой режим просмотра или перейти к другому адресу."
 
-#: ../src/caja-window-manage-views.c:833
+#: ../src/caja-window-manage-views.c:841
 msgid "The location cannot be displayed with this viewer."
 msgstr "Не удалось показать адрес в этом режиме просмотра."
 
-#: ../src/caja-window-manage-views.c:1422
+#: ../src/caja-window-manage-views.c:1430
 msgid "Content View"
 msgstr "Просмотр содержимого"
 
-#: ../src/caja-window-manage-views.c:1423
+#: ../src/caja-window-manage-views.c:1431
 msgid "View of the current folder"
 msgstr "Просмотр текущей папки"
 
-#: ../src/caja-window-manage-views.c:2114
+#: ../src/caja-window-manage-views.c:2122
 msgid "Caja has no installed viewer capable of displaying the folder."
 msgstr "В Caja не установлен ни один режим просмотра, с помощью которого можно было бы показать эту папку."
 
-#: ../src/caja-window-manage-views.c:2122
+#: ../src/caja-window-manage-views.c:2130
 msgid "The location is not a folder."
 msgstr "Адрес не является папкой."
 
-#: ../src/caja-window-manage-views.c:2131
+#: ../src/caja-window-manage-views.c:2139
 #, c-format
 msgid "Could not find \"%s\"."
 msgstr "Не удалось найти «%s»."
 
-#: ../src/caja-window-manage-views.c:2134
+#: ../src/caja-window-manage-views.c:2142
 msgid "Please check the spelling and try again."
 msgstr "Проверьте правильность ввода и попробуйте ещё раз."
 
-#: ../src/caja-window-manage-views.c:2143
+#: ../src/caja-window-manage-views.c:2151
 #, c-format
 msgid "Caja cannot handle \"%s\" locations."
 msgstr "Caja не может обрабатывать адреса «%s»."
 
-#: ../src/caja-window-manage-views.c:2148
+#: ../src/caja-window-manage-views.c:2156
 msgid "Caja cannot handle this kind of location."
 msgstr "Caja не может обрабатывать адреса такого вида."
 
-#: ../src/caja-window-manage-views.c:2155
+#: ../src/caja-window-manage-views.c:2163
 msgid "Unable to mount the location."
 msgstr "Не удалось присоединить местоположение."
 
-#: ../src/caja-window-manage-views.c:2161
+#: ../src/caja-window-manage-views.c:2169
 msgid "Access was denied."
 msgstr "Доступ запрещён."
 
@@ -7165,28 +7170,28 @@ msgstr "Доступ запрещён."
 #. * the code that guesses web addresses when there's no initial "/".
 #. * But this case is also hit for legitimate web addresses when
 #. * the proxy is set up wrong.
-#: ../src/caja-window-manage-views.c:2170
+#: ../src/caja-window-manage-views.c:2178
 #, c-format
 msgid "Could not display \"%s\", because the host could not be found."
 msgstr "Не удалось показать «%s», потому что не был найден узел."
 
-#: ../src/caja-window-manage-views.c:2172
+#: ../src/caja-window-manage-views.c:2180
 msgid ""
 "Check that the spelling is correct and that your proxy settings are correct."
 msgstr "Убедитесь, что адрес введён без ошибок, а параметры прокси-службы верны."
 
-#: ../src/caja-window-manage-views.c:2188
+#: ../src/caja-window-manage-views.c:2196
 #, c-format
 msgid ""
 "Error: %s\n"
 "Please select another viewer and try again."
 msgstr "Ошибка: %s\nВыберите другой режим просмотра и попробуйте ещё раз."
 
-#: ../src/caja-window-menus.c:192
+#: ../src/caja-window-menus.c:193
 msgid "Go to the location specified by this bookmark"
 msgstr "Перейти к адресу, указанному закладкой"
 
-#: ../src/caja-window-menus.c:514
+#: ../src/caja-window-menus.c:515
 msgid ""
 "Caja is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -7194,7 +7199,7 @@ msgid ""
 "version."
 msgstr "Caja — свободное программное обеспечение; вы можете распространять и/или изменять его на условиях лицензии GNU General Public License, опубликованной Фондом свободного программного обеспечения; либо версии 2 этой лицензии, либо (по вашему выбору) любой более поздней версии."
 
-#: ../src/caja-window-menus.c:518
+#: ../src/caja-window-menus.c:519
 msgid ""
 "Caja is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -7202,233 +7207,233 @@ msgid ""
 "details."
 msgstr "Caja распространяется в надежде, что он может быть полезен, но БЕЗ КАКОГО-ЛИБО ВИДА ГАРАНТИЙ, ВЫРАЖЕННЫХ ЯВНО ИЛИ ПОДРАЗУМЕВАЕМЫХ, ВКЛЮЧАЯ, НО НЕ ОГРАНИЧИВАЯСЬ ПОДРАЗУМЕВАЕМЫМИ ГАРАНТИЯМИ КОММЕРЧЕСКОЙ ЦЕННОСТИ И ПРИГОДНОСТИ ДЛЯ КОНКРЕТНОЙ ЦЕЛИ. Для получения дополнительных сведений обратитесь к лицензии GNU General Public License."
 
-#: ../src/caja-window-menus.c:522
+#: ../src/caja-window-menus.c:523
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301 USA"
 msgstr "Вы должны были получить копию лицензии GNU General Public License c программой Caja. Если это не так, известите об этом Фонд свободного программного обеспечения по адресу Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA"
 
-#: ../src/caja-window-menus.c:534
+#: ../src/caja-window-menus.c:535
 msgid ""
 "Caja lets you organize files and folders, both on your computer and online."
 msgstr "Caja позволяет организовать файлы и папки как на компьютере, так и в сетевых ресурсах."
 
-#: ../src/caja-window-menus.c:537
+#: ../src/caja-window-menus.c:538
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
-"Copyright © 2011-2013 The Caja authors"
-msgstr "Copyright © 1999-2009 Авторы Nautilus\n Copyright © 2011-2013 Авторы Caja"
+"Copyright © 2011-2014 The Caja authors"
+msgstr "Copyright © 1999-2009 Авторы Nautilus\nCopyright © 2011-2014 Авторы Caja"
 
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
 #. * box to give credit to the translator(s).
-#: ../src/caja-window-menus.c:547
+#: ../src/caja-window-menus.c:548
 msgid "translator-credits"
 msgstr "Алексей Сорокин <sor.alexei@meowr.ru>\nВалек Филиппов\nДмитрий Мастрюков\nГруппа глобализации компании Sun\nАндрей Носенко <awn@bcs.zp.ua>\nЛеонид Кантер <leon@asplinux.ru>\nВасилий Фаронов <qvvx@yandex.ru>, 2008\nЮрий Пенкин <yuriy.penkin@gmail.com>, 2008"
 
-#: ../src/caja-window-menus.c:550
+#: ../src/caja-window-menus.c:551
 msgid "MATE Web Site"
 msgstr "Сайт MATE"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:832
+#: ../src/caja-window-menus.c:833
 msgid "_File"
 msgstr "_Файл"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:833
+#: ../src/caja-window-menus.c:834
 msgid "_Edit"
 msgstr "_Правка"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:834
+#: ../src/caja-window-menus.c:835
 msgid "_View"
 msgstr "_Вид"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:835
+#: ../src/caja-window-menus.c:836
 msgid "_Help"
 msgstr "_Справка"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:837
+#: ../src/caja-window-menus.c:838
 msgid "_Close"
 msgstr "_Закрыть"
 
 #. tooltip
-#: ../src/caja-window-menus.c:838
+#: ../src/caja-window-menus.c:839
 msgid "Close this folder"
 msgstr "Закрыть эту папку"
 
-#: ../src/caja-window-menus.c:843
+#: ../src/caja-window-menus.c:844
 msgid "_Backgrounds and Emblems..."
 msgstr "_Фон и эмблемы..."
 
-#: ../src/caja-window-menus.c:844
+#: ../src/caja-window-menus.c:845
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
 msgstr "Показать орнаменты, цвета и эмблемы, которые можно использовать для настройки внешнего вида"
 
-#: ../src/caja-window-menus.c:849
+#: ../src/caja-window-menus.c:850
 msgid "Prefere_nces"
 msgstr "_Параметры"
 
-#: ../src/caja-window-menus.c:850
+#: ../src/caja-window-menus.c:851
 msgid "Edit Caja preferences"
 msgstr "Изменить параметры Caja"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:853
+#: ../src/caja-window-menus.c:854
 msgid "Open _Parent"
 msgstr "Открыть _родительскую папку"
 
-#: ../src/caja-window-menus.c:854
+#: ../src/caja-window-menus.c:855
 msgid "Open the parent folder"
 msgstr "Открыть папку, лежащую одним уровнем выше"
 
 #. tooltip
-#: ../src/caja-window-menus.c:863
+#: ../src/caja-window-menus.c:864
 msgid "Stop loading the current location"
 msgstr "Остановить загрузку текущего адреса"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:867
+#: ../src/caja-window-menus.c:868
 msgid "_Reload"
 msgstr "Переза_грузить"
 
 #. tooltip
-#: ../src/caja-window-menus.c:868
+#: ../src/caja-window-menus.c:869
 msgid "Reload the current location"
 msgstr "Перезагрузить текущий адрес"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:872
+#: ../src/caja-window-menus.c:873
 msgid "_Contents"
 msgstr "_Содержание"
 
 #. tooltip
-#: ../src/caja-window-menus.c:873
+#: ../src/caja-window-menus.c:874
 msgid "Display Caja help"
 msgstr "Показать справку по Caja"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:877
+#: ../src/caja-window-menus.c:878
 msgid "_About"
 msgstr "_О программе"
 
 #. tooltip
-#: ../src/caja-window-menus.c:878
+#: ../src/caja-window-menus.c:879
 msgid "Display credits for the creators of Caja"
 msgstr "Показать список создателей Caja"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:882
+#: ../src/caja-window-menus.c:883
 msgid "Zoom _In"
 msgstr "У_величить"
 
 #. tooltip
-#: ../src/caja-window-menus.c:883 ../src/caja-zoom-control.c:99
+#: ../src/caja-window-menus.c:884 ../src/caja-zoom-control.c:99
 #: ../src/caja-zoom-control.c:372
 msgid "Increase the view size"
 msgstr "Уменьшить масштаб"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:897
+#: ../src/caja-window-menus.c:898
 msgid "Zoom _Out"
 msgstr "У_меньшить"
 
 #. tooltip
-#: ../src/caja-window-menus.c:898 ../src/caja-zoom-control.c:100
+#: ../src/caja-window-menus.c:899 ../src/caja-zoom-control.c:100
 #: ../src/caja-zoom-control.c:321
 msgid "Decrease the view size"
 msgstr "Увеличить масштаб"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:907
+#: ../src/caja-window-menus.c:908
 msgid "Normal Si_ze"
 msgstr "В обы_чном размере"
 
 #. tooltip
-#: ../src/caja-window-menus.c:908 ../src/caja-zoom-control.c:101
+#: ../src/caja-window-menus.c:909 ../src/caja-zoom-control.c:101
 #: ../src/caja-zoom-control.c:334
 msgid "Use the normal view size"
 msgstr "Использовать нормальный масштаб вида"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:912
+#: ../src/caja-window-menus.c:913
 msgid "Connect to _Server..."
 msgstr "Соединиться с _сервером..."
 
 #. tooltip
-#: ../src/caja-window-menus.c:913
+#: ../src/caja-window-menus.c:914
 msgid "Connect to a remote computer or shared disk"
 msgstr "Соединиться с удалённым компьютером или общим диском"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:922
+#: ../src/caja-window-menus.c:923
 msgid "_Computer"
 msgstr "К_омпьютер"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:927
+#: ../src/caja-window-menus.c:928
 msgid "_Network"
 msgstr "_Сеть"
 
 #. tooltip
-#: ../src/caja-window-menus.c:928 ../src/mate-network-scheme.desktop.in.h:2
+#: ../src/caja-window-menus.c:929 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
 msgstr "Просмотреть закладки и локальные сетевые адреса"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:932
+#: ../src/caja-window-menus.c:933
 msgid "T_emplates"
 msgstr "_Шаблоны"
 
 #. tooltip
-#: ../src/caja-window-menus.c:933
+#: ../src/caja-window-menus.c:934
 msgid "Open your personal templates folder"
 msgstr "Открыть папку личных шаблонов"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:937
+#: ../src/caja-window-menus.c:938
 msgid "_Trash"
 msgstr "_Корзина"
 
 #. tooltip
-#: ../src/caja-window-menus.c:938
+#: ../src/caja-window-menus.c:939
 msgid "Open your personal trash folder"
 msgstr "Открыть личную папку корзины"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:946
+#: ../src/caja-window-menus.c:947
 msgid "Show _Hidden Files"
 msgstr "Показывать скр_ытые файлы"
 
 #. tooltip
-#: ../src/caja-window-menus.c:947
+#: ../src/caja-window-menus.c:948
 msgid "Toggle the display of hidden files in the current window"
 msgstr "Переключить показ скрытых файлов в текущем окне"
 
-#: ../src/caja-window-menus.c:978
+#: ../src/caja-window-menus.c:979
 msgid "_Up"
 msgstr "_Вверх"
 
-#: ../src/caja-window-menus.c:981
+#: ../src/caja-window-menus.c:982
 msgid "_Home"
 msgstr "_Домой"
 

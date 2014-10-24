@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-12 19:04+0100\n"
-"PO-Revision-Date: 2014-02-12 18:06+0000\n"
+"POT-Creation-Date: 2014-10-03 13:54+0200\n"
+"PO-Revision-Date: 2014-10-03 11:56+0000\n"
 "Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
 "Language-Team: Malayalam (http://www.transifex.com/projects/p/MATE/language/ml/)\n"
 "MIME-Version: 1.0\n"
@@ -541,7 +541,7 @@ msgstr "_എപ്പോഴും ഇതു്  ചെയ്യുക"
 #: ../src/file-manager/fm-directory-view.c:7413
 #: ../src/file-manager/fm-directory-view.c:7441
 #: ../src/file-manager/fm-directory-view.c:7522
-#: ../src/file-manager/fm-tree-view.c:1371 ../src/caja-places-sidebar.c:2711
+#: ../src/file-manager/fm-tree-view.c:1371 ../src/caja-places-sidebar.c:2612
 msgid "_Eject"
 msgstr "പുറത്തെടുക്കുക"
 
@@ -552,7 +552,7 @@ msgstr "പുറത്തെടുക്കുക"
 #: ../src/file-manager/fm-directory-view.c:7409
 #: ../src/file-manager/fm-directory-view.c:7437
 #: ../src/file-manager/fm-directory-view.c:7518
-#: ../src/file-manager/fm-tree-view.c:1362 ../src/caja-places-sidebar.c:2704
+#: ../src/file-manager/fm-tree-view.c:1362 ../src/caja-places-sidebar.c:2605
 msgid "_Unmount"
 msgstr "അണ്‍മൌണ്ടു് ചെയ്യുക"
 
@@ -760,7 +760,7 @@ msgid "%s's Home"
 msgstr "%s'ന്റെ ആസ്ഥാനം"
 
 #: ../libcaja-private/caja-desktop-link.c:113
-#: ../data/caja-computer.desktop.in.in.h:1 ../src/caja-places-sidebar.c:674
+#: ../data/caja-computer.desktop.in.in.h:1 ../src/caja-places-sidebar.c:494
 msgid "Computer"
 msgstr "കമ്പ്യൂട്ടര്‍"
 
@@ -768,7 +768,8 @@ msgstr "കമ്പ്യൂട്ടര്‍"
 msgid "Network Servers"
 msgstr ""
 
-#: ../libcaja-private/caja-desktop-link.c:119 ../src/caja-places-sidebar.c:824
+#: ../libcaja-private/caja-desktop-link.c:119
+#: ../src/file-manager/fm-tree-view.c:1430 ../src/caja-places-sidebar.c:598
 #: ../src/caja-trash-bar.c:192
 msgid "Trash"
 msgstr "ചവറ്റുകുട്ട‌"
@@ -936,7 +937,7 @@ msgstr ""
 
 #. Setup the expander for the rename action
 #: ../libcaja-private/caja-file-conflict-dialog.c:592
-msgid "_Select a new name for the destination"
+msgid "Select a new name for the _destination"
 msgstr ""
 
 #. Setup the diff button for text files
@@ -1198,7 +1199,7 @@ msgstr ""
 #. Empty Trash menu item
 #: ../libcaja-private/caja-file-operations.c:1358
 #: ../libcaja-private/caja-file-operations.c:2226
-#: ../src/caja-places-sidebar.c:2748 ../src/caja-trash-bar.c:196
+#: ../src/caja-places-sidebar.c:2649 ../src/caja-trash-bar.c:196
 msgid "Empty _Trash"
 msgstr "ചവറ്റുകുട്ട വെടിപ്പാക്കുക"
 
@@ -1528,7 +1529,7 @@ msgstr "\"%B\" വായിക്കുവാനുളള അനുവാദം 
 
 #: ../libcaja-private/caja-file-operations.c:3586
 #: ../libcaja-private/caja-file-operations.c:4276
-#: ../libcaja-private/caja-file-operations.c:4850
+#: ../libcaja-private/caja-file-operations.c:4844
 msgid "Error while moving \"%B\"."
 msgstr "\"%B\" നീക്കുന്നതില്‍ പിശക്."
 
@@ -1607,78 +1608,78 @@ msgid_plural "Preparing to move %'d files"
 msgstr[0] "%'d ഫയല്‍ നീക്കുവാന്‍ തയ്യാറെടുക്കുന്നു"
 msgstr[1] "%'d ഫയലുകള്‍ നീക്കുവാന്‍ തയ്യാറെടുക്കുന്നു"
 
-#: ../libcaja-private/caja-file-operations.c:4851
+#: ../libcaja-private/caja-file-operations.c:4845
 #, c-format
 msgid "There was an error moving the file into %F."
 msgstr "%F-ലേക്കു് ഫയല്‍ നീക്കുന്നതില്‍ പിശക്."
 
-#: ../libcaja-private/caja-file-operations.c:5111
+#: ../libcaja-private/caja-file-operations.c:5105
 msgid "Moving Files"
 msgstr "ഫയലുകള്‍ നീക്കുന്നു"
 
-#: ../libcaja-private/caja-file-operations.c:5142
+#: ../libcaja-private/caja-file-operations.c:5136
 msgid "Creating links in \"%B\""
 msgstr "\"%B\"-ല്‍ ബന്ധങ്ങളുണ്ടാക്കുന്നു"
 
-#: ../libcaja-private/caja-file-operations.c:5146
+#: ../libcaja-private/caja-file-operations.c:5140
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
 msgstr[0] "%'d  ഫയലിലേക്കു് ബന്ധങ്ങളുണ്ടാക്കുന്നു"
 msgstr[1] "%'d  ഫയലുകളിലേക്കു് ബന്ധങ്ങളുണ്ടാക്കുന്നു"
 
-#: ../libcaja-private/caja-file-operations.c:5278
+#: ../libcaja-private/caja-file-operations.c:5272
 msgid "Error while creating link to %B."
 msgstr "%B-ലേക്കുള്ള ലിങ്കു് ഉണ്ടാക്കുന്നതില്‍ പിശക്."
 
-#: ../libcaja-private/caja-file-operations.c:5280
+#: ../libcaja-private/caja-file-operations.c:5274
 msgid "Symbolic links only supported for local files"
 msgstr "സിംബോളികു് ലിങ്കുകള്‍ ലോക്കല്‍ ഫയലുകള്‍ മാത്രമേ പിന്തുണയ്ക്കുന്നുള്ളൂ."
 
-#: ../libcaja-private/caja-file-operations.c:5283
+#: ../libcaja-private/caja-file-operations.c:5277
 msgid "The target doesn't support symbolic links."
 msgstr "ലക്ഷ്യസ്ഥാനങ്ങള്‍ സിംബോളികു് ലിങ്കുകള്‍ പിന്തുണയ്ക്കുന്നില്ല."
 
-#: ../libcaja-private/caja-file-operations.c:5286
+#: ../libcaja-private/caja-file-operations.c:5280
 #, c-format
 msgid "There was an error creating the symlink in %F."
 msgstr "%F-ല്‍ സിംലിങ്കുണ്ടാക്കുന്നതില്‍ പിശക്"
 
-#: ../libcaja-private/caja-file-operations.c:5598
+#: ../libcaja-private/caja-file-operations.c:5592
 msgid "Setting permissions"
 msgstr "അനുവാദങ്ങള്‍ ക്രമികരിയ്ക്കുന്നു"
 
 #. localizers: the initial name of a new folder
-#: ../libcaja-private/caja-file-operations.c:5857
+#: ../libcaja-private/caja-file-operations.c:5851
 msgid "untitled folder"
 msgstr "തലക്കെട്ടില്ലാത്ത അറ‌"
 
 #. localizers: the initial name of a new empty file
-#: ../libcaja-private/caja-file-operations.c:5865
+#: ../libcaja-private/caja-file-operations.c:5859
 msgid "new file"
 msgstr "പുതിയ ഫയല്‍"
 
-#: ../libcaja-private/caja-file-operations.c:6036
+#: ../libcaja-private/caja-file-operations.c:6030
 msgid "Error while creating directory %B."
 msgstr "ഡയറക്ടറി %B ഉണ്ടാക്കുന്നതില്‍ പിശക്."
 
-#: ../libcaja-private/caja-file-operations.c:6038
+#: ../libcaja-private/caja-file-operations.c:6032
 msgid "Error while creating file %B."
 msgstr "ഫയല്‍ %B ഉണ്ടാക്കുന്നതില്‍ പിശക്."
 
-#: ../libcaja-private/caja-file-operations.c:6040
+#: ../libcaja-private/caja-file-operations.c:6034
 #, c-format
 msgid "There was an error creating the directory in %F."
 msgstr "%F-ല്‍ ഒരു ഡയറക്ടറി ഉണ്ടാക്കുന്നതില്‍ പിശക്."
 
-#: ../libcaja-private/caja-file-operations.c:6316
+#: ../libcaja-private/caja-file-operations.c:6310
 msgid "Emptying Trash"
 msgstr "ചവറ്റുകുട്ട കാലിയാക്കുന്നു"
 
-#: ../libcaja-private/caja-file-operations.c:6363
-#: ../libcaja-private/caja-file-operations.c:6404
-#: ../libcaja-private/caja-file-operations.c:6439
-#: ../libcaja-private/caja-file-operations.c:6474
+#: ../libcaja-private/caja-file-operations.c:6357
+#: ../libcaja-private/caja-file-operations.c:6398
+#: ../libcaja-private/caja-file-operations.c:6433
+#: ../libcaja-private/caja-file-operations.c:6468
 msgid "Unable to mark launcher trusted (executable)"
 msgstr "പ്രയോഗിനി വിശ്വസനീയമെന്നു് അടയാളപ്പെടുത്തുവാന്‍ സാധ്യമല്ല (എക്സിക്യൂട്ടബിള്‍)"
 
@@ -1755,7 +1756,7 @@ msgid "today at 00:00:00 PM"
 msgstr "ഇന്നു് 00:00:00 PM"
 
 #: ../libcaja-private/caja-file.c:4477
-#: ../src/caja-file-management-properties.c:510
+#: ../src/caja-file-management-properties.c:511
 msgid "today at %-I:%M:%S %p"
 msgstr "ഇന്നു് %-I:%M:%S %p"
 
@@ -2041,12 +2042,12 @@ msgstr[0] "ഇതു്  %d വ്യത്യത്ഥ ജാലകങ്ങള
 msgstr[1] "ഇതു്  %d വ്യത്യത്ഥ ജാലകങ്ങള്‍ തുറക്കുന്നു."
 
 #: ../libcaja-private/caja-mime-actions.c:1297
-#: ../src/caja-window-manage-views.c:2111
 #: ../src/caja-window-manage-views.c:2119
-#: ../src/caja-window-manage-views.c:2139
-#: ../src/caja-window-manage-views.c:2153
-#: ../src/caja-window-manage-views.c:2159
-#: ../src/caja-window-manage-views.c:2186
+#: ../src/caja-window-manage-views.c:2127
+#: ../src/caja-window-manage-views.c:2147
+#: ../src/caja-window-manage-views.c:2161
+#: ../src/caja-window-manage-views.c:2167
+#: ../src/caja-window-manage-views.c:2194
 #, c-format
 msgid "Could not display \"%s\"."
 msgstr "\"%s\" പ്രദര്‍ശിപ്പിയ്ക്കുവാന്‍ സാധ്യമല്ല."
@@ -2216,7 +2217,7 @@ msgstr "_പരതുക..."
 #: ../libcaja-private/caja-open-with-dialog.c:957
 #: ../src/file-manager/fm-directory-view.c:7286
 #: ../src/file-manager/fm-directory-view.c:8796
-#: ../src/file-manager/fm-tree-view.c:1256 ../src/caja-places-sidebar.c:2653
+#: ../src/file-manager/fm-tree-view.c:1256 ../src/caja-places-sidebar.c:2554
 msgid "_Open"
 msgstr "തുറക്കുക"
 
@@ -2306,37 +2307,37 @@ msgid ""
 " your computer, you may be able to open it."
 msgstr ""
 
-#: ../libcaja-private/caja-program-choosing.c:439
+#: ../libcaja-private/caja-program-choosing.c:513
 msgid "Sorry, but you cannot execute commands from a remote site."
 msgstr "ക്ഷമിക്കണം,  പക്ഷേ നിങ്ങള്‍ക്കു് ഒരു വിദൂര സൈറ്റില്‍ നിന്നും ആജ്ഞകള്‍ പ്രവര്‍ത്തിപ്പിക്കുവാന്‍ സാധ്യമല്ല."
 
-#: ../libcaja-private/caja-program-choosing.c:441
+#: ../libcaja-private/caja-program-choosing.c:515
 msgid "This is disabled due to security considerations."
 msgstr "സെക്യൂരിറ്റിയുടെ ഭാഗമായി ഇതു്  നിര്‍ജ്ജീവമാക്കിയിരിയ്ക്കുന്നു"
 
-#: ../libcaja-private/caja-program-choosing.c:453
-#: ../libcaja-private/caja-program-choosing.c:531
+#: ../libcaja-private/caja-program-choosing.c:527
+#: ../libcaja-private/caja-program-choosing.c:593
 msgid "There was an error launching the application."
 msgstr "പ്രയോഗം തുറക്കുന്നതില്‍ പിശക്."
 
-#: ../libcaja-private/caja-program-choosing.c:482
-#: ../libcaja-private/caja-program-choosing.c:495
+#: ../libcaja-private/caja-program-choosing.c:556
+#: ../libcaja-private/caja-program-choosing.c:569
 msgid "This drop target only supports local files."
 msgstr "ഇതു്  ലോക്കല്‍ ഫയലുകളെ മാത്രം പിന്തുണയ്ക്കുന്നു."
 
-#: ../libcaja-private/caja-program-choosing.c:483
+#: ../libcaja-private/caja-program-choosing.c:557
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again."
 msgstr "പ്രാദേശികമല്ലാത്ത ഫയലുകള്‍ തുറക്കാന്‍ ആദ്യം അവയെ പ്രാദേശിക അറയിലേയ്ക്കു് പകര്‍ത്തുക. എന്നിട്ടു് വലിച്ചിടുക."
 
-#: ../libcaja-private/caja-program-choosing.c:496
+#: ../libcaja-private/caja-program-choosing.c:570
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again. The local files you dropped have already been opened."
 msgstr "പ്രാദേശികമല്ലാത്ത ഫയലുകള്‍ തുറക്കാന്‍ ആദ്യം അവയെ പ്രാദേശിക അറയിലേയ്ക്കു് പകര്‍ത്തുക. എന്നിട്ടു് വലിച്ചിടുക. നിങ്ങള്‍ ഇതുവരെ വലിച്ചിട്ട ഫയലുകള്‍ ഇപ്പോള്‍തന്നെ തുറന്നു കഴിഞ്ഞു."
 
-#: ../libcaja-private/caja-program-choosing.c:529
+#: ../libcaja-private/caja-program-choosing.c:591
 msgid "Details: "
 msgstr "വിശദവിവരങ്ങള്‍:"
 
@@ -3450,7 +3451,7 @@ msgstr "സ്വയം പ്രവര്‍ത്തിയ്ക്കാന�
 #: ../data/caja-browser.desktop.in.in.h:1
 #: ../data/caja-folder-handler.desktop.in.in.h:1
 #: ../data/caja.desktop.in.in.h:1 ../src/caja-spatial-window.c:381
-#: ../src/caja-window-menus.c:532 ../src/caja-window.c:162
+#: ../src/caja-window-menus.c:533 ../src/caja-window.c:162
 msgid "Caja"
 msgstr "നോട്ടിലസ്"
 
@@ -3463,7 +3464,7 @@ msgid "Browse the file system with the file manager"
 msgstr "ഫയല്‍ മാനേജര്‍ ഉപയോഗിച്ചു് ഫയല്‍ സിസ്റ്റം പരതുക"
 
 #. tooltip
-#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:923
+#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:924
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
 msgstr "ലഭ്യമായ പ്രാദേശികവും വിദൂരവുമായ എല്ലാ ഡിസ്ക്കുകളും അറകളും പരതുക."
@@ -3481,8 +3482,8 @@ msgid "Home Folder"
 msgstr "ആസ്ഥാനഅറ"
 
 #. tooltip
-#: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:690
-#: ../src/caja-window-menus.c:918
+#: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:510
+#: ../src/caja-window-menus.c:919
 msgid "Open your personal folder"
 msgstr "നിങ്ങളുടെ സ്വകാര്യ അറ തുറക്കുക"
 
@@ -3903,7 +3904,7 @@ msgstr "തിരഞ്ഞെടുത്ത ഓരോ ഇനവും പുത
 #: ../src/file-manager/fm-directory-view.c:7479
 #: ../src/file-manager/fm-directory-view.c:8547
 #: ../src/file-manager/fm-directory-view.c:8873
-#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2661
+#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2562
 msgid "Open in New _Tab"
 msgstr "പുതിയ _കിളിവാതിലില്‍ തുറക്കുക"
 
@@ -4146,7 +4147,7 @@ msgstr "ഈ സര്‍വറിലേക്കു് സ്ഥിരമായ�
 #: ../src/file-manager/fm-directory-view.c:7405
 #: ../src/file-manager/fm-directory-view.c:7433
 #: ../src/file-manager/fm-directory-view.c:7514
-#: ../src/caja-places-sidebar.c:2697
+#: ../src/caja-places-sidebar.c:2598
 msgid "_Mount"
 msgstr "മൌണ്ടു് ചെയ്യുക"
 
@@ -4170,7 +4171,7 @@ msgstr "തിരഞ്ഞെടുത്ത വോള്യം പുറത്�
 #: ../src/file-manager/fm-directory-view.c:7417
 #: ../src/file-manager/fm-directory-view.c:7445
 #: ../src/file-manager/fm-directory-view.c:7526
-#: ../src/caja-places-sidebar.c:2725
+#: ../src/caja-places-sidebar.c:2626
 msgid "_Format"
 msgstr "ഫോര്‍മാറ്റ് ചെയ്യുക"
 
@@ -4191,7 +4192,7 @@ msgstr "തെരഞ്ഞെടുത്ത വോള്യം ഫോര്‍�
 #: ../src/file-manager/fm-directory-view.c:8303
 #: ../src/file-manager/fm-directory-view.c:8409
 #: ../src/file-manager/fm-directory-view.c:8413
-#: ../src/caja-places-sidebar.c:1792 ../src/caja-places-sidebar.c:2732
+#: ../src/caja-places-sidebar.c:1693 ../src/caja-places-sidebar.c:2633
 msgid "_Start"
 msgstr "_ആരംഭിക്കുക"
 
@@ -4208,8 +4209,8 @@ msgstr "തെരഞ്ഞെടുത്ത വോള്യം ആരംഭി�
 #: ../src/file-manager/fm-directory-view.c:8236
 #: ../src/file-manager/fm-directory-view.c:8328
 #: ../src/file-manager/fm-directory-view.c:8438
-#: ../src/caja-places-sidebar.c:1793 ../src/caja-places-sidebar.c:2739
-#: ../src/caja-window-menus.c:862
+#: ../src/caja-places-sidebar.c:1694 ../src/caja-places-sidebar.c:2640
+#: ../src/caja-window-menus.c:863
 msgid "_Stop"
 msgstr "_നിര്‍‌ത്തുക"
 
@@ -4224,7 +4225,7 @@ msgstr "തെരഞ്ഞെടുത്ത വോള്യം നിര്‍�
 #: ../src/file-manager/fm-directory-view.c:7429
 #: ../src/file-manager/fm-directory-view.c:7457
 #: ../src/file-manager/fm-directory-view.c:7538
-#: ../src/caja-places-sidebar.c:2718
+#: ../src/caja-places-sidebar.c:2619
 msgid "_Detect Media"
 msgstr "മീഡിയാ _കണ്ടുപിടിക്കുക"
 
@@ -4392,7 +4393,7 @@ msgstr "തെരഞ്ഞെടുത്ത ഇനം ജാലകത്തി�
 #. name, stock id
 #. label, accelerator
 #: ../src/file-manager/fm-directory-view.c:7554
-#: ../src/file-manager/fm-directory-view.c:7558 ../src/caja-window-menus.c:917
+#: ../src/file-manager/fm-directory-view.c:7558 ../src/caja-window-menus.c:918
 msgid "_Home Folder"
 msgstr "_ആസ്ഥാനം"
 
@@ -4515,7 +4516,7 @@ msgstr "തെരഞ്ഞെടുത്ത ഡ്രൈവ് നിര്‍�
 #: ../src/file-manager/fm-directory-view.c:8240
 #: ../src/file-manager/fm-directory-view.c:8332
 #: ../src/file-manager/fm-directory-view.c:8442
-#: ../src/caja-places-sidebar.c:1801
+#: ../src/caja-places-sidebar.c:1702
 msgid "_Safely Remove Drive"
 msgstr "ഡ്രൈവ് _സുരക്ഷിതമായി നീക്കം ചെയ്യുക"
 
@@ -4549,7 +4550,7 @@ msgstr "തെരഞ്ഞെടുത്ത മള്‍ട്ടി-ഡിസ�
 #: ../src/file-manager/fm-directory-view.c:8252
 #: ../src/file-manager/fm-directory-view.c:8344
 #: ../src/file-manager/fm-directory-view.c:8454
-#: ../src/caja-places-sidebar.c:1814
+#: ../src/caja-places-sidebar.c:1715
 msgid "_Lock Drive"
 msgstr "ഡ്രൈവ് _പൂട്ടുക"
 
@@ -4574,7 +4575,7 @@ msgstr "തുറന്ന ഫോള്‍ഡറുമായി ബന്ധമ�
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
 #: ../src/file-manager/fm-directory-view.c:8315
 #: ../src/file-manager/fm-directory-view.c:8425
-#: ../src/caja-places-sidebar.c:1813
+#: ../src/caja-places-sidebar.c:1714
 msgid "_Unlock Drive"
 msgstr "ഡ്രൈവിന്റെ _പൂട്ട് തുറക്കുക"
 
@@ -4605,7 +4606,7 @@ msgstr "തുറന്ന ഫോള്‍ഡറുമായി ബന്ധമ�
 #. add the "open in new window" menu item
 #: ../src/file-manager/fm-directory-view.c:8524
 #: ../src/file-manager/fm-directory-view.c:8834
-#: ../src/file-manager/fm-tree-view.c:1276 ../src/caja-places-sidebar.c:2668
+#: ../src/file-manager/fm-tree-view.c:1276 ../src/caja-places-sidebar.c:2569
 msgid "Open in New _Window"
 msgstr "പുതിയ ജാലകത്തില്‍ തുറക്കുക"
 
@@ -5313,7 +5314,7 @@ msgstr "ഫയലിലേയ്ക്കുള്ള പ്രവേശനം:"
 #. Translators: this is referred to captions under icons.
 #: ../src/file-manager/fm-properties-window.c:4292
 #: ../src/file-manager/fm-properties-window.c:4303
-#: ../src/caja-file-management-properties.c:318
+#: ../src/caja-file-management-properties.c:319
 msgid "None"
 msgstr "ഒന്നുമില്ല "
 
@@ -5436,46 +5437,42 @@ msgstr "ഗുണഗണങ്ങളുടെ ജാലകം തയ്യാറ�
 msgid "Select Custom Icon"
 msgstr "ഇഷ്ട സൂചനാചിത്രം തെരഞ്ഞെടുക്കുക"
 
-#: ../src/file-manager/fm-tree-view.c:1427 ../src/caja-places-sidebar.c:719
+#: ../src/file-manager/fm-tree-view.c:1427 ../src/caja-places-sidebar.c:539
 msgid "File System"
 msgstr "ഫയല്‍ സിസ്റ്റം "
 
-#: ../src/file-manager/fm-tree-view.c:1431
-msgid "Network Neighbourhood"
-msgstr "Network Neighbourhood"
-
-#: ../src/file-manager/fm-tree-view.c:1716
+#: ../src/file-manager/fm-tree-view.c:1715
 msgid "Tree"
 msgstr "ശാഖി"
 
-#: ../src/file-manager/fm-tree-view.c:1722
+#: ../src/file-manager/fm-tree-view.c:1721
 msgid "Show Tree"
 msgstr "ശാഖി കാണിക്കുക"
 
-#: ../src/caja-application.c:434
+#: ../src/caja-application.c:428
 #, c-format
 msgid "Caja could not create the required folder \"%s\"."
 msgstr "നോട്ടിലസ്സിന് ആവശ്യമുളള അറ \"%s\" ഉണ്ടാക്കുവാന്‍ സാധ്യമായില്ല."
 
-#: ../src/caja-application.c:436
+#: ../src/caja-application.c:430
 msgid ""
 "Before running Caja, please create the following folder, or set permissions "
 "such that Caja can create it."
 msgstr "നോട്ടിലസ് ഓടിക്കുന്നതിന് മുമ്പു് താഴെ പറയുന്ന അറ ഉണ്ടാക്കുക, അല്ലെങ്കില്‍ നോട്ടിലസിന് അതു്  ഉണ്ടാക്കാന്‍ തക്ക അനുവാദങ്ങള്‍ കൊടുക്കുക."
 
-#: ../src/caja-application.c:441
+#: ../src/caja-application.c:435
 #, c-format
 msgid "Caja could not create the following required folders: %s."
 msgstr "താഴെ പറയുന്ന ആവശ്യമുളള അറകള്‍ നോട്ടിലസിന് ഉണ്ടാക്കുവാന്‍ സാധ്യമായില്ല: %s"
 
-#: ../src/caja-application.c:443
+#: ../src/caja-application.c:437
 msgid ""
 "Before running Caja, please create these folders, or set permissions such "
 "that Caja can create them."
 msgstr "നോട്ടിലസ് ഓടിക്കുന്നതിന് മുമ്പു് താഴെ പറയുന്ന അറ ഉണ്ടാക്കുക, അല്ലെങ്കില്‍ നോട്ടിലസിന് അതു്  ഉണ്ടാക്കാന്‍ തക്ക അനുവാദങ്ങള്‍ കൊടുക്കുക."
 
-#: ../src/caja-application.c:1660 ../src/caja-places-sidebar.c:2200
-#: ../src/caja-places-sidebar.c:2231 ../src/caja-places-sidebar.c:2262
+#: ../src/caja-application.c:1514 ../src/caja-places-sidebar.c:2101
+#: ../src/caja-places-sidebar.c:2132 ../src/caja-places-sidebar.c:2163
 #, c-format
 msgid "Unable to eject %s"
 msgstr "%s പുറത്തെടുക്കാന്‍ സാധിച്ചില്ല"
@@ -5509,8 +5506,8 @@ msgid ""
 msgstr "ഈ സോഫ്റ്റ്‌വെയര്‍ \"%s\" എന്ന മാധ്യമത്തില്‍ നിന്നും നേരിട്ടു് പ്രവര്‍ത്തിയ്ക്കും. നിങ്ങള്‍ക്കു് വിശ്വാസമില്ലാത്ത സോഫ്റ്റ്‌വെയര്‍ നിങ്ങളൊരിയ്ക്കലും പ്രവര്‍ത്തിപ്പിയ്ക്കരുതു്.\n\nസംശയത്തിലാണെങ്കില്‍, റദ്ദാക്കുക."
 
 #: ../src/caja-bookmarks-window.c:158
-#: ../src/caja-file-management-properties.c:225
-#: ../src/caja-property-browser.c:1654 ../src/caja-window-menus.c:616
+#: ../src/caja-file-management-properties.c:226
+#: ../src/caja-property-browser.c:1654 ../src/caja-window-menus.c:617
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
@@ -5669,7 +5666,7 @@ msgid "Bookmark Name:"
 msgstr ""
 
 #: ../src/caja-desktop-window.c:81 ../src/caja-desktop-window.c:251
-#: ../src/caja-pathbar.c:1524 ../src/caja-places-sidebar.c:704
+#: ../src/caja-pathbar.c:1524 ../src/caja-places-sidebar.c:524
 msgid "Desktop"
 msgstr "പണിയിടം"
 
@@ -6004,119 +6001,127 @@ msgid "_Format:"
 msgstr "ഫോര്‍മാറ്റ് ചെയ്യുക:"
 
 #: ../src/caja-file-management-properties.ui.h:73
+msgid "<b>Size</b>"
+msgstr ""
+
+#: ../src/caja-file-management-properties.ui.h:74
+msgid "_Show file sizes with IEC units"
+msgstr ""
+
+#: ../src/caja-file-management-properties.ui.h:75
 msgid "Display"
 msgstr "പ്രദര്‍ശനം "
 
-#: ../src/caja-file-management-properties.ui.h:74
+#: ../src/caja-file-management-properties.ui.h:76
 msgid "<b>List Columns</b>"
 msgstr "<b>നിരകള്‍ ലിസ്റ്റ് ചെയ്യുക</b>"
 
-#: ../src/caja-file-management-properties.ui.h:75
+#: ../src/caja-file-management-properties.ui.h:77
 msgid "Choose the order of information to appear in the list view."
 msgstr "പട്ടികാപ്രദര്‍ശനരീതിയില്‍ കാണപ്പെടേണ്ട വിവരങ്ങളുടെ ക്രമം തിരഞ്ഞെടുക്കുക."
 
-#: ../src/caja-file-management-properties.ui.h:76
+#: ../src/caja-file-management-properties.ui.h:78
 msgid "List Columns"
 msgstr "നിരകള്‍ ലിസ്റ്റ് ചെയ്യുക"
 
-#: ../src/caja-file-management-properties.ui.h:77
+#: ../src/caja-file-management-properties.ui.h:79
 msgid "<b>Text Files</b>"
 msgstr "<b>ടെക്സ്റ്റ് ഫയലുകള്‍</b>"
 
-#: ../src/caja-file-management-properties.ui.h:78
+#: ../src/caja-file-management-properties.ui.h:80
 msgid "Show te_xt in icons:"
 msgstr "സൂചനാചിത്രങ്ങളുടെ കൂടെ ശീര്‍ഷകങ്ങള്‍ കാണിക്കുക:"
 
-#: ../src/caja-file-management-properties.ui.h:79
+#: ../src/caja-file-management-properties.ui.h:81
 msgid "<b>Other Previewable Files</b>"
 msgstr "<b>ക്രമീകരണത്തിന് മുമ്പു് കാണുവാന്‍ സാധ്യമായ മറ്റ് ഫയലുകള്‍</b>"
 
-#: ../src/caja-file-management-properties.ui.h:80
+#: ../src/caja-file-management-properties.ui.h:82
 msgid "Show _thumbnails:"
 msgstr "നഖചിത്രങ്ങള്‍ പ്രദര്‍ശിപ്പിക്കുക:"
 
-#: ../src/caja-file-management-properties.ui.h:81
+#: ../src/caja-file-management-properties.ui.h:83
 msgid "_Only for files smaller than:"
 msgstr "ഇതിലും ചെറുതായ രചനകള്‍ക്കു് മാത്രം:"
 
-#: ../src/caja-file-management-properties.ui.h:82
+#: ../src/caja-file-management-properties.ui.h:84
 msgid "<b>Sound Files</b>"
 msgstr "<b>ശബ്ദ ഫയലുകള്‍</b>"
 
-#: ../src/caja-file-management-properties.ui.h:83
+#: ../src/caja-file-management-properties.ui.h:85
 msgid "Preview _sound files:"
 msgstr "ശബ്ദഫയലുകളുടെ തിരനോട്ടം:"
 
-#: ../src/caja-file-management-properties.ui.h:84
+#: ../src/caja-file-management-properties.ui.h:86
 msgid "<b>Folders</b>"
 msgstr "<b>ഫോള്‍ഡറുകള്‍</b>"
 
-#: ../src/caja-file-management-properties.ui.h:85
+#: ../src/caja-file-management-properties.ui.h:87
 msgid "Count _number of items:"
 msgstr "ഇനങ്ങളുടെ എണ്ണം തിട്ടപ്പെടുത്തുക:"
 
-#: ../src/caja-file-management-properties.ui.h:86
+#: ../src/caja-file-management-properties.ui.h:88
 msgid "Preview"
 msgstr "തിരനോട്ടം"
 
-#: ../src/caja-file-management-properties.ui.h:87
+#: ../src/caja-file-management-properties.ui.h:89
 msgid "<b>Media Handling</b>"
 msgstr "<b>മാധ്യമത്തെ കൈകാര്യം ചെയ്യുന്നതു്</b>"
 
-#: ../src/caja-file-management-properties.ui.h:88
+#: ../src/caja-file-management-properties.ui.h:90
 msgid ""
 "Choose what happens when inserting media or connecting devices to the system"
 msgstr "മാധ്യമങ്ങള്‍ വയ്ക്കുമ്പോളോ ഉപകരണങ്ങള്‍ ഘടിപ്പിയ്ക്കുമ്പോഴോ എന്താണു് ചെയ്യേണ്ടതെന്നു് തെരഞ്ഞെടുക്കുക"
 
-#: ../src/caja-file-management-properties.ui.h:89
+#: ../src/caja-file-management-properties.ui.h:91
 msgid "CD _Audio:"
 msgstr "സി‍ഡി _ശബ്ദം:"
 
-#: ../src/caja-file-management-properties.ui.h:90
+#: ../src/caja-file-management-properties.ui.h:92
 msgid "_DVD Video:"
 msgstr "ഡിവിഡി വീഡിയോ:"
 
-#: ../src/caja-file-management-properties.ui.h:91
+#: ../src/caja-file-management-properties.ui.h:93
 msgid "_Music Player:"
 msgstr "_പാട്ടുപെട്ടി:"
 
-#: ../src/caja-file-management-properties.ui.h:92
+#: ../src/caja-file-management-properties.ui.h:94
 msgid "_Photos:"
 msgstr "ഫോട്ടോ :"
 
-#: ../src/caja-file-management-properties.ui.h:93
+#: ../src/caja-file-management-properties.ui.h:95
 msgid "_Software:"
 msgstr "സോഫ്റ്റ്‌വെയര്‍:"
 
-#: ../src/caja-file-management-properties.ui.h:94
+#: ../src/caja-file-management-properties.ui.h:96
 msgid "<b>Other Media</b>"
 msgstr "<b>മറ്റു് മാധ്യമം</b>"
 
-#: ../src/caja-file-management-properties.ui.h:95
+#: ../src/caja-file-management-properties.ui.h:97
 msgid "Less common media formats can be configured here"
 msgstr "സാധാരണയല്ലാത്ത മാധ്യമങ്ങളുടെ ഫോര്‍മാറ്റുകള്‍ ഇവിടെ ക്രമീകരിയ്ക്കാം"
 
-#: ../src/caja-file-management-properties.ui.h:96
+#: ../src/caja-file-management-properties.ui.h:98
 msgid "Acti_on:"
 msgstr "പ്രവര്‍ത്തി:"
 
-#: ../src/caja-file-management-properties.ui.h:97
+#: ../src/caja-file-management-properties.ui.h:99
 msgid "_Type:"
 msgstr "ഏതു്  തരം:"
 
-#: ../src/caja-file-management-properties.ui.h:98
+#: ../src/caja-file-management-properties.ui.h:100
 msgid "_Never prompt or start programs on media insertion"
 msgstr "മാധ്യമം വയ്ക്കുമ്പോള്‍ _ഒരിയ്ക്കലും പ്രോഗ്രാമുകള്‍ തുടങ്ങുകയോ ഓര്‍മ്മപ്പെടുത്തുകയോ വേണ്ട"
 
-#: ../src/caja-file-management-properties.ui.h:99
+#: ../src/caja-file-management-properties.ui.h:101
 msgid "B_rowse media when inserted"
 msgstr "വച്ചു് കഴിഞ്ഞാല്‍ മാധ്യമത്തില്‍ പ_രതുക"
 
-#: ../src/caja-file-management-properties.ui.h:100
+#: ../src/caja-file-management-properties.ui.h:102
 msgid "Media"
 msgstr "മാധ്യമം"
 
-#: ../src/caja-file-management-properties.ui.h:101
+#: ../src/caja-file-management-properties.ui.h:103
 msgid "Plugins"
 msgstr ""
 
@@ -6629,84 +6634,84 @@ msgstr ""
 msgid "Bookmarks"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:541 ../src/caja-places-sidebar.c:569
+#: ../src/caja-places-sidebar.c:526
+msgid "Open the contents of your desktop in a folder"
+msgstr "നിങ്ങളുടെ പണിയറയിലുള്ളവ ഒരു ഫോള്‍ഡറില്‍ തുറക്കുക"
+
+#: ../src/caja-places-sidebar.c:541
+msgid "Open the contents of the File System"
+msgstr "ഫയല്‍ സിസ്റ്റത്തിലുള്ളവ തുറക്കുക"
+
+#: ../src/caja-places-sidebar.c:600
+msgid "Open the trash"
+msgstr "ചവറ്റുകുട്ട തുറക്കുക"
+
+#: ../src/caja-places-sidebar.c:655 ../src/caja-places-sidebar.c:683
 #, c-format
 msgid "Mount and open %s"
 msgstr "മൌണ്ട് ചെയ്തു് %s തുറക്കുക"
 
-#: ../src/caja-places-sidebar.c:706
-msgid "Open the contents of your desktop in a folder"
-msgstr "നിങ്ങളുടെ പണിയറയിലുള്ളവ ഒരു ഫോള്‍ഡറില്‍ തുറക്കുക"
-
-#: ../src/caja-places-sidebar.c:721
-msgid "Open the contents of the File System"
-msgstr "ഫയല്‍ സിസ്റ്റത്തിലുള്ളവ തുറക്കുക"
-
-#: ../src/caja-places-sidebar.c:826
-msgid "Open the trash"
-msgstr "ചവറ്റുകുട്ട തുറക്കുക"
-
-#: ../src/caja-places-sidebar.c:834 ../src/mate-network-scheme.desktop.in.h:1
+#: ../src/caja-places-sidebar.c:836 ../src/mate-network-scheme.desktop.in.h:1
 msgid "Network"
 msgstr "നെറ്റ്‌വര്‍ക്ക്"
 
-#: ../src/caja-places-sidebar.c:866
+#: ../src/caja-places-sidebar.c:868
 msgid "Browse Network"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:868
+#: ../src/caja-places-sidebar.c:870
 msgid "Browse the contents of the network"
 msgstr "നെറ്റ്‌വര്‍ക്കിലുള്ളവ തെരയുക"
 
 #. start() for type G_DRIVE_START_STOP_TYPE_SHUTDOWN is normally not used
-#: ../src/caja-places-sidebar.c:1800
+#: ../src/caja-places-sidebar.c:1701
 msgid "_Power On"
 msgstr "_പവര്‍ ഓണ്‍ ചെയ്യുക"
 
-#: ../src/caja-places-sidebar.c:1804
+#: ../src/caja-places-sidebar.c:1705
 msgid "_Connect Drive"
 msgstr "ഡ്രൈവ് _കണക്ടു് ചെയ്യുക"
 
-#: ../src/caja-places-sidebar.c:1805
+#: ../src/caja-places-sidebar.c:1706
 msgid "_Disconnect Drive"
 msgstr "ഡ്രൈവ് _വിഛേദിക്കുക"
 
-#: ../src/caja-places-sidebar.c:1808
+#: ../src/caja-places-sidebar.c:1709
 msgid "_Start Multi-disk Device"
 msgstr "_മള്‍ട്ടി-ഡിസ്ക് ഡിവൈസ് ആരംഭിക്കുക"
 
-#: ../src/caja-places-sidebar.c:1809
+#: ../src/caja-places-sidebar.c:1710
 msgid "_Stop Multi-disk Device"
 msgstr "_മള്‍ട്ടി-ഡിസ്ക് ഡിവൈസ് നിര്‍ത്തുക"
 
-#: ../src/caja-places-sidebar.c:1896 ../src/caja-places-sidebar.c:2474
+#: ../src/caja-places-sidebar.c:1797 ../src/caja-places-sidebar.c:2375
 #, c-format
 msgid "Unable to start %s"
 msgstr "%s ആരംഭിക്കുവാന്‍ സാധ്യമല്ല"
 
-#: ../src/caja-places-sidebar.c:2418
+#: ../src/caja-places-sidebar.c:2319
 #, c-format
 msgid "Unable to poll %s for media changes"
 msgstr "മാധ്യമത്തില്‍ മാറ്റമുണ്ടോ എന്നറിയാന്‍ %s ല്‍ നോക്കുവാന്‍ സാധിച്ചില്ല"
 
-#: ../src/caja-places-sidebar.c:2534
+#: ../src/caja-places-sidebar.c:2435
 #, c-format
 msgid "Unable to stop %s"
 msgstr "%s നിര്‍ത്തുവാന്‍ സാധ്യമല്ല"
 
-#: ../src/caja-places-sidebar.c:2676
+#: ../src/caja-places-sidebar.c:2577
 msgid "Remove"
 msgstr "നീക്കം ചെയ്യുക"
 
-#: ../src/caja-places-sidebar.c:2685
+#: ../src/caja-places-sidebar.c:2586
 msgid "Rename..."
 msgstr "പേരു് മാറ്റുക... "
 
-#: ../src/caja-places-sidebar.c:3378
+#: ../src/caja-places-sidebar.c:3278
 msgid "Places"
 msgstr "സ്ഥലങ്ങള്‍"
 
-#: ../src/caja-places-sidebar.c:3384
+#: ../src/caja-places-sidebar.c:3284
 msgid "Show Places"
 msgstr "സ്ഥലങ്ങള്‍ കാണിക്കുക"
 
@@ -7026,53 +7031,53 @@ msgstr "നിങ്ങള്‍ക്കീ പട്ടികയില്‍ �
 msgid "Bookmark for Nonexistent Location"
 msgstr "നിലവിലില്ലാത്ത സ്ഥാനത്തിനുവേണ്ടിയുള്ള സ്ഥാനസൂചി"
 
-#: ../src/caja-window-manage-views.c:814
+#: ../src/caja-window-manage-views.c:822
 msgid "You can choose another view or go to a different location."
 msgstr "നിങ്ങള്‍ക്കു് മറ്റൊരു കാഴ്ച തിരഞ്ഞെടുക്കുകയോ മറ്റൊരു സ്ഥലത്തേക്കു് പോകുകയോ ചെയ്യാം."
 
-#: ../src/caja-window-manage-views.c:833
+#: ../src/caja-window-manage-views.c:841
 msgid "The location cannot be displayed with this viewer."
 msgstr "ഈ ദര്‍ശിനി ഉപയോഗിച്ചു് സ്ഥാനം പ്രദര്‍ശിപ്പിക്കുവാന്‍ സാധ്യമായില്ല"
 
-#: ../src/caja-window-manage-views.c:1422
+#: ../src/caja-window-manage-views.c:1430
 msgid "Content View"
 msgstr "ഉള്ളടക്ക പ്രദര്‍ശനം"
 
-#: ../src/caja-window-manage-views.c:1423
+#: ../src/caja-window-manage-views.c:1431
 msgid "View of the current folder"
 msgstr "നിലവിലുളള അറ കാണുക"
 
-#: ../src/caja-window-manage-views.c:2114
+#: ../src/caja-window-manage-views.c:2122
 msgid "Caja has no installed viewer capable of displaying the folder."
 msgstr "അറ പ്രദര്‍ശിപ്പിക്കുന്നതിന് കഴിവുളള ദര്‍ശിനി നോട്ടിലസില്‍ ഇന്‍സ്റ്റാള്‍ ചെയ്യപ്പെട്ടിട്ടില്ല."
 
-#: ../src/caja-window-manage-views.c:2122
+#: ../src/caja-window-manage-views.c:2130
 msgid "The location is not a folder."
 msgstr "സ്ഥാനം ഒരു അറ അല്ല."
 
-#: ../src/caja-window-manage-views.c:2131
+#: ../src/caja-window-manage-views.c:2139
 #, c-format
 msgid "Could not find \"%s\"."
 msgstr "\"%s\" കണ്ടുപിടിയ്ക്കാന്‍ സാധിച്ചില്ല."
 
-#: ../src/caja-window-manage-views.c:2134
+#: ../src/caja-window-manage-views.c:2142
 msgid "Please check the spelling and try again."
 msgstr "ദയവായി അക്ഷരതെറ്റ് പരിശോധിച്ച ശേഷം വീണ്ടും ശ്രമിക്കുക."
 
-#: ../src/caja-window-manage-views.c:2143
+#: ../src/caja-window-manage-views.c:2151
 #, c-format
 msgid "Caja cannot handle \"%s\" locations."
 msgstr "നോട്ടിലസിനു് \"%s\" സ്ഥാനങ്ങള്‍ കൈകാര്യം ചെയ്യുവാന്‍ സാധ്യമല്ല."
 
-#: ../src/caja-window-manage-views.c:2148
+#: ../src/caja-window-manage-views.c:2156
 msgid "Caja cannot handle this kind of location."
 msgstr "നോട്ടിലസിന് ഇത്തരം സ്ഥാനം കൈകാര്യം ചെയ്യുവാന്‍ സാധ്യമല്ല."
 
-#: ../src/caja-window-manage-views.c:2155
+#: ../src/caja-window-manage-views.c:2163
 msgid "Unable to mount the location."
 msgstr "സ്ഥലം മൌണ്ടു് ചെയ്യുവാന്‍ സാധ്യമല്ല."
 
-#: ../src/caja-window-manage-views.c:2161
+#: ../src/caja-window-manage-views.c:2169
 msgid "Access was denied."
 msgstr "പ്രവേശനം നിഷിദ്ധം."
 
@@ -7080,28 +7085,28 @@ msgstr "പ്രവേശനം നിഷിദ്ധം."
 #. * the code that guesses web addresses when there's no initial "/".
 #. * But this case is also hit for legitimate web addresses when
 #. * the proxy is set up wrong.
-#: ../src/caja-window-manage-views.c:2170
+#: ../src/caja-window-manage-views.c:2178
 #, c-format
 msgid "Could not display \"%s\", because the host could not be found."
 msgstr "\"%s\" പ്രദര്‍ശിപ്പിക്കുവാന്‍ സാധ്യമായില്ല, കാരണം ഹോസ്റ്റ് കണ്ടുപിടിയ്ക്കാന്‍ സാധിച്ചില്ല."
 
-#: ../src/caja-window-manage-views.c:2172
+#: ../src/caja-window-manage-views.c:2180
 msgid ""
 "Check that the spelling is correct and that your proxy settings are correct."
 msgstr "അക്ഷരത്തെറ്റും നിങ്ങളുടെ പ്രോക്സി ക്രമീകരണങ്ങളും പരിശോധിക്കുക."
 
-#: ../src/caja-window-manage-views.c:2188
+#: ../src/caja-window-manage-views.c:2196
 #, c-format
 msgid ""
 "Error: %s\n"
 "Please select another viewer and try again."
 msgstr "പിശക്: %s\nദയവായി മറ്റൊരു ദര്‍ശിനി തിരഞ്ഞെടുത്തു്  വീണ്ടും ശ്രമിക്കുക."
 
-#: ../src/caja-window-menus.c:192
+#: ../src/caja-window-menus.c:193
 msgid "Go to the location specified by this bookmark"
 msgstr "ഈ അടയാളം ചൂണ്ടിക്കാട്ടിയ സ്ഥാനത്തു പോകുക"
 
-#: ../src/caja-window-menus.c:514
+#: ../src/caja-window-menus.c:515
 msgid ""
 "Caja is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -7109,7 +7114,7 @@ msgid ""
 "version."
 msgstr "നോട്ടിലസ് ഒരു സ്വതന്ത്ര സോഫ്റ്റ്‌വെയറാണു്, നിങ്ങള്‍ക്കതു്  പുനര്‍വിതരണം നടത്തുകയോ സ്വതന്ത്ര സോഫ്റ്റ്‌വെയര്‍ ഫൌണ്ടേഷന്‍ പ്രസിദ്ധീകരിച്ച ഗ്നു ജനറല്‍ പബ്ലികു് ലൈസന്‍സ് ലക്കം 2 ഓ അതിനേക്കാള്‍ പുതിയ പതിപ്പോ(നിങ്ങളുടെ ഇഷ്ടപ്രകാരം) പ്രകാരം ഭേദഗതി വരുത്താവുന്നതോ ആണു്."
 
-#: ../src/caja-window-menus.c:518
+#: ../src/caja-window-menus.c:519
 msgid ""
 "Caja is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -7117,233 +7122,233 @@ msgid ""
 "details."
 msgstr "നോട്ടിലസ് നിങ്ങള്‍ക്കു് പ്രയോജനപ്പെടും എന്ന പ്രതീക്ഷയില്‍ വിതരണം ചെയ്യുന്നതാണു്,\nപക്ഷേ, ഇതിന് ഒരു വാറണ്ടിയും ലഭ്യമല്ല; വ്യാപാരയോഗ്യതയോ ഒരു പ്രത്യേക കാര്യത്തിനു്\nചേരുന്നതാണെന്നോ ഉള്ള പരോക്ഷമായ ഒരു വാറണ്ടി പോലും ഇല്ല. കൂടുതല്‍ വിവരങ്ങള്‍ക്കു് ഗ്നു ജനറല്‍ പബ്ലിക് ലൈസന്‍സ് കാണുക."
 
-#: ../src/caja-window-menus.c:522
+#: ../src/caja-window-menus.c:523
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301 USA"
 msgstr "നിങ്ങള്‍ക്കു് നോട്ടിലസിനോടൊപ്പം ഗ്നു ജനറല്‍ പബ്ലിക് ലൈസന്‍സിന്റെ ഒരു പകര്‍പ്പു് ലഭിച്ചിട്ടുണ്ടായിരിയ്ക്കണം; ഇല്ലെങ്കില്‍, ഈ വിലാസത്തിലേയ്ക്കെഴുതുക: Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA."
 
-#: ../src/caja-window-menus.c:534
+#: ../src/caja-window-menus.c:535
 msgid ""
 "Caja lets you organize files and folders, both on your computer and online."
 msgstr "നിങ്ങളുടെ കമ്പ്യൂട്ടറിലും ഓണ്‍ലൈനായും ഫയലുകളും ഫോള്‍ഡറുകളും സംഘടിപ്പിക്കുന്നതിനായി നൌട്ടിലസ് സഹായിക്കുന്നു."
 
-#: ../src/caja-window-menus.c:537
+#: ../src/caja-window-menus.c:538
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
-"Copyright © 2011-2013 The Caja authors"
+"Copyright © 2011-2014 The Caja authors"
 msgstr ""
 
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
 #. * box to give credit to the translator(s).
-#: ../src/caja-window-menus.c:547
+#: ../src/caja-window-menus.c:548
 msgid "translator-credits"
 msgstr "സന്തോഷ് തോട്ടിങ്ങല്‍ <santhosh.thottingal@gmail.com>\nഅനി പീറ്റര്‍ <peter.ani@gmail.com>"
 
-#: ../src/caja-window-menus.c:550
+#: ../src/caja-window-menus.c:551
 msgid "MATE Web Site"
 msgstr ""
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:832
+#: ../src/caja-window-menus.c:833
 msgid "_File"
 msgstr "ശേഖരം"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:833
+#: ../src/caja-window-menus.c:834
 msgid "_Edit"
 msgstr "ചിട്ട"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:834
+#: ../src/caja-window-menus.c:835
 msgid "_View"
 msgstr "കാഴ്ച"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:835
+#: ../src/caja-window-menus.c:836
 msgid "_Help"
 msgstr "സ_ഹായം"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:837
+#: ../src/caja-window-menus.c:838
 msgid "_Close"
 msgstr "അ_ടയ്ക്കുക"
 
 #. tooltip
-#: ../src/caja-window-menus.c:838
+#: ../src/caja-window-menus.c:839
 msgid "Close this folder"
 msgstr "ഈ അറ അടയ്ക്കുക"
 
-#: ../src/caja-window-menus.c:843
+#: ../src/caja-window-menus.c:844
 msgid "_Backgrounds and Emblems..."
 msgstr "പശ്ചാത്തലങ്ങളും ചിഹ്നങ്ങളും..."
 
-#: ../src/caja-window-menus.c:844
+#: ../src/caja-window-menus.c:845
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
 msgstr "കാഴ്ചയില്‍ ഭംഗിയുണ്ടാവാന്‍ വേണ്ടിയുള്ള പാറ്റേണ്‍,നിറം,ചിഹ്നം എന്നിവ പ്രദര്‍ശിപ്പിക്കുക"
 
-#: ../src/caja-window-menus.c:849
+#: ../src/caja-window-menus.c:850
 msgid "Prefere_nces"
 msgstr "മുന്‍‌ഗണനകള്‍"
 
-#: ../src/caja-window-menus.c:850
+#: ../src/caja-window-menus.c:851
 msgid "Edit Caja preferences"
 msgstr "നോട്ടിലസ് മുന്‍‌ഗണനകള്‍ തിരുത്തുക"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:853
+#: ../src/caja-window-menus.c:854
 msgid "Open _Parent"
 msgstr "_മാതൃഅറ തുറക്കുക"
 
-#: ../src/caja-window-menus.c:854
+#: ../src/caja-window-menus.c:855
 msgid "Open the parent folder"
 msgstr "മാതൃഅറ തുറക്കുക"
 
 #. tooltip
-#: ../src/caja-window-menus.c:863
+#: ../src/caja-window-menus.c:864
 msgid "Stop loading the current location"
 msgstr "നിലവിലുളള സ്ഥാനം ലഭ്യമാക്കുന്നതു്  നിര്‍‌ത്തുക"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:867
+#: ../src/caja-window-menus.c:868
 msgid "_Reload"
 msgstr "_പുതുക്കുക"
 
 #. tooltip
-#: ../src/caja-window-menus.c:868
+#: ../src/caja-window-menus.c:869
 msgid "Reload the current location"
 msgstr "നിലവിലുളള സ്ഥാനം പുതുക്കുക"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:872
+#: ../src/caja-window-menus.c:873
 msgid "_Contents"
 msgstr "_ഉള്ളടക്കം"
 
 #. tooltip
-#: ../src/caja-window-menus.c:873
+#: ../src/caja-window-menus.c:874
 msgid "Display Caja help"
 msgstr "നോട്ടിലസ് സഹായകഗ്രന്ഥം തുറക്കുക"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:877
+#: ../src/caja-window-menus.c:878
 msgid "_About"
 msgstr "_നോട്ടിലസിനെപ്പറ്റി"
 
 #. tooltip
-#: ../src/caja-window-menus.c:878
+#: ../src/caja-window-menus.c:879
 msgid "Display credits for the creators of Caja"
 msgstr "നോട്ടിലസിന്റെ പിന്നണിയില്‍ ആരെല്ലാമെന്നു് കാണിക്കുക"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:882
+#: ../src/caja-window-menus.c:883
 msgid "Zoom _In"
 msgstr "വ_ലുതാക്കുക"
 
 #. tooltip
-#: ../src/caja-window-menus.c:883 ../src/caja-zoom-control.c:99
+#: ../src/caja-window-menus.c:884 ../src/caja-zoom-control.c:99
 #: ../src/caja-zoom-control.c:372
 msgid "Increase the view size"
 msgstr "കാഴ്ചയുടെ വലിപ്പം കൂട്ടുക"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:897
+#: ../src/caja-window-menus.c:898
 msgid "Zoom _Out"
 msgstr "ചെ_റുതാക്കുക"
 
 #. tooltip
-#: ../src/caja-window-menus.c:898 ../src/caja-zoom-control.c:100
+#: ../src/caja-window-menus.c:899 ../src/caja-zoom-control.c:100
 #: ../src/caja-zoom-control.c:321
 msgid "Decrease the view size"
 msgstr "കാഴ്ചയുടെ വലിപ്പം കുറയ്ക്കുക"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:907
+#: ../src/caja-window-menus.c:908
 msgid "Normal Si_ze"
 msgstr "_സാധാരണ വലിപ്പം"
 
 #. tooltip
-#: ../src/caja-window-menus.c:908 ../src/caja-zoom-control.c:101
+#: ../src/caja-window-menus.c:909 ../src/caja-zoom-control.c:101
 #: ../src/caja-zoom-control.c:334
 msgid "Use the normal view size"
 msgstr "സാധാരണ കാഴ്ചയ്ക്കുള്ള വലിപ്പമുപയോഗിയ്ക്കുക"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:912
+#: ../src/caja-window-menus.c:913
 msgid "Connect to _Server..."
 msgstr "സെര്‍വറിലേയ്ക്കു് _കണക്ടു് ചെയ്യുക..."
 
 #. tooltip
-#: ../src/caja-window-menus.c:913
+#: ../src/caja-window-menus.c:914
 msgid "Connect to a remote computer or shared disk"
 msgstr "ഒരു വിദൂര  കമ്പ്യൂട്ടറിലേയ്ക്കു് അല്ലെങ്കില്‍ ഷെയേര്‍ഡ് ഡിസ്കിലേക്കു് കണക്ടു് ചെയ്യുക"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:922
+#: ../src/caja-window-menus.c:923
 msgid "_Computer"
 msgstr "_കമ്പ്യൂട്ടര്‍"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:927
+#: ../src/caja-window-menus.c:928
 msgid "_Network"
 msgstr "_നെറ്റ്‌വര്‍ക്ക്"
 
 #. tooltip
-#: ../src/caja-window-menus.c:928 ../src/mate-network-scheme.desktop.in.h:2
+#: ../src/caja-window-menus.c:929 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
 msgstr "അടയാളപ്പെടുത്തിയ വെബ് പേജുകളും ലോക്കല്‍ നെറ്റ്‌വര്‍ക്ക്​ സ്ഥാനങ്ങളും തിരയുക"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:932
+#: ../src/caja-window-menus.c:933
 msgid "T_emplates"
 msgstr "ടെംപ്ളേറ്റ്സ്"
 
 #. tooltip
-#: ../src/caja-window-menus.c:933
+#: ../src/caja-window-menus.c:934
 msgid "Open your personal templates folder"
 msgstr "നിങ്ങളുടെ ടെംപ്ളേറ്റ്സ് അറ തുറക്കുക"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:937
+#: ../src/caja-window-menus.c:938
 msgid "_Trash"
 msgstr "_ചവറ്റുകുട്ട"
 
 #. tooltip
-#: ../src/caja-window-menus.c:938
+#: ../src/caja-window-menus.c:939
 msgid "Open your personal trash folder"
 msgstr "നിങ്ങളുടെ ചവറ്റുകുട്ട തുറക്കുക"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:946
+#: ../src/caja-window-menus.c:947
 msgid "Show _Hidden Files"
 msgstr "അദൃശ്യമായ ഫയലുകള്‍ കാണിക്കുക"
 
 #. tooltip
-#: ../src/caja-window-menus.c:947
+#: ../src/caja-window-menus.c:948
 msgid "Toggle the display of hidden files in the current window"
 msgstr "ഇപ്പോഴുള്ള പ്രദര്‍ശനരീതിയില്‍ മറഞ്ഞിരിയ്ക്കുന്ന ഫയലുകള്‍ കാണിക്കുക/കാണിക്കാതിരിയ്ക്കുക"
 
-#: ../src/caja-window-menus.c:978
+#: ../src/caja-window-menus.c:979
 msgid "_Up"
 msgstr "_മുകളിലേയ്ക്ക്"
 
-#: ../src/caja-window-menus.c:981
+#: ../src/caja-window-menus.c:982
 msgid "_Home"
 msgstr "ആസ്ഥാനം"
 
