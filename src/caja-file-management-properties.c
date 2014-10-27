@@ -785,26 +785,47 @@ caja_file_management_properties_dialog_setup_extension_page (GtkBuilder *builder
                       G_CALLBACK (extension_state_toggled), view);
     
     icon_theme = gtk_icon_theme_get_default();
-    ext_pixbuf_icon = gtk_icon_theme_load_icon (icon_theme, "gtk-open", 
-                            GTK_ICON_SIZE_SMALL_TOOLBAR,
-                            GTK_ICON_LOOKUP_USE_BUILTIN, NULL);
     
     for (i = 0; i < g_list_length (extensions); i++)
     {
         Extension* ext = EXTENSION (g_list_nth_data (extensions, i));
-        
-        ext_text_info = g_markup_printf_escaped ("<b>%s</b>\n%s",
-                                                 ext->filename,
-                                                 "This is a placeholder.");
-        
+
+        if (ext->icon != NULL)
+        {
+            ext_pixbuf_icon = gtk_icon_theme_load_icon (icon_theme, ext->icon,
+                                                        24,
+                                                        GTK_ICON_LOOKUP_USE_BUILTIN, NULL);
+        }
+        else
+        {
+            ext_pixbuf_icon = gtk_icon_theme_load_icon (icon_theme, "system-run",
+                                                        24,
+                                                        GTK_ICON_LOOKUP_USE_BUILTIN, NULL);
+        }
+
+        if (ext->description != NULL)
+        {
+            ext_text_info = g_markup_printf_escaped ("<b>%s</b>\n%s",
+                                                     ext->name ? ext->name : ext->filename,
+                                                     ext->description);
+        }
+        else
+        {
+            ext_text_info = g_markup_printf_escaped ("<b>%s</b>",
+                                                     ext->name ? ext->name : ext->filename);
+        }
+
         gtk_list_store_append (store, &iter);
-		gtk_list_store_set (store, &iter,
+        gtk_list_store_set (store, &iter,
                             EXT_STATE_COLUMN, ext->state,
                             EXT_ICON_COLUMN, ext_pixbuf_icon, 
                             EXT_INFO_COLUMN, ext_text_info,
                             EXT_STRUCT_COLUMN, ext, -1);
+
+        g_free (ext_text_info);
+        if (ext_pixbuf_icon)
+            g_object_unref (ext_pixbuf_icon);
     }
-    g_free (ext_text_info);
 }
 
 static void

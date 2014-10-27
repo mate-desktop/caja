@@ -29,6 +29,9 @@
 
 typedef struct _Extension {
     gchar *filename;
+    gchar *name;
+    gchar *description;
+    gchar *icon;
     gboolean state;
     GObject *module;
 }Extension;

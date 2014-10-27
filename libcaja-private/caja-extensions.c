@@ -28,6 +28,7 @@
 
 #include <string.h>
 
+#define CAJA_EXTENSION_GROUP "Caja Extension"
 
 static GList *caja_extensions = NULL;
 
@@ -36,11 +37,27 @@ Extension *
 extension_new (gchar *filename, gboolean state, GObject *module)
 {
     Extension *ext;
-    
+    GKeyFile *extension_file;
+    gchar *extension_filename;
+
     ext = g_new0 (Extension, 1);
     ext->filename = filename;
+    ext->name = NULL;
+    ext->description = NULL;
     ext->state = state;
     ext->module = module;
+
+    extension_file = g_key_file_new ();
+    extension_filename = g_strdup_printf(CAJA_DATADIR "/extensions/%s.caja-extension", filename);
+    if (g_key_file_load_from_file (extension_file, extension_filename, G_KEY_FILE_NONE, NULL))
+    {
+        ext->name = g_key_file_get_locale_string (extension_file, CAJA_EXTENSION_GROUP, "Name", NULL, NULL);
+        ext->description = g_key_file_get_locale_string (extension_file, CAJA_EXTENSION_GROUP, "Description", NULL, NULL);
+        ext->icon = g_key_file_get_locale_string (extension_file, CAJA_EXTENSION_GROUP, "Icon", NULL, NULL);
+    }
+    g_key_file_free (extension_file);
+    g_free (extension_filename);
+
     return ext;
 }
 
@@ -130,13 +147,9 @@ gsettings_remove_from_list (const char *value)
 /* functions related to the extension management */
 
 static gboolean
-caja_extension_is_disabled (const gchar *extname)
+caja_extension_get_state (const gchar *extname)
 {
-    if (gsettings_key_has_value (extname))
-    {
-        return TRUE;
-    }
-    return FALSE;
+    return !gsettings_key_has_value (extname);
 }
 
 GList *
@@ -148,6 +161,7 @@ caja_extensions_get_for_type (GType type)
     for (l = caja_extensions; l != NULL; l = l->next)
     {
         Extension *ext = l->data;
+        ext->state = caja_extension_get_state (ext->filename);
         if (ext->state) // only load enabled extensions
         {
             if (G_TYPE_CHECK_INSTANCE_TYPE (G_OBJECT (ext->module), type))
@@ -174,9 +188,7 @@ caja_extension_register (gchar *filename, GObject *module)
     gchar *extname;
     
     extname = g_strndup (filename, strlen(filename) - 3);
-    
-    if (caja_extension_is_disabled (extname))
-        state = FALSE;
+    state = caja_extension_get_state (extname);
 
     Extension *ext = extension_new (extname, state, module);
     caja_extensions = g_list_append (caja_extensions, ext);
