@@ -43,7 +43,7 @@ enum
     LAST_SIGNAL
 };
 
-static guint signals[LAST_SIGNAL];
+static guint signals[LAST_SIGNAL] = { 0 };
 
 static void  caja_search_bar_class_init       (CajaSearchBarClass *class);
 static void  caja_search_bar_init             (CajaSearchBar      *bar);

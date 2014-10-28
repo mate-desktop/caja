@@ -71,7 +71,7 @@ enum
     LAST_SIGNAL
 };
 
-static guint signals[LAST_SIGNAL];
+static guint signals[LAST_SIGNAL] = { 0 };
 
 G_DEFINE_TYPE (CajaMergedDirectory, caja_merged_directory,
                CAJA_TYPE_DIRECTORY);

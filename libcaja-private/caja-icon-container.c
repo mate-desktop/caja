@@ -300,7 +300,7 @@ typedef struct
     gboolean tight;
 } PlacementGrid;
 
-static guint signals[LAST_SIGNAL];
+static guint signals[LAST_SIGNAL] = { 0 };
 
 /* Functions dealing with CajaIcons.  */
 

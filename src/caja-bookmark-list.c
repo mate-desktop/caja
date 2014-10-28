@@ -47,7 +47,7 @@ enum
     LAST_SIGNAL
 };
 
-static guint signals[LAST_SIGNAL];
+static guint signals[LAST_SIGNAL] = { 0 };
 static char *window_geometry;
 static CajaBookmarkList *singleton = NULL;
 

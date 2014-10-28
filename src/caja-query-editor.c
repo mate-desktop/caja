@@ -92,7 +92,7 @@ enum
     LAST_SIGNAL
 };
 
-static guint signals[LAST_SIGNAL];
+static guint signals[LAST_SIGNAL] = { 0 };
 
 static void  caja_query_editor_class_init       (CajaQueryEditorClass *class);
 static void  caja_query_editor_init             (CajaQueryEditor      *editor);

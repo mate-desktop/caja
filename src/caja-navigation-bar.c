@@ -41,7 +41,7 @@ enum
     LOCATION_CHANGED,
     LAST_SIGNAL
 };
-static guint signals[LAST_SIGNAL];
+static guint signals[LAST_SIGNAL] = { 0 };
 
 static void caja_navigation_bar_class_init (CajaNavigationBarClass *class);
 static void caja_navigation_bar_init       (CajaNavigationBar      *bar);
