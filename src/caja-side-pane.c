@@ -66,7 +66,7 @@ enum
     LAST_SIGNAL
 };
 
-static guint signals[LAST_SIGNAL];
+static guint signals[LAST_SIGNAL] = { 0 };
 
 EEL_CLASS_BOILERPLATE (CajaSidePane, caja_side_pane, GTK_TYPE_VBOX)
 

@@ -79,7 +79,7 @@ enum
 static void caja_tree_view_drag_dest_init (CajaTreeViewDragDest      *dest);
 static void caja_tree_view_drag_dest_class_init    (CajaTreeViewDragDestClass *class);
 
-static guint signals[LAST_SIGNAL];
+static guint signals[LAST_SIGNAL] = { 0 };
 
 G_DEFINE_TYPE (CajaTreeViewDragDest, caja_tree_view_drag_dest,
                G_TYPE_OBJECT);

@@ -63,7 +63,7 @@ enum
     USE_DEFAULT,
     LAST_SIGNAL
 };
-static guint signals[LAST_SIGNAL];
+static guint signals[LAST_SIGNAL] = { 0 };
 
 
 G_DEFINE_TYPE(CajaColumnChooser, caja_column_chooser, GTK_TYPE_HBOX);

@@ -67,7 +67,7 @@ enum
     LAST_SIGNAL
 };
 
-static guint signals[LAST_SIGNAL];
+static guint signals[LAST_SIGNAL] = { 0 };
 
 G_DEFINE_TYPE (CajaNotebook, caja_notebook, GTK_TYPE_NOTEBOOK);
 

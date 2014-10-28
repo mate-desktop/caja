@@ -116,7 +116,7 @@ enum {
 
 static int date_format_pref;
 
-static guint signals[LAST_SIGNAL];
+static guint signals[LAST_SIGNAL] = { 0 };
 
 static GHashTable *symbolic_links;
 

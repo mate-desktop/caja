@@ -47,7 +47,7 @@ enum
     LAST_SIGNAL
 };
 
-static guint signals[LAST_SIGNAL];
+static guint signals[LAST_SIGNAL] = { 0 };
 static CajaTrashMonitor *caja_trash_monitor = NULL;
 
 G_DEFINE_TYPE(CajaTrashMonitor, caja_trash_monitor, G_TYPE_OBJECT)

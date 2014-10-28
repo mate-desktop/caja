@@ -76,7 +76,7 @@ struct CajaZoomControlDetails
 };
 
 
-static guint signals[LAST_SIGNAL];
+static guint signals[LAST_SIGNAL] = { 0 };
 
 static gpointer accessible_parent_class;
 
