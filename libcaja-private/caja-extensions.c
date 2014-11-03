@@ -44,6 +44,10 @@ extension_new (gchar *filename, gboolean state, GObject *module)
     ext->filename = filename;
     ext->name = NULL;
     ext->description = NULL;
+    ext->author = NULL;
+    ext->copyright = NULL;
+    ext->version = NULL;
+    ext->website = NULL;
     ext->state = state;
     ext->module = module;
 
@@ -53,7 +57,11 @@ extension_new (gchar *filename, gboolean state, GObject *module)
     {
         ext->name = g_key_file_get_locale_string (extension_file, CAJA_EXTENSION_GROUP, "Name", NULL, NULL);
         ext->description = g_key_file_get_locale_string (extension_file, CAJA_EXTENSION_GROUP, "Description", NULL, NULL);
-        ext->icon = g_key_file_get_locale_string (extension_file, CAJA_EXTENSION_GROUP, "Icon", NULL, NULL);
+        ext->icon = g_key_file_get_string (extension_file, CAJA_EXTENSION_GROUP, "Icon", NULL);
+        ext->author = g_key_file_get_string_list (extension_file, CAJA_EXTENSION_GROUP, "Author", NULL, NULL);
+        ext->copyright = g_key_file_get_string (extension_file, CAJA_EXTENSION_GROUP, "Copyright", NULL);
+        ext->version = g_key_file_get_string (extension_file, CAJA_EXTENSION_GROUP, "Version", NULL);
+        ext->website = g_key_file_get_string (extension_file, CAJA_EXTENSION_GROUP, "Website", NULL);
     }
     g_key_file_free (extension_file);
     g_free (extension_filename);

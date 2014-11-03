@@ -43,6 +43,8 @@
 
 #include <libcaja-private/caja-autorun.h>
 
+#include <libmate-desktop/mate-aboutdialog.h>
+
 /* string enum preferences */
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_DEFAULT_VIEW_WIDGET "default_view_combobox"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_ICON_VIEW_ZOOM_WIDGET "icon_view_zoom_combobox"
@@ -613,6 +615,51 @@ out:
     g_free (x_content_type);
 }
 
+static gulong extension_about_id = 0;
+
+static void
+extension_about_clicked (GtkButton *button, Extension *ext)
+{
+    MateAboutDialog *extension_about_dialog;
+
+    extension_about_dialog = mate_about_dialog_new();
+    mate_about_dialog_set_program_name (extension_about_dialog, ext->name);
+    mate_about_dialog_set_comments (extension_about_dialog, ext->description);
+    mate_about_dialog_set_logo_icon_name (extension_about_dialog, ext->icon);
+    mate_about_dialog_set_copyright (extension_about_dialog, ext->copyright);
+    mate_about_dialog_set_authors (extension_about_dialog, ext->author);
+    mate_about_dialog_set_version (extension_about_dialog, ext->version);
+    mate_about_dialog_set_website (extension_about_dialog, ext->website);
+    gtk_window_set_title (GTK_WINDOW(extension_about_dialog), _("About Extension"));
+    gtk_dialog_run (GTK_DIALOG (extension_about_dialog));
+    gtk_widget_destroy (extension_about_dialog);
+}
+
+static void
+extension_list_selection_changed (GtkTreeSelection *selection, GtkButton *about_button)
+{
+    GtkTreeModel *model;
+    GtkTreeIter iter;
+    Extension *ext;
+
+    gtk_widget_set_sensitive (about_button, FALSE);
+
+    if (extension_about_id > 0)
+    {
+        g_signal_handler_disconnect (about_button, extension_about_id);
+        extension_about_id = 0;
+    }
+
+    if (!gtk_tree_selection_get_selected (selection, &model, &iter))
+        return;
+
+    gtk_tree_model_get (model, &iter, EXT_STRUCT_COLUMN, &ext, -1);
+    if (ext != NULL) {
+        gtk_widget_set_sensitive (about_button, TRUE);
+        extension_about_id = g_signal_connect (about_button, "clicked", G_CALLBACK (extension_about_clicked), ext);
+    }
+}
+
 static void
 extension_state_toggled (GtkCellRendererToggle *cell, gchar *path_str, gpointer data)
 {
@@ -627,8 +674,6 @@ extension_state_toggled (GtkCellRendererToggle *cell, gchar *path_str, gpointer 
     
     g_object_get (G_OBJECT (cell), "active", &new_state, NULL);
     gtk_tree_model_get_iter_from_string (model, &iter, path_str);
-    
-    
     
     new_state ^= 1;
 
@@ -762,16 +807,18 @@ caja_file_management_properties_dialog_setup_extension_page (GtkBuilder *builder
     GtkCellRendererToggle *toggle;
     GtkListStore *store;
     GtkTreeView *view;
+    GtkTreeSelection *selection;
     GtkTreeIter iter;
     GtkIconTheme *icon_theme;
     GdkPixbuf *ext_pixbuf_icon;
+    GtkButton *about_button;
     gchar *ext_text_info;
     
     GList *extensions;
     int i;
-    
+
     extensions = caja_extensions_get_list ();
-    
+
     view = GTK_TREE_VIEW (
                     gtk_builder_get_object (builder, "extension_view"));
     store = GTK_LIST_STORE (
@@ -826,6 +873,13 @@ caja_file_management_properties_dialog_setup_extension_page (GtkBuilder *builder
         if (ext_pixbuf_icon)
             g_object_unref (ext_pixbuf_icon);
     }
+
+    about_button = GTK_BUTTON (gtk_builder_get_object (builder, "about_extension_button"));
+    selection = gtk_tree_view_get_selection (view);
+    gtk_tree_selection_set_mode (selection, GTK_SELECTION_SINGLE);
+    g_signal_connect (selection, "changed",
+                      G_CALLBACK (extension_list_selection_changed),
+                      about_button);
 }
 
 static void

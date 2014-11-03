@@ -32,6 +32,10 @@ typedef struct _Extension {
     gchar *name;
     gchar *description;
     gchar *icon;
+    gchar **author;
+    gchar *copyright;
+    gchar *version;
+    gchar *website;
     gboolean state;
     GObject *module;
 }Extension;
