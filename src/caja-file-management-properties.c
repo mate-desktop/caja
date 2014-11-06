@@ -623,9 +623,9 @@ extension_about_clicked (GtkButton *button, Extension *ext)
     MateAboutDialog *extension_about_dialog;
 
     extension_about_dialog = mate_about_dialog_new();
-    mate_about_dialog_set_program_name (extension_about_dialog, ext->name);
+    mate_about_dialog_set_program_name (extension_about_dialog, ext->name != NULL ? ext->name : ext->filename);
     mate_about_dialog_set_comments (extension_about_dialog, ext->description);
-    mate_about_dialog_set_logo_icon_name (extension_about_dialog, ext->icon);
+    mate_about_dialog_set_logo_icon_name (extension_about_dialog, ext->icon != NULL ? ext->icon : "system-run");
     mate_about_dialog_set_copyright (extension_about_dialog, ext->copyright);
     mate_about_dialog_set_authors (extension_about_dialog, ext->author);
     mate_about_dialog_set_version (extension_about_dialog, ext->version);
