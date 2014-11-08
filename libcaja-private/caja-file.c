@@ -694,7 +694,7 @@ caja_file_get_internal (GFile *location, gboolean create)
 	/* Ref or create the file. */
 	if (file != NULL) {
 		caja_file_ref (file);
-	} else if (create) {
+	} else if (create && directory != NULL) {
 		file = caja_file_new_from_filename (directory, basename, self_owned);
 		if (self_owned) {
 			g_assert (directory->details->as_file == NULL);
