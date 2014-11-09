@@ -35,6 +35,11 @@ cajadata_DATA = \
 	caja-suggested.placeholder \
 	$(NULL)
 
+# app data file
+appdatadir = $(datadir)/appdata
+appdata_in_files = caja.appdata.xml.in
+appdata_DATA = $(appdata_in_files:.xml.in=.xml)
+
 EXTRA_DIST = $(cajadata_DATA) \
 	caja.desktop \
 	caja.desktop.in \
@@ -42,11 +47,13 @@ EXTRA_DIST = $(cajadata_DATA) \
 	$(xml_in_files) \
 	$(desktop_in_files) \
 	$(service_in_files) \
+	$(appdata_in_files) \
 	$(NULL)
 
 CLEANFILES = $(xml_files) \
 	$(desktop_DATA) \
 	$(service_DATA) \
+	caja.appdata.xml \
 	$(NULL)
 
 SUBDIRS = \
