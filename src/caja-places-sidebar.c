@@ -1209,7 +1209,7 @@ drag_motion_callback (GtkTreeView *tree_view,
 {
     GtkTreePath *path;
     GtkTreeViewDropPosition pos;
-    int action;
+    int action = 0;
     GtkTreeIter iter;
     char *uri;
     gboolean res;
