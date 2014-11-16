@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-02 19:58+0100\n"
-"PO-Revision-Date: 2014-11-03 10:26+0000\n"
-"Last-Translator: Ivar Smolin <okul@linux.ee>\n"
+"POT-Creation-Date: 2014-11-10 15:03+0100\n"
+"PO-Revision-Date: 2014-11-10 14:04+0000\n"
+"Last-Translator: infirit <infirit@gmail.com>\n"
 "Language-Team: Estonian (http://www.transifex.com/projects/p/MATE/language/et/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -359,6 +359,20 @@ msgstr "Kustutada"
 #: ../data/caja.xml.in.h:1
 msgid "Saved search"
 msgstr "Salvestatud otsing"
+
+#: ../data/caja.appdata.xml.in.h:1
+msgid "File manager for the MATE desktop environment"
+msgstr ""
+
+#: ../data/caja.appdata.xml.in.h:2
+msgid ""
+"<p> Caja is the official file manager for the MATE desktop. It allows for "
+"browsing directories, as well as previewing files and launching applications"
+" associated with them. It is also responsible for handling the icons on the "
+"MATE desktop. It works on local and remote file systems. </p> <p> Caja is "
+"extensible through a plugin system, similar to that of GNOME Nautilus, of "
+"which Caja is a fork. </p>"
+msgstr ""
 
 #: ../eel/eel-canvas.c:1301 ../eel/eel-canvas.c:1302
 msgid "X"
@@ -1758,7 +1772,7 @@ msgid "today at 00:00:00 PM"
 msgstr "täna kell 00:00:00"
 
 #: ../libcaja-private/caja-file.c:4479
-#: ../src/caja-file-management-properties.c:520
+#: ../src/caja-file-management-properties.c:522
 msgid "today at %-I:%M:%S %p"
 msgstr "täna kell %-H:%M:%S"
 
@@ -5316,7 +5330,7 @@ msgstr "Faili pääsuõigused:"
 #. Translators: this is referred to captions under icons.
 #: ../src/file-manager/fm-properties-window.c:4293
 #: ../src/file-manager/fm-properties-window.c:4304
-#: ../src/caja-file-management-properties.c:328
+#: ../src/caja-file-management-properties.c:330
 msgid "None"
 msgstr "Puudub"
 
@@ -5508,7 +5522,7 @@ msgid ""
 msgstr "Tarkvara käivitatakse otse meediumilt \"%s\". Sa ei tohiks mitte kunagi käivitada tarkvara, mida Sa ei usalda.\n\nKui kahtled, siis vajuta \"Loobu\"."
 
 #: ../src/caja-bookmarks-window.c:158
-#: ../src/caja-file-management-properties.c:235
+#: ../src/caja-file-management-properties.c:237
 #: ../src/caja-property-browser.c:1654 ../src/caja-window-menus.c:618
 #, c-format
 msgid ""
@@ -5744,6 +5758,10 @@ msgstr "Embleemi pole võimalik lisada"
 #: ../src/caja-emblem-sidebar.c:1093
 msgid "Show Emblems"
 msgstr "Näita embleeme"
+
+#: ../src/caja-file-management-properties.c:633
+msgid "About Extension"
+msgstr ""
 
 #: ../src/caja-file-management-properties.ui.h:4
 msgid "Always"

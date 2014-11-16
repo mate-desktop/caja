@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-02 19:58+0100\n"
-"PO-Revision-Date: 2014-11-04 01:00+0000\n"
+"POT-Creation-Date: 2014-11-10 15:03+0100\n"
+"PO-Revision-Date: 2014-11-14 17:27+0000\n"
 "Last-Translator: Tobias Bannert\n"
 "Language-Team: German (http://www.transifex.com/projects/p/MATE/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -76,7 +76,7 @@ msgstr "DATEI"
 
 #: ../cut-n-paste-code/libegg/eggsmclient.c:239
 msgid "Specify session management ID"
-msgstr "Sitzungsverwaltungs-Kennung festlegen"
+msgstr "Sitzungsverwaltungskennung festlegen"
 
 #: ../cut-n-paste-code/libegg/eggsmclient.c:239
 msgid "ID"
@@ -367,6 +367,20 @@ msgstr "Löschen"
 #: ../data/caja.xml.in.h:1
 msgid "Saved search"
 msgstr "Gespeicherte Suche"
+
+#: ../data/caja.appdata.xml.in.h:1
+msgid "File manager for the MATE desktop environment"
+msgstr "Dateiverwaltung für die Mate-Arbeitsumgebung"
+
+#: ../data/caja.appdata.xml.in.h:2
+msgid ""
+"<p> Caja is the official file manager for the MATE desktop. It allows for "
+"browsing directories, as well as previewing files and launching applications"
+" associated with them. It is also responsible for handling the icons on the "
+"MATE desktop. It works on local and remote file systems. </p> <p> Caja is "
+"extensible through a plugin system, similar to that of GNOME Nautilus, of "
+"which Caja is a fork. </p>"
+msgstr ""
 
 #: ../eel/eel-canvas.c:1301 ../eel/eel-canvas.c:1302
 msgid "X"
@@ -1766,7 +1780,7 @@ msgid "today at 00:00:00 PM"
 msgstr "heute um 00:00:00"
 
 #: ../libcaja-private/caja-file.c:4479
-#: ../src/caja-file-management-properties.c:520
+#: ../src/caja-file-management-properties.c:522
 msgid "today at %-I:%M:%S %p"
 msgstr "heute um %-H:%M:%S"
 
@@ -3481,7 +3495,7 @@ msgstr "Alle lokalen und entfernten Datenträger und Ordner, die verfügbar sind
 
 #: ../data/caja-file-management-properties.desktop.in.in.h:1
 msgid "File Management"
-msgstr "Verwaltung von Dateien"
+msgstr "Dateiverwaltung"
 
 #: ../data/caja-file-management-properties.desktop.in.in.h:2
 msgid "Change the behaviour and appearance of file manager windows"
@@ -5324,7 +5338,7 @@ msgstr "Dateizugriff:"
 #. Translators: this is referred to captions under icons.
 #: ../src/file-manager/fm-properties-window.c:4293
 #: ../src/file-manager/fm-properties-window.c:4304
-#: ../src/caja-file-management-properties.c:328
+#: ../src/caja-file-management-properties.c:330
 msgid "None"
 msgstr "Keiner"
 
@@ -5516,7 +5530,7 @@ msgid ""
 msgstr "Die Anwendung wird direkt vom Datenträger »%s« starten. Sie sollten niemals Anwendungen starten, der Sie nicht vertrauen.\n\nKlicken Sie im Zweifelsfall auf »Abbrechen«."
 
 #: ../src/caja-bookmarks-window.c:158
-#: ../src/caja-file-management-properties.c:235
+#: ../src/caja-file-management-properties.c:237
 #: ../src/caja-property-browser.c:1654 ../src/caja-window-menus.c:618
 #, c-format
 msgid ""
@@ -5752,6 +5766,10 @@ msgstr "Das Emblem konnte nicht hinzugefügt werden."
 #: ../src/caja-emblem-sidebar.c:1093
 msgid "Show Emblems"
 msgstr "Embleme anzeigen"
+
+#: ../src/caja-file-management-properties.c:633
+msgid "About Extension"
+msgstr "Über Erweiterung"
 
 #: ../src/caja-file-management-properties.ui.h:4
 msgid "Always"
@@ -6281,7 +6299,7 @@ msgstr "Sie können ausschließlich Bilder als benutzerdefiniertes Symbol verwen
 
 #: ../src/caja-location-bar.c:57
 msgid "Go To:"
-msgstr "Gehe zu:"
+msgstr "Gehen zu:"
 
 #: ../src/caja-location-bar.c:151
 #, c-format
@@ -6380,7 +6398,7 @@ msgstr "Der Ort des Verlaufs existiert nicht."
 #. name, stock id, label
 #: ../src/caja-navigation-window-menus.c:821
 msgid "_Go"
-msgstr "_Gehe zu"
+msgstr "_Gehen zu"
 
 #. name, stock id, label
 #: ../src/caja-navigation-window-menus.c:822
@@ -7028,7 +7046,7 @@ msgstr "E_ltern-Ordner schließen"
 
 #: ../src/caja-spatial-window.c:956
 msgid "Close this folder's parents"
-msgstr "Die Eltern-Ordner dieses Ordners schließen"
+msgstr "Die Elternordner dieses Ordners schließen"
 
 #. name, stock id, label
 #: ../src/caja-spatial-window.c:960
@@ -7233,11 +7251,11 @@ msgstr "Die Caja-Einstellungen bearbeiten"
 #. name, stock id, label
 #: ../src/caja-window-menus.c:855
 msgid "Open _Parent"
-msgstr "_Eltern-Ordner öffnen"
+msgstr "_Elternordner öffnen"
 
 #: ../src/caja-window-menus.c:856
 msgid "Open the parent folder"
-msgstr "Den Eltern-Ordner öffnen"
+msgstr "Den Elternordner öffnen"
 
 #. tooltip
 #: ../src/caja-window-menus.c:865

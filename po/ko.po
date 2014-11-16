@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-02 19:58+0100\n"
-"PO-Revision-Date: 2014-11-04 12:26+0000\n"
+"POT-Creation-Date: 2014-11-10 15:03+0100\n"
+"PO-Revision-Date: 2014-11-11 16:23+0000\n"
 "Last-Translator: 박정규(Jung Kyu Park) <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/MATE/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -364,6 +364,20 @@ msgstr "지우기"
 #: ../data/caja.xml.in.h:1
 msgid "Saved search"
 msgstr "저장된 검색 결과"
+
+#: ../data/caja.appdata.xml.in.h:1
+msgid "File manager for the MATE desktop environment"
+msgstr "MATE 데스크톱 환경을 위한 파일 매니저"
+
+#: ../data/caja.appdata.xml.in.h:2
+msgid ""
+"<p> Caja is the official file manager for the MATE desktop. It allows for "
+"browsing directories, as well as previewing files and launching applications"
+" associated with them. It is also responsible for handling the icons on the "
+"MATE desktop. It works on local and remote file systems. </p> <p> Caja is "
+"extensible through a plugin system, similar to that of GNOME Nautilus, of "
+"which Caja is a fork. </p>"
+msgstr ""
 
 #: ../eel/eel-canvas.c:1301 ../eel/eel-canvas.c:1302
 msgid "X"
@@ -1741,7 +1755,7 @@ msgid "today at 00:00:00 PM"
 msgstr "오늘 오후 00:00:00"
 
 #: ../libcaja-private/caja-file.c:4479
-#: ../src/caja-file-management-properties.c:520
+#: ../src/caja-file-management-properties.c:522
 msgid "today at %-I:%M:%S %p"
 msgstr "오늘 %p %-I:%M:%S"
 
@@ -5242,7 +5256,7 @@ msgstr "파일 접근:"
 #. Translators: this is referred to captions under icons.
 #: ../src/file-manager/fm-properties-window.c:4293
 #: ../src/file-manager/fm-properties-window.c:4304
-#: ../src/caja-file-management-properties.c:328
+#: ../src/caja-file-management-properties.c:330
 msgid "None"
 msgstr "없음"
 
@@ -5434,7 +5448,7 @@ msgid ""
 msgstr " \"%s\" 미디어에서 소프트웨어를 바로 실행합니다. 믿을 수 없는 소프트웨어라면 절대로 실행하지 마십시오.\n\n의심되면 취소를 누르십시오."
 
 #: ../src/caja-bookmarks-window.c:158
-#: ../src/caja-file-management-properties.c:235
+#: ../src/caja-file-management-properties.c:237
 #: ../src/caja-property-browser.c:1654 ../src/caja-window-menus.c:618
 #, c-format
 msgid ""
@@ -5670,6 +5684,10 @@ msgstr "꼬리표를 붙여 넣을 수 없습니다."
 #: ../src/caja-emblem-sidebar.c:1093
 msgid "Show Emblems"
 msgstr "꼬리표 보이기"
+
+#: ../src/caja-file-management-properties.c:633
+msgid "About Extension"
+msgstr ""
 
 #: ../src/caja-file-management-properties.ui.h:4
 msgid "Always"

@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-02 19:58+0100\n"
-"PO-Revision-Date: 2014-11-04 13:12+0000\n"
+"POT-Creation-Date: 2014-11-10 15:03+0100\n"
+"PO-Revision-Date: 2014-11-12 14:49+0000\n"
 "Last-Translator: mauron\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/MATE/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -365,6 +365,20 @@ msgstr "Sil"
 #: ../data/caja.xml.in.h:1
 msgid "Saved search"
 msgstr "Kayıtlı arama"
+
+#: ../data/caja.appdata.xml.in.h:1
+msgid "File manager for the MATE desktop environment"
+msgstr "MATE masaüstü ortamı için dosya yöneticisi"
+
+#: ../data/caja.appdata.xml.in.h:2
+msgid ""
+"<p> Caja is the official file manager for the MATE desktop. It allows for "
+"browsing directories, as well as previewing files and launching applications"
+" associated with them. It is also responsible for handling the icons on the "
+"MATE desktop. It works on local and remote file systems. </p> <p> Caja is "
+"extensible through a plugin system, similar to that of GNOME Nautilus, of "
+"which Caja is a fork. </p>"
+msgstr "<p>Caja, MATE masaüstü ortamının resmi dosya yöneticisidir. Klasörleri taramaya, dosyaları önizlemeye ve onlarla ilişkili uygulamaları başlatmaya imkân verir. Aynı zamanda MATE masaüstünde ikonları yönetmekle de yükümlüdür. Hem yerel hem de uzaktaki dosya sistemleri ile çalışır.</p> <p>Çatallaması olduğu Nautilus gibi eklentiler ile genişletilebilir.</p>"
 
 #: ../eel/eel-canvas.c:1301 ../eel/eel-canvas.c:1302
 msgid "X"
@@ -1764,7 +1778,7 @@ msgid "today at 00:00:00 PM"
 msgstr "bugün saat 00:00:00 da"
 
 #: ../libcaja-private/caja-file.c:4479
-#: ../src/caja-file-management-properties.c:520
+#: ../src/caja-file-management-properties.c:522
 msgid "today at %-I:%M:%S %p"
 msgstr "bugün saat %-H:%M:%S da"
 
@@ -5322,7 +5336,7 @@ msgstr "Dosya erişimi:"
 #. Translators: this is referred to captions under icons.
 #: ../src/file-manager/fm-properties-window.c:4293
 #: ../src/file-manager/fm-properties-window.c:4304
-#: ../src/caja-file-management-properties.c:328
+#: ../src/caja-file-management-properties.c:330
 msgid "None"
 msgstr "Yok"
 
@@ -5514,7 +5528,7 @@ msgid ""
 msgstr "Yazılım \"%s\" ortamından doğrudan çalıştırılacak. Güvenmediğiniz yazılımları asla çalıştırmamalısınız.\n\nEğer şüpheliyseniz İptal'e basın."
 
 #: ../src/caja-bookmarks-window.c:158
-#: ../src/caja-file-management-properties.c:235
+#: ../src/caja-file-management-properties.c:237
 #: ../src/caja-property-browser.c:1654 ../src/caja-window-menus.c:618
 #, c-format
 msgid ""
@@ -5750,6 +5764,10 @@ msgstr "Amblem eklenemedi."
 #: ../src/caja-emblem-sidebar.c:1093
 msgid "Show Emblems"
 msgstr "Amblemleri Göster"
+
+#: ../src/caja-file-management-properties.c:633
+msgid "About Extension"
+msgstr "Eklenti Hakkında"
 
 #: ../src/caja-file-management-properties.ui.h:4
 msgid "Always"

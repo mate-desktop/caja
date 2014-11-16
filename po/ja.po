@@ -5,6 +5,7 @@
 # Translators:
 # ABE Tsunehiko, 2014
 # ABE Tsunehiko, 2014
+# BALLOON a.k.a. Fu-sen., 2014
 # Mika Kobayashi, 2014
 # Mika Kobayashi, 2014
 # Yuki Shira <shirayuking@gmail.com>, 2014
@@ -12,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-02 19:58+0100\n"
-"PO-Revision-Date: 2014-11-02 18:59+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+"POT-Creation-Date: 2014-11-10 15:03+0100\n"
+"PO-Revision-Date: 2014-11-10 14:17+0000\n"
+"Last-Translator: BALLOON a.k.a. Fu-sen.\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/MATE/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -362,6 +363,20 @@ msgstr "削除"
 #: ../data/caja.xml.in.h:1
 msgid "Saved search"
 msgstr "検索結果の保存"
+
+#: ../data/caja.appdata.xml.in.h:1
+msgid "File manager for the MATE desktop environment"
+msgstr "MATEデスクトップ環境のファイルマネージャー"
+
+#: ../data/caja.appdata.xml.in.h:2
+msgid ""
+"<p> Caja is the official file manager for the MATE desktop. It allows for "
+"browsing directories, as well as previewing files and launching applications"
+" associated with them. It is also responsible for handling the icons on the "
+"MATE desktop. It works on local and remote file systems. </p> <p> Caja is "
+"extensible through a plugin system, similar to that of GNOME Nautilus, of "
+"which Caja is a fork. </p>"
+msgstr "<p> Cajaは MATE デスクトップの公式ファイルマネージャーです。ディレクトリの参照、ファイルのプレビュー、関連アプリケーションの起動を可能にします。更にMATEデスクトップのアイコンを取り扱う役割も果たします。ローカル・リモートファイルシステムを作業します。</p> <p> Cajaはプラグインシステムによって拡張する事ができます。これはGNOME Nautilusに類似します。Cajaはその派生です。</p>"
 
 #: ../eel/eel-canvas.c:1301 ../eel/eel-canvas.c:1302
 msgid "X"
@@ -1739,7 +1754,7 @@ msgid "today at 00:00:00 PM"
 msgstr "今日の午後00:00:00"
 
 #: ../libcaja-private/caja-file.c:4479
-#: ../src/caja-file-management-properties.c:520
+#: ../src/caja-file-management-properties.c:522
 msgid "today at %-I:%M:%S %p"
 msgstr "今日の%p%-I:%M"
 
@@ -5240,7 +5255,7 @@ msgstr "ファイルのアクセス権:"
 #. Translators: this is referred to captions under icons.
 #: ../src/file-manager/fm-properties-window.c:4293
 #: ../src/file-manager/fm-properties-window.c:4304
-#: ../src/caja-file-management-properties.c:328
+#: ../src/caja-file-management-properties.c:330
 msgid "None"
 msgstr "なし"
 
@@ -5432,7 +5447,7 @@ msgid ""
 msgstr "\"%s\" というメディアからソフトウェアをそのまま実行します。ソフトウェアが信用できない場合は絶対に実行しないでください。\n\n信用できない場合はキャンセルを選択してください。"
 
 #: ../src/caja-bookmarks-window.c:158
-#: ../src/caja-file-management-properties.c:235
+#: ../src/caja-file-management-properties.c:237
 #: ../src/caja-property-browser.c:1654 ../src/caja-window-menus.c:618
 #, c-format
 msgid ""
@@ -5668,6 +5683,10 @@ msgstr "エンブレムを追加できません。"
 #: ../src/caja-emblem-sidebar.c:1093
 msgid "Show Emblems"
 msgstr "エンブレムの表示"
+
+#: ../src/caja-file-management-properties.c:633
+msgid "About Extension"
+msgstr "エクステンションについて"
 
 #: ../src/caja-file-management-properties.ui.h:4
 msgid "Always"
@@ -6049,27 +6068,27 @@ msgstr "メディア"
 
 #: ../src/caja-file-management-properties.ui.h:103
 msgid "<b>Available _Extensions:</b>"
-msgstr ""
+msgstr "<b>有効なエクステンション(_E):</b>"
 
 #: ../src/caja-file-management-properties.ui.h:104
 msgid "column"
-msgstr ""
+msgstr "列数"
 
 #: ../src/caja-file-management-properties.ui.h:105
 msgid "Extension"
-msgstr ""
+msgstr "エクステンション"
 
 #: ../src/caja-file-management-properties.ui.h:106
 msgid "_About Extension"
-msgstr ""
+msgstr "エクステンションについて(_A)"
 
 #: ../src/caja-file-management-properties.ui.h:107
 msgid "C_onfigure Extension"
-msgstr ""
+msgstr "エクステンションの設定(_O)"
 
 #: ../src/caja-file-management-properties.ui.h:108
 msgid "Extensions"
-msgstr ""
+msgstr "エクステンション"
 
 #: ../src/caja-history-sidebar.c:338
 msgid "History"

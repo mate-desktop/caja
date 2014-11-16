@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-02 19:58+0100\n"
-"PO-Revision-Date: 2014-11-03 04:53+0000\n"
+"POT-Creation-Date: 2014-11-10 15:03+0100\n"
+"PO-Revision-Date: 2014-11-10 23:48+0000\n"
 "Last-Translator: Jeff Huang <s8321414@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/MATE/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -360,6 +360,20 @@ msgstr "移除圖章"
 #: ../data/caja.xml.in.h:1
 msgid "Saved search"
 msgstr "已儲存搜尋"
+
+#: ../data/caja.appdata.xml.in.h:1
+msgid "File manager for the MATE desktop environment"
+msgstr "適用於 MATE 桌面環境的檔案管理員"
+
+#: ../data/caja.appdata.xml.in.h:2
+msgid ""
+"<p> Caja is the official file manager for the MATE desktop. It allows for "
+"browsing directories, as well as previewing files and launching applications"
+" associated with them. It is also responsible for handling the icons on the "
+"MATE desktop. It works on local and remote file systems. </p> <p> Caja is "
+"extensible through a plugin system, similar to that of GNOME Nautilus, of "
+"which Caja is a fork. </p>"
+msgstr "<p> Caja 是 MATE 桌面環境的官方檔案管理員。它可以讓您瀏覽目錄，也可以預覽檔案及啟動與其相關的應用程式。它同時也負責處理 MATE 桌面環境的小圖示。它可以在本機及遠端檔案系統中工作。 </p> <p> Caja 可以透過插件系統擴充，就像 GNOME 的 Nautilus 檔案管理員一樣，Caja 是它的衍生產品。 </p>"
 
 #: ../eel/eel-canvas.c:1301 ../eel/eel-canvas.c:1302
 msgid "X"
@@ -1737,7 +1751,7 @@ msgid "today at 00:00:00 PM"
 msgstr "今天凌晨 00:00:00"
 
 #: ../libcaja-private/caja-file.c:4479
-#: ../src/caja-file-management-properties.c:520
+#: ../src/caja-file-management-properties.c:522
 msgid "today at %-I:%M:%S %p"
 msgstr "今天%p %-I:%M:%S"
 
@@ -5238,7 +5252,7 @@ msgstr "檔案存取:"
 #. Translators: this is referred to captions under icons.
 #: ../src/file-manager/fm-properties-window.c:4293
 #: ../src/file-manager/fm-properties-window.c:4304
-#: ../src/caja-file-management-properties.c:328
+#: ../src/caja-file-management-properties.c:330
 msgid "None"
 msgstr "沒有"
 
@@ -5430,7 +5444,7 @@ msgid ""
 msgstr "此軟體將直接從媒體「%s」執行。若不信任此軟體請勿執行它。\n\n如果懷疑，請按「取消」。"
 
 #: ../src/caja-bookmarks-window.c:158
-#: ../src/caja-file-management-properties.c:235
+#: ../src/caja-file-management-properties.c:237
 #: ../src/caja-property-browser.c:1654 ../src/caja-window-menus.c:618
 #, c-format
 msgid ""
@@ -5666,6 +5680,10 @@ msgstr "圖章無法加入。"
 #: ../src/caja-emblem-sidebar.c:1093
 msgid "Show Emblems"
 msgstr "顯示圖章"
+
+#: ../src/caja-file-management-properties.c:633
+msgid "About Extension"
+msgstr "關於擴充套件"
 
 #: ../src/caja-file-management-properties.ui.h:4
 msgid "Always"
