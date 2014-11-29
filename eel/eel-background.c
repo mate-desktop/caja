@@ -936,19 +936,21 @@ eel_bg_set_image_uri_helper (EelBackground *self,
                              const gchar   *image_uri,
                              gboolean       emit_signal)
 {
-    gchar *filename = g_strdup ("");	/* GSettings expects a string, not NULL */
+    gchar *filename;
 
-    if (image_uri != NULL)
+    if (image_uri != NULL) {
         filename = g_filename_from_uri (image_uri, NULL, NULL);
+    } else {
+        filename = g_strdup ("");    /* GSettings expects a string, not NULL */
+    }
 
     mate_bg_set_filename (self->details->bg, filename);
+    g_free (filename);
 
     if (emit_signal)
         g_signal_emit (self, signals[SETTINGS_CHANGED], 0, GDK_ACTION_COPY);
 
     set_image_properties (self);
-
-    g_free (filename);
 }
 
 /* Use this function to set an image only (no color).
