@@ -780,7 +780,7 @@ wrap_table_child_focus_in (GtkWidget *widget,
                            gpointer data)
 {
     gint x, y;
-    GtkWidget *container, *viewport;
+    GtkWidget *container, *viewport = NULL;
     GtkAdjustment *hadj, *vadj;
 
     container = gtk_widget_get_parent (widget);
