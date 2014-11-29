@@ -135,6 +135,7 @@ drag_data_received_callback (GtkWidget *widget,
     if (names == NULL || *names == NULL)
     {
         g_warning ("No D&D URI's");
+        g_strfreev (names);
         gtk_drag_finish (context, FALSE, FALSE, time);
         return;
     }
@@ -172,6 +173,7 @@ drag_data_received_callback (GtkWidget *widget,
 
         if (!new_windows_for_extras)
         {
+            g_strfreev (names);
             gtk_drag_finish (context, FALSE, FALSE, time);
             return;
         }

@@ -2060,6 +2060,7 @@ align_icons (CajaIconContainer *container)
 
     if (!grid)
     {
+    	g_list_free (unplaced_icons);
         return;
     }
 
