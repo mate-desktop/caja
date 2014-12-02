@@ -10519,6 +10519,7 @@ fm_directory_view_handle_netscape_url_drop (FMDirectoryView  *view,
 					 handle_netscape_url_drop_ask_cb,
 					 data);
 
+		g_strfreev (bits);
 		g_free (container_uri);
 		return;
 	}
@@ -10534,6 +10535,7 @@ fm_directory_view_handle_netscape_url_drop (FMDirectoryView  *view,
 		eel_show_warning_dialog (_("Drag and drop is not supported."),
 					 _("An invalid drag type was used."),
 					 fm_directory_view_get_containing_window (view));
+		g_strfreev (bits);
 		g_free (container_uri);
 		return;
 	}
@@ -10592,7 +10594,6 @@ fm_directory_view_handle_netscape_url_drop (FMDirectoryView  *view,
 	}
 
 	g_strfreev (bits);
-
 	g_free (container_uri);
 }
 
