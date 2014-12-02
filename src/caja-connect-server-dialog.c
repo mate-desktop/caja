@@ -869,6 +869,7 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
     label = gtk_label_new (NULL);
     str = g_strdup_printf ("<b>%s</b>", _("Server Details"));
     gtk_label_set_markup (GTK_LABEL (label), str);
+    g_free (str);
     gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
     gtk_box_pack_start (GTK_BOX (content_area), label, FALSE, FALSE, 6);
     gtk_widget_show (label);
@@ -1042,6 +1043,7 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
     label = gtk_label_new (NULL);
     str = g_strdup_printf ("<b>%s</b>", _("User Details"));
     gtk_label_set_markup (GTK_LABEL (label), str);
+    g_free (str);
     gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
     gtk_box_pack_start (GTK_BOX (content_area), label, FALSE, FALSE, 6);
 
