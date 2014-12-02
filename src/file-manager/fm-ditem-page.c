@@ -218,6 +218,7 @@ fm_ditem_page_exec_drag_data_received (GtkWidget *widget, GdkDragContext *contex
     }
 
     file = caja_file_get_by_uri (uris[0]);
+    g_strfreev (uris);
 
     g_return_if_fail (file != NULL);
 
@@ -248,8 +249,6 @@ fm_ditem_page_exec_drag_data_received (GtkWidget *widget, GdkDragContext *contex
     g_free (uri);
 
     caja_file_unref (file);
-
-    g_strfreev (uris);
 }
 
 static void
