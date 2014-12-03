@@ -340,8 +340,9 @@ file_list_ready_cb (GList *files,
     gtk_widget_hide (details->diff_button);
     if (!source_is_dir && !dest_is_dir)
     {
-        if (g_find_program_in_path ("meld")) {
-            
+        gchar *meld_found = g_find_program_in_path ("meld");
+        if (meld_found) {
+            g_free (meld_found);
             gboolean src_is_binary;
             gboolean dest_is_binary;
             

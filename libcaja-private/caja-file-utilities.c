@@ -1107,18 +1107,13 @@ caja_find_file_insensitive_next (GFile *parent, const gchar *name)
 gboolean
 caja_is_engrampa_installed (void)
 {
-    static int installed = - 1;
+    static int installed = -1;
 
     if (installed < 0)
     {
-        if (g_find_program_in_path ("engrampa"))
-        {
-            installed = 1;
-        }
-        else
-        {
-            installed = 0;
-        }
+        gchar *found = g_find_program_in_path ("engrampa");
+        installed = found ? 1 : 0;
+        g_free (found);
     }
 
     return installed > 0 ? TRUE : FALSE;

@@ -395,7 +395,6 @@ caja_emblem_remove_emblem (const char *keyword)
     struct stat stat_buf;
     struct utimbuf ubuf;
 
-
     dir = g_strdup_printf ("%s/.icons/hicolor/48x48/emblems",
                            g_get_home_dir ());
     stat_dir = g_strdup_printf ("%s/.icons/hicolor",
@@ -424,6 +423,8 @@ caja_emblem_remove_emblem (const char *keyword)
         g_free (path);
         return FALSE;
     }
+
+    g_free (path);
 
     /* Touch the toplevel dir */
     if (stat (stat_dir, &stat_buf) == 0)
