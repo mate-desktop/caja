@@ -416,18 +416,13 @@ caja_link_local_get_additional_text (const char *path)
 static char *
 caja_link_get_link_uri_from_desktop (GKeyFile *key_file, const char *desktop_file_uri)
 {
-    GFile *file, *parent;
-    char *type;
-    char *retval;
-    char *scheme;
-
-    retval = NULL;
-
-    type = g_key_file_get_string (key_file, MAIN_GROUP, "Type", NULL);
+    char *type = g_key_file_get_string (key_file, MAIN_GROUP, "Type", NULL);
     if (type == NULL)
     {
         return NULL;
     }
+
+    char *retval = NULL;
 
     if (strcmp (type, "URL") == 0)
     {
@@ -450,11 +445,11 @@ caja_link_get_link_uri_from_desktop (GKeyFile *key_file, const char *desktop_fil
          * g_file_parse_name(), but it does not know how to resolve
          * relative file names, since the base directory is unknown.
          */
-        scheme = g_uri_parse_scheme (retval);
+        char *scheme = g_uri_parse_scheme (retval);
         if (scheme == NULL)
         {
-            file = g_file_new_for_uri (desktop_file_uri);
-            parent = g_file_get_parent (file);
+            GFile *file = g_file_new_for_uri (desktop_file_uri);
+            GFile *parent = g_file_get_parent (file);
             g_object_unref (file);
 
             if (parent != NULL)
@@ -465,6 +460,10 @@ caja_link_get_link_uri_from_desktop (GKeyFile *key_file, const char *desktop_fil
                 g_object_unref (file);
                 g_object_unref (parent);
             }
+        }
+        else
+        {
+            g_free (scheme);
         }
     }
 

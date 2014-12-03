@@ -2034,66 +2034,52 @@ get_uri_parent_path (char *uri)
 static GHashTable *
 retrieve_files_to_restore (GHashTable * trashed)
 {
-  GFileEnumerator *enumerator;
-  GFileInfo *info;
-  GFile *trash;
-  GFile *item;
-  guint64 mtime_item;
-  guint64 *mtime;
-  const char *origpath;
-  GFile *origfile;
-  char *origuri;
-  gpointer lookupvalue;
-  GHashTable *to_restore;
+  if (!(g_hash_table_size (trashed)) > 0) {
+    return NULL;
+  }
 
-  to_restore =
-      g_hash_table_new_full (g_direct_hash,
-      g_direct_equal, g_object_unref, g_free);
+  GFile *trash = g_file_new_for_uri ("trash:");
 
-  trash = g_file_new_for_uri ("trash:");
-
-  enumerator = g_file_enumerate_children (trash,
+  GFileEnumerator *enumerator = g_file_enumerate_children (trash,
       G_FILE_ATTRIBUTE_STANDARD_NAME
       ","
       G_FILE_ATTRIBUTE_TIME_MODIFIED
       ",trash::orig-path", G_FILE_QUERY_INFO_NOFOLLOW_SYMLINKS, FALSE, NULL);
 
-  mtime = 0;
-  
-  guint nb;
-  GList *l;
-  if (!(g_hash_table_size (trashed)) > 0)
-        return NULL;
-  
+  GHashTable *to_restore = g_hash_table_new_full (g_direct_hash,
+      g_direct_equal, g_object_unref, g_free);
+
   if (enumerator) {
-    while ((info =
-            g_file_enumerator_next_file (enumerator, NULL, NULL)) != NULL) {
+    GFileInfo *info;
+    while ((info = g_file_enumerator_next_file (enumerator, NULL, NULL)) != NULL) {
       /* Retrieve the original file uri */
-      origpath = g_file_info_get_attribute_byte_string (info, "trash::orig-path");
-      origfile = g_file_new_for_path (origpath);
-      origuri = g_file_get_uri (origfile);
+      const char *origpath = g_file_info_get_attribute_byte_string (info, "trash::orig-path");
+      GFile *origfile = g_file_new_for_path (origpath);
+      char *origuri = g_file_get_uri (origfile);
       g_object_unref (origfile);
 
-      lookupvalue = g_hash_table_lookup (trashed, origuri);
+      gboolean origuri_inserted = FALSE;
+      gpointer lookupvalue = g_hash_table_lookup (trashed, origuri);
 
       if (lookupvalue) {
-        mtime = (guint64 *)
-            lookupvalue;
-        mtime_item =
-            g_file_info_get_attribute_uint64
-            (info, G_FILE_ATTRIBUTE_TIME_MODIFIED);
+        guint64 *mtime = (guint64 *) lookupvalue;
+        guint64 mtime_item = g_file_info_get_attribute_uint64(info, G_FILE_ATTRIBUTE_TIME_MODIFIED);
         if (*mtime == mtime_item) {
-          item = g_file_get_child (trash, g_file_info_get_name (info)); /* File in the trash */
+          GFile *item = g_file_get_child (trash, g_file_info_get_name (info)); /* File in the trash */
           g_hash_table_insert (to_restore, item, origuri);
+          origuri_inserted = TRUE;
         }
-      } else {
-        g_free (origuri);
       }
 
+      if (!origuri_inserted) {
+        g_free (origuri);
+      }
     }
+
     g_file_enumerator_close (enumerator, FALSE, NULL);
     g_object_unref (enumerator);
   }
+
   g_object_unref (trash);
 
   return to_restore;
