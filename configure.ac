@@ -275,26 +275,17 @@ fi
 #============================================================================
 # libunique
 #============================================================================
-PKG_CHECK_MODULES(UNIQUE, unique-$LIBUNIQUE_VERSION, enable_libunique=yes, enable_libunique=no)
+PKG_CHECK_MODULES(UNIQUE, unique-$LIBUNIQUE_VERSION)
 
 AC_SUBST([UNIQUE_CFLAGS])
 AC_SUBST([UNIQUE_LIBS])
 
-#AC_ARG_ENABLE(unique, [  --enable-unique         enable the use of libunique instead of g_application or gtk_application], enable_libunique=yes,)
+# this deprecated stuff should be removed from unique in most distros
+# but it's still not removed upstream in unique 1.x, so leaving it alone
+# just in case.
+UNIQUE_CFLAGS="$UNIQUE_CFLAGS -DG_CONST_RETURN=const"
 
-if test "x$enable_libunique" = "xyes"; then
-    UNIQUE_CFLAGS="$UNIQUE_CFLAGS -DUSE_UNIQUE=1"
-    # fix for deprecated on 2.26
-    # unique, on 1.0 version, has deprecated symbols in glib 2.26, but
-    # we avoid problems using -DG_CONST_RETURN=const
-    if $PKG_CONFIG --atleast-version 2.26 glib-2.0; then
-        UNIQUE_CFLAGS="$UNIQUE_CFLAGS -DG_CONST_RETURN=const"
-    fi
-
-    EXTRA_CORE_MODULES="$EXTRA_CORE_MODULES unique-$LIBUNIQUE_VERSION"
-else
-    AC_ERROR([LIBUNIQUE ${LIBUNIQUE_VERSION} not found])
-fi
+EXTRA_CORE_MODULES="$EXTRA_CORE_MODULES unique-$LIBUNIQUE_VERSION"
 
 
 # ==========================================================================
@@ -482,7 +473,6 @@ caja-$VERSION:
     source code location:         ${srcdir}
     compiler:                     ${CC}
     xmp support:                  $msg_xmp
-    Use libunique:                ${enable_libunique}
     Gtk+ version:                 ${GTK_API_VERSION}
     PackageKit support:           $msg_packagekit
 
