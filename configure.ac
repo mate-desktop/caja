@@ -154,41 +154,6 @@ dnl ==========================================================================
 AC_CHECK_HEADERS(sys/mount.h sys/vfs.h sys/param.h malloc.h)
 AC_CHECK_FUNCS(mallopt)
 
-dnl X
-
-x_libs="`$PKG_CONFIG --libs pangox`"
-case x_libs in
-  *-lX11*) pango_omitted_x_deps=no ;;
-  *)       pango_omitted_x_deps=yes ;;
-esac
-
-x_cflags="`$PKG_CONFIG --cflags pangox`"
-x_extra_libs=
-
-if test $pango_omitted_x_deps = yes ; then
-  AC_PATH_XTRA
-
-  if test x$no_x = xyes ; then
-    AC_MSG_ERROR([X development libraries not found])
-  fi
-
-  x_libs="$X_LIBS -lX11 $X_EXTRA_LIBS"
-fi
-
-## Strip the .la files
-
-x_libs_for_checks=$x_libs
-#for I in $x_libs ; do
-#  case $I in
-#    *.la) ;;
-#    *) x_libs_for_checks="$x_libs_for_checks $I" ;;
-#  esac
-#done
-
-AC_CHECK_LIB(X11, XOpenDisplay, :,
-    AC_MSG_ERROR([*** libX11 not found.  Check 'config.log' for more details.]),
-    $x_libs_for_checks)
-
 dnl ==========================================================================
 
 AM_CONDITIONAL(HAVE_EXIF, false)
@@ -368,20 +333,13 @@ dnl ===========================================================================
 #
 # Checks for Xft/XRender
 #
-have_render=false
-RENDER_LIBS=""
 
-AC_CHECK_LIB(Xrender, XRenderFindFormat,
-    have_render=true,:,-lXext)
-
-if $have_render ; then
-   RENDER_LIBS="-lXrender -lXext"
-   AC_DEFINE(HAVE_RENDER)
+PKG_CHECK_MODULES([RENDER], [xrender xext], [have_render=yes], [have_render=no])
+if test x$have_render = xyes; then
+  AC_DEFINE(HAVE_RENDER)
+  AC_SUBST(RENDER_CFLAGS)
+  AC_SUBST(RENDER_LIBS)
 fi
-
-AC_SUBST(RENDER_LIBS)
-
-
 
 dnl ==========================================================================
 
@@ -401,10 +359,10 @@ AC_SUBST(LIBCAJA_EXTENSION_LIBS)
 
 dnl core caja
 PKG_CHECK_MODULES(GMODULE, gmodule-2.0, [GMODULE_ADD="gmodule-2.0"],[GMODULE_ADD=""])
-CORE_MODULES="glib-2.0 $GMODULE_ADD mate-desktop-2.0 gthread-2.0 gio-2.0 gio-unix-2.0 gail$GAIL_API_VERSION libxml-2.0 $EXTRA_CORE_MODULES gtk+-$GTK_API_VERSION"
-CORE_CFLAGS="`$PKG_CONFIG --cflags $CORE_MODULES` $x_cflags"
+CORE_MODULES="glib-2.0 $GMODULE_ADD mate-desktop-2.0 gthread-2.0 gio-2.0 gio-unix-2.0 gail$GAIL_API_VERSION libxml-2.0 $EXTRA_CORE_MODULES gtk+-$GTK_API_VERSION x11"
+CORE_CFLAGS="`$PKG_CONFIG --cflags $CORE_MODULES`"
 AC_SUBST(CORE_CFLAGS)
-CORE_LIBS="`$PKG_CONFIG --libs $CORE_MODULES` $x_libs"
+CORE_LIBS="`$PKG_CONFIG --libs $CORE_MODULES`"
 AC_SUBST(CORE_LIBS)
 
 DISABLE_DEPRECATED_CFLAGS="-DG_DISABLE_DEPRECATED -DGDK_PIXBUF_DISABLE_DEPRECATED"
