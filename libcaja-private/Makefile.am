@@ -56,6 +56,8 @@ libcaja_private_la_SOURCES = \
 	caja-column-chooser.h \
 	caja-column-utilities.c \
 	caja-column-utilities.h \
+	caja-dbus-manager.c \
+	caja-dbus-manager.h \
 	caja-customization-data.c \
 	caja-customization-data.h \
 	caja-debug-log.c \
