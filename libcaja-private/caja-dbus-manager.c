@@ -1,12 +1,37 @@
+/*
+ * caja-dbus-manager: caja DBus interface
+ *
+ * Copyright (C) 2010, Red Hat, Inc.
+ *
+ * Caja is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as
+ * published by the Free Software Foundation; either version 2 of the
+ * License, or (at your option) any later version.
+ *
+ * Caja is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ *
+ * Author: Cosimo Cecchi <cosimoc@redhat.com>
+ *
+ */
+
 #include <config.h>
 
 #include "caja-dbus-manager.h"
+
+#include "caja-file-operations.h"
 
 #include <gio/gio.h>
 
 static const gchar introspection_xml[] =
   "<node>"
-  "  <interface name='org.mate.caja.FileOperations'>"
+  "  <interface name='org.mate.Caja.FileOperations'>"
   "    <method name='CopyURIs'>"
   "      <arg type='as' name='URIList' direction='in'/>"
   "      <arg type='s' name='Destination' direction='in'/>"
@@ -66,6 +91,34 @@ caja_dbus_manager_class_init (CajaDBusManagerClass *klass)
 }
 
 static void
+trigger_copy_file_operation (const gchar **sources,
+                             const gchar *destination)
+{
+  GList *source_files = NULL;
+  GFile *dest_dir;
+  gint idx;
+
+  if (sources == NULL || sources[0] == NULL || destination == NULL)
+    {
+      g_debug ("Called 'CopyURIs' with NULL arguments, discarding");
+      return;
+    }
+
+  dest_dir = g_file_new_for_uri (destination);
+
+  for (idx = 0; sources[idx] != NULL; idx++)
+    source_files = g_list_prepend (source_files,
+                                   g_file_new_for_uri (sources[idx]));
+
+  caja_file_operations_copy (source_files, NULL,
+                                 dest_dir,
+                                 NULL, NULL, NULL);
+
+  g_list_free_full (source_files, g_object_unref);
+  g_object_unref (dest_dir);
+}
+
+static void
 handle_method_call (GDBusConnection *connection,
                     const gchar *sender,
                     const gchar *object_path,
@@ -82,7 +135,9 @@ handle_method_call (GDBusConnection *connection,
     {
       g_variant_get (parameters, "(^a&s&s)", &uris, &destination_uri);
 
-      g_print ("Called CopyURIs with dest %s and uri %s\n", destination_uri, uris[0]);
+      trigger_copy_file_operation (uris, destination_uri);
+
+      g_debug ("Called CopyURIs with dest %s and uri %s\n", destination_uri, uris[0]);
     }
 
   g_dbus_method_invocation_return_value (invocation, NULL);
@@ -96,9 +151,9 @@ static const GDBusInterfaceVTable interface_vtable =
 };
 
 static void
-name_acquired_cb (GDBusConnection *conn,
-                  const gchar *name,
-                  gpointer user_data)
+bus_acquired_handler_cb (GDBusConnection *conn,
+                         const gchar *name,
+                         gpointer user_data)
 {
   CajaDBusManager *self = user_data;
   GDBusNodeInfo *introspection_data;
@@ -119,7 +174,7 @@ name_acquired_cb (GDBusConnection *conn,
     }
 
   self->registration_id = g_dbus_connection_register_object (conn,
-                                                             "/org/mate/caja",
+                                                             "/org/mate/Caja",
                                                              introspection_data->interfaces[0],
                                                              &interface_vtable,
                                                              self,
@@ -137,22 +192,14 @@ name_acquired_cb (GDBusConnection *conn,
 }
 
 static void
-name_lost_cb (GDBusConnection *conn,
-              const gchar *name,
-              gpointer user_data)
-{
-
-}
-
-static void
 caja_dbus_manager_init (CajaDBusManager *self)
 {
   self->owner_id = g_bus_own_name (G_BUS_TYPE_SESSION,
-                                   "org.mate.caja",
+                                   "org.mate.Caja",
                                    G_BUS_NAME_OWNER_FLAGS_NONE,
+                                   bus_acquired_handler_cb,
                                    NULL,
-                                   name_acquired_cb,
-                                   name_lost_cb,
+                                   NULL,
                                    self,
                                    NULL);
 }
