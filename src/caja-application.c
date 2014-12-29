@@ -66,7 +66,6 @@
 #include <eel/eel-stock-dialogs.h>
 #include <gdk/gdkx.h>
 #include <gtk/gtk.h>
-#include <libcaja-private/caja-dbus-manager.h>
 #include <libcaja-private/caja-debug-log.h>
 #include <libcaja-private/caja-file-utilities.h>
 #include <libcaja-private/caja-global-preferences.h>
@@ -374,8 +373,6 @@ caja_application_finalize (GObject *object)
         g_object_unref (fdb_manager);
         fdb_manager = NULL;
     }
-
-    caja_dbus_manager_stop ();
 
     G_OBJECT_CLASS (caja_application_parent_class)->finalize (object);
 }
@@ -929,8 +926,6 @@ caja_application_startup (CajaApplication *application,
             g_free (accel_map_filename);
         }
         g_signal_connect (gtk_accel_map_get (), "changed", G_CALLBACK (queue_accel_map_save_callback), NULL);
-
-        caja_dbus_manager_start ();
     }
 }
 
