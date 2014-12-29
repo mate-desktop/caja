@@ -600,6 +600,8 @@ fm_desktop_icon_view_init (FMDesktopIconView *desktop_icon_view)
     g_signal_connect_object (desktop_icon_view, "unrealize",
                              G_CALLBACK (unrealized_callback), desktop_icon_view, 0);
 
+    default_zoom_level_changed (desktop_icon_view);
+
     g_signal_connect_swapped (caja_icon_view_preferences,
                               "changed::" CAJA_PREFERENCES_ICON_VIEW_DEFAULT_ZOOM_LEVEL,
                               G_CALLBACK (default_zoom_level_changed),
@@ -610,7 +612,6 @@ fm_desktop_icon_view_init (FMDesktopIconView *desktop_icon_view)
                               G_CALLBACK (font_changed_callback),
                               desktop_icon_view);
 
-    default_zoom_level_changed (desktop_icon_view);
     fm_desktop_icon_view_update_icon_container_fonts (desktop_icon_view);
 
     g_signal_connect_swapped (mate_lockdown_preferences,
