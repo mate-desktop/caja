@@ -1996,11 +1996,7 @@ set_zoom_level_from_metadata_and_preferences (FMListView *list_view)
 
     if (fm_directory_view_supports_zooming (FM_DIRECTORY_VIEW (list_view)))
     {
-        file = fm_directory_view_get_directory_as_file (FM_DIRECTORY_VIEW (list_view));
-        level = caja_file_get_integer_metadata (file,
-                                                CAJA_METADATA_KEY_LIST_VIEW_ZOOM_LEVEL,
-                                                get_default_zoom_level ());
-        fm_list_view_set_zoom_level (list_view, level, TRUE);
+        fm_list_view_set_zoom_level (list_view, get_default_zoom_level (), TRUE);
 
         /* updated the rows after updating the font size */
         gtk_tree_model_foreach (GTK_TREE_MODEL (list_view->details->model),
