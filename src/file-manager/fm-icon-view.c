@@ -2792,21 +2792,7 @@ default_zoom_level_changed_callback (gpointer callback_data)
 
     if (fm_directory_view_supports_zooming (FM_DIRECTORY_VIEW (icon_view)))
     {
-        file = fm_directory_view_get_directory_as_file (FM_DIRECTORY_VIEW (icon_view));
-
-        if (fm_icon_view_is_compact (icon_view))
-        {
-            level = caja_file_get_integer_metadata (file,
-                                                    CAJA_METADATA_KEY_COMPACT_VIEW_ZOOM_LEVEL,
-                                                    get_default_zoom_level (icon_view));
-        }
-        else
-        {
-            level = caja_file_get_integer_metadata (file,
-                                                    CAJA_METADATA_KEY_ICON_VIEW_ZOOM_LEVEL,
-                                                    get_default_zoom_level (icon_view));
-        }
-        fm_directory_view_zoom_to_level (FM_DIRECTORY_VIEW (icon_view), level);
+        fm_directory_view_zoom_to_level (FM_DIRECTORY_VIEW (icon_view), get_default_zoom_level (icon_view));
     }
 }
 
@@ -3291,6 +3277,9 @@ fm_icon_view_init (FMIconView *icon_view)
 
         setup_sound_preview = TRUE;
     }
+
+    //Ignore the return value
+    get_default_zoom_level(icon_view);
 
     g_signal_connect_swapped (caja_preferences,
                               "changed::" CAJA_PREFERENCES_DEFAULT_SORT_ORDER,
