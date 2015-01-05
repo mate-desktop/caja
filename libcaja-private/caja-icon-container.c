@@ -10001,7 +10001,6 @@ caja_icon_container_accessible_add_selection (AtkSelection *accessible,
 {
     GtkWidget *widget;
     CajaIconContainer *container;
-    GList *l;
     GList *selection;
     CajaIcon *icon;
 
@@ -10013,11 +10012,9 @@ caja_icon_container_accessible_add_selection (AtkSelection *accessible,
 
     container = CAJA_ICON_CONTAINER (widget);
 
-    l = g_list_nth (container->details->icons, i);
-    if (l)
+    icon = g_list_nth_data (container->details->icons, i);
+    if (icon)
     {
-        icon = l->data;
-
         selection = caja_icon_container_get_selection (container);
         selection = g_list_prepend (selection,
                                     icon->data);
@@ -10055,17 +10052,14 @@ caja_icon_container_accessible_ref_selection (AtkSelection *accessible,
 {
     AtkObject *atk_object;
     CajaIconContainerAccessiblePrivate *priv;
-    GList *item;
     CajaIcon *icon;
 
     caja_icon_container_accessible_update_selection (ATK_OBJECT (accessible));
     priv = accessible_get_priv (ATK_OBJECT (accessible));
 
-    item = (g_list_nth (priv->selection, i));
-
-    if (item)
+    icon = g_list_nth_data (priv->selection, i);
+    if (icon)
     {
-        icon = item->data;
         atk_object = atk_gobject_accessible_for_object (G_OBJECT (icon->item));
         if (atk_object)
         {
@@ -10099,7 +10093,6 @@ caja_icon_container_accessible_is_child_selected (AtkSelection *accessible,
         int i)
 {
     CajaIconContainer *container;
-    GList *l;
     CajaIcon *icon;
     GtkWidget *widget;
 
@@ -10111,13 +10104,8 @@ caja_icon_container_accessible_is_child_selected (AtkSelection *accessible,
 
     container = CAJA_ICON_CONTAINER (widget);
 
-    l = g_list_nth (container->details->icons, i);
-    if (l)
-    {
-        icon = l->data;
-        return icon->is_selected;
-    }
-    return FALSE;
+    icon = g_list_nth_data (container->details->icons, i);
+    return icon ? icon->is_selected : FALSE;
 }
 
 static gboolean
@@ -10126,7 +10114,6 @@ caja_icon_container_accessible_remove_selection (AtkSelection *accessible,
 {
     CajaIconContainer *container;
     CajaIconContainerAccessiblePrivate *priv;
-    GList *l;
     GList *selection;
     CajaIcon *icon;
     GtkWidget *widget;
@@ -10142,11 +10129,9 @@ caja_icon_container_accessible_remove_selection (AtkSelection *accessible,
 
     container = CAJA_ICON_CONTAINER (widget);
 
-    l = g_list_nth (priv->selection, i);
-    if (l)
+    icon = g_list_nth_data (priv->selection, i);
+    if (icon)
     {
-        icon = l->data;
-
         selection = caja_icon_container_get_selection (container);
         selection = g_list_remove (selection, icon->data);
         caja_icon_container_set_selection (container, selection);
@@ -10239,7 +10224,6 @@ caja_icon_container_accessible_ref_child (AtkObject *accessible, int i)
 {
     AtkObject *atk_object;
     CajaIconContainer *container;
-    GList *item;
     CajaIcon *icon;
     GtkWidget *widget;
 
@@ -10251,12 +10235,9 @@ caja_icon_container_accessible_ref_child (AtkObject *accessible, int i)
 
     container = CAJA_ICON_CONTAINER (widget);
 
-    item = (g_list_nth (container->details->icons, i));
-
-    if (item)
+    icon = g_list_nth_data (container->details->icons, i);
+    if (icon)
     {
-        icon = item->data;
-
         atk_object = atk_gobject_accessible_for_object (G_OBJECT (icon->item));
         g_object_ref (atk_object);
 
