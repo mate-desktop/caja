@@ -335,6 +335,8 @@ caja_bookmark_list_delete_item_at (CajaBookmarkList *bookmarks,
     g_return_if_fail (index < g_list_length (bookmarks->list));
 
     doomed = g_list_nth (bookmarks->list, index);
+    g_return_if_fail (doomed != NULL);
+
     bookmarks->list = g_list_remove_link (bookmarks->list, doomed);
 
     g_assert (CAJA_IS_BOOKMARK (doomed->data));
@@ -366,6 +368,8 @@ caja_bookmark_list_move_item (CajaBookmarkList *bookmarks,
     }
 
     bookmark_item = g_list_nth (bookmarks->list, index);
+    g_return_if_fail (bookmark_item != NULL);
+
     bookmarks->list = g_list_remove_link (bookmarks->list,
                                           bookmark_item);
 
