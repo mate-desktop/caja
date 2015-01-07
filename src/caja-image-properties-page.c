@@ -38,11 +38,11 @@
 #include <libexif/exif-data.h>
 #include <libexif/exif-ifd.h>
 #include <libexif/exif-loader.h>
-#endif
+#endif /*HAVE_EXIF*/
 #ifdef HAVE_EXEMPI
 #include <exempi/xmp.h>
 #include <exempi/xmpconsts.h>
-#endif
+#endif /*HAVE_EXEMPI*/
 
 #define LOAD_BUFFER_SIZE 8192
 
@@ -62,7 +62,7 @@ struct CajaImagePropertiesPageDetails
 #endif /*HAVE_EXIF*/
 #ifdef HAVE_EXEMPI
     XmpPtr     xmp;
-#endif
+#endif /*HAVE_EXEMPI*/
 };
 
 #ifdef HAVE_EXIF
@@ -192,9 +192,7 @@ static void
 exif_content_callback (ExifContent *content, gpointer data)
 {
     struct ExifAttribute *attribute;
-#ifndef HAVE_OLD_EXIF
     char b[1024];
-#endif
 
     attribute = (struct ExifAttribute *)data;
     if (attribute->found)
@@ -202,11 +200,7 @@ exif_content_callback (ExifContent *content, gpointer data)
         return;
     }
 
-#ifdef HAVE_OLD_EXIF
-    attribute->value = g_strdup (exif_content_get_value (content, attribute->tag));
-#else
     attribute->value = g_strdup (exif_content_get_value (content, attribute->tag, b, sizeof(b)));
-#endif
     if (attribute->value != NULL)
     {
         attribute->found = TRUE;
@@ -315,13 +309,9 @@ append_xmp_value_pair (CajaImagePropertiesPage *page,
     XmpStringPtr value;
 
     value = xmp_string_new();
-#ifdef HAVE_EXEMPI_NEW_API
+
     if (xmp_get_property (xmp, ns, propname, value, &options))
     {
-#else
-    if (xmp_get_property_and_bits (xmp, ns, propname, value, &options))
-    {
-#endif
         if (XMP_IS_PROP_SIMPLE (options))
         {
             append_label_take_str
@@ -381,7 +371,7 @@ append_xmpdata_string (XmpPtr xmp, CajaImagePropertiesPage *page)
         /* TODO add CC licenses */
     }
 }
-#endif
+#endif /*HAVE EXEMPI*/
 
 static void
 load_finished (CajaImagePropertiesPage *page)
@@ -399,7 +389,7 @@ load_finished (CajaImagePropertiesPage *page)
     {
 #ifdef HAVE_EXIF
         ExifData *exif_data;
-#endif
+#endif /*HAVE_EXIF*/
 
         format = gdk_pixbuf_loader_get_format (page->details->loader);
 
@@ -431,7 +421,7 @@ load_finished (CajaImagePropertiesPage *page)
 #endif /*HAVE_EXIF*/
 #ifdef HAVE_EXEMPI
         append_xmpdata_string (page->details->xmp, page);
-#endif /*HAVE EXEMPI*/
+#endif /*HAVE_EXEMPI*/
     }
     else
     {
@@ -457,7 +447,7 @@ load_finished (CajaImagePropertiesPage *page)
         xmp_free(page->details->xmp);
         page->details->xmp = NULL;
     }
-#endif
+#endif /*HAVE_EXEMPI*/
 }
 
 static void
@@ -490,7 +480,7 @@ file_read_callback (GObject      *object,
                                                 count_read);
 #else
         exif_still_loading = 0;
-#endif
+#endif /*HAVE_EXIF*/
 
         if (page->details->pixbuf_still_loading)
         {

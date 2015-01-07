@@ -8,9 +8,8 @@ m4_define(mate_desktop_minver,         1.9.0)
 m4_define(pango_minver,                1.1.2)
 m4_define(gtk_minver,                  2.24.0)
 m4_define(xml_minver,                  2.4.7)
-m4_define(exif_minver,                 0.5.12)
-m4_define(exempi_minver,               1.99.2)
-m4_define(exempi_minver_newapi,        1.99.5)
+m4_define(exif_minver,                 0.6.14)
+m4_define(exempi_minver,               1.99.5)
 m4_define(gail_minver,                 0.16)
 
 
@@ -132,7 +131,6 @@ AC_DEFINE([HAVE_GTK_MULTIHEAD], [], [needed for egg-screen-exec functions])
 
 AH_TEMPLATE([HAVE_STARTUP_NOTIFICATION])
 AH_TEMPLATE([HAVE_EXIF])
-AH_TEMPLATE([HAVE_OLD_EXIF])
 AH_TEMPLATE([HAVE_RENDER])
 
 AM_GLIB_GNU_GETTEXT
@@ -160,15 +158,11 @@ AM_CONDITIONAL(HAVE_EXIF, false)
 
 dnl libexif checking
 
-PKG_CHECK_MODULES(EXIF, libexif > exif_minver,
+PKG_CHECK_MODULES(EXIF, libexif >= exif_minver,
     [AM_CONDITIONAL(HAVE_EXIF, true)
      AC_DEFINE(HAVE_EXIF, 1, [Define to enable EXIF support])
     ],
-    [PKG_CHECK_MODULES(EXIF, libexif = exif_minver,
-        [AM_CONDITIONAL(HAVE_EXIF, true)
-         AC_DEFINE(HAVE_OLD_EXIF, 1, [Define if your EXIF library has old API])
-        ], [AM_CONDITIONAL(HAVE_EXIF, false)])
-    ])
+    [AM_CONDITIONAL(HAVE_EXIF, false)])
 
 AC_SUBST(EXIF_CFLAGS)
 AC_SUBST(EXIF_LIBS)
@@ -189,10 +183,6 @@ if test "x$enable_xmp" != "xno"; then
          AC_DEFINE(HAVE_EXEMPI, 1, [Define to enable xmp support])]
         msg_xmp=yes,
         [AM_CONDITIONAL(HAVE_EXEMPI, false)])
-
-    PKG_CHECK_MODULES(EXEMPI_NEW_API, exempi-2.0 >= exempi_minver_newapi,
-        AC_DEFINE(HAVE_EXEMPI_NEW_API, 1,
-            [Define if we have exempi with the new API]), true)
 
     AC_SUBST(EXEMPI_CFLAGS)
     AC_SUBST(EXEMPI_LIBS)
