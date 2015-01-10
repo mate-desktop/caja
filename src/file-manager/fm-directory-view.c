@@ -83,6 +83,9 @@
 #include <libcaja-private/caja-icon-names.h>
 #include <libcaja-private/caja-undostack-manager.h>
 
+#define MATE_DESKTOP_USE_UNSTABLE_API
+#include <libmate-desktop/mate-desktop-utils.h>
+
 #include <src/glibcompat.h> /* for g_list_free_full */
 
 /* Minimum starting update inverval */
@@ -10195,23 +10198,8 @@ fm_directory_view_move_copy_items (const GList *item_uris,
 		if (screen == NULL) {
 			screen = gdk_screen_get_default ();
 		}
-#if GTK_CHECK_VERSION (3, 0, 0)
-		GdkAppLaunchContext *launch_context;
-		GAppInfo *app_info = NULL;
-		app_info = g_app_info_create_from_commandline (command,
-													   NULL,
-													   G_APP_INFO_CREATE_NONE,
-													   NULL);
-		if (app_info != NULL) {
-			launch_context = gdk_app_launch_context_new ();
-			gdk_app_launch_context_set_screen (launch_context, screen);
-			g_app_info_launch (app_info, NULL, G_APP_LAUNCH_CONTEXT (launch_context), NULL);
-			g_object_unref (launch_context);
-			g_object_unref (app_info);
-		}
-#else
-		gdk_spawn_command_line_on_screen (screen, command, NULL);
-#endif
+
+		mate_gdk_spawn_command_line_on_screen(screen, command, NULL);
 		g_free (command);
 
 		return;

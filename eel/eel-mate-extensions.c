@@ -194,24 +194,8 @@ eel_mate_open_terminal_on_screen (const char *command,
         g_message ("Could not start a terminal");
         return;
     }
-#if GTK_CHECK_VERSION (3, 0, 0)
-    GdkAppLaunchContext *launch_context;
-    GAppInfo *app_info = NULL;
-    app_info = g_app_info_create_from_commandline (command_line,
-                                                   NULL,
-                                                   G_APP_INFO_CREATE_NONE,
-                                                   NULL);
-    if (app_info != NULL)
-    {
-        launch_context = gdk_app_launch_context_new ();
-        gdk_app_launch_context_set_screen (launch_context, screen);
-        g_app_info_launch (app_info, NULL, G_APP_LAUNCH_CONTEXT (launch_context), NULL);
-        g_object_unref (launch_context);
-        g_object_unref (app_info);
-    }
-#else
-    gdk_spawn_command_line_on_screen (screen, command_line, NULL);
-#endif
+
+    mate_gdk_spawn_command_line_on_screen(screen, command_line, NULL);
     g_free (command_line);
 }
 
