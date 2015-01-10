@@ -2146,7 +2146,13 @@ get_preview_argv (char *uri)
         return argv;
     }
 
-    command = g_find_program_in_path ("gst-launch-0.10");
+    command = g_find_program_in_path ("gst-launch-1.0");
+
+    if (!command)
+    {
+        command = g_find_program_in_path ("gst-launch-0.10");
+    }
+
     if (command)
     {
         argv = g_new (char *, 10);
@@ -2155,7 +2161,7 @@ get_preview_argv (char *uri)
         argv[i++] = g_strdup ("playbin");
         argv[i++] = g_strconcat ("uri=", uri, NULL);
         /* do not display videos */
-        argv[i++] = g_strdup ("current-video=-1");
+        argv[i++] = g_strdup ("video-sink=fakesink");
         argv[i++] = NULL;
         return argv;
     }
