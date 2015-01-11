@@ -578,18 +578,11 @@ action_caja_manual_callback (GtkAction *action,
     error = NULL;
     window = CAJA_WINDOW (user_data);
 
-    if (CAJA_IS_DESKTOP_WINDOW (window))
-    {
-        mate_gdk_spawn_command_line_on_screen(gtk_window_get_screen(GTK_WINDOW(window)),
-                                              "mate-help",
-                                              &error);
-    }
-    else
-    {
-        gtk_show_uri (gtk_window_get_screen (GTK_WINDOW (window)),
-                      "help:mate-user-guide/goscaja-1",
-                      gtk_get_current_event_time (), &error);
-    }
+    gtk_show_uri (gtk_window_get_screen (GTK_WINDOW (window)),
+                   CAJA_IS_DESKTOP_WINDOW (window)
+                      ? "help:mate-user-guide"
+                      : "help:mate-user-guide/goscaja-1",
+                  gtk_get_current_event_time (), &error);
 
     if (error)
     {
