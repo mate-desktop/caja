@@ -33,8 +33,6 @@
 #include <eel/eel-gtk-macros.h>
 #include <gtk/gtk.h>
 
-#include <src/glibcompat.h> /* for g_list_free_full */
-
 struct CajaMergedDirectoryDetails
 {
     GList *directories;

@@ -86,8 +86,6 @@
 #define MATE_DESKTOP_USE_UNSTABLE_API
 #include <libmate-desktop/mate-desktop-utils.h>
 
-#include <src/glibcompat.h> /* for g_list_free_full */
-
 /* Minimum starting update inverval */
 #define UPDATE_INTERVAL_MIN 100
 /* Maximum update interval */
@@ -2329,14 +2327,10 @@ fm_directory_view_display_selection_info (FMDirectoryView *view)
 		if (non_folder_size_known) {
 			char *size_string;
 
-			#if GLIB_CHECK_VERSION(2, 30, 0)
-				if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_USE_IEC_UNITS))
-					size_string = g_format_size_full (non_folder_size, G_FORMAT_SIZE_IEC_UNITS);
-				else
-					size_string = g_format_size(non_folder_size);
-			#else
-				size_string = g_format_size_for_display(non_folder_size);
-			#endif
+			if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_USE_IEC_UNITS))
+				size_string = g_format_size_full (non_folder_size, G_FORMAT_SIZE_IEC_UNITS);
+			else
+				size_string = g_format_size(non_folder_size);
 
 			/* This is marked for translation in case a localiser
 			 * needs to use something other than parentheses. The

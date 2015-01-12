@@ -30,8 +30,6 @@
 #include "caja-debug-log.h"
 #include "caja-file.h"
 
-#include <src/glibcompat.h> /* for g_list_free_full */
-
 #define DEFAULT_RING_BUFFER_NUM_LINES 1000
 
 #define KEY_FILE_GROUP		"debug log"
@@ -40,11 +38,7 @@
 
 #define MAX_URI_COUNT 20
 
-#if GLIB_CHECK_VERSION(2, 31, 0)
 static GMutex log_mutex;
-#else
-static GStaticMutex log_mutex = G_STATIC_MUTEX_INIT;
-#endif
 
 static GHashTable *domains_hash;
 static char **ring_buffer;
@@ -58,21 +52,13 @@ static GSList *milestones_tail;
 static void
 lock (void)
 {
-    #if GLIB_CHECK_VERSION(2, 31, 0)
     g_mutex_lock (&log_mutex);
-    #else
-    g_static_mutex_lock (&log_mutex);
-    #endif
 }
 
 static void
 unlock (void)
 {
-    #if GLIB_CHECK_VERSION(2, 31, 0)
     g_mutex_unlock (&log_mutex);
-    #else
-    g_static_mutex_unlock (&log_mutex);
-    #endif
 }
 
 void

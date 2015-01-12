@@ -389,10 +389,6 @@ main (int argc, char *argv[])
     mallopt (M_MMAP_THRESHOLD, 128 *1024);
 #endif
 
-#if !GLIB_CHECK_VERSION (2, 32, 0)
-    g_thread_init (NULL);
-#endif
-
 #if !GLIB_CHECK_VERSION (2, 42, 0)
     /* This will be done by gtk+ later, but for now, force it to MATE */
     g_desktop_app_info_set_desktop_env ("MATE");

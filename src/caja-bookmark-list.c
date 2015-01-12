@@ -35,8 +35,6 @@
 #include <gio/gio.h>
 #include <string.h>
 
-#include "glibcompat.h" /* for g_list_free_full */
-
 #define MAX_BOOKMARK_LENGTH 80
 #define LOAD_JOB 1
 #define SAVE_JOB 2

@@ -31,8 +31,6 @@
 #include <libcaja-private/caja-file.h>
 #include <eel/eel-gtk-macros.h>
 
-#include "glibcompat.h" /* for g_list_free_full */
-
 static void caja_navigation_window_slot_init       (CajaNavigationWindowSlot *slot);
 static void caja_navigation_window_slot_class_init (CajaNavigationWindowSlotClass *class);
 

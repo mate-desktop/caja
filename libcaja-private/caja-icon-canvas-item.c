@@ -50,8 +50,6 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <src/glibcompat.h> /* for g_list_free_full */
-
 #define EMBLEM_SPACING 2
 
 /* gap between bottom of icon and start of text box */

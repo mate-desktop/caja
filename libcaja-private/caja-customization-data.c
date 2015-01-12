@@ -23,7 +23,7 @@
  */
 
 /* caja-customization-data.c - functions to collect and load customization
-   names and imges */
+   names and images */
 
 #include <config.h>
 #include "caja-customization-data.h"
@@ -42,8 +42,6 @@
 #include <libxml/parser.h>
 #include <stdlib.h>
 #include <string.h>
-
-#include <src/glibcompat.h> /* for g_list_free_full */
 
 typedef enum
 {

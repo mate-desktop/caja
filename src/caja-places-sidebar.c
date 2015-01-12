@@ -53,8 +53,6 @@
 #include "caja-places-sidebar.h"
 #include "caja-window.h"
 
-#include "glibcompat.h" /* for g_list_free_full and g_clear_object */
-
 #define EJECT_BUTTON_XPAD 6
 #define ICON_CELL_XPAD 6
 

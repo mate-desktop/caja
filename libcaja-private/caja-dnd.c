@@ -44,8 +44,6 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <src/glibcompat.h> /* for g_list_free_full */
-
 /* a set of defines stolen from the eel-icon-dnd.c file.
  * These are in microseconds.
  */

@@ -34,8 +34,6 @@
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
 
-#include "glibcompat.h" /* for g_list_free_full */
-
 typedef enum
 {
     CAJA_QUERY_EDITOR_ROW_LOCATION,

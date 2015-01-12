@@ -40,8 +40,6 @@
 
 #include "caja-history-sidebar.h"
 
-#include "glibcompat.h" /* for g_list_free_full */
-
 #define CAJA_HISTORY_SIDEBAR_CLASS(klass) \
   (G_TYPE_CHECK_CLASS_CAST ((klass), CAJA_TYPE_HISTORY_SIDEBAR, CajaHistorySidebarClass))
 #define CAJA_IS_HISTORY_SIDEBAR(obj) \

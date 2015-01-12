@@ -78,8 +78,6 @@
 #define MATE_DESKTOP_USE_UNSTABLE_API
 #include <libmate-desktop/mate-bg.h>
 
-#include "glibcompat.h" /* for g_list_free_full */
-
 enum {
 	COMMAND_0, /* unused: 0 is an invalid command */
 

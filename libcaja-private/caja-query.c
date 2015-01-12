@@ -30,8 +30,6 @@
 #include <glib/gi18n.h>
 #include <libcaja-private/caja-file-utilities.h>
 
-#include <src/glibcompat.h> /* for g_list_free_full */
-
 struct CajaQueryDetails
 {
     char *text;

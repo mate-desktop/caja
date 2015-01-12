@@ -33,8 +33,6 @@
 #include <libcaja-private/caja-file.h>
 #include <libcaja-private/caja-trash-monitor.h>
 
-#include "glibcompat.h" /* for g_list_free_full */
-
 #define CAJA_TRASH_BAR_GET_PRIVATE(o)\
 	(G_TYPE_INSTANCE_GET_PRIVATE ((o), CAJA_TYPE_TRASH_BAR, CajaTrashBarPrivate))
 

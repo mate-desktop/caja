@@ -35,8 +35,6 @@
 #include <libcaja-private/caja-dnd.h>
 #include <glib.h>
 
-#include <src/glibcompat.h> /* for g_list_free_full */
-
 enum
 {
     SUBDIRECTORY_UNLOADED,

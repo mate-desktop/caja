@@ -33,8 +33,6 @@
 #include <eel/eel-gtk-macros.h>
 #include <eel/eel-string.h>
 
-#include "glibcompat.h" /* for g_list_free_full */
-
 static void caja_window_slot_init       (CajaWindowSlot *slot);
 static void caja_window_slot_class_init (CajaWindowSlotClass *class);
 static void caja_window_slot_dispose    (GObject *object);

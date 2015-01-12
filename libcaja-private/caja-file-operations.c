@@ -68,8 +68,6 @@
 #include "caja-file-conflict-dialog.h"
 #include "caja-undostack-manager.h"
 
-#include <src/glibcompat.h> /* for g_list_free_full */
-
 /* TODO: TESTING!!! */
 
 typedef struct {
@@ -851,14 +849,10 @@ custom_size_to_string (char *format, va_list va)
 
 	size = va_arg (va, goffset);
 
-	#if GLIB_CHECK_VERSION(2, 30, 0)
-		if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_USE_IEC_UNITS))
-			return g_format_size_full (size, G_FORMAT_SIZE_IEC_UNITS);
-		else
-			return g_format_size(size);
-	#else
-		return g_format_size_for_display(size);
-	#endif
+	if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_USE_IEC_UNITS))
+		return g_format_size_full (size, G_FORMAT_SIZE_IEC_UNITS);
+	else
+		return g_format_size(size);
 }
 
 static void
