@@ -34,10 +34,6 @@ main (int argc, char* argv[])
 	CajaSearchEngine *engine;
 	CajaQuery *query;
 
-#if !GLIB_CHECK_VERSION (2, 32, 0)
-    g_thread_init (NULL);
-#endif
-	
 	gtk_init (&argc, &argv);
 
 	engine = caja_search_engine_new ();

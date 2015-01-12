@@ -52,8 +52,6 @@
 #include <stdio.h>
 #include <string.h>
 
-#include <src/glibcompat.h> /* for g_list_free_full */
-
 #if !GTK_CHECK_VERSION(3, 0, 0)
 #define gtk_scrollable_get_hadjustment gtk_layout_get_hadjustment
 #define gtk_scrollable_get_vadjustment gtk_layout_get_vadjustment

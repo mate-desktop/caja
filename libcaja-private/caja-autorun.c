@@ -43,8 +43,6 @@
 #include "caja-desktop-icon-file.h"
 #include "caja-file-utilities.h"
 
-#include <src/glibcompat.h> /* for g_list_free_full */
-
 enum
 {
     AUTORUN_ASK,

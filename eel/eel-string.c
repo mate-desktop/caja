@@ -988,11 +988,7 @@ retry_atomic_decrement:
     {
         G_LOCK (unique_ref_strs);
         /* Need to recheck after taking lock to avoid races with _get_unique() */
-#if !GLIB_CHECK_VERSION (2, 30, 0)
-        if (g_atomic_int_exchange_and_add (count, -1) == 0x80000001)
-#else
         if (g_atomic_int_add (count, -1) == 0x80000001)
-#endif
         {
             g_hash_table_remove (unique_ref_strs, (char *)str);
             g_free ((char *)count);

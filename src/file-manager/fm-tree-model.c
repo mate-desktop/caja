@@ -37,8 +37,6 @@
 #include <gtk/gtk.h>
 #include <string.h>
 
-#include <src/glibcompat.h> /* for g_list_free_full */
-
 enum
 {
     ROW_LOADED,

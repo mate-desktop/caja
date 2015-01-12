@@ -38,8 +38,6 @@
 #include <time.h>
 #include <locale.h>
 
-#include <src/glibcompat.h> /* for g_list_free_full */
-
 /* Legal conversion specifiers, as specified in the C standard. */
 #define C_STANDARD_STRFTIME_CHARACTERS "aAbBcdHIjmMpSUwWxXyYZ"
 #define C_STANDARD_NUMERIC_STRFTIME_CHARACTERS "dHIjmMSUwWyY"

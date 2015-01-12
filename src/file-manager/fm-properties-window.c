@@ -68,8 +68,6 @@
 #include <sys/mount.h>
 #endif
 
-#include <src/glibcompat.h> /* for g_list_free_full */
-
 #define USED_FILL_R  (0.988235294 * 65535)
 #define USED_FILL_G  (0.91372549 * 65535)
 #define USED_FILL_B  (0.309803922 * 65535)
@@ -2321,14 +2319,10 @@ directory_contents_value_field_update (FMPropertiesWindow *window)
 	} else {
 		char *size_str;
 
-		#if GLIB_CHECK_VERSION(2, 30, 0)
-			if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_USE_IEC_UNITS))
-				size_str = g_format_size_full (total_size, G_FORMAT_SIZE_IEC_UNITS);
-			else
-				size_str = g_format_size(total_size);
-		#else
-			size_str = g_format_size_for_display(total_size);
-		#endif
+		if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_USE_IEC_UNITS))
+			size_str = g_format_size_full (total_size, G_FORMAT_SIZE_IEC_UNITS);
+		else
+			size_str = g_format_size(total_size);
 
 		text = g_strdup_printf (ngettext("%'d item, with size %s",
 						 "%'d items, totalling %s",
@@ -3147,22 +3141,16 @@ create_pie_widget (FMPropertiesWindow *window)
 	GFile *location;
 	GFileInfo *info;
 
-	#if GLIB_CHECK_VERSION(2, 30, 0)
-		if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_USE_IEC_UNITS)) {
-			capacity = g_format_size_full(window->details->volume_capacity, G_FORMAT_SIZE_IEC_UNITS);
-			free = g_format_size_full(window->details->volume_free, G_FORMAT_SIZE_IEC_UNITS);
-			used = g_format_size_full(window->details->volume_capacity - window->details->volume_free, G_FORMAT_SIZE_IEC_UNITS);
-		}
-		else {
-			capacity = g_format_size(window->details->volume_capacity);
-			free = g_format_size(window->details->volume_free);
-			used = g_format_size(window->details->volume_capacity - window->details->volume_free);
-		}
-	#else
-		capacity = g_format_size_for_display(window->details->volume_capacity);
-		free = g_format_size_for_display(window->details->volume_free);
-		used = g_format_size_for_display(window->details->volume_capacity - window->details->volume_free);
-	#endif
+	if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_USE_IEC_UNITS)) {
+		capacity = g_format_size_full(window->details->volume_capacity, G_FORMAT_SIZE_IEC_UNITS);
+		free = g_format_size_full(window->details->volume_free, G_FORMAT_SIZE_IEC_UNITS);
+		used = g_format_size_full(window->details->volume_capacity - window->details->volume_free, G_FORMAT_SIZE_IEC_UNITS);
+	}
+	else {
+		capacity = g_format_size(window->details->volume_capacity);
+		free = g_format_size(window->details->volume_free);
+		used = g_format_size(window->details->volume_capacity - window->details->volume_free);
+	}
 
 	file = get_original_file (window);
 
