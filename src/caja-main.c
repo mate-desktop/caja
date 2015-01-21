@@ -465,6 +465,10 @@ main (int argc, char *argv[])
         no_default_window = TRUE;
         no_desktop = FALSE;
     }
+    else if (g_strcmp0 (g_getenv ("XDG_CURRENT_DESKTOP"), "MATE") != 0)
+    {
+        no_desktop = TRUE;
+    }
 
     if (perform_self_check && remaining != NULL)
     {
