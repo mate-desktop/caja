@@ -2876,7 +2876,7 @@ compare_by_display_name (CajaFile *file_1, CajaFile *file_2)
 	} else {
 		key_1 = caja_file_peek_display_name_collation_key (file_1);
 		key_2 = caja_file_peek_display_name_collation_key (file_2);
-		compare = strcmp (key_1, key_2);
+		compare = strcasecmp (key_1, key_2);
 	}
 
 	return compare;
