@@ -1360,7 +1360,7 @@ reorder_bookmarks (CajaPlacesSidebar *sidebar,
     /* Get the selected path */
 
     if (!get_selected_iter (sidebar, &iter))
-        g_assert_not_reached ();
+        return;
 
     gtk_tree_model_get (GTK_TREE_MODEL (sidebar->filter_model), &iter,
                         PLACES_SIDEBAR_COLUMN_ROW_TYPE, &type,
@@ -1425,7 +1425,9 @@ drag_data_received_callback (GtkWidget *widget,
     }
 
     /* Compute position */
-    compute_drop_position (tree_view, x, y, &tree_path, &tree_pos, sidebar);
+    success = compute_drop_position (tree_view, x, y, &tree_path, &tree_pos, sidebar);
+    if (!success)
+        goto out;
 
     success = FALSE;
 
