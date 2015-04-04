@@ -5,14 +5,14 @@
 # Translators:
 # Carlos Moreira <crolidge@gmail.com>, 2013
 # Carlos Moreira <crolidge@gmail.com>, 2012
-# Carlos Moreira <crolidge@gmail.com>, 2014
+# Carlos Moreira <crolidge@gmail.com>, 2014-2015
 # Sérgio Marques <smarquespt@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-10 15:03+0100\n"
-"PO-Revision-Date: 2014-12-19 00:58+0000\n"
+"PO-Revision-Date: 2015-03-19 22:48+0000\n"
 "Last-Translator: Carlos Moreira <crolidge@gmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/MATE/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -374,7 +374,7 @@ msgid ""
 "MATE desktop. It works on local and remote file systems. </p> <p> Caja is "
 "extensible through a plugin system, similar to that of GNOME Nautilus, of "
 "which Caja is a fork. </p>"
-msgstr "<p> Caja é o gestor de ficheiros oficial do ambiente MATE. Permite navegar por pastas, bem como pré-visualizar ficheiros e lançar aplicações associadas a eles. É também responsável pelo manuseio de ícones no ambiente MATE. Funciona com sistemas de ficheiros locais e remotos. </p> <p> Caja é extensível através de um sistema de plugins, semelhante ao do GNOME Nautilus, do qual o Caja é um derivado. </p>"
+msgstr "<p> Caja é o gestor de ficheiros oficial do ambiente MATE. Permite navegar por pastas, bem como pré-visualizar ficheiros e lançar aplicações associadas a eles. É também responsável pelo manuseio de ícones no ambiente MATE. Funciona com sistemas de ficheiros locais e remotos. </p> <p> Caja é extensível através de um sistema de suplementos, semelhante ao do GNOME Nautilus, do qual o Caja é um derivado. </p>"
 
 #: ../eel/eel-canvas.c:1301 ../eel/eel-canvas.c:1302
 msgid "X"
@@ -617,7 +617,7 @@ msgstr "Mover Abai_xo"
 
 #: ../libcaja-private/caja-column-chooser.c:402
 msgid "Use De_fault"
-msgstr "Utili_zar Omissão"
+msgstr "Usar Padrão"
 
 #: ../libcaja-private/caja-column-utilities.c:44
 #: ../libcaja-private/caja-mime-application-chooser.c:276
@@ -1652,7 +1652,7 @@ msgstr "Erro ao criar um atalho para %B."
 
 #: ../libcaja-private/caja-file-operations.c:5274
 msgid "Symbolic links only supported for local files"
-msgstr "Atalhos simbólicos apenas são suportados paar ficheiros locais"
+msgstr "Atalhos simbólicos apenas são suportados em ficheiros locais"
 
 #: ../libcaja-private/caja-file-operations.c:5277
 msgid "The target doesn't support symbolic links."
@@ -1679,7 +1679,7 @@ msgstr "novo ficheiro"
 
 #: ../libcaja-private/caja-file-operations.c:6030
 msgid "Error while creating directory %B."
-msgstr "Erro ao criar o directório %B."
+msgstr "Erro ao criar o diretório %B."
 
 #: ../libcaja-private/caja-file-operations.c:6032
 msgid "Error while creating file %B."
@@ -1688,7 +1688,7 @@ msgstr "Erro ao criar o ficheiro %B."
 #: ../libcaja-private/caja-file-operations.c:6034
 #, c-format
 msgid "There was an error creating the directory in %F."
-msgstr "Ocorreu um erro ao criar o directório em %F."
+msgstr "Ocorreu um erro ao criar o diretório em %F."
 
 #: ../libcaja-private/caja-file-operations.c:6310
 msgid "Emptying Trash"
@@ -2004,7 +2004,7 @@ msgstr "Este atalho não pode ser utilizado, pois não possui destino."
 #: ../libcaja-private/caja-mime-actions.c:772
 #, c-format
 msgid "This link cannot be used, because its target \"%s\" doesn't exist."
-msgstr "Este atalho não pode ser utilizado pois o seu destino \"%s\" não existe."
+msgstr "Este atalho não pode ser utilizado,pois o seu destino \"%s\" não existe."
 
 #. name, stock id
 #. label, accelerator
@@ -2056,8 +2056,8 @@ msgstr[1] "Serão abertos %d novos separadores."
 #, c-format
 msgid "This will open %d separate window."
 msgid_plural "This will open %d separate windows."
-msgstr[0] "Será aberta %d nova janela."
-msgstr[1] "Serão abertas %d novas janelas."
+msgstr[0] "Isto Irá abrir %d nova janela."
+msgstr[1] "Isto irá abrir %d novas janelas"
 
 #: ../libcaja-private/caja-mime-actions.c:1297
 #: ../src/caja-window-manage-views.c:2120
@@ -2144,16 +2144,16 @@ msgstr[1] "A abrir %d itens."
 #: ../libcaja-private/caja-open-with-dialog.c:301
 #, c-format
 msgid "Could not set application as the default: %s"
-msgstr "Incapaz de definir a aplicação como a por omissão: %s"
+msgstr "Incapaz de definir a aplicação como o padrão: %s"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:165
 #: ../libcaja-private/caja-open-with-dialog.c:302
 msgid "Could not set as default application"
-msgstr "Incapaz de definir como a aplicação por omissão"
+msgstr "Incapaz de definir como a aplicação padrão"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:258
 msgid "Default"
-msgstr "Omissão"
+msgstr "Padrão"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:268
 msgid "Icon"
@@ -2256,7 +2256,7 @@ msgstr "Abrir %s com:"
 #: ../libcaja-private/caja-open-with-dialog.c:1054
 #, c-format
 msgid "_Remember this application for %s documents"
-msgstr "_Recordar esta aplicação para os documentos %s"
+msgstr "_Recordar esta aplicação para %s documentos"
 
 #. Only in add mode - the %s here is a file extension
 #: ../libcaja-private/caja-open-with-dialog.c:1065
@@ -2327,7 +2327,7 @@ msgstr "Não existem outras ações disponíveis para visualizar este ficheiro. 
 
 #: ../libcaja-private/caja-program-choosing.c:513
 msgid "Sorry, but you cannot execute commands from a remote site."
-msgstr "Não pode executar comandos de uma máquina remota."
+msgstr "Não pode executar comandos de um sítio remoto."
 
 #: ../libcaja-private/caja-program-choosing.c:515
 msgid "This is disabled due to security considerations."
@@ -2341,7 +2341,7 @@ msgstr "Ocorreu um erro ao iniciar a aplicação."
 #: ../libcaja-private/caja-program-choosing.c:556
 #: ../libcaja-private/caja-program-choosing.c:569
 msgid "This drop target only supports local files."
-msgstr "Este destino de largar apenas suporta ficheiros locais."
+msgstr "Este alvo de largada apenas suporta ficheiros locais."
 
 #: ../libcaja-private/caja-program-choosing.c:557
 msgid ""
@@ -2808,7 +2808,7 @@ msgstr "Se definido como verdadeiro, as janelas de navegação do Caja irão sem
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:9
 msgid "Whether to ask for confirmation when deleting files, or emptying Trash"
-msgstr "Se pedir confirmação ao apagar ficheiros ou esvaziar o Lixo"
+msgstr "Se pedir confirmação ao apagar ficheiros, ou esvaziar o Lixo"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:10
 msgid ""
@@ -2818,7 +2818,7 @@ msgstr "Se definido como verdadeiro, o Caja pedirá confirmação quando tentar 
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:11
 msgid "Whether to enable immediate deletion"
-msgstr "Se activar remoção imediata"
+msgstr "Se deve ativar remoção imediata"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:12
 msgid ""
@@ -2876,7 +2876,7 @@ msgstr "O que fazer com ficheiros de texto executáveis ao ativá-los (clique ú
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:21
 msgid "Show the package installer for unknown mime types"
-msgstr "Apresentar o instalador de pacotes para tipos mime desconhecidos"
+msgstr "Mostrar o instalador de pacotes para tipos mime desconhecidos"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:22
 msgid ""
@@ -2896,29 +2896,29 @@ msgstr "Para utilizadores com ratos que têm botões \"Avançar\" e \"Retroceder
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:25
 msgid "Mouse button to activate the \"Forward\" command in browser window"
-msgstr "Botão do rato para activar o comando \"Avançar\" na janela de navegação"
+msgstr "Botão do rato para ativar o comando \"Avançar\" na janela de navegação"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:26
 msgid ""
 "For users with mice that have buttons for \"Forward\" and \"Back\", this key"
 " will set which button activates the \"Forward\" command in a browser "
 "window. Possible values range between 6 and 14."
-msgstr "Para utilizadores com ratos que têm botões \"Avançar\" e \"Retroceder\", esta chave determina que botão activa o comando \"Avançar\" numa janela de navegador. Valores possíveis estão no intervalo entre 6 e 14."
+msgstr "Para utilizadores com ratos que têm botões \"Avançar\" e \"Retroceder\", esta chave determina que botão ativa o comando \"Avançar\" numa janela de navegador. Valores possíveis estão no intervalo entre 6 e 14."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:27
 msgid "Mouse button to activate the \"Back\" command in browser window"
-msgstr "Botão do rato para activar o comando \"Retroceder\" na janela de navegação"
+msgstr "Botão do rato para ativar o comando \"Retroceder\" na janela de navegação"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:28
 msgid ""
 "For users with mice that have buttons for \"Forward\" and \"Back\", this key"
 " will set which button activates the \"Back\" command in a browser window. "
 "Possible values range between 6 and 14."
-msgstr "Para utilizadores com ratos que têm botões \"Avançar\" e \"Retroceder\", esta chave determina que botão activa o comando \"Retroceder\" numa janela de navegador. Valores possíveis estão no intervalo entre 6 e 14."
+msgstr "Para utilizadores com ratos que têm botões \"Avançar\" e \"Retroceder\", esta chave determina que botão ativa o comando \"Retroceder\" numa janela de navegador. Valores possíveis estão no intervalo entre 6 e 14."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:29
 msgid "When to show thumbnails of image files"
-msgstr "Quando apresentar amostras de ficheiros de imagem"
+msgstr "Quando apresentar miniaturas de ficheiros de imagem"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:30
 msgid ""
@@ -2931,7 +2931,7 @@ msgstr "Compromisso de velocidade ao mostrar um ficheiro de imagem em miniatura.
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:31
 msgid "Maximum image size for thumbnailing"
-msgstr "Tamanho máximo de imagem para amostragem"
+msgstr "Tamanho máximo de imagem em miniaturas"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:32
 msgid ""
@@ -2954,7 +2954,7 @@ msgstr "Compromisso de velocidade na antevisão de ficheiros de som quando o rat
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:35
 msgid "Show advanced permissions in the file property dialog"
-msgstr "Apresentar as permissões avançadas no diálogo de propriedades do ficheiro"
+msgstr "Mostrar permissões avançadas no diálogo de propriedades do ficheiro"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:36
 msgid ""
@@ -2964,7 +2964,7 @@ msgstr "Se definido como verdadeiro, o Caja permitir-lhe-á editar e visualizar 
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:37
 msgid "Show folders first in windows"
-msgstr "Apresentar primeiro pastas nas janelas"
+msgstr "Mostrar pastas primeiro em janelas"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:38
 msgid ""
@@ -2984,7 +2984,7 @@ msgstr "O modo de ordenação por defeito na vista de ícones. Os valores possí
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:41
 msgid "Reverse sort order in new windows"
-msgstr "Inverter ordenação nas novas janelas"
+msgstr "Inverter ordenação em novas janelas"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:42
 msgid ""
@@ -3033,11 +3033,11 @@ msgstr "URI do fundo padrão das pastas. Apenas utilizado se background_set for 
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:51
 msgid "Custom Side Pane Background Set"
-msgstr "Fundo personalizado definido para o painel lateral"
+msgstr "Fundo personalizado definido no painel lateral"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:52
 msgid "Whether a custom default side pane background has been set."
-msgstr "Se foi definido um fundo de painel lateral por omissão personalizado."
+msgstr "Se foi definido um fundo de painel lateral por defeito personalizado."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:53
 msgid "Default Side Pane Background Color"
@@ -3047,7 +3047,7 @@ msgstr "Cor de fundo pré-definida do painel lateral"
 msgid ""
 "Filename for the default side pane background. Only used if "
 "side_pane_background_set is true."
-msgstr "Nome pré-definido do ficheiro para o fundo do painel lateral. Só utilizado se side_pane_background_set for true"
+msgstr "Nome pré-definido do ficheiro para o fundo do painel lateral. Só usado se side_pane_background_set for verdadeiro"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:55
 msgid "Default Side Pane Background Filename"
@@ -3133,11 +3133,11 @@ msgstr "Se verdadeiro, serão colocadas etiquetas ao lado dos ícones em vez de 
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:71
 msgid "Default icon zoom level"
-msgstr "Nível pré-definido dos ícones"
+msgstr "Nível de ampliação padrão dos ícones"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:72
 msgid "Default zoom level used by the icon view."
-msgstr "Nível pré-definido de ampliação utilizado na vista de ícones"
+msgstr "Nível de ampliação padrão utilizado na vista de ícones."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:73
 msgid "Default Thumbnail Icon Size"
@@ -3145,7 +3145,7 @@ msgstr "Tamanho pré-definido do ícones das miniaturas"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:74
 msgid "The default size of an icon for a thumbnail in the icon view."
-msgstr "O tamanho por omissão do ícone de uma amostra na vista de ícones."
+msgstr "O tamanho padrão do ícone de uma miniatura na vista de ícones."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:75
 msgid "Text Ellipsis Limit"
@@ -3172,11 +3172,11 @@ msgstr "Uma expressão que especifica como partes de um nome de ficheiro demasia
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:78
 msgid "Default compact view zoom level"
-msgstr "Nível de ampliação pré-definido da vista compacta"
+msgstr "Nível de ampliação padrão da vista compacta"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:79
 msgid "Default zoom level used by the compact view."
-msgstr "Nível pré-definido de ampliação utilizado na vista compacta"
+msgstr "Nível de ampliação padrão utilizado na vista compacta."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:80
 msgid "All columns have same width"
@@ -3232,7 +3232,7 @@ msgstr "A descrição  font_description"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:92
 msgid "Home icon visible on desktop"
-msgstr "Ícone de pasta pessoal visível na área de trabalho"
+msgstr "Ícone de Pasta Pessoal visível na área de trabalho"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:93
 msgid ""
@@ -3262,7 +3262,7 @@ msgstr "Se definido como verdadeiro, será colocado na área de trabalho um íco
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:98
 msgid "Show mounted volumes on the desktop"
-msgstr "Apresentar as unidades montadas na área de trabalho"
+msgstr "Mostrar unidades montadas na área de trabalho"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:99
 msgid ""
@@ -3282,7 +3282,7 @@ msgstr "Se definido como verdadeiro, será colocado na área de trabalho um íco
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:102
 msgid "Desktop computer icon name"
-msgstr "Nome do ícone de área de trabalho para o computador"
+msgstr "Nome do ícone do computador da área de trabalho"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:103
 msgid ""
@@ -3292,7 +3292,7 @@ msgstr "Este nome pode ser definido caso deseje um nome personalizado para o íc
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:104
 msgid "Desktop home icon name"
-msgstr "Nome do ícone de área de trabalho para a pasta pessoal"
+msgstr "Nome do ícone da pata pessoal na área de trabalho"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:105
 msgid ""
@@ -3302,7 +3302,7 @@ msgstr "Este nome pode ser definido caso deseje um nome personalizado para o íc
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:106
 msgid "Desktop trash icon name"
-msgstr "Nome do ícone de área de trabalho para o lixo"
+msgstr "Nome do ícone do lixo na área de trabalho"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:107
 msgid ""
@@ -3352,11 +3352,11 @@ msgstr "Largura do painel lateral"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:116
 msgid "The default width of the side pane in new windows."
-msgstr "A largura por omissão do painel lateral nas novas janelas."
+msgstr "A largura padrão do painel lateral nas novas janelas."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:117
 msgid "Show toolbar in new windows"
-msgstr "Apresentar barra de ferramentas nas novas janelas"
+msgstr "Mostrar barra de ferramentas em novas janelas"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:118
 msgid "If set to true, newly opened windows will have toolbars visible."
@@ -3825,18 +3825,18 @@ msgstr "Incapaz de parar a unidade"
 #: ../src/file-manager/fm-directory-view.c:7002
 #, c-format
 msgid "Connect to Server %s"
-msgstr "Estabelecer Ligação ao Servidor %s"
+msgstr "Ligar ao Servidor %s"
 
 #: ../src/file-manager/fm-directory-view.c:7007
 #: ../src/file-manager/fm-directory-view.c:8215
 #: ../src/file-manager/fm-directory-view.c:8307
 #: ../src/file-manager/fm-directory-view.c:8417
 msgid "_Connect"
-msgstr "Estabelecer _Ligação"
+msgstr "_Ligar"
 
 #: ../src/file-manager/fm-directory-view.c:7021
 msgid "Link _name:"
-msgstr "_Nome do atalho:"
+msgstr "_Nome da ligação:"
 
 #. name, stock id, label
 #: ../src/file-manager/fm-directory-view.c:7260
@@ -4064,8 +4064,8 @@ msgstr "Duplicar cada item selecionado"
 #: ../src/file-manager/fm-directory-view.c:8967
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
-msgstr[0] "Criar um Atal_ho"
-msgstr[1] "Criar Atal_hos"
+msgstr[0] "Fazer Ligação"
+msgstr[1] "Fazer Ligações"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7359
@@ -4142,23 +4142,23 @@ msgstr "Refazer a última ação anulada"
 #. label, accelerator
 #: ../src/file-manager/fm-directory-view.c:7397
 msgid "Reset View to _Defaults"
-msgstr "Repor Omissão _da Vista"
+msgstr "Repor Vista Padrão"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7398
 msgid "Reset sorting order and zoom level to match preferences for this view"
-msgstr "Repor ordenamento e nível de zoom para respeitar as preferências para esta vista"
+msgstr "Repor ordenação e nível de ampliação para respeitar as preferências nesta vista"
 
 #. name, stock id
 #. label, accelerator
 #: ../src/file-manager/fm-directory-view.c:7401
 msgid "Connect To This Server"
-msgstr "Estabelecer Ligação a Este Servidor"
+msgstr "Ligar a Este Servidor"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7402
 msgid "Make a permanent connection to this server"
-msgstr "Criar uma ligação permanente a este servidor"
+msgstr "Fazer uma ligação permanente a este servidor"
 
 #. name, stock id
 #. label, accelerator
@@ -4697,7 +4697,7 @@ msgstr "Apagar todos os itens selecionados definitivamente"
 
 #: ../src/file-manager/fm-directory-view.c:8981
 msgid "View or modify the properties of the open folder"
-msgstr "Visualizar ou alterar as propriedades da pasta aberta"
+msgstr "Ver ou modificar as propriedades da pasta aberta"
 
 #: ../src/file-manager/fm-directory-view.c:10305
 msgid "Download location?"
@@ -5059,7 +5059,7 @@ msgstr "Ocorreu um erro ao iniciar a vista ícones."
 
 #: ../src/file-manager/fm-icon-view.c:3407
 msgid "Display this location with the icon view."
-msgstr "Apresentar esta localização com a vista de ícones."
+msgstr "Mostrar esta localização com a vista de ícones."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
@@ -5260,11 +5260,11 @@ msgstr "Unidade:"
 
 #: ../src/file-manager/fm-properties-window.c:3402
 msgid "Accessed:"
-msgstr "Acedido:"
+msgstr "Acedida:"
 
 #: ../src/file-manager/fm-properties-window.c:3406
 msgid "Modified:"
-msgstr "Alterado:"
+msgstr "Modificada:"
 
 #: ../src/file-manager/fm-properties-window.c:3415
 msgid "Free space:"
@@ -5404,7 +5404,7 @@ msgstr "Executar:"
 
 #: ../src/file-manager/fm-properties-window.c:4551
 msgid "Allow _executing file as program"
-msgstr "Permitir _executar o ficheiro como uma aplicação"
+msgstr "Permitir _executar o ficheiro como um programa"
 
 #: ../src/file-manager/fm-properties-window.c:4570
 msgid "Others:"
@@ -5465,7 +5465,7 @@ msgstr "Árvore"
 
 #: ../src/file-manager/fm-tree-view.c:1721
 msgid "Show Tree"
-msgstr "Apresentar a Árvore"
+msgstr "Mostrar a Árvore"
 
 #: ../src/caja-application.c:428
 #, c-format
@@ -5571,7 +5571,7 @@ msgstr "FTP público"
 
 #: ../src/caja-connect-server-dialog.c:139
 msgid "FTP (with login)"
-msgstr "FTP (com autenticação)"
+msgstr "FTP (com sessão)"
 
 #: ../src/caja-connect-server-dialog.c:142
 msgid "Windows share"

@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Ján Ďanovský <dagsoftware@yahoo.com>, 2013-2014
+# Ján Ďanovský <dagsoftware@yahoo.com>, 2013-2015
 # Juraj Oravec <sgd.orava@gmail.com>, 2013
 # Juraj Oravec <sgd.orava@gmail.com>, 2013
 # Tibor Kaputa <tibbbi2@gmail.com>, 2014
@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-10 15:03+0100\n"
-"PO-Revision-Date: 2014-12-16 22:13+0000\n"
-"Last-Translator: Tibor Kaputa <tibbbi2@gmail.com>\n"
+"PO-Revision-Date: 2015-03-19 17:08+0000\n"
+"Last-Translator: Ján Ďanovský <dagsoftware@yahoo.com>\n"
 "Language-Team: Slovak (http://www.transifex.com/projects/p/MATE/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,7 +44,7 @@ msgstr "Program neprijíma dokumenty z príkazového riadka"
 #: ../cut-n-paste-code/libegg/eggdesktopfile.c:1170
 #, c-format
 msgid "Unrecognized launch option: %d"
-msgstr "Nerozpoznaná voľba spustenia: %d"
+msgstr "Nerozpoznaný argument spustenia: %d"
 
 #: ../cut-n-paste-code/libegg/eggdesktopfile.c:1375
 #, c-format
@@ -374,7 +374,7 @@ msgid ""
 "MATE desktop. It works on local and remote file systems. </p> <p> Caja is "
 "extensible through a plugin system, similar to that of GNOME Nautilus, of "
 "which Caja is a fork. </p>"
-msgstr "<p> Caja je oficiálnym správcom súborov prostredia MATE. Môžete pomocou neho prechádzať priečinkami, prezerať súbory a spúšťať aplikácie. Taktiež je zodpovedný za správu ikoniek prostredia MATE. Funguje tak na miestnych, ako aj vzdialených súborových systémoch. </p> <p> Caja je rozšíriteľná systémom zásuvných modulov, podobne ako aj GNOME Nautilus, z ktorého Caja vychádza. </p>"
+msgstr "<p> Caja je oficiálny správca súborov prostredia MATE. Môžete pomocou nej prechádzať priečinky, prezerať súbory a spúšťať programy. Taktiež je zodpovedný za správu ikon na ploche v MATE. Funguje tak na miestnych, ako aj vzdialených súborových systémoch. </p> <p> Caja je rozšíriteľná systémom zásuvných modulov, podobne ako aj GNOME Nautilus, z ktorého Caja vychádza. </p>"
 
 #: ../eel/eel-canvas.c:1301 ../eel/eel-canvas.c:1302
 msgid "X"
@@ -757,13 +757,13 @@ msgstr "Nemôžete presunúť zväzok „%s“ do koša."
 msgid ""
 "If you want to eject the volume, please use \"Eject\" in the popup menu of "
 "the volume."
-msgstr "Ak chcete vysunúť zväzok, použite prosím „Vysunúť“ z ponuky zväzku, ktorá je dostupná po kliknutí pravým tlačidlom myši."
+msgstr "Ak chcete vysunúť zväzok, použite prosím „Vysunúť“ z menu zväzku, ktorá je dostupná po kliknutí pravým tlačidlom myši."
 
 #: ../libcaja-private/caja-desktop-link-monitor.c:127
 msgid ""
 "If you want to unmount the volume, please use \"Unmount Volume\" in the "
 "popup menu of the volume."
-msgstr "Ak chcete odpojiť zväzok, použite prosím „Odpojiť zväzok“ z ponuky zväzku, ktorá je dostupná po kliknutí pravým tlačidlom myši."
+msgstr "Ak chcete odpojiť zväzok, použite prosím „Odpojiť zväzok“ z menu zväzku, ktorá je dostupná po kliknutí pravým tlačidlom myši."
 
 #. Note to translators: If it's hard to compose a good home
 #. * icon name from the user name, you can use a string without
@@ -2123,7 +2123,7 @@ msgstr "Nepodarilo sa vyhľadať program"
 msgid ""
 "There is no application installed for %s files.\n"
 "Do you want to search for an application to open this file?"
-msgstr "Pre súbory „%s“ nie je nainštalovaný žiadny program.\nChcete hľadať aplikáciu, ktorá tento súbor otvorí?"
+msgstr "Pre súbory „%s“ nie je nainštalovaný vhodný program.\nChcete vyhľadať program, ktorý tento súbor otvorí?"
 
 #: ../libcaja-private/caja-mime-actions.c:1733
 msgid "Untrusted application launcher"
@@ -2231,7 +2231,7 @@ msgstr "Nepodarilo sa nájsť program"
 #: ../libcaja-private/caja-open-with-dialog.c:253
 #, c-format
 msgid "Could not add application to the application database: %s"
-msgstr "Nepodarilo sa pridať program do databázy aplikácií: „%s“"
+msgstr "Nepodarilo sa pridať program do databázy programov: „%s“"
 
 #: ../libcaja-private/caja-open-with-dialog.c:254
 msgid "Could not add application"
@@ -2838,7 +2838,7 @@ msgid ""
 "If set to true, then Caja will exit when all windows are destroyed. This is "
 "the default setting. If set to false, it can be started without any window, "
 "so caja can serve as a daemon to monitor media automount, or similar tasks."
-msgstr "Ak je voľba nastavená na hodnotu „true“, Caja bude zatvorená ak sú všetky okná zatvorené. Toto je predvolené nastavenie. Ak je voľba nastavená na hodnotu „false“, môže byť Caja otvorená aj bez otvorenia nejakého okna, tým môže byť použitá ako nástroj na monitorovanie pripojenia médií, alebo na podobné účely."
+msgstr "Ak je táto možnosť vybraná, Caja bude zatvorená ak sú všetky okná zatvorené. Toto je predvolené nastavenie. Ak táto možnosť vybraná nie je, môže byť Caja otvorená aj bez otvorenia nejakého okna, tým môže byť použitá ako nástroj na monitorovanie pripojenia médií, alebo na podobné účely."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:5
 msgid "Enables the classic Caja behavior, where all windows are browsers"
@@ -2849,7 +2849,7 @@ msgid ""
 "If set to true, then all Caja windows will be browser windows. This is how "
 "Nautilus used to behave before version 2.6, and some people prefer this "
 "behavior."
-msgstr "Ak je voľba nastavená na hodnotu „true“, všetky okná Caja budú oknami prehliadača. Takto bola Caja používaný pred verziou 2.6 a niektorí ľudia uprednostňujú takéto správanie."
+msgstr "Ak je táto možnosť vybraná, všetky okná Caja budú oknami prehliadača. Takto bola Caja používaná pred verziou 2.6 a niektorí ľudia uprednostňujú takéto správanie."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:7
 msgid "Always use the location entry, instead of the pathbar"
@@ -2859,7 +2859,7 @@ msgstr "Vždy použiť položku umiestnenia, namiesto lišty s cestou"
 msgid ""
 "If set to true, then Caja browser windows will always use a textual input "
 "entry for the location toolbar, instead of the pathbar."
-msgstr "Ak je voľba nastavená na hodnotu „true“, okná prehliadača Caja budú vždy používať textové vstupné pole pre nástrojovú lištu umiestnenia, namiesto lišty cesty."
+msgstr "Ak je táto možnosť vybraná, okná prehliadača Caja budú vždy používať textové vstupné pole pre panel nástrojov Umiestnenie, namiesto panelu Cesta."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:9
 msgid "Whether to ask for confirmation when deleting files, or emptying Trash"
@@ -2869,7 +2869,7 @@ msgstr "Určuje, či si vyžiadať potvrdenie pri mazaní súborov alebo vypráz
 msgid ""
 "If set to true, then Caja will ask for confirmation when you attempt to "
 "delete files, or empty the Trash."
-msgstr "Ak je voľba nastavená na hodnotu „true“, Caja bude vyžadovať potvrdenie pri pokuse o vymazanie súborov, alebo vyprázdnenie Koša."
+msgstr "Ak je táto možnosť vybraná, Caja bude vyžadovať potvrdenie pri pokuse o vymazanie súborov, alebo vyprázdnenie Koša."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:11
 msgid "Whether to enable immediate deletion"
@@ -2880,7 +2880,7 @@ msgid ""
 "If set to true, then Caja will have a feature allowing you to delete a file "
 "immediately and in-place, instead of moving it to the trash. This feature "
 "can be dangerous, so use caution."
-msgstr "Ak je voľba nastavená na hodnotu „true“, Caja umožní vymazať súbor okamžite bez presunu do Koša. Táto funkcia je nebezpečná, zaobchádzajte s ňou opatrne."
+msgstr "Ak je táto možnosť vybraná, Caja umožní vymazať súbor okamžite bez presunu do Koša. Táto funkcia je nebezpečná, zaobchádzajte s ňou opatrne."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:13
 msgid "When to show preview text in icons"
@@ -3015,7 +3015,7 @@ msgstr "Zobraziť pokročilé oprávnenia v dialógu vlastností súboru"
 msgid ""
 "If set to true, then Caja lets you edit and display file permissions in a "
 "more unix-like way, accessing some more esoteric options."
-msgstr "Ak je voľba nastavená na hodnotu „true“, Caja umožní upravovať aj oprávnenia súborov spôsobom, ktorý je bližší filozofii UNIX. Dostanete sa tak ku niektorým ezoterickým možnostiam."
+msgstr "Ak je táto možnosť vybraná, Caja umožní upravovať aj oprávnenia súborov spôsobom, ktorý je bližší filozofii UNIX. Dostanete sa tak ku niektorým ezoterickým možnostiam."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:37
 msgid "Show folders first in windows"
@@ -3025,7 +3025,7 @@ msgstr "Zobraziť v oknách najprv priečinky"
 msgid ""
 "If set to true, then Caja shows folders prior to showing files in the icon "
 "and list views."
-msgstr "Ak je voľba nastavená na hodnotu „true“, v zobrazení s ikonami a zoznamom Caja zobrazí priečinky pred súbormi."
+msgstr "Ak je táto možnosť vybraná, v zobrazení s ikonami a zoznamom Caja zobrazí priečinky pred súbormi."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:39
 msgid "Default sort order"
@@ -3047,7 +3047,7 @@ msgid ""
 " by name, then instead of sorting the files from \"a\" to \"z\", they will "
 "be sorted from \"z\" to \"a\"; if sorted by size, instead of being "
 "incrementally they will be sorted decrementally."
-msgstr "Ak je voľba nastavená na hodnotu „true“, súbory v nových oknách budú zoradené opačne, takže pri zoradení podľa názvu budú od „z“ do „a“, pri zoradení podľa veľkosti budú radené zostupne."
+msgstr "Ak je táto možnosť vybraná, súbory v nových oknách budú zoradené opačne, takže pri zoradení podľa názvu budú od „z“ do „a“, pri zoradení podľa veľkosti budú radené zostupne."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:43
 msgid "Caja uses the users home folder as the desktop"
@@ -3057,7 +3057,7 @@ msgstr "Caja používa domovský priečinok používateľa ako pracovnú plochu"
 msgid ""
 "If set to true, then Caja will use the user's home folder as the desktop. If"
 " it is false, then it will use ~/Desktop as the desktop."
-msgstr "Ak je voľba nastavená na hodnotu „true“, Caja bude používať domovský priečinok používateľa ako pracovnú plochu. Ak je to „false“, ako pracovná plocha sa použije ~/Desktop (~/Plocha)."
+msgstr "Ak je táto možnosť vybraná, Caja bude používať domovský priečinok používateľa ako pracovnú plochu. Ak táto možnosť vybraná nie je, ako pracovná plocha sa použije ~/Plocha (~/Desktop)."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:45
 msgid "Custom Background"
@@ -3144,7 +3144,7 @@ msgid ""
 "If set to true, then hidden files are shown by default in the file manager. "
 "Hidden files are either dotfiles, listed in the folder's .hidden file or "
 "backup files ending with a tilde (~)."
-msgstr "Ak je voľba nastavená na hodnotu „true“, skryté súbory budú zobrazené v správcovi súborov. Skryté súbory sú buď súbory začínajúce bodkou, súbory uvedené v súbore „.hidden“ v danom priečinku, alebo záložné súbory končiace vlnkou (~)."
+msgstr "Ak je táto možnosť vybraná, skryté súbory budú zobrazené v správcovi súborov. Skryté súbory sú buď súbory začínajúce bodkou, súbory uvedené v súbore „.hidden“ v danom priečinku, alebo záložné súbory končiace vlnkou (~)."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:63
 msgid "Whether to show file sizes with IEC units"
@@ -3154,7 +3154,7 @@ msgstr "Určuje, či zobraziť veľkosti súborov v jednotkách IEC"
 msgid ""
 "If set to true, file sizes are shown using IEC (base 1024) units with "
 "\"KiB\" style suffixes, instead of default with SI units."
-msgstr "Ak je voľba nastavená na hodnotu „true“, budú veľkosti súborov zobrazené v jednotkách IEC (základ 1024) s príponou „KiB“, namiesto predvolených jednotiek SI."
+msgstr "Ak je táto možnosť vybraná, budú veľkosti súborov zobrazené v jednotkách IEC (základ 1024) s príponou „KiB“, namiesto predvolených jednotiek SI."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:65
 msgid "List of possible captions on icons"
@@ -3175,7 +3175,7 @@ msgstr "Použiť v nových oknách zhustené rozloženie"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:68
 msgid "If true, icons will be laid out tighter by default in new windows."
-msgstr "Ak je voľba nastavená na hodnotu „true“, ikony budú v nových oknách viac zhustené k sebe."
+msgstr "Ak je táto možnosť vybraná, ikony budú v nových oknách viac zhustené k sebe."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:69
 msgid "Put labels beside icons"
@@ -3184,7 +3184,7 @@ msgstr "Umiestniť vedľa ikon popis"
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:70
 msgid ""
 "If true, labels will be placed beside icons rather than underneath them."
-msgstr "Ak je voľba nastavená na hodnotu „true“, popisy budú vedľa ikon a nie pod nimi."
+msgstr "Ak je táto možnosť vybraná, popisky budú vedľa ikon a nie pod nimi."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:71
 msgid "Default icon zoom level"
@@ -3275,7 +3275,7 @@ msgstr "Zobraziť v strome bočného panelu len priečinky"
 msgid ""
 "If set to true, Caja will only show folders in the tree side pane. Otherwise"
 " it will show both folders and files."
-msgstr "Ak je voľba nastavená na hodnotu „true“, Caja bude zobrazovať v strome bočného panela iba priečinky. Inak zobrazí aj priečinky, aj súbory."
+msgstr "Ak je táto možnosť vybraná, Caja bude zobrazovať v strome bočného panela iba priečinky. Inak zobrazí aj priečinky, aj súbory."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:90
 msgid "Desktop font"
@@ -3293,7 +3293,7 @@ msgstr "Ikona domovského priečinka viditeľná na ploche"
 msgid ""
 "If this is set to true, an icon linking to the home folder will be put on "
 "the desktop."
-msgstr "Ak je voľba nastavená na hodnotu „true“, na plochu sa umiestní ikona s odkazom na Domovský priečinok."
+msgstr "Ak je táto možnosť vybraná, na plochu sa umiestní ikona s odkazom na Domovský priečinok."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:94
 msgid "Computer icon visible on desktop"
@@ -3303,7 +3303,7 @@ msgstr "Ikona Počítača viditeľná na ploche"
 msgid ""
 "If this is set to true, an icon linking to the computer location will be put"
 " on the desktop."
-msgstr "Ak je voľba nastavená na hodnotu „true“, na plochu sa umiestní ikona s umiestnením Počítača."
+msgstr "Ak je táto možnosť vybraná, na plochu sa umiestní ikona s umiestnením Počítača."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:96
 msgid "Trash icon visible on desktop"
@@ -3313,7 +3313,7 @@ msgstr "Ikona Koša zobrazená na ploche"
 msgid ""
 "If this is set to true, an icon linking to the trash will be put on the "
 "desktop."
-msgstr "Ak je voľba nastavená na hodnotu „true“, na plochu sa umiestni ikona pre Kôš."
+msgstr "Ak je táto možnosť vybraná, na plochu sa umiestni ikona pre Kôš."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:98
 msgid "Show mounted volumes on the desktop"
@@ -3323,7 +3323,7 @@ msgstr "Zobraziť na pracovnej ploche pripojené zväzky"
 msgid ""
 "If this is set to true, icons linking to mounted volumes will be put on the "
 "desktop."
-msgstr "Ak je voľba nastavená na hodnotu „true“, na plochu sa umiestnia ikony s odkazmi na pripojené zväzky."
+msgstr "Ak je táto možnosť vybraná, na plochu sa umiestnia ikony s odkazmi na pripojené zväzky."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:100
 msgid "Network Servers icon visible on the desktop"
@@ -3333,7 +3333,7 @@ msgstr "Ikona Sieťové servery viditeľná na ploche"
 msgid ""
 "If this is set to true, an icon linking to the Network Servers view will be "
 "put on the desktop."
-msgstr "Ak je voľba nastavená na hodnotu „true“, na plochu bude umiestnená ikona odkazujúca na Sieťové servery."
+msgstr "Ak je táto možnosť vybraná, na plochu bude umiestnená ikona odkazujúca na Sieťové servery."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:102
 msgid "Desktop computer icon name"
@@ -3415,7 +3415,7 @@ msgstr "Zobraziť v nových oknách panel nástrojov"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:118
 msgid "If set to true, newly opened windows will have toolbars visible."
-msgstr "Ak je voľba nastavená na hodnotu „true“, novootvorené okná budú mať zobrazené panely nástrojov."
+msgstr "Ak je táto možnosť vybraná, novootvorené okná budú mať zobrazené panely nástrojov."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:119
 msgid "Show location bar in new windows"
@@ -3424,7 +3424,7 @@ msgstr "Zobraziť v nových oknách lištu umiestnenia"
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:120
 msgid ""
 "If set to true, newly opened windows will have the location bar visible."
-msgstr "Ak je voľba nastavená na hodnotu „true“, novootvorené okná budú mať zobrazenú lištu umiestnenia."
+msgstr "Ak je táto možnosť vybraná, novootvorené okná budú mať zobrazený panel umiestnenia."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:121
 msgid "Show status bar in new windows"
@@ -3432,7 +3432,7 @@ msgstr "Zobraziť v nových oknách stavový riadok"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:122
 msgid "If set to true, newly opened windows will have the status bar visible."
-msgstr "Ak je voľba nastavená na hodnotu „true“, novootvorené okná budú mať zobrazený stavový riadok."
+msgstr "Ak je táto možnosť vybraná, novootvorené okná budú mať zobrazený stavový riadok."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:123
 msgid "Show side pane in new windows"
@@ -3440,7 +3440,7 @@ msgstr "Zobraziť v nových oknách bočný panel"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:124
 msgid "If set to true, newly opened windows will have the side pane visible."
-msgstr "Ak je voľba nastavená na hodnotu „true“, novootvorené okná budú mať zobrazený bočný panel."
+msgstr "Ak je táto možnosť vybraná, novootvorené okná budú mať zobrazený bočný panel."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:125
 msgid "Side pane view"
@@ -3458,7 +3458,7 @@ msgstr "Určuje, či automaticky pripájať médiá"
 msgid ""
 "If set to true, then Caja will automatically mount media such as user-"
 "visible hard disks and removable media on start-up and media insertion."
-msgstr "Ak je voľba nastavená na hodnotu „true“, Caja bude automaticky pripájať médiá, ako napr. pevné disky viditeľné používateľom, odstrániteľné médiá pri štarte pc a pri vložení média."
+msgstr "Ak je táto možnosť vybraná, Caja bude automaticky pripájať médiá, ako napr. pevné disky viditeľné používateľom, odstrániteľné médiá pri spustení a pri vložení média."
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.in.h:3
 msgid "Whether to automatically open a folder for automounted media"
@@ -3470,7 +3470,7 @@ msgid ""
 "automounted. This only applies to media where no known x-content/* type was "
 "detected; for media where a known x-content type is detected, the user "
 "configurable action will be taken instead."
-msgstr "Ak je voľba nastavená na hodnotu „true“, Caja automaticky otvorí priečinok pripojeného média. To platí len pre médiá, kde nebola zistená prítomnosť typu x-content/*. Ak bola zistená prítomnosť známeho typu x-content, bude prevedená činnosť nastaviteľná používateľom."
+msgstr "Ak je táto možnosť vybraná, Caja automaticky otvorí priečinok pripojeného média. To platí len pre médiá, kde nebola zistená prítomnosť typu x-content/*. Ak bola zistená prítomnosť známeho typu x-content, bude prevedená činnosť nastaviteľná používateľom."
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.in.h:5
 msgid "Never prompt or autorun/autostart programs when media are inserted"
@@ -3480,7 +3480,7 @@ msgstr "Nikdy sa nepýtať, ani automaticky nespustiť programy po pripojení m�
 msgid ""
 "If set to true, then Caja will never prompt nor autorun/autostart programs "
 "when a medium is inserted."
-msgstr "Ak je voľba nastavená na hodnotu „true“, Caja sa nikdy nebude pýtať, ani automaticky spúšťať programy po pripojení média."
+msgstr "Ak je táto možnosť vybraná, Caja sa nikdy nebude pýtať, ani automaticky spúšťať programy po pripojení média."
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.in.h:7
 msgid ""
@@ -3809,13 +3809,13 @@ msgstr "Vytvoriť dokument zo šablóny „%s“"
 
 #: ../src/file-manager/fm-directory-view.c:5924
 msgid "All executable files in this folder will appear in the Scripts menu."
-msgstr "Všetky spustiteľné súbory v tomto priečinku sa objavia v ponuke Skripty."
+msgstr "Všetky spustiteľné súbory v tomto priečinku sa objavia v menu Skripty."
 
 #: ../src/file-manager/fm-directory-view.c:5926
 msgid ""
 "Choosing a script from the menu will run that script with any selected items"
 " as input."
-msgstr "Vybranie skriptu z ponuky ho spustí s vybranými položkami použitými ako vstup."
+msgstr "Výber skriptu z menu ho spustí s vybranými položkami použitými ako vstup."
 
 #: ../src/file-manager/fm-directory-view.c:5928
 msgid ""
@@ -3838,7 +3838,7 @@ msgid ""
 "CAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: newline-delimited URIs for selected files in the inactive pane of a split-view window\n"
 "\n"
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI for current location in the inactive pane of a split-view window"
-msgstr "Všetky spustiteľné súbory v tomto priečinku budú zobrazené v ponuke Skripty. Vybraním skriptu z ponuky ho spustíte.\n\nKeď bude spustený v lokálnom priečinku, skriptu budú odovzdané názvy vybraných súborov. Pri spustení vo vzdialenom priečinku (napr. priečinku na WWW alebo FTP serveri), skript nedostane žiadne parametre.\n\nV každom prípade budú programom Caja nastavené nasledovné premenné prostredia, ktoré môže skript používať:\n\nCAJA_SCRIPT_SELECTED_FILE_PATHS: cesty k vybraným súborom oddelené novými riadkami (len pre lokálne súbory)\n\nCAJA_SCRIPT_SELECTED_URIS: URI vybraných súborov oddelené novými riadkami\n\nCAJA_SCRIPT_CURRENT_URI: URI aktuálneho umiestnenia\n\nCAJA_SCRIPT_WINDOW_GEOMETRY: umiestnenie a veľkosť aktuálneho okna\nCAJA_SCRIPT_NEXT_PANE_SELECTED_FILE_PATHS: cesty k vybraným súborom v neaktívnom panely okna s rozdeleným zobrazením oddelené novými riadkami (len pre lokálne súbory)\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: URI vybraných súborov v neaktívnom panely okna s rozdeleným zobrazením oddelené novými riadkami\n\nCAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI pre aktuálne umiestnenie v neaktívnom panely okna s rozdeleným zobrazením"
+msgstr "Všetky spustiteľné súbory v tomto priečinku budú zobrazené v menu Skripty. Výberom skriptu z menu ho spustíte.\n\nKeď bude spustený v lokálnom priečinku, skriptu budú odovzdané názvy vybraných súborov. Pri spustení vo vzdialenom priečinku (napr. priečinku na WWW alebo FTP serveri), skript nedostane žiadne parametre.\n\nV každom prípade budú programom Caja nastavené nasledovné premenné prostredia, ktoré môže skript používať:\n\nCAJA_SCRIPT_SELECTED_FILE_PATHS: cesty k vybraným súborom oddelené novými riadkami (len pre lokálne súbory)\n\nCAJA_SCRIPT_SELECTED_URIS: URI vybraných súborov oddelené novými riadkami\n\nCAJA_SCRIPT_CURRENT_URI: URI aktuálneho umiestnenia\n\nCAJA_SCRIPT_WINDOW_GEOMETRY: umiestnenie a veľkosť aktuálneho okna\nCAJA_SCRIPT_NEXT_PANE_SELECTED_FILE_PATHS: cesty k vybraným súborom v neaktívnom panely okna s rozdeleným zobrazením oddelené novými riadkami (len pre lokálne súbory)\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: URI vybraných súborov v neaktívnom panely okna s rozdeleným zobrazením oddelené novými riadkami\n\nCAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI pre aktuálne umiestnenie v neaktívnom panely okna s rozdeleným zobrazením"
 
 #: ../src/file-manager/fm-directory-view.c:5996
 #: ../src/file-manager/fm-tree-view.c:998
@@ -4035,7 +4035,7 @@ msgstr "_Otvoriť priečinok Skripty"
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7315
 msgid "Show the folder containing the scripts that appear in this menu"
-msgstr "Zobraziť priečinok obsahujúci skripty, ktoré sú v tejto ponuke"
+msgstr "Zobraziť priečinok obsahujúci skripty, ktoré sú v tomto menu"
 
 #. name, stock id
 #. label, accelerator
@@ -5742,7 +5742,7 @@ msgstr "Názov domény:"
 #. second row: username entry
 #: ../src/caja-connect-server-dialog.c:1079
 msgid "User Name:"
-msgstr "Používateľské meno:"
+msgstr "Meno používateľa:"
 
 #. third row: password entry
 #: ../src/caja-connect-server-dialog.c:1096
@@ -6446,12 +6446,12 @@ msgstr "caja: %s sa s URI nedá použiť.\n"
 #: ../src/caja-main.c:482
 #, c-format
 msgid "caja: --check cannot be used with other options.\n"
-msgstr "caja: voľbu --check sa s inými voľbami nedá použiť.\n"
+msgstr "caja: argument --check sa s inými argumentmi nedá použiť.\n"
 
 #: ../src/caja-main.c:493
 #, c-format
 msgid "caja: --geometry cannot be used with more than one URI.\n"
-msgstr "caja: voľbu --geometry sa nedá použiť s viac ako jedným URI.\n"
+msgstr "caja: argument --geometry sa nedá použiť s viac ako jedným URI.\n"
 
 #: ../src/caja-main.c:561
 #, c-format
@@ -6538,7 +6538,7 @@ msgstr "Vyčis_tiť históriu"
 
 #: ../src/caja-navigation-window-menus.c:845
 msgid "Clear contents of Go menu and Back/Forward lists"
-msgstr "Vyčistiť obsah ponuky Prejsť a zoznamy Dopredu/Dozadu"
+msgstr "Vyčistiť obsah menu Prejsť a zoznamy Dopredu/Dozadu"
 
 #. name, stock id, label
 #: ../src/caja-navigation-window-menus.c:848
@@ -6565,7 +6565,7 @@ msgstr "_Pridať záložku"
 
 #: ../src/caja-navigation-window-menus.c:857 ../src/caja-spatial-window.c:965
 msgid "Add a bookmark for the current location to this menu"
-msgstr "Pridať záložku pre aktuálne umiestnenie do tejto ponuky"
+msgstr "Pridať záložku aktuálneho umiestnenia do tohto menu"
 
 #. name, stock id, label
 #: ../src/caja-navigation-window-menus.c:860 ../src/caja-spatial-window.c:968
@@ -6574,7 +6574,7 @@ msgstr "_Upraviť záložky..."
 
 #: ../src/caja-navigation-window-menus.c:861 ../src/caja-spatial-window.c:969
 msgid "Display a window that allows editing the bookmarks in this menu"
-msgstr "Zobraziť okno, ktoré umožňuje upraviť záložky v tejto ponuke"
+msgstr "Zobraziť okno, ktoré umožňuje upraviť záložky v tomto menu"
 
 #: ../src/caja-navigation-window-menus.c:865
 msgid "_Previous Tab"
