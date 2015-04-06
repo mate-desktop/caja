@@ -66,6 +66,10 @@ typedef struct
     EggSMClient* smclient;
     GVolumeMonitor* volume_monitor;
     unsigned int automount_idle_id;
+    gboolean screensaver_active;
+    guint ss_watch_id;
+    GDBusProxy *ss_proxy;
+    GList *volume_queue;
 } CajaApplication;
 
 typedef struct
