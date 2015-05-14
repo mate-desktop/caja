@@ -530,7 +530,14 @@ caja_bookmark_connect_file (CajaBookmark *bookmark)
     if (!caja_bookmark_uri_known_not_to_exist (bookmark))
     {
         bookmark->details->file = caja_file_get (bookmark->details->location);
-        g_assert (!caja_file_is_gone (bookmark->details->file));
+        /* Similar to what we do when a file has been trashed or deleted
+         * withouth noticing in bookmark_changed, just try to fall graciously.
+         */
+        if (caja_file_is_gone (bookmark->details->file))
+          {
+                caja_bookmark_disconnect_file (bookmark);
+                return;
+          }
 
         g_signal_connect_object (bookmark->details->file, "changed",
                                  G_CALLBACK (bookmark_file_changed_callback), bookmark, 0);
