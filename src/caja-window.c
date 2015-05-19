@@ -166,6 +166,13 @@ caja_window_init (CajaWindow *window)
 
     statusbar = gtk_statusbar_new ();
     gtk_widget_set_name (statusbar, "statusbar-noborder");
+
+/* set margin to zero to reduce size of statusbar */
+#if GTK_CHECK_VERSION (3, 0, 0)
+	gtk_widget_set_margin_top (GTK_WIDGET (statusbar), 0);
+	gtk_widget_set_margin_bottom (GTK_WIDGET (statusbar), 0);
+#endif
+
     window->details->statusbar = statusbar;
     window->details->help_message_cid = gtk_statusbar_get_context_id
                                         (GTK_STATUSBAR (statusbar), "help_message");
