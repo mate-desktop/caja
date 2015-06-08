@@ -120,7 +120,10 @@ static void     mount_added_callback              (GVolumeMonitor            *mo
 static void     volume_added_callback              (GVolumeMonitor           *monitor,
         GVolume                  *volume,
         CajaApplication      *application);
-static void     drive_connected_callback           (GVolumeMonitor           *monitor,
+static void     volume_removed_callback            (GVolumeMonitor           *monitor,
+	    GVolume                  *volume,
+	    CajaApplication      *application);
+ static void     drive_connected_callback           (GVolumeMonitor           *monitor,
         GDrive                   *drive,
         CajaApplication      *application);
 static void     drive_listen_for_eject_button      (GDrive *drive,
@@ -360,7 +363,18 @@ caja_application_finalize (GObject *object)
 
     g_object_unref (application->unique_app);
 
-    if (application->automount_idle_id != 0)
+	if (application->ss_watch_id > 0)
+	{
+		g_bus_unwatch_name (application->ss_watch_id);
+	}
+	
+	if (application->volume_queue != NULL)
+	{
+		g_list_free_full (application->volume_queue, g_object_unref);
+		application->volume_queue = NULL;
+	}
+
+ 	if (application->automount_idle_id != 0)
     {
         g_source_remove (application->automount_idle_id);
         application->automount_idle_id = 0;
@@ -371,6 +385,12 @@ caja_application_finalize (GObject *object)
         g_object_unref (fdb_manager);
         fdb_manager = NULL;
     }
+
+    if (application->ss_proxy != NULL)
+    {
+		g_object_unref (application->ss_proxy);
+		application->ss_proxy = NULL;
+	}
 
     G_OBJECT_CLASS (caja_application_parent_class)->finalize (object);
 }
@@ -552,6 +572,180 @@ out:
 }
 
 static void
+check_volume_queue (CajaApplication *application)
+{
+        GList *l, *next;
+        GVolume *volume;
+
+        l = application->volume_queue;
+
+        if (application->screensaver_active)
+        {
+                return;
+        }
+
+        while (l != NULL) {
+		volume = l->data;
+		next = l->next;
+
+		caja_file_operations_mount_volume (NULL, volume, TRUE);
+		application->volume_queue =
+			g_list_remove (application->volume_queue, volume);
+
+		g_object_unref (volume);
+		l = next;
+        }
+
+        application->volume_queue = NULL;
+}
+
+#define SCREENSAVER_NAME "org.mate.ScreenSaver"
+#define SCREENSAVER_PATH "/org/mate/ScreenSaver"
+#define SCREENSAVER_INTERFACE "org.mate.ScreenSaver"
+
+static void
+screensaver_signal_callback (GDBusProxy *proxy,
+                             const gchar *sender_name,
+                             const gchar *signal_name,
+                             GVariant *parameters,
+                             gpointer user_data)
+{
+	CajaApplication *application = user_data;
+
+	if (g_strcmp0 (signal_name, "ActiveChanged") == 0)
+	{
+		g_variant_get (parameters, "(b)", &application->screensaver_active);
+		g_debug ("Screensaver active changed to %d", application->screensaver_active);
+
+		check_volume_queue (application);
+	}
+}
+
+static void
+screensaver_get_active_ready_cb (GObject *source,
+				 GAsyncResult *res,
+				 gpointer user_data)
+{
+	CajaApplication *application = user_data;
+	GDBusProxy *proxy = application->ss_proxy;
+	GVariant *result;
+	GError *error = NULL;
+
+	result = g_dbus_proxy_call_finish (proxy,
+					   res,
+					   &error);
+
+	if (error != NULL) {
+		g_warning ("Can't call GetActive() on the ScreenSaver object: %s",
+			   error->message);
+		g_error_free (error);
+
+		return;
+	}
+
+	g_variant_get (result, "(b)", &application->screensaver_active);
+	g_variant_unref (result);
+
+	g_debug ("Screensaver GetActive() returned %d", application->screensaver_active);
+}
+
+static void
+screensaver_proxy_ready_cb (GObject *source,
+			    GAsyncResult *res,
+			    gpointer user_data)
+{
+	CajaApplication *application = user_data;
+	GError *error = NULL;
+	GDBusProxy *ss_proxy;
+	
+	ss_proxy = g_dbus_proxy_new_finish (res, &error);
+
+	if (error != NULL)
+	{
+		g_warning ("Can't get proxy for the ScreenSaver object: %s",
+			   error->message);
+		g_error_free (error);
+
+		return;
+	}
+
+	g_debug ("ScreenSaver proxy ready");
+
+	application->ss_proxy = ss_proxy;
+
+	g_signal_connect (ss_proxy, "g-signal",
+			  G_CALLBACK (screensaver_signal_callback), application);
+
+	g_dbus_proxy_call (ss_proxy,
+			   "GetActive",
+			   NULL,
+			   G_DBUS_CALL_FLAGS_NO_AUTO_START,
+			   -1,
+			   NULL,
+			   screensaver_get_active_ready_cb,
+			   application);
+}
+
+static void
+screensaver_appeared_callback (GDBusConnection *connection,
+			       const gchar *name,
+			       const gchar *name_owner,
+			       gpointer user_data)
+{
+	CajaApplication *application = user_data;
+
+	g_debug ("ScreenSaver name appeared");
+
+	application->screensaver_active = FALSE;
+
+	g_dbus_proxy_new (connection,
+			  G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START,
+			  NULL,
+			  name,
+			  SCREENSAVER_PATH,
+			  SCREENSAVER_INTERFACE,
+			  NULL,
+			  screensaver_proxy_ready_cb,
+			  application);
+}
+
+static void
+screensaver_vanished_callback (GDBusConnection *connection,
+			       const gchar *name,
+			       gpointer user_data)
+{
+	CajaApplication *application = user_data;
+
+	g_debug ("ScreenSaver name vanished");
+
+	application->screensaver_active = FALSE;
+	g_object_unref (&application->ss_proxy);
+
+	/* in this case force a clear of the volume queue, without
+	 * mounting them.
+	 */
+	if (application->volume_queue != NULL)
+	{
+		g_list_free_full (application->volume_queue, g_object_unref);
+		application->volume_queue = NULL;
+	}
+}
+
+static void
+do_initialize_screensaver (CajaApplication *application)
+{
+	application->ss_watch_id =
+		g_bus_watch_name (G_BUS_TYPE_SESSION,
+				  SCREENSAVER_NAME,
+				  G_BUS_NAME_WATCHER_FLAGS_NONE,
+				  screensaver_appeared_callback,
+				  screensaver_vanished_callback,
+				  application,
+				  NULL);
+}
+
+
+static void
 do_upgrades_once (CajaApplication *application,
                   gboolean no_desktop)
 {
@@ -599,7 +793,11 @@ finish_startup (CajaApplication *application,
     /* Initialize the desktop link monitor singleton */
     caja_desktop_link_monitor_get ();
 
-    /* Watch for mounts so we can restore open windows This used
+    /* Initialize MATE screen saver listener to control automount
+	 * permission */
+	do_initialize_screensaver (application);
+
+ 	/* Watch for mounts so we can restore open windows This used
      * to be for showing new window on mount, but is not used
      * anymore */
 
@@ -614,6 +812,8 @@ finish_startup (CajaApplication *application,
                              G_CALLBACK (mount_added_callback), application, 0);
     g_signal_connect_object (application->volume_monitor, "volume_added",
                              G_CALLBACK (volume_added_callback), application, 0);
+    g_signal_connect_object (application->volume_monitor, "volume_removed",
+                             G_CALLBACK (volume_removed_callback), application, 0);
     g_signal_connect_object (application->volume_monitor, "drive_connected",
                              G_CALLBACK (drive_connected_callback), application, 0);
 
@@ -1475,6 +1675,34 @@ window_can_be_closed (CajaWindow *window)
 }
 
 static void
+check_screen_lock_and_mount (CajaApplication *application,
+                             GVolume *volume)
+{
+        if (application->screensaver_active)
+        {
+                /* queue the volume, to mount it after the screensaver state changed */
+                g_debug ("Queuing volume %p", volume);
+                application->volume_queue = g_list_prepend (application->volume_queue,
+                                                              g_object_ref (volume));
+        } else {
+                /* mount it immediately */
+		caja_file_operations_mount_volume (NULL, volume, TRUE);
+        }       
+}
+
+static void
+volume_removed_callback (GVolumeMonitor *monitor,
+                         GVolume *volume,
+                         CajaApplication *application)
+{
+        g_debug ("Volume %p removed, removing from the queue", volume);
+
+        /* clear it from the queue, if present */
+        application->volume_queue =
+                g_list_remove (application->volume_queue, volume);
+}
+
+static void
 volume_added_callback (GVolumeMonitor *monitor,
                        GVolume *volume,
                        CajaApplication *application)
@@ -1483,7 +1711,7 @@ volume_added_callback (GVolumeMonitor *monitor,
             g_volume_should_automount (volume) &&
             g_volume_can_mount (volume))
     {
-        caja_file_operations_mount_volume (NULL, volume, TRUE);
+        check_screen_lock_and_mount (application, volume);
     }
     else
     {
