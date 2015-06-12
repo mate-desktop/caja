@@ -3,18 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Ivica  Kolić <ikoli@yahoo.com>, 2013-2014
+# Ivica  Kolić <ikoli@yahoo.com>, 2013-2015
+# Mislav E. Lukšić <meluksic@yahoo.com>, 2013
 # Mislav E. Lukšić <meluksic@yahoo.com>, 2013
 # Mislav E. Lukšić <meluksic@yahoo.com>, 2013
 # Mislav E. Lukšić <meluksic@yahoo.com>, 2013-2014
 # Tomislav Krznar <tomislav.krznar@gmail.com>, 2014
+# zoks <zulysat@net.hr>, 2012
 # zoks <zulysat@net.hr>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-10 15:03+0100\n"
-"PO-Revision-Date: 2014-11-21 11:31+0000\n"
+"PO-Revision-Date: 2015-04-20 22:01+0000\n"
 "Last-Translator: Ivica  Kolić <ikoli@yahoo.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/projects/p/MATE/language/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +28,7 @@ msgstr ""
 #: ../cut-n-paste-code/libegg/eggdesktopfile.c:166
 #, c-format
 msgid "File is not a valid .desktop file"
-msgstr "Datoteka nije valjana .desktop-datoteka"
+msgstr "Ovo nije ispravna datoteka s dometkom .desktop"
 
 #: ../cut-n-paste-code/libegg/eggdesktopfile.c:189
 #, c-format
@@ -51,7 +53,7 @@ msgstr "Neprepoznata mogućnost pokretanja: %d"
 #: ../cut-n-paste-code/libegg/eggdesktopfile.c:1375
 #, c-format
 msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
-msgstr "Nije moguće proslijediti URI-je zapisa na odrednicu radne površine 'Type=Link'"
+msgstr "Nije moguće proslijediti URI-je zapisa na unos radne površine 'Type=Link'"
 
 #: ../cut-n-paste-code/libegg/eggdesktopfile.c:1394
 #, c-format
@@ -60,7 +62,7 @@ msgstr "Nije izvršna stavka"
 
 #: ../cut-n-paste-code/libegg/eggsmclient.c:229
 msgid "Disable connection to session manager"
-msgstr "Onemogući vezu prema upravitelju prijave"
+msgstr "Onemogući vezu prema upravitelju pristupne dionice"
 
 #: ../cut-n-paste-code/libegg/eggsmclient.c:234
 msgid "Specify file containing saved configuration"
@@ -72,19 +74,19 @@ msgstr "DATOTEKA"
 
 #: ../cut-n-paste-code/libegg/eggsmclient.c:239
 msgid "Specify session management ID"
-msgstr "Navedi identifikator upravljanja prijavom"
+msgstr "Navedi označivač upravljanja pristupnom dionicom"
 
 #: ../cut-n-paste-code/libegg/eggsmclient.c:239
 msgid "ID"
-msgstr "Identifikator"
+msgstr "Označivač"
 
 #: ../cut-n-paste-code/libegg/eggsmclient.c:265
 msgid "Session management options:"
-msgstr "Mogućnosti upravljanja prijavom:"
+msgstr "Mogućnosti upravljanja pristupnom dionicom:"
 
 #: ../cut-n-paste-code/libegg/eggsmclient.c:266
 msgid "Show session management options"
-msgstr "Prikaži mogućnosti upravljanja prijavom"
+msgstr "Prikaži mogućnosti upravljanja pristupnom dionicom"
 
 #: ../data/browser.xml.h:1
 msgid "_Patterns"
@@ -104,7 +106,7 @@ msgstr "Hrapavo plavi"
 
 #: ../data/browser.xml.h:5
 msgid "Blue Type"
-msgstr "Plavi s uzorkom"
+msgstr "Plavi s otiskom"
 
 #: ../data/browser.xml.h:6
 msgid "Brushed Metal"
@@ -136,7 +138,7 @@ msgstr "Tamni MATE"
 
 #: ../data/browser.xml.h:13
 msgid "Dots"
-msgstr "Točkasti"
+msgstr "Točke"
 
 #: ../data/browser.xml.h:14
 msgid "Fibers"
@@ -352,7 +354,7 @@ msgstr "_Oznake"
 
 #: ../data/browser.xml.h:67
 msgid "Drag an emblem to an object to add it to the object"
-msgstr "Povuci oznaku na stavku za njeno pridodavanje"
+msgstr "Povuci oznaku na stavku za njeno postavljanje na nju"
 
 #. translators: this is the name of an emblem
 #: ../data/browser.xml.h:69 ../src/caja-emblem-sidebar.c:985
@@ -376,7 +378,7 @@ msgid ""
 "MATE desktop. It works on local and remote file systems. </p> <p> Caja is "
 "extensible through a plugin system, similar to that of GNOME Nautilus, of "
 "which Caja is a fork. </p>"
-msgstr ""
+msgstr "<p> Caja je službeni datotečni upravitelj za radno okružje MATE. On omogućuje pregled direktorija, kao i pretprikaz datoteka te pokretanje programa povezanih s njima. On je također odgovoran za upravljanje sličicama u radnom okružju MATE. Radi na mjesnim i udaljenim datotečnim sustavima. </p> <p> Caja je proširiva putem sustava priključaka, sličnog onome u GNOME Nautilusu, čiji je Caja ogranak. </p>"
 
 #: ../eel/eel-canvas.c:1301 ../eel/eel-canvas.c:1302
 msgid "X"
@@ -436,7 +438,7 @@ msgstr "Odaberi sve"
 
 #: ../eel/eel-editable-label.c:3207
 msgid "Input Methods"
-msgstr "Ulazni načini"
+msgstr "Načini unosa"
 
 #: ../eel/eel-gtk-extensions.c:476
 msgid "Show more _details"
@@ -444,11 +446,11 @@ msgstr "Prikaži više _pojedinosti"
 
 #: ../eel/eel-stock-dialogs.c:213
 msgid "You can stop this operation by clicking cancel."
-msgstr "Možeš zaustaviti ovu radnju pritiskom na prekid."
+msgstr "Možeš zaustaviti ovu radnju pritiskom na opoziv."
 
 #: ../eel/eel-vfs-extensions.c:96
 msgid " (invalid Unicode)"
-msgstr " (neispravni Unicode)"
+msgstr " (neispravan univerzalni kod)"
 
 #: ../libcaja-private/caja-autorun.c:519
 msgid "No applications found"
@@ -478,7 +480,7 @@ msgstr "Otvori s drugim programom..."
 
 #: ../libcaja-private/caja-autorun.c:1029
 msgid "You have just inserted an Audio CD."
-msgstr "Upravo je umetnut audio CD."
+msgstr "Upravo je umetnut Audio CD."
 
 #: ../libcaja-private/caja-autorun.c:1033
 msgid "You have just inserted an Audio DVD."
@@ -699,11 +701,11 @@ msgstr "Dopuštenja datoteke u osmičnom zapisu."
 
 #: ../libcaja-private/caja-column-utilities.c:114
 msgid "MIME Type"
-msgstr "MIME-vrsta"
+msgstr "MIME vrsta"
 
 #: ../libcaja-private/caja-column-utilities.c:115
 msgid "The mime type of the file."
-msgstr "MIME-vrsta datoteke."
+msgstr "MIME vrsta datoteke."
 
 #: ../libcaja-private/caja-column-utilities.c:122
 msgid "SELinux Context"
@@ -743,7 +745,7 @@ msgstr "Izvorni položaj datoteke prije premještaja u smeće"
 #: ../libcaja-private/caja-mime-application-chooser.c:436
 #: ../src/caja-property-browser.c:1972
 msgid "Reset"
-msgstr "Vrati na izvorno"
+msgstr "Ponovno postavi"
 
 #: ../libcaja-private/caja-desktop-directory-file.c:455
 #: ../libcaja-private/caja-desktop-icon-file.c:158
@@ -777,7 +779,7 @@ msgstr "Ako želiš rastaviti uređaj za pohranu, molim koristi \"Rastavi uređa
 #: ../libcaja-private/caja-desktop-link.c:110
 #, c-format
 msgid "%s's Home"
-msgstr "Osobna mapa (%s)"
+msgstr "Osobna mapa korisnika %s"
 
 #: ../libcaja-private/caja-desktop-link.c:113
 #: ../data/caja-computer.desktop.in.in.h:1 ../src/caja-places-sidebar.c:494
@@ -812,7 +814,7 @@ msgstr "Postavi kao _pozadinu"
 
 #: ../libcaja-private/caja-dnd.c:865 ../libcaja-private/caja-dnd.c:919
 msgid "Cancel"
-msgstr "Prekini"
+msgstr "Opozovi"
 
 #: ../libcaja-private/caja-dnd.c:907
 msgid "Set as background for _all folders"
@@ -858,7 +860,7 @@ msgstr "Žao mi je, nije moguće spremiti prilagođenu oznaku."
 
 #: ../libcaja-private/caja-emblem-utils.c:325
 msgid "Sorry, unable to save custom emblem name."
-msgstr "Na žalost, nije moguće spremiti naziv prilagođene oznake."
+msgstr "Nažalost, nije moguće spremiti naziv prilagođene oznake."
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:144
 #, c-format
@@ -869,7 +871,7 @@ msgstr "Spojiti mapu \"%s\"?"
 msgid ""
 "Merging will ask for confirmation before replacing any files in the folder "
 "that conflict with the files being copied."
-msgstr "Spajanje će tražiti potvrdu prije zamjene bilo koje datoteke u mapi koja se sudara s datotekom u preslikavanju."
+msgstr "Spajanje će zatražiti potvrdu prije zamjene svih onih datoteka u mapi koje se sudaraju s datotekama u preslikavanju."
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:154
 #, c-format
@@ -1023,26 +1025,26 @@ msgstr "Ipak _preslikaj"
 #, c-format
 msgid "%'d second"
 msgid_plural "%'d seconds"
-msgstr[0] "sekunda"
-msgstr[1] "sekunde"
-msgstr[2] "sekundi"
+msgstr[0] "%'d sekunda"
+msgstr[1] "%'d sekunde"
+msgstr[2] "%'d sekunda"
 
 #: ../libcaja-private/caja-file-operations.c:286
 #: ../libcaja-private/caja-file-operations.c:297
 #, c-format
 msgid "%'d minute"
 msgid_plural "%'d minutes"
-msgstr[0] "minuta"
-msgstr[1] "minute"
-msgstr[2] "minuta"
+msgstr[0] "%'d minuta"
+msgstr[1] "%'d minute"
+msgstr[2] "%'d minuta"
 
 #: ../libcaja-private/caja-file-operations.c:296
 #, c-format
 msgid "%'d hour"
 msgid_plural "%'d hours"
-msgstr[0] "sat"
-msgstr[1] "sata"
-msgstr[2] "sati"
+msgstr[0] "%'d sat"
+msgstr[1] "%'d sata"
+msgstr[2] "%'d sati"
 
 #: ../libcaja-private/caja-file-operations.c:304
 #, c-format
@@ -1211,7 +1213,7 @@ msgstr[2] "Doista želiš trajno izbrisati %'d odabranih stavki iz smeća?"
 #: ../libcaja-private/caja-file-operations.c:1331
 #: ../libcaja-private/caja-file-operations.c:1397
 msgid "If you delete an item, it will be permanently lost."
-msgstr "Ukoliko ukloniš stavku, bit će trajno izgubljena."
+msgstr "Ako izbrišeš stavku, bit će trajno izgubljena."
 
 #: ../libcaja-private/caja-file-operations.c:1351
 msgid "Empty all items from Trash?"
@@ -1219,7 +1221,7 @@ msgstr "Isprazniti sve stavke iz smeća?"
 
 #: ../libcaja-private/caja-file-operations.c:1355
 msgid "All items in the Trash will be permanently deleted."
-msgstr "Sve stavke u smeću bit će trajne izbrisane."
+msgstr "Sve stavke u smeću bit će trajno izbrisane."
 
 #. Empty Trash menu item
 #: ../libcaja-private/caja-file-operations.c:1358
@@ -1293,7 +1295,7 @@ msgstr "_Preskoči datoteke"
 msgid ""
 "The folder \"%B\" cannot be deleted because you do not have permissions to "
 "read it."
-msgstr "Mapa \"%B\" ne može biti izbrisana jer nemaš dopuštenje za njihovo čitanje."
+msgstr "Mapa \"%B\" ne može biti izbrisana jer nemaš dopuštenje za njeno čitanje."
 
 #: ../libcaja-private/caja-file-operations.c:1558
 #: ../libcaja-private/caja-file-operations.c:2569
@@ -1343,11 +1345,11 @@ msgstr "Nije moguće izbaciti %V"
 
 #: ../libcaja-private/caja-file-operations.c:2061
 msgid "Unable to unmount %V"
-msgstr "Nije moguće demontirati %V"
+msgstr "Nije moguće rastaviti %V"
 
 #: ../libcaja-private/caja-file-operations.c:2216
 msgid "Do you want to empty the trash before you unmount?"
-msgstr "Želiš li isprazniti smeće prije demontiranja?"
+msgstr "Želiš li isprazniti smeće prije rastavljanja?"
 
 #: ../libcaja-private/caja-file-operations.c:2218
 msgid ""
@@ -1520,9 +1522,9 @@ msgstr[2] "Preslikavanje %'d datoteka u \"%B\""
 #, c-format
 msgid "Duplicating %'d file"
 msgid_plural "Duplicating %'d files"
-msgstr[0] "Udvostručavanje %'d datoteke u \"%B\""
-msgstr[1] "Udvostručavanje %'d datoteke u \"%B\""
-msgstr[2] "Udvostručavanje %'d datoteka u \"%B\""
+msgstr[0] "Udvostručavanje %'d datoteke"
+msgstr[1] "Udvostručavanje %'d datoteke"
+msgstr[2] "Udvostručavanje %'d datoteka"
 
 #. To translators: %S will expand to a size like "2 bytes" or "3 MB", so
 #. something like "4 kb of 4 MB"
@@ -1598,12 +1600,12 @@ msgstr "Nije bilo moguće ukloniti već postojeću datoteku %F."
 #: ../libcaja-private/caja-file-operations.c:4032
 #: ../libcaja-private/caja-file-operations.c:4691
 msgid "You cannot move a folder into itself."
-msgstr "Ne možeš premjestiti mapu u samu sebe."
+msgstr "Ne možeš premjestiti mapu u nju samu."
 
 #: ../libcaja-private/caja-file-operations.c:4033
 #: ../libcaja-private/caja-file-operations.c:4692
 msgid "You cannot copy a folder into itself."
-msgstr "Ne možeš preslikati mapu u samu sebe."
+msgstr "Ne možeš preslikati mapu u nju samu."
 
 #: ../libcaja-private/caja-file-operations.c:4034
 #: ../libcaja-private/caja-file-operations.c:4693
@@ -1613,11 +1615,11 @@ msgstr "Odredišna mapa je unutar ishodišne mape."
 #. the run_warning() frees all strings passed in automatically
 #: ../libcaja-private/caja-file-operations.c:4065
 msgid "You cannot move a file over itself."
-msgstr "Ne možeš premještati datoteku preko nje same."
+msgstr "Ne možeš premjestiti datoteku na nju samu."
 
 #: ../libcaja-private/caja-file-operations.c:4066
 msgid "You cannot copy a file over itself."
-msgstr "Ne možeš preslikavati datoteku preko nje same."
+msgstr "Ne možeš preslikati datoteku na nju samu."
 
 #: ../libcaja-private/caja-file-operations.c:4067
 msgid "The source file would be overwritten by the destination."
@@ -1660,7 +1662,7 @@ msgstr "Premještanje datoteka"
 
 #: ../libcaja-private/caja-file-operations.c:5136
 msgid "Creating links in \"%B\""
-msgstr "Stvaranje poveznica do \"%B\""
+msgstr "Stvaranje poveznica u \"%B\""
 
 #: ../libcaja-private/caja-file-operations.c:5140
 #, c-format
@@ -1728,11 +1730,11 @@ msgstr "Nije moguće označiti pokretač pouzdanim (izvršnim)"
 #: ../libcaja-private/caja-file-utilities.c:1407
 #, c-format
 msgid "Could not determine original location of \"%s\" "
-msgstr "Nije moguće odrediti izvorni položaj za \"%s\""
+msgstr "Nije bilo moguće odrediti izvorni položaj za \"%s\""
 
 #: ../libcaja-private/caja-file-utilities.c:1411
 msgid "The item cannot be restored from trash"
-msgstr "Stavka ne može biti obnovljena iz smeća"
+msgstr "Stavka ne može biti vraćena iz smeća"
 
 #: ../libcaja-private/caja-file.c:1217 ../libcaja-private/caja-vfs-file.c:430
 msgid "This file cannot be mounted"
@@ -1740,7 +1742,7 @@ msgstr "Ova datoteka ne može biti postavljena"
 
 #: ../libcaja-private/caja-file.c:1262
 msgid "This file cannot be unmounted"
-msgstr "Ova datoteka ne može biti demontirana"
+msgstr "Ova datoteka ne može biti rastavljena"
 
 #: ../libcaja-private/caja-file.c:1296
 msgid "This file cannot be ejected"
@@ -1795,7 +1797,7 @@ msgstr "Nije moguće preimenovati datoteku radne površine"
 #. * space padding instead of zero padding.
 #: ../libcaja-private/caja-file.c:4478
 msgid "today at 00:00:00 PM"
-msgstr "danas u 13:00:00"
+msgstr "danas u 00:00:00"
 
 #: ../libcaja-private/caja-file.c:4479
 #: ../src/caja-file-management-properties.c:522
@@ -1804,7 +1806,7 @@ msgstr "danas u %-I:%M:%S %p"
 
 #: ../libcaja-private/caja-file.c:4481
 msgid "today at 00:00 PM"
-msgstr "danas u 13:00"
+msgstr "danas u 00:00"
 
 #: ../libcaja-private/caja-file.c:4482
 msgid "today at %-I:%M %p"
@@ -1866,7 +1868,7 @@ msgstr "%A, %B %-d %Y at %-I:%M:%S %p"
 
 #: ../libcaja-private/caja-file.c:4521
 msgid "Mon, Oct 00 0000 at 00:00:00 PM"
-msgstr "pon, 00. lis 0000. u 00:00"
+msgstr "pon, 00. lis 0000. u 00:00:00"
 
 #: ../libcaja-private/caja-file.c:4522
 msgid "%a, %b %-d %Y at %-I:%M:%S %p"
@@ -2008,21 +2010,21 @@ msgstr "poveznica"
 
 #: ../libcaja-private/caja-file.c:6469
 msgid "link (broken)"
-msgstr "poveznica (neispravna)"
+msgstr "poveznica (prekinuta)"
 
 #: ../libcaja-private/caja-icon-container.c:2934
 msgid "The selection rectangle"
-msgstr "Odabirni okvir"
+msgstr "Odabirni pravokutnik"
 
 #: ../libcaja-private/caja-mime-actions.c:757
 #, c-format
 msgid "The Link \"%s\" is Broken."
-msgstr "Poveznica \"%s\" je u prekidu."
+msgstr "Poveznica \"%s\" je prekinuta."
 
 #: ../libcaja-private/caja-mime-actions.c:761
 #, c-format
 msgid "The Link \"%s\" is Broken. Move it to Trash?"
-msgstr "Poveznica \"%s\" je u prekidu. Premjestiti je u smeće?"
+msgstr "Poveznica \"%s\" je prekinuta. Premjestiti je u smeće?"
 
 #: ../libcaja-private/caja-mime-actions.c:768
 msgid "This link cannot be used, because it has no target."
@@ -2047,7 +2049,7 @@ msgstr "Pre_mjesti u smeće"
 #: ../libcaja-private/caja-mime-actions.c:845
 #, c-format
 msgid "Do you want to run \"%s\", or display its contents?"
-msgstr "Želite li pokrenuti \"%s\" ili prikazati njen sadržaj?"
+msgstr "Želiš li pokrenuti \"%s\" ili prikazati sadržaj toga?"
 
 #: ../libcaja-private/caja-mime-actions.c:847
 #, c-format
@@ -2136,7 +2138,7 @@ msgstr "Nepouzdani programski pokretač"
 msgid ""
 "The application launcher \"%s\" has not been marked as trusted. If you do "
 "not know the source of this file, launching it may be unsafe."
-msgstr "Programski pokretač \"%s\" nije označen kao pouzdan. Ukoliko ne poznaješ izvorište ove datoteke, pokretanje može biti nesigurno."
+msgstr "Programski pokretač \"%s\" nije označen kao pouzdan. Ako ne poznaješ izvorište ove datoteke, njeno pokretanje može biti nesigurno."
 
 #: ../libcaja-private/caja-mime-actions.c:1751
 msgid "_Launch Anyway"
@@ -2299,7 +2301,7 @@ msgstr "Otvori sve %s zapise s:"
 #: ../libcaja-private/caja-open-with-dialog.c:1087
 #, c-format
 msgid "Open %s and other \"%s\" files with:"
-msgstr "Otvori %s i sve \"%s\" zapise s:"
+msgstr "Otvori %s i druge \"%s\" zapise s:"
 
 #. %s is a file type description
 #: ../libcaja-private/caja-open-with-dialog.c:1095
@@ -2357,7 +2359,7 @@ msgstr "Nema drugih dostupnih radnji za pregled ove datoteke. Ako preslikaš ovu
 
 #: ../libcaja-private/caja-program-choosing.c:513
 msgid "Sorry, but you cannot execute commands from a remote site."
-msgstr "Na žalost, ne možeš izvršavati naredbe s udaljenog mjesta."
+msgstr "Nažalost, ne možeš izvršavati naredbe s udaljenog mjesta."
 
 #: ../libcaja-private/caja-program-choosing.c:515
 msgid "This is disabled due to security considerations."
@@ -2404,7 +2406,7 @@ msgstr[2] "%'d datotečnih postupaka djelatno"
 #: ../libcaja-private/caja-progress-info.c:514
 #: ../libcaja-private/caja-progress-info.c:535
 msgid "Preparing"
-msgstr "Priprema"
+msgstr "Pripremanje"
 
 #: ../libcaja-private/caja-query.c:139
 #: ../libcaja-private/caja-search-directory-file.c:170
@@ -2485,7 +2487,7 @@ msgstr "Izbriši poveznicu do '%s'"
 #: ../libcaja-private/caja-undostack-manager.c:1334
 #, c-format
 msgid "Restore original permissions of items enclosed in '%s'"
-msgstr "Obnovi izvorna dopuštenja stavaka sadržanih u '%s'"
+msgstr "Obnovi izvorna dopuštenja stavki sadržanih u '%s'"
 
 #: ../libcaja-private/caja-undostack-manager.c:1342
 #, c-format
@@ -2575,7 +2577,7 @@ msgstr "Stvori poveznicu do '%s'"
 #: ../libcaja-private/caja-undostack-manager.c:1509
 #, c-format
 msgid "Set permissions of items enclosed in '%s'"
-msgstr "Postavi dopuštenja stavaka sadržanih u '%s'"
+msgstr "Postavi dopuštenja stavki sadržanih u '%s'"
 
 #: ../libcaja-private/caja-undostack-manager.c:1517
 #, c-format
@@ -2620,9 +2622,9 @@ msgstr[2] "_Poništi premještaj %d stavki"
 #, c-format
 msgid "_Undo rename of %d item"
 msgid_plural "_Undo rename of %d items"
-msgstr[0] "_Poništi premještaj %d stavke"
-msgstr[1] "_Poništi premještaj %d stavki"
-msgstr[2] "_Poništi premještaj %d stavki"
+msgstr[0] "_Poništi preimenovanje %d stavke"
+msgstr[1] "_Poništi preimenovanje %d stavki"
+msgstr[2] "_Poništi preimenovanje %d stavki"
 
 #: ../libcaja-private/caja-undostack-manager.c:1587
 #, c-format
@@ -2639,7 +2641,7 @@ msgstr "_Poništi stvaranje datoteke iz predloška"
 msgid "_Undo creation of %d folder"
 msgid_plural "_Undo creation of %d folders"
 msgstr[0] "_Poništi stvaranje %d mape"
-msgstr[1] "_Poništi stvaranje %d mape"
+msgstr[1] "_Poništi stvaranje %d mapa"
 msgstr[2] "_Poništi stvaranje %d mapa"
 
 #: ../libcaja-private/caja-undostack-manager.c:1599
@@ -2670,9 +2672,9 @@ msgstr[2] "_Poništi stvaranje poveznice do %d stavki"
 #, c-format
 msgid "_Undo delete of %d item"
 msgid_plural "_Undo delete of %d items"
-msgstr[0] "_Poništi uklanjanje %d stavke"
-msgstr[1] "_Poništi uklanjanje %d stavki"
-msgstr[2] "_Poništi uklanjanje %d stavki"
+msgstr[0] "_Poništi brisanje %d stavke"
+msgstr[1] "_Poništi brisanje %d stavki"
+msgstr[2] "_Poništi brisanje %d stavki"
 
 #: ../libcaja-private/caja-undostack-manager.c:1619
 #, c-format
@@ -2784,9 +2786,9 @@ msgstr[2] "_Ponovi stvaranje poveznice do %d stavki"
 #, c-format
 msgid "_Redo delete of %d item"
 msgid_plural "_Redo delete of %d items"
-msgstr[0] "_Ponovi uklanjanje %d stavke"
-msgstr[1] "_Ponovi uklanjanje %d stavki"
-msgstr[2] "_Ponovi uklanjanje %d stavki"
+msgstr[0] "_Ponovi brisanje %d stavke"
+msgstr[1] "_Ponovi brisanje %d stavki"
+msgstr[2] "_Ponovi brisanje %d stavki"
 
 #: ../libcaja-private/caja-undostack-manager.c:1714
 #, c-format
@@ -2829,18 +2831,18 @@ msgid ""
 "If set to \"after-current-tab\", then new tabs are inserted after the "
 "current tab. If set to \"end\", then new tabs are appended to the end of the"
 " tab list."
-msgstr "Ako se postavi na \"nakon-trenutne-kartice\", tada se nove kartice umeću nakon trennutne kartice. Ako se postavi na \"kraj\". tada se nove kartice pridodaju na kraju liste tablica."
+msgstr "Ako je postavljeno na \"nakon-trenutne-kartice\", tada se nove kartice umeću nakon trenutne kartice. Ako je postavljeno na \"kraj\", tada se nove kartice dodaju na kraju popisa kartica."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:3
 msgid "Caja will exit when last window destroyed."
-msgstr "Caja je gotova kada zadnji prozor bude poništen"
+msgstr "Caja će biti gotova kada zadnji prozor bude poništen"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:4
 msgid ""
 "If set to true, then Caja will exit when all windows are destroyed. This is "
 "the default setting. If set to false, it can be started without any window, "
 "so caja can serve as a daemon to monitor media automount, or similar tasks."
-msgstr "Ukoliko je tako postavljeno, tada će se Caja zatvoriti kada svi prozori budu poništeni. Ovo je zadana postavka. Ukoliko nije tako postavljeno, Caja se može pokrenuti bez ijednog prozora, tako da može služiti kao pozadinski program za nadgledanje samopostavljanja medija, ili za slične zadatke. "
+msgstr "Ako je potvrđeno, tada će Caja biti gotova kada svi prozori budu poništeni. Ovo je zadana postavka. Ako je postavljeno na netočno, Caja se može pokrenuti bez ijednog prozora, tako da može služiti kao pozadinski program za nadgledanje samopostavljanja medija ili za slične zadatke. "
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:5
 msgid "Enables the classic Caja behavior, where all windows are browsers"
@@ -2851,7 +2853,7 @@ msgid ""
 "If set to true, then all Caja windows will be browser windows. This is how "
 "Nautilus used to behave before version 2.6, and some people prefer this "
 "behavior."
-msgstr "Ako se postavi kao istinito, tada će svi Caja prozori biti prozori preglednika. Tako se ponašao Nautilus prije verzije 2.6. i neki ljudi vole ovakvo ponašanje."
+msgstr "Ako je potvrđeno, tada će svi prozori Caje biti prozori preglednika. Tako se ponašao Nautilus prije inačice 2.6, a neki ljudi daju prednost takvom ponašanju."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:7
 msgid "Always use the location entry, instead of the pathbar"
@@ -2861,7 +2863,7 @@ msgstr "Uvijek koristi položajni unos umjesto trake s putanjom."
 msgid ""
 "If set to true, then Caja browser windows will always use a textual input "
 "entry for the location toolbar, instead of the pathbar."
-msgstr "Ukoliko je tako postavljeno, tada će prozori preglednika Caje uvijek koristiti napisni unos za pribornu traku položaja umjesto trake putanje."
+msgstr "Ako je potvrđeno, tada će prozori preglednika Caje uvijek koristiti napisni unos za pribornu traku položaja umjesto trake putanje."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:9
 msgid "Whether to ask for confirmation when deleting files, or emptying Trash"
@@ -2871,22 +2873,22 @@ msgstr "Treba li zatražiti potvrdu prilikom brisanja datoteka ili pražnjenja s
 msgid ""
 "If set to true, then Caja will ask for confirmation when you attempt to "
 "delete files, or empty the Trash."
-msgstr "Ukoliko je tako postavljeno, Caja će tražiti potvrdu kad pokušaš izbrisati datoteke ili isprazniti smeće."
+msgstr "Ako je potvrđeno, tada će Caja zatražiti potvrdu kada pokušaš izbrisati datoteke ili isprazniti smeće."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:11
 msgid "Whether to enable immediate deletion"
-msgstr "Treba li omogućiti trenutačno brisanje"
+msgstr "Treba li omogućiti izravno brisanje"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:12
 msgid ""
 "If set to true, then Caja will have a feature allowing you to delete a file "
 "immediately and in-place, instead of moving it to the trash. This feature "
 "can be dangerous, so use caution."
-msgstr "Ukoliko je tako postavljeno, tada će Caja imati mogućnost dozvoliti ti trenutno brisanje datoteke na njenu mjestu, umjesto premještanja u smeće. Ova mogućnost može biti opasna, pa je koristi uz oprez."
+msgstr "Ako je potvrđeno, tada će Caja imati mogućnost dozvoliti ti izravno brisanje datoteke na njenu mjestu, umjesto premještanja u smeće. Ova mogućnost može biti opasna, pa je koristi uz oprez."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:13
 msgid "When to show preview text in icons"
-msgstr "Kada prikazati pregled napisa u sličicama"
+msgstr "Kada prikazati napis pregleda u sličicama"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:14
 msgid ""
@@ -2917,11 +2919,11 @@ msgstr "Vrsta klika u uporabi za pokretanje/otvaranje datoteka"
 msgid ""
 "Possible values are \"single\" to launch files on a single click, or "
 "\"double\" to launch them on a double click."
-msgstr "Moguće vrijednosti su: \"pojedinačno\" za pokretanje datoteka pojedinačnim klikom, ili \"dvostruko\" za njihovo pokretanje dvostrukim klikom."
+msgstr "Moguće zadanosti su: \"pojedinačni\" za pokretanje datoteka pojedinačnim klikom, ili \"dvostruki\" za njihovo pokretanje dvostrukim klikom."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:19
 msgid "What to do with executable text files when activated"
-msgstr "Kako postupiti s izvršnim napisnim datotekama nakon aktivacije"
+msgstr "Kako postupiti s izvršnim napisnim datotekama kada su pokrenute"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:20
 msgid ""
@@ -2929,53 +2931,53 @@ msgid ""
 "double clicked). Possible values are \"launch\" to launch them as programs, "
 "\"ask\" to ask what to do via a dialog, and \"display\" to display them as "
 "text files."
-msgstr "Što napraviti s izvršnim napisnim datotekama kada su one aktivirane (pojedinačnim ili dvostrukim klikom). Moguće vrijednosti su \"launch\" za pokretanje istih kao programa, \"ask\" za traženje radnje putem dijaloškog okna i \"display\" za prikazivanje istih kao napisnih datoteka."
+msgstr "Što napraviti s izvršnim napisnim datotekama kada su one pokrenute (pojedinačnim ili dvostrukim klikom). Moguće zadanosti su: \"pokreni\" za pokretanje istih kao programa, \"upitaj\" za upit o postupku putem dijaloškog okvira i \"prikaži\" za prikazivanje istih kao napisnih datoteka."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:21
 msgid "Show the package installer for unknown mime types"
-msgstr "Prikaži paketni ugradnik za nepoznate vrste višestruko primjenjivih dodataka za internetsku poštu (MIME types)"
+msgstr "Prikaži paketni ugrađivač za nepoznate MIME vrste"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:22
 msgid ""
 "Whether to show the user a package installer dialog in case an unknown mime "
 "type is opened, in order to search for an application to handle it."
-msgstr "Treba li korisniku prikazati dijaloški okvir paketnog ugrađivača u slučaju otvaranja nepoznate MIME-vrste, kako bi se potražilo prikladni program za nju."
+msgstr "Treba li korisniku prikazati dijaloški okvir paketnog ugrađivača u slučaju otvaranja nepoznate MIME vrste, kako bi se potražilo odgovarajući program za nju."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:23
 msgid "Use extra mouse button events in Caja' browser window"
-msgstr "Koristi radnje dodatnoga gumba na mišu u prozoru preglednika Caja"
+msgstr "Koristi radnje dodatnoga gumba na mišu u prozoru preglednika Caje"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:24
 msgid ""
 "For users with mice that have \"Forward\" and \"Back\" buttons, this key "
 "will determine if any action is taken inside of Caja when either is pressed."
-msgstr "Za korisnike s mišem koji ima gumbe \"Naprijed\" i \"Nazad\",  ova tipka će odrediti je li poduzeta neka radnja unutar Caje kad je jedan ili drugi pritisnut."
+msgstr "Za korisnike s miševima koji imaju gumbe \"Naprijed\" i \"Nazad\", ova će tipka odrediti ima li se poduzeti neka radnja unutar Caje kada je koji od njih pritisnut."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:25
 msgid "Mouse button to activate the \"Forward\" command in browser window"
-msgstr "TIpka miša za pokretanje naredbe \"Naprijed\" u prozoru preglednika"
+msgstr "Gumb miša za pokretanje naredbe \"Naprijed\" u prozoru preglednika"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:26
 msgid ""
 "For users with mice that have buttons for \"Forward\" and \"Back\", this key"
 " will set which button activates the \"Forward\" command in a browser "
 "window. Possible values range between 6 and 14."
-msgstr "Za korisnike s mišem koji ima gumbe \"Naprijed\" i \"Nazad\",  ova tipka će odrediti koji gumb uključuje naredbu \"Naprijed\" u prozoru preglednika. Moguća vrijednost kreće se između 6 i 14."
+msgstr "Za korisnike s miševima koji imaju gumbe \"Naprijed\" i \"Nazad\", ova će tipka odrediti koji gumb uključuje naredbu \"Naprijed\" u prozoru preglednika. Moguće vrijednosti kreću se između 6 i 14."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:27
 msgid "Mouse button to activate the \"Back\" command in browser window"
-msgstr "TIpka miša za pokretanje naredbe \"Nazad\" u prozoru preglednika"
+msgstr "Gumb miša za pokretanje naredbe \"Nazad\" u prozoru preglednika"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:28
 msgid ""
 "For users with mice that have buttons for \"Forward\" and \"Back\", this key"
 " will set which button activates the \"Back\" command in a browser window. "
 "Possible values range between 6 and 14."
-msgstr "Za korisnike s mišem koji ima gumbe \"Naprijed\" i \"Nazad\",  ova tipka će odrediti koji gumb uključuje naredbu \"Nazad\" u prozoru preglednika. Moguća vrijednost kreće se između 6 i 14."
+msgstr "Za korisnike s miševima koji imaju gumbe \"Naprijed\" i \"Nazad\", ova će tipka odrediti koji gumb uključuje naredbu \"Nazad\" u prozoru preglednika. Moguće vrijednosti kreću se između 6 i 14."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:29
 msgid "When to show thumbnails of image files"
-msgstr "Kada prikazati umanjene slike slikovnih datoteka"
+msgstr "Kada prikazati minijature slikovnih datoteka"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:30
 msgid ""
@@ -2988,18 +2990,18 @@ msgstr ""
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:31
 msgid "Maximum image size for thumbnailing"
-msgstr "Najveća veličina slike za prikaz umanjene sličice"
+msgstr "Najveća moguća veličina slike za prikaz minijature"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:32
 msgid ""
 "Images over this size (in bytes) won't be thumbnailed. The purpose of this "
 "setting is to avoid thumbnailing large images that may take a long time to "
 "load or use lots of memory."
-msgstr "Slike koje prelaze ovu veličinu (u bajtovima) ne će biti umanjene. Svrha ove postavke jest izbjegavanje umanjivanja velikih slika jer to može potrajati ili zauzimati previše memorije."
+msgstr "Slike koje prelaze ovu veličinu (u bajtovima) neće biti umanjene. Svrha ove postavke jest izbjegavanje umanjivanja velikih slika jer to može potrajati ili zauzimati previše memorije."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:33
 msgid "Whether to preview sounds when mousing over an icon"
-msgstr "Treba li odsvirati zvuk prilikom prelaska mišem preko sličice"
+msgstr "Treba li predizvoditi zvukove prilikom prelaska mišem preko sličice"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:34
 msgid ""
@@ -3011,13 +3013,13 @@ msgstr ""
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:35
 msgid "Show advanced permissions in the file property dialog"
-msgstr "Prikaži napredna dopuštenja u dijaloškom oknu svojstava datoteke"
+msgstr "Prikaži napredna dopuštenja u dijaloškom okviru svojstava datoteke"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:36
 msgid ""
 "If set to true, then Caja lets you edit and display file permissions in a "
 "more unix-like way, accessing some more esoteric options."
-msgstr "Ukoliko je tako postavljeno, tada ti Caja omogućuje uređivanje i prikazivanje datotečnih dopuštenja na način više nalik Unixu, uz pristup pojedinim skrivenijim mogućnostima."
+msgstr "Ako je potvrđeno, tada ti Caja omogućuje uređivanje i prikazivanje datotečnih dopuštenja na način više nalik Unixu, uz pristup pojedinim skrivenijim mogućnostima."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:37
 msgid "Show folders first in windows"
@@ -3027,21 +3029,21 @@ msgstr "Prikaži prvo mape u prozorima"
 msgid ""
 "If set to true, then Caja shows folders prior to showing files in the icon "
 "and list views."
-msgstr "Ukoliko je tako postavljeno, tada Caja prikazuje mape prije prikazivanja datoteka u sličicama ili popisu."
+msgstr "Ako je potvrđeno, tada Caja prikazuje mape prije prikazivanja datoteka u sličicama ili popisu."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:39
 msgid "Default sort order"
-msgstr "Zadani red razvrstavanja"
+msgstr "Zadano svrstavanje"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:40
 msgid ""
 "The default sort-order for items in the icon view. Possible values are "
 "\"name\", \"size\", \"type\", \"mtime\", and \"emblems\"."
-msgstr ""
+msgstr "Zadano svrstavanje za stavke u prikazu sličica. Moguće zadanosti su \"ime\", \"veličina\", \"vrsta\", \"vrijeme izmjene\" i \"oznake\"."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:41
 msgid "Reverse sort order in new windows"
-msgstr "Obrni poredak u novim prozorima"
+msgstr "Obrni svrstavanje u novim prozorima"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:42
 msgid ""
@@ -3049,7 +3051,7 @@ msgid ""
 " by name, then instead of sorting the files from \"a\" to \"z\", they will "
 "be sorted from \"z\" to \"a\"; if sorted by size, instead of being "
 "incrementally they will be sorted decrementally."
-msgstr "Ukoliko je postavljeno, datoteke u novim prozorima bit će poredane u obrnutom poretku. To jest, ako su poredane po nazivu, onda će umjesto poretka datoteka od \"a\" do \"ž\", one  biti poredane od \"ž\" do \"a\";  ako su poredane po veličini, umjesto u rastućem nizu, bit će poredane u padajućem nizu."
+msgstr "Ako je potvrđeno, datoteke u novim prozorima bit će svrstane u obrnutom poretku. To jest, ako su svrstane po nazivu, onda će umjesto poretka datoteka od \"a\" do \"ž\" one  biti poredane od \"ž\" do \"a\";  ako su svrstane po veličini, umjesto u rastućem nizu bit će poredane u padajućem nizu."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:43
 msgid "Caja uses the users home folder as the desktop"
@@ -3059,7 +3061,7 @@ msgstr "Caja koristi osobnu mapu korisnika za radnu površinu"
 msgid ""
 "If set to true, then Caja will use the user's home folder as the desktop. If"
 " it is false, then it will use ~/Desktop as the desktop."
-msgstr "Ukoliko je tako postavljeno, tada će Caja koristiti korisnikovu osobnu mapu za radnu površinu. Ukoliko nije tako postavljeno, onda će koristiti ~/Desktop za radnu površinu."
+msgstr "Ako je potvrđeno, tada će Caja koristiti korisnikovu osobnu mapu za radnu površinu. Ako je postavljeno na netočno, onda će koristiti ~/Desktop za radnu površinu."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:45
 msgid "Custom Background"
@@ -3077,7 +3079,7 @@ msgstr "Zadana boja pozadine"
 msgid ""
 "Color for the default folder background. Only used if background_set is "
 "true."
-msgstr "Boja za pozadinu zadane mape. Koristi se samo ako je pozadina ispravno postavljena."
+msgstr "Boja za pozadinu zadane mape. Koristi se samo ako je pozadina_postavljena na potvrdno."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:49
 msgid "Default Background Filename"
@@ -3086,11 +3088,11 @@ msgstr "Zadani datotečni naziv pozadine"
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:50
 msgid ""
 "Uri of the default folder background. Only used if background_set is true."
-msgstr ""
+msgstr "URI zadane pozadine mape. Koristi se samo ako je pozadina_postavljena na potvrdno."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:51
 msgid "Custom Side Pane Background Set"
-msgstr "Postavljena je prilagođena pozadina bočnoga okna"
+msgstr "Postavljena prilagođena pozadina bočnoga okna"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:52
 msgid "Whether a custom default side pane background has been set."
@@ -3104,7 +3106,7 @@ msgstr "Zadana pozadinska boja bočnoga okna"
 msgid ""
 "Filename for the default side pane background. Only used if "
 "side_pane_background_set is true."
-msgstr "Datotečni naziv za zadanu pozadinu bočnog okna. Koristi se jedino ako je ispravno postavljena pozadina bočnog okna."
+msgstr "Datotečni naziv za zadanu pozadinu bočnog okna. Koristi se samo ako je pozadina_bočnog_okna postavljena na potvrdno."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:55
 msgid "Default Side Pane Background Filename"
@@ -3114,18 +3116,18 @@ msgstr "Zadani datotečni naziv pozadine bočnoga okna"
 msgid ""
 "Uri of the default side pane background. Only used if "
 "side_pane_background_set is true."
-msgstr ""
+msgstr "URI zadane pozadine bočnog okna. Koristi se samo ako je pozadina_bočnog_okna_postavljena na potvrdno."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:57
 msgid "Default folder viewer"
-msgstr "Zadani preglednik mapa"
+msgstr "Zadani prikaznik mapa"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:58
 msgid ""
 "When a folder is visited this viewer is used unless you have selected "
 "another view for that particular folder. Possible values are \"list-view\", "
 "\"icon-view\" and \"compact-view\"."
-msgstr ""
+msgstr "Kad je mapa posjećena, koristi se ovaj prikaznik osim ako je odabran drugi prikaz za tu mapu. Moguće zadanosti su \"popisni-prikaz\", \"prikaz-sličica\" i \"sažeti-prikaz\"."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:59
 msgid "Date Format"
@@ -3146,17 +3148,17 @@ msgid ""
 "If set to true, then hidden files are shown by default in the file manager. "
 "Hidden files are either dotfiles, listed in the folder's .hidden file or "
 "backup files ending with a tilde (~)."
-msgstr ""
+msgstr "Ako je potvrđeno, tada će prikaz skrivenih datoteka biti zadan u datotečnom upravitelju. Skrivene datoteke su ili datoteke koje započinju s točkom, izlistane unutar mape u datoteci .hidden, ili pričuvne datoteke koje završavaju s valovitim znakom (~)."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:63
 msgid "Whether to show file sizes with IEC units"
-msgstr ""
+msgstr "Treba li datotečne veličine prikazati u IEC jedinicama"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:64
 msgid ""
 "If set to true, file sizes are shown using IEC (base 1024) units with "
 "\"KiB\" style suffixes, instead of default with SI units."
-msgstr ""
+msgstr "Ako je potvrđeno, datotečne veličine se prikazuju koristeći jedinice Međunarodne elektrotehničke komisije (IEC, osnova 1024) s oblikom dometka \"KiB\", umjesto zadanog prikaza u Međunarodnom sustavu SI jedinica."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:65
 msgid "List of possible captions on icons"
@@ -3169,7 +3171,7 @@ msgid ""
 "values are: \"size\", \"type\", \"date_modified\", \"date_changed\", "
 "\"date_accessed\", \"owner\", \"group\", \"permissions\", "
 "\"octal_permissions\" and \"mime_type\"."
-msgstr ""
+msgstr "Popis objašnjenja ispod sličice u prikazu sličica i na radnoj površini. Ukupni broj prikazanih objašnjenja ovisi o razini uvećanja. Moguće zadanosti su: \"veličina\", \"vrsta\", \"nadnevak_izmjene\", \"nadnevak_promjene\", \"nadnevak_pristupa\", \"vlasnik\", \"skupina\", \"dopuštenja\", \"osmična_dopuštenja\" i \"mime_vrsta\"."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:67
 msgid "Use tighter layout in new windows"
@@ -3186,7 +3188,7 @@ msgstr "Postavi nazivlje pokraj sličica"
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:70
 msgid ""
 "If true, labels will be placed beside icons rather than underneath them."
-msgstr "Ukoliko je postavljeno, oznake će biti smještene pored sličica umjesto ispod njih."
+msgstr "Ako je potvrđeno, oznake će biti smještene pored sličica umjesto ispod njih."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:71
 msgid "Default icon zoom level"
@@ -3225,7 +3227,7 @@ msgid ""
 "not shorten file names for other zoom levels. Available zoom levels: "
 "smallest (33%), smaller (50%), small (66%), standard (100%), large (150%), "
 "larger (200%), largest (400%)"
-msgstr "Niz određuje na koji način dijelovi predugačkih datotečnih naziva trebaju biti zamijenjeni elipsama, ovisno o stupnju uvećanja. Svaki unos s popisa ima oblik \"Stupanj uvećanja:Cijeli broj\". Za svaki naznačeni stupanj uvećanja, ako je određen cijeli broj veći od 0, datotečni naziv ne će premašiti zadani broj redaka. Ako je cijeli broj 0 ili manji, nije postavljena granica na naznačenom stupnju uvećanja. Također je dozvoljen zadani unos u obliku \"Cijeli broj\" bez ikakvog naznačenog stupnja uvećanja. To određuje najveći mogući broj redaka za sve ostale stupnjeve uvećanja. Primjeri: 0 - uvijek prikaži predugačke datotečne nazive; 3 - skrati datotečne nazive ako premašuju tri retka; najmanji:5, manji:4,0 - skrati datotečne nazive ako premašuju pet redaka za stupanj uvećanja \"najmanji\". Skrati datotečne nazive ako premašuju 4 retka za stupanj uvećanja \"manji\". Ne skraćuj datotečne nazive za ostale stupnjeve uvećanja. Dostupni stupnjevi uvećanja: najmanji (33%), manji (50%), mali (66%), uobičajeni (100%), veliki (150%), veći (200%), najveći (400%)"
+msgstr "Niz određuje na koji način dijelovi predugačkih datotečnih naziva trebaju biti zamijenjeni elipsama, ovisno o stupnju uvećanja. Svaki unos s popisa ima oblik \"Stupanj uvećanja:Cijeli broj\". Za svaki naznačeni stupanj uvećanja, ako je određen cijeli broj veći od 0, datotečni naziv neće premašiti zadani broj redaka. Ako je cijeli broj 0 ili manji, nije postavljena granica na naznačenom stupnju uvećanja. Također je dozvoljen zadani unos u obliku \"Cijeli broj\" bez ikakvog naznačenog stupnja uvećanja. To određuje najveći mogući broj redaka za sve ostale stupnjeve uvećanja. Primjeri: 0 - uvijek prikaži predugačke datotečne nazive; 3 - skrati datotečne nazive ako premašuju tri retka; najmanji:5, manji:4,0 - skrati datotečne nazive ako premašuju pet redaka za stupanj uvećanja \"najmanji\". Skrati datotečne nazive ako premašuju 4 retka za stupanj uvećanja \"manji\". Ne skraćuj datotečne nazive za ostale stupnjeve uvećanja. Dostupni stupnjevi uvećanja: najmanji (33%), manji (50%), mali (66%), uobičajeni (100%), veliki (150%), veći (200%), najveći (400%)"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:78
 msgid "Default compact view zoom level"
@@ -3243,7 +3245,7 @@ msgstr "Svi stupci su jednake širine"
 msgid ""
 "If this preference is set, all columns in the compact view have the same "
 "width. Otherwise, the width of each column is determined seperately."
-msgstr "Ukoliko je ova prilagodba postavljena, svi stupci u sažetom prikazu bit će iste širine. U drugom slučaju, širina svakog stupca određena je odvojeno."
+msgstr "Ako je ova prilagodba postavljena, svi stupci u sažetom prikazu bit će iste širine. U drugom slučaju, širina svakog stupca određena je odvojeno."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:82
 msgid "Default list zoom level"
@@ -3277,7 +3279,7 @@ msgstr "Prikaži samo mape u stablu bočnoga okna"
 msgid ""
 "If set to true, Caja will only show folders in the tree side pane. Otherwise"
 " it will show both folders and files."
-msgstr "Ukoliko je tako postavljeno, Caja će prikazivati samo mape u bočnom oknu stabla. Inače će prikazivati i mape i datoteke."
+msgstr "Ako je potvrđeno, Caja će prikazivati samo mape u bočnom oknu stabla. Inače će prikazivati i mape i datoteke."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:90
 msgid "Desktop font"
@@ -3285,7 +3287,7 @@ msgstr "Pismo radne površine"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:91
 msgid "The font _description used for the icons on the desktop."
-msgstr ""
+msgstr "Opis _pisma korištenog za sličice na radnoj površini."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:92
 msgid "Home icon visible on desktop"
@@ -3295,7 +3297,7 @@ msgstr "Sličica osobne mape vidljiva na radnoj površini"
 msgid ""
 "If this is set to true, an icon linking to the home folder will be put on "
 "the desktop."
-msgstr "Ukoliko je tako postavljeno, sličica s poveznicom na osobnu mapu bit će smještena na radnu površinu."
+msgstr "Ako je ovo potvrđeno, sličica s poveznicom na osobnu mapu bit će smještena na radnu površinu."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:94
 msgid "Computer icon visible on desktop"
@@ -3305,7 +3307,7 @@ msgstr "Sličica računala vidljiva na radnoj površini"
 msgid ""
 "If this is set to true, an icon linking to the computer location will be put"
 " on the desktop."
-msgstr "Ukoliko je tako postavljeno, sličica s poveznicom na položaj računala bit će smještena na radnu površinu."
+msgstr "Ako je ovo potvrđeno, sličica s poveznicom na položaj računala bit će smještena na radnu površinu."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:96
 msgid "Trash icon visible on desktop"
@@ -3315,7 +3317,7 @@ msgstr "Sličica smeća je vidljiva na radnoj površini"
 msgid ""
 "If this is set to true, an icon linking to the trash will be put on the "
 "desktop."
-msgstr "Ukoliko je tako postavljeno, sličica s poveznicom na smeće bit će smještena na radnu površinu."
+msgstr "Ako je ovo potvrđeno, sličica s poveznicom na smeće bit će smještena na radnu površinu."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:98
 msgid "Show mounted volumes on the desktop"
@@ -3325,7 +3327,7 @@ msgstr "Prikaži postavljene uređaje za pohranu na radnoj površini"
 msgid ""
 "If this is set to true, icons linking to mounted volumes will be put on the "
 "desktop."
-msgstr "Ukoliko je tako postavljeno, sličica s poveznicom na umetnute uređaje za pohranu bit će smještena na radnu površinu."
+msgstr "Ako je ovo potvrđeno, sličica s poveznicom na umetnute uređaje za pohranu bit će smještena na radnu površinu."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:100
 msgid "Network Servers icon visible on the desktop"
@@ -3335,7 +3337,7 @@ msgstr "Sličica mrežnih poslužitelja vidljiva na radnoj površini"
 msgid ""
 "If this is set to true, an icon linking to the Network Servers view will be "
 "put on the desktop."
-msgstr "Ukoliko je tako postavljeno, sličica s poveznicom na prikaz mrežnih poslužitelja bit će smještena na radnu površinu."
+msgstr "Ako je ovo potvrđeno, sličica s poveznicom na prikaz mrežnih poslužitelja bit će smještena na radnu površinu."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:102
 msgid "Desktop computer icon name"
@@ -3345,7 +3347,7 @@ msgstr "Naziv sličice računala na radnoj površini"
 msgid ""
 "This name can be set if you want a custom name for the computer icon on the "
 "desktop."
-msgstr "Ovaj se naziv može postaviti ukoliko želiš prilagođeni naziv za sličicu računala na radnoj površini."
+msgstr "Ovaj se naziv može postaviti ako želiš prilagođeni naziv za sličicu računala na radnoj površini."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:104
 msgid "Desktop home icon name"
@@ -3355,7 +3357,7 @@ msgstr "Naziv sličice osobne mape na radnoj površini"
 msgid ""
 "This name can be set if you want a custom name for the home icon on the "
 "desktop."
-msgstr "Ovaj se naziv može postaviti ukoliko želiš prilagođeni naziv za sličicu osobne mape na radnoj površini."
+msgstr "Ovaj se naziv može postaviti ako želiš prilagođeni naziv za sličicu osobne mape na radnoj površini."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:106
 msgid "Desktop trash icon name"
@@ -3365,7 +3367,7 @@ msgstr "Naziv sličice smeća na radnoj površini"
 msgid ""
 "This name can be set if you want a custom name for the trash icon on the "
 "desktop."
-msgstr "Ovaj se naziv može postaviti ukoliko želiš prilagođeni naziv za sličicu smeća na radnoj površini."
+msgstr "Ovaj se naziv može postaviti ako želiš prilagođeni naziv za sličicu smeća na radnoj površini."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:108
 msgid "Network servers icon name"
@@ -3375,7 +3377,7 @@ msgstr "Naziv sličice mrežnih poslužitelja"
 msgid ""
 "This name can be set if you want a custom name for the network servers icon "
 "on the desktop."
-msgstr "Ovaj se naziv može postaviti ukoliko želiš prilagođeni naziv za sličicu mrežnih poslužitelja na radnoj površini."
+msgstr "Ovaj se naziv može postaviti ako želiš prilagođeni naziv za sličicu mrežnih poslužitelja na radnoj površini."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:110
 msgid ""
@@ -3383,7 +3385,7 @@ msgid ""
 " ellipses on the desktop. If the number is larger than 0, the file name will"
 " not exceed the given number of lines. If the number is 0 or smaller, no "
 "limit is imposed on the number of displayed lines."
-msgstr "Cijeli broj određuje na koji način dijelovi predugačkih datotečnih naziva trebaju biti zamijenjeni elipsama na radnoj površini. Ako je broj veći od 0, datotečni naziv ne će premašiti zadani broj redaka. Ako je broj 0 ili manji, nije postavljena granica za broj prikazanih redaka."
+msgstr "Cijeli broj određuje na koji način dijelovi predugačkih datotečnih naziva trebaju biti zamijenjeni elipsama na radnoj površini. Ako je broj veći od 0, datotečni naziv neće premašiti zadani broj redaka. Ako je broj 0 ili manji, nije postavljena granica za broj prikazanih redaka."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:111
 msgid "The geometry string for a navigation window."
@@ -3417,7 +3419,7 @@ msgstr "Prikaži pribornu traku u novim prozorima"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:118
 msgid "If set to true, newly opened windows will have toolbars visible."
-msgstr "Ukoliko je tako postavljeno, novootvoreni prozori će imati vidljive priborne trake."
+msgstr "Ako je potvrđeno, novootvoreni prozori će imati vidljive priborne trake."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:119
 msgid "Show location bar in new windows"
@@ -3426,7 +3428,7 @@ msgstr "Prikaži položajnu traku u novim prozorima"
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:120
 msgid ""
 "If set to true, newly opened windows will have the location bar visible."
-msgstr "Ukoliko je tako postavljeno, novootvoreni prozori će imati vidljivu položajnu traku."
+msgstr "Ako je potvrđeno, novootvoreni prozori će imati vidljivu položajnu traku."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:121
 msgid "Show status bar in new windows"
@@ -3434,7 +3436,7 @@ msgstr "Prikaži traku stanja u novim prozorima"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:122
 msgid "If set to true, newly opened windows will have the status bar visible."
-msgstr "Ukoliko je tako postavljeno, novootvoreni prozori će imati vidljivu traku stanja."
+msgstr "Ako je potvrđeno, novootvoreni prozori će imati vidljivu traku stanja."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:123
 msgid "Show side pane in new windows"
@@ -3442,7 +3444,7 @@ msgstr "Prikaži bočno okno u novim prozorima"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:124
 msgid "If set to true, newly opened windows will have the side pane visible."
-msgstr "Ukoliko je tako postavljeno, novootvoreni prozori će imati vidljivo bočno okno."
+msgstr "Ako je potvrđeno, novootvoreni prozori će imati vidljivo bočno okno."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:125
 msgid "Side pane view"
@@ -3460,7 +3462,7 @@ msgstr "Treba li samopostaviti nosače podataka"
 msgid ""
 "If set to true, then Caja will automatically mount media such as user-"
 "visible hard disks and removable media on start-up and media insertion."
-msgstr "Ukoliko je tako postavljeno, tada će Caja samostalno, pri pokretanju i umetanju medija, postavljati medije poput korisniku vidljivih tvrdih diskova i uklonjivih medija."
+msgstr "Ako je potvrđeno, tada će Caja samostalno, pri pokretanju i umetanju medija, postavljati medije poput korisniku vidljivih tvrdih diskova i uklonjivih medija."
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.in.h:3
 msgid "Whether to automatically open a folder for automounted media"
@@ -3472,17 +3474,17 @@ msgid ""
 "automounted. This only applies to media where no known x-content/* type was "
 "detected; for media where a known x-content type is detected, the user "
 "configurable action will be taken instead."
-msgstr "Ukoliko je tako postavljeno, tada će Caja samostalno otvoriti mapu kada medij bude samopostavljen. Ovo se primjenjuje samo na medije gdje nije prepoznata nijedna znana vrsta sadržaja \"x-content/*\"; za medije gdje je prepoznata znana vrsta sadržaja \"x-content\", bit će umjesto toga poduzeta korisnička radnja postavljanja."
+msgstr "Ako je potvrđeno, tada će Caja samostalno otvoriti mapu kada medij bude samopostavljen. Ovo se primjenjuje samo na medije gdje nije prepoznata nijedna znana vrsta sadržaja \"x-content/*\"; za medije gdje je prepoznata znana vrsta sadržaja \"x-content\", bit će umjesto toga poduzeta korisnička radnja postavljanja."
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.in.h:5
 msgid "Never prompt or autorun/autostart programs when media are inserted"
-msgstr "Nikada ne  traži odziv niti samoizvodi/samopokreći programe kada su nosači podataka umetnuti"
+msgstr "Nikada ne traži odziv niti samoizvodi/samopokreći programe kada su nosači podataka umetnuti"
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.in.h:6
 msgid ""
 "If set to true, then Caja will never prompt nor autorun/autostart programs "
 "when a medium is inserted."
-msgstr "Ukoliko je tako postavljeno, tada Caja nikad ne će tražiti odziv ili samopokretati programe kada je medij umetnut."
+msgstr "Ako je potvrđeno, tada Caja nikad neće tražiti odziv ili samopokretati programe kada je medij umetnut."
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.in.h:7
 msgid ""
@@ -3505,7 +3507,7 @@ msgid ""
 "List of x-content/* types for which the user have chosen \"Do Nothing\" in "
 "the preference capplet. No prompt will be shown nor will any matching "
 "application be started on insertion of media matching these types."
-msgstr "Popis vrsti sadržaja \"x-content/*\" za koje je korisnik odabrao \"Ne radi ništa\" u prilagodbama. Ne će se pojaviti odzivnik niti će bilo koji odgovarajući program biti pokrenut prilikom umetanja medija koji odgovara tim vrstama sadržaja."
+msgstr "Popis vrsti sadržaja \"x-content/*\" za koje je korisnik odabrao \"Ne radi ništa\" u prilagodbama. Neće se pojaviti odzivnik niti će bilo koji odgovarajući program biti pokrenut prilikom umetanja medija koji odgovara tim vrstama sadržaja."
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.in.h:11
 msgid "List of x-content/* types set to \"Open Folder\""
@@ -3612,7 +3614,7 @@ msgstr "Isprazni smeće"
 #: ../src/file-manager/fm-desktop-icon-view.c:759
 #: ../src/file-manager/fm-directory-view.c:7319 ../src/caja-trash-bar.c:203
 msgid "Delete all items in the Trash"
-msgstr "Ukloni sve stavke iz smeća"
+msgstr "Izbriši sve stavke iz smeća"
 
 #: ../src/file-manager/fm-desktop-icon-view.c:859
 msgid "The desktop view encountered an error."
@@ -3793,11 +3795,11 @@ msgstr[2] "Koristi \"%s\" za otvaranje odabranih stavki"
 
 #: ../src/file-manager/fm-directory-view.c:4564
 msgid "Open parent location"
-msgstr ""
+msgstr "Otvori matični položaj"
 
 #: ../src/file-manager/fm-directory-view.c:4565
 msgid "Open parent location for the selected item"
-msgstr ""
+msgstr "Otvori matični položaj za odabranu stavku"
 
 #: ../src/file-manager/fm-directory-view.c:5423
 #, c-format
@@ -3807,7 +3809,7 @@ msgstr "Pokreni \"%s\" na svakoj odabranoj stavci"
 #: ../src/file-manager/fm-directory-view.c:5674
 #, c-format
 msgid "Create Document from template \"%s\""
-msgstr "Stvori zapis iz predloška \"%s"
+msgstr "Stvori zapis iz predloška \"%s\""
 
 #: ../src/file-manager/fm-directory-view.c:5924
 msgid "All executable files in this folder will appear in the Scripts menu."
@@ -3840,7 +3842,7 @@ msgid ""
 "CAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: newline-delimited URIs for selected files in the inactive pane of a split-view window\n"
 "\n"
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI for current location in the inactive pane of a split-view window"
-msgstr "Sve izvršne datoteke u ovoj mapi pojaviti će se u izborniku naredbenih datoteka. Odabir naredbene datoteke iz izbornika će istu pokrenuti.\n\nKada se izvršavaju iz mjesne mape, naredbenim datotekama dat će se odabrani datotečni nazivi. Kada se izvršavaju iz udaljene mape (npr. mape koja pokazuje mrežni ili ftp sadržaj), naredbenim datotekama se ne će dati nikakve vrijednosti.\n\nU svim slučajevima Caja će postaviti sljedeće promjenjive veličine okružja, koje naredbene datoteke onda mogu koristiti:\n\nCAJA_SCRIPT_SELECTED_FILE_PATHS: putanje odvojene novim retkom za odabrane datoteke (samo ako su mjesne)\n\nCAJA_SCRIPT_SELECTED_URIS: URI-ji odvojeni novim retkom za odabrane datoteke\n\nCAJA_SCRIPT_CURRENT_URI: URI za trenutni smještaj\n\nCAJA_SCRIPT_WINDOW_GEOMETRY: položaj i veličina trenutnog prozora\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_FILE_PATHS: putanje odvojene novim retkom za odabrane datoteke u nedjelatnom okviru prozora s podijeljenim prikazom (samo ako su mjesne)\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: URI-ji odvojeni novim retkom za odabrane datoteke u nedjelatnom okviru prozora s podijeljenim prikazom\n\nCAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI za trenutni smještaj u nedjelatnom okviru prozora s podijeljenim prikazom"
+msgstr "Sve izvršne datoteke u ovoj mapi pojaviti će se u izborniku naredbenih datoteka. Odabir naredbene datoteke iz izbornika će istu pokrenuti.\n\nKada se izvršavaju iz mjesne mape, naredbenim datotekama dat će se odabrani datotečni nazivi. Kada se izvršavaju iz udaljene mape (npr. mape koja pokazuje mrežni ili ftp sadržaj), naredbenim datotekama se neće dati nikakve vrijednosti.\n\nU svim slučajevima Caja će postaviti sljedeće promjenjive veličine okružja, koje naredbene datoteke onda mogu koristiti:\n\nCAJA_SCRIPT_SELECTED_FILE_PATHS: putanje odvojene novim retkom za odabrane datoteke (samo ako su mjesne)\n\nCAJA_SCRIPT_SELECTED_URIS: URI-ji odvojeni novim retkom za odabrane datoteke\n\nCAJA_SCRIPT_CURRENT_URI: URI za trenutni smještaj\n\nCAJA_SCRIPT_WINDOW_GEOMETRY: položaj i veličina trenutnog prozora\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_FILE_PATHS: putanje odvojene novim retkom za odabrane datoteke u nedjelatnom okviru prozora s podijeljenim prikazom (samo ako su mjesne)\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: URI-ji odvojeni novim retkom za odabrane datoteke u nedjelatnom okviru prozora s podijeljenim prikazom\n\nCAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI za trenutni smještaj u nedjelatnom okviru prozora s podijeljenim prikazom"
 
 #: ../src/file-manager/fm-directory-view.c:5996
 #: ../src/file-manager/fm-tree-view.c:998
@@ -4164,12 +4166,12 @@ msgstr "Premjesti svaku odabranu stavku u smeće"
 #: ../src/file-manager/fm-directory-view.c:8948
 #: ../src/file-manager/fm-tree-view.c:1349
 msgid "_Delete"
-msgstr "_Ukloni"
+msgstr "_Izbriši"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7375
 msgid "Delete each selected item, without moving to the Trash"
-msgstr "Ukloni svaku odabranu stavku bez premještanja u smeće"
+msgstr "Izbriši svaku odabranu stavku bez premještanja u smeće"
 
 #. name, stock id
 #. label, accelerator
@@ -4424,7 +4426,7 @@ msgstr "Premjesti ovu mapu u smeće"
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7507
 msgid "Delete this folder, without moving to the Trash"
-msgstr "Ukloni ovu mapu bez premještanja u smeće"
+msgstr "Izbriši ovu mapu bez premještanja u smeće"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7515
@@ -4723,11 +4725,11 @@ msgstr "Pregledaj u novoj _kartici"
 #: ../src/file-manager/fm-directory-view.c:8598
 #: ../src/file-manager/fm-directory-view.c:8923
 msgid "_Delete Permanently"
-msgstr "_Ukloni trajno"
+msgstr "_Izbriši trajno"
 
 #: ../src/file-manager/fm-directory-view.c:8599
 msgid "Delete the open folder permanently"
-msgstr "Trajno ukloni otvorenu mapu"
+msgstr "Trajno izbriši otvorenu mapu"
 
 #: ../src/file-manager/fm-directory-view.c:8603
 msgid "Move the open folder to the Trash"
@@ -4772,7 +4774,7 @@ msgstr[2] "Pregledaj u %'d novih _kartica"
 
 #: ../src/file-manager/fm-directory-view.c:8924
 msgid "Delete all selected items permanently"
-msgstr "Trajno ukloni sve odabrane stavke"
+msgstr "Trajno izbriši sve odabrane stavke"
 
 #: ../src/file-manager/fm-directory-view.c:8981
 msgid "View or modify the properties of the open folder"
@@ -4862,7 +4864,7 @@ msgstr "\"%s\" nije moguće pronaći. Možda je nedavno izbrisano."
 #: ../src/file-manager/fm-error-reporting.c:77
 #, c-format
 msgid "Sorry, could not display all the contents of \"%s\": %s"
-msgstr "Na žalost, nije moguće prikazati sav sadržaj iz \"%s\": %s"
+msgstr "Nažalost, nije moguće prikazati sav sadržaj iz \"%s\": %s"
 
 #: ../src/file-manager/fm-error-reporting.c:86
 msgid "The folder contents could not be displayed."
@@ -4877,7 +4879,7 @@ msgstr "Naziv \"%s\" se već koristi u ovoj mapi. Molim uporabu drugog naziva."
 #: ../src/file-manager/fm-error-reporting.c:122
 #, c-format
 msgid "There is no \"%s\" in this folder. Perhaps it was just moved or deleted?"
-msgstr "Ne postoji \"%s\" u ovoj mapi. Možda je to upravo premješteno ili uklonjeno?"
+msgstr "Ne postoji \"%s\" u ovoj mapi. Možda je to upravo premješteno ili izbrisano?"
 
 #: ../src/file-manager/fm-error-reporting.c:127
 #, c-format
@@ -4900,7 +4902,7 @@ msgstr "Naziv \"%s\" nije ispravan. Molim uporabu drugog naziva."
 #: ../src/file-manager/fm-error-reporting.c:155
 #, c-format
 msgid "Sorry, could not rename \"%s\" to \"%s\": %s"
-msgstr "Na žalost, nije moguće preimenovati \"%s\" u \"%s\": %s"
+msgstr "Nažalost, nije moguće preimenovati \"%s\" u \"%s\": %s"
 
 #: ../src/file-manager/fm-error-reporting.c:163
 msgid "The item could not be renamed."
@@ -4915,7 +4917,7 @@ msgstr "Nemaš dopuštenja potrebna za promjenu skupine za \"%s\"."
 #: ../src/file-manager/fm-error-reporting.c:202
 #, c-format
 msgid "Sorry, could not change the group of \"%s\": %s"
-msgstr "Na žalost, nije moguće promijeniti skupinu za \"%s\": %s"
+msgstr "Nažalost, nije moguće promijeniti skupinu za \"%s\": %s"
 
 #: ../src/file-manager/fm-error-reporting.c:207
 msgid "The group could not be changed."
@@ -4924,7 +4926,7 @@ msgstr "Skupina ne može biti promijenjena."
 #: ../src/file-manager/fm-error-reporting.c:228
 #, c-format
 msgid "Sorry, could not change the owner of \"%s\": %s"
-msgstr "Na žalost, nije moguće promijeniti vlasnika za \"%s\": %s"
+msgstr "Nažalost, nije moguće promijeniti vlasnika za \"%s\": %s"
 
 #: ../src/file-manager/fm-error-reporting.c:230
 msgid "The owner could not be changed."
@@ -4933,7 +4935,7 @@ msgstr "Vlasnik ne može biti promijenjen."
 #: ../src/file-manager/fm-error-reporting.c:251
 #, c-format
 msgid "Sorry, could not change the permissions of \"%s\": %s"
-msgstr "Na žalost, nije moguće promijeniti dopuštenja za \"%s\": %s"
+msgstr "Nažalost, nije moguće promijeniti dopuštenja za \"%s\": %s"
 
 #: ../src/file-manager/fm-error-reporting.c:253
 msgid "The permissions could not be changed."
@@ -5386,7 +5388,7 @@ msgstr "čitaj"
 
 #: ../src/file-manager/fm-properties-window.c:4214
 msgid "create/delete"
-msgstr "stvori/ukloni"
+msgstr "stvori/izbriši"
 
 #: ../src/file-manager/fm-properties-window.c:4216
 msgid "write"
@@ -5427,7 +5429,7 @@ msgstr "Pristup datotekama"
 
 #: ../src/file-manager/fm-properties-window.c:4300
 msgid "Create and delete files"
-msgstr "Stvori i ukloni datoteke"
+msgstr "Stvori i izbriši datoteke"
 
 #: ../src/file-manager/fm-properties-window.c:4307
 msgid "Read-only"
@@ -5602,7 +5604,7 @@ msgid ""
 "The software will run directly from the medium \"%s\". You should never run software that you don't trust.\n"
 "\n"
 "If in doubt, press Cancel."
-msgstr "Softver će se pokrenuti izravno s nosača podataka \"%s\". Ne preporuča ti se da ikada pokrećeš softver u koji se ne pouzdaješ.\n\nAko si u dvojbi, odaberi gumb prekida."
+msgstr "Softver će se pokrenuti izravno s nosača podataka \"%s\". Ne preporuča ti se da ikada pokrećeš softver u koji se ne pouzdaješ.\n\nAko si u dvojbi, pritisni gumb opoziva."
 
 #: ../src/caja-bookmarks-window.c:158
 #: ../src/caja-file-management-properties.c:237
@@ -5674,17 +5676,17 @@ msgstr "Spajanje..."
 msgid ""
 "Can't load the supported server method list.\n"
 "Please check your GVfs installation."
-msgstr ""
+msgstr "Nije moguće učitati popis načina rada podržanog poslužitelja.\nMolim provjeri svoju ugradnju GVf-ova."
 
 #: ../src/caja-connect-server-dialog.c:295
 #, c-format
 msgid "The folder \"%s\" cannot be opened on \"%s\"."
-msgstr ""
+msgstr "Mapa \"%s\" ne može biti otvorena na \"%s\"."
 
 #: ../src/caja-connect-server-dialog.c:305
 #, c-format
 msgid "The server at \"%s\" cannot be found."
-msgstr ""
+msgstr "Poslužitelj na \"%s\" ne može biti pronađen."
 
 #: ../src/caja-connect-server-dialog.c:340
 msgid "Try Again"
@@ -5692,7 +5694,7 @@ msgstr "Pokušaj ponovno"
 
 #: ../src/caja-connect-server-dialog.c:406
 msgid "Please verify your user details."
-msgstr ""
+msgstr "Molim ovjeri svoje korisničke pojedinosti."
 
 #: ../src/caja-connect-server-dialog.c:436
 msgid "Continue"
@@ -5880,7 +5882,7 @@ msgstr "Prema nadnevku izmjene"
 
 #: ../src/caja-file-management-properties.ui.h:12
 msgid "By Access Date"
-msgstr "Po nadnevku pristupa"
+msgstr "Prema nadnevku pristupa"
 
 #: ../src/caja-file-management-properties.ui.h:13
 msgid "By Emblems"
@@ -5888,7 +5890,7 @@ msgstr "Prema oznakama"
 
 #: ../src/caja-file-management-properties.ui.h:14
 msgid "By Trashed Date"
-msgstr ""
+msgstr "Prema nadnevku odbacivanja u smeće"
 
 #: ../src/caja-file-management-properties.ui.h:16
 #, no-c-format
@@ -6079,7 +6081,7 @@ msgstr "Upitaj prije _pražnjenja smeća ili brisanja datoteka"
 
 #: ../src/caja-file-management-properties.ui.h:67
 msgid "I_nclude a Delete command that bypasses Trash"
-msgstr "_Uključi i naredbu za uklanjanje koja zaobilazi smeće"
+msgstr "_Uključi i naredbu za brisanje koja zaobilazi smeće"
 
 #: ../src/caja-file-management-properties.ui.h:68
 msgid "Behavior"
@@ -6109,7 +6111,7 @@ msgstr "<b>Veličina</b>"
 
 #: ../src/caja-file-management-properties.ui.h:74
 msgid "_Show file sizes with IEC units"
-msgstr ""
+msgstr "_Prikaži veličine datoteka u IEC jedinicama"
 
 #: ../src/caja-file-management-properties.ui.h:75
 msgid "Display"
@@ -6137,7 +6139,7 @@ msgstr "Prikaži tekst sa sličicama:"
 
 #: ../src/caja-file-management-properties.ui.h:81
 msgid "<b>Other Previewable Files</b>"
-msgstr "<b>Ostale datoteke s mogućnošću pregleda</b>"
+msgstr "<b>Ostale pretprikazive datoteke</b>"
 
 #: ../src/caja-file-management-properties.ui.h:82
 msgid "Show _thumbnails:"
@@ -6153,7 +6155,7 @@ msgstr "<b>Zvučne datoteke</b>"
 
 #: ../src/caja-file-management-properties.ui.h:85
 msgid "Preview _sound files:"
-msgstr "Pregled _zvučnih datoteka:"
+msgstr "Predizvedba _zvučnih datoteka:"
 
 #: ../src/caja-file-management-properties.ui.h:86
 msgid "<b>Folders</b>"
@@ -6165,7 +6167,7 @@ msgstr "Pre_brojavanje stavki:"
 
 #: ../src/caja-file-management-properties.ui.h:88
 msgid "Preview"
-msgstr "Pregled"
+msgstr "Predizvedba"
 
 #: ../src/caja-file-management-properties.ui.h:89
 msgid "<b>Media Handling</b>"
@@ -6202,7 +6204,7 @@ msgstr "<b>Ostali nosači podataka</b>"
 
 #: ../src/caja-file-management-properties.ui.h:97
 msgid "Less common media formats can be configured here"
-msgstr ""
+msgstr "Manje uobičajeni medijski oblici mogu se postaviti ovdje"
 
 #: ../src/caja-file-management-properties.ui.h:98
 msgid "Acti_on:"
@@ -6214,7 +6216,7 @@ msgstr "_Vrsta:"
 
 #: ../src/caja-file-management-properties.ui.h:100
 msgid "_Never prompt or start programs on media insertion"
-msgstr ""
+msgstr "_Nikada ne traži odziv niti pokreći programe pri umetanju nosača podataka"
 
 #: ../src/caja-file-management-properties.ui.h:101
 msgid "B_rowse media when inserted"
@@ -6271,7 +6273,7 @@ msgstr "Datum snimke"
 
 #: ../src/caja-image-properties-page.c:288
 msgid "Date Digitized"
-msgstr ""
+msgstr "Nadnevak digitalizacije"
 
 #: ../src/caja-image-properties-page.c:294
 msgid "Exposure Time"
@@ -6319,7 +6321,7 @@ msgstr "Autorsko pravo"
 
 #: ../src/caja-image-properties-page.c:380
 msgid "Rating"
-msgstr ""
+msgstr "Ocjena"
 
 #: ../src/caja-image-properties-page.c:411
 msgid "Image Type:"
@@ -6368,7 +6370,7 @@ msgstr "Koristi _uobičajenu pozadinu"
 
 #: ../src/caja-information-panel.c:529
 msgid "You cannot assign more than one custom icon at a time."
-msgstr ""
+msgstr "Ne možeš pridružiti više od jedne prilagođene sličice istodobno."
 
 #: ../src/caja-information-panel.c:566
 msgid "You can only use images as custom icons."
@@ -6458,7 +6460,7 @@ msgstr "caja: --geometry se ne može koristiti sa više od jednom adresom.\n"
 #: ../src/caja-main.c:561
 #, c-format
 msgid "caja: set erroneously as default application for '%s' content type.\n"
-msgstr ""
+msgstr "caja: nepravilno postavljeno kao zadani program za vrstu sadržaja '%s'.\n"
 
 #: ../src/caja-navigation-window-menus.c:127
 msgid "Are you sure you want to clear the list of locations you have visited?"
@@ -6549,7 +6551,7 @@ msgstr "P_rebaci na drugu ploču"
 
 #: ../src/caja-navigation-window-menus.c:849
 msgid "Move focus to the other pane in a split view window"
-msgstr ""
+msgstr "Premjesti žarište na drugo okno u prozoru razdijeljenog prikaza"
 
 #. name, stock id, label
 #: ../src/caja-navigation-window-menus.c:852
@@ -6685,7 +6687,7 @@ msgstr "D_odatna ploča"
 #. tooltip
 #: ../src/caja-navigation-window-menus.c:927
 msgid "Open an extra folder view side-by-side"
-msgstr ""
+msgstr "Otvori usporedni prikaz dodatne mape"
 
 #: ../src/caja-navigation-window-menus.c:953
 msgid "_Back"
@@ -6717,7 +6719,7 @@ msgstr "_Uvećanje"
 
 #: ../src/caja-navigation-window-menus.c:998
 msgid "_View As"
-msgstr "_Pogled kao"
+msgstr "_Pregledaj kao"
 
 #: ../src/caja-navigation-window-menus.c:1033
 msgid "_Search"
@@ -6725,7 +6727,7 @@ msgstr "_Pretraži"
 
 #: ../src/caja-navigation-window-pane.c:255
 msgid "Toggle between button and text-based location bar"
-msgstr ""
+msgstr "Prebaci između položajne trake zasnovane na gumbu i na napisu"
 
 #: ../src/caja-navigation-window-pane.c:455
 msgid "_New Tab"
@@ -6762,11 +6764,11 @@ msgstr "Zabilješke"
 
 #: ../src/caja-places-sidebar.c:526
 msgid "Open the contents of your desktop in a folder"
-msgstr "Otvorite sadržaj vaše radne površine u mapi"
+msgstr "Otvori sadržaj svoje radne površine u mapi"
 
 #: ../src/caja-places-sidebar.c:541
 msgid "Open the contents of the File System"
-msgstr "Otvorite sadržaj datotečnog sustava"
+msgstr "Otvori sadržaj datotečnog sustava"
 
 #: ../src/caja-places-sidebar.c:600
 msgid "Open the trash"
@@ -6792,7 +6794,7 @@ msgstr "Pregledaj sadržaj mreže"
 #. start() for type G_DRIVE_START_STOP_TYPE_SHUTDOWN is normally not used
 #: ../src/caja-places-sidebar.c:1701
 msgid "_Power On"
-msgstr ""
+msgstr "_Uključi"
 
 #: ../src/caja-places-sidebar.c:1705
 msgid "_Connect Drive"
@@ -6818,7 +6820,7 @@ msgstr "Nije moguće pokrenuti %s"
 #: ../src/caja-places-sidebar.c:2319
 #, c-format
 msgid "Unable to poll %s for media changes"
-msgstr ""
+msgstr "Nije moguće ispitati %s za promjene nosača podataka"
 
 #: ../src/caja-places-sidebar.c:2435
 #, c-format
@@ -6859,20 +6861,20 @@ msgstr "Dodaj novi..."
 #: ../src/caja-property-browser.c:966
 #, c-format
 msgid "Sorry, but pattern %s could not be deleted."
-msgstr "Oprostite, ali uzorak %s se ne može izbrisati."
+msgstr "Nažalost, uzorak %s nije mogao biti izbrisan."
 
 #: ../src/caja-property-browser.c:967
 msgid "Check that you have permission to delete the pattern."
-msgstr "Provjeri imaš li dopuštenje za uklanjanje uzorka."
+msgstr "Provjeri imaš li dopuštenje za brisanje uzorka."
 
 #: ../src/caja-property-browser.c:983
 #, c-format
 msgid "Sorry, but emblem %s could not be deleted."
-msgstr "Žao mi je, ali oznaka %s nije mogla biti izbrisana."
+msgstr "Nažalost, oznaka %s nije mogla biti izbrisana."
 
 #: ../src/caja-property-browser.c:984
 msgid "Check that you have permission to delete the emblem."
-msgstr "Provjeri imaš li dopuštenje za uklanjanje oznake."
+msgstr "Provjeri imaš li dopuštenje za brisanje oznake."
 
 #: ../src/caja-property-browser.c:1056
 msgid "Select an Image File for the New Emblem"
@@ -6907,16 +6909,16 @@ msgstr "_Vrijednost boje:"
 
 #: ../src/caja-property-browser.c:1234
 msgid "Sorry, but you cannot replace the reset image."
-msgstr ""
+msgstr "Nažalost, ne možeš zamijeniti sliku za ponovno postavljanje."
 
 #: ../src/caja-property-browser.c:1235
 msgid "Reset is a special image that cannot be deleted."
-msgstr "Reset je specijalna slika koja se ne može obrisati."
+msgstr "Reset je posebna slika koja se ne može izbrisati."
 
 #: ../src/caja-property-browser.c:1265
 #, c-format
 msgid "Sorry, but the pattern %s could not be installed."
-msgstr "Oprostite, ali uzorak %s se ne može instalirati."
+msgstr "Nažalost, uzorak %s nije mogao biti ugrađen."
 
 #: ../src/caja-property-browser.c:1296
 msgid "Select an Image File to Add as a Pattern"
@@ -7120,11 +7122,11 @@ msgstr "Otvori _položaj..."
 #. name, stock id, label
 #: ../src/caja-spatial-window.c:955
 msgid "Close P_arent Folders"
-msgstr "Zatvori _sve nadređene mape"
+msgstr "Zatvori m_atične mape"
 
 #: ../src/caja-spatial-window.c:956
 msgid "Close this folder's parents"
-msgstr "Zatvori nadređene mape ove mape"
+msgstr "Zatvori matice ove mape"
 
 #. name, stock id, label
 #: ../src/caja-spatial-window.c:960
@@ -7141,11 +7143,11 @@ msgstr "Pronalazi zapise i mape u ovom računalu po nazivu ili sadržaju"
 
 #: ../src/caja-trash-bar.c:210
 msgid "Restore Selected Items"
-msgstr ""
+msgstr "Vrati odabrane stavke"
 
 #: ../src/caja-trash-bar.c:216
 msgid "Restore selected items to their original position"
-msgstr ""
+msgstr "Vrati odabrane stavke na njihove izvorne položaje"
 
 #: ../src/caja-window-bookmarks.c:81
 msgid ""
@@ -7214,7 +7216,7 @@ msgstr "Pristup je odbijen."
 #: ../src/caja-window-manage-views.c:2179
 #, c-format
 msgid "Could not display \"%s\", because the host could not be found."
-msgstr ""
+msgstr "Nije bilo moguće prikazati \"%s\", jer mrežni poslužitelj nije mogao biti pronađen."
 
 #: ../src/caja-window-manage-views.c:2181
 msgid ""
@@ -7226,7 +7228,7 @@ msgstr "Provjerite jeste li dobro unijeli teskt i jesu li postavke vašeg proxy 
 msgid ""
 "Error: %s\n"
 "Please select another viewer and try again."
-msgstr ""
+msgstr "Neispravnost: %s\nMolim odaberi drugi prikaznik i pokušaj iznova."
 
 #: ../src/caja-window-menus.c:194
 msgid "Go to the location specified by this bookmark"
@@ -7238,7 +7240,7 @@ msgid ""
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version."
-msgstr ""
+msgstr "Caja je slobodni softver: možeš ga dalje dijeliti i/ili mijenjati pod uvjetima GNU-ove opće javne dozvole koju je objavila Zaklada slobodnog softvera; bilo 2. inačice Dozvole, ili (po vlastitom izboru) bilo koje kasnije inačice."
 
 #: ../src/caja-window-menus.c:520
 msgid ""
@@ -7246,32 +7248,32 @@ msgid ""
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details."
-msgstr ""
+msgstr "Caja se dijeli u nadi da će biti korisna, ali BEZ IKAKVOG JAMSTVA; čak i bez podrazumijevanih jamstava o TRGOVAČKOJ POGODNOSTI ili PRIKLADNOSTI ZA POJEDINU SVRHU. Za više pojedinosti pogledaj GNU-ovu opću javnu dozvolu."
 
 #: ../src/caja-window-menus.c:524
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301 USA"
-msgstr ""
+msgstr "Presliku GNU-ove opće javne dozvole korisnik je trebao primiti uz Caju. Ako nisi, piši na Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA."
 
 #: ../src/caja-window-menus.c:536
 msgid ""
 "Caja lets you organize files and folders, both on your computer and online."
-msgstr "Caja vam omogućuje organiziranje datoteka i mapa, na vašem računalu i na mreži."
+msgstr "Caja ti omogućava organiziranje datoteka i mapa, kako na računalu, tako i mrežno."
 
 #: ../src/caja-window-menus.c:539
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2014 The Caja authors"
-msgstr "Autorska prava © 1999-2009 Nautilus autori\nAutorska prava © 2011-2014 Caja autori"
+msgstr "Autorska prava © 1999.-2009. Tvorci Nautilusa\nAutorska prava © 2011.-2014. Tvorci Caje"
 
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
 #. * box to give credit to the translator(s).
 #: ../src/caja-window-menus.c:549
 msgid "translator-credits"
-msgstr "Ivica Kolić <ikoli@yahoo.com>"
+msgstr "Mislav E. Lukšić <meluksic@yahoo.com>\nIvica Kolić <ikoli@yahoo.com>"
 
 #: ../src/caja-window-menus.c:552
 msgid "MATE Web Site"
@@ -7320,7 +7322,7 @@ msgstr "Prikaži uzorke, boje i oznake koje se mogu koristiti za prilagođavanje
 
 #: ../src/caja-window-menus.c:851
 msgid "Prefere_nces"
-msgstr "_Postavke"
+msgstr "Prila_godbe"
 
 #: ../src/caja-window-menus.c:852
 msgid "Edit Caja preferences"
@@ -7329,16 +7331,16 @@ msgstr "Uredi prilagodbe Caje"
 #. name, stock id, label
 #: ../src/caja-window-menus.c:855
 msgid "Open _Parent"
-msgstr "Otvori _izvor"
+msgstr "Otvori _maticu"
 
 #: ../src/caja-window-menus.c:856
 msgid "Open the parent folder"
-msgstr "Otvori nadređenu mapu"
+msgstr "Otvori matičnu mapu"
 
 #. tooltip
 #: ../src/caja-window-menus.c:865
 msgid "Stop loading the current location"
-msgstr "Zaustavi učitavanje trenutne lokacije"
+msgstr "Zaustavi učitavanje trenutnog položaja"
 
 #. name, stock id
 #. label, accelerator
@@ -7349,7 +7351,7 @@ msgstr "_Ponovno učitavanje"
 #. tooltip
 #: ../src/caja-window-menus.c:870
 msgid "Reload the current location"
-msgstr "Ponovno učitaj trenutnu lokaciju"
+msgstr "Ponovno učitaj trenutni položaj"
 
 #. name, stock id
 #. label, accelerator
@@ -7360,7 +7362,7 @@ msgstr "_Sadržaj"
 #. tooltip
 #: ../src/caja-window-menus.c:875
 msgid "Display Caja help"
-msgstr "Prikaži Cajaovu pomoć"
+msgstr "Prikaži pomoć Caje"
 
 #. name, stock id
 #. label, accelerator
@@ -7371,7 +7373,7 @@ msgstr "_O programu..."
 #. tooltip
 #: ../src/caja-window-menus.c:880
 msgid "Display credits for the creators of Caja"
-msgstr "Prikaži tvorce Cajaa"
+msgstr "Prikaži zahvale za tvorce Caje"
 
 #. name, stock id
 #. label, accelerator
@@ -7413,12 +7415,12 @@ msgstr "Koristi uobičajenu veličinu prikaza"
 #. label, accelerator
 #: ../src/caja-window-menus.c:914
 msgid "Connect to _Server..."
-msgstr "Spoji se na _Server..."
+msgstr "Spoji se na _poslužitelj..."
 
 #. tooltip
 #: ../src/caja-window-menus.c:915
 msgid "Connect to a remote computer or shared disk"
-msgstr "Spoji se na udaljeno računalo ili djeljeni disk"
+msgstr "Spoji se na udaljeno računalo ili dijeljeni disk"
 
 #. name, stock id
 #. label, accelerator
@@ -7435,7 +7437,7 @@ msgstr "_Mreža"
 #. tooltip
 #: ../src/caja-window-menus.c:930 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
-msgstr ""
+msgstr "Pregledaj zabilježene položaje i položaje mjesne mreže"
 
 #. name, stock id
 #. label, accelerator
@@ -7446,7 +7448,7 @@ msgstr "P_redlošci"
 #. tooltip
 #: ../src/caja-window-menus.c:935
 msgid "Open your personal templates folder"
-msgstr "Otvorite vašu osobnu mapu predložaka"
+msgstr "Otvori svoju osobnu mapu predložaka"
 
 #. name, stock id
 #. label, accelerator
@@ -7463,7 +7465,7 @@ msgstr "Otvori svoju osobnu mapu smeća"
 #. label, accelerator
 #: ../src/caja-window-menus.c:948
 msgid "Show _Hidden Files"
-msgstr "Prikaži skrivene datoteke"
+msgstr "Prikaži _skrivene datoteke"
 
 #. tooltip
 #: ../src/caja-window-menus.c:949
@@ -7480,19 +7482,19 @@ msgstr "_Osobna mapa"
 
 #: ../src/caja-x-content-bar.c:70
 msgid "These files are on an Audio CD."
-msgstr "Ove se datoteke nalaze na audio CD-u."
+msgstr "Ove su datoteke na Audio CD-u."
 
 #: ../src/caja-x-content-bar.c:74
 msgid "These files are on an Audio DVD."
-msgstr "Ove se datoteke nalaze na audio DVD-u."
+msgstr "Ove su datoteke na Audio DVD-u."
 
 #: ../src/caja-x-content-bar.c:78
 msgid "These files are on a Video DVD."
-msgstr "Ove se datoteke nalaze na video DVD-u."
+msgstr "Ove su datoteke na Video DVD-u."
 
 #: ../src/caja-x-content-bar.c:82
 msgid "These files are on a Video CD."
-msgstr "Ove se datoteke nalaze na Video CD-u."
+msgstr "Ove su datoteke na Video CD-u."
 
 #: ../src/caja-x-content-bar.c:86
 msgid "These files are on a Super Video CD."

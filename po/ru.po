@@ -6,19 +6,20 @@
 # Alexander <alex.grushetskiy@gmail.com>, 2014
 # Alexei Sorokin <sor.alexei@meowr.ru>, 2012-2013
 # Alexei Sorokin <sor.alexei@meowr.ru>, 2014
+# Vlad Orlov <monsta@inbox.ru>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-10 15:03+0100\n"
-"PO-Revision-Date: 2014-11-10 20:44+0000\n"
+"PO-Revision-Date: 2015-05-29 01:29+0000\n"
 "Last-Translator: Alexei Sorokin <sor.alexei@meowr.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/MATE/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: ../cut-n-paste-code/libegg/eggdesktopfile.c:166
 #, c-format
@@ -1023,6 +1024,7 @@ msgid_plural "%'d seconds"
 msgstr[0] "%'d секунда"
 msgstr[1] "%'d секунды"
 msgstr[2] "%'d секунд"
+msgstr[3] "%'d секунд"
 
 #: ../libcaja-private/caja-file-operations.c:286
 #: ../libcaja-private/caja-file-operations.c:297
@@ -1032,6 +1034,7 @@ msgid_plural "%'d minutes"
 msgstr[0] "%'d минута"
 msgstr[1] "%'d минуты"
 msgstr[2] "%'d минут"
+msgstr[3] "%'d минут"
 
 #: ../libcaja-private/caja-file-operations.c:296
 #, c-format
@@ -1040,6 +1043,7 @@ msgid_plural "%'d hours"
 msgstr[0] "%'d час"
 msgstr[1] "%'d часа"
 msgstr[2] "%'d часов"
+msgstr[3] "%'d часов"
 
 #: ../libcaja-private/caja-file-operations.c:304
 #, c-format
@@ -1048,6 +1052,7 @@ msgid_plural "approximately %'d hours"
 msgstr[0] "примерно %'d час"
 msgstr[1] "примерно %'d часа"
 msgstr[2] "примерно %'d часов"
+msgstr[3] "примерно %'d часов"
 
 #. appended to new link file
 #. Note to localizers: convert file type string for file
@@ -1204,6 +1209,7 @@ msgid_plural ""
 msgstr[0] "Вы действительно хотите окончательно удалить %'d выделенный элемент из корзины?"
 msgstr[1] "Вы действительно хотите окончательно удалить %'d выделенных элемента из корзины?"
 msgstr[2] "Вы действительно хотите окончательно удалить %'d выделенных элементов из корзины?"
+msgstr[3] "Вы действительно хотите окончательно удалить %'d выделенных элементов из корзины?"
 
 #: ../libcaja-private/caja-file-operations.c:1331
 #: ../libcaja-private/caja-file-operations.c:1397
@@ -1237,6 +1243,7 @@ msgid_plural ""
 msgstr[0] "Вы действительно хотите безвозвратно удалить %'d выделенный элемент?"
 msgstr[1] "Вы действительно хотите безвозвратно удалить %'d выделенных элемента?"
 msgstr[2] "Вы действительно хотите безвозвратно удалить %'d выделенных элементов?"
+msgstr[3] "Вы действительно хотите безвозвратно удалить %'d выделенных элементов?"
 
 #: ../libcaja-private/caja-file-operations.c:1431
 #, c-format
@@ -1245,6 +1252,7 @@ msgid_plural "%'d files left to delete"
 msgstr[0] "осталось удалить %'d файл"
 msgstr[1] "осталось удалить %'d файла"
 msgstr[2] "осталось удалить %'d файлов"
+msgstr[3] "осталось удалить %'d файлов"
 
 #: ../libcaja-private/caja-file-operations.c:1437
 msgid "Deleting files"
@@ -1259,6 +1267,7 @@ msgid_plural "%T left"
 msgstr[0] "%T осталась"
 msgstr[1] "%T осталось"
 msgstr[2] "%T осталось"
+msgstr[3] "%T осталось"
 
 #: ../libcaja-private/caja-file-operations.c:1518
 #: ../libcaja-private/caja-file-operations.c:1552
@@ -1317,6 +1326,7 @@ msgid_plural "%'d files left to trash"
 msgstr[0] "осталось удалить в корзину %'d файл"
 msgstr[1] "осталось удалить в корзину %'d файла"
 msgstr[2] "осталось удалить в корзину %'d файлов"
+msgstr[3] "осталось удалить в корзину %'d файлов"
 
 #: ../libcaja-private/caja-file-operations.c:1806
 msgid "Cannot move file to trash, do you want to delete immediately?"
@@ -1368,6 +1378,7 @@ msgid_plural "Preparing to copy %'d files (%S)"
 msgstr[0] "Идёт подготовка к копированию %'d файла (%S)"
 msgstr[1] "Идёт подготовка к копированию %'d файлов (%S)"
 msgstr[2] "Идёт подготовка к копированию %'d файлов (%S)"
+msgstr[3] "Идёт подготовка к копированию %'d файлов (%S)"
 
 #: ../libcaja-private/caja-file-operations.c:2424
 #, c-format
@@ -1376,6 +1387,7 @@ msgid_plural "Preparing to move %'d files (%S)"
 msgstr[0] "Идёт подготовка к перемещению %'d файла (%S)"
 msgstr[1] "Идёт подготовка к перемещению %'d файлов (%S)"
 msgstr[2] "Идёт подготовка к перемещению %'d файлов (%S)"
+msgstr[3] "Идёт подготовка к перемещению %'d файлов (%S)"
 
 #: ../libcaja-private/caja-file-operations.c:2430
 #, c-format
@@ -1384,6 +1396,7 @@ msgid_plural "Preparing to delete %'d files (%S)"
 msgstr[0] "Идёт подготовка к удалению %'d файла (%S)"
 msgstr[1] "Идёт подготовка к удалению %'d файлов (%S)"
 msgstr[2] "Идёт подготовка к удалению %'d файлов (%S)"
+msgstr[3] "Идёт подготовка к удалению %'d файлов (%S)"
 
 #: ../libcaja-private/caja-file-operations.c:2436
 #, c-format
@@ -1392,6 +1405,7 @@ msgid_plural "Preparing to trash %'d files"
 msgstr[0] "Идёт подготовка к удалению %'d файла в корзину"
 msgstr[1] "Идёт подготовка к удалению %'d файлов в корзину"
 msgstr[2] "Идёт подготовка к удалению %'d файлов в корзину"
+msgstr[3] "Идёт подготовка к удалению %'d файлов в корзину"
 
 #: ../libcaja-private/caja-file-operations.c:2467
 #: ../libcaja-private/caja-file-operations.c:3362
@@ -1484,6 +1498,7 @@ msgid_plural "Moving %'d files (in \"%B\") to \"%B\""
 msgstr[0] "Перемещается %'d файл (из «%B») в «%B»"
 msgstr[1] "Перемещаются %'d файла (из «%B») в «%B»"
 msgstr[2] "Перемещается %'d файлов (из «%B») в «%B»"
+msgstr[3] "Перемещается %'d файлов (из «%B») в «%B»"
 
 #: ../libcaja-private/caja-file-operations.c:2929
 msgid "Copying %'d file (in \"%B\") to \"%B\""
@@ -1491,6 +1506,7 @@ msgid_plural "Copying %'d files (in \"%B\") to \"%B\""
 msgstr[0] "Копируется %'d файл (из «%B») в «%B»"
 msgstr[1] "Копируются %'d файла (из «%B») в «%B»"
 msgstr[2] "Копируется %'d файлов (из «%B») в «%B»"
+msgstr[3] "Копируется %'d файлов (из «%B») в «%B»"
 
 #: ../libcaja-private/caja-file-operations.c:2937
 msgid "Duplicating %'d file (in \"%B\")"
@@ -1498,6 +1514,7 @@ msgid_plural "Duplicating %'d files (in \"%B\")"
 msgstr[0] "Дублируется %'d файл (в «%B»)"
 msgstr[1] "Дублируются %'d файла (в «%B»)"
 msgstr[2] "Дублируется %'d файлов (в «%B»)"
+msgstr[3] "Дублируется %'d файлов (в «%B»)"
 
 #: ../libcaja-private/caja-file-operations.c:2947
 msgid "Moving %'d file to \"%B\""
@@ -1505,6 +1522,7 @@ msgid_plural "Moving %'d files to \"%B\""
 msgstr[0] "%'d файл перемещается в «%B»"
 msgstr[1] "%'d файла перемещаются в «%B»"
 msgstr[2] "%'d файлов перемещаются в «%B»"
+msgstr[3] "%'d файлов перемещаются в «%B»"
 
 #: ../libcaja-private/caja-file-operations.c:2951
 msgid "Copying %'d file to \"%B\""
@@ -1512,6 +1530,7 @@ msgid_plural "Copying %'d files to \"%B\""
 msgstr[0] "%'d файл копируется в «%B»"
 msgstr[1] "%'d файла копируются в «%B»"
 msgstr[2] "%'d файлов копируются в «%B»"
+msgstr[3] "%'d файлов копируются в «%B»"
 
 #: ../libcaja-private/caja-file-operations.c:2957
 #, c-format
@@ -1520,6 +1539,7 @@ msgid_plural "Duplicating %'d files"
 msgstr[0] "Дублируется %'d файл"
 msgstr[1] "Дублируются %'d файла"
 msgstr[2] "Дублируется %'d файлов"
+msgstr[3] "Дублируется %'d файлов"
 
 #. To translators: %S will expand to a size like "2 bytes" or "3 MB", so
 #. something like "4 kb of 4 MB"
@@ -1541,6 +1561,7 @@ msgid_plural "%S of %S — %T left (%S/sec)"
 msgstr[0] "%S of %S — %T осталась (%S/с)"
 msgstr[1] "%S of %S — %T осталось (%S/с)"
 msgstr[2] "%S of %S — %T осталось (%S/с)"
+msgstr[3] "%S of %S — %T осталось (%S/с)"
 
 #: ../libcaja-private/caja-file-operations.c:3366
 msgid ""
@@ -1645,6 +1666,7 @@ msgid_plural "Preparing to move %'d files"
 msgstr[0] "Идёт подготовка к перемещению %'d файла"
 msgstr[1] "Идёт подготовка к перемещению %'d файлов"
 msgstr[2] "Идёт подготовка к перемещению %'d файлов"
+msgstr[3] "Идёт подготовка к перемещению %'d файлов"
 
 #: ../libcaja-private/caja-file-operations.c:4845
 #, c-format
@@ -1666,6 +1688,7 @@ msgid_plural "Making links to %'d files"
 msgstr[0] "Идёт создание ссылок на %'d файл"
 msgstr[1] "Идёт создание ссылок на %'d файла"
 msgstr[2] "Идёт создание ссылок на %'d файлов"
+msgstr[3] "Идёт создание ссылок на %'d файлов"
 
 #: ../libcaja-private/caja-file-operations.c:5272
 msgid "Error while creating link to %B."
@@ -1942,6 +1965,7 @@ msgid_plural "%'u items"
 msgstr[0] "%'u объект"
 msgstr[1] "%'u объекта"
 msgstr[2] "%'u объектов"
+msgstr[3] "%'u объектов"
 
 #: ../libcaja-private/caja-file.c:5923
 #, c-format
@@ -1950,6 +1974,7 @@ msgid_plural "%'u folders"
 msgstr[0] "%'u папка"
 msgstr[1] "%'u папки"
 msgstr[2] "%'u папок"
+msgstr[3] "%'u папок"
 
 #: ../libcaja-private/caja-file.c:5924
 #, c-format
@@ -1958,6 +1983,7 @@ msgid_plural "%'u files"
 msgstr[0] "%'u файл"
 msgstr[1] "%'u файла"
 msgstr[2] "%'u файлов"
+msgstr[3] "%'u файлов"
 
 #. Do this in a separate stage so that we don't have to put G_GUINT64_FORMAT
 #. in the translated string
@@ -2076,6 +2102,7 @@ msgid_plural "This will open %d separate tabs."
 msgstr[0] "Будет открыто %d отдельная вкладка."
 msgstr[1] "Будет открыто %d отдельные вкладки."
 msgstr[2] "Будет открыто %d отдельных вкладок."
+msgstr[3] "Будет открыто %d отдельных вкладок."
 
 #: ../libcaja-private/caja-mime-actions.c:1219 ../src/caja-location-bar.c:155
 #, c-format
@@ -2084,6 +2111,7 @@ msgid_plural "This will open %d separate windows."
 msgstr[0] "Будет открыто %d отдельное окно."
 msgstr[1] "Будет открыто %d отдельных окна."
 msgstr[2] "Будет открыто %d отдельных окон."
+msgstr[3] "Будет открыто %d отдельных окон."
 
 #: ../libcaja-private/caja-mime-actions.c:1297
 #: ../src/caja-window-manage-views.c:2120
@@ -2166,6 +2194,7 @@ msgid_plural "Opening %d items."
 msgstr[0] "Открывается %d элемент"
 msgstr[1] "Открывается %d элемента"
 msgstr[2] "Открывается %d элементов"
+msgstr[3] "Открывается %d элементов"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:164
 #: ../libcaja-private/caja-open-with-dialog.c:301
@@ -2397,6 +2426,7 @@ msgid_plural "%'d file operations active"
 msgstr[0] "Идёт %'d действие над файлами"
 msgstr[1] "Идут %'d действия над файлами"
 msgstr[2] "Идёт %'d действий над файлами"
+msgstr[3] "Идёт %'d действий над файлами"
 
 #: ../libcaja-private/caja-progress-info.c:514
 #: ../libcaja-private/caja-progress-info.c:535
@@ -2596,6 +2626,7 @@ msgid_plural "_Undo copy of %d items"
 msgstr[0] "_Отменить копирование %d элемента"
 msgstr[1] "_Отменить копирование %d элементов"
 msgstr[2] "_Отменить копирование %d элементов"
+msgstr[3] "_Отменить копирование %d элементов"
 
 #: ../libcaja-private/caja-undostack-manager.c:1573
 #, c-format
@@ -2604,6 +2635,7 @@ msgid_plural "_Undo duplicate of %d items"
 msgstr[0] "_Отменить дубликат %d элемента"
 msgstr[1] "_Отменить дубликат %d элементов"
 msgstr[2] "_Отменить дубликат %d элементов"
+msgstr[3] "_Отменить дубликат %d элементов"
 
 #: ../libcaja-private/caja-undostack-manager.c:1578
 #, c-format
@@ -2612,6 +2644,7 @@ msgid_plural "_Undo move of %d items"
 msgstr[0] "_Отменить перемещение %d элемента"
 msgstr[1] "_Отменить перемещение %d элементов"
 msgstr[2] "_Отменить перемещение %d элементов"
+msgstr[3] "_Отменить перемещение %d элементов"
 
 #: ../libcaja-private/caja-undostack-manager.c:1583
 #, c-format
@@ -2620,6 +2653,7 @@ msgid_plural "_Undo rename of %d items"
 msgstr[0] "_Отменить переименовывание %d элемента"
 msgstr[1] "_Отменить переименовывание %d элементов"
 msgstr[2] "_Отменить переименовывание %d элементов"
+msgstr[3] "_Отменить переименовывание %d элементов"
 
 #: ../libcaja-private/caja-undostack-manager.c:1587
 #, c-format
@@ -2638,6 +2672,7 @@ msgid_plural "_Undo creation of %d folders"
 msgstr[0] "_Отменить создание %d папки"
 msgstr[1] "_Отменить создание %d папки"
 msgstr[2] "_Отменить создание %d папки"
+msgstr[3] "_Отменить создание %d папки"
 
 #: ../libcaja-private/caja-undostack-manager.c:1599
 #, c-format
@@ -2646,6 +2681,7 @@ msgid_plural "_Undo move to trash of %d items"
 msgstr[0] "_Отменить перемещение в корзину %d элемента"
 msgstr[1] "_Отменить перемещение в корзину %d элемента"
 msgstr[2] "_Отменить перемещение в корзину %d элементов"
+msgstr[3] "_Отменить перемещение в корзину %d элементов"
 
 #: ../libcaja-private/caja-undostack-manager.c:1604
 #, c-format
@@ -2654,6 +2690,7 @@ msgid_plural "_Undo restore from trash of %d items"
 msgstr[0] "_Отменить восстановление из корзины %d элемента"
 msgstr[1] "_Отменить восстановление из корзины %d элементов"
 msgstr[2] "_Отменить восстановление из корзины %d элементов"
+msgstr[3] "_Отменить восстановление из корзины %d элементов"
 
 #: ../libcaja-private/caja-undostack-manager.c:1609
 #, c-format
@@ -2662,6 +2699,7 @@ msgid_plural "_Undo create link to %d items"
 msgstr[0] "_Отменить создание ссылки на %d элемент"
 msgstr[1] "_Отменить создание ссылки на %d элементов"
 msgstr[2] "_Отменить создание ссылки на %d элементов"
+msgstr[3] "_Отменить создание ссылки на %d элементов"
 
 #: ../libcaja-private/caja-undostack-manager.c:1614
 #, c-format
@@ -2670,6 +2708,7 @@ msgid_plural "_Undo delete of %d items"
 msgstr[0] "_Отменить удаление %d элемента"
 msgstr[1] "_Отменить удаление %d элементов"
 msgstr[2] "_Отменить удаление %d элементов"
+msgstr[3] "_Отменить удаление %d элементов"
 
 #: ../libcaja-private/caja-undostack-manager.c:1619
 #, c-format
@@ -2678,6 +2717,7 @@ msgid_plural "Undo recursive change permissions of %d items"
 msgstr[0] "Отменить рекурсивное изменение прав %d элемента"
 msgstr[1] "Отменить рекурсивное изменение прав %d элементов"
 msgstr[2] "Отменить рекурсивное изменение прав %d элементов"
+msgstr[3] "Отменить рекурсивное изменение прав %d элементов"
 
 #: ../libcaja-private/caja-undostack-manager.c:1625
 #, c-format
@@ -2686,6 +2726,7 @@ msgid_plural "Undo change permissions of %d items"
 msgstr[0] "Отменить изменение прав %d элемента"
 msgstr[1] "Отменить изменение прав %d элементов"
 msgstr[2] "Отменить изменение прав %d элементов"
+msgstr[3] "Отменить изменение прав %d элементов"
 
 #: ../libcaja-private/caja-undostack-manager.c:1630
 #, c-format
@@ -2694,6 +2735,7 @@ msgid_plural "Undo change group of %d items"
 msgstr[0] "Отменить изменение группы %d элемента"
 msgstr[1] "Отменить изменение группы %d элементов"
 msgstr[2] "Отменить изменение группы %d элементов"
+msgstr[3] "Отменить изменение группы %d элементов"
 
 #: ../libcaja-private/caja-undostack-manager.c:1635
 #, c-format
@@ -2702,6 +2744,7 @@ msgid_plural "Undo change owner of %d items"
 msgstr[0] "Отменить изменение владельца %d элемента"
 msgstr[1] "Отменить изменение владельца %d элементов"
 msgstr[2] "Отменить изменение владельца %d элементов"
+msgstr[3] "Отменить изменение владельца %d элементов"
 
 #: ../libcaja-private/caja-undostack-manager.c:1663
 #, c-format
@@ -2710,6 +2753,7 @@ msgid_plural "_Redo copy of %d items"
 msgstr[0] "_Вернуть копирование %d элемента"
 msgstr[1] "_Вернуть копирование %d элементов"
 msgstr[2] "_Вернуть копирование %d элементов"
+msgstr[3] "_Вернуть копирование %d элементов"
 
 #: ../libcaja-private/caja-undostack-manager.c:1668
 #, c-format
@@ -2718,6 +2762,7 @@ msgid_plural "_Redo duplicate of %d items"
 msgstr[0] "_Вернуть дублирование %d элемента"
 msgstr[1] "_Вернуть дублирование %d элементов"
 msgstr[2] "_Вернуть дублирование %d элементов"
+msgstr[3] "_Вернуть дублирование %d элементов"
 
 #: ../libcaja-private/caja-undostack-manager.c:1673
 #, c-format
@@ -2726,6 +2771,7 @@ msgid_plural "_Redo move of %d items"
 msgstr[0] "_Вернуть перемещение %d элемента"
 msgstr[1] "_Вернуть перемещение %d элементов"
 msgstr[2] "_Вернуть перемещение %d элементов"
+msgstr[3] "_Вернуть перемещение %d элементов"
 
 #: ../libcaja-private/caja-undostack-manager.c:1678
 #, c-format
@@ -2734,6 +2780,7 @@ msgid_plural "_Redo rename of %d items"
 msgstr[0] "_Вернуть переименовывание %d элемента"
 msgstr[1] "_Вернуть переименовывание %d элементов"
 msgstr[2] "_Вернуть переименовывание %d элементов"
+msgstr[3] "_Вернуть переименовывание %d элементов"
 
 #: ../libcaja-private/caja-undostack-manager.c:1682
 #, c-format
@@ -2752,6 +2799,7 @@ msgid_plural "_Redo creation of %d folders"
 msgstr[0] "_Вернуть создание %d папки"
 msgstr[1] "_Вернуть создание %d папок"
 msgstr[2] "_Вернуть создание %d папок"
+msgstr[3] "_Вернуть создание %d папок"
 
 #: ../libcaja-private/caja-undostack-manager.c:1694
 #, c-format
@@ -2760,6 +2808,7 @@ msgid_plural "_Redo move to trash of %d items"
 msgstr[0] "_Вернуть перемещение в корзину %d элемента"
 msgstr[1] "_Вернуть перемещение в корзину %d элементов"
 msgstr[2] "_Вернуть перемещение в корзину %d элементов"
+msgstr[3] "_Вернуть перемещение в корзину %d элементов"
 
 #: ../libcaja-private/caja-undostack-manager.c:1699
 #, c-format
@@ -2768,6 +2817,7 @@ msgid_plural "_Redo restore from trash of %d items"
 msgstr[0] "_Вернуть восстановление из корзины %d элемента"
 msgstr[1] "_Вернуть восстановление из корзины %d элементов"
 msgstr[2] "_Вернуть восстановление из корзины %d элементов"
+msgstr[3] "_Вернуть восстановление из корзины %d элементов"
 
 #: ../libcaja-private/caja-undostack-manager.c:1704
 #, c-format
@@ -2776,6 +2826,7 @@ msgid_plural "_Redo create link to %d items"
 msgstr[0] "_Вернуть создание ссылки на %d элемент"
 msgstr[1] "_Вернуть создание ссылки на %d элементов"
 msgstr[2] "_Вернуть создание ссылки на %d элементов"
+msgstr[3] "_Вернуть создание ссылки на %d элементов"
 
 #: ../libcaja-private/caja-undostack-manager.c:1709
 #, c-format
@@ -2784,6 +2835,7 @@ msgid_plural "_Redo delete of %d items"
 msgstr[0] "_Вернуть удаление %d элемента"
 msgstr[1] "_Вернуть удаление %d элементов"
 msgstr[2] "_Вернуть удаление %d элементов"
+msgstr[3] "_Вернуть удаление %d элементов"
 
 #: ../libcaja-private/caja-undostack-manager.c:1714
 #, c-format
@@ -2792,6 +2844,7 @@ msgid_plural "Redo recursive change permissions of %d items"
 msgstr[0] "Вернуть рекурсивное изменение прав %d элемента"
 msgstr[1] "Вернуть рекурсивное изменение прав %d элементов"
 msgstr[2] "Вернуть рекурсивное изменение прав %d элементов"
+msgstr[3] "Вернуть рекурсивное изменение прав %d элементов"
 
 #: ../libcaja-private/caja-undostack-manager.c:1720
 #, c-format
@@ -2800,6 +2853,7 @@ msgid_plural "Redo change permissions of %d items"
 msgstr[0] "Вернуть изменение прав %d элемента"
 msgstr[1] "Вернуть изменение прав %d элементов"
 msgstr[2] "Вернуть изменение прав %d элементов"
+msgstr[3] "Вернуть изменение прав %d элементов"
 
 #: ../libcaja-private/caja-undostack-manager.c:1725
 #, c-format
@@ -2808,6 +2862,7 @@ msgid_plural "Redo change group of %d items"
 msgstr[0] "Вернуть изменение группы %d элемента"
 msgstr[1] "Вернуть изменение группы %d элементов"
 msgstr[2] "Вернуть изменение группы %d элементов"
+msgstr[3] "Вернуть изменение группы %d элементов"
 
 #: ../libcaja-private/caja-undostack-manager.c:1730
 #, c-format
@@ -2816,6 +2871,7 @@ msgid_plural "Redo change owner of %d items"
 msgstr[0] "Вернуть изменение владельца %d элемента"
 msgstr[1] "Вернуть изменение владельца %d элементов"
 msgstr[2] "Вернуть изменение владельца %d элементов"
+msgstr[3] "Вернуть изменение владельца %d элементов"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.in.h:1
 msgid "Where to position newly open tabs in browser windows."
@@ -3626,6 +3682,7 @@ msgid_plural "This will open %'d separate tabs."
 msgstr[0] "Будет открыто %'d отдельная вкладка."
 msgstr[1] "Будет открыто %'d отдельные вкладки."
 msgstr[2] "Будет открыто %'d отдельных вкладок."
+msgstr[3] "Будет открыто %'d отдельных вкладок."
 
 #: ../src/file-manager/fm-directory-view.c:656
 #, c-format
@@ -3634,6 +3691,7 @@ msgid_plural "This will open %'d separate windows."
 msgstr[0] "Будет открыто %'d отдельное окно."
 msgstr[1] "Будет открыто %'d отдельных окна."
 msgstr[2] "Будет открыто %'d отдельных окон."
+msgstr[3] "Будет открыто %'d отдельных окон."
 
 #: ../src/file-manager/fm-directory-view.c:1175
 #: ../src/file-manager/fm-properties-window.c:5538
@@ -3682,6 +3740,7 @@ msgid_plural "%'d folders selected"
 msgstr[0] "Выделена %'d папка"
 msgstr[1] "Выделено %'d папки"
 msgstr[2] "Выделено %'d папок"
+msgstr[3] "Выделено %'d папок"
 
 #: ../src/file-manager/fm-directory-view.c:2285
 #, c-format
@@ -3690,6 +3749,7 @@ msgid_plural " (containing %'d items)"
 msgstr[0] " (внутри %'d объект)"
 msgstr[1] " (внутри %'d объекта)"
 msgstr[2] " (внутри %'d объектов)"
+msgstr[3] " (внутри %'d объектов)"
 
 #. translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
@@ -3700,6 +3760,7 @@ msgid_plural " (containing a total of %'d items)"
 msgstr[0] " (внутри всего %'d объект)"
 msgstr[1] " (внутри всего %'d объекта)"
 msgstr[2] " (внутри всего %'d объектов)"
+msgstr[3] " (внутри всего %'d объектов)"
 
 #: ../src/file-manager/fm-directory-view.c:2313
 #, c-format
@@ -3708,6 +3769,7 @@ msgid_plural "%'d items selected"
 msgstr[0] "Выделен %'d объект"
 msgstr[1] "Выделено %'d объекта"
 msgstr[2] "Выделено %'d объектов"
+msgstr[3] "Выделено %'d объектов"
 
 #. Folders selected also, use "other" terminology
 #: ../src/file-manager/fm-directory-view.c:2320
@@ -3717,6 +3779,7 @@ msgid_plural "%'d other items selected"
 msgstr[0] "Выделен %'d другой объект"
 msgstr[1] "Выделено %'d других объекта"
 msgstr[2] "Выделено %'d других объектов"
+msgstr[3] "Выделено %'d других объектов"
 
 #. This is marked for translation in case a localiser
 #. * needs to use something other than parentheses. The
@@ -3787,6 +3850,7 @@ msgid_plural "Use \"%s\" to open the selected items"
 msgstr[0] "Использовать приложение «%s» для открытия выделенного объекта"
 msgstr[1] "Использовать приложение «%s» для открытия выделенных объектов"
 msgstr[2] "Использовать приложение «%s» для открытия выделенных объектов"
+msgstr[3] "Использовать приложение «%s» для открытия выделенных объектов"
 
 #: ../src/file-manager/fm-directory-view.c:4564
 msgid "Open parent location"
@@ -3859,6 +3923,7 @@ msgid_plural ""
 msgstr[0] "%'d выделенный объект будет перемещён, когда вы выберете команду «Вставить»"
 msgstr[1] "%'d выделенных объекта будут перемещены, когда вы выберете команду «Вставить»"
 msgstr[2] "%'d выделенных объектов будет перемещено, когда вы выберете команду «Вставить»"
+msgstr[3] "%'d выделенных объектов будет перемещено, когда вы выберете команду «Вставить»"
 
 #: ../src/file-manager/fm-directory-view.c:6014
 #, c-format
@@ -3868,6 +3933,7 @@ msgid_plural ""
 msgstr[0] "%'d выделенный объект будет скопирован, когда вы выберете команду «Вставить»"
 msgstr[1] "%'d выделенных объекта будут скопированы, когда вы выберете команду «Вставить»"
 msgstr[2] "%'d выделенных объектов будет скопировано, когда вы выберете команду «Вставить»"
+msgstr[3] "%'d выделенных объектов будет скопировано, когда вы выберете команду «Вставить»"
 
 #: ../src/file-manager/fm-directory-view.c:6194
 #: ../src/file-manager/fm-tree-view.c:1044
@@ -4131,6 +4197,7 @@ msgid_plural "Ma_ke Links"
 msgstr[0] "Создать сс_ылку"
 msgstr[1] "Создать сс_ылки"
 msgstr[2] "Создать сс_ылки"
+msgstr[3] "Создать сс_ылки"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7359
@@ -4525,6 +4592,7 @@ msgid_plural "Move the selected folders out of the trash to \"%s\""
 msgstr[0] "Перенести открытую папку из корзины в «%s»"
 msgstr[1] "Перенести открытые папки из корзины в «%s»"
 msgstr[2] "Перенести открытые папки из корзины в «%s»"
+msgstr[3] "Перенести открытые папки из корзины в «%s»"
 
 #: ../src/file-manager/fm-directory-view.c:8062
 #, c-format
@@ -4533,6 +4601,7 @@ msgid_plural "Move the selected folders out of the trash"
 msgstr[0] "Перенести открытую папку из корзины"
 msgstr[1] "Перенести открытые папки из корзины"
 msgstr[2] "Перенести открытые папки из корзины"
+msgstr[3] "Перенести открытые папки из корзины"
 
 #: ../src/file-manager/fm-directory-view.c:8068
 #, c-format
@@ -4541,6 +4610,7 @@ msgid_plural "Move the selected files out of the trash to \"%s\""
 msgstr[0] "Перенести выделенный файл из корзины в \"%s\""
 msgstr[1] "Перенести выделенные файлы из корзины в \"%s\""
 msgstr[2] "Перенести выделенные файлы из корзины в \"%s\""
+msgstr[3] "Перенести выделенные файлы из корзины в \"%s\""
 
 #: ../src/file-manager/fm-directory-view.c:8072
 #, c-format
@@ -4549,6 +4619,7 @@ msgid_plural "Move the selected files out of the trash"
 msgstr[0] "Перенести выделенный файл из корзины"
 msgstr[1] "Перенести выделенные файлы из корзины"
 msgstr[2] "Перенести выделенные файлы из корзины"
+msgstr[3] "Перенести выделенные файлы из корзины"
 
 #: ../src/file-manager/fm-directory-view.c:8078
 #, c-format
@@ -4557,6 +4628,7 @@ msgid_plural "Move the selected items out of the trash to \"%s\""
 msgstr[0] "Перенести каждый выделенный объект из корзины в «%s»"
 msgstr[1] "Перенести выделенные объекты из корзины в «%s»"
 msgstr[2] "Перенести выделенные объекты из корзины в «%s»"
+msgstr[3] "Перенести выделенные объекты из корзины в «%s»"
 
 #: ../src/file-manager/fm-directory-view.c:8082
 #, c-format
@@ -4565,6 +4637,7 @@ msgid_plural "Move the selected items out of the trash"
 msgstr[0] "Перенести каждый выделенный объект из корзины"
 msgstr[1] "Перенести выделенные объекты из корзины"
 msgstr[2] "Перенести выделенные объекты из корзины"
+msgstr[3] "Перенести выделенные объекты из корзины"
 
 #: ../src/file-manager/fm-directory-view.c:8208
 #: ../src/file-manager/fm-directory-view.c:8212
@@ -4711,6 +4784,7 @@ msgid_plural "_Browse Folders"
 msgstr[0] "Открыть _папку в обозревателе"
 msgstr[1] "Открыть _папки в обозревателе"
 msgstr[2] "Открыть _папки в обозревателе"
+msgstr[3] "Открыть _папки в обозревателе"
 
 #: ../src/file-manager/fm-directory-view.c:8549
 #: ../src/file-manager/fm-directory-view.c:8882
@@ -4742,6 +4816,7 @@ msgid_plural "Open in %'d New _Windows"
 msgstr[0] "Открыть в %'d _новом окне"
 msgstr[1] "Открыть в %'d _новых окнах"
 msgstr[2] "Открыть в %'d _новых окнах"
+msgstr[3] "Открыть в %'d _новых окнах"
 
 #: ../src/file-manager/fm-directory-view.c:8845
 #, c-format
@@ -4750,6 +4825,7 @@ msgid_plural "Browse in %'d New _Windows"
 msgstr[0] "Открыть в %'d _новом окне обозревателя"
 msgstr[1] "Открыть в %'d _новых окнах обозревателя"
 msgstr[2] "Открыть в %'d _новых окнах обозревателя"
+msgstr[3] "Открыть в %'d _новых окнах обозревателя"
 
 #: ../src/file-manager/fm-directory-view.c:8875
 #, c-format
@@ -4758,6 +4834,7 @@ msgid_plural "Open in %'d New _Tabs"
 msgstr[0] "Открыть в %'d новой вк_ладке"
 msgstr[1] "Открыть в %'d новых вк_ладках"
 msgstr[2] "Открыть в %'d новых вк_ладках"
+msgstr[3] "Открыть в %'d новых вк_ладках"
 
 #: ../src/file-manager/fm-directory-view.c:8884
 #, c-format
@@ -4766,6 +4843,7 @@ msgid_plural "Browse in %'d New _Tabs"
 msgstr[0] "Открыть в %'d новой вк_ладке обозревателя"
 msgstr[1] "Открыть в %'d новых вк_ладках обозревателя"
 msgstr[2] "Открыть в %'d новых вк_ладках обозревателя"
+msgstr[3] "Открыть в %'d новых вк_ладках обозревателя"
 
 #: ../src/file-manager/fm-directory-view.c:8924
 msgid "Delete all selected items permanently"
@@ -5247,6 +5325,7 @@ msgid_plural "_Names:"
 msgstr[0] "_Имя:"
 msgstr[1] "_Имена:"
 msgstr[2] "_Имена:"
+msgstr[3] "_Имена:"
 
 #: ../src/file-manager/fm-properties-window.c:1007
 #, c-format
@@ -5287,6 +5366,7 @@ msgid_plural "%'d items, totalling %s"
 msgstr[0] "%'d объект, всего %s"
 msgstr[1] "%'d объекта, всего %s"
 msgstr[2] "%'d объектов, всего %s"
+msgstr[3] "%'d объектов, всего %s"
 
 #: ../src/file-manager/fm-properties-window.c:2342
 msgid "(some contents unreadable)"
@@ -5759,7 +5839,7 @@ msgstr "До_бавить закладку"
 
 #: ../src/caja-connect-server-dialog.c:1134
 msgid "Bookmark Name:"
-msgstr "Им_я закладки:"
+msgstr "Имя закладки:"
 
 #: ../src/caja-desktop-window.c:81 ../src/caja-desktop-window.c:251
 #: ../src/caja-pathbar.c:1524 ../src/caja-places-sidebar.c:524
@@ -6329,6 +6409,7 @@ msgid_plural "<b>Width:</b> %d pixels"
 msgstr[0] "<b>Ширина:</b> %d пиксель"
 msgstr[1] "<b>Ширина:</b> %d пикселя"
 msgstr[2] "<b>Ширина:</b> %d пикселей"
+msgstr[3] "<b>Ширина:</b> %d пикселей"
 
 #: ../src/caja-image-properties-page.c:420
 #, c-format
@@ -6337,6 +6418,7 @@ msgid_plural "<b>Height:</b> %d pixels"
 msgstr[0] "<b>Высота:</b> %d пиксель"
 msgstr[1] "<b>Высота:</b> %d пикселя"
 msgstr[2] "<b>Высота:</b> %d пикселей"
+msgstr[3] "<b>Высота:</b> %d пикселей"
 
 #: ../src/caja-image-properties-page.c:439
 msgid "Failed to load image information"
@@ -6382,6 +6464,7 @@ msgid_plural "Do you want to view %d locations?"
 msgstr[0] "Хотите просмотреть %d адрес?"
 msgstr[1] "Хотите просмотреть %d адреса?"
 msgstr[2] "Хотите просмотреть %d адресов?"
+msgstr[3] "Хотите просмотреть %d адресов?"
 
 #: ../src/caja-location-dialog.c:157
 msgid "Open Location"
