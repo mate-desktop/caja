@@ -95,7 +95,8 @@ response_callback (CajaLocationDialog *dialog,
     case GTK_RESPONSE_HELP :
         error = NULL;
         gtk_show_uri (gtk_window_get_screen (GTK_WINDOW (dialog)),
-                      "help:mate-user-guide/caja-open-location",
+                      /* FIXME: show proper page instead of main when m-u-g is complete */
+                      "help:mate-user-guide/files",
                       gtk_get_current_event_time (), &error);
         if (error)
         {
