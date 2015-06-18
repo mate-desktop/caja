@@ -1130,11 +1130,13 @@ compute_drop_position (GtkTreeView *tree_view,
                         PLACES_SIDEBAR_COLUMN_SECTION_TYPE, &section_type,
                         -1);
 
-    if (place_type == PLACES_HEADING && section_type != SECTION_BOOKMARKS) {
-        /* never drop on headings, but special case the bookmarks heading,
-         * so we can drop bookmarks in between it and the first item.
+    if (place_type == PLACES_HEADING &&
+        section_type != SECTION_BOOKMARKS &&
+        section_type != SECTION_COMPUTER) {
+        /* never drop on headings, but the bookmarks or computer heading
+         * is a special case, so we can create new bookmarks by dragging
+         * at the beginning or end of the bookmark list.
          */
-
         gtk_tree_path_free (*path);
         *path = NULL;
 
@@ -1145,17 +1147,19 @@ compute_drop_position (GtkTreeView *tree_view,
         sidebar->drag_data_received &&
         sidebar->drag_data_info == GTK_TREE_MODEL_ROW) {
         /* don't allow dropping bookmarks into non-bookmark areas */
-
-    gtk_tree_path_free (*path);
-    *path = NULL;
+        gtk_tree_path_free (*path);
+        *path = NULL;
 
         return FALSE;
     }
 
-    if (section_type == SECTION_BOOKMARKS) {
+    /* drag to top or bottom of bookmark list to add a bookmark */
+    if (place_type == PLACES_HEADING && section_type == SECTION_BOOKMARKS) {
         *pos = GTK_TREE_VIEW_DROP_AFTER;
+    } else if (place_type == PLACES_HEADING && section_type == SECTION_COMPUTER) {
+        *pos = GTK_TREE_VIEW_DROP_BEFORE;
     } else {
-        /* non-bookmark shortcuts can only be dragged into */
+        /* or else you want to drag items INTO the existing bookmarks */
         *pos = GTK_TREE_VIEW_DROP_INTO_OR_BEFORE;
     }
 
@@ -1266,10 +1270,10 @@ drag_motion_callback (GtkTreeView *tree_view,
     }
 
     if (pos == GTK_TREE_VIEW_DROP_BEFORE ||
-            pos == GTK_TREE_VIEW_DROP_AFTER )
+        pos == GTK_TREE_VIEW_DROP_AFTER )
     {
         if (sidebar->drag_data_received &&
-                sidebar->drag_data_info == GTK_TREE_MODEL_ROW)
+            sidebar->drag_data_info == GTK_TREE_MODEL_ROW)
         {
             action = GDK_ACTION_MOVE;
         }
@@ -1527,7 +1531,7 @@ drag_data_received_callback (GtkWidget *widget,
     success = FALSE;
 
     if (tree_pos == GTK_TREE_VIEW_DROP_BEFORE ||
-            tree_pos == GTK_TREE_VIEW_DROP_AFTER)
+        tree_pos == GTK_TREE_VIEW_DROP_AFTER)
     {
         model = gtk_tree_view_get_model (tree_view);
 
@@ -1538,12 +1542,18 @@ drag_data_received_callback (GtkWidget *widget,
 
         gtk_tree_model_get (model, &iter,
                             PLACES_SIDEBAR_COLUMN_SECTION_TYPE, &section_type,
-                                PLACES_SIDEBAR_COLUMN_ROW_TYPE, &place_type,
+                            PLACES_SIDEBAR_COLUMN_ROW_TYPE, &place_type,
                             PLACES_SIDEBAR_COLUMN_INDEX, &position,
                             -1);
 
-        if (section_type != SECTION_BOOKMARKS) {
+        if (section_type != SECTION_BOOKMARKS &&
+            !(section_type == SECTION_COMPUTER && place_type == PLACES_HEADING)) {
             goto out;
+        }
+
+        if (section_type == SECTION_COMPUTER && place_type == PLACES_HEADING &&
+            tree_pos == GTK_TREE_VIEW_DROP_BEFORE) {
+            position = caja_bookmark_list_length (sidebar->bookmarks);
         }
 
         if (tree_pos == GTK_TREE_VIEW_DROP_AFTER && place_type != PLACES_HEADING) {
