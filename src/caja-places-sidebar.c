@@ -1134,7 +1134,6 @@ compute_drop_position (GtkTreeView *tree_view,
         /* never drop on headings, but special case the bookmarks heading,
          * so we can drop bookmarks in between it and the first item.
          */
-
         gtk_tree_path_free (*path);
         *path = NULL;
 
@@ -1145,9 +1144,8 @@ compute_drop_position (GtkTreeView *tree_view,
         sidebar->drag_data_received &&
         sidebar->drag_data_info == GTK_TREE_MODEL_ROW) {
         /* don't allow dropping bookmarks into non-bookmark areas */
-
-    gtk_tree_path_free (*path);
-    *path = NULL;
+        gtk_tree_path_free (*path);
+        *path = NULL;
 
         return FALSE;
     }
@@ -1266,10 +1264,10 @@ drag_motion_callback (GtkTreeView *tree_view,
     }
 
     if (pos == GTK_TREE_VIEW_DROP_BEFORE ||
-            pos == GTK_TREE_VIEW_DROP_AFTER )
+        pos == GTK_TREE_VIEW_DROP_AFTER )
     {
         if (sidebar->drag_data_received &&
-                sidebar->drag_data_info == GTK_TREE_MODEL_ROW)
+            sidebar->drag_data_info == GTK_TREE_MODEL_ROW)
         {
             action = GDK_ACTION_MOVE;
         }
@@ -1527,7 +1525,7 @@ drag_data_received_callback (GtkWidget *widget,
     success = FALSE;
 
     if (tree_pos == GTK_TREE_VIEW_DROP_BEFORE ||
-            tree_pos == GTK_TREE_VIEW_DROP_AFTER)
+        tree_pos == GTK_TREE_VIEW_DROP_AFTER)
     {
         model = gtk_tree_view_get_model (tree_view);
 
@@ -1538,7 +1536,7 @@ drag_data_received_callback (GtkWidget *widget,
 
         gtk_tree_model_get (model, &iter,
                             PLACES_SIDEBAR_COLUMN_SECTION_TYPE, &section_type,
-                                PLACES_SIDEBAR_COLUMN_ROW_TYPE, &place_type,
+                            PLACES_SIDEBAR_COLUMN_ROW_TYPE, &place_type,
                             PLACES_SIDEBAR_COLUMN_INDEX, &position,
                             -1);
 
