@@ -3109,11 +3109,19 @@ eel_canvas_expose (GtkWidget *widget, GdkEventExpose *event)
         return FALSE;
 
     bin_window = gtk_layout_get_bin_window (GTK_LAYOUT (widget));
+
+    if (!gtk_cairo_should_draw_window (cr, bin_window))
+        return FALSE;
+
+    cairo_save (cr);
+
     gtk_cairo_transform_to_window (cr, widget, bin_window);
 
     region = eel_cairo_get_clip_region (cr);
-    if (region == NULL)
+    if (region == NULL) {
+        cairo_restore (cr);
         return FALSE;
+    }
 #else
     if (!gtk_widget_is_drawable (widget) || (event->window != gtk_layout_get_bin_window (&canvas->layout))) return FALSE;
 #endif
@@ -3164,14 +3172,17 @@ eel_canvas_expose (GtkWidget *widget, GdkEventExpose *event)
 #endif
 
     /* Chain up to get exposes on child widgets */
-#if !GTK_CHECK_VERSION(3,0,0)
-    GTK_WIDGET_CLASS (canvas_parent_class)->expose_event (widget, event);
-#else
+#if GTK_CHECK_VERSION(3,0,0)
+    cairo_restore (cr);
+
     if (GTK_WIDGET_CLASS (canvas_parent_class)->draw)
         GTK_WIDGET_CLASS (canvas_parent_class)->draw (widget, cr);
 
     cairo_region_destroy (region);
+#else
+    GTK_WIDGET_CLASS (canvas_parent_class)->expose_event (widget, event);
 #endif
+
     return FALSE;
 }
 
