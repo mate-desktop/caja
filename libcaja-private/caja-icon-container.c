@@ -763,15 +763,17 @@ reveal_icon (CajaIconContainer *container,
     if (bounds.y0 < gtk_adjustment_get_value (vadj)) {
         eel_gtk_adjustment_set_value (vadj, bounds.y0);
     } else if (bounds.y1 > gtk_adjustment_get_value (vadj) + allocation.height) {
-        eel_gtk_adjustment_set_value
-                (vadj, bounds.y1 - allocation.height);
+        eel_gtk_adjustment_set_value (vadj, bounds.y1 - allocation.height);
     }
 
     if (bounds.x0 < gtk_adjustment_get_value (hadj)) {
         eel_gtk_adjustment_set_value (hadj, bounds.x0);
     } else if (bounds.x1 > gtk_adjustment_get_value (hadj) + allocation.width) {
-        eel_gtk_adjustment_set_value
-                (hadj, bounds.x1 - allocation.width);
+        if (bounds.x1 - allocation.width > bounds.x0) {
+            eel_gtk_adjustment_set_value (hadj, bounds.x0);
+        } else {
+            eel_gtk_adjustment_set_value (hadj, bounds.x1 - allocation.width);
+        }
     }
 }
 
