@@ -903,7 +903,7 @@ caja_undostack_manager_data_add_trashed_file (CajaUndoStackActionData
     return;
 
   guint64 *modificationTime;
-  modificationTime = (guint64 *) malloc (sizeof (guint64));
+  modificationTime = (guint64 *) g_malloc (sizeof (guint64));
   *modificationTime = mtime;
 
   char *originalURI = g_file_get_uri (file);
@@ -924,7 +924,7 @@ void caja_undostack_manager_data_add_file_permissions
     return;
 
   guint32 *currentPermission;
-  currentPermission = (guint32 *) malloc (sizeof (guint32));
+  currentPermission = (guint32 *) g_malloc (sizeof (guint32));
   *currentPermission = permission;
 
   char *originalURI = g_file_get_uri (file);
