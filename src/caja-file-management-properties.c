@@ -278,7 +278,7 @@ caja_file_management_properties_dialog_response_cb (GtkDialog *parent,
             section = "goscaja-61";
             break;
         }
-        preferences_show_help (GTK_WINDOW (parent), "mate-user-guide", section);
+        preferences_show_help (GTK_WINDOW (parent), "mate-help", section);
     }
     else if (response_id == GTK_RESPONSE_CLOSE)
     {

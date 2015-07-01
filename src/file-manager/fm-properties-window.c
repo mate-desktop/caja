@@ -5521,7 +5521,7 @@ real_response (GtkDialog *dialog,
 	switch (response) {
 	case GTK_RESPONSE_HELP:
 		gtk_show_uri (gtk_window_get_screen (GTK_WINDOW (dialog)),
-			      "help:mate-user-guide/goscaja-51",
+			      "help:mate-help/goscaja-51",
 			      gtk_get_current_event_time (),
 			      &error);
 		if (error != NULL) {

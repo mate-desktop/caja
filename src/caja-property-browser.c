@@ -1640,7 +1640,7 @@ help_button_callback (GtkWidget *widget, GtkWidget *property_browser)
     GtkWidget *dialog;
 
     gtk_show_uri (gtk_widget_get_screen (property_browser),
-                  "help:mate-user-guide/goscaja-50",
+                  "help:mate-help/goscaja-50",
                   gtk_get_current_event_time (), &error);
 
     if (error)
