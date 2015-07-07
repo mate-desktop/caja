@@ -5521,8 +5521,7 @@ real_response (GtkDialog *dialog,
 	switch (response) {
 	case GTK_RESPONSE_HELP:
 		gtk_show_uri (gtk_window_get_screen (GTK_WINDOW (dialog)),
-			      /* FIXME: show proper page instead of main when m-u-g is complete */
-			      "help:mate-user-guide/files",
+			      "help:mate-user-guide/goscaja-51",
 			      gtk_get_current_event_time (),
 			      &error);
 		if (error != NULL) {

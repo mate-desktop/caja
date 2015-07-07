@@ -256,8 +256,6 @@ caja_file_management_properties_dialog_response_cb (GtkDialog *parent,
 
     if (response_id == GTK_RESPONSE_HELP)
     {
-        /* FIXME: show proper page instead of main when m-u-g is complete */
-#if 0
         switch (gtk_notebook_get_current_page (GTK_NOTEBOOK (gtk_builder_get_object (builder, "notebook1"))))
         {
         default:
@@ -280,8 +278,7 @@ caja_file_management_properties_dialog_response_cb (GtkDialog *parent,
             section = "goscaja-61";
             break;
         }
-#endif
-        preferences_show_help (GTK_WINDOW (parent), "mate-user-guide", "files");
+        preferences_show_help (GTK_WINDOW (parent), "mate-user-guide", section);
     }
     else if (response_id == GTK_RESPONSE_CLOSE)
     {
