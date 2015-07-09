@@ -799,13 +799,8 @@ wrap_table_child_focus_in (GtkWidget *widget,
 
         gtk_widget_translate_coordinates (widget, container, 0, 0, &x, &y);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
         gtk_adjustment_set_value (hadj, MIN (x, gtk_adjustment_get_upper(hadj) - gtk_adjustment_get_page_size(hadj)));
         gtk_adjustment_set_value (vadj, MIN (y, gtk_adjustment_get_upper(vadj) - gtk_adjustment_get_page_size(vadj)));
-#else
-        gtk_adjustment_set_value (hadj, MIN (x, hadj->upper - hadj->page_size));
-        gtk_adjustment_set_value (vadj, MIN (y, vadj->upper - vadj->page_size));
-#endif
     }
 
     return FALSE;
