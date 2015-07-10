@@ -504,7 +504,13 @@ main (int argc, char *argv[])
     caja_global_preferences_init ();
 
     /* exit_with_last_window being FALSE, caja can run without window. */
-    exit_with_last_window = g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_EXIT_WITH_LAST_WINDOW);
+    /* But we should need this still set as TRUE on other desktop environments. Otherwise caja wont quit */
+    if (g_strcmp0 (g_getenv ("XDG_CURRENT_DESKTOP"), "MATE") == 0
+    || g_strcmp0 (g_getenv ("XDG_SESSION_DESKTOP"), "MATE") == 0
+    || g_strcmp0 (g_getenv ("DESKTOP_SESSION"), "MATE") == 0)
+    {
+        exit_with_last_window = g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_EXIT_WITH_LAST_WINDOW);
+    }
 
     application = NULL;
 
