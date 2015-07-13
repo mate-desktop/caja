@@ -314,6 +314,20 @@ setup_debug_log (void)
     setup_debug_log_glog ();
 }
 
+static gboolean
+running_in_mate (void)
+{
+    return (g_strcmp0 (g_getenv ("XDG_CURRENT_DESKTOP"), "MATE") == 0)
+        || (g_strcmp0 (g_getenv ("XDG_SESSION_DESKTOP"), "MATE") == 0)
+        || (g_strcmp0 (g_getenv ("DESKTOP_SESSION"), "MATE") == 0);
+}
+
+static gboolean
+running_as_root (void)
+{
+    return geteuid () == 0;
+}
+
 int
 main (int argc, char *argv[])
 {
@@ -458,15 +472,16 @@ main (int argc, char *argv[])
     setup_debug_log ();
 
     /* If in autostart mode (aka started by mate-session), we need to ensure
-         * caja starts with the correct options.
-         */
+     * caja starts with the correct options.
+     */
     if (autostart_mode)
     {
         no_default_window = TRUE;
         no_desktop = FALSE;
     }
-    else if (g_strcmp0 (g_getenv ("XDG_CURRENT_DESKTOP"), "MATE") != 0)
+    else if (running_as_root () || !running_in_mate ())
     {
+        /* do not manage desktop when running as root or on other desktops */
         no_desktop = TRUE;
     }
 
@@ -503,8 +518,14 @@ main (int argc, char *argv[])
      */
     caja_global_preferences_init ();
 
-    /* exit_with_last_window being FALSE, caja can run without window. */
-    exit_with_last_window = g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_EXIT_WITH_LAST_WINDOW);
+    /* exit_with_last_window is already set to TRUE, and we need to keep that value
+     * on other desktops or when running caja as root. Otherwise, we read the value
+     * from the configuration.
+     */
+    if (running_in_mate () && !running_as_root())
+    {
+        exit_with_last_window = g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_EXIT_WITH_LAST_WINDOW);
+    }
 
     application = NULL;
 
