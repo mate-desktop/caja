@@ -179,7 +179,7 @@ caja_extensions_get_for_type (GType type)
             }
         }
     }
-    g_list_free (l);
+
     return ret;
 }
 
