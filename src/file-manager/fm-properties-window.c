@@ -4950,7 +4950,7 @@ append_extension_pages (FMPropertiesWindow *window)
 	GList *providers;
 	GList *p;
 
- 	providers = caja_extensions_get_for_type (CAJA_TYPE_PROPERTY_PAGE_PROVIDER);
+	providers = caja_extensions_get_for_type (CAJA_TYPE_PROPERTY_PAGE_PROVIDER);
 
 	for (p = providers; p != NULL; p = p->next) {
 		CajaPropertyPageProvider *provider;

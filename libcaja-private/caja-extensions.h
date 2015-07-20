@@ -38,7 +38,7 @@ typedef struct _Extension {
     gchar *website;
     gboolean state;
     GObject *module;
-}Extension;
+} Extension;
 
 #define EXTENSION(x) ((Extension*)x)
 
@@ -47,8 +47,6 @@ void caja_extension_register (gchar *filename, GObject *module);
 void caja_extensions_setup (void);
 GList *caja_extensions_get_list (void);
 GList *caja_extensions_get_for_type (GType type);
-
-
 
 
 #endif // CAJA_EXTENSIONS_H
