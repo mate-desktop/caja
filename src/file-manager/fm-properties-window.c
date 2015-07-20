@@ -4948,9 +4948,23 @@ static void
 append_extension_pages (FMPropertiesWindow *window)
 {
 	GList *providers;
+	GList *module_providers;
 	GList *p;
 
 	providers = caja_extensions_get_for_type (CAJA_TYPE_PROPERTY_PAGE_PROVIDER);
+
+	/* FIXME: we also need the property pages from two old modules that
+	 * are not registered as proper extensions. This is going to work
+	 * this way until some generic solution is introduced.
+	 */
+	module_providers = caja_module_get_extensions_for_type (CAJA_TYPE_PROPERTY_PAGE_PROVIDER);
+	for (p = module_providers; p != NULL; p = p->next) {
+		const gchar *type_name = G_OBJECT_TYPE_NAME (G_OBJECT (p->data));
+		if (g_strcmp0 (type_name, "CajaNotesViewerProvider") == 0 ||
+		    g_strcmp0 (type_name, "CajaImagePropertiesPageProvider") == 0) {
+			providers = g_list_prepend (providers, p->data);
+		}
+	}
 
 	for (p = providers; p != NULL; p = p->next) {
 		CajaPropertyPageProvider *provider;
