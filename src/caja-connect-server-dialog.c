@@ -116,6 +116,7 @@ enum
 /* Remember to fill in descriptions below */
 static struct MethodInfo methods[] =
 {
+    { "afp", SHOW_SHARE | SHOW_USER, 548 },
     /* FIXME: we need to alias ssh to sftp */
     { "sftp",  SHOW_PORT | SHOW_USER, 22 },
     { "ftp",  SHOW_PORT | SHOW_USER, 21 },
@@ -145,8 +146,10 @@ get_method_description (struct MethodInfo *meth)
     } else if (strcmp (meth->scheme, "davs") == 0) {
         return _("Secure WebDAV (HTTPS)");
 
-        /* No descriptive text */
+    } else if (strcmp (meth->scheme, "afp") == 0) {
+        return _("Apple Filing Protocol (AFP)");
     } else {
+        /* No descriptive text */
         return meth->scheme;
     }
 }
@@ -540,12 +543,13 @@ connect_dialog_connect_to_server (CajaConnectServerDialog *dialog)
     domain = NULL;
     folder = NULL;
 
-    /* FTP special case */
     if (meth->flags & IS_ANONYMOUS) {
+        /* FTP special case */
     	user = g_strdup ("anonymous");
 
-        /* SMB special case */
-    } else if (strcmp (meth->scheme, "smb") == 0) {
+    } else if ((strcmp (meth->scheme, "smb") == 0) ||
+		(strcmp (meth->scheme, "afp") == 0)){
+		/* SMB/AFP special case */
 		g_free (initial_path);
 
     	t = gtk_editable_get_chars (GTK_EDITABLE (dialog->details->share_entry), 0, -1);
