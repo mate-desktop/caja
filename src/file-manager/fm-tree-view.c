@@ -54,6 +54,10 @@
 #include <libcaja-private/caja-module.h>
 #include <libcaja-private/caja-window-info.h>
 #include <libcaja-private/caja-window-slot-info.h>
+#include <libcaja-private/caja-directory.h>
+#include <libcaja-private/caja-directory-private.h>
+#include <libcaja-private/caja-file.h>
+#include <libcaja-private/caja-file-private.h>
 
 typedef struct
 {
@@ -120,6 +124,7 @@ static void  fm_tree_view_activate_file     (FMTreeView *view,
         CajaFile *file,
         CajaWindowOpenFlags flags);
 static GType fm_tree_view_provider_get_type (void);
+static GtkWindow *fm_tree_view_get_containing_window (FMTreeView *view);
 
 static void create_popup_menu (FMTreeView *view);
 
@@ -926,7 +931,15 @@ static void
 fm_tree_view_open_in_new_window_cb (GtkWidget *menu_item,
                                     FMTreeView *view)
 {
-    fm_tree_view_activate_file (view, view->details->popup_file, CAJA_WINDOW_OPEN_FLAG_NEW_WINDOW);
+    /* fm_tree_view_activate_file (view, view->details->popup_file, CAJA_WINDOW_OPEN_FLAG_NEW_WINDOW); */
+
+    caja_mime_activate_file  (fm_tree_view_get_containing_window (view),
+                              caja_window_info_get_active_slot (view->details->window),
+                              view->details->popup_file,
+                              g_file_get_path (view->details->popup_file->details->directory->details->location),
+                              CAJA_WINDOW_OPEN_FLAG_NEW_WINDOW,
+                              0,
+                              0);
 }
 
 static void
