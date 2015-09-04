@@ -1117,12 +1117,12 @@ caja_is_engrampa_installed (void)
     return installed > 0 ? TRUE : FALSE;
 }
 
-#define GSM_NAME  "org.mate.SessionManager"
-#define GSM_PATH "/org/mate/SessionManager"
-#define GSM_INTERFACE "org.mate.SessionManager"
+#define GSM_NAME  "org.gnome.SessionManager"
+#define GSM_PATH "/org/gnome/SessionManager"
+#define GSM_INTERFACE "org.gnome.SessionManager"
 
 /* The following values come from
- * http://www.gnome.org/~mccann/mate-session/docs/mate-session.html#org.mate.SessionManager.Inhibit
+ * http://www.gnome.org/~mccann/mate-session/docs/mate-session.html#org.gnome.SessionManager.Inhibit
  */
 #define INHIBIT_LOGOUT (1U)
 #define INHIBIT_SUSPEND (4U)

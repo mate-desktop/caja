@@ -108,7 +108,6 @@ struct FMIconViewDetails
     GPid audio_preview_child_pid;
 
     gboolean filter_by_screen;
-    int num_screens;
 
     gboolean compact;
 
@@ -541,28 +540,11 @@ fm_icon_view_clear (FMDirectoryView *view)
 static gboolean
 should_show_file_on_screen (FMDirectoryView *view, CajaFile *file)
 {
-    char *screen_string;
-    int screen_num;
     FMIconView *icon_view;
-    GdkScreen *screen;
 
     icon_view = FM_ICON_VIEW (view);
 
     if (!fm_directory_view_should_show_file (view, file))
-    {
-        return FALSE;
-    }
-
-    /* Get the screen for this icon from the metadata. */
-    screen_string = caja_file_get_metadata
-                    (file, CAJA_METADATA_KEY_SCREEN, "0");
-    screen_num = atoi (screen_string);
-    g_free (screen_string);
-    screen = gtk_widget_get_screen (GTK_WIDGET (view));
-
-    if (screen_num != gdk_screen_get_number (screen) &&
-            (screen_num < icon_view->details->num_screens ||
-             gdk_screen_get_number (screen) > 0))
     {
         return FALSE;
     }
@@ -2447,7 +2429,6 @@ fm_icon_view_filter_by_screen (FMIconView *icon_view,
                                gboolean filter)
 {
     icon_view->details->filter_by_screen = filter;
-    icon_view->details->num_screens = gdk_display_get_n_screens (gtk_widget_get_display (GTK_WIDGET (icon_view)));
 }
 
 static void

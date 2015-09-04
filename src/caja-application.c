@@ -1107,7 +1107,8 @@ caja_application_startup (CajaApplication *application,
             {
                 open_windows (application, NULL,
                               urls,
-                              gdk_screen_get_default (),
+                              gdk_display_get_default_screen (gdk_display_get_default()),
+                              // gdk_screen_get_default (),
                               geometry,
                               browser_window);
             }
@@ -1138,14 +1139,14 @@ selection_get_cb (GtkWidget          *widget,
 }
 
 static GtkWidget *
-get_desktop_manager_selection (GdkDisplay *display, int screen)
+get_desktop_manager_selection (GdkDisplay *display)
 {
     char selection_name[32];
     GdkAtom selection_atom;
     Window selection_owner;
     GtkWidget *selection_widget;
 
-    g_snprintf (selection_name, sizeof (selection_name), "_NET_DESKTOP_MANAGER_S%d", screen);
+    g_snprintf (selection_name, sizeof (selection_name), "_NET_DESKTOP_MANAGER_S0");
     selection_atom = gdk_atom_intern (selection_name, FALSE);
 
     selection_owner = XGetSelectionOwner (GDK_DISPLAY_XDISPLAY (display),
@@ -1156,7 +1157,7 @@ get_desktop_manager_selection (GdkDisplay *display, int screen)
         return NULL;
     }
 
-    selection_widget = gtk_invisible_new_for_screen (gdk_display_get_screen (display, screen));
+    selection_widget = gtk_invisible_new_for_screen (gdk_display_get_default_screen (display));
     /* We need this for gdk_x11_get_server_time() */
     gtk_widget_add_events (selection_widget, GDK_PROPERTY_CHANGE_MASK);
 
@@ -1203,7 +1204,6 @@ caja_application_create_desktop_windows (CajaApplication *application)
     GdkDisplay *display;
     CajaDesktopWindow *window;
     GtkWidget *selection_widget;
-    int screens, i;
 
     g_return_if_fail (caja_application_desktop_windows == NULL);
     g_return_if_fail (CAJA_IS_APPLICATION (application));
@@ -1216,32 +1216,27 @@ caja_application_create_desktop_windows (CajaApplication *application)
     create_in_progress = TRUE;
 
     display = gdk_display_get_default ();
-    screens = gdk_display_get_n_screens (display);
 
-    for (i = 0; i < screens; i++)
+    selection_widget = get_desktop_manager_selection (display);
+    if (selection_widget != NULL)
     {
-        selection_widget = get_desktop_manager_selection (display, i);
-        if (selection_widget != NULL)
-        {
-            window = caja_desktop_window_new (application,
-                                              gdk_display_get_screen (display, i));
+        window = caja_desktop_window_new (application, gdk_display_get_default_screen (display));
 
-            g_signal_connect (selection_widget, "selection_clear_event",
-                              G_CALLBACK (selection_clear_event_cb), window);
+        g_signal_connect (selection_widget, "selection_clear_event",
+                          G_CALLBACK (selection_clear_event_cb), window);
 
-            g_signal_connect (window, "unrealize",
-                              G_CALLBACK (desktop_unrealize_cb), selection_widget);
+        g_signal_connect (window, "unrealize",
+                          G_CALLBACK (desktop_unrealize_cb), selection_widget);
 
-            /* We realize it immediately so that the CAJA_DESKTOP_WINDOW_ID
-               property is set so mate-settings-daemon doesn't try to set the
-               background. And we do a gdk_flush() to be sure X gets it. */
-            gtk_widget_realize (GTK_WIDGET (window));
-            gdk_flush ();
+        /* We realize it immediately so that the CAJA_DESKTOP_WINDOW_ID
+           property is set so mate-settings-daemon doesn't try to set the
+           background. And we do a gdk_flush() to be sure X gets it. */
+        gtk_widget_realize (GTK_WIDGET (window));
+        gdk_flush ();
 
 
-            caja_application_desktop_windows =
-                g_list_prepend (caja_application_desktop_windows, window);
-        }
+        caja_application_desktop_windows =
+            g_list_prepend (caja_application_desktop_windows, window);
     }
 
     create_in_progress = FALSE;
