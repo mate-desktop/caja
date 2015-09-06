@@ -141,7 +141,7 @@ AH_TEMPLATE([HAVE_RENDER])
 AM_GLIB_GNU_GETTEXT
 GLIB_DEFINE_LOCALEDIR(MATELOCALEDIR)
 
-IT_PROG_INTLTOOL([0.40.1])
+IT_PROG_INTLTOOL([0.50.1])
 
 dnl ==========================================================================
 

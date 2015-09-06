@@ -217,9 +217,7 @@ caja-marshal.list: $(libcaja_private_la_SOURCES) Makefile.am
 	$(AM_V_GEN)echo "#include \"caja-marshal.h\"" > $@ && \
 	$(GLIB_GENMARSHAL) --body --prefix=$(subst -,_,$*)_marshal $< >> $*-marshal.c
 
-gsettingsschema_in_files = org.mate.caja.gschema.xml.in org.mate.media-handling.gschema.xml.in
-gsettings_SCHEMAS = $(gsettingsschema_in_files:.xml.in=.xml)
-.PRECIOUS: $(gsettings_SCHEMAS)
+gsettings_SCHEMAS = org.mate.caja.gschema.xml org.mate.media-handling.gschema.xml
 
 @INTLTOOL_XML_NOMERGE_RULE@
 
@@ -230,7 +228,7 @@ convert_DATA = caja.convert
 
 EXTRA_DIST = \
 	caja-marshal.list \
-	$(gsettingsschema_in_files) \
+	$(gsettings_SCHEMAS) \
 	$(convert_DATA) \
 	$(BEAGLE_SOURCES) \
 	$(TRACKER_SOURCES) \
@@ -238,9 +236,7 @@ EXTRA_DIST = \
 
 CLEANFILES = \
 	$(BUILT_SOURCES) \
-	$(schema_DATA) \
-	$(gsettings_SCHEMAS) \
-	caja-marshal.list				\
+	caja-marshal.list \
 	$(NULL)
 
 dist-hook:
