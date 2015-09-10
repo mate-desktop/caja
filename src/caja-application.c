@@ -1563,24 +1563,6 @@ caja_application_get_spatial_window (CajaApplication *application,
     return window;
 }
 
-static gboolean
-another_navigation_window_already_showing (CajaWindow *the_window)
-{
-    GList *list, *item;
-
-    list = caja_application_get_window_list ();
-    for (item = list; item != NULL; item = item->next)
-    {
-        if (item->data != the_window &&
-                CAJA_IS_NAVIGATION_WINDOW (item->data))
-        {
-            return TRUE;
-        }
-    }
-
-    return FALSE;
-}
-
 CajaWindow *
 caja_application_create_navigation_window (CajaApplication *application,
         const char          *startup_id,
@@ -1610,16 +1592,12 @@ caja_application_create_navigation_window (CajaApplication *application,
     if (geometry_string != NULL &&
             geometry_string[0] != 0)
     {
-        /* Ignore saved window position if a window with the same
-         * location is already showing. That way the two windows
-         * wont appear at the exact same location on the screen.
-         */
         eel_gtk_window_set_initial_geometry_from_string
         (GTK_WINDOW (window),
          geometry_string,
          CAJA_NAVIGATION_WINDOW_MIN_WIDTH,
          CAJA_NAVIGATION_WINDOW_MIN_HEIGHT,
-         another_navigation_window_already_showing (window));
+         TRUE);
     }
     g_free (geometry_string);
 
