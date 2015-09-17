@@ -1986,6 +1986,11 @@ retrieve_files_to_restore (GHashTable * trashed)
     while ((info = g_file_enumerator_next_file (enumerator, NULL, NULL)) != NULL) {
       /* Retrieve the original file uri */
       const char *origpath = g_file_info_get_attribute_byte_string (info, G_FILE_ATTRIBUTE_TRASH_ORIG_PATH);
+      if (origpath == NULL) {
+        g_warning ("The item cannot be restored from trash: could not determine original location");
+        continue;
+      }
+
       GFile *origfile = g_file_new_for_path (origpath);
       char *origuri = g_file_get_uri (origfile);
       g_object_unref (origfile);
