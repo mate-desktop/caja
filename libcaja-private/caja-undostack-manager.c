@@ -1974,7 +1974,9 @@ retrieve_files_to_restore (GHashTable * trashed)
       G_FILE_ATTRIBUTE_STANDARD_NAME
       ","
       G_FILE_ATTRIBUTE_TIME_MODIFIED
-      ",trash::orig-path", G_FILE_QUERY_INFO_NOFOLLOW_SYMLINKS, FALSE, NULL);
+      ","
+      G_FILE_ATTRIBUTE_TRASH_ORIG_PATH,
+      G_FILE_QUERY_INFO_NOFOLLOW_SYMLINKS, FALSE, NULL);
 
   GHashTable *to_restore = g_hash_table_new_full (g_direct_hash,
       g_direct_equal, g_object_unref, g_free);
@@ -1983,7 +1985,7 @@ retrieve_files_to_restore (GHashTable * trashed)
     GFileInfo *info;
     while ((info = g_file_enumerator_next_file (enumerator, NULL, NULL)) != NULL) {
       /* Retrieve the original file uri */
-      const char *origpath = g_file_info_get_attribute_byte_string (info, "trash::orig-path");
+      const char *origpath = g_file_info_get_attribute_byte_string (info, G_FILE_ATTRIBUTE_TRASH_ORIG_PATH);
       GFile *origfile = g_file_new_for_path (origpath);
       char *origuri = g_file_get_uri (origfile);
       g_object_unref (origfile);

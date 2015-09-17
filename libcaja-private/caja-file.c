@@ -2459,7 +2459,7 @@ update_info_internal (CajaFile *file,
 	}
 
 	trash_time = 0;
-	time_string = g_file_info_get_attribute_string (info, "trash::deletion-date");
+	time_string = g_file_info_get_attribute_string (info, G_FILE_ATTRIBUTE_TRASH_DELETION_DATE);
 	if (time_string != NULL) {
 		g_time_val_from_iso8601 (time_string, &g_trash_time);
 		trash_time = g_trash_time.tv_sec;
@@ -2469,7 +2469,7 @@ update_info_internal (CajaFile *file,
 		file->details->trash_time = trash_time;
 	}
 
-	trash_orig_path = g_file_info_get_attribute_byte_string (info, "trash::orig-path");
+	trash_orig_path = g_file_info_get_attribute_byte_string (info, G_FILE_ATTRIBUTE_TRASH_ORIG_PATH);
 	if (eel_strcmp (file->details->trash_orig_path, trash_orig_path) != 0) {
 		changed = TRUE;
 		g_free (file->details->trash_orig_path);
