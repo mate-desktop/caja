@@ -1135,9 +1135,14 @@ labeled_image_update_alignments (EelLabeledImage *labeled_image)
 
             }
 
+#if GTK_CHECK_VERSION (3, 14, 0)
+            gtk_widget_set_halign (labeled_image->details->label, GTK_ALIGN_CENTER);
+            gtk_widget_set_valign (labeled_image->details->label, GTK_ALIGN_CENTER);
+#else
             gtk_misc_set_alignment (GTK_MISC (labeled_image->details->label),
                                     x_alignment,
                                     y_alignment);
+#endif
         }
     }
 
@@ -1184,9 +1189,14 @@ labeled_image_update_alignments (EelLabeledImage *labeled_image)
                 }
             }
 
+#if GTK_CHECK_VERSION (3, 14, 0)
+            gtk_widget_set_halign (labeled_image->details->image, GTK_ALIGN_CENTER);
+            gtk_widget_set_valign (labeled_image->details->image, GTK_ALIGN_CENTER);
+#else
             gtk_misc_set_alignment (GTK_MISC (labeled_image->details->image),
                                     x_alignment,
                                     y_alignment);
+#endif
         }
     }
 }

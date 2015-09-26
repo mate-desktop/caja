@@ -1392,7 +1392,11 @@ attach_label (GtkTable *table,
 	if (bold) {
 		eel_gtk_label_make_bold (GTK_LABEL (label_field));
 	}
+#if GTK_CHECK_VERSION (3, 14, 0)
+	gtk_widget_set_halign (label_field, right_aligned ? 1 :GTK_ALIGN_START);
+#else
 	gtk_misc_set_alignment (GTK_MISC (label_field), right_aligned ? 1 : 0, 0.5);
+#endif
 	gtk_widget_show (label_field);
 	gtk_table_attach (table, label_field,
 			  column, column + 1,

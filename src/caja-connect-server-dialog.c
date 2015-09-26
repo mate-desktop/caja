@@ -874,7 +874,11 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
     str = g_strdup_printf ("<b>%s</b>", _("Server Details"));
     gtk_label_set_markup (GTK_LABEL (label), str);
     g_free (str);
+#if GTK_CHECK_VERSION (3, 14, 0)
+    gtk_widget_set_halign (label, GTK_ALIGN_START);
+#else
     gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+#endif
     gtk_box_pack_start (GTK_BOX (content_area), label, FALSE, FALSE, 6);
     gtk_widget_show (label);
 
@@ -893,7 +897,11 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
 
     /* first row: server entry + port spinbutton */
     label = gtk_label_new_with_mnemonic (_("_Server:"));
+#if GTK_CHECK_VERSION (3, 14, 0)
+    gtk_widget_set_halign (label, GTK_ALIGN_START);
+#else
     gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+#endif
     gtk_table_attach (GTK_TABLE (table), label,
     		  0, 1,
     		  0, 1,
@@ -915,7 +923,11 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
 
     /* port */
     label = gtk_label_new_with_mnemonic (_("_Port:"));
+#if GTK_CHECK_VERSION (3, 14, 0)
+    gtk_widget_set_halign (label, GTK_ALIGN_START);
+#else
     gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+#endif
     gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 0);
     gtk_widget_show (label);
 
@@ -933,7 +945,11 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
 
     /* second row: type combobox */
     label = gtk_label_new (_("Type:"));
+#if GTK_CHECK_VERSION (3, 14, 0)
+    gtk_widget_set_halign (label, GTK_ALIGN_START);
+#else
     gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+#endif
     gtk_table_attach (GTK_TABLE (table), label,
     		  0, 1,
     		  1, 2,
@@ -1011,7 +1027,11 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
 
     /* third row: share entry */
     label = gtk_label_new (_("Share:"));
+#if GTK_CHECK_VERSION (3, 14, 0)
+    gtk_widget_set_halign (label, GTK_ALIGN_START);
+#else
     gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+#endif
     gtk_table_attach (GTK_TABLE (table), label,
     		  0, 1,
     		  2, 3,
@@ -1028,7 +1048,11 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
 
     /* fourth row: folder entry */
     label = gtk_label_new (_("Folder:"));
+#if GTK_CHECK_VERSION (3, 14, 0)
+    gtk_widget_set_halign (label, GTK_ALIGN_START);
+#else
     gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+#endif
     gtk_table_attach (GTK_TABLE (table), label,
     		  0, 1,
     		  3, 4,
@@ -1048,7 +1072,11 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
     str = g_strdup_printf ("<b>%s</b>", _("User Details"));
     gtk_label_set_markup (GTK_LABEL (label), str);
     g_free (str);
+#if GTK_CHECK_VERSION (3, 14, 0)
+    gtk_widget_set_halign (label, GTK_ALIGN_START);
+#else
     gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+#endif
     gtk_box_pack_start (GTK_BOX (content_area), label, FALSE, FALSE, 6);
 
     /* user details alignment */
@@ -1066,7 +1094,11 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
 
     /* first row: domain entry */
     label = gtk_label_new (_("Domain Name:"));
+#if GTK_CHECK_VERSION (3, 14, 0)
+    gtk_widget_set_halign (label, GTK_ALIGN_START);
+#else
     gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+#endif
     gtk_table_attach (GTK_TABLE (table), label,
     		  0, 1,
     		  0, 1,
@@ -1083,7 +1115,11 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
 
     /* second row: username entry */
     label = gtk_label_new (_("User Name:"));
+#if GTK_CHECK_VERSION (3, 14, 0)
+    gtk_widget_set_halign (label, GTK_ALIGN_START);
+#else
     gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+#endif
     gtk_table_attach (GTK_TABLE (table), label,
     		  0, 1,
     		  1, 2,
@@ -1100,7 +1136,11 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
 
 	/* third row: password entry */
 	label = gtk_label_new (_("Password:"));
-    gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+#if GTK_CHECK_VERSION (3, 14, 0)
+	gtk_widget_set_halign (label, GTK_ALIGN_START);
+#else
+	gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+#endif
 	gtk_table_attach (GTK_TABLE (table), label,
 			  0, 1,
 			  2, 3,

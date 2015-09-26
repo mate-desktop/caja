@@ -381,7 +381,11 @@ caja_mime_application_chooser_init (CajaMimeApplicationChooser *chooser)
     gtk_box_set_homogeneous (GTK_BOX (chooser), FALSE);
 
     chooser->details->label = gtk_label_new ("");
+#if GTK_CHECK_VERSION (3, 14, 0)
+    gtk_widget_set_halign (chooser->details->label, GTK_ALIGN_START);
+#else
     gtk_misc_set_alignment (GTK_MISC (chooser->details->label), 0.0, 0.5);
+#endif
     gtk_label_set_line_wrap (GTK_LABEL (chooser->details->label), TRUE);
     gtk_label_set_line_wrap_mode (GTK_LABEL (chooser->details->label),
                                   PANGO_WRAP_WORD_CHAR);
