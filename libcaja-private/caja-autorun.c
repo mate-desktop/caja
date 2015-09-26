@@ -1012,7 +1012,12 @@ show_dialog:
     g_object_unref (icon_info);
     g_object_unref (icon);
     image = gtk_image_new_from_pixbuf (pixbuf);
+#if GTK_CHECK_VERSION (3, 14, 0)
+    gtk_widget_set_halign (image, GTK_ALIGN_CENTER);
+    gtk_widget_set_valign (image, GTK_ALIGN_START);
+#else
     gtk_misc_set_alignment (GTK_MISC (image), 0.5, 0.0);
+#endif
     gtk_box_pack_start (GTK_BOX (hbox), image, TRUE, TRUE, 0);
     /* also use the icon on the dialog */
     gtk_window_set_title (GTK_WINDOW (dialog), mount_name);
@@ -1095,7 +1100,11 @@ show_dialog:
 #if GTK_CHECK_VERSION (3, 0, 0)
     gtk_label_set_max_width_chars (GTK_LABEL (label), 50);
 #endif
+#if GTK_CHECK_VERSION (3, 14, 0)
+    gtk_widget_set_halign (label, GTK_ALIGN_START);
+#else
     gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+#endif
     gtk_box_pack_start (GTK_BOX (vbox), label, TRUE, TRUE, 0);
 
     label = gtk_label_new (NULL);
@@ -1108,7 +1117,11 @@ show_dialog:
 #if GTK_CHECK_VERSION (3, 0, 0)
     gtk_label_set_max_width_chars (GTK_LABEL (label), 50);
 #endif
+#if GTK_CHECK_VERSION (3, 14, 0)
+    gtk_widget_set_halign (label, GTK_ALIGN_START);
+#else
     gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+#endif
     gtk_box_pack_start (GTK_BOX (vbox), label, TRUE, TRUE, 0);
 
     data = g_new0 (AutorunDialogData, 1);

@@ -1126,7 +1126,11 @@ caja_emblem_dialog_new (CajaPropertyBrowser *property_browser)
     /* make the keyword label and field */
 
     widget = gtk_label_new_with_mnemonic(_("_Keyword:"));
+#if GTK_CHECK_VERSION (3, 14, 0)
+    gtk_widget_set_halign (widget, GTK_ALIGN_START);
+#else
     gtk_misc_set_alignment (GTK_MISC (widget), 0, 0.5);
+#endif
     gtk_widget_show(widget);
     gtk_table_attach(GTK_TABLE(table), widget, 0, 1, 0, 1, GTK_FILL, GTK_FILL, 0, 0);
 
@@ -1145,7 +1149,11 @@ caja_emblem_dialog_new (CajaPropertyBrowser *property_browser)
 
     /* set up a file chooser to pick the image file */
     label = gtk_label_new_with_mnemonic (_("_Image:"));
+#if GTK_CHECK_VERSION (3, 14, 0)
+    gtk_widget_set_halign (label, GTK_ALIGN_START);
+#else
     gtk_misc_set_alignment (GTK_MISC (label), 0, 0.5);
+#endif
     gtk_widget_show (label);
     gtk_table_attach (GTK_TABLE(table), label, 0, 1, 1, 2, GTK_FILL, GTK_FILL, 0, 0);
 

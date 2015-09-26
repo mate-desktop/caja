@@ -304,7 +304,11 @@ caja_x_content_bar_init (CajaXContentBar *bar)
 
     bar->priv->label = gtk_label_new (NULL);
     gtk_label_set_ellipsize (GTK_LABEL (bar->priv->label), PANGO_ELLIPSIZE_END);
+#if GTK_CHECK_VERSION (3, 14, 0)
+    gtk_widget_set_halign (bar->priv->label, GTK_ALIGN_START);
+#else
     gtk_misc_set_alignment (GTK_MISC (bar->priv->label), 0.0, 0.5);
+#endif
     gtk_box_pack_start (GTK_BOX (bar), bar->priv->label, TRUE, TRUE, 0);
 
     bar->priv->button = gtk_button_new ();

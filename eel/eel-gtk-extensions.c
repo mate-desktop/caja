@@ -479,7 +479,11 @@ eel_gtk_message_dialog_set_details_label (GtkMessageDialog *dialog,
 	label = gtk_label_new (details_text);
 	gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
 	gtk_label_set_selectable (GTK_LABEL (label), TRUE);
+#if GTK_CHECK_VERSION (3, 14, 0)
+	gtk_widget_set_halign (label, GTK_ALIGN_START);
+#else
 	gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+#endif
 
 	gtk_container_add (GTK_CONTAINER (expander), label);
 	gtk_box_pack_start (GTK_BOX (content_area), expander, FALSE, FALSE, 0);

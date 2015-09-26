@@ -217,7 +217,11 @@ file_list_ready_cb (GList *files,
     gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
     gtk_label_set_line_wrap_mode (GTK_LABEL (label), PANGO_WRAP_WORD_CHAR);
     gtk_widget_set_size_request (label, 350, -1);
+#if GTK_CHECK_VERSION (3, 14, 0)
+    gtk_widget_set_halign (label, GTK_ALIGN_START);
+#else
     gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+#endif
     gtk_box_pack_start (GTK_BOX (details->titles_vbox),
                         label, FALSE, FALSE, 0);
     gtk_widget_modify_font (label, NULL);
@@ -232,7 +236,11 @@ file_list_ready_cb (GList *files,
     label = gtk_label_new (secondary_text);
     gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
     gtk_widget_set_size_request (label, 350, -1);
+#if GTK_CHECK_VERSION (3, 14, 0)
+    gtk_widget_set_halign (label, GTK_ALIGN_START);
+#else
     gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+#endif
     gtk_box_pack_start (GTK_BOX (details->titles_vbox),
                         label, FALSE, FALSE, 0);
     gtk_widget_show (label);
@@ -568,7 +576,12 @@ caja_file_conflict_dialog_init (CajaFileConflictDialog *fcd)
     widget = gtk_image_new_from_stock (GTK_STOCK_DIALOG_WARNING,
                                        GTK_ICON_SIZE_DIALOG);
     gtk_box_pack_start (GTK_BOX (hbox), widget, FALSE, FALSE, 0);
+#if GTK_CHECK_VERSION (3, 14, 0)
+    gtk_widget_set_halign (widget, GTK_ALIGN_CENTER);
+    gtk_widget_set_valign (widget, GTK_ALIGN_START);
+#else
     gtk_misc_set_alignment (GTK_MISC (widget), 0.5, 0.0);
+#endif
 
     /* Setup the vbox containing the dialog body */
     vbox = gtk_vbox_new (FALSE, 12);

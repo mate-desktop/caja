@@ -2547,7 +2547,12 @@ create_column_editor (FMListView *view)
     label = gtk_label_new (NULL);
     gtk_label_set_markup (GTK_LABEL (label), str);
     gtk_label_set_line_wrap (GTK_LABEL (label), FALSE);
+#if GTK_CHECK_VERSION (3, 14, 0)
+    gtk_widget_set_halign (label, GTK_ALIGN_START);
+    gtk_widget_set_valign (label, GTK_ALIGN_START);
+#else
     gtk_misc_set_alignment (GTK_MISC (label), 0, 0);
+#endif
     gtk_widget_show (label);
     gtk_box_pack_start (GTK_BOX (box), label, FALSE, FALSE, 0);
 
