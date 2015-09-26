@@ -1087,6 +1087,9 @@ show_dialog:
     gtk_label_set_markup (GTK_LABEL (label), markup);
     g_free (markup);
     gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_label_set_max_width_chars (GTK_LABEL (label), 50);
+#endif
     gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
     gtk_box_pack_start (GTK_BOX (vbox), label, TRUE, TRUE, 0);
 
@@ -1097,6 +1100,9 @@ show_dialog:
     gtk_label_set_markup (GTK_LABEL (label), markup);
     g_free (markup);
     gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_label_set_max_width_chars (GTK_LABEL (label), 50);
+#endif
     gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
     gtk_box_pack_start (GTK_BOX (vbox), label, TRUE, TRUE, 0);
 
