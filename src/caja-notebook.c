@@ -45,6 +45,10 @@
 
 #define INSANE_NUMBER_OF_URLS 20
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+#define gtk_hbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_HORIZONTAL,Y)
+#endif
+
 static void caja_notebook_init		 (CajaNotebook *notebook);
 static void caja_notebook_class_init	 (CajaNotebookClass *klass);
 static int  caja_notebook_insert_page	 (GtkNotebook *notebook,

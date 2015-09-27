@@ -57,6 +57,10 @@
 #define DEFAULT_LIGHT_INFO_COLOR 0xFFFFFF
 #define DEFAULT_DARK_INFO_COLOR  0x2A2A2A
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+#define gtk_hbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_HORIZONTAL,Y)
+#endif
+
 static void                caja_sidebar_title_size_allocate     (GtkWidget             *widget,
         							 GtkAllocation         *allocation);
 static void                update_icon                          (CajaSidebarTitle      *sidebar_title);

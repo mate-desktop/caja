@@ -6,6 +6,10 @@
 
 #include <eel/eel-editable-label.h>
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+#define gtk_vbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_VERTICAL,Y)
+#endif
+
 
 static void
 quit (GtkWidget *widget, gpointer data)

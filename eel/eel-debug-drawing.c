@@ -54,6 +54,10 @@
 #define DEBUG_IS_PIXBUF_VIEWER(obj) \
   (G_TYPE_CHECK_INSTANCE_TYPE ((obj), DEBUG_TYPE_PIXBUF_VIEWER))
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+#define gtk_vbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_VERTICAL,Y)
+#endif
+
 typedef struct DebugPixbufViewer DebugPixbufViewer;
 typedef struct DebugPixbufViewerClass DebugPixbufViewerClass;
 

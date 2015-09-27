@@ -46,6 +46,10 @@
 
 #define LOAD_BUFFER_SIZE 8192
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+#define gtk_vbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_VERTICAL,Y)
+#endif
+
 struct CajaImagePropertiesPageDetails
 {
     GCancellable *cancellable;
