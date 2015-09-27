@@ -182,6 +182,10 @@ static GdkPixbuf * make_color_drag_image                        (CajaPropertyBro
 
 #define ERASE_OBJECT_NAME "erase.png"
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+#define gtk_vbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_VERTICAL,Y)
+#endif
+
 enum
 {
     PROPERTY_TYPE
@@ -347,7 +351,11 @@ caja_property_browser_init (CajaPropertyBrowser *property_browser)
     gtk_widget_show(temp_frame);
     gtk_container_add(GTK_CONTAINER(property_browser->details->title_box), temp_frame);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    temp_hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+#else
     temp_hbox = gtk_hbox_new(FALSE, 0);
+#endif
     gtk_widget_show(temp_hbox);
 
     gtk_container_add(GTK_CONTAINER(temp_frame), temp_hbox);
@@ -372,7 +380,11 @@ caja_property_browser_init (CajaPropertyBrowser *property_browser)
     temp_box = gtk_event_box_new();
     gtk_widget_show(temp_box);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    property_browser->details->bottom_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+#else
     property_browser->details->bottom_box = gtk_hbox_new (FALSE, 6);
+#endif
     gtk_widget_show (property_browser->details->bottom_box);
 
     gtk_box_pack_end (GTK_BOX (vbox), temp_box, FALSE, FALSE, 0);
@@ -1137,7 +1149,11 @@ caja_emblem_dialog_new (CajaPropertyBrowser *property_browser)
     gtk_widget_show (label);
     gtk_table_attach (GTK_TABLE(table), label, 0, 1, 1, 2, GTK_FILL, GTK_FILL, 0, 0);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    widget = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+#else
     widget = gtk_hbox_new (FALSE, 0);
+#endif
     gtk_widget_show (widget);
 
     button = gtk_button_new ();

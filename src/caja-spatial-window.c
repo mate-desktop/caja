@@ -75,6 +75,10 @@
 #define SPATIAL_ACTION_CLOSE_ALL_FOLDERS    "Close All Folders"
 #define MENU_PATH_SPATIAL_BOOKMARKS_PLACEHOLDER	"/MenuBar/Other Menus/Places/Bookmarks Placeholder"
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+#define gtk_hbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_HORIZONTAL,Y)
+#endif
+
 struct _CajaSpatialWindowDetails
 {
     GtkActionGroup *spatial_action_group; /* owned by ui_manager */

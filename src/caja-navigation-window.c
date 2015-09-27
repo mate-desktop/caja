@@ -108,6 +108,10 @@ static CajaWindowSlot *create_extra_pane         (CajaNavigationWindow *window);
 G_DEFINE_TYPE (CajaNavigationWindow, caja_navigation_window, CAJA_TYPE_WINDOW)
 #define parent_class caja_navigation_window_parent_class
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+#define gtk_vbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_VERTICAL,Y)
+#endif
+
 static const struct
 {
     unsigned int keyval;

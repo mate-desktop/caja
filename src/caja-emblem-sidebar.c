@@ -64,6 +64,10 @@ struct CajaEmblemSidebarDetails
 #define STANDARD_EMBLEM_HEIGHT			52
 #define EMBLEM_LABEL_SPACING			2
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+#define gtk_hbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_HORIZONTAL,Y)
+#endif
+
 static void caja_emblem_sidebar_populate          (CajaEmblemSidebar        *emblem_sidebar);
 static void caja_emblem_sidebar_refresh           (CajaEmblemSidebar        *emblem_sidebar);
 static void caja_emblem_sidebar_iface_init        (CajaSidebarIface         *iface);

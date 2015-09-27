@@ -32,6 +32,10 @@
 #include "caja-desktop-window.h"
 #include <glib/gi18n.h>
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+#define gtk_hbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_HORIZONTAL,Y)
+#endif
+
 struct _CajaLocationDialogDetails
 {
     GtkWidget *entry;

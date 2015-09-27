@@ -61,6 +61,10 @@
 #include <libcaja-private/caja-clipboard.h>
 #include <libcaja-private/caja-cell-renderer-text-ellipsized.h>
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+#define gtk_vbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_VERTICAL,Y)
+#endif
+
 struct FMListViewDetails
 {
     GtkTreeView *tree_view;
