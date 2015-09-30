@@ -320,22 +320,38 @@ entry_focus_out_cb (GtkWidget *entry,
 }
 
 static GtkWidget *
+#if GTK_CHECK_VERSION (3, 0, 0)
+build_grid (GtkWidget *container,
+#else
 build_table (GtkWidget *container,
+#endif
              GKeyFile *key_file,
              GtkSizeGroup *label_size_group,
              GList *entries)
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+	GtkWidget *grid;
+#else
     GtkWidget *table;
+#endif
     GtkWidget *label;
     GtkWidget *entry;
     GList *l;
     char *val;
+#if GTK_CHECK_VERSION (3, 0, 0)
+
+   grid = gtk_grid_new ();
+   gtk_orientable_set_orientation (GTK_ORIENTABLE (grid), GTK_ORIENTATION_VERTICAL);
+   gtk_grid_set_row_spacing (GTK_GRID (grid), 6);
+   gtk_grid_set_column_spacing (GTK_GRID (grid), 12);
+#else
     int i;
 
     table = gtk_table_new (g_list_length (entries) + 1, 2, FALSE);
     gtk_table_set_row_spacings (GTK_TABLE (table), 6);
     gtk_table_set_col_spacings (GTK_TABLE (table), 12);
     i = 0;
+#endif
 
     for (l = entries; l; l = l->next)
     {
@@ -354,6 +370,9 @@ build_table (GtkWidget *container,
         gtk_size_group_add_widget (label_size_group, label);
 
         entry = gtk_entry_new ();
+#if GTK_CHECK_VERSION (3, 0, 0)
+        gtk_widget_set_hexpand (entry, TRUE);
+#endif
 
         if (item_entry->localized)
         {
@@ -374,12 +393,19 @@ build_table (GtkWidget *container,
         gtk_entry_set_text (GTK_ENTRY (entry), item_entry->current_value);
         g_free (val);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+        gtk_container_add (GTK_CONTAINER (grid), label);
+        gtk_grid_attach_next_to (GTK_GRID (grid), entry, label,
+                                  GTK_POS_RIGHT, 1, 1);
+#else
         gtk_table_attach (GTK_TABLE (table), label,
                           0, 1, i, i+1, GTK_FILL, GTK_FILL,
                           0, 0);
         gtk_table_attach (GTK_TABLE (table), entry,
                           1, 2, i, i+1, GTK_EXPAND|GTK_FILL, GTK_EXPAND|GTK_FILL,
                           0, 0);
+#endif
+
         g_signal_connect (entry, "activate",
                           G_CALLBACK (entry_activate_cb),
                           container);
@@ -413,25 +439,38 @@ build_table (GtkWidget *container,
                               entry);
         }
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
         i++;
+#endif
     }
 
     /* append dummy row */
     label = gtk_label_new ("");
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_container_add (GTK_CONTAINER (grid), label);
+    gtk_size_group_add_widget (label_size_group, label);
+
+    gtk_widget_show_all (grid);
+    return grid;
+#else
     gtk_table_attach (GTK_TABLE (table), label,
                       0, 1, i, i+1, GTK_FILL, GTK_FILL,
                       0, 0);
     gtk_size_group_add_widget (label_size_group, label);
 
-
     gtk_widget_show_all (table);
     return table;
+#endif
 }
 
 static void
 create_page (GKeyFile *key_file, GtkWidget *box)
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GtkWidget *grid;
+#else
     GtkWidget *table;
+#endif
     GList *entries;
     GtkSizeGroup *label_size_group;
     char *type;
@@ -469,10 +508,23 @@ create_page (GKeyFile *key_file, GtkWidget *box)
         /* we only handle launchers and links */
 
         /* ensure that we build an empty table with a dummy row at the end */
+#if GTK_CHECK_VERSION (3, 0, 0)
+        goto build_grid;
+#else
         goto build_table;
+#endif
     }
     g_free (type);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+build_grid:
+    label_size_group = g_object_get_data (G_OBJECT (box), "label-size-group");
+
+    grid = build_grid (box, key_file, label_size_group, entries);
+    g_list_free (entries);
+
+    gtk_box_pack_start (GTK_BOX (box), grid, FALSE, TRUE, 0);
+#else
 build_table:
     label_size_group = g_object_get_data (G_OBJECT (box), "label-size-group");
 
@@ -480,6 +532,7 @@ build_table:
     g_list_free (entries);
 
     gtk_box_pack_start (GTK_BOX (box), table, FALSE, TRUE, 0);
+#endif
     gtk_widget_show_all (GTK_WIDGET (box));
 }
 
