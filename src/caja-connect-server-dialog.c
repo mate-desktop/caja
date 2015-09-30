@@ -49,7 +49,11 @@ struct _CajaConnectServerDialogDetails
 {
     CajaApplication *application;
 
-	GtkWidget *primary_table;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GtkWidget *primary_grid;
+#else
+    GtkWidget *primary_table;
+#endif
     GtkWidget *user_details;
     GtkWidget *port_spinbutton;
 
@@ -223,7 +227,11 @@ connect_dialog_gvfs_error (CajaConnectServerDialog *dialog)
 	gtk_widget_show (label);
 
 	gtk_widget_set_sensitive (dialog->details->connect_button, FALSE);
+#if GTK_CHECK_VERSION (3, 0, 0)
+	gtk_widget_set_sensitive (dialog->details->primary_grid, FALSE);
+#else
 	gtk_widget_set_sensitive (dialog->details->primary_table, FALSE);
+#endif
 
 	gtk_widget_show (dialog->details->info_bar);
 }
@@ -844,8 +852,12 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
     GtkWidget *label;
     GtkWidget *alignment;
     GtkWidget *content_area;
-    GtkWidget *combo ,* table;
-	GtkWidget *vbox, *hbox, *connect_button, *checkbox;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GtkWidget *combo, *grid;
+#else
+    GtkWidget *combo, *table;
+#endif
+    GtkWidget *vbox, *hbox, *connect_button, *checkbox;
     GtkListStore *store;
     GtkCellRenderer *renderer;
     gchar *str;
@@ -885,11 +897,33 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
     gtk_box_pack_start (GTK_BOX (content_area), alignment, TRUE, TRUE, 0);
     gtk_widget_show (alignment);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    grid = gtk_grid_new ();
+    gtk_orientable_set_orientation (GTK_ORIENTABLE (grid), GTK_ORIENTATION_VERTICAL);
+    gtk_grid_set_row_spacing (GTK_GRID (grid), 6);
+    gtk_grid_set_column_spacing (GTK_GRID (grid), 3);
+    gtk_container_add (GTK_CONTAINER (alignment), grid);
+    gtk_widget_show (grid);
+
+    dialog->details->primary_grid = grid;
+
+    /* first row: server entry + port spinbutton */
+    label = gtk_label_new_with_mnemonic (_("_Server:"));
+    gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+    gtk_container_add (GTK_CONTAINER (grid), label);
+    gtk_widget_show (label);
+
+    hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+    gtk_widget_show (hbox);
+    gtk_grid_attach_next_to (GTK_GRID (grid), hbox, label,
+                             GTK_POS_RIGHT,
+                             1, 1);
+#else
     table = gtk_table_new (4, 2, FALSE);
     gtk_container_add (GTK_CONTAINER (alignment), table);
     gtk_widget_show (table);
 
-	dialog->details->primary_table = table;
+    dialog->details->primary_table = table;
 
     /* first row: server entry + port spinbutton */
     label = gtk_label_new_with_mnemonic (_("_Server:"));
@@ -906,6 +940,7 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
     		  1, 2,
     		  0, 1,
     		  GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 6, 3);
+#endif
 
     dialog->details->server_entry = gtk_entry_new ();
     gtk_entry_set_activates_default (GTK_ENTRY (dialog->details->server_entry), TRUE);
@@ -934,10 +969,14 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
     /* second row: type combobox */
     label = gtk_label_new (_("Type:"));
     gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_container_add (GTK_CONTAINER (grid), label);
+#else
     gtk_table_attach (GTK_TABLE (table), label,
     		  0, 1,
     		  1, 2,
     		  GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 6, 3);
+#endif
     gtk_widget_show (label);
 
     dialog->details->type_combo = combo = gtk_combo_box_new ();
@@ -1001,10 +1040,15 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
 
     gtk_widget_show (combo);
     gtk_label_set_mnemonic_widget (GTK_LABEL (label), combo);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_grid_attach_next_to (GTK_GRID (grid), combo, label,
+                             GTK_POS_RIGHT, 1, 1);
+#else
     gtk_table_attach (GTK_TABLE (table), combo,
     		  1, 2,
     		  1, 2,
     		  GTK_EXPAND | GTK_FILL, GTK_EXPAND, 6, 3);
+#endif
     g_signal_connect_swapped (combo, "changed",
 				  G_CALLBACK (connect_dialog_setup_for_type),
     			  dialog);
@@ -1012,35 +1056,53 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
     /* third row: share entry */
     label = gtk_label_new (_("Share:"));
     gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_container_add (GTK_CONTAINER (grid), label);
+#else
     gtk_table_attach (GTK_TABLE (table), label,
     		  0, 1,
     		  2, 3,
     		  GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 6, 3);
+#endif
 
     dialog->details->share_entry = gtk_entry_new ();
     gtk_entry_set_activates_default (GTK_ENTRY (dialog->details->share_entry), TRUE);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_grid_attach_next_to (GTK_GRID (grid), dialog->details->share_entry, label,
+                             GTK_POS_RIGHT, 1, 1);
+#else
     gtk_table_attach (GTK_TABLE (table), dialog->details->share_entry,
     		  1, 2,
     		  2, 3,
     		  GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 6, 3);
+#endif
 
     bind_visibility (dialog, dialog->details->share_entry, label);
 
     /* fourth row: folder entry */
     label = gtk_label_new (_("Folder:"));
     gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_container_add (GTK_CONTAINER (grid), label);
+#else
     gtk_table_attach (GTK_TABLE (table), label,
     		  0, 1,
     		  3, 4,
     		  GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 6, 3);
+#endif
     gtk_widget_show (label);
     dialog->details->folder_entry = gtk_entry_new ();
     gtk_entry_set_text (GTK_ENTRY (dialog->details->folder_entry), "/");
     gtk_entry_set_activates_default (GTK_ENTRY (dialog->details->folder_entry), TRUE);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_grid_attach_next_to (GTK_GRID (grid), dialog->details->folder_entry, label,
+                             GTK_POS_RIGHT, 1, 1);
+#else
     gtk_table_attach (GTK_TABLE (table), dialog->details->folder_entry,
     		  1, 2,
     		  3, 4,
     		  GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 6, 3);
+#endif
     gtk_widget_show (dialog->details->folder_entry);
 
     /* user details label */
@@ -1060,71 +1122,112 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
     bind_visibility (dialog, alignment, label);
     dialog->details->user_details = alignment;
 
-	table = gtk_table_new (4, 2, FALSE);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    grid = gtk_grid_new ();
+    gtk_grid_set_row_spacing (GTK_GRID (grid), 6);
+    gtk_grid_set_column_spacing (GTK_GRID (grid), 3);
+    gtk_orientable_set_orientation (GTK_ORIENTABLE (grid), GTK_ORIENTATION_VERTICAL);
+    gtk_container_add (GTK_CONTAINER (alignment), grid);
+    gtk_widget_show (grid);
+#else
+    table = gtk_table_new (4, 2, FALSE);
     gtk_container_add (GTK_CONTAINER (alignment), table);
     gtk_widget_show (table);
+#endif
 
     /* first row: domain entry */
     label = gtk_label_new (_("Domain Name:"));
     gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_container_add (GTK_CONTAINER (grid), label);
+#else
     gtk_table_attach (GTK_TABLE (table), label,
     		  0, 1,
     		  0, 1,
     		  GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 6, 3);
+#endif
 
     dialog->details->domain_entry = gtk_entry_new ();
     gtk_entry_set_activates_default (GTK_ENTRY (dialog->details->domain_entry), TRUE);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_grid_attach_next_to (GTK_GRID (grid), dialog->details->domain_entry, label,
+                             GTK_POS_RIGHT, 1, 1);
+#else
     gtk_table_attach (GTK_TABLE (table), dialog->details->domain_entry,
     		  1, 2,
     		  0, 1,
     		  GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 6, 3);
+#endif
 
     bind_visibility (dialog, dialog->details->domain_entry, label);
 
     /* second row: username entry */
     label = gtk_label_new (_("User Name:"));
     gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_container_add (GTK_CONTAINER (grid), label);
+#else
     gtk_table_attach (GTK_TABLE (table), label,
     		  0, 1,
     		  1, 2,
     		  GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 6, 3);
+#endif
 
     dialog->details->user_entry = gtk_entry_new ();
     gtk_entry_set_activates_default (GTK_ENTRY (dialog->details->user_entry), TRUE);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_grid_attach_next_to (GTK_GRID (grid), dialog->details->user_entry, label,
+                             GTK_POS_RIGHT, 1, 1);
+#else
     gtk_table_attach (GTK_TABLE (table), dialog->details->user_entry,
     		  1, 2,
     		  1, 2,
     		  GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 6, 3);
+#endif
 
     bind_visibility (dialog, dialog->details->user_entry, label);
 
-	/* third row: password entry */
-	label = gtk_label_new (_("Password:"));
+    /* third row: password entry */
+    label = gtk_label_new (_("Password:"));
     gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-	gtk_table_attach (GTK_TABLE (table), label,
-			  0, 1,
-			  2, 3,
-			  GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 6, 3);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_container_add (GTK_CONTAINER (grid), label);
+#else
+    gtk_table_attach (GTK_TABLE (table), label,
+                      0, 1,
+                      2, 3,
+                      GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 6, 3);
+#endif
 
-	dialog->details->password_entry = gtk_entry_new ();
-	gtk_entry_set_activates_default (GTK_ENTRY (dialog->details->password_entry), TRUE);
-	gtk_entry_set_visibility (GTK_ENTRY (dialog->details->password_entry), FALSE);
-	gtk_table_attach (GTK_TABLE (table), dialog->details->password_entry,
-			  1, 2,
-			  2, 3,
-			  GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 6, 3);
+    dialog->details->password_entry = gtk_entry_new ();
+    gtk_entry_set_activates_default (GTK_ENTRY (dialog->details->password_entry), TRUE);
+    gtk_entry_set_visibility (GTK_ENTRY (dialog->details->password_entry), FALSE);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_grid_attach_next_to (GTK_GRID (grid), dialog->details->password_entry, label,
+                             GTK_POS_RIGHT, 1, 1);
+#else
+    gtk_table_attach (GTK_TABLE (table), dialog->details->password_entry,
+                      1, 2,
+                      2, 3,
+                      GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 6, 3);
+#endif
 
-	bind_visibility (dialog, dialog->details->password_entry, label);
+    bind_visibility (dialog, dialog->details->password_entry, label);
 
-	/* fourth row: remember checkbox */
-	checkbox = gtk_check_button_new_with_label (_("Remember this password"));
-	gtk_table_attach (GTK_TABLE (table), checkbox,
-			  1, 2,
-			  3, 4,
-			  GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 6, 0);
-	dialog->details->remember_checkbox = checkbox;
+    /* fourth row: remember checkbox */
+    checkbox = gtk_check_button_new_with_label (_("Remember this password"));
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_grid_attach_next_to (GTK_GRID (grid), checkbox, dialog->details->password_entry,
+                             GTK_POS_BOTTOM, 1, 1);
+#else
+    gtk_table_attach (GTK_TABLE (table), checkbox,
+                      1, 2,
+                      3, 4,
+                      GTK_EXPAND | GTK_FILL, GTK_EXPAND | GTK_FILL, 6, 0);
+#endif
+    dialog->details->remember_checkbox = checkbox;
 
-	bind_visibility (dialog, dialog->details->password_entry, checkbox);
+    bind_visibility (dialog, dialog->details->password_entry, checkbox);
 
     /* add as bookmark */
     vbox = gtk_vbox_new (FALSE, 12);
