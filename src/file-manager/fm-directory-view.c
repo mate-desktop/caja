@@ -1193,7 +1193,11 @@ select_pattern (FMDirectoryView *view)
 	GtkWidget *dialog;
 	GtkWidget *label;
 	GtkWidget *example;
+#if GTK_CHECK_VERSION (3, 0, 0)
+	GtkWidget *grid;
+#else
 	GtkWidget *table;
+#endif
 	GtkWidget *entry;
 	char *example_pattern;
 
@@ -1213,7 +1217,15 @@ select_pattern (FMDirectoryView *view)
 	gtk_box_set_spacing (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), 2);
 
 	label = gtk_label_new_with_mnemonic (_("_Pattern:"));
+
+#if GTK_CHECK_VERSION (3, 0, 0)
+	gtk_widget_set_halign (label, GTK_ALIGN_START);
+
 	example = gtk_label_new (NULL);
+	gtk_widget_set_halign (example, GTK_ALIGN_START);
+#else
+	example = gtk_label_new (NULL);
+#endif
 	example_pattern = g_strdup_printf ("<b>%s</b><i>%s</i>",
 					   _("Examples: "),
 					   "*.png, file\?\?.txt, pict*.\?\?\?");
@@ -1226,7 +1238,27 @@ select_pattern (FMDirectoryView *view)
 #endif
 	entry = gtk_entry_new ();
 	gtk_entry_set_activates_default (GTK_ENTRY (entry), TRUE);
+#if GTK_CHECK_VERSION (3, 0, 0)
+	gtk_widget_set_hexpand (entry, TRUE);
 
+	grid = gtk_grid_new ();
+	g_object_set (grid,
+		      "orientation", GTK_ORIENTATION_VERTICAL,
+		      "border-width", 6,
+		      "row-spacing", 6,
+		      "column-spacing", 12,
+		      NULL);
+
+	gtk_container_add (GTK_CONTAINER (grid), label);
+	gtk_grid_attach_next_to (GTK_GRID (grid), entry, label,
+				 GTK_POS_RIGHT, 1, 1);
+	gtk_grid_attach_next_to (GTK_GRID (grid), example, entry,
+				 GTK_POS_BOTTOM, 1, 1);
+
+	gtk_label_set_mnemonic_widget (GTK_LABEL (label), entry);
+	gtk_widget_show_all (grid);
+	gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), grid);
+#else
 	table = gtk_table_new (2, 2, FALSE);
 
 	gtk_table_attach (GTK_TABLE (table), label,
@@ -1250,6 +1282,7 @@ select_pattern (FMDirectoryView *view)
 	gtk_label_set_mnemonic_widget (GTK_LABEL (label), entry);
 	gtk_widget_show_all (table);
 	gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), table);
+#endif
 	g_object_set_data (G_OBJECT (dialog), "entry", entry);
 	g_signal_connect (dialog, "response",
 			  G_CALLBACK (pattern_select_response_cb),
@@ -1326,7 +1359,11 @@ action_save_search_as_callback (GtkAction *action,
 {
 	FMDirectoryView	*directory_view;
 	CajaSearchDirectory *search;
+#if GTK_CHECK_VERSION (3, 0, 0)
+	GtkWidget *dialog, *grid, *label, *entry, *chooser, *save_button;
+#else
 	GtkWidget *dialog, *table, *label, *entry, *chooser, *save_button;
+#endif
 	const char *entry_text;
 	char *filename, *filename_utf8, *dirname, *path, *uri;
 	GFile *location;
@@ -1350,12 +1387,24 @@ action_save_search_as_callback (GtkAction *action,
 		gtk_box_set_spacing (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), 2);
 		gtk_window_set_resizable (GTK_WINDOW (dialog), FALSE);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+		grid = gtk_grid_new ();
+		g_object_set (grid,
+			      "orientation", GTK_ORIENTATION_VERTICAL,
+			      "border-width", 5,
+			      "row-spacing", 6,
+			      "column-spacing", 12,
+			      NULL);
+		gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), grid, TRUE, TRUE, 0);
+		gtk_widget_show (grid);
+#else
 		table = gtk_table_new (2, 2, FALSE);
 		gtk_container_set_border_width (GTK_CONTAINER (table), 5);
 		gtk_table_set_row_spacings (GTK_TABLE (table), 6);
 		gtk_table_set_col_spacings (GTK_TABLE (table), 12);
 		gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), table, TRUE, TRUE, 0);
 		gtk_widget_show (table);
+#endif
 
 		label = gtk_label_new_with_mnemonic (_("Search _name:"));
 #if GTK_CHECK_VERSION (3, 14, 0)
@@ -1363,10 +1412,20 @@ action_save_search_as_callback (GtkAction *action,
 #else
 		gtk_misc_set_alignment (GTK_MISC(label), 0.0, 0.5);
 #endif
+#if GTK_CHECK_VERSION (3, 0, 0)
+		gtk_container_add (GTK_CONTAINER (grid), label);
+#else
 		gtk_table_attach (GTK_TABLE (table), label, 0, 1, 0, 1, GTK_FILL, 0, 0, 0);
+#endif
 		gtk_widget_show (label);
 		entry = gtk_entry_new ();
+#if GTK_CHECK_VERSION (3, 0, 0)
+		gtk_widget_set_hexpand (entry, TRUE);
+		gtk_grid_attach_next_to (GTK_GRID (grid), entry, label,
+					 GTK_POS_RIGHT, 1, 1);
+#else
 		gtk_table_attach (GTK_TABLE (table), entry, 1, 2, 0, 1, GTK_FILL | GTK_EXPAND, 0, 0, 0);
+#endif
 		gtk_entry_set_activates_default (GTK_ENTRY (entry), TRUE);
 		gtk_label_set_mnemonic_widget (GTK_LABEL (label), entry);
 
@@ -1381,12 +1440,22 @@ action_save_search_as_callback (GtkAction *action,
 #else
 		gtk_misc_set_alignment (GTK_MISC(label), 0.0, 0.5);
 #endif
+#if GTK_CHECK_VERSION (3, 0, 0)
+		gtk_container_add (GTK_CONTAINER (grid), label);
+#else
 		gtk_table_attach (GTK_TABLE (table), label, 0, 1, 1, 2, GTK_FILL, 0, 0, 0);
+#endif
 		gtk_widget_show (label);
 
 		chooser = gtk_file_chooser_button_new (_("Select Folder to Save Search In"),
 						      GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER);
+#if GTK_CHECK_VERSION (3, 0, 0)
+		gtk_widget_set_hexpand (chooser, TRUE);
+		gtk_grid_attach_next_to (GTK_GRID (grid), chooser, label,
+					 GTK_POS_RIGHT, 1, 1);
+#else
 		gtk_table_attach (GTK_TABLE (table), chooser, 1, 2, 1, 2, GTK_FILL | GTK_EXPAND, 0, 0, 0);
+#endif
 		gtk_label_set_mnemonic_widget (GTK_LABEL (label), chooser);
 		gtk_widget_show (chooser);
 
