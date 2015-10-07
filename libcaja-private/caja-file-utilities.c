@@ -1122,7 +1122,7 @@ caja_is_engrampa_installed (void)
 #define GSM_INTERFACE "org.gnome.SessionManager"
 
 /* The following values come from
- * http://www.gnome.org/~mccann/mate-session/docs/mate-session.html#org.gnome.SessionManager.Inhibit
+ * https://people.gnome.org/~mccann/gnome-session/docs/gnome-session.html#org.gnome.SessionManager.Inhibit
  */
 #define INHIBIT_LOGOUT (1U)
 #define INHIBIT_SUSPEND (4U)
