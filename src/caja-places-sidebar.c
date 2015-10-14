@@ -1021,6 +1021,11 @@ over_eject_button (CajaPlacesSidebar *sidebar,
         eject_button_size = caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU);
 
         if (x - total_width >= 0 &&
+#if GTK_CHECK_VERSION (3, 0, 0)
+            /* fix unwanted unmount requests if clicking on the label */
+            x >= total_width - eject_button_size &&
+            x >= 80 &&
+#endif
             x - total_width <= eject_button_size) {
             return TRUE;
         }
