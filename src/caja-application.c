@@ -719,7 +719,11 @@ screensaver_vanished_callback (GDBusConnection *connection,
 	g_debug ("ScreenSaver name vanished");
 
 	application->screensaver_active = FALSE;
-	g_object_unref (&application->ss_proxy);
+	if (application->ss_proxy != NULL)
+	{
+		g_object_unref (application->ss_proxy);
+		application->ss_proxy = NULL;
+	}
 
 	/* in this case force a clear of the volume queue, without
 	 * mounting them.
