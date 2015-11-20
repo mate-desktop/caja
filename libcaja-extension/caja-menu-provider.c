@@ -115,7 +115,10 @@ caja_menu_provider_get_background_items (CajaMenuProvider *provider,
         GtkWidget *window,
         CajaFileInfo *current_folder)
 {
-    g_return_val_if_fail (CAJA_IS_MENU_PROVIDER (provider), NULL);
+    if (!CAJA_IS_MENU_PROVIDER (provider)) {
+      return NULL;
+    }
+
     g_return_val_if_fail (CAJA_IS_FILE_INFO (current_folder), NULL);
 
     if (CAJA_MENU_PROVIDER_GET_IFACE (provider)->get_background_items)
