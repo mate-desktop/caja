@@ -5,6 +5,7 @@
 # Translators:
 # Atilla Öntaş <tarakbumba@gmail.com>, 2013-2015
 # Atilla Öntaş <tarakbumba@gmail.com>, 2013-2014
+# Butterfly <gokhanlnx@gmail.com>, 2015
 # Emre FIRAT <emrefirat93@gmail.com>, 2013
 # Emre FIRAT <emrefirat93@gmail.com>, 2013
 # Kudret Emre <kudretemre@hotmail.com.tr>, 2014
@@ -12,13 +13,14 @@
 # mauron, 2013-2014
 # mauron, 2012
 # Mehmet <mehmet337402@gmail.com>, 2015
+# Butterfly <gokhanlnx@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-06 16:48+0200\n"
-"PO-Revision-Date: 2015-09-10 12:00+0000\n"
-"Last-Translator: Mehmet <mehmet337402@gmail.com>\n"
+"PO-Revision-Date: 2015-11-07 09:32+0000\n"
+"Last-Translator: Butterfly <gokhanlnx@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/mate/MATE/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3162,7 +3164,7 @@ msgid ""
 "A string specifying how parts of overlong file names should be replaced by ellipses, depending on the zoom level. Each of the list entries is of the form \"Zoom Level:Integer\". For each specified zoom level, if the given integer is larger than 0, the file name will not exceed the given number of lines. If the integer is 0 or smaller, no limit is imposed on the specified zoom level. A default entry of the form \"Integer\" without any specified zoom level is also allowed. It defines the maximum number of lines for all other zoom levels. Examples: 0 - always display overlong file names; 3 - shorten file names if they exceed three lines; smallest:5,smaller:4,0 - shorten file names if they exceed five lines for zoom level \"smallest\". Shorten file names if they exceed four lines for zoom level \"smaller\". Do not shorten file names for other zoom levels.\n"
 "\n"
 "Available zoom levels: smallest (33%), smaller (50%), small (66%), standard (100%), large (150%), larger (200%), largest (400%)"
-msgstr ""
+msgstr "Çok uzun dosya isimlerinin yaklaştırma seviyesine bağlı olarak nasıl kısaltılacağını belirten bir dizgi. Her liste girişi \"Yaklaştırma Seviyesi:Tamsayı\" biçimindedir. Her yaklaştırma seviyesine göre, eğer girilen tamsayı 0'dan büyükse dosya ismi girilen satır sayısını geçmez. Eğer tamsayı 0 ya da daha küçükse, belirtilen yaklaştırma seviyesinde hiçbir sınır uygulanmaz. Bir öntanımlı olarak yaklaştırma seviyesi belirtilmeden \"Tamsayı\" biçiminde girişe izin verilir. Bu diğer tüm yaklaştırma seviyeleri için satır sınırını belirtir. Örnekler: 0 - her zaman uzun dosya isimlerini göster; 3 - eğer dosya ismi üç satırı geçiyorsa kısalt; smallest:5, smaller:4,0 - yaklaştırma seviyesi \"smallest\" için eğer beş satırı geçerse dosya ismini kısalt. \"small\" yaklaştırma seviyesi için eğer satır sayısı 4'ü geçerse dosya ismini kısalt. Diğer yaklaştırma seviyeleri için dosya isimlerini kısaltma. \n\nGeçerli yaklaştırma seviyeleri: smallest (enküçük) (%33), smaller (daha küçük) (%50), small (küçük) (%66), standard (standart) (%100), large (büyük) (%150), larger (daha büyük) (%200), largest (enbüyük) (%400)"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:80
 msgid "Default compact view zoom level"
@@ -3396,11 +3398,11 @@ msgstr "Yeni açılan pencerelerde görüntülenen yan panel."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:130
 msgid "List of extensions in disabled state."
-msgstr ""
+msgstr "Pasif durumdaki eklentilerin listesi"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:131
 msgid "This list contains the extensions that are currently de-activated."
-msgstr ""
+msgstr "Bu liste etkinleştirilmemiş mevcut eklentileri içerir."
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:1
 msgid "Whether to automatically mount media"
@@ -5594,7 +5596,7 @@ msgstr "Güvenli WebDAV (HTTPS)"
 
 #: ../src/caja-connect-server-dialog.c:150
 msgid "Apple Filing Protocol (AFP)"
-msgstr ""
+msgstr "Apple Dosyalama Protokolü (AFP)"
 
 #: ../src/caja-connect-server-dialog.c:196
 msgid "Connecting..."
