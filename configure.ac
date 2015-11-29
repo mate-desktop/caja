@@ -19,7 +19,7 @@ dnl Interface break is not allowed.
 m4_define(caja_extension_current,  5)
 m4_define(caja_extension_revision, 0)
 
-AC_INIT([caja], [1.12.0], [http://www.mate-desktop.org])
+AC_INIT([caja], [1.12.1], [http://www.mate-desktop.org])
 
 # GLib min/max required versions
 AC_DEFINE([GLIB_VERSION_MAX_ALLOWED], [GLIB_VERSION_2_36],
