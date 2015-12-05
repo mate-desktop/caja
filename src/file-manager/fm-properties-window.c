@@ -1414,8 +1414,10 @@ attach_label (GtkTable *table,
 	      int column,
 #endif
 	      const char *initial_text,
+#if !GTK_CHECK_VERSION (3, 0, 0)
 	      gboolean right_aligned,
 	      gboolean bold,
+#endif
 	      gboolean ellipsize_text,
 	      gboolean selectable,
 	      gboolean mnemonic)
@@ -1425,8 +1427,12 @@ attach_label (GtkTable *table,
 	if (ellipsize_text) {
 		label_field = gtk_label_new (initial_text);
                 gtk_label_set_ellipsize (GTK_LABEL (label_field),
+#if GTK_CHECK_VERSION (3, 0, 0)
+					 PANGO_ELLIPSIZE_END);
+#else
                                          right_aligned ? PANGO_ELLIPSIZE_START :
                                                          PANGO_ELLIPSIZE_END);
+#endif
 	} else if (mnemonic) {
 		label_field = gtk_label_new_with_mnemonic (initial_text);
 	} else {
@@ -1437,11 +1443,13 @@ attach_label (GtkTable *table,
 		gtk_label_set_selectable (GTK_LABEL (label_field), TRUE);
 	}
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
 	if (bold) {
 		eel_gtk_label_make_bold (GTK_LABEL (label_field));
 	}
+#endif
 #if GTK_CHECK_VERSION (3, 14, 0)
-	gtk_widget_set_halign (label_field, right_aligned ? 1 :GTK_ALIGN_START);
+	gtk_widget_set_halign (label_field, GTK_ALIGN_START);
 #else
 	gtk_misc_set_alignment (GTK_MISC (label_field), right_aligned ? 1 : 0, 0.5);
 #endif
@@ -1478,7 +1486,7 @@ attach_value_label (GtkGrid *grid,
                     GtkWidget *sibling,
                     const char *initial_text)
 {
-	return attach_label (grid, sibling, initial_text, FALSE, FALSE, FALSE, TRUE, FALSE);
+	return attach_label (grid, sibling, initial_text, FALSE, TRUE, FALSE);
 }
 #else
 attach_value_label (GtkTable *table,
@@ -1496,7 +1504,7 @@ attach_ellipsizing_value_label (GtkGrid *grid,
                                 GtkWidget *sibling,
                                 const char *initial_text)
 {
-	return attach_label (grid, sibling, initial_text, FALSE, FALSE, TRUE, TRUE, FALSE);
+	return attach_label (grid, sibling, initial_text, TRUE, TRUE, FALSE);
 }
 #else
 attach_ellipsizing_value_label (GtkTable *table,
@@ -2588,7 +2596,7 @@ static GtkLabel *
 attach_title_field (GtkGrid *grid,
                     const char *title)
 {
-	return attach_label (grid, NULL, title, FALSE, FALSE, FALSE, FALSE, TRUE);
+	return attach_label (grid, NULL, title, FALSE, FALSE, TRUE);
 }
 #else
 attach_title_field (GtkTable *table,
