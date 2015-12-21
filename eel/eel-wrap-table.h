@@ -95,7 +95,7 @@ extern "C" {
             int                 position);
     guint            eel_wrap_table_get_num_children          (const EelWrapTable *wrap_table);
 
-    GtkWidget *      eel_scrolled_wrap_table_new              (gboolean            homogenous,
+    GtkWidget *      eel_scrolled_wrap_table_new              (gboolean            homogeneous,
             GtkShadowType       shadow_type,
             GtkWidget         **wrap_table_out);
 

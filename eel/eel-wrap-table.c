@@ -497,7 +497,7 @@ eel_wrap_table_class_init (EelWrapTableClass *wrap_table_class)
     g_object_class_install_property
     (gobject_class,
      PROP_HOMOGENEOUS,
-     g_param_spec_boolean ("homogenous", NULL, NULL,
+     g_param_spec_boolean ("homogeneous", NULL, NULL,
                            FALSE, G_PARAM_READWRITE));
 
     g_type_class_add_private (wrap_table_class, sizeof (EelWrapTableDetails));
@@ -1108,7 +1108,7 @@ eel_wrap_table_get_num_children (const EelWrapTable *wrap_table)
 }
 
 GtkWidget *
-eel_scrolled_wrap_table_new (gboolean homogenous,
+eel_scrolled_wrap_table_new (gboolean homogeneous,
                              GtkShadowType shadow_type,
                              GtkWidget **wrap_table_out)
 {
@@ -1131,7 +1131,7 @@ eel_scrolled_wrap_table_new (gboolean homogenous,
     gtk_container_add (GTK_CONTAINER (scrolled_window),
                        viewport);
 
-    wrap_table = eel_wrap_table_new (homogenous);
+    wrap_table = eel_wrap_table_new (homogeneous);
     gtk_container_add (GTK_CONTAINER (viewport),
                        wrap_table);
 
