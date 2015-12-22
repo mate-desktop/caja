@@ -44,6 +44,7 @@ void      egg_sm_client_quit           (EggSMClient *client);
     GType        egg_sm_client_dbus_get_type (void);
     EggSMClient *egg_sm_client_dbus_new      (void);
 #endif
+#endif
 
 G_END_DECLS
 
