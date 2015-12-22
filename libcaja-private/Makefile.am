@@ -175,8 +175,6 @@ libcaja_private_la_SOURCES = \
 	caja-tree-view-drag-dest.h \
 	caja-ui-utilities.c \
 	caja-ui-utilities.h \
-	caja-users-groups-cache.c \
-	caja-users-groups-cache.h \
 	caja-vfs-directory.c \
 	caja-vfs-directory.h \
 	caja-vfs-file.c \

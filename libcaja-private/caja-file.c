@@ -44,7 +44,6 @@
 #include "caja-search-directory-file.h"
 #include "caja-thumbnails.h"
 #include "caja-ui-utilities.h"
-#include "caja-users-groups-cache.h"
 #include "caja-vfs-file.h"
 #include "caja-saved-search-file.h"
 #include <eel/eel-debug.h>
