@@ -483,6 +483,9 @@ main (int argc, char *argv[])
     {
         /* do not manage desktop when running as root or on other desktops */
         no_desktop = TRUE;
+
+        /* set smclient mode to "no restart" when running as root or on other desktops */
+        egg_sm_client_set_mode (EGG_SM_CLIENT_MODE_NO_RESTART);
     }
 
     if (perform_self_check && remaining != NULL)
