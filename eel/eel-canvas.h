@@ -530,13 +530,6 @@ extern "C" {
     void eel_canvas_world_to_window (EelCanvas *canvas,
                                      double worldx, double worldy, double *winx, double *winy);
 
-    /* Takes a string specification for a color and allocates it into the specified
-     * GdkColor.  If the string is null, then it returns FALSE. Otherwise, it
-     * returns TRUE.
-     */
-    int eel_canvas_get_color (EelCanvas *canvas, const char *spec, GdkColor *color);
-
-
 #ifdef __cplusplus
 }
 #endif
