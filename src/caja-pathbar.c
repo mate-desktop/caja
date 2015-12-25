@@ -326,6 +326,9 @@ caja_path_bar_init (CajaPathBar *path_bar)
     g_free (p);
     path_bar->home_path = g_file_new_for_path (g_get_home_dir ());
     path_bar->root_path = g_file_new_for_path ("/");
+    path_bar->current_path = NULL;
+    path_bar->current_button_data = NULL;
+
     desktop_is_home = g_file_equal (path_bar->home_path, path_bar->desktop_path);
 
     g_signal_connect_swapped (caja_preferences, "changed::" CAJA_PREFERENCES_DESKTOP_IS_HOME_DIR,
@@ -1858,8 +1861,8 @@ button_data_file_changed (CajaFile *file,
         return;
     }
 
-    g_assert (path_bar->current_path != NULL);
-    g_assert (path_bar->current_button_data != NULL);
+    g_return_if_fail (path_bar->current_path != NULL);
+    g_return_if_fail (path_bar->current_button_data != NULL);
 
     current_button_data = path_bar->current_button_data;
 
