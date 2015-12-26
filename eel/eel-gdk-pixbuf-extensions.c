@@ -1265,7 +1265,11 @@ eel_gdk_pixbuf_render (GdkPixbuf *pixbuf,
                        guint saturation,
                        guint brightness,
                        guint lighten_value,
+#if GTK_CHECK_VERSION(3,0,0)
+                       GdkRGBA *color)
+#else
                        guint color)
+#endif
 {
     GdkPixbuf *temp_pixbuf, *old_pixbuf;
 
@@ -1277,19 +1281,27 @@ eel_gdk_pixbuf_render (GdkPixbuf *pixbuf,
     else if (render_mode == 2)
     {
         /* colorize icon */
+#if GTK_CHECK_VERSION(3,0,0)
+        temp_pixbuf = eel_create_colorized_pixbuf (pixbuf, color);
+#else
         temp_pixbuf = eel_create_colorized_pixbuf (pixbuf,
                       EEL_RGBA_COLOR_GET_R (color),
                       EEL_RGBA_COLOR_GET_G (color),
                       EEL_RGBA_COLOR_GET_B (color));
+#endif
     }
     else if (render_mode == 3)
     {
         /* monochromely colorize icon */
         old_pixbuf = eel_create_darkened_pixbuf (pixbuf, 0, 255);
+#if GTK_CHECK_VERSION(3,0,0)
+        temp_pixbuf = eel_create_colorized_pixbuf (old_pixbuf, color);
+#else
         temp_pixbuf = eel_create_colorized_pixbuf (old_pixbuf,
                       EEL_RGBA_COLOR_GET_R (color),
                       EEL_RGBA_COLOR_GET_G (color),
                       EEL_RGBA_COLOR_GET_B (color));
+#endif
         g_object_unref (old_pixbuf);
     }
     else
