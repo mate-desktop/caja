@@ -1611,11 +1611,17 @@ drag_highlight_expose (GtkWidget      *widget,
                        gpointer        data)
 #endif
 {
+#if GTK_CHECK_VERSION(3,0,0)
+    gint width, height;
+#else
     gint x, y, width, height;
+#endif
     GdkWindow *window;
 
+#if !GTK_CHECK_VERSION(3,0,0)
     x = gtk_adjustment_get_value (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (widget)));
     y = gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (widget)));
+#endif
 
     window = gtk_widget_get_window (widget);
     width = gdk_window_get_width (window);
@@ -1626,7 +1632,7 @@ drag_highlight_expose (GtkWidget      *widget,
                       cr,
                       GTK_STATE_NORMAL, GTK_SHADOW_OUT,
                       widget, "dnd",
-                      x, y, width, height);
+                      0, 0, width, height);
 #else
     gtk_paint_shadow (gtk_widget_get_style (widget), window,
                       GTK_STATE_NORMAL, GTK_SHADOW_OUT,
@@ -1638,7 +1644,11 @@ drag_highlight_expose (GtkWidget      *widget,
 
     cairo_set_line_width (cr, 1.0);
     cairo_set_source_rgb (cr, 0, 0, 0);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    cairo_rectangle (cr, 0.5, 0.5, width - 1, height - 1);
+#else
     cairo_rectangle (cr, x + 0.5, y + 0.5, width - 1, height - 1);
+#endif
     cairo_stroke (cr);
 #if !GTK_CHECK_VERSION(3,0,0)
     cairo_destroy (cr);
