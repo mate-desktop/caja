@@ -114,7 +114,11 @@ guint32             eel_gdk_color_to_rgb                   (const GdkColor      
 GdkColor            eel_gdk_rgb_to_color                   (guint32              color);
 char *              eel_gdk_rgb_to_color_spec              (guint32              color);
 
+#if GTK_CHECK_VERSION(3,0,0)
+gboolean            eel_gdk_rgba_is_dark                   (const GdkRGBA       *color);
+#else
 gboolean            eel_gdk_color_is_dark                  (GdkColor            *color);
+#endif
 
 /* Wrapper for XParseGeometry */
 EelGdkGeometryFlags eel_gdk_parse_geometry                 (const char          *string,
@@ -124,15 +128,17 @@ EelGdkGeometryFlags eel_gdk_parse_geometry                 (const char          
         guint               *height_return);
 #if GTK_CHECK_VERSION(3,0,0)
 void                eel_cairo_draw_layout_with_drop_shadow (cairo_t             *cr,
+                                                            GdkRGBA             *text_color,
+                                                            GdkRGBA             *shadow_color,
 #else
 void                eel_gdk_draw_layout_with_drop_shadow   (GdkDrawable         *drawable,
-#endif
         						    GdkColor            *text_color,
         						    GdkColor            *shadow_color,
+#endif
         						    int                  x,
         						    int                  y,
         						    PangoLayout         *layout);
 #if GTK_CHECK_VERSION(3,0,0)
-void                eel_make_color_inactive                (GdkColor            *color);
+void                eel_make_color_inactive                (GdkRGBA            *color);
 #endif
 #endif /* EEL_GDK_EXTENSIONS_H */
