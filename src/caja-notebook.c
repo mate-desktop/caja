@@ -38,12 +38,8 @@
 #include <gio/gio.h>
 #include <gtk/gtk.h>
 
-#define TAB_WIDTH_N_CHARS 15
-
 #define AFTER_ALL_TABS -1
 #define NOT_IN_APP_WINDOWS -2
-
-#define INSANE_NUMBER_OF_URLS 20
 
 #if GTK_CHECK_VERSION (3, 0, 0)
 #define gtk_hbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_HORIZONTAL,Y)

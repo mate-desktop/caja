@@ -221,13 +221,9 @@ gsettings_SCHEMAS = org.mate.caja.gschema.xml org.mate.media-handling.gschema.xm
 
 @GSETTINGS_RULES@
 
-convertdir = $(datadir)/MateConf/gsettings
-convert_DATA = caja.convert
-
 EXTRA_DIST = \
 	caja-marshal.list \
 	$(gsettings_SCHEMAS) \
-	$(convert_DATA) \
 	$(BEAGLE_SOURCES) \
 	$(TRACKER_SOURCES) \
 	$(NULL)
