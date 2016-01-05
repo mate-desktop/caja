@@ -1628,10 +1628,8 @@ drag_highlight_expose (GtkWidget      *widget,
     height = gdk_window_get_height (window);
 
 #if GTK_CHECK_VERSION (3, 0, 0)
-    gtk_paint_shadow (gtk_widget_get_style (widget),
+    gtk_render_frame (gtk_widget_get_style_context (widget),
                       cr,
-                      GTK_STATE_NORMAL, GTK_SHADOW_OUT,
-                      widget, "dnd",
                       0, 0, width, height);
 #else
     gtk_paint_shadow (gtk_widget_get_style (widget), window,
