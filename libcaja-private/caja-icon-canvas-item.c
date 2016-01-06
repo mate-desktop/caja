@@ -2381,7 +2381,7 @@ draw_label_layout (CajaIconCanvasItem *item,
                    int x,
                    int y)
 {
-    GdkRGBA black = { 0, 0, 0, 0 };
+    GdkRGBA black = { 0, 0, 0, 1 };
 #else
                    GdkDrawable *drawable,
                    PangoLayout *layout,

@@ -121,8 +121,8 @@
 #define DEFAULT_NORMAL_ALPHA 0xff
 #define DEFAULT_PRELIGHT_ALPHA 0xff
 #if GTK_CHECK_VERSION(3,0,0)
-#define DEFAULT_LIGHT_INFO_COLOR "AAAAFD"
-#define DEFAULT_DARK_INFO_COLOR  "33337F"
+#define DEFAULT_LIGHT_INFO_COLOR "#AAAAFD"
+#define DEFAULT_DARK_INFO_COLOR  "#33337F"
 #else
 #define DEFAULT_LIGHT_INFO_COLOR 0xAAAAFD
 #define DEFAULT_DARK_INFO_COLOR  0x33337F
@@ -9494,13 +9494,13 @@ setup_label_gcs (CajaIconContainer *container)
     if (!light_info_color)
     {
         light_info_color = g_malloc (sizeof (GdkRGBA));
-        gdk_rgba_parse (light_info_color, DEFAULT_LIGHT_INFO_COLOR);
+        g_assert (gdk_rgba_parse (light_info_color, DEFAULT_LIGHT_INFO_COLOR));
     }
 
     if (!dark_info_color)
     {
-        light_info_color = g_malloc (sizeof (GdkRGBA));
-        gdk_rgba_parse (dark_info_color, DEFAULT_DARK_INFO_COLOR);
+        dark_info_color = g_malloc (sizeof (GdkRGBA));
+        g_assert (gdk_rgba_parse (dark_info_color, DEFAULT_DARK_INFO_COLOR));
     }
 
     gtk_style_context_get_color (style, GTK_STATE_FLAG_SELECTED, &color);
@@ -9545,7 +9545,7 @@ setup_label_gcs (CajaIconContainer *container)
         {
             GdkRGBA tmp;
 
-            gdk_rgba_parse (&tmp, "EFEFEF");
+            gdk_rgba_parse (&tmp, "#EFEFEF");
             setup_gc_with_fg (container, LABEL_COLOR, &tmp);
             setup_gc_with_fg (container, LABEL_INFO_COLOR, light_info_color);
         }
@@ -9553,7 +9553,7 @@ setup_label_gcs (CajaIconContainer *container)
         {
             GdkRGBA tmp;
 
-            gdk_rgba_parse (&tmp, "000000");
+            gdk_rgba_parse (&tmp, "#000000");
             setup_gc_with_fg (container, LABEL_COLOR, &tmp);
             setup_gc_with_fg (container, LABEL_INFO_COLOR, dark_info_color);
         }
