@@ -54,8 +54,13 @@
 #define MIN_TITLE_FONT_SIZE 	 12
 #define TITLE_PADDING		  4
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+#define DEFAULT_LIGHT_INFO_COLOR "#FFFFFF"
+#define DEFAULT_DARK_INFO_COLOR  "#2A2A2A"
+#else
 #define DEFAULT_LIGHT_INFO_COLOR 0xFFFFFF
 #define DEFAULT_DARK_INFO_COLOR  0x2A2A2A
+#endif
 
 #if GTK_CHECK_VERSION (3, 0, 0)
 #define gtk_hbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_HORIZONTAL,Y)
@@ -97,7 +102,11 @@ struct CajaSidebarTitleDetails
     GtkWidget		*more_info_label;
     GtkWidget		*emblem_box;
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GdkRGBA		 label_colors [LAST_LABEL_COLOR];
+#else
     GdkColor		 label_colors [LAST_LABEL_COLOR];
+#endif
     guint		 best_icon_size;
     gboolean		 determined_icon;
 };
@@ -112,6 +121,7 @@ style_set (GtkWidget *widget,
     CajaSidebarTitle *sidebar_title;
     PangoFontDescription *font_desc;
     GtkStyle *style;
+
 
     g_return_if_fail (CAJA_IS_SIDEBAR_TITLE (widget));
 
@@ -223,16 +233,30 @@ caja_sidebar_title_class_init (CajaSidebarTitleClass *klass)
     widget_class->style_set = style_set;
 
     gtk_widget_class_install_style_property (widget_class,
+#if GTK_CHECK_VERSION (3, 0, 0)
+            g_param_spec_boxed ("light_info_rgba",
+                                "Light Info RGBA",
+                                "Color used for information text against a dark background",
+                                GDK_TYPE_RGBA,
+#else
             g_param_spec_boxed ("light_info_color",
                                 "Light Info Color",
                                 "Color used for information text against a dark background",
                                 GDK_TYPE_COLOR,
+#endif
                                 G_PARAM_READABLE));
     gtk_widget_class_install_style_property (widget_class,
+#if GTK_CHECK_VERSION (3, 0, 0)
+            g_param_spec_boxed ("dark_info_rgba",
+                                "Dark Info RGBA",
+                                "Color used for information text against a light background",
+                                GDK_TYPE_RGBA,
+#else
             g_param_spec_boxed ("dark_info_color",
                                 "Dark Info Color",
                                 "Color used for information text against a light background",
                                 GDK_TYPE_COLOR,
+#endif
                                 G_PARAM_READABLE));
 
     g_type_class_add_private (klass, sizeof (CajaSidebarTitleDetails));
@@ -246,23 +270,71 @@ caja_sidebar_title_new (void)
 }
 
 static void
+#if GTK_CHECK_VERSION (3, 0, 0)
+setup_gc_with_fg (CajaSidebarTitle *sidebar_title, int idx, GdkRGBA *color)
+{
+    sidebar_title->details->label_colors[idx] = *color;
+#else
 setup_gc_with_fg (CajaSidebarTitle *sidebar_title, int idx, guint32 color)
 {
     sidebar_title->details->label_colors [idx] = eel_gdk_rgb_to_color (color);
+#endif
 }
 
 void
 caja_sidebar_title_select_text_color (CajaSidebarTitle *sidebar_title,
                                       EelBackground    *background)
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GdkRGBA *light_info_color, *dark_info_color;
+    GtkStyleContext *style;
+    GdkRGBA color;
+#else
     GdkColor *light_info_color, *dark_info_color;
     guint light_info_value, dark_info_value;
     GtkStyle *style;
+#endif
 
     g_assert (CAJA_IS_SIDEBAR_TITLE (sidebar_title));
     g_return_if_fail (gtk_widget_get_realized (GTK_WIDGET (sidebar_title)));
 
     /* read the info colors from the current theme; use a reasonable default if undefined */
+#if GTK_CHECK_VERSION (3, 0, 0)
+    style = gtk_widget_get_style_context (GTK_WIDGET (sidebar_title));
+    gtk_style_context_get_style (style,
+                                 "light_info_color", &light_info_color,
+                                 "dark_info_color", &dark_info_color,
+                                 NULL);
+
+    if (!light_info_color)
+    {
+        light_info_color = g_malloc (sizeof (GdkRGBA));
+        gdk_rgba_parse (light_info_color, DEFAULT_LIGHT_INFO_COLOR);
+    }
+
+    if (!dark_info_color)
+    {
+        light_info_color = g_malloc (sizeof (GdkRGBA));
+        gdk_rgba_parse (dark_info_color, DEFAULT_DARK_INFO_COLOR);
+    }
+
+    gtk_style_context_get_color (style, GTK_STATE_FLAG_SELECTED, &color);
+    setup_gc_with_fg (sidebar_title, LABEL_COLOR_HIGHLIGHT, &color);
+
+    gtk_style_context_get_color (style, GTK_STATE_FLAG_ACTIVE, &color);
+    setup_gc_with_fg (sidebar_title, LABEL_COLOR_ACTIVE, &color);
+
+    gtk_style_context_get_color (style, GTK_STATE_FLAG_PRELIGHT, &color);
+    setup_gc_with_fg (sidebar_title, LABEL_COLOR_PRELIGHT, &color);
+
+    gtk_style_context_get_background_color (style, GTK_STATE_FLAG_SELECTED, &color);
+    setup_gc_with_fg (sidebar_title, LABEL_INFO_COLOR_HIGHLIGHT,
+                      eel_gdk_rgba_is_dark (&color) ? light_info_color : dark_info_color);
+
+    gtk_style_context_get_background_color (style, GTK_STATE_FLAG_ACTIVE, &color);
+    setup_gc_with_fg (sidebar_title, LABEL_INFO_COLOR_ACTIVE,
+                      eel_gdk_rgba_is_dark (&color) ? light_info_color : dark_info_color);
+#else
     gtk_widget_style_get (GTK_WIDGET (sidebar_title),
                           "light_info_color", &light_info_color,
                           "dark_info_color", &dark_info_color,
@@ -289,7 +361,6 @@ caja_sidebar_title_select_text_color (CajaSidebarTitle *sidebar_title,
         dark_info_value = DEFAULT_DARK_INFO_COLOR;
     }
 
-
     setup_gc_with_fg (sidebar_title, LABEL_COLOR_HIGHLIGHT,
                       eel_gdk_color_to_rgb (&style->text[GTK_STATE_SELECTED]));
     setup_gc_with_fg (sidebar_title, LABEL_COLOR_ACTIVE,
@@ -300,11 +371,42 @@ caja_sidebar_title_select_text_color (CajaSidebarTitle *sidebar_title,
                       eel_gdk_color_is_dark (&style->base[GTK_STATE_SELECTED]) ? light_info_value : dark_info_value);
     setup_gc_with_fg (sidebar_title, LABEL_INFO_COLOR_ACTIVE,
                       eel_gdk_color_is_dark (&style->base[GTK_STATE_ACTIVE]) ? light_info_value : dark_info_value);
+#endif
 
     /* If EelBackground is not set in the widget, we can safely
      * use the foreground color from the theme, because it will
      * always be displayed against the gtk background */
     if (!eel_background_is_set(background))
+#if GTK_CHECK_VERSION (3, 0, 0)
+    {
+        gtk_style_context_get_color (style, GTK_STATE_FLAG_NORMAL, &color);
+        setup_gc_with_fg (sidebar_title, LABEL_COLOR, &color);
+
+        gtk_style_context_get_background_color (style, GTK_STATE_FLAG_NORMAL, &color);
+        setup_gc_with_fg (sidebar_title, LABEL_INFO_COLOR,
+                          eel_gdk_rgba_is_dark (&color) ?
+                          light_info_color : dark_info_color);
+    }
+    else if (eel_background_is_dark (background))
+    {
+        GdkRGBA tmp;
+
+        gdk_rgba_parse (&tmp, "EFEFEF");
+        setup_gc_with_fg (sidebar_title, LABEL_COLOR, &tmp);
+        setup_gc_with_fg (sidebar_title, LABEL_INFO_COLOR, light_info_color);
+    }
+    else     /* converse */
+    {
+        GdkRGBA tmp;
+
+        gdk_rgba_parse (&tmp, "000000");
+        setup_gc_with_fg (sidebar_title, LABEL_COLOR, &tmp);
+        setup_gc_with_fg (sidebar_title, LABEL_INFO_COLOR, dark_info_color);
+    }
+
+    gdk_rgba_free (dark_info_color);
+    gdk_rgba_free (light_info_color);
+#else
     {
         setup_gc_with_fg (sidebar_title, LABEL_COLOR,
                           eel_gdk_color_to_rgb (&style->text[GTK_STATE_NORMAL]));
@@ -321,6 +423,7 @@ caja_sidebar_title_select_text_color (CajaSidebarTitle *sidebar_title,
         setup_gc_with_fg (sidebar_title, LABEL_COLOR, 0x000000);
         setup_gc_with_fg (sidebar_title, LABEL_INFO_COLOR, dark_info_value);
     }
+#endif
 }
 
 static char*
