@@ -9434,7 +9434,9 @@ setup_label_gcs (CajaIconContainer *container)
     }
     else
     {
-        if (container->details->use_drop_shadows || eel_background_is_dark (background))
+        if (container->details->use_drop_shadows ||
+	     (eel_background_is_dark (background) && eel_background_is_set(background))
+	   )
         {
             setup_gc_with_fg (container, LABEL_COLOR, 0xEFEFEF);
             setup_gc_with_fg (container,
