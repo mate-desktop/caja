@@ -144,6 +144,9 @@ create_selection_shadow (CajaIconContainer *container,
     {
         CajaDragSelectionItem *item;
         int x1, y1, x2, y2;
+#if GTK_CHECK_VERSION(3,0,0)
+        GdkRGBA black = { 0, 0, 0, 1 };
+#endif
 
         item = p->data;
 
@@ -165,7 +168,11 @@ create_selection_shadow (CajaIconContainer *container,
              "y1", (double) y1,
              "x2", (double) x2,
              "y2", (double) y2,
-             "outline_color", "black",
+#if GTK_CHECK_VERSION(3,0,0)
+             "outline-color-rgba", &black,
+#else
+              "outline_color", "black",
+#endif
              "outline-stippling", TRUE,
              "width_pixels", 1,
              NULL);
@@ -1613,10 +1620,12 @@ drag_highlight_expose (GtkWidget      *widget,
 {
 #if GTK_CHECK_VERSION(3,0,0)
     gint width, height;
+    GdkWindow *window;
+    GtkStyleContext *style;
 #else
     gint x, y, width, height;
-#endif
     GdkWindow *window;
+#endif
 
 #if !GTK_CHECK_VERSION(3,0,0)
     x = gtk_adjustment_get_value (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (widget)));
@@ -1628,9 +1637,17 @@ drag_highlight_expose (GtkWidget      *widget,
     height = gdk_window_get_height (window);
 
 #if GTK_CHECK_VERSION (3, 0, 0)
-    gtk_render_frame (gtk_widget_get_style_context (widget),
+    style = gtk_widget_get_style_context (widget);
+
+    gtk_style_context_save (style);
+    gtk_style_context_add_class (style, "dnd");
+    gtk_style_context_set_state (style, GTK_STATE_FLAG_FOCUSED);
+
+    gtk_render_frame (style,
                       cr,
                       0, 0, width, height);
+
+    gtk_style_context_restore (style);
 #else
     gtk_paint_shadow (gtk_widget_get_style (widget), window,
                       GTK_STATE_NORMAL, GTK_SHADOW_OUT,
