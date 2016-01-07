@@ -199,6 +199,9 @@ highlight_expose (GtkWidget *widget,
     GdkWindow *bin_window;
     int width;
     int height;
+#if GTK_CHECK_VERSION(3,0,0)
+    GtkStyleContext *style;
+#endif
 
     /* FIXMEchpe: is bin window right here??? */
     bin_window = gtk_tree_view_get_bin_window (GTK_TREE_VIEW (widget));
@@ -207,9 +210,16 @@ highlight_expose (GtkWidget *widget,
     height = gdk_window_get_height(bin_window);
 
 #if GTK_CHECK_VERSION(3,0,0)
-    gtk_render_focus (gtk_widget_get_style_context (widget),
+    style = gtk_widget_get_style_context (widget);
+
+    gtk_style_context_save (style);
+    gtk_style_context_add_class (style, "treeview-drop-indicator");
+
+    gtk_render_focus (style,
                       cr,
                       0, 0, width, height);
+
+    gtk_style_context_restore (style);
 #else
     gtk_paint_focus (gtk_widget_get_style (widget),
                      bin_window,
