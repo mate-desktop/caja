@@ -9768,6 +9768,11 @@ caja_icon_container_theme_changed (gpointer user_data)
 
     container->details->normal_icon_color_rgba = *normal_icon_color;
     container->details->normal_color_rgba = color;
+
+    setup_label_gcs (container);
+
+    gdk_rgba_free (prelight_icon_color);
+    gdk_rgba_free (normal_icon_color);
 #else
     GtkStyle *style;
     GdkColor *prelight_icon_color, *normal_icon_color;
@@ -9861,9 +9866,9 @@ caja_icon_container_theme_changed (gpointer user_data)
                              style->base[GTK_STATE_PRELIGHT].green >> 8,
                              style->base[GTK_STATE_PRELIGHT].blue >> 8,
                              prelight_alpha);
-#endif
 
     setup_label_gcs (container);
+#endif
 }
 
 void
