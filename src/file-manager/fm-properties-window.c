@@ -68,6 +68,15 @@
 #include <sys/mount.h>
 #endif
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+#define USED_FILL_R  0.988235294
+#define USED_FILL_G  0.91372549
+#define USED_FILL_B  0.309803922
+
+#define FREE_FILL_R  0.447058824
+#define FREE_FILL_G  0.623529412
+#define FREE_FILL_B  0.811764706
+#else
 #define USED_FILL_R  (0.988235294 * 65535)
 #define USED_FILL_G  (0.91372549 * 65535)
 #define USED_FILL_B  (0.309803922 * 65535)
@@ -75,6 +84,7 @@
 #define FREE_FILL_R  (0.447058824 * 65535)
 #define FREE_FILL_G  (0.623529412 * 65535)
 #define FREE_FILL_B  (0.811764706 * 65535)
+#endif
 
 
 #define PREVIEW_IMAGE_WIDTH 96
@@ -148,10 +158,17 @@ struct FMPropertiesWindowDetails {
  	guint64 volume_capacity;
  	guint64 volume_free;
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+	GdkRGBA used_color;
+	GdkRGBA free_color;
+	GdkRGBA used_stroke_color;
+	GdkRGBA free_stroke_color;
+#else
 	GdkColor used_color;
 	GdkColor free_color;
 	GdkColor used_stroke_color;
 	GdkColor free_stroke_color;
+#endif
 };
 
 #if GTK_CHECK_VERSION (3, 0, 0)
@@ -3045,6 +3062,13 @@ paint_used_legend (GtkWidget *widget,
 			  width - 4,
 			  height - 4);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+	gdk_cairo_set_source_rgba (cr, &window->details->used_color);
+	cairo_fill_preserve (cr);
+
+	gdk_cairo_set_source_rgba (cr, &window->details->used_stroke_color);
+	cairo_stroke (cr);
+#else
 	cairo_set_source_rgb (cr,
 	                      (double) window->details->used_color.red / 65535,
 	                      (double) window->details->used_color.green / 65535,
@@ -3057,7 +3081,6 @@ paint_used_legend (GtkWidget *widget,
 	                      (double) window->details->used_stroke_color.blue / 65535);
 	cairo_stroke (cr);
 
-#if !GTK_CHECK_VERSION(3,0,0)
 	cairo_destroy (cr);
 #endif
 }
@@ -3089,6 +3112,13 @@ paint_free_legend (GtkWidget *widget,
 			 width - 4,
 			 height - 4);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+	gdk_cairo_set_source_rgba (cr, &window->details->free_color);
+	cairo_fill_preserve(cr);
+
+	gdk_cairo_set_source_rgba (cr, &window->details->free_stroke_color);
+	cairo_stroke (cr);
+#else
 	cairo_set_source_rgb (cr,
 	                      (double) window->details->free_color.red / 65535,
 	                      (double) window->details->free_color.green / 65535,
@@ -3101,7 +3131,6 @@ paint_free_legend (GtkWidget *widget,
 	                      (double) window->details->free_stroke_color.blue / 65535);
 	cairo_stroke (cr);
 
-#if !GTK_CHECK_VERSION(3,0,0)
 	cairo_destroy (cr);
 #endif
 }
@@ -3167,6 +3196,12 @@ paint_pie_chart (GtkWidget *widget,
 			cairo_line_to (cr,xc,yc);
 		}
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+		gdk_cairo_set_source_rgba (cr, &window->details->used_color);
+		cairo_fill_preserve (cr);
+
+		gdk_cairo_set_source_rgba (cr, &window->details->used_stroke_color);
+#else
 		cairo_set_source_rgb (cr,
 		                      (double) window->details->used_color.red / 65535,
 		                      (double) window->details->used_color.green / 65535,
@@ -3177,6 +3212,7 @@ paint_pie_chart (GtkWidget *widget,
 		                      (double) window->details->used_stroke_color.red / 65535,
 		                      (double) window->details->used_stroke_color.green / 65535,
 		                      (double) window->details->used_stroke_color.blue / 65535);
+#endif
 		cairo_stroke (cr);
 	}
 
@@ -3191,6 +3227,12 @@ paint_pie_chart (GtkWidget *widget,
 			cairo_line_to (cr,xc,yc);
 		}
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+		gdk_cairo_set_source_rgba (cr, &window->details->free_color);
+		cairo_fill_preserve(cr);
+
+		gdk_cairo_set_source_rgba (cr, &window->details->free_stroke_color);
+#else
 		cairo_set_source_rgb (cr,
 		                      (double) window->details->free_color.red / 65535,
 		                      (double) window->details->free_color.green / 65535,
@@ -3201,6 +3243,7 @@ paint_pie_chart (GtkWidget *widget,
 		                      (double) window->details->free_stroke_color.red / 65535,
 		                      (double) window->details->free_stroke_color.green / 65535,
 		                      (double) window->details->free_stroke_color.blue / 65535);
+#endif
 		cairo_stroke (cr);
 	}
 
@@ -3362,17 +3405,28 @@ hls_to_rgb (gdouble *h,
     }
 }
 static void
+#if GTK_CHECK_VERSION (3, 0, 0)
+_pie_style_shade (GdkRGBA *a,
+                  GdkRGBA *b,
+#else
 _pie_style_shade (GdkColor *a,
                   GdkColor *b,
+#endif
                   gdouble   k)
 {
   gdouble red;
   gdouble green;
   gdouble blue;
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+  red = a->red;
+  green = a->green;
+  blue = a->blue;
+#else
   red = (gdouble) a->red / 65535.0;
   green = (gdouble) a->green / 65535.0;
   blue = (gdouble) a->blue / 65535.0;
+#endif
 
   rgb_to_hls (&red, &green, &blue);
 
@@ -3390,9 +3444,16 @@ _pie_style_shade (GdkColor *a,
 
   hls_to_rgb (&red, &green, &blue);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+  b->red = red;
+  b->green = green;
+  b->blue = blue;
+  b->alpha = a->alpha;
+#else
   b->red = red * 65535.0;
   b->green = green * 65535.0;
   b->blue = blue * 65535.0;
+#endif
 }
 
 
@@ -3402,10 +3463,11 @@ create_pie_widget (FMPropertiesWindow *window)
 	CajaFile		*file;
 #if GTK_CHECK_VERSION (3, 0, 0)
 	GtkGrid                 *grid;
+	GtkStyleContext		*style;
 #else
 	GtkTable 		*table;
-#endif
 	GtkStyle		*style;
+#endif
 	GtkWidget 		*pie_canvas;
 	GtkWidget 		*used_canvas;
 	GtkWidget 		*used_label;
@@ -3441,22 +3503,34 @@ create_pie_widget (FMPropertiesWindow *window)
 	gtk_container_set_border_width (GTK_CONTAINER (grid), 5);
 	gtk_grid_set_column_spacing (GTK_GRID (grid), 5);
 	style = gtk_widget_get_style_context (GTK_WIDGET (grid));
+
+	if (!gtk_style_context_lookup_color (style, "chart_rgba_1", &window->details->used_color)) {
 #else
 	table = GTK_TABLE (gtk_table_new (4, 3, FALSE));
 
 	style = gtk_rc_get_style (GTK_WIDGET(table));
-#endif
 
 	if (!gtk_style_lookup_color (style, "chart_color_1", &window->details->used_color)) {
+#endif
 		window->details->used_color.red = USED_FILL_R;
 		window->details->used_color.green = USED_FILL_G;
 		window->details->used_color.blue = USED_FILL_B;
+#if GTK_CHECK_VERSION (3, 0, 0)
+		window->details->used_color.alpha = 1;
+#endif
 	}
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+	if (!gtk_style_context_lookup_color (style, "chart_rgba_2", &window->details->free_color)) {
+#else
 	if (!gtk_style_lookup_color (style, "chart_color_2", &window->details->free_color)) {
+#endif
 		window->details->free_color.red = FREE_FILL_R;
 		window->details->free_color.green = FREE_FILL_G;
 		window->details->free_color.blue = FREE_FILL_B;
+#if GTK_CHECK_VERSION (3, 0, 0)
+		window->details->free_color.alpha = 1;
+#endif
 	}
 
 	_pie_style_shade (&window->details->used_color, &window->details->used_stroke_color, 0.7);
@@ -6152,7 +6226,9 @@ create_properties_window (StartupData *startup_data)
 				NULL);
 
 	/* FIXME - HIGificiation, should be done inside GTK+ */
+#if !GTK_CHECK_VERSION (3, 0, 0)
 	gtk_widget_ensure_style (GTK_WIDGET (window));
+#endif
 	gtk_container_set_border_width (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (window))), 12);
 	gtk_container_set_border_width (GTK_CONTAINER (gtk_dialog_get_action_area (GTK_DIALOG (window))), 0);
 	gtk_box_set_spacing (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (window))), 12);
