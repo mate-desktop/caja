@@ -2884,7 +2884,7 @@ start_rubberbanding (CajaIconContainer *container,
     CajaIconContainerDetails *details;
     CajaIconRubberbandInfo *band_info;
 #if GTK_CHECK_VERSION(3,0,0)
-    GdkRGBA *fill_color_gdk;
+    GdkRGBA *fill_color_gdk, color;
     GList *p;
     CajaIcon *icon;
     GtkStyleContext *style;
@@ -2921,9 +2921,9 @@ start_rubberbanding (CajaIconContainer *container,
 
     if (!fill_color_gdk)
     {
-           fill_color_gdk = g_malloc0 (sizeof (GdkRGBA));
            gtk_style_context_get_background_color (style, GTK_STATE_FLAG_SELECTED,
-                                                   fill_color_gdk);
+                                                   &color);
+           fill_color_gdk = gdk_rgba_copy (&color);
     }
 
     if (fill_color_gdk->alpha == 1) {
@@ -9493,14 +9493,14 @@ setup_label_gcs (CajaIconContainer *container)
 
     if (!light_info_color)
     {
-        light_info_color = g_malloc (sizeof (GdkRGBA));
-        g_assert (gdk_rgba_parse (light_info_color, DEFAULT_LIGHT_INFO_COLOR));
+        gdk_rgba_parse (&color, DEFAULT_LIGHT_INFO_COLOR);
+        light_info_color = gdk_rgba_copy (&color);
     }
 
     if (!dark_info_color)
     {
-        dark_info_color = g_malloc (sizeof (GdkRGBA));
-        g_assert (gdk_rgba_parse (dark_info_color, DEFAULT_DARK_INFO_COLOR));
+        gdk_rgba_parse (&color, DEFAULT_DARK_INFO_COLOR);
+        dark_info_color = gdk_rgba_copy (&color);
     }
 
     gtk_style_context_get_color (style, GTK_STATE_FLAG_SELECTED, &color);
