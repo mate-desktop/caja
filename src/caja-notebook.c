@@ -82,6 +82,7 @@ caja_notebook_class_init (CajaNotebookClass *klass)
 
     notebook_class->insert_page = caja_notebook_insert_page;
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
     gtk_rc_parse_string ("style \"caja-tab-close-button-style\"\n"
                          "{\n"
                          "GtkWidget::focus-padding = 0\n"
@@ -90,6 +91,7 @@ caja_notebook_class_init (CajaNotebookClass *klass)
                          "ythickness = 0\n"
                          "}\n"
                          "widget \"*.caja-tab-close-button\" style \"caja-tab-close-button-style\"");
+#endif
 
     signals[TAB_CLOSE_REQUEST] =
         g_signal_new ("tab-close-request",
@@ -239,6 +241,31 @@ button_press_cb (CajaNotebook *notebook,
 static void
 caja_notebook_init (CajaNotebook *notebook)
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+    static const gchar css_custom[] =
+      "#caja-tab-close-button {"
+      "  -GtkWidget-focus-padding : 0;"
+      "  -GtkWidget-focus-line-width: 0;"
+      "  xthickness: 0;"
+      "  ythickness: 0;"
+      "}";
+
+    GError *error = NULL;
+    GtkCssProvider *provider = gtk_css_provider_new ();
+    gtk_css_provider_load_from_data (provider, css_custom, -1, &error);
+
+    if (error != NULL) {
+            g_warning ("Can't parse CajaNotebook's CSS custom description: %s\n", error->message);
+            g_error_free (error);
+    } else {
+            gtk_style_context_add_provider (gtk_widget_get_style_context (GTK_WIDGET (notebook)),
+                                            GTK_STYLE_PROVIDER (provider),
+                                            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+    }
+
+    g_object_unref (provider);
+#endif
+
     gtk_notebook_set_scrollable (GTK_NOTEBOOK (notebook), TRUE);
     gtk_notebook_set_show_border (GTK_NOTEBOOK (notebook), FALSE);
     gtk_notebook_set_show_tabs (GTK_NOTEBOOK (notebook), FALSE);
