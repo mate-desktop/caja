@@ -1169,15 +1169,16 @@ get_label_wrap_width (EelEditableLabel *label)
     }
 
 #if GTK_CHECK_VERSION(3,0,0)
-    gtk_style_context_get_style (style,
-                                 GTK_STYLE_PROPERTY_FONT, &desc,
-                                 NULL);
+    gtk_style_context_get (style, gtk_widget_get_state_flags (GTK_WIDGET (label)),
+                           GTK_STYLE_PROPERTY_FONT, &desc,
+                           NULL);
 
     if (wrap_width->font_desc && pango_font_description_equal (wrap_width->font_desc, desc))
+        goto out;
 #else
     if (wrap_width->font_desc && pango_font_description_equal (wrap_width->font_desc, style->font_desc))
-#endif
         return wrap_width->width;
+#endif
 
     if (wrap_width->font_desc)
         pango_font_description_free (wrap_width->font_desc);
@@ -1193,6 +1194,8 @@ get_label_wrap_width (EelEditableLabel *label)
     pango_layout_get_size (layout, &wrap_width->width, NULL);
     g_object_unref (layout);
 #if GTK_CHECK_VERSION(3,0,0)
+
+    out:
     pango_font_description_free (desc);
 #endif
 
