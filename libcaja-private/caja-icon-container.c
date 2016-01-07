@@ -9533,10 +9533,10 @@ setup_label_gcs (CajaIconContainer *container)
 
     if (!caja_icon_container_get_is_desktop (container))
     {
-           gtk_style_context_get_color (style, GTK_STATE_FLAG_ACTIVE, &color);
+           gtk_style_context_get_color (style, GTK_STATE_FLAG_NORMAL, &color);
            setup_gc_with_fg (container, LABEL_COLOR, &color);
 
-           gtk_style_context_get_background_color (style, GTK_STATE_FLAG_ACTIVE, &color);
+           gtk_style_context_get_background_color (style, GTK_STATE_FLAG_NORMAL, &color);
            setup_gc_with_fg (container, LABEL_INFO_COLOR,
                              eel_gdk_rgba_is_dark (&color) ?
                              light_info_color : dark_info_color);
@@ -9761,7 +9761,7 @@ caja_icon_container_theme_changed (gpointer user_data)
     gtk_style_context_get_style (style,
                                  "normal_icon_rgba", &normal_icon_color,
                                  NULL);
-    gtk_style_context_get_background_color (style, GTK_STATE_FLAG_ACTIVE, &color);
+    gtk_style_context_get_background_color (style, GTK_STATE_FLAG_NORMAL, &color);
 
     if (!normal_icon_color) {
             normal_icon_color = gdk_rgba_copy (&color);
