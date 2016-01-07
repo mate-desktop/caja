@@ -1587,7 +1587,17 @@ draw_label_text (CajaIconCanvasItem *item,
     if (!create_mask && item->details->is_highlighted_as_keyboard_focus)
     {
 #if GTK_CHECK_VERSION(3,0,0)
-        gtk_render_focus (gtk_widget_get_style_context (GTK_WIDGET (EEL_CANVAS_ITEM (item)->canvas)),
+        GtkStyleContext *style;
+
+        style = gtk_widget_get_style_context (GTK_WIDGET (EEL_CANVAS_ITEM (item)->canvas));
+
+        gtk_style_context_save (style);
+        gtk_style_context_add_class (style, "icon-container");
+        gtk_style_context_set_state (style,
+                                     needs_highlight ?
+                                     GTK_STATE_FLAG_SELECTED : GTK_STATE_FLAG_ACTIVE);
+
+        gtk_render_focus (style,
                           cr,
 #else
         gtk_paint_focus (gtk_widget_get_style (GTK_WIDGET (EEL_CANVAS_ITEM (item)->canvas)),
@@ -1601,6 +1611,10 @@ draw_label_text (CajaIconCanvasItem *item,
                          text_rect.y0,
                          text_rect.x1 - text_rect.x0,
                          text_rect.y1 - text_rect.y0);
+#if GTK_CHECK_VERSION(3,0,0)
+
+        gtk_style_context_restore (style);
+#endif
     }
 
     if (editable_layout != NULL)
