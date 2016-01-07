@@ -9264,12 +9264,20 @@ caja_icon_container_start_renaming_selected_item (CajaIconContainer *container,
     {
         eel_filename_get_rename_region (editable_text, &start_offset, &end_offset);
     }
+
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_widget_show (details->rename_widget);
+    gtk_widget_grab_focus (details->rename_widget);
+#endif
+
     eel_editable_label_select_region (EEL_EDITABLE_LABEL (details->rename_widget),
                                       start_offset,
                                       end_offset);
-    gtk_widget_show (details->rename_widget);
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
+    gtk_widget_show (details->rename_widget);
     gtk_widget_grab_focus (details->rename_widget);
+#endif
 
     g_signal_emit (container,
                    signals[RENAMING_ICON], 0,
