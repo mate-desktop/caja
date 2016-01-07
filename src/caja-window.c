@@ -162,6 +162,8 @@ caja_window_init (CajaWindow *window)
                                             GTK_STYLE_PROVIDER (provider),
                                             GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
     }
+
+    g_object_unref (provider);
 #endif
     window->details = G_TYPE_INSTANCE_GET_PRIVATE (window, CAJA_TYPE_WINDOW, CajaWindowDetails);
 
