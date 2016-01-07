@@ -3262,20 +3262,35 @@ real_set_is_active (FMDirectoryView *view,
                     gboolean is_active)
 {
     GtkWidget *tree_view;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GtkStyleContext *style;
+    GdkRGBA color;
+#else
     GtkStyle *style;
     GdkColor color;
+#endif
 
     tree_view = GTK_WIDGET (fm_list_view_get_tree_view (FM_LIST_VIEW (view)));
 
     if (is_active)
     {
+#if GTK_CHECK_VERSION (3, 0, 0)
+        gtk_widget_override_background_color (tree_view, GTK_STATE_FLAG_NORMAL, NULL);
+#else
         gtk_widget_modify_base (tree_view, GTK_STATE_NORMAL, NULL);
+#endif
     }
     else
     {
+#if GTK_CHECK_VERSION (3, 0, 0)
+        style = gtk_widget_get_style_context (tree_view);
+        gtk_style_context_get_background_color (style, GTK_STATE_FLAG_INSENSITIVE, &color);
+        gtk_widget_override_background_color (tree_view, GTK_STATE_FLAG_NORMAL, &color);
+#else
         style = gtk_widget_get_style (tree_view);
         color = style->base[GTK_STATE_INSENSITIVE];
         gtk_widget_modify_base (tree_view, GTK_STATE_NORMAL, &color);
+#endif
     }
 
     EEL_CALL_PARENT (FM_DIRECTORY_VIEW_CLASS,
