@@ -2884,7 +2884,7 @@ start_rubberbanding (CajaIconContainer *container,
     CajaIconContainerDetails *details;
     CajaIconRubberbandInfo *band_info;
 #if GTK_CHECK_VERSION(3,0,0)
-    GdkRGBA *fill_color_gdk, color;
+    GdkRGBA *fill_color_gdk, outline, color;
     GList *p;
     CajaIcon *icon;
     GtkStyleContext *style;
@@ -2930,6 +2930,9 @@ start_rubberbanding (CajaIconContainer *container,
             fill_color_gdk->alpha = 0.25;
     }
 
+    outline = *fill_color_gdk;
+    eel_make_color_inactive (&outline);
+
     band_info->selection_rectangle = eel_canvas_item_new
                                      (eel_canvas_root
                                       (EEL_CANVAS (container)),
@@ -2939,7 +2942,7 @@ start_rubberbanding (CajaIconContainer *container,
                                       "x2", band_info->start_x,
                                       "y2", band_info->start_y,
                                       "fill_color_rgba", fill_color_gdk,
-                                      "outline_color_rgba", fill_color_gdk,
+                                      "outline_color_rgba", &outline,
                                       "width_pixels", 1,
                                       NULL);
 
