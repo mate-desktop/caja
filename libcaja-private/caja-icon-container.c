@@ -4647,21 +4647,21 @@ style_set (GtkWidget *widget,
            GtkStyle  *previous_style)
 {
     CajaIconContainer *container;
+#if !GTK_CHECK_VERSION(3,0,0)
     gboolean frame_text;
+#endif
 
     container = CAJA_ICON_CONTAINER (widget);
 
 #if GTK_CHECK_VERSION(3,0,0)
-    gtk_style_context_get_style (gtk_widget_get_style_context (GTK_WIDGET (container)),
-                                 "frame_text", &frame_text,
-                                 NULL);
+    container->details->use_drop_shadows = container->details->drop_shadows_requested;
 #else
     gtk_widget_style_get (GTK_WIDGET (container),
                           "frame_text", &frame_text,
                           NULL);
-#endif
 
     container->details->use_drop_shadows = container->details->drop_shadows_requested && !frame_text;
+#endif
 
     caja_icon_container_theme_changed (CAJA_ICON_CONTAINER (widget));
 
@@ -6633,15 +6633,8 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
 
     class->start_interactive_search = caja_icon_container_start_interactive_search;
 
-    gtk_widget_class_install_style_property (widget_class,
-            g_param_spec_boolean ("frame_text",
-                                  "Frame Text",
-                                  "Draw a frame around unselected text",
-                                  FALSE,
-                                  G_PARAM_READABLE));
-
-    gtk_widget_class_install_style_property (widget_class,
 #if GTK_CHECK_VERSION(3,0,0)
+    gtk_widget_class_install_style_property (widget_class,
             g_param_spec_boxed ("selection_box_rgba",
                                 "Selection Box RGBA",
                                 "Color of the selection box",
@@ -6659,7 +6652,15 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                                 "Dark Info RGBA",
                                 "Color used for information text against a light background",
                                 GDK_TYPE_RGBA,
+                                G_PARAM_READABLE));
 #else
+    gtk_widget_class_install_style_property (widget_class,
+            g_param_spec_boolean ("frame_text",
+                                  "Frame Text",
+                                  "Draw a frame around unselected text",
+                                  FALSE,
+                                  G_PARAM_READABLE));
+    gtk_widget_class_install_style_property (widget_class,
             g_param_spec_boxed ("selection_box_color",
                                 "Selection Box Color",
                                 "Color of the selection box",
@@ -6705,7 +6706,6 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                                 "Dark Info Color",
                                 "Color used for information text against a light background",
                                 GDK_TYPE_COLOR,
-#endif
                                 G_PARAM_READABLE));
 
     gtk_widget_class_install_style_property (widget_class,
@@ -6715,6 +6715,7 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                                0, 3,
                                DEFAULT_NORMAL_ICON_RENDER_MODE,
                                G_PARAM_READABLE));
+#endif
     gtk_widget_class_install_style_property (widget_class,
             g_param_spec_uint ("prelight_icon_render_mode",
                                "Prelight Icon Render Mode",
@@ -6722,8 +6723,8 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                                0, 3,
                                DEFAULT_PRELIGHT_ICON_RENDER_MODE,
                                G_PARAM_READABLE));
-    gtk_widget_class_install_style_property (widget_class,
 #if GTK_CHECK_VERSION(3,0,0)
+    gtk_widget_class_install_style_property (widget_class,
             g_param_spec_boxed ("normal_icon_rgba",
                                 "Icon Normal RGBA",
                                 "Color used for colorizing icons in normal state (default base[NORMAL])",
@@ -6734,7 +6735,9 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                                 "Icon Prelight RGBA",
                                 "Color used for colorizing prelighted icons (default base[PRELIGHT])",
                                 GDK_TYPE_RGBA,
+                                G_PARAM_READABLE));
 #else
+    gtk_widget_class_install_style_property (widget_class,
             g_param_spec_boxed ("normal_icon_color",
                                 "Icon Normal Color",
                                 "Color used for colorizing icons in normal state (default base[NORMAL])",
@@ -6745,7 +6748,6 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                                 "Icon Prelight Color",
                                 "Color used for colorizing prelighted icons (default base[PRELIGHT])",
                                 GDK_TYPE_COLOR,
-#endif
                                 G_PARAM_READABLE));
     gtk_widget_class_install_style_property (widget_class,
             g_param_spec_uint ("normal_icon_saturation",
@@ -6754,6 +6756,7 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                                0, 255,
                                DEFAULT_NORMAL_ICON_SATURATION,
                                G_PARAM_READABLE));
+#endif
     gtk_widget_class_install_style_property (widget_class,
             g_param_spec_uint ("prelight_icon_saturation",
                                "Prelight Icon Saturation",
@@ -6761,6 +6764,7 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                                0, 255,
                                DEFAULT_PRELIGHT_ICON_SATURATION,
                                G_PARAM_READABLE));
+#if !GTK_CHECK_VERSION(3,0,0)
     gtk_widget_class_install_style_property (widget_class,
             g_param_spec_uint ("normal_icon_brightness",
                                "Normal Icon Brightness",
@@ -6768,6 +6772,7 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                                0, 255,
                                DEFAULT_NORMAL_ICON_BRIGHTNESS,
                                G_PARAM_READABLE));
+#endif
     gtk_widget_class_install_style_property (widget_class,
             g_param_spec_uint ("prelight_icon_brightness",
                                "Prelight Icon Brightness",
@@ -6775,6 +6780,7 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                                0, 255,
                                DEFAULT_PRELIGHT_ICON_BRIGHTNESS,
                                G_PARAM_READABLE));
+#if !GTK_CHECK_VERSION(3,0,0)
     gtk_widget_class_install_style_property (widget_class,
             g_param_spec_uint ("normal_icon_lighten",
                                "Normal Icon Lighten",
@@ -6782,6 +6788,7 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                                0, 255,
                                DEFAULT_NORMAL_ICON_LIGHTEN,
                                G_PARAM_READABLE));
+#endif
     gtk_widget_class_install_style_property (widget_class,
             g_param_spec_uint ("prelight_icon_lighten",
                                "Prelight Icon Lighten",
@@ -9467,7 +9474,6 @@ setup_label_gcs (CajaIconContainer *container)
     GtkWidget *widget;
 #if GTK_CHECK_VERSION(3,0,0)
     GdkRGBA *light_info_color, *dark_info_color;
-    gboolean frame_text;
     GtkStyleContext *style;
     GdkRGBA color;
 #else
@@ -9525,14 +9531,7 @@ setup_label_gcs (CajaIconContainer *container)
                       LABEL_INFO_COLOR_ACTIVE,
                       eel_gdk_rgba_is_dark (&color) ? light_info_color : dark_info_color);
 
-    /* If CajaIconContainer::frame_text is set, we can safely
-     * use the foreground color from the theme, because it will
-     * always be displayed against the gtk background */
-    gtk_style_context_get_style (gtk_widget_get_style_context (GTK_WIDGET (container)),
-                                 "frame_text", &frame_text,
-                                 NULL);
-
-    if (frame_text /* || !eel_background_is_set(background) */)
+    if (!caja_icon_container_get_is_desktop (container))
     {
            gtk_style_context_get_color (style, GTK_STATE_FLAG_ACTIVE, &color);
            setup_gc_with_fg (container, LABEL_COLOR, &color);
@@ -9704,15 +9703,13 @@ void
 caja_icon_container_set_use_drop_shadows (CajaIconContainer  *container,
         gboolean                use_drop_shadows)
 {
+#if !GTK_CHECK_VERSION(3,0,0)
     gboolean frame_text;
 
-#if GTK_CHECK_VERSION(3,0,0)
-    gtk_style_context_get_style (gtk_widget_get_style_context (GTK_WIDGET (container)),
-#else
     gtk_widget_style_get (GTK_WIDGET (container),
-#endif
                           "frame_text", &frame_text,
                           NULL);
+#endif
 
     if (container->details->drop_shadows_requested == use_drop_shadows)
     {
@@ -9720,7 +9717,11 @@ caja_icon_container_set_use_drop_shadows (CajaIconContainer  *container,
     }
 
     container->details->drop_shadows_requested = use_drop_shadows;
+#if GTK_CHECK_VERSION(3,0,0)
+    container->details->use_drop_shadows = use_drop_shadows;
+#else
     container->details->use_drop_shadows = use_drop_shadows && !frame_text;
+#endif
     gtk_widget_queue_draw (GTK_WIDGET (container));
 }
 

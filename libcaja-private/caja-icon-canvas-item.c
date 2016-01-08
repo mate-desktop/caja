@@ -1410,7 +1410,11 @@ draw_label_text (CajaIconCanvasItem *item,
     GdkColor *label_color;
 #endif
     gboolean have_editable, have_additional;
+#if GTK_CHECK_VERSION(3,0,0)
+    gboolean needs_highlight, prelight_label, is_rtl_label_beside;
+#else
     gboolean needs_frame, needs_highlight, prelight_label, is_rtl_label_beside;
+#endif
     EelIRect text_rect;
     int x;
     int max_text_width;
@@ -1502,10 +1506,16 @@ draw_label_text (CajaIconCanvasItem *item,
         prepare_pango_layout_for_draw (item, editable_layout);
 
         gtk_widget_style_get (GTK_WIDGET (container),
+#if !GTK_CHECK_VERSION(3,0,0)
                               "frame_text", &needs_frame,
+#endif
                               "activate_prelight_icon_label", &prelight_label,
                               NULL);
+#if GTK_CHECK_VERSION(3,0,0)
+        if (!needs_highlight && details->text_width > 0 && details->text_height > 0)
+#else
         if (needs_frame && !needs_highlight && details->text_width > 0 && details->text_height > 0)
+#endif
         {
             if (!(prelight_label && item->details->is_prelit))
             {
@@ -2058,6 +2068,7 @@ real_map_pixbuf (CajaIconCanvasItem *icon_item)
         g_object_unref (old_pixbuf);
     }
 
+#if !GTK_CHECK_VERSION(3,0,0)
     if (!icon_item->details->is_active
             && !icon_item->details->is_prelit
             && !icon_item->details->is_highlighted_for_selection
@@ -2079,14 +2090,11 @@ real_map_pixbuf (CajaIconCanvasItem *icon_item)
                                                  saturation,
                                                  brightness,
                                                  lighten,
-#if GTK_CHECK_VERSION(3,0,0)
-                                                 &container->details->normal_icon_color_rgba);
-#else
                                                  container->details->normal_icon_color_rgba);
-#endif
             g_object_unref (old_pixbuf);
         }
     }
+#endif
 
     return temp_pixbuf;
 }
