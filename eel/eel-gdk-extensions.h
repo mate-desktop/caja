@@ -132,4 +132,7 @@ void                eel_gdk_draw_layout_with_drop_shadow   (GdkDrawable         
         						    int                  x,
         						    int                  y,
         						    PangoLayout         *layout);
+#if GTK_CHECK_VERSION(3,0,0)
+void                eel_make_color_inactive                (GdkColor            *color);
+#endif
 #endif /* EEL_GDK_EXTENSIONS_H */
