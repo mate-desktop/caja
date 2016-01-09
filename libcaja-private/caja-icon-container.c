@@ -4643,19 +4643,24 @@ unrealize (GtkWidget *widget)
 }
 
 static void
+#if GTK_CHECK_VERSION(3,0,0)
+style_updated (GtkWidget *widget)
+{
+    CajaIconContainer *container;
+
+    GTK_WIDGET_CLASS (caja_icon_container_parent_class)->style_updated (widget);
+
+    container = CAJA_ICON_CONTAINER (widget);
+    container->details->use_drop_shadows = container->details->drop_shadows_requested;
+#else
 style_set (GtkWidget *widget,
            GtkStyle  *previous_style)
 {
     CajaIconContainer *container;
-#if !GTK_CHECK_VERSION(3,0,0)
     gboolean frame_text;
-#endif
 
     container = CAJA_ICON_CONTAINER (widget);
 
-#if GTK_CHECK_VERSION(3,0,0)
-    container->details->use_drop_shadows = container->details->drop_shadows_requested;
-#else
     gtk_widget_style_get (GTK_WIDGET (container),
                           "frame_text", &frame_text,
                           NULL);
@@ -6622,8 +6627,10 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
     widget_class->key_press_event = key_press_event;
     widget_class->popup_menu = popup_menu;
     widget_class->get_accessible = get_accessible;
+#if GTK_CHECK_VERSION(3,0,0)
+    widget_class->style_updated = style_updated;
+#else
     widget_class->style_set = style_set;
-#if !GTK_CHECK_VERSION(3,0,0)
     widget_class->expose_event = expose_event;
 #endif
     widget_class->grab_notify = grab_notify_cb;
