@@ -1684,6 +1684,11 @@ eel_editable_label_draw (GtkWidget *widget,
     label = EEL_EDITABLE_LABEL (widget);
     style = gtk_widget_get_style_context (widget);
 
+    gtk_render_background (style, cr,
+                           0, 0,
+                           gtk_widget_get_allocated_width (widget),
+                           gtk_widget_get_allocated_height (widget));
+
     eel_editable_label_ensure_layout (label, TRUE);
 
     if (gtk_widget_get_visible (widget) && gtk_widget_get_mapped (widget) &&
@@ -1691,10 +1696,10 @@ eel_editable_label_draw (GtkWidget *widget,
     {
         get_layout_location (label, &x, &y);
 
-       gtk_render_layout (style,
-                          cr,
-                          x, y,
-                          label->layout);
+        gtk_render_layout (style,
+                           cr,
+                           x, y,
+                           label->layout);
 
         if (label->selection_anchor != label->selection_end)
         {
