@@ -1601,15 +1601,23 @@ eel_editable_label_draw_cursor (EelEditableLabel  *label, gint xoffset, gint yof
         }
         else /* Block cursor */
         {
+#if GTK_CHECK_VERSION(3,0,0)
+            GdkRGBA fg_color;
+            GtkStyleContext *style;
             cairo_region_t *clip;
 
-#if GTK_CHECK_VERSION(3,0,0)
+            style = gtk_widget_get_style_context (widget);
+            gtk_style_context_get_color (style, GTK_STATE_FLAG_NORMAL, &fg_color);
+
             cairo_save (cr);
+            gdk_cairo_set_source_rgba (cr, &fg_color);
 #else
+            cairo_region_t *clip;
+
             cairo_t *cr = gdk_cairo_create (gtk_widget_get_window (widget));
-#endif
 
             cairo_set_source_rgb (cr, 0, 0, 0);
+#endif
             cairo_rectangle (cr,
                              xoffset + PANGO_PIXELS (strong_pos.x),
                              yoffset + PANGO_PIXELS (strong_pos.y),
@@ -1622,7 +1630,6 @@ eel_editable_label_draw_cursor (EelEditableLabel  *label, gint xoffset, gint yof
             if (!block_at_line_end)
             {
 #if GTK_CHECK_VERSION(3,0,0)
-                GtkStyleContext *style;
                 GdkRGBA color;
 
 #endif
@@ -1634,7 +1641,6 @@ eel_editable_label_draw_cursor (EelEditableLabel  *label, gint xoffset, gint yof
                 cairo_clip (cr);
 #if GTK_CHECK_VERSION(3,0,0)
 
-                style = gtk_widget_get_style_context (widget);
                 gtk_style_context_get_background_color (style, GTK_STATE_FLAG_FOCUSED,
                                                         &color);
 
