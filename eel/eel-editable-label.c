@@ -1154,7 +1154,11 @@ eel_editable_label_size_request (GtkWidget      *widget,
     gint width, height;
     PangoRectangle logical_rect;
     gint set_width;
+#if GTK_CHECK_VERSION(3,0,0)
+    gint xpad, ypad;
+#else
     gfloat xpad, ypad;
+#endif
 
     g_assert (EEL_IS_EDITABLE_LABEL (widget));
     g_assert (requisition != NULL);
@@ -1179,8 +1183,13 @@ eel_editable_label_size_request (GtkWidget      *widget,
 
     eel_editable_label_ensure_layout (label, TRUE);
 
+#if GTK_CHECK_VERSION(3,0,0)
+    gtk_misc_get_padding (&label->misc,
+                          &xpad, &ypad);
+#else
     gtk_misc_get_alignment (&label->misc,
                             &xpad, &ypad);
+#endif
     width = xpad * 2;
     height = ypad * 2;
 
