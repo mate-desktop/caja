@@ -216,8 +216,6 @@ struct CajaIconContainerDetails
     GdkRGBA    active_color_rgba;
     GdkRGBA    normal_color_rgba;
     GdkRGBA    prelight_color_rgba;
-    GdkRGBA    prelight_icon_color_rgba;
-    GdkRGBA    normal_icon_color_rgba;
 
     /* colors for text labels */
     GdkRGBA label_colors [LAST_LABEL_COLOR];

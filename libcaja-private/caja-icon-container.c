@@ -126,7 +126,6 @@
 #else
 #define DEFAULT_LIGHT_INFO_COLOR 0xAAAAFD
 #define DEFAULT_DARK_INFO_COLOR  0x33337F
-#endif
 
 #define DEFAULT_NORMAL_ICON_RENDER_MODE 0
 #define DEFAULT_PRELIGHT_ICON_RENDER_MODE 1
@@ -136,6 +135,7 @@
 #define DEFAULT_PRELIGHT_ICON_BRIGHTNESS 255
 #define DEFAULT_NORMAL_ICON_LIGHTEN 0
 #define DEFAULT_PRELIGHT_ICON_LIGHTEN 0
+#endif
 
 #define MINIMUM_EMBEDDED_TEXT_RECT_WIDTH       20
 #define MINIMUM_EMBEDDED_TEXT_RECT_HEIGHT      20
@@ -6647,7 +6647,6 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                                 "Color of the selection box",
                                 GDK_TYPE_RGBA,
                                 G_PARAM_READABLE));
-
     gtk_widget_class_install_style_property (widget_class,
             g_param_spec_boxed ("light_info_rgba",
                                 "Light Info RGBA",
@@ -6722,7 +6721,6 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                                0, 3,
                                DEFAULT_NORMAL_ICON_RENDER_MODE,
                                G_PARAM_READABLE));
-#endif
     gtk_widget_class_install_style_property (widget_class,
             g_param_spec_uint ("prelight_icon_render_mode",
                                "Prelight Icon Render Mode",
@@ -6730,20 +6728,6 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                                0, 3,
                                DEFAULT_PRELIGHT_ICON_RENDER_MODE,
                                G_PARAM_READABLE));
-#if GTK_CHECK_VERSION(3,0,0)
-    gtk_widget_class_install_style_property (widget_class,
-            g_param_spec_boxed ("normal_icon_rgba",
-                                "Icon Normal RGBA",
-                                "Color used for colorizing icons in normal state (default base[NORMAL])",
-                                GDK_TYPE_RGBA,
-                                G_PARAM_READABLE));
-    gtk_widget_class_install_style_property (widget_class,
-            g_param_spec_boxed ("prelight_icon_rgba",
-                                "Icon Prelight RGBA",
-                                "Color used for colorizing prelighted icons (default base[PRELIGHT])",
-                                GDK_TYPE_RGBA,
-                                G_PARAM_READABLE));
-#else
     gtk_widget_class_install_style_property (widget_class,
             g_param_spec_boxed ("normal_icon_color",
                                 "Icon Normal Color",
@@ -6763,7 +6747,6 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                                0, 255,
                                DEFAULT_NORMAL_ICON_SATURATION,
                                G_PARAM_READABLE));
-#endif
     gtk_widget_class_install_style_property (widget_class,
             g_param_spec_uint ("prelight_icon_saturation",
                                "Prelight Icon Saturation",
@@ -6771,7 +6754,6 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                                0, 255,
                                DEFAULT_PRELIGHT_ICON_SATURATION,
                                G_PARAM_READABLE));
-#if !GTK_CHECK_VERSION(3,0,0)
     gtk_widget_class_install_style_property (widget_class,
             g_param_spec_uint ("normal_icon_brightness",
                                "Normal Icon Brightness",
@@ -6779,7 +6761,6 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                                0, 255,
                                DEFAULT_NORMAL_ICON_BRIGHTNESS,
                                G_PARAM_READABLE));
-#endif
     gtk_widget_class_install_style_property (widget_class,
             g_param_spec_uint ("prelight_icon_brightness",
                                "Prelight Icon Brightness",
@@ -6787,7 +6768,6 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                                0, 255,
                                DEFAULT_PRELIGHT_ICON_BRIGHTNESS,
                                G_PARAM_READABLE));
-#if !GTK_CHECK_VERSION(3,0,0)
     gtk_widget_class_install_style_property (widget_class,
             g_param_spec_uint ("normal_icon_lighten",
                                "Normal Icon Lighten",
@@ -6795,7 +6775,6 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                                0, 255,
                                DEFAULT_NORMAL_ICON_LIGHTEN,
                                G_PARAM_READABLE));
-#endif
     gtk_widget_class_install_style_property (widget_class,
             g_param_spec_uint ("prelight_icon_lighten",
                                "Prelight Icon Lighten",
@@ -6803,6 +6782,7 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                                0, 255,
                                DEFAULT_PRELIGHT_ICON_LIGHTEN,
                                G_PARAM_READABLE));
+#endif
     gtk_widget_class_install_style_property (widget_class,
             g_param_spec_boolean ("activate_prelight_icon_label",
                                   "Activate Prelight Icon Label",
@@ -9748,7 +9728,7 @@ caja_icon_container_theme_changed (gpointer user_data)
     CajaIconContainer *container;
 #if GTK_CHECK_VERSION(3,0,0)
     GtkStyleContext *style;
-    GdkRGBA *prelight_icon_color, *normal_icon_color, color;
+    GdkRGBA color;
 
     container = CAJA_ICON_CONTAINER (user_data);
     style = gtk_widget_get_style_context (GTK_WIDGET (container));
@@ -9759,36 +9739,15 @@ caja_icon_container_theme_changed (gpointer user_data)
     gtk_style_context_get_background_color (style, GTK_STATE_FLAG_ACTIVE, &color);
     container->details->active_color_rgba = color;
 
-    /* load the prelight icon color */
-    gtk_style_context_get_style (style,
-                                 "prelight_icon_rgba", &prelight_icon_color,
-                                 NULL);
     gtk_style_context_get_background_color (style, GTK_STATE_FLAG_PRELIGHT, &color);
 
-    if (!prelight_icon_color) {
-            prelight_icon_color = gdk_rgba_copy (&color);
-    }
-
-    container->details->prelight_icon_color_rgba = *prelight_icon_color;
     container->details->prelight_color_rgba = color;
 
-    /* load the normal icon color */
-    gtk_style_context_get_style (style,
-                                 "normal_icon_rgba", &normal_icon_color,
-                                 NULL);
     gtk_style_context_get_background_color (style, GTK_STATE_FLAG_NORMAL, &color);
 
-    if (!normal_icon_color) {
-            normal_icon_color = gdk_rgba_copy (&color);
-    }
-
-    container->details->normal_icon_color_rgba = *normal_icon_color;
     container->details->normal_color_rgba = color;
 
     setup_label_gcs (container);
-
-    gdk_rgba_free (prelight_icon_color);
-    gdk_rgba_free (normal_icon_color);
 #else
     GtkStyle *style;
     GdkColor *prelight_icon_color, *normal_icon_color;
