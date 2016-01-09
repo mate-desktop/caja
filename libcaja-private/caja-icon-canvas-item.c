@@ -1466,23 +1466,13 @@ draw_label_text (CajaIconCanvasItem *item,
                     text_rect.y0,
                     is_rtl_label_beside ? text_rect.x1 - text_rect.x0 - item->details->text_dx : text_rect.x1 - text_rect.x0,
                     text_rect.y1 - text_rect.y0);
+#if !GTK_CHECK_VERSION(3,0,0)
     }
     else if (!needs_highlight && !details->is_renaming &&
              (details->is_prelit ||
               details->is_highlighted_as_keyboard_focus))
     {
         /* clear the underlying icons, where the text or overlaps them. */
-#if GTK_CHECK_VERSION(3,0,0)
-        cairo_save (cr);
-        cairo_set_source_rgba (cr, 0, 0, 0, 0);
-        cairo_rectangle (cr,
-                         text_rect.x0,
-                         text_rect.y0,
-                         text_rect.x1 - text_rect.x0,
-                         text_rect.y1 - text_rect.y0);
-        cairo_fill (cr);
-        cairo_restore (cr);
-#else
         gdk_window_clear_area (gtk_layout_get_bin_window (&EEL_CANVAS (container)->layout),
                                text_rect.x0,
                                text_rect.y0,
