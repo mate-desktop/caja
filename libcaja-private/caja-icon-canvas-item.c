@@ -1957,7 +1957,9 @@ real_map_pixbuf (CajaIconCanvasItem *icon_item)
     CajaIconContainer *container;
     GdkPixbuf *temp_pixbuf, *old_pixbuf, *audio_pixbuf;
     int emblem_size;
+#if !GTK_CHECK_VERSION(3,0,0)
     guint render_mode, saturation, brightness, lighten;
+#endif
 
     temp_pixbuf = icon_item->details->pixbuf;
     canvas = EEL_CANVAS_ITEM(icon_item)->canvas;
@@ -1970,6 +1972,10 @@ real_map_pixbuf (CajaIconCanvasItem *icon_item)
     {
         old_pixbuf = temp_pixbuf;
 
+#if GTK_CHECK_VERSION(3,0,0)
+        temp_pixbuf = eel_create_spotlight_pixbuf (temp_pixbuf);
+        g_object_unref (old_pixbuf);
+#else
         gtk_widget_style_get (GTK_WIDGET (container),
                               "prelight_icon_render_mode", &render_mode,
                               "prelight_icon_saturation", &saturation,
@@ -1984,15 +1990,10 @@ real_map_pixbuf (CajaIconCanvasItem *icon_item)
                                                  saturation,
                                                  brightness,
                                                  lighten,
-#if GTK_CHECK_VERSION(3,0,0)
-                                                 &container->details->prelight_icon_color_rgba);
-#else
                                                  container->details->prelight_icon_color_rgba);
-#endif
             g_object_unref (old_pixbuf);
         }
-
-
+#endif
 
         /* FIXME bugzilla.gnome.org 42471: This hard-wired image is inappropriate to
          * this level of code, which shouldn't know that the
