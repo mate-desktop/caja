@@ -1212,12 +1212,10 @@ caja_icon_container_update_scroll_region (CajaIconContainer *container)
     if (gtk_adjustment_get_step_increment (hadj) != step_increment)
     {
         gtk_adjustment_set_step_increment (hadj, step_increment);
-        gtk_adjustment_changed (hadj);
     }
     if (gtk_adjustment_get_step_increment (vadj) != step_increment)
     {
         gtk_adjustment_set_step_increment (vadj, step_increment);
-        gtk_adjustment_changed (vadj);
     }
     /* Now that we have a new scroll region, clamp the
      * adjustments so we are within the valid scroll area.
