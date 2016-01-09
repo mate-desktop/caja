@@ -1503,20 +1503,19 @@ draw_label_text (CajaIconCanvasItem *item,
                               NULL);
 #if GTK_CHECK_VERSION(3,0,0)
         if (!needs_highlight && details->text_width > 0 && details->text_height > 0)
+        {
+            if (prelight_label && item->details->is_prelit) {
+                draw_frame (item,
+                            cr,
+                            &container->details->prelight_color_rgba,
 #else
         if (needs_frame && !needs_highlight && details->text_width > 0 && details->text_height > 0)
-#endif
         {
             if (!(prelight_label && item->details->is_prelit))
             {
                 draw_frame (item,
-#if GTK_CHECK_VERSION(3,0,0)
-                            cr,
-                            &container->details->normal_color_rgba,
-#else
                             drawable,
                             container->details->normal_color_rgba,
-#endif
                             create_mask,
                             text_rect.x0,
                             text_rect.y0,
@@ -1526,10 +1525,6 @@ draw_label_text (CajaIconCanvasItem *item,
             else
             {
                 draw_frame (item,
-#if GTK_CHECK_VERSION(3,0,0)
-                            cr,
-                            &container->details->prelight_color_rgba,
-#else
                             drawable,
                             container->details->prelight_color_rgba,
 #endif
