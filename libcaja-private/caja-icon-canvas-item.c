@@ -2237,6 +2237,10 @@ draw_embedded_text (CajaIconCanvasItem *item,
     PangoLayout *layout;
     PangoContext *context;
     PangoFontDescription *desc;
+#if GTK_CHECK_VERSION(3,0,0)
+    GtkWidget *widget;
+    GtkStyleContext *style_context;
+#endif
 
     if (item->details->embedded_text == NULL ||
             item->details->embedded_text_rect.width == 0 ||
@@ -2245,13 +2249,21 @@ draw_embedded_text (CajaIconCanvasItem *item,
         return;
     }
 
+#if GTK_CHECK_VERSION(3,0,0)
+    widget = GTK_WIDGET (EEL_CANVAS_ITEM (item)->canvas);
+#endif
+
     if (item->details->embedded_text_layout != NULL)
     {
         layout = g_object_ref (item->details->embedded_text_layout);
     }
     else
     {
+#if GTK_CHECK_VERSION(3,0,0)
+        context = gtk_widget_get_pango_context (widget);
+#else
         context = gtk_widget_get_pango_context (GTK_WIDGET (EEL_CANVAS_ITEM (item)->canvas));
+#endif
         layout = pango_layout_new (context);
         pango_layout_set_text (layout, item->details->embedded_text, -1);
 
@@ -2266,10 +2278,28 @@ draw_embedded_text (CajaIconCanvasItem *item,
     }
 
 #if GTK_CHECK_VERSION(3,0,0)
+    style_context = gtk_widget_get_style_context (widget);
+    gtk_style_context_save (style_context);
+    gtk_style_context_add_class (style_context, "icon-embedded-text");
+
     cairo_save (cr);
+
+    cairo_rectangle (cr,
+                     x + item->details->embedded_text_rect.x,
+                     y + item->details->embedded_text_rect.y,
+                     item->details->embedded_text_rect.width,
+                     item->details->embedded_text_rect.height);
+    cairo_clip (cr);
+
+    gtk_render_layout (style_context, cr,
+                       x + item->details->embedded_text_rect.x,
+                       y + item->details->embedded_text_rect.y,
+                       layout);
+
+    gtk_style_context_restore (style_context);
+    cairo_restore (cr);
 #else
     cairo_t *cr = gdk_cairo_create (drawable);
-#endif
 
     cairo_rectangle (cr,
                      x + item->details->embedded_text_rect.x,
@@ -2284,9 +2314,6 @@ draw_embedded_text (CajaIconCanvasItem *item,
     	           y + item->details->embedded_text_rect.y);
     pango_cairo_show_layout (cr, layout);
 
-#if GTK_CHECK_VERSION(3,0,0)
-    cairo_restore (cr);
-#else
     cairo_destroy (cr);
 #endif
 }
