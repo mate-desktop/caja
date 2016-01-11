@@ -537,6 +537,17 @@ notebook_button_press_cb (GtkWidget *widget,
         notebook_popup_menu_show (pane, event);
         return TRUE;
     }
+    else if (GDK_BUTTON_PRESS == event->type && 2 == event->button)
+    {
+        CajaWindowPane *wpane;
+        CajaWindowSlot *slot;
+
+        wpane = CAJA_WINDOW_PANE (pane);
+        slot = wpane->active_slot;
+        caja_window_slot_close (slot);
+
+        return FALSE;
+    }
 
     return FALSE;
 }
