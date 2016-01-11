@@ -4689,10 +4689,21 @@ style_updated (GtkWidget *widget)
 {
     CajaIconContainer *container;
 
-    GTK_WIDGET_CLASS (caja_icon_container_parent_class)->style_updated (widget);
-
     container = CAJA_ICON_CONTAINER (widget);
     container->details->use_drop_shadows = container->details->drop_shadows_requested;
+
+    /* Don't chain up to parent, if this is a desktop container,
+    * because that resets the background of the window.
+    */
+    if (!caja_icon_container_get_is_desktop (container)) {
+           GTK_WIDGET_CLASS (caja_icon_container_parent_class)->style_updated (widget);
+    }
+
+    if (gtk_widget_get_realized (widget))
+    {
+        invalidate_label_sizes (container);
+        caja_icon_container_request_update_all (container);
+    }
 #else
 style_set (GtkWidget *widget,
            GtkStyle  *previous_style)
@@ -4709,7 +4720,6 @@ style_set (GtkWidget *widget,
     container->details->use_drop_shadows = container->details->drop_shadows_requested && !frame_text;
 
     caja_icon_container_theme_changed (CAJA_ICON_CONTAINER (widget));
-#endif
 
     if (gtk_widget_get_realized (widget))
     {
@@ -4719,6 +4729,7 @@ style_set (GtkWidget *widget,
 
     /* Don't chain up to parent, because that sets the background of the window and we're doing
        that ourself with some delay, so this would cause flickering */
+#endif
 }
 
 static gboolean
