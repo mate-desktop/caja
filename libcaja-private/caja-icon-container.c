@@ -2880,6 +2880,83 @@ rubberband_timeout_callback (gpointer data)
     return TRUE;
 }
 
+#if GTK_CHECK_VERSION(3,0,0)
+/*borrowed from Nemo, makes Caja rubberbanding follow same selectors as Nemo and presumably Nautilus */
+static void
+start_rubberbanding (CajaIconContainer *container,
+		     GdkEventButton *event)
+{
+	AtkObject *accessible;
+	CajaIconContainerDetails *details;
+	CajaIconRubberbandInfo *band_info;
+	GdkRGBA bg_color, border_color;
+	GList *p;
+	CajaIcon *icon;
+	GtkStyleContext *context;
+
+	details = container->details;
+	band_info = &details->rubberband_info;
+
+	g_signal_emit (container,
+		       signals[BAND_SELECT_STARTED], 0);
+
+	for (p = details->icons; p != NULL; p = p->next) {
+		icon = p->data;
+		icon->was_selected_before_rubberband = icon->is_selected;
+	}
+
+	eel_canvas_window_to_world
+		(EEL_CANVAS (container), event->x, event->y,
+		 &band_info->start_x, &band_info->start_y);
+
+	context = gtk_widget_get_style_context (GTK_WIDGET (container));
+	gtk_style_context_save (context);
+	gtk_style_context_add_class (context, GTK_STYLE_CLASS_RUBBERBAND);
+
+	gtk_style_context_get_background_color (context, GTK_STATE_FLAG_NORMAL, &bg_color);
+	gtk_style_context_get_border_color (context, GTK_STATE_FLAG_NORMAL, &border_color);
+
+	gtk_style_context_restore (context);
+
+	band_info->selection_rectangle = eel_canvas_item_new
+		(eel_canvas_root
+		 (EEL_CANVAS (container)),
+		  EEL_TYPE_CANVAS_RECT,
+		 "x1", band_info->start_x,
+		 "y1", band_info->start_y,
+		 "x2", band_info->start_x,
+		 "y2", band_info->start_y,
+		 "fill_color_rgba", &bg_color,
+		 "outline_color_rgba", &border_color,
+		 "width_pixels", 1,
+		 NULL);
+
+	accessible = atk_gobject_accessible_for_object
+		(G_OBJECT (band_info->selection_rectangle));
+	atk_object_set_name (accessible, "selection");
+	atk_object_set_description (accessible, _("The selection rectangle"));
+
+	band_info->prev_x = event->x - gtk_adjustment_get_value (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container)));
+	band_info->prev_y = event->y - gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container)));
+
+	band_info->active = TRUE;
+
+	if (band_info->timer_id == 0) {
+		band_info->timer_id = g_timeout_add
+			(RUBBERBAND_TIMEOUT_INTERVAL,
+			 rubberband_timeout_callback,
+			 container);
+	}
+
+	eel_canvas_item_grab (band_info->selection_rectangle,
+				(GDK_POINTER_MOTION_MASK
+				 | GDK_BUTTON_RELEASE_MASK
+				 | GDK_SCROLL_MASK),
+				NULL, event->time);
+}
+
+
+#else
 static void
 start_rubberbanding (CajaIconContainer *container,
                      GdkEventButton *event)
@@ -2887,19 +2964,12 @@ start_rubberbanding (CajaIconContainer *container,
     AtkObject *accessible;
     CajaIconContainerDetails *details;
     CajaIconRubberbandInfo *band_info;
-#if GTK_CHECK_VERSION(3,0,0)
-    GdkRGBA *fill_color_gdk, outline, color;
-    GList *p;
-    CajaIcon *icon;
-    GtkStyleContext *style;
-#else
     guint fill_color, outline_color;
     GdkColor *fill_color_gdk;
     guchar fill_color_alpha;
     GList *p;
     CajaIcon *icon;
     GtkStyle *style;
-#endif
 
     details = container->details;
     band_info = &details->rubberband_info;
@@ -2917,41 +2987,6 @@ start_rubberbanding (CajaIconContainer *container,
     (EEL_CANVAS (container), event->x, event->y,
      &band_info->start_x, &band_info->start_y);
 
-#if GTK_CHECK_VERSION(3,0,0)
-    style = gtk_widget_get_style_context (GTK_WIDGET (container));
-    gtk_style_context_get_style (style,
-                                 "selection_box_rgba", &fill_color_gdk,
-                                 NULL);
-
-    if (!fill_color_gdk)
-    {
-           gtk_style_context_get_background_color (style, GTK_STATE_FLAG_SELECTED,
-                                                   &color);
-           fill_color_gdk = gdk_rgba_copy (&color);
-    }
-
-    if (fill_color_gdk->alpha == 1) {
-            fill_color_gdk->alpha = 0.25;
-    }
-
-    outline = *fill_color_gdk;
-    eel_make_color_inactive (&outline);
-
-    band_info->selection_rectangle = eel_canvas_item_new
-                                     (eel_canvas_root
-                                      (EEL_CANVAS (container)),
-                                      EEL_TYPE_CANVAS_RECT,
-                                      "x1", band_info->start_x,
-                                      "y1", band_info->start_y,
-                                      "x2", band_info->start_x,
-                                      "y2", band_info->start_y,
-                                      "fill_color_rgba", fill_color_gdk,
-                                      "outline_color_rgba", &outline,
-                                      "width_pixels", 1,
-                                      NULL);
-
-    gdk_rgba_free (fill_color_gdk);
-#else
     gtk_widget_style_get (GTK_WIDGET (container),
                           "selection_box_color", &fill_color_gdk,
                           "selection_box_alpha", &fill_color_alpha,
@@ -2981,7 +3016,6 @@ start_rubberbanding (CajaIconContainer *container,
                                       "outline_color_rgba", outline_color,
                                       "width_pixels", 1,
                                       NULL);
-#endif
 
     accessible = atk_gobject_accessible_for_object
                  (G_OBJECT (band_info->selection_rectangle));
@@ -3007,6 +3041,7 @@ start_rubberbanding (CajaIconContainer *container,
                            | GDK_SCROLL_MASK),
                           NULL, event->time);
 }
+#endif
 
 static void
 stop_rubberbanding (CajaIconContainer *container,
