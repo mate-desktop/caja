@@ -1478,7 +1478,8 @@ draw_label_text (CajaIconCanvasItem *item,
         x = text_rect.x0 + ((text_rect.x1 - text_rect.x0) - max_text_width) / 2;
     }
 
-    if (have_editable)
+    if (have_editable &&
+        !details->is_renaming)
     {
         state = GTK_STATE_FLAG_NORMAL;
 
@@ -1505,7 +1506,8 @@ draw_label_text (CajaIconCanvasItem *item,
         gtk_style_context_restore (context);
     }
 
-    if (have_additional)
+    if (have_additional &&
+        !details->is_renaming)
     {
         state = GTK_STATE_FLAG_NORMAL;
 
