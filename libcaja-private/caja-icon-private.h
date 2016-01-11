@@ -211,15 +211,7 @@ struct CajaIconContainerDetails
     int font_size_table[CAJA_ZOOM_LEVEL_LARGEST + 1];
 
     /* pixbuf and color for label highlighting */
-#if GTK_CHECK_VERSION(3,0,0)
-    GdkRGBA    highlight_color_rgba;
-    GdkRGBA    active_color_rgba;
-    GdkRGBA    normal_color_rgba;
-    GdkRGBA    prelight_color_rgba;
-
-    /* colors for text labels */
-    GdkRGBA label_colors [LAST_LABEL_COLOR];
-#else
+#if !GTK_CHECK_VERSION(3,0,0)
     guint32    highlight_color_rgba;
     guint32    active_color_rgba;
     guint32    normal_color_rgba;
@@ -335,15 +327,13 @@ gboolean      caja_icon_container_scroll                      (CajaIconContainer
         int                    delta_y);
 void          caja_icon_container_update_scroll_region        (CajaIconContainer *container);
 
+#if !GTK_CHECK_VERSION(3,0,0)
 /* label color for items */
 void          caja_icon_container_get_label_color             (CajaIconContainer *container,
-#if GTK_CHECK_VERSION(3,0,0)
-        GdkRGBA              *color,
-#else
         GdkColor             **color,
-#endif
         gboolean               first_line,
         gboolean               needs_highlight,
         gboolean	       is_prelit);
+#endif
 
 #endif /* CAJA_ICON_CONTAINER_PRIVATE_H */

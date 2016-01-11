@@ -181,7 +181,9 @@ static GType         caja_icon_container_accessible_get_type (void);
 static void          activate_selected_items                        (CajaIconContainer *container);
 static void          activate_selected_items_alternate              (CajaIconContainer *container,
         CajaIcon          *icon);
+#if !GTK_CHECK_VERSION(3, 0, 0)
 static void          caja_icon_container_theme_changed          (gpointer               user_data);
+#endif
 static void          compute_stretch                                (StretchState          *start,
         StretchState          *current);
 static CajaIcon *get_first_selected_icon                        (CajaIconContainer *container);
@@ -207,7 +209,9 @@ static inline void   icon_get_bounding_box                          (CajaIcon   
 static gboolean      is_renaming                                    (CajaIconContainer *container);
 static gboolean      is_renaming_pending                            (CajaIconContainer *container);
 static void          process_pending_icon_to_rename                 (CajaIconContainer *container);
+#if !GTK_CHECK_VERSION(3, 0, 0)
 static void          setup_label_gcs                                (CajaIconContainer *container);
+#endif
 static void          caja_icon_container_stop_monitor_top_left  (CajaIconContainer *container,
         CajaIconData      *data,
         gconstpointer          client);
@@ -4612,7 +4616,9 @@ realize (GtkWidget *widget)
     /* Set up DnD.  */
     caja_icon_dnd_init (container);
 
+#if !GTK_CHECK_VERSION(3, 0, 0)
     setup_label_gcs (container);
+#endif
 
     hadj = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (widget));
     g_signal_connect (hadj, "value_changed",
@@ -4666,9 +4672,9 @@ style_set (GtkWidget *widget,
                           NULL);
 
     container->details->use_drop_shadows = container->details->drop_shadows_requested && !frame_text;
-#endif
 
     caja_icon_container_theme_changed (CAJA_ICON_CONTAINER (widget));
+#endif
 
     if (gtk_widget_get_realized (widget))
     {
@@ -6948,8 +6954,10 @@ caja_icon_container_init (CajaIconContainer *container)
     /* when the background changes, we must set up the label text color */
     background = eel_get_widget_background (GTK_WIDGET (container));
 
+#if !GTK_CHECK_VERSION(3,0,0)
     g_signal_connect_object (background, "appearance_changed",
                              G_CALLBACK (update_label_color), container, 0);
+#endif
 
     g_signal_connect (container, "focus-in-event",
                       G_CALLBACK (handle_focus_in_event), NULL);
@@ -6958,8 +6966,10 @@ caja_icon_container_init (CajaIconContainer *container)
 
     eel_background_set_use_base (background, TRUE);
 
+#if !GTK_CHECK_VERSION(3,0,0)
     /* read in theme-dependent data */
     caja_icon_container_theme_changed (container);
+#endif
 
     if (!setup_prefs)
     {
@@ -9380,16 +9390,12 @@ caja_icon_container_set_single_click_mode (CajaIconContainer *container,
     container->details->single_click_mode = single_click_mode;
 }
 
-
+#if !GTK_CHECK_VERSION(3,0,0)
 /* update the label color when the background changes */
 
 void
 caja_icon_container_get_label_color (CajaIconContainer *container,
-#if GTK_CHECK_VERSION(3,0,0)
-        GdkRGBA              *color,
-#else
         GdkColor             **color,
-#endif
         gboolean             is_name,
         gboolean             is_highlight,
         gboolean             is_prelit)
@@ -9442,24 +9448,14 @@ caja_icon_container_get_label_color (CajaIconContainer *container,
 
     if (color)
     {
-#if GTK_CHECK_VERSION(3,0,0)
-        *color = container->details->label_colors[idx];
-#else
         *color = &container->details->label_colors [idx];
-#endif
     }
 }
 
 static void
-#if GTK_CHECK_VERSION(3,0,0)
-setup_gc_with_fg (CajaIconContainer *container, int idx, GdkRGBA *color)
-{
-    container->details->label_colors[idx] = *color;
-#else
 setup_gc_with_fg (CajaIconContainer *container, int idx, guint32 color)
 {
     container->details->label_colors [idx] = eel_gdk_rgb_to_color (color);
-#endif
 }
 
 static void
@@ -9467,16 +9463,10 @@ setup_label_gcs (CajaIconContainer *container)
 {
     EelBackground *background;
     GtkWidget *widget;
-#if GTK_CHECK_VERSION(3,0,0)
-    GdkRGBA *light_info_color, *dark_info_color;
-    GtkStyleContext *style;
-    GdkRGBA color;
-#else
     GdkColor *light_info_color, *dark_info_color;
     guint light_info_value, dark_info_value;
     gboolean frame_text;
     GtkStyle *style;
-#endif
 
     if (!gtk_widget_get_realized (GTK_WIDGET (container)))
         return;
@@ -9488,76 +9478,6 @@ setup_label_gcs (CajaIconContainer *container)
     background = eel_get_widget_background (GTK_WIDGET (container));
 
     /* read the info colors from the current theme; use a reasonable default if undefined */
-#if GTK_CHECK_VERSION(3,0,0)
-    style = gtk_widget_get_style_context (widget);
-    gtk_style_context_get_style (style,
-                                 "light_info_rgba", &light_info_color,
-                                 "dark_info_rgba", &dark_info_color,
-                                 NULL);
-
-    if (!light_info_color)
-    {
-        gdk_rgba_parse (&color, DEFAULT_LIGHT_INFO_COLOR);
-        light_info_color = gdk_rgba_copy (&color);
-    }
-
-    if (!dark_info_color)
-    {
-        gdk_rgba_parse (&color, DEFAULT_DARK_INFO_COLOR);
-        dark_info_color = gdk_rgba_copy (&color);
-    }
-
-    gtk_style_context_get_color (style, GTK_STATE_FLAG_SELECTED, &color);
-    setup_gc_with_fg (container, LABEL_COLOR_HIGHLIGHT, &color);
-
-    gtk_style_context_get_color (style, GTK_STATE_FLAG_ACTIVE, &color);
-    setup_gc_with_fg (container, LABEL_COLOR_ACTIVE, &color);
-
-    gtk_style_context_get_color (style, GTK_STATE_FLAG_PRELIGHT, &color);
-    setup_gc_with_fg (container, LABEL_COLOR_PRELIGHT, &color);
-
-    gtk_style_context_get_background_color (style, GTK_STATE_FLAG_SELECTED, &color);
-    setup_gc_with_fg (container,
-                      LABEL_INFO_COLOR_HIGHLIGHT,
-                      eel_gdk_rgba_is_dark (&color) ? light_info_color : dark_info_color);
-
-    gtk_style_context_get_background_color (style, GTK_STATE_FLAG_ACTIVE, &color);
-    setup_gc_with_fg (container,
-                      LABEL_INFO_COLOR_ACTIVE,
-                      eel_gdk_rgba_is_dark (&color) ? light_info_color : dark_info_color);
-
-    if (!caja_icon_container_get_is_desktop (container))
-    {
-           gtk_style_context_get_color (style, GTK_STATE_FLAG_NORMAL, &color);
-           setup_gc_with_fg (container, LABEL_COLOR, &color);
-
-           gtk_style_context_get_background_color (style, GTK_STATE_FLAG_NORMAL, &color);
-           setup_gc_with_fg (container, LABEL_INFO_COLOR,
-                             eel_gdk_rgba_is_dark (&color) ?
-                             light_info_color : dark_info_color);
-    }
-    else
-    {
-        if (container->details->use_drop_shadows || eel_background_is_dark (background))
-        {
-            GdkRGBA tmp;
-
-            gdk_rgba_parse (&tmp, "#EFEFEF");
-            setup_gc_with_fg (container, LABEL_COLOR, &tmp);
-            setup_gc_with_fg (container, LABEL_INFO_COLOR, light_info_color);
-        }
-        else     /* converse */
-        {
-            GdkRGBA tmp;
-
-            gdk_rgba_parse (&tmp, "#000000");
-            setup_gc_with_fg (container, LABEL_COLOR, &tmp);
-            setup_gc_with_fg (container, LABEL_INFO_COLOR, dark_info_color);
-        }
-    }
-    gdk_rgba_free (dark_info_color);
-    gdk_rgba_free (light_info_color);
-#else
     gtk_widget_style_get (GTK_WIDGET (container),
                           "light_info_color", &light_info_color,
                           "dark_info_color", &dark_info_color,
@@ -9627,7 +9547,6 @@ setup_label_gcs (CajaIconContainer *container)
                               dark_info_value);
         }
     }
-#endif
 }
 
 static void
@@ -9638,7 +9557,7 @@ update_label_color (EelBackground         *background,
 
     setup_label_gcs (container);
 }
-
+#endif
 
 /* Return if the icon container is a fixed size */
 gboolean
@@ -9722,33 +9641,11 @@ caja_icon_container_set_use_drop_shadows (CajaIconContainer  *container,
 
 /* handle theme changes */
 
+#if !GTK_CHECK_VERSION(3,0,0)
 static void
 caja_icon_container_theme_changed (gpointer user_data)
 {
     CajaIconContainer *container;
-#if GTK_CHECK_VERSION(3,0,0)
-    GtkStyleContext *style;
-    GdkRGBA color;
-
-    container = CAJA_ICON_CONTAINER (user_data);
-    style = gtk_widget_get_style_context (GTK_WIDGET (container));
-
-    gtk_style_context_get_background_color (style, GTK_STATE_FLAG_SELECTED, &color);
-    container->details->highlight_color_rgba = color;
-
-    gtk_style_context_get_background_color (style, GTK_STATE_FLAG_ACTIVE, &color);
-    container->details->active_color_rgba = color;
-
-    gtk_style_context_get_background_color (style, GTK_STATE_FLAG_PRELIGHT, &color);
-
-    container->details->prelight_color_rgba = color;
-
-    gtk_style_context_get_background_color (style, GTK_STATE_FLAG_NORMAL, &color);
-
-    container->details->normal_color_rgba = color;
-
-    setup_label_gcs (container);
-#else
     GtkStyle *style;
     GdkColor *prelight_icon_color, *normal_icon_color;
     guchar highlight_alpha, normal_alpha, prelight_alpha;
@@ -9843,8 +9740,8 @@ caja_icon_container_theme_changed (gpointer user_data)
                              prelight_alpha);
 
     setup_label_gcs (container);
-#endif
 }
+#endif
 
 void
 caja_icon_container_set_font (CajaIconContainer *container,
