@@ -4701,7 +4701,7 @@ style_updated (GtkWidget *widget)
 
     if (gtk_widget_get_realized (widget))
     {
-        invalidate_label_sizes (container);
+        invalidate_labels (container);
         caja_icon_container_request_update_all (container);
     }
 #else
