@@ -617,7 +617,7 @@ caja_file_conflict_dialog_init (CajaFileConflictDialog *fcd)
     gtk_container_add (GTK_CONTAINER (details->expander), hbox);
 
     widget = gtk_entry_new ();
-    gtk_box_pack_start (GTK_BOX (hbox), widget, FALSE, FALSE, 6);
+    gtk_box_pack_start (GTK_BOX (hbox), widget, TRUE, TRUE, 6);
     details->entry = widget;
     g_signal_connect (widget, "changed",
                       G_CALLBACK (entry_text_changed_cb), dialog);
