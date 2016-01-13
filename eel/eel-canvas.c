@@ -3193,13 +3193,17 @@ eel_canvas_draw_background (EelCanvas *canvas,
                             cairo_t   *cr)
 {
     cairo_rectangle_int_t rect;
+    GtkStyleContext *style_context;
+    GdkRGBA color;
 
     if (!gdk_cairo_get_clip_rectangle (cr, &rect))
         return;
 
     cairo_save (cr);
     /* By default, we use the style background. */
-    gdk_cairo_set_source_color (cr, &gtk_widget_get_style (GTK_WIDGET (canvas))->bg[GTK_STATE_NORMAL]);
+    style_context = gtk_widget_get_style_context (GTK_WIDGET (canvas));
+    gtk_style_context_get_background_color (style_context, GTK_STATE_FLAG_NORMAL, &color);
+    gdk_cairo_set_source_rgba (cr, &color);
     gdk_cairo_rectangle (cr, &rect);
     cairo_fill (cr);
     cairo_restore (cr);

@@ -141,6 +141,30 @@ caja_window_init (CajaWindow *window)
     GtkWidget *menu;
     GtkWidget *statusbar;
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    static const gchar css_custom[] =
+      "#statusbar-no-border {"
+      "  -GtkStatusbar-shadow-type: none;"
+      "}"
+      "#caja-extra-view-widget {"
+      "  background-color: " EXTRA_VIEW_WIDGETS_BACKGROUND ";"
+      "}";
+
+    GError *error = NULL;
+    GtkCssProvider *provider = gtk_css_provider_new ();
+    gtk_css_provider_load_from_data (provider, css_custom, -1, &error);
+
+    if (error != NULL) {
+            g_warning ("Can't parse CajaWindow's CSS custom description: %s\n", error->message);
+            g_error_free (error);
+    } else {
+            gtk_style_context_add_provider (gtk_widget_get_style_context (GTK_WIDGET (window)),
+                                            GTK_STYLE_PROVIDER (provider),
+                                            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+    }
+
+    g_object_unref (provider);
+#endif
     window->details = G_TYPE_INSTANCE_GET_PRIVATE (window, CAJA_TYPE_WINDOW, CajaWindowDetails);
 
     window->details->panes = NULL;
@@ -148,6 +172,7 @@ caja_window_init (CajaWindow *window)
 
     window->details->show_hidden_files_mode = CAJA_WINDOW_SHOW_HIDDEN_FILES_DEFAULT;
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
     /* Remove Top border on GtkStatusBar */
     gtk_rc_parse_string (
         "style \"statusbar-no-border\"\n"
@@ -155,6 +180,7 @@ caja_window_init (CajaWindow *window)
         "   GtkStatusbar::shadow_type = GTK_SHADOW_NONE\n"
         "}\n"
         "widget \"*.statusbar-noborder\" style \"statusbar-no-border\"");
+#endif
 
     /* Set initial window title */
     gtk_window_set_title (GTK_WINDOW (window), _("Caja"));
@@ -2238,6 +2264,7 @@ caja_window_class_init (CajaWindowClass *class)
     class->reload = caja_window_reload;
     class->go_up = caja_window_go_up_signal;
 
+#if !GTK_CHECK_VERSION (3,0,0)
     /* Allow to set the colors of the extra view widgets */
     gtk_rc_parse_string ("\n"
                          "   style \"caja-extra-view-widgets-style-internal\"\n"
@@ -2247,6 +2274,7 @@ caja_window_class_init (CajaWindowClass *class)
                          "\n"
                          "    widget \"*.caja-extra-view-widget\" style:rc \"caja-extra-view-widgets-style-internal\" \n"
                          "\n");
+#endif
 
     g_type_class_add_private (G_OBJECT_CLASS (class), sizeof (CajaWindowDetails));
 }

@@ -614,6 +614,21 @@ caja_location_bar_update_label (CajaLocationBar *bar)
 void
 caja_location_bar_set_active(CajaLocationBar *location_bar, gboolean is_active)
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+    if (is_active)
+    {
+        /* reset style to default */
+        gtk_widget_override_background_color (GTK_WIDGET (location_bar->details->entry), GTK_STATE_FLAG_NORMAL, NULL);
+    }
+    else
+    {
+        GtkStyleContext *style;
+        GdkRGBA color;
+
+        style = gtk_widget_get_style_context (GTK_WIDGET (location_bar->details->entry));
+        gtk_style_context_get_background_color (style, GTK_STATE_FLAG_INSENSITIVE, &color);
+        gtk_widget_override_background_color (GTK_WIDGET (location_bar->details->entry), GTK_STATE_FLAG_ACTIVE, &color);
+#else
     if(is_active)
     {
         /* reset style to default */
@@ -626,6 +641,7 @@ caja_location_bar_set_active(CajaLocationBar *location_bar, gboolean is_active)
         style = gtk_widget_get_style (GTK_WIDGET (location_bar->details->entry));
         color = style->base[GTK_STATE_INSENSITIVE];
         gtk_widget_modify_base(GTK_WIDGET (location_bar->details->entry), GTK_STATE_NORMAL, &color);
+#endif
     }
 }
 

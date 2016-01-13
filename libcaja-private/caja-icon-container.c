@@ -120,6 +120,10 @@
 #define DEFAULT_HIGHLIGHT_ALPHA 0xff
 #define DEFAULT_NORMAL_ALPHA 0xff
 #define DEFAULT_PRELIGHT_ALPHA 0xff
+#if GTK_CHECK_VERSION(3,0,0)
+#define DEFAULT_LIGHT_INFO_COLOR "#AAAAFD"
+#define DEFAULT_DARK_INFO_COLOR  "#33337F"
+#else
 #define DEFAULT_LIGHT_INFO_COLOR 0xAAAAFD
 #define DEFAULT_DARK_INFO_COLOR  0x33337F
 
@@ -131,6 +135,7 @@
 #define DEFAULT_PRELIGHT_ICON_BRIGHTNESS 255
 #define DEFAULT_NORMAL_ICON_LIGHTEN 0
 #define DEFAULT_PRELIGHT_ICON_LIGHTEN 0
+#endif
 
 #define MINIMUM_EMBEDDED_TEXT_RECT_WIDTH       20
 #define MINIMUM_EMBEDDED_TEXT_RECT_HEIGHT      20
@@ -176,7 +181,9 @@ static GType         caja_icon_container_accessible_get_type (void);
 static void          activate_selected_items                        (CajaIconContainer *container);
 static void          activate_selected_items_alternate              (CajaIconContainer *container,
         CajaIcon          *icon);
+#if !GTK_CHECK_VERSION(3, 0, 0)
 static void          caja_icon_container_theme_changed          (gpointer               user_data);
+#endif
 static void          compute_stretch                                (StretchState          *start,
         StretchState          *current);
 static CajaIcon *get_first_selected_icon                        (CajaIconContainer *container);
@@ -202,7 +209,9 @@ static inline void   icon_get_bounding_box                          (CajaIcon   
 static gboolean      is_renaming                                    (CajaIconContainer *container);
 static gboolean      is_renaming_pending                            (CajaIconContainer *container);
 static void          process_pending_icon_to_rename                 (CajaIconContainer *container);
+#if !GTK_CHECK_VERSION(3, 0, 0)
 static void          setup_label_gcs                                (CajaIconContainer *container);
+#endif
 static void          caja_icon_container_stop_monitor_top_left  (CajaIconContainer *container,
         CajaIconData      *data,
         gconstpointer          client);
@@ -2871,6 +2880,83 @@ rubberband_timeout_callback (gpointer data)
     return TRUE;
 }
 
+#if GTK_CHECK_VERSION(3,0,0)
+/*borrowed from Nemo, makes Caja rubberbanding follow same selectors as Nemo and presumably Nautilus */
+static void
+start_rubberbanding (CajaIconContainer *container,
+		     GdkEventButton *event)
+{
+	AtkObject *accessible;
+	CajaIconContainerDetails *details;
+	CajaIconRubberbandInfo *band_info;
+	GdkRGBA bg_color, border_color;
+	GList *p;
+	CajaIcon *icon;
+	GtkStyleContext *context;
+
+	details = container->details;
+	band_info = &details->rubberband_info;
+
+	g_signal_emit (container,
+		       signals[BAND_SELECT_STARTED], 0);
+
+	for (p = details->icons; p != NULL; p = p->next) {
+		icon = p->data;
+		icon->was_selected_before_rubberband = icon->is_selected;
+	}
+
+	eel_canvas_window_to_world
+		(EEL_CANVAS (container), event->x, event->y,
+		 &band_info->start_x, &band_info->start_y);
+
+	context = gtk_widget_get_style_context (GTK_WIDGET (container));
+	gtk_style_context_save (context);
+	gtk_style_context_add_class (context, GTK_STYLE_CLASS_RUBBERBAND);
+
+	gtk_style_context_get_background_color (context, GTK_STATE_FLAG_NORMAL, &bg_color);
+	gtk_style_context_get_border_color (context, GTK_STATE_FLAG_NORMAL, &border_color);
+
+	gtk_style_context_restore (context);
+
+	band_info->selection_rectangle = eel_canvas_item_new
+		(eel_canvas_root
+		 (EEL_CANVAS (container)),
+		  EEL_TYPE_CANVAS_RECT,
+		 "x1", band_info->start_x,
+		 "y1", band_info->start_y,
+		 "x2", band_info->start_x,
+		 "y2", band_info->start_y,
+		 "fill_color_rgba", &bg_color,
+		 "outline_color_rgba", &border_color,
+		 "width_pixels", 1,
+		 NULL);
+
+	accessible = atk_gobject_accessible_for_object
+		(G_OBJECT (band_info->selection_rectangle));
+	atk_object_set_name (accessible, "selection");
+	atk_object_set_description (accessible, _("The selection rectangle"));
+
+	band_info->prev_x = event->x - gtk_adjustment_get_value (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container)));
+	band_info->prev_y = event->y - gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container)));
+
+	band_info->active = TRUE;
+
+	if (band_info->timer_id == 0) {
+		band_info->timer_id = g_timeout_add
+			(RUBBERBAND_TIMEOUT_INTERVAL,
+			 rubberband_timeout_callback,
+			 container);
+	}
+
+	eel_canvas_item_grab (band_info->selection_rectangle,
+				(GDK_POINTER_MOTION_MASK
+				 | GDK_BUTTON_RELEASE_MASK
+				 | GDK_SCROLL_MASK),
+				NULL, event->time);
+}
+
+
+#else
 static void
 start_rubberbanding (CajaIconContainer *container,
                      GdkEventButton *event)
@@ -2955,6 +3041,7 @@ start_rubberbanding (CajaIconContainer *container,
                            | GDK_SCROLL_MASK),
                           NULL, event->time);
 }
+#endif
 
 static void
 stop_rubberbanding (CajaIconContainer *container,
@@ -4564,7 +4651,9 @@ realize (GtkWidget *widget)
     /* Set up DnD.  */
     caja_icon_dnd_init (container);
 
+#if !GTK_CHECK_VERSION(3, 0, 0)
     setup_label_gcs (container);
+#endif
 
     hadj = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (widget));
     g_signal_connect (hadj, "value_changed",
@@ -4595,6 +4684,27 @@ unrealize (GtkWidget *widget)
 }
 
 static void
+#if GTK_CHECK_VERSION(3,0,0)
+style_updated (GtkWidget *widget)
+{
+    CajaIconContainer *container;
+
+    container = CAJA_ICON_CONTAINER (widget);
+    container->details->use_drop_shadows = container->details->drop_shadows_requested;
+
+    /* Don't chain up to parent, if this is a desktop container,
+    * because that resets the background of the window.
+    */
+    if (!caja_icon_container_get_is_desktop (container)) {
+           GTK_WIDGET_CLASS (caja_icon_container_parent_class)->style_updated (widget);
+    }
+
+    if (gtk_widget_get_realized (widget))
+    {
+        invalidate_labels (container);
+        caja_icon_container_request_update_all (container);
+    }
+#else
 style_set (GtkWidget *widget,
            GtkStyle  *previous_style)
 {
@@ -4619,6 +4729,7 @@ style_set (GtkWidget *widget,
 
     /* Don't chain up to parent, because that sets the background of the window and we're doing
        that ourself with some delay, so this would cause flickering */
+#endif
 }
 
 static gboolean
@@ -6568,8 +6679,10 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
     widget_class->key_press_event = key_press_event;
     widget_class->popup_menu = popup_menu;
     widget_class->get_accessible = get_accessible;
+#if GTK_CHECK_VERSION(3,0,0)
+    widget_class->style_updated = style_updated;
+#else
     widget_class->style_set = style_set;
-#if !GTK_CHECK_VERSION(3,0,0)
     widget_class->expose_event = expose_event;
 #endif
     widget_class->grab_notify = grab_notify_cb;
@@ -6579,13 +6692,32 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
 
     class->start_interactive_search = caja_icon_container_start_interactive_search;
 
+#if GTK_CHECK_VERSION(3,0,0)
+    gtk_widget_class_install_style_property (widget_class,
+            g_param_spec_boxed ("selection_box_rgba",
+                                "Selection Box RGBA",
+                                "Color of the selection box",
+                                GDK_TYPE_RGBA,
+                                G_PARAM_READABLE));
+    gtk_widget_class_install_style_property (widget_class,
+            g_param_spec_boxed ("light_info_rgba",
+                                "Light Info RGBA",
+                                "Color used for information text against a dark background",
+                                GDK_TYPE_RGBA,
+                                G_PARAM_READABLE));
+    gtk_widget_class_install_style_property (widget_class,
+            g_param_spec_boxed ("dark_info_rgba",
+                                "Dark Info RGBA",
+                                "Color used for information text against a light background",
+                                GDK_TYPE_RGBA,
+                                G_PARAM_READABLE));
+#else
     gtk_widget_class_install_style_property (widget_class,
             g_param_spec_boolean ("frame_text",
                                   "Frame Text",
                                   "Draw a frame around unselected text",
                                   FALSE,
                                   G_PARAM_READABLE));
-
     gtk_widget_class_install_style_property (widget_class,
             g_param_spec_boxed ("selection_box_color",
                                 "Selection Box Color",
@@ -6702,6 +6834,7 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                                0, 255,
                                DEFAULT_PRELIGHT_ICON_LIGHTEN,
                                G_PARAM_READABLE));
+#endif
     gtk_widget_class_install_style_property (widget_class,
             g_param_spec_boolean ("activate_prelight_icon_label",
                                   "Activate Prelight Icon Label",
@@ -6867,8 +7000,10 @@ caja_icon_container_init (CajaIconContainer *container)
     /* when the background changes, we must set up the label text color */
     background = eel_get_widget_background (GTK_WIDGET (container));
 
+#if !GTK_CHECK_VERSION(3,0,0)
     g_signal_connect_object (background, "appearance_changed",
                              G_CALLBACK (update_label_color), container, 0);
+#endif
 
     g_signal_connect (container, "focus-in-event",
                       G_CALLBACK (handle_focus_in_event), NULL);
@@ -6877,8 +7012,10 @@ caja_icon_container_init (CajaIconContainer *container)
 
     eel_background_set_use_base (background, TRUE);
 
+#if !GTK_CHECK_VERSION(3,0,0)
     /* read in theme-dependent data */
     caja_icon_container_theme_changed (container);
+#endif
 
     if (!setup_prefs)
     {
@@ -9170,12 +9307,20 @@ caja_icon_container_start_renaming_selected_item (CajaIconContainer *container,
     {
         eel_filename_get_rename_region (editable_text, &start_offset, &end_offset);
     }
+
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_widget_show (details->rename_widget);
+    gtk_widget_grab_focus (details->rename_widget);
+#endif
+
     eel_editable_label_select_region (EEL_EDITABLE_LABEL (details->rename_widget),
                                       start_offset,
                                       end_offset);
-    gtk_widget_show (details->rename_widget);
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
+    gtk_widget_show (details->rename_widget);
     gtk_widget_grab_focus (details->rename_widget);
+#endif
 
     g_signal_emit (container,
                    signals[RENAMING_ICON], 0,
@@ -9291,15 +9436,15 @@ caja_icon_container_set_single_click_mode (CajaIconContainer *container,
     container->details->single_click_mode = single_click_mode;
 }
 
-
+#if !GTK_CHECK_VERSION(3,0,0)
 /* update the label color when the background changes */
 
 void
 caja_icon_container_get_label_color (CajaIconContainer *container,
         GdkColor             **color,
-        gboolean               is_name,
-        gboolean               is_highlight,
-        gboolean		  is_prelit)
+        gboolean             is_name,
+        gboolean             is_highlight,
+        gboolean             is_prelit)
 {
     int idx;
 
@@ -9458,7 +9603,7 @@ update_label_color (EelBackground         *background,
 
     setup_label_gcs (container);
 }
-
+#endif
 
 /* Return if the icon container is a fixed size */
 gboolean
@@ -9518,11 +9663,13 @@ void
 caja_icon_container_set_use_drop_shadows (CajaIconContainer  *container,
         gboolean                use_drop_shadows)
 {
+#if !GTK_CHECK_VERSION(3,0,0)
     gboolean frame_text;
 
     gtk_widget_style_get (GTK_WIDGET (container),
                           "frame_text", &frame_text,
                           NULL);
+#endif
 
     if (container->details->drop_shadows_requested == use_drop_shadows)
     {
@@ -9530,12 +9677,17 @@ caja_icon_container_set_use_drop_shadows (CajaIconContainer  *container,
     }
 
     container->details->drop_shadows_requested = use_drop_shadows;
+#if GTK_CHECK_VERSION(3,0,0)
+    container->details->use_drop_shadows = use_drop_shadows;
+#else
     container->details->use_drop_shadows = use_drop_shadows && !frame_text;
+#endif
     gtk_widget_queue_draw (GTK_WIDGET (container));
 }
 
 /* handle theme changes */
 
+#if !GTK_CHECK_VERSION(3,0,0)
 static void
 caja_icon_container_theme_changed (gpointer user_data)
 {
@@ -9633,9 +9785,9 @@ caja_icon_container_theme_changed (gpointer user_data)
                              style->base[GTK_STATE_PRELIGHT].blue >> 8,
                              prelight_alpha);
 
-
     setup_label_gcs (container);
 }
+#endif
 
 void
 caja_icon_container_set_font (CajaIconContainer *container,

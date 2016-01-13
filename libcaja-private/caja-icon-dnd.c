@@ -144,6 +144,9 @@ create_selection_shadow (CajaIconContainer *container,
     {
         CajaDragSelectionItem *item;
         int x1, y1, x2, y2;
+#if GTK_CHECK_VERSION(3,0,0)
+        GdkRGBA black = { 0, 0, 0, 1 };
+#endif
 
         item = p->data;
 
@@ -165,7 +168,11 @@ create_selection_shadow (CajaIconContainer *container,
              "y1", (double) y1,
              "x2", (double) x2,
              "y2", (double) y2,
-             "outline_color", "black",
+#if GTK_CHECK_VERSION(3,0,0)
+             "outline-color-rgba", &black,
+#else
+              "outline_color", "black",
+#endif
              "outline-stippling", TRUE,
              "width_pixels", 1,
              NULL);
@@ -1611,22 +1618,36 @@ drag_highlight_expose (GtkWidget      *widget,
                        gpointer        data)
 #endif
 {
+#if GTK_CHECK_VERSION(3,0,0)
+    gint width, height;
+    GdkWindow *window;
+    GtkStyleContext *style;
+#else
     gint x, y, width, height;
     GdkWindow *window;
+#endif
 
+#if !GTK_CHECK_VERSION(3,0,0)
     x = gtk_adjustment_get_value (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (widget)));
     y = gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (widget)));
+#endif
 
     window = gtk_widget_get_window (widget);
     width = gdk_window_get_width (window);
     height = gdk_window_get_height (window);
 
 #if GTK_CHECK_VERSION (3, 0, 0)
-    gtk_paint_shadow (gtk_widget_get_style (widget),
+    style = gtk_widget_get_style_context (widget);
+
+    gtk_style_context_save (style);
+    gtk_style_context_add_class (style, "dnd");
+    gtk_style_context_set_state (style, GTK_STATE_FLAG_FOCUSED);
+
+    gtk_render_frame (style,
                       cr,
-                      GTK_STATE_NORMAL, GTK_SHADOW_OUT,
-                      widget, "dnd",
-                      x, y, width, height);
+                      0, 0, width, height);
+
+    gtk_style_context_restore (style);
 #else
     gtk_paint_shadow (gtk_widget_get_style (widget), window,
                       GTK_STATE_NORMAL, GTK_SHADOW_OUT,
@@ -1638,7 +1659,11 @@ drag_highlight_expose (GtkWidget      *widget,
 
     cairo_set_line_width (cr, 1.0);
     cairo_set_source_rgb (cr, 0, 0, 0);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    cairo_rectangle (cr, 0.5, 0.5, width - 1, height - 1);
+#else
     cairo_rectangle (cr, x + 0.5, y + 0.5, width - 1, height - 1);
+#endif
     cairo_stroke (cr);
 #if !GTK_CHECK_VERSION(3,0,0)
     cairo_destroy (cr);

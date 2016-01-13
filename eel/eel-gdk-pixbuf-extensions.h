@@ -151,6 +151,10 @@ GdkPixbuf *          eel_gdk_pixbuf_render                    (GdkPixbuf *pixbuf
         guint saturation,
         guint brightness,
         guint lighten_value,
+#if GTK_CHECK_VERSION(3,0,0)
+        GdkRGBA *color);
+#else
         guint color);
+#endif
 
 #endif /* EEL_GDK_PIXBUF_EXTENSIONS_H */

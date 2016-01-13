@@ -54,11 +54,15 @@ enum
     PROP_Y1,
     PROP_X2,
     PROP_Y2,
+#if !GTK_CHECK_VERSION(3,0,0)
     PROP_FILL_COLOR,
     PROP_FILL_COLOR_GDK,
+#endif
     PROP_FILL_COLOR_RGBA,
+#if !GTK_CHECK_VERSION(3,0,0)
     PROP_OUTLINE_COLOR,
     PROP_OUTLINE_COLOR_GDK,
+#endif
     PROP_OUTLINE_COLOR_RGBA,
 	PROP_OUTLINE_STIPPLING,
     PROP_WIDTH_PIXELS,
@@ -168,6 +172,11 @@ eel_canvas_re_class_init (EelCanvasREClass *klass)
                           G_PARAM_READWRITE));
     g_object_class_install_property
     (gobject_class,
+#if GTK_CHECK_VERSION(3,0,0)
+     PROP_FILL_COLOR_RGBA,
+     g_param_spec_boxed ("fill-color-rgba", NULL, NULL,
+                         GDK_TYPE_RGBA,
+#else
      PROP_FILL_COLOR,
      g_param_spec_string ("fill-color", NULL, NULL,
                           NULL,
@@ -195,13 +204,20 @@ eel_canvas_re_class_init (EelCanvasREClass *klass)
      PROP_OUTLINE_COLOR_GDK,
      g_param_spec_boxed ("outline-color-gdk", NULL, NULL,
                          GDK_TYPE_COLOR,
+#endif
                          G_PARAM_READWRITE));
     g_object_class_install_property
     (gobject_class,
      PROP_OUTLINE_COLOR_RGBA,
+#if GTK_CHECK_VERSION(3,0,0)
+     g_param_spec_boxed ("outline-color-rgba", NULL, NULL,
+                         GDK_TYPE_RGBA,
+                         G_PARAM_READWRITE));
+#else
      g_param_spec_uint ("outline-color-rgba", NULL, NULL,
                         0, G_MAXUINT, 0,
                         G_PARAM_READWRITE));
+#endif
 	g_object_class_install_property
 		(gobject_class,
 		 PROP_OUTLINE_STIPPLING,
@@ -303,8 +319,10 @@ eel_canvas_re_set_property (GObject              *object,
 {
     EelCanvasItem *item;
     EelCanvasRE *re;
+#if !GTK_CHECK_VERSION(3,0,0)
     GdkColor color = { 0, 0, 0, 0, };
     GdkColor *pcolor;
+#endif
 
     g_return_if_fail (object != NULL);
     g_return_if_fail (EEL_IS_CANVAS_RE (object));
@@ -338,6 +356,37 @@ eel_canvas_re_set_property (GObject              *object,
         eel_canvas_item_request_update (item);
         break;
 
+#if GTK_CHECK_VERSION(3,0,0)
+    case PROP_FILL_COLOR_RGBA: {
+            GdkRGBA *color;
+
+            color = g_value_get_boxed (value);
+
+            eel_canvas_re_set_fill (re, color != NULL);
+
+            if (color != NULL) {
+                    re->fill_color = *color;
+        }
+
+        eel_canvas_item_request_redraw (item);
+        break;
+    }
+
+    case PROP_OUTLINE_COLOR_RGBA: {
+            GdkRGBA *color;
+
+            color = g_value_get_boxed (value);
+
+            eel_canvas_re_set_outline (re, color != NULL);
+
+            if (color != NULL) {
+                    re->outline_color = *color;
+        }
+
+        eel_canvas_item_request_redraw (item);
+        break;
+    }
+#else
     case PROP_FILL_COLOR:
     case PROP_FILL_COLOR_GDK:
     case PROP_FILL_COLOR_RGBA:
@@ -425,6 +474,7 @@ eel_canvas_re_set_property (GObject              *object,
 #endif
         eel_canvas_item_request_redraw (item);
         break;
+#endif
 
 	case PROP_OUTLINE_STIPPLING:
 		re->outline_stippling = g_value_get_boolean (value);
@@ -452,6 +502,7 @@ eel_canvas_re_set_property (GObject              *object,
     }
 }
 
+#if !GTK_CHECK_VERSION(3,0,0)
 /* Allocates a GdkColor structure filled with the specified pixel, and puts it into the specified
  * value for returning it in the get_property method.
  */
@@ -469,6 +520,7 @@ get_color_value (EelCanvasRE *re, gulong pixel, GValue *value)
 
     g_value_set_boxed (value, &color);
 }
+#endif
 
 static void
 eel_canvas_re_get_property (GObject              *object,
@@ -501,6 +553,14 @@ eel_canvas_re_get_property (GObject              *object,
         g_value_set_double (value,  re->y2);
         break;
 
+#if GTK_CHECK_VERSION(3,0,0)
+    case PROP_FILL_COLOR_RGBA:
+        g_value_set_boxed (value,  &re->fill_color);
+        break;
+
+    case PROP_OUTLINE_COLOR_RGBA:
+        g_value_set_boxed (value,  &re->outline_color);
+#else
     case PROP_FILL_COLOR_GDK:
 		get_color_value (re, re->fill_color, value);
         break;
@@ -515,6 +575,7 @@ eel_canvas_re_get_property (GObject              *object,
 
     case PROP_OUTLINE_COLOR_RGBA:
         g_value_set_uint (value,  re->outline_color);
+#endif
         break;
 
 	case PROP_OUTLINE_STIPPLING:
@@ -721,6 +782,11 @@ eel_canvas_rect_realize  (EelCanvasItem *item)
 
 static void
 eel_canvas_set_source_color (cairo_t *cr,
+#if GTK_CHECK_VERSION(3,0,0)
+			     GdkRGBA *rgba)
+{
+	gdk_cairo_set_source_rgba (cr, rgba);
+#else
 			     guint rgba)
 {
 	cairo_set_source_rgba (cr,
@@ -728,6 +794,7 @@ eel_canvas_set_source_color (cairo_t *cr,
 			       ((rgba >> 16) & 0xff) / 255.,
 			       ((rgba >>  8) & 0xff) / 255.,
 			       ((rgba >>  0) & 0xff) / 255.);
+#endif
 }
 
 #define DASH_ON 0.8
@@ -773,7 +840,11 @@ eel_canvas_rect_draw (EelCanvasItem *item, GdkDrawable *drawable, GdkEventExpose
 
     if (re->fill_set)
     {
+#if GTK_CHECK_VERSION(3,0,0)
+        eel_canvas_set_source_color (cr, &re->fill_color);
+#else
         eel_canvas_set_source_color (cr, re->fill_color);
+#endif
         cairo_rectangle (cr,
                          cx1, cy1,
                          cx2 - cx1 + 1,
@@ -783,7 +854,11 @@ eel_canvas_rect_draw (EelCanvasItem *item, GdkDrawable *drawable, GdkEventExpose
 
     if (re->outline_set)
     {
+#if GTK_CHECK_VERSION(3,0,0)
+        eel_canvas_set_source_color (cr, &re->outline_color);
+#else
         eel_canvas_set_source_color (cr, re->outline_color);
+#endif
         if (re->width_pixels) {
             cairo_set_line_width (cr, (int) re->width);
         } else {
@@ -1098,13 +1173,21 @@ eel_canvas_ellipse_draw (EelCanvasItem *item, GdkDrawable *drawable, GdkEventExp
 
     if (re->fill_set)
     {
+#if GTK_CHECK_VERSION(3,0,0)
+    	eel_canvas_set_source_color (cr, &re->fill_color);
+#else
     	eel_canvas_set_source_color (cr, re->fill_color);
+#endif
     	cairo_fill_preserve (cr);
     }
 
     if (re->outline_set)
     {
+#if GTK_CHECK_VERSION(3,0,0)
+        eel_canvas_set_source_color (cr, &re->outline_color);
+#else
         eel_canvas_set_source_color (cr, re->outline_color);
+#endif
         if (re->width_pixels) {
             cairo_set_line_width (cr, (int) re->width);
         } else {

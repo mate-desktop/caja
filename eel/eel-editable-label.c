@@ -100,8 +100,12 @@ static void     eel_editable_label_size_allocate           (GtkWidget           
         GtkAllocation         *allocation);
 static void     eel_editable_label_state_changed           (GtkWidget             *widget,
         GtkStateType           state);
+#if GTK_CHECK_VERSION(3,0,0)
+static void     eel_editable_label_style_updated           (GtkWidget             *widget);
+#else
 static void     eel_editable_label_style_set               (GtkWidget             *widget,
         GtkStyle              *previous_style);
+#endif
 static void     eel_editable_label_direction_changed       (GtkWidget             *widget,
         GtkTextDirection       previous_dir);
 #if GTK_CHECK_VERSION(3,0,0)
@@ -247,7 +251,11 @@ eel_editable_label_class_init (EelEditableLabelClass *class)
 #endif
     widget_class->size_allocate = eel_editable_label_size_allocate;
     widget_class->state_changed = eel_editable_label_state_changed;
+#if GTK_CHECK_VERSION(3,0,0)
+    widget_class->style_updated = eel_editable_label_style_updated;
+#else
     widget_class->style_set = eel_editable_label_style_set;
+#endif
     widget_class->direction_changed = eel_editable_label_direction_changed;
 #if GTK_CHECK_VERSION(3,0,0)
     widget_class->draw = eel_editable_label_draw;
@@ -636,6 +644,10 @@ eel_editable_label_init (EelEditableLabel *label)
     label->n_bytes = 0;
 
     gtk_widget_set_can_focus (GTK_WIDGET (label), TRUE);
+#if GTK_CHECK_VERSION(3,0,0)
+    gtk_style_context_add_class (gtk_widget_get_style_context (GTK_WIDGET (label)),
+                                 GTK_STYLE_CLASS_ENTRY);
+#endif
 
     /* This object is completely private. No external entity can gain a reference
     * to it; so we create it here and destroy it in finalize().
@@ -933,7 +945,12 @@ static gint
 get_label_wrap_width (EelEditableLabel *label)
 {
     PangoLayout *layout;
+#if GTK_CHECK_VERSION(3,0,0)
+    GtkStyleContext *style = gtk_widget_get_style_context (GTK_WIDGET (label));
+    PangoFontDescription *desc;
+#else
     GtkStyle *style = gtk_widget_get_style (GTK_WIDGET (label));
+#endif
 
     LabelWrapWidth *wrap_width = g_object_get_data (G_OBJECT (style), "gtk-label-wrap-width");
     if (!wrap_width)
@@ -943,18 +960,36 @@ get_label_wrap_width (EelEditableLabel *label)
                                 wrap_width, label_wrap_width_free);
     }
 
+#if GTK_CHECK_VERSION(3,0,0)
+    gtk_style_context_get (style, gtk_widget_get_state_flags (GTK_WIDGET (label)),
+                           GTK_STYLE_PROPERTY_FONT, &desc,
+                           NULL);
+
+    if (wrap_width->font_desc && pango_font_description_equal (wrap_width->font_desc, desc))
+        goto out;
+#else
     if (wrap_width->font_desc && pango_font_description_equal (wrap_width->font_desc, style->font_desc))
         return wrap_width->width;
+#endif
 
     if (wrap_width->font_desc)
         pango_font_description_free (wrap_width->font_desc);
 
+#if GTK_CHECK_VERSION(3,0,0)
+    wrap_width->font_desc = pango_font_description_copy (desc);
+#else
     wrap_width->font_desc = pango_font_description_copy (style->font_desc);
+#endif
 
     layout = gtk_widget_create_pango_layout (GTK_WIDGET (label),
              "This long string gives a good enough length for any line to have.");
     pango_layout_get_size (layout, &wrap_width->width, NULL);
     g_object_unref (layout);
+#if GTK_CHECK_VERSION(3,0,0)
+
+    out:
+    pango_font_description_free (desc);
+#endif
 
     return wrap_width->width;
 }
@@ -1123,7 +1158,11 @@ eel_editable_label_size_request (GtkWidget      *widget,
     gint width, height;
     PangoRectangle logical_rect;
     gint set_width;
+#if GTK_CHECK_VERSION(3,0,0)
+    gint xpad, ypad;
+#else
     gfloat xpad, ypad;
+#endif
 
     g_assert (EEL_IS_EDITABLE_LABEL (widget));
     g_assert (requisition != NULL);
@@ -1148,8 +1187,13 @@ eel_editable_label_size_request (GtkWidget      *widget,
 
     eel_editable_label_ensure_layout (label, TRUE);
 
+#if GTK_CHECK_VERSION(3,0,0)
+    gtk_misc_get_padding (&label->misc,
+                          &xpad, &ypad);
+#else
     gtk_misc_get_alignment (&label->misc,
                             &xpad, &ypad);
+#endif
     width = xpad * 2;
     height = ypad * 2;
 
@@ -1217,14 +1261,22 @@ eel_editable_label_state_changed (GtkWidget   *widget,
 }
 
 static void
+#if GTK_CHECK_VERSION(3,0,0)
+eel_editable_label_style_updated (GtkWidget *widget)
+#else
 eel_editable_label_style_set (GtkWidget *widget,
                               GtkStyle  *previous_style)
+#endif
 {
     EelEditableLabel *label;
 
     g_assert (EEL_IS_EDITABLE_LABEL (widget));
 
     label = EEL_EDITABLE_LABEL (widget);
+
+#if GTK_CHECK_VERSION(3,0,0)
+    GTK_WIDGET_CLASS (eel_editable_label_parent_class)->style_updated (widget);
+#endif
 
     /* We have to clear the layout, fonts etc. may have changed */
     eel_editable_label_recompute (label);
@@ -1234,10 +1286,17 @@ eel_editable_label_style_set (GtkWidget *widget,
      */
     if (gtk_widget_get_realized (widget))
     {
+#if GTK_CHECK_VERSION(3,0,0)
+        GtkStyleContext *style;
+
+        style = gtk_widget_get_style_context (widget);
+        gtk_style_context_set_background (style, gtk_widget_get_window (widget));
+#else
         GtkStyle *style;
 
         style = gtk_widget_get_style (widget);
         gdk_window_set_background (gtk_widget_get_window (widget), &style->base[gtk_widget_get_state (widget)]);
+#endif
     }
 }
 
@@ -1546,15 +1605,23 @@ eel_editable_label_draw_cursor (EelEditableLabel  *label, gint xoffset, gint yof
         }
         else /* Block cursor */
         {
+#if GTK_CHECK_VERSION(3,0,0)
+            GdkRGBA fg_color;
+            GtkStyleContext *style;
             cairo_region_t *clip;
 
-#if GTK_CHECK_VERSION(3,0,0)
+            style = gtk_widget_get_style_context (widget);
+            gtk_style_context_get_color (style, GTK_STATE_FLAG_NORMAL, &fg_color);
+
             cairo_save (cr);
+            gdk_cairo_set_source_rgba (cr, &fg_color);
 #else
+            cairo_region_t *clip;
+
             cairo_t *cr = gdk_cairo_create (gtk_widget_get_window (widget));
-#endif
 
             cairo_set_source_rgb (cr, 0, 0, 0);
+#endif
             cairo_rectangle (cr,
                              xoffset + PANGO_PIXELS (strong_pos.x),
                              yoffset + PANGO_PIXELS (strong_pos.y),
@@ -1566,14 +1633,27 @@ eel_editable_label_draw_cursor (EelEditableLabel  *label, gint xoffset, gint yof
 
             if (!block_at_line_end)
             {
+#if GTK_CHECK_VERSION(3,0,0)
+                GdkRGBA color;
+
+#endif
                 clip = gdk_pango_layout_get_clip_region (label->layout,
 							 xoffset, yoffset,
 							 range, 1);
 
                 gdk_cairo_region (cr, clip);
                 cairo_clip (cr);
+#if GTK_CHECK_VERSION(3,0,0)
+
+                gtk_style_context_get_background_color (style, GTK_STATE_FLAG_FOCUSED,
+                                                        &color);
+
+                gdk_cairo_set_source_rgba (cr,
+                                           &color);
+#else
                 gdk_cairo_set_source_color (cr,
 					    &gtk_widget_get_style (widget)->base[GTK_STATE_NORMAL]);
+#endif
                 cairo_move_to (cr, xoffset, yoffset);
                 pango_cairo_show_layout (cr, label->layout);
 
@@ -1594,19 +1674,113 @@ static gint
 #if GTK_CHECK_VERSION(3,0,0)
 eel_editable_label_draw (GtkWidget *widget,
                          cairo_t   *cr)
-#else
-eel_editable_label_expose (GtkWidget      *widget,
-                           GdkEventExpose *event)
-#endif
 {
     EelEditableLabel *label;
-    GtkStyle *style;
+    GtkStyleContext *style;
     gint x, y;
 
     g_assert (EEL_IS_EDITABLE_LABEL (widget));
-#if !GTK_CHECK_VERSION(3,0,0)
+
+    label = EEL_EDITABLE_LABEL (widget);
+    style = gtk_widget_get_style_context (widget);
+
+    gtk_render_background (style, cr,
+                           0, 0,
+                           gtk_widget_get_allocated_width (widget),
+                           gtk_widget_get_allocated_height (widget));
+
+    eel_editable_label_ensure_layout (label, TRUE);
+
+    if (gtk_widget_get_visible (widget) && gtk_widget_get_mapped (widget) &&
+            label->text)
+    {
+        get_layout_location (label, &x, &y);
+
+        gtk_render_layout (style,
+                           cr,
+                           x, y,
+                           label->layout);
+
+        if (label->selection_anchor != label->selection_end)
+        {
+            gint range[2];
+            const char *text;
+            cairo_region_t *clip;
+            GtkStateType state;
+
+            GdkRGBA background_color;
+
+            range[0] = label->selection_anchor;
+            range[1] = label->selection_end;
+
+            /* Handle possible preedit string */
+            if (label->preedit_length > 0 &&
+                range[1] > label->selection_anchor)
+            {
+                text = pango_layout_get_text (label->layout) + label->selection_anchor;
+                range[1] += g_utf8_offset_to_pointer (text, label->preedit_length) - text;
+            }
+
+            if (range[0] > range[1])
+            {
+                gint tmp = range[0];
+                range[0] = range[1];
+                range[1] = tmp;
+            }
+
+            clip = gdk_pango_layout_get_clip_region (label->layout,
+                                                     x, y,
+                                                     range,
+                                                     1);
+
+            cairo_save (cr);
+
+            gdk_cairo_region (cr, clip);
+            cairo_clip (cr);
+
+            state = gtk_widget_get_state_flags (widget);
+            state |= GTK_STATE_FLAG_SELECTED;
+
+            gtk_style_context_get_background_color (style, state, &background_color);
+            gdk_cairo_set_source_rgba (cr, &background_color);
+            cairo_paint (cr);
+
+            gtk_style_context_save (style);
+            gtk_style_context_set_state (style, state);
+
+            gtk_render_layout (style, cr,
+                               x, y, label->layout);
+
+            gtk_style_context_restore (style);
+
+            cairo_restore (cr);
+
+            cairo_region_destroy (clip);
+        }
+        else if (gtk_widget_has_focus (widget))
+            eel_editable_label_draw_cursor (label, cr, x, y);
+
+        if (label->draw_outline)
+        {
+            gtk_style_context_save (style);
+            gtk_style_context_set_state (style, gtk_widget_get_state_flags (widget));
+
+            gtk_render_frame (style, cr,
+                              0, 0,
+                              gtk_widget_get_allocated_width (widget),
+                              gtk_widget_get_allocated_height (widget));
+
+            gtk_style_context_restore (style);
+#else
+eel_editable_label_expose (GtkWidget      *widget,
+                           GdkEventExpose *event)
+{
+    EelEditableLabel *label;
+    GtkStyle *style;
     g_assert (event != NULL);
-#endif
+    gint x, y;
+
+    g_assert (EEL_IS_EDITABLE_LABEL (widget));
 
     label = EEL_EDITABLE_LABEL (widget);
     style = gtk_widget_get_style (widget);
@@ -1619,16 +1793,10 @@ eel_editable_label_expose (GtkWidget      *widget,
         get_layout_location (label, &x, &y);
 
         gtk_paint_layout (style,
-#if GTK_CHECK_VERSION(3,0,0)
-                          cr,
-#else
                           gtk_widget_get_window (widget),
-#endif
                           gtk_widget_get_state (widget),
                           TRUE,
-#if !GTK_CHECK_VERSION(3,0,0)
                           &event->area,
-#endif
                           widget,
                           "label",
                           x, y,
@@ -1663,11 +1831,8 @@ eel_editable_label_expose (GtkWidget      *widget,
         					     x, y,
         					     range,
         					     1);
-#if GTK_CHECK_VERSION(3,0,0)
-            cairo_save (cr);
-#else
+
             cairo_t *cr = gdk_cairo_create (gtk_widget_get_window (widget));
-#endif
             gdk_cairo_region (cr, clip);
             cairo_clip (cr);
 
@@ -1682,28 +1847,19 @@ eel_editable_label_expose (GtkWidget      *widget,
             cairo_move_to (cr, x, y);
             pango_cairo_show_layout (cr, label->layout);
 
-#if GTK_CHECK_VERSION(3,0,0)
-            cairo_restore (cr);
-#else
             cairo_destroy (cr);
-#endif
+
             cairo_region_destroy (clip);
         }
         else if (gtk_widget_has_focus (widget))
-#if GTK_CHECK_VERSION(3,0,0)
-            eel_editable_label_draw_cursor (label, cr, x, y);
-#else
             eel_editable_label_draw_cursor (label, x, y);
-#endif
 
         if (label->draw_outline)
         {
             GtkAllocation allocation;
 
             gtk_widget_get_allocation (widget, &allocation);
-#if !GTK_CHECK_VERSION(3,0,0)
             cairo_t *cr = gdk_cairo_create (gtk_widget_get_window (widget));
-#endif
             gdk_cairo_set_source_color (cr, &style->text [gtk_widget_get_state (widget)]);
             cairo_set_line_width (cr, 1.0);
             cairo_rectangle (cr, 0.5, 0.5, 
@@ -1711,7 +1867,6 @@ eel_editable_label_expose (GtkWidget      *widget,
 		             allocation.height - 1);
             cairo_stroke (cr);
 
-#if !GTK_CHECK_VERSION(3,0,0)
             cairo_destroy (cr);
 #endif
         }
@@ -1728,7 +1883,11 @@ eel_editable_label_realize (GtkWidget *widget)
     gint attributes_mask;
     GtkAllocation allocation;
     GdkWindow *window;
+#if GTK_CHECK_VERSION(3,0,0)
+    GtkStyleContext *style;
+#else
     GtkStyle *style;
+#endif
 
     gtk_widget_set_realized (widget, TRUE);
     label = EEL_EDITABLE_LABEL (widget);
@@ -1769,10 +1928,15 @@ eel_editable_label_realize (GtkWidget *widget)
 
     gdk_cursor_unref (attributes.cursor);
 
+#if GTK_CHECK_VERSION(3,0,0)
+    style = gtk_widget_get_style_context (widget);
+    gtk_style_context_set_background (style, gtk_widget_get_window (widget));
+#else
     style = gtk_style_attach (gtk_widget_get_style (widget) , gtk_widget_get_window (widget));
     gtk_widget_set_style (widget, style);
 
     gdk_window_set_background (gtk_widget_get_window (widget), &style->base[gtk_widget_get_state (widget)]);
+#endif
 
     gtk_im_context_set_client_window (label->im_context, gtk_widget_get_window (widget));
 }
