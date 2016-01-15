@@ -21,12 +21,6 @@ m4_define(caja_extension_revision, 0)
 
 AC_INIT([caja], [1.13.0], [http://www.mate-desktop.org])
 
-# GLib min/max required versions
-AC_DEFINE([GLIB_VERSION_MAX_ALLOWED], [GLIB_VERSION_2_36],
-	[Warn on use of APIs added after GLib 2.36])
-AC_DEFINE([GLIB_VERSION_MIN_REQUIRED], [GLIB_VERSION_2_36],
-	[Warn on use of APIs deprecated before GLib 2.36])
-
 dnl ---------------------------------------------------------------------------
 dnl GTK library version
 dnl ---------------------------------------------------------------------------
