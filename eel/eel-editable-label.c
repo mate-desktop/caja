@@ -3297,8 +3297,12 @@ popup_position_func (GtkMenu   *menu,
 
     gdk_window_get_origin (gtk_widget_get_window (widget), x, y);
 
+#if GTK_CHECK_VERSION(3,0,0)
+    gtk_widget_get_preferred_size (widget, &req, NULL);
+#else
     /*gtk_widget_size_request (label->popup_menu, &req);*/
     gtk_widget_get_requisition (widget, &req);
+#endif
     gtk_widget_get_allocation (widget, &allocation);
 
     *x += allocation.width / 2;
