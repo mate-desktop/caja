@@ -2162,8 +2162,14 @@ eel_editable_label_motion (GtkWidget      *widget,
     if ((event->state & GDK_BUTTON1_MASK) == 0)
         return FALSE;
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gdk_window_get_device_position (gtk_widget_get_window (widget),
+                                    event->device,
+                                    &x, &y, NULL);
+#else
     gdk_window_get_pointer (gtk_widget_get_window (widget),
                             &x, &y, NULL);
+#endif
 
     get_layout_index (label, x, y, &index);
 

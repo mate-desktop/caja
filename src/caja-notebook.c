@@ -110,12 +110,23 @@ caja_notebook_class_init (CajaNotebookClass *klass)
 static CajaNotebook *
 find_notebook_at_pointer (gint abs_x, gint abs_y)
 {
+#if GTK_CHECK_VERSION(3, 0, 0)
+    GdkDeviceManager *manager;
+    GdkDevice *pointer;
+#endif
     GdkWindow *win_at_pointer, *toplevel_win;
     gpointer toplevel = NULL;
     gint x, y;
 
     /* FIXME multi-head */
+#if GTK_CHECK_VERSION(3, 0, 0)
+    manager = gdk_display_get_device_manager (gdk_display_get_default ());
+    pointer = gdk_device_manager_get_client_pointer (manager);
+    win_at_pointer = gdk_device_get_window_at_position (pointer, &x, &y);
+#else
     win_at_pointer = gdk_window_at_pointer (&x, &y);
+#endif
+
     if (win_at_pointer == NULL)
     {
         /* We are outside all windows containing a notebook */

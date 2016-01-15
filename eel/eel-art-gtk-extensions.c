@@ -327,11 +327,24 @@ eel_gdk_get_pointer_position (void)
 {
 
     EelIPoint position;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GdkDeviceManager *manager;
+    GdkDevice *pointer;
+
+    manager = gdk_display_get_device_manager (gdk_window_get_display (gdk_get_default_root_window ()));
+    pointer = gdk_device_manager_get_client_pointer (manager);
+    gdk_window_get_device_position (gdk_get_default_root_window (),
+                                    pointer,
+                                    &position.x,
+                                    &position.y,
+                                    NULL);
+#else
 
     gdk_window_get_pointer (gdk_get_default_root_window (),
                             &position.x,
                             &position.y,
                             NULL);
+#endif
 
     return position;
 }

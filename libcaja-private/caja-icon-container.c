@@ -2785,7 +2785,15 @@ rubberband_timeout_callback (gpointer data)
         adj_changed = TRUE;
     }
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gdk_window_get_device_position (gtk_widget_get_window (widget),
+                                    gdk_device_manager_get_client_pointer (
+                                    gdk_display_get_device_manager (
+                                    gtk_widget_get_display (widget))),
+                                    &x, &y, NULL);
+#else
     gtk_widget_get_pointer (widget, &x, &y);
+#endif
 
     if (x < 0)
     {
