@@ -4974,11 +4974,13 @@ start_stretching (CajaIconContainer *container)
     CajaIcon *icon;
     EelDPoint world_point;
     GtkWidget *toplevel;
+    GdkDisplay *display;
     GtkCornerType corner;
     GdkCursor *cursor;
 
     details = container->details;
     icon = details->stretch_icon;
+    display = gtk_widget_get_display (GTK_WIDGET (container));
 
     /* Check if we hit the stretch handles. */
     world_point.x = details->drag_x;
@@ -4991,16 +4993,16 @@ start_stretching (CajaIconContainer *container)
     switch (corner)
     {
     case GTK_CORNER_TOP_LEFT:
-        cursor = gdk_cursor_new (GDK_TOP_LEFT_CORNER);
+        cursor = gdk_cursor_new_for_display (display, GDK_TOP_LEFT_CORNER);
         break;
     case GTK_CORNER_BOTTOM_LEFT:
-        cursor = gdk_cursor_new (GDK_BOTTOM_LEFT_CORNER);
+        cursor = gdk_cursor_new_for_display (display, GDK_BOTTOM_LEFT_CORNER);
         break;
     case GTK_CORNER_TOP_RIGHT:
-        cursor = gdk_cursor_new (GDK_TOP_RIGHT_CORNER);
+        cursor = gdk_cursor_new_for_display (display, GDK_TOP_RIGHT_CORNER);
         break;
     case GTK_CORNER_BOTTOM_RIGHT:
-        cursor = gdk_cursor_new (GDK_BOTTOM_RIGHT_CORNER);
+        cursor = gdk_cursor_new_for_display (display, GDK_BOTTOM_RIGHT_CORNER);
         break;
     default:
         cursor = NULL;

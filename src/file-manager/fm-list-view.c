@@ -2930,6 +2930,7 @@ fm_list_view_click_policy_changed (FMDirectoryView *directory_view)
     GtkTreeView *tree;
 
     view = FM_LIST_VIEW (directory_view);
+    display = gtk_widget_get_display (GTK_WIDGET (view));
 
     /* ensure that we unset the hand cursor and refresh underlined rows */
     if (click_policy_auto_value == CAJA_CLICK_POLICY_DOUBLE)
@@ -2953,7 +2954,6 @@ fm_list_view_click_policy_changed (FMDirectoryView *directory_view)
             win = gtk_widget_get_window (GTK_WIDGET (tree));
             gdk_window_set_cursor (win, NULL);
 
-            display = gtk_widget_get_display (GTK_WIDGET (view));
             if (display != NULL)
             {
                 gdk_display_flush (display);
@@ -2974,7 +2974,7 @@ fm_list_view_click_policy_changed (FMDirectoryView *directory_view)
     {
         if (hand_cursor == NULL)
         {
-            hand_cursor = gdk_cursor_new(GDK_HAND2);
+            hand_cursor = gdk_cursor_new_for_display (display, GDK_HAND2);
         }
     }
 }

@@ -415,7 +415,11 @@ update_cursor (CajaWindow *window)
 
     if (slot->allow_stop)
     {
-        cursor = gdk_cursor_new (GDK_WATCH);
+        GdkDisplay *display;
+        GdkCursor * cursor;
+
+        display = gtk_widget_get_display (GTK_WIDGET (window));
+        cursor = gdk_cursor_new_for_display (display, GDK_WATCH);
         gdk_window_set_cursor (gtk_widget_get_window (GTK_WIDGET (window)), cursor);
 #if GTK_CHECK_VERSION(3,0,0)
         g_object_unref (cursor);
