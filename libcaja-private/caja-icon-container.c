@@ -62,6 +62,10 @@
 #define gtk_vbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_VERTICAL,Y)
 #endif
 
+#if !GTK_CHECK_VERSION(3,0,0)
+#define gtk_widget_get_preferred_size(x,y,z) gtk_widget_size_request(x,y)
+#endif
+
 #define TAB_NAVIGATION_DISABLED
 
 /* Interval for updating the rubberband selection, in milliseconds.  */
@@ -5352,11 +5356,7 @@ caja_icon_container_search_position_func (CajaIconContainer *container,
     cont_width = gdk_window_get_width (cont_window);
     cont_height = gdk_window_get_height (cont_window);
 
-#if GTK_CHECK_VERSION(3, 0, 0)
     gtk_widget_get_preferred_size (search_dialog, &requisition, NULL);
-#else
-    gtk_widget_size_request (search_dialog, &requisition);
-#endif
 
     if (cont_x + cont_width - requisition.width > gdk_screen_get_width (screen))
     {

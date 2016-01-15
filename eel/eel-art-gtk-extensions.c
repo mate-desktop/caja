@@ -27,6 +27,10 @@
 #include "eel-art-gtk-extensions.h"
 #include <gdk/gdkx.h>
 
+#if !GTK_CHECK_VERSION(3,0,0)
+#define gtk_widget_get_preferred_size(x,y,z) gtk_widget_size_request(x,y)
+#endif
+
 /**
  * eel_gdk_rectangle_to_eel_irect:
  * @gdk_rectangle: The source GdkRectangle.
@@ -191,7 +195,7 @@ eel_gtk_widget_get_preferred_dimensions (GtkWidget *gtk_widget)
 
     g_return_val_if_fail (GTK_IS_WIDGET (gtk_widget), eel_dimensions_empty);
 
-    gtk_widget_size_request (gtk_widget, &requisition);
+    gtk_widget_get_preferred_size (gtk_widget, &requisition, NULL);
 
     preferred_dimensions.width = (int) requisition.width;
     preferred_dimensions.height = (int) requisition.height;

@@ -44,6 +44,10 @@
 #define GtkEditableInterface GtkEditableClass
 #endif
 
+#if !GTK_CHECK_VERSION(3,0,0)
+#define gtk_widget_get_preferred_size(x,y,z) gtk_widget_size_request(x,y)
+#endif
+
 /* g_memmove is removed in glib 2.40 */
 #if GLIB_CHECK_VERSION (2, 39, 0)
 #define g_memmove memmove
@@ -1331,11 +1335,7 @@ get_layout_location (EelEditableLabel  *label,
     if (gtk_widget_get_direction (widget) != GTK_TEXT_DIR_LTR)
         xalign = 1.0 - xalign;
 
-#if GTK_CHECK_VERSION(3,0,0)
     gtk_widget_get_preferred_size (widget, &req, NULL);
-#else
-    gtk_widget_size_request (widget, &req);
-#endif
     gtk_misc_get_padding (misc, &xpad, &ypad);
 
     gtk_widget_get_allocation (widget, &allocation);

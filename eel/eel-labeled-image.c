@@ -41,6 +41,10 @@
 #define DEFAULT_X_ALIGNMENT 0.5
 #define DEFAULT_Y_ALIGNMENT 0.5
 
+#if !GTK_CHECK_VERSION(3,0,0)
+#define gtk_widget_get_preferred_size(x,y,z) gtk_widget_size_request(x,y)
+#endif
+
 /* Signals */
 enum
 {
@@ -731,7 +735,7 @@ labeled_image_get_image_dimensions (const EelLabeledImage *labeled_image)
         return eel_dimensions_empty;
     }
 
-    gtk_widget_size_request (labeled_image->details->image, &image_requisition);
+    gtk_widget_get_preferred_size (labeled_image->details->image, &image_requisition, NULL);
 
     image_dimensions.width = (int) image_requisition.width;
     image_dimensions.height = (int) image_requisition.height;
@@ -757,7 +761,7 @@ labeled_image_get_label_dimensions (const EelLabeledImage *labeled_image)
         return eel_dimensions_empty;
     }
 
-    gtk_widget_size_request (labeled_image->details->label, &label_requisition);
+    gtk_widget_get_preferred_size (labeled_image->details->label, &label_requisition, NULL);
 
     label_dimensions.width = (int) label_requisition.width;
     label_dimensions.height = (int) label_requisition.height;
@@ -852,7 +856,7 @@ eel_labeled_image_get_image_bounds (const EelLabeledImage *labeled_image)
     /* get true real dimensions if we're in fixed height mode */
     if (is_fixed_height (labeled_image) && labeled_image_show_image (labeled_image))
     {
-        gtk_widget_size_request (labeled_image->details->image, &image_requisition);
+        gtk_widget_get_preferred_size (labeled_image->details->image, &image_requisition, NULL);
         image_dimensions.width = (int) image_requisition.width;
         image_dimensions.height = (int) image_requisition.height;
     }
