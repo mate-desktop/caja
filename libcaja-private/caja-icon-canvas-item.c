@@ -2592,7 +2592,11 @@ caja_icon_canvas_item_event (EelCanvasItem *item, GdkEvent *event)
                 cursor = gdk_cursor_new_for_display (gdk_display_get_default(),
                                                      GDK_HAND2);
                 gdk_window_set_cursor (((GdkEventAny *)event)->window, cursor);
+#if GTK_CHECK_VERSION(3,0,0)
+                g_object_unref (cursor);
+#else
                 gdk_cursor_unref (cursor);
+#endif
             }
 
             /* FIXME bugzilla.gnome.org 42473:

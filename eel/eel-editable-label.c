@@ -1926,12 +1926,14 @@ eel_editable_label_realize (GtkWidget *widget)
     gtk_widget_set_window (widget, window);
     gdk_window_set_user_data (window, widget);
 
-    gdk_cursor_unref (attributes.cursor);
-
 #if GTK_CHECK_VERSION(3,0,0)
+    g_object_unref (attributes.cursor);
+
     style = gtk_widget_get_style_context (widget);
     gtk_style_context_set_background (style, gtk_widget_get_window (widget));
 #else
+    gdk_cursor_unref (attributes.cursor);
+
     style = gtk_style_attach (gtk_widget_get_style (widget) , gtk_widget_get_window (widget));
     gtk_widget_set_style (widget, style);
 

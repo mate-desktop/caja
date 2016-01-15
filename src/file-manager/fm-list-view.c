@@ -2960,11 +2960,15 @@ fm_list_view_click_policy_changed (FMDirectoryView *directory_view)
             }
         }
 
+#if GTK_CHECK_VERSION(3,0,0)
+        g_clear_object (&hand_cursor);
+#else
         if (hand_cursor != NULL)
         {
             gdk_cursor_unref (hand_cursor);
             hand_cursor = NULL;
         }
+#endif
     }
     else if (click_policy_auto_value == CAJA_CLICK_POLICY_SINGLE)
     {

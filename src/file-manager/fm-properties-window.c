@@ -4067,7 +4067,11 @@ start_long_operation (FMPropertiesWindow *window)
 
 		cursor = gdk_cursor_new (GDK_WATCH);
 		gdk_window_set_cursor (gtk_widget_get_window (GTK_WIDGET (window)), cursor);
+#if GTK_CHECK_VERSION(3,0,0)
+		g_object_unref (cursor);
+#else
 		gdk_cursor_unref (cursor);
+#endif
 	}
 	window->details->long_operation_underway ++;
 }

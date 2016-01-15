@@ -5026,7 +5026,11 @@ start_stretching (CajaIconContainer *container)
                           cursor,
                           GDK_CURRENT_TIME);
     if (cursor)
+#if GTK_CHECK_VERSION(3,0,0)
+        g_object_unref (cursor);
+#else
         gdk_cursor_unref (cursor);
+#endif
 
     /* Ensure the window itself is focused.. */
     toplevel = gtk_widget_get_toplevel (GTK_WIDGET (container));
