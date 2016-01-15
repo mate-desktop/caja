@@ -3269,7 +3269,9 @@ idle_handler (gpointer data)
 {
     EelCanvas *canvas;
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
     GDK_THREADS_ENTER ();
+#endif
 
     canvas = EEL_CANVAS (data);
     do_update (canvas);
@@ -3277,7 +3279,9 @@ idle_handler (gpointer data)
     /* Reset idle id */
     canvas->idle_id = 0;
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
     GDK_THREADS_LEAVE ();
+#endif
 
     return FALSE;
 }

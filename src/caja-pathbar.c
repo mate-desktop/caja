@@ -1206,7 +1206,9 @@ caja_path_bar_scroll_timeout (CajaPathBar *path_bar)
 {
     gboolean retval = FALSE;
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
     GDK_THREADS_ENTER ();
+#endif
 
     if (path_bar->timer)
     {
@@ -1236,8 +1238,9 @@ caja_path_bar_scroll_timeout (CajaPathBar *path_bar)
         }
     }
 
-
+#if !GTK_CHECK_VERSION (3, 0, 0)
     GDK_THREADS_LEAVE ();
+#endif
 
     return retval;
 }
