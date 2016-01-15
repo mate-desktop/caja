@@ -9567,7 +9567,7 @@ setup_label_gcs (CajaIconContainer *container)
                           "frame_text", &frame_text,
                           NULL);
 
-    if (frame_text /* || !eel_background_is_set(background) */)
+    if (frame_text || !caja_icon_container_get_is_desktop (container))
     {
         setup_gc_with_fg (container, LABEL_COLOR,
                           eel_gdk_color_to_rgb (&style->text[GTK_STATE_NORMAL]));
@@ -9577,8 +9577,7 @@ setup_label_gcs (CajaIconContainer *container)
     }
     else
     {
-        if (container->details->use_drop_shadows ||
-	     (eel_background_is_dark (background) && eel_background_is_set(background)))
+        if (container->details->use_drop_shadows || eel_background_is_dark (background))
         {
             setup_gc_with_fg (container, LABEL_COLOR, 0xEFEFEF);
             setup_gc_with_fg (container,
