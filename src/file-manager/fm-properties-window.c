@@ -380,7 +380,11 @@ get_target_file (FMPropertiesWindow *window)
 }
 
 static void
+#if GTK_CHECK_VERSION (3, 0, 0)
+add_prompt (GtkWidget *vbox, const char *prompt_text, gboolean pack_at_start)
+#else
 add_prompt (GtkVBox *vbox, const char *prompt_text, gboolean pack_at_start)
+#endif
 {
 	GtkWidget *prompt;
 
@@ -396,7 +400,11 @@ add_prompt (GtkVBox *vbox, const char *prompt_text, gboolean pack_at_start)
 }
 
 static void
+#if GTK_CHECK_VERSION (3, 0, 0)
+add_prompt_and_separator (GtkWidget *vbox, const char *prompt_text)
+#else
 add_prompt_and_separator (GtkVBox *vbox, const char *prompt_text)
+#endif
 {
 	GtkWidget *separator_line;
 
@@ -5747,7 +5755,7 @@ create_permissions_page (FMPropertiesWindow *window)
 
 		if (!all_can_set_permissions (file_list)) {
 			add_prompt_and_separator (
-				GTK_VBOX (vbox),
+				vbox,
 				_("You are not the owner, so you cannot change these permissions."));
 		}
 
@@ -5865,7 +5873,11 @@ create_permissions_page (FMPropertiesWindow *window)
 			prompt_text = g_strdup (_("The permissions of the selected file could not be determined."));
 		}
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+		add_prompt (vbox, prompt_text, TRUE);
+#else
 		add_prompt (GTK_VBOX (vbox), prompt_text, TRUE);
+#endif
 		g_free (prompt_text);
 	}
 }

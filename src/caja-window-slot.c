@@ -33,6 +33,10 @@
 #include <eel/eel-gtk-macros.h>
 #include <eel/eel-string.h>
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+#define gtk_vbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_VERTICAL,Y)
+#endif
+
 static void caja_window_slot_init       (CajaWindowSlot *slot);
 static void caja_window_slot_class_init (CajaWindowSlotClass *class);
 static void caja_window_slot_dispose    (GObject *object);
@@ -479,8 +483,13 @@ caja_window_slot_set_content_view_widget (CajaWindowSlot *slot,
     if (new_view != NULL)
     {
         widget = caja_view_get_widget (new_view);
+#if GTK_CHECK_VERSION (3, 0, 0)
+        gtk_box_pack_start (GTK_BOX (slot->view_box), widget,
+                            TRUE, TRUE, 0);
+#else
         gtk_container_add (GTK_CONTAINER (slot->view_box),
                            GTK_WIDGET (new_view));
+#endif
 
         gtk_widget_show (widget);
 
