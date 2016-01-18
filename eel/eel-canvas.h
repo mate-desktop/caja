@@ -255,8 +255,15 @@ extern "C" {
      * grab.  Time is a proper X event time parameter.  Returns the same values as
      * XGrabPointer().
      */
+#if GTK_CHECK_VERSION (3, 0, 0)
+     GdkGrabStatus eel_canvas_item_grab (EelCanvasItem *item,
+                                         GdkEventMask event_mask,
+                                         GdkCursor *cursor,
+                                         guint32 etime);
+#else
     int eel_canvas_item_grab (EelCanvasItem *item, unsigned int event_mask,
                               GdkCursor *cursor, guint32 etime);
+#endif
 
     /* Ungrabs the mouse -- the specified item must be the same that was passed to
      * eel_canvas_item_grab().  Time is a proper X event time parameter.
