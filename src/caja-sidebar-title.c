@@ -111,7 +111,11 @@ struct CajaSidebarTitleDetails
     gboolean		 determined_icon;
 };
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+G_DEFINE_TYPE (CajaSidebarTitle, caja_sidebar_title, GTK_TYPE_BOX)
+#else
 G_DEFINE_TYPE (CajaSidebarTitle, caja_sidebar_title, GTK_TYPE_VBOX)
+#endif
 
 
 static void
@@ -149,6 +153,10 @@ caja_sidebar_title_init (CajaSidebarTitle *sidebar_title)
     sidebar_title->details = G_TYPE_INSTANCE_GET_PRIVATE (sidebar_title,
     							  CAJA_TYPE_SIDEBAR_TITLE,
     							  CajaSidebarTitleDetails);
+
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_orientable_set_orientation (GTK_ORIENTABLE (sidebar_title), GTK_ORIENTATION_VERTICAL);
+#endif
 
     /* Create the icon */
     sidebar_title->details->icon = gtk_image_new ();

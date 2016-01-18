@@ -31,7 +31,11 @@ static void     caja_keep_last_vertical_box_init        (CajaKeepLastVerticalBox
 static void	caja_keep_last_vertical_box_size_allocate 	  (GtkWidget 			    *widget,
         GtkAllocation 		    *allocation);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+G_DEFINE_TYPE (CajaKeepLastVerticalBox, caja_keep_last_vertical_box, GTK_TYPE_BOX)
+#else
 G_DEFINE_TYPE (CajaKeepLastVerticalBox, caja_keep_last_vertical_box, GTK_TYPE_VBOX)
+#endif
 #define parent_class caja_keep_last_vertical_box_parent_class
 
 /* Standard class initialization function */
@@ -49,6 +53,9 @@ caja_keep_last_vertical_box_class_init (CajaKeepLastVerticalBoxClass *klass)
 static void
 caja_keep_last_vertical_box_init (CajaKeepLastVerticalBox *box)
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_orientable_set_orientation (GTK_ORIENTABLE (box), GTK_ORIENTATION_VERTICAL);
+#endif
 }
 
 

@@ -110,7 +110,11 @@ static GType caja_zoom_control_accessible_get_type (void);
 
 #define NUM_ACTIONS ((int)G_N_ELEMENTS (caja_zoom_control_accessible_action_names))
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+G_DEFINE_TYPE (CajaZoomControl, caja_zoom_control, GTK_TYPE_BOX);
+#else
 G_DEFINE_TYPE (CajaZoomControl, caja_zoom_control, GTK_TYPE_HBOX);
+#endif
 
 static void
 caja_zoom_control_finalize (GObject *object)
@@ -322,6 +326,9 @@ caja_zoom_control_init (CajaZoomControl *zoom_control)
     g_signal_connect (G_OBJECT (zoom_control->details->zoom_out),
                       "clicked", G_CALLBACK (zoom_out_clicked),
                       zoom_control);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_orientable_set_orientation (GTK_ORIENTABLE (zoom_control), GTK_ORIENTATION_HORIZONTAL);
+#endif
     gtk_container_add (GTK_CONTAINER (zoom_control->details->zoom_out), image);
     gtk_box_pack_start (GTK_BOX (zoom_control),
                         zoom_control->details->zoom_out, FALSE, FALSE, 0);
@@ -978,7 +985,11 @@ caja_zoom_control_accessible_get_type (void)
 
         type = eel_accessibility_create_derived_type
                ("CajaZoomControlAccessible",
+#if GTK_CHECK_VERSION (3, 0, 0)
+                GTK_TYPE_BOX,
+#else
                 GTK_TYPE_HBOX,
+#endif
                 caja_zoom_control_accessible_class_init);
 
         g_type_add_interface_static (type, ATK_TYPE_ACTION,
