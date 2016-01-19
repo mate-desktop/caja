@@ -798,8 +798,13 @@ wrap_table_child_focus_in (GtkWidget *widget,
 
     if (!wrap_table_child_visible_in (widget, viewport))
     {
+#if GTK_CHECK_VERSION (3, 0, 0)
+        hadj = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (viewport));
+        vadj = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (viewport));
+#else
         hadj = gtk_viewport_get_hadjustment (GTK_VIEWPORT (viewport));
         vadj = gtk_viewport_get_vadjustment (GTK_VIEWPORT (viewport));
+#endif
 
         gtk_widget_translate_coordinates (widget, container, 0, 0, &x, &y);
 
