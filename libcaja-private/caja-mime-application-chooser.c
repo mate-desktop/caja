@@ -418,7 +418,11 @@ caja_mime_application_chooser_init (CajaMimeApplicationChooser *chooser)
     gtk_container_add (GTK_CONTAINER (scrolled),
                        chooser->details->treeview);
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+    box = gtk_button_box_new (GTK_ORIENTATION_HORIZONTAL);
+#else
     box = gtk_hbutton_box_new ();
+#endif
     gtk_box_set_spacing (GTK_BOX (box), 6);
     gtk_button_box_set_layout (GTK_BUTTON_BOX (box), GTK_BUTTONBOX_END);
     gtk_box_pack_start (GTK_BOX (chooser), box, FALSE, FALSE, 6);
