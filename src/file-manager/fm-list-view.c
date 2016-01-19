@@ -1717,7 +1717,9 @@ create_and_set_up_tree_view (FMListView *view)
                              G_CALLBACK (subdirectory_unloaded_callback), view, 0);
 
     gtk_tree_selection_set_mode (gtk_tree_view_get_selection (view->details->tree_view), GTK_SELECTION_MULTIPLE);
+#if !GTK_CHECK_VERSION (3, 0, 0)
     gtk_tree_view_set_rules_hint (view->details->tree_view, TRUE);
+#endif
 
     caja_columns = caja_get_all_columns ();
 
