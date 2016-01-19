@@ -43,14 +43,22 @@ extern "C" {
 
     typedef struct
     {
+#if GTK_CHECK_VERSION (3, 0, 0)
+        GtkBox	box;
+#else
         GtkHBox	box;
+#endif
 
         CajaXContentBarPrivate *priv;
     } CajaXContentBar;
 
     typedef struct
     {
+#if GTK_CHECK_VERSION (3, 0, 0)
+        GtkBoxClass	    parent_class;
+#else
         GtkHBoxClass	    parent_class;
+#endif
     } CajaXContentBarClass;
 
     GType		 caja_x_content_bar_get_type	(void) G_GNUC_CONST;

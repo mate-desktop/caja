@@ -45,12 +45,20 @@ typedef struct CajaKeepLastVerticalBoxClass CajaKeepLastVerticalBoxClass;
 
 struct CajaKeepLastVerticalBox
 {
-    GtkVBox vbox;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GtkBox parent;
+#else
+    GtkVBox parent;
+#endif
 };
 
 struct CajaKeepLastVerticalBoxClass
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GtkBoxClass parent_class;
+#else
     GtkVBoxClass parent_class;
+#endif
 };
 
 GType      caja_keep_last_vertical_box_get_type  (void);

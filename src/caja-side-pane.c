@@ -72,7 +72,11 @@ enum
 
 static guint signals[LAST_SIGNAL] = { 0 };
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+EEL_CLASS_BOILERPLATE (CajaSidePane, caja_side_pane, GTK_TYPE_BOX)
+#else
 EEL_CLASS_BOILERPLATE (CajaSidePane, caja_side_pane, GTK_TYPE_VBOX)
+#endif
 
 static SidePanel *
 panel_for_widget (CajaSidePane *side_pane, GtkWidget *widget)
@@ -320,6 +324,9 @@ caja_side_pane_init (GObject *object)
     gtk_container_set_border_width (GTK_CONTAINER (hbox), 4);
     side_pane->details->title_hbox = hbox;
     gtk_widget_show (hbox);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_orientable_set_orientation (GTK_ORIENTABLE (object), GTK_ORIENTATION_VERTICAL);
+#endif
     gtk_box_pack_start (GTK_BOX (side_pane), hbox, FALSE, FALSE, 0);
 
     select_button = gtk_toggle_button_new ();
