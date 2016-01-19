@@ -402,7 +402,11 @@ add_buttons (CajaColumnChooser *chooser)
     gtk_box_pack_start (GTK_BOX (box), chooser->details->move_down_button,
                         FALSE, FALSE, 0);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    separator = gtk_separator_new (GTK_ORIENTATION_HORIZONTAL);
+#else
     separator = gtk_hseparator_new ();
+#endif
     gtk_widget_show (separator);
     gtk_box_pack_start (GTK_BOX (box), separator, FALSE, FALSE, 0);
 
