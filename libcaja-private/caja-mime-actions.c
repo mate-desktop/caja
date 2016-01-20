@@ -1792,7 +1792,11 @@ activate_files (ActivateParameters *parameters)
     GList *l;
     int count;
     char *uri;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    char *executable_path, *quoted_path;
+#else
     char *executable_path, *quoted_path, *name;
+#endif
     char *old_working_dir;
     ActivationAction action;
     GdkScreen *screen;
@@ -1877,6 +1881,14 @@ activate_files (ActivateParameters *parameters)
         uri = caja_file_get_activation_uri (file);
         executable_path = g_filename_from_uri (uri, NULL, NULL);
         quoted_path = g_shell_quote (executable_path);
+#if GTK_CHECK_VERSION (3, 0, 0)
+
+        caja_debug_log (FALSE, CAJA_DEBUG_LOG_DOMAIN_USER,
+                        "directory view activate_callback launch_file window=%p: %s",
+                        parameters->parent_window, quoted_path);
+
+        caja_launch_application_from_command (screen, quoted_path, FALSE, NULL);
+#else
         name = caja_file_get_name (file);
 
         caja_debug_log (FALSE, CAJA_DEBUG_LOG_DOMAIN_USER,
@@ -1885,6 +1897,7 @@ activate_files (ActivateParameters *parameters)
 
         caja_launch_application_from_command (screen, name, quoted_path, FALSE, NULL);
         g_free (name);
+#endif
         g_free (quoted_path);
         g_free (executable_path);
         g_free (uri);
@@ -1899,6 +1912,14 @@ activate_files (ActivateParameters *parameters)
         uri = caja_file_get_activation_uri (file);
         executable_path = g_filename_from_uri (uri, NULL, NULL);
         quoted_path = g_shell_quote (executable_path);
+#if GTK_CHECK_VERSION (3, 0, 0)
+
+        caja_debug_log (FALSE, CAJA_DEBUG_LOG_DOMAIN_USER,
+                        "directory view activate_callback launch_in_terminal window=%p: %s",
+                        parameters->parent_window, quoted_path);
+
+        caja_launch_application_from_command (screen, quoted_path, TRUE, NULL);
+#else
         name = caja_file_get_name (file);
 
         caja_debug_log (FALSE, CAJA_DEBUG_LOG_DOMAIN_USER,
@@ -1907,6 +1928,7 @@ activate_files (ActivateParameters *parameters)
 
         caja_launch_application_from_command (screen, name, quoted_path, TRUE, NULL);
         g_free (name);
+#endif
         g_free (quoted_path);
         g_free (executable_path);
         g_free (uri);

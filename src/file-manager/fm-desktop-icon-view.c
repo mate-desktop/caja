@@ -671,7 +671,9 @@ action_new_launcher_callback (GtkAction *action, gpointer data)
     desktop_directory = caja_get_desktop_directory ();
 
     caja_launch_application_from_command (gtk_widget_get_screen (GTK_WIDGET (data)),
+#if !GTK_CHECK_VERSION (3, 0, 0)
                                           "mate-desktop-item-edit",
+#endif
                                           "mate-desktop-item-edit",
                                           FALSE,
                                           "--create-new", desktop_directory, NULL);
@@ -686,7 +688,9 @@ action_change_background_callback (GtkAction *action,
     g_assert (FM_DIRECTORY_VIEW (data));
 
     caja_launch_application_from_command (gtk_widget_get_screen (GTK_WIDGET (data)),
+#if !GTK_CHECK_VERSION (3, 0, 0)
                                           _("Background"),
+#endif
                                           "mate-appearance-properties",
                                           FALSE,
                                           "--show-page=background", NULL);

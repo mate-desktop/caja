@@ -1542,7 +1542,9 @@ action_new_launcher_callback (GtkAction *action,
 	caja_debug_log (FALSE, CAJA_DEBUG_LOG_DOMAIN_USER,
 			    "directory view create new launcher in window=%p: %s", window, parent_uri);
 	caja_launch_application_from_command (gtk_widget_get_screen (GTK_WIDGET (view)),
+#if !GTK_CHECK_VERSION (3, 0, 0)
 						  "mate-desktop-item-edit",
+#endif
 						  "mate-desktop-item-edit",
 						  FALSE,
 						  "--create-new", parent_uri, NULL);
@@ -5442,7 +5444,11 @@ run_script_callback (GtkAction *action, gpointer callback_data)
 	char *local_file_path;
 	char *quoted_path;
 	char *old_working_dir;
+#if GTK_CHECK_VERSION (3, 0, 0)
+	char **parameters;
+#else
 	char **parameters, *name;
+#endif
 	GtkWindow *window;
 
 	launch_parameters = (ScriptLaunchParameters *) callback_data;
@@ -5465,6 +5471,16 @@ run_script_callback (GtkAction *action, gpointer callback_data)
 
 	screen = gtk_widget_get_screen (GTK_WIDGET (launch_parameters->directory_view));
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+	/* FIXME: handle errors with dialog? Or leave up to each script? */
+	window = fm_directory_view_get_containing_window (launch_parameters->directory_view);
+	caja_debug_log (FALSE, CAJA_DEBUG_LOG_DOMAIN_USER,
+			    "directory view run_script_callback, window=%p, script_path=\"%s\" (omitting script parameters)",
+			    window, local_file_path);
+	caja_launch_application_from_command_array (screen, quoted_path, FALSE,
+							(const char * const *) parameters);
+
+#else
 	name = caja_file_get_name (launch_parameters->file);
 	/* FIXME: handle errors with dialog? Or leave up to each script? */
 	window = fm_directory_view_get_containing_window (launch_parameters->directory_view);
@@ -5474,6 +5490,7 @@ run_script_callback (GtkAction *action, gpointer callback_data)
 	caja_launch_application_from_command_array (screen, name, quoted_path, FALSE,
 							(const char * const *) parameters);
 	g_free (name);
+#endif
 	g_strfreev (parameters);
 
 	caja_file_list_free (selected_files);
@@ -10278,7 +10295,11 @@ fm_directory_view_move_copy_items (const GList *item_uris,
 			screen = gdk_screen_get_default ();
 		}
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+		caja_launch_application_from_command (screen, command, FALSE, NULL);
+#else
 		mate_gdk_spawn_command_line_on_screen(screen, command, NULL);
+#endif
 		g_free (command);
 
 		return;

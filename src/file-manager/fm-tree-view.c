@@ -427,7 +427,11 @@ got_activation_uri_callback (CajaFile *file, gpointer callback_data)
             caja_debug_log (FALSE, CAJA_DEBUG_LOG_DOMAIN_USER,
                             "tree view launch_application_from_command window=%p: %s",
                             view->details->window, file_uri);
+#if GTK_CHECK_VERSION (3, 0, 0)
+            caja_launch_application_from_command (screen, file_uri, FALSE, NULL);
+#else
             caja_launch_application_from_command (screen, NULL, file_uri, FALSE, NULL);
+#endif
             g_free (file_uri);
         }
 
