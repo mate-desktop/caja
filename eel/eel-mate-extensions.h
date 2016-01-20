@@ -29,11 +29,15 @@
 
 #include <gtk/gtk.h>
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
 /* Return a command string containing the path to a terminal on this system. */
 char *        eel_mate_make_terminal_command                         (const char               *command);
+#endif
 
 /* Open up a new terminal, optionally passing in a command to execute */
+#if !GTK_CHECK_VERSION (3, 0, 0)
 void          eel_mate_open_terminal                                 (const char               *command);
+#endif
 void          eel_mate_open_terminal_on_screen                       (const char               *command,
         GdkScreen                *screen);
 

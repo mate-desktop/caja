@@ -160,7 +160,11 @@ get_terminal_command_prefix (gboolean for_command)
     return command;
 }
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+static char *
+#else
 char *
+#endif
 eel_mate_make_terminal_command (const char *command)
 {
     char *prefix, *quoted, *terminal_command;
@@ -186,6 +190,7 @@ eel_mate_open_terminal_on_screen (const char *command,
     GAppInfo *app;
     GdkAppLaunchContext *ctx;
     GError *error = NULL;
+    GdkDisplay *display;
 #else
 
     if (screen == NULL)
@@ -205,7 +210,8 @@ eel_mate_open_terminal_on_screen (const char *command,
     app = g_app_info_create_from_commandline (command_line, NULL, 0, &error);
 
     if (app != NULL && screen != NULL) {
-            ctx = gdk_app_launch_context_new ();
+            display = gdk_screen_get_display (screen);
+            ctx = gdk_display_get_app_launch_context (display);
             gdk_app_launch_context_set_screen (ctx, screen);
 
             g_app_info_launch (app, NULL, G_APP_LAUNCH_CONTEXT (ctx), &error);
@@ -226,8 +232,10 @@ eel_mate_open_terminal_on_screen (const char *command,
     g_free (command_line);
 }
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
 void
 eel_mate_open_terminal (const char *command)
 {
     eel_mate_open_terminal_on_screen (command, NULL);
 }
+#endif
