@@ -1,6 +1,6 @@
 /* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*- */
 
-/* caja-keep-last-vertical-box.h: Subclass of GtkVBox that clips off
+/* caja-keep-last-vertical-box.h: Subclass of GtkBox that clips off
  				      items that don't fit, except the last one.
 
    Copyright (C) 2000 Eazel, Inc.
@@ -45,20 +45,12 @@ typedef struct CajaKeepLastVerticalBoxClass CajaKeepLastVerticalBoxClass;
 
 struct CajaKeepLastVerticalBox
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
     GtkBox parent;
-#else
-    GtkVBox parent;
-#endif
 };
 
 struct CajaKeepLastVerticalBoxClass
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
     GtkBoxClass parent_class;
-#else
-    GtkVBoxClass parent_class;
-#endif
 };
 
 GType      caja_keep_last_vertical_box_get_type  (void);

@@ -55,7 +55,7 @@ struct CajaInformationPanelDetails
     CajaWindowInfo *window;
     CajaSidebarTitle *title;
     GtkWidget *button_box_centerer;
-    GtkVBox *button_box;
+    GtkWidget *button_box;
     gboolean has_buttons;
     CajaFile *file;
     guint file_changed_connection;
@@ -235,11 +235,11 @@ make_button_box (CajaInformationPanel *information_panel)
     gtk_box_pack_start (GTK_BOX (information_panel->details->container),
                         information_panel->details->button_box_centerer, TRUE, TRUE, 0);
 
-    information_panel->details->button_box = GTK_VBOX (caja_keep_last_vertical_box_new (4));
+    information_panel->details->button_box = caja_keep_last_vertical_box_new (4);
     gtk_container_set_border_width (GTK_CONTAINER (information_panel->details->button_box), 8);
-    gtk_widget_show (GTK_WIDGET (information_panel->details->button_box));
+    gtk_widget_show (information_panel->details->button_box);
     gtk_box_pack_start (GTK_BOX (information_panel->details->button_box_centerer),
-                        GTK_WIDGET (information_panel->details->button_box),
+                        information_panel->details->button_box,
                         TRUE, TRUE, 0);
     information_panel->details->has_buttons = FALSE;
 }
