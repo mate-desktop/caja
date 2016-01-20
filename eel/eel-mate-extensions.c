@@ -182,11 +182,17 @@ eel_mate_open_terminal_on_screen (const char *command,
                                   GdkScreen  *screen)
 {
     char *command_line;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GAppInfo *app;
+    GdkAppLaunchContext *ctx;
+    GError *error = NULL;
+#else
 
     if (screen == NULL)
     {
         screen = gdk_screen_get_default ();
     }
+#endif
 
     command_line = eel_mate_make_terminal_command (command);
     if (command_line == NULL)
@@ -195,7 +201,28 @@ eel_mate_open_terminal_on_screen (const char *command,
         return;
     }
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    app = g_app_info_create_from_commandline (command_line, NULL, 0, &error);
+
+    if (app != NULL && screen != NULL) {
+            ctx = gdk_app_launch_context_new ();
+            gdk_app_launch_context_set_screen (ctx, screen);
+
+            g_app_info_launch (app, NULL, G_APP_LAUNCH_CONTEXT (ctx), &error);
+
+            g_object_unref (app);
+            g_object_unref (ctx);
+    }
+
+    if (error != NULL) {
+            g_message ("Could not start application on terminal: %s", error->message);
+
+            g_error_free (error);
+    }
+
+#else
     mate_gdk_spawn_command_line_on_screen(screen, command_line, NULL);
+#endif
     g_free (command_line);
 }
 
