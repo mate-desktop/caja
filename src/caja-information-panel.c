@@ -51,7 +51,7 @@
 
 struct CajaInformationPanelDetails
 {
-    GtkVBox *container;
+    GtkWidget *container;
     CajaWindowInfo *window;
     CajaSidebarTitle *title;
     GtkWidget *button_box_centerer;
@@ -260,11 +260,15 @@ caja_information_panel_init (CajaInformationPanel *information_panel)
     gtk_widget_add_events (GTK_WIDGET (information_panel), GDK_POINTER_MOTION_MASK);
 
     /* create the container box */
-    information_panel->details->container = GTK_VBOX (gtk_vbox_new (FALSE, 0));
+#if GTK_CHECK_VERSION (3, 0, 0)
+    information_panel->details->container = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+#else
+    information_panel->details->container = gtk_vbox_new (FALSE, 0);
+#endif
     gtk_container_set_border_width (GTK_CONTAINER (information_panel->details->container), 0);
-    gtk_widget_show (GTK_WIDGET (information_panel->details->container));
+    gtk_widget_show (information_panel->details->container);
     gtk_container_add (GTK_CONTAINER (information_panel),
-                       GTK_WIDGET (information_panel->details->container));
+                       information_panel->details->container);
 
     /* allocate and install the index title widget */
     information_panel->details->title = CAJA_SIDEBAR_TITLE (caja_sidebar_title_new ());
