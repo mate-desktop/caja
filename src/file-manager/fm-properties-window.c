@@ -91,11 +91,6 @@
 
 #define ROW_PAD 6
 
-#if GTK_CHECK_VERSION (3, 0, 0)
-#define gtk_hbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_HORIZONTAL,Y)
-#define gtk_vbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_VERTICAL,Y)
-#endif
-
 static GHashTable *windows;
 static GHashTable *pending_lists;
 
@@ -380,11 +375,7 @@ get_target_file (FMPropertiesWindow *window)
 }
 
 static void
-#if GTK_CHECK_VERSION (3, 0, 0)
 add_prompt (GtkWidget *vbox, const char *prompt_text, gboolean pack_at_start)
-#else
-add_prompt (GtkVBox *vbox, const char *prompt_text, gboolean pack_at_start)
-#endif
 {
 	GtkWidget *prompt;
 
@@ -400,11 +391,7 @@ add_prompt (GtkVBox *vbox, const char *prompt_text, gboolean pack_at_start)
 }
 
 static void
-#if GTK_CHECK_VERSION (3, 0, 0)
 add_prompt_and_separator (GtkWidget *vbox, const char *prompt_text)
-#else
-add_prompt_and_separator (GtkVBox *vbox, const char *prompt_text)
-#endif
 {
 	GtkWidget *separator_line;
 
@@ -2785,7 +2772,11 @@ create_page_with_hbox (GtkNotebook *notebook,
 	g_assert (GTK_IS_NOTEBOOK (notebook));
 	g_assert (title != NULL);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+#else
 	hbox = gtk_hbox_new (FALSE, 0);
+#endif
 	gtk_widget_show (hbox);
 	gtk_container_set_border_width (GTK_CONTAINER (hbox), 12);
 	gtk_box_set_spacing (GTK_BOX (hbox), 12);
@@ -2803,7 +2794,11 @@ create_page_with_vbox (GtkNotebook *notebook,
 	g_assert (GTK_IS_NOTEBOOK (notebook));
 	g_assert (title != NULL);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+#else
 	vbox = gtk_vbox_new (FALSE, 0);
+#endif
 	gtk_widget_show (vbox);
 	gtk_container_set_border_width (GTK_CONTAINER (vbox), 12);
 	gtk_notebook_append_page (notebook, vbox, gtk_label_new (title));
@@ -2870,14 +2865,14 @@ create_grid_with_standard_properties (void)
 	return grid;
 }
 #else
-create_attribute_value_table (GtkVBox *vbox, int row_count)
+create_attribute_value_table (GtkBox *vbox, int row_count)
 {
 	GtkWidget *table;
 
 	table = gtk_table_new (row_count, COLUMN_COUNT, FALSE);
 	apply_standard_table_padding (GTK_TABLE (table));
 	gtk_widget_show (table);
-	gtk_box_pack_start (GTK_BOX (vbox), table, FALSE, FALSE, 0);
+	gtk_box_pack_start (vbox, table, FALSE, FALSE, 0);
 
 	return table;
 }
@@ -3720,7 +3715,11 @@ create_basic_page (FMPropertiesWindow *window)
 	/* Table */
 #endif
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+#else
 	vbox = gtk_vbox_new (FALSE, 0);
+#endif
 	gtk_widget_show (vbox);
 	gtk_container_add (GTK_CONTAINER (hbox), vbox);
 
@@ -3732,7 +3731,7 @@ create_basic_page (FMPropertiesWindow *window)
 	/* Name label.  The text will be determined in update_name_field */
 	window->details->name_label = attach_title_field (grid, NULL);
 #else
-	table = GTK_TABLE (create_attribute_value_table (GTK_VBOX (vbox), 0));
+	table = GTK_TABLE (create_attribute_value_table (GTK_BOX (vbox), 0));
 	window->details->basic_table = table;
 
 	/* Name label.  The text will be determined in update_name_field */
@@ -5790,7 +5789,11 @@ create_permissions_page (FMPropertiesWindow *window)
 			 FALSE);
 
 		if (window->details->has_recursive_apply) {
+#if GTK_CHECK_VERSION (3, 0, 0)
+			hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+#else
 			hbox = gtk_hbox_new (FALSE, 0);
+#endif
 			gtk_widget_show (hbox);
 			gtk_container_add_with_properties (GTK_CONTAINER (page_grid), hbox,
 							   "width", 2,
@@ -5815,7 +5818,7 @@ create_permissions_page (FMPropertiesWindow *window)
 
 		if (!all_can_set_permissions (file_list)) {
 			add_prompt_and_separator (
-				GTK_VBOX (vbox),
+				vbox,
 				_("You are not the owner, so you cannot change these permissions."));
 		}
 
@@ -5852,7 +5855,11 @@ create_permissions_page (FMPropertiesWindow *window)
 
 		if (window->details->has_recursive_apply) {
 			last_row = append_row (page_table);
+#if GTK_CHECK_VERSION (3, 0, 0)
+			hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+#else
 			hbox = gtk_hbox_new (FALSE, 0);
+#endif
 			gtk_widget_show (hbox);
 			gtk_table_attach (page_table, hbox,
 					  0, 2,
@@ -5877,11 +5884,7 @@ create_permissions_page (FMPropertiesWindow *window)
 			prompt_text = g_strdup (_("The permissions of the selected file could not be determined."));
 		}
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 		add_prompt (vbox, prompt_text, TRUE);
-#else
-		add_prompt (GTK_VBOX (vbox), prompt_text, TRUE);
-#endif
 		g_free (prompt_text);
 	}
 }
