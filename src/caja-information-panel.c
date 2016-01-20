@@ -54,7 +54,7 @@ struct CajaInformationPanelDetails
     GtkVBox *container;
     CajaWindowInfo *window;
     CajaSidebarTitle *title;
-    GtkHBox *button_box_centerer;
+    GtkWidget *button_box_centerer;
     GtkVBox *button_box;
     gboolean has_buttons;
     CajaFile *file;
@@ -226,9 +226,14 @@ caja_information_panel_class_init (CajaInformationPanelClass *klass)
 static void
 make_button_box (CajaInformationPanel *information_panel)
 {
-    information_panel->details->button_box_centerer = GTK_HBOX (gtk_hbox_new (FALSE, 0));
+#if GTK_CHECK_VERSION (3, 0, 0)
+    information_panel->details->button_box_centerer = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+#else
+    information_panel->details->button_box_centerer = gtk_hbox_new (FALSE, 0);
+#endif
+
     gtk_box_pack_start (GTK_BOX (information_panel->details->container),
-                        GTK_WIDGET (information_panel->details->button_box_centerer), TRUE, TRUE, 0);
+                        information_panel->details->button_box_centerer, TRUE, TRUE, 0);
 
     information_panel->details->button_box = GTK_VBOX (caja_keep_last_vertical_box_new (4));
     gtk_container_set_border_width (GTK_CONTAINER (information_panel->details->button_box), 8);
@@ -998,7 +1003,7 @@ caja_information_panel_update_buttons (CajaInformationPanel *information_panel)
     if (information_panel->details->has_buttons)
     {
         gtk_container_remove (GTK_CONTAINER (information_panel->details->container),
-                              GTK_WIDGET (information_panel->details->button_box_centerer));
+                              information_panel->details->button_box_centerer);
         make_button_box (information_panel);
     }
 
@@ -1022,7 +1027,7 @@ caja_information_panel_update_buttons (CajaInformationPanel *information_panel)
         g_object_unref (default_app);
     }
 
-    gtk_widget_show (GTK_WIDGET (information_panel->details->button_box_centerer));
+    gtk_widget_show (information_panel->details->button_box_centerer);
 }
 
 static void
