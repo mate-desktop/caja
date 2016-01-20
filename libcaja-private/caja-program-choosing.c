@@ -303,7 +303,9 @@ caja_launch_application_by_uri (GAppInfo *application,
  */
 void
 caja_launch_application_from_command (GdkScreen  *screen,
+#if !GTK_CHECK_VERSION (3, 0, 0)
                                       const char *name,
+#endif
                                       const char *command_string,
                                       gboolean use_terminal,
                                       ...)
@@ -312,6 +314,10 @@ caja_launch_application_from_command (GdkScreen  *screen,
     char *quoted_parameter;
     char *parameter;
     va_list ap;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GAppInfo *app;
+    GdkAppLaunchContext *ctx;
+#endif
 
     full_command = g_strdup (command_string);
 
@@ -337,19 +343,16 @@ caja_launch_application_from_command (GdkScreen  *screen,
     else
     {
 #if GTK_CHECK_VERSION (3, 0, 0)
-        GdkAppLaunchContext *launch_context;
-        GAppInfo *app_info = NULL;
-        app_info = g_app_info_create_from_commandline (full_command,
-                                                       NULL,
-                                                       G_APP_INFO_CREATE_NONE,
-                                                       NULL);
-        if (app_info != NULL)
-        {
-            launch_context = gdk_app_launch_context_new ();
-            gdk_app_launch_context_set_screen (launch_context, screen);
-            g_app_info_launch (app_info, NULL, G_APP_LAUNCH_CONTEXT (launch_context), NULL);
-            g_object_unref (launch_context);
-            g_object_unref (app_info);
+        app = g_app_info_create_from_commandline (full_command, NULL, 0, NULL);
+
+        if (app != NULL) {
+                ctx = gdk_app_launch_context_new ();
+                gdk_app_launch_context_set_screen (ctx, screen);
+
+                g_app_info_launch (app, NULL, G_APP_LAUNCH_CONTEXT (ctx), NULL);
+
+                g_object_unref (app);
+                g_object_unref (ctx);
         }
 #else
         GError *error = NULL;
@@ -400,7 +403,9 @@ caja_launch_application_from_command (GdkScreen  *screen,
  */
 void
 caja_launch_application_from_command_array (GdkScreen  *screen,
+#if !GTK_CHECK_VERSION (3, 0, 0)
         const char *name,
+#endif
         const char *command_string,
         gboolean use_terminal,
         const char * const * parameters)
@@ -408,6 +413,10 @@ caja_launch_application_from_command_array (GdkScreen  *screen,
     char *full_command, *tmp;
     char *quoted_parameter;
     const char * const *p;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GAppInfo *app;
+    GdkAppLaunchContext *ctx;
+#endif
 
     full_command = g_strdup (command_string);
 
@@ -431,19 +440,16 @@ caja_launch_application_from_command_array (GdkScreen  *screen,
     else
     {
 #if GTK_CHECK_VERSION (3, 0, 0)
-        GdkAppLaunchContext *launch_context;
-        GAppInfo *app_info = NULL;
-        app_info = g_app_info_create_from_commandline (full_command,
-                                                       NULL,
-                                                       G_APP_INFO_CREATE_NONE,
-                                                       NULL);
-        if (app_info != NULL)
-        {
-            launch_context = gdk_app_launch_context_new ();
-            gdk_app_launch_context_set_screen (launch_context, screen);
-            g_app_info_launch (app_info, NULL, G_APP_LAUNCH_CONTEXT (launch_context), NULL);
-            g_object_unref (launch_context);
-            g_object_unref (app_info);
+        app = g_app_info_create_from_commandline (full_command, NULL, 0, NULL);
+
+        if (app != NULL) {
+                ctx = gdk_app_launch_context_new ();
+                gdk_app_launch_context_set_screen (ctx, screen);
+
+                g_app_info_launch (app, NULL, G_APP_LAUNCH_CONTEXT (ctx), NULL);
+
+                g_object_unref (app);
+                g_object_unref (ctx);
         }
 #else
         GError *error = NULL;
