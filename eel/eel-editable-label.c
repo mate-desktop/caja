@@ -1354,7 +1354,11 @@ get_layout_location (EelEditableLabel  *label,
         *yp = y;
 }
 
+#if GTK_CHECK_VERSION(3,0,0)
+static gint
+#else
 static void
+#endif
 eel_editable_label_get_cursor_pos (EelEditableLabel  *label,
                                    PangoRectangle *strong_pos,
                                    PangoRectangle *weak_pos)
@@ -1371,6 +1375,10 @@ eel_editable_label_get_cursor_pos (EelEditableLabel  *label,
             g_utf8_offset_to_pointer (preedit_text, label->preedit_cursor) - preedit_text;
 
     pango_layout_get_cursor_pos (label->layout, index, strong_pos, weak_pos);
+#if GTK_CHECK_VERSION(3,0,0)
+
+    return index;
+#endif
 }
 
 /* Copied from gtkutil private function */
@@ -1506,9 +1514,77 @@ eel_editable_label_get_block_cursor_location (EelEditableLabel  *label,
 static void
 #if GTK_CHECK_VERSION(3,0,0)
 eel_editable_label_draw_cursor (EelEditableLabel  *label, cairo_t *cr, gint xoffset, gint yoffset)
+{
+    if (gtk_widget_is_drawable (GTK_WIDGET (label)))
+    {
+        GtkWidget *widget = GTK_WIDGET (label);
+
+        gboolean block;
+        gboolean block_at_line_end;
+        gint range[2];
+        gint index;
+        GtkStyleContext *context;
+        PangoRectangle strong_pos;
+
+        context = gtk_widget_get_style_context (widget);
+        index = eel_editable_label_get_cursor_pos (label, NULL, NULL);
+
+        if (label->overwrite_mode &&
+                eel_editable_label_get_block_cursor_location (label, range,
+                        &strong_pos,
+                        &block_at_line_end))
+            block = TRUE;
+        else
+            block = FALSE;
+
+        if (!block)
+        {
+            gtk_render_insertion_cursor (context, cr,
+                                         xoffset, yoffset,
+                                         label->layout, index,
+                                         gdk_keymap_get_direction (gdk_keymap_get_default ()));
+        }
+        else /* Block cursor */
+        {
+            GdkRGBA fg_color;
+            cairo_region_t *clip;
+
+            gtk_style_context_get_color (context, GTK_STATE_FLAG_NORMAL, &fg_color);
+
+            cairo_save (cr);
+            gdk_cairo_set_source_rgba (cr, &fg_color);
+            cairo_rectangle (cr,
+                             xoffset + PANGO_PIXELS (strong_pos.x),
+                             yoffset + PANGO_PIXELS (strong_pos.y),
+                             PANGO_PIXELS (strong_pos.width),
+                             PANGO_PIXELS (strong_pos.height));
+            cairo_fill (cr);
+
+            if (!block_at_line_end)
+            {
+                GdkRGBA color;
+
+                clip = gdk_pango_layout_get_clip_region (label->layout,
+							 xoffset, yoffset,
+							 range, 1);
+
+                gdk_cairo_region (cr, clip);
+                cairo_clip (cr);
+
+                gtk_style_context_get_background_color (context, GTK_STATE_FLAG_FOCUSED,
+                                                        &color);
+
+                gdk_cairo_set_source_rgba (cr,
+                                           &color);
+                cairo_move_to (cr, xoffset, yoffset);
+                pango_cairo_show_layout (cr, label->layout);
+
+                cairo_region_destroy (clip);
+            }
+
+            cairo_restore (cr);
 #else
 eel_editable_label_draw_cursor (EelEditableLabel  *label, gint xoffset, gint yoffset)
-#endif
 {
     if (gtk_widget_is_drawable (GTK_WIDGET (label)))
     {
@@ -1576,14 +1652,9 @@ eel_editable_label_draw_cursor (EelEditableLabel  *label, gint xoffset, gint yof
             cursor_location.height = PANGO_PIXELS (cursor1->height);
 
             gtk_draw_insertion_cursor (widget,
-#if GTK_CHECK_VERSION(3,0,0)
-			               cr,
-			               &cursor_location,
-#else
-			               gtk_widget_get_window (widget),
-			               NULL, &cursor_location,
-#endif
-			               TRUE, dir1, dir2 != GTK_TEXT_DIR_NONE);
+                                       gtk_widget_get_window (widget),
+                                       NULL, &cursor_location,
+                                       TRUE, dir1, dir2 != GTK_TEXT_DIR_NONE);
 
             if (dir2 != GTK_TEXT_DIR_NONE)
             {
@@ -1593,76 +1664,40 @@ eel_editable_label_draw_cursor (EelEditableLabel  *label, gint xoffset, gint yof
                 cursor_location.height = PANGO_PIXELS (cursor2->height);
 
                 gtk_draw_insertion_cursor (widget,
-#if GTK_CHECK_VERSION(3,0,0)
-                                           cr,
-                                           &cursor_location,
-#else
                                            gtk_widget_get_window (widget),
                                            NULL, &cursor_location,
-#endif
                                            FALSE, dir2, TRUE);
             }
         }
         else /* Block cursor */
         {
-#if GTK_CHECK_VERSION(3,0,0)
-            GdkRGBA fg_color;
-            GtkStyleContext *style;
-            cairo_region_t *clip;
-
-            style = gtk_widget_get_style_context (widget);
-            gtk_style_context_get_color (style, GTK_STATE_FLAG_NORMAL, &fg_color);
-
-            cairo_save (cr);
-            gdk_cairo_set_source_rgba (cr, &fg_color);
-#else
             cairo_region_t *clip;
 
             cairo_t *cr = gdk_cairo_create (gtk_widget_get_window (widget));
 
             cairo_set_source_rgb (cr, 0, 0, 0);
-#endif
             cairo_rectangle (cr,
                              xoffset + PANGO_PIXELS (strong_pos.x),
                              yoffset + PANGO_PIXELS (strong_pos.y),
                              PANGO_PIXELS (strong_pos.width),
                              PANGO_PIXELS (strong_pos.height));
-#if GTK_CHECK_VERSION(3,0,0)
-            cairo_fill (cr);
-#endif
 
             if (!block_at_line_end)
             {
-#if GTK_CHECK_VERSION(3,0,0)
-                GdkRGBA color;
-
-#endif
                 clip = gdk_pango_layout_get_clip_region (label->layout,
 							 xoffset, yoffset,
 							 range, 1);
 
                 gdk_cairo_region (cr, clip);
                 cairo_clip (cr);
-#if GTK_CHECK_VERSION(3,0,0)
-
-                gtk_style_context_get_background_color (style, GTK_STATE_FLAG_FOCUSED,
-                                                        &color);
-
-                gdk_cairo_set_source_rgba (cr,
-                                           &color);
-#else
                 gdk_cairo_set_source_color (cr,
-					    &gtk_widget_get_style (widget)->base[GTK_STATE_NORMAL]);
-#endif
+                                            &gtk_widget_get_style (widget)->base[GTK_STATE_NORMAL]);
                 cairo_move_to (cr, xoffset, yoffset);
                 pango_cairo_show_layout (cr, label->layout);
 
                 cairo_region_destroy (clip);
             }
 
-#if GTK_CHECK_VERSION(3,0,0)
-            cairo_restore (cr);
-#else
             cairo_destroy (cr);
 #endif
         }
