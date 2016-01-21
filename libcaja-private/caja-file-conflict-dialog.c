@@ -254,6 +254,7 @@ file_list_ready_cb (GList *files,
     label = gtk_label_new (secondary_text);
     gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
 #if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_label_set_max_width_chars (GTK_LABEL (label), 60);
     gtk_widget_set_halign (label, GTK_ALIGN_START);
 #else
     gtk_widget_set_size_request (label, 350, -1);
