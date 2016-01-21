@@ -143,7 +143,11 @@ static CajaQueryEditorRowOps row_type[] =
 
 EEL_CLASS_BOILERPLATE (CajaQueryEditor,
                        caja_query_editor,
+#if GTK_CHECK_VERSION (3, 0, 0)
+                       GTK_TYPE_BOX)
+#else
                        GTK_TYPE_VBOX)
+#endif
 
 static void
 caja_query_editor_finalize (GObject *object)
@@ -1027,9 +1031,15 @@ caja_query_editor_init (CajaQueryEditor *editor)
     editor->details->is_visible = TRUE;
 
     editor->details->invisible_vbox = gtk_vbox_new (FALSE, 6);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_orientable_set_orientation (GTK_ORIENTABLE (editor), GTK_ORIENTATION_VERTICAL);
+#endif
     gtk_box_pack_start (GTK_BOX (editor), editor->details->invisible_vbox,
                         FALSE, FALSE, 0);
     editor->details->visible_vbox = gtk_vbox_new (FALSE, 6);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_orientable_set_orientation (GTK_ORIENTABLE (editor), GTK_ORIENTATION_VERTICAL);
+#endif
     gtk_box_pack_start (GTK_BOX (editor), editor->details->visible_vbox,
                         FALSE, FALSE, 0);
     /* Only show visible vbox */
