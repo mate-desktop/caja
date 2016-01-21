@@ -40,12 +40,16 @@ void caja_launch_application_by_uri          (GAppInfo                          
         GList                             *uris,
         GtkWindow                         *parent_window);
 void caja_launch_application_from_command    (GdkScreen                         *screen,
+#if !GTK_CHECK_VERSION (3, 0, 0)
         const char                        *name,
+#endif
         const char                        *command_string,
         gboolean                           use_terminal,
         ...) G_GNUC_NULL_TERMINATED;
 void caja_launch_application_from_command_array (GdkScreen                         *screen,
+#if !GTK_CHECK_VERSION (3, 0, 0)
         const char                        *name,
+#endif
         const char                        *command_string,
         gboolean                           use_terminal,
         const char * const *               parameters);
