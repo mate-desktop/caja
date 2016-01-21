@@ -1914,6 +1914,7 @@ static void
 eel_editable_label_realize (GtkWidget *widget)
 {
     EelEditableLabel *label;
+    GdkDisplay *display;
     GdkWindowAttr attributes;
     gint attributes_mask;
     GtkAllocation allocation;
@@ -1938,7 +1939,8 @@ eel_editable_label_realize (GtkWidget *widget)
 #if !GTK_CHECK_VERSION(3,0,0)
     attributes.colormap = gtk_widget_get_colormap (widget);
 #endif
-    attributes.cursor = gdk_cursor_new (GDK_XTERM);
+    display = gtk_widget_get_display (GTK_WIDGET (label));
+    attributes.cursor = gdk_cursor_new_for_display (display, GDK_XTERM);
     attributes.event_mask = gtk_widget_get_events (widget) |
                             (GDK_EXPOSURE_MASK |
                              GDK_BUTTON_PRESS_MASK |
