@@ -991,7 +991,7 @@ caja_query_editor_add_row (CajaQueryEditor *editor,
     create_type_widgets (row);
 
     button = gtk_button_new ();
-    image = gtk_image_new_from_stock (GTK_STOCK_REMOVE,
+    image = gtk_image_new_from_icon_name ("remove",
                                       GTK_ICON_SIZE_SMALL_TOOLBAR);
     gtk_container_add (GTK_CONTAINER (button), image);
     gtk_widget_show (image);
@@ -1085,7 +1085,7 @@ finish_first_line (CajaQueryEditor *editor, GtkWidget *hbox, gboolean use_go)
     GtkWidget *button, *image;
 
     button = gtk_button_new ();
-    image = gtk_image_new_from_stock (GTK_STOCK_ADD,
+    image = gtk_image_new_from_icon_name ("add",
                                       GTK_ICON_SIZE_SMALL_TOOLBAR);
     gtk_container_add (GTK_CONTAINER (button), image);
     gtk_widget_show (image);

@@ -316,7 +316,7 @@ caja_zoom_control_init (CajaZoomControl *zoom_control)
                     GINT_TO_POINTER (i));
     }
 
-    image = gtk_image_new_from_stock (GTK_STOCK_ZOOM_OUT, GTK_ICON_SIZE_MENU);
+    image = gtk_image_new_from_icon_name ("zoom-out", GTK_ICON_SIZE_MENU);
     zoom_control->details->zoom_out = gtk_button_new ();
     gtk_button_set_focus_on_click (GTK_BUTTON (zoom_control->details->zoom_out), FALSE);
     gtk_button_set_relief (GTK_BUTTON (zoom_control->details->zoom_out),
@@ -370,7 +370,7 @@ caja_zoom_control_init (CajaZoomControl *zoom_control)
     gtk_box_pack_start (GTK_BOX (zoom_control),
                         zoom_control->details->zoom_button, TRUE, TRUE, 0);
 
-    image = gtk_image_new_from_stock (GTK_STOCK_ZOOM_IN, GTK_ICON_SIZE_MENU);
+    image = gtk_image_new_from_icon_name ("zoom-in", GTK_ICON_SIZE_MENU);
     zoom_control->details->zoom_in = gtk_button_new ();
     gtk_button_set_focus_on_click (GTK_BUTTON (zoom_control->details->zoom_in), FALSE);
     gtk_button_set_relief (GTK_BUTTON (zoom_control->details->zoom_in),

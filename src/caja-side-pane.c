@@ -373,7 +373,7 @@ caja_side_pane_init (GObject *object)
 
     gtk_widget_show (close_button);
 
-    image = gtk_image_new_from_stock (GTK_STOCK_CLOSE,
+    image = gtk_image_new_from_icon_name ("window-close",
                                       GTK_ICON_SIZE_MENU);
     gtk_widget_show (image);
 

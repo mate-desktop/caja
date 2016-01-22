@@ -222,7 +222,7 @@ connect_dialog_gvfs_error (CajaConnectServerDialog *dialog)
 	gtk_container_add (GTK_CONTAINER (content_area), hbox);
 	gtk_widget_show (hbox);
 
-	image = gtk_image_new_from_stock (GTK_STOCK_DIALOG_ERROR, GTK_ICON_SIZE_SMALL_TOOLBAR);
+	image = gtk_image_new_from_icon_name ("dialog-error", GTK_ICON_SIZE_SMALL_TOOLBAR);
 	gtk_box_pack_start (GTK_BOX (hbox), image, FALSE, FALSE, 6);
 	gtk_widget_show (image);
 	
@@ -251,7 +251,7 @@ iconized_entry_restore (gpointer data,
 	entry = data;
 	dialog = user_data;
 
-	gtk_entry_set_icon_from_stock (GTK_ENTRY (entry),
+	gtk_entry_set_icon_from_icon_name (GTK_ENTRY (entry),
 				       GTK_ENTRY_ICON_SECONDARY,
 				       NULL);
 
@@ -278,9 +278,9 @@ iconize_entry (CajaConnectServerDialog *dialog,
 		dialog->details->iconized_entries =
 			g_list_prepend (dialog->details->iconized_entries, entry);
 
-		gtk_entry_set_icon_from_stock (GTK_ENTRY (entry),
+		gtk_entry_set_icon_from_icon_name (GTK_ENTRY (entry),
 					       GTK_ENTRY_ICON_SECONDARY,
-					       GTK_STOCK_DIALOG_WARNING);
+					       "dialog-warning");
 
 		gtk_widget_grab_focus (entry);
 
@@ -338,7 +338,7 @@ connect_dialog_set_info_bar_error (CajaConnectServerDialog *dialog,
 	gtk_box_pack_start (GTK_BOX (content_area), hbox, FALSE, FALSE, 6);
 	gtk_widget_show (hbox);
 
-	icon = gtk_image_new_from_stock (GTK_STOCK_DIALOG_WARNING,
+	icon = gtk_image_new_from_icon_name ("dialog-warning",
 					 GTK_ICON_SIZE_SMALL_TOOLBAR);
 	gtk_box_pack_start (GTK_BOX (hbox), icon, FALSE, FALSE, 6);
 	gtk_widget_show (icon);
@@ -414,7 +414,7 @@ connect_dialog_request_additional_details (CajaConnectServerDialog *self,
 	gtk_box_pack_start (GTK_BOX (content_area), hbox, FALSE, FALSE, 6);
 	gtk_widget_show (hbox);
 
-	icon = gtk_image_new_from_stock (GTK_STOCK_DIALOG_WARNING,
+	icon = gtk_image_new_from_icon_name ("dialog-warning",
 					 GTK_ICON_SIZE_SMALL_TOOLBAR);
 	gtk_box_pack_start (GTK_BOX (hbox), icon, FALSE, FALSE, 6);
 	gtk_widget_show (icon);

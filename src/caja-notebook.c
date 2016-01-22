@@ -425,7 +425,7 @@ build_tab_label (CajaNotebook *nb, CajaWindowSlot *slot)
 
     gtk_widget_set_name (close_button, "caja-tab-close-button");
 
-    image = gtk_image_new_from_stock (GTK_STOCK_CLOSE, GTK_ICON_SIZE_MENU);
+    image = gtk_image_new_from_icon_name ("window-close", GTK_ICON_SIZE_MENU);
     gtk_widget_set_tooltip_text (close_button, _("Close tab"));
     g_signal_connect_object (close_button, "clicked",
                              G_CALLBACK (close_button_clicked_cb), slot, 0);

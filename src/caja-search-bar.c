@@ -179,9 +179,9 @@ caja_search_bar_init (CajaSearchBar *bar)
     gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 0);
 
     bar->details->entry = gtk_entry_new ();
-    gtk_entry_set_icon_from_stock (GTK_ENTRY (bar->details->entry),
+    gtk_entry_set_icon_from_icon_name (GTK_ENTRY (bar->details->entry),
                                    GTK_ENTRY_ICON_SECONDARY,
-                                   GTK_STOCK_FIND);
+                                   "find");
     gtk_box_pack_start (GTK_BOX (hbox), bar->details->entry, TRUE, TRUE, 0);
 
     g_signal_connect (bar->details->entry, "activate",
