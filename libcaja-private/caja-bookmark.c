@@ -481,7 +481,7 @@ caja_bookmark_set_icon_to_default (CajaBookmark *bookmark)
 
     if (caja_bookmark_uri_known_not_to_exist (bookmark))
     {
-        icon = g_themed_icon_new (GTK_STOCK_DIALOG_WARNING);
+        icon = gtk_image_new_from_icon_name ("dialog-warning", GTK_ICON_SIZE_BUTTON);
         emblem = g_emblem_new (icon);
 
         emblemed_icon = g_emblemed_icon_new (folder, emblem);

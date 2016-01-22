@@ -592,7 +592,7 @@ caja_file_conflict_dialog_init (CajaFileConflictDialog *fcd)
     gtk_container_set_border_width (GTK_CONTAINER (hbox), 6);
 
     /* Setup the dialog image */
-    widget = gtk_image_new_from_stock (GTK_STOCK_DIALOG_WARNING,
+    widget = gtk_image_new_from_icon_name ("dialog-warning",
                                        GTK_ICON_SIZE_DIALOG);
     gtk_box_pack_start (GTK_BOX (hbox), widget, FALSE, FALSE, 0);
 #if GTK_CHECK_VERSION (3, 14, 0)

@@ -401,7 +401,7 @@ progress_widget_new (CajaProgressInfo *info)
                        TRUE,TRUE,
                        0);
 
-    image = gtk_image_new_from_stock (GTK_STOCK_CANCEL,
+    image = gtk_image_new_from_icon_name ("gtk-cancel",
                                       GTK_ICON_SIZE_BUTTON);
     button = gtk_button_new ();
     gtk_container_add (GTK_CONTAINER (button), image);
