@@ -1231,7 +1231,7 @@ select_pattern (FMDirectoryView *view)
 					   "*.png, file\?\?.txt, pict*.\?\?\?");
 	gtk_label_set_markup (GTK_LABEL (example), example_pattern);
 	g_free (example_pattern);
-#if GTK_CHECK_VERSION (3, 14, 0)
+#if GTK_CHECK_VERSION (3, 0, 0)
 	gtk_widget_set_halign (example, GTK_ALIGN_START);
 #else
 	gtk_misc_set_alignment (GTK_MISC (example), 0.0, 0.5);
@@ -1407,8 +1407,8 @@ action_save_search_as_callback (GtkAction *action,
 #endif
 
 		label = gtk_label_new_with_mnemonic (_("Search _name:"));
-#if GTK_CHECK_VERSION (3, 14, 0)
-		gtk_widget_set_halign (label, GTK_ALIGN_START);
+#if GTK_CHECK_VERSION (3, 16, 0)
+		gtk_label_set_xalign (GTK_LABEL (label), 0.0);
 #else
 		gtk_misc_set_alignment (GTK_MISC(label), 0.0, 0.5);
 #endif
@@ -1435,8 +1435,8 @@ action_save_search_as_callback (GtkAction *action,
 
 		gtk_widget_show (entry);
 		label = gtk_label_new_with_mnemonic (_("_Folder:"));
-#if GTK_CHECK_VERSION (3, 14, 0)
-		gtk_widget_set_halign (label, GTK_ALIGN_START);
+#if GTK_CHECK_VERSION (3, 16, 0)
+		gtk_label_set_xalign (GTK_LABEL (label), 0.0);
 #else
 		gtk_misc_set_alignment (GTK_MISC(label), 0.0, 0.5);
 #endif

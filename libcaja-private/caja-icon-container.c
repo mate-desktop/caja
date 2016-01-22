@@ -9252,7 +9252,14 @@ caja_icon_container_start_renaming_selected_item (CajaIconContainer *container,
             eel_editable_label_set_justify (EEL_EDITABLE_LABEL (details->rename_widget), GTK_JUSTIFY_CENTER);
         }
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+        gtk_widget_set_margin_start (details->rename_widget, 1);
+        gtk_widget_set_margin_end (details->rename_widget, 1);
+        gtk_widget_set_margin_top (details->rename_widget, 1);
+        gtk_widget_set_margin_bottom (details->rename_widget, 1);
+#else
         gtk_misc_set_padding (GTK_MISC (details->rename_widget), 1, 1);
+#endif
         gtk_layout_put (GTK_LAYOUT (container),
                         details->rename_widget, 0, 0);
     }

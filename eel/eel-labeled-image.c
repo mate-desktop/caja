@@ -1102,8 +1102,13 @@ labeled_image_update_alignments (EelLabeledImage *labeled_image)
 
         if (labeled_image->details->fill)
         {
+#if GTK_CHECK_VERSION (3, 16, 0)
+            x_alignment = gtk_label_get_xalign (GTK_LABEL (labeled_image->details->label));
+            y_alignment = gtk_label_get_yalign (GTK_LABEL (labeled_image->details->label));
+#else
             gtk_misc_get_alignment (GTK_MISC (labeled_image->details->label),
                                     &x_alignment, &y_alignment);
+#endif
 
             /* Only the label is shown */
             if (!labeled_image_show_image (labeled_image))
@@ -1139,9 +1144,9 @@ labeled_image_update_alignments (EelLabeledImage *labeled_image)
 
             }
 
-#if GTK_CHECK_VERSION (3, 14, 0)
-            gtk_widget_set_halign (labeled_image->details->label, GTK_ALIGN_CENTER);
-            gtk_widget_set_valign (labeled_image->details->label, GTK_ALIGN_CENTER);
+#if GTK_CHECK_VERSION (3, 16, 0)
+            gtk_label_set_xalign (GTK_LABEL (labeled_image->details->label), x_alignment);
+            gtk_label_set_yalign (GTK_LABEL (labeled_image->details->label), y_alignment);
 #else
             gtk_misc_set_alignment (GTK_MISC (labeled_image->details->label),
                                     x_alignment,
@@ -1157,8 +1162,13 @@ labeled_image_update_alignments (EelLabeledImage *labeled_image)
 
         if (labeled_image->details->fill)
         {
+#if GTK_CHECK_VERSION (3, 0, 0)
+            x_alignment = gtk_widget_get_halign (labeled_image->details->image);
+            y_alignment = gtk_widget_get_valign (labeled_image->details->image);
+#else
             gtk_misc_get_alignment (GTK_MISC (labeled_image->details->image),
                                     &x_alignment, &y_alignment);
+#endif
 
             /* Only the image is shown */
             if (!labeled_image_show_label (labeled_image))
@@ -1193,9 +1203,9 @@ labeled_image_update_alignments (EelLabeledImage *labeled_image)
                 }
             }
 
-#if GTK_CHECK_VERSION (3, 14, 0)
-            gtk_widget_set_halign (labeled_image->details->image, GTK_ALIGN_CENTER);
-            gtk_widget_set_valign (labeled_image->details->image, GTK_ALIGN_CENTER);
+#if GTK_CHECK_VERSION (3, 0, 0)
+            gtk_widget_set_halign (labeled_image->details->image, x_alignment);
+            gtk_widget_set_valign (labeled_image->details->image, y_alignment);
 #else
             gtk_misc_set_alignment (GTK_MISC (labeled_image->details->image),
                                     x_alignment,
