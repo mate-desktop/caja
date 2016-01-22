@@ -1062,7 +1062,11 @@ caja_spatial_window_init (CajaSpatialWindow *window)
                         FALSE, FALSE, 0);
     gtk_widget_show (window->details->location_label);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    arrow = gtk_image_new_from_icon_name ("pan-down-symbolic", GTK_ICON_SIZE_BUTTON);
+#else
     arrow = gtk_arrow_new (GTK_ARROW_DOWN, GTK_SHADOW_NONE);
+#endif
     gtk_box_pack_start (GTK_BOX (hbox), arrow, FALSE, FALSE, 0);
     gtk_widget_show (arrow);
 
