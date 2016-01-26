@@ -41,7 +41,9 @@
 #include "caja-notes-viewer.h"
 #include "caja-emblem-sidebar.h"
 #include "caja-image-properties-page.h"
+#include <fcntl.h>
 #include <string.h>
+#include <unistd.h>
 #include "caja-desktop-window.h"
 #include "caja-main.h"
 #include "caja-spatial-window.h"
