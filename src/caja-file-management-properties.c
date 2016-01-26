@@ -622,7 +622,7 @@ extension_about_clicked (GtkButton *button, Extension *ext)
 {
     MateAboutDialog *extension_about_dialog;
 
-    extension_about_dialog = mate_about_dialog_new();
+    extension_about_dialog = (MateAboutDialog *) mate_about_dialog_new();
     mate_about_dialog_set_program_name (extension_about_dialog, ext->name != NULL ? ext->name : ext->filename);
     mate_about_dialog_set_comments (extension_about_dialog, ext->description);
     mate_about_dialog_set_logo_icon_name (extension_about_dialog, ext->icon != NULL ? ext->icon : "system-run");
@@ -632,7 +632,7 @@ extension_about_clicked (GtkButton *button, Extension *ext)
     mate_about_dialog_set_website (extension_about_dialog, ext->website);
     gtk_window_set_title (GTK_WINDOW(extension_about_dialog), _("About Extension"));
     gtk_dialog_run (GTK_DIALOG (extension_about_dialog));
-    gtk_widget_destroy (extension_about_dialog);
+    gtk_widget_destroy (GTK_WIDGET (extension_about_dialog));
 }
 
 static void
@@ -642,7 +642,7 @@ extension_list_selection_changed (GtkTreeSelection *selection, GtkButton *about_
     GtkTreeIter iter;
     Extension *ext;
 
-    gtk_widget_set_sensitive (about_button, FALSE);
+    gtk_widget_set_sensitive (GTK_WIDGET (about_button), FALSE);
 
     if (extension_about_id > 0)
     {
@@ -655,7 +655,7 @@ extension_list_selection_changed (GtkTreeSelection *selection, GtkButton *about_
 
     gtk_tree_model_get (model, &iter, EXT_STRUCT_COLUMN, &ext, -1);
     if (ext != NULL) {
-        gtk_widget_set_sensitive (about_button, TRUE);
+        gtk_widget_set_sensitive (GTK_WIDGET (about_button), TRUE);
         extension_about_id = g_signal_connect (about_button, "clicked", G_CALLBACK (extension_about_clicked), ext);
     }
 }
