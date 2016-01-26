@@ -41,9 +41,6 @@
 #include "caja-notes-viewer.h"
 #include "caja-emblem-sidebar.h"
 #include "caja-image-properties-page.h"
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
 #include <string.h>
 #include "caja-desktop-window.h"
 #include "caja-main.h"
@@ -56,7 +53,6 @@
 #include "caja-window-private.h"
 #include "caja-window-manage-views.h"
 #include "caja-freedesktop-dbus.h"
-#include <unistd.h>
 #include <libxml/xmlsave.h>
 #include <glib/gstdio.h>
 #include <glib/gi18n.h>
@@ -89,8 +85,6 @@ enum {
 /* Keep window from shrinking down ridiculously small; numbers are somewhat arbitrary */
 #define APPLICATION_WINDOW_MIN_WIDTH	300
 #define APPLICATION_WINDOW_MIN_HEIGHT	100
-
-#define START_STATE_CONFIG "start-state"
 
 #define CAJA_ACCEL_MAP_SAVE_DELAY 30
 

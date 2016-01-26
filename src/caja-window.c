@@ -62,21 +62,15 @@
 #include <libcaja-private/caja-clipboard.h>
 #include <libcaja-private/caja-search-directory.h>
 #include <libcaja-private/caja-signaller.h>
-#include <math.h>
-#include <sys/time.h>
 
 #define MAX_HISTORY_ITEMS 50
 
 #define EXTRA_VIEW_WIDGETS_BACKGROUND "#a7c6e1"
 
-#define SIDE_PANE_MINIMUM_WIDTH 1
-#define SIDE_PANE_MINIMUM_HEIGHT 400
-
 /* dock items */
 
 #define CAJA_MENU_PATH_EXTRA_VIEWER_PLACEHOLDER	"/MenuBar/View/View Choices/Extra Viewer"
 #define CAJA_MENU_PATH_SHORT_LIST_PLACEHOLDER  	"/MenuBar/View/View Choices/Short List"
-#define CAJA_MENU_PATH_AFTER_SHORT_LIST_SEPARATOR   "/MenuBar/View/View Choices/After Short List"
 
 enum {
 	ARG_0,
