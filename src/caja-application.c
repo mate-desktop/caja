@@ -2164,11 +2164,11 @@ caja_application_load_session (CajaApplication *application)
         for (node = root_node->children; node != NULL; node = node->next)
         {
 
-            if (!strcmp (node->name, "text"))
+            if (g_strcmp0 (node->name, "text") == 0)
             {
                 continue;
             }
-            else if (!strcmp (node->name, "history"))
+            else if (g_strcmp0 (node->name, "history") == 0)
             {
                 xmlNodePtr bookmark_node;
                 gboolean emit_change;
@@ -2177,11 +2177,11 @@ caja_application_load_session (CajaApplication *application)
 
                 for (bookmark_node = node->children; bookmark_node != NULL; bookmark_node = bookmark_node->next)
                 {
-                    if (!strcmp (bookmark_node->name, "text"))
+                    if (g_strcmp0 (bookmark_node->name, "text") == 0)
                     {
                         continue;
                     }
-                    else if (!strcmp (bookmark_node->name, "bookmark"))
+                    else if (g_strcmp0 (bookmark_node->name, "bookmark") == 0)
                     {
                         xmlChar *name, *icon_str, *uri;
                         gboolean has_custom_name;
@@ -2224,7 +2224,7 @@ caja_application_load_session (CajaApplication *application)
                     caja_send_history_list_changed ();
                 }
             }
-            else if (!strcmp (node->name, "window"))
+            else if (g_strcmp0 (node->name, "window") == 0)
             {
                 CajaWindow *window;
                 xmlChar *type, *location_uri, *slot_uri;
@@ -2249,7 +2249,7 @@ caja_application_load_session (CajaApplication *application)
                     continue;
                 }
 
-                if (!strcmp (type, "navigation"))
+                if (g_strcmp0 (type, "navigation") == 0)
                 {
                     xmlChar *geometry;
 
@@ -2296,7 +2296,7 @@ caja_application_load_session (CajaApplication *application)
 
                     for (i = 0, slot_node = node->children; slot_node != NULL; slot_node = slot_node->next)
                     {
-                        if (!strcmp (slot_node->name, "slot"))
+                        if (g_strcmp0 (slot_node->name, "slot") == 0)
                         {
                             slot_uri = xmlGetProp (slot_node, "location");
                             if (slot_uri != NULL)
@@ -2334,7 +2334,7 @@ caja_application_load_session (CajaApplication *application)
                         g_object_unref (location);
                     }
                 }
-                else if (!strcmp (type, "spatial"))
+                else if (g_strcmp0 (type, "spatial") == 0)
                 {
                     location = g_file_new_for_uri (location_uri);
                     window = caja_application_get_spatial_window (application, NULL, NULL, 
