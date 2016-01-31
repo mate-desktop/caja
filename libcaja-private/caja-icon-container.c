@@ -9659,6 +9659,15 @@ caja_icon_container_set_is_desktop (CajaIconContainer *container,
     g_return_if_fail (CAJA_IS_ICON_CONTAINER (container));
 
     container->details->is_desktop = is_desktop;
+
+#if GTK_CHECK_VERSION (3, 0, 0)
+    if (is_desktop) {
+            GtkStyleContext *context;
+
+            context = gtk_widget_get_style_context (GTK_WIDGET (container));
+            gtk_style_context_add_class (context, "caja-desktop");
+    }
+#endif
 }
 
 void
