@@ -443,6 +443,14 @@ caja_location_entry_set_secondary_action (CajaLocationEntry *entry,
 static void
 caja_location_entry_init (CajaLocationEntry *entry)
 {
+
+#if GTK_CHECK_VERSION(3, 0, 0)
+    GtkStyleContext *context;
+
+    context = gtk_widget_get_style_context (GTK_WIDGET (entry));
+    gtk_style_context_add_class (context, "caja-location-entry");
+#endif
+
     entry->details = g_new0 (CajaLocationEntryDetails, 1);
 
     entry->details->completer = g_filename_completer_new ();
