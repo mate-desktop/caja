@@ -44,10 +44,10 @@ typedef struct _Extension {
 
 void caja_extension_register (gchar *filename, GObject *module);
 
-void caja_extensions_setup (void);
 GList *caja_extensions_get_list (void);
 GList *caja_extensions_get_for_type (GType type);
 
+gboolean caja_extension_set_state (Extension *ext, gboolean new_state);
 
 #endif // CAJA_EXTENSIONS_H
 

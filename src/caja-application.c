@@ -68,6 +68,7 @@
 #include <libcaja-private/caja-file-utilities.h>
 #include <libcaja-private/caja-global-preferences.h>
 #include <libcaja-private/caja-extensions.h>
+#include <libcaja-private/caja-module.h>
 #include <libcaja-private/caja-desktop-link-monitor.h>
 #include <libcaja-private/caja-directory-private.h>
 #include <libcaja-private/caja-signaller.h>

@@ -34,6 +34,7 @@
 
 #include <eel/eel-gdk-extensions.h>
 #include <eel/eel-gdk-pixbuf-extensions.h>
+#include <eel/eel-glib-extensions.h>
 #include <eel/eel-gtk-extensions.h>
 #include <eel/eel-image-table.h>
 #include <eel/eel-labeled-image.h>
