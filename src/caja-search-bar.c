@@ -157,6 +157,12 @@ caja_search_bar_init (CajaSearchBar *bar)
     GtkWidget *alignment;
     GtkWidget *hbox;
     GtkWidget *label;
+#if GTK_CHECK_VERSION(3, 0, 0)
+    GtkStyleContext *context;
+
+    context = gtk_widget_get_style_context (GTK_WIDGET (bar));
+    gtk_style_context_add_class (context, "caja-search-bar");
+#endif
 
     bar->details = g_new0 (CajaSearchBarDetails, 1);
 
