@@ -320,6 +320,13 @@ caja_side_pane_init (GObject *object)
 
     side_pane->details = G_TYPE_INSTANCE_GET_PRIVATE (object, CAJA_TYPE_SIDE_PANE, CajaSidePaneDetails);
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+    GtkStyleContext *context;
+
+    context = gtk_widget_get_style_context (GTK_WIDGET (object));
+    gtk_style_context_add_class (context, "caja-side-pane");
+#endif
+
     hbox = gtk_hbox_new (FALSE, 0);
     gtk_container_set_border_width (GTK_CONTAINER (hbox), 4);
     side_pane->details->title_hbox = hbox;
