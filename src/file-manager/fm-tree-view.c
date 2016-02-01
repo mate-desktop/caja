@@ -48,6 +48,7 @@
 #include <libcaja-private/caja-file-utilities.h>
 #include <libcaja-private/caja-global-preferences.h>
 #include <libcaja-private/caja-icon-names.h>
+#include <libcaja-private/caja-mime-actions.h>
 #include <libcaja-private/caja-program-choosing.h>
 #include <libcaja-private/caja-tree-view-drag-dest.h>
 #include <libcaja-private/caja-sidebar-provider.h>
@@ -938,7 +939,6 @@ fm_tree_view_open_in_new_window_cb (GtkWidget *menu_item,
                               view->details->popup_file,
                               g_file_get_path (view->details->popup_file->details->directory->details->location),
                               CAJA_WINDOW_OPEN_FLAG_NEW_WINDOW,
-                              0,
                               0);
 }
 
