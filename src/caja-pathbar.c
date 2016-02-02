@@ -312,6 +312,12 @@ static void
 caja_path_bar_init (CajaPathBar *path_bar)
 {
     char *p;
+#if GTK_CHECK_VERSION(3, 0, 0)
+    GtkStyleContext *context;
+
+    context = gtk_widget_get_style_context (GTK_WIDGET (path_bar));
+    gtk_style_context_add_class (context, "caja-pathbar");
+#endif
 
     gtk_widget_set_has_window (GTK_WIDGET (path_bar), FALSE);
     gtk_widget_set_redraw_on_allocate (GTK_WIDGET (path_bar), FALSE);
