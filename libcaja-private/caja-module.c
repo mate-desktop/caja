@@ -152,9 +152,9 @@ module_object_weak_notify (gpointer user_data, GObject *object)
 static void
 add_module_objects (CajaModule *module)
 {
-    GObject *object;
-    const GType *types;
-    int num_types;
+    GObject *object = NULL;
+    const GType *types = NULL;
+    int num_types = 0;
     int i;
 
     module->list_types (&types, &num_types);
