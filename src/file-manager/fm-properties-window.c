@@ -1430,10 +1430,6 @@ attach_label (GtkTable *table,
 	      int column,
 #endif
 	      const char *initial_text,
-#if !GTK_CHECK_VERSION (3, 0, 0)
-	      gboolean right_aligned,
-	      gboolean bold,
-#endif
 	      gboolean ellipsize_text,
 	      gboolean selectable,
 	      gboolean mnemonic)
@@ -1443,12 +1439,7 @@ attach_label (GtkTable *table,
 	if (ellipsize_text) {
 		label_field = gtk_label_new (initial_text);
                 gtk_label_set_ellipsize (GTK_LABEL (label_field),
-#if GTK_CHECK_VERSION (3, 0, 0)
 					 PANGO_ELLIPSIZE_END);
-#else
-                                         right_aligned ? PANGO_ELLIPSIZE_START :
-                                                         PANGO_ELLIPSIZE_END);
-#endif
 	} else if (mnemonic) {
 		label_field = gtk_label_new_with_mnemonic (initial_text);
 	} else {
@@ -1459,15 +1450,10 @@ attach_label (GtkTable *table,
 		gtk_label_set_selectable (GTK_LABEL (label_field), TRUE);
 	}
 
-#if !GTK_CHECK_VERSION (3, 0, 0)
-	if (bold) {
-		eel_gtk_label_make_bold (GTK_LABEL (label_field));
-	}
-#endif
 #if GTK_CHECK_VERSION (3, 16, 0)
 	gtk_label_set_xalign (GTK_LABEL (label_field), 0);
 #else
-	gtk_misc_set_alignment (GTK_MISC (label_field), right_aligned ? 1 : 0, 0.5);
+	gtk_misc_set_alignment (GTK_MISC (label_field), 0, 0.5);
 #endif
 	gtk_widget_show (label_field);
 #if GTK_CHECK_VERSION (3, 0, 0)
@@ -1510,7 +1496,7 @@ attach_value_label (GtkTable *table,
                     int column,
                     const char *initial_text)
 {
-	return attach_label (table, row, column, initial_text, FALSE, FALSE, FALSE, TRUE, FALSE);
+	return attach_label (table, row, column, initial_text, FALSE, TRUE, FALSE);
 }
 #endif
 
@@ -1528,7 +1514,7 @@ attach_ellipsizing_value_label (GtkTable *table,
                                 int column,
                                 const char *initial_text)
 {
-	return attach_label (table, row, column, initial_text, FALSE, FALSE, TRUE, TRUE, FALSE);
+	return attach_label (table, row, column, initial_text, TRUE, TRUE, FALSE);
 }
 #endif
 
@@ -2619,7 +2605,7 @@ attach_title_field (GtkTable *table,
                     int row,
                     const char *title)
 {
-	return attach_label (table, row, TITLE_COLUMN, title, FALSE, FALSE, FALSE, FALSE, TRUE);
+	return attach_label (table, row, TITLE_COLUMN, title, FALSE, FALSE, TRUE);
 }
 #endif
 
