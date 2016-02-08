@@ -434,6 +434,7 @@ tree_view_button_press_callback (GtkWidget *tree_view,
         {
             gtk_tree_view_row_activated
             (GTK_TREE_VIEW (tree_view), path, column);
+            gtk_tree_path_free (path);
         }
     }
 
