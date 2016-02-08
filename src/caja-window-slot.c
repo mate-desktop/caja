@@ -660,16 +660,8 @@ caja_window_slot_dispose (GObject *object)
     }
 
     caja_window_slot_set_viewed_file (slot, NULL);
-    /* TODO? why do we unref here? the file is NULL.
-     * It was already here before the slot move, though */
-    caja_file_unref (slot->viewed_file);
 
-    if (slot->location)
-    {
-        /* TODO? why do we ref here, instead of unreffing?
-         * It was already here before the slot migration, though */
-        g_object_ref (slot->location);
-    }
+    g_clear_object (&slot->location);
 
     g_list_free_full (slot->pending_selection, g_free);
     slot->pending_selection = NULL;
