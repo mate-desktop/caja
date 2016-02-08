@@ -9930,12 +9930,6 @@ fm_directory_view_reveal_selection (FMDirectoryView *view)
 		 reveal_selection, (view));
 }
 
-static gboolean
-remove_all (gpointer key, gpointer value, gpointer callback_data)
-{
-	return TRUE;
-}
-
 /**
  * fm_directory_view_stop:
  *
@@ -9956,7 +9950,7 @@ fm_directory_view_stop (FMDirectoryView *view)
 	view->details->new_added_files = NULL;
 	file_and_directory_list_free (view->details->new_changed_files);
 	view->details->new_changed_files = NULL;
-	g_hash_table_foreach_remove (view->details->non_ready_files, remove_all, NULL);
+	g_hash_table_remove_all (view->details->non_ready_files);
 	file_and_directory_list_free (view->details->old_added_files);
 	view->details->old_added_files = NULL;
 	file_and_directory_list_free (view->details->old_changed_files);
