@@ -115,7 +115,11 @@ file_list_ready_cb (GList *files,
     GdkPixbuf *pixbuf;
     GtkWidget *label;
     GString *str;
+#if GTK_CHECK_VERSION(3,0,0)
+    PangoAttrList *attr_list;
+#else
     PangoFontDescription *desc;
+#endif
 
     details = fcd->details;
 
@@ -216,15 +220,32 @@ file_list_ready_cb (GList *files,
     label = gtk_label_new (primary_text);
     gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
     gtk_label_set_line_wrap_mode (GTK_LABEL (label), PANGO_WRAP_WORD_CHAR);
-    gtk_widget_set_size_request (label, 350, -1);
-#if GTK_CHECK_VERSION (3, 14, 0)
-    gtk_widget_set_halign (label, GTK_ALIGN_START);
+#if GTK_CHECK_VERSION (3, 0, 0)
+#if GTK_CHECK_VERSION (3, 16, 0)
+    gtk_label_set_xalign (GTK_LABEL (label), 0.0);
 #else
     gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
 #endif
     gtk_box_pack_start (GTK_BOX (details->titles_vbox),
                         label, FALSE, FALSE, 0);
+    gtk_widget_show (label);
+
+    attr_list = pango_attr_list_new ();
+    pango_attr_list_insert (attr_list, pango_attr_weight_new (PANGO_WEIGHT_BOLD));
+    pango_attr_list_insert (attr_list, pango_attr_scale_new (PANGO_SCALE_LARGE));
+    g_object_set (label,
+                  "attributes", attr_list,
+                  NULL);
+
+    pango_attr_list_unref (attr_list);
+#else
+    gtk_widget_set_size_request (label, 350, -1);
+    gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+    gtk_box_pack_start (GTK_BOX (details->titles_vbox),
+                        label, FALSE, FALSE, 0);
+
     gtk_widget_modify_font (label, NULL);
+
     desc = pango_font_description_new ();
     pango_font_description_set_weight (desc, PANGO_WEIGHT_BOLD);
     pango_font_description_set_size (desc,
@@ -232,12 +253,17 @@ file_list_ready_cb (GList *files,
     gtk_widget_modify_font (label, desc);
     pango_font_description_free (desc);
     gtk_widget_show (label);
+#endif
 
     label = gtk_label_new (secondary_text);
     gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_label_set_max_width_chars (GTK_LABEL (label), 60);
+#else
     gtk_widget_set_size_request (label, 350, -1);
-#if GTK_CHECK_VERSION (3, 14, 0)
-    gtk_widget_set_halign (label, GTK_ALIGN_START);
+#endif
+#if GTK_CHECK_VERSION (3, 16, 0)
+    gtk_label_set_xalign (GTK_LABEL (label), 0.0);
 #else
     gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
 #endif
@@ -281,14 +307,14 @@ file_list_ready_cb (GList *files,
 
     str = g_string_new (NULL);
     g_string_append_printf (str, "<b>%s</b>\n", _("Original file"));
-    g_string_append_printf (str, "<i>%s</i> %s\n", _("Size:"), size);
+    g_string_append_printf (str, "%s %s\n", _("Size:"), size);
 
     if (should_show_type)
     {
-        g_string_append_printf (str, "<i>%s</i> %s\n", _("Type:"), type);
+        g_string_append_printf (str, "%s %s\n", _("Type:"), type);
     }
 
-    g_string_append_printf (str, "<i>%s</i> %s", _("Last modified:"), date);
+    g_string_append_printf (str, "%s %s", _("Last modified:"), date);
 
     label_text = str->str;
     gtk_label_set_markup (GTK_LABEL (label),
@@ -314,14 +340,14 @@ file_list_ready_cb (GList *files,
     }
 
     g_string_append_printf (str, "<b>%s</b>\n", _("Replace with"));
-    g_string_append_printf (str, "<i>%s</i> %s\n", _("Size:"), size);
+    g_string_append_printf (str, "%s %s\n", _("Size:"), size);
 
     if (should_show_type)
     {
-        g_string_append_printf (str, "<i>%s</i> %s\n", _("Type:"), type);
+        g_string_append_printf (str, "%s %s\n", _("Type:"), type);
     }
 
-    g_string_append_printf (str, "<i>%s</i> %s", _("Last modified:"), date);
+    g_string_append_printf (str, "%s %s", _("Last modified:"), date);
     label_text = g_string_free (str, FALSE);
 
     gtk_label_set_markup (GTK_LABEL (label),
@@ -573,10 +599,10 @@ caja_file_conflict_dialog_init (CajaFileConflictDialog *fcd)
     gtk_container_set_border_width (GTK_CONTAINER (hbox), 6);
 
     /* Setup the dialog image */
-    widget = gtk_image_new_from_stock (GTK_STOCK_DIALOG_WARNING,
+    widget = gtk_image_new_from_icon_name ("dialog-warning",
                                        GTK_ICON_SIZE_DIALOG);
     gtk_box_pack_start (GTK_BOX (hbox), widget, FALSE, FALSE, 0);
-#if GTK_CHECK_VERSION (3, 14, 0)
+#if GTK_CHECK_VERSION (3, 0, 0)
     gtk_widget_set_halign (widget, GTK_ALIGN_CENTER);
     gtk_widget_set_valign (widget, GTK_ALIGN_START);
 #else
@@ -617,7 +643,7 @@ caja_file_conflict_dialog_init (CajaFileConflictDialog *fcd)
     gtk_container_add (GTK_CONTAINER (details->expander), hbox);
 
     widget = gtk_entry_new ();
-    gtk_box_pack_start (GTK_BOX (hbox), widget, FALSE, FALSE, 6);
+    gtk_box_pack_start (GTK_BOX (hbox), widget, TRUE, TRUE, 6);
     details->entry = widget;
     g_signal_connect (widget, "changed",
                       G_CALLBACK (entry_text_changed_cb), dialog);

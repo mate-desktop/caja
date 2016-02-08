@@ -510,7 +510,7 @@ caja_autorun_prepare_combo_box (GtkWidget *combo_box,
     {
         gtk_list_store_append (list_store, &iter);
         pixbuf = gtk_icon_theme_load_icon (gtk_icon_theme_get_default (),
-                                           GTK_STOCK_DIALOG_ERROR,
+                                           "dialog-error",
                                            icon_size,
                                            0,
                                            NULL);
@@ -532,7 +532,7 @@ caja_autorun_prepare_combo_box (GtkWidget *combo_box,
         {
             gtk_list_store_append (list_store, &iter);
             pixbuf = gtk_icon_theme_load_icon (gtk_icon_theme_get_default (),
-                                               GTK_STOCK_DIALOG_QUESTION,
+                                               "dialog-question",
                                                icon_size,
                                                0,
                                                NULL);
@@ -548,7 +548,7 @@ caja_autorun_prepare_combo_box (GtkWidget *combo_box,
 
         gtk_list_store_append (list_store, &iter);
         pixbuf = gtk_icon_theme_load_icon (gtk_icon_theme_get_default (),
-                                           GTK_STOCK_CLOSE,
+                                           "window-close",
                                            icon_size,
                                            0,
                                            NULL);

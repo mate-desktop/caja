@@ -205,6 +205,9 @@ caja_launch_application_by_uri (GAppInfo *application,
     CajaFile    *file;
     gboolean        result;
     GError *error;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GdkDisplay *display;
+#endif
     GdkAppLaunchContext *launch_context;
     CajaIconInfo *icon;
     int count, total;
@@ -228,10 +231,25 @@ caja_launch_application_by_uri (GAppInfo *application,
     }
     locations = g_list_reverse (locations);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    if (parent_window != NULL) {
+            display = gtk_widget_get_display (GTK_WIDGET (parent_window));
+    } else {
+            display = gdk_display_get_default ();
+    }
+
+    launch_context = gdk_display_get_app_launch_context (display);
+
+    if (parent_window != NULL) {
+        gdk_app_launch_context_set_screen (launch_context,
+                                           gtk_window_get_screen (parent_window));
+    }
+#else
     launch_context = gdk_app_launch_context_new ();
     if (parent_window)
         gdk_app_launch_context_set_screen (launch_context,
                                            gtk_window_get_screen (parent_window));
+#endif
 
     file = caja_file_get_by_uri (uris->data);
     icon = caja_file_get_icon (file, 48, 0);
@@ -338,6 +356,7 @@ caja_launch_application_from_command (GdkScreen  *screen,
     {
 #if GTK_CHECK_VERSION (3, 0, 0)
         GdkAppLaunchContext *launch_context;
+        GdkDisplay *display;
         GAppInfo *app_info = NULL;
         app_info = g_app_info_create_from_commandline (full_command,
                                                        NULL,
@@ -345,7 +364,8 @@ caja_launch_application_from_command (GdkScreen  *screen,
                                                        NULL);
         if (app_info != NULL)
         {
-            launch_context = gdk_app_launch_context_new ();
+            display = gdk_screen_get_display (screen);
+            launch_context = gdk_display_get_app_launch_context (display);
             gdk_app_launch_context_set_screen (launch_context, screen);
             g_app_info_launch (app_info, NULL, G_APP_LAUNCH_CONTEXT (launch_context), NULL);
             g_object_unref (launch_context);
@@ -432,6 +452,7 @@ caja_launch_application_from_command_array (GdkScreen  *screen,
     {
 #if GTK_CHECK_VERSION (3, 0, 0)
         GdkAppLaunchContext *launch_context;
+        GdkDisplay *display;
         GAppInfo *app_info = NULL;
         app_info = g_app_info_create_from_commandline (full_command,
                                                        NULL,
@@ -439,7 +460,8 @@ caja_launch_application_from_command_array (GdkScreen  *screen,
                                                        NULL);
         if (app_info != NULL)
         {
-            launch_context = gdk_app_launch_context_new ();
+            display = gdk_screen_get_display (screen);
+            launch_context = gdk_display_get_app_launch_context (display);
             gdk_app_launch_context_set_screen (launch_context, screen);
             g_app_info_launch (app_info, NULL, G_APP_LAUNCH_CONTEXT (launch_context), NULL);
             g_object_unref (launch_context);
@@ -572,7 +594,11 @@ caja_launch_desktop_file (GdkScreen   *screen,
     }
 
     error = NULL;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    context = gdk_display_get_app_launch_context (gtk_widget_get_display (GTK_WIDGET (parent_window)));
+#else
     context = gdk_app_launch_context_new ();
+#endif
     /* TODO: Ideally we should accept a timestamp here instead of using GDK_CURRENT_TIME */
     gdk_app_launch_context_set_timestamp (context, GDK_CURRENT_TIME);
     gdk_app_launch_context_set_screen (context,

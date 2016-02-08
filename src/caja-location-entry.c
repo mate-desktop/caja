@@ -425,14 +425,14 @@ caja_location_entry_set_secondary_action (CajaLocationEntry *entry,
     switch (secondary_action)
     {
     case CAJA_LOCATION_ENTRY_ACTION_CLEAR:
-        gtk_entry_set_icon_from_stock (GTK_ENTRY (entry),
+        gtk_entry_set_icon_from_icon_name (GTK_ENTRY (entry),
                                        GTK_ENTRY_ICON_SECONDARY,
-                                       GTK_STOCK_CLEAR);
+                                       "gtk-clear");
         break;
     case CAJA_LOCATION_ENTRY_ACTION_GOTO:
-        gtk_entry_set_icon_from_stock (GTK_ENTRY (entry),
+        gtk_entry_set_icon_from_icon_name (GTK_ENTRY (entry),
                                        GTK_ENTRY_ICON_SECONDARY,
-                                       GTK_STOCK_GO_FORWARD);
+                                       "forward");
         break;
     default:
         g_assert_not_reached ();
@@ -443,6 +443,14 @@ caja_location_entry_set_secondary_action (CajaLocationEntry *entry,
 static void
 caja_location_entry_init (CajaLocationEntry *entry)
 {
+
+#if GTK_CHECK_VERSION(3, 0, 0)
+    GtkStyleContext *context;
+
+    context = gtk_widget_get_style_context (GTK_WIDGET (entry));
+    gtk_style_context_add_class (context, "caja-location-entry");
+#endif
+
     entry->details = g_new0 (CajaLocationEntryDetails, 1);
 
     entry->details->completer = g_filename_completer_new ();

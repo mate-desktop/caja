@@ -33,7 +33,7 @@
 static GList *caja_extensions = NULL;
 
 
-Extension *
+static Extension *
 extension_new (gchar *filename, gboolean state, GObject *module)
 {
     Extension *ext;

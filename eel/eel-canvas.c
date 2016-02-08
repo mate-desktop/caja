@@ -341,12 +341,16 @@ eel_canvas_item_dispose (GObject *object)
             item->canvas->need_repick = TRUE;
         }
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+        eel_canvas_item_ungrab (item, GDK_CURRENT_TIME);
+#else
         if (item == item->canvas->grabbed_item)
         {
             GdkDisplay *display = gtk_widget_get_display (GTK_WIDGET (item->canvas));
             item->canvas->grabbed_item = NULL;
             gdk_display_pointer_ungrab (display, GDK_CURRENT_TIME);
         }
+#endif
 
         if (item == item->canvas->focused_item)
             item->canvas->focused_item = NULL;
@@ -888,6 +892,40 @@ eel_canvas_item_hide (EelCanvasItem *item)
  * returns %GDK_GRAB_NOT_VIEWABLE.  Else, it returns the result of calling
  * gdk_pointer_grab().
  **/
+#if GTK_CHECK_VERSION(3, 0, 0)
+GdkGrabStatus
+eel_canvas_item_grab (EelCanvasItem *item,
+                      GdkEventMask event_mask,
+                      GdkCursor *cursor,
+                      guint32 timestamp)
+{
+    GdkGrabStatus retval;
+    GdkDisplay *display;
+    GdkDeviceManager *manager;
+    GdkDevice *device;
+
+    g_return_val_if_fail (EEL_IS_CANVAS_ITEM (item), GDK_GRAB_NOT_VIEWABLE);
+    g_return_val_if_fail (gtk_widget_get_mapped (GTK_WIDGET (item->canvas)),
+                          GDK_GRAB_NOT_VIEWABLE);
+
+    if (item->canvas->grabbed_item)
+        return GDK_GRAB_ALREADY_GRABBED;
+
+    if (!(item->flags & EEL_CANVAS_ITEM_MAPPED))
+        return GDK_GRAB_NOT_VIEWABLE;
+
+    display = gtk_widget_get_display (GTK_WIDGET (item->canvas));
+    manager = gdk_display_get_device_manager (display);
+    device = gdk_device_manager_get_client_pointer (manager);
+
+    retval = gdk_device_grab (device,
+                              gtk_layout_get_bin_window (GTK_LAYOUT (item->canvas)),
+                              GDK_OWNERSHIP_NONE,
+                              FALSE,
+                              event_mask,
+                              cursor,
+                              timestamp);
+#else
 int
 eel_canvas_item_grab (EelCanvasItem *item, guint event_mask, GdkCursor *cursor, guint32 etime)
 {
@@ -909,6 +947,7 @@ eel_canvas_item_grab (EelCanvasItem *item, guint event_mask, GdkCursor *cursor, 
                                NULL,
                                cursor,
                                etime);
+#endif
 
     if (retval != GDK_GRAB_SUCCESS)
         return retval;
@@ -933,6 +972,10 @@ void
 eel_canvas_item_ungrab (EelCanvasItem *item, guint32 etime)
 {
     GdkDisplay *display;
+#if GTK_CHECK_VERSION(3, 0, 0)
+    GdkDeviceManager *manager;
+    GdkDevice *device;
+#endif
 
     g_return_if_fail (EEL_IS_CANVAS_ITEM (item));
 
@@ -940,10 +983,17 @@ eel_canvas_item_ungrab (EelCanvasItem *item, guint32 etime)
         return;
 
     display = gtk_widget_get_display (GTK_WIDGET (item->canvas));
+#if GTK_CHECK_VERSION(3, 0, 0)
+    manager = gdk_display_get_device_manager (display);
+    device = gdk_device_manager_get_client_pointer (manager);
+
+    item->canvas->grabbed_item = NULL;
+    gdk_device_ungrab (device, etime);
+#else
     item->canvas->grabbed_item = NULL;
     gdk_display_pointer_ungrab (display, etime);
+#endif
 }
-
 
 /**
  * eel_canvas_item_w2i:
@@ -2274,9 +2324,13 @@ shutdown_transients (EelCanvas *canvas)
 
     if (canvas->grabbed_item)
     {
+#if GTK_CHECK_VERSION(3, 0, 0)
+        eel_canvas_item_ungrab (canvas->grabbed_item, GDK_CURRENT_TIME);
+#else
         GdkDisplay *display = gtk_widget_get_display (GTK_WIDGET (canvas));
         canvas->grabbed_item = NULL;
         gdk_display_pointer_ungrab (display, GDK_CURRENT_TIME);
+#endif
     }
 
     remove_idle (canvas);
@@ -3193,13 +3247,17 @@ eel_canvas_draw_background (EelCanvas *canvas,
                             cairo_t   *cr)
 {
     cairo_rectangle_int_t rect;
+    GtkStyleContext *style_context;
+    GdkRGBA color;
 
     if (!gdk_cairo_get_clip_rectangle (cr, &rect))
         return;
 
     cairo_save (cr);
     /* By default, we use the style background. */
-    gdk_cairo_set_source_color (cr, &gtk_widget_get_style (GTK_WIDGET (canvas))->bg[GTK_STATE_NORMAL]);
+    style_context = gtk_widget_get_style_context (GTK_WIDGET (canvas));
+    gtk_style_context_get_background_color (style_context, GTK_STATE_FLAG_NORMAL, &color);
+    gdk_cairo_set_source_rgba (cr, &color);
     gdk_cairo_rectangle (cr, &rect);
     cairo_fill (cr);
     cairo_restore (cr);
@@ -3265,7 +3323,9 @@ idle_handler (gpointer data)
 {
     EelCanvas *canvas;
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
     GDK_THREADS_ENTER ();
+#endif
 
     canvas = EEL_CANVAS (data);
     do_update (canvas);
@@ -3273,7 +3333,9 @@ idle_handler (gpointer data)
     /* Reset idle id */
     canvas->idle_id = 0;
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
     GDK_THREADS_LEAVE ();
+#endif
 
     return FALSE;
 }

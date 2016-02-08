@@ -33,6 +33,10 @@
 #include <eel/eel-gtk-macros.h>
 #include <eel/eel-string.h>
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+#define gtk_vbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_VERTICAL,Y)
+#endif
+
 static void caja_window_slot_init       (CajaWindowSlot *slot);
 static void caja_window_slot_class_init (CajaWindowSlotClass *class);
 static void caja_window_slot_dispose    (GObject *object);
@@ -479,8 +483,13 @@ caja_window_slot_set_content_view_widget (CajaWindowSlot *slot,
     if (new_view != NULL)
     {
         widget = caja_view_get_widget (new_view);
+#if GTK_CHECK_VERSION (3, 0, 0)
+        gtk_box_pack_start (GTK_BOX (slot->view_box), widget,
+                            TRUE, TRUE, 0);
+#else
         gtk_container_add (GTK_CONTAINER (slot->view_box),
                            GTK_WIDGET (new_view));
+#endif
 
         gtk_widget_show (widget);
 
@@ -651,16 +660,8 @@ caja_window_slot_dispose (GObject *object)
     }
 
     caja_window_slot_set_viewed_file (slot, NULL);
-    /* TODO? why do we unref here? the file is NULL.
-     * It was already here before the slot move, though */
-    caja_file_unref (slot->viewed_file);
 
-    if (slot->location)
-    {
-        /* TODO? why do we ref here, instead of unreffing?
-         * It was already here before the slot migration, though */
-        g_object_ref (slot->location);
-    }
+    g_clear_object (&slot->location);
 
     g_list_free_full (slot->pending_selection, g_free);
     slot->pending_selection = NULL;

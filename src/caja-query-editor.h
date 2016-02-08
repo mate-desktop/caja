@@ -45,13 +45,21 @@ typedef struct CajaQueryEditorDetails CajaQueryEditorDetails;
 
 typedef struct CajaQueryEditor
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GtkBox parent;
+#else
     GtkVBox parent;
+#endif
     CajaQueryEditorDetails *details;
 } CajaQueryEditor;
 
 typedef struct
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GtkBoxClass parent_class;
+#else
     GtkVBoxClass parent_class;
+#endif
 
     void (* changed) (CajaQueryEditor  *editor,
                       CajaQuery        *query,

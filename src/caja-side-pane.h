@@ -46,13 +46,21 @@ extern "C" {
 
     typedef struct
     {
+#if GTK_CHECK_VERSION (3, 0, 0)
+        GtkBox parent;
+#else
         GtkVBox parent;
+#endif
         CajaSidePaneDetails *details;
     } CajaSidePane;
 
     typedef struct
     {
+#if GTK_CHECK_VERSION (3, 0, 0)
+        GtkBoxClass parent_slot;
+#else
         GtkVBoxClass parent_slot;
+#endif
 
         void (*close_requested) (CajaSidePane *side_pane);
         void (*switch_page) (CajaSidePane *side_pane,

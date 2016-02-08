@@ -69,8 +69,11 @@ enum
 };
 static guint signals[LAST_SIGNAL] = { 0 };
 
-
+#if GTK_CHECK_VERSION (3, 0, 0)
+G_DEFINE_TYPE(CajaColumnChooser, caja_column_chooser, GTK_TYPE_BOX);
+#else
 G_DEFINE_TYPE(CajaColumnChooser, caja_column_chooser, GTK_TYPE_HBOX);
+#endif
 
 static void caja_column_chooser_constructed (GObject *object);
 
@@ -399,7 +402,11 @@ add_buttons (CajaColumnChooser *chooser)
     gtk_box_pack_start (GTK_BOX (box), chooser->details->move_down_button,
                         FALSE, FALSE, 0);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    separator = gtk_separator_new (GTK_ORIENTATION_HORIZONTAL);
+#else
     separator = gtk_hseparator_new ();
+#endif
     gtk_widget_show (separator);
     gtk_box_pack_start (GTK_BOX (box), separator, FALSE, FALSE, 0);
 
@@ -471,6 +478,9 @@ caja_column_chooser_init (CajaColumnChooser *chooser)
     g_object_set (G_OBJECT (chooser),
                   "homogeneous", FALSE,
                   "spacing", 8,
+#if GTK_CHECK_VERSION (3, 0, 0)
+                  "orientation", GTK_ORIENTATION_HORIZONTAL,
+#endif
                   NULL);
 
     add_tree_view (chooser);

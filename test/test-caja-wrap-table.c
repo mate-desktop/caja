@@ -34,8 +34,13 @@ main (int argc, char* argv[])
 					GTK_POLICY_AUTOMATIC);
 
 	/* Viewport */
- 	gtk_scrolled_window_add_with_viewport (GTK_SCROLLED_WINDOW (scroller), 
- 					       emblems_table);
+#if GTK_CHECK_VERSION (3, 0, 0)
+	gtk_container_add (GTK_CONTAINER (scroller),
+					   emblems_table);
+#else
+	gtk_scrolled_window_add_with_viewport (GTK_SCROLLED_WINDOW (scroller),
+	                                       emblems_table);
+#endif
 
 	gtk_container_add (GTK_CONTAINER (window), scroller);
 

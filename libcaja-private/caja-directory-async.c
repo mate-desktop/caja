@@ -1162,12 +1162,6 @@ directory_load_cancel (CajaDirectory *directory)
     }
 }
 
-static gboolean
-remove_callback (gpointer key, gpointer value, gpointer user_data)
-{
-    return TRUE;
-}
-
 static void
 file_list_cancel (CajaDirectory *directory)
 {
@@ -1187,7 +1181,7 @@ file_list_cancel (CajaDirectory *directory)
 
     if (directory->details->hidden_file_hash)
     {
-        g_hash_table_foreach_remove (directory->details->hidden_file_hash, remove_callback, NULL);
+        g_hash_table_remove_all (directory->details->hidden_file_hash);
     }
 }
 

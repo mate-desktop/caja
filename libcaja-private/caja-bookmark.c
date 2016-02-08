@@ -32,7 +32,6 @@
 #include <eel/eel-vfs-extensions.h>
 #include <gtk/gtk.h>
 #include <gio/gio.h>
-#include <string.h>
 #include <libcaja-private/caja-file.h>
 #include <libcaja-private/caja-icon-names.h>
 
@@ -300,7 +299,7 @@ caja_bookmark_set_name (CajaBookmark *bookmark, const char *new_name)
     g_return_val_if_fail (new_name != NULL, FALSE);
     g_return_val_if_fail (CAJA_IS_BOOKMARK (bookmark), FALSE);
 
-    if (strcmp (new_name, bookmark->details->name) == 0)
+    if (g_strcmp0 (new_name, bookmark->details->name) == 0)
     {
         return FALSE;
     }
@@ -437,7 +436,7 @@ bookmark_file_changed_callback (CajaFile *file, CajaBookmark *bookmark)
     {
         display_name = caja_file_get_display_name (file);
 
-        if (strcmp (bookmark->details->name, display_name) != 0)
+        if (g_strcmp0 (bookmark->details->name, display_name) != 0)
         {
             g_free (bookmark->details->name);
             bookmark->details->name = display_name;
@@ -481,7 +480,7 @@ caja_bookmark_set_icon_to_default (CajaBookmark *bookmark)
 
     if (caja_bookmark_uri_known_not_to_exist (bookmark))
     {
-        icon = g_themed_icon_new (GTK_STOCK_DIALOG_WARNING);
+        icon = g_themed_icon_new ("dialog-warning");
         emblem = g_emblem_new (icon);
 
         emblemed_icon = g_emblemed_icon_new (folder, emblem);
@@ -554,7 +553,7 @@ caja_bookmark_connect_file (CajaBookmark *bookmark)
             caja_file_check_if_ready (bookmark->details->file, CAJA_FILE_ATTRIBUTE_INFO))
     {
         display_name = caja_file_get_display_name (bookmark->details->file);
-        if (strcmp (bookmark->details->name, display_name) != 0)
+        if (g_strcmp0 (bookmark->details->name, display_name) != 0)
         {
             g_free (bookmark->details->name);
             bookmark->details->name = display_name;

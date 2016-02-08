@@ -34,6 +34,7 @@
 
 #include <eel/eel-gdk-extensions.h>
 #include <eel/eel-gdk-pixbuf-extensions.h>
+#include <eel/eel-glib-extensions.h>
 #include <eel/eel-gtk-extensions.h>
 #include <eel/eel-image-table.h>
 #include <eel/eel-labeled-image.h>
@@ -67,7 +68,7 @@ typedef enum
 
 struct CajaPropertyBrowserDetails
 {
-    GtkHBox *container;
+    GtkWidget *container;
 
     GtkWidget *content_container;
     GtkWidget *content_frame;
@@ -183,6 +184,7 @@ static GdkPixbuf * make_color_drag_image                        (CajaPropertyBro
 #define ERASE_OBJECT_NAME "erase.png"
 
 #if GTK_CHECK_VERSION (3, 0, 0)
+#define gtk_hbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_HORIZONTAL,Y)
 #define gtk_vbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_VERTICAL,Y)
 #endif
 
@@ -305,10 +307,10 @@ caja_property_browser_init (CajaPropertyBrowser *property_browser)
     gtk_container_add (GTK_CONTAINER (property_browser), vbox);
 
     /* create the container box */
-    property_browser->details->container = GTK_HBOX (gtk_hbox_new (FALSE, 6));
+    property_browser->details->container = gtk_hbox_new (FALSE, 6);
     gtk_widget_show (GTK_WIDGET (property_browser->details->container));
     gtk_box_pack_start (GTK_BOX (vbox),
-                        GTK_WIDGET (property_browser->details->container),
+                        property_browser->details->container,
                         TRUE, TRUE, 0);
 
     /* make the category container */
@@ -351,11 +353,7 @@ caja_property_browser_init (CajaPropertyBrowser *property_browser)
     gtk_widget_show(temp_frame);
     gtk_container_add(GTK_CONTAINER(property_browser->details->title_box), temp_frame);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
-    temp_hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
-#else
     temp_hbox = gtk_hbox_new(FALSE, 0);
-#endif
     gtk_widget_show(temp_hbox);
 
     gtk_container_add(GTK_CONTAINER(temp_frame), temp_hbox);
@@ -380,11 +378,7 @@ caja_property_browser_init (CajaPropertyBrowser *property_browser)
     temp_box = gtk_event_box_new();
     gtk_widget_show(temp_box);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
-    property_browser->details->bottom_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
-#else
     property_browser->details->bottom_box = gtk_hbox_new (FALSE, 6);
-#endif
     gtk_widget_show (property_browser->details->bottom_box);
 
     gtk_box_pack_end (GTK_BOX (vbox), temp_box, FALSE, FALSE, 0);
@@ -1157,11 +1151,7 @@ caja_emblem_dialog_new (CajaPropertyBrowser *property_browser)
     gtk_widget_show (label);
     gtk_table_attach (GTK_TABLE(table), label, 0, 1, 1, 2, GTK_FILL, GTK_FILL, 0, 0);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
-    widget = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
-#else
     widget = gtk_hbox_new (FALSE, 0);
-#endif
     gtk_widget_show (widget);
 
     button = gtk_button_new ();
@@ -2197,6 +2187,9 @@ caja_property_browser_update_contents (CajaPropertyBrowser *property_browser)
 
     /* allocate a new container, with a scrollwindow and viewport */
     property_browser->details->content_frame = gtk_scrolled_window_new (NULL, NULL);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_widget_set_vexpand (property_browser->details->content_frame, TRUE);
+#endif
     viewport = gtk_viewport_new (NULL, NULL);
     gtk_widget_show(viewport);
     gtk_viewport_set_shadow_type(GTK_VIEWPORT(viewport), GTK_SHADOW_IN);

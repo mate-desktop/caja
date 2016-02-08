@@ -68,6 +68,15 @@
 #include <sys/mount.h>
 #endif
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+#define USED_FILL_R  0.988235294
+#define USED_FILL_G  0.91372549
+#define USED_FILL_B  0.309803922
+
+#define FREE_FILL_R  0.447058824
+#define FREE_FILL_G  0.623529412
+#define FREE_FILL_B  0.811764706
+#else
 #define USED_FILL_R  (0.988235294 * 65535)
 #define USED_FILL_G  (0.91372549 * 65535)
 #define USED_FILL_B  (0.309803922 * 65535)
@@ -75,16 +84,12 @@
 #define FREE_FILL_R  (0.447058824 * 65535)
 #define FREE_FILL_G  (0.623529412 * 65535)
 #define FREE_FILL_B  (0.811764706 * 65535)
+#endif
 
 
 #define PREVIEW_IMAGE_WIDTH 96
 
 #define ROW_PAD 6
-
-#if GTK_CHECK_VERSION (3, 0, 0)
-#define gtk_hbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_HORIZONTAL,Y)
-#define gtk_vbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_VERTICAL,Y)
-#endif
 
 static GHashTable *windows;
 static GHashTable *pending_lists;
@@ -148,10 +153,17 @@ struct FMPropertiesWindowDetails {
  	guint64 volume_capacity;
  	guint64 volume_free;
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+	GdkRGBA used_color;
+	GdkRGBA free_color;
+	GdkRGBA used_stroke_color;
+	GdkRGBA free_stroke_color;
+#else
 	GdkColor used_color;
 	GdkColor free_color;
 	GdkColor used_stroke_color;
 	GdkColor free_stroke_color;
+#endif
 };
 
 #if GTK_CHECK_VERSION (3, 0, 0)
@@ -363,7 +375,7 @@ get_target_file (FMPropertiesWindow *window)
 }
 
 static void
-add_prompt (GtkVBox *vbox, const char *prompt_text, gboolean pack_at_start)
+add_prompt (GtkWidget *vbox, const char *prompt_text, gboolean pack_at_start)
 {
 	GtkWidget *prompt;
 
@@ -379,15 +391,19 @@ add_prompt (GtkVBox *vbox, const char *prompt_text, gboolean pack_at_start)
 }
 
 static void
-add_prompt_and_separator (GtkVBox *vbox, const char *prompt_text)
+add_prompt_and_separator (GtkWidget *vbox, const char *prompt_text)
 {
 	GtkWidget *separator_line;
 
 	add_prompt (vbox, prompt_text, FALSE);
 
- 	separator_line = gtk_hseparator_new ();
-  	gtk_widget_show (separator_line);
-  	gtk_box_pack_end (GTK_BOX (vbox), separator_line, TRUE, TRUE, 2*ROW_PAD);
+#if GTK_CHECK_VERSION (3, 0, 0)
+	separator_line = gtk_separator_new (GTK_ORIENTATION_HORIZONTAL);
+#else
+	separator_line = gtk_hseparator_new ();
+#endif
+	gtk_widget_show (separator_line);
+	gtk_box_pack_end (GTK_BOX (vbox), separator_line, TRUE, TRUE, 2*ROW_PAD);
 }
 
 static void
@@ -1414,10 +1430,6 @@ attach_label (GtkTable *table,
 	      int column,
 #endif
 	      const char *initial_text,
-#if !GTK_CHECK_VERSION (3, 0, 0)
-	      gboolean right_aligned,
-	      gboolean bold,
-#endif
 	      gboolean ellipsize_text,
 	      gboolean selectable,
 	      gboolean mnemonic)
@@ -1427,12 +1439,7 @@ attach_label (GtkTable *table,
 	if (ellipsize_text) {
 		label_field = gtk_label_new (initial_text);
                 gtk_label_set_ellipsize (GTK_LABEL (label_field),
-#if GTK_CHECK_VERSION (3, 0, 0)
 					 PANGO_ELLIPSIZE_END);
-#else
-                                         right_aligned ? PANGO_ELLIPSIZE_START :
-                                                         PANGO_ELLIPSIZE_END);
-#endif
 	} else if (mnemonic) {
 		label_field = gtk_label_new_with_mnemonic (initial_text);
 	} else {
@@ -1443,15 +1450,10 @@ attach_label (GtkTable *table,
 		gtk_label_set_selectable (GTK_LABEL (label_field), TRUE);
 	}
 
-#if !GTK_CHECK_VERSION (3, 0, 0)
-	if (bold) {
-		eel_gtk_label_make_bold (GTK_LABEL (label_field));
-	}
-#endif
-#if GTK_CHECK_VERSION (3, 14, 0)
-	gtk_widget_set_halign (label_field, GTK_ALIGN_START);
+#if GTK_CHECK_VERSION (3, 16, 0)
+	gtk_label_set_xalign (GTK_LABEL (label_field), 0);
 #else
-	gtk_misc_set_alignment (GTK_MISC (label_field), right_aligned ? 1 : 0, 0.5);
+	gtk_misc_set_alignment (GTK_MISC (label_field), 0, 0.5);
 #endif
 	gtk_widget_show (label_field);
 #if GTK_CHECK_VERSION (3, 0, 0)
@@ -1494,7 +1496,7 @@ attach_value_label (GtkTable *table,
                     int column,
                     const char *initial_text)
 {
-	return attach_label (table, row, column, initial_text, FALSE, FALSE, FALSE, TRUE, FALSE);
+	return attach_label (table, row, column, initial_text, FALSE, TRUE, FALSE);
 }
 #endif
 
@@ -1512,7 +1514,7 @@ attach_ellipsizing_value_label (GtkTable *table,
                                 int column,
                                 const char *initial_text)
 {
-	return attach_label (table, row, column, initial_text, FALSE, FALSE, TRUE, TRUE, FALSE);
+	return attach_label (table, row, column, initial_text, TRUE, TRUE, FALSE);
 }
 #endif
 
@@ -2603,7 +2605,7 @@ attach_title_field (GtkTable *table,
                     int row,
                     const char *title)
 {
-	return attach_label (table, row, TITLE_COLUMN, title, FALSE, FALSE, FALSE, FALSE, TRUE);
+	return attach_label (table, row, TITLE_COLUMN, title, FALSE, FALSE, TRUE);
 }
 #endif
 
@@ -2756,7 +2758,11 @@ create_page_with_hbox (GtkNotebook *notebook,
 	g_assert (GTK_IS_NOTEBOOK (notebook));
 	g_assert (title != NULL);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+#else
 	hbox = gtk_hbox_new (FALSE, 0);
+#endif
 	gtk_widget_show (hbox);
 	gtk_container_set_border_width (GTK_CONTAINER (hbox), 12);
 	gtk_box_set_spacing (GTK_BOX (hbox), 12);
@@ -2774,7 +2780,11 @@ create_page_with_vbox (GtkNotebook *notebook,
 	g_assert (GTK_IS_NOTEBOOK (notebook));
 	g_assert (title != NULL);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+#else
 	vbox = gtk_vbox_new (FALSE, 0);
+#endif
 	gtk_widget_show (vbox);
 	gtk_container_set_border_width (GTK_CONTAINER (vbox), 12);
 	gtk_notebook_append_page (notebook, vbox, gtk_label_new (title));
@@ -2841,14 +2851,14 @@ create_grid_with_standard_properties (void)
 	return grid;
 }
 #else
-create_attribute_value_table (GtkVBox *vbox, int row_count)
+create_attribute_value_table (GtkBox *vbox, int row_count)
 {
 	GtkWidget *table;
 
 	table = gtk_table_new (row_count, COLUMN_COUNT, FALSE);
 	apply_standard_table_padding (GTK_TABLE (table));
 	gtk_widget_show (table);
-	gtk_box_pack_start (GTK_BOX (vbox), table, FALSE, FALSE, 0);
+	gtk_box_pack_start (vbox, table, FALSE, FALSE, 0);
 
 	return table;
 }
@@ -3045,6 +3055,13 @@ paint_used_legend (GtkWidget *widget,
 			  width - 4,
 			  height - 4);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+	gdk_cairo_set_source_rgba (cr, &window->details->used_color);
+	cairo_fill_preserve (cr);
+
+	gdk_cairo_set_source_rgba (cr, &window->details->used_stroke_color);
+	cairo_stroke (cr);
+#else
 	cairo_set_source_rgb (cr,
 	                      (double) window->details->used_color.red / 65535,
 	                      (double) window->details->used_color.green / 65535,
@@ -3057,7 +3074,6 @@ paint_used_legend (GtkWidget *widget,
 	                      (double) window->details->used_stroke_color.blue / 65535);
 	cairo_stroke (cr);
 
-#if !GTK_CHECK_VERSION(3,0,0)
 	cairo_destroy (cr);
 #endif
 }
@@ -3089,6 +3105,13 @@ paint_free_legend (GtkWidget *widget,
 			 width - 4,
 			 height - 4);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+	gdk_cairo_set_source_rgba (cr, &window->details->free_color);
+	cairo_fill_preserve(cr);
+
+	gdk_cairo_set_source_rgba (cr, &window->details->free_stroke_color);
+	cairo_stroke (cr);
+#else
 	cairo_set_source_rgb (cr,
 	                      (double) window->details->free_color.red / 65535,
 	                      (double) window->details->free_color.green / 65535,
@@ -3101,7 +3124,6 @@ paint_free_legend (GtkWidget *widget,
 	                      (double) window->details->free_stroke_color.blue / 65535);
 	cairo_stroke (cr);
 
-#if !GTK_CHECK_VERSION(3,0,0)
 	cairo_destroy (cr);
 #endif
 }
@@ -3167,6 +3189,12 @@ paint_pie_chart (GtkWidget *widget,
 			cairo_line_to (cr,xc,yc);
 		}
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+		gdk_cairo_set_source_rgba (cr, &window->details->used_color);
+		cairo_fill_preserve (cr);
+
+		gdk_cairo_set_source_rgba (cr, &window->details->used_stroke_color);
+#else
 		cairo_set_source_rgb (cr,
 		                      (double) window->details->used_color.red / 65535,
 		                      (double) window->details->used_color.green / 65535,
@@ -3177,6 +3205,7 @@ paint_pie_chart (GtkWidget *widget,
 		                      (double) window->details->used_stroke_color.red / 65535,
 		                      (double) window->details->used_stroke_color.green / 65535,
 		                      (double) window->details->used_stroke_color.blue / 65535);
+#endif
 		cairo_stroke (cr);
 	}
 
@@ -3191,6 +3220,12 @@ paint_pie_chart (GtkWidget *widget,
 			cairo_line_to (cr,xc,yc);
 		}
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+		gdk_cairo_set_source_rgba (cr, &window->details->free_color);
+		cairo_fill_preserve(cr);
+
+		gdk_cairo_set_source_rgba (cr, &window->details->free_stroke_color);
+#else
 		cairo_set_source_rgb (cr,
 		                      (double) window->details->free_color.red / 65535,
 		                      (double) window->details->free_color.green / 65535,
@@ -3201,6 +3236,7 @@ paint_pie_chart (GtkWidget *widget,
 		                      (double) window->details->free_stroke_color.red / 65535,
 		                      (double) window->details->free_stroke_color.green / 65535,
 		                      (double) window->details->free_stroke_color.blue / 65535);
+#endif
 		cairo_stroke (cr);
 	}
 
@@ -3362,17 +3398,28 @@ hls_to_rgb (gdouble *h,
     }
 }
 static void
+#if GTK_CHECK_VERSION (3, 0, 0)
+_pie_style_shade (GdkRGBA *a,
+                  GdkRGBA *b,
+#else
 _pie_style_shade (GdkColor *a,
                   GdkColor *b,
+#endif
                   gdouble   k)
 {
   gdouble red;
   gdouble green;
   gdouble blue;
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+  red = a->red;
+  green = a->green;
+  blue = a->blue;
+#else
   red = (gdouble) a->red / 65535.0;
   green = (gdouble) a->green / 65535.0;
   blue = (gdouble) a->blue / 65535.0;
+#endif
 
   rgb_to_hls (&red, &green, &blue);
 
@@ -3390,9 +3437,16 @@ _pie_style_shade (GdkColor *a,
 
   hls_to_rgb (&red, &green, &blue);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+  b->red = red;
+  b->green = green;
+  b->blue = blue;
+  b->alpha = a->alpha;
+#else
   b->red = red * 65535.0;
   b->green = green * 65535.0;
   b->blue = blue * 65535.0;
+#endif
 }
 
 
@@ -3402,10 +3456,11 @@ create_pie_widget (FMPropertiesWindow *window)
 	CajaFile		*file;
 #if GTK_CHECK_VERSION (3, 0, 0)
 	GtkGrid                 *grid;
+	GtkStyleContext		*style;
 #else
 	GtkTable 		*table;
-#endif
 	GtkStyle		*style;
+#endif
 	GtkWidget 		*pie_canvas;
 	GtkWidget 		*used_canvas;
 	GtkWidget 		*used_label;
@@ -3441,22 +3496,34 @@ create_pie_widget (FMPropertiesWindow *window)
 	gtk_container_set_border_width (GTK_CONTAINER (grid), 5);
 	gtk_grid_set_column_spacing (GTK_GRID (grid), 5);
 	style = gtk_widget_get_style_context (GTK_WIDGET (grid));
+
+	if (!gtk_style_context_lookup_color (style, "chart_rgba_1", &window->details->used_color)) {
 #else
 	table = GTK_TABLE (gtk_table_new (4, 3, FALSE));
 
 	style = gtk_rc_get_style (GTK_WIDGET(table));
-#endif
 
 	if (!gtk_style_lookup_color (style, "chart_color_1", &window->details->used_color)) {
+#endif
 		window->details->used_color.red = USED_FILL_R;
 		window->details->used_color.green = USED_FILL_G;
 		window->details->used_color.blue = USED_FILL_B;
+#if GTK_CHECK_VERSION (3, 0, 0)
+		window->details->used_color.alpha = 1;
+#endif
 	}
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+	if (!gtk_style_context_lookup_color (style, "chart_rgba_2", &window->details->free_color)) {
+#else
 	if (!gtk_style_lookup_color (style, "chart_color_2", &window->details->free_color)) {
+#endif
 		window->details->free_color.red = FREE_FILL_R;
 		window->details->free_color.green = FREE_FILL_G;
 		window->details->free_color.blue = FREE_FILL_B;
+#if GTK_CHECK_VERSION (3, 0, 0)
+		window->details->free_color.alpha = 1;
+#endif
 	}
 
 	_pie_style_shade (&window->details->used_color, &window->details->used_stroke_color, 0.7);
@@ -3634,7 +3701,11 @@ create_basic_page (FMPropertiesWindow *window)
 	/* Table */
 #endif
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+#else
 	vbox = gtk_vbox_new (FALSE, 0);
+#endif
 	gtk_widget_show (vbox);
 	gtk_container_add (GTK_CONTAINER (hbox), vbox);
 
@@ -3646,7 +3717,7 @@ create_basic_page (FMPropertiesWindow *window)
 	/* Name label.  The text will be determined in update_name_field */
 	window->details->name_label = attach_title_field (grid, NULL);
 #else
-	table = GTK_TABLE (create_attribute_value_table (GTK_VBOX (vbox), 0));
+	table = GTK_TABLE (create_attribute_value_table (GTK_BOX (vbox), 0));
 	window->details->basic_table = table;
 
 	/* Name label.  The text will be determined in update_name_field */
@@ -3989,11 +4060,17 @@ start_long_operation (FMPropertiesWindow *window)
 {
 	if (window->details->long_operation_underway == 0) {
 		/* start long operation */
+		GdkDisplay *display;
 		GdkCursor * cursor;
 
-		cursor = gdk_cursor_new (GDK_WATCH);
+		display = gtk_widget_get_display (GTK_WIDGET (window));
+		cursor = gdk_cursor_new_for_display (display, GDK_WATCH);
 		gdk_window_set_cursor (gtk_widget_get_window (GTK_WIDGET (window)), cursor);
+#if GTK_CHECK_VERSION(3,0,0)
+		g_object_unref (cursor);
+#else
 		gdk_cursor_unref (cursor);
+#endif
 	}
 	window->details->long_operation_underway ++;
 }
@@ -5667,7 +5744,7 @@ create_permissions_page (FMPropertiesWindow *window)
 
 		if (!all_can_set_permissions (file_list)) {
 			add_prompt_and_separator (
-				GTK_VBOX (vbox),
+				vbox,
 				_("You are not the owner, so you cannot change these permissions."));
 		}
 
@@ -5698,7 +5775,11 @@ create_permissions_page (FMPropertiesWindow *window)
 			 FALSE);
 
 		if (window->details->has_recursive_apply) {
+#if GTK_CHECK_VERSION (3, 0, 0)
+			hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+#else
 			hbox = gtk_hbox_new (FALSE, 0);
+#endif
 			gtk_widget_show (hbox);
 			gtk_container_add_with_properties (GTK_CONTAINER (page_grid), hbox,
 							   "width", 2,
@@ -5723,7 +5804,7 @@ create_permissions_page (FMPropertiesWindow *window)
 
 		if (!all_can_set_permissions (file_list)) {
 			add_prompt_and_separator (
-				GTK_VBOX (vbox),
+				vbox,
 				_("You are not the owner, so you cannot change these permissions."));
 		}
 
@@ -5760,7 +5841,11 @@ create_permissions_page (FMPropertiesWindow *window)
 
 		if (window->details->has_recursive_apply) {
 			last_row = append_row (page_table);
+#if GTK_CHECK_VERSION (3, 0, 0)
+			hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+#else
 			hbox = gtk_hbox_new (FALSE, 0);
+#endif
 			gtk_widget_show (hbox);
 			gtk_table_attach (page_table, hbox,
 					  0, 2,
@@ -5785,7 +5870,7 @@ create_permissions_page (FMPropertiesWindow *window)
 			prompt_text = g_strdup (_("The permissions of the selected file could not be determined."));
 		}
 
-		add_prompt (GTK_VBOX (vbox), prompt_text, TRUE);
+		add_prompt (vbox, prompt_text, TRUE);
 		g_free (prompt_text);
 	}
 }
@@ -6152,7 +6237,9 @@ create_properties_window (StartupData *startup_data)
 				NULL);
 
 	/* FIXME - HIGificiation, should be done inside GTK+ */
+#if !GTK_CHECK_VERSION (3, 0, 0)
 	gtk_widget_ensure_style (GTK_WIDGET (window));
+#endif
 	gtk_container_set_border_width (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (window))), 12);
 	gtk_container_set_border_width (GTK_CONTAINER (gtk_dialog_get_action_area (GTK_DIALOG (window))), 0);
 	gtk_box_set_spacing (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (window))), 12);

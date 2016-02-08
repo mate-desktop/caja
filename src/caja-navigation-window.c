@@ -138,6 +138,13 @@ caja_navigation_window_init (CajaNavigationWindow *window)
 
     window->details = G_TYPE_INSTANCE_GET_PRIVATE (window, CAJA_TYPE_NAVIGATION_WINDOW, CajaNavigationWindowDetails);
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+    GtkStyleContext *context;
+
+    context = gtk_widget_get_style_context (GTK_WIDGET (window));
+    gtk_style_context_add_class (context, "caja-navigation-window");
+#endif
+
     pane = caja_navigation_window_pane_new (win);
     win->details->panes = g_list_prepend (win->details->panes, pane);
 

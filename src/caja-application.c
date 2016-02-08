@@ -41,10 +41,9 @@
 #include "caja-notes-viewer.h"
 #include "caja-emblem-sidebar.h"
 #include "caja-image-properties-page.h"
-#include <sys/types.h>
-#include <sys/stat.h>
 #include <fcntl.h>
 #include <string.h>
+#include <unistd.h>
 #include "caja-desktop-window.h"
 #include "caja-main.h"
 #include "caja-spatial-window.h"
@@ -56,7 +55,6 @@
 #include "caja-window-private.h"
 #include "caja-window-manage-views.h"
 #include "caja-freedesktop-dbus.h"
-#include <unistd.h>
 #include <libxml/xmlsave.h>
 #include <glib/gstdio.h>
 #include <glib/gi18n.h>
@@ -70,6 +68,7 @@
 #include <libcaja-private/caja-file-utilities.h>
 #include <libcaja-private/caja-global-preferences.h>
 #include <libcaja-private/caja-extensions.h>
+#include <libcaja-private/caja-module.h>
 #include <libcaja-private/caja-desktop-link-monitor.h>
 #include <libcaja-private/caja-directory-private.h>
 #include <libcaja-private/caja-signaller.h>
@@ -89,8 +88,6 @@ enum {
 /* Keep window from shrinking down ridiculously small; numbers are somewhat arbitrary */
 #define APPLICATION_WINDOW_MIN_WIDTH	300
 #define APPLICATION_WINDOW_MIN_HEIGHT	100
-
-#define START_STATE_CONFIG "start-state"
 
 #define CAJA_ACCEL_MAP_SAVE_DELAY 30
 
@@ -2164,11 +2161,11 @@ caja_application_load_session (CajaApplication *application)
         for (node = root_node->children; node != NULL; node = node->next)
         {
 
-            if (!strcmp (node->name, "text"))
+            if (g_strcmp0 (node->name, "text") == 0)
             {
                 continue;
             }
-            else if (!strcmp (node->name, "history"))
+            else if (g_strcmp0 (node->name, "history") == 0)
             {
                 xmlNodePtr bookmark_node;
                 gboolean emit_change;
@@ -2177,11 +2174,11 @@ caja_application_load_session (CajaApplication *application)
 
                 for (bookmark_node = node->children; bookmark_node != NULL; bookmark_node = bookmark_node->next)
                 {
-                    if (!strcmp (bookmark_node->name, "text"))
+                    if (g_strcmp0 (bookmark_node->name, "text") == 0)
                     {
                         continue;
                     }
-                    else if (!strcmp (bookmark_node->name, "bookmark"))
+                    else if (g_strcmp0 (bookmark_node->name, "bookmark") == 0)
                     {
                         xmlChar *name, *icon_str, *uri;
                         gboolean has_custom_name;
@@ -2224,7 +2221,7 @@ caja_application_load_session (CajaApplication *application)
                     caja_send_history_list_changed ();
                 }
             }
-            else if (!strcmp (node->name, "window"))
+            else if (g_strcmp0 (node->name, "window") == 0)
             {
                 CajaWindow *window;
                 xmlChar *type, *location_uri, *slot_uri;
@@ -2249,7 +2246,7 @@ caja_application_load_session (CajaApplication *application)
                     continue;
                 }
 
-                if (!strcmp (type, "navigation"))
+                if (g_strcmp0 (type, "navigation") == 0)
                 {
                     xmlChar *geometry;
 
@@ -2296,7 +2293,7 @@ caja_application_load_session (CajaApplication *application)
 
                     for (i = 0, slot_node = node->children; slot_node != NULL; slot_node = slot_node->next)
                     {
-                        if (!strcmp (slot_node->name, "slot"))
+                        if (g_strcmp0 (slot_node->name, "slot") == 0)
                         {
                             slot_uri = xmlGetProp (slot_node, "location");
                             if (slot_uri != NULL)
@@ -2334,7 +2331,7 @@ caja_application_load_session (CajaApplication *application)
                         g_object_unref (location);
                     }
                 }
-                else if (!strcmp (type, "spatial"))
+                else if (g_strcmp0 (type, "spatial") == 0)
                 {
                     location = g_file_new_for_uri (location_uri);
                     window = caja_application_get_spatial_window (application, NULL, NULL, 

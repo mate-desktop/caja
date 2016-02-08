@@ -49,13 +49,21 @@ typedef struct CajaZoomControlDetails CajaZoomControlDetails;
 
 struct CajaZoomControl
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GtkBox parent;
+#else
     GtkHBox parent;
+#endif
     CajaZoomControlDetails *details;
 };
 
 struct CajaZoomControlClass
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GtkBoxClass parent_class;
+#else
     GtkHBoxClass parent_class;
+#endif
 
     void (*zoom_in)		(CajaZoomControl *control);
     void (*zoom_out) 	(CajaZoomControl *control);

@@ -26,7 +26,10 @@
    and selection hilighting */
 
 #include <config.h>
+
 #include "eel-graphic-effects.h"
+#include "eel-glib-extensions.h"
+
 #include <string.h>
 
 /* shared utility to create a new pixbuf from the passed-in one */
@@ -169,9 +172,13 @@ eel_create_darkened_pixbuf (GdkPixbuf *src, int saturation, int darken)
 
 GdkPixbuf *
 eel_create_colorized_pixbuf (GdkPixbuf *src,
+#if GTK_CHECK_VERSION(3,0,0)
+                             GdkRGBA *color)
+#else
                              int red_value,
                              int green_value,
                              int blue_value)
+#endif
 {
     int i, j;
     int width, height, has_alpha, src_row_stride, dst_row_stride;
@@ -181,12 +188,22 @@ eel_create_colorized_pixbuf (GdkPixbuf *src,
     guchar *pixdest;
     GdkPixbuf *dest;
 
+#if GTK_CHECK_VERSION(3,0,0)
+    gint red_value, green_value, blue_value;
+#endif
+
     g_return_val_if_fail (gdk_pixbuf_get_colorspace (src) == GDK_COLORSPACE_RGB, NULL);
     g_return_val_if_fail ((!gdk_pixbuf_get_has_alpha (src)
                            && gdk_pixbuf_get_n_channels (src) == 3)
                           || (gdk_pixbuf_get_has_alpha (src)
                               && gdk_pixbuf_get_n_channels (src) == 4), NULL);
     g_return_val_if_fail (gdk_pixbuf_get_bits_per_sample (src) == 8, NULL);
+
+#if GTK_CHECK_VERSION(3,0,0)
+    red_value = eel_round (color->red * 255);
+    green_value = eel_round (color->green * 255);
+    blue_value = eel_round (color->blue * 255);
+#endif
 
     dest = create_new_pixbuf (src);
 

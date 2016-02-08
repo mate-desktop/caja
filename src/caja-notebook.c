@@ -82,6 +82,7 @@ caja_notebook_class_init (CajaNotebookClass *klass)
 
     notebook_class->insert_page = caja_notebook_insert_page;
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
     gtk_rc_parse_string ("style \"caja-tab-close-button-style\"\n"
                          "{\n"
                          "GtkWidget::focus-padding = 0\n"
@@ -90,6 +91,7 @@ caja_notebook_class_init (CajaNotebookClass *klass)
                          "ythickness = 0\n"
                          "}\n"
                          "widget \"*.caja-tab-close-button\" style \"caja-tab-close-button-style\"");
+#endif
 
     signals[TAB_CLOSE_REQUEST] =
         g_signal_new ("tab-close-request",
@@ -108,12 +110,23 @@ caja_notebook_class_init (CajaNotebookClass *klass)
 static CajaNotebook *
 find_notebook_at_pointer (gint abs_x, gint abs_y)
 {
+#if GTK_CHECK_VERSION(3, 0, 0)
+    GdkDeviceManager *manager;
+    GdkDevice *pointer;
+#endif
     GdkWindow *win_at_pointer, *toplevel_win;
     gpointer toplevel = NULL;
     gint x, y;
 
     /* FIXME multi-head */
+#if GTK_CHECK_VERSION(3, 0, 0)
+    manager = gdk_display_get_device_manager (gdk_display_get_default ());
+    pointer = gdk_device_manager_get_client_pointer (manager);
+    win_at_pointer = gdk_device_get_window_at_position (pointer, &x, &y);
+#else
     win_at_pointer = gdk_window_at_pointer (&x, &y);
+#endif
+
     if (win_at_pointer == NULL)
     {
         /* We are outside all windows containing a notebook */
@@ -218,7 +231,7 @@ button_press_cb (CajaNotebook *notebook,
     tab_clicked = find_tab_num_at_pos (notebook, event->x_root, event->y_root);
 
     if (event->type == GDK_BUTTON_PRESS &&
-            event->button == 3 &&
+            (event->button == 3 || event->button == 2) &&
             (event->state & gtk_accelerator_get_default_mod_mask ()) == 0)
     {
         if (tab_clicked == -1)
@@ -239,6 +252,13 @@ button_press_cb (CajaNotebook *notebook,
 static void
 caja_notebook_init (CajaNotebook *notebook)
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GtkStyleContext *context;
+
+    context = gtk_widget_get_style_context (GTK_WIDGET (notebook));
+    gtk_style_context_add_class (context, "caja-notebook");
+#endif
+
     gtk_notebook_set_scrollable (GTK_NOTEBOOK (notebook), TRUE);
     gtk_notebook_set_show_border (GTK_NOTEBOOK (notebook), FALSE);
     gtk_notebook_set_show_tabs (GTK_NOTEBOOK (notebook), FALSE);
@@ -369,12 +389,20 @@ build_tab_label (CajaNotebook *nb, CajaWindowSlot *slot)
     label = gtk_label_new (NULL);
     gtk_label_set_ellipsize (GTK_LABEL (label), PANGO_ELLIPSIZE_END);
     gtk_label_set_single_line_mode (GTK_LABEL (label), TRUE);
-#if GTK_CHECK_VERSION (3, 14, 0)
-    gtk_widget_set_halign (label, GTK_ALIGN_START);
+#if GTK_CHECK_VERSION (3, 16, 0)
+    gtk_label_set_xalign (GTK_LABEL (label), 0.0);
+    gtk_label_set_yalign (GTK_LABEL (label), 0.5);
 #else
     gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
 #endif
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_widget_set_margin_start (label, 0);
+    gtk_widget_set_margin_end (label, 0);
+    gtk_widget_set_margin_top (label, 0);
+    gtk_widget_set_margin_bottom (label, 0);
+#else
     gtk_misc_set_padding (GTK_MISC (label), 0, 0);
+#endif
     gtk_box_pack_start (GTK_BOX (hbox), label, TRUE, TRUE, 0);
     gtk_widget_show (label);
 
@@ -387,7 +415,7 @@ build_tab_label (CajaNotebook *nb, CajaWindowSlot *slot)
 
     gtk_widget_set_name (close_button, "caja-tab-close-button");
 
-    image = gtk_image_new_from_stock (GTK_STOCK_CLOSE, GTK_ICON_SIZE_MENU);
+    image = gtk_image_new_from_icon_name ("window-close", GTK_ICON_SIZE_MENU);
     gtk_widget_set_tooltip_text (close_button, _("Close tab"));
     g_signal_connect_object (close_button, "clicked",
                              G_CALLBACK (close_button_clicked_cb), slot, 0);

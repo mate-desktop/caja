@@ -102,6 +102,10 @@ gtk_tree_view_vertical_autoscroll (GtkTreeView *tree_view)
 {
     GdkRectangle visible_rect;
     GtkAdjustment *vadjustment;
+#if GTK_CHECK_VERSION(3, 0, 0)
+    GdkDeviceManager *manager;
+    GdkDevice *pointer;
+#endif
     GdkWindow *window;
     int y;
     int offset;
@@ -111,11 +115,16 @@ gtk_tree_view_vertical_autoscroll (GtkTreeView *tree_view)
 
 #if GTK_CHECK_VERSION(3, 0, 0)
     vadjustment = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE(tree_view));
+
+    manager = gdk_display_get_device_manager (gtk_widget_get_display (GTK_WIDGET (tree_view)));
+    pointer = gdk_device_manager_get_client_pointer (manager);
+    gdk_window_get_device_position (window, pointer,
+                                    NULL, &y, NULL);
 #else
     vadjustment = gtk_tree_view_get_vadjustment (tree_view);
-#endif
 
     gdk_window_get_pointer (window, NULL, &y, NULL);
+#endif
 
     y += gtk_adjustment_get_value (vadjustment);
 
@@ -199,6 +208,9 @@ highlight_expose (GtkWidget *widget,
     GdkWindow *bin_window;
     int width;
     int height;
+#if GTK_CHECK_VERSION(3,0,0)
+    GtkStyleContext *style;
+#endif
 
     /* FIXMEchpe: is bin window right here??? */
     bin_window = gtk_tree_view_get_bin_window (GTK_TREE_VIEW (widget));
@@ -206,18 +218,26 @@ highlight_expose (GtkWidget *widget,
     width = gdk_window_get_width(bin_window);
     height = gdk_window_get_height(bin_window);
 
-    gtk_paint_focus (gtk_widget_get_style (widget),
 #if GTK_CHECK_VERSION(3,0,0)
-                     cr,
-                     gtk_widget_get_state (widget),
+    style = gtk_widget_get_style_context (widget);
+
+    gtk_style_context_save (style);
+    gtk_style_context_add_class (style, "treeview-drop-indicator");
+
+    gtk_render_focus (style,
+                      cr,
+                      0, 0, width, height);
+
+    gtk_style_context_restore (style);
 #else
+    gtk_paint_focus (gtk_widget_get_style (widget),
                      bin_window,
                      gtk_widget_get_state (widget),
                      NULL,
-#endif
                      widget,
                      "treeview-drop-indicator",
                      0, 0, width, height);
+#endif
 
     return FALSE;
 }

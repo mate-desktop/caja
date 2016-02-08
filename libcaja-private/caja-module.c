@@ -27,6 +27,7 @@
 #include <eel/eel-gtk-macros.h>
 #include <eel/eel-debug.h>
 #include <gmodule.h>
+#include <libcaja-private/caja-extensions.h>
 
 #define CAJA_TYPE_MODULE    	(caja_module_get_type ())
 #define CAJA_MODULE(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), CAJA_TYPE_MODULE, CajaModule))
@@ -152,9 +153,9 @@ module_object_weak_notify (gpointer user_data, GObject *object)
 static void
 add_module_objects (CajaModule *module)
 {
-    GObject *object;
-    const GType *types;
-    int num_types;
+    GObject *object = NULL;
+    const GType *types = NULL;
+    int num_types = 0;
     int i;
 
     module->list_types (&types, &num_types);

@@ -27,6 +27,10 @@
 #include "eel-art-gtk-extensions.h"
 #include <gdk/gdkx.h>
 
+#if !GTK_CHECK_VERSION(3,0,0)
+#define gtk_widget_get_preferred_size(x,y,z) gtk_widget_size_request(x,y)
+#endif
+
 /**
  * eel_gdk_rectangle_to_eel_irect:
  * @gdk_rectangle: The source GdkRectangle.
@@ -191,7 +195,7 @@ eel_gtk_widget_get_preferred_dimensions (GtkWidget *gtk_widget)
 
     g_return_val_if_fail (GTK_IS_WIDGET (gtk_widget), eel_dimensions_empty);
 
-    gtk_widget_size_request (gtk_widget, &requisition);
+    gtk_widget_get_preferred_size (gtk_widget, &requisition, NULL);
 
     preferred_dimensions.width = (int) requisition.width;
     preferred_dimensions.height = (int) requisition.height;
@@ -323,11 +327,24 @@ eel_gdk_get_pointer_position (void)
 {
 
     EelIPoint position;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GdkDeviceManager *manager;
+    GdkDevice *pointer;
+
+    manager = gdk_display_get_device_manager (gdk_window_get_display (gdk_get_default_root_window ()));
+    pointer = gdk_device_manager_get_client_pointer (manager);
+    gdk_window_get_device_position (gdk_get_default_root_window (),
+                                    pointer,
+                                    &position.x,
+                                    &position.y,
+                                    NULL);
+#else
 
     gdk_window_get_pointer (gdk_get_default_root_window (),
                             &position.x,
                             &position.y,
                             NULL);
+#endif
 
     return position;
 }

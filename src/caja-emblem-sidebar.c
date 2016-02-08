@@ -111,8 +111,11 @@ typedef struct
     GObjectClass parent;
 } CajaEmblemSidebarProviderClass;
 
-
+#if GTK_CHECK_VERSION (3, 0, 0)
+G_DEFINE_TYPE_WITH_CODE (CajaEmblemSidebar, caja_emblem_sidebar, GTK_TYPE_BOX,
+#else
 G_DEFINE_TYPE_WITH_CODE (CajaEmblemSidebar, caja_emblem_sidebar, GTK_TYPE_VBOX,
+#endif
                          G_IMPLEMENT_INTERFACE (CAJA_TYPE_SIDEBAR,
                                  caja_emblem_sidebar_iface_init));
 
@@ -1044,6 +1047,9 @@ caja_emblem_sidebar_init (CajaEmblemSidebar *emblem_sidebar)
                              "emblems_changed",
                              G_CALLBACK (emblems_changed_callback), emblem_sidebar, 0);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_orientable_set_orientation (GTK_ORIENTABLE (emblem_sidebar), GTK_ORIENTATION_VERTICAL);
+#endif
     gtk_box_pack_start (GTK_BOX (emblem_sidebar), widget,
                         TRUE, TRUE, 0);
 }

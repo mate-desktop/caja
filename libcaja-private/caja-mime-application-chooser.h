@@ -39,13 +39,21 @@ typedef struct _CajaMimeApplicationChooserDetails CajaMimeApplicationChooserDeta
 
 struct _CajaMimeApplicationChooser
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GtkBox parent;
+#else
     GtkVBox parent;
+#endif
     CajaMimeApplicationChooserDetails *details;
 };
 
 struct _CajaMimeApplicationChooserClass
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GtkBoxClass parent_class;
+#else
     GtkVBoxClass parent_class;
+#endif
 };
 
 GType      caja_mime_application_chooser_get_type (void);

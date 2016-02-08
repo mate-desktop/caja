@@ -62,21 +62,15 @@
 #include <libcaja-private/caja-clipboard.h>
 #include <libcaja-private/caja-search-directory.h>
 #include <libcaja-private/caja-signaller.h>
-#include <math.h>
-#include <sys/time.h>
 
 #define MAX_HISTORY_ITEMS 50
 
 #define EXTRA_VIEW_WIDGETS_BACKGROUND "#a7c6e1"
 
-#define SIDE_PANE_MINIMUM_WIDTH 1
-#define SIDE_PANE_MINIMUM_HEIGHT 400
-
 /* dock items */
 
 #define CAJA_MENU_PATH_EXTRA_VIEWER_PLACEHOLDER	"/MenuBar/View/View Choices/Extra Viewer"
 #define CAJA_MENU_PATH_SHORT_LIST_PLACEHOLDER  	"/MenuBar/View/View Choices/Short List"
-#define CAJA_MENU_PATH_AFTER_SHORT_LIST_SEPARATOR   "/MenuBar/View/View Choices/After Short List"
 
 enum {
 	ARG_0,
@@ -141,6 +135,30 @@ caja_window_init (CajaWindow *window)
     GtkWidget *menu;
     GtkWidget *statusbar;
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    static const gchar css_custom[] =
+      "#statusbar-no-border {"
+      "  -GtkStatusbar-shadow-type: none;"
+      "}"
+      "#caja-extra-view-widget {"
+      "  background-color: " EXTRA_VIEW_WIDGETS_BACKGROUND ";"
+      "}";
+
+    GError *error = NULL;
+    GtkCssProvider *provider = gtk_css_provider_new ();
+    gtk_css_provider_load_from_data (provider, css_custom, -1, &error);
+
+    if (error != NULL) {
+            g_warning ("Can't parse CajaWindow's CSS custom description: %s\n", error->message);
+            g_error_free (error);
+    } else {
+            gtk_style_context_add_provider (gtk_widget_get_style_context (GTK_WIDGET (window)),
+                                            GTK_STYLE_PROVIDER (provider),
+                                            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+    }
+
+    g_object_unref (provider);
+#endif
     window->details = G_TYPE_INSTANCE_GET_PRIVATE (window, CAJA_TYPE_WINDOW, CajaWindowDetails);
 
     window->details->panes = NULL;
@@ -148,6 +166,7 @@ caja_window_init (CajaWindow *window)
 
     window->details->show_hidden_files_mode = CAJA_WINDOW_SHOW_HIDDEN_FILES_DEFAULT;
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
     /* Remove Top border on GtkStatusBar */
     gtk_rc_parse_string (
         "style \"statusbar-no-border\"\n"
@@ -155,6 +174,7 @@ caja_window_init (CajaWindow *window)
         "   GtkStatusbar::shadow_type = GTK_SHADOW_NONE\n"
         "}\n"
         "widget \"*.statusbar-noborder\" style \"statusbar-no-border\"");
+#endif
 
     /* Set initial window title */
     gtk_window_set_title (GTK_WINDOW (window), _("Caja"));
@@ -389,9 +409,17 @@ update_cursor (CajaWindow *window)
 
     if (slot->allow_stop)
     {
-        cursor = gdk_cursor_new (GDK_WATCH);
+        GdkDisplay *display;
+        GdkCursor * cursor;
+
+        display = gtk_widget_get_display (GTK_WIDGET (window));
+        cursor = gdk_cursor_new_for_display (display, GDK_WATCH);
         gdk_window_set_cursor (gtk_widget_get_window (GTK_WIDGET (window)), cursor);
+#if GTK_CHECK_VERSION(3,0,0)
+        g_object_unref (cursor);
+#else
         gdk_cursor_unref (cursor);
+#endif
     }
     else
     {
@@ -2238,6 +2266,7 @@ caja_window_class_init (CajaWindowClass *class)
     class->reload = caja_window_reload;
     class->go_up = caja_window_go_up_signal;
 
+#if !GTK_CHECK_VERSION (3,0,0)
     /* Allow to set the colors of the extra view widgets */
     gtk_rc_parse_string ("\n"
                          "   style \"caja-extra-view-widgets-style-internal\"\n"
@@ -2247,6 +2276,7 @@ caja_window_class_init (CajaWindowClass *class)
                          "\n"
                          "    widget \"*.caja-extra-view-widget\" style:rc \"caja-extra-view-widgets-style-internal\" \n"
                          "\n");
+#endif
 
     g_type_class_add_private (G_OBJECT_CLASS (class), sizeof (CajaWindowDetails));
 }

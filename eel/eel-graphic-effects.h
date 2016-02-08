@@ -26,6 +26,11 @@
 #define EEL_GRAPHIC_EFFECTS_H
 
 #include <gdk-pixbuf/gdk-pixbuf.h>
+#include <gtk/gtk.h>
+#if GTK_CHECK_VERSION(3,0,0)
+#include <gdk/gdk.h>
+#endif
+
 
 /* return a lightened pixbuf for pre-lighting */
 GdkPixbuf *eel_create_spotlight_pixbuf (GdkPixbuf *source_pixbuf);
@@ -37,9 +42,13 @@ GdkPixbuf *eel_create_darkened_pixbuf  (GdkPixbuf *source_pixbuf,
 
 /* return a pixbuf colorized with the color specified by the parameters */
 GdkPixbuf* eel_create_colorized_pixbuf (GdkPixbuf *source_pixbuf,
+#if GTK_CHECK_VERSION(3,0,0)
+                                        GdkRGBA *color);
+#else
                                         int        red_value,
                                         int        green_value,
                                         int        blue_value);
+#endif
 
 /* stretch a image frame */
 GdkPixbuf *eel_stretch_frame_image     (GdkPixbuf *frame_image,

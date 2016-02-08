@@ -84,8 +84,13 @@ extern "C" {
         double x1, y1, x2, y2;		/* Corners of item */
         double width;			/* Outline width */
 
+#if GTK_CHECK_VERSION(3,0,0)
+        GdkRGBA fill_color;
+        GdkRGBA outline_color;
+#else
         guint fill_color;		/* Fill color, RGBA */
         guint outline_color;		/* Outline color, RGBA */
+#endif
 
 	gboolean outline_stippling;
 

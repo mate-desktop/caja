@@ -35,7 +35,6 @@
 #include <gio/gio.h>
 #include <string.h>
 
-#define MAX_BOOKMARK_LENGTH 80
 #define LOAD_JOB 1
 #define SAVE_JOB 2
 

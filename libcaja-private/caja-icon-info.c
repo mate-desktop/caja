@@ -25,7 +25,6 @@
 #include "caja-default-file-icon.h"
 #include <gtk/gtk.h>
 #include <gio/gio.h>
-#include <eel/eel-gdk-pixbuf-extensions.h>
 
 struct _CajaIconInfo
 {
@@ -383,7 +382,10 @@ caja_icon_info_lookup (GIcon *icon,
                                        NULL, NULL, NULL);
         if (stream)
         {
-            pixbuf = eel_gdk_pixbuf_load_from_stream_at_size (stream, size);
+            pixbuf = gdk_pixbuf_new_from_stream_at_scale (stream,
+                                                          size, size, TRUE,
+                                                          NULL, NULL);
+            g_input_stream_close (stream, NULL, NULL);
             g_object_unref (stream);
         }
 
@@ -423,14 +425,14 @@ caja_icon_info_lookup (GIcon *icon,
         }
 
         filename = gtk_icon_info_get_filename (gtkicon_info);
-
-        /* 96_no-null-in-g-str-hash.patch from ubuntu natty nautilus
-        https://bugs.launchpad.net/ubuntu/+source/nautilus/+bug/718098 */
         if (filename == NULL) {
+#if GTK_CHECK_VERSION (3, 0, 0)
+            g_object_unref (gtkicon_info);
+#else
             gtk_icon_info_free (gtkicon_info);
+#endif
             return caja_icon_info_new_for_pixbuf (NULL);
         }
-        /* patch end */
 
         lookup_key.filename = (char *)filename;
         lookup_key.size = size;
@@ -438,7 +440,11 @@ caja_icon_info_lookup (GIcon *icon,
         icon_info = g_hash_table_lookup (themed_icon_cache, &lookup_key);
         if (icon_info)
         {
+#if GTK_CHECK_VERSION (3, 0, 0)
+            g_object_unref (gtkicon_info);
+#else
             gtk_icon_info_free (gtkicon_info);
+#endif
             return g_object_ref (icon_info);
         }
 
@@ -447,7 +453,11 @@ caja_icon_info_lookup (GIcon *icon,
         key = themed_icon_key_new (filename, size);
         g_hash_table_insert (themed_icon_cache, key, icon_info);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+        g_object_unref (gtkicon_info);
+#else
         gtk_icon_info_free (gtkicon_info);
+#endif
 
         return g_object_ref (icon_info);
     }
@@ -463,14 +473,24 @@ caja_icon_info_lookup (GIcon *icon,
         if (gtk_icon_info != NULL)
         {
             pixbuf = gtk_icon_info_load_icon (gtk_icon_info, NULL);
+#if GTK_CHECK_VERSION (3, 0, 0)
+            g_object_unref (gtk_icon_info);
+#else
             gtk_icon_info_free (gtk_icon_info);
+#endif
         }
         else
         {
             pixbuf = NULL;
         }
 
-        return caja_icon_info_new_for_pixbuf (pixbuf);
+        icon_info = caja_icon_info_new_for_pixbuf (pixbuf);
+
+        if (pixbuf != NULL) {
+                g_object_unref (pixbuf);
+        }
+
+        return icon_info;
     }
 }
 

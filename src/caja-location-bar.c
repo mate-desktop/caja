@@ -251,6 +251,9 @@ style_set_handler (GtkWidget *widget, GtkStyle *previous_style)
     PangoLayout *layout;
     int width, width2;
     int xpad;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gint margin_start, margin_end;
+#endif
 
     layout = gtk_label_get_layout (GTK_LABEL(widget));
 
@@ -263,8 +266,14 @@ style_set_handler (GtkWidget *widget, GtkStyle *previous_style)
     pango_layout_get_pixel_size (layout, &width2, NULL);
     width = MAX (width, width2);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    margin_start = gtk_widget_get_margin_start (widget);
+    margin_end = gtk_widget_get_margin_end (widget);
+    xpad = margin_start + margin_end;
+#else
     gtk_misc_get_padding (GTK_MISC (widget),
                           &xpad, NULL);
+#endif
 
     width += 2 * xpad;
 
@@ -429,9 +438,9 @@ caja_location_bar_init (CajaLocationBar *bar)
     label = gtk_label_new (LOCATION_LABEL);
     gtk_container_add   (GTK_CONTAINER (event_box), label);
     gtk_label_set_justify (GTK_LABEL (label), GTK_JUSTIFY_RIGHT);
-#if GTK_CHECK_VERSION (3, 14, 0)
-    gtk_widget_set_halign (label, GTK_ALIGN_END);
-    gtk_widget_set_valign (label, GTK_ALIGN_CENTER);
+#if GTK_CHECK_VERSION (3, 16, 0)
+    gtk_label_set_xalign (GTK_LABEL (label), 1.0);
+    gtk_label_set_yalign (GTK_LABEL (label), 0.5);
 #else
     gtk_misc_set_alignment (GTK_MISC (label), 1, 0.5);
 #endif
@@ -614,6 +623,21 @@ caja_location_bar_update_label (CajaLocationBar *bar)
 void
 caja_location_bar_set_active(CajaLocationBar *location_bar, gboolean is_active)
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+    if (is_active)
+    {
+        /* reset style to default */
+        gtk_widget_override_background_color (GTK_WIDGET (location_bar->details->entry), GTK_STATE_FLAG_NORMAL, NULL);
+    }
+    else
+    {
+        GtkStyleContext *style;
+        GdkRGBA color;
+
+        style = gtk_widget_get_style_context (GTK_WIDGET (location_bar->details->entry));
+        gtk_style_context_get_background_color (style, GTK_STATE_FLAG_INSENSITIVE, &color);
+        gtk_widget_override_background_color (GTK_WIDGET (location_bar->details->entry), GTK_STATE_FLAG_ACTIVE, &color);
+#else
     if(is_active)
     {
         /* reset style to default */
@@ -626,6 +650,7 @@ caja_location_bar_set_active(CajaLocationBar *location_bar, gboolean is_active)
         style = gtk_widget_get_style (GTK_WIDGET (location_bar->details->entry));
         color = style->base[GTK_STATE_INSENSITIVE];
         gtk_widget_modify_base(GTK_WIDGET (location_bar->details->entry), GTK_STATE_NORMAL, &color);
+#endif
     }
 }
 

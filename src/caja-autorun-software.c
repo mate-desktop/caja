@@ -233,7 +233,7 @@ present_autorun_for_software_dialog (GMount *mount)
     icon_info = caja_icon_info_lookup (icon, icon_size);
     pixbuf = caja_icon_info_get_pixbuf_at_size (icon_info, icon_size);
     image = gtk_image_new_from_pixbuf (pixbuf);
-#if GTK_CHECK_VERSION (3, 14, 0)
+#if GTK_CHECK_VERSION (3, 0, 0)
     gtk_widget_set_halign (image, GTK_ALIGN_CENTER);
     gtk_widget_set_valign (image, GTK_ALIGN_START);
 #else

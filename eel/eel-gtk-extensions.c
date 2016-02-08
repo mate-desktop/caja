@@ -406,7 +406,11 @@ eel_gtk_label_make_bold (GtkLabel *label)
      * theme or user prefs, since the font desc only has the
      * weight flag turned on.
      */
-    gtk_widget_modify_font (GTK_WIDGET (label), font_desc);
+#if GTK_CHECK_VERSION(3,0,0)
+    gtk_widget_override_font (GTK_WIDGET (label), font_desc);
+#else
+     gtk_widget_modify_font (GTK_WIDGET (label), font_desc);
+#endif
 
     pango_font_description_free (font_desc);
 }
@@ -430,6 +434,7 @@ tree_view_button_press_callback (GtkWidget *tree_view,
         {
             gtk_tree_view_row_activated
             (GTK_TREE_VIEW (tree_view), path, column);
+            gtk_tree_path_free (path);
         }
     }
 
@@ -479,8 +484,8 @@ eel_gtk_message_dialog_set_details_label (GtkMessageDialog *dialog,
 	label = gtk_label_new (details_text);
 	gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
 	gtk_label_set_selectable (GTK_LABEL (label), TRUE);
-#if GTK_CHECK_VERSION (3, 14, 0)
-	gtk_widget_set_halign (label, GTK_ALIGN_START);
+#if GTK_CHECK_VERSION (3, 16, 0)
+	gtk_label_set_xalign (GTK_LABEL (label), 0);
 #else
 	gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
 #endif

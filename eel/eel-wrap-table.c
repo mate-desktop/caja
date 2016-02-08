@@ -30,6 +30,10 @@
 #include "eel-gtk-extensions.h"
 #include <gtk/gtk.h>
 
+#if !GTK_CHECK_VERSION(3,0,0)
+#define gtk_widget_get_preferred_size(x,y,z) gtk_widget_size_request(x,y)
+#endif
+
 /* Arguments */
 enum
 {
@@ -587,7 +591,7 @@ wrap_table_layout (EelWrapTable *wrap_table)
             {
                 GtkRequisition item_requisition;
 
-                gtk_widget_size_request (item, &item_requisition);
+                gtk_widget_get_preferred_size (item, &item_requisition, NULL);
 
                 item_allocation.x = pos.x;
                 item_allocation.y = pos.y;
@@ -675,7 +679,7 @@ wrap_table_get_max_child_dimensions (const EelWrapTable *wrap_table)
             GtkRequisition child_requisition;
             EelDimensions child_dimensions;
 
-            gtk_widget_size_request (child, &child_requisition);
+            gtk_widget_get_preferred_size (child, &child_requisition, NULL);
 
             child_dimensions.width = (int) child_requisition.width;
             child_dimensions.height = (int) child_requisition.height;
@@ -794,8 +798,13 @@ wrap_table_child_focus_in (GtkWidget *widget,
 
     if (!wrap_table_child_visible_in (widget, viewport))
     {
+#if GTK_CHECK_VERSION (3, 0, 0)
+        hadj = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (viewport));
+        vadj = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (viewport));
+#else
         hadj = gtk_viewport_get_hadjustment (GTK_VIEWPORT (viewport));
         vadj = gtk_viewport_get_vadjustment (GTK_VIEWPORT (viewport));
+#endif
 
         gtk_widget_translate_coordinates (widget, container, 0, 0, &x, &y);
 

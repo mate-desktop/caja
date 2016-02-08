@@ -1717,7 +1717,9 @@ create_and_set_up_tree_view (FMListView *view)
                              G_CALLBACK (subdirectory_unloaded_callback), view, 0);
 
     gtk_tree_selection_set_mode (gtk_tree_view_get_selection (view->details->tree_view), GTK_SELECTION_MULTIPLE);
+#if !GTK_CHECK_VERSION (3, 0, 0)
     gtk_tree_view_set_rules_hint (view->details->tree_view, TRUE);
+#endif
 
     caja_columns = caja_get_all_columns ();
 
@@ -2547,9 +2549,9 @@ create_column_editor (FMListView *view)
     label = gtk_label_new (NULL);
     gtk_label_set_markup (GTK_LABEL (label), str);
     gtk_label_set_line_wrap (GTK_LABEL (label), FALSE);
-#if GTK_CHECK_VERSION (3, 14, 0)
-    gtk_widget_set_halign (label, GTK_ALIGN_START);
-    gtk_widget_set_valign (label, GTK_ALIGN_START);
+#if GTK_CHECK_VERSION (3, 16, 0)
+    gtk_label_set_xalign (GTK_LABEL (label), 0);
+    gtk_label_set_yalign (GTK_LABEL (label), 0);
 #else
     gtk_misc_set_alignment (GTK_MISC (label), 0, 0);
 #endif
@@ -2930,6 +2932,7 @@ fm_list_view_click_policy_changed (FMDirectoryView *directory_view)
     GtkTreeView *tree;
 
     view = FM_LIST_VIEW (directory_view);
+    display = gtk_widget_get_display (GTK_WIDGET (view));
 
     /* ensure that we unset the hand cursor and refresh underlined rows */
     if (click_policy_auto_value == CAJA_CLICK_POLICY_DOUBLE)
@@ -2953,24 +2956,27 @@ fm_list_view_click_policy_changed (FMDirectoryView *directory_view)
             win = gtk_widget_get_window (GTK_WIDGET (tree));
             gdk_window_set_cursor (win, NULL);
 
-            display = gtk_widget_get_display (GTK_WIDGET (view));
             if (display != NULL)
             {
                 gdk_display_flush (display);
             }
         }
 
+#if GTK_CHECK_VERSION(3,0,0)
+        g_clear_object (&hand_cursor);
+#else
         if (hand_cursor != NULL)
         {
             gdk_cursor_unref (hand_cursor);
             hand_cursor = NULL;
         }
+#endif
     }
     else if (click_policy_auto_value == CAJA_CLICK_POLICY_SINGLE)
     {
         if (hand_cursor == NULL)
         {
-            hand_cursor = gdk_cursor_new(GDK_HAND2);
+            hand_cursor = gdk_cursor_new_for_display (display, GDK_HAND2);
         }
     }
 }
@@ -3262,20 +3268,35 @@ real_set_is_active (FMDirectoryView *view,
                     gboolean is_active)
 {
     GtkWidget *tree_view;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GtkStyleContext *style;
+    GdkRGBA color;
+#else
     GtkStyle *style;
     GdkColor color;
+#endif
 
     tree_view = GTK_WIDGET (fm_list_view_get_tree_view (FM_LIST_VIEW (view)));
 
     if (is_active)
     {
+#if GTK_CHECK_VERSION (3, 0, 0)
+        gtk_widget_override_background_color (tree_view, GTK_STATE_FLAG_NORMAL, NULL);
+#else
         gtk_widget_modify_base (tree_view, GTK_STATE_NORMAL, NULL);
+#endif
     }
     else
     {
+#if GTK_CHECK_VERSION (3, 0, 0)
+        style = gtk_widget_get_style_context (tree_view);
+        gtk_style_context_get_background_color (style, GTK_STATE_FLAG_INSENSITIVE, &color);
+        gtk_widget_override_background_color (tree_view, GTK_STATE_FLAG_NORMAL, &color);
+#else
         style = gtk_widget_get_style (tree_view);
         color = style->base[GTK_STATE_INSENSITIVE];
         gtk_widget_modify_base (tree_view, GTK_STATE_NORMAL, &color);
+#endif
     }
 
     EEL_CALL_PARENT (FM_DIRECTORY_VIEW_CLASS,

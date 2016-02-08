@@ -97,8 +97,11 @@ typedef struct
 static GType caja_image_properties_page_provider_get_type (void);
 static void  property_page_provider_iface_init                (CajaPropertyPageProviderIface *iface);
 
-
+#if GTK_CHECK_VERSION (3, 0, 0)
+G_DEFINE_TYPE (CajaImagePropertiesPage, caja_image_properties_page, GTK_TYPE_BOX);
+#else
 G_DEFINE_TYPE (CajaImagePropertiesPage, caja_image_properties_page, GTK_TYPE_VBOX);
+#endif
 
 G_DEFINE_TYPE_WITH_CODE (CajaImagePropertiesPageProvider, caja_image_properties_page_provider, G_TYPE_OBJECT,
                          G_IMPLEMENT_INTERFACE (CAJA_TYPE_PROPERTY_PAGE_PROVIDER,
@@ -146,9 +149,9 @@ append_label (GtkWidget *vbox,
 
     label = gtk_label_new (NULL);
     gtk_label_set_markup (GTK_LABEL (label), str);
-#if GTK_CHECK_VERSION (3, 14, 0)
-    gtk_widget_set_halign (label, GTK_ALIGN_START);
-    gtk_widget_set_valign (label, GTK_ALIGN_START);
+#if GTK_CHECK_VERSION (3, 16, 0)
+    gtk_label_set_xalign (GTK_LABEL (label), 0);
+    gtk_label_set_yalign (GTK_LABEL (label), 0);
 #else
     gtk_misc_set_alignment (GTK_MISC (label), 0, 0);
 #endif
@@ -655,6 +658,9 @@ caja_image_properties_page_init (CajaImagePropertiesPage *page)
                     CAJA_TYPE_IMAGE_PROPERTIES_PAGE,
                     CajaImagePropertiesPageDetails);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_orientable_set_orientation (GTK_ORIENTABLE (page), GTK_ORIENTATION_VERTICAL);
+#endif
     gtk_box_set_homogeneous (GTK_BOX (page), FALSE);
     gtk_box_set_spacing (GTK_BOX (page), 2);
     gtk_container_set_border_width (GTK_CONTAINER (page), 6);

@@ -989,7 +989,9 @@ static const char* icon_entries[] =
 static void
 caja_spatial_window_init (CajaSpatialWindow *window)
 {
+#if !GTK_CHECK_VERSION (3, 0, 0)
     GtkRcStyle *rc_style;
+#endif
     GtkWidget *arrow;
     GtkWidget *hbox, *vbox;
     GtkActionGroup *action_group;
@@ -1035,11 +1037,13 @@ caja_spatial_window_init (CajaSpatialWindow *window)
                       window);
     gtk_button_set_relief (GTK_BUTTON (window->details->location_button),
                            GTK_RELIEF_NORMAL);
+#if !GTK_CHECK_VERSION (3, 0, 0)
     rc_style = gtk_widget_get_modifier_style (window->details->location_button);
     rc_style->xthickness = 0;
     rc_style->ythickness = 0;
     gtk_widget_modify_style (window->details->location_button,
                              rc_style);
+#endif
 
     gtk_widget_show (window->details->location_button);
     hbox = gtk_hbox_new (FALSE, 3);
@@ -1058,7 +1062,11 @@ caja_spatial_window_init (CajaSpatialWindow *window)
                         FALSE, FALSE, 0);
     gtk_widget_show (window->details->location_label);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    arrow = gtk_image_new_from_icon_name ("pan-down-symbolic", GTK_ICON_SIZE_BUTTON);
+#else
     arrow = gtk_arrow_new (GTK_ARROW_DOWN, GTK_SHADOW_NONE);
+#endif
     gtk_box_pack_start (GTK_BOX (hbox), arrow, FALSE, FALSE, 0);
     gtk_widget_show (arrow);
 

@@ -42,13 +42,21 @@ typedef struct CajaImagePropertiesPageDetails CajaImagePropertiesPageDetails;
 
 typedef struct
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GtkBox parent;
+#else
     GtkVBox parent;
+#endif
     CajaImagePropertiesPageDetails *details;
 } CajaImagePropertiesPage;
 
 typedef struct
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GtkBoxClass parent;
+#else
     GtkVBoxClass parent;
+#endif
 } CajaImagePropertiesPageClass;
 
 GType caja_image_properties_page_get_type (void);
