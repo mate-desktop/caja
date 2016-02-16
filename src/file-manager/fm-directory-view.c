@@ -10827,6 +10827,11 @@ gboolean
 fm_directory_view_handle_scroll_event (FMDirectoryView *directory_view,
 				       GdkEventScroll *event)
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+	static gdouble total_delta_y = 0;
+	gdouble delta_x, delta_y;
+#endif
+
 	if (event->state & GDK_CONTROL_MASK) {
 		switch (event->direction) {
 		case GDK_SCROLL_UP:
@@ -10839,6 +10844,29 @@ fm_directory_view_handle_scroll_event (FMDirectoryView *directory_view,
 			fm_directory_view_bump_zoom_level (directory_view, -1);
 			return TRUE;
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+		case GDK_SCROLL_SMOOTH:
+			gdk_event_get_scroll_deltas ((const GdkEvent *) event,
+			                             &delta_x, &delta_y);
+
+			/* try to emulate a normal scrolling event by summing deltas */
+			total_delta_y += delta_y;
+
+			if (total_delta_y >= 1) {
+				total_delta_y = 0;
+				/* emulate scroll down */
+				fm_directory_view_bump_zoom_level (directory_view, -1);
+				return TRUE;
+			} else if (total_delta_y <= - 1) {
+				total_delta_y = 0;
+				/* emulate scroll up */
+				fm_directory_view_bump_zoom_level (directory_view, 1);
+				return TRUE;
+			} else {
+				/* eat event */
+				return TRUE;
+			}
+#endif
 		case GDK_SCROLL_LEFT:
 		case GDK_SCROLL_RIGHT:
 			break;
