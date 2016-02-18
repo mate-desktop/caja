@@ -300,6 +300,13 @@ caja_property_browser_init (CajaPropertyBrowser *property_browser)
     gtk_window_set_wmclass (GTK_WINDOW (widget), "property_browser", "Caja");
     gtk_window_set_type_hint (GTK_WINDOW (widget), GDK_WINDOW_TYPE_HINT_DIALOG);
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+    GtkStyleContext *context;
+
+    context = gtk_widget_get_style_context (GTK_WIDGET (property_browser));
+    gtk_style_context_add_class (context, "caja-property-browser");
+#endif
+
     /* create the main vbox. */
     vbox = gtk_vbox_new (FALSE, 12);
     gtk_container_set_border_width (GTK_CONTAINER (vbox), 12);
