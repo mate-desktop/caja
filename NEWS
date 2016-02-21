@@ -1,3 +1,17 @@
+Major changes in 1.13.1 are:
+
+* GTK+-3.20: add missing style classes to simplify theming
+* window-slot: fix wrong reference handling on dispose
+* use g_hash_table_remove_all and get rid of some callbacks
+* eel: fix some forgotten memory leaks
+* fix crash when restoring file with special characters from trash
+* properties-window: use 'bold and right-aligned are always FALSE'
+* fix random crash on startup when python-caja extension is enabled
+* fix serveral build warnings
+* use g_strcmp0 instead of strcmp
+* GTK+3: more deprecation fixes
+
+
 Major changes in 1.13.0 are:
 
 * Gtk+3: a lot of deprecation fixes
