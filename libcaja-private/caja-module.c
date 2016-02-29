@@ -154,11 +154,13 @@ static void
 add_module_objects (CajaModule *module)
 {
     GObject *object = NULL;
+    gchar *filename = NULL;
     const GType *types = NULL;
     int num_types = 0;
     int i;
 
     module->list_types (&types, &num_types);
+    filename = g_path_get_basename (module->path);
 
     for (i = 0; i < num_types; i++)
     {
@@ -167,9 +169,8 @@ add_module_objects (CajaModule *module)
             break;
         }
         object = caja_module_add_type (types[i]);
+        caja_extension_register (filename, object);
     }
-    gchar *filename = g_path_get_basename (module->path);
-    caja_extension_register (filename, object);
 }
 
 static CajaModule *
