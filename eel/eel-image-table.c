@@ -27,7 +27,6 @@
 
 #include "eel-art-extensions.h"
 #include "eel-art-gtk-extensions.h"
-#include "eel-debug-drawing.h"
 #include "eel-gtk-extensions.h"
 #include "eel-labeled-image.h"
 #include "eel-marshal.h"
