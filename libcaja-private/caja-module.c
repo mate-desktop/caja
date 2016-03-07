@@ -51,6 +51,7 @@ struct _CajaModule
 
     void (*list_types) (const GType **types,
                         int          *num_types);
+    void (*list_pyfiles) (GList     **pyfiles);
 
 };
 
@@ -97,6 +98,10 @@ caja_module_load (GTypeModule *gmodule)
 
         return FALSE;
     }
+
+    g_module_symbol (module->library,
+                     "caja_module_list_pyfiles",
+                     (gpointer *)&module->list_pyfiles);
 
     module->initialize (gmodule);
 
@@ -154,6 +159,7 @@ static void
 add_module_objects (CajaModule *module)
 {
     GObject *object = NULL;
+    GList *pyfiles = NULL;
     gchar *filename = NULL;
     const GType *types = NULL;
     int num_types = 0;
@@ -162,12 +168,24 @@ add_module_objects (CajaModule *module)
     module->list_types (&types, &num_types);
     filename = g_path_get_basename (module->path);
 
+    /* fetch extensions details loaded through python-caja module */
+    if (module->list_pyfiles)
+    {
+        module->list_pyfiles(&pyfiles);
+    }
+
     for (i = 0; i < num_types; i++)
     {
         if (types[i] == 0)   /* Work around broken extensions */
         {
             break;
         }
+
+        if (module->list_pyfiles)
+        {
+            filename = g_strconcat(g_list_nth_data(pyfiles, i), ".py", NULL);
+        }
+
         object = caja_module_add_type (types[i]);
         caja_extension_register (filename, object);
     }

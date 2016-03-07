@@ -64,6 +64,7 @@ extern "C" {
     void caja_module_shutdown   (void);
     void caja_module_list_types (const GType **types,
                                  int          *num_types);
+    void caja_module_list_pyfiles (GList     **pyfiles);
 
 #ifdef __cplusplus
 }
