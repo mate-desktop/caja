@@ -159,6 +159,7 @@ static void
 add_module_objects (CajaModule *module)
 {
     GObject *object = NULL;
+    GList *pyfiles = NULL;
     gchar *filename = NULL;
     gboolean pymodule = FALSE;
     const GType *types = NULL;
