@@ -34,7 +34,7 @@ static GList *caja_extensions = NULL;
 
 
 static Extension *
-extension_new (gchar *filename, gboolean state, GObject *module)
+extension_new (gchar *filename, gboolean state, gboolean python, GObject *module)
 {
     Extension *ext;
     GKeyFile *extension_file;
@@ -65,6 +65,12 @@ extension_new (gchar *filename, gboolean state, GObject *module)
     }
     g_key_file_free (extension_file);
     g_free (extension_filename);
+
+    if (python)
+    {
+        ext->name = g_strconcat("Python: ", filename, NULL);
+        ext->description = "Python-caja extension";
+    }
 
     return ext;
 }
@@ -192,13 +198,18 @@ caja_extensions_get_list (void)
 void
 caja_extension_register (gchar *filename, GObject *module)
 {
-    gboolean state = TRUE; // new extensions are enabled by default.
-    gchar *extname;
-    
-    extname = g_strndup (filename, strlen(filename) - 3);
-    state = caja_extension_get_state (extname);
+    gboolean ext_state = TRUE; // new extensions are enabled by default.
+    gboolean ext_python = FALSE;
+    gchar *ext_filename;
 
-    Extension *ext = extension_new (extname, state, module);
+    ext_filename = g_strndup (filename, strlen(filename) - 3);
+    ext_state = caja_extension_get_state (ext_filename);
+
+    if (g_str_has_suffix (filename, ".py")) {
+        ext_python = TRUE;
+    }
+
+    Extension *ext = extension_new (ext_filename, ext_state, ext_python, module);
     caja_extensions = g_list_append (caja_extensions, ext);
 }
 
