@@ -192,23 +192,13 @@ caja_extensions_get_list (void)
 void
 caja_extension_register (gchar *filename, GObject *module)
 {
-    gboolean ext_state = TRUE; // new extensions are enabled by default.
-    gchar *ext_filename;
-    GList *l;
+    gboolean state = TRUE; // new extensions are enabled by default.
+    gchar *extname;
     
-    ext_filename = g_strndup (filename, strlen(filename) - 3);
-    ext_state = caja_extension_get_state (ext_filename);
+    extname = g_strndup (filename, strlen(filename) - 3);
+    state = caja_extension_get_state (extname);
 
-    /* Do not attempt to register already registered extensions */
-    for (l = caja_extensions; l != NULL; l = l->next)
-    {
-        Extension *r = l->data;
-        if (g_ascii_strcasecmp (r->filename, ext_filename) == 0) {
-            return;
-        }
-    }
-
-    Extension *ext = extension_new (ext_filename, ext_state, module);
+    Extension *ext = extension_new (extname, state, module);
     caja_extensions = g_list_append (caja_extensions, ext);
 }
 
