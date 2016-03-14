@@ -1,3 +1,9 @@
+Major changes in 1.12.6 are:
+* Really fix loading multiple python extensions: revert the commit
+  that proved to broke the fix. NOTE: as a side effect, the extensions
+  list will now have duplicate Python entries if more than one Python
+  extension is loaded.
+
 Major changes in 1.12.5 are:
 * Fix loading multiple python extensions
 * GTK+3: fix crash on Ctrl + scroll wheel
