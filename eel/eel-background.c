@@ -355,8 +355,6 @@ eel_background_ensure_realized (EelBackground *self)
 
     free_background_surface (self);
 
-    /* Calls mate_bg_set_color, which sets "ignore-pending-change" to false,
-       and queues emission of changed signal if it's still false */
     set_image_properties (self);
 
     window = gtk_widget_get_window (self->details->widget);
@@ -364,12 +362,6 @@ eel_background_ensure_realized (EelBackground *self)
         						window, width, height,
         						self->details->is_desktop);
     self->details->unset_root_surface = self->details->is_desktop;
-
-    /* We got the surface and everything, so we don't care about a change
-       that is pending (unless things actually change after this time) */
-    g_object_set_data (G_OBJECT (self->details->bg),
-                       "ignore-pending-change",
-                       GINT_TO_POINTER (TRUE));
 
     self->details->bg_entire_width = width;
     self->details->bg_entire_height = height;
