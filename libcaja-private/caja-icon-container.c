@@ -4566,8 +4566,6 @@ realize (GtkWidget *widget)
     /* Set up DnD.  */
     caja_icon_dnd_init (container);
 
-    setup_label_gcs (container);
-
     hadj = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (widget));
     g_signal_connect (hadj, "value_changed",
                       G_CALLBACK (handle_hadjustment_changed), widget);
