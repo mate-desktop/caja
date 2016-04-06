@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-14 13:44+0300\n"
-"PO-Revision-Date: 2016-01-24 15:48+0000\n"
+"PO-Revision-Date: 2016-03-14 21:26+0000\n"
 "Last-Translator: Daniel <danny34ever@yahoo.com>\n"
 "Language-Team: Romanian (http://www.transifex.com/mate/MATE/language/ro/)\n"
 "MIME-Version: 1.0\n"
@@ -416,7 +416,7 @@ msgstr "Poziție cursor"
 
 #: ../eel/eel-editable-label.c:370
 msgid "The current position of the insertion cursor in chars."
-msgstr "Poziția curentă a cursorului de inserție, în caractere."
+msgstr "Poziția actuală a cursorului de inserție, în caractere."
 
 #: ../eel/eel-editable-label.c:379
 msgid "Selection Bound"
@@ -2895,7 +2895,7 @@ msgid ""
 "folder is on a remote server. If set to \"local-only\" then only show "
 "previews for local file systems. If set to \"never\" then never bother to "
 "read preview data."
-msgstr ""
+msgstr "Compromisul de viteză pentru previzualizarea fișierelor text în cadrul pictogramelor. Dacă este stabilită ca „always”(întotdeauna), fișierul va fi previzualizat întotdeauna, chiar dacă este situat pe un server la distanță. Dacă este stabilită ca „local-only”(doar-locale), se vor arăta previzualizări doar pentru sistemele de fișiere locale. Dacă este stabilită ca „never”(niciodată), previzualizările nu vor fi arătate niciodată."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:15
 msgid "When to show number of items in a folder"
@@ -2907,7 +2907,7 @@ msgid ""
 "\"always\" then always show item counts, even if the folder is on a remote "
 "server. If set to \"local-only\" then only show counts for local file "
 "systems. If set to \"never\" then never bother to compute item counts."
-msgstr ""
+msgstr "Compromisul de viteză pentru afișarea numărului de elemente dintr-un dosar. Dacă este stabilită ca „always”(întotdeauna), numărul de elemente va fi afișat întotdeauna, chiar dacă dosarul este situat pe un server la distanță. Dacă este stabilită ca „local-only”(doar-locale), atunci se va afișa numărul doar pentru sistemele de fișiere locale. Dacă este stabilită ca „never”(niciodată), atunci nu se va mai deranja să calculeze numărul de elemente."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:17
 msgid "Type of click used to launch/open files"
@@ -2984,7 +2984,7 @@ msgid ""
 "If set to \"local-only\" then only show thumbnails for local file systems. "
 "If set to \"never\" then never bother to thumbnail images, just use a "
 "generic icon."
-msgstr ""
+msgstr "Compromisul de viteză pentru previzualizarea fișierelor imagine ca miniaturi. Dacă este stabilită ca „always”(întotdeauna), fișierul va fi previzualizat întotdeauna, chiar dacă este situat pe un server la distanță. Dacă este stabilită ca „local-only”(doar-locale), vor fi afișate miniaturi doar pentru sistemele de fișiere locale. Dacă este stabilită ca „never”(niciodată), atunci nici nu se va mai deranja să facă miniaturi pentru imagini, se vor folosi doar pictograme generale."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:31
 msgid "Maximum image size for thumbnailing"
@@ -3007,7 +3007,7 @@ msgid ""
 "icon. If set to \"always\" then always plays the sound, even if the file is "
 "on a remote server. If set to \"local-only\" then only plays previews on "
 "local file systems. If set to \"never\" then it never previews sound."
-msgstr ""
+msgstr "Compromisul de viteză pentru previzualizarea unui fișier de sunet când mausul planează deasupra pictogramei acestuia. Dacă este stabilită ca „always”(întotdeauna), se va reda întotdeauna sunetul, chiar dacă fișierul este situat pe un server la distanță. Dacă este stabilită ca „local-only”(doar-locale), previzualizările vor fi redate doar pe sistemele de fișiere locale. Dacă este stabilită ca „never”(niciodată), atunci sunetele nu vor fi previzualizate niciodată."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:35
 msgid "Show advanced permissions in the file property dialog"
@@ -3169,7 +3169,7 @@ msgid ""
 "values are: \"size\", \"type\", \"date_modified\", \"date_changed\", "
 "\"date_accessed\", \"owner\", \"group\", \"permissions\", "
 "\"octal_permissions\" and \"mime_type\"."
-msgstr ""
+msgstr "O listă de câmpuri explicative afișate sub pictograme în modul de vizualizare ca pictograme sau pe desktop. Numărul efectiv de câmpuri afișate depinde de nivelul de mărire. Unele valori posibile sunt: „size” (dimensiunea), „type” (tipul), „date_modified” (data ultimei modificări), „date_changed” (data ultimei schimbări), „date_accessed” (data ultimei accesări), „owner” (deținător), „group” (grup), „permissions” (permisiuni), „octal_permissions” (permisiuni octale) și „mime_type” (tipul mime)."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:67
 msgid "Use tighter layout in new windows"
@@ -3214,7 +3214,7 @@ msgid ""
 "A string specifying how parts of overlong file names should be replaced by ellipses, depending on the zoom level. Each of the list entries is of the form \"Zoom Level:Integer\". For each specified zoom level, if the given integer is larger than 0, the file name will not exceed the given number of lines. If the integer is 0 or smaller, no limit is imposed on the specified zoom level. A default entry of the form \"Integer\" without any specified zoom level is also allowed. It defines the maximum number of lines for all other zoom levels. Examples: 0 - always display overlong file names; 3 - shorten file names if they exceed three lines; smallest:5,smaller:4,0 - shorten file names if they exceed five lines for zoom level \"smallest\". Shorten file names if they exceed four lines for zoom level \"smaller\". Do not shorten file names for other zoom levels.\n"
 "\n"
 "Available zoom levels: smallest (33%), smaller (50%), small (66%), standard (100%), large (150%), larger (200%), largest (400%)"
-msgstr ""
+msgstr "Un șir de caractere ce specifică cum să fie înlocuite părți din numele prea lungi de fișiere cu puncte de suspensie, în funcție de nivelul de mărire. Fiecare intrare din listă este de forma „Nivel de mărire:Întreg”. Pentru fiecare nivel de mărire specificat, dacă întregul dat este mai mare decât 0, numele fișierului nu va depăși numărul de linii dat. Dacă întregul este 0 sau mai mic, nu se impune nicio limită la nivelul de mărire specificat. O intrare de forma „Întreg” fără niciun nivel de mărire specificat este de asemenea permis. Definește numărul maxim de linii pentru toate celelalte niveluri de mărire. Exemple: 0 - afișează întotdeauna nume de fișiere prea lungi; 3 - scurtează numele de fișiere dacă depășesc 3 linii; smallest:5,smaller:4,0 - scurtează numele de fișiere dacă depășesc 5 linii pentru nivelul de mărire „smallest” (cel mai mic).  Scurtează numele de fișiere dacă depășesc 4 linii pentru nivelul de mărire „smaller” (mai mic). Nu scurta numele de fișiere pentru alte niveluri.\n\nNiveluri de mărire disponibile: smallest (33%) (cel mai mic), smaller (50%) (mai mic), small (66%) (mic), standard (100%), large (150%) (mare), larger (200%) (mai mare), largest (400%) (cel mai mare)"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:80
 msgid "Default compact view zoom level"
@@ -3447,7 +3447,7 @@ msgstr "Listă de extensii dezactivate."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:130
 msgid "This list contains the extensions that are currently de-activated."
-msgstr "Această listă conține extensiile care sunt curent dezactivate."
+msgstr "Această listă conține extensiile care sunt momentan dezactivate."
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:1
 msgid "Whether to automatically mount media"
@@ -3940,7 +3940,7 @@ msgstr "Creează _dosar"
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7355
 msgid "Create a new empty folder inside this folder"
-msgstr "Creează un dosar gol în dosarul curent"
+msgstr "Creează un dosar gol în dosarul actual"
 
 #. name, stock id, label
 #: ../src/file-manager/fm-directory-view.c:7357
@@ -4375,7 +4375,7 @@ msgstr "Sal_vează căutarea ca..."
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7552
 msgid "Save the current search as a file"
-msgstr "Salvează căutarea curentă ca un fișier"
+msgstr "Salvează căutarea actuală ca un fișier"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7558
@@ -4466,11 +4466,11 @@ msgstr "_Celălalt panou"
 
 #: ../src/file-manager/fm-directory-view.c:7630
 msgid "Copy the current selection to the other pane in the window"
-msgstr "Copiază selecția curentă în celălalt panou din fereastră"
+msgstr "Copiază selecția actuală în celălalt panou din fereastră"
 
 #: ../src/file-manager/fm-directory-view.c:7633
 msgid "Move the current selection to the other pane in the window"
-msgstr "Mută selecția curentă în celălalt panou din fereastră"
+msgstr "Mută selecția actuală în celălalt panou din fereastră"
 
 #. name, stock id, label
 #. name, stock id
@@ -4482,11 +4482,11 @@ msgstr "Dosar _Acasă"
 
 #: ../src/file-manager/fm-directory-view.c:7637
 msgid "Copy the current selection to the home folder"
-msgstr "Copiază selecția curentă în dosarul personal"
+msgstr "Copiază selecția actuală în dosarul personal"
 
 #: ../src/file-manager/fm-directory-view.c:7641
 msgid "Move the current selection to the home folder"
-msgstr "Mută selecția curentă în dosarul personal"
+msgstr "Mută selecția actuală în dosarul personal"
 
 #. name, stock id, label
 #: ../src/file-manager/fm-directory-view.c:7644
@@ -4496,11 +4496,11 @@ msgstr "_Desktop"
 
 #: ../src/file-manager/fm-directory-view.c:7645
 msgid "Copy the current selection to the desktop"
-msgstr "Copiază selecția curentă pe desktop"
+msgstr "Copiază selecția actuală pe desktop"
 
 #: ../src/file-manager/fm-directory-view.c:7649
 msgid "Move the current selection to the desktop"
-msgstr "Mută selecția curentă pe desktop"
+msgstr "Mută selecția actuală pe desktop"
 
 #. Translators: %s is a directory
 #: ../src/file-manager/fm-directory-view.c:7729
@@ -6605,7 +6605,7 @@ msgstr "_Adaugă semn de carte"
 
 #: ../src/caja-navigation-window-menus.c:857 ../src/caja-spatial-window.c:967
 msgid "Add a bookmark for the current location to this menu"
-msgstr "Adaugă un favorit pentru locația curentă la acest meniu"
+msgstr "Adaugă un favorit pentru locația actuală la acest meniu"
 
 #. name, stock id, label
 #: ../src/caja-navigation-window-menus.c:860 ../src/caja-spatial-window.c:970
@@ -6639,7 +6639,7 @@ msgstr "Mută pagina în _stânga"
 
 #: ../src/caja-navigation-window-menus.c:876
 msgid "Move current tab to left"
-msgstr "Mută pagina curentă în stânga"
+msgstr "Mută pagina actuală în stânga"
 
 #: ../src/caja-navigation-window-menus.c:880
 #: ../src/caja-navigation-window-pane.c:477
@@ -6648,7 +6648,7 @@ msgstr "Mută pagina în d_reapta"
 
 #: ../src/caja-navigation-window-menus.c:881
 msgid "Move current tab to right"
-msgstr "Mută pagina curentă în dreapta"
+msgstr "Mută pagina actuală în dreapta"
 
 #: ../src/caja-navigation-window-menus.c:885
 msgid "S_how Search"
@@ -7209,7 +7209,7 @@ msgstr "Vizualizare conținut"
 
 #: ../src/caja-window-manage-views.c:1430
 msgid "View of the current folder"
-msgstr "Vizualizarea dosarului curent"
+msgstr "Vizualizarea dosarului actual"
 
 #: ../src/caja-window-manage-views.c:2121
 msgid "Caja has no installed viewer capable of displaying the folder."
@@ -7376,7 +7376,7 @@ msgstr "Deschide dosarul părinte"
 #. tooltip
 #: ../src/caja-window-menus.c:840
 msgid "Stop loading the current location"
-msgstr "Oprește încărcarea locației curente"
+msgstr "Oprește încărcarea locației actuale"
 
 #. name, stock id
 #. label, accelerator
@@ -7387,7 +7387,7 @@ msgstr "_Reîncarcă"
 #. tooltip
 #: ../src/caja-window-menus.c:845
 msgid "Reload the current location"
-msgstr "Reîncarcă locația curentă"
+msgstr "Reîncarcă locația actuală"
 
 #. name, stock id
 #. label, accelerator
@@ -7506,7 +7506,7 @@ msgstr "Arată fișierele _ascunse"
 #. tooltip
 #: ../src/caja-window-menus.c:924
 msgid "Toggle the display of hidden files in the current window"
-msgstr "Comută afișarea fișierelor ascunse în ferestra curentă"
+msgstr "Comută afișarea fișierelor ascunse în ferestra actuală"
 
 #: ../src/caja-window-menus.c:955
 msgid "_Up"
@@ -7580,4 +7580,4 @@ msgstr "Scalare"
 
 #: ../src/caja-zoom-control.c:934
 msgid "Set the zoom level of the current view"
-msgstr "Definește nivelul de scalare al vizualizării curente"
+msgstr "Definește nivelul de scalare al vizualizării actuale"
