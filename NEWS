@@ -1,23 +1,34 @@
-Major changes in 1.13.1 are:
+Major changes in 1.14.0 are:
+* Drop MateConf migration script
+* Allow closing tabs on middle-click
+* List Python extensions separately in extensions list
+* GTK+3: add several style classes to simplify theming
+* GTK+3: fix desktop flash issue
+* GTK+3: a lot of deprecation fixes
+* Some more fixes and cleanups
+* Translations update
 
-* GTK+-3.20: add missing style classes to simplify theming
-* window-slot: fix wrong reference handling on dispose
-* use g_hash_table_remove_all and get rid of some callbacks
-* eel: fix some forgotten memory leaks
-* fix crash when restoring file with special characters from trash
-* properties-window: use 'bold and right-aligned are always FALSE'
-* fix random crash on startup when python-caja extension is enabled
-* fix serveral build warnings
-* use g_strcmp0 instead of strcmp
-* GTK+3: more deprecation fixes
+Major changes in 1.12.7 are:
+* Fix remaining random changes of font color in icon view
 
+Major changes in 1.12.6 are:
+* Really fix loading multiple python extensions: revert the commit
+  that proved to broke the fix. NOTE: as a side effect, the extensions
+  list will now have duplicate Python entries if more than one Python
+  extension is loaded.
 
-Major changes in 1.13.0 are:
+Major changes in 1.12.5 are:
+* Fix loading multiple python extensions
+* GTK+3: fix crash on Ctrl + scroll wheel
 
-* Gtk+3: a lot of deprecation fixes
-* Gtk+3: fix desktop flash issue
-* add Middle-click for closing tabs
-* drop MateConf migration script
+Major changes in 1.12.4 are:
+* Fix random crash on startup when python-caja extension is enabled
+* Fix crash when restoring file with special characters from trash
+* Fix a few memleaks
+
+Major changes in 1.12.3 are:
+* Fix wrong text color in icon view with some light themes
+* Fix crash due to unneeded assert
 
 Major changes in 1.12.2 are:
 * Set smclient mode to "no restart" when either running as root
