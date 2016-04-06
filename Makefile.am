@@ -36,9 +36,12 @@ DISTCHECK_CONFIGURE_FLAGS = --disable-update-mimedb --disable-icon-update --enab
 
 ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
-distclean-local:
-	if test "$(srcdir)" = "."; then :; else \
-		rm -f ChangeLog; \
+# Build ChangeLog from GIT  history
+ChangeLog:
+	$(AM_V_GEN) if test -d $(top_srcdir)/.git; then \
+		GIT_DIR="$(top_srcdir)/.git" git log --stat > $@; \
 	fi
+
+dist: ChangeLog
 
 .PHONY: ChangeLog
