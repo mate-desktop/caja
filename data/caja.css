@@ -1,0 +1,23 @@
+
+
+.caja-canvas-item {
+    border-radius: 3px;
+}
+
+/* desktop mode */
+.caja-desktop.caja-canvas-item {
+    color: #ffffff;
+    text-shadow: 1px 1px alpha (#000000, 0.8);
+}
+
+.caja-desktop.caja-canvas-item:selected,
+.caja-desktop.caja-canvas-item:active,
+.caja-desktop.caja-canvas-item:hover {
+    text-shadow: none;
+}
+
+.caja-desktop EelEditableLabel.entry {
+   border-image: none;
+   border-width: 1px;
+   text-shadow: none;
+}
