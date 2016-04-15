@@ -1015,6 +1015,30 @@ desktop_changed_callback_connect (CajaApplication *application)
     return FALSE;
 }
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+static void
+init_css (void)
+{
+    GtkCssProvider *provider;
+    GError *error = NULL;
+
+    provider = gtk_css_provider_new ();
+    gtk_css_provider_load_from_path (provider,
+				CAJA_DATADIR G_DIR_SEPARATOR_S "caja.css", &error);
+
+    if (error != NULL) {
+		g_warning ("Failed to load application css file: %s", error->message);
+		g_error_free (error);
+    } else {
+		gtk_style_context_add_provider_for_screen (gdk_screen_get_default (),
+				GTK_STYLE_PROVIDER (provider),
+				GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+    }
+
+    g_object_unref (provider);
+}
+#endif
+
 void
 caja_application_startup (CajaApplication *application,
                           gboolean kill_shell,
@@ -1071,6 +1095,11 @@ caja_application_startup (CajaApplication *application,
             finish_startup (application, no_desktop);
             g_signal_connect (application->unique_app, "message-received", G_CALLBACK (message_received_cb), application);
         }
+
+#if GTK_CHECK_VERSION (3, 0, 0)
+        /* initialize CSS theming */
+        init_css ();
+#endif
 
         /* Start the File Manager DBus Interface */
         fdb_manager = caja_freedesktop_dbus_new (application);
