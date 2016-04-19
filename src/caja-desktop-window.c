@@ -52,8 +52,15 @@ caja_desktop_window_init (CajaDesktopWindow *window)
     GtkAction *action;
     AtkObject *accessible;
 
-	window->details = G_TYPE_INSTANCE_GET_PRIVATE (window, CAJA_TYPE_DESKTOP_WINDOW,
-						       CajaDesktopWindowDetails);
+    window->details = G_TYPE_INSTANCE_GET_PRIVATE (window, CAJA_TYPE_DESKTOP_WINDOW,
+                                                   CajaDesktopWindowDetails);
+
+#if GTK_CHECK_VERSION(3, 0, 0)
+    GtkStyleContext *context;
+
+    context = gtk_widget_get_style_context (GTK_WIDGET (window));
+    gtk_style_context_add_class (context, "caja-desktop-window");
+#endif
 
     gtk_window_move (GTK_WINDOW (window), 0, 0);
 
