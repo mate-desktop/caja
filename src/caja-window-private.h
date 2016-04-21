@@ -168,7 +168,7 @@ void               caja_window_set_status                            (CajaWindow
 void               caja_window_load_view_as_menus                    (CajaWindow    *window);
 void               caja_window_load_extension_menus                  (CajaWindow    *window);
 void               caja_window_initialize_menus                      (CajaWindow    *window);
-void               caja_window_remove_trash_monitor_callback         (CajaWindow    *window);
+void               caja_window_finalize_menus                        (CajaWindow    *window);
 CajaWindowPane *caja_window_get_next_pane                        (CajaWindow *window);
 void               caja_menus_append_bookmark_to_menu                (CajaWindow    *window,
         CajaBookmark  *bookmark,

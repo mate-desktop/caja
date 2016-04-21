@@ -986,6 +986,20 @@ caja_window_initialize_menus (CajaWindow *window)
     caja_window_initialize_trash_icon_monitor (window);
 }
 
+void
+caja_window_finalize_menus (CajaWindow *window)
+{
+    CajaTrashMonitor *monitor;
+
+    monitor = caja_trash_monitor_get ();
+
+    g_signal_handlers_disconnect_by_func (monitor,
+                                          trash_state_changed_cb, window);
+
+    g_signal_handlers_disconnect_by_func (caja_preferences,
+                                          show_hidden_files_preference_callback, window);
+}
+
 static GList *
 get_extension_menus (CajaWindow *window)
 {
@@ -1121,16 +1135,5 @@ caja_window_load_extension_menus (CajaWindow *window)
         g_list_foreach (items, (GFunc) g_object_unref, NULL);
         g_list_free (items);
     }
-}
-
-void
-caja_window_remove_trash_monitor_callback (CajaWindow *window)
-{
-    CajaTrashMonitor *monitor;
-
-    monitor = caja_trash_monitor_get ();
-
-    g_signal_handlers_disconnect_by_func (monitor,
-                                          trash_state_changed_cb, window);
 }
 

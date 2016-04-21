@@ -682,7 +682,7 @@ caja_window_finalize (GObject *object)
 
     window = CAJA_WINDOW (object);
 
-    caja_window_remove_trash_monitor_callback (window);
+    caja_window_finalize_menus (window);
     free_stored_viewers (window);
 
     if (window->details->bookmark_list != NULL)
