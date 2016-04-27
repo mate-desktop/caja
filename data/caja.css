@@ -1,5 +1,4 @@
 
-
 .caja-canvas-item {
     border-radius: 3px;
 }
@@ -49,5 +48,12 @@
     background-color: @theme_selected_bg_color;
     color: @theme_selected_fg_color;
     text-shadow: none;
+}
+
+/* remove possible theme settings for borders on scrolledwindow with gtk+-3.20 */
+.caja-desktop-window srolledwindow,
+.caja-desktop-window srolledwindow.frame {
+   border-width: 0px;
+   border-style: none;
 }
 
