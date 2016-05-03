@@ -51,8 +51,9 @@
 }
 
 /* remove possible theme settings for borders on scrolledwindow with gtk+-3.20 */
-.caja-desktop-window srolledwindow,
-.caja-desktop-window srolledwindow.frame {
+.caja-desktop-window > widget > box.vertical > box.vertical > box.vertical > scrolledwindow,
+.caja-desktop-window > widget > box.vertical > box.vertical > box.vertical > scrolledwindow.frame,
+.caja-desktop-window > widget > box.vertical > box.vertical > box.vertical > scrolledwindow > widget.view.caja-desktop {
    border-width: 0px;
    border-style: none;
 }
