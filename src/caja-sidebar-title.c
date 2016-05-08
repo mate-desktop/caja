@@ -74,8 +74,10 @@ static GtkWidget *         sidebar_title_create_more_info_label (void);
 static void		   update_all 				(CajaSidebarTitle      *sidebar_title);
 static void		   update_more_info			(CajaSidebarTitle      *sidebar_title);
 static void		   update_title_font			(CajaSidebarTitle      *sidebar_title);
+#if !GTK_CHECK_VERSION (3, 21, 0)
 static void                style_set                            (GtkWidget             *widget,
         							 GtkStyle              *previous_style);
+#endif
 static guint		   get_best_icon_size 			(CajaSidebarTitle      *sidebar_title);
 
 enum
@@ -117,7 +119,7 @@ G_DEFINE_TYPE (CajaSidebarTitle, caja_sidebar_title, GTK_TYPE_BOX)
 G_DEFINE_TYPE (CajaSidebarTitle, caja_sidebar_title, GTK_TYPE_VBOX)
 #endif
 
-
+#if !GTK_CHECK_VERSION (3, 21, 0)
 static void
 style_set (GtkWidget *widget,
            GtkStyle  *previous_style)
@@ -146,6 +148,7 @@ style_set (GtkWidget *widget,
                             font_desc);
     pango_font_description_free (font_desc);
 }
+#endif
 
 static void
 caja_sidebar_title_init (CajaSidebarTitle *sidebar_title)
@@ -180,10 +183,10 @@ caja_sidebar_title_init (CajaSidebarTitle *sidebar_title)
     sidebar_title->details->best_icon_size = get_best_icon_size (sidebar_title);
     /* Keep track of changes in graphics trade offs */
     update_all (sidebar_title);
-
+#if !GTK_CHECK_VERSION (3, 21, 0)
     /* initialize the label colors & fonts */
     style_set (GTK_WIDGET (sidebar_title), NULL);
-
+#endif
     g_signal_connect_swapped (caja_preferences,
                               "changed::" CAJA_PREFERENCES_SHOW_DIRECTORY_ITEM_COUNTS,
                               G_CALLBACK(update_more_info),
@@ -238,8 +241,9 @@ caja_sidebar_title_class_init (CajaSidebarTitleClass *klass)
 
     widget_class = GTK_WIDGET_CLASS (klass);
     widget_class->size_allocate = caja_sidebar_title_size_allocate;
+#if !GTK_CHECK_VERSION (3, 21, 0)
     widget_class->style_set = style_set;
-
+#endif
     gtk_widget_class_install_style_property (widget_class,
 #if GTK_CHECK_VERSION (3, 0, 0)
             g_param_spec_boxed ("light_info_rgba",
