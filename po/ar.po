@@ -6,13 +6,14 @@
 # مهدي السطيفي <chinoune.mehdi@gmail.com>, 2014
 # Mosaab Alzoubi <moceap@hotmail.com>, 2013-2014
 # noureddin <noureddin@barid.com>, 2012
+# Wajdlee Harfouch <wajdlee@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-14 13:44+0300\n"
-"PO-Revision-Date: 2015-12-14 10:44+0000\n"
-"Last-Translator: monsta <monsta@inbox.ru>\n"
+"PO-Revision-Date: 2016-05-19 04:03+0000\n"
+"Last-Translator: Wajdlee Harfouch <wajdlee@gmail.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/mate/MATE/language/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3379,7 +3380,7 @@ msgid ""
 "A string specifying how parts of overlong file names should be replaced by ellipses, depending on the zoom level. Each of the list entries is of the form \"Zoom Level:Integer\". For each specified zoom level, if the given integer is larger than 0, the file name will not exceed the given number of lines. If the integer is 0 or smaller, no limit is imposed on the specified zoom level. A default entry of the form \"Integer\" without any specified zoom level is also allowed. It defines the maximum number of lines for all other zoom levels. Examples: 0 - always display overlong file names; 3 - shorten file names if they exceed three lines; smallest:5,smaller:4,0 - shorten file names if they exceed five lines for zoom level \"smallest\". Shorten file names if they exceed four lines for zoom level \"smaller\". Do not shorten file names for other zoom levels.\n"
 "\n"
 "Available zoom levels: smallest (33%), smaller (50%), small (66%), standard (100%), large (150%), larger (200%), largest (400%)"
-msgstr ""
+msgstr "سلسةنصية تحدّد وجوب استبدال أقسام من أسماء ملفات طويلة جدا بعلامات الحذف في الطباعة ، و ذلك بالإعتماد على درجة التكبير . جميع مدخلات القائمة هي من الشكل \"التقريب المستوى : قيمة صحيحة\"\"Zoom Level:Integer\" .  من أجل كل مستوى محدّد ، إذا كانت قيمة العدد الصحيح أكبر من الصفر ، هذا يعني أن اسم الملف لن يتجاوز العدد المحدّد من الأسطر . إذا كانت قيمة العدد الصحيح أصغر أو تساوي الصفر , فلا يوجدأي حد على مستوى التكبير المحدّد. كذلك  يتم قبول قيمة افتراضية من الصيغة \" قيمة صحيحة\" دون تحديد لأي مستوى تكبير . تحدد هذه القيمة العدد الأعظمي من الأسطر في جميع مستويات التكبير . أمثلة : 0-  السماح دائما بعرض أسماء الملفات الكبيرة جدا . 3- قم بتقصير أسماء الملفات عند تجاوزها الثلاثة أسطر ; smallest:5,smaller:4,0  قم بتقصير أسماء الملفات إذا تجاوزت الخمس أسطر في المستوى \"smalles\" ، قم بتقصير أسماء الملفات إذا تجاوزت الأربعة أسطر في المستوى \"smaller\" . لا تقم بتقصير أسماء الملفات من أجل بقية المستويات . \nمستويات التقريب المتوفرة هي الأصغر (%33) ، أصغر (%50)، صغير (%66) ، قياسي (%100) ، كبير (%150)، أكبر (%200) ، الأكبر (%400) ."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:80
 msgid "Default compact view zoom level"
@@ -3439,7 +3440,7 @@ msgstr "خط سطح المكتب"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:93
 msgid "The font description used for the icons on the desktop."
-msgstr ""
+msgstr "توصيف الخط المستخدم من أجل الأيقونات على سطح المكتب "
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:94
 msgid "Home icon visible on desktop"
@@ -3608,11 +3609,11 @@ msgstr "منظور اللوح الجانبي الذي سيعرض في النوا
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:129
 msgid "List of extensions in disabled state."
-msgstr ""
+msgstr "قائمة من الإمتدادات في حالة التعطيل"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:130
 msgid "This list contains the extensions that are currently de-activated."
-msgstr ""
+msgstr "القائمة تحوي على امتدادات غير مفعّلة في الوقت الحالي "
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:1
 msgid "Whether to automatically mount media"
@@ -5938,7 +5939,7 @@ msgstr "وبداف آمن ((Secure WebDAV (HTTPS)"
 
 #: ../src/caja-connect-server-dialog.c:159
 msgid "Apple Filing Protocol (AFP)"
-msgstr ""
+msgstr "بروتوكل آبل للملفات AFP"
 
 #: ../src/caja-connect-server-dialog.c:205
 msgid "Connecting..."
