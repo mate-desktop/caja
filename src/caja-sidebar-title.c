@@ -74,8 +74,13 @@ static GtkWidget *         sidebar_title_create_more_info_label (void);
 static void		   update_all 				(CajaSidebarTitle      *sidebar_title);
 static void		   update_more_info			(CajaSidebarTitle      *sidebar_title);
 static void		   update_title_font			(CajaSidebarTitle      *sidebar_title);
+#if GTK_CHECK_VERSION (3, 0, 0)
+static void                style_set                            (GtkWidget             *widget,
+        							 GtkStyleContext       *previous_style);
+#else
 static void                style_set                            (GtkWidget             *widget,
         							 GtkStyle              *previous_style);
+#endif
 static guint		   get_best_icon_size 			(CajaSidebarTitle      *sidebar_title);
 
 enum
@@ -117,7 +122,13 @@ G_DEFINE_TYPE (CajaSidebarTitle, caja_sidebar_title, GTK_TYPE_BOX)
 G_DEFINE_TYPE (CajaSidebarTitle, caja_sidebar_title, GTK_TYPE_VBOX)
 #endif
 
-
+#if GTK_CHECK_VERSION (3, 0, 0)
+static void
+style_set (GtkWidget *widget,
+           GtkStyleContext  *previous_style)
+{
+    CajaSidebarTitle *sidebar_title;
+#else
 static void
 style_set (GtkWidget *widget,
            GtkStyle  *previous_style)
@@ -125,7 +136,7 @@ style_set (GtkWidget *widget,
     CajaSidebarTitle *sidebar_title;
     PangoFontDescription *font_desc;
     GtkStyle *style;
-
+#endif
 
     g_return_if_fail (CAJA_IS_SIDEBAR_TITLE (widget));
 
@@ -135,6 +146,8 @@ style_set (GtkWidget *widget,
     update_title_font (sidebar_title);
 
     /* Update the fixed-size "more info" font */
+    /*Disable this in GTK3 as it does NOT work and instead blocks changing font size*/
+#if !GTK_CHECK_VERSION (3, 0, 0)
     style = gtk_widget_get_style (widget);
     font_desc = pango_font_description_copy (style->font_desc);
     if (pango_font_description_get_size (font_desc) < MORE_INFO_FONT_SIZE * PANGO_SCALE)
@@ -145,6 +158,7 @@ style_set (GtkWidget *widget,
     gtk_widget_modify_font (sidebar_title->details->more_info_label,
                             font_desc);
     pango_font_description_free (font_desc);
+#endif
 }
 
 static void
@@ -524,7 +538,12 @@ update_title_font (CajaSidebarTitle *sidebar_title)
 {
     int available_width, width;
     int max_fit_font_size, max_style_font_size;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GtkStyleContext *context;
+    GtkStateFlags    state;
+#else
     GtkStyle *style;
+#endif
     GtkAllocation allocation;
     PangoFontDescription *title_font, *tmp_font;
     PangoLayout *layout;
@@ -544,10 +563,13 @@ update_title_font (CajaSidebarTitle *sidebar_title)
     {
         return;
     }
-
+#if GTK_CHECK_VERSION (3, 0, 0)
+    context = gtk_widget_get_style_context (GTK_WIDGET (sidebar_title));
+    gtk_style_context_get (context, state, GTK_STYLE_PROPERTY_FONT, &title_font, NULL);
+#else
     style = gtk_widget_get_style (GTK_WIDGET (sidebar_title));
     title_font = pango_font_description_copy (style->font_desc);
-
+#endif
     max_style_font_size = pango_font_description_get_size (title_font) * 1.8 / PANGO_SCALE;
     if (max_style_font_size < MIN_TITLE_FONT_SIZE + 1)
     {
