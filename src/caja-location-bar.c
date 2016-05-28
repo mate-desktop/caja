@@ -246,7 +246,11 @@ drag_data_get_callback (GtkWidget *widget,
    we are imitating here. */
 
 static void
+#if GTK_CHECK_VERSION (3, 0, 0)
+style_set_handler (GtkWidget *widget, GtkStyleContext *previous_style)
+#else
 style_set_handler (GtkWidget *widget, GtkStyle *previous_style)
+#endif
 {
     PangoLayout *layout;
     int width, width2;
