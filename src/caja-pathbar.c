@@ -140,8 +140,10 @@ static void     caja_path_bar_grab_notify              (GtkWidget       *widget,
         gboolean         was_grabbed);
 static void     caja_path_bar_state_changed            (GtkWidget       *widget,
         GtkStateType     previous_state);
+#if !GTK_CHECK_VERSION (3, 0, 0)
 static void     caja_path_bar_style_set                (GtkWidget       *widget,
         GtkStyle        *previous_style);
+#endif
 static void     caja_path_bar_screen_changed           (GtkWidget       *widget,
         GdkScreen       *previous_screen);
 static void     caja_path_bar_check_icon_theme         (CajaPathBar *path_bar);
@@ -401,7 +403,9 @@ caja_path_bar_class_init (CajaPathBarClass *path_bar_class)
 #endif
     widget_class->unmap = caja_path_bar_unmap;
     widget_class->size_allocate = caja_path_bar_size_allocate;
+#if !GTK_CHECK_VERSION (3, 0, 0)
     widget_class->style_set = caja_path_bar_style_set;
+#endif
     widget_class->screen_changed = caja_path_bar_screen_changed;
     widget_class->grab_notify = caja_path_bar_grab_notify;
     widget_class->state_changed = caja_path_bar_state_changed;
@@ -956,6 +960,7 @@ caja_path_bar_size_allocate (GtkWidget     *widget,
     }
 }
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
 static void
 caja_path_bar_style_set (GtkWidget *widget,	GtkStyle  *previous_style)
 {
@@ -966,6 +971,7 @@ caja_path_bar_style_set (GtkWidget *widget,	GtkStyle  *previous_style)
 
     caja_path_bar_check_icon_theme (CAJA_PATH_BAR (widget));
 }
+#endif
 
 static void
 caja_path_bar_screen_changed (GtkWidget *widget,
@@ -980,7 +986,9 @@ caja_path_bar_screen_changed (GtkWidget *widget,
     {
         remove_settings_signal (CAJA_PATH_BAR (widget), previous_screen);
     }
+#if !GTK_CHECK_VERSION (3, 0, 0)
     caja_path_bar_check_icon_theme (CAJA_PATH_BAR (widget));
+#endif
 }
 
 static gboolean
@@ -1381,7 +1389,7 @@ settings_notify_cb (GObject    *object,
         change_icon_theme (path_bar);
     }
 }
-
+#if !GTK_CHECK_VERSION (3, 0, 0)
 static void
 caja_path_bar_check_icon_theme (CajaPathBar *path_bar)
 {
@@ -1397,7 +1405,7 @@ caja_path_bar_check_icon_theme (CajaPathBar *path_bar)
 
     change_icon_theme (path_bar);
 }
-
+#endif
 /* Public functions and their helpers */
 void
 caja_path_bar_clear_buttons (CajaPathBar *path_bar)
