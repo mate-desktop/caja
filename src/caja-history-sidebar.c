@@ -74,8 +74,13 @@ enum
 static void  caja_history_sidebar_iface_init        (CajaSidebarIface         *iface);
 static void  sidebar_provider_iface_init                (CajaSidebarProviderIface *iface);
 static GType caja_history_sidebar_provider_get_type (void);
+#if GTK_CHECK_VERSION (3, 0, 0)
+static void  caja_history_sidebar_style_set	        (GtkWidget *widget,
+        GtkStyleContext  *previous_style);
+#else
 static void  caja_history_sidebar_style_set	        (GtkWidget *widget,
         GtkStyle  *previous_style);
+#endif
 
 G_DEFINE_TYPE_WITH_CODE (CajaHistorySidebar, caja_history_sidebar, GTK_TYPE_SCROLLED_WINDOW,
                          G_IMPLEMENT_INTERFACE (CAJA_TYPE_SIDEBAR,
@@ -375,7 +380,11 @@ caja_history_sidebar_set_parent_window (CajaHistorySidebar *sidebar,
 
 static void
 caja_history_sidebar_style_set (GtkWidget *widget,
+#if GTK_CHECK_VERSION (3, 0, 0)
+                                GtkStyleContext  *previous_style)
+#else
                                 GtkStyle  *previous_style)
+#endif
 {
     CajaHistorySidebar *sidebar;
 
