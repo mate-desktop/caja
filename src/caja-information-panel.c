@@ -81,8 +81,13 @@ static void     caja_information_panel_drag_data_received    (GtkWidget         
         guint                         info,
         guint                         time);
 static void     caja_information_panel_read_defaults         (CajaInformationPanel     *information_panel);
+#if GTK_CHECK_VERSION (3, 0, 0)
+static void     caja_information_panel_style_set             (GtkWidget                    *widget,
+        GtkStyleContext              *previous_style);
+#else
 static void     caja_information_panel_style_set             (GtkWidget                    *widget,
         GtkStyle                     *previous_style);
+#endif
 static void     caja_information_panel_theme_changed         (GSettings   *settings,
                                                               const gchar *key,
                                                               gpointer     user_data);
@@ -1174,7 +1179,11 @@ title_changed_callback (CajaWindowInfo *window,
 
 /* ::style_set handler for the information_panel */
 static void
+#if GTK_CHECK_VERSION (3, 0, 0)
+caja_information_panel_style_set (GtkWidget *widget, GtkStyleContext *previous_style)
+#else
 caja_information_panel_style_set (GtkWidget *widget, GtkStyle *previous_style)
+#endif
 {
     CajaInformationPanel *information_panel;
 
