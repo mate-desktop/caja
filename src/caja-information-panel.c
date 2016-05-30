@@ -81,8 +81,10 @@ static void     caja_information_panel_drag_data_received    (GtkWidget         
         guint                         info,
         guint                         time);
 static void     caja_information_panel_read_defaults         (CajaInformationPanel     *information_panel);
+#if !GTK_CHECK_VERSION (3, 0, 0)
 static void     caja_information_panel_style_set             (GtkWidget                    *widget,
         GtkStyle                     *previous_style);
+#endif
 static void     caja_information_panel_theme_changed         (GSettings   *settings,
                                                               const gchar *key,
                                                               gpointer     user_data);
@@ -206,8 +208,9 @@ caja_information_panel_class_init (CajaInformationPanelClass *klass)
 
     widget_class->drag_data_received  = caja_information_panel_drag_data_received;
     widget_class->button_press_event  = caja_information_panel_press_event;
+#if !GTK_CHECK_VERSION (3, 0, 0)
     widget_class->style_set = caja_information_panel_style_set;
-
+#endif
     /* add the "location changed" signal */
     signals[LOCATION_CHANGED] = g_signal_new
                                 ("location_changed",
@@ -1172,6 +1175,7 @@ title_changed_callback (CajaWindowInfo *window,
                                  new_title);
 }
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
 /* ::style_set handler for the information_panel */
 static void
 caja_information_panel_style_set (GtkWidget *widget, GtkStyle *previous_style)
@@ -1182,7 +1186,7 @@ caja_information_panel_style_set (GtkWidget *widget, GtkStyle *previous_style)
 
     caja_information_panel_theme_changed (NULL, NULL, information_panel);
 }
-
+#endif
 static void
 loading_uri_callback (CajaWindowInfo *window,
                       char               *uri,

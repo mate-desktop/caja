@@ -74,8 +74,10 @@ enum
 static void  caja_history_sidebar_iface_init        (CajaSidebarIface         *iface);
 static void  sidebar_provider_iface_init                (CajaSidebarProviderIface *iface);
 static GType caja_history_sidebar_provider_get_type (void);
+#if !GTK_CHECK_VERSION (3, 0, 0)
 static void  caja_history_sidebar_style_set	        (GtkWidget *widget,
         GtkStyle  *previous_style);
+#endif
 
 G_DEFINE_TYPE_WITH_CODE (CajaHistorySidebar, caja_history_sidebar, GTK_TYPE_SCROLLED_WINDOW,
                          G_IMPLEMENT_INTERFACE (CAJA_TYPE_SIDEBAR,
@@ -320,8 +322,9 @@ static void
 caja_history_sidebar_class_init (CajaHistorySidebarClass *class)
 {
     G_OBJECT_CLASS (class)->finalize = caja_history_sidebar_finalize;
-
+#if !GTK_CHECK_VERSION (3, 0, 0)
     GTK_WIDGET_CLASS (class)->style_set = caja_history_sidebar_style_set;
+#endif
 }
 
 static const char *
@@ -372,7 +375,7 @@ caja_history_sidebar_set_parent_window (CajaHistorySidebar *sidebar,
     sidebar->window = window;
     update_history (sidebar);
 }
-
+#if !GTK_CHECK_VERSION (3, 0, 0)
 static void
 caja_history_sidebar_style_set (GtkWidget *widget,
                                 GtkStyle  *previous_style)
@@ -383,6 +386,7 @@ caja_history_sidebar_style_set (GtkWidget *widget,
 
     update_history (sidebar);
 }
+#endif
 
 static CajaSidebar *
 caja_history_sidebar_create (CajaSidebarProvider *provider,

@@ -289,7 +289,11 @@ set_label_size (CajaZoomControl *zoom_control)
 
 static void
 label_style_set_callback (GtkWidget *label,
+#if GTK_CHECK_VERSION (3, 0, 0)
+                          GtkStyleContext *style,
+#else
                           GtkStyle *style,
+#endif
                           gpointer user_data)
 {
     set_label_size (CAJA_ZOOM_CONTROL (user_data));
