@@ -75,8 +75,7 @@ static void		   update_all 				(CajaSidebarTitle      *sidebar_title);
 static void		   update_more_info			(CajaSidebarTitle      *sidebar_title);
 static void		   update_title_font			(CajaSidebarTitle      *sidebar_title);
 #if GTK_CHECK_VERSION (3, 0, 0)
-static void                style_set                            (GtkWidget             *widget,
-        							 GtkStyleContext       *previous_style);
+static void                style_updated                        (GtkWidget             *widget);
 #else
 static void                style_set                            (GtkWidget             *widget,
         							 GtkStyle              *previous_style);
@@ -124,8 +123,7 @@ G_DEFINE_TYPE (CajaSidebarTitle, caja_sidebar_title, GTK_TYPE_VBOX)
 
 #if GTK_CHECK_VERSION (3, 0, 0)
 static void
-style_set (GtkWidget *widget,
-           GtkStyleContext  *previous_style)
+style_updated (GtkWidget *widget)
 {
     CajaSidebarTitle *sidebar_title;
 #else
@@ -196,7 +194,11 @@ caja_sidebar_title_init (CajaSidebarTitle *sidebar_title)
     update_all (sidebar_title);
 
     /* initialize the label colors & fonts */
+#if GTK_CHECK_VERSION (3, 0, 0)
+    style_updated (GTK_WIDGET (sidebar_title));
+#else
     style_set (GTK_WIDGET (sidebar_title), NULL);
+#endif
 
     g_signal_connect_swapped (caja_preferences,
                               "changed::" CAJA_PREFERENCES_SHOW_DIRECTORY_ITEM_COUNTS,
@@ -252,7 +254,11 @@ caja_sidebar_title_class_init (CajaSidebarTitleClass *klass)
 
     widget_class = GTK_WIDGET_CLASS (klass);
     widget_class->size_allocate = caja_sidebar_title_size_allocate;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    widget_class->style_updated = style_updated;
+#else
     widget_class->style_set = style_set;
+#endif
 
     gtk_widget_class_install_style_property (widget_class,
 #if GTK_CHECK_VERSION (3, 0, 0)
