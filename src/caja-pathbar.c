@@ -143,7 +143,7 @@ static void     caja_path_bar_state_changed            (GtkWidget       *widget,
 #if GTK_CHECK_VERSION (3, 0, 0)
 static void     caja_path_bar_style_updated            (GtkWidget       *widget);
 #else
-static void     caja_path_bar_style_set                (GtkWidget       *widget),
+static void     caja_path_bar_style_set                (GtkWidget       *widget,
         GtkStyle        *previous_style);
 #endif
 static void     caja_path_bar_screen_changed           (GtkWidget       *widget,

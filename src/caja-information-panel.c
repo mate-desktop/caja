@@ -210,7 +210,11 @@ caja_information_panel_class_init (CajaInformationPanelClass *klass)
 
     widget_class->drag_data_received  = caja_information_panel_drag_data_received;
     widget_class->button_press_event  = caja_information_panel_press_event;
+#if GTK_CHECK_VERSION (3, 0, 0)
     widget_class->style_updated = caja_information_panel_style_updated;
+#else
+    widget_class->style_set = caja_information_panel_style_set;
+#endif
 
     /* add the "location changed" signal */
     signals[LOCATION_CHANGED] = g_signal_new
