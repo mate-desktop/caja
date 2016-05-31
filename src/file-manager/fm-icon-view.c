@@ -3334,7 +3334,7 @@ fm_icon_view_create (CajaWindowSlotInfo *slot)
                          "compact", FALSE,
                          NULL);
 #if GTK_CHECK_VERSION (3, 19, 0)
-    gtk_style_context_add_class (gtk_widget_get_style_context (view), GTK_STYLE_CLASS_VIEW);
+    gtk_style_context_add_class (gtk_widget_get_style_context (GTK_WIDGET (view)), GTK_STYLE_CLASS_VIEW);
 #endif
     return CAJA_VIEW (view);
 }
@@ -3349,7 +3349,7 @@ fm_compact_view_create (CajaWindowSlotInfo *slot)
                          "compact", TRUE,
                          NULL);
 #if GTK_CHECK_VERSION (3, 19, 0)
-    gtk_style_context_add_class (gtk_widget_get_style_context (view), GTK_STYLE_CLASS_VIEW);
+    gtk_style_context_add_class (gtk_widget_get_style_context (GTK_WIDGET (view)), GTK_STYLE_CLASS_VIEW);
 #endif
     return CAJA_VIEW (view);
 }
