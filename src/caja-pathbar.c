@@ -162,7 +162,9 @@ get_slider_button (CajaPathBar  *path_bar,
 {
     GtkWidget *button;
 
+#if !GTK_CHECK_VERSION(3,0,0)
     gtk_widget_push_composite_child ();
+#endif
 
     button = gtk_button_new ();
     gtk_button_set_focus_on_click (GTK_BUTTON (button), FALSE);
@@ -170,7 +172,9 @@ get_slider_button (CajaPathBar  *path_bar,
     gtk_container_add (GTK_CONTAINER (path_bar), button);
     gtk_widget_show_all (button);
 
+#if !GTK_CHECK_VERSION(3,0,0)
     gtk_widget_pop_composite_child ();
+#endif
 
     return button;
 }
@@ -2209,7 +2213,9 @@ caja_path_bar_update_path (CajaPathBar *path_bar,
 
     file = caja_file_get (file_path);
 
+#if !GTK_CHECK_VERSION(3,0,0)
     gtk_widget_push_composite_child ();
+#endif
 
     while (file != NULL)
     {
@@ -2246,7 +2252,9 @@ caja_path_bar_update_path (CajaPathBar *path_bar,
         gtk_container_add (GTK_CONTAINER (path_bar), button);
     }
 
+#if !GTK_CHECK_VERSION(3,0,0)
     gtk_widget_pop_composite_child ();
+#endif
 
     if (path_bar->current_path != NULL)
     {
