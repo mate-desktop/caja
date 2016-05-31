@@ -373,18 +373,10 @@ void
 eel_background_draw (GtkWidget *widget,
 #  if GTK_CHECK_VERSION (3, 0, 0)
                      cairo_t   *cr)
-#  else
-                     GdkEventExpose *event)
-#  endif
 {
     int width, height;
     GdkWindow *window = gtk_widget_get_window (widget);
     GdkColor color;
-
-#  if !GTK_CHECK_VERSION (3, 0, 0)
-    if (event->window != window)
-        return;
-#  endif
 
     EelBackground *self = eel_get_widget_background (widget);
 
@@ -394,11 +386,7 @@ eel_background_draw (GtkWidget *widget,
     color = self->details->default_color;
     make_color_inactive (self, &color);
 
-#  if GTK_CHECK_VERSION(3,0,0)
     cairo_save (cr);
-#  else
-    cairo_t *cr = gdk_cairo_create (window);
-#  endif
 
     if (self->details->bg_surface != NULL) {
         cairo_set_source_surface (cr, self->details->bg_surface, 0, 0);
@@ -407,20 +395,47 @@ eel_background_draw (GtkWidget *widget,
         gdk_cairo_set_source_color (cr, &color);
     }
 
-#  if !GTK_CHECK_VERSION (3, 0, 0)
+    cairo_rectangle (cr, 0, 0, width, height);
+    cairo_fill (cr);
+
+    cairo_restore (cr);
+}
+#  else
+                     GdkEventExpose *event)
+{
+    int width, height;
+    GdkWindow *window = gtk_widget_get_window (widget);
+    GdkColor color;
+
+    if (event->window != window)
+        return;
+
+    EelBackground *self = eel_get_widget_background (widget);
+
+    drawable_get_adjusted_size (self, &width, &height);
+
+    eel_background_ensure_realized (self);
+    color = self->details->default_color;
+    make_color_inactive (self, &color);
+
+    cairo_t *cr = gdk_cairo_create (window);
+
+    if (self->details->bg_surface != NULL) {
+        cairo_set_source_surface (cr, self->details->bg_surface, 0, 0);
+        cairo_pattern_set_extend (cairo_get_source (cr), CAIRO_EXTEND_REPEAT);
+    } else {
+        gdk_cairo_set_source_color (cr, &color);
+    }
+
     gdk_cairo_rectangle (cr, &event->area);
     cairo_clip (cr);
-#  endif
 
     cairo_rectangle (cr, 0, 0, width, height);
     cairo_fill (cr);
 
-#  if GTK_CHECK_VERSION(3,0,0)
-    cairo_restore (cr);
-#  else
     cairo_destroy (cr);
-#  endif
 }
+#  endif
 
 static void
 set_root_surface (EelBackground *self,
