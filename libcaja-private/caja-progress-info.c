@@ -357,7 +357,9 @@ static GtkWidget *
 progress_widget_new (CajaProgressInfo *info)
 {
     ProgressWidgetData *data;
-    GtkWidget *label, *progress_bar, *hbox, *vbox, *box, *btcancel, *image;
+    GtkWidget *label, *progress_bar, *hbox, *vbox, *box;
+    GtkWidget *btcancel, *btstart, *btqueue;
+    GtkWidget *imgcancel, *imgstart, *imgqueue;
 
     data = g_new0 (ProgressWidgetData, 1);
     data->info = g_object_ref (info);
@@ -388,11 +390,11 @@ progress_widget_new (CajaProgressInfo *info)
     
     hbox = gtk_hbox_new (FALSE,10);
     
-    image = gtk_image_new_from_icon_name ("gtk-cancel",
+    imgcancel = gtk_image_new_from_icon_name ("gtk-cancel",
                                       GTK_ICON_SIZE_BUTTON);
     
     btcancel = gtk_button_new ();
-    gtk_container_add (GTK_CONTAINER (btcancel), image);
+    gtk_container_add (GTK_CONTAINER (btcancel), imgcancel);
     gtk_box_pack_start (GTK_BOX (hbox),
                         btcancel,
                         FALSE,FALSE,
@@ -416,6 +418,26 @@ progress_widget_new (CajaProgressInfo *info)
                         hbox,
                         FALSE,FALSE,
                         0);
+                        
+    imgstart = gtk_image_new_from_icon_name ("media-playback-start",
+                                      GTK_ICON_SIZE_BUTTON);
+    btstart = gtk_button_new ();
+    gtk_container_add (GTK_CONTAINER (btstart), imgstart);
+    gtk_box_pack_start (GTK_BOX (hbox),
+                        btstart,
+                        FALSE,FALSE,
+                        0);
+    //~ g_signal_connect (btstart, "clicked", (GCallback)start_clicked, data);
+    
+    imgqueue = gtk_image_new_from_icon_name ("undo",
+                                      GTK_ICON_SIZE_BUTTON);
+    btqueue = gtk_button_new ();
+    gtk_container_add (GTK_CONTAINER (btqueue), imgqueue);
+    gtk_box_pack_start (GTK_BOX (hbox),
+                        btqueue,
+                        FALSE,FALSE,
+                        0);
+    //~ g_signal_connect (btqueue, "clicked", (GCallback)queue_clicked, data);
 
     label = gtk_label_new ("details");
 #if GTK_CHECK_VERSION (3, 16, 0)
