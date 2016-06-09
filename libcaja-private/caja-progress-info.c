@@ -357,7 +357,7 @@ static GtkWidget *
 progress_widget_new (CajaProgressInfo *info)
 {
     ProgressWidgetData *data;
-    GtkWidget *label, *progress_bar, *hbox, *vbox, *box, *button, *image;
+    GtkWidget *label, *progress_bar, *hbox, *vbox, *box, *btcancel, *image;
 
     data = g_new0 (ProgressWidgetData, 1);
     data->info = g_object_ref (info);
@@ -385,8 +385,19 @@ progress_widget_new (CajaProgressInfo *info)
                         TRUE, FALSE,
                         0);
     data->status = GTK_LABEL (label);
-
+    
     hbox = gtk_hbox_new (FALSE,10);
+    
+    image = gtk_image_new_from_icon_name ("gtk-cancel",
+                                      GTK_ICON_SIZE_BUTTON);
+    
+    btcancel = gtk_button_new ();
+    gtk_container_add (GTK_CONTAINER (btcancel), image);
+    gtk_box_pack_start (GTK_BOX (hbox),
+                        btcancel,
+                        FALSE,FALSE,
+                        0);
+    g_signal_connect (btcancel, "clicked", (GCallback)cancel_clicked, data);
 
     progress_bar = gtk_progress_bar_new ();
     data->progress_bar = GTK_PROGRESS_BAR (progress_bar);
@@ -400,16 +411,6 @@ progress_widget_new (CajaProgressInfo *info)
                        box,
                        TRUE,TRUE,
                        0);
-
-    image = gtk_image_new_from_icon_name ("gtk-cancel",
-                                      GTK_ICON_SIZE_BUTTON);
-    button = gtk_button_new ();
-    gtk_container_add (GTK_CONTAINER (button), image);
-    gtk_box_pack_start (GTK_BOX (hbox),
-                        button,
-                        FALSE,FALSE,
-                        0);
-    g_signal_connect (button, "clicked", (GCallback)cancel_clicked, data);
 
     gtk_box_pack_start (GTK_BOX (vbox),
                         hbox,
