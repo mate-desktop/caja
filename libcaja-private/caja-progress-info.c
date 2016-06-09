@@ -46,6 +46,10 @@ enum
 
 #define SIGNAL_DELAY_MSEC 100
 
+#define STARTBT_DATA_IMAGE_PAUSE "pauseimg"
+#define STARTBT_DATA_IMAGE_RESUME "resumeimg"
+#define STARTBT_DATA_CURIMAGE "curimage"
+
 #if GTK_CHECK_VERSION (3, 0, 0)
 #define gtk_hbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_HORIZONTAL,Y)
 #define gtk_vbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_VERTICAL,Y)
@@ -262,6 +266,14 @@ get_progress_window (void)
     return progress_window;
 }
 
+typedef enum
+{
+    STATE_RUNNING,
+    STATE_PAUSING,
+    STATE_PAUSED,
+    STATE_QUEUEING,
+    STATE_QUEUED
+} ProgressWidgetState;
 
 typedef struct
 {
@@ -270,6 +282,9 @@ typedef struct
     GtkLabel *status;
     GtkLabel *details;
     GtkProgressBar *progress_bar;
+    GtkWidget *btstart;
+    GtkWidget *btqueue;
+    ProgressWidgetState state;
 } ProgressWidgetData;
 
 static void
@@ -352,17 +367,138 @@ cancel_clicked (GtkWidget *button,
     gtk_widget_set_sensitive (button, FALSE);
 }
 
+static void
+start_button_update_view (GtkWidget *button, ProgressWidgetState state)
+{
+    GtkWidget *toapply, *curimage;
+    
+    if (state == STATE_RUNNING || state == STATE_QUEUEING)
+        toapply = g_object_get_data (G_OBJECT(button),
+                                    STARTBT_DATA_IMAGE_PAUSE);
+    else
+        toapply = g_object_get_data (G_OBJECT(button),
+                                    STARTBT_DATA_IMAGE_RESUME);
+        
+    curimage = g_object_get_data (G_OBJECT(button), STARTBT_DATA_CURIMAGE);
+    if (curimage != toapply) {
+        if (curimage != NULL)
+            gtk_container_remove (GTK_CONTAINER(button), curimage);
+        
+        gtk_container_add (GTK_CONTAINER(button), toapply);
+        gtk_widget_show(toapply);
+        g_object_set_data (G_OBJECT(button), STARTBT_DATA_CURIMAGE, toapply);
+    }
+}
+
+static void
+queue_button_update_view (GtkWidget *button, ProgressWidgetState state)
+{
+    if (state == STATE_QUEUEING)
+        gtk_widget_set_sensitive (button, FALSE);
+    else
+        gtk_widget_set_sensitive (button, TRUE);
+}
+
+static void
+progress_widget_invalid_state (ProgressWidgetData *data)
+{
+    // TODO give more info: current state, buttons
+    g_error("Invalid ProgressWidgetState");
+}
+
+static void
+widget_state_transit_to(ProgressWidgetData *data,
+                        ProgressWidgetState newstate)
+{
+    // TODO logic and sync
+    data->state = newstate;
+    
+    start_button_update_view(data->btstart, data->state);
+    queue_button_update_view(data->btqueue, data->state);
+}
+
+static void
+start_clicked (GtkWidget *startbt,
+               ProgressWidgetData *data)
+{
+    switch (data->state) {
+        case STATE_RUNNING:
+        case STATE_QUEUEING:
+            widget_state_transit_to (data, STATE_PAUSING);
+            break;
+        case STATE_PAUSING:
+        case STATE_PAUSED:
+        case STATE_QUEUED:
+            widget_state_transit_to (data, STATE_RUNNING);
+            break;
+        default:
+            progress_widget_invalid_state (data);
+    }
+}
+
+static void
+queue_clicked (GtkWidget *queuebt,
+               ProgressWidgetData *data)
+{
+    switch (data->state) {
+        case STATE_RUNNING:
+        case STATE_PAUSING:
+            widget_state_transit_to (data, STATE_QUEUEING);
+            break;
+        case STATE_PAUSED:
+            widget_state_transit_to (data, STATE_QUEUED);
+            break;
+        default:
+            progress_widget_invalid_state (data);
+    }
+}
+
+static void
+start_button_init (ProgressWidgetData *data)
+{
+    GtkWidget *button = gtk_button_new ();
+    GtkWidget *pauseImage = gtk_image_new_from_icon_name (
+                "media-playback-pause", GTK_ICON_SIZE_BUTTON);
+    GtkWidget *resumeImage = gtk_image_new_from_icon_name (
+                "media-playback-start", GTK_ICON_SIZE_BUTTON);
+    
+    g_object_ref (pauseImage);
+    g_object_ref (resumeImage);
+    
+    g_object_set_data (G_OBJECT(button), STARTBT_DATA_IMAGE_PAUSE, pauseImage);
+    g_object_set_data (G_OBJECT(button), STARTBT_DATA_IMAGE_RESUME, resumeImage);
+    g_object_set_data (G_OBJECT(button), STARTBT_DATA_CURIMAGE, NULL);
+    
+    start_button_update_view (button, data->state);
+    
+    g_signal_connect (button, "clicked", (GCallback)start_clicked, data);
+    data->btstart = button;
+}
+
+static void
+queue_button_init (ProgressWidgetData *data)
+{
+    GtkWidget * button = gtk_button_new ();
+    GtkWidget * image = gtk_image_new_from_icon_name ("undo",
+        GTK_ICON_SIZE_BUTTON);
+    
+    gtk_container_add (GTK_CONTAINER (button), image);
+    
+    g_signal_connect (button, "clicked", (GCallback)queue_clicked, data);
+    data->btqueue = button;
+}
 
 static GtkWidget *
 progress_widget_new (CajaProgressInfo *info)
 {
     ProgressWidgetData *data;
-    GtkWidget *label, *progress_bar, *hbox, *vbox, *box;
-    GtkWidget *btcancel, *btstart, *btqueue;
-    GtkWidget *imgcancel, *imgstart, *imgqueue;
+    GtkWidget *label, *progress_bar, *hbox, *vbox, *box, *btcancel, *imgcancel;
 
     data = g_new0 (ProgressWidgetData, 1);
     data->info = g_object_ref (info);
+    
+    // TODO start policy
+    data->state = STATE_RUNNING;
 
     vbox = gtk_vbox_new (FALSE, 0);
     gtk_box_set_spacing (GTK_BOX (vbox), 5);
@@ -395,10 +531,6 @@ progress_widget_new (CajaProgressInfo *info)
     
     btcancel = gtk_button_new ();
     gtk_container_add (GTK_CONTAINER (btcancel), imgcancel);
-    gtk_box_pack_start (GTK_BOX (hbox),
-                        btcancel,
-                        FALSE,FALSE,
-                        0);
     g_signal_connect (btcancel, "clicked", (GCallback)cancel_clicked, data);
 
     progress_bar = gtk_progress_bar_new ();
@@ -409,35 +541,31 @@ progress_widget_new (CajaProgressInfo *info)
                        progress_bar,
                        TRUE,FALSE,
                        0);
+                        
+    start_button_init (data);
+    queue_button_init (data);
+    
+    gtk_box_pack_start (GTK_BOX (hbox),
+                        btcancel,
+                        FALSE,FALSE,
+                        0);
     gtk_box_pack_start(GTK_BOX (hbox),
                        box,
                        TRUE,TRUE,
                        0);
+    gtk_box_pack_start (GTK_BOX (hbox),
+                        data->btstart,
+                        FALSE,FALSE,
+                        0);
+    gtk_box_pack_start (GTK_BOX (hbox),
+                        data->btqueue,
+                        FALSE,FALSE,
+                        0);
 
     gtk_box_pack_start (GTK_BOX (vbox),
                         hbox,
                         FALSE,FALSE,
                         0);
-                        
-    imgstart = gtk_image_new_from_icon_name ("media-playback-start",
-                                      GTK_ICON_SIZE_BUTTON);
-    btstart = gtk_button_new ();
-    gtk_container_add (GTK_CONTAINER (btstart), imgstart);
-    gtk_box_pack_start (GTK_BOX (hbox),
-                        btstart,
-                        FALSE,FALSE,
-                        0);
-    //~ g_signal_connect (btstart, "clicked", (GCallback)start_clicked, data);
-    
-    imgqueue = gtk_image_new_from_icon_name ("undo",
-                                      GTK_ICON_SIZE_BUTTON);
-    btqueue = gtk_button_new ();
-    gtk_container_add (GTK_CONTAINER (btqueue), imgqueue);
-    gtk_box_pack_start (GTK_BOX (hbox),
-                        btqueue,
-                        FALSE,FALSE,
-                        0);
-    //~ g_signal_connect (btqueue, "clicked", (GCallback)queue_clicked, data);
 
     label = gtk_label_new ("details");
 #if GTK_CHECK_VERSION (3, 16, 0)
