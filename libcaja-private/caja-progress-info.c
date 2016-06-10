@@ -57,11 +57,15 @@ enum
 
 static guint signals[LAST_SIGNAL] = { 0 };
 
+struct _ProgressWidgetData;
+
 struct _CajaProgressInfo
 {
     GObject parent_instance;
 
     GCancellable *cancellable;
+    
+    struct _ProgressWidgetData *widget;
 
     char *status;
     char *details;
@@ -70,6 +74,9 @@ struct _CajaProgressInfo
     gboolean started;
     gboolean finished;
     gboolean paused;
+    
+    gboolean waiting;
+    GCond waiting_c;
 
     GSource *idle_source;
     gboolean source_is_now;
@@ -275,7 +282,7 @@ typedef enum
     STATE_QUEUED
 } ProgressWidgetState;
 
-typedef struct
+typedef struct _ProgressWidgetData
 {
     GtkWidget *widget;
     CajaProgressInfo *info;
@@ -297,10 +304,35 @@ progress_widget_data_free (ProgressWidgetData *data)
 static void
 update_data (ProgressWidgetData *data)
 {
-    char *status, *details;
+    char *status, *details, *curstat, *t;
     char *markup;
 
     status = caja_progress_info_get_status (data->info);
+    
+    // TODO localize
+    switch (data->state) {
+        case STATE_PAUSED:
+            curstat = "paused";
+            break;
+        case STATE_PAUSING:
+            curstat = "pausing";
+            break;
+        case STATE_QUEUED:
+            curstat = "queued";
+            break;
+        case STATE_QUEUEING:
+            curstat = "enqueueing";
+            break;
+        default:
+            curstat = NULL;
+    }
+    
+    if (curstat != NULL) {
+        t = status;
+        status = g_strconcat (status, " \xE2\x80\x94 ", curstat, NULL);
+        g_free (t);
+    }
+    
     gtk_label_set_text (data->status, status);
     g_free (status);
 
@@ -385,7 +417,7 @@ start_button_update_view (GtkWidget *button, ProgressWidgetState state)
             gtk_container_remove (GTK_CONTAINER(button), curimage);
         
         gtk_container_add (GTK_CONTAINER(button), toapply);
-        gtk_widget_show(toapply);
+        gtk_widget_show (toapply);
         g_object_set_data (G_OBJECT(button), STARTBT_DATA_CURIMAGE, toapply);
     }
 }
@@ -393,7 +425,7 @@ start_button_update_view (GtkWidget *button, ProgressWidgetState state)
 static void
 queue_button_update_view (GtkWidget *button, ProgressWidgetState state)
 {
-    if (state == STATE_QUEUEING)
+    if (state == STATE_QUEUEING || state == STATE_QUEUED)
         gtk_widget_set_sensitive (button, FALSE);
     else
         gtk_widget_set_sensitive (button, TRUE);
@@ -403,18 +435,62 @@ static void
 progress_widget_invalid_state (ProgressWidgetData *data)
 {
     // TODO give more info: current state, buttons
-    g_error("Invalid ProgressWidgetState");
+    g_warning ("Invalid ProgressWidgetState");
 }
 
 static void
-widget_state_transit_to(ProgressWidgetData *data,
+progress_info_set_waiting(CajaProgressInfo *info, gboolean waiting)
+{
+     G_LOCK (progress_info);
+     info->waiting = waiting;
+     if (! waiting)
+        g_cond_signal (&info->waiting_c);
+     G_UNLOCK (progress_info);
+}
+
+static void
+widget_state_transit_to (ProgressWidgetData *data,
                         ProgressWidgetState newstate)
 {
-    // TODO logic and sync
     data->state = newstate;
     
-    start_button_update_view(data->btstart, data->state);
-    queue_button_update_view(data->btqueue, data->state);
+    if (newstate == STATE_PAUSING || newstate == STATE_QUEUEING) {
+       progress_info_set_waiting (data->info, TRUE);
+    } else if (newstate != STATE_PAUSED && newstate != STATE_QUEUED) {
+        progress_info_set_waiting (data->info, FALSE);
+    }
+    
+    start_button_update_view (data->btstart, data->state);
+    queue_button_update_view (data->btqueue, data->state);
+    update_data(data);
+}
+
+static int
+widget_state_notify_paused_callback (ProgressWidgetData *data)
+{
+    if (data->state == STATE_PAUSING)
+        widget_state_transit_to (data, STATE_PAUSED);
+    else if (data->state == STATE_QUEUEING)
+        widget_state_transit_to (data, STATE_QUEUED);
+    return G_SOURCE_REMOVE;
+}
+
+void
+caja_progress_info_wait_unpaused (CajaProgressInfo *info)
+{
+    if (info->waiting) {
+        G_LOCK (progress_info);
+        if (info->waiting) {
+            // Notify main thread we have stopped and are waiting
+            GSource * source = g_idle_source_new ();
+            g_source_set_callback (source, (GSourceFunc)widget_state_notify_paused_callback, info->widget, NULL);
+            g_source_attach (source, NULL);
+            
+            while (info->waiting)
+                g_cond_wait (&info->waiting_c, &G_LOCK_NAME(progress_info));
+        }
+        G_UNLOCK (progress_info);
+    }
 }
 
 static void
@@ -595,6 +671,7 @@ progress_widget_new (CajaProgressInfo *info)
                               "finished",
                               (GCallback)op_finished, data);
 
+    info->widget = data;
     return data->widget;
 }
 
@@ -731,6 +808,8 @@ caja_progress_info_cancel (CajaProgressInfo *info)
     G_LOCK (progress_info);
 
     g_cancellable_cancel (info->cancellable);
+    info->waiting = FALSE;
+    g_cond_signal (&info->waiting_c);
 
     G_UNLOCK (progress_info);
 }
