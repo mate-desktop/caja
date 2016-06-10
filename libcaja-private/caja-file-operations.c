@@ -4082,6 +4082,7 @@ copy_move_file (CopyMoveJob *copy_job,
 
 
  retry:
+    caja_progress_info_wait_unpaused(job->progress);
 
 	error = NULL;
 	flags = G_FILE_COPY_NOFOLLOW_SYMLINKS;
