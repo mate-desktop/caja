@@ -744,10 +744,10 @@ progress_widget_new (CajaProgressInfo *info)
 {
     ProgressWidgetData *data;
     GtkWidget *label, *progress_bar, *hbox, *vbox, *box, *btcancel, *imgcancel;
-    GtkWidget *container;
 
     data = g_new0 (ProgressWidgetData, 1);
     data->info = g_object_ref (info);
+    data->state = STATE_INITIALIZED;
 
     vbox = gtk_vbox_new (FALSE, 0);
     gtk_box_set_spacing (GTK_BOX (vbox), 5);
@@ -830,16 +830,6 @@ progress_widget_new (CajaProgressInfo *info)
     data->details = GTK_LABEL (label);
 
     gtk_widget_show_all (data->widget);
-    
-    // TODO make different policies
-    data->state = STATE_INITIALIZED;
-    container = get_widgets_container();
-    if (container != NULL) {
-        if (get_running_operations (container) > 0)
-            widget_state_transit_to (data, STATE_QUEUED);
-        else
-            widget_state_transit_to (data, STATE_RUNNING);
-    }
 
     update_data (data);
     update_progress (data);
@@ -861,7 +851,7 @@ progress_widget_new (CajaProgressInfo *info)
 static void
 handle_new_progress_info (CajaProgressInfo *info)
 {
-    GtkWidget *window, *progress;
+    GtkWidget *window, *progress, *container;;
 
     window = get_progress_window (TRUE);
 
@@ -873,6 +863,16 @@ handle_new_progress_info (CajaProgressInfo *info)
     gtk_window_present (GTK_WINDOW (window));
 
     n_progress_ops++;
+    
+    // TODO use different policies
+    container = get_widgets_container();
+    if (container != NULL) {
+        if (get_running_operations (container) > 0)
+            widget_state_transit_to (info->widget, STATE_QUEUED);
+        else
+            widget_state_transit_to (info->widget, STATE_RUNNING);
+    }
+    
     update_status_icon_and_window ();
 }
 
