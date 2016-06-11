@@ -284,6 +284,11 @@ typedef enum
     STATE_QUEUED
 } ProgressWidgetState;
 
+static gboolean
+is_op_paused (ProgressWidgetState state) {
+    return state == STATE_PAUSED || state == STATE_QUEUED;
+}
+
 typedef struct _ProgressWidgetData
 {
     GtkWidget *widget;
@@ -355,14 +360,13 @@ get_widgets_container ()
 
     return gtk_bin_get_child (GTK_BIN (window));
 }
-
 static void
 foreach_get_running_operations (GtkWidget * widget, int * n)
 {
     ProgressWidgetData *data = (ProgressWidgetData*) g_object_get_data (
                 G_OBJECT(widget), "data");
     
-    if (data->state == STATE_RUNNING)
+    if (! is_op_paused (data->state))
         (*n)++;
 }
 
@@ -467,8 +471,7 @@ widget_reposition_as_paused (GtkWidget * widget, GtkWidget * container)
         if (child->data == widget)
             mypos = i;
             
-        if (child->data != widget && (data->state == STATE_PAUSED ||
-                data->state == STATE_QUEUED)) {
+        if (child->data != widget && is_op_paused(data->state)) {
             abort = TRUE;
             i--;
         }
@@ -502,7 +505,7 @@ widget_reposition_as_running (GtkWidget * widget, GtkWidget * container)
         if (child->data == widget)
             mypos = i;
             
-        if (data->state == STATE_PAUSED || data->state == STATE_QUEUED) {
+        if (is_op_paused(data->state)) {
             abort = TRUE;
         }
         
@@ -640,13 +643,12 @@ progress_widget_invalid_state (ProgressWidgetData *data)
 static int
 widget_state_notify_paused_callback (ProgressWidgetData *data)
 {
-    if (data == NULL)
-        return G_SOURCE_CONTINUE;
-    
-    if (data->state == STATE_PAUSING)
-        widget_state_transit_to (data, STATE_PAUSED);
-    else if (data->state == STATE_QUEUEING)
-        widget_state_transit_to (data, STATE_QUEUED);
+    if (data != NULL) {
+        if (data->state == STATE_PAUSING)
+            widget_state_transit_to (data, STATE_PAUSED);
+        else if (data->state == STATE_QUEUEING)
+            widget_state_transit_to (data, STATE_QUEUED);
+    }
     return G_SOURCE_REMOVE;
 }
 
