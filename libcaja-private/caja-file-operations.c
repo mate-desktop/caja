@@ -1780,6 +1780,8 @@ trash_files (CommonJob *job, GList *files, int *files_skipped)
 	for (l = files;
 	     l != NULL && !job_aborted (job);
 	     l = l->next) {
+        caja_progress_info_wait_unpaused(job->progress);
+             
 		file = l->data;
 
 		error = NULL;
@@ -4709,6 +4711,7 @@ move_file_prepare (CopyMoveJob *move_job,
 	}
 
  retry:
+    caja_progress_info_wait_unpaused(job->progress);
 
 	flags = G_FILE_COPY_NOFOLLOW_SYMLINKS | G_FILE_COPY_NO_FALLBACK_FOR_MOVE;
 	if (overwrite) {
@@ -4942,6 +4945,8 @@ common = &job->common;
 	for (l = fallbacks;
 	     l != NULL && !job_aborted (common);
 	     l = l->next) {
+        caja_progress_info_wait_unpaused(common->progress);
+        
 		fallback = l->data;
 		src = fallback->file;
 
@@ -5362,6 +5367,8 @@ link_job (GIOSchedulerJob *io_job,
 	for (l = job->files;
 	     l != NULL && !job_aborted (common);
 	     l = l->next) {
+        caja_progress_info_wait_unpaused(common->progress);
+        
 		src = l->data;
 
 		if (i < job->n_icon_positions) {
@@ -5506,6 +5513,8 @@ set_permissions_file (SetPermissionsJob *job,
 	common = (CommonJob *)job;
 
 	caja_progress_info_pulse_progress (common->progress);
+    
+    caja_progress_info_wait_unpaused(common->progress);
 
 	free_info = FALSE;
 	if (info == NULL) {
@@ -5867,6 +5876,7 @@ create_job (GIOSchedulerJob *io_job,
 	count = 1;
 
  retry:
+    caja_progress_info_wait_unpaused(common->progress);
 
 	error = NULL;
 	if (job->make_dir) {
@@ -6199,6 +6209,8 @@ delete_trash_file (CommonJob *job,
 	GFileInfo *info;
 	GFile *child;
 	GFileEnumerator *enumerator;
+    
+    caja_progress_info_wait_unpaused (job->progress);
 
 	if (job_aborted (job)) {
 		return;
@@ -6342,6 +6354,8 @@ mark_desktop_file_trusted (CommonJob *common,
 	GFileInfo *info;
 
  retry:
+    caja_progress_info_wait_unpaused (common->progress);
+ 
 	error = NULL;
 	if (!g_file_load_contents (file,
 				  cancellable,
