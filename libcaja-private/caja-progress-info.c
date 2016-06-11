@@ -75,6 +75,7 @@ struct _CajaProgressInfo
     gboolean finished;
     gboolean paused;
     
+    gboolean atstart;
     gboolean waiting;
     GCond waiting_c;
 
@@ -650,11 +651,11 @@ widget_state_notify_paused_callback (ProgressWidgetData *data)
 }
 
 void
-caja_progress_info_wait_unpaused (CajaProgressInfo *info)
+caja_progress_info_get_ready (CajaProgressInfo *info)
 {
     if (info->waiting) {
         G_LOCK (progress_info);
-        if (info->waiting) {
+        if (info->waiting && !(info->atstart && !info->widget)) {
             // Notify main thread we have stopped and are waiting
             GSource * source = g_idle_source_new ();
             g_source_set_callback (source, (GSourceFunc)widget_state_notify_paused_callback, info->widget, NULL);
@@ -871,10 +872,10 @@ handle_new_progress_info (CajaProgressInfo *info)
 
     n_progress_ops++;
     
-    // TODO use different policies
+    // TODO use user defined policies
     container = get_widgets_container();
     if (container != NULL) {
-        if (get_running_operations (container) > 0)
+        if (!info->atstart && get_running_operations (container) > 0)
             widget_state_transit_to (info->widget, STATE_QUEUED);
         else
             widget_state_transit_to (info->widget, STATE_RUNNING);
@@ -920,12 +921,13 @@ caja_progress_info_init (CajaProgressInfo *info)
 }
 
 CajaProgressInfo *
-caja_progress_info_new (void)
+caja_progress_info_new (gboolean dostart)
 {
     CajaProgressInfo *info;
 
     info = g_object_new (CAJA_TYPE_PROGRESS_INFO, NULL);
     info->waiting = TRUE;
+    info->atstart = dostart;
 
     return info;
 }
