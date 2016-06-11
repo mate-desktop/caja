@@ -748,16 +748,6 @@ progress_widget_new (CajaProgressInfo *info)
 
     data = g_new0 (ProgressWidgetData, 1);
     data->info = g_object_ref (info);
-    
-    // TODO make different policies
-    data->state = STATE_INITIALIZED;
-    container = get_widgets_container();
-    if (container != NULL) {
-        if (get_running_operations (container) > 0)
-            widget_state_transit_to (data, STATE_QUEUED);
-        else
-            widget_state_transit_to (data, STATE_RUNNING);
-    }
 
     vbox = gtk_vbox_new (FALSE, 0);
     gtk_box_set_spacing (GTK_BOX (vbox), 5);
@@ -840,6 +830,16 @@ progress_widget_new (CajaProgressInfo *info)
     data->details = GTK_LABEL (label);
 
     gtk_widget_show_all (data->widget);
+    
+    // TODO make different policies
+    data->state = STATE_INITIALIZED;
+    container = get_widgets_container();
+    if (container != NULL) {
+        if (get_running_operations (container) > 0)
+            widget_state_transit_to (data, STATE_QUEUED);
+        else
+            widget_state_transit_to (data, STATE_RUNNING);
+    }
 
     update_data (data);
     update_progress (data);
