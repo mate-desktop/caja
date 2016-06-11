@@ -310,19 +310,18 @@ update_data (ProgressWidgetData *data)
 
     status = caja_progress_info_get_status (data->info);
     
-    // TODO localize
     switch (data->state) {
         case STATE_PAUSED:
-            curstat = "paused";
+            curstat = _("paused");
             break;
         case STATE_PAUSING:
-            curstat = "pausing";
+            curstat = _("pausing");
             break;
         case STATE_QUEUED:
-            curstat = "queued";
+            curstat = _("queued");
             break;
         case STATE_QUEUEING:
-            curstat = "enqueueing";
+            curstat = _("queueing");
             break;
         default:
             curstat = NULL;
@@ -705,6 +704,12 @@ queue_clicked (GtkWidget *queuebt,
 }
 
 static void
+unref_callback (gpointer data)
+{
+    g_object_unref (data);
+}
+
+static void
 start_button_init (ProgressWidgetData *data)
 {
     GtkWidget *button = gtk_button_new ();
@@ -716,8 +721,10 @@ start_button_init (ProgressWidgetData *data)
     g_object_ref (pauseImage);
     g_object_ref (resumeImage);
     
-    g_object_set_data (G_OBJECT(button), STARTBT_DATA_IMAGE_PAUSE, pauseImage);
-    g_object_set_data (G_OBJECT(button), STARTBT_DATA_IMAGE_RESUME, resumeImage);
+    g_object_set_data_full (G_OBJECT(button), STARTBT_DATA_IMAGE_PAUSE,
+                            pauseImage, unref_callback);
+    g_object_set_data_full (G_OBJECT(button), STARTBT_DATA_IMAGE_RESUME,
+                            resumeImage, unref_callback);
     g_object_set_data (G_OBJECT(button), STARTBT_DATA_CURIMAGE, NULL);
     
     start_button_update_view (button, data->state);
