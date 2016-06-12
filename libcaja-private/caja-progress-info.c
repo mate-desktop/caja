@@ -74,8 +74,7 @@ struct _CajaProgressInfo
     gboolean started;
     gboolean finished;
     gboolean paused;
-    
-    gboolean atstart;
+
     gboolean waiting;
     GCond waiting_c;
 
@@ -280,7 +279,7 @@ typedef enum
     STATE_RUNNING,
     STATE_PAUSING,
     STATE_PAUSED,
-    STATE_QUEUEING,
+    STATE_QUEUING,
     STATE_QUEUED
 } ProgressWidgetState;
 
@@ -326,8 +325,8 @@ update_data (ProgressWidgetData *data)
         case STATE_QUEUED:
             curstat = _("queued");
             break;
-        case STATE_QUEUEING:
-            curstat = _("queueing");
+        case STATE_QUEUING:
+            curstat = _("queuing");
             break;
         default:
             curstat = NULL;
@@ -389,7 +388,7 @@ foreach_get_queued_widget (GtkWidget * widget, GtkWidget ** out)
         data = (ProgressWidgetData*) g_object_get_data (
                 G_OBJECT(widget), "data");
                 
-        if (data->state == STATE_QUEUED || data->state == STATE_QUEUEING)
+        if (data->state == STATE_QUEUED || data->state == STATE_QUEUING)
             *out = widget;
     }
 }
@@ -409,7 +408,7 @@ start_button_update_view (GtkWidget *button, ProgressWidgetState state)
 {
     GtkWidget *toapply, *curimage;
     
-    if (state == STATE_RUNNING || state == STATE_QUEUEING)
+    if (state == STATE_RUNNING || state == STATE_QUEUING)
         toapply = g_object_get_data (G_OBJECT(button),
                                     STARTBT_DATA_IMAGE_PAUSE);
     else
@@ -430,7 +429,7 @@ start_button_update_view (GtkWidget *button, ProgressWidgetState state)
 static void
 queue_button_update_view (GtkWidget *button, ProgressWidgetState state)
 {
-    if (state == STATE_QUEUEING || state == STATE_QUEUED)
+    if (state == STATE_QUEUING || state == STATE_QUEUED)
         gtk_widget_set_sensitive (button, FALSE);
     else
         gtk_widget_set_sensitive (button, TRUE);
@@ -505,7 +504,7 @@ widget_reposition_as_running (GtkWidget * widget, GtkWidget * container)
         if (child->data == widget)
             mypos = i;
             
-        if (is_op_paused(data->state)) {
+        if (is_op_paused (data->state)) {
             abort = TRUE;
         }
         
@@ -528,12 +527,12 @@ widget_state_transit_to (ProgressWidgetData *data,
                         ProgressWidgetState newstate)
 {
     // here container cannot be NULL
-    GtkWidget * container = get_widgets_container();
+    GtkWidget * container = get_widgets_container ();
     
     data->state = newstate;
     
     if (newstate == STATE_PAUSING ||
-        newstate == STATE_QUEUEING ||
+        newstate == STATE_QUEUING ||
         newstate == STATE_QUEUED) {
        progress_info_set_waiting (data->info, TRUE);
     } else if (newstate != STATE_PAUSED) {
@@ -552,7 +551,7 @@ widget_state_transit_to (ProgressWidgetData *data,
     
     start_button_update_view (data->btstart, data->state);
     queue_button_update_view (data->btqueue, data->state);
-    update_data(data);
+    update_data (data);
 }
 
 static void
@@ -561,7 +560,7 @@ update_queue (GtkWidget * container)
     GtkWidget *next;
     ProgressWidgetData *data;
     
-    if (get_running_operations(container) == 0) {
+    if (get_running_operations (container) == 0) {
         next = get_first_queued_widget (container);
     
         if (next != NULL) {
@@ -618,7 +617,7 @@ op_finished (ProgressWidgetData *data)
 
     n_progress_ops--;
     
-    GtkWidget * container = get_widgets_container();
+    GtkWidget * container = get_widgets_container ();
     if (container != NULL)
         update_queue (container);
     
@@ -646,7 +645,7 @@ widget_state_notify_paused_callback (ProgressWidgetData *data)
     if (data != NULL) {
         if (data->state == STATE_PAUSING)
             widget_state_transit_to (data, STATE_PAUSED);
-        else if (data->state == STATE_QUEUEING)
+        else if (data->state == STATE_QUEUING)
             widget_state_transit_to (data, STATE_QUEUED);
     }
     return G_SOURCE_REMOVE;
@@ -657,7 +656,7 @@ caja_progress_info_get_ready (CajaProgressInfo *info)
 {
     if (info->waiting) {
         G_LOCK (progress_info);
-        if (info->waiting && !(info->atstart && !info->widget)) {
+        if (info->waiting) {
             // Notify main thread we have stopped and are waiting
             GSource * source = g_idle_source_new ();
             g_source_set_callback (source, (GSourceFunc)widget_state_notify_paused_callback, info->widget, NULL);
@@ -676,7 +675,7 @@ start_clicked (GtkWidget *startbt,
 {
     switch (data->state) {
         case STATE_RUNNING:
-        case STATE_QUEUEING:
+        case STATE_QUEUING:
             widget_state_transit_to (data, STATE_PAUSING);
             break;
         case STATE_PAUSING:
@@ -696,7 +695,7 @@ queue_clicked (GtkWidget *queuebt,
     switch (data->state) {
         case STATE_RUNNING:
         case STATE_PAUSING:
-            widget_state_transit_to (data, STATE_QUEUEING);
+            widget_state_transit_to (data, STATE_QUEUING);
             break;
         case STATE_PAUSED:
             widget_state_transit_to (data, STATE_QUEUED);
@@ -796,7 +795,7 @@ progress_widget_new (CajaProgressInfo *info)
     data->progress_bar = GTK_PROGRESS_BAR (progress_bar);
     gtk_progress_bar_set_pulse_step (data->progress_bar, 0.05);
     box = gtk_vbox_new (FALSE,0);
-    gtk_box_pack_start(GTK_BOX (box),
+    gtk_box_pack_start (GTK_BOX (box),
                        progress_bar,
                        TRUE,FALSE,
                        0);
@@ -808,7 +807,7 @@ progress_widget_new (CajaProgressInfo *info)
                         btcancel,
                         FALSE,FALSE,
                         0);
-    gtk_box_pack_start(GTK_BOX (hbox),
+    gtk_box_pack_start (GTK_BOX (hbox),
                        box,
                        TRUE,TRUE,
                        0);
@@ -875,9 +874,9 @@ handle_new_progress_info (CajaProgressInfo *info)
     n_progress_ops++;
     
     // TODO use user defined policies
-    container = get_widgets_container();
+    container = get_widgets_container ();
     if (container != NULL) {
-        if (!info->atstart && get_running_operations (container) > 0)
+        if (info->waiting && get_running_operations (container) > 0)
             widget_state_transit_to (info->widget, STATE_QUEUED);
         else
             widget_state_transit_to (info->widget, STATE_RUNNING);
@@ -928,8 +927,7 @@ caja_progress_info_new (gboolean dostart)
     CajaProgressInfo *info;
 
     info = g_object_new (CAJA_TYPE_PROGRESS_INFO, NULL);
-    info->waiting = TRUE;
-    info->atstart = dostart;
+    info->waiting = !dostart;
 
     return info;
 }
