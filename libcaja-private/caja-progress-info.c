@@ -714,11 +714,20 @@ unref_callback (gpointer data)
 static void
 start_button_init (ProgressWidgetData *data)
 {
+    GtkWidget *pauseImage, *resumeImage;
     GtkWidget *button = gtk_button_new ();
-    GtkWidget *pauseImage = gtk_image_new_from_icon_name (
+    
+#if GTK_CHECK_VERSION (3, 10, 0)
+    pauseImage = gtk_image_new_from_icon_name (
                 "media-playback-pause", GTK_ICON_SIZE_BUTTON);
-    GtkWidget *resumeImage = gtk_image_new_from_icon_name (
+    resumeImage = gtk_image_new_from_icon_name (
                 "media-playback-start", GTK_ICON_SIZE_BUTTON);
+#else
+    pauseImage = gtk_image_new_from_stock (
+                GTK_STOCK_MEDIA_PAUSE, GTK_ICON_SIZE_BUTTON);
+    resumeImage = gtk_image_new_from_stock (
+                GTK_STOCK_MEDIA_PLAY, GTK_ICON_SIZE_BUTTON);
+#endif
     
     g_object_ref (pauseImage);
     g_object_ref (resumeImage);
@@ -738,9 +747,15 @@ start_button_init (ProgressWidgetData *data)
 static void
 queue_button_init (ProgressWidgetData *data)
 {
-    GtkWidget * button = gtk_button_new ();
-    GtkWidget * image = gtk_image_new_from_icon_name ("undo",
-        GTK_ICON_SIZE_BUTTON);
+    GtkWidget *button, *image;
+    
+    button = gtk_button_new ();
+    
+#if GTK_CHECK_VERSION (3, 10, 0)
+    image = gtk_image_new_from_icon_name ("undo", GTK_ICON_SIZE_BUTTON);
+#else
+    image = gtk_image_new_from_stock(GTK_STOCK_UNDO, GTK_ICON_SIZE_BUTTON);
+#endif
     
     gtk_container_add (GTK_CONTAINER (button), image);
     
@@ -784,8 +799,13 @@ progress_widget_new (CajaProgressInfo *info)
     
     hbox = gtk_hbox_new (FALSE,10);
     
+#if GTK_CHECK_VERSION (3, 10, 0)
     imgcancel = gtk_image_new_from_icon_name ("gtk-cancel",
                                       GTK_ICON_SIZE_BUTTON);
+#else
+    imgcancel = gtk_image_new_from_stock (GTK_STOCK_CANCEL,
+                                      GTK_ICON_SIZE_BUTTON);
+#endif
     
     btcancel = gtk_button_new ();
     gtk_container_add (GTK_CONTAINER (btcancel), imgcancel);
