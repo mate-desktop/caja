@@ -103,15 +103,24 @@ char *              eel_gradient_set_bottom_color_spec     (const char          
    a boolean to indicate it cannot be parsed.
 */
 void                eel_gdk_color_parse_with_white_default (const char          *color_spec,
+#if GTK_CHECK_VERSION (3, 0, 0)
+        GdkRGBA             *parsed_color);
+#else
         GdkColor            *parsed_color);
+#endif
 guint32             eel_rgb16_to_rgb                       (gushort              r,
         gushort              g,
         gushort              b);
 guint32             eel_rgb8_to_rgb                        (guchar               r,
         guchar               g,
         guchar               b);
+#if GTK_CHECK_VERSION (3, 0, 0)
+guint32             eel_gdk_color_to_rgb                   (const GdkRGBA       *color);
+GdkRGBA             eel_gdk_rgb_to_color                   (guint32              color);
+#else
 guint32             eel_gdk_color_to_rgb                   (const GdkColor      *color);
 GdkColor            eel_gdk_rgb_to_color                   (guint32              color);
+#endif
 char *              eel_gdk_rgb_to_color_spec              (guint32              color);
 
 #if GTK_CHECK_VERSION(3,0,0)
