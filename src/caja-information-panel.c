@@ -1045,6 +1045,11 @@ caja_information_panel_update_buttons (CajaInformationPanel *information_panel)
 static void
 caja_information_panel_update_appearance (CajaInformationPanel *information_panel)
 {
+
+#if GTK_CHECK_VERSION(3,0,0)
+    gtk_style_context_add_class (gtk_widget_get_style_context (GTK_WIDGET (information_panel)),
+                                 GTK_STYLE_CLASS_VIEW);
+#else
     EelBackground *background;
     char *background_color;
     char *background_image;
@@ -1102,6 +1107,7 @@ caja_information_panel_update_appearance (CajaInformationPanel *information_pane
     g_signal_handlers_unblock_by_func (background,
                                        G_CALLBACK (background_settings_changed_callback),
                                        information_panel);
+#endif
 }
 
 static void
