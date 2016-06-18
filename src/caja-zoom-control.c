@@ -289,7 +289,11 @@ set_label_size (CajaZoomControl *zoom_control)
 
 static void
 label_style_set_callback (GtkWidget *label,
+#if GTK_CHECK_VERSION (3, 0, 0)
+                          GtkStyleContext *style,
+#else
                           GtkStyle *style,
+#endif
                           gpointer user_data)
 {
     set_label_size (CAJA_ZOOM_CONTROL (user_data));
@@ -318,7 +322,11 @@ caja_zoom_control_init (CajaZoomControl *zoom_control)
 
     image = gtk_image_new_from_icon_name ("zoom-out", GTK_ICON_SIZE_MENU);
     zoom_control->details->zoom_out = gtk_button_new ();
+#if GTK_CHECK_VERSION(3,20,0)
+    gtk_widget_set_focus_on_click (zoom_control->details->zoom_out, FALSE);
+#else
     gtk_button_set_focus_on_click (GTK_BUTTON (zoom_control->details->zoom_out), FALSE);
+#endif
     gtk_button_set_relief (GTK_BUTTON (zoom_control->details->zoom_out),
                            GTK_RELIEF_NONE);
     gtk_widget_set_tooltip_text (zoom_control->details->zoom_out,
@@ -334,7 +342,11 @@ caja_zoom_control_init (CajaZoomControl *zoom_control)
                         zoom_control->details->zoom_out, FALSE, FALSE, 0);
 
     zoom_control->details->zoom_button = gtk_button_new ();
+#if GTK_CHECK_VERSION(3,20,0)
+    gtk_widget_set_focus_on_click (zoom_control->details->zoom_button, FALSE);
+#else
     gtk_button_set_focus_on_click (GTK_BUTTON (zoom_control->details->zoom_button), FALSE);
+#endif
     gtk_button_set_relief (GTK_BUTTON (zoom_control->details->zoom_button),
                            GTK_RELIEF_NONE);
     gtk_widget_set_tooltip_text (zoom_control->details->zoom_button,
@@ -372,7 +384,11 @@ caja_zoom_control_init (CajaZoomControl *zoom_control)
 
     image = gtk_image_new_from_icon_name ("zoom-in", GTK_ICON_SIZE_MENU);
     zoom_control->details->zoom_in = gtk_button_new ();
+#if GTK_CHECK_VERSION(3,20,0)
+    gtk_widget_set_focus_on_click (zoom_control->details->zoom_in, FALSE);
+#else
     gtk_button_set_focus_on_click (GTK_BUTTON (zoom_control->details->zoom_in), FALSE);
+#endif
     gtk_button_set_relief (GTK_BUTTON (zoom_control->details->zoom_in),
                            GTK_RELIEF_NONE);
     gtk_widget_set_tooltip_text (zoom_control->details->zoom_in,

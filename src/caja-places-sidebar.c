@@ -165,8 +165,13 @@ static void  open_selected_bookmark                    (CajaPlacesSidebar       
         GtkTreeModel                 *model,
         GtkTreePath                  *path,
         CajaWindowOpenFlags flags);
-static void  caja_places_sidebar_style_set         (GtkWidget                    *widget,
+
+#if GTK_CHECK_VERSION (3, 0, 0)
+static void  caja_places_sidebar_style_updated         (GtkWidget                    *widget);
+#else
+static void  caja_places_sidebar_style_set             (GtkWidget                    *widget,
         GtkStyle                     *previous_style);
+#endif
 static gboolean eject_or_unmount_bookmark              (CajaPlacesSidebar *sidebar,
         GtkTreePath *path);
 static gboolean eject_or_unmount_selection             (CajaPlacesSidebar *sidebar);
@@ -3388,7 +3393,11 @@ caja_places_sidebar_class_init (CajaPlacesSidebarClass *class)
 {
     G_OBJECT_CLASS (class)->dispose = caja_places_sidebar_dispose;
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GTK_WIDGET_CLASS (class)->style_updated = caja_places_sidebar_style_updated;
+#else
     GTK_WIDGET_CLASS (class)->style_set = caja_places_sidebar_style_set;
+#endif
 }
 
 static const char *
@@ -3476,8 +3485,12 @@ caja_places_sidebar_set_parent_window (CajaPlacesSidebar *sidebar,
 }
 
 static void
+#if GTK_CHECK_VERSION (3, 0, 0)
+caja_places_sidebar_style_updated (GtkWidget *widget)
+#else
 caja_places_sidebar_style_set (GtkWidget *widget,
                                GtkStyle  *previous_style)
+#endif
 {
     CajaPlacesSidebar *sidebar;
 

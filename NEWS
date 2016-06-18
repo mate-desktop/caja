@@ -1,3 +1,16 @@
+Major changes in 1.15.0 are:
+
+* sync with Transiflex
+* remove old gnome files
+* GTK+-3 fm-icon-view: fix a Wincompatible-pointer-types build warning
+* GTK+-3 sidebars and caja-places: port style_set to style_updated
+* GTK+-3 caja-zoom-control: GtkStyle>GtkStyleContext
+* GTK+-3 caja-places-sidebar: use GtkStyleContext
+* GTK+-3 caja-pathbar: remove GtkStyle vars
+* GTK+-3 caja-location-bar: use GtkStyleContext
+* GTK+-3 caja-information-panel: use GtkStyleContext
+* GTK+-3 history sidebar: port to GtkStyleContext
+
 Major changes in 1.14.1 are:
 * prefs dialog: don't crash on toggling "Show hidden and backup files"
 * GTK+-3 theming: add a CSS file for caja, and initialize it at startup

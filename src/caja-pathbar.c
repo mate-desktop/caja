@@ -140,8 +140,12 @@ static void     caja_path_bar_grab_notify              (GtkWidget       *widget,
         gboolean         was_grabbed);
 static void     caja_path_bar_state_changed            (GtkWidget       *widget,
         GtkStateType     previous_state);
+#if GTK_CHECK_VERSION (3, 0, 0)
+static void     caja_path_bar_style_updated            (GtkWidget       *widget);
+#else
 static void     caja_path_bar_style_set                (GtkWidget       *widget,
         GtkStyle        *previous_style);
+#endif
 static void     caja_path_bar_screen_changed           (GtkWidget       *widget,
         GdkScreen       *previous_screen);
 static void     caja_path_bar_check_icon_theme         (CajaPathBar *path_bar);
@@ -158,15 +162,23 @@ get_slider_button (CajaPathBar  *path_bar,
 {
     GtkWidget *button;
 
+#if !GTK_CHECK_VERSION(3,0,0)
     gtk_widget_push_composite_child ();
+#endif
 
     button = gtk_button_new ();
+#if GTK_CHECK_VERSION(3,20,0)
+    gtk_widget_set_focus_on_click (button, FALSE);
+#else
     gtk_button_set_focus_on_click (GTK_BUTTON (button), FALSE);
+#endif
     gtk_container_add (GTK_CONTAINER (button), gtk_arrow_new (arrow_type, GTK_SHADOW_OUT));
     gtk_container_add (GTK_CONTAINER (path_bar), button);
     gtk_widget_show_all (button);
 
+#if !GTK_CHECK_VERSION(3,0,0)
     gtk_widget_pop_composite_child ();
+#endif
 
     return button;
 }
@@ -401,7 +413,11 @@ caja_path_bar_class_init (CajaPathBarClass *path_bar_class)
 #endif
     widget_class->unmap = caja_path_bar_unmap;
     widget_class->size_allocate = caja_path_bar_size_allocate;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    widget_class->style_updated = caja_path_bar_style_updated;
+#else
     widget_class->style_set = caja_path_bar_style_set;
+#endif
     widget_class->screen_changed = caja_path_bar_screen_changed;
     widget_class->grab_notify = caja_path_bar_grab_notify;
     widget_class->state_changed = caja_path_bar_state_changed;
@@ -957,11 +973,19 @@ caja_path_bar_size_allocate (GtkWidget     *widget,
 }
 
 static void
+#if GTK_CHECK_VERSION (3, 0, 0)
+caja_path_bar_style_updated (GtkWidget *widget)
+{
+    if (GTK_WIDGET_CLASS (caja_path_bar_parent_class)->style_updated)
+    {
+        GTK_WIDGET_CLASS (caja_path_bar_parent_class)->style_updated (widget);
+#else
 caja_path_bar_style_set (GtkWidget *widget,	GtkStyle  *previous_style)
 {
     if (GTK_WIDGET_CLASS (caja_path_bar_parent_class)->style_set)
     {
         GTK_WIDGET_CLASS (caja_path_bar_parent_class)->style_set (widget, previous_style);
+#endif
     }
 
     caja_path_bar_check_icon_theme (CAJA_PATH_BAR (widget));
@@ -1997,7 +2021,11 @@ make_directory_button (CajaPathBar  *path_bar,
 
     setup_button_type (button_data, path_bar, path);
     button_data->button = gtk_toggle_button_new ();
+#if GTK_CHECK_VERSION(3,20,0)
+    gtk_widget_set_focus_on_click (button_data->button, FALSE);
+#else
     gtk_button_set_focus_on_click (GTK_BUTTON (button_data->button), FALSE);
+#endif
     /* TODO update button type when xdg directories change */
 
     button_data->drag_info.target_location = g_object_ref (path);
@@ -2193,7 +2221,9 @@ caja_path_bar_update_path (CajaPathBar *path_bar,
 
     file = caja_file_get (file_path);
 
+#if !GTK_CHECK_VERSION(3,0,0)
     gtk_widget_push_composite_child ();
+#endif
 
     while (file != NULL)
     {
@@ -2230,7 +2260,9 @@ caja_path_bar_update_path (CajaPathBar *path_bar,
         gtk_container_add (GTK_CONTAINER (path_bar), button);
     }
 
+#if !GTK_CHECK_VERSION(3,0,0)
     gtk_widget_pop_composite_child ();
+#endif
 
     if (path_bar->current_path != NULL)
     {

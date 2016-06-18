@@ -411,7 +411,11 @@ build_tab_label (CajaNotebook *nb, CajaWindowSlot *slot)
     gtk_button_set_relief (GTK_BUTTON (close_button),
                            GTK_RELIEF_NONE);
     /* don't allow focus on the close button */
+#if GTK_CHECK_VERSION(3,20,0)
+    gtk_widget_set_focus_on_click (close_button, FALSE);
+#else
     gtk_button_set_focus_on_click (GTK_BUTTON (close_button), FALSE);
+#endif
 
     gtk_widget_set_name (close_button, "caja-tab-close-button");
 
