@@ -684,7 +684,7 @@ eel_gdk_pixbuf_draw_to_drawable (const GdkPixbuf *pixbuf,
     target.y1 = target.y0 + MIN (target_height, source_height);
 
 #if !GTK_CHECK_VERSION (3, 0, 0)
-	cr = gdk_cairo_create (drawable);
+	cr = cairo_create (drawable);
 #endif
 	gdk_cairo_set_source_pixbuf (cr, (GdkPixbuf *) pixbuf,
 				     source.x0 - target.x0, source.y0 - target.y0);
