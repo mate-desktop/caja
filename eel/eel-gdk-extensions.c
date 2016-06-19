@@ -594,7 +594,7 @@ eel_gdk_draw_layout_with_drop_shadow (GdkDrawable         *drawable,
                                       PangoLayout         *layout)
 {
     cairo_t *cr;
-    cr = gdk_cairo_create (drawable);
+    cr = cairo_create (drawable);
 
     gdk_cairo_set_source_color (cr, shadow_color);
     cairo_move_to (cr, x+1, y+1);
