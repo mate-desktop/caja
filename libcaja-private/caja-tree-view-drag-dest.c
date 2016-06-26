@@ -102,7 +102,11 @@ gtk_tree_view_vertical_autoscroll (GtkTreeView *tree_view)
 {
     GdkRectangle visible_rect;
     GtkAdjustment *vadjustment;
-#if GTK_CHECK_VERSION(3, 0, 0)
+#if GTK_CHECK_VERSION (3, 20, 0)
+    GdkDisplay *display;
+    GdkSeat *seat;
+    GdkDevice *pointer;
+#elif GTK_CHECK_VERSION(3, 0, 0)
     GdkDeviceManager *manager;
     GdkDevice *pointer;
 #endif
@@ -113,7 +117,15 @@ gtk_tree_view_vertical_autoscroll (GtkTreeView *tree_view)
 
     window = gtk_tree_view_get_bin_window (tree_view);
 
-#if GTK_CHECK_VERSION(3, 0, 0)
+#if GTK_CHECK_VERSION (3, 20, 0)
+    vadjustment = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE(tree_view));
+
+    display = gtk_widget_get_display (GTK_WIDGET (tree_view));
+    seat = gdk_display_get_default_seat (display);
+    pointer = gdk_seat_get_pointer (seat);
+    gdk_window_get_device_position (window, pointer,
+                                    NULL, &y, NULL);
+#elif GTK_CHECK_VERSION(3, 0, 0)
     vadjustment = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE(tree_view));
 
     manager = gdk_display_get_device_manager (gtk_widget_get_display (GTK_WIDGET (tree_view)));
