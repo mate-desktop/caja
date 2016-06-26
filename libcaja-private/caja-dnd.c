@@ -957,7 +957,11 @@ void
 caja_drag_autoscroll_calculate_delta (GtkWidget *widget, float *x_scroll_delta, float *y_scroll_delta)
 {
     GtkAllocation allocation;
-#if GTK_CHECK_VERSION (3, 0, 0)
+#if GTK_CHECK_VERSION (3, 20, 0)
+    GdkDisplay *display;
+    GdkSeat *seat;
+    GdkDevice *pointer;
+#elif GTK_CHECK_VERSION (3, 0, 0)
     GdkDeviceManager *manager;
     GdkDevice *pointer;
 #endif
@@ -965,7 +969,13 @@ caja_drag_autoscroll_calculate_delta (GtkWidget *widget, float *x_scroll_delta, 
 
     g_assert (GTK_IS_WIDGET (widget));
 
-#if GTK_CHECK_VERSION (3, 0, 0)
+#if GTK_CHECK_VERSION (3, 20, 0)
+    display = gtk_widget_get_display (widget);
+    seat = gdk_display_get_default_seat (display);
+    pointer = gdk_seat_get_pointer (seat);
+    gdk_window_get_device_position (gtk_widget_get_window (widget), pointer,
+                                    &x, &y, NULL);
+#elif GTK_CHECK_VERSION (3, 0, 0)
     manager = gdk_display_get_device_manager (gtk_widget_get_display (widget));
     pointer = gdk_device_manager_get_client_pointer (manager);
     gdk_window_get_device_position (gtk_widget_get_window (widget), pointer,
