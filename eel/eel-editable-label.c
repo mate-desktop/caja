@@ -210,7 +210,11 @@ static void     editable_real_set_position    (GtkEditable *editable,
         gint         position);
 static gint     editable_get_position         (GtkEditable *editable);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+G_DEFINE_TYPE_WITH_CODE (EelEditableLabel, eel_editable_label, GTK_TYPE_WIDGET,
+#else
 G_DEFINE_TYPE_WITH_CODE (EelEditableLabel, eel_editable_label, GTK_TYPE_MISC,
+#endif
                          G_IMPLEMENT_INTERFACE (GTK_TYPE_EDITABLE, eel_editable_label_editable_init));
 
 static void
@@ -1324,12 +1328,32 @@ eel_editable_label_direction_changed (GtkWidget        *widget,
     GTK_WIDGET_CLASS (eel_editable_label_parent_class)->direction_changed (widget, previous_dir);
 }
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+static gfloat
+gtk_align_to_gfloat (GtkAlign align)
+{
+	switch (align) {
+		case GTK_ALIGN_START:
+			return 0.0;
+		case GTK_ALIGN_END:
+			return 1.0;
+		case GTK_ALIGN_CENTER:
+		case GTK_ALIGN_FILL:
+			return 0.5;
+		default:
+			return 0.0;
+	}
+}
+#endif
+
 static void
 get_layout_location (EelEditableLabel  *label,
                      gint      *xp,
                      gint      *yp)
 {
+#if !GTK_CHECK_VERSION (3, 0, 0)
     GtkMisc *misc;
+#endif
     GtkWidget *widget;
     gfloat xalign, yalign;
     GtkRequisition req;
@@ -1339,9 +1363,16 @@ get_layout_location (EelEditableLabel  *label,
 #endif
     GtkAllocation allocation;
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
     misc = GTK_MISC (label);
+#endif
     widget = GTK_WIDGET (label);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    xalign = gtk_align_to_gfloat (gtk_widget_get_halign (widget));
+    yalign = gtk_align_to_gfloat (gtk_widget_get_valign (widget));
+#else
     gtk_misc_get_alignment (misc, &xalign, &yalign);
+#endif
 
     if (gtk_widget_get_direction (widget) != GTK_TEXT_DIR_LTR)
         xalign = 1.0 - xalign;
@@ -1360,6 +1391,15 @@ get_layout_location (EelEditableLabel  *label,
 #endif
 
     gtk_widget_get_allocation (widget, &allocation);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    x = floor (0.5 + xpad
+               + ((allocation.width - req.width) * xalign)
+               + 0.5);
+
+    y = floor (0.5 + ypad
+               + ((allocation.height - req.height) * yalign)
+               + 0.5);
+#else
     x = floor (xpad
                + ((allocation.width - req.width) * xalign)
                + 0.5);
@@ -1367,6 +1407,7 @@ get_layout_location (EelEditableLabel  *label,
     y = floor (ypad
                + ((allocation.height - req.height) * yalign)
                + 0.5);
+#endif
 
     if (xp)
         *xp = x;
