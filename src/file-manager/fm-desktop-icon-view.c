@@ -322,7 +322,37 @@ fm_desktop_icon_view_handle_middle_click (CajaIconContainer *icon_container,
         FMDesktopIconView *desktop_icon_view)
 {
     XButtonEvent x_event;
-#if GTK_CHECK_VERSION (3, 0, 0)
+#if GTK_CHECK_VERSION (3, 20, 0)
+    GdkDevice *keyboard = NULL, *pointer = NULL, *cur;
+    GdkSeat *seat;
+
+    seat = gdk_display_get_default_seat (gtk_widget_get_display (GTK_WIDGET (icon_container)));
+    pointer = gdk_seat_get_pointer (seat);
+    keyboard = gdk_seat_get_keyboard (seat);
+
+    {
+        if (pointer == NULL && (gdk_device_get_source (cur) == GDK_SOURCE_MOUSE)) {
+                pointer = cur;
+        }
+
+        if (keyboard == NULL && (gdk_device_get_source (cur) == GDK_SOURCE_KEYBOARD)) {
+                keyboard = cur;
+        }
+    }
+
+    /* During a mouse click we have the pointer and keyboard grab.
+     * We will send a fake event to the root window which will cause it
+     * to try to get the grab so we need to let go ourselves.
+     */
+
+    if (pointer != NULL) {
+            gdk_seat_ungrab (seat);
+    }
+
+    if (keyboard != NULL) {
+            gdk_seat_ungrab (seat);
+    }
+#elif GTK_CHECK_VERSION(3, 0, 0)
     GdkDevice *keyboard = NULL, *pointer = NULL, *cur;
     GdkDeviceManager *manager;
     GList *list, *l;
