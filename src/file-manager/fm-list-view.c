@@ -2517,7 +2517,9 @@ create_column_editor (FMListView *view)
     GtkWidget *label;
     GtkWidget *box;
     GtkWidget *column_chooser;
+#if !GTK_CHECK_VERSION (3, 0, 0)
     GtkWidget *alignment;
+#endif
     CajaFile *file;
     char *str;
     char *name;
@@ -2560,6 +2562,12 @@ create_column_editor (FMListView *view)
 
     g_free (str);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    column_chooser = caja_column_chooser_new (file);
+    gtk_widget_set_margin_start (column_chooser, 12);
+    gtk_widget_show (column_chooser);
+    gtk_box_pack_start (GTK_BOX (box), column_chooser, TRUE, TRUE, 0);
+#else
     alignment = gtk_alignment_new (0.5, 0.5, 1, 1);
     gtk_alignment_set_padding (GTK_ALIGNMENT (alignment),
                                0, 0, 12, 0);
@@ -2569,6 +2577,7 @@ create_column_editor (FMListView *view)
     column_chooser = caja_column_chooser_new (file);
     gtk_widget_show (column_chooser);
     gtk_container_add (GTK_CONTAINER (alignment), column_chooser);
+#endif
 
     g_signal_connect (column_chooser, "changed",
                       G_CALLBACK (column_chooser_changed_callback),
