@@ -1600,11 +1600,21 @@ caja_icon_dnd_begin_drag (CajaIconContainer *container,
     	gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container)));	
 
     /* start the drag */
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_drag_begin_with_coordinates (GTK_WIDGET (container),
+                                    dnd_info->drag_info.target_list,
+                                    actions,
+                                    button,
+                                    (GdkEvent *) event,
+                                    dnd_info->drag_info.start_x,
+                                    dnd_info->drag_info.start_y);
+#else
     gtk_drag_begin (GTK_WIDGET (container),
                     dnd_info->drag_info.target_list,
                     actions,
                     button,
                     (GdkEvent *) event);
+#endif
 }
 
 static gboolean
