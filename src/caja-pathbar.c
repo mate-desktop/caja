@@ -1703,12 +1703,20 @@ caja_path_bar_update_button_appearance (ButtonData *button_data)
             if (pixbuf != NULL)
             {
                 gtk_image_set_from_pixbuf (GTK_IMAGE (button_data->image), pixbuf);
+#if GTK_CHECK_VERSION(3,0,0)
+                gtk_style_context_add_class (gtk_widget_get_style_context (button_data->button),
+                                             "image-button");
+#endif
                 gtk_widget_show (GTK_WIDGET (button_data->image));
                 g_object_unref (pixbuf);
             }
             else
             {
                 gtk_widget_hide (GTK_WIDGET (button_data->image));
+#if GTK_CHECK_VERSION(3,0,0)
+                gtk_style_context_remove_class (gtk_widget_get_style_context (button_data->button),
+                                                "image-button");
+#endif
             }
         }
     }
