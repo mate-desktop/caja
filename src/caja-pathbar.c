@@ -159,15 +159,12 @@ static gboolean caja_path_bar_update_path              (CajaPathBar *path_bar,
         GFile           *file_path,
         gboolean         emit_signal);
 
+#if GTK_CHECK_VERSION(3,0,0)
 static GtkWidget *
 get_slider_button (CajaPathBar  *path_bar,
-                   GtkArrowType arrow_type)
+                   const gchar  *arrow_type)
 {
     GtkWidget *button;
-
-#if !GTK_CHECK_VERSION(3,0,0)
-    gtk_widget_push_composite_child ();
-#endif
 
     button = gtk_button_new ();
 #if GTK_CHECK_VERSION(3,20,0)
@@ -175,16 +172,33 @@ get_slider_button (CajaPathBar  *path_bar,
 #else
     gtk_button_set_focus_on_click (GTK_BUTTON (button), FALSE);
 #endif
+    gtk_container_add (GTK_CONTAINER (button),
+                       gtk_image_new_from_icon_name (arrow_type, GTK_ICON_SIZE_MENU));
+    gtk_container_add (GTK_CONTAINER (path_bar), button);
+    gtk_widget_show_all (button);
+
+    return button;
+}
+#else
+static GtkWidget *
+get_slider_button (CajaPathBar  *path_bar,
+                   GtkArrowType arrow_type)
+{
+    GtkWidget *button;
+
+    gtk_widget_push_composite_child ();
+
+    button = gtk_button_new ();
+    gtk_button_set_focus_on_click (GTK_BUTTON (button), FALSE);
     gtk_container_add (GTK_CONTAINER (button), gtk_arrow_new (arrow_type, GTK_SHADOW_OUT));
     gtk_container_add (GTK_CONTAINER (path_bar), button);
     gtk_widget_show_all (button);
 
-#if !GTK_CHECK_VERSION(3,0,0)
     gtk_widget_pop_composite_child ();
-#endif
 
     return button;
 }
+#endif
 
 static void
 update_button_types (CajaPathBar *path_bar)
@@ -338,8 +352,13 @@ caja_path_bar_init (CajaPathBar *path_bar)
     gtk_widget_set_redraw_on_allocate (GTK_WIDGET (path_bar), FALSE);
 
     path_bar->spacing = 3;
+#if GTK_CHECK_VERSION(3, 0, 0)
+    path_bar->up_slider_button = get_slider_button (path_bar, "pan-start-symbolic");
+    path_bar->down_slider_button = get_slider_button (path_bar, "pan-end-symbolic");
+#else
     path_bar->up_slider_button = get_slider_button (path_bar, GTK_ARROW_LEFT);
     path_bar->down_slider_button = get_slider_button (path_bar, GTK_ARROW_RIGHT);
+#endif
     path_bar->icon_size = CAJA_PATH_BAR_ICON_SIZE;
 
     p = caja_get_desktop_directory ();
