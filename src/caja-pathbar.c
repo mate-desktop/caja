@@ -90,7 +90,9 @@ struct _ButtonData
 
     GtkWidget *image;
     GtkWidget *label;
+#if !GTK_CHECK_VERSION (3, 0, 0)
     GtkWidget *alignment;
+#endif
     guint ignore_changes : 1;
     guint file_is_hidden : 1;
     guint fake_root : 1;
@@ -1589,7 +1591,7 @@ set_label_size_request (ButtonData *button_data)
 
     pango_layout_get_pixel_size (layout, &bold_width, &bold_height);
 
-    gtk_widget_set_size_request (button_data->alignment,
+    gtk_widget_set_size_request (button_data->label,
         			 MAX (width, bold_width),
         			 MAX (height, bold_height));
     
@@ -2059,11 +2061,9 @@ make_directory_button (CajaPathBar  *path_bar,
     case DEFAULT_LOCATION_BUTTON:
         button_data->label = gtk_label_new (NULL);
 #if GTK_CHECK_VERSION(3,0,0)
-        button_data->alignment = gtk_alignment_new (0.5, 0.5, 1.0, 1.0);
-        gtk_container_add (GTK_CONTAINER (button_data->alignment), button_data->label);
         child = gtk_hbox_new (FALSE, 2);
         gtk_box_pack_start (GTK_BOX (child), button_data->image, FALSE, FALSE, 0);
-        gtk_box_pack_start (GTK_BOX (child), button_data->alignment, FALSE, FALSE, 0);
+        gtk_box_pack_start (GTK_BOX (child), button_data->label, FALSE, FALSE, 0);
 #else
         label_alignment = gtk_alignment_new (0.5, 0.5, 1.0, 1.0);
         gtk_container_add (GTK_CONTAINER (label_alignment), button_data->label);
@@ -2076,11 +2076,9 @@ make_directory_button (CajaPathBar  *path_bar,
     default:
         button_data->label = gtk_label_new (NULL);
 #if GTK_CHECK_VERSION(3,0,0)
-        button_data->alignment = gtk_alignment_new (0.5, 0.5, 1.0, 1.0);
-        gtk_container_add (GTK_CONTAINER (button_data->alignment), button_data->label);
         child = gtk_hbox_new (FALSE, 2);
         gtk_box_pack_start (GTK_BOX (child), button_data->image, FALSE, FALSE, 0);
-        gtk_box_pack_start (GTK_BOX (child), button_data->alignment, FALSE, FALSE, 0);
+        gtk_box_pack_start (GTK_BOX (child), button_data->label, FALSE, FALSE, 0);
 #else
         label_alignment = gtk_alignment_new (0.5, 0.5, 1.0, 1.0);
         gtk_container_add (GTK_CONTAINER (label_alignment), button_data->label);
