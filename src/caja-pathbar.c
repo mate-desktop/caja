@@ -355,6 +355,10 @@ caja_path_bar_init (CajaPathBar *path_bar)
 #if GTK_CHECK_VERSION(3, 0, 0)
     path_bar->up_slider_button = get_slider_button (path_bar, "pan-start-symbolic");
     path_bar->down_slider_button = get_slider_button (path_bar, "pan-end-symbolic");
+    gtk_style_context_add_class (gtk_widget_get_style_context (GTK_WIDGET (path_bar->up_slider_button)),
+                                 "slider-button");
+    gtk_style_context_add_class (gtk_widget_get_style_context (GTK_WIDGET (path_bar->down_slider_button)),
+                                 "slider-button");
 #else
     path_bar->up_slider_button = get_slider_button (path_bar, GTK_ARROW_LEFT);
     path_bar->down_slider_button = get_slider_button (path_bar, GTK_ARROW_RIGHT);
