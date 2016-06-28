@@ -90,6 +90,7 @@ struct _ButtonData
 
     GtkWidget *image;
     GtkWidget *label;
+    GtkWidget *alignment;
     guint ignore_changes : 1;
     guint file_is_hidden : 1;
     guint fake_root : 1;
@@ -1572,8 +1573,7 @@ get_dir_name (ButtonData *button_data)
  */
 #if GTK_CHECK_VERSION(3,0,0)
 static void
-set_label_size_request (GtkWidget       *alignment,
-    			ButtonData      *button_data)
+set_label_size_request (ButtonData *button_data)
 {
     const gchar *dir_name = get_dir_name (button_data);
     PangoLayout *layout;
@@ -1589,7 +1589,7 @@ set_label_size_request (GtkWidget       *alignment,
 
     pango_layout_get_pixel_size (layout, &bold_width, &bold_height);
 
-    gtk_widget_set_size_request (alignment,
+    gtk_widget_set_size_request (button_data->alignment,
         			 MAX (width, bold_width),
         			 MAX (height, bold_height));
     
@@ -1645,6 +1645,17 @@ caja_path_bar_update_button_appearance (ButtonData *button_data)
             gtk_label_set_text (GTK_LABEL (button_data->label), dir_name);
         }
     }
+
+#if GTK_CHECK_VERSION(3,0,0)
+    /* FIXME: Maybe we dont need this alignment at all and we can
+     * use GtkMisc aligments or even GtkWidget:halign/valign center.
+     *
+     * The following function ensures that the alignment will always
+     * request the same size whether the button's text is bold or not.
+     */
+    set_label_size_request (button_data);
+#endif
+
 
     if (button_data->image != NULL)
     {
@@ -2007,13 +2018,17 @@ make_directory_button (CajaPathBar  *path_bar,
 {
     GFile *path;
     GtkWidget *child;
+#if !GTK_CHECK_VERSION(3,0,0)
     GtkWidget *label_alignment;
+#endif
     ButtonData *button_data;
 
     path = caja_file_get_location (file);
 
     child = NULL;
+#if !GTK_CHECK_VERSION(3,0,0)
     label_alignment = NULL;
+#endif
 
     file_is_hidden = !! file_is_hidden;
     /* Is it a special button? */
@@ -2043,20 +2058,36 @@ make_directory_button (CajaPathBar  *path_bar,
     case MOUNT_BUTTON:
     case DEFAULT_LOCATION_BUTTON:
         button_data->label = gtk_label_new (NULL);
+#if GTK_CHECK_VERSION(3,0,0)
+        button_data->alignment = gtk_alignment_new (0.5, 0.5, 1.0, 1.0);
+        gtk_container_add (GTK_CONTAINER (button_data->alignment), button_data->label);
+        child = gtk_hbox_new (FALSE, 2);
+        gtk_box_pack_start (GTK_BOX (child), button_data->image, FALSE, FALSE, 0);
+        gtk_box_pack_start (GTK_BOX (child), button_data->alignment, FALSE, FALSE, 0);
+#else
         label_alignment = gtk_alignment_new (0.5, 0.5, 1.0, 1.0);
         gtk_container_add (GTK_CONTAINER (label_alignment), button_data->label);
         child = gtk_hbox_new (FALSE, 2);
         gtk_box_pack_start (GTK_BOX (child), button_data->image, FALSE, FALSE, 0);
         gtk_box_pack_start (GTK_BOX (child), label_alignment, FALSE, FALSE, 0);
+#endif
         break;
     case NORMAL_BUTTON:
     default:
         button_data->label = gtk_label_new (NULL);
+#if GTK_CHECK_VERSION(3,0,0)
+        button_data->alignment = gtk_alignment_new (0.5, 0.5, 1.0, 1.0);
+        gtk_container_add (GTK_CONTAINER (button_data->alignment), button_data->label);
+        child = gtk_hbox_new (FALSE, 2);
+        gtk_box_pack_start (GTK_BOX (child), button_data->image, FALSE, FALSE, 0);
+        gtk_box_pack_start (GTK_BOX (child), button_data->alignment, FALSE, FALSE, 0);
+#else
         label_alignment = gtk_alignment_new (0.5, 0.5, 1.0, 1.0);
         gtk_container_add (GTK_CONTAINER (label_alignment), button_data->label);
         child = gtk_hbox_new (FALSE, 2);
         gtk_box_pack_start (GTK_BOX (child), button_data->image, FALSE, FALSE, 0);
         gtk_box_pack_start (GTK_BOX (child), label_alignment, FALSE, FALSE, 0);
+#endif
         button_data->is_base_dir = base_dir;
     }
 
@@ -2092,18 +2123,6 @@ make_directory_button (CajaPathBar  *path_bar,
     }
 
     button_data->file_is_hidden = file_is_hidden;
-
-#if GTK_CHECK_VERSION(3,0,0)
-    /* FIXME: Maybe we dont need this alignment at all and we can
-     * use GtkMisc aligments or even GtkWidget:halign/valign center.
-     *
-     * The following function ensures that the alignment will always
-     * request the same size whether the button's text is bold or not.
-     */
-    if (label_alignment) {
-        set_label_size_request (label_alignment, button_data);
-    }
-#endif
 
     gtk_container_add (GTK_CONTAINER (button_data->button), child);
     gtk_widget_show_all (button_data->button);
