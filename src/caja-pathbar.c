@@ -936,7 +936,7 @@ caja_path_bar_size_allocate (GtkWidget     *widget,
             child_allocation.x -= path_bar->spacing;
             down_slider_offset = child_allocation.x - widget_allocation.x - path_bar->slider_width;
 #if GTK_CHECK_VERSION(3,0,0)
-            down_slider_offset = 0;
+            down_slider_offset = child_allocation.x - allocation->x - path_bar->slider_width;
 #else
             down_slider_offset = border_width;
 #endif
@@ -945,7 +945,7 @@ caja_path_bar_size_allocate (GtkWidget     *widget,
         {
             down_slider_offset = child_allocation.x - widget_allocation.x;
 #if GTK_CHECK_VERSION(3,0,0)
-            down_slider_offset = allocation->width - path_bar->slider_width;
+            down_slider_offset += child_allocation.width + path_bar->spacing;
 #else
             down_slider_offset = allocation->width - border_width - path_bar->slider_width;
 #endif
@@ -971,7 +971,6 @@ caja_path_bar_size_allocate (GtkWidget     *widget,
 
         gtk_widget_set_child_visible (path_bar->up_slider_button, TRUE);
         gtk_widget_show_all (path_bar->up_slider_button);
-
     }
     else
     {
