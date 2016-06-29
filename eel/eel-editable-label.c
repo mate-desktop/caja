@@ -1694,7 +1694,7 @@ eel_editable_label_draw_cursor (EelEditableLabel  *label, gint xoffset, gint yof
         {
             cairo_region_t *clip;
 
-            cairo_t *cr = gdk_cairo_create (gtk_widget_get_window (widget));
+            cairo_t *cr = cairo_create (gtk_widget_get_window (widget));
 
             cairo_set_source_rgb (cr, 0, 0, 0);
             cairo_rectangle (cr,
@@ -1888,7 +1888,7 @@ eel_editable_label_expose (GtkWidget      *widget,
         					     range,
         					     1);
 
-            cairo_t *cr = gdk_cairo_create (gtk_widget_get_window (widget));
+            cairo_t *cr = cairo_create (gtk_widget_get_window (widget));
             gdk_cairo_region (cr, clip);
             cairo_clip (cr);
 
@@ -1915,7 +1915,7 @@ eel_editable_label_expose (GtkWidget      *widget,
             GtkAllocation allocation;
 
             gtk_widget_get_allocation (widget, &allocation);
-            cairo_t *cr = gdk_cairo_create (gtk_widget_get_window (widget));
+            cairo_t *cr = cairo_create (gtk_widget_get_window (widget));
             gdk_cairo_set_source_color (cr, &style->text [gtk_widget_get_state (widget)]);
             cairo_set_line_width (cr, 1.0);
             cairo_rectangle (cr, 0.5, 0.5, 
