@@ -397,7 +397,7 @@ eel_background_draw (GtkWidget *widget,
 #  if GTK_CHECK_VERSION(3,0,0)
     cairo_save (cr);
 #  else
-    cairo_t *cr = gdk_cairo_create (window);
+    cairo_t *cr = cairo_create (window);
 #  endif
 
     if (self->details->bg_surface != NULL) {
