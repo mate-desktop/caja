@@ -3046,7 +3046,7 @@ paint_used_legend (GtkWidget *widget,
 	window = FM_PROPERTIES_WINDOW (data);
 
 #if !GTK_CHECK_VERSION(3,0,0)
-	cairo_t *cr = gdk_cairo_create (gtk_widget_get_window (widget));
+	cairo_t *cr = cairo_create (gtk_widget_get_window (widget));
 #endif
 
 	cairo_rectangle  (cr,
@@ -3096,7 +3096,7 @@ paint_free_legend (GtkWidget *widget,
   	width  = allocation.width;
   	height = allocation.height;
 #if !GTK_CHECK_VERSION(3,0,0)
-  	cairo_t *cr = gdk_cairo_create (gtk_widget_get_window (widget));
+  	cairo_t *cr = cairo_create (gtk_widget_get_window (widget));
 #endif
 
 	cairo_rectangle (cr,
@@ -3161,7 +3161,7 @@ paint_pie_chart (GtkWidget *widget,
 	yc = height / 2;
 
 #if !GTK_CHECK_VERSION(3,0,0)
-  	cairo_t *cr = gdk_cairo_create (gtk_widget_get_window (widget));
+  	cairo_t *cr = cairo_create (gtk_widget_get_window (widget));
 #endif
 
 	if (width < height) {
