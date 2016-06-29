@@ -22,7 +22,6 @@ EXTRA_DIST = \
 	intltool-merge.in \
 	intltool-update.in \
 	Makefile.shared \
-	add-include-prefix \
 	$(NULL)
 
 DISTCLEANFILES = \

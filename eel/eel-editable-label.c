@@ -1167,6 +1167,9 @@ eel_editable_label_size_request (GtkWidget      *widget,
 #else
     gfloat xpad, ypad;
 #endif
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gint margin_start, margin_end, margin_top, margin_bottom;
+#endif
 
     g_assert (EEL_IS_EDITABLE_LABEL (widget));
     g_assert (requisition != NULL);
@@ -1192,8 +1195,13 @@ eel_editable_label_size_request (GtkWidget      *widget,
     eel_editable_label_ensure_layout (label, TRUE);
 
 #if GTK_CHECK_VERSION(3,0,0)
-    gtk_misc_get_padding (&label->misc,
-                          &xpad, &ypad);
+    margin_start = gtk_widget_get_margin_start (widget);
+    margin_end = gtk_widget_get_margin_end (widget);
+    margin_top = gtk_widget_get_margin_top (widget);
+    margin_bottom = gtk_widget_get_margin_bottom (widget);
+
+    xpad = margin_start + margin_end;
+    ypad = margin_top + margin_bottom;
 #else
     gtk_misc_get_alignment (&label->misc,
                             &xpad, &ypad);
@@ -1326,6 +1334,9 @@ get_layout_location (EelEditableLabel  *label,
     gfloat xalign, yalign;
     GtkRequisition req;
     gint x, y, xpad, ypad;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gint margin_start, margin_end, margin_top, margin_bottom;
+#endif
     GtkAllocation allocation;
 
     misc = GTK_MISC (label);
@@ -1336,7 +1347,17 @@ get_layout_location (EelEditableLabel  *label,
         xalign = 1.0 - xalign;
 
     gtk_widget_get_preferred_size (widget, &req, NULL);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    margin_start = gtk_widget_get_margin_start (widget);
+    margin_end = gtk_widget_get_margin_end (widget);
+    margin_top = gtk_widget_get_margin_top (widget);
+    margin_bottom = gtk_widget_get_margin_bottom (widget);
+
+    xpad = margin_start + margin_end;
+    ypad = margin_top + margin_bottom;
+#else
     gtk_misc_get_padding (misc, &xpad, &ypad);
+#endif
 
     gtk_widget_get_allocation (widget, &allocation);
     x = floor (xpad

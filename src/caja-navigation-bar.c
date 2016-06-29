@@ -46,7 +46,7 @@ static guint signals[LAST_SIGNAL] = { 0 };
 static void caja_navigation_bar_class_init (CajaNavigationBarClass *class);
 static void caja_navigation_bar_init       (CajaNavigationBar      *bar);
 
-EEL_CLASS_BOILERPLATE (CajaNavigationBar, caja_navigation_bar, GTK_TYPE_HBOX)
+EEL_CLASS_BOILERPLATE (CajaNavigationBar, caja_navigation_bar, GTK_TYPE_BOX)
 
 EEL_IMPLEMENT_MUST_OVERRIDE_SIGNAL (caja_navigation_bar, get_location)
 EEL_IMPLEMENT_MUST_OVERRIDE_SIGNAL (caja_navigation_bar, set_location)
@@ -99,6 +99,7 @@ caja_navigation_bar_class_init (CajaNavigationBarClass *klass)
 static void
 caja_navigation_bar_init (CajaNavigationBar *bar)
 {
+    gtk_orientable_set_orientation (GTK_ORIENTABLE (bar), GTK_ORIENTATION_VERTICAL);
 }
 
 /**
