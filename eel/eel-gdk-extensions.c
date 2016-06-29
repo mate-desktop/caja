@@ -414,23 +414,7 @@ eel_gdk_rgba_to_rgb (const GdkRGBA *color)
                              (guint) (color->green * 65535),
                              (guint) (color->blue * 65535));
 }
-#else
-/**
- * eel_gdk_color_to_rgb
- * @color: A GdkColor style color.
- * Returns: An rgb value.
- *
- * Converts from a GdkColor style color to a gdk_rgb one.
- * Alpha gets set to fully opaque
- */
-guint32
-eel_gdk_color_to_rgb (const GdkColor *color)
-{
-    return eel_rgb16_to_rgb (color->red, color->green, color->blue);
-}
-#endif
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 /**
  * eel_gdk_rgb_to_rgba
  * @color: a gdk_rgb style value.
@@ -448,7 +432,24 @@ eel_gdk_rgb_to_rgba (guint32 color)
     result.red = ((color >> 16) & 0xFF) / 0xFF;
     result.green = ((color >> 8) & 0xFF) / 0xFF;
     result.blue = (color & 0xff) / 0xFF;
+
+    return result;
+}
 #else
+/**
+ * eel_gdk_color_to_rgb
+ * @color: A GdkColor style color.
+ * Returns: An rgb value.
+ *
+ * Converts from a GdkColor style color to a gdk_rgb one.
+ * Alpha gets set to fully opaque
+ */
+guint32
+eel_gdk_color_to_rgb (const GdkColor *color)
+{
+    return eel_rgb16_to_rgb (color->red, color->green, color->blue);
+}
+
 /**
  * eel_gdk_rgb_to_color
  * @color: a gdk_rgb style value.
@@ -467,10 +468,10 @@ eel_gdk_rgb_to_color (guint32 color)
     result.green = ((color >> 8) & 0xFF) * 0x101;
     result.blue = (color & 0xff) * 0x101;
     result.pixel = 0;
-#endif
 
     return result;
 }
+#endif
 
 /**
  * eel_gdk_rgb_to_color_spec
@@ -565,8 +566,8 @@ eel_gdk_parse_geometry (const char *string, int *x_return, int *y_return,
     return gdk_flags;
 }
 
-void
 #if GTK_CHECK_VERSION(3,0,0)
+void
 eel_cairo_draw_layout_with_drop_shadow (cairo_t            *cr,
                                         GdkRGBA            *text_color,
                                         GdkRGBA            *shadow_color,
@@ -585,7 +586,9 @@ eel_cairo_draw_layout_with_drop_shadow (cairo_t            *cr,
     pango_cairo_show_layout (cr, layout);
 
     cairo_restore (cr);
+}
 #else
+void
 eel_gdk_draw_layout_with_drop_shadow (GdkDrawable         *drawable,
                                       GdkColor            *text_color,
                                       GdkColor            *shadow_color,
@@ -605,8 +608,8 @@ eel_gdk_draw_layout_with_drop_shadow (GdkDrawable         *drawable,
     pango_cairo_show_layout (cr, layout);
 
     cairo_destroy (cr);
-#endif
 }
+#endif
 
 #if GTK_CHECK_VERSION(3,0,0)
 #define CLAMP_COLOR(v) (t = (v), CLAMP (t, 0, 1))

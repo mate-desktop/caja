@@ -258,14 +258,11 @@ eel_bg_get_desktop_color (EelBackground *self)
     return color_spec;
 }
 
+#if GTK_CHECK_VERSION (3, 0, 0)
 static void
 set_image_properties (EelBackground *self)
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
     GdkRGBA c;
-#else
-    GdkColor c;
-#endif
 
     if (self->details->is_desktop && !self->details->color)
         self->details->color = eel_bg_get_desktop_color (self);
@@ -278,39 +275,22 @@ set_image_properties (EelBackground *self)
     }
     else if (!eel_gradient_is_gradient (self->details->color))
     {
-#if GTK_CHECK_VERSION (3, 0, 0)
         eel_gdk_rgba_parse_with_white_default (&c, self->details->color);
-#else
-        eel_gdk_color_parse_with_white_default (self->details->color, &c);
-#endif
         make_color_inactive (self, &c);
         mate_bg_set_color (self->details->bg, MATE_BG_COLOR_SOLID, &c, NULL);
     }
     else
     {
-#if GTK_CHECK_VERSION (3, 0, 0)
         GdkRGBA c1, c2;
-#else
-        GdkColor c1, c2;
-#endif
         char *spec;
 
         spec = eel_gradient_get_start_color_spec (self->details->color);
-#if GTK_CHECK_VERSION (3, 0, 0)
         eel_gdk_rgba_parse_with_white_default (&c1, spec);
         make_color_inactive (self, &c1);
         g_free (spec);
 
         spec = eel_gradient_get_end_color_spec (self->details->color);
         eel_gdk_rgba_parse_with_white_default (&c2, spec);
-#else
-        eel_gdk_color_parse_with_white_default (spec, &c1);
-        make_color_inactive (self, &c1);
-        g_free (spec);
-
-        spec = eel_gradient_get_end_color_spec (self->details->color);
-        eel_gdk_color_parse_with_white_default (spec, &c2);
-#endif
         make_color_inactive (self, &c2);
         g_free (spec);
 
@@ -321,6 +301,51 @@ set_image_properties (EelBackground *self)
         }
     }
 }
+#else
+static void
+set_image_properties (EelBackground *self)
+{
+    GdkColor c;
+
+    if (self->details->is_desktop && !self->details->color)
+        self->details->color = eel_bg_get_desktop_color (self);
+
+    if (!self->details->color)
+    {
+        c = self->details->default_color;
+        make_color_inactive (self, &c);
+        mate_bg_set_color (self->details->bg, MATE_BG_COLOR_SOLID, &c, NULL);
+    }
+    else if (!eel_gradient_is_gradient (self->details->color))
+    {
+        eel_gdk_color_parse_with_white_default (self->details->color, &c);
+        make_color_inactive (self, &c);
+        mate_bg_set_color (self->details->bg, MATE_BG_COLOR_SOLID, &c, NULL);
+    }
+    else
+    {
+        GdkColor c1, c2;
+        char *spec;
+
+        spec = eel_gradient_get_start_color_spec (self->details->color);
+        eel_gdk_color_parse_with_white_default (spec, &c1);
+        make_color_inactive (self, &c1);
+        g_free (spec);
+
+        spec = eel_gradient_get_end_color_spec (self->details->color);
+        eel_gdk_color_parse_with_white_default (spec, &c2);
+        make_color_inactive (self, &c2);
+        g_free (spec);
+
+        if (eel_gradient_is_horizontal (self->details->color)) {
+            mate_bg_set_color (self->details->bg, MATE_BG_COLOR_H_GRADIENT, &c1, &c2);
+        } else {
+            mate_bg_set_color (self->details->bg, MATE_BG_COLOR_V_GRADIENT, &c1, &c2);
+        }
+    }
+}
+#endif
+
 
 gchar *
 eel_background_get_color (EelBackground *self)
