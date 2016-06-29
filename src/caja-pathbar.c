@@ -588,7 +588,7 @@ caja_path_bar_get_preferred_width (GtkWidget *widget,
      */
     path_bar->slider_width = MIN (height * 2 / 3 + 5, height);
 
-    if (path_bar->button_list && path_bar->button_list->next != NULL) {
+    if (path_bar->button_list) {
     	*minimum += (path_bar->spacing + path_bar->slider_width) * 2;
     	*natural += (path_bar->spacing + path_bar->slider_width) * 2;
     }
@@ -719,7 +719,7 @@ caja_path_bar_size_allocate (GtkWidget     *widget,
     GtkRequisition child_requisition;
     GtkAllocation widget_allocation;
 
-    need_sliders = FALSE;
+    need_sliders = TRUE;
     up_slider_offset = 0;
     down_slider_offset = 0;
     path_bar = CAJA_PATH_BAR (widget);
