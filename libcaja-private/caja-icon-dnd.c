@@ -1562,7 +1562,7 @@ drag_begin_callback (GtkWidget      *widget,
     if (!use_mask && pixmap != NULL)
     {
         /* If composite works, make the icons partially transparent */
-        cairo_t *cr = gdk_cairo_create (pixmap);
+        cairo_t *cr = cairo_create (pixmap);
         cairo_set_operator (cr, CAIRO_OPERATOR_DEST_OUT);
         cairo_set_source_rgba(cr, 1,0,0,0.35);
         cairo_paint (cr);
@@ -1654,7 +1654,7 @@ drag_highlight_expose (GtkWidget      *widget,
                       NULL, widget, "dnd",
                       x, y, width, height);
 
-    cairo_t *cr = gdk_cairo_create (window);
+    cairo_t *cr = cairo_create (window);
 #endif
 
     cairo_set_line_width (cr, 1.0);
