@@ -99,7 +99,7 @@ caja_navigation_bar_class_init (CajaNavigationBarClass *klass)
 static void
 caja_navigation_bar_init (CajaNavigationBar *bar)
 {
-    gtk_orientable_set_orientation (GTK_ORIENTABLE (bar), GTK_ORIENTATION_VERTICAL);
+    gtk_orientable_set_orientation (GTK_ORIENTABLE (bar), GTK_ORIENTATION_HORIZONTAL);
 }
 
 /**
