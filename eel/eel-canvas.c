@@ -3267,7 +3267,7 @@ static void
 eel_canvas_draw_background (EelCanvas *canvas,
                             int x, int y, int width, int height)
 {
-    cairo_t *cr = gdk_cairo_create (gtk_layout_get_bin_window (&canvas->layout));
+    cairo_t *cr = cairo_create (gtk_layout_get_bin_window (&canvas->layout));
 
     /* By default, we use the style background. */
     gdk_cairo_set_source_color (cr, &gtk_widget_get_style (GTK_WIDGET (canvas))->bg[GTK_STATE_NORMAL]);
