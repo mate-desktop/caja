@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-14 13:44+0300\n"
+"POT-Creation-Date: 2016-07-01 11:32+0300\n"
 "PO-Revision-Date: 2016-04-07 11:46+0000\n"
 "Last-Translator: 박정규(Jung-Kyu Park) <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/mate/MATE/language/ko/)\n"
@@ -357,8 +357,8 @@ msgid "Drag an emblem to an object to add it to the object"
 msgstr "개체에 추가할 꼬리표를 끌어 놓으십시오"
 
 #. translators: this is the name of an emblem
-#: ../data/browser.xml.h:69 ../src/caja-emblem-sidebar.c:987
-#: ../src/caja-property-browser.c:1947
+#: ../data/browser.xml.h:69 ../src/caja-emblem-sidebar.c:990
+#: ../src/caja-property-browser.c:1944
 msgid "Erase"
 msgstr "지우기"
 
@@ -380,67 +380,67 @@ msgid ""
 "which Caja is a fork. </p>"
 msgstr "<p> 카하는 마테 데스크톱의 공식 파일 관리자 프로그램입니다. 디렉터리를 탐색하고, 파일을 미리 살펴볼 수 있으며 관련 파일에 대한 프로그램을 실행할 수 있습니다. 또한 마테 데스크톱의 아이콘을 처리하는 역할을 담당합니다. 로컬 및 원격 파일 시스템에 대해 동작합니다. </p> <p> 카하는 플러그인 시스템으로 자유롭게 확장할 수 있으며, 동작 방식은 카하가 나온 그놈 노틸러스와 비슷합니다. </p>"
 
-#: ../eel/eel-canvas.c:1301 ../eel/eel-canvas.c:1302
+#: ../eel/eel-canvas.c:1351 ../eel/eel-canvas.c:1352
 msgid "X"
 msgstr "X"
 
-#: ../eel/eel-canvas.c:1308 ../eel/eel-canvas.c:1309
+#: ../eel/eel-canvas.c:1358 ../eel/eel-canvas.c:1359
 msgid "Y"
 msgstr "Y"
 
-#: ../eel/eel-editable-label.c:345
+#: ../eel/eel-editable-label.c:357
 msgid "Text"
 msgstr "글자"
 
-#: ../eel/eel-editable-label.c:346
+#: ../eel/eel-editable-label.c:358
 msgid "The text of the label."
 msgstr "라벨의 글자."
 
-#: ../eel/eel-editable-label.c:352
+#: ../eel/eel-editable-label.c:364
 msgid "Justification"
 msgstr "칸 맞춤"
 
-#: ../eel/eel-editable-label.c:353
+#: ../eel/eel-editable-label.c:365
 msgid ""
 "The alignment of the lines in the text of the label relative to each other. "
 "This does NOT affect the alignment of the label within its allocation. See "
 "GtkMisc::xalign for that."
 msgstr "라벨의 글자는 서로 영향을 끼치면서 정렬됩니다.이는 이미 배치된 라벨 자체의 위치에는 영향을 주지 않습니다.이 부분에 대해서는 GtkMisc::xalign을 보십시오."
 
-#: ../eel/eel-editable-label.c:361
+#: ../eel/eel-editable-label.c:373
 msgid "Line wrap"
 msgstr "줄 넘김"
 
-#: ../eel/eel-editable-label.c:362
+#: ../eel/eel-editable-label.c:374
 msgid "If set, wrap lines if the text becomes too wide."
 msgstr "설정해두면, 줄이 너무 길어질 때 줄을 넘깁니다."
 
-#: ../eel/eel-editable-label.c:369
+#: ../eel/eel-editable-label.c:381
 msgid "Cursor Position"
 msgstr "커서 위치"
 
-#: ../eel/eel-editable-label.c:370
+#: ../eel/eel-editable-label.c:382
 msgid "The current position of the insertion cursor in chars."
 msgstr "입력 커서의 현재 위치(char 단위)."
 
-#: ../eel/eel-editable-label.c:379
+#: ../eel/eel-editable-label.c:391
 msgid "Selection Bound"
 msgstr "선택 경계"
 
-#: ../eel/eel-editable-label.c:380
+#: ../eel/eel-editable-label.c:392
 msgid ""
 "The position of the opposite end of the selection from the cursor in chars."
 msgstr "글자에 있는 커서에서 선택 반대방향 끝의 위치."
 
-#: ../eel/eel-editable-label.c:3198
+#: ../eel/eel-editable-label.c:3432
 msgid "Select All"
 msgstr "모두 선택"
 
-#: ../eel/eel-editable-label.c:3209
+#: ../eel/eel-editable-label.c:3443
 msgid "Input Methods"
 msgstr "입력기"
 
-#: ../eel/eel-gtk-extensions.c:476
+#: ../eel/eel-gtk-extensions.c:481
 msgid "Show more _details"
 msgstr "자세한 정보 표시(_D)"
 
@@ -469,7 +469,7 @@ msgstr "아무것도 하지 않기"
 msgid "Open Folder"
 msgstr "폴더 열기"
 
-#: ../libcaja-private/caja-autorun.c:605 ../src/caja-x-content-bar.c:148
+#: ../libcaja-private/caja-autorun.c:605 ../src/caja-x-content-bar.c:152
 #, c-format
 msgid "Open %s"
 msgstr "%s 열기"
@@ -563,7 +563,7 @@ msgstr "항상 이 동작 실행(_A)"
 #: ../src/file-manager/fm-directory-view.c:7495
 #: ../src/file-manager/fm-directory-view.c:7523
 #: ../src/file-manager/fm-directory-view.c:7604
-#: ../src/file-manager/fm-tree-view.c:1382 ../src/caja-places-sidebar.c:2728
+#: ../src/file-manager/fm-tree-view.c:1382 ../src/caja-places-sidebar.c:2742
 msgid "_Eject"
 msgstr "꺼내기(_E)"
 
@@ -574,7 +574,7 @@ msgstr "꺼내기(_E)"
 #: ../src/file-manager/fm-directory-view.c:7491
 #: ../src/file-manager/fm-directory-view.c:7519
 #: ../src/file-manager/fm-directory-view.c:7600
-#: ../src/file-manager/fm-tree-view.c:1373 ../src/caja-places-sidebar.c:2721
+#: ../src/file-manager/fm-tree-view.c:1373 ../src/caja-places-sidebar.c:2735
 msgid "_Unmount"
 msgstr "마운트 해제(_U)"
 
@@ -611,21 +611,21 @@ msgstr "모두 선택(_A)"
 msgid "Select all the text in a text field"
 msgstr "텍스트 영역의 모든 글자 선택"
 
-#: ../libcaja-private/caja-column-chooser.c:383
+#: ../libcaja-private/caja-column-chooser.c:386
 msgid "Move _Up"
 msgstr "위로(_U)"
 
-#: ../libcaja-private/caja-column-chooser.c:393
+#: ../libcaja-private/caja-column-chooser.c:396
 msgid "Move Dow_n"
 msgstr "아래로(_N)"
 
-#: ../libcaja-private/caja-column-chooser.c:406
+#: ../libcaja-private/caja-column-chooser.c:413
 msgid "Use De_fault"
 msgstr "기본값 사용(_F)"
 
 #: ../libcaja-private/caja-column-utilities.c:44
-#: ../libcaja-private/caja-mime-application-chooser.c:274
-#: ../src/file-manager/fm-list-view.c:1771
+#: ../libcaja-private/caja-mime-application-chooser.c:278
+#: ../src/file-manager/fm-list-view.c:1773
 msgid "Name"
 msgstr "이름"
 
@@ -650,7 +650,7 @@ msgid "The type of the file."
 msgstr "파일의 형식입니다."
 
 #: ../libcaja-private/caja-column-utilities.c:66
-#: ../src/caja-image-properties-page.c:293
+#: ../src/caja-image-properties-page.c:296
 msgid "Date Modified"
 msgstr "바꾼 날짜"
 
@@ -683,8 +683,8 @@ msgid "The group of the file."
 msgstr "파일의 그룹 입니다."
 
 #: ../libcaja-private/caja-column-utilities.c:98
-#: ../src/file-manager/fm-properties-window.c:5658
-#: ../src/file-manager/fm-properties-window.c:5714
+#: ../src/file-manager/fm-properties-window.c:5735
+#: ../src/file-manager/fm-properties-window.c:5795
 msgid "Permissions"
 msgstr "권한"
 
@@ -717,7 +717,7 @@ msgid "The SELinux security context of the file."
 msgstr "파일의 SELinux 보안 컨텍스트 입니다."
 
 #: ../libcaja-private/caja-column-utilities.c:130
-#: ../src/caja-image-properties-page.c:374 ../src/caja-query-editor.c:129
+#: ../src/caja-image-properties-page.c:377 ../src/caja-query-editor.c:129
 msgid "Location"
 msgstr "위치"
 
@@ -741,10 +741,10 @@ msgstr "원래 위치"
 msgid "Original location of file before moved to the Trash"
 msgstr "파일을 휴지통으로 옮기기 전의 위치입니다"
 
-#: ../libcaja-private/caja-customization-data.c:430
-#: ../libcaja-private/caja-file-conflict-dialog.c:625
-#: ../libcaja-private/caja-mime-application-chooser.c:438
-#: ../src/caja-property-browser.c:1994
+#: ../libcaja-private/caja-customization-data.c:431
+#: ../libcaja-private/caja-file-conflict-dialog.c:651
+#: ../libcaja-private/caja-mime-application-chooser.c:449
+#: ../src/caja-property-browser.c:1991
 msgid "Reset"
 msgstr "초기화"
 
@@ -783,7 +783,7 @@ msgid "%s's Home"
 msgstr "%s의 폴더"
 
 #: ../libcaja-private/caja-desktop-link.c:113
-#: ../data/caja-computer.desktop.in.in.h:1 ../src/caja-places-sidebar.c:492
+#: ../data/caja-computer.desktop.in.in.h:1 ../src/caja-places-sidebar.c:506
 msgid "Computer"
 msgstr "컴퓨터"
 
@@ -792,8 +792,8 @@ msgid "Network Servers"
 msgstr "네트워크 서버"
 
 #: ../libcaja-private/caja-desktop-link.c:119
-#: ../src/file-manager/fm-tree-view.c:1441 ../src/caja-places-sidebar.c:596
-#: ../src/caja-trash-bar.c:190
+#: ../src/file-manager/fm-tree-view.c:1441 ../src/caja-places-sidebar.c:610
+#: ../src/caja-trash-bar.c:194
 msgid "Trash"
 msgstr "휴지통"
 
@@ -863,132 +863,132 @@ msgstr "사용자 꼬리표를 저장할 수 없습니다."
 msgid "Sorry, unable to save custom emblem name."
 msgstr "사용자 꼬리표 이름을 저장할 수 없습니다."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:149
+#: ../libcaja-private/caja-file-conflict-dialog.c:153
 #, c-format
 msgid "Merge folder \"%s\"?"
 msgstr "\"%s\" 폴더를 합치시겠습니까?"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:153
+#: ../libcaja-private/caja-file-conflict-dialog.c:157
 msgid ""
 "Merging will ask for confirmation before replacing any files in the folder "
 "that conflict with the files being copied."
 msgstr "폴더를 합치면, 폴더 안에 복사하려는 파일과 겹치는 파일이 있는 경우에 이를 덮어쓸 지 물어봅니다."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:159
+#: ../libcaja-private/caja-file-conflict-dialog.c:163
 #, c-format
 msgid "An older folder with the same name already exists in \"%s\"."
 msgstr "같은 이름의 과거 폴더가 \"%s\" 안에 이미 있습니다."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:165
+#: ../libcaja-private/caja-file-conflict-dialog.c:169
 #, c-format
 msgid "A newer folder with the same name already exists in \"%s\"."
 msgstr "같은 이름의 새 폴더가 \"%s\" 안에 이미 있습니다."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:171
+#: ../libcaja-private/caja-file-conflict-dialog.c:175
 #, c-format
 msgid "Another folder with the same name already exists in \"%s\"."
 msgstr "같은 이름의 또 다른 폴더가 \"%s\" 안에 이미 있습니다."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:178
+#: ../libcaja-private/caja-file-conflict-dialog.c:182
 msgid "Replacing it will remove all files in the folder."
 msgstr "바꾸면 이 폴더 안의 모든 파일을 제거합니다."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:180
+#: ../libcaja-private/caja-file-conflict-dialog.c:184
 #, c-format
 msgid "Replace folder \"%s\"?"
 msgstr "\"%s\" 폴더를 바꾸시겠습니까?"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:182
+#: ../libcaja-private/caja-file-conflict-dialog.c:186
 #, c-format
 msgid "A folder with the same name already exists in \"%s\"."
 msgstr "같은 이름의 폴더가 \"%s\" 안에 이미 있습니다."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:189
+#: ../libcaja-private/caja-file-conflict-dialog.c:193
 #, c-format
 msgid "Replace file \"%s\"?"
 msgstr "\"%s\" 파일을 바꾸시겠습니까?"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:191
+#: ../libcaja-private/caja-file-conflict-dialog.c:195
 msgid "Replacing it will overwrite its content."
 msgstr "바꾸면 그 내용을 덮어 쓰게 됩니다."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:196
+#: ../libcaja-private/caja-file-conflict-dialog.c:200
 #, c-format
 msgid "An older file with the same name already exists in \"%s\"."
 msgstr "같은 이름의 과거 파일이 \"%s\" 안에 이미 있습니다."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:202
+#: ../libcaja-private/caja-file-conflict-dialog.c:206
 #, c-format
 msgid "A newer file with the same name already exists in \"%s\"."
 msgstr "같은 이름의 새 파일이 \"%s\" 안에 이미 있습니다."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:208
+#: ../libcaja-private/caja-file-conflict-dialog.c:212
 #, c-format
 msgid "Another file with the same name already exists in \"%s\"."
 msgstr "같은 이름의 또 다른 파일이 \"%s\" 안에 이미 있습니다."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:283
+#: ../libcaja-private/caja-file-conflict-dialog.c:309
 msgid "Original file"
 msgstr "원래 파일"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:284
-#: ../libcaja-private/caja-file-conflict-dialog.c:317
-#: ../src/file-manager/fm-properties-window.c:3707
-#: ../src/file-manager/fm-properties-window.c:3784
+#: ../libcaja-private/caja-file-conflict-dialog.c:310
+#: ../libcaja-private/caja-file-conflict-dialog.c:343
+#: ../src/file-manager/fm-properties-window.c:3778
+#: ../src/file-manager/fm-properties-window.c:3855
 msgid "Size:"
 msgstr "크기:"
 
 #. second row: type combobox
-#: ../libcaja-private/caja-file-conflict-dialog.c:288
-#: ../libcaja-private/caja-file-conflict-dialog.c:321
-#: ../src/file-manager/fm-properties-window.c:3689
-#: ../src/file-manager/fm-properties-window.c:3766
+#: ../libcaja-private/caja-file-conflict-dialog.c:314
+#: ../libcaja-private/caja-file-conflict-dialog.c:347
+#: ../src/file-manager/fm-properties-window.c:3760
+#: ../src/file-manager/fm-properties-window.c:3837
 #: ../src/caja-connect-server-dialog.c:987
 msgid "Type:"
 msgstr "형식:"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:291
-#: ../libcaja-private/caja-file-conflict-dialog.c:324
+#: ../libcaja-private/caja-file-conflict-dialog.c:317
+#: ../libcaja-private/caja-file-conflict-dialog.c:350
 msgid "Last modified:"
 msgstr "수정한 시각:"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:316
+#: ../libcaja-private/caja-file-conflict-dialog.c:342
 msgid "Replace with"
 msgstr "바꾸기"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:347
+#: ../libcaja-private/caja-file-conflict-dialog.c:373
 msgid "Merge"
 msgstr "합치기"
 
 #. Setup the expander for the rename action
-#: ../libcaja-private/caja-file-conflict-dialog.c:611
+#: ../libcaja-private/caja-file-conflict-dialog.c:637
 msgid "Select a new name for the _destination"
 msgstr "대상의 새 이름을 선택"
 
 #. Setup the diff button for text files
-#: ../libcaja-private/caja-file-conflict-dialog.c:636
+#: ../libcaja-private/caja-file-conflict-dialog.c:662
 msgid "Differences..."
 msgstr "차이점..."
 
 #. Setup the checkbox to apply the action to all files
-#: ../libcaja-private/caja-file-conflict-dialog.c:646
+#: ../libcaja-private/caja-file-conflict-dialog.c:672
 msgid "Apply this action to all files"
 msgstr "모든 파일에 이 명령 적용"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:657
+#: ../libcaja-private/caja-file-conflict-dialog.c:683
 #: ../libcaja-private/caja-file-operations.c:186
 msgid "_Skip"
 msgstr "건너 뛰기(_S)"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:662
+#: ../libcaja-private/caja-file-conflict-dialog.c:688
 msgid "Re_name"
 msgstr "이름 바꾸기(_N)"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:668
+#: ../libcaja-private/caja-file-conflict-dialog.c:694
 msgid "Replace"
 msgstr "바꾸기"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:743
+#: ../libcaja-private/caja-file-conflict-dialog.c:769
 msgid "File conflict"
 msgstr "파일 충돌"
 
@@ -1054,8 +1054,8 @@ msgstr[0] "대략 %'d시간"
 #. * (e.g. "folder", "plain text") to file type for symbolic link
 #. * to that kind of file (e.g. "link to folder").
 #: ../libcaja-private/caja-file-operations.c:378
-#: ../libcaja-private/caja-file.c:6439
-#: ../src/file-manager/fm-directory-view.c:10622
+#: ../libcaja-private/caja-file.c:6438
+#: ../src/file-manager/fm-directory-view.c:10616
 #, c-format
 msgid "Link to %s"
 msgstr "%s에 링크"
@@ -1219,7 +1219,7 @@ msgstr "휴지통의 모든 항목을 완전히 삭제합니다."
 #. Empty Trash menu item
 #: ../libcaja-private/caja-file-operations.c:1352
 #: ../libcaja-private/caja-file-operations.c:2220
-#: ../src/caja-places-sidebar.c:2765 ../src/caja-trash-bar.c:194
+#: ../src/caja-places-sidebar.c:2779 ../src/caja-trash-bar.c:201
 msgid "Empty _Trash"
 msgstr "휴지통 비우기(_T)"
 
@@ -1695,47 +1695,47 @@ msgstr "\"%s\"의 원래 위치를 알 수 없습니다"
 msgid "The item cannot be restored from trash"
 msgstr "항목을 휴지통에서 되살릴 수 없습니다"
 
-#: ../libcaja-private/caja-file.c:1215 ../libcaja-private/caja-vfs-file.c:430
+#: ../libcaja-private/caja-file.c:1214 ../libcaja-private/caja-vfs-file.c:430
 msgid "This file cannot be mounted"
 msgstr "이 파일은 마운트할 수 없습니다"
 
-#: ../libcaja-private/caja-file.c:1260
+#: ../libcaja-private/caja-file.c:1259
 msgid "This file cannot be unmounted"
 msgstr "이 파일은 마운트 해제할 수 없습니다"
 
-#: ../libcaja-private/caja-file.c:1294
+#: ../libcaja-private/caja-file.c:1293
 msgid "This file cannot be ejected"
 msgstr "이 파일은 뺄 수 없습니다"
 
-#: ../libcaja-private/caja-file.c:1327 ../libcaja-private/caja-vfs-file.c:619
+#: ../libcaja-private/caja-file.c:1326 ../libcaja-private/caja-vfs-file.c:619
 msgid "This file cannot be started"
 msgstr "이 파일은 시작할 수 없습니다"
 
-#: ../libcaja-private/caja-file.c:1379 ../libcaja-private/caja-file.c:1410
+#: ../libcaja-private/caja-file.c:1378 ../libcaja-private/caja-file.c:1409
 msgid "This file cannot be stopped"
 msgstr "이 파일은 중지할 수 없습니다"
 
-#: ../libcaja-private/caja-file.c:1818
+#: ../libcaja-private/caja-file.c:1817
 #, c-format
 msgid "Slashes are not allowed in filenames"
 msgstr "파일 이름에 슬래시(/) 기호를 포함할 수 없습니다"
 
-#: ../libcaja-private/caja-file.c:1836
+#: ../libcaja-private/caja-file.c:1835
 #, c-format
 msgid "File not found"
 msgstr "파일을 찾을 수 없습니다"
 
-#: ../libcaja-private/caja-file.c:1864
+#: ../libcaja-private/caja-file.c:1863
 #, c-format
 msgid "Toplevel files cannot be renamed"
 msgstr "맨 위 파일의 이름을 바꿀 수 없습니다"
 
-#: ../libcaja-private/caja-file.c:1887
+#: ../libcaja-private/caja-file.c:1886
 #, c-format
 msgid "Unable to rename desktop icon"
 msgstr "데스크톱 아이콘의 이름을 바꿀 수 없습니다"
 
-#: ../libcaja-private/caja-file.c:1916
+#: ../libcaja-private/caja-file.c:1915
 #, c-format
 msgid "Unable to rename desktop file"
 msgstr "데스크톱 파일의 이름을 바꿀 수 없습니다"
@@ -1754,62 +1754,62 @@ msgstr "데스크톱 파일의 이름을 바꿀 수 없습니다"
 #. * between the "%" and any numeric directive will turn
 #. * off zero padding, and putting a "_" there will use
 #. * space padding instead of zero padding.
-#: ../libcaja-private/caja-file.c:4476
+#: ../libcaja-private/caja-file.c:4475
 msgid "today at 00:00:00 PM"
 msgstr "오늘 오후 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4477
+#: ../libcaja-private/caja-file.c:4476
 #: ../src/caja-file-management-properties.c:522
 msgid "today at %-I:%M:%S %p"
 msgstr "오늘 %p %-I:%M:%S"
 
-#: ../libcaja-private/caja-file.c:4479
+#: ../libcaja-private/caja-file.c:4478
 msgid "today at 00:00 PM"
 msgstr "오늘 오후 00:00"
 
-#: ../libcaja-private/caja-file.c:4480
+#: ../libcaja-private/caja-file.c:4479
 msgid "today at %-I:%M %p"
 msgstr "오늘 %p %-I:%M"
 
-#: ../libcaja-private/caja-file.c:4482
+#: ../libcaja-private/caja-file.c:4481
 msgid "today, 00:00 PM"
 msgstr "오늘 오후 00:00"
 
-#: ../libcaja-private/caja-file.c:4483
+#: ../libcaja-private/caja-file.c:4482
 msgid "today, %-I:%M %p"
 msgstr "오늘 %p %-I:%M"
 
-#: ../libcaja-private/caja-file.c:4485 ../libcaja-private/caja-file.c:4486
+#: ../libcaja-private/caja-file.c:4484 ../libcaja-private/caja-file.c:4485
 msgid "today"
 msgstr "오늘"
 
 #. Yesterday, use special word.
 #. * Note to localizers: Same issues as "today" string.
-#: ../libcaja-private/caja-file.c:4495
+#: ../libcaja-private/caja-file.c:4494
 msgid "yesterday at 00:00:00 PM"
 msgstr "어제 오후 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4496
+#: ../libcaja-private/caja-file.c:4495
 msgid "yesterday at %-I:%M:%S %p"
 msgstr "어제 %p %-I:%M:%S"
 
-#: ../libcaja-private/caja-file.c:4498
+#: ../libcaja-private/caja-file.c:4497
 msgid "yesterday at 00:00 PM"
 msgstr "어제 오후 00:00"
 
-#: ../libcaja-private/caja-file.c:4499
+#: ../libcaja-private/caja-file.c:4498
 msgid "yesterday at %-I:%M %p"
 msgstr "어제 %p %-I:%M"
 
-#: ../libcaja-private/caja-file.c:4501
+#: ../libcaja-private/caja-file.c:4500
 msgid "yesterday, 00:00 PM"
 msgstr "어제, 오후 00:00"
 
-#: ../libcaja-private/caja-file.c:4502
+#: ../libcaja-private/caja-file.c:4501
 msgid "yesterday, %-I:%M %p"
 msgstr "어제, %p %-I:%M"
 
-#: ../libcaja-private/caja-file.c:4504 ../libcaja-private/caja-file.c:4505
+#: ../libcaja-private/caja-file.c:4503 ../libcaja-private/caja-file.c:4504
 msgid "yesterday"
 msgstr "어제"
 
@@ -1817,101 +1817,101 @@ msgstr "어제"
 #. * Note to localizers: Same issues as "today" string.
 #. * The width measurement templates correspond to
 #. * the day/month name with the most letters.
-#: ../libcaja-private/caja-file.c:4516
+#: ../libcaja-private/caja-file.c:4515
 msgid "Wednesday, September 00 0000 at 00:00:00 PM"
 msgstr "0000년 10월 00일 수요일 오후 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4517
+#: ../libcaja-private/caja-file.c:4516
 msgid "%A, %B %-d %Y at %-I:%M:%S %p"
 msgstr "%Y년 %B %-d일 %A %p %-I:%M:%S"
 
-#: ../libcaja-private/caja-file.c:4519
+#: ../libcaja-private/caja-file.c:4518
 msgid "Mon, Oct 00 0000 at 00:00:00 PM"
 msgstr "0000년 10월 00일(월) 오후 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4520
+#: ../libcaja-private/caja-file.c:4519
 msgid "%a, %b %-d %Y at %-I:%M:%S %p"
 msgstr "%Y년 %b %-d일(%a)  %p %-I:%M:%S"
 
-#: ../libcaja-private/caja-file.c:4522
+#: ../libcaja-private/caja-file.c:4521
 msgid "Mon, Oct 00 0000 at 00:00 PM"
 msgstr "0000년 10월 00일(월) 오후 00:00"
 
-#: ../libcaja-private/caja-file.c:4523
+#: ../libcaja-private/caja-file.c:4522
 msgid "%a, %b %-d %Y at %-I:%M %p"
 msgstr "%Y년 %b %-d일(%a)  %p %-I:%M"
 
-#: ../libcaja-private/caja-file.c:4525
+#: ../libcaja-private/caja-file.c:4524
 msgid "Oct 00 0000 at 00:00 PM"
 msgstr "0000 10 00 오후 00:00"
 
-#: ../libcaja-private/caja-file.c:4526
+#: ../libcaja-private/caja-file.c:4525
 msgid "%b %-d %Y at %-I:%M %p"
 msgstr "%Y년 %b %-d일 %p %-I:%M"
 
-#: ../libcaja-private/caja-file.c:4528
+#: ../libcaja-private/caja-file.c:4527
 msgid "Oct 00 0000, 00:00 PM"
 msgstr "0000 10 00, 오후 00:00"
 
-#: ../libcaja-private/caja-file.c:4529
+#: ../libcaja-private/caja-file.c:4528
 msgid "%b %-d %Y, %-I:%M %p"
 msgstr "%Y년 %b %-d일, %p %-I:%M"
 
-#: ../libcaja-private/caja-file.c:4531
+#: ../libcaja-private/caja-file.c:4530
 msgid "00/00/00, 00:00 PM"
 msgstr "00/00/00, 오후 00:00"
 
-#: ../libcaja-private/caja-file.c:4532
+#: ../libcaja-private/caja-file.c:4531
 msgid "%m/%-d/%y, %-I:%M %p"
 msgstr "%y/%m/%-d, %p %-I:%M"
 
-#: ../libcaja-private/caja-file.c:4534
+#: ../libcaja-private/caja-file.c:4533
 msgid "00/00/00"
 msgstr "00/00/00"
 
-#: ../libcaja-private/caja-file.c:4535
+#: ../libcaja-private/caja-file.c:4534
 msgid "%m/%d/%y"
 msgstr "%y/%m/%d"
 
-#: ../libcaja-private/caja-file.c:5176
+#: ../libcaja-private/caja-file.c:5175
 #, c-format
 msgid "Not allowed to set permissions"
 msgstr "접근 권한을 설정하도록 허용되지 않았습니다"
 
-#: ../libcaja-private/caja-file.c:5470
+#: ../libcaja-private/caja-file.c:5469
 #, c-format
 msgid "Not allowed to set owner"
 msgstr "소유자를 설정하도록 허용되지 않았습니다"
 
-#: ../libcaja-private/caja-file.c:5488
+#: ../libcaja-private/caja-file.c:5487
 #, c-format
 msgid "Specified owner '%s' doesn't exist"
 msgstr "지정한 소유자 '%s'이(가) 존재하지 않습니다"
 
-#: ../libcaja-private/caja-file.c:5748
+#: ../libcaja-private/caja-file.c:5747
 #, c-format
 msgid "Not allowed to set group"
 msgstr "그룹을 설정하도록 허용되지 않았습니다"
 
-#: ../libcaja-private/caja-file.c:5766
+#: ../libcaja-private/caja-file.c:5765
 #, c-format
 msgid "Specified group '%s' doesn't exist"
 msgstr "지정한 그룹 '%s'이(가) 존재하지 않습니다"
 
-#: ../libcaja-private/caja-file.c:5920
+#: ../libcaja-private/caja-file.c:5919
 #: ../src/file-manager/fm-directory-view.c:2446
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
 msgstr[0] "항목 %'u개"
 
-#: ../libcaja-private/caja-file.c:5921
+#: ../libcaja-private/caja-file.c:5920
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
 msgstr[0] "폴더 %'u개"
 
-#: ../libcaja-private/caja-file.c:5922
+#: ../libcaja-private/caja-file.c:5921
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
@@ -1919,53 +1919,54 @@ msgstr[0] "파일 %'u개"
 
 #. Do this in a separate stage so that we don't have to put G_GUINT64_FORMAT
 #. in the translated string
-#: ../libcaja-private/caja-file.c:6009
+#: ../libcaja-private/caja-file.c:6008
 msgid "%"
 msgstr "%"
 
-#: ../libcaja-private/caja-file.c:6010
+#: ../libcaja-private/caja-file.c:6009
 #, c-format
 msgid "%s (%s bytes)"
 msgstr "%s (%s 바이트)"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6325 ../libcaja-private/caja-file.c:6341
+#: ../libcaja-private/caja-file.c:6324 ../libcaja-private/caja-file.c:6340
 msgid "? items"
 msgstr "? 항목"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6331
+#: ../libcaja-private/caja-file.c:6330
 msgid "? bytes"
 msgstr "? 바이트"
 
-#: ../libcaja-private/caja-file.c:6346
+#: ../libcaja-private/caja-file.c:6345
 msgid "unknown type"
 msgstr "알 수 없는 형식"
 
-#: ../libcaja-private/caja-file.c:6349
+#: ../libcaja-private/caja-file.c:6348
 msgid "unknown MIME type"
 msgstr "알 수 없는 MIME 형식"
 
 #. Fallback, use for both unknown attributes and attributes
 #. * for which we have no more appropriate default.
-#: ../libcaja-private/caja-file.c:6363
-#: ../src/file-manager/fm-properties-window.c:1343
+#: ../libcaja-private/caja-file.c:6362
+#: ../src/file-manager/fm-properties-window.c:1359
 msgid "unknown"
 msgstr "알 수 없음"
 
-#: ../libcaja-private/caja-file.c:6413
+#: ../libcaja-private/caja-file.c:6412
 msgid "program"
 msgstr "프로그램"
 
-#: ../libcaja-private/caja-file.c:6433
+#: ../libcaja-private/caja-file.c:6432
 msgid "link"
 msgstr "링크"
 
-#: ../libcaja-private/caja-file.c:6455
+#: ../libcaja-private/caja-file.c:6454
 msgid "link (broken)"
 msgstr "링크(깨짐)"
 
-#: ../libcaja-private/caja-icon-container.c:2939
+#: ../libcaja-private/caja-icon-container.c:2949
+#: ../libcaja-private/caja-icon-container.c:3035
 msgid "The selection rectangle"
 msgstr "선택한 영역"
 
@@ -2119,49 +2120,49 @@ msgid "Opening %d item."
 msgid_plural "Opening %d items."
 msgstr[0] "%d개를 여는 중입니다."
 
-#: ../libcaja-private/caja-mime-application-chooser.c:162
+#: ../libcaja-private/caja-mime-application-chooser.c:166
 #: ../libcaja-private/caja-open-with-dialog.c:304
 #, c-format
 msgid "Could not set application as the default: %s"
 msgstr "기본 프로그램으로 설정할 수 없습니다: %s"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:163
+#: ../libcaja-private/caja-mime-application-chooser.c:167
 #: ../libcaja-private/caja-open-with-dialog.c:305
 msgid "Could not set as default application"
 msgstr "기본 프로그램을 설정할 수 없습니다"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:256
+#: ../libcaja-private/caja-mime-application-chooser.c:260
 msgid "Default"
 msgstr "기본값"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:266
+#: ../libcaja-private/caja-mime-application-chooser.c:270
 msgid "Icon"
 msgstr "아이콘"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:332
+#: ../libcaja-private/caja-mime-application-chooser.c:336
 msgid "Could not remove application"
 msgstr "프로그램을 지울 수 없습니다"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:555
+#: ../libcaja-private/caja-mime-application-chooser.c:566
 msgid "No applications selected"
 msgstr "프로그램을 선택하지 않았습니다"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:585
+#: ../libcaja-private/caja-mime-application-chooser.c:596
 #, c-format
 msgid "%s document"
 msgstr "%s 문서"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:595
+#: ../libcaja-private/caja-mime-application-chooser.c:606
 #: ../libcaja-private/caja-open-with-dialog.c:1088
 msgid "Unknown"
 msgstr "알 수 없음"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:628
+#: ../libcaja-private/caja-mime-application-chooser.c:639
 #, c-format
 msgid "Select an application to open %s and other files of type \"%s\""
 msgstr "%s와(과) \"%s\" 형식의 다른 파일을 열 프로그램을 선택"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:700
+#: ../libcaja-private/caja-mime-application-chooser.c:711
 #, c-format
 msgid "Open all files of type \"%s\" with:"
 msgstr "\"%s\" 형식의 모든 파일을 여는 프로그램:"
@@ -2193,7 +2194,7 @@ msgid "Select an Application"
 msgstr "프로그램 선택"
 
 #: ../libcaja-private/caja-open-with-dialog.c:846
-#: ../src/file-manager/fm-properties-window.c:6047
+#: ../src/file-manager/fm-properties-window.c:6132
 msgid "Open With"
 msgstr "다른 프로그램으로 열기"
 
@@ -2214,7 +2215,7 @@ msgstr "찾아보기(_B)..."
 #: ../libcaja-private/caja-open-with-dialog.c:968
 #: ../src/file-manager/fm-directory-view.c:7368
 #: ../src/file-manager/fm-directory-view.c:8878
-#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2670
+#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2684
 msgid "_Open"
 msgstr "열기(_O)"
 
@@ -2304,37 +2305,37 @@ msgid ""
 " your computer, you may be able to open it."
 msgstr "이 파일을 볼 수 있는 다른 액션이 없습니다. 파일을 컴퓨터로 복사하면 열 수도 있습니다."
 
-#: ../libcaja-private/caja-program-choosing.c:511
+#: ../libcaja-private/caja-program-choosing.c:533
 msgid "Sorry, but you cannot execute commands from a remote site."
 msgstr "원격사이트에서는 명령을 실행할 수 없습니다."
 
-#: ../libcaja-private/caja-program-choosing.c:513
+#: ../libcaja-private/caja-program-choosing.c:535
 msgid "This is disabled due to security considerations."
 msgstr "보안 문제때문에 불가능합니다."
 
-#: ../libcaja-private/caja-program-choosing.c:525
-#: ../libcaja-private/caja-program-choosing.c:591
+#: ../libcaja-private/caja-program-choosing.c:547
+#: ../libcaja-private/caja-program-choosing.c:617
 msgid "There was an error launching the application."
 msgstr "응용 프로그램을 시작하는 데 오류가 발생했습니다."
 
-#: ../libcaja-private/caja-program-choosing.c:554
-#: ../libcaja-private/caja-program-choosing.c:567
+#: ../libcaja-private/caja-program-choosing.c:576
+#: ../libcaja-private/caja-program-choosing.c:589
 msgid "This drop target only supports local files."
 msgstr "끌어서 놓기는 로컬 파일 시스템에서만 지원합니다."
 
-#: ../libcaja-private/caja-program-choosing.c:555
+#: ../libcaja-private/caja-program-choosing.c:577
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again."
 msgstr "로컬 파일이 아닌 파일은 로컬 폴더에 복사한 후 다시 끌어다 놓으십시오."
 
-#: ../libcaja-private/caja-program-choosing.c:568
+#: ../libcaja-private/caja-program-choosing.c:590
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again. The local files you dropped have already been opened."
 msgstr "로컬 파일이 아닌 파일은 로컬 폴더에 복사한 후 다시 끌어다 놓습니다. 끌어다 놓은 로컬 파일은 이미 열려져 있습니다."
 
-#: ../libcaja-private/caja-program-choosing.c:589
+#: ../libcaja-private/caja-program-choosing.c:615
 msgid "Details: "
 msgstr "자세히: "
 
@@ -3418,7 +3419,7 @@ msgstr "자동시작 확인"
 #: ../data/caja-browser.desktop.in.in.h:1
 #: ../data/caja-folder-handler.desktop.in.in.h:1
 #: ../data/caja.desktop.in.in.h:1 ../src/caja-spatial-window.c:383
-#: ../src/caja-window-menus.c:538 ../src/caja-window.c:160
+#: ../src/caja-window-menus.c:537 ../src/caja-window.c:180
 msgid "Caja"
 msgstr "카하"
 
@@ -3431,7 +3432,7 @@ msgid "Browse the file system with the file manager"
 msgstr "파일 관리자로 파일 시스템을 찾아봅니다"
 
 #. tooltip
-#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:900
+#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:899
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
 msgstr "이 컴퓨터에서 접근할 수 있는 모든 로컬 및 원격 디스크와 폴더를 찾아봅니다"
@@ -3449,8 +3450,8 @@ msgid "Home Folder"
 msgstr "내 폴더"
 
 #. tooltip
-#: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:508
-#: ../src/caja-window-menus.c:895
+#: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:522
+#: ../src/caja-window-menus.c:894
 msgid "Open your personal folder"
 msgstr "개인 폴더를 엽니다"
 
@@ -3458,13 +3459,13 @@ msgstr "개인 폴더를 엽니다"
 msgid "File Manager"
 msgstr "파일 관리자"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:649
+#: ../src/file-manager/fm-desktop-icon-view.c:689
 msgid "Background"
 msgstr "배경"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:726
+#: ../src/file-manager/fm-desktop-icon-view.c:766
 #: ../src/file-manager/fm-directory-view.c:7400
 #: ../src/file-manager/fm-directory-view.c:9078
 msgid "E_mpty Trash"
@@ -3473,44 +3474,44 @@ msgstr "휴지통 비우기(_M)"
 #. label, accelerator
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:740
+#: ../src/file-manager/fm-desktop-icon-view.c:780
 #: ../src/file-manager/fm-directory-view.c:7364
 msgid "Create L_auncher..."
 msgstr "실행 아이콘 만들기(_A)..."
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:742
+#: ../src/file-manager/fm-desktop-icon-view.c:782
 #: ../src/file-manager/fm-directory-view.c:7365
 msgid "Create a new launcher"
 msgstr "새 실행 아이콘을 만듭니다"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:749
+#: ../src/file-manager/fm-desktop-icon-view.c:789
 msgid "Change Desktop _Background"
 msgstr "바탕 화면 배경 바꾸기(_B)"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:751
+#: ../src/file-manager/fm-desktop-icon-view.c:791
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr "바탕 화면 배경의 무늬나 색을 설정할 수 있는 창을 보입니다"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:758
+#: ../src/file-manager/fm-desktop-icon-view.c:798
 msgid "Empty Trash"
 msgstr "휴지통 비우기"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:760
-#: ../src/file-manager/fm-directory-view.c:7401 ../src/caja-trash-bar.c:201
+#: ../src/file-manager/fm-desktop-icon-view.c:800
+#: ../src/file-manager/fm-directory-view.c:7401 ../src/caja-trash-bar.c:208
 msgid "Delete all items in the Trash"
 msgstr "휴지통에 있는 모든 항목을 지웁니다"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:860
+#: ../src/file-manager/fm-desktop-icon-view.c:900
 msgid "The desktop view encountered an error."
 msgstr "바탕 화면으로 보기가 시작할 때 오류가 발생하였습니다."
 
-#: ../src/file-manager/fm-desktop-icon-view.c:861
+#: ../src/file-manager/fm-desktop-icon-view.c:901
 msgid "The desktop view encountered an error while starting up."
 msgstr "바탕 화면 보기가 시작할 때 오류가 발생하였습니다."
 
@@ -3527,7 +3528,7 @@ msgid_plural "This will open %'d separate windows."
 msgstr[0] "창 %'d개를 각각 엽니다."
 
 #: ../src/file-manager/fm-directory-view.c:1180
-#: ../src/file-manager/fm-properties-window.c:6388
+#: ../src/file-manager/fm-properties-window.c:6475
 #: ../src/caja-connect-server-dialog.c:731 ../src/caja-location-dialog.c:106
 msgid "There was an error displaying help."
 msgstr "도움말을 표시하는 데 오류가 발생했습니다."
@@ -3656,7 +3657,7 @@ msgid "%s%s, %s, %s"
 msgstr "%s%s, %s, %s"
 
 #: ../src/file-manager/fm-directory-view.c:4555
-#: ../src/caja-information-panel.c:905
+#: ../src/caja-information-panel.c:922
 #, c-format
 msgid "Open With %s"
 msgstr "%s(으)로 열기"
@@ -3861,7 +3862,7 @@ msgstr "각각 선택한 항목을 새 찾아보기 창에서 엽니다"
 #: ../src/file-manager/fm-directory-view.c:7561
 #: ../src/file-manager/fm-directory-view.c:8629
 #: ../src/file-manager/fm-directory-view.c:8955
-#: ../src/file-manager/fm-tree-view.c:1278 ../src/caja-places-sidebar.c:2678
+#: ../src/file-manager/fm-tree-view.c:1278 ../src/caja-places-sidebar.c:2692
 msgid "Open in New _Tab"
 msgstr "새 탭에서 열기(_T)"
 
@@ -4056,7 +4057,7 @@ msgstr "실행 취소(_U)"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7465
-#: ../src/file-manager/fm-directory-view.c:11196
+#: ../src/file-manager/fm-directory-view.c:11218
 msgid "Undo the last action"
 msgstr "마지막 동작을 되돌립니다."
 
@@ -4068,7 +4069,7 @@ msgstr "재실행(_R)"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7469
-#: ../src/file-manager/fm-directory-view.c:11214
+#: ../src/file-manager/fm-directory-view.c:11236
 msgid "Redo the last undone action"
 msgstr "최근 동작 재실행"
 
@@ -4103,7 +4104,7 @@ msgstr "이 서버와 연결합니다"
 #: ../src/file-manager/fm-directory-view.c:7487
 #: ../src/file-manager/fm-directory-view.c:7515
 #: ../src/file-manager/fm-directory-view.c:7596
-#: ../src/caja-places-sidebar.c:2714
+#: ../src/caja-places-sidebar.c:2728
 msgid "_Mount"
 msgstr "마운트(_M)"
 
@@ -4127,7 +4128,7 @@ msgstr "선택한 볼륨을 꺼냅니다"
 #: ../src/file-manager/fm-directory-view.c:7499
 #: ../src/file-manager/fm-directory-view.c:7527
 #: ../src/file-manager/fm-directory-view.c:7608
-#: ../src/caja-places-sidebar.c:2742
+#: ../src/caja-places-sidebar.c:2756
 msgid "_Format"
 msgstr "형식(_F)"
 
@@ -4148,7 +4149,7 @@ msgstr "선택한 볼륨을 초기화합니다"
 #: ../src/file-manager/fm-directory-view.c:8385
 #: ../src/file-manager/fm-directory-view.c:8491
 #: ../src/file-manager/fm-directory-view.c:8495
-#: ../src/caja-places-sidebar.c:1809 ../src/caja-places-sidebar.c:2749
+#: ../src/caja-places-sidebar.c:1823 ../src/caja-places-sidebar.c:2763
 msgid "_Start"
 msgstr "시작(_S)"
 
@@ -4165,8 +4166,8 @@ msgstr "선택한 볼륨을 시작합니다"
 #: ../src/file-manager/fm-directory-view.c:8318
 #: ../src/file-manager/fm-directory-view.c:8410
 #: ../src/file-manager/fm-directory-view.c:8520
-#: ../src/caja-places-sidebar.c:1810 ../src/caja-places-sidebar.c:2756
-#: ../src/caja-window-menus.c:839
+#: ../src/caja-places-sidebar.c:1824 ../src/caja-places-sidebar.c:2770
+#: ../src/caja-window-menus.c:838
 msgid "_Stop"
 msgstr "중지(_S)"
 
@@ -4181,7 +4182,7 @@ msgstr "선택한 볼륨을 중지합니다"
 #: ../src/file-manager/fm-directory-view.c:7511
 #: ../src/file-manager/fm-directory-view.c:7539
 #: ../src/file-manager/fm-directory-view.c:7620
-#: ../src/caja-places-sidebar.c:2735
+#: ../src/caja-places-sidebar.c:2749
 msgid "_Detect Media"
 msgstr "미디어 검색(_D)"
 
@@ -4349,7 +4350,7 @@ msgstr "선택한 내용을 창의 다른 창 영역으로 옮깁니다"
 #. name, stock id
 #. label, accelerator
 #: ../src/file-manager/fm-directory-view.c:7636
-#: ../src/file-manager/fm-directory-view.c:7640 ../src/caja-window-menus.c:894
+#: ../src/file-manager/fm-directory-view.c:7640 ../src/caja-window-menus.c:893
 msgid "_Home Folder"
 msgstr "내 폴더(_H)"
 
@@ -4466,7 +4467,7 @@ msgstr "선택한 드라이브를 중지합니다"
 #: ../src/file-manager/fm-directory-view.c:8322
 #: ../src/file-manager/fm-directory-view.c:8414
 #: ../src/file-manager/fm-directory-view.c:8524
-#: ../src/caja-places-sidebar.c:1818
+#: ../src/caja-places-sidebar.c:1832
 msgid "_Safely Remove Drive"
 msgstr "안전하게 드라이브 제거(_S)"
 
@@ -4500,7 +4501,7 @@ msgstr "선택한 멀티 디스크 장치를 중지합니다"
 #: ../src/file-manager/fm-directory-view.c:8334
 #: ../src/file-manager/fm-directory-view.c:8426
 #: ../src/file-manager/fm-directory-view.c:8536
-#: ../src/caja-places-sidebar.c:1831
+#: ../src/caja-places-sidebar.c:1845
 msgid "_Lock Drive"
 msgstr "드라이브 잠그기(_L)"
 
@@ -4525,7 +4526,7 @@ msgstr "연 폴더에 연결된 멀티 디스크 드라이브를 시작합니다
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
 #: ../src/file-manager/fm-directory-view.c:8397
 #: ../src/file-manager/fm-directory-view.c:8507
-#: ../src/caja-places-sidebar.c:1830
+#: ../src/caja-places-sidebar.c:1844
 msgid "_Unlock Drive"
 msgstr "드라이브 잠금 해제(_U)"
 
@@ -4556,7 +4557,7 @@ msgstr "연 폴더에 연결된 드라이브를 잠급니다"
 #. add the "open in new window" menu item
 #: ../src/file-manager/fm-directory-view.c:8606
 #: ../src/file-manager/fm-directory-view.c:8916
-#: ../src/file-manager/fm-tree-view.c:1287 ../src/caja-places-sidebar.c:2685
+#: ../src/file-manager/fm-tree-view.c:1287 ../src/caja-places-sidebar.c:2699
 msgid "Open in New _Window"
 msgstr "새 창에서 열기(_W)"
 
@@ -4626,55 +4627,55 @@ msgstr "선택한 항목을 모두 지웁니다"
 msgid "View or modify the properties of the open folder"
 msgstr "열린 폴더의 속성을 보거나 고칩니다"
 
-#: ../src/file-manager/fm-directory-view.c:10372
+#: ../src/file-manager/fm-directory-view.c:10366
 msgid "Download location?"
 msgstr "위치를 다운로드하시겠습니까?"
 
-#: ../src/file-manager/fm-directory-view.c:10375
+#: ../src/file-manager/fm-directory-view.c:10369
 msgid "You can download it or make a link to it."
 msgstr "다운로드하거나 링크를 만들 수 있습니다."
 
-#: ../src/file-manager/fm-directory-view.c:10378
+#: ../src/file-manager/fm-directory-view.c:10372
 msgid "Make a _Link"
 msgstr "링크 만들기(_L)"
 
-#: ../src/file-manager/fm-directory-view.c:10382
+#: ../src/file-manager/fm-directory-view.c:10376
 msgid "_Download"
 msgstr "다운로드(_D)"
 
-#: ../src/file-manager/fm-directory-view.c:10543
-#: ../src/file-manager/fm-directory-view.c:10602
-#: ../src/file-manager/fm-directory-view.c:10707
+#: ../src/file-manager/fm-directory-view.c:10537
+#: ../src/file-manager/fm-directory-view.c:10596
+#: ../src/file-manager/fm-directory-view.c:10701
 msgid "Drag and drop is not supported."
 msgstr "끌어서 놓기는 지원하지 않습니다."
 
-#: ../src/file-manager/fm-directory-view.c:10544
+#: ../src/file-manager/fm-directory-view.c:10538
 msgid "Drag and drop is only supported on local file systems."
 msgstr "끌어서 놓기는 로컬 파일 시스템에서만 지원합니다."
 
-#: ../src/file-manager/fm-directory-view.c:10603
-#: ../src/file-manager/fm-directory-view.c:10708
+#: ../src/file-manager/fm-directory-view.c:10597
+#: ../src/file-manager/fm-directory-view.c:10702
 msgid "An invalid drag type was used."
 msgstr "잘못된 끌기형식이 쓰였습니다."
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10785
+#: ../src/file-manager/fm-directory-view.c:10779
 msgid "dropped text.txt"
 msgstr "선택한 텍스트.txt"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10830
+#: ../src/file-manager/fm-directory-view.c:10824
 msgid "dropped data"
 msgstr "끌어 놓은 데이터"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11195
+#: ../src/file-manager/fm-directory-view.c:11217
 msgid "Undo"
 msgstr "취소"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11213
+#: ../src/file-manager/fm-directory-view.c:11235
 msgid "Redo"
 msgstr "재실행"
 
@@ -4689,7 +4690,7 @@ msgstr "URL"
 
 #: ../src/file-manager/fm-ditem-page.c:492
 #: ../src/file-manager/fm-ditem-page.c:504
-#: ../src/caja-image-properties-page.c:375
+#: ../src/caja-image-properties-page.c:378
 msgid "Description"
 msgstr "설명"
 
@@ -4795,7 +4796,7 @@ msgstr "\"%s\"의 이름을 \"%s\"(으)로 바꾸기."
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: ../src/file-manager/fm-icon-container.c:613
-#: ../src/file-manager/fm-icon-view.c:3389
+#: ../src/file-manager/fm-icon-view.c:3395
 #: ../src/caja-file-management-properties.ui.h:1
 msgid "Icon View"
 msgstr "아이콘 보기"
@@ -4972,170 +4973,170 @@ msgid "pointing at \"%s\""
 msgstr "\"%s\" 항목을 가리킴"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3391
+#: ../src/file-manager/fm-icon-view.c:3397
 msgid "_Icons"
 msgstr "아이콘(_I)"
 
-#: ../src/file-manager/fm-icon-view.c:3392
+#: ../src/file-manager/fm-icon-view.c:3398
 msgid "The icon view encountered an error."
 msgstr "아이콘 보기 오류가 발생하였습니다."
 
-#: ../src/file-manager/fm-icon-view.c:3393
+#: ../src/file-manager/fm-icon-view.c:3399
 msgid "The icon view encountered an error while starting up."
 msgstr "아이콘 보기가 시작할 때 오류가 발생하였습니다."
 
-#: ../src/file-manager/fm-icon-view.c:3394
+#: ../src/file-manager/fm-icon-view.c:3400
 msgid "Display this location with the icon view."
 msgstr "이 위치를 아이콘 보기로 표시합니다."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-icon-view.c:3404
+#: ../src/file-manager/fm-icon-view.c:3410
 #: ../src/caja-file-management-properties.ui.h:3
 msgid "Compact View"
 msgstr "간략히 보기"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3406
+#: ../src/file-manager/fm-icon-view.c:3412
 msgid "_Compact"
 msgstr "간략히(_C)"
 
-#: ../src/file-manager/fm-icon-view.c:3407
+#: ../src/file-manager/fm-icon-view.c:3413
 msgid "The compact view encountered an error."
 msgstr "간략히 보기 오류가 발생하였습니다."
 
-#: ../src/file-manager/fm-icon-view.c:3408
+#: ../src/file-manager/fm-icon-view.c:3414
 msgid "The compact view encountered an error while starting up."
 msgstr "간략히 보기가 시작할 때 오류가 발생하였습니다."
 
-#: ../src/file-manager/fm-icon-view.c:3409
+#: ../src/file-manager/fm-icon-view.c:3415
 msgid "Display this location with the compact view."
 msgstr "이 위치를 간략히 보기로 표시합니다."
 
-#: ../src/file-manager/fm-list-model.c:428
-#: ../src/file-manager/fm-tree-model.c:1358
+#: ../src/file-manager/fm-list-model.c:436
+#: ../src/file-manager/fm-tree-model.c:1366
 msgid "(Empty)"
 msgstr "(비었음)"
 
-#: ../src/file-manager/fm-list-model.c:432
-#: ../src/file-manager/fm-tree-model.c:1358 ../src/caja-window-slot.c:207
+#: ../src/file-manager/fm-list-model.c:440
+#: ../src/file-manager/fm-tree-model.c:1366 ../src/caja-window-slot.c:211
 msgid "Loading..."
 msgstr "읽는 중..."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-list-view.c:1831
-#: ../src/file-manager/fm-list-view.c:3451
+#: ../src/file-manager/fm-list-view.c:1833
+#: ../src/file-manager/fm-list-view.c:3472
 #: ../src/caja-file-management-properties.ui.h:2
 msgid "List View"
 msgstr "목록 보기"
 
-#: ../src/file-manager/fm-list-view.c:2526
+#: ../src/file-manager/fm-list-view.c:2528
 #, c-format
 msgid "%s Visible Columns"
 msgstr "%s 표시할 열"
 
-#: ../src/file-manager/fm-list-view.c:2545
+#: ../src/file-manager/fm-list-view.c:2547
 msgid "Choose the order of information to appear in this folder:"
 msgstr "이 폴더에 나타날 정보의 순서를 선택하십시오:"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-list-view.c:2608
+#: ../src/file-manager/fm-list-view.c:2610
 msgid "Visible _Columns..."
 msgstr "표시할 열(_C)..."
 
 #. tooltip
-#: ../src/file-manager/fm-list-view.c:2609
+#: ../src/file-manager/fm-list-view.c:2611
 msgid "Select the columns visible in this folder"
 msgstr "이 폴더 안에 표시할 열을 선택합니다"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-list-view.c:3453
+#: ../src/file-manager/fm-list-view.c:3474
 msgid "_List"
 msgstr "목록(_L)"
 
-#: ../src/file-manager/fm-list-view.c:3454
+#: ../src/file-manager/fm-list-view.c:3475
 msgid "The list view encountered an error."
 msgstr "목록 보기 오류가 발생하였습니다."
 
-#: ../src/file-manager/fm-list-view.c:3455
+#: ../src/file-manager/fm-list-view.c:3476
 msgid "The list view encountered an error while starting up."
 msgstr "목록 보기가 시작할 때 오류가 발생하였습니다."
 
-#: ../src/file-manager/fm-list-view.c:3456
+#: ../src/file-manager/fm-list-view.c:3477
 msgid "Display this location with the list view."
 msgstr "이 위치를 목록 보기로 표시합니다."
 
-#: ../src/file-manager/fm-properties-window.c:529
+#: ../src/file-manager/fm-properties-window.c:545
 msgid "You cannot assign more than one custom icon at a time!"
 msgstr "한번에 여러 개의 사용자 아이콘을 할당할 수 없습니다!"
 
-#: ../src/file-manager/fm-properties-window.c:530
-#: ../src/caja-information-panel.c:528
+#: ../src/file-manager/fm-properties-window.c:546
+#: ../src/caja-information-panel.c:545
 msgid "Please drag just one image to set a custom icon."
 msgstr "사용자 아이콘으로 하나의 그림만 끌어 놓으십시오."
 
-#: ../src/file-manager/fm-properties-window.c:541
-#: ../src/caja-information-panel.c:555
+#: ../src/file-manager/fm-properties-window.c:557
+#: ../src/caja-information-panel.c:572
 msgid "The file that you dropped is not local."
 msgstr "끌어 놓은 파일이 로컬에 있지 않습니다."
 
-#: ../src/file-manager/fm-properties-window.c:542
-#: ../src/file-manager/fm-properties-window.c:548
-#: ../src/caja-information-panel.c:556
+#: ../src/file-manager/fm-properties-window.c:558
+#: ../src/file-manager/fm-properties-window.c:564
+#: ../src/caja-information-panel.c:573
 msgid "You can only use local images as custom icons."
 msgstr "로컬에 있는 그림으로만 사용자 아이콘으로 쓸 수 있습니다."
 
-#: ../src/file-manager/fm-properties-window.c:547
-#: ../src/caja-information-panel.c:563
+#: ../src/file-manager/fm-properties-window.c:563
+#: ../src/caja-information-panel.c:580
 msgid "The file that you dropped is not an image."
 msgstr "끌어놓은 파일은 그림이 아닙니다."
 
-#: ../src/file-manager/fm-properties-window.c:692
+#: ../src/file-manager/fm-properties-window.c:708
 msgid "_Name:"
 msgid_plural "_Names:"
 msgstr[0] "이름(_N):"
 
-#: ../src/file-manager/fm-properties-window.c:1048
+#: ../src/file-manager/fm-properties-window.c:1064
 #, c-format
 msgid "Properties"
 msgstr "속성"
 
-#: ../src/file-manager/fm-properties-window.c:1056
+#: ../src/file-manager/fm-properties-window.c:1072
 #, c-format
 msgid "%s Properties"
 msgstr "%s 속성"
 
-#: ../src/file-manager/fm-properties-window.c:1384
+#: ../src/file-manager/fm-properties-window.c:1400
 #, c-format
 msgctxt "MIME type description (MIME type)"
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-properties-window.c:1687
+#: ../src/file-manager/fm-properties-window.c:1689
 msgid "Cancel Group Change?"
 msgstr "그룹 바꾸기 취소?"
 
-#: ../src/file-manager/fm-properties-window.c:2124
+#: ../src/file-manager/fm-properties-window.c:2126
 msgid "Cancel Owner Change?"
 msgstr "소유주 바꾸기 취소?"
 
-#: ../src/file-manager/fm-properties-window.c:2469
+#: ../src/file-manager/fm-properties-window.c:2471
 msgid "nothing"
 msgstr "없음"
 
-#: ../src/file-manager/fm-properties-window.c:2471
+#: ../src/file-manager/fm-properties-window.c:2473
 msgid "unreadable"
 msgstr "읽을 수 없음"
 
-#: ../src/file-manager/fm-properties-window.c:2486
+#: ../src/file-manager/fm-properties-window.c:2488
 #, c-format
 msgid "%'d item, with size %s"
 msgid_plural "%'d items, totalling %s"
 msgstr[0] "항목 %'d개, 크기 %s"
 
-#: ../src/file-manager/fm-properties-window.c:2495
+#: ../src/file-manager/fm-properties-window.c:2497
 msgid "(some contents unreadable)"
 msgstr "(몇몇 내용은 읽을 수 없음)"
 
@@ -5144,279 +5145,279 @@ msgstr "(몇몇 내용은 읽을 수 없음)"
 #. * "Contents:" title to line up with the first line of the
 #. * 2-line value. Maybe there's a better way to do this, but I
 #. * couldn't think of one.
-#: ../src/file-manager/fm-properties-window.c:2512
+#: ../src/file-manager/fm-properties-window.c:2514
 msgid "Contents:"
 msgstr "내용:"
 
 #. Translators: "used" refers to the capacity of the filesystem
-#: ../src/file-manager/fm-properties-window.c:3475
+#: ../src/file-manager/fm-properties-window.c:3542
 msgid "used"
 msgstr "사용 용량"
 
 #. Translators: "free" refers to the capacity of the filesystem
-#: ../src/file-manager/fm-properties-window.c:3484
+#: ../src/file-manager/fm-properties-window.c:3551
 msgid "free"
 msgstr "여유 용량"
 
-#: ../src/file-manager/fm-properties-window.c:3486
+#: ../src/file-manager/fm-properties-window.c:3553
 msgid "Total capacity:"
 msgstr "전체 용량:"
 
-#: ../src/file-manager/fm-properties-window.c:3495
+#: ../src/file-manager/fm-properties-window.c:3562
 msgid "Filesystem type:"
 msgstr "파일 시스템 종류:"
 
-#: ../src/file-manager/fm-properties-window.c:3615
+#: ../src/file-manager/fm-properties-window.c:3682
 msgid "Basic"
 msgstr "기본"
 
-#: ../src/file-manager/fm-properties-window.c:3697
-#: ../src/file-manager/fm-properties-window.c:3774
+#: ../src/file-manager/fm-properties-window.c:3768
+#: ../src/file-manager/fm-properties-window.c:3845
 msgid "Link target:"
 msgstr "링크 대상:"
 
-#: ../src/file-manager/fm-properties-window.c:3716
-#: ../src/file-manager/fm-properties-window.c:3793
+#: ../src/file-manager/fm-properties-window.c:3787
+#: ../src/file-manager/fm-properties-window.c:3864
 #: ../src/caja-location-bar.c:56
 msgid "Location:"
 msgstr "위치:"
 
-#: ../src/file-manager/fm-properties-window.c:3722
-#: ../src/file-manager/fm-properties-window.c:3799
+#: ../src/file-manager/fm-properties-window.c:3793
+#: ../src/file-manager/fm-properties-window.c:3870
 msgid "Volume:"
 msgstr "볼륨:"
 
-#: ../src/file-manager/fm-properties-window.c:3731
-#: ../src/file-manager/fm-properties-window.c:3808
+#: ../src/file-manager/fm-properties-window.c:3802
+#: ../src/file-manager/fm-properties-window.c:3879
 msgid "Accessed:"
 msgstr "접근 날짜:"
 
-#: ../src/file-manager/fm-properties-window.c:3735
-#: ../src/file-manager/fm-properties-window.c:3812
+#: ../src/file-manager/fm-properties-window.c:3806
+#: ../src/file-manager/fm-properties-window.c:3883
 msgid "Modified:"
 msgstr "바뀐 날짜:"
 
-#: ../src/file-manager/fm-properties-window.c:3744
-#: ../src/file-manager/fm-properties-window.c:3821
+#: ../src/file-manager/fm-properties-window.c:3815
+#: ../src/file-manager/fm-properties-window.c:3892
 msgid "Free space:"
 msgstr "사용 가능한 공간:"
 
-#: ../src/file-manager/fm-properties-window.c:3932
-#: ../src/caja-emblem-sidebar.c:1089
+#: ../src/file-manager/fm-properties-window.c:4003
+#: ../src/caja-emblem-sidebar.c:1095
 msgid "Emblems"
 msgstr "꼬리표"
 
-#: ../src/file-manager/fm-properties-window.c:4356
-#: ../src/file-manager/fm-properties-window.c:4382
+#: ../src/file-manager/fm-properties-window.c:4433
+#: ../src/file-manager/fm-properties-window.c:4459
 msgid "_Read"
 msgstr "읽기(_R)"
 
-#: ../src/file-manager/fm-properties-window.c:4358
-#: ../src/file-manager/fm-properties-window.c:4384
+#: ../src/file-manager/fm-properties-window.c:4435
+#: ../src/file-manager/fm-properties-window.c:4461
 msgid "_Write"
 msgstr "쓰기(_W)"
 
-#: ../src/file-manager/fm-properties-window.c:4360
-#: ../src/file-manager/fm-properties-window.c:4386
+#: ../src/file-manager/fm-properties-window.c:4437
+#: ../src/file-manager/fm-properties-window.c:4463
 msgid "E_xecute"
 msgstr "실행(_X)"
 
 #. translators: this gets concatenated to "no read",
 #. * "no access", etc. (see following strings)
-#: ../src/file-manager/fm-properties-window.c:4655
-#: ../src/file-manager/fm-properties-window.c:4666
-#: ../src/file-manager/fm-properties-window.c:4678
+#: ../src/file-manager/fm-properties-window.c:4732
+#: ../src/file-manager/fm-properties-window.c:4743
+#: ../src/file-manager/fm-properties-window.c:4755
 msgid "no "
 msgstr "없음 - "
 
-#: ../src/file-manager/fm-properties-window.c:4658
+#: ../src/file-manager/fm-properties-window.c:4735
 msgid "list"
 msgstr "목록"
 
-#: ../src/file-manager/fm-properties-window.c:4660
+#: ../src/file-manager/fm-properties-window.c:4737
 msgid "read"
 msgstr "읽기"
 
-#: ../src/file-manager/fm-properties-window.c:4669
+#: ../src/file-manager/fm-properties-window.c:4746
 msgid "create/delete"
 msgstr "만들기/삭제"
 
-#: ../src/file-manager/fm-properties-window.c:4671
+#: ../src/file-manager/fm-properties-window.c:4748
 msgid "write"
 msgstr "쓰기"
 
-#: ../src/file-manager/fm-properties-window.c:4680
+#: ../src/file-manager/fm-properties-window.c:4757
 msgid "access"
 msgstr "접근"
 
-#: ../src/file-manager/fm-properties-window.c:4736
-#: ../src/file-manager/fm-properties-window.c:4742
+#: ../src/file-manager/fm-properties-window.c:4813
+#: ../src/file-manager/fm-properties-window.c:4819
 msgid "Access:"
 msgstr "접근:"
 
-#: ../src/file-manager/fm-properties-window.c:4738
-#: ../src/file-manager/fm-properties-window.c:4744
+#: ../src/file-manager/fm-properties-window.c:4815
+#: ../src/file-manager/fm-properties-window.c:4821
 msgid "Folder access:"
 msgstr "폴더 접근:"
 
-#: ../src/file-manager/fm-properties-window.c:4740
-#: ../src/file-manager/fm-properties-window.c:4746
+#: ../src/file-manager/fm-properties-window.c:4817
+#: ../src/file-manager/fm-properties-window.c:4823
 msgid "File access:"
 msgstr "파일 접근:"
 
 #. Translators: this is referred to the permissions
 #. * the user has in a directory.
 #. Translators: this is referred to captions under icons.
-#: ../src/file-manager/fm-properties-window.c:4762
-#: ../src/file-manager/fm-properties-window.c:4773
+#: ../src/file-manager/fm-properties-window.c:4839
+#: ../src/file-manager/fm-properties-window.c:4850
 #: ../src/caja-file-management-properties.c:330
 msgid "None"
 msgstr "없음"
 
-#: ../src/file-manager/fm-properties-window.c:4765
+#: ../src/file-manager/fm-properties-window.c:4842
 msgid "List files only"
 msgstr "파일 목록만 가능"
 
-#: ../src/file-manager/fm-properties-window.c:4767
+#: ../src/file-manager/fm-properties-window.c:4844
 msgid "Access files"
 msgstr "파일에 접근"
 
-#: ../src/file-manager/fm-properties-window.c:4769
+#: ../src/file-manager/fm-properties-window.c:4846
 msgid "Create and delete files"
 msgstr "파일 만들기 및 삭제"
 
-#: ../src/file-manager/fm-properties-window.c:4776
+#: ../src/file-manager/fm-properties-window.c:4853
 msgid "Read-only"
 msgstr "읽기 전용"
 
-#: ../src/file-manager/fm-properties-window.c:4778
+#: ../src/file-manager/fm-properties-window.c:4855
 msgid "Read and write"
 msgstr "읽기 및 쓰기"
 
-#: ../src/file-manager/fm-properties-window.c:4869
-#: ../src/file-manager/fm-properties-window.c:4884
+#: ../src/file-manager/fm-properties-window.c:4946
+#: ../src/file-manager/fm-properties-window.c:4961
 msgid "Special flags:"
 msgstr "특수 표시:"
 
-#: ../src/file-manager/fm-properties-window.c:4871
-#: ../src/file-manager/fm-properties-window.c:4881
+#: ../src/file-manager/fm-properties-window.c:4948
+#: ../src/file-manager/fm-properties-window.c:4958
 msgid "Set _user ID"
 msgstr "사용자 ID 설정(_U)"
 
-#: ../src/file-manager/fm-properties-window.c:4872
-#: ../src/file-manager/fm-properties-window.c:4886
+#: ../src/file-manager/fm-properties-window.c:4949
+#: ../src/file-manager/fm-properties-window.c:4963
 msgid "Set gro_up ID"
 msgstr "그룹 ID 설정(_U)"
 
-#: ../src/file-manager/fm-properties-window.c:4873
-#: ../src/file-manager/fm-properties-window.c:4887
+#: ../src/file-manager/fm-properties-window.c:4950
+#: ../src/file-manager/fm-properties-window.c:4964
 msgid "_Sticky"
 msgstr "고정(_S)"
 
-#: ../src/file-manager/fm-properties-window.c:4967
-#: ../src/file-manager/fm-properties-window.c:5070
-#: ../src/file-manager/fm-properties-window.c:5370
-#: ../src/file-manager/fm-properties-window.c:5451
+#: ../src/file-manager/fm-properties-window.c:5044
+#: ../src/file-manager/fm-properties-window.c:5147
+#: ../src/file-manager/fm-properties-window.c:5447
+#: ../src/file-manager/fm-properties-window.c:5528
 msgid "_Owner:"
 msgstr "소유자(_O):"
 
-#: ../src/file-manager/fm-properties-window.c:4975
-#: ../src/file-manager/fm-properties-window.c:5076
-#: ../src/file-manager/fm-properties-window.c:5175
-#: ../src/file-manager/fm-properties-window.c:5268
-#: ../src/file-manager/fm-properties-window.c:5379
-#: ../src/file-manager/fm-properties-window.c:5459
+#: ../src/file-manager/fm-properties-window.c:5052
+#: ../src/file-manager/fm-properties-window.c:5153
+#: ../src/file-manager/fm-properties-window.c:5252
+#: ../src/file-manager/fm-properties-window.c:5345
+#: ../src/file-manager/fm-properties-window.c:5456
+#: ../src/file-manager/fm-properties-window.c:5536
 msgid "Owner:"
 msgstr "소유자:"
 
-#: ../src/file-manager/fm-properties-window.c:4997
-#: ../src/file-manager/fm-properties-window.c:5100
-#: ../src/file-manager/fm-properties-window.c:5392
-#: ../src/file-manager/fm-properties-window.c:5471
+#: ../src/file-manager/fm-properties-window.c:5074
+#: ../src/file-manager/fm-properties-window.c:5177
+#: ../src/file-manager/fm-properties-window.c:5469
+#: ../src/file-manager/fm-properties-window.c:5548
 msgid "_Group:"
 msgstr "그룹(_G):"
 
-#: ../src/file-manager/fm-properties-window.c:5005
-#: ../src/file-manager/fm-properties-window.c:5109
-#: ../src/file-manager/fm-properties-window.c:5176
-#: ../src/file-manager/fm-properties-window.c:5269
-#: ../src/file-manager/fm-properties-window.c:5400
-#: ../src/file-manager/fm-properties-window.c:5480
+#: ../src/file-manager/fm-properties-window.c:5082
+#: ../src/file-manager/fm-properties-window.c:5186
+#: ../src/file-manager/fm-properties-window.c:5253
+#: ../src/file-manager/fm-properties-window.c:5346
+#: ../src/file-manager/fm-properties-window.c:5477
+#: ../src/file-manager/fm-properties-window.c:5557
 msgid "Group:"
 msgstr "그룹:"
 
-#: ../src/file-manager/fm-properties-window.c:5029
-#: ../src/file-manager/fm-properties-window.c:5135
+#: ../src/file-manager/fm-properties-window.c:5106
+#: ../src/file-manager/fm-properties-window.c:5212
 msgid "Others"
 msgstr "기타"
 
-#: ../src/file-manager/fm-properties-window.c:5044
-#: ../src/file-manager/fm-properties-window.c:5153
+#: ../src/file-manager/fm-properties-window.c:5121
+#: ../src/file-manager/fm-properties-window.c:5230
 msgid "Execute:"
 msgstr "실행:"
 
-#: ../src/file-manager/fm-properties-window.c:5047
-#: ../src/file-manager/fm-properties-window.c:5157
+#: ../src/file-manager/fm-properties-window.c:5124
+#: ../src/file-manager/fm-properties-window.c:5234
 msgid "Allow _executing file as program"
 msgstr "파일을 프로그램으로 실행 허용(_E)"
 
-#: ../src/file-manager/fm-properties-window.c:5177
-#: ../src/file-manager/fm-properties-window.c:5270
+#: ../src/file-manager/fm-properties-window.c:5254
+#: ../src/file-manager/fm-properties-window.c:5347
 msgid "Others:"
 msgstr "다른 사용자 권한:"
 
-#: ../src/file-manager/fm-properties-window.c:5416
-#: ../src/file-manager/fm-properties-window.c:5499
+#: ../src/file-manager/fm-properties-window.c:5493
+#: ../src/file-manager/fm-properties-window.c:5576
 msgid "Folder Permissions:"
 msgstr "폴더 권한:"
 
-#: ../src/file-manager/fm-properties-window.c:5423
-#: ../src/file-manager/fm-properties-window.c:5512
+#: ../src/file-manager/fm-properties-window.c:5500
+#: ../src/file-manager/fm-properties-window.c:5589
 msgid "File Permissions:"
 msgstr "파일 권한:"
 
-#: ../src/file-manager/fm-properties-window.c:5432
-#: ../src/file-manager/fm-properties-window.c:5523
+#: ../src/file-manager/fm-properties-window.c:5509
+#: ../src/file-manager/fm-properties-window.c:5600
 msgid "Text view:"
 msgstr "글자 보기:"
 
-#: ../src/file-manager/fm-properties-window.c:5671
-#: ../src/file-manager/fm-properties-window.c:5727
+#: ../src/file-manager/fm-properties-window.c:5748
+#: ../src/file-manager/fm-properties-window.c:5808
 msgid "You are not the owner, so you cannot change these permissions."
 msgstr "파일의 소유주가 아니므로 접근 권한을 바꿀 수 없습니다."
 
-#: ../src/file-manager/fm-properties-window.c:5691
-#: ../src/file-manager/fm-properties-window.c:5752
+#: ../src/file-manager/fm-properties-window.c:5768
+#: ../src/file-manager/fm-properties-window.c:5833
 msgid "SELinux context:"
 msgstr "SELinux 컨텍스트:"
 
-#: ../src/file-manager/fm-properties-window.c:5696
-#: ../src/file-manager/fm-properties-window.c:5757
+#: ../src/file-manager/fm-properties-window.c:5773
+#: ../src/file-manager/fm-properties-window.c:5838
 msgid "Last changed:"
 msgstr "최근 파일을 바꾼 시간:"
 
-#: ../src/file-manager/fm-properties-window.c:5772
+#: ../src/file-manager/fm-properties-window.c:5857
 msgid "Apply Permissions to Enclosed Files"
 msgstr "내부의 파일에도 권한 적용"
 
-#: ../src/file-manager/fm-properties-window.c:5782
+#: ../src/file-manager/fm-properties-window.c:5867
 #, c-format
 msgid "The permissions of \"%s\" could not be determined."
 msgstr "\"%s\"의 접근 권한을 바꿀 수 없습니다."
 
-#: ../src/file-manager/fm-properties-window.c:5785
+#: ../src/file-manager/fm-properties-window.c:5870
 msgid "The permissions of the selected file could not be determined."
 msgstr "선택한 파일의 접근 권한을 바꿀 수 없습니다."
 
-#: ../src/file-manager/fm-properties-window.c:6361
+#: ../src/file-manager/fm-properties-window.c:6448
 msgid "Creating Properties window."
 msgstr "속성 창 만들기."
 
-#: ../src/file-manager/fm-properties-window.c:6663
+#: ../src/file-manager/fm-properties-window.c:6750
 msgid "Select Custom Icon"
 msgstr "사용자 아이콘 선택"
 
-#: ../src/file-manager/fm-tree-view.c:1438 ../src/caja-places-sidebar.c:537
+#: ../src/file-manager/fm-tree-view.c:1438 ../src/caja-places-sidebar.c:551
 msgid "File System"
 msgstr "파일 시스템"
 
@@ -5428,30 +5429,30 @@ msgstr "트리"
 msgid "Show Tree"
 msgstr "트리 보이기"
 
-#: ../src/caja-application.c:446
+#: ../src/caja-application.c:443
 #, c-format
 msgid "Caja could not create the required folder \"%s\"."
 msgstr "필요한 \"%s\" 폴더를 만들 수 없습니다."
 
-#: ../src/caja-application.c:448
+#: ../src/caja-application.c:445
 msgid ""
 "Before running Caja, please create the following folder, or set permissions "
 "such that Caja can create it."
 msgstr "카하를 실행하기 전에 이 폴더를 만들거나, 카하에서 이 폴더를 만들 수 있도록 권한을 설정하십시오."
 
-#: ../src/caja-application.c:453
+#: ../src/caja-application.c:450
 #, c-format
 msgid "Caja could not create the following required folders: %s."
 msgstr "카하에서 필요한 폴더를 만들 수 없습니다: %s."
 
-#: ../src/caja-application.c:455
+#: ../src/caja-application.c:452
 msgid ""
 "Before running Caja, please create these folders, or set permissions such "
 "that Caja can create them."
 msgstr "카하를 실행하기 전에 이 폴더를 만들거나 만들 수 있도록 접근 권한을 설정하십시오."
 
-#: ../src/caja-application.c:1717 ../src/caja-places-sidebar.c:2217
-#: ../src/caja-places-sidebar.c:2248 ../src/caja-places-sidebar.c:2279
+#: ../src/caja-application.c:1743 ../src/caja-places-sidebar.c:2231
+#: ../src/caja-places-sidebar.c:2262 ../src/caja-places-sidebar.c:2293
 #, c-format
 msgid "Unable to eject %s"
 msgstr "%s 볼륨을 꺼낼 수 없습니다"
@@ -5486,7 +5487,7 @@ msgstr " \"%s\" 미디어에서 소프트웨어를 바로 실행합니다. 믿�
 
 #: ../src/caja-bookmarks-window.c:158
 #: ../src/caja-file-management-properties.c:237
-#: ../src/caja-property-browser.c:1676 ../src/caja-window-menus.c:593
+#: ../src/caja-property-browser.c:1673 ../src/caja-window-menus.c:592
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
@@ -5515,7 +5516,7 @@ msgstr "<b>위치(_L)</b>"
 
 #. Translators: This is the --help description for the connect to server app,
 #. the initial newlines are between the command line arg and the description
-#: ../src/caja-connect-server-dialog-main.c:119
+#: ../src/caja-connect-server-dialog-main.c:123
 msgid ""
 "\n"
 "\n"
@@ -5598,7 +5599,7 @@ msgstr "서버 세부 정보"
 
 #. first row: server entry + port spinbutton
 #: ../src/caja-connect-server-dialog.c:920
-#: ../src/caja-connect-server-dialog.c:938
+#: ../src/caja-connect-server-dialog.c:942
 msgid "_Server:"
 msgstr "서버(_S):"
 
@@ -5649,81 +5650,81 @@ msgstr "책갈피 추가(_B)"
 msgid "Bookmark Name:"
 msgstr "책갈피 이름:"
 
-#: ../src/caja-desktop-window.c:81 ../src/caja-desktop-window.c:251
-#: ../src/caja-pathbar.c:1526 ../src/caja-places-sidebar.c:522
+#: ../src/caja-desktop-window.c:88 ../src/caja-desktop-window.c:263
+#: ../src/caja-pathbar.c:1562 ../src/caja-places-sidebar.c:536
 msgid "Desktop"
 msgstr "바탕 화면"
 
-#: ../src/caja-emblem-sidebar.c:229
+#: ../src/caja-emblem-sidebar.c:232
 #, c-format
 msgid "Could not remove emblem with name '%s'."
 msgstr "이름이 '%s'인 꼬리표를 지울 수 없습니다."
 
-#: ../src/caja-emblem-sidebar.c:230 ../src/caja-emblem-sidebar.c:270
+#: ../src/caja-emblem-sidebar.c:233 ../src/caja-emblem-sidebar.c:273
 msgid ""
 "This is probably because the emblem is a permanent one, and not one that you"
 " added yourself."
 msgstr "사용자가 더한것이 아닌 것은 이름을 바꿀 수 없습니다."
 
-#: ../src/caja-emblem-sidebar.c:269
+#: ../src/caja-emblem-sidebar.c:272
 #, c-format
 msgid "Could not rename emblem with name '%s'."
 msgstr "이름이 '%s'인 꼬리표의 이름을 바꿀 수 없습니다."
 
-#: ../src/caja-emblem-sidebar.c:289
+#: ../src/caja-emblem-sidebar.c:292
 msgid "Rename Emblem"
 msgstr "꼬리표 이름 바꾸기"
 
-#: ../src/caja-emblem-sidebar.c:308
+#: ../src/caja-emblem-sidebar.c:311
 msgid "Enter a new name for the displayed emblem:"
 msgstr "꼬리표의 새 이름을 넣어주십시오:"
 
-#: ../src/caja-emblem-sidebar.c:362
+#: ../src/caja-emblem-sidebar.c:365
 msgid "Rename"
 msgstr "이름 바꾸기"
 
-#: ../src/caja-emblem-sidebar.c:542
+#: ../src/caja-emblem-sidebar.c:545
 msgid "Add Emblems..."
 msgstr "새 꼬리표 추가..."
 
-#: ../src/caja-emblem-sidebar.c:559
+#: ../src/caja-emblem-sidebar.c:562
 msgid ""
 "Enter a descriptive name next to each emblem.  This name will be used in "
 "other places to identify the emblem."
 msgstr "각각의 꼬리표에 알맞은 이름을 넣어주십시오. 이 이름은 다른 곳에서 꼬리표를 구별할 때 쓰입니다."
 
-#: ../src/caja-emblem-sidebar.c:563
+#: ../src/caja-emblem-sidebar.c:566
 msgid ""
 "Enter a descriptive name next to the emblem.  This name will be used in "
 "other places to identify the emblem."
 msgstr "꼬리표에 알맞은 이름을 넣어주십시오. 이 이름은 다른 곳에서 꼬리표를 구별할 때 쓰입니다."
 
-#: ../src/caja-emblem-sidebar.c:805
+#: ../src/caja-emblem-sidebar.c:808
 msgid "Some of the files could not be added as emblems."
 msgstr "몇몇 파일을 꼬리표로 추가할 수 없습니다."
 
-#: ../src/caja-emblem-sidebar.c:805 ../src/caja-emblem-sidebar.c:809
+#: ../src/caja-emblem-sidebar.c:808 ../src/caja-emblem-sidebar.c:812
 msgid "The emblems do not appear to be valid images."
 msgstr "올바른 그림파일이 아니여서 꼬리표로 쓸 수 없습니다."
 
-#: ../src/caja-emblem-sidebar.c:809
+#: ../src/caja-emblem-sidebar.c:812
 msgid "None of the files could be added as emblems."
 msgstr "파일에 꼬리표를 붙여 넣을 수 업습니다."
 
-#: ../src/caja-emblem-sidebar.c:852 ../src/caja-emblem-sidebar.c:915
+#: ../src/caja-emblem-sidebar.c:855 ../src/caja-emblem-sidebar.c:918
 #, c-format
 msgid "The file '%s' does not appear to be a valid image."
 msgstr "파일 '%s'(이)가  올바른 그림파일이 아닌것 같습니다."
 
-#: ../src/caja-emblem-sidebar.c:857
+#: ../src/caja-emblem-sidebar.c:860
 msgid "The dragged file does not appear to be a valid image."
 msgstr "끌어 놓은 파일이 올바른 그림파일이 아닌것 같습니다."
 
-#: ../src/caja-emblem-sidebar.c:859 ../src/caja-emblem-sidebar.c:916
+#: ../src/caja-emblem-sidebar.c:862 ../src/caja-emblem-sidebar.c:919
 msgid "The emblem cannot be added."
 msgstr "꼬리표를 붙여 넣을 수 없습니다."
 
-#: ../src/caja-emblem-sidebar.c:1095
+#: ../src/caja-emblem-sidebar.c:1101
 msgid "Show Emblems"
 msgstr "꼬리표 보이기"
 
@@ -6133,125 +6134,125 @@ msgstr "확장기능 설정_"
 msgid "Extensions"
 msgstr "확장 기능"
 
-#: ../src/caja-history-sidebar.c:336
+#: ../src/caja-history-sidebar.c:344
 msgid "History"
 msgstr "기록"
 
-#: ../src/caja-history-sidebar.c:342
+#: ../src/caja-history-sidebar.c:350
 msgid "Show History"
 msgstr "기록 보이기"
 
-#: ../src/caja-image-properties-page.c:285
+#: ../src/caja-image-properties-page.c:288
 msgid "Camera Brand"
 msgstr "카메라 상표"
 
-#: ../src/caja-image-properties-page.c:286
+#: ../src/caja-image-properties-page.c:289
 msgid "Camera Model"
 msgstr "카메라 모델"
 
 #. Choose which date to show in order of relevance
-#: ../src/caja-image-properties-page.c:289
+#: ../src/caja-image-properties-page.c:292
 msgid "Date Taken"
 msgstr "찍은 날짜"
 
-#: ../src/caja-image-properties-page.c:291
+#: ../src/caja-image-properties-page.c:294
 msgid "Date Digitized"
 msgstr "디지털 날짜"
 
-#: ../src/caja-image-properties-page.c:297
+#: ../src/caja-image-properties-page.c:300
 msgid "Exposure Time"
 msgstr "노출 시간"
 
-#: ../src/caja-image-properties-page.c:298
+#: ../src/caja-image-properties-page.c:301
 msgid "Aperture Value"
 msgstr "조리개 값"
 
-#: ../src/caja-image-properties-page.c:299
+#: ../src/caja-image-properties-page.c:302
 msgid "ISO Speed Rating"
 msgstr "ISO 값"
 
-#: ../src/caja-image-properties-page.c:300
+#: ../src/caja-image-properties-page.c:303
 msgid "Flash Fired"
 msgstr "플래시 켜짐"
 
-#: ../src/caja-image-properties-page.c:301
+#: ../src/caja-image-properties-page.c:304
 msgid "Metering Mode"
 msgstr "측광 방식"
 
-#: ../src/caja-image-properties-page.c:302
+#: ../src/caja-image-properties-page.c:305
 msgid "Exposure Program"
 msgstr "노출 프로그램"
 
-#: ../src/caja-image-properties-page.c:303
+#: ../src/caja-image-properties-page.c:306
 msgid "Focal Length"
 msgstr "초점 거리"
 
-#: ../src/caja-image-properties-page.c:304
+#: ../src/caja-image-properties-page.c:307
 msgid "Software"
 msgstr "소프트웨어"
 
-#: ../src/caja-image-properties-page.c:376
+#: ../src/caja-image-properties-page.c:379
 msgid "Keywords"
 msgstr "키워드"
 
-#: ../src/caja-image-properties-page.c:377
+#: ../src/caja-image-properties-page.c:380
 msgid "Creator"
 msgstr "만든이"
 
-#: ../src/caja-image-properties-page.c:378
+#: ../src/caja-image-properties-page.c:381
 msgid "Copyright"
 msgstr "저작권"
 
-#: ../src/caja-image-properties-page.c:379
+#: ../src/caja-image-properties-page.c:382
 msgid "Rating"
 msgstr "점수"
 
-#: ../src/caja-image-properties-page.c:410
+#: ../src/caja-image-properties-page.c:413
 msgid "Image Type:"
 msgstr "그림 형식:"
 
-#: ../src/caja-image-properties-page.c:413
+#: ../src/caja-image-properties-page.c:416
 #, c-format
 msgid "<b>Width:</b> %d pixel"
 msgid_plural "<b>Width:</b> %d pixels"
 msgstr[0] "<b>너비:</b> %d 픽셀"
 
-#: ../src/caja-image-properties-page.c:419
+#: ../src/caja-image-properties-page.c:422
 #, c-format
 msgid "<b>Height:</b> %d pixel"
 msgid_plural "<b>Height:</b> %d pixels"
 msgstr[0] "<b>높이:</b> %d 픽셀"
 
-#: ../src/caja-image-properties-page.c:438
+#: ../src/caja-image-properties-page.c:441
 msgid "Failed to load image information"
 msgstr "그림 정보를 읽어들이기 실패했습니다"
 
-#: ../src/caja-image-properties-page.c:664
+#: ../src/caja-image-properties-page.c:670
 msgid "loading..."
 msgstr "읽어들이는 중입니다..."
 
-#: ../src/caja-image-properties-page.c:718
+#: ../src/caja-image-properties-page.c:724
 msgid "Image"
 msgstr "그림"
 
-#: ../src/caja-information-panel.c:163
+#: ../src/caja-information-panel.c:167
 msgid "Information"
 msgstr "정보"
 
-#: ../src/caja-information-panel.c:169
+#: ../src/caja-information-panel.c:173
 msgid "Show Information"
 msgstr "정보 보이기"
 
 #. add the reset background item, possibly disabled
-#: ../src/caja-information-panel.c:362
+#: ../src/caja-information-panel.c:379
 msgid "Use _Default Background"
 msgstr "기본 배경 사용(_D)"
 
-#: ../src/caja-information-panel.c:527
+#: ../src/caja-information-panel.c:544
 msgid "You cannot assign more than one custom icon at a time."
 msgstr "한번에 여러 개의 사용자 아이콘을 할당할 수 없습니다."
 
-#: ../src/caja-information-panel.c:564
+#: ../src/caja-information-panel.c:581
 msgid "You can only use images as custom icons."
 msgstr "그림파일만 사용자 아이콘으로 쓸 수 있습니다."
 
@@ -6319,22 +6320,22 @@ msgid ""
 msgstr "\n\n파일 관리자로 파일 시스템을 둘러봅니다"
 
 #. translators: %s is an option (e.g. --check)
-#: ../src/caja-main.c:491 ../src/caja-main.c:502
+#: ../src/caja-main.c:494 ../src/caja-main.c:505
 #, c-format
 msgid "caja: %s cannot be used with URIs.\n"
 msgstr "caja: %s 옵션은 URI와 같이 사용할 수 없습니다.\n"
 
-#: ../src/caja-main.c:497
+#: ../src/caja-main.c:500
 #, c-format
 msgid "caja: --check cannot be used with other options.\n"
 msgstr "caja: --check는 다른 옵션과 같이 사용할 수 없습니다.\n"
 
-#: ../src/caja-main.c:508
+#: ../src/caja-main.c:511
 #, c-format
 msgid "caja: --geometry cannot be used with more than one URI.\n"
 msgstr "caja: --geometry는 여러 개의 URI와 같이 사용할 수 없습니다.\n"
 
-#: ../src/caja-main.c:582
+#: ../src/caja-main.c:585
 #, c-format
 msgid "caja: set erroneously as default application for '%s' content type.\n"
 msgstr "caja: '%s' 내용 형식에 대한 기본 프로그램으로 잘못 지정되었습니다.\n"
@@ -6614,12 +6615,12 @@ msgstr "새 탭(_N)"
 msgid "_Close Tab"
 msgstr "탭 닫기(_C)"
 
-#: ../src/caja-navigation-window.c:774
+#: ../src/caja-navigation-window.c:781
 #, c-format
 msgid "%s - File Browser"
 msgstr "%s - 파일 찾아보기"
 
-#: ../src/caja-notebook.c:395
+#: ../src/caja-notebook.c:423
 msgid "Close tab"
 msgstr "탭 닫기"
 
@@ -6631,198 +6632,198 @@ msgstr "메모"
 msgid "Show Notes"
 msgstr "메모 보이기"
 
-#: ../src/caja-places-sidebar.c:311
+#: ../src/caja-places-sidebar.c:325
 msgid "Devices"
 msgstr "장치"
 
-#: ../src/caja-places-sidebar.c:319
+#: ../src/caja-places-sidebar.c:333
 msgid "Bookmarks"
 msgstr "책갈피"
 
-#: ../src/caja-places-sidebar.c:524
+#: ../src/caja-places-sidebar.c:538
 msgid "Open the contents of your desktop in a folder"
 msgstr "바탕 화면의 내용을 폴더에 엽니다"
 
-#: ../src/caja-places-sidebar.c:539
+#: ../src/caja-places-sidebar.c:553
 msgid "Open the contents of the File System"
 msgstr "파일 시스템의 내용을 엽니다"
 
-#: ../src/caja-places-sidebar.c:598
+#: ../src/caja-places-sidebar.c:612
 msgid "Open the trash"
 msgstr "휴지통 열기"
 
-#: ../src/caja-places-sidebar.c:653 ../src/caja-places-sidebar.c:681
+#: ../src/caja-places-sidebar.c:667 ../src/caja-places-sidebar.c:695
 #, c-format
 msgid "Mount and open %s"
 msgstr "%s을(를) 마운트하고 엽니다"
 
-#: ../src/caja-places-sidebar.c:834 ../src/mate-network-scheme.desktop.in.h:1
+#: ../src/caja-places-sidebar.c:848 ../src/mate-network-scheme.desktop.in.h:1
 msgid "Network"
 msgstr "네트워크"
 
-#: ../src/caja-places-sidebar.c:866
+#: ../src/caja-places-sidebar.c:880
 msgid "Browse Network"
 msgstr "네트워크 탐색"
 
-#: ../src/caja-places-sidebar.c:868
+#: ../src/caja-places-sidebar.c:882
 msgid "Browse the contents of the network"
 msgstr "네트워크를 찾아 봅니다"
 
 #. start() for type G_DRIVE_START_STOP_TYPE_SHUTDOWN is normally not used
-#: ../src/caja-places-sidebar.c:1817
+#: ../src/caja-places-sidebar.c:1831
 msgid "_Power On"
 msgstr "전원 켜기(_P)"
 
-#: ../src/caja-places-sidebar.c:1821
+#: ../src/caja-places-sidebar.c:1835
 msgid "_Connect Drive"
 msgstr "드라이브 연결(_C)"
 
-#: ../src/caja-places-sidebar.c:1822
+#: ../src/caja-places-sidebar.c:1836
 msgid "_Disconnect Drive"
 msgstr "드라이브 연결 끊기(_D)"
 
-#: ../src/caja-places-sidebar.c:1825
+#: ../src/caja-places-sidebar.c:1839
 msgid "_Start Multi-disk Device"
 msgstr "멀티 디스크 장치 시작(_S)"
 
-#: ../src/caja-places-sidebar.c:1826
+#: ../src/caja-places-sidebar.c:1840
 msgid "_Stop Multi-disk Device"
 msgstr "멀티 디스크 장치 중지(_S)"
 
-#: ../src/caja-places-sidebar.c:1913 ../src/caja-places-sidebar.c:2491
+#: ../src/caja-places-sidebar.c:1927 ../src/caja-places-sidebar.c:2505
 #, c-format
 msgid "Unable to start %s"
 msgstr "'%s'을(를) 시작할 수 없습니다"
 
-#: ../src/caja-places-sidebar.c:2435
+#: ../src/caja-places-sidebar.c:2449
 #, c-format
 msgid "Unable to poll %s for media changes"
 msgstr "'%s'의 미디어가 바뀌었는지 확인할 수 없습니다"
 
-#: ../src/caja-places-sidebar.c:2551
+#: ../src/caja-places-sidebar.c:2565
 #, c-format
 msgid "Unable to stop %s"
 msgstr "'%s'을(를) 중지할 수 없습니다"
 
-#: ../src/caja-places-sidebar.c:2693
+#: ../src/caja-places-sidebar.c:2707
 msgid "Remove"
 msgstr "제거"
 
-#: ../src/caja-places-sidebar.c:2702
+#: ../src/caja-places-sidebar.c:2716
 msgid "Rename..."
 msgstr "이름 바꾸기..."
 
-#: ../src/caja-places-sidebar.c:3394
+#: ../src/caja-places-sidebar.c:3412
 msgid "Places"
 msgstr "위치"
 
-#: ../src/caja-places-sidebar.c:3400
+#: ../src/caja-places-sidebar.c:3418
 msgid "Show Places"
 msgstr "위치 보이기"
 
 #. set the title and standard close accelerator
-#: ../src/caja-property-browser.c:297
+#: ../src/caja-property-browser.c:299
 msgid "Backgrounds and Emblems"
 msgstr "배경 및 꼬리표"
 
 #. create the "remove" button
-#: ../src/caja-property-browser.c:411
+#: ../src/caja-property-browser.c:412
 msgid "_Remove..."
 msgstr "제거(_R)..."
 
 #. now create the "add new" button
-#: ../src/caja-property-browser.c:425
+#: ../src/caja-property-browser.c:426
 msgid "Add new..."
 msgstr "새로 추가(_A)..."
 
-#: ../src/caja-property-browser.c:976
+#: ../src/caja-property-browser.c:977
 #, c-format
 msgid "Sorry, but pattern %s could not be deleted."
 msgstr "%s 무늬를 지울 수 없습니다."
 
-#: ../src/caja-property-browser.c:977
+#: ../src/caja-property-browser.c:978
 msgid "Check that you have permission to delete the pattern."
 msgstr "무늬를 지울 수 있는 접근 권한이 있는지 확인하십시오."
 
-#: ../src/caja-property-browser.c:993
+#: ../src/caja-property-browser.c:994
 #, c-format
 msgid "Sorry, but emblem %s could not be deleted."
 msgstr "%s 꼬리표를 지울 수 없습니다."
 
-#: ../src/caja-property-browser.c:994
+#: ../src/caja-property-browser.c:995
 msgid "Check that you have permission to delete the emblem."
 msgstr "꼬리표를 지울 수 있는 접근 권한이 있는지 확인하십시오."
 
-#: ../src/caja-property-browser.c:1066
+#: ../src/caja-property-browser.c:1067
 msgid "Select an Image File for the New Emblem"
 msgstr "새 꼬리표로 사용할 그림 파일 선택"
 
-#: ../src/caja-property-browser.c:1107
+#: ../src/caja-property-browser.c:1108
 msgid "Create a New Emblem"
 msgstr "새 꼬리표를 만듭니다"
 
 #. make the keyword label and field
-#: ../src/caja-property-browser.c:1128
+#: ../src/caja-property-browser.c:1129
 msgid "_Keyword:"
 msgstr "키워드(_K):"
 
 #. set up a file chooser to pick the image file
-#: ../src/caja-property-browser.c:1151
+#: ../src/caja-property-browser.c:1152
 msgid "_Image:"
 msgstr "그림(_I):"
 
-#: ../src/caja-property-browser.c:1190
+#: ../src/caja-property-browser.c:1187
 msgid "Create a New Color:"
 msgstr "새 색을 만듭니다:"
 
 #. make the name label and field
-#: ../src/caja-property-browser.c:1204
+#: ../src/caja-property-browser.c:1201
 msgid "Color _name:"
 msgstr "색 이름(_N):"
 
-#: ../src/caja-property-browser.c:1220
+#: ../src/caja-property-browser.c:1217
 msgid "Color _value:"
 msgstr "색 값(_V):"
 
-#: ../src/caja-property-browser.c:1256
+#: ../src/caja-property-browser.c:1253
 msgid "Sorry, but you cannot replace the reset image."
 msgstr "리셋 그림은 바꿀 수 없습니다."
 
-#: ../src/caja-property-browser.c:1257
+#: ../src/caja-property-browser.c:1254
 msgid "Reset is a special image that cannot be deleted."
 msgstr "초기화는 지울 수 없는 특별한 그림입니다."
 
-#: ../src/caja-property-browser.c:1287
+#: ../src/caja-property-browser.c:1284
 #, c-format
 msgid "Sorry, but the pattern %s could not be installed."
 msgstr "%s 무늬는 설치할 수 없습니다."
 
-#: ../src/caja-property-browser.c:1318
+#: ../src/caja-property-browser.c:1315
 msgid "Select an Image File to Add as a Pattern"
 msgstr "무늬에 추가할 그림파일을 선택하십시오"
 
-#: ../src/caja-property-browser.c:1397 ../src/caja-property-browser.c:1427
+#: ../src/caja-property-browser.c:1394 ../src/caja-property-browser.c:1424
 msgid "The color cannot be installed."
 msgstr "색을 설치할 수 없습니다."
 
-#: ../src/caja-property-browser.c:1398
+#: ../src/caja-property-browser.c:1395
 msgid "Sorry, but you must specify an unused color name for the new color."
 msgstr "새 색에 대한 이름을 지정하여야 합니다."
 
-#: ../src/caja-property-browser.c:1428
+#: ../src/caja-property-browser.c:1425
 msgid "Sorry, but you must specify a non-blank name for the new color."
 msgstr "새 색에 대해 이름을 지정하여야 합니다."
 
-#: ../src/caja-property-browser.c:1488
+#: ../src/caja-property-browser.c:1485
 msgid "Select a Color to Add"
 msgstr "추가할 색을 선택하십시오"
 
-#: ../src/caja-property-browser.c:1534 ../src/caja-property-browser.c:1552
+#: ../src/caja-property-browser.c:1531 ../src/caja-property-browser.c:1549
 #, c-format
 msgid "Sorry, but \"%s\" is not a usable image file."
 msgstr "\"%s\"은(는) 사용할 수 있는 그림 파일이 아닙니다."
 
-#: ../src/caja-property-browser.c:1535 ../src/caja-property-browser.c:1553
+#: ../src/caja-property-browser.c:1532 ../src/caja-property-browser.c:1550
 msgid "The file is not an image."
 msgstr "파일은 올바른 그림파일이 아닙니다."
 
@@ -6886,103 +6887,103 @@ msgstr "꼬리표 제거(_R)..."
 msgid "File Type"
 msgstr "파일 형식"
 
-#: ../src/caja-query-editor.c:282
+#: ../src/caja-query-editor.c:286
 msgid "Select folder to search in"
 msgstr "찾아 볼 폴더 선택"
 
-#: ../src/caja-query-editor.c:378
+#: ../src/caja-query-editor.c:382
 msgid "Documents"
 msgstr "문서"
 
-#: ../src/caja-query-editor.c:398
+#: ../src/caja-query-editor.c:402
 msgid "Music"
 msgstr "음악"
 
-#: ../src/caja-query-editor.c:414
+#: ../src/caja-query-editor.c:418
 msgid "Video"
 msgstr "동영상"
 
-#: ../src/caja-query-editor.c:432
+#: ../src/caja-query-editor.c:436
 msgid "Picture"
 msgstr "그림"
 
-#: ../src/caja-query-editor.c:454
+#: ../src/caja-query-editor.c:458
 msgid "Illustration"
 msgstr "일러스트"
 
-#: ../src/caja-query-editor.c:470
+#: ../src/caja-query-editor.c:474
 msgid "Spreadsheet"
 msgstr "표"
 
-#: ../src/caja-query-editor.c:488
+#: ../src/caja-query-editor.c:492
 msgid "Presentation"
 msgstr "발표 자료"
 
-#: ../src/caja-query-editor.c:499
+#: ../src/caja-query-editor.c:503
 msgid "Pdf / Postscript"
 msgstr "PDF / Postscript"
 
-#: ../src/caja-query-editor.c:509
+#: ../src/caja-query-editor.c:513
 msgid "Text File"
 msgstr "텍스트 파일"
 
-#: ../src/caja-query-editor.c:593
+#: ../src/caja-query-editor.c:597
 msgid "Select type"
 msgstr "형식 선택"
 
-#: ../src/caja-query-editor.c:680
+#: ../src/caja-query-editor.c:684
 msgid "Any"
 msgstr "모두"
 
-#: ../src/caja-query-editor.c:696
+#: ../src/caja-query-editor.c:700
 msgid "Other Type..."
 msgstr "기타 형식..."
 
-#: ../src/caja-query-editor.c:1000
+#: ../src/caja-query-editor.c:1004
 msgid "Remove this criterion from the search"
 msgstr "검색에서 이 기준 제거"
 
-#: ../src/caja-query-editor.c:1045
+#: ../src/caja-query-editor.c:1055
 msgid "Search Folder"
 msgstr "검색 폴더"
 
-#: ../src/caja-query-editor.c:1051
+#: ../src/caja-query-editor.c:1061
 msgid "Edit"
 msgstr "편집"
 
-#: ../src/caja-query-editor.c:1059
+#: ../src/caja-query-editor.c:1069
 msgid "Edit the saved search"
 msgstr "저장된 검색 편집"
 
-#: ../src/caja-query-editor.c:1091
+#: ../src/caja-query-editor.c:1101
 msgid "Add a new criterion to this search"
 msgstr "검색에 새 기준 추가"
 
-#: ../src/caja-query-editor.c:1097
+#: ../src/caja-query-editor.c:1107
 msgid "Go"
 msgstr "이동"
 
-#: ../src/caja-query-editor.c:1101
+#: ../src/caja-query-editor.c:1111
 msgid "Reload"
 msgstr "다시 읽기"
 
-#: ../src/caja-query-editor.c:1106
+#: ../src/caja-query-editor.c:1116
 msgid "Perform or update the search"
 msgstr "검색을 시작하거나 새로 고치기"
 
-#: ../src/caja-query-editor.c:1127
+#: ../src/caja-query-editor.c:1137
 msgid "_Search for:"
 msgstr "검색(_S):"
 
-#: ../src/caja-query-editor.c:1156
+#: ../src/caja-query-editor.c:1166
 msgid "Search results"
 msgstr "찾은 결과"
 
-#: ../src/caja-search-bar.c:176
+#: ../src/caja-search-bar.c:182
 msgid "Search:"
 msgstr "검색:"
 
-#: ../src/caja-side-pane.c:407
+#: ../src/caja-side-pane.c:425
 msgid "Close the side pane"
 msgstr "가장자리 창 닫기"
 
@@ -7018,11 +7019,11 @@ msgstr "모든 폴더 창을 닫습니다"
 msgid "Locate documents and folders on this computer by name or content"
 msgstr "이름이나 내용으로 컴퓨터의 문서와 폴더를 찾습니다."
 
-#: ../src/caja-trash-bar.c:208
+#: ../src/caja-trash-bar.c:215
 msgid "Restore Selected Items"
 msgstr "선택한 항목을 복구합니다"
 
-#: ../src/caja-trash-bar.c:214
+#: ../src/caja-trash-bar.c:221
 msgid "Restore selected items to their original position"
 msgstr "선택한 항목을 원래 위치로 복구합니다"
 
@@ -7107,11 +7108,11 @@ msgid ""
 "Please select another viewer and try again."
 msgstr "오류: %s\n다른 보기 프로그램을 선택하고 다시 시도하십시오."
 
-#: ../src/caja-window-menus.c:198
+#: ../src/caja-window-menus.c:197
 msgid "Go to the location specified by this bookmark"
 msgstr "이 책갈피가 가리키는 위치로 갑니다"
 
-#: ../src/caja-window-menus.c:520
+#: ../src/caja-window-menus.c:519
 msgid ""
 "Caja is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -7119,7 +7120,7 @@ msgid ""
 "version."
 msgstr "카하는 자유 소프트웨어 입니다. 자유 소프트웨어 재단이 발표한 GNU 일반 공중 사용 허가서 버전 2 또는 (선택에 따라) 그 이상의 버전의 조항에 의거하여 재배포하거나 수정할 수 있습니다."
 
-#: ../src/caja-window-menus.c:524
+#: ../src/caja-window-menus.c:523
 msgid ""
 "Caja is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -7127,19 +7128,19 @@ msgid ""
 "details."
 msgstr "카하는 유용하게 사용될 수 있으리라는 희망에서 배포되고 있지만, 특정한 목적에 맞는 적합성 여부나 판매용으로 사용할 수 있으리라는 묵시적인 보증을 포함한 어떠한 형태의 보증도 제공하지 않습니다. 보다 자세한 사항에 대해서는 GNU 일반 공중 사용 허가서를 참고하시기 바랍니다."
 
-#: ../src/caja-window-menus.c:528
+#: ../src/caja-window-menus.c:527
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301 USA"
 msgstr "GNU 일반 공중 사용 허가서 사본을 이 프로그램과 받아야 합니다. 못받으셨다면 Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA에 요청하세요."
 
-#: ../src/caja-window-menus.c:540
+#: ../src/caja-window-menus.c:539
 msgid ""
 "Caja lets you organize files and folders, both on your computer and online."
 msgstr "카하를 이용해 컴퓨터 및 온라인의 각종 파일과 폴더를 정리합니다."
 
-#: ../src/caja-window-menus.c:543
+#: ../src/caja-window-menus.c:542
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2014 The Caja authors"
@@ -7148,257 +7149,257 @@ msgstr "Copyright © 1999-2009 The Nautilus authors\nCopyright © 2011-2014 The 
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
 #. * box to give credit to the translator(s).
-#: ../src/caja-window-menus.c:553
+#: ../src/caja-window-menus.c:552
 msgid "translator-credits"
 msgstr "차영호 <ganadist at gmail dot com>\n류창우 <cwryu@debian.org>\nMATE Desktop Environment Team <https://www.transifex.com/mate/teams/13566/ko/>"
 
-#: ../src/caja-window-menus.c:556
+#: ../src/caja-window-menus.c:555
 msgid "MATE Web Site"
 msgstr "마테 웹사이트"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:809
+#: ../src/caja-window-menus.c:808
 msgid "_File"
 msgstr "파일(_F)"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:810
+#: ../src/caja-window-menus.c:809
 msgid "_Edit"
 msgstr "편집(_E)"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:811
+#: ../src/caja-window-menus.c:810
 msgid "_View"
 msgstr "보기(_V)"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:812
+#: ../src/caja-window-menus.c:811
 msgid "_Help"
 msgstr "도움말(_H)"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:814
+#: ../src/caja-window-menus.c:813
 msgid "_Close"
 msgstr "닫기(_C)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:815
+#: ../src/caja-window-menus.c:814
 msgid "Close this folder"
 msgstr "이 폴더를 닫습니다"
 
-#: ../src/caja-window-menus.c:820
+#: ../src/caja-window-menus.c:819
 msgid "_Backgrounds and Emblems..."
 msgstr "배경 및 꼬리표(_B)..."
 
-#: ../src/caja-window-menus.c:821
+#: ../src/caja-window-menus.c:820
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
 msgstr "모양새를 꾸밀수 있는 무늬 및 색, 그리고 꼬리표등을 표시합니다"
 
-#: ../src/caja-window-menus.c:826
+#: ../src/caja-window-menus.c:825
 msgid "Prefere_nces"
 msgstr "기본 설정(_N)"
 
-#: ../src/caja-window-menus.c:827
+#: ../src/caja-window-menus.c:826
 msgid "Edit Caja preferences"
 msgstr "카하의 기본 설정을 편집합니다"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:830
+#: ../src/caja-window-menus.c:829
 msgid "Open _Parent"
 msgstr "위 폴더 열기(_P)"
 
-#: ../src/caja-window-menus.c:831
+#: ../src/caja-window-menus.c:830
 msgid "Open the parent folder"
 msgstr "위 폴더를 엽니다"
 
 #. tooltip
-#: ../src/caja-window-menus.c:840
+#: ../src/caja-window-menus.c:839
 msgid "Stop loading the current location"
 msgstr "현재 위치 읽기를 그만둡니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:844
+#: ../src/caja-window-menus.c:843
 msgid "_Reload"
 msgstr "다시 읽기(_R)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:845
+#: ../src/caja-window-menus.c:844
 msgid "Reload the current location"
 msgstr "현재 위치를 다시 읽습니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:849
+#: ../src/caja-window-menus.c:848
 msgid "_Contents"
 msgstr "차례(_C)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:850
+#: ../src/caja-window-menus.c:849
 msgid "Display Caja help"
 msgstr "카하의 도움말을 표시합니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:854
+#: ../src/caja-window-menus.c:853
 msgid "_About"
 msgstr "정보(_A)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:855
+#: ../src/caja-window-menus.c:854
 msgid "Display credits for the creators of Caja"
 msgstr "카하를 만든 사람을 표시합니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:859
+#: ../src/caja-window-menus.c:858
 msgid "Zoom _In"
 msgstr "확대(_I)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:860 ../src/caja-zoom-control.c:99
-#: ../src/caja-zoom-control.c:372
+#: ../src/caja-window-menus.c:859 ../src/caja-zoom-control.c:99
+#: ../src/caja-zoom-control.c:395
 msgid "Increase the view size"
 msgstr "현재 보기를 키웁니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:874
+#: ../src/caja-window-menus.c:873
 msgid "Zoom _Out"
 msgstr "축소(_O)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:875 ../src/caja-zoom-control.c:100
-#: ../src/caja-zoom-control.c:321
+#: ../src/caja-window-menus.c:874 ../src/caja-zoom-control.c:100
+#: ../src/caja-zoom-control.c:333
 msgid "Decrease the view size"
 msgstr "현재 보기를 줄입니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:884
+#: ../src/caja-window-menus.c:883
 msgid "Normal Si_ze"
 msgstr "보통 크기(_Z)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:885 ../src/caja-zoom-control.c:101
-#: ../src/caja-zoom-control.c:334
+#: ../src/caja-window-menus.c:884 ../src/caja-zoom-control.c:101
+#: ../src/caja-zoom-control.c:353
 msgid "Use the normal view size"
 msgstr "보통 보기크기를 사용합니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:889
+#: ../src/caja-window-menus.c:888
 msgid "Connect to _Server..."
 msgstr "서버에 연결(_S)..."
 
 #. tooltip
-#: ../src/caja-window-menus.c:890
+#: ../src/caja-window-menus.c:889
 msgid "Connect to a remote computer or shared disk"
 msgstr "원격 컴퓨터나 공유 디스크에 연결합니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:899
+#: ../src/caja-window-menus.c:898
 msgid "_Computer"
 msgstr "컴퓨터(_C)"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:904
+#: ../src/caja-window-menus.c:903
 msgid "_Network"
 msgstr "네트워크(_N)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:905 ../src/mate-network-scheme.desktop.in.h:2
+#: ../src/caja-window-menus.c:904 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
 msgstr "책갈피와 로컬 네트워크를 찾아봅니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:909
+#: ../src/caja-window-menus.c:908
 msgid "T_emplates"
 msgstr "서식(_E)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:910
+#: ../src/caja-window-menus.c:909
 msgid "Open your personal templates folder"
 msgstr "개인 서식 폴더로 갑니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:914
+#: ../src/caja-window-menus.c:913
 msgid "_Trash"
 msgstr "휴지통(_T)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:915
+#: ../src/caja-window-menus.c:914
 msgid "Open your personal trash folder"
 msgstr "휴지통을 엽니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:923
+#: ../src/caja-window-menus.c:922
 msgid "Show _Hidden Files"
 msgstr "숨긴 파일 보이기(_H)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:924
+#: ../src/caja-window-menus.c:923
 msgid "Toggle the display of hidden files in the current window"
 msgstr "현재 창의 숨긴 파일의 표시 여부를 토글합니다"
 
-#: ../src/caja-window-menus.c:955
+#: ../src/caja-window-menus.c:954
 msgid "_Up"
 msgstr "위로(_U)"
 
-#: ../src/caja-window-menus.c:958
+#: ../src/caja-window-menus.c:957
 msgid "_Home"
 msgstr "내 폴더(_H)"
 
-#: ../src/caja-x-content-bar.c:70
+#: ../src/caja-x-content-bar.c:74
 msgid "These files are on an Audio CD."
 msgstr "이 파일은 음악 CD의 파일입니다."
 
-#: ../src/caja-x-content-bar.c:74
+#: ../src/caja-x-content-bar.c:78
 msgid "These files are on an Audio DVD."
 msgstr "이 파일은 음악 DVD의 파일입니다."
 
-#: ../src/caja-x-content-bar.c:78
+#: ../src/caja-x-content-bar.c:82
 msgid "These files are on a Video DVD."
 msgstr "이 파일은 영상 DVD의 파일입니다."
 
-#: ../src/caja-x-content-bar.c:82
+#: ../src/caja-x-content-bar.c:86
 msgid "These files are on a Video CD."
 msgstr "이 파일은 비디오 CD의 파일입니다."
 
-#: ../src/caja-x-content-bar.c:86
+#: ../src/caja-x-content-bar.c:90
 msgid "These files are on a Super Video CD."
 msgstr "이 파일은 수퍼 비디오 CD의 파일입니다."
 
-#: ../src/caja-x-content-bar.c:90
+#: ../src/caja-x-content-bar.c:94
 msgid "These files are on a Photo CD."
 msgstr "이 파일은 사진 CD의 파일입니다."
 
-#: ../src/caja-x-content-bar.c:94
+#: ../src/caja-x-content-bar.c:98
 msgid "These files are on a Picture CD."
 msgstr "이 파일은 픽처 CD의 파일입니다."
 
-#: ../src/caja-x-content-bar.c:98
+#: ../src/caja-x-content-bar.c:102
 msgid "The media contains digital photos."
 msgstr "이 미디어에는 디지털 사진이 들어 있습니다."
 
-#: ../src/caja-x-content-bar.c:102
+#: ../src/caja-x-content-bar.c:106
 msgid "These files are on a digital audio player."
 msgstr "이 파일은 디지털 오디오 플레이어에 있습니다."
 
-#: ../src/caja-x-content-bar.c:106
+#: ../src/caja-x-content-bar.c:110
 msgid "The media contains software."
 msgstr "이 미디어에는 소프트웨어가 들어 있습니다."
 
 #. fallback to generic greeting
-#: ../src/caja-x-content-bar.c:111
+#: ../src/caja-x-content-bar.c:115
 #, c-format
 msgid "The media has been detected as \"%s\"."
 msgstr "미디어가 \"%s\"(으)로 인식되었습니다."
@@ -7415,10 +7416,10 @@ msgstr "축소"
 msgid "Zoom to Default"
 msgstr "기본 크기로"
 
-#: ../src/caja-zoom-control.c:929
+#: ../src/caja-zoom-control.c:952
 msgid "Zoom"
 msgstr "확대/축소"
 
-#: ../src/caja-zoom-control.c:934
+#: ../src/caja-zoom-control.c:957
 msgid "Set the zoom level of the current view"
 msgstr "현재 보기의 확대수준을 설정합니다"
