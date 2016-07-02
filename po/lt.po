@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-14 13:44+0300\n"
-"PO-Revision-Date: 2016-03-27 20:48+0000\n"
+"POT-Creation-Date: 2016-07-01 11:32+0300\n"
+"PO-Revision-Date: 2016-06-27 19:21+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/mate/MATE/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -352,8 +352,8 @@ msgid "Drag an emblem to an object to add it to the object"
 msgstr "Norėdami objektui priskirti emblemą, nutempkite emblemą ant jo"
 
 #. translators: this is the name of an emblem
-#: ../data/browser.xml.h:69 ../src/caja-emblem-sidebar.c:987
-#: ../src/caja-property-browser.c:1947
+#: ../data/browser.xml.h:69 ../src/caja-emblem-sidebar.c:990
+#: ../src/caja-property-browser.c:1944
 msgid "Erase"
 msgstr "Ištrinti"
 
@@ -375,67 +375,67 @@ msgid ""
 "which Caja is a fork. </p>"
 msgstr "<p> Caja yra oficiali failų tvarkytuvė MATE darbalaukiui. Ji leidžia naršyti katalogus, o taip pat peržiūrinėti failus ir vykdyti programas, susijusias su jais. Be to, programa yra atsakinga už piktogramų apdorojimą MATE darbalaukyje. Ji veikia vietinėse ir nuotolinėse failų sistemose. </p> <p> Caja yra išplečiama per plėtinių sistemą, panašiai kaip ir GNOME programa Nautilus, iš kurios Caja yra kilusi ir kurios šaka ji yra. </p>"
 
-#: ../eel/eel-canvas.c:1301 ../eel/eel-canvas.c:1302
+#: ../eel/eel-canvas.c:1351 ../eel/eel-canvas.c:1352
 msgid "X"
 msgstr "X"
 
-#: ../eel/eel-canvas.c:1308 ../eel/eel-canvas.c:1309
+#: ../eel/eel-canvas.c:1358 ../eel/eel-canvas.c:1359
 msgid "Y"
 msgstr "Y"
 
-#: ../eel/eel-editable-label.c:345
+#: ../eel/eel-editable-label.c:357
 msgid "Text"
 msgstr "Tekstas"
 
-#: ../eel/eel-editable-label.c:346
+#: ../eel/eel-editable-label.c:358
 msgid "The text of the label."
 msgstr "Etiketės tekstas"
 
-#: ../eel/eel-editable-label.c:352
+#: ../eel/eel-editable-label.c:364
 msgid "Justification"
 msgstr "Lygiavimas"
 
-#: ../eel/eel-editable-label.c:353
+#: ../eel/eel-editable-label.c:365
 msgid ""
 "The alignment of the lines in the text of the label relative to each other. "
 "This does NOT affect the alignment of the label within its allocation. See "
 "GtkMisc::xalign for that."
 msgstr "Eilučių lygiuotė etiketės tekste susijusių viena su kita. Tai nepaveikia etiketės lygiuotės jos priskyrime. Tam žiūrėk GtkMisc::xalign."
 
-#: ../eel/eel-editable-label.c:361
+#: ../eel/eel-editable-label.c:373
 msgid "Line wrap"
 msgstr "Eilučių perkėlimas"
 
-#: ../eel/eel-editable-label.c:362
+#: ../eel/eel-editable-label.c:374
 msgid "If set, wrap lines if the text becomes too wide."
 msgstr "Jeigu nustatyta, laužyti eilutes jeigu tekstas tampa per platus."
 
-#: ../eel/eel-editable-label.c:369
+#: ../eel/eel-editable-label.c:381
 msgid "Cursor Position"
 msgstr "Žymeklio pozicija"
 
-#: ../eel/eel-editable-label.c:370
+#: ../eel/eel-editable-label.c:382
 msgid "The current position of the insertion cursor in chars."
 msgstr "Dabartinė įterpimo žymeklio pozicija matuojama simboliais."
 
-#: ../eel/eel-editable-label.c:379
+#: ../eel/eel-editable-label.c:391
 msgid "Selection Bound"
 msgstr "Pasirinkimo riba"
 
-#: ../eel/eel-editable-label.c:380
+#: ../eel/eel-editable-label.c:392
 msgid ""
 "The position of the opposite end of the selection from the cursor in chars."
 msgstr "Priešingo pažymėjimo krašto pozicija matuojama simboliais nuo žymeklio."
 
-#: ../eel/eel-editable-label.c:3198
+#: ../eel/eel-editable-label.c:3432
 msgid "Select All"
 msgstr "Pažymėti viską"
 
-#: ../eel/eel-editable-label.c:3209
+#: ../eel/eel-editable-label.c:3443
 msgid "Input Methods"
 msgstr "Įvesties metodai"
 
-#: ../eel/eel-gtk-extensions.c:476
+#: ../eel/eel-gtk-extensions.c:481
 msgid "Show more _details"
 msgstr "Ro_dyti išsamesnę informaciją"
 
@@ -464,7 +464,7 @@ msgstr "Nieko nedaryti"
 msgid "Open Folder"
 msgstr "Atverti aplanką"
 
-#: ../libcaja-private/caja-autorun.c:605 ../src/caja-x-content-bar.c:148
+#: ../libcaja-private/caja-autorun.c:605 ../src/caja-x-content-bar.c:152
 #, c-format
 msgid "Open %s"
 msgstr "Atverti %s"
@@ -558,7 +558,7 @@ msgstr "_Visada atlikti šį veiksmą"
 #: ../src/file-manager/fm-directory-view.c:7495
 #: ../src/file-manager/fm-directory-view.c:7523
 #: ../src/file-manager/fm-directory-view.c:7604
-#: ../src/file-manager/fm-tree-view.c:1382 ../src/caja-places-sidebar.c:2728
+#: ../src/file-manager/fm-tree-view.c:1382 ../src/caja-places-sidebar.c:2742
 msgid "_Eject"
 msgstr "_Išimti"
 
@@ -569,7 +569,7 @@ msgstr "_Išimti"
 #: ../src/file-manager/fm-directory-view.c:7491
 #: ../src/file-manager/fm-directory-view.c:7519
 #: ../src/file-manager/fm-directory-view.c:7600
-#: ../src/file-manager/fm-tree-view.c:1373 ../src/caja-places-sidebar.c:2721
+#: ../src/file-manager/fm-tree-view.c:1373 ../src/caja-places-sidebar.c:2735
 msgid "_Unmount"
 msgstr "At_jungti"
 
@@ -606,21 +606,21 @@ msgstr "Pažymėti _viską"
 msgid "Select all the text in a text field"
 msgstr "Pažymėti visą tekstą, esantį teksto lauke"
 
-#: ../libcaja-private/caja-column-chooser.c:383
+#: ../libcaja-private/caja-column-chooser.c:386
 msgid "Move _Up"
 msgstr "Perkelti _aukštyn"
 
-#: ../libcaja-private/caja-column-chooser.c:393
+#: ../libcaja-private/caja-column-chooser.c:396
 msgid "Move Dow_n"
 msgstr "Perkelti že_myn"
 
-#: ../libcaja-private/caja-column-chooser.c:406
+#: ../libcaja-private/caja-column-chooser.c:413
 msgid "Use De_fault"
 msgstr "Nau_doti numatytąjį"
 
 #: ../libcaja-private/caja-column-utilities.c:44
-#: ../libcaja-private/caja-mime-application-chooser.c:274
-#: ../src/file-manager/fm-list-view.c:1771
+#: ../libcaja-private/caja-mime-application-chooser.c:278
+#: ../src/file-manager/fm-list-view.c:1773
 msgid "Name"
 msgstr "Pavadinimas"
 
@@ -645,7 +645,7 @@ msgid "The type of the file."
 msgstr "Failo tipas."
 
 #: ../libcaja-private/caja-column-utilities.c:66
-#: ../src/caja-image-properties-page.c:293
+#: ../src/caja-image-properties-page.c:296
 msgid "Date Modified"
 msgstr "Keitimo data"
 
@@ -678,8 +678,8 @@ msgid "The group of the file."
 msgstr "Failo grupė."
 
 #: ../libcaja-private/caja-column-utilities.c:98
-#: ../src/file-manager/fm-properties-window.c:5658
-#: ../src/file-manager/fm-properties-window.c:5714
+#: ../src/file-manager/fm-properties-window.c:5735
+#: ../src/file-manager/fm-properties-window.c:5795
 msgid "Permissions"
 msgstr "Leidimai"
 
@@ -712,7 +712,7 @@ msgid "The SELinux security context of the file."
 msgstr "Failo SELinux saugumo kontekstas."
 
 #: ../libcaja-private/caja-column-utilities.c:130
-#: ../src/caja-image-properties-page.c:374 ../src/caja-query-editor.c:129
+#: ../src/caja-image-properties-page.c:377 ../src/caja-query-editor.c:129
 msgid "Location"
 msgstr "Vieta"
 
@@ -736,10 +736,10 @@ msgstr "Pradinė vieta"
 msgid "Original location of file before moved to the Trash"
 msgstr "Pradinė vieta prieš perkeliant į šiukšlinę"
 
-#: ../libcaja-private/caja-customization-data.c:430
-#: ../libcaja-private/caja-file-conflict-dialog.c:625
-#: ../libcaja-private/caja-mime-application-chooser.c:438
-#: ../src/caja-property-browser.c:1994
+#: ../libcaja-private/caja-customization-data.c:431
+#: ../libcaja-private/caja-file-conflict-dialog.c:651
+#: ../libcaja-private/caja-mime-application-chooser.c:449
+#: ../src/caja-property-browser.c:1991
 msgid "Reset"
 msgstr "Atstatyti"
 
@@ -778,7 +778,7 @@ msgid "%s's Home"
 msgstr "%.0sNamai"
 
 #: ../libcaja-private/caja-desktop-link.c:113
-#: ../data/caja-computer.desktop.in.in.h:1 ../src/caja-places-sidebar.c:492
+#: ../data/caja-computer.desktop.in.in.h:1 ../src/caja-places-sidebar.c:506
 msgid "Computer"
 msgstr "Kompiuteris"
 
@@ -787,8 +787,8 @@ msgid "Network Servers"
 msgstr "Tinklo serveris"
 
 #: ../libcaja-private/caja-desktop-link.c:119
-#: ../src/file-manager/fm-tree-view.c:1441 ../src/caja-places-sidebar.c:596
-#: ../src/caja-trash-bar.c:190
+#: ../src/file-manager/fm-tree-view.c:1441 ../src/caja-places-sidebar.c:610
+#: ../src/caja-trash-bar.c:194
 msgid "Trash"
 msgstr "Šiukšlinė"
 
@@ -858,132 +858,132 @@ msgstr "Nepavyko įrašyti papildomos emblemos."
 msgid "Sorry, unable to save custom emblem name."
 msgstr "Nepavyko įrašyti pasirinktinės emblemos pavadinimo."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:149
+#: ../libcaja-private/caja-file-conflict-dialog.c:153
 #, c-format
 msgid "Merge folder \"%s\"?"
 msgstr "Sujungti su aplanku „%s“?"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:153
+#: ../libcaja-private/caja-file-conflict-dialog.c:157
 msgid ""
 "Merging will ask for confirmation before replacing any files in the folder "
 "that conflict with the files being copied."
 msgstr "Suliejant bus prašoma patvirtinti, kad norite perrašyti tame aplanke esančius failus, kurie konfliktuoja su perkeltinais failais."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:159
+#: ../libcaja-private/caja-file-conflict-dialog.c:163
 #, c-format
 msgid "An older folder with the same name already exists in \"%s\"."
 msgstr "Senesnis aplankas tuo pačiu vardu jau yra vietoje „%s“."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:165
+#: ../libcaja-private/caja-file-conflict-dialog.c:169
 #, c-format
 msgid "A newer folder with the same name already exists in \"%s\"."
 msgstr "Naujesnis aplankas tuo pačiu vardu jau yra vietoje „%s“."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:171
+#: ../libcaja-private/caja-file-conflict-dialog.c:175
 #, c-format
 msgid "Another folder with the same name already exists in \"%s\"."
 msgstr "Kitas aplankas tuo pačiu vardu jau yra vietoje „%s“."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:178
+#: ../libcaja-private/caja-file-conflict-dialog.c:182
 msgid "Replacing it will remove all files in the folder."
 msgstr "Pakeitus jį, bus pašalinti visi tame aplanke esantys failai."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:180
+#: ../libcaja-private/caja-file-conflict-dialog.c:184
 #, c-format
 msgid "Replace folder \"%s\"?"
 msgstr "Pakeisti aplanką „%s“?"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:182
+#: ../libcaja-private/caja-file-conflict-dialog.c:186
 #, c-format
 msgid "A folder with the same name already exists in \"%s\"."
 msgstr "Aplankas tuo pačiu vardu jau yra vietoje „%s“."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:189
+#: ../libcaja-private/caja-file-conflict-dialog.c:193
 #, c-format
 msgid "Replace file \"%s\"?"
 msgstr "Pakeisti failą „%s“?"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:191
+#: ../libcaja-private/caja-file-conflict-dialog.c:195
 msgid "Replacing it will overwrite its content."
 msgstr "Pakeitus jį, bus perrašytas jo turinys."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:196
+#: ../libcaja-private/caja-file-conflict-dialog.c:200
 #, c-format
 msgid "An older file with the same name already exists in \"%s\"."
 msgstr "Senesnis failas tuo pačiu vardu jau yra vietoje „%s“."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:202
+#: ../libcaja-private/caja-file-conflict-dialog.c:206
 #, c-format
 msgid "A newer file with the same name already exists in \"%s\"."
 msgstr "Naujesnis failas tuo pačiu vardu jau yra vietoje „%s“."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:208
+#: ../libcaja-private/caja-file-conflict-dialog.c:212
 #, c-format
 msgid "Another file with the same name already exists in \"%s\"."
 msgstr "Kitas failas tuo pačiu vardu jau yra vietoje „%s“."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:283
+#: ../libcaja-private/caja-file-conflict-dialog.c:309
 msgid "Original file"
 msgstr "Originalus failas"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:284
-#: ../libcaja-private/caja-file-conflict-dialog.c:317
-#: ../src/file-manager/fm-properties-window.c:3707
-#: ../src/file-manager/fm-properties-window.c:3784
+#: ../libcaja-private/caja-file-conflict-dialog.c:310
+#: ../libcaja-private/caja-file-conflict-dialog.c:343
+#: ../src/file-manager/fm-properties-window.c:3778
+#: ../src/file-manager/fm-properties-window.c:3855
 msgid "Size:"
 msgstr "Dydis:"
 
 #. second row: type combobox
-#: ../libcaja-private/caja-file-conflict-dialog.c:288
-#: ../libcaja-private/caja-file-conflict-dialog.c:321
-#: ../src/file-manager/fm-properties-window.c:3689
-#: ../src/file-manager/fm-properties-window.c:3766
+#: ../libcaja-private/caja-file-conflict-dialog.c:314
+#: ../libcaja-private/caja-file-conflict-dialog.c:347
+#: ../src/file-manager/fm-properties-window.c:3760
+#: ../src/file-manager/fm-properties-window.c:3837
 #: ../src/caja-connect-server-dialog.c:987
 msgid "Type:"
 msgstr "Tipas:"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:291
-#: ../libcaja-private/caja-file-conflict-dialog.c:324
+#: ../libcaja-private/caja-file-conflict-dialog.c:317
+#: ../libcaja-private/caja-file-conflict-dialog.c:350
 msgid "Last modified:"
 msgstr "Keitimo data:"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:316
+#: ../libcaja-private/caja-file-conflict-dialog.c:342
 msgid "Replace with"
 msgstr "Kuo pakeisti"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:347
+#: ../libcaja-private/caja-file-conflict-dialog.c:373
 msgid "Merge"
 msgstr "Sulieti"
 
 #. Setup the expander for the rename action
-#: ../libcaja-private/caja-file-conflict-dialog.c:611
+#: ../libcaja-private/caja-file-conflict-dialog.c:637
 msgid "Select a new name for the _destination"
 msgstr "Pasirinkti naują _galutinės vietos pavadinimą"
 
 #. Setup the diff button for text files
-#: ../libcaja-private/caja-file-conflict-dialog.c:636
+#: ../libcaja-private/caja-file-conflict-dialog.c:662
 msgid "Differences..."
 msgstr "Skirtumai..."
 
 #. Setup the checkbox to apply the action to all files
-#: ../libcaja-private/caja-file-conflict-dialog.c:646
+#: ../libcaja-private/caja-file-conflict-dialog.c:672
 msgid "Apply this action to all files"
 msgstr "Pritaikyti šį veiksmą visiems failams"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:657
+#: ../libcaja-private/caja-file-conflict-dialog.c:683
 #: ../libcaja-private/caja-file-operations.c:186
 msgid "_Skip"
 msgstr "_Praleisti"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:662
+#: ../libcaja-private/caja-file-conflict-dialog.c:688
 msgid "Re_name"
 msgstr "Per_vadinti"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:668
+#: ../libcaja-private/caja-file-conflict-dialog.c:694
 msgid "Replace"
 msgstr "Pakeisti"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:743
+#: ../libcaja-private/caja-file-conflict-dialog.c:769
 msgid "File conflict"
 msgstr "Failų konfliktas"
 
@@ -1057,8 +1057,8 @@ msgstr[2] "apytiksliai %'d valandų"
 #. * (e.g. "folder", "plain text") to file type for symbolic link
 #. * to that kind of file (e.g. "link to folder").
 #: ../libcaja-private/caja-file-operations.c:378
-#: ../libcaja-private/caja-file.c:6439
-#: ../src/file-manager/fm-directory-view.c:10622
+#: ../libcaja-private/caja-file.c:6438
+#: ../src/file-manager/fm-directory-view.c:10616
 #, c-format
 msgid "Link to %s"
 msgstr "Nuoroda į %s"
@@ -1224,7 +1224,7 @@ msgstr "Visi elementai iš šiukšlinės bus negrįžtamai ištrinti."
 #. Empty Trash menu item
 #: ../libcaja-private/caja-file-operations.c:1352
 #: ../libcaja-private/caja-file-operations.c:2220
-#: ../src/caja-places-sidebar.c:2765 ../src/caja-trash-bar.c:194
+#: ../src/caja-places-sidebar.c:2779 ../src/caja-trash-bar.c:201
 msgid "Empty _Trash"
 msgstr "Iš_valyti šiukšlinę"
 
@@ -1734,47 +1734,47 @@ msgstr "Nepavyko nustatyti originalio „%s“ vietos"
 msgid "The item cannot be restored from trash"
 msgstr "Šio elemento negalima atstatyti iš šiukšlinės"
 
-#: ../libcaja-private/caja-file.c:1215 ../libcaja-private/caja-vfs-file.c:430
+#: ../libcaja-private/caja-file.c:1214 ../libcaja-private/caja-vfs-file.c:430
 msgid "This file cannot be mounted"
 msgstr "Šio failo prijungti negalima"
 
-#: ../libcaja-private/caja-file.c:1260
+#: ../libcaja-private/caja-file.c:1259
 msgid "This file cannot be unmounted"
 msgstr "Šio failo atjungti negalima"
 
-#: ../libcaja-private/caja-file.c:1294
+#: ../libcaja-private/caja-file.c:1293
 msgid "This file cannot be ejected"
 msgstr "Šio failo išimti negalima"
 
-#: ../libcaja-private/caja-file.c:1327 ../libcaja-private/caja-vfs-file.c:619
+#: ../libcaja-private/caja-file.c:1326 ../libcaja-private/caja-vfs-file.c:619
 msgid "This file cannot be started"
 msgstr "Šio failo paleisti negalima"
 
-#: ../libcaja-private/caja-file.c:1379 ../libcaja-private/caja-file.c:1410
+#: ../libcaja-private/caja-file.c:1378 ../libcaja-private/caja-file.c:1409
 msgid "This file cannot be stopped"
 msgstr "Šio failo sustabdyti negalima"
 
-#: ../libcaja-private/caja-file.c:1818
+#: ../libcaja-private/caja-file.c:1817
 #, c-format
 msgid "Slashes are not allowed in filenames"
 msgstr "Failų varduose dešininiai brūkšniai neleidžiami"
 
-#: ../libcaja-private/caja-file.c:1836
+#: ../libcaja-private/caja-file.c:1835
 #, c-format
 msgid "File not found"
 msgstr "Failas nerastas"
 
-#: ../libcaja-private/caja-file.c:1864
+#: ../libcaja-private/caja-file.c:1863
 #, c-format
 msgid "Toplevel files cannot be renamed"
 msgstr "Aukščiausiojo lygio failų pervadinti negalima"
 
-#: ../libcaja-private/caja-file.c:1887
+#: ../libcaja-private/caja-file.c:1886
 #, c-format
 msgid "Unable to rename desktop icon"
 msgstr "Nepavyko pervadinti darbalaukio piktogramos"
 
-#: ../libcaja-private/caja-file.c:1916
+#: ../libcaja-private/caja-file.c:1915
 #, c-format
 msgid "Unable to rename desktop file"
 msgstr "Nepavyko pervadinti darbalaukio failo"
@@ -1793,62 +1793,62 @@ msgstr "Nepavyko pervadinti darbalaukio failo"
 #. * between the "%" and any numeric directive will turn
 #. * off zero padding, and putting a "_" there will use
 #. * space padding instead of zero padding.
-#: ../libcaja-private/caja-file.c:4476
+#: ../libcaja-private/caja-file.c:4475
 msgid "today at 00:00:00 PM"
 msgstr "šiandien 00:00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4477
+#: ../libcaja-private/caja-file.c:4476
 #: ../src/caja-file-management-properties.c:522
 msgid "today at %-I:%M:%S %p"
 msgstr "šiandien %-H:%M:%S"
 
-#: ../libcaja-private/caja-file.c:4479
+#: ../libcaja-private/caja-file.c:4478
 msgid "today at 00:00 PM"
 msgstr "šiandien 00:00"
 
-#: ../libcaja-private/caja-file.c:4480
+#: ../libcaja-private/caja-file.c:4479
 msgid "today at %-I:%M %p"
 msgstr "šiandien %-H:%M"
 
-#: ../libcaja-private/caja-file.c:4482
+#: ../libcaja-private/caja-file.c:4481
 msgid "today, 00:00 PM"
 msgstr "šiandien, 00:00"
 
-#: ../libcaja-private/caja-file.c:4483
+#: ../libcaja-private/caja-file.c:4482
 msgid "today, %-I:%M %p"
 msgstr "šiandien, %-H:%M"
 
-#: ../libcaja-private/caja-file.c:4485 ../libcaja-private/caja-file.c:4486
+#: ../libcaja-private/caja-file.c:4484 ../libcaja-private/caja-file.c:4485
 msgid "today"
 msgstr "šiandien"
 
 #. Yesterday, use special word.
 #. * Note to localizers: Same issues as "today" string.
-#: ../libcaja-private/caja-file.c:4495
+#: ../libcaja-private/caja-file.c:4494
 msgid "yesterday at 00:00:00 PM"
 msgstr "vakar 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4496
+#: ../libcaja-private/caja-file.c:4495
 msgid "yesterday at %-I:%M:%S %p"
 msgstr "vakar %-H:%M:%S"
 
-#: ../libcaja-private/caja-file.c:4498
+#: ../libcaja-private/caja-file.c:4497
 msgid "yesterday at 00:00 PM"
 msgstr "vakar 00:00"
 
-#: ../libcaja-private/caja-file.c:4499
+#: ../libcaja-private/caja-file.c:4498
 msgid "yesterday at %-I:%M %p"
 msgstr "vakar %-H:%M"
 
-#: ../libcaja-private/caja-file.c:4501
+#: ../libcaja-private/caja-file.c:4500
 msgid "yesterday, 00:00 PM"
 msgstr "vakar, 00:00"
 
-#: ../libcaja-private/caja-file.c:4502
+#: ../libcaja-private/caja-file.c:4501
 msgid "yesterday, %-I:%M %p"
 msgstr "vakar, %-H:%M"
 
-#: ../libcaja-private/caja-file.c:4504 ../libcaja-private/caja-file.c:4505
+#: ../libcaja-private/caja-file.c:4503 ../libcaja-private/caja-file.c:4504
 msgid "yesterday"
 msgstr "vakar"
 
@@ -1856,88 +1856,88 @@ msgstr "vakar"
 #. * Note to localizers: Same issues as "today" string.
 #. * The width measurement templates correspond to
 #. * the day/month name with the most letters.
-#: ../libcaja-private/caja-file.c:4516
+#: ../libcaja-private/caja-file.c:4515
 msgid "Wednesday, September 00 0000 at 00:00:00 PM"
 msgstr "Ketvirtadienis, 0000 m. rugpjūčio 00 d., 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4517
+#: ../libcaja-private/caja-file.c:4516
 msgid "%A, %B %-d %Y at %-I:%M:%S %p"
 msgstr "%A, %Y m. %B %-d d., %-H:%M:%S"
 
-#: ../libcaja-private/caja-file.c:4519
+#: ../libcaja-private/caja-file.c:4518
 msgid "Mon, Oct 00 0000 at 00:00:00 PM"
 msgstr "Pir, 0000 Sau 00, 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4520
+#: ../libcaja-private/caja-file.c:4519
 msgid "%a, %b %-d %Y at %-I:%M:%S %p"
 msgstr "%a, %Y %b %-d, %-H:%M:%S"
 
-#: ../libcaja-private/caja-file.c:4522
+#: ../libcaja-private/caja-file.c:4521
 msgid "Mon, Oct 00 0000 at 00:00 PM"
 msgstr "Pir, 0000 Sau 00, 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4523
+#: ../libcaja-private/caja-file.c:4522
 msgid "%a, %b %-d %Y at %-I:%M %p"
 msgstr "%a, %Y %b %-d, %-H:%M"
 
-#: ../libcaja-private/caja-file.c:4525
+#: ../libcaja-private/caja-file.c:4524
 msgid "Oct 00 0000 at 00:00 PM"
 msgstr "0000 Sau 00, 00:00"
 
-#: ../libcaja-private/caja-file.c:4526
+#: ../libcaja-private/caja-file.c:4525
 msgid "%b %-d %Y at %-I:%M %p"
 msgstr "%Y %b %-d, %-H:%M"
 
-#: ../libcaja-private/caja-file.c:4528
+#: ../libcaja-private/caja-file.c:4527
 msgid "Oct 00 0000, 00:00 PM"
 msgstr "0000 Sau 00, 00:00"
 
-#: ../libcaja-private/caja-file.c:4529
+#: ../libcaja-private/caja-file.c:4528
 msgid "%b %-d %Y, %-I:%M %p"
 msgstr "%Y %b %-d, %-H:%M"
 
-#: ../libcaja-private/caja-file.c:4531
+#: ../libcaja-private/caja-file.c:4530
 msgid "00/00/00, 00:00 PM"
 msgstr "0000-00-00 00:00"
 
-#: ../libcaja-private/caja-file.c:4532
+#: ../libcaja-private/caja-file.c:4531
 msgid "%m/%-d/%y, %-I:%M %p"
 msgstr "%Y-%m-%d %H:%M"
 
-#: ../libcaja-private/caja-file.c:4534
+#: ../libcaja-private/caja-file.c:4533
 msgid "00/00/00"
 msgstr "0000-00-00"
 
-#: ../libcaja-private/caja-file.c:4535
+#: ../libcaja-private/caja-file.c:4534
 msgid "%m/%d/%y"
 msgstr "%Y-%m-%d"
 
-#: ../libcaja-private/caja-file.c:5176
+#: ../libcaja-private/caja-file.c:5175
 #, c-format
 msgid "Not allowed to set permissions"
 msgstr "Neleidžiama nustatyti leidimų"
 
-#: ../libcaja-private/caja-file.c:5470
+#: ../libcaja-private/caja-file.c:5469
 #, c-format
 msgid "Not allowed to set owner"
 msgstr "Neleidžiama nustatyti savininko"
 
-#: ../libcaja-private/caja-file.c:5488
+#: ../libcaja-private/caja-file.c:5487
 #, c-format
 msgid "Specified owner '%s' doesn't exist"
 msgstr "Nurodytas savininkas „%s“ neegzistuoja"
 
-#: ../libcaja-private/caja-file.c:5748
+#: ../libcaja-private/caja-file.c:5747
 #, c-format
 msgid "Not allowed to set group"
 msgstr "Neleidžiama nustatyti grupės"
 
-#: ../libcaja-private/caja-file.c:5766
+#: ../libcaja-private/caja-file.c:5765
 #, c-format
 msgid "Specified group '%s' doesn't exist"
 msgstr "Nurodyta grupė „%s“ neegzistuoja"
 
-#: ../libcaja-private/caja-file.c:5920
+#: ../libcaja-private/caja-file.c:5919
 #: ../src/file-manager/fm-directory-view.c:2446
 #, c-format
 msgid "%'u item"
@@ -1946,7 +1946,7 @@ msgstr[0] "%'u elementas"
 msgstr[1] "%'u elementai"
 msgstr[2] "%'u elementų"
 
-#: ../libcaja-private/caja-file.c:5921
+#: ../libcaja-private/caja-file.c:5920
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
@@ -1954,7 +1954,7 @@ msgstr[0] "%'u aplankas"
 msgstr[1] "%'u aplankai"
 msgstr[2] "%'u aplankų"
 
-#: ../libcaja-private/caja-file.c:5922
+#: ../libcaja-private/caja-file.c:5921
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
@@ -1964,53 +1964,54 @@ msgstr[2] "%'u failų"
 
 #. Do this in a separate stage so that we don't have to put G_GUINT64_FORMAT
 #. in the translated string
-#: ../libcaja-private/caja-file.c:6009
+#: ../libcaja-private/caja-file.c:6008
 msgid "%"
 msgstr "%"
 
-#: ../libcaja-private/caja-file.c:6010
+#: ../libcaja-private/caja-file.c:6009
 #, c-format
 msgid "%s (%s bytes)"
 msgstr "%s (%s baitų)"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6325 ../libcaja-private/caja-file.c:6341
+#: ../libcaja-private/caja-file.c:6324 ../libcaja-private/caja-file.c:6340
 msgid "? items"
 msgstr "? elementų"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6331
+#: ../libcaja-private/caja-file.c:6330
 msgid "? bytes"
 msgstr "? baitų"
 
-#: ../libcaja-private/caja-file.c:6346
+#: ../libcaja-private/caja-file.c:6345
 msgid "unknown type"
 msgstr "nežinomas tipas"
 
-#: ../libcaja-private/caja-file.c:6349
+#: ../libcaja-private/caja-file.c:6348
 msgid "unknown MIME type"
 msgstr "nežinomas MIME tipas"
 
 #. Fallback, use for both unknown attributes and attributes
 #. * for which we have no more appropriate default.
-#: ../libcaja-private/caja-file.c:6363
-#: ../src/file-manager/fm-properties-window.c:1343
+#: ../libcaja-private/caja-file.c:6362
+#: ../src/file-manager/fm-properties-window.c:1359
 msgid "unknown"
 msgstr "nežinomas"
 
-#: ../libcaja-private/caja-file.c:6413
+#: ../libcaja-private/caja-file.c:6412
 msgid "program"
 msgstr "programa"
 
-#: ../libcaja-private/caja-file.c:6433
+#: ../libcaja-private/caja-file.c:6432
 msgid "link"
 msgstr "nuoroda"
 
-#: ../libcaja-private/caja-file.c:6455
+#: ../libcaja-private/caja-file.c:6454
 msgid "link (broken)"
 msgstr "nuoroda (sugadinta)"
 
-#: ../libcaja-private/caja-icon-container.c:2939
+#: ../libcaja-private/caja-icon-container.c:2949
+#: ../libcaja-private/caja-icon-container.c:3035
 msgid "The selection rectangle"
 msgstr "Žymėjimo stačiakampis"
 
@@ -2170,49 +2171,49 @@ msgstr[0] "Atveriamas %d elementas."
 msgstr[1] "Atveriami %d elementai."
 msgstr[2] "Atveriama %d elementų."
 
-#: ../libcaja-private/caja-mime-application-chooser.c:162
+#: ../libcaja-private/caja-mime-application-chooser.c:166
 #: ../libcaja-private/caja-open-with-dialog.c:304
 #, c-format
 msgid "Could not set application as the default: %s"
 msgstr "Nepavyko nustatyti programos kaip numatytosios: %s"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:163
+#: ../libcaja-private/caja-mime-application-chooser.c:167
 #: ../libcaja-private/caja-open-with-dialog.c:305
 msgid "Could not set as default application"
 msgstr "Nepavyko nustatyti kaip numatytosios programos"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:256
+#: ../libcaja-private/caja-mime-application-chooser.c:260
 msgid "Default"
 msgstr "Numatytoji"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:266
+#: ../libcaja-private/caja-mime-application-chooser.c:270
 msgid "Icon"
 msgstr "Piktograma"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:332
+#: ../libcaja-private/caja-mime-application-chooser.c:336
 msgid "Could not remove application"
 msgstr "Nepavyko pašalinti programos"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:555
+#: ../libcaja-private/caja-mime-application-chooser.c:566
 msgid "No applications selected"
 msgstr "Nepasirinkta jokia programa"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:585
+#: ../libcaja-private/caja-mime-application-chooser.c:596
 #, c-format
 msgid "%s document"
 msgstr "%s dokumentas"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:595
+#: ../libcaja-private/caja-mime-application-chooser.c:606
 #: ../libcaja-private/caja-open-with-dialog.c:1088
 msgid "Unknown"
 msgstr "Nežinoma"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:628
+#: ../libcaja-private/caja-mime-application-chooser.c:639
 #, c-format
 msgid "Select an application to open %s and other files of type \"%s\""
 msgstr "Pasirinkite programą, galinčią atverti %s ir kitus „%s“ tipo failus"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:700
+#: ../libcaja-private/caja-mime-application-chooser.c:711
 #, c-format
 msgid "Open all files of type \"%s\" with:"
 msgstr "Atverti visus „%s“ tipo failus naudojant:"
@@ -2244,7 +2245,7 @@ msgid "Select an Application"
 msgstr "Pasirinkite programą"
 
 #: ../libcaja-private/caja-open-with-dialog.c:846
-#: ../src/file-manager/fm-properties-window.c:6047
+#: ../src/file-manager/fm-properties-window.c:6132
 msgid "Open With"
 msgstr "Atverti naudojant"
 
@@ -2265,7 +2266,7 @@ msgstr "_Naršyti…"
 #: ../libcaja-private/caja-open-with-dialog.c:968
 #: ../src/file-manager/fm-directory-view.c:7368
 #: ../src/file-manager/fm-directory-view.c:8878
-#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2670
+#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2684
 msgid "_Open"
 msgstr "_Atverti"
 
@@ -2355,37 +2356,37 @@ msgid ""
 " your computer, you may be able to open it."
 msgstr "Nėra kitų veiksmų šiai failui peržiūrėti. Jei nukopijuotumėte šį failą į savo kompiuterį, galbūt pavyktų jį atverti."
 
-#: ../libcaja-private/caja-program-choosing.c:511
+#: ../libcaja-private/caja-program-choosing.c:533
 msgid "Sorry, but you cannot execute commands from a remote site."
 msgstr "Negalima vykdyti komandų iš nuotolinio serverio."
 
-#: ../libcaja-private/caja-program-choosing.c:513
+#: ../libcaja-private/caja-program-choosing.c:535
 msgid "This is disabled due to security considerations."
 msgstr "Tai atjungta saugumo sumetimais."
 
-#: ../libcaja-private/caja-program-choosing.c:525
-#: ../libcaja-private/caja-program-choosing.c:591
+#: ../libcaja-private/caja-program-choosing.c:547
+#: ../libcaja-private/caja-program-choosing.c:617
 msgid "There was an error launching the application."
 msgstr "Įvyko klaida paleidžiant programą."
 
-#: ../libcaja-private/caja-program-choosing.c:554
-#: ../libcaja-private/caja-program-choosing.c:567
+#: ../libcaja-private/caja-program-choosing.c:576
+#: ../libcaja-private/caja-program-choosing.c:589
 msgid "This drop target only supports local files."
 msgstr "Šis numetimo taikinys palaiko tik vietinius failus."
 
-#: ../libcaja-private/caja-program-choosing.c:555
+#: ../libcaja-private/caja-program-choosing.c:577
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again."
 msgstr "Norėdami atverti nevietinius failus, nukopijuokite juos į vietinį aplanką, ir tempkite juos iš naujo."
 
-#: ../libcaja-private/caja-program-choosing.c:568
+#: ../libcaja-private/caja-program-choosing.c:590
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again. The local files you dropped have already been opened."
 msgstr "Norėdami atverti nevietinius failus, nukopijuokite juos į vietinį aplanką,ir tempkite juos iš naujo. Numestieji vietiniai failai jau atverti."
 
-#: ../libcaja-private/caja-program-choosing.c:589
+#: ../libcaja-private/caja-program-choosing.c:615
 msgid "Details: "
 msgstr "Detalės: "
 
@@ -2917,7 +2918,7 @@ msgstr "Failų paleidimo/atvėrimo pele būdas"
 msgid ""
 "Possible values are \"single\" to launch files on a single click, or "
 "\"double\" to launch them on a double click."
-msgstr "Galimos reikšmės yra „single“ – paleisti failus vienu pelės spustelėjimu, arba „double“ – dvigubu spustelėjimu."
+msgstr "Galimos reikšmės yra „single“ – paleisti failus vienu pelės spustelėjimu, arba „double“ – dvikarčiu spustelėjimu."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:19
 msgid "What to do with executable text files when activated"
@@ -2984,18 +2985,18 @@ msgid ""
 "If set to \"local-only\" then only show thumbnails for local file systems. "
 "If set to \"never\" then never bother to thumbnail images, just use a "
 "generic icon."
-msgstr "Kada rodyti paveikslėlio failą kaip miniatiūrą. Jei nustatyta „always“, visada rodyti miniatiūrą, net jei failas yra nuotoliniame serveryje. Jei nustatyta „local_only“, tai rodyti tik vietinių failų miniatiūras. Jei nustatyta „never“, niekada nedaryti paveikslėlių miniatiūrų, tiesiog naudoti paprastą piktogramą."
+msgstr "Kada rodyti paveikslo failą kaip miniatiūrą. Jei nustatyta „always“, visada rodyti miniatiūrą, net jei failas yra nuotoliniame serveryje. Jei nustatyta „local_only“, tai rodyti tik vietinių failų miniatiūras. Jei nustatyta „never“, niekada nedaryti paveikslų miniatiūrų, tiesiog naudoti paprastą piktogramą."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:31
 msgid "Maximum image size for thumbnailing"
-msgstr "Maksimalus paveikslėlio dydis miniatiūrų kūrimui"
+msgstr "Maksimalus paveikslo dydis miniatiūrų kūrimui"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:32
 msgid ""
 "Images over this size (in bytes) won't be thumbnailed. The purpose of this "
 "setting is to avoid thumbnailing large images that may take a long time to "
 "load or use lots of memory."
-msgstr "Paveikslėliams, didesniems už šį dydį, nebus kuriamos miniatiūros. Šios nuostatos tikslas yra išvengti didelių paveikslėlių miniatiūrų kūrimo, nes gali ilgai užtrukti ir naudoti daug atminties."
+msgstr "Paveikslams, didesniems už šį dydį, nebus kuriamos miniatiūros. Šios nuostatos tikslas yra išvengti didelių paveikslų miniatiūrų kūrimo, nes tai gali ilgai užtrukti ir naudoti daug atminties."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:33
 msgid "Whether to preview sounds when mousing over an icon"
@@ -3523,7 +3524,7 @@ msgstr "Automatinio paleidimo raginimas"
 #: ../data/caja-browser.desktop.in.in.h:1
 #: ../data/caja-folder-handler.desktop.in.in.h:1
 #: ../data/caja.desktop.in.in.h:1 ../src/caja-spatial-window.c:383
-#: ../src/caja-window-menus.c:538 ../src/caja-window.c:160
+#: ../src/caja-window-menus.c:537 ../src/caja-window.c:180
 msgid "Caja"
 msgstr "Caja"
 
@@ -3536,7 +3537,7 @@ msgid "Browse the file system with the file manager"
 msgstr "Naršyti failų sistemą per failų tvarkytuvę"
 
 #. tooltip
-#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:900
+#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:899
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
 msgstr "Naršyti visus vietinius ir nuotolinius diskus ir aplankus, prieinamus iš šio kompiuterio"
@@ -3554,8 +3555,8 @@ msgid "Home Folder"
 msgstr "Namų aplankas"
 
 #. tooltip
-#: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:508
-#: ../src/caja-window-menus.c:895
+#: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:522
+#: ../src/caja-window-menus.c:894
 msgid "Open your personal folder"
 msgstr "Atverti asmeninį aplanką"
 
@@ -3563,13 +3564,13 @@ msgstr "Atverti asmeninį aplanką"
 msgid "File Manager"
 msgstr "Failų tvarkytuvė"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:649
+#: ../src/file-manager/fm-desktop-icon-view.c:689
 msgid "Background"
 msgstr "Fonas"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:726
+#: ../src/file-manager/fm-desktop-icon-view.c:766
 #: ../src/file-manager/fm-directory-view.c:7400
 #: ../src/file-manager/fm-directory-view.c:9078
 msgid "E_mpty Trash"
@@ -3578,44 +3579,44 @@ msgstr "Iš_valyti šiukšlinę"
 #. label, accelerator
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:740
+#: ../src/file-manager/fm-desktop-icon-view.c:780
 #: ../src/file-manager/fm-directory-view.c:7364
 msgid "Create L_auncher..."
 msgstr "Sukurti _leistuką…"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:742
+#: ../src/file-manager/fm-desktop-icon-view.c:782
 #: ../src/file-manager/fm-directory-view.c:7365
 msgid "Create a new launcher"
 msgstr "Sukurti naują leistuką"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:749
+#: ../src/file-manager/fm-desktop-icon-view.c:789
 msgid "Change Desktop _Background"
 msgstr "Keisti darbalaukio _foną"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:751
+#: ../src/file-manager/fm-desktop-icon-view.c:791
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr "Parodyti langą, kuriame galima nustatyti darbalaukio fono raštą ar spalvą"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:758
+#: ../src/file-manager/fm-desktop-icon-view.c:798
 msgid "Empty Trash"
 msgstr "Išvalyti šiukšlinę"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:760
-#: ../src/file-manager/fm-directory-view.c:7401 ../src/caja-trash-bar.c:201
+#: ../src/file-manager/fm-desktop-icon-view.c:800
+#: ../src/file-manager/fm-directory-view.c:7401 ../src/caja-trash-bar.c:208
 msgid "Delete all items in the Trash"
 msgstr "Ištrinti visus failus iš šiukšlinės"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:860
+#: ../src/file-manager/fm-desktop-icon-view.c:900
 msgid "The desktop view encountered an error."
 msgstr "Darbalaukio rodinyje įvyko klaida."
 
-#: ../src/file-manager/fm-desktop-icon-view.c:861
+#: ../src/file-manager/fm-desktop-icon-view.c:901
 msgid "The desktop view encountered an error while starting up."
 msgstr "Įjungus darbalaukio rodinį įvyko klaida."
 
@@ -3636,7 +3637,7 @@ msgstr[1] "Bus atverti %'d atskiri langai."
 msgstr[2] "Bus atverta %'d atskirų langų."
 
 #: ../src/file-manager/fm-directory-view.c:1180
-#: ../src/file-manager/fm-properties-window.c:6388
+#: ../src/file-manager/fm-properties-window.c:6475
 #: ../src/caja-connect-server-dialog.c:731 ../src/caja-location-dialog.c:106
 msgid "There was an error displaying help."
 msgstr "Klaida rodant žinyną."
@@ -3775,7 +3776,7 @@ msgid "%s%s, %s, %s"
 msgstr "%s%s, %s, %s"
 
 #: ../src/file-manager/fm-directory-view.c:4555
-#: ../src/caja-information-panel.c:905
+#: ../src/caja-information-panel.c:922
 #, c-format
 msgid "Open With %s"
 msgstr "Atverti naudojant %s"
@@ -3986,7 +3987,7 @@ msgstr "Kiekvieną pažymėtą elementą atverti navigacijos lange"
 #: ../src/file-manager/fm-directory-view.c:7561
 #: ../src/file-manager/fm-directory-view.c:8629
 #: ../src/file-manager/fm-directory-view.c:8955
-#: ../src/file-manager/fm-tree-view.c:1278 ../src/caja-places-sidebar.c:2678
+#: ../src/file-manager/fm-tree-view.c:1278 ../src/caja-places-sidebar.c:2692
 msgid "Open in New _Tab"
 msgstr "Atverti naujoje _kortelėje"
 
@@ -4055,7 +4056,7 @@ msgstr "Paruošti pažymėtus failus kopijavimui su komanda „Įdėti“"
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7413
 msgid "Move or copy files previously selected by a Cut or Copy command"
-msgstr "Perkelti arba kopijuoti failus, kuriuos išrinkote komandomis „Iškirpti“ ar „Kopijuoti“"
+msgstr "Perkelti arba kopijuoti failus, kuriuos anksčiau išrinkote komandomis „Iškirpti“ ar „Kopijuoti“"
 
 #. We make accelerator "" instead of null here to not inherit the stock
 #. accelerator for paste
@@ -4072,7 +4073,7 @@ msgstr "Į_dėti į aplanką"
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into the "
 "selected folder"
-msgstr "Į pažymėtą aplanką perkelti arba nukopijuoti failus, kuriuos išrinkote komandomis „Iškirpti“ ar „Kopijuoti“"
+msgstr "Į pažymėtą aplanką perkelti arba nukopijuoti failus, kuriuos anksčiau išrinkote komandomis „Iškirpti“ ar „Kopijuoti“"
 
 #. name, stock id, label
 #: ../src/file-manager/fm-directory-view.c:7421
@@ -4183,7 +4184,7 @@ msgstr "_Atšaukti"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7465
-#: ../src/file-manager/fm-directory-view.c:11196
+#: ../src/file-manager/fm-directory-view.c:11218
 msgid "Undo the last action"
 msgstr "Atšaukti paskutinį veiksmą"
 
@@ -4195,7 +4196,7 @@ msgstr "_Pakartoti"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7469
-#: ../src/file-manager/fm-directory-view.c:11214
+#: ../src/file-manager/fm-directory-view.c:11236
 msgid "Redo the last undone action"
 msgstr "Atstatyti paskutinį neįvykdytą veiksmą"
 
@@ -4230,7 +4231,7 @@ msgstr "Sukurti nuolatinę ryšį su šiuo serveriu"
 #: ../src/file-manager/fm-directory-view.c:7487
 #: ../src/file-manager/fm-directory-view.c:7515
 #: ../src/file-manager/fm-directory-view.c:7596
-#: ../src/caja-places-sidebar.c:2714
+#: ../src/caja-places-sidebar.c:2728
 msgid "_Mount"
 msgstr "_Prijungti"
 
@@ -4254,7 +4255,7 @@ msgstr "Išimti pasirinktąją laikmeną"
 #: ../src/file-manager/fm-directory-view.c:7499
 #: ../src/file-manager/fm-directory-view.c:7527
 #: ../src/file-manager/fm-directory-view.c:7608
-#: ../src/caja-places-sidebar.c:2742
+#: ../src/caja-places-sidebar.c:2756
 msgid "_Format"
 msgstr "_Formatuoti"
 
@@ -4275,7 +4276,7 @@ msgstr "Formatuoti pasirinktą laikmeną"
 #: ../src/file-manager/fm-directory-view.c:8385
 #: ../src/file-manager/fm-directory-view.c:8491
 #: ../src/file-manager/fm-directory-view.c:8495
-#: ../src/caja-places-sidebar.c:1809 ../src/caja-places-sidebar.c:2749
+#: ../src/caja-places-sidebar.c:1823 ../src/caja-places-sidebar.c:2763
 msgid "_Start"
 msgstr "_Paleisti"
 
@@ -4292,8 +4293,8 @@ msgstr "Paleisti pasirinktą laikmeną"
 #: ../src/file-manager/fm-directory-view.c:8318
 #: ../src/file-manager/fm-directory-view.c:8410
 #: ../src/file-manager/fm-directory-view.c:8520
-#: ../src/caja-places-sidebar.c:1810 ../src/caja-places-sidebar.c:2756
-#: ../src/caja-window-menus.c:839
+#: ../src/caja-places-sidebar.c:1824 ../src/caja-places-sidebar.c:2770
+#: ../src/caja-window-menus.c:838
 msgid "_Stop"
 msgstr "Susta_bdyti"
 
@@ -4308,7 +4309,7 @@ msgstr "Sustabdyti pasirinktą laikmeną"
 #: ../src/file-manager/fm-directory-view.c:7511
 #: ../src/file-manager/fm-directory-view.c:7539
 #: ../src/file-manager/fm-directory-view.c:7620
-#: ../src/caja-places-sidebar.c:2735
+#: ../src/caja-places-sidebar.c:2749
 msgid "_Detect Media"
 msgstr "_Aptikti laikmeną"
 
@@ -4359,7 +4360,7 @@ msgstr "Atverti failą ir užverti langą"
 #. label, accelerator
 #: ../src/file-manager/fm-directory-view.c:7547
 msgid "Sa_ve Search"
-msgstr "Iš_saugoti paiešką"
+msgstr "Į_rašyti paiešką"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7548
@@ -4370,7 +4371,7 @@ msgstr "Įrašyti pakeistą paiešką"
 #. label, accelerator
 #: ../src/file-manager/fm-directory-view.c:7551
 msgid "Sa_ve Search As..."
-msgstr "Iš_saugoti paiešką kaip…"
+msgstr "Į_rašyti paiešką kaip…"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7552
@@ -4411,7 +4412,7 @@ msgstr "Paruošti šį aplanką kopijavimui su komanda „Įdėti“"
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into this "
 "folder"
-msgstr "Į šį aplanką perkelti arba nukopijuoti failus, kuriuos pasirinkote komandomis „Iškirpti“ ar „Kopijuoti“"
+msgstr "Į šį aplanką perkelti arba nukopijuoti failus, kuriuos anksčiau pasirinkote komandomis „Iškirpti“ ar „Kopijuoti“"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7585
@@ -4476,7 +4477,7 @@ msgstr "Perkelti pažymėtus elementus į kitą šio lango polangį"
 #. name, stock id
 #. label, accelerator
 #: ../src/file-manager/fm-directory-view.c:7636
-#: ../src/file-manager/fm-directory-view.c:7640 ../src/caja-window-menus.c:894
+#: ../src/file-manager/fm-directory-view.c:7640 ../src/caja-window-menus.c:893
 msgid "_Home Folder"
 msgstr "_Namų aplankas"
 
@@ -4605,7 +4606,7 @@ msgstr "Sustabdyti pasirinktą kaupiklį"
 #: ../src/file-manager/fm-directory-view.c:8322
 #: ../src/file-manager/fm-directory-view.c:8414
 #: ../src/file-manager/fm-directory-view.c:8524
-#: ../src/caja-places-sidebar.c:1818
+#: ../src/caja-places-sidebar.c:1832
 msgid "_Safely Remove Drive"
 msgstr "_Saugiai išimti kaupiklį"
 
@@ -4639,7 +4640,7 @@ msgstr "Sustabdyti pasirinktą daugiadiskį kaupiklį"
 #: ../src/file-manager/fm-directory-view.c:8334
 #: ../src/file-manager/fm-directory-view.c:8426
 #: ../src/file-manager/fm-directory-view.c:8536
-#: ../src/caja-places-sidebar.c:1831
+#: ../src/caja-places-sidebar.c:1845
 msgid "_Lock Drive"
 msgstr "_Užrakinti kaupiklį"
 
@@ -4664,7 +4665,7 @@ msgstr "Paleisti daugiadiskį kaupiklį, susietą su atvertu aplanku"
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
 #: ../src/file-manager/fm-directory-view.c:8397
 #: ../src/file-manager/fm-directory-view.c:8507
-#: ../src/caja-places-sidebar.c:1830
+#: ../src/caja-places-sidebar.c:1844
 msgid "_Unlock Drive"
 msgstr "_Atrakinti kaupiklį"
 
@@ -4695,7 +4696,7 @@ msgstr "Užrakinti kaupiklį, susietą su atvertu aplanku"
 #. add the "open in new window" menu item
 #: ../src/file-manager/fm-directory-view.c:8606
 #: ../src/file-manager/fm-directory-view.c:8916
-#: ../src/file-manager/fm-tree-view.c:1287 ../src/caja-places-sidebar.c:2685
+#: ../src/file-manager/fm-tree-view.c:1287 ../src/caja-places-sidebar.c:2699
 msgid "Open in New _Window"
 msgstr "Atverti naujame _lange"
 
@@ -4775,55 +4776,55 @@ msgstr "Negrįžtamai ištrinti visus pažymėtus elementus"
 msgid "View or modify the properties of the open folder"
 msgstr "Žiūrėti ar keisti atverto aplanko savybes"
 
-#: ../src/file-manager/fm-directory-view.c:10372
+#: ../src/file-manager/fm-directory-view.c:10366
 msgid "Download location?"
 msgstr "Atsiuntimo vieta?"
 
-#: ../src/file-manager/fm-directory-view.c:10375
+#: ../src/file-manager/fm-directory-view.c:10369
 msgid "You can download it or make a link to it."
 msgstr "Galite jį atsisiųsti arba sukurti į jį nuorodą."
 
-#: ../src/file-manager/fm-directory-view.c:10378
+#: ../src/file-manager/fm-directory-view.c:10372
 msgid "Make a _Link"
 msgstr "Sukurti _nuorodą"
 
-#: ../src/file-manager/fm-directory-view.c:10382
+#: ../src/file-manager/fm-directory-view.c:10376
 msgid "_Download"
 msgstr "_Atsisiųsti"
 
-#: ../src/file-manager/fm-directory-view.c:10543
-#: ../src/file-manager/fm-directory-view.c:10602
-#: ../src/file-manager/fm-directory-view.c:10707
+#: ../src/file-manager/fm-directory-view.c:10537
+#: ../src/file-manager/fm-directory-view.c:10596
+#: ../src/file-manager/fm-directory-view.c:10701
 msgid "Drag and drop is not supported."
 msgstr "Vilkimo ir numetimo operacija nepalaikoma."
 
-#: ../src/file-manager/fm-directory-view.c:10544
+#: ../src/file-manager/fm-directory-view.c:10538
 msgid "Drag and drop is only supported on local file systems."
 msgstr "Vilkimo ir numetimo operacija veikia tik vietinėse failų sistemose."
 
-#: ../src/file-manager/fm-directory-view.c:10603
-#: ../src/file-manager/fm-directory-view.c:10708
+#: ../src/file-manager/fm-directory-view.c:10597
+#: ../src/file-manager/fm-directory-view.c:10702
 msgid "An invalid drag type was used."
 msgstr "Panaudotas netinkamas vilkimo tipas."
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10785
+#: ../src/file-manager/fm-directory-view.c:10779
 msgid "dropped text.txt"
 msgstr "nuvilktas tekstas.txt"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10830
+#: ../src/file-manager/fm-directory-view.c:10824
 msgid "dropped data"
 msgstr "nuvilkti duomenys"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11195
+#: ../src/file-manager/fm-directory-view.c:11217
 msgid "Undo"
 msgstr "Atšaukti"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11213
+#: ../src/file-manager/fm-directory-view.c:11235
 msgid "Redo"
 msgstr "Atstatyti"
 
@@ -4838,7 +4839,7 @@ msgstr "URL"
 
 #: ../src/file-manager/fm-ditem-page.c:492
 #: ../src/file-manager/fm-ditem-page.c:504
-#: ../src/caja-image-properties-page.c:375
+#: ../src/caja-image-properties-page.c:378
 msgid "Description"
 msgstr "Aprašymas"
 
@@ -4944,7 +4945,7 @@ msgstr "Pervadinama „%s“ į „%s“."
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: ../src/file-manager/fm-icon-container.c:613
-#: ../src/file-manager/fm-icon-view.c:3389
+#: ../src/file-manager/fm-icon-view.c:3395
 #: ../src/caja-file-management-properties.ui.h:1
 msgid "Icon View"
 msgstr "Piktogramų rodinys"
@@ -5121,166 +5122,166 @@ msgid "pointing at \"%s\""
 msgstr "rodo į „%s“"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3391
+#: ../src/file-manager/fm-icon-view.c:3397
 msgid "_Icons"
 msgstr "_Piktogramos"
 
-#: ../src/file-manager/fm-icon-view.c:3392
+#: ../src/file-manager/fm-icon-view.c:3398
 msgid "The icon view encountered an error."
 msgstr "Piktogramų rodinyje įvyko klaida."
 
-#: ../src/file-manager/fm-icon-view.c:3393
+#: ../src/file-manager/fm-icon-view.c:3399
 msgid "The icon view encountered an error while starting up."
 msgstr "Paleidžiant piktogramų rodinį įvyko klaida."
 
-#: ../src/file-manager/fm-icon-view.c:3394
+#: ../src/file-manager/fm-icon-view.c:3400
 msgid "Display this location with the icon view."
 msgstr "Rodyti šią vietą piktogramų rodinyje."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-icon-view.c:3404
+#: ../src/file-manager/fm-icon-view.c:3410
 #: ../src/caja-file-management-properties.ui.h:3
 msgid "Compact View"
 msgstr "Glaustas rodinys"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3406
+#: ../src/file-manager/fm-icon-view.c:3412
 msgid "_Compact"
 msgstr "_Glaustas"
 
-#: ../src/file-manager/fm-icon-view.c:3407
+#: ../src/file-manager/fm-icon-view.c:3413
 msgid "The compact view encountered an error."
 msgstr "Glaustąjame rodinyje iškilo klaida."
 
-#: ../src/file-manager/fm-icon-view.c:3408
+#: ../src/file-manager/fm-icon-view.c:3414
 msgid "The compact view encountered an error while starting up."
 msgstr "Paleidžiant glaustąjį rodinį įvyko klaida."
 
-#: ../src/file-manager/fm-icon-view.c:3409
+#: ../src/file-manager/fm-icon-view.c:3415
 msgid "Display this location with the compact view."
 msgstr "Rodyti šią vietą naudojant glaustą rodinį."
 
-#: ../src/file-manager/fm-list-model.c:428
-#: ../src/file-manager/fm-tree-model.c:1358
+#: ../src/file-manager/fm-list-model.c:436
+#: ../src/file-manager/fm-tree-model.c:1366
 msgid "(Empty)"
 msgstr "(Tuščias)"
 
-#: ../src/file-manager/fm-list-model.c:432
-#: ../src/file-manager/fm-tree-model.c:1358 ../src/caja-window-slot.c:207
+#: ../src/file-manager/fm-list-model.c:440
+#: ../src/file-manager/fm-tree-model.c:1366 ../src/caja-window-slot.c:211
 msgid "Loading..."
 msgstr "Įkeliama…"
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-list-view.c:1831
-#: ../src/file-manager/fm-list-view.c:3451
+#: ../src/file-manager/fm-list-view.c:1833
+#: ../src/file-manager/fm-list-view.c:3472
 #: ../src/caja-file-management-properties.ui.h:2
 msgid "List View"
 msgstr "Sąrašo rodinys"
 
-#: ../src/file-manager/fm-list-view.c:2526
+#: ../src/file-manager/fm-list-view.c:2528
 #, c-format
 msgid "%s Visible Columns"
 msgstr "%s matomos skiltys"
 
-#: ../src/file-manager/fm-list-view.c:2545
+#: ../src/file-manager/fm-list-view.c:2547
 msgid "Choose the order of information to appear in this folder:"
 msgstr "Pasirinkite šiame aplanke pateikiamos informacijos tvarką:"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-list-view.c:2608
+#: ../src/file-manager/fm-list-view.c:2610
 msgid "Visible _Columns..."
 msgstr "Matomos skilt_ys…"
 
 #. tooltip
-#: ../src/file-manager/fm-list-view.c:2609
+#: ../src/file-manager/fm-list-view.c:2611
 msgid "Select the columns visible in this folder"
 msgstr "Pasirinkite skiltis, rodomas šiame aplanke"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-list-view.c:3453
+#: ../src/file-manager/fm-list-view.c:3474
 msgid "_List"
 msgstr "_Sąrašas"
 
-#: ../src/file-manager/fm-list-view.c:3454
+#: ../src/file-manager/fm-list-view.c:3475
 msgid "The list view encountered an error."
 msgstr "Sąrašo rodinyje įvyko klaida."
 
-#: ../src/file-manager/fm-list-view.c:3455
+#: ../src/file-manager/fm-list-view.c:3476
 msgid "The list view encountered an error while starting up."
 msgstr "Paleidžiant rodinį įvyko klaida."
 
-#: ../src/file-manager/fm-list-view.c:3456
+#: ../src/file-manager/fm-list-view.c:3477
 msgid "Display this location with the list view."
 msgstr "Rodyti šią vietą sąrašo rodinyje.“"
 
-#: ../src/file-manager/fm-properties-window.c:529
+#: ../src/file-manager/fm-properties-window.c:545
 msgid "You cannot assign more than one custom icon at a time!"
 msgstr "Negalima vienu metu priskirti daugiau nei vienos pasirinktinės piktogramos!"
 
-#: ../src/file-manager/fm-properties-window.c:530
-#: ../src/caja-information-panel.c:528
+#: ../src/file-manager/fm-properties-window.c:546
+#: ../src/caja-information-panel.c:545
 msgid "Please drag just one image to set a custom icon."
-msgstr "Norėdami nustatyti pasirinktinę piktogramą, vilkite tik vieną paveikslėlį."
+msgstr "Norėdami nustatyti pasirinktinę piktogramą, vilkite tik vieną paveikslą."
 
-#: ../src/file-manager/fm-properties-window.c:541
-#: ../src/caja-information-panel.c:555
+#: ../src/file-manager/fm-properties-window.c:557
+#: ../src/caja-information-panel.c:572
 msgid "The file that you dropped is not local."
 msgstr "Failas, kurį nuvilkote, nėra vietinis."
 
-#: ../src/file-manager/fm-properties-window.c:542
-#: ../src/file-manager/fm-properties-window.c:548
-#: ../src/caja-information-panel.c:556
+#: ../src/file-manager/fm-properties-window.c:558
+#: ../src/file-manager/fm-properties-window.c:564
+#: ../src/caja-information-panel.c:573
 msgid "You can only use local images as custom icons."
-msgstr "Pasirinktinėms piktogramoms galima naudoti tik Jūsų kompiuteryje esančius paveikslėlius."
+msgstr "Pasirinktinėms piktogramoms galima naudoti tik jūsų kompiuteryje esančius paveikslus."
 
-#: ../src/file-manager/fm-properties-window.c:547
-#: ../src/caja-information-panel.c:563
+#: ../src/file-manager/fm-properties-window.c:563
+#: ../src/caja-information-panel.c:580
 msgid "The file that you dropped is not an image."
-msgstr "Failas, kurį atitempėte, nėra paveikslėlis."
+msgstr "Failas, kurį atitempėte, nėra paveikslas."
 
-#: ../src/file-manager/fm-properties-window.c:692
+#: ../src/file-manager/fm-properties-window.c:708
 msgid "_Name:"
 msgid_plural "_Names:"
 msgstr[0] "_Pavadinimas:"
 msgstr[1] "_Pavadinimai:"
 msgstr[2] "_Pavadinimų:"
 
-#: ../src/file-manager/fm-properties-window.c:1048
+#: ../src/file-manager/fm-properties-window.c:1064
 #, c-format
 msgid "Properties"
 msgstr "Savybės"
 
-#: ../src/file-manager/fm-properties-window.c:1056
+#: ../src/file-manager/fm-properties-window.c:1072
 #, c-format
 msgid "%s Properties"
 msgstr "%s savybės"
 
-#: ../src/file-manager/fm-properties-window.c:1384
+#: ../src/file-manager/fm-properties-window.c:1400
 #, c-format
 msgctxt "MIME type description (MIME type)"
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-properties-window.c:1687
+#: ../src/file-manager/fm-properties-window.c:1689
 msgid "Cancel Group Change?"
 msgstr "Atsisakyti grupės keitimo?"
 
-#: ../src/file-manager/fm-properties-window.c:2124
+#: ../src/file-manager/fm-properties-window.c:2126
 msgid "Cancel Owner Change?"
 msgstr "Atsisakyti savininko keitimo?"
 
-#: ../src/file-manager/fm-properties-window.c:2469
+#: ../src/file-manager/fm-properties-window.c:2471
 msgid "nothing"
 msgstr "nieko"
 
-#: ../src/file-manager/fm-properties-window.c:2471
+#: ../src/file-manager/fm-properties-window.c:2473
 msgid "unreadable"
 msgstr "neperskaitomas"
 
-#: ../src/file-manager/fm-properties-window.c:2486
+#: ../src/file-manager/fm-properties-window.c:2488
 #, c-format
 msgid "%'d item, with size %s"
 msgid_plural "%'d items, totalling %s"
@@ -5288,7 +5289,7 @@ msgstr[0] "%'d elementas, dydis %s"
 msgstr[1] "%'d elementai, iš viso %s"
 msgstr[2] "%'d elementų, iš viso %s"
 
-#: ../src/file-manager/fm-properties-window.c:2495
+#: ../src/file-manager/fm-properties-window.c:2497
 msgid "(some contents unreadable)"
 msgstr "(dalis turinio neperskaitoma)"
 
@@ -5297,279 +5298,279 @@ msgstr "(dalis turinio neperskaitoma)"
 #. * "Contents:" title to line up with the first line of the
 #. * 2-line value. Maybe there's a better way to do this, but I
 #. * couldn't think of one.
-#: ../src/file-manager/fm-properties-window.c:2512
+#: ../src/file-manager/fm-properties-window.c:2514
 msgid "Contents:"
 msgstr "Turinys:"
 
 #. Translators: "used" refers to the capacity of the filesystem
-#: ../src/file-manager/fm-properties-window.c:3475
+#: ../src/file-manager/fm-properties-window.c:3542
 msgid "used"
 msgstr "naudojama"
 
 #. Translators: "free" refers to the capacity of the filesystem
-#: ../src/file-manager/fm-properties-window.c:3484
+#: ../src/file-manager/fm-properties-window.c:3551
 msgid "free"
 msgstr "laisva"
 
-#: ../src/file-manager/fm-properties-window.c:3486
+#: ../src/file-manager/fm-properties-window.c:3553
 msgid "Total capacity:"
 msgstr "Visa talpa:"
 
-#: ../src/file-manager/fm-properties-window.c:3495
+#: ../src/file-manager/fm-properties-window.c:3562
 msgid "Filesystem type:"
 msgstr "Failų sistemos tipas:"
 
-#: ../src/file-manager/fm-properties-window.c:3615
+#: ../src/file-manager/fm-properties-window.c:3682
 msgid "Basic"
 msgstr "Esminės"
 
-#: ../src/file-manager/fm-properties-window.c:3697
-#: ../src/file-manager/fm-properties-window.c:3774
+#: ../src/file-manager/fm-properties-window.c:3768
+#: ../src/file-manager/fm-properties-window.c:3845
 msgid "Link target:"
 msgstr "Nuorodos tikslas:"
 
-#: ../src/file-manager/fm-properties-window.c:3716
-#: ../src/file-manager/fm-properties-window.c:3793
+#: ../src/file-manager/fm-properties-window.c:3787
+#: ../src/file-manager/fm-properties-window.c:3864
 #: ../src/caja-location-bar.c:56
 msgid "Location:"
 msgstr "Vieta:"
 
-#: ../src/file-manager/fm-properties-window.c:3722
-#: ../src/file-manager/fm-properties-window.c:3799
+#: ../src/file-manager/fm-properties-window.c:3793
+#: ../src/file-manager/fm-properties-window.c:3870
 msgid "Volume:"
 msgstr "Tomas:"
 
-#: ../src/file-manager/fm-properties-window.c:3731
-#: ../src/file-manager/fm-properties-window.c:3808
+#: ../src/file-manager/fm-properties-window.c:3802
+#: ../src/file-manager/fm-properties-window.c:3879
 msgid "Accessed:"
 msgstr "Naudota:"
 
-#: ../src/file-manager/fm-properties-window.c:3735
-#: ../src/file-manager/fm-properties-window.c:3812
+#: ../src/file-manager/fm-properties-window.c:3806
+#: ../src/file-manager/fm-properties-window.c:3883
 msgid "Modified:"
 msgstr "Pakeista:"
 
-#: ../src/file-manager/fm-properties-window.c:3744
-#: ../src/file-manager/fm-properties-window.c:3821
+#: ../src/file-manager/fm-properties-window.c:3815
+#: ../src/file-manager/fm-properties-window.c:3892
 msgid "Free space:"
 msgstr "Laisva vieta:"
 
-#: ../src/file-manager/fm-properties-window.c:3932
-#: ../src/caja-emblem-sidebar.c:1089
+#: ../src/file-manager/fm-properties-window.c:4003
+#: ../src/caja-emblem-sidebar.c:1095
 msgid "Emblems"
 msgstr "Emblemos"
 
-#: ../src/file-manager/fm-properties-window.c:4356
-#: ../src/file-manager/fm-properties-window.c:4382
+#: ../src/file-manager/fm-properties-window.c:4433
+#: ../src/file-manager/fm-properties-window.c:4459
 msgid "_Read"
 msgstr "_Skaityti"
 
-#: ../src/file-manager/fm-properties-window.c:4358
-#: ../src/file-manager/fm-properties-window.c:4384
+#: ../src/file-manager/fm-properties-window.c:4435
+#: ../src/file-manager/fm-properties-window.c:4461
 msgid "_Write"
 msgstr "_Rašyti"
 
-#: ../src/file-manager/fm-properties-window.c:4360
-#: ../src/file-manager/fm-properties-window.c:4386
+#: ../src/file-manager/fm-properties-window.c:4437
+#: ../src/file-manager/fm-properties-window.c:4463
 msgid "E_xecute"
 msgstr "Vy_kdyti"
 
 #. translators: this gets concatenated to "no read",
 #. * "no access", etc. (see following strings)
-#: ../src/file-manager/fm-properties-window.c:4655
-#: ../src/file-manager/fm-properties-window.c:4666
-#: ../src/file-manager/fm-properties-window.c:4678
+#: ../src/file-manager/fm-properties-window.c:4732
+#: ../src/file-manager/fm-properties-window.c:4743
+#: ../src/file-manager/fm-properties-window.c:4755
 msgid "no "
 msgstr "ne "
 
-#: ../src/file-manager/fm-properties-window.c:4658
+#: ../src/file-manager/fm-properties-window.c:4735
 msgid "list"
 msgstr "sąrašas"
 
-#: ../src/file-manager/fm-properties-window.c:4660
+#: ../src/file-manager/fm-properties-window.c:4737
 msgid "read"
 msgstr "skaityti"
 
-#: ../src/file-manager/fm-properties-window.c:4669
+#: ../src/file-manager/fm-properties-window.c:4746
 msgid "create/delete"
 msgstr "kurti/trinti"
 
-#: ../src/file-manager/fm-properties-window.c:4671
+#: ../src/file-manager/fm-properties-window.c:4748
 msgid "write"
 msgstr "rašyti"
 
-#: ../src/file-manager/fm-properties-window.c:4680
+#: ../src/file-manager/fm-properties-window.c:4757
 msgid "access"
 msgstr "prieiti"
 
-#: ../src/file-manager/fm-properties-window.c:4736
-#: ../src/file-manager/fm-properties-window.c:4742
+#: ../src/file-manager/fm-properties-window.c:4813
+#: ../src/file-manager/fm-properties-window.c:4819
 msgid "Access:"
 msgstr "Prieiga:"
 
-#: ../src/file-manager/fm-properties-window.c:4738
-#: ../src/file-manager/fm-properties-window.c:4744
+#: ../src/file-manager/fm-properties-window.c:4815
+#: ../src/file-manager/fm-properties-window.c:4821
 msgid "Folder access:"
 msgstr "Prieiga prie aplankų:"
 
-#: ../src/file-manager/fm-properties-window.c:4740
-#: ../src/file-manager/fm-properties-window.c:4746
+#: ../src/file-manager/fm-properties-window.c:4817
+#: ../src/file-manager/fm-properties-window.c:4823
 msgid "File access:"
 msgstr "Prieiga prie failų:"
 
 #. Translators: this is referred to the permissions
 #. * the user has in a directory.
 #. Translators: this is referred to captions under icons.
-#: ../src/file-manager/fm-properties-window.c:4762
-#: ../src/file-manager/fm-properties-window.c:4773
+#: ../src/file-manager/fm-properties-window.c:4839
+#: ../src/file-manager/fm-properties-window.c:4850
 #: ../src/caja-file-management-properties.c:330
 msgid "None"
 msgstr "Nėra"
 
-#: ../src/file-manager/fm-properties-window.c:4765
+#: ../src/file-manager/fm-properties-window.c:4842
 msgid "List files only"
 msgstr "Rodyti tik failus"
 
-#: ../src/file-manager/fm-properties-window.c:4767
+#: ../src/file-manager/fm-properties-window.c:4844
 msgid "Access files"
 msgstr "Prieiti prie failų"
 
-#: ../src/file-manager/fm-properties-window.c:4769
+#: ../src/file-manager/fm-properties-window.c:4846
 msgid "Create and delete files"
 msgstr "Kurti ir trinti failus"
 
-#: ../src/file-manager/fm-properties-window.c:4776
+#: ../src/file-manager/fm-properties-window.c:4853
 msgid "Read-only"
 msgstr "Tik skaityti"
 
-#: ../src/file-manager/fm-properties-window.c:4778
+#: ../src/file-manager/fm-properties-window.c:4855
 msgid "Read and write"
 msgstr "Skaityti ir rašyti"
 
-#: ../src/file-manager/fm-properties-window.c:4869
-#: ../src/file-manager/fm-properties-window.c:4884
+#: ../src/file-manager/fm-properties-window.c:4946
+#: ../src/file-manager/fm-properties-window.c:4961
 msgid "Special flags:"
 msgstr "Specialios vėliavėlės:"
 
-#: ../src/file-manager/fm-properties-window.c:4871
-#: ../src/file-manager/fm-properties-window.c:4881
+#: ../src/file-manager/fm-properties-window.c:4948
+#: ../src/file-manager/fm-properties-window.c:4958
 msgid "Set _user ID"
 msgstr "Nustatyti _naudotojo ID"
 
-#: ../src/file-manager/fm-properties-window.c:4872
-#: ../src/file-manager/fm-properties-window.c:4886
+#: ../src/file-manager/fm-properties-window.c:4949
+#: ../src/file-manager/fm-properties-window.c:4963
 msgid "Set gro_up ID"
 msgstr "Nustatyti _grupės ID"
 
-#: ../src/file-manager/fm-properties-window.c:4873
-#: ../src/file-manager/fm-properties-window.c:4887
+#: ../src/file-manager/fm-properties-window.c:4950
+#: ../src/file-manager/fm-properties-window.c:4964
 msgid "_Sticky"
 msgstr "_Kibus"
 
-#: ../src/file-manager/fm-properties-window.c:4967
-#: ../src/file-manager/fm-properties-window.c:5070
-#: ../src/file-manager/fm-properties-window.c:5370
-#: ../src/file-manager/fm-properties-window.c:5451
+#: ../src/file-manager/fm-properties-window.c:5044
+#: ../src/file-manager/fm-properties-window.c:5147
+#: ../src/file-manager/fm-properties-window.c:5447
+#: ../src/file-manager/fm-properties-window.c:5528
 msgid "_Owner:"
 msgstr "_Savininkas:"
 
-#: ../src/file-manager/fm-properties-window.c:4975
-#: ../src/file-manager/fm-properties-window.c:5076
-#: ../src/file-manager/fm-properties-window.c:5175
-#: ../src/file-manager/fm-properties-window.c:5268
-#: ../src/file-manager/fm-properties-window.c:5379
-#: ../src/file-manager/fm-properties-window.c:5459
+#: ../src/file-manager/fm-properties-window.c:5052
+#: ../src/file-manager/fm-properties-window.c:5153
+#: ../src/file-manager/fm-properties-window.c:5252
+#: ../src/file-manager/fm-properties-window.c:5345
+#: ../src/file-manager/fm-properties-window.c:5456
+#: ../src/file-manager/fm-properties-window.c:5536
 msgid "Owner:"
 msgstr "Savininkas:"
 
-#: ../src/file-manager/fm-properties-window.c:4997
-#: ../src/file-manager/fm-properties-window.c:5100
-#: ../src/file-manager/fm-properties-window.c:5392
-#: ../src/file-manager/fm-properties-window.c:5471
+#: ../src/file-manager/fm-properties-window.c:5074
+#: ../src/file-manager/fm-properties-window.c:5177
+#: ../src/file-manager/fm-properties-window.c:5469
+#: ../src/file-manager/fm-properties-window.c:5548
 msgid "_Group:"
 msgstr "_Grupė:"
 
-#: ../src/file-manager/fm-properties-window.c:5005
-#: ../src/file-manager/fm-properties-window.c:5109
-#: ../src/file-manager/fm-properties-window.c:5176
-#: ../src/file-manager/fm-properties-window.c:5269
-#: ../src/file-manager/fm-properties-window.c:5400
-#: ../src/file-manager/fm-properties-window.c:5480
+#: ../src/file-manager/fm-properties-window.c:5082
+#: ../src/file-manager/fm-properties-window.c:5186
+#: ../src/file-manager/fm-properties-window.c:5253
+#: ../src/file-manager/fm-properties-window.c:5346
+#: ../src/file-manager/fm-properties-window.c:5477
+#: ../src/file-manager/fm-properties-window.c:5557
 msgid "Group:"
 msgstr "Grupė:"
 
-#: ../src/file-manager/fm-properties-window.c:5029
-#: ../src/file-manager/fm-properties-window.c:5135
+#: ../src/file-manager/fm-properties-window.c:5106
+#: ../src/file-manager/fm-properties-window.c:5212
 msgid "Others"
 msgstr "Kiti"
 
-#: ../src/file-manager/fm-properties-window.c:5044
-#: ../src/file-manager/fm-properties-window.c:5153
+#: ../src/file-manager/fm-properties-window.c:5121
+#: ../src/file-manager/fm-properties-window.c:5230
 msgid "Execute:"
 msgstr "Vykdyti:"
 
-#: ../src/file-manager/fm-properties-window.c:5047
-#: ../src/file-manager/fm-properties-window.c:5157
+#: ../src/file-manager/fm-properties-window.c:5124
+#: ../src/file-manager/fm-properties-window.c:5234
 msgid "Allow _executing file as program"
 msgstr "Leisti _vykdyti failą kaip programą"
 
-#: ../src/file-manager/fm-properties-window.c:5177
-#: ../src/file-manager/fm-properties-window.c:5270
+#: ../src/file-manager/fm-properties-window.c:5254
+#: ../src/file-manager/fm-properties-window.c:5347
 msgid "Others:"
 msgstr "Kiti:"
 
-#: ../src/file-manager/fm-properties-window.c:5416
-#: ../src/file-manager/fm-properties-window.c:5499
+#: ../src/file-manager/fm-properties-window.c:5493
+#: ../src/file-manager/fm-properties-window.c:5576
 msgid "Folder Permissions:"
 msgstr "Aplanko leidimai:"
 
-#: ../src/file-manager/fm-properties-window.c:5423
-#: ../src/file-manager/fm-properties-window.c:5512
+#: ../src/file-manager/fm-properties-window.c:5500
+#: ../src/file-manager/fm-properties-window.c:5589
 msgid "File Permissions:"
 msgstr "Failo leidimai:"
 
-#: ../src/file-manager/fm-properties-window.c:5432
-#: ../src/file-manager/fm-properties-window.c:5523
+#: ../src/file-manager/fm-properties-window.c:5509
+#: ../src/file-manager/fm-properties-window.c:5600
 msgid "Text view:"
 msgstr "Tekstinė išraiška:"
 
-#: ../src/file-manager/fm-properties-window.c:5671
-#: ../src/file-manager/fm-properties-window.c:5727
+#: ../src/file-manager/fm-properties-window.c:5748
+#: ../src/file-manager/fm-properties-window.c:5808
 msgid "You are not the owner, so you cannot change these permissions."
 msgstr "Nesate savininkas, todėl negalite keisti šių teisių."
 
-#: ../src/file-manager/fm-properties-window.c:5691
-#: ../src/file-manager/fm-properties-window.c:5752
+#: ../src/file-manager/fm-properties-window.c:5768
+#: ../src/file-manager/fm-properties-window.c:5833
 msgid "SELinux context:"
 msgstr "SELinux kontekstas:"
 
-#: ../src/file-manager/fm-properties-window.c:5696
-#: ../src/file-manager/fm-properties-window.c:5757
+#: ../src/file-manager/fm-properties-window.c:5773
+#: ../src/file-manager/fm-properties-window.c:5838
 msgid "Last changed:"
 msgstr "Paskutinis pakeitimas:"
 
-#: ../src/file-manager/fm-properties-window.c:5772
+#: ../src/file-manager/fm-properties-window.c:5857
 msgid "Apply Permissions to Enclosed Files"
 msgstr "Pritaikyti leidimus failams viduje"
 
-#: ../src/file-manager/fm-properties-window.c:5782
+#: ../src/file-manager/fm-properties-window.c:5867
 #, c-format
 msgid "The permissions of \"%s\" could not be determined."
 msgstr "Nepavyko nustatyti „%s“ leidimų."
 
-#: ../src/file-manager/fm-properties-window.c:5785
+#: ../src/file-manager/fm-properties-window.c:5870
 msgid "The permissions of the selected file could not be determined."
 msgstr "Nepavyko nustatyti pasirinkto failo leidimų."
 
-#: ../src/file-manager/fm-properties-window.c:6361
+#: ../src/file-manager/fm-properties-window.c:6448
 msgid "Creating Properties window."
 msgstr "Kuriamas savybių langas."
 
-#: ../src/file-manager/fm-properties-window.c:6663
+#: ../src/file-manager/fm-properties-window.c:6750
 msgid "Select Custom Icon"
 msgstr "Pasirinkite pasirinktinę piktogramą"
 
-#: ../src/file-manager/fm-tree-view.c:1438 ../src/caja-places-sidebar.c:537
+#: ../src/file-manager/fm-tree-view.c:1438 ../src/caja-places-sidebar.c:551
 msgid "File System"
 msgstr "Failų sistema"
 
@@ -5581,30 +5582,30 @@ msgstr "Medis"
 msgid "Show Tree"
 msgstr "Rodyti medį"
 
-#: ../src/caja-application.c:446
+#: ../src/caja-application.c:443
 #, c-format
 msgid "Caja could not create the required folder \"%s\"."
 msgstr "Caja negalėjo sukurti reikiamo aplanko „%s“."
 
-#: ../src/caja-application.c:448
+#: ../src/caja-application.c:445
 msgid ""
 "Before running Caja, please create the following folder, or set permissions "
 "such that Caja can create it."
 msgstr "Prieš leisdami Caja sukurkite šį aplanką, arba nustatykite reikiamas teises, kad Caja galėtų jį pats sukurti."
 
-#: ../src/caja-application.c:453
+#: ../src/caja-application.c:450
 #, c-format
 msgid "Caja could not create the following required folders: %s."
 msgstr "Caja negalėjo sukurti šių reikalingų aplankų: %s."
 
-#: ../src/caja-application.c:455
+#: ../src/caja-application.c:452
 msgid ""
 "Before running Caja, please create these folders, or set permissions such "
 "that Caja can create them."
 msgstr "Sukurkite šiuos aplankus prieš paleisdami Caja, arba nustatykite reikiamas teises, kad Caja galėtų juos sukurti."
 
-#: ../src/caja-application.c:1717 ../src/caja-places-sidebar.c:2217
-#: ../src/caja-places-sidebar.c:2248 ../src/caja-places-sidebar.c:2279
+#: ../src/caja-application.c:1743 ../src/caja-places-sidebar.c:2231
+#: ../src/caja-places-sidebar.c:2262 ../src/caja-places-sidebar.c:2293
 #, c-format
 msgid "Unable to eject %s"
 msgstr "Nepavyko išimti %s"
@@ -5639,7 +5640,7 @@ msgstr "Programinė įranga bus paleista tiesiogiai iš laikmenos „%s“. Niek
 
 #: ../src/caja-bookmarks-window.c:158
 #: ../src/caja-file-management-properties.c:237
-#: ../src/caja-property-browser.c:1676 ../src/caja-window-menus.c:593
+#: ../src/caja-property-browser.c:1673 ../src/caja-window-menus.c:592
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
@@ -5668,7 +5669,7 @@ msgstr "<b>_Vieta</b>"
 
 #. Translators: This is the --help description for the connect to server app,
 #. the initial newlines are between the command line arg and the description
-#: ../src/caja-connect-server-dialog-main.c:119
+#: ../src/caja-connect-server-dialog-main.c:123
 msgid ""
 "\n"
 "\n"
@@ -5751,7 +5752,7 @@ msgstr "Serverio duomenys"
 
 #. first row: server entry + port spinbutton
 #: ../src/caja-connect-server-dialog.c:920
-#: ../src/caja-connect-server-dialog.c:938
+#: ../src/caja-connect-server-dialog.c:942
 msgid "_Server:"
 msgstr "_Serveris:"
 
@@ -5802,81 +5803,81 @@ msgstr "_Pridėti žymę"
 msgid "Bookmark Name:"
 msgstr "Žymės pavadinimas:"
 
-#: ../src/caja-desktop-window.c:81 ../src/caja-desktop-window.c:251
-#: ../src/caja-pathbar.c:1526 ../src/caja-places-sidebar.c:522
+#: ../src/caja-desktop-window.c:88 ../src/caja-desktop-window.c:263
+#: ../src/caja-pathbar.c:1562 ../src/caja-places-sidebar.c:536
 msgid "Desktop"
 msgstr "Darbalaukis"
 
-#: ../src/caja-emblem-sidebar.c:229
+#: ../src/caja-emblem-sidebar.c:232
 #, c-format
 msgid "Could not remove emblem with name '%s'."
 msgstr "Nepavyko pašalinti emblemos pavadinimu „%s“."
 
-#: ../src/caja-emblem-sidebar.c:230 ../src/caja-emblem-sidebar.c:270
+#: ../src/caja-emblem-sidebar.c:233 ../src/caja-emblem-sidebar.c:273
 msgid ""
 "This is probably because the emblem is a permanent one, and not one that you"
 " added yourself."
 msgstr "Tikriausiai ši emblema yra standartinė, o ne Jūsų paties pridėta."
 
-#: ../src/caja-emblem-sidebar.c:269
+#: ../src/caja-emblem-sidebar.c:272
 #, c-format
 msgid "Could not rename emblem with name '%s'."
 msgstr "Nepavyko pakeisti emblemos „%s“ pavadinimo."
 
-#: ../src/caja-emblem-sidebar.c:289
+#: ../src/caja-emblem-sidebar.c:292
 msgid "Rename Emblem"
 msgstr "Pervadinti emblemą"
 
-#: ../src/caja-emblem-sidebar.c:308
+#: ../src/caja-emblem-sidebar.c:311
 msgid "Enter a new name for the displayed emblem:"
 msgstr "Įveskite naują pavadinimą pateiktai emblemai:"
 
-#: ../src/caja-emblem-sidebar.c:362
+#: ../src/caja-emblem-sidebar.c:365
 msgid "Rename"
 msgstr "Pervadinti"
 
-#: ../src/caja-emblem-sidebar.c:542
+#: ../src/caja-emblem-sidebar.c:545
 msgid "Add Emblems..."
 msgstr "Pridėti emblemas…"
 
-#: ../src/caja-emblem-sidebar.c:559
+#: ../src/caja-emblem-sidebar.c:562
 msgid ""
 "Enter a descriptive name next to each emblem.  This name will be used in "
 "other places to identify the emblem."
 msgstr "Įrašykite paaiškinantį pavadinimą šalia kiekvienos emblemos. Šis pavadinimas bus naudojamas emblemos identifikavimui kitose vietose."
 
-#: ../src/caja-emblem-sidebar.c:563
+#: ../src/caja-emblem-sidebar.c:566
 msgid ""
 "Enter a descriptive name next to the emblem.  This name will be used in "
 "other places to identify the emblem."
 msgstr "Įrašykite paaiškinantį pavadinimą šalia emblemos. Šis pavadinimas bus naudojamas emblemos identifikavimui kitose vietose."
 
-#: ../src/caja-emblem-sidebar.c:805
+#: ../src/caja-emblem-sidebar.c:808
 msgid "Some of the files could not be added as emblems."
 msgstr "Kai kurių failų nepavyko pridėti kaip emblemų."
 
-#: ../src/caja-emblem-sidebar.c:805 ../src/caja-emblem-sidebar.c:809
+#: ../src/caja-emblem-sidebar.c:808 ../src/caja-emblem-sidebar.c:812
 msgid "The emblems do not appear to be valid images."
-msgstr "Emblemos nėra tinkami paveikslėliai."
+msgstr "Emblemos nėra tinkami paveikslai."
 
-#: ../src/caja-emblem-sidebar.c:809
+#: ../src/caja-emblem-sidebar.c:812
 msgid "None of the files could be added as emblems."
 msgstr "Nei vieno failo nepavyko pridėti kaip emblemos."
 
-#: ../src/caja-emblem-sidebar.c:852 ../src/caja-emblem-sidebar.c:915
+#: ../src/caja-emblem-sidebar.c:855 ../src/caja-emblem-sidebar.c:918
 #, c-format
 msgid "The file '%s' does not appear to be a valid image."
-msgstr "Failas „%s“ nėra tinkamas paveikslėlis."
+msgstr "Failas „%s“ nėra tinkamas paveikslas."
 
-#: ../src/caja-emblem-sidebar.c:857
+#: ../src/caja-emblem-sidebar.c:860
 msgid "The dragged file does not appear to be a valid image."
-msgstr "Nutemptas failas nėra tinkamas paveikslėlis."
+msgstr "Nutemptas failas nėra tinkamas paveikslas."
 
-#: ../src/caja-emblem-sidebar.c:859 ../src/caja-emblem-sidebar.c:916
+#: ../src/caja-emblem-sidebar.c:862 ../src/caja-emblem-sidebar.c:919
 msgid "The emblem cannot be added."
 msgstr "Nepavyko pridėti emblemos."
 
-#: ../src/caja-emblem-sidebar.c:1095
+#: ../src/caja-emblem-sidebar.c:1101
 msgid "Show Emblems"
 msgstr "Rodyti emblemas"
 
@@ -6286,84 +6287,84 @@ msgstr "K_onfigūruoti plėtinį"
 msgid "Extensions"
 msgstr "Plėtiniai"
 
-#: ../src/caja-history-sidebar.c:336
+#: ../src/caja-history-sidebar.c:344
 msgid "History"
 msgstr "Retrospektyva"
 
-#: ../src/caja-history-sidebar.c:342
+#: ../src/caja-history-sidebar.c:350
 msgid "Show History"
 msgstr "Rodyti retrospektyvą"
 
-#: ../src/caja-image-properties-page.c:285
+#: ../src/caja-image-properties-page.c:288
 msgid "Camera Brand"
 msgstr "Fotoaparato rūšis"
 
-#: ../src/caja-image-properties-page.c:286
+#: ../src/caja-image-properties-page.c:289
 msgid "Camera Model"
 msgstr "Fotoaparato modelis"
 
 #. Choose which date to show in order of relevance
-#: ../src/caja-image-properties-page.c:289
+#: ../src/caja-image-properties-page.c:292
 msgid "Date Taken"
 msgstr "Fotografavimo data"
 
-#: ../src/caja-image-properties-page.c:291
+#: ../src/caja-image-properties-page.c:294
 msgid "Date Digitized"
 msgstr "Suskaitmeninimo data"
 
-#: ../src/caja-image-properties-page.c:297
+#: ../src/caja-image-properties-page.c:300
 msgid "Exposure Time"
 msgstr "Išlaikymo laikas"
 
-#: ../src/caja-image-properties-page.c:298
+#: ../src/caja-image-properties-page.c:301
 msgid "Aperture Value"
 msgstr "Diafragmos reikšmė"
 
-#: ../src/caja-image-properties-page.c:299
+#: ../src/caja-image-properties-page.c:302
 msgid "ISO Speed Rating"
 msgstr "Jautrumas (ISO)"
 
-#: ../src/caja-image-properties-page.c:300
+#: ../src/caja-image-properties-page.c:303
 msgid "Flash Fired"
 msgstr "Blykstė suveikė"
 
-#: ../src/caja-image-properties-page.c:301
+#: ../src/caja-image-properties-page.c:304
 msgid "Metering Mode"
 msgstr "Matavimo veiksena"
 
-#: ../src/caja-image-properties-page.c:302
+#: ../src/caja-image-properties-page.c:305
 msgid "Exposure Program"
 msgstr "Ekspozicijos programa"
 
-#: ../src/caja-image-properties-page.c:303
+#: ../src/caja-image-properties-page.c:306
 msgid "Focal Length"
 msgstr "Židinio nuotolis"
 
-#: ../src/caja-image-properties-page.c:304
+#: ../src/caja-image-properties-page.c:307
 msgid "Software"
 msgstr "Programa"
 
-#: ../src/caja-image-properties-page.c:376
+#: ../src/caja-image-properties-page.c:379
 msgid "Keywords"
 msgstr "Raktažodžiai"
 
-#: ../src/caja-image-properties-page.c:377
+#: ../src/caja-image-properties-page.c:380
 msgid "Creator"
 msgstr "Kūrėjas"
 
-#: ../src/caja-image-properties-page.c:378
+#: ../src/caja-image-properties-page.c:381
 msgid "Copyright"
 msgstr "Autorinės teisės"
 
-#: ../src/caja-image-properties-page.c:379
+#: ../src/caja-image-properties-page.c:382
 msgid "Rating"
 msgstr "Įvertinimas"
 
-#: ../src/caja-image-properties-page.c:410
-msgid "Image Type:"
-msgstr "Paveikslėlio tipas:"
-
 #: ../src/caja-image-properties-page.c:413
+msgid "Image Type:"
+msgstr "Paveikslo tipas:"
+
+#: ../src/caja-image-properties-page.c:416
 #, c-format
 msgid "<b>Width:</b> %d pixel"
 msgid_plural "<b>Width:</b> %d pixels"
@@ -6371,7 +6372,7 @@ msgstr[0] "<b>Plotis:</b> %d taškas"
 msgstr[1] "<b>Plotis:</b> %d taškai"
 msgstr[2] "<b>Plotis:</b> %d taškų"
 
-#: ../src/caja-image-properties-page.c:419
+#: ../src/caja-image-properties-page.c:422
 #, c-format
 msgid "<b>Height:</b> %d pixel"
 msgid_plural "<b>Height:</b> %d pixels"
@@ -6379,38 +6380,38 @@ msgstr[0] "<b>Aukštis:</b> %d taškas"
 msgstr[1] "<b>Aukštis:</b> %d taškai"
 msgstr[2] "<b>Aukštis:</b> %d taškų"
 
-#: ../src/caja-image-properties-page.c:438
+#: ../src/caja-image-properties-page.c:441
 msgid "Failed to load image information"
-msgstr "Nepavyko įkelti paveikslėlio informacijos"
+msgstr "Nepavyko įkelti paveikslo informacijos"
 
-#: ../src/caja-image-properties-page.c:664
+#: ../src/caja-image-properties-page.c:670
 msgid "loading..."
 msgstr "įkeliama…"
 
-#: ../src/caja-image-properties-page.c:718
+#: ../src/caja-image-properties-page.c:724
 msgid "Image"
-msgstr "Paveikslėlis"
+msgstr "Paveikslas"
 
-#: ../src/caja-information-panel.c:163
+#: ../src/caja-information-panel.c:167
 msgid "Information"
 msgstr "Informacija"
 
-#: ../src/caja-information-panel.c:169
+#: ../src/caja-information-panel.c:173
 msgid "Show Information"
 msgstr "Rodyti informaciją"
 
 #. add the reset background item, possibly disabled
-#: ../src/caja-information-panel.c:362
+#: ../src/caja-information-panel.c:379
 msgid "Use _Default Background"
 msgstr "Naudoti _numatytąjį foną"
 
-#: ../src/caja-information-panel.c:527
+#: ../src/caja-information-panel.c:544
 msgid "You cannot assign more than one custom icon at a time."
 msgstr "Negalima priskirti daugiau nei vienos piktogramos tuo pačiu metu."
 
-#: ../src/caja-information-panel.c:564
+#: ../src/caja-information-panel.c:581
 msgid "You can only use images as custom icons."
-msgstr "Paveikslėlius galima naudoti tik kaip pasirinktines piktogramas."
+msgstr "Paveikslus galima naudoti tik kaip pasirinktines piktogramas."
 
 #: ../src/caja-location-bar.c:57
 msgid "Go To:"
@@ -6478,22 +6479,22 @@ msgid ""
 msgstr "\n\nNaršyti failų sistemą per failų tvarkytuvę"
 
 #. translators: %s is an option (e.g. --check)
-#: ../src/caja-main.c:491 ../src/caja-main.c:502
+#: ../src/caja-main.c:494 ../src/caja-main.c:505
 #, c-format
 msgid "caja: %s cannot be used with URIs.\n"
 msgstr "caja: %s negali būti naudojamas su URI.\n"
 
-#: ../src/caja-main.c:497
+#: ../src/caja-main.c:500
 #, c-format
 msgid "caja: --check cannot be used with other options.\n"
 msgstr "caja: --check negali būti naudojamas su kitais parametrais.\n"
 
-#: ../src/caja-main.c:508
+#: ../src/caja-main.c:511
 #, c-format
 msgid "caja: --geometry cannot be used with more than one URI.\n"
 msgstr "caja: --geometry negali būti naudojamas daugiau nei su vienu URI.\n"
 
-#: ../src/caja-main.c:582
+#: ../src/caja-main.c:585
 #, c-format
 msgid "caja: set erroneously as default application for '%s' content type.\n"
 msgstr "caja: blogai nustatyta pagrindine programa %s formatui.\n"
@@ -6743,7 +6744,7 @@ msgstr "_Pirmyn"
 
 #: ../src/caja-navigation-window-menus.c:972
 msgid "Go to the next visited location"
-msgstr "Eiti į sekančią aplankytą vietą"
+msgstr "Eiti į kitą aplankytą vietą"
 
 #: ../src/caja-navigation-window-menus.c:973
 msgid "Forward history"
@@ -6773,12 +6774,12 @@ msgstr "_Nauja kortelė"
 msgid "_Close Tab"
 msgstr "_Užverti kortelę"
 
-#: ../src/caja-navigation-window.c:774
+#: ../src/caja-navigation-window.c:781
 #, c-format
 msgid "%s - File Browser"
 msgstr "%s – Failų naršyklė"
 
-#: ../src/caja-notebook.c:395
+#: ../src/caja-notebook.c:423
 msgid "Close tab"
 msgstr "Užverti kortelę"
 
@@ -6790,200 +6791,200 @@ msgstr "Pastabos"
 msgid "Show Notes"
 msgstr "Rodyti pastabas"
 
-#: ../src/caja-places-sidebar.c:311
+#: ../src/caja-places-sidebar.c:325
 msgid "Devices"
 msgstr "Įrenginiai"
 
-#: ../src/caja-places-sidebar.c:319
+#: ../src/caja-places-sidebar.c:333
 msgid "Bookmarks"
 msgstr "Žymės"
 
-#: ../src/caja-places-sidebar.c:524
+#: ../src/caja-places-sidebar.c:538
 msgid "Open the contents of your desktop in a folder"
 msgstr "Atverti darbalaukio turinį aplanke"
 
-#: ../src/caja-places-sidebar.c:539
+#: ../src/caja-places-sidebar.c:553
 msgid "Open the contents of the File System"
 msgstr "Atverti failų sistemos turinį"
 
-#: ../src/caja-places-sidebar.c:598
+#: ../src/caja-places-sidebar.c:612
 msgid "Open the trash"
 msgstr "Atverti šiukšlinę"
 
-#: ../src/caja-places-sidebar.c:653 ../src/caja-places-sidebar.c:681
+#: ../src/caja-places-sidebar.c:667 ../src/caja-places-sidebar.c:695
 #, c-format
 msgid "Mount and open %s"
 msgstr "Prijungti ir atverti %s"
 
-#: ../src/caja-places-sidebar.c:834 ../src/mate-network-scheme.desktop.in.h:1
+#: ../src/caja-places-sidebar.c:848 ../src/mate-network-scheme.desktop.in.h:1
 msgid "Network"
 msgstr "Tinklas"
 
-#: ../src/caja-places-sidebar.c:866
+#: ../src/caja-places-sidebar.c:880
 msgid "Browse Network"
 msgstr "Naršyti tinklą"
 
-#: ../src/caja-places-sidebar.c:868
+#: ../src/caja-places-sidebar.c:882
 msgid "Browse the contents of the network"
 msgstr "Naršyti tinklą"
 
 #. start() for type G_DRIVE_START_STOP_TYPE_SHUTDOWN is normally not used
-#: ../src/caja-places-sidebar.c:1817
+#: ../src/caja-places-sidebar.c:1831
 msgid "_Power On"
 msgstr "Įjun_gti"
 
-#: ../src/caja-places-sidebar.c:1821
+#: ../src/caja-places-sidebar.c:1835
 msgid "_Connect Drive"
 msgstr "_Prijungti kaupiklį"
 
-#: ../src/caja-places-sidebar.c:1822
+#: ../src/caja-places-sidebar.c:1836
 msgid "_Disconnect Drive"
 msgstr "_Atjungti kaupiklį"
 
-#: ../src/caja-places-sidebar.c:1825
+#: ../src/caja-places-sidebar.c:1839
 msgid "_Start Multi-disk Device"
 msgstr "_Paleisti daugiadiskį įrenginį"
 
-#: ../src/caja-places-sidebar.c:1826
+#: ../src/caja-places-sidebar.c:1840
 msgid "_Stop Multi-disk Device"
 msgstr "_Sustabdyti daugiadiskį įrenginį"
 
-#: ../src/caja-places-sidebar.c:1913 ../src/caja-places-sidebar.c:2491
+#: ../src/caja-places-sidebar.c:1927 ../src/caja-places-sidebar.c:2505
 #, c-format
 msgid "Unable to start %s"
 msgstr "Nepavyko paleisti %s"
 
-#: ../src/caja-places-sidebar.c:2435
+#: ../src/caja-places-sidebar.c:2449
 #, c-format
 msgid "Unable to poll %s for media changes"
 msgstr "Nepavyko užklausti %s dėl laikmenų pokyčių"
 
-#: ../src/caja-places-sidebar.c:2551
+#: ../src/caja-places-sidebar.c:2565
 #, c-format
 msgid "Unable to stop %s"
 msgstr "Nepavyko sustabdyti %s"
 
-#: ../src/caja-places-sidebar.c:2693
+#: ../src/caja-places-sidebar.c:2707
 msgid "Remove"
 msgstr "Pašalinti"
 
-#: ../src/caja-places-sidebar.c:2702
+#: ../src/caja-places-sidebar.c:2716
 msgid "Rename..."
 msgstr "Pervadinti…"
 
-#: ../src/caja-places-sidebar.c:3394
+#: ../src/caja-places-sidebar.c:3412
 msgid "Places"
 msgstr "Vietos"
 
-#: ../src/caja-places-sidebar.c:3400
+#: ../src/caja-places-sidebar.c:3418
 msgid "Show Places"
 msgstr "Rodyti vietas"
 
 #. set the title and standard close accelerator
-#: ../src/caja-property-browser.c:297
+#: ../src/caja-property-browser.c:299
 msgid "Backgrounds and Emblems"
 msgstr "Fonai ir emblemos"
 
 #. create the "remove" button
-#: ../src/caja-property-browser.c:411
+#: ../src/caja-property-browser.c:412
 msgid "_Remove..."
 msgstr "_Pašalinti…"
 
 #. now create the "add new" button
-#: ../src/caja-property-browser.c:425
+#: ../src/caja-property-browser.c:426
 msgid "Add new..."
 msgstr "Pridėti naują…"
 
-#: ../src/caja-property-browser.c:976
+#: ../src/caja-property-browser.c:977
 #, c-format
 msgid "Sorry, but pattern %s could not be deleted."
 msgstr "Rašto %s negalima ištrinti."
 
-#: ../src/caja-property-browser.c:977
+#: ../src/caja-property-browser.c:978
 msgid "Check that you have permission to delete the pattern."
 msgstr "Patikrinkite, ar turite teises ištrinti šį raštą."
 
-#: ../src/caja-property-browser.c:993
+#: ../src/caja-property-browser.c:994
 #, c-format
 msgid "Sorry, but emblem %s could not be deleted."
 msgstr "Emblemos %s negalima ištrinti."
 
-#: ../src/caja-property-browser.c:994
+#: ../src/caja-property-browser.c:995
 msgid "Check that you have permission to delete the emblem."
 msgstr "Patikrinkite, ar turite teises ištrinti šią emblemą."
 
-#: ../src/caja-property-browser.c:1066
+#: ../src/caja-property-browser.c:1067
 msgid "Select an Image File for the New Emblem"
-msgstr "Pasirinkite paveikslėlio failą naujai emblemai"
+msgstr "Pasirinkite paveikslo failą naujai emblemai"
 
-#: ../src/caja-property-browser.c:1107
+#: ../src/caja-property-browser.c:1108
 msgid "Create a New Emblem"
 msgstr "Sukurti naują emblemą"
 
 #. make the keyword label and field
-#: ../src/caja-property-browser.c:1128
+#: ../src/caja-property-browser.c:1129
 msgid "_Keyword:"
 msgstr "Ra_ktažodis:"
 
 #. set up a file chooser to pick the image file
-#: ../src/caja-property-browser.c:1151
+#: ../src/caja-property-browser.c:1152
 msgid "_Image:"
-msgstr "_Paveikslėlis:"
+msgstr "_Paveikslas:"
 
-#: ../src/caja-property-browser.c:1190
+#: ../src/caja-property-browser.c:1187
 msgid "Create a New Color:"
 msgstr "Sukurti naują spalvą:"
 
 #. make the name label and field
-#: ../src/caja-property-browser.c:1204
+#: ../src/caja-property-browser.c:1201
 msgid "Color _name:"
 msgstr "Spalvos _pavadinimas:"
 
-#: ../src/caja-property-browser.c:1220
+#: ../src/caja-property-browser.c:1217
 msgid "Color _value:"
 msgstr "_Spalva (atspalvis):"
 
-#: ../src/caja-property-browser.c:1256
+#: ../src/caja-property-browser.c:1253
 msgid "Sorry, but you cannot replace the reset image."
-msgstr "Negalite pakeisti atstatymo paveikslėlio."
+msgstr "Negalite pakeisti atstatymo paveikslo."
 
-#: ../src/caja-property-browser.c:1257
+#: ../src/caja-property-browser.c:1254
 msgid "Reset is a special image that cannot be deleted."
-msgstr "„Atstatyti“ yra specialus paveikslėlis, kurio negalima ištrinti."
+msgstr "„Atstatyti“ yra specialus paveikslas, kurio negalima ištrinti."
 
-#: ../src/caja-property-browser.c:1287
+#: ../src/caja-property-browser.c:1284
 #, c-format
 msgid "Sorry, but the pattern %s could not be installed."
 msgstr "Rašto %s įdiegti nepavyko."
 
-#: ../src/caja-property-browser.c:1318
+#: ../src/caja-property-browser.c:1315
 msgid "Select an Image File to Add as a Pattern"
-msgstr "Pasirinkite rašto paveikslėlio failą"
+msgstr "Pasirinkite rašto paveikslo failą"
 
-#: ../src/caja-property-browser.c:1397 ../src/caja-property-browser.c:1427
+#: ../src/caja-property-browser.c:1394 ../src/caja-property-browser.c:1424
 msgid "The color cannot be installed."
 msgstr "Nepavyko įdėti spalvos."
 
-#: ../src/caja-property-browser.c:1398
+#: ../src/caja-property-browser.c:1395
 msgid "Sorry, but you must specify an unused color name for the new color."
 msgstr "Turite nurodyti naujos spalvos pavadinimą, kuris dar nenaudojamas."
 
-#: ../src/caja-property-browser.c:1428
+#: ../src/caja-property-browser.c:1425
 msgid "Sorry, but you must specify a non-blank name for the new color."
 msgstr "Naujai spalvai reikia nurodyti netuščią pavadinimą."
 
-#: ../src/caja-property-browser.c:1488
+#: ../src/caja-property-browser.c:1485
 msgid "Select a Color to Add"
 msgstr "Pasirinkite pridėtiną spalvą"
 
-#: ../src/caja-property-browser.c:1534 ../src/caja-property-browser.c:1552
+#: ../src/caja-property-browser.c:1531 ../src/caja-property-browser.c:1549
 #, c-format
 msgid "Sorry, but \"%s\" is not a usable image file."
-msgstr "„%s“ nėra tinkamas paveikslėlio failas."
+msgstr "„%s“ nėra tinkamas paveikslo failas."
 
-#: ../src/caja-property-browser.c:1535 ../src/caja-property-browser.c:1553
+#: ../src/caja-property-browser.c:1532 ../src/caja-property-browser.c:1550
 msgid "The file is not an image."
-msgstr "Šis failas nėra paveikslėlis."
+msgstr "Šis failas nėra paveikslas."
 
 #: ../src/caja-property-browser.c:2291
 msgid "Select a Category:"
@@ -7045,103 +7046,103 @@ msgstr "Paša_linti emblemą…"
 msgid "File Type"
 msgstr "Failo tipas"
 
-#: ../src/caja-query-editor.c:282
+#: ../src/caja-query-editor.c:286
 msgid "Select folder to search in"
 msgstr "Pasirinkite aplanką, kuriame ieškosite"
 
-#: ../src/caja-query-editor.c:378
+#: ../src/caja-query-editor.c:382
 msgid "Documents"
 msgstr "Dokumentai"
 
-#: ../src/caja-query-editor.c:398
+#: ../src/caja-query-editor.c:402
 msgid "Music"
 msgstr "Muzika"
 
-#: ../src/caja-query-editor.c:414
+#: ../src/caja-query-editor.c:418
 msgid "Video"
 msgstr "Video"
 
-#: ../src/caja-query-editor.c:432
+#: ../src/caja-query-editor.c:436
 msgid "Picture"
 msgstr "Paveikslas"
 
-#: ../src/caja-query-editor.c:454
+#: ../src/caja-query-editor.c:458
 msgid "Illustration"
 msgstr "Iliustracija"
 
-#: ../src/caja-query-editor.c:470
+#: ../src/caja-query-editor.c:474
 msgid "Spreadsheet"
 msgstr "Skaičialentė"
 
-#: ../src/caja-query-editor.c:488
+#: ../src/caja-query-editor.c:492
 msgid "Presentation"
 msgstr "Pateiktis"
 
-#: ../src/caja-query-editor.c:499
+#: ../src/caja-query-editor.c:503
 msgid "Pdf / Postscript"
 msgstr "Pdf / Postscript"
 
-#: ../src/caja-query-editor.c:509
+#: ../src/caja-query-editor.c:513
 msgid "Text File"
 msgstr "Tekstinis failas"
 
-#: ../src/caja-query-editor.c:593
+#: ../src/caja-query-editor.c:597
 msgid "Select type"
 msgstr "Pasirinkite tipą"
 
-#: ../src/caja-query-editor.c:680
+#: ../src/caja-query-editor.c:684
 msgid "Any"
 msgstr "Bet koks"
 
-#: ../src/caja-query-editor.c:696
+#: ../src/caja-query-editor.c:700
 msgid "Other Type..."
 msgstr "Kitas tipas…"
 
-#: ../src/caja-query-editor.c:1000
+#: ../src/caja-query-editor.c:1004
 msgid "Remove this criterion from the search"
 msgstr "Pašalinti šį paieškos kriterijų"
 
-#: ../src/caja-query-editor.c:1045
+#: ../src/caja-query-editor.c:1055
 msgid "Search Folder"
 msgstr "Paieškos aplankas"
 
-#: ../src/caja-query-editor.c:1051
+#: ../src/caja-query-editor.c:1061
 msgid "Edit"
 msgstr "Taisa"
 
-#: ../src/caja-query-editor.c:1059
+#: ../src/caja-query-editor.c:1069
 msgid "Edit the saved search"
 msgstr "Keisti įrašytą paiešką"
 
-#: ../src/caja-query-editor.c:1091
+#: ../src/caja-query-editor.c:1101
 msgid "Add a new criterion to this search"
 msgstr "Pridėti šiai paieškai naują kriterijų"
 
-#: ../src/caja-query-editor.c:1097
+#: ../src/caja-query-editor.c:1107
 msgid "Go"
 msgstr "Eiti"
 
-#: ../src/caja-query-editor.c:1101
+#: ../src/caja-query-editor.c:1111
 msgid "Reload"
 msgstr "Įkelti iš naujo"
 
-#: ../src/caja-query-editor.c:1106
+#: ../src/caja-query-editor.c:1116
 msgid "Perform or update the search"
 msgstr "Atlikti arba atnaujinti paiešką"
 
-#: ../src/caja-query-editor.c:1127
+#: ../src/caja-query-editor.c:1137
 msgid "_Search for:"
 msgstr "_Ieškoti:"
 
-#: ../src/caja-query-editor.c:1156
+#: ../src/caja-query-editor.c:1166
 msgid "Search results"
 msgstr "Paieškos rezultatai"
 
-#: ../src/caja-search-bar.c:176
+#: ../src/caja-search-bar.c:182
 msgid "Search:"
 msgstr "Ieškoti:"
 
-#: ../src/caja-side-pane.c:407
+#: ../src/caja-side-pane.c:425
 msgid "Close the side pane"
 msgstr "Užverti šoninį polangį"
 
@@ -7177,11 +7178,11 @@ msgstr "Užverti visus aplankų langus"
 msgid "Locate documents and folders on this computer by name or content"
 msgstr "Ieškoti dokumentų ir aplankų šiame kompiuteryje pagal pavadinimą arba turinį"
 
-#: ../src/caja-trash-bar.c:208
+#: ../src/caja-trash-bar.c:215
 msgid "Restore Selected Items"
 msgstr "Grąžinti pasirinktus elementus"
 
-#: ../src/caja-trash-bar.c:214
+#: ../src/caja-trash-bar.c:221
 msgid "Restore selected items to their original position"
 msgstr "Grąžinti pasirinktus elementus į jų pradines vietas"
 
@@ -7257,7 +7258,7 @@ msgstr "Nepavyko parodyti „%s“, kadangi nepavyko rasti šio serverio."
 #: ../src/caja-window-manage-views.c:2179
 msgid ""
 "Check that the spelling is correct and that your proxy settings are correct."
-msgstr "Patikrinkite, ar teisingai parašėte ir ar teisingi tarpinio serverio nustatymai."
+msgstr "Patikrinkite, ar teisingai parašėte ir ar teisingi įgaliotojo serverio nustatymai."
 
 #: ../src/caja-window-manage-views.c:2195
 #, c-format
@@ -7266,11 +7267,11 @@ msgid ""
 "Please select another viewer and try again."
 msgstr "Klaida: %s\nPasirinkite kitą peržiūros programą ir bandykite dar kartą."
 
-#: ../src/caja-window-menus.c:198
+#: ../src/caja-window-menus.c:197
 msgid "Go to the location specified by this bookmark"
 msgstr "Eiti į šios žymės rodomą vietą"
 
-#: ../src/caja-window-menus.c:520
+#: ../src/caja-window-menus.c:519
 msgid ""
 "Caja is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -7278,7 +7279,7 @@ msgid ""
 "version."
 msgstr "Caja yra laisva programinė įranga; galite ją platinti ir / arba modifikuoti GNU bendrosios viešosios licencijos sąlygomis, paskelbtomis Laisvosios programinės įrangos fondo; 2-osios arba (Jūsų pasirinkimu) bet kurios vėlesnės licencijos versijos sąlygomis."
 
-#: ../src/caja-window-menus.c:524
+#: ../src/caja-window-menus.c:523
 msgid ""
 "Caja is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -7286,19 +7287,19 @@ msgid ""
 "details."
 msgstr "Caja yra platinama tikintis, kad ji bus naudinga, tačiau BE JOKIŲ GARANTIJŲ; netgi be numanomų PARDAVIMO arba TINKAMUMO TAM TIKRAM TIKSLUI garantijų. Daugiau informacijos galite rasti GNU bendrojoje viešojoje licencijoje."
 
-#: ../src/caja-window-menus.c:528
+#: ../src/caja-window-menus.c:527
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301 USA"
 msgstr "Turėjote gauti GNU bendrosios viešosios licencijos kopiją kartu su Caja; jeigu negavote, rašykite Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA"
 
-#: ../src/caja-window-menus.c:540
+#: ../src/caja-window-menus.c:539
 msgid ""
 "Caja lets you organize files and folders, both on your computer and online."
 msgstr "Caja leidžia tvarkyti failus ir aplankus, tiek vietiniame kompiuteryje, tiek ir tinkle."
 
-#: ../src/caja-window-menus.c:543
+#: ../src/caja-window-menus.c:542
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2014 The Caja authors"
@@ -7307,257 +7308,257 @@ msgstr "Visos teisės saugomos. © 1999-2009 The Nautilus authors\nVisos teisės
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
 #. * box to give credit to the translator(s).
-#: ../src/caja-window-menus.c:553
+#: ../src/caja-window-menus.c:552
 msgid "translator-credits"
 msgstr "Vertėjai:\nŽygimantas Beručka <zygis@gnome.org>,\nJustina Klingaitė <justina.klingaite@gmail.com>,\nMantas Kriaučiūnas <mantas@akl.lt>,\nEglė Girinaitė <egle@akl.lt>,\nGediminas Paulauskas <menesis@chatsubo.lt>"
 
-#: ../src/caja-window-menus.c:556
+#: ../src/caja-window-menus.c:555
 msgid "MATE Web Site"
-msgstr "MATE puslapis"
+msgstr "MATE tinklalapis"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:809
+#: ../src/caja-window-menus.c:808
 msgid "_File"
 msgstr "_Failas"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:810
+#: ../src/caja-window-menus.c:809
 msgid "_Edit"
 msgstr "_Taisa"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:811
+#: ../src/caja-window-menus.c:810
 msgid "_View"
 msgstr "R_odymas"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:812
+#: ../src/caja-window-menus.c:811
 msgid "_Help"
 msgstr "_Žinynas"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:814
+#: ../src/caja-window-menus.c:813
 msgid "_Close"
 msgstr "_Užverti"
 
 #. tooltip
-#: ../src/caja-window-menus.c:815
+#: ../src/caja-window-menus.c:814
 msgid "Close this folder"
 msgstr "Užverti šį aplanką"
 
-#: ../src/caja-window-menus.c:820
+#: ../src/caja-window-menus.c:819
 msgid "_Backgrounds and Emblems..."
 msgstr "_Fonai ir emblemos…"
 
-#: ../src/caja-window-menus.c:821
+#: ../src/caja-window-menus.c:820
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
 msgstr "Rodyti raštus, spalvas ir emblemas, kuriuos galima naudoti norint pakeisti išvaizdą"
 
-#: ../src/caja-window-menus.c:826
+#: ../src/caja-window-menus.c:825
 msgid "Prefere_nces"
 msgstr "_Nuostatos"
 
-#: ../src/caja-window-menus.c:827
+#: ../src/caja-window-menus.c:826
 msgid "Edit Caja preferences"
 msgstr "Keisti Caja nuostatas"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:830
+#: ../src/caja-window-menus.c:829
 msgid "Open _Parent"
 msgstr "Atverti au_kštesnįjį"
 
-#: ../src/caja-window-menus.c:831
+#: ../src/caja-window-menus.c:830
 msgid "Open the parent folder"
 msgstr "Atverti aukštesnįjį aplanką"
 
 #. tooltip
-#: ../src/caja-window-menus.c:840
+#: ../src/caja-window-menus.c:839
 msgid "Stop loading the current location"
 msgstr "Sustabdyti dabartinės vietos įkėlimą"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:844
+#: ../src/caja-window-menus.c:843
 msgid "_Reload"
 msgstr "Iš _naujo"
 
 #. tooltip
-#: ../src/caja-window-menus.c:845
+#: ../src/caja-window-menus.c:844
 msgid "Reload the current location"
 msgstr "Įkelti dabartinę vietą iš naujo"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:849
+#: ../src/caja-window-menus.c:848
 msgid "_Contents"
 msgstr "_Turinys"
 
 #. tooltip
-#: ../src/caja-window-menus.c:850
+#: ../src/caja-window-menus.c:849
 msgid "Display Caja help"
 msgstr "Rodyti Caja žinyną"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:854
+#: ../src/caja-window-menus.c:853
 msgid "_About"
 msgstr "_Apie"
 
 #. tooltip
-#: ../src/caja-window-menus.c:855
+#: ../src/caja-window-menus.c:854
 msgid "Display credits for the creators of Caja"
 msgstr "Rodyti padėkas Caja kūrėjams"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:859
+#: ../src/caja-window-menus.c:858
 msgid "Zoom _In"
 msgstr "Pa_didinti"
 
 #. tooltip
-#: ../src/caja-window-menus.c:860 ../src/caja-zoom-control.c:99
-#: ../src/caja-zoom-control.c:372
+#: ../src/caja-window-menus.c:859 ../src/caja-zoom-control.c:99
+#: ../src/caja-zoom-control.c:395
 msgid "Increase the view size"
 msgstr "Padidinti rodinio dydį"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:874
+#: ../src/caja-window-menus.c:873
 msgid "Zoom _Out"
 msgstr "Su_mažinti"
 
 #. tooltip
-#: ../src/caja-window-menus.c:875 ../src/caja-zoom-control.c:100
-#: ../src/caja-zoom-control.c:321
+#: ../src/caja-window-menus.c:874 ../src/caja-zoom-control.c:100
+#: ../src/caja-zoom-control.c:333
 msgid "Decrease the view size"
 msgstr "Sumažinti rodinio dydį"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:884
+#: ../src/caja-window-menus.c:883
 msgid "Normal Si_ze"
 msgstr "No_rmalaus dydžio"
 
 #. tooltip
-#: ../src/caja-window-menus.c:885 ../src/caja-zoom-control.c:101
-#: ../src/caja-zoom-control.c:334
+#: ../src/caja-window-menus.c:884 ../src/caja-zoom-control.c:101
+#: ../src/caja-zoom-control.c:353
 msgid "Use the normal view size"
 msgstr "Naudoti normalų rodinio dydį"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:889
+#: ../src/caja-window-menus.c:888
 msgid "Connect to _Server..."
 msgstr "Prisi_jungti prie serverio…"
 
 #. tooltip
-#: ../src/caja-window-menus.c:890
+#: ../src/caja-window-menus.c:889
 msgid "Connect to a remote computer or shared disk"
 msgstr "Jungtis prie nuotolinio kompiuterio ar bendrinamo disko"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:899
+#: ../src/caja-window-menus.c:898
 msgid "_Computer"
 msgstr "_Kompiuteris"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:904
+#: ../src/caja-window-menus.c:903
 msgid "_Network"
 msgstr "_Tinklas"
 
 #. tooltip
-#: ../src/caja-window-menus.c:905 ../src/mate-network-scheme.desktop.in.h:2
+#: ../src/caja-window-menus.c:904 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
 msgstr "Naršyti pažymėtas ir vietines tinklo vietas"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:909
+#: ../src/caja-window-menus.c:908
 msgid "T_emplates"
 msgstr "Ša_blonai"
 
 #. tooltip
-#: ../src/caja-window-menus.c:910
+#: ../src/caja-window-menus.c:909
 msgid "Open your personal templates folder"
 msgstr "Atverti jūsų asmeninį šablonų aplanką"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:914
+#: ../src/caja-window-menus.c:913
 msgid "_Trash"
 msgstr "Ši_ukšlinė"
 
 #. tooltip
-#: ../src/caja-window-menus.c:915
+#: ../src/caja-window-menus.c:914
 msgid "Open your personal trash folder"
 msgstr "Atverti jūsų asmeninį šiukšlinės aplanką"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:923
+#: ../src/caja-window-menus.c:922
 msgid "Show _Hidden Files"
 msgstr "Rod_yti paslėptus failus"
 
 #. tooltip
-#: ../src/caja-window-menus.c:924
+#: ../src/caja-window-menus.c:923
 msgid "Toggle the display of hidden files in the current window"
 msgstr "Įjungti / išjungti paslėptų failų rodymą esamame lange"
 
-#: ../src/caja-window-menus.c:955
+#: ../src/caja-window-menus.c:954
 msgid "_Up"
 msgstr "_Aukštyn"
 
-#: ../src/caja-window-menus.c:958
+#: ../src/caja-window-menus.c:957
 msgid "_Home"
 msgstr "_Namai"
 
-#: ../src/caja-x-content-bar.c:70
+#: ../src/caja-x-content-bar.c:74
 msgid "These files are on an Audio CD."
 msgstr "Šie failai yra Audio CD."
 
-#: ../src/caja-x-content-bar.c:74
+#: ../src/caja-x-content-bar.c:78
 msgid "These files are on an Audio DVD."
 msgstr "Šie failai yra Audio DVD."
 
-#: ../src/caja-x-content-bar.c:78
+#: ../src/caja-x-content-bar.c:82
 msgid "These files are on a Video DVD."
 msgstr "Šie failai yra Video DVD."
 
-#: ../src/caja-x-content-bar.c:82
+#: ../src/caja-x-content-bar.c:86
 msgid "These files are on a Video CD."
 msgstr "Šie failai yra Video CD."
 
-#: ../src/caja-x-content-bar.c:86
+#: ../src/caja-x-content-bar.c:90
 msgid "These files are on a Super Video CD."
 msgstr "Šie failai yra Super Video CD."
 
-#: ../src/caja-x-content-bar.c:90
+#: ../src/caja-x-content-bar.c:94
 msgid "These files are on a Photo CD."
 msgstr "Šie failai yra Nuotraukų CD."
 
-#: ../src/caja-x-content-bar.c:94
+#: ../src/caja-x-content-bar.c:98
 msgid "These files are on a Picture CD."
 msgstr "Šie failai yra Paveikslų CD."
 
-#: ../src/caja-x-content-bar.c:98
+#: ../src/caja-x-content-bar.c:102
 msgid "The media contains digital photos."
 msgstr "Šioje laikmenoje yra skaitmeninės nuotraukos."
 
-#: ../src/caja-x-content-bar.c:102
+#: ../src/caja-x-content-bar.c:106
 msgid "These files are on a digital audio player."
 msgstr "Šie failai yra skaitmeniniame garso leistuve."
 
-#: ../src/caja-x-content-bar.c:106
+#: ../src/caja-x-content-bar.c:110
 msgid "The media contains software."
 msgstr "Šioje laikmenoje yra programinė įranga."
 
 #. fallback to generic greeting
-#: ../src/caja-x-content-bar.c:111
+#: ../src/caja-x-content-bar.c:115
 #, c-format
 msgid "The media has been detected as \"%s\"."
 msgstr "Ši laikmena buvo aptikta kaip „%s“."
@@ -7574,10 +7575,10 @@ msgstr "Sumažinti"
 msgid "Zoom to Default"
 msgstr "Numatytasis mastelis"
 
-#: ../src/caja-zoom-control.c:929
+#: ../src/caja-zoom-control.c:952
 msgid "Zoom"
 msgstr "Keisti mastelį"
 
-#: ../src/caja-zoom-control.c:934
+#: ../src/caja-zoom-control.c:957
 msgid "Set the zoom level of the current view"
 msgstr "Nustatyti esamo rodinio mastelį"
