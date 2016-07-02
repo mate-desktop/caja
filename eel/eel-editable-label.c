@@ -4628,3 +4628,4 @@ eel_editable_label_get_accessible (GtkWidget *widget)
 
     return eel_accessibility_set_atk_object_return (widget, accessible);
 }
+
