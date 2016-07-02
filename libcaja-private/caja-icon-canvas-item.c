@@ -640,7 +640,7 @@ caja_icon_canvas_item_get_image (CajaIconCanvasItem *item,
     }
 
     /* draw pixbuf to mask and pixmap */
-    cr = gdk_cairo_create (pixmap);
+    cr = cairo_create (pixmap);
     cairo_set_operator (cr, CAIRO_OPERATOR_SOURCE);
     gdk_cairo_set_source_pixbuf (cr, pixbuf, 0, 0);
     cairo_paint (cr);
@@ -649,7 +649,7 @@ caja_icon_canvas_item_get_image (CajaIconCanvasItem *item,
     *mask = gdk_pixmap_new (gdk_screen_get_root_window (screen),
                             width, height,
                             1);
-    cr = gdk_cairo_create (*mask);
+    cr = cairo_create (*mask);
     cairo_set_operator (cr, CAIRO_OPERATOR_SOURCE);
     gdk_cairo_set_source_pixbuf (cr, pixbuf, 0, 0);
     cairo_paint (cr);
@@ -1049,7 +1049,7 @@ draw_frame (CajaIconCanvasItem *item,
             int width,
             int height)
 {
-    cairo_t *cr = gdk_cairo_create (drawable);
+    cairo_t *cr = cairo_create (drawable);
 
     /* Set the rounded rect clip region. Magic rounding value taken
      * from old code.
@@ -1817,7 +1817,7 @@ draw_stretch_handles (CajaIconCanvasItem *item,
 #if GTK_CHECK_VERSION(3,0,0)
     cairo_save (cr);
 #else
-    cairo_t *cr = gdk_cairo_create (drawable);
+    cairo_t *cr = cairo_create (drawable);
 #endif
     knob_pixbuf = get_knob_pixbuf ();
     knob_width = gdk_pixbuf_get_width (knob_pixbuf);
@@ -2030,7 +2030,7 @@ draw_pixbuf (GdkPixbuf *pixbuf,
 #else
 draw_pixbuf (GdkPixbuf *pixbuf, GdkDrawable *drawable, int x, int y)
 {
-    cairo_t *cr = gdk_cairo_create (drawable);
+    cairo_t *cr = cairo_create (drawable);
     gdk_cairo_set_source_pixbuf (cr, pixbuf, x, y);
     cairo_paint (cr);
     cairo_destroy (cr);
@@ -2296,7 +2296,7 @@ draw_embedded_text (CajaIconCanvasItem *item,
     gtk_style_context_restore (style_context);
     cairo_restore (cr);
 #else
-    cairo_t *cr = gdk_cairo_create (drawable);
+    cairo_t *cr = cairo_create (drawable);
 
     cairo_rectangle (cr,
                      x + item->details->embedded_text_rect.x,
@@ -2377,7 +2377,7 @@ caja_icon_canvas_item_draw (EelCanvasItem *item, GdkDrawable *drawable,
     pixbuf_rect.width = gdk_pixbuf_get_width (temp_pixbuf);
     pixbuf_rect.height = gdk_pixbuf_get_height (temp_pixbuf);
 
-    cairo_t *cr = gdk_cairo_create (drawable);
+    cairo_t *cr = cairo_create (drawable);
     gdk_cairo_rectangle (cr, &expose->area);
     cairo_clip (cr);
     gdk_cairo_set_source_pixbuf (cr, temp_pixbuf, pixbuf_rect.x, pixbuf_rect.y);
@@ -2556,7 +2556,7 @@ draw_label_layout (CajaIconCanvasItem *item,
     }
     else
     {
-        cairo_t *cr = gdk_cairo_create (drawable);
+        cairo_t *cr = cairo_create (drawable);
         gdk_cairo_set_source_color (cr, label_color);
         cairo_move_to (cr, x, y);
         pango_cairo_show_layout (cr, layout);
