@@ -833,7 +833,7 @@ eel_canvas_rect_draw (EelCanvasItem *item, GdkDrawable *drawable, GdkEventExpose
 #if GTK_CHECK_VERSION(3,0,0)
     cairo_save (cr);
 #else
-    cairo_t *cr = gdk_cairo_create (drawable);
+    cairo_t *cr = cairo_create (drawable);
     gdk_cairo_region (cr, expose->region);
     cairo_clip (cr);
 #endif
@@ -1160,7 +1160,7 @@ eel_canvas_ellipse_draw (EelCanvasItem *item, GdkDrawable *drawable, GdkEventExp
 #if GTK_CHECK_VERSION(3,0,0)
     cairo_save (cr);
 #else
-    cairo_t *cr = gdk_cairo_create (drawable);
+    cairo_t *cr = cairo_create (drawable);
     gdk_cairo_region (cr, expose->region);
     cairo_clip (cr);
 #endif
