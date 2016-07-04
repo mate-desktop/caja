@@ -101,7 +101,7 @@ static const GtkTargetEntry drop_types [] =
     { CAJA_DND_TEXT_PLAIN_TYPE, 0, CAJA_DND_TEXT_PLAIN },
 };
 
-G_DEFINE_TYPE (CajaLocationBar, caja_location_bar, GTK_TYPE_HBOX);
+G_DEFINE_TYPE (CajaLocationBar, caja_location_bar, GTK_TYPE_BOX);
 
 static CajaNavigationWindow *
 caja_location_bar_get_window (GtkWidget *bar)
@@ -496,6 +496,9 @@ caja_location_bar_init (CajaLocationBar *bar)
 
     bar->details = G_TYPE_INSTANCE_GET_PRIVATE (bar, CAJA_TYPE_LOCATION_BAR,
                                                 CajaLocationBarDetails);
+
+    gtk_orientable_set_orientation (GTK_ORIENTABLE (bar),
+                                    GTK_ORIENTATION_HORIZONTAL);
 
     hbox = gtk_hbox_new (0, FALSE);
 
