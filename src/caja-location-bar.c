@@ -59,10 +59,6 @@ static const char untranslated_go_to_label[] = N_("Go To:");
 #define LOCATION_LABEL _(untranslated_location_label)
 #define GO_TO_LABEL _(untranslated_go_to_label)
 
-#if GTK_CHECK_VERSION (3, 0, 0)
-#define gtk_hbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_HORIZONTAL,Y)
-#endif
-
 struct CajaLocationBarDetails
 {
     GtkLabel *label;
@@ -492,15 +488,12 @@ caja_location_bar_init (CajaLocationBar *bar)
     GtkWidget *label;
     GtkWidget *entry;
     GtkWidget *event_box;
-    GtkWidget *hbox;
 
     bar->details = G_TYPE_INSTANCE_GET_PRIVATE (bar, CAJA_TYPE_LOCATION_BAR,
                                                 CajaLocationBarDetails);
 
     gtk_orientable_set_orientation (GTK_ORIENTABLE (bar),
                                     GTK_ORIENTATION_HORIZONTAL);
-
-    hbox = gtk_hbox_new (0, FALSE);
 
     event_box = gtk_event_box_new ();
     gtk_event_box_set_visible_window (GTK_EVENT_BOX (event_box), FALSE);
@@ -518,7 +511,7 @@ caja_location_bar_init (CajaLocationBar *bar)
     g_signal_connect (label, "style_set",
                       G_CALLBACK (style_set_handler), NULL);
 
-    gtk_box_pack_start (GTK_BOX (hbox), event_box, FALSE, TRUE, 4);
+    gtk_box_pack_start (GTK_BOX (bar), event_box, FALSE, TRUE, 4);
 
     entry = caja_location_entry_new ();
 
@@ -527,12 +520,9 @@ caja_location_bar_init (CajaLocationBar *bar)
     g_signal_connect_object (entry, "changed",
                              G_CALLBACK (editable_changed_callback), bar, 0);
 
-    gtk_box_pack_start (GTK_BOX (hbox), entry, TRUE, TRUE, 0);
+    gtk_box_pack_start (GTK_BOX (bar), entry, TRUE, TRUE, 0);
 
     eel_accessibility_set_up_label_widget_relation (label, entry);
-
-    gtk_container_add (GTK_CONTAINER (bar), hbox);
-
 
     /* Label context menu */
     g_signal_connect (event_box, "button-press-event",
@@ -554,10 +544,10 @@ caja_location_bar_init (CajaLocationBar *bar)
     g_signal_connect (bar, "drag_data_received",
                       G_CALLBACK (drag_data_received_callback), NULL);
 
-    gtk_widget_show_all (hbox);
-
     bar->details->label = GTK_LABEL (label);
     bar->details->entry = CAJA_ENTRY (entry);
+
+    gtk_widget_show_all (GTK_WIDGET (bar));
 }
 
 GtkWidget *
