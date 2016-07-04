@@ -25,7 +25,6 @@
 #include "caja-navigation-window-pane.h"
 #include "caja-window-private.h"
 #include "caja-window-manage-views.h"
-#include "caja-navigation-bar.h"
 #include "caja-pathbar.h"
 #include "caja-location-bar.h"
 #include "caja-notebook.h"
@@ -234,7 +233,7 @@ location_button_toggled_cb (GtkToggleButton *toggle,
     g_settings_set_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_LOCATION_ENTRY, is_active);
 
     if (is_active) {
-        caja_navigation_bar_activate (CAJA_NAVIGATION_BAR (pane->navigation_bar));
+        caja_location_bar_activate (CAJA_LOCATION_BAR (pane->navigation_bar));
     }
 
     caja_window_set_active_pane (CAJA_WINDOW_PANE (pane)->window, CAJA_WINDOW_PANE (pane));
@@ -636,7 +635,7 @@ real_sync_location_widgets (CajaWindowPane *pane)
 
         /* this may be NULL if we just created the slot */
         uri = caja_window_slot_get_location_uri (slot);
-        caja_navigation_bar_set_location (CAJA_NAVIGATION_BAR (navigation_pane->navigation_bar), uri);
+        caja_location_bar_set_location (CAJA_LOCATION_BAR (navigation_pane->navigation_bar), uri);
         g_free (uri);
         caja_path_bar_set_path (CAJA_PATH_BAR (navigation_pane->path_bar), slot->location);
     }
@@ -849,8 +848,8 @@ caja_navigation_window_pane_show_navigation_bar_temporarily (CajaNavigationWindo
         caja_navigation_window_pane_set_bar_mode (pane, CAJA_BAR_NAVIGATION);
         pane->temporary_navigation_bar = TRUE;
     }
-    caja_navigation_bar_activate
-    (CAJA_NAVIGATION_BAR (pane->navigation_bar));
+    caja_location_bar_activate
+    (CAJA_LOCATION_BAR (pane->navigation_bar));
 }
 
 gboolean
