@@ -836,7 +836,9 @@ caja_open_with_dialog_init (CajaOpenWithDialog *dialog)
     GtkWidget *vbox;
     GtkWidget *vbox2;
     GtkWidget *label;
+#if !GTK_CHECK_VERSION (3, 0, 0)
     GtkWidget *align;
+#endif
     GtkWidget *scrolled_window;
     GtkWidget *expander;
     GtkTreeSelection *selection;
@@ -972,15 +974,21 @@ caja_open_with_dialog_init (CajaOpenWithDialog *dialog)
 
     gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 0);
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
     align = gtk_alignment_new (0.5, 0.5, 0.0, 0.0);
     gtk_widget_show (align);
+#endif
 
     gtk_widget_show (dialog->details->button);
     gtk_widget_set_can_default (dialog->details->button, TRUE);
 
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_container_add (GTK_CONTAINER (dialog->details->button), hbox);
+#else
     gtk_container_add (GTK_CONTAINER (align), hbox);
     gtk_container_add (GTK_CONTAINER (dialog->details->button), align);
+#endif
 
     gtk_dialog_add_action_widget (GTK_DIALOG (dialog),
                                   dialog->details->button, RESPONSE_OPEN);
