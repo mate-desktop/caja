@@ -31,7 +31,7 @@ struct _CajaIconInfo
     GObject parent;
 
     gboolean sole_owner;
-    guint64 last_use_time;
+    gint64 last_use_time;
     GdkPixbuf *pixbuf;
 
     gboolean got_embedded_rect;
@@ -56,7 +56,7 @@ G_DEFINE_TYPE (CajaIconInfo,
 static void
 caja_icon_info_init (CajaIconInfo *icon)
 {
-    icon->last_use_time = g_get_monotonic_time () * 1000;
+    icon->last_use_time = g_get_monotonic_time ();
     icon->sole_owner = TRUE;
 }
 
@@ -79,7 +79,7 @@ pixbuf_toggle_notify (gpointer      info,
         g_object_remove_toggle_ref (object,
                                     pixbuf_toggle_notify,
                                     info);
-        icon->last_use_time = g_get_monotonic_time () * 1000;
+        icon->last_use_time = g_get_monotonic_time ();
         schedule_reap_cache ();
     }
 }
@@ -191,7 +191,7 @@ static GHashTable *loadable_icon_cache = NULL;
 static GHashTable *themed_icon_cache = NULL;
 static guint reap_cache_timeout = 0;
 
-#define NSEC_PER_SEC ((guint64)1000000000L)
+#define MICROSEC_PER_SEC ((guint64)1000000L)
 
 static guint time_now;
 
@@ -205,7 +205,7 @@ reap_old_icon (gpointer  key,
 
     if (icon->sole_owner)
     {
-        if (time_now - icon->last_use_time > 30 * NSEC_PER_SEC)
+        if (time_now - icon->last_use_time > 30 * MICROSEC_PER_SEC)
         {
             /* This went unused 30 secs ago. reap */
             return TRUE;
@@ -227,7 +227,7 @@ reap_cache (gpointer data)
 
     reapable_icons_left = TRUE;
 
-    time_now = g_get_monotonic_time () * 1000;
+    time_now = g_get_monotonic_time ();
 
     if (loadable_icon_cache)
     {
