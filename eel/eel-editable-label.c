@@ -1351,34 +1351,22 @@ get_layout_location (EelEditableLabel  *label,
                      gint      *xp,
                      gint      *yp)
 {
-#if !GTK_CHECK_VERSION (3, 0, 0)
-    GtkMisc *misc;
-#endif
+#if GTK_CHECK_VERSION (3, 0, 0)
     GtkWidget *widget;
     gfloat xalign, yalign;
     GtkRequisition req;
     gint x, y, xpad, ypad;
-#if GTK_CHECK_VERSION (3, 0, 0)
     gint margin_start, margin_end, margin_top, margin_bottom;
-#endif
     GtkAllocation allocation;
 
-#if !GTK_CHECK_VERSION (3, 0, 0)
-    misc = GTK_MISC (label);
-#endif
     widget = GTK_WIDGET (label);
-#if GTK_CHECK_VERSION (3, 0, 0)
     xalign = gtk_align_to_gfloat (gtk_widget_get_halign (widget));
     yalign = gtk_align_to_gfloat (gtk_widget_get_valign (widget));
-#else
-    gtk_misc_get_alignment (misc, &xalign, &yalign);
-#endif
 
     if (gtk_widget_get_direction (widget) != GTK_TEXT_DIR_LTR)
         xalign = 1.0 - xalign;
 
     gtk_widget_get_preferred_size (widget, &req, NULL);
-#if GTK_CHECK_VERSION (3, 0, 0)
     margin_start = gtk_widget_get_margin_start (widget);
     margin_end = gtk_widget_get_margin_end (widget);
     margin_top = gtk_widget_get_margin_top (widget);
@@ -1386,12 +1374,8 @@ get_layout_location (EelEditableLabel  *label,
 
     xpad = margin_start + margin_end;
     ypad = margin_top + margin_bottom;
-#else
-    gtk_misc_get_padding (misc, &xpad, &ypad);
-#endif
 
     gtk_widget_get_allocation (widget, &allocation);
-#if GTK_CHECK_VERSION (3, 0, 0)
     x = floor (0.5 + xpad
                + ((allocation.width - req.width) * xalign)
                + 0.5);
@@ -1400,6 +1384,24 @@ get_layout_location (EelEditableLabel  *label,
                + ((allocation.height - req.height) * yalign)
                + 0.5);
 #else
+    GtkMisc *misc;
+    GtkWidget *widget;
+    gfloat xalign, yalign;
+    GtkRequisition req;
+    gint x, y, xpad, ypad;
+    GtkAllocation allocation;
+
+    widget = GTK_WIDGET (label);
+    misc = GTK_MISC (label);
+    gtk_misc_get_alignment (misc, &xalign, &yalign);
+
+    if (gtk_widget_get_direction (widget) != GTK_TEXT_DIR_LTR)
+        xalign = 1.0 - xalign;
+
+    gtk_widget_get_preferred_size (widget, &req, NULL);
+    gtk_misc_get_padding (misc, &xpad, &ypad);
+
+    gtk_widget_get_allocation (widget, &allocation);
     x = floor (xpad
                + ((allocation.width - req.width) * xalign)
                + 0.5);
