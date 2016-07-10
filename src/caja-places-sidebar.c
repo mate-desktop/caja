@@ -149,9 +149,9 @@ typedef enum
 } PlaceType;
 
 typedef enum {
+    SECTION_COMPUTER,
     SECTION_DEVICES,
     SECTION_BOOKMARKS,
-    SECTION_COMPUTER,
     SECTION_NETWORK,
 } SectionType;
 
@@ -489,6 +489,120 @@ update_places (CajaPlacesSidebar *sidebar)
 
     volume_monitor = sidebar->volume_monitor;
 
+    /* COMPUTER */
+    last_iter = add_heading (sidebar, SECTION_COMPUTER,
+                             _("Computer"));
+
+    /* add built in bookmarks */
+    desktop_path = caja_get_desktop_directory ();
+
+    /* home folder */
+    if (strcmp (g_get_home_dir(), desktop_path) != 0) {
+        char *display_name;
+
+        mount_uri = caja_get_home_directory_uri ();
+        display_name = g_filename_display_basename (g_get_home_dir ());
+        icon = g_themed_icon_new (CAJA_ICON_HOME);
+        last_iter = add_place (sidebar, PLACES_BUILT_IN,
+                               SECTION_COMPUTER,
+                               display_name, icon,
+                               mount_uri, NULL, NULL, NULL, 0,
+                               _("Open your personal folder"));
+        g_object_unref (icon);
+        g_free (display_name);
+        compare_for_selection (sidebar,
+                               location, mount_uri, last_uri,
+                               &last_iter, &select_path);
+        g_free (mount_uri);
+    }
+
+    /* desktop */
+    mount_uri = g_filename_to_uri (desktop_path, NULL, NULL);
+    icon = g_themed_icon_new (CAJA_ICON_DESKTOP);
+    last_iter = add_place (sidebar, PLACES_BUILT_IN,
+                           SECTION_COMPUTER,
+                           _("Desktop"), icon,
+                           mount_uri, NULL, NULL, NULL, 0,
+                           _("Open the contents of your desktop in a folder"));
+    g_object_unref (icon);
+    compare_for_selection (sidebar,
+                           location, mount_uri, last_uri,
+                           &last_iter, &select_path);
+    g_free (mount_uri);
+    g_free (desktop_path);
+
+    /* file system root */
+    mount_uri = "file:///"; /* No need to strdup */
+    icon = g_themed_icon_new (CAJA_ICON_FILESYSTEM);
+    last_iter = add_place (sidebar, PLACES_BUILT_IN,
+                           SECTION_COMPUTER,
+                           _("File System"), icon,
+                           mount_uri, NULL, NULL, NULL, 0,
+                           _("Open the contents of the File System"));
+    g_object_unref (icon);
+    compare_for_selection (sidebar,
+                           location, mount_uri, last_uri,
+                           &last_iter, &select_path);
+
+    
+    /* XDG directories */
+    xdg_dirs = NULL;
+    for (index = 0; index < G_USER_N_DIRECTORIES; index++) {
+
+        if (index == G_USER_DIRECTORY_DESKTOP ||
+            index == G_USER_DIRECTORY_TEMPLATES ||
+            index == G_USER_DIRECTORY_PUBLIC_SHARE) {
+            continue;
+        }
+
+        path = g_get_user_special_dir (index);
+
+        /* xdg resets special dirs to the home directory in case
+         * it's not finiding what it expects. We don't want the home
+         * to be added multiple times in that weird configuration.
+         */
+        if (path == NULL
+            || g_strcmp0 (path, g_get_home_dir ()) == 0
+            || g_list_find_custom (xdg_dirs, path, (GCompareFunc) g_strcmp0) != NULL) {
+            continue;
+        }
+
+        root = g_file_new_for_path (path);
+        name = g_file_get_basename (root);
+        icon = caja_user_special_directory_get_gicon (index);
+        mount_uri = g_file_get_uri (root);
+        tooltip = g_file_get_parse_name (root);
+
+        last_iter = add_place (sidebar, PLACES_BUILT_IN,
+                               SECTION_COMPUTER,
+                               name, icon, mount_uri,
+                               NULL, NULL, NULL, 0,
+                               tooltip);
+        compare_for_selection (sidebar,
+                               location, mount_uri, last_uri,
+                               &last_iter, &select_path);
+        g_free (name);
+        g_object_unref (root);
+        g_object_unref (icon);
+        g_free (mount_uri);
+        g_free (tooltip);
+
+        xdg_dirs = g_list_prepend (xdg_dirs, (char *)path);
+    }
+    g_list_free (xdg_dirs);
+
+    mount_uri = "trash:///"; /* No need to strdup */
+    icon = caja_trash_monitor_get_icon ();
+    last_iter = add_place (sidebar, PLACES_BUILT_IN,
+                           SECTION_COMPUTER,
+                           _("Trash"), icon, mount_uri,
+                           NULL, NULL, NULL, 0,
+                           _("Open the trash"));
+    compare_for_selection (sidebar,
+                           location, mount_uri, last_uri,
+                           &last_iter, &select_path);
+    g_object_unref (icon);
+
     /* first go through all connected drives */
     drives = g_volume_monitor_get_connected_drives (volume_monitor);
 
@@ -631,146 +745,6 @@ update_places (CajaPlacesSidebar *sidebar)
     }
     g_list_free (volumes);
 
-    /* add bookmarks */
-    bookmark_count = caja_bookmark_list_length (sidebar->bookmarks);
-
-    for (index = 0; index < bookmark_count; ++index) {
-        bookmark = caja_bookmark_list_item_at (sidebar->bookmarks, index);
-
-        if (caja_bookmark_uri_known_not_to_exist (bookmark)) {
-            continue;
-        }
-
-        root = caja_bookmark_get_location (bookmark);
-        file = caja_file_get (root);
-
-        if (is_built_in_bookmark (file)) {
-            g_object_unref (root);
-            caja_file_unref (file);
-            continue;
-        }
-
-        name = caja_bookmark_get_name (bookmark);
-        icon = caja_bookmark_get_icon (bookmark);
-        mount_uri = caja_bookmark_get_uri (bookmark);
-        tooltip = g_file_get_parse_name (root);
-
-        last_iter = add_place (sidebar, PLACES_BOOKMARK,
-                               SECTION_BOOKMARKS,
-                               name, icon, mount_uri,
-                               NULL, NULL, NULL, index,
-                               tooltip);
-        compare_for_selection (sidebar,
-                               location, mount_uri, last_uri,
-                               &last_iter, &select_path);
-        g_free (name);
-        g_object_unref (root);
-        g_object_unref (icon);
-        g_free (mount_uri);
-        g_free (tooltip);
-    }
-
-    last_iter = add_heading (sidebar, SECTION_COMPUTER,
-                             _("Computer"));
-
-    /* add built in bookmarks */
-    desktop_path = caja_get_desktop_directory ();
-
-    /* home folder */
-    if (strcmp (g_get_home_dir(), desktop_path) != 0) {
-        char *display_name;
-
-        mount_uri = caja_get_home_directory_uri ();
-        display_name = g_filename_display_basename (g_get_home_dir ());
-        icon = g_themed_icon_new (CAJA_ICON_HOME);
-        last_iter = add_place (sidebar, PLACES_BUILT_IN,
-                               SECTION_COMPUTER,
-                               display_name, icon,
-                               mount_uri, NULL, NULL, NULL, 0,
-                               _("Open your personal folder"));
-        g_object_unref (icon);
-        g_free (display_name);
-        compare_for_selection (sidebar,
-                               location, mount_uri, last_uri,
-                               &last_iter, &select_path);
-        g_free (mount_uri);
-    }
-
-    /* desktop */
-    mount_uri = g_filename_to_uri (desktop_path, NULL, NULL);
-    icon = g_themed_icon_new (CAJA_ICON_DESKTOP);
-    last_iter = add_place (sidebar, PLACES_BUILT_IN,
-                           SECTION_COMPUTER,
-                           _("Desktop"), icon,
-                           mount_uri, NULL, NULL, NULL, 0,
-                           _("Open the contents of your desktop in a folder"));
-    g_object_unref (icon);
-    compare_for_selection (sidebar,
-                           location, mount_uri, last_uri,
-                           &last_iter, &select_path);
-    g_free (mount_uri);
-    g_free (desktop_path);
-
-    /* file system root */
-    mount_uri = "file:///"; /* No need to strdup */
-    icon = g_themed_icon_new (CAJA_ICON_FILESYSTEM);
-    last_iter = add_place (sidebar, PLACES_BUILT_IN,
-                           SECTION_COMPUTER,
-                           _("File System"), icon,
-                           mount_uri, NULL, NULL, NULL, 0,
-                           _("Open the contents of the File System"));
-    g_object_unref (icon);
-    compare_for_selection (sidebar,
-                           location, mount_uri, last_uri,
-                           &last_iter, &select_path);
-
-    
-    /* XDG directories */
-    xdg_dirs = NULL;
-    for (index = 0; index < G_USER_N_DIRECTORIES; index++) {
-
-        if (index == G_USER_DIRECTORY_DESKTOP ||
-            index == G_USER_DIRECTORY_TEMPLATES ||
-            index == G_USER_DIRECTORY_PUBLIC_SHARE) {
-            continue;
-        }
-
-        path = g_get_user_special_dir (index);
-
-        /* xdg resets special dirs to the home directory in case
-         * it's not finiding what it expects. We don't want the home
-         * to be added multiple times in that weird configuration.
-         */
-        if (path == NULL
-            || g_strcmp0 (path, g_get_home_dir ()) == 0
-            || g_list_find_custom (xdg_dirs, path, (GCompareFunc) g_strcmp0) != NULL) {
-            continue;
-        }
-
-        root = g_file_new_for_path (path);
-        name = g_file_get_basename (root);
-        icon = caja_user_special_directory_get_gicon (index);
-        mount_uri = g_file_get_uri (root);
-        tooltip = g_file_get_parse_name (root);
-
-        last_iter = add_place (sidebar, PLACES_BUILT_IN,
-                               SECTION_COMPUTER,
-                               name, icon, mount_uri,
-                               NULL, NULL, NULL, 0,
-                               tooltip);
-        compare_for_selection (sidebar,
-                               location, mount_uri, last_uri,
-                               &last_iter, &select_path);
-        g_free (name);
-        g_object_unref (root);
-        g_object_unref (icon);
-        g_free (mount_uri);
-        g_free (tooltip);
-
-        xdg_dirs = g_list_prepend (xdg_dirs, (char *)path);
-    }
-    g_list_free (xdg_dirs);
-
     /* add mounts that has no volume (/etc/mtab mounts, ftp, sftp,...) */
     network_mounts = NULL;
     mounts = g_volume_monitor_get_mounts (volume_monitor);
@@ -817,17 +791,45 @@ update_places (CajaPlacesSidebar *sidebar)
     }
     g_list_free (mounts);
 
-    mount_uri = "trash:///"; /* No need to strdup */
-    icon = caja_trash_monitor_get_icon ();
-    last_iter = add_place (sidebar, PLACES_BUILT_IN,
-                           SECTION_COMPUTER,
-                           _("Trash"), icon, mount_uri,
-                           NULL, NULL, NULL, 0,
-                           _("Open the trash"));
-    compare_for_selection (sidebar,
-                           location, mount_uri, last_uri,
-                           &last_iter, &select_path);
-    g_object_unref (icon);
+
+    /* add bookmarks */
+    bookmark_count = caja_bookmark_list_length (sidebar->bookmarks);
+
+    for (index = 0; index < bookmark_count; ++index) {
+        bookmark = caja_bookmark_list_item_at (sidebar->bookmarks, index);
+
+        if (caja_bookmark_uri_known_not_to_exist (bookmark)) {
+            continue;
+        }
+
+        root = caja_bookmark_get_location (bookmark);
+        file = caja_file_get (root);
+
+        if (is_built_in_bookmark (file)) {
+            g_object_unref (root);
+            caja_file_unref (file);
+            continue;
+        }
+
+        name = caja_bookmark_get_name (bookmark);
+        icon = caja_bookmark_get_icon (bookmark);
+        mount_uri = caja_bookmark_get_uri (bookmark);
+        tooltip = g_file_get_parse_name (root);
+
+        last_iter = add_place (sidebar, PLACES_BOOKMARK,
+                               SECTION_BOOKMARKS,
+                               name, icon, mount_uri,
+                               NULL, NULL, NULL, index,
+                               tooltip);
+        compare_for_selection (sidebar,
+                               location, mount_uri, last_uri,
+                               &last_iter, &select_path);
+        g_free (name);
+        g_object_unref (root);
+        g_object_unref (icon);
+        g_free (mount_uri);
+        g_free (tooltip);
+    }
 
     /* network */
     last_iter = add_heading (sidebar, SECTION_NETWORK,
@@ -1130,11 +1132,12 @@ compute_drop_position (GtkTreeView *tree_view,
                         PLACES_SIDEBAR_COLUMN_SECTION_TYPE, &section_type,
                         -1);
 
-    if (place_type == PLACES_HEADING && section_type != SECTION_BOOKMARKS) {
+	if (section_type != SECTION_BOOKMARKS &&
+	    place_type == PLACES_HEADING) {
         /* never drop on headings, but special case the bookmarks heading,
-         * so we can drop bookmarks in between it and the first item.
+         * so we can drop bookmarks in between it and the first item when
+         * reordering.
          */
-
         gtk_tree_path_free (*path);
         *path = NULL;
 
@@ -1145,25 +1148,18 @@ compute_drop_position (GtkTreeView *tree_view,
         sidebar->drag_data_received &&
         sidebar->drag_data_info == GTK_TREE_MODEL_ROW) {
         /* don't allow dropping bookmarks into non-bookmark areas */
-
-    gtk_tree_path_free (*path);
-    *path = NULL;
+        gtk_tree_path_free (*path);
+        *path = NULL;
 
         return FALSE;
     }
 
-    if (section_type == SECTION_BOOKMARKS) {
-        *pos = GTK_TREE_VIEW_DROP_AFTER;
-    } else {
-        /* non-bookmark shortcuts can only be dragged into */
-        *pos = GTK_TREE_VIEW_DROP_INTO_OR_BEFORE;
-    }
-
-    if (*pos != GTK_TREE_VIEW_DROP_BEFORE &&
-        sidebar->drag_data_received &&
+    if (sidebar->drag_data_received &&
         sidebar->drag_data_info == GTK_TREE_MODEL_ROW) {
-        /* bookmark rows are never dragged into other bookmark rows */
-        *pos = GTK_TREE_VIEW_DROP_AFTER;
+            /* bookmark rows can only be reordered */
+            *pos = GTK_TREE_VIEW_DROP_AFTER;
+    } else {
+            *pos = GTK_TREE_VIEW_DROP_INTO_OR_BEFORE;
     }
 
     return TRUE;
@@ -1204,38 +1200,6 @@ free_drag_data (CajaPlacesSidebar *sidebar)
 }
 
 static gboolean
-can_accept_file_as_bookmark (CajaFile *file)
-{
-    return (caja_file_is_directory (file) &&
-            !is_built_in_bookmark (file));
-}
-
-static gboolean
-can_accept_items_as_bookmarks (const GList *items)
-{
-    int max;
-    char *uri;
-    CajaFile *file;
-
-    /* Iterate through selection checking if item will get accepted as a bookmark.
-     * If more than 100 items selected, return an over-optimistic result.
-     */
-    for (max = 100; items != NULL && max >= 0; items = items->next, max--)
-    {
-        uri = ((CajaDragSelectionItem *)items->data)->uri;
-        file = caja_file_get_by_uri (uri);
-        if (!can_accept_file_as_bookmark (file))
-        {
-            caja_file_unref (file);
-            return FALSE;
-        }
-        caja_file_unref (file);
-    }
-
-    return TRUE;
-}
-
-static gboolean
 drag_motion_callback (GtkTreeView *tree_view,
                       GdkDragContext *context,
                       int x,
@@ -1265,17 +1229,12 @@ drag_motion_callback (GtkTreeView *tree_view,
         goto out;
     }
 
-    if (pos == GTK_TREE_VIEW_DROP_BEFORE ||
-            pos == GTK_TREE_VIEW_DROP_AFTER )
+    if (pos == GTK_TREE_VIEW_DROP_AFTER )
     {
         if (sidebar->drag_data_received &&
                 sidebar->drag_data_info == GTK_TREE_MODEL_ROW)
         {
             action = GDK_ACTION_MOVE;
-        }
-        else if (can_accept_items_as_bookmarks (sidebar->drag_list))
-        {
-            action = GDK_ACTION_COPY;
         }
         else
         {
@@ -1333,60 +1292,8 @@ drag_leave_callback (GtkTreeView *tree_view,
                      CajaPlacesSidebar *sidebar)
 {
     free_drag_data (sidebar);
-    gtk_tree_view_set_drag_dest_row (tree_view, NULL, GTK_TREE_VIEW_DROP_BEFORE);
+    gtk_tree_view_set_drag_dest_row (tree_view, NULL, 0);
     g_signal_stop_emission_by_name (tree_view, "drag-leave");
-}
-
-/* Parses a "text/uri-list" string and inserts its URIs as bookmarks */
-static void
-bookmarks_drop_uris (CajaPlacesSidebar *sidebar,
-                     GtkSelectionData      *selection_data,
-                     int                    position)
-{
-    CajaBookmark *bookmark;
-    CajaFile *file;
-    char *uri, *name;
-    char **uris;
-    int i;
-    GFile *location;
-    GIcon *icon;
-
-    uris = gtk_selection_data_get_uris (selection_data);
-    if (!uris)
-        return;
-
-    for (i = 0; uris[i]; i++)
-    {
-        uri = uris[i];
-        file = caja_file_get_by_uri (uri);
-
-        if (!can_accept_file_as_bookmark (file))
-        {
-            caja_file_unref (file);
-            continue;
-        }
-
-        uri = caja_file_get_drop_target_uri (file);
-        location = g_file_new_for_uri (uri);
-        caja_file_unref (file);
-
-        name = caja_compute_title_for_location (location);
-        icon = g_themed_icon_new (CAJA_ICON_FOLDER);
-        bookmark = caja_bookmark_new (location, name, TRUE, icon);
-
-        if (!caja_bookmark_list_contains (sidebar->bookmarks, bookmark))
-        {
-            caja_bookmark_list_insert_item (sidebar->bookmarks, bookmark, position++);
-        }
-
-        g_object_unref (location);
-        g_object_unref (bookmark);
-        g_object_unref (icon);
-        g_free (name);
-        g_free (uri);
-    }
-
-    g_strfreev (uris);
 }
 
 static GList *
@@ -1524,9 +1431,7 @@ drag_data_received_callback (GtkWidget *widget,
 
     success = FALSE;
 
-    if (tree_pos == GTK_TREE_VIEW_DROP_BEFORE ||
-            tree_pos == GTK_TREE_VIEW_DROP_AFTER)
-    {
+    if (tree_pos == GTK_TREE_VIEW_DROP_AFTER) {
         model = gtk_tree_view_get_model (tree_view);
 
         if (!gtk_tree_model_get_iter (model, &iter, tree_path))
@@ -1551,10 +1456,6 @@ drag_data_received_callback (GtkWidget *widget,
 
         switch (info)
         {
-        case TEXT_URI_LIST:
-            bookmarks_drop_uris (sidebar, selection_data, position);
-            success = TRUE;
-            break;
         case GTK_TREE_MODEL_ROW:
             reorder_bookmarks (sidebar, position);
             success = TRUE;
@@ -3095,7 +2996,7 @@ padding_cell_renderer_func (GtkTreeViewColumn *column,
         g_object_set (cell,
                       "visible", TRUE,
                       "xpad", 3,
-                      "ypad", 3,
+                      "ypad", 0,
                       NULL);
     }
 }
@@ -3164,7 +3065,7 @@ caja_places_sidebar_init (CajaPlacesSidebar *sidebar)
     g_object_set (cell,
                   "weight", PANGO_WEIGHT_BOLD,
                   "weight-set", TRUE,
-                  "ypad", 6,
+                  "ypad", 1,
                   "xpad", 0,
                   NULL);
     gtk_tree_view_column_set_cell_data_func (col, cell,
