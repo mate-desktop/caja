@@ -157,8 +157,10 @@ skeleton_handle_show_item_properties_cb (CajaFreedesktopFileManager1 *object,
 static void
 bus_acquired_cb (GDBusConnection *conn,
                  const gchar     *name,
-                 CajaFreedesktopDBus *fdb)
+                 gpointer         user_data)
 {
+    CajaFreedesktopDBus *fdb = user_data;
+
     caja_debug_log (FALSE, CAJA_DEBUG_LOG_DOMAIN_USER, "Bus acquired at %s", name);
 
     fdb->object_manager = g_dbus_object_manager_server_new (CAJA_FDO_DBUS_PATH);
