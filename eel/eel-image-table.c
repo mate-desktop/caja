@@ -456,7 +456,7 @@ signal_connect_while_realized (GtkObject *object,
 
     info = g_new0 (RealizeDisconnectInfo, 1);
 
-    info->object = object;
+    info->object = G_OBJECT (object);
     info->object_destroy_handler =
         g_signal_connect (G_OBJECT (info->object),
                           "destroy",
