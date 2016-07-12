@@ -7808,23 +7808,6 @@ caja_file_list_copy (GList *list)
 	return g_list_copy (caja_file_list_ref (list));
 }
 
-GList *
-caja_file_list_from_uris (GList *uri_list)
-{
-	GList *l, *file_list;
-	const char *uri;
-	GFile *file;
-
-	file_list = NULL;
-
-	for (l = uri_list; l != NULL; l = l->next) {
-		uri = l->data;
-		file = g_file_new_for_uri (uri);
-		file_list = g_list_prepend (file_list, file);
-	}
-	return g_list_reverse (file_list);
-}
-
 static gboolean
 get_attributes_for_default_sort_type (CajaFile *file,
 				      gboolean *is_download,

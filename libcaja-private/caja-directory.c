@@ -749,29 +749,6 @@ caja_directory_find_file_by_name (CajaDirectory *directory,
     return node == NULL ? NULL : CAJA_FILE (node->data);
 }
 
-/* "." for the directory-as-file, otherwise the filename */
-CajaFile *
-caja_directory_find_file_by_internal_filename (CajaDirectory *directory,
-        const char *internal_filename)
-{
-    CajaFile *result;
-
-    if (g_strcmp0 (internal_filename, ".") == 0)
-    {
-        result = caja_directory_get_existing_corresponding_file (directory);
-        if (result != NULL)
-        {
-            caja_file_unref (result);
-        }
-    }
-    else
-    {
-        result = caja_directory_find_file_by_name (directory, internal_filename);
-    }
-
-    return result;
-}
-
 void
 caja_directory_emit_files_added (CajaDirectory *directory,
                                  GList *added_files)
@@ -1053,45 +1030,6 @@ caja_directory_notify_files_added (GList *files)
     g_hash_table_destroy (parent_directories);
 }
 
-static void
-g_file_pair_free (GFilePair *pair)
-{
-    g_object_unref (pair->to);
-    g_object_unref (pair->from);
-    g_free (pair);
-}
-
-static GList *
-uri_pairs_to_file_pairs (GList *uri_pairs)
-{
-    GList *l, *file_pair_list;
-    GFilePair *file_pair;
-    URIPair *uri_pair;
-
-    file_pair_list = NULL;
-
-    for (l = uri_pairs; l != NULL; l = l->next)
-    {
-        uri_pair = l->data;
-        file_pair = g_new (GFilePair, 1);
-        file_pair->from = g_file_new_for_uri (uri_pair->from_uri);
-        file_pair->to = g_file_new_for_uri (uri_pair->to_uri);
-
-        file_pair_list = g_list_prepend (file_pair_list, file_pair);
-    }
-    return g_list_reverse (file_pair_list);
-}
-
-void
-caja_directory_notify_files_added_by_uri (GList *uris)
-{
-    GList *files;
-
-    files = caja_file_list_from_uris (uris);
-    caja_directory_notify_files_added (files);
-    g_list_free_full (files, g_object_unref);
-}
-
 void
 caja_directory_notify_files_changed (GList *files)
 {
@@ -1129,16 +1067,6 @@ caja_directory_notify_files_changed (GList *files)
     /* Now send out the changed signals. */
     g_hash_table_foreach (changed_lists, call_files_changed_unref_free_list, NULL);
     g_hash_table_destroy (changed_lists);
-}
-
-void
-caja_directory_notify_files_changed_by_uri (GList *uris)
-{
-    GList *files;
-
-    files = caja_file_list_from_uris (uris);
-    caja_directory_notify_files_changed (files);
-    g_list_free_full (files, g_object_unref);
 }
 
 void
@@ -1190,16 +1118,6 @@ caja_directory_notify_files_removed (GList *files)
     /* Invalidate count for each parent directory. */
     g_hash_table_foreach (parent_directories, invalidate_count_and_unref, NULL);
     g_hash_table_destroy (parent_directories);
-}
-
-void
-caja_directory_notify_files_removed_by_uri (GList *uris)
-{
-    GList *files;
-
-    files = caja_file_list_from_uris (uris);
-    caja_directory_notify_files_changed (files);
-    g_list_free_full (files, g_object_unref);
 }
 
 static void
@@ -1486,16 +1404,6 @@ caja_directory_notify_files_moved (GList *file_pairs)
 }
 
 void
-caja_directory_notify_files_moved_by_uri (GList *uri_pairs)
-{
-    GList *file_pairs;
-
-    file_pairs = uri_pairs_to_file_pairs (uri_pairs);
-    caja_directory_notify_files_moved (file_pairs);
-    g_list_free_full (file_pairs, g_file_pair_free);
-}
-
-void
 caja_directory_schedule_position_set (GList *position_setting_list)
 {
     GList *p;
@@ -1574,25 +1482,6 @@ caja_directory_contains_file (CajaDirectory *directory,
     return EEL_CALL_METHOD_WITH_RETURN_VALUE
            (CAJA_DIRECTORY_CLASS, directory,
             contains_file, (directory, file));
-}
-
-char *
-caja_directory_get_file_uri (CajaDirectory *directory,
-                             const char *file_name)
-{
-    GFile *child;
-    char *result;
-
-    g_return_val_if_fail (CAJA_IS_DIRECTORY (directory), NULL);
-    g_return_val_if_fail (file_name != NULL, NULL);
-
-    result = NULL;
-
-    child = g_file_get_child (directory->details->location, file_name);
-    result = g_file_get_uri (child);
-    g_object_unref (child);
-
-    return result;
 }
 
 void
