@@ -125,8 +125,6 @@ libcaja_private_la_SOURCES = \
 	caja-lib-self-check-functions.h \
 	caja-link.c \
 	caja-link.h \
-	caja-merged-directory.c \
-	caja-merged-directory.h \
 	caja-metadata.h \
 	caja-metadata.c \
 	caja-mime-actions.c \
