@@ -108,8 +108,6 @@ caja_SOURCES = \
 	caja-main.h \
 	caja-navigation-action.c \
 	caja-navigation-action.h \
-	caja-navigation-bar.c \
-	caja-navigation-bar.h \
 	caja-navigation-window-menus.c \
 	caja-navigation-window.c \
 	caja-navigation-window.h \

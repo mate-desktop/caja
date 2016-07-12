@@ -121,19 +121,6 @@ caja_drag_destroy_selection_list (GList *list)
     g_list_free (list);
 }
 
-char **
-caja_drag_uri_array_from_selection_list (const GList *selection_list)
-{
-    GList *uri_list;
-    char **uris;
-
-    uri_list = caja_drag_uri_list_from_selection_list (selection_list);
-    uris = caja_drag_uri_array_from_list (uri_list);
-    g_list_free_full (uri_list, g_free);
-
-    return uris;
-}
-
 GList *
 caja_drag_uri_list_from_selection_list (const GList *selection_list)
 {
@@ -152,28 +139,6 @@ caja_drag_uri_list_from_selection_list (const GList *selection_list)
     }
 
     return g_list_reverse (uri_list);
-}
-
-char **
-caja_drag_uri_array_from_list (const GList *uri_list)
-{
-    const GList *l;
-    char **uris;
-    int i;
-
-    if (uri_list == NULL)
-    {
-        return NULL;
-    }
-
-    uris = g_new0 (char *, g_list_length ((GList *) uri_list));
-    for (i = 0, l = uri_list; l != NULL; l = l->next)
-    {
-        uris[i++] = g_strdup ((char *) l->data);
-    }
-    uris[i] = NULL;
-
-    return uris;
 }
 
 GList *
@@ -341,17 +306,6 @@ caja_drag_items_local (const char *target_uri_string,
 
     return caja_drag_file_local_internal (target_uri_string,
                                           ((CajaDragSelectionItem *)selection_list->data)->uri);
-}
-
-gboolean
-caja_drag_items_in_trash (const GList *selection_list)
-{
-    /* check if the first item on the list is in trash.
-     * FIXME:
-     * we should really test each item but that would be slow for large selections
-     * and currently dropped items can only be from the same container
-     */
-    return eel_uri_is_trash (((CajaDragSelectionItem *)selection_list->data)->uri);
 }
 
 gboolean

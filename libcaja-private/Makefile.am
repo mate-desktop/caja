@@ -117,16 +117,12 @@ libcaja_private_la_SOURCES = \
 	caja-icon-info.c \
 	caja-icon-info.h \
 	caja-icon-names.h \
-	caja-idle-queue.c \
-	caja-idle-queue.h \
 	caja-keep-last-vertical-box.c \
 	caja-keep-last-vertical-box.h \
 	caja-lib-self-check-functions.c \
 	caja-lib-self-check-functions.h \
 	caja-link.c \
 	caja-link.h \
-	caja-merged-directory.c \
-	caja-merged-directory.h \
 	caja-metadata.h \
 	caja-metadata.c \
 	caja-mime-actions.c \

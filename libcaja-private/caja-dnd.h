@@ -148,17 +148,14 @@ CajaDragSelectionItem  *caja_drag_selection_item_new		(void);
 void			    caja_drag_destroy_selection_list	(GList				      *selection_list);
 GList			   *caja_drag_build_selection_list		(GtkSelectionData		      *data);
 
-char **			    caja_drag_uri_array_from_selection_list (const GList			      *selection_list);
 GList *			    caja_drag_uri_list_from_selection_list	(const GList			      *selection_list);
 
-char **			    caja_drag_uri_array_from_list		(const GList			      *uri_list);
 GList *			    caja_drag_uri_list_from_array		(const char			     **uris);
 
 gboolean		    caja_drag_items_local			(const char			      *target_uri,
         const GList			      *selection_list);
 gboolean		    caja_drag_uris_local			(const char			      *target_uri,
         const GList			      *source_uri_list);
-gboolean		    caja_drag_items_in_trash		(const GList			      *selection_list);
 gboolean		    caja_drag_items_on_desktop		(const GList			      *selection_list);
 void			    caja_drag_default_drop_action_for_icons (GdkDragContext			      *context,
         const char			      *target_uri,

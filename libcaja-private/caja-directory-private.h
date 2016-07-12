@@ -28,7 +28,6 @@
 #include <libcaja-private/caja-file-queue.h>
 #include <libcaja-private/caja-file.h>
 #include <libcaja-private/caja-monitor.h>
-#include <libcaja-private/caja-idle-queue.h>
 #include <libcaja-extension/caja-info-provider.h>
 #include <libxml/tree.h>
 
@@ -212,8 +211,6 @@ Request            caja_directory_set_up_request                  (CajaFileAttri
 /* Interface to the file list. */
 CajaFile *     caja_directory_find_file_by_name               (CajaDirectory         *directory,
         const char                *filename);
-CajaFile *     caja_directory_find_file_by_internal_filename  (CajaDirectory         *directory,
-        const char                *internal_filename);
 
 void               caja_directory_add_file                        (CajaDirectory         *directory,
         CajaFile              *file);

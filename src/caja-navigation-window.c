@@ -318,7 +318,7 @@ caja_navigation_window_is_in_temporary_navigation_bar (GtkWidget *widget,
     for (walk = CAJA_WINDOW(window)->details->panes; walk; walk = walk->next)
     {
         CajaNavigationWindowPane *pane = walk->data;
-        if(gtk_widget_get_ancestor (widget, CAJA_TYPE_NAVIGATION_BAR) != NULL &&
+        if(gtk_widget_get_ancestor (widget, CAJA_TYPE_LOCATION_BAR) != NULL &&
                 pane->temporary_navigation_bar)
             is_in_any = TRUE;
     }
@@ -833,8 +833,8 @@ real_prompt_for_location (CajaWindow *window, const char *initial)
 
     if (initial)
     {
-        caja_navigation_bar_set_location (CAJA_NAVIGATION_BAR (pane->navigation_bar),
-                                          initial);
+        caja_location_bar_set_location (CAJA_LOCATION_BAR (pane->navigation_bar),
+                                        initial);
     }
 }
 
