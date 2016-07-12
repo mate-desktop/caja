@@ -28,7 +28,6 @@
 #include <libcaja-private/caja-file-queue.h>
 #include <libcaja-private/caja-file.h>
 #include <libcaja-private/caja-monitor.h>
-#include <libcaja-private/caja-idle-queue.h>
 #include <libcaja-extension/caja-info-provider.h>
 #include <libxml/tree.h>
 

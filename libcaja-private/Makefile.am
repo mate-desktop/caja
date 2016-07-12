@@ -117,8 +117,6 @@ libcaja_private_la_SOURCES = \
 	caja-icon-info.c \
 	caja-icon-info.h \
 	caja-icon-names.h \
-	caja-idle-queue.c \
-	caja-idle-queue.h \
 	caja-keep-last-vertical-box.c \
 	caja-keep-last-vertical-box.h \
 	caja-lib-self-check-functions.c \
