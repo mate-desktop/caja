@@ -37,7 +37,6 @@
 #include "caja-window-bookmarks.h"
 #include "caja-window-slot.h"
 #include "caja-navigation-window-slot.h"
-#include "caja-zoom-control.h"
 #include "caja-search-bar.h"
 #include "caja-navigation-window-pane.h"
 #include "caja-src-marshal.h"

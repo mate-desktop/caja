@@ -41,7 +41,6 @@
 #include "caja-query-editor.h"
 #include "caja-search-bar.h"
 #include "caja-window-manage-views.h"
-#include "caja-zoom-control.h"
 #include <eel/eel-gtk-extensions.h>
 #include <eel/eel-gtk-macros.h>
 #include <eel/eel-string.h>
