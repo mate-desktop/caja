@@ -39,8 +39,6 @@
 #include <gio/gio.h>
 #include <math.h>
 #include <stdio.h>
-#define MATE_DESKTOP_USE_UNSTABLE_API
-#include <libmate-desktop/mate-bg.h>
 #include <libcaja-private/caja-global-preferences.h>
 
 #if !GTK_CHECK_VERSION(3, 0, 0)
