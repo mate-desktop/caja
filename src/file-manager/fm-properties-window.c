@@ -4009,7 +4009,10 @@ create_emblems_page (FMPropertiesWindow *window)
 	scroller = eel_scrolled_wrap_table_new (TRUE, GTK_SHADOW_NONE, &emblems_table);
 
 	gtk_container_set_border_width (GTK_CONTAINER (emblems_table), 12);
-
+/*stop GTK 3.22 builds from ballooning the properties dialog to full screen height */
+#if GTK_CHECK_VERSION(3,21,0)
+	gtk_scrolled_window_set_max_content_height(scroller, 300);
+#endif
 	gtk_widget_show (scroller);
 
 	gtk_notebook_append_page (window->details->notebook,
