@@ -429,9 +429,10 @@ eel_gdk_rgb_to_rgba (guint32 color)
 {
     GdkRGBA result;
 
-    result.red = ((color >> 16) & 0xFF) / 0xFF;
-    result.green = ((color >> 8) & 0xFF) / 0xFF;
-    result.blue = (color & 0xff) / 0xFF;
+    result.red = ((gdouble) ((color >> 16) & 0xFF)) / 0xFF;
+    result.green = ((gdouble) ((color >> 8) & 0xFF)) / 0xFF;
+    result.blue = ((gdouble) (color & 0xFF)) / 0xFF;
+    result.alpha = 1.0;
 
     return result;
 }
