@@ -498,7 +498,7 @@ eel_background_draw (GtkWidget *widget,
     color = self->details->default_color;
     make_color_inactive (self, &color);
 
-    cairo_t *cr = gdk_cairo_create (window);
+    cairo_t *cr = cairo_create (window);
 
     if (self->details->bg_surface != NULL) {
         cairo_set_source_surface (cr, self->details->bg_surface, 0, 0);
