@@ -1,5 +1,47 @@
 Major changes in 1.15.2 are:
 
+* GTK+-3 eel: fix color definition pointed out by running distcheck with gtk3
+* distcheck: explicitly use currently selected GTK+ version
+* GTK+-3 pathbar: always show the sliders
+* GTK+-3 pathbar: add slider-button class to sliders
+* GTK+-3 pathpar: add image-button class to iconic buttons
+* GTK+-3 pathbar: use text-button style class for pathbar buttons
+* GTK+-3 pathbar: fix allocation offset for the down slider button
+* GTK+-3 pathbar: do not use deprecated gtk_arrow_new
+* GTK+-3 pathbar: do not use deprecated gtk_alignment_new
+* GTK+-3 pathbar: refresh label size request every time it changes
+* drop unneeded includes
+* remove some unused includes
+* libcaja-private: drop unused CajaIdleQueue code
+* eel: fix minor build warning
+* libcaja-private: drop some more unused code
+* libcaja-private: remove unused CajaMergedDirectory code
+* fix minor build warning
+* location-bar: don't pack an useless box in the bar
+* location-bar: fix deprecated GTK_TYPE_HBOX usage
+* navigation-bar: remove useless abstract class
+* all: don't use deprecated GMutex/GThread API
+* GTK+-3.20 view-as-action: avoid deprecated gtk_combo_box_set_focus_on_click
+* editable-label: reduce ifdefine hell
+* GTK+-3 eel-editable-label: drop usage of GtkMisc
+* GTK+-3 connect-server-dialog: use widget properties instead of GtkAlignment
+* GTK+-3 open-with-dialog: use widget properties instead of GtkAlignment
+* GTK+-3 searchbar: use widget properties instead of GtkAlignment
+* GTK+-3 fm-properties-window: use widget properties instead of GtkAlignment
+* GTK+-3 fm-list-view: use widget properties instead of GtkAlignment
+* GTK+-3 file-conflict-dialog: use widget properties instead of GtkAlignment
+* eel-gtk-extensions: remove eel_gtk_adjustment* functions
+* icon-container: don't use eel helper to set adjustment values
+* notebook: cleanup an old workaround
+* GTK+-3 caja-icon-dnd: avoid deprecated gtk_drag_begin
+* Gtk+-3.20 fm-desktop-icon-view: use GdkSeat operations
+* Gtk+-3.20 eel-canvas: use GdkSeat operations
+* GTK+-3.20 caja-tree-view-drag-dest: use GdkSeat operations
+* GTK+-3.20 caja-dnd: use GdkSeat operations
+* GTK+-3.20 caja-icon-container:  use GdkSeat operations
+* Revert "navigation-bar: fix deprecated GTK_TYPE_HBOX usage"
+* Revert "navigation-bar: fix typo in previous commit"
+
 Major changes in 1.15.1 are:
 
 * configure: increase mate-desktop min. version
