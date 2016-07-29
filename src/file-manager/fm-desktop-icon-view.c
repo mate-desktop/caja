@@ -38,6 +38,9 @@
 #include <gdk/gdkx.h>
 #include <glib/gi18n.h>
 #include <libcaja-private/caja-desktop-icon-file.h>
+#if !GTK_CHECK_VERSION(3, 21, 0)
+#include <libcaja-private/caja-directory-background.h>
+#endif
 #include <libcaja-private/caja-directory-background.h>
 #include <libcaja-private/caja-directory-notify.h>
 #include <libcaja-private/caja-file-changes-queue.h>
@@ -473,6 +476,17 @@ realized_callback (GtkWidget *widget, FMDesktopIconView *desktop_icon_view)
     gdk_window_add_filter (root_window,
                            desktop_icon_view_property_filter,
                            desktop_icon_view);
+
+    /*Set up a fallback background style class for the noncompositing case */
+#if GTK_CHECK_VERSION(3, 21, 0)
+    gboolean
+    composited = gtk_widget_is_composited (GTK_WIDGET(desktop_icon_view));
+        if (!composited){
+            GtkStyleContext *context;
+            context = gtk_widget_get_style_context (GTK_WIDGET(desktop_icon_view));
+            gtk_style_context_add_class(context,"caja-fallback-desktop-background");
+        }
+#endif
 }
 
 static CajaZoomLevel
