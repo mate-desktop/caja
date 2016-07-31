@@ -43,8 +43,6 @@
 
 #include <libcaja-private/caja-autorun.h>
 
-#include <libmate-desktop/mate-aboutdialog.h>
-
 /* string enum preferences */
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_DEFAULT_VIEW_WIDGET "default_view_combobox"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_ICON_VIEW_ZOOM_WIDGET "icon_view_zoom_combobox"
@@ -620,16 +618,16 @@ static gulong extension_about_id = 0;
 static void
 extension_about_clicked (GtkButton *button, Extension *ext)
 {
-    MateAboutDialog *extension_about_dialog;
+    GtkAboutDialog *extension_about_dialog;
 
-    extension_about_dialog = (MateAboutDialog *) mate_about_dialog_new();
-    mate_about_dialog_set_program_name (extension_about_dialog, ext->name != NULL ? ext->name : ext->filename);
-    mate_about_dialog_set_comments (extension_about_dialog, ext->description);
-    mate_about_dialog_set_logo_icon_name (extension_about_dialog, ext->icon != NULL ? ext->icon : "system-run");
-    mate_about_dialog_set_copyright (extension_about_dialog, ext->copyright);
-    mate_about_dialog_set_authors (extension_about_dialog, ext->author);
-    mate_about_dialog_set_version (extension_about_dialog, ext->version);
-    mate_about_dialog_set_website (extension_about_dialog, ext->website);
+    extension_about_dialog = (GtkAboutDialog *) gtk_about_dialog_new();
+    gtk_about_dialog_set_program_name (extension_about_dialog, ext->name != NULL ? ext->name : ext->filename);
+    gtk_about_dialog_set_comments (extension_about_dialog, ext->description);
+    gtk_about_dialog_set_logo_icon_name (extension_about_dialog, ext->icon != NULL ? ext->icon : "system-run");
+    gtk_about_dialog_set_copyright (extension_about_dialog, ext->copyright);
+    gtk_about_dialog_set_authors (extension_about_dialog, ext->author);
+    gtk_about_dialog_set_version (extension_about_dialog, ext->version);
+    gtk_about_dialog_set_website (extension_about_dialog, ext->website);
     gtk_window_set_title (GTK_WINDOW(extension_about_dialog), _("About Extension"));
     gtk_dialog_run (GTK_DIALOG (extension_about_dialog));
     gtk_widget_destroy (GTK_WIDGET (extension_about_dialog));
