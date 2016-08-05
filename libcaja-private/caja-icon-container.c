@@ -4770,6 +4770,9 @@ button_press_event (GtkWidget *widget,
 
     container = CAJA_ICON_CONTAINER (widget);
     container->details->button_down_time = event->time;
+#if !GTK_CHECK_VERSION(3, 0, 0)
+    clicked_on_icon = FALSE;
+#endif
 
     /* Forget about the old keyboard selection now that we've started mousing. */
     clear_keyboard_focus (container);
@@ -4781,8 +4784,15 @@ button_press_event (GtkWidget *widget,
         return TRUE;
     }
 
+#if GTK_CHECK_VERSION(3, 0, 0)
     /* Invoke the canvas event handler and see if an item picks up the event. */
     clicked_on_icon = GTK_WIDGET_CLASS (caja_icon_container_parent_class)->button_press_event (widget, event);
+#else
+    if (event->button < 6) { /* Don't let the eel canvas consume extra button events, see gnome bug 660006 */
+        /* Invoke the canvas event handler and see if an item picks up the event. */
+        clicked_on_icon = GTK_WIDGET_CLASS (caja_icon_container_parent_class)->button_press_event (widget, event);
+    }
+#endif
 
     /* Move focus to icon container, unless we're still renaming (to avoid exiting
      * renaming mode)
