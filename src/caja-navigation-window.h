@@ -115,5 +115,9 @@ gboolean caja_navigation_window_is_in_temporary_navigation_bar (GtkWidget *widge
         CajaNavigationWindow *window);
 gboolean caja_navigation_window_is_in_temporary_search_bar (GtkWidget *widget,
         CajaNavigationWindow *window);
+#if !GTK_CHECK_VERSION(3, 0, 0)
+gboolean caja_window_button_press_event (GtkWidget *widget,
+        GdkEventButton *event);
+#endif
 
 #endif

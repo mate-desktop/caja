@@ -570,7 +570,11 @@ caja_navigation_window_key_press_event (GtkWidget *widget,
     return GTK_WIDGET_CLASS (caja_navigation_window_parent_class)->key_press_event (widget, event);
 }
 
+#if GTK_CHECK_VERSION(3, 0, 0)
 static gboolean
+#else
+gboolean
+#endif
 caja_navigation_window_button_press_event (GtkWidget *widget,
         GdkEventButton *event)
 {
