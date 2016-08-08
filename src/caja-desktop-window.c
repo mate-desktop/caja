@@ -341,7 +341,7 @@ realize (GtkWidget *widget)
     CajaDesktopWindow *window;
     CajaDesktopWindowDetails *details;
 #if GTK_CHECK_VERSION(3, 21, 0)
-        GdkVisual *visual;
+    GdkVisual *visual;
 #endif
     window = CAJA_DESKTOP_WINDOW (widget);
     details = window->details;
@@ -365,7 +365,7 @@ realize (GtkWidget *widget)
 
     details->size_changed_id =
         g_signal_connect (gtk_window_get_screen (GTK_WINDOW (window)), "size_changed",
-                  G_CALLBACK (caja_desktop_window_screen_size_changed), window);
+                          G_CALLBACK (caja_desktop_window_screen_size_changed), window);
 }
 
 static char *
@@ -390,9 +390,10 @@ caja_desktop_window_class_init (CajaDesktopWindowClass *klass)
     wclass->realize = realize;
     wclass->unrealize = unrealize;
     wclass->map = map;
+#if GTK_CHECK_VERSION(3, 21, 0)
     wclass->composited_changed = caja_desktop_window_composited_changed;
     wclass->draw = caja_desktop_window_draw;
-
+#endif
     nclass->window_type = CAJA_WINDOW_DESKTOP;
     nclass->get_title = real_get_title;
     nclass->get_icon = real_get_icon;
