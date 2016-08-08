@@ -476,16 +476,6 @@ realized_callback (GtkWidget *widget, FMDesktopIconView *desktop_icon_view)
                            desktop_icon_view_property_filter,
                            desktop_icon_view);
 
-    /*Set up a fallback background style class for the noncompositing case */
-#if GTK_CHECK_VERSION(3, 21, 0)
-    gboolean
-    composited = gtk_widget_is_composited (GTK_WIDGET(desktop_icon_view));
-        if (!composited){
-            GtkStyleContext *context;
-            context = gtk_widget_get_style_context (GTK_WIDGET(desktop_icon_view));
-            gtk_style_context_add_class(context,"caja-fallback-desktop-background");
-        }
-#endif
 }
 
 static CajaZoomLevel
