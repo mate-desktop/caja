@@ -42,7 +42,11 @@ struct _CajaNavigationWindowPane;
 /* FIXME bugzilla.gnome.org 42575: Migrate more fields into here. */
 struct CajaWindowDetails
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GtkWidget *grid;
+#else
     GtkWidget *table;
+#endif
     GtkWidget *statusbar;
     GtkWidget *menubar;
 
