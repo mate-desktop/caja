@@ -3,6 +3,11 @@
     border-radius: 3px;
 }
 
+.caja-desktop-window,
+.caja-desktop:not(:selected):not(:active):not(.rubberband){
+	background-color: transparent;
+}
+
 /* desktop mode */
 .caja-desktop.caja-canvas-item {
     color: #ffffff;
@@ -57,4 +62,3 @@
    border-width: 0px;
    border-style: none;
 }
-
