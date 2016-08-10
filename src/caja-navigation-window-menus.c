@@ -63,13 +63,27 @@
 
 static void                  schedule_refresh_go_menu                      (CajaNavigationWindow   *window);
 
+
+#if GTK_CHECK_VERSION (3, 0, 0)
+static void
+action_close_all_windows_callback (GtkAction *action,
+                                   gpointer user_data)
+{
+    CajaApplication *app;
+
+    app = caja_application_dup_singleton ();
+    caja_application_close_all_navigation_windows (app);
+
+    g_object_unref (app);
+}
+#else
 static void
 action_close_all_windows_callback (GtkAction *action,
                                    gpointer user_data)
 {
     caja_application_close_all_navigation_windows ();
 }
-
+#endif
 static gboolean
 should_open_in_new_tab (void)
 {

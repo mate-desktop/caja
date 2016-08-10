@@ -49,6 +49,7 @@ case "$with_gtk" in
        ;;
 esac
 AC_SUBST([GTK_API_VERSION])
+AM_CONDITIONAL([WITH_GTK3],[test "$with_gtk" = "3.0"])
 
 dnl ===========================================================================
 
