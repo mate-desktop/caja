@@ -136,6 +136,25 @@ caja_desktop_window_draw (GtkWidget *widget,
     return GTK_WIDGET_CLASS (caja_desktop_window_parent_class)->draw (widget, cr);
 }
 
+static void
+caja_desktop_window_finalize (GObject *obj)
+{
+    CajaDesktopWindow *window = CAJA_DESKTOP_WINDOW (obj);
+
+    if (window->details->composited == FALSE) {
+        GdkScreen *screen = gdk_screen_get_default ();
+        GdkWindow *root = gdk_screen_get_root_window (screen);
+
+        gdk_window_remove_filter (root, (GdkFilterFunc) filter_func, window);
+    }
+
+    if (window->details->surface) {
+        cairo_surface_destroy (window->details->surface);
+        window->details->surface = NULL;
+    }
+
+    G_OBJECT_CLASS (caja_desktop_window_parent_class)->finalize (obj);
+}
 #endif
 
 static void
@@ -386,6 +405,11 @@ caja_desktop_window_class_init (CajaDesktopWindowClass *klass)
 {
     GtkWidgetClass *wclass = GTK_WIDGET_CLASS (klass);
     CajaWindowClass *nclass = CAJA_WINDOW_CLASS (klass);
+#if GTK_CHECK_VERSION(3, 21, 0)
+    GObjectClass *object_class = G_OBJECT_CLASS (klass);
+
+    object_class->finalize = caja_desktop_window_finalize;
+#endif
 
     wclass->realize = realize;
     wclass->unrealize = unrealize;
