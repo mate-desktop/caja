@@ -4,8 +4,25 @@ xml_in_files = caja.xml.in
 xml_files = $(xml_in_files:.xml.in=.xml)
 @INTLTOOL_XML_RULE@
 
+if WITH_GTK3
+autostartdir     = $(sysconfdir)/xdg/autostart
+autostart_DATA = $(autostart_in_files:caja-autostart.desktop.in=caja-autostart.desktop)
+autostart_in_files = \
+	caja-autostart.desktop.in
+endif
+
 desktopdir = $(datadir)/applications
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
+
+if WITH_GTK3
+desktop_in_files = \
+	caja-home.desktop.in \
+	caja-computer.desktop.in \
+	caja-folder-handler.desktop.in \
+	caja-file-management-properties.desktop.in  \
+	caja-browser.desktop.in                     \
+	caja-autorun-software.desktop.in
+else
 desktop_in_files = \
 	caja.desktop.in \
 	caja-home.desktop.in \
@@ -14,6 +31,7 @@ desktop_in_files = \
 	caja-file-management-properties.desktop.in  \
 	caja-browser.desktop.in                     \
 	caja-autorun-software.desktop.in
+endif
 @INTLTOOL_DESKTOP_RULE@
 
 mimedir = $(datadir)/mime/packages
