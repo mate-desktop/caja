@@ -94,7 +94,6 @@ CLEANFILES = $(xml_files) \
 else
 CLEANFILES = $(xml_files) \
 	$(desktop_DATA) \
-    $(autostart_DATA) \
 	$(service_DATA) \
 	caja.appdata.xml \
 	$(NULL)
