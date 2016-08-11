@@ -59,6 +59,18 @@ appdatadir = $(datadir)/appdata
 appdata_in_files = caja.appdata.xml.in
 appdata_DATA = $(appdata_in_files:.xml.in=.xml)
 
+
+if WITH_GTK3
+EXTRA_DIST = $(cajadata_DATA) \
+	caja.css \
+	freedesktop-dbus-interfaces.xml \
+	$(xml_in_files) \
+	$(desktop_in_files) \
+    $(autostart_DATA) \
+	$(service_in_files) \
+	$(appdata_in_files) \
+	$(NULL)
+else
 EXTRA_DIST = $(cajadata_DATA) \
 	caja.desktop \
 	caja.desktop.in \
@@ -69,12 +81,24 @@ EXTRA_DIST = $(cajadata_DATA) \
 	$(service_in_files) \
 	$(appdata_in_files) \
 	$(NULL)
+endif
 
+if WITH_GTK3
 CLEANFILES = $(xml_files) \
 	$(desktop_DATA) \
+    $(autostart_DATA) \
+	$(service_DATA) \
+    caja-autostart.desktop \
+	caja.appdata.xml \
+	$(NULL)
+else
+CLEANFILES = $(xml_files) \
+	$(desktop_DATA) \
+    $(autostart_DATA) \
 	$(service_DATA) \
 	caja.appdata.xml \
 	$(NULL)
+endif
 
 SUBDIRS = \
 	icons \
