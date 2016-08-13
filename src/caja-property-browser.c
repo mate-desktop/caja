@@ -1103,7 +1103,11 @@ caja_emblem_dialog_new (CajaPropertyBrowser *property_browser)
     GtkWidget *button;
     GtkWidget *dialog;
     GtkWidget *label;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GtkWidget *grid = gtk_grid_new ();
+#else
     GtkWidget *table = gtk_table_new(2, 2, FALSE);
+#endif
 
     dialog = gtk_dialog_new_with_buttons (_("Create a New Emblem"),
                                           GTK_WINDOW (property_browser), 0,
@@ -1111,17 +1115,29 @@ caja_emblem_dialog_new (CajaPropertyBrowser *property_browser)
                                           GTK_STOCK_OK, GTK_RESPONSE_OK,
                                           NULL);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    /* install the grid in the dialog */
+    gtk_container_set_border_width (GTK_CONTAINER (grid), 5);
+    gtk_grid_set_row_spacing (GTK_GRID (grid), 6);
+    gtk_grid_set_column_spacing (GTK_GRID (grid), 12);
+    gtk_widget_show (grid);
+#else
     /* install the table in the dialog */
     gtk_container_set_border_width (GTK_CONTAINER (table), 5);
     gtk_table_set_row_spacings (GTK_TABLE (table), 6);
     gtk_table_set_col_spacings (GTK_TABLE (table), 12);
     gtk_widget_show (table);
+#endif
 
     gtk_window_set_resizable (GTK_WINDOW (dialog), TRUE);
     gtk_container_set_border_width (GTK_CONTAINER (dialog), 5);
     gtk_box_set_spacing (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), 2);
     gtk_window_set_resizable (GTK_WINDOW (dialog), FALSE);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), grid, TRUE, TRUE, 0);
+#else
     gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), table, TRUE, TRUE, 0);
+#endif
     gtk_dialog_set_default_response (GTK_DIALOG(dialog), GTK_RESPONSE_OK);
 
     /* make the keyword label and field */
@@ -1133,6 +1149,15 @@ caja_emblem_dialog_new (CajaPropertyBrowser *property_browser)
     gtk_misc_set_alignment (GTK_MISC (widget), 0, 0.5);
 #endif
     gtk_widget_show(widget);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_grid_attach(GTK_GRID(grid), widget, 0, 0, 1, 1);
+
+    property_browser->details->keyword = gtk_entry_new ();
+    gtk_entry_set_activates_default (GTK_ENTRY (property_browser->details->keyword), TRUE);
+    gtk_entry_set_max_length (GTK_ENTRY (property_browser->details->keyword), 24);
+    gtk_widget_show(property_browser->details->keyword);
+    gtk_grid_attach(GTK_GRID(grid), property_browser->details->keyword, 1, 0, 1, 1);
+#else
     gtk_table_attach(GTK_TABLE(table), widget, 0, 1, 0, 1, GTK_FILL, GTK_FILL, 0, 0);
 
     property_browser->details->keyword = gtk_entry_new ();
@@ -1140,6 +1165,7 @@ caja_emblem_dialog_new (CajaPropertyBrowser *property_browser)
     gtk_entry_set_max_length (GTK_ENTRY (property_browser->details->keyword), 24);
     gtk_widget_show(property_browser->details->keyword);
     gtk_table_attach(GTK_TABLE(table), property_browser->details->keyword, 1, 2, 0, 1, GTK_FILL, GTK_FILL, 0, 0);
+#endif
     gtk_widget_grab_focus(property_browser->details->keyword);
     gtk_label_set_mnemonic_widget (GTK_LABEL (widget),
                                    GTK_WIDGET (property_browser->details->keyword));
@@ -1155,8 +1181,13 @@ caja_emblem_dialog_new (CajaPropertyBrowser *property_browser)
 #else
     gtk_misc_set_alignment (GTK_MISC (label), 0, 0.5);
 #endif
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_widget_show (label);
+    gtk_grid_attach (GTK_GRID(grid), label, 0, 1, 1, 1);
+#else
     gtk_widget_show (label);
     gtk_table_attach (GTK_TABLE(table), label, 0, 1, 1, 2, GTK_FILL, GTK_FILL, 0, 0);
+#endif
 
     widget = gtk_hbox_new (FALSE, 0);
     gtk_widget_show (widget);
@@ -1169,7 +1200,11 @@ caja_emblem_dialog_new (CajaPropertyBrowser *property_browser)
     gtk_label_set_mnemonic_widget (GTK_LABEL (label), button);
 
     gtk_widget_show (button);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_grid_attach (GTK_GRID (grid), widget, 1, 1, 1, 1);
+#else
     gtk_table_attach (GTK_TABLE (table), widget, 1, 2, 1, 2, GTK_FILL, GTK_FILL, 0, 0);
+#endif
     gtk_box_pack_start (GTK_BOX (widget), button, FALSE, FALSE, 0);
 
     return dialog;
@@ -1182,7 +1217,11 @@ caja_color_selection_dialog_new (CajaPropertyBrowser *property_browser)
 {
     GtkWidget *widget;
     GtkWidget *dialog;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GtkWidget *grid = gtk_grid_new ();
+#else
     GtkWidget *table = gtk_table_new(2, 2, FALSE);
+#endif
 
     dialog = gtk_dialog_new_with_buttons (_("Create a New Color:"),
                                           GTK_WINDOW (property_browser), 0,
@@ -1190,17 +1229,26 @@ caja_color_selection_dialog_new (CajaPropertyBrowser *property_browser)
                                           GTK_STOCK_OK, GTK_RESPONSE_OK,
                                           NULL);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    /* install the grid in the dialog */
+    gtk_widget_show (grid);
+    gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), grid, TRUE, TRUE, 0);
+#else
     /* install the table in the dialog */
-
     gtk_widget_show (table);
     gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), table, TRUE, TRUE, 0);
+#endif
     gtk_dialog_set_default_response (GTK_DIALOG(dialog), GTK_RESPONSE_OK);
 
     /* make the name label and field */
 
     widget = gtk_label_new_with_mnemonic(_("Color _name:"));
     gtk_widget_show(widget);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_grid_attach(GTK_GRID(grid), widget, 0, 0, 1, 1);
+#else
     gtk_table_attach(GTK_TABLE(table), widget, 0, 1, 0, 1, GTK_FILL, GTK_FILL, 0, 0);
+#endif
 
     property_browser->details->color_name = gtk_entry_new ();
     gtk_entry_set_activates_default (GTK_ENTRY (property_browser->details->color_name), TRUE);
@@ -1208,7 +1256,11 @@ caja_color_selection_dialog_new (CajaPropertyBrowser *property_browser)
     gtk_widget_grab_focus (property_browser->details->color_name);
     gtk_label_set_mnemonic_widget (GTK_LABEL (widget), property_browser->details->color_name);
     gtk_widget_show(property_browser->details->color_name);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_grid_attach(GTK_GRID(grid), property_browser->details->color_name, 1, 0, 1, 1);
+#else
     gtk_table_attach(GTK_TABLE(table), property_browser->details->color_name, 1, 2, 0, 1, GTK_FILL, GTK_FILL, 0, 0);
+#endif
     gtk_widget_grab_focus(property_browser->details->color_name);
 
     /* default image is the generic emblem */
@@ -1216,13 +1268,21 @@ caja_color_selection_dialog_new (CajaPropertyBrowser *property_browser)
 
     widget = gtk_label_new_with_mnemonic(_("Color _value:"));
     gtk_widget_show(widget);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_grid_attach(GTK_GRID(grid), widget, 0, 1, 1, 1);
+#else
     gtk_table_attach(GTK_TABLE(table), widget, 0, 1, 1, 2, GTK_FILL, GTK_FILL, 0, 0);
+#endif
 
     property_browser->details->color_picker = gtk_color_button_new ();
     gtk_widget_show (property_browser->details->color_picker);
     gtk_label_set_mnemonic_widget (GTK_LABEL (widget), property_browser->details->color_picker);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_grid_attach(GTK_GRID(grid), property_browser->details->color_picker, 1, 1, 1, 1);
+#else
     gtk_table_attach(GTK_TABLE(table), property_browser->details->color_picker, 1, 2, 1, 2, GTK_FILL, GTK_FILL, 0, 0);
+#endif
 
     return dialog;
 }

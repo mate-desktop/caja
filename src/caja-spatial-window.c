@@ -1008,6 +1008,23 @@ caja_spatial_window_init (CajaSpatialWindow *window)
 
     win = CAJA_WINDOW (window);
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+    gtk_widget_set_hexpand (win->details->statusbar, TRUE);
+    gtk_grid_attach (GTK_GRID (win->details->grid),
+                     win->details->statusbar,
+                     0, 5, 1, 1);
+    gtk_widget_show (win->details->statusbar);
+
+    pane = caja_window_pane_new (win);
+    win->details->panes = g_list_prepend (win->details->panes, pane);
+
+    vbox = gtk_vbox_new (FALSE, 0);
+    gtk_widget_set_hexpand (vbox, TRUE);
+    gtk_widget_set_vexpand (vbox, TRUE);
+    gtk_grid_attach (GTK_GRID (CAJA_WINDOW (window)->details->grid),
+                     vbox,
+                     0, 1, 1, 3);
+#else
     gtk_table_attach (GTK_TABLE (win->details->table),
                       win->details->statusbar,
                       /* X direction */                   /* Y direction */
@@ -1026,6 +1043,7 @@ caja_spatial_window_init (CajaSpatialWindow *window)
                       0, 1,                               1, 4,
                       GTK_EXPAND | GTK_FILL | GTK_SHRINK, GTK_EXPAND | GTK_FILL | GTK_SHRINK,
                       0,                                  0);
+#endif
     gtk_widget_show (vbox);
     window->details->content_box = vbox;
 

@@ -153,15 +153,20 @@ caja_navigation_window_init (CajaNavigationWindow *window)
 
 #if GTK_CHECK_VERSION(3, 0, 0)
     window->details->content_paned = gtk_paned_new (GTK_ORIENTATION_HORIZONTAL);
+    gtk_widget_set_hexpand (window->details->content_paned, TRUE);
+    gtk_widget_set_vexpand (window->details->content_paned, TRUE);
+    gtk_grid_attach (GTK_GRID (CAJA_WINDOW (window)->details->grid),
+                     window->details->content_paned,
+                     0, 3, 1, 1);
 #else
     window->details->content_paned = gtk_hpaned_new ();
-#endif
     gtk_table_attach (GTK_TABLE (CAJA_WINDOW (window)->details->table),
                       window->details->content_paned,
                       /* X direction */                   /* Y direction */
                       0, 1,                               3, 4,
                       GTK_EXPAND | GTK_FILL | GTK_SHRINK, GTK_EXPAND | GTK_FILL | GTK_SHRINK,
                       0,                                  0);
+#endif
     gtk_widget_show (window->details->content_paned);
 
     vbox = gtk_vbox_new (FALSE, 0);
@@ -198,7 +203,12 @@ caja_navigation_window_init (CajaNavigationWindow *window)
     toolbar = gtk_ui_manager_get_widget (ui_manager, "/Toolbar");
 #if GTK_CHECK_VERSION(3, 0, 0)
     gtk_style_context_add_class (gtk_widget_get_style_context (toolbar), GTK_STYLE_CLASS_PRIMARY_TOOLBAR);
-#endif
+    window->details->toolbar = toolbar;
+    gtk_widget_set_hexpand (toolbar, TRUE);
+    gtk_grid_attach (GTK_GRID (CAJA_WINDOW (window)->details->grid),
+                     toolbar,
+                     0, 1, 1, 1);
+#else
     window->details->toolbar = toolbar;
     gtk_table_attach (GTK_TABLE (CAJA_WINDOW (window)->details->table),
                       toolbar,
@@ -206,6 +216,7 @@ caja_navigation_window_init (CajaNavigationWindow *window)
                       0, 1,                               1, 2,
                       GTK_EXPAND | GTK_FILL | GTK_SHRINK, 0,
                       0,                                  0);
+#endif
     gtk_widget_show (toolbar);
 
     caja_navigation_window_initialize_toolbars (window);
