@@ -2933,6 +2933,12 @@ init_desktop (CajaApplication *self)
         self->priv->no_desktop = TRUE;
     }
 
+    if (running_as_root () || !running_in_mate ())
+	{
+        /* do not manage desktop when running as root or on other desktops */
+        self->priv->no_desktop = TRUE;
+    }
+
     if (!self->priv->no_desktop) {
         caja_application_open_desktop (self);
     }
