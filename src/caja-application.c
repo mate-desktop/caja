@@ -524,15 +524,21 @@ caja_application_finalize (GObject *object)
     application = CAJA_APPLICATION (object);
 
     caja_bookmarks_exiting ();
+#if GTK_CHECK_VERSION (3, 0, 0)
+   if (application->volume_monitor)
+    {
+        g_object_unref (application->priv->volume_monitor);
+        application->priv->volume_monitor = NULL;
+    }
 
+    g_free (application->priv->geometry);
+#else
     if (application->volume_monitor)
     {
         g_object_unref (application->volume_monitor);
         application->volume_monitor = NULL;
     }
-#if GTK_CHECK_VERSION (3, 0, 0)
-    g_free (application->priv->geometry);
-#else
+
     g_object_unref (application->unique_app);
 #endif
 	if (application->ss_watch_id > 0)
@@ -1038,6 +1044,7 @@ finish_startup (CajaApplication *application,
 
     /* Watch for unmounts so we can close open windows */
     /* TODO-gio: This should be using the UNMOUNTED feature of GFileMonitor instead */
+
     application->volume_monitor = g_volume_monitor_get ();
     g_signal_connect_object (application->volume_monitor, "mount_removed",
                              G_CALLBACK (mount_removed_callback), application, 0);
@@ -2049,7 +2056,30 @@ autorun_show_window (GMount *mount, gpointer user_data)
 
     g_object_unref (location);
 }
+#if GTK_CHECK_VERSION (3, 0, 0)
+static void
+mount_added_callback (GVolumeMonitor *monitor,
+              GMount *mount,
+              CajaApplication *application)
+{
+    CajaDirectory *directory;
+    GFile *root;
+    gchar *uri;
+        
+    root = g_mount_get_root (mount);
+    uri = g_file_get_uri (root);
 
+    g_debug ("Added mount at uri %s", uri);
+    g_free (uri);
+    
+    directory = caja_directory_get_existing (root);
+    g_object_unref (root);
+    if (directory != NULL) {
+        caja_directory_force_reload (directory);
+        caja_directory_unref (directory);
+    }
+}
+#else
 static void
 mount_added_callback (GVolumeMonitor *monitor,
                       GMount *mount,
@@ -2069,7 +2099,7 @@ mount_added_callback (GVolumeMonitor *monitor,
 
     caja_autorun (mount, autorun_show_window, application);
 }
-
+#endif
 static CajaWindowSlot *
 get_first_navigation_slot (GList *slot_list)
 {
