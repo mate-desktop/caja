@@ -1696,13 +1696,14 @@ caja_application_close_all_spatial_windows (void)
     g_list_free (list_copy);
 }
 
-static void
 #if !GTK_CHECK_VERSION (3, 0, 0)
+static void
 caja_application_destroyed_window (GtkObject *object, CajaApplication *application)
 {
     caja_application_window_list = g_list_remove (caja_application_window_list, object);
 }
 #endif
+static gboolean
 caja_window_delete_event_callback (GtkWidget *widget,
                                    GdkEvent *event,
                                    gpointer user_data)
@@ -2930,12 +2931,6 @@ init_desktop (CajaApplication *self)
     if (!self->priv->no_desktop &&
         !g_settings_get_boolean (mate_background_preferences,
                      MATE_BG_KEY_SHOW_DESKTOP)) {
-        self->priv->no_desktop = TRUE;
-    }
-
-    if (running_as_root () || !running_in_mate ())
-	{
-        /* do not manage desktop when running as root or on other desktops */
         self->priv->no_desktop = TRUE;
     }
 
