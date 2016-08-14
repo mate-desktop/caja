@@ -2991,6 +2991,7 @@ init_gtk_accels (void)
 static void
 caja_application_startup (GApplication *app)
 {
+    GList *drives;
     CajaApplication *self = CAJA_APPLICATION (app);
 
     /* chain up to the GTK+ implementation early, so gtk_init()
@@ -3042,11 +3043,22 @@ caja_application_startup (GApplication *app)
 
     /* Watch for unmounts so we can close open windows */
     /* TODO-gio: This should be using the UNMOUNTED feature of GFileMonitor instead */
-    self->priv->volume_monitor = g_volume_monitor_get ();
-    g_signal_connect_object (self->priv->volume_monitor, "mount_removed",
-    			 G_CALLBACK (mount_removed_callback), self, 0);
-    g_signal_connect_object (self->priv->volume_monitor, "mount_added",
-    			 G_CALLBACK (mount_added_callback), self, 0);
+     self->priv->volume_monitor = g_volume_monitor_get ();
+    g_signal_connect_object ( self->priv->volume_monitor, "mount_removed",
+                             G_CALLBACK (mount_removed_callback), self, 0);
+    g_signal_connect_object ( self->priv->volume_monitor, "mount_pre_unmount",
+                             G_CALLBACK (mount_removed_callback), self, 0);
+    g_signal_connect_object ( self->priv->volume_monitor, "mount_added",
+                             G_CALLBACK (mount_added_callback), self, 0);
+    g_signal_connect_object ( self->priv->volume_monitor, "volume_added",
+                             G_CALLBACK (volume_added_callback), self, 0);
+    g_signal_connect_object ( self->priv->volume_monitor, "volume_removed",
+                             G_CALLBACK (volume_removed_callback), self, 0);
+    g_signal_connect_object ( self->priv->volume_monitor, "drive_connected",
+                             G_CALLBACK (drive_connected_callback), self, 0);
+
+    /* listen for eject button presses */
+    drives = g_volume_monitor_get_connected_drives ( self->priv->volume_monitor);
 
     /* Check the user's ~/.caja directories and post warnings
      * if there are problems.
