@@ -603,7 +603,9 @@ caja_window_slot_open_location_full (CajaWindowSlot *slot,
     } else if (target_navigation) {
         target_window = caja_application_create_navigation_window
             (window->application,
+#if !GTK_CHECK_VERSION (3, 0, 0)
              NULL,
+#endif
              gtk_window_get_screen (GTK_WINDOW (window)));
     } else {
         target_window = caja_application_get_spatial_window

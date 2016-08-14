@@ -1895,7 +1895,9 @@ volume_mounted_cb (GVolume *volume,
 
                 cur = CAJA_WINDOW (sidebar->window);
                 new = caja_application_create_navigation_window (cur->application,
+#if !GTK_CHECK_VERSION (3, 0, 0)
                         NULL,
+#endif
                         gtk_window_get_screen (GTK_WINDOW (cur)));
                 caja_window_go_to (new, location);
             }
@@ -1978,7 +1980,9 @@ open_selected_bookmark (CajaPlacesSidebar   *sidebar,
 
             cur = CAJA_WINDOW (sidebar->window);
             new = caja_application_create_navigation_window (cur->application,
+#if !GTK_CHECK_VERSION (3, 0, 0)
                     NULL,
+#endif
                     gtk_window_get_screen (GTK_WINDOW (cur)));
             caja_window_go_to (new, location);
         }

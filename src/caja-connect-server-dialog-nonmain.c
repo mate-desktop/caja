@@ -83,7 +83,9 @@ caja_connect_server_dialog_display_location_async (CajaConnectServerDialog *self
 
     if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_BROWSER)) {
         window = caja_application_create_navigation_window (application,
+#if !GTK_CHECK_VERSION (3, 0, 0)
         						    NULL,
+#endif
         						    gtk_widget_get_screen (widget));
     } else {
     	window = caja_application_get_spatial_window (application,
