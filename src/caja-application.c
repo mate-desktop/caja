@@ -2853,6 +2853,7 @@ caja_application_dup_singleton (void)
 {
     return g_object_new (CAJA_TYPE_APPLICATION,
                 "application-id", "org.mate.caja",
+                "register-session", TRUE,
                 "flags", G_APPLICATION_HANDLES_COMMAND_LINE,
                  NULL);
 }
