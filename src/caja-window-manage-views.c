@@ -33,7 +33,9 @@
 #include "caja-location-bar.h"
 #include "caja-search-bar.h"
 #include "caja-pathbar.h"
+#if !GTK_CHECK_VERSION (3, 0, 0)
 #include "caja-main.h"
+#endif
 #include "caja-window-private.h"
 #include "caja-window-slot.h"
 #include "caja-navigation-window-slot.h"
@@ -1308,10 +1310,17 @@ got_file_info_for_view_selection_callback (CajaFile *file,
              * happens when a new window cannot display its initial URI.
              */
             /* if this is the only window, we don't want to quit, so we redirect it to home */
+#if GTK_CHECK_VERSION (3, 0, 0)
+            CajaApplication *app;
+
+            app = caja_application_dup_singleton ();
+			
+            if (g_list_length (gtk_application_get_windows (GTK_APPLICATION (app))) == 1) {
+#else
             if (caja_application_get_n_windows () <= 1)
             {
                 g_assert (caja_application_get_n_windows () == 1);
-
+#endif
                 /* the user could have typed in a home directory that doesn't exist,
                    in which case going home would cause an infinite loop, so we
                    better test for that */
@@ -1342,6 +1351,9 @@ got_file_info_for_view_selection_callback (CajaFile *file,
                 /* Since this is a window, destroying it will also unref it. */
                 gtk_widget_destroy (GTK_WIDGET (window));
             }
+#if GTK_CHECK_VERSION (3, 0, 0)
+            g_object_unref (app);
+#endif
         }
         else
         {
