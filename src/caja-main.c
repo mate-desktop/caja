@@ -20,7 +20,8 @@
  *
  * Authors: Elliot Lee <sopwith@redhat.com>,
  *          Darin Adler <darin@bentspoon.com>,
- *          John Sullivan <sullivan@eazel.com>
+ *          John Sullivan <sullivan@eazel.com>,
+ *          Cosimo Cecchi <cosimoc@gnome.org>
  *
  */
 
@@ -28,16 +29,19 @@
 
 #include <config.h>
 #include "caja-main.h"
-
+#if !GTK_CHECK_VERSION (3, 0, 0)
 #include "caja-application.h"
 #include "caja-self-check-functions.h"
+#endif
 #include "caja-window.h"
 #include <dlfcn.h>
 #include <signal.h>
 #include <eel/eel-debug.h>
 #include <eel/eel-glib-extensions.h>
 #include <eel/eel-self-checks.h>
+#if !GTK_CHECK_VERSION (3, 0, 0)
 #include <libegg/eggsmclient.h>
+#endif
 #include <libegg/eggdesktopfile.h>
 #include <gdk/gdkx.h>
 #include <gtk/gtk.h>
@@ -45,7 +49,9 @@
 #include <gio/gdesktopappinfo.h>
 #include <libcaja-private/caja-debug-log.h>
 #include <libcaja-private/caja-global-preferences.h>
+#if !GTK_CHECK_VERSION (3, 0, 0)
 #include <libcaja-private/caja-lib-self-check-functions.h>
+#endif
 #include <libcaja-private/caja-icon-names.h>
 #include <libxml/parser.h>
 #ifdef HAVE_LOCALE_H
@@ -62,6 +68,7 @@
 	#include <exempi/xmp.h>
 #endif
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
 /* Keeps track of everyone who wants the main event loop kept active */
 static GSList* event_loop_registrants;
 
@@ -111,11 +118,7 @@ static void event_loop_unregister (GtkWidget *object)
     }
 }
 
-#if GTK_CHECK_VERSION(3, 0, 0)
-void caja_main_event_loop_register (GtkWidget *object)
-#else
 void caja_main_event_loop_register (GtkObject *object)
-#endif
 {
     g_signal_connect (object, "destroy", G_CALLBACK (event_loop_unregister), NULL);
     event_loop_registrants = g_slist_prepend (event_loop_registrants, GTK_WIDGET (object));
@@ -155,7 +158,7 @@ void caja_main_event_loop_quit (gboolean explicit)
         gtk_widget_destroy (event_loop_registrants->data);
     }
 }
-
+#endif
 static void dump_debug_log (void)
 {
     char *filename;
@@ -327,7 +330,70 @@ running_as_root (void)
 {
     return geteuid () == 0;
 }
+#if GTK_CHECK_VERSION (3, 0, 0)
+int
+main (int argc, char *argv[])
+{
+	gint retval;
+    CajaApplication *application;
 
+#if defined (HAVE_MALLOPT) && defined(M_MMAP_THRESHOLD)
+	/* Caja uses lots and lots of small and medium size allocations,
+	 * and then a few large ones for the desktop background. By default
+	 * glibc uses a dynamic treshold for how large allocations should
+	 * be mmaped. Unfortunately this triggers quickly for caja when
+	 * it does the desktop background allocations, raising the limit
+	 * such that a lot of temporary large allocations end up on the
+	 * heap and are thus not returned to the OS. To fix this we set
+	 * a hardcoded limit. I don't know what a good value is, but 128K
+	 * was the old glibc static limit, lets use that.
+	 */
+	mallopt (M_MMAP_THRESHOLD, 128 *1024);
+#endif
+
+#if !GLIB_CHECK_VERSION (2, 42, 0)
+    /* This will be done by gtk+ later, but for now, force it to MATE */
+    g_desktop_app_info_set_desktop_env ("MATE");
+#endif
+
+	if (g_getenv ("CAJA_DEBUG") != NULL) {
+		eel_make_warnings_and_criticals_stop_in_debugger ();
+	}
+	
+	/* Initialize gettext support */
+	bindtextdomain (GETTEXT_PACKAGE, MATELOCALEDIR);
+	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+	textdomain (GETTEXT_PACKAGE);
+
+	g_set_prgname ("caja");
+
+	if (g_file_test (DATADIR "/applications/caja.desktop", G_FILE_TEST_EXISTS)) {
+		egg_set_desktop_file (DATADIR "/applications/caja.desktop");
+	}
+	
+#ifdef HAVE_EXEMPI
+	xmp_init();
+#endif
+
+	setup_debug_log ();
+
+	/* Initialize the services that we use. */
+	LIBXML_TEST_VERSION
+
+    /* Run the caja application. */
+    application = caja_application_new();
+
+    retval = g_application_run (G_APPLICATION (application),
+                                argc, argv);
+
+    g_object_unref (application);
+
+ 	eel_debug_shut_down ();
+
+	return EXIT_SUCCESS;
+}
+
+#else
 int
 main (int argc, char *argv[])
 {
@@ -654,3 +720,4 @@ main (int argc, char *argv[])
 
     return EXIT_SUCCESS;
 }
+#endif

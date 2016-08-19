@@ -45,10 +45,10 @@ case "$with_gtk" in
   3.0) GTK_API_VERSION=3.0
        GTK_REQUIRED=3.0.0
        GAIL_API_VERSION=-3.0
-       LIBUNIQUE_VERSION=3.0
        ;;
 esac
 AC_SUBST([GTK_API_VERSION])
+AM_CONDITIONAL([WITH_GTK3],[test "$with_gtk" = "3.0"])
 
 dnl ===========================================================================
 
@@ -229,17 +229,19 @@ fi
 #============================================================================
 # libunique
 #============================================================================
-PKG_CHECK_MODULES(UNIQUE, unique-$LIBUNIQUE_VERSION)
+if test "$GTK_API_VERSION" = "2.0"; then
+    PKG_CHECK_MODULES(UNIQUE, unique-$LIBUNIQUE_VERSION)
 
-AC_SUBST([UNIQUE_CFLAGS])
-AC_SUBST([UNIQUE_LIBS])
+    AC_SUBST([UNIQUE_CFLAGS])
+    AC_SUBST([UNIQUE_LIBS])
 
-# this deprecated stuff should be removed from unique in most distros
-# but it's still not removed upstream in unique 1.x, so leaving it alone
-# just in case.
-UNIQUE_CFLAGS="$UNIQUE_CFLAGS -DG_CONST_RETURN=const"
+    # this deprecated stuff should be removed from unique in most distros
+    # but it's still not removed upstream in unique 1.x, so leaving it alone
+    # just in case.
+    UNIQUE_CFLAGS="$UNIQUE_CFLAGS -DG_CONST_RETURN=const"
 
-EXTRA_CORE_MODULES="$EXTRA_CORE_MODULES unique-$LIBUNIQUE_VERSION"
+    EXTRA_CORE_MODULES="$EXTRA_CORE_MODULES unique-$LIBUNIQUE_VERSION"
+fi
 
 
 # ==========================================================================

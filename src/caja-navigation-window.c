@@ -34,7 +34,9 @@
 #include "caja-actions.h"
 #include "caja-application.h"
 #include "caja-bookmarks-window.h"
+#if !GTK_CHECK_VERSION (3, 0, 0)
 #include "caja-main.h"
+#endif
 #include "caja-location-bar.h"
 #include "caja-query-editor.h"
 #include "caja-search-bar.h"
