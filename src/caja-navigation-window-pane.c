@@ -28,6 +28,7 @@
 #include "caja-pathbar.h"
 #include "caja-location-bar.h"
 #include "caja-notebook.h"
+#include "caja-window-slot.h"
 
 #include <libcaja-private/caja-global-preferences.h>
 #include <libcaja-private/caja-window-slot-info.h>
@@ -579,6 +580,8 @@ notebook_switch_page_cb (GtkNotebook *notebook,
     g_assert (slot != NULL);
 
     caja_window_set_active_slot (slot->pane->window, slot);
+    
+    caja_window_slot_update_icon (slot);
 
     return FALSE;
 }
