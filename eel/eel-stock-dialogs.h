@@ -68,10 +68,6 @@ GtkDialog *eel_show_warning_dialog            (const char        *primary_text,
 GtkDialog *eel_show_error_dialog              (const char        *primary_text,
         const char        *secondary_text,
         GtkWindow         *parent);
-GtkDialog *eel_show_error_dialog_with_details (const char        *primary_text,
-        const char        *secondary_text,
-        const char        *detailed_error_message,
-        GtkWindow         *parent);
 GtkDialog *eel_show_yes_no_dialog             (const char        *primary_text,
         const char        *secondary_text,
         const char        *yes_label,
@@ -83,9 +79,6 @@ GtkDialog *eel_create_question_dialog         (const char        *primary_text,
         int                response_one,
         const char        *answer_two,
         int                response_two,
-        GtkWindow         *parent);
-GtkDialog *eel_create_info_dialog             (const char        *primary_text,
-        const char        *secondary_text,
         GtkWindow         *parent);
 
 #endif /* EEL_STOCK_DIALOGS_H */

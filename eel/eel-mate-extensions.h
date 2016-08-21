@@ -33,7 +33,6 @@
 char *        eel_mate_make_terminal_command                         (const char               *command);
 
 /* Open up a new terminal, optionally passing in a command to execute */
-void          eel_mate_open_terminal                                 (const char               *command);
 void          eel_mate_open_terminal_on_screen                       (const char               *command,
         GdkScreen                *screen);
 

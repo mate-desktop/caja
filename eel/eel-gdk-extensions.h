@@ -112,9 +112,6 @@ void                eel_gdk_color_parse_with_white_default (const char          
 guint32             eel_rgb16_to_rgb                       (gushort              r,
         gushort              g,
         gushort              b);
-guint32             eel_rgb8_to_rgb                        (guchar               r,
-        guchar               g,
-        guchar               b);
 #if GTK_CHECK_VERSION (3, 0, 0)
 guint32             eel_gdk_rgba_to_rgb                    (const GdkRGBA       *color);
 GdkRGBA             eel_gdk_rgb_to_rgba                    (guint32              color);
@@ -148,7 +145,4 @@ void                eel_gdk_draw_layout_with_drop_shadow   (GdkDrawable         
         						    int                  x,
         						    int                  y,
         						    PangoLayout         *layout);
-#if GTK_CHECK_VERSION(3,0,0)
-void                eel_make_color_inactive                (GdkRGBA            *color);
-#endif
 #endif /* EEL_GDK_EXTENSIONS_H */

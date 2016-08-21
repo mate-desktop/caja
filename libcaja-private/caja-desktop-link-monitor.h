@@ -56,9 +56,6 @@ typedef struct
 GType   caja_desktop_link_monitor_get_type (void);
 
 CajaDesktopLinkMonitor *   caja_desktop_link_monitor_get (void);
-void caja_desktop_link_monitor_delete_link (CajaDesktopLinkMonitor *monitor,
-        CajaDesktopLink *link,
-        GtkWidget *parent_view);
 
 /* Used by caja-desktop-link.c */
 char * caja_desktop_link_monitor_make_filename_unique (CajaDesktopLinkMonitor *monitor,

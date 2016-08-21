@@ -40,20 +40,16 @@
 #include <glib/gi18n.h>
 #include <glib/gstdio.h>
 #include <gio/gio.h>
-#include <unistd.h>
 #include <stdlib.h>
 
-#define CAJA_USER_DIRECTORY_NAME ".config/caja"
 #define DEFAULT_CAJA_DIRECTORY_MODE (0755)
 
 #define DESKTOP_DIRECTORY_NAME "Desktop"
-#define LEGACY_DESKTOP_DIRECTORY_NAME ".mate-desktop"
 #define DEFAULT_DESKTOP_DIRECTORY_MODE (0755)
 
 static void update_xdg_dir_cache (void);
 static void schedule_user_dirs_changed (void);
 static void desktop_dir_changed (void);
-static GFile *caja_find_file_insensitive_next (GFile *parent, const gchar *name);
 
 char *
 caja_compute_title_for_location (GFile *location)
@@ -588,19 +584,6 @@ caja_get_desktop_directory_uri (void)
 }
 
 char *
-caja_get_desktop_directory_uri_no_create (void)
-{
-    char *desktop_path;
-    char *desktop_uri;
-
-    desktop_path = get_desktop_path ();
-    desktop_uri = g_filename_to_uri (desktop_path, NULL, NULL);
-    g_free (desktop_path);
-
-    return desktop_uri;
-}
-
-char *
 caja_get_home_directory_uri (void)
 {
     return  g_filename_to_uri (g_get_home_dir (), NULL, NULL);
@@ -647,22 +630,6 @@ caja_get_templates_directory_uri (void)
     uri = g_filename_to_uri (directory, NULL, NULL);
     g_free (directory);
     return uri;
-}
-
-char *
-caja_get_searches_directory (void)
-{
-    char *user_dir;
-    char *searches_dir;
-
-    user_dir = caja_get_user_directory ();
-    searches_dir = g_build_filename (user_dir, "searches", NULL);
-    g_free (user_dir);
-
-    if (!g_file_test (searches_dir, G_FILE_TEST_EXISTS))
-        g_mkdir (searches_dir, DEFAULT_CAJA_DIRECTORY_MODE);
-
-    return searches_dir;
 }
 
 /* These need to be reset to NULL when desktop_is_home_dir changes */
@@ -800,20 +767,6 @@ caja_is_desktop_directory (GFile *dir)
     return g_file_equal (dir, desktop_dir);
 }
 
-
-/**
- * caja_get_gmc_desktop_directory:
- *
- * Get the path for the directory containing the legacy gmc desktop.
- *
- * Return value: the directory path.
- **/
-char *
-caja_get_gmc_desktop_directory (void)
-{
-    return g_build_filename (g_get_home_dir (), LEGACY_DESKTOP_DIRECTORY_NAME, NULL);
-}
-
 /**
  * caja_get_pixmap_directory
  *
@@ -929,29 +882,6 @@ caja_ensure_unique_file_name (const char *directory_uri,
     return res;
 }
 
-char *
-caja_unique_temporary_file_name (void)
-{
-    const char *prefix = "/tmp/caja-temp-file";
-    char *file_name;
-    int fd;
-
-    file_name = g_strdup_printf ("%sXXXXXX", prefix);
-
-    fd = g_mkstemp (file_name);
-    if (fd == -1)
-    {
-        g_free (file_name);
-        file_name = NULL;
-    }
-    else
-    {
-        close (fd);
-    }
-
-    return file_name;
-}
-
 GFile *
 caja_find_existing_uri_in_hierarchy (GFile *location)
 {
@@ -977,129 +907,6 @@ caja_find_existing_uri_in_hierarchy (GFile *location)
     }
 
     return location;
-}
-
-/**
- * caja_find_file_insensitive
- *
- * Attempt to find a file case-insentively. If the path can be found, the
- * returned file maps directly to it. Otherwise, a file using the
- * originally-cased path is returned. This function performs might perform
- * I/O.
- *
- * Return value: a #GFile to a child specified by @name.
- **/
-GFile *
-caja_find_file_insensitive (GFile *parent, const gchar *name)
-{
-    gchar **split_path;
-    gchar *component;
-    GFile *file, *next;
-    gint i;
-
-    split_path = g_strsplit (name, G_DIR_SEPARATOR_S, -1);
-
-    file = g_object_ref (parent);
-
-    for (i = 0; (component = split_path[i]) != NULL; i++)
-    {
-        if (!(next = caja_find_file_insensitive_next (file,
-                     component)))
-        {
-            /* File does not exist */
-            g_object_unref (file);
-            file = NULL;
-            break;
-        }
-        g_object_unref (file);
-        file = next;
-    }
-    g_strfreev (split_path);
-
-    if (file)
-    {
-        return file;
-    }
-    return g_file_get_child (parent, name);
-}
-
-static GFile *
-caja_find_file_insensitive_next (GFile *parent, const gchar *name)
-{
-    GFileEnumerator *children;
-    GFileInfo *info;
-    gboolean use_utf8, found;
-    char *filename, *case_folded_name, *utf8_collation_key, *ascii_collation_key, *child_key;
-    GFile *file;
-    const char *child_name, *compare_key;
-
-    /* First check the given version */
-    file = g_file_get_child (parent, name);
-    if (g_file_query_exists (file, NULL))
-    {
-        return file;
-    }
-    g_object_unref (file);
-
-    ascii_collation_key = g_ascii_strdown (name, -1);
-    use_utf8 = g_utf8_validate (name, -1, NULL);
-    utf8_collation_key = NULL;
-    if (use_utf8)
-    {
-        case_folded_name = g_utf8_casefold (name, -1);
-        utf8_collation_key = g_utf8_collate_key (case_folded_name, -1);
-        g_free (case_folded_name);
-    }
-
-    /* Enumerate and compare insensitive */
-    filename = NULL;
-    children = g_file_enumerate_children (parent,
-                                          G_FILE_ATTRIBUTE_STANDARD_NAME,
-                                          0, NULL, NULL);
-    if (children != NULL)
-    {
-        while ((info = g_file_enumerator_next_file (children, NULL, NULL)))
-        {
-            child_name = g_file_info_get_name (info);
-
-            if (use_utf8 && g_utf8_validate (child_name, -1, NULL))
-            {
-                gchar *case_folded;
-
-                case_folded = g_utf8_casefold (child_name, -1);
-                child_key = g_utf8_collate_key (case_folded, -1);
-                g_free (case_folded);
-                compare_key = utf8_collation_key;
-            }
-            else
-            {
-                child_key = g_ascii_strdown (child_name, -1);
-                compare_key = ascii_collation_key;
-            }
-
-            found = strcmp (child_key, compare_key) == 0;
-            g_free (child_key);
-            if (found)
-            {
-                filename = g_strdup (child_name);
-                break;
-            }
-        }
-        g_file_enumerator_close (children, NULL, NULL);
-        g_object_unref (children);
-    }
-
-    g_free (ascii_collation_key);
-    g_free (utf8_collation_key);
-
-    if (filename)
-    {
-        file = g_file_get_child (parent, filename);
-        g_free (filename);
-        return file;
-    }
-
-    return NULL;
 }
 
 gboolean

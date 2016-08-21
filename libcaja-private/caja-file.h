@@ -226,8 +226,6 @@ char *                  caja_file_get_top_left_text                 (CajaFile   
 char *                  caja_file_peek_top_left_text                (CajaFile                   *file,
         gboolean                        need_large_text,
         gboolean                       *got_top_left_text);
-gboolean                caja_file_get_directory_item_mime_types     (CajaFile                   *file,
-        GList                         **mime_list);
 
 void                    caja_file_set_attributes                    (CajaFile                   *file,
         GFileInfo                      *attributes,

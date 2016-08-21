@@ -48,7 +48,6 @@ gboolean caja_is_home_directory                  (GFile *dir);
 gboolean caja_is_home_directory_file             (GFile *dir,
         const char *filename);
 gboolean caja_is_in_system_dir                   (GFile *location);
-char *   caja_get_gmc_desktop_directory          (void);
 char *   caja_get_pixmap_directory               (void);
 
 gboolean caja_should_use_templates_directory     (void);
@@ -56,13 +55,7 @@ char *   caja_get_templates_directory            (void);
 char *   caja_get_templates_directory_uri        (void);
 void     caja_create_templates_directory         (void);
 
-char *   caja_get_searches_directory             (void);
-
 char *	 caja_compute_title_for_location	     (GFile *file);
-
-/* This function returns something that needs to be freed with g_free,
- * is not NULL, but is not garaunteed to exist */
-char *   caja_get_desktop_directory_uri_no_create (void);
 
 /* A version of mate's mate_pixmap_file that works for the caja prefix.
  * Otherwise similar to mate_pixmap_file in that it checks to see if the file
@@ -90,12 +83,8 @@ void     caja_uninhibit_power_manager            (int cookie);
 char *   caja_ensure_unique_file_name            (const char *directory_uri,
         const char *base_name,
         const char *extension);
-char *   caja_unique_temporary_file_name         (void);
 
 GFile *  caja_find_existing_uri_in_hierarchy     (GFile *location);
-
-GFile *
-caja_find_file_insensitive (GFile *parent, const gchar *name);
 
 char * caja_get_accel_map_file (void);
 

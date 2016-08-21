@@ -4941,35 +4941,6 @@ caja_file_recompute_deep_counts (CajaFile *file)
 	}
 }
 
-
-/**
- * caja_file_get_directory_item_mime_types
- *
- * Get the list of mime-types present in a directory.
- * @file: CajaFile representing a directory. It is an error to
- * call this function on a file that is not a directory.
- * @mime_list: Place to put the list of mime-types.
- *
- * Returns: TRUE if mime-type list is available.
- *
- **/
-gboolean
-caja_file_get_directory_item_mime_types (CajaFile *file,
-					     GList **mime_list)
-{
-	g_return_val_if_fail (CAJA_IS_FILE (file), FALSE);
-	g_return_val_if_fail (mime_list != NULL, FALSE);
-
-	if (!caja_file_is_directory (file)
-	    || !file->details->got_mime_list) {
-		*mime_list = NULL;
-		return FALSE;
-	}
-
-	*mime_list = eel_g_str_list_copy (file->details->mime_list);
-	return TRUE;
-}
-
 gboolean
 caja_file_can_get_size (CajaFile *file)
 {

@@ -392,12 +392,6 @@ eel_rgb16_to_rgb (gushort r, gushort g, gushort b)
     return result;
 }
 
-guint32
-eel_rgb8_to_rgb (guchar r, guchar g, guchar b)
-{
-    return eel_rgb16_to_rgb (r << 8, g << 8, b << 8);
-}
-
 #if GTK_CHECK_VERSION (3, 0, 0)
 /**
  * eel_gdk_rgba_to_rgb
@@ -609,38 +603,6 @@ eel_gdk_draw_layout_with_drop_shadow (GdkDrawable         *drawable,
     pango_cairo_show_layout (cr, layout);
 
     cairo_destroy (cr);
-}
-#endif
-
-#if GTK_CHECK_VERSION(3,0,0)
-#define CLAMP_COLOR(v) (t = (v), CLAMP (t, 0, 1))
-#define SATURATE(v) ((1.0 - saturation) * intensity + saturation * (v))
-
-void
-eel_make_color_inactive (GdkRGBA *color)
-{
-    double intensity, saturation;
-    gdouble t;
-
-    saturation = 0.7;
-    intensity = color->red * 0.30 + color->green * 0.59 + color->blue * 0.11;
-    color->red = SATURATE (color->red);
-    color->green = SATURATE (color->green);
-    color->blue = SATURATE (color->blue);
-
-    if (intensity > 0.5) {
-            color->red *= 0.9;
-            color->green *= 0.9;
-            color->blue *= 0.9;
-    } else {
-            color->red *= 1.25;
-            color->green *= 1.25;
-            color->blue *= 1.25;
-    }
-
-    color->red = CLAMP_COLOR (color->red);
-    color->green = CLAMP_COLOR (color->green);
-    color->blue = CLAMP_COLOR (color->blue);
 }
 #endif
 

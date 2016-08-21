@@ -37,7 +37,6 @@ eel_headers = \
 	eel-background.h \
 	eel-background-box.h \
 	eel-canvas.h \
-	eel-canvas-util.h \
 	eel-canvas-rect-ellipse.h \
 	eel-debug.h \
 	eel-editable-label.h \
@@ -67,7 +66,6 @@ libeel_2_la_SOURCES = \
 	eel-background.c \
 	eel-background-box.c \
 	eel-canvas.c \
-	eel-canvas-util.c \
 	eel-canvas-rect-ellipse.c \
 	eel-debug.c \
 	eel-editable-label.c \

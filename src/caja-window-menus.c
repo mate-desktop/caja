@@ -54,9 +54,6 @@
 #include <libcaja-private/caja-search-engine.h>
 #include <libcaja-private/caja-signaller.h>
 #include <libcaja-private/caja-trash-monitor.h>
-
-#define MATE_DESKTOP_USE_UNSTABLE_API
-
 #include <string.h>
 
 #define MENU_PATH_EXTENSION_ACTIONS                     "/MenuBar/File/Extension Actions"
@@ -64,7 +61,6 @@
 
 #define NETWORK_URI          "network:"
 #define COMPUTER_URI         "computer:"
-#define BURN_CD_URI          "burn:"
 
 /* Struct that stores all the info necessary to activate a bookmark. */
 typedef struct

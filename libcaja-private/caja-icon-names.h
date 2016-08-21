@@ -15,11 +15,6 @@
 #define CAJA_ICON_TRASH_FULL	"user-trash-full"
 #define CAJA_ICON_DELETE		"edit-delete"
 
-/* Icons for emblems */
-#define CAJA_ICON_EMBLEM_READONLY	"emblem-readonly"
-#define CAJA_ICON_EMBLEM_UNREADABLE	"emblem-unreadable"
-#define CAJA_ICON_EMBLEM_SYMLINK	"emblem-symbolic-link"
-
 #define CAJA_ICON_FOLDER_DESKTOP    "user-desktop"
 #define CAJA_ICON_FOLDER_DOCUMENTS  "folder-documents"
 #define CAJA_ICON_FOLDER_DOWNLOAD   "folder-download"
@@ -31,9 +26,6 @@
 
 /* Other icons */
 #define CAJA_ICON_TEMPLATE		"text-x-generic-template"
-
-/* Icons not provided by fd.o naming spec or caja itself */
-#define CAJA_ICON_BURN		"caja-cd-burner"
 
 #endif /* CAJA_ICON_NAMES_H */
 

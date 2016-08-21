@@ -127,8 +127,6 @@ int               fm_list_model_compare_func (FMListModel *model,
 
 int               fm_list_model_add_column (FMListModel *model,
         CajaColumn *column);
-int               fm_list_model_get_column_number (FMListModel *model,
-        const char *column_name);
 
 void              fm_list_model_subdirectory_done_loading (FMListModel       *model,
         CajaDirectory *directory);

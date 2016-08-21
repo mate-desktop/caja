@@ -31,7 +31,6 @@
 #include "eel-lib-self-check-functions.h"
 #include <gtk/gtk.h>
 #include <eel/eel-canvas.h>
-#include <eel/eel-canvas-util.h>
 #if GTK_CHECK_VERSION (3, 0, 0)
 # include <cairo-xlib.h>
 #endif
