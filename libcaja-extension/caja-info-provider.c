@@ -95,7 +95,6 @@ caja_info_provider_cancel_update (CajaInfoProvider    *provider,
 {
     g_return_if_fail (CAJA_IS_INFO_PROVIDER (provider));
     g_return_if_fail (CAJA_INFO_PROVIDER_GET_IFACE (provider)->cancel_update != NULL);
-    g_return_if_fail (CAJA_INFO_PROVIDER_GET_IFACE (provider)->cancel_update != NULL);
     g_return_if_fail (handle != NULL);
 
     CAJA_INFO_PROVIDER_GET_IFACE (provider)->cancel_update (provider,
