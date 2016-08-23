@@ -24,15 +24,12 @@
 #include <config.h>
 #include "caja-extension-types.h"
 
-
 GType
 caja_operation_result_get_type (void)
 {
     static GType type = 0;
-    if (type == 0)
-    {
-        static const GEnumValue values[] =
-        {
+    if (type == 0) {
+        static const GEnumValue values[] = {
             {
                 CAJA_OPERATION_COMPLETE,
                 "CAJA_OPERATION_COMPLETE",

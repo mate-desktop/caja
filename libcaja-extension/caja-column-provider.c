@@ -27,6 +27,16 @@
 
 #include <glib-object.h>
 
+/**
+ * SECTION:caja-column-provider
+ * @title: CajaColumnProvider
+ * @short_description: Interface to provide additional list view columns
+ * @include: libcaja-extension/caja-column-provider.h
+ *
+ * #CajaColumnProvider allows extension to provide additional columns
+ * in the file manager list view.
+ */
+
 static void
 caja_column_provider_base_init (gpointer g_class)
 {
@@ -37,10 +47,8 @@ caja_column_provider_get_type (void)
 {
     static GType type = 0;
 
-    if (!type)
-    {
-        const GTypeInfo info =
-        {
+    if (!type) {
+        const GTypeInfo info = {
             sizeof (CajaColumnProviderIface),
             caja_column_provider_base_init,
             NULL,
@@ -76,5 +84,4 @@ caja_column_provider_get_columns (CajaColumnProvider *provider)
     return CAJA_COLUMN_PROVIDER_GET_IFACE (provider)->get_columns
            (provider);
 }
-
 

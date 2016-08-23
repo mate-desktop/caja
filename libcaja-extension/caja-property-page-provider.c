@@ -28,6 +28,16 @@
 
 #include <glib-object.h>
 
+/**
+ * SECTION:caja-property-page-provider
+ * @title: CajaPropertyPageProvider
+ * @short_description: Interface to provide additional property pages
+ * @include: libcaja-extension/caja-property-page-provider.h
+ *
+ * #CajaPropertyPageProvider allows extension to provide additional pages
+ * for the file properties dialog.
+ */
+
 static void
 caja_property_page_provider_base_init (gpointer g_class)
 {
@@ -38,10 +48,8 @@ caja_property_page_provider_get_type (void)
 {
     static GType type = 0;
 
-    if (!type)
-    {
-        const GTypeInfo info =
-        {
+    if (!type) {
+        const GTypeInfo info = {
             sizeof (CajaPropertyPageProviderIface),
             caja_property_page_provider_base_init,
             NULL,

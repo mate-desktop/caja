@@ -26,8 +26,7 @@
 #include "caja-column.h"
 #include "caja-extension-i18n.h"
 
-enum
-{
+enum {
     PROP_0,
     PROP_NAME,
     PROP_ATTRIBUTE,
@@ -38,8 +37,7 @@ enum
     LAST_PROP
 };
 
-struct _CajaColumnDetails
-{
+struct _CajaColumnDetails {
     char *name;
     GQuark attribute;
     char *label;
@@ -48,6 +46,19 @@ struct _CajaColumnDetails
 };
 
 G_DEFINE_TYPE (CajaColumn, caja_column, G_TYPE_OBJECT);
+
+/**
+ * SECTION:caja-column
+ * @title: CajaColumn
+ * @short_description: List view column descriptor object
+ * @include: libcaja-extension/caja-column.h
+ *
+ * #CajaColumn is an object that describes a column in the file manager
+ * list view. Extensions can provide #CajaColumn by registering a
+ * #CajaColumnProvider and returning them from
+ * caja_column_provider_get_columns(), which will be called by the main
+ * application when creating a view.
+ */
 
 /**
  * caja_column_new:
@@ -93,8 +104,7 @@ caja_column_get_property (GObject *object,
 
     column = CAJA_COLUMN (object);
 
-    switch (param_id)
-    {
+    switch (param_id) {
     case PROP_NAME :
         g_value_set_string (value, column->details->name);
         break;
@@ -129,8 +139,7 @@ caja_column_set_property (GObject *object,
 
     column = CAJA_COLUMN (object);
 
-    switch (param_id)
-    {
+    switch (param_id) {
     case PROP_NAME :
         g_free (column->details->name);
         column->details->name = g_strdup (g_value_get_string (value));

@@ -28,13 +28,22 @@
 
 #include <glib-object.h>
 
+/**
+ * SECTION:caja-menu-provider
+ * @title: CajaMenuProvider
+ * @short_description: Interface to provide additional menu items
+ * @include: libcaja-extension/caja-menu-provider.h
+ *
+ * #CajaMenuProvider allows extension to provide additional menu items
+ * in the file manager menus.
+ */
+
 static void
 caja_menu_provider_base_init (gpointer g_class)
 {
     static gboolean initialized = FALSE;
 
-    if (!initialized)
-    {
+    if (!initialized) {
         /* This signal should be emited each time the extension modify the list of menu items */
         g_signal_new ("items_updated",
                       CAJA_TYPE_MENU_PROVIDER,
@@ -52,10 +61,8 @@ caja_menu_provider_get_type (void)
 {
     static GType type = 0;
 
-    if (!type)
-    {
-        const GTypeInfo info =
-        {
+    if (!type) {
+        const GTypeInfo info = {
             sizeof (CajaMenuProviderIface),
             caja_menu_provider_base_init,
             NULL,
@@ -86,18 +93,15 @@ caja_menu_provider_get_type (void)
  */
 GList *
 caja_menu_provider_get_file_items (CajaMenuProvider *provider,
-                                   GtkWidget *window,
-                                   GList *files)
+                                   GtkWidget        *window,
+                                   GList            *files)
 {
     g_return_val_if_fail (CAJA_IS_MENU_PROVIDER (provider), NULL);
 
-    if (CAJA_MENU_PROVIDER_GET_IFACE (provider)->get_file_items)
-    {
+    if (CAJA_MENU_PROVIDER_GET_IFACE (provider)->get_file_items) {
         return CAJA_MENU_PROVIDER_GET_IFACE (provider)->get_file_items
                (provider, window, files);
-    }
-    else
-    {
+    } else {
         return NULL;
     }
 }
@@ -112,41 +116,40 @@ caja_menu_provider_get_file_items (CajaMenuProvider *provider,
  */
 GList *
 caja_menu_provider_get_background_items (CajaMenuProvider *provider,
-        GtkWidget *window,
-        CajaFileInfo *current_folder)
-{
-    if (!CAJA_IS_MENU_PROVIDER (provider)) {
-      return NULL;
-    }
-
-    g_return_val_if_fail (CAJA_IS_FILE_INFO (current_folder), NULL);
-
-    if (CAJA_MENU_PROVIDER_GET_IFACE (provider)->get_background_items)
-    {
-        return CAJA_MENU_PROVIDER_GET_IFACE (provider)->get_background_items
-               (provider, window, current_folder);
-    }
-    else
-    {
-        return NULL;
-    }
-}
-
-GList *
-caja_menu_provider_get_toolbar_items (CajaMenuProvider *provider,
-                                      GtkWidget *window,
-                                      CajaFileInfo *current_folder)
+                                         GtkWidget        *window,
+                                         CajaFileInfo     *current_folder)
 {
     g_return_val_if_fail (CAJA_IS_MENU_PROVIDER (provider), NULL);
     g_return_val_if_fail (CAJA_IS_FILE_INFO (current_folder), NULL);
 
-    if (CAJA_MENU_PROVIDER_GET_IFACE (provider)->get_toolbar_items)
-    {
+    if (CAJA_MENU_PROVIDER_GET_IFACE (provider)->get_background_items) {
+        return CAJA_MENU_PROVIDER_GET_IFACE (provider)->get_background_items
+               (provider, window, current_folder);
+    } else {
+        return NULL;
+    }
+}
+
+/**
+ * caja_menu_provider_get_toolbar_items:
+ * @provider: a #CajaMenuProvider
+ * @window: the parent #GtkWidget window
+ * @current_folder: the folder for which toolbar items are requested
+ *
+ * Returns: (element-type CajaMenuItem) (transfer full): the provided list of #CajaMenuItem
+ */
+GList *
+caja_menu_provider_get_toolbar_items (CajaMenuProvider *provider,
+                                      GtkWidget        *window,
+                                      CajaFileInfo     *current_folder)
+{
+    g_return_val_if_fail (CAJA_IS_MENU_PROVIDER (provider), NULL);
+    g_return_val_if_fail (CAJA_IS_FILE_INFO (current_folder), NULL);
+
+    if (CAJA_MENU_PROVIDER_GET_IFACE (provider)->get_toolbar_items) {
         return CAJA_MENU_PROVIDER_GET_IFACE (provider)->get_toolbar_items
                (provider, window, current_folder);
-    }
-    else
-    {
+    } else {
         return NULL;
     }
 }

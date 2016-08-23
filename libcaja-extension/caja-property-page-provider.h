@@ -36,33 +36,37 @@
 #include "caja-file-info.h"
 #include "caja-property-page.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+G_BEGIN_DECLS
 
 #define CAJA_TYPE_PROPERTY_PAGE_PROVIDER           (caja_property_page_provider_get_type ())
 #define CAJA_PROPERTY_PAGE_PROVIDER(obj)           (G_TYPE_CHECK_INSTANCE_CAST ((obj), CAJA_TYPE_PROPERTY_PAGE_PROVIDER, CajaPropertyPageProvider))
 #define CAJA_IS_PROPERTY_PAGE_PROVIDER(obj)        (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CAJA_TYPE_PROPERTY_PAGE_PROVIDER))
 #define CAJA_PROPERTY_PAGE_PROVIDER_GET_IFACE(obj) (G_TYPE_INSTANCE_GET_INTERFACE ((obj), CAJA_TYPE_PROPERTY_PAGE_PROVIDER, CajaPropertyPageProviderIface))
 
-    typedef struct _CajaPropertyPageProvider       CajaPropertyPageProvider;
-    typedef struct _CajaPropertyPageProviderIface  CajaPropertyPageProviderIface;
+typedef struct _CajaPropertyPageProvider       CajaPropertyPageProvider;
+typedef struct _CajaPropertyPageProviderIface  CajaPropertyPageProviderIface;
 
-    struct _CajaPropertyPageProviderIface
-    {
-        GTypeInterface g_iface;
+/**
+ * CajaPropertyPageProviderIface:
+ * @g_iface: The parent interface.
+ * @get_pages: Returns a #GList of #CajaPropertyPage.
+ *   See caja_property_page_provider_get_pages() for details.
+ *
+ * Interface for extensions to provide additional property pages.
+ */
 
-        GList *(*get_pages) (CajaPropertyPageProvider     *provider,
-                             GList                    *files);
-    };
+struct _CajaPropertyPageProviderIface {
+    GTypeInterface g_iface;
 
-    /* Interface Functions */
-    GType                   caja_property_page_provider_get_type  (void);
-    GList                  *caja_property_page_provider_get_pages (CajaPropertyPageProvider *provider,
-            GList                        *files);
+    GList *(*get_pages) (CajaPropertyPageProvider *provider,
+                         GList                    *files);
+};
 
-#ifdef __cplusplus
-}
-#endif
+/* Interface Functions */
+GType  caja_property_page_provider_get_type  (void);
+GList *caja_property_page_provider_get_pages (CajaPropertyPageProvider *provider,
+                                              GList                    *files);
+
+G_END_DECLS
 
 #endif

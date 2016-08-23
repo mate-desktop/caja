@@ -29,9 +29,7 @@
 #include <gtk/gtk.h>
 #include "caja-extension-types.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+G_BEGIN_DECLS
 
 #define CAJA_TYPE_PROPERTY_PAGE            (caja_property_page_get_type())
 #define CAJA_PROPERTY_PAGE(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), CAJA_TYPE_PROPERTY_PAGE, CajaPropertyPage))
@@ -40,35 +38,31 @@ extern "C" {
 #define CAJA_IS_PROPERTY_PAGE_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((obj), CAJA_TYPE_PROPERTY_PAGE))
 #define CAJA_PROPERTY_PAGE_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS((obj), CAJA_TYPE_PROPERTY_PAGE, CajaPropertyPageClass))
 
-    typedef struct _CajaPropertyPage        CajaPropertyPage;
-    typedef struct _CajaPropertyPageDetails CajaPropertyPageDetails;
-    typedef struct _CajaPropertyPageClass   CajaPropertyPageClass;
+typedef struct _CajaPropertyPage        CajaPropertyPage;
+typedef struct _CajaPropertyPageDetails CajaPropertyPageDetails;
+typedef struct _CajaPropertyPageClass   CajaPropertyPageClass;
 
-    struct _CajaPropertyPage
-    {
-        GObject parent;
+struct _CajaPropertyPage {
+    GObject parent;
 
-        CajaPropertyPageDetails *details;
-    };
+    CajaPropertyPageDetails *details;
+};
 
-    struct _CajaPropertyPageClass
-    {
-        GObjectClass parent;
-    };
+struct _CajaPropertyPageClass {
+    GObjectClass parent;
+};
 
-    GType                 caja_property_page_get_type  (void);
-    CajaPropertyPage *caja_property_page_new       (const char           *name,
-            GtkWidget            *label,
-            GtkWidget            *page);
+GType             caja_property_page_get_type  (void);
+CajaPropertyPage *caja_property_page_new       (const char *name,
+                                                GtkWidget  *label,
+                                                GtkWidget  *page);
 
-    /* CajaPropertyPage has the following properties:
-     *   name (string)        - the identifier for the property page
-     *   label (widget)       - the user-visible label of the property page
-     *   page (widget)        - the property page to display
-     */
+/* CajaPropertyPage has the following properties:
+ *   name (string)        - the identifier for the property page
+ *   label (widget)       - the user-visible label of the property page
+ *   page (widget)        - the property page to display
+ */
 
-#ifdef __cplusplus
-}
-#endif
+G_END_DECLS
 
 #endif

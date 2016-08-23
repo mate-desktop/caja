@@ -27,11 +27,21 @@
 
 #include <glib.h>
 
+/**
+ * SECTION:caja-menu
+ * @title: CajaMenu
+ * @short_description: Menu descriptor object
+ * @include: libcaja-extension/caja-menu.h
+ *
+ * #CajaMenu is an object that describes a submenu in a file manager
+ * menu. Extensions can provide #CajaMenu objects by attaching them to
+ * #CajaMenuItem objects, using caja_menu_item_set_submenu().
+ */
+
 #define CAJA_MENU_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), CAJA_TYPE_MENU, CajaMenuPrivate))
 G_DEFINE_TYPE (CajaMenu, caja_menu, G_TYPE_OBJECT);
 
-struct _CajaMenuPrivate
-{
+struct _CajaMenuPrivate {
     GList *item_list;
 };
 
@@ -84,8 +94,7 @@ caja_menu_finalize (GObject *object)
 {
     CajaMenu *menu = CAJA_MENU (object);
 
-    if (menu->priv->item_list)
-    {
+    if (menu->priv->item_list) {
         g_list_free (menu->priv->item_list);
     }
 
