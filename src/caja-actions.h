@@ -31,7 +31,6 @@
 #define CAJA_ACTION_BACK "Back"
 #define CAJA_ACTION_UP "Up"
 #define CAJA_ACTION_UP_ACCEL "UpAccel"
-#define CAJA_ACTION_UP_ACCEL "UpAccel"
 #define CAJA_ACTION_FORWARD "Forward"
 #define CAJA_ACTION_SHOW_HIDE_TOOLBAR "Show Hide Toolbar"
 #define CAJA_ACTION_SHOW_HIDE_SIDEBAR "Show Hide Sidebar"
