@@ -62,3 +62,8 @@
    border-width: 0px;
    border-style: none;
 }
+
+/* Padding in slider buttons causes GTK errors in GTK 3.20 or later */
+.caja-navigation-window .slider-button {
+	padding: 0px;
+}

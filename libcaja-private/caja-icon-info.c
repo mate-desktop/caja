@@ -469,7 +469,7 @@ caja_icon_info_lookup (GIcon *icon,
         gtk_icon_info = gtk_icon_theme_lookup_by_gicon (gtk_icon_theme_get_default (),
                         icon,
                         size,
-                        GTK_ICON_LOOKUP_GENERIC_FALLBACK);
+                        GTK_ICON_LOOKUP_FORCE_SIZE);
         if (gtk_icon_info != NULL)
         {
             pixbuf = gtk_icon_info_load_icon (gtk_icon_info, NULL);
