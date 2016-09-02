@@ -155,6 +155,7 @@ G_DEFINE_TYPE (CajaApplication, caja_application, GTK_TYPE_APPLICATION);
 struct _CajaApplicationPriv {
 	GVolumeMonitor *volume_monitor;
     gboolean no_desktop;
+    gboolean force_desktop;
     gchar *geometry;
 };
 
@@ -448,7 +449,7 @@ static void
 caja_application_open (GApplication *app,
                GFile **files,
                gint n_files,
-               const gchar *hint)
+               const gchar *options)
 {
     CajaApplication *self = CAJA_APPLICATION (app);
     gboolean browser_window = FALSE;
@@ -458,15 +459,15 @@ caja_application_open (GApplication *app,
     g_debug ("Open called on the GApplication instance; %d files", n_files);
 
     /*Check if local command line passed --browser or --geometry */
-    if (strcmp(hint,"") != 0 ){
+    if (strcmp(options,"") != 0 ){
         if (g_str_match_string ("browser",
-                    hint,
+                    options,
                     FALSE) == TRUE){
             browser_window = TRUE;
-            geometry = strchr(hint, splitter);
+            geometry = strchr(options, splitter);
         }
         else {
-        geometry = hint;
+        geometry = options;
         }
         /*Reset this or 3ed and later invocations will use same
 	     *geometry even if the user has resized open window
@@ -2836,8 +2837,11 @@ caja_application_local_command_line (GApplication *application,
     const gchar *autostart_id;
     gboolean no_default_window = FALSE;
     gchar **remaining = NULL;
-    const gchar *hint = "";
     CajaApplication *self = CAJA_APPLICATION (application);
+
+    /*First set these FALSE */
+    self->priv->force_desktop = FALSE;
+    self->priv->no_desktop = FALSE;
 
     const GOptionEntry options[] = {
 #ifndef CAJA_OMIT_SELF_CHECK
@@ -2852,6 +2856,8 @@ caja_application_local_command_line (GApplication *application,
           N_("Only create windows for explicitly specified URIs."), NULL },
         { "no-desktop", '\0', 0, G_OPTION_ARG_NONE, &self->priv->no_desktop,
           N_("Do not manage the desktop (ignore the preference set in the preferences dialog)."), NULL },
+        { "force-desktop", '\0', 0, G_OPTION_ARG_NONE, &self->priv->force_desktop,
+          N_("manage the desktop regardless of set preferences or environment(on new startup only)"), NULL },
         { "browser", '\0', 0, G_OPTION_ARG_NONE, &browser_window, 
           N_("Open a browser window."), NULL },
         { "quit", 'q', 0, G_OPTION_ARG_NONE, &kill_shell, 
@@ -2972,27 +2978,33 @@ caja_application_local_command_line (GApplication *application,
         files[1] = NULL;
     }
 
-    /*Set up geometry and --browser options for "Open" */
+    /*Set up geometry and --browser options  */
+    /*Invoke "Open" to create new windows */
 
     if (browser_window == TRUE && self->priv->geometry == NULL){
-            hint = "browser";
+
+        if (len > 0)  {
+        g_application_open (application, files, len, "browser");
+        }
     }
 
     else if (browser_window == FALSE && self->priv->geometry != NULL){
-            hint = g_strdup(self->priv->geometry);
+        if (len > 0)  {
+            g_application_open (application, files, len, self->priv->geometry);
+        }
     }
 
     else if (browser_window == TRUE && self->priv->geometry != NULL){
-             hint = g_strconcat("browser","=", self->priv->geometry, NULL);
+        if (len > 0)  {
+            g_application_open (application, files, len, (g_strconcat("browser","=",
+                                self->priv->geometry, NULL)));
+        }
     }
 
     else {
-        hint = ("");
-    }
-
-    /* Invoke "Open" to create new windows */
-    if (len > 0)  {
-        g_application_open (application, files, len, hint);
+        if (len > 0)  {
+            g_application_open (application, files, len, "");
+        }
     }
 
     for (idx = 0; idx < len; idx++) {
@@ -3049,11 +3061,11 @@ init_desktop (CajaApplication *self)
 
     if (running_as_root () || !running_in_mate ())
 	{
-        /* do not manage desktop when running as root or on other desktops */
+        /* do not manage desktop when running as root or on other desktops unless forced */
         self->priv->no_desktop = TRUE;
     }
 
-    if (!self->priv->no_desktop) {
+    if (!self->priv->no_desktop || self->priv->force_desktop) {
         caja_application_open_desktop (self);
     }
 
