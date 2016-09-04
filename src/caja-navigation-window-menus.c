@@ -71,7 +71,7 @@ action_close_all_windows_callback (GtkAction *action,
 {
     CajaApplication *app;
 
-    app = g_application_get_default();
+    app = CAJA_APPLICATION (g_application_get_default ());
     caja_application_close_all_navigation_windows (app);
 }
 #else
