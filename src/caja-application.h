@@ -93,7 +93,7 @@ typedef struct
 
 GType caja_application_get_type (void);
 
-CajaApplication *caja_application_application_new (void);
+CajaApplication *caja_application_new (void);
 #else
 typedef struct
 {
