@@ -2833,7 +2833,6 @@ caja_application_local_command_line (GApplication *application,
     gboolean version = FALSE;
     gboolean browser_window = FALSE;
     gboolean kill_shell = FALSE;
-    gboolean autostart_mode = FALSE;
     const gchar *autostart_id;
     gboolean no_default_window = FALSE;
     gchar **remaining = NULL;
@@ -2885,7 +2884,7 @@ caja_application_local_command_line (GApplication *application,
 	 */
 	autostart_id = g_getenv ("DESKTOP_AUTOSTART_ID");
 	if (autostart_id != NULL && *autostart_id != '\0') {
-		autostart_mode = TRUE;
+		no_default_window = TRUE;
         }
 
 
