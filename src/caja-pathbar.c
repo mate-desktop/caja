@@ -560,6 +560,7 @@ caja_path_bar_get_preferred_width (GtkWidget *widget,
     gint child_height;
     gint height;
     gint child_min, child_nat;
+    gint slider_width;
 
     path_bar = CAJA_PATH_BAR (widget);
 
@@ -586,12 +587,20 @@ caja_path_bar_get_preferred_width (GtkWidget *widget,
     /* Theoretically, the slider could be bigger than the other button.  But we're
      * not going to worry about that now.
      */
-    path_bar->slider_width = MIN (height * 2 / 3 + 5, height);
+    gtk_widget_get_preferred_width (path_bar->down_slider_button,
+                                    &slider_width,
+                                    NULL);
+    gtk_widget_get_preferred_width (path_bar->up_slider_button,
+                                    &slider_width,
+                                    NULL);
+
 
     if (path_bar->button_list) {
-    	*minimum += (path_bar->spacing + path_bar->slider_width) * 2;
-    	*natural += (path_bar->spacing + path_bar->slider_width) * 2;
+        *minimum += (path_bar->spacing + slider_width) * 2;
+        *natural += (path_bar->spacing + slider_width) * 2;
     }
+    /*Let's keep the rest of this as it was */
+    path_bar->slider_width = slider_width;
 }
 
 static void
