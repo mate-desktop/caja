@@ -1603,8 +1603,11 @@ set_label_size_request (ButtonData *button_data)
     PangoLayout *layout;
     gint width, height, bold_width, bold_height;
     gchar *markup;
+    GtkWidget *label;
     
-    layout = gtk_widget_create_pango_layout (button_data->label, dir_name);
+    /*This is needed because button_data->label is not a GtkWidget*/
+    label = gtk_label_new(dir_name);
+    layout = gtk_widget_create_pango_layout (label, dir_name);
     pango_layout_get_pixel_size (layout, &width, &height);
   
     markup = g_markup_printf_escaped ("<b>%s</b>", dir_name);
@@ -1613,11 +1616,16 @@ set_label_size_request (ButtonData *button_data)
 
     pango_layout_get_pixel_size (layout, &bold_width, &bold_height);
 
+    /*Fixme-this works but throws runtime warnings about not being a GtkWidget*/
     gtk_widget_set_size_request (button_data->label,
         			 MAX (width, bold_width),
         			 MAX (height, bold_height));
     
     g_object_unref (layout);
+    /*recommended approach to freeing a never-packed GtkWidget*/
+    g_object_ref_sink(G_OBJECT(label));
+    gtk_widget_destroy (label);
+    g_object_unref (label);
 }
 
 #else /* GTK_CHECK_VERSION(3,0,0) */
