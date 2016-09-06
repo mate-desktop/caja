@@ -1606,35 +1606,30 @@ get_dir_name (ButtonData *button_data)
  */
 #if GTK_CHECK_VERSION(3,0,0)
 static void
-set_label_size_request (ButtonData *button_data)
+set_label_padding_size (ButtonData *button_data)
 {
     const gchar *dir_name = get_dir_name (button_data);
     PangoLayout *layout;
     gint width, height, bold_width, bold_height;
+    gint pad_left, pad_right;
     gchar *markup;
-    GtkWidget *label;
     
-    /*This is needed because button_data->label is not a GtkWidget*/
-    label = gtk_label_new(dir_name);
-    layout = gtk_widget_create_pango_layout (label, dir_name);
+    layout = gtk_widget_create_pango_layout (button_data->label, dir_name);
     pango_layout_get_pixel_size (layout, &width, &height);
-  
+
     markup = g_markup_printf_escaped ("<b>%s</b>", dir_name);
     pango_layout_set_markup (layout, markup, -1);
     g_free (markup);
 
     pango_layout_get_pixel_size (layout, &bold_width, &bold_height);
 
-    /*Fixme-this works but throws runtime warnings about not being a GtkWidget*/
-    gtk_widget_set_size_request (button_data->label,
-        			 MAX (width, bold_width),
-        			 MAX (height, bold_height));
-    
+    pad_left = (bold_width - width) / 2;
+    pad_right = (bold_width - width) / 2;
+
+    gtk_widget_set_margin_start (GTK_WIDGET (button_data->label), pad_left);
+    gtk_widget_set_margin_end (GTK_WIDGET (button_data->label), pad_right);
+
     g_object_unref (layout);
-    /*recommended approach to freeing a never-packed GtkWidget*/
-    g_object_ref_sink(G_OBJECT(label));
-    gtk_widget_destroy (label);
-    g_object_unref (label);
 }
 
 #else /* GTK_CHECK_VERSION(3,0,0) */
@@ -1679,24 +1674,20 @@ caja_path_bar_update_button_appearance (ButtonData *button_data)
 
             markup = g_markup_printf_escaped ("<b>%s</b>", dir_name);
             gtk_label_set_markup (GTK_LABEL (button_data->label), markup);
-            g_free (markup);
+#if GTK_CHECK_VERSION(3,0,0)
+            gtk_widget_set_margin_end (GTK_WIDGET (button_data->label), 0);
+            gtk_widget_set_margin_start (GTK_WIDGET (button_data->label), 0);
+#endif
+            g_free(markup);
         }
         else
         {
             gtk_label_set_text (GTK_LABEL (button_data->label), dir_name);
+#if GTK_CHECK_VERSION(3,0,0)
+            set_label_padding_size (button_data);
+#endif
         }
     }
-
-#if GTK_CHECK_VERSION(3,0,0)
-    /* FIXME: Maybe we dont need this alignment at all and we can
-     * use GtkMisc aligments or even GtkWidget:halign/valign center.
-     *
-     * The following function ensures that the alignment will always
-     * request the same size whether the button's text is bold or not.
-     */
-    set_label_size_request (button_data);
-#endif
-
 
     if (button_data->image != NULL)
     {
