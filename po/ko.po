@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-01 10:19+0300\n"
-"PO-Revision-Date: 2016-08-02 16:12+0000\n"
-"Last-Translator: 박정규(Jung-Kyu Park) <bagjunggyu@gmail.com>\n"
+"POT-Creation-Date: 2016-08-23 13:33+0300\n"
+"PO-Revision-Date: 2016-08-23 10:33+0000\n"
+"Last-Translator: monsta <monsta@inbox.ru>\n"
 "Language-Team: Korean (http://www.transifex.com/mate/MATE/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -358,13 +358,9 @@ msgstr "개체에 추가할 꼬리표를 끌어 놓으십시오"
 
 #. translators: this is the name of an emblem
 #: ../data/browser.xml.h:69 ../src/caja-emblem-sidebar.c:990
-#: ../src/caja-property-browser.c:1944
+#: ../src/caja-property-browser.c:2004
 msgid "Erase"
 msgstr "지우기"
-
-#: ../data/caja.xml.in.h:1
-msgid "Saved search"
-msgstr "저장된 검색 결과"
 
 #: ../data/caja.appdata.xml.in.h:1
 msgid "File manager for the MATE desktop environment"
@@ -379,6 +375,10 @@ msgid ""
 "extensible through a plugin system, similar to that of GNOME Nautilus, of "
 "which Caja is a fork. </p>"
 msgstr "<p> 카하는 마테 데스크톱의 공식 파일 관리자 프로그램입니다. 디렉터리를 탐색하고, 파일을 미리 살펴볼 수 있으며 관련 파일에 대한 프로그램을 실행할 수 있습니다. 또한 마테 데스크톱의 아이콘을 처리하는 역할을 담당합니다. 로컬 및 원격 파일 시스템에 대해 동작합니다. </p> <p> 카하는 플러그인 시스템으로 자유롭게 확장할 수 있으며, 동작 방식은 카하가 나온 그놈 노틸러스와 비슷합니다. </p>"
+
+#: ../data/caja.xml.in.h:1
+msgid "Saved search"
+msgstr "저장된 검색 결과"
 
 #: ../eel/eel-canvas.c:1443 ../eel/eel-canvas.c:1444
 msgid "X"
@@ -560,9 +560,9 @@ msgstr "항상 이 동작 실행(_A)"
 #. label, accelerator
 #. add the "Eject" menu item
 #: ../libcaja-private/caja-autorun.c:1163
-#: ../src/file-manager/fm-directory-view.c:7495
-#: ../src/file-manager/fm-directory-view.c:7523
-#: ../src/file-manager/fm-directory-view.c:7604
+#: ../src/file-manager/fm-directory-view.c:7500
+#: ../src/file-manager/fm-directory-view.c:7528
+#: ../src/file-manager/fm-directory-view.c:7609
 #: ../src/file-manager/fm-tree-view.c:1382 ../src/caja-places-sidebar.c:2742
 msgid "_Eject"
 msgstr "꺼내기(_E)"
@@ -571,9 +571,9 @@ msgstr "꺼내기(_E)"
 #. label, accelerator
 #. add the "Unmount" menu item
 #: ../libcaja-private/caja-autorun.c:1176
-#: ../src/file-manager/fm-directory-view.c:7491
-#: ../src/file-manager/fm-directory-view.c:7519
-#: ../src/file-manager/fm-directory-view.c:7600
+#: ../src/file-manager/fm-directory-view.c:7496
+#: ../src/file-manager/fm-directory-view.c:7524
+#: ../src/file-manager/fm-directory-view.c:7605
 #: ../src/file-manager/fm-tree-view.c:1373 ../src/caja-places-sidebar.c:2735
 msgid "_Unmount"
 msgstr "마운트 해제(_U)"
@@ -602,7 +602,7 @@ msgstr "클립보드에 저장된 글자를 붙여 넣습니다"
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-clipboard.c:470
-#: ../src/file-manager/fm-directory-view.c:7424
+#: ../src/file-manager/fm-directory-view.c:7429
 msgid "Select _All"
 msgstr "모두 선택(_A)"
 
@@ -625,7 +625,7 @@ msgstr "기본값 사용(_F)"
 
 #: ../libcaja-private/caja-column-utilities.c:44
 #: ../libcaja-private/caja-mime-application-chooser.c:278
-#: ../src/file-manager/fm-list-view.c:1773
+#: ../src/file-manager/fm-list-view.c:1775
 msgid "Name"
 msgstr "이름"
 
@@ -744,7 +744,7 @@ msgstr "파일을 휴지통으로 옮기기 전의 위치입니다"
 #: ../libcaja-private/caja-customization-data.c:431
 #: ../libcaja-private/caja-file-conflict-dialog.c:663
 #: ../libcaja-private/caja-mime-application-chooser.c:449
-#: ../src/caja-property-browser.c:1991
+#: ../src/caja-property-browser.c:2051
 msgid "Reset"
 msgstr "초기화"
 
@@ -752,23 +752,6 @@ msgstr "초기화"
 #: ../libcaja-private/caja-desktop-icon-file.c:158
 msgid "on the desktop"
 msgstr "바탕 화면"
-
-#: ../libcaja-private/caja-desktop-link-monitor.c:105
-#, c-format
-msgid "You cannot move the volume \"%s\" to the trash."
-msgstr "볼륨 \"%s\"(을)를 휴지통으로 옮길 수 없습니다."
-
-#: ../libcaja-private/caja-desktop-link-monitor.c:116
-msgid ""
-"If you want to eject the volume, please use \"Eject\" in the popup menu of "
-"the volume."
-msgstr "볼륨을 꺼내고 싶으면 볼륨의 팝업 메뉴에서 \"꺼내기\"를 사용하십시오."
-
-#: ../libcaja-private/caja-desktop-link-monitor.c:127
-msgid ""
-"If you want to unmount the volume, please use \"Unmount Volume\" in the "
-"popup menu of the volume."
-msgstr "볼륨을 꺼내고 싶으면 볼륨 아이콘의 팝업 메뉴에서 \"볼륨 마운트해제\"를 사용하십시오."
 
 #. Note to translators: If it's hard to compose a good home
 #. * icon name from the user name, you can use a string without
@@ -1054,8 +1037,8 @@ msgstr[0] "대략 %'d시간"
 #. * (e.g. "folder", "plain text") to file type for symbolic link
 #. * to that kind of file (e.g. "link to folder").
 #: ../libcaja-private/caja-file-operations.c:377
-#: ../libcaja-private/caja-file.c:6438
-#: ../src/file-manager/fm-directory-view.c:10616
+#: ../libcaja-private/caja-file.c:6409
+#: ../src/file-manager/fm-directory-view.c:10622
 #, c-format
 msgid "Link to %s"
 msgstr "%s에 링크"
@@ -1686,12 +1669,12 @@ msgstr "휴지통 비우는 중"
 msgid "Unable to mark launcher trusted (executable)"
 msgstr "실행 아이콘을 신뢰한다고(실행 가능) 표시할 수 없습니다"
 
-#: ../libcaja-private/caja-file-utilities.c:1400
+#: ../libcaja-private/caja-file-utilities.c:1207
 #, c-format
 msgid "Could not determine original location of \"%s\" "
 msgstr "\"%s\"의 원래 위치를 알 수 없습니다"
 
-#: ../libcaja-private/caja-file-utilities.c:1404
+#: ../libcaja-private/caja-file-utilities.c:1211
 msgid "The item cannot be restored from trash"
 msgstr "항목을 휴지통에서 되살릴 수 없습니다"
 
@@ -1759,7 +1742,7 @@ msgid "today at 00:00:00 PM"
 msgstr "오늘 오후 00:00:00"
 
 #: ../libcaja-private/caja-file.c:4476
-#: ../src/caja-file-management-properties.c:520
+#: ../src/caja-file-management-properties.c:519
 msgid "today at %-I:%M:%S %p"
 msgstr "오늘 %p %-I:%M:%S"
 
@@ -1873,45 +1856,45 @@ msgstr "00/00/00"
 msgid "%m/%d/%y"
 msgstr "%y/%m/%d"
 
-#: ../libcaja-private/caja-file.c:5175
+#: ../libcaja-private/caja-file.c:5146
 #, c-format
 msgid "Not allowed to set permissions"
 msgstr "접근 권한을 설정하도록 허용되지 않았습니다"
 
-#: ../libcaja-private/caja-file.c:5469
+#: ../libcaja-private/caja-file.c:5440
 #, c-format
 msgid "Not allowed to set owner"
 msgstr "소유자를 설정하도록 허용되지 않았습니다"
 
-#: ../libcaja-private/caja-file.c:5487
+#: ../libcaja-private/caja-file.c:5458
 #, c-format
 msgid "Specified owner '%s' doesn't exist"
 msgstr "지정한 소유자 '%s'이(가) 존재하지 않습니다"
 
-#: ../libcaja-private/caja-file.c:5747
+#: ../libcaja-private/caja-file.c:5718
 #, c-format
 msgid "Not allowed to set group"
 msgstr "그룹을 설정하도록 허용되지 않았습니다"
 
-#: ../libcaja-private/caja-file.c:5765
+#: ../libcaja-private/caja-file.c:5736
 #, c-format
 msgid "Specified group '%s' doesn't exist"
 msgstr "지정한 그룹 '%s'이(가) 존재하지 않습니다"
 
-#: ../libcaja-private/caja-file.c:5919
-#: ../src/file-manager/fm-directory-view.c:2446
+#: ../libcaja-private/caja-file.c:5890
+#: ../src/file-manager/fm-directory-view.c:2450
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
 msgstr[0] "항목 %'u개"
 
-#: ../libcaja-private/caja-file.c:5920
+#: ../libcaja-private/caja-file.c:5891
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
 msgstr[0] "폴더 %'u개"
 
-#: ../libcaja-private/caja-file.c:5921
+#: ../libcaja-private/caja-file.c:5892
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
@@ -1919,49 +1902,49 @@ msgstr[0] "파일 %'u개"
 
 #. Do this in a separate stage so that we don't have to put G_GUINT64_FORMAT
 #. in the translated string
-#: ../libcaja-private/caja-file.c:6008
+#: ../libcaja-private/caja-file.c:5979
 msgid "%"
 msgstr "%"
 
-#: ../libcaja-private/caja-file.c:6009
+#: ../libcaja-private/caja-file.c:5980
 #, c-format
 msgid "%s (%s bytes)"
 msgstr "%s (%s 바이트)"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6324 ../libcaja-private/caja-file.c:6340
+#: ../libcaja-private/caja-file.c:6295 ../libcaja-private/caja-file.c:6311
 msgid "? items"
 msgstr "? 항목"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6330
+#: ../libcaja-private/caja-file.c:6301
 msgid "? bytes"
 msgstr "? 바이트"
 
-#: ../libcaja-private/caja-file.c:6345
+#: ../libcaja-private/caja-file.c:6316
 msgid "unknown type"
 msgstr "알 수 없는 형식"
 
-#: ../libcaja-private/caja-file.c:6348
+#: ../libcaja-private/caja-file.c:6319
 msgid "unknown MIME type"
 msgstr "알 수 없는 MIME 형식"
 
 #. Fallback, use for both unknown attributes and attributes
 #. * for which we have no more appropriate default.
-#: ../libcaja-private/caja-file.c:6362
+#: ../libcaja-private/caja-file.c:6333
 #: ../src/file-manager/fm-properties-window.c:1359
 msgid "unknown"
 msgstr "알 수 없음"
 
-#: ../libcaja-private/caja-file.c:6412
+#: ../libcaja-private/caja-file.c:6383
 msgid "program"
 msgstr "프로그램"
 
-#: ../libcaja-private/caja-file.c:6432
+#: ../libcaja-private/caja-file.c:6403
 msgid "link"
 msgstr "링크"
 
-#: ../libcaja-private/caja-file.c:6454
+#: ../libcaja-private/caja-file.c:6425
 msgid "link (broken)"
 msgstr "링크(깨짐)"
 
@@ -1970,77 +1953,77 @@ msgstr "링크(깨짐)"
 msgid "The selection rectangle"
 msgstr "선택한 영역"
 
-#: ../libcaja-private/caja-mime-actions.c:755
+#: ../libcaja-private/caja-mime-actions.c:718
 #, c-format
 msgid "The Link \"%s\" is Broken."
 msgstr "\"%s\" 링크가 깨져있습니다."
 
-#: ../libcaja-private/caja-mime-actions.c:759
+#: ../libcaja-private/caja-mime-actions.c:722
 #, c-format
 msgid "The Link \"%s\" is Broken. Move it to Trash?"
 msgstr "\"%s\" 링크가 깨져있습니다. 휴지통에 버리시겠습니까?"
 
-#: ../libcaja-private/caja-mime-actions.c:766
+#: ../libcaja-private/caja-mime-actions.c:729
 msgid "This link cannot be used, because it has no target."
 msgstr "이 링크는 대상이 없기 때문에 쓸 수 없습니다."
 
-#: ../libcaja-private/caja-mime-actions.c:770
+#: ../libcaja-private/caja-mime-actions.c:733
 #, c-format
 msgid "This link cannot be used, because its target \"%s\" doesn't exist."
 msgstr "이 링크는 대상인 \"%s\" 파일이 없기 때문에 쓸 수 없습니다."
 
 #. name, stock id
 #. label, accelerator
-#: ../libcaja-private/caja-mime-actions.c:781
-#: ../src/file-manager/fm-directory-view.c:7452
-#: ../src/file-manager/fm-directory-view.c:7584
-#: ../src/file-manager/fm-directory-view.c:8684
-#: ../src/file-manager/fm-directory-view.c:9009
+#: ../libcaja-private/caja-mime-actions.c:744
+#: ../src/file-manager/fm-directory-view.c:7457
+#: ../src/file-manager/fm-directory-view.c:7589
+#: ../src/file-manager/fm-directory-view.c:8690
+#: ../src/file-manager/fm-directory-view.c:9015
 #: ../src/file-manager/fm-tree-view.c:1346
 msgid "Mo_ve to Trash"
 msgstr "휴지통에 버리기(_V)"
 
-#: ../libcaja-private/caja-mime-actions.c:843
+#: ../libcaja-private/caja-mime-actions.c:806
 #, c-format
 msgid "Do you want to run \"%s\", or display its contents?"
 msgstr "\"%s\"(을)를 실행 하시겠습니까? 아니면 내용을 보시겠습니까?"
 
-#: ../libcaja-private/caja-mime-actions.c:845
+#: ../libcaja-private/caja-mime-actions.c:808
 #, c-format
 msgid "\"%s\" is an executable text file."
 msgstr "\"%s\"(은)는 실행할 수 있는 텍스트 파일입니다."
 
-#: ../libcaja-private/caja-mime-actions.c:851
+#: ../libcaja-private/caja-mime-actions.c:814
 msgid "Run in _Terminal"
 msgstr "터미널에서 실행(_T)"
 
-#: ../libcaja-private/caja-mime-actions.c:852
+#: ../libcaja-private/caja-mime-actions.c:815
 msgid "_Display"
 msgstr "표시(_D)"
 
-#: ../libcaja-private/caja-mime-actions.c:855
+#: ../libcaja-private/caja-mime-actions.c:818
 #: ../src/caja-autorun-software.c:258
 msgid "_Run"
 msgstr "실행(_R)"
 
-#: ../libcaja-private/caja-mime-actions.c:1209
-#: ../src/file-manager/fm-directory-view.c:656
+#: ../libcaja-private/caja-mime-actions.c:1172
+#: ../src/file-manager/fm-directory-view.c:660
 msgid "Are you sure you want to open all files?"
 msgstr "정말로 모든 파일을 여시겠습니까?"
 
-#: ../libcaja-private/caja-mime-actions.c:1212
+#: ../libcaja-private/caja-mime-actions.c:1175
 #, c-format
 msgid "This will open %d separate tab."
 msgid_plural "This will open %d separate tabs."
 msgstr[0] "탭 %d개를 각각 엽니다."
 
-#: ../libcaja-private/caja-mime-actions.c:1217 ../src/caja-location-bar.c:194
+#: ../libcaja-private/caja-mime-actions.c:1180 ../src/caja-location-bar.c:194
 #, c-format
 msgid "This will open %d separate window."
 msgid_plural "This will open %d separate windows."
 msgstr[0] "창 %d개를 각각 엽니다."
 
-#: ../libcaja-private/caja-mime-actions.c:1295
+#: ../libcaja-private/caja-mime-actions.c:1258
 #: ../src/caja-window-manage-views.c:2117
 #: ../src/caja-window-manage-views.c:2125
 #: ../src/caja-window-manage-views.c:2145
@@ -2051,70 +2034,70 @@ msgstr[0] "창 %d개를 각각 엽니다."
 msgid "Could not display \"%s\"."
 msgstr "\"%s\"을(를) 표시할 수 없습니다."
 
-#: ../libcaja-private/caja-mime-actions.c:1382
+#: ../libcaja-private/caja-mime-actions.c:1345
 msgid "The file is of an unknown type"
 msgstr "파일이 올바른 타입이 아닙니다"
 
-#: ../libcaja-private/caja-mime-actions.c:1386
+#: ../libcaja-private/caja-mime-actions.c:1349
 #, c-format
 msgid "There is no application installed for %s files"
 msgstr "%s 파일을 처리할 수 있는 프로그램이 없습니다"
 
-#: ../libcaja-private/caja-mime-actions.c:1401
+#: ../libcaja-private/caja-mime-actions.c:1364
 msgid "_Select Application"
 msgstr "프로그램 선택(_S)"
 
-#: ../libcaja-private/caja-mime-actions.c:1439
+#: ../libcaja-private/caja-mime-actions.c:1402
 msgid "There was an internal error trying to search for applications:"
 msgstr "프로그램을 찾는 데 내부 오류가 발생했습니다:"
 
-#: ../libcaja-private/caja-mime-actions.c:1441
+#: ../libcaja-private/caja-mime-actions.c:1404
 msgid "Unable to search for application"
 msgstr "프로그램을 찾을 수 없습니다"
 
-#: ../libcaja-private/caja-mime-actions.c:1567
+#: ../libcaja-private/caja-mime-actions.c:1530
 #, c-format
 msgid ""
 "There is no application installed for %s files.\n"
 "Do you want to search for an application to open this file?"
 msgstr "%s 파일을 처리할 수 있는 프로그램이 없습니다.\n이 파일을 열 수 있는 프로그램을 찾으시겠습니까?"
 
-#: ../libcaja-private/caja-mime-actions.c:1731
+#: ../libcaja-private/caja-mime-actions.c:1694
 msgid "Untrusted application launcher"
 msgstr "신뢰할 수 없는 프로그램 실행 아이콘"
 
-#: ../libcaja-private/caja-mime-actions.c:1734
+#: ../libcaja-private/caja-mime-actions.c:1697
 #, c-format
 msgid ""
 "The application launcher \"%s\" has not been marked as trusted. If you do "
 "not know the source of this file, launching it may be unsafe."
 msgstr "\"%s\" 프로그램 실행 아이콘은 신뢰한다고 표시하지 않았습니다. 출처를 모른다면 이 아이콘을 실행했을 때 위험할 수 있습니다."
 
-#: ../libcaja-private/caja-mime-actions.c:1749
+#: ../libcaja-private/caja-mime-actions.c:1712
 msgid "_Launch Anyway"
 msgstr "그래도 실행(_L)"
 
-#: ../libcaja-private/caja-mime-actions.c:1753
+#: ../libcaja-private/caja-mime-actions.c:1716
 msgid "Mark as _Trusted"
 msgstr "신뢰한다고 표시(_T)"
 
-#: ../libcaja-private/caja-mime-actions.c:2049
-#: ../libcaja-private/caja-mime-actions.c:2355
-#: ../src/file-manager/fm-directory-view.c:6470
+#: ../libcaja-private/caja-mime-actions.c:2012
+#: ../libcaja-private/caja-mime-actions.c:2318
+#: ../src/file-manager/fm-directory-view.c:6475
 msgid "Unable to mount location"
 msgstr "위치를 마운트할 수 없습니다"
 
-#: ../libcaja-private/caja-mime-actions.c:2443
-#: ../src/file-manager/fm-directory-view.c:6644
+#: ../libcaja-private/caja-mime-actions.c:2406
+#: ../src/file-manager/fm-directory-view.c:6649
 msgid "Unable to start location"
 msgstr "위치를 시작할 수 없습니다"
 
-#: ../libcaja-private/caja-mime-actions.c:2536
+#: ../libcaja-private/caja-mime-actions.c:2499
 #, c-format
 msgid "Opening \"%s\"."
 msgstr "\"%s\"을(를) 여는 중."
 
-#: ../libcaja-private/caja-mime-actions.c:2541
+#: ../libcaja-private/caja-mime-actions.c:2504
 #, c-format
 msgid "Opening %d item."
 msgid_plural "Opening %d items."
@@ -2213,8 +2196,8 @@ msgstr "찾아보기(_B)..."
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-open-with-dialog.c:970
-#: ../src/file-manager/fm-directory-view.c:7368
-#: ../src/file-manager/fm-directory-view.c:8878
+#: ../src/file-manager/fm-directory-view.c:7373
+#: ../src/file-manager/fm-directory-view.c:8884
 #: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2684
 msgid "_Open"
 msgstr "열기(_O)"
@@ -3419,7 +3402,7 @@ msgstr "자동시작 확인"
 #: ../data/caja-browser.desktop.in.in.h:1
 #: ../data/caja-folder-handler.desktop.in.in.h:1
 #: ../data/caja.desktop.in.in.h:1 ../src/caja-spatial-window.c:382
-#: ../src/caja-window-menus.c:536 ../src/caja-window.c:179
+#: ../src/caja-window-menus.c:532 ../src/caja-window.c:183
 msgid "Caja"
 msgstr "카하"
 
@@ -3432,7 +3415,7 @@ msgid "Browse the file system with the file manager"
 msgstr "파일 관리자로 파일 시스템을 찾아봅니다"
 
 #. tooltip
-#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:898
+#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:894
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
 msgstr "이 컴퓨터에서 접근할 수 있는 모든 로컬 및 원격 디스크와 폴더를 찾아봅니다"
@@ -3451,7 +3434,7 @@ msgstr "내 폴더"
 
 #. tooltip
 #: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:522
-#: ../src/caja-window-menus.c:893
+#: ../src/caja-window-menus.c:889
 msgid "Open your personal folder"
 msgstr "개인 폴더를 엽니다"
 
@@ -3459,121 +3442,121 @@ msgstr "개인 폴더를 엽니다"
 msgid "File Manager"
 msgstr "파일 관리자"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:719
+#: ../src/file-manager/fm-desktop-icon-view.c:722
 msgid "Background"
 msgstr "배경"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:796
-#: ../src/file-manager/fm-directory-view.c:7400
-#: ../src/file-manager/fm-directory-view.c:9078
+#: ../src/file-manager/fm-desktop-icon-view.c:799
+#: ../src/file-manager/fm-directory-view.c:7405
+#: ../src/file-manager/fm-directory-view.c:9084
 msgid "E_mpty Trash"
 msgstr "휴지통 비우기(_M)"
 
 #. label, accelerator
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:810
-#: ../src/file-manager/fm-directory-view.c:7364
+#: ../src/file-manager/fm-desktop-icon-view.c:813
+#: ../src/file-manager/fm-directory-view.c:7369
 msgid "Create L_auncher..."
 msgstr "실행 아이콘 만들기(_A)..."
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:812
-#: ../src/file-manager/fm-directory-view.c:7365
+#: ../src/file-manager/fm-desktop-icon-view.c:815
+#: ../src/file-manager/fm-directory-view.c:7370
 msgid "Create a new launcher"
 msgstr "새 실행 아이콘을 만듭니다"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:819
+#: ../src/file-manager/fm-desktop-icon-view.c:822
 msgid "Change Desktop _Background"
 msgstr "바탕 화면 배경 바꾸기(_B)"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:821
+#: ../src/file-manager/fm-desktop-icon-view.c:824
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr "바탕 화면 배경의 무늬나 색을 설정할 수 있는 창을 보입니다"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:828
+#: ../src/file-manager/fm-desktop-icon-view.c:831
 msgid "Empty Trash"
 msgstr "휴지통 비우기"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:830
-#: ../src/file-manager/fm-directory-view.c:7401 ../src/caja-trash-bar.c:208
+#: ../src/file-manager/fm-desktop-icon-view.c:833
+#: ../src/file-manager/fm-directory-view.c:7406 ../src/caja-trash-bar.c:208
 msgid "Delete all items in the Trash"
 msgstr "휴지통에 있는 모든 항목을 지웁니다"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:930
+#: ../src/file-manager/fm-desktop-icon-view.c:933
 msgid "The desktop view encountered an error."
 msgstr "바탕 화면으로 보기가 시작할 때 오류가 발생하였습니다."
 
-#: ../src/file-manager/fm-desktop-icon-view.c:931
+#: ../src/file-manager/fm-desktop-icon-view.c:934
 msgid "The desktop view encountered an error while starting up."
 msgstr "바탕 화면 보기가 시작할 때 오류가 발생하였습니다."
 
-#: ../src/file-manager/fm-directory-view.c:658
+#: ../src/file-manager/fm-directory-view.c:662
 #, c-format
 msgid "This will open %'d separate tab."
 msgid_plural "This will open %'d separate tabs."
 msgstr[0] "탭 %'d개를 각각 엽니다다."
 
-#: ../src/file-manager/fm-directory-view.c:661
+#: ../src/file-manager/fm-directory-view.c:665
 #, c-format
 msgid "This will open %'d separate window."
 msgid_plural "This will open %'d separate windows."
 msgstr[0] "창 %'d개를 각각 엽니다."
 
-#: ../src/file-manager/fm-directory-view.c:1180
+#: ../src/file-manager/fm-directory-view.c:1184
 #: ../src/file-manager/fm-properties-window.c:6491
 #: ../src/caja-connect-server-dialog.c:731 ../src/caja-location-dialog.c:106
 msgid "There was an error displaying help."
 msgstr "도움말을 표시하는 데 오류가 발생했습니다."
 
-#: ../src/file-manager/fm-directory-view.c:1204
+#: ../src/file-manager/fm-directory-view.c:1208
 msgid "Select Items Matching"
 msgstr "해당하는 항목 선택"
 
-#: ../src/file-manager/fm-directory-view.c:1219
+#: ../src/file-manager/fm-directory-view.c:1223
 msgid "_Pattern:"
 msgstr "패턴(_P):"
 
-#: ../src/file-manager/fm-directory-view.c:1230
+#: ../src/file-manager/fm-directory-view.c:1234
 msgid "Examples: "
 msgstr "예제: "
 
-#: ../src/file-manager/fm-directory-view.c:1377
+#: ../src/file-manager/fm-directory-view.c:1381
 msgid "Save Search as"
 msgstr "검색 저장"
 
-#: ../src/file-manager/fm-directory-view.c:1409
+#: ../src/file-manager/fm-directory-view.c:1413
 msgid "Search _name:"
 msgstr "검색 이름(_N):"
 
-#: ../src/file-manager/fm-directory-view.c:1437
+#: ../src/file-manager/fm-directory-view.c:1441
 msgid "_Folder:"
 msgstr "폴더(_F):"
 
-#: ../src/file-manager/fm-directory-view.c:1450
+#: ../src/file-manager/fm-directory-view.c:1454
 msgid "Select Folder to Save Search In"
 msgstr "검색을 저장할 폴더를 선택하십시오"
 
-#: ../src/file-manager/fm-directory-view.c:2359
-#: ../src/file-manager/fm-directory-view.c:2396
+#: ../src/file-manager/fm-directory-view.c:2363
+#: ../src/file-manager/fm-directory-view.c:2400
 #, c-format
 msgid "\"%s\" selected"
 msgstr "\"%s\" 선택했습니다"
 
-#: ../src/file-manager/fm-directory-view.c:2361
+#: ../src/file-manager/fm-directory-view.c:2365
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
 msgstr[0] "폴더 %'d개를 선택했습니다"
 
-#: ../src/file-manager/fm-directory-view.c:2371
+#: ../src/file-manager/fm-directory-view.c:2375
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
@@ -3581,20 +3564,20 @@ msgstr[0] " (항목 %'d개 포함)"
 
 #. translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
-#: ../src/file-manager/fm-directory-view.c:2382
+#: ../src/file-manager/fm-directory-view.c:2386
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
 msgstr[0] " (항목 %'d개 모두 포함)"
 
-#: ../src/file-manager/fm-directory-view.c:2399
+#: ../src/file-manager/fm-directory-view.c:2403
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
 msgstr[0] "항목 %'d개를 선택했습니다"
 
 #. Folders selected also, use "other" terminology
-#: ../src/file-manager/fm-directory-view.c:2406
+#: ../src/file-manager/fm-directory-view.c:2410
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
@@ -3604,17 +3587,17 @@ msgstr[0] "기타 항목 %'d개를 선택했습니다"
 #. * needs to use something other than parentheses. The
 #. * first message gives the number of items selected;
 #. * the message in parentheses the size of those items.
-#: ../src/file-manager/fm-directory-view.c:2425
+#: ../src/file-manager/fm-directory-view.c:2429
 #, c-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-directory-view.c:2438
+#: ../src/file-manager/fm-directory-view.c:2442
 #, c-format
 msgid "Free space: %s"
 msgstr "남은 공간: %s"
 
-#: ../src/file-manager/fm-directory-view.c:2449
+#: ../src/file-manager/fm-directory-view.c:2453
 #, c-format
 msgid "%s, Free space: %s"
 msgstr "%s, 사용 가능한 공간: %s"
@@ -3623,7 +3606,7 @@ msgstr "%s, 사용 가능한 공간: %s"
 #. * might want to change "," to something else.
 #. * After the comma the amount of free space will
 #. * be shown.
-#: ../src/file-manager/fm-directory-view.c:2464
+#: ../src/file-manager/fm-directory-view.c:2468
 #, c-format
 msgid "%s, %s"
 msgstr "%s, %s"
@@ -3638,8 +3621,8 @@ msgstr "%s, %s"
 #. * and the number of items in those folders and the
 #. * message about the number of other items and the
 #. * total size of those items.
-#: ../src/file-manager/fm-directory-view.c:2483
-#: ../src/file-manager/fm-directory-view.c:2497
+#: ../src/file-manager/fm-directory-view.c:2487
+#: ../src/file-manager/fm-directory-view.c:2501
 #, c-format
 msgid "%s%s, %s"
 msgstr "%s%s, %s"
@@ -3651,52 +3634,52 @@ msgstr "%s%s, %s"
 #. * message about the number of other items and the
 #. * total size of those items. After the second comma
 #. * the free space is written.
-#: ../src/file-manager/fm-directory-view.c:2510
+#: ../src/file-manager/fm-directory-view.c:2514
 #, c-format
 msgid "%s%s, %s, %s"
 msgstr "%s%s, %s, %s"
 
-#: ../src/file-manager/fm-directory-view.c:4555
+#: ../src/file-manager/fm-directory-view.c:4560
 #: ../src/caja-information-panel.c:922
 #, c-format
 msgid "Open With %s"
 msgstr "%s(으)로 열기"
 
-#: ../src/file-manager/fm-directory-view.c:4557
+#: ../src/file-manager/fm-directory-view.c:4562
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
 msgstr[0] "\"%s\"(으)로 선택한 항목을 엽니다"
 
-#: ../src/file-manager/fm-directory-view.c:4646
+#: ../src/file-manager/fm-directory-view.c:4651
 msgid "Open parent location"
 msgstr "상위 위치 열기"
 
-#: ../src/file-manager/fm-directory-view.c:4647
+#: ../src/file-manager/fm-directory-view.c:4652
 msgid "Open parent location for the selected item"
 msgstr "선택한 항목의 상위 위치를 엽니다"
 
-#: ../src/file-manager/fm-directory-view.c:5505
+#: ../src/file-manager/fm-directory-view.c:5510
 #, c-format
 msgid "Run \"%s\" on any selected items"
 msgstr "선택한 항목에 대해 \"%s\" 실행"
 
-#: ../src/file-manager/fm-directory-view.c:5756
+#: ../src/file-manager/fm-directory-view.c:5761
 #, c-format
 msgid "Create Document from template \"%s\""
 msgstr "\"%s\" 형식의 서식을 이용하여 문서를 만듭니다."
 
-#: ../src/file-manager/fm-directory-view.c:6006
+#: ../src/file-manager/fm-directory-view.c:6011
 msgid "All executable files in this folder will appear in the Scripts menu."
 msgstr "이 폴더의 모든 실행 파일은 스크립트 메뉴에 나타납니다."
 
-#: ../src/file-manager/fm-directory-view.c:6008
+#: ../src/file-manager/fm-directory-view.c:6013
 msgid ""
 "Choosing a script from the menu will run that script with any selected items"
 " as input."
 msgstr " 메뉴에서 스크립트를 선택하면 선택한 어떤 항목을 입력으로 하여 스크립트를 실행합니다."
 
-#: ../src/file-manager/fm-directory-view.c:6010
+#: ../src/file-manager/fm-directory-view.c:6015
 msgid ""
 "All executable files in this folder will appear in the Scripts menu. Choosing a script from the menu will run that script.\n"
 "\n"
@@ -3719,124 +3702,124 @@ msgid ""
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI for current location in the inactive pane of a split-view window"
 msgstr "이 폴더의 모든 실행 파일이 스크립트 메뉴에 나타납니다. 메뉴에서 스크립트를 선택해 그 스크립트를 실행할 수 있습니다.\n\n로컬 폴더에서 실행할 때, 스크립트는 선택한 파일 이름을 전달합니다. 원격 폴더에서 실행할 때(예를 들어 웹이나 FTP 내용으로 폴더를 표시할 때), 스크립트는 아무 매개변수가 건네지지 않습니다.\n\n모든 경우에 다음 환경 변수를 설정합니다. 스크립트에 사용하는 환경 변수:\n\nCAJA_SCRIPT_SELECTED_FILE_PATHS:(로컬에서) 선택한 파일용 개행 범위 경로\n\nCAJA_SCRIPT_SELECTED_URIS: 선택한 파일용 개행 범위 URI \n\nCAJA_SCRIPT_CURRENT_URI: 현재 위치의 URI\n\nCAJA_SCRIPT_WINDOW_GEOMETRY: 현재 창의 위치와 크기\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_FILE_PATHS: 나눠 보기 창에서 사용하고 있지 않은 창 영역에 있는 선택한 파일의 경로 목록, 줄바꿈으로 구분(로컬의 경우에만 유효)\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: 나눠 보기 창에서 사용하고 있지 않은 창 영역에 있는 선택한 파일의 URI 목록, 줄바꿈으로 구분\n\nCAJA_SCRIPT_NEXT_PANE_CURRENT_URI: 나눠 보기 창에서 사용하고 있지 않은 창 영역에 있는 현재 위치의 URI"
 
-#: ../src/file-manager/fm-directory-view.c:6078
+#: ../src/file-manager/fm-directory-view.c:6083
 #: ../src/file-manager/fm-tree-view.c:1009
 #, c-format
 msgid "\"%s\" will be moved if you select the Paste command"
 msgstr "\"%s\"은(는) 붙여넣기 명령을 이용하면 옮깁니다."
 
-#: ../src/file-manager/fm-directory-view.c:6082
+#: ../src/file-manager/fm-directory-view.c:6087
 #: ../src/file-manager/fm-tree-view.c:1015
 #, c-format
 msgid "\"%s\" will be copied if you select the Paste command"
 msgstr "\"%s\"은(는) 붙여넣기 명령을 이용하면 복사합니다."
 
-#: ../src/file-manager/fm-directory-view.c:6089
+#: ../src/file-manager/fm-directory-view.c:6094
 #, c-format
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be moved if you select the Paste command"
 msgstr[0] "선택한 항목 %'d개는 붙여넣기 명령을 이용하면 옮깁니다."
 
-#: ../src/file-manager/fm-directory-view.c:6096
+#: ../src/file-manager/fm-directory-view.c:6101
 #, c-format
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be copied if you select the Paste command"
 msgstr[0] "선택한 항목 %'d개는 붙여넣기 명령을 이용하면 복사합니다."
 
-#: ../src/file-manager/fm-directory-view.c:6276
+#: ../src/file-manager/fm-directory-view.c:6281
 #: ../src/file-manager/fm-tree-view.c:1055
 msgid "There is nothing on the clipboard to paste."
 msgstr "클립보드에서 붙여 넣을 것이 없습니다."
 
-#: ../src/file-manager/fm-directory-view.c:6491
+#: ../src/file-manager/fm-directory-view.c:6496
 msgid "Unable to unmount location"
 msgstr "위치를 마운트 해제할 수 없습니다"
 
-#: ../src/file-manager/fm-directory-view.c:6512
+#: ../src/file-manager/fm-directory-view.c:6517
 msgid "Unable to eject location"
 msgstr "위치를 뺄 수 없습니다"
 
-#: ../src/file-manager/fm-directory-view.c:6527
+#: ../src/file-manager/fm-directory-view.c:6532
 msgid "Unable to stop drive"
 msgstr "드라이브를 중지할 수 없습니다"
 
-#: ../src/file-manager/fm-directory-view.c:7084
+#: ../src/file-manager/fm-directory-view.c:7089
 #, c-format
 msgid "Connect to Server %s"
 msgstr "%s 서버에 연결"
 
-#: ../src/file-manager/fm-directory-view.c:7089
-#: ../src/file-manager/fm-directory-view.c:8297
-#: ../src/file-manager/fm-directory-view.c:8389
-#: ../src/file-manager/fm-directory-view.c:8499
+#: ../src/file-manager/fm-directory-view.c:7094
+#: ../src/file-manager/fm-directory-view.c:8303
+#: ../src/file-manager/fm-directory-view.c:8395
+#: ../src/file-manager/fm-directory-view.c:8505
 msgid "_Connect"
 msgstr "연결(_C)"
 
-#: ../src/file-manager/fm-directory-view.c:7103
+#: ../src/file-manager/fm-directory-view.c:7108
 msgid "Link _name:"
 msgstr "링크 이름(_N):"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7342
+#: ../src/file-manager/fm-directory-view.c:7347
 msgid "Create _Document"
 msgstr "문서 만들기(_D)"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7343
+#: ../src/file-manager/fm-directory-view.c:7348
 msgid "Open Wit_h"
 msgstr "다른 프로그램으로 열기(_H)"
 
-#: ../src/file-manager/fm-directory-view.c:7344
+#: ../src/file-manager/fm-directory-view.c:7349
 msgid "Choose a program with which to open the selected item"
 msgstr "선택한 항목을 열 프로그램을 선택합니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7346
-#: ../src/file-manager/fm-directory-view.c:7625
+#: ../src/file-manager/fm-directory-view.c:7351
+#: ../src/file-manager/fm-directory-view.c:7630
 msgid "_Properties"
 msgstr "속성(_P)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7347
-#: ../src/file-manager/fm-directory-view.c:9065
+#: ../src/file-manager/fm-directory-view.c:7352
+#: ../src/file-manager/fm-directory-view.c:9071
 msgid "View or modify the properties of each selected item"
 msgstr "각각 선택한 항목의 속성을 보거나 고칩니다"
 
 #. name, stock id
 #. label, accelerator
 #. add the "create folder" menu item
-#: ../src/file-manager/fm-directory-view.c:7354
+#: ../src/file-manager/fm-directory-view.c:7359
 #: ../src/file-manager/fm-tree-view.c:1298
 msgid "Create _Folder"
 msgstr "폴더 만들기(_F)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7355
+#: ../src/file-manager/fm-directory-view.c:7360
 msgid "Create a new empty folder inside this folder"
 msgstr "이 폴더안에 새로운 빈 폴더를 만듭니다"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7357
+#: ../src/file-manager/fm-directory-view.c:7362
 msgid "No templates installed"
 msgstr "서식을 설치하지 않았습니다"
 
 #. name, stock id
 #. translators: this is used to indicate that a file doesn't contain anything
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7360
+#: ../src/file-manager/fm-directory-view.c:7365
 msgid "_Empty File"
 msgstr "빈 파일(_E)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7361
+#: ../src/file-manager/fm-directory-view.c:7366
 msgid "Create a new empty file inside this folder"
 msgstr "이 폴더안에 새로운 빈 파일을 만듭니다"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7369
+#: ../src/file-manager/fm-directory-view.c:7374
 msgid "Open the selected item in this window"
 msgstr "선택한 항목을 이창에서 엽니다"
 
@@ -3845,91 +3828,91 @@ msgstr "선택한 항목을 이창에서 엽니다"
 #. Location-specific actions
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7376
-#: ../src/file-manager/fm-directory-view.c:7557
+#: ../src/file-manager/fm-directory-view.c:7381
+#: ../src/file-manager/fm-directory-view.c:7562
 msgid "Open in Navigation Window"
 msgstr "새 찾아보기 창에서 열기"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7377
+#: ../src/file-manager/fm-directory-view.c:7382
 msgid "Open each selected item in a navigation window"
 msgstr "각각 선택한 항목을 새 찾아보기 창에서 엽니다"
 
 #. name, stock id
 #. label, accelerator
 #. add the "open in new tab" menu item
-#: ../src/file-manager/fm-directory-view.c:7380
-#: ../src/file-manager/fm-directory-view.c:7561
-#: ../src/file-manager/fm-directory-view.c:8629
-#: ../src/file-manager/fm-directory-view.c:8955
+#: ../src/file-manager/fm-directory-view.c:7385
+#: ../src/file-manager/fm-directory-view.c:7566
+#: ../src/file-manager/fm-directory-view.c:8635
+#: ../src/file-manager/fm-directory-view.c:8961
 #: ../src/file-manager/fm-tree-view.c:1278 ../src/caja-places-sidebar.c:2692
 msgid "Open in New _Tab"
 msgstr "새 탭에서 열기(_T)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7381
+#: ../src/file-manager/fm-directory-view.c:7386
 msgid "Open each selected item in a new tab"
 msgstr "각각 선택한 항목을 새 탭에서 엽니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7384
-#: ../src/file-manager/fm-directory-view.c:7566
+#: ../src/file-manager/fm-directory-view.c:7389
+#: ../src/file-manager/fm-directory-view.c:7571
 msgid "Open in _Folder Window"
 msgstr "폴더 창에서 열기(_F)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7385
+#: ../src/file-manager/fm-directory-view.c:7390
 msgid "Open each selected item in a folder window"
 msgstr "각각 선택한 항목을 폴더 창에서 엽니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7388
+#: ../src/file-manager/fm-directory-view.c:7393
 msgid "Other _Application..."
 msgstr "다른 프로그램(_A)..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7389
-#: ../src/file-manager/fm-directory-view.c:7393
+#: ../src/file-manager/fm-directory-view.c:7394
+#: ../src/file-manager/fm-directory-view.c:7398
 msgid "Choose another application with which to open the selected item"
 msgstr "선택한 항목을 열 다른 프로그램을 선택합니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7392
+#: ../src/file-manager/fm-directory-view.c:7397
 msgid "Open With Other _Application..."
 msgstr "다른 프로그램으로 열기(_A)..."
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7396
+#: ../src/file-manager/fm-directory-view.c:7401
 msgid "_Open Scripts Folder"
 msgstr "스크립트 폴더 열기(_O)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7397
+#: ../src/file-manager/fm-directory-view.c:7402
 msgid "Show the folder containing the scripts that appear in this menu"
 msgstr "이 메뉴에서 보이는 스크립트를 포함하는 폴더 보기"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7405
+#: ../src/file-manager/fm-directory-view.c:7410
 msgid "Prepare the selected files to be moved with a Paste command"
 msgstr "파일 붙여넣기 명령으로 선택한 파일을 옮길 준비를 합니다"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7409
+#: ../src/file-manager/fm-directory-view.c:7414
 msgid "Prepare the selected files to be copied with a Paste command"
 msgstr "파일 붙여넣기 명령으로 선택한 파일을 복사할 준비를 합니다"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7413
+#: ../src/file-manager/fm-directory-view.c:7418
 msgid "Move or copy files previously selected by a Cut or Copy command"
 msgstr "이전에 선택한 파일을 파일 잘라내기나 파일 복사 명령으로 옮기거나 복사합니다"
 
@@ -3937,139 +3920,139 @@ msgstr "이전에 선택한 파일을 파일 잘라내기나 파일 복사 명�
 #. accelerator for paste
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7418
-#: ../src/file-manager/fm-directory-view.c:7579
+#: ../src/file-manager/fm-directory-view.c:7423
+#: ../src/file-manager/fm-directory-view.c:7584
 #: ../src/file-manager/fm-tree-view.c:1330
 msgid "_Paste Into Folder"
 msgstr "폴더에 붙여넣기(_P)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7419
+#: ../src/file-manager/fm-directory-view.c:7424
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into the "
 "selected folder"
 msgstr "이전에 파일 잘라내기나 파일 복사 명령으로 선택한 파일을 옮기거나 복사합니다"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7421
+#: ../src/file-manager/fm-directory-view.c:7426
 msgid "Cop_y to"
 msgstr "다음으로 복사(_Y)"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7422
+#: ../src/file-manager/fm-directory-view.c:7427
 msgid "M_ove to"
 msgstr "다음으로 이동(_O)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7425
+#: ../src/file-manager/fm-directory-view.c:7430
 msgid "Select all items in this window"
 msgstr "이 창에 있는 모든 항목을 선택합니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7428
+#: ../src/file-manager/fm-directory-view.c:7433
 msgid "Select I_tems Matching..."
 msgstr "해당하는 항목 선택(_T)..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7429
+#: ../src/file-manager/fm-directory-view.c:7434
 msgid "Select items in this window matching a given pattern"
 msgstr "창에서 주어진 파일이름 형태에 맞는 항목을 선택합니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7432
+#: ../src/file-manager/fm-directory-view.c:7437
 msgid "_Invert Selection"
 msgstr "선택 반전(_I)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7433
+#: ../src/file-manager/fm-directory-view.c:7438
 msgid "Select all and only the items that are not currently selected"
 msgstr "현재 선택하지 않은 항목만 전부 선택합니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7436
+#: ../src/file-manager/fm-directory-view.c:7441
 msgid "D_uplicate"
 msgstr "사본 만들기(_U)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7437
+#: ../src/file-manager/fm-directory-view.c:7442
 msgid "Duplicate each selected item"
 msgstr "각각 선택한 항목을 하나 더 만듭니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7440
-#: ../src/file-manager/fm-directory-view.c:9049
+#: ../src/file-manager/fm-directory-view.c:7445
+#: ../src/file-manager/fm-directory-view.c:9055
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
 msgstr[0] "링크 만들기(_K)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7441
+#: ../src/file-manager/fm-directory-view.c:7446
 msgid "Create a symbolic link for each selected item"
 msgstr "각각 선택한 항목을 다른 파일로 연결합니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7444
+#: ../src/file-manager/fm-directory-view.c:7449
 msgid "_Rename..."
 msgstr "이름 바꾸기(_R)..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7445
+#: ../src/file-manager/fm-directory-view.c:7450
 msgid "Rename selected item"
 msgstr "선택한 항목의 이름을 바꿉니다"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7453
-#: ../src/file-manager/fm-directory-view.c:9010
+#: ../src/file-manager/fm-directory-view.c:7458
+#: ../src/file-manager/fm-directory-view.c:9016
 msgid "Move each selected item to the Trash"
 msgstr "각각 선택한 항목을 휴지통에 버립니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7456
-#: ../src/file-manager/fm-directory-view.c:7588
-#: ../src/file-manager/fm-directory-view.c:9030
+#: ../src/file-manager/fm-directory-view.c:7461
+#: ../src/file-manager/fm-directory-view.c:7593
+#: ../src/file-manager/fm-directory-view.c:9036
 #: ../src/file-manager/fm-tree-view.c:1360
 msgid "_Delete"
 msgstr "삭제(_D)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7457
+#: ../src/file-manager/fm-directory-view.c:7462
 msgid "Delete each selected item, without moving to the Trash"
 msgstr "선택한 항목을 휴지통으로 보내지 않고 삭제"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7460
-#: ../src/file-manager/fm-directory-view.c:7592
+#: ../src/file-manager/fm-directory-view.c:7465
+#: ../src/file-manager/fm-directory-view.c:7597
 msgid "_Restore"
 msgstr "되살리기(_R)"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7464
+#: ../src/file-manager/fm-directory-view.c:7469
 msgid "_Undo"
 msgstr "실행 취소(_U)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7465
-#: ../src/file-manager/fm-directory-view.c:11218
+#: ../src/file-manager/fm-directory-view.c:7470
+#: ../src/file-manager/fm-directory-view.c:11227
 msgid "Undo the last action"
 msgstr "마지막 동작을 되돌립니다."
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7468
+#: ../src/file-manager/fm-directory-view.c:7473
 msgid "_Redo"
 msgstr "재실행(_R)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7469
-#: ../src/file-manager/fm-directory-view.c:11236
+#: ../src/file-manager/fm-directory-view.c:7474
+#: ../src/file-manager/fm-directory-view.c:11245
 msgid "Redo the last undone action"
 msgstr "최근 동작 재실행"
 
@@ -4079,603 +4062,603 @@ msgstr "최근 동작 재실행"
 #. * it is a mixture of both ATM.
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7479
+#: ../src/file-manager/fm-directory-view.c:7484
 msgid "Reset View to _Defaults"
 msgstr "기본값으로 되돌리기(_D)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7480
+#: ../src/file-manager/fm-directory-view.c:7485
 msgid "Reset sorting order and zoom level to match preferences for this view"
 msgstr "이 보기에서 정렬 순서와 확대 수준을 기본 설정으로 되돌립니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7483
+#: ../src/file-manager/fm-directory-view.c:7488
 msgid "Connect To This Server"
 msgstr "이 서버에 연결"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7484
+#: ../src/file-manager/fm-directory-view.c:7489
 msgid "Make a permanent connection to this server"
 msgstr "이 서버와 연결합니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7487
-#: ../src/file-manager/fm-directory-view.c:7515
-#: ../src/file-manager/fm-directory-view.c:7596
+#: ../src/file-manager/fm-directory-view.c:7492
+#: ../src/file-manager/fm-directory-view.c:7520
+#: ../src/file-manager/fm-directory-view.c:7601
 #: ../src/caja-places-sidebar.c:2728
 msgid "_Mount"
 msgstr "마운트(_M)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7488
+#: ../src/file-manager/fm-directory-view.c:7493
 msgid "Mount the selected volume"
 msgstr "선택한 볼륨을 마운트합니다"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7492
+#: ../src/file-manager/fm-directory-view.c:7497
 msgid "Unmount the selected volume"
 msgstr "선택한 볼륨을 마운트 해제합니다"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7496
+#: ../src/file-manager/fm-directory-view.c:7501
 msgid "Eject the selected volume"
 msgstr "선택한 볼륨을 꺼냅니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7499
-#: ../src/file-manager/fm-directory-view.c:7527
-#: ../src/file-manager/fm-directory-view.c:7608
+#: ../src/file-manager/fm-directory-view.c:7504
+#: ../src/file-manager/fm-directory-view.c:7532
+#: ../src/file-manager/fm-directory-view.c:7613
 #: ../src/caja-places-sidebar.c:2756
 msgid "_Format"
 msgstr "형식(_F)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7500
+#: ../src/file-manager/fm-directory-view.c:7505
 msgid "Format the selected volume"
 msgstr "선택한 볼륨을 초기화합니다"
 
 #. name, stock id
 #. label, accelerator
 #. Adjust start/stop items to reflect the type of the drive
-#: ../src/file-manager/fm-directory-view.c:7503
-#: ../src/file-manager/fm-directory-view.c:7531
-#: ../src/file-manager/fm-directory-view.c:7612
-#: ../src/file-manager/fm-directory-view.c:8289
-#: ../src/file-manager/fm-directory-view.c:8293
-#: ../src/file-manager/fm-directory-view.c:8381
-#: ../src/file-manager/fm-directory-view.c:8385
-#: ../src/file-manager/fm-directory-view.c:8491
-#: ../src/file-manager/fm-directory-view.c:8495
+#: ../src/file-manager/fm-directory-view.c:7508
+#: ../src/file-manager/fm-directory-view.c:7536
+#: ../src/file-manager/fm-directory-view.c:7617
+#: ../src/file-manager/fm-directory-view.c:8295
+#: ../src/file-manager/fm-directory-view.c:8299
+#: ../src/file-manager/fm-directory-view.c:8387
+#: ../src/file-manager/fm-directory-view.c:8391
+#: ../src/file-manager/fm-directory-view.c:8497
+#: ../src/file-manager/fm-directory-view.c:8501
 #: ../src/caja-places-sidebar.c:1823 ../src/caja-places-sidebar.c:2763
 msgid "_Start"
 msgstr "시작(_S)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7504
+#: ../src/file-manager/fm-directory-view.c:7509
 msgid "Start the selected volume"
 msgstr "선택한 볼륨을 시작합니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7507
-#: ../src/file-manager/fm-directory-view.c:7535
-#: ../src/file-manager/fm-directory-view.c:7616
-#: ../src/file-manager/fm-directory-view.c:8318
-#: ../src/file-manager/fm-directory-view.c:8410
-#: ../src/file-manager/fm-directory-view.c:8520
+#: ../src/file-manager/fm-directory-view.c:7512
+#: ../src/file-manager/fm-directory-view.c:7540
+#: ../src/file-manager/fm-directory-view.c:7621
+#: ../src/file-manager/fm-directory-view.c:8324
+#: ../src/file-manager/fm-directory-view.c:8416
+#: ../src/file-manager/fm-directory-view.c:8526
 #: ../src/caja-places-sidebar.c:1824 ../src/caja-places-sidebar.c:2770
-#: ../src/caja-window-menus.c:837
+#: ../src/caja-window-menus.c:833
 msgid "_Stop"
 msgstr "중지(_S)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7508
-#: ../src/file-manager/fm-directory-view.c:8521
+#: ../src/file-manager/fm-directory-view.c:7513
+#: ../src/file-manager/fm-directory-view.c:8527
 msgid "Stop the selected volume"
 msgstr "선택한 볼륨을 중지합니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7511
-#: ../src/file-manager/fm-directory-view.c:7539
-#: ../src/file-manager/fm-directory-view.c:7620
+#: ../src/file-manager/fm-directory-view.c:7516
+#: ../src/file-manager/fm-directory-view.c:7544
+#: ../src/file-manager/fm-directory-view.c:7625
 #: ../src/caja-places-sidebar.c:2749
 msgid "_Detect Media"
 msgstr "미디어 검색(_D)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7512
-#: ../src/file-manager/fm-directory-view.c:7540
-#: ../src/file-manager/fm-directory-view.c:7621
+#: ../src/file-manager/fm-directory-view.c:7517
+#: ../src/file-manager/fm-directory-view.c:7545
+#: ../src/file-manager/fm-directory-view.c:7626
 msgid "Detect media in the selected drive"
 msgstr "선택한 드라이브에서 미디어를 검색합니다"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7516
+#: ../src/file-manager/fm-directory-view.c:7521
 msgid "Mount the volume associated with the open folder"
 msgstr "연 폴더에 연결된 볼륨을 마운트합니다"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7520
+#: ../src/file-manager/fm-directory-view.c:7525
 msgid "Unmount the volume associated with the open folder"
 msgstr "연 폴더에 연결된 볼륨을 마운트 해제합니다"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7524
+#: ../src/file-manager/fm-directory-view.c:7529
 msgid "Eject the volume associated with the open folder"
 msgstr "연 폴더에 연결된 볼륨을 꺼냅니다"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7528
+#: ../src/file-manager/fm-directory-view.c:7533
 msgid "Format the volume associated with the open folder"
 msgstr "연 폴더에 연결된 볼륨을 포맷합니다"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7532
+#: ../src/file-manager/fm-directory-view.c:7537
 msgid "Start the volume associated with the open folder"
 msgstr "연 폴더에 연결된 볼륨을 시작합니다"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7536
+#: ../src/file-manager/fm-directory-view.c:7541
 msgid "Stop the volume associated with the open folder"
 msgstr "연 폴더에 연결된 볼륨을 중지합니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7543
+#: ../src/file-manager/fm-directory-view.c:7548
 msgid "Open File and Close window"
 msgstr "파일을 열고 창을 닫습니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7547
+#: ../src/file-manager/fm-directory-view.c:7552
 msgid "Sa_ve Search"
 msgstr "찾은 결과 저장(_V)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7548
+#: ../src/file-manager/fm-directory-view.c:7553
 msgid "Save the edited search"
 msgstr "찾은 결과를 저장합니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7551
+#: ../src/file-manager/fm-directory-view.c:7556
 msgid "Sa_ve Search As..."
 msgstr "찾은 결과를 다른 이름으로 저장(_V)..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7552
+#: ../src/file-manager/fm-directory-view.c:7557
 msgid "Save the current search as a file"
 msgstr "현재 찾은 결과를 파일로 저장합니다"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7558
+#: ../src/file-manager/fm-directory-view.c:7563
 msgid "Open this folder in a navigation window"
 msgstr "폴더를 찾아보기 창에서 엽니다"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7562
+#: ../src/file-manager/fm-directory-view.c:7567
 msgid "Open this folder in a new tab"
 msgstr "이 폴더를 새 탭에서 엽니다"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7567
+#: ../src/file-manager/fm-directory-view.c:7572
 msgid "Open this folder in a folder window"
 msgstr "이 폴더를 폴더 창에서 엽니다"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7572
+#: ../src/file-manager/fm-directory-view.c:7577
 msgid "Prepare this folder to be moved with a Paste command"
 msgstr "파일 붙여넣기 명령으로 선택한 파일을 옮길 준비를 합니다"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7576
+#: ../src/file-manager/fm-directory-view.c:7581
 msgid "Prepare this folder to be copied with a Paste command"
 msgstr "파일 붙여넣기 명령으로 선택한 파일을 복사할 준비를 합니다"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7580
+#: ../src/file-manager/fm-directory-view.c:7585
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into this "
 "folder"
 msgstr "이전에 잘라내기나 복사 명령으로 선택한 파일을 이 폴더에 옮기거나 복사합니다"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7585
+#: ../src/file-manager/fm-directory-view.c:7590
 msgid "Move this folder to the Trash"
 msgstr "이 폴더를 휴지통에 버립니다"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7589
+#: ../src/file-manager/fm-directory-view.c:7594
 msgid "Delete this folder, without moving to the Trash"
 msgstr "이 폴더를 휴지통에 버리지 않고 지웁니다"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7597
+#: ../src/file-manager/fm-directory-view.c:7602
 msgid "Mount the volume associated with this folder"
 msgstr "이 폴더에 연결된 볼륨을 마운트합니다"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7601
+#: ../src/file-manager/fm-directory-view.c:7606
 msgid "Unmount the volume associated with this folder"
 msgstr "이 폴더에 연결된 볼륨을 마운트 해제합니다"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7605
+#: ../src/file-manager/fm-directory-view.c:7610
 msgid "Eject the volume associated with this folder"
 msgstr "이 폴더에 연결된 볼륨을 꺼냅니다"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7609
+#: ../src/file-manager/fm-directory-view.c:7614
 msgid "Format the volume associated with this folder"
 msgstr "이 폴더에 연결된 볼륨을 포맷합니다"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7613
+#: ../src/file-manager/fm-directory-view.c:7618
 msgid "Start the volume associated with this folder"
 msgstr "이 폴더에 연결된 볼륨을 시작합니다"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7617
+#: ../src/file-manager/fm-directory-view.c:7622
 msgid "Stop the volume associated with this folder"
 msgstr "이 폴더에 연결된 볼륨을 중지합니다"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7626
+#: ../src/file-manager/fm-directory-view.c:7631
 msgid "View or modify the properties of this folder"
 msgstr "이 폴더의 속성을 보거나 고칩니다"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7629
-#: ../src/file-manager/fm-directory-view.c:7632
+#: ../src/file-manager/fm-directory-view.c:7634
+#: ../src/file-manager/fm-directory-view.c:7637
 msgid "_Other pane"
 msgstr "기타 창 영역(_O)..."
 
-#: ../src/file-manager/fm-directory-view.c:7630
+#: ../src/file-manager/fm-directory-view.c:7635
 msgid "Copy the current selection to the other pane in the window"
 msgstr "선택한 내용을 창의 다른 창 영역에 복사합니다"
 
-#: ../src/file-manager/fm-directory-view.c:7633
+#: ../src/file-manager/fm-directory-view.c:7638
 msgid "Move the current selection to the other pane in the window"
 msgstr "선택한 내용을 창의 다른 창 영역으로 옮깁니다"
 
 #. name, stock id, label
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7636
-#: ../src/file-manager/fm-directory-view.c:7640 ../src/caja-window-menus.c:892
+#: ../src/file-manager/fm-directory-view.c:7641
+#: ../src/file-manager/fm-directory-view.c:7645 ../src/caja-window-menus.c:888
 msgid "_Home Folder"
 msgstr "내 폴더(_H)"
 
-#: ../src/file-manager/fm-directory-view.c:7637
+#: ../src/file-manager/fm-directory-view.c:7642
 msgid "Copy the current selection to the home folder"
 msgstr "선택한 내용을 홈 폴더에 복사합니다"
 
-#: ../src/file-manager/fm-directory-view.c:7641
+#: ../src/file-manager/fm-directory-view.c:7646
 msgid "Move the current selection to the home folder"
 msgstr "선택한 내용을 홈 폴더에 옮깁니다"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7644
-#: ../src/file-manager/fm-directory-view.c:7648
+#: ../src/file-manager/fm-directory-view.c:7649
+#: ../src/file-manager/fm-directory-view.c:7653
 msgid "_Desktop"
 msgstr "바탕 화면(_D)"
 
-#: ../src/file-manager/fm-directory-view.c:7645
+#: ../src/file-manager/fm-directory-view.c:7650
 msgid "Copy the current selection to the desktop"
 msgstr "선택한 내용을 바탕 화면으로 복사합니다"
 
-#: ../src/file-manager/fm-directory-view.c:7649
+#: ../src/file-manager/fm-directory-view.c:7654
 msgid "Move the current selection to the desktop"
 msgstr "선택한 내용을 바탕 화면으로 옮깁니다"
 
 #. Translators: %s is a directory
-#: ../src/file-manager/fm-directory-view.c:7729
+#: ../src/file-manager/fm-directory-view.c:7734
 #, c-format
 msgid "Run or manage scripts from %s"
 msgstr "%s에서 스크립트를 실행하거나 관리합니다"
 
 #. Create a script action here specially because its tooltip is dynamic
-#: ../src/file-manager/fm-directory-view.c:7731
+#: ../src/file-manager/fm-directory-view.c:7736
 msgid "_Scripts"
 msgstr "스크립트(_S)"
 
-#: ../src/file-manager/fm-directory-view.c:8137
+#: ../src/file-manager/fm-directory-view.c:8143
 #, c-format
 msgid "Move the open folder out of the trash to \"%s\""
 msgstr "열린 폴더를 휴지통에서 \"%s\"(으)로 옮깁니다"
 
-#: ../src/file-manager/fm-directory-view.c:8140
+#: ../src/file-manager/fm-directory-view.c:8146
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
 msgstr[0] "선택한 폴더를 휴지통에서 \"%s\"(으)로 옮깁니다"
 
-#: ../src/file-manager/fm-directory-view.c:8144
+#: ../src/file-manager/fm-directory-view.c:8150
 #, c-format
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
 msgstr[0] "선택한 폴더를 휴지통밖으로 옮깁니다"
 
-#: ../src/file-manager/fm-directory-view.c:8150
+#: ../src/file-manager/fm-directory-view.c:8156
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
 msgstr[0] "선택한 파일을 휴지통에서 \"%s\"(으)로 옮깁니다"
 
-#: ../src/file-manager/fm-directory-view.c:8154
+#: ../src/file-manager/fm-directory-view.c:8160
 #, c-format
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
 msgstr[0] "선택한 파일을 휴지통밖으로 옮깁니다"
 
-#: ../src/file-manager/fm-directory-view.c:8160
+#: ../src/file-manager/fm-directory-view.c:8166
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
 msgstr[0] "선택한 항목을 휴지통에서 \"%s\"(으)로 옮깁니다"
 
-#: ../src/file-manager/fm-directory-view.c:8164
+#: ../src/file-manager/fm-directory-view.c:8170
 #, c-format
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
 msgstr[0] "선택한 항목을 휴지통밖으로 옮깁니다"
 
-#: ../src/file-manager/fm-directory-view.c:8290
-#: ../src/file-manager/fm-directory-view.c:8294
-#: ../src/file-manager/fm-directory-view.c:8492
-#: ../src/file-manager/fm-directory-view.c:8496
+#: ../src/file-manager/fm-directory-view.c:8296
+#: ../src/file-manager/fm-directory-view.c:8300
+#: ../src/file-manager/fm-directory-view.c:8498
+#: ../src/file-manager/fm-directory-view.c:8502
 msgid "Start the selected drive"
 msgstr "선택한 드라이브를 시작합니다"
 
-#: ../src/file-manager/fm-directory-view.c:8298
-#: ../src/file-manager/fm-directory-view.c:8500
+#: ../src/file-manager/fm-directory-view.c:8304
+#: ../src/file-manager/fm-directory-view.c:8506
 msgid "Connect to the selected drive"
 msgstr "선택한 드라이브에 연결합니다"
 
-#: ../src/file-manager/fm-directory-view.c:8301
-#: ../src/file-manager/fm-directory-view.c:8393
-#: ../src/file-manager/fm-directory-view.c:8503
+#: ../src/file-manager/fm-directory-view.c:8307
+#: ../src/file-manager/fm-directory-view.c:8399
+#: ../src/file-manager/fm-directory-view.c:8509
 msgid "_Start Multi-disk Drive"
 msgstr "멀티 디스크 장치 시작(_S)"
 
-#: ../src/file-manager/fm-directory-view.c:8302
-#: ../src/file-manager/fm-directory-view.c:8504
+#: ../src/file-manager/fm-directory-view.c:8308
+#: ../src/file-manager/fm-directory-view.c:8510
 msgid "Start the selected multi-disk drive"
 msgstr "선택한 멀티 디스크 장치를 시작합니다"
 
-#: ../src/file-manager/fm-directory-view.c:8305
+#: ../src/file-manager/fm-directory-view.c:8311
 msgid "U_nlock Drive"
 msgstr "드라이브 잠금 해제(_N)"
 
-#: ../src/file-manager/fm-directory-view.c:8306
-#: ../src/file-manager/fm-directory-view.c:8508
+#: ../src/file-manager/fm-directory-view.c:8312
+#: ../src/file-manager/fm-directory-view.c:8514
 msgid "Unlock the selected drive"
 msgstr "선택한 드라이브 잠금을 해제합니다"
 
-#: ../src/file-manager/fm-directory-view.c:8319
+#: ../src/file-manager/fm-directory-view.c:8325
 msgid "Stop the selected drive"
 msgstr "선택한 드라이브를 중지합니다"
 
-#: ../src/file-manager/fm-directory-view.c:8322
-#: ../src/file-manager/fm-directory-view.c:8414
-#: ../src/file-manager/fm-directory-view.c:8524
+#: ../src/file-manager/fm-directory-view.c:8328
+#: ../src/file-manager/fm-directory-view.c:8420
+#: ../src/file-manager/fm-directory-view.c:8530
 #: ../src/caja-places-sidebar.c:1832
 msgid "_Safely Remove Drive"
 msgstr "안전하게 드라이브 제거(_S)"
 
-#: ../src/file-manager/fm-directory-view.c:8323
-#: ../src/file-manager/fm-directory-view.c:8525
+#: ../src/file-manager/fm-directory-view.c:8329
+#: ../src/file-manager/fm-directory-view.c:8531
 msgid "Safely remove the selected drive"
 msgstr "선택한 드라이브를 안전하게 제거합니다"
 
-#: ../src/file-manager/fm-directory-view.c:8326
-#: ../src/file-manager/fm-directory-view.c:8418
-#: ../src/file-manager/fm-directory-view.c:8528
+#: ../src/file-manager/fm-directory-view.c:8332
+#: ../src/file-manager/fm-directory-view.c:8424
+#: ../src/file-manager/fm-directory-view.c:8534
 msgid "_Disconnect"
 msgstr "연결 끊기(_D)"
 
-#: ../src/file-manager/fm-directory-view.c:8327
-#: ../src/file-manager/fm-directory-view.c:8529
+#: ../src/file-manager/fm-directory-view.c:8333
+#: ../src/file-manager/fm-directory-view.c:8535
 msgid "Disconnect the selected drive"
 msgstr "선택한 드라이브 연결을 해제합니다"
 
-#: ../src/file-manager/fm-directory-view.c:8330
-#: ../src/file-manager/fm-directory-view.c:8422
-#: ../src/file-manager/fm-directory-view.c:8532
+#: ../src/file-manager/fm-directory-view.c:8336
+#: ../src/file-manager/fm-directory-view.c:8428
+#: ../src/file-manager/fm-directory-view.c:8538
 msgid "_Stop Multi-disk Drive"
 msgstr "멀티 디스크 장치 중지(_S)"
 
-#: ../src/file-manager/fm-directory-view.c:8331
-#: ../src/file-manager/fm-directory-view.c:8533
+#: ../src/file-manager/fm-directory-view.c:8337
+#: ../src/file-manager/fm-directory-view.c:8539
 msgid "Stop the selected multi-disk drive"
 msgstr "선택한 멀티 디스크 장치를 중지합니다"
 
-#: ../src/file-manager/fm-directory-view.c:8334
-#: ../src/file-manager/fm-directory-view.c:8426
-#: ../src/file-manager/fm-directory-view.c:8536
+#: ../src/file-manager/fm-directory-view.c:8340
+#: ../src/file-manager/fm-directory-view.c:8432
+#: ../src/file-manager/fm-directory-view.c:8542
 #: ../src/caja-places-sidebar.c:1845
 msgid "_Lock Drive"
 msgstr "드라이브 잠그기(_L)"
 
-#: ../src/file-manager/fm-directory-view.c:8335
-#: ../src/file-manager/fm-directory-view.c:8537
+#: ../src/file-manager/fm-directory-view.c:8341
+#: ../src/file-manager/fm-directory-view.c:8543
 msgid "Lock the selected drive"
 msgstr "선택한 드라이브를 잠급니다"
 
-#: ../src/file-manager/fm-directory-view.c:8382
-#: ../src/file-manager/fm-directory-view.c:8386
+#: ../src/file-manager/fm-directory-view.c:8388
+#: ../src/file-manager/fm-directory-view.c:8392
 msgid "Start the drive associated with the open folder"
 msgstr "연 폴더에 연결된 드라이브를 시작합니다"
 
-#: ../src/file-manager/fm-directory-view.c:8390
+#: ../src/file-manager/fm-directory-view.c:8396
 msgid "Connect to the drive associated with the open folder"
 msgstr "연 폴더에 연결된 드라이브에 연결합니다"
 
-#: ../src/file-manager/fm-directory-view.c:8394
+#: ../src/file-manager/fm-directory-view.c:8400
 msgid "Start the multi-disk drive associated with the open folder"
 msgstr "연 폴더에 연결된 멀티 디스크 드라이브를 시작합니다"
 
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
-#: ../src/file-manager/fm-directory-view.c:8397
-#: ../src/file-manager/fm-directory-view.c:8507
+#: ../src/file-manager/fm-directory-view.c:8403
+#: ../src/file-manager/fm-directory-view.c:8513
 #: ../src/caja-places-sidebar.c:1844
 msgid "_Unlock Drive"
 msgstr "드라이브 잠금 해제(_U)"
 
-#: ../src/file-manager/fm-directory-view.c:8398
+#: ../src/file-manager/fm-directory-view.c:8404
 msgid "Unlock the drive associated with the open folder"
 msgstr "연 폴더에 연결된 드라이브 잠금을 해제합니다"
 
-#: ../src/file-manager/fm-directory-view.c:8411
+#: ../src/file-manager/fm-directory-view.c:8417
 msgid "_Stop the drive associated with the open folder"
 msgstr "연 폴더에 연결된 드라이브 중지(_S)"
 
-#: ../src/file-manager/fm-directory-view.c:8415
+#: ../src/file-manager/fm-directory-view.c:8421
 msgid "Safely remove the drive associated with the open folder"
 msgstr "연 폴더에 연결된 드라이브를 안전하게 제거합니다"
 
-#: ../src/file-manager/fm-directory-view.c:8419
+#: ../src/file-manager/fm-directory-view.c:8425
 msgid "Disconnect the drive associated with the open folder"
 msgstr "연 폴더에 연결된 드라이브 연결을 끊습니다"
 
-#: ../src/file-manager/fm-directory-view.c:8423
+#: ../src/file-manager/fm-directory-view.c:8429
 msgid "Stop the multi-disk drive associated with the open folder"
 msgstr "연 폴더에 연결된 멀티 디스크 드라이브를 중지합니다"
 
-#: ../src/file-manager/fm-directory-view.c:8427
+#: ../src/file-manager/fm-directory-view.c:8433
 msgid "Lock the drive associated with the open folder"
 msgstr "연 폴더에 연결된 드라이브를 잠급니다"
 
 #. add the "open in new window" menu item
-#: ../src/file-manager/fm-directory-view.c:8606
-#: ../src/file-manager/fm-directory-view.c:8916
+#: ../src/file-manager/fm-directory-view.c:8612
+#: ../src/file-manager/fm-directory-view.c:8922
 #: ../src/file-manager/fm-tree-view.c:1287 ../src/caja-places-sidebar.c:2699
 msgid "Open in New _Window"
 msgstr "새 창에서 열기(_W)"
 
-#: ../src/file-manager/fm-directory-view.c:8608
-#: ../src/file-manager/fm-directory-view.c:8925
+#: ../src/file-manager/fm-directory-view.c:8614
+#: ../src/file-manager/fm-directory-view.c:8931
 msgid "Browse in New _Window"
 msgstr "새 창에서 찾아보기(_W)"
 
-#: ../src/file-manager/fm-directory-view.c:8614
-#: ../src/file-manager/fm-directory-view.c:8935
+#: ../src/file-manager/fm-directory-view.c:8620
+#: ../src/file-manager/fm-directory-view.c:8941
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
 msgstr[0] "폴더 찾아보기(_B)"
 
-#: ../src/file-manager/fm-directory-view.c:8631
-#: ../src/file-manager/fm-directory-view.c:8964
+#: ../src/file-manager/fm-directory-view.c:8637
+#: ../src/file-manager/fm-directory-view.c:8970
 msgid "Browse in New _Tab"
 msgstr "새 탭에서 찾아보기(_T)"
 
-#: ../src/file-manager/fm-directory-view.c:8680
-#: ../src/file-manager/fm-directory-view.c:9005
+#: ../src/file-manager/fm-directory-view.c:8686
+#: ../src/file-manager/fm-directory-view.c:9011
 msgid "_Delete Permanently"
 msgstr "완전히 삭제(_D)"
 
-#: ../src/file-manager/fm-directory-view.c:8681
+#: ../src/file-manager/fm-directory-view.c:8687
 msgid "Delete the open folder permanently"
 msgstr "연 폴더를 완전히 삭제합니다"
 
-#: ../src/file-manager/fm-directory-view.c:8685
+#: ../src/file-manager/fm-directory-view.c:8691
 msgid "Move the open folder to the Trash"
 msgstr "연 폴더를 휴지통에 버립니다"
 
-#: ../src/file-manager/fm-directory-view.c:8865
+#: ../src/file-manager/fm-directory-view.c:8871
 #, c-format
 msgid "_Open With %s"
 msgstr "%s에서 열기(_O)"
 
-#: ../src/file-manager/fm-directory-view.c:8918
+#: ../src/file-manager/fm-directory-view.c:8924
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
 msgstr[0] "새 창 %'d개에서 열기(_W)"
 
-#: ../src/file-manager/fm-directory-view.c:8927
+#: ../src/file-manager/fm-directory-view.c:8933
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
 msgstr[0] "새 창 %'d개에서 찾아보기(_W)"
 
-#: ../src/file-manager/fm-directory-view.c:8957
+#: ../src/file-manager/fm-directory-view.c:8963
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
 msgstr[0] "새 탭 %'d개에서 열기(_T)"
 
-#: ../src/file-manager/fm-directory-view.c:8966
+#: ../src/file-manager/fm-directory-view.c:8972
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
 msgstr[0] "새 탭 %'d개에서 찾아보기(_T)"
 
-#: ../src/file-manager/fm-directory-view.c:9006
+#: ../src/file-manager/fm-directory-view.c:9012
 msgid "Delete all selected items permanently"
 msgstr "선택한 항목을 모두 지웁니다"
 
-#: ../src/file-manager/fm-directory-view.c:9063
+#: ../src/file-manager/fm-directory-view.c:9069
 msgid "View or modify the properties of the open folder"
 msgstr "열린 폴더의 속성을 보거나 고칩니다"
 
-#: ../src/file-manager/fm-directory-view.c:10366
+#: ../src/file-manager/fm-directory-view.c:10372
 msgid "Download location?"
 msgstr "위치를 다운로드하시겠습니까?"
 
-#: ../src/file-manager/fm-directory-view.c:10369
+#: ../src/file-manager/fm-directory-view.c:10375
 msgid "You can download it or make a link to it."
 msgstr "다운로드하거나 링크를 만들 수 있습니다."
 
-#: ../src/file-manager/fm-directory-view.c:10372
+#: ../src/file-manager/fm-directory-view.c:10378
 msgid "Make a _Link"
 msgstr "링크 만들기(_L)"
 
-#: ../src/file-manager/fm-directory-view.c:10376
+#: ../src/file-manager/fm-directory-view.c:10382
 msgid "_Download"
 msgstr "다운로드(_D)"
 
-#: ../src/file-manager/fm-directory-view.c:10537
-#: ../src/file-manager/fm-directory-view.c:10596
-#: ../src/file-manager/fm-directory-view.c:10701
+#: ../src/file-manager/fm-directory-view.c:10543
+#: ../src/file-manager/fm-directory-view.c:10602
+#: ../src/file-manager/fm-directory-view.c:10707
 msgid "Drag and drop is not supported."
 msgstr "끌어서 놓기는 지원하지 않습니다."
 
-#: ../src/file-manager/fm-directory-view.c:10538
+#: ../src/file-manager/fm-directory-view.c:10544
 msgid "Drag and drop is only supported on local file systems."
 msgstr "끌어서 놓기는 로컬 파일 시스템에서만 지원합니다."
 
-#: ../src/file-manager/fm-directory-view.c:10597
-#: ../src/file-manager/fm-directory-view.c:10702
+#: ../src/file-manager/fm-directory-view.c:10603
+#: ../src/file-manager/fm-directory-view.c:10708
 msgid "An invalid drag type was used."
 msgstr "잘못된 끌기형식이 쓰였습니다."
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10779
+#: ../src/file-manager/fm-directory-view.c:10785
 msgid "dropped text.txt"
 msgstr "선택한 텍스트.txt"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10824
+#: ../src/file-manager/fm-directory-view.c:10830
 msgid "dropped data"
 msgstr "끌어 놓은 데이터"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11217
+#: ../src/file-manager/fm-directory-view.c:11226
 msgid "Undo"
 msgstr "취소"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11235
+#: ../src/file-manager/fm-directory-view.c:11244
 msgid "Redo"
 msgstr "재실행"
 
@@ -4796,220 +4779,220 @@ msgstr "\"%s\"의 이름을 \"%s\"(으)로 바꾸기."
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: ../src/file-manager/fm-icon-container.c:613
-#: ../src/file-manager/fm-icon-view.c:3395
+#: ../src/file-manager/fm-icon-view.c:3403
 #: ../src/caja-file-management-properties.ui.h:1
 msgid "Icon View"
 msgstr "아이콘 보기"
 
-#: ../src/file-manager/fm-icon-view.c:128
+#: ../src/file-manager/fm-icon-view.c:132
 msgid "by _Name"
 msgstr "이름 순서(_N)"
 
-#: ../src/file-manager/fm-icon-view.c:129
-#: ../src/file-manager/fm-icon-view.c:1743
+#: ../src/file-manager/fm-icon-view.c:133
+#: ../src/file-manager/fm-icon-view.c:1749
 msgid "Keep icons sorted by name in rows"
 msgstr "이름 순서로 아이콘을 정렬합니다"
 
-#: ../src/file-manager/fm-icon-view.c:135
+#: ../src/file-manager/fm-icon-view.c:139
 msgid "by _Size"
 msgstr "크기 순서(_S)"
 
-#: ../src/file-manager/fm-icon-view.c:136
-#: ../src/file-manager/fm-icon-view.c:1749
+#: ../src/file-manager/fm-icon-view.c:140
+#: ../src/file-manager/fm-icon-view.c:1755
 msgid "Keep icons sorted by size in rows"
 msgstr "크기 순서로 아이콘을 정렬합니다"
 
-#: ../src/file-manager/fm-icon-view.c:142
+#: ../src/file-manager/fm-icon-view.c:146
 msgid "by _Type"
 msgstr "형식순 정렬(_T)"
 
-#: ../src/file-manager/fm-icon-view.c:143
-#: ../src/file-manager/fm-icon-view.c:1755
+#: ../src/file-manager/fm-icon-view.c:147
+#: ../src/file-manager/fm-icon-view.c:1761
 msgid "Keep icons sorted by type in rows"
 msgstr "파일형식순으로 아이콘을 정렬합니다"
 
-#: ../src/file-manager/fm-icon-view.c:149
+#: ../src/file-manager/fm-icon-view.c:153
 msgid "by Modification _Date"
 msgstr "바뀐 날짜 순서(_D)"
 
-#: ../src/file-manager/fm-icon-view.c:150
-#: ../src/file-manager/fm-icon-view.c:1761
+#: ../src/file-manager/fm-icon-view.c:154
+#: ../src/file-manager/fm-icon-view.c:1767
 msgid "Keep icons sorted by modification date in rows"
 msgstr "바뀐 날짜 순서로 아이콘을 정렬합니다"
 
-#: ../src/file-manager/fm-icon-view.c:156
+#: ../src/file-manager/fm-icon-view.c:160
 msgid "by _Emblems"
 msgstr "꼬리표 순서(_E)"
 
-#: ../src/file-manager/fm-icon-view.c:157
-#: ../src/file-manager/fm-icon-view.c:1767
+#: ../src/file-manager/fm-icon-view.c:161
+#: ../src/file-manager/fm-icon-view.c:1773
 msgid "Keep icons sorted by emblems in rows"
 msgstr "꼬리표 순서로 아이콘을 정렬합니다"
 
-#: ../src/file-manager/fm-icon-view.c:163
+#: ../src/file-manager/fm-icon-view.c:167
 msgid "by T_rash Time"
 msgstr "버린 시각 순서(_R)"
 
-#: ../src/file-manager/fm-icon-view.c:164
-#: ../src/file-manager/fm-icon-view.c:1773
+#: ../src/file-manager/fm-icon-view.c:168
+#: ../src/file-manager/fm-icon-view.c:1779
 msgid "Keep icons sorted by trash time in rows"
 msgstr "버린 시각 순서로 아이콘을 정렬합니다"
 
-#: ../src/file-manager/fm-icon-view.c:781
+#: ../src/file-manager/fm-icon-view.c:785
 msgid "_Organize Desktop by Name"
 msgstr "이름 순서로 바탕 화면 정리(_O)"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-icon-view.c:1692
+#: ../src/file-manager/fm-icon-view.c:1698
 msgid "Arran_ge Items"
 msgstr "항목 정렬(_G)"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1694
+#: ../src/file-manager/fm-icon-view.c:1700
 msgid "Resize Icon..."
 msgstr "아이콘 크기 바꾸기..."
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1695
+#: ../src/file-manager/fm-icon-view.c:1701
 msgid "Make the selected icon resizable"
 msgstr "선택한 아이콘을 크기를 조정 가능하게 만듭니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1699
-#: ../src/file-manager/fm-icon-view.c:1900
+#: ../src/file-manager/fm-icon-view.c:1705
+#: ../src/file-manager/fm-icon-view.c:1906
 msgid "Restore Icons' Original Si_zes"
 msgstr "아이콘을 원래크기로 되돌리기(_Z)"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1700
+#: ../src/file-manager/fm-icon-view.c:1706
 msgid "Restore each selected icon to its original size"
 msgstr "각각 선택한 아이콘을 원래 크기로 되돌립니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1704
+#: ../src/file-manager/fm-icon-view.c:1710
 msgid "_Organize by Name"
 msgstr "이름 순서로 정리(_O)"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1705
+#: ../src/file-manager/fm-icon-view.c:1711
 msgid "Reposition icons to better fit in the window and avoid overlapping"
 msgstr "아이콘을 겹쳐지지 않고 창에 맞게 재배치합니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1713
+#: ../src/file-manager/fm-icon-view.c:1719
 msgid "Compact _Layout"
 msgstr "빈틈없는 배치(_L)"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1714
+#: ../src/file-manager/fm-icon-view.c:1720
 msgid "Toggle using a tighter layout scheme"
 msgstr "빈틈없는 배치방법을 사용합니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1719
+#: ../src/file-manager/fm-icon-view.c:1725
 msgid "Re_versed Order"
 msgstr "거꾸로(_V)"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1720
+#: ../src/file-manager/fm-icon-view.c:1726
 msgid "Display icons in the opposite order"
 msgstr "아이콘을 반대 순서로 표시합니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1725
+#: ../src/file-manager/fm-icon-view.c:1731
 msgid "_Keep Aligned"
 msgstr "맞춤 유지(_K)"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1726
+#: ../src/file-manager/fm-icon-view.c:1732
 msgid "Keep icons lined up on a grid"
 msgstr "격자에 맞게 아이콘을 놓습니다"
 
-#: ../src/file-manager/fm-icon-view.c:1736
+#: ../src/file-manager/fm-icon-view.c:1742
 msgid "_Manually"
 msgstr "수동(_M)"
 
-#: ../src/file-manager/fm-icon-view.c:1737
+#: ../src/file-manager/fm-icon-view.c:1743
 msgid "Leave icons wherever they are dropped"
 msgstr "아이콘이 놓아진대로 둡니다"
 
-#: ../src/file-manager/fm-icon-view.c:1742
+#: ../src/file-manager/fm-icon-view.c:1748
 msgid "By _Name"
 msgstr "이름 순서(_N)"
 
-#: ../src/file-manager/fm-icon-view.c:1748
+#: ../src/file-manager/fm-icon-view.c:1754
 msgid "By _Size"
 msgstr "크기 순서(_S)"
 
-#: ../src/file-manager/fm-icon-view.c:1754
+#: ../src/file-manager/fm-icon-view.c:1760
 msgid "By _Type"
 msgstr "형식 순서(_T)"
 
-#: ../src/file-manager/fm-icon-view.c:1760
+#: ../src/file-manager/fm-icon-view.c:1766
 msgid "By Modification _Date"
 msgstr "내용이 바뀐 날짜 순서(_D)"
 
-#: ../src/file-manager/fm-icon-view.c:1766
+#: ../src/file-manager/fm-icon-view.c:1772
 msgid "By _Emblems"
 msgstr "꼬리표 순서(_E)"
 
-#: ../src/file-manager/fm-icon-view.c:1772
+#: ../src/file-manager/fm-icon-view.c:1778
 msgid "By T_rash Time"
 msgstr "버린 시각 순서(_R)"
 
-#: ../src/file-manager/fm-icon-view.c:1901
+#: ../src/file-manager/fm-icon-view.c:1907
 msgid "Restore Icon's Original Si_ze"
 msgstr "원래 크기의 아이콘으로 되돌리기(_Z)"
 
-#: ../src/file-manager/fm-icon-view.c:2376
+#: ../src/file-manager/fm-icon-view.c:2382
 #, c-format
 msgid "pointing at \"%s\""
 msgstr "\"%s\" 항목을 가리킴"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3397
+#: ../src/file-manager/fm-icon-view.c:3405
 msgid "_Icons"
 msgstr "아이콘(_I)"
 
-#: ../src/file-manager/fm-icon-view.c:3398
+#: ../src/file-manager/fm-icon-view.c:3406
 msgid "The icon view encountered an error."
 msgstr "아이콘 보기 오류가 발생하였습니다."
 
-#: ../src/file-manager/fm-icon-view.c:3399
+#: ../src/file-manager/fm-icon-view.c:3407
 msgid "The icon view encountered an error while starting up."
 msgstr "아이콘 보기가 시작할 때 오류가 발생하였습니다."
 
-#: ../src/file-manager/fm-icon-view.c:3400
+#: ../src/file-manager/fm-icon-view.c:3408
 msgid "Display this location with the icon view."
 msgstr "이 위치를 아이콘 보기로 표시합니다."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-icon-view.c:3410
+#: ../src/file-manager/fm-icon-view.c:3418
 #: ../src/caja-file-management-properties.ui.h:3
 msgid "Compact View"
 msgstr "간략히 보기"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3412
+#: ../src/file-manager/fm-icon-view.c:3420
 msgid "_Compact"
 msgstr "간략히(_C)"
 
-#: ../src/file-manager/fm-icon-view.c:3413
+#: ../src/file-manager/fm-icon-view.c:3421
 msgid "The compact view encountered an error."
 msgstr "간략히 보기 오류가 발생하였습니다."
 
-#: ../src/file-manager/fm-icon-view.c:3414
+#: ../src/file-manager/fm-icon-view.c:3422
 msgid "The compact view encountered an error while starting up."
 msgstr "간략히 보기가 시작할 때 오류가 발생하였습니다."
 
-#: ../src/file-manager/fm-icon-view.c:3415
+#: ../src/file-manager/fm-icon-view.c:3423
 msgid "Display this location with the compact view."
 msgstr "이 위치를 간략히 보기로 표시합니다."
 
@@ -5025,46 +5008,46 @@ msgstr "읽는 중..."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-list-view.c:1833
-#: ../src/file-manager/fm-list-view.c:3481
+#: ../src/file-manager/fm-list-view.c:1835
+#: ../src/file-manager/fm-list-view.c:3487
 #: ../src/caja-file-management-properties.ui.h:2
 msgid "List View"
 msgstr "목록 보기"
 
-#: ../src/file-manager/fm-list-view.c:2530
+#: ../src/file-manager/fm-list-view.c:2534
 #, c-format
 msgid "%s Visible Columns"
 msgstr "%s 표시할 열"
 
-#: ../src/file-manager/fm-list-view.c:2549
+#: ../src/file-manager/fm-list-view.c:2553
 msgid "Choose the order of information to appear in this folder:"
 msgstr "이 폴더에 나타날 정보의 순서를 선택하십시오:"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-list-view.c:2619
+#: ../src/file-manager/fm-list-view.c:2623
 msgid "Visible _Columns..."
 msgstr "표시할 열(_C)..."
 
 #. tooltip
-#: ../src/file-manager/fm-list-view.c:2620
+#: ../src/file-manager/fm-list-view.c:2624
 msgid "Select the columns visible in this folder"
 msgstr "이 폴더 안에 표시할 열을 선택합니다"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-list-view.c:3483
+#: ../src/file-manager/fm-list-view.c:3489
 msgid "_List"
 msgstr "목록(_L)"
 
-#: ../src/file-manager/fm-list-view.c:3484
+#: ../src/file-manager/fm-list-view.c:3490
 msgid "The list view encountered an error."
 msgstr "목록 보기 오류가 발생하였습니다."
 
-#: ../src/file-manager/fm-list-view.c:3485
+#: ../src/file-manager/fm-list-view.c:3491
 msgid "The list view encountered an error while starting up."
 msgstr "목록 보기가 시작할 때 오류가 발생하였습니다."
 
-#: ../src/file-manager/fm-list-view.c:3486
+#: ../src/file-manager/fm-list-view.c:3492
 msgid "Display this location with the list view."
 msgstr "이 위치를 목록 보기로 표시합니다."
 
@@ -5270,7 +5253,7 @@ msgstr "파일 접근:"
 #. Translators: this is referred to captions under icons.
 #: ../src/file-manager/fm-properties-window.c:4855
 #: ../src/file-manager/fm-properties-window.c:4866
-#: ../src/caja-file-management-properties.c:328
+#: ../src/caja-file-management-properties.c:327
 msgid "None"
 msgstr "없음"
 
@@ -5486,8 +5469,8 @@ msgid ""
 msgstr " \"%s\" 미디어에서 소프트웨어를 바로 실행합니다. 믿을 수 없는 소프트웨어라면 절대로 실행하지 마십시오.\n\n의심되면 취소를 누르십시오."
 
 #: ../src/caja-bookmarks-window.c:158
-#: ../src/caja-file-management-properties.c:235
-#: ../src/caja-property-browser.c:1673 ../src/caja-window-menus.c:591
+#: ../src/caja-file-management-properties.c:234
+#: ../src/caja-property-browser.c:1733 ../src/caja-window-menus.c:587
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
@@ -5650,7 +5633,7 @@ msgstr "책갈피 추가(_B)"
 msgid "Bookmark Name:"
 msgstr "책갈피 이름:"
 
-#: ../src/caja-desktop-window.c:88 ../src/caja-desktop-window.c:263
+#: ../src/caja-desktop-window.c:204 ../src/caja-desktop-window.c:393
 #: ../src/caja-pathbar.c:1587 ../src/caja-places-sidebar.c:536
 msgid "Desktop"
 msgstr "바탕 화면"
@@ -5728,7 +5711,7 @@ msgstr "꼬리표를 붙여 넣을 수 없습니다."
 msgid "Show Emblems"
 msgstr "꼬리표 보이기"
 
-#: ../src/caja-file-management-properties.c:631
+#: ../src/caja-file-management-properties.c:630
 msgid "About Extension"
 msgstr "확장 정보"
 
@@ -6615,7 +6598,7 @@ msgstr "새 탭(_N)"
 msgid "_Close Tab"
 msgstr "탭 닫기(_C)"
 
-#: ../src/caja-navigation-window.c:781
+#: ../src/caja-navigation-window.c:776
 #, c-format
 msgid "%s - File Browser"
 msgstr "%s - 파일 찾아보기"
@@ -6758,128 +6741,128 @@ msgstr "꼬리표를 지울 수 있는 접근 권한이 있는지 확인하십�
 msgid "Select an Image File for the New Emblem"
 msgstr "새 꼬리표로 사용할 그림 파일 선택"
 
-#: ../src/caja-property-browser.c:1108
+#: ../src/caja-property-browser.c:1112
 msgid "Create a New Emblem"
 msgstr "새 꼬리표를 만듭니다"
 
 #. make the keyword label and field
-#: ../src/caja-property-browser.c:1129
+#: ../src/caja-property-browser.c:1145
 msgid "_Keyword:"
 msgstr "키워드(_K):"
 
 #. set up a file chooser to pick the image file
-#: ../src/caja-property-browser.c:1152
+#: ../src/caja-property-browser.c:1178
 msgid "_Image:"
 msgstr "그림(_I):"
 
-#: ../src/caja-property-browser.c:1187
+#: ../src/caja-property-browser.c:1226
 msgid "Create a New Color:"
 msgstr "새 색을 만듭니다:"
 
 #. make the name label and field
-#: ../src/caja-property-browser.c:1201
+#: ../src/caja-property-browser.c:1245
 msgid "Color _name:"
 msgstr "색 이름(_N):"
 
-#: ../src/caja-property-browser.c:1217
+#: ../src/caja-property-browser.c:1269
 msgid "Color _value:"
 msgstr "색 값(_V):"
 
-#: ../src/caja-property-browser.c:1253
+#: ../src/caja-property-browser.c:1313
 msgid "Sorry, but you cannot replace the reset image."
 msgstr "리셋 그림은 바꿀 수 없습니다."
 
-#: ../src/caja-property-browser.c:1254
+#: ../src/caja-property-browser.c:1314
 msgid "Reset is a special image that cannot be deleted."
 msgstr "초기화는 지울 수 없는 특별한 그림입니다."
 
-#: ../src/caja-property-browser.c:1284
+#: ../src/caja-property-browser.c:1344
 #, c-format
 msgid "Sorry, but the pattern %s could not be installed."
 msgstr "%s 무늬는 설치할 수 없습니다."
 
-#: ../src/caja-property-browser.c:1315
+#: ../src/caja-property-browser.c:1375
 msgid "Select an Image File to Add as a Pattern"
 msgstr "무늬에 추가할 그림파일을 선택하십시오"
 
-#: ../src/caja-property-browser.c:1394 ../src/caja-property-browser.c:1424
+#: ../src/caja-property-browser.c:1454 ../src/caja-property-browser.c:1484
 msgid "The color cannot be installed."
 msgstr "색을 설치할 수 없습니다."
 
-#: ../src/caja-property-browser.c:1395
+#: ../src/caja-property-browser.c:1455
 msgid "Sorry, but you must specify an unused color name for the new color."
 msgstr "새 색에 대한 이름을 지정하여야 합니다."
 
-#: ../src/caja-property-browser.c:1425
+#: ../src/caja-property-browser.c:1485
 msgid "Sorry, but you must specify a non-blank name for the new color."
 msgstr "새 색에 대해 이름을 지정하여야 합니다."
 
-#: ../src/caja-property-browser.c:1485
+#: ../src/caja-property-browser.c:1545
 msgid "Select a Color to Add"
 msgstr "추가할 색을 선택하십시오"
 
-#: ../src/caja-property-browser.c:1531 ../src/caja-property-browser.c:1549
+#: ../src/caja-property-browser.c:1591 ../src/caja-property-browser.c:1609
 #, c-format
 msgid "Sorry, but \"%s\" is not a usable image file."
 msgstr "\"%s\"은(는) 사용할 수 있는 그림 파일이 아닙니다."
 
-#: ../src/caja-property-browser.c:1532 ../src/caja-property-browser.c:1550
+#: ../src/caja-property-browser.c:1592 ../src/caja-property-browser.c:1610
 msgid "The file is not an image."
 msgstr "파일은 올바른 그림파일이 아닙니다."
 
-#: ../src/caja-property-browser.c:2291
+#: ../src/caja-property-browser.c:2351
 msgid "Select a Category:"
 msgstr "분류 선택:"
 
-#: ../src/caja-property-browser.c:2303
+#: ../src/caja-property-browser.c:2363
 msgid "C_ancel Remove"
 msgstr "제거 취소(_A)"
 
-#: ../src/caja-property-browser.c:2312
+#: ../src/caja-property-browser.c:2372
 msgid "_Add a New Pattern..."
 msgstr "새 무늬 추가(_A)..."
 
-#: ../src/caja-property-browser.c:2315
+#: ../src/caja-property-browser.c:2375
 msgid "_Add a New Color..."
 msgstr "새 색 추가(_A)..."
 
-#: ../src/caja-property-browser.c:2318
+#: ../src/caja-property-browser.c:2378
 msgid "_Add a New Emblem..."
 msgstr "새 꼬리표 추가(_A)..."
 
-#: ../src/caja-property-browser.c:2344
+#: ../src/caja-property-browser.c:2404
 msgid "Click on a pattern to remove it"
 msgstr "무늬를 지울려면 누르십시오"
 
-#: ../src/caja-property-browser.c:2347
+#: ../src/caja-property-browser.c:2407
 msgid "Click on a color to remove it"
 msgstr "색을 지우려면 누르십시오"
 
-#: ../src/caja-property-browser.c:2350
+#: ../src/caja-property-browser.c:2410
 msgid "Click on an emblem to remove it"
 msgstr "꼬리표를 지우려면 누르십시오"
 
-#: ../src/caja-property-browser.c:2362
+#: ../src/caja-property-browser.c:2422
 msgid "Patterns:"
 msgstr "무늬:"
 
-#: ../src/caja-property-browser.c:2365
+#: ../src/caja-property-browser.c:2425
 msgid "Colors:"
 msgstr "상:"
 
-#: ../src/caja-property-browser.c:2368
+#: ../src/caja-property-browser.c:2428
 msgid "Emblems:"
 msgstr "꼬리표:"
 
-#: ../src/caja-property-browser.c:2390
+#: ../src/caja-property-browser.c:2450
 msgid "_Remove a Pattern..."
 msgstr "무늬 제거(_R)..."
 
-#: ../src/caja-property-browser.c:2393
+#: ../src/caja-property-browser.c:2453
 msgid "_Remove a Color..."
 msgstr "색 제거(_R)..."
 
-#: ../src/caja-property-browser.c:2396
+#: ../src/caja-property-browser.c:2456
 msgid "_Remove an Emblem..."
 msgstr "꼬리표 제거(_R)..."
 
@@ -7108,11 +7091,11 @@ msgid ""
 "Please select another viewer and try again."
 msgstr "오류: %s\n다른 보기 프로그램을 선택하고 다시 시도하십시오."
 
-#: ../src/caja-window-menus.c:196
+#: ../src/caja-window-menus.c:192
 msgid "Go to the location specified by this bookmark"
 msgstr "이 책갈피가 가리키는 위치로 갑니다"
 
-#: ../src/caja-window-menus.c:518
+#: ../src/caja-window-menus.c:514
 msgid ""
 "Caja is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -7120,7 +7103,7 @@ msgid ""
 "version."
 msgstr "카하는 자유 소프트웨어 입니다. 자유 소프트웨어 재단이 발표한 GNU 일반 공중 사용 허가서 버전 2 또는 (선택에 따라) 그 이상의 버전의 조항에 의거하여 재배포하거나 수정할 수 있습니다."
 
-#: ../src/caja-window-menus.c:522
+#: ../src/caja-window-menus.c:518
 msgid ""
 "Caja is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -7128,19 +7111,19 @@ msgid ""
 "details."
 msgstr "카하는 유용하게 사용될 수 있으리라는 희망에서 배포되고 있지만, 특정한 목적에 맞는 적합성 여부나 판매용으로 사용할 수 있으리라는 묵시적인 보증을 포함한 어떠한 형태의 보증도 제공하지 않습니다. 보다 자세한 사항에 대해서는 GNU 일반 공중 사용 허가서를 참고하시기 바랍니다."
 
-#: ../src/caja-window-menus.c:526
+#: ../src/caja-window-menus.c:522
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301 USA"
 msgstr "GNU 일반 공중 사용 허가서 사본을 이 프로그램과 받아야 합니다. 못받으셨다면 Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA에 요청하세요."
 
-#: ../src/caja-window-menus.c:538
+#: ../src/caja-window-menus.c:534
 msgid ""
 "Caja lets you organize files and folders, both on your computer and online."
 msgstr "카하를 이용해 컴퓨터 및 온라인의 각종 파일과 폴더를 정리합니다."
 
-#: ../src/caja-window-menus.c:541
+#: ../src/caja-window-menus.c:537
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2016 The Caja authors"
@@ -7149,212 +7132,212 @@ msgstr "Copyright © 1999-2009 The Nautilus authors\nCopyright © 2011-2016 The 
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
 #. * box to give credit to the translator(s).
-#: ../src/caja-window-menus.c:551
+#: ../src/caja-window-menus.c:547
 msgid "translator-credits"
 msgstr "차영호 <ganadist at gmail dot com>\n류창우 <cwryu@debian.org>\nMATE Desktop Environment Team <https://www.transifex.com/mate/teams/13566/ko/>"
 
-#: ../src/caja-window-menus.c:554
+#: ../src/caja-window-menus.c:550
 msgid "MATE Web Site"
 msgstr "마테 웹사이트"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:807
+#: ../src/caja-window-menus.c:803
 msgid "_File"
 msgstr "파일(_F)"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:808
+#: ../src/caja-window-menus.c:804
 msgid "_Edit"
 msgstr "편집(_E)"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:809
+#: ../src/caja-window-menus.c:805
 msgid "_View"
 msgstr "보기(_V)"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:810
+#: ../src/caja-window-menus.c:806
 msgid "_Help"
 msgstr "도움말(_H)"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:812
+#: ../src/caja-window-menus.c:808
 msgid "_Close"
 msgstr "닫기(_C)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:813
+#: ../src/caja-window-menus.c:809
 msgid "Close this folder"
 msgstr "이 폴더를 닫습니다"
 
-#: ../src/caja-window-menus.c:818
+#: ../src/caja-window-menus.c:814
 msgid "_Backgrounds and Emblems..."
 msgstr "배경 및 꼬리표(_B)..."
 
-#: ../src/caja-window-menus.c:819
+#: ../src/caja-window-menus.c:815
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
 msgstr "모양새를 꾸밀수 있는 무늬 및 색, 그리고 꼬리표등을 표시합니다"
 
-#: ../src/caja-window-menus.c:824
+#: ../src/caja-window-menus.c:820
 msgid "Prefere_nces"
 msgstr "기본 설정(_N)"
 
-#: ../src/caja-window-menus.c:825
+#: ../src/caja-window-menus.c:821
 msgid "Edit Caja preferences"
 msgstr "카하의 기본 설정을 편집합니다"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:828
+#: ../src/caja-window-menus.c:824
 msgid "Open _Parent"
 msgstr "위 폴더 열기(_P)"
 
-#: ../src/caja-window-menus.c:829
+#: ../src/caja-window-menus.c:825
 msgid "Open the parent folder"
 msgstr "위 폴더를 엽니다"
 
 #. tooltip
-#: ../src/caja-window-menus.c:838
+#: ../src/caja-window-menus.c:834
 msgid "Stop loading the current location"
 msgstr "현재 위치 읽기를 그만둡니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:842
+#: ../src/caja-window-menus.c:838
 msgid "_Reload"
 msgstr "다시 읽기(_R)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:843
+#: ../src/caja-window-menus.c:839
 msgid "Reload the current location"
 msgstr "현재 위치를 다시 읽습니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:847
+#: ../src/caja-window-menus.c:843
 msgid "_Contents"
 msgstr "차례(_C)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:848
+#: ../src/caja-window-menus.c:844
 msgid "Display Caja help"
 msgstr "카하의 도움말을 표시합니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:852
+#: ../src/caja-window-menus.c:848
 msgid "_About"
 msgstr "정보(_A)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:853
+#: ../src/caja-window-menus.c:849
 msgid "Display credits for the creators of Caja"
 msgstr "카하를 만든 사람을 표시합니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:857
+#: ../src/caja-window-menus.c:853
 msgid "Zoom _In"
 msgstr "확대(_I)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:858 ../src/caja-zoom-control.c:99
+#: ../src/caja-window-menus.c:854 ../src/caja-zoom-control.c:99
 #: ../src/caja-zoom-control.c:395
 msgid "Increase the view size"
 msgstr "현재 보기를 키웁니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:872
+#: ../src/caja-window-menus.c:868
 msgid "Zoom _Out"
 msgstr "축소(_O)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:873 ../src/caja-zoom-control.c:100
+#: ../src/caja-window-menus.c:869 ../src/caja-zoom-control.c:100
 #: ../src/caja-zoom-control.c:333
 msgid "Decrease the view size"
 msgstr "현재 보기를 줄입니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:882
+#: ../src/caja-window-menus.c:878
 msgid "Normal Si_ze"
 msgstr "보통 크기(_Z)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:883 ../src/caja-zoom-control.c:101
+#: ../src/caja-window-menus.c:879 ../src/caja-zoom-control.c:101
 #: ../src/caja-zoom-control.c:353
 msgid "Use the normal view size"
 msgstr "보통 보기크기를 사용합니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:887
+#: ../src/caja-window-menus.c:883
 msgid "Connect to _Server..."
 msgstr "서버에 연결(_S)..."
 
 #. tooltip
-#: ../src/caja-window-menus.c:888
+#: ../src/caja-window-menus.c:884
 msgid "Connect to a remote computer or shared disk"
 msgstr "원격 컴퓨터나 공유 디스크에 연결합니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:897
+#: ../src/caja-window-menus.c:893
 msgid "_Computer"
 msgstr "컴퓨터(_C)"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:902
+#: ../src/caja-window-menus.c:898
 msgid "_Network"
 msgstr "네트워크(_N)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:903 ../src/mate-network-scheme.desktop.in.h:2
+#: ../src/caja-window-menus.c:899 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
 msgstr "책갈피와 로컬 네트워크를 찾아봅니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:907
+#: ../src/caja-window-menus.c:903
 msgid "T_emplates"
 msgstr "서식(_E)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:908
+#: ../src/caja-window-menus.c:904
 msgid "Open your personal templates folder"
 msgstr "개인 서식 폴더로 갑니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:912
+#: ../src/caja-window-menus.c:908
 msgid "_Trash"
 msgstr "휴지통(_T)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:913
+#: ../src/caja-window-menus.c:909
 msgid "Open your personal trash folder"
 msgstr "휴지통을 엽니다"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:921
+#: ../src/caja-window-menus.c:917
 msgid "Show _Hidden Files"
 msgstr "숨긴 파일 보이기(_H)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:922
+#: ../src/caja-window-menus.c:918
 msgid "Toggle the display of hidden files in the current window"
 msgstr "현재 창의 숨긴 파일의 표시 여부를 토글합니다"
 
-#: ../src/caja-window-menus.c:953
+#: ../src/caja-window-menus.c:949
 msgid "_Up"
 msgstr "위로(_U)"
 
-#: ../src/caja-window-menus.c:956
+#: ../src/caja-window-menus.c:952
 msgid "_Home"
 msgstr "내 폴더(_H)"
 

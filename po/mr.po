@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-01 10:19+0300\n"
-"PO-Revision-Date: 2016-08-01 07:19+0000\n"
+"POT-Creation-Date: 2016-08-23 13:33+0300\n"
+"PO-Revision-Date: 2016-08-23 10:33+0000\n"
 "Last-Translator: monsta <monsta@inbox.ru>\n"
 "Language-Team: Marathi (http://www.transifex.com/mate/MATE/language/mr/)\n"
 "MIME-Version: 1.0\n"
@@ -351,13 +351,9 @@ msgstr "वस्तुमध्ये जोडण्याकरीता ब�
 
 #. translators: this is the name of an emblem
 #: ../data/browser.xml.h:69 ../src/caja-emblem-sidebar.c:990
-#: ../src/caja-property-browser.c:1944
+#: ../src/caja-property-browser.c:2004
 msgid "Erase"
 msgstr "खोडा"
-
-#: ../data/caja.xml.in.h:1
-msgid "Saved search"
-msgstr "संचयीत शोध"
 
 #: ../data/caja.appdata.xml.in.h:1
 msgid "File manager for the MATE desktop environment"
@@ -372,6 +368,10 @@ msgid ""
 "extensible through a plugin system, similar to that of GNOME Nautilus, of "
 "which Caja is a fork. </p>"
 msgstr ""
+
+#: ../data/caja.xml.in.h:1
+msgid "Saved search"
+msgstr "संचयीत शोध"
 
 #: ../eel/eel-canvas.c:1443 ../eel/eel-canvas.c:1444
 msgid "X"
@@ -553,9 +553,9 @@ msgstr "नेहमी ही कृती करा (_A)"
 #. label, accelerator
 #. add the "Eject" menu item
 #: ../libcaja-private/caja-autorun.c:1163
-#: ../src/file-manager/fm-directory-view.c:7495
-#: ../src/file-manager/fm-directory-view.c:7523
-#: ../src/file-manager/fm-directory-view.c:7604
+#: ../src/file-manager/fm-directory-view.c:7500
+#: ../src/file-manager/fm-directory-view.c:7528
+#: ../src/file-manager/fm-directory-view.c:7609
 #: ../src/file-manager/fm-tree-view.c:1382 ../src/caja-places-sidebar.c:2742
 msgid "_Eject"
 msgstr "बाहेर काढा (_E)"
@@ -564,9 +564,9 @@ msgstr "बाहेर काढा (_E)"
 #. label, accelerator
 #. add the "Unmount" menu item
 #: ../libcaja-private/caja-autorun.c:1176
-#: ../src/file-manager/fm-directory-view.c:7491
-#: ../src/file-manager/fm-directory-view.c:7519
-#: ../src/file-manager/fm-directory-view.c:7600
+#: ../src/file-manager/fm-directory-view.c:7496
+#: ../src/file-manager/fm-directory-view.c:7524
+#: ../src/file-manager/fm-directory-view.c:7605
 #: ../src/file-manager/fm-tree-view.c:1373 ../src/caja-places-sidebar.c:2735
 msgid "_Unmount"
 msgstr "अनारोहण (_U)"
@@ -595,7 +595,7 @@ msgstr "क्लिपबोर्डवरून साठवलेली व�
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-clipboard.c:470
-#: ../src/file-manager/fm-directory-view.c:7424
+#: ../src/file-manager/fm-directory-view.c:7429
 msgid "Select _All"
 msgstr "सर्व निवडा (_A)"
 
@@ -618,7 +618,7 @@ msgstr "मुलभूत वापरा (_f)"
 
 #: ../libcaja-private/caja-column-utilities.c:44
 #: ../libcaja-private/caja-mime-application-chooser.c:278
-#: ../src/file-manager/fm-list-view.c:1773
+#: ../src/file-manager/fm-list-view.c:1775
 msgid "Name"
 msgstr "नाव"
 
@@ -737,7 +737,7 @@ msgstr "फाईल कचऱ्यात टाकायच्या आधी
 #: ../libcaja-private/caja-customization-data.c:431
 #: ../libcaja-private/caja-file-conflict-dialog.c:663
 #: ../libcaja-private/caja-mime-application-chooser.c:449
-#: ../src/caja-property-browser.c:1991
+#: ../src/caja-property-browser.c:2051
 msgid "Reset"
 msgstr "पुनःस्थापित करा"
 
@@ -745,23 +745,6 @@ msgstr "पुनःस्थापित करा"
 #: ../libcaja-private/caja-desktop-icon-file.c:158
 msgid "on the desktop"
 msgstr "डेस्कटॉपवर"
-
-#: ../libcaja-private/caja-desktop-link-monitor.c:105
-#, c-format
-msgid "You cannot move the volume \"%s\" to the trash."
-msgstr "\"%s\" खंड तुम्ही कचरापेटीत स्थानांतरीत करू शकत नाही."
-
-#: ../libcaja-private/caja-desktop-link-monitor.c:116
-msgid ""
-"If you want to eject the volume, please use \"Eject\" in the popup menu of "
-"the volume."
-msgstr "खंड बाहेर काढायचे असल्यास, कृपया खंडाच्या पॉपअप मेनुतील \"बाहेर काढा\" पर्यायाचा वापर करा."
-
-#: ../libcaja-private/caja-desktop-link-monitor.c:127
-msgid ""
-"If you want to unmount the volume, please use \"Unmount Volume\" in the "
-"popup menu of the volume."
-msgstr "खंड अनारोहन करायचे असल्यास, कृपया पॉपअप मेनुतील \"खंड अनारोहन करा\" चा वापर करा."
 
 #. Note to translators: If it's hard to compose a good home
 #. * icon name from the user name, you can use a string without
@@ -1051,8 +1034,8 @@ msgstr[1] "अंदाजे %'d तास"
 #. * (e.g. "folder", "plain text") to file type for symbolic link
 #. * to that kind of file (e.g. "link to folder").
 #: ../libcaja-private/caja-file-operations.c:377
-#: ../libcaja-private/caja-file.c:6438
-#: ../src/file-manager/fm-directory-view.c:10616
+#: ../libcaja-private/caja-file.c:6409
+#: ../src/file-manager/fm-directory-view.c:10622
 #, c-format
 msgid "Link to %s"
 msgstr "%s करीता लिंक द्या"
@@ -1701,12 +1684,12 @@ msgstr "कचरापेटी रिकामी करत आहे"
 msgid "Unable to mark launcher trusted (executable)"
 msgstr "प्रक्षेपक विश्वासर्ह नुरूप चिन्हाकृत करणे अशक्य (एक्जीक्यूटेबल)"
 
-#: ../libcaja-private/caja-file-utilities.c:1400
+#: ../libcaja-private/caja-file-utilities.c:1207
 #, c-format
 msgid "Could not determine original location of \"%s\" "
 msgstr "\"%s\" चे मुळ स्थान ओळखू शकले नाही"
 
-#: ../libcaja-private/caja-file-utilities.c:1404
+#: ../libcaja-private/caja-file-utilities.c:1211
 msgid "The item cannot be restored from trash"
 msgstr "कचरापेटी पासून घटक पुन्हस्थापीत केले जाऊ शकत नाही"
 
@@ -1774,7 +1757,7 @@ msgid "today at 00:00:00 PM"
 msgstr "आज 00:00:00 PM वाजता"
 
 #: ../libcaja-private/caja-file.c:4476
-#: ../src/caja-file-management-properties.c:520
+#: ../src/caja-file-management-properties.c:519
 msgid "today at %-I:%M:%S %p"
 msgstr "आज %-I:%M:%S %p योवेळी"
 
@@ -1888,47 +1871,47 @@ msgstr "00/00/00"
 msgid "%m/%d/%y"
 msgstr "%m/%d/%y"
 
-#: ../libcaja-private/caja-file.c:5175
+#: ../libcaja-private/caja-file.c:5146
 #, c-format
 msgid "Not allowed to set permissions"
 msgstr "परवानगी निश्चित करण्यास परवानगी नाही"
 
-#: ../libcaja-private/caja-file.c:5469
+#: ../libcaja-private/caja-file.c:5440
 #, c-format
 msgid "Not allowed to set owner"
 msgstr "मालकी निश्चित करू शकत नाही"
 
-#: ../libcaja-private/caja-file.c:5487
+#: ../libcaja-private/caja-file.c:5458
 #, c-format
 msgid "Specified owner '%s' doesn't exist"
 msgstr "निर्धारीत मालक '%s' अस्तित्वात नाही"
 
-#: ../libcaja-private/caja-file.c:5747
+#: ../libcaja-private/caja-file.c:5718
 #, c-format
 msgid "Not allowed to set group"
 msgstr "समुह निश्चित करण्यास परवानगी नाही"
 
-#: ../libcaja-private/caja-file.c:5765
+#: ../libcaja-private/caja-file.c:5736
 #, c-format
 msgid "Specified group '%s' doesn't exist"
 msgstr "निर्धारीत समुह '%s' अस्तित्वात नाही"
 
-#: ../libcaja-private/caja-file.c:5919
-#: ../src/file-manager/fm-directory-view.c:2446
+#: ../libcaja-private/caja-file.c:5890
+#: ../src/file-manager/fm-directory-view.c:2450
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
 msgstr[0] "%'u घटक"
 msgstr[1] "%'u घटक"
 
-#: ../libcaja-private/caja-file.c:5920
+#: ../libcaja-private/caja-file.c:5891
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
 msgstr[0] "%'u संचयीका"
 msgstr[1] "%'u संचयीका"
 
-#: ../libcaja-private/caja-file.c:5921
+#: ../libcaja-private/caja-file.c:5892
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
@@ -1937,49 +1920,49 @@ msgstr[1] "%'u फाइल"
 
 #. Do this in a separate stage so that we don't have to put G_GUINT64_FORMAT
 #. in the translated string
-#: ../libcaja-private/caja-file.c:6008
+#: ../libcaja-private/caja-file.c:5979
 msgid "%"
 msgstr "%"
 
-#: ../libcaja-private/caja-file.c:6009
+#: ../libcaja-private/caja-file.c:5980
 #, c-format
 msgid "%s (%s bytes)"
 msgstr "%s (%s बाईट्स)"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6324 ../libcaja-private/caja-file.c:6340
+#: ../libcaja-private/caja-file.c:6295 ../libcaja-private/caja-file.c:6311
 msgid "? items"
 msgstr "? माहिती"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6330
+#: ../libcaja-private/caja-file.c:6301
 msgid "? bytes"
 msgstr "? बाईट्स"
 
-#: ../libcaja-private/caja-file.c:6345
+#: ../libcaja-private/caja-file.c:6316
 msgid "unknown type"
 msgstr "अपरिचीत प्रकार"
 
-#: ../libcaja-private/caja-file.c:6348
+#: ../libcaja-private/caja-file.c:6319
 msgid "unknown MIME type"
 msgstr "अपरिचीत MIME प्रकार"
 
 #. Fallback, use for both unknown attributes and attributes
 #. * for which we have no more appropriate default.
-#: ../libcaja-private/caja-file.c:6362
+#: ../libcaja-private/caja-file.c:6333
 #: ../src/file-manager/fm-properties-window.c:1359
 msgid "unknown"
 msgstr "अपरिचीत"
 
-#: ../libcaja-private/caja-file.c:6412
+#: ../libcaja-private/caja-file.c:6383
 msgid "program"
 msgstr "कार्यक्रम"
 
-#: ../libcaja-private/caja-file.c:6432
+#: ../libcaja-private/caja-file.c:6403
 msgid "link"
 msgstr "लिंक"
 
-#: ../libcaja-private/caja-file.c:6454
+#: ../libcaja-private/caja-file.c:6425
 msgid "link (broken)"
 msgstr "लिंक (अनिश्चित)"
 
@@ -1988,79 +1971,79 @@ msgstr "लिंक (अनिश्चित)"
 msgid "The selection rectangle"
 msgstr "निवडक चौरस"
 
-#: ../libcaja-private/caja-mime-actions.c:755
+#: ../libcaja-private/caja-mime-actions.c:718
 #, c-format
 msgid "The Link \"%s\" is Broken."
 msgstr "लिंक \"%s\" अनुपलब्ध स्थळास निर्देशीत आहे."
 
-#: ../libcaja-private/caja-mime-actions.c:759
+#: ../libcaja-private/caja-mime-actions.c:722
 #, c-format
 msgid "The Link \"%s\" is Broken. Move it to Trash?"
 msgstr "लिंक \"%s\" अनुपलब्ध स्थळास निर्देशीत आहे. याला कचरापेटीकडे हलवायचे?"
 
-#: ../libcaja-private/caja-mime-actions.c:766
+#: ../libcaja-private/caja-mime-actions.c:729
 msgid "This link cannot be used, because it has no target."
 msgstr "लक्ष्य अनुपलब्ध असल्यामुळे, ही लिंक वापरली जाऊ शकत नाही."
 
-#: ../libcaja-private/caja-mime-actions.c:770
+#: ../libcaja-private/caja-mime-actions.c:733
 #, c-format
 msgid "This link cannot be used, because its target \"%s\" doesn't exist."
 msgstr "लक्ष्य \"%s\" अस्तित्वात नसल्यामुळे, ही लिंक वापरली जाऊ शकत नाही."
 
 #. name, stock id
 #. label, accelerator
-#: ../libcaja-private/caja-mime-actions.c:781
-#: ../src/file-manager/fm-directory-view.c:7452
-#: ../src/file-manager/fm-directory-view.c:7584
-#: ../src/file-manager/fm-directory-view.c:8684
-#: ../src/file-manager/fm-directory-view.c:9009
+#: ../libcaja-private/caja-mime-actions.c:744
+#: ../src/file-manager/fm-directory-view.c:7457
+#: ../src/file-manager/fm-directory-view.c:7589
+#: ../src/file-manager/fm-directory-view.c:8690
+#: ../src/file-manager/fm-directory-view.c:9015
 #: ../src/file-manager/fm-tree-view.c:1346
 msgid "Mo_ve to Trash"
 msgstr "कचरापेटीत हलवा (_v)"
 
-#: ../libcaja-private/caja-mime-actions.c:843
+#: ../libcaja-private/caja-mime-actions.c:806
 #, c-format
 msgid "Do you want to run \"%s\", or display its contents?"
 msgstr "तुम्हाला \"%s\" वापरायचे आहे का, किंवा त्यातील माहिती पहायची?"
 
-#: ../libcaja-private/caja-mime-actions.c:845
+#: ../libcaja-private/caja-mime-actions.c:808
 #, c-format
 msgid "\"%s\" is an executable text file."
 msgstr "\"%s\" ही कार्यान्वीत करतायेण्याजोगी पाठ्य फाइल आहे."
 
-#: ../libcaja-private/caja-mime-actions.c:851
+#: ../libcaja-private/caja-mime-actions.c:814
 msgid "Run in _Terminal"
 msgstr "टर्मिनल मध्ये कार्यान्वीत करा (_T)"
 
-#: ../libcaja-private/caja-mime-actions.c:852
+#: ../libcaja-private/caja-mime-actions.c:815
 msgid "_Display"
 msgstr "दर्शवा (_D)"
 
-#: ../libcaja-private/caja-mime-actions.c:855
+#: ../libcaja-private/caja-mime-actions.c:818
 #: ../src/caja-autorun-software.c:258
 msgid "_Run"
 msgstr "चालवा (_R)"
 
-#: ../libcaja-private/caja-mime-actions.c:1209
-#: ../src/file-manager/fm-directory-view.c:656
+#: ../libcaja-private/caja-mime-actions.c:1172
+#: ../src/file-manager/fm-directory-view.c:660
 msgid "Are you sure you want to open all files?"
 msgstr "तुम्हाला नक्की सर्व फाइल उघडायचे?"
 
-#: ../libcaja-private/caja-mime-actions.c:1212
+#: ../libcaja-private/caja-mime-actions.c:1175
 #, c-format
 msgid "This will open %d separate tab."
 msgid_plural "This will open %d separate tabs."
 msgstr[0] "यामुळे %d वेगळी चौकट उघडली जाईल."
 msgstr[1] "यामुळे %d वेगळी चौकट उघडली जाईल."
 
-#: ../libcaja-private/caja-mime-actions.c:1217 ../src/caja-location-bar.c:194
+#: ../libcaja-private/caja-mime-actions.c:1180 ../src/caja-location-bar.c:194
 #, c-format
 msgid "This will open %d separate window."
 msgid_plural "This will open %d separate windows."
 msgstr[0] "यामुळे %d वेगळी चौकट उघडली जाईल."
 msgstr[1] "यामुळे %d वेगळी चौकट उघडली जाईल."
 
-#: ../libcaja-private/caja-mime-actions.c:1295
+#: ../libcaja-private/caja-mime-actions.c:1258
 #: ../src/caja-window-manage-views.c:2117
 #: ../src/caja-window-manage-views.c:2125
 #: ../src/caja-window-manage-views.c:2145
@@ -2071,70 +2054,70 @@ msgstr[1] "यामुळे %d वेगळी चौकट उघडली �
 msgid "Could not display \"%s\"."
 msgstr "\"%s\" प्रदर्शित करू शकत नाही."
 
-#: ../libcaja-private/caja-mime-actions.c:1382
+#: ../libcaja-private/caja-mime-actions.c:1345
 msgid "The file is of an unknown type"
 msgstr "फाइलचे प्रकार परिचीत नाही"
 
-#: ../libcaja-private/caja-mime-actions.c:1386
+#: ../libcaja-private/caja-mime-actions.c:1349
 #, c-format
 msgid "There is no application installed for %s files"
 msgstr "%s फाइल करीता अनुप्रयोग प्रतिष्ठापीत नाही"
 
-#: ../libcaja-private/caja-mime-actions.c:1401
+#: ../libcaja-private/caja-mime-actions.c:1364
 msgid "_Select Application"
 msgstr "ऍप्लिकेशन नीवडा (_S)"
 
-#: ../libcaja-private/caja-mime-actions.c:1439
+#: ../libcaja-private/caja-mime-actions.c:1402
 msgid "There was an internal error trying to search for applications:"
 msgstr "अनुप्रयोग प्रक्षेपित करतेवेळी त्रुटी आढळली:"
 
-#: ../libcaja-private/caja-mime-actions.c:1441
+#: ../libcaja-private/caja-mime-actions.c:1404
 msgid "Unable to search for application"
 msgstr "अनुप्रयोग करीता शोध करण्यास अपयशी"
 
-#: ../libcaja-private/caja-mime-actions.c:1567
+#: ../libcaja-private/caja-mime-actions.c:1530
 #, c-format
 msgid ""
 "There is no application installed for %s files.\n"
 "Do you want to search for an application to open this file?"
 msgstr "%s फाइल करीता कुठलाही अनुप्रयोग प्रतिष्ठापीत नाही.\nही फाइल उघडण्याकरीता तुम्हाला अनुप्रयोग करीता शोध करायचे?"
 
-#: ../libcaja-private/caja-mime-actions.c:1731
+#: ../libcaja-private/caja-mime-actions.c:1694
 msgid "Untrusted application launcher"
 msgstr "अविश्वासर्ह अनुप्रयोग प्रक्षेपक"
 
-#: ../libcaja-private/caja-mime-actions.c:1734
+#: ../libcaja-private/caja-mime-actions.c:1697
 #, c-format
 msgid ""
 "The application launcher \"%s\" has not been marked as trusted. If you do "
 "not know the source of this file, launching it may be unsafe."
 msgstr "अनुप्रयोग प्रक्षेपक \"%s\" विश्वासर्ह नुरूप चिन्हाकृत केले गेले नाही. या फाइलचे स्त्रोत माहित नसल्यास, प्रक्षेपीत करणे धोकादायक ठरू शकते."
 
-#: ../libcaja-private/caja-mime-actions.c:1749
+#: ../libcaja-private/caja-mime-actions.c:1712
 msgid "_Launch Anyway"
 msgstr "कसेहीकरून प्रक्षेपीत करा (_L)"
 
-#: ../libcaja-private/caja-mime-actions.c:1753
+#: ../libcaja-private/caja-mime-actions.c:1716
 msgid "Mark as _Trusted"
 msgstr "विश्वासर्ह नुरूप चिन्हाकृत करा (_T)"
 
-#: ../libcaja-private/caja-mime-actions.c:2049
-#: ../libcaja-private/caja-mime-actions.c:2355
-#: ../src/file-manager/fm-directory-view.c:6470
+#: ../libcaja-private/caja-mime-actions.c:2012
+#: ../libcaja-private/caja-mime-actions.c:2318
+#: ../src/file-manager/fm-directory-view.c:6475
 msgid "Unable to mount location"
 msgstr "सद्याचे स्थळ आरोहीत करण्यास अपयशी"
 
-#: ../libcaja-private/caja-mime-actions.c:2443
-#: ../src/file-manager/fm-directory-view.c:6644
+#: ../libcaja-private/caja-mime-actions.c:2406
+#: ../src/file-manager/fm-directory-view.c:6649
 msgid "Unable to start location"
 msgstr "ठिकाण सुरू करण्यास अशक्य"
 
-#: ../libcaja-private/caja-mime-actions.c:2536
+#: ../libcaja-private/caja-mime-actions.c:2499
 #, c-format
 msgid "Opening \"%s\"."
 msgstr "\"%s\" उघडत आहे."
 
-#: ../libcaja-private/caja-mime-actions.c:2541
+#: ../libcaja-private/caja-mime-actions.c:2504
 #, c-format
 msgid "Opening %d item."
 msgid_plural "Opening %d items."
@@ -2234,8 +2217,8 @@ msgstr "संचार (_B)..."
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-open-with-dialog.c:970
-#: ../src/file-manager/fm-directory-view.c:7368
-#: ../src/file-manager/fm-directory-view.c:8878
+#: ../src/file-manager/fm-directory-view.c:7373
+#: ../src/file-manager/fm-directory-view.c:8884
 #: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2684
 msgid "_Open"
 msgstr "उघडा (_O)"
@@ -3467,7 +3450,7 @@ msgstr "प्रॉमप्ट आपोआप चालवा"
 #: ../data/caja-browser.desktop.in.in.h:1
 #: ../data/caja-folder-handler.desktop.in.in.h:1
 #: ../data/caja.desktop.in.in.h:1 ../src/caja-spatial-window.c:382
-#: ../src/caja-window-menus.c:536 ../src/caja-window.c:179
+#: ../src/caja-window-menus.c:532 ../src/caja-window.c:183
 msgid "Caja"
 msgstr "नॉटीलस"
 
@@ -3480,7 +3463,7 @@ msgid "Browse the file system with the file manager"
 msgstr "फाइल व्यवस्थापकाच्या मदतीने फाइल प्रणाली संचार करा"
 
 #. tooltip
-#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:898
+#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:894
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
 msgstr "सर्व स्थानीय व दुरस्थ डीस्क व या संगणकावरील प्रवेश प्राप्तीय संचयीकांचे संचार करा"
@@ -3499,7 +3482,7 @@ msgstr "मुळ संचयीका"
 
 #. tooltip
 #: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:522
-#: ../src/caja-window-menus.c:893
+#: ../src/caja-window-menus.c:889
 msgid "Open your personal folder"
 msgstr "आपली व्यक्तिगत संचयीका उघडा"
 
@@ -3507,124 +3490,124 @@ msgstr "आपली व्यक्तिगत संचयीका उघड
 msgid "File Manager"
 msgstr "फाइल व्यवस्थापक"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:719
+#: ../src/file-manager/fm-desktop-icon-view.c:722
 msgid "Background"
 msgstr "पार्श्वभूमी"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:796
-#: ../src/file-manager/fm-directory-view.c:7400
-#: ../src/file-manager/fm-directory-view.c:9078
+#: ../src/file-manager/fm-desktop-icon-view.c:799
+#: ../src/file-manager/fm-directory-view.c:7405
+#: ../src/file-manager/fm-directory-view.c:9084
 msgid "E_mpty Trash"
 msgstr "रिकामी कचरापेटी (_m)"
 
 #. label, accelerator
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:810
-#: ../src/file-manager/fm-directory-view.c:7364
+#: ../src/file-manager/fm-desktop-icon-view.c:813
+#: ../src/file-manager/fm-directory-view.c:7369
 msgid "Create L_auncher..."
 msgstr "प्रक्षेपक तयार करा (_a)..."
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:812
-#: ../src/file-manager/fm-directory-view.c:7365
+#: ../src/file-manager/fm-desktop-icon-view.c:815
+#: ../src/file-manager/fm-directory-view.c:7370
 msgid "Create a new launcher"
 msgstr "नविन प्रक्षेपक निर्माण करा"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:819
+#: ../src/file-manager/fm-desktop-icon-view.c:822
 msgid "Change Desktop _Background"
 msgstr "डेस्कटॉप पार्श्वभूमी बदलवा (_B)"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:821
+#: ../src/file-manager/fm-desktop-icon-view.c:824
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr "डेस्कटॉपची रचना किंवा रंग स्थापन करतायेण्याजोगी करण्याकरीता चौकट दर्शवा"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:828
+#: ../src/file-manager/fm-desktop-icon-view.c:831
 msgid "Empty Trash"
 msgstr "कचरापेटी रिकामी करा"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:830
-#: ../src/file-manager/fm-directory-view.c:7401 ../src/caja-trash-bar.c:208
+#: ../src/file-manager/fm-desktop-icon-view.c:833
+#: ../src/file-manager/fm-directory-view.c:7406 ../src/caja-trash-bar.c:208
 msgid "Delete all items in the Trash"
 msgstr "कचरापेटीतून सर्व घटके काढून टाका"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:930
+#: ../src/file-manager/fm-desktop-icon-view.c:933
 msgid "The desktop view encountered an error."
 msgstr "डेस्कटॉप दर्शकाला त्रुटी आढळली."
 
-#: ../src/file-manager/fm-desktop-icon-view.c:931
+#: ../src/file-manager/fm-desktop-icon-view.c:934
 msgid "The desktop view encountered an error while starting up."
 msgstr "सुरू होताना डेस्कटॉप दर्शकाला त्रुटी आढळली."
 
-#: ../src/file-manager/fm-directory-view.c:658
+#: ../src/file-manager/fm-directory-view.c:662
 #, c-format
 msgid "This will open %'d separate tab."
 msgid_plural "This will open %'d separate tabs."
 msgstr[0] "यामुळे %'d वेगळी चौकट उघडली जाईल."
 msgstr[1] "यामुळे %'d वेगळी चौकट उघडली जाईल."
 
-#: ../src/file-manager/fm-directory-view.c:661
+#: ../src/file-manager/fm-directory-view.c:665
 #, c-format
 msgid "This will open %'d separate window."
 msgid_plural "This will open %'d separate windows."
 msgstr[0] "यामुळे %'d वेगळी चौकट उघडली जाईल."
 msgstr[1] "यामुळे %'d वेगळी चौकट उघडली जाईल."
 
-#: ../src/file-manager/fm-directory-view.c:1180
+#: ../src/file-manager/fm-directory-view.c:1184
 #: ../src/file-manager/fm-properties-window.c:6491
 #: ../src/caja-connect-server-dialog.c:731 ../src/caja-location-dialog.c:106
 msgid "There was an error displaying help."
 msgstr "मदत प्रदर्सित करताना त्रुटी होती."
 
-#: ../src/file-manager/fm-directory-view.c:1204
+#: ../src/file-manager/fm-directory-view.c:1208
 msgid "Select Items Matching"
 msgstr "जुळविण्याजोगी घटक निवडा"
 
-#: ../src/file-manager/fm-directory-view.c:1219
+#: ../src/file-manager/fm-directory-view.c:1223
 msgid "_Pattern:"
 msgstr "रचना (_P):"
 
-#: ../src/file-manager/fm-directory-view.c:1230
+#: ../src/file-manager/fm-directory-view.c:1234
 msgid "Examples: "
 msgstr "उदाहरणे: "
 
-#: ../src/file-manager/fm-directory-view.c:1377
+#: ../src/file-manager/fm-directory-view.c:1381
 msgid "Save Search as"
 msgstr "शोध या स्वरूपात संचयीत करा"
 
-#: ../src/file-manager/fm-directory-view.c:1409
+#: ../src/file-manager/fm-directory-view.c:1413
 msgid "Search _name:"
 msgstr "नाव शोधा (_n):"
 
-#: ../src/file-manager/fm-directory-view.c:1437
+#: ../src/file-manager/fm-directory-view.c:1441
 msgid "_Folder:"
 msgstr "संचयीका (_F):"
 
-#: ../src/file-manager/fm-directory-view.c:1450
+#: ../src/file-manager/fm-directory-view.c:1454
 msgid "Select Folder to Save Search In"
 msgstr "यात शोध संचयीत करण्याकरीता संचयीका निवडा"
 
-#: ../src/file-manager/fm-directory-view.c:2359
-#: ../src/file-manager/fm-directory-view.c:2396
+#: ../src/file-manager/fm-directory-view.c:2363
+#: ../src/file-manager/fm-directory-view.c:2400
 #, c-format
 msgid "\"%s\" selected"
 msgstr "\"%s\" निवडले"
 
-#: ../src/file-manager/fm-directory-view.c:2361
+#: ../src/file-manager/fm-directory-view.c:2365
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
 msgstr[0] "%'d संचयीका निवडली"
 msgstr[1] "%'d संचयीका निवडली"
 
-#: ../src/file-manager/fm-directory-view.c:2371
+#: ../src/file-manager/fm-directory-view.c:2375
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
@@ -3633,14 +3616,14 @@ msgstr[1] " (%'d घटक समाविष्ट)"
 
 #. translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
-#: ../src/file-manager/fm-directory-view.c:2382
+#: ../src/file-manager/fm-directory-view.c:2386
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
 msgstr[0] " (एकूण %'d घटक समाविष्ट)"
 msgstr[1] " (एकूण %'d घटक समाविष्ट)"
 
-#: ../src/file-manager/fm-directory-view.c:2399
+#: ../src/file-manager/fm-directory-view.c:2403
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
@@ -3648,7 +3631,7 @@ msgstr[0] "%'d घटक निवडले"
 msgstr[1] "%'d घटक निवडले"
 
 #. Folders selected also, use "other" terminology
-#: ../src/file-manager/fm-directory-view.c:2406
+#: ../src/file-manager/fm-directory-view.c:2410
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
@@ -3659,17 +3642,17 @@ msgstr[1] "%'d अन्य घटक निवडले"
 #. * needs to use something other than parentheses. The
 #. * first message gives the number of items selected;
 #. * the message in parentheses the size of those items.
-#: ../src/file-manager/fm-directory-view.c:2425
+#: ../src/file-manager/fm-directory-view.c:2429
 #, c-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-directory-view.c:2438
+#: ../src/file-manager/fm-directory-view.c:2442
 #, c-format
 msgid "Free space: %s"
 msgstr "मोकळी जागा: %s"
 
-#: ../src/file-manager/fm-directory-view.c:2449
+#: ../src/file-manager/fm-directory-view.c:2453
 #, c-format
 msgid "%s, Free space: %s"
 msgstr "%s, रिक्त जागा: %s"
@@ -3678,7 +3661,7 @@ msgstr "%s, रिक्त जागा: %s"
 #. * might want to change "," to something else.
 #. * After the comma the amount of free space will
 #. * be shown.
-#: ../src/file-manager/fm-directory-view.c:2464
+#: ../src/file-manager/fm-directory-view.c:2468
 #, c-format
 msgid "%s, %s"
 msgstr "%s, %s"
@@ -3693,8 +3676,8 @@ msgstr "%s, %s"
 #. * and the number of items in those folders and the
 #. * message about the number of other items and the
 #. * total size of those items.
-#: ../src/file-manager/fm-directory-view.c:2483
-#: ../src/file-manager/fm-directory-view.c:2497
+#: ../src/file-manager/fm-directory-view.c:2487
+#: ../src/file-manager/fm-directory-view.c:2501
 #, c-format
 msgid "%s%s, %s"
 msgstr "%s%s, %s"
@@ -3706,53 +3689,53 @@ msgstr "%s%s, %s"
 #. * message about the number of other items and the
 #. * total size of those items. After the second comma
 #. * the free space is written.
-#: ../src/file-manager/fm-directory-view.c:2510
+#: ../src/file-manager/fm-directory-view.c:2514
 #, c-format
 msgid "%s%s, %s, %s"
 msgstr "%s%s, %s, %s"
 
-#: ../src/file-manager/fm-directory-view.c:4555
+#: ../src/file-manager/fm-directory-view.c:4560
 #: ../src/caja-information-panel.c:922
 #, c-format
 msgid "Open With %s"
 msgstr "%s च्यासह उघडा"
 
-#: ../src/file-manager/fm-directory-view.c:4557
+#: ../src/file-manager/fm-directory-view.c:4562
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
 msgstr[0] "निवडलेल्या घटक उघडण्यासाठी \"%s\" वापरा"
 msgstr[1] "निवडलेल्या घटक उघडण्यासाठी \"%s\" वापरा"
 
-#: ../src/file-manager/fm-directory-view.c:4646
+#: ../src/file-manager/fm-directory-view.c:4651
 msgid "Open parent location"
 msgstr "पितृस्थळ उघडा"
 
-#: ../src/file-manager/fm-directory-view.c:4647
+#: ../src/file-manager/fm-directory-view.c:4652
 msgid "Open parent location for the selected item"
 msgstr "निवडलेल्या घटकाचे पालक स्थान उघडा"
 
-#: ../src/file-manager/fm-directory-view.c:5505
+#: ../src/file-manager/fm-directory-view.c:5510
 #, c-format
 msgid "Run \"%s\" on any selected items"
 msgstr "\"%s\" कोणत्याही निवडलेल्या घटकवर वापरा"
 
-#: ../src/file-manager/fm-directory-view.c:5756
+#: ../src/file-manager/fm-directory-view.c:5761
 #, c-format
 msgid "Create Document from template \"%s\""
 msgstr "नमुन्यातुन दस्तऐवज \"%s\" निर्माण करा"
 
-#: ../src/file-manager/fm-directory-view.c:6006
+#: ../src/file-manager/fm-directory-view.c:6011
 msgid "All executable files in this folder will appear in the Scripts menu."
 msgstr "या संचयीकेतील सर्व कार्यान्वीत फाइल स्क्रिप्ट मेनु मध्ये दर्शविल्या जाईल."
 
-#: ../src/file-manager/fm-directory-view.c:6008
+#: ../src/file-manager/fm-directory-view.c:6013
 msgid ""
 "Choosing a script from the menu will run that script with any selected items"
 " as input."
 msgstr "मेनुपासून निवडलेली स्क्रिप्ट आगत स्वरूपी कुठल्याही निवडलेल्या घटकांशी कार्यरत राहते."
 
-#: ../src/file-manager/fm-directory-view.c:6010
+#: ../src/file-manager/fm-directory-view.c:6015
 msgid ""
 "All executable files in this folder will appear in the Scripts menu. Choosing a script from the menu will run that script.\n"
 "\n"
@@ -3775,19 +3758,19 @@ msgid ""
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI for current location in the inactive pane of a split-view window"
 msgstr "यो फोल्डरमधील सर्व एक्जीक्यूटेबल फाइल्स् स्क्रिप्टस् मेन्यूमध्ये आढळतील. मेन्यू पासून स्क्रिप्ट नीवडल्यास स्क्रिप्ट चालवले जाते.\n\nस्थानीय फोल्डर पासून चालवल्यास, स्क्रिप्टस्ला नीवडलेल्या फाइलचे नाव पुरवले जाईल. रिमोट फोल्डर पासून चालवल्यास (उ.दा. वेब किंवा ftp अंतर्भुत माहिती दाखवणारे फोल्डर), स्क्रिप्टस् करीता घटके पुरवले जाणार नाही.\n\nसर्व घटनांमध्ये, खालील एन्वार्यनमेंट वेरियेबल्स् नॉटीलस् द्वारे सेट केले जाईल, ज्याचा वापर स्क्रिप्टस्ला होऊ शकतो:\n\nCAJA_SCRIPT_SELECTED_FILE_PATHS: नीवडलेल्या फाइल्स् (फक्त स्थानीय) करीता न्यूलाईल-डिलीमीटेड मार्ग\n\nCAJA_SCRIPT_SELECTED_URIS: नीवडलेल्या फाइल्स् करीता न्यूलाईल-डिलीमीटेड URIs\n\nCAJA_SCRIPT_CURRENT_URI: सध्याच्या स्थळाकरीता URI\n\nCAJA_SCRIPT_WINDOW_GEOMETRY: सध्याच्या पटालाचे स्थान व आकार\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_FILE_PATHS: विभाजीत-दृष्य पटलाच्या (फक्त स्थानीय असल्यास) निष्क्रीय पट्टीतील नीवडलेल्या फाइल्स् करीता न्यूलाईन-डिलीमीटेड मार्ग\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: विभाजीत-दृष्य पटलाच्या निष्क्रीय पट्टीतील नीवडलेल्या फाइल्स् करीता न्यूलाईन-डिलीमीटेड URIs\n\nCAJA_SCRIPT_NEXT_PANE_CURRENT_URI: विभाजीत-दृष्य पटलाच्या निष्क्रीय पट्टीतील सध्याच्या स्थळकरीता URI"
 
-#: ../src/file-manager/fm-directory-view.c:6078
+#: ../src/file-manager/fm-directory-view.c:6083
 #: ../src/file-manager/fm-tree-view.c:1009
 #, c-format
 msgid "\"%s\" will be moved if you select the Paste command"
 msgstr "चिकटवा आदेश निवडल्यास \"%s\" तेथून हलविल्या जाईल"
 
-#: ../src/file-manager/fm-directory-view.c:6082
+#: ../src/file-manager/fm-directory-view.c:6087
 #: ../src/file-manager/fm-tree-view.c:1015
 #, c-format
 msgid "\"%s\" will be copied if you select the Paste command"
 msgstr "तुम्ही चिकटवा हा आदेश निवडल्यास \"%s\" ची प्रतिकृती होईल"
 
-#: ../src/file-manager/fm-directory-view.c:6089
+#: ../src/file-manager/fm-directory-view.c:6094
 #, c-format
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
@@ -3795,7 +3778,7 @@ msgid_plural ""
 msgstr[0] "चिकटवा आदेश निवडल्यास %'d निवडलेले घटक स्थानंतरीत केले जाईल"
 msgstr[1] "चिकटवा आदेश निवडल्यास %'d निवडलेले घटक स्थानंतरीत केले जाईल"
 
-#: ../src/file-manager/fm-directory-view.c:6096
+#: ../src/file-manager/fm-directory-view.c:6101
 #, c-format
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
@@ -3803,98 +3786,98 @@ msgid_plural ""
 msgstr[0] "चिकटवा आदेश निवडल्यास %'d निवडलेले घटकाचे प्रत बनविले जाईल"
 msgstr[1] "चिकटवा आदेश निवडल्यास %'d निवडलेले घटकाचे प्रत बनविले जाईल"
 
-#: ../src/file-manager/fm-directory-view.c:6276
+#: ../src/file-manager/fm-directory-view.c:6281
 #: ../src/file-manager/fm-tree-view.c:1055
 msgid "There is nothing on the clipboard to paste."
 msgstr "क्लिपबोर्डमध्ये चिकटविण्याकरीता काहीच नाही."
 
-#: ../src/file-manager/fm-directory-view.c:6491
+#: ../src/file-manager/fm-directory-view.c:6496
 msgid "Unable to unmount location"
 msgstr "ठिकाण माउंट अशक्य करण्यास अपयशी"
 
-#: ../src/file-manager/fm-directory-view.c:6512
+#: ../src/file-manager/fm-directory-view.c:6517
 msgid "Unable to eject location"
 msgstr "ठिकाण बाहेर काढण्यास अशक्य"
 
-#: ../src/file-manager/fm-directory-view.c:6527
+#: ../src/file-manager/fm-directory-view.c:6532
 msgid "Unable to stop drive"
 msgstr "ड्राइव्ह थांबवण्यास अशक्य"
 
-#: ../src/file-manager/fm-directory-view.c:7084
+#: ../src/file-manager/fm-directory-view.c:7089
 #, c-format
 msgid "Connect to Server %s"
 msgstr "%s सर्व्हरशी जुळवणी करा"
 
-#: ../src/file-manager/fm-directory-view.c:7089
-#: ../src/file-manager/fm-directory-view.c:8297
-#: ../src/file-manager/fm-directory-view.c:8389
-#: ../src/file-manager/fm-directory-view.c:8499
+#: ../src/file-manager/fm-directory-view.c:7094
+#: ../src/file-manager/fm-directory-view.c:8303
+#: ../src/file-manager/fm-directory-view.c:8395
+#: ../src/file-manager/fm-directory-view.c:8505
 msgid "_Connect"
 msgstr "जोडा (_C)"
 
-#: ../src/file-manager/fm-directory-view.c:7103
+#: ../src/file-manager/fm-directory-view.c:7108
 msgid "Link _name:"
 msgstr "लिंकचे नाव (_n):"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7342
+#: ../src/file-manager/fm-directory-view.c:7347
 msgid "Create _Document"
 msgstr "दस्तऐवज निर्माण करा (_D)"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7343
+#: ../src/file-manager/fm-directory-view.c:7348
 msgid "Open Wit_h"
 msgstr "याच्यासह उघडा (_h)"
 
-#: ../src/file-manager/fm-directory-view.c:7344
+#: ../src/file-manager/fm-directory-view.c:7349
 msgid "Choose a program with which to open the selected item"
 msgstr "निवडलेला घटक ज्या अनुप्रयोगाद्वारे उघडायचे तो निवडा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7346
-#: ../src/file-manager/fm-directory-view.c:7625
+#: ../src/file-manager/fm-directory-view.c:7351
+#: ../src/file-manager/fm-directory-view.c:7630
 msgid "_Properties"
 msgstr "गुणधर्म (_P)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7347
-#: ../src/file-manager/fm-directory-view.c:9065
+#: ../src/file-manager/fm-directory-view.c:7352
+#: ../src/file-manager/fm-directory-view.c:9071
 msgid "View or modify the properties of each selected item"
 msgstr "प्रत्येक निवडलेल्या घटकाचे गुणधर्म पहा किंवा सुधारीत करा"
 
 #. name, stock id
 #. label, accelerator
 #. add the "create folder" menu item
-#: ../src/file-manager/fm-directory-view.c:7354
+#: ../src/file-manager/fm-directory-view.c:7359
 #: ../src/file-manager/fm-tree-view.c:1298
 msgid "Create _Folder"
 msgstr "संचयीका बनवा (_F)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7355
+#: ../src/file-manager/fm-directory-view.c:7360
 msgid "Create a new empty folder inside this folder"
 msgstr "या संचयीकेमध्ये नविन रिकामी संचयीका बनवा"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7357
+#: ../src/file-manager/fm-directory-view.c:7362
 msgid "No templates installed"
 msgstr "आराखडा प्रतिष्ठापीत नाही"
 
 #. name, stock id
 #. translators: this is used to indicate that a file doesn't contain anything
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7360
+#: ../src/file-manager/fm-directory-view.c:7365
 msgid "_Empty File"
 msgstr "फाइल रिकामी करा (_E)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7361
+#: ../src/file-manager/fm-directory-view.c:7366
 msgid "Create a new empty file inside this folder"
 msgstr "या संचयीकेमध्ये नविन रिकामी फाइल बनवा"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7369
+#: ../src/file-manager/fm-directory-view.c:7374
 msgid "Open the selected item in this window"
 msgstr "या चौकटमध्ये निवडलेले घटक उघडा"
 
@@ -3903,91 +3886,91 @@ msgstr "या चौकटमध्ये निवडलेले घटक �
 #. Location-specific actions
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7376
-#: ../src/file-manager/fm-directory-view.c:7557
+#: ../src/file-manager/fm-directory-view.c:7381
+#: ../src/file-manager/fm-directory-view.c:7562
 msgid "Open in Navigation Window"
 msgstr "संचार चौकटीत उघडा"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7377
+#: ../src/file-manager/fm-directory-view.c:7382
 msgid "Open each selected item in a navigation window"
 msgstr "प्रत्येक निवडलेले घटक संचार चौकटीत उघडा"
 
 #. name, stock id
 #. label, accelerator
 #. add the "open in new tab" menu item
-#: ../src/file-manager/fm-directory-view.c:7380
-#: ../src/file-manager/fm-directory-view.c:7561
-#: ../src/file-manager/fm-directory-view.c:8629
-#: ../src/file-manager/fm-directory-view.c:8955
+#: ../src/file-manager/fm-directory-view.c:7385
+#: ../src/file-manager/fm-directory-view.c:7566
+#: ../src/file-manager/fm-directory-view.c:8635
+#: ../src/file-manager/fm-directory-view.c:8961
 #: ../src/file-manager/fm-tree-view.c:1278 ../src/caja-places-sidebar.c:2692
 msgid "Open in New _Tab"
 msgstr "नविन टॅब मध्ये उघडा (_T)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7381
+#: ../src/file-manager/fm-directory-view.c:7386
 msgid "Open each selected item in a new tab"
 msgstr "प्रत्येक निवडलेले घटक नविन टॅब मध्ये उघडा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7384
-#: ../src/file-manager/fm-directory-view.c:7566
+#: ../src/file-manager/fm-directory-view.c:7389
+#: ../src/file-manager/fm-directory-view.c:7571
 msgid "Open in _Folder Window"
 msgstr "संचयीका चौकटीत उघडा (_F)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7385
+#: ../src/file-manager/fm-directory-view.c:7390
 msgid "Open each selected item in a folder window"
 msgstr "प्रत्येक निवडलेले घटक संचयीका चौकटीत उघडा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7388
+#: ../src/file-manager/fm-directory-view.c:7393
 msgid "Other _Application..."
 msgstr "इतर अनुप्रयोग (_A)..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7389
-#: ../src/file-manager/fm-directory-view.c:7393
+#: ../src/file-manager/fm-directory-view.c:7394
+#: ../src/file-manager/fm-directory-view.c:7398
 msgid "Choose another application with which to open the selected item"
 msgstr "निवडलेले घटक उघडण्यासाठी इतर अनुप्रयोगाचा वापर करा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7392
+#: ../src/file-manager/fm-directory-view.c:7397
 msgid "Open With Other _Application..."
 msgstr "इतर अनुप्रयोगासह उघडा (_A)..."
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7396
+#: ../src/file-manager/fm-directory-view.c:7401
 msgid "_Open Scripts Folder"
 msgstr "लिपी संचयीका उघडा (_O)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7397
+#: ../src/file-manager/fm-directory-view.c:7402
 msgid "Show the folder containing the scripts that appear in this menu"
 msgstr "या मेनूमध्ये दिसणारी लिपी अंतर्भुतीत संचयीका दर्शवा"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7405
+#: ../src/file-manager/fm-directory-view.c:7410
 msgid "Prepare the selected files to be moved with a Paste command"
 msgstr "चिकटवा या आदेशद्वारे हलविण्याकरीता निवडलेली फाइल तयार करा"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7409
+#: ../src/file-manager/fm-directory-view.c:7414
 msgid "Prepare the selected files to be copied with a Paste command"
 msgstr "चिकटवा या आदाशेद्वारे प्रतिकृत करण्याकरीता निवडलेली फाइल तयार करा"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7413
+#: ../src/file-manager/fm-directory-view.c:7418
 msgid "Move or copy files previously selected by a Cut or Copy command"
 msgstr "कापा किंवा प्रतिकृत करा आदेशाद्वारे पूर्वी निवडलेल्या फाइलची प्रतिकृती करा किंवा त्यास हलवा"
 
@@ -3995,140 +3978,140 @@ msgstr "कापा किंवा प्रतिकृत करा आद�
 #. accelerator for paste
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7418
-#: ../src/file-manager/fm-directory-view.c:7579
+#: ../src/file-manager/fm-directory-view.c:7423
+#: ../src/file-manager/fm-directory-view.c:7584
 #: ../src/file-manager/fm-tree-view.c:1330
 msgid "_Paste Into Folder"
 msgstr "संचयीकेत चिकटवा (_P)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7419
+#: ../src/file-manager/fm-directory-view.c:7424
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into the "
 "selected folder"
 msgstr "निवडलेल्या संचयीकेत पूर्वीपासून निवडलेल्या कापा किंवा चिकटवा आदेशातर्फे फाइल स्थानांतरीत करा किंवा प्रत बनवा"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7421
+#: ../src/file-manager/fm-directory-view.c:7426
 msgid "Cop_y to"
 msgstr "ला प्रत बनवा (_y)"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7422
+#: ../src/file-manager/fm-directory-view.c:7427
 msgid "M_ove to"
 msgstr "ला हलवा (_o)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7425
+#: ../src/file-manager/fm-directory-view.c:7430
 msgid "Select all items in this window"
 msgstr "या चौकटीतील सर्व घटक निवडा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7428
+#: ../src/file-manager/fm-directory-view.c:7433
 msgid "Select I_tems Matching..."
 msgstr "जुळविण्याजोगी घटकांची निवड करा (_t)..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7429
+#: ../src/file-manager/fm-directory-view.c:7434
 msgid "Select items in this window matching a given pattern"
 msgstr "दिलेलल्या रचनेनुसारे या चौकटीतील घटक निवडा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7432
+#: ../src/file-manager/fm-directory-view.c:7437
 msgid "_Invert Selection"
 msgstr "उलटे निवडा (_I)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7433
+#: ../src/file-manager/fm-directory-view.c:7438
 msgid "Select all and only the items that are not currently selected"
 msgstr "वर्तमानस्वरूपी न निवडलेले ठराविक व सर्व घटकांची निवड करा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7436
+#: ../src/file-manager/fm-directory-view.c:7441
 msgid "D_uplicate"
 msgstr "प्रतिकृती (_u)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7437
+#: ../src/file-manager/fm-directory-view.c:7442
 msgid "Duplicate each selected item"
 msgstr "प्रत्येक निवडलेले घटक प्रतिकृत करा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7440
-#: ../src/file-manager/fm-directory-view.c:9049
+#: ../src/file-manager/fm-directory-view.c:7445
+#: ../src/file-manager/fm-directory-view.c:9055
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
 msgstr[0] "लिंक निर्माण करा (_k)"
 msgstr[1] "लिंक निर्माण करा (_k)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7441
+#: ../src/file-manager/fm-directory-view.c:7446
 msgid "Create a symbolic link for each selected item"
 msgstr "प्रत्येक निवडलेल्या घटकाकरीता प्रतिकीय लिंक निर्माण करा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7444
+#: ../src/file-manager/fm-directory-view.c:7449
 msgid "_Rename..."
 msgstr "पूनर्नामांकन (_R)..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7445
+#: ../src/file-manager/fm-directory-view.c:7450
 msgid "Rename selected item"
 msgstr "निवडलेले घटक पुनःनामांकीत करा"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7453
-#: ../src/file-manager/fm-directory-view.c:9010
+#: ../src/file-manager/fm-directory-view.c:7458
+#: ../src/file-manager/fm-directory-view.c:9016
 msgid "Move each selected item to the Trash"
 msgstr "प्रत्येक निवडलेले घटक कचरापेटीमध्ये हलवा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7456
-#: ../src/file-manager/fm-directory-view.c:7588
-#: ../src/file-manager/fm-directory-view.c:9030
+#: ../src/file-manager/fm-directory-view.c:7461
+#: ../src/file-manager/fm-directory-view.c:7593
+#: ../src/file-manager/fm-directory-view.c:9036
 #: ../src/file-manager/fm-tree-view.c:1360
 msgid "_Delete"
 msgstr "काढून टाका (_D)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7457
+#: ../src/file-manager/fm-directory-view.c:7462
 msgid "Delete each selected item, without moving to the Trash"
 msgstr "कचरापेटी मध्ये न हलवता, प्रत्येक निवडलेले घटक काढून टाका"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7460
-#: ../src/file-manager/fm-directory-view.c:7592
+#: ../src/file-manager/fm-directory-view.c:7465
+#: ../src/file-manager/fm-directory-view.c:7597
 msgid "_Restore"
 msgstr "पुन्हस्थापन (_R)"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7464
+#: ../src/file-manager/fm-directory-view.c:7469
 msgid "_Undo"
 msgstr "बदल रद्द करा(_U)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7465
-#: ../src/file-manager/fm-directory-view.c:11218
+#: ../src/file-manager/fm-directory-view.c:7470
+#: ../src/file-manager/fm-directory-view.c:11227
 msgid "Undo the last action"
 msgstr "शेवटची कृती रद्द करा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7468
+#: ../src/file-manager/fm-directory-view.c:7473
 msgid "_Redo"
 msgstr "पुन्हा करा (_R)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7469
-#: ../src/file-manager/fm-directory-view.c:11236
+#: ../src/file-manager/fm-directory-view.c:7474
+#: ../src/file-manager/fm-directory-view.c:11245
 msgid "Redo the last undone action"
 msgstr "टाळलेली कृती पुन्हा करा"
 
@@ -4138,614 +4121,614 @@ msgstr "टाळलेली कृती पुन्हा करा"
 #. * it is a mixture of both ATM.
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7479
+#: ../src/file-manager/fm-directory-view.c:7484
 msgid "Reset View to _Defaults"
 msgstr "मुळस्वरूपात पाहण्याकरीता दर्शकास पुर्नस्थापीत करा (_D)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7480
+#: ../src/file-manager/fm-directory-view.c:7485
 msgid "Reset sorting order and zoom level to match preferences for this view"
 msgstr "छाननीची पध्दत व जुळणी पाहण्यासाठी पातळी या दृश्याच्या आवश्यकतेला जुळतील अशी पुर्वस्थापना करा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7483
+#: ../src/file-manager/fm-directory-view.c:7488
 msgid "Connect To This Server"
 msgstr "या सर्व्हशी जुळवणी करा"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7484
+#: ../src/file-manager/fm-directory-view.c:7489
 msgid "Make a permanent connection to this server"
 msgstr "या सर्व्हशी कायम स्वरूपी जुळवणी स्थापीत करा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7487
-#: ../src/file-manager/fm-directory-view.c:7515
-#: ../src/file-manager/fm-directory-view.c:7596
+#: ../src/file-manager/fm-directory-view.c:7492
+#: ../src/file-manager/fm-directory-view.c:7520
+#: ../src/file-manager/fm-directory-view.c:7601
 #: ../src/caja-places-sidebar.c:2728
 msgid "_Mount"
 msgstr "आरोहण (_M)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7488
+#: ../src/file-manager/fm-directory-view.c:7493
 msgid "Mount the selected volume"
 msgstr "निवडलेला खंड आरोहीत करा"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7492
+#: ../src/file-manager/fm-directory-view.c:7497
 msgid "Unmount the selected volume"
 msgstr "निवडलेला खंड अनारोहीत करा"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7496
+#: ../src/file-manager/fm-directory-view.c:7501
 msgid "Eject the selected volume"
 msgstr "निवडलेल्या खंड बाहेर काढा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7499
-#: ../src/file-manager/fm-directory-view.c:7527
-#: ../src/file-manager/fm-directory-view.c:7608
+#: ../src/file-manager/fm-directory-view.c:7504
+#: ../src/file-manager/fm-directory-view.c:7532
+#: ../src/file-manager/fm-directory-view.c:7613
 #: ../src/caja-places-sidebar.c:2756
 msgid "_Format"
 msgstr "स्वरूपन (_F)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7500
+#: ../src/file-manager/fm-directory-view.c:7505
 msgid "Format the selected volume"
 msgstr "निवडलेल्या खंडाचे स्वरूपन करा"
 
 #. name, stock id
 #. label, accelerator
 #. Adjust start/stop items to reflect the type of the drive
-#: ../src/file-manager/fm-directory-view.c:7503
-#: ../src/file-manager/fm-directory-view.c:7531
-#: ../src/file-manager/fm-directory-view.c:7612
-#: ../src/file-manager/fm-directory-view.c:8289
-#: ../src/file-manager/fm-directory-view.c:8293
-#: ../src/file-manager/fm-directory-view.c:8381
-#: ../src/file-manager/fm-directory-view.c:8385
-#: ../src/file-manager/fm-directory-view.c:8491
-#: ../src/file-manager/fm-directory-view.c:8495
+#: ../src/file-manager/fm-directory-view.c:7508
+#: ../src/file-manager/fm-directory-view.c:7536
+#: ../src/file-manager/fm-directory-view.c:7617
+#: ../src/file-manager/fm-directory-view.c:8295
+#: ../src/file-manager/fm-directory-view.c:8299
+#: ../src/file-manager/fm-directory-view.c:8387
+#: ../src/file-manager/fm-directory-view.c:8391
+#: ../src/file-manager/fm-directory-view.c:8497
+#: ../src/file-manager/fm-directory-view.c:8501
 #: ../src/caja-places-sidebar.c:1823 ../src/caja-places-sidebar.c:2763
 msgid "_Start"
 msgstr "सुरू करा (_S)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7504
+#: ../src/file-manager/fm-directory-view.c:7509
 msgid "Start the selected volume"
 msgstr "निवडलेले खंड सुरू करा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7507
-#: ../src/file-manager/fm-directory-view.c:7535
-#: ../src/file-manager/fm-directory-view.c:7616
-#: ../src/file-manager/fm-directory-view.c:8318
-#: ../src/file-manager/fm-directory-view.c:8410
-#: ../src/file-manager/fm-directory-view.c:8520
+#: ../src/file-manager/fm-directory-view.c:7512
+#: ../src/file-manager/fm-directory-view.c:7540
+#: ../src/file-manager/fm-directory-view.c:7621
+#: ../src/file-manager/fm-directory-view.c:8324
+#: ../src/file-manager/fm-directory-view.c:8416
+#: ../src/file-manager/fm-directory-view.c:8526
 #: ../src/caja-places-sidebar.c:1824 ../src/caja-places-sidebar.c:2770
-#: ../src/caja-window-menus.c:837
+#: ../src/caja-window-menus.c:833
 msgid "_Stop"
 msgstr "थांबा (_S)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7508
-#: ../src/file-manager/fm-directory-view.c:8521
+#: ../src/file-manager/fm-directory-view.c:7513
+#: ../src/file-manager/fm-directory-view.c:8527
 msgid "Stop the selected volume"
 msgstr "निवडलेले खंड थांबवा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7511
-#: ../src/file-manager/fm-directory-view.c:7539
-#: ../src/file-manager/fm-directory-view.c:7620
+#: ../src/file-manager/fm-directory-view.c:7516
+#: ../src/file-manager/fm-directory-view.c:7544
+#: ../src/file-manager/fm-directory-view.c:7625
 #: ../src/caja-places-sidebar.c:2749
 msgid "_Detect Media"
 msgstr "मिडीया शोधा (_D)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7512
-#: ../src/file-manager/fm-directory-view.c:7540
-#: ../src/file-manager/fm-directory-view.c:7621
+#: ../src/file-manager/fm-directory-view.c:7517
+#: ../src/file-manager/fm-directory-view.c:7545
+#: ../src/file-manager/fm-directory-view.c:7626
 msgid "Detect media in the selected drive"
 msgstr "निवडलेल्या ड्राइव्हमध्ये मिडीया शोधा"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7516
+#: ../src/file-manager/fm-directory-view.c:7521
 msgid "Mount the volume associated with the open folder"
 msgstr "खुल्या फोल्डरशी संबंधीत खंडाचे आरोहन करा"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7520
+#: ../src/file-manager/fm-directory-view.c:7525
 msgid "Unmount the volume associated with the open folder"
 msgstr "खुल्या फोल्डरशी संबंधीत खंडाचे अनारोहन करा"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7524
+#: ../src/file-manager/fm-directory-view.c:7529
 msgid "Eject the volume associated with the open folder"
 msgstr "खुल्या फोल्डरशी संबंधीत खंड बाहेर काढा"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7528
+#: ../src/file-manager/fm-directory-view.c:7533
 msgid "Format the volume associated with the open folder"
 msgstr "खुल्या फोल्डरशी संबंधीत खंडाचे स्वरूप करा"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7532
+#: ../src/file-manager/fm-directory-view.c:7537
 msgid "Start the volume associated with the open folder"
 msgstr "खुल्या फोल्डरसह संबंधीत खंड सुरू करा"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7536
+#: ../src/file-manager/fm-directory-view.c:7541
 msgid "Stop the volume associated with the open folder"
 msgstr "खुल्या फोल्डरसह संबंधीत खंड थांबवा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7543
+#: ../src/file-manager/fm-directory-view.c:7548
 msgid "Open File and Close window"
 msgstr "फाइल उघडा व चौकट बंद करा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7547
+#: ../src/file-manager/fm-directory-view.c:7552
 msgid "Sa_ve Search"
 msgstr "शोध संचयीत करा (_v)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7548
+#: ../src/file-manager/fm-directory-view.c:7553
 msgid "Save the edited search"
 msgstr "संपादित शोध संचयीत करा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7551
+#: ../src/file-manager/fm-directory-view.c:7556
 msgid "Sa_ve Search As..."
 msgstr "शोध या स्वरूपात संचयीत करा (_v)..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7552
+#: ../src/file-manager/fm-directory-view.c:7557
 msgid "Save the current search as a file"
 msgstr "शोध फाइल स्वरूपात संचयीत करा"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7558
+#: ../src/file-manager/fm-directory-view.c:7563
 msgid "Open this folder in a navigation window"
 msgstr "संचार चौकटीत ही संचयीका उघडा"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7562
+#: ../src/file-manager/fm-directory-view.c:7567
 msgid "Open this folder in a new tab"
 msgstr "या संचयीकेस नविन टॅब मध्ये उघडा"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7567
+#: ../src/file-manager/fm-directory-view.c:7572
 msgid "Open this folder in a folder window"
 msgstr "या संचयीकेला संचयीका चौकटीमध्ये उघडा"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7572
+#: ../src/file-manager/fm-directory-view.c:7577
 msgid "Prepare this folder to be moved with a Paste command"
 msgstr "ही संचयीका चिकटवा या आदेशाद्वारे हलविण्याकरीता तयार करा"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7576
+#: ../src/file-manager/fm-directory-view.c:7581
 msgid "Prepare this folder to be copied with a Paste command"
 msgstr "ही संचयीका चिकटवा या आदेशाद्वारे प्रतिकृत करण्याकरीता तयार करा"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7580
+#: ../src/file-manager/fm-directory-view.c:7585
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into this "
 "folder"
 msgstr "कापा किंवा चिकटवा आदेश द्वारे पूर्वीपासून निवडलेले फाइल या संचयीका अंतर्गत स्थानांतरीत करा किंवा प्रतिकृत करा"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7585
+#: ../src/file-manager/fm-directory-view.c:7590
 msgid "Move this folder to the Trash"
 msgstr "ही संचयीका कचरापेटीकडे हलवा"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7589
+#: ../src/file-manager/fm-directory-view.c:7594
 msgid "Delete this folder, without moving to the Trash"
 msgstr "कचरापेटीकडे न हलवता ही संचयीका काढूण टाका"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7597
+#: ../src/file-manager/fm-directory-view.c:7602
 msgid "Mount the volume associated with this folder"
 msgstr "या फोल्डरशी संबंधीत खंड आरोहीत करा"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7601
+#: ../src/file-manager/fm-directory-view.c:7606
 msgid "Unmount the volume associated with this folder"
 msgstr "या फोल्डरशी संबंधीत खंडाचे माउंट अशक्य करा"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7605
+#: ../src/file-manager/fm-directory-view.c:7610
 msgid "Eject the volume associated with this folder"
 msgstr "या फोल्डरशी संबंधीत खंड बाहेर काढा"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7609
+#: ../src/file-manager/fm-directory-view.c:7614
 msgid "Format the volume associated with this folder"
 msgstr "या फोल्डरशी संबंधीत खंडाचे स्वरूपन करा"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7613
+#: ../src/file-manager/fm-directory-view.c:7618
 msgid "Start the volume associated with this folder"
 msgstr "या फोल्डरशी संबंधीत खंड सुरू करा"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7617
+#: ../src/file-manager/fm-directory-view.c:7622
 msgid "Stop the volume associated with this folder"
 msgstr "या फोल्डरशी संबंधीत खंड थांबवा"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7626
+#: ../src/file-manager/fm-directory-view.c:7631
 msgid "View or modify the properties of this folder"
 msgstr "या संचयीकाचे गुणधर्म पहा किंवा सुधारणा करा"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7629
-#: ../src/file-manager/fm-directory-view.c:7632
+#: ../src/file-manager/fm-directory-view.c:7634
+#: ../src/file-manager/fm-directory-view.c:7637
 msgid "_Other pane"
 msgstr "इतर पट्टी (_O)"
 
-#: ../src/file-manager/fm-directory-view.c:7630
+#: ../src/file-manager/fm-directory-view.c:7635
 msgid "Copy the current selection to the other pane in the window"
 msgstr "पटलामध्ये इतर पट्टीत सध्याच्या नीवडचे प्रत बनवा"
 
-#: ../src/file-manager/fm-directory-view.c:7633
+#: ../src/file-manager/fm-directory-view.c:7638
 msgid "Move the current selection to the other pane in the window"
 msgstr "पटलामध्ये इतर पट्टीत सध्याची नीवड हलवा"
 
 #. name, stock id, label
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7636
-#: ../src/file-manager/fm-directory-view.c:7640 ../src/caja-window-menus.c:892
+#: ../src/file-manager/fm-directory-view.c:7641
+#: ../src/file-manager/fm-directory-view.c:7645 ../src/caja-window-menus.c:888
 msgid "_Home Folder"
 msgstr "मुख्य संचयीका (_H)"
 
-#: ../src/file-manager/fm-directory-view.c:7637
+#: ../src/file-manager/fm-directory-view.c:7642
 msgid "Copy the current selection to the home folder"
 msgstr "होम फोल्डरमध्ये सध्याच्या नीवडचे प्रत बनवा"
 
-#: ../src/file-manager/fm-directory-view.c:7641
+#: ../src/file-manager/fm-directory-view.c:7646
 msgid "Move the current selection to the home folder"
 msgstr "होम फोल्डरमध्ये सध्याची नीवड हलवा"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7644
-#: ../src/file-manager/fm-directory-view.c:7648
+#: ../src/file-manager/fm-directory-view.c:7649
+#: ../src/file-manager/fm-directory-view.c:7653
 msgid "_Desktop"
 msgstr "डेस्कटॉप (_D)"
 
-#: ../src/file-manager/fm-directory-view.c:7645
+#: ../src/file-manager/fm-directory-view.c:7650
 msgid "Copy the current selection to the desktop"
 msgstr "डेस्कटॉपमध्ये सध्याच्या नवीडचे प्रत बनवा"
 
-#: ../src/file-manager/fm-directory-view.c:7649
+#: ../src/file-manager/fm-directory-view.c:7654
 msgid "Move the current selection to the desktop"
 msgstr "डोस्कटॉपमध्ये सध्याची नीवड हलवा"
 
 #. Translators: %s is a directory
-#: ../src/file-manager/fm-directory-view.c:7729
+#: ../src/file-manager/fm-directory-view.c:7734
 #, c-format
 msgid "Run or manage scripts from %s"
 msgstr "%s मधील लिपी चालवा किंवा नियंत्रीत करा"
 
 #. Create a script action here specially because its tooltip is dynamic
-#: ../src/file-manager/fm-directory-view.c:7731
+#: ../src/file-manager/fm-directory-view.c:7736
 msgid "_Scripts"
 msgstr "लिपी (_S)"
 
-#: ../src/file-manager/fm-directory-view.c:8137
+#: ../src/file-manager/fm-directory-view.c:8143
 #, c-format
 msgid "Move the open folder out of the trash to \"%s\""
 msgstr "उगडी संचयीका कचरापेटी पासून \"%s\" कडे हलवा"
 
-#: ../src/file-manager/fm-directory-view.c:8140
+#: ../src/file-manager/fm-directory-view.c:8146
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
 msgstr[0] "निवडलेली संचयीका कचरापेटी पासून \"%s\" कडे हलवा"
 msgstr[1] "निवडलेली संचयीका कचरापेटी पासून \"%s\" कडे हलवा"
 
-#: ../src/file-manager/fm-directory-view.c:8144
+#: ../src/file-manager/fm-directory-view.c:8150
 #, c-format
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
 msgstr[0] "निवडलेली संचयीका कचरापेटीतून स्थानांतरीत करा"
 msgstr[1] "निवडलेली संचयीका कचरापेटीतून स्थानांतरीत करा"
 
-#: ../src/file-manager/fm-directory-view.c:8150
+#: ../src/file-manager/fm-directory-view.c:8156
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
 msgstr[0] "निवडलेली फाइल कचरापेटी पासून \"%s\" कडे हलवा"
 msgstr[1] "निवडलेली फाइल कचरापेटी पासून \"%s\" कडे हलवा"
 
-#: ../src/file-manager/fm-directory-view.c:8154
+#: ../src/file-manager/fm-directory-view.c:8160
 #, c-format
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
 msgstr[0] "निवडलेली संचयीका कचरापेटीतून स्थानांतरीत करा"
 msgstr[1] "निवडलेली संचयीका कचरापेटीतून स्थानांतरीत करा"
 
-#: ../src/file-manager/fm-directory-view.c:8160
+#: ../src/file-manager/fm-directory-view.c:8166
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
 msgstr[0] "निवडलेले घटक कचरापेटी पासून \"%s\" कडे हलवा"
 msgstr[1] "निवडलेले घटक कचरापेटी पासून \"%s\" कडे हलवा"
 
-#: ../src/file-manager/fm-directory-view.c:8164
+#: ../src/file-manager/fm-directory-view.c:8170
 #, c-format
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
 msgstr[0] "निवडलेले घटक कचरापेटीतून स्थानांतरीत करा"
 msgstr[1] "निवडलेले घटक कचरापेटीतून स्थानांतरीत करा"
 
-#: ../src/file-manager/fm-directory-view.c:8290
-#: ../src/file-manager/fm-directory-view.c:8294
-#: ../src/file-manager/fm-directory-view.c:8492
-#: ../src/file-manager/fm-directory-view.c:8496
+#: ../src/file-manager/fm-directory-view.c:8296
+#: ../src/file-manager/fm-directory-view.c:8300
+#: ../src/file-manager/fm-directory-view.c:8498
+#: ../src/file-manager/fm-directory-view.c:8502
 msgid "Start the selected drive"
 msgstr "निवडलेली ड्राइव्ह सुरू करा"
 
-#: ../src/file-manager/fm-directory-view.c:8298
-#: ../src/file-manager/fm-directory-view.c:8500
+#: ../src/file-manager/fm-directory-view.c:8304
+#: ../src/file-manager/fm-directory-view.c:8506
 msgid "Connect to the selected drive"
 msgstr "निवडलेला खंडाशी जुळवणी करा"
 
-#: ../src/file-manager/fm-directory-view.c:8301
-#: ../src/file-manager/fm-directory-view.c:8393
-#: ../src/file-manager/fm-directory-view.c:8503
+#: ../src/file-manager/fm-directory-view.c:8307
+#: ../src/file-manager/fm-directory-view.c:8399
+#: ../src/file-manager/fm-directory-view.c:8509
 msgid "_Start Multi-disk Drive"
 msgstr "मल्टी-डिस्क ड्राइव्ह सुरू करा (_S)"
 
-#: ../src/file-manager/fm-directory-view.c:8302
-#: ../src/file-manager/fm-directory-view.c:8504
+#: ../src/file-manager/fm-directory-view.c:8308
+#: ../src/file-manager/fm-directory-view.c:8510
 msgid "Start the selected multi-disk drive"
 msgstr "नीवडलेली मल्टी-डिस्क ड्राइव्ह सुरू करा"
 
-#: ../src/file-manager/fm-directory-view.c:8305
+#: ../src/file-manager/fm-directory-view.c:8311
 msgid "U_nlock Drive"
 msgstr "ड्राइव्ह कुलूपबंद अशक्य करा (_n)"
 
-#: ../src/file-manager/fm-directory-view.c:8306
-#: ../src/file-manager/fm-directory-view.c:8508
+#: ../src/file-manager/fm-directory-view.c:8312
+#: ../src/file-manager/fm-directory-view.c:8514
 msgid "Unlock the selected drive"
 msgstr "निवडलेली ड्राइव्ह कुलूपबंद अशक्य करा"
 
-#: ../src/file-manager/fm-directory-view.c:8319
+#: ../src/file-manager/fm-directory-view.c:8325
 msgid "Stop the selected drive"
 msgstr "निवडलेली ड्राइव्ह थांबवा"
 
-#: ../src/file-manager/fm-directory-view.c:8322
-#: ../src/file-manager/fm-directory-view.c:8414
-#: ../src/file-manager/fm-directory-view.c:8524
+#: ../src/file-manager/fm-directory-view.c:8328
+#: ../src/file-manager/fm-directory-view.c:8420
+#: ../src/file-manager/fm-directory-view.c:8530
 #: ../src/caja-places-sidebar.c:1832
 msgid "_Safely Remove Drive"
 msgstr "ड्राइव्ह सुरक्षीतपणे काढून टाका (_S)"
 
-#: ../src/file-manager/fm-directory-view.c:8323
-#: ../src/file-manager/fm-directory-view.c:8525
+#: ../src/file-manager/fm-directory-view.c:8329
+#: ../src/file-manager/fm-directory-view.c:8531
 msgid "Safely remove the selected drive"
 msgstr "निवडलेली ड्राइव्ह सुरक्षीतपणे काढून टाका"
 
-#: ../src/file-manager/fm-directory-view.c:8326
-#: ../src/file-manager/fm-directory-view.c:8418
-#: ../src/file-manager/fm-directory-view.c:8528
+#: ../src/file-manager/fm-directory-view.c:8332
+#: ../src/file-manager/fm-directory-view.c:8424
+#: ../src/file-manager/fm-directory-view.c:8534
 msgid "_Disconnect"
 msgstr "खंडीत करा (_D)"
 
-#: ../src/file-manager/fm-directory-view.c:8327
-#: ../src/file-manager/fm-directory-view.c:8529
+#: ../src/file-manager/fm-directory-view.c:8333
+#: ../src/file-manager/fm-directory-view.c:8535
 msgid "Disconnect the selected drive"
 msgstr "निवडलेली ड्राइव्ह खंडीत करा"
 
-#: ../src/file-manager/fm-directory-view.c:8330
-#: ../src/file-manager/fm-directory-view.c:8422
-#: ../src/file-manager/fm-directory-view.c:8532
+#: ../src/file-manager/fm-directory-view.c:8336
+#: ../src/file-manager/fm-directory-view.c:8428
+#: ../src/file-manager/fm-directory-view.c:8538
 msgid "_Stop Multi-disk Drive"
 msgstr "मल्टी-डिस्क ड्राइव्ह थांबवा (_S)"
 
-#: ../src/file-manager/fm-directory-view.c:8331
-#: ../src/file-manager/fm-directory-view.c:8533
+#: ../src/file-manager/fm-directory-view.c:8337
+#: ../src/file-manager/fm-directory-view.c:8539
 msgid "Stop the selected multi-disk drive"
 msgstr "नीवडलेले मल्टी-डिस्क ड्राइव्ह थांबवा"
 
-#: ../src/file-manager/fm-directory-view.c:8334
-#: ../src/file-manager/fm-directory-view.c:8426
-#: ../src/file-manager/fm-directory-view.c:8536
+#: ../src/file-manager/fm-directory-view.c:8340
+#: ../src/file-manager/fm-directory-view.c:8432
+#: ../src/file-manager/fm-directory-view.c:8542
 #: ../src/caja-places-sidebar.c:1845
 msgid "_Lock Drive"
 msgstr "ड्राइव्ह कुलूपबंद करा (_L)"
 
-#: ../src/file-manager/fm-directory-view.c:8335
-#: ../src/file-manager/fm-directory-view.c:8537
+#: ../src/file-manager/fm-directory-view.c:8341
+#: ../src/file-manager/fm-directory-view.c:8543
 msgid "Lock the selected drive"
 msgstr "निवडलेली ड्राइव्ह कुलूपबंद करा"
 
-#: ../src/file-manager/fm-directory-view.c:8382
-#: ../src/file-manager/fm-directory-view.c:8386
+#: ../src/file-manager/fm-directory-view.c:8388
+#: ../src/file-manager/fm-directory-view.c:8392
 msgid "Start the drive associated with the open folder"
 msgstr "खुल्या फोल्डरसह संबंधीत ड्राइव्ह सुरू करा"
 
-#: ../src/file-manager/fm-directory-view.c:8390
+#: ../src/file-manager/fm-directory-view.c:8396
 msgid "Connect to the drive associated with the open folder"
 msgstr "खुल्या फोल्डरसह संबंधीत ड्राइव्हची जुळवणी करा"
 
-#: ../src/file-manager/fm-directory-view.c:8394
+#: ../src/file-manager/fm-directory-view.c:8400
 msgid "Start the multi-disk drive associated with the open folder"
 msgstr "खुल्या फोल्डरशी संबंधीत मल्टी-डिस्क ड्राइव्ह सुरू करा"
 
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
-#: ../src/file-manager/fm-directory-view.c:8397
-#: ../src/file-manager/fm-directory-view.c:8507
+#: ../src/file-manager/fm-directory-view.c:8403
+#: ../src/file-manager/fm-directory-view.c:8513
 #: ../src/caja-places-sidebar.c:1844
 msgid "_Unlock Drive"
 msgstr "ड्राइव्ह कुलूपबंद अशक्य करा (_U)"
 
-#: ../src/file-manager/fm-directory-view.c:8398
+#: ../src/file-manager/fm-directory-view.c:8404
 msgid "Unlock the drive associated with the open folder"
 msgstr "खुल्या फोल्डरशी संबंधीत ड्राइव्हचे कुलूपबंद अशक्य करा"
 
-#: ../src/file-manager/fm-directory-view.c:8411
+#: ../src/file-manager/fm-directory-view.c:8417
 msgid "_Stop the drive associated with the open folder"
 msgstr "खुल्या फोल्डरशी संबंधीत ड्राइव्ह थांबवा (_S)"
 
-#: ../src/file-manager/fm-directory-view.c:8415
+#: ../src/file-manager/fm-directory-view.c:8421
 msgid "Safely remove the drive associated with the open folder"
 msgstr "खुल्या फोल्डरशी संबंधीत ड्राइव्ह सुरक्षीतपणे काढून टाका"
 
-#: ../src/file-manager/fm-directory-view.c:8419
+#: ../src/file-manager/fm-directory-view.c:8425
 msgid "Disconnect the drive associated with the open folder"
 msgstr "खुल्या फोल्डरशी संबंधीत ड्राइव्हची जुळवणी अशक्य करा"
 
-#: ../src/file-manager/fm-directory-view.c:8423
+#: ../src/file-manager/fm-directory-view.c:8429
 msgid "Stop the multi-disk drive associated with the open folder"
 msgstr "खुल्या फोल्डरशी संबंधीत मल्टी-डिस्क ड्राइव्ह थांबवा"
 
-#: ../src/file-manager/fm-directory-view.c:8427
+#: ../src/file-manager/fm-directory-view.c:8433
 msgid "Lock the drive associated with the open folder"
 msgstr "खुल्या फोल्डरशी संबंधीत ड्राइव्ह कुलूपबंद करा"
 
 #. add the "open in new window" menu item
-#: ../src/file-manager/fm-directory-view.c:8606
-#: ../src/file-manager/fm-directory-view.c:8916
+#: ../src/file-manager/fm-directory-view.c:8612
+#: ../src/file-manager/fm-directory-view.c:8922
 #: ../src/file-manager/fm-tree-view.c:1287 ../src/caja-places-sidebar.c:2699
 msgid "Open in New _Window"
 msgstr "नविन चौकटीत उघडा (_W)"
 
-#: ../src/file-manager/fm-directory-view.c:8608
-#: ../src/file-manager/fm-directory-view.c:8925
+#: ../src/file-manager/fm-directory-view.c:8614
+#: ../src/file-manager/fm-directory-view.c:8931
 msgid "Browse in New _Window"
 msgstr "नविन चौकटीत संचार करा (_W)"
 
-#: ../src/file-manager/fm-directory-view.c:8614
-#: ../src/file-manager/fm-directory-view.c:8935
+#: ../src/file-manager/fm-directory-view.c:8620
+#: ../src/file-manager/fm-directory-view.c:8941
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
 msgstr[0] "संचयीकेचा संचार करा (_B)संचयीकेचा संचार करा (_B)"
 msgstr[1] "संचयीकेचा संचार करा (_B)संचयीकेचा संचार करा (_B)"
 
-#: ../src/file-manager/fm-directory-view.c:8631
-#: ../src/file-manager/fm-directory-view.c:8964
+#: ../src/file-manager/fm-directory-view.c:8637
+#: ../src/file-manager/fm-directory-view.c:8970
 msgid "Browse in New _Tab"
 msgstr "नविन टॅब मध्ये संचार करा (_T)"
 
-#: ../src/file-manager/fm-directory-view.c:8680
-#: ../src/file-manager/fm-directory-view.c:9005
+#: ../src/file-manager/fm-directory-view.c:8686
+#: ../src/file-manager/fm-directory-view.c:9011
 msgid "_Delete Permanently"
 msgstr "कायमचे काढून टाका (_D)"
 
-#: ../src/file-manager/fm-directory-view.c:8681
+#: ../src/file-manager/fm-directory-view.c:8687
 msgid "Delete the open folder permanently"
 msgstr "उघडलेली संचयीका कायमची काढून टाका"
 
-#: ../src/file-manager/fm-directory-view.c:8685
+#: ../src/file-manager/fm-directory-view.c:8691
 msgid "Move the open folder to the Trash"
 msgstr "उगडलेली संचयीका कचरापेटीकडे हलवा"
 
-#: ../src/file-manager/fm-directory-view.c:8865
+#: ../src/file-manager/fm-directory-view.c:8871
 #, c-format
 msgid "_Open With %s"
 msgstr "%s सह उघडा (_O)"
 
-#: ../src/file-manager/fm-directory-view.c:8918
+#: ../src/file-manager/fm-directory-view.c:8924
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
 msgstr[0] "%'d नविन चौकटीत उघडा (_W)"
 msgstr[1] "%'d नविन चौकटीत उघडा (_W)"
 
-#: ../src/file-manager/fm-directory-view.c:8927
+#: ../src/file-manager/fm-directory-view.c:8933
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
 msgstr[0] "%'d नविन चौकटीत संचार करा (_W)"
 msgstr[1] "%'d नविन चौकटीत संचार करा (_W)"
 
-#: ../src/file-manager/fm-directory-view.c:8957
+#: ../src/file-manager/fm-directory-view.c:8963
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
 msgstr[0] "%'d नविन चौकटीमध्ये उघडा (_T)"
 msgstr[1] "%'d नविन चौकटीमध्ये उघडा (_T)"
 
-#: ../src/file-manager/fm-directory-view.c:8966
+#: ../src/file-manager/fm-directory-view.c:8972
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
 msgstr[0] "%'d नविन चौकटीत संचार करा (_T)"
 msgstr[1] "%'d नविन चौकटीमध्ये संचार करा (_T)"
 
-#: ../src/file-manager/fm-directory-view.c:9006
+#: ../src/file-manager/fm-directory-view.c:9012
 msgid "Delete all selected items permanently"
 msgstr "सर्व निवडलेले घटकं कायमस्वरूपी काढून टाका"
 
-#: ../src/file-manager/fm-directory-view.c:9063
+#: ../src/file-manager/fm-directory-view.c:9069
 msgid "View or modify the properties of the open folder"
 msgstr "उघड्या संचयीकेचे गुणधर्म पहा किंवा सुधारीत करा"
 
-#: ../src/file-manager/fm-directory-view.c:10366
+#: ../src/file-manager/fm-directory-view.c:10372
 msgid "Download location?"
 msgstr "स्थळ डाउनलोड करायचे?"
 
-#: ../src/file-manager/fm-directory-view.c:10369
+#: ../src/file-manager/fm-directory-view.c:10375
 msgid "You can download it or make a link to it."
 msgstr "तुम्ही ते डाउनलोड करू शकता किंवा त्याकरीता देऊ शकता."
 
-#: ../src/file-manager/fm-directory-view.c:10372
+#: ../src/file-manager/fm-directory-view.c:10378
 msgid "Make a _Link"
 msgstr "लिंक बनवा (_L)"
 
-#: ../src/file-manager/fm-directory-view.c:10376
+#: ../src/file-manager/fm-directory-view.c:10382
 msgid "_Download"
 msgstr "डाउनलोड करा (_D)"
 
-#: ../src/file-manager/fm-directory-view.c:10537
-#: ../src/file-manager/fm-directory-view.c:10596
-#: ../src/file-manager/fm-directory-view.c:10701
+#: ../src/file-manager/fm-directory-view.c:10543
+#: ../src/file-manager/fm-directory-view.c:10602
+#: ../src/file-manager/fm-directory-view.c:10707
 msgid "Drag and drop is not supported."
 msgstr "ओढा व टाका समर्थित नाही."
 
-#: ../src/file-manager/fm-directory-view.c:10538
+#: ../src/file-manager/fm-directory-view.c:10544
 msgid "Drag and drop is only supported on local file systems."
 msgstr "स्थानीक फाइल प्रणालीकरीताच ओढा व टाका समर्थित आहे."
 
-#: ../src/file-manager/fm-directory-view.c:10597
-#: ../src/file-manager/fm-directory-view.c:10702
+#: ../src/file-manager/fm-directory-view.c:10603
+#: ../src/file-manager/fm-directory-view.c:10708
 msgid "An invalid drag type was used."
 msgstr "अवैध ओढा प्रकार वापरल्या गेले."
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10779
+#: ../src/file-manager/fm-directory-view.c:10785
 msgid "dropped text.txt"
 msgstr "text.txt वगळले"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10824
+#: ../src/file-manager/fm-directory-view.c:10830
 msgid "dropped data"
 msgstr "वगळलेला डाटा"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11217
+#: ../src/file-manager/fm-directory-view.c:11226
 msgid "Undo"
 msgstr "क्रिया मागे घ्या"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11235
+#: ../src/file-manager/fm-directory-view.c:11244
 msgid "Redo"
 msgstr "पुन्हा करा"
 
@@ -4866,220 +4849,220 @@ msgstr "\"%s\" पासून \"%s\" असे पुनःनामांक�
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: ../src/file-manager/fm-icon-container.c:613
-#: ../src/file-manager/fm-icon-view.c:3395
+#: ../src/file-manager/fm-icon-view.c:3403
 #: ../src/caja-file-management-properties.ui.h:1
 msgid "Icon View"
 msgstr "चिन्ह दर्शवा"
 
-#: ../src/file-manager/fm-icon-view.c:128
+#: ../src/file-manager/fm-icon-view.c:132
 msgid "by _Name"
 msgstr "नावानुसार (_N)"
 
-#: ../src/file-manager/fm-icon-view.c:129
-#: ../src/file-manager/fm-icon-view.c:1743
+#: ../src/file-manager/fm-icon-view.c:133
+#: ../src/file-manager/fm-icon-view.c:1749
 msgid "Keep icons sorted by name in rows"
 msgstr "नावानुसारे चिन्हांची छाननी करून ते ओळीत ठेवा"
 
-#: ../src/file-manager/fm-icon-view.c:135
+#: ../src/file-manager/fm-icon-view.c:139
 msgid "by _Size"
 msgstr "आकारानुसारे (_S)"
 
-#: ../src/file-manager/fm-icon-view.c:136
-#: ../src/file-manager/fm-icon-view.c:1749
+#: ../src/file-manager/fm-icon-view.c:140
+#: ../src/file-manager/fm-icon-view.c:1755
 msgid "Keep icons sorted by size in rows"
 msgstr "आकारनुसारे चिन्हांची छाननी करून ते ओळीत ठेवा"
 
-#: ../src/file-manager/fm-icon-view.c:142
+#: ../src/file-manager/fm-icon-view.c:146
 msgid "by _Type"
 msgstr "प्रकारानुरूप (_T)"
 
-#: ../src/file-manager/fm-icon-view.c:143
-#: ../src/file-manager/fm-icon-view.c:1755
+#: ../src/file-manager/fm-icon-view.c:147
+#: ../src/file-manager/fm-icon-view.c:1761
 msgid "Keep icons sorted by type in rows"
 msgstr "प्रकाररानुसारे चिन्हांची छाननी करून ते ओळीत ठेवा"
 
-#: ../src/file-manager/fm-icon-view.c:149
+#: ../src/file-manager/fm-icon-view.c:153
 msgid "by Modification _Date"
 msgstr "दुरूस्ती दिनांकानुसारे (_D)"
 
-#: ../src/file-manager/fm-icon-view.c:150
-#: ../src/file-manager/fm-icon-view.c:1761
+#: ../src/file-manager/fm-icon-view.c:154
+#: ../src/file-manager/fm-icon-view.c:1767
 msgid "Keep icons sorted by modification date in rows"
 msgstr "संपादन तारखेनुसारे चिन्हांची छाननी करून ते ओळीत ठेवा"
 
-#: ../src/file-manager/fm-icon-view.c:156
+#: ../src/file-manager/fm-icon-view.c:160
 msgid "by _Emblems"
 msgstr "बोधचिन्हांनुसारे (_E)"
 
-#: ../src/file-manager/fm-icon-view.c:157
-#: ../src/file-manager/fm-icon-view.c:1767
+#: ../src/file-manager/fm-icon-view.c:161
+#: ../src/file-manager/fm-icon-view.c:1773
 msgid "Keep icons sorted by emblems in rows"
 msgstr "चिन्हे "
 
-#: ../src/file-manager/fm-icon-view.c:163
+#: ../src/file-manager/fm-icon-view.c:167
 msgid "by T_rash Time"
 msgstr "नष्ट केलेल्या वेळेनुसार (_r)"
 
-#: ../src/file-manager/fm-icon-view.c:164
-#: ../src/file-manager/fm-icon-view.c:1773
+#: ../src/file-manager/fm-icon-view.c:168
+#: ../src/file-manager/fm-icon-view.c:1779
 msgid "Keep icons sorted by trash time in rows"
 msgstr "नष्ट केलेल्या वेळेनुसार चिन्हांची छाननी करून ते ओळीत ठेवा"
 
-#: ../src/file-manager/fm-icon-view.c:781
+#: ../src/file-manager/fm-icon-view.c:785
 msgid "_Organize Desktop by Name"
 msgstr "डेस्कटॉपना नावानुसार मांडा (_O)"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-icon-view.c:1692
+#: ../src/file-manager/fm-icon-view.c:1698
 msgid "Arran_ge Items"
 msgstr "घटक सुस्थित करा (_g)"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1694
+#: ../src/file-manager/fm-icon-view.c:1700
 msgid "Resize Icon..."
 msgstr "चिन्हाला पुन्हा आकार द्या"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1695
+#: ../src/file-manager/fm-icon-view.c:1701
 msgid "Make the selected icon resizable"
 msgstr "निवडलेल्या चिन्हांचा आकार कमी-जास्त करा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1699
-#: ../src/file-manager/fm-icon-view.c:1900
+#: ../src/file-manager/fm-icon-view.c:1705
+#: ../src/file-manager/fm-icon-view.c:1906
 msgid "Restore Icons' Original Si_zes"
 msgstr "चिन्हांचे मूळ आकार पुर्नस्थापीत करा (_z)"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1700
+#: ../src/file-manager/fm-icon-view.c:1706
 msgid "Restore each selected icon to its original size"
 msgstr "प्रत्येक निवडलेली चिन्ह त्याच्या मूळ आकारानुरूप पुर्नस्थापीत करा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1704
+#: ../src/file-manager/fm-icon-view.c:1710
 msgid "_Organize by Name"
 msgstr "नावानुसार मांडा (_O)"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1705
+#: ../src/file-manager/fm-icon-view.c:1711
 msgid "Reposition icons to better fit in the window and avoid overlapping"
 msgstr "चिन्हे चैकटीमध्ये घट्ट बसण्याकरीता व एकमेकांवर जाणे टाळण्याकरीता नीट स्थापीत करा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1713
+#: ../src/file-manager/fm-icon-view.c:1719
 msgid "Compact _Layout"
 msgstr "सुयोग्य मांडणी (_L)"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1714
+#: ../src/file-manager/fm-icon-view.c:1720
 msgid "Toggle using a tighter layout scheme"
 msgstr "घट्ट मांडणी सुत्रयोजना वापरून टॉगल करा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1719
+#: ../src/file-manager/fm-icon-view.c:1725
 msgid "Re_versed Order"
 msgstr "उलट्या क्रमाने (_v)"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1720
+#: ../src/file-manager/fm-icon-view.c:1726
 msgid "Display icons in the opposite order"
 msgstr "चिन्हे विरूद्ध क्रमवारीत दर्शवा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1725
+#: ../src/file-manager/fm-icon-view.c:1731
 msgid "_Keep Aligned"
 msgstr "एकारेषेत ठेवा (_K)"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1726
+#: ../src/file-manager/fm-icon-view.c:1732
 msgid "Keep icons lined up on a grid"
 msgstr "ग्रीडवर चिन्हे क्रमवारीत ठेवा"
 
-#: ../src/file-manager/fm-icon-view.c:1736
+#: ../src/file-manager/fm-icon-view.c:1742
 msgid "_Manually"
 msgstr "हाताने (_M)"
 
-#: ../src/file-manager/fm-icon-view.c:1737
+#: ../src/file-manager/fm-icon-view.c:1743
 msgid "Leave icons wherever they are dropped"
 msgstr "जेथे टाकली आहेत तेथेच ती चिन्हे सोडून द्या"
 
-#: ../src/file-manager/fm-icon-view.c:1742
+#: ../src/file-manager/fm-icon-view.c:1748
 msgid "By _Name"
 msgstr "नावाने (_N)"
 
-#: ../src/file-manager/fm-icon-view.c:1748
+#: ../src/file-manager/fm-icon-view.c:1754
 msgid "By _Size"
 msgstr "आकाराने (_S)"
 
-#: ../src/file-manager/fm-icon-view.c:1754
+#: ../src/file-manager/fm-icon-view.c:1760
 msgid "By _Type"
 msgstr "प्रकाराने (_T)"
 
-#: ../src/file-manager/fm-icon-view.c:1760
+#: ../src/file-manager/fm-icon-view.c:1766
 msgid "By Modification _Date"
 msgstr "दुरूस्ती दिनांकानुसारे (_D)"
 
-#: ../src/file-manager/fm-icon-view.c:1766
+#: ../src/file-manager/fm-icon-view.c:1772
 msgid "By _Emblems"
 msgstr "बोधचिन्हानुसारे (_E)"
 
-#: ../src/file-manager/fm-icon-view.c:1772
+#: ../src/file-manager/fm-icon-view.c:1778
 msgid "By T_rash Time"
 msgstr "नष्ट केलेल्या वेळेनुसार (_r)"
 
-#: ../src/file-manager/fm-icon-view.c:1901
+#: ../src/file-manager/fm-icon-view.c:1907
 msgid "Restore Icon's Original Si_ze"
 msgstr "चिन्हांचा मूळ आकार पुर्नस्थापित करा (_z)"
 
-#: ../src/file-manager/fm-icon-view.c:2376
+#: ../src/file-manager/fm-icon-view.c:2382
 #, c-format
 msgid "pointing at \"%s\""
 msgstr "\"%s\" कडे केंद्रित"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3397
+#: ../src/file-manager/fm-icon-view.c:3405
 msgid "_Icons"
 msgstr "चिन्ह (_I)"
 
-#: ../src/file-manager/fm-icon-view.c:3398
+#: ../src/file-manager/fm-icon-view.c:3406
 msgid "The icon view encountered an error."
 msgstr "चिन्हदर्शकाने त्रुटी दर्शवली."
 
-#: ../src/file-manager/fm-icon-view.c:3399
+#: ../src/file-manager/fm-icon-view.c:3407
 msgid "The icon view encountered an error while starting up."
 msgstr "सुरू होताना चिन्ह दर्शकाने त्रुटी दर्शवली."
 
-#: ../src/file-manager/fm-icon-view.c:3400
+#: ../src/file-manager/fm-icon-view.c:3408
 msgid "Display this location with the icon view."
 msgstr "हे स्थान चिन्ह दर्शकाबरोबर प्रदर्शित करा."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-icon-view.c:3410
+#: ../src/file-manager/fm-icon-view.c:3418
 #: ../src/caja-file-management-properties.ui.h:3
 msgid "Compact View"
 msgstr "संक्षिप्त दृश्य"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3412
+#: ../src/file-manager/fm-icon-view.c:3420
 msgid "_Compact"
 msgstr "संक्षिप्त (_C)"
 
-#: ../src/file-manager/fm-icon-view.c:3413
+#: ../src/file-manager/fm-icon-view.c:3421
 msgid "The compact view encountered an error."
 msgstr "संक्षिप्त दृश्य अंतर्गत त्रुटी आढळली."
 
-#: ../src/file-manager/fm-icon-view.c:3414
+#: ../src/file-manager/fm-icon-view.c:3422
 msgid "The compact view encountered an error while starting up."
 msgstr "प्रारंभवेळी संक्षिप्त दृश्य अंतर्गत त्रुटी आढळली."
 
-#: ../src/file-manager/fm-icon-view.c:3415
+#: ../src/file-manager/fm-icon-view.c:3423
 msgid "Display this location with the compact view."
 msgstr "संक्षिप्त दृश्यसह हे स्थान प्रदर्शित करा."
 
@@ -5095,46 +5078,46 @@ msgstr "दाखल करीत आहे..."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-list-view.c:1833
-#: ../src/file-manager/fm-list-view.c:3481
+#: ../src/file-manager/fm-list-view.c:1835
+#: ../src/file-manager/fm-list-view.c:3487
 #: ../src/caja-file-management-properties.ui.h:2
 msgid "List View"
 msgstr "यादी दर्शवा"
 
-#: ../src/file-manager/fm-list-view.c:2530
+#: ../src/file-manager/fm-list-view.c:2534
 #, c-format
 msgid "%s Visible Columns"
 msgstr "%s दृश्यीत स्तंभ"
 
-#: ../src/file-manager/fm-list-view.c:2549
+#: ../src/file-manager/fm-list-view.c:2553
 msgid "Choose the order of information to appear in this folder:"
 msgstr "या संचयीकामध्ये स्वीकार्य माहिती दर्शविण्याकरीता क्रमवारी निवडा:"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-list-view.c:2619
+#: ../src/file-manager/fm-list-view.c:2623
 msgid "Visible _Columns..."
 msgstr "दृश्यीत स्तंभ (_C)..."
 
 #. tooltip
-#: ../src/file-manager/fm-list-view.c:2620
+#: ../src/file-manager/fm-list-view.c:2624
 msgid "Select the columns visible in this folder"
 msgstr "या संचयीकेमधील दृश्यीत स्तंभ निवडा"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-list-view.c:3483
+#: ../src/file-manager/fm-list-view.c:3489
 msgid "_List"
 msgstr "यादी (_L)"
 
-#: ../src/file-manager/fm-list-view.c:3484
+#: ../src/file-manager/fm-list-view.c:3490
 msgid "The list view encountered an error."
 msgstr "यादी दर्शकाने त्रुटी दर्शवली."
 
-#: ../src/file-manager/fm-list-view.c:3485
+#: ../src/file-manager/fm-list-view.c:3491
 msgid "The list view encountered an error while starting up."
 msgstr "सुरू होताना यादी दर्शकाने त्रुटी दर्शवाली."
 
-#: ../src/file-manager/fm-list-view.c:3486
+#: ../src/file-manager/fm-list-view.c:3492
 msgid "Display this location with the list view."
 msgstr "हे ठिकाण यादी दर्शकेबरोबर प्रदर्शित करा."
 
@@ -5342,7 +5325,7 @@ msgstr "फाइल प्रवेश:"
 #. Translators: this is referred to captions under icons.
 #: ../src/file-manager/fm-properties-window.c:4855
 #: ../src/file-manager/fm-properties-window.c:4866
-#: ../src/caja-file-management-properties.c:328
+#: ../src/caja-file-management-properties.c:327
 msgid "None"
 msgstr "काहिच नाही"
 
@@ -5558,8 +5541,8 @@ msgid ""
 msgstr "सॉफ्टवेअर प्रत्यक्षरित्या मिडीया \"%s\" पासून कार्यरत होईल. अविश्वासू सॉफ्टवेअर कधिही चालवू नका.\n\nशंका असल्यास, रद्द करा वर क्लिक करा."
 
 #: ../src/caja-bookmarks-window.c:158
-#: ../src/caja-file-management-properties.c:235
-#: ../src/caja-property-browser.c:1673 ../src/caja-window-menus.c:591
+#: ../src/caja-file-management-properties.c:234
+#: ../src/caja-property-browser.c:1733 ../src/caja-window-menus.c:587
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
@@ -5722,7 +5705,7 @@ msgstr "ओळखचिन्ह जोडा (_b)"
 msgid "Bookmark Name:"
 msgstr "ओळखचिन्हाचे नाव:"
 
-#: ../src/caja-desktop-window.c:88 ../src/caja-desktop-window.c:263
+#: ../src/caja-desktop-window.c:204 ../src/caja-desktop-window.c:393
 #: ../src/caja-pathbar.c:1587 ../src/caja-places-sidebar.c:536
 msgid "Desktop"
 msgstr "डेस्कटॉप"
@@ -5800,7 +5783,7 @@ msgstr "बोधचिन्ह जोडू शकत नाही."
 msgid "Show Emblems"
 msgstr "बोधचिन्ह दर्शवा"
 
-#: ../src/caja-file-management-properties.c:631
+#: ../src/caja-file-management-properties.c:630
 msgid "About Extension"
 msgstr ""
 
@@ -6690,7 +6673,7 @@ msgstr "नविन टॅब(_N)"
 msgid "_Close Tab"
 msgstr "टॅब बंद करा (_C)"
 
-#: ../src/caja-navigation-window.c:781
+#: ../src/caja-navigation-window.c:776
 #, c-format
 msgid "%s - File Browser"
 msgstr "%s - फाइल ब्राउजर"
@@ -6833,128 +6816,128 @@ msgstr "बोधचिन्ह काढुन टाकण्याकरी�
 msgid "Select an Image File for the New Emblem"
 msgstr "नविन बोधचिन्हकरीता प्रतिमा फाइल निवडा"
 
-#: ../src/caja-property-browser.c:1108
+#: ../src/caja-property-browser.c:1112
 msgid "Create a New Emblem"
 msgstr "नविन बोधचिन्ह निर्माण करा"
 
 #. make the keyword label and field
-#: ../src/caja-property-browser.c:1129
+#: ../src/caja-property-browser.c:1145
 msgid "_Keyword:"
 msgstr "मुख्य शब्द (_K):"
 
 #. set up a file chooser to pick the image file
-#: ../src/caja-property-browser.c:1152
+#: ../src/caja-property-browser.c:1178
 msgid "_Image:"
 msgstr "प्रतिमा (_I):"
 
-#: ../src/caja-property-browser.c:1187
+#: ../src/caja-property-browser.c:1226
 msgid "Create a New Color:"
 msgstr "नविन रंग निर्माण करा:"
 
 #. make the name label and field
-#: ../src/caja-property-browser.c:1201
+#: ../src/caja-property-browser.c:1245
 msgid "Color _name:"
 msgstr "रंगाचे नाव (_n):"
 
-#: ../src/caja-property-browser.c:1217
+#: ../src/caja-property-browser.c:1269
 msgid "Color _value:"
 msgstr "रंगाचे मुल्य (_v):"
 
-#: ../src/caja-property-browser.c:1253
+#: ../src/caja-property-browser.c:1313
 msgid "Sorry, but you cannot replace the reset image."
 msgstr "माफ करा, पुनःस्थापन प्रतिमा बदलविले जाऊ शकत नाही."
 
-#: ../src/caja-property-browser.c:1254
+#: ../src/caja-property-browser.c:1314
 msgid "Reset is a special image that cannot be deleted."
 msgstr "पुनः स्थापन एक खास प्रतिमा जी काढुन टाकल्या जाऊ शकत नाही."
 
-#: ../src/caja-property-browser.c:1284
+#: ../src/caja-property-browser.c:1344
 #, c-format
 msgid "Sorry, but the pattern %s could not be installed."
 msgstr "माफ करा, पण %s रचना प्रतिष्ठापीत होऊ शकली नाही."
 
-#: ../src/caja-property-browser.c:1315
+#: ../src/caja-property-browser.c:1375
 msgid "Select an Image File to Add as a Pattern"
 msgstr "रचना स्वरूपी जोडण्याकरीता प्रतिमा फाइल निवडा"
 
-#: ../src/caja-property-browser.c:1394 ../src/caja-property-browser.c:1424
+#: ../src/caja-property-browser.c:1454 ../src/caja-property-browser.c:1484
 msgid "The color cannot be installed."
 msgstr "रंग स्थापीत करता येणार नाही."
 
-#: ../src/caja-property-browser.c:1395
+#: ../src/caja-property-browser.c:1455
 msgid "Sorry, but you must specify an unused color name for the new color."
 msgstr "माफ करा, नव्या रंगाकरीता बिन वापरलेले रंग तुम्ही नमुद केले पाहिजे."
 
-#: ../src/caja-property-browser.c:1425
+#: ../src/caja-property-browser.c:1485
 msgid "Sorry, but you must specify a non-blank name for the new color."
 msgstr "माफ करा, नव्या रंगाकरीता बिन वापरलेले रंग तुम्ही नमुद केले पाहिजे."
 
-#: ../src/caja-property-browser.c:1485
+#: ../src/caja-property-browser.c:1545
 msgid "Select a Color to Add"
 msgstr "जोडण्याकरीता रंग निवडा"
 
-#: ../src/caja-property-browser.c:1531 ../src/caja-property-browser.c:1549
+#: ../src/caja-property-browser.c:1591 ../src/caja-property-browser.c:1609
 #, c-format
 msgid "Sorry, but \"%s\" is not a usable image file."
 msgstr "क्षमा करा, पण \"%s\" ही वापरण्यायोग्य प्रतिमा फाइल नाही."
 
-#: ../src/caja-property-browser.c:1532 ../src/caja-property-browser.c:1550
+#: ../src/caja-property-browser.c:1592 ../src/caja-property-browser.c:1610
 msgid "The file is not an image."
 msgstr "ही फाइल प्रतिमा नाही."
 
-#: ../src/caja-property-browser.c:2291
+#: ../src/caja-property-browser.c:2351
 msgid "Select a Category:"
 msgstr "वर्ग निवडा:"
 
-#: ../src/caja-property-browser.c:2303
+#: ../src/caja-property-browser.c:2363
 msgid "C_ancel Remove"
 msgstr "काढुण टाकणे रद्द करा (_a)"
 
-#: ../src/caja-property-browser.c:2312
+#: ../src/caja-property-browser.c:2372
 msgid "_Add a New Pattern..."
 msgstr "नविन रचना जोडा (_A)..."
 
-#: ../src/caja-property-browser.c:2315
+#: ../src/caja-property-browser.c:2375
 msgid "_Add a New Color..."
 msgstr "नविन रंग जोडा (_A)..."
 
-#: ../src/caja-property-browser.c:2318
+#: ../src/caja-property-browser.c:2378
 msgid "_Add a New Emblem..."
 msgstr "नविन बोधचिन्ह जोडा (_A)..."
 
-#: ../src/caja-property-browser.c:2344
+#: ../src/caja-property-browser.c:2404
 msgid "Click on a pattern to remove it"
 msgstr "रचना काढण्यासाठी त्याच्यावर क्लिक करा"
 
-#: ../src/caja-property-browser.c:2347
+#: ../src/caja-property-browser.c:2407
 msgid "Click on a color to remove it"
 msgstr "रंग काढूण टाकण्यासाठी त्यावर क्लिक करा"
 
-#: ../src/caja-property-browser.c:2350
+#: ../src/caja-property-browser.c:2410
 msgid "Click on an emblem to remove it"
 msgstr "बोधचिन्ह काढून टाकण्यासाठी त्यावर किल्क करा"
 
-#: ../src/caja-property-browser.c:2362
+#: ../src/caja-property-browser.c:2422
 msgid "Patterns:"
 msgstr "रचना:"
 
-#: ../src/caja-property-browser.c:2365
+#: ../src/caja-property-browser.c:2425
 msgid "Colors:"
 msgstr "रंग:"
 
-#: ../src/caja-property-browser.c:2368
+#: ../src/caja-property-browser.c:2428
 msgid "Emblems:"
 msgstr "बोधचिन्हे:"
 
-#: ../src/caja-property-browser.c:2390
+#: ../src/caja-property-browser.c:2450
 msgid "_Remove a Pattern..."
 msgstr "प्रकार काढून टाका (_R)..."
 
-#: ../src/caja-property-browser.c:2393
+#: ../src/caja-property-browser.c:2453
 msgid "_Remove a Color..."
 msgstr "रंग काढून टाका (_R)..."
 
-#: ../src/caja-property-browser.c:2396
+#: ../src/caja-property-browser.c:2456
 msgid "_Remove an Emblem..."
 msgstr "बोधचिन्ह काढून टाका (_R)..."
 
@@ -7183,11 +7166,11 @@ msgid ""
 "Please select another viewer and try again."
 msgstr "त्रुटी: %s\nकृपया दुसरा एखादा दर्शक निवडा व पुन्हा प्रयत्न करा."
 
-#: ../src/caja-window-menus.c:196
+#: ../src/caja-window-menus.c:192
 msgid "Go to the location specified by this bookmark"
 msgstr "या ओळकचिन्हातर्फे नमुदकेलेल्या स्थळांवर जा"
 
-#: ../src/caja-window-menus.c:518
+#: ../src/caja-window-menus.c:514
 msgid ""
 "Caja is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -7195,7 +7178,7 @@ msgid ""
 "version."
 msgstr "Caja is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version."
 
-#: ../src/caja-window-menus.c:522
+#: ../src/caja-window-menus.c:518
 msgid ""
 "Caja is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -7203,19 +7186,19 @@ msgid ""
 "details."
 msgstr "Caja is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details."
 
-#: ../src/caja-window-menus.c:526
+#: ../src/caja-window-menus.c:522
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301 USA"
 msgstr "You should have received a copy of the GNU General Public License along with Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA"
 
-#: ../src/caja-window-menus.c:538
+#: ../src/caja-window-menus.c:534
 msgid ""
 "Caja lets you organize files and folders, both on your computer and online."
 msgstr "Caja तुम्हाला संगणक व ऑनलाइन दोन्ही ठिकाणी, फाइल व संचयीका आयोजीत करण्यास मदत करतो."
 
-#: ../src/caja-window-menus.c:541
+#: ../src/caja-window-menus.c:537
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2016 The Caja authors"
@@ -7224,212 +7207,212 @@ msgstr ""
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
 #. * box to give credit to the translator(s).
-#: ../src/caja-window-menus.c:551
+#: ../src/caja-window-menus.c:547
 msgid "translator-credits"
 msgstr "Swapnil Hajare<dreamil1000a@yahoo.com>, 2003; Priti Labde <priti_labde@yahoo.co.in>, 2006; संदिप शेडमाके <sandeep.shedmake@gmail.com>, 2007, 2008, 2009; संदिप शेडमाके <sshedmak@redhat.com>, 2009, 2010."
 
-#: ../src/caja-window-menus.c:554
+#: ../src/caja-window-menus.c:550
 msgid "MATE Web Site"
 msgstr "मेट संकेत स्थळ"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:807
+#: ../src/caja-window-menus.c:803
 msgid "_File"
 msgstr "फाइल (_F)"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:808
+#: ../src/caja-window-menus.c:804
 msgid "_Edit"
 msgstr "संपादन करा (_E)"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:809
+#: ../src/caja-window-menus.c:805
 msgid "_View"
 msgstr "दृश्य (_V)"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:810
+#: ../src/caja-window-menus.c:806
 msgid "_Help"
 msgstr "मदत करा (_H)"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:812
+#: ../src/caja-window-menus.c:808
 msgid "_Close"
 msgstr "बंद करा (_C)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:813
+#: ../src/caja-window-menus.c:809
 msgid "Close this folder"
 msgstr "ही संचयीका बंद करा"
 
-#: ../src/caja-window-menus.c:818
+#: ../src/caja-window-menus.c:814
 msgid "_Backgrounds and Emblems..."
 msgstr "पार्श्वभूमी व बोधचिन्ह (_B)..."
 
-#: ../src/caja-window-menus.c:819
+#: ../src/caja-window-menus.c:815
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
 msgstr "दृश्य इच्छिक करण्याकरीता रचना, रंग, व बोधचिन्ह दर्शवा"
 
-#: ../src/caja-window-menus.c:824
+#: ../src/caja-window-menus.c:820
 msgid "Prefere_nces"
 msgstr "प्राधान्यता (_n)"
 
-#: ../src/caja-window-menus.c:825
+#: ../src/caja-window-menus.c:821
 msgid "Edit Caja preferences"
 msgstr "Caja प्राधान्यता संपादीत करा"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:828
+#: ../src/caja-window-menus.c:824
 msgid "Open _Parent"
 msgstr "मुळ उघडा (_P)"
 
-#: ../src/caja-window-menus.c:829
+#: ../src/caja-window-menus.c:825
 msgid "Open the parent folder"
 msgstr "मुळ संचयीका उघडा"
 
 #. tooltip
-#: ../src/caja-window-menus.c:838
+#: ../src/caja-window-menus.c:834
 msgid "Stop loading the current location"
 msgstr "सद्याचे स्थळ दाखलन थांबवा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:842
+#: ../src/caja-window-menus.c:838
 msgid "_Reload"
 msgstr "पुन्हा दाखल करा (_R)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:843
+#: ../src/caja-window-menus.c:839
 msgid "Reload the current location"
 msgstr "सद्याचे स्थळ पुनःदाखल करा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:847
+#: ../src/caja-window-menus.c:843
 msgid "_Contents"
 msgstr "आशय (_C)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:848
+#: ../src/caja-window-menus.c:844
 msgid "Display Caja help"
 msgstr "नॉटीलस मदत दर्शवा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:852
+#: ../src/caja-window-menus.c:848
 msgid "_About"
 msgstr "घटकी (_A)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:853
+#: ../src/caja-window-menus.c:849
 msgid "Display credits for the creators of Caja"
 msgstr "नॉटिलसचे निर्मात्यांकरीता श्रेय दर्शवा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:857
+#: ../src/caja-window-menus.c:853
 msgid "Zoom _In"
 msgstr "आतील बाजूनी विशालीकरण (_I)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:858 ../src/caja-zoom-control.c:99
+#: ../src/caja-window-menus.c:854 ../src/caja-zoom-control.c:99
 #: ../src/caja-zoom-control.c:395
 msgid "Increase the view size"
 msgstr "दृश्याचे आकार वाढवा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:872
+#: ../src/caja-window-menus.c:868
 msgid "Zoom _Out"
 msgstr "मोठ्यात मोठे करा (_O)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:873 ../src/caja-zoom-control.c:100
+#: ../src/caja-window-menus.c:869 ../src/caja-zoom-control.c:100
 #: ../src/caja-zoom-control.c:333
 msgid "Decrease the view size"
 msgstr "दृश्याचे आकार कमी करा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:882
+#: ../src/caja-window-menus.c:878
 msgid "Normal Si_ze"
 msgstr "सामान्य आकार (_z)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:883 ../src/caja-zoom-control.c:101
+#: ../src/caja-window-menus.c:879 ../src/caja-zoom-control.c:101
 #: ../src/caja-zoom-control.c:353
 msgid "Use the normal view size"
 msgstr "सर्वसाधारण दृश्याचे आकार वापरा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:887
+#: ../src/caja-window-menus.c:883
 msgid "Connect to _Server..."
 msgstr "सर्व्हरशी जुळवणी साधा (_S)..."
 
 #. tooltip
-#: ../src/caja-window-menus.c:888
+#: ../src/caja-window-menus.c:884
 msgid "Connect to a remote computer or shared disk"
 msgstr "दूरर्स्थ संगणक किंवा सहभागीय डीस्कशी जुळवणी करा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:897
+#: ../src/caja-window-menus.c:893
 msgid "_Computer"
 msgstr "संगणक (_C)"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:902
+#: ../src/caja-window-menus.c:898
 msgid "_Network"
 msgstr "नेटवर्क (_N)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:903 ../src/mate-network-scheme.desktop.in.h:2
+#: ../src/caja-window-menus.c:899 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
 msgstr "संचार्ह ओळचिन्हे व स्थानिक नेटवर्क स्थळे"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:907
+#: ../src/caja-window-menus.c:903
 msgid "T_emplates"
 msgstr "नमुना (_e)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:908
+#: ../src/caja-window-menus.c:904
 msgid "Open your personal templates folder"
 msgstr "आपले व्यक्तिगत रचना संचयीका उघडा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:912
+#: ../src/caja-window-menus.c:908
 msgid "_Trash"
 msgstr "कचरापेटी (_T)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:913
+#: ../src/caja-window-menus.c:909
 msgid "Open your personal trash folder"
 msgstr "आपले व्यक्तिगत कचरापेटी संचयीका उघडा"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:921
+#: ../src/caja-window-menus.c:917
 msgid "Show _Hidden Files"
 msgstr "लपविलेले फाइल दर्शवा (_H)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:922
+#: ../src/caja-window-menus.c:918
 msgid "Toggle the display of hidden files in the current window"
 msgstr "सध्याच्या चौकटीत लपलेल्या फाइलचे प्रदर्शन टॉगल करा"
 
-#: ../src/caja-window-menus.c:953
+#: ../src/caja-window-menus.c:949
 msgid "_Up"
 msgstr "वर (_U)"
 
-#: ../src/caja-window-menus.c:956
+#: ../src/caja-window-menus.c:952
 msgid "_Home"
 msgstr "मूळ (_H)"
 

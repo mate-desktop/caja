@@ -10,6 +10,7 @@
 # gapan <vlahavas@gmail.com>, 2012
 # geost <george.stefanakis@gmail.com>, 2016
 # I will not tell you that <leftermos@yahoo.gr>, 2015
+# Le Pa <lepa.22@hotmail.com>, 2016
 # Νίκος Κοντ. <nkontopos@gmail.com>, 2016
 # Petros Freris (Πέτρος Φρέρης) <petrosfreris@gmail.com>, 2013
 # Petros Freris (Πέτρος Φρέρης) <petrosfreris@gmail.com>, 2013
@@ -19,9 +20,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-01 10:19+0300\n"
-"PO-Revision-Date: 2016-08-01 07:20+0000\n"
-"Last-Translator: monsta <monsta@inbox.ru>\n"
+"POT-Creation-Date: 2016-08-23 13:33+0300\n"
+"PO-Revision-Date: 2016-09-03 19:39+0000\n"
+"Last-Translator: Le Pa <lepa.22@hotmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/mate/MATE/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -47,7 +48,7 @@ msgstr "Εκκίνηση %s..."
 #: ../cut-n-paste-code/libegg/eggdesktopfile.c:1100
 #, c-format
 msgid "Application does not accept documents on command line"
-msgstr "Η εφαρμογή δεν δέχεται έγγραφα από την γραμμή εντολών"
+msgstr "Η εφαρμογή δεν δέχεται έγγραφα από τη γραμμή εντολών"
 
 #: ../cut-n-paste-code/libegg/eggdesktopfile.c:1168
 #, c-format
@@ -62,15 +63,15 @@ msgstr "Δεν επιτρέπεται το πέρασμα διευθύνσεων
 #: ../cut-n-paste-code/libegg/eggdesktopfile.c:1386
 #, c-format
 msgid "Not a launchable item"
-msgstr "Δεν είναι ένα εκκινήσιμο αντικείμενο"
+msgstr "Μη εκκινήσιμο αντικείμενο"
 
 #: ../cut-n-paste-code/libegg/eggsmclient.c:229
 msgid "Disable connection to session manager"
-msgstr "Απενεργοποίηση σύνδεσης με το διαχειριστή συνεδρίας"
+msgstr "Απενεργοποίηση σύνδεσης με τον διαχειριστή συνεδρίας"
 
 #: ../cut-n-paste-code/libegg/eggsmclient.c:234
 msgid "Specify file containing saved configuration"
-msgstr "Ορισμός του αρχείου που περιέχει τις αποθηκευμένες ρυθμίσεις"
+msgstr "Καθορισμός του αρχείου που περιέχει τις αποθηκευμένες ρυθμίσεις"
 
 #: ../cut-n-paste-code/libegg/eggsmclient.c:234
 msgid "FILE"
@@ -98,7 +99,7 @@ msgstr "_Μοτίβα"
 
 #: ../data/browser.xml.h:2
 msgid "Drag a pattern tile to an object to change it"
-msgstr "Σύρτε ένα μοτίβο σε ένα αντικείμενο για να του αλλάξετε παρασκήνιο"
+msgstr "Σύρτε ένα παλκίδιο μοτίβου σε ένα αντικείμενο για να το αλλάξετε"
 
 #: ../data/browser.xml.h:3
 msgid "Blue Ridge"
@@ -114,7 +115,7 @@ msgstr "Μπλε γράμματα"
 
 #: ../data/browser.xml.h:6
 msgid "Brushed Metal"
-msgstr "Ανοξείδωτο"
+msgstr "Βουρτσισμένο μέταλλο"
 
 #: ../data/browser.xml.h:7
 msgid "Burlap"
@@ -230,7 +231,7 @@ msgstr "Χ_ρώματα"
 
 #: ../data/browser.xml.h:35
 msgid "Drag a color to an object to change it to that color"
-msgstr "Σύρτε ένα χρώμα σε ένα αντικείμενο για να του αλλάξετε παρασκήνιο"
+msgstr "Σύρτε ένα χρώμα σε ένα αντικείμενο για να το αλλάξετε σε αυτό το χρώμα"
 
 #: ../data/browser.xml.h:36
 msgid "Mango"
@@ -362,13 +363,9 @@ msgstr "Σύρτε ένα έμβλημα σε ένα αντικείμενο γι
 
 #. translators: this is the name of an emblem
 #: ../data/browser.xml.h:69 ../src/caja-emblem-sidebar.c:990
-#: ../src/caja-property-browser.c:1944
+#: ../src/caja-property-browser.c:2004
 msgid "Erase"
 msgstr "Διαγραφή"
-
-#: ../data/caja.xml.in.h:1
-msgid "Saved search"
-msgstr "Αποθηκευμένη αναζήτηση"
 
 #: ../data/caja.appdata.xml.in.h:1
 msgid "File manager for the MATE desktop environment"
@@ -382,7 +379,11 @@ msgid ""
 "MATE desktop. It works on local and remote file systems. </p> <p> Caja is "
 "extensible through a plugin system, similar to that of GNOME Nautilus, of "
 "which Caja is a fork. </p>"
-msgstr "<p> Caja είναι ο επίσημος διαχειριστής αρχείων για το γραφικό περιβάλλον MATE. Σου δίνει τη δυνατότητα να πλοηγηθείς στα αρχεία σου όπως επίσης να ξεκινήσεις εφαρμογές που σχετίζονται με αυτά. Είναι επίσης υπεύθυνο να διαχειρίζεται τα εικονίδια στην επιφάνεια εργασίας.  Λειτουργεί σε τοπικά και απομακρυσμένα συστήματα αρχείων. </p> <p> Ο διαχειριστής αρχείων Caja είναι επεκτάσιμος μέσω τον προσθέτων, παρόμοιο με εκείνη του GNOME Nautilus από το οποίο προέρχεται ο Caja </p>"
+msgstr "<p> Ο Caja είναι ο επίσημος διαχειριστής αρχείων για το γραφικό περιβάλλον MATE. Παρέχει τη δυνατότητα πλοήγησης σε φακέλους, όπως επίσης την προεπισκόπηση αρχείων και την εκκίνηση εφαρμογών που σχετίζονται με αυτά. Είναι επίσης υπεύθυνος να διαχειρίζεται τα εικονίδια στο περιβάλλον MATE.  Λειτουργεί σε τοπικά και απομακρυσμένα συστήματα αρχείων. </p> <p> Ο διαχειριστής αρχείων Caja είναι επεκτάσιμος μέσω συστήματος προσθέτων, παρόμοιο με εκείνο του GNOME Nautilus, από το οποίο προέρχεται ο Caja. </p>"
+
+#: ../data/caja.xml.in.h:1
+msgid "Saved search"
+msgstr "Αποθηκευμένη αναζήτηση"
 
 #: ../eel/eel-canvas.c:1443 ../eel/eel-canvas.c:1444
 msgid "X"
@@ -421,7 +422,7 @@ msgstr "Αν οριστεί, θα αναδιπλώνονται γραμμές α
 
 #: ../eel/eel-editable-label.c:385
 msgid "Cursor Position"
-msgstr "Θέση δρομέα"
+msgstr "Θέση Δρομέα"
 
 #: ../eel/eel-editable-label.c:386
 msgid "The current position of the insertion cursor in chars."
@@ -564,9 +565,9 @@ msgstr "Να εκτε_λείται πάντα αυτή η ενέργεια"
 #. label, accelerator
 #. add the "Eject" menu item
 #: ../libcaja-private/caja-autorun.c:1163
-#: ../src/file-manager/fm-directory-view.c:7495
-#: ../src/file-manager/fm-directory-view.c:7523
-#: ../src/file-manager/fm-directory-view.c:7604
+#: ../src/file-manager/fm-directory-view.c:7500
+#: ../src/file-manager/fm-directory-view.c:7528
+#: ../src/file-manager/fm-directory-view.c:7609
 #: ../src/file-manager/fm-tree-view.c:1382 ../src/caja-places-sidebar.c:2742
 msgid "_Eject"
 msgstr "Εξαγω_γή"
@@ -575,9 +576,9 @@ msgstr "Εξαγω_γή"
 #. label, accelerator
 #. add the "Unmount" menu item
 #: ../libcaja-private/caja-autorun.c:1176
-#: ../src/file-manager/fm-directory-view.c:7491
-#: ../src/file-manager/fm-directory-view.c:7519
-#: ../src/file-manager/fm-directory-view.c:7600
+#: ../src/file-manager/fm-directory-view.c:7496
+#: ../src/file-manager/fm-directory-view.c:7524
+#: ../src/file-manager/fm-directory-view.c:7605
 #: ../src/file-manager/fm-tree-view.c:1373 ../src/caja-places-sidebar.c:2735
 msgid "_Unmount"
 msgstr "Α_ποσύνδεση"
@@ -606,7 +607,7 @@ msgstr "Επικόλληση του κειμένου που είναι αποθ�
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-clipboard.c:470
-#: ../src/file-manager/fm-directory-view.c:7424
+#: ../src/file-manager/fm-directory-view.c:7429
 msgid "Select _All"
 msgstr "Επιλογή ό_λων"
 
@@ -629,7 +630,7 @@ msgstr "Χρήση _προεπιλογής"
 
 #: ../libcaja-private/caja-column-utilities.c:44
 #: ../libcaja-private/caja-mime-application-chooser.c:278
-#: ../src/file-manager/fm-list-view.c:1773
+#: ../src/file-manager/fm-list-view.c:1775
 msgid "Name"
 msgstr "Όνομα"
 
@@ -748,7 +749,7 @@ msgstr "Αρχική τοποθεσία του αρχείου πριν τη με
 #: ../libcaja-private/caja-customization-data.c:431
 #: ../libcaja-private/caja-file-conflict-dialog.c:663
 #: ../libcaja-private/caja-mime-application-chooser.c:449
-#: ../src/caja-property-browser.c:1991
+#: ../src/caja-property-browser.c:2051
 msgid "Reset"
 msgstr "Επαναφορά"
 
@@ -756,23 +757,6 @@ msgstr "Επαναφορά"
 #: ../libcaja-private/caja-desktop-icon-file.c:158
 msgid "on the desktop"
 msgstr "στην επιφάνεια εργασίας"
-
-#: ../libcaja-private/caja-desktop-link-monitor.c:105
-#, c-format
-msgid "You cannot move the volume \"%s\" to the trash."
-msgstr "Δεν μπορείτε να μεταφέρετε τον τόμο \"%s\" στα απορρίμματα."
-
-#: ../libcaja-private/caja-desktop-link-monitor.c:116
-msgid ""
-"If you want to eject the volume, please use \"Eject\" in the popup menu of "
-"the volume."
-msgstr "Αν θέλετε να αποβάλετε τον τόμο, χρησιμοποιήστε το \"Εξαγωγή\" με δεξί κλικ στο μενού του τόμου."
-
-#: ../libcaja-private/caja-desktop-link-monitor.c:127
-msgid ""
-"If you want to unmount the volume, please use \"Unmount Volume\" in the "
-"popup menu of the volume."
-msgstr "Αν θέλετε να αποπροσαρτήσετε τον τόμο, χρησιμοποιήστε το \"Αποποσάρτηση τόμου\" με δεξί κλικ στο μενού του τόμου."
 
 #. Note to translators: If it's hard to compose a good home
 #. * icon name from the user name, you can use a string without
@@ -1062,8 +1046,8 @@ msgstr[1] "περίπου %'d ώρες"
 #. * (e.g. "folder", "plain text") to file type for symbolic link
 #. * to that kind of file (e.g. "link to folder").
 #: ../libcaja-private/caja-file-operations.c:377
-#: ../libcaja-private/caja-file.c:6438
-#: ../src/file-manager/fm-directory-view.c:10616
+#: ../libcaja-private/caja-file.c:6409
+#: ../src/file-manager/fm-directory-view.c:10622
 #, c-format
 msgid "Link to %s"
 msgstr "Σύνδεσμος προς το %s"
@@ -1712,12 +1696,12 @@ msgstr "Άδειασμα απορριμμάτων..."
 msgid "Unable to mark launcher trusted (executable)"
 msgstr "Αδυναμία σημείωσης ως έμπιστου του εκκινητή (εκτελέσιμος)"
 
-#: ../libcaja-private/caja-file-utilities.c:1400
+#: ../libcaja-private/caja-file-utilities.c:1207
 #, c-format
 msgid "Could not determine original location of \"%s\" "
 msgstr "Δε βρέθηκε η αρχική τοποθεσία του \"%s\" "
 
-#: ../libcaja-private/caja-file-utilities.c:1404
+#: ../libcaja-private/caja-file-utilities.c:1211
 msgid "The item cannot be restored from trash"
 msgstr "Δεν είναι δυνατή η αποκατάσταση του αντικειμένου από τα απορρίμματα"
 
@@ -1785,7 +1769,7 @@ msgid "today at 00:00:00 PM"
 msgstr "σήμερα, στις 00:00:00 μμ"
 
 #: ../libcaja-private/caja-file.c:4476
-#: ../src/caja-file-management-properties.c:520
+#: ../src/caja-file-management-properties.c:519
 msgid "today at %-I:%M:%S %p"
 msgstr "σήμερα, στις %-I:%M:%S %p"
 
@@ -1899,47 +1883,47 @@ msgstr "00/00/00"
 msgid "%m/%d/%y"
 msgstr "%d/%m/%y"
 
-#: ../libcaja-private/caja-file.c:5175
+#: ../libcaja-private/caja-file.c:5146
 #, c-format
 msgid "Not allowed to set permissions"
 msgstr "Δεν σας επιτρέπεται να ορίσετε δικαιώματα"
 
-#: ../libcaja-private/caja-file.c:5469
+#: ../libcaja-private/caja-file.c:5440
 #, c-format
 msgid "Not allowed to set owner"
 msgstr "Δεν σας επιτρέπεται να ορίσετε ιδιοκτήτη"
 
-#: ../libcaja-private/caja-file.c:5487
+#: ../libcaja-private/caja-file.c:5458
 #, c-format
 msgid "Specified owner '%s' doesn't exist"
 msgstr "Ο ιδιοκτήτης '%s' δεν υπάρχει"
 
-#: ../libcaja-private/caja-file.c:5747
+#: ../libcaja-private/caja-file.c:5718
 #, c-format
 msgid "Not allowed to set group"
 msgstr "Δεν σας επιτρέπεται να ορίσετε ομάδα"
 
-#: ../libcaja-private/caja-file.c:5765
+#: ../libcaja-private/caja-file.c:5736
 #, c-format
 msgid "Specified group '%s' doesn't exist"
 msgstr "Η ομάδα '%s' δεν υπάρχει"
 
-#: ../libcaja-private/caja-file.c:5919
-#: ../src/file-manager/fm-directory-view.c:2446
+#: ../libcaja-private/caja-file.c:5890
+#: ../src/file-manager/fm-directory-view.c:2450
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
 msgstr[0] "%'u αντικείμενο"
 msgstr[1] "%'u αντικείμενα"
 
-#: ../libcaja-private/caja-file.c:5920
+#: ../libcaja-private/caja-file.c:5891
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
 msgstr[0] "%'u φάκελος"
 msgstr[1] "%'u φάκελοι"
 
-#: ../libcaja-private/caja-file.c:5921
+#: ../libcaja-private/caja-file.c:5892
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
@@ -1948,49 +1932,49 @@ msgstr[1] "%'u αρχεία"
 
 #. Do this in a separate stage so that we don't have to put G_GUINT64_FORMAT
 #. in the translated string
-#: ../libcaja-private/caja-file.c:6008
+#: ../libcaja-private/caja-file.c:5979
 msgid "%"
 msgstr "%"
 
-#: ../libcaja-private/caja-file.c:6009
+#: ../libcaja-private/caja-file.c:5980
 #, c-format
 msgid "%s (%s bytes)"
 msgstr "%s (%s bytes)"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6324 ../libcaja-private/caja-file.c:6340
+#: ../libcaja-private/caja-file.c:6295 ../libcaja-private/caja-file.c:6311
 msgid "? items"
 msgstr "; αντικείμενα"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6330
+#: ../libcaja-private/caja-file.c:6301
 msgid "? bytes"
 msgstr "; bytes"
 
-#: ../libcaja-private/caja-file.c:6345
+#: ../libcaja-private/caja-file.c:6316
 msgid "unknown type"
 msgstr "άγνωστος τύπος"
 
-#: ../libcaja-private/caja-file.c:6348
+#: ../libcaja-private/caja-file.c:6319
 msgid "unknown MIME type"
 msgstr "άγνωστος τύπος MIME"
 
 #. Fallback, use for both unknown attributes and attributes
 #. * for which we have no more appropriate default.
-#: ../libcaja-private/caja-file.c:6362
+#: ../libcaja-private/caja-file.c:6333
 #: ../src/file-manager/fm-properties-window.c:1359
 msgid "unknown"
 msgstr "άγνωστο"
 
-#: ../libcaja-private/caja-file.c:6412
+#: ../libcaja-private/caja-file.c:6383
 msgid "program"
 msgstr "πρόγραμμα"
 
-#: ../libcaja-private/caja-file.c:6432
+#: ../libcaja-private/caja-file.c:6403
 msgid "link"
 msgstr "σύνδεσμος"
 
-#: ../libcaja-private/caja-file.c:6454
+#: ../libcaja-private/caja-file.c:6425
 msgid "link (broken)"
 msgstr "σύνδεσμος (σπασμένος)"
 
@@ -1999,79 +1983,79 @@ msgstr "σύνδεσμος (σπασμένος)"
 msgid "The selection rectangle"
 msgstr "Το ορθογώνιο επιλογής"
 
-#: ../libcaja-private/caja-mime-actions.c:755
+#: ../libcaja-private/caja-mime-actions.c:718
 #, c-format
 msgid "The Link \"%s\" is Broken."
 msgstr "Ο σύνδεσμος \"%s\" είναι σπασμένος."
 
-#: ../libcaja-private/caja-mime-actions.c:759
+#: ../libcaja-private/caja-mime-actions.c:722
 #, c-format
 msgid "The Link \"%s\" is Broken. Move it to Trash?"
 msgstr "Ο σύνδεσμος \"%s\" είναι σπασμένος. Θέλετε να τον μεταφέρετε στα απορρίμματα;"
 
-#: ../libcaja-private/caja-mime-actions.c:766
+#: ../libcaja-private/caja-mime-actions.c:729
 msgid "This link cannot be used, because it has no target."
 msgstr "Ο σύνδεσμος δεν μπορεί να χρησιμοποιηθεί, διότι δεν έχει προορισμό."
 
-#: ../libcaja-private/caja-mime-actions.c:770
+#: ../libcaja-private/caja-mime-actions.c:733
 #, c-format
 msgid "This link cannot be used, because its target \"%s\" doesn't exist."
 msgstr "Ο σύνδεσμος δεν μπορεί να χρησιμοποιηθεί, διότι ο προορισμός \"%s\" δεν υπάρχει."
 
 #. name, stock id
 #. label, accelerator
-#: ../libcaja-private/caja-mime-actions.c:781
-#: ../src/file-manager/fm-directory-view.c:7452
-#: ../src/file-manager/fm-directory-view.c:7584
-#: ../src/file-manager/fm-directory-view.c:8684
-#: ../src/file-manager/fm-directory-view.c:9009
+#: ../libcaja-private/caja-mime-actions.c:744
+#: ../src/file-manager/fm-directory-view.c:7457
+#: ../src/file-manager/fm-directory-view.c:7589
+#: ../src/file-manager/fm-directory-view.c:8690
+#: ../src/file-manager/fm-directory-view.c:9015
 #: ../src/file-manager/fm-tree-view.c:1346
 msgid "Mo_ve to Trash"
 msgstr "Μεταφορά στα απο_ρρίμματα"
 
-#: ../libcaja-private/caja-mime-actions.c:843
+#: ../libcaja-private/caja-mime-actions.c:806
 #, c-format
 msgid "Do you want to run \"%s\", or display its contents?"
 msgstr "Θέλετε να εκτελέσετε το\"%s\", ή να εμφανίσετε τα περιεχόμενά του;"
 
-#: ../libcaja-private/caja-mime-actions.c:845
+#: ../libcaja-private/caja-mime-actions.c:808
 #, c-format
 msgid "\"%s\" is an executable text file."
 msgstr "Το \"%s\" είναι εκτελέσιμο αρχείο κειμένου."
 
-#: ../libcaja-private/caja-mime-actions.c:851
+#: ../libcaja-private/caja-mime-actions.c:814
 msgid "Run in _Terminal"
 msgstr "Εκτέλεση από _τερματικό"
 
-#: ../libcaja-private/caja-mime-actions.c:852
+#: ../libcaja-private/caja-mime-actions.c:815
 msgid "_Display"
 msgstr "Εμ_φάνιση"
 
-#: ../libcaja-private/caja-mime-actions.c:855
+#: ../libcaja-private/caja-mime-actions.c:818
 #: ../src/caja-autorun-software.c:258
 msgid "_Run"
 msgstr "_Εκτέλεση"
 
-#: ../libcaja-private/caja-mime-actions.c:1209
-#: ../src/file-manager/fm-directory-view.c:656
+#: ../libcaja-private/caja-mime-actions.c:1172
+#: ../src/file-manager/fm-directory-view.c:660
 msgid "Are you sure you want to open all files?"
 msgstr "Σίγουρα θέλετε να ανοίξετε όλα τα αρχεία;"
 
-#: ../libcaja-private/caja-mime-actions.c:1212
+#: ../libcaja-private/caja-mime-actions.c:1175
 #, c-format
 msgid "This will open %d separate tab."
 msgid_plural "This will open %d separate tabs."
 msgstr[0] "Θα ανοίξει %d νέα καρτέλα."
 msgstr[1] "Θα ανοίξουν %d νέες καρτέλες."
 
-#: ../libcaja-private/caja-mime-actions.c:1217 ../src/caja-location-bar.c:194
+#: ../libcaja-private/caja-mime-actions.c:1180 ../src/caja-location-bar.c:194
 #, c-format
 msgid "This will open %d separate window."
 msgid_plural "This will open %d separate windows."
 msgstr[0] "Θα ανοίξει %d νέο παράθυρο."
 msgstr[1] "Θα ανοίξουν %d νέα παράθυρα."
 
-#: ../libcaja-private/caja-mime-actions.c:1295
+#: ../libcaja-private/caja-mime-actions.c:1258
 #: ../src/caja-window-manage-views.c:2117
 #: ../src/caja-window-manage-views.c:2125
 #: ../src/caja-window-manage-views.c:2145
@@ -2082,70 +2066,70 @@ msgstr[1] "Θα ανοίξουν %d νέα παράθυρα."
 msgid "Could not display \"%s\"."
 msgstr "Αδύνατη η εμφάνιση του \"%s\"."
 
-#: ../libcaja-private/caja-mime-actions.c:1382
+#: ../libcaja-private/caja-mime-actions.c:1345
 msgid "The file is of an unknown type"
 msgstr "Το αρχείο είναι αγνώστου τύπου"
 
-#: ../libcaja-private/caja-mime-actions.c:1386
+#: ../libcaja-private/caja-mime-actions.c:1349
 #, c-format
 msgid "There is no application installed for %s files"
 msgstr "Δεν υπάρχει εγκατεστημένη εφαρμογή για αρχεία %s"
 
-#: ../libcaja-private/caja-mime-actions.c:1401
+#: ../libcaja-private/caja-mime-actions.c:1364
 msgid "_Select Application"
 msgstr "Επι_λογή εφαρμογής"
 
-#: ../libcaja-private/caja-mime-actions.c:1439
+#: ../libcaja-private/caja-mime-actions.c:1402
 msgid "There was an internal error trying to search for applications:"
 msgstr "Παρουσιάστηκε εσωτερικό σφάλμα κατά την αναζήτηση εφαρμογών:"
 
-#: ../libcaja-private/caja-mime-actions.c:1441
+#: ../libcaja-private/caja-mime-actions.c:1404
 msgid "Unable to search for application"
 msgstr "Αδυναμία αναζήτησης της εφαρμογής"
 
-#: ../libcaja-private/caja-mime-actions.c:1567
+#: ../libcaja-private/caja-mime-actions.c:1530
 #, c-format
 msgid ""
 "There is no application installed for %s files.\n"
 "Do you want to search for an application to open this file?"
 msgstr "Δεν υπάρχει εγκατεστημένη εφαρμογή για τα αρχεία %s.\nΝα αναζητηθεί εφαρμογή για το άνοιγμα του αρχείου;"
 
-#: ../libcaja-private/caja-mime-actions.c:1731
+#: ../libcaja-private/caja-mime-actions.c:1694
 msgid "Untrusted application launcher"
 msgstr "Μη έμπιστος εκκινητής εφαρμογής"
 
-#: ../libcaja-private/caja-mime-actions.c:1734
+#: ../libcaja-private/caja-mime-actions.c:1697
 #, c-format
 msgid ""
 "The application launcher \"%s\" has not been marked as trusted. If you do "
 "not know the source of this file, launching it may be unsafe."
 msgstr "Ο εκκινητής εφαρμογής \"%s\" δεν έχει σημειωθεί ως έμπιστος. Αν δε γνωρίζετε την πηγή του αρχείου αυτού, η εκκίνησή του ενδέχεται να μην είναι ασφαλής."
 
-#: ../libcaja-private/caja-mime-actions.c:1749
+#: ../libcaja-private/caja-mime-actions.c:1712
 msgid "_Launch Anyway"
 msgstr "_Εκκίνηση οπωσδήποτε"
 
-#: ../libcaja-private/caja-mime-actions.c:1753
+#: ../libcaja-private/caja-mime-actions.c:1716
 msgid "Mark as _Trusted"
 msgstr "Σημείωση ως έ_μπιστου"
 
-#: ../libcaja-private/caja-mime-actions.c:2049
-#: ../libcaja-private/caja-mime-actions.c:2355
-#: ../src/file-manager/fm-directory-view.c:6470
+#: ../libcaja-private/caja-mime-actions.c:2012
+#: ../libcaja-private/caja-mime-actions.c:2318
+#: ../src/file-manager/fm-directory-view.c:6475
 msgid "Unable to mount location"
 msgstr "Αδυναμία προσάρτησης τοποθεσίας"
 
-#: ../libcaja-private/caja-mime-actions.c:2443
-#: ../src/file-manager/fm-directory-view.c:6644
+#: ../libcaja-private/caja-mime-actions.c:2406
+#: ../src/file-manager/fm-directory-view.c:6649
 msgid "Unable to start location"
 msgstr "Αδυναμία εκκίνησης τοποθεσίας"
 
-#: ../libcaja-private/caja-mime-actions.c:2536
+#: ../libcaja-private/caja-mime-actions.c:2499
 #, c-format
 msgid "Opening \"%s\"."
 msgstr "Άνοιγμα \"%s\"..."
 
-#: ../libcaja-private/caja-mime-actions.c:2541
+#: ../libcaja-private/caja-mime-actions.c:2504
 #, c-format
 msgid "Opening %d item."
 msgid_plural "Opening %d items."
@@ -2245,8 +2229,8 @@ msgstr "_Περιήγηση..."
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-open-with-dialog.c:970
-#: ../src/file-manager/fm-directory-view.c:7368
-#: ../src/file-manager/fm-directory-view.c:8878
+#: ../src/file-manager/fm-directory-view.c:7373
+#: ../src/file-manager/fm-directory-view.c:8884
 #: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2684
 msgid "_Open"
 msgstr "Άν_οιγμα"
@@ -3478,7 +3462,7 @@ msgstr "Ειδοποίηση αυτόματης εκτέλεσης"
 #: ../data/caja-browser.desktop.in.in.h:1
 #: ../data/caja-folder-handler.desktop.in.in.h:1
 #: ../data/caja.desktop.in.in.h:1 ../src/caja-spatial-window.c:382
-#: ../src/caja-window-menus.c:536 ../src/caja-window.c:179
+#: ../src/caja-window-menus.c:532 ../src/caja-window.c:183
 msgid "Caja"
 msgstr "Caja"
 
@@ -3491,7 +3475,7 @@ msgid "Browse the file system with the file manager"
 msgstr "Περιήγηση στο σύστημα αρχείων με το διαχειριστή αρχείων"
 
 #. tooltip
-#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:898
+#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:894
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
 msgstr "Περιήγηση σε όλους τους τοπικούς ή απομακρυσμένους δίσκους και φακέλους στους οποίους έχει πρόσβαση ο υπολογιστής"
@@ -3510,7 +3494,7 @@ msgstr "Προσωπικός φάκελος"
 
 #. tooltip
 #: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:522
-#: ../src/caja-window-menus.c:893
+#: ../src/caja-window-menus.c:889
 msgid "Open your personal folder"
 msgstr "Άνοιγμα του προσωπικού σας φακέλου"
 
@@ -3518,124 +3502,124 @@ msgstr "Άνοιγμα του προσωπικού σας φακέλου"
 msgid "File Manager"
 msgstr "Διαχειριστής αρχείων"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:719
+#: ../src/file-manager/fm-desktop-icon-view.c:722
 msgid "Background"
 msgstr "Παρασκήνιο"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:796
-#: ../src/file-manager/fm-directory-view.c:7400
-#: ../src/file-manager/fm-directory-view.c:9078
+#: ../src/file-manager/fm-desktop-icon-view.c:799
+#: ../src/file-manager/fm-directory-view.c:7405
+#: ../src/file-manager/fm-directory-view.c:9084
 msgid "E_mpty Trash"
 msgstr "Ά_δειασμα απορριμμάτων"
 
 #. label, accelerator
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:810
-#: ../src/file-manager/fm-directory-view.c:7364
+#: ../src/file-manager/fm-desktop-icon-view.c:813
+#: ../src/file-manager/fm-directory-view.c:7369
 msgid "Create L_auncher..."
 msgstr "Δημιουργία εκκινη_τή..."
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:812
-#: ../src/file-manager/fm-directory-view.c:7365
+#: ../src/file-manager/fm-desktop-icon-view.c:815
+#: ../src/file-manager/fm-directory-view.c:7370
 msgid "Create a new launcher"
 msgstr "Δημιουργία ενός νέου εκκινητή"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:819
+#: ../src/file-manager/fm-desktop-icon-view.c:822
 msgid "Change Desktop _Background"
 msgstr "Α_λλαγή παρασκηνίου επιφάνειας εργασίας"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:821
+#: ../src/file-manager/fm-desktop-icon-view.c:824
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr "Εμφανίζει παράθυρο επιλογής εικόνας ή χρώματος για το παρασκήνιο της επιφάνειας εργασίας"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:828
+#: ../src/file-manager/fm-desktop-icon-view.c:831
 msgid "Empty Trash"
 msgstr "Άδειασμα απορριμμάτων"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:830
-#: ../src/file-manager/fm-directory-view.c:7401 ../src/caja-trash-bar.c:208
+#: ../src/file-manager/fm-desktop-icon-view.c:833
+#: ../src/file-manager/fm-directory-view.c:7406 ../src/caja-trash-bar.c:208
 msgid "Delete all items in the Trash"
 msgstr "Διαγραφή όλων των αντικειμένων από τα απορρίμματα"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:930
+#: ../src/file-manager/fm-desktop-icon-view.c:933
 msgid "The desktop view encountered an error."
 msgstr "Η προβολή επιφάνειας εργασίας παρουσίασε σφάλμα."
 
-#: ../src/file-manager/fm-desktop-icon-view.c:931
+#: ../src/file-manager/fm-desktop-icon-view.c:934
 msgid "The desktop view encountered an error while starting up."
 msgstr "Παρουσιάστηκε σφάλμα κατά την εκκίνηση της προβολής επιφάνειας εργασίας."
 
-#: ../src/file-manager/fm-directory-view.c:658
+#: ../src/file-manager/fm-directory-view.c:662
 #, c-format
 msgid "This will open %'d separate tab."
 msgid_plural "This will open %'d separate tabs."
 msgstr[0] "Θα ανοίξει %'d νέα καρτέλα."
 msgstr[1] "Θα ανοίξουν %'d νέες καρτέλες."
 
-#: ../src/file-manager/fm-directory-view.c:661
+#: ../src/file-manager/fm-directory-view.c:665
 #, c-format
 msgid "This will open %'d separate window."
 msgid_plural "This will open %'d separate windows."
 msgstr[0] "Θα ανοίξει %'d νέο παράθυρο."
 msgstr[1] "Θα ανοίξουν %'d νέα παράθυρα."
 
-#: ../src/file-manager/fm-directory-view.c:1180
+#: ../src/file-manager/fm-directory-view.c:1184
 #: ../src/file-manager/fm-properties-window.c:6491
 #: ../src/caja-connect-server-dialog.c:731 ../src/caja-location-dialog.c:106
 msgid "There was an error displaying help."
 msgstr "Παρουσιάστηκε σφάλμα κατά την εμφάνιση της βοήθειας."
 
-#: ../src/file-manager/fm-directory-view.c:1204
+#: ../src/file-manager/fm-directory-view.c:1208
 msgid "Select Items Matching"
 msgstr "Επιλογή αντικειμένων που αντιστοιχούν στο"
 
-#: ../src/file-manager/fm-directory-view.c:1219
+#: ../src/file-manager/fm-directory-view.c:1223
 msgid "_Pattern:"
 msgstr "Μο_τίβο:"
 
-#: ../src/file-manager/fm-directory-view.c:1230
+#: ../src/file-manager/fm-directory-view.c:1234
 msgid "Examples: "
 msgstr "Παραδείγματα:"
 
-#: ../src/file-manager/fm-directory-view.c:1377
+#: ../src/file-manager/fm-directory-view.c:1381
 msgid "Save Search as"
 msgstr "Αποθήκευση αναζήτησης ως"
 
-#: ../src/file-manager/fm-directory-view.c:1409
+#: ../src/file-manager/fm-directory-view.c:1413
 msgid "Search _name:"
 msgstr "Όν_ομα αναζήτησης:"
 
-#: ../src/file-manager/fm-directory-view.c:1437
+#: ../src/file-manager/fm-directory-view.c:1441
 msgid "_Folder:"
 msgstr "_Φάκελος:"
 
-#: ../src/file-manager/fm-directory-view.c:1450
+#: ../src/file-manager/fm-directory-view.c:1454
 msgid "Select Folder to Save Search In"
 msgstr "Επιλογή φακέλου για την αποθήκευση της αναζήτησης"
 
-#: ../src/file-manager/fm-directory-view.c:2359
-#: ../src/file-manager/fm-directory-view.c:2396
+#: ../src/file-manager/fm-directory-view.c:2363
+#: ../src/file-manager/fm-directory-view.c:2400
 #, c-format
 msgid "\"%s\" selected"
 msgstr "Επιλέχθηκε το \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:2361
+#: ../src/file-manager/fm-directory-view.c:2365
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
 msgstr[0] "Επιλέχθηκε %'d φάκελος"
 msgstr[1] "Επιλέχθηκαν %'d φάκελοι"
 
-#: ../src/file-manager/fm-directory-view.c:2371
+#: ../src/file-manager/fm-directory-view.c:2375
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
@@ -3644,14 +3628,14 @@ msgstr[1] " (περιέχει %'d αντικείμενα)"
 
 #. translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
-#: ../src/file-manager/fm-directory-view.c:2382
+#: ../src/file-manager/fm-directory-view.c:2386
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
 msgstr[0] " (περιέχουν συνολικά %'d αντικείμενο)"
 msgstr[1] " (περιέχουν συνολικά %'d αντικείμενα)"
 
-#: ../src/file-manager/fm-directory-view.c:2399
+#: ../src/file-manager/fm-directory-view.c:2403
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
@@ -3659,7 +3643,7 @@ msgstr[0] "Επιλέχθηκε %'d αντικείμενο"
 msgstr[1] "Επιλέχθηκαν %'d αντικείμενα"
 
 #. Folders selected also, use "other" terminology
-#: ../src/file-manager/fm-directory-view.c:2406
+#: ../src/file-manager/fm-directory-view.c:2410
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
@@ -3670,17 +3654,17 @@ msgstr[1] "Επιλέχθηκαν %'d επιπλέον αντικείμενα"
 #. * needs to use something other than parentheses. The
 #. * first message gives the number of items selected;
 #. * the message in parentheses the size of those items.
-#: ../src/file-manager/fm-directory-view.c:2425
+#: ../src/file-manager/fm-directory-view.c:2429
 #, c-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-directory-view.c:2438
+#: ../src/file-manager/fm-directory-view.c:2442
 #, c-format
 msgid "Free space: %s"
 msgstr "Ελεύθερος χώρος: %s"
 
-#: ../src/file-manager/fm-directory-view.c:2449
+#: ../src/file-manager/fm-directory-view.c:2453
 #, c-format
 msgid "%s, Free space: %s"
 msgstr "%s, Ελεύθερος χώρος: %s"
@@ -3689,7 +3673,7 @@ msgstr "%s, Ελεύθερος χώρος: %s"
 #. * might want to change "," to something else.
 #. * After the comma the amount of free space will
 #. * be shown.
-#: ../src/file-manager/fm-directory-view.c:2464
+#: ../src/file-manager/fm-directory-view.c:2468
 #, c-format
 msgid "%s, %s"
 msgstr "%s, %s"
@@ -3704,8 +3688,8 @@ msgstr "%s, %s"
 #. * and the number of items in those folders and the
 #. * message about the number of other items and the
 #. * total size of those items.
-#: ../src/file-manager/fm-directory-view.c:2483
-#: ../src/file-manager/fm-directory-view.c:2497
+#: ../src/file-manager/fm-directory-view.c:2487
+#: ../src/file-manager/fm-directory-view.c:2501
 #, c-format
 msgid "%s%s, %s"
 msgstr "%s%s, %s"
@@ -3717,53 +3701,53 @@ msgstr "%s%s, %s"
 #. * message about the number of other items and the
 #. * total size of those items. After the second comma
 #. * the free space is written.
-#: ../src/file-manager/fm-directory-view.c:2510
+#: ../src/file-manager/fm-directory-view.c:2514
 #, c-format
 msgid "%s%s, %s, %s"
 msgstr "%s%s, %s, %s"
 
-#: ../src/file-manager/fm-directory-view.c:4555
+#: ../src/file-manager/fm-directory-view.c:4560
 #: ../src/caja-information-panel.c:922
 #, c-format
 msgid "Open With %s"
 msgstr "Άνοιγμα με %s"
 
-#: ../src/file-manager/fm-directory-view.c:4557
+#: ../src/file-manager/fm-directory-view.c:4562
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
 msgstr[0] "Χρήση του \"%s\" για το άνοιγμα του επιλεγμένου αντικειμένου"
 msgstr[1] "Χρήση του \"%s\" για το άνοιγμα των επιλεγμένων αντικειμένων"
 
-#: ../src/file-manager/fm-directory-view.c:4646
+#: ../src/file-manager/fm-directory-view.c:4651
 msgid "Open parent location"
 msgstr "Άνοιγμα μητρικής τοποθεσίας"
 
-#: ../src/file-manager/fm-directory-view.c:4647
+#: ../src/file-manager/fm-directory-view.c:4652
 msgid "Open parent location for the selected item"
 msgstr "Άνοιγμα μητρικής τοποθεσίας για το επιλεγμένο αντικείμενο"
 
-#: ../src/file-manager/fm-directory-view.c:5505
+#: ../src/file-manager/fm-directory-view.c:5510
 #, c-format
 msgid "Run \"%s\" on any selected items"
 msgstr "Εκτέλεση του \"%s\" για κάθε επιλεγμένο αντικείμενο"
 
-#: ../src/file-manager/fm-directory-view.c:5756
+#: ../src/file-manager/fm-directory-view.c:5761
 #, c-format
 msgid "Create Document from template \"%s\""
 msgstr "Δημιουργία εγγράφου από το πρότυπο \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:6006
+#: ../src/file-manager/fm-directory-view.c:6011
 msgid "All executable files in this folder will appear in the Scripts menu."
 msgstr "Όλα τα εκτελέσιμα αρχεία σε αυτόν το φάκελο θα εμφανίζονται στο μενού σεναρίων εντολών."
 
-#: ../src/file-manager/fm-directory-view.c:6008
+#: ../src/file-manager/fm-directory-view.c:6013
 msgid ""
 "Choosing a script from the menu will run that script with any selected items"
 " as input."
 msgstr "Η επιλογή ενός σεναρίου εντολών από το μενού θα εκτελέσει το σενάριο αυτό με τα επιλεγμένα αντικείμενα ως είσοδο."
 
-#: ../src/file-manager/fm-directory-view.c:6010
+#: ../src/file-manager/fm-directory-view.c:6015
 msgid ""
 "All executable files in this folder will appear in the Scripts menu. Choosing a script from the menu will run that script.\n"
 "\n"
@@ -3786,19 +3770,19 @@ msgid ""
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI for current location in the inactive pane of a split-view window"
 msgstr "Όλα τα εκτελέσιμα αρχεία σε αυτόν το φάκελο θα εμφανίζονται στο μενού σεναρίων εντολών. Η επιλογή ενός σεναρίου εντολών από το μενού θα εκτελέσει το συγκεκριμένο σενάριο.\n\nΌταν εκτελούνται από τοπικό φάκελο, τα σενάρια θα εφαρμόζονται στα επιλεγμένα ονόματα αρχείων. Όταν εκτελούνται από απομακρυσμένο φάκελο (π.χ. φάκελο με δικτυακό περιεχόμενο, ftp ή www), τα σενάρια δε θα δέχονται καμία παράμετρο.\n\nΣε κάθε περίπτωση, ο Caja ορίζει τις ακόλουθες μεταβλητές περιβάλλοντος, για χρήση των σεναρίων εντολών:\n\nCAJA_SCRIPT_SELECTED_FILE_PATHS: λίστα διαδρομών με τα επιλεγμένα αρχεία , χωρισμένων με χαρακτήρες αλλαγής γραμμής (μόνο τοπικά)\nκ\nCAJA_SCRIPT_SELECTED_URIS: λίστα διευθύνσεων URI των επιλεγμένων αρχείων, χωρισμένων με χαρακτήρες αλλαγής γραμμής\n\nCAJA_SCRIPT_CURRENT_URI: διεύθυνση URI της τρέχουσας τοποθεσίας\n\nCAJA_SCRIPT_WINDOW_GEOMETRY: θέση και μέγεθος του τρέχοντος παραθύρου\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_FILE_PATHS: λίστα διαδρομών με τα επιλεγμένα αρχεία χωρισμένων με χαρακτήρες αλλαγής γραμμής στην ανενεργή στήλη ενός παραθύρου με διπλή προβολή φακέλων (μόνο αν είναι τοπικά)\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: διευθύνσεις URI με χαρακτήρες αλλαγής γραμμής για τα επιλεγμένα αρχεία στην ανενεργή στήλη ενός παραθύρου με διπλή προβολή φακέλων\n\nCAJA_SCRIPT_NEXT_PANE_CURRENT_URI: διευθύνσεις URI για την τρέχουσα τοποθεσία στην ανενεργή στήλη ενός παραθύρου με διπλή προβολή φακέλων"
 
-#: ../src/file-manager/fm-directory-view.c:6078
+#: ../src/file-manager/fm-directory-view.c:6083
 #: ../src/file-manager/fm-tree-view.c:1009
 #, c-format
 msgid "\"%s\" will be moved if you select the Paste command"
 msgstr "Το \"%s\" θα μεταφερθεί αν επιλέξετε την εντολή Επικόλληση"
 
-#: ../src/file-manager/fm-directory-view.c:6082
+#: ../src/file-manager/fm-directory-view.c:6087
 #: ../src/file-manager/fm-tree-view.c:1015
 #, c-format
 msgid "\"%s\" will be copied if you select the Paste command"
 msgstr "Το \"%s\" θα αντιγραφεί αν επιλέξετε την εντολή Επικόλληση"
 
-#: ../src/file-manager/fm-directory-view.c:6089
+#: ../src/file-manager/fm-directory-view.c:6094
 #, c-format
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
@@ -3806,7 +3790,7 @@ msgid_plural ""
 msgstr[0] "Το %'d επιλεγμένο αντικείμενο θα μεταφερθεί αν επιλέξετε την εντολή Επικόλληση"
 msgstr[1] "Τα %'d επιλεγμένα αντικείμενα θα μεταφερθούν αν επιλέξετε την εντολή Επικόλληση"
 
-#: ../src/file-manager/fm-directory-view.c:6096
+#: ../src/file-manager/fm-directory-view.c:6101
 #, c-format
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
@@ -3814,98 +3798,98 @@ msgid_plural ""
 msgstr[0] "Το %'d επιλεγμένο αντικείμενο θα αντιγραφεί αν επιλέξετε την εντολή Επικόλληση"
 msgstr[1] "Τα %'d επιλεγμένα αντικείμενα θα αντιγραφούν αν επιλέξετε την εντολή Επικόλληση"
 
-#: ../src/file-manager/fm-directory-view.c:6276
+#: ../src/file-manager/fm-directory-view.c:6281
 #: ../src/file-manager/fm-tree-view.c:1055
 msgid "There is nothing on the clipboard to paste."
 msgstr "Δεν υπάρχει τίποτα στο πρόχειρο για να επικολληθεί."
 
-#: ../src/file-manager/fm-directory-view.c:6491
+#: ../src/file-manager/fm-directory-view.c:6496
 msgid "Unable to unmount location"
 msgstr "Αδυναμία προσάρτησης τοποθεσίας"
 
-#: ../src/file-manager/fm-directory-view.c:6512
+#: ../src/file-manager/fm-directory-view.c:6517
 msgid "Unable to eject location"
 msgstr "Αδυναμία εξαγωγής τοποθεσίας"
 
-#: ../src/file-manager/fm-directory-view.c:6527
+#: ../src/file-manager/fm-directory-view.c:6532
 msgid "Unable to stop drive"
 msgstr "Αδυναμία διακοπής οδηγού"
 
-#: ../src/file-manager/fm-directory-view.c:7084
+#: ../src/file-manager/fm-directory-view.c:7089
 #, c-format
 msgid "Connect to Server %s"
 msgstr "Σύνδεση στον εξυπηρετητή %s"
 
-#: ../src/file-manager/fm-directory-view.c:7089
-#: ../src/file-manager/fm-directory-view.c:8297
-#: ../src/file-manager/fm-directory-view.c:8389
-#: ../src/file-manager/fm-directory-view.c:8499
+#: ../src/file-manager/fm-directory-view.c:7094
+#: ../src/file-manager/fm-directory-view.c:8303
+#: ../src/file-manager/fm-directory-view.c:8395
+#: ../src/file-manager/fm-directory-view.c:8505
 msgid "_Connect"
 msgstr "Σύν_δεση"
 
-#: ../src/file-manager/fm-directory-view.c:7103
+#: ../src/file-manager/fm-directory-view.c:7108
 msgid "Link _name:"
 msgstr "Ό_νομα συνδέσμου:"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7342
+#: ../src/file-manager/fm-directory-view.c:7347
 msgid "Create _Document"
 msgstr "Δημιουργία _εγγράφου"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7343
+#: ../src/file-manager/fm-directory-view.c:7348
 msgid "Open Wit_h"
 msgstr "Άνοιγμα _με"
 
-#: ../src/file-manager/fm-directory-view.c:7344
+#: ../src/file-manager/fm-directory-view.c:7349
 msgid "Choose a program with which to open the selected item"
 msgstr "Επιλογή προγράμματος για το άνοιγμα του επιλεγμένου αντικειμένου"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7346
-#: ../src/file-manager/fm-directory-view.c:7625
+#: ../src/file-manager/fm-directory-view.c:7351
+#: ../src/file-manager/fm-directory-view.c:7630
 msgid "_Properties"
 msgstr "_Ιδιότητες"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7347
-#: ../src/file-manager/fm-directory-view.c:9065
+#: ../src/file-manager/fm-directory-view.c:7352
+#: ../src/file-manager/fm-directory-view.c:9071
 msgid "View or modify the properties of each selected item"
 msgstr "Εμφάνιση ή τροποποίηση των ιδιοτήτων κάθε επιλεγμένου αντικειμένου"
 
 #. name, stock id
 #. label, accelerator
 #. add the "create folder" menu item
-#: ../src/file-manager/fm-directory-view.c:7354
+#: ../src/file-manager/fm-directory-view.c:7359
 #: ../src/file-manager/fm-tree-view.c:1298
 msgid "Create _Folder"
 msgstr "Δημιουργία _φακέλου"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7355
+#: ../src/file-manager/fm-directory-view.c:7360
 msgid "Create a new empty folder inside this folder"
 msgstr "Δημιουργία νέου κενού φακέλου μέσα σε αυτόν το φάκελο"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7357
+#: ../src/file-manager/fm-directory-view.c:7362
 msgid "No templates installed"
 msgstr "Δεν υπάρχουν εγκατεστημένα πρότυπα"
 
 #. name, stock id
 #. translators: this is used to indicate that a file doesn't contain anything
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7360
+#: ../src/file-manager/fm-directory-view.c:7365
 msgid "_Empty File"
 msgstr "_Κενό αρχείο"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7361
+#: ../src/file-manager/fm-directory-view.c:7366
 msgid "Create a new empty file inside this folder"
 msgstr "Δημιουργία νέου κενού αρχείου μέσα σε αυτόν το φάκελο"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7369
+#: ../src/file-manager/fm-directory-view.c:7374
 msgid "Open the selected item in this window"
 msgstr "Άνοιγμα του επιλεγμένου αντικειμένου σε αυτό το παράθυρο"
 
@@ -3914,91 +3898,91 @@ msgstr "Άνοιγμα του επιλεγμένου αντικειμένου σ
 #. Location-specific actions
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7376
-#: ../src/file-manager/fm-directory-view.c:7557
+#: ../src/file-manager/fm-directory-view.c:7381
+#: ../src/file-manager/fm-directory-view.c:7562
 msgid "Open in Navigation Window"
 msgstr "Άνοιγμα σε παράθυρο περιηγητή"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7377
+#: ../src/file-manager/fm-directory-view.c:7382
 msgid "Open each selected item in a navigation window"
 msgstr "Άνοιγμα κάθε επιλεγμένου αντικειμένου σε παράθυρο περιηγητή"
 
 #. name, stock id
 #. label, accelerator
 #. add the "open in new tab" menu item
-#: ../src/file-manager/fm-directory-view.c:7380
-#: ../src/file-manager/fm-directory-view.c:7561
-#: ../src/file-manager/fm-directory-view.c:8629
-#: ../src/file-manager/fm-directory-view.c:8955
+#: ../src/file-manager/fm-directory-view.c:7385
+#: ../src/file-manager/fm-directory-view.c:7566
+#: ../src/file-manager/fm-directory-view.c:8635
+#: ../src/file-manager/fm-directory-view.c:8961
 #: ../src/file-manager/fm-tree-view.c:1278 ../src/caja-places-sidebar.c:2692
 msgid "Open in New _Tab"
 msgstr "Άνοιγμα σε νέα _καρτέλα"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7381
+#: ../src/file-manager/fm-directory-view.c:7386
 msgid "Open each selected item in a new tab"
 msgstr "Άνοιγμα κάθε επιλεγμένου αντικειμένου σε νέα καρτέλα"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7384
-#: ../src/file-manager/fm-directory-view.c:7566
+#: ../src/file-manager/fm-directory-view.c:7389
+#: ../src/file-manager/fm-directory-view.c:7571
 msgid "Open in _Folder Window"
 msgstr "Άνοιγμα σε παράθυρο _φακέλου"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7385
+#: ../src/file-manager/fm-directory-view.c:7390
 msgid "Open each selected item in a folder window"
 msgstr "Άνοιγμα κάθε επιλεγμένου αντικειμένου σε παράθυρο φακέλου"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7388
+#: ../src/file-manager/fm-directory-view.c:7393
 msgid "Other _Application..."
 msgstr "Άλλη ε_φαρμογή..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7389
-#: ../src/file-manager/fm-directory-view.c:7393
+#: ../src/file-manager/fm-directory-view.c:7394
+#: ../src/file-manager/fm-directory-view.c:7398
 msgid "Choose another application with which to open the selected item"
 msgstr "Επιλογή άλλης εφαρμογής για το άνοιγμα του επιλεγμένου αντικειμένου"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7392
+#: ../src/file-manager/fm-directory-view.c:7397
 msgid "Open With Other _Application..."
 msgstr "Άνοιγμα με άλλη ε_φαρμογή..."
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7396
+#: ../src/file-manager/fm-directory-view.c:7401
 msgid "_Open Scripts Folder"
 msgstr "Άνοιγμα _φακέλου σεναρίων εντολών"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7397
+#: ../src/file-manager/fm-directory-view.c:7402
 msgid "Show the folder containing the scripts that appear in this menu"
 msgstr "Εμφάνιση του φακέλου που περιέχει τα σενάρια εντολών αυτού του μενού"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7405
+#: ../src/file-manager/fm-directory-view.c:7410
 msgid "Prepare the selected files to be moved with a Paste command"
 msgstr "Προετοιμασία μεταφοράς των επιλεγμένων αρχείων με την εντολή Επικόλληση"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7409
+#: ../src/file-manager/fm-directory-view.c:7414
 msgid "Prepare the selected files to be copied with a Paste command"
 msgstr "Προετοιμασία αντιγραφής των επιλεγμένων αρχείων με την εντολή Επικόλληση"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7413
+#: ../src/file-manager/fm-directory-view.c:7418
 msgid "Move or copy files previously selected by a Cut or Copy command"
 msgstr "Μεταφορά ή αντιγραφή των αρχείων που επιλέχθηκαν με την εντολή Αποκοπή/Αντιγραφή"
 
@@ -4006,140 +3990,140 @@ msgstr "Μεταφορά ή αντιγραφή των αρχείων που επ
 #. accelerator for paste
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7418
-#: ../src/file-manager/fm-directory-view.c:7579
+#: ../src/file-manager/fm-directory-view.c:7423
+#: ../src/file-manager/fm-directory-view.c:7584
 #: ../src/file-manager/fm-tree-view.c:1330
 msgid "_Paste Into Folder"
 msgstr "_Επικόλληση αρχείων στο φάκελο"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7419
+#: ../src/file-manager/fm-directory-view.c:7424
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into the "
 "selected folder"
 msgstr "Μεταφορά ή αντιγραφή των αρχείων που επιλέχθηκαν με την εντολή Αποκοπή/Αντιγραφή μέσα στον επιλεγμένο φάκελο"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7421
+#: ../src/file-manager/fm-directory-view.c:7426
 msgid "Cop_y to"
 msgstr "Αντι_γραφή σε"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7422
+#: ../src/file-manager/fm-directory-view.c:7427
 msgid "M_ove to"
 msgstr "Μετα_κίνηση σε"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7425
+#: ../src/file-manager/fm-directory-view.c:7430
 msgid "Select all items in this window"
 msgstr "Επιλογή όλων των αντικειμένων αυτού του παραθύρου"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7428
+#: ../src/file-manager/fm-directory-view.c:7433
 msgid "Select I_tems Matching..."
 msgstr "Επιλογή _αντικειμένων που αντιστοιχούν στο..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7429
+#: ../src/file-manager/fm-directory-view.c:7434
 msgid "Select items in this window matching a given pattern"
 msgstr "Επιλογή των αντικειμένων του παραθύρου που αντιστοιχούν σε συγκεκριμένο μοτίβο"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7432
+#: ../src/file-manager/fm-directory-view.c:7437
 msgid "_Invert Selection"
 msgstr "_Αντιστροφή επιλογής"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7433
+#: ../src/file-manager/fm-directory-view.c:7438
 msgid "Select all and only the items that are not currently selected"
 msgstr "Επιλογή όλων και μόνο αυτών των αντικειμένων που δεν είναι επιλεγμένα αυτή τη στιγμή"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7436
+#: ../src/file-manager/fm-directory-view.c:7441
 msgid "D_uplicate"
 msgstr "Δημιουργία διπλο_τύπου"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7437
+#: ../src/file-manager/fm-directory-view.c:7442
 msgid "Duplicate each selected item"
 msgstr "Δημιουργία διπλοτύπου κάθε επιλεγμένου αντικειμένου"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7440
-#: ../src/file-manager/fm-directory-view.c:9049
+#: ../src/file-manager/fm-directory-view.c:7445
+#: ../src/file-manager/fm-directory-view.c:9055
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
 msgstr[0] "Δημιουργία συν_δέσμου"
 msgstr[1] "Δημιουργία συν_δέσμων"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7441
+#: ../src/file-manager/fm-directory-view.c:7446
 msgid "Create a symbolic link for each selected item"
 msgstr "Δημιουργία συμβολικού συνδέσμου για κάθε επιλεγμένο αντικείμενο"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7444
+#: ../src/file-manager/fm-directory-view.c:7449
 msgid "_Rename..."
 msgstr "Μετο_νομασία..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7445
+#: ../src/file-manager/fm-directory-view.c:7450
 msgid "Rename selected item"
 msgstr "Μετονομασία επιλεγμένου αντικειμένου"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7453
-#: ../src/file-manager/fm-directory-view.c:9010
+#: ../src/file-manager/fm-directory-view.c:7458
+#: ../src/file-manager/fm-directory-view.c:9016
 msgid "Move each selected item to the Trash"
 msgstr "Μεταφορά κάθε επιλεγμένου αντικειμένου στα απορρίμματα"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7456
-#: ../src/file-manager/fm-directory-view.c:7588
-#: ../src/file-manager/fm-directory-view.c:9030
+#: ../src/file-manager/fm-directory-view.c:7461
+#: ../src/file-manager/fm-directory-view.c:7593
+#: ../src/file-manager/fm-directory-view.c:9036
 #: ../src/file-manager/fm-tree-view.c:1360
 msgid "_Delete"
 msgstr "_Διαγραφή"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7457
+#: ../src/file-manager/fm-directory-view.c:7462
 msgid "Delete each selected item, without moving to the Trash"
 msgstr "Διαγραφή κάθε επιλεγμένου αντικειμένου, χωρίς προηγούμενη μεταφορά στα απορρίμματα"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7460
-#: ../src/file-manager/fm-directory-view.c:7592
+#: ../src/file-manager/fm-directory-view.c:7465
+#: ../src/file-manager/fm-directory-view.c:7597
 msgid "_Restore"
 msgstr "_Αποκατάσταση"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7464
+#: ../src/file-manager/fm-directory-view.c:7469
 msgid "_Undo"
 msgstr "_Αναίρεση"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7465
-#: ../src/file-manager/fm-directory-view.c:11218
+#: ../src/file-manager/fm-directory-view.c:7470
+#: ../src/file-manager/fm-directory-view.c:11227
 msgid "Undo the last action"
 msgstr "Αναίρεση της τελευταίας ενέργειας"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7468
+#: ../src/file-manager/fm-directory-view.c:7473
 msgid "_Redo"
 msgstr "Ε_πανάληψη"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7469
-#: ../src/file-manager/fm-directory-view.c:11236
+#: ../src/file-manager/fm-directory-view.c:7474
+#: ../src/file-manager/fm-directory-view.c:11245
 msgid "Redo the last undone action"
 msgstr "Επανάληψη της τελευταίας ενέργειας που αναιρέθηκε"
 
@@ -4149,614 +4133,614 @@ msgstr "Επανάληψη της τελευταίας ενέργειας που
 #. * it is a mixture of both ATM.
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7479
+#: ../src/file-manager/fm-directory-view.c:7484
 msgid "Reset View to _Defaults"
 msgstr "Επαναφορά της _προεπιλεγμένης προβολής"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7480
+#: ../src/file-manager/fm-directory-view.c:7485
 msgid "Reset sorting order and zoom level to match preferences for this view"
 msgstr "Επαναφορά της σειράς ταξινόμησης και του επιπέδου εστίασης που αντιστοιχούν σε αυτήν την προβολή"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7483
+#: ../src/file-manager/fm-directory-view.c:7488
 msgid "Connect To This Server"
 msgstr "Σύνδεση σε αυτόν τον εξυπηρετητή"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7484
+#: ../src/file-manager/fm-directory-view.c:7489
 msgid "Make a permanent connection to this server"
 msgstr "Να δημιουργηθεί μόνιμη σύνδεση με αυτόν τον εξυπηρετητή"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7487
-#: ../src/file-manager/fm-directory-view.c:7515
-#: ../src/file-manager/fm-directory-view.c:7596
+#: ../src/file-manager/fm-directory-view.c:7492
+#: ../src/file-manager/fm-directory-view.c:7520
+#: ../src/file-manager/fm-directory-view.c:7601
 #: ../src/caja-places-sidebar.c:2728
 msgid "_Mount"
 msgstr "Π_ροσάρτηση"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7488
+#: ../src/file-manager/fm-directory-view.c:7493
 msgid "Mount the selected volume"
 msgstr "Προσάρτηση του επιλεγμένου τόμου"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7492
+#: ../src/file-manager/fm-directory-view.c:7497
 msgid "Unmount the selected volume"
 msgstr "Αποπροσάρτηση του επιλεγμένου τόμου"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7496
+#: ../src/file-manager/fm-directory-view.c:7501
 msgid "Eject the selected volume"
 msgstr "Εξαγωγή του επιλεγμένου τόμου"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7499
-#: ../src/file-manager/fm-directory-view.c:7527
-#: ../src/file-manager/fm-directory-view.c:7608
+#: ../src/file-manager/fm-directory-view.c:7504
+#: ../src/file-manager/fm-directory-view.c:7532
+#: ../src/file-manager/fm-directory-view.c:7613
 #: ../src/caja-places-sidebar.c:2756
 msgid "_Format"
 msgstr "_Μορφοποίηση"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7500
+#: ../src/file-manager/fm-directory-view.c:7505
 msgid "Format the selected volume"
 msgstr "Μορφοποίηση του επιλεγμένου τόμου"
 
 #. name, stock id
 #. label, accelerator
 #. Adjust start/stop items to reflect the type of the drive
-#: ../src/file-manager/fm-directory-view.c:7503
-#: ../src/file-manager/fm-directory-view.c:7531
-#: ../src/file-manager/fm-directory-view.c:7612
-#: ../src/file-manager/fm-directory-view.c:8289
-#: ../src/file-manager/fm-directory-view.c:8293
-#: ../src/file-manager/fm-directory-view.c:8381
-#: ../src/file-manager/fm-directory-view.c:8385
-#: ../src/file-manager/fm-directory-view.c:8491
-#: ../src/file-manager/fm-directory-view.c:8495
+#: ../src/file-manager/fm-directory-view.c:7508
+#: ../src/file-manager/fm-directory-view.c:7536
+#: ../src/file-manager/fm-directory-view.c:7617
+#: ../src/file-manager/fm-directory-view.c:8295
+#: ../src/file-manager/fm-directory-view.c:8299
+#: ../src/file-manager/fm-directory-view.c:8387
+#: ../src/file-manager/fm-directory-view.c:8391
+#: ../src/file-manager/fm-directory-view.c:8497
+#: ../src/file-manager/fm-directory-view.c:8501
 #: ../src/caja-places-sidebar.c:1823 ../src/caja-places-sidebar.c:2763
 msgid "_Start"
 msgstr "_Εκκίνηση"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7504
+#: ../src/file-manager/fm-directory-view.c:7509
 msgid "Start the selected volume"
 msgstr "Εκκίνηση του επιλεγμένου τόμου"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7507
-#: ../src/file-manager/fm-directory-view.c:7535
-#: ../src/file-manager/fm-directory-view.c:7616
-#: ../src/file-manager/fm-directory-view.c:8318
-#: ../src/file-manager/fm-directory-view.c:8410
-#: ../src/file-manager/fm-directory-view.c:8520
+#: ../src/file-manager/fm-directory-view.c:7512
+#: ../src/file-manager/fm-directory-view.c:7540
+#: ../src/file-manager/fm-directory-view.c:7621
+#: ../src/file-manager/fm-directory-view.c:8324
+#: ../src/file-manager/fm-directory-view.c:8416
+#: ../src/file-manager/fm-directory-view.c:8526
 #: ../src/caja-places-sidebar.c:1824 ../src/caja-places-sidebar.c:2770
-#: ../src/caja-window-menus.c:837
+#: ../src/caja-window-menus.c:833
 msgid "_Stop"
 msgstr "_Διακοπή"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7508
-#: ../src/file-manager/fm-directory-view.c:8521
+#: ../src/file-manager/fm-directory-view.c:7513
+#: ../src/file-manager/fm-directory-view.c:8527
 msgid "Stop the selected volume"
 msgstr "Διακοπή του επιλεγμένου τόμου"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7511
-#: ../src/file-manager/fm-directory-view.c:7539
-#: ../src/file-manager/fm-directory-view.c:7620
+#: ../src/file-manager/fm-directory-view.c:7516
+#: ../src/file-manager/fm-directory-view.c:7544
+#: ../src/file-manager/fm-directory-view.c:7625
 #: ../src/caja-places-sidebar.c:2749
 msgid "_Detect Media"
 msgstr "Εντοπισμός _μέσων"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7512
-#: ../src/file-manager/fm-directory-view.c:7540
-#: ../src/file-manager/fm-directory-view.c:7621
+#: ../src/file-manager/fm-directory-view.c:7517
+#: ../src/file-manager/fm-directory-view.c:7545
+#: ../src/file-manager/fm-directory-view.c:7626
 msgid "Detect media in the selected drive"
 msgstr "Εντοπισμός μέσων στον επιλεγμένο οδηγό"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7516
+#: ../src/file-manager/fm-directory-view.c:7521
 msgid "Mount the volume associated with the open folder"
 msgstr "Προσάρτηση του τόμου που αντιστοιχεί στον ανοικτό φάκελο"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7520
+#: ../src/file-manager/fm-directory-view.c:7525
 msgid "Unmount the volume associated with the open folder"
 msgstr "Αποπροσάρτηση του τόμου που αντιστοιχεί στον ανοικτό φάκελο"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7524
+#: ../src/file-manager/fm-directory-view.c:7529
 msgid "Eject the volume associated with the open folder"
 msgstr "Εξαγωγή του τόμου που αντιστοιχεί στον ανοικτό φάκελο"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7528
+#: ../src/file-manager/fm-directory-view.c:7533
 msgid "Format the volume associated with the open folder"
 msgstr "Μορφοποίηση του τόμου που αντιστοιχεί στον ανοικτό φάκελο"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7532
+#: ../src/file-manager/fm-directory-view.c:7537
 msgid "Start the volume associated with the open folder"
 msgstr "Εκκίνηση του τόμου που αντιστοιχεί στον ανοικτό φάκελο"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7536
+#: ../src/file-manager/fm-directory-view.c:7541
 msgid "Stop the volume associated with the open folder"
 msgstr "Διακοπή του τόμου που αντιστοιχεί στον ανοικτό φάκελο"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7543
+#: ../src/file-manager/fm-directory-view.c:7548
 msgid "Open File and Close window"
 msgstr "Άνοιγμα αρχείου και κλείσιμο παραθύρου"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7547
+#: ../src/file-manager/fm-directory-view.c:7552
 msgid "Sa_ve Search"
 msgstr "Απο_θήκευση αναζήτησης"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7548
+#: ../src/file-manager/fm-directory-view.c:7553
 msgid "Save the edited search"
 msgstr "Αποθήκευση της τροποποιημένης αναζήτησης"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7551
+#: ../src/file-manager/fm-directory-view.c:7556
 msgid "Sa_ve Search As..."
 msgstr "Απο_θήκευση αναζήτησης ως..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7552
+#: ../src/file-manager/fm-directory-view.c:7557
 msgid "Save the current search as a file"
 msgstr "Αποθήκευση της τρέχουσας αναζήτησης ως αρχείο"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7558
+#: ../src/file-manager/fm-directory-view.c:7563
 msgid "Open this folder in a navigation window"
 msgstr "Άνοιγμα αυτού του φακέλου σε παράθυρο περιηγητή"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7562
+#: ../src/file-manager/fm-directory-view.c:7567
 msgid "Open this folder in a new tab"
 msgstr "Άνοιγμα αυτού του φακέλου σε νέα καρτέλα"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7567
+#: ../src/file-manager/fm-directory-view.c:7572
 msgid "Open this folder in a folder window"
 msgstr "Άνοιγμα αυτού του φακέλου σε παράθυρο φακέλου"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7572
+#: ../src/file-manager/fm-directory-view.c:7577
 msgid "Prepare this folder to be moved with a Paste command"
 msgstr "Προετοιμασία μεταφοράς του φακέλου με την εντολή Επικόλληση"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7576
+#: ../src/file-manager/fm-directory-view.c:7581
 msgid "Prepare this folder to be copied with a Paste command"
 msgstr "Προετοιμασία αντιγραφής του φακέλου με την εντολή Επικόλληση"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7580
+#: ../src/file-manager/fm-directory-view.c:7585
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into this "
 "folder"
 msgstr "Μεταφορά ή αντιγραφή σε αυτόν το φάκελο των αρχείων που επιλέχθηκαν με την εντολή Αποκοπή/Αντιγραφή"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7585
+#: ../src/file-manager/fm-directory-view.c:7590
 msgid "Move this folder to the Trash"
 msgstr "Μεταφορά αυτού του φακέλου στα απορρίμματα"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7589
+#: ../src/file-manager/fm-directory-view.c:7594
 msgid "Delete this folder, without moving to the Trash"
 msgstr "Διαγραφή αυτού του φακέλου, χωρίς μεταφορά στα απορρίμματα"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7597
+#: ../src/file-manager/fm-directory-view.c:7602
 msgid "Mount the volume associated with this folder"
 msgstr "Προσάρτηση του τόμου που αντιστοιχεί σε αυτόν το φάκελο"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7601
+#: ../src/file-manager/fm-directory-view.c:7606
 msgid "Unmount the volume associated with this folder"
 msgstr "Αποπροσάρτηση του τόμου που αντιστοιχεί σε αυτόν το φάκελο"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7605
+#: ../src/file-manager/fm-directory-view.c:7610
 msgid "Eject the volume associated with this folder"
 msgstr "Εξαγωγή του τόμου που αντιστοιχεί σε αυτόν το φάκελο"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7609
+#: ../src/file-manager/fm-directory-view.c:7614
 msgid "Format the volume associated with this folder"
 msgstr "Μορφοποίηση του τόμου που αντιστοιχεί σε αυτόν το φάκελο"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7613
+#: ../src/file-manager/fm-directory-view.c:7618
 msgid "Start the volume associated with this folder"
 msgstr "Εκκίνηση του τόμου που αντιστοιχεί σε αυτόν το φάκελο"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7617
+#: ../src/file-manager/fm-directory-view.c:7622
 msgid "Stop the volume associated with this folder"
 msgstr "Διακοπή του τόμου που αντιστοιχεί σε αυτόν το φάκελο"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7626
+#: ../src/file-manager/fm-directory-view.c:7631
 msgid "View or modify the properties of this folder"
 msgstr "Εμφάνιση ή τροποποίηση των ιδιοτήτων αυτού του φακέλου"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7629
-#: ../src/file-manager/fm-directory-view.c:7632
+#: ../src/file-manager/fm-directory-view.c:7634
+#: ../src/file-manager/fm-directory-view.c:7637
 msgid "_Other pane"
 msgstr "Ά_λλη στήλη"
 
-#: ../src/file-manager/fm-directory-view.c:7630
+#: ../src/file-manager/fm-directory-view.c:7635
 msgid "Copy the current selection to the other pane in the window"
 msgstr "Αντιγραφή της τρέχουσας επιλογής στην άλλη στήλη του παραθύρου"
 
-#: ../src/file-manager/fm-directory-view.c:7633
+#: ../src/file-manager/fm-directory-view.c:7638
 msgid "Move the current selection to the other pane in the window"
 msgstr "Μετακίνηση της τρέχουσας επιλογής στην άλλη στήλη του παραθύρου"
 
 #. name, stock id, label
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7636
-#: ../src/file-manager/fm-directory-view.c:7640 ../src/caja-window-menus.c:892
+#: ../src/file-manager/fm-directory-view.c:7641
+#: ../src/file-manager/fm-directory-view.c:7645 ../src/caja-window-menus.c:888
 msgid "_Home Folder"
 msgstr "Προσωπικός _φάκελος"
 
-#: ../src/file-manager/fm-directory-view.c:7637
+#: ../src/file-manager/fm-directory-view.c:7642
 msgid "Copy the current selection to the home folder"
 msgstr "Αντιγραφή της τρέχουσας επιλογής στον προσωπικό φάκελο"
 
-#: ../src/file-manager/fm-directory-view.c:7641
+#: ../src/file-manager/fm-directory-view.c:7646
 msgid "Move the current selection to the home folder"
 msgstr "Μετακίνηση της τρέχουσας επιλογής στον προσωπικό φάκελο"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7644
-#: ../src/file-manager/fm-directory-view.c:7648
+#: ../src/file-manager/fm-directory-view.c:7649
+#: ../src/file-manager/fm-directory-view.c:7653
 msgid "_Desktop"
 msgstr "Επι_φάνεια εργασίας"
 
-#: ../src/file-manager/fm-directory-view.c:7645
+#: ../src/file-manager/fm-directory-view.c:7650
 msgid "Copy the current selection to the desktop"
 msgstr "Αντιγραφή της τρέχουσας επιλογής στην επιφάνεια εργασίας"
 
-#: ../src/file-manager/fm-directory-view.c:7649
+#: ../src/file-manager/fm-directory-view.c:7654
 msgid "Move the current selection to the desktop"
 msgstr "Μετακίνηση της τρέχουσας επιλογής στην επιφάνεια εργασίας"
 
 #. Translators: %s is a directory
-#: ../src/file-manager/fm-directory-view.c:7729
+#: ../src/file-manager/fm-directory-view.c:7734
 #, c-format
 msgid "Run or manage scripts from %s"
 msgstr "Εκτέλεση ή διαχείριση των σεναρίων εντολών του %s"
 
 #. Create a script action here specially because its tooltip is dynamic
-#: ../src/file-manager/fm-directory-view.c:7731
+#: ../src/file-manager/fm-directory-view.c:7736
 msgid "_Scripts"
 msgstr "Σενάρ_ια εντολών"
 
-#: ../src/file-manager/fm-directory-view.c:8137
+#: ../src/file-manager/fm-directory-view.c:8143
 #, c-format
 msgid "Move the open folder out of the trash to \"%s\""
 msgstr "Μεταφορά του ανοικτού φακέλου έξω από τα απορρίμματα, στο \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:8140
+#: ../src/file-manager/fm-directory-view.c:8146
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
 msgstr[0] "Μεταφορά του επιλεγμένου φακέλου έξω από τα απορρίμματα, στο \"%s\""
 msgstr[1] "Μεταφορά των επιλεγμένων φακέλων έξω από τα απορρίμματα, στο \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:8144
+#: ../src/file-manager/fm-directory-view.c:8150
 #, c-format
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
 msgstr[0] "Μεταφορά του επιλεγμένου φακέλου έξω από τα απορρίμματα"
 msgstr[1] "Μεταφορά των επιλεγμένων φακέλων έξω από τα απορρίμματα"
 
-#: ../src/file-manager/fm-directory-view.c:8150
+#: ../src/file-manager/fm-directory-view.c:8156
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
 msgstr[0] "Μεταφορά του επιλεγμένου αρχείου έξω από τα απορρίμματα, στο \"%s\""
 msgstr[1] "Μεταφορά των επιλεγμένων αρχείων έξω από τα απορρίμματα, στο \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:8154
+#: ../src/file-manager/fm-directory-view.c:8160
 #, c-format
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
 msgstr[0] "Μεταφορά του επιλεγμένου αρχείου έξω από τα απορρίμματα"
 msgstr[1] "Μεταφορά των επιλεγμένων αρχείων έξω από τα απορρίμματα"
 
-#: ../src/file-manager/fm-directory-view.c:8160
+#: ../src/file-manager/fm-directory-view.c:8166
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
 msgstr[0] "Μεταφορά του επιλεγμένου αντικειμένου έξω από τα απορρίμματα, στο \"%s\""
 msgstr[1] "Μεταφορά των επιλεγμένων αντικειμένων έξω από τα απορρίμματα, στο \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:8164
+#: ../src/file-manager/fm-directory-view.c:8170
 #, c-format
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
 msgstr[0] "Μεταφορά του επιλεγμένου αντικειμένου έξω από τα απορρίμματα"
 msgstr[1] "Μεταφορά των επιλεγμένων αντικειμένων έξω από τα απορρίμματα"
 
-#: ../src/file-manager/fm-directory-view.c:8290
-#: ../src/file-manager/fm-directory-view.c:8294
-#: ../src/file-manager/fm-directory-view.c:8492
-#: ../src/file-manager/fm-directory-view.c:8496
+#: ../src/file-manager/fm-directory-view.c:8296
+#: ../src/file-manager/fm-directory-view.c:8300
+#: ../src/file-manager/fm-directory-view.c:8498
+#: ../src/file-manager/fm-directory-view.c:8502
 msgid "Start the selected drive"
 msgstr "Εκκίνηση του επιλεγμένου οδηγού"
 
-#: ../src/file-manager/fm-directory-view.c:8298
-#: ../src/file-manager/fm-directory-view.c:8500
+#: ../src/file-manager/fm-directory-view.c:8304
+#: ../src/file-manager/fm-directory-view.c:8506
 msgid "Connect to the selected drive"
 msgstr "Σύνδεση στον επιλεγμένο οδηγό"
 
-#: ../src/file-manager/fm-directory-view.c:8301
-#: ../src/file-manager/fm-directory-view.c:8393
-#: ../src/file-manager/fm-directory-view.c:8503
+#: ../src/file-manager/fm-directory-view.c:8307
+#: ../src/file-manager/fm-directory-view.c:8399
+#: ../src/file-manager/fm-directory-view.c:8509
 msgid "_Start Multi-disk Drive"
 msgstr "_Εκκίνηση οδηγού πολλαπλών δίσκων"
 
-#: ../src/file-manager/fm-directory-view.c:8302
-#: ../src/file-manager/fm-directory-view.c:8504
+#: ../src/file-manager/fm-directory-view.c:8308
+#: ../src/file-manager/fm-directory-view.c:8510
 msgid "Start the selected multi-disk drive"
 msgstr "Εκκίνηση του επιλεγμένου οδηγού πολλαπλών δίσκων"
 
-#: ../src/file-manager/fm-directory-view.c:8305
+#: ../src/file-manager/fm-directory-view.c:8311
 msgid "U_nlock Drive"
 msgstr "_Ξεκλείδωμα οδηγού"
 
-#: ../src/file-manager/fm-directory-view.c:8306
-#: ../src/file-manager/fm-directory-view.c:8508
+#: ../src/file-manager/fm-directory-view.c:8312
+#: ../src/file-manager/fm-directory-view.c:8514
 msgid "Unlock the selected drive"
 msgstr "Ξεκλείδωμα του επιλεγμένου οδηγού"
 
-#: ../src/file-manager/fm-directory-view.c:8319
+#: ../src/file-manager/fm-directory-view.c:8325
 msgid "Stop the selected drive"
 msgstr "Διακοπή του επιλεγμένου οδηγού"
 
-#: ../src/file-manager/fm-directory-view.c:8322
-#: ../src/file-manager/fm-directory-view.c:8414
-#: ../src/file-manager/fm-directory-view.c:8524
+#: ../src/file-manager/fm-directory-view.c:8328
+#: ../src/file-manager/fm-directory-view.c:8420
+#: ../src/file-manager/fm-directory-view.c:8530
 #: ../src/caja-places-sidebar.c:1832
 msgid "_Safely Remove Drive"
 msgstr "Ασφα_λής αφαίρεση οδηγού"
 
-#: ../src/file-manager/fm-directory-view.c:8323
-#: ../src/file-manager/fm-directory-view.c:8525
+#: ../src/file-manager/fm-directory-view.c:8329
+#: ../src/file-manager/fm-directory-view.c:8531
 msgid "Safely remove the selected drive"
 msgstr "Ασφαλής αφαίρεση του επιλεγμένου οδηγού"
 
-#: ../src/file-manager/fm-directory-view.c:8326
-#: ../src/file-manager/fm-directory-view.c:8418
-#: ../src/file-manager/fm-directory-view.c:8528
+#: ../src/file-manager/fm-directory-view.c:8332
+#: ../src/file-manager/fm-directory-view.c:8424
+#: ../src/file-manager/fm-directory-view.c:8534
 msgid "_Disconnect"
 msgstr "_Αποσύνδεση"
 
-#: ../src/file-manager/fm-directory-view.c:8327
-#: ../src/file-manager/fm-directory-view.c:8529
+#: ../src/file-manager/fm-directory-view.c:8333
+#: ../src/file-manager/fm-directory-view.c:8535
 msgid "Disconnect the selected drive"
 msgstr "Αποσύνδεση του επιλεγμένου οδηγού"
 
-#: ../src/file-manager/fm-directory-view.c:8330
-#: ../src/file-manager/fm-directory-view.c:8422
-#: ../src/file-manager/fm-directory-view.c:8532
+#: ../src/file-manager/fm-directory-view.c:8336
+#: ../src/file-manager/fm-directory-view.c:8428
+#: ../src/file-manager/fm-directory-view.c:8538
 msgid "_Stop Multi-disk Drive"
 msgstr "_Διακοπή οδηγού πολλαπλών δίσκων"
 
-#: ../src/file-manager/fm-directory-view.c:8331
-#: ../src/file-manager/fm-directory-view.c:8533
+#: ../src/file-manager/fm-directory-view.c:8337
+#: ../src/file-manager/fm-directory-view.c:8539
 msgid "Stop the selected multi-disk drive"
 msgstr "Διακοπή του επιλεγμένου οδηγού πολλαπλών δίσκων"
 
-#: ../src/file-manager/fm-directory-view.c:8334
-#: ../src/file-manager/fm-directory-view.c:8426
-#: ../src/file-manager/fm-directory-view.c:8536
+#: ../src/file-manager/fm-directory-view.c:8340
+#: ../src/file-manager/fm-directory-view.c:8432
+#: ../src/file-manager/fm-directory-view.c:8542
 #: ../src/caja-places-sidebar.c:1845
 msgid "_Lock Drive"
 msgstr "Κλείδ_ωμα οδηγού"
 
-#: ../src/file-manager/fm-directory-view.c:8335
-#: ../src/file-manager/fm-directory-view.c:8537
+#: ../src/file-manager/fm-directory-view.c:8341
+#: ../src/file-manager/fm-directory-view.c:8543
 msgid "Lock the selected drive"
 msgstr "Κλείδωμα του επιλεγμένου οδηγού"
 
-#: ../src/file-manager/fm-directory-view.c:8382
-#: ../src/file-manager/fm-directory-view.c:8386
+#: ../src/file-manager/fm-directory-view.c:8388
+#: ../src/file-manager/fm-directory-view.c:8392
 msgid "Start the drive associated with the open folder"
 msgstr "Εκκίνηση του οδηγού που αντιστοιχεί στον ανοικτό φάκελο"
 
-#: ../src/file-manager/fm-directory-view.c:8390
+#: ../src/file-manager/fm-directory-view.c:8396
 msgid "Connect to the drive associated with the open folder"
 msgstr "Σύνδεση στον οδηγό που αντιστοιχεί στον ανοικτό φάκελο"
 
-#: ../src/file-manager/fm-directory-view.c:8394
+#: ../src/file-manager/fm-directory-view.c:8400
 msgid "Start the multi-disk drive associated with the open folder"
 msgstr "Εκκίνηση του οδηγού πολλαπλών δίσκων που αντιστοιχεί στον ανοικτό φάκελο"
 
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
-#: ../src/file-manager/fm-directory-view.c:8397
-#: ../src/file-manager/fm-directory-view.c:8507
+#: ../src/file-manager/fm-directory-view.c:8403
+#: ../src/file-manager/fm-directory-view.c:8513
 #: ../src/caja-places-sidebar.c:1844
 msgid "_Unlock Drive"
 msgstr "_Ξεκλείδωμα οδηγού"
 
-#: ../src/file-manager/fm-directory-view.c:8398
+#: ../src/file-manager/fm-directory-view.c:8404
 msgid "Unlock the drive associated with the open folder"
 msgstr "Ξεκλείδωμα του οδηγού που αντιστοιχεί στον ανοικτό φάκελο"
 
-#: ../src/file-manager/fm-directory-view.c:8411
+#: ../src/file-manager/fm-directory-view.c:8417
 msgid "_Stop the drive associated with the open folder"
 msgstr "_Διακοπή του οδηγού που αντιστοιχεί στον ανοικτό φάκελο"
 
-#: ../src/file-manager/fm-directory-view.c:8415
+#: ../src/file-manager/fm-directory-view.c:8421
 msgid "Safely remove the drive associated with the open folder"
 msgstr "Ασφαλής αφαίρεση του οδηγού που αντιστοιχεί στον ανοικτό φάκελο"
 
-#: ../src/file-manager/fm-directory-view.c:8419
+#: ../src/file-manager/fm-directory-view.c:8425
 msgid "Disconnect the drive associated with the open folder"
 msgstr "Αποσύνδεση του οδηγού που αντιστοιχεί στον ανοικτό φάκελο"
 
-#: ../src/file-manager/fm-directory-view.c:8423
+#: ../src/file-manager/fm-directory-view.c:8429
 msgid "Stop the multi-disk drive associated with the open folder"
 msgstr "Διακοπή του οδηγού πολλαπλών δίσκων που αντιστοιχεί στον ανοικτό φάκελο"
 
-#: ../src/file-manager/fm-directory-view.c:8427
+#: ../src/file-manager/fm-directory-view.c:8433
 msgid "Lock the drive associated with the open folder"
 msgstr "Κλείδωμα του οδηγού που αντιστοιχεί στον ανοικτό φάκελο"
 
 #. add the "open in new window" menu item
-#: ../src/file-manager/fm-directory-view.c:8606
-#: ../src/file-manager/fm-directory-view.c:8916
+#: ../src/file-manager/fm-directory-view.c:8612
+#: ../src/file-manager/fm-directory-view.c:8922
 #: ../src/file-manager/fm-tree-view.c:1287 ../src/caja-places-sidebar.c:2699
 msgid "Open in New _Window"
 msgstr "Άνοιγμα σε νέο παρά_θυρο"
 
-#: ../src/file-manager/fm-directory-view.c:8608
-#: ../src/file-manager/fm-directory-view.c:8925
+#: ../src/file-manager/fm-directory-view.c:8614
+#: ../src/file-manager/fm-directory-view.c:8931
 msgid "Browse in New _Window"
 msgstr "Περιήγηση σε νέο παρά_θυρο"
 
-#: ../src/file-manager/fm-directory-view.c:8614
-#: ../src/file-manager/fm-directory-view.c:8935
+#: ../src/file-manager/fm-directory-view.c:8620
+#: ../src/file-manager/fm-directory-view.c:8941
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
 msgstr[0] "_Περιήγηση φακέλου"
 msgstr[1] "_Περιήγηση φακέλων"
 
-#: ../src/file-manager/fm-directory-view.c:8631
-#: ../src/file-manager/fm-directory-view.c:8964
+#: ../src/file-manager/fm-directory-view.c:8637
+#: ../src/file-manager/fm-directory-view.c:8970
 msgid "Browse in New _Tab"
 msgstr "Περιήγηση σε νέα _καρτέλα"
 
-#: ../src/file-manager/fm-directory-view.c:8680
-#: ../src/file-manager/fm-directory-view.c:9005
+#: ../src/file-manager/fm-directory-view.c:8686
+#: ../src/file-manager/fm-directory-view.c:9011
 msgid "_Delete Permanently"
 msgstr "Οριστική _διαγραφή"
 
-#: ../src/file-manager/fm-directory-view.c:8681
+#: ../src/file-manager/fm-directory-view.c:8687
 msgid "Delete the open folder permanently"
 msgstr "Οριστική διαγραφή του ανοιγμένου φακέλου"
 
-#: ../src/file-manager/fm-directory-view.c:8685
+#: ../src/file-manager/fm-directory-view.c:8691
 msgid "Move the open folder to the Trash"
 msgstr "Μεταφορά του ανοικτού φακέλου στα απορρίμματα"
 
-#: ../src/file-manager/fm-directory-view.c:8865
+#: ../src/file-manager/fm-directory-view.c:8871
 #, c-format
 msgid "_Open With %s"
 msgstr "Άν_οιγμα με %s"
 
-#: ../src/file-manager/fm-directory-view.c:8918
+#: ../src/file-manager/fm-directory-view.c:8924
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
 msgstr[0] "Άνοιγμα σε %'d νέο παρά_θυρο"
 msgstr[1] "Άνοιγμα σε %'d νέα παρά_θυρα"
 
-#: ../src/file-manager/fm-directory-view.c:8927
+#: ../src/file-manager/fm-directory-view.c:8933
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
 msgstr[0] "Περιήγηση σε %'d νέο παρά_θυρο"
 msgstr[1] "Περιήγηση σε %'d νέα παρά_θυρα"
 
-#: ../src/file-manager/fm-directory-view.c:8957
+#: ../src/file-manager/fm-directory-view.c:8963
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
 msgstr[0] "Άνοιγμα σε %'d νέα _καρτέλα"
 msgstr[1] "Άνοιγμα σε %'d νέες _καρτέλες"
 
-#: ../src/file-manager/fm-directory-view.c:8966
+#: ../src/file-manager/fm-directory-view.c:8972
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
 msgstr[0] "Περιήγηση σε %'d νέα _καρτέλα"
 msgstr[1] "Περιήγηση σε %'d νέες _καρτέλες"
 
-#: ../src/file-manager/fm-directory-view.c:9006
+#: ../src/file-manager/fm-directory-view.c:9012
 msgid "Delete all selected items permanently"
 msgstr "Οριστική διαγραφή όλων των επιλεγμένων αντικειμένων"
 
-#: ../src/file-manager/fm-directory-view.c:9063
+#: ../src/file-manager/fm-directory-view.c:9069
 msgid "View or modify the properties of the open folder"
 msgstr "Εμφάνιση ή τροποποίηση των ιδιοτήτων του ανοιχτού φακέλου"
 
-#: ../src/file-manager/fm-directory-view.c:10366
+#: ../src/file-manager/fm-directory-view.c:10372
 msgid "Download location?"
 msgstr "Λήψη τοποθεσίας;"
 
-#: ../src/file-manager/fm-directory-view.c:10369
+#: ../src/file-manager/fm-directory-view.c:10375
 msgid "You can download it or make a link to it."
 msgstr "Μπορείτε να τη λάβετε ή να δημιουργήσετε σύνδεσμο προς αυτήν."
 
-#: ../src/file-manager/fm-directory-view.c:10372
+#: ../src/file-manager/fm-directory-view.c:10378
 msgid "Make a _Link"
 msgstr "Δημιουργία συν_δέσμου"
 
-#: ../src/file-manager/fm-directory-view.c:10376
+#: ../src/file-manager/fm-directory-view.c:10382
 msgid "_Download"
 msgstr "_Λήψη"
 
-#: ../src/file-manager/fm-directory-view.c:10537
-#: ../src/file-manager/fm-directory-view.c:10596
-#: ../src/file-manager/fm-directory-view.c:10701
+#: ../src/file-manager/fm-directory-view.c:10543
+#: ../src/file-manager/fm-directory-view.c:10602
+#: ../src/file-manager/fm-directory-view.c:10707
 msgid "Drag and drop is not supported."
 msgstr "Δεν υποστηρίζεται η μεταφορά και απόθεση."
 
-#: ../src/file-manager/fm-directory-view.c:10538
+#: ../src/file-manager/fm-directory-view.c:10544
 msgid "Drag and drop is only supported on local file systems."
 msgstr "Η μεταφορά και απόθεση υποστηρίζεται μόνο για τοπικά συστήματα αρχείων."
 
-#: ../src/file-manager/fm-directory-view.c:10597
-#: ../src/file-manager/fm-directory-view.c:10702
+#: ../src/file-manager/fm-directory-view.c:10603
+#: ../src/file-manager/fm-directory-view.c:10708
 msgid "An invalid drag type was used."
 msgstr "Χρησιμοποιήθηκε μη έγκυρος τρόπος μεταφοράς."
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10779
+#: ../src/file-manager/fm-directory-view.c:10785
 msgid "dropped text.txt"
 msgstr "αποτεθειµένο κείμενο.txt"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10824
+#: ../src/file-manager/fm-directory-view.c:10830
 msgid "dropped data"
 msgstr "αποτεθειµένα δεδομένα"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11217
+#: ../src/file-manager/fm-directory-view.c:11226
 msgid "Undo"
 msgstr "Αναίρεση"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11235
+#: ../src/file-manager/fm-directory-view.c:11244
 msgid "Redo"
 msgstr "Επανάληψη"
 
@@ -4877,220 +4861,220 @@ msgstr "Μετονομασία του \"%s\" σε \"%s\"."
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: ../src/file-manager/fm-icon-container.c:613
-#: ../src/file-manager/fm-icon-view.c:3395
+#: ../src/file-manager/fm-icon-view.c:3403
 #: ../src/caja-file-management-properties.ui.h:1
 msgid "Icon View"
 msgstr "Προβολή εικονιδίων"
 
-#: ../src/file-manager/fm-icon-view.c:128
+#: ../src/file-manager/fm-icon-view.c:132
 msgid "by _Name"
 msgstr "κατά όν_ομα"
 
-#: ../src/file-manager/fm-icon-view.c:129
-#: ../src/file-manager/fm-icon-view.c:1743
+#: ../src/file-manager/fm-icon-view.c:133
+#: ../src/file-manager/fm-icon-view.c:1749
 msgid "Keep icons sorted by name in rows"
 msgstr "Ταξινόμηση των εικονιδίων με βάση το όνομά τους"
 
-#: ../src/file-manager/fm-icon-view.c:135
+#: ../src/file-manager/fm-icon-view.c:139
 msgid "by _Size"
 msgstr "κατά _μέγεθος"
 
-#: ../src/file-manager/fm-icon-view.c:136
-#: ../src/file-manager/fm-icon-view.c:1749
+#: ../src/file-manager/fm-icon-view.c:140
+#: ../src/file-manager/fm-icon-view.c:1755
 msgid "Keep icons sorted by size in rows"
 msgstr "Ταξινόμηση των εικονιδίων με βάση το μέγεθός τους"
 
-#: ../src/file-manager/fm-icon-view.c:142
+#: ../src/file-manager/fm-icon-view.c:146
 msgid "by _Type"
 msgstr "κατά _είδος"
 
-#: ../src/file-manager/fm-icon-view.c:143
-#: ../src/file-manager/fm-icon-view.c:1755
+#: ../src/file-manager/fm-icon-view.c:147
+#: ../src/file-manager/fm-icon-view.c:1761
 msgid "Keep icons sorted by type in rows"
 msgstr "Ταξινόμηση των εικονιδίων με βάση το είδος τους"
 
-#: ../src/file-manager/fm-icon-view.c:149
+#: ../src/file-manager/fm-icon-view.c:153
 msgid "by Modification _Date"
 msgstr "κατά _ημερομηνία τροποποίησης"
 
-#: ../src/file-manager/fm-icon-view.c:150
-#: ../src/file-manager/fm-icon-view.c:1761
+#: ../src/file-manager/fm-icon-view.c:154
+#: ../src/file-manager/fm-icon-view.c:1767
 msgid "Keep icons sorted by modification date in rows"
 msgstr "Ταξινόμηση των εικονιδίων με βάση την ημερομηνία τροποποίησής τους"
 
-#: ../src/file-manager/fm-icon-view.c:156
+#: ../src/file-manager/fm-icon-view.c:160
 msgid "by _Emblems"
 msgstr "κατά έ_μβλημα"
 
-#: ../src/file-manager/fm-icon-view.c:157
-#: ../src/file-manager/fm-icon-view.c:1767
+#: ../src/file-manager/fm-icon-view.c:161
+#: ../src/file-manager/fm-icon-view.c:1773
 msgid "Keep icons sorted by emblems in rows"
 msgstr "Ταξινόμηση των εικονιδίων με βάση τα εμβλήματά τους"
 
-#: ../src/file-manager/fm-icon-view.c:163
+#: ../src/file-manager/fm-icon-view.c:167
 msgid "by T_rash Time"
 msgstr "κατά ώρα από_ρριψης"
 
-#: ../src/file-manager/fm-icon-view.c:164
-#: ../src/file-manager/fm-icon-view.c:1773
+#: ../src/file-manager/fm-icon-view.c:168
+#: ../src/file-manager/fm-icon-view.c:1779
 msgid "Keep icons sorted by trash time in rows"
 msgstr "Ταξινόμηση των εικονιδίων σε σειρές με βάση την ώρα μετακίνησης στα απορρίμματα"
 
-#: ../src/file-manager/fm-icon-view.c:781
+#: ../src/file-manager/fm-icon-view.c:785
 msgid "_Organize Desktop by Name"
 msgstr "_Οργάνωση επιφάνειας εργασίας κατά όνομα"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-icon-view.c:1692
+#: ../src/file-manager/fm-icon-view.c:1698
 msgid "Arran_ge Items"
 msgstr "Στοί_χιση αντικειμένων"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1694
+#: ../src/file-manager/fm-icon-view.c:1700
 msgid "Resize Icon..."
 msgstr "Αλλαγή διασ_τάσεων εικονιδίου..."
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1695
+#: ../src/file-manager/fm-icon-view.c:1701
 msgid "Make the selected icon resizable"
 msgstr "Δυνατότητα αλλαγής διαστάσεων του επιλεγμένου εικονιδίου"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1699
-#: ../src/file-manager/fm-icon-view.c:1900
+#: ../src/file-manager/fm-icon-view.c:1705
+#: ../src/file-manager/fm-icon-view.c:1906
 msgid "Restore Icons' Original Si_zes"
 msgstr "Επαναφορά αρ_χικών διαστάσεων εικονιδίων"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1700
+#: ../src/file-manager/fm-icon-view.c:1706
 msgid "Restore each selected icon to its original size"
 msgstr "Επαναφορά κάθε επιλεγμένου εικονιδίου στις αρχικές του διαστάσεις"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1704
+#: ../src/file-manager/fm-icon-view.c:1710
 msgid "_Organize by Name"
 msgstr "_Οργάνωση κατά όνομα"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1705
+#: ../src/file-manager/fm-icon-view.c:1711
 msgid "Reposition icons to better fit in the window and avoid overlapping"
 msgstr "Αναταξινόμηση εικονιδίων, έτσι ώστε να ταιριάζουν καλύτερα στο παράθυρο και να μην επικαλύπτονται"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1713
+#: ../src/file-manager/fm-icon-view.c:1719
 msgid "Compact _Layout"
 msgstr "Συμπτυγμένη _διάταξη"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1714
+#: ../src/file-manager/fm-icon-view.c:1720
 msgid "Toggle using a tighter layout scheme"
 msgstr "Εναλλαγή της χρήσης πιο συμπτυγμένης διάταξης"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1719
+#: ../src/file-manager/fm-icon-view.c:1725
 msgid "Re_versed Order"
 msgstr "Α_ντίστροφη σειρά"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1720
+#: ../src/file-manager/fm-icon-view.c:1726
 msgid "Display icons in the opposite order"
 msgstr "Εμφάνιση των εικονιδίων σε αντίστροφη σειρά"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1725
+#: ../src/file-manager/fm-icon-view.c:1731
 msgid "_Keep Aligned"
 msgstr "Ευθυγράμμιση εικονι_δίων"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1726
+#: ../src/file-manager/fm-icon-view.c:1732
 msgid "Keep icons lined up on a grid"
 msgstr "Ευθυγράμμιση της κάθετης στοίχισης των εικονιδίων"
 
-#: ../src/file-manager/fm-icon-view.c:1736
+#: ../src/file-manager/fm-icon-view.c:1742
 msgid "_Manually"
 msgstr "_Χειροκίνητα"
 
-#: ../src/file-manager/fm-icon-view.c:1737
+#: ../src/file-manager/fm-icon-view.c:1743
 msgid "Leave icons wherever they are dropped"
 msgstr "Διατήρηση των εικονιδίων στη θέση που απετέθησαν"
 
-#: ../src/file-manager/fm-icon-view.c:1742
+#: ../src/file-manager/fm-icon-view.c:1748
 msgid "By _Name"
 msgstr "Κατά όν_ομα"
 
-#: ../src/file-manager/fm-icon-view.c:1748
+#: ../src/file-manager/fm-icon-view.c:1754
 msgid "By _Size"
 msgstr "Κατά _μέγεθος"
 
-#: ../src/file-manager/fm-icon-view.c:1754
+#: ../src/file-manager/fm-icon-view.c:1760
 msgid "By _Type"
 msgstr "Κατά _είδος"
 
-#: ../src/file-manager/fm-icon-view.c:1760
+#: ../src/file-manager/fm-icon-view.c:1766
 msgid "By Modification _Date"
 msgstr "Κατά _ημερομηνία τροποποίησης"
 
-#: ../src/file-manager/fm-icon-view.c:1766
+#: ../src/file-manager/fm-icon-view.c:1772
 msgid "By _Emblems"
 msgstr "Κατά έμ_βλημα"
 
-#: ../src/file-manager/fm-icon-view.c:1772
+#: ../src/file-manager/fm-icon-view.c:1778
 msgid "By T_rash Time"
 msgstr "Κατά ώρα από_ρριψης"
 
-#: ../src/file-manager/fm-icon-view.c:1901
+#: ../src/file-manager/fm-icon-view.c:1907
 msgid "Restore Icon's Original Si_ze"
 msgstr "Επαναφορά αρ_χικών διαστάσεων εικονιδίου"
 
-#: ../src/file-manager/fm-icon-view.c:2376
+#: ../src/file-manager/fm-icon-view.c:2382
 #, c-format
 msgid "pointing at \"%s\""
 msgstr "δείχνει στο \"%s\""
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3397
+#: ../src/file-manager/fm-icon-view.c:3405
 msgid "_Icons"
 msgstr "_Εικονίδια"
 
-#: ../src/file-manager/fm-icon-view.c:3398
+#: ../src/file-manager/fm-icon-view.c:3406
 msgid "The icon view encountered an error."
 msgstr "Η προβολή εικονιδίων παρουσίασε σφάλμα."
 
-#: ../src/file-manager/fm-icon-view.c:3399
+#: ../src/file-manager/fm-icon-view.c:3407
 msgid "The icon view encountered an error while starting up."
 msgstr "Η προβολή εικονιδίων παρουσίασε σφάλμα κατά την εκκίνηση."
 
-#: ../src/file-manager/fm-icon-view.c:3400
+#: ../src/file-manager/fm-icon-view.c:3408
 msgid "Display this location with the icon view."
 msgstr "Εμφάνιση αυτής της τοποθεσίας με την προβολή εικονιδίων."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-icon-view.c:3410
+#: ../src/file-manager/fm-icon-view.c:3418
 #: ../src/caja-file-management-properties.ui.h:3
 msgid "Compact View"
 msgstr "Συμπτυγμένη προβολή"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3412
+#: ../src/file-manager/fm-icon-view.c:3420
 msgid "_Compact"
 msgstr "_Συμπτυγμένη"
 
-#: ../src/file-manager/fm-icon-view.c:3413
+#: ../src/file-manager/fm-icon-view.c:3421
 msgid "The compact view encountered an error."
 msgstr "Η συμπτυγμένη προβολή παρουσίασε σφάλμα."
 
-#: ../src/file-manager/fm-icon-view.c:3414
+#: ../src/file-manager/fm-icon-view.c:3422
 msgid "The compact view encountered an error while starting up."
 msgstr "Η συμπτυγμένη προβολή παρουσίασε σφάλμα κατά την εκκίνηση."
 
-#: ../src/file-manager/fm-icon-view.c:3415
+#: ../src/file-manager/fm-icon-view.c:3423
 msgid "Display this location with the compact view."
 msgstr "Εμφάνιση αυτής της τοποθεσίας με τη συμπτυγμένη προβολή."
 
@@ -5106,46 +5090,46 @@ msgstr "Φόρτωση..."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-list-view.c:1833
-#: ../src/file-manager/fm-list-view.c:3481
+#: ../src/file-manager/fm-list-view.c:1835
+#: ../src/file-manager/fm-list-view.c:3487
 #: ../src/caja-file-management-properties.ui.h:2
 msgid "List View"
 msgstr "Προβολή λίστας"
 
-#: ../src/file-manager/fm-list-view.c:2530
+#: ../src/file-manager/fm-list-view.c:2534
 #, c-format
 msgid "%s Visible Columns"
 msgstr "%s ορατές στήλες"
 
-#: ../src/file-manager/fm-list-view.c:2549
+#: ../src/file-manager/fm-list-view.c:2553
 msgid "Choose the order of information to appear in this folder:"
 msgstr "Επιλέξτε τον τρόπο ταξινόμησης των πληροφοριών στο φάκελο:"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-list-view.c:2619
+#: ../src/file-manager/fm-list-view.c:2623
 msgid "Visible _Columns..."
 msgstr "Ορατές _στήλες..."
 
 #. tooltip
-#: ../src/file-manager/fm-list-view.c:2620
+#: ../src/file-manager/fm-list-view.c:2624
 msgid "Select the columns visible in this folder"
 msgstr "Επιλέξτε τις στήλες που θα είναι ορατές στο φάκελο"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-list-view.c:3483
+#: ../src/file-manager/fm-list-view.c:3489
 msgid "_List"
 msgstr "_Λίστα"
 
-#: ../src/file-manager/fm-list-view.c:3484
+#: ../src/file-manager/fm-list-view.c:3490
 msgid "The list view encountered an error."
 msgstr "Η προβολή λίστας παρουσίασε σφάλμα."
 
-#: ../src/file-manager/fm-list-view.c:3485
+#: ../src/file-manager/fm-list-view.c:3491
 msgid "The list view encountered an error while starting up."
 msgstr "Η προβολή λίστας παρουσίασε σφάλμα κατά την εκκίνηση."
 
-#: ../src/file-manager/fm-list-view.c:3486
+#: ../src/file-manager/fm-list-view.c:3492
 msgid "Display this location with the list view."
 msgstr "Εμφάνιση αυτής της τοποθεσίας με την προβολή λίστας."
 
@@ -5353,7 +5337,7 @@ msgstr "Προσπέλαση αρχείων:"
 #. Translators: this is referred to captions under icons.
 #: ../src/file-manager/fm-properties-window.c:4855
 #: ../src/file-manager/fm-properties-window.c:4866
-#: ../src/caja-file-management-properties.c:328
+#: ../src/caja-file-management-properties.c:327
 msgid "None"
 msgstr "Καθόλου"
 
@@ -5569,8 +5553,8 @@ msgid ""
 msgstr "Το λογισμικό θα εκτελεστεί απευθείας από το μέσο \"%s\". Προσοχή: Μην εκτελείτε λογισμικό από μη έμπιστες πηγές.\n\nΑν έχετε αμφιβολίες, πατήστε Ακύρωση."
 
 #: ../src/caja-bookmarks-window.c:158
-#: ../src/caja-file-management-properties.c:235
-#: ../src/caja-property-browser.c:1673 ../src/caja-window-menus.c:591
+#: ../src/caja-file-management-properties.c:234
+#: ../src/caja-property-browser.c:1733 ../src/caja-window-menus.c:587
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
@@ -5733,7 +5717,7 @@ msgstr "_Προσθήκη σελιδοδείκτη"
 msgid "Bookmark Name:"
 msgstr "Όνομα σελιδοδείκτη:"
 
-#: ../src/caja-desktop-window.c:88 ../src/caja-desktop-window.c:263
+#: ../src/caja-desktop-window.c:204 ../src/caja-desktop-window.c:393
 #: ../src/caja-pathbar.c:1587 ../src/caja-places-sidebar.c:536
 msgid "Desktop"
 msgstr "Επιφάνεια εργασίας"
@@ -5811,7 +5795,7 @@ msgstr "Δεν είναι δυνατή η προσθήκη του εμβλήμα
 msgid "Show Emblems"
 msgstr "Προβολή εμβλημάτων"
 
-#: ../src/caja-file-management-properties.c:631
+#: ../src/caja-file-management-properties.c:630
 msgid "About Extension"
 msgstr "Περί προεκτάσεων"
 
@@ -6701,7 +6685,7 @@ msgstr "_Νέα Καρτέλα"
 msgid "_Close Tab"
 msgstr "_Κλείσιμο καρτέλας"
 
-#: ../src/caja-navigation-window.c:781
+#: ../src/caja-navigation-window.c:776
 #, c-format
 msgid "%s - File Browser"
 msgstr "%s - Περιηγητής αρχείων"
@@ -6844,128 +6828,128 @@ msgstr "Βεβαιωθείτε ότι έχετε τα απαραίτητα δι�
 msgid "Select an Image File for the New Emblem"
 msgstr "Επιλέξτε ένα αρχείο εικόνας για το νέο έμβλημα"
 
-#: ../src/caja-property-browser.c:1108
+#: ../src/caja-property-browser.c:1112
 msgid "Create a New Emblem"
 msgstr "Δημιουργία νέου εμβλήματος"
 
 #. make the keyword label and field
-#: ../src/caja-property-browser.c:1129
+#: ../src/caja-property-browser.c:1145
 msgid "_Keyword:"
 msgstr "_Λέξη κλειδί:"
 
 #. set up a file chooser to pick the image file
-#: ../src/caja-property-browser.c:1152
+#: ../src/caja-property-browser.c:1178
 msgid "_Image:"
 msgstr "_Εικόνα:"
 
-#: ../src/caja-property-browser.c:1187
+#: ../src/caja-property-browser.c:1226
 msgid "Create a New Color:"
 msgstr "Δημιουργία νέου χρώματος:"
 
 #. make the name label and field
-#: ../src/caja-property-browser.c:1201
+#: ../src/caja-property-browser.c:1245
 msgid "Color _name:"
 msgstr "Όνομα _χρώματος:"
 
-#: ../src/caja-property-browser.c:1217
+#: ../src/caja-property-browser.c:1269
 msgid "Color _value:"
 msgstr "Τιμή χρώ_ματος:"
 
-#: ../src/caja-property-browser.c:1253
+#: ../src/caja-property-browser.c:1313
 msgid "Sorry, but you cannot replace the reset image."
 msgstr "Συγγνώμη, αλλά δεν μπορείτε να αντικαταστήσετε την εικόνα Επαναφορά."
 
-#: ../src/caja-property-browser.c:1254
+#: ../src/caja-property-browser.c:1314
 msgid "Reset is a special image that cannot be deleted."
 msgstr "Η Επαναφορά είναι μια ειδική εικόνα που δεν μπορεί να διαγραφεί."
 
-#: ../src/caja-property-browser.c:1284
+#: ../src/caja-property-browser.c:1344
 #, c-format
 msgid "Sorry, but the pattern %s could not be installed."
 msgstr "Συγγνώμη, αλλά δεν ήταν δυνατή η εγκατάσταση του μοτίβου %s."
 
-#: ../src/caja-property-browser.c:1315
+#: ../src/caja-property-browser.c:1375
 msgid "Select an Image File to Add as a Pattern"
 msgstr "Επιλέξτε ένα αρχείο εικόνας για να το προσθέσετε ως μοτίβο"
 
-#: ../src/caja-property-browser.c:1394 ../src/caja-property-browser.c:1424
+#: ../src/caja-property-browser.c:1454 ../src/caja-property-browser.c:1484
 msgid "The color cannot be installed."
 msgstr "Δεν είναι δυνατή η εγκατάσταση του χρώματος."
 
-#: ../src/caja-property-browser.c:1395
+#: ../src/caja-property-browser.c:1455
 msgid "Sorry, but you must specify an unused color name for the new color."
 msgstr "Συγγνώμη, αλλά πρέπει να ορίσετε ένα μη χρησιμοποιούμενο όνομα για το νέο χρώμα."
 
-#: ../src/caja-property-browser.c:1425
+#: ../src/caja-property-browser.c:1485
 msgid "Sorry, but you must specify a non-blank name for the new color."
 msgstr "Συγγνώμη, αλλά πρέπει να ορίσετε ένα μη κενό όνομα για το νέο χρώμα."
 
-#: ../src/caja-property-browser.c:1485
+#: ../src/caja-property-browser.c:1545
 msgid "Select a Color to Add"
 msgstr "Επιλέξτε ένα χρώμα για να προσθέσετε"
 
-#: ../src/caja-property-browser.c:1531 ../src/caja-property-browser.c:1549
+#: ../src/caja-property-browser.c:1591 ../src/caja-property-browser.c:1609
 #, c-format
 msgid "Sorry, but \"%s\" is not a usable image file."
 msgstr "Συγγνώμη, αλλά το αρχείο εικόνας \"%s\" δεν μπορεί να χρησιμοποιηθεί."
 
-#: ../src/caja-property-browser.c:1532 ../src/caja-property-browser.c:1550
+#: ../src/caja-property-browser.c:1592 ../src/caja-property-browser.c:1610
 msgid "The file is not an image."
 msgstr "Το αρχείο δεν είναι εικόνα."
 
-#: ../src/caja-property-browser.c:2291
+#: ../src/caja-property-browser.c:2351
 msgid "Select a Category:"
 msgstr "Επιλέξτε κατηγορία:"
 
-#: ../src/caja-property-browser.c:2303
+#: ../src/caja-property-browser.c:2363
 msgid "C_ancel Remove"
 msgstr "Α_κύρωση αφαίρεσης"
 
-#: ../src/caja-property-browser.c:2312
+#: ../src/caja-property-browser.c:2372
 msgid "_Add a New Pattern..."
 msgstr "_Προσθήκη νέου μοτίβου..."
 
-#: ../src/caja-property-browser.c:2315
+#: ../src/caja-property-browser.c:2375
 msgid "_Add a New Color..."
 msgstr "_Προσθήκη νέου χρώματος..."
 
-#: ../src/caja-property-browser.c:2318
+#: ../src/caja-property-browser.c:2378
 msgid "_Add a New Emblem..."
 msgstr "_Προσθήκη νέου εμβλήματος..."
 
-#: ../src/caja-property-browser.c:2344
+#: ../src/caja-property-browser.c:2404
 msgid "Click on a pattern to remove it"
 msgstr "Κάντε κλικ σε ένα μοτίβο για να το αφαιρέσετε"
 
-#: ../src/caja-property-browser.c:2347
+#: ../src/caja-property-browser.c:2407
 msgid "Click on a color to remove it"
 msgstr "Κάντε κλικ σε ένα χρώμα για να το αφαιρέσετε"
 
-#: ../src/caja-property-browser.c:2350
+#: ../src/caja-property-browser.c:2410
 msgid "Click on an emblem to remove it"
 msgstr "Κάντε κλικ σε ένα έμβλημα για να το αφαιρέσετε"
 
-#: ../src/caja-property-browser.c:2362
+#: ../src/caja-property-browser.c:2422
 msgid "Patterns:"
 msgstr "Μοτίβα:"
 
-#: ../src/caja-property-browser.c:2365
+#: ../src/caja-property-browser.c:2425
 msgid "Colors:"
 msgstr "Χρώματα:"
 
-#: ../src/caja-property-browser.c:2368
+#: ../src/caja-property-browser.c:2428
 msgid "Emblems:"
 msgstr "Εμβλήματα:"
 
-#: ../src/caja-property-browser.c:2390
+#: ../src/caja-property-browser.c:2450
 msgid "_Remove a Pattern..."
 msgstr "_Αφαίρεση μοτίβου..."
 
-#: ../src/caja-property-browser.c:2393
+#: ../src/caja-property-browser.c:2453
 msgid "_Remove a Color..."
 msgstr "_Αφαίρεση χρώματος..."
 
-#: ../src/caja-property-browser.c:2396
+#: ../src/caja-property-browser.c:2456
 msgid "_Remove an Emblem..."
 msgstr "_Αφαίρεση εμβλήματος..."
 
@@ -7194,11 +7178,11 @@ msgid ""
 "Please select another viewer and try again."
 msgstr "Σφάλμα: %s\nΠαρακαλώ, επιλέξτε άλλο πρόγραμμα και δοκιμάστε ξανά."
 
-#: ../src/caja-window-menus.c:196
+#: ../src/caja-window-menus.c:192
 msgid "Go to the location specified by this bookmark"
 msgstr "Μετάβαση στην τοποθεσία που αντιστοιχεί σε αυτόν το σελιδοδείκτη"
 
-#: ../src/caja-window-menus.c:518
+#: ../src/caja-window-menus.c:514
 msgid ""
 "Caja is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -7206,7 +7190,7 @@ msgid ""
 "version."
 msgstr "Ο Caja είναι ελεύθερο λογισμικό· επιτρέπεται η αναδιανομή ή/και τροποποίησή του υπό τους όρους της Γενικής Άδειας Δημόσιας Χρήσης GNU (GPL), όπως αυτή έχει δημοσιευτεί από το Ίδρυμα Ελεύθερου Λογισμικού (FSF) — είτε της έκδοσης 2 της Άδειας, είτε (κατ' επιλογήν σας) οποιασδήποτε μεταγενέστερης έκδοσης."
 
-#: ../src/caja-window-menus.c:522
+#: ../src/caja-window-menus.c:518
 msgid ""
 "Caja is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -7214,233 +7198,233 @@ msgid ""
 "details."
 msgstr "Ο Caja διανέμεται με την ελπίδα ότι θα αποδειχθεί χρήσιμος, παρόλα αυτά ΧΩΡΙΣ ΚΑΜΙΑ ΕΓΓΥΗΣΗ — χωρίς ούτε και την σιωπηρή εγγύηση ΕΜΠΟΡΕΥΣΙΜΟΤΗΤΑΣ ή ΚΑΤΑΛΛΗΛΟΤΗΤΑΣ ΓΙΑ ΕΙΔΙΚΟ ΣΚΟΠΟ. Για περισσότερες λεπτομέρειες ανατρέξτε στη Γενική Άδεια Δημόσιας Χρήσης GNU (GPL)."
 
-#: ../src/caja-window-menus.c:526
+#: ../src/caja-window-menus.c:522
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301 USA"
 msgstr "Θα πρέπει να έχετε λάβει αντίγραφο της Γενικής Άδειας Δημόσιας Χρήσης GNU (GPL) μαζί με το Caja. Αν όχι, γράψτε στο Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA"
 
-#: ../src/caja-window-menus.c:538
+#: ../src/caja-window-menus.c:534
 msgid ""
 "Caja lets you organize files and folders, both on your computer and online."
 msgstr "Ο Caja σας επιτρέπει να οργανώνετε αρχεία και φακέλους, τόσο στον υπολογιστή σας όσο και στο δίκτυο."
 
-#: ../src/caja-window-menus.c:541
+#: ../src/caja-window-menus.c:537
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2016 The Caja authors"
-msgstr ""
+msgstr "Copyright © 1999-2009 Οι συγγραφείς του Nautilus Copyright © 2011-2016 Οι συγγραφείς του Caja"
 
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
 #. * box to give credit to the translator(s).
-#: ../src/caja-window-menus.c:551
+#: ../src/caja-window-menus.c:547
 msgid "translator-credits"
 msgstr "Ελληνική μεταφραστική ομάδα MATE\n\n Συμεών (σίμος) Ξενιτέλλης <simos@gnome.org>\n Κώστας Παπαδήμας <pkst@gnome.org>\n Πιέρρος Παπαδέας <ppapadeas@gmail.com>\n Τζένη Πετούμενου <epetoumenou@gmail.gr>\n Ευστάθιος Ιωσηφίδης <iosifidis@opensuse.org>\n\nΓια περισσότερες πληροφορίες, επισκεφθείτε τη σελίδα http://mate-desktop.org/"
 
-#: ../src/caja-window-menus.c:554
+#: ../src/caja-window-menus.c:550
 msgid "MATE Web Site"
 msgstr "Ιστοσελίδα MATE"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:807
+#: ../src/caja-window-menus.c:803
 msgid "_File"
 msgstr "_Αρχείο"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:808
+#: ../src/caja-window-menus.c:804
 msgid "_Edit"
 msgstr "_Επεξεργασία"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:809
+#: ../src/caja-window-menus.c:805
 msgid "_View"
 msgstr "_Προβολή"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:810
+#: ../src/caja-window-menus.c:806
 msgid "_Help"
 msgstr "_Βοήθεια"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:812
+#: ../src/caja-window-menus.c:808
 msgid "_Close"
 msgstr "_Κλείσιμο"
 
 #. tooltip
-#: ../src/caja-window-menus.c:813
+#: ../src/caja-window-menus.c:809
 msgid "Close this folder"
 msgstr "Κλείσιμο αυτού του φακέλου"
 
-#: ../src/caja-window-menus.c:818
+#: ../src/caja-window-menus.c:814
 msgid "_Backgrounds and Emblems..."
 msgstr "Παρασκήνια και εμβ_λήματα..."
 
-#: ../src/caja-window-menus.c:819
+#: ../src/caja-window-menus.c:815
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
 msgstr "Εμφάνιση μοτίβων, χρωμάτων και εμβλημάτων που μπορούν να χρησιμοποιηθούν για την προσαρμογή της εμφάνισης"
 
-#: ../src/caja-window-menus.c:824
+#: ../src/caja-window-menus.c:820
 msgid "Prefere_nces"
 msgstr "Προ_τιμήσεις"
 
-#: ../src/caja-window-menus.c:825
+#: ../src/caja-window-menus.c:821
 msgid "Edit Caja preferences"
 msgstr "Επεξεργασία προτιμήσεων του Caja"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:828
+#: ../src/caja-window-menus.c:824
 msgid "Open _Parent"
 msgstr "Άνοιγμα _γονικού"
 
-#: ../src/caja-window-menus.c:829
+#: ../src/caja-window-menus.c:825
 msgid "Open the parent folder"
 msgstr "Άνοιγμα του γονικού φακέλου"
 
 #. tooltip
-#: ../src/caja-window-menus.c:838
+#: ../src/caja-window-menus.c:834
 msgid "Stop loading the current location"
 msgstr "Διακοπή φόρτωσης της τρέχουσας τοποθεσίας"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:842
+#: ../src/caja-window-menus.c:838
 msgid "_Reload"
 msgstr "_Επαναφόρτωση"
 
 #. tooltip
-#: ../src/caja-window-menus.c:843
+#: ../src/caja-window-menus.c:839
 msgid "Reload the current location"
 msgstr "Επαναφόρτωση της τρέχουσας τοποθεσίας"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:847
+#: ../src/caja-window-menus.c:843
 msgid "_Contents"
 msgstr "_Περιεχόμενα"
 
 #. tooltip
-#: ../src/caja-window-menus.c:848
+#: ../src/caja-window-menus.c:844
 msgid "Display Caja help"
 msgstr "Εμφάνιση βοήθειας Caja"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:852
+#: ../src/caja-window-menus.c:848
 msgid "_About"
 msgstr "Π_ερί"
 
 #. tooltip
-#: ../src/caja-window-menus.c:853
+#: ../src/caja-window-menus.c:849
 msgid "Display credits for the creators of Caja"
 msgstr "Εμφάνιση μνείας των δημιουργών του Caja"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:857
+#: ../src/caja-window-menus.c:853
 msgid "Zoom _In"
 msgstr "_Μεγέθυνση"
 
 #. tooltip
-#: ../src/caja-window-menus.c:858 ../src/caja-zoom-control.c:99
+#: ../src/caja-window-menus.c:854 ../src/caja-zoom-control.c:99
 #: ../src/caja-zoom-control.c:395
 msgid "Increase the view size"
 msgstr "Αύξηση του μεγέθους των αντικειμένων"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:872
+#: ../src/caja-window-menus.c:868
 msgid "Zoom _Out"
 msgstr "_Σμίκρυνση"
 
 #. tooltip
-#: ../src/caja-window-menus.c:873 ../src/caja-zoom-control.c:100
+#: ../src/caja-window-menus.c:869 ../src/caja-zoom-control.c:100
 #: ../src/caja-zoom-control.c:333
 msgid "Decrease the view size"
 msgstr "Μείωση του μεγέθους των αντικειμένων"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:882
+#: ../src/caja-window-menus.c:878
 msgid "Normal Si_ze"
 msgstr "_Κανονικό μέγεθος"
 
 #. tooltip
-#: ../src/caja-window-menus.c:883 ../src/caja-zoom-control.c:101
+#: ../src/caja-window-menus.c:879 ../src/caja-zoom-control.c:101
 #: ../src/caja-zoom-control.c:353
 msgid "Use the normal view size"
 msgstr "Χρήση του προεπιλεγμένου μεγέθους για αυτήν την προβολή"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:887
+#: ../src/caja-window-menus.c:883
 msgid "Connect to _Server..."
 msgstr "Σύνδεση σε ε_ξυπηρετητή..."
 
 #. tooltip
-#: ../src/caja-window-menus.c:888
+#: ../src/caja-window-menus.c:884
 msgid "Connect to a remote computer or shared disk"
 msgstr "Σύνδεση σε απομακρυσμένο υπολογιστή ή κοινόχρηστο δίσκο"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:897
+#: ../src/caja-window-menus.c:893
 msgid "_Computer"
 msgstr "_Υπολογιστής"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:902
+#: ../src/caja-window-menus.c:898
 msgid "_Network"
 msgstr "_Δίκτυο"
 
 #. tooltip
-#: ../src/caja-window-menus.c:903 ../src/mate-network-scheme.desktop.in.h:2
+#: ../src/caja-window-menus.c:899 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
 msgstr "Περιήγηση στους σελιδοδείκτες και το τοπικό δίκτυο"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:907
+#: ../src/caja-window-menus.c:903
 msgid "T_emplates"
 msgstr "_Πρότυπα"
 
 #. tooltip
-#: ../src/caja-window-menus.c:908
+#: ../src/caja-window-menus.c:904
 msgid "Open your personal templates folder"
 msgstr "Άνοιγμα του προσωπικού σας φακέλου προτύπων"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:912
+#: ../src/caja-window-menus.c:908
 msgid "_Trash"
 msgstr "Απο_ρρίμματα"
 
 #. tooltip
-#: ../src/caja-window-menus.c:913
+#: ../src/caja-window-menus.c:909
 msgid "Open your personal trash folder"
 msgstr "Άνοιγμα του προσωπικού σας φακέλου απορριμμάτων"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:921
+#: ../src/caja-window-menus.c:917
 msgid "Show _Hidden Files"
 msgstr "Εμφάνιση _κρυφών αρχείων"
 
 #. tooltip
-#: ../src/caja-window-menus.c:922
+#: ../src/caja-window-menus.c:918
 msgid "Toggle the display of hidden files in the current window"
 msgstr "Εναλλαγή της εμφάνισης των κρυφών αρχείων του τρέχοντος παραθύρου"
 
-#: ../src/caja-window-menus.c:953
+#: ../src/caja-window-menus.c:949
 msgid "_Up"
 msgstr "_Πάνω"
 
-#: ../src/caja-window-menus.c:956
+#: ../src/caja-window-menus.c:952
 msgid "_Home"
 msgstr "Προσωπικός _φάκελος"
 

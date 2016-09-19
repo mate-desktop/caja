@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-01 10:19+0300\n"
-"PO-Revision-Date: 2016-08-01 07:19+0000\n"
+"POT-Creation-Date: 2016-08-23 13:33+0300\n"
+"PO-Revision-Date: 2016-08-23 10:33+0000\n"
 "Last-Translator: monsta <monsta@inbox.ru>\n"
 "Language-Team: Asturian (http://www.transifex.com/mate/MATE/language/ast/)\n"
 "MIME-Version: 1.0\n"
@@ -350,13 +350,9 @@ msgstr "Arrastre un emblema a un oxetu p'amesta-ylu al oxetu"
 
 #. translators: this is the name of an emblem
 #: ../data/browser.xml.h:69 ../src/caja-emblem-sidebar.c:990
-#: ../src/caja-property-browser.c:1944
+#: ../src/caja-property-browser.c:2004
 msgid "Erase"
 msgstr "Esborrar"
-
-#: ../data/caja.xml.in.h:1
-msgid "Saved search"
-msgstr "Gueta guardada"
 
 #: ../data/caja.appdata.xml.in.h:1
 msgid "File manager for the MATE desktop environment"
@@ -371,6 +367,10 @@ msgid ""
 "extensible through a plugin system, similar to that of GNOME Nautilus, of "
 "which Caja is a fork. </p>"
 msgstr ""
+
+#: ../data/caja.xml.in.h:1
+msgid "Saved search"
+msgstr "Gueta guardada"
 
 #: ../eel/eel-canvas.c:1443 ../eel/eel-canvas.c:1444
 msgid "X"
@@ -552,9 +552,9 @@ msgstr "Execut_ar siempres esta aición"
 #. label, accelerator
 #. add the "Eject" menu item
 #: ../libcaja-private/caja-autorun.c:1163
-#: ../src/file-manager/fm-directory-view.c:7495
-#: ../src/file-manager/fm-directory-view.c:7523
-#: ../src/file-manager/fm-directory-view.c:7604
+#: ../src/file-manager/fm-directory-view.c:7500
+#: ../src/file-manager/fm-directory-view.c:7528
+#: ../src/file-manager/fm-directory-view.c:7609
 #: ../src/file-manager/fm-tree-view.c:1382 ../src/caja-places-sidebar.c:2742
 msgid "_Eject"
 msgstr "_Espulsar"
@@ -563,9 +563,9 @@ msgstr "_Espulsar"
 #. label, accelerator
 #. add the "Unmount" menu item
 #: ../libcaja-private/caja-autorun.c:1176
-#: ../src/file-manager/fm-directory-view.c:7491
-#: ../src/file-manager/fm-directory-view.c:7519
-#: ../src/file-manager/fm-directory-view.c:7600
+#: ../src/file-manager/fm-directory-view.c:7496
+#: ../src/file-manager/fm-directory-view.c:7524
+#: ../src/file-manager/fm-directory-view.c:7605
 #: ../src/file-manager/fm-tree-view.c:1373 ../src/caja-places-sidebar.c:2735
 msgid "_Unmount"
 msgstr "_Desmontar Volume"
@@ -594,7 +594,7 @@ msgstr "Pega'l testu atroxáu nel cartafueyu"
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-clipboard.c:470
-#: ../src/file-manager/fm-directory-view.c:7424
+#: ../src/file-manager/fm-directory-view.c:7429
 msgid "Select _All"
 msgstr "Esbill_alo Too"
 
@@ -617,7 +617,7 @@ msgstr "Usar _predetermináu"
 
 #: ../libcaja-private/caja-column-utilities.c:44
 #: ../libcaja-private/caja-mime-application-chooser.c:278
-#: ../src/file-manager/fm-list-view.c:1773
+#: ../src/file-manager/fm-list-view.c:1775
 msgid "Name"
 msgstr "Nome"
 
@@ -736,7 +736,7 @@ msgstr ""
 #: ../libcaja-private/caja-customization-data.c:431
 #: ../libcaja-private/caja-file-conflict-dialog.c:663
 #: ../libcaja-private/caja-mime-application-chooser.c:449
-#: ../src/caja-property-browser.c:1991
+#: ../src/caja-property-browser.c:2051
 msgid "Reset"
 msgstr "Restablecer"
 
@@ -744,23 +744,6 @@ msgstr "Restablecer"
 #: ../libcaja-private/caja-desktop-icon-file.c:158
 msgid "on the desktop"
 msgstr "nel escritoriu"
-
-#: ../libcaja-private/caja-desktop-link-monitor.c:105
-#, c-format
-msgid "You cannot move the volume \"%s\" to the trash."
-msgstr "Nun pue mover el volume «%s» a la papelera."
-
-#: ../libcaja-private/caja-desktop-link-monitor.c:116
-msgid ""
-"If you want to eject the volume, please use \"Eject\" in the popup menu of "
-"the volume."
-msgstr "Si quier espulsar el volume, use la opción «Espulsar» del menú emerxente del volume."
-
-#: ../libcaja-private/caja-desktop-link-monitor.c:127
-msgid ""
-"If you want to unmount the volume, please use \"Unmount Volume\" in the "
-"popup menu of the volume."
-msgstr "Si quier desmontar el volume, use la opción «Desmontar volume» del menú emerxente del volume."
 
 #. Note to translators: If it's hard to compose a good home
 #. * icon name from the user name, you can use a string without
@@ -1050,8 +1033,8 @@ msgstr[1] "%'d hores aproximadamente"
 #. * (e.g. "folder", "plain text") to file type for symbolic link
 #. * to that kind of file (e.g. "link to folder").
 #: ../libcaja-private/caja-file-operations.c:377
-#: ../libcaja-private/caja-file.c:6438
-#: ../src/file-manager/fm-directory-view.c:10616
+#: ../libcaja-private/caja-file.c:6409
+#: ../src/file-manager/fm-directory-view.c:10622
 #, c-format
 msgid "Link to %s"
 msgstr "Enllaz haza %s"
@@ -1700,12 +1683,12 @@ msgstr "Vaciando la papelera"
 msgid "Unable to mark launcher trusted (executable)"
 msgstr "Nun puede marcase'l llanzador confiáu (executable)"
 
-#: ../libcaja-private/caja-file-utilities.c:1400
+#: ../libcaja-private/caja-file-utilities.c:1207
 #, c-format
 msgid "Could not determine original location of \"%s\" "
 msgstr "Nun pudo determinase l'allugamientu orixinal de «%s» "
 
-#: ../libcaja-private/caja-file-utilities.c:1404
+#: ../libcaja-private/caja-file-utilities.c:1211
 msgid "The item cannot be restored from trash"
 msgstr "Nun pue restaurase l'elementu dende la papelera"
 
@@ -1773,7 +1756,7 @@ msgid "today at 00:00:00 PM"
 msgstr "güei a les 00:00:00 pm"
 
 #: ../libcaja-private/caja-file.c:4476
-#: ../src/caja-file-management-properties.c:520
+#: ../src/caja-file-management-properties.c:519
 msgid "today at %-I:%M:%S %p"
 msgstr "güei a les %-I:%M:%S %p"
 
@@ -1887,47 +1870,47 @@ msgstr "00/00/00"
 msgid "%m/%d/%y"
 msgstr "%d/%m/%y"
 
-#: ../libcaja-private/caja-file.c:5175
+#: ../libcaja-private/caja-file.c:5146
 #, c-format
 msgid "Not allowed to set permissions"
 msgstr "Nun se-y permite afitar permisos"
 
-#: ../libcaja-private/caja-file.c:5469
+#: ../libcaja-private/caja-file.c:5440
 #, c-format
 msgid "Not allowed to set owner"
 msgstr "Nun se-y permite afitar el propietariu"
 
-#: ../libcaja-private/caja-file.c:5487
+#: ../libcaja-private/caja-file.c:5458
 #, c-format
 msgid "Specified owner '%s' doesn't exist"
 msgstr "El propietariu especificáu «%s» nun esiste"
 
-#: ../libcaja-private/caja-file.c:5747
+#: ../libcaja-private/caja-file.c:5718
 #, c-format
 msgid "Not allowed to set group"
 msgstr "Nun se-y permite afitar el grupu"
 
-#: ../libcaja-private/caja-file.c:5765
+#: ../libcaja-private/caja-file.c:5736
 #, c-format
 msgid "Specified group '%s' doesn't exist"
 msgstr "El grupu especificáu «%s» nun esiste"
 
-#: ../libcaja-private/caja-file.c:5919
-#: ../src/file-manager/fm-directory-view.c:2446
+#: ../libcaja-private/caja-file.c:5890
+#: ../src/file-manager/fm-directory-view.c:2450
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
 msgstr[0] "%'u elementu"
 msgstr[1] "%'u elementos"
 
-#: ../libcaja-private/caja-file.c:5920
+#: ../libcaja-private/caja-file.c:5891
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
 msgstr[0] "%'u carpeta"
 msgstr[1] "%'u carpetes"
 
-#: ../libcaja-private/caja-file.c:5921
+#: ../libcaja-private/caja-file.c:5892
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
@@ -1936,49 +1919,49 @@ msgstr[1] "%'u ficheros"
 
 #. Do this in a separate stage so that we don't have to put G_GUINT64_FORMAT
 #. in the translated string
-#: ../libcaja-private/caja-file.c:6008
+#: ../libcaja-private/caja-file.c:5979
 msgid "%"
 msgstr "%"
 
-#: ../libcaja-private/caja-file.c:6009
+#: ../libcaja-private/caja-file.c:5980
 #, c-format
 msgid "%s (%s bytes)"
 msgstr "%s (%s bytes)"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6324 ../libcaja-private/caja-file.c:6340
+#: ../libcaja-private/caja-file.c:6295 ../libcaja-private/caja-file.c:6311
 msgid "? items"
 msgstr "? elementos"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6330
+#: ../libcaja-private/caja-file.c:6301
 msgid "? bytes"
 msgstr "? bytes"
 
-#: ../libcaja-private/caja-file.c:6345
+#: ../libcaja-private/caja-file.c:6316
 msgid "unknown type"
 msgstr "tipu desconocíu"
 
-#: ../libcaja-private/caja-file.c:6348
+#: ../libcaja-private/caja-file.c:6319
 msgid "unknown MIME type"
 msgstr "Tipu MIME desconocíu"
 
 #. Fallback, use for both unknown attributes and attributes
 #. * for which we have no more appropriate default.
-#: ../libcaja-private/caja-file.c:6362
+#: ../libcaja-private/caja-file.c:6333
 #: ../src/file-manager/fm-properties-window.c:1359
 msgid "unknown"
 msgstr "desconocíu"
 
-#: ../libcaja-private/caja-file.c:6412
+#: ../libcaja-private/caja-file.c:6383
 msgid "program"
 msgstr "programa"
 
-#: ../libcaja-private/caja-file.c:6432
+#: ../libcaja-private/caja-file.c:6403
 msgid "link"
 msgstr "enllaz"
 
-#: ../libcaja-private/caja-file.c:6454
+#: ../libcaja-private/caja-file.c:6425
 msgid "link (broken)"
 msgstr "enllaz (frañáu)"
 
@@ -1987,79 +1970,79 @@ msgstr "enllaz (frañáu)"
 msgid "The selection rectangle"
 msgstr "El reutángulu de seleición"
 
-#: ../libcaja-private/caja-mime-actions.c:755
+#: ../libcaja-private/caja-mime-actions.c:718
 #, c-format
 msgid "The Link \"%s\" is Broken."
 msgstr "L'Enllaz \"%s\" ta Frayáu."
 
-#: ../libcaja-private/caja-mime-actions.c:759
+#: ../libcaja-private/caja-mime-actions.c:722
 #, c-format
 msgid "The Link \"%s\" is Broken. Move it to Trash?"
 msgstr "L'enllaz «%s» ta frañáu. ¿Quier movelu a la papelera?"
 
-#: ../libcaja-private/caja-mime-actions.c:766
+#: ../libcaja-private/caja-mime-actions.c:729
 msgid "This link cannot be used, because it has no target."
 msgstr "Esti enllaz nun pue usase porque nun tien destín."
 
-#: ../libcaja-private/caja-mime-actions.c:770
+#: ../libcaja-private/caja-mime-actions.c:733
 #, c-format
 msgid "This link cannot be used, because its target \"%s\" doesn't exist."
 msgstr "Esti enllaz nun pue usase, porque'l so destín «%s» nun esiste."
 
 #. name, stock id
 #. label, accelerator
-#: ../libcaja-private/caja-mime-actions.c:781
-#: ../src/file-manager/fm-directory-view.c:7452
-#: ../src/file-manager/fm-directory-view.c:7584
-#: ../src/file-manager/fm-directory-view.c:8684
-#: ../src/file-manager/fm-directory-view.c:9009
+#: ../libcaja-private/caja-mime-actions.c:744
+#: ../src/file-manager/fm-directory-view.c:7457
+#: ../src/file-manager/fm-directory-view.c:7589
+#: ../src/file-manager/fm-directory-view.c:8690
+#: ../src/file-manager/fm-directory-view.c:9015
 #: ../src/file-manager/fm-tree-view.c:1346
 msgid "Mo_ve to Trash"
 msgstr "Mo_ver a la Papelera"
 
-#: ../libcaja-private/caja-mime-actions.c:843
+#: ../libcaja-private/caja-mime-actions.c:806
 #, c-format
 msgid "Do you want to run \"%s\", or display its contents?"
 msgstr "¿Quier executar \"%s\", o amosar el so conteníu?"
 
-#: ../libcaja-private/caja-mime-actions.c:845
+#: ../libcaja-private/caja-mime-actions.c:808
 #, c-format
 msgid "\"%s\" is an executable text file."
 msgstr "\"%s\" ye un ficheru de testu executable."
 
-#: ../libcaja-private/caja-mime-actions.c:851
+#: ../libcaja-private/caja-mime-actions.c:814
 msgid "Run in _Terminal"
 msgstr "Executar na _Terminal"
 
-#: ../libcaja-private/caja-mime-actions.c:852
+#: ../libcaja-private/caja-mime-actions.c:815
 msgid "_Display"
 msgstr "_Amosar"
 
-#: ../libcaja-private/caja-mime-actions.c:855
+#: ../libcaja-private/caja-mime-actions.c:818
 #: ../src/caja-autorun-software.c:258
 msgid "_Run"
 msgstr "Executa_r"
 
-#: ../libcaja-private/caja-mime-actions.c:1209
-#: ../src/file-manager/fm-directory-view.c:656
+#: ../libcaja-private/caja-mime-actions.c:1172
+#: ../src/file-manager/fm-directory-view.c:660
 msgid "Are you sure you want to open all files?"
 msgstr "¿Daveres que deseya abrir tolos ficheros?"
 
-#: ../libcaja-private/caja-mime-actions.c:1212
+#: ../libcaja-private/caja-mime-actions.c:1175
 #, c-format
 msgid "This will open %d separate tab."
 msgid_plural "This will open %d separate tabs."
 msgstr[0] "Esto abrirá %d llingüeta separtada."
 msgstr[1] "Esto abrirá %d llingüetes separtaes."
 
-#: ../libcaja-private/caja-mime-actions.c:1217 ../src/caja-location-bar.c:194
+#: ../libcaja-private/caja-mime-actions.c:1180 ../src/caja-location-bar.c:194
 #, c-format
 msgid "This will open %d separate window."
 msgid_plural "This will open %d separate windows."
 msgstr[0] "Esto abrirá %d ventana separtada."
 msgstr[1] "Esto abrirá %d ventanes separtaes."
 
-#: ../libcaja-private/caja-mime-actions.c:1295
+#: ../libcaja-private/caja-mime-actions.c:1258
 #: ../src/caja-window-manage-views.c:2117
 #: ../src/caja-window-manage-views.c:2125
 #: ../src/caja-window-manage-views.c:2145
@@ -2070,70 +2053,70 @@ msgstr[1] "Esto abrirá %d ventanes separtaes."
 msgid "Could not display \"%s\"."
 msgstr "Nun pudo amosase «%s»."
 
-#: ../libcaja-private/caja-mime-actions.c:1382
+#: ../libcaja-private/caja-mime-actions.c:1345
 msgid "The file is of an unknown type"
 msgstr "El ficheru ye de un tipu desconocíu"
 
-#: ../libcaja-private/caja-mime-actions.c:1386
+#: ../libcaja-private/caja-mime-actions.c:1349
 #, c-format
 msgid "There is no application installed for %s files"
 msgstr "Nun hai denguna aplicación instalada pa los ficheros %s"
 
-#: ../libcaja-private/caja-mime-actions.c:1401
+#: ../libcaja-private/caja-mime-actions.c:1364
 msgid "_Select Application"
 msgstr ""
 
-#: ../libcaja-private/caja-mime-actions.c:1439
+#: ../libcaja-private/caja-mime-actions.c:1402
 msgid "There was an internal error trying to search for applications:"
 msgstr "Hebo un fallu internu intentando dar coles aplicaciones:"
 
-#: ../libcaja-private/caja-mime-actions.c:1441
+#: ../libcaja-private/caja-mime-actions.c:1404
 msgid "Unable to search for application"
 msgstr "Nun pudo restolase denguna aplicación"
 
-#: ../libcaja-private/caja-mime-actions.c:1567
+#: ../libcaja-private/caja-mime-actions.c:1530
 #, c-format
 msgid ""
 "There is no application installed for %s files.\n"
 "Do you want to search for an application to open this file?"
 msgstr "Nun hai denguna aplicación instalada pa los ficheros %s.\n¿Prestaría-y guetar una aplicación p'abrir esti ficheru?"
 
-#: ../libcaja-private/caja-mime-actions.c:1731
+#: ../libcaja-private/caja-mime-actions.c:1694
 msgid "Untrusted application launcher"
 msgstr "Llanzador d'aplicación ensin confianza"
 
-#: ../libcaja-private/caja-mime-actions.c:1734
+#: ../libcaja-private/caja-mime-actions.c:1697
 #, c-format
 msgid ""
 "The application launcher \"%s\" has not been marked as trusted. If you do "
 "not know the source of this file, launching it may be unsafe."
 msgstr "El llanzador de l'aplicación «%s» nun se conseño como confiáu. Si nun conoces l'orixe del ficheru, llanzalu puede que nun seya seguro."
 
-#: ../libcaja-private/caja-mime-actions.c:1749
+#: ../libcaja-private/caja-mime-actions.c:1712
 msgid "_Launch Anyway"
 msgstr "_Llanzar de toes formes"
 
-#: ../libcaja-private/caja-mime-actions.c:1753
+#: ../libcaja-private/caja-mime-actions.c:1716
 msgid "Mark as _Trusted"
 msgstr "Conseñar como de con_fianza"
 
-#: ../libcaja-private/caja-mime-actions.c:2049
-#: ../libcaja-private/caja-mime-actions.c:2355
-#: ../src/file-manager/fm-directory-view.c:6470
+#: ../libcaja-private/caja-mime-actions.c:2012
+#: ../libcaja-private/caja-mime-actions.c:2318
+#: ../src/file-manager/fm-directory-view.c:6475
 msgid "Unable to mount location"
 msgstr "Nun pudo montase'l llugar"
 
-#: ../libcaja-private/caja-mime-actions.c:2443
-#: ../src/file-manager/fm-directory-view.c:6644
+#: ../libcaja-private/caja-mime-actions.c:2406
+#: ../src/file-manager/fm-directory-view.c:6649
 msgid "Unable to start location"
 msgstr "Nun pudo aniciase'l llugar"
 
-#: ../libcaja-private/caja-mime-actions.c:2536
+#: ../libcaja-private/caja-mime-actions.c:2499
 #, c-format
 msgid "Opening \"%s\"."
 msgstr "Abriendo \"%s\"."
 
-#: ../libcaja-private/caja-mime-actions.c:2541
+#: ../libcaja-private/caja-mime-actions.c:2504
 #, c-format
 msgid "Opening %d item."
 msgid_plural "Opening %d items."
@@ -2233,8 +2216,8 @@ msgstr "_Agüeyar..."
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-open-with-dialog.c:970
-#: ../src/file-manager/fm-directory-view.c:7368
-#: ../src/file-manager/fm-directory-view.c:8878
+#: ../src/file-manager/fm-directory-view.c:7373
+#: ../src/file-manager/fm-directory-view.c:8884
 #: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2684
 msgid "_Open"
 msgstr "A_brir"
@@ -3466,7 +3449,7 @@ msgstr "Programa d'autoexecución"
 #: ../data/caja-browser.desktop.in.in.h:1
 #: ../data/caja-folder-handler.desktop.in.in.h:1
 #: ../data/caja.desktop.in.in.h:1 ../src/caja-spatial-window.c:382
-#: ../src/caja-window-menus.c:536 ../src/caja-window.c:179
+#: ../src/caja-window-menus.c:532 ../src/caja-window.c:183
 msgid "Caja"
 msgstr "Caja"
 
@@ -3479,7 +3462,7 @@ msgid "Browse the file system with the file manager"
 msgstr "Restole pel sistema de ficheros col alministrador de ficheros"
 
 #. tooltip
-#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:898
+#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:894
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
 msgstr "Desamina tolos discos remotos y carpetes accesibles dende esti equipu"
@@ -3498,7 +3481,7 @@ msgstr "Carpeta Home"
 
 #. tooltip
 #: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:522
-#: ../src/caja-window-menus.c:893
+#: ../src/caja-window-menus.c:889
 msgid "Open your personal folder"
 msgstr "Abrir la so carpeta personal"
 
@@ -3506,124 +3489,124 @@ msgstr "Abrir la so carpeta personal"
 msgid "File Manager"
 msgstr "Alministrador de Ficheros"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:719
+#: ../src/file-manager/fm-desktop-icon-view.c:722
 msgid "Background"
 msgstr "Fondu"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:796
-#: ../src/file-manager/fm-directory-view.c:7400
-#: ../src/file-manager/fm-directory-view.c:9078
+#: ../src/file-manager/fm-desktop-icon-view.c:799
+#: ../src/file-manager/fm-directory-view.c:7405
+#: ../src/file-manager/fm-directory-view.c:9084
 msgid "E_mpty Trash"
 msgstr "V_aciar papelera"
 
 #. label, accelerator
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:810
-#: ../src/file-manager/fm-directory-view.c:7364
+#: ../src/file-manager/fm-desktop-icon-view.c:813
+#: ../src/file-manager/fm-directory-view.c:7369
 msgid "Create L_auncher..."
 msgstr "Crear Ll_anzador..."
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:812
-#: ../src/file-manager/fm-directory-view.c:7365
+#: ../src/file-manager/fm-desktop-icon-view.c:815
+#: ../src/file-manager/fm-directory-view.c:7370
 msgid "Create a new launcher"
 msgstr "Crear un nuevu llanzador"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:819
+#: ../src/file-manager/fm-desktop-icon-view.c:822
 msgid "Change Desktop _Background"
 msgstr "Cambiar _Fondu d'Escritoriu"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:821
+#: ../src/file-manager/fm-desktop-icon-view.c:824
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr "Amuesa una ventana que-y dexa configurar el patrón del fondu o el color del so escritoriu"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:828
+#: ../src/file-manager/fm-desktop-icon-view.c:831
 msgid "Empty Trash"
 msgstr "Vaciar Papelera"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:830
-#: ../src/file-manager/fm-directory-view.c:7401 ../src/caja-trash-bar.c:208
+#: ../src/file-manager/fm-desktop-icon-view.c:833
+#: ../src/file-manager/fm-directory-view.c:7406 ../src/caja-trash-bar.c:208
 msgid "Delete all items in the Trash"
 msgstr "Desaniciar tolos elementos qu'hai na papelera"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:930
+#: ../src/file-manager/fm-desktop-icon-view.c:933
 msgid "The desktop view encountered an error."
 msgstr "La vista d'escritoriu alcontró un fallu."
 
-#: ../src/file-manager/fm-desktop-icon-view.c:931
+#: ../src/file-manager/fm-desktop-icon-view.c:934
 msgid "The desktop view encountered an error while starting up."
 msgstr "La vista d'escritoriu alcontró un fallu mentantu s'aniciaba."
 
-#: ../src/file-manager/fm-directory-view.c:658
+#: ../src/file-manager/fm-directory-view.c:662
 #, c-format
 msgid "This will open %'d separate tab."
 msgid_plural "This will open %'d separate tabs."
 msgstr[0] "Esto abrirá %'d llingüeta separtada."
 msgstr[1] "Esto abrirá %'d llingüetes separtaes."
 
-#: ../src/file-manager/fm-directory-view.c:661
+#: ../src/file-manager/fm-directory-view.c:665
 #, c-format
 msgid "This will open %'d separate window."
 msgid_plural "This will open %'d separate windows."
 msgstr[0] "Esto abrirá %'d ventana separtada."
 msgstr[1] "Esto abrirá %'d ventanes separtaes"
 
-#: ../src/file-manager/fm-directory-view.c:1180
+#: ../src/file-manager/fm-directory-view.c:1184
 #: ../src/file-manager/fm-properties-window.c:6491
 #: ../src/caja-connect-server-dialog.c:731 ../src/caja-location-dialog.c:106
 msgid "There was an error displaying help."
 msgstr "Hebo un fallu al amosar l'aida."
 
-#: ../src/file-manager/fm-directory-view.c:1204
+#: ../src/file-manager/fm-directory-view.c:1208
 msgid "Select Items Matching"
 msgstr "Seleicionar elementos que concasen con"
 
-#: ../src/file-manager/fm-directory-view.c:1219
+#: ../src/file-manager/fm-directory-view.c:1223
 msgid "_Pattern:"
 msgstr "_Patrón:"
 
-#: ../src/file-manager/fm-directory-view.c:1230
+#: ../src/file-manager/fm-directory-view.c:1234
 msgid "Examples: "
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:1377
+#: ../src/file-manager/fm-directory-view.c:1381
 msgid "Save Search as"
 msgstr "Guardar gueta como"
 
-#: ../src/file-manager/fm-directory-view.c:1409
+#: ../src/file-manager/fm-directory-view.c:1413
 msgid "Search _name:"
 msgstr "_Nome de la gueta:"
 
-#: ../src/file-manager/fm-directory-view.c:1437
+#: ../src/file-manager/fm-directory-view.c:1441
 msgid "_Folder:"
 msgstr "_Carpetes:"
 
-#: ../src/file-manager/fm-directory-view.c:1450
+#: ../src/file-manager/fm-directory-view.c:1454
 msgid "Select Folder to Save Search In"
 msgstr "Seleicione la carpeta na que guardar la gueta"
 
-#: ../src/file-manager/fm-directory-view.c:2359
-#: ../src/file-manager/fm-directory-view.c:2396
+#: ../src/file-manager/fm-directory-view.c:2363
+#: ../src/file-manager/fm-directory-view.c:2400
 #, c-format
 msgid "\"%s\" selected"
 msgstr "«%s» seleicionáu"
 
-#: ../src/file-manager/fm-directory-view.c:2361
+#: ../src/file-manager/fm-directory-view.c:2365
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
 msgstr[0] "%'d carpeta seleicionada"
 msgstr[1] "%'d carpetes seleicionaes"
 
-#: ../src/file-manager/fm-directory-view.c:2371
+#: ../src/file-manager/fm-directory-view.c:2375
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
@@ -3632,14 +3615,14 @@ msgstr[1] " (contién %'d elementos)"
 
 #. translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
-#: ../src/file-manager/fm-directory-view.c:2382
+#: ../src/file-manager/fm-directory-view.c:2386
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
 msgstr[0] " (contién un total de %'d elementu)"
 msgstr[1] " (contién un total de %'d elementos)"
 
-#: ../src/file-manager/fm-directory-view.c:2399
+#: ../src/file-manager/fm-directory-view.c:2403
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
@@ -3647,7 +3630,7 @@ msgstr[0] "%'d elementu seleicionáu"
 msgstr[1] "%'d elementos seleicionaos"
 
 #. Folders selected also, use "other" terminology
-#: ../src/file-manager/fm-directory-view.c:2406
+#: ../src/file-manager/fm-directory-view.c:2410
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
@@ -3658,17 +3641,17 @@ msgstr[1] "otros %'d elementos seleicionaos"
 #. * needs to use something other than parentheses. The
 #. * first message gives the number of items selected;
 #. * the message in parentheses the size of those items.
-#: ../src/file-manager/fm-directory-view.c:2425
+#: ../src/file-manager/fm-directory-view.c:2429
 #, c-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-directory-view.c:2438
+#: ../src/file-manager/fm-directory-view.c:2442
 #, c-format
 msgid "Free space: %s"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:2449
+#: ../src/file-manager/fm-directory-view.c:2453
 #, c-format
 msgid "%s, Free space: %s"
 msgstr "%s, espaciu llibre: %s"
@@ -3677,7 +3660,7 @@ msgstr "%s, espaciu llibre: %s"
 #. * might want to change "," to something else.
 #. * After the comma the amount of free space will
 #. * be shown.
-#: ../src/file-manager/fm-directory-view.c:2464
+#: ../src/file-manager/fm-directory-view.c:2468
 #, c-format
 msgid "%s, %s"
 msgstr ""
@@ -3692,8 +3675,8 @@ msgstr ""
 #. * and the number of items in those folders and the
 #. * message about the number of other items and the
 #. * total size of those items.
-#: ../src/file-manager/fm-directory-view.c:2483
-#: ../src/file-manager/fm-directory-view.c:2497
+#: ../src/file-manager/fm-directory-view.c:2487
+#: ../src/file-manager/fm-directory-view.c:2501
 #, c-format
 msgid "%s%s, %s"
 msgstr "%s%s, %s"
@@ -3705,53 +3688,53 @@ msgstr "%s%s, %s"
 #. * message about the number of other items and the
 #. * total size of those items. After the second comma
 #. * the free space is written.
-#: ../src/file-manager/fm-directory-view.c:2510
+#: ../src/file-manager/fm-directory-view.c:2514
 #, c-format
 msgid "%s%s, %s, %s"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:4555
+#: ../src/file-manager/fm-directory-view.c:4560
 #: ../src/caja-information-panel.c:922
 #, c-format
 msgid "Open With %s"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:4557
+#: ../src/file-manager/fm-directory-view.c:4562
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
 msgstr[0] "Usar «%s» p'abrir l'elementu seleicionáu"
 msgstr[1] "Usar «%s» p'abrir los elementos seleicionaos"
 
-#: ../src/file-manager/fm-directory-view.c:4646
+#: ../src/file-manager/fm-directory-view.c:4651
 msgid "Open parent location"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:4647
+#: ../src/file-manager/fm-directory-view.c:4652
 msgid "Open parent location for the selected item"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:5505
+#: ../src/file-manager/fm-directory-view.c:5510
 #, c-format
 msgid "Run \"%s\" on any selected items"
 msgstr "Executar «%s» en cualesquier de los elementos seleicionaos"
 
-#: ../src/file-manager/fm-directory-view.c:5756
+#: ../src/file-manager/fm-directory-view.c:5761
 #, c-format
 msgid "Create Document from template \"%s\""
 msgstr "Criar un documentu dende la plantía «%s»"
 
-#: ../src/file-manager/fm-directory-view.c:6006
+#: ../src/file-manager/fm-directory-view.c:6011
 msgid "All executable files in this folder will appear in the Scripts menu."
 msgstr "Tolos ficheros executables nesta carpeta apaecerán nel menú «Scripts»."
 
-#: ../src/file-manager/fm-directory-view.c:6008
+#: ../src/file-manager/fm-directory-view.c:6013
 msgid ""
 "Choosing a script from the menu will run that script with any selected items"
 " as input."
 msgstr "Seleicionando un script dende'l menú executará esi script usando cualesquier elementu seleicionáu como argumentu d'entrada."
 
-#: ../src/file-manager/fm-directory-view.c:6010
+#: ../src/file-manager/fm-directory-view.c:6015
 msgid ""
 "All executable files in this folder will appear in the Scripts menu. Choosing a script from the menu will run that script.\n"
 "\n"
@@ -3774,19 +3757,19 @@ msgid ""
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI for current location in the inactive pane of a split-view window"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:6078
+#: ../src/file-manager/fm-directory-view.c:6083
 #: ../src/file-manager/fm-tree-view.c:1009
 #, c-format
 msgid "\"%s\" will be moved if you select the Paste command"
 msgstr "«%s» moveráse si seleiciona'l comandu «Pegar»"
 
-#: ../src/file-manager/fm-directory-view.c:6082
+#: ../src/file-manager/fm-directory-view.c:6087
 #: ../src/file-manager/fm-tree-view.c:1015
 #, c-format
 msgid "\"%s\" will be copied if you select the Paste command"
 msgstr "«%s» copiaráse si seleiciona'l comandu «Pegar»"
 
-#: ../src/file-manager/fm-directory-view.c:6089
+#: ../src/file-manager/fm-directory-view.c:6094
 #, c-format
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
@@ -3794,7 +3777,7 @@ msgid_plural ""
 msgstr[0] "L'elementu seleicionáu (%'d) moveráse si seleiciona'l comandu «Apegar»"
 msgstr[1] "Los %'d elementos seleicionaos moveránse si seleiciona'l comandu «Apegar»"
 
-#: ../src/file-manager/fm-directory-view.c:6096
+#: ../src/file-manager/fm-directory-view.c:6101
 #, c-format
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
@@ -3802,98 +3785,98 @@ msgid_plural ""
 msgstr[0] "L'elementu seleicionáu (%'d) copiaráse si seleiciona'l comandu «Apegar»"
 msgstr[1] "Los %'d elementos seleicionaos copiaránse si seleiciona'l comandu «Apegar»"
 
-#: ../src/file-manager/fm-directory-view.c:6276
+#: ../src/file-manager/fm-directory-view.c:6281
 #: ../src/file-manager/fm-tree-view.c:1055
 msgid "There is nothing on the clipboard to paste."
 msgstr "Nun hai res pa pegar nel cartafueyos"
 
-#: ../src/file-manager/fm-directory-view.c:6491
+#: ../src/file-manager/fm-directory-view.c:6496
 msgid "Unable to unmount location"
 msgstr "Nun pudo desmontase'l llugar"
 
-#: ../src/file-manager/fm-directory-view.c:6512
+#: ../src/file-manager/fm-directory-view.c:6517
 msgid "Unable to eject location"
 msgstr "Nun pudo espulsase'l llugar"
 
-#: ../src/file-manager/fm-directory-view.c:6527
+#: ../src/file-manager/fm-directory-view.c:6532
 msgid "Unable to stop drive"
 msgstr "Nun pudo parase la unidá"
 
-#: ../src/file-manager/fm-directory-view.c:7084
+#: ../src/file-manager/fm-directory-view.c:7089
 #, c-format
 msgid "Connect to Server %s"
 msgstr "Coneutar al Sirvidor %s"
 
-#: ../src/file-manager/fm-directory-view.c:7089
-#: ../src/file-manager/fm-directory-view.c:8297
-#: ../src/file-manager/fm-directory-view.c:8389
-#: ../src/file-manager/fm-directory-view.c:8499
+#: ../src/file-manager/fm-directory-view.c:7094
+#: ../src/file-manager/fm-directory-view.c:8303
+#: ../src/file-manager/fm-directory-view.c:8395
+#: ../src/file-manager/fm-directory-view.c:8505
 msgid "_Connect"
 msgstr "_Coneutar"
 
-#: ../src/file-manager/fm-directory-view.c:7103
+#: ../src/file-manager/fm-directory-view.c:7108
 msgid "Link _name:"
 msgstr "_Nome d'enllaz:"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7342
+#: ../src/file-manager/fm-directory-view.c:7347
 msgid "Create _Document"
 msgstr "Crear _Documentu"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7343
+#: ../src/file-manager/fm-directory-view.c:7348
 msgid "Open Wit_h"
 msgstr "Abrir C_on"
 
-#: ../src/file-manager/fm-directory-view.c:7344
+#: ../src/file-manager/fm-directory-view.c:7349
 msgid "Choose a program with which to open the selected item"
 msgstr "Escueya un programa col qu'abrir l'artículu esbilláu"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7346
-#: ../src/file-manager/fm-directory-view.c:7625
+#: ../src/file-manager/fm-directory-view.c:7351
+#: ../src/file-manager/fm-directory-view.c:7630
 msgid "_Properties"
 msgstr "_Propiedaes"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7347
-#: ../src/file-manager/fm-directory-view.c:9065
+#: ../src/file-manager/fm-directory-view.c:7352
+#: ../src/file-manager/fm-directory-view.c:9071
 msgid "View or modify the properties of each selected item"
 msgstr "Ver o modificar les propiedades de cada artículu esbilláu"
 
 #. name, stock id
 #. label, accelerator
 #. add the "create folder" menu item
-#: ../src/file-manager/fm-directory-view.c:7354
+#: ../src/file-manager/fm-directory-view.c:7359
 #: ../src/file-manager/fm-tree-view.c:1298
 msgid "Create _Folder"
 msgstr "Crear Car_peta"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7355
+#: ../src/file-manager/fm-directory-view.c:7360
 msgid "Create a new empty folder inside this folder"
 msgstr "Cria una carpeta nueva erma dientro d'esta carpeta"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7357
+#: ../src/file-manager/fm-directory-view.c:7362
 msgid "No templates installed"
 msgstr "Nun hai plantíes instalaes"
 
 #. name, stock id
 #. translators: this is used to indicate that a file doesn't contain anything
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7360
+#: ../src/file-manager/fm-directory-view.c:7365
 msgid "_Empty File"
 msgstr "Fich_eru Ermu"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7361
+#: ../src/file-manager/fm-directory-view.c:7366
 msgid "Create a new empty file inside this folder"
 msgstr "Cria un documentu nuevu ermu dientro d'esta carpeta"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7369
+#: ../src/file-manager/fm-directory-view.c:7374
 msgid "Open the selected item in this window"
 msgstr "Abre l'elementu seleicionáu nesta ventana"
 
@@ -3902,91 +3885,91 @@ msgstr "Abre l'elementu seleicionáu nesta ventana"
 #. Location-specific actions
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7376
-#: ../src/file-manager/fm-directory-view.c:7557
+#: ../src/file-manager/fm-directory-view.c:7381
+#: ../src/file-manager/fm-directory-view.c:7562
 msgid "Open in Navigation Window"
 msgstr "Abrir na ventana de ñavegación"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7377
+#: ../src/file-manager/fm-directory-view.c:7382
 msgid "Open each selected item in a navigation window"
 msgstr "Abre cada elementu seleicionáu nuna ventana de ñavegación"
 
 #. name, stock id
 #. label, accelerator
 #. add the "open in new tab" menu item
-#: ../src/file-manager/fm-directory-view.c:7380
-#: ../src/file-manager/fm-directory-view.c:7561
-#: ../src/file-manager/fm-directory-view.c:8629
-#: ../src/file-manager/fm-directory-view.c:8955
+#: ../src/file-manager/fm-directory-view.c:7385
+#: ../src/file-manager/fm-directory-view.c:7566
+#: ../src/file-manager/fm-directory-view.c:8635
+#: ../src/file-manager/fm-directory-view.c:8961
 #: ../src/file-manager/fm-tree-view.c:1278 ../src/caja-places-sidebar.c:2692
 msgid "Open in New _Tab"
 msgstr "Abrir nuna llingüeta nueva"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7381
+#: ../src/file-manager/fm-directory-view.c:7386
 msgid "Open each selected item in a new tab"
 msgstr "Abrir cada elementu seleicionáu nuna llingüeta nueva"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7384
-#: ../src/file-manager/fm-directory-view.c:7566
+#: ../src/file-manager/fm-directory-view.c:7389
+#: ../src/file-manager/fm-directory-view.c:7571
 msgid "Open in _Folder Window"
 msgstr "Abrir nuna ventana de ca_rpeta"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7385
+#: ../src/file-manager/fm-directory-view.c:7390
 msgid "Open each selected item in a folder window"
 msgstr "Abre cada elemento seleicionáu nuna ventana de carpeta"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7388
+#: ../src/file-manager/fm-directory-view.c:7393
 msgid "Other _Application..."
 msgstr "Otra _aplicación…"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7389
-#: ../src/file-manager/fm-directory-view.c:7393
+#: ../src/file-manager/fm-directory-view.c:7394
+#: ../src/file-manager/fm-directory-view.c:7398
 msgid "Choose another application with which to open the selected item"
 msgstr "Seleiciona otra aplicación cola qu'abrir l'elementu seleicionáu"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7392
+#: ../src/file-manager/fm-directory-view.c:7397
 msgid "Open With Other _Application..."
 msgstr ""
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7396
+#: ../src/file-manager/fm-directory-view.c:7401
 msgid "_Open Scripts Folder"
 msgstr "A_brir la Carpeta de Scripts"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7397
+#: ../src/file-manager/fm-directory-view.c:7402
 msgid "Show the folder containing the scripts that appear in this menu"
 msgstr "Amuesa la carpeta que contién los scripts qu'apaecen nesti menú"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7405
+#: ../src/file-manager/fm-directory-view.c:7410
 msgid "Prepare the selected files to be moved with a Paste command"
 msgstr "Tresna los ficheros seleicionaos pa movelos con un comandu «Pegar»"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7409
+#: ../src/file-manager/fm-directory-view.c:7414
 msgid "Prepare the selected files to be copied with a Paste command"
 msgstr "Tresna los ficheros seleicionaos pa copiase con un comandu «Pegar»"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7413
+#: ../src/file-manager/fm-directory-view.c:7418
 msgid "Move or copy files previously selected by a Cut or Copy command"
 msgstr "Mueve o copia ficheros previamente seleicionaos por un comandu «Cortar» o «Copiar»"
 
@@ -3994,140 +3977,140 @@ msgstr "Mueve o copia ficheros previamente seleicionaos por un comandu «Cortar�
 #. accelerator for paste
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7418
-#: ../src/file-manager/fm-directory-view.c:7579
+#: ../src/file-manager/fm-directory-view.c:7423
+#: ../src/file-manager/fm-directory-view.c:7584
 #: ../src/file-manager/fm-tree-view.c:1330
 msgid "_Paste Into Folder"
 msgstr "A_pegar na Carpeta"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7419
+#: ../src/file-manager/fm-directory-view.c:7424
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into the "
 "selected folder"
 msgstr "Mueve o copia ficheros previamente seleicionados por un comandu «Cortar» o «Copiar» na carpeta seleicionada"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7421
+#: ../src/file-manager/fm-directory-view.c:7426
 msgid "Cop_y to"
 msgstr ""
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7422
+#: ../src/file-manager/fm-directory-view.c:7427
 msgid "M_ove to"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7425
+#: ../src/file-manager/fm-directory-view.c:7430
 msgid "Select all items in this window"
 msgstr "Seleiciona tolos elementos qu'hai nesta ventana"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7428
+#: ../src/file-manager/fm-directory-view.c:7433
 msgid "Select I_tems Matching..."
 msgstr "Seleicionar e_lementos que concasen con…"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7429
+#: ../src/file-manager/fm-directory-view.c:7434
 msgid "Select items in this window matching a given pattern"
 msgstr "Seleiciona los elementos nesta ventana que concasen con un patrón dau"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7432
+#: ../src/file-manager/fm-directory-view.c:7437
 msgid "_Invert Selection"
 msgstr "_Invertir seleición"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7433
+#: ../src/file-manager/fm-directory-view.c:7438
 msgid "Select all and only the items that are not currently selected"
 msgstr "Seleiciona namái los elementos que nun tan seleicionaos anguaño"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7436
+#: ../src/file-manager/fm-directory-view.c:7441
 msgid "D_uplicate"
 msgstr "D_uplicar"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7437
+#: ../src/file-manager/fm-directory-view.c:7442
 msgid "Duplicate each selected item"
 msgstr "Duplica cada elementu seleicionáu"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7440
-#: ../src/file-manager/fm-directory-view.c:9049
+#: ../src/file-manager/fm-directory-view.c:7445
+#: ../src/file-manager/fm-directory-view.c:9055
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
 msgstr[0] "_Facer Enllaces"
 msgstr[1] "_Facer Enllaces"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7441
+#: ../src/file-manager/fm-directory-view.c:7446
 msgid "Create a symbolic link for each selected item"
 msgstr "Fai un enllaz simbólicu pa cada elementu seleicionáu"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7444
+#: ../src/file-manager/fm-directory-view.c:7449
 msgid "_Rename..."
 msgstr "_Renomar..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7445
+#: ../src/file-manager/fm-directory-view.c:7450
 msgid "Rename selected item"
 msgstr "Renoma l'elementu seleicionáu"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7453
-#: ../src/file-manager/fm-directory-view.c:9010
+#: ../src/file-manager/fm-directory-view.c:7458
+#: ../src/file-manager/fm-directory-view.c:9016
 msgid "Move each selected item to the Trash"
 msgstr "Mueve cada elementu seleicionáu a la papelera"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7456
-#: ../src/file-manager/fm-directory-view.c:7588
-#: ../src/file-manager/fm-directory-view.c:9030
+#: ../src/file-manager/fm-directory-view.c:7461
+#: ../src/file-manager/fm-directory-view.c:7593
+#: ../src/file-manager/fm-directory-view.c:9036
 #: ../src/file-manager/fm-tree-view.c:1360
 msgid "_Delete"
 msgstr "_Desaniciar"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7457
+#: ../src/file-manager/fm-directory-view.c:7462
 msgid "Delete each selected item, without moving to the Trash"
 msgstr "Desanicia cada elementu seleicionáu, ensin movelu a la papelera"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7460
-#: ../src/file-manager/fm-directory-view.c:7592
+#: ../src/file-manager/fm-directory-view.c:7465
+#: ../src/file-manager/fm-directory-view.c:7597
 msgid "_Restore"
 msgstr "_Restaurar"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7464
+#: ../src/file-manager/fm-directory-view.c:7469
 msgid "_Undo"
 msgstr "Desfacer"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7465
-#: ../src/file-manager/fm-directory-view.c:11218
+#: ../src/file-manager/fm-directory-view.c:7470
+#: ../src/file-manager/fm-directory-view.c:11227
 msgid "Undo the last action"
 msgstr ""
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7468
+#: ../src/file-manager/fm-directory-view.c:7473
 msgid "_Redo"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7469
-#: ../src/file-manager/fm-directory-view.c:11236
+#: ../src/file-manager/fm-directory-view.c:7474
+#: ../src/file-manager/fm-directory-view.c:11245
 msgid "Redo the last undone action"
 msgstr ""
 
@@ -4137,614 +4120,614 @@ msgstr ""
 #. * it is a mixture of both ATM.
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7479
+#: ../src/file-manager/fm-directory-view.c:7484
 msgid "Reset View to _Defaults"
 msgstr "_Restablecer la vista"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7480
+#: ../src/file-manager/fm-directory-view.c:7485
 msgid "Reset sorting order and zoom level to match preferences for this view"
 msgstr "Reafitar l'orde de colocación y el nivel d'ampliación p'axustase a les preferencies d'esta vista"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7483
+#: ../src/file-manager/fm-directory-view.c:7488
 msgid "Connect To This Server"
 msgstr "Coneutar a Esti Sirvidor"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7484
+#: ../src/file-manager/fm-directory-view.c:7489
 msgid "Make a permanent connection to this server"
 msgstr "Facer una conexón permanente a esti sirvidor"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7487
-#: ../src/file-manager/fm-directory-view.c:7515
-#: ../src/file-manager/fm-directory-view.c:7596
+#: ../src/file-manager/fm-directory-view.c:7492
+#: ../src/file-manager/fm-directory-view.c:7520
+#: ../src/file-manager/fm-directory-view.c:7601
 #: ../src/caja-places-sidebar.c:2728
 msgid "_Mount"
 msgstr "_Montar"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7488
+#: ../src/file-manager/fm-directory-view.c:7493
 msgid "Mount the selected volume"
 msgstr "Montar el volume esbilláu"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7492
+#: ../src/file-manager/fm-directory-view.c:7497
 msgid "Unmount the selected volume"
 msgstr "Desmontar el volume esbilláu"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7496
+#: ../src/file-manager/fm-directory-view.c:7501
 msgid "Eject the selected volume"
 msgstr "Espulsar el volume esbilláu"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7499
-#: ../src/file-manager/fm-directory-view.c:7527
-#: ../src/file-manager/fm-directory-view.c:7608
+#: ../src/file-manager/fm-directory-view.c:7504
+#: ../src/file-manager/fm-directory-view.c:7532
+#: ../src/file-manager/fm-directory-view.c:7613
 #: ../src/caja-places-sidebar.c:2756
 msgid "_Format"
 msgstr "_Formatear"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7500
+#: ../src/file-manager/fm-directory-view.c:7505
 msgid "Format the selected volume"
 msgstr "Formatear el volume esbilláu"
 
 #. name, stock id
 #. label, accelerator
 #. Adjust start/stop items to reflect the type of the drive
-#: ../src/file-manager/fm-directory-view.c:7503
-#: ../src/file-manager/fm-directory-view.c:7531
-#: ../src/file-manager/fm-directory-view.c:7612
-#: ../src/file-manager/fm-directory-view.c:8289
-#: ../src/file-manager/fm-directory-view.c:8293
-#: ../src/file-manager/fm-directory-view.c:8381
-#: ../src/file-manager/fm-directory-view.c:8385
-#: ../src/file-manager/fm-directory-view.c:8491
-#: ../src/file-manager/fm-directory-view.c:8495
+#: ../src/file-manager/fm-directory-view.c:7508
+#: ../src/file-manager/fm-directory-view.c:7536
+#: ../src/file-manager/fm-directory-view.c:7617
+#: ../src/file-manager/fm-directory-view.c:8295
+#: ../src/file-manager/fm-directory-view.c:8299
+#: ../src/file-manager/fm-directory-view.c:8387
+#: ../src/file-manager/fm-directory-view.c:8391
+#: ../src/file-manager/fm-directory-view.c:8497
+#: ../src/file-manager/fm-directory-view.c:8501
 #: ../src/caja-places-sidebar.c:1823 ../src/caja-places-sidebar.c:2763
 msgid "_Start"
 msgstr "_Entamar"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7504
+#: ../src/file-manager/fm-directory-view.c:7509
 msgid "Start the selected volume"
 msgstr "Aniciar el volume esbilláu"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7507
-#: ../src/file-manager/fm-directory-view.c:7535
-#: ../src/file-manager/fm-directory-view.c:7616
-#: ../src/file-manager/fm-directory-view.c:8318
-#: ../src/file-manager/fm-directory-view.c:8410
-#: ../src/file-manager/fm-directory-view.c:8520
+#: ../src/file-manager/fm-directory-view.c:7512
+#: ../src/file-manager/fm-directory-view.c:7540
+#: ../src/file-manager/fm-directory-view.c:7621
+#: ../src/file-manager/fm-directory-view.c:8324
+#: ../src/file-manager/fm-directory-view.c:8416
+#: ../src/file-manager/fm-directory-view.c:8526
 #: ../src/caja-places-sidebar.c:1824 ../src/caja-places-sidebar.c:2770
-#: ../src/caja-window-menus.c:837
+#: ../src/caja-window-menus.c:833
 msgid "_Stop"
 msgstr "_Parar"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7508
-#: ../src/file-manager/fm-directory-view.c:8521
+#: ../src/file-manager/fm-directory-view.c:7513
+#: ../src/file-manager/fm-directory-view.c:8527
 msgid "Stop the selected volume"
 msgstr "Parar el volume esbilláu"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7511
-#: ../src/file-manager/fm-directory-view.c:7539
-#: ../src/file-manager/fm-directory-view.c:7620
+#: ../src/file-manager/fm-directory-view.c:7516
+#: ../src/file-manager/fm-directory-view.c:7544
+#: ../src/file-manager/fm-directory-view.c:7625
 #: ../src/caja-places-sidebar.c:2749
 msgid "_Detect Media"
 msgstr "_Deteutar Medios"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7512
-#: ../src/file-manager/fm-directory-view.c:7540
-#: ../src/file-manager/fm-directory-view.c:7621
+#: ../src/file-manager/fm-directory-view.c:7517
+#: ../src/file-manager/fm-directory-view.c:7545
+#: ../src/file-manager/fm-directory-view.c:7626
 msgid "Detect media in the selected drive"
 msgstr "Deteutar Media na unidá esbillada"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7516
+#: ../src/file-manager/fm-directory-view.c:7521
 msgid "Mount the volume associated with the open folder"
 msgstr "Monta'l volume asociáu cola carpeta abierta"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7520
+#: ../src/file-manager/fm-directory-view.c:7525
 msgid "Unmount the volume associated with the open folder"
 msgstr "Desmonta'l volume asociáu cola carpeta abierta"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7524
+#: ../src/file-manager/fm-directory-view.c:7529
 msgid "Eject the volume associated with the open folder"
 msgstr "Espulsa'l volume asociáu cola carpeta abierta"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7528
+#: ../src/file-manager/fm-directory-view.c:7533
 msgid "Format the volume associated with the open folder"
 msgstr "Formatea'l volume asociáu cola carpeta abierta"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7532
+#: ../src/file-manager/fm-directory-view.c:7537
 msgid "Start the volume associated with the open folder"
 msgstr "Aniciar el volume asociáu cola carpeta abierta"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7536
+#: ../src/file-manager/fm-directory-view.c:7541
 msgid "Stop the volume associated with the open folder"
 msgstr "Parar el volume asociáu cola carpeta abierta"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7543
+#: ../src/file-manager/fm-directory-view.c:7548
 msgid "Open File and Close window"
 msgstr "Abrir Ficheru y Zarrar ventana"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7547
+#: ../src/file-manager/fm-directory-view.c:7552
 msgid "Sa_ve Search"
 msgstr "G_uardar gueta"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7548
+#: ../src/file-manager/fm-directory-view.c:7553
 msgid "Save the edited search"
 msgstr "Guardar la gueta remanada"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7551
+#: ../src/file-manager/fm-directory-view.c:7556
 msgid "Sa_ve Search As..."
 msgstr "Guardar _Gueta como..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7552
+#: ../src/file-manager/fm-directory-view.c:7557
 msgid "Save the current search as a file"
 msgstr "Guarda la gueta autual como un ficheru"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7558
+#: ../src/file-manager/fm-directory-view.c:7563
 msgid "Open this folder in a navigation window"
 msgstr "Abre esta carpeta nuna ventana de ñavegación"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7562
+#: ../src/file-manager/fm-directory-view.c:7567
 msgid "Open this folder in a new tab"
 msgstr "Abrir esta carpeta nuna llingüeta nueva"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7567
+#: ../src/file-manager/fm-directory-view.c:7572
 msgid "Open this folder in a folder window"
 msgstr "Abre esta carpeta nuna ventana de carpeta"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7572
+#: ../src/file-manager/fm-directory-view.c:7577
 msgid "Prepare this folder to be moved with a Paste command"
 msgstr "Tresna esta carpeta pa movela con un comandu «Pegar»"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7576
+#: ../src/file-manager/fm-directory-view.c:7581
 msgid "Prepare this folder to be copied with a Paste command"
 msgstr "Tresna esta carpeta pa copiala con un comandu «Pegar»"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7580
+#: ../src/file-manager/fm-directory-view.c:7585
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into this "
 "folder"
 msgstr "Mover o copiar los ficheros previamente seleicionados por un comandu «Cortar» o «Copiar» nesta carpeta"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7585
+#: ../src/file-manager/fm-directory-view.c:7590
 msgid "Move this folder to the Trash"
 msgstr "Mover esta carpeta a la Basoria"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7589
+#: ../src/file-manager/fm-directory-view.c:7594
 msgid "Delete this folder, without moving to the Trash"
 msgstr "Esborrar esta carpeta ensin movela a la Basoria"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7597
+#: ../src/file-manager/fm-directory-view.c:7602
 msgid "Mount the volume associated with this folder"
 msgstr "Monta'l volume asociáu con esta carpeta"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7601
+#: ../src/file-manager/fm-directory-view.c:7606
 msgid "Unmount the volume associated with this folder"
 msgstr "Desmonta'l volume asociáu con esta carpeta"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7605
+#: ../src/file-manager/fm-directory-view.c:7610
 msgid "Eject the volume associated with this folder"
 msgstr "Espulsa'l volume asociáu con esta carpeta"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7609
+#: ../src/file-manager/fm-directory-view.c:7614
 msgid "Format the volume associated with this folder"
 msgstr "Formatea'l volume asociáu con esta carpeta"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7613
+#: ../src/file-manager/fm-directory-view.c:7618
 msgid "Start the volume associated with this folder"
 msgstr "Aniciar el volume asociáu con esta carpeta"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7617
+#: ../src/file-manager/fm-directory-view.c:7622
 msgid "Stop the volume associated with this folder"
 msgstr "Parar el volume asociáu con esta carpeta"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7626
+#: ../src/file-manager/fm-directory-view.c:7631
 msgid "View or modify the properties of this folder"
 msgstr "Adique o camude les propiedaes d'esta carpeta"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7629
-#: ../src/file-manager/fm-directory-view.c:7632
+#: ../src/file-manager/fm-directory-view.c:7634
+#: ../src/file-manager/fm-directory-view.c:7637
 msgid "_Other pane"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7630
+#: ../src/file-manager/fm-directory-view.c:7635
 msgid "Copy the current selection to the other pane in the window"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7633
+#: ../src/file-manager/fm-directory-view.c:7638
 msgid "Move the current selection to the other pane in the window"
 msgstr ""
 
 #. name, stock id, label
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7636
-#: ../src/file-manager/fm-directory-view.c:7640 ../src/caja-window-menus.c:892
+#: ../src/file-manager/fm-directory-view.c:7641
+#: ../src/file-manager/fm-directory-view.c:7645 ../src/caja-window-menus.c:888
 msgid "_Home Folder"
 msgstr "_Carpeta Home"
 
-#: ../src/file-manager/fm-directory-view.c:7637
+#: ../src/file-manager/fm-directory-view.c:7642
 msgid "Copy the current selection to the home folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7641
+#: ../src/file-manager/fm-directory-view.c:7646
 msgid "Move the current selection to the home folder"
 msgstr ""
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7644
-#: ../src/file-manager/fm-directory-view.c:7648
+#: ../src/file-manager/fm-directory-view.c:7649
+#: ../src/file-manager/fm-directory-view.c:7653
 msgid "_Desktop"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7645
+#: ../src/file-manager/fm-directory-view.c:7650
 msgid "Copy the current selection to the desktop"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7649
+#: ../src/file-manager/fm-directory-view.c:7654
 msgid "Move the current selection to the desktop"
 msgstr ""
 
 #. Translators: %s is a directory
-#: ../src/file-manager/fm-directory-view.c:7729
+#: ../src/file-manager/fm-directory-view.c:7734
 #, c-format
 msgid "Run or manage scripts from %s"
 msgstr "Executar o alministrar scripts de %s"
 
 #. Create a script action here specially because its tooltip is dynamic
-#: ../src/file-manager/fm-directory-view.c:7731
+#: ../src/file-manager/fm-directory-view.c:7736
 msgid "_Scripts"
 msgstr "_Scripts"
 
-#: ../src/file-manager/fm-directory-view.c:8137
+#: ../src/file-manager/fm-directory-view.c:8143
 #, c-format
 msgid "Move the open folder out of the trash to \"%s\""
 msgstr "Mover la carpeta abierta de la papelera a «%s»"
 
-#: ../src/file-manager/fm-directory-view.c:8140
+#: ../src/file-manager/fm-directory-view.c:8146
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
 msgstr[0] "Mover la carpeta seleicionada de la papelera a «%s»"
 msgstr[1] "Mover les carpetes seleicionaes de la papelera a «%s»"
 
-#: ../src/file-manager/fm-directory-view.c:8144
+#: ../src/file-manager/fm-directory-view.c:8150
 #, c-format
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
 msgstr[0] "Mover la carpeta seleicionada fuera de la papelera"
 msgstr[1] "Mover les carpetes seleicionaes fuera de la papelera"
 
-#: ../src/file-manager/fm-directory-view.c:8150
+#: ../src/file-manager/fm-directory-view.c:8156
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
 msgstr[0] "Mover el ficheru seleicionáu de la papelera a «%s»"
 msgstr[1] "Mover los ficheros seleicionaos de la papelera a «%s»"
 
-#: ../src/file-manager/fm-directory-view.c:8154
+#: ../src/file-manager/fm-directory-view.c:8160
 #, c-format
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
 msgstr[0] "Mover el ficheru seleicionáu fuera de la papelera"
 msgstr[1] "Mover los ficheros seleicionaos fuera de la papelera"
 
-#: ../src/file-manager/fm-directory-view.c:8160
+#: ../src/file-manager/fm-directory-view.c:8166
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
 msgstr[0] "Mover l'elementu seleicionáu de la papelera a «%s»"
 msgstr[1] "Mover los elementos seleicionaos de la papelera a «%s»"
 
-#: ../src/file-manager/fm-directory-view.c:8164
+#: ../src/file-manager/fm-directory-view.c:8170
 #, c-format
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
 msgstr[0] "Mover l'elementu seleicionáu fuera de la papelera"
 msgstr[1] "Mover los elementos seleicionaos fuera de la papelera"
 
-#: ../src/file-manager/fm-directory-view.c:8290
-#: ../src/file-manager/fm-directory-view.c:8294
-#: ../src/file-manager/fm-directory-view.c:8492
-#: ../src/file-manager/fm-directory-view.c:8496
+#: ../src/file-manager/fm-directory-view.c:8296
+#: ../src/file-manager/fm-directory-view.c:8300
+#: ../src/file-manager/fm-directory-view.c:8498
+#: ../src/file-manager/fm-directory-view.c:8502
 msgid "Start the selected drive"
 msgstr "Aniciar la unidá esbillada"
 
-#: ../src/file-manager/fm-directory-view.c:8298
-#: ../src/file-manager/fm-directory-view.c:8500
+#: ../src/file-manager/fm-directory-view.c:8304
+#: ../src/file-manager/fm-directory-view.c:8506
 msgid "Connect to the selected drive"
 msgstr "Coneutar cola unidá esbillada"
 
-#: ../src/file-manager/fm-directory-view.c:8301
-#: ../src/file-manager/fm-directory-view.c:8393
-#: ../src/file-manager/fm-directory-view.c:8503
+#: ../src/file-manager/fm-directory-view.c:8307
+#: ../src/file-manager/fm-directory-view.c:8399
+#: ../src/file-manager/fm-directory-view.c:8509
 msgid "_Start Multi-disk Drive"
 msgstr "_Aniciar unidá multidiscu"
 
-#: ../src/file-manager/fm-directory-view.c:8302
-#: ../src/file-manager/fm-directory-view.c:8504
+#: ../src/file-manager/fm-directory-view.c:8308
+#: ../src/file-manager/fm-directory-view.c:8510
 msgid "Start the selected multi-disk drive"
 msgstr "_Aniciar la unidá multidiscu esbillada"
 
-#: ../src/file-manager/fm-directory-view.c:8305
+#: ../src/file-manager/fm-directory-view.c:8311
 msgid "U_nlock Drive"
 msgstr "D_esbloquiar unidá"
 
-#: ../src/file-manager/fm-directory-view.c:8306
-#: ../src/file-manager/fm-directory-view.c:8508
+#: ../src/file-manager/fm-directory-view.c:8312
+#: ../src/file-manager/fm-directory-view.c:8514
 msgid "Unlock the selected drive"
 msgstr "Desbloquiar la unidá esbillada"
 
-#: ../src/file-manager/fm-directory-view.c:8319
+#: ../src/file-manager/fm-directory-view.c:8325
 msgid "Stop the selected drive"
 msgstr "Parar la unidá esbillada"
 
-#: ../src/file-manager/fm-directory-view.c:8322
-#: ../src/file-manager/fm-directory-view.c:8414
-#: ../src/file-manager/fm-directory-view.c:8524
+#: ../src/file-manager/fm-directory-view.c:8328
+#: ../src/file-manager/fm-directory-view.c:8420
+#: ../src/file-manager/fm-directory-view.c:8530
 #: ../src/caja-places-sidebar.c:1832
 msgid "_Safely Remove Drive"
 msgstr "Espulsar unidá de mou _seguru"
 
-#: ../src/file-manager/fm-directory-view.c:8323
-#: ../src/file-manager/fm-directory-view.c:8525
+#: ../src/file-manager/fm-directory-view.c:8329
+#: ../src/file-manager/fm-directory-view.c:8531
 msgid "Safely remove the selected drive"
 msgstr "Espulsar unidá de mou seguru"
 
-#: ../src/file-manager/fm-directory-view.c:8326
-#: ../src/file-manager/fm-directory-view.c:8418
-#: ../src/file-manager/fm-directory-view.c:8528
+#: ../src/file-manager/fm-directory-view.c:8332
+#: ../src/file-manager/fm-directory-view.c:8424
+#: ../src/file-manager/fm-directory-view.c:8534
 msgid "_Disconnect"
 msgstr "_Desconeutar"
 
-#: ../src/file-manager/fm-directory-view.c:8327
-#: ../src/file-manager/fm-directory-view.c:8529
+#: ../src/file-manager/fm-directory-view.c:8333
+#: ../src/file-manager/fm-directory-view.c:8535
 msgid "Disconnect the selected drive"
 msgstr "Desconeutar la unidá esbillada"
 
-#: ../src/file-manager/fm-directory-view.c:8330
-#: ../src/file-manager/fm-directory-view.c:8422
-#: ../src/file-manager/fm-directory-view.c:8532
+#: ../src/file-manager/fm-directory-view.c:8336
+#: ../src/file-manager/fm-directory-view.c:8428
+#: ../src/file-manager/fm-directory-view.c:8538
 msgid "_Stop Multi-disk Drive"
 msgstr "_Parar unidá multidiscu"
 
-#: ../src/file-manager/fm-directory-view.c:8331
-#: ../src/file-manager/fm-directory-view.c:8533
+#: ../src/file-manager/fm-directory-view.c:8337
+#: ../src/file-manager/fm-directory-view.c:8539
 msgid "Stop the selected multi-disk drive"
 msgstr "Parar la unidá multidiscu esbillada"
 
-#: ../src/file-manager/fm-directory-view.c:8334
-#: ../src/file-manager/fm-directory-view.c:8426
-#: ../src/file-manager/fm-directory-view.c:8536
+#: ../src/file-manager/fm-directory-view.c:8340
+#: ../src/file-manager/fm-directory-view.c:8432
+#: ../src/file-manager/fm-directory-view.c:8542
 #: ../src/caja-places-sidebar.c:1845
 msgid "_Lock Drive"
 msgstr "_Bloquiar unidá"
 
-#: ../src/file-manager/fm-directory-view.c:8335
-#: ../src/file-manager/fm-directory-view.c:8537
+#: ../src/file-manager/fm-directory-view.c:8341
+#: ../src/file-manager/fm-directory-view.c:8543
 msgid "Lock the selected drive"
 msgstr "Bloquiar la unidá esbillada"
 
-#: ../src/file-manager/fm-directory-view.c:8382
-#: ../src/file-manager/fm-directory-view.c:8386
+#: ../src/file-manager/fm-directory-view.c:8388
+#: ../src/file-manager/fm-directory-view.c:8392
 msgid "Start the drive associated with the open folder"
 msgstr "Aniciar la unidá asociada cola carpeta abierta"
 
-#: ../src/file-manager/fm-directory-view.c:8390
+#: ../src/file-manager/fm-directory-view.c:8396
 msgid "Connect to the drive associated with the open folder"
 msgstr "Coneutar cola unidá asociada cola carpeta abierta"
 
-#: ../src/file-manager/fm-directory-view.c:8394
+#: ../src/file-manager/fm-directory-view.c:8400
 msgid "Start the multi-disk drive associated with the open folder"
 msgstr "Aniciar la unidá multidiscu asociada cola carpeta abierta"
 
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
-#: ../src/file-manager/fm-directory-view.c:8397
-#: ../src/file-manager/fm-directory-view.c:8507
+#: ../src/file-manager/fm-directory-view.c:8403
+#: ../src/file-manager/fm-directory-view.c:8513
 #: ../src/caja-places-sidebar.c:1844
 msgid "_Unlock Drive"
 msgstr "_Desbloquiar unidá"
 
-#: ../src/file-manager/fm-directory-view.c:8398
+#: ../src/file-manager/fm-directory-view.c:8404
 msgid "Unlock the drive associated with the open folder"
 msgstr "Desbloquiar la unidá asociada cola carpeta abierta"
 
-#: ../src/file-manager/fm-directory-view.c:8411
+#: ../src/file-manager/fm-directory-view.c:8417
 msgid "_Stop the drive associated with the open folder"
 msgstr "_Parar la unidá asociada cola carpeta abierta"
 
-#: ../src/file-manager/fm-directory-view.c:8415
+#: ../src/file-manager/fm-directory-view.c:8421
 msgid "Safely remove the drive associated with the open folder"
 msgstr "Espulsar de mou seguru la unidá asociada cola carpeta abierta"
 
-#: ../src/file-manager/fm-directory-view.c:8419
+#: ../src/file-manager/fm-directory-view.c:8425
 msgid "Disconnect the drive associated with the open folder"
 msgstr "Desconeutar la unidá asociada cola carpeta abierta"
 
-#: ../src/file-manager/fm-directory-view.c:8423
+#: ../src/file-manager/fm-directory-view.c:8429
 msgid "Stop the multi-disk drive associated with the open folder"
 msgstr "Parar la unidá multidiscu asociada cola carpeta abierta"
 
-#: ../src/file-manager/fm-directory-view.c:8427
+#: ../src/file-manager/fm-directory-view.c:8433
 msgid "Lock the drive associated with the open folder"
 msgstr "Bloquiar la unidá asociada cola carpeta abierta"
 
 #. add the "open in new window" menu item
-#: ../src/file-manager/fm-directory-view.c:8606
-#: ../src/file-manager/fm-directory-view.c:8916
+#: ../src/file-manager/fm-directory-view.c:8612
+#: ../src/file-manager/fm-directory-view.c:8922
 #: ../src/file-manager/fm-tree-view.c:1287 ../src/caja-places-sidebar.c:2699
 msgid "Open in New _Window"
 msgstr "Abrir nuna _ventana nueva"
 
-#: ../src/file-manager/fm-directory-view.c:8608
-#: ../src/file-manager/fm-directory-view.c:8925
+#: ../src/file-manager/fm-directory-view.c:8614
+#: ../src/file-manager/fm-directory-view.c:8931
 msgid "Browse in New _Window"
 msgstr "Desaminar nuna _ventana nueva"
 
-#: ../src/file-manager/fm-directory-view.c:8614
-#: ../src/file-manager/fm-directory-view.c:8935
+#: ../src/file-manager/fm-directory-view.c:8620
+#: ../src/file-manager/fm-directory-view.c:8941
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
 msgstr[0] "_Güeyar carpeta"
 msgstr[1] "_Güeyar carpetes"
 
-#: ../src/file-manager/fm-directory-view.c:8631
-#: ../src/file-manager/fm-directory-view.c:8964
+#: ../src/file-manager/fm-directory-view.c:8637
+#: ../src/file-manager/fm-directory-view.c:8970
 msgid "Browse in New _Tab"
 msgstr "Desaminar nuna llin_güeta nueva"
 
-#: ../src/file-manager/fm-directory-view.c:8680
-#: ../src/file-manager/fm-directory-view.c:9005
+#: ../src/file-manager/fm-directory-view.c:8686
+#: ../src/file-manager/fm-directory-view.c:9011
 msgid "_Delete Permanently"
 msgstr "_Desaniciar dafechu"
 
-#: ../src/file-manager/fm-directory-view.c:8681
+#: ../src/file-manager/fm-directory-view.c:8687
 msgid "Delete the open folder permanently"
 msgstr "Esborrar dafechu la carpeta abierta"
 
-#: ../src/file-manager/fm-directory-view.c:8685
+#: ../src/file-manager/fm-directory-view.c:8691
 msgid "Move the open folder to the Trash"
 msgstr "Mover a la Basoria la carpeta abierta"
 
-#: ../src/file-manager/fm-directory-view.c:8865
+#: ../src/file-manager/fm-directory-view.c:8871
 #, c-format
 msgid "_Open With %s"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8918
+#: ../src/file-manager/fm-directory-view.c:8924
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
 msgstr[0] "Abrir en %'d _ventana nueva"
 msgstr[1] "Abrir en %'d _ventanes nueves"
 
-#: ../src/file-manager/fm-directory-view.c:8927
+#: ../src/file-manager/fm-directory-view.c:8933
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
 msgstr[0] "Desaminar en %'d _Ventana Nueva"
 msgstr[1] "Desaminar en %'d _Ventanes Nueves"
 
-#: ../src/file-manager/fm-directory-view.c:8957
+#: ../src/file-manager/fm-directory-view.c:8963
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
 msgstr[0] "Abrir en %'d llin_güeta nueva"
 msgstr[1] "Abrir en %'d llin_güetes nueves"
 
-#: ../src/file-manager/fm-directory-view.c:8966
+#: ../src/file-manager/fm-directory-view.c:8972
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
 msgstr[0] "Desaminar en %'d llingü_eta nueva"
 msgstr[1] "Desaminar en %'d llingü_etes nueves"
 
-#: ../src/file-manager/fm-directory-view.c:9006
+#: ../src/file-manager/fm-directory-view.c:9012
 msgid "Delete all selected items permanently"
 msgstr "Esborrar dafechu tolos artículos esbillaos"
 
-#: ../src/file-manager/fm-directory-view.c:9063
+#: ../src/file-manager/fm-directory-view.c:9069
 msgid "View or modify the properties of the open folder"
 msgstr "Ver o modificar les propiedaes de la carpeta abierta"
 
-#: ../src/file-manager/fm-directory-view.c:10366
+#: ../src/file-manager/fm-directory-view.c:10372
 msgid "Download location?"
 msgstr "¿Descargar la llocalización?"
 
-#: ../src/file-manager/fm-directory-view.c:10369
+#: ../src/file-manager/fm-directory-view.c:10375
 msgid "You can download it or make a link to it."
 msgstr "Pue descargalu o face-y un enllaz."
 
-#: ../src/file-manager/fm-directory-view.c:10372
+#: ../src/file-manager/fm-directory-view.c:10378
 msgid "Make a _Link"
 msgstr "Facer un En_llaz"
 
-#: ../src/file-manager/fm-directory-view.c:10376
+#: ../src/file-manager/fm-directory-view.c:10382
 msgid "_Download"
 msgstr "_Descargar"
 
-#: ../src/file-manager/fm-directory-view.c:10537
-#: ../src/file-manager/fm-directory-view.c:10596
-#: ../src/file-manager/fm-directory-view.c:10701
+#: ../src/file-manager/fm-directory-view.c:10543
+#: ../src/file-manager/fm-directory-view.c:10602
+#: ../src/file-manager/fm-directory-view.c:10707
 msgid "Drag and drop is not supported."
 msgstr "Nun ta soportao arrastrar y soltar."
 
-#: ../src/file-manager/fm-directory-view.c:10538
+#: ../src/file-manager/fm-directory-view.c:10544
 msgid "Drag and drop is only supported on local file systems."
 msgstr "Arrastrar y soltar namái ta soportao nos sistemes de ficheros llocales."
 
-#: ../src/file-manager/fm-directory-view.c:10597
-#: ../src/file-manager/fm-directory-view.c:10702
+#: ../src/file-manager/fm-directory-view.c:10603
+#: ../src/file-manager/fm-directory-view.c:10708
 msgid "An invalid drag type was used."
 msgstr "Usóse un tipu d'arrastre non válidu."
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10779
+#: ../src/file-manager/fm-directory-view.c:10785
 msgid "dropped text.txt"
 msgstr "soltóse testu.txt"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10824
+#: ../src/file-manager/fm-directory-view.c:10830
 msgid "dropped data"
 msgstr ""
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11217
+#: ../src/file-manager/fm-directory-view.c:11226
 msgid "Undo"
 msgstr ""
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11235
+#: ../src/file-manager/fm-directory-view.c:11244
 msgid "Redo"
 msgstr ""
 
@@ -4865,220 +4848,220 @@ msgstr "Renomando \"%s\" a \"%s\"."
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: ../src/file-manager/fm-icon-container.c:613
-#: ../src/file-manager/fm-icon-view.c:3395
+#: ../src/file-manager/fm-icon-view.c:3403
 #: ../src/caja-file-management-properties.ui.h:1
 msgid "Icon View"
 msgstr "Vista d'iconu"
 
-#: ../src/file-manager/fm-icon-view.c:128
+#: ../src/file-manager/fm-icon-view.c:132
 msgid "by _Name"
 msgstr "por _Nome"
 
-#: ../src/file-manager/fm-icon-view.c:129
-#: ../src/file-manager/fm-icon-view.c:1743
+#: ../src/file-manager/fm-icon-view.c:133
+#: ../src/file-manager/fm-icon-view.c:1749
 msgid "Keep icons sorted by name in rows"
 msgstr "Caltener los iconos ordenaos por nome en fileres"
 
-#: ../src/file-manager/fm-icon-view.c:135
+#: ../src/file-manager/fm-icon-view.c:139
 msgid "by _Size"
 msgstr "por _Tamañu"
 
-#: ../src/file-manager/fm-icon-view.c:136
-#: ../src/file-manager/fm-icon-view.c:1749
+#: ../src/file-manager/fm-icon-view.c:140
+#: ../src/file-manager/fm-icon-view.c:1755
 msgid "Keep icons sorted by size in rows"
 msgstr "Caltener los iconos ordenaos por tamañu en fileres"
 
-#: ../src/file-manager/fm-icon-view.c:142
+#: ../src/file-manager/fm-icon-view.c:146
 msgid "by _Type"
 msgstr "Por _Tipu"
 
-#: ../src/file-manager/fm-icon-view.c:143
-#: ../src/file-manager/fm-icon-view.c:1755
+#: ../src/file-manager/fm-icon-view.c:147
+#: ../src/file-manager/fm-icon-view.c:1761
 msgid "Keep icons sorted by type in rows"
 msgstr "Caltener los iconos ordenaos por tipu en fileres"
 
-#: ../src/file-manager/fm-icon-view.c:149
+#: ../src/file-manager/fm-icon-view.c:153
 msgid "by Modification _Date"
 msgstr "por Data de Mo_dificación"
 
-#: ../src/file-manager/fm-icon-view.c:150
-#: ../src/file-manager/fm-icon-view.c:1761
+#: ../src/file-manager/fm-icon-view.c:154
+#: ../src/file-manager/fm-icon-view.c:1767
 msgid "Keep icons sorted by modification date in rows"
 msgstr "Caltener los iconos ordenaos por data de modificación en fileres"
 
-#: ../src/file-manager/fm-icon-view.c:156
+#: ../src/file-manager/fm-icon-view.c:160
 msgid "by _Emblems"
 msgstr "por _Emblemes"
 
-#: ../src/file-manager/fm-icon-view.c:157
-#: ../src/file-manager/fm-icon-view.c:1767
+#: ../src/file-manager/fm-icon-view.c:161
+#: ../src/file-manager/fm-icon-view.c:1773
 msgid "Keep icons sorted by emblems in rows"
 msgstr "Caltener los iconos ordenaos por emblemes en fileres"
 
-#: ../src/file-manager/fm-icon-view.c:163
+#: ../src/file-manager/fm-icon-view.c:167
 msgid "by T_rash Time"
 msgstr ""
 
-#: ../src/file-manager/fm-icon-view.c:164
-#: ../src/file-manager/fm-icon-view.c:1773
+#: ../src/file-manager/fm-icon-view.c:168
+#: ../src/file-manager/fm-icon-view.c:1779
 msgid "Keep icons sorted by trash time in rows"
 msgstr ""
 
-#: ../src/file-manager/fm-icon-view.c:781
+#: ../src/file-manager/fm-icon-view.c:785
 msgid "_Organize Desktop by Name"
 msgstr ""
 
 #. name, stock id, label
-#: ../src/file-manager/fm-icon-view.c:1692
+#: ../src/file-manager/fm-icon-view.c:1698
 msgid "Arran_ge Items"
 msgstr "Ordenar Artículos"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1694
+#: ../src/file-manager/fm-icon-view.c:1700
 msgid "Resize Icon..."
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1695
+#: ../src/file-manager/fm-icon-view.c:1701
 msgid "Make the selected icon resizable"
 msgstr ""
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1699
-#: ../src/file-manager/fm-icon-view.c:1900
+#: ../src/file-manager/fm-icon-view.c:1705
+#: ../src/file-manager/fm-icon-view.c:1906
 msgid "Restore Icons' Original Si_zes"
 msgstr "Restaurar los _Tamaños Orixinales de los Iconos"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1700
+#: ../src/file-manager/fm-icon-view.c:1706
 msgid "Restore each selected icon to its original size"
 msgstr "Restaurar cada iconu esbilláu al so tamañu orixinal"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1704
+#: ../src/file-manager/fm-icon-view.c:1710
 msgid "_Organize by Name"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1705
+#: ../src/file-manager/fm-icon-view.c:1711
 msgid "Reposition icons to better fit in the window and avoid overlapping"
 msgstr "Reposicionar iconos pa encaxar meyor na ventana y que nun se superpongan"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1713
+#: ../src/file-manager/fm-icon-view.c:1719
 msgid "Compact _Layout"
 msgstr "_Disposición Compauta"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1714
+#: ../src/file-manager/fm-icon-view.c:1720
 msgid "Toggle using a tighter layout scheme"
 msgstr "Camudar a un esquema d'organización más apretáu"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1719
+#: ../src/file-manager/fm-icon-view.c:1725
 msgid "Re_versed Order"
 msgstr "Orde Op_uestu"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1720
+#: ../src/file-manager/fm-icon-view.c:1726
 msgid "Display icons in the opposite order"
 msgstr "Amosar los iconos nel orde opuestu"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1725
+#: ../src/file-manager/fm-icon-view.c:1731
 msgid "_Keep Aligned"
 msgstr "_Caltener Alliniaos"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1726
+#: ../src/file-manager/fm-icon-view.c:1732
 msgid "Keep icons lined up on a grid"
 msgstr "Caltener los iconos alliniaos na rexella"
 
-#: ../src/file-manager/fm-icon-view.c:1736
+#: ../src/file-manager/fm-icon-view.c:1742
 msgid "_Manually"
 msgstr "_Manualmente"
 
-#: ../src/file-manager/fm-icon-view.c:1737
+#: ../src/file-manager/fm-icon-view.c:1743
 msgid "Leave icons wherever they are dropped"
 msgstr "Dexar iconos onde s'arrastren"
 
-#: ../src/file-manager/fm-icon-view.c:1742
+#: ../src/file-manager/fm-icon-view.c:1748
 msgid "By _Name"
 msgstr "Por _Nome"
 
-#: ../src/file-manager/fm-icon-view.c:1748
+#: ../src/file-manager/fm-icon-view.c:1754
 msgid "By _Size"
 msgstr "Por _Tamañu"
 
-#: ../src/file-manager/fm-icon-view.c:1754
+#: ../src/file-manager/fm-icon-view.c:1760
 msgid "By _Type"
 msgstr "Por _Tipu"
 
-#: ../src/file-manager/fm-icon-view.c:1760
+#: ../src/file-manager/fm-icon-view.c:1766
 msgid "By Modification _Date"
 msgstr "Por Fecha _de Modificación"
 
-#: ../src/file-manager/fm-icon-view.c:1766
+#: ../src/file-manager/fm-icon-view.c:1772
 msgid "By _Emblems"
 msgstr "Por _Emblemes"
 
-#: ../src/file-manager/fm-icon-view.c:1772
+#: ../src/file-manager/fm-icon-view.c:1778
 msgid "By T_rash Time"
 msgstr ""
 
-#: ../src/file-manager/fm-icon-view.c:1901
+#: ../src/file-manager/fm-icon-view.c:1907
 msgid "Restore Icon's Original Si_ze"
 msgstr "Restaurar el _Tamañu Orixinal del Iconu"
 
-#: ../src/file-manager/fm-icon-view.c:2376
+#: ../src/file-manager/fm-icon-view.c:2382
 #, c-format
 msgid "pointing at \"%s\""
 msgstr "apuntando a \"%s\""
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3397
+#: ../src/file-manager/fm-icon-view.c:3405
 msgid "_Icons"
 msgstr "_Iconos"
 
-#: ../src/file-manager/fm-icon-view.c:3398
+#: ../src/file-manager/fm-icon-view.c:3406
 msgid "The icon view encountered an error."
 msgstr "La vista d'iconos atopó un error."
 
-#: ../src/file-manager/fm-icon-view.c:3399
+#: ../src/file-manager/fm-icon-view.c:3407
 msgid "The icon view encountered an error while starting up."
 msgstr "La vista d'iconos atopó un error al arrancar."
 
-#: ../src/file-manager/fm-icon-view.c:3400
+#: ../src/file-manager/fm-icon-view.c:3408
 msgid "Display this location with the icon view."
 msgstr "Amosar esta llocalización con vista de llista."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-icon-view.c:3410
+#: ../src/file-manager/fm-icon-view.c:3418
 #: ../src/caja-file-management-properties.ui.h:3
 msgid "Compact View"
 msgstr "Vista compauta"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3412
+#: ../src/file-manager/fm-icon-view.c:3420
 msgid "_Compact"
 msgstr "_Compauta"
 
-#: ../src/file-manager/fm-icon-view.c:3413
+#: ../src/file-manager/fm-icon-view.c:3421
 msgid "The compact view encountered an error."
 msgstr "La vista compauta alcontró un fallu."
 
-#: ../src/file-manager/fm-icon-view.c:3414
+#: ../src/file-manager/fm-icon-view.c:3422
 msgid "The compact view encountered an error while starting up."
 msgstr "La vista compauta alcontró un fallu mentantu s'aniciaba."
 
-#: ../src/file-manager/fm-icon-view.c:3415
+#: ../src/file-manager/fm-icon-view.c:3423
 msgid "Display this location with the compact view."
 msgstr "Amuesa esti llugar cola vista compauta."
 
@@ -5094,46 +5077,46 @@ msgstr "Cargando..."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-list-view.c:1833
-#: ../src/file-manager/fm-list-view.c:3481
+#: ../src/file-manager/fm-list-view.c:1835
+#: ../src/file-manager/fm-list-view.c:3487
 #: ../src/caja-file-management-properties.ui.h:2
 msgid "List View"
 msgstr "Vista de llista"
 
-#: ../src/file-manager/fm-list-view.c:2530
+#: ../src/file-manager/fm-list-view.c:2534
 #, c-format
 msgid "%s Visible Columns"
 msgstr "%s Columnes Visibles"
 
-#: ../src/file-manager/fm-list-view.c:2549
+#: ../src/file-manager/fm-list-view.c:2553
 msgid "Choose the order of information to appear in this folder:"
 msgstr "Seleicione l'orde nel qu'apaecerá l'información nesta carpeta:"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-list-view.c:2619
+#: ../src/file-manager/fm-list-view.c:2623
 msgid "Visible _Columns..."
 msgstr "_Columnes Visibles..."
 
 #. tooltip
-#: ../src/file-manager/fm-list-view.c:2620
+#: ../src/file-manager/fm-list-view.c:2624
 msgid "Select the columns visible in this folder"
 msgstr "Escueya les columnes visibles nesta carpeta"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-list-view.c:3483
+#: ../src/file-manager/fm-list-view.c:3489
 msgid "_List"
 msgstr "Llis_ta"
 
-#: ../src/file-manager/fm-list-view.c:3484
+#: ../src/file-manager/fm-list-view.c:3490
 msgid "The list view encountered an error."
 msgstr "La vista de llista atopó un error."
 
-#: ../src/file-manager/fm-list-view.c:3485
+#: ../src/file-manager/fm-list-view.c:3491
 msgid "The list view encountered an error while starting up."
 msgstr "La vista de llista atopó un error al arrancar."
 
-#: ../src/file-manager/fm-list-view.c:3486
+#: ../src/file-manager/fm-list-view.c:3492
 msgid "Display this location with the list view."
 msgstr "Amosar esta llocalización cola vista de llista."
 
@@ -5341,7 +5324,7 @@ msgstr "Accesu a ficheru:"
 #. Translators: this is referred to captions under icons.
 #: ../src/file-manager/fm-properties-window.c:4855
 #: ../src/file-manager/fm-properties-window.c:4866
-#: ../src/caja-file-management-properties.c:328
+#: ../src/caja-file-management-properties.c:327
 msgid "None"
 msgstr "Na"
 
@@ -5557,8 +5540,8 @@ msgid ""
 msgstr "El software executaráse direutamente dende'l soporte «%s». Enxamás execute software nel que nun tien enfotu.\n\nSi dubia, calque Encaboxar."
 
 #: ../src/caja-bookmarks-window.c:158
-#: ../src/caja-file-management-properties.c:235
-#: ../src/caja-property-browser.c:1673 ../src/caja-window-menus.c:591
+#: ../src/caja-file-management-properties.c:234
+#: ../src/caja-property-browser.c:1733 ../src/caja-window-menus.c:587
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
@@ -5721,7 +5704,7 @@ msgstr ""
 msgid "Bookmark Name:"
 msgstr ""
 
-#: ../src/caja-desktop-window.c:88 ../src/caja-desktop-window.c:263
+#: ../src/caja-desktop-window.c:204 ../src/caja-desktop-window.c:393
 #: ../src/caja-pathbar.c:1587 ../src/caja-places-sidebar.c:536
 msgid "Desktop"
 msgstr "Escritoriu"
@@ -5799,7 +5782,7 @@ msgstr "Nun pue amestase l'emblema."
 msgid "Show Emblems"
 msgstr "Amosar Emblemes"
 
-#: ../src/caja-file-management-properties.c:631
+#: ../src/caja-file-management-properties.c:630
 msgid "About Extension"
 msgstr ""
 
@@ -6689,7 +6672,7 @@ msgstr ""
 msgid "_Close Tab"
 msgstr "_Zarrar llingüeta"
 
-#: ../src/caja-navigation-window.c:781
+#: ../src/caja-navigation-window.c:776
 #, c-format
 msgid "%s - File Browser"
 msgstr "%s - Ñavegador de Ficheros"
@@ -6832,128 +6815,128 @@ msgstr "Comprebe que tien permisu pa esborrar l'emblema."
 msgid "Select an Image File for the New Emblem"
 msgstr "Escueya un Ficheru d'Imaxe pal Nuevu Emblema"
 
-#: ../src/caja-property-browser.c:1108
+#: ../src/caja-property-browser.c:1112
 msgid "Create a New Emblem"
 msgstr "Crear un Nuevu Emblema"
 
 #. make the keyword label and field
-#: ../src/caja-property-browser.c:1129
+#: ../src/caja-property-browser.c:1145
 msgid "_Keyword:"
 msgstr "_Pallabra clave:"
 
 #. set up a file chooser to pick the image file
-#: ../src/caja-property-browser.c:1152
+#: ../src/caja-property-browser.c:1178
 msgid "_Image:"
 msgstr "_Imaxe:"
 
-#: ../src/caja-property-browser.c:1187
+#: ../src/caja-property-browser.c:1226
 msgid "Create a New Color:"
 msgstr "Crear un Nuevu Color:"
 
 #. make the name label and field
-#: ../src/caja-property-browser.c:1201
+#: ../src/caja-property-browser.c:1245
 msgid "Color _name:"
 msgstr "_Nome del color:"
 
-#: ../src/caja-property-browser.c:1217
+#: ../src/caja-property-browser.c:1269
 msgid "Color _value:"
 msgstr "_Valor del color:"
 
-#: ../src/caja-property-browser.c:1253
+#: ../src/caja-property-browser.c:1313
 msgid "Sorry, but you cannot replace the reset image."
 msgstr "Nun pue trocase la imaxe de reaniciu."
 
-#: ../src/caja-property-browser.c:1254
+#: ../src/caja-property-browser.c:1314
 msgid "Reset is a special image that cannot be deleted."
 msgstr "Reset ye una imaxe especial que nun pue esborrase."
 
-#: ../src/caja-property-browser.c:1284
+#: ../src/caja-property-browser.c:1344
 #, c-format
 msgid "Sorry, but the pattern %s could not be installed."
 msgstr "El patrón %s nun pudo instalase."
 
-#: ../src/caja-property-browser.c:1315
+#: ../src/caja-property-browser.c:1375
 msgid "Select an Image File to Add as a Pattern"
 msgstr "Escueya un Ficheru d'Imaxe p'Amestar como Patrón"
 
-#: ../src/caja-property-browser.c:1394 ../src/caja-property-browser.c:1424
+#: ../src/caja-property-browser.c:1454 ../src/caja-property-browser.c:1484
 msgid "The color cannot be installed."
 msgstr "Nun puede instalase'l color."
 
-#: ../src/caja-property-browser.c:1395
+#: ../src/caja-property-browser.c:1455
 msgid "Sorry, but you must specify an unused color name for the new color."
 msgstr "Sentímoslo, pero tien d'especificar un nome de color que nun tea n'usu pal nuevu color."
 
-#: ../src/caja-property-browser.c:1425
+#: ../src/caja-property-browser.c:1485
 msgid "Sorry, but you must specify a non-blank name for the new color."
 msgstr "Sentímoslo, pero tien d'especificar un nome de color non-ermu pal nuevu color."
 
-#: ../src/caja-property-browser.c:1485
+#: ../src/caja-property-browser.c:1545
 msgid "Select a Color to Add"
 msgstr "Escueya un Color p'Amestar"
 
-#: ../src/caja-property-browser.c:1531 ../src/caja-property-browser.c:1549
+#: ../src/caja-property-browser.c:1591 ../src/caja-property-browser.c:1609
 #, c-format
 msgid "Sorry, but \"%s\" is not a usable image file."
 msgstr "Sentímoslo, pero \"%s\" nun ye un ficheru d'imaxe usable."
 
-#: ../src/caja-property-browser.c:1532 ../src/caja-property-browser.c:1550
+#: ../src/caja-property-browser.c:1592 ../src/caja-property-browser.c:1610
 msgid "The file is not an image."
 msgstr "El ficheru nun ye una imaxe."
 
-#: ../src/caja-property-browser.c:2291
+#: ../src/caja-property-browser.c:2351
 msgid "Select a Category:"
 msgstr "Escueya una Estaya:"
 
-#: ../src/caja-property-browser.c:2303
+#: ../src/caja-property-browser.c:2363
 msgid "C_ancel Remove"
 msgstr "E_ncaboxar Desaniciar"
 
-#: ../src/caja-property-browser.c:2312
+#: ../src/caja-property-browser.c:2372
 msgid "_Add a New Pattern..."
 msgstr "_Amestar un Patrón Nuevu..."
 
-#: ../src/caja-property-browser.c:2315
+#: ../src/caja-property-browser.c:2375
 msgid "_Add a New Color..."
 msgstr "_Amestar un Color Nuevu..."
 
-#: ../src/caja-property-browser.c:2318
+#: ../src/caja-property-browser.c:2378
 msgid "_Add a New Emblem..."
 msgstr "_Amestar un Emblema Nuevu..."
 
-#: ../src/caja-property-browser.c:2344
+#: ../src/caja-property-browser.c:2404
 msgid "Click on a pattern to remove it"
 msgstr "Calque nún patrón pa quitalu"
 
-#: ../src/caja-property-browser.c:2347
+#: ../src/caja-property-browser.c:2407
 msgid "Click on a color to remove it"
 msgstr "Calque nún color pa quitalu"
 
-#: ../src/caja-property-browser.c:2350
+#: ../src/caja-property-browser.c:2410
 msgid "Click on an emblem to remove it"
 msgstr "Calque nún emblema pa quitalu"
 
-#: ../src/caja-property-browser.c:2362
+#: ../src/caja-property-browser.c:2422
 msgid "Patterns:"
 msgstr "Patrones:"
 
-#: ../src/caja-property-browser.c:2365
+#: ../src/caja-property-browser.c:2425
 msgid "Colors:"
 msgstr "Colores:"
 
-#: ../src/caja-property-browser.c:2368
+#: ../src/caja-property-browser.c:2428
 msgid "Emblems:"
 msgstr "Emblemes:"
 
-#: ../src/caja-property-browser.c:2390
+#: ../src/caja-property-browser.c:2450
 msgid "_Remove a Pattern..."
 msgstr "Quita_r un Patrón..."
 
-#: ../src/caja-property-browser.c:2393
+#: ../src/caja-property-browser.c:2453
 msgid "_Remove a Color..."
 msgstr "Quita_r un Color..."
 
-#: ../src/caja-property-browser.c:2396
+#: ../src/caja-property-browser.c:2456
 msgid "_Remove an Emblem..."
 msgstr "Quita_r un Emblema..."
 
@@ -7182,11 +7165,11 @@ msgid ""
 "Please select another viewer and try again."
 msgstr "Fallu: %s\nSeleicione otru visor ya téntelo de nuevu."
 
-#: ../src/caja-window-menus.c:196
+#: ../src/caja-window-menus.c:192
 msgid "Go to the location specified by this bookmark"
 msgstr "Dir al llugar especificáu por esti marcador"
 
-#: ../src/caja-window-menus.c:518
+#: ../src/caja-window-menus.c:514
 msgid ""
 "Caja is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -7194,7 +7177,7 @@ msgid ""
 "version."
 msgstr "Caja ye software llibre; pue redistribuyilu y/o modificalu baxo los términos de la Llicencia Pública Xeneral de GNU talo como l'asoleya la Free Software Foundation; tantu na versión 2 de la Llicencia como (a la so eleición) cualesquier versión postrera."
 
-#: ../src/caja-window-menus.c:522
+#: ../src/caja-window-menus.c:518
 msgid ""
 "Caja is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -7202,19 +7185,19 @@ msgid ""
 "details."
 msgstr "Caja distribúise col enfotu de que sedrá útil, pero ENSIN DENGUNA GARANTÍA; ensin inclusu la garantía implicada de MERCANTIBILIDÁ o ADECUACIÓN PA UN ENVÍS PARTICULAR. Llea la Llicencia Pública Xeneral de GNU pa más detáis."
 
-#: ../src/caja-window-menus.c:526
+#: ../src/caja-window-menus.c:522
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301 USA"
 msgstr "Tendría d'haber recibío una copia de la GNU General Public License con Caja; sin nun ye d'esta miente, escriba a la Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA"
 
-#: ../src/caja-window-menus.c:538
+#: ../src/caja-window-menus.c:534
 msgid ""
 "Caja lets you organize files and folders, both on your computer and online."
 msgstr "Caja permíte-y organizar ficheros y carpetes del so equipu y de la rede."
 
-#: ../src/caja-window-menus.c:541
+#: ../src/caja-window-menus.c:537
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2016 The Caja authors"
@@ -7223,212 +7206,212 @@ msgstr ""
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
 #. * box to give credit to the translator(s).
-#: ../src/caja-window-menus.c:551
+#: ../src/caja-window-menus.c:547
 msgid "translator-credits"
 msgstr "Launchpad Contributions:\n  Astur https://launchpad.net/~malditoastur\n  xa https://launchpad.net/~xspuente\n\nLaunchpad Contributions:\n  Astur https://launchpad.net/~malditoastur\n  Marcos https://launchpad.net/~marcos.alvarez.costales\n  xa https://launchpad.net/~xspuente\n\nLaunchpad Contributions:\n  Dangerous Piper https://launchpad.net/~dangerouspiper\n  Iñigo Varela https://launchpad.net/~malditoastur\n  Marcos https://launchpad.net/~marcos.alvarez.costales\n  Xandru Martino https://launchpad.net/~xandru-martino\n  xa https://launchpad.net/~xspuente"
 
-#: ../src/caja-window-menus.c:554
+#: ../src/caja-window-menus.c:550
 msgid "MATE Web Site"
 msgstr ""
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:807
+#: ../src/caja-window-menus.c:803
 msgid "_File"
 msgstr "_Ficheru"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:808
+#: ../src/caja-window-menus.c:804
 msgid "_Edit"
 msgstr "R_emanar"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:809
+#: ../src/caja-window-menus.c:805
 msgid "_View"
 msgstr "_Ver"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:810
+#: ../src/caja-window-menus.c:806
 msgid "_Help"
 msgstr "_Aida"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:812
+#: ../src/caja-window-menus.c:808
 msgid "_Close"
 msgstr "_Zarrar"
 
 #. tooltip
-#: ../src/caja-window-menus.c:813
+#: ../src/caja-window-menus.c:809
 msgid "Close this folder"
 msgstr "Zarrar esta carpeta"
 
-#: ../src/caja-window-menus.c:818
+#: ../src/caja-window-menus.c:814
 msgid "_Backgrounds and Emblems..."
 msgstr "Fondu y Em_blemes..."
 
-#: ../src/caja-window-menus.c:819
+#: ../src/caja-window-menus.c:815
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
 msgstr "Amosar patrones, colores, y emblemes que pueden usase pa personalizar l'apariencia"
 
-#: ../src/caja-window-menus.c:824
+#: ../src/caja-window-menus.c:820
 msgid "Prefere_nces"
 msgstr "Prefere_ncies"
 
-#: ../src/caja-window-menus.c:825
+#: ../src/caja-window-menus.c:821
 msgid "Edit Caja preferences"
 msgstr "Remanar les preferencies de Caja"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:828
+#: ../src/caja-window-menus.c:824
 msgid "Open _Parent"
 msgstr "Abrir _Parental"
 
-#: ../src/caja-window-menus.c:829
+#: ../src/caja-window-menus.c:825
 msgid "Open the parent folder"
 msgstr "Abrir la carpeta parental"
 
 #. tooltip
-#: ../src/caja-window-menus.c:838
+#: ../src/caja-window-menus.c:834
 msgid "Stop loading the current location"
 msgstr "Dexa de cargar el llugar actual"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:842
+#: ../src/caja-window-menus.c:838
 msgid "_Reload"
 msgstr "_Recargar"
 
 #. tooltip
-#: ../src/caja-window-menus.c:843
+#: ../src/caja-window-menus.c:839
 msgid "Reload the current location"
 msgstr "Recarga el llugar actual"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:847
+#: ../src/caja-window-menus.c:843
 msgid "_Contents"
 msgstr "_Conteníos"
 
 #. tooltip
-#: ../src/caja-window-menus.c:848
+#: ../src/caja-window-menus.c:844
 msgid "Display Caja help"
 msgstr "Amosar l'aida de Caja"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:852
+#: ../src/caja-window-menus.c:848
 msgid "_About"
 msgstr "Tocante _a"
 
 #. tooltip
-#: ../src/caja-window-menus.c:853
+#: ../src/caja-window-menus.c:849
 msgid "Display credits for the creators of Caja"
 msgstr "Amosar los créitos de los criadores de Caja"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:857
+#: ../src/caja-window-menus.c:853
 msgid "Zoom _In"
 msgstr "_Aumentar"
 
 #. tooltip
-#: ../src/caja-window-menus.c:858 ../src/caja-zoom-control.c:99
+#: ../src/caja-window-menus.c:854 ../src/caja-zoom-control.c:99
 #: ../src/caja-zoom-control.c:395
 msgid "Increase the view size"
 msgstr "Aumenta'l tamañu de la vista"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:872
+#: ../src/caja-window-menus.c:868
 msgid "Zoom _Out"
 msgstr "A_menorgar"
 
 #. tooltip
-#: ../src/caja-window-menus.c:873 ../src/caja-zoom-control.c:100
+#: ../src/caja-window-menus.c:869 ../src/caja-zoom-control.c:100
 #: ../src/caja-zoom-control.c:333
 msgid "Decrease the view size"
 msgstr "Amenorga'l tamañu de la vista"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:882
+#: ../src/caja-window-menus.c:878
 msgid "Normal Si_ze"
 msgstr "Tama_ñu Normal"
 
 #. tooltip
-#: ../src/caja-window-menus.c:883 ../src/caja-zoom-control.c:101
+#: ../src/caja-window-menus.c:879 ../src/caja-zoom-control.c:101
 #: ../src/caja-zoom-control.c:353
 msgid "Use the normal view size"
 msgstr "Usar el tamañu de vista normal"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:887
+#: ../src/caja-window-menus.c:883
 msgid "Connect to _Server..."
 msgstr "Coneutar al _Sirvidor..."
 
 #. tooltip
-#: ../src/caja-window-menus.c:888
+#: ../src/caja-window-menus.c:884
 msgid "Connect to a remote computer or shared disk"
 msgstr "Coneutar con un equipu remotu o discu compartíu"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:897
+#: ../src/caja-window-menus.c:893
 msgid "_Computer"
 msgstr "_Equipu"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:902
+#: ../src/caja-window-menus.c:898
 msgid "_Network"
 msgstr "_Rede"
 
 #. tooltip
-#: ../src/caja-window-menus.c:903 ../src/mate-network-scheme.desktop.in.h:2
+#: ../src/caja-window-menus.c:899 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
 msgstr "Agüeya los llugares llocales y remotos conseñaos"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:907
+#: ../src/caja-window-menus.c:903
 msgid "T_emplates"
 msgstr "Plan_tíes"
 
 #. tooltip
-#: ../src/caja-window-menus.c:908
+#: ../src/caja-window-menus.c:904
 msgid "Open your personal templates folder"
 msgstr "Abrir la so carpeta de plantíes personales"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:912
+#: ../src/caja-window-menus.c:908
 msgid "_Trash"
 msgstr "_Basoria"
 
 #. tooltip
-#: ../src/caja-window-menus.c:913
+#: ../src/caja-window-menus.c:909
 msgid "Open your personal trash folder"
 msgstr "Abrir la so carpeta de papelera personal"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:921
+#: ../src/caja-window-menus.c:917
 msgid "Show _Hidden Files"
 msgstr "Amosar Fic_heros Anubríos"
 
 #. tooltip
-#: ../src/caja-window-menus.c:922
+#: ../src/caja-window-menus.c:918
 msgid "Toggle the display of hidden files in the current window"
 msgstr "Conseña si s'amuesen o non los ficheros anubríos na ventana autual"
 
-#: ../src/caja-window-menus.c:953
+#: ../src/caja-window-menus.c:949
 msgid "_Up"
 msgstr "_Arriba"
 
-#: ../src/caja-window-menus.c:956
+#: ../src/caja-window-menus.c:952
 msgid "_Home"
 msgstr "_Entamu"
 

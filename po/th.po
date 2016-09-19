@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Aefgh Threenine <aefgh3962@gmail.com>, 2016
 # Jirasinee Tangtitawong <independent.red@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-01 10:19+0300\n"
-"PO-Revision-Date: 2016-08-01 07:19+0000\n"
-"Last-Translator: monsta <monsta@inbox.ru>\n"
+"POT-Creation-Date: 2016-08-23 13:33+0300\n"
+"PO-Revision-Date: 2016-08-28 08:44+0000\n"
+"Last-Translator: Aefgh Threenine <aefgh3962@gmail.com>\n"
 "Language-Team: Thai (http://www.transifex.com/mate/MATE/language/th/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -351,17 +352,13 @@ msgstr "ลากตราไปติดที่แฟ้มหรือโฟ
 
 #. translators: this is the name of an emblem
 #: ../data/browser.xml.h:69 ../src/caja-emblem-sidebar.c:990
-#: ../src/caja-property-browser.c:1944
+#: ../src/caja-property-browser.c:2004
 msgid "Erase"
 msgstr "ลบ"
 
-#: ../data/caja.xml.in.h:1
-msgid "Saved search"
-msgstr "บันทึกการค้นหา"
-
 #: ../data/caja.appdata.xml.in.h:1
 msgid "File manager for the MATE desktop environment"
-msgstr ""
+msgstr "เครื่องมือจัดการแฟ้มสำหรับสภาพแวดล้อมเดสก์ท็อป MATE"
 
 #: ../data/caja.appdata.xml.in.h:2
 msgid ""
@@ -372,6 +369,10 @@ msgid ""
 "extensible through a plugin system, similar to that of GNOME Nautilus, of "
 "which Caja is a fork. </p>"
 msgstr ""
+
+#: ../data/caja.xml.in.h:1
+msgid "Saved search"
+msgstr "บันทึกการค้นหา"
 
 #: ../eel/eel-canvas.c:1443 ../eel/eel-canvas.c:1444
 msgid "X"
@@ -435,7 +436,7 @@ msgstr "วิธีป้อนข้อความ"
 
 #: ../eel/eel-gtk-extensions.c:449
 msgid "Show more _details"
-msgstr ""
+msgstr "แสดง_รายละเอียดเพิ่มเติม"
 
 #: ../eel/eel-stock-dialogs.c:213
 msgid "You can stop this operation by clicking cancel."
@@ -553,9 +554,9 @@ msgstr "กระทำสิ่งนี้เ_สมอ"
 #. label, accelerator
 #. add the "Eject" menu item
 #: ../libcaja-private/caja-autorun.c:1163
-#: ../src/file-manager/fm-directory-view.c:7495
-#: ../src/file-manager/fm-directory-view.c:7523
-#: ../src/file-manager/fm-directory-view.c:7604
+#: ../src/file-manager/fm-directory-view.c:7500
+#: ../src/file-manager/fm-directory-view.c:7528
+#: ../src/file-manager/fm-directory-view.c:7609
 #: ../src/file-manager/fm-tree-view.c:1382 ../src/caja-places-sidebar.c:2742
 msgid "_Eject"
 msgstr "_ดันแผ่นออก"
@@ -564,9 +565,9 @@ msgstr "_ดันแผ่นออก"
 #. label, accelerator
 #. add the "Unmount" menu item
 #: ../libcaja-private/caja-autorun.c:1176
-#: ../src/file-manager/fm-directory-view.c:7491
-#: ../src/file-manager/fm-directory-view.c:7519
-#: ../src/file-manager/fm-directory-view.c:7600
+#: ../src/file-manager/fm-directory-view.c:7496
+#: ../src/file-manager/fm-directory-view.c:7524
+#: ../src/file-manager/fm-directory-view.c:7605
 #: ../src/file-manager/fm-tree-view.c:1373 ../src/caja-places-sidebar.c:2735
 msgid "_Unmount"
 msgstr "เ_ลิกเมานท์"
@@ -595,7 +596,7 @@ msgstr "แปะข้อความจากคลิปบอร์ด"
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-clipboard.c:470
-#: ../src/file-manager/fm-directory-view.c:7424
+#: ../src/file-manager/fm-directory-view.c:7429
 msgid "Select _All"
 msgstr "เลือกทั้ง_หมด"
 
@@ -618,7 +619,7 @@ msgstr "ใช้ค่า_ปริยาย"
 
 #: ../libcaja-private/caja-column-utilities.c:44
 #: ../libcaja-private/caja-mime-application-chooser.c:278
-#: ../src/file-manager/fm-list-view.c:1773
+#: ../src/file-manager/fm-list-view.c:1775
 msgid "Name"
 msgstr "ชื่อ"
 
@@ -716,7 +717,7 @@ msgstr "ตำแหน่ง"
 
 #: ../libcaja-private/caja-column-utilities.c:131
 msgid "The location of the file."
-msgstr ""
+msgstr "ตำแหน่งแฟ้ม"
 
 #: ../libcaja-private/caja-column-utilities.c:174
 msgid "Trashed On"
@@ -737,7 +738,7 @@ msgstr "ตำแหน่งเดิมของแฟ้มก่อนที
 #: ../libcaja-private/caja-customization-data.c:431
 #: ../libcaja-private/caja-file-conflict-dialog.c:663
 #: ../libcaja-private/caja-mime-application-chooser.c:449
-#: ../src/caja-property-browser.c:1991
+#: ../src/caja-property-browser.c:2051
 msgid "Reset"
 msgstr "กลับค่าเดิม"
 
@@ -745,23 +746,6 @@ msgstr "กลับค่าเดิม"
 #: ../libcaja-private/caja-desktop-icon-file.c:158
 msgid "on the desktop"
 msgstr "บนพื้นโต๊ะ"
-
-#: ../libcaja-private/caja-desktop-link-monitor.c:105
-#, c-format
-msgid "You cannot move the volume \"%s\" to the trash."
-msgstr "คุณไม่สามารถย้ายโวลุม \"%s\" ไปลงถังขยะ"
-
-#: ../libcaja-private/caja-desktop-link-monitor.c:116
-msgid ""
-"If you want to eject the volume, please use \"Eject\" in the popup menu of "
-"the volume."
-msgstr "ถ้าคุณต้องการดันแผ่นออก กรุณาคลิกขวาบนไอคอนแล้วเลือก \"ดันแผ่นออก\""
-
-#: ../libcaja-private/caja-desktop-link-monitor.c:127
-msgid ""
-"If you want to unmount the volume, please use \"Unmount Volume\" in the "
-"popup menu of the volume."
-msgstr "ถ้าคุณต้องการเลิกเมานท์โวลุม กรุณาคลิกขวาบนไอคอนแล้วเลือก \"เลิกเมานท์โวลุม\""
 
 #. Note to translators: If it's hard to compose a good home
 #. * icon name from the user name, you can use a string without
@@ -782,7 +766,7 @@ msgstr "คอมพิวเตอร์"
 
 #: ../libcaja-private/caja-desktop-link.c:116
 msgid "Network Servers"
-msgstr ""
+msgstr "เซิร์ฟเวอร์ในเครือข่าย"
 
 #: ../libcaja-private/caja-desktop-link.c:119
 #: ../src/file-manager/fm-tree-view.c:1441 ../src/caja-places-sidebar.c:610
@@ -903,7 +887,7 @@ msgstr "ต้องการเขียนทับแฟ้ม \"%s\" หร�
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:195
 msgid "Replacing it will overwrite its content."
-msgstr ""
+msgstr "การแทนที่จะทำการเขียนทับเนื้อหาทั้งหมดของมัน"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:200
 #, c-format
@@ -956,7 +940,7 @@ msgstr "ผสาน"
 #. Setup the expander for the rename action
 #: ../libcaja-private/caja-file-conflict-dialog.c:649
 msgid "Select a new name for the _destination"
-msgstr ""
+msgstr "ตั้งชื่อใหม่ให้กับแฟ้มปลายทาง"
 
 #. Setup the diff button for text files
 #: ../libcaja-private/caja-file-conflict-dialog.c:678
@@ -1047,8 +1031,8 @@ msgstr[0] "ประมาณ %'d ชั่วโมง"
 #. * (e.g. "folder", "plain text") to file type for symbolic link
 #. * to that kind of file (e.g. "link to folder").
 #: ../libcaja-private/caja-file-operations.c:377
-#: ../libcaja-private/caja-file.c:6438
-#: ../src/file-manager/fm-directory-view.c:10616
+#: ../libcaja-private/caja-file.c:6409
+#: ../src/file-manager/fm-directory-view.c:10622
 #, c-format
 msgid "Link to %s"
 msgstr "เชื่อมโยงไปยัง %s"
@@ -1679,12 +1663,12 @@ msgstr "กำลังเทขยะ"
 msgid "Unable to mark launcher trusted (executable)"
 msgstr "ไม่สามารถทำเครื่องหมายตัวเรียกโปรแกรมว่าน่าเชื่อถือได้"
 
-#: ../libcaja-private/caja-file-utilities.c:1400
+#: ../libcaja-private/caja-file-utilities.c:1207
 #, c-format
 msgid "Could not determine original location of \"%s\" "
 msgstr "ไม่สามารถระบุตำแหน่งเดิมของ \"%s\""
 
-#: ../libcaja-private/caja-file-utilities.c:1404
+#: ../libcaja-private/caja-file-utilities.c:1211
 msgid "The item cannot be restored from trash"
 msgstr "ไม่สามารถกู้รายการนี้คืนจากถังขยะได้"
 
@@ -1752,7 +1736,7 @@ msgid "today at 00:00:00 PM"
 msgstr "วันนี้ เวลา 00:00:00 น."
 
 #: ../libcaja-private/caja-file.c:4476
-#: ../src/caja-file-management-properties.c:520
+#: ../src/caja-file-management-properties.c:519
 msgid "today at %-I:%M:%S %p"
 msgstr "วันนี้ เวลา %H:%M:%S น."
 
@@ -1866,45 +1850,45 @@ msgstr "00/00/0000"
 msgid "%m/%d/%y"
 msgstr "%d/%m/%Ey"
 
-#: ../libcaja-private/caja-file.c:5175
+#: ../libcaja-private/caja-file.c:5146
 #, c-format
 msgid "Not allowed to set permissions"
 msgstr "ไม่มีสิทธิ์กำหนดการอนุญาตสิทธิ์"
 
-#: ../libcaja-private/caja-file.c:5469
+#: ../libcaja-private/caja-file.c:5440
 #, c-format
 msgid "Not allowed to set owner"
 msgstr "ไม่มีสิทธิ์กำหนดเจ้าของ"
 
-#: ../libcaja-private/caja-file.c:5487
+#: ../libcaja-private/caja-file.c:5458
 #, c-format
 msgid "Specified owner '%s' doesn't exist"
 msgstr "ไม่มีผู้ใช้ '%s' ที่ระบุ"
 
-#: ../libcaja-private/caja-file.c:5747
+#: ../libcaja-private/caja-file.c:5718
 #, c-format
 msgid "Not allowed to set group"
 msgstr "ไม่มีสิทธิ์กำหนดกลุ่มเจ้าของ"
 
-#: ../libcaja-private/caja-file.c:5765
+#: ../libcaja-private/caja-file.c:5736
 #, c-format
 msgid "Specified group '%s' doesn't exist"
 msgstr "ไม่มีกลุ่ม '%s' ที่ระบุ"
 
-#: ../libcaja-private/caja-file.c:5919
-#: ../src/file-manager/fm-directory-view.c:2446
+#: ../libcaja-private/caja-file.c:5890
+#: ../src/file-manager/fm-directory-view.c:2450
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
 msgstr[0] "%'u รายการ"
 
-#: ../libcaja-private/caja-file.c:5920
+#: ../libcaja-private/caja-file.c:5891
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
 msgstr[0] "%'u โฟลเดอร์"
 
-#: ../libcaja-private/caja-file.c:5921
+#: ../libcaja-private/caja-file.c:5892
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
@@ -1912,49 +1896,49 @@ msgstr[0] "%'u แฟ้ม"
 
 #. Do this in a separate stage so that we don't have to put G_GUINT64_FORMAT
 #. in the translated string
-#: ../libcaja-private/caja-file.c:6008
+#: ../libcaja-private/caja-file.c:5979
 msgid "%"
 msgstr "%"
 
-#: ../libcaja-private/caja-file.c:6009
+#: ../libcaja-private/caja-file.c:5980
 #, c-format
 msgid "%s (%s bytes)"
 msgstr "%s (%s ไบต์)"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6324 ../libcaja-private/caja-file.c:6340
+#: ../libcaja-private/caja-file.c:6295 ../libcaja-private/caja-file.c:6311
 msgid "? items"
 msgstr "? รายการ"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6330
+#: ../libcaja-private/caja-file.c:6301
 msgid "? bytes"
 msgstr "? ไบต์"
 
-#: ../libcaja-private/caja-file.c:6345
+#: ../libcaja-private/caja-file.c:6316
 msgid "unknown type"
 msgstr "ชนิดที่ไม่รู้จัก"
 
-#: ../libcaja-private/caja-file.c:6348
+#: ../libcaja-private/caja-file.c:6319
 msgid "unknown MIME type"
 msgstr "ชนิด MIME ที่ไม่รู้จัก"
 
 #. Fallback, use for both unknown attributes and attributes
 #. * for which we have no more appropriate default.
-#: ../libcaja-private/caja-file.c:6362
+#: ../libcaja-private/caja-file.c:6333
 #: ../src/file-manager/fm-properties-window.c:1359
 msgid "unknown"
 msgstr "ไม่ทราบ"
 
-#: ../libcaja-private/caja-file.c:6412
+#: ../libcaja-private/caja-file.c:6383
 msgid "program"
 msgstr "โปรแกรม"
 
-#: ../libcaja-private/caja-file.c:6432
+#: ../libcaja-private/caja-file.c:6403
 msgid "link"
 msgstr "จุดเชื่อมโยง"
 
-#: ../libcaja-private/caja-file.c:6454
+#: ../libcaja-private/caja-file.c:6425
 msgid "link (broken)"
 msgstr "จุดเชื่อมโยง (ขาด)"
 
@@ -1963,77 +1947,77 @@ msgstr "จุดเชื่อมโยง (ขาด)"
 msgid "The selection rectangle"
 msgstr "สี่เหลี่ยมเลือก"
 
-#: ../libcaja-private/caja-mime-actions.c:755
+#: ../libcaja-private/caja-mime-actions.c:718
 #, c-format
 msgid "The Link \"%s\" is Broken."
 msgstr "จุดเชื่อมโยง \"%s\" ขาด"
 
-#: ../libcaja-private/caja-mime-actions.c:759
+#: ../libcaja-private/caja-mime-actions.c:722
 #, c-format
 msgid "The Link \"%s\" is Broken. Move it to Trash?"
 msgstr "จุดเชื่อมโยง \"%s\" ขาด จะทิ้งจุดเชื่อมโยงนี้ลงถังขยะหรือไม่?"
 
-#: ../libcaja-private/caja-mime-actions.c:766
+#: ../libcaja-private/caja-mime-actions.c:729
 msgid "This link cannot be used, because it has no target."
 msgstr "จุดเชื่อมโยงนี้ใช้ไม่ได้ เพราะไม่ได้ชี้ไปที่ไหนเลย"
 
-#: ../libcaja-private/caja-mime-actions.c:770
+#: ../libcaja-private/caja-mime-actions.c:733
 #, c-format
 msgid "This link cannot be used, because its target \"%s\" doesn't exist."
 msgstr "จุดเชื่อมโยงนี้ใช้ไม่ได้ เพราะจุดหมาย (\"%s\") ไม่มีอยู่จริง"
 
 #. name, stock id
 #. label, accelerator
-#: ../libcaja-private/caja-mime-actions.c:781
-#: ../src/file-manager/fm-directory-view.c:7452
-#: ../src/file-manager/fm-directory-view.c:7584
-#: ../src/file-manager/fm-directory-view.c:8684
-#: ../src/file-manager/fm-directory-view.c:9009
+#: ../libcaja-private/caja-mime-actions.c:744
+#: ../src/file-manager/fm-directory-view.c:7457
+#: ../src/file-manager/fm-directory-view.c:7589
+#: ../src/file-manager/fm-directory-view.c:8690
+#: ../src/file-manager/fm-directory-view.c:9015
 #: ../src/file-manager/fm-tree-view.c:1346
 msgid "Mo_ve to Trash"
 msgstr "_ทิ้งลงถังขยะ"
 
-#: ../libcaja-private/caja-mime-actions.c:843
+#: ../libcaja-private/caja-mime-actions.c:806
 #, c-format
 msgid "Do you want to run \"%s\", or display its contents?"
 msgstr "จะเรียกใช้ \"%s\" หรือแสดงข้อมูลในแฟ้ม?"
 
-#: ../libcaja-private/caja-mime-actions.c:845
+#: ../libcaja-private/caja-mime-actions.c:808
 #, c-format
 msgid "\"%s\" is an executable text file."
 msgstr "\"%s\" เป็นแฟ้มข้อความที่เรียกใช้เป็นโปรแกรมได้"
 
-#: ../libcaja-private/caja-mime-actions.c:851
+#: ../libcaja-private/caja-mime-actions.c:814
 msgid "Run in _Terminal"
 msgstr "เรียกใช้ในเ_ทอร์มินัล"
 
-#: ../libcaja-private/caja-mime-actions.c:852
+#: ../libcaja-private/caja-mime-actions.c:815
 msgid "_Display"
 msgstr "แ_สดง"
 
-#: ../libcaja-private/caja-mime-actions.c:855
+#: ../libcaja-private/caja-mime-actions.c:818
 #: ../src/caja-autorun-software.c:258
 msgid "_Run"
 msgstr "เ_รียกใช้"
 
-#: ../libcaja-private/caja-mime-actions.c:1209
-#: ../src/file-manager/fm-directory-view.c:656
+#: ../libcaja-private/caja-mime-actions.c:1172
+#: ../src/file-manager/fm-directory-view.c:660
 msgid "Are you sure you want to open all files?"
 msgstr "แน่ใจหรือไม่ว่าจะเปิดแฟ้มทุกแฟ้ม?"
 
-#: ../libcaja-private/caja-mime-actions.c:1212
+#: ../libcaja-private/caja-mime-actions.c:1175
 #, c-format
 msgid "This will open %d separate tab."
 msgid_plural "This will open %d separate tabs."
 msgstr[0] "การเปิดนี้จะเปิดแท็บ %d แท็บ"
 
-#: ../libcaja-private/caja-mime-actions.c:1217 ../src/caja-location-bar.c:194
+#: ../libcaja-private/caja-mime-actions.c:1180 ../src/caja-location-bar.c:194
 #, c-format
 msgid "This will open %d separate window."
 msgid_plural "This will open %d separate windows."
 msgstr[0] "การเปิดนี้จะเปิดหน้าต่าง %d บาน"
 
-#: ../libcaja-private/caja-mime-actions.c:1295
+#: ../libcaja-private/caja-mime-actions.c:1258
 #: ../src/caja-window-manage-views.c:2117
 #: ../src/caja-window-manage-views.c:2125
 #: ../src/caja-window-manage-views.c:2145
@@ -2044,70 +2028,70 @@ msgstr[0] "การเปิดนี้จะเปิดหน้าต่า
 msgid "Could not display \"%s\"."
 msgstr "ไม่สามารถแสดง \"%s\""
 
-#: ../libcaja-private/caja-mime-actions.c:1382
+#: ../libcaja-private/caja-mime-actions.c:1345
 msgid "The file is of an unknown type"
 msgstr "แฟ้มนี้มีชนิดที่ไม่รู้จัก"
 
-#: ../libcaja-private/caja-mime-actions.c:1386
+#: ../libcaja-private/caja-mime-actions.c:1349
 #, c-format
 msgid "There is no application installed for %s files"
 msgstr "ไม่มีโปรแกรมติดตั้งไว้สำหรับแฟ้มชนิด %s"
 
-#: ../libcaja-private/caja-mime-actions.c:1401
+#: ../libcaja-private/caja-mime-actions.c:1364
 msgid "_Select Application"
 msgstr "เ_ลือกโปรแกรม"
 
-#: ../libcaja-private/caja-mime-actions.c:1439
+#: ../libcaja-private/caja-mime-actions.c:1402
 msgid "There was an internal error trying to search for applications:"
 msgstr "เกิดข้อผิดพลาดภายในขณะพยายามค้นหาโปรแกรม:"
 
-#: ../libcaja-private/caja-mime-actions.c:1441
+#: ../libcaja-private/caja-mime-actions.c:1404
 msgid "Unable to search for application"
 msgstr "ไม่สามารถค้นหาโปรแกรม"
 
-#: ../libcaja-private/caja-mime-actions.c:1567
+#: ../libcaja-private/caja-mime-actions.c:1530
 #, c-format
 msgid ""
 "There is no application installed for %s files.\n"
 "Do you want to search for an application to open this file?"
 msgstr "ไม่มีโปรแกรมติดตั้งไว้สำหรับแฟ้มชนิด %s\nคุณต้องการค้นหาโปรแกรมสำหรับเปิดแฟ้มชนิดนี้หรือไม่?"
 
-#: ../libcaja-private/caja-mime-actions.c:1731
+#: ../libcaja-private/caja-mime-actions.c:1694
 msgid "Untrusted application launcher"
 msgstr "ตัวเรียกโปรแกรมไม่น่าเชื่อถือ"
 
-#: ../libcaja-private/caja-mime-actions.c:1734
+#: ../libcaja-private/caja-mime-actions.c:1697
 #, c-format
 msgid ""
 "The application launcher \"%s\" has not been marked as trusted. If you do "
 "not know the source of this file, launching it may be unsafe."
 msgstr "ตัวเรียกโปรแกรม \"%s\" ยังไม่ผ่านการทำเครื่องหมายว่าน่าเชื่อถือ ถ้าคุณไม่ทราบแหล่งที่มาของแฟ้มนี้ ก็อาจไม่ปลอดภัยที่จะเรียกใช้"
 
-#: ../libcaja-private/caja-mime-actions.c:1749
+#: ../libcaja-private/caja-mime-actions.c:1712
 msgid "_Launch Anyway"
 msgstr "ยืนยันที่จะเ_รียก"
 
-#: ../libcaja-private/caja-mime-actions.c:1753
+#: ../libcaja-private/caja-mime-actions.c:1716
 msgid "Mark as _Trusted"
 msgstr "_ทำเครื่องหมายว่าน่าเชื่อถือ"
 
-#: ../libcaja-private/caja-mime-actions.c:2049
-#: ../libcaja-private/caja-mime-actions.c:2355
-#: ../src/file-manager/fm-directory-view.c:6470
+#: ../libcaja-private/caja-mime-actions.c:2012
+#: ../libcaja-private/caja-mime-actions.c:2318
+#: ../src/file-manager/fm-directory-view.c:6475
 msgid "Unable to mount location"
 msgstr "ไม่สามารถเมานท์ตำแหน่งได้"
 
-#: ../libcaja-private/caja-mime-actions.c:2443
-#: ../src/file-manager/fm-directory-view.c:6644
+#: ../libcaja-private/caja-mime-actions.c:2406
+#: ../src/file-manager/fm-directory-view.c:6649
 msgid "Unable to start location"
 msgstr "ไม่สามารถเริ่มทำงานตำแหน่งได้"
 
-#: ../libcaja-private/caja-mime-actions.c:2536
+#: ../libcaja-private/caja-mime-actions.c:2499
 #, c-format
 msgid "Opening \"%s\"."
 msgstr "กำลังเปิด \"%s\""
 
-#: ../libcaja-private/caja-mime-actions.c:2541
+#: ../libcaja-private/caja-mime-actions.c:2504
 #, c-format
 msgid "Opening %d item."
 msgid_plural "Opening %d items."
@@ -2206,8 +2190,8 @@ msgstr "_ท่องดู..."
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-open-with-dialog.c:970
-#: ../src/file-manager/fm-directory-view.c:7368
-#: ../src/file-manager/fm-directory-view.c:8878
+#: ../src/file-manager/fm-directory-view.c:7373
+#: ../src/file-manager/fm-directory-view.c:8884
 #: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2684
 msgid "_Open"
 msgstr "_เปิด"
@@ -2374,7 +2358,7 @@ msgstr "ลบ '%s'"
 #: ../libcaja-private/caja-undostack-manager.c:1185
 #, c-format
 msgid "Delete %d duplicated items"
-msgstr ""
+msgstr "ลบ %d รายการที่ซ้ำกัน"
 
 #: ../libcaja-private/caja-undostack-manager.c:1196
 #, c-format
@@ -2384,7 +2368,7 @@ msgstr "ย้าข้อมูล %d ราการกลับไปยั�
 #: ../libcaja-private/caja-undostack-manager.c:1200
 #, c-format
 msgid "Move '%s' back to '%s'"
-msgstr ""
+msgstr "ย้าย  '%s'  กลับไปยัง  '%s' "
 
 #: ../libcaja-private/caja-undostack-manager.c:1209
 #: ../libcaja-private/caja-undostack-manager.c:1376
@@ -2396,77 +2380,77 @@ msgstr ""
 #: ../libcaja-private/caja-undostack-manager.c:1423
 #, c-format
 msgid "Restore %d items from trash"
-msgstr ""
+msgstr "เรียกคืน %d ข้อมูลทั้งหมดจากถังขยะ"
 
 #: ../libcaja-private/caja-undostack-manager.c:1236
 #, c-format
 msgid "Restore '%s' to '%s'"
-msgstr ""
+msgstr "เรียกคืน  '%s'  ไปยัง  '%s' "
 
 #: ../libcaja-private/caja-undostack-manager.c:1247
 #, c-format
 msgid "Move %d items back to trash"
-msgstr ""
+msgstr "ย้ายข้อมูล %d รายการกลับไปยังถังขยะ"
 
 #: ../libcaja-private/caja-undostack-manager.c:1250
 #, c-format
 msgid "Move '%s' back to trash"
-msgstr ""
+msgstr "ย้าย  '%s'  กลับไปยังถังขยะ"
 
 #: ../libcaja-private/caja-undostack-manager.c:1259
 #, c-format
 msgid "Delete links to %d items"
-msgstr ""
+msgstr "ลบจุดเชื่อมโยงไปยัง %d ข้อมูล"
 
 #: ../libcaja-private/caja-undostack-manager.c:1262
 #, c-format
 msgid "Delete link to '%s'"
-msgstr ""
+msgstr "ลบจุดเชื่อมโยงไปยัง '%s'"
 
 #: ../libcaja-private/caja-undostack-manager.c:1272
 #, c-format
 msgid "Restore original permissions of items enclosed in '%s'"
-msgstr ""
+msgstr "เรียกคืนสิทธิ์การใช้รายการที่อยู่ภายใน '%s' อย่างเดิม"
 
 #: ../libcaja-private/caja-undostack-manager.c:1280
 #, c-format
 msgid "Restore original permissions of '%s'"
-msgstr ""
+msgstr "เรียกคืนสิทธิ์การใช้ '%s' อย่างเดิม"
 
 #: ../libcaja-private/caja-undostack-manager.c:1289
 #, c-format
 msgid "Restore group of '%s' to '%s'"
-msgstr ""
+msgstr "เรียกคืนกลุ่มของ  '%s'  ไปยัง  '%s' "
 
 #: ../libcaja-private/caja-undostack-manager.c:1299
 #, c-format
 msgid "Restore owner of '%s' to '%s'"
-msgstr ""
+msgstr "เรียกคืนเจ้าของของ  '%s'  ไปยัง  '%s' "
 
 #: ../libcaja-private/caja-undostack-manager.c:1338
 #, c-format
 msgid "Copy %d items to '%s'"
-msgstr ""
+msgstr "คัดลอกข้อมูล %d ราการไปยัง '%s'"
 
 #: ../libcaja-private/caja-undostack-manager.c:1342
 #, c-format
 msgid "Copy '%s' to '%s'"
-msgstr ""
+msgstr "คัดลอก  '%s'  ไปยัง  '%s' "
 
 #: ../libcaja-private/caja-undostack-manager.c:1350
 #, c-format
 msgid "Duplicate of %d items in '%s'"
-msgstr ""
+msgstr "กำลังทำซ้ำแฟ้ม %d แฟ้มใน '%s'"
 
 #: ../libcaja-private/caja-undostack-manager.c:1355
 #, c-format
 msgid "Duplicate '%s' in '%s'"
-msgstr ""
+msgstr "ทำซ้ำ '%s' ใน '%s'"
 
 #: ../libcaja-private/caja-undostack-manager.c:1363
 #, c-format
 msgid "Move %d items to '%s'"
-msgstr ""
+msgstr "ย้าข้อมูล %d ราการไปยัง '%s'"
 
 #: ../libcaja-private/caja-undostack-manager.c:1367
 #, c-format
@@ -2476,62 +2460,62 @@ msgstr "ย้าย  '%s'  ไปยัง  '%s' "
 #: ../libcaja-private/caja-undostack-manager.c:1385
 #, c-format
 msgid "Create new file '%s' from template "
-msgstr ""
+msgstr "สร้างแฟ้มใหม่ \"%s\" จากแม่แบบ"
 
 #: ../libcaja-private/caja-undostack-manager.c:1392
 #, c-format
 msgid "Create an empty file '%s'"
-msgstr ""
+msgstr "สร้างแฟ้มเปล่า '%s'"
 
 #: ../libcaja-private/caja-undostack-manager.c:1399
 #, c-format
 msgid "Create a new folder '%s'"
-msgstr ""
+msgstr "สร้างโฟลเดอร์ใหม่ '%s'"
 
 #: ../libcaja-private/caja-undostack-manager.c:1407
 #, c-format
 msgid "Move %d items to trash"
-msgstr ""
+msgstr "ย้ายข้อมูล %d รายการไปยังถังขยะ"
 
 #: ../libcaja-private/caja-undostack-manager.c:1413
 #, c-format
 msgid "Move '%s' to trash"
-msgstr ""
+msgstr "ย้าย  '%s'  ไปยังถังขยะ"
 
 #: ../libcaja-private/caja-undostack-manager.c:1426
 #, c-format
 msgid "Restore '%s' from trash"
-msgstr ""
+msgstr "เรียกคืน '%s' จากถังขยะ"
 
 #: ../libcaja-private/caja-undostack-manager.c:1435
 #, c-format
 msgid "Create links to %d items"
-msgstr ""
+msgstr "สร้างจุดเชื่อมโยงไปยัง %d ข้อมูล"
 
 #: ../libcaja-private/caja-undostack-manager.c:1438
 #, c-format
 msgid "Create link to '%s'"
-msgstr ""
+msgstr "สร้างจุดเชื่อมโยงไปยัง '%s'"
 
 #: ../libcaja-private/caja-undostack-manager.c:1447
 #, c-format
 msgid "Set permissions of items enclosed in '%s'"
-msgstr ""
+msgstr "ตั้งสิทธิ์การใช้รายการที่อยู่ภายใน '%s'"
 
 #: ../libcaja-private/caja-undostack-manager.c:1455
 #, c-format
 msgid "Set permissions of '%s'"
-msgstr ""
+msgstr "ตั้งสิทธิ์การใช้ '%s'"
 
 #: ../libcaja-private/caja-undostack-manager.c:1464
 #, c-format
 msgid "Set group of '%s' to '%s'"
-msgstr ""
+msgstr "ตั้งกลุ่มของ  '%s'  ไปยัง  '%s' "
 
 #: ../libcaja-private/caja-undostack-manager.c:1474
 #, c-format
 msgid "Set owner of '%s' to '%s'"
-msgstr ""
+msgstr "ตั้งเจ้าของของ  '%s'  ไปยัง  '%s' "
 
 #: ../libcaja-private/caja-undostack-manager.c:1506
 #, c-format
@@ -2543,59 +2527,59 @@ msgstr[0] ""
 #, c-format
 msgid "_Undo duplicate of %d item"
 msgid_plural "_Undo duplicate of %d items"
-msgstr[0] ""
+msgstr[0] "_กำลังเลิกทำซ้ำแฟ้ม %d แฟ้ม"
 
 #: ../libcaja-private/caja-undostack-manager.c:1516
 #, c-format
 msgid "_Undo move of %d item"
 msgid_plural "_Undo move of %d items"
-msgstr[0] ""
+msgstr[0] "_กำลังเลิกย้ายแฟ้ม %d แฟ้ม"
 
 #: ../libcaja-private/caja-undostack-manager.c:1521
 #, c-format
 msgid "_Undo rename of %d item"
 msgid_plural "_Undo rename of %d items"
-msgstr[0] ""
+msgstr[0] "_กำลังเลิกเปลี่ยนชื่อแฟ้ม %d แฟ้ม"
 
 #: ../libcaja-private/caja-undostack-manager.c:1525
 #, c-format
 msgid "_Undo creation of an empty file"
-msgstr ""
+msgstr "เ_ลิกการสร้างแฟ้มเปล่า"
 
 #: ../libcaja-private/caja-undostack-manager.c:1528
 #, c-format
 msgid "_Undo creation of a file from template"
-msgstr ""
+msgstr "เ_ลิกการสร้างแฟ้มจากแม่แบบ"
 
 #: ../libcaja-private/caja-undostack-manager.c:1532
 #, c-format
 msgid "_Undo creation of %d folder"
 msgid_plural "_Undo creation of %d folders"
-msgstr[0] ""
+msgstr[0] "_กำลังเลิกสร้างโฟลเดอร์ %d รายการ"
 
 #: ../libcaja-private/caja-undostack-manager.c:1537
 #, c-format
 msgid "_Undo move to trash of %d item"
 msgid_plural "_Undo move to trash of %d items"
-msgstr[0] ""
+msgstr[0] "_กำลังเลิกย้ายแฟ้ม %d แฟ้มไปยังถังขยะ"
 
 #: ../libcaja-private/caja-undostack-manager.c:1542
 #, c-format
 msgid "_Undo restore from trash of %d item"
 msgid_plural "_Undo restore from trash of %d items"
-msgstr[0] ""
+msgstr[0] "_กำลังเลิกเรียกคืนแฟ้ม %d แฟ้มไปยังถังขยะ"
 
 #: ../libcaja-private/caja-undostack-manager.c:1547
 #, c-format
 msgid "_Undo create link to %d item"
 msgid_plural "_Undo create link to %d items"
-msgstr[0] ""
+msgstr[0] "เ_ลิกสร้างจุดเชื่อมโยงไปยัง %d ข้อมูล"
 
 #: ../libcaja-private/caja-undostack-manager.c:1552
 #, c-format
 msgid "_Undo delete of %d item"
 msgid_plural "_Undo delete of %d items"
-msgstr[0] ""
+msgstr[0] "_กำลังเลิกลบแฟ้ม %d แฟ้ม"
 
 #: ../libcaja-private/caja-undostack-manager.c:1557
 #, c-format
@@ -2607,83 +2591,83 @@ msgstr[0] ""
 #, c-format
 msgid "Undo change permissions of %d item"
 msgid_plural "Undo change permissions of %d items"
-msgstr[0] ""
+msgstr[0] "กำลังเลิกเปลี่ยนแปลงสิทธิ์แฟ้ม %d แฟ้ม"
 
 #: ../libcaja-private/caja-undostack-manager.c:1568
 #, c-format
 msgid "Undo change group of %d item"
 msgid_plural "Undo change group of %d items"
-msgstr[0] ""
+msgstr[0] "กำลังเลิกเปลี่ยนแปลงกลุ่มแฟ้ม %d แฟ้ม"
 
 #: ../libcaja-private/caja-undostack-manager.c:1573
 #, c-format
 msgid "Undo change owner of %d item"
 msgid_plural "Undo change owner of %d items"
-msgstr[0] ""
+msgstr[0] "กำลังเลิกเปลี่ยนแปลงเจ้าของแฟ้ม %d แฟ้ม"
 
 #: ../libcaja-private/caja-undostack-manager.c:1601
 #, c-format
 msgid "_Redo copy of %d item"
 msgid_plural "_Redo copy of %d items"
-msgstr[0] ""
+msgstr[0] "_กำลังคัดลอกแฟ้ม %d แฟ้มใหม่อีกรอบ"
 
 #: ../libcaja-private/caja-undostack-manager.c:1606
 #, c-format
 msgid "_Redo duplicate of %d item"
 msgid_plural "_Redo duplicate of %d items"
-msgstr[0] ""
+msgstr[0] "_กำลังทำซ้ำแฟ้ม %d แฟ้มใหม่อีกรอบ"
 
 #: ../libcaja-private/caja-undostack-manager.c:1611
 #, c-format
 msgid "_Redo move of %d item"
 msgid_plural "_Redo move of %d items"
-msgstr[0] ""
+msgstr[0] "_กำลังย้ายแฟ้ม %d แฟ้มใหม่อีกรอบ"
 
 #: ../libcaja-private/caja-undostack-manager.c:1616
 #, c-format
 msgid "_Redo rename of %d item"
 msgid_plural "_Redo rename of %d items"
-msgstr[0] ""
+msgstr[0] "_กำลังเปลี่ยนชื่อแฟ้ม %d แฟ้มใหม่อีกรอบ"
 
 #: ../libcaja-private/caja-undostack-manager.c:1620
 #, c-format
 msgid "_Redo creation of an empty file"
-msgstr ""
+msgstr "_กำลังสร้างแฟ้มเปล่าใหม่อีกรอบ"
 
 #: ../libcaja-private/caja-undostack-manager.c:1623
 #, c-format
 msgid "_Redo creation of a file from template"
-msgstr ""
+msgstr "_ทำการสร้างแฟ้มจากแม่แบบใหม่อีกรอบ"
 
 #: ../libcaja-private/caja-undostack-manager.c:1627
 #, c-format
 msgid "_Redo creation of %d folder"
 msgid_plural "_Redo creation of %d folders"
-msgstr[0] ""
+msgstr[0] "_กำลังสร้างโฟลเดอร์ %d รายการใหม่อีกรอบ"
 
 #: ../libcaja-private/caja-undostack-manager.c:1632
 #, c-format
 msgid "_Redo move to trash of %d item"
 msgid_plural "_Redo move to trash of %d items"
-msgstr[0] ""
+msgstr[0] "_กำลังย้ายแฟ้ม %d แฟ้มไปยังถังขยะใหม่อีกรอบ"
 
 #: ../libcaja-private/caja-undostack-manager.c:1637
 #, c-format
 msgid "_Redo restore from trash of %d item"
 msgid_plural "_Redo restore from trash of %d items"
-msgstr[0] ""
+msgstr[0] "_กำลังเรียกคืนแฟ้ม %d แฟ้มไปยังถังขยะใหม่อีกรอบ"
 
 #: ../libcaja-private/caja-undostack-manager.c:1642
 #, c-format
 msgid "_Redo create link to %d item"
 msgid_plural "_Redo create link to %d items"
-msgstr[0] ""
+msgstr[0] "_สร้างจุดเชื่อมโยงไปยัง %d ข้อมูลใหม่อีกรอบ"
 
 #: ../libcaja-private/caja-undostack-manager.c:1647
 #, c-format
 msgid "_Redo delete of %d item"
 msgid_plural "_Redo delete of %d items"
-msgstr[0] ""
+msgstr[0] "_กำลังลบแฟ้ม %d แฟ้มใหม่อีกรอบ"
 
 #: ../libcaja-private/caja-undostack-manager.c:1652
 #, c-format
@@ -2695,19 +2679,19 @@ msgstr[0] ""
 #, c-format
 msgid "Redo change permissions of %d item"
 msgid_plural "Redo change permissions of %d items"
-msgstr[0] ""
+msgstr[0] "กำลังเปลี่ยนแปลงสิทธิ์แฟ้ม %d แฟ้มใหม่อีกรอบ"
 
 #: ../libcaja-private/caja-undostack-manager.c:1663
 #, c-format
 msgid "Redo change group of %d item"
 msgid_plural "Redo change group of %d items"
-msgstr[0] ""
+msgstr[0] "กำลังเปลี่ยนแปลงกลุ่มแฟ้ม %d แฟ้มใหม่อีกรอบ"
 
 #: ../libcaja-private/caja-undostack-manager.c:1668
 #, c-format
 msgid "Redo change owner of %d item"
 msgid_plural "Redo change owner of %d items"
-msgstr[0] ""
+msgstr[0] "กำลังเปลี่ยนแปลงเจ้าของแฟ้ม %d แฟ้มอีกรอบ"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:1
 msgid "Where to position newly open tabs in browser windows."
@@ -2718,7 +2702,7 @@ msgid ""
 "If set to \"after-current-tab\", then new tabs are inserted after the "
 "current tab. If set to \"end\", then new tabs are appended to the end of the"
 " tab list."
-msgstr ""
+msgstr "ถ้ากำหนดเป็น \"after_current_tab\" ก็จะแทรกแท็บใหม่หลังแท็บปัจจุบัน ถ้ากำหนดเป็น \"end\" ก็จะเพิ่มแท็บใหม่ต่อท้ายแท็บทั้งหมดที่เปิดอยู่"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:3
 msgid "Caja will exit when last window destroyed."
@@ -2740,7 +2724,7 @@ msgid ""
 "If set to true, then all Caja windows will be browser windows. This is how "
 "Nautilus used to behave before version 2.6, and some people prefer this "
 "behavior."
-msgstr ""
+msgstr "ถ้าเป็นจริง หน้าต่างของ Caja ทุกบานจะเป็นเบราว์เซอร์  นี่เป็นพฤติกรรมของ Caja รุ่นก่อนหน้า 2.6 และบางคนชอบพฤติกรรมนี้มากกว่า"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:7
 msgid "Always use the location entry, instead of the pathbar"
@@ -2784,7 +2768,7 @@ msgid ""
 "folder is on a remote server. If set to \"local-only\" then only show "
 "previews for local file systems. If set to \"never\" then never bother to "
 "read preview data."
-msgstr ""
+msgstr "ข้อกำหนดเพื่อความเร็ว เรื่องการแสดงตัวอย่างแฟ้มข้อความในไอคอนแฟ้ม ถ้ากำหนดเป็น \"always\" ก็จะแสดงตัวอย่างเสมอ แม้โฟลเดอร์จะอยู่บนเครื่องเซิร์ฟเวอร์ในเครือข่าย ถ้ากำหนดเป็น \"local_only\" ก็จะแสดงตัวอย่างสำหรับระบบแฟ้มในเครื่องเท่านั้น ถ้ากำหนดเป็น \"never\" ก็จะไม่พยายามอ่านข้อมูลเพื่อแสดงตัวอย่างเลย"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:15
 msgid "When to show number of items in a folder"
@@ -2796,7 +2780,7 @@ msgid ""
 "\"always\" then always show item counts, even if the folder is on a remote "
 "server. If set to \"local-only\" then only show counts for local file "
 "systems. If set to \"never\" then never bother to compute item counts."
-msgstr ""
+msgstr "ข้อกำหนดเพื่อความเร็ว เรื่องการแสดงจำนวนรายการในโฟลเดอร์ ถ้ากำหนดเป็น \"always\" ก็จะแสดงจำนวนรายการเสมอ แม้โฟลเดอร์จะอยู่บนเซิร์ฟเวอร์ในเครือข่าย ถ้ากำหนดเป็น \"local_only\" ก็จะแสดงจำนวนรายการสำหรับระบบแฟ้มในเครื่องเท่านั้น ถ้ากำหนดเป็น \"never\" ก็จะไม่พยายามนับจำนวนรายการเลย"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:17
 msgid "Type of click used to launch/open files"
@@ -2873,7 +2857,7 @@ msgid ""
 "If set to \"local-only\" then only show thumbnails for local file systems. "
 "If set to \"never\" then never bother to thumbnail images, just use a "
 "generic icon."
-msgstr ""
+msgstr "ข้อกำหนดเพื่อความเร็ว เรื่องการแสดงแฟ้มรูปภาพเป็นรูปย่อ ถ้ากำหนดเป็น \"always\" ก็จะแสดงรูปย่อเสมอ แม้โฟลเดอร์จะอยู่บนเซิร์ฟเวอร์ในเครือข่าย ถ้ากำหนดเป็น \"local_only\" ก็จะแสดงรูปย่อสำหรับระบบแฟ้มในเครื่องเท่านั้น ถ้ากำหนดเป็น \"never\" ก็จะไม่พยายามแสดงรูปย่อเลย และจะใช้ไอคอนรูปทั่วไปเท่านั้น"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:31
 msgid "Maximum image size for thumbnailing"
@@ -2896,7 +2880,7 @@ msgid ""
 "icon. If set to \"always\" then always plays the sound, even if the file is "
 "on a remote server. If set to \"local-only\" then only plays previews on "
 "local file systems. If set to \"never\" then it never previews sound."
-msgstr ""
+msgstr "ข้อกำหนดเพื่อความเร็วเมื่อแสดงตัวอย่างแฟ้มเสียงจากการคลิกเมาส์บนไอคอนแฟ้ม ถ้ากำหนดเป็น \"always\" ก็จะเล่นเสียงเสมอ แม้แฟ้มจะอยู่บนเซิร์ฟเวอร์ในเครือข่าย ถ้ากำหนดเป็น \"local_only\" ก็จะเล่นเฉพาะแฟ้มที่อยู่ในระบบแฟ้มในเครื่องเท่านั้น ถ้ากำหนดเป็น \"never\" ก็จะไม่แสดงตัวอย่างเสียงเลย"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:35
 msgid "Show advanced permissions in the file property dialog"
@@ -2926,7 +2910,7 @@ msgstr "การเรียงลำดับโดยปริยาย"
 msgid ""
 "The default sort-order for items in the icon view. Possible values are "
 "\"name\", \"size\", \"type\", \"mtime\", and \"emblems\"."
-msgstr ""
+msgstr "การเรียงลำดับโดยปริยายของรายการในมุมมองแบบไอคอน ค่าที่เป็นไปได้คือ \"name\", \"size\", \"type\", \"mtime\", และ \"emblems\""
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:41
 msgid "Reverse sort order in new windows"
@@ -2975,7 +2959,7 @@ msgstr "ชื่อแฟ้มปริยายสำหรับพื้น
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:50
 msgid ""
 "Uri of the default folder background. Only used if background_set is true."
-msgstr ""
+msgstr "ชื่อแฟ้มสำหรับใช้เป็นพื้นหลังของโฟลเดอร์ ใช้ต่อเมื่อ background_set มีค่าเป็น true"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:51
 msgid "Custom Side Pane Background Set"
@@ -3003,7 +2987,7 @@ msgstr "ชื่อแฟ้มพื้นหลังปริยายสำ
 msgid ""
 "Uri of the default side pane background. Only used if "
 "side_pane_background_set is true."
-msgstr ""
+msgstr "Uri สำหรับใช้เป็นพื้นหลังของช่องด้านข้าง ใช้ต่อเมื่อ side_pane_background_set มีค่าเป็น true"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:57
 msgid "Default folder viewer"
@@ -3014,7 +2998,7 @@ msgid ""
 "When a folder is visited this viewer is used unless you have selected "
 "another view for that particular folder. Possible values are \"list-view\", "
 "\"icon-view\" and \"compact-view\"."
-msgstr ""
+msgstr "มุมมองสำหรับเปิดดูโฟลเดอร์ถ้าโฟลเดอร์นั้นไม่ได้ตั้งให้ใช้มุมมองอื่นไว้ สามารถตั้งเป็น \"list_view\" เพื่อใช้มุมมองแบบรายชื่อ, \"icon_view\" เพื่อใช้มุมมองแบบไอคอน และ \"compact_view\" เพื่อใช้มุมมองแบบกระชับ"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:59
 msgid "Date Format"
@@ -3035,11 +3019,11 @@ msgid ""
 "If set to true, then hidden files are shown by default in the file manager. "
 "Hidden files are either dotfiles, listed in the folder's .hidden file or "
 "backup files ending with a tilde (~)."
-msgstr ""
+msgstr "ถ้าเป็นจริง โปรแกรมจัดการแฟ้มจะแสดงแฟ้มที่ซ่อนไว้ แฟ้มที่ซ่อนจะอยู่ทั้งในรูปแบบของแฟ้มที่ชื่อเริ่มด้วยจุด หรือแฟ้มที่ชื่ออยู่ในแฟ้ม \".hidden\" ของโฟลเดอร์นั้น หรือแฟ้มสำรองที่ลงท้ายด้วยเครื่องหมายตัวหนอน (~)"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:63
 msgid "Whether to show file sizes with IEC units"
-msgstr ""
+msgstr "จะแสดงขนาดแฟ้มในหน่วย IEC หรือไม่"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:64
 msgid ""
@@ -3058,7 +3042,7 @@ msgid ""
 "values are: \"size\", \"type\", \"date_modified\", \"date_changed\", "
 "\"date_accessed\", \"owner\", \"group\", \"permissions\", "
 "\"octal_permissions\" and \"mime_type\"."
-msgstr ""
+msgstr "รายชื่อของคำอธิบายใต้ไอคอนในมุมมองแบบไอคอนและบนพื้นโต๊ะ จำนวนคำอธิบายที่แสดงจริงจะขึ้นอยู่กับระดับการซูม ค่าที่เป็นไปได้คือ: \"size\", \"type\", \"date_modified\", \"date_changed\", \"date_accessed\", \"owner\", \"group\", \"permissions\", \"octal_permissions\" และ \"mime_type\""
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:67
 msgid "Use tighter layout in new windows"
@@ -3103,7 +3087,7 @@ msgid ""
 "A string specifying how parts of overlong file names should be replaced by ellipses, depending on the zoom level. Each of the list entries is of the form \"Zoom Level:Integer\". For each specified zoom level, if the given integer is larger than 0, the file name will not exceed the given number of lines. If the integer is 0 or smaller, no limit is imposed on the specified zoom level. A default entry of the form \"Integer\" without any specified zoom level is also allowed. It defines the maximum number of lines for all other zoom levels. Examples: 0 - always display overlong file names; 3 - shorten file names if they exceed three lines; smallest:5,smaller:4,0 - shorten file names if they exceed five lines for zoom level \"smallest\". Shorten file names if they exceed four lines for zoom level \"smaller\". Do not shorten file names for other zoom levels.\n"
 "\n"
 "Available zoom levels: smallest (33%), smaller (50%), small (66%), standard (100%), large (150%), larger (200%), largest (400%)"
-msgstr ""
+msgstr "สตริงระบุวิธีการเติมจุดไข่ปลาในชื่อแฟ้มที่ยาวเกินไป โดยขึ้นอยู่กับระดับการแสดงย่อ-ขยาย แต่ละรายการในรายชื่อของข้อกำหนดจะอยู่ในรูป \"ระดับการแสดงย่อ-ขยาย:จำนวนเต็ม\" โดยในแต่ละระดับที่ระบุ ถ้าเลขจำนวนเต็มที่กำหนดเป็นค่ามากกว่า 0 ก็จะพยายามแสดงชื่อแฟ้มไม่ให้มีจำนวนบรรทัดเกินค่าตัวเลขนี้ แต่ถ้าเลขจำนวนเต็มที่กำหนดเป็นค่า 0 หรือติดลบ ก็จะไม่มีการจำกัดจำนวนบรรทัดของการแสดงชื่อแฟ้มเลยในระดับที่ระบุ คุณสามารถใช้รายการปริยายในรูป \"จำนวนเต็ม\" โดยไม่ระบุระดับการแสดงย่อ-ขยายได้ด้วย โดยจะใช้กับการแสดงชื่อแฟ้มในระดับอื่นที่เหลือทั้งหมด ตัวอย่างเช่น: 0 - แสดงชื่อแฟ้มเต็มเสมอ; 3 - ย่อชื่อแฟ้มถ้ายาวเกินสามบรรทัด; smallest:5,smaller:4,0 - ย่อชื่อแฟ้มถ้ายาวเกินห้าบรรทัดในระดับ \"smallest\", ย่อถ้ายาวเกินสี่บรรทัดในระดับ \"smaller\" และไม่ต้องย่อชื่อแฟ้มในระดับอื่นๆ\n\nชื่อระดับการแสดงย่อ-ขยายที่ใช้ได้คือ: smallest (33%), smaller (50%), small (66%), standard (100%), large (150%), larger (200%), largest (400%)"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:80
 msgid "Default compact view zoom level"
@@ -3163,7 +3147,7 @@ msgstr "อักษรของพื้นโต๊ะ"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:93
 msgid "The font description used for the icons on the desktop."
-msgstr ""
+msgstr "ลักษณะอักษรสำหรับไอคอนบนพื้นโต๊ะ"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:94
 msgid "Home icon visible on desktop"
@@ -3412,7 +3396,7 @@ msgstr "คำถาม Autorun"
 #: ../data/caja-browser.desktop.in.in.h:1
 #: ../data/caja-folder-handler.desktop.in.in.h:1
 #: ../data/caja.desktop.in.in.h:1 ../src/caja-spatial-window.c:382
-#: ../src/caja-window-menus.c:536 ../src/caja-window.c:179
+#: ../src/caja-window-menus.c:532 ../src/caja-window.c:183
 msgid "Caja"
 msgstr "Caja"
 
@@ -3425,7 +3409,7 @@ msgid "Browse the file system with the file manager"
 msgstr "ท่องดูระบบแฟ้มด้วยโปรแกรมจัดการแฟ้ม"
 
 #. tooltip
-#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:898
+#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:894
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
 msgstr "ท่องดูดิสก์และโฟลเดอร์ทั้งหมดในเครื่องและในเครือข่ายที่เข้าถึงได้จากคอมพิวเตอร์นี้"
@@ -3444,7 +3428,7 @@ msgstr "โฟลเดอร์บ้าน"
 
 #. tooltip
 #: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:522
-#: ../src/caja-window-menus.c:893
+#: ../src/caja-window-menus.c:889
 msgid "Open your personal folder"
 msgstr "เปิดโฟลเดอร์ส่วนตัวของคุณ"
 
@@ -3452,121 +3436,121 @@ msgstr "เปิดโฟลเดอร์ส่วนตัวของคุ
 msgid "File Manager"
 msgstr "โปรแกรมจัดการแฟ้ม"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:719
+#: ../src/file-manager/fm-desktop-icon-view.c:722
 msgid "Background"
 msgstr "พื้นหลัง"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:796
-#: ../src/file-manager/fm-directory-view.c:7400
-#: ../src/file-manager/fm-directory-view.c:9078
+#: ../src/file-manager/fm-desktop-icon-view.c:799
+#: ../src/file-manager/fm-directory-view.c:7405
+#: ../src/file-manager/fm-directory-view.c:9084
 msgid "E_mpty Trash"
 msgstr "เ_ทขยะ"
 
 #. label, accelerator
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:810
-#: ../src/file-manager/fm-directory-view.c:7364
+#: ../src/file-manager/fm-desktop-icon-view.c:813
+#: ../src/file-manager/fm-directory-view.c:7369
 msgid "Create L_auncher..."
 msgstr "สร้าง_ตัวเรียกโปรแกรม..."
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:812
-#: ../src/file-manager/fm-directory-view.c:7365
+#: ../src/file-manager/fm-desktop-icon-view.c:815
+#: ../src/file-manager/fm-directory-view.c:7370
 msgid "Create a new launcher"
 msgstr "สร้างตัวเรียกโปรแกรมใหม่"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:819
+#: ../src/file-manager/fm-desktop-icon-view.c:822
 msgid "Change Desktop _Background"
 msgstr "เปลี่ยนพื้นหลังของพื้นโต๊ะ"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:821
+#: ../src/file-manager/fm-desktop-icon-view.c:824
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr "เปิดหน้าต่างเลือกสีหรือลวดลายพื้นหลังของพื้นโต๊ะ"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:828
+#: ../src/file-manager/fm-desktop-icon-view.c:831
 msgid "Empty Trash"
 msgstr "เทขยะ"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:830
-#: ../src/file-manager/fm-directory-view.c:7401 ../src/caja-trash-bar.c:208
+#: ../src/file-manager/fm-desktop-icon-view.c:833
+#: ../src/file-manager/fm-directory-view.c:7406 ../src/caja-trash-bar.c:208
 msgid "Delete all items in the Trash"
 msgstr "ลบรายการทั้งหมดในถังขยะ"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:930
+#: ../src/file-manager/fm-desktop-icon-view.c:933
 msgid "The desktop view encountered an error."
 msgstr "เกิดข้อผิดพลาดในมุมมองแบบพื้นโต๊ะ"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:931
+#: ../src/file-manager/fm-desktop-icon-view.c:934
 msgid "The desktop view encountered an error while starting up."
 msgstr "เกิดข้อผิดพลาดขณะเริ่มต้นมุมมองพื้นโต๊ะ"
 
-#: ../src/file-manager/fm-directory-view.c:658
+#: ../src/file-manager/fm-directory-view.c:662
 #, c-format
 msgid "This will open %'d separate tab."
 msgid_plural "This will open %'d separate tabs."
 msgstr[0] "การเปิดนี้จะเปิดแท็บ %'d แท็บ"
 
-#: ../src/file-manager/fm-directory-view.c:661
+#: ../src/file-manager/fm-directory-view.c:665
 #, c-format
 msgid "This will open %'d separate window."
 msgid_plural "This will open %'d separate windows."
 msgstr[0] "การเปิดนี้จะเปิดหน้าต่าง %'d บาน"
 
-#: ../src/file-manager/fm-directory-view.c:1180
+#: ../src/file-manager/fm-directory-view.c:1184
 #: ../src/file-manager/fm-properties-window.c:6491
 #: ../src/caja-connect-server-dialog.c:731 ../src/caja-location-dialog.c:106
 msgid "There was an error displaying help."
 msgstr "เกิดข้อผิดพลาดขณะแสดงวิธีใช้"
 
-#: ../src/file-manager/fm-directory-view.c:1204
+#: ../src/file-manager/fm-directory-view.c:1208
 msgid "Select Items Matching"
 msgstr "เลือกรายการที่ตรงกับ"
 
-#: ../src/file-manager/fm-directory-view.c:1219
+#: ../src/file-manager/fm-directory-view.c:1223
 msgid "_Pattern:"
 msgstr "รูปแ_บบ:"
 
-#: ../src/file-manager/fm-directory-view.c:1230
+#: ../src/file-manager/fm-directory-view.c:1234
 msgid "Examples: "
 msgstr "ตัวอย่าง: "
 
-#: ../src/file-manager/fm-directory-view.c:1377
+#: ../src/file-manager/fm-directory-view.c:1381
 msgid "Save Search as"
 msgstr "บันทึกการค้นหาเป็น"
 
-#: ../src/file-manager/fm-directory-view.c:1409
+#: ../src/file-manager/fm-directory-view.c:1413
 msgid "Search _name:"
 msgstr "_ชื่อรายการค้น:"
 
-#: ../src/file-manager/fm-directory-view.c:1437
+#: ../src/file-manager/fm-directory-view.c:1441
 msgid "_Folder:"
 msgstr "โฟ_ลเดอร์:"
 
-#: ../src/file-manager/fm-directory-view.c:1450
+#: ../src/file-manager/fm-directory-view.c:1454
 msgid "Select Folder to Save Search In"
 msgstr "เลือกโฟลเดอร์ที่จะเก็บบันทึกการค้นหา"
 
-#: ../src/file-manager/fm-directory-view.c:2359
-#: ../src/file-manager/fm-directory-view.c:2396
+#: ../src/file-manager/fm-directory-view.c:2363
+#: ../src/file-manager/fm-directory-view.c:2400
 #, c-format
 msgid "\"%s\" selected"
 msgstr "เลือก \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:2361
+#: ../src/file-manager/fm-directory-view.c:2365
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
 msgstr[0] "เลือก %'d โฟลเดอร์"
 
-#: ../src/file-manager/fm-directory-view.c:2371
+#: ../src/file-manager/fm-directory-view.c:2375
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
@@ -3574,20 +3558,20 @@ msgstr[0] " (ซึ่งบรรจุ %'d รายการ)"
 
 #. translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
-#: ../src/file-manager/fm-directory-view.c:2382
+#: ../src/file-manager/fm-directory-view.c:2386
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
 msgstr[0] " (ซึ่งบรรจุทั้งหมด %'d รายการ)"
 
-#: ../src/file-manager/fm-directory-view.c:2399
+#: ../src/file-manager/fm-directory-view.c:2403
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
 msgstr[0] "เลือก %'d รายการ"
 
 #. Folders selected also, use "other" terminology
-#: ../src/file-manager/fm-directory-view.c:2406
+#: ../src/file-manager/fm-directory-view.c:2410
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
@@ -3597,17 +3581,17 @@ msgstr[0] "เลือกรายการอื่น %'d รายการ"
 #. * needs to use something other than parentheses. The
 #. * first message gives the number of items selected;
 #. * the message in parentheses the size of those items.
-#: ../src/file-manager/fm-directory-view.c:2425
+#: ../src/file-manager/fm-directory-view.c:2429
 #, c-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-directory-view.c:2438
+#: ../src/file-manager/fm-directory-view.c:2442
 #, c-format
 msgid "Free space: %s"
-msgstr ""
+msgstr "เนื้อที่ว่าง: %s"
 
-#: ../src/file-manager/fm-directory-view.c:2449
+#: ../src/file-manager/fm-directory-view.c:2453
 #, c-format
 msgid "%s, Free space: %s"
 msgstr "%s, เนื้อที่ว่าง: %s"
@@ -3616,10 +3600,10 @@ msgstr "%s, เนื้อที่ว่าง: %s"
 #. * might want to change "," to something else.
 #. * After the comma the amount of free space will
 #. * be shown.
-#: ../src/file-manager/fm-directory-view.c:2464
+#: ../src/file-manager/fm-directory-view.c:2468
 #, c-format
 msgid "%s, %s"
-msgstr ""
+msgstr "%s, %s"
 
 #. Marking this for translation, since you
 #. * might want to change "," to something else.
@@ -3631,8 +3615,8 @@ msgstr ""
 #. * and the number of items in those folders and the
 #. * message about the number of other items and the
 #. * total size of those items.
-#: ../src/file-manager/fm-directory-view.c:2483
-#: ../src/file-manager/fm-directory-view.c:2497
+#: ../src/file-manager/fm-directory-view.c:2487
+#: ../src/file-manager/fm-directory-view.c:2501
 #, c-format
 msgid "%s%s, %s"
 msgstr "%s%s, %s"
@@ -3644,52 +3628,52 @@ msgstr "%s%s, %s"
 #. * message about the number of other items and the
 #. * total size of those items. After the second comma
 #. * the free space is written.
-#: ../src/file-manager/fm-directory-view.c:2510
+#: ../src/file-manager/fm-directory-view.c:2514
 #, c-format
 msgid "%s%s, %s, %s"
-msgstr ""
+msgstr "%s%s, %s, %s"
 
-#: ../src/file-manager/fm-directory-view.c:4555
+#: ../src/file-manager/fm-directory-view.c:4560
 #: ../src/caja-information-panel.c:922
 #, c-format
 msgid "Open With %s"
 msgstr "เปิดด้วย %s"
 
-#: ../src/file-manager/fm-directory-view.c:4557
+#: ../src/file-manager/fm-directory-view.c:4562
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
 msgstr[0] "ใช้ \"%s\" เปิดรายการที่เลือก"
 
-#: ../src/file-manager/fm-directory-view.c:4646
+#: ../src/file-manager/fm-directory-view.c:4651
 msgid "Open parent location"
-msgstr ""
+msgstr "เปิดตำแหน่งชั้นนอก"
 
-#: ../src/file-manager/fm-directory-view.c:4647
+#: ../src/file-manager/fm-directory-view.c:4652
 msgid "Open parent location for the selected item"
-msgstr ""
+msgstr "เปิดตำแหน่งชั้นนอกของรายการที่เลือก"
 
-#: ../src/file-manager/fm-directory-view.c:5505
+#: ../src/file-manager/fm-directory-view.c:5510
 #, c-format
 msgid "Run \"%s\" on any selected items"
 msgstr "เรียกใช้ \"%s\" บนแต่ละรายการที่เลือก"
 
-#: ../src/file-manager/fm-directory-view.c:5756
+#: ../src/file-manager/fm-directory-view.c:5761
 #, c-format
 msgid "Create Document from template \"%s\""
 msgstr "สร้างเอกสารจากแม่แบบ \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:6006
+#: ../src/file-manager/fm-directory-view.c:6011
 msgid "All executable files in this folder will appear in the Scripts menu."
 msgstr "ทุกแฟ้มในโฟลเดอร์นี้ ที่เรียกใช้เป็นโปรแกรมได้ จะถูกแสดงไว้ในเมนูสคริปต์"
 
-#: ../src/file-manager/fm-directory-view.c:6008
+#: ../src/file-manager/fm-directory-view.c:6013
 msgid ""
 "Choosing a script from the menu will run that script with any selected items"
 " as input."
 msgstr "เมื่อคุณเลือกสคริปต์จากเมนูนั้น สคริปต์ที่เลือกจะถูกเรียกใช้ โดยมีรายการที่เลือกไว้เป็นอินพุต"
 
-#: ../src/file-manager/fm-directory-view.c:6010
+#: ../src/file-manager/fm-directory-view.c:6015
 msgid ""
 "All executable files in this folder will appear in the Scripts menu. Choosing a script from the menu will run that script.\n"
 "\n"
@@ -3712,124 +3696,124 @@ msgid ""
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI for current location in the inactive pane of a split-view window"
 msgstr "ทุกแฟ้มในโฟลเดอร์นี้ ที่เรียกใช้เป็นโปรแกรมได้ จะถูกแสดงไว้ในเมนูสคริปต์ โดยสคริปต์จะทำงานเมื่อถูกเลือก\n\nถ้าเป็นการเรียกจากโฟลเดอร์ในเครื่อง สคริปต์จะได้รับชื่อแฟ้มที่เลือกเป็นอาร์กิวเมนต์ ถ้าเป็นการเรียกจากโฟลเดอร์ในเครือข่าย (เช่น โฟลเดอร์ที่เป็นเว็บหรือ FTP) ก็จะไม่ส่งอาร์กิวเมนต์อะไรให้เลย\n\nไม่ว่ากรณีใดก็ตาม Caja จะกำหนดตัวแปรสภาพแวดล้อมต่อไปนี้ เพื่อให้สคริปต์ใช้ได้:\n\nCAJA_SCRIPT_SELECTED_FILE_PATHS: รายชื่อพาธของแฟ้มที่เลือก คั่นด้วย newline (เฉพาะจากในเครื่องเท่านั้น)\n\nCAJA_SCRIPT_SELECTED_URIS: รายชื่อ URI ของแฟ้มที่เลือก คั่นด้วย newline\n\nCAJA_SCRIPT_CURRENT_URI: URI ของตำแหน่งปัจจุบัน\n\nCAJA_SCRIPT_WINDOW_GEOMETRY: ตำแหน่งและขนาดของหน้าต่างปัจจุบัน\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_FILE_PATHS: รายชื่อพาธของแฟ้มที่เลือกในช่องที่ไม่ทำงานของหน้าต่างที่มีการแบ่งช่อง คั่นด้วย newline (เฉพาะจากในเครื่องเท่านั้น)\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: รายชื่อ URI ของแฟ้มที่เลือกในช่องที่ไม่ทำงานของหน้าต่างที่มีการแบ่งช่อง คั่นด้วย newline\n \nCAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI ของตำแหน่งปัจจุบันในช่องที่ไม่ทำงานของหน้าต่างที่มีการแบ่งช่อง"
 
-#: ../src/file-manager/fm-directory-view.c:6078
+#: ../src/file-manager/fm-directory-view.c:6083
 #: ../src/file-manager/fm-tree-view.c:1009
 #, c-format
 msgid "\"%s\" will be moved if you select the Paste command"
 msgstr "\"%s\" จะถูกย้ายถ้าคุณเลือกคำสั่ง \"แปะ\""
 
-#: ../src/file-manager/fm-directory-view.c:6082
+#: ../src/file-manager/fm-directory-view.c:6087
 #: ../src/file-manager/fm-tree-view.c:1015
 #, c-format
 msgid "\"%s\" will be copied if you select the Paste command"
 msgstr "\"%s\" จะถูกคัดลอกถ้าคุณเลือกคำสั่ง \"แปะ\""
 
-#: ../src/file-manager/fm-directory-view.c:6089
+#: ../src/file-manager/fm-directory-view.c:6094
 #, c-format
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be moved if you select the Paste command"
 msgstr[0] "%'d รายการที่เลือกจะถูกย้ายถ้าคุณเลือกคำสั่ง \"แปะ\""
 
-#: ../src/file-manager/fm-directory-view.c:6096
+#: ../src/file-manager/fm-directory-view.c:6101
 #, c-format
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be copied if you select the Paste command"
 msgstr[0] "%'d รายการที่เลือกจะถูกคัดลอกถ้าคุณเลือกคำสั่ง \"แปะ\""
 
-#: ../src/file-manager/fm-directory-view.c:6276
+#: ../src/file-manager/fm-directory-view.c:6281
 #: ../src/file-manager/fm-tree-view.c:1055
 msgid "There is nothing on the clipboard to paste."
 msgstr "ไม่มีอะไรในคลิปบอร์ดจะแปะ"
 
-#: ../src/file-manager/fm-directory-view.c:6491
+#: ../src/file-manager/fm-directory-view.c:6496
 msgid "Unable to unmount location"
 msgstr "ไม่สามารถเลิกเมานท์ตำแหน่งได้"
 
-#: ../src/file-manager/fm-directory-view.c:6512
+#: ../src/file-manager/fm-directory-view.c:6517
 msgid "Unable to eject location"
 msgstr "ไม่สามารถดันตำแหน่งออกได้"
 
-#: ../src/file-manager/fm-directory-view.c:6527
+#: ../src/file-manager/fm-directory-view.c:6532
 msgid "Unable to stop drive"
 msgstr "ไม่สามารถหยุดไดรว์ได้"
 
-#: ../src/file-manager/fm-directory-view.c:7084
+#: ../src/file-manager/fm-directory-view.c:7089
 #, c-format
 msgid "Connect to Server %s"
 msgstr "เชื่อมต่อไปยังเซิร์ฟเวอร์ %s"
 
-#: ../src/file-manager/fm-directory-view.c:7089
-#: ../src/file-manager/fm-directory-view.c:8297
-#: ../src/file-manager/fm-directory-view.c:8389
-#: ../src/file-manager/fm-directory-view.c:8499
+#: ../src/file-manager/fm-directory-view.c:7094
+#: ../src/file-manager/fm-directory-view.c:8303
+#: ../src/file-manager/fm-directory-view.c:8395
+#: ../src/file-manager/fm-directory-view.c:8505
 msgid "_Connect"
 msgstr "เ_ชื่อมต่อ"
 
-#: ../src/file-manager/fm-directory-view.c:7103
+#: ../src/file-manager/fm-directory-view.c:7108
 msgid "Link _name:"
 msgstr "_ชื่อจุดเชื่อมโยง:"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7342
+#: ../src/file-manager/fm-directory-view.c:7347
 msgid "Create _Document"
 msgstr "สร้างเ_อกสาร"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7343
+#: ../src/file-manager/fm-directory-view.c:7348
 msgid "Open Wit_h"
 msgstr "เปิด_ด้วย"
 
-#: ../src/file-manager/fm-directory-view.c:7344
+#: ../src/file-manager/fm-directory-view.c:7349
 msgid "Choose a program with which to open the selected item"
 msgstr "เลือกโปรแกรมที่จะใช้เปิดรายการที่เลือก"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7346
-#: ../src/file-manager/fm-directory-view.c:7625
+#: ../src/file-manager/fm-directory-view.c:7351
+#: ../src/file-manager/fm-directory-view.c:7630
 msgid "_Properties"
 msgstr "คุณ_สมบัติ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7347
-#: ../src/file-manager/fm-directory-view.c:9065
+#: ../src/file-manager/fm-directory-view.c:7352
+#: ../src/file-manager/fm-directory-view.c:9071
 msgid "View or modify the properties of each selected item"
 msgstr "ดูหรือแก้ไขคุณสมบัติ ของแต่ละรายการที่เลือก"
 
 #. name, stock id
 #. label, accelerator
 #. add the "create folder" menu item
-#: ../src/file-manager/fm-directory-view.c:7354
+#: ../src/file-manager/fm-directory-view.c:7359
 #: ../src/file-manager/fm-tree-view.c:1298
 msgid "Create _Folder"
 msgstr "สร้างโฟ_ลเดอร์"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7355
+#: ../src/file-manager/fm-directory-view.c:7360
 msgid "Create a new empty folder inside this folder"
 msgstr "สร้างโฟลเดอร์เปล่าข้างในโฟลเดอร์นี้"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7357
+#: ../src/file-manager/fm-directory-view.c:7362
 msgid "No templates installed"
 msgstr "ไม่มีต้นแบบติดตั้งอยู่"
 
 #. name, stock id
 #. translators: this is used to indicate that a file doesn't contain anything
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7360
+#: ../src/file-manager/fm-directory-view.c:7365
 msgid "_Empty File"
 msgstr "แฟ้มเ_ปล่า"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7361
+#: ../src/file-manager/fm-directory-view.c:7366
 msgid "Create a new empty file inside this folder"
 msgstr "สร้างแฟ้มเปล่าข้างในโฟลเดอร์นี้"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7369
+#: ../src/file-manager/fm-directory-view.c:7374
 msgid "Open the selected item in this window"
 msgstr "เปิดรายการที่เลือกในหน้าต่างนี้"
 
@@ -3838,91 +3822,91 @@ msgstr "เปิดรายการที่เลือกในหน้า
 #. Location-specific actions
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7376
-#: ../src/file-manager/fm-directory-view.c:7557
+#: ../src/file-manager/fm-directory-view.c:7381
+#: ../src/file-manager/fm-directory-view.c:7562
 msgid "Open in Navigation Window"
 msgstr "เปิดในหน้าต่างแบบท่องดู"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7377
+#: ../src/file-manager/fm-directory-view.c:7382
 msgid "Open each selected item in a navigation window"
 msgstr "เปิดแต่ละรายการที่เลือก ในหน้าต่างแบบท่องดู"
 
 #. name, stock id
 #. label, accelerator
 #. add the "open in new tab" menu item
-#: ../src/file-manager/fm-directory-view.c:7380
-#: ../src/file-manager/fm-directory-view.c:7561
-#: ../src/file-manager/fm-directory-view.c:8629
-#: ../src/file-manager/fm-directory-view.c:8955
+#: ../src/file-manager/fm-directory-view.c:7385
+#: ../src/file-manager/fm-directory-view.c:7566
+#: ../src/file-manager/fm-directory-view.c:8635
+#: ../src/file-manager/fm-directory-view.c:8961
 #: ../src/file-manager/fm-tree-view.c:1278 ../src/caja-places-sidebar.c:2692
 msgid "Open in New _Tab"
 msgstr "เปิดในแ_ท็บใหม่"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7381
+#: ../src/file-manager/fm-directory-view.c:7386
 msgid "Open each selected item in a new tab"
 msgstr "เปิดแต่ละรายการที่เลือกในแท็บใหม่"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7384
-#: ../src/file-manager/fm-directory-view.c:7566
+#: ../src/file-manager/fm-directory-view.c:7389
+#: ../src/file-manager/fm-directory-view.c:7571
 msgid "Open in _Folder Window"
 msgstr "เปิดในหน้าต่างโ_ฟลเดอร์"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7385
+#: ../src/file-manager/fm-directory-view.c:7390
 msgid "Open each selected item in a folder window"
 msgstr "เปิดแต่ละรายการที่เลือกในหน้าต่างโฟลเดอร์"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7388
+#: ../src/file-manager/fm-directory-view.c:7393
 msgid "Other _Application..."
 msgstr "โปรแกรม_อื่น..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7389
-#: ../src/file-manager/fm-directory-view.c:7393
+#: ../src/file-manager/fm-directory-view.c:7394
+#: ../src/file-manager/fm-directory-view.c:7398
 msgid "Choose another application with which to open the selected item"
 msgstr "เลือกใช้โปรแกรมอื่นเปิดรายการที่เลือก"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7392
+#: ../src/file-manager/fm-directory-view.c:7397
 msgid "Open With Other _Application..."
 msgstr "เปิดด้วยโปรแกรม_อื่น..."
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7396
+#: ../src/file-manager/fm-directory-view.c:7401
 msgid "_Open Scripts Folder"
 msgstr "_เปิดโฟลเดอร์สคริปต์"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7397
+#: ../src/file-manager/fm-directory-view.c:7402
 msgid "Show the folder containing the scripts that appear in this menu"
 msgstr "เปิดโฟลเดอร์ที่บรรจุสคริปต์ที่แสดงในเมนูนี้"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7405
+#: ../src/file-manager/fm-directory-view.c:7410
 msgid "Prepare the selected files to be moved with a Paste command"
 msgstr "เตรียมแฟ้มที่เลือก ไว้สำหรับย้ายด้วยคำสั่ง \"แปะ\""
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7409
+#: ../src/file-manager/fm-directory-view.c:7414
 msgid "Prepare the selected files to be copied with a Paste command"
 msgstr "เตรียมแฟ้มที่เลือก ไว้สำหรับคัดลอกด้วยคำสั่ง \"แปะ\""
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7413
+#: ../src/file-manager/fm-directory-view.c:7418
 msgid "Move or copy files previously selected by a Cut or Copy command"
 msgstr "ย้ายหรือคัดลอกแฟ้มที่ถูก \"ตัด\" หรือ \"คัดลอก\" ไว้ มาที่นี่"
 
@@ -3930,141 +3914,141 @@ msgstr "ย้ายหรือคัดลอกแฟ้มที่ถูก
 #. accelerator for paste
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7418
-#: ../src/file-manager/fm-directory-view.c:7579
+#: ../src/file-manager/fm-directory-view.c:7423
+#: ../src/file-manager/fm-directory-view.c:7584
 #: ../src/file-manager/fm-tree-view.c:1330
 msgid "_Paste Into Folder"
 msgstr "_แปะลงในโฟลเดอร์"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7419
+#: ../src/file-manager/fm-directory-view.c:7424
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into the "
 "selected folder"
 msgstr "ย้ายหรือคัดลอกแฟ้มที่ถูก \"ตัด\" หรือ \"คัดลอก\" ไว้ มาที่โฟลเดอร์ที่เลือก"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7421
+#: ../src/file-manager/fm-directory-view.c:7426
 msgid "Cop_y to"
 msgstr ""
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7422
+#: ../src/file-manager/fm-directory-view.c:7427
 msgid "M_ove to"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7425
+#: ../src/file-manager/fm-directory-view.c:7430
 msgid "Select all items in this window"
 msgstr "เลือกรายการทุกรายการในหน้าต่างนี้"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7428
+#: ../src/file-manager/fm-directory-view.c:7433
 msgid "Select I_tems Matching..."
 msgstr "เ_ลือกรายการที่ตรงกับ..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7429
+#: ../src/file-manager/fm-directory-view.c:7434
 msgid "Select items in this window matching a given pattern"
 msgstr "เลือกรายการในหน้าต่างนี้ที่ตรงกับรูปแบบที่กำหนด"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7432
+#: ../src/file-manager/fm-directory-view.c:7437
 msgid "_Invert Selection"
 msgstr "_สลับข้างรายการเลือก"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7433
+#: ../src/file-manager/fm-directory-view.c:7438
 msgid "Select all and only the items that are not currently selected"
 msgstr "เลือกเฉพาะรายการทั้งหมดที่ไม่ได้เลือกอยู่ในขณะนี้"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7436
+#: ../src/file-manager/fm-directory-view.c:7441
 msgid "D_uplicate"
 msgstr "ทำ_สำเนา"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7437
+#: ../src/file-manager/fm-directory-view.c:7442
 msgid "Duplicate each selected item"
 msgstr "ทำสำเนาของแต่ละรายการที่เลือก"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7440
-#: ../src/file-manager/fm-directory-view.c:9049
+#: ../src/file-manager/fm-directory-view.c:7445
+#: ../src/file-manager/fm-directory-view.c:9055
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
 msgstr[0] "ส_ร้างจุดเชื่อมโยง"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7441
+#: ../src/file-manager/fm-directory-view.c:7446
 msgid "Create a symbolic link for each selected item"
 msgstr "สร้างจุดเชื่อมโยงสำหรับแต่ละรายการที่เลือก"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7444
+#: ../src/file-manager/fm-directory-view.c:7449
 msgid "_Rename..."
 msgstr "เ_ปลี่ยนชื่อ..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7445
+#: ../src/file-manager/fm-directory-view.c:7450
 msgid "Rename selected item"
 msgstr "เปลี่ยนชื่อรายการที่เลือก"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7453
-#: ../src/file-manager/fm-directory-view.c:9010
+#: ../src/file-manager/fm-directory-view.c:7458
+#: ../src/file-manager/fm-directory-view.c:9016
 msgid "Move each selected item to the Trash"
 msgstr "ย้ายรายการที่เลือกไปไว้ในถังขยะ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7456
-#: ../src/file-manager/fm-directory-view.c:7588
-#: ../src/file-manager/fm-directory-view.c:9030
+#: ../src/file-manager/fm-directory-view.c:7461
+#: ../src/file-manager/fm-directory-view.c:7593
+#: ../src/file-manager/fm-directory-view.c:9036
 #: ../src/file-manager/fm-tree-view.c:1360
 msgid "_Delete"
 msgstr "_ลบถาวร"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7457
+#: ../src/file-manager/fm-directory-view.c:7462
 msgid "Delete each selected item, without moving to the Trash"
 msgstr "ลบรายการที่เลือกโดยไม่ผ่านถังขยะ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7460
-#: ../src/file-manager/fm-directory-view.c:7592
+#: ../src/file-manager/fm-directory-view.c:7465
+#: ../src/file-manager/fm-directory-view.c:7597
 msgid "_Restore"
 msgstr "กู้_คืน"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7464
+#: ../src/file-manager/fm-directory-view.c:7469
 msgid "_Undo"
 msgstr "ยกเ_ลิกการแก้ไข"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7465
-#: ../src/file-manager/fm-directory-view.c:11218
+#: ../src/file-manager/fm-directory-view.c:7470
+#: ../src/file-manager/fm-directory-view.c:11227
 msgid "Undo the last action"
-msgstr ""
+msgstr "เรียกคืนการกระทำสุดท้าย"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7468
+#: ../src/file-manager/fm-directory-view.c:7473
 msgid "_Redo"
-msgstr ""
+msgstr "_ทำซ้ำ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7469
-#: ../src/file-manager/fm-directory-view.c:11236
+#: ../src/file-manager/fm-directory-view.c:7474
+#: ../src/file-manager/fm-directory-view.c:11245
 msgid "Redo the last undone action"
-msgstr ""
+msgstr "ทำซ้ำคำสั่งที่เรียกคืนล่าสุด"
 
 #. * multiview-TODO: decide whether "Reset to Defaults" should
 #. * be window-wide, and not just view-wide.
@@ -4072,605 +4056,605 @@ msgstr ""
 #. * it is a mixture of both ATM.
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7479
+#: ../src/file-manager/fm-directory-view.c:7484
 msgid "Reset View to _Defaults"
 msgstr "ใช้มุมมอง_ปริยาย"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7480
+#: ../src/file-manager/fm-directory-view.c:7485
 msgid "Reset sorting order and zoom level to match preferences for this view"
 msgstr "ใช้ค่าปริยายของมุมมองนี้ สำหรับการเรียงแฟ้มและขนาดย่อขยาย"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7483
+#: ../src/file-manager/fm-directory-view.c:7488
 msgid "Connect To This Server"
 msgstr "เชื่อมต่อไปเซิร์ฟเวอร์นี้"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7484
+#: ../src/file-manager/fm-directory-view.c:7489
 msgid "Make a permanent connection to this server"
 msgstr "ทำการเชื่อมต่อไปเซิร์ฟเวอร์นี่อย่างถาวร"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7487
-#: ../src/file-manager/fm-directory-view.c:7515
-#: ../src/file-manager/fm-directory-view.c:7596
+#: ../src/file-manager/fm-directory-view.c:7492
+#: ../src/file-manager/fm-directory-view.c:7520
+#: ../src/file-manager/fm-directory-view.c:7601
 #: ../src/caja-places-sidebar.c:2728
 msgid "_Mount"
 msgstr "เ_มานท์"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7488
+#: ../src/file-manager/fm-directory-view.c:7493
 msgid "Mount the selected volume"
 msgstr "เมานท์โวลุมที่เลือก"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7492
+#: ../src/file-manager/fm-directory-view.c:7497
 msgid "Unmount the selected volume"
 msgstr "เลิกเมานท์โวลุมที่เลือก"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7496
+#: ../src/file-manager/fm-directory-view.c:7501
 msgid "Eject the selected volume"
 msgstr "ดันแผ่นที่เลือกออก"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7499
-#: ../src/file-manager/fm-directory-view.c:7527
-#: ../src/file-manager/fm-directory-view.c:7608
+#: ../src/file-manager/fm-directory-view.c:7504
+#: ../src/file-manager/fm-directory-view.c:7532
+#: ../src/file-manager/fm-directory-view.c:7613
 #: ../src/caja-places-sidebar.c:2756
 msgid "_Format"
 msgstr "_ฟอร์แมต"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7500
+#: ../src/file-manager/fm-directory-view.c:7505
 msgid "Format the selected volume"
 msgstr "ฟอร์แมตโวลุมที่เลือก"
 
 #. name, stock id
 #. label, accelerator
 #. Adjust start/stop items to reflect the type of the drive
-#: ../src/file-manager/fm-directory-view.c:7503
-#: ../src/file-manager/fm-directory-view.c:7531
-#: ../src/file-manager/fm-directory-view.c:7612
-#: ../src/file-manager/fm-directory-view.c:8289
-#: ../src/file-manager/fm-directory-view.c:8293
-#: ../src/file-manager/fm-directory-view.c:8381
-#: ../src/file-manager/fm-directory-view.c:8385
-#: ../src/file-manager/fm-directory-view.c:8491
-#: ../src/file-manager/fm-directory-view.c:8495
+#: ../src/file-manager/fm-directory-view.c:7508
+#: ../src/file-manager/fm-directory-view.c:7536
+#: ../src/file-manager/fm-directory-view.c:7617
+#: ../src/file-manager/fm-directory-view.c:8295
+#: ../src/file-manager/fm-directory-view.c:8299
+#: ../src/file-manager/fm-directory-view.c:8387
+#: ../src/file-manager/fm-directory-view.c:8391
+#: ../src/file-manager/fm-directory-view.c:8497
+#: ../src/file-manager/fm-directory-view.c:8501
 #: ../src/caja-places-sidebar.c:1823 ../src/caja-places-sidebar.c:2763
 msgid "_Start"
 msgstr "เ_ริ่ม"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7504
+#: ../src/file-manager/fm-directory-view.c:7509
 msgid "Start the selected volume"
 msgstr "เริ่มทำงานโวลุมที่เลือก"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7507
-#: ../src/file-manager/fm-directory-view.c:7535
-#: ../src/file-manager/fm-directory-view.c:7616
-#: ../src/file-manager/fm-directory-view.c:8318
-#: ../src/file-manager/fm-directory-view.c:8410
-#: ../src/file-manager/fm-directory-view.c:8520
+#: ../src/file-manager/fm-directory-view.c:7512
+#: ../src/file-manager/fm-directory-view.c:7540
+#: ../src/file-manager/fm-directory-view.c:7621
+#: ../src/file-manager/fm-directory-view.c:8324
+#: ../src/file-manager/fm-directory-view.c:8416
+#: ../src/file-manager/fm-directory-view.c:8526
 #: ../src/caja-places-sidebar.c:1824 ../src/caja-places-sidebar.c:2770
-#: ../src/caja-window-menus.c:837
+#: ../src/caja-window-menus.c:833
 msgid "_Stop"
 msgstr "_หยุด"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7508
-#: ../src/file-manager/fm-directory-view.c:8521
+#: ../src/file-manager/fm-directory-view.c:7513
+#: ../src/file-manager/fm-directory-view.c:8527
 msgid "Stop the selected volume"
 msgstr "หยุดโวลุมที่เลือก"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7511
-#: ../src/file-manager/fm-directory-view.c:7539
-#: ../src/file-manager/fm-directory-view.c:7620
+#: ../src/file-manager/fm-directory-view.c:7516
+#: ../src/file-manager/fm-directory-view.c:7544
+#: ../src/file-manager/fm-directory-view.c:7625
 #: ../src/caja-places-sidebar.c:2749
 msgid "_Detect Media"
 msgstr "_ตรวจหาสื่อ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7512
-#: ../src/file-manager/fm-directory-view.c:7540
-#: ../src/file-manager/fm-directory-view.c:7621
+#: ../src/file-manager/fm-directory-view.c:7517
+#: ../src/file-manager/fm-directory-view.c:7545
+#: ../src/file-manager/fm-directory-view.c:7626
 msgid "Detect media in the selected drive"
 msgstr "ตรวจหาสื่อในไดรว์ที่เลือก"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7516
+#: ../src/file-manager/fm-directory-view.c:7521
 msgid "Mount the volume associated with the open folder"
 msgstr "เมานท์โวลุมที่เชื่อมโยงกับโฟลเดอร์ที่เปิด"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7520
+#: ../src/file-manager/fm-directory-view.c:7525
 msgid "Unmount the volume associated with the open folder"
 msgstr "เลิกเมานท์โวลุมที่เชื่อมโยงกับโฟลเดอร์ที่เปิด"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7524
+#: ../src/file-manager/fm-directory-view.c:7529
 msgid "Eject the volume associated with the open folder"
 msgstr "ดันโวลุมที่เชื่อมโยงกับโฟลเดอร์ที่เปิดออก"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7528
+#: ../src/file-manager/fm-directory-view.c:7533
 msgid "Format the volume associated with the open folder"
 msgstr "ฟอร์แมตโวลุมที่เชื่อมโยงกับโฟลเดอร์ที่เปิด"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7532
+#: ../src/file-manager/fm-directory-view.c:7537
 msgid "Start the volume associated with the open folder"
 msgstr "เริ่มทำงานโวลุมที่เชื่อมโยงกับโฟลเดอร์ที่เปิด"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7536
+#: ../src/file-manager/fm-directory-view.c:7541
 msgid "Stop the volume associated with the open folder"
 msgstr "หยุดโวลุมที่เชื่อมโยงกับโฟลเดอร์ที่เปิด"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7543
+#: ../src/file-manager/fm-directory-view.c:7548
 msgid "Open File and Close window"
 msgstr "เปิดแฟ้มและปิดหน้าต่าง"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7547
+#: ../src/file-manager/fm-directory-view.c:7552
 msgid "Sa_ve Search"
 msgstr "บัน_ทึกการค้นหา"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7548
+#: ../src/file-manager/fm-directory-view.c:7553
 msgid "Save the edited search"
 msgstr "บันทึกรายการค้นที่แก้ไข"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7551
+#: ../src/file-manager/fm-directory-view.c:7556
 msgid "Sa_ve Search As..."
 msgstr "บันทึกการค้นหาเ_ป็น..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7552
+#: ../src/file-manager/fm-directory-view.c:7557
 msgid "Save the current search as a file"
 msgstr "บันทึกรายการค้นปัจจุบันลงเป็นแฟ้ม"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7558
+#: ../src/file-manager/fm-directory-view.c:7563
 msgid "Open this folder in a navigation window"
 msgstr "เปิดโฟลเดอร์นี้ในหน้าต่างแบบท่องดู"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7562
+#: ../src/file-manager/fm-directory-view.c:7567
 msgid "Open this folder in a new tab"
 msgstr "เปิดโฟลเดอร์นี้ในแท็บใหม่"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7567
+#: ../src/file-manager/fm-directory-view.c:7572
 msgid "Open this folder in a folder window"
 msgstr "เปิดโฟลเดอร์นี้ในหน้าต่างโฟลเดอร์"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7572
+#: ../src/file-manager/fm-directory-view.c:7577
 msgid "Prepare this folder to be moved with a Paste command"
 msgstr "เตรียมโฟลเดอร์นี้สำหรับย้ายด้วยคำสั่ง \"แปะ\""
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7576
+#: ../src/file-manager/fm-directory-view.c:7581
 msgid "Prepare this folder to be copied with a Paste command"
 msgstr "เตรียมโฟลเดอร์นี้สำหรับคัดลอกด้วยคำสั่ง \"แปะ\""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7580
+#: ../src/file-manager/fm-directory-view.c:7585
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into this "
 "folder"
 msgstr "ย้ายหรือคัดลอกแฟ้มที่ถูก \"ตัด\" หรือ \"คัดลอก\" ไว้ มาที่โฟลเดอร์นี้"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7585
+#: ../src/file-manager/fm-directory-view.c:7590
 msgid "Move this folder to the Trash"
 msgstr "ย้ายโฟลเดอร์นี้ไปลงถังขยะ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7589
+#: ../src/file-manager/fm-directory-view.c:7594
 msgid "Delete this folder, without moving to the Trash"
 msgstr "ลบโฟลเดอร์นี้ทิ้ง โดยไม่ผ่านถังขยะ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7597
+#: ../src/file-manager/fm-directory-view.c:7602
 msgid "Mount the volume associated with this folder"
 msgstr "เมานท์โวลุมที่เชื่อมโยงกับโฟลเดอร์นี้"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7601
+#: ../src/file-manager/fm-directory-view.c:7606
 msgid "Unmount the volume associated with this folder"
 msgstr "เลิกเมานท์โวลุมที่เชื่อมโยงกับโฟลเดอร์นี้"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7605
+#: ../src/file-manager/fm-directory-view.c:7610
 msgid "Eject the volume associated with this folder"
 msgstr "ดันโวลุมที่เชื่อมโยงกับโฟลเดอร์นี้ออก"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7609
+#: ../src/file-manager/fm-directory-view.c:7614
 msgid "Format the volume associated with this folder"
 msgstr "ฟอร์แมตโวลุมที่เชื่อมโยงกับโฟลเดอร์นี้"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7613
+#: ../src/file-manager/fm-directory-view.c:7618
 msgid "Start the volume associated with this folder"
 msgstr "เริ่มทำงานโวลุมที่เชื่อมโยงกับโฟลเดอร์นี้"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7617
+#: ../src/file-manager/fm-directory-view.c:7622
 msgid "Stop the volume associated with this folder"
 msgstr "หยุดโวลุมที่เชื่อมโยงกับโฟลเดอร์นี้"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7626
+#: ../src/file-manager/fm-directory-view.c:7631
 msgid "View or modify the properties of this folder"
 msgstr "ดูหรือแก้ไขคุณสมบัติของโฟลเดอร์นี้"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7629
-#: ../src/file-manager/fm-directory-view.c:7632
+#: ../src/file-manager/fm-directory-view.c:7634
+#: ../src/file-manager/fm-directory-view.c:7637
 msgid "_Other pane"
 msgstr "_อีกช่องหนึ่ง"
 
-#: ../src/file-manager/fm-directory-view.c:7630
+#: ../src/file-manager/fm-directory-view.c:7635
 msgid "Copy the current selection to the other pane in the window"
 msgstr "คัดลอกรายการที่เลือกไปยังอีกช่องหนึ่งในหน้าต่างนี้"
 
-#: ../src/file-manager/fm-directory-view.c:7633
+#: ../src/file-manager/fm-directory-view.c:7638
 msgid "Move the current selection to the other pane in the window"
 msgstr "ย้ายรายการที่เลือกไปยังอีกช่องหนึ่งในหน้าต่างนี้"
 
 #. name, stock id, label
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7636
-#: ../src/file-manager/fm-directory-view.c:7640 ../src/caja-window-menus.c:892
+#: ../src/file-manager/fm-directory-view.c:7641
+#: ../src/file-manager/fm-directory-view.c:7645 ../src/caja-window-menus.c:888
 msgid "_Home Folder"
 msgstr "โฟลเดอร์_บ้าน"
 
-#: ../src/file-manager/fm-directory-view.c:7637
+#: ../src/file-manager/fm-directory-view.c:7642
 msgid "Copy the current selection to the home folder"
 msgstr "คัดลอกรายการที่เลือกไปยังโฟลเดอร์บ้าน"
 
-#: ../src/file-manager/fm-directory-view.c:7641
+#: ../src/file-manager/fm-directory-view.c:7646
 msgid "Move the current selection to the home folder"
 msgstr "ย้ายรายการที่เลือกไปยังโฟลเดอร์บ้าน"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7644
-#: ../src/file-manager/fm-directory-view.c:7648
+#: ../src/file-manager/fm-directory-view.c:7649
+#: ../src/file-manager/fm-directory-view.c:7653
 msgid "_Desktop"
 msgstr "_พื้นโต๊ะ"
 
-#: ../src/file-manager/fm-directory-view.c:7645
+#: ../src/file-manager/fm-directory-view.c:7650
 msgid "Copy the current selection to the desktop"
 msgstr "คัดลอกรายการที่เลือกไปยังพื้นโต๊ะ"
 
-#: ../src/file-manager/fm-directory-view.c:7649
+#: ../src/file-manager/fm-directory-view.c:7654
 msgid "Move the current selection to the desktop"
 msgstr "ย้ายรายการที่เลือกไปยังพื้นโต๊ะ"
 
 #. Translators: %s is a directory
-#: ../src/file-manager/fm-directory-view.c:7729
+#: ../src/file-manager/fm-directory-view.c:7734
 #, c-format
 msgid "Run or manage scripts from %s"
 msgstr "เรียกหรือจัดการสคริปต์จาก %s"
 
 #. Create a script action here specially because its tooltip is dynamic
-#: ../src/file-manager/fm-directory-view.c:7731
+#: ../src/file-manager/fm-directory-view.c:7736
 msgid "_Scripts"
 msgstr "_สคริปต์"
 
-#: ../src/file-manager/fm-directory-view.c:8137
+#: ../src/file-manager/fm-directory-view.c:8143
 #, c-format
 msgid "Move the open folder out of the trash to \"%s\""
 msgstr "ย้ายโฟลเดอร์ที่เปิดออกจากถังขยะไปยัง \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:8140
+#: ../src/file-manager/fm-directory-view.c:8146
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
 msgstr[0] "ย้ายโฟลเดอร์ที่เลือกออกจากถังขยะไปยัง \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:8144
+#: ../src/file-manager/fm-directory-view.c:8150
 #, c-format
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
 msgstr[0] "ย้ายโฟลเดอร์ที่เลือกออกจากถังขยะ"
 
-#: ../src/file-manager/fm-directory-view.c:8150
+#: ../src/file-manager/fm-directory-view.c:8156
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
 msgstr[0] "ย้ายแฟ้มที่เลือกออกจากถังขยะไปยัง \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:8154
+#: ../src/file-manager/fm-directory-view.c:8160
 #, c-format
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
 msgstr[0] "ย้ายแฟ้มที่เลือกออกจากถังขยะ"
 
-#: ../src/file-manager/fm-directory-view.c:8160
+#: ../src/file-manager/fm-directory-view.c:8166
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
 msgstr[0] "ย้ายรายการที่เลือกออกจากถังขยะไปยัง \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:8164
+#: ../src/file-manager/fm-directory-view.c:8170
 #, c-format
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
 msgstr[0] "ย้ายรายการที่เลือกออกจากถังขยะ"
 
-#: ../src/file-manager/fm-directory-view.c:8290
-#: ../src/file-manager/fm-directory-view.c:8294
-#: ../src/file-manager/fm-directory-view.c:8492
-#: ../src/file-manager/fm-directory-view.c:8496
+#: ../src/file-manager/fm-directory-view.c:8296
+#: ../src/file-manager/fm-directory-view.c:8300
+#: ../src/file-manager/fm-directory-view.c:8498
+#: ../src/file-manager/fm-directory-view.c:8502
 msgid "Start the selected drive"
 msgstr "เริ่มทำงานไดรว์ที่เลือก"
 
-#: ../src/file-manager/fm-directory-view.c:8298
-#: ../src/file-manager/fm-directory-view.c:8500
+#: ../src/file-manager/fm-directory-view.c:8304
+#: ../src/file-manager/fm-directory-view.c:8506
 msgid "Connect to the selected drive"
 msgstr "เชื่อมต่อกับไดรว์ที่เลือก"
 
-#: ../src/file-manager/fm-directory-view.c:8301
-#: ../src/file-manager/fm-directory-view.c:8393
-#: ../src/file-manager/fm-directory-view.c:8503
+#: ../src/file-manager/fm-directory-view.c:8307
+#: ../src/file-manager/fm-directory-view.c:8399
+#: ../src/file-manager/fm-directory-view.c:8509
 msgid "_Start Multi-disk Drive"
 msgstr "เ_ริ่มทำงานไดรว์แบบหลายแผ่น"
 
-#: ../src/file-manager/fm-directory-view.c:8302
-#: ../src/file-manager/fm-directory-view.c:8504
+#: ../src/file-manager/fm-directory-view.c:8308
+#: ../src/file-manager/fm-directory-view.c:8510
 msgid "Start the selected multi-disk drive"
 msgstr "เริ่มทำงานไดรว์แบบหลายแผ่นที่เลือก"
 
-#: ../src/file-manager/fm-directory-view.c:8305
+#: ../src/file-manager/fm-directory-view.c:8311
 msgid "U_nlock Drive"
 msgstr "_ปลดล็อคไดรว์"
 
-#: ../src/file-manager/fm-directory-view.c:8306
-#: ../src/file-manager/fm-directory-view.c:8508
+#: ../src/file-manager/fm-directory-view.c:8312
+#: ../src/file-manager/fm-directory-view.c:8514
 msgid "Unlock the selected drive"
 msgstr "ปลดล็อคไดรว์ที่เลือก"
 
-#: ../src/file-manager/fm-directory-view.c:8319
+#: ../src/file-manager/fm-directory-view.c:8325
 msgid "Stop the selected drive"
 msgstr "หยุดไดรว์ที่เลือก"
 
-#: ../src/file-manager/fm-directory-view.c:8322
-#: ../src/file-manager/fm-directory-view.c:8414
-#: ../src/file-manager/fm-directory-view.c:8524
+#: ../src/file-manager/fm-directory-view.c:8328
+#: ../src/file-manager/fm-directory-view.c:8420
+#: ../src/file-manager/fm-directory-view.c:8530
 #: ../src/caja-places-sidebar.c:1832
 msgid "_Safely Remove Drive"
 msgstr "เอาไดรว์ออกอย่างปลอด_ภัย"
 
-#: ../src/file-manager/fm-directory-view.c:8323
-#: ../src/file-manager/fm-directory-view.c:8525
+#: ../src/file-manager/fm-directory-view.c:8329
+#: ../src/file-manager/fm-directory-view.c:8531
 msgid "Safely remove the selected drive"
 msgstr "เอาไดรว์ที่เลือกออกอย่างปลอดภัย"
 
-#: ../src/file-manager/fm-directory-view.c:8326
-#: ../src/file-manager/fm-directory-view.c:8418
-#: ../src/file-manager/fm-directory-view.c:8528
+#: ../src/file-manager/fm-directory-view.c:8332
+#: ../src/file-manager/fm-directory-view.c:8424
+#: ../src/file-manager/fm-directory-view.c:8534
 msgid "_Disconnect"
 msgstr "_ตัดการเชื่อมต่อ"
 
-#: ../src/file-manager/fm-directory-view.c:8327
-#: ../src/file-manager/fm-directory-view.c:8529
+#: ../src/file-manager/fm-directory-view.c:8333
+#: ../src/file-manager/fm-directory-view.c:8535
 msgid "Disconnect the selected drive"
 msgstr "ตัดการเชื่อมต่อกับไดรว์ที่เลือก"
 
-#: ../src/file-manager/fm-directory-view.c:8330
-#: ../src/file-manager/fm-directory-view.c:8422
-#: ../src/file-manager/fm-directory-view.c:8532
+#: ../src/file-manager/fm-directory-view.c:8336
+#: ../src/file-manager/fm-directory-view.c:8428
+#: ../src/file-manager/fm-directory-view.c:8538
 msgid "_Stop Multi-disk Drive"
 msgstr "_หยุดไดรว์แบบหลายแผ่น"
 
-#: ../src/file-manager/fm-directory-view.c:8331
-#: ../src/file-manager/fm-directory-view.c:8533
+#: ../src/file-manager/fm-directory-view.c:8337
+#: ../src/file-manager/fm-directory-view.c:8539
 msgid "Stop the selected multi-disk drive"
 msgstr "หยุดไดรว์แบบหลายแผ่นที่เลือก"
 
-#: ../src/file-manager/fm-directory-view.c:8334
-#: ../src/file-manager/fm-directory-view.c:8426
-#: ../src/file-manager/fm-directory-view.c:8536
+#: ../src/file-manager/fm-directory-view.c:8340
+#: ../src/file-manager/fm-directory-view.c:8432
+#: ../src/file-manager/fm-directory-view.c:8542
 #: ../src/caja-places-sidebar.c:1845
 msgid "_Lock Drive"
 msgstr "_ล็อคไดรว์"
 
-#: ../src/file-manager/fm-directory-view.c:8335
-#: ../src/file-manager/fm-directory-view.c:8537
+#: ../src/file-manager/fm-directory-view.c:8341
+#: ../src/file-manager/fm-directory-view.c:8543
 msgid "Lock the selected drive"
 msgstr "ล็อคไดรว์ที่เลือก"
 
-#: ../src/file-manager/fm-directory-view.c:8382
-#: ../src/file-manager/fm-directory-view.c:8386
+#: ../src/file-manager/fm-directory-view.c:8388
+#: ../src/file-manager/fm-directory-view.c:8392
 msgid "Start the drive associated with the open folder"
 msgstr "เริ่มทำงานไดรว์ที่เชื่อมโยงกับโฟลเดอร์ที่เปิด"
 
-#: ../src/file-manager/fm-directory-view.c:8390
+#: ../src/file-manager/fm-directory-view.c:8396
 msgid "Connect to the drive associated with the open folder"
 msgstr "เชื่อมต่อกับไดรว์ที่เชื่อมโยงกับโฟลเดอร์ที่เปิด"
 
-#: ../src/file-manager/fm-directory-view.c:8394
+#: ../src/file-manager/fm-directory-view.c:8400
 msgid "Start the multi-disk drive associated with the open folder"
 msgstr "เริ่มทำงานไดรว์แบบหลายแผ่นที่เชื่อมโยงกับโฟลเดอร์ที่เปิด"
 
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
-#: ../src/file-manager/fm-directory-view.c:8397
-#: ../src/file-manager/fm-directory-view.c:8507
+#: ../src/file-manager/fm-directory-view.c:8403
+#: ../src/file-manager/fm-directory-view.c:8513
 #: ../src/caja-places-sidebar.c:1844
 msgid "_Unlock Drive"
 msgstr "_ปลดล็อคไดรว์"
 
-#: ../src/file-manager/fm-directory-view.c:8398
+#: ../src/file-manager/fm-directory-view.c:8404
 msgid "Unlock the drive associated with the open folder"
 msgstr "ปลดล็อคไดรว์ที่เชื่อมโยงกับโฟลเดอร์ที่เปิด"
 
-#: ../src/file-manager/fm-directory-view.c:8411
+#: ../src/file-manager/fm-directory-view.c:8417
 msgid "_Stop the drive associated with the open folder"
 msgstr "_หยุดไดรว์ที่เชื่อมโยงกับโฟลเดอร์ที่เปิด"
 
-#: ../src/file-manager/fm-directory-view.c:8415
+#: ../src/file-manager/fm-directory-view.c:8421
 msgid "Safely remove the drive associated with the open folder"
 msgstr "เอาไดรว์ที่เชื่อมโยงกับโฟลเดอร์ที่เปิดออกอย่างปลอดภัย"
 
-#: ../src/file-manager/fm-directory-view.c:8419
+#: ../src/file-manager/fm-directory-view.c:8425
 msgid "Disconnect the drive associated with the open folder"
 msgstr "ตัดการเชื่อมต่อกับไดรว์ที่เชื่อมโยงกับโฟลเดอร์ที่เปิด"
 
-#: ../src/file-manager/fm-directory-view.c:8423
+#: ../src/file-manager/fm-directory-view.c:8429
 msgid "Stop the multi-disk drive associated with the open folder"
 msgstr "หยุดไดรว์แบบหลายแผ่นที่เชื่อมโยงกับโฟลเดอร์ที่เปิด"
 
-#: ../src/file-manager/fm-directory-view.c:8427
+#: ../src/file-manager/fm-directory-view.c:8433
 msgid "Lock the drive associated with the open folder"
 msgstr "ล็อคไดรว์ที่เชื่อมโยงกับโฟลเดอร์ที่เปิด"
 
 #. add the "open in new window" menu item
-#: ../src/file-manager/fm-directory-view.c:8606
-#: ../src/file-manager/fm-directory-view.c:8916
+#: ../src/file-manager/fm-directory-view.c:8612
+#: ../src/file-manager/fm-directory-view.c:8922
 #: ../src/file-manager/fm-tree-view.c:1287 ../src/caja-places-sidebar.c:2699
 msgid "Open in New _Window"
 msgstr "เปิดในห_น้าต่างใหม่"
 
-#: ../src/file-manager/fm-directory-view.c:8608
-#: ../src/file-manager/fm-directory-view.c:8925
+#: ../src/file-manager/fm-directory-view.c:8614
+#: ../src/file-manager/fm-directory-view.c:8931
 msgid "Browse in New _Window"
 msgstr "ท่องดูในห_น้าต่างใหม่"
 
-#: ../src/file-manager/fm-directory-view.c:8614
-#: ../src/file-manager/fm-directory-view.c:8935
+#: ../src/file-manager/fm-directory-view.c:8620
+#: ../src/file-manager/fm-directory-view.c:8941
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
 msgstr[0] "ท่อง_ดูโฟลเดอร์"
 
-#: ../src/file-manager/fm-directory-view.c:8631
-#: ../src/file-manager/fm-directory-view.c:8964
+#: ../src/file-manager/fm-directory-view.c:8637
+#: ../src/file-manager/fm-directory-view.c:8970
 msgid "Browse in New _Tab"
 msgstr "ท่องดูในแ_ท็บใหม่"
 
-#: ../src/file-manager/fm-directory-view.c:8680
-#: ../src/file-manager/fm-directory-view.c:9005
+#: ../src/file-manager/fm-directory-view.c:8686
+#: ../src/file-manager/fm-directory-view.c:9011
 msgid "_Delete Permanently"
 msgstr "_ลบทิ้งอย่างถาวร"
 
-#: ../src/file-manager/fm-directory-view.c:8681
+#: ../src/file-manager/fm-directory-view.c:8687
 msgid "Delete the open folder permanently"
 msgstr "ลบโฟลเดอร์ที่เปิดทิ้งอย่างถาวร"
 
-#: ../src/file-manager/fm-directory-view.c:8685
+#: ../src/file-manager/fm-directory-view.c:8691
 msgid "Move the open folder to the Trash"
 msgstr "ย้ายโฟลเดอร์ที่เปิดไปลงถังขยะ"
 
-#: ../src/file-manager/fm-directory-view.c:8865
+#: ../src/file-manager/fm-directory-view.c:8871
 #, c-format
 msgid "_Open With %s"
 msgstr "_เปิดด้วย %s"
 
-#: ../src/file-manager/fm-directory-view.c:8918
+#: ../src/file-manager/fm-directory-view.c:8924
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
 msgstr[0] "เปิดใน %'d ห_น้าต่างใหม่"
 
-#: ../src/file-manager/fm-directory-view.c:8927
+#: ../src/file-manager/fm-directory-view.c:8933
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
 msgstr[0] "ท่องดูใน %'d ห_น้าต่างใหม่"
 
-#: ../src/file-manager/fm-directory-view.c:8957
+#: ../src/file-manager/fm-directory-view.c:8963
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
 msgstr[0] "เปิดใน %'d แ_ท็บใหม่"
 
-#: ../src/file-manager/fm-directory-view.c:8966
+#: ../src/file-manager/fm-directory-view.c:8972
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
 msgstr[0] "ท่องดูใน %'d แ_ท็บใหม่"
 
-#: ../src/file-manager/fm-directory-view.c:9006
+#: ../src/file-manager/fm-directory-view.c:9012
 msgid "Delete all selected items permanently"
 msgstr "ลบรายการที่เลือกทั้งหมดอย่างถาวร"
 
-#: ../src/file-manager/fm-directory-view.c:9063
+#: ../src/file-manager/fm-directory-view.c:9069
 msgid "View or modify the properties of the open folder"
 msgstr "ดูหรือแก้ไขคุณสมบัติของโฟลเดอร์ที่เปิด"
 
-#: ../src/file-manager/fm-directory-view.c:10366
+#: ../src/file-manager/fm-directory-view.c:10372
 msgid "Download location?"
 msgstr "ดาวน์โหลดตำแหน่งนี้หรือไม่?"
 
-#: ../src/file-manager/fm-directory-view.c:10369
+#: ../src/file-manager/fm-directory-view.c:10375
 msgid "You can download it or make a link to it."
 msgstr "คุณสามารถดาวน์โหลดหรือสร้างจุดเชื่อมโยงไปที่ตำแหน่งนั้นก็ได้"
 
-#: ../src/file-manager/fm-directory-view.c:10372
+#: ../src/file-manager/fm-directory-view.c:10378
 msgid "Make a _Link"
 msgstr "ส_ร้างจุดเชื่อมโยง"
 
-#: ../src/file-manager/fm-directory-view.c:10376
+#: ../src/file-manager/fm-directory-view.c:10382
 msgid "_Download"
 msgstr "_ดาวน์โหลด"
 
-#: ../src/file-manager/fm-directory-view.c:10537
-#: ../src/file-manager/fm-directory-view.c:10596
-#: ../src/file-manager/fm-directory-view.c:10701
+#: ../src/file-manager/fm-directory-view.c:10543
+#: ../src/file-manager/fm-directory-view.c:10602
+#: ../src/file-manager/fm-directory-view.c:10707
 msgid "Drag and drop is not supported."
 msgstr "ไม่รองรับการลากไปปล่อย"
 
-#: ../src/file-manager/fm-directory-view.c:10538
+#: ../src/file-manager/fm-directory-view.c:10544
 msgid "Drag and drop is only supported on local file systems."
 msgstr "รองรับการลากไปปล่อยเฉพาะระบบแฟ้มบนเครื่อง"
 
-#: ../src/file-manager/fm-directory-view.c:10597
-#: ../src/file-manager/fm-directory-view.c:10702
+#: ../src/file-manager/fm-directory-view.c:10603
+#: ../src/file-manager/fm-directory-view.c:10708
 msgid "An invalid drag type was used."
 msgstr "ใช้วิธีลากที่ไม่ถูกต้อง"
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10779
+#: ../src/file-manager/fm-directory-view.c:10785
 msgid "dropped text.txt"
 msgstr "dropped text.txt"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10824
+#: ../src/file-manager/fm-directory-view.c:10830
 msgid "dropped data"
 msgstr "dropped data"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11217
+#: ../src/file-manager/fm-directory-view.c:11226
 msgid "Undo"
-msgstr ""
+msgstr "เรียกคืน"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11235
+#: ../src/file-manager/fm-directory-view.c:11244
 msgid "Redo"
-msgstr ""
+msgstr "ทำซ้ำ"
 
 #: ../src/file-manager/fm-ditem-page.c:486
 #: ../src/file-manager/fm-ditem-page.c:498
@@ -4789,220 +4773,220 @@ msgstr "กำลังเปลี่ยนชื่อ \"%s\" ไปเป็�
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: ../src/file-manager/fm-icon-container.c:613
-#: ../src/file-manager/fm-icon-view.c:3395
+#: ../src/file-manager/fm-icon-view.c:3403
 #: ../src/caja-file-management-properties.ui.h:1
 msgid "Icon View"
 msgstr "มุมมองแบบไอคอน"
 
-#: ../src/file-manager/fm-icon-view.c:128
+#: ../src/file-manager/fm-icon-view.c:132
 msgid "by _Name"
 msgstr "ตาม_ชื่อ"
 
-#: ../src/file-manager/fm-icon-view.c:129
-#: ../src/file-manager/fm-icon-view.c:1743
+#: ../src/file-manager/fm-icon-view.c:133
+#: ../src/file-manager/fm-icon-view.c:1749
 msgid "Keep icons sorted by name in rows"
 msgstr "เรียงไอคอนเป็นแถวตามชื่อ"
 
-#: ../src/file-manager/fm-icon-view.c:135
+#: ../src/file-manager/fm-icon-view.c:139
 msgid "by _Size"
 msgstr "ตาม_ขนาด"
 
-#: ../src/file-manager/fm-icon-view.c:136
-#: ../src/file-manager/fm-icon-view.c:1749
+#: ../src/file-manager/fm-icon-view.c:140
+#: ../src/file-manager/fm-icon-view.c:1755
 msgid "Keep icons sorted by size in rows"
 msgstr "เรียงไอคอนเป็นแถวตามขนาด"
 
-#: ../src/file-manager/fm-icon-view.c:142
+#: ../src/file-manager/fm-icon-view.c:146
 msgid "by _Type"
 msgstr "ตามช_นิด"
 
-#: ../src/file-manager/fm-icon-view.c:143
-#: ../src/file-manager/fm-icon-view.c:1755
+#: ../src/file-manager/fm-icon-view.c:147
+#: ../src/file-manager/fm-icon-view.c:1761
 msgid "Keep icons sorted by type in rows"
 msgstr "เรียงไอคอนเป็นแถวตามชนิด"
 
-#: ../src/file-manager/fm-icon-view.c:149
+#: ../src/file-manager/fm-icon-view.c:153
 msgid "by Modification _Date"
 msgstr "ตาม_วันที่แก้ไข"
 
-#: ../src/file-manager/fm-icon-view.c:150
-#: ../src/file-manager/fm-icon-view.c:1761
+#: ../src/file-manager/fm-icon-view.c:154
+#: ../src/file-manager/fm-icon-view.c:1767
 msgid "Keep icons sorted by modification date in rows"
 msgstr "เรียงไอคอนเป็นแถวตามวันที่ถูกแก้ไข"
 
-#: ../src/file-manager/fm-icon-view.c:156
+#: ../src/file-manager/fm-icon-view.c:160
 msgid "by _Emblems"
 msgstr "ตาม_ตรา"
 
-#: ../src/file-manager/fm-icon-view.c:157
-#: ../src/file-manager/fm-icon-view.c:1767
+#: ../src/file-manager/fm-icon-view.c:161
+#: ../src/file-manager/fm-icon-view.c:1773
 msgid "Keep icons sorted by emblems in rows"
 msgstr "เรียงไอคอนเป็นแถวตามตรา"
 
-#: ../src/file-manager/fm-icon-view.c:163
+#: ../src/file-manager/fm-icon-view.c:167
 msgid "by T_rash Time"
 msgstr "ตามเวลาที่ทิ้งลง_ถังขยะ"
 
-#: ../src/file-manager/fm-icon-view.c:164
-#: ../src/file-manager/fm-icon-view.c:1773
+#: ../src/file-manager/fm-icon-view.c:168
+#: ../src/file-manager/fm-icon-view.c:1779
 msgid "Keep icons sorted by trash time in rows"
 msgstr "เรียงไอคอนเป็นแถวตามเวลาที่ทิ้งลงถังขยะ"
 
-#: ../src/file-manager/fm-icon-view.c:781
+#: ../src/file-manager/fm-icon-view.c:785
 msgid "_Organize Desktop by Name"
 msgstr ""
 
 #. name, stock id, label
-#: ../src/file-manager/fm-icon-view.c:1692
+#: ../src/file-manager/fm-icon-view.c:1698
 msgid "Arran_ge Items"
 msgstr "_จัดเรียงรายการ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1694
+#: ../src/file-manager/fm-icon-view.c:1700
 msgid "Resize Icon..."
 msgstr "ปรับขนาดไอคอน..."
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1695
+#: ../src/file-manager/fm-icon-view.c:1701
 msgid "Make the selected icon resizable"
 msgstr "ทำไอคอนที่เลือกให้ปรับขนาดได้"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1699
-#: ../src/file-manager/fm-icon-view.c:1900
+#: ../src/file-manager/fm-icon-view.c:1705
+#: ../src/file-manager/fm-icon-view.c:1906
 msgid "Restore Icons' Original Si_zes"
 msgstr "กลับไปใช้_ขนาดปกติของไอคอน"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1700
+#: ../src/file-manager/fm-icon-view.c:1706
 msgid "Restore each selected icon to its original size"
 msgstr "กลับไปใช้ขนาดปกติของไอคอนที่เลือก"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1704
+#: ../src/file-manager/fm-icon-view.c:1710
 msgid "_Organize by Name"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1705
+#: ../src/file-manager/fm-icon-view.c:1711
 msgid "Reposition icons to better fit in the window and avoid overlapping"
 msgstr "เรียงไอคอนให้พอดีหน้าต่าง และไม่ให้ทับกัน"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1713
+#: ../src/file-manager/fm-icon-view.c:1719
 msgid "Compact _Layout"
 msgstr "_จัดวางอย่างกระชับ"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1714
+#: ../src/file-manager/fm-icon-view.c:1720
 msgid "Toggle using a tighter layout scheme"
 msgstr "ใช้/เลิก จัดวางไอคอนให้กระชับใกล้กัน"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1719
+#: ../src/file-manager/fm-icon-view.c:1725
 msgid "Re_versed Order"
 msgstr "เรียง_แบบย้อนกลับ"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1720
+#: ../src/file-manager/fm-icon-view.c:1726
 msgid "Display icons in the opposite order"
 msgstr "เรียงไอคอนย้อนกลับจากปกติ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1725
+#: ../src/file-manager/fm-icon-view.c:1731
 msgid "_Keep Aligned"
 msgstr "_จัดให้ตรงแนว"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1726
+#: ../src/file-manager/fm-icon-view.c:1732
 msgid "Keep icons lined up on a grid"
 msgstr "เรียงไอคอนให้ตรงแนว"
 
-#: ../src/file-manager/fm-icon-view.c:1736
+#: ../src/file-manager/fm-icon-view.c:1742
 msgid "_Manually"
 msgstr "จัดเรียงเ_อง"
 
-#: ../src/file-manager/fm-icon-view.c:1737
+#: ../src/file-manager/fm-icon-view.c:1743
 msgid "Leave icons wherever they are dropped"
 msgstr "ปล่อยไอคอนไว้ที่ที่นำไปวางไว้"
 
-#: ../src/file-manager/fm-icon-view.c:1742
+#: ../src/file-manager/fm-icon-view.c:1748
 msgid "By _Name"
 msgstr "ตาม_ชื่อ"
 
-#: ../src/file-manager/fm-icon-view.c:1748
+#: ../src/file-manager/fm-icon-view.c:1754
 msgid "By _Size"
 msgstr "ตาม_ขนาด"
 
-#: ../src/file-manager/fm-icon-view.c:1754
+#: ../src/file-manager/fm-icon-view.c:1760
 msgid "By _Type"
 msgstr "ตาม_ชนิด"
 
-#: ../src/file-manager/fm-icon-view.c:1760
+#: ../src/file-manager/fm-icon-view.c:1766
 msgid "By Modification _Date"
 msgstr "ตาม_วันที่แก้ไข"
 
-#: ../src/file-manager/fm-icon-view.c:1766
+#: ../src/file-manager/fm-icon-view.c:1772
 msgid "By _Emblems"
 msgstr "ตาม_ตรา"
 
-#: ../src/file-manager/fm-icon-view.c:1772
+#: ../src/file-manager/fm-icon-view.c:1778
 msgid "By T_rash Time"
 msgstr "ตามเวลาที่ทิ้งลง_ถังขยะ"
 
-#: ../src/file-manager/fm-icon-view.c:1901
+#: ../src/file-manager/fm-icon-view.c:1907
 msgid "Restore Icon's Original Si_ze"
 msgstr "กลับไปใช้_ขนาดปกติของไอคอน"
 
-#: ../src/file-manager/fm-icon-view.c:2376
+#: ../src/file-manager/fm-icon-view.c:2382
 #, c-format
 msgid "pointing at \"%s\""
 msgstr "กำลังชี้ไปที่ \"%s\""
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3397
+#: ../src/file-manager/fm-icon-view.c:3405
 msgid "_Icons"
 msgstr "ไอ_คอน"
 
-#: ../src/file-manager/fm-icon-view.c:3398
+#: ../src/file-manager/fm-icon-view.c:3406
 msgid "The icon view encountered an error."
 msgstr "เกิดข้อผิดพลาดในมุมมองไอคอน"
 
-#: ../src/file-manager/fm-icon-view.c:3399
+#: ../src/file-manager/fm-icon-view.c:3407
 msgid "The icon view encountered an error while starting up."
 msgstr "เกิดข้อผิดพลาดขณะเริ่มต้นมุมมองไอคอน"
 
-#: ../src/file-manager/fm-icon-view.c:3400
+#: ../src/file-manager/fm-icon-view.c:3408
 msgid "Display this location with the icon view."
 msgstr "แสดงตำแหน่งนี้ด้วยมุมมองไอคอน"
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-icon-view.c:3410
+#: ../src/file-manager/fm-icon-view.c:3418
 #: ../src/caja-file-management-properties.ui.h:3
 msgid "Compact View"
 msgstr "มุมมองแบบกระชับ"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3412
+#: ../src/file-manager/fm-icon-view.c:3420
 msgid "_Compact"
 msgstr "_กระชับ"
 
-#: ../src/file-manager/fm-icon-view.c:3413
+#: ../src/file-manager/fm-icon-view.c:3421
 msgid "The compact view encountered an error."
 msgstr "เกิดข้อผิดพลาดในมุมมองแบบกระชับ"
 
-#: ../src/file-manager/fm-icon-view.c:3414
+#: ../src/file-manager/fm-icon-view.c:3422
 msgid "The compact view encountered an error while starting up."
 msgstr "เกิดข้อผิดพลาดขณะเริ่มต้นมุมมองแบบกระชับ"
 
-#: ../src/file-manager/fm-icon-view.c:3415
+#: ../src/file-manager/fm-icon-view.c:3423
 msgid "Display this location with the compact view."
 msgstr "แสดงตำแหน่งนี้ด้วยมุมมองแบบกระชับ"
 
@@ -5018,46 +5002,46 @@ msgstr "กำลังโหลด..."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-list-view.c:1833
-#: ../src/file-manager/fm-list-view.c:3481
+#: ../src/file-manager/fm-list-view.c:1835
+#: ../src/file-manager/fm-list-view.c:3487
 #: ../src/caja-file-management-properties.ui.h:2
 msgid "List View"
 msgstr "มุมมองแบบรายชื่อ"
 
-#: ../src/file-manager/fm-list-view.c:2530
+#: ../src/file-manager/fm-list-view.c:2534
 #, c-format
 msgid "%s Visible Columns"
 msgstr "คอลัมน์ที่แสดงใน %s"
 
-#: ../src/file-manager/fm-list-view.c:2549
+#: ../src/file-manager/fm-list-view.c:2553
 msgid "Choose the order of information to appear in this folder:"
 msgstr "เลือกลำดับข้อมูลที่จะแสดงในโฟลเดอร์นี้:"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-list-view.c:2619
+#: ../src/file-manager/fm-list-view.c:2623
 msgid "Visible _Columns..."
 msgstr "_คอลัมน์ที่แสดง..."
 
 #. tooltip
-#: ../src/file-manager/fm-list-view.c:2620
+#: ../src/file-manager/fm-list-view.c:2624
 msgid "Select the columns visible in this folder"
 msgstr "เลือกคอลัมน์ที่จะแสดงในโฟลเดอร์นี้"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-list-view.c:3483
+#: ../src/file-manager/fm-list-view.c:3489
 msgid "_List"
 msgstr "_รายชื่อ"
 
-#: ../src/file-manager/fm-list-view.c:3484
+#: ../src/file-manager/fm-list-view.c:3490
 msgid "The list view encountered an error."
 msgstr "เกิดข้อผิดพลาดในมุมมองแบบรายชื่อ"
 
-#: ../src/file-manager/fm-list-view.c:3485
+#: ../src/file-manager/fm-list-view.c:3491
 msgid "The list view encountered an error while starting up."
 msgstr "เกิดข้อผิดพลาดขณะเริ่มต้นมุมมองแบบรายชื่อ"
 
-#: ../src/file-manager/fm-list-view.c:3486
+#: ../src/file-manager/fm-list-view.c:3492
 msgid "Display this location with the list view."
 msgstr "แสดงตำแหน่งนี้ด้วยมุมมองแบบรายชื่อ"
 
@@ -5263,7 +5247,7 @@ msgstr "การเข้าถึงแฟ้ม:"
 #. Translators: this is referred to captions under icons.
 #: ../src/file-manager/fm-properties-window.c:4855
 #: ../src/file-manager/fm-properties-window.c:4866
-#: ../src/caja-file-management-properties.c:328
+#: ../src/caja-file-management-properties.c:327
 msgid "None"
 msgstr "ไม่มี"
 
@@ -5479,8 +5463,8 @@ msgid ""
 msgstr "ซอฟต์แวร์จะถูกเรียกโดยตรงจากสื่อ \"%s\"  คุณไม่ควรเรียกโปรแกรมที่คุณไม่เชื่อถือ\n\nถ้าไม่แน่ใจ ขอแนะนำให้กดยกเลิก"
 
 #: ../src/caja-bookmarks-window.c:158
-#: ../src/caja-file-management-properties.c:235
-#: ../src/caja-property-browser.c:1673 ../src/caja-window-menus.c:591
+#: ../src/caja-file-management-properties.c:234
+#: ../src/caja-property-browser.c:1733 ../src/caja-window-menus.c:587
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
@@ -5552,17 +5536,17 @@ msgstr "กำลังเชื่อมต่อ..."
 msgid ""
 "Can't load the supported server method list.\n"
 "Please check your GVfs installation."
-msgstr ""
+msgstr "ไม่สามารถโหลดรายชื่อช่องทางเซิร์ฟเวอร์ที่รองรับ\nโปรดตรวจสอบการติดตั้ง GVfs"
 
 #: ../src/caja-connect-server-dialog.c:311
 #, c-format
 msgid "The folder \"%s\" cannot be opened on \"%s\"."
-msgstr ""
+msgstr "ไม่สามารถเปิดโฟลเดอร์ \"%s\" บน \"%s\" ได้"
 
 #: ../src/caja-connect-server-dialog.c:321
 #, c-format
 msgid "The server at \"%s\" cannot be found."
-msgstr ""
+msgstr "ไม่พบเซิร์ฟเวอร์ที่ \"%s\""
 
 #: ../src/caja-connect-server-dialog.c:356
 msgid "Try Again"
@@ -5570,11 +5554,11 @@ msgstr ""
 
 #: ../src/caja-connect-server-dialog.c:422
 msgid "Please verify your user details."
-msgstr ""
+msgstr "กรุณาตรวจสอบรายละเอียดผู้ใช้ของคุณ"
 
 #: ../src/caja-connect-server-dialog.c:452
 msgid "Continue"
-msgstr ""
+msgstr "ดำเนินการต่อไป"
 
 #: ../src/caja-connect-server-dialog.c:749
 #: ../src/caja-connect-server-dialog.c:1323
@@ -5588,7 +5572,7 @@ msgstr "เชื่อมต่อไปเซิร์ฟเวอร์"
 
 #: ../src/caja-connect-server-dialog.c:891
 msgid "Server Details"
-msgstr ""
+msgstr "รายละเอียดของเซิร์ฟเวอร์"
 
 #. first row: server entry + port spinbutton
 #: ../src/caja-connect-server-dialog.c:925
@@ -5604,26 +5588,26 @@ msgstr "_พอร์ต:"
 #. third row: share entry
 #: ../src/caja-connect-server-dialog.c:1083
 msgid "Share:"
-msgstr ""
+msgstr "แหล่งใช้ร่วม:"
 
 #. fourth row: folder entry
 #: ../src/caja-connect-server-dialog.c:1113
 msgid "Folder:"
-msgstr ""
+msgstr "โฟลเดอร์:"
 
 #: ../src/caja-connect-server-dialog.c:1144
 msgid "User Details"
-msgstr ""
+msgstr "รายละเอียดของผู้ใช้"
 
 #. first row: domain entry
 #: ../src/caja-connect-server-dialog.c:1185
 msgid "Domain Name:"
-msgstr ""
+msgstr "ชื่อโดเมน:"
 
 #. second row: username entry
 #: ../src/caja-connect-server-dialog.c:1215
 msgid "User Name:"
-msgstr ""
+msgstr "ชื่อผู้ใช้:"
 
 #. third row: password entry
 #: ../src/caja-connect-server-dialog.c:1245
@@ -5633,17 +5617,17 @@ msgstr "รหัสผ่าน:"
 #. fourth row: remember checkbox
 #: ../src/caja-connect-server-dialog.c:1276
 msgid "Remember this password"
-msgstr ""
+msgstr "จดจำรหัสผ่านนี้"
 
 #: ../src/caja-connect-server-dialog.c:1294
 msgid "Add _bookmark"
-msgstr ""
+msgstr "เ_พิ่มที่คั่นหน้า"
 
 #: ../src/caja-connect-server-dialog.c:1301
 msgid "Bookmark Name:"
-msgstr ""
+msgstr "ชื่อที่คั่นหน้า:"
 
-#: ../src/caja-desktop-window.c:88 ../src/caja-desktop-window.c:263
+#: ../src/caja-desktop-window.c:204 ../src/caja-desktop-window.c:393
 #: ../src/caja-pathbar.c:1587 ../src/caja-places-sidebar.c:536
 msgid "Desktop"
 msgstr "พื้นโต๊ะ"
@@ -5721,9 +5705,9 @@ msgstr "เพิ่มตราไม่สำเร็จ"
 msgid "Show Emblems"
 msgstr "แสดงตรา"
 
-#: ../src/caja-file-management-properties.c:631
+#: ../src/caja-file-management-properties.c:630
 msgid "About Extension"
-msgstr ""
+msgstr "เกี่ยวกับ ส่วนขยาย"
 
 #: ../src/caja-file-management-properties.ui.h:4
 msgid "Always"
@@ -5743,7 +5727,7 @@ msgstr "ตามชื่อ"
 
 #: ../src/caja-file-management-properties.ui.h:8
 msgid "By Path"
-msgstr ""
+msgstr "ตามพาธ"
 
 #: ../src/caja-file-management-properties.ui.h:9
 msgid "By Size"
@@ -5759,7 +5743,7 @@ msgstr "ตามวันที่แก้ไข"
 
 #: ../src/caja-file-management-properties.ui.h:12
 msgid "By Access Date"
-msgstr ""
+msgstr "ตามวันที่เข้าใช้"
 
 #: ../src/caja-file-management-properties.ui.h:13
 msgid "By Emblems"
@@ -5767,7 +5751,7 @@ msgstr "ตามตรา"
 
 #: ../src/caja-file-management-properties.ui.h:14
 msgid "By Trashed Date"
-msgstr ""
+msgstr "ตามวันที่ทิ้งลงถังขยะ"
 
 #: ../src/caja-file-management-properties.ui.h:16
 #, no-c-format
@@ -5930,7 +5914,7 @@ msgstr "เปิดรายการด้วย_สองคลิก"
 
 #: ../src/caja-file-management-properties.ui.h:60
 msgid "Open each _folder in its own window"
-msgstr ""
+msgstr "เปิดโฟลเดอร์แต่ละ_รายการในหน้าต่างของมันเอง"
 
 #: ../src/caja-file-management-properties.ui.h:61
 msgid "<b>Executable Text Files</b>"
@@ -5984,11 +5968,11 @@ msgstr "_รูปแบบ:"
 
 #: ../src/caja-file-management-properties.ui.h:73
 msgid "<b>Size</b>"
-msgstr ""
+msgstr "<b>ขนาด</b>"
 
 #: ../src/caja-file-management-properties.ui.h:74
 msgid "_Show file sizes with IEC units"
-msgstr ""
+msgstr "_แสดงขนาดแฟ้มในหน่วย IEC"
 
 #: ../src/caja-file-management-properties.ui.h:75
 msgid "Display"
@@ -6105,27 +6089,27 @@ msgstr "สื่อ"
 
 #: ../src/caja-file-management-properties.ui.h:103
 msgid "<b>Available _Extensions:</b>"
-msgstr ""
+msgstr "<b>ส่วนขยาย_ที่ใช้ได้:</b>"
 
 #: ../src/caja-file-management-properties.ui.h:104
 msgid "column"
-msgstr ""
+msgstr "คอลัมน์"
 
 #: ../src/caja-file-management-properties.ui.h:105
 msgid "Extension"
-msgstr ""
+msgstr "ส่วนขยาย"
 
 #: ../src/caja-file-management-properties.ui.h:106
 msgid "_About Extension"
-msgstr ""
+msgstr "เ_กี่ยวกับ ส่วนขยาย"
 
 #: ../src/caja-file-management-properties.ui.h:107
 msgid "C_onfigure Extension"
-msgstr ""
+msgstr "_ตั้งค่าส่วนขยาย"
 
 #: ../src/caja-file-management-properties.ui.h:108
 msgid "Extensions"
-msgstr ""
+msgstr "ส่วนขยาย"
 
 #: ../src/caja-history-sidebar.c:344
 msgid "History"
@@ -6418,7 +6402,7 @@ msgstr "ล้างเนื้อหาของเมนู \"ไป\" \"ถ�
 #. name, stock id, label
 #: ../src/caja-navigation-window-menus.c:848
 msgid "S_witch to Other Pane"
-msgstr ""
+msgstr "ส_ลับไปอีกช่องหนึ่ง"
 
 #: ../src/caja-navigation-window-menus.c:849
 msgid "Move focus to the other pane in a split view window"
@@ -6427,7 +6411,7 @@ msgstr "ย้ายโฟกัสไปยังอีกช่องหนึ
 #. name, stock id, label
 #: ../src/caja-navigation-window-menus.c:852
 msgid "Sa_me Location as Other Pane"
-msgstr ""
+msgstr "ตำแห_น่งเดียวกับช่องอื่นๆ"
 
 #: ../src/caja-navigation-window-menus.c:853
 msgid "Go to the same location as in the extra pane"
@@ -6487,7 +6471,7 @@ msgstr "ย้ายแท็บปัจจุบันไปทางขวา
 
 #: ../src/caja-navigation-window-menus.c:885
 msgid "S_how Search"
-msgstr ""
+msgstr "แ_สดงช่องค้นหา"
 
 #: ../src/caja-navigation-window-menus.c:886
 msgid "Show search"
@@ -6553,7 +6537,7 @@ msgstr "ค้นหาเอกสารและโฟลเดอร์ด้
 #. label, accelerator
 #: ../src/caja-navigation-window-menus.c:926
 msgid "E_xtra Pane"
-msgstr ""
+msgstr "_ช่องอื่นๆ"
 
 #. tooltip
 #: ../src/caja-navigation-window-menus.c:927
@@ -6602,13 +6586,13 @@ msgstr ""
 
 #: ../src/caja-navigation-window-pane.c:458
 msgid "_New Tab"
-msgstr ""
+msgstr "แท็บ_ใหม่"
 
 #: ../src/caja-navigation-window-pane.c:487
 msgid "_Close Tab"
 msgstr "ปิ_ดแท็บ"
 
-#: ../src/caja-navigation-window.c:781
+#: ../src/caja-navigation-window.c:776
 #, c-format
 msgid "%s - File Browser"
 msgstr "%s - โปรแกรมท่องดูแฟ้ม"
@@ -6627,11 +6611,11 @@ msgstr "แสดงหมายเหตุ"
 
 #: ../src/caja-places-sidebar.c:325
 msgid "Devices"
-msgstr ""
+msgstr "อุปกรณ์"
 
 #: ../src/caja-places-sidebar.c:333
 msgid "Bookmarks"
-msgstr ""
+msgstr "ที่คั่นหน้า"
 
 #: ../src/caja-places-sidebar.c:538
 msgid "Open the contents of your desktop in a folder"
@@ -6656,7 +6640,7 @@ msgstr "เครือข่าย"
 
 #: ../src/caja-places-sidebar.c:880
 msgid "Browse Network"
-msgstr ""
+msgstr "เรียกดูเครือข่าย"
 
 #: ../src/caja-places-sidebar.c:882
 msgid "Browse the contents of the network"
@@ -6751,128 +6735,128 @@ msgstr "กรุณาตรวจดูว่าคุณมีสิทธิ
 msgid "Select an Image File for the New Emblem"
 msgstr "เลือกรูปสำหรับตราใหม่นี้"
 
-#: ../src/caja-property-browser.c:1108
+#: ../src/caja-property-browser.c:1112
 msgid "Create a New Emblem"
 msgstr "สร้างตราใหม่"
 
 #. make the keyword label and field
-#: ../src/caja-property-browser.c:1129
+#: ../src/caja-property-browser.c:1145
 msgid "_Keyword:"
 msgstr "_คำหลัก:"
 
 #. set up a file chooser to pick the image file
-#: ../src/caja-property-browser.c:1152
+#: ../src/caja-property-browser.c:1178
 msgid "_Image:"
 msgstr "รู_ป:"
 
-#: ../src/caja-property-browser.c:1187
+#: ../src/caja-property-browser.c:1226
 msgid "Create a New Color:"
 msgstr "สร้างสีใหม่:"
 
 #. make the name label and field
-#: ../src/caja-property-browser.c:1201
+#: ../src/caja-property-browser.c:1245
 msgid "Color _name:"
 msgstr "_ชื่อสี:"
 
-#: ../src/caja-property-browser.c:1217
+#: ../src/caja-property-browser.c:1269
 msgid "Color _value:"
 msgstr "_ค่าสี:"
 
-#: ../src/caja-property-browser.c:1253
+#: ../src/caja-property-browser.c:1313
 msgid "Sorry, but you cannot replace the reset image."
 msgstr "เปลี่ยนรูปสำหรับปุ่ม \"ยกเลิก\" ไม่ได้"
 
-#: ../src/caja-property-browser.c:1254
+#: ../src/caja-property-browser.c:1314
 msgid "Reset is a special image that cannot be deleted."
 msgstr "\"ยกเลิก\" เป็นรูปพิเศษ จะลบไม่ได้"
 
-#: ../src/caja-property-browser.c:1284
+#: ../src/caja-property-browser.c:1344
 #, c-format
 msgid "Sorry, but the pattern %s could not be installed."
 msgstr "ติดตั้งลวดลาย %s ไม่สำเร็จ"
 
-#: ../src/caja-property-browser.c:1315
+#: ../src/caja-property-browser.c:1375
 msgid "Select an Image File to Add as a Pattern"
 msgstr "เลือกแฟ้มรูปที่จะใช้เป็นลวดลาย"
 
-#: ../src/caja-property-browser.c:1394 ../src/caja-property-browser.c:1424
+#: ../src/caja-property-browser.c:1454 ../src/caja-property-browser.c:1484
 msgid "The color cannot be installed."
 msgstr "ไม่สามารถติดตั้งสีได้"
 
-#: ../src/caja-property-browser.c:1395
+#: ../src/caja-property-browser.c:1455
 msgid "Sorry, but you must specify an unused color name for the new color."
 msgstr "คุณต้องตั้งชื่อสำหรับสีใหม่ที่จะติดตั้ง โดยใช้ชื่อที่ไม่ซ้ำกับชื่อที่มีอยู่ก่อน"
 
-#: ../src/caja-property-browser.c:1425
+#: ../src/caja-property-browser.c:1485
 msgid "Sorry, but you must specify a non-blank name for the new color."
 msgstr "คุณต้องตั้งชื่อสำหรับสีใหม่ที่จะติดตั้ง โดยไม่ใช่ข้อความเปล่า"
 
-#: ../src/caja-property-browser.c:1485
+#: ../src/caja-property-browser.c:1545
 msgid "Select a Color to Add"
 msgstr "เลือกสีที่จะเพิ่ม"
 
-#: ../src/caja-property-browser.c:1531 ../src/caja-property-browser.c:1549
+#: ../src/caja-property-browser.c:1591 ../src/caja-property-browser.c:1609
 #, c-format
 msgid "Sorry, but \"%s\" is not a usable image file."
 msgstr "\"%s\" ไม่ใช่แฟ้มรูปที่ใช้ได้"
 
-#: ../src/caja-property-browser.c:1532 ../src/caja-property-browser.c:1550
+#: ../src/caja-property-browser.c:1592 ../src/caja-property-browser.c:1610
 msgid "The file is not an image."
 msgstr "แฟ้มนี้ไม่ใช่แฟ้มรูป"
 
-#: ../src/caja-property-browser.c:2291
+#: ../src/caja-property-browser.c:2351
 msgid "Select a Category:"
 msgstr "เลือกหัวข้อ:"
 
-#: ../src/caja-property-browser.c:2303
+#: ../src/caja-property-browser.c:2363
 msgid "C_ancel Remove"
 msgstr "_ยกเลิกการลบ"
 
-#: ../src/caja-property-browser.c:2312
+#: ../src/caja-property-browser.c:2372
 msgid "_Add a New Pattern..."
 msgstr "เ_พิ่มลวดลายใหม่..."
 
-#: ../src/caja-property-browser.c:2315
+#: ../src/caja-property-browser.c:2375
 msgid "_Add a New Color..."
 msgstr "เ_พิ่มสีใหม่..."
 
-#: ../src/caja-property-browser.c:2318
+#: ../src/caja-property-browser.c:2378
 msgid "_Add a New Emblem..."
 msgstr "เ_พิ่มตราใหม่..."
 
-#: ../src/caja-property-browser.c:2344
+#: ../src/caja-property-browser.c:2404
 msgid "Click on a pattern to remove it"
 msgstr "คลิกบนลวดลายที่จะลบ"
 
-#: ../src/caja-property-browser.c:2347
+#: ../src/caja-property-browser.c:2407
 msgid "Click on a color to remove it"
 msgstr "คลิกบนสีที่จะลบ"
 
-#: ../src/caja-property-browser.c:2350
+#: ../src/caja-property-browser.c:2410
 msgid "Click on an emblem to remove it"
 msgstr "คลิกบนตราที่จะลบ"
 
-#: ../src/caja-property-browser.c:2362
+#: ../src/caja-property-browser.c:2422
 msgid "Patterns:"
 msgstr "ลวดลาย:"
 
-#: ../src/caja-property-browser.c:2365
+#: ../src/caja-property-browser.c:2425
 msgid "Colors:"
 msgstr "สี:"
 
-#: ../src/caja-property-browser.c:2368
+#: ../src/caja-property-browser.c:2428
 msgid "Emblems:"
 msgstr "ตรา:"
 
-#: ../src/caja-property-browser.c:2390
+#: ../src/caja-property-browser.c:2450
 msgid "_Remove a Pattern..."
 msgstr "_ลบลวดลาย..."
 
-#: ../src/caja-property-browser.c:2393
+#: ../src/caja-property-browser.c:2453
 msgid "_Remove a Color..."
 msgstr "_ลบสี..."
 
-#: ../src/caja-property-browser.c:2396
+#: ../src/caja-property-browser.c:2456
 msgid "_Remove an Emblem..."
 msgstr "_ลบตรา..."
 
@@ -7101,11 +7085,11 @@ msgid ""
 "Please select another viewer and try again."
 msgstr "ผิดพลาด: %s\nกรุณาเลือกโปรแกรมอื่นแล้วลองใหม่"
 
-#: ../src/caja-window-menus.c:196
+#: ../src/caja-window-menus.c:192
 msgid "Go to the location specified by this bookmark"
 msgstr "ไปที่ตำแหน่งที่ที่คั่นหน้านี้ชี้"
 
-#: ../src/caja-window-menus.c:518
+#: ../src/caja-window-menus.c:514
 msgid ""
 "Caja is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -7113,7 +7097,7 @@ msgid ""
 "version."
 msgstr "Caja เป็นซอฟต์แวร์เสรี คุณสามารถแจกจ่ายต่อ และ/หรือ แก้ไขโปรแกรมได้ ภายใต้เงื่อนไขของ GNU General Public License ที่เผยแพร่โดยมูลนิธิซอฟต์แวร์เสรี ไม่ว่าจะเป็นสัญญาอนุญาตรุ่นที่ 2 หรือรุ่นถัดมา (ตามแต่คุณจะเลือก)"
 
-#: ../src/caja-window-menus.c:522
+#: ../src/caja-window-menus.c:518
 msgid ""
 "Caja is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -7121,233 +7105,233 @@ msgid ""
 "details."
 msgstr "Caja เผยแพร่ด้วยความหวังว่าโปรแกรมจะมีประโยชน์ แต่ _ไม่มีการรับประกันใดๆ_ ไม่มีแม้การรับประกัน _อรรถประโยชน์เชิงพาณิชย์_ หรือ _ความเหมาะสมสำหรับวัตถุประสงค์เฉพาะกิจใดๆ_ กรุณาอ่าน GNU General Public License เพื่อดูรายละเอียดเพิ่มเติม"
 
-#: ../src/caja-window-menus.c:526
+#: ../src/caja-window-menus.c:522
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301 USA"
 msgstr "คุณควรจะได้รับสำเนาของ GNU General Public License มาพร้อมกับ Caja ถ้าคุณไม่ได้รับ กรุณาติดต่อไปที่ Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA"
 
-#: ../src/caja-window-menus.c:538
+#: ../src/caja-window-menus.c:534
 msgid ""
 "Caja lets you organize files and folders, both on your computer and online."
 msgstr "Caja ช่วยคุณจัดระเบียบแฟ้มและโฟลเดอร์ต่างๆ ทั้งในเครื่องของคุณเองและในเครือข่าย"
 
-#: ../src/caja-window-menus.c:541
+#: ../src/caja-window-menus.c:537
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2016 The Caja authors"
-msgstr ""
+msgstr "Copyright © 1999-2009 The Nautilus authors\nCopyright © 2011-2016 The Caja authors"
 
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
 #. * box to give credit to the translator(s).
-#: ../src/caja-window-menus.c:551
+#: ../src/caja-window-menus.c:547
 msgid "translator-credits"
 msgstr "ไพศาข์ สีเหลืองสวัสดิ์\nสุปราณี ธีระวัฒนสุข\nเทพพิทักษ์ การุญบุญญานันท์\n\nถ้ามีเวลาโปรดมาช่วยกันแปล :-)\nhttp://mate-th.sourceforge.net"
 
-#: ../src/caja-window-menus.c:554
+#: ../src/caja-window-menus.c:550
 msgid "MATE Web Site"
-msgstr ""
+msgstr "เว็บไซต์ของ MATE"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:807
+#: ../src/caja-window-menus.c:803
 msgid "_File"
 msgstr "แ_ฟ้ม"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:808
+#: ../src/caja-window-menus.c:804
 msgid "_Edit"
 msgstr "แ_ก้ไข"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:809
+#: ../src/caja-window-menus.c:805
 msgid "_View"
 msgstr "มุ_มมอง"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:810
+#: ../src/caja-window-menus.c:806
 msgid "_Help"
 msgstr "_วิธีใช้"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:812
+#: ../src/caja-window-menus.c:808
 msgid "_Close"
 msgstr "ปิ_ด"
 
 #. tooltip
-#: ../src/caja-window-menus.c:813
+#: ../src/caja-window-menus.c:809
 msgid "Close this folder"
 msgstr "ปิดโฟลเดอร์นี้"
 
-#: ../src/caja-window-menus.c:818
+#: ../src/caja-window-menus.c:814
 msgid "_Backgrounds and Emblems..."
 msgstr "_พื้นหลังและตรา..."
 
-#: ../src/caja-window-menus.c:819
+#: ../src/caja-window-menus.c:815
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
 msgstr "แสดงลวดลาย สี และตรา ที่ใช้ตกแต่ง Caja ได้"
 
-#: ../src/caja-window-menus.c:824
+#: ../src/caja-window-menus.c:820
 msgid "Prefere_nces"
 msgstr "_ปรับแต่ง"
 
-#: ../src/caja-window-menus.c:825
+#: ../src/caja-window-menus.c:821
 msgid "Edit Caja preferences"
 msgstr "ปรับแต่ง Caja"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:828
+#: ../src/caja-window-menus.c:824
 msgid "Open _Parent"
 msgstr "เปิดโฟ_ลเดอร์แม่"
 
-#: ../src/caja-window-menus.c:829
+#: ../src/caja-window-menus.c:825
 msgid "Open the parent folder"
 msgstr "เปิดโฟลเดอร์ที่โฟลเดอร์นี้อาศัยอยู่"
 
 #. tooltip
-#: ../src/caja-window-menus.c:838
+#: ../src/caja-window-menus.c:834
 msgid "Stop loading the current location"
 msgstr "หยุดอ่านตำแหน่งปัจจุบัน"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:842
+#: ../src/caja-window-menus.c:838
 msgid "_Reload"
 msgstr "_อ่านใหม่"
 
 #. tooltip
-#: ../src/caja-window-menus.c:843
+#: ../src/caja-window-menus.c:839
 msgid "Reload the current location"
 msgstr "อ่านตำแหน่งปัจจุบันใหม่"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:847
+#: ../src/caja-window-menus.c:843
 msgid "_Contents"
 msgstr "เ_นื้อหา"
 
 #. tooltip
-#: ../src/caja-window-menus.c:848
+#: ../src/caja-window-menus.c:844
 msgid "Display Caja help"
 msgstr "แสดงวิธีใช้ Caja"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:852
+#: ../src/caja-window-menus.c:848
 msgid "_About"
 msgstr "เ_กี่ยวกับ"
 
 #. tooltip
-#: ../src/caja-window-menus.c:853
+#: ../src/caja-window-menus.c:849
 msgid "Display credits for the creators of Caja"
 msgstr "แสดงรายชื่อผู้เขียน Caja"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:857
+#: ../src/caja-window-menus.c:853
 msgid "Zoom _In"
 msgstr "ขยายเ_ข้า"
 
 #. tooltip
-#: ../src/caja-window-menus.c:858 ../src/caja-zoom-control.c:99
+#: ../src/caja-window-menus.c:854 ../src/caja-zoom-control.c:99
 #: ../src/caja-zoom-control.c:395
 msgid "Increase the view size"
 msgstr "เพิ่มขนาดการแสดงผล"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:872
+#: ../src/caja-window-menus.c:868
 msgid "Zoom _Out"
 msgstr "ขยาย_ออก"
 
 #. tooltip
-#: ../src/caja-window-menus.c:873 ../src/caja-zoom-control.c:100
+#: ../src/caja-window-menus.c:869 ../src/caja-zoom-control.c:100
 #: ../src/caja-zoom-control.c:333
 msgid "Decrease the view size"
 msgstr "ลดขนาดการแสดงผล"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:882
+#: ../src/caja-window-menus.c:878
 msgid "Normal Si_ze"
 msgstr "_ขนาดปกติ"
 
 #. tooltip
-#: ../src/caja-window-menus.c:883 ../src/caja-zoom-control.c:101
+#: ../src/caja-window-menus.c:879 ../src/caja-zoom-control.c:101
 #: ../src/caja-zoom-control.c:353
 msgid "Use the normal view size"
 msgstr "ใช้ขนาดการแสดงผลปกติ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:887
+#: ../src/caja-window-menus.c:883
 msgid "Connect to _Server..."
 msgstr "เชื่อมต่อไปเ_ซิร์ฟเวอร์..."
 
 #. tooltip
-#: ../src/caja-window-menus.c:888
+#: ../src/caja-window-menus.c:884
 msgid "Connect to a remote computer or shared disk"
 msgstr "เชื่อมต่อไปยังเครื่องในเครือข่าย หรือดิสก์ที่เปิดให้ใช้ร่วมกัน"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:897
+#: ../src/caja-window-menus.c:893
 msgid "_Computer"
 msgstr "_คอมพิวเตอร์"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:902
+#: ../src/caja-window-menus.c:898
 msgid "_Network"
 msgstr "เครือ_ข่าย"
 
 #. tooltip
-#: ../src/caja-window-menus.c:903 ../src/mate-network-scheme.desktop.in.h:2
+#: ../src/caja-window-menus.c:899 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
 msgstr "ท่องดูตำแหน่งเครือข่ายที่คั่นหน้าไว้ และตำแหน่งต่างๆ ในเครือข่ายเฉพาะที่"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:907
+#: ../src/caja-window-menus.c:903
 msgid "T_emplates"
 msgstr "_แม่แบบ"
 
 #. tooltip
-#: ../src/caja-window-menus.c:908
+#: ../src/caja-window-menus.c:904
 msgid "Open your personal templates folder"
 msgstr "เปิดโฟลเดอร์แม่แบบส่วนตัวของคุณ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:912
+#: ../src/caja-window-menus.c:908
 msgid "_Trash"
 msgstr "_ถังขยะ"
 
 #. tooltip
-#: ../src/caja-window-menus.c:913
+#: ../src/caja-window-menus.c:909
 msgid "Open your personal trash folder"
 msgstr "เปิดโฟลเดอร์ถังขยะส่วนตัวของคุณ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:921
+#: ../src/caja-window-menus.c:917
 msgid "Show _Hidden Files"
 msgstr "แ_สดงแฟ้มที่ซ่อน"
 
 #. tooltip
-#: ../src/caja-window-menus.c:922
+#: ../src/caja-window-menus.c:918
 msgid "Toggle the display of hidden files in the current window"
 msgstr "เปิด-ปิดการแสดงแฟ้มซ่อนในหน้าต่างปัจจุบัน"
 
-#: ../src/caja-window-menus.c:953
+#: ../src/caja-window-menus.c:949
 msgid "_Up"
 msgstr "ขึ้_น"
 
-#: ../src/caja-window-menus.c:956
+#: ../src/caja-window-menus.c:952
 msgid "_Home"
 msgstr "_บ้าน"
 
