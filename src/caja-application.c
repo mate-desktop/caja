@@ -3250,7 +3250,7 @@ caja_application_class_init (CajaApplicationClass *class)
     application_class->open = caja_application_open;
     application_class->local_command_line = caja_application_local_command_line;
 
-g_type_class_add_private (class, sizeof (CajaApplicationPriv));
+    g_type_class_add_private (class, sizeof (CajaApplicationPriv));
 }
 
 CajaApplication *
@@ -3261,14 +3261,14 @@ caja_application_new (void)
 
     if (!running_as_root ()){
         return g_object_new (CAJA_TYPE_APPLICATION,
-                    "application-id", "org.mate.caja",
+                    "application-id", "org.mate.Caja",
                     "register-session", TRUE,
                     "flags", G_APPLICATION_HANDLES_OPEN,
                      NULL);
     }
     else{
     return g_object_new (CAJA_TYPE_APPLICATION,
-                    "application-id", "org.mate.caja",
+                    "application-id", "org.mate.Caja",
                     "flags", G_APPLICATION_HANDLES_OPEN,
                      NULL);
    }
