@@ -1,100 +1,18 @@
-Major changes in 1.15.4 are:
+Major changes in 1.16.0 are:
+* Use GtkAboutDialog instead of MateAboutDialog
+* Pathbar: always show right arrow button
+* Fix changing taskbar icon when switching between tabs with different
+  icons
+* Fix lots of warnings when building docs for libcaja-extension
+* GTK+3: add style classes for elements of pathbar
+* GTK+3: fix drawing and changing of desktop background with 3.21
+* GTK+3: fix a large amount of deprecations
+* Some more fixes and cleanups
+* Translations update
 
-* Translation update
-* GTK+-3 property-browser: port GtkTable to GtkGrid
-* GTK+-3 window: port GtkTable to GtkGrid
-* Fix background change crash
-* Bring back part of caja.css needed for compositing
-* Fix background rendering in noncomposited case
-
-Major changes in 1.15.3 are:
-
-* Translation update
-* caja.css: include GTK 3.21 desktop selectors
-* GTK3.21:fix desktop redraw (caja-icon-container.c)
-* GTK3.21:fix desktop redraw (fm-list-view.c)
-* GTK3.21:fix desktop redraw (fm-icon-view.c)
-* GTK3.21:fix desktop redraw (fm-directory-view.c)
-* GTK3.21:fix desktop redraw (fm-desktop-icon-view.c)
-* GTK3.21:fix desktop redraw (caja-desktop-window.c)
-* use GtkAbout instead of MateAbout
-* GTK 3.21: stop properties window going full height
-
-Major changes in 1.15.2 are:
-
-* GTK+-3 eel: fix color definition pointed out by running distcheck with gtk3
-* distcheck: explicitly use currently selected GTK+ version
-* GTK+-3 pathbar: always show the sliders
-* GTK+-3 pathbar: add slider-button class to sliders
-* GTK+-3 pathpar: add image-button class to iconic buttons
-* GTK+-3 pathbar: use text-button style class for pathbar buttons
-* GTK+-3 pathbar: fix allocation offset for the down slider button
-* GTK+-3 pathbar: do not use deprecated gtk_arrow_new
-* GTK+-3 pathbar: do not use deprecated gtk_alignment_new
-* GTK+-3 pathbar: refresh label size request every time it changes
-* drop unneeded includes
-* remove some unused includes
-* libcaja-private: drop unused CajaIdleQueue code
-* eel: fix minor build warning
-* libcaja-private: drop some more unused code
-* libcaja-private: remove unused CajaMergedDirectory code
-* fix minor build warning
-* location-bar: don't pack an useless box in the bar
-* location-bar: fix deprecated GTK_TYPE_HBOX usage
-* navigation-bar: remove useless abstract class
-* all: don't use deprecated GMutex/GThread API
-* GTK+-3.20 view-as-action: avoid deprecated gtk_combo_box_set_focus_on_click
-* editable-label: reduce ifdefine hell
-* GTK+-3 eel-editable-label: drop usage of GtkMisc
-* GTK+-3 connect-server-dialog: use widget properties instead of GtkAlignment
-* GTK+-3 open-with-dialog: use widget properties instead of GtkAlignment
-* GTK+-3 searchbar: use widget properties instead of GtkAlignment
-* GTK+-3 fm-properties-window: use widget properties instead of GtkAlignment
-* GTK+-3 fm-list-view: use widget properties instead of GtkAlignment
-* GTK+-3 file-conflict-dialog: use widget properties instead of GtkAlignment
-* eel-gtk-extensions: remove eel_gtk_adjustment* functions
-* icon-container: don't use eel helper to set adjustment values
-* notebook: cleanup an old workaround
-* GTK+-3 caja-icon-dnd: avoid deprecated gtk_drag_begin
-* Gtk+-3.20 fm-desktop-icon-view: use GdkSeat operations
-* Gtk+-3.20 eel-canvas: use GdkSeat operations
-* GTK+-3.20 caja-tree-view-drag-dest: use GdkSeat operations
-* GTK+-3.20 caja-dnd: use GdkSeat operations
-* GTK+-3.20 caja-icon-container:  use GdkSeat operations
-* Revert "navigation-bar: fix deprecated GTK_TYPE_HBOX usage"
-* Revert "navigation-bar: fix typo in previous commit"
-
-Major changes in 1.15.1 are:
-
-* configure: increase mate-desktop min. version
-* Translation update
-* eel: make code better readable
-* GTK+-3 eel-labeled-image: port to GtkStyleContext
-* GTK+-3 eel: rename GdkRGBA functions
-* GTK+-3 eel-backgrounds: port to GtkStyleContext and GdkRGBA
-* GTK+-3 eel-gdk-extensions: port GtkColor to GdkRGBA
-* GTK+-3 eel-background: prepare code for GtkStyleContext port
-* GTK+3 eel-labeled-image: simplify code for port to GtkStyleContext
-* navigation-bar: fix deprecated GTK_TYPE_HBOX usage
-* GTK+-3 eel-editable-label: do not use deprecated gtk_misc_get_padding
-* drop gnome leftover
-* GTK3: Fix caja information panel
-* GTK+3: do not use deprecated gtk_widget_modify_font
-* GTK+-3.20: do not use deprecated gtk_button_set_focus_on_click
-* GTK+3 pathbar: Do not use deprecate composite-child API
-
-Major changes in 1.15.0 are:
-
-* Translation update
-* remove old gnome files
-* GTK+-3 fm-icon-view: fix a Wincompatible-pointer-types build warning
-* GTK+-3 sidebars and caja-places: port style_set to style_updated
-* GTK+-3 caja-zoom-control: GtkStyle>GtkStyleContext
-* GTK+-3 caja-places-sidebar: use GtkStyleContext
-* GTK+-3 caja-pathbar: remove GtkStyle vars
-* GTK+-3 caja-location-bar: use GtkStyleContext
-* GTK+-3 caja-information-panel: use GtkStyleContext
-* GTK+-3 history sidebar: port to GtkStyleContext
+Major changes in 1.14.2 are:
+* Translations update
+* Make distcheck use currently selected GTK+ version
 
 Major changes in 1.14.1 are:
 * prefs dialog: don't crash on toggling "Show hidden and backup files"
