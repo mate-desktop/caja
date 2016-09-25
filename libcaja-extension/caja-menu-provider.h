@@ -36,50 +36,58 @@
 #include "caja-file-info.h"
 #include "caja-menu.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+G_BEGIN_DECLS
 
 #define CAJA_TYPE_MENU_PROVIDER           (caja_menu_provider_get_type ())
 #define CAJA_MENU_PROVIDER(obj)           (G_TYPE_CHECK_INSTANCE_CAST ((obj), CAJA_TYPE_MENU_PROVIDER, CajaMenuProvider))
 #define CAJA_IS_MENU_PROVIDER(obj)        (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CAJA_TYPE_MENU_PROVIDER))
 #define CAJA_MENU_PROVIDER_GET_IFACE(obj) (G_TYPE_INSTANCE_GET_INTERFACE ((obj), CAJA_TYPE_MENU_PROVIDER, CajaMenuProviderIface))
 
-    typedef struct _CajaMenuProvider       CajaMenuProvider;
-    typedef struct _CajaMenuProviderIface  CajaMenuProviderIface;
+typedef struct _CajaMenuProvider       CajaMenuProvider;
+typedef struct _CajaMenuProviderIface  CajaMenuProviderIface;
 
-    struct _CajaMenuProviderIface
-    {
-        GTypeInterface g_iface;
+/**
+ * CajaMenuProviderIface:
+ * @g_iface: The parent interface.
+ * @get_file_items: Returns a #GList of #CajaMenuItem.
+ *   See caja_menu_provider_get_file_items() for details.
+ * @get_background_items: Returns a #GList of #CajaMenuItem.
+ *   See caja_menu_provider_get_background_items() for details.
+ * @get_toolbar_items: Returns a #GList of #CajaMenuItem.
+ *   See caja_menu_provider_get_toolbar_items() for details.
+ *
+ * Interface for extensions to provide additional menu items.
+ */
 
-        GList *(*get_file_items)       (CajaMenuProvider *provider,
-                                        GtkWidget            *window,
-                                        GList                *files);
-        GList *(*get_background_items) (CajaMenuProvider *provider,
-                                        GtkWidget            *window,
-                                        CajaFileInfo     *current_folder);
-        GList *(*get_toolbar_items)    (CajaMenuProvider *provider,
-                                        GtkWidget            *window,
-                                        CajaFileInfo     *current_folder);
-    };
+struct _CajaMenuProviderIface {
+    GTypeInterface g_iface;
 
-    /* Interface Functions */
-    GType                   caja_menu_provider_get_type             (void);
-    GList                  *caja_menu_provider_get_file_items       (CajaMenuProvider *provider,
-            GtkWidget            *window,
-            GList                *files);
-    GList                  *caja_menu_provider_get_background_items (CajaMenuProvider *provider,
-            GtkWidget            *window,
-            CajaFileInfo     *current_folder);
-    GList                  *caja_menu_provider_get_toolbar_items    (CajaMenuProvider *provider,
-            GtkWidget            *window,
-            CajaFileInfo     *current_folder);
+    GList *(*get_file_items)       (CajaMenuProvider *provider,
+                                    GtkWidget        *window,
+                                    GList            *files);
+    GList *(*get_background_items) (CajaMenuProvider *provider,
+                                    GtkWidget        *window,
+                                    CajaFileInfo     *current_folder);
+    GList *(*get_toolbar_items)    (CajaMenuProvider *provider,
+                                    GtkWidget        *window,
+                                    CajaFileInfo     *current_folder);
+};
 
-    /* This function emit a signal to inform caja that its item list has changed. */
-    void                    caja_menu_provider_emit_items_updated_signal (CajaMenuProvider *provider);
+/* Interface Functions */
+GType  caja_menu_provider_get_type             (void);
+GList *caja_menu_provider_get_file_items       (CajaMenuProvider *provider,
+                                                GtkWidget        *window,
+                                                GList            *files);
+GList *caja_menu_provider_get_background_items (CajaMenuProvider *provider,
+                                                GtkWidget        *window,
+                                                CajaFileInfo     *current_folder);
+GList *caja_menu_provider_get_toolbar_items    (CajaMenuProvider *provider,
+                                                GtkWidget        *window,
+                                                CajaFileInfo     *current_folder);
 
-#ifdef __cplusplus
-}
-#endif
+/* This function emit a signal to inform caja that its item list has changed. */
+void   caja_menu_provider_emit_items_updated_signal (CajaMenuProvider *provider);
+
+G_END_DECLS
 
 #endif

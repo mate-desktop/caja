@@ -342,7 +342,11 @@ eel_canvas_item_dispose (GObject *object)
         }
 
 #if GTK_CHECK_VERSION(3, 0, 0)
+#if GTK_CHECK_VERSION(3, 20, 0)
+        eel_canvas_item_ungrab (item);
+#else
         eel_canvas_item_ungrab (item, GDK_CURRENT_TIME);
+#endif
 #else
         if (item == item->canvas->grabbed_item)
         {
@@ -873,7 +877,35 @@ eel_canvas_item_hide (EelCanvasItem *item)
     }
 }
 
+#if GTK_CHECK_VERSION(3, 20, 0)
+/*
+ * Prepare the window for grabbing, i.e. show it.
+ */
+static void
+seat_grab_prepare_window (GdkSeat *seat,
+			  GdkWindow *window,
+			  gpointer user_data)
+{
+	gdk_window_show (window);
+}
 
+/**
+ * eel_canvas_item_grab:
+ * @item: A canvas item.
+ * @event_mask: Mask of events that will be sent to this item.
+ * @cursor: If non-NULL, the cursor that will be used while the grab is active.
+ * @event: The event, triggering the grab, if any.
+ *
+ * Specifies that all events that match the specified event mask should be sent
+ * to the specified item, and also grabs the seat by calling gdk_seat_grab().
+ * If @cursor is not NULL, then that cursor is used while the grab is active.
+ *
+ * Return value: If an item was already grabbed, it returns %GDK_GRAB_ALREADY_GRABBED. If
+ * the specified item was hidden by calling eel_canvas_item_hide(), then it
+ * returns %GDK_GRAB_NOT_VIEWABLE. Else, it returns the result of calling
+ * gdk_seat_grab().
+ **/
+#else
 /**
  * eel_canvas_item_grab:
  * @item: A canvas item.
@@ -892,17 +924,26 @@ eel_canvas_item_hide (EelCanvasItem *item)
  * returns %GDK_GRAB_NOT_VIEWABLE.  Else, it returns the result of calling
  * gdk_pointer_grab().
  **/
+#endif
 #if GTK_CHECK_VERSION(3, 0, 0)
 GdkGrabStatus
 eel_canvas_item_grab (EelCanvasItem *item,
                       GdkEventMask event_mask,
                       GdkCursor *cursor,
+#if GTK_CHECK_VERSION(3, 20, 0)
+                      const GdkEvent *event)
+{
+    GdkGrabStatus retval;
+    GdkDisplay *display;
+    GdkSeat *seat;
+#else
                       guint32 timestamp)
 {
     GdkGrabStatus retval;
     GdkDisplay *display;
     GdkDeviceManager *manager;
     GdkDevice *device;
+#endif
 
     g_return_val_if_fail (EEL_IS_CANVAS_ITEM (item), GDK_GRAB_NOT_VIEWABLE);
     g_return_val_if_fail (gtk_widget_get_mapped (GTK_WIDGET (item->canvas)),
@@ -915,6 +956,18 @@ eel_canvas_item_grab (EelCanvasItem *item,
         return GDK_GRAB_NOT_VIEWABLE;
 
     display = gtk_widget_get_display (GTK_WIDGET (item->canvas));
+#if GTK_CHECK_VERSION(3, 20, 0)
+    seat = gdk_display_get_default_seat (display);
+
+    retval = gdk_seat_grab (seat,
+                            gtk_layout_get_bin_window (GTK_LAYOUT (item->canvas)),
+                            GDK_SEAT_CAPABILITY_ALL_POINTING,
+                            FALSE,
+                            cursor,
+                            event,
+                            seat_grab_prepare_window,
+                            NULL);
+#else
     manager = gdk_display_get_device_manager (display);
     device = gdk_device_manager_get_client_pointer (manager);
 
@@ -925,6 +978,7 @@ eel_canvas_item_grab (EelCanvasItem *item,
                               event_mask,
                               cursor,
                               timestamp);
+#endif
 #else
 int
 eel_canvas_item_grab (EelCanvasItem *item, guint event_mask, GdkCursor *cursor, guint32 etime)
@@ -959,7 +1013,15 @@ eel_canvas_item_grab (EelCanvasItem *item, guint event_mask, GdkCursor *cursor, 
     return retval;
 }
 
-
+#if GTK_CHECK_VERSION(3, 20, 0)
+/**
+ * eel_canvas_item_ungrab:
+ * @item: A canvas item that holds a grab.
+ *
+ * Ungrabs the item, which must have been grabbed in the canvas, and ungrabs the
+ * seat.
+ **/
+#else
 /**
  * eel_canvas_item_ungrab:
  * @item: A canvas item that holds a grab.
@@ -968,14 +1030,14 @@ eel_canvas_item_grab (EelCanvasItem *item, guint event_mask, GdkCursor *cursor, 
  * Ungrabs the item, which must have been grabbed in the canvas, and ungrabs the
  * mouse.
  **/
+#endif
+#if GTK_CHECK_VERSION(3, 0, 0)
 void
-eel_canvas_item_ungrab (EelCanvasItem *item, guint32 etime)
+#if GTK_CHECK_VERSION(3, 20, 0)
+eel_canvas_item_ungrab (EelCanvasItem *item)
 {
     GdkDisplay *display;
-#if GTK_CHECK_VERSION(3, 0, 0)
-    GdkDeviceManager *manager;
-    GdkDevice *device;
-#endif
+    GdkSeat *seat;
 
     g_return_if_fail (EEL_IS_CANVAS_ITEM (item));
 
@@ -983,17 +1045,47 @@ eel_canvas_item_ungrab (EelCanvasItem *item, guint32 etime)
         return;
 
     display = gtk_widget_get_display (GTK_WIDGET (item->canvas));
-#if GTK_CHECK_VERSION(3, 0, 0)
+    seat = gdk_display_get_default_seat (display);
+
+    item->canvas->grabbed_item = NULL;
+    gdk_seat_ungrab (seat);
+}
+#else
+eel_canvas_item_ungrab (EelCanvasItem *item, guint32 etime)
+{
+    GdkDisplay *display;
+    GdkDeviceManager *manager;
+    GdkDevice *device;
+
+    g_return_if_fail (EEL_IS_CANVAS_ITEM (item));
+
+    if (item->canvas->grabbed_item != item)
+        return;
+
+    display = gtk_widget_get_display (GTK_WIDGET (item->canvas));
     manager = gdk_display_get_device_manager (display);
     device = gdk_device_manager_get_client_pointer (manager);
 
     item->canvas->grabbed_item = NULL;
     gdk_device_ungrab (device, etime);
+}
+#endif
 #else
+void
+eel_canvas_item_ungrab (EelCanvasItem *item, guint32 etime)
+{
+    GdkDisplay *display;
+
+    g_return_if_fail (EEL_IS_CANVAS_ITEM (item));
+
+    if (item->canvas->grabbed_item != item)
+        return;
+
+    display = gtk_widget_get_display (GTK_WIDGET (item->canvas));
     item->canvas->grabbed_item = NULL;
     gdk_display_pointer_ungrab (display, etime);
-#endif
 }
+#endif
 
 /**
  * eel_canvas_item_w2i:
@@ -2324,7 +2416,9 @@ shutdown_transients (EelCanvas *canvas)
 
     if (canvas->grabbed_item)
     {
-#if GTK_CHECK_VERSION(3, 0, 0)
+#if GTK_CHECK_VERSION(3, 20, 0)
+        eel_canvas_item_ungrab (canvas->grabbed_item);
+#elif GTK_CHECK_VERSION(3, 0, 0)
         eel_canvas_item_ungrab (canvas->grabbed_item, GDK_CURRENT_TIME);
 #else
         GdkDisplay *display = gtk_widget_get_display (GTK_WIDGET (canvas));
@@ -2732,24 +2826,31 @@ emit_event (EelCanvas *canvas, GdkEvent *event)
         break;
 
     case GDK_MOTION_NOTIFY:
+#if !GTK_CHECK_VERSION(3, 20, 0)
         eel_canvas_window_to_world (canvas,
                                     ev.motion.x, ev.motion.y,
                                     &ev.motion.x, &ev.motion.y);
         break;
+#endif
 
     case GDK_BUTTON_PRESS:
     case GDK_2BUTTON_PRESS:
     case GDK_3BUTTON_PRESS:
+#if GTK_CHECK_VERSION(3, 20, 0)
+    case GDK_BUTTON_RELEASE:
+#endif
         eel_canvas_window_to_world (canvas,
                                     ev.motion.x, ev.motion.y,
                                     &ev.motion.x, &ev.motion.y);
         break;
 
+#if !GTK_CHECK_VERSION(3, 20, 0)
     case GDK_BUTTON_RELEASE:
         eel_canvas_window_to_world (canvas,
                                     ev.motion.x, ev.motion.y,
                                     &ev.motion.x, &ev.motion.y);
         break;
+#endif
 
     default:
         break;

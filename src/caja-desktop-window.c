@@ -34,17 +34,128 @@
 #include <libcaja-private/caja-file-utilities.h>
 #include <libcaja-private/caja-icon-names.h>
 #include <gio/gio.h>
-#include <glib/gi18n.h>
+#include <glib/gi18n.h>    
+#if GTK_CHECK_VERSION(3, 21, 0)
+#define MATE_DESKTOP_USE_UNSTABLE_API
+#include <libmate-desktop/mate-bg.h>
+#endif
 
 struct CajaDesktopWindowDetails
 {
     gulong size_changed_id;
 
     gboolean loaded;
+#if GTK_CHECK_VERSION(3, 21, 0)
+    gboolean composited;
+    cairo_surface_t *surface;
+#endif
 };
 
 G_DEFINE_TYPE (CajaDesktopWindow, caja_desktop_window,
                CAJA_TYPE_SPATIAL_WINDOW);
+
+#if GTK_CHECK_VERSION(3, 21, 0) 
+
+static void
+background_changed (CajaDesktopWindow *window)
+{
+    GdkScreen *screen = gdk_screen_get_default ();
+
+    if (window->details->surface) {
+        cairo_surface_destroy (window->details->surface);
+    }
+
+    window->details->surface = mate_bg_get_surface_from_root (screen);
+    gtk_widget_queue_draw (GTK_WIDGET (window));
+}
+
+static GdkFilterReturn
+filter_func (GdkXEvent             *xevent,
+             GdkEvent              *event,
+             CajaDesktopWindow *window)
+{
+    XEvent *xev = (XEvent *) xevent;
+    GdkAtom gdkatom;
+
+    if (xev->type != PropertyNotify) {
+        return GDK_FILTER_CONTINUE;
+    }
+
+    gdkatom = gdk_atom_intern_static_string ("_XROOTPMAP_ID");
+    if (xev->xproperty.atom != gdk_x11_atom_to_xatom (gdkatom)) {
+        return GDK_FILTER_CONTINUE;
+    }
+
+    background_changed (window);
+
+    return GDK_FILTER_CONTINUE;
+}
+
+static void
+caja_desktop_window_composited_changed (GtkWidget *widget)
+{
+    CajaDesktopWindow *window = CAJA_DESKTOP_WINDOW (widget);
+    GdkScreen *screen = gdk_screen_get_default ();
+    gboolean composited = gdk_screen_is_composited (screen);
+    GdkWindow *root;
+
+    if (window->details->composited == composited) {
+        return;
+    }
+
+    window->details->composited = composited;
+    root = gdk_screen_get_root_window (screen);
+
+    if (composited) {
+        gdk_window_remove_filter (root, (GdkFilterFunc) filter_func, window);
+
+        if (window->details->surface) {
+            cairo_surface_destroy (window->details->surface);
+            window->details->surface = NULL;
+        }
+    } else {
+        gint events = gdk_window_get_events (root);
+
+        gdk_window_set_events (root, events | GDK_PROPERTY_CHANGE_MASK);
+        gdk_window_add_filter (root, (GdkFilterFunc) filter_func, window);
+        background_changed (window);
+    }
+}
+
+static gboolean
+caja_desktop_window_draw (GtkWidget *widget,
+                              cairo_t   *cr)
+{
+    CajaDesktopWindow *window = CAJA_DESKTOP_WINDOW (widget);
+
+    if (window->details->surface) {
+        cairo_set_source_surface (cr, window->details->surface, 0, 0);
+        cairo_paint (cr);
+    }
+
+    return GTK_WIDGET_CLASS (caja_desktop_window_parent_class)->draw (widget, cr);
+}
+
+static void
+caja_desktop_window_finalize (GObject *obj)
+{
+    CajaDesktopWindow *window = CAJA_DESKTOP_WINDOW (obj);
+
+    if (window->details->composited == FALSE) {
+        GdkScreen *screen = gdk_screen_get_default ();
+        GdkWindow *root = gdk_screen_get_root_window (screen);
+
+        gdk_window_remove_filter (root, (GdkFilterFunc) filter_func, window);
+    }
+
+    if (window->details->surface) {
+        cairo_surface_destroy (window->details->surface);
+        window->details->surface = NULL;
+    }
+
+    G_OBJECT_CLASS (caja_desktop_window_parent_class)->finalize (obj);
+}
+#endif
 
 static void
 caja_desktop_window_init (CajaDesktopWindow *window)
@@ -60,6 +171,11 @@ caja_desktop_window_init (CajaDesktopWindow *window)
 
     context = gtk_widget_get_style_context (GTK_WIDGET (window));
     gtk_style_context_add_class (context, "caja-desktop-window");
+#endif
+
+#if GTK_CHECK_VERSION(3, 21, 0) 
+    window->details->composited = TRUE;
+    caja_desktop_window_composited_changed (GTK_WIDGET (window));
 #endif
 
     gtk_window_move (GTK_WINDOW (window), 0, 0);
@@ -84,9 +200,9 @@ caja_desktop_window_init (CajaDesktopWindow *window)
     /* Set the accessible name so that it doesn't inherit the cryptic desktop URI. */
     accessible = gtk_widget_get_accessible (GTK_WIDGET (window));
 
-	if (accessible) {
+    if (accessible) {
         atk_object_set_name (accessible, _("Desktop"));
-	}
+    }
 }
 
 static gint
@@ -167,17 +283,24 @@ map (GtkWidget *widget)
     /* Chain up to realize our children */
     GTK_WIDGET_CLASS (caja_desktop_window_parent_class)->map (widget);
     gdk_window_lower (gtk_widget_get_window (widget));
+#if GTK_CHECK_VERSION(3, 21, 0)
+    GdkWindow *window;
+    GdkRGBA transparent = { 0, 0, 0, 0 };
+
+    window = gtk_widget_get_window (widget);
+    gdk_window_set_background_rgba (window, &transparent);
+#endif
 }
 
 static void
 unrealize (GtkWidget *widget)
 {
     CajaDesktopWindow *window;
-	CajaDesktopWindowDetails *details;
+    CajaDesktopWindowDetails *details;
     GdkWindow *root_window;
 
     window = CAJA_DESKTOP_WINDOW (widget);
-	details = window->details;
+    details = window->details;
 
     root_window = gdk_screen_get_root_window (
                       gtk_window_get_screen (GTK_WINDOW (window)));
@@ -185,11 +308,11 @@ unrealize (GtkWidget *widget)
     gdk_property_delete (root_window,
                          gdk_atom_intern ("CAJA_DESKTOP_WINDOW_ID", TRUE));
 
-	if (details->size_changed_id != 0) {
-		g_signal_handler_disconnect (gtk_window_get_screen (GTK_WINDOW (window)),
-					     details->size_changed_id);
-		details->size_changed_id = 0;
-	}
+    if (details->size_changed_id != 0) {
+        g_signal_handler_disconnect (gtk_window_get_screen (GTK_WINDOW (window)),
+                         details->size_changed_id);
+        details->size_changed_id = 0;
+    }
 
     GTK_WIDGET_CLASS (caja_desktop_window_parent_class)->unrealize (widget);
 }
@@ -235,15 +358,22 @@ static void
 realize (GtkWidget *widget)
 {
     CajaDesktopWindow *window;
-	CajaDesktopWindowDetails *details;
-
+    CajaDesktopWindowDetails *details;
+#if GTK_CHECK_VERSION(3, 21, 0)
+    GdkVisual *visual;
+#endif
     window = CAJA_DESKTOP_WINDOW (widget);
-	details = window->details;
+    details = window->details;
 
     /* Make sure we get keyboard events */
     gtk_widget_set_events (widget, gtk_widget_get_events (widget)
                            | GDK_KEY_PRESS_MASK | GDK_KEY_RELEASE_MASK);
-
+#if GTK_CHECK_VERSION(3, 21, 0)
+    visual = gdk_screen_get_rgba_visual (gtk_widget_get_screen (widget));
+    if (visual) {
+        gtk_widget_set_visual (widget, visual);
+    }
+#endif
     /* Do the work of realizing. */
     GTK_WIDGET_CLASS (caja_desktop_window_parent_class)->realize (widget);
 
@@ -252,9 +382,9 @@ realize (GtkWidget *widget)
 
     set_desktop_window_id (window, gtk_widget_get_window (widget));
 
-	details->size_changed_id =
-		g_signal_connect (gtk_window_get_screen (GTK_WINDOW (window)), "size_changed",
-				  G_CALLBACK (caja_desktop_window_screen_size_changed), window);
+    details->size_changed_id =
+        g_signal_connect (gtk_window_get_screen (GTK_WINDOW (window)), "size_changed",
+                          G_CALLBACK (caja_desktop_window_screen_size_changed), window);
 }
 
 static char *
@@ -273,18 +403,26 @@ real_get_icon (CajaWindow *window,
 static void
 caja_desktop_window_class_init (CajaDesktopWindowClass *klass)
 {
-	GtkWidgetClass *wclass = GTK_WIDGET_CLASS (klass);
-	CajaWindowClass *nclass = CAJA_WINDOW_CLASS (klass);
+    GtkWidgetClass *wclass = GTK_WIDGET_CLASS (klass);
+    CajaWindowClass *nclass = CAJA_WINDOW_CLASS (klass);
+#if GTK_CHECK_VERSION(3, 21, 0)
+    GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-	wclass->realize = realize;
-	wclass->unrealize = unrealize;
-	wclass->map = map;
+    object_class->finalize = caja_desktop_window_finalize;
+#endif
 
-	nclass->window_type = CAJA_WINDOW_DESKTOP;
-	nclass->get_title = real_get_title;
-	nclass->get_icon = real_get_icon;
+    wclass->realize = realize;
+    wclass->unrealize = unrealize;
+    wclass->map = map;
+#if GTK_CHECK_VERSION(3, 21, 0)
+    wclass->composited_changed = caja_desktop_window_composited_changed;
+    wclass->draw = caja_desktop_window_draw;
+#endif
+    nclass->window_type = CAJA_WINDOW_DESKTOP;
+    nclass->get_title = real_get_title;
+    nclass->get_icon = real_get_icon;
 
-	g_type_class_add_private (klass, sizeof (CajaDesktopWindowDetails));
+    g_type_class_add_private (klass, sizeof (CajaDesktopWindowDetails));
 }
 
 gboolean

@@ -90,6 +90,9 @@ struct _ButtonData
 
     GtkWidget *image;
     GtkWidget *label;
+#if !GTK_CHECK_VERSION (3, 0, 0)
+    GtkWidget *alignment;
+#endif
     guint ignore_changes : 1;
     guint file_is_hidden : 1;
     guint fake_root : 1;
@@ -156,6 +159,27 @@ static gboolean caja_path_bar_update_path              (CajaPathBar *path_bar,
         GFile           *file_path,
         gboolean         emit_signal);
 
+#if GTK_CHECK_VERSION(3,0,0)
+static GtkWidget *
+get_slider_button (CajaPathBar  *path_bar,
+                   const gchar  *arrow_type)
+{
+    GtkWidget *button;
+
+    button = gtk_button_new ();
+#if GTK_CHECK_VERSION(3,20,0)
+    gtk_widget_set_focus_on_click (button, FALSE);
+#else
+    gtk_button_set_focus_on_click (GTK_BUTTON (button), FALSE);
+#endif
+    gtk_container_add (GTK_CONTAINER (button),
+                       gtk_image_new_from_icon_name (arrow_type, GTK_ICON_SIZE_MENU));
+    gtk_container_add (GTK_CONTAINER (path_bar), button);
+    gtk_widget_show_all (button);
+
+    return button;
+}
+#else
 static GtkWidget *
 get_slider_button (CajaPathBar  *path_bar,
                    GtkArrowType arrow_type)
@@ -174,6 +198,7 @@ get_slider_button (CajaPathBar  *path_bar,
 
     return button;
 }
+#endif
 
 static void
 update_button_types (CajaPathBar *path_bar)
@@ -327,8 +352,17 @@ caja_path_bar_init (CajaPathBar *path_bar)
     gtk_widget_set_redraw_on_allocate (GTK_WIDGET (path_bar), FALSE);
 
     path_bar->spacing = 3;
+#if GTK_CHECK_VERSION(3, 0, 0)
+    path_bar->up_slider_button = get_slider_button (path_bar, "pan-start-symbolic");
+    path_bar->down_slider_button = get_slider_button (path_bar, "pan-end-symbolic");
+    gtk_style_context_add_class (gtk_widget_get_style_context (GTK_WIDGET (path_bar->up_slider_button)),
+                                 "slider-button");
+    gtk_style_context_add_class (gtk_widget_get_style_context (GTK_WIDGET (path_bar->down_slider_button)),
+                                 "slider-button");
+#else
     path_bar->up_slider_button = get_slider_button (path_bar, GTK_ARROW_LEFT);
     path_bar->down_slider_button = get_slider_button (path_bar, GTK_ARROW_RIGHT);
+#endif
     path_bar->icon_size = CAJA_PATH_BAR_ICON_SIZE;
 
     p = caja_get_desktop_directory ();
@@ -526,6 +560,7 @@ caja_path_bar_get_preferred_width (GtkWidget *widget,
     gint child_height;
     gint height;
     gint child_min, child_nat;
+    gint slider_width;
 
     path_bar = CAJA_PATH_BAR (widget);
 
@@ -552,12 +587,20 @@ caja_path_bar_get_preferred_width (GtkWidget *widget,
     /* Theoretically, the slider could be bigger than the other button.  But we're
      * not going to worry about that now.
      */
-    path_bar->slider_width = MIN (height * 2 / 3 + 5, height);
+    gtk_widget_get_preferred_width (path_bar->down_slider_button,
+                                    &slider_width,
+                                    NULL);
+    gtk_widget_get_preferred_width (path_bar->up_slider_button,
+                                    &slider_width,
+                                    NULL);
 
-    if (path_bar->button_list && path_bar->button_list->next != NULL) {
-    	*minimum += (path_bar->spacing + path_bar->slider_width) * 2;
-    	*natural += (path_bar->spacing + path_bar->slider_width) * 2;
+
+    if (path_bar->button_list) {
+        *minimum += (path_bar->spacing + slider_width) * 2;
+        *natural += (path_bar->spacing + slider_width) * 2;
     }
+    /*Let's keep the rest of this as it was */
+    path_bar->slider_width = slider_width;
 }
 
 static void
@@ -685,7 +728,7 @@ caja_path_bar_size_allocate (GtkWidget     *widget,
     GtkRequisition child_requisition;
     GtkAllocation widget_allocation;
 
-    need_sliders = FALSE;
+    need_sliders = TRUE;
     up_slider_offset = 0;
     down_slider_offset = 0;
     path_bar = CAJA_PATH_BAR (widget);
@@ -906,7 +949,7 @@ caja_path_bar_size_allocate (GtkWidget     *widget,
             child_allocation.x -= path_bar->spacing;
             down_slider_offset = child_allocation.x - widget_allocation.x - path_bar->slider_width;
 #if GTK_CHECK_VERSION(3,0,0)
-            down_slider_offset = 0;
+            down_slider_offset = child_allocation.x - allocation->x - path_bar->slider_width;
 #else
             down_slider_offset = border_width;
 #endif
@@ -915,7 +958,7 @@ caja_path_bar_size_allocate (GtkWidget     *widget,
         {
             down_slider_offset = child_allocation.x - widget_allocation.x;
 #if GTK_CHECK_VERSION(3,0,0)
-            down_slider_offset = allocation->width - path_bar->slider_width;
+            down_slider_offset += child_allocation.width + path_bar->spacing;
 #else
             down_slider_offset = allocation->width - border_width - path_bar->slider_width;
 #endif
@@ -941,7 +984,6 @@ caja_path_bar_size_allocate (GtkWidget     *widget,
 
         gtk_widget_set_child_visible (path_bar->up_slider_button, TRUE);
         gtk_widget_show_all (path_bar->up_slider_button);
-
     }
     else
     {
@@ -1564,27 +1606,29 @@ get_dir_name (ButtonData *button_data)
  */
 #if GTK_CHECK_VERSION(3,0,0)
 static void
-set_label_size_request (GtkWidget       *alignment,
-    			ButtonData      *button_data)
+set_label_padding_size (ButtonData *button_data)
 {
     const gchar *dir_name = get_dir_name (button_data);
     PangoLayout *layout;
     gint width, height, bold_width, bold_height;
+    gint pad_left, pad_right;
     gchar *markup;
     
     layout = gtk_widget_create_pango_layout (button_data->label, dir_name);
     pango_layout_get_pixel_size (layout, &width, &height);
-  
+
     markup = g_markup_printf_escaped ("<b>%s</b>", dir_name);
     pango_layout_set_markup (layout, markup, -1);
     g_free (markup);
 
     pango_layout_get_pixel_size (layout, &bold_width, &bold_height);
 
-    gtk_widget_set_size_request (alignment,
-        			 MAX (width, bold_width),
-        			 MAX (height, bold_height));
-    
+    pad_left = (bold_width - width) / 2;
+    pad_right = (bold_width - width) / 2;
+
+    gtk_widget_set_margin_start (GTK_WIDGET (button_data->label), pad_left);
+    gtk_widget_set_margin_end (GTK_WIDGET (button_data->label), pad_right);
+
     g_object_unref (layout);
 }
 
@@ -1630,11 +1674,18 @@ caja_path_bar_update_button_appearance (ButtonData *button_data)
 
             markup = g_markup_printf_escaped ("<b>%s</b>", dir_name);
             gtk_label_set_markup (GTK_LABEL (button_data->label), markup);
-            g_free (markup);
+#if GTK_CHECK_VERSION(3,0,0)
+            gtk_widget_set_margin_end (GTK_WIDGET (button_data->label), 0);
+            gtk_widget_set_margin_start (GTK_WIDGET (button_data->label), 0);
+#endif
+            g_free(markup);
         }
         else
         {
             gtk_label_set_text (GTK_LABEL (button_data->label), dir_name);
+#if GTK_CHECK_VERSION(3,0,0)
+            set_label_padding_size (button_data);
+#endif
         }
     }
 
@@ -1664,12 +1715,20 @@ caja_path_bar_update_button_appearance (ButtonData *button_data)
             if (pixbuf != NULL)
             {
                 gtk_image_set_from_pixbuf (GTK_IMAGE (button_data->image), pixbuf);
+#if GTK_CHECK_VERSION(3,0,0)
+                gtk_style_context_add_class (gtk_widget_get_style_context (button_data->button),
+                                             "image-button");
+#endif
                 gtk_widget_show (GTK_WIDGET (button_data->image));
                 g_object_unref (pixbuf);
             }
             else
             {
                 gtk_widget_hide (GTK_WIDGET (button_data->image));
+#if GTK_CHECK_VERSION(3,0,0)
+                gtk_style_context_remove_class (gtk_widget_get_style_context (button_data->button),
+                                                "image-button");
+#endif
             }
         }
     }
@@ -1999,13 +2058,17 @@ make_directory_button (CajaPathBar  *path_bar,
 {
     GFile *path;
     GtkWidget *child;
+#if !GTK_CHECK_VERSION(3,0,0)
     GtkWidget *label_alignment;
+#endif
     ButtonData *button_data;
 
     path = caja_file_get_location (file);
 
     child = NULL;
+#if !GTK_CHECK_VERSION(3,0,0)
     label_alignment = NULL;
+#endif
 
     file_is_hidden = !! file_is_hidden;
     /* Is it a special button? */
@@ -2013,7 +2076,15 @@ make_directory_button (CajaPathBar  *path_bar,
 
     setup_button_type (button_data, path_bar, path);
     button_data->button = gtk_toggle_button_new ();
+#if GTK_CHECK_VERSION(3,0,0)
+    gtk_style_context_add_class (gtk_widget_get_style_context (button_data->button),
+                                 "text-button");
+#endif
+#if GTK_CHECK_VERSION(3,20,0)
+    gtk_widget_set_focus_on_click (button_data->button, FALSE);
+#else
     gtk_button_set_focus_on_click (GTK_BUTTON (button_data->button), FALSE);
+#endif
     /* TODO update button type when xdg directories change */
 
     button_data->drag_info.target_location = g_object_ref (path);
@@ -2031,20 +2102,32 @@ make_directory_button (CajaPathBar  *path_bar,
     case MOUNT_BUTTON:
     case DEFAULT_LOCATION_BUTTON:
         button_data->label = gtk_label_new (NULL);
+#if GTK_CHECK_VERSION(3,0,0)
+        child = gtk_hbox_new (FALSE, 2);
+        gtk_box_pack_start (GTK_BOX (child), button_data->image, FALSE, FALSE, 0);
+        gtk_box_pack_start (GTK_BOX (child), button_data->label, FALSE, FALSE, 0);
+#else
         label_alignment = gtk_alignment_new (0.5, 0.5, 1.0, 1.0);
         gtk_container_add (GTK_CONTAINER (label_alignment), button_data->label);
         child = gtk_hbox_new (FALSE, 2);
         gtk_box_pack_start (GTK_BOX (child), button_data->image, FALSE, FALSE, 0);
         gtk_box_pack_start (GTK_BOX (child), label_alignment, FALSE, FALSE, 0);
+#endif
         break;
     case NORMAL_BUTTON:
     default:
         button_data->label = gtk_label_new (NULL);
+#if GTK_CHECK_VERSION(3,0,0)
+        child = gtk_hbox_new (FALSE, 2);
+        gtk_box_pack_start (GTK_BOX (child), button_data->image, FALSE, FALSE, 0);
+        gtk_box_pack_start (GTK_BOX (child), button_data->label, FALSE, FALSE, 0);
+#else
         label_alignment = gtk_alignment_new (0.5, 0.5, 1.0, 1.0);
         gtk_container_add (GTK_CONTAINER (label_alignment), button_data->label);
         child = gtk_hbox_new (FALSE, 2);
         gtk_box_pack_start (GTK_BOX (child), button_data->image, FALSE, FALSE, 0);
         gtk_box_pack_start (GTK_BOX (child), label_alignment, FALSE, FALSE, 0);
+#endif
         button_data->is_base_dir = base_dir;
     }
 
@@ -2080,18 +2163,6 @@ make_directory_button (CajaPathBar  *path_bar,
     }
 
     button_data->file_is_hidden = file_is_hidden;
-
-#if GTK_CHECK_VERSION(3,0,0)
-    /* FIXME: Maybe we dont need this alignment at all and we can
-     * use GtkMisc aligments or even GtkWidget:halign/valign center.
-     *
-     * The following function ensures that the alignment will always
-     * request the same size whether the button's text is bold or not.
-     */
-    if (label_alignment) {
-        set_label_size_request (label_alignment, button_data);
-    }
-#endif
 
     gtk_container_add (GTK_CONTAINER (button_data->button), child);
     gtk_widget_show_all (button_data->button);
@@ -2209,7 +2280,9 @@ caja_path_bar_update_path (CajaPathBar *path_bar,
 
     file = caja_file_get (file_path);
 
+#if !GTK_CHECK_VERSION(3,0,0)
     gtk_widget_push_composite_child ();
+#endif
 
     while (file != NULL)
     {
@@ -2246,7 +2319,9 @@ caja_path_bar_update_path (CajaPathBar *path_bar,
         gtk_container_add (GTK_CONTAINER (path_bar), button);
     }
 
+#if !GTK_CHECK_VERSION(3,0,0)
     gtk_widget_pop_composite_child ();
+#endif
 
     if (path_bar->current_path != NULL)
     {

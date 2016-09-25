@@ -367,6 +367,7 @@ caja_search_engine_simple_start (CajaSearchEngine *engine)
 {
     CajaSearchEngineSimple *simple;
     SearchThreadData *data;
+    GThread *thread;
 
     simple = CAJA_SEARCH_ENGINE_SIMPLE (engine);
 
@@ -382,9 +383,10 @@ caja_search_engine_simple_start (CajaSearchEngine *engine)
 
     data = search_thread_data_new (simple, simple->details->query);
 
-    g_thread_create (search_thread_func, data, FALSE, NULL);
-
+    thread = g_thread_new ("caja-search-simple", search_thread_func, data);
     simple->details->active_search = data;
+
+    g_thread_unref (thread);
 }
 
 static void

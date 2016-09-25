@@ -1,21 +1,24 @@
-Major changes in 1.15.0 are:
+Major changes in 1.16.0 are:
+* Use GtkAboutDialog instead of MateAboutDialog
+* Pathbar: always show right arrow button
+* Fix changing taskbar icon when switching between tabs with different
+  icons
+* Fix lots of warnings when building docs for libcaja-extension
+* GTK+3: add style classes for elements of pathbar
+* GTK+3: fix drawing and changing of desktop background with 3.21
+* GTK+3: fix a large amount of deprecations
+* Some more fixes and cleanups
+* Translations update
 
-* sync with Transiflex
-* remove old gnome files
-* GTK+-3 fm-icon-view: fix a Wincompatible-pointer-types build warning
-* GTK+-3 sidebars and caja-places: port style_set to style_updated
-* GTK+-3 caja-zoom-control: GtkStyle>GtkStyleContext
-* GTK+-3 caja-places-sidebar: use GtkStyleContext
-* GTK+-3 caja-pathbar: remove GtkStyle vars
-* GTK+-3 caja-location-bar: use GtkStyleContext
-* GTK+-3 caja-information-panel: use GtkStyleContext
-* GTK+-3 history sidebar: port to GtkStyleContext
+Major changes in 1.14.2 are:
+* Translations update
+* Make distcheck use currently selected GTK+ version
 
 Major changes in 1.14.1 are:
 * prefs dialog: don't crash on toggling "Show hidden and backup files"
 * GTK+-3 theming: add a CSS file for caja, and initialize it at startup
 * GTK+3: add style class caja-desktop-window at top level
-* translation update
+* Translation update
 
 Major changes in 1.14.0 are:
 * Drop MateConf migration script

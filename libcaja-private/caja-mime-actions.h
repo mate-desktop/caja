@@ -40,7 +40,6 @@ GAppInfo *             caja_mime_get_default_application_for_files    (GList    
 GList *                caja_mime_get_applications_for_files           (GList                   *file);
 
 gboolean               caja_mime_has_any_applications_for_file        (CajaFile            *file);
-gboolean               caja_mime_has_any_applications_for_files       (GList                   *files);
 
 gboolean               caja_mime_file_opens_in_view                   (CajaFile            *file);
 gboolean               caja_mime_file_opens_in_external_app           (CajaFile            *file);

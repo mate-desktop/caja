@@ -1593,32 +1593,6 @@ fm_list_model_add_column (FMListModel *model,
     return FM_LIST_MODEL_NUM_COLUMNS + (model->details->columns->len - 1);
 }
 
-int
-fm_list_model_get_column_number (FMListModel *model,
-                                 const char *column_name)
-{
-    int i;
-
-    for (i = 0; i < model->details->columns->len; i++)
-    {
-        CajaColumn *column;
-        char *name;
-
-        column = model->details->columns->pdata[i];
-
-        g_object_get (G_OBJECT (column), "name", &name, NULL);
-
-        if (!strcmp (name, column_name))
-        {
-            g_free (name);
-            return FM_LIST_MODEL_NUM_COLUMNS + i;
-        }
-        g_free (name);
-    }
-
-    return -1;
-}
-
 static void
 fm_list_model_dispose (GObject *object)
 {

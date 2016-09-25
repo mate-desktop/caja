@@ -199,9 +199,3 @@ eel_mate_open_terminal_on_screen (const char *command,
     mate_gdk_spawn_command_line_on_screen(screen, command_line, NULL);
     g_free (command_line);
 }
-
-void
-eel_mate_open_terminal (const char *command)
-{
-    eel_mate_open_terminal_on_screen (command, NULL);
-}

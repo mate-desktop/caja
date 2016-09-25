@@ -210,7 +210,11 @@ static void     editable_real_set_position    (GtkEditable *editable,
         gint         position);
 static gint     editable_get_position         (GtkEditable *editable);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+G_DEFINE_TYPE_WITH_CODE (EelEditableLabel, eel_editable_label, GTK_TYPE_WIDGET,
+#else
 G_DEFINE_TYPE_WITH_CODE (EelEditableLabel, eel_editable_label, GTK_TYPE_MISC,
+#endif
                          G_IMPLEMENT_INTERFACE (GTK_TYPE_EDITABLE, eel_editable_label_editable_init));
 
 static void
@@ -1167,6 +1171,9 @@ eel_editable_label_size_request (GtkWidget      *widget,
 #else
     gfloat xpad, ypad;
 #endif
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gint margin_start, margin_end, margin_top, margin_bottom;
+#endif
 
     g_assert (EEL_IS_EDITABLE_LABEL (widget));
     g_assert (requisition != NULL);
@@ -1192,8 +1199,13 @@ eel_editable_label_size_request (GtkWidget      *widget,
     eel_editable_label_ensure_layout (label, TRUE);
 
 #if GTK_CHECK_VERSION(3,0,0)
-    gtk_misc_get_padding (&label->misc,
-                          &xpad, &ypad);
+    margin_start = gtk_widget_get_margin_start (widget);
+    margin_end = gtk_widget_get_margin_end (widget);
+    margin_top = gtk_widget_get_margin_top (widget);
+    margin_bottom = gtk_widget_get_margin_bottom (widget);
+
+    xpad = margin_start + margin_end;
+    ypad = margin_top + margin_bottom;
 #else
     gtk_misc_get_alignment (&label->misc,
                             &xpad, &ypad);
@@ -1316,11 +1328,62 @@ eel_editable_label_direction_changed (GtkWidget        *widget,
     GTK_WIDGET_CLASS (eel_editable_label_parent_class)->direction_changed (widget, previous_dir);
 }
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+static gfloat
+gtk_align_to_gfloat (GtkAlign align)
+{
+	switch (align) {
+		case GTK_ALIGN_START:
+			return 0.0;
+		case GTK_ALIGN_END:
+			return 1.0;
+		case GTK_ALIGN_CENTER:
+		case GTK_ALIGN_FILL:
+			return 0.5;
+		default:
+			return 0.0;
+	}
+}
+#endif
+
 static void
 get_layout_location (EelEditableLabel  *label,
                      gint      *xp,
                      gint      *yp)
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GtkWidget *widget;
+    gfloat xalign, yalign;
+    GtkRequisition req;
+    gint x, y, xpad, ypad;
+    gint margin_start, margin_end, margin_top, margin_bottom;
+    GtkAllocation allocation;
+
+    widget = GTK_WIDGET (label);
+    xalign = gtk_align_to_gfloat (gtk_widget_get_halign (widget));
+    yalign = gtk_align_to_gfloat (gtk_widget_get_valign (widget));
+
+    if (gtk_widget_get_direction (widget) != GTK_TEXT_DIR_LTR)
+        xalign = 1.0 - xalign;
+
+    gtk_widget_get_preferred_size (widget, &req, NULL);
+    margin_start = gtk_widget_get_margin_start (widget);
+    margin_end = gtk_widget_get_margin_end (widget);
+    margin_top = gtk_widget_get_margin_top (widget);
+    margin_bottom = gtk_widget_get_margin_bottom (widget);
+
+    xpad = margin_start + margin_end;
+    ypad = margin_top + margin_bottom;
+
+    gtk_widget_get_allocation (widget, &allocation);
+    x = floor (0.5 + xpad
+               + ((allocation.width - req.width) * xalign)
+               + 0.5);
+
+    y = floor (0.5 + ypad
+               + ((allocation.height - req.height) * yalign)
+               + 0.5);
+#else
     GtkMisc *misc;
     GtkWidget *widget;
     gfloat xalign, yalign;
@@ -1328,8 +1391,8 @@ get_layout_location (EelEditableLabel  *label,
     gint x, y, xpad, ypad;
     GtkAllocation allocation;
 
-    misc = GTK_MISC (label);
     widget = GTK_WIDGET (label);
+    misc = GTK_MISC (label);
     gtk_misc_get_alignment (misc, &xalign, &yalign);
 
     if (gtk_widget_get_direction (widget) != GTK_TEXT_DIR_LTR)
@@ -1346,6 +1409,7 @@ get_layout_location (EelEditableLabel  *label,
     y = floor (ypad
                + ((allocation.height - req.height) * yalign)
                + 0.5);
+#endif
 
     if (xp)
         *xp = x;

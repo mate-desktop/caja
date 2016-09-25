@@ -604,7 +604,11 @@ update_title_font (CajaSidebarTitle *sidebar_title)
 
     pango_font_description_set_size (title_font, max_fit_font_size * PANGO_SCALE);
     pango_font_description_set_weight (title_font, PANGO_WEIGHT_BOLD);
+#if GTK_CHECK_VERSION(3,0,0)
+    gtk_widget_override_font (sidebar_title->details->title_label, title_font);
+#else
     gtk_widget_modify_font (sidebar_title->details->title_label, title_font);
+#endif
     pango_font_description_free (title_font);
 }
 

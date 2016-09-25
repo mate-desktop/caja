@@ -33,8 +33,6 @@
 #include <eel/eel-gdk-extensions.h>
 
 #define EEL_DEFAULT_POPUP_MENU_DISPLACEMENT 	2
-#define EEL_STANDARD_CLOSE_WINDOW_CONTROL_KEY 	'w'
-
 
 /* GtkWindow */
 void                  eel_gtk_window_set_initial_geometry             (GtkWindow            *window,
@@ -65,10 +63,6 @@ GtkWidget *           eel_gtk_menu_tool_button_get_button             (GtkMenuTo
 
 /* GtkLabel */
 void                  eel_gtk_label_make_bold                         (GtkLabel             *label);
-/* GtkAdjustment */
-void                  eel_gtk_adjustment_set_value                    (GtkAdjustment        *adjustment,
-        float                 value);
-void                  eel_gtk_adjustment_clamp_value                  (GtkAdjustment        *adjustment);
 
 /* GtkTreeView */
 void                  eel_gtk_tree_view_set_activate_on_single_click  (GtkTreeView               *tree_view,

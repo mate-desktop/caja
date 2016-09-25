@@ -27,8 +27,7 @@
 
 #include "caja-extension-i18n.h"
 
-enum
-{
+enum {
     PROP_0,
     PROP_NAME,
     PROP_LABEL,
@@ -36,14 +35,26 @@ enum
     LAST_PROP
 };
 
-struct _CajaPropertyPageDetails
-{
+struct _CajaPropertyPageDetails {
     char *name;
     GtkWidget *label;
     GtkWidget *page;
 };
 
 static GObjectClass *parent_class = NULL;
+
+/**
+ * SECTION:caja-property-page
+ * @title: CajaPropertyPage
+ * @short_description: Property page descriptor object
+ * @include: libcaja-extension/caja-property-page.h
+ *
+ * #CajaPropertyPage is an object that describes a page in the file
+ * properties dialog. Extensions can provide #CajaPropertyPage objects
+ * by registering a #CajaPropertyPageProvider and returning them from
+ * caja_property_page_provider_get_pages(), which will be called by the
+ * main application when creating file properties dialogs.
+ */
 
 /**
  * caja_property_page_new:
@@ -86,8 +97,7 @@ caja_property_page_get_property (GObject *object,
 
     page = CAJA_PROPERTY_PAGE (object);
 
-    switch (param_id)
-    {
+    switch (param_id) {
     case PROP_NAME :
         g_value_set_string (value, page->details->name);
         break;
@@ -113,16 +123,14 @@ caja_property_page_set_property (GObject *object,
 
     page = CAJA_PROPERTY_PAGE (object);
 
-    switch (param_id)
-    {
+    switch (param_id) {
     case PROP_NAME :
         g_free (page->details->name);
         page->details->name = g_strdup (g_value_get_string (value));
         g_object_notify (object, "name");
         break;
     case PROP_LABEL :
-        if (page->details->label)
-        {
+        if (page->details->label) {
             g_object_unref (page->details->label);
         }
 
@@ -130,8 +138,7 @@ caja_property_page_set_property (GObject *object,
         g_object_notify (object, "label");
         break;
     case PROP_PAGE :
-        if (page->details->page)
-        {
+        if (page->details->page) {
             g_object_unref (page->details->page);
         }
 
@@ -151,13 +158,11 @@ caja_property_page_dispose (GObject *object)
 
     page = CAJA_PROPERTY_PAGE (object);
 
-    if (page->details->label)
-    {
+    if (page->details->label) {
         g_object_unref (page->details->label);
         page->details->label = NULL;
     }
-    if (page->details->page)
-    {
+    if (page->details->page) {
         g_object_unref (page->details->page);
         page->details->page = NULL;
     }
@@ -221,10 +226,8 @@ caja_property_page_get_type (void)
 {
     static GType type = 0;
 
-    if (!type)
-    {
-        const GTypeInfo info =
-        {
+    if (!type) {
+        const GTypeInfo info = {
             sizeof (CajaPropertyPageClass),
             NULL,
             NULL,

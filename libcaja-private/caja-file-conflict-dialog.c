@@ -584,7 +584,11 @@ diff_button_clicked_cb (GtkButton *w,
 static void
 caja_file_conflict_dialog_init (CajaFileConflictDialog *fcd)
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GtkWidget *hbox, *vbox, *vbox2;
+#else
     GtkWidget *hbox, *vbox, *vbox2, *alignment;
+#endif
     GtkWidget *widget, *dialog_area;
     CajaFileConflictDialogDetails *details;
     GtkDialog *dialog;
@@ -619,11 +623,19 @@ caja_file_conflict_dialog_init (CajaFileConflictDialog *fcd)
     details->titles_vbox = widget;
 
     /* Setup the hboxes to pack file infos into */
+#if GTK_CHECK_VERSION (3, 0, 0)
+    vbox2 = gtk_vbox_new (FALSE, 12);
+    gtk_widget_set_halign (vbox2, GTK_ALIGN_START);
+    gtk_widget_set_valign (vbox2, GTK_ALIGN_START);
+    gtk_widget_set_margin_start (vbox2, 12);
+    gtk_box_pack_start (GTK_BOX (vbox), vbox2, FALSE, FALSE, 0);
+#else
     alignment = gtk_alignment_new (0.0, 0.0, 0.0, 0.0);
     g_object_set (alignment, "left-padding", 12, NULL);
     vbox2 = gtk_vbox_new (FALSE, 12);
     gtk_container_add (GTK_CONTAINER (alignment), vbox2);
     gtk_box_pack_start (GTK_BOX (vbox), alignment, FALSE, FALSE, 0);
+#endif
 
     hbox = gtk_hbox_new (FALSE, 12);
     gtk_box_pack_start (GTK_BOX (vbox2), hbox, FALSE, FALSE, 0);
@@ -656,7 +668,11 @@ caja_file_conflict_dialog_init (CajaFileConflictDialog *fcd)
     g_signal_connect (widget, "clicked",
                       G_CALLBACK (reset_button_clicked_cb), dialog);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    gtk_widget_show_all (vbox2);
+#else
     gtk_widget_show_all (alignment);
+#endif
 
     /* Setup the diff button for text files */
     details->diff_button = gtk_button_new_with_label (_("Differences..."));

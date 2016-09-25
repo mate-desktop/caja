@@ -121,19 +121,6 @@ caja_drag_destroy_selection_list (GList *list)
     g_list_free (list);
 }
 
-char **
-caja_drag_uri_array_from_selection_list (const GList *selection_list)
-{
-    GList *uri_list;
-    char **uris;
-
-    uri_list = caja_drag_uri_list_from_selection_list (selection_list);
-    uris = caja_drag_uri_array_from_list (uri_list);
-    g_list_free_full (uri_list, g_free);
-
-    return uris;
-}
-
 GList *
 caja_drag_uri_list_from_selection_list (const GList *selection_list)
 {
@@ -152,28 +139,6 @@ caja_drag_uri_list_from_selection_list (const GList *selection_list)
     }
 
     return g_list_reverse (uri_list);
-}
-
-char **
-caja_drag_uri_array_from_list (const GList *uri_list)
-{
-    const GList *l;
-    char **uris;
-    int i;
-
-    if (uri_list == NULL)
-    {
-        return NULL;
-    }
-
-    uris = g_new0 (char *, g_list_length ((GList *) uri_list));
-    for (i = 0, l = uri_list; l != NULL; l = l->next)
-    {
-        uris[i++] = g_strdup ((char *) l->data);
-    }
-    uris[i] = NULL;
-
-    return uris;
 }
 
 GList *
@@ -341,17 +306,6 @@ caja_drag_items_local (const char *target_uri_string,
 
     return caja_drag_file_local_internal (target_uri_string,
                                           ((CajaDragSelectionItem *)selection_list->data)->uri);
-}
-
-gboolean
-caja_drag_items_in_trash (const GList *selection_list)
-{
-    /* check if the first item on the list is in trash.
-     * FIXME:
-     * we should really test each item but that would be slow for large selections
-     * and currently dropped items can only be from the same container
-     */
-    return eel_uri_is_trash (((CajaDragSelectionItem *)selection_list->data)->uri);
 }
 
 gboolean
@@ -957,7 +911,11 @@ void
 caja_drag_autoscroll_calculate_delta (GtkWidget *widget, float *x_scroll_delta, float *y_scroll_delta)
 {
     GtkAllocation allocation;
-#if GTK_CHECK_VERSION (3, 0, 0)
+#if GTK_CHECK_VERSION (3, 20, 0)
+    GdkDisplay *display;
+    GdkSeat *seat;
+    GdkDevice *pointer;
+#elif GTK_CHECK_VERSION (3, 0, 0)
     GdkDeviceManager *manager;
     GdkDevice *pointer;
 #endif
@@ -965,7 +923,13 @@ caja_drag_autoscroll_calculate_delta (GtkWidget *widget, float *x_scroll_delta, 
 
     g_assert (GTK_IS_WIDGET (widget));
 
-#if GTK_CHECK_VERSION (3, 0, 0)
+#if GTK_CHECK_VERSION (3, 20, 0)
+    display = gtk_widget_get_display (widget);
+    seat = gdk_display_get_default_seat (display);
+    pointer = gdk_seat_get_pointer (seat);
+    gdk_window_get_device_position (gtk_widget_get_window (widget), pointer,
+                                    &x, &y, NULL);
+#elif GTK_CHECK_VERSION (3, 0, 0)
     manager = gdk_display_get_device_manager (gtk_widget_get_display (widget));
     pointer = gdk_device_manager_get_client_pointer (manager);
     gdk_window_get_device_position (gtk_widget_get_window (widget), pointer,

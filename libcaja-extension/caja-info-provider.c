@@ -27,6 +27,18 @@
 
 #include <glib-object.h>
 
+/**
+ * SECTION:caja-info-provider
+ * @title: CajaInfoProvider
+ * @short_description: Interface to provide additional information about files
+ * @include: libcaja-extension/caja-column-provider.h
+ *
+ * #CajaInfoProvider allows extension to provide additional information about
+ * files. When caja_info_provider_update_file_info() is called by the application,
+ * extensions will know that it's time to add extra information to the provided
+ * #CajaFileInfo.
+ */
+
 static void
 caja_info_provider_base_init (gpointer g_class)
 {
@@ -37,10 +49,8 @@ caja_info_provider_get_type (void)
 {
     static GType type = 0;
 
-    if (!type)
-    {
-        const GTypeInfo info =
-        {
+    if (!type) {
+        const GTypeInfo info = {
             sizeof (CajaInfoProviderIface),
             caja_info_provider_base_init,
             NULL,
@@ -62,9 +72,9 @@ caja_info_provider_get_type (void)
 }
 
 CajaOperationResult
-caja_info_provider_update_file_info (CajaInfoProvider *provider,
-                                     CajaFileInfo *file,
-                                     GClosure *update_complete,
+caja_info_provider_update_file_info (CajaInfoProvider     *provider,
+                                     CajaFileInfo         *file,
+                                     GClosure             *update_complete,
                                      CajaOperationHandle **handle)
 {
     g_return_val_if_fail (CAJA_IS_INFO_PROVIDER (provider),
@@ -80,11 +90,10 @@ caja_info_provider_update_file_info (CajaInfoProvider *provider,
 }
 
 void
-caja_info_provider_cancel_update (CajaInfoProvider *provider,
+caja_info_provider_cancel_update (CajaInfoProvider    *provider,
                                   CajaOperationHandle *handle)
 {
     g_return_if_fail (CAJA_IS_INFO_PROVIDER (provider));
-    g_return_if_fail (CAJA_INFO_PROVIDER_GET_IFACE (provider)->cancel_update != NULL);
     g_return_if_fail (CAJA_INFO_PROVIDER_GET_IFACE (provider)->cancel_update != NULL);
     g_return_if_fail (handle != NULL);
 
@@ -93,10 +102,10 @@ caja_info_provider_cancel_update (CajaInfoProvider *provider,
 }
 
 void
-caja_info_provider_update_complete_invoke (GClosure *update_complete,
-        CajaInfoProvider *provider,
-        CajaOperationHandle *handle,
-        CajaOperationResult result)
+caja_info_provider_update_complete_invoke (GClosure            *update_complete,
+                                           CajaInfoProvider    *provider,
+                                           CajaOperationHandle *handle,
+                                           CajaOperationResult  result)
 {
     GValue args[3] = { { 0, } };
     GValue return_val = { 0, };
@@ -118,5 +127,4 @@ caja_info_provider_update_complete_invoke (GClosure *update_complete,
     g_value_unset (&args[1]);
     g_value_unset (&args[2]);
 }
-
 

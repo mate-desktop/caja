@@ -676,43 +676,6 @@ caja_mime_get_applications_for_files (GList *files)
     return ret;
 }
 
-gboolean
-caja_mime_has_any_applications_for_files (GList *files)
-{
-    GList *l, *sorted_files;
-    CajaFile *file;
-    gboolean ret;
-
-    g_assert (files != NULL);
-
-    sorted_files = g_list_sort (g_list_copy (files), (GCompareFunc) file_compare_by_mime_type);
-
-    ret = TRUE;
-    for (l = sorted_files; l != NULL; l = l->next)
-    {
-        file = CAJA_FILE (l->data);
-
-        if (l->prev &&
-                file_compare_by_mime_type (file, l->prev->data) == 0 &&
-                file_compare_by_parent_uri (file, l->prev->data) == 0)
-        {
-            continue;
-        }
-
-        if (!caja_mime_has_any_applications_for_file (file))
-        {
-            ret = FALSE;
-            break;
-        }
-    }
-
-    g_list_free (sorted_files);
-
-    return ret;
-}
-
-
-
 static void
 trash_or_delete_files (GtkWindow *parent_window,
                        const GList *files,

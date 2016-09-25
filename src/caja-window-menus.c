@@ -54,10 +54,6 @@
 #include <libcaja-private/caja-search-engine.h>
 #include <libcaja-private/caja-signaller.h>
 #include <libcaja-private/caja-trash-monitor.h>
-
-#define MATE_DESKTOP_USE_UNSTABLE_API
-#include <libmate-desktop/mate-aboutdialog.h>
-
 #include <string.h>
 
 #define MENU_PATH_EXTENSION_ACTIONS                     "/MenuBar/File/Extension Actions"
@@ -65,7 +61,6 @@
 
 #define NETWORK_URI          "network:"
 #define COMPUTER_URI         "computer:"
-#define BURN_CD_URI          "burn:"
 
 /* Struct that stores all the info necessary to activate a bookmark. */
 typedef struct
@@ -533,14 +528,14 @@ action_about_caja_callback (GtkAction *action,
     license_trans = g_strjoin ("\n\n", _(license[0]), _(license[1]),
                                _(license[2]), NULL);
 
-    mate_show_about_dialog (GTK_WINDOW (user_data),
+    gtk_show_about_dialog (GTK_WINDOW (user_data),
                            "program-name", _("Caja"),
                            "version", VERSION,
                            "comments", _("Caja lets you organize "
                                          "files and folders, both on "
                                          "your computer and online."),
                            "copyright", _("Copyright \xC2\xA9 1999-2009 The Nautilus authors\n"
-                                          "Copyright \xC2\xA9 2011-2014 The Caja authors"),
+                                          "Copyright \xC2\xA9 2011-2016 The Caja authors"),
                            "license", license_trans,
                            "wrap-license", TRUE,
                            "authors", authors,

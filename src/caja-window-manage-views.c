@@ -39,7 +39,6 @@
 #include "caja-navigation-window-slot.h"
 #include "caja-trash-bar.h"
 #include "caja-x-content-bar.h"
-#include "caja-zoom-control.h"
 #include "caja-navigation-window-pane.h"
 #include <eel/eel-accessibility.h>
 #include <eel/eel-debug.h>

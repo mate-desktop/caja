@@ -4,7 +4,7 @@ dnl ===========================================================================
 
 m4_define(glib_minver,                 2.36.0)
 m4_define(gio_minver,                  2.26.0)
-m4_define(mate_desktop_minver,         1.9.0)
+m4_define(mate_desktop_minver,         1.15.1)
 m4_define(pango_minver,                1.1.2)
 m4_define(gtk_minver,                  2.24.0)
 m4_define(xml_minver,                  2.4.7)
@@ -19,7 +19,7 @@ dnl Interface break is not allowed.
 m4_define(caja_extension_current,  5)
 m4_define(caja_extension_revision, 0)
 
-AC_INIT([caja], [1.15.0], [http://www.mate-desktop.org])
+AC_INIT([caja], [1.16.0], [http://www.mate-desktop.org])
 
 dnl ---------------------------------------------------------------------------
 dnl GTK library version

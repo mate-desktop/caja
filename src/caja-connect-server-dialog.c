@@ -899,20 +899,25 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
     gtk_box_pack_start (GTK_BOX (content_area), label, FALSE, FALSE, 6);
     gtk_widget_show (label);
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
     /* server settings alignment */
     alignment = gtk_alignment_new (0, 0, 0, 0);
     gtk_alignment_set_padding (GTK_ALIGNMENT (alignment),
     			   0, 0, 12, 0);
     gtk_box_pack_start (GTK_BOX (content_area), alignment, TRUE, TRUE, 0);
     gtk_widget_show (alignment);
+#endif
 
 #if GTK_CHECK_VERSION (3, 0, 0)
     grid = gtk_grid_new ();
     gtk_orientable_set_orientation (GTK_ORIENTABLE (grid), GTK_ORIENTATION_VERTICAL);
     gtk_grid_set_row_spacing (GTK_GRID (grid), 6);
     gtk_grid_set_column_spacing (GTK_GRID (grid), 3);
-    gtk_container_add (GTK_CONTAINER (alignment), grid);
+    gtk_widget_set_halign (grid, GTK_ALIGN_START);
+    gtk_widget_set_valign (grid, GTK_ALIGN_START);
+    gtk_widget_set_margin_start (grid, 12);
     gtk_widget_show (grid);
+    gtk_box_pack_start (GTK_BOX (content_area), grid, TRUE, TRUE, 0);
 
     dialog->details->primary_grid = grid;
 
@@ -1146,6 +1151,7 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
 #endif
     gtk_box_pack_start (GTK_BOX (content_area), label, FALSE, FALSE, 6);
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
     /* user details alignment */
     alignment = gtk_alignment_new (0, 0, 0, 0);
     gtk_alignment_set_padding (GTK_ALIGNMENT (alignment),
@@ -1154,14 +1160,21 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
 
     bind_visibility (dialog, alignment, label);
     dialog->details->user_details = alignment;
+#endif
 
 #if GTK_CHECK_VERSION (3, 0, 0)
     grid = gtk_grid_new ();
     gtk_grid_set_row_spacing (GTK_GRID (grid), 6);
     gtk_grid_set_column_spacing (GTK_GRID (grid), 3);
     gtk_orientable_set_orientation (GTK_ORIENTABLE (grid), GTK_ORIENTATION_VERTICAL);
-    gtk_container_add (GTK_CONTAINER (alignment), grid);
+    gtk_widget_set_halign (grid, GTK_ALIGN_START);
+    gtk_widget_set_valign (grid, GTK_ALIGN_START);
+    gtk_widget_set_margin_start (grid, 12);
     gtk_widget_show (grid);
+    gtk_box_pack_start (GTK_BOX (content_area), grid, TRUE, TRUE, 0);
+
+    bind_visibility (dialog, grid, label);
+    dialog->details->user_details = grid;
 #else
     table = gtk_table_new (4, 2, FALSE);
     gtk_container_add (GTK_CONTAINER (alignment), table);

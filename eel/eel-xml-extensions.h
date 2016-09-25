@@ -29,9 +29,6 @@
 #include <glib.h>
 
 xmlNodePtr eel_xml_get_children                        (xmlNodePtr  parent);
-xmlNodePtr eel_xml_get_root_children                   (xmlDocPtr   document);
-xmlNodePtr eel_xml_get_child_by_name                   (xmlNodePtr  parent,
-        const char *child_name);
 xmlNodePtr eel_xml_get_child_by_name_and_property      (xmlNodePtr  parent,
         const char *child_name,
         const char *property_name,
@@ -40,9 +37,6 @@ xmlNodePtr eel_xml_get_root_child_by_name_and_property (xmlDocPtr   document,
         const char *child_name,
         const char *property_name,
         const char *property_value);
-GList     *eel_xml_get_property_for_children           (xmlNodePtr  parent,
-        const char *child_name,
-        const char *property_name);
 xmlChar   *eel_xml_get_property_translated             (xmlNodePtr  parent,
         const char *property_name);
 

@@ -25,14 +25,6 @@
 
 #include "caja-directory-notify.h"
 
-#ifdef G_THREADS_ENABLED
-#define MUTEX_LOCK(a)	if ((a) != NULL) g_mutex_lock (a)
-#define MUTEX_UNLOCK(a)	if ((a) != NULL) g_mutex_unlock (a)
-#else
-#define MUTEX_LOCK(a)
-#define MUTEX_UNLOCK(a)
-#endif
-
 typedef enum
 {
     CHANGE_FILE_INITIAL,
@@ -57,9 +49,7 @@ typedef struct
 {
     GList *head;
     GList *tail;
-#ifdef G_THREADS_ENABLED
     GMutex mutex;
-#endif
 } CajaFileChangesQueue;
 
 static CajaFileChangesQueue *
@@ -69,9 +59,8 @@ caja_file_changes_queue_new (void)
 
     result = g_new0 (CajaFileChangesQueue, 1);
 
-#ifdef G_THREADS_ENABLED
     g_mutex_init (&result->mutex);
-#endif
+
     return result;
 }
 
@@ -88,62 +77,18 @@ caja_file_changes_queue_get (void)
     return file_changes_queue;
 }
 
-#if 0 /* no public free call yet */
-
-static void
-caja_file_change_free (CajaFileChange *change)
-{
-    if (change->from)
-    {
-        g_object_unref (change->from);
-    }
-    if (change->to)
-    {
-        g_object_unref (change->to);
-    }
-}
-
-void
-caja_file_changes_queue_free (CajaFileChangesQueue *queue)
-{
-    GList *p;
-    if (queue == NULL)
-    {
-        return;
-    }
-
-#ifdef G_THREADS_ENABLED
-    /* if lock on a defunct mutex were defined (returning a failure)
-     * we would lock here
-     */
-#endif
-
-    for (p = queue->head; p != NULL; p = p->next)
-    {
-        caja_file_change_free (p->data);
-    }
-    g_list_free (queue->head);
-
-#ifdef G_THREADS_ENABLED
-    g_mutex_clear (&queue->mutex);
-#endif
-    g_free (queue);
-}
-
-#endif /* no public free call yet */
-
 static void
 caja_file_changes_queue_add_common (CajaFileChangesQueue *queue,
                                     CajaFileChange *new_item)
 {
     /* enqueue the new queue item while locking down the list */
-    MUTEX_LOCK (&queue->mutex);
+    g_mutex_lock (&queue->mutex);
 
     queue->head = g_list_prepend (queue->head, new_item);
     if (queue->tail == NULL)
         queue->tail = queue->head;
 
-    MUTEX_UNLOCK (&queue->mutex);
+    g_mutex_unlock (&queue->mutex);
 }
 
 void
@@ -245,7 +190,7 @@ caja_file_changes_queue_get_change (CajaFileChangesQueue *queue)
     g_assert (queue != NULL);
 
     /* dequeue the tail item while locking down the list */
-    MUTEX_LOCK (&queue->mutex);
+    g_mutex_lock (&queue->mutex);
 
     if (queue->tail == NULL)
     {
@@ -261,7 +206,7 @@ caja_file_changes_queue_get_change (CajaFileChangesQueue *queue)
         queue->tail = new_tail;
     }
 
-    MUTEX_UNLOCK (&queue->mutex);
+    g_mutex_unlock (&queue->mutex);
 
     return result;
 }

@@ -250,25 +250,43 @@ extern "C" {
      */
     void eel_canvas_item_hide (EelCanvasItem *item);
 
+#if GTK_CHECK_VERSION(3, 20, 0)
+    /* Grab the seat for the specified item.  Only the events in event_mask will be
+     * reported. If cursor is non-NULL, it will be used during the duration of the
+     * grab. event is the event, triggering the grab. Returns the same values as gdk_seat_grab().
+     */
+#else
     /* Grab the mouse for the specified item.  Only the events in event_mask will be
      * reported.  If cursor is non-NULL, it will be used during the duration of the
      * grab.  Time is a proper X event time parameter.  Returns the same values as
      * XGrabPointer().
      */
+#endif
 #if GTK_CHECK_VERSION (3, 0, 0)
      GdkGrabStatus eel_canvas_item_grab (EelCanvasItem *item,
                                          GdkEventMask event_mask,
                                          GdkCursor *cursor,
+#if GTK_CHECK_VERSION(3, 20, 0)
+                                         const GdkEvent* event);
+#else
                                          guint32 etime);
+#endif
 #else
     int eel_canvas_item_grab (EelCanvasItem *item, unsigned int event_mask,
                               GdkCursor *cursor, guint32 etime);
 #endif
 
+#if GTK_CHECK_VERSION(3, 20, 0)
+    /* Ungrabs the seat -- the specified item must be the same that was passed to
+     * eel_canvas_item_grab().
+     */
+    void eel_canvas_item_ungrab (EelCanvasItem *item);
+#else
     /* Ungrabs the mouse -- the specified item must be the same that was passed to
      * eel_canvas_item_grab().  Time is a proper X event time parameter.
      */
     void eel_canvas_item_ungrab (EelCanvasItem *item, guint32 etime);
+#endif
 
     /* These functions convert from a coordinate system to another.  "w" is world
      * coordinates and "i" is item coordinates.

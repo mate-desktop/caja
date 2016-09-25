@@ -35,31 +35,35 @@
 #include "caja-extension-types.h"
 #include "caja-column.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+G_BEGIN_DECLS
 
 #define CAJA_TYPE_COLUMN_PROVIDER           (caja_column_provider_get_type ())
 #define CAJA_COLUMN_PROVIDER(obj)           (G_TYPE_CHECK_INSTANCE_CAST ((obj), CAJA_TYPE_COLUMN_PROVIDER, CajaColumnProvider))
 #define CAJA_IS_COLUMN_PROVIDER(obj)        (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CAJA_TYPE_COLUMN_PROVIDER))
 #define CAJA_COLUMN_PROVIDER_GET_IFACE(obj) (G_TYPE_INSTANCE_GET_INTERFACE ((obj), CAJA_TYPE_COLUMN_PROVIDER, CajaColumnProviderIface))
 
-    typedef struct _CajaColumnProvider       CajaColumnProvider;
-    typedef struct _CajaColumnProviderIface  CajaColumnProviderIface;
+typedef struct _CajaColumnProvider       CajaColumnProvider;
+typedef struct _CajaColumnProviderIface  CajaColumnProviderIface;
 
-    struct _CajaColumnProviderIface
-    {
-        GTypeInterface g_iface;
+/**
+ * CajaColumnProviderIface:
+ * @g_iface: The parent interface.
+ * @get_columns: Returns a #GList of #CajaColumn.
+ *   See caja_column_provider_get_columns() for details.
+ *
+ * Interface for extensions to provide additional list view columns.
+ */
 
-        GList *(*get_columns) (CajaColumnProvider *provider);
-    };
+struct _CajaColumnProviderIface {
+    GTypeInterface g_iface;
 
-    /* Interface Functions */
-    GType                   caja_column_provider_get_type       (void);
-    GList                  *caja_column_provider_get_columns    (CajaColumnProvider *provider);
+    GList *(*get_columns) (CajaColumnProvider *provider);
+};
 
-#ifdef __cplusplus
-}
-#endif
+/* Interface Functions */
+GType  caja_column_provider_get_type    (void);
+GList *caja_column_provider_get_columns (CajaColumnProvider *provider);
+
+G_END_DECLS
 
 #endif

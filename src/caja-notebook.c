@@ -39,7 +39,6 @@
 #include <gtk/gtk.h>
 
 #define AFTER_ALL_TABS -1
-#define NOT_IN_APP_WINDOWS -2
 
 #if GTK_CHECK_VERSION (3, 0, 0)
 #define gtk_hbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_HORIZONTAL,Y)
@@ -105,59 +104,6 @@ caja_notebook_class_init (CajaNotebookClass *klass)
                       CAJA_TYPE_WINDOW_SLOT);
 }
 
-
-/* FIXME remove when gtknotebook's func for this becomes public, bug #.... */
-static CajaNotebook *
-find_notebook_at_pointer (gint abs_x, gint abs_y)
-{
-#if GTK_CHECK_VERSION(3, 0, 0)
-    GdkDeviceManager *manager;
-    GdkDevice *pointer;
-#endif
-    GdkWindow *win_at_pointer, *toplevel_win;
-    gpointer toplevel = NULL;
-    gint x, y;
-
-    /* FIXME multi-head */
-#if GTK_CHECK_VERSION(3, 0, 0)
-    manager = gdk_display_get_device_manager (gdk_display_get_default ());
-    pointer = gdk_device_manager_get_client_pointer (manager);
-    win_at_pointer = gdk_device_get_window_at_position (pointer, &x, &y);
-#else
-    win_at_pointer = gdk_window_at_pointer (&x, &y);
-#endif
-
-    if (win_at_pointer == NULL)
-    {
-        /* We are outside all windows containing a notebook */
-        return NULL;
-    }
-
-    toplevel_win = gdk_window_get_toplevel (win_at_pointer);
-
-    /* get the GtkWidget which owns the toplevel GdkWindow */
-    gdk_window_get_user_data (toplevel_win, &toplevel);
-
-    /* toplevel should be an CajaWindow */
-    if (toplevel != NULL && CAJA_IS_NAVIGATION_WINDOW (toplevel))
-    {
-        return CAJA_NOTEBOOK (CAJA_NAVIGATION_WINDOW_PANE (CAJA_WINDOW (toplevel)->details->active_pane)->notebook);
-    }
-
-    return NULL;
-}
-
-static gboolean
-is_in_notebook_window (CajaNotebook *notebook,
-                       gint abs_x, gint abs_y)
-{
-    CajaNotebook *nb_at_pointer;
-
-    nb_at_pointer = find_notebook_at_pointer (abs_x, abs_y);
-
-    return nb_at_pointer == notebook;
-}
-
 static gint
 find_tab_num_at_pos (CajaNotebook *notebook, gint abs_x, gint abs_y)
 {
@@ -168,18 +114,6 @@ find_tab_num_at_pos (CajaNotebook *notebook, gint abs_x, gint abs_y)
     GtkAllocation allocation;
 
     tab_pos = gtk_notebook_get_tab_pos (GTK_NOTEBOOK (notebook));
-
-    if (gtk_notebook_get_n_pages (nb) == 0)
-    {
-        return AFTER_ALL_TABS;
-    }
-
-    /* For some reason unfullscreen + quick click can
-       cause a wrong click event to be reported to the tab */
-    if (!is_in_notebook_window(notebook, abs_x, abs_y))
-    {
-        return NOT_IN_APP_WINDOWS;
-    }
 
     while ((page = gtk_notebook_get_nth_page (nb, page_num)))
     {
@@ -411,7 +345,11 @@ build_tab_label (CajaNotebook *nb, CajaWindowSlot *slot)
     gtk_button_set_relief (GTK_BUTTON (close_button),
                            GTK_RELIEF_NONE);
     /* don't allow focus on the close button */
+#if GTK_CHECK_VERSION(3,20,0)
+    gtk_widget_set_focus_on_click (close_button, FALSE);
+#else
     gtk_button_set_focus_on_click (GTK_BUTTON (close_button), FALSE);
+#endif
 
     gtk_widget_set_name (close_button, "caja-tab-close-button");
 

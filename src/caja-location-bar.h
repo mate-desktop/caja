@@ -30,7 +30,6 @@
 #ifndef CAJA_LOCATION_BAR_H
 #define CAJA_LOCATION_BAR_H
 
-#include "caja-navigation-bar.h"
 #include "caja-navigation-window.h"
 #include "caja-navigation-window-pane.h"
 #include <libcaja-private/caja-entry.h>
@@ -52,13 +51,16 @@ typedef struct CajaLocationBarDetails CajaLocationBarDetails;
 
 typedef struct CajaLocationBar
 {
-    CajaNavigationBar parent;
+    GtkHBox parent;
     CajaLocationBarDetails *details;
 } CajaLocationBar;
 
 typedef struct
 {
-    CajaNavigationBarClass parent_class;
+    GtkHBoxClass parent_class;
+
+    /* for GtkBindingSet */
+    void         (* cancel)           (CajaLocationBar *bar);
 } CajaLocationBarClass;
 
 GType      caja_location_bar_get_type     	(void);
@@ -66,5 +68,9 @@ GtkWidget* caja_location_bar_new          	(CajaNavigationWindowPane *pane);
 void       caja_location_bar_set_active     (CajaLocationBar *location_bar,
         gboolean is_active);
 CajaEntry * caja_location_bar_get_entry (CajaLocationBar *location_bar);
+
+void    caja_location_bar_activate         (CajaLocationBar *bar);
+void    caja_location_bar_set_location     (CajaLocationBar *bar,
+                                            const char      *location);
 
 #endif /* CAJA_LOCATION_BAR_H */

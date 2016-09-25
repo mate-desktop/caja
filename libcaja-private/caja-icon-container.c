@@ -623,8 +623,8 @@ caja_icon_container_scroll (CajaIconContainer *container,
     old_h_value = gtk_adjustment_get_value (hadj);
     old_v_value = gtk_adjustment_get_value (vadj);
 
-    eel_gtk_adjustment_set_value (hadj, gtk_adjustment_get_value (hadj) + delta_x);
-    eel_gtk_adjustment_set_value (vadj, gtk_adjustment_get_value (vadj) + delta_y);
+    gtk_adjustment_set_value (hadj, gtk_adjustment_get_value (hadj) + delta_x);
+    gtk_adjustment_set_value (vadj, gtk_adjustment_get_value (vadj) + delta_y);
 
     /* return TRUE if we did scroll */
     return gtk_adjustment_get_value (hadj) != old_h_value || gtk_adjustment_get_value (vadj) != old_v_value;
@@ -778,18 +778,18 @@ reveal_icon (CajaIconContainer *container,
         item_get_canvas_bounds (EEL_CANVAS_ITEM (icon->item), &bounds, TRUE);
     }
     if (bounds.y0 < gtk_adjustment_get_value (vadj)) {
-        eel_gtk_adjustment_set_value (vadj, bounds.y0);
+        gtk_adjustment_set_value (vadj, bounds.y0);
     } else if (bounds.y1 > gtk_adjustment_get_value (vadj) + allocation.height) {
-        eel_gtk_adjustment_set_value (vadj, bounds.y1 - allocation.height);
+        gtk_adjustment_set_value (vadj, bounds.y1 - allocation.height);
     }
 
     if (bounds.x0 < gtk_adjustment_get_value (hadj)) {
-        eel_gtk_adjustment_set_value (hadj, bounds.x0);
+        gtk_adjustment_set_value (hadj, bounds.x0);
     } else if (bounds.x1 > gtk_adjustment_get_value (hadj) + allocation.width) {
         if (bounds.x1 - allocation.width > bounds.x0) {
-            eel_gtk_adjustment_set_value (hadj, bounds.x0);
+            gtk_adjustment_set_value (hadj, bounds.x0);
         } else {
-            eel_gtk_adjustment_set_value (hadj, bounds.x1 - allocation.width);
+            gtk_adjustment_set_value (hadj, bounds.x1 - allocation.width);
         }
     }
 }
@@ -1230,11 +1230,6 @@ caja_icon_container_update_scroll_region (CajaIconContainer *container)
     {
         gtk_adjustment_set_step_increment (vadj, step_increment);
     }
-    /* Now that we have a new scroll region, clamp the
-     * adjustments so we are within the valid scroll area.
-     */
-    eel_gtk_adjustment_clamp_value (hadj);
-    eel_gtk_adjustment_clamp_value (vadj); 
 }
 
 static int
@@ -2755,6 +2750,10 @@ rubberband_timeout_callback (gpointer data)
     double world_x, world_y;
     int x_scroll, y_scroll;
     int adj_x, adj_y;
+#if GTK_CHECK_VERSION(3, 20, 0)
+    GdkDisplay *display;
+    GdkSeat *seat;
+#endif
     gboolean adj_changed;
     GtkAllocation allocation;
 
@@ -2784,8 +2783,14 @@ rubberband_timeout_callback (gpointer data)
         band_info->last_adj_y = adj_y;
         adj_changed = TRUE;
     }
+#if GTK_CHECK_VERSION(3, 20, 0)
+    display = gtk_widget_get_display (widget);
+    seat = gdk_display_get_default_seat (display);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
+    gdk_window_get_device_position (gtk_widget_get_window (widget),
+                                    gdk_seat_get_pointer (seat),
+                                    &x, &y, NULL);
+#elif GTK_CHECK_VERSION (3, 0, 0)
     gdk_window_get_device_position (gtk_widget_get_window (widget),
                                     gdk_device_manager_get_client_pointer (
                                     gdk_display_get_device_manager (
@@ -2964,7 +2969,12 @@ start_rubberbanding (CajaIconContainer *container,
 				(GDK_POINTER_MOTION_MASK
 				 | GDK_BUTTON_RELEASE_MASK
 				 | GDK_SCROLL_MASK),
+#if GTK_CHECK_VERSION(3, 20, 0)
+				NULL,
+				(GdkEvent *)event);
+#else
 				NULL, event->time);
+#endif
 }
 
 
@@ -3056,8 +3066,12 @@ start_rubberbanding (CajaIconContainer *container,
 #endif
 
 static void
+#if GTK_CHECK_VERSION(3, 20, 0)
+stop_rubberbanding (CajaIconContainer *container)
+#else
 stop_rubberbanding (CajaIconContainer *container,
                     guint32 time)
+#endif
 {
     CajaIconRubberbandInfo *band_info;
     GList *icons;
@@ -3071,7 +3085,11 @@ stop_rubberbanding (CajaIconContainer *container,
     band_info->active = FALSE;
 
     /* Destroy this canvas item; the parent will unref it. */
+#if GTK_CHECK_VERSION(3, 20, 0)
+    eel_canvas_item_ungrab (band_info->selection_rectangle);
+#else
     eel_canvas_item_ungrab (band_info->selection_rectangle, time);
+#endif
     eel_canvas_item_destroy (band_info->selection_rectangle);
     band_info->selection_rectangle = NULL;
 
@@ -4648,7 +4666,8 @@ realize (GtkWidget *widget)
     GTK_WIDGET_CLASS (caja_icon_container_parent_class)->realize (widget);
 
     container = CAJA_ICON_CONTAINER (widget);
-
+     /* Unless GTK 3.21 or later is in use and the desktop must be transparent*/
+#if !GTK_CHECK_VERSION(3, 21, 0)
     /* Ensure that the desktop window is native so the background
        set on it is drawn by X. */
     if (container->details->is_desktop)
@@ -4659,7 +4678,7 @@ realize (GtkWidget *widget)
         gdk_x11_drawable_get_xid (gtk_layout_get_bin_window (GTK_LAYOUT (widget)));
 #endif
     }
-
+#endif
     /* Set up DnD.  */
     caja_icon_dnd_init (container);
 
@@ -4972,7 +4991,12 @@ clear_drag_state (CajaIconContainer *container)
 }
 
 static gboolean
+#if GTK_CHECK_VERSION(3, 20, 0)
+start_stretching (CajaIconContainer *container,
+		  GdkEvent *event)
+#else
 start_stretching (CajaIconContainer *container)
+#endif
 {
     CajaIconContainerDetails *details;
     CajaIcon *icon;
@@ -5030,7 +5054,11 @@ start_stretching (CajaIconContainer *container)
                           (GDK_POINTER_MOTION_MASK
                            | GDK_BUTTON_RELEASE_MASK),
                           cursor,
+#if GTK_CHECK_VERSION(3, 20, 0)
+                          event);
+#else
                           GDK_CURRENT_TIME);
+#endif
     if (cursor)
 #if GTK_CHECK_VERSION(3,0,0)
         g_object_unref (cursor);
@@ -5142,8 +5170,12 @@ keyboard_stretching (CajaIconContainer *container,
 static void
 ungrab_stretch_icon (CajaIconContainer *container)
 {
+#if GTK_CHECK_VERSION(3, 20, 0)
+    eel_canvas_item_ungrab (EEL_CANVAS_ITEM (container->details->stretch_icon->item));
+#else
     eel_canvas_item_ungrab (EEL_CANVAS_ITEM (container->details->stretch_icon->item),
                             GDK_CURRENT_TIME);
+#endif
 }
 
 static void
@@ -5226,7 +5258,11 @@ button_release_event (GtkWidget *widget,
 
     if (event->button == RUBBERBAND_BUTTON && details->rubberband_info.active)
     {
+#if GTK_CHECK_VERSION(3, 20, 0)
+        stop_rubberbanding (container);
+#else
         stop_rubberbanding (container, event->time);
+#endif
         return TRUE;
     }
 
@@ -6208,6 +6244,7 @@ popup_menu (GtkWidget *widget)
     return TRUE;
 }
 
+#if !GTK_CHECK_VERSION(3, 21, 0)
 static void
 draw_canvas_background (EelCanvas *canvas,
 #if GTK_CHECK_VERSION(3,0,0)
@@ -6218,6 +6255,7 @@ draw_canvas_background (EelCanvas *canvas,
 {
     /* Don't chain up to the parent to avoid clearing and redrawing */
 }
+#endif
 
 
 #if !GTK_CHECK_VERSION(3,0,0)
@@ -6266,8 +6304,12 @@ grab_notify_cb  (GtkWidget        *widget,
          * up (e.g. authentication or an error). Stop
          * the rubberbanding so that we can handle the
          * dialog. */
+#if GTK_CHECK_VERSION(3, 20, 0)
+        stop_rubberbanding (container);
+#else
         stop_rubberbanding (container,
                             GDK_CURRENT_TIME);
+#endif
     }
 }
 
@@ -6698,8 +6740,9 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
     widget_class->grab_notify = grab_notify_cb;
 
     canvas_class = EEL_CANVAS_CLASS (class);
+#if !GTK_CHECK_VERSION(3, 21, 0)
     canvas_class->draw_background = draw_canvas_background;
-
+#endif
     class->start_interactive_search = caja_icon_container_start_interactive_search;
 
 #if GTK_CHECK_VERSION(3,0,0)
@@ -7152,8 +7195,13 @@ handle_icon_button_press (CajaIconContainer *container,
          */
         if (icon == container->details->stretch_icon)
         {
+#if GTK_CHECK_VERSION(3, 20, 0)
+            if (start_stretching (container, (GdkEvent *)event))
+            {
+#else
             if (start_stretching (container))
             {
+#endif
                 return TRUE;
             }
         }
@@ -7427,12 +7475,12 @@ caja_icon_container_scroll_to_icon (CajaIconContainer  *container,
 
             if (caja_icon_container_is_layout_vertical (container)) {
                 if (caja_icon_container_is_layout_rtl (container)) {
-                    eel_gtk_adjustment_set_value (hadj, bounds.x1 - allocation.width);
+                    gtk_adjustment_set_value (hadj, bounds.x1 - allocation.width);
                 } else {
-                    eel_gtk_adjustment_set_value (hadj, bounds.x0);
+                    gtk_adjustment_set_value (hadj, bounds.x0);
                 }
             } else {
-                eel_gtk_adjustment_set_value (vadj, bounds.y0);
+                gtk_adjustment_set_value (vadj, bounds.y0);
             }
         }
 

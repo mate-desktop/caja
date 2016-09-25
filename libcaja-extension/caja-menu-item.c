@@ -26,14 +26,12 @@
 #include "caja-menu.h"
 #include "caja-extension-i18n.h"
 
-enum
-{
+enum {
     ACTIVATE,
     LAST_SIGNAL
 };
 
-enum
-{
+enum {
     PROP_0,
     PROP_NAME,
     PROP_LABEL,
@@ -45,8 +43,7 @@ enum
     LAST_PROP
 };
 
-struct _CajaMenuItemDetails
-{
+struct _CajaMenuItemDetails {
     char *name;
     char *label;
     char *tip;
@@ -59,6 +56,20 @@ struct _CajaMenuItemDetails
 static guint signals[LAST_SIGNAL] = { 0 };
 
 static GObjectClass *parent_class = NULL;
+
+/**
+ * SECTION:caja-menu-item
+ * @title: CajaMenuItem
+ * @short_description: Menu item descriptor object
+ * @include: libcaja-extension/caja-menu-item.h
+ *
+ * #CajaMenuItem is an object that describes an item in a file manager
+ * menu. Extensions can provide #CajaMenuItem objects by registering a
+ * #CajaMenuProvider and returning them from
+ * caja_menu_provider_get_file_items(), or
+ * caja_menu_provider_get_background_items(), which will be called by the
+ * main application when creating menus.
+ */
 
 /**
  * caja_menu_item_new:
@@ -128,8 +139,7 @@ caja_menu_item_get_property (GObject *object,
 
     item = CAJA_MENU_ITEM (object);
 
-    switch (param_id)
-    {
+    switch (param_id) {
     case PROP_NAME :
         g_value_set_string (value, item->details->name);
         break;
@@ -167,8 +177,7 @@ caja_menu_item_set_property (GObject *object,
 
     item = CAJA_MENU_ITEM (object);
 
-    switch (param_id)
-    {
+    switch (param_id) {
     case PROP_NAME :
         g_free (item->details->name);
         item->details->name = g_strdup (g_value_get_string (value));
@@ -198,8 +207,7 @@ caja_menu_item_set_property (GObject *object,
         g_object_notify (object, "priority");
         break;
     case PROP_MENU :
-        if (item->details->menu)
-        {
+        if (item->details->menu) {
             g_object_unref (item->details->menu);
         }
         item->details->menu = g_object_ref (g_value_get_object (value));
@@ -222,8 +230,7 @@ caja_menu_item_finalize (GObject *object)
     g_free (item->details->label);
     g_free (item->details->tip);
     g_free (item->details->icon);
-    if (item->details->menu)
-    {
+    if (item->details->menu) {
         g_object_unref (item->details->menu);
     }
 
@@ -316,10 +323,8 @@ caja_menu_item_get_type (void)
 {
     static GType type = 0;
 
-    if (!type)
-    {
-        const GTypeInfo info =
-        {
+    if (!type) {
+        const GTypeInfo info = {
             sizeof (CajaMenuItemClass),
             NULL,
             NULL,

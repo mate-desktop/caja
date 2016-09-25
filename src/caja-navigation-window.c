@@ -69,25 +69,9 @@
 #include <math.h>
 #include <sys/time.h>
 
-
-/* FIXME bugzilla.gnome.org 41243:
- * We should use inheritance instead of these special cases
- * for the desktop window.
- */
-#include "caja-desktop-window.h"
-
 #define MAX_TITLE_LENGTH 180
 
 #define MENU_PATH_BOOKMARKS_PLACEHOLDER			"/MenuBar/Other Menus/Bookmarks/Bookmarks Placeholder"
-
-enum
-{
-    ARG_0,
-    ARG_APP_ID,
-    ARG_APP
-};
-
-
 
 /* Forward and back buttons on the mouse */
 static gboolean mouse_extra_buttons = TRUE;
@@ -153,15 +137,20 @@ caja_navigation_window_init (CajaNavigationWindow *window)
 
 #if GTK_CHECK_VERSION(3, 0, 0)
     window->details->content_paned = gtk_paned_new (GTK_ORIENTATION_HORIZONTAL);
+    gtk_widget_set_hexpand (window->details->content_paned, TRUE);
+    gtk_widget_set_vexpand (window->details->content_paned, TRUE);
+    gtk_grid_attach (GTK_GRID (CAJA_WINDOW (window)->details->grid),
+                     window->details->content_paned,
+                     0, 3, 1, 1);
 #else
     window->details->content_paned = gtk_hpaned_new ();
-#endif
     gtk_table_attach (GTK_TABLE (CAJA_WINDOW (window)->details->table),
                       window->details->content_paned,
                       /* X direction */                   /* Y direction */
                       0, 1,                               3, 4,
                       GTK_EXPAND | GTK_FILL | GTK_SHRINK, GTK_EXPAND | GTK_FILL | GTK_SHRINK,
                       0,                                  0);
+#endif
     gtk_widget_show (window->details->content_paned);
 
     vbox = gtk_vbox_new (FALSE, 0);
@@ -198,7 +187,12 @@ caja_navigation_window_init (CajaNavigationWindow *window)
     toolbar = gtk_ui_manager_get_widget (ui_manager, "/Toolbar");
 #if GTK_CHECK_VERSION(3, 0, 0)
     gtk_style_context_add_class (gtk_widget_get_style_context (toolbar), GTK_STYLE_CLASS_PRIMARY_TOOLBAR);
-#endif
+    window->details->toolbar = toolbar;
+    gtk_widget_set_hexpand (toolbar, TRUE);
+    gtk_grid_attach (GTK_GRID (CAJA_WINDOW (window)->details->grid),
+                     toolbar,
+                     0, 1, 1, 1);
+#else
     window->details->toolbar = toolbar;
     gtk_table_attach (GTK_TABLE (CAJA_WINDOW (window)->details->table),
                       toolbar,
@@ -206,6 +200,7 @@ caja_navigation_window_init (CajaNavigationWindow *window)
                       0, 1,                               1, 2,
                       GTK_EXPAND | GTK_FILL | GTK_SHRINK, 0,
                       0,                                  0);
+#endif
     gtk_widget_show (toolbar);
 
     caja_navigation_window_initialize_toolbars (window);
@@ -318,7 +313,7 @@ caja_navigation_window_is_in_temporary_navigation_bar (GtkWidget *widget,
     for (walk = CAJA_WINDOW(window)->details->panes; walk; walk = walk->next)
     {
         CajaNavigationWindowPane *pane = walk->data;
-        if(gtk_widget_get_ancestor (widget, CAJA_TYPE_NAVIGATION_BAR) != NULL &&
+        if(gtk_widget_get_ancestor (widget, CAJA_TYPE_LOCATION_BAR) != NULL &&
                 pane->temporary_navigation_bar)
             is_in_any = TRUE;
     }
@@ -833,8 +828,8 @@ real_prompt_for_location (CajaWindow *window, const char *initial)
 
     if (initial)
     {
-        caja_navigation_bar_set_location (CAJA_NAVIGATION_BAR (pane->navigation_bar),
-                                          initial);
+        caja_location_bar_set_location (CAJA_LOCATION_BAR (pane->navigation_bar),
+                                        initial);
     }
 }
 

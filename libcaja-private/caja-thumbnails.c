@@ -41,7 +41,6 @@
 #include <errno.h>
 #include <stdio.h>
 #include <string.h>
-#include <pthread.h>
 #include <sys/wait.h>
 #include <unistd.h>
 #include <signal.h>
@@ -60,7 +59,10 @@
 /* Cool-off period between last file modification time and thumbnail creation */
 #define THUMBNAIL_CREATION_DELAY_SECS 3
 
-static gpointer thumbnail_thread_start (gpointer data);
+static void thumbnail_thread_func (GTask        *task,
+                                   gpointer      source_object,
+                                   gpointer      task_data,
+                                   GCancellable *cancellable);
 
 /* structure used for making thumbnails, associating a uri with where the thumbnail is to be stored */
 
@@ -82,7 +84,7 @@ static guint thumbnail_thread_starter_id = 0;
 /* Our mutex used when accessing data shared between the main thread and the
    thumbnail thread, i.e. the thumbnail_thread_is_running flag and the
    thumbnails_to_make list. */
-static pthread_mutex_t thumbnails_mutex = PTHREAD_MUTEX_INITIALIZER;
+static GMutex thumbnails_mutex;
 
 /* A flag to indicate whether a thumbnail thread is running, so we don't
    start more than one. Lock thumbnails_mutex when accessing this. */
@@ -157,8 +159,7 @@ get_thumbnail_factory (void)
 static gboolean
 thumbnail_thread_starter_cb (gpointer data)
 {
-    pthread_attr_t thread_attributes;
-    pthread_t thumbnail_thread;
+    GTask *task;
 
     /* Don't do this in thread, since g_object_ref is not threadsafe */
     if (thumbnail_factory == NULL)
@@ -166,14 +167,6 @@ thumbnail_thread_starter_cb (gpointer data)
         thumbnail_factory = get_thumbnail_factory ();
     }
 
-    /* We create the thread in the detached state, as we don't need/want
-       to join with it at any point. */
-    pthread_attr_init (&thread_attributes);
-    pthread_attr_setdetachstate (&thread_attributes,
-                                 PTHREAD_CREATE_DETACHED);
-#ifdef _POSIX_THREAD_ATTR_STACKSIZE
-    pthread_attr_setstacksize (&thread_attributes, 128*1024);
-#endif
 #ifdef DEBUG_THUMBNAILS
     g_message ("(Main Thread) Creating thumbnails thread\n");
 #endif
@@ -183,10 +176,12 @@ thumbnail_thread_starter_cb (gpointer data)
        twice, as we also check thumbnail_thread_starter_id before
        scheduling this idle function. */
     thumbnail_thread_is_running = TRUE;
-    pthread_create (&thumbnail_thread, &thread_attributes,
-                    thumbnail_thread_start, NULL);
+    task = g_task_new (NULL, NULL, NULL, NULL);
+    g_task_run_in_thread (task, thumbnail_thread_func);
 
     thumbnail_thread_starter_id = 0;
+
+    g_object_unref (task);
 
     return FALSE;
 }
@@ -199,7 +194,7 @@ caja_thumbnail_remove_from_queue (const char *file_uri)
 #ifdef DEBUG_THUMBNAILS
     g_message ("(Remove from queue) Locking mutex\n");
 #endif
-    pthread_mutex_lock (&thumbnails_mutex);
+    g_mutex_lock (&thumbnails_mutex);
 
     /*********************************
      * MUTEX LOCKED
@@ -224,7 +219,7 @@ caja_thumbnail_remove_from_queue (const char *file_uri)
 #ifdef DEBUG_THUMBNAILS
     g_message ("(Remove from queue) Unlocking mutex\n");
 #endif
-    pthread_mutex_unlock (&thumbnails_mutex);
+    g_mutex_unlock (&thumbnails_mutex);
 }
 
 void
@@ -235,7 +230,7 @@ caja_thumbnail_prioritize (const char *file_uri)
 #ifdef DEBUG_THUMBNAILS
     g_message ("(Prioritize) Locking mutex\n");
 #endif
-    pthread_mutex_lock (&thumbnails_mutex);
+    g_mutex_lock (&thumbnails_mutex);
 
     /*********************************
      * MUTEX LOCKED
@@ -259,7 +254,7 @@ caja_thumbnail_prioritize (const char *file_uri)
 #ifdef DEBUG_THUMBNAILS
     g_message ("(Prioritize) Unlocking mutex\n");
 #endif
-    pthread_mutex_unlock (&thumbnails_mutex);
+    g_mutex_unlock (&thumbnails_mutex);
 }
 
 
@@ -427,7 +422,7 @@ caja_create_thumbnail (CajaFile *file)
 #ifdef DEBUG_THUMBNAILS
     g_message ("(Main Thread) Locking mutex\n");
 #endif
-    pthread_mutex_lock (&thumbnails_mutex);
+    g_mutex_lock (&thumbnails_mutex);
 
     /*********************************
      * MUTEX LOCKED
@@ -482,12 +477,15 @@ caja_create_thumbnail (CajaFile *file)
 #ifdef DEBUG_THUMBNAILS
     g_message ("(Main Thread) Unlocking mutex\n");
 #endif
-    pthread_mutex_unlock (&thumbnails_mutex);
+    g_mutex_unlock (&thumbnails_mutex);
 }
 
 /* thumbnail_thread is invoked as a separate thread to to make thumbnails. */
-static gpointer
-thumbnail_thread_start (gpointer data)
+static void
+thumbnail_thread_func (GTask        *task,
+                       gpointer      source_object,
+                       gpointer      task_data,
+                       GCancellable *cancellable)
 {
     CajaThumbnailInfo *info = NULL;
     GdkPixbuf *pixbuf;
@@ -502,7 +500,7 @@ thumbnail_thread_start (gpointer data)
 #ifdef DEBUG_THUMBNAILS
         g_message ("(Thumbnail Thread) Locking mutex\n");
 #endif
-        pthread_mutex_lock (&thumbnails_mutex);
+        g_mutex_lock (&thumbnails_mutex);
 
         /*********************************
          * MUTEX LOCKED
@@ -536,8 +534,8 @@ thumbnail_thread_start (gpointer data)
             g_message ("(Thumbnail Thread) Exiting\n");
 #endif
             thumbnail_thread_is_running = FALSE;
-            pthread_mutex_unlock (&thumbnails_mutex);
-            pthread_exit (NULL);
+            g_mutex_unlock (&thumbnails_mutex);
+            return;
         }
 
         /* Get the next one to make. We leave it on the list until it
@@ -553,7 +551,7 @@ thumbnail_thread_start (gpointer data)
 #ifdef DEBUG_THUMBNAILS
         g_message ("(Thumbnail Thread) Unlocking mutex\n");
 #endif
-        pthread_mutex_unlock (&thumbnails_mutex);
+        g_mutex_unlock (&thumbnails_mutex);
 
         time (&current_time);
 

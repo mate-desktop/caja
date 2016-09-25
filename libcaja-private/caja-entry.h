@@ -63,7 +63,6 @@ extern "C" {
 
     GType       caja_entry_get_type                 (void);
     GtkWidget  *caja_entry_new                      (void);
-    GtkWidget  *caja_entry_new_with_max_length      (guint16        max);
     void        caja_entry_set_text                 (CajaEntry *entry,
             const char    *text);
     void        caja_entry_select_all               (CajaEntry *entry);

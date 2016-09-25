@@ -36,34 +36,37 @@
 #include <gtk/gtk.h>
 #include "caja-extension-types.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+G_BEGIN_DECLS
 
 #define CAJA_TYPE_LOCATION_WIDGET_PROVIDER           (caja_location_widget_provider_get_type ())
 #define CAJA_LOCATION_WIDGET_PROVIDER(obj)           (G_TYPE_CHECK_INSTANCE_CAST ((obj), CAJA_TYPE_LOCATION_WIDGET_PROVIDER, CajaLocationWidgetProvider))
 #define CAJA_IS_LOCATION_WIDGET_PROVIDER(obj)        (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CAJA_TYPE_LOCATION_WIDGET_PROVIDER))
 #define CAJA_LOCATION_WIDGET_PROVIDER_GET_IFACE(obj) (G_TYPE_INSTANCE_GET_INTERFACE ((obj), CAJA_TYPE_LOCATION_WIDGET_PROVIDER, CajaLocationWidgetProviderIface))
 
-    typedef struct _CajaLocationWidgetProvider       CajaLocationWidgetProvider;
-    typedef struct _CajaLocationWidgetProviderIface  CajaLocationWidgetProviderIface;
+typedef struct _CajaLocationWidgetProvider       CajaLocationWidgetProvider;
+typedef struct _CajaLocationWidgetProviderIface  CajaLocationWidgetProviderIface;
 
-    struct _CajaLocationWidgetProviderIface
-    {
-        GTypeInterface g_iface;
+/**
+ * CajaLocationWidgetProviderIface:
+ * @g_iface: The parent interface.
+ * @get_widget: Returns a #GtkWidget.
+ *   See caja_location_widget_provider_get_widget() for details.
+ *
+ * Interface for extensions to provide additional location widgets.
+ */
+struct _CajaLocationWidgetProviderIface {
+    GTypeInterface g_iface;
 
-        GtkWidget * (*get_widget) (CajaLocationWidgetProvider *provider,
-                                   const char                     *uri,
-                                   GtkWidget                      *window);
-    };
+    GtkWidget *(*get_widget) (CajaLocationWidgetProvider *provider,
+                              const char                 *uri,
+                              GtkWidget                  *window);
+};
 
-    /* Interface Functions */
-    GType       caja_location_widget_provider_get_type      (void);
-    GtkWidget * caja_location_widget_provider_get_widget    (CajaLocationWidgetProvider     *provider,
-            const char                         *uri,
-            GtkWidget                          *window);
-#ifdef __cplusplus
-}
-#endif
+/* Interface Functions */
+GType      caja_location_widget_provider_get_type   (void);
+GtkWidget *caja_location_widget_provider_get_widget (CajaLocationWidgetProvider *provider,
+                                                     const char                 *uri,
+                                                     GtkWidget                  *window);
+G_END_DECLS
 
 #endif

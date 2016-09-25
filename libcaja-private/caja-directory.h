@@ -170,10 +170,6 @@ GFile *            caja_directory_get_location             (CajaDirectory       
 gboolean           caja_directory_contains_file            (CajaDirectory         *directory,
         CajaFile              *file);
 
-/* Get the uri of the file in the directory, NULL if not found */
-char *             caja_directory_get_file_uri             (CajaDirectory         *directory,
-        const char                *file_name);
-
 /* Get (and ref) a CajaFile object for this directory. */
 CajaFile *     caja_directory_get_corresponding_file   (CajaDirectory         *directory);
 

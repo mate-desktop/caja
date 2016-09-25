@@ -27,6 +27,16 @@
 
 #include <glib-object.h>
 
+/**
+ * SECTION:caja-location-widget-provider
+ * @title: CajaLocationWidgetProvider
+ * @short_description: Interface to provide additional location widgets
+ * @include: libcaja-extension/caja-location-widget-provider.h
+ *
+ * #CajaLocationWidgetProvider allows extension to provide additional location
+ * widgets in the file manager views.
+ */
+
 static void
 caja_location_widget_provider_base_init (gpointer g_class)
 {
@@ -37,10 +47,8 @@ caja_location_widget_provider_get_type (void)
 {
     static GType type = 0;
 
-    if (!type)
-    {
-        const GTypeInfo info =
-        {
+    if (!type) {
+        const GTypeInfo info = {
             sizeof (CajaLocationWidgetProviderIface),
             caja_location_widget_provider_base_init,
             NULL,
@@ -70,11 +78,12 @@ caja_location_widget_provider_get_type (void)
  * Returns: (transfer none): the location widget for @provider at @uri
  */
 GtkWidget *
-caja_location_widget_provider_get_widget (CajaLocationWidgetProvider     *provider,
-        const char                         *uri,
-        GtkWidget                          *window)
+caja_location_widget_provider_get_widget (CajaLocationWidgetProvider *provider,
+                                          const char                 *uri,
+                                          GtkWidget                  *window)
 {
     g_return_val_if_fail (CAJA_IS_LOCATION_WIDGET_PROVIDER (provider), NULL);
+    g_return_val_if_fail (CAJA_LOCATION_WIDGET_PROVIDER_GET_IFACE (provider)->get_widget != NULL, NULL);
 
     return CAJA_LOCATION_WIDGET_PROVIDER_GET_IFACE (provider)->get_widget
            (provider, uri, window);

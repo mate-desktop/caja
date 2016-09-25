@@ -31,43 +31,60 @@
 
 #include <glib-object.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+G_BEGIN_DECLS
 
 #define CAJA_TYPE_OPERATION_RESULT (caja_operation_result_get_type ())
 
-    /* Handle for asynchronous interfaces.  These are opaque handles that must
-     * be unique within an extension object.  These are returned by operations
-     * that return CAJA_OPERATION_IN_PROGRESS */
-    typedef struct _CajaOperationHandle CajaOperationHandle;
+/**
+ * CajaOperationHandle:
+ *
+ * Handle for asynchronous interfaces. These are opaque handles that must
+ * be unique within an extension object. These are returned by operations
+ * that return CAJA_OPERATION_IN_PROGRESS.
+ */
+typedef struct _CajaOperationHandle CajaOperationHandle;
 
-    typedef enum
-    {
-        /* Returned if the call succeeded, and the extension is done
-         * with the request */
-        CAJA_OPERATION_COMPLETE,
+/**
+ * CajaOperationResult:
+ * @CAJA_OPERATION_COMPLETE: the operation succeeded, and the extension
+ *  is done with the request.
+ * @CAJA_OPERATION_FAILED: the operation failed.
+ * @CAJA_OPERATION_IN_PROGRESS: the extension has begin an async operation.
+ *  When this value is returned, the extension must set the handle parameter
+ *  and call the callback closure when the operation is complete.
+ */
+typedef enum {
+    /* Returned if the call succeeded, and the extension is done
+     * with the request */
+    CAJA_OPERATION_COMPLETE,
 
-        /* Returned if the call failed */
-        CAJA_OPERATION_FAILED,
+    /* Returned if the call failed */
+    CAJA_OPERATION_FAILED,
 
-        /* Returned if the extension has begun an async operation.
-         * If this is returned, the extension must set the handle
-         * parameter and call the callback closure when the
-         * operation is complete. */
-        CAJA_OPERATION_IN_PROGRESS
-    } CajaOperationResult;
+    /* Returned if the extension has begun an async operation.
+     * If this is returned, the extension must set the handle
+     * parameter and call the callback closure when the
+     * operation is complete. */
+    CAJA_OPERATION_IN_PROGRESS
+} CajaOperationResult;
 
-    GType caja_operation_result_get_type (void);
+GType caja_operation_result_get_type (void);
 
-    void caja_module_initialize (GTypeModule  *module);
-    void caja_module_shutdown   (void);
-    void caja_module_list_types (const GType **types,
-                                 int          *num_types);
-    void caja_module_list_pyfiles (GList     **pyfiles);
+/**
+ * SECTION:caja-extension-types
+ * @title: CajaModule
+ * @short_description: Initialize an extension
+ * @include: libcaja-extension/caja-extension-types.h
+ *
+ * Methods that each extension implements.
+ */
 
-#ifdef __cplusplus
-}
-#endif
+void caja_module_initialize  (GTypeModule  *module);
+void caja_module_shutdown    (void);
+void caja_module_list_types  (const GType **types,
+                              int          *num_types);
+void caja_module_list_pyfiles (GList      **pyfiles);
+
+G_END_DECLS
 
 #endif

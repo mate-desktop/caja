@@ -37,7 +37,6 @@
 #include "caja-window-bookmarks.h"
 #include "caja-window-slot.h"
 #include "caja-navigation-window-slot.h"
-#include "caja-zoom-control.h"
 #include "caja-search-bar.h"
 #include "caja-navigation-window-pane.h"
 #include "caja-src-marshal.h"
@@ -131,11 +130,21 @@ static const struct
 static void
 caja_window_init (CajaWindow *window)
 {
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GtkWidget *grid;
+#else
     GtkWidget *table;
+#endif
     GtkWidget *menu;
     GtkWidget *statusbar;
 
 #if GTK_CHECK_VERSION (3, 0, 0)
+#if GTK_CHECK_VERSION (3, 20, 0)
+    static const gchar css_custom[] =
+      "#caja-extra-view-widget {"
+      "  background-color: " EXTRA_VIEW_WIDGETS_BACKGROUND ";"
+      "}";
+#else
     static const gchar css_custom[] =
       "#statusbar-no-border {"
       "  -GtkStatusbar-shadow-type: none;"
@@ -143,7 +152,7 @@ caja_window_init (CajaWindow *window)
       "#caja-extra-view-widget {"
       "  background-color: " EXTRA_VIEW_WIDGETS_BACKGROUND ";"
       "}";
-
+#endif
     GError *error = NULL;
     GtkCssProvider *provider = gtk_css_provider_new ();
     gtk_css_provider_load_from_data (provider, css_custom, -1, &error);
@@ -179,10 +188,18 @@ caja_window_init (CajaWindow *window)
     /* Set initial window title */
     gtk_window_set_title (GTK_WINDOW (window), _("Caja"));
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    grid = gtk_grid_new ();
+    gtk_orientable_set_orientation (GTK_ORIENTABLE (grid), GTK_ORIENTATION_VERTICAL);
+    window->details->grid = grid;
+    gtk_widget_show (grid);
+    gtk_container_add (GTK_CONTAINER (window), grid);
+#else
     table = gtk_table_new (1, 6, FALSE);
     window->details->table = table;
     gtk_widget_show (table);
     gtk_container_add (GTK_CONTAINER (window), table);
+#endif
 
     statusbar = gtk_statusbar_new ();
     gtk_widget_set_name (statusbar, "statusbar-noborder");
@@ -202,6 +219,11 @@ caja_window_init (CajaWindow *window)
 
     menu = gtk_ui_manager_get_widget (window->details->ui_manager, "/MenuBar");
     window->details->menubar = menu;
+#if GTK_CHECK_VERSION(3, 0, 0)
+    gtk_widget_set_hexpand (menu, TRUE);
+    gtk_widget_show (menu);
+    gtk_grid_attach (GTK_GRID (grid), menu, 0, 0, 1, 1);
+#else
     gtk_widget_show (menu);
     gtk_table_attach (GTK_TABLE (table),
                       menu,
@@ -209,6 +231,7 @@ caja_window_init (CajaWindow *window)
                       0, 1,                               0, 1,
                       GTK_EXPAND | GTK_FILL | GTK_SHRINK, 0,
                       0,                                  0);
+#endif
 
     /* Register to menu provider extension signal managing menu updates */
     g_signal_connect_object (caja_signaller_get_current (), "popup_menu_changed",

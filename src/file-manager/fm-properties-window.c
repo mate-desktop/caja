@@ -1980,7 +1980,9 @@ attach_combo_box (GtkTable *table,
                   gboolean two_columns)
 {
 	GtkWidget *combo_box;
+#if !GTK_CHECK_VERSION (3, 0, 0)
 	GtkWidget *aligner;
+#endif
 
 	if (!two_columns) {
 		combo_box = gtk_combo_box_text_new ();
@@ -1998,6 +2000,9 @@ attach_combo_box (GtkTable *table,
 					       "text", 0);
 
 	}
+#if GTK_CHECK_VERSION (3, 0, 0)
+	gtk_widget_set_halign (combo_box, GTK_ALIGN_START);
+#endif
 	gtk_widget_show (combo_box);
 
   	gtk_combo_box_set_row_separator_func (GTK_COMBO_BOX (combo_box),
@@ -2005,6 +2010,10 @@ attach_combo_box (GtkTable *table,
 					      NULL,
 					      NULL);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+	gtk_grid_attach_next_to (grid, combo_box, sibling,
+				 GTK_POS_RIGHT, 1, 1);
+#else
 	/* Put combo box in alignment to make it left-justified
 	 * but minimally sized.
 	 */
@@ -2012,10 +2021,6 @@ attach_combo_box (GtkTable *table,
 	gtk_widget_show (aligner);
 
 	gtk_container_add (GTK_CONTAINER (aligner), combo_box);
-#if GTK_CHECK_VERSION (3, 0, 0)
-	gtk_grid_attach_next_to (grid, aligner, sibling,
-				 GTK_POS_RIGHT, 1, 1);
-#else
 	gtk_table_attach (table, aligner,
 			  VALUE_COLUMN, VALUE_COLUMN + 1,
 			  row, row + 1,
@@ -3669,8 +3674,8 @@ create_basic_page (FMPropertiesWindow *window)
 	GtkGrid *grid;
 #else
 	GtkTable *table;
-#endif
 	GtkWidget *icon_aligner;
+#endif
 	GtkWidget *icon_pixmap_widget;
 	GtkWidget *volume_usage;
 	GtkWidget *hbox, *vbox;
@@ -3685,6 +3690,13 @@ create_basic_page (FMPropertiesWindow *window)
 
 	icon_pixmap_widget = create_image_widget (
 		window, should_show_custom_icon_buttons (window));
+#if GTK_CHECK_VERSION (3, 0, 0)
+	gtk_widget_set_halign (icon_pixmap_widget, GTK_ALIGN_END);
+	gtk_widget_set_valign (icon_pixmap_widget, GTK_ALIGN_START);
+	gtk_widget_show (icon_pixmap_widget);
+
+	gtk_box_pack_start (GTK_BOX (hbox), icon_pixmap_widget, FALSE, FALSE, 0);
+#else
 	gtk_widget_show (icon_pixmap_widget);
 
 	icon_aligner = gtk_alignment_new (1, 0, 0, 0);
@@ -3692,6 +3704,7 @@ create_basic_page (FMPropertiesWindow *window)
 
 	gtk_container_add (GTK_CONTAINER (icon_aligner), icon_pixmap_widget);
 	gtk_box_pack_start (GTK_BOX (hbox), icon_aligner, FALSE, FALSE, 0);
+#endif
 
 	window->details->icon_chooser = NULL;
 
@@ -3996,7 +4009,10 @@ create_emblems_page (FMPropertiesWindow *window)
 	scroller = eel_scrolled_wrap_table_new (TRUE, GTK_SHADOW_NONE, &emblems_table);
 
 	gtk_container_set_border_width (GTK_CONTAINER (emblems_table), 12);
-
+/*stop GTK 3.22 builds from ballooning the properties dialog to full screen height */
+#if GTK_CHECK_VERSION(3,21,0)
+	gtk_scrolled_window_set_max_content_height(scroller, 300);
+#endif
 	gtk_widget_show (scroller);
 
 	gtk_notebook_append_page (window->details->notebook,

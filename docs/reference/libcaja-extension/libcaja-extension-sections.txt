@@ -29,26 +29,12 @@ CAJA_MENU_PROVIDER_GET_IFACE
 
 <SECTION>
 <FILE>caja-menu</FILE>
-CAJA_TYPE_MENU_ITEM
-CAJA_MENU_ITEM
-CAJA_MENU_ITEM_CLASS
-CAJA_MENU_IS_ITEM
-CAJA_MENU_IS_ITEM_CLASS
-CAJA_MENU_ITEM_GET_CLASS
 CajaMenuPrivate
-CajaMenuItemDetails
-<TITLE>CajaMenu</TITLE>
 CajaMenu
-<TITLE>CajaMenuItem</TITLE>
-CajaMenuItem
 caja_menu_new
 caja_menu_append_item
 caja_menu_get_items
 caja_menu_item_list_free
-caja_menu_item_get_type
-caja_menu_item_new
-caja_menu_item_activate
-caja_menu_item_set_submenu
 <SUBSECTION Standard>
 CAJA_MENU
 CAJA_IS_MENU
@@ -57,6 +43,23 @@ caja_menu_get_type
 CAJA_MENU_CLASS
 CAJA_IS_MENU_CLASS
 CAJA_MENU_GET_CLASS
+</SECTION>
+
+<SECTION>
+<FILE>caja-menu-item</FILE>
+CajaMenuItem
+caja_menu_item_get_type
+caja_menu_item_new
+caja_menu_item_activate
+caja_menu_item_set_submenu
+<SUBSECTION Standard>
+CAJA_TYPE_MENU_ITEM
+CAJA_MENU_ITEM
+CAJA_MENU_ITEM_CLASS
+CAJA_MENU_IS_ITEM
+CAJA_MENU_IS_ITEM_CLASS
+CAJA_MENU_ITEM_GET_CLASS
+CajaMenuItemDetails
 </SECTION>
 
 <SECTION>
@@ -91,8 +94,13 @@ CAJA_FILE_DEFINED
 CajaFile
 CajaFileInfo
 CajaFileInfoIface
+caja_file_info_create
+caja_file_info_create_for_uri
+caja_file_info_getter
 caja_file_info_list_copy
 caja_file_info_list_free
+caja_file_info_lookup
+caja_file_info_lookup_for_uri
 caja_file_info_is_gone
 caja_file_info_get_file_type
 caja_file_info_get_location
@@ -122,8 +130,6 @@ CAJA_FILE_INFO_GET_IFACE
 
 <SECTION>
 <FILE>caja-column</FILE>
-CajaColumnDetails
-<TITLE>CajaColumn</TITLE>
 CajaColumn
 caja_column_new
 <SUBSECTION Standard>
@@ -134,6 +140,7 @@ caja_column_get_type
 CAJA_COLUMN_CLASS
 CAJA_INFO_IS_COLUMN_CLASS
 CAJA_COLUMN_GET_CLASS
+CajaColumnDetails
 </SECTION>
 
 <SECTION>
@@ -154,8 +161,6 @@ CAJA_INFO_PROVIDER_GET_IFACE
 
 <SECTION>
 <FILE>caja-property-page</FILE>
-CajaPropertyPageDetails
-<TITLE>CajaPropertyPage</TITLE>
 CajaPropertyPage
 caja_property_page_new
 <SUBSECTION Standard>
@@ -166,6 +171,7 @@ caja_property_page_get_type
 CAJA_PROPERTY_PAGE_CLASS
 CAJA_IS_PROPERTY_PAGE_CLASS
 CAJA_PROPERTY_PAGE_GET_CLASS
+CajaPropertyPageDetails
 </SECTION>
 
 <SECTION>
@@ -177,9 +183,6 @@ caja_operation_result_get_type
 caja_module_initialize
 caja_module_shutdown
 caja_module_list_types
-</SECTION>
-
-<SECTION>
-<FILE>caja-menu-item</FILE>
+caja_module_list_pyfiles
 </SECTION>
 

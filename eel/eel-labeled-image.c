@@ -375,10 +375,72 @@ static int
 #if GTK_CHECK_VERSION (3, 0, 0)
 eel_labeled_image_draw (GtkWidget *widget,
                         cairo_t *cr)
+{
+    EelLabeledImage *labeled_image;
+    EelIRect label_bounds;
+    GtkStyleContext *context;
+    GdkWindow *window;
+
+    g_assert (EEL_IS_LABELED_IMAGE (widget));
+    g_assert (gtk_widget_get_realized (widget));
+
+    labeled_image = EEL_LABELED_IMAGE (widget);
+
+    context = gtk_widget_get_style_context (widget);
+    gtk_style_context_save (context);
+
+    window = gtk_widget_get_window (widget);
+    if (gtk_widget_get_state_flags (widget) == GTK_STATE_FLAG_SELECTED ||
+            gtk_widget_get_state_flags (widget) == GTK_STATE_FLAG_ACTIVE)
+    {
+        label_bounds = eel_labeled_image_get_label_bounds (EEL_LABELED_IMAGE (widget));
+
+        gtk_widget_get_state_flags (widget);
+        gtk_render_background (context,
+                              cr,
+                              label_bounds.x0, label_bounds.y0,
+                              label_bounds.x1 - label_bounds.x0,
+                              label_bounds.y1 - label_bounds.y0);
+
+        gtk_render_frame (context,
+                          cr,
+                          label_bounds.x0, label_bounds.y0,
+                          label_bounds.x1 - label_bounds.x0,
+                          label_bounds.y1 - label_bounds.y0);
+    }
+
+    if (labeled_image_show_label (labeled_image))
+    {
+        eel_gtk_container_child_expose_event (GTK_CONTAINER (widget),
+                                              labeled_image->details->label,
+                                              cr);
+    }
+
+    if (labeled_image_show_image (labeled_image))
+    {
+        eel_gtk_container_child_expose_event (GTK_CONTAINER (widget),
+                                              labeled_image->details->image,
+                                              cr);
+    }
+
+    if (gtk_widget_has_focus (widget))
+    {
+        label_bounds = eel_labeled_image_get_image_bounds (EEL_LABELED_IMAGE (widget));
+        gtk_widget_set_state_flags (widget, GTK_STATE_FLAG_NORMAL, TRUE);
+        gtk_render_focus (context,
+                          cr,
+                          label_bounds.x0, label_bounds.y0,
+                          label_bounds.x1 - label_bounds.x0,
+                          label_bounds.y1 - label_bounds.y0);
+    }
+
+    gtk_style_context_restore (context);
+
+    return FALSE;
+}
 #else
 eel_labeled_image_expose_event (GtkWidget *widget,
                                 GdkEventExpose *event)
-#endif
 {
     EelLabeledImage *labeled_image;
     EelIRect label_bounds;
@@ -387,9 +449,7 @@ eel_labeled_image_expose_event (GtkWidget *widget,
 
     g_assert (EEL_IS_LABELED_IMAGE (widget));
     g_assert (gtk_widget_get_realized (widget));
-#if !GTK_CHECK_VERSION (3, 0, 0)
     g_assert (event != NULL);
-#endif
 
     labeled_image = EEL_LABELED_IMAGE (widget);
 
@@ -401,16 +461,10 @@ eel_labeled_image_expose_event (GtkWidget *widget,
         label_bounds = eel_labeled_image_get_label_bounds (EEL_LABELED_IMAGE (widget));
 
         gtk_paint_flat_box (style,
-#if GTK_CHECK_VERSION (3, 0, 0)
-                            cr,
-#else
                             window,
-#endif
                             gtk_widget_get_state (widget),
                             GTK_SHADOW_NONE,
-#if !GTK_CHECK_VERSION (3, 0, 0)
                             &event->area,
-#endif
                             widget,
                             "eel-labeled-image",
                             label_bounds.x0, label_bounds.y0,
@@ -422,37 +476,23 @@ eel_labeled_image_expose_event (GtkWidget *widget,
     {
         eel_gtk_container_child_expose_event (GTK_CONTAINER (widget),
                                               labeled_image->details->label,
-#if GTK_CHECK_VERSION (3, 0, 0)
-                                              cr);
-#else
                                               event);
-#endif
     }
 
     if (labeled_image_show_image (labeled_image))
     {
         eel_gtk_container_child_expose_event (GTK_CONTAINER (widget),
                                               labeled_image->details->image,
-#if GTK_CHECK_VERSION (3, 0, 0)
-                                              cr);
-#else
                                               event);
-#endif
     }
 
     if (gtk_widget_has_focus (widget))
     {
         label_bounds = eel_labeled_image_get_image_bounds (EEL_LABELED_IMAGE (widget));
         gtk_paint_focus (style,
-#if GTK_CHECK_VERSION (3, 0, 0)
-                         cr,
-#else
                          window,
-#endif
                          GTK_STATE_NORMAL,
-#if !GTK_CHECK_VERSION (3, 0, 0)
                          &event->area,
-#endif
                          widget,
                          "eel-focusable-labeled-image",
                          label_bounds.x0, label_bounds.y0,
@@ -462,6 +502,7 @@ eel_labeled_image_expose_event (GtkWidget *widget,
 
     return FALSE;
 }
+#endif
 
 static void
 eel_labeled_image_map (GtkWidget *widget)
@@ -1603,11 +1644,19 @@ eel_labeled_image_set_selected (EelLabeledImage *labeled_image,
     GtkStateType state;
     g_return_if_fail (EEL_IS_LABELED_IMAGE (labeled_image));
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    state = selected ? GTK_STATE_FLAG_SELECTED : GTK_STATE_FLAG_NORMAL;
+
+    gtk_widget_set_state_flags (GTK_WIDGET (labeled_image), state, TRUE);
+    gtk_widget_set_state_flags (labeled_image->details->image, state, TRUE);
+    gtk_widget_set_state_flags (labeled_image->details->label, state, TRUE);
+#else
     state = selected ? GTK_STATE_SELECTED : GTK_STATE_NORMAL;
 
     gtk_widget_set_state (GTK_WIDGET (labeled_image), state);
     gtk_widget_set_state (labeled_image->details->image, state);
     gtk_widget_set_state (labeled_image->details->label, state);
+#endif
 }
 
 /**
@@ -1622,7 +1671,11 @@ eel_labeled_image_get_selected (EelLabeledImage *labeled_image)
 {
     g_return_val_if_fail (EEL_IS_LABELED_IMAGE (labeled_image), FALSE);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    return gtk_widget_get_state_flags (GTK_WIDGET (labeled_image)) == GTK_STATE_FLAG_SELECTED;
+#else
     return gtk_widget_get_state (GTK_WIDGET (labeled_image)) == GTK_STATE_SELECTED;
+#endif
 }
 
 /**

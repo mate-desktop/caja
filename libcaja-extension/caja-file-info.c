@@ -26,6 +26,16 @@
 CajaFileInfo *(*caja_file_info_getter) (GFile *location, gboolean create);
 
 /**
+ * SECTION:caja-file-info
+ * @title: CajaFileInfo
+ * @short_description: File interface for caja extensions
+ * @include: libcaja-extension/caja-file-info.h
+ *
+ * #CajaFileInfo provides methods to get and modify information
+ * about file objects in the file manager.
+ */
+
+/**
  * caja_file_info_list_copy:
  * @files: (element-type CajaFileInfo): the files to copy
  *
@@ -76,10 +86,8 @@ caja_file_info_get_type (void)
 {
     static GType type = 0;
 
-    if (!type)
-    {
-        const GTypeInfo info =
-        {
+    if (!type) {
+        const GTypeInfo info = {
             sizeof (CajaFileInfoIface),
             caja_file_info_base_init,
             NULL,
@@ -141,6 +149,7 @@ caja_file_info_get_location (CajaFileInfo *file)
 
     return CAJA_FILE_INFO_GET_IFACE (file)->get_location (file);
 }
+
 char *
 caja_file_info_get_uri (CajaFileInfo *file)
 {
@@ -243,7 +252,7 @@ caja_file_info_is_mime_type (CajaFileInfo *file,
     g_return_val_if_fail (CAJA_FILE_INFO_GET_IFACE (file)->is_mime_type != NULL, FALSE);
 
     return CAJA_FILE_INFO_GET_IFACE (file)->is_mime_type (file,
-            mime_type);
+           mime_type);
 }
 
 gboolean
@@ -297,7 +306,7 @@ caja_file_info_add_string_attribute (CajaFileInfo *file,
     g_return_if_fail (value != NULL);
 
     CAJA_FILE_INFO_GET_IFACE (file)->add_string_attribute
-    (file, attribute_name, value);
+        (file, attribute_name, value);
 }
 
 void
