@@ -50,7 +50,7 @@ GType caja_progress_info_get_type (void) G_GNUC_CONST;
    All methods are threadsafe.
  */
 
-CajaProgressInfo *caja_progress_info_new (gboolean dostart);
+CajaProgressInfo *caja_progress_info_new (gboolean should_start);
 void caja_progress_info_get_ready (CajaProgressInfo *info);
 
 GList *       caja_get_all_progress_info (void);
