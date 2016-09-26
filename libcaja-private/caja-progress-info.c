@@ -96,7 +96,7 @@ static GList *active_progress_infos = NULL;
 
 static GtkStatusIcon *status_icon = NULL;
 static int n_progress_ops = 0;
-
+static void update_status_icon_and_window (void);
 
 G_LOCK_DEFINE_STATIC(progress_info);
 
@@ -226,16 +226,15 @@ status_icon_activate_cb (GtkStatusIcon *icon,
     }
 }
 
+/* Creates a Singleton progress_window */
 static GtkWidget *
-get_progress_window (gboolean docreate)
+get_progress_window ()
 {
     static GtkWidget *progress_window = NULL;
     GtkWidget *vbox;
 
-    if (progress_window != NULL || !docreate)
-    {
+    if (progress_window != NULL)
         return progress_window;
-    }
 
     progress_window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     gtk_window_set_resizable (GTK_WINDOW (progress_window),
@@ -257,8 +256,6 @@ get_progress_window (gboolean docreate)
     gtk_container_add (GTK_CONTAINER (progress_window),
                        vbox);
 
-    gtk_widget_show_all (progress_window);
-
     g_signal_connect (progress_window,
                       "delete_event",
                       (GCallback)delete_event, NULL);
@@ -268,7 +265,7 @@ get_progress_window (gboolean docreate)
                       (GCallback)status_icon_activate_cb,
                       progress_window);
 
-    gtk_status_icon_set_visible (status_icon, FALSE);
+    update_status_icon_and_window ();
 
     return progress_window;
 }
@@ -352,11 +349,7 @@ update_data (ProgressWidgetData *data)
 static GtkWidget *
 get_widgets_container ()
 {
-    GtkWidget * window = get_progress_window (FALSE);
-    
-    if (window == NULL)
-        return NULL;
-
+    GtkWidget * window = get_progress_window ();
     return gtk_bin_get_child (GTK_BIN (window));
 }
 static void
@@ -370,8 +363,9 @@ foreach_get_running_operations (GtkWidget * widget, int * n)
 }
 
 static int
-get_running_operations (GtkWidget * container)
+get_running_operations ()
 {
+	GtkWidget * container = get_widgets_container();
     int n = 0;
     
     gtk_container_foreach (GTK_CONTAINER(container),
@@ -394,8 +388,9 @@ foreach_get_queued_widget (GtkWidget * widget, GtkWidget ** out)
 }
 
 static GtkWidget *
-get_first_queued_widget (GtkWidget * container)
+get_first_queued_widget ()
 {
+	GtkWidget * container = get_widgets_container();
     GtkWidget * out = NULL;
     
     gtk_container_foreach (GTK_CONTAINER(container),
@@ -446,19 +441,20 @@ progress_info_set_waiting(CajaProgressInfo *info, gboolean waiting)
 }
 
 static void
-widget_reposition_as_queued (GtkWidget * widget, GtkWidget * container)
+widget_reposition_as_queued (GtkWidget * widget)
 {
-    gtk_box_reorder_child (GTK_BOX(container), widget, n_progress_ops-1);
+    gtk_box_reorder_child (GTK_BOX(get_widgets_container ()), widget, n_progress_ops-1);
 }
 
 /* Reposition the widget so that it sits right before the first stopped widget */
 static void
-widget_reposition_as_paused (GtkWidget * widget, GtkWidget * container)
+widget_reposition_as_paused (GtkWidget * widget)
 {
     ProgressWidgetData *data;
     GList *children, *child;
     gboolean abort = FALSE;
     int i, mypos = -1;
+    GtkWidget * container = get_widgets_container();
     
     children = gtk_container_get_children (GTK_CONTAINER(container));
     
@@ -487,12 +483,13 @@ widget_reposition_as_paused (GtkWidget * widget, GtkWidget * container)
 
 /* Reposition the widget so that it sits right after the last running widget */
 static void
-widget_reposition_as_running (GtkWidget * widget, GtkWidget * container)
+widget_reposition_as_running (GtkWidget * widget)
 {
     ProgressWidgetData *data;
     GList *children, *child;
     gboolean abort = FALSE;
     int i, mypos = -1;
+    GtkWidget * container = get_widgets_container();
     
     children = gtk_container_get_children (GTK_CONTAINER(container));
     
@@ -520,15 +517,12 @@ widget_reposition_as_running (GtkWidget * widget, GtkWidget * container)
     }
 }
 
-static void update_queue (GtkWidget * container);
+static void update_queue ();
 
 static void
 widget_state_transit_to (ProgressWidgetData *data,
                         ProgressWidgetState newstate)
 {
-    // here container cannot be NULL
-    GtkWidget * container = get_widgets_container ();
-    
     data->state = newstate;
     
     if (newstate == STATE_PAUSING ||
@@ -540,13 +534,13 @@ widget_state_transit_to (ProgressWidgetData *data,
     }
     
     if (newstate == STATE_QUEUED) {
-        widget_reposition_as_queued (data->widget, container);
-        update_queue (container);
+        widget_reposition_as_queued (data->widget);
+        update_queue ();
     } else if (newstate == STATE_PAUSED) {
-        widget_reposition_as_paused (data->widget, container);
-        update_queue (container);
+        widget_reposition_as_paused (data->widget);
+        update_queue ();
     } else if (newstate == STATE_RUNNING) {
-        widget_reposition_as_running (data->widget, container);
+        widget_reposition_as_running (data->widget);
     }
     
     start_button_update_view (data->btstart, data->state);
@@ -555,13 +549,13 @@ widget_state_transit_to (ProgressWidgetData *data,
 }
 
 static void
-update_queue (GtkWidget * container)
+update_queue ()
 {
     GtkWidget *next;
     ProgressWidgetData *data;
     
-    if (get_running_operations (container) == 0) {
-        next = get_first_queued_widget (container);
+    if (get_running_operations () == 0) {
+        next = get_first_queued_widget ();
     
         if (next != NULL) {
             data = (ProgressWidgetData*) g_object_get_data (
@@ -602,11 +596,13 @@ update_status_icon_and_window (void)
     if (n_progress_ops == 0)
     {
         gtk_status_icon_set_visible (status_icon, FALSE);
-        gtk_widget_hide (get_progress_window (TRUE));
+        gtk_widget_hide (get_progress_window ());
     }
     else
     {
+		gtk_widget_show_all (get_progress_window ());
         gtk_status_icon_set_visible (status_icon, TRUE);
+        gtk_window_present (GTK_WINDOW (get_progress_window ()));
     }
 }
 
@@ -616,10 +612,7 @@ op_finished (ProgressWidgetData *data)
     gtk_widget_destroy (data->widget);
 
     n_progress_ops--;
-    
-    GtkWidget * container = get_widgets_container ();
-    if (container != NULL)
-        update_queue (container);
+	update_queue ();
     
     update_status_icon_and_window ();
 }
@@ -754,7 +747,7 @@ queue_button_init (ProgressWidgetData *data)
 #if GTK_CHECK_VERSION (3, 10, 0)
     image = gtk_image_new_from_icon_name ("undo", GTK_ICON_SIZE_BUTTON);
 #else
-    image = gtk_image_new_from_stock(GTK_STOCK_UNDO, GTK_ICON_SIZE_BUTTON);
+    image = gtk_image_new_from_stock (GTK_STOCK_UNDO, GTK_ICON_SIZE_BUTTON);
 #endif
     
     gtk_container_add (GTK_CONTAINER (button), image);
@@ -880,41 +873,33 @@ progress_widget_new (CajaProgressInfo *info)
 static void
 handle_new_progress_info (CajaProgressInfo *info)
 {
-    GtkWidget *window, *progress, *container;;
+    GtkWidget *window, *progress;
 
-    window = get_progress_window (TRUE);
+    window = get_progress_window ();
 
     progress = progress_widget_new (info);
     gtk_box_pack_start (GTK_BOX (gtk_bin_get_child (GTK_BIN (window))),
                         progress,
                         FALSE, FALSE, 6);
 
-    gtk_window_present (GTK_WINDOW (window));
-
     n_progress_ops++;
     
-    // TODO use user defined policies
-    container = get_widgets_container ();
-    if (container != NULL) {
-        if (info->waiting && get_running_operations (container) > 0)
-            widget_state_transit_to (info->widget, STATE_QUEUED);
-        else
-            widget_state_transit_to (info->widget, STATE_RUNNING);
-    }
-    
-    update_status_icon_and_window ();
+	if (info->waiting && get_running_operations () > 0)
+		widget_state_transit_to (info->widget, STATE_QUEUED);
+	else
+		widget_state_transit_to (info->widget, STATE_RUNNING);
 }
 
 static gboolean
-new_op_started_timeout (CajaProgressInfo *info)
-{
+delayed_window_showup (CajaProgressInfo *info)
+{	
     if (caja_progress_info_get_is_paused (info))
     {
         return TRUE;
     }
     if (!caja_progress_info_get_is_finished (info))
     {
-        handle_new_progress_info (info);
+        update_status_icon_and_window ();
     }
     g_object_unref (info);
     return FALSE;
@@ -923,10 +908,24 @@ new_op_started_timeout (CajaProgressInfo *info)
 static void
 new_op_started (CajaProgressInfo *info)
 {
+	GtkWidget * container;
+	
     g_signal_handlers_disconnect_by_func (info, (GCallback)new_op_started, NULL);
-    g_timeout_add_seconds (2,
-                           (GSourceFunc)new_op_started_timeout,
+    
+    if (!caja_progress_info_get_is_finished (info)) {
+		handle_new_progress_info (info);
+    
+		/* Start the job when no other job is running */
+		// TODO use user defined policies
+		if (info->waiting) {
+			if (get_running_operations () == 0)
+				progress_info_set_waiting (info, FALSE);
+		}
+    
+		g_timeout_add_seconds (2,
+                           (GSourceFunc)delayed_window_showup,
                            g_object_ref (info));
+	}
 }
 
 static void
@@ -942,13 +941,12 @@ caja_progress_info_init (CajaProgressInfo *info)
 }
 
 CajaProgressInfo *
-caja_progress_info_new (gboolean dostart)
+caja_progress_info_new (gboolean should_start)
 {
     CajaProgressInfo *info;
 
     info = g_object_new (CAJA_TYPE_PROGRESS_INFO, NULL);
-    info->waiting = !dostart;
-
+    info->waiting = !should_start;
     return info;
 }
 

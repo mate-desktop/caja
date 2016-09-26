@@ -913,11 +913,11 @@ f (const char *format, ...) {
 	return res;
 }
 
-#define op_job_new(__type, parent_window, dostart) ((__type *)(init_common (sizeof(__type), parent_window, dostart)))
+#define op_job_new(__type, parent_window, should_start) ((__type *)(init_common (sizeof(__type), parent_window, should_start)))
 
 static gpointer
 init_common (gsize job_size,
-	     GtkWindow *parent_window, gboolean dostart)
+	     GtkWindow *parent_window, gboolean should_start)
 {
 	CommonJob *common;
 	GdkScreen *screen;
@@ -928,7 +928,7 @@ init_common (gsize job_size,
 		common->parent_window = parent_window;
 		eel_add_weak_pointer (&common->parent_window);
 	}
-	common->progress = caja_progress_info_new (dostart);
+	common->progress = caja_progress_info_new (should_start);
 	common->cancellable = caja_progress_info_get_cancellable (common->progress);
 	common->time = g_timer_new ();
 	common->inhibit_cookie = -1;
@@ -1779,7 +1779,7 @@ trash_files (CommonJob *job, GList *files, int *files_skipped)
 	for (l = files;
 	     l != NULL && !job_aborted (job);
 	     l = l->next) {
-        caja_progress_info_get_ready(job->progress);
+        caja_progress_info_get_ready (job->progress);
              
 		file = l->data;
 
@@ -4084,7 +4084,7 @@ copy_move_file (CopyMoveJob *copy_job,
 
 
  retry:
-    caja_progress_info_get_ready(job->progress);
+    caja_progress_info_get_ready (job->progress);
 
 	error = NULL;
 	flags = G_FILE_COPY_NOFOLLOW_SYMLINKS;
@@ -4710,7 +4710,7 @@ move_file_prepare (CopyMoveJob *move_job,
 	}
 
  retry:
-    caja_progress_info_get_ready(job->progress);
+    caja_progress_info_get_ready (job->progress);
 
 	flags = G_FILE_COPY_NOFOLLOW_SYMLINKS | G_FILE_COPY_NO_FALLBACK_FOR_MOVE;
 	if (overwrite) {
@@ -4944,7 +4944,7 @@ common = &job->common;
 	for (l = fallbacks;
 	     l != NULL && !job_aborted (common);
 	     l = l->next) {
-        caja_progress_info_get_ready(common->progress);
+        caja_progress_info_get_ready (common->progress);
         
 		fallback = l->data;
 		src = fallback->file;
@@ -5366,7 +5366,7 @@ link_job (GIOSchedulerJob *io_job,
 	for (l = job->files;
 	     l != NULL && !job_aborted (common);
 	     l = l->next) {
-        caja_progress_info_get_ready(common->progress);
+        caja_progress_info_get_ready (common->progress);
         
 		src = l->data;
 
@@ -5513,7 +5513,7 @@ set_permissions_file (SetPermissionsJob *job,
 
 	caja_progress_info_pulse_progress (common->progress);
     
-    caja_progress_info_get_ready(common->progress);
+    caja_progress_info_get_ready (common->progress);
 
 	free_info = FALSE;
 	if (info == NULL) {
@@ -5875,7 +5875,7 @@ create_job (GIOSchedulerJob *io_job,
 	count = 1;
 
  retry:
-    caja_progress_info_get_ready(common->progress);
+    caja_progress_info_get_ready (common->progress);
 
 	error = NULL;
 	if (job->make_dir) {
