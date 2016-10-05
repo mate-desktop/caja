@@ -1050,51 +1050,6 @@ caja_window_slot_close (CajaWindowSlot *slot)
     caja_window_pane_slot_close (slot->pane, slot);
 }
 
-#if GTK_CHECK_VERSION(3,0,0)
-static void
-caja_window_get_preferred_width (GtkWidget *widget,
-    			     gint *minimal_width,
-    			     gint *natural_width)
-{
-    GdkScreen *screen;
-    gint max_w, min_w, min_h, default_w, default_h;
-    CajaWindow *window = CAJA_WINDOW (widget);
-
-    screen = gtk_window_get_screen (GTK_WINDOW (widget));	
-
-    max_w = get_max_forced_width (screen);
-    EEL_CALL_METHOD (CAJA_WINDOW_CLASS, window,
-    		 get_min_size, (window, &min_w, &min_h));
-    EEL_CALL_METHOD (CAJA_WINDOW_CLASS, window,
-    		 get_default_size, (window, &default_w, &default_h));
-
-    *minimal_width = MIN (min_w, max_w);
-    *natural_width = MIN (default_w, max_w);
-}
-
-static void
-caja_window_get_preferred_height (GtkWidget *widget,
-    			      gint *minimal_height,
-    			      gint *natural_height)
-{
-    GdkScreen *screen;
-    gint max_h, min_w, min_h, default_w, default_h;
-    CajaWindow *window = CAJA_WINDOW (widget);
-
-    screen = gtk_window_get_screen (GTK_WINDOW (widget));	
-
-    max_h = get_max_forced_height (screen);
-    EEL_CALL_METHOD (CAJA_WINDOW_CLASS, window,
-    		 get_min_size, (window, &min_w, &min_h));
-    EEL_CALL_METHOD (CAJA_WINDOW_CLASS, window,
-    		 get_default_size, (window, &default_w, &default_h));
-
-    *minimal_height = MIN (min_h, max_h);
-    *natural_height = MIN (default_h, max_h);
-}
-
-#else /* GTK_CHECK_VERSION(3,0,0) */
-
 static void
 caja_window_size_request (GtkWidget		*widget,
                           GtkRequisition	*requisition)
@@ -1105,9 +1060,9 @@ caja_window_size_request (GtkWidget		*widget,
 
     g_assert (CAJA_IS_WINDOW (widget));
     g_assert (requisition != NULL);
-
+#if !GTK_CHECK_VERSION(3,0,0)
     GTK_WIDGET_CLASS (caja_window_parent_class)->size_request (widget, requisition);
-
+#endif
     screen = gtk_window_get_screen (GTK_WINDOW (widget));
 
     /* Limit the requisition to be within 90% of the available screen
@@ -1136,7 +1091,6 @@ caja_window_size_request (GtkWidget		*widget,
         requisition->height = max_height;
     }
 }
-#endif  /* GTK_CHECK_VERSION(3,0,0) */
 
 static void
 caja_window_realize (GtkWidget *widget)
@@ -2212,10 +2166,7 @@ caja_window_class_init (CajaWindowClass *class)
 #endif
 
     GTK_WIDGET_CLASS (class)->show = caja_window_show;
-#if GTK_CHECK_VERSION (3,0,0)
-    GTK_WIDGET_CLASS (class)->get_preferred_width = caja_window_get_preferred_width;
-    GTK_WIDGET_CLASS (class)->get_preferred_height = caja_window_get_preferred_height;
-#else
+#if !GTK_CHECK_VERSION (3,0,0)
     GTK_WIDGET_CLASS (class)->size_request = caja_window_size_request;
 #endif
     GTK_WIDGET_CLASS (class)->realize = caja_window_realize;
