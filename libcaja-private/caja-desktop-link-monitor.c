@@ -488,6 +488,7 @@ desktop_link_monitor_finalize (GObject *object)
                                           desktop_volumes_visible_changed,
                                           monitor);
 
+/*  These sources are already gone,  this just causes errors
     if (monitor->details->mount_id != 0)
     {
         g_source_remove (monitor->details->mount_id);
@@ -500,7 +501,7 @@ desktop_link_monitor_finalize (GObject *object)
     {
         g_source_remove (monitor->details->changed_id);
     }
-
+*/
     g_free (monitor->details);
 
     EEL_CALL_PARENT (G_OBJECT_CLASS, finalize, (object));

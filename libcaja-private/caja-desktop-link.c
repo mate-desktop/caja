@@ -460,8 +460,11 @@ desktop_link_finalize (GObject *object)
 
     if (link->details->signal_handler != 0)
     {
-        g_signal_handler_disconnect (link->details->signal_handler_obj,
-                                     link->details->signal_handler);
+        if (g_signal_handler_is_connected(link->details->signal_handler_obj,
+                                             link->details->signal_handler)){
+            g_signal_handler_disconnect (link->details->signal_handler_obj,
+                                             link->details->signal_handler);
+        }
     }
 
     if (link->details->icon_file != NULL)
