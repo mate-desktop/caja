@@ -98,8 +98,11 @@ bookmark_holder_new (CajaBookmark *bookmark,
 static void
 bookmark_holder_free (BookmarkHolder *bookmark_holder)
 {
+    if (g_signal_handler_is_connected(bookmark_holder->bookmark,
+                                      bookmark_holder->changed_handler_id)){
     g_signal_handler_disconnect (bookmark_holder->bookmark,
-                                 bookmark_holder->changed_handler_id);
+                                      bookmark_holder->changed_handler_id);
+    }
     g_object_unref (bookmark_holder->bookmark);
     g_free (bookmark_holder);
 }
