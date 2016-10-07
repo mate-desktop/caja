@@ -212,8 +212,11 @@ release_file (CajaSidebarTitle *sidebar_title)
 {
     if (sidebar_title->details->file_changed_connection != 0)
     {
-        g_signal_handler_disconnect (sidebar_title->details->file,
+        if (g_signal_handler_is_connected(G_OBJECT (sidebar_title->details->file),
+							  sidebar_title->details->file_changed_connection)){
+             g_signal_handler_disconnect (sidebar_title->details->file,
                                      sidebar_title->details->file_changed_connection);
+        }
         sidebar_title->details->file_changed_connection = 0;
     }
 
