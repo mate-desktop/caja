@@ -35,6 +35,9 @@
 #include <glib/gi18n-lib.h>
 #include <pango/pango.h>
 #include <gtk/gtk.h>
+#if GTK_CHECK_VERSION(3, 0, 0)
+#include <gtk/gtk-a11y.h>
+#endif
 #include <gdk/gdkkeysyms.h>
 
 /* Some compatibility defines to let us build on both Gtk2 and Gtk3 */
@@ -137,7 +140,11 @@ static gint     eel_editable_label_focus_in                (GtkWidget           
         GdkEventFocus         *event);
 static gint     eel_editable_label_focus_out               (GtkWidget             *widget,
         GdkEventFocus         *event);
+#if GTK_CHECK_VERSION(3, 0, 0)
+static GType      eel_editable_label_accessible_get_type   (void);
+#else
 static AtkObject *eel_editable_label_get_accessible        (GtkWidget             *widget);
+#endif
 static void     eel_editable_label_commit_cb               (GtkIMContext          *context,
         const gchar           *str,
         EelEditableLabel      *label);
@@ -282,7 +289,11 @@ eel_editable_label_class_init (EelEditableLabelClass *class)
     widget_class->key_release_event = eel_editable_label_key_release;
     widget_class->focus_in_event = eel_editable_label_focus_in;
     widget_class->focus_out_event = eel_editable_label_focus_out;
+#if GTK_CHECK_VERSION(3, 0, 0)
+    gtk_widget_class_set_accessible_type (widget_class, eel_editable_label_accessible_get_type ());
+#else
     widget_class->get_accessible = eel_editable_label_get_accessible;
+#endif
 
     class->move_cursor = eel_editable_label_move_cursor;
     class->delete_from_cursor = eel_editable_label_delete_from_cursor;
@@ -3765,6 +3776,20 @@ typedef struct
     gint position;
 } EelEditableLabelAccessiblePaste;
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+typedef struct _EelEditableLabelAccessible EelEditableLabelAccessible;
+typedef struct _EelEditableLabelAccessibleClass EelEditableLabelAccessibleClass;
+
+struct _EelEditableLabelAccessible
+{
+    GtkWidgetAccessible parent;
+};
+
+struct _EelEditableLabelAccessibleClass
+{
+    GtkWidgetAccessibleClass parent_class;
+};
+#endif
 
 static gchar*
 eel_editable_label_accessible_get_text (AtkText *text,
@@ -4619,6 +4644,34 @@ eel_editable_label_accessible_finalize (GObject *object)
     G_OBJECT_CLASS (a11y_parent_class)->finalize (object);
 }
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+static void
+eel_editable_label_accessible_class_init (EelEditableLabelAccessibleClass *klass)
+{
+    AtkObjectClass *atk_class = ATK_OBJECT_CLASS (klass);
+    GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
+
+    a11y_parent_class = g_type_class_peek_parent (klass);
+
+    atk_class->initialize = eel_editable_label_accessible_initialize;
+    atk_class->get_name = eel_editable_label_accessible_get_name;
+    atk_class->ref_state_set = eel_editable_label_accessible_ref_state_set;
+    gobject_class->finalize = eel_editable_label_accessible_finalize;
+}
+
+static void
+eel_editable_label_accessible_init (EelEditableLabelAccessible *accessible)
+{
+}
+
+G_DEFINE_TYPE_WITH_CODE (EelEditableLabelAccessible,
+                         eel_editable_label_accessible,
+                         GTK_TYPE_WIDGET_ACCESSIBLE,
+                         G_IMPLEMENT_INTERFACE (ATK_TYPE_EDITABLE_TEXT,
+                                                atk_editable_text_interface_init)
+                         G_IMPLEMENT_INTERFACE (ATK_TYPE_TEXT,
+                                                atk_text_interface_init));
+#else
 static void
 eel_editable_label_accessible_class_init (AtkObjectClass *klass)
 {
@@ -4671,4 +4724,4 @@ eel_editable_label_get_accessible (GtkWidget *widget)
 
     return eel_accessibility_set_atk_object_return (widget, accessible);
 }
-
+#endif

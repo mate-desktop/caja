@@ -38,11 +38,13 @@ typedef void     (*EelAccessibilityClassInitFn)    (AtkObjectClass *klass);
 AtkObject    *eel_accessibility_get_atk_object        (gpointer              object);
 AtkObject    *eel_accessibility_for_object            (gpointer              object);
 gpointer      eel_accessibility_get_gobject           (AtkObject            *object);
+#if !GTK_CHECK_VERSION(3, 0, 0)
 AtkObject    *eel_accessibility_set_atk_object_return (gpointer              object,
         AtkObject            *atk_object);
 GType         eel_accessibility_create_derived_type   (const char           *type_name,
         GType                 existing_gobject_with_proxy,
         EelAccessibilityClassInitFn class_init);
+#endif
 void          eel_accessibility_set_name              (gpointer              object,
         const char           *name);
 void          eel_accessibility_set_description       (gpointer              object,

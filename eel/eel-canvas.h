@@ -38,6 +38,9 @@
 #define EEL_CANVAS_H
 
 #include <gtk/gtk.h>
+#if GTK_CHECK_VERSION(3, 0, 0)
+#include <gtk/gtk-a11y.h>
+#endif
 #include <gdk/gdk.h>
 #include <stdarg.h>
 
@@ -554,6 +557,23 @@ extern "C" {
     /* This is the inverse of eel_canvas_window_to_world() */
     void eel_canvas_world_to_window (EelCanvas *canvas,
                                      double worldx, double worldy, double *winx, double *winy);
+
+#if GTK_CHECK_VERSION(3, 0, 0)
+    GType eel_canvas_accessible_get_type (void);
+
+    typedef struct _EelCanvasAccessible EelCanvasAccessible;
+    typedef struct _EelCanvasAccessibleClass EelCanvasAccessibleClass;
+
+    struct _EelCanvasAccessible
+    {
+        GtkContainerAccessible parent;
+    };
+
+    struct _EelCanvasAccessibleClass
+    {
+        GtkContainerAccessibleClass parent_class;
+    };
+#endif
 
 #ifdef __cplusplus
 }
