@@ -552,8 +552,7 @@ modify_link_hash_table (CajaFile *file,
 
 	/* Create the hash table first time through. */
 	if (symbolic_links == NULL) {
-		symbolic_links = eel_g_hash_table_new_free_at_exit
-			(g_str_hash, g_str_equal, "caja-file.c: symbolic_links");
+		symbolic_links = g_hash_table_new (g_str_hash, g_str_equal);
 	}
 
 	target_uri = caja_file_get_symbolic_link_target_uri (file);

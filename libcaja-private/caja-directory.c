@@ -357,11 +357,8 @@ caja_directory_get_internal (GFile *location, gboolean create)
     CajaDirectory *directory;
 
     /* Create the hash table first time through. */
-    if (directories == NULL)
-    {
-        directories = eel_g_hash_table_new_free_at_exit
-                      (g_file_hash, (GCompareFunc)g_file_equal, "caja-directory.c: directories");
-
+    if (directories == NULL) {
+        directories = g_hash_table_new (g_file_hash, (GCompareFunc) g_file_equal);
         add_preferences_callbacks ();
     }
 
