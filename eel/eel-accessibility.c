@@ -63,6 +63,7 @@ eel_accessibility_set_up_label_widget_relation (GtkWidget *label, GtkWidget *wid
  *
  * Return value: the registered type, or 0 on failure.
  **/
+#if !GTK_CHECK_VERSION(3, 0, 0)
 GType
 eel_accessibility_create_derived_type (const char *type_name,
                                        GType existing_gobject_with_proxy,
@@ -113,7 +114,7 @@ eel_accessibility_create_derived_type (const char *type_name,
 
     return type;
 }
-
+#endif
 
 static GQuark
 get_quark_accessible (void)
@@ -207,6 +208,7 @@ eel_accessibility_destroy (gpointer data,
  *
  * Return value: @atk_object.
  **/
+#if !GTK_CHECK_VERSION(3, 0, 0)
 AtkObject *
 eel_accessibility_set_atk_object_return (gpointer   object,
         AtkObject *atk_object)
@@ -224,6 +226,7 @@ eel_accessibility_set_atk_object_return (gpointer   object,
 
     return atk_object;
 }
+#endif
 
 static GailTextUtil *
 get_simple_text (gpointer object)

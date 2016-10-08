@@ -44,6 +44,9 @@
 #include <eel/eel-art-extensions.h>
 #include <eel/eel-editable-label.h>
 #include <eel/eel-string.h>
+#if GTK_CHECK_VERSION(3, 0, 0)
+#include <eel/eel-canvas.h>
+#endif
 #include <eel/eel-canvas-rect-ellipse.h>
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
@@ -181,6 +184,21 @@ typedef struct
 } CajaIconContainerAccessiblePrivate;
 
 static GType         caja_icon_container_accessible_get_type (void);
+
+#if GTK_CHECK_VERSION(3, 0, 0)
+typedef struct _CajaIconContainerAccessible CajaIconContainerAccessible;
+typedef struct _CajaIconContainerAccessibleClass CajaIconContainerAccessibleClass;
+
+struct _CajaIconContainerAccessible
+{
+    EelCanvasAccessible parent;
+};
+
+struct _CajaIconContainerAccessibleClass
+{
+    EelCanvasAccessibleClass parent_class;
+};
+#endif
 
 static void          activate_selected_items                        (CajaIconContainer *container);
 static void          activate_selected_items_alternate              (CajaIconContainer *container,
@@ -6299,6 +6317,7 @@ expose_event (GtkWidget      *widget,
 }
 #endif
 
+#if !GTK_CHECK_VERSION(3, 0, 0)
 static AtkObject *
 get_accessible (GtkWidget *widget)
 {
@@ -6314,6 +6333,7 @@ get_accessible (GtkWidget *widget)
 
     return eel_accessibility_set_atk_object_return (widget, accessible);
 }
+#endif
 
 static void
 grab_notify_cb  (GtkWidget        *widget,
@@ -6757,7 +6777,11 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
     widget_class->motion_notify_event = motion_notify_event;
     widget_class->key_press_event = key_press_event;
     widget_class->popup_menu = popup_menu;
+#if GTK_CHECK_VERSION(3,2,0)
+    gtk_widget_class_set_accessible_type (widget_class, caja_icon_container_accessible_get_type ());
+#else
     widget_class->get_accessible = get_accessible;
+#endif
 #if GTK_CHECK_VERSION(3,0,0)
     widget_class->style_updated = style_updated;
 #else
@@ -10591,6 +10615,38 @@ caja_icon_container_accessible_finalize (GObject *object)
     G_OBJECT_CLASS (accessible_parent_class)->finalize (object);
 }
 
+#if GTK_CHECK_VERSION(3,2,0)
+static void
+caja_icon_container_accessible_init (CajaIconContainerAccessible *accessible)
+{
+}
+
+static void
+caja_icon_container_accessible_class_init (CajaIconContainerAccessibleClass *klass)
+{
+    GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
+    AtkObjectClass *atk_class = ATK_OBJECT_CLASS (klass);
+
+    accessible_parent_class = g_type_class_peek_parent (klass);
+
+    gobject_class->finalize = caja_icon_container_accessible_finalize;
+
+    atk_class->get_n_children = caja_icon_container_accessible_get_n_children;
+    atk_class->ref_child = caja_icon_container_accessible_ref_child;
+    atk_class->initialize = caja_icon_container_accessible_initialize;
+
+    accessible_private_data_quark = g_quark_from_static_string ("icon-container-accessible-private-data");
+}
+
+G_DEFINE_TYPE_WITH_CODE (CajaIconContainerAccessible,
+                         caja_icon_container_accessible,
+                         eel_canvas_accessible_get_type (),
+                         G_IMPLEMENT_INTERFACE (ATK_TYPE_ACTION,
+                                                caja_icon_container_accessible_action_interface_init)
+                         G_IMPLEMENT_INTERFACE (ATK_TYPE_SELECTION,
+                                                caja_icon_container_accessible_selection_interface_init));
+
+#else
 static void
 caja_icon_container_accessible_class_init (AtkObjectClass *klass)
 {
@@ -10641,6 +10697,7 @@ caja_icon_container_accessible_get_type (void)
 
     return type;
 }
+#endif
 
 #if ! defined (CAJA_OMIT_SELF_CHECK)
 

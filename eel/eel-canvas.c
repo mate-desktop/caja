@@ -68,6 +68,9 @@
 #include <stdio.h>
 #include <gdk/gdkprivate.h>
 #include <gtk/gtk.h>
+#if GTK_CHECK_VERSION(3,2,0)
+#include <gtk/gtk-a11y.h>
+#endif
 #include <glib/gi18n-lib.h>
 #if GTK_CHECK_VERSION(3,0,0)
 # include <cairo/cairo-gobject.h>
@@ -2158,6 +2161,25 @@ eel_canvas_accessible_ref_child (AtkObject *obj,
     return atk_object;
 }
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+G_DEFINE_TYPE (EelCanvasAccessible, eel_canvas_accessible, GTK_TYPE_CONTAINER_ACCESSIBLE)
+
+static void
+eel_canvas_accessible_class_init (EelCanvasAccessibleClass *klass)
+{
+    AtkObjectClass *atk_class = ATK_OBJECT_CLASS (klass);
+    accessible_parent_class = g_type_class_peek_parent (atk_class);
+
+    atk_class->initialize = eel_canvas_accessible_initialize;
+    atk_class->get_n_children = eel_canvas_accessible_get_n_children;
+    atk_class->ref_child = eel_canvas_accessible_ref_child;
+}
+
+static void
+eel_canvas_accessible_init (EelCanvasAccessible *accessible)
+{
+}
+#else
 static void
 eel_canvas_accessible_class_init (AtkObjectClass *klass)
 {
@@ -2275,7 +2297,7 @@ eel_canvas_accessible_factory_get_type (void)
 
     return type;
 }
-
+#endif
 
 /* Class initialization function for EelCanvasClass */
 static void
@@ -2336,9 +2358,13 @@ eel_canvas_class_init (EelCanvasClass *klass)
                       G_TYPE_INT, G_TYPE_INT, G_TYPE_INT, G_TYPE_INT);
 #endif
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+    gtk_widget_class_set_accessible_type (widget_class, eel_canvas_accessible_get_type ());
+#else
     atk_registry_set_factory_type (atk_get_default_registry (),
                                    EEL_TYPE_CANVAS,
                                    eel_canvas_accessible_factory_get_type ());
+#endif
 }
 
 /* Callback used when the root item of a canvas is destroyed.  The user should
@@ -3424,7 +3450,7 @@ idle_handler (gpointer data)
 {
     EelCanvas *canvas;
 
-#if !GTK_CHECK_VERSION (3, 0, 0)
+#if !GTK_CHECK_VERSION(3, 0, 0)
     GDK_THREADS_ENTER ();
 #endif
 
@@ -4270,6 +4296,43 @@ eel_canvas_item_accessible_ref_state_set (AtkObject *accessible)
     return state_set;
 }
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+static GType eel_canvas_item_accessible_get_type (void);
+
+typedef struct _EelCanvasItemAccessible EelCanvasItemAccessible;
+typedef struct _EelCanvasItemAccessibleClass EelCanvasItemAccessibleClass;
+
+struct _EelCanvasItemAccessible
+{
+    GtkAccessible parent;
+};
+
+struct _EelCanvasItemAccessibleClass
+{
+    GtkAccessibleClass parent_class;
+};
+
+G_DEFINE_TYPE_WITH_CODE (EelCanvasItemAccessible,
+                         eel_canvas_item_accessible,
+                         ATK_TYPE_GOBJECT_ACCESSIBLE,
+                         G_IMPLEMENT_INTERFACE (ATK_TYPE_COMPONENT,
+                                                eel_canvas_item_accessible_component_interface_init));
+
+static void
+eel_canvas_item_accessible_class_init (EelCanvasItemAccessibleClass *klass)
+{
+    AtkObjectClass *atk_class = ATK_OBJECT_CLASS (klass);
+    accessible_item_parent_class = g_type_class_peek_parent (atk_class);
+
+    atk_class->initialize = eel_canvas_item_accessible_initialize;
+    atk_class->ref_state_set = eel_canvas_item_accessible_ref_state_set;
+}
+
+static void
+eel_canvas_item_accessible_init (EelCanvasItemAccessible *accessible)
+{
+}
+#else
 static void
 eel_canvas_item_accessible_class_init (AtkObjectClass *klass)
 {
@@ -4323,7 +4386,7 @@ eel_canvas_item_accessible_get_type (void)
 
     return type;
 }
-
+#endif
 static AtkObject *
 eel_canvas_item_accessible_create (GObject *for_object)
 {
@@ -4370,6 +4433,20 @@ eel_canvas_item_accessible_factory_class_init (AtkObjectFactoryClass *klass)
     klass->get_accessible_type = eel_canvas_item_accessible_factory_get_accessible_type;
 }
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+static GType eel_canvas_item_accessible_factory_get_type (void);
+
+typedef AtkObjectFactory EelCanvasItemAccessibleFactory;
+typedef AtkObjectFactoryClass EelCanvasItemAccessibleFactoryClass;
+G_DEFINE_TYPE (EelCanvasItemAccessibleFactory, eel_canvas_item_accessible_factory,
+               ATK_TYPE_OBJECT_FACTORY)
+
+static void
+eel_canvas_item_accessible_factory_init (EelCanvasItemAccessibleFactory *accessible)
+{
+}
+
+#else
 static GType
 eel_canvas_item_accessible_factory_get_type (void)
 {
@@ -4396,6 +4473,7 @@ eel_canvas_item_accessible_factory_get_type (void)
 
     return type;
 }
+#endif
 
 /* Class initialization function for EelCanvasItemClass */
 static void
