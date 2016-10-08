@@ -32,7 +32,9 @@
 #include "caja-application.h"
 #include "caja-bookmarks-window.h"
 #include "caja-information-panel.h"
+#if ENABLE_LIBUNIQUE == (1)
 #include "caja-main.h"
+#endif
 #include "caja-window-manage-views.h"
 #include "caja-window-bookmarks.h"
 #include "caja-window-slot.h"
@@ -236,15 +238,17 @@ caja_window_init (CajaWindow *window)
     /* Register to menu provider extension signal managing menu updates */
     g_signal_connect_object (caja_signaller_get_current (), "popup_menu_changed",
                              G_CALLBACK (caja_window_load_extension_menus), window, G_CONNECT_SWAPPED);
-
+#if ENABLE_LIBUNIQUE == (1)
 /* Keep the main event loop alive as long as the window exists */
 #if GTK_CHECK_VERSION(3, 0, 0)
     /* FIXME: port to GtkApplication with GTK3 */
+    /*This is DONE when built with --disable-libunique */
     //gtk_quit_add_destroy (1, GTK_WIDGET (window));
     caja_main_event_loop_register (GTK_WIDGET (window));
 #else
     gtk_quit_add_destroy (1, GTK_OBJECT (window));
     caja_main_event_loop_register (GTK_OBJECT (window));
+#endif
 #endif
 }
 
@@ -1903,12 +1907,20 @@ caja_forget_history (void)
     CajaWindowSlot *slot;
     CajaNavigationWindowSlot *navigation_slot;
     GList *window_node, *l, *walk;
+#if ENABLE_LIBUNIQUE == (0)
+    CajaApplication *app;
 
+    app = CAJA_APPLICATION (g_application_get_default ());
+#endif
     /* Clear out each window's back & forward lists. Also, remove
      * each window's current location bookmark from history list
      * so it doesn't get clobbered.
      */
+#if ENABLE_LIBUNIQUE == (0)
+    for (window_node = gtk_application_get_windows (GTK_APPLICATION (app));
+#else
     for (window_node = caja_application_get_window_list ();
+#endif
             window_node != NULL;
             window_node = window_node->next)
     {
@@ -1951,7 +1963,11 @@ caja_forget_history (void)
     free_history_list ();
 
     /* Re-add each window's current location to history list. */
+#if ENABLE_LIBUNIQUE == (0)
+    for (window_node = gtk_application_get_windows (GTK_APPLICATION (app));
+#else
     for (window_node = caja_application_get_window_list ();
+#endif
             window_node != NULL;
             window_node = window_node->next)
     {

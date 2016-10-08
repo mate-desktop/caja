@@ -229,7 +229,11 @@ drag_data_received_callback (GtkWidget *widget,
 
         for (i = 1; names[i] != NULL; ++i)
         {
+#if GTK_CHECK_VERSION (3, 0, 0)
+            new_window = caja_application_create_navigation_window (application, screen);
+#else
             new_window = caja_application_create_navigation_window (application, NULL, screen);
+#endif
             location = g_file_new_for_uri (names[i]);
             caja_window_go_to (new_window, location);
             g_object_unref (location);

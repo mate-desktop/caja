@@ -63,13 +63,25 @@
 
 static void                  schedule_refresh_go_menu                      (CajaNavigationWindow   *window);
 
+
+#if ENABLE_LIBUNIQUE == (0)
+static void
+action_close_all_windows_callback (GtkAction *action,
+                                   gpointer user_data)
+{
+    CajaApplication *app;
+
+    app = CAJA_APPLICATION (g_application_get_default ());
+    caja_application_close_all_navigation_windows (app);
+}
+#else
 static void
 action_close_all_windows_callback (GtkAction *action,
                                    gpointer user_data)
 {
     caja_application_close_all_navigation_windows ();
 }
-
+#endif
 static gboolean
 should_open_in_new_tab (void)
 {
@@ -610,7 +622,9 @@ action_new_window_callback (GtkAction *action,
     current_window = CAJA_WINDOW (user_data);
     new_window = caja_application_create_navigation_window (
                      current_window->application,
+#if ENABLE_LIBUNIQUE == (1)
                      NULL,
+#endif
                      gtk_window_get_screen (GTK_WINDOW (current_window)));
     caja_window_go_home (new_window);
 }

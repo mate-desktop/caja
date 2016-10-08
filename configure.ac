@@ -45,12 +45,12 @@ case "$with_gtk" in
   3.0) GTK_API_VERSION=3.0
        GTK_REQUIRED=3.0.0
        GAIL_API_VERSION=-3.0
-       LIBUNIQUE_VERSION=3.0
        ;;
 esac
 AC_SUBST([GTK_API_VERSION])
+AM_CONDITIONAL([WITH_GTK3],[test "$with_gtk" = "3.0"])
 
-dnl ===========================================================================
+dnl ---------------------------------------------------------------------------
 
 AC_CONFIG_SRCDIR(src)
 AC_CONFIG_HEADERS(config.h)
@@ -229,18 +229,44 @@ fi
 #============================================================================
 # libunique
 #============================================================================
-PKG_CHECK_MODULES(UNIQUE, unique-$LIBUNIQUE_VERSION)
 
-AC_SUBST([UNIQUE_CFLAGS])
-AC_SUBST([UNIQUE_LIBS])
+dnl Whether to use libunique
+dnl --
 
-# this deprecated stuff should be removed from unique in most distros
-# but it's still not removed upstream in unique 1.x, so leaving it alone
-# just in case.
-UNIQUE_CFLAGS="$UNIQUE_CFLAGS -DG_CONST_RETURN=const"
 
-EXTRA_CORE_MODULES="$EXTRA_CORE_MODULES unique-$LIBUNIQUE_VERSION"
+AC_ARG_ENABLE(libunique,
+    AC_HELP_STRING([--disable-libunique],
+        [use GtkApplication instead of libunique(GTK 3 only)]))
+msg_libunique=no
+if test "x$enable_libunique" != "xno"; then
+    msg_libunique=yes
+    AM_CONDITIONAL([ENABLE_LIBUNIQUE], = "1")
+else
+    msg_libunique=no
+    AM_CONDITIONAL([ENABLE_LIBUNIQUE], = "0")
+fi
 
+dnl =====
+
+if test $msg_libunique = "yes";then
+
+    if test "$GTK_API_VERSION" = "3.0"; then
+        LIBUNIQUE_VERSION=3.0
+        else
+        LIBUNIQUE_VERSION=1.0
+    fi
+    PKG_CHECK_MODULES(UNIQUE, unique-$LIBUNIQUE_VERSION)
+
+    AC_SUBST([UNIQUE_CFLAGS])
+    AC_SUBST([UNIQUE_LIBS])
+
+    # this deprecated stuff should be removed from unique in most distros
+    # but it's still not removed upstream in unique 1.x, so leaving it alone
+    # just in case.
+    UNIQUE_CFLAGS="$UNIQUE_CFLAGS -DG_CONST_RETURN=const"
+
+    EXTRA_CORE_MODULES="$EXTRA_CORE_MODULES unique-$LIBUNIQUE_VERSION"
+fi
 
 # ==========================================================================
 # Turn on the additional warnings last, so -Werror doesn't affect other tests.
@@ -421,6 +447,7 @@ caja-$VERSION:
     compiler:                     ${CC}
     xmp support:                  $msg_xmp
     Gtk+ version:                 ${GTK_API_VERSION}
+    Using libunique:              $msg_libunique
     PackageKit support:           $msg_packagekit
 
     caja-extension documentation: ${enable_gtk_doc}
