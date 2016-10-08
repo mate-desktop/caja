@@ -37,7 +37,9 @@
 #include "caja-desktop-window.h"
 #include "caja-bookmarks-window.h"
 #include "caja-location-dialog.h"
+#if !GTK_CHECK_VERSION (3, 0, 0)
 #include "caja-main.h"
+#endif
 #include "caja-query-editor.h"
 #include "caja-search-bar.h"
 #include "caja-window-manage-views.h"
