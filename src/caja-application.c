@@ -348,8 +348,6 @@ smclient_quit_cb (EggSMClient   *client,
 static void
 caja_application_smclient_initialize (CajaApplication *self)
 {
-    egg_sm_client_set_mode (EGG_SM_CLIENT_MODE_NORMAL);
-
     g_signal_connect (self->smclient, "save_state",
                           G_CALLBACK (smclient_save_state_cb),
                           self);
@@ -364,8 +362,6 @@ void
 caja_application_smclient_startup (CajaApplication *self)
 {
     g_assert (self->smclient == NULL);
-
-    egg_sm_client_set_mode (EGG_SM_CLIENT_MODE_DISABLED);
     self->smclient = egg_sm_client_get ();
 }
 
@@ -3249,12 +3245,6 @@ caja_application_startup (GApplication *app)
     }
 
     instance = g_application_get_default ();
-
-    /* Always hold in if autostarted to avoid restart loop          */
-    /* Otherwise follow preferences/running in mate/running as root */
-    if (exit_with_last_window == FALSE || self->priv->autostart == TRUE){
-        g_application_hold (G_APPLICATION (instance));
-    }
 
     do_upgrades_once (self);
 }

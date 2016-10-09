@@ -53,6 +53,16 @@ G_DEFINE_TYPE (EggSMClient, egg_sm_client, G_TYPE_OBJECT)
 static EggSMClient *global_client;
 static EggSMClientMode global_client_mode = EGG_SM_CLIENT_MODE_NORMAL;
 
+#if ENABLE_LIBUNIQUE == (0)
+static gboolean
+running_in_mate (void)
+{
+    return (g_strcmp0 (g_getenv ("XDG_CURRENT_DESKTOP"), "MATE") == 0)
+        || (g_strcmp0 (g_getenv ("XDG_SESSION_DESKTOP"), "MATE") == 0)
+        || (g_strcmp0 (g_getenv ("DESKTOP_SESSION"), "MATE") == 0);
+}
+#endif
+
 static void
 egg_sm_client_init (EggSMClient *client)
 {
@@ -351,6 +361,16 @@ egg_sm_client_get (void)
          */
         if (!global_client)
             global_client = g_object_new (EGG_TYPE_SM_CLIENT, NULL);
+        /*FIXME
+        /*Disabling when root/not in MATE in GtkApplication builds
+        /*as egg_sm_client_set_mode must be called prior to start of main loop
+        /*to stop caja restart but this is diffcult in GtkApplication
+        */
+#if ENABLE_LIBUNIQUE == (0)
+		if (geteuid () == 0 || !running_in_mate ()){
+        global_client = g_object_new (EGG_TYPE_SM_CLIENT, NULL);
+        }
+#endif
     }
 
     return global_client;
