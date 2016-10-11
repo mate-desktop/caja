@@ -2323,31 +2323,9 @@ static void
 eel_labeled_image_accessible_initialize (AtkObject *accessible,
         gpointer   widget)
 {
+    a11y_parent_class->initialize (accessible, widget);
 #if GTK_CHECK_VERSION(3, 0, 0)
-    a11y_parent_class->initialize (accessible, widget);
-
-    if (GTK_IS_CHECK_BUTTON (widget))
-    {
-        atk_object_set_role (accessible, ATK_ROLE_CHECK_BOX);
-    }
-    else if (GTK_IS_RADIO_BUTTON (widget))
-    {
-        atk_object_set_role (accessible, ATK_ROLE_RADIO_BUTTON);
-    }
-    else if (GTK_IS_TOGGLE_BUTTON (widget))
-    {
-        atk_object_set_role (accessible, ATK_ROLE_TOGGLE_BUTTON);
-    }
-    else if (GTK_IS_BUTTON (widget))
-    {
-        atk_object_set_role (accessible, ATK_ROLE_PUSH_BUTTON);
-    }
-    else
-    {
-        atk_object_set_role (accessible, ATK_ROLE_IMAGE);
-    }
-#else
-    a11y_parent_class->initialize (accessible, widget);
+    atk_object_set_role (accessible, ATK_ROLE_IMAGE);
 #endif
 }
 
@@ -2540,11 +2518,7 @@ eel_labeled_image_get_accessible (GtkWidget *widget)
 static void
 eel_labeled_image_button_class_init (GtkWidgetClass *klass)
 {
-#if GTK_CHECK_VERSION(3, 0, 0)
-    gtk_widget_class_set_accessible_type (GTK_WIDGET_CLASS (klass),
-                                          eel_labeled_image_accessible_get_type ());
-
-#else
+#if !GTK_CHECK_VERSION(3, 0, 0)
     klass->get_accessible = eel_labeled_image_get_accessible;
 #endif
 }
