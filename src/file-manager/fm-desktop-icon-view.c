@@ -124,6 +124,7 @@ icon_container_set_workarea (CajaIconContainer *icon_container,
     int left, right, top, bottom;
     int screen_width, screen_height;
     int i;
+    GdkRectangle primary_monitor_geometry;
 
     left = right = top = bottom = 0;
 
@@ -146,8 +147,24 @@ icon_container_set_workarea (CajaIconContainer *icon_container,
         bottom = MAX (bottom, screen_height - height - y);
     }
 
-    caja_icon_container_set_margins (icon_container,
-                                     left, right, top, bottom);
+    /* Use only the primary monitor for desktop icons
+     * (Assumes that the primary monitor is contained in screen) */
+    /* TODO: use gdk_screen_get_monitor_workarea in GTK+3 */
+    gdk_screen_get_monitor_geometry(screen,
+                                    gdk_screen_get_primary_monitor(screen),
+                                    &primary_monitor_geometry);
+    left = MAX (left, primary_monitor_geometry.x);
+    right = MAX (right,
+                 gdk_screen_get_width(screen)
+                 - primary_monitor_geometry.width
+                 - primary_monitor_geometry.x);
+    top = MAX (top, primary_monitor_geometry.y);
+    bottom = MAX (bottom,
+                  gdk_screen_get_height(screen)
+                  - primary_monitor_geometry.height
+                  - primary_monitor_geometry.y);
+
+    caja_icon_container_set_margins (icon_container, left, right, top, bottom);
 }
 
 static void
