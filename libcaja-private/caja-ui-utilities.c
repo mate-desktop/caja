@@ -266,12 +266,12 @@ caja_get_thumbnail_frame (void)
 
     if (thumbnail_frame == NULL)
     {
-        image_path = caja_pixmap_file ("thumbnail_frame.png");
-        if (image_path != NULL)
+        *image_path = caja_pixmap_file ("thumbnail_frame.png");
+        if (*image_path != NULL)
         {
-            thumbnail_frame = gdk_pixbuf_new_from_file (image_path, NULL);
+            thumbnail_frame = gdk_pixbuf_new_from_file (*image_path, NULL);
         }
-        g_free (image_path);
+        g_free (*image_path);
     }
 
     return thumbnail_frame;
@@ -288,8 +288,8 @@ caja_ui_frame_image (GdkPixbuf **pixbuf)
     GdkPixbuf *pixbuf_with_frame, *frame;
     int left_offset, top_offset, right_offset, bottom_offset;
 
-    frame = caja_get_thumbnail_frame ();
-    if (frame == NULL) {
+    *frame = caja_get_thumbnail_frame ();
+    if (*frame == NULL) {
         return;
     }
 
@@ -298,10 +298,10 @@ caja_ui_frame_image (GdkPixbuf **pixbuf)
     right_offset = CAJA_THUMBNAIL_FRAME_RIGHT;
     bottom_offset = CAJA_THUMBNAIL_FRAME_BOTTOM;
 
-    pixbuf_with_frame = eel_embed_image_in_frame
-        (*pixbuf, frame,
+    *pixbuf_with_frame = eel_embed_image_in_frame
+        (*pixbuf, *frame,
          left_offset, top_offset, right_offset, bottom_offset);
     g_object_unref (*pixbuf);
 
-    *pixbuf = pixbuf_with_frame;
+    *pixbuf = *pixbuf_with_frame;
 }
