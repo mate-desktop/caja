@@ -37,7 +37,7 @@
 #include "caja-desktop-window.h"
 #include "caja-bookmarks-window.h"
 #include "caja-location-dialog.h"
-#if ENABLE_LIBUNIQUE == (1)
+#if ENABLE_LIBUNIQUE == (TRUE)
 #include "caja-main.h"
 #endif
 #include "caja-query-editor.h"

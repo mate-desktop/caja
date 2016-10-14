@@ -32,7 +32,7 @@
 #include "caja-application.h"
 #include "caja-bookmarks-window.h"
 #include "caja-information-panel.h"
-#if ENABLE_LIBUNIQUE == (1)
+#if ENABLE_LIBUNIQUE == (TRUE)
 #include "caja-main.h"
 #endif
 #include "caja-window-manage-views.h"
@@ -238,7 +238,7 @@ caja_window_init (CajaWindow *window)
     /* Register to menu provider extension signal managing menu updates */
     g_signal_connect_object (caja_signaller_get_current (), "popup_menu_changed",
                              G_CALLBACK (caja_window_load_extension_menus), window, G_CONNECT_SWAPPED);
-#if ENABLE_LIBUNIQUE == (1)
+#if ENABLE_LIBUNIQUE == (TRUE)
 /* Keep the main event loop alive as long as the window exists */
 #if GTK_CHECK_VERSION(3, 0, 0)
     /* FIXME: port to GtkApplication with GTK3 */
@@ -1907,7 +1907,7 @@ caja_forget_history (void)
     CajaWindowSlot *slot;
     CajaNavigationWindowSlot *navigation_slot;
     GList *window_node, *l, *walk;
-#if ENABLE_LIBUNIQUE == (0)
+#if ENABLE_LIBUNIQUE == (FALSE)
     CajaApplication *app;
 
     app = CAJA_APPLICATION (g_application_get_default ());
@@ -1916,7 +1916,7 @@ caja_forget_history (void)
      * each window's current location bookmark from history list
      * so it doesn't get clobbered.
      */
-#if ENABLE_LIBUNIQUE == (0)
+#if ENABLE_LIBUNIQUE == (FALSE)
     for (window_node = gtk_application_get_windows (GTK_APPLICATION (app));
 #else
     for (window_node = caja_application_get_window_list ();
@@ -1963,7 +1963,7 @@ caja_forget_history (void)
     free_history_list ();
 
     /* Re-add each window's current location to history list. */
-#if ENABLE_LIBUNIQUE == (0)
+#if ENABLE_LIBUNIQUE == (FALSE)
     for (window_node = gtk_application_get_windows (GTK_APPLICATION (app));
 #else
     for (window_node = caja_application_get_window_list ();

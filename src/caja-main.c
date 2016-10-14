@@ -29,7 +29,7 @@
 
 #include <config.h>
 #include "caja-main.h"
-#if ENABLE_LIBUNIQUE == (1)
+#if ENABLE_LIBUNIQUE == (TRUE)
 #include "caja-application.h"
 #include "caja-self-check-functions.h"
 #endif
@@ -39,7 +39,7 @@
 #include <eel/eel-debug.h>
 #include <eel/eel-glib-extensions.h>
 #include <eel/eel-self-checks.h>
-#if ENABLE_LIBUNIQUE == (1)
+#if ENABLE_LIBUNIQUE == (TRUE)
 #include <libegg/eggsmclient.h>
 #endif
 #include <libegg/eggdesktopfile.h>
@@ -49,7 +49,7 @@
 #include <gio/gdesktopappinfo.h>
 #include <libcaja-private/caja-debug-log.h>
 #include <libcaja-private/caja-global-preferences.h>
-#if ENABLE_LIBUNIQUE == (1)
+#if ENABLE_LIBUNIQUE == (TRUE)
 #include <libcaja-private/caja-lib-self-check-functions.h>
 #endif
 #include <libcaja-private/caja-icon-names.h>
@@ -68,7 +68,7 @@
 	#include <exempi/xmp.h>
 #endif
 
-#if ENABLE_LIBUNIQUE == (1)
+#if ENABLE_LIBUNIQUE == (TRUE)
 /* Keeps track of everyone who wants the main event loop kept active */
 static GSList* event_loop_registrants;
 
@@ -334,7 +334,7 @@ running_as_root (void)
 {
     return geteuid () == 0;
 }
-#if ENABLE_LIBUNIQUE == (0)
+#if ENABLE_LIBUNIQUE == (FALSE)
 int
 main (int argc, char *argv[])
 {

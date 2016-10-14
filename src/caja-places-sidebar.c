@@ -1895,7 +1895,7 @@ volume_mounted_cb (GVolume *volume,
 
                 cur = CAJA_WINDOW (sidebar->window);
                 new = caja_application_create_navigation_window (cur->application,
-#if ENABLE_LIBUNIQUE == (1)
+#if ENABLE_LIBUNIQUE == (TRUE)
                         NULL,
 #endif
                         gtk_window_get_screen (GTK_WINDOW (cur)));
@@ -1980,7 +1980,7 @@ open_selected_bookmark (CajaPlacesSidebar   *sidebar,
 
             cur = CAJA_WINDOW (sidebar->window);
             new = caja_application_create_navigation_window (cur->application,
-#if ENABLE_LIBUNIQUE == (1)
+#if ENABLE_LIBUNIQUE == (TRUE)
                     NULL,
 #endif
                     gtk_window_get_screen (GTK_WINDOW (cur)));

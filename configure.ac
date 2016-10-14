@@ -240,10 +240,12 @@ AC_ARG_ENABLE(libunique,
 msg_libunique=no
 if test "x$enable_libunique" != "xno"; then
     msg_libunique=yes
-    AM_CONDITIONAL([ENABLE_LIBUNIQUE], = "1")
+    AM_CONDITIONAL([ENABLE_LIBUNIQUE], true)
+    AC_DEFINE(ENABLE_LIBUNIQUE, 1, [define to enable libunique])
 else
     msg_libunique=no
-    AM_CONDITIONAL([ENABLE_LIBUNIQUE], = "0")
+    AM_CONDITIONAL([ENABLE_LIBUNIQUE], false)
+    AC_DEFINE(ENABLE_LIBUNIQUE, 0, [define to disable libunique])
 fi
 
 dnl =====
