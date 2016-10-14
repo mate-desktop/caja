@@ -27,6 +27,7 @@
 #ifndef CAJA_APPLICATION_H
 #define CAJA_APPLICATION_H
 
+#include <config.h>
 #include <gdk/gdk.h>
 #include <gio/gio.h>
 #include <gtk/gtk.h>
