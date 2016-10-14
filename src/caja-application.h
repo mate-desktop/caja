@@ -27,10 +27,11 @@
 #ifndef CAJA_APPLICATION_H
 #define CAJA_APPLICATION_H
 
+#include <config.h>
 #include <gdk/gdk.h>
 #include <gio/gio.h>
 #include <gtk/gtk.h>
-#if ENABLE_LIBUNIQUE == (1)
+#if ENABLE_LIBUNIQUE == (TRUE)
 #include <unique/unique.h>
 #endif
 #include <libegg/eggsmclient.h>
@@ -60,7 +61,7 @@ typedef struct CajaWindow CajaWindow;
 typedef struct _CajaSpatialWindow CajaSpatialWindow;
 #endif
 
-#if ENABLE_LIBUNIQUE == (0)
+#if ENABLE_LIBUNIQUE == (FALSE)
 typedef struct _CajaApplicationPriv CajaApplicationPriv;
 #else
 typedef struct CajaShell CajaShell;
@@ -68,7 +69,7 @@ typedef struct CajaShell CajaShell;
 
 typedef struct
 {
-#if ENABLE_LIBUNIQUE == (0)
+#if ENABLE_LIBUNIQUE == (FALSE)
     GtkApplication parent;
     CajaApplicationPriv *priv;
 #else
@@ -85,7 +86,7 @@ typedef struct
 } CajaApplication;
 
 
-#if ENABLE_LIBUNIQUE == (0)
+#if ENABLE_LIBUNIQUE == (FALSE)
 typedef struct
 {
 	GtkApplicationClass parent_class;
@@ -121,18 +122,18 @@ CajaWindow *     caja_application_get_spatial_window     (CajaApplication *appli
         gboolean        *existing);
 
 CajaWindow *     caja_application_create_navigation_window     (CajaApplication *application,
-#if ENABLE_LIBUNIQUE == (1)
+#if ENABLE_LIBUNIQUE == (TRUE)
         const char          *startup_id,
 #endif
         GdkScreen           *screen);
-#if ENABLE_LIBUNIQUE == (0)
+#if ENABLE_LIBUNIQUE == (FALSE)
 void caja_application_close_all_navigation_windows (CajaApplication *self);
 #else
 void caja_application_close_all_navigation_windows (void);
 #endif
 void caja_application_close_parent_windows     (CajaSpatialWindow *window);
 void caja_application_close_all_spatial_windows  (void);
-#if ENABLE_LIBUNIQUE == (1)
+#if ENABLE_LIBUNIQUE == (TRUE)
 void caja_application_open_desktop      (CajaApplication *application);
 void caja_application_close_desktop     (void);
 gboolean caja_application_save_accel_map    (gpointer data);

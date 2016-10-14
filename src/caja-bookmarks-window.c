@@ -595,7 +595,7 @@ open_selected_bookmark (gpointer user_data, GdkScreen *screen)
     } else { /* window that opened bookmarks window has been closed */
         if (parent_is_browser_window || g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_BROWSER)) {
             window = caja_application_create_navigation_window (application,
-#if ENABLE_LIBUNIQUE == (1)
+#if ENABLE_LIBUNIQUE == (TRUE)
                      NULL,
 #endif
                      screen);

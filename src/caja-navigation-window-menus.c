@@ -64,7 +64,7 @@
 static void                  schedule_refresh_go_menu                      (CajaNavigationWindow   *window);
 
 
-#if ENABLE_LIBUNIQUE == (0)
+#if ENABLE_LIBUNIQUE == (FALSE)
 static void
 action_close_all_windows_callback (GtkAction *action,
                                    gpointer user_data)
@@ -622,7 +622,7 @@ action_new_window_callback (GtkAction *action,
     current_window = CAJA_WINDOW (user_data);
     new_window = caja_application_create_navigation_window (
                      current_window->application,
-#if ENABLE_LIBUNIQUE == (1)
+#if ENABLE_LIBUNIQUE == (TRUE)
                      NULL,
 #endif
                      gtk_window_get_screen (GTK_WINDOW (current_window)));
