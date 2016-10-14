@@ -229,7 +229,7 @@ drag_data_received_callback (GtkWidget *widget,
 
         for (i = 1; names[i] != NULL; ++i)
         {
-#if GTK_CHECK_VERSION (3, 0, 0)
+#if ENABLE_LIBUNIQUE == (0)
             new_window = caja_application_create_navigation_window (application, screen);
 #else
             new_window = caja_application_create_navigation_window (application, NULL, screen);
