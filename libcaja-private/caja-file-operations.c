@@ -1780,7 +1780,7 @@ trash_files (CommonJob *job, GList *files, int *files_skipped)
 	     l != NULL && !job_aborted (job);
 	     l = l->next) {
         caja_progress_info_get_ready (job->progress);
-             
+
 		file = l->data;
 
 		error = NULL;
@@ -1968,7 +1968,7 @@ trash_or_delete_internal (GList                  *files,
 
 	/* TODO: special case desktop icon link files ... */
 
-	job = op_job_new (DeleteJob, parent_window, FALSE);
+	job = op_job_new (DeleteJob, parent_window, TRUE);
 	job->files = eel_g_object_list_copy (files);
 	job->try_trash = try_trash;
 	job->user_cancel = FALSE;
@@ -4945,7 +4945,7 @@ common = &job->common;
 	     l != NULL && !job_aborted (common);
 	     l = l->next) {
         caja_progress_info_get_ready (common->progress);
-        
+
 		fallback = l->data;
 		src = fallback->file;
 
@@ -5367,7 +5367,7 @@ link_job (GIOSchedulerJob *io_job,
 	     l != NULL && !job_aborted (common);
 	     l = l->next) {
         caja_progress_info_get_ready (common->progress);
-        
+
 		src = l->data;
 
 		if (i < job->n_icon_positions) {
@@ -5512,7 +5512,7 @@ set_permissions_file (SetPermissionsJob *job,
 	common = (CommonJob *)job;
 
 	caja_progress_info_pulse_progress (common->progress);
-    
+
     caja_progress_info_get_ready (common->progress);
 
 	free_info = FALSE;
@@ -6208,7 +6208,7 @@ delete_trash_file (CommonJob *job,
 	GFileInfo *info;
 	GFile *child;
 	GFileEnumerator *enumerator;
-    
+
     caja_progress_info_get_ready (job->progress);
 
 	if (job_aborted (job)) {
@@ -6354,7 +6354,7 @@ mark_desktop_file_trusted (CommonJob *common,
 
  retry:
     caja_progress_info_get_ready (common->progress);
- 
+
 	error = NULL;
 	if (!g_file_load_contents (file,
 				  cancellable,
