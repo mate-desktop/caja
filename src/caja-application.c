@@ -704,6 +704,8 @@ check_required_directories (CajaApplication *application)
 #if ENABLE_LIBUNIQUE == (0)
         gtk_application_add_window (GTK_APPLICATION (application),
                                     GTK_WINDOW (dialog));
+#elif GTK_CHECK_VERSION (3, 0, 0)
+        caja_main_event_loop_register (GTK_WIDGET (dialog));
 #else
         caja_main_event_loop_register (GTK_OBJECT (dialog));
 #endif
