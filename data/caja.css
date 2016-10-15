@@ -56,11 +56,12 @@
 }
 
 /* remove possible theme settings for borders on scrolledwindow with gtk+-3.20 */
-.caja-desktop-window > widget > box.vertical > box.vertical > box.vertical > scrolledwindow,
-.caja-desktop-window > widget > box.vertical > box.vertical > box.vertical > scrolledwindow.frame,
-.caja-desktop-window > widget > box.vertical > box.vertical > box.vertical > scrolledwindow > widget.view.caja-desktop {
+.caja-desktop-window > grid.vertical > box.vertical > box.vertical > box.vertical > scrolledwindow,
+.caja-desktop-window > grid.vertical > box.vertical > box.vertical > box.vertical > scrolledwindow.frame,
+.caja-desktop-window > grid.vertical > box.vertical > box.vertical > box.vertical > scrolledwindow > widget.view.caja-desktop {
    border-width: 0px;
    border-style: none;
+   border-radius: 0px;
 }
 
 /* Padding in slider buttons causes GTK errors in GTK 3.20 or later */
