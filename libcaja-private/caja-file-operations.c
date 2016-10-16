@@ -913,11 +913,12 @@ f (const char *format, ...) {
 	return res;
 }
 
-#define op_job_new(__type, parent_window, should_start) ((__type *)(init_common (sizeof(__type), parent_window, should_start)))
+#define op_job_new(__type, parent_window, should_start, can_pause) ((__type *)(init_common (sizeof(__type), parent_window, should_start, can_pause)))
 
 static gpointer
 init_common (gsize job_size,
-	     GtkWindow *parent_window, gboolean should_start)
+	     GtkWindow *parent_window,
+	     gboolean should_start, gboolean can_pause)
 {
 	CommonJob *common;
 	GdkScreen *screen;
@@ -928,7 +929,7 @@ init_common (gsize job_size,
 		common->parent_window = parent_window;
 		eel_add_weak_pointer (&common->parent_window);
 	}
-	common->progress = caja_progress_info_new (should_start);
+	common->progress = caja_progress_info_new (should_start, can_pause);
 	common->cancellable = caja_progress_info_get_cancellable (common->progress);
 	common->time = g_timer_new ();
 	common->inhibit_cookie = -1;
@@ -1968,7 +1969,7 @@ trash_or_delete_internal (GList                  *files,
 
 	/* TODO: special case desktop icon link files ... */
 
-	job = op_job_new (DeleteJob, parent_window, TRUE);
+	job = op_job_new (DeleteJob, parent_window, TRUE, TRUE);
 	job->files = eel_g_object_list_copy (files);
 	job->try_trash = try_trash;
 	job->user_cancel = FALSE;
@@ -2269,7 +2270,7 @@ caja_file_operations_unmount_mount_full (GtkWindow                      *parent_
 		if (response == GTK_RESPONSE_ACCEPT) {
 			EmptyTrashJob *job;
 
-			job = op_job_new (EmptyTrashJob, parent_window, TRUE);
+			job = op_job_new (EmptyTrashJob, parent_window, TRUE, FALSE);
 			job->should_confirm = FALSE;
 			job->trash_dirs = get_trash_dirs_for_mount (mount);
 			job->done_callback = (CajaOpCallback)do_unmount;
@@ -3412,7 +3413,7 @@ copy_move_directory (CopyMoveJob *copy_job,
 		     gboolean *skipped_file,
 		     gboolean readonly_source_fs)
 {
-	GFileInfo *info;
+	GFileInfo *info, *nextinfo;
 	GError *error;
 	GFile *src_file;
 	GFileEnumerator *enumerator;
@@ -3464,16 +3465,28 @@ copy_move_directory (CopyMoveJob *copy_job,
 	if (enumerator) {
 		error = NULL;
 
+		nextinfo = g_file_enumerator_next_file (enumerator, job->cancellable, skip_error?NULL:&error);
 		while (!job_aborted (job) &&
-		       (info = g_file_enumerator_next_file (enumerator, job->cancellable, skip_error?NULL:&error)) != NULL) {
+		       (info = nextinfo) != NULL) {
+			caja_progress_info_get_ready (job->progress);
+
+			nextinfo = g_file_enumerator_next_file (enumerator, job->cancellable, skip_error?NULL:&error);
 			src_file = g_file_get_child (src,
 						     g_file_info_get_name (info));
+
+			if ((!nextinfo) && (!is_dir(src_file)))
+				/* this is the last file, cannot pause anymore */
+				caja_progress_info_disable_pause (job->progress);
+
 			copy_move_file (copy_job, src_file, *dest, same_fs, FALSE, &dest_fs_type,
 					source_info, transfer_info, NULL, NULL, FALSE, &local_skipped_file,
 					readonly_source_fs);
 			g_object_unref (src_file);
 			g_object_unref (info);
 		}
+		if (nextinfo)
+			g_object_unref (nextinfo);
+
 		g_file_enumerator_close (enumerator, job->cancellable, NULL);
 		g_object_unref (enumerator);
 
@@ -4084,8 +4097,6 @@ copy_move_file (CopyMoveJob *copy_job,
 
 
  retry:
-    caja_progress_info_get_ready (job->progress);
-
 	error = NULL;
 	flags = G_FILE_COPY_NOFOLLOW_SYMLINKS;
 	if (overwrite) {
@@ -4414,7 +4425,13 @@ copy_files (CopyMoveJob *job,
 	for (l = job->files;
 	     l != NULL && !job_aborted (common);
 	     l = l->next) {
+		caja_progress_info_get_ready (common->progress);
+
 		src = l->data;
+
+		if ((!l->next) && (!is_dir(src)))
+			/* this is the last file, cannot pause anymore */
+			caja_progress_info_disable_pause (common->progress);
 
 		if (i < job->n_icon_positions) {
 			point = &job->icon_positions[i];
@@ -4542,6 +4559,24 @@ copy_job (GIOSchedulerJob *io_job,
 	return FALSE;
 }
 
+static gboolean
+contains_multiple_items (GList *files)
+{
+	GFile *first;
+
+	if (g_list_length (files) > 1) {
+		return TRUE;
+	} else {
+		if (files) {
+			first = files->data;
+			if (is_dir (first))
+				return TRUE;
+		}
+	}
+
+	return FALSE;
+}
+
 void
 caja_file_operations_copy (GList *files,
 			       GArray *relative_item_points,
@@ -4552,7 +4587,7 @@ caja_file_operations_copy (GList *files,
 {
 	CopyMoveJob *job;
 
-	job = op_job_new (CopyMoveJob, parent_window, FALSE);
+	job = op_job_new (CopyMoveJob, parent_window, FALSE,  contains_multiple_items (files));
 	job->desktop_location = caja_get_desktop_location ();
 	job->done_callback = done_callback;
 	job->done_callback_data = done_callback_data;
@@ -4885,6 +4920,7 @@ move_files_prepare (CopyMoveJob *job,
 
 	total = left = g_list_length (job->files);
 
+	caja_progress_info_get_ready (common->progress);
 	report_move_progress (job, total, left);
 
 	i = 0;
@@ -4892,6 +4928,10 @@ move_files_prepare (CopyMoveJob *job,
 	     l != NULL && !job_aborted (common);
 	     l = l->next) {
 		src = l->data;
+
+		if ((!l->next) && (!(*fallbacks)) && (!is_dir(src)))
+			/* this is the last file and there are no fallbacks to process, cannot pause anymore */
+			caja_progress_info_disable_pause (common->progress);
 
 		if (i < job->n_icon_positions) {
 			point = &job->icon_positions[i];
@@ -4948,6 +4988,10 @@ common = &job->common;
 
 		fallback = l->data;
 		src = fallback->file;
+
+		if ((!l->next) && (!is_dir(src)))
+			/* this is the last file, cannot pause anymore */
+			caja_progress_info_disable_pause (common->progress);
 
 		if (fallback->has_position) {
 			point = &fallback->position;
@@ -5086,7 +5130,7 @@ caja_file_operations_move (GList *files,
 {
 	CopyMoveJob *job;
 
-	job = op_job_new (CopyMoveJob, parent_window, FALSE);
+	job = op_job_new (CopyMoveJob, parent_window, FALSE,  contains_multiple_items (files));
 	job->is_move = TRUE;
 	job->done_callback = done_callback;
 	job->done_callback_data = done_callback_data;
@@ -5406,7 +5450,7 @@ caja_file_operations_link (GList *files,
 {
 	CopyMoveJob *job;
 
-	job = op_job_new (CopyMoveJob, parent_window, TRUE);
+	job = op_job_new (CopyMoveJob, parent_window, TRUE, FALSE);
 	job->done_callback = done_callback;
 	job->done_callback_data = done_callback_data;
 	job->files = eel_g_object_list_copy (files);
@@ -5447,7 +5491,7 @@ caja_file_operations_duplicate (GList *files,
 {
 	CopyMoveJob *job;
 
-	job = op_job_new (CopyMoveJob, parent_window, FALSE);
+	job = op_job_new (CopyMoveJob, parent_window, FALSE, contains_multiple_items (files));
 	job->done_callback = done_callback;
 	job->done_callback_data = done_callback_data;
 	job->files = eel_g_object_list_copy (files);
@@ -5619,7 +5663,7 @@ caja_file_set_permissions_recursive (const char *directory,
 {
 	SetPermissionsJob *job;
 
-	job = op_job_new (SetPermissionsJob, NULL, TRUE);
+	job = op_job_new (SetPermissionsJob, NULL, TRUE, TRUE);
 	job->file = g_file_new_for_uri (directory);
 	job->file_permissions = file_permissions;
 	job->file_mask = file_mask;
@@ -6087,7 +6131,7 @@ caja_file_operations_new_folder (GtkWidget *parent_view,
 		parent_window = (GtkWindow *)gtk_widget_get_ancestor (parent_view, GTK_TYPE_WINDOW);
 	}
 
-	job = op_job_new (CreateJob, parent_window, TRUE);
+	job = op_job_new (CreateJob, parent_window, TRUE, FALSE);
 	job->done_callback = done_callback;
 	job->done_callback_data = done_callback_data;
 	job->dest_dir = g_file_new_for_uri (parent_dir);
@@ -6127,7 +6171,7 @@ caja_file_operations_new_file_from_template (GtkWidget *parent_view,
 		parent_window = (GtkWindow *)gtk_widget_get_ancestor (parent_view, GTK_TYPE_WINDOW);
 	}
 
-	job = op_job_new (CreateJob, parent_window, TRUE);
+	job = op_job_new (CreateJob, parent_window, TRUE, FALSE);
 	job->done_callback = done_callback;
 	job->done_callback_data = done_callback_data;
 	job->dest_dir = g_file_new_for_uri (parent_dir);
@@ -6172,7 +6216,7 @@ caja_file_operations_new_file (GtkWidget *parent_view,
 		parent_window = (GtkWindow *)gtk_widget_get_ancestor (parent_view, GTK_TYPE_WINDOW);
 	}
 
-	job = op_job_new (CreateJob, parent_window, TRUE);
+	job = op_job_new (CreateJob, parent_window, TRUE, FALSE);
 	job->done_callback = done_callback;
 	job->done_callback_data = done_callback_data;
 	job->dest_dir = g_file_new_for_uri (parent_dir);
@@ -6308,7 +6352,7 @@ caja_file_operations_empty_trash (GtkWidget *parent_view)
 		parent_window = (GtkWindow *)gtk_widget_get_ancestor (parent_view, GTK_TYPE_WINDOW);
 	}
 
-	job = op_job_new (EmptyTrashJob, parent_window, TRUE);
+	job = op_job_new (EmptyTrashJob, parent_window, TRUE, TRUE);
 	job->trash_dirs = g_list_prepend (job->trash_dirs,
 					  g_file_new_for_uri ("trash:"));
 	job->should_confirm = TRUE;
@@ -6534,7 +6578,7 @@ caja_file_mark_desktop_file_trusted (GFile *file,
 {
 	MarkTrustedJob *job;
 
-	job = op_job_new (MarkTrustedJob, parent_window, TRUE);
+	job = op_job_new (MarkTrustedJob, parent_window, TRUE, FALSE);
 	job->file = g_object_ref (file);
 	job->interactive = interactive;
 	job->done_callback = done_callback;
