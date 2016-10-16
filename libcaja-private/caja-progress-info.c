@@ -75,6 +75,7 @@ struct _CajaProgressInfo
     gboolean finished;
     gboolean paused;
 
+    gboolean can_pause;
     gboolean waiting;
     GCond waiting_c;
 
@@ -399,16 +400,22 @@ get_first_queued_widget ()
 }
 
 static void
-start_button_update_view (GtkWidget *button, ProgressWidgetState state)
+start_button_update_view (ProgressWidgetData *data)
 {
     GtkWidget *toapply, *curimage;
+    GtkWidget *button = data->btstart;
+    ProgressWidgetState state = data->state;
+    gboolean as_pause;
 
-    if (state == STATE_RUNNING || state == STATE_QUEUING)
+    if (state == STATE_RUNNING || state == STATE_QUEUING) {
         toapply = g_object_get_data (G_OBJECT(button),
                                     STARTBT_DATA_IMAGE_PAUSE);
-    else
+        as_pause = TRUE;
+    } else {
         toapply = g_object_get_data (G_OBJECT(button),
                                     STARTBT_DATA_IMAGE_RESUME);
+        as_pause = FALSE;
+    }
 
     curimage = g_object_get_data (G_OBJECT(button), STARTBT_DATA_CURIMAGE);
     if (curimage != toapply) {
@@ -419,12 +426,19 @@ start_button_update_view (GtkWidget *button, ProgressWidgetState state)
         gtk_widget_show (toapply);
         g_object_set_data (G_OBJECT(button), STARTBT_DATA_CURIMAGE, toapply);
     }
+
+    if (as_pause && !data->info->can_pause)
+        gtk_widget_set_sensitive (button, FALSE);
 }
 
 static void
-queue_button_update_view (GtkWidget *button, ProgressWidgetState state)
+queue_button_update_view (ProgressWidgetData *data)
 {
-    if (state == STATE_QUEUING || state == STATE_QUEUED)
+    GtkWidget *button = data->btqueue;
+    ProgressWidgetState state = data->state;
+
+    if ( (!data->info->can_pause) ||
+         (state == STATE_QUEUING || state == STATE_QUEUED) )
         gtk_widget_set_sensitive (button, FALSE);
     else
         gtk_widget_set_sensitive (button, TRUE);
@@ -543,8 +557,8 @@ widget_state_transit_to (ProgressWidgetData *data,
         widget_reposition_as_running (data->widget);
     }
 
-    start_button_update_view (data->btstart, data->state);
-    queue_button_update_view (data->btqueue, data->state);
+    start_button_update_view (data);
+    queue_button_update_view (data);
     update_data (data);
 }
 
@@ -585,6 +599,7 @@ static void
 update_status_icon_and_window (void)
 {
     char *tooltip;
+    gboolean toshow, window_shown;
 
     tooltip = g_strdup_printf (ngettext ("%'d file operation active",
                                          "%'d file operations active",
@@ -593,12 +608,15 @@ update_status_icon_and_window (void)
     gtk_status_icon_set_tooltip_text (status_icon, tooltip);
     g_free (tooltip);
 
-    if (n_progress_ops == 0)
+    toshow = (n_progress_ops > 0);
+    window_shown = gtk_status_icon_get_visible (status_icon);
+
+    if (!toshow && window_shown)
     {
         gtk_status_icon_set_visible (status_icon, FALSE);
         gtk_widget_hide (get_progress_window ());
     }
-    else
+    else if (toshow && !window_shown)
     {
         gtk_widget_show_all (get_progress_window ());
         gtk_status_icon_set_visible (status_icon, TRUE);
@@ -617,12 +635,31 @@ op_finished (ProgressWidgetData *data)
     update_status_icon_and_window ();
 }
 
+static int
+do_disable_pause (CajaProgressInfo *info)
+{
+    info->can_pause = FALSE;
+
+    start_button_update_view (info->widget);
+    queue_button_update_view (info->widget);
+    return G_SOURCE_REMOVE;
+}
+
+void
+caja_progress_info_disable_pause (CajaProgressInfo *info)
+{
+    GSource *source = g_idle_source_new ();
+    g_source_set_callback (source, (GSourceFunc)do_disable_pause, info, NULL);
+    g_source_attach (source, NULL);
+}
+
 static void
 cancel_clicked (GtkWidget *button,
                 ProgressWidgetData *data)
 {
     caja_progress_info_cancel (data->info);
     gtk_widget_set_sensitive (button, FALSE);
+    do_disable_pause(data->info);
 }
 
 static void
@@ -731,7 +768,7 @@ start_button_init (ProgressWidgetData *data)
                             resumeImage, unref_callback);
     g_object_set_data (G_OBJECT(button), STARTBT_DATA_CURIMAGE, NULL);
 
-    start_button_update_view (button, data->state);
+    start_button_update_view (data);
 
     g_signal_connect (button, "clicked", (GCallback)start_clicked, data);
     data->btstart = button;
@@ -941,12 +978,13 @@ caja_progress_info_init (CajaProgressInfo *info)
 }
 
 CajaProgressInfo *
-caja_progress_info_new (gboolean should_start)
+caja_progress_info_new (gboolean should_start, gboolean can_pause)
 {
     CajaProgressInfo *info;
 
     info = g_object_new (CAJA_TYPE_PROGRESS_INFO, NULL);
     info->waiting = !should_start;
+    info->can_pause = can_pause;
     return info;
 }
 
