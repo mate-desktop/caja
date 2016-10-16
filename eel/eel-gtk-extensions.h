@@ -63,7 +63,12 @@ GtkWidget *           eel_gtk_menu_tool_button_get_button             (GtkMenuTo
 
 /* GtkLabel */
 void                  eel_gtk_label_make_bold                         (GtkLabel             *label);
-
+#if !GTK_CHECK_VERSION (3, 0, 0)
+/* GtkAdjustment */
+void                  eel_gtk_adjustment_set_value                    (GtkAdjustment        *adjustment,
+        float                 value);
+void                  eel_gtk_adjustment_clamp_value                  (GtkAdjustment        *adjustment);
+#endif
 /* GtkTreeView */
 void                  eel_gtk_tree_view_set_activate_on_single_click  (GtkTreeView               *tree_view,
         gboolean                   should_activate);
