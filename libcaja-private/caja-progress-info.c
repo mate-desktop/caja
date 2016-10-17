@@ -746,6 +746,7 @@ start_button_init (ProgressWidgetData *data)
 {
     GtkWidget *pauseImage, *resumeImage;
     GtkWidget *button = gtk_button_new ();
+    data->btstart = button;
 
 #if GTK_CHECK_VERSION (3, 10, 0)
     pauseImage = gtk_image_new_from_icon_name (
@@ -771,7 +772,6 @@ start_button_init (ProgressWidgetData *data)
     start_button_update_view (data);
 
     g_signal_connect (button, "clicked", (GCallback)start_clicked, data);
-    data->btstart = button;
 }
 
 static void
@@ -780,6 +780,7 @@ queue_button_init (ProgressWidgetData *data)
     GtkWidget *button, *image;
 
     button = gtk_button_new ();
+    data->btqueue = button;
 
 #if GTK_CHECK_VERSION (3, 10, 0)
     image = gtk_image_new_from_icon_name ("undo", GTK_ICON_SIZE_BUTTON);
@@ -790,7 +791,6 @@ queue_button_init (ProgressWidgetData *data)
     gtk_container_add (GTK_CONTAINER (button), image);
 
     g_signal_connect (button, "clicked", (GCallback)queue_clicked, data);
-    data->btqueue = button;
 }
 
 static GtkWidget *

@@ -1969,7 +1969,7 @@ trash_or_delete_internal (GList                  *files,
 
 	/* TODO: special case desktop icon link files ... */
 
-	job = op_job_new (DeleteJob, parent_window, TRUE, TRUE);
+	job = op_job_new (DeleteJob, parent_window, TRUE, FALSE);
 	job->files = eel_g_object_list_copy (files);
 	job->try_trash = try_trash;
 	job->user_cancel = FALSE;
@@ -3298,7 +3298,8 @@ static void copy_move_file (CopyMoveJob *job,
 			    GdkPoint *point,
 			    gboolean overwrite,
 			    gboolean *skipped_file,
-			    gboolean readonly_source_fs);
+			    gboolean readonly_source_fs,
+			    gboolean last_item);
 
 typedef enum {
 	CREATE_DEST_DIR_RETRY,
@@ -3411,7 +3412,8 @@ copy_move_directory (CopyMoveJob *copy_job,
 		     TransferInfo *transfer_info,
 		     GHashTable *debuting_files,
 		     gboolean *skipped_file,
-		     gboolean readonly_source_fs)
+		     gboolean readonly_source_fs,
+		     gboolean last_item_above)
 {
 	GFileInfo *info, *nextinfo;
 	GError *error;
@@ -3424,6 +3426,7 @@ copy_move_directory (CopyMoveJob *copy_job,
 	gboolean local_skipped_file;
 	CommonJob *job;
 	GFileCopyFlags flags;
+	gboolean last_item;
 
 	job = (CommonJob *)copy_job;
 
@@ -3474,13 +3477,10 @@ copy_move_directory (CopyMoveJob *copy_job,
 			src_file = g_file_get_child (src,
 						     g_file_info_get_name (info));
 
-			if ((!nextinfo) && (!is_dir(src_file)))
-				/* this is the last file, cannot pause anymore */
-				caja_progress_info_disable_pause (job->progress);
-
+			last_item = (last_item_above) && (!nextinfo);
 			copy_move_file (copy_job, src_file, *dest, same_fs, FALSE, &dest_fs_type,
 					source_info, transfer_info, NULL, NULL, FALSE, &local_skipped_file,
-					readonly_source_fs);
+					readonly_source_fs, last_item);
 			g_object_unref (src_file);
 			g_object_unref (info);
 		}
@@ -3991,7 +3991,8 @@ copy_move_file (CopyMoveJob *copy_job,
 		GdkPoint *position,
 		gboolean overwrite,
 		gboolean *skipped_file,
-		gboolean readonly_source_fs)
+		gboolean readonly_source_fs,
+		gboolean last_item)
 {
 	GFile *dest, *new_dest;
 	GError *error;
@@ -4110,6 +4111,10 @@ copy_move_file (CopyMoveJob *copy_job,
 	pdata.last_size = 0;
 	pdata.source_info = source_info;
 	pdata.transfer_info = transfer_info;
+
+	if (!is_dir(src) && last_item)
+		/* this is the last file for this operation, cannot pause anymore */
+		caja_progress_info_disable_pause (job->progress);
 
 	if (copy_job->is_move) {
 		res = g_file_move (src, dest,
@@ -4332,7 +4337,8 @@ copy_move_file (CopyMoveJob *copy_job,
 					  would_recurse, dest_fs_type,
 					  source_info, transfer_info,
 					  debuting_files, skipped_file,
-					  readonly_source_fs)) {
+					  readonly_source_fs,
+					  last_item)) {
 			/* destination changed, since it was an invalid file name */
 			g_assert (*dest_fs_type != NULL);
 			handled_invalid_filename = TRUE;
@@ -4429,10 +4435,6 @@ copy_files (CopyMoveJob *job,
 
 		src = l->data;
 
-		if ((!l->next) && (!is_dir(src)))
-			/* this is the last file, cannot pause anymore */
-			caja_progress_info_disable_pause (common->progress);
-
 		if (i < job->n_icon_positions) {
 			point = &job->icon_positions[i];
 		} else {
@@ -4453,13 +4455,15 @@ copy_files (CopyMoveJob *job,
 		}
 		if (dest) {
 			skipped_file = FALSE;
+
 			copy_move_file (job, src, dest,
 					same_fs, unique_names,
 					&dest_fs_type,
 					source_info, transfer_info,
 					job->debuting_files,
 					point, FALSE, &skipped_file,
-					readonly_source_fs);
+					readonly_source_fs,
+					!l->next);
 			g_object_unref (dest);
 		}
 		i++;
@@ -4912,6 +4916,7 @@ move_files_prepare (CopyMoveJob *job,
 	GList *l;
 	GFile *src;
 	gboolean same_fs;
+	gboolean last_item;
 	int i;
 	GdkPoint *point;
 	int total, left;
@@ -4929,7 +4934,8 @@ move_files_prepare (CopyMoveJob *job,
 	     l = l->next) {
 		src = l->data;
 
-		if ((!l->next) && (!(*fallbacks)) && (!is_dir(src)))
+		last_item = (!l->next) && (!is_dir(src)) && (!(*fallbacks));
+		if (last_item)
 			/* this is the last file and there are no fallbacks to process, cannot pause anymore */
 			caja_progress_info_disable_pause (common->progress);
 
@@ -4989,10 +4995,6 @@ common = &job->common;
 		fallback = l->data;
 		src = fallback->file;
 
-		if ((!l->next) && (!is_dir(src)))
-			/* this is the last file, cannot pause anymore */
-			caja_progress_info_disable_pause (common->progress);
-
 		if (fallback->has_position) {
 			point = &fallback->position;
 		} else {
@@ -5011,7 +5013,8 @@ common = &job->common;
 				same_fs, FALSE, dest_fs_type,
 				source_info, transfer_info,
 				job->debuting_files,
-				point, fallback->overwrite, &skipped_file, FALSE);
+				point, fallback->overwrite, &skipped_file, FALSE,
+				!l->next);
 		i++;
 	}
 }
@@ -5663,7 +5666,7 @@ caja_file_set_permissions_recursive (const char *directory,
 {
 	SetPermissionsJob *job;
 
-	job = op_job_new (SetPermissionsJob, NULL, TRUE, TRUE);
+	job = op_job_new (SetPermissionsJob, NULL, TRUE, FALSE);
 	job->file = g_file_new_for_uri (directory);
 	job->file_permissions = file_permissions;
 	job->file_mask = file_mask;
@@ -6352,7 +6355,7 @@ caja_file_operations_empty_trash (GtkWidget *parent_view)
 		parent_window = (GtkWindow *)gtk_widget_get_ancestor (parent_view, GTK_TYPE_WINDOW);
 	}
 
-	job = op_job_new (EmptyTrashJob, parent_window, TRUE, TRUE);
+	job = op_job_new (EmptyTrashJob, parent_window, TRUE, FALSE);
 	job->trash_dirs = g_list_prepend (job->trash_dirs,
 					  g_file_new_for_uri ("trash:"));
 	job->should_confirm = TRUE;
