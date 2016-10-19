@@ -2787,7 +2787,7 @@ caja_icon_container_move_icon (CajaIconContainer *container,
                  /* Swap position if they are too close */
                  if (nearest_icon &&
                      abs(nearest_icon->x - x) < SNAP_SIZE_X / 2 &&
-                     abs(nearest_icon->y - y) < SNAP_SIZE_Y / 2 )
+                     abs(nearest_icon->y - y) < 96)
                  {
                        /* resnap position after swap */
                        int orig_x = icon->x, orig_y = icon->y;
