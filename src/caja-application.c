@@ -1028,7 +1028,7 @@ do_upgrades_once (CajaApplication *self)
     if (g_file_test (caja_dir, G_FILE_TEST_IS_DIR)) {
         /* test if we already attempted to migrate first */
         updated = g_build_filename (caja_dir, "DEPRECATED-DIRECTORY", NULL);
-        message = _("Caja 3.0 deprecated this directory and tried migrating "
+        message = _("Caja newer than 1.16 deprecated this directory and tried migrating "
                 "this configuration to ~/.config/caja");
         if (!g_file_test (updated, G_FILE_TEST_EXISTS)) {
             /* rename() works fine if the destination directory is
