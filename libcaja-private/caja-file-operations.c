@@ -55,7 +55,9 @@
 #include <gtk/gtk.h>
 #include <gio/gio.h>
 #include <glib.h>
-
+#if ENABLE_LIBUNIQUE == (FALSE)
+#include <libnotify/notify.h>
+#endif
 #include "caja-file-changes-queue.h"
 #include "caja-file-private.h"
 #include "caja-desktop-icon-file.h"
@@ -192,6 +194,33 @@ typedef struct {
 #define MERGE_ALL _("Merge _All")
 #define COPY_FORCE _("Copy _Anyway")
 
+NotifyNotification *unmount_notify;
+#if ENABLE_LIBUNIQUE == (FALSE)
+void
+caja_application_notification_unmount_show (const gchar *message)
+{
+    gchar **strings;
+    strings = g_strsplit (message, "\n", 0);
+
+    if (unmount_notify == NULL) {
+        unmount_notify =
+                        notify_notification_new (strings[0], strings[1],
+                                                 "media-removable");
+
+        notify_notification_set_hint (unmount_notify,
+                                      "transient", g_variant_new_boolean (TRUE));
+        notify_notification_set_urgency (unmount_notify,
+                                         NOTIFY_URGENCY_CRITICAL);
+    } else {
+        notify_notification_update (unmount_notify,
+                                    strings[0], strings[1],
+                                    "media-removable");
+    }
+
+    notify_notification_show (unmount_notify, NULL);
+    g_strfreev (strings);
+}
+#endif
 static void
 mark_desktop_file_trusted (CommonJob *common,
 			   GCancellable *cancellable,
@@ -2070,7 +2099,9 @@ unmount_mount_callback (GObject *source_object,
 	if (error != NULL) {
 		g_error_free (error);
 	}
-
+#if ENABLE_LIBUNIQUE == (FALSE)
+	caja_application_notification_unmount_show ("It is now safe to remove the drive");
+#endif
 	eel_remove_weak_pointer (&data->parent_window);
 	g_object_unref (data->mount);
 	g_free (data);
@@ -2089,6 +2120,9 @@ do_unmount (UnmountData *data)
 					      NULL,
 					      unmount_mount_callback,
 					      data);
+#if ENABLE_LIBUNIQUE == (FALSE)
+		caja_application_notification_unmount_show ("writing data to the drive-do not unplug");
+#endif
 	} else {
 		g_mount_unmount_with_operation (data->mount,
 						0,
