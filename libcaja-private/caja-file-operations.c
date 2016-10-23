@@ -197,7 +197,7 @@ typedef struct {
 NotifyNotification *unmount_notify;
 #if ENABLE_LIBUNIQUE == (FALSE)
 void
-caja_application_notification_unmount_show (const gchar *message)
+caja_application_notify_unmount_show (const gchar *message)
 {
     gchar **strings;
     strings = g_strsplit (message, "\n", 0);
@@ -2100,7 +2100,7 @@ unmount_mount_callback (GObject *source_object,
 		g_error_free (error);
 	}
 #if ENABLE_LIBUNIQUE == (FALSE)
-	caja_application_notification_unmount_show ("It is now safe to remove the drive");
+	caja_application_notify_unmount_show ("It is now safe to remove the drive");
 #endif
 	eel_remove_weak_pointer (&data->parent_window);
 	g_object_unref (data->mount);
@@ -2121,7 +2121,7 @@ do_unmount (UnmountData *data)
 					      unmount_mount_callback,
 					      data);
 #if ENABLE_LIBUNIQUE == (FALSE)
-		caja_application_notification_unmount_show ("writing data to the drive-do not unplug");
+		caja_application_notify_unmount_show ("writing data to the drive-do not unplug");
 #endif
 	} else {
 		g_mount_unmount_with_operation (data->mount,

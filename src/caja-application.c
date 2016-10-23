@@ -159,35 +159,7 @@ struct _CajaApplicationPriv {
     gboolean force_desktop;
     gboolean autostart;
     gchar *geometry;
-    NotifyNotification *unmount_notify;
 };
-
-void
-caja_application_notify_unmount_show (CajaApplication *application,
-                                          const gchar *message)
-{
-    gchar **strings;
-
-    strings = g_strsplit (message, "\n", 0);
-
-    if (application->priv->unmount_notify == NULL) {
-        application->priv->unmount_notify =
-                        notify_notification_new (strings[0], strings[1],
-                                                 "media-removable");
-
-        notify_notification_set_hint (application->priv->unmount_notify,
-                                      "transient", g_variant_new_boolean (TRUE));
-        notify_notification_set_urgency (application->priv->unmount_notify,
-                                         NOTIFY_URGENCY_CRITICAL);
-    } else {
-        notify_notification_update (application->priv->unmount_notify,
-                                    strings[0], strings[1],
-                                    "media-removable");
-    }
-
-    notify_notification_show (application->priv->unmount_notify, NULL);
-    g_strfreev (strings);
-}
 
 #else
 G_DEFINE_TYPE (CajaApplication, caja_application, G_TYPE_OBJECT);

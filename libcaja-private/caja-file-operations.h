@@ -138,5 +138,6 @@ void caja_file_mark_desktop_file_trusted (GFile           *file,
         CajaOpCallback done_callback,
         gpointer          done_callback_data);
 
+void caja_application_notify_unmount_show (const gchar *message);
 
 #endif /* CAJA_FILE_OPERATIONS_H */

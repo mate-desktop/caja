@@ -2249,7 +2249,7 @@ drive_eject_cb (GObject *source_object,
 #if ENABLE_LIBUNIQUE == (FALSE)
     else {
         CajaApplication *app = CAJA_APPLICATION (g_application_get_default ());
-        caja_application_notify_unmount_show (app, "It is now safe to remove the drive");
+        caja_application_notify_unmount_show ("It is now safe to remove the drive");
     }
 #endif
 }
@@ -2286,7 +2286,7 @@ volume_eject_cb (GObject *source_object,
 #if ENABLE_LIBUNIQUE == (FALSE)
     else {
         CajaApplication *app = CAJA_APPLICATION (g_application_get_default ());
-        caja_application_notify_unmount_show (app, "It is now safe to remove the drive");
+        caja_application_notify_unmount_show ("It is now safe to remove the drive");
     }
 #endif
 }
@@ -2323,7 +2323,7 @@ mount_eject_cb (GObject *source_object,
 #if ENABLE_LIBUNIQUE == (FALSE)
     else {
         CajaApplication *app = CAJA_APPLICATION (g_application_get_default ());
-        caja_application_notify_unmount_show (app, "It is now safe to remove the drive");
+        caja_application_notify_unmount_show ("It is now safe to remove the drive");
     }
 #endif
 }
@@ -2359,7 +2359,7 @@ do_eject (GMount *mount,
     }
 #if ENABLE_LIBUNIQUE == (FALSE)
     CajaApplication *app = CAJA_APPLICATION (g_application_get_default ());
-    caja_application_notify_unmount_show (app, "writing data to the drive-do not unplug");
+    caja_application_notify_unmount_show ("writing data to the drive-do not unplug");
 #endif
     g_object_unref (mount_op);
 }
