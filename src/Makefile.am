@@ -41,6 +41,7 @@ LDADD = \
 	$(EXIF_LIBS) \
 	$(EXEMPI_LIBS) \
 	$(POPT_LIBS) \
+    -lnotify
 	$(NULL)
 
 dbus_freedesktop_built_sources =			\

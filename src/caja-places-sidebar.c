@@ -38,6 +38,9 @@
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
+#if ENABLE_LIBUNIQUE == (FALSE)
+#include <caja-application.h>
+#endif
 #include <libcaja-private/caja-debug-log.h>
 #include <libcaja-private/caja-dnd.h>
 #include <libcaja-private/caja-bookmark.h>
@@ -57,7 +60,9 @@
 #include "caja-bookmark-list.h"
 #include "caja-places-sidebar.h"
 #include "caja-window.h"
-
+#if ENABLE_LIBUNIQUE == (FALSE)
+#include <libnotify/notify.h>
+#endif
 #define EJECT_BUTTON_XPAD 6
 #define ICON_CELL_XPAD 6
 
@@ -2241,6 +2246,12 @@ drive_eject_cb (GObject *source_object,
         }
         g_error_free (error);
     }
+#if ENABLE_LIBUNIQUE == (FALSE)
+    else {
+        CajaApplication *app = CAJA_APPLICATION (g_application_get_default ());
+        caja_application_notify_unmount_show (app, "It is now safe to remove the drive");
+    }
+#endif
 }
 
 static void
@@ -2270,8 +2281,14 @@ volume_eject_cb (GObject *source_object,
                                    NULL);
             g_free (primary);
         }
-        g_error_free (error);
+        g_error_free (error); 
     }
+#if ENABLE_LIBUNIQUE == (FALSE)
+    else {
+        CajaApplication *app = CAJA_APPLICATION (g_application_get_default ());
+        caja_application_notify_unmount_show (app, "It is now safe to remove the drive");
+    }
+#endif
 }
 
 static void
@@ -2303,6 +2320,12 @@ mount_eject_cb (GObject *source_object,
         }
         g_error_free (error);
     }
+#if ENABLE_LIBUNIQUE == (FALSE)
+    else {
+        CajaApplication *app = CAJA_APPLICATION (g_application_get_default ());
+        caja_application_notify_unmount_show (app, "It is now safe to remove the drive");
+    }
+#endif
 }
 
 static void
@@ -2311,9 +2334,11 @@ do_eject (GMount *mount,
           GDrive *drive,
           CajaPlacesSidebar *sidebar)
 {
+
     GMountOperation *mount_op;
 
     mount_op = gtk_mount_operation_new (GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (sidebar))));
+
     if (mount != NULL)
     {
         caja_window_info_set_initiated_unmount (sidebar->window, TRUE);
@@ -2332,6 +2357,10 @@ do_eject (GMount *mount,
         g_drive_eject_with_operation (drive, 0, mount_op, NULL, drive_eject_cb,
                                       g_object_ref (sidebar->window));
     }
+#if ENABLE_LIBUNIQUE == (FALSE)
+    CajaApplication *app = CAJA_APPLICATION (g_application_get_default ());
+    caja_application_notify_unmount_show (app, "writing data to the drive-do not unplug");
+#endif
     g_object_unref (mount_op);
 }
 

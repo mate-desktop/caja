@@ -90,6 +90,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <libnotify/notify.h>
 #else
 enum {
 	COMMAND_0, /* unused: 0 is an invalid command */
@@ -158,7 +159,35 @@ struct _CajaApplicationPriv {
     gboolean force_desktop;
     gboolean autostart;
     gchar *geometry;
+    NotifyNotification *unmount_notify;
 };
+
+void
+caja_application_notify_unmount_show (CajaApplication *application,
+                                          const gchar *message)
+{
+    gchar **strings;
+
+    strings = g_strsplit (message, "\n", 0);
+
+    if (application->priv->unmount_notify == NULL) {
+        application->priv->unmount_notify =
+                        notify_notification_new (strings[0], strings[1],
+                                                 "media-removable");
+
+        notify_notification_set_hint (application->priv->unmount_notify,
+                                      "transient", g_variant_new_boolean (TRUE));
+        notify_notification_set_urgency (application->priv->unmount_notify,
+                                         NOTIFY_URGENCY_CRITICAL);
+    } else {
+        notify_notification_update (application->priv->unmount_notify,
+                                    strings[0], strings[1],
+                                    "media-removable");
+    }
+
+    notify_notification_show (application->priv->unmount_notify, NULL);
+    g_strfreev (strings);
+}
 
 #else
 G_DEFINE_TYPE (CajaApplication, caja_application, G_TYPE_OBJECT);
@@ -597,6 +626,7 @@ caja_application_finalize (GObject *object)
     }
 
     g_free (application->priv->geometry);
+
 #else
     if (application->volume_monitor)
     {
@@ -634,7 +664,9 @@ caja_application_finalize (GObject *object)
 		g_object_unref (application->ss_proxy);
 		application->ss_proxy = NULL;
 	}
-
+#if ENABLE_LIBUNIQUE == (FALSE)
+    notify_uninit ();
+#endif
     G_OBJECT_CLASS (caja_application_parent_class)->finalize (object);
 }
 
@@ -3204,7 +3236,7 @@ caja_application_startup (GApplication *app)
     menu_provider_init_callback ();
     
     /* Initialize the UI handler singleton for file operations */
-    /*notify_init (GETTEXT_PACKAGE);  */
+    notify_init (GETTEXT_PACKAGE);  
 
     /* Watch for unmounts so we can close open windows */
     /* TODO-gio: This should be using the UNMOUNTED feature of GFileMonitor instead */
