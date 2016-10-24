@@ -70,6 +70,7 @@
 #include <eel/eel-stock-dialogs.h>
 #include <gdk/gdkx.h>
 #include <gtk/gtk.h>
+#include <libnotify/notify.h>
 #include <libcaja-private/caja-debug-log.h>
 #include <libcaja-private/caja-file-utilities.h>
 #include <libcaja-private/caja-global-preferences.h>
@@ -90,7 +91,6 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include <libnotify/notify.h>
 #else
 enum {
 	COMMAND_0, /* unused: 0 is an invalid command */
@@ -1458,6 +1458,9 @@ caja_application_startup (CajaApplication *application,
 
         /* Load session info if availible */
         caja_application_load_session (application);
+
+        /* Initialize notifications for eject operations */
+        notify_init (GETTEXT_PACKAGE);
 
         /* load accelerator map, and register save callback */
         accel_map_filename = caja_get_accel_map_file ();
@@ -3207,7 +3210,7 @@ caja_application_startup (GApplication *app)
     /* attach menu-provider module callback */
     menu_provider_init_callback ();
     
-    /* Initialize the UI handler singleton for file operations */
+    /* Initialize notifications for eject operations */
     notify_init (GETTEXT_PACKAGE);  
 
     /* Watch for unmounts so we can close open windows */

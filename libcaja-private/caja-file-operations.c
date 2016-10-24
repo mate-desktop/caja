@@ -55,9 +55,7 @@
 #include <gtk/gtk.h>
 #include <gio/gio.h>
 #include <glib.h>
-#if ENABLE_LIBUNIQUE == (FALSE)
 #include <libnotify/notify.h>
-#endif
 #include "caja-file-changes-queue.h"
 #include "caja-file-private.h"
 #include "caja-desktop-icon-file.h"
@@ -195,7 +193,7 @@ typedef struct {
 #define COPY_FORCE _("Copy _Anyway")
 
 NotifyNotification *unmount_notify;
-#if ENABLE_LIBUNIQUE == (FALSE)
+
 void
 caja_application_notify_unmount_show (const gchar *message)
 {
@@ -220,7 +218,7 @@ caja_application_notify_unmount_show (const gchar *message)
     notify_notification_show (unmount_notify, NULL);
     g_strfreev (strings);
 }
-#endif
+
 static void
 mark_desktop_file_trusted (CommonJob *common,
 			   GCancellable *cancellable,
@@ -2099,9 +2097,9 @@ unmount_mount_callback (GObject *source_object,
 	if (error != NULL) {
 		g_error_free (error);
 	}
-#if ENABLE_LIBUNIQUE == (FALSE)
+
 	caja_application_notify_unmount_show ("It is now safe to remove the drive");
-#endif
+
 	eel_remove_weak_pointer (&data->parent_window);
 	g_object_unref (data->mount);
 	g_free (data);
@@ -2120,9 +2118,9 @@ do_unmount (UnmountData *data)
 					      NULL,
 					      unmount_mount_callback,
 					      data);
-#if ENABLE_LIBUNIQUE == (FALSE)
+
 		caja_application_notify_unmount_show ("writing data to the drive-do not unplug");
-#endif
+
 	} else {
 		g_mount_unmount_with_operation (data->mount,
 						0,
