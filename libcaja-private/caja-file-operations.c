@@ -200,6 +200,8 @@ caja_application_notify_unmount_show (const gchar *message)
     gchar **strings;
     strings = g_strsplit (message, "\n", 0);
 
+    if (!g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SHOW_NOTIFICATIONS)) return;
+
     if (unmount_notify == NULL) {
         unmount_notify =
                         notify_notification_new (strings[0], strings[1],

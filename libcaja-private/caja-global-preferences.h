@@ -59,6 +59,7 @@ G_BEGIN_DECLS
 
 /* Desktop options */
 #define CAJA_PREFERENCES_DESKTOP_IS_HOME_DIR		"desktop-is-home-dir"
+#define CAJA_PREFERENCES_SHOW_NOTIFICATIONS             "show-notifications"
 
 /* Display  */
 #define CAJA_PREFERENCES_SHOW_HIDDEN_FILES  		"show-hidden-files"
