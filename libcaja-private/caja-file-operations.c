@@ -2073,6 +2073,7 @@ unmount_mount_callback (GObject *source_object,
 	if (data->eject) {
 		unmounted = g_mount_eject_with_operation_finish (G_MOUNT (source_object),
 								 res, &error);
+                caja_application_notify_unmount_show ("It is now safe to remove the drive");
 	} else {
 		unmounted = g_mount_unmount_with_operation_finish (G_MOUNT (source_object),
 								   res, &error);
@@ -2099,8 +2100,6 @@ unmount_mount_callback (GObject *source_object,
 	if (error != NULL) {
 		g_error_free (error);
 	}
-
-	caja_application_notify_unmount_show ("It is now safe to remove the drive");
 
 	eel_remove_weak_pointer (&data->parent_window);
 	g_object_unref (data->mount);
