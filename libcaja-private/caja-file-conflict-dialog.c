@@ -306,8 +306,14 @@ file_list_ready_cb (GList *files,
     }
 
     str = g_string_new (NULL);
-    g_string_append_printf (str, "<b>%s</b>\n", _("Original file"));
-    g_string_append_printf (str, "%s %s\n", _("Size:"), size);
+    if (dest_is_dir) {
+        g_string_append_printf (str, "<b>%s</b>\n", _("Original folder"));
+        g_string_append_printf (str, "%s %s\n", _("Items:"), size);
+    }
+    else {
+        g_string_append_printf (str, "<b>%s</b>\n", _("Original file"));
+        g_string_append_printf (str, "%s %s\n", _("Size:"), size);
+    }
 
     if (should_show_type)
     {
@@ -339,8 +345,14 @@ file_list_ready_cb (GList *files,
         type = caja_file_get_string_attribute (src, "type");
     }
 
-    g_string_append_printf (str, "<b>%s</b>\n", _("Replace with"));
-    g_string_append_printf (str, "%s %s\n", _("Size:"), size);
+    if (source_is_dir) {
+        g_string_append_printf (str, "<b>%s</b>\n", dest_is_dir ? _("Merge with") : _("Replace with"));
+        g_string_append_printf (str, "%s %s\n", _("Items:"), size);
+    }
+    else {
+        g_string_append_printf (str, "<b>%s</b>\n", _("Replace with"));
+        g_string_append_printf (str, "%s %s\n", _("Size:"), size);
+    }
 
     if (should_show_type)
     {
@@ -592,9 +604,12 @@ caja_file_conflict_dialog_init (CajaFileConflictDialog *fcd)
     GtkWidget *widget, *dialog_area;
     CajaFileConflictDialogDetails *details;
     GtkDialog *dialog;
+    gboolean source_is_dir;
 
     details = fcd->details = CAJA_FILE_CONFLICT_DIALOG_GET_PRIVATE (fcd);
     dialog = GTK_DIALOG (fcd);
+
+    source_is_dir = caja_file_is_directory (details->source);
 
     /* Setup the main hbox */
     hbox = gtk_hbox_new (FALSE, 12);
@@ -685,7 +700,8 @@ caja_file_conflict_dialog_init (CajaFileConflictDialog *fcd)
     gtk_widget_hide (details->diff_button);
 
     /* Setup the checkbox to apply the action to all files */
-    widget = gtk_check_button_new_with_mnemonic (_("Apply this action to all files"));
+    widget = gtk_check_button_new_with_mnemonic (_("Apply this action to all files and folders"));
+
     gtk_box_pack_start (GTK_BOX (vbox),
                         widget, FALSE, FALSE, 0);
     details->checkbox = widget;
@@ -780,10 +796,26 @@ caja_file_conflict_dialog_new (GtkWindow *parent,
                                GFile *dest_dir)
 {
     GtkWidget *dialog;
+    CajaFile *src, *dest;
+    gboolean source_is_dir, dest_is_dir;
 
-    dialog = GTK_WIDGET (g_object_new (CAJA_TYPE_FILE_CONFLICT_DIALOG,
-                                       "title", _("File conflict"),
-                                       NULL));
+    src = caja_file_get (source);
+    dest = caja_file_get (destination);
+
+    source_is_dir = caja_file_is_directory (src);
+    dest_is_dir = caja_file_is_directory (dest);
+
+    if (source_is_dir) {
+        dialog = GTK_WIDGET (g_object_new (CAJA_TYPE_FILE_CONFLICT_DIALOG,
+                                           "title", dest_is_dir ? _("Merge Folder") : _("File and Folder conflict"),
+                                           NULL));
+    }
+    else {
+        dialog = GTK_WIDGET (g_object_new (CAJA_TYPE_FILE_CONFLICT_DIALOG,
+                                           "title", dest_is_dir ? _("File and Folder conflict") : _("File conflict"),
+                                           NULL));
+    }
+
     set_source_and_destination (dialog,
                                 source,
                                 destination,
