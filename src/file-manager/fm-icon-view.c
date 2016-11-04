@@ -2507,16 +2507,15 @@ fm_icon_view_scroll_event (GtkWidget *widget,
 
             scroll_event_copy = (GdkEventScroll *) event_copy;
 
-           /* transform vertical integer smooth scroll events into horizontal events */
-           if (scroll_event_copy->direction == GDK_SCROLL_SMOOTH &&
-               scroll_event_copy->delta_x == 0) {
-                   if (scroll_event_copy->delta_y == 1.0) {
-                       scroll_event_copy->direction = GDK_SCROLL_DOWN;
-                           } else if (scroll_event_copy->delta_y == -1.0) {
-                               scroll_event_copy->direction = GDK_SCROLL_UP;
-                               }
-                           }
-            if (scroll_event_copy->direction == GDK_SCROLL_UP)
+            /* transform vertical integer smooth scroll events into horizontal events */
+            if (scroll_event_copy->direction == GDK_SCROLL_SMOOTH && scroll_event_copy->delta_x == 0) {
+                if (scroll_event_copy->delta_y == 1.0) {
+                    scroll_event_copy->direction = GDK_SCROLL_DOWN;
+                } else if (scroll_event_copy->delta_y == -1.0) {
+                    scroll_event_copy->direction = GDK_SCROLL_UP;
+                }
+            }
+            if ((scroll_event_copy->direction == GDK_SCROLL_UP) || (scroll_event_copy->delta_x == -1.0))
             {
                 scroll_event_copy->direction = GDK_SCROLL_LEFT;
             }
