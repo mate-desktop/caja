@@ -2495,9 +2495,9 @@ fm_icon_view_scroll_event (GtkWidget *widget,
     icon_view = FM_ICON_VIEW (widget);
 
     if (icon_view->details->compact &&
-            (scroll_event->direction == GDK_SCROLL_UP ||
-             scroll_event->direction == GDK_SCROLL_DOWN))
-    {
+        (scroll_event->direction == GDK_SCROLL_UP ||
+        scroll_event->direction == GDK_SCROLL_DOWN ||
+        scroll_event->direction == GDK_SCROLL_SMOOTH)) {
         ret = fm_directory_view_handle_scroll_event (FM_DIRECTORY_VIEW (icon_view), scroll_event);
         if (!ret)
         {
@@ -2506,6 +2506,16 @@ fm_icon_view_scroll_event (GtkWidget *widget,
             event_copy = gdk_event_copy ((GdkEvent *) scroll_event);
 
             scroll_event_copy = (GdkEventScroll *) event_copy;
+
+           /* transform vertical integer smooth scroll events into horizontal events */
+           if (scroll_event_copy->direction == GDK_SCROLL_SMOOTH &&
+               scroll_event_copy->delta_x == 0) {
+                   if (scroll_event_copy->delta_y == 1.0) {
+                       scroll_event_copy->direction = GDK_SCROLL_DOWN;
+                           } else if (scroll_event_copy->delta_y == -1.0) {
+                               scroll_event_copy->direction = GDK_SCROLL_UP;
+                               }
+                           }
             if (scroll_event_copy->direction == GDK_SCROLL_UP)
             {
                 scroll_event_copy->direction = GDK_SCROLL_LEFT;
