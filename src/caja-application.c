@@ -998,66 +998,9 @@ do_initialize_screensaver (CajaApplication *application)
 				  NULL);
 }
 
-#if ENABLE_LIBUNIQUE == (FALSE)
-
-static void
-do_upgrades_once (CajaApplication *self)
-{
-    char *metafile_dir, *updated, *caja_dir, *xdg_dir;
-    const gchar *message;
-    int fd, res;
-
-    if (!self->priv->no_desktop) {
-        mark_desktop_files_trusted ();
-    }
-
-    metafile_dir = g_build_filename (g_get_home_dir (),
-                     ".caja/metafiles", NULL);
-    if (g_file_test (metafile_dir, G_FILE_TEST_IS_DIR)) {
-        updated = g_build_filename (metafile_dir, "migrated-to-gvfs", NULL);
-        if (!g_file_test (updated, G_FILE_TEST_EXISTS)) {
-            g_spawn_command_line_async (LIBEXECDIR"/caja-convert-metadata --quiet", NULL);
-            fd = g_creat (updated, 0600);
-            if (fd != -1) {
-                close (fd);
-            }
-        }
-        g_free (updated);
-    }
-    g_free (metafile_dir);
-
-    caja_dir = g_build_filename (g_get_home_dir (),
-                     ".caja", NULL);
-    xdg_dir = caja_get_user_directory ();
-    if (g_file_test (caja_dir, G_FILE_TEST_IS_DIR)) {
-        /* test if we already attempted to migrate first */
-        updated = g_build_filename (caja_dir, "DEPRECATED-DIRECTORY", NULL);
-        message = _("Caja newer than 1.16 deprecated this directory and tried migrating "
-                "this configuration to ~/.config/caja");
-        if (!g_file_test (updated, G_FILE_TEST_EXISTS)) {
-            /* rename() works fine if the destination directory is
-             * empty.
-             */
-            res = g_rename (caja_dir, xdg_dir);
-
-            if (res == -1) {
-                fd = g_creat (updated, 0600);
-                if (fd != -1) {
-                    res = write (fd, message, strlen (message));
-                    close (fd);
-                }
-            }
-        }
-
-        g_free (updated);
-    }
-
-    g_free (caja_dir);
-    g_free (xdg_dir);
-}
-
-#else
+#if ENABLE_LIBUNIQUE == (TRUE)
 #if GTK_CHECK_VERSION (3, 0, 0)
+
 static void
 init_css (void)
 {
@@ -1080,44 +1023,12 @@ init_css (void)
     g_object_unref (provider);
 }
 #endif
-static void
-do_upgrades_once (CajaApplication *application,
-                  gboolean no_desktop)
-{
-    char *metafile_dir, *updated;
-    int fd;
-
-    if (!no_desktop)
-    {
-        mark_desktop_files_trusted ();
-    }
-
-    metafile_dir = g_build_filename(g_get_user_config_dir(), "caja", "metafiles", NULL);
-
-    if (g_file_test (metafile_dir, G_FILE_TEST_IS_DIR))
-    {
-        updated = g_build_filename (metafile_dir, "migrated-to-gvfs", NULL);
-        if (!g_file_test (updated, G_FILE_TEST_EXISTS))
-        {
-            g_spawn_command_line_async (LIBEXECDIR "/caja-convert-metadata --quiet", NULL);
-            fd = g_creat (updated, 0600);
-            if (fd != -1)
-            {
-                close (fd);
-            }
-        }
-        g_free (updated);
-    }
-    g_free (metafile_dir);
-}
 
 static void
 finish_startup (CajaApplication *application,
                 gboolean no_desktop)
 {
     GList *drives;
-
-    do_upgrades_once (application, no_desktop);
 
     /* initialize caja modules */
     caja_module_setup ();
@@ -3254,8 +3165,6 @@ caja_application_startup (GApplication *app)
     }
 
     instance = g_application_get_default ();
-
-    do_upgrades_once (self);
 }
 
 static void

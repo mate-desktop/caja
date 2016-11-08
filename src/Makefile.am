@@ -9,10 +9,6 @@ bin_PROGRAMS = \
 	caja-connect-server \
 	$(NULL)
 
-libexec_PROGRAMS = \
-	caja-convert-metadata \
-	$(NULL)
-
 AM_CPPFLAGS = \
 	-I$(top_srcdir) \
 	-I$(top_srcdir)/cut-n-paste-code \
@@ -23,7 +19,6 @@ AM_CPPFLAGS = \
 	$(EXEMPI_CFLAGS) \
 	-DDATADIR=\""$(datadir)"\" \
 	-DLIBDIR=\""$(libdir)"\" \
-	-DLIBEXECDIR=\""$(libexecdir)"\" \
 	-DCAJA_DATADIR=\""$(datadir)/caja"\" \
 	-DUIDIR=\""$(datadir)/caja/ui"\" \
 	-DCAJA_PIXMAPDIR=\""$(datadir)/pixmaps/caja"\" \
@@ -296,9 +291,6 @@ caja_connect_server_SOURCES = \
 	caja-connect-server-operation.h     \
 	$(NULL)
 
-caja_convert_metadata_SOURCES = \
-	caja-convert-metadata.c \
-	$(NULL)
 
 TESTS=check-caja
 
