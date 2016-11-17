@@ -95,6 +95,7 @@ PKG_CHECK_MODULES(ALL, [
     gio-2.0 >= gio_minver
     pango >= pango_minver
     gtk+-$GTK_API_VERSION >= $GTK_REQUIRED
+    libnotify
     libxml-2.0 >= xml_minver
     gail$GAIL_API_VERSION >= gail_minver
 ])
