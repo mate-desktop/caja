@@ -1,5 +1,23 @@
 Major changes in 1.17.1 are:
 
+* Translations update
+* move to GTK+3 (>= 3.14), drop libunique,  GTK+2 code, and --with-gtk build option
+* configure.ac: Check for libnotify
+* application: correct description of --force-desktop option
+* application: remove unused function
+* remove convert metadata
+* Compact view: ensure horizontal mouse wheel works both directions
+* Fix mousewheel scrolling in compact view
+* Improved merge folder dialog
+* Fixes partially #535
+* suppress notification on unmounting non-ejectiable device
+* Add gsettings preference to enable/disable notifications
+* libunique builds: enable eject notifications
+* Refactor notification code to remove duplicate function
+* GtkApplication: show notifications for ejecting from the desktop too
+* GtkApplication: Notify when ejected volumes safe to unplug
+* GtkApplication: fix "caja 3.0" message
+
 Major changes in 1.17.0 are:
 
 * Translations update
