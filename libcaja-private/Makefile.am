@@ -15,7 +15,6 @@ AM_CPPFLAGS = \
 	-DSYSCONFDIR=\""$(sysconfdir)"\" \
 	-DCAJA_DATADIR=\""$(datadir)/caja"\" \
 	-DCAJA_EXTENSIONDIR=\""$(libdir)/caja/extensions-2.0"\" \
-	$(UNIQUE_CFLAGS) \
 	$(NULL)
 
 BUILT_SOURCES = \

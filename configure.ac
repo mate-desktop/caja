@@ -6,11 +6,11 @@ m4_define(glib_minver,                 2.36.0)
 m4_define(gio_minver,                  2.26.0)
 m4_define(mate_desktop_minver,         1.15.1)
 m4_define(pango_minver,                1.1.2)
-m4_define(gtk_minver,                  2.24.0)
+m4_define(gtk_minver,                  3.14.0)
 m4_define(xml_minver,                  2.4.7)
 m4_define(exif_minver,                 0.6.14)
 m4_define(exempi_minver,               1.99.5)
-m4_define(gail_minver,                 0.16)
+m4_define(gail_minver,                 3.0.0)
 m4_define(notify_minver,               0.7.0)
 
 
@@ -20,36 +20,7 @@ dnl Interface break is not allowed.
 m4_define(caja_extension_current,  5)
 m4_define(caja_extension_revision, 0)
 
-AC_INIT([caja], [1.17.0], [http://www.mate-desktop.org])
-
-dnl ---------------------------------------------------------------------------
-dnl GTK library version
-dnl ---------------------------------------------------------------------------
-AC_MSG_CHECKING([which gtk+ version to compile against])
-AC_ARG_WITH([gtk],
-    [AS_HELP_STRING([--with-gtk=2.0|3.0],[which gtk+ version to compile against (default: 2.0)])],
-    [
-        case "$with_gtk" in
-            2.0|3.0) ;;
-            *) AC_MSG_ERROR([invalid gtk version specified]) ;;
-        esac
-    ],
-    [with_gtk=2.0])
-AC_MSG_RESULT([$with_gtk])
-
-case "$with_gtk" in
-  2.0) GTK_API_VERSION=2.0
-       GTK_REQUIRED=2.24.0
-       GAIL_API_VERSION=
-       LIBUNIQUE_VERSION=1.0
-       ;;
-  3.0) GTK_API_VERSION=3.0
-       GTK_REQUIRED=3.0.0
-       GAIL_API_VERSION=-3.0
-       ;;
-esac
-AC_SUBST([GTK_API_VERSION])
-AM_CONDITIONAL([WITH_GTK3],[test "$with_gtk" = "3.0"])
+AC_INIT([caja], [1.17.1], [http://www.mate-desktop.org])
 
 dnl ---------------------------------------------------------------------------
 
@@ -66,9 +37,9 @@ AC_SUBST(GLIB_REQUIRED, [glib_minver])
 AC_SUBST(GIO_REQUIRED, [gio_minver])
 AC_SUBST(MATE_DESKTOP_REQUIRED, [mate_desktop_minver])
 AC_SUBST(PANGO_REQUIRED, [pango_minver])
-AC_SUBST(GTK_REQUIRED, [$GTK_REQUIRED])
+AC_SUBST(GTK_REQUIRED, [gtk_minver])
 AC_SUBST(XML_REQUIRED, [xml_minver])
-AC_SUBST(GAIL_REQUIRED)
+AC_SUBST(GAIL_REQUIRED, [gail_minver])
 
 dnl We need to decrement current by one in the calculation of the age because
 dnl the library was started with version "1:0:0" instead of "0:0:0"
@@ -94,10 +65,10 @@ PKG_CHECK_MODULES(ALL, [
     gio-unix-2.0
     gio-2.0 >= gio_minver
     pango >= pango_minver
-    gtk+-$GTK_API_VERSION >= $GTK_REQUIRED
+    gtk+-3.0 >= gtk_minver
     libnotify
     libxml-2.0 >= xml_minver
-    gail$GAIL_API_VERSION >= gail_minver
+    gail-3.0 >= gail_minver
 ])
 dnl ==========================================================================
 
@@ -227,51 +198,6 @@ if test "x$enable_packagekit" != "xno"; then
     AC_DEFINE(ENABLE_PACKAGEKIT, 1, [define to enable PackageKit mimetype installer])
 fi
 
-
-#============================================================================
-# libunique
-#============================================================================
-
-dnl Whether to use libunique
-dnl --
-
-
-AC_ARG_ENABLE(libunique,
-    AC_HELP_STRING([--disable-libunique],
-        [use GtkApplication instead of libunique(GTK 3 only)]))
-msg_libunique=no
-if test "x$enable_libunique" != "xno"; then
-    msg_libunique=yes
-    AM_CONDITIONAL([ENABLE_LIBUNIQUE], true)
-    AC_DEFINE(ENABLE_LIBUNIQUE, 1, [define to enable libunique])
-else
-    msg_libunique=no
-    AM_CONDITIONAL([ENABLE_LIBUNIQUE], false)
-    AC_DEFINE(ENABLE_LIBUNIQUE, 0, [define to disable libunique])
-fi
-
-dnl =====
-
-if test $msg_libunique = "yes";then
-
-    if test "$GTK_API_VERSION" = "3.0"; then
-        LIBUNIQUE_VERSION=3.0
-        else
-        LIBUNIQUE_VERSION=1.0
-    fi
-    PKG_CHECK_MODULES(UNIQUE, unique-$LIBUNIQUE_VERSION)
-
-    AC_SUBST([UNIQUE_CFLAGS])
-    AC_SUBST([UNIQUE_LIBS])
-
-    # this deprecated stuff should be removed from unique in most distros
-    # but it's still not removed upstream in unique 1.x, so leaving it alone
-    # just in case.
-    UNIQUE_CFLAGS="$UNIQUE_CFLAGS -DG_CONST_RETURN=const"
-
-    EXTRA_CORE_MODULES="$EXTRA_CORE_MODULES unique-$LIBUNIQUE_VERSION"
-fi
-
 # ==========================================================================
 # Turn on the additional warnings last, so -Werror doesn't affect other tests.
 
@@ -354,14 +280,14 @@ fi
 dnl ==========================================================================
 
 dnl libegg
-LIBEGG_MODULES="gtk+-$GTK_API_VERSION"
+LIBEGG_MODULES="gtk+-3.0"
 LIBEGG_CFLAGS="`$PKG_CONFIG --cflags $LIBEGG_MODULES`"
 AC_SUBST(LIBEGG_CFLAGS)
 LIBEGG_LIBS="`$PKG_CONFIG --libs $LIBEGG_MODULES`"
 AC_SUBST(LIBEGG_LIBS)
 
 dnl libcaja-extension
-LIBCAJA_EXTENSION_MODULES="glib-2.0 gtk+-$GTK_API_VERSION"
+LIBCAJA_EXTENSION_MODULES="glib-2.0 gtk+-3.0"
 LIBCAJA_EXTENSION_CFLAGS="`$PKG_CONFIG --cflags $LIBCAJA_EXTENSION_MODULES`"
 AC_SUBST(LIBCAJA_EXTENSION_CFLAGS)
 LIBCAJA_EXTENSION_LIBS="`$PKG_CONFIG --libs $LIBCAJA_EXTENSION_MODULES`"
@@ -369,7 +295,7 @@ AC_SUBST(LIBCAJA_EXTENSION_LIBS)
 
 dnl core caja
 PKG_CHECK_MODULES(GMODULE, gmodule-2.0, [GMODULE_ADD="gmodule-2.0"],[GMODULE_ADD=""])
-CORE_MODULES="glib-2.0 $GMODULE_ADD mate-desktop-2.0 gthread-2.0 gio-2.0 gio-unix-2.0 gail$GAIL_API_VERSION libxml-2.0 $EXTRA_CORE_MODULES gtk+-$GTK_API_VERSION x11"
+CORE_MODULES="glib-2.0 $GMODULE_ADD mate-desktop-2.0 gthread-2.0 gio-2.0 gio-unix-2.0 gail-3.0 libxml-2.0 $EXTRA_CORE_MODULES gtk+-3.0 x11"
 CORE_CFLAGS="`$PKG_CONFIG --cflags $CORE_MODULES`"
 AC_SUBST(CORE_CFLAGS)
 CORE_LIBS="`$PKG_CONFIG --libs $CORE_MODULES`"
@@ -450,8 +376,6 @@ caja-$VERSION:
     source code location:         ${srcdir}
     compiler:                     ${CC}
     xmp support:                  $msg_xmp
-    Gtk+ version:                 ${GTK_API_VERSION}
-    Using libunique:              $msg_libunique
     PackageKit support:           $msg_packagekit
 
     caja-extension documentation: ${enable_gtk_doc}

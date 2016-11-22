@@ -51,11 +51,7 @@ struct CajaTrashBarPrivate
     gulong selection_handler_id;
 };
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 G_DEFINE_TYPE (CajaTrashBar, caja_trash_bar, GTK_TYPE_BOX);
-#else
-G_DEFINE_TYPE (CajaTrashBar, caja_trash_bar, GTK_TYPE_HBOX);
-#endif
 
 static void
 restore_button_clicked_cb (GtkWidget *button,
@@ -193,9 +189,9 @@ caja_trash_bar_init (CajaTrashBar *bar)
 
     label = gtk_label_new (_("Trash"));
     gtk_widget_show (label);
-#if GTK_CHECK_VERSION (3, 0, 0)
+
     gtk_orientable_set_orientation (GTK_ORIENTABLE (bar), GTK_ORIENTATION_HORIZONTAL);
-#endif
+
     gtk_box_pack_start (GTK_BOX (bar), label, FALSE, FALSE, 0);
 
     bar->priv->empty_button = gtk_button_new_with_mnemonic (_("Empty _Trash"));

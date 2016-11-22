@@ -2,10 +2,6 @@
 
 #include <eel/eel-labeled-image.h>
 
-#if GTK_CHECK_VERSION (3, 0, 0)
-#define gtk_vbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_VERTICAL,Y)
-#endif
-
 static const char pixbuf_name[] = "/usr/share/pixmaps/mate-globe.png";
 
 static void
@@ -30,7 +26,7 @@ labeled_image_button_window_new (const char *title,
 	GtkWidget *plain;
 
 	window = test_window_new (title, 20);
-	vbox = gtk_vbox_new (FALSE, 10);
+	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 10);
 	gtk_container_add (GTK_CONTAINER (window), vbox);
 
 	if (1) button = eel_labeled_image_button_new ("GtkButton with LabeledImage", pixbuf);

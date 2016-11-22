@@ -42,10 +42,6 @@ static GObjectClass *parent_class = NULL;
 
 #define CAJA_VIEW_AS_ACTION_GET_PRIVATE(object)(G_TYPE_INSTANCE_GET_PRIVATE ((object), CAJA_TYPE_VIEW_AS_ACTION, CajaViewAsActionPrivate))
 
-#if GTK_CHECK_VERSION (3, 0, 0)
-#define gtk_vbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_VERTICAL,Y)
-#endif
-
 struct CajaViewAsActionPrivate
 {
     CajaNavigationWindow *window;
@@ -177,7 +173,7 @@ connect_proxy (GtkAction *action,
         /* Option menu for content view types; it's empty here, filled in when a uri is set.
          * Pack it into vbox so it doesn't grow vertically when location bar does.
          */
-        view_as_menu_vbox = gtk_vbox_new (FALSE, 4);
+        view_as_menu_vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 4);
         gtk_widget_show (view_as_menu_vbox);
 
         gtk_container_add (GTK_CONTAINER (item), view_as_menu_vbox);

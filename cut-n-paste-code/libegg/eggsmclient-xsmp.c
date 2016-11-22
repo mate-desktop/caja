@@ -37,9 +37,7 @@
 
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
-#if GTK_CHECK_VERSION (3, 0, 0)
 #include <gdk/gdkx.h>
-#endif
 
 #define EGG_TYPE_SM_CLIENT_XSMP            (egg_sm_client_xsmp_get_type ())
 #define EGG_SM_CLIENT_XSMP(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), EGG_TYPE_SM_CLIENT_XSMP, EggSMClientXSMP))
@@ -371,13 +369,7 @@ sm_client_xsmp_startup (EggSMClient *client,
         xsmp->client_id = g_strdup (ret_client_id);
         free (ret_client_id);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
         gdk_x11_set_sm_client_id (xsmp->client_id);
-#else
-        gdk_threads_enter ();
-        gdk_set_sm_client_id (xsmp->client_id);
-        gdk_threads_leave ();
-#endif
 
         g_debug ("Got client ID \"%s\"", xsmp->client_id);
     }
@@ -545,10 +537,6 @@ idle_do_pending_events (gpointer data)
     EggSMClientXSMP *xsmp = data;
     EggSMClient *client = data;
 
-#if !GTK_CHECK_VERSION (3, 0, 0)
-    gdk_threads_enter ();
-#endif
-
     xsmp->idle = 0;
 
     if (xsmp->waiting_to_emit_quit)
@@ -572,9 +560,6 @@ idle_do_pending_events (gpointer data)
     }
 
 out:
-#if !GTK_CHECK_VERSION (3, 0, 0)
-    gdk_threads_leave ();
-#endif
     return FALSE;
 }
 
@@ -1295,13 +1280,7 @@ static gboolean
 process_ice_messages (IceConn ice_conn)
 {
     IceProcessMessagesStatus status;
-#if GTK_CHECK_VERSION (3, 0, 0)
     status = IceProcessMessages (ice_conn, NULL, NULL);
-#else
-    gdk_threads_enter ();
-    status = IceProcessMessages (ice_conn, NULL, NULL);
-    gdk_threads_leave ();
-#endif
 
     switch (status)
     {

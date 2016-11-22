@@ -102,30 +102,19 @@ char *              eel_gradient_set_bottom_color_spec     (const char          
 /* A version of parse_color that substitutes a default color instead of returning
    a boolean to indicate it cannot be parsed.
 */
-#if GTK_CHECK_VERSION (3, 0, 0)
 void                eel_gdk_rgba_parse_with_white_default  (GdkRGBA             *parsed_color,
         const char          *color_spec);
-#else
-void                eel_gdk_color_parse_with_white_default (const char          *color_spec,
-        GdkColor            *parsed_color);
-#endif
+
 guint32             eel_rgb16_to_rgb                       (gushort              r,
         gushort              g,
         gushort              b);
-#if GTK_CHECK_VERSION (3, 0, 0)
 guint32             eel_gdk_rgba_to_rgb                    (const GdkRGBA       *color);
 GdkRGBA             eel_gdk_rgb_to_rgba                    (guint32              color);
-#else
-guint32             eel_gdk_color_to_rgb                   (const GdkColor      *color);
-GdkColor            eel_gdk_rgb_to_color                   (guint32              color);
-#endif
+
 char *              eel_gdk_rgb_to_color_spec              (guint32              color);
 
-#if GTK_CHECK_VERSION(3,0,0)
 gboolean            eel_gdk_rgba_is_dark                   (const GdkRGBA       *color);
-#else
-gboolean            eel_gdk_color_is_dark                  (GdkColor            *color);
-#endif
+
 
 /* Wrapper for XParseGeometry */
 EelGdkGeometryFlags eel_gdk_parse_geometry                 (const char          *string,
@@ -133,15 +122,11 @@ EelGdkGeometryFlags eel_gdk_parse_geometry                 (const char          
         int                 *y_return,
         guint               *width_return,
         guint               *height_return);
-#if GTK_CHECK_VERSION(3,0,0)
+
 void                eel_cairo_draw_layout_with_drop_shadow (cairo_t             *cr,
                                                             GdkRGBA             *text_color,
                                                             GdkRGBA             *shadow_color,
-#else
-void                eel_gdk_draw_layout_with_drop_shadow   (GdkDrawable         *drawable,
-        						    GdkColor            *text_color,
-        						    GdkColor            *shadow_color,
-#endif
+
         						    int                  x,
         						    int                  y,
         						    PangoLayout         *layout);

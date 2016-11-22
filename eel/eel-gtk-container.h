@@ -31,11 +31,8 @@
 
 void eel_gtk_container_child_expose_event (GtkContainer   *container,
         GtkWidget      *child,
-#if GTK_CHECK_VERSION (3, 0, 0)
         cairo_t        *cr);
-#else
-        GdkEventExpose *event);
-#endif
+
 void eel_gtk_container_child_map          (GtkContainer   *container,
         GtkWidget      *child);
 void eel_gtk_container_child_unmap        (GtkContainer   *container,

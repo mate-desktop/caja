@@ -32,10 +32,6 @@
 #include "caja-desktop-window.h"
 #include <glib/gi18n.h>
 
-#if GTK_CHECK_VERSION (3, 0, 0)
-#define gtk_hbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_HORIZONTAL,Y)
-#endif
-
 struct _CajaLocationDialogDetails
 {
     GtkWidget *entry;
@@ -164,7 +160,7 @@ caja_location_dialog_init (CajaLocationDialog *dialog)
     gtk_container_set_border_width (GTK_CONTAINER (dialog), 5);
     gtk_box_set_spacing (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), 2);
 
-    box = gtk_hbox_new (FALSE, 12);
+    box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
     gtk_container_set_border_width (GTK_CONTAINER (box), 5);
     gtk_widget_show (box);
 

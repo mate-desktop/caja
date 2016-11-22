@@ -35,14 +35,6 @@
 #include "caja-window-private.h"
 #include "caja-window-slot.h"
 
-#if !GTK_CHECK_VERSION(3,0,0)
-#define gtk_widget_get_preferred_size(x,y,z) gtk_widget_size_request(x,y)
-#endif
-
-#if GTK_CHECK_VERSION (3, 0, 0)
-#define gtk_hbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_HORIZONTAL,Y)
-#endif
-
 enum
 {
     PATH_CLICKED,
@@ -90,9 +82,6 @@ struct _ButtonData
 
     GtkWidget *image;
     GtkWidget *label;
-#if !GTK_CHECK_VERSION (3, 0, 0)
-    GtkWidget *alignment;
-#endif
     guint ignore_changes : 1;
     guint file_is_hidden : 1;
     guint fake_root : 1;
@@ -106,17 +95,14 @@ G_DEFINE_TYPE (CajaPathBar,
 
 static void     caja_path_bar_finalize                 (GObject         *object);
 static void     caja_path_bar_dispose                  (GObject         *object);
-#if GTK_CHECK_VERSION(3,0,0)
+
 static void     caja_path_bar_get_preferred_width      (GtkWidget        *widget,
         						gint             *minimum,
         						gint             *natural);
 static void     caja_path_bar_get_preferred_height     (GtkWidget        *widget,
         						gint             *minimum,
         						gint             *natural);
-#else
-static void     caja_path_bar_size_request             (GtkWidget       *widget,
-        						GtkRequisition  *requisition);
-#endif
+
 static void     caja_path_bar_unmap                    (GtkWidget       *widget);
 static void     caja_path_bar_size_allocate            (GtkWidget       *widget,
         GtkAllocation   *allocation);
@@ -143,12 +129,9 @@ static void     caja_path_bar_grab_notify              (GtkWidget       *widget,
         gboolean         was_grabbed);
 static void     caja_path_bar_state_changed            (GtkWidget       *widget,
         GtkStateType     previous_state);
-#if GTK_CHECK_VERSION (3, 0, 0)
+
 static void     caja_path_bar_style_updated            (GtkWidget       *widget);
-#else
-static void     caja_path_bar_style_set                (GtkWidget       *widget,
-        GtkStyle        *previous_style);
-#endif
+
 static void     caja_path_bar_screen_changed           (GtkWidget       *widget,
         GdkScreen       *previous_screen);
 static void     caja_path_bar_check_icon_theme         (CajaPathBar *path_bar);
@@ -159,7 +142,7 @@ static gboolean caja_path_bar_update_path              (CajaPathBar *path_bar,
         GFile           *file_path,
         gboolean         emit_signal);
 
-#if GTK_CHECK_VERSION(3,0,0)
+
 static GtkWidget *
 get_slider_button (CajaPathBar  *path_bar,
                    const gchar  *arrow_type)
@@ -179,26 +162,6 @@ get_slider_button (CajaPathBar  *path_bar,
 
     return button;
 }
-#else
-static GtkWidget *
-get_slider_button (CajaPathBar  *path_bar,
-                   GtkArrowType arrow_type)
-{
-    GtkWidget *button;
-
-    gtk_widget_push_composite_child ();
-
-    button = gtk_button_new ();
-    gtk_button_set_focus_on_click (GTK_BUTTON (button), FALSE);
-    gtk_container_add (GTK_CONTAINER (button), gtk_arrow_new (arrow_type, GTK_SHADOW_OUT));
-    gtk_container_add (GTK_CONTAINER (path_bar), button);
-    gtk_widget_show_all (button);
-
-    gtk_widget_pop_composite_child ();
-
-    return button;
-}
-#endif
 
 static void
 update_button_types (CajaPathBar *path_bar)
@@ -341,28 +304,22 @@ static void
 caja_path_bar_init (CajaPathBar *path_bar)
 {
     char *p;
-#if GTK_CHECK_VERSION(3, 0, 0)
     GtkStyleContext *context;
 
     context = gtk_widget_get_style_context (GTK_WIDGET (path_bar));
     gtk_style_context_add_class (context, "caja-pathbar");
-#endif
 
     gtk_widget_set_has_window (GTK_WIDGET (path_bar), FALSE);
     gtk_widget_set_redraw_on_allocate (GTK_WIDGET (path_bar), FALSE);
 
     path_bar->spacing = 3;
-#if GTK_CHECK_VERSION(3, 0, 0)
     path_bar->up_slider_button = get_slider_button (path_bar, "pan-start-symbolic");
     path_bar->down_slider_button = get_slider_button (path_bar, "pan-end-symbolic");
     gtk_style_context_add_class (gtk_widget_get_style_context (GTK_WIDGET (path_bar->up_slider_button)),
                                  "slider-button");
     gtk_style_context_add_class (gtk_widget_get_style_context (GTK_WIDGET (path_bar->down_slider_button)),
                                  "slider-button");
-#else
-    path_bar->up_slider_button = get_slider_button (path_bar, GTK_ARROW_LEFT);
-    path_bar->down_slider_button = get_slider_button (path_bar, GTK_ARROW_RIGHT);
-#endif
+
     path_bar->icon_size = CAJA_PATH_BAR_ICON_SIZE;
 
     p = caja_get_desktop_directory ();
@@ -431,19 +388,13 @@ caja_path_bar_class_init (CajaPathBarClass *path_bar_class)
     gobject_class->finalize = caja_path_bar_finalize;
     gobject_class->dispose = caja_path_bar_dispose;
 
-#if GTK_CHECK_VERSION(3,0,0)
     widget_class->get_preferred_height = caja_path_bar_get_preferred_height;
     widget_class->get_preferred_width = caja_path_bar_get_preferred_width;
-#else
-    widget_class->size_request = caja_path_bar_size_request;
-#endif
+
     widget_class->unmap = caja_path_bar_unmap;
     widget_class->size_allocate = caja_path_bar_size_allocate;
-#if GTK_CHECK_VERSION (3, 0, 0)
     widget_class->style_updated = caja_path_bar_style_updated;
-#else
-    widget_class->style_set = caja_path_bar_style_set;
-#endif
+
     widget_class->screen_changed = caja_path_bar_screen_changed;
     widget_class->grab_notify = caja_path_bar_grab_notify;
     widget_class->state_changed = caja_path_bar_state_changed;
@@ -472,9 +423,7 @@ caja_path_bar_class_init (CajaPathBarClass *path_bar_class)
                       G_TYPE_NONE, 1,
                       G_TYPE_FILE);
 
-#if GTK_CHECK_VERSION(3,0,0)
     gtk_container_class_handle_border_width (container_class);
-#endif
 }
 
 
@@ -548,7 +497,7 @@ caja_path_bar_dispose (GObject *object)
  * Ideally, our size is determined by another widget, and we are just filling
  * available space.
  */
-#if GTK_CHECK_VERSION(3,0,0)
+
 static void
 caja_path_bar_get_preferred_width (GtkWidget *widget,
     			       gint      *minimum,
@@ -626,53 +575,6 @@ caja_path_bar_get_preferred_height (GtkWidget *widget,
     }
 }
 
-#else /* GTK_CHECK_VERSION(3,0,0) */
-
-static void
-caja_path_bar_size_request (GtkWidget      *widget,
-                            GtkRequisition *requisition)
-{
-    ButtonData *button_data;
-    CajaPathBar *path_bar;
-    GtkRequisition child_requisition;
-    GList *list;
-    guint border_width;
-
-    path_bar = CAJA_PATH_BAR (widget);
-
-    requisition->width = 0;
-    requisition->height = 0;
-
-    for (list = path_bar->button_list; list; list = list->next)
-    {
-        button_data = BUTTON_DATA (list->data);
-        gtk_widget_size_request (button_data->button, &child_requisition);
-        requisition->width = MAX (child_requisition.width, requisition->width);
-        requisition->height = MAX (child_requisition.height, requisition->height);
-    }
-
-    /* Add space for slider, if we have more than one path */
-    /* Theoretically, the slider could be bigger than the other button.  But we're */
-    /* not going to worry about that now.*/
-
-    path_bar->slider_width = MIN(requisition->height * 2 / 3 + 5, requisition->height);
-    if (path_bar->button_list && path_bar->button_list->next != NULL)
-    {
-        requisition->width += (path_bar->spacing + path_bar->slider_width) * 2;
-    }
-
-    gtk_widget_size_request (path_bar->up_slider_button, &child_requisition);
-    gtk_widget_size_request (path_bar->down_slider_button, &child_requisition);
-
-    border_width = gtk_container_get_border_width (GTK_CONTAINER (widget));
-    requisition->width += border_width * 2;
-    requisition->height += border_width * 2;
-
-    gtk_widget_set_size_request (widget, requisition->width,
-                                 requisition->height);
-}
-#endif /* GTK_CHECK_VERSION(3,0,0) */
-
 static void
 caja_path_bar_update_slider_buttons (CajaPathBar *path_bar)
 {
@@ -741,12 +643,8 @@ caja_path_bar_size_allocate (GtkWidget     *widget,
         return;
     }
     direction = gtk_widget_get_direction (widget);
-#if GTK_CHECK_VERSION(3,0,0)
+
     allocation_width = allocation->width;
-#else
-    gint border_width = (gint) gtk_container_get_border_width (GTK_CONTAINER (path_bar));
-    allocation_width = allocation->width - 2 * border_width;
-#endif
 
     /* First, we check to see if we need the scrollbars. */
     if (path_bar->fake_root)
@@ -859,45 +757,27 @@ caja_path_bar_size_allocate (GtkWidget     *widget,
     }
 
     /* Now, we allocate space to the buttons */
-#if GTK_CHECK_VERSION(3,0,0)
     child_allocation.y = allocation->y;
     child_allocation.height = allocation->height;
-#else
-    child_allocation.y = allocation->y + border_width;
-    child_allocation.height = MAX (1, (gint) allocation->height - border_width * 2);
-#endif
 
     if (direction == GTK_TEXT_DIR_RTL)
     {
-#if GTK_CHECK_VERSION(3,0,0)
         child_allocation.x = allocation->x + allocation->width;
-#else
-        child_allocation.x = allocation->x + allocation->width - border_width;
-#endif
+
         if (need_sliders || path_bar->fake_root)
         {
             child_allocation.x -= (path_bar->spacing + path_bar->slider_width);
-#if GTK_CHECK_VERSION(3,0,0)
             up_slider_offset = allocation->width - path_bar->slider_width;
-#else
-            up_slider_offset = allocation->width - border_width - path_bar->slider_width;
-#endif
+
         }
     }
     else
     {
-#if GTK_CHECK_VERSION(3,0,0)
         child_allocation.x = allocation->x;
-#else
-        child_allocation.x = allocation->x + border_width;
-#endif
+
         if (need_sliders || path_bar->fake_root)
         {
-#if GTK_CHECK_VERSION(3,0,0)
             up_slider_offset = 0;
-#else
-            up_slider_offset = border_width;
-#endif
             child_allocation.x += (path_bar->spacing + path_bar->slider_width);
         }
     }
@@ -917,11 +797,7 @@ caja_path_bar_size_allocate (GtkWidget     *widget,
         /* Check to see if we've don't have any more space to allocate buttons */
         if (need_sliders && direction == GTK_TEXT_DIR_RTL)
         {
-#if GTK_CHECK_VERSION(3,0,0)
             if (child_allocation.x - path_bar->spacing - path_bar->slider_width < widget_allocation.x)
-#else
-            if (child_allocation.x - path_bar->spacing - path_bar->slider_width < widget_allocation.x + border_width)
-#endif
             {
                 break;
             }
@@ -930,11 +806,8 @@ caja_path_bar_size_allocate (GtkWidget     *widget,
         {
             if (need_sliders && direction == GTK_TEXT_DIR_LTR)
             {
-#if GTK_CHECK_VERSION(3,0,0)
                 if (child_allocation.x + child_allocation.width + path_bar->spacing + path_bar->slider_width > widget_allocation.x + allocation_width)
-#else
-                if (child_allocation.x + child_allocation.width + path_bar->spacing + path_bar->slider_width > widget_allocation.x + border_width + allocation_width)
-#endif
+
                 {
                     break;
                 }
@@ -948,20 +821,13 @@ caja_path_bar_size_allocate (GtkWidget     *widget,
         {
             child_allocation.x -= path_bar->spacing;
             down_slider_offset = child_allocation.x - widget_allocation.x - path_bar->slider_width;
-#if GTK_CHECK_VERSION(3,0,0)
             down_slider_offset = child_allocation.x - allocation->x - path_bar->slider_width;
-#else
-            down_slider_offset = border_width;
-#endif
         }
         else
         {
             down_slider_offset = child_allocation.x - widget_allocation.x;
-#if GTK_CHECK_VERSION(3,0,0)
             down_slider_offset += child_allocation.width + path_bar->spacing;
-#else
-            down_slider_offset = allocation->width - border_width - path_bar->slider_width;
-#endif
+
             child_allocation.x += child_allocation.width + path_bar->spacing;
         }
     }
@@ -1007,19 +873,11 @@ caja_path_bar_size_allocate (GtkWidget     *widget,
 }
 
 static void
-#if GTK_CHECK_VERSION (3, 0, 0)
 caja_path_bar_style_updated (GtkWidget *widget)
 {
     if (GTK_WIDGET_CLASS (caja_path_bar_parent_class)->style_updated)
     {
         GTK_WIDGET_CLASS (caja_path_bar_parent_class)->style_updated (widget);
-#else
-caja_path_bar_style_set (GtkWidget *widget,	GtkStyle  *previous_style)
-{
-    if (GTK_WIDGET_CLASS (caja_path_bar_parent_class)->style_set)
-    {
-        GTK_WIDGET_CLASS (caja_path_bar_parent_class)->style_set (widget, previous_style);
-#endif
     }
 
     caja_path_bar_check_icon_theme (CAJA_PATH_BAR (widget));
@@ -1176,9 +1034,6 @@ caja_path_bar_scroll_down (CajaPathBar *path_bar)
 
     gtk_widget_queue_resize (GTK_WIDGET (path_bar));
 
-#if !GTK_CHECK_VERSION(3,0,0)
-    gint border_width = gtk_container_get_border_width (GTK_CONTAINER (path_bar));
-#endif
     direction = gtk_widget_get_direction (GTK_WIDGET (path_bar));
 
     /* We find the button at the 'down' end that we have to make */
@@ -1219,9 +1074,6 @@ caja_path_bar_scroll_down (CajaPathBar *path_bar)
     else
     {
         space_available = (allocation.x + allocation.width) -
-#if !GTK_CHECK_VERSION(3,0,0)
-                          border_width -
-#endif
                           (slider_allocation.x + slider_allocation.width);
     }
 
@@ -1270,10 +1122,6 @@ caja_path_bar_scroll_timeout (CajaPathBar *path_bar)
 {
     gboolean retval = FALSE;
 
-#if !GTK_CHECK_VERSION (3, 0, 0)
-    GDK_THREADS_ENTER ();
-#endif
-
     if (path_bar->timer)
     {
         if (gtk_widget_has_focus (path_bar->up_slider_button))
@@ -1301,10 +1149,6 @@ caja_path_bar_scroll_timeout (CajaPathBar *path_bar)
             retval = TRUE;
         }
     }
-
-#if !GTK_CHECK_VERSION (3, 0, 0)
-    GDK_THREADS_LEAVE ();
-#endif
 
     return retval;
 }
@@ -1604,7 +1448,6 @@ get_dir_name (ButtonData *button_data)
 /* We always want to request the same size for the label, whether
  * or not the contents are bold
  */
-#if GTK_CHECK_VERSION(3,0,0)
 static void
 set_label_padding_size (ButtonData *button_data)
 {
@@ -1632,33 +1475,6 @@ set_label_padding_size (ButtonData *button_data)
     g_object_unref (layout);
 }
 
-#else /* GTK_CHECK_VERSION(3,0,0) */
-
-static void
-label_size_request_cb (GtkWidget       *widget,
-                       GtkRequisition  *requisition,
-                       ButtonData      *button_data)
-{
-    const gchar *dir_name = get_dir_name (button_data);
-    PangoLayout *layout;
-    gint bold_width, bold_height;
-    gchar *markup;
-
-    layout = gtk_widget_create_pango_layout (button_data->label, dir_name);
-    pango_layout_get_pixel_size (layout, &requisition->width, &requisition->height);
-
-    markup = g_markup_printf_escaped ("<b>%s</b>", dir_name);
-    pango_layout_set_markup (layout, markup, -1);
-    g_free (markup);
-
-    pango_layout_get_pixel_size (layout, &bold_width, &bold_height);
-    requisition->width = MAX (requisition->width, bold_width);
-    requisition->height = MAX (requisition->height, bold_height);
-
-    g_object_unref (layout);
-}
-#endif /* GTK_CHECK_VERSION(3,0,0) */
-
 static void
 caja_path_bar_update_button_appearance (ButtonData *button_data)
 {
@@ -1674,18 +1490,15 @@ caja_path_bar_update_button_appearance (ButtonData *button_data)
 
             markup = g_markup_printf_escaped ("<b>%s</b>", dir_name);
             gtk_label_set_markup (GTK_LABEL (button_data->label), markup);
-#if GTK_CHECK_VERSION(3,0,0)
+
             gtk_widget_set_margin_end (GTK_WIDGET (button_data->label), 0);
             gtk_widget_set_margin_start (GTK_WIDGET (button_data->label), 0);
-#endif
             g_free(markup);
         }
         else
         {
             gtk_label_set_text (GTK_LABEL (button_data->label), dir_name);
-#if GTK_CHECK_VERSION(3,0,0)
             set_label_padding_size (button_data);
-#endif
         }
     }
 
@@ -1715,20 +1528,16 @@ caja_path_bar_update_button_appearance (ButtonData *button_data)
             if (pixbuf != NULL)
             {
                 gtk_image_set_from_pixbuf (GTK_IMAGE (button_data->image), pixbuf);
-#if GTK_CHECK_VERSION(3,0,0)
                 gtk_style_context_add_class (gtk_widget_get_style_context (button_data->button),
                                              "image-button");
-#endif
                 gtk_widget_show (GTK_WIDGET (button_data->image));
                 g_object_unref (pixbuf);
             }
             else
             {
                 gtk_widget_hide (GTK_WIDGET (button_data->image));
-#if GTK_CHECK_VERSION(3,0,0)
                 gtk_style_context_remove_class (gtk_widget_get_style_context (button_data->button),
                                                 "image-button");
-#endif
             }
         }
     }
@@ -2058,17 +1867,11 @@ make_directory_button (CajaPathBar  *path_bar,
 {
     GFile *path;
     GtkWidget *child;
-#if !GTK_CHECK_VERSION(3,0,0)
-    GtkWidget *label_alignment;
-#endif
     ButtonData *button_data;
 
     path = caja_file_get_location (file);
 
     child = NULL;
-#if !GTK_CHECK_VERSION(3,0,0)
-    label_alignment = NULL;
-#endif
 
     file_is_hidden = !! file_is_hidden;
     /* Is it a special button? */
@@ -2076,10 +1879,8 @@ make_directory_button (CajaPathBar  *path_bar,
 
     setup_button_type (button_data, path_bar, path);
     button_data->button = gtk_toggle_button_new ();
-#if GTK_CHECK_VERSION(3,0,0)
     gtk_style_context_add_class (gtk_widget_get_style_context (button_data->button),
                                  "text-button");
-#endif
 #if GTK_CHECK_VERSION(3,20,0)
     gtk_widget_set_focus_on_click (button_data->button, FALSE);
 #else
@@ -2102,46 +1903,19 @@ make_directory_button (CajaPathBar  *path_bar,
     case MOUNT_BUTTON:
     case DEFAULT_LOCATION_BUTTON:
         button_data->label = gtk_label_new (NULL);
-#if GTK_CHECK_VERSION(3,0,0)
-        child = gtk_hbox_new (FALSE, 2);
+        child = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 2);
         gtk_box_pack_start (GTK_BOX (child), button_data->image, FALSE, FALSE, 0);
         gtk_box_pack_start (GTK_BOX (child), button_data->label, FALSE, FALSE, 0);
-#else
-        label_alignment = gtk_alignment_new (0.5, 0.5, 1.0, 1.0);
-        gtk_container_add (GTK_CONTAINER (label_alignment), button_data->label);
-        child = gtk_hbox_new (FALSE, 2);
-        gtk_box_pack_start (GTK_BOX (child), button_data->image, FALSE, FALSE, 0);
-        gtk_box_pack_start (GTK_BOX (child), label_alignment, FALSE, FALSE, 0);
-#endif
+
         break;
     case NORMAL_BUTTON:
     default:
         button_data->label = gtk_label_new (NULL);
-#if GTK_CHECK_VERSION(3,0,0)
-        child = gtk_hbox_new (FALSE, 2);
+        child = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 2);
         gtk_box_pack_start (GTK_BOX (child), button_data->image, FALSE, FALSE, 0);
         gtk_box_pack_start (GTK_BOX (child), button_data->label, FALSE, FALSE, 0);
-#else
-        label_alignment = gtk_alignment_new (0.5, 0.5, 1.0, 1.0);
-        gtk_container_add (GTK_CONTAINER (label_alignment), button_data->label);
-        child = gtk_hbox_new (FALSE, 2);
-        gtk_box_pack_start (GTK_BOX (child), button_data->image, FALSE, FALSE, 0);
-        gtk_box_pack_start (GTK_BOX (child), label_alignment, FALSE, FALSE, 0);
-#endif
         button_data->is_base_dir = base_dir;
     }
-
-#if !GTK_CHECK_VERSION(3,0,0)
-    /* label_alignment is created because we can't override size-request
-    * on label itself and still have the contents of the label centered
-    * properly in the label's requisition
-    */
-    if (label_alignment)
-    {
-        g_signal_connect (label_alignment, "size-request",
-                          G_CALLBACK (label_size_request_cb), button_data);
-    }
-#endif
 
     if (button_data->path == NULL)
     {
@@ -2280,10 +2054,6 @@ caja_path_bar_update_path (CajaPathBar *path_bar,
 
     file = caja_file_get (file_path);
 
-#if !GTK_CHECK_VERSION(3,0,0)
-    gtk_widget_push_composite_child ();
-#endif
-
     while (file != NULL)
     {
         parent_file = caja_file_get_parent (file);
@@ -2318,10 +2088,6 @@ caja_path_bar_update_path (CajaPathBar *path_bar,
         button = BUTTON_DATA (l->data)->button;
         gtk_container_add (GTK_CONTAINER (path_bar), button);
     }
-
-#if !GTK_CHECK_VERSION(3,0,0)
-    gtk_widget_pop_composite_child ();
-#endif
 
     if (path_bar->current_path != NULL)
     {

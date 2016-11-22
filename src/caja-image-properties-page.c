@@ -46,10 +46,6 @@
 
 #define LOAD_BUFFER_SIZE 8192
 
-#if GTK_CHECK_VERSION (3, 0, 0)
-#define gtk_vbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_VERTICAL,Y)
-#endif
-
 struct CajaImagePropertiesPageDetails
 {
     GCancellable *cancellable;
@@ -97,11 +93,7 @@ typedef struct
 static GType caja_image_properties_page_provider_get_type (void);
 static void  property_page_provider_iface_init                (CajaPropertyPageProviderIface *iface);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 G_DEFINE_TYPE (CajaImagePropertiesPage, caja_image_properties_page, GTK_TYPE_BOX);
-#else
-G_DEFINE_TYPE (CajaImagePropertiesPage, caja_image_properties_page, GTK_TYPE_VBOX);
-#endif
 
 G_DEFINE_TYPE_WITH_CODE (CajaImagePropertiesPageProvider, caja_image_properties_page_provider, G_TYPE_OBJECT,
                          G_IMPLEMENT_INTERFACE (CAJA_TYPE_PROPERTY_PAGE_PROVIDER,
@@ -658,14 +650,13 @@ caja_image_properties_page_init (CajaImagePropertiesPage *page)
                     CAJA_TYPE_IMAGE_PROPERTIES_PAGE,
                     CajaImagePropertiesPageDetails);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
     gtk_orientable_set_orientation (GTK_ORIENTABLE (page), GTK_ORIENTATION_VERTICAL);
-#endif
+
     gtk_box_set_homogeneous (GTK_BOX (page), FALSE);
     gtk_box_set_spacing (GTK_BOX (page), 2);
     gtk_container_set_border_width (GTK_CONTAINER (page), 6);
 
-    page->details->vbox = gtk_vbox_new (FALSE, 6);
+    page->details->vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
     page->details->loading_label =
         append_label (page->details->vbox,_("loading..."));
     gtk_box_pack_start (GTK_BOX (page),

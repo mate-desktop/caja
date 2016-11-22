@@ -27,14 +27,9 @@
 #include <eel/eel-debug.h>
 #include <eel/eel-gtk-extensions.h>
 #include <eel/eel-glib-extensions.h>
-#if GTK_CHECK_VERSION(3,0,0)
 #include <eel/eel-graphic-effects.h>
-#endif
 #include <eel/eel-string.h>
 #include <eel/eel-stock-dialogs.h>
-#if !GTK_CHECK_VERSION(3,0,0)
-#include <eel/eel-gdk-pixbuf-extensions.h>
-#endif
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
@@ -166,12 +161,8 @@ static void  open_selected_bookmark                    (CajaPlacesSidebar       
         GtkTreePath                  *path,
         CajaWindowOpenFlags flags);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 static void  caja_places_sidebar_style_updated         (GtkWidget                    *widget);
-#else
-static void  caja_places_sidebar_style_set             (GtkWidget                    *widget,
-        GtkStyle                     *previous_style);
-#endif
+
 static gboolean eject_or_unmount_bookmark              (CajaPlacesSidebar *sidebar,
         GtkTreePath *path);
 static gboolean eject_or_unmount_selection             (CajaPlacesSidebar *sidebar);
@@ -254,11 +245,7 @@ get_eject_icon (gboolean highlighted)
 
     if (highlighted) {
         GdkPixbuf *high;
-#if GTK_CHECK_VERSION(3,0,0)
         high = eel_create_spotlight_pixbuf (eject);
-#else
-        high = eel_gdk_pixbuf_render (eject, 1, 255, 255, 0, 0);
-#endif
         g_object_unref (eject);
         eject = high;
     }
@@ -1035,11 +1022,9 @@ over_eject_button (CajaPlacesSidebar *sidebar,
         eject_button_size = caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU);
 
         if (x - total_width >= 0 &&
-#if GTK_CHECK_VERSION (3, 0, 0)
             /* fix unwanted unmount requests if clicking on the label */
             x >= total_width - eject_button_size &&
             x >= 80 &&
-#endif
             x - total_width <= eject_button_size) {
             return TRUE;
         }
@@ -1895,9 +1880,6 @@ volume_mounted_cb (GVolume *volume,
 
                 cur = CAJA_WINDOW (sidebar->window);
                 new = caja_application_create_navigation_window (cur->application,
-#if ENABLE_LIBUNIQUE == (TRUE)
-                        NULL,
-#endif
                         gtk_window_get_screen (GTK_WINDOW (cur)));
                 caja_window_go_to (new, location);
             }
@@ -1980,9 +1962,6 @@ open_selected_bookmark (CajaPlacesSidebar   *sidebar,
 
             cur = CAJA_WINDOW (sidebar->window);
             new = caja_application_create_navigation_window (cur->application,
-#if ENABLE_LIBUNIQUE == (TRUE)
-                    NULL,
-#endif
                     gtk_window_get_screen (GTK_WINDOW (cur)));
             caja_window_go_to (new, location);
         }
@@ -3412,11 +3391,7 @@ caja_places_sidebar_class_init (CajaPlacesSidebarClass *class)
 {
     G_OBJECT_CLASS (class)->dispose = caja_places_sidebar_dispose;
 
-#if GTK_CHECK_VERSION (3, 0, 0)
     GTK_WIDGET_CLASS (class)->style_updated = caja_places_sidebar_style_updated;
-#else
-    GTK_WIDGET_CLASS (class)->style_set = caja_places_sidebar_style_set;
-#endif
 }
 
 static const char *
@@ -3504,12 +3479,7 @@ caja_places_sidebar_set_parent_window (CajaPlacesSidebar *sidebar,
 }
 
 static void
-#if GTK_CHECK_VERSION (3, 0, 0)
 caja_places_sidebar_style_updated (GtkWidget *widget)
-#else
-caja_places_sidebar_style_set (GtkWidget *widget,
-                               GtkStyle  *previous_style)
-#endif
 {
     CajaPlacesSidebar *sidebar;
 

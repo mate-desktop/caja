@@ -595,10 +595,8 @@ fm_icon_container_class_init (FMIconContainerClass *klass)
 static void
 fm_icon_container_init (FMIconContainer *icon_container)
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
     gtk_style_context_add_class (gtk_widget_get_style_context (GTK_WIDGET (icon_container)),
                                  GTK_STYLE_CLASS_VIEW);
-#endif
 }
 
 CajaIconContainer *

@@ -37,19 +37,13 @@
 #include <eel/eel-graphic-effects.h>
 #include <eel/eel-gtk-extensions.h>
 #include <gtk/gtk.h>
-#if GTK_CHECK_VERSION(3, 0, 0)
 #include <gtk/gtk-a11y.h>
-#endif
 #include <gdk/gdkkeysyms.h>
 #include <libcaja-private/caja-file-utilities.h>
 #include <libcaja-private/caja-global-preferences.h>
 #include <math.h>
 #include <stdlib.h>
 #include <string.h>
-
-#if !GTK_CHECK_VERSION(3,0,0)
-#define gtk_widget_get_preferred_size(x,y,z) gtk_widget_size_request(x,y)
-#endif
 
 enum
 {
@@ -113,11 +107,7 @@ static GType caja_zoom_control_accessible_get_type (void);
 
 #define NUM_ACTIONS ((int)G_N_ELEMENTS (caja_zoom_control_accessible_action_names))
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 G_DEFINE_TYPE (CajaZoomControl, caja_zoom_control, GTK_TYPE_BOX);
-#else
-G_DEFINE_TYPE (CajaZoomControl, caja_zoom_control, GTK_TYPE_HBOX);
-#endif
 
 static void
 caja_zoom_control_finalize (GObject *object)
@@ -292,11 +282,7 @@ set_label_size (CajaZoomControl *zoom_control)
 
 static void
 label_style_set_callback (GtkWidget *label,
-#if GTK_CHECK_VERSION (3, 0, 0)
                           GtkStyleContext *style,
-#else
-                          GtkStyle *style,
-#endif
                           gpointer user_data)
 {
     set_label_size (CAJA_ZOOM_CONTROL (user_data));
@@ -337,9 +323,9 @@ caja_zoom_control_init (CajaZoomControl *zoom_control)
     g_signal_connect (G_OBJECT (zoom_control->details->zoom_out),
                       "clicked", G_CALLBACK (zoom_out_clicked),
                       zoom_control);
-#if GTK_CHECK_VERSION (3, 0, 0)
+
     gtk_orientable_set_orientation (GTK_ORIENTABLE (zoom_control), GTK_ORIENTATION_HORIZONTAL);
-#endif
+
     gtk_container_add (GTK_CONTAINER (zoom_control->details->zoom_out), image);
     gtk_box_pack_start (GTK_BOX (zoom_control),
                         zoom_control->details->zoom_out, FALSE, FALSE, 0);
@@ -532,26 +518,6 @@ create_zoom_menu (CajaZoomControl *zoom_control)
     return menu;
 }
 
-#if !GTK_CHECK_VERSION(3, 0, 0)
-static AtkObject *
-caja_zoom_control_get_accessible (GtkWidget *widget)
-{
-    AtkObject *accessible;
-
-    accessible = eel_accessibility_get_atk_object (widget);
-
-    if (accessible)
-    {
-        return accessible;
-    }
-
-    accessible = g_object_new
-                 (caja_zoom_control_accessible_get_type (), NULL);
-
-    return eel_accessibility_set_atk_object_return (widget, accessible);
-}
-#endif
-
 static void
 caja_zoom_control_change_value (CajaZoomControl *zoom_control,
                                 GtkScrollType scroll)
@@ -694,12 +660,10 @@ caja_zoom_control_class_init (CajaZoomControlClass *class)
 
     widget_class = GTK_WIDGET_CLASS (class);
 
-#if GTK_CHECK_VERSION(3, 0, 0)
+
     gtk_widget_class_set_accessible_type (widget_class,
                                           caja_zoom_control_accessible_get_type ());
-#else
-    widget_class->get_accessible = caja_zoom_control_get_accessible;
-#endif
+
     widget_class->scroll_event = caja_zoom_control_scroll_event;
 
     class->change_value = caja_zoom_control_change_value;
@@ -978,7 +942,6 @@ caja_zoom_control_accessible_initialize (AtkObject *accessible,
     atk_object_set_role (accessible, ATK_ROLE_DIAL);
 }
 
-#if GTK_CHECK_VERSION(3, 0, 0)
 typedef struct _CajaZoomControlAccessible CajaZoomControlAccessible;
 typedef struct _CajaZoomControlAccessibleClass CajaZoomControlAccessibleClass;
 
@@ -1014,56 +977,6 @@ static void
 caja_zoom_control_accessible_init (CajaZoomControlAccessible *accessible)
 {
 }
-#else
-static void
-caja_zoom_control_accessible_class_init (AtkObjectClass *klass)
-{
-    accessible_parent_class = g_type_class_peek_parent (klass);
-
-    klass->get_name = caja_zoom_control_accessible_get_name;
-    klass->get_description = caja_zoom_control_accessible_get_description;
-    klass->initialize = caja_zoom_control_accessible_initialize;
-}
-
-static GType
-caja_zoom_control_accessible_get_type (void)
-{
-    static GType type = 0;
-
-    if (!type)
-    {
-        static GInterfaceInfo atk_action_info =
-        {
-            (GInterfaceInitFunc)caja_zoom_control_accessible_action_interface_init,
-            (GInterfaceFinalizeFunc)NULL,
-            NULL
-        };
-
-        static GInterfaceInfo atk_value_info =
-        {
-            (GInterfaceInitFunc)caja_zoom_control_accessible_value_interface_init,
-            (GInterfaceFinalizeFunc)NULL,
-            NULL
-        };
-
-        type = eel_accessibility_create_derived_type
-               ("CajaZoomControlAccessible",
-#if GTK_CHECK_VERSION (3, 0, 0)
-                GTK_TYPE_BOX,
-#else
-                GTK_TYPE_HBOX,
-#endif
-                caja_zoom_control_accessible_class_init);
-
-        g_type_add_interface_static (type, ATK_TYPE_ACTION,
-                                     &atk_action_info);
-        g_type_add_interface_static (type, ATK_TYPE_VALUE,
-                                     &atk_value_info);
-    }
-
-    return type;
-}
-#endif
 
 void
 caja_zoom_control_set_active_appearance (CajaZoomControl *zoom_control, gboolean is_active)

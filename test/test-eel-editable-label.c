@@ -6,11 +6,6 @@
 
 #include <eel/eel-editable-label.h>
 
-#if GTK_CHECK_VERSION (3, 0, 0)
-#define gtk_vbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_VERTICAL,Y)
-#endif
-
-
 static void
 quit (GtkWidget *widget, gpointer data)
 {
@@ -29,7 +24,7 @@ main (int argc, char* argv[])
 	window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
 	g_signal_connect (G_OBJECT (window), "destroy", G_CALLBACK (quit), NULL);
 
-	vbox = gtk_vbox_new (FALSE, 0);
+	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 
 	gtk_container_add (GTK_CONTAINER (window), vbox);
 	
@@ -42,8 +37,8 @@ main (int argc, char* argv[])
 
 	label = eel_editable_label_new ("Left aligned label");
 
-#if GTK_CHECK_VERSION (3, 14, 0)
-	gtk_widget_set_halign (label, GTK_ALIGN_START);
+#if GTK_CHECK_VERSION (3, 16, 0)
+	gtk_label_set_xalign (GTK_LABEL (label), 0.0);
 #else
 	gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
 #endif
@@ -52,9 +47,8 @@ main (int argc, char* argv[])
 
 	label = eel_editable_label_new ("Right aligned label");
 
-#if GTK_CHECK_VERSION (3, 14, 0)
-	gtk_widget_set_halign (label, GTK_ALIGN_END);
-	gtk_widget_set_valign (label, GTK_ALIGN_CENTER);
+#if GTK_CHECK_VERSION (3, 16, 0)
+	gtk_label_set_xalign (GTK_LABEL (label), 1.0);
 #else
 	gtk_misc_set_alignment (GTK_MISC (label), 1.0, 0.5);
 #endif

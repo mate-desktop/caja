@@ -35,9 +35,6 @@
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 
-#if !GTK_CHECK_VERSION(3, 0, 0)
-#define GtkEditableInterface GtkEditableClass
-#endif
 
 struct CajaEntryDetails
 {

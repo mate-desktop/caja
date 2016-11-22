@@ -183,11 +183,6 @@ static GdkPixbuf * make_color_drag_image                        (CajaPropertyBro
 
 #define ERASE_OBJECT_NAME "erase.png"
 
-#if GTK_CHECK_VERSION (3, 0, 0)
-#define gtk_hbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_HORIZONTAL,Y)
-#define gtk_vbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_VERTICAL,Y)
-#endif
-
 enum
 {
     PROPERTY_TYPE
@@ -300,21 +295,19 @@ caja_property_browser_init (CajaPropertyBrowser *property_browser)
     gtk_window_set_wmclass (GTK_WINDOW (widget), "property_browser", "Caja");
     gtk_window_set_type_hint (GTK_WINDOW (widget), GDK_WINDOW_TYPE_HINT_DIALOG);
 
-#if GTK_CHECK_VERSION(3, 0, 0)
     GtkStyleContext *context;
 
     context = gtk_widget_get_style_context (GTK_WIDGET (property_browser));
     gtk_style_context_add_class (context, "caja-property-browser");
-#endif
 
     /* create the main vbox. */
-    vbox = gtk_vbox_new (FALSE, 12);
+    vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
     gtk_container_set_border_width (GTK_CONTAINER (vbox), 12);
     gtk_widget_show (vbox);
     gtk_container_add (GTK_CONTAINER (property_browser), vbox);
 
     /* create the container box */
-    property_browser->details->container = gtk_hbox_new (FALSE, 6);
+    property_browser->details->container = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
     gtk_widget_show (GTK_WIDGET (property_browser->details->container));
     gtk_box_pack_start (GTK_BOX (vbox),
                         property_browser->details->container,
@@ -335,13 +328,13 @@ caja_property_browser_init (CajaPropertyBrowser *property_browser)
                                     GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
 
     /* allocate a table to hold the category selector */
-    property_browser->details->category_box = gtk_vbox_new (FALSE, 6);
+    property_browser->details->category_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
     gtk_container_add(GTK_CONTAINER(viewport), property_browser->details->category_box);
     gtk_container_add (GTK_CONTAINER (property_browser->details->category_container), viewport);
     gtk_widget_show (GTK_WIDGET (property_browser->details->category_box));
 
     /* make the content container vbox */
-    property_browser->details->content_container = gtk_vbox_new (FALSE, 6);
+    property_browser->details->content_container = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
     gtk_widget_show (property_browser->details->content_container);
     gtk_box_pack_start (GTK_BOX (property_browser->details->container),
                         property_browser->details->content_container,
@@ -360,7 +353,7 @@ caja_property_browser_init (CajaPropertyBrowser *property_browser)
     gtk_widget_show(temp_frame);
     gtk_container_add(GTK_CONTAINER(property_browser->details->title_box), temp_frame);
 
-    temp_hbox = gtk_hbox_new(FALSE, 0);
+    temp_hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_widget_show(temp_hbox);
 
     gtk_container_add(GTK_CONTAINER(temp_frame), temp_hbox);
@@ -385,7 +378,7 @@ caja_property_browser_init (CajaPropertyBrowser *property_browser)
     temp_box = gtk_event_box_new();
     gtk_widget_show(temp_box);
 
-    property_browser->details->bottom_box = gtk_hbox_new (FALSE, 6);
+    property_browser->details->bottom_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
     gtk_widget_show (property_browser->details->bottom_box);
 
     gtk_box_pack_end (GTK_BOX (vbox), temp_box, FALSE, FALSE, 0);
@@ -1103,11 +1096,7 @@ caja_emblem_dialog_new (CajaPropertyBrowser *property_browser)
     GtkWidget *button;
     GtkWidget *dialog;
     GtkWidget *label;
-#if GTK_CHECK_VERSION (3, 0, 0)
     GtkWidget *grid = gtk_grid_new ();
-#else
-    GtkWidget *table = gtk_table_new(2, 2, FALSE);
-#endif
 
     dialog = gtk_dialog_new_with_buttons (_("Create a New Emblem"),
                                           GTK_WINDOW (property_browser), 0,
@@ -1115,41 +1104,28 @@ caja_emblem_dialog_new (CajaPropertyBrowser *property_browser)
                                           GTK_STOCK_OK, GTK_RESPONSE_OK,
                                           NULL);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
     /* install the grid in the dialog */
     gtk_container_set_border_width (GTK_CONTAINER (grid), 5);
     gtk_grid_set_row_spacing (GTK_GRID (grid), 6);
     gtk_grid_set_column_spacing (GTK_GRID (grid), 12);
     gtk_widget_show (grid);
-#else
-    /* install the table in the dialog */
-    gtk_container_set_border_width (GTK_CONTAINER (table), 5);
-    gtk_table_set_row_spacings (GTK_TABLE (table), 6);
-    gtk_table_set_col_spacings (GTK_TABLE (table), 12);
-    gtk_widget_show (table);
-#endif
 
     gtk_window_set_resizable (GTK_WINDOW (dialog), TRUE);
     gtk_container_set_border_width (GTK_CONTAINER (dialog), 5);
     gtk_box_set_spacing (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), 2);
     gtk_window_set_resizable (GTK_WINDOW (dialog), FALSE);
-#if GTK_CHECK_VERSION (3, 0, 0)
     gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), grid, TRUE, TRUE, 0);
-#else
-    gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), table, TRUE, TRUE, 0);
-#endif
     gtk_dialog_set_default_response (GTK_DIALOG(dialog), GTK_RESPONSE_OK);
 
     /* make the keyword label and field */
 
     widget = gtk_label_new_with_mnemonic(_("_Keyword:"));
-#if GTK_CHECK_VERSION (3, 14, 0)
-    gtk_widget_set_halign (widget, GTK_ALIGN_START);
+#if GTK_CHECK_VERSION (3, 16, 0)
+    gtk_label_set_xalign (GTK_LABEL (widget), 0.0);
 #else
     gtk_misc_set_alignment (GTK_MISC (widget), 0, 0.5);
 #endif
     gtk_widget_show(widget);
-#if GTK_CHECK_VERSION (3, 0, 0)
     gtk_grid_attach(GTK_GRID(grid), widget, 0, 0, 1, 1);
 
     property_browser->details->keyword = gtk_entry_new ();
@@ -1157,15 +1133,6 @@ caja_emblem_dialog_new (CajaPropertyBrowser *property_browser)
     gtk_entry_set_max_length (GTK_ENTRY (property_browser->details->keyword), 24);
     gtk_widget_show(property_browser->details->keyword);
     gtk_grid_attach(GTK_GRID(grid), property_browser->details->keyword, 1, 0, 1, 1);
-#else
-    gtk_table_attach(GTK_TABLE(table), widget, 0, 1, 0, 1, GTK_FILL, GTK_FILL, 0, 0);
-
-    property_browser->details->keyword = gtk_entry_new ();
-    gtk_entry_set_activates_default (GTK_ENTRY (property_browser->details->keyword), TRUE);
-    gtk_entry_set_max_length (GTK_ENTRY (property_browser->details->keyword), 24);
-    gtk_widget_show(property_browser->details->keyword);
-    gtk_table_attach(GTK_TABLE(table), property_browser->details->keyword, 1, 2, 0, 1, GTK_FILL, GTK_FILL, 0, 0);
-#endif
     gtk_widget_grab_focus(property_browser->details->keyword);
     gtk_label_set_mnemonic_widget (GTK_LABEL (widget),
                                    GTK_WIDGET (property_browser->details->keyword));
@@ -1176,20 +1143,15 @@ caja_emblem_dialog_new (CajaPropertyBrowser *property_browser)
 
     /* set up a file chooser to pick the image file */
     label = gtk_label_new_with_mnemonic (_("_Image:"));
-#if GTK_CHECK_VERSION (3, 14, 0)
-    gtk_widget_set_halign (label, GTK_ALIGN_START);
+#if GTK_CHECK_VERSION (3, 16, 0)
+    gtk_label_set_xalign (GTK_LABEL (label), 0.0);
 #else
     gtk_misc_set_alignment (GTK_MISC (label), 0, 0.5);
 #endif
-#if GTK_CHECK_VERSION (3, 0, 0)
     gtk_widget_show (label);
     gtk_grid_attach (GTK_GRID(grid), label, 0, 1, 1, 1);
-#else
-    gtk_widget_show (label);
-    gtk_table_attach (GTK_TABLE(table), label, 0, 1, 1, 2, GTK_FILL, GTK_FILL, 0, 0);
-#endif
 
-    widget = gtk_hbox_new (FALSE, 0);
+    widget = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_widget_show (widget);
 
     button = gtk_button_new ();
@@ -1200,11 +1162,7 @@ caja_emblem_dialog_new (CajaPropertyBrowser *property_browser)
     gtk_label_set_mnemonic_widget (GTK_LABEL (label), button);
 
     gtk_widget_show (button);
-#if GTK_CHECK_VERSION (3, 0, 0)
     gtk_grid_attach (GTK_GRID (grid), widget, 1, 1, 1, 1);
-#else
-    gtk_table_attach (GTK_TABLE (table), widget, 1, 2, 1, 2, GTK_FILL, GTK_FILL, 0, 0);
-#endif
     gtk_box_pack_start (GTK_BOX (widget), button, FALSE, FALSE, 0);
 
     return dialog;
@@ -1217,11 +1175,8 @@ caja_color_selection_dialog_new (CajaPropertyBrowser *property_browser)
 {
     GtkWidget *widget;
     GtkWidget *dialog;
-#if GTK_CHECK_VERSION (3, 0, 0)
+
     GtkWidget *grid = gtk_grid_new ();
-#else
-    GtkWidget *table = gtk_table_new(2, 2, FALSE);
-#endif
 
     dialog = gtk_dialog_new_with_buttons (_("Create a New Color:"),
                                           GTK_WINDOW (property_browser), 0,
@@ -1229,26 +1184,17 @@ caja_color_selection_dialog_new (CajaPropertyBrowser *property_browser)
                                           GTK_STOCK_OK, GTK_RESPONSE_OK,
                                           NULL);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
     /* install the grid in the dialog */
     gtk_widget_show (grid);
     gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), grid, TRUE, TRUE, 0);
-#else
-    /* install the table in the dialog */
-    gtk_widget_show (table);
-    gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), table, TRUE, TRUE, 0);
-#endif
+
     gtk_dialog_set_default_response (GTK_DIALOG(dialog), GTK_RESPONSE_OK);
 
     /* make the name label and field */
 
     widget = gtk_label_new_with_mnemonic(_("Color _name:"));
     gtk_widget_show(widget);
-#if GTK_CHECK_VERSION (3, 0, 0)
     gtk_grid_attach(GTK_GRID(grid), widget, 0, 0, 1, 1);
-#else
-    gtk_table_attach(GTK_TABLE(table), widget, 0, 1, 0, 1, GTK_FILL, GTK_FILL, 0, 0);
-#endif
 
     property_browser->details->color_name = gtk_entry_new ();
     gtk_entry_set_activates_default (GTK_ENTRY (property_browser->details->color_name), TRUE);
@@ -1256,11 +1202,7 @@ caja_color_selection_dialog_new (CajaPropertyBrowser *property_browser)
     gtk_widget_grab_focus (property_browser->details->color_name);
     gtk_label_set_mnemonic_widget (GTK_LABEL (widget), property_browser->details->color_name);
     gtk_widget_show(property_browser->details->color_name);
-#if GTK_CHECK_VERSION (3, 0, 0)
     gtk_grid_attach(GTK_GRID(grid), property_browser->details->color_name, 1, 0, 1, 1);
-#else
-    gtk_table_attach(GTK_TABLE(table), property_browser->details->color_name, 1, 2, 0, 1, GTK_FILL, GTK_FILL, 0, 0);
-#endif
     gtk_widget_grab_focus(property_browser->details->color_name);
 
     /* default image is the generic emblem */
@@ -1268,21 +1210,13 @@ caja_color_selection_dialog_new (CajaPropertyBrowser *property_browser)
 
     widget = gtk_label_new_with_mnemonic(_("Color _value:"));
     gtk_widget_show(widget);
-#if GTK_CHECK_VERSION (3, 0, 0)
     gtk_grid_attach(GTK_GRID(grid), widget, 0, 1, 1, 1);
-#else
-    gtk_table_attach(GTK_TABLE(table), widget, 0, 1, 1, 2, GTK_FILL, GTK_FILL, 0, 0);
-#endif
 
     property_browser->details->color_picker = gtk_color_button_new ();
     gtk_widget_show (property_browser->details->color_picker);
     gtk_label_set_mnemonic_widget (GTK_LABEL (widget), property_browser->details->color_picker);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
     gtk_grid_attach(GTK_GRID(grid), property_browser->details->color_picker, 1, 1, 1, 1);
-#else
-    gtk_table_attach(GTK_TABLE(table), property_browser->details->color_picker, 1, 2, 1, 2, GTK_FILL, GTK_FILL, 0, 0);
-#endif
 
     return dialog;
 }
@@ -2254,9 +2188,7 @@ caja_property_browser_update_contents (CajaPropertyBrowser *property_browser)
 
     /* allocate a new container, with a scrollwindow and viewport */
     property_browser->details->content_frame = gtk_scrolled_window_new (NULL, NULL);
-#if GTK_CHECK_VERSION (3, 0, 0)
     gtk_widget_set_vexpand (property_browser->details->content_frame, TRUE);
-#endif
     viewport = gtk_viewport_new (NULL, NULL);
     gtk_widget_show(viewport);
     gtk_viewport_set_shadow_type(GTK_VIEWPORT(viewport), GTK_SHADOW_IN);

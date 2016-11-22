@@ -44,9 +44,7 @@
 #include <eel/eel-art-extensions.h>
 #include <eel/eel-editable-label.h>
 #include <eel/eel-string.h>
-#if GTK_CHECK_VERSION(3, 0, 0)
 #include <eel/eel-canvas.h>
-#endif
 #include <eel/eel-canvas-rect-ellipse.h>
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
@@ -54,20 +52,6 @@
 #include <glib/gi18n.h>
 #include <stdio.h>
 #include <string.h>
-
-#if !GTK_CHECK_VERSION(3, 0, 0)
-#define gtk_scrollable_get_hadjustment gtk_layout_get_hadjustment
-#define gtk_scrollable_get_vadjustment gtk_layout_get_vadjustment
-#define GTK_SCROLLABLE GTK_LAYOUT
-#endif
-
-#if GTK_CHECK_VERSION (3, 0, 0)
-#define gtk_vbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_VERTICAL,Y)
-#endif
-
-#if !GTK_CHECK_VERSION(3,0,0)
-#define gtk_widget_get_preferred_size(x,y,z) gtk_widget_size_request(x,y)
-#endif
 
 #define TAB_NAVIGATION_DISABLED
 
@@ -127,22 +111,8 @@
 #define DEFAULT_HIGHLIGHT_ALPHA 0xff
 #define DEFAULT_NORMAL_ALPHA 0xff
 #define DEFAULT_PRELIGHT_ALPHA 0xff
-#if GTK_CHECK_VERSION(3,0,0)
 #define DEFAULT_LIGHT_INFO_COLOR "#AAAAFD"
 #define DEFAULT_DARK_INFO_COLOR  "#33337F"
-#else
-#define DEFAULT_LIGHT_INFO_COLOR 0xAAAAFD
-#define DEFAULT_DARK_INFO_COLOR  0x33337F
-
-#define DEFAULT_NORMAL_ICON_RENDER_MODE 0
-#define DEFAULT_PRELIGHT_ICON_RENDER_MODE 1
-#define DEFAULT_NORMAL_ICON_SATURATION 255
-#define DEFAULT_PRELIGHT_ICON_SATURATION 255
-#define DEFAULT_NORMAL_ICON_BRIGHTNESS 255
-#define DEFAULT_PRELIGHT_ICON_BRIGHTNESS 255
-#define DEFAULT_NORMAL_ICON_LIGHTEN 0
-#define DEFAULT_PRELIGHT_ICON_LIGHTEN 0
-#endif
 
 #define MINIMUM_EMBEDDED_TEXT_RECT_WIDTH       20
 #define MINIMUM_EMBEDDED_TEXT_RECT_HEIGHT      20
@@ -185,7 +155,6 @@ typedef struct
 
 static GType         caja_icon_container_accessible_get_type (void);
 
-#if GTK_CHECK_VERSION(3, 0, 0)
 typedef struct _CajaIconContainerAccessible CajaIconContainerAccessible;
 typedef struct _CajaIconContainerAccessibleClass CajaIconContainerAccessibleClass;
 
@@ -198,14 +167,10 @@ struct _CajaIconContainerAccessibleClass
 {
     EelCanvasAccessibleClass parent_class;
 };
-#endif
 
 static void          activate_selected_items                        (CajaIconContainer *container);
 static void          activate_selected_items_alternate              (CajaIconContainer *container,
         CajaIcon          *icon);
-#if !GTK_CHECK_VERSION(3, 0, 0)
-static void          caja_icon_container_theme_changed          (gpointer               user_data);
-#endif
 static void          compute_stretch                                (StretchState          *start,
         StretchState          *current);
 static CajaIcon *get_first_selected_icon                        (CajaIconContainer *container);
@@ -231,9 +196,6 @@ static inline void   icon_get_bounding_box                          (CajaIcon   
 static gboolean      is_renaming                                    (CajaIconContainer *container);
 static gboolean      is_renaming_pending                            (CajaIconContainer *container);
 static void          process_pending_icon_to_rename                 (CajaIconContainer *container);
-#if !GTK_CHECK_VERSION(3, 0, 0)
-static void          setup_label_gcs                                (CajaIconContainer *container);
-#endif
 static void          caja_icon_container_stop_monitor_top_left  (CajaIconContainer *container,
         CajaIconData      *data,
         gconstpointer          client);
@@ -641,13 +603,8 @@ caja_icon_container_scroll (CajaIconContainer *container,
     old_h_value = gtk_adjustment_get_value (hadj);
     old_v_value = gtk_adjustment_get_value (vadj);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
     gtk_adjustment_set_value (hadj, gtk_adjustment_get_value (hadj) + delta_x);
     gtk_adjustment_set_value (vadj, gtk_adjustment_get_value (vadj) + delta_y);
-#else
-    eel_gtk_adjustment_set_value (hadj, gtk_adjustment_get_value (hadj) + delta_x);
-    eel_gtk_adjustment_set_value (vadj, gtk_adjustment_get_value (vadj) + delta_y);
-#endif
 
     /* return TRUE if we did scroll */
     return gtk_adjustment_get_value (hadj) != old_h_value || gtk_adjustment_get_value (vadj) != old_v_value;
@@ -801,7 +758,6 @@ reveal_icon (CajaIconContainer *container,
         item_get_canvas_bounds (EEL_CANVAS_ITEM (icon->item), &bounds, TRUE);
     }
     if (bounds.y0 < gtk_adjustment_get_value (vadj)) {
-#if GTK_CHECK_VERSION (3, 0, 0)
         gtk_adjustment_set_value (vadj, bounds.y0);
     } else if (bounds.y1 > gtk_adjustment_get_value (vadj) + allocation.height) {
         gtk_adjustment_set_value (vadj, bounds.y1 - allocation.height);
@@ -814,20 +770,6 @@ reveal_icon (CajaIconContainer *container,
             gtk_adjustment_set_value (hadj, bounds.x0);
         } else {
             gtk_adjustment_set_value (hadj, bounds.x1 - allocation.width);
-#else
-        eel_gtk_adjustment_set_value (vadj, bounds.y0);
-    } else if (bounds.y1 > gtk_adjustment_get_value (vadj) + allocation.height) {
-        eel_gtk_adjustment_set_value (vadj, bounds.y1 - allocation.height);
-    }
-
-    if (bounds.x0 < gtk_adjustment_get_value (hadj)) {
-        eel_gtk_adjustment_set_value (hadj, bounds.x0);
-    } else if (bounds.x1 > gtk_adjustment_get_value (hadj) + allocation.width) {
-        if (bounds.x1 - allocation.width > bounds.x0) {
-            eel_gtk_adjustment_set_value (hadj, bounds.x0);
-        } else {
-            eel_gtk_adjustment_set_value (hadj, bounds.x1 - allocation.width);
-#endif
         }
     }
 }
@@ -1268,13 +1210,6 @@ caja_icon_container_update_scroll_region (CajaIconContainer *container)
     {
         gtk_adjustment_set_step_increment (vadj, step_increment);
     }
-#if !GTK_CHECK_VERSION (3, 0, 0)
-    /* Now that we have a new scroll region, clamp the
-     * adjustments so we are within the valid scroll area.
-     */
-    eel_gtk_adjustment_clamp_value (hadj);
-    eel_gtk_adjustment_clamp_value (vadj);
-#endif
 }
 
 static int
@@ -2835,14 +2770,12 @@ rubberband_timeout_callback (gpointer data)
     gdk_window_get_device_position (gtk_widget_get_window (widget),
                                     gdk_seat_get_pointer (seat),
                                     &x, &y, NULL);
-#elif GTK_CHECK_VERSION (3, 0, 0)
+#else
     gdk_window_get_device_position (gtk_widget_get_window (widget),
                                     gdk_device_manager_get_client_pointer (
                                     gdk_display_get_device_manager (
                                     gtk_widget_get_display (widget))),
                                     &x, &y, NULL);
-#else
-    gtk_widget_get_pointer (widget, &x, &y);
 #endif
 
     if (x < 0)
@@ -2942,7 +2875,6 @@ rubberband_timeout_callback (gpointer data)
     return TRUE;
 }
 
-#if GTK_CHECK_VERSION(3,0,0)
 /*borrowed from Nemo, makes Caja rubberbanding follow same selectors as Nemo and presumably Nautilus */
 static void
 start_rubberbanding (CajaIconContainer *container,
@@ -3021,94 +2953,6 @@ start_rubberbanding (CajaIconContainer *container,
 				NULL, event->time);
 #endif
 }
-
-
-#else
-static void
-start_rubberbanding (CajaIconContainer *container,
-                     GdkEventButton *event)
-{
-    AtkObject *accessible;
-    CajaIconContainerDetails *details;
-    CajaIconRubberbandInfo *band_info;
-    guint fill_color, outline_color;
-    GdkColor *fill_color_gdk;
-    guchar fill_color_alpha;
-    GList *p;
-    CajaIcon *icon;
-    GtkStyle *style;
-
-    details = container->details;
-    band_info = &details->rubberband_info;
-
-    g_signal_emit (container,
-                   signals[BAND_SELECT_STARTED], 0);
-
-    for (p = details->icons; p != NULL; p = p->next)
-    {
-        icon = p->data;
-        icon->was_selected_before_rubberband = icon->is_selected;
-    }
-
-    eel_canvas_window_to_world
-    (EEL_CANVAS (container), event->x, event->y,
-     &band_info->start_x, &band_info->start_y);
-
-    gtk_widget_style_get (GTK_WIDGET (container),
-                          "selection_box_color", &fill_color_gdk,
-                          "selection_box_alpha", &fill_color_alpha,
-                          NULL);
-
-    if (!fill_color_gdk)
-    {
-        style = gtk_widget_get_style (GTK_WIDGET (container));
-        fill_color_gdk = gdk_color_copy (&style->base[GTK_STATE_SELECTED]);
-    }
-
-    fill_color = eel_gdk_color_to_rgb (fill_color_gdk) << 8 | fill_color_alpha;
-
-    gdk_color_free (fill_color_gdk);
-
-    outline_color = fill_color | 255;
-
-    band_info->selection_rectangle = eel_canvas_item_new
-                                     (eel_canvas_root
-                                      (EEL_CANVAS (container)),
-                                      EEL_TYPE_CANVAS_RECT,
-                                      "x1", band_info->start_x,
-                                      "y1", band_info->start_y,
-                                      "x2", band_info->start_x,
-                                      "y2", band_info->start_y,
-                                      "fill_color_rgba", fill_color,
-                                      "outline_color_rgba", outline_color,
-                                      "width_pixels", 1,
-                                      NULL);
-
-    accessible = atk_gobject_accessible_for_object
-                 (G_OBJECT (band_info->selection_rectangle));
-    atk_object_set_name (accessible, "selection");
-    atk_object_set_description (accessible, _("The selection rectangle"));
-
-    band_info->prev_x = event->x - gtk_adjustment_get_value (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container)));
-    band_info->prev_y = event->y - gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container)));
-
-    band_info->active = TRUE;
-
-    if (band_info->timer_id == 0)
-    {
-        band_info->timer_id = g_timeout_add
-                              (RUBBERBAND_TIMEOUT_INTERVAL,
-                               rubberband_timeout_callback,
-                               container);
-    }
-
-    eel_canvas_item_grab (band_info->selection_rectangle,
-                          (GDK_POINTER_MOTION_MASK
-                           | GDK_BUTTON_RELEASE_MASK
-                           | GDK_SCROLL_MASK),
-                          NULL, event->time);
-}
-#endif
 
 static void
 #if GTK_CHECK_VERSION(3, 20, 0)
@@ -4525,11 +4369,7 @@ select_previous_or_next_icon (CajaIconContainer *container,
 #endif
 
 static void
-#if GTK_CHECK_VERSION(3, 0, 0)
 destroy (GtkWidget *object)
-#else
-destroy (GtkObject *object)
-#endif
 {
     CajaIconContainer *container;
 
@@ -4586,11 +4426,7 @@ destroy (GtkObject *object)
         }
     }
 
-#if GTK_CHECK_VERSION(3, 0, 0)
     GTK_WIDGET_CLASS (caja_icon_container_parent_class)->destroy (object);
-#else
-    GTK_OBJECT_CLASS (caja_icon_container_parent_class)->destroy (object);
-#endif
 }
 
 static void
@@ -4717,11 +4553,7 @@ realize (GtkWidget *widget)
        set on it is drawn by X. */
     if (container->details->is_desktop)
     {
-#if GTK_CHECK_VERSION (3, 0, 0)
         gdk_x11_window_get_xid (gtk_layout_get_bin_window (GTK_LAYOUT (widget)));
-#else
-        gdk_x11_drawable_get_xid (gtk_layout_get_bin_window (GTK_LAYOUT (widget)));
-#endif
     }
 #endif
     /* Set up DnD.  */
@@ -4756,7 +4588,6 @@ unrealize (GtkWidget *widget)
 }
 
 static void
-#if GTK_CHECK_VERSION(3,0,0)
 style_updated (GtkWidget *widget)
 {
     CajaIconContainer *container;
@@ -4776,32 +4607,6 @@ style_updated (GtkWidget *widget)
         invalidate_labels (container);
         caja_icon_container_request_update_all (container);
     }
-#else
-style_set (GtkWidget *widget,
-           GtkStyle  *previous_style)
-{
-    CajaIconContainer *container;
-    gboolean frame_text;
-
-    container = CAJA_ICON_CONTAINER (widget);
-
-    gtk_widget_style_get (GTK_WIDGET (container),
-                          "frame_text", &frame_text,
-                          NULL);
-
-    container->details->use_drop_shadows = container->details->drop_shadows_requested && !frame_text;
-
-    caja_icon_container_theme_changed (CAJA_ICON_CONTAINER (widget));
-
-    if (gtk_widget_get_realized (widget))
-    {
-        invalidate_label_sizes (container);
-        caja_icon_container_request_update_all (container);
-    }
-
-    /* Don't chain up to parent, because that sets the background of the window and we're doing
-       that ourself with some delay, so this would cause flickering */
-#endif
 }
 
 static gboolean
@@ -4815,9 +4620,6 @@ button_press_event (GtkWidget *widget,
 
     container = CAJA_ICON_CONTAINER (widget);
     container->details->button_down_time = event->time;
-#if !GTK_CHECK_VERSION(3, 0, 0)
-    clicked_on_icon = FALSE;
-#endif
 
     /* Forget about the old keyboard selection now that we've started mousing. */
     clear_keyboard_focus (container);
@@ -4829,15 +4631,8 @@ button_press_event (GtkWidget *widget,
         return TRUE;
     }
 
-#if GTK_CHECK_VERSION(3, 0, 0)
     /* Invoke the canvas event handler and see if an item picks up the event. */
     clicked_on_icon = GTK_WIDGET_CLASS (caja_icon_container_parent_class)->button_press_event (widget, event);
-#else
-    if (event->button < 6) { /* Don't let the eel canvas consume extra button events, see gnome bug 660006 */
-        /* Invoke the canvas event handler and see if an item picks up the event. */
-        clicked_on_icon = GTK_WIDGET_CLASS (caja_icon_container_parent_class)->button_press_event (widget, event);
-    }
-#endif
 
     /* Move focus to icon container, unless we're still renaming (to avoid exiting
      * renaming mode)
@@ -5115,11 +4910,7 @@ start_stretching (CajaIconContainer *container)
                           GDK_CURRENT_TIME);
 #endif
     if (cursor)
-#if GTK_CHECK_VERSION(3,0,0)
         g_object_unref (cursor);
-#else
-        gdk_cursor_unref (cursor);
-#endif
 
     /* Ensure the window itself is focused.. */
     toplevel = gtk_widget_get_toplevel (GTK_WIDGET (container));
@@ -5959,7 +5750,7 @@ caja_icon_container_ensure_interactive_directory (CajaIconContainer *container)
     gtk_widget_show (frame);
     gtk_container_add (GTK_CONTAINER (container->details->search_window), frame);
 
-    vbox = gtk_vbox_new (FALSE, 0);
+    vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     gtk_widget_show (vbox);
     gtk_container_add (GTK_CONTAINER (frame), vbox);
     gtk_container_set_border_width (GTK_CONTAINER (vbox), 3);
@@ -6302,46 +6093,9 @@ popup_menu (GtkWidget *widget)
 #if !GTK_CHECK_VERSION(3, 21, 0)
 static void
 draw_canvas_background (EelCanvas *canvas,
-#if GTK_CHECK_VERSION(3,0,0)
                         cairo_t   *cr)
-#else
-                        int x, int y, int width, int height)
-#endif
 {
     /* Don't chain up to the parent to avoid clearing and redrawing */
-}
-#endif
-
-
-#if !GTK_CHECK_VERSION(3,0,0)
-static gboolean
-expose_event (GtkWidget      *widget,
-              GdkEventExpose *event)
-{
-    /*	g_warning ("Expose Icon Container %p '%d,%d: %d,%d'",
-    		   widget,
-    		   event->area.x, event->area.y,
-    		   event->area.width, event->area.height); */
-
-    return GTK_WIDGET_CLASS (caja_icon_container_parent_class)->expose_event (widget, event);
-}
-#endif
-
-#if !GTK_CHECK_VERSION(3, 0, 0)
-static AtkObject *
-get_accessible (GtkWidget *widget)
-{
-    AtkObject *accessible;
-
-    if ((accessible = eel_accessibility_get_atk_object (widget)))
-    {
-        return accessible;
-    }
-
-    accessible = g_object_new
-                 (caja_icon_container_accessible_get_type (), NULL);
-
-    return eel_accessibility_set_atk_object_return (widget, accessible);
 }
 #endif
 
@@ -6424,11 +6178,7 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
     G_OBJECT_CLASS (class)->constructor = caja_icon_container_constructor;
     G_OBJECT_CLASS (class)->finalize = finalize;
 
-#if GTK_CHECK_VERSION(3, 0, 0)
     GTK_WIDGET_CLASS (class)->destroy = destroy;
-#else
-    GTK_OBJECT_CLASS (class)->destroy = destroy;
-#endif
 
     /* Signals.  */
 
@@ -6787,18 +6537,10 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
     widget_class->motion_notify_event = motion_notify_event;
     widget_class->key_press_event = key_press_event;
     widget_class->popup_menu = popup_menu;
-#if GTK_CHECK_VERSION(3,2,0)
-    gtk_widget_class_set_accessible_type (widget_class, caja_icon_container_accessible_get_type ());
-#else
-    widget_class->get_accessible = get_accessible;
-#endif
-#if GTK_CHECK_VERSION(3,0,0)
     widget_class->style_updated = style_updated;
-#else
-    widget_class->style_set = style_set;
-    widget_class->expose_event = expose_event;
-#endif
     widget_class->grab_notify = grab_notify_cb;
+
+    gtk_widget_class_set_accessible_type (widget_class, caja_icon_container_accessible_get_type ());
 
     canvas_class = EEL_CANVAS_CLASS (class);
 #if !GTK_CHECK_VERSION(3, 21, 0)
@@ -6806,7 +6548,6 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
 #endif
     class->start_interactive_search = caja_icon_container_start_interactive_search;
 
-#if GTK_CHECK_VERSION(3,0,0)
     gtk_widget_class_install_style_property (widget_class,
             g_param_spec_boxed ("selection_box_rgba",
                                 "Selection Box RGBA",
@@ -6825,130 +6566,6 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
                                 "Color used for information text against a light background",
                                 GDK_TYPE_RGBA,
                                 G_PARAM_READABLE));
-#else
-    gtk_widget_class_install_style_property (widget_class,
-            g_param_spec_boolean ("frame_text",
-                                  "Frame Text",
-                                  "Draw a frame around unselected text",
-                                  FALSE,
-                                  G_PARAM_READABLE));
-    gtk_widget_class_install_style_property (widget_class,
-            g_param_spec_boxed ("selection_box_color",
-                                "Selection Box Color",
-                                "Color of the selection box",
-                                GDK_TYPE_COLOR,
-                                G_PARAM_READABLE));
-    gtk_widget_class_install_style_property (widget_class,
-            g_param_spec_uchar ("selection_box_alpha",
-                                "Selection Box Alpha",
-                                "Opacity of the selection box",
-                                0, 0xff,
-                                DEFAULT_SELECTION_BOX_ALPHA,
-                                G_PARAM_READABLE));
-
-    gtk_widget_class_install_style_property (widget_class,
-            g_param_spec_uchar ("highlight_alpha",
-                                "Highlight Alpha",
-                                "Opacity of the highlight for selected icons",
-                                0, 0xff,
-                                DEFAULT_HIGHLIGHT_ALPHA,
-                                G_PARAM_READABLE));
-    gtk_widget_class_install_style_property (widget_class,
-            g_param_spec_uchar ("normal_alpha",
-                                "Normal Alpha",
-                                "Opacity of the normal icons if frame_text is set",
-                                0, 0xff,
-                                DEFAULT_NORMAL_ALPHA,
-                                G_PARAM_READABLE));
-    gtk_widget_class_install_style_property (widget_class,
-            g_param_spec_uchar ("prelight_alpha",
-                                "Prelight Alpha",
-                                "Opacity of the prelight icons if frame_text is set",
-                                0, 0xff,
-                                DEFAULT_PRELIGHT_ALPHA,
-                                G_PARAM_READABLE));
-    gtk_widget_class_install_style_property (widget_class,
-            g_param_spec_boxed ("light_info_color",
-                                "Light Info Color",
-                                "Color used for information text against a dark background",
-                                GDK_TYPE_COLOR,
-                                G_PARAM_READABLE));
-    gtk_widget_class_install_style_property (widget_class,
-            g_param_spec_boxed ("dark_info_color",
-                                "Dark Info Color",
-                                "Color used for information text against a light background",
-                                GDK_TYPE_COLOR,
-                                G_PARAM_READABLE));
-
-    gtk_widget_class_install_style_property (widget_class,
-            g_param_spec_uint ("normal_icon_render_mode",
-                               "Normal Icon Render Mode",
-                               "Mode of normal icons being rendered (0=normal, 1=spotlight, 2=colorize, 3=colorize-monochromely)",
-                               0, 3,
-                               DEFAULT_NORMAL_ICON_RENDER_MODE,
-                               G_PARAM_READABLE));
-    gtk_widget_class_install_style_property (widget_class,
-            g_param_spec_uint ("prelight_icon_render_mode",
-                               "Prelight Icon Render Mode",
-                               "Mode of prelight icons being rendered (0=normal, 1=spotlight, 2=colorize, 3=colorize-monochromely)",
-                               0, 3,
-                               DEFAULT_PRELIGHT_ICON_RENDER_MODE,
-                               G_PARAM_READABLE));
-    gtk_widget_class_install_style_property (widget_class,
-            g_param_spec_boxed ("normal_icon_color",
-                                "Icon Normal Color",
-                                "Color used for colorizing icons in normal state (default base[NORMAL])",
-                                GDK_TYPE_COLOR,
-                                G_PARAM_READABLE));
-    gtk_widget_class_install_style_property (widget_class,
-            g_param_spec_boxed ("prelight_icon_color",
-                                "Icon Prelight Color",
-                                "Color used for colorizing prelighted icons (default base[PRELIGHT])",
-                                GDK_TYPE_COLOR,
-                                G_PARAM_READABLE));
-    gtk_widget_class_install_style_property (widget_class,
-            g_param_spec_uint ("normal_icon_saturation",
-                               "Normal Icon Saturation",
-                               "Saturation of icons in normal state",
-                               0, 255,
-                               DEFAULT_NORMAL_ICON_SATURATION,
-                               G_PARAM_READABLE));
-    gtk_widget_class_install_style_property (widget_class,
-            g_param_spec_uint ("prelight_icon_saturation",
-                               "Prelight Icon Saturation",
-                               "Saturation of icons in prelight state",
-                               0, 255,
-                               DEFAULT_PRELIGHT_ICON_SATURATION,
-                               G_PARAM_READABLE));
-    gtk_widget_class_install_style_property (widget_class,
-            g_param_spec_uint ("normal_icon_brightness",
-                               "Normal Icon Brightness",
-                               "Brightness of icons in normal state",
-                               0, 255,
-                               DEFAULT_NORMAL_ICON_BRIGHTNESS,
-                               G_PARAM_READABLE));
-    gtk_widget_class_install_style_property (widget_class,
-            g_param_spec_uint ("prelight_icon_brightness",
-                               "Prelight Icon Brightness",
-                               "Brightness of icons in prelight state",
-                               0, 255,
-                               DEFAULT_PRELIGHT_ICON_BRIGHTNESS,
-                               G_PARAM_READABLE));
-    gtk_widget_class_install_style_property (widget_class,
-            g_param_spec_uint ("normal_icon_lighten",
-                               "Normal Icon Lighten",
-                               "Lighten icons in normal state",
-                               0, 255,
-                               DEFAULT_NORMAL_ICON_LIGHTEN,
-                               G_PARAM_READABLE));
-    gtk_widget_class_install_style_property (widget_class,
-            g_param_spec_uint ("prelight_icon_lighten",
-                               "Prelight Icon Lighten",
-                               "Lighten icons in prelight state",
-                               0, 255,
-                               DEFAULT_PRELIGHT_ICON_LIGHTEN,
-                               G_PARAM_READABLE));
-#endif
     gtk_widget_class_install_style_property (widget_class,
             g_param_spec_boolean ("activate_prelight_icon_label",
                                   "Activate Prelight Icon Label",
@@ -7114,22 +6731,12 @@ caja_icon_container_init (CajaIconContainer *container)
     /* when the background changes, we must set up the label text color */
     background = eel_get_widget_background (GTK_WIDGET (container));
 
-#if !GTK_CHECK_VERSION(3,0,0)
-    g_signal_connect_object (background, "appearance_changed",
-                             G_CALLBACK (update_label_color), container, 0);
-#endif
-
     g_signal_connect (container, "focus-in-event",
                       G_CALLBACK (handle_focus_in_event), NULL);
     g_signal_connect (container, "focus-out-event",
                       G_CALLBACK (handle_focus_out_event), NULL);
 
     eel_background_set_use_base (background, TRUE);
-
-#if !GTK_CHECK_VERSION(3,0,0)
-    /* read in theme-dependent data */
-    caja_icon_container_theme_changed (container);
-#endif
 
     if (!setup_prefs)
     {
@@ -7536,21 +7143,12 @@ caja_icon_container_scroll_to_icon (CajaIconContainer  *container,
 
             if (caja_icon_container_is_layout_vertical (container)) {
                 if (caja_icon_container_is_layout_rtl (container)) {
-#if GTK_CHECK_VERSION (3, 0, 0)
                     gtk_adjustment_set_value (hadj, bounds.x1 - allocation.width);
                 } else {
                     gtk_adjustment_set_value (hadj, bounds.x0);
                 }
             } else {
                 gtk_adjustment_set_value (vadj, bounds.y0);
-#else
-                    eel_gtk_adjustment_set_value (hadj, bounds.x1 - allocation.width);
-                } else {
-                    eel_gtk_adjustment_set_value (hadj, bounds.x0);
-                }
-            } else {
-                eel_gtk_adjustment_set_value (vadj, bounds.y0);
-#endif
             }
         }
 
@@ -9366,14 +8964,10 @@ caja_icon_container_start_renaming_selected_item (CajaIconContainer *container,
             eel_editable_label_set_justify (EEL_EDITABLE_LABEL (details->rename_widget), GTK_JUSTIFY_CENTER);
         }
 
-#if GTK_CHECK_VERSION (3, 0, 0)
         gtk_widget_set_margin_start (details->rename_widget, 1);
         gtk_widget_set_margin_end (details->rename_widget, 1);
         gtk_widget_set_margin_top (details->rename_widget, 1);
         gtk_widget_set_margin_bottom (details->rename_widget, 1);
-#else
-        gtk_misc_set_padding (GTK_MISC (details->rename_widget), 1, 1);
-#endif
         gtk_layout_put (GTK_LAYOUT (container),
                         details->rename_widget, 0, 0);
     }
@@ -9442,21 +9036,12 @@ caja_icon_container_start_renaming_selected_item (CajaIconContainer *container,
     {
         eel_filename_get_rename_region (editable_text, &start_offset, &end_offset);
     }
-
-#if GTK_CHECK_VERSION (3, 0, 0)
     gtk_widget_show (details->rename_widget);
     gtk_widget_grab_focus (details->rename_widget);
-#endif
 
     eel_editable_label_select_region (EEL_EDITABLE_LABEL (details->rename_widget),
                                       start_offset,
                                       end_offset);
-
-#if !GTK_CHECK_VERSION (3, 0, 0)
-    gtk_widget_show (details->rename_widget);
-    gtk_widget_grab_focus (details->rename_widget);
-#endif
-
     g_signal_emit (container,
                    signals[RENAMING_ICON], 0,
                    GTK_EDITABLE (details->rename_widget));
@@ -9571,174 +9156,6 @@ caja_icon_container_set_single_click_mode (CajaIconContainer *container,
     container->details->single_click_mode = single_click_mode;
 }
 
-#if !GTK_CHECK_VERSION(3,0,0)
-/* update the label color when the background changes */
-
-void
-caja_icon_container_get_label_color (CajaIconContainer *container,
-        GdkColor             **color,
-        gboolean             is_name,
-        gboolean             is_highlight,
-        gboolean             is_prelit)
-{
-    int idx;
-
-    if (is_name)
-    {
-        if (is_highlight)
-        {
-            if (gtk_widget_has_focus (GTK_WIDGET (container)))
-            {
-                idx = LABEL_COLOR_HIGHLIGHT;
-            }
-            else
-            {
-                idx = LABEL_COLOR_ACTIVE;
-            }
-        }
-        else
-        {
-            if (is_prelit)
-            {
-                idx = LABEL_COLOR_PRELIGHT;
-            }
-            else
-            {
-                idx = LABEL_COLOR;
-            }
-        }
-    }
-    else
-    {
-        if (is_highlight)
-        {
-            if (gtk_widget_has_focus (GTK_WIDGET (container)))
-            {
-                idx = LABEL_INFO_COLOR_HIGHLIGHT;
-            }
-            else
-            {
-                idx = LABEL_INFO_COLOR_ACTIVE;
-            }
-        }
-        else
-        {
-            idx = LABEL_INFO_COLOR;
-        }
-    }
-
-    if (color)
-    {
-        *color = &container->details->label_colors [idx];
-    }
-}
-
-static void
-setup_gc_with_fg (CajaIconContainer *container, int idx, guint32 color)
-{
-    container->details->label_colors [idx] = eel_gdk_rgb_to_color (color);
-}
-
-static void
-setup_label_gcs (CajaIconContainer *container)
-{
-    EelBackground *background;
-    GtkWidget *widget;
-    GdkColor *light_info_color, *dark_info_color;
-    guint light_info_value, dark_info_value;
-    gboolean frame_text;
-    GtkStyle *style;
-
-    if (!gtk_widget_get_realized (GTK_WIDGET (container)))
-        return;
-
-    widget = GTK_WIDGET (container);
-
-    g_assert (CAJA_IS_ICON_CONTAINER (container));
-
-    background = eel_get_widget_background (GTK_WIDGET (container));
-
-    /* read the info colors from the current theme; use a reasonable default if undefined */
-    gtk_widget_style_get (GTK_WIDGET (container),
-                          "light_info_color", &light_info_color,
-                          "dark_info_color", &dark_info_color,
-                          NULL);
-    style = gtk_widget_get_style (widget);
-
-    if (light_info_color)
-    {
-        light_info_value = eel_gdk_color_to_rgb (light_info_color);
-        gdk_color_free (light_info_color);
-    }
-    else
-    {
-        light_info_value = DEFAULT_LIGHT_INFO_COLOR;
-    }
-
-    if (dark_info_color)
-    {
-        dark_info_value = eel_gdk_color_to_rgb (dark_info_color);
-        gdk_color_free (dark_info_color);
-    }
-    else
-    {
-        dark_info_value = DEFAULT_DARK_INFO_COLOR;
-    }
-
-    setup_gc_with_fg (container, LABEL_COLOR_HIGHLIGHT, eel_gdk_color_to_rgb (&style->text[GTK_STATE_SELECTED]));
-    setup_gc_with_fg (container, LABEL_COLOR_ACTIVE, eel_gdk_color_to_rgb (&style->text[GTK_STATE_ACTIVE]));
-    setup_gc_with_fg (container, LABEL_COLOR_PRELIGHT, eel_gdk_color_to_rgb (&style->text[GTK_STATE_PRELIGHT]));
-    setup_gc_with_fg (container,
-                      LABEL_INFO_COLOR_HIGHLIGHT,
-                      eel_gdk_color_is_dark (&style->base[GTK_STATE_SELECTED]) ? light_info_value : dark_info_value);
-    setup_gc_with_fg (container,
-                      LABEL_INFO_COLOR_ACTIVE,
-                      eel_gdk_color_is_dark (&style->base[GTK_STATE_ACTIVE]) ? light_info_value : dark_info_value);
-
-    /* If CajaIconContainer::frame_text is set, we can safely
-     * use the foreground color from the theme, because it will
-     * always be displayed against the gtk background */
-    gtk_widget_style_get (widget,
-                          "frame_text", &frame_text,
-                          NULL);
-
-    if (frame_text || !eel_background_is_set (background))
-    {
-        setup_gc_with_fg (container, LABEL_COLOR,
-                          eel_gdk_color_to_rgb (&style->text[GTK_STATE_NORMAL]));
-        setup_gc_with_fg (container,
-                          LABEL_INFO_COLOR,
-                          eel_gdk_color_is_dark (&style->base[GTK_STATE_NORMAL]) ? light_info_value : dark_info_value);
-    }
-    else
-    {
-        if (container->details->use_drop_shadows || eel_background_is_dark (background))
-        {
-            setup_gc_with_fg (container, LABEL_COLOR, 0xEFEFEF);
-            setup_gc_with_fg (container,
-                              LABEL_INFO_COLOR,
-                              light_info_value);
-        }
-        else     /* converse */
-        {
-            setup_gc_with_fg (container, LABEL_COLOR, 0x000000);
-            setup_gc_with_fg (container,
-                              LABEL_INFO_COLOR,
-                              dark_info_value);
-        }
-    }
-}
-
-static void
-update_label_color (EelBackground         *background,
-                    CajaIconContainer *container)
-{
-    g_assert (EEL_IS_BACKGROUND (background));
-
-    setup_label_gcs (container);
-}
-#endif
-
 /* Return if the icon container is a fixed size */
 gboolean
 caja_icon_container_get_is_fixed_size (CajaIconContainer *container)
@@ -9774,14 +9191,12 @@ caja_icon_container_set_is_desktop (CajaIconContainer *container,
 
     container->details->is_desktop = is_desktop;
 
-#if GTK_CHECK_VERSION (3, 0, 0)
     if (is_desktop) {
             GtkStyleContext *context;
 
             context = gtk_widget_get_style_context (GTK_WIDGET (container));
             gtk_style_context_add_class (context, "caja-desktop");
     }
-#endif
 }
 
 void
@@ -9806,131 +9221,18 @@ void
 caja_icon_container_set_use_drop_shadows (CajaIconContainer  *container,
         gboolean                use_drop_shadows)
 {
-#if !GTK_CHECK_VERSION(3,0,0)
-    gboolean frame_text;
-
-    gtk_widget_style_get (GTK_WIDGET (container),
-                          "frame_text", &frame_text,
-                          NULL);
-#endif
-
     if (container->details->drop_shadows_requested == use_drop_shadows)
     {
         return;
     }
 
     container->details->drop_shadows_requested = use_drop_shadows;
-#if GTK_CHECK_VERSION(3,0,0)
     container->details->use_drop_shadows = use_drop_shadows;
-#else
-    container->details->use_drop_shadows = use_drop_shadows && !frame_text;
-#endif
+
     gtk_widget_queue_draw (GTK_WIDGET (container));
 }
 
 /* handle theme changes */
-
-#if !GTK_CHECK_VERSION(3,0,0)
-static void
-caja_icon_container_theme_changed (gpointer user_data)
-{
-    CajaIconContainer *container;
-    GtkStyle *style;
-    GdkColor *prelight_icon_color, *normal_icon_color;
-    guchar highlight_alpha, normal_alpha, prelight_alpha;
-
-    container = CAJA_ICON_CONTAINER (user_data);
-
-    /* load the highlight color */
-    gtk_widget_style_get (GTK_WIDGET (container),
-                          "highlight_alpha", &highlight_alpha,
-                          NULL);
-
-    style = gtk_widget_get_style (GTK_WIDGET (container));
-
-    container->details->highlight_color_rgba =
-        EEL_RGBA_COLOR_PACK (style->base[GTK_STATE_SELECTED].red >> 8,
-                             style->base[GTK_STATE_SELECTED].green >> 8,
-                             style->base[GTK_STATE_SELECTED].blue >> 8,
-                             highlight_alpha);
-    container->details->active_color_rgba =
-        EEL_RGBA_COLOR_PACK (style->base[GTK_STATE_ACTIVE].red >> 8,
-                             style->base[GTK_STATE_ACTIVE].green >> 8,
-                             style->base[GTK_STATE_ACTIVE].blue >> 8,
-                             highlight_alpha);
-
-    /* load the prelight icon color */
-    gtk_widget_style_get (GTK_WIDGET (container),
-                          "prelight_icon_color", &prelight_icon_color,
-                          NULL);
-
-    if (prelight_icon_color)
-    {
-        container->details->prelight_icon_color_rgba =
-            EEL_RGBA_COLOR_PACK (prelight_icon_color->red >> 8,
-                                 prelight_icon_color->green >> 8,
-                                 prelight_icon_color->blue >> 8,
-                                 255);
-    }
-    else     /* if not defined by rc, set to default value */
-    {
-        container->details->prelight_icon_color_rgba =
-            EEL_RGBA_COLOR_PACK (style->base[GTK_STATE_PRELIGHT].red >> 8,
-                                 style->base[GTK_STATE_PRELIGHT].green >> 8,
-                                 style->base[GTK_STATE_PRELIGHT].blue >> 8,
-                                 255);
-    }
-
-
-    /* load the normal icon color */
-    gtk_widget_style_get (GTK_WIDGET (container),
-                          "normal_icon_color", &normal_icon_color,
-                          NULL);
-
-    if (normal_icon_color)
-    {
-        container->details->normal_icon_color_rgba =
-            EEL_RGBA_COLOR_PACK (normal_icon_color->red >> 8,
-                                 normal_icon_color->green >> 8,
-                                 normal_icon_color->blue >> 8,
-                                 255);
-    }
-    else     /* if not defined by rc, set to default value */
-    {
-        container->details->normal_icon_color_rgba =
-            EEL_RGBA_COLOR_PACK (style->base[GTK_STATE_NORMAL].red >> 8,
-                                 style->base[GTK_STATE_NORMAL].green >> 8,
-                                 style->base[GTK_STATE_NORMAL].blue >> 8,
-                                 255);
-    }
-
-
-    /* load the normal color */
-    gtk_widget_style_get (GTK_WIDGET (container),
-                          "normal_alpha", &normal_alpha,
-                          NULL);
-
-    container->details->normal_color_rgba =
-        EEL_RGBA_COLOR_PACK (style->base[GTK_STATE_NORMAL].red >> 8,
-                             style->base[GTK_STATE_NORMAL].green >> 8,
-                             style->base[GTK_STATE_NORMAL].blue >> 8,
-                             normal_alpha);
-
-
-    /* load the prelight color */
-    gtk_widget_style_get (GTK_WIDGET (container),
-                          "prelight_alpha", &prelight_alpha,
-                          NULL);
-
-    container->details->prelight_color_rgba =
-        EEL_RGBA_COLOR_PACK (style->base[GTK_STATE_PRELIGHT].red >> 8,
-                             style->base[GTK_STATE_PRELIGHT].green >> 8,
-                             style->base[GTK_STATE_PRELIGHT].blue >> 8,
-                             prelight_alpha);
-
-    setup_label_gcs (container);
-}
-#endif
 
 void
 caja_icon_container_set_font (CajaIconContainer *container,
@@ -10625,7 +9927,6 @@ caja_icon_container_accessible_finalize (GObject *object)
     G_OBJECT_CLASS (accessible_parent_class)->finalize (object);
 }
 
-#if GTK_CHECK_VERSION(3,2,0)
 static void
 caja_icon_container_accessible_init (CajaIconContainerAccessible *accessible)
 {
@@ -10655,59 +9956,6 @@ G_DEFINE_TYPE_WITH_CODE (CajaIconContainerAccessible,
                                                 caja_icon_container_accessible_action_interface_init)
                          G_IMPLEMENT_INTERFACE (ATK_TYPE_SELECTION,
                                                 caja_icon_container_accessible_selection_interface_init));
-
-#else
-static void
-caja_icon_container_accessible_class_init (AtkObjectClass *klass)
-{
-    GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
-
-    accessible_parent_class = g_type_class_peek_parent (klass);
-
-    gobject_class->finalize = caja_icon_container_accessible_finalize;
-
-    klass->get_n_children = caja_icon_container_accessible_get_n_children;
-    klass->ref_child = caja_icon_container_accessible_ref_child;
-    klass->initialize = caja_icon_container_accessible_initialize;
-
-    accessible_private_data_quark = g_quark_from_static_string ("icon-container-accessible-private-data");
-}
-
-static GType
-caja_icon_container_accessible_get_type (void)
-{
-    static GType type = 0;
-
-    if (!type)
-    {
-        static GInterfaceInfo atk_action_info =
-        {
-            (GInterfaceInitFunc) caja_icon_container_accessible_action_interface_init,
-            (GInterfaceFinalizeFunc) NULL,
-            NULL
-        };
-
-        static GInterfaceInfo atk_selection_info =
-        {
-            (GInterfaceInitFunc) caja_icon_container_accessible_selection_interface_init,
-            (GInterfaceFinalizeFunc) NULL,
-            NULL
-        };
-
-        type = eel_accessibility_create_derived_type
-               ("CajaIconContainerAccessible",
-                EEL_TYPE_CANVAS,
-                caja_icon_container_accessible_class_init);
-
-        g_type_add_interface_static (type, ATK_TYPE_ACTION,
-                                     &atk_action_info);
-        g_type_add_interface_static (type, ATK_TYPE_SELECTION,
-                                     &atk_selection_info);
-    }
-
-    return type;
-}
-#endif
 
 #if ! defined (CAJA_OMIT_SELF_CHECK)
 

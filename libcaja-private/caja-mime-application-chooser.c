@@ -70,11 +70,7 @@ enum
     NUM_COLUMNS
 };
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 G_DEFINE_TYPE (CajaMimeApplicationChooser, caja_mime_application_chooser, GTK_TYPE_BOX);
-#else
-G_DEFINE_TYPE (CajaMimeApplicationChooser, caja_mime_application_chooser, GTK_TYPE_VBOX);
-#endif
 
 static void refresh_model             (CajaMimeApplicationChooser *chooser);
 static void refresh_model_soon        (CajaMimeApplicationChooser *chooser);
@@ -380,9 +376,9 @@ caja_mime_application_chooser_init (CajaMimeApplicationChooser *chooser)
     chooser->details = g_new0 (CajaMimeApplicationChooserDetails, 1);
 
     chooser->details->for_multiple_files = FALSE;
-#if GTK_CHECK_VERSION (3, 0, 0)
+
     gtk_orientable_set_orientation (GTK_ORIENTABLE (chooser), GTK_ORIENTATION_VERTICAL);
-#endif
+
     gtk_container_set_border_width (GTK_CONTAINER (chooser), 8);
     gtk_box_set_spacing (GTK_BOX (chooser), 0);
     gtk_box_set_homogeneous (GTK_BOX (chooser), FALSE);
@@ -418,11 +414,7 @@ caja_mime_application_chooser_init (CajaMimeApplicationChooser *chooser)
     gtk_container_add (GTK_CONTAINER (scrolled),
                        chooser->details->treeview);
 
-#if GTK_CHECK_VERSION(3, 0, 0)
     box = gtk_button_box_new (GTK_ORIENTATION_HORIZONTAL);
-#else
-    box = gtk_hbutton_box_new ();
-#endif
     gtk_box_set_spacing (GTK_BOX (box), 6);
     gtk_button_box_set_layout (GTK_BUTTON_BOX (box), GTK_BUTTONBOX_END);
     gtk_box_pack_start (GTK_BOX (chooser), box, FALSE, FALSE, 6);

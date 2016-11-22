@@ -31,27 +31,12 @@
 #include "eel-lib-self-check-functions.h"
 #include <gtk/gtk.h>
 #include <eel/eel-canvas.h>
-#if GTK_CHECK_VERSION (3, 0, 0)
 # include <cairo-xlib.h>
-#endif
 #include <gdk/gdkx.h>
 #include <gio/gio.h>
 #include <math.h>
 #include <stdio.h>
 #include <libcaja-private/caja-global-preferences.h>
-
-#if !GTK_CHECK_VERSION(3, 0, 0)
-#define cairo_surface_t         GdkPixmap
-#define cairo_surface_destroy   g_object_unref
-#define cairo_xlib_surface_get_display  GDK_PIXMAP_XDISPLAY
-#define cairo_xlib_surface_get_drawable GDK_PIXMAP_XID
-#define cairo_set_source_surface gdk_cairo_set_source_pixmap
-#define mate_bg_create_surface              mate_bg_create_pixmap
-#define mate_bg_set_surface_as_root         mate_bg_set_pixmap_as_root
-#define mate_bg_get_surface_from_root       mate_bg_get_pixmap_from_root
-#define mate_bg_crossfade_set_start_surface mate_bg_crossfade_set_start_pixmap
-#define mate_bg_crossfade_set_end_surface   mate_bg_crossfade_set_end_pixmap
-#endif
 
 G_DEFINE_TYPE (EelBackground, eel_background, G_TYPE_OBJECT);
 
@@ -77,12 +62,7 @@ struct EelBackgroundDetails
     MateBGCrossfade *fade;
     int bg_entire_width;
     int bg_entire_height;
-#if GTK_CHECK_VERSION (3, 0, 0)
     GdkRGBA default_color;
-#else
-    GdkColor default_color;
-#endif
-
     gboolean use_base;
 
     /* Is this background attached to desktop window */
@@ -167,11 +147,7 @@ eel_background_unrealize (EelBackground *self)
 
 static void
 make_color_inactive (EelBackground *self,
-#if GTK_CHECK_VERSION (3, 0, 0)
 		     GdkRGBA      *color)
-#else
-		     GdkColor      *color)
-#endif
 {
     double intensity, saturation;
     gushort t;
@@ -206,11 +182,7 @@ gchar *
 eel_bg_get_desktop_color (EelBackground *self)
 {
     MateBGColorType type;
-#if GTK_CHECK_VERSION (3, 0, 0)
     GdkRGBA    primary, secondary;
-#else
-    GdkColor   primary, secondary;
-#endif
     char      *start_color, *end_color, *color_spec;
     gboolean   use_gradient = TRUE;
     gboolean   is_horizontal = FALSE;
@@ -230,19 +202,11 @@ eel_bg_get_desktop_color (EelBackground *self)
         use_gradient = FALSE;
     }
 
-#if GTK_CHECK_VERSION (3, 0, 0)
     start_color = eel_gdk_rgb_to_color_spec (eel_gdk_rgba_to_rgb (&primary));
 
     if (use_gradient)
     {
         end_color  = eel_gdk_rgb_to_color_spec (eel_gdk_rgba_to_rgb (&secondary));
-#else
-    start_color = eel_gdk_rgb_to_color_spec (eel_gdk_color_to_rgb (&primary));
-
-    if (use_gradient)
-    {
-        end_color  = eel_gdk_rgb_to_color_spec (eel_gdk_color_to_rgb (&secondary));
-#endif
         color_spec = eel_gradient_new (start_color, end_color, is_horizontal);
         g_free (end_color);
     }
@@ -255,7 +219,6 @@ eel_bg_get_desktop_color (EelBackground *self)
     return color_spec;
 }
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 static void
 set_image_properties (EelBackground *self)
 {
@@ -298,51 +261,6 @@ set_image_properties (EelBackground *self)
         }
     }
 }
-#else
-static void
-set_image_properties (EelBackground *self)
-{
-    GdkColor c;
-
-    if (self->details->is_desktop && !self->details->color)
-        self->details->color = eel_bg_get_desktop_color (self);
-
-    if (!self->details->color)
-    {
-        c = self->details->default_color;
-        make_color_inactive (self, &c);
-        mate_bg_set_color (self->details->bg, MATE_BG_COLOR_SOLID, &c, NULL);
-    }
-    else if (!eel_gradient_is_gradient (self->details->color))
-    {
-        eel_gdk_color_parse_with_white_default (self->details->color, &c);
-        make_color_inactive (self, &c);
-        mate_bg_set_color (self->details->bg, MATE_BG_COLOR_SOLID, &c, NULL);
-    }
-    else
-    {
-        GdkColor c1, c2;
-        char *spec;
-
-        spec = eel_gradient_get_start_color_spec (self->details->color);
-        eel_gdk_color_parse_with_white_default (spec, &c1);
-        make_color_inactive (self, &c1);
-        g_free (spec);
-
-        spec = eel_gradient_get_end_color_spec (self->details->color);
-        eel_gdk_color_parse_with_white_default (spec, &c2);
-        make_color_inactive (self, &c2);
-        g_free (spec);
-
-        if (eel_gradient_is_horizontal (self->details->color)) {
-            mate_bg_set_color (self->details->bg, MATE_BG_COLOR_H_GRADIENT, &c1, &c2);
-        } else {
-            mate_bg_set_color (self->details->bg, MATE_BG_COLOR_V_GRADIENT, &c1, &c2);
-        }
-    }
-}
-#endif
-
 
 gchar *
 eel_background_get_color (EelBackground *self)
@@ -398,7 +316,6 @@ eel_background_ensure_realized (EelBackground *self)
 {
     int width, height;
     GdkWindow *window;
-#if GTK_CHECK_VERSION (3, 0, 0)
     GtkStyleContext *style;
 
     /* Set the default color */
@@ -412,17 +329,6 @@ eel_background_ensure_realized (EelBackground *self)
                                             gtk_style_context_get_state (style),
                                             &self->details->default_color);
     gtk_style_context_restore (style);
-#else
-    GtkStyle *style;
-
-    /* Set the default color */
-    style = gtk_widget_get_style (self->details->widget);
-    if (self->details->use_base) {
-       self->details->default_color = style->base[GTK_STATE_NORMAL];
-    } else {
-        self->details->default_color = style->bg[GTK_STATE_NORMAL];
-    }
-#endif
 
     /* If the window size is the same as last time, don't update */
     drawable_get_adjusted_size (self, &width, &height);
@@ -450,7 +356,6 @@ eel_background_ensure_realized (EelBackground *self)
 
 void
 eel_background_draw (GtkWidget *widget,
-#  if GTK_CHECK_VERSION (3, 0, 0)
                      cairo_t   *cr)
 {
     int width, height;
@@ -479,42 +384,6 @@ eel_background_draw (GtkWidget *widget,
 
     cairo_restore (cr);
 }
-#  else
-                     GdkEventExpose *event)
-{
-    int width, height;
-    GdkWindow *window = gtk_widget_get_window (widget);
-    GdkColor color;
-
-    if (event->window != window)
-        return;
-
-    EelBackground *self = eel_get_widget_background (widget);
-
-    drawable_get_adjusted_size (self, &width, &height);
-
-    eel_background_ensure_realized (self);
-    color = self->details->default_color;
-    make_color_inactive (self, &color);
-
-    cairo_t *cr = gdk_cairo_create (window);
-
-    if (self->details->bg_surface != NULL) {
-        cairo_set_source_surface (cr, self->details->bg_surface, 0, 0);
-        cairo_pattern_set_extend (cairo_get_source (cr), CAIRO_EXTEND_REPEAT);
-    } else {
-        gdk_cairo_set_source_color (cr, &color);
-    }
-
-    gdk_cairo_rectangle (cr, &event->area);
-    cairo_clip (cr);
-
-    cairo_rectangle (cr, 0, 0, width, height);
-    cairo_fill (cr);
-
-    cairo_destroy (cr);
-}
-#  endif
 
 static void
 set_root_surface (EelBackground *self,
@@ -627,11 +496,8 @@ eel_background_set_up_widget (EelBackground *self)
 {
     GdkWindow *window;
     GtkWidget *widget = self->details->widget;
-#  if GTK_CHECK_VERSION (3, 0, 0)
     GdkRGBA color;
-#else
-    GdkColor color;
-#endif
+
     gboolean in_fade = FALSE;
 
     if (!gtk_widget_get_realized (widget))
@@ -655,30 +521,21 @@ eel_background_set_up_widget (EelBackground *self)
 
     if (!in_fade)
     {
-#  if GTK_CHECK_VERSION (3, 0, 0)
         cairo_pattern_t *pattern;
         pattern = cairo_pattern_create_for_surface (self->details->bg_surface);
         gdk_window_set_background_pattern (window, pattern);
         cairo_pattern_destroy (pattern);
-#  endif
+
 
         if (self->details->is_desktop)
         {
-#  if !GTK_CHECK_VERSION (3, 0, 0)
-            gdk_window_set_back_pixmap (window, self->details->bg_surface, FALSE);
-#  endif
             set_root_surface (self, window, gtk_widget_get_screen (widget));
         }
         else
         {
-#if GTK_CHECK_VERSION (3, 0, 0)
+
             gdk_window_set_background_rgba (window, &color);
-#else
-            gdk_window_set_background (window, &color);
-#endif
-#  if !GTK_CHECK_VERSION (3, 0, 0)
-            gdk_window_set_back_pixmap (window, self->details->bg_surface, FALSE);
-#  endif
+
         }
 
         gdk_window_invalidate_rect (window, NULL, TRUE);
@@ -1173,21 +1030,16 @@ eel_background_set_dropped_color (EelBackground *self,
     top_border = 32;
     bottom_border = allocation.height - 32;
 
-#if GTK_CHECK_VERSION (3, 0, 0)
     /* If a custom background color isn't set, get the GtkStyleContext's bg color. */
-#else
-    /* If a custom background color isn't set, get the GtkStyle's bg color. */
-#endif
+
     if (!self->details->color)
     {
-#if GTK_CHECK_VERSION (3, 0, 0)
+
         GtkStyleContext *style = gtk_widget_get_style_context (widget);
         GdkRGBA bg;
         gtk_style_context_get_background_color (style, GTK_STATE_FLAG_NORMAL, &bg);
         gradient_spec = gdk_rgba_to_string (&bg);
-#else
-        gradient_spec = gdk_color_to_string (&gtk_widget_get_style (widget)->bg[GTK_STATE_NORMAL]);
-#endif
+
     }
     else
     {

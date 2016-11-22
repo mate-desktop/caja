@@ -915,7 +915,7 @@ caja_drag_autoscroll_calculate_delta (GtkWidget *widget, float *x_scroll_delta, 
     GdkDisplay *display;
     GdkSeat *seat;
     GdkDevice *pointer;
-#elif GTK_CHECK_VERSION (3, 0, 0)
+#else
     GdkDeviceManager *manager;
     GdkDevice *pointer;
 #endif
@@ -929,13 +929,11 @@ caja_drag_autoscroll_calculate_delta (GtkWidget *widget, float *x_scroll_delta, 
     pointer = gdk_seat_get_pointer (seat);
     gdk_window_get_device_position (gtk_widget_get_window (widget), pointer,
                                     &x, &y, NULL);
-#elif GTK_CHECK_VERSION (3, 0, 0)
+#else
     manager = gdk_display_get_device_manager (gtk_widget_get_display (widget));
     pointer = gdk_device_manager_get_client_pointer (manager);
     gdk_window_get_device_position (gtk_widget_get_window (widget), pointer,
                                     &x, &y, NULL);
-#else
-    gdk_window_get_pointer (gtk_widget_get_window (widget), &x, &y, NULL);
 #endif
 
     /* Find out if we are anywhere close to the tree view edges

@@ -166,12 +166,10 @@ caja_desktop_window_init (CajaDesktopWindow *window)
     window->details = G_TYPE_INSTANCE_GET_PRIVATE (window, CAJA_TYPE_DESKTOP_WINDOW,
                                                    CajaDesktopWindowDetails);
 
-#if GTK_CHECK_VERSION(3, 0, 0)
     GtkStyleContext *context;
 
     context = gtk_widget_get_style_context (GTK_WIDGET (window));
     gtk_style_context_add_class (context, "caja-desktop-window");
-#endif
 
 #if GTK_CHECK_VERSION(3, 21, 0) 
     window->details->composited = TRUE;
@@ -342,11 +340,7 @@ set_desktop_window_id (CajaDesktopWindow *window,
     root_window = gdk_screen_get_root_window (
                       gtk_window_get_screen (GTK_WINDOW (window)));
 
-#if GTK_CHECK_VERSION (3, 0, 0)
     window_xid = GDK_WINDOW_XID (gdkwindow);
-#else
-    window_xid = GDK_WINDOW_XWINDOW (gdkwindow);
-#endif
 
     gdk_property_change (root_window,
                          gdk_atom_intern ("CAJA_DESKTOP_WINDOW_ID", FALSE),

@@ -45,11 +45,6 @@ G_DEFINE_TYPE (CajaNavigationWindowPane,
                CAJA_TYPE_WINDOW_PANE)
 #define parent_class caja_navigation_window_pane_parent_class
 
-#if GTK_CHECK_VERSION (3, 0, 0)
-#define gtk_hbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_HORIZONTAL,Y)
-#define gtk_vbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_VERTICAL,Y)
-#endif
-
 static void
 real_set_active (CajaWindowPane *pane, gboolean is_active)
 {
@@ -747,9 +742,9 @@ caja_navigation_window_pane_setup (CajaNavigationWindowPane *pane)
     CajaEntry *entry;
     GtkSizeGroup *header_size_group;
 
-    pane->widget = gtk_vbox_new (FALSE, 0);
+    pane->widget = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 
-    hbox = gtk_hbox_new (FALSE, 12);
+    hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
     pane->location_bar = hbox;
     gtk_container_set_border_width (GTK_CONTAINER (hbox), 4);
     gtk_box_pack_start (GTK_BOX (pane->widget), hbox,

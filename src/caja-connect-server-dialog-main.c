@@ -82,11 +82,9 @@ caja_connect_server_dialog_display_location_async (CajaConnectServerDialog *self
 
     error = NULL;
     uri = g_file_get_uri (location);
-#if GTK_CHECK_VERSION (3, 0, 0)
+
     launch_context = gdk_display_get_app_launch_context (gtk_widget_get_display (GTK_WIDGET (self)));
-#else
-    launch_context = gdk_app_launch_context_new ();
-#endif
+
     gdk_app_launch_context_set_screen (launch_context,
                                        gtk_widget_get_screen (GTK_WIDGET (self)));
 

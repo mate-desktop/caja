@@ -106,7 +106,7 @@ gtk_tree_view_vertical_autoscroll (GtkTreeView *tree_view)
     GdkDisplay *display;
     GdkSeat *seat;
     GdkDevice *pointer;
-#elif GTK_CHECK_VERSION(3, 0, 0)
+#else
     GdkDeviceManager *manager;
     GdkDevice *pointer;
 #endif
@@ -125,17 +125,13 @@ gtk_tree_view_vertical_autoscroll (GtkTreeView *tree_view)
     pointer = gdk_seat_get_pointer (seat);
     gdk_window_get_device_position (window, pointer,
                                     NULL, &y, NULL);
-#elif GTK_CHECK_VERSION(3, 0, 0)
+#else
     vadjustment = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE(tree_view));
 
     manager = gdk_display_get_device_manager (gtk_widget_get_display (GTK_WIDGET (tree_view)));
     pointer = gdk_device_manager_get_client_pointer (manager);
     gdk_window_get_device_position (window, pointer,
                                     NULL, &y, NULL);
-#else
-    vadjustment = gtk_tree_view_get_vadjustment (tree_view);
-
-    gdk_window_get_pointer (window, NULL, &y, NULL);
 #endif
 
     y += gtk_adjustment_get_value (vadjustment);
@@ -207,22 +203,14 @@ remove_expand_timeout (CajaTreeViewDragDest *dest)
 }
 
 static gboolean
-#if GTK_CHECK_VERSION(3,0,0)
 highlight_draw (GtkWidget *widget,
 		cairo_t   *cr,
                 gpointer data)
-#else
-highlight_expose (GtkWidget *widget,
-                  GdkEventExpose *event,
-                  gpointer data)
-#endif
 {
     GdkWindow *bin_window;
     int width;
     int height;
-#if GTK_CHECK_VERSION(3,0,0)
     GtkStyleContext *style;
-#endif
 
     /* FIXMEchpe: is bin window right here??? */
     bin_window = gtk_tree_view_get_bin_window (GTK_TREE_VIEW (widget));
@@ -230,7 +218,6 @@ highlight_expose (GtkWidget *widget,
     width = gdk_window_get_width(bin_window);
     height = gdk_window_get_height(bin_window);
 
-#if GTK_CHECK_VERSION(3,0,0)
     style = gtk_widget_get_style_context (widget);
 
     gtk_style_context_save (style);
@@ -241,15 +228,6 @@ highlight_expose (GtkWidget *widget,
                       0, 0, width, height);
 
     gtk_style_context_restore (style);
-#else
-    gtk_paint_focus (gtk_widget_get_style (widget),
-                     bin_window,
-                     gtk_widget_get_state (widget),
-                     NULL,
-                     widget,
-                     "treeview-drop-indicator",
-                     0, 0, width, height);
-#endif
 
     return FALSE;
 }
@@ -269,13 +247,8 @@ set_widget_highlight (CajaTreeViewDragDest *dest, gboolean highlight)
     {
         dest->details->highlight_id =
             g_signal_connect_object (dest->details->tree_view,
-#if GTK_CHECK_VERSION(3,0,0)
                                      "draw",
                                      G_CALLBACK (highlight_draw),
-#else
-                                     "expose_event",
-                                     G_CALLBACK (highlight_expose),
-#endif
                                      dest, 0);
         gtk_widget_queue_draw (GTK_WIDGET (dest->details->tree_view));
     }
@@ -1077,11 +1050,7 @@ set_direct_save_uri (CajaTreeViewDragDest *dest,
             g_object_unref (child);
 
             /* Change the property */
-#if GTK_CHECK_VERSION (3, 0, 0)
             gdk_property_change (gdk_drag_context_get_source_window (context),
-#else
-            gdk_property_change (GDK_DRAWABLE (gdk_drag_context_get_source_window (context)),
-#endif
                                  gdk_atom_intern (CAJA_ICON_DND_XDNDDIRECTSAVE_TYPE, FALSE),
                                  gdk_atom_intern ("text/plain", FALSE), 8,
                                  GDK_PROP_MODE_REPLACE, (const guchar *) uri,

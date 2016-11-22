@@ -30,14 +30,6 @@
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 
-#if !GTK_CHECK_VERSION(3,0,0)
-#define gtk_widget_get_preferred_size(x,y,z) gtk_widget_size_request(x,y)
-#endif
-
-#if GTK_CHECK_VERSION (3, 0, 0)
-#define gtk_hbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_HORIZONTAL,Y)
-#endif
-
 typedef struct
 {
     char *title;
@@ -72,11 +64,7 @@ enum
 
 static guint signals[LAST_SIGNAL] = { 0 };
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 EEL_CLASS_BOILERPLATE (CajaSidePane, caja_side_pane, GTK_TYPE_BOX)
-#else
-EEL_CLASS_BOILERPLATE (CajaSidePane, caja_side_pane, GTK_TYPE_VBOX)
-#endif
 
 static SidePanel *
 panel_for_widget (CajaSidePane *side_pane, GtkWidget *widget)
@@ -320,20 +308,16 @@ caja_side_pane_init (GObject *object)
 
     side_pane->details = G_TYPE_INSTANCE_GET_PRIVATE (object, CAJA_TYPE_SIDE_PANE, CajaSidePaneDetails);
 
-#if GTK_CHECK_VERSION(3, 0, 0)
     GtkStyleContext *context;
 
     context = gtk_widget_get_style_context (GTK_WIDGET (object));
     gtk_style_context_add_class (context, "caja-side-pane");
-#endif
 
-    hbox = gtk_hbox_new (FALSE, 0);
+    hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_container_set_border_width (GTK_CONTAINER (hbox), 4);
     side_pane->details->title_hbox = hbox;
     gtk_widget_show (hbox);
-#if GTK_CHECK_VERSION (3, 0, 0)
     gtk_orientable_set_orientation (GTK_ORIENTABLE (object), GTK_ORIENTATION_VERTICAL);
-#endif
     gtk_box_pack_start (GTK_BOX (side_pane), hbox, FALSE, FALSE, 0);
 
     select_button = gtk_toggle_button_new ();
@@ -349,7 +333,7 @@ caja_side_pane_init (GObject *object)
                       G_CALLBACK (select_button_key_press_callback),
                       side_pane);
 
-    select_hbox = gtk_hbox_new (FALSE, 0);
+    select_hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_widget_show (select_hbox);
 
     side_pane->details->title_label = gtk_label_new ("");
@@ -360,11 +344,7 @@ caja_side_pane_init (GObject *object)
                         side_pane->details->title_label,
                         FALSE, FALSE, 0);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
     arrow = gtk_image_new_from_icon_name ("pan-down-symbolic", GTK_ICON_SIZE_BUTTON);
-#else
-    arrow = gtk_arrow_new (GTK_ARROW_DOWN, GTK_SHADOW_NONE);
-#endif
     gtk_widget_show (arrow);
     gtk_box_pack_end (GTK_BOX (select_hbox), arrow, FALSE, FALSE, 0);
 
@@ -388,7 +368,7 @@ caja_side_pane_init (GObject *object)
 
     gtk_box_pack_end (GTK_BOX (hbox), close_button, FALSE, FALSE, 0);
 
-    side_pane->details->shortcut_box = gtk_hbox_new (TRUE, 0);
+    side_pane->details->shortcut_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_widget_show (side_pane->details->shortcut_box);
     gtk_box_pack_end (GTK_BOX (hbox),
                       side_pane->details->shortcut_box,

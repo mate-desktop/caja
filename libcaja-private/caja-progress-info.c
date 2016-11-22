@@ -50,11 +50,6 @@ enum
 #define STARTBT_DATA_IMAGE_RESUME "resumeimg"
 #define STARTBT_DATA_CURIMAGE "curimage"
 
-#if GTK_CHECK_VERSION (3, 0, 0)
-#define gtk_hbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_HORIZONTAL,Y)
-#define gtk_vbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_VERTICAL,Y)
-#endif
-
 static guint signals[LAST_SIGNAL] = { 0 };
 
 struct _ProgressWidgetData;
@@ -251,7 +246,7 @@ get_progress_window ()
     gtk_window_set_icon_name (GTK_WINDOW (progress_window),
                               "system-file-manager");
 
-    vbox = gtk_vbox_new (FALSE, 0);
+    vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     gtk_box_set_spacing (GTK_BOX (vbox), 5);
 
     gtk_container_add (GTK_CONTAINER (progress_window),
@@ -748,17 +743,10 @@ start_button_init (ProgressWidgetData *data)
     GtkWidget *button = gtk_button_new ();
     data->btstart = button;
 
-#if GTK_CHECK_VERSION (3, 10, 0)
     pauseImage = gtk_image_new_from_icon_name (
                 "media-playback-pause", GTK_ICON_SIZE_BUTTON);
     resumeImage = gtk_image_new_from_icon_name (
                 "media-playback-start", GTK_ICON_SIZE_BUTTON);
-#else
-    pauseImage = gtk_image_new_from_stock (
-                GTK_STOCK_MEDIA_PAUSE, GTK_ICON_SIZE_BUTTON);
-    resumeImage = gtk_image_new_from_stock (
-                GTK_STOCK_MEDIA_PLAY, GTK_ICON_SIZE_BUTTON);
-#endif
 
     g_object_ref (pauseImage);
     g_object_ref (resumeImage);
@@ -782,11 +770,7 @@ queue_button_init (ProgressWidgetData *data)
     button = gtk_button_new ();
     data->btqueue = button;
 
-#if GTK_CHECK_VERSION (3, 10, 0)
     image = gtk_image_new_from_icon_name ("undo", GTK_ICON_SIZE_BUTTON);
-#else
-    image = gtk_image_new_from_stock (GTK_STOCK_UNDO, GTK_ICON_SIZE_BUTTON);
-#endif
 
     gtk_container_add (GTK_CONTAINER (button), image);
 
@@ -803,7 +787,7 @@ progress_widget_new (CajaProgressInfo *info)
     data->info = g_object_ref (info);
     data->state = STATE_INITIALIZED;
 
-    vbox = gtk_vbox_new (FALSE, 0);
+    vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     gtk_box_set_spacing (GTK_BOX (vbox), 5);
 
 
@@ -827,15 +811,10 @@ progress_widget_new (CajaProgressInfo *info)
                         0);
     data->status = GTK_LABEL (label);
 
-    hbox = gtk_hbox_new (FALSE,10);
+    hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 10);
 
-#if GTK_CHECK_VERSION (3, 10, 0)
     imgcancel = gtk_image_new_from_icon_name ("gtk-cancel",
                                       GTK_ICON_SIZE_BUTTON);
-#else
-    imgcancel = gtk_image_new_from_stock (GTK_STOCK_CANCEL,
-                                      GTK_ICON_SIZE_BUTTON);
-#endif
 
     btcancel = gtk_button_new ();
     gtk_container_add (GTK_CONTAINER (btcancel), imgcancel);
@@ -844,7 +823,7 @@ progress_widget_new (CajaProgressInfo *info)
     progress_bar = gtk_progress_bar_new ();
     data->progress_bar = GTK_PROGRESS_BAR (progress_bar);
     gtk_progress_bar_set_pulse_step (data->progress_bar, 0.05);
-    box = gtk_vbox_new (FALSE,0);
+    box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     gtk_box_pack_start (GTK_BOX (box),
                        progress_bar,
                        TRUE,FALSE,

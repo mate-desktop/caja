@@ -29,11 +29,7 @@
 #include <libegg/eggtreemultidnd.h>
 
 #include <string.h>
-#if GTK_CHECK_VERSION(3,0,0)
 #include <eel/eel-graphic-effects.h>
-#else
-#include <eel/eel-gdk-pixbuf-extensions.h>
-#endif
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 #include <libcaja-private/caja-dnd.h>
@@ -390,11 +386,7 @@ fm_list_model_get_value (GtkTreeModel *tree_model, GtkTreeIter *iter, int column
                     g_list_find_custom (model->details->highlight_files,
                                         file, (GCompareFunc) caja_file_compare_location))
             {
-#if GTK_CHECK_VERSION(3,0,0)
                 rendered_icon = eel_create_spotlight_pixbuf (icon);
-#else
-                rendered_icon = eel_gdk_pixbuf_render (icon, 1, 255, 255, 0, 0);
-#endif
 
                 if (rendered_icon != NULL)
                 {

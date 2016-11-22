@@ -285,11 +285,7 @@ finalize (GObject *object)
 }
 
 static void
-#if GTK_CHECK_VERSION (3, 0, 0)
 destroy (GtkWidget *object)
-#else
-destroy (GtkObject *object)
-#endif
 {
     CajaLocationEntry *entry;
 
@@ -305,11 +301,7 @@ destroy (GtkObject *object)
     g_free (entry->details->current_directory);
     entry->details->current_directory = NULL;
 
-#if GTK_CHECK_VERSION (3, 0, 0)
     EEL_CALL_PARENT (GTK_WIDGET_CLASS, destroy, (object));
-#else
-    EEL_CALL_PARENT (GTK_OBJECT_CLASS, destroy, (object));
-#endif
 }
 
 static void
@@ -392,11 +384,7 @@ caja_location_entry_class_init (CajaLocationEntryClass *class)
 {
     GTK_WIDGET_CLASS (class)->focus_in_event = caja_location_entry_focus_in;
 
-#if GTK_CHECK_VERSION (3, 0, 0)
     GTK_WIDGET_CLASS (class)->destroy = destroy;
-#else
-    GTK_OBJECT_CLASS (class)->destroy = destroy;
-#endif
 
     G_OBJECT_CLASS (class)->finalize = finalize;
 
@@ -443,13 +431,10 @@ caja_location_entry_set_secondary_action (CajaLocationEntry *entry,
 static void
 caja_location_entry_init (CajaLocationEntry *entry)
 {
-
-#if GTK_CHECK_VERSION(3, 0, 0)
     GtkStyleContext *context;
 
     context = gtk_widget_get_style_context (GTK_WIDGET (entry));
     gtk_style_context_add_class (context, "caja-location-entry");
-#endif
 
     entry->details = g_new0 (CajaLocationEntryDetails, 1);
 

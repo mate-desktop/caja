@@ -63,58 +63,6 @@ eel_accessibility_set_up_label_widget_relation (GtkWidget *label, GtkWidget *wid
  *
  * Return value: the registered type, or 0 on failure.
  **/
-#if !GTK_CHECK_VERSION(3, 0, 0)
-GType
-eel_accessibility_create_derived_type (const char *type_name,
-                                       GType existing_gobject_with_proxy,
-                                       EelAccessibilityClassInitFn class_init)
-{
-    GType type;
-    GType parent_atk_type;
-    GTypeInfo tinfo = { 0 };
-    GTypeQuery query;
-    AtkObjectFactory *factory;
-
-    if ((type = g_type_from_name (type_name)))
-    {
-        return type;
-    }
-
-    factory = atk_registry_get_factory
-              (atk_get_default_registry (),
-               existing_gobject_with_proxy);
-    if (!factory)
-    {
-        return G_TYPE_INVALID;
-    }
-
-    parent_atk_type = atk_object_factory_get_accessible_type (factory);
-    if (!parent_atk_type)
-    {
-        return G_TYPE_INVALID;
-    }
-
-    /*
-     * Figure out the size of the class and instance
-     * we are deriving from
-     */
-    g_type_query (parent_atk_type, &query);
-
-    if (class_init)
-    {
-        tinfo.class_init = (GClassInitFunc) class_init;
-    }
-
-    tinfo.class_size    = query.class_size;
-    tinfo.instance_size = query.instance_size;
-
-    /* Register the type */
-    type = g_type_register_static (
-               parent_atk_type, type_name, &tinfo, 0);
-
-    return type;
-}
-#endif
 
 static GQuark
 get_quark_accessible (void)
@@ -208,25 +156,6 @@ eel_accessibility_destroy (gpointer data,
  *
  * Return value: @atk_object.
  **/
-#if !GTK_CHECK_VERSION(3, 0, 0)
-AtkObject *
-eel_accessibility_set_atk_object_return (gpointer   object,
-        AtkObject *atk_object)
-{
-    atk_object_initialize (atk_object, object);
-
-    if (!ATK_IS_GOBJECT_ACCESSIBLE (atk_object))
-    {
-        g_object_set_qdata_full
-        (object, get_quark_accessible (), atk_object,
-         (GDestroyNotify)eel_accessibility_destroy);
-        g_object_set_qdata
-        (G_OBJECT (atk_object), get_quark_gobject (), object);
-    }
-
-    return atk_object;
-}
-#endif
 
 static GailTextUtil *
 get_simple_text (gpointer object)

@@ -32,9 +32,6 @@
 #include "caja-application.h"
 #include "caja-bookmarks-window.h"
 #include "caja-information-panel.h"
-#if ENABLE_LIBUNIQUE == (TRUE)
-#include "caja-main.h"
-#endif
 #include "caja-window-manage-views.h"
 #include "caja-window-bookmarks.h"
 #include "caja-window-slot.h"
@@ -132,15 +129,10 @@ static const struct
 static void
 caja_window_init (CajaWindow *window)
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
     GtkWidget *grid;
-#else
-    GtkWidget *table;
-#endif
     GtkWidget *menu;
     GtkWidget *statusbar;
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 #if GTK_CHECK_VERSION (3, 20, 0)
     static const gchar css_custom[] =
       "#caja-extra-view-widget {"
@@ -169,7 +161,6 @@ caja_window_init (CajaWindow *window)
     }
 
     g_object_unref (provider);
-#endif
     window->details = G_TYPE_INSTANCE_GET_PRIVATE (window, CAJA_TYPE_WINDOW, CajaWindowDetails);
 
     window->details->panes = NULL;
@@ -177,40 +168,21 @@ caja_window_init (CajaWindow *window)
 
     window->details->show_hidden_files_mode = CAJA_WINDOW_SHOW_HIDDEN_FILES_DEFAULT;
 
-#if !GTK_CHECK_VERSION (3, 0, 0)
-    /* Remove Top border on GtkStatusBar */
-    gtk_rc_parse_string (
-        "style \"statusbar-no-border\"\n"
-        "{\n"
-        "   GtkStatusbar::shadow_type = GTK_SHADOW_NONE\n"
-        "}\n"
-        "widget \"*.statusbar-noborder\" style \"statusbar-no-border\"");
-#endif
-
     /* Set initial window title */
     gtk_window_set_title (GTK_WINDOW (window), _("Caja"));
 
-#if GTK_CHECK_VERSION (3, 0, 0)
     grid = gtk_grid_new ();
     gtk_orientable_set_orientation (GTK_ORIENTABLE (grid), GTK_ORIENTATION_VERTICAL);
     window->details->grid = grid;
     gtk_widget_show (grid);
     gtk_container_add (GTK_CONTAINER (window), grid);
-#else
-    table = gtk_table_new (1, 6, FALSE);
-    window->details->table = table;
-    gtk_widget_show (table);
-    gtk_container_add (GTK_CONTAINER (window), table);
-#endif
 
     statusbar = gtk_statusbar_new ();
     gtk_widget_set_name (statusbar, "statusbar-noborder");
 
 /* set margin to zero to reduce size of statusbar */
-#if GTK_CHECK_VERSION (3, 0, 0)
 	gtk_widget_set_margin_top (GTK_WIDGET (statusbar), 0);
 	gtk_widget_set_margin_bottom (GTK_WIDGET (statusbar), 0);
-#endif
 
     window->details->statusbar = statusbar;
     window->details->help_message_cid = gtk_statusbar_get_context_id
@@ -221,35 +193,13 @@ caja_window_init (CajaWindow *window)
 
     menu = gtk_ui_manager_get_widget (window->details->ui_manager, "/MenuBar");
     window->details->menubar = menu;
-#if GTK_CHECK_VERSION(3, 0, 0)
     gtk_widget_set_hexpand (menu, TRUE);
     gtk_widget_show (menu);
     gtk_grid_attach (GTK_GRID (grid), menu, 0, 0, 1, 1);
-#else
-    gtk_widget_show (menu);
-    gtk_table_attach (GTK_TABLE (table),
-                      menu,
-                      /* X direction */                   /* Y direction */
-                      0, 1,                               0, 1,
-                      GTK_EXPAND | GTK_FILL | GTK_SHRINK, 0,
-                      0,                                  0);
-#endif
 
     /* Register to menu provider extension signal managing menu updates */
     g_signal_connect_object (caja_signaller_get_current (), "popup_menu_changed",
                              G_CALLBACK (caja_window_load_extension_menus), window, G_CONNECT_SWAPPED);
-#if ENABLE_LIBUNIQUE == (TRUE)
-/* Keep the main event loop alive as long as the window exists */
-#if GTK_CHECK_VERSION(3, 0, 0)
-    /* FIXME: port to GtkApplication with GTK3 */
-    /*This is DONE when built with --disable-libunique */
-    //gtk_quit_add_destroy (1, GTK_WIDGET (window));
-    caja_main_event_loop_register (GTK_WIDGET (window));
-#else
-    gtk_quit_add_destroy (1, GTK_OBJECT (window));
-    caja_main_event_loop_register (GTK_OBJECT (window));
-#endif
-#endif
 }
 
 /* Unconditionally synchronize the GtkUIManager of WINDOW. */
@@ -442,11 +392,7 @@ update_cursor (CajaWindow *window)
         display = gtk_widget_get_display (GTK_WIDGET (window));
         cursor = gdk_cursor_new_for_display (display, GDK_WATCH);
         gdk_window_set_cursor (gtk_widget_get_window (GTK_WIDGET (window)), cursor);
-#if GTK_CHECK_VERSION(3,0,0)
         g_object_unref (cursor);
-#else
-        gdk_cursor_unref (cursor);
-#endif
     }
     else
     {
@@ -591,26 +537,13 @@ caja_window_set_initial_window_geometry (CajaWindow *window)
 {
     GdkScreen *screen;
     guint max_width_for_screen, max_height_for_screen;
-#if !GTK_CHECK_VERSION(3,0,0)
-    guint min_width, min_height;
-#endif
+
     guint default_width, default_height;
 
     screen = gtk_window_get_screen (GTK_WINDOW (window));
 
     max_width_for_screen = get_max_forced_width (screen);
     max_height_for_screen = get_max_forced_height (screen);
-
-#if !GTK_CHECK_VERSION(3,0,0)
-    EEL_CALL_METHOD (CAJA_WINDOW_CLASS, window,
-                     get_min_size, (window, &min_width, &min_height));
-
-    gtk_widget_set_size_request (GTK_WIDGET (window),
-                                 MIN (min_width,
-                                      max_width_for_screen),
-                                 MIN (min_height,
-                                      max_height_for_screen));
-#endif
 
     EEL_CALL_METHOD (CAJA_WINDOW_CLASS, window,
                      get_default_size, (window, &default_width, &default_height));
@@ -674,13 +607,8 @@ free_stored_viewers (CajaWindow *window)
     window->details->extra_viewer = NULL;
 }
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 static void
 caja_window_destroy (GtkWidget *object)
-#else
-static void
-caja_window_destroy (GtkObject *object)
-#endif
 {
     CajaWindow *window;
     GList *panes_copy;
@@ -695,11 +623,7 @@ caja_window_destroy (GtkObject *object)
     g_assert (window->details->panes == NULL);
     g_assert (window->details->active_pane == NULL);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
     GTK_WIDGET_CLASS (caja_window_parent_class)->destroy (object);
-#else
-    GTK_OBJECT_CLASS (caja_window_parent_class)->destroy (object);
-#endif
 }
 
 static void
@@ -1064,9 +988,7 @@ caja_window_size_request (GtkWidget		*widget,
 
     g_assert (CAJA_IS_WINDOW (widget));
     g_assert (requisition != NULL);
-#if !GTK_CHECK_VERSION(3,0,0)
-    GTK_WIDGET_CLASS (caja_window_parent_class)->size_request (widget, requisition);
-#endif
+
     screen = gtk_window_get_screen (GTK_WINDOW (widget));
 
     /* Limit the requisition to be within 90% of the available screen
@@ -1907,20 +1829,14 @@ caja_forget_history (void)
     CajaWindowSlot *slot;
     CajaNavigationWindowSlot *navigation_slot;
     GList *window_node, *l, *walk;
-#if ENABLE_LIBUNIQUE == (FALSE)
     CajaApplication *app;
 
     app = CAJA_APPLICATION (g_application_get_default ());
-#endif
     /* Clear out each window's back & forward lists. Also, remove
      * each window's current location bookmark from history list
      * so it doesn't get clobbered.
      */
-#if ENABLE_LIBUNIQUE == (FALSE)
     for (window_node = gtk_application_get_windows (GTK_APPLICATION (app));
-#else
-    for (window_node = caja_application_get_window_list ();
-#endif
             window_node != NULL;
             window_node = window_node->next)
     {
@@ -1963,11 +1879,7 @@ caja_forget_history (void)
     free_history_list ();
 
     /* Re-add each window's current location to history list. */
-#if ENABLE_LIBUNIQUE == (FALSE)
     for (window_node = gtk_application_get_windows (GTK_APPLICATION (app));
-#else
-    for (window_node = caja_application_get_window_list ();
-#endif
             window_node != NULL;
             window_node = window_node->next)
     {
@@ -2175,16 +2087,10 @@ caja_window_class_init (CajaWindowClass *class)
     G_OBJECT_CLASS (class)->set_property = caja_window_set_property;
     G_OBJECT_CLASS (class)->finalize = caja_window_finalize;
 
-#if !GTK_CHECK_VERSION (3, 0, 0)
-    GTK_OBJECT_CLASS (class)->destroy = caja_window_destroy;
-#else
     GTK_WIDGET_CLASS (class)->destroy = caja_window_destroy;
-#endif
 
     GTK_WIDGET_CLASS (class)->show = caja_window_show;
-#if !GTK_CHECK_VERSION (3,0,0)
-    GTK_WIDGET_CLASS (class)->size_request = caja_window_size_request;
-#endif
+
     GTK_WIDGET_CLASS (class)->realize = caja_window_realize;
     GTK_WIDGET_CLASS (class)->key_press_event = caja_window_key_press_event;
     class->get_title = real_get_title;
@@ -2256,17 +2162,7 @@ caja_window_class_init (CajaWindowClass *class)
     class->reload = caja_window_reload;
     class->go_up = caja_window_go_up_signal;
 
-#if !GTK_CHECK_VERSION (3,0,0)
-    /* Allow to set the colors of the extra view widgets */
-    gtk_rc_parse_string ("\n"
-                         "   style \"caja-extra-view-widgets-style-internal\"\n"
-                         "   {\n"
-                         "      bg[NORMAL] = \"" EXTRA_VIEW_WIDGETS_BACKGROUND "\"\n"
-                         "   }\n"
-                         "\n"
-                         "    widget \"*.caja-extra-view-widget\" style:rc \"caja-extra-view-widgets-style-internal\" \n"
-                         "\n");
-#endif
+
 
     g_type_class_add_private (G_OBJECT_CLASS (class), sizeof (CajaWindowDetails));
 }

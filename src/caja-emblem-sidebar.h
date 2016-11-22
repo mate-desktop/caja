@@ -47,22 +47,13 @@ typedef struct CajaEmblemSidebarDetails CajaEmblemSidebarDetails;
 
 typedef struct
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
     GtkBox parent_slot;
-#else
-    GtkVBox parent_slot;
-#endif
     CajaEmblemSidebarDetails *details;
 } CajaEmblemSidebar;
 
 typedef struct
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
     GtkBoxClass parent_slot;
-#else
-    GtkVBoxClass parent_slot;
-#endif
-
 } CajaEmblemSidebarClass;
 
 GType	caja_emblem_sidebar_get_type     (void);

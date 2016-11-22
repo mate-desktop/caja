@@ -210,19 +210,6 @@ struct CajaIconContainerDetails
     /* font sizes used to draw labels */
     int font_size_table[CAJA_ZOOM_LEVEL_LARGEST + 1];
 
-    /* pixbuf and color for label highlighting */
-#if !GTK_CHECK_VERSION(3,0,0)
-    guint32    highlight_color_rgba;
-    guint32    active_color_rgba;
-    guint32    normal_color_rgba;
-    guint32    prelight_color_rgba;
-    guint32    prelight_icon_color_rgba;
-    guint32    normal_icon_color_rgba;
-
-    /* colors for text labels */
-    GdkColor label_colors [LAST_LABEL_COLOR];
-#endif
-
     /* State used so arrow keys don't wander if icons aren't lined up.
      */
     int arrow_key_start_x;
@@ -327,13 +314,6 @@ gboolean      caja_icon_container_scroll                      (CajaIconContainer
         int                    delta_y);
 void          caja_icon_container_update_scroll_region        (CajaIconContainer *container);
 
-#if !GTK_CHECK_VERSION(3,0,0)
-/* label color for items */
-void          caja_icon_container_get_label_color             (CajaIconContainer *container,
-        GdkColor             **color,
-        gboolean               first_line,
-        gboolean               needs_highlight,
-        gboolean	       is_prelit);
-#endif
+
 
 #endif /* CAJA_ICON_CONTAINER_PRIVATE_H */

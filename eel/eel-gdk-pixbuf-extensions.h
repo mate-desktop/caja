@@ -93,11 +93,7 @@ void                 eel_gdk_pixbuf_unref_if_not_null         (GdkPixbuf        
 
 /* Copy a pixbuf to an area of a GdkDrawable */
 void                 eel_gdk_pixbuf_draw_to_drawable          (const GdkPixbuf       *pixbuf,
-#if GTK_CHECK_VERSION (3, 0, 0)
         cairo_t               *cr,
-#else
-        GdkDrawable           *drawable,
-#endif
         int                    source_x,
         int                    source_y,
 							       EelIRect               destination_area);
@@ -151,10 +147,7 @@ GdkPixbuf *          eel_gdk_pixbuf_render                    (GdkPixbuf *pixbuf
         guint saturation,
         guint brightness,
         guint lighten_value,
-#if GTK_CHECK_VERSION(3,0,0)
         GdkRGBA *color);
-#else
-        guint color);
-#endif
+
 
 #endif /* EEL_GDK_PIXBUF_EXTENSIONS_H */

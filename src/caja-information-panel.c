@@ -81,12 +81,7 @@ static void     caja_information_panel_drag_data_received    (GtkWidget         
         guint                         info,
         guint                         time);
 static void     caja_information_panel_read_defaults         (CajaInformationPanel     *information_panel);
-#if GTK_CHECK_VERSION (3, 0, 0)
 static void     caja_information_panel_style_updated         (GtkWidget                    *widget);
-#else
-static void     caja_information_panel_style_set             (GtkWidget                    *widget,
-        GtkStyle                     *previous_style);
-#endif
 static void     caja_information_panel_theme_changed         (GSettings   *settings,
                                                               const gchar *key,
                                                               gpointer     user_data);
@@ -210,11 +205,7 @@ caja_information_panel_class_init (CajaInformationPanelClass *klass)
 
     widget_class->drag_data_received  = caja_information_panel_drag_data_received;
     widget_class->button_press_event  = caja_information_panel_press_event;
-#if GTK_CHECK_VERSION (3, 0, 0)
     widget_class->style_updated = caja_information_panel_style_updated;
-#else
-    widget_class->style_set = caja_information_panel_style_set;
-#endif
 
     /* add the "location changed" signal */
     signals[LOCATION_CHANGED] = g_signal_new
@@ -234,11 +225,7 @@ caja_information_panel_class_init (CajaInformationPanelClass *klass)
 static void
 make_button_box (CajaInformationPanel *information_panel)
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
     information_panel->details->button_box_centerer = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
-#else
-    information_panel->details->button_box_centerer = gtk_hbox_new (FALSE, 0);
-#endif
 
     gtk_box_pack_start (GTK_BOX (information_panel->details->container),
                         information_panel->details->button_box_centerer, TRUE, TRUE, 0);
@@ -268,11 +255,7 @@ caja_information_panel_init (CajaInformationPanel *information_panel)
     gtk_widget_add_events (GTK_WIDGET (information_panel), GDK_POINTER_MOTION_MASK);
 
     /* create the container box */
-#if GTK_CHECK_VERSION (3, 0, 0)
     information_panel->details->container = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
-#else
-    information_panel->details->container = gtk_vbox_new (FALSE, 0);
-#endif
     gtk_container_set_border_width (GTK_CONTAINER (information_panel->details->container), 0);
     gtk_widget_show (information_panel->details->container);
     gtk_container_add (GTK_CONTAINER (information_panel),
@@ -1045,69 +1028,8 @@ caja_information_panel_update_buttons (CajaInformationPanel *information_panel)
 static void
 caja_information_panel_update_appearance (CajaInformationPanel *information_panel)
 {
-
-#if GTK_CHECK_VERSION(3,0,0)
     gtk_style_context_add_class (gtk_widget_get_style_context (GTK_WIDGET (information_panel)),
                                  GTK_STYLE_CLASS_VIEW);
-#else
-    EelBackground *background;
-    char *background_color;
-    char *background_image;
-
-    g_return_if_fail (CAJA_IS_INFORMATION_PANEL (information_panel));
-
-    /* Connect the background changed signal to code that writes the color. */
-    background = eel_get_widget_background (GTK_WIDGET (information_panel));
-    if (!information_panel->details->background_connected)
-    {
-        information_panel->details->background_connected = TRUE;
-        g_signal_connect_object (background,"settings_changed",
-                                 G_CALLBACK (background_settings_changed_callback), information_panel, 0);
-        g_signal_connect_object (background, "reset",
-                                 G_CALLBACK (background_reset_callback), information_panel, 0);
-    }
-
-    /* Set up the background color and image from the metadata. */
-    background_color = caja_file_get_metadata (information_panel->details->file,
-                       CAJA_METADATA_KEY_SIDEBAR_BACKGROUND_COLOR,
-                       NULL);
-    background_image = caja_file_get_metadata (information_panel->details->file,
-                       CAJA_METADATA_KEY_SIDEBAR_BACKGROUND_IMAGE,
-                       NULL);
-
-    if (background_color == NULL && background_image == NULL)
-    {
-        background_color = g_strdup (information_panel->details->default_background_color);
-        background_image = g_strdup (information_panel->details->default_background_image);
-    }
-
-    /* Block so we don't write these settings out in response to our set calls below */
-    g_signal_handlers_block_by_func (background,
-                                     G_CALLBACK (background_settings_changed_callback),
-                                     information_panel);
-
-    if (value_different (information_panel->details->current_background_color, background_color) ||
-            value_different (information_panel->details->current_background_image, background_image))
-    {
-
-        g_free (information_panel->details->current_background_color);
-        information_panel->details->current_background_color = g_strdup (background_color);
-        g_free (information_panel->details->current_background_image);
-        information_panel->details->current_background_image = g_strdup (background_image);
-
-        eel_background_set_image_uri (background, background_image);
-        eel_background_set_color (background, background_color);
-
-        caja_sidebar_title_select_text_color (information_panel->details->title, background);
-    }
-
-    g_free (background_color);
-    g_free (background_image);
-
-    g_signal_handlers_unblock_by_func (background,
-                                       G_CALLBACK (background_settings_changed_callback),
-                                       information_panel);
-#endif
 }
 
 static void
@@ -1188,11 +1110,7 @@ title_changed_callback (CajaWindowInfo *window,
 
 /* ::style_set handler for the information_panel */
 static void
-#if GTK_CHECK_VERSION (3, 0, 0)
 caja_information_panel_style_updated (GtkWidget *widget)
-#else
-caja_information_panel_style_set (GtkWidget *widget, GtkStyle *previous_style)
-#endif
 {
     CajaInformationPanel *information_panel;
 

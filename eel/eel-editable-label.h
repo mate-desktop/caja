@@ -53,11 +53,7 @@ extern "C" {
 
     struct _EelEditableLabel
     {
-#if GTK_CHECK_VERSION (3, 0, 0)
         GtkWidget widget;
-#else
-        GtkMisc misc;
-#endif
 
         /*< private >*/
         guint   jtype : 2;
@@ -88,11 +84,8 @@ extern "C" {
 
     struct _EelEditableLabelClass
     {
-#if GTK_CHECK_VERSION (3, 0, 0)
         GtkWidgetClass parent_class;
-#else
-        GtkMiscClass parent_class;
-#endif
+
 
         void (* move_cursor)        (EelEditableLabel  *label,
                                      GtkMovementStep    step,

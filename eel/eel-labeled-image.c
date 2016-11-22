@@ -31,9 +31,7 @@
 #include "eel-gtk-extensions.h"
 #include "eel-accessibility.h"
 #include <gtk/gtk.h>
-#if GTK_CHECK_VERSION(3, 0, 0)
 #include <gtk/gtk-a11y.h>
-#endif
 #include <gdk/gdkkeysyms.h>
 #include <atk/atkimage.h>
 
@@ -42,10 +40,6 @@
 #define DEFAULT_Y_PADDING 0
 #define DEFAULT_X_ALIGNMENT 0.5
 #define DEFAULT_Y_ALIGNMENT 0.5
-
-#if !GTK_CHECK_VERSION(3,0,0)
-#define gtk_widget_get_preferred_size(x,y,z) gtk_widget_size_request(x,y)
-#endif
 
 /* Signals */
 enum
@@ -95,11 +89,7 @@ static GType         eel_labeled_image_radio_button_get_type  (void);
 static GType         eel_labeled_image_toggle_button_get_type (void);
 
 /* GtkWidgetClass methods */
-#if GTK_CHECK_VERSION(3, 0, 0)
 static GType eel_labeled_image_accessible_get_type (void);
-#else
-static AtkObject    *eel_labeled_image_get_accessible     (GtkWidget             *widget);
-#endif
 
 /* Private EelLabeledImage methods */
 static EelDimensions labeled_image_get_image_dimensions   (const EelLabeledImage *labeled_image);
@@ -138,11 +128,7 @@ eel_labeled_image_init (EelLabeledImage *labeled_image)
 }
 
 static void
-#if GTK_CHECK_VERSION (3, 0, 0)
 eel_labeled_image_destroy (GtkWidget *object)
-#else
-eel_labeled_image_destroy (GtkObject *object)
-#endif
 {
     EelLabeledImage *labeled_image;
 
@@ -158,11 +144,7 @@ eel_labeled_image_destroy (GtkObject *object)
         gtk_widget_destroy (labeled_image->details->label);
     }
 
-#if GTK_CHECK_VERSION (3, 0, 0)
     GTK_WIDGET_CLASS (eel_labeled_image_parent_class)->destroy (object);
-#else
-    GTK_OBJECT_CLASS (eel_labeled_image_parent_class)->destroy (object);
-#endif
 }
 
 /* GObjectClass methods */
@@ -330,7 +312,6 @@ eel_labeled_image_size_request (GtkWidget *widget,
         2 * labeled_image->details->y_padding;
 }
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 static void
 eel_labeled_image_get_preferred_width (GtkWidget *widget,
                                        gint *minimum_width,
@@ -350,7 +331,6 @@ eel_labeled_image_get_preferred_height (GtkWidget *widget,
     eel_labeled_image_size_request (widget, &req);
     *minimum_height = *natural_height = req.height;
 }
-#endif
 
 static void
 eel_labeled_image_size_allocate (GtkWidget *widget,
@@ -379,7 +359,6 @@ eel_labeled_image_size_allocate (GtkWidget *widget,
 }
 
 static int
-#if GTK_CHECK_VERSION (3, 0, 0)
 eel_labeled_image_draw (GtkWidget *widget,
                         cairo_t *cr)
 {
@@ -445,71 +424,6 @@ eel_labeled_image_draw (GtkWidget *widget,
 
     return FALSE;
 }
-#else
-eel_labeled_image_expose_event (GtkWidget *widget,
-                                GdkEventExpose *event)
-{
-    EelLabeledImage *labeled_image;
-    EelIRect label_bounds;
-    GtkStyle *style;
-    GdkWindow *window;
-
-    g_assert (EEL_IS_LABELED_IMAGE (widget));
-    g_assert (gtk_widget_get_realized (widget));
-    g_assert (event != NULL);
-
-    labeled_image = EEL_LABELED_IMAGE (widget);
-
-    style = gtk_widget_get_style (widget);
-    window = gtk_widget_get_window (widget);
-    if (gtk_widget_get_state (widget) == GTK_STATE_SELECTED ||
-            gtk_widget_get_state (widget) == GTK_STATE_ACTIVE)
-    {
-        label_bounds = eel_labeled_image_get_label_bounds (EEL_LABELED_IMAGE (widget));
-
-        gtk_paint_flat_box (style,
-                            window,
-                            gtk_widget_get_state (widget),
-                            GTK_SHADOW_NONE,
-                            &event->area,
-                            widget,
-                            "eel-labeled-image",
-                            label_bounds.x0, label_bounds.y0,
-                            label_bounds.x1 - label_bounds.x0,
-                            label_bounds.y1 - label_bounds.y0);
-    }
-
-    if (labeled_image_show_label (labeled_image))
-    {
-        eel_gtk_container_child_expose_event (GTK_CONTAINER (widget),
-                                              labeled_image->details->label,
-                                              event);
-    }
-
-    if (labeled_image_show_image (labeled_image))
-    {
-        eel_gtk_container_child_expose_event (GTK_CONTAINER (widget),
-                                              labeled_image->details->image,
-                                              event);
-    }
-
-    if (gtk_widget_has_focus (widget))
-    {
-        label_bounds = eel_labeled_image_get_image_bounds (EEL_LABELED_IMAGE (widget));
-        gtk_paint_focus (style,
-                         window,
-                         GTK_STATE_NORMAL,
-                         &event->area,
-                         widget,
-                         "eel-focusable-labeled-image",
-                         label_bounds.x0, label_bounds.y0,
-                         label_bounds.x1 - label_bounds.x0,
-                         label_bounds.y1 - label_bounds.y0);
-    }
-
-    return FALSE;
-}
-#endif
 
 static void
 eel_labeled_image_map (GtkWidget *widget)
@@ -623,29 +537,20 @@ eel_labeled_image_class_init (EelLabeledImageClass *labeled_image_class)
     gobject_class->set_property = eel_labeled_image_set_property;
     gobject_class->get_property = eel_labeled_image_get_property;
 
-#if !GTK_CHECK_VERSION (3, 0, 0)
-    GTK_OBJECT_CLASS (labeled_image_class)->destroy = eel_labeled_image_destroy;
-#else
     widget_class->destroy = eel_labeled_image_destroy;
-#endif
+
 
     /* GtkWidgetClass */
     widget_class->size_allocate = eel_labeled_image_size_allocate;
-#if GTK_CHECK_VERSION (3, 0, 0)
     widget_class->get_preferred_width = eel_labeled_image_get_preferred_width;
     widget_class->get_preferred_height = eel_labeled_image_get_preferred_height;
     widget_class->draw = eel_labeled_image_draw;
-#else
-    widget_class->size_request = eel_labeled_image_size_request;
-    widget_class->expose_event = eel_labeled_image_expose_event;
-#endif
+
     widget_class->map = eel_labeled_image_map;
     widget_class->unmap = eel_labeled_image_unmap;
-#if GTK_CHECK_VERSION(3, 0, 0)
+
     gtk_widget_class_set_accessible_type (widget_class, eel_labeled_image_accessible_get_type ());
-#else
-    widget_class->get_accessible = eel_labeled_image_get_accessible;
-#endif
+
 
     /* GtkContainerClass */
     container_class->add = eel_labeled_image_add;
@@ -1213,13 +1118,8 @@ labeled_image_update_alignments (EelLabeledImage *labeled_image)
 
         if (labeled_image->details->fill)
         {
-#if GTK_CHECK_VERSION (3, 0, 0)
             x_alignment = gtk_widget_get_halign (labeled_image->details->image);
             y_alignment = gtk_widget_get_valign (labeled_image->details->image);
-#else
-            gtk_misc_get_alignment (GTK_MISC (labeled_image->details->image),
-                                    &x_alignment, &y_alignment);
-#endif
 
             /* Only the image is shown */
             if (!labeled_image_show_label (labeled_image))
@@ -1254,14 +1154,8 @@ labeled_image_update_alignments (EelLabeledImage *labeled_image)
                 }
             }
 
-#if GTK_CHECK_VERSION (3, 0, 0)
             gtk_widget_set_halign (labeled_image->details->image, x_alignment);
             gtk_widget_set_valign (labeled_image->details->image, y_alignment);
-#else
-            gtk_misc_set_alignment (GTK_MISC (labeled_image->details->image),
-                                    x_alignment,
-                                    y_alignment);
-#endif
         }
     }
 }
@@ -1655,19 +1549,12 @@ eel_labeled_image_set_selected (EelLabeledImage *labeled_image,
     GtkStateType state;
     g_return_if_fail (EEL_IS_LABELED_IMAGE (labeled_image));
 
-#if GTK_CHECK_VERSION (3, 0, 0)
     state = selected ? GTK_STATE_FLAG_SELECTED : GTK_STATE_FLAG_NORMAL;
 
     gtk_widget_set_state_flags (GTK_WIDGET (labeled_image), state, TRUE);
     gtk_widget_set_state_flags (labeled_image->details->image, state, TRUE);
     gtk_widget_set_state_flags (labeled_image->details->label, state, TRUE);
-#else
-    state = selected ? GTK_STATE_SELECTED : GTK_STATE_NORMAL;
 
-    gtk_widget_set_state (GTK_WIDGET (labeled_image), state);
-    gtk_widget_set_state (labeled_image->details->image, state);
-    gtk_widget_set_state (labeled_image->details->label, state);
-#endif
 }
 
 /**
@@ -1682,11 +1569,7 @@ eel_labeled_image_get_selected (EelLabeledImage *labeled_image)
 {
     g_return_val_if_fail (EEL_IS_LABELED_IMAGE (labeled_image), FALSE);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
     return gtk_widget_get_state_flags (GTK_WIDGET (labeled_image)) == GTK_STATE_FLAG_SELECTED;
-#else
-    return gtk_widget_get_state (GTK_WIDGET (labeled_image)) == GTK_STATE_SELECTED;
-#endif
 }
 
 /**
@@ -2324,9 +2207,8 @@ eel_labeled_image_accessible_initialize (AtkObject *accessible,
         gpointer   widget)
 {
     a11y_parent_class->initialize (accessible, widget);
-#if GTK_CHECK_VERSION(3, 0, 0)
     atk_object_set_role (accessible, ATK_ROLE_IMAGE);
-#endif
+
 }
 
 static EelLabeledImage *
@@ -2388,7 +2270,6 @@ eel_labeled_image_accessible_image_interface_init (AtkImageIface *iface)
     iface->get_image_size = eel_labeled_image_accessible_image_get_size;
 }
 
-#if GTK_CHECK_VERSION(3, 0, 0)
 typedef struct _EelLabeledImageAccessible EelLabeledImageAccessible;
 typedef struct _EelLabeledImageAccessibleClass EelLabeledImageAccessibleClass;
 
@@ -2421,106 +2302,10 @@ static void
 eel_labeled_image_accessible_init (EelLabeledImageAccessible *accessible)
 {
 }
-#else
-static void
-eel_labeled_image_accessible_class_init (AtkObjectClass *klass)
-{
-    a11y_parent_class = g_type_class_peek_parent (klass);
-
-    klass->get_name = eel_labeled_image_accessible_get_name;
-    klass->initialize = eel_labeled_image_accessible_initialize;
-}
-
-enum
-{
-    BUTTON,
-    CHECK,
-    TOGGLE,
-    RADIO,
-    PLAIN,
-    LAST_ONE
-};
-
-static AtkObject *
-eel_labeled_image_get_accessible (GtkWidget *widget)
-{
-    int i;
-    static GType types[LAST_ONE] = { 0 };
-    const char *tname;
-    AtkRole role;
-    AtkObject *accessible;
-
-    if ((accessible = eel_accessibility_get_atk_object (widget)))
-        return accessible;
-
-    if (GTK_IS_CHECK_BUTTON (widget))
-    {
-        i = BUTTON;
-        role = ATK_ROLE_CHECK_BOX;
-        tname = "EelLabeledImageCheckButtonAccessible";
-
-    }
-    else if (GTK_IS_TOGGLE_BUTTON (widget))
-    {
-        i = CHECK;
-        role = ATK_ROLE_TOGGLE_BUTTON;
-        tname = "EelLabeledImageToggleButtonAccessible";
-
-    }
-    else if (GTK_IS_RADIO_BUTTON (widget))
-    {
-        i = RADIO;
-        role = ATK_ROLE_RADIO_BUTTON;
-        tname = "EelLabeledImageRadioButtonAccessible";
-
-    }
-    else if (GTK_IS_BUTTON (widget))
-    {
-        i = TOGGLE;
-        role = ATK_ROLE_PUSH_BUTTON;
-        tname = "EelLabeledImagePushButtonAccessible";
-
-    }
-    else     /* plain */
-    {
-        i = PLAIN;
-        role = ATK_ROLE_IMAGE;
-        tname = "EelLabeledImagePlainAccessible";
-    }
-
-    if (!types [i])
-    {
-        const GInterfaceInfo atk_image_info =
-        {
-            (GInterfaceInitFunc) eel_labeled_image_accessible_image_interface_init,
-            (GInterfaceFinalizeFunc) NULL,
-            NULL
-        };
-
-        types [i] = eel_accessibility_create_derived_type
-                    (tname, G_TYPE_FROM_INSTANCE (widget),
-                     eel_labeled_image_accessible_class_init);
-
-        if (!types [i])
-            return NULL;
-
-        g_type_add_interface_static (
-            types [i], ATK_TYPE_IMAGE, &atk_image_info);
-    }
-
-    accessible = g_object_new (types [i], NULL);
-    atk_object_set_role (accessible, role);
-
-    return eel_accessibility_set_atk_object_return (widget, accessible);
-}
-#endif
 
 static void
 eel_labeled_image_button_class_init (GtkWidgetClass *klass)
 {
-#if !GTK_CHECK_VERSION(3, 0, 0)
-    klass->get_accessible = eel_labeled_image_get_accessible;
-#endif
 }
 
 static GType

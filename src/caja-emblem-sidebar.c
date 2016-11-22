@@ -64,10 +64,6 @@ struct CajaEmblemSidebarDetails
 #define STANDARD_EMBLEM_HEIGHT			52
 #define EMBLEM_LABEL_SPACING			2
 
-#if GTK_CHECK_VERSION (3, 0, 0)
-#define gtk_hbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_HORIZONTAL,Y)
-#endif
-
 static void caja_emblem_sidebar_populate          (CajaEmblemSidebar        *emblem_sidebar);
 static void caja_emblem_sidebar_refresh           (CajaEmblemSidebar        *emblem_sidebar);
 static void caja_emblem_sidebar_iface_init        (CajaSidebarIface         *iface);
@@ -111,11 +107,7 @@ typedef struct
     GObjectClass parent;
 } CajaEmblemSidebarProviderClass;
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 G_DEFINE_TYPE_WITH_CODE (CajaEmblemSidebar, caja_emblem_sidebar, GTK_TYPE_BOX,
-#else
-G_DEFINE_TYPE_WITH_CODE (CajaEmblemSidebar, caja_emblem_sidebar, GTK_TYPE_VBOX,
-#endif
                          G_IMPLEMENT_INTERFACE (CAJA_TYPE_SIDEBAR,
                                  caja_emblem_sidebar_iface_init));
 
@@ -314,7 +306,7 @@ create_rename_emblem_dialog (CajaEmblemSidebar *emblem_sidebar,
                         FALSE, FALSE, 8);
 
 
-    hbox = gtk_hbox_new (FALSE, 8);
+    hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 8);
     gtk_box_pack_start (GTK_BOX (hbox), image, TRUE, TRUE, 8);
 
     gtk_entry_set_activates_default (GTK_ENTRY (entry), TRUE);
@@ -588,7 +580,7 @@ create_add_emblems_dialog (CajaEmblemSidebar *emblem_sidebar,
 
         image = gtk_image_new_from_pixbuf (emblem->pixbuf);
 
-        hbox = gtk_hbox_new (TRUE, 0);
+        hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
         gtk_box_pack_start (GTK_BOX (hbox), image, FALSE, FALSE, 0);
 
         entry = gtk_entry_new ();
@@ -1047,9 +1039,7 @@ caja_emblem_sidebar_init (CajaEmblemSidebar *emblem_sidebar)
                              "emblems_changed",
                              G_CALLBACK (emblems_changed_callback), emblem_sidebar, 0);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
     gtk_orientable_set_orientation (GTK_ORIENTABLE (emblem_sidebar), GTK_ORIENTATION_VERTICAL);
-#endif
     gtk_box_pack_start (GTK_BOX (emblem_sidebar), widget,
                         TRUE, TRUE, 0);
 }

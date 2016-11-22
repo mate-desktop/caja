@@ -39,11 +39,6 @@
 #define sure_string(s)                    ((const char *)((s)!=NULL?(s):""))
 #define DESKTOP_ENTRY_GROUP		  "Desktop Entry"
 
-#if GTK_CHECK_VERSION (3, 0, 0)
-#define gtk_hbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_HORIZONTAL,Y)
-#define gtk_vbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_VERTICAL,Y)
-#endif
-
 struct _CajaOpenWithDialogDetails
 {
     GAppInfo *selected_app_info;
@@ -836,9 +831,6 @@ caja_open_with_dialog_init (CajaOpenWithDialog *dialog)
     GtkWidget *vbox;
     GtkWidget *vbox2;
     GtkWidget *label;
-#if !GTK_CHECK_VERSION (3, 0, 0)
-    GtkWidget *align;
-#endif
     GtkWidget *scrolled_window;
     GtkWidget *expander;
     GtkTreeSelection *selection;
@@ -852,10 +844,10 @@ caja_open_with_dialog_init (CajaOpenWithDialog *dialog)
 
     gtk_box_set_spacing (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), 2);
 
-    vbox = gtk_vbox_new (FALSE, 12);
+    vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
     gtk_container_set_border_width (GTK_CONTAINER (vbox), 5);
 
-    vbox2 = gtk_vbox_new (FALSE, 6);
+    vbox2 = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
     gtk_box_pack_start (GTK_BOX (vbox), vbox2, TRUE, TRUE, 0);
 
     dialog->details->label = gtk_label_new ("");
@@ -920,7 +912,7 @@ caja_open_with_dialog_init (CajaOpenWithDialog *dialog)
 
     gtk_widget_show (expander);
 
-    hbox = gtk_hbox_new (FALSE, 6);
+    hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
     gtk_container_add (GTK_CONTAINER (expander), hbox);
     gtk_widget_show (hbox);
 
@@ -964,7 +956,7 @@ caja_open_with_dialog_init (CajaOpenWithDialog *dialog)
     g_signal_connect (G_OBJECT (dialog->details->entry), "changed",
                       G_CALLBACK (entry_changed_cb), dialog);
 
-    hbox = gtk_hbox_new (FALSE, 2);
+    hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 2);
     gtk_widget_show (hbox);
 
     label = gtk_label_new_with_mnemonic (_("_Open"));
@@ -974,21 +966,10 @@ caja_open_with_dialog_init (CajaOpenWithDialog *dialog)
 
     gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 0);
 
-#if !GTK_CHECK_VERSION (3, 0, 0)
-    align = gtk_alignment_new (0.5, 0.5, 0.0, 0.0);
-    gtk_widget_show (align);
-#endif
-
     gtk_widget_show (dialog->details->button);
     gtk_widget_set_can_default (dialog->details->button, TRUE);
 
-
-#if GTK_CHECK_VERSION (3, 0, 0)
     gtk_container_add (GTK_CONTAINER (dialog->details->button), hbox);
-#else
-    gtk_container_add (GTK_CONTAINER (align), hbox);
-    gtk_container_add (GTK_CONTAINER (dialog->details->button), align);
-#endif
 
     gtk_dialog_add_action_widget (GTK_DIALOG (dialog),
                                   dialog->details->button, RESPONSE_OPEN);

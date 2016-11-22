@@ -61,12 +61,6 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-#if !GTK_CHECK_VERSION(3, 0, 0)
-#define gtk_scrollable_get_hadjustment gtk_layout_get_hadjustment
-#define gtk_scrollable_get_vadjustment gtk_layout_get_vadjustment
-#define GTK_SCROLLABLE GTK_LAYOUT
-#endif
-
 /* Timeout to check the desktop directory for updates */
 #define RESCAN_TIMEOUT 4
 
@@ -354,7 +348,7 @@ fm_desktop_icon_view_handle_middle_click (CajaIconContainer *icon_container,
     if (keyboard != NULL) {
             gdk_seat_ungrab (seat);
     }
-#elif GTK_CHECK_VERSION(3, 0, 0)
+#else
     GdkDevice *keyboard = NULL, *pointer = NULL, *cur;
     GdkDeviceManager *manager;
     GList *list, *l;
@@ -392,14 +386,6 @@ fm_desktop_icon_view_handle_middle_click (CajaIconContainer *icon_container,
     if (keyboard != NULL) {
             gdk_device_ungrab (keyboard, GDK_CURRENT_TIME);
     }
-#else
-
-    /* During a mouse click we have the pointer and keyboard grab.
-     * We will send a fake event to the root window which will cause it
-     * to try to get the grab so we need to let go ourselves.
-     */
-    gdk_pointer_ungrab (GDK_CURRENT_TIME);
-    gdk_keyboard_ungrab (GDK_CURRENT_TIME);
 #endif
 
     /* Stop the event because we don't want anyone else dealing with it. */

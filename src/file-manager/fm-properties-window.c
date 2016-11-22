@@ -68,7 +68,6 @@
 #include <sys/mount.h>
 #endif
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 #define USED_FILL_R  0.988235294
 #define USED_FILL_G  0.91372549
 #define USED_FILL_B  0.309803922
@@ -76,16 +75,6 @@
 #define FREE_FILL_R  0.447058824
 #define FREE_FILL_G  0.623529412
 #define FREE_FILL_B  0.811764706
-#else
-#define USED_FILL_R  (0.988235294 * 65535)
-#define USED_FILL_G  (0.91372549 * 65535)
-#define USED_FILL_B  (0.309803922 * 65535)
-
-#define FREE_FILL_R  (0.447058824 * 65535)
-#define FREE_FILL_G  (0.623529412 * 65535)
-#define FREE_FILL_B  (0.811764706 * 65535)
-#endif
-
 
 #define PREVIEW_IMAGE_WIDTH 96
 
@@ -100,13 +89,7 @@ struct FMPropertiesWindowDetails {
 
 	GtkNotebook *notebook;
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 	GtkGrid *basic_grid;
-#else
-	GtkTable *basic_table;
-	GtkTable *permissions_table;
-	gboolean advanced_permissions;
-#endif
 
 	GtkWidget *icon_button;
 	GtkWidget *icon_image;
@@ -153,40 +136,17 @@ struct FMPropertiesWindowDetails {
  	guint64 volume_capacity;
  	guint64 volume_free;
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 	GdkRGBA used_color;
 	GdkRGBA free_color;
 	GdkRGBA used_stroke_color;
 	GdkRGBA free_stroke_color;
-#else
-	GdkColor used_color;
-	GdkColor free_color;
-	GdkColor used_stroke_color;
-	GdkColor free_stroke_color;
-#endif
 };
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 typedef enum {
 	PERMISSIONS_CHECKBOXES_READ,
 	PERMISSIONS_CHECKBOXES_WRITE,
 	PERMISSIONS_CHECKBOXES_EXECUTE
 } CheckboxType;
-#else
-enum {
-	PERMISSIONS_CHECKBOXES_OWNER_ROW,
-	PERMISSIONS_CHECKBOXES_GROUP_ROW,
-	PERMISSIONS_CHECKBOXES_OTHERS_ROW,
-	PERMISSIONS_CHECKBOXES_ROW_COUNT
-};
-
-enum {
-	PERMISSIONS_CHECKBOXES_READ_COLUMN,
-	PERMISSIONS_CHECKBOXES_WRITE_COLUMN,
-	PERMISSIONS_CHECKBOXES_EXECUTE_COLUMN,
-	PERMISSIONS_CHECKBOXES_COLUMN_COUNT
-};
-#endif
 
 enum {
 	TITLE_COLUMN,
@@ -263,22 +223,14 @@ static gboolean name_field_focus_out              (CajaEntry *name_field,
 						   gpointer callback_data);
 static void name_field_activate                   (CajaEntry *name_field,
 						   gpointer callback_data);
-#if GTK_CHECK_VERSION (3, 0, 0)
 static GtkLabel *attach_ellipsizing_value_label   (GtkGrid *grid,
                                                    GtkWidget *sibling,
-#else
-static GtkLabel *attach_ellipsizing_value_label   (GtkTable *table,
-						   int row,
-						   int column,
-#endif
+
 						   const char *initial_text);
 
 static GtkWidget* create_pie_widget 		  (FMPropertiesWindow *window);
 
 G_DEFINE_TYPE (FMPropertiesWindow, fm_properties_window, GTK_TYPE_DIALOG);
-#if !GTK_CHECK_VERSION (3, 0, 0)
-#define parent_class fm_properties_window_parent_class
-#endif
 
 static gboolean
 is_multi_file_window (FMPropertiesWindow *window)
@@ -397,11 +349,8 @@ add_prompt_and_separator (GtkWidget *vbox, const char *prompt_text)
 
 	add_prompt (vbox, prompt_text, FALSE);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 	separator_line = gtk_separator_new (GTK_ORIENTATION_HORIZONTAL);
-#else
-	separator_line = gtk_hseparator_new ();
-#endif
+
 	gtk_widget_show (separator_line);
 	gtk_box_pack_end (GTK_BOX (vbox), separator_line, TRUE, TRUE, 2*ROW_PAD);
 }
@@ -613,14 +562,9 @@ create_image_widget (FMPropertiesWindow *window,
 }
 
 static void
-#if GTK_CHECK_VERSION (3, 0, 0)
 set_name_field (FMPropertiesWindow *window,
                 const gchar *original_name,
                 const gchar *name)
-#else
-set_name_field (FMPropertiesWindow *window, const gchar *original_name,
-                const gchar *name)
-#endif
 {
 	gboolean new_widget;
 	gboolean use_label;
@@ -640,36 +584,19 @@ set_name_field (FMPropertiesWindow *window, const gchar *original_name,
 		}
 
 		if (use_label) {
-#if GTK_CHECK_VERSION (3, 0, 0)
 			window->details->name_field = GTK_WIDGET
 				(attach_ellipsizing_value_label (window->details->basic_grid,
 								 GTK_WIDGET (window->details->name_label),
 								 name));
-#else
-			window->details->name_field =
-				GTK_WIDGET (attach_ellipsizing_value_label
-					   (window->details->basic_table,
-					    window->details->name_row,
-					    VALUE_COLUMN, name));
-#endif
+
 		} else {
 			window->details->name_field = caja_entry_new ();
 			gtk_entry_set_text (GTK_ENTRY (window->details->name_field), name);
 			gtk_widget_show (window->details->name_field);
-#if GTK_CHECK_VERSION (3, 0, 0)
 			gtk_grid_attach_next_to (window->details->basic_grid, window->details->name_field,
 						 GTK_WIDGET (window->details->name_label),
 						 GTK_POS_RIGHT, 1, 1);
-#else
-			gtk_table_attach (window->details->basic_table,
-					  window->details->name_field,
-					  VALUE_COLUMN,
-					  VALUE_COLUMN + 1,
-					  window->details->name_row,
-					  window->details->name_row + 1,
-					  GTK_FILL, 0,
-					  0, 0);
-#endif
+
 			gtk_label_set_mnemonic_widget (GTK_LABEL (window->details->name_label), window->details->name_field);
 
 			g_signal_connect_object (window->details->name_field, "focus_out_event",
@@ -1421,14 +1348,8 @@ value_field_update (FMPropertiesWindow *window, GtkLabel *label)
 }
 
 static GtkLabel *
-#if GTK_CHECK_VERSION (3, 0, 0)
 attach_label (GtkGrid *grid,
               GtkWidget *sibling,
-#else
-attach_label (GtkTable *table,
-	      int row,
-	      int column,
-#endif
 	      const char *initial_text,
 	      gboolean ellipsize_text,
 	      gboolean selectable,
@@ -1456,7 +1377,6 @@ attach_label (GtkTable *table,
 	gtk_misc_set_alignment (GTK_MISC (label_field), 0, 0.5);
 #endif
 	gtk_widget_show (label_field);
-#if GTK_CHECK_VERSION (3, 0, 0)
 	if (ellipsize_text) {
 		gtk_widget_set_hexpand (label_field, TRUE);
 		gtk_label_set_max_width_chars (GTK_LABEL (label_field), 24);
@@ -1468,66 +1388,30 @@ attach_label (GtkTable *table,
 	} else {
 		gtk_container_add (GTK_CONTAINER (grid), label_field);
 	}
-#else
-	gtk_table_attach (table, label_field,
-			  column, column + 1,
-			  row, row + 1,
-			  ellipsize_text
-			    ? GTK_FILL | GTK_EXPAND
-			    : GTK_FILL,
-			  0,
-			  0, 0);
-#endif
 
 	return GTK_LABEL (label_field);
 }
 
 static GtkLabel *
-#if GTK_CHECK_VERSION (3, 0, 0)
 attach_value_label (GtkGrid *grid,
                     GtkWidget *sibling,
                     const char *initial_text)
 {
 	return attach_label (grid, sibling, initial_text, FALSE, TRUE, FALSE);
 }
-#else
-attach_value_label (GtkTable *table,
-                    int row,
-                    int column,
-                    const char *initial_text)
-{
-	return attach_label (table, row, column, initial_text, FALSE, TRUE, FALSE);
-}
-#endif
 
 static GtkLabel *
-#if GTK_CHECK_VERSION (3, 0, 0)
 attach_ellipsizing_value_label (GtkGrid *grid,
                                 GtkWidget *sibling,
                                 const char *initial_text)
 {
 	return attach_label (grid, sibling, initial_text, TRUE, TRUE, FALSE);
 }
-#else
-attach_ellipsizing_value_label (GtkTable *table,
-                                int row,
-                                int column,
-                                const char *initial_text)
-{
-	return attach_label (table, row, column, initial_text, TRUE, TRUE, FALSE);
-}
-#endif
 
 static GtkWidget*
 attach_value_field_internal (FMPropertiesWindow *window,
-#if GTK_CHECK_VERSION (3, 0, 0)
 			     GtkGrid *grid,
 			     GtkWidget *sibling,
-#else
-			     GtkTable *table,
-			     int row,
-			     int column,
-#endif
 			     const char *file_attribute_name,
 			     const char *inconsistent_string,
 			     gboolean show_original,
@@ -1536,15 +1420,9 @@ attach_value_field_internal (FMPropertiesWindow *window,
 	GtkLabel *value_field;
 
 	if (ellipsize_text) {
-#if GTK_CHECK_VERSION (3, 0, 0)
 		value_field = attach_ellipsizing_value_label (grid, sibling, "");
 	} else {
 		value_field = attach_value_label (grid, sibling, "");
-#else
-		value_field = attach_ellipsizing_value_label (table, row, column, "");
-	} else {
-		value_field = attach_value_label (table, row, column, "");
-#endif
 	}
 
   	/* Stash a copy of the file attribute name in this field for the callback's sake. */
@@ -1563,62 +1441,34 @@ attach_value_field_internal (FMPropertiesWindow *window,
 
 static GtkWidget*
 attach_value_field (FMPropertiesWindow *window,
-#if GTK_CHECK_VERSION (3, 0, 0)
 		    GtkGrid *grid,
 		    GtkWidget *sibling,
-#else
-		    GtkTable *table,
-		    int row,
-		    int column,
-#endif
 		    const char *file_attribute_name,
 		    const char *inconsistent_string,
 		    gboolean show_original)
 {
 	return attach_value_field_internal (window,
-#if GTK_CHECK_VERSION (3, 0, 0)
 					    grid, sibling,
 					    file_attribute_name,
 					    inconsistent_string,
 					    show_original,
 					    FALSE);
-#else
-					    table, row, column,
-					    file_attribute_name,
-					    inconsistent_string,
-					    show_original,
-					    FALSE);
-#endif
 }
 
 static GtkWidget*
 attach_ellipsizing_value_field (FMPropertiesWindow *window,
-#if GTK_CHECK_VERSION (3, 0, 0)
 				GtkGrid *grid,
 				GtkWidget *sibling,
-#else
-				GtkTable *table,
-		    	  	int row,
-		    		int column,
-#endif
 		    		const char *file_attribute_name,
 				const char *inconsistent_string,
 				gboolean show_original)
 {
 	return attach_value_field_internal (window,
-#if GTK_CHECK_VERSION (3, 0, 0)
 					    grid, sibling,
 					    file_attribute_name,
 					    inconsistent_string,
 					    show_original,
 					    TRUE);
-#else
-					    table, row, column,
-					    file_attribute_name,
-					    inconsistent_string,
-					    show_original,
-					    TRUE);
-#endif
 }
 
 static void
@@ -1970,19 +1820,11 @@ combo_box_row_separator_func (GtkTreeModel *model,
 }
 
 static GtkComboBox *
-#if GTK_CHECK_VERSION (3, 0, 0)
 attach_combo_box (GtkGrid *grid,
                   GtkWidget *sibling,
-#else
-attach_combo_box (GtkTable *table,
-                  int row,
-#endif
                   gboolean two_columns)
 {
 	GtkWidget *combo_box;
-#if !GTK_CHECK_VERSION (3, 0, 0)
-	GtkWidget *aligner;
-#endif
 
 	if (!two_columns) {
 		combo_box = gtk_combo_box_text_new ();
@@ -2000,9 +1842,9 @@ attach_combo_box (GtkTable *table,
 					       "text", 0);
 
 	}
-#if GTK_CHECK_VERSION (3, 0, 0)
+
 	gtk_widget_set_halign (combo_box, GTK_ALIGN_START);
-#endif
+
 	gtk_widget_show (combo_box);
 
   	gtk_combo_box_set_row_separator_func (GTK_COMBO_BOX (combo_box),
@@ -2010,44 +1852,20 @@ attach_combo_box (GtkTable *table,
 					      NULL,
 					      NULL);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 	gtk_grid_attach_next_to (grid, combo_box, sibling,
 				 GTK_POS_RIGHT, 1, 1);
-#else
-	/* Put combo box in alignment to make it left-justified
-	 * but minimally sized.
-	 */
-	aligner = gtk_alignment_new (0, 0.5, 0, 0);
-	gtk_widget_show (aligner);
-
-	gtk_container_add (GTK_CONTAINER (aligner), combo_box);
-	gtk_table_attach (table, aligner,
-			  VALUE_COLUMN, VALUE_COLUMN + 1,
-			  row, row + 1,
-			  GTK_FILL, 0,
-			  0, 0);
-#endif
 
 	return GTK_COMBO_BOX (combo_box);
 }
 
 static GtkComboBox*
-#if GTK_CHECK_VERSION (3, 0, 0)
 attach_group_combo_box (GtkGrid *grid,
                         GtkWidget *sibling,
-#else
-attach_group_combo_box (GtkTable *table,
-                        int row,
-#endif
                         CajaFile *file)
 {
 	GtkComboBox *combo_box;
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 	combo_box = attach_combo_box (grid, sibling, FALSE);
-#else
-	combo_box = attach_combo_box (table, row, FALSE);
-#endif
 
 	synch_groups_combo_box (combo_box, file);
 
@@ -2325,22 +2143,13 @@ synch_user_menu (GtkComboBox *combo_box, CajaFile *file)
 }
 
 static GtkComboBox*
-#if GTK_CHECK_VERSION (3, 0, 0)
 attach_owner_combo_box (GtkGrid *grid,
                         GtkWidget *sibling,
-#else
-attach_owner_combo_box (GtkTable *table,
-                        int row,
-#endif
                         CajaFile *file)
 {
 	GtkComboBox *combo_box;
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 	combo_box = attach_combo_box (grid, sibling, TRUE);
-#else
-	combo_box = attach_combo_box (table, row, TRUE);
-#endif
 
 	synch_user_menu (combo_box, file);
 
@@ -2355,24 +2164,6 @@ attach_owner_combo_box (GtkTable *table,
 
 	return combo_box;
 }
-
-#if !GTK_CHECK_VERSION (3, 0, 0)
-static guint
-append_row (GtkTable *table)
-{
-	guint new_row_count;
-	gint nrows, ncols;
-
-	g_object_get (table, "n-rows", &nrows, "n-columns", &ncols, NULL);
-
-	new_row_count = nrows + 1;
-
-	gtk_table_resize (table, new_row_count, ncols);
-	gtk_table_set_row_spacing (table, new_row_count - 1, ROW_PAD);
-
-	return new_row_count - 1;
-}
-#endif
 
 static gboolean
 file_has_prefix (CajaFile *file,
@@ -2559,23 +2350,14 @@ schedule_directory_contents_update (FMPropertiesWindow *window)
 
 static GtkLabel *
 attach_directory_contents_value_field (FMPropertiesWindow *window,
-#if GTK_CHECK_VERSION (3, 0, 0)
                                        GtkGrid *grid,
                                        GtkWidget *sibling)
-#else
-                                       GtkTable *table,
-                                       int row)
-#endif
 {
 	GtkLabel *value_field;
 	GList *l;
 	CajaFile *file;
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 	value_field = attach_value_label (grid, sibling, "");
-#else
-	value_field = attach_value_label (table, row, VALUE_COLUMN, "");
-#endif
 
 	g_assert (window->details->directory_contents_value_field == NULL);
 	window->details->directory_contents_value_field = value_field;
@@ -2599,43 +2381,17 @@ attach_directory_contents_value_field (FMPropertiesWindow *window,
 }
 
 static GtkLabel *
-#if GTK_CHECK_VERSION (3, 0, 0)
 attach_title_field (GtkGrid *grid,
                     const char *title)
 {
 	return attach_label (grid, NULL, title, FALSE, FALSE, TRUE);
 }
-#else
-attach_title_field (GtkTable *table,
-                    int row,
-                    const char *title)
-{
-	return attach_label (table, row, TITLE_COLUMN, title, FALSE, FALSE, TRUE);
-}
-#endif
 
-#if !GTK_CHECK_VERSION (3, 0, 0)
-static guint
-append_title_field (GtkTable *table, const char *title, GtkLabel **label)
-{
-	guint last_row;
-	GtkLabel *title_label;
 
-	last_row = append_row (table);
-	title_label = attach_title_field (table, last_row, title);
-
-	if (label) {
-		*label = title_label;
-	}
-
-	return last_row;
-}
-#endif
 
 #define INCONSISTENT_STATE_STRING \
 	"\xE2\x80\x92"
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 static void
 append_title_value_pair (FMPropertiesWindow *window,
                          GtkGrid *grid,
@@ -2689,70 +2445,6 @@ append_directory_contents_fields (FMPropertiesWindow *window,
 
 	gtk_label_set_mnemonic_widget (title_field, GTK_WIDGET(value_field));
 }
-#else
-static guint
-append_title_value_pair (FMPropertiesWindow *window,
-			 GtkTable *table,
-			 const char *title,
- 			 const char *file_attribute_name,
-			 const char *inconsistent_state,
-			 gboolean show_original)
-{
-	guint last_row;
-	GtkLabel *title_label;
-	GtkWidget *value;
-
-	last_row = append_title_field (table, title, &title_label);
-	value = attach_value_field (window, table, last_row, VALUE_COLUMN,
-			    file_attribute_name,
-			    inconsistent_state,
-			    show_original);
-	gtk_label_set_mnemonic_widget (title_label, value);
-	return last_row;
-}
-
-static guint
-append_title_and_ellipsizing_value (FMPropertiesWindow *window,
-				    GtkTable *table,
-				    const char *title,
-				    const char *file_attribute_name,
-				    const char *inconsistent_state,
-				    gboolean show_original)
-{
-	GtkLabel *title_label;
-	GtkWidget *value;
-	guint last_row;
-
-	last_row = append_title_field (table, title, &title_label);
-	value = attach_ellipsizing_value_field (window, table, last_row, VALUE_COLUMN,
-					file_attribute_name,
-					inconsistent_state,
-					show_original);
-	gtk_label_set_mnemonic_widget (title_label, value);
-
-	return last_row;
-}
-
-static guint
-append_directory_contents_fields (FMPropertiesWindow *window,
-				  GtkTable *table)
-{
-	GtkLabel *title_field, *value_field;
-	guint last_row;
-
-	last_row = append_row (table);
-
-	title_field = attach_title_field (table, last_row, "");
-	window->details->directory_contents_title_field = title_field;
-	gtk_label_set_line_wrap (title_field, TRUE);
-
-	value_field = attach_directory_contents_value_field
-		(window, table, last_row);
-
-	gtk_label_set_mnemonic_widget(title_field, GTK_WIDGET(value_field));
-	return last_row;
-}
-#endif
 
 static GtkWidget *
 create_page_with_hbox (GtkNotebook *notebook,
@@ -2763,11 +2455,7 @@ create_page_with_hbox (GtkNotebook *notebook,
 	g_assert (GTK_IS_NOTEBOOK (notebook));
 	g_assert (title != NULL);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
-#else
-	hbox = gtk_hbox_new (FALSE, 0);
-#endif
 	gtk_widget_show (hbox);
 	gtk_container_set_border_width (GTK_CONTAINER (hbox), 12);
 	gtk_box_set_spacing (GTK_BOX (hbox), 12);
@@ -2785,12 +2473,9 @@ create_page_with_vbox (GtkNotebook *notebook,
 	g_assert (GTK_IS_NOTEBOOK (notebook));
 	g_assert (title != NULL);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
-#else
-	vbox = gtk_vbox_new (FALSE, 0);
-#endif
 	gtk_widget_show (vbox);
+
 	gtk_container_set_border_width (GTK_CONTAINER (vbox), 12);
 	gtk_notebook_append_page (notebook, vbox, gtk_label_new (title));
 
@@ -2798,23 +2483,12 @@ create_page_with_vbox (GtkNotebook *notebook,
 }
 
 static GtkWidget *
-#if GTK_CHECK_VERSION (3, 0, 0)
 append_blank_row (GtkGrid *grid)
 {
 	return GTK_WIDGET (attach_title_field (grid, ""));
-#else
-append_blank_row (GtkTable *table)
-{
-	GtkWidget *separator;
-
-	append_title_field (table, "", (GtkLabel **) &separator);
-
-	return separator;
-#endif
 }
 
 static void
-#if GTK_CHECK_VERSION (3, 0, 0)
 append_blank_slim_row (GtkGrid *grid)
 {
 	GtkWidget *w;
@@ -2832,16 +2506,9 @@ append_blank_slim_row (GtkGrid *grid)
 	pango_attr_list_unref (attr_list);
 
 	gtk_container_add (GTK_CONTAINER (grid), w);
-#else
-apply_standard_table_padding (GtkTable *table)
-{
-	gtk_table_set_row_spacings (table, ROW_PAD);
-	gtk_table_set_col_spacings (table, 12);
-#endif
 }
 
 static GtkWidget *
-#if GTK_CHECK_VERSION (3, 0, 0)
 create_grid_with_standard_properties (void)
 {
 	GtkWidget *grid;
@@ -2855,19 +2522,6 @@ create_grid_with_standard_properties (void)
 
 	return grid;
 }
-#else
-create_attribute_value_table (GtkBox *vbox, int row_count)
-{
-	GtkWidget *table;
-
-	table = gtk_table_new (row_count, COLUMN_COUNT, FALSE);
-	apply_standard_table_padding (GTK_TABLE (table));
-	gtk_widget_show (table);
-	gtk_box_pack_start (vbox, table, FALSE, FALSE, 0);
-
-	return table;
-}
-#endif
 
 static gboolean
 is_merged_trash_directory (CajaFile *file)
@@ -3032,11 +2686,7 @@ should_show_volume_usage (FMPropertiesWindow *window)
 
 static void
 paint_used_legend (GtkWidget *widget,
-#if GTK_CHECK_VERSION(3,0,0)
                    cairo_t *cr,
-#else
-                   GdkEventExpose *eev,
-#endif
                    gpointer data)
 {
 	FMPropertiesWindow *window;
@@ -3050,46 +2700,22 @@ paint_used_legend (GtkWidget *widget,
 
 	window = FM_PROPERTIES_WINDOW (data);
 
-#if !GTK_CHECK_VERSION(3,0,0)
-	cairo_t *cr = gdk_cairo_create (gtk_widget_get_window (widget));
-#endif
-
 	cairo_rectangle  (cr,
 			  2,
 			  2,
 			  width - 4,
 			  height - 4);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 	gdk_cairo_set_source_rgba (cr, &window->details->used_color);
 	cairo_fill_preserve (cr);
 
 	gdk_cairo_set_source_rgba (cr, &window->details->used_stroke_color);
 	cairo_stroke (cr);
-#else
-	cairo_set_source_rgb (cr,
-	                      (double) window->details->used_color.red / 65535,
-	                      (double) window->details->used_color.green / 65535,
-	                      (double) window->details->used_color.blue / 65535);
-	cairo_fill_preserve (cr);
-
-	cairo_set_source_rgb (cr,
-	                      (double) window->details->used_stroke_color.red / 65535,
-	                      (double) window->details->used_stroke_color.green / 65535,
-	                      (double) window->details->used_stroke_color.blue / 65535);
-	cairo_stroke (cr);
-
-	cairo_destroy (cr);
-#endif
 }
 
 static void
 paint_free_legend (GtkWidget *widget,
-#if GTK_CHECK_VERSION(3,0,0)
                    cairo_t *cr, gpointer data)
-#else
-                   GdkEventExpose *eev, gpointer data)
-#endif
 {
 	FMPropertiesWindow *window;
 	gint width, height;
@@ -3100,9 +2726,6 @@ paint_free_legend (GtkWidget *widget,
 
   	width  = allocation.width;
   	height = allocation.height;
-#if !GTK_CHECK_VERSION(3,0,0)
-  	cairo_t *cr = gdk_cairo_create (gtk_widget_get_window (widget));
-#endif
 
 	cairo_rectangle (cr,
 			 2,
@@ -3110,36 +2733,16 @@ paint_free_legend (GtkWidget *widget,
 			 width - 4,
 			 height - 4);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 	gdk_cairo_set_source_rgba (cr, &window->details->free_color);
 	cairo_fill_preserve(cr);
 
 	gdk_cairo_set_source_rgba (cr, &window->details->free_stroke_color);
 	cairo_stroke (cr);
-#else
-	cairo_set_source_rgb (cr,
-	                      (double) window->details->free_color.red / 65535,
-	                      (double) window->details->free_color.green / 65535,
-	                      (double) window->details->free_color.blue / 65535);
-	cairo_fill_preserve(cr);
-
-	cairo_set_source_rgb (cr,
-	                      (double) window->details->free_stroke_color.red / 65535,
-	                      (double) window->details->free_stroke_color.green / 65535,
-	                      (double) window->details->free_stroke_color.blue / 65535);
-	cairo_stroke (cr);
-
-	cairo_destroy (cr);
-#endif
 }
 
 static void
 paint_pie_chart (GtkWidget *widget,
-#if GTK_CHECK_VERSION(3,0,0)
                  cairo_t *cr,
-#else
-                 GdkEventExpose *eev,
-#endif
                  gpointer data)
 {
 
@@ -3164,10 +2767,6 @@ paint_pie_chart (GtkWidget *widget,
 	split = (2 * G_PI - angle1) * .5;
 	xc = width / 2;
 	yc = height / 2;
-
-#if !GTK_CHECK_VERSION(3,0,0)
-  	cairo_t *cr = gdk_cairo_create (gtk_widget_get_window (widget));
-#endif
 
 	if (width < height) {
 		radius = width / 2 - 8;
@@ -3194,23 +2793,11 @@ paint_pie_chart (GtkWidget *widget,
 			cairo_line_to (cr,xc,yc);
 		}
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 		gdk_cairo_set_source_rgba (cr, &window->details->used_color);
 		cairo_fill_preserve (cr);
 
 		gdk_cairo_set_source_rgba (cr, &window->details->used_stroke_color);
-#else
-		cairo_set_source_rgb (cr,
-		                      (double) window->details->used_color.red / 65535,
-		                      (double) window->details->used_color.green / 65535,
-		                      (double) window->details->used_color.blue / 65535);
-		cairo_fill_preserve (cr);
 
-		cairo_set_source_rgb (cr,
-		                      (double) window->details->used_stroke_color.red / 65535,
-		                      (double) window->details->used_stroke_color.green / 65535,
-		                      (double) window->details->used_stroke_color.blue / 65535);
-#endif
 		cairo_stroke (cr);
 	}
 
@@ -3225,29 +2812,14 @@ paint_pie_chart (GtkWidget *widget,
 			cairo_line_to (cr,xc,yc);
 		}
 
-#if GTK_CHECK_VERSION (3, 0, 0)
+
 		gdk_cairo_set_source_rgba (cr, &window->details->free_color);
 		cairo_fill_preserve(cr);
 
 		gdk_cairo_set_source_rgba (cr, &window->details->free_stroke_color);
-#else
-		cairo_set_source_rgb (cr,
-		                      (double) window->details->free_color.red / 65535,
-		                      (double) window->details->free_color.green / 65535,
-		                      (double) window->details->free_color.blue / 65535);
-		cairo_fill_preserve(cr);
 
-		cairo_set_source_rgb (cr,
-		                      (double) window->details->free_stroke_color.red / 65535,
-		                      (double) window->details->free_stroke_color.green / 65535,
-		                      (double) window->details->free_stroke_color.blue / 65535);
-#endif
 		cairo_stroke (cr);
 	}
-
-#if !GTK_CHECK_VERSION(3,0,0)
-  	cairo_destroy (cr);
-#endif
 }
 
 
@@ -3403,28 +2975,17 @@ hls_to_rgb (gdouble *h,
     }
 }
 static void
-#if GTK_CHECK_VERSION (3, 0, 0)
 _pie_style_shade (GdkRGBA *a,
                   GdkRGBA *b,
-#else
-_pie_style_shade (GdkColor *a,
-                  GdkColor *b,
-#endif
                   gdouble   k)
 {
   gdouble red;
   gdouble green;
   gdouble blue;
 
-#if GTK_CHECK_VERSION (3, 0, 0)
   red = a->red;
   green = a->green;
   blue = a->blue;
-#else
-  red = (gdouble) a->red / 65535.0;
-  green = (gdouble) a->green / 65535.0;
-  blue = (gdouble) a->blue / 65535.0;
-#endif
 
   rgb_to_hls (&red, &green, &blue);
 
@@ -3442,16 +3003,10 @@ _pie_style_shade (GdkColor *a,
 
   hls_to_rgb (&red, &green, &blue);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
   b->red = red;
   b->green = green;
   b->blue = blue;
   b->alpha = a->alpha;
-#else
-  b->red = red * 65535.0;
-  b->green = green * 65535.0;
-  b->blue = blue * 65535.0;
-#endif
 }
 
 
@@ -3459,13 +3014,9 @@ static GtkWidget*
 create_pie_widget (FMPropertiesWindow *window)
 {
 	CajaFile		*file;
-#if GTK_CHECK_VERSION (3, 0, 0)
 	GtkGrid                 *grid;
 	GtkStyleContext		*style;
-#else
-	GtkTable 		*table;
-	GtkStyle		*style;
-#endif
+
 	GtkWidget 		*pie_canvas;
 	GtkWidget 		*used_canvas;
 	GtkWidget 		*used_label;
@@ -3496,39 +3047,27 @@ create_pie_widget (FMPropertiesWindow *window)
 
 	uri = caja_file_get_activation_uri (file);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 	grid = GTK_GRID (gtk_grid_new ());
 	gtk_container_set_border_width (GTK_CONTAINER (grid), 5);
 	gtk_grid_set_column_spacing (GTK_GRID (grid), 5);
 	style = gtk_widget_get_style_context (GTK_WIDGET (grid));
 
 	if (!gtk_style_context_lookup_color (style, "chart_rgba_1", &window->details->used_color)) {
-#else
-	table = GTK_TABLE (gtk_table_new (4, 3, FALSE));
 
-	style = gtk_rc_get_style (GTK_WIDGET(table));
-
-	if (!gtk_style_lookup_color (style, "chart_color_1", &window->details->used_color)) {
-#endif
 		window->details->used_color.red = USED_FILL_R;
 		window->details->used_color.green = USED_FILL_G;
 		window->details->used_color.blue = USED_FILL_B;
-#if GTK_CHECK_VERSION (3, 0, 0)
 		window->details->used_color.alpha = 1;
-#endif
+
 	}
 
-#if GTK_CHECK_VERSION (3, 0, 0)
+
 	if (!gtk_style_context_lookup_color (style, "chart_rgba_2", &window->details->free_color)) {
-#else
-	if (!gtk_style_lookup_color (style, "chart_color_2", &window->details->free_color)) {
-#endif
 		window->details->free_color.red = FREE_FILL_R;
 		window->details->free_color.green = FREE_FILL_G;
 		window->details->free_color.blue = FREE_FILL_B;
-#if GTK_CHECK_VERSION (3, 0, 0)
 		window->details->free_color.alpha = 1;
-#endif
+
 	}
 
 	_pie_style_shade (&window->details->used_color, &window->details->used_stroke_color, 0.7);
@@ -3538,19 +3077,19 @@ create_pie_widget (FMPropertiesWindow *window)
 	gtk_widget_set_size_request (pie_canvas, 200, 200);
 
 	used_canvas = gtk_drawing_area_new ();
-#if GTK_CHECK_VERSION (3, 0, 0)
+
 	gtk_widget_set_valign (used_canvas, GTK_ALIGN_CENTER);
 	gtk_widget_set_halign (used_canvas, GTK_ALIGN_CENTER);
-#endif
+
 	gtk_widget_set_size_request (used_canvas, 20, 20);
 	/* Translators: "used" refers to the capacity of the filesystem */
 	used_label = gtk_label_new (g_strconcat (used, " ", _("used"), NULL));
 
 	free_canvas = gtk_drawing_area_new ();
-#if GTK_CHECK_VERSION (3, 0, 0)
+
 	gtk_widget_set_valign (free_canvas, GTK_ALIGN_CENTER);
 	gtk_widget_set_halign (free_canvas, GTK_ALIGN_CENTER);
-#endif
+
 	gtk_widget_set_size_request (free_canvas, 20, 20);
 	/* Translators: "free" refers to the capacity of the filesystem */
 	free_label = gtk_label_new (g_strconcat (free, " ", _("free"), NULL));
@@ -3578,7 +3117,6 @@ create_pie_widget (FMPropertiesWindow *window)
 	g_free (used);
 	g_free (free);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 	gtk_container_add_with_properties (GTK_CONTAINER (grid), pie_canvas,
 					   "height", 4,
 					   NULL);
@@ -3596,40 +3134,16 @@ create_pie_widget (FMPropertiesWindow *window)
 				 GTK_POS_BOTTOM, 2, 1);
 	gtk_grid_attach_next_to (grid, fstype_label, capacity_label,
 				 GTK_POS_BOTTOM, 2, 1);
-#else
-	gtk_table_attach (table, pie_canvas , 0, 1, 0, 4, GTK_FILL, 	GTK_SHRINK, 5, 5);
 
-	gtk_table_attach (table, used_canvas, 1, 2, 0, 1, 0, 	    	0, 	    5, 5);
-	gtk_table_attach (table, used_label , 2, 3, 0, 1, GTK_FILL, 	0,          5, 5);
-
-	gtk_table_attach (table, free_canvas, 1, 2, 1, 2, 0, 		0,          5, 5);
-	gtk_table_attach (table, free_label , 2, 3, 1, 2, GTK_FILL, 	0,          5, 5);
-
-	gtk_table_attach (table, capacity_label , 1, 3, 2, 3, GTK_FILL, 0,          5, 5);
-	gtk_table_attach (table, fstype_label , 1, 3, 3, 4, GTK_FILL, 0,          5, 5);
-#endif
-
-#if GTK_CHECK_VERSION(3,0,0)
 	g_signal_connect (pie_canvas, "draw",
 	                  G_CALLBACK (paint_pie_chart), window);
 	g_signal_connect (used_canvas, "draw",
 	                  G_CALLBACK (paint_used_legend), window);
 	g_signal_connect (free_canvas, "draw",
 	                  G_CALLBACK (paint_free_legend), window);
-#else
-	g_signal_connect (G_OBJECT (pie_canvas), "expose-event",
-	                  G_CALLBACK (paint_pie_chart), window);
-	g_signal_connect (G_OBJECT (used_canvas), "expose-event",
-	                  G_CALLBACK (paint_used_legend), window);
-	g_signal_connect (G_OBJECT (free_canvas), "expose-event",
-	                  G_CALLBACK (paint_free_legend), window);
-#endif
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 	return GTK_WIDGET (grid);
-#else
-	return GTK_WIDGET (table);
-#endif
+
 }
 
 static GtkWidget*
@@ -3670,19 +3184,10 @@ create_volume_usage_widget (FMPropertiesWindow *window)
 static void
 create_basic_page (FMPropertiesWindow *window)
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
 	GtkGrid *grid;
-#else
-	GtkTable *table;
-	GtkWidget *icon_aligner;
-#endif
 	GtkWidget *icon_pixmap_widget;
 	GtkWidget *volume_usage;
 	GtkWidget *hbox, *vbox;
-
-#if !GTK_CHECK_VERSION (3, 0, 0)
-	guint last_row, row;
-#endif
 
 	hbox = create_page_with_hbox (window->details->notebook, _("Basic"));
 
@@ -3690,53 +3195,26 @@ create_basic_page (FMPropertiesWindow *window)
 
 	icon_pixmap_widget = create_image_widget (
 		window, should_show_custom_icon_buttons (window));
-#if GTK_CHECK_VERSION (3, 0, 0)
+
 	gtk_widget_set_halign (icon_pixmap_widget, GTK_ALIGN_END);
 	gtk_widget_set_valign (icon_pixmap_widget, GTK_ALIGN_START);
 	gtk_widget_show (icon_pixmap_widget);
 
 	gtk_box_pack_start (GTK_BOX (hbox), icon_pixmap_widget, FALSE, FALSE, 0);
-#else
-	gtk_widget_show (icon_pixmap_widget);
-
-	icon_aligner = gtk_alignment_new (1, 0, 0, 0);
-	gtk_widget_show (icon_aligner);
-
-	gtk_container_add (GTK_CONTAINER (icon_aligner), icon_pixmap_widget);
-	gtk_box_pack_start (GTK_BOX (hbox), icon_aligner, FALSE, FALSE, 0);
-#endif
 
 	window->details->icon_chooser = NULL;
 
-#if GTK_CHECK_VERSION (3, 0, 0)
-	/* Grid */
-#else
-	/* Table */
-#endif
-
-#if GTK_CHECK_VERSION (3, 0, 0)
 	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
-#else
-	vbox = gtk_vbox_new (FALSE, 0);
-#endif
+
 	gtk_widget_show (vbox);
 	gtk_container_add (GTK_CONTAINER (hbox), vbox);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 	grid = GTK_GRID (create_grid_with_standard_properties ());
 	gtk_box_pack_start (GTK_BOX (vbox), GTK_WIDGET (grid), FALSE, FALSE, 0);
 	window->details->basic_grid = grid;
 
 	/* Name label.  The text will be determined in update_name_field */
 	window->details->name_label = attach_title_field (grid, NULL);
-#else
-	table = GTK_TABLE (create_attribute_value_table (GTK_BOX (vbox), 0));
-	window->details->basic_table = table;
-
-	/* Name label.  The text will be determined in update_name_field */
-	row = append_title_field (table, NULL, &window->details->name_label);
-	window->details->name_row = row;
-#endif
 
 	/* Name field */
 	window->details->name_field = NULL;
@@ -3752,17 +3230,12 @@ create_basic_page (FMPropertiesWindow *window)
 		GtkSizeGroup *label_size_group;
 		GtkWidget *box;
 
-#if !GTK_CHECK_VERSION (3, 0, 0)
-		row = append_row (table);
-#endif
-
 		label_size_group = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL);
 		gtk_size_group_add_widget (label_size_group,
 					   GTK_WIDGET (window->details->name_label));
 		box = fm_ditem_page_make_box (label_size_group,
 					      window->details->target_files);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 		gtk_grid_attach_next_to (window->details->basic_grid, box,
 					 GTK_WIDGET (window->details->name_label),
 					 GTK_POS_BOTTOM, 2, 1);
@@ -3837,83 +3310,6 @@ create_basic_page (FMPropertiesWindow *window)
 						   "width", 2,
 						   NULL);
 	}
-#else
-		gtk_table_attach (window->details->basic_table, box,
-				  TITLE_COLUMN, VALUE_COLUMN + 1,
-				  row, row + 1,
-				  GTK_FILL, 0,
-				  0, 0);
-	}
-
-	if (should_show_file_type (window)) {
-		append_title_value_pair (window,
-					 table, _("Type:"),
-					 "type",
-					 INCONSISTENT_STATE_STRING,
-					 FALSE);
-	}
-
-	if (should_show_link_target (window)) {
-		append_title_and_ellipsizing_value (window, table,
-						    _("Link target:"),
-						    "link_target",
-						    INCONSISTENT_STATE_STRING,
-						    FALSE);
-	}
-
-	if (is_multi_file_window (window) ||
-	    caja_file_is_directory (get_target_file (window))) {
-		append_directory_contents_fields (window, table);
-	} else {
-		append_title_value_pair (window, table, _("Size:"),
-					 "size_detail",
-					 INCONSISTENT_STATE_STRING,
-					 FALSE);
-	}
-
-	append_blank_row (table);
-
-	if (should_show_location_info (window)) {
-		append_title_and_ellipsizing_value (window, table, _("Location:"),
-						    "where",
-						    INCONSISTENT_STATE_STRING,
-						    TRUE);
-
-		append_title_and_ellipsizing_value (window, table,
-						    _("Volume:"),
-						    "volume",
-						    INCONSISTENT_STATE_STRING,
-						    FALSE);
-	}
-
-	if (should_show_accessed_date (window)) {
-		append_blank_row (table);
-
-		append_title_value_pair (window, table, _("Accessed:"),
-					 "date_accessed",
-					 INCONSISTENT_STATE_STRING,
-					 FALSE);
-		append_title_value_pair (window, table, _("Modified:"),
-					 "date_modified",
-					 INCONSISTENT_STATE_STRING,
-					 FALSE);
-	}
-
-	if (should_show_free_space (window)) {
-		append_blank_row (table);
-
-		append_title_value_pair (window, table, _("Free space:"),
-					 "free_space",
-					 INCONSISTENT_STATE_STRING,
-					 FALSE);
-	}
-
-	if (should_show_volume_usage (window)) {
-		last_row = append_row (table);
-		volume_usage = create_volume_usage_widget (window);
-		gtk_table_attach_defaults (GTK_TABLE(table), volume_usage, 0, 2, last_row, last_row+1);
-	}
-#endif
 }
 
 static GHashTable *
@@ -4082,11 +3478,7 @@ start_long_operation (FMPropertiesWindow *window)
 		display = gtk_widget_get_display (GTK_WIDGET (window));
 		cursor = gdk_cursor_new_for_display (display, GDK_WATCH);
 		gdk_window_set_cursor (gtk_widget_get_window (GTK_WIDGET (window)), cursor);
-#if GTK_CHECK_VERSION(3,0,0)
 		g_object_unref (cursor);
-#else
-		gdk_cursor_unref (cursor);
-#endif
 	}
 	window->details->long_operation_underway ++;
 }
@@ -4382,17 +3774,10 @@ set_up_permissions_checkbox (FMPropertiesWindow *window,
 				 0);
 }
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 static GtkWidget *
 add_permissions_checkbox_with_label (FMPropertiesWindow *window,
                                      GtkGrid *grid,
                                      GtkWidget *sibling,
-#else
-static void
-add_permissions_checkbox_with_label (FMPropertiesWindow *window,
-                                     GtkTable *table,
-                                     int row, int column,
-#endif
                                      const char *label,
                                      guint32 permission_to_check,
                                      GtkLabel *label_for,
@@ -4403,20 +3788,12 @@ add_permissions_checkbox_with_label (FMPropertiesWindow *window,
 
 	check_button = gtk_check_button_new_with_mnemonic (label);
 	gtk_widget_show (check_button);
-#if GTK_CHECK_VERSION (3, 0, 0)
 	if (sibling) {
 		gtk_grid_attach_next_to (grid, check_button, sibling,
 					 GTK_POS_RIGHT, 1, 1);
 	} else {
 		gtk_container_add (GTK_CONTAINER (grid), check_button);
 	}
-#else
-	gtk_table_attach (table, check_button,
-			  column, column + 1,
-			  row, row + 1,
-			  GTK_FILL, 0,
-			  0, 0);
-#endif
 
 	set_up_permissions_checkbox (window,
 				     check_button,
@@ -4428,12 +3805,10 @@ add_permissions_checkbox_with_label (FMPropertiesWindow *window,
 		eel_accessibility_set_up_label_widget_relation (GTK_WIDGET (label_for),
 								check_button);
 	}
-#if GTK_CHECK_VERSION (3, 0, 0)
+
 	return check_button;
-#endif
 }
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 static GtkWidget *
 add_permissions_checkbox (FMPropertiesWindow *window,
                           GtkGrid *grid,
@@ -4460,33 +3835,6 @@ add_permissions_checkbox (FMPropertiesWindow *window,
 						    label_for,
 						    is_folder);
 }
-#else
-static void
-add_permissions_checkbox (FMPropertiesWindow *window,
-			  GtkTable *table,
-			  int row, int column,
-			  guint32 permission_to_check,
-			  GtkLabel *label_for,
-			  gboolean is_folder)
-{
-	gchar *label;
-
-	if (column == PERMISSIONS_CHECKBOXES_READ_COLUMN) {
-		label = _("_Read");
-	} else if (column == PERMISSIONS_CHECKBOXES_WRITE_COLUMN) {
-		label = _("_Write");
-	} else {
-		label = _("E_xecute");
-	}
-
-	add_permissions_checkbox_with_label (window, table,
-					     row, column,
-					     label,
-					     permission_to_check,
-					     label_for,
-					     is_folder);
-}
-#endif
 
 enum {
 	UNIX_PERM_SUID = S_ISUID,
@@ -4807,11 +4155,7 @@ permission_combo_update (FMPropertiesWindow *window,
 }
 
 static void
-#if GTK_CHECK_VERSION (3, 0, 0)
 add_permissions_combo_box (FMPropertiesWindow *window, GtkGrid *grid,
-#else
-add_permissions_combo_box (FMPropertiesWindow *window, GtkTable *table,
-#endif
 			   PermissionType type, gboolean is_folder,
 			   gboolean short_label)
 {
@@ -4820,24 +4164,13 @@ add_permissions_combo_box (FMPropertiesWindow *window, GtkTable *table,
 	GtkListStore *store;
 	GtkCellRenderer *cell;
 	GtkTreeIter iter;
-#if !GTK_CHECK_VERSION (3, 0, 0)
-	int row;
-#endif
 
 	if (short_label) {
-#if GTK_CHECK_VERSION (3, 0, 0)
 		label = attach_title_field (grid, _("Access:"));
 	} else if (is_folder) {
 		label = attach_title_field (grid, _("Folder access:"));
 	} else {
 		label = attach_title_field (grid, _("File access:"));
-#else
-		row = append_title_field (table, _("Access:"), &label);
-	} else if (is_folder) {
-		row = append_title_field (table, _("Folder access:"), &label);
-	} else {
-		row = append_title_field (table, _("File access:"), &label);
-#endif
 	}
 
 	store = gtk_list_store_new (3, G_TYPE_STRING, G_TYPE_INT, G_TYPE_BOOLEAN);
@@ -4891,41 +4224,23 @@ add_permissions_combo_box (FMPropertiesWindow *window, GtkTable *table,
 	gtk_label_set_mnemonic_widget (label, combo);
 	gtk_widget_show (combo);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 	gtk_grid_attach_next_to (grid, combo, GTK_WIDGET (label),
 				 GTK_POS_RIGHT, 1, 1);
-#else
-	gtk_table_attach (table, combo,
-			  VALUE_COLUMN, VALUE_COLUMN + 1,
-			  row, row + 1,
-			  GTK_FILL, 0,
-			  0, 0);
-#endif
 }
 
 
 static GtkWidget *
 append_special_execution_checkbox (FMPropertiesWindow *window,
-#if GTK_CHECK_VERSION (3, 0, 0)
 				   GtkGrid *grid,
 				   GtkWidget *sibling,
-#else
-				   GtkTable *table,
-#endif
 				   const char *label_text,
 				   guint32 permission_to_check)
 {
 	GtkWidget *check_button;
-#if !GTK_CHECK_VERSION (3, 0, 0)
-	guint last_row;
-
-	last_row = append_row (table);
-#endif
 
 	check_button = gtk_check_button_new_with_mnemonic (label_text);
 	gtk_widget_show (check_button);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 	if (sibling != NULL) {
 		gtk_grid_attach_next_to (grid, check_button, sibling,
 					 GTK_POS_RIGHT, 1, 1);
@@ -4934,13 +4249,6 @@ append_special_execution_checkbox (FMPropertiesWindow *window,
 						   "left-attach", 1,
 						   NULL);
 	}
-#else
-	gtk_table_attach (table, check_button,
-			  VALUE_COLUMN, VALUE_COLUMN + 1,
-			  last_row, last_row + 1,
-			  GTK_FILL, 0,
-			  0, 0);
-#endif
 
 	set_up_permissions_checkbox (window,
 				     check_button,
@@ -4953,7 +4261,6 @@ append_special_execution_checkbox (FMPropertiesWindow *window,
 }
 
 static void
-#if GTK_CHECK_VERSION (3, 0, 0)
 append_special_execution_flags (FMPropertiesWindow *window, GtkGrid *grid)
 {
 	GtkWidget *title;
@@ -4965,24 +4272,6 @@ append_special_execution_flags (FMPropertiesWindow *window, GtkGrid *grid)
 	append_special_execution_checkbox (window, grid, NULL, _("Set gro_up ID"), UNIX_PERM_SGID);
 	append_special_execution_checkbox (window, grid, NULL, _("_Sticky"), UNIX_PERM_STICKY);
 }
-#else
-append_special_execution_flags (FMPropertiesWindow *window, GtkTable *table)
-{
-	gint nrows;
-
-	append_special_execution_checkbox
-		(window, table, _("Set _user ID"), UNIX_PERM_SUID);
-
-	g_object_get (table, "n-rows", &nrows, NULL);
-	attach_title_field (table, nrows - 1, _("Special flags:"));
-
-	append_special_execution_checkbox (window, table, _("Set gro_up ID"), UNIX_PERM_SGID);
-	append_special_execution_checkbox (window, table, _("_Sticky"), UNIX_PERM_STICKY);
-
-	g_object_get (table, "n-rows", &nrows, NULL);
-	gtk_table_set_row_spacing (table, nrows - 1, 18);
-}
-#endif
 
 static gboolean
 all_can_get_permissions (GList *file_list)
@@ -5042,7 +4331,6 @@ get_initial_permissions (GList *file_list)
 }
 
 static void
-#if GTK_CHECK_VERSION (3, 0, 0)
 create_simple_permissions (FMPropertiesWindow *window, GtkGrid *page_grid)
 {
 	gboolean has_file, has_directory;
@@ -5141,121 +4429,9 @@ create_simple_permissions (FMPropertiesWindow *window, GtkGrid *page_grid)
 					     UNIX_PERM_USER_EXEC|UNIX_PERM_GROUP_EXEC|UNIX_PERM_OTHER_EXEC,
 					     execute_label, FALSE);
 }
-#else
-create_simple_permissions (FMPropertiesWindow *window, GtkTable *page_table)
-{
-	gboolean has_file, has_directory;
-	GtkLabel *group_label;
-	GtkLabel *owner_label;
-	GtkLabel *execute_label;
-	GtkWidget *value;
-	GtkComboBox *group_combo_box;
-	GtkComboBox *owner_combo_box;
-	guint last_row;
-	gint nrows;
-
-	last_row = 0;
-
-	has_file = files_has_file (window);
-	has_directory = files_has_directory (window);
-
-	if (!is_multi_file_window (window) && caja_file_can_set_owner (get_target_file (window))) {
-		owner_label = attach_title_field (page_table, last_row, _("_Owner:"));
-		/* Combo box in this case. */
-		owner_combo_box = attach_owner_combo_box (page_table, last_row, get_target_file (window));
-		gtk_label_set_mnemonic_widget (owner_label,
-					       GTK_WIDGET (owner_combo_box));
-	} else {
-		owner_label = attach_title_field (page_table, last_row, _("Owner:"));
-		/* Static text in this case. */
-		value = attach_value_field (window,
-				    page_table, last_row, VALUE_COLUMN,
-				    "owner",
-				    INCONSISTENT_STATE_STRING,
-				    FALSE);
-		gtk_label_set_mnemonic_widget (owner_label, value);
-	}
-
-	if (has_directory) {
-		add_permissions_combo_box (window, page_table,
-					   PERMISSION_USER, TRUE, FALSE);
-	}
-	if (has_file || window->details->has_recursive_apply) {
-		add_permissions_combo_box (window, page_table,
-					   PERMISSION_USER, FALSE, !has_directory);
-	}
-
-	g_object_get (page_table, "n-rows", &nrows, NULL);
-	gtk_table_set_row_spacing (page_table, nrows - 1, 18);
-
-	if (!is_multi_file_window (window) && caja_file_can_set_group (get_target_file (window))) {
-		last_row = append_title_field (page_table,
-					       _("_Group:"),
-					       &group_label);
-		/* Combo box in this case. */
-		group_combo_box = attach_group_combo_box (page_table, last_row,
-							  get_target_file (window));
-		gtk_label_set_mnemonic_widget (group_label,
-					       GTK_WIDGET (group_combo_box));
-	} else {
-		last_row = append_title_field (page_table,
-					       _("Group:"),
-					       &group_label);
-		/* Static text in this case. */
-		value = attach_value_field (window, page_table, last_row,
-				    VALUE_COLUMN,
-				    "group",
-				    INCONSISTENT_STATE_STRING,
-				    FALSE);
-		gtk_label_set_mnemonic_widget (group_label, value);
-	}
-
-	if (has_directory) {
-		add_permissions_combo_box (window, page_table,
-					   PERMISSION_GROUP, TRUE,
-					   FALSE);
-	}
-	if (has_file || window->details->has_recursive_apply) {
-		add_permissions_combo_box (window, page_table,
-					   PERMISSION_GROUP, FALSE,
-					   !has_directory);
-	}
-
-	g_object_get (page_table, "n-rows", &nrows, NULL);
-	gtk_table_set_row_spacing (page_table, nrows - 1, 18);
-
-	append_title_field (page_table,
-			    _("Others"),
-			    &group_label);
-
-	if (has_directory) {
-		add_permissions_combo_box (window, page_table,
-					   PERMISSION_OTHER, TRUE,
-					   FALSE);
-	}
-	if (has_file || window->details->has_recursive_apply) {
-		add_permissions_combo_box (window, page_table,
-					   PERMISSION_OTHER, FALSE,
-					   !has_directory);
-	}
-
-	g_object_get (page_table, "n-rows", &nrows, NULL);
-	gtk_table_set_row_spacing (page_table, nrows - 1, 18);
-
-	last_row = append_title_field (page_table,
-				       _("Execute:"),
-				       &execute_label);
-	add_permissions_checkbox_with_label (window, page_table,
-					     last_row, 1,
-					     _("Allow _executing file as program"),
-					     UNIX_PERM_USER_EXEC|UNIX_PERM_GROUP_EXEC|UNIX_PERM_OTHER_EXEC,
-					     execute_label, FALSE);
-}
-#endif
 
 static void
 create_permission_checkboxes (FMPropertiesWindow *window,
-#if GTK_CHECK_VERSION (3, 0, 0)
 			      GtkGrid *page_grid,
 			      gboolean is_folder)
 {
@@ -5348,108 +4524,8 @@ create_permission_checkboxes (FMPropertiesWindow *window,
 				  other_perm_label,
 				  is_folder);
 }
-#else
-			      GtkTable *page_table,
-			      gboolean is_folder)
-{
-	guint checkbox_titles_row;
-	GtkLabel *owner_perm_label;
-	GtkLabel *group_perm_label;
-	GtkLabel *other_perm_label;
-	GtkTable *check_button_table;
-
-	checkbox_titles_row = append_title_field (page_table, _("Owner:"), &owner_perm_label);
-	append_title_field (page_table, _("Group:"), &group_perm_label);
-	append_title_field (page_table, _("Others:"), &other_perm_label);
-
-	check_button_table = GTK_TABLE (gtk_table_new
-					(PERMISSIONS_CHECKBOXES_ROW_COUNT,
-					 PERMISSIONS_CHECKBOXES_COLUMN_COUNT,
-					 FALSE));
-	apply_standard_table_padding (check_button_table);
-	gtk_widget_show (GTK_WIDGET (check_button_table));
-	gtk_table_attach (page_table, GTK_WIDGET (check_button_table),
-			  VALUE_COLUMN, VALUE_COLUMN + 1,
-			  checkbox_titles_row, checkbox_titles_row + PERMISSIONS_CHECKBOXES_ROW_COUNT,
-			  0, 0,
-			  0, 0);
-
-	add_permissions_checkbox (window,
-				  check_button_table,
-				  PERMISSIONS_CHECKBOXES_OWNER_ROW,
-				  PERMISSIONS_CHECKBOXES_READ_COLUMN,
-				  UNIX_PERM_USER_READ,
-				  owner_perm_label,
-				  is_folder);
-
-	add_permissions_checkbox (window,
-				  check_button_table,
-				  PERMISSIONS_CHECKBOXES_OWNER_ROW,
-				  PERMISSIONS_CHECKBOXES_WRITE_COLUMN,
-				  UNIX_PERM_USER_WRITE,
-				  owner_perm_label,
-				  is_folder);
-
-	add_permissions_checkbox (window,
-				  check_button_table,
-				  PERMISSIONS_CHECKBOXES_OWNER_ROW,
-				  PERMISSIONS_CHECKBOXES_EXECUTE_COLUMN,
-				  UNIX_PERM_USER_EXEC,
-				  owner_perm_label,
-				  is_folder);
-
-	add_permissions_checkbox (window,
-				  check_button_table,
-				  PERMISSIONS_CHECKBOXES_GROUP_ROW,
-				  PERMISSIONS_CHECKBOXES_READ_COLUMN,
-				  UNIX_PERM_GROUP_READ,
-				  group_perm_label,
-				  is_folder);
-
-	add_permissions_checkbox (window,
-				  check_button_table,
-				  PERMISSIONS_CHECKBOXES_GROUP_ROW,
-				  PERMISSIONS_CHECKBOXES_WRITE_COLUMN,
-				  UNIX_PERM_GROUP_WRITE,
-				  group_perm_label,
-				  is_folder);
-
-	add_permissions_checkbox (window,
-				  check_button_table,
-				  PERMISSIONS_CHECKBOXES_GROUP_ROW,
-				  PERMISSIONS_CHECKBOXES_EXECUTE_COLUMN,
-				  UNIX_PERM_GROUP_EXEC,
-				  group_perm_label,
-				  is_folder);
-
-	add_permissions_checkbox (window,
-				  check_button_table,
-				  PERMISSIONS_CHECKBOXES_OTHERS_ROW,
-				  PERMISSIONS_CHECKBOXES_READ_COLUMN,
-				  UNIX_PERM_OTHER_READ,
-				  other_perm_label,
-				  is_folder);
-
-	add_permissions_checkbox (window,
-				  check_button_table,
-				  PERMISSIONS_CHECKBOXES_OTHERS_ROW,
-				  PERMISSIONS_CHECKBOXES_WRITE_COLUMN,
-				  UNIX_PERM_OTHER_WRITE,
-				  other_perm_label,
-				  is_folder);
-
-	add_permissions_checkbox (window,
-				  check_button_table,
-				  PERMISSIONS_CHECKBOXES_OTHERS_ROW,
-				  PERMISSIONS_CHECKBOXES_EXECUTE_COLUMN,
-				  UNIX_PERM_OTHER_EXEC,
-				  other_perm_label,
-				  is_folder);
-}
-#endif
 
 static void
-#if GTK_CHECK_VERSION (3, 0, 0)
 create_advanced_permissions (FMPropertiesWindow *window, GtkGrid *page_grid)
 {
 	GtkLabel *group_label;
@@ -5526,98 +4602,6 @@ create_advanced_permissions (FMPropertiesWindow *window, GtkGrid *page_grid)
 		 "permissions", INCONSISTENT_STATE_STRING,
 		 FALSE);
 }
-#else
-create_advanced_permissions (FMPropertiesWindow *window, GtkTable *page_table)
-{
-	guint last_row;
-	GtkLabel *group_label;
-	GtkLabel *owner_label;
-	GtkComboBox *group_combo_box;
-	GtkComboBox *owner_combo_box;
-	gboolean has_directory, has_file;
-	gint nrows;
-
-	last_row = 0;
-
-	if (!is_multi_file_window (window) && caja_file_can_set_owner (get_target_file (window))) {
-
-		owner_label  = attach_title_field (page_table, last_row, _("_Owner:"));
-		/* Combo box in this case. */
-		owner_combo_box = attach_owner_combo_box (page_table, last_row, get_target_file (window));
-		gtk_label_set_mnemonic_widget (owner_label,
-					       GTK_WIDGET (owner_combo_box));
-	} else {
-		GtkWidget *value;
-
-		owner_label = attach_title_field (page_table, last_row, _("Owner:"));
-		/* Static text in this case. */
-		value = attach_value_field (window,
-				    page_table, last_row, VALUE_COLUMN,
-				    "owner",
-				    INCONSISTENT_STATE_STRING,
-				    FALSE);
-		gtk_label_set_mnemonic_widget (owner_label, value);
-	}
-
-	if (!is_multi_file_window (window) && caja_file_can_set_group (get_target_file (window))) {
-		last_row = append_title_field (page_table,
-					       _("_Group:"),
-					       &group_label);
-		/* Combo box in this case. */
-		group_combo_box = attach_group_combo_box (page_table, last_row,
-							  get_target_file (window));
-		gtk_label_set_mnemonic_widget (group_label,
-					       GTK_WIDGET (group_combo_box));
-	} else {
-		last_row = append_title_field (page_table,
-					       _("Group:"),
-					       NULL);
-		/* Static text in this case. */
-		attach_value_field (window, page_table, last_row,
-				    VALUE_COLUMN,
-				    "group",
-				    INCONSISTENT_STATE_STRING,
-				    FALSE);
-	}
-
-	g_object_get (page_table, "n-rows", &nrows, NULL);
-	gtk_table_set_row_spacing (page_table, nrows - 1, 18);
-
-	has_directory = files_has_directory (window);
-	has_file = files_has_file (window);
-
-	if (has_directory) {
-		if (has_file || window->details->has_recursive_apply) {
-			append_title_field (page_table,
-					    _("Folder Permissions:"),
-					    NULL);
-		}
-		create_permission_checkboxes (window, page_table, TRUE);
-		g_object_get (page_table, "n-rows", &nrows, NULL);
-		gtk_table_set_row_spacing (page_table, nrows - 1, 18);
-
-	}
-
-
-	if (has_file || window->details->has_recursive_apply) {
-		if (has_directory) {
-			append_title_field (page_table,
-					    _("File Permissions:"),
-					    NULL);
-		}
-		create_permission_checkboxes (window, page_table, FALSE);
-		g_object_get (page_table, "n-rows", &nrows, NULL);
-		gtk_table_set_row_spacing (page_table, nrows - 1, 18);
-	}
-
-	append_special_execution_flags (window, page_table);
-
-	append_title_value_pair
-		(window, page_table, _("Text view:"),
-		 "permissions", INCONSISTENT_STATE_STRING,
-		 FALSE);
-}
-#endif
 
 static void
 set_recursive_permissions_done (gpointer callback_data)
@@ -5742,7 +4726,6 @@ static void
 create_permissions_page (FMPropertiesWindow *window)
 {
 	GtkWidget *vbox, *button, *hbox;
-#if GTK_CHECK_VERSION (3, 0, 0)
 	GtkGrid *page_grid;
 	char *file_name, *prompt_text;
 	GList *file_list;
@@ -5791,84 +4774,11 @@ create_permissions_page (FMPropertiesWindow *window)
 			 FALSE);
 
 		if (window->details->has_recursive_apply) {
-#if GTK_CHECK_VERSION (3, 0, 0)
 			hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
-#else
-			hbox = gtk_hbox_new (FALSE, 0);
-#endif
 			gtk_widget_show (hbox);
 			gtk_container_add_with_properties (GTK_CONTAINER (page_grid), hbox,
 							   "width", 2,
 							   NULL);
-#else
-	GtkTable *page_table;
-	char *file_name, *prompt_text;
-	GList *file_list;
-	guint last_row;
-	gint nrows;
-
-	vbox = create_page_with_vbox (window->details->notebook,
-				      _("Permissions"));
-
-	file_list = window->details->original_files;
-
-	window->details->initial_permissions = NULL;
-
-	if (all_can_get_permissions (file_list) && all_can_get_permissions (window->details->target_files)) {
-		window->details->initial_permissions = get_initial_permissions (window->details->target_files);
-		window->details->has_recursive_apply = files_has_changable_permissions_directory (window);
-
-		if (!all_can_set_permissions (file_list)) {
-			add_prompt_and_separator (
-				vbox,
-				_("You are not the owner, so you cannot change these permissions."));
-		}
-
-		page_table = GTK_TABLE (gtk_table_new (1, COLUMN_COUNT, FALSE));
-		window->details->permissions_table = page_table;
-
-		apply_standard_table_padding (page_table);
-		gtk_widget_show (GTK_WIDGET (page_table));
-		gtk_box_pack_start (GTK_BOX (vbox),
-				    GTK_WIDGET (page_table),
-				    TRUE, TRUE, 0);
-
-		if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SHOW_ADVANCED_PERMISSIONS)) {
-			window->details->advanced_permissions = TRUE;
-			create_advanced_permissions (window, page_table);
-		} else {
-			window->details->advanced_permissions = FALSE;
-			create_simple_permissions (window, page_table);
-		}
-
-		g_object_get (page_table, "n-rows", &nrows, NULL);
-		gtk_table_set_row_spacing (page_table, nrows - 1, 18);
-
-#ifdef HAVE_SELINUX
-		append_title_value_pair
-			(window, page_table, _("SELinux context:"),
-			 "selinux_context", INCONSISTENT_STATE_STRING,
-			 FALSE);
-#endif
-		append_title_value_pair
-			(window, page_table, _("Last changed:"),
-			 "date_permissions", INCONSISTENT_STATE_STRING,
-			 FALSE);
-
-		if (window->details->has_recursive_apply) {
-			last_row = append_row (page_table);
-#if GTK_CHECK_VERSION (3, 0, 0)
-			hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
-#else
-			hbox = gtk_hbox_new (FALSE, 0);
-#endif
-			gtk_widget_show (hbox);
-			gtk_table_attach (page_table, hbox,
-					  0, 2,
-					  last_row, last_row+1,
-					  GTK_FILL, 0,
-					  0, 0);
-#endif
 
 			button = gtk_button_new_with_mnemonic (_("Apply Permissions to Enclosed Files"));
 			gtk_widget_show (button);
@@ -6253,9 +5163,6 @@ create_properties_window (StartupData *startup_data)
 				NULL);
 
 	/* FIXME - HIGificiation, should be done inside GTK+ */
-#if !GTK_CHECK_VERSION (3, 0, 0)
-	gtk_widget_ensure_style (GTK_WIDGET (window));
-#endif
 	gtk_container_set_border_width (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (window))), 12);
 	gtk_container_set_border_width (GTK_CONTAINER (gtk_dialog_get_action_area (GTK_DIALOG (window))), 0);
 	gtk_box_set_spacing (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (window))), 12);
@@ -6507,11 +5414,7 @@ real_response (GtkDialog *dialog,
 }
 
 static void
-#if GTK_CHECK_VERSION (3, 0, 0)
 real_destroy (GtkWidget *object)
-#else
-real_destroy (GtkObject *object)
-#endif
 {
 	FMPropertiesWindow *window;
 	GList *l;
@@ -6569,11 +5472,7 @@ real_destroy (GtkObject *object)
 		window->details->update_files_timeout_id = 0;
 	}
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 	GTK_WIDGET_CLASS (fm_properties_window_parent_class)->destroy (object);
-#else
-	GTK_OBJECT_CLASS (parent_class)->destroy (object);
-#endif
 }
 
 static void
@@ -6586,13 +5485,8 @@ real_finalize (GObject *object)
     	g_list_free_full (window->details->mime_list, g_free);
 
 	g_free (window->details->pending_name);
-#if GTK_CHECK_VERSION (3, 0, 0)
-	G_OBJECT_CLASS (fm_properties_window_parent_class)->finalize (object);
-#else
-	g_free (window->details);
 
-	G_OBJECT_CLASS (parent_class)->finalize (object);
-#endif
+	G_OBJECT_CLASS (fm_properties_window_parent_class)->finalize (object);
 }
 
 /* converts
@@ -6833,29 +5727,22 @@ fm_properties_window_class_init (FMPropertiesWindowClass *class)
 	GtkBindingSet *binding_set;
 
 	G_OBJECT_CLASS (class)->finalize = real_finalize;
-#if !GTK_CHECK_VERSION (3, 0, 0)
-	GTK_OBJECT_CLASS (class)->destroy = real_destroy;
-#else
+
 	GTK_WIDGET_CLASS (class)->destroy = real_destroy;
-#endif
+
 	GTK_DIALOG_CLASS (class)->response = real_response;
 
 	binding_set = gtk_binding_set_by_class (class);
 	gtk_binding_entry_add_signal (binding_set, GDK_KEY_Escape, 0,
 				      "close", 0);
-#if GTK_CHECK_VERSION (3, 0, 0)
 
 	g_type_class_add_private (class, sizeof (FMPropertiesWindowDetails));
-#endif
 }
 
 static void
 fm_properties_window_init (FMPropertiesWindow *window)
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
 	window->details = G_TYPE_INSTANCE_GET_PRIVATE (window, FM_TYPE_PROPERTIES_WINDOW,
 						       FMPropertiesWindowDetails);
-#else
-	window->details = g_new0 (FMPropertiesWindowDetails, 1);
-#endif
+
 }

@@ -33,10 +33,6 @@
 #include <eel/eel-gtk-macros.h>
 #include <eel/eel-string.h>
 
-#if GTK_CHECK_VERSION (3, 0, 0)
-#define gtk_vbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_VERTICAL,Y)
-#endif
-
 static void caja_window_slot_init       (CajaWindowSlot *slot);
 static void caja_window_slot_class_init (CajaWindowSlotClass *class);
 static void caja_window_slot_dispose    (GObject *object);
@@ -184,7 +180,7 @@ caja_window_slot_init (CajaWindowSlot *slot)
 {
     GtkWidget *content_box, *eventbox, *extras_vbox, *frame;
 
-    content_box = gtk_vbox_new (FALSE, 0);
+    content_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     slot->content_box = content_box;
     gtk_widget_show (content_box);
 
@@ -198,13 +194,13 @@ caja_window_slot_init (CajaWindowSlot *slot)
     gtk_container_add (GTK_CONTAINER (frame), eventbox);
     gtk_widget_show (eventbox);
 
-    extras_vbox = gtk_vbox_new (FALSE, 6);
+    extras_vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
     gtk_container_set_border_width (GTK_CONTAINER (extras_vbox), 6);
     slot->extra_location_widgets = extras_vbox;
     gtk_container_add (GTK_CONTAINER (eventbox), extras_vbox);
     gtk_widget_show (extras_vbox);
 
-    slot->view_box = gtk_vbox_new (FALSE, 0);
+    slot->view_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     gtk_box_pack_start (GTK_BOX (content_box), slot->view_box, TRUE, TRUE, 0);
     gtk_widget_show (slot->view_box);
 
@@ -483,13 +479,8 @@ caja_window_slot_set_content_view_widget (CajaWindowSlot *slot,
     if (new_view != NULL)
     {
         widget = caja_view_get_widget (new_view);
-#if GTK_CHECK_VERSION (3, 0, 0)
         gtk_box_pack_start (GTK_BOX (slot->view_box), widget,
                             TRUE, TRUE, 0);
-#else
-        gtk_container_add (GTK_CONTAINER (slot->view_box),
-                           GTK_WIDGET (new_view));
-#endif
 
         gtk_widget_show (widget);
 

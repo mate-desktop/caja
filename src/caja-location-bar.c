@@ -229,11 +229,8 @@ drag_data_received_callback (GtkWidget *widget,
 
         for (i = 1; names[i] != NULL; ++i)
         {
-#if ENABLE_LIBUNIQUE == (FALSE)
             new_window = caja_application_create_navigation_window (application, screen);
-#else
-            new_window = caja_application_create_navigation_window (application, NULL, screen);
-#endif
+
             location = g_file_new_for_uri (names[i]);
             caja_window_go_to (new_window, location);
             g_object_unref (location);
@@ -283,18 +280,12 @@ drag_data_get_callback (GtkWidget *widget,
    we are imitating here. */
 
 static void
-#if GTK_CHECK_VERSION (3, 0, 0)
 style_set_handler (GtkWidget *widget, GtkStyleContext *previous_style)
-#else
-style_set_handler (GtkWidget *widget, GtkStyle *previous_style)
-#endif
 {
     PangoLayout *layout;
     int width, width2;
     int xpad;
-#if GTK_CHECK_VERSION (3, 0, 0)
     gint margin_start, margin_end;
-#endif
 
     layout = gtk_label_get_layout (GTK_LABEL(widget));
 
@@ -307,14 +298,9 @@ style_set_handler (GtkWidget *widget, GtkStyle *previous_style)
     pango_layout_get_pixel_size (layout, &width2, NULL);
     width = MAX (width, width2);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
     margin_start = gtk_widget_get_margin_start (widget);
     margin_end = gtk_widget_get_margin_end (widget);
     xpad = margin_start + margin_end;
-#else
-    gtk_misc_get_padding (GTK_MISC (widget),
-                          &xpad, NULL);
-#endif
 
     width += 2 * xpad;
 
@@ -614,7 +600,6 @@ caja_location_bar_set_location (CajaLocationBar *bar,
 void
 caja_location_bar_set_active(CajaLocationBar *location_bar, gboolean is_active)
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
     if (is_active)
     {
         /* reset style to default */
@@ -628,20 +613,6 @@ caja_location_bar_set_active(CajaLocationBar *location_bar, gboolean is_active)
         style = gtk_widget_get_style_context (GTK_WIDGET (location_bar->details->entry));
         gtk_style_context_get_background_color (style, GTK_STATE_FLAG_INSENSITIVE, &color);
         gtk_widget_override_background_color (GTK_WIDGET (location_bar->details->entry), GTK_STATE_FLAG_ACTIVE, &color);
-#else
-    if(is_active)
-    {
-        /* reset style to default */
-        gtk_widget_modify_base (GTK_WIDGET (location_bar->details->entry), GTK_STATE_NORMAL, NULL);
-    }
-    else
-    {
-        GtkStyle *style;
-        GdkColor color;
-        style = gtk_widget_get_style (GTK_WIDGET (location_bar->details->entry));
-        color = style->base[GTK_STATE_INSENSITIVE];
-        gtk_widget_modify_base(GTK_WIDGET (location_bar->details->entry), GTK_STATE_NORMAL, &color);
-#endif
     }
 }
 

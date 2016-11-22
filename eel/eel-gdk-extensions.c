@@ -312,7 +312,6 @@ eel_gradient_set_bottom_color_spec (const char *gradient_spec,
     return eel_gradient_set_edge_color (gradient_spec, bottom_color, FALSE, TRUE);
 }
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 /**
  * eel_gdk_rgba_parse_with_white_default
  * @color: Pointer to place to put resulting color.
@@ -345,40 +344,6 @@ eel_gdk_rgba_parse_with_white_default (GdkRGBA *color,
         color->blue = 1.0;
     }
 }
-#else
-/**
- * eel_gdk_color_parse_with_white_default
- * @color_spec: A color spec, or NULL.
- * @color: Pointer to place to put resulting color.
- *
- * The same as gdk_color_parse, except sets the color to white if
- * the spec. can't be parsed, instead of returning a boolean flag.
- */
-void
-eel_gdk_color_parse_with_white_default (const char *color_spec,
-                                        GdkColor *color)
-{
-    gboolean got_color;
-
-    g_return_if_fail (color != NULL);
-
-    got_color = FALSE;
-    if (color_spec != NULL)
-    {
-        if (gdk_color_parse (color_spec, color))
-        {
-            got_color = TRUE;
-        }
-    }
-
-    if (!got_color)
-    {
-        color->red = 0xFFFF;
-        color->green = 0xFFFF;
-        color->blue = 0xFFFF;
-    }
-}
-#endif
 
 guint32
 eel_rgb16_to_rgb (gushort r, gushort g, gushort b)
@@ -392,7 +357,6 @@ eel_rgb16_to_rgb (gushort r, gushort g, gushort b)
     return result;
 }
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 /**
  * eel_gdk_rgba_to_rgb
  * @color: A GdkRGBA style color.
@@ -430,43 +394,7 @@ eel_gdk_rgb_to_rgba (guint32 color)
 
     return result;
 }
-#else
-/**
- * eel_gdk_color_to_rgb
- * @color: A GdkColor style color.
- * Returns: An rgb value.
- *
- * Converts from a GdkColor style color to a gdk_rgb one.
- * Alpha gets set to fully opaque
- */
-guint32
-eel_gdk_color_to_rgb (const GdkColor *color)
-{
-    return eel_rgb16_to_rgb (color->red, color->green, color->blue);
-}
 
-/**
- * eel_gdk_rgb_to_color
- * @color: a gdk_rgb style value.
- *
- * Converts from a gdk_rgb value style to a GdkColor one.
- * The gdk_rgb color alpha channel is ignored.
- *
- * Return value: A GdkColor structure version of the given RGB color.
- */
-GdkColor
-eel_gdk_rgb_to_color (guint32 color)
-{
-    GdkColor result;
-
-    result.red = ((color >> 16) & 0xFF) * 0x101;
-    result.green = ((color >> 8) & 0xFF) * 0x101;
-    result.blue = (color & 0xff) * 0x101;
-    result.pixel = 0;
-
-    return result;
-}
-#endif
 
 /**
  * eel_gdk_rgb_to_color_spec
@@ -483,7 +411,7 @@ eel_gdk_rgb_to_color_spec (const guint32 color)
     return g_strdup_printf ("#%06X", (guint) (color & 0xFFFFFF));
 }
 
-#if GTK_CHECK_VERSION(3,0,0)
+
 /**
  * eel_gdk_rgba_is_dark:
  *
@@ -497,21 +425,6 @@ eel_gdk_rgba_is_dark (const GdkRGBA *color)
     intensity = ((((int) (color->red) >> 8) * 77)
                  + (((int) (color->green) >> 8) * 150)
                  + (((int) (color->blue) >> 8) * 28)) >> 8;
-#else
-/**
- * eel_gdk_color_is_dark:
- *
- * Return true if the given color is `dark'
- */
-gboolean
-eel_gdk_color_is_dark (GdkColor *color)
-{
-    int intensity;
-
-    intensity = (((color->red >> 8) * 77)
-                 + ((color->green >> 8) * 150)
-                 + ((color->blue >> 8) * 28)) >> 8;
-#endif
 
     return intensity < 128;
 }
@@ -561,7 +474,6 @@ eel_gdk_parse_geometry (const char *string, int *x_return, int *y_return,
     return gdk_flags;
 }
 
-#if GTK_CHECK_VERSION(3,0,0)
 void
 eel_cairo_draw_layout_with_drop_shadow (cairo_t            *cr,
                                         GdkRGBA            *text_color,
@@ -582,33 +494,9 @@ eel_cairo_draw_layout_with_drop_shadow (cairo_t            *cr,
 
     cairo_restore (cr);
 }
-#else
-void
-eel_gdk_draw_layout_with_drop_shadow (GdkDrawable         *drawable,
-                                      GdkColor            *text_color,
-                                      GdkColor            *shadow_color,
-                                      int                 x,
-                                      int                 y,
-                                      PangoLayout         *layout)
-{
-    cairo_t *cr;
-    cr = gdk_cairo_create (drawable);
-
-    gdk_cairo_set_source_color (cr, shadow_color);
-    cairo_move_to (cr, x+1, y+1);
-    pango_cairo_show_layout (cr, layout);
-
-    gdk_cairo_set_source_color (cr, text_color);
-    cairo_move_to (cr, x, y);
-    pango_cairo_show_layout (cr, layout);
-
-    cairo_destroy (cr);
-}
-#endif
 
 #if ! defined (EEL_OMIT_SELF_CHECK)
 
-#if GTK_CHECK_VERSION(3,0,0)
 static char *
 eel_gdk_rgba_as_hex_string (GdkRGBA color)
 {
@@ -636,33 +524,6 @@ eel_self_check_gdk_rgb_to_color (guint32 color)
 
     return eel_gdk_rgba_as_hex_string (result);
 }
-#else
-static char *
-eel_gdk_color_as_hex_string (GdkColor color)
-{
-    return g_strdup_printf ("%04X%04X%04X",
-                            color.red, color.green, color.blue);
-}
-
-static char *
-eel_self_check_parse (const char *color_spec)
-{
-    GdkColor color;
-
-    eel_gdk_color_parse_with_white_default (color_spec, &color);
-    return eel_gdk_color_as_hex_string (color);
-}
-
-static char *
-eel_self_check_gdk_rgb_to_color (guint32 color)
-{
-    GdkColor result;
-
-    result = eel_gdk_rgb_to_color (color);
-
-    return eel_gdk_color_as_hex_string (result);
-}
-#endif
 
 void
 eel_self_check_gdk_extensions (void)
@@ -747,7 +608,7 @@ eel_self_check_gdk_extensions (void)
     EEL_CHECK_STRING_RESULT (eel_gradient_set_bottom_color_spec ("a-c:v", "c"), "a-c");
     EEL_CHECK_STRING_RESULT (eel_gradient_set_bottom_color_spec ("a:-b:h", "d"), "a:-d");
 
-    /* eel_gdk_color_parse_with_white_default */
+    /* eel_gdk_rgba_parse_with_white_default */
     EEL_CHECK_STRING_RESULT (eel_self_check_parse (""), "FFFFFFFFFFFF");
     EEL_CHECK_STRING_RESULT (eel_self_check_parse ("a"), "FFFFFFFFFFFF");
     EEL_CHECK_STRING_RESULT (eel_self_check_parse ("white"), "FFFFFFFFFFFF");

@@ -31,23 +31,12 @@ G_DEFINE_TYPE (EelBackgroundBox, eel_background_box, GTK_TYPE_EVENT_BOX)
 
 static gboolean
 eel_background_box_draw (GtkWidget *widget,
-#if GTK_CHECK_VERSION (3, 0, 0)
                          cairo_t *cr)
-#else
-                         GdkEventExpose *event)
-#endif
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
     eel_background_draw (widget, cr);
     gtk_container_propagate_draw (GTK_CONTAINER (widget),
                                   gtk_bin_get_child (GTK_BIN (widget)),
                                   cr);
-#else
-    eel_background_draw (widget, event);
-    gtk_container_propagate_expose (GTK_CONTAINER (widget),
-                                    gtk_bin_get_child (GTK_BIN (widget)),
-                                    event);
-#endif
     return TRUE;
 }
 
@@ -60,12 +49,8 @@ static void
 eel_background_box_class_init (EelBackgroundBoxClass *klass)
 {
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
-
-#if GTK_CHECK_VERSION (3, 0, 0)
     widget_class->draw = eel_background_box_draw;
-#else
-    widget_class->expose_event = eel_background_box_draw;
-#endif
+
 }
 
 GtkWidget*

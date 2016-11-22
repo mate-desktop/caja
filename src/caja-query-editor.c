@@ -34,11 +34,6 @@
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
 
-#if GTK_CHECK_VERSION (3, 0, 0)
-#define gtk_hbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_HORIZONTAL,Y)
-#define gtk_vbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_VERTICAL,Y)
-#endif
-
 typedef enum
 {
     CAJA_QUERY_EDITOR_ROW_LOCATION,
@@ -143,11 +138,7 @@ static CajaQueryEditorRowOps row_type[] =
 
 EEL_CLASS_BOILERPLATE (CajaQueryEditor,
                        caja_query_editor,
-#if GTK_CHECK_VERSION (3, 0, 0)
                        GTK_TYPE_BOX)
-#else
-                       GTK_TYPE_VBOX)
-#endif
 
 static void
 caja_query_editor_finalize (GObject *object)
@@ -967,7 +958,7 @@ caja_query_editor_add_row (CajaQueryEditor *editor,
     row->editor = editor;
     row->type = type;
 
-    hbox = gtk_hbox_new (FALSE, 6);
+    hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
     row->hbox = hbox;
     gtk_widget_show (hbox);
     gtk_box_pack_start (GTK_BOX (editor->details->visible_vbox), hbox, FALSE, FALSE, 0);
@@ -1030,23 +1021,19 @@ caja_query_editor_init (CajaQueryEditor *editor)
     editor->details = g_new0 (CajaQueryEditorDetails, 1);
     editor->details->is_visible = TRUE;
 
-    editor->details->invisible_vbox = gtk_vbox_new (FALSE, 6);
-#if GTK_CHECK_VERSION (3, 0, 0)
+    editor->details->invisible_vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
     gtk_orientable_set_orientation (GTK_ORIENTABLE (editor), GTK_ORIENTATION_VERTICAL);
-#endif
     gtk_box_pack_start (GTK_BOX (editor), editor->details->invisible_vbox,
                         FALSE, FALSE, 0);
-    editor->details->visible_vbox = gtk_vbox_new (FALSE, 6);
-#if GTK_CHECK_VERSION (3, 0, 0)
+    editor->details->visible_vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
     gtk_orientable_set_orientation (GTK_ORIENTABLE (editor), GTK_ORIENTATION_VERTICAL);
-#endif
     gtk_box_pack_start (GTK_BOX (editor), editor->details->visible_vbox,
                         FALSE, FALSE, 0);
     /* Only show visible vbox */
     gtk_widget_show (editor->details->visible_vbox);
 
     /* Create invisible part: */
-    hbox = gtk_hbox_new (FALSE, 6);
+    hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
     gtk_box_pack_start (GTK_BOX (editor->details->invisible_vbox),
                         hbox, FALSE, FALSE, 0);
     gtk_widget_show (hbox);
@@ -1129,7 +1116,7 @@ setup_internal_entry (CajaQueryEditor *editor)
     char *label_markup;
 
     /* Create visible part: */
-    hbox = gtk_hbox_new (FALSE, 6);
+    hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
     gtk_widget_show (hbox);
     gtk_box_pack_start (GTK_BOX (editor->details->visible_vbox), hbox, FALSE, FALSE, 0);
 
@@ -1159,7 +1146,7 @@ setup_external_entry (CajaQueryEditor *editor, GtkWidget *entry)
     GtkWidget *hbox, *label;
 
     /* Create visible part: */
-    hbox = gtk_hbox_new (FALSE, 6);
+    hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
     gtk_widget_show (hbox);
     gtk_box_pack_start (GTK_BOX (editor->details->visible_vbox), hbox, FALSE, FALSE, 0);
 

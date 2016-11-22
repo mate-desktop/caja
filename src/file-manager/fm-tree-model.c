@@ -29,11 +29,7 @@
 #include <config.h>
 #include "fm-tree-model.h"
 
-#if GTK_CHECK_VERSION(3,0,0)
 #include <eel/eel-graphic-effects.h>
-#else
-#include <eel/eel-gdk-pixbuf-extensions.h>
-#endif
 #include <glib/gi18n.h>
 #include <libcaja-private/caja-directory.h>
 #include <libcaja-private/caja-file-attributes.h>
@@ -336,11 +332,7 @@ get_menu_icon_for_file (TreeNode *node,
 
     if (highlight)
     {
-#if GTK_CHECK_VERSION(3,0,0)
         pixbuf = eel_create_spotlight_pixbuf (retval);
-#else
-        pixbuf = eel_gdk_pixbuf_render (retval, 1, 255, 255, 0, 0);
-#endif
 
         if (pixbuf != NULL)
         {

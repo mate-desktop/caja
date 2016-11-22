@@ -30,10 +30,6 @@
 #include "eel-gtk-extensions.h"
 #include <gtk/gtk.h>
 
-#if !GTK_CHECK_VERSION(3,0,0)
-#define gtk_widget_get_preferred_size(x,y,z) gtk_widget_size_request(x,y)
-#endif
-
 /* Arguments */
 enum
 {
@@ -200,7 +196,6 @@ eel_wrap_table_size_request (GtkWidget *widget,
     requisition->height = content_dimensions.height + gtk_container_get_border_width (GTK_CONTAINER (widget)) * 2;
 }
 
-#if GTK_CHECK_VERSION (3, 0, 0)
 static void
 eel_wrap_table_get_preferred_width (GtkWidget *widget,
                                     gint *minimum_width,
@@ -220,7 +215,6 @@ eel_wrap_table_get_preferred_height (GtkWidget *widget,
     eel_wrap_table_size_request (widget, &req);
     *minimum_height = *natural_height = req.height;
 }
-#endif
 
 static void
 eel_wrap_table_size_allocate (GtkWidget *widget,
@@ -239,37 +233,23 @@ eel_wrap_table_size_allocate (GtkWidget *widget,
 }
 
 static int
-#if GTK_CHECK_VERSION (3, 0, 0)
 eel_wrap_table_draw (GtkWidget *widget,
                      cairo_t *cr)
-#else
-eel_wrap_table_expose_event (GtkWidget *widget,
-                             GdkEventExpose *event)
-#endif
 {
     EelWrapTable *wrap_table;
     GList *iterator;
 
     g_assert (EEL_IS_WRAP_TABLE (widget));
     g_assert (gtk_widget_get_realized (widget));
-#if !GTK_CHECK_VERSION (3, 0, 0)
-    g_assert (event != NULL);
-#endif
 
     wrap_table = EEL_WRAP_TABLE (widget);
 
     for (iterator = wrap_table->details->children; iterator; iterator = iterator->next)
     {
         g_assert (GTK_IS_WIDGET (iterator->data));
-#if GTK_CHECK_VERSION (3, 0, 0)
         gtk_container_propagate_draw (GTK_CONTAINER (widget),
                                       GTK_WIDGET (iterator->data),
                                       cr);
-#else
-        gtk_container_propagate_expose (GTK_CONTAINER (widget),
-                                        GTK_WIDGET (iterator->data),
-                                        event);
-#endif
     }
 
     return FALSE;
@@ -451,14 +431,9 @@ eel_wrap_table_class_init (EelWrapTableClass *wrap_table_class)
 
     /* GtkWidgetClass */
     widget_class->size_allocate = eel_wrap_table_size_allocate;
-#if GTK_CHECK_VERSION (3, 0, 0)
     widget_class->get_preferred_width = eel_wrap_table_get_preferred_width;
     widget_class->get_preferred_height = eel_wrap_table_get_preferred_height;
     widget_class->draw = eel_wrap_table_draw;
-#else
-    widget_class->size_request = eel_wrap_table_size_request;
-    widget_class->expose_event = eel_wrap_table_expose_event;
-#endif
     widget_class->map = eel_wrap_table_map;
     widget_class->unmap = eel_wrap_table_unmap;
     widget_class->realize = eel_wrap_table_realize;
@@ -798,13 +773,8 @@ wrap_table_child_focus_in (GtkWidget *widget,
 
     if (!wrap_table_child_visible_in (widget, viewport))
     {
-#if GTK_CHECK_VERSION (3, 0, 0)
         hadj = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (viewport));
         vadj = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (viewport));
-#else
-        hadj = gtk_viewport_get_hadjustment (GTK_VIEWPORT (viewport));
-        vadj = gtk_viewport_get_vadjustment (GTK_VIEWPORT (viewport));
-#endif
 
         gtk_widget_translate_coordinates (widget, container, 0, 0, &x, &y);
 

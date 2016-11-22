@@ -43,11 +43,6 @@
 #include "caja-desktop-icon-file.h"
 #include "caja-file-utilities.h"
 
-#if GTK_CHECK_VERSION (3, 0, 0)
-#define gtk_hbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_HORIZONTAL,Y)
-#define gtk_vbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_VERTICAL,Y)
-#endif
-
 enum
 {
     AUTORUN_ASK,
@@ -753,11 +748,7 @@ is_shift_pressed (void)
     gdk_error_trap_push ();
     status = XkbGetState (GDK_DISPLAY_XDISPLAY (gdk_display_get_default ()),
     			  XkbUseCoreKbd, &state);
-#if GTK_CHECK_VERSION(3,0,0)
     gdk_error_trap_pop_ignored ();
-#else
-    gdk_error_trap_pop ();
-#endif
 
     if (status == Success)
     {
@@ -1001,7 +992,7 @@ show_dialog:
 
     dialog = gtk_dialog_new ();
 
-    hbox = gtk_hbox_new (FALSE, 12);
+    hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
     gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), hbox, TRUE, TRUE, 0);
     gtk_container_set_border_width (GTK_CONTAINER (hbox), 12);
 
@@ -1012,12 +1003,8 @@ show_dialog:
     g_object_unref (icon_info);
     g_object_unref (icon);
     image = gtk_image_new_from_pixbuf (pixbuf);
-#if GTK_CHECK_VERSION (3, 14, 0)
     gtk_widget_set_halign (image, GTK_ALIGN_CENTER);
     gtk_widget_set_valign (image, GTK_ALIGN_START);
-#else
-    gtk_misc_set_alignment (GTK_MISC (image), 0.5, 0.0);
-#endif
     gtk_box_pack_start (GTK_BOX (hbox), image, TRUE, TRUE, 0);
     /* also use the icon on the dialog */
     gtk_window_set_title (GTK_WINDOW (dialog), mount_name);
@@ -1025,7 +1012,7 @@ show_dialog:
     gtk_window_set_position (GTK_WINDOW (dialog), GTK_WIN_POS_CENTER);
     g_object_unref (pixbuf);
 
-    vbox = gtk_vbox_new (FALSE, 12);
+    vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
     gtk_box_pack_start (GTK_BOX (hbox), vbox, TRUE, TRUE, 0);
 
     label = gtk_label_new (NULL);
@@ -1097,11 +1084,9 @@ show_dialog:
     gtk_label_set_markup (GTK_LABEL (label), markup);
     g_free (markup);
     gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
-#if GTK_CHECK_VERSION (3, 0, 0)
     gtk_label_set_max_width_chars (GTK_LABEL (label), 50);
-#endif
-#if GTK_CHECK_VERSION (3, 14, 0)
-    gtk_widget_set_halign (label, GTK_ALIGN_START);
+#if GTK_CHECK_VERSION (3, 16, 0)
+    gtk_label_set_xalign (GTK_LABEL (label), 0);
 #else
     gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
 #endif
@@ -1114,11 +1099,9 @@ show_dialog:
     gtk_label_set_markup (GTK_LABEL (label), markup);
     g_free (markup);
     gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
-#if GTK_CHECK_VERSION (3, 0, 0)
     gtk_label_set_max_width_chars (GTK_LABEL (label), 50);
-#endif
-#if GTK_CHECK_VERSION (3, 14, 0)
-    gtk_widget_set_halign (label, GTK_ALIGN_START);
+#if GTK_CHECK_VERSION (3, 16, 0)
+    gtk_label_set_xalign (GTK_LABEL (label), 0);
 #else
     gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
 #endif

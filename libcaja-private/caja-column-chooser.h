@@ -44,22 +44,14 @@ typedef struct _CajaColumnChooserDetails CajaColumnChooserDetails;
 
 typedef struct
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
     GtkBox parent;
-#else
-    GtkHBox parent;
-#endif
 
     CajaColumnChooserDetails *details;
 } CajaColumnChooser;
 
 typedef struct
 {
-#if GTK_CHECK_VERSION (3, 0, 0)
     GtkBoxClass parent_slot;
-#else
-    GtkHBoxClass parent_slot;
-#endif
 
     void (*changed) (CajaColumnChooser *chooser);
     void (*use_default) (CajaColumnChooser *chooser);

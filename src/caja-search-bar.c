@@ -29,10 +29,6 @@
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
 
-#if GTK_CHECK_VERSION (3, 0, 0)
-#define gtk_hbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_HORIZONTAL,Y)
-#endif
-
 struct CajaSearchBarDetails
 {
     GtkWidget *entry;
@@ -154,41 +150,22 @@ focus_in_event_callback (GtkWidget *widget,
 static void
 caja_search_bar_init (CajaSearchBar *bar)
 {
-#if !GTK_CHECK_VERSION(3, 0, 0)
-    GtkWidget *alignment;
-#endif
     GtkWidget *hbox;
     GtkWidget *label;
-#if GTK_CHECK_VERSION(3, 0, 0)
     GtkStyleContext *context;
 
     context = gtk_widget_get_style_context (GTK_WIDGET (bar));
     gtk_style_context_add_class (context, "caja-search-bar");
-#endif
 
     bar->details = g_new0 (CajaSearchBarDetails, 1);
 
     gtk_event_box_set_visible_window (GTK_EVENT_BOX (bar), FALSE);
 
-#if GTK_CHECK_VERSION(3, 0, 0)
-    hbox = gtk_hbox_new (FALSE, 6);
+    hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
     gtk_widget_set_margin_start (hbox, 6);
     gtk_widget_set_margin_end (hbox, 6);
     gtk_widget_show (hbox);
     gtk_container_add (GTK_CONTAINER (bar), hbox);
-
-#else
-    alignment = gtk_alignment_new (0.5, 0.5,
-                                   1.0, 1.0);
-    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment),
-                               0, 0, 6, 6);
-    gtk_widget_show (alignment);
-    gtk_container_add (GTK_CONTAINER (bar), alignment);
-
-    hbox = gtk_hbox_new (FALSE, 6);
-    gtk_widget_show (hbox);
-    gtk_container_add (GTK_CONTAINER (alignment), hbox);
-#endif
 
     label = gtk_label_new (_("Search:"));
     gtk_widget_show (label);

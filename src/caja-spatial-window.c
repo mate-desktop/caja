@@ -37,9 +37,6 @@
 #include "caja-desktop-window.h"
 #include "caja-bookmarks-window.h"
 #include "caja-location-dialog.h"
-#if ENABLE_LIBUNIQUE == (TRUE)
-#include "caja-main.h"
-#endif
 #include "caja-query-editor.h"
 #include "caja-search-bar.h"
 #include "caja-window-manage-views.h"
@@ -63,10 +60,6 @@
 #include <libcaja-private/caja-search-engine.h>
 #include <libcaja-private/caja-signaller.h>
 
-#if !GTK_CHECK_VERSION(3,0,0)
-#define gtk_widget_get_preferred_size(x,y,z) gtk_widget_size_request(x,y)
-#endif
-
 #define MAX_TITLE_LENGTH 180
 #define MAX_SHORTNAME_PATH 16
 
@@ -75,10 +68,6 @@
 #define SPATIAL_ACTION_CLOSE_PARENT_FOLDERS "Close Parent Folders"
 #define SPATIAL_ACTION_CLOSE_ALL_FOLDERS    "Close All Folders"
 #define MENU_PATH_SPATIAL_BOOKMARKS_PLACEHOLDER	"/MenuBar/Other Menus/Places/Bookmarks Placeholder"
-
-#if GTK_CHECK_VERSION (3, 0, 0)
-#define gtk_hbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_HORIZONTAL,Y)
-#endif
 
 struct _CajaSpatialWindowDetails
 {
@@ -990,9 +979,6 @@ static const char* icon_entries[] =
 static void
 caja_spatial_window_init (CajaSpatialWindow *window)
 {
-#if !GTK_CHECK_VERSION (3, 0, 0)
-    GtkRcStyle *rc_style;
-#endif
     GtkWidget *arrow;
     GtkWidget *hbox, *vbox;
     GtkActionGroup *action_group;
@@ -1010,7 +996,6 @@ caja_spatial_window_init (CajaSpatialWindow *window)
 
     win = CAJA_WINDOW (window);
 
-#if GTK_CHECK_VERSION(3, 0, 0)
     gtk_widget_set_hexpand (win->details->statusbar, TRUE);
     gtk_grid_attach (GTK_GRID (win->details->grid),
                      win->details->statusbar,
@@ -1020,32 +1005,16 @@ caja_spatial_window_init (CajaSpatialWindow *window)
     pane = caja_window_pane_new (win);
     win->details->panes = g_list_prepend (win->details->panes, pane);
 
+    /* FIXME: changing this to gtk_box_new breaks desktop :-/
+     * see https://github.com/mate-desktop/caja/issues/591
+     */
     vbox = gtk_vbox_new (FALSE, 0);
     gtk_widget_set_hexpand (vbox, TRUE);
     gtk_widget_set_vexpand (vbox, TRUE);
     gtk_grid_attach (GTK_GRID (CAJA_WINDOW (window)->details->grid),
                      vbox,
                      0, 1, 1, 3);
-#else
-    gtk_table_attach (GTK_TABLE (win->details->table),
-                      win->details->statusbar,
-                      /* X direction */                   /* Y direction */
-                      0, 1,                               5, 6,
-                      GTK_EXPAND | GTK_FILL | GTK_SHRINK, 0,
-                      0,                                  0);
-    gtk_widget_show (win->details->statusbar);
 
-    pane = caja_window_pane_new (win);
-    win->details->panes = g_list_prepend (win->details->panes, pane);
-
-    vbox = gtk_vbox_new (FALSE, 0);
-    gtk_table_attach (GTK_TABLE (CAJA_WINDOW (window)->details->table),
-                      vbox,
-                      /* X direction */                   /* Y direction */
-                      0, 1,                               1, 4,
-                      GTK_EXPAND | GTK_FILL | GTK_SHRINK, GTK_EXPAND | GTK_FILL | GTK_SHRINK,
-                      0,                                  0);
-#endif
     gtk_widget_show (vbox);
     window->details->content_box = vbox;
 
@@ -1056,16 +1025,9 @@ caja_spatial_window_init (CajaSpatialWindow *window)
                       window);
     gtk_button_set_relief (GTK_BUTTON (window->details->location_button),
                            GTK_RELIEF_NORMAL);
-#if !GTK_CHECK_VERSION (3, 0, 0)
-    rc_style = gtk_widget_get_modifier_style (window->details->location_button);
-    rc_style->xthickness = 0;
-    rc_style->ythickness = 0;
-    gtk_widget_modify_style (window->details->location_button,
-                             rc_style);
-#endif
 
     gtk_widget_show (window->details->location_button);
-    hbox = gtk_hbox_new (FALSE, 3);
+    hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 3);
     gtk_container_add (GTK_CONTAINER (window->details->location_button),
                        hbox);
     gtk_widget_show (hbox);
@@ -1081,11 +1043,7 @@ caja_spatial_window_init (CajaSpatialWindow *window)
                         FALSE, FALSE, 0);
     gtk_widget_show (window->details->location_label);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
     arrow = gtk_image_new_from_icon_name ("pan-down-symbolic", GTK_ICON_SIZE_BUTTON);
-#else
-    arrow = gtk_arrow_new (GTK_ARROW_DOWN, GTK_SHADOW_NONE);
-#endif
     gtk_box_pack_start (GTK_BOX (hbox), arrow, FALSE, FALSE, 0);
     gtk_widget_show (arrow);
 

@@ -63,10 +63,6 @@
 #include <libcaja-private/caja-clipboard.h>
 #include <libcaja-private/caja-cell-renderer-text-ellipsized.h>
 
-#if GTK_CHECK_VERSION (3, 0, 0)
-#define gtk_vbox_new(X,Y) gtk_box_new(GTK_ORIENTATION_VERTICAL,Y)
-#endif
-
 struct FMListViewDetails
 {
     GtkTreeView *tree_view;
@@ -665,9 +661,6 @@ button_press_callback (GtkWidget *widget, GdkEventButton *event, gpointer callba
     FMListView *view;
     GtkTreeView *tree_view;
     GtkTreePath *path;
-#if !GTK_CHECK_VERSION(3, 0, 0)
-    GtkWidget *caja_window;
-#endif
     gboolean call_parent;
     GtkTreeSelection *selection;
     GtkWidgetClass *tree_view_class;
@@ -683,13 +676,11 @@ button_press_callback (GtkWidget *widget, GdkEventButton *event, gpointer callba
     tree_view_class = GTK_WIDGET_GET_CLASS (tree_view);
     selection = gtk_tree_view_get_selection (tree_view);
 
-#if GTK_CHECK_VERSION(3, 0, 0)
     /* Don't handle extra mouse buttons here */
     if (event->button > 5)
     {
         return FALSE;
     }
-#endif
 
     if (event->window != gtk_tree_view_get_bin_window (tree_view))
     {
@@ -860,13 +851,6 @@ button_press_callback (GtkWidget *widget, GdkEventButton *event, gpointer callba
                 }
             }
 
-#if !GTK_CHECK_VERSION(3, 0, 0)
-            if (event->button > 5) {
-                caja_window = GTK_WIDGET (fm_directory_view_get_caja_window (FM_DIRECTORY_VIEW (view)));
-                call_parent = !caja_navigation_window_button_press_event (caja_window, event);
-            }
-#endif
-
             if (call_parent)
             {
                 tree_view_class->button_press_event (widget, event);
@@ -905,22 +889,11 @@ button_press_callback (GtkWidget *widget, GdkEventButton *event, gpointer callba
             view->details->double_click_path[1] = view->details->double_click_path[0];
             view->details->double_click_path[0] = NULL;
         }
-#if GTK_CHECK_VERSION(3, 0, 0)
+
         /* Deselect if people click outside any row. It's OK to
            let default code run; it won't reselect anything. */
         gtk_tree_selection_unselect_all (gtk_tree_view_get_selection (tree_view));
         tree_view_class->button_press_event (widget, event);
-#else
-        if (event->button > 5) {
-            caja_window = GTK_WIDGET (fm_directory_view_get_caja_window (FM_DIRECTORY_VIEW (view)));
-            call_parent = !caja_navigation_window_button_press_event (caja_window, event);
-        } else {
-            /* Deselect if people click outside any row. It's OK to
-               let default code run; it won't reselect anything. */
-            gtk_tree_selection_unselect_all (gtk_tree_view_get_selection (tree_view));
-            tree_view_class->button_press_event (widget, event);
-        }
-#endif
 
         if (event->button == 3)
         {
@@ -1749,9 +1722,6 @@ create_and_set_up_tree_view (FMListView *view)
                              G_CALLBACK (subdirectory_unloaded_callback), view, 0);
 
     gtk_tree_selection_set_mode (gtk_tree_view_get_selection (view->details->tree_view), GTK_SELECTION_MULTIPLE);
-#if !GTK_CHECK_VERSION (3, 0, 0)
-    gtk_tree_view_set_rules_hint (view->details->tree_view, TRUE);
-#endif
 
     caja_columns = caja_get_all_columns ();
 
@@ -1783,14 +1753,12 @@ create_and_set_up_tree_view (FMListView *view)
 
             view->details->file_name_column = gtk_tree_view_column_new ();
             gtk_tree_view_column_set_expand (view->details->file_name_column, TRUE);
-#if GTK_CHECK_VERSION (3, 0, 0)
+
             GtkStyleContext *context;
             context = gtk_widget_get_style_context (GTK_WIDGET(view));
             font_size = PANGO_PIXELS (pango_font_description_get_size (
                 gtk_style_context_get_font (context, GTK_STATE_FLAG_NORMAL)));
-#else
-            font_size = PANGO_PIXELS (pango_font_description_get_size (gtk_widget_get_style (GTK_WIDGET(view))->font_desc));
-#endif
+
             gtk_tree_view_column_set_min_width (view->details->file_name_column, 20*font_size);
             g_object_ref_sink (view->details->file_name_column);
             view->details->file_name_column_num = column_num;
@@ -2551,9 +2519,6 @@ create_column_editor (FMListView *view)
     GtkWidget *label;
     GtkWidget *box;
     GtkWidget *column_chooser;
-#if !GTK_CHECK_VERSION (3, 0, 0)
-    GtkWidget *alignment;
-#endif
     CajaFile *file;
     char *str;
     char *name;
@@ -2575,7 +2540,7 @@ create_column_editor (FMListView *view)
 
     gtk_window_set_default_size (GTK_WINDOW (window), 300, 400);
 
-    box = gtk_vbox_new (FALSE, 12);
+    box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
     gtk_container_set_border_width (GTK_CONTAINER (box), 12);
     gtk_widget_show (box);
     gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (window))), box);
@@ -2596,22 +2561,10 @@ create_column_editor (FMListView *view)
 
     g_free (str);
 
-#if GTK_CHECK_VERSION (3, 0, 0)
     column_chooser = caja_column_chooser_new (file);
     gtk_widget_set_margin_start (column_chooser, 12);
     gtk_widget_show (column_chooser);
     gtk_box_pack_start (GTK_BOX (box), column_chooser, TRUE, TRUE, 0);
-#else
-    alignment = gtk_alignment_new (0.5, 0.5, 1, 1);
-    gtk_alignment_set_padding (GTK_ALIGNMENT (alignment),
-                               0, 0, 12, 0);
-    gtk_widget_show (alignment);
-    gtk_box_pack_start (GTK_BOX (box), alignment, TRUE, TRUE, 0);
-
-    column_chooser = caja_column_chooser_new (file);
-    gtk_widget_show (column_chooser);
-    gtk_container_add (GTK_CONTAINER (alignment), column_chooser);
-#endif
 
     g_signal_connect (column_chooser, "changed",
                       G_CALLBACK (column_chooser_changed_callback),
@@ -3005,15 +2958,8 @@ fm_list_view_click_policy_changed (FMDirectoryView *directory_view)
             }
         }
 
-#if GTK_CHECK_VERSION(3,0,0)
         g_clear_object (&hand_cursor);
-#else
-        if (hand_cursor != NULL)
-        {
-            gdk_cursor_unref (hand_cursor);
-            hand_cursor = NULL;
-        }
-#endif
+
     }
     else if (click_policy_auto_value == CAJA_CLICK_POLICY_SINGLE)
     {
@@ -3311,35 +3257,20 @@ real_set_is_active (FMDirectoryView *view,
                     gboolean is_active)
 {
     GtkWidget *tree_view;
-#if GTK_CHECK_VERSION (3, 0, 0)
     GtkStyleContext *style;
     GdkRGBA color;
-#else
-    GtkStyle *style;
-    GdkColor color;
-#endif
 
     tree_view = GTK_WIDGET (fm_list_view_get_tree_view (FM_LIST_VIEW (view)));
 
     if (is_active)
     {
-#if GTK_CHECK_VERSION (3, 0, 0)
         gtk_widget_override_background_color (tree_view, GTK_STATE_FLAG_NORMAL, NULL);
-#else
-        gtk_widget_modify_base (tree_view, GTK_STATE_NORMAL, NULL);
-#endif
     }
     else
     {
-#if GTK_CHECK_VERSION (3, 0, 0)
         style = gtk_widget_get_style_context (tree_view);
         gtk_style_context_get_background_color (style, GTK_STATE_FLAG_INSENSITIVE, &color);
         gtk_widget_override_background_color (tree_view, GTK_STATE_FLAG_NORMAL, &color);
-#else
-        style = gtk_widget_get_style (tree_view);
-        color = style->base[GTK_STATE_INSENSITIVE];
-        gtk_widget_modify_base (tree_view, GTK_STATE_NORMAL, &color);
-#endif
     }
 
     EEL_CALL_PARENT (FM_DIRECTORY_VIEW_CLASS,

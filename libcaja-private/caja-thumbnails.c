@@ -272,10 +272,6 @@ thumbnail_thread_notify_file_changed (gpointer image_uri)
 {
     CajaFile *file;
 
-#if !GTK_CHECK_VERSION (3, 0, 0)
-    gdk_threads_enter ();
-#endif
-
     file = caja_file_get_by_uri ((char *) image_uri);
 #ifdef DEBUG_THUMBNAILS
     g_message ("(Thumbnail Thread) Notifying file changed file:%p uri: %s\n", file, (char*) image_uri);
@@ -290,10 +286,6 @@ thumbnail_thread_notify_file_changed (gpointer image_uri)
         caja_file_unref (file);
     }
     g_free (image_uri);
-
-#if !GTK_CHECK_VERSION (3, 0, 0)
-    gdk_threads_leave ();
-#endif
 
     return FALSE;
 }

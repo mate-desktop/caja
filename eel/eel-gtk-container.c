@@ -43,11 +43,7 @@
 void
 eel_gtk_container_child_expose_event (GtkContainer *container,
                                       GtkWidget *child,
-#if GTK_CHECK_VERSION (3, 0, 0)
                                       cairo_t *cr)
-#else
-                                      GdkEventExpose *event)
-#endif
 {
     g_return_if_fail (GTK_IS_CONTAINER (container));
 
@@ -58,11 +54,7 @@ eel_gtk_container_child_expose_event (GtkContainer *container,
 
     g_return_if_fail (GTK_IS_WIDGET (child));
 
-#if GTK_CHECK_VERSION (3, 0, 0)
     gtk_container_propagate_draw (container, child, cr);
-#else
-    gtk_container_propagate_expose (container, child, event);
-#endif
 }
 
 /**

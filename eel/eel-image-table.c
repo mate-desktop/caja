@@ -62,11 +62,8 @@ static guint image_table_signals[LAST_SIGNAL] = { 0 };
 
 /* Ancestor methods */
 GtkWidget *    find_windowed_ancestor               (GtkWidget          *widget);
-#if GTK_CHECK_VERSION (3, 0, 0)
+
 static void    signal_connect_while_realized        (GtkWidget          *object,
-#else
-static void    signal_connect_while_realized        (GtkObject          *object,
-#endif
     						     const char         *name,
     						     GCallback           callback,
     						     gpointer            callback_data,
@@ -132,9 +129,6 @@ eel_image_table_realize (GtkWidget *widget)
                            | GDK_LEAVE_NOTIFY_MASK
                            | GDK_POINTER_MOTION_MASK);
 
-#if !GTK_CHECK_VERSION (3, 0, 0)
-#define windowed_ancestor GTK_OBJECT(windowed_ancestor)
-#endif
 
     signal_connect_while_realized (windowed_ancestor,
     				   "enter_notify_event",
@@ -431,11 +425,7 @@ while_realized_disconnecter (GObject *object,
  * or &widget are destroyed.
  **/
 static void
-#if GTK_CHECK_VERSION (3, 0, 0)
 signal_connect_while_realized (GtkWidget *object,
-#else
-signal_connect_while_realized (GtkObject *object,
-#endif
     				const char *name,
     				GCallback callback,
     				gpointer callback_data,
@@ -443,11 +433,7 @@ signal_connect_while_realized (GtkObject *object,
 {
     RealizeDisconnectInfo *info;
 
-#if GTK_CHECK_VERSION (3, 0, 0)
     g_return_if_fail (GTK_IS_WIDGET (object));
-#else
-    g_return_if_fail (GTK_IS_OBJECT (object));
-#endif
     g_return_if_fail (name != NULL);
     g_return_if_fail (name[0] != '\0');
     g_return_if_fail (callback != NULL);
