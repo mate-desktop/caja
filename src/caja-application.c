@@ -2399,9 +2399,14 @@ caja_application_startup (GApplication *app)
     {
         exit_with_last_window = g_settings_get_boolean (caja_preferences,   
                                 CAJA_PREFERENCES_EXIT_WITH_LAST_WINDOW);
+        /*Keep this inside the running as mate/not as root block */
+        /*So other desktop don't get unkillable caja instances holding open */
+        instance = g_application_get_default ();
+        if (exit_with_last_window == FALSE){
+            g_application_hold (G_APPLICATION (instance));
+        }
     }
 
-    instance = g_application_get_default ();
 }
 
 static void
