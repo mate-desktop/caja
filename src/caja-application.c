@@ -2221,8 +2221,23 @@ init_icons_and_styles (void)
     } else {
         gtk_style_context_add_provider_for_screen (gdk_screen_get_default (),
                                GTK_STYLE_PROVIDER (provider),
+                               GTK_STYLE_PROVIDER_PRIORITY_THEME);
+    }
+
+/* add our desktop CSS provider,  ensures the desktop background does not get covered */
+    provider = gtk_css_provider_new ();
+    gtk_css_provider_load_from_path (provider,
+				CAJA_DATADIR G_DIR_SEPARATOR_S "caja-desktop.css", &error);
+
+    if (error != NULL) {
+        g_warning ("Can't parse Caja' CSS custom description: %s\n", error->message);
+        g_error_free (error);
+    } else {
+        gtk_style_context_add_provider_for_screen (gdk_screen_get_default (),
+                               GTK_STYLE_PROVIDER (provider),
                                GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
     }
+
 
     g_object_unref (provider);
 
