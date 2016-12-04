@@ -1,0 +1,34 @@
+/* Everything that themes must not override goes in this file */
+/* This is loaded with GTK_STYLE_PROVIDER_PRIORITY_APPLICATION and overrides themes */
+
+.caja-desktop-window,
+.caja-desktop:not(:selected):not(:active):not(.rubberband){
+	background-color: transparent;
+}
+
+/* desktop mode */
+.caja-desktop.caja-canvas-item {
+    color: #ffffff;
+    text-shadow: 1px 1px alpha (#000000, 0.8);
+}
+
+.caja-desktop.caja-canvas-item:selected,
+.caja-desktop.caja-canvas-item:active,
+.caja-desktop.caja-canvas-item:hover {
+    text-shadow: none;
+}
+
+/* remove possible theme settings for borders on scrolledwindow with gtk+-3.20 */
+.caja-desktop-window > grid.vertical > box.vertical > box.vertical > box.vertical > scrolledwindow,
+.caja-desktop-window > grid.vertical > box.vertical > box.vertical > box.vertical > scrolledwindow.frame,
+.caja-desktop-window > grid.vertical > box.vertical > box.vertical > box.vertical > scrolledwindow > widget.view.caja-desktop {
+   border-width: 0px;
+   border-style: none;
+   border-radius: 0px;
+}
+
+/* This is not on the desktop but will cause errors if themes can override */
+/* Padding in slider buttons causes GTK errors in GTK 3.20 or later */
+.caja-navigation-window .slider-button {
+	padding: 0px;
+}
