@@ -4118,6 +4118,8 @@ caja_icon_canvas_item_accessible_factory_create_accessible (GObject *for_object)
     }
     if (item->details->additional_text)
     {
+        if (item_text->len > 0)
+            g_string_append_c (item_text, ' ');
         g_string_append (item_text, item->details->additional_text);
     }
     item->details->text_util = gail_text_util_new ();
