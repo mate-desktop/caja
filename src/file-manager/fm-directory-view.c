@@ -4787,9 +4787,7 @@ reset_open_with_menu (FMDirectoryView *view, GList *selection)
 
 		file = CAJA_FILE (node->data);
 
-		other_applications_visible &=
-			(!caja_mime_file_opens_in_view (file) ||
-			 caja_file_is_directory (file));
+		other_applications_visible &= (!caja_file_is_directory (file));
 	}
 
 	default_app = NULL;
