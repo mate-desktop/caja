@@ -860,9 +860,7 @@ get_default_executable_text_file_action (void)
 gboolean
 caja_mime_file_opens_in_view (CajaFile *file)
 {
-    return (caja_file_is_directory (file) ||
-            CAJA_IS_DESKTOP_ICON_FILE (file) ||
-            caja_file_is_caja_link (file));
+    return (caja_file_is_directory (file));
 }
 
 static ActivationAction
@@ -871,7 +869,7 @@ get_activation_action (CajaFile *file)
     ActivationAction action;
     char *activation_uri;
 
-    if (caja_file_is_launcher (file))
+    if (caja_file_is_caja_link (file))
     {
         return ACTIVATION_ACTION_LAUNCH_DESKTOP_FILE;
     }
