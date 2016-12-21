@@ -6068,7 +6068,6 @@ is_a_special_file (CajaFile *file)
 {
 	if (file == NULL ||
 	    CAJA_IS_DESKTOP_ICON_FILE (file) ||
-	    caja_file_is_caja_link (file) ||
 	    is_merged_trash_directory (file) ||
 	    is_computer_directory (file)) {
 		return TRUE;
@@ -6082,7 +6081,7 @@ should_show_open_with (FMPropertiesWindow *window)
 	CajaFile *file;
 
 	/* Don't show open with tab for desktop special icons (trash, etc)
-	 * or desktop files. We don't get the open-with menu for these anyway.
+	 * We don't get the open-with menu for these anyway.
 	 *
 	 * Also don't show it for folders. Changing the default app for folders
 	 * leads to all sort of hard to understand errors.
