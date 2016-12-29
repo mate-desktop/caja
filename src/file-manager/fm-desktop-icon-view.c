@@ -38,7 +38,7 @@
 #include <gdk/gdkx.h>
 #include <glib/gi18n.h>
 #include <libcaja-private/caja-desktop-icon-file.h>
-#if !GTK_CHECK_VERSION(3, 21, 0)
+#if !GTK_CHECK_VERSION (3, 22, 0)
 #include <libcaja-private/caja-directory-background.h>
 #endif
 #include <libcaja-private/caja-directory-notify.h>

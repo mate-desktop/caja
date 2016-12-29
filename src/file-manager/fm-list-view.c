@@ -47,7 +47,7 @@
 #include <libcaja-private/caja-column-chooser.h>
 #include <libcaja-private/caja-column-utilities.h>
 #include <libcaja-private/caja-debug-log.h>
-#if !GTK_CHECK_VERSION(3, 21, 0)
+#if !GTK_CHECK_VERSION (3, 22, 0)
 #include <libcaja-private/caja-directory-background.h>
 #endif
 #include <libcaja-private/caja-dnd.h>
@@ -2125,7 +2125,7 @@ fm_list_view_file_changed (FMDirectoryView *view, CajaFile *file, CajaDirectory 
     }
 }
 
-#if !GTK_CHECK_VERSION(3, 21, 0)
+#if !GTK_CHECK_VERSION (3, 22, 0)
 static GtkWidget *
 fm_list_view_get_background_widget (FMDirectoryView *view)
 {
@@ -3296,7 +3296,7 @@ fm_list_view_class_init (FMListViewClass *class)
     fm_directory_view_class->click_policy_changed = fm_list_view_click_policy_changed;
     fm_directory_view_class->clear = fm_list_view_clear;
     fm_directory_view_class->file_changed = fm_list_view_file_changed;
-#if !GTK_CHECK_VERSION(3, 21, 0)
+#if !GTK_CHECK_VERSION (3, 22, 0)
     fm_directory_view_class->get_background_widget = fm_list_view_get_background_widget;
 #endif
     fm_directory_view_class->get_selection = fm_list_view_get_selection;
