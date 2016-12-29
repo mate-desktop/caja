@@ -6965,9 +6965,12 @@ caja_file_get_symbolic_link_target_uri (CajaFile *file)
 gboolean
 caja_file_is_caja_link (CajaFile *file)
 {
-	/* NOTE: I removed the historical link here, because i don't think we
-	   even detect that mimetype anymore */
-	return caja_file_is_mime_type (file, "application/x-desktop");
+    if (file->details->mime_type == NULL) {
+        return FALSE;
+        }
+    return g_content_type_equals (eel_ref_str_peek (file->details->mime_type),
+                                                   "application/x-desktop");
+	
 }
 
 /**
