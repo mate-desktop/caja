@@ -3407,7 +3407,7 @@ create_emblems_page (FMPropertiesWindow *window)
 	gtk_container_set_border_width (GTK_CONTAINER (emblems_table), 12);
 /*stop GTK 3.22 builds from ballooning the properties dialog to full screen height */
 #if GTK_CHECK_VERSION (3, 22, 0)
-	gtk_scrolled_window_set_max_content_height(scroller, 300);
+	gtk_scrolled_window_set_max_content_height (GTK_SCROLLED_WINDOW (scroller), 300);
 #endif
 	gtk_widget_show (scroller);
 
