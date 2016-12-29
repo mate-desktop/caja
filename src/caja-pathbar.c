@@ -150,7 +150,7 @@ get_slider_button (CajaPathBar  *path_bar,
     GtkWidget *button;
 
     button = gtk_button_new ();
-#if GTK_CHECK_VERSION(3,20,0)
+#if GTK_CHECK_VERSION (3, 20, 0)
     gtk_widget_set_focus_on_click (button, FALSE);
 #else
     gtk_button_set_focus_on_click (GTK_BUTTON (button), FALSE);
@@ -1881,7 +1881,7 @@ make_directory_button (CajaPathBar  *path_bar,
     button_data->button = gtk_toggle_button_new ();
     gtk_style_context_add_class (gtk_widget_get_style_context (button_data->button),
                                  "text-button");
-#if GTK_CHECK_VERSION(3,20,0)
+#if GTK_CHECK_VERSION (3, 20, 0)
     gtk_widget_set_focus_on_click (button_data->button, FALSE);
 #else
     gtk_button_set_focus_on_click (GTK_BUTTON (button_data->button), FALSE);

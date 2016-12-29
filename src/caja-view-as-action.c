@@ -180,7 +180,7 @@ connect_proxy (GtkAction *action,
 
         view_as_combo_box = gtk_combo_box_text_new ();
 
-#if GTK_CHECK_VERSION(3,20,0)
+#if GTK_CHECK_VERSION (3, 20, 0)
         gtk_widget_set_focus_on_click (view_as_combo_box, FALSE);
 #else
         gtk_combo_box_set_focus_on_click (GTK_COMBO_BOX (view_as_combo_box), FALSE);

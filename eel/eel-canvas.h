@@ -247,7 +247,7 @@ extern "C" {
      */
     void eel_canvas_item_hide (EelCanvasItem *item);
 
-#if GTK_CHECK_VERSION(3, 20, 0)
+#if GTK_CHECK_VERSION (3, 20, 0)
     /* Grab the seat for the specified item.  Only the events in event_mask will be
      * reported. If cursor is non-NULL, it will be used during the duration of the
      * grab. event is the event, triggering the grab. Returns the same values as gdk_seat_grab().
@@ -262,13 +262,13 @@ extern "C" {
      GdkGrabStatus eel_canvas_item_grab (EelCanvasItem *item,
                                          GdkEventMask event_mask,
                                          GdkCursor *cursor,
-#if GTK_CHECK_VERSION(3, 20, 0)
+#if GTK_CHECK_VERSION (3, 20, 0)
                                          const GdkEvent* event);
 #else
                                          guint32 etime);
 #endif
 
-#if GTK_CHECK_VERSION(3, 20, 0)
+#if GTK_CHECK_VERSION (3, 20, 0)
     /* Ungrabs the seat -- the specified item must be the same that was passed to
      * eel_canvas_item_grab().
      */

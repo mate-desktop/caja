@@ -332,7 +332,7 @@ eel_canvas_item_dispose (GObject *object)
             item->canvas->need_repick = TRUE;
         }
 
-#if GTK_CHECK_VERSION(3, 20, 0)
+#if GTK_CHECK_VERSION (3, 20, 0)
         eel_canvas_item_ungrab (item);
 #else
         eel_canvas_item_ungrab (item, GDK_CURRENT_TIME);
@@ -859,7 +859,7 @@ eel_canvas_item_hide (EelCanvasItem *item)
     }
 }
 
-#if GTK_CHECK_VERSION(3, 20, 0)
+#if GTK_CHECK_VERSION (3, 20, 0)
 /*
  * Prepare the window for grabbing, i.e. show it.
  */
@@ -911,7 +911,7 @@ GdkGrabStatus
 eel_canvas_item_grab (EelCanvasItem *item,
                       GdkEventMask event_mask,
                       GdkCursor *cursor,
-#if GTK_CHECK_VERSION(3, 20, 0)
+#if GTK_CHECK_VERSION (3, 20, 0)
                       const GdkEvent *event)
 {
     GdkGrabStatus retval;
@@ -937,7 +937,7 @@ eel_canvas_item_grab (EelCanvasItem *item,
         return GDK_GRAB_NOT_VIEWABLE;
 
     display = gtk_widget_get_display (GTK_WIDGET (item->canvas));
-#if GTK_CHECK_VERSION(3, 20, 0)
+#if GTK_CHECK_VERSION (3, 20, 0)
     seat = gdk_display_get_default_seat (display);
 
     retval = gdk_seat_grab (seat,
@@ -971,7 +971,7 @@ eel_canvas_item_grab (EelCanvasItem *item,
     return retval;
 }
 
-#if GTK_CHECK_VERSION(3, 20, 0)
+#if GTK_CHECK_VERSION (3, 20, 0)
 /**
  * eel_canvas_item_ungrab:
  * @item: A canvas item that holds a grab.
@@ -990,7 +990,7 @@ eel_canvas_item_grab (EelCanvasItem *item,
  **/
 #endif
 void
-#if GTK_CHECK_VERSION(3, 20, 0)
+#if GTK_CHECK_VERSION (3, 20, 0)
 eel_canvas_item_ungrab (EelCanvasItem *item)
 {
     GdkDisplay *display;
@@ -2209,7 +2209,7 @@ shutdown_transients (EelCanvas *canvas)
 
     if (canvas->grabbed_item)
     {
-#if GTK_CHECK_VERSION(3, 20, 0)
+#if GTK_CHECK_VERSION (3, 20, 0)
         eel_canvas_item_ungrab (canvas->grabbed_item);
 #else
         eel_canvas_item_ungrab (canvas->grabbed_item, GDK_CURRENT_TIME);
@@ -2606,7 +2606,7 @@ emit_event (EelCanvas *canvas, GdkEvent *event)
         break;
 
     case GDK_MOTION_NOTIFY:
-#if !GTK_CHECK_VERSION(3, 20, 0)
+#if !GTK_CHECK_VERSION (3, 20, 0)
         eel_canvas_window_to_world (canvas,
                                     ev.motion.x, ev.motion.y,
                                     &ev.motion.x, &ev.motion.y);
@@ -2616,7 +2616,7 @@ emit_event (EelCanvas *canvas, GdkEvent *event)
     case GDK_BUTTON_PRESS:
     case GDK_2BUTTON_PRESS:
     case GDK_3BUTTON_PRESS:
-#if GTK_CHECK_VERSION(3, 20, 0)
+#if GTK_CHECK_VERSION (3, 20, 0)
     case GDK_BUTTON_RELEASE:
 #endif
         eel_canvas_window_to_world (canvas,
@@ -2624,7 +2624,7 @@ emit_event (EelCanvas *canvas, GdkEvent *event)
                                     &ev.motion.x, &ev.motion.y);
         break;
 
-#if !GTK_CHECK_VERSION(3, 20, 0)
+#if !GTK_CHECK_VERSION (3, 20, 0)
     case GDK_BUTTON_RELEASE:
         eel_canvas_window_to_world (canvas,
                                     ev.motion.x, ev.motion.y,

@@ -3643,6 +3643,7 @@ real_set_is_active (FMDirectoryView *view,
 	eel_background_set_active (bg, is_active);
 }
 #endif
+
 static void
 fm_directory_view_set_is_active (FMDirectoryView *view,
 				 gboolean is_active)
@@ -11033,11 +11034,11 @@ fm_directory_view_class_init (FMDirectoryViewClass *klass)
 	klass->supports_properties = real_supports_properties;
 	klass->supports_zooming = real_supports_zooming;
 	klass->using_manual_layout = real_using_manual_layout;
-        klass->merge_menus = real_merge_menus;
-        klass->unmerge_menus = real_unmerge_menus;
-        klass->update_menus = real_update_menus;
+	klass->merge_menus = real_merge_menus;
+	klass->unmerge_menus = real_unmerge_menus;
+	klass->update_menus = real_update_menus;
 #if !GTK_CHECK_VERSION (3, 22, 0)
-        klass->set_is_active = real_set_is_active;
+	klass->set_is_active = real_set_is_active;
 #endif
 	/* Function pointers that subclasses must override */
 	EEL_ASSIGN_MUST_OVERRIDE_SIGNAL (klass, fm_directory_view, add_file);
@@ -11047,7 +11048,7 @@ fm_directory_view_class_init (FMDirectoryViewClass *klass)
 	EEL_ASSIGN_MUST_OVERRIDE_SIGNAL (klass, fm_directory_view, clear);
 	EEL_ASSIGN_MUST_OVERRIDE_SIGNAL (klass, fm_directory_view, file_changed);
 #if !GTK_CHECK_VERSION (3, 22, 0)
-       EEL_ASSIGN_MUST_OVERRIDE_SIGNAL (klass, fm_directory_view, get_background_widget);
+	EEL_ASSIGN_MUST_OVERRIDE_SIGNAL (klass, fm_directory_view, get_background_widget);
 #endif
 	EEL_ASSIGN_MUST_OVERRIDE_SIGNAL (klass, fm_directory_view, get_selection);
 	EEL_ASSIGN_MUST_OVERRIDE_SIGNAL (klass, fm_directory_view, get_selection_for_file_transfer);
