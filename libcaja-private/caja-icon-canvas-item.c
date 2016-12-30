@@ -149,6 +149,8 @@ struct CajaIconCanvasItemDetails
     EelIRect bounds_cache_for_layout;
     EelIRect bounds_cache_for_entire_item;
 
+    GdkWindow *cursor_window;
+
     /* Accessibility bits */
     GailTextUtil *text_util;
 };
@@ -274,6 +276,12 @@ caja_icon_canvas_item_finalize (GObject *object)
     g_assert (CAJA_IS_ICON_CANVAS_ITEM (object));
 
     details = CAJA_ICON_CANVAS_ITEM (object)->details;
+
+    if (details->cursor_window != NULL)
+    {
+        gdk_window_set_cursor (details->cursor_window, NULL);
+        g_object_unref (details->cursor_window);
+    }
 
     if (details->pixbuf != NULL)
     {
@@ -2571,8 +2579,10 @@ caja_icon_canvas_item_event (EelCanvasItem *item, GdkEvent *event)
 {
     CajaIconCanvasItem *icon_item;
     GdkCursor *cursor;
+    GdkWindow *cursor_window;
 
     icon_item = CAJA_ICON_CANVAS_ITEM (item);
+    cursor_window = ((GdkEventAny *) event)->window;
 
     switch (event->type)
     {
@@ -2590,12 +2600,13 @@ caja_icon_canvas_item_event (EelCanvasItem *item, GdkEvent *event)
             {
                 cursor = gdk_cursor_new_for_display (gdk_display_get_default(),
                                                      GDK_HAND2);
-                gdk_window_set_cursor (((GdkEventAny *)event)->window, cursor);
+                gdk_window_set_cursor (cursor_window, cursor);
 #if GTK_CHECK_VERSION(3,0,0)
                 g_object_unref (cursor);
 #else
                 gdk_cursor_unref (cursor);
 #endif
+                icon_item->details->cursor_window = g_object_ref (cursor_window);
             }
 
             /* FIXME bugzilla.gnome.org 42473:
@@ -2642,7 +2653,8 @@ caja_icon_canvas_item_event (EelCanvasItem *item, GdkEvent *event)
             eel_canvas_item_request_update (item);
 
             /* show default cursor */
-            gdk_window_set_cursor (((GdkEventAny *)event)->window, NULL);
+            gdk_window_set_cursor (cursor_window, NULL);
+            g_clear_object (&icon_item->details->cursor_window);
         }
         return TRUE;
 
