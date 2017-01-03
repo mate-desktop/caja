@@ -4137,7 +4137,7 @@ keyboard_arrow_key (CajaIconContainer *container,
                     IsBetterIconFunction better_start,
                     IsBetterIconFunction empty_start,
                     IsBetterIconFunction better_destination,
-                    IsBetterIconFunction better_destination_fallback_if_no_a11y,
+                    IsBetterIconFunction better_destination_fallback,
                     IsBetterIconFunction better_destination_fallback_fallback,
                     IsBetterIconFunction better_destination_manual)
 {
@@ -4194,16 +4194,12 @@ keyboard_arrow_key (CajaIconContainer *container,
               container->details->auto_layout ? better_destination : better_destination_manual,
               &data);
 
-        /* only wrap around to next/previous row/column if no a11y is used.
-         * Visually impaired people may be easily confused by this.
-         */
+        /* Wrap around to next/previous row/column */
         if (to == NULL &&
-                better_destination_fallback_if_no_a11y != NULL &&
-                ATK_IS_NO_OP_OBJECT (gtk_widget_get_accessible (GTK_WIDGET (container))))
-        {
+            better_destination_fallback != NULL) {
             to = find_best_icon
                  (container, from,
-                  better_destination_fallback_if_no_a11y,
+                  better_destination_fallback,
                   &data);
         }
 
@@ -4255,15 +4251,15 @@ static void
 keyboard_right (CajaIconContainer *container,
                 GdkEventKey *event)
 {
-    IsBetterIconFunction no_a11y;
+    IsBetterIconFunction fallback;
     IsBetterIconFunction next_column_fallback;
 
-    no_a11y = NULL;
+    fallback = NULL;
     if (container->details->auto_layout &&
             !caja_icon_container_is_layout_vertical (container) &&
             !is_rectangle_selection_event (event))
     {
-        no_a11y = next_row_leftmost;
+        fallback = next_row_leftmost;
     }
 
     next_column_fallback = NULL;
@@ -4283,7 +4279,7 @@ keyboard_right (CajaIconContainer *container,
                         caja_icon_container_is_layout_rtl (container) ?
                         rightmost_in_top_row : leftmost_in_top_row,
                         same_row_right_side_leftmost,
-                        no_a11y,
+                        fallback,
                         next_column_fallback,
                         closest_in_90_degrees);
 }
@@ -4292,15 +4288,15 @@ static void
 keyboard_left (CajaIconContainer *container,
                GdkEventKey *event)
 {
-    IsBetterIconFunction no_a11y;
+    IsBetterIconFunction fallback;
     IsBetterIconFunction previous_column_fallback;
 
-    no_a11y = NULL;
+    fallback = NULL;
     if (container->details->auto_layout &&
             !caja_icon_container_is_layout_vertical (container) &&
             !is_rectangle_selection_event (event))
     {
-        no_a11y = previous_row_rightmost;
+        fallback = previous_row_rightmost;
     }
 
     previous_column_fallback = NULL;
@@ -4320,7 +4316,7 @@ keyboard_left (CajaIconContainer *container,
                         caja_icon_container_is_layout_rtl (container) ?
                         rightmost_in_top_row : leftmost_in_top_row,
                         same_row_left_side_rightmost,
-                        no_a11y,
+                        fallback,
                         previous_column_fallback,
                         closest_in_90_degrees);
 }
@@ -4329,21 +4325,21 @@ static void
 keyboard_down (CajaIconContainer *container,
                GdkEventKey *event)
 {
-    IsBetterIconFunction no_a11y;
+    IsBetterIconFunction fallback;
     IsBetterIconFunction next_row_fallback;
 
-    no_a11y = NULL;
+    fallback = NULL;
     if (container->details->auto_layout &&
             caja_icon_container_is_layout_vertical (container) &&
             !is_rectangle_selection_event (event))
     {
         if (gtk_widget_get_direction (GTK_WIDGET (container)) == GTK_TEXT_DIR_RTL)
         {
-            no_a11y = previous_column_highest;
+            fallback = previous_column_highest;
         }
         else
         {
-            no_a11y = next_column_highest;
+            fallback = next_column_highest;
         }
     }
 
@@ -4370,7 +4366,7 @@ keyboard_down (CajaIconContainer *container,
                         caja_icon_container_is_layout_rtl (container) ?
                         rightmost_in_top_row : leftmost_in_top_row,
                         same_column_below_highest,
-                        no_a11y,
+                        fallback,
                         next_row_fallback,
                         closest_in_90_degrees);
 }
@@ -4379,20 +4375,20 @@ static void
 keyboard_up (CajaIconContainer *container,
              GdkEventKey *event)
 {
-    IsBetterIconFunction no_a11y;
+    IsBetterIconFunction fallback;
 
-    no_a11y = NULL;
+    fallback = NULL;
     if (container->details->auto_layout &&
             caja_icon_container_is_layout_vertical (container) &&
             !is_rectangle_selection_event (event))
     {
         if (gtk_widget_get_direction (GTK_WIDGET (container)) == GTK_TEXT_DIR_RTL)
         {
-            no_a11y = next_column_bottommost;
+            fallback = next_column_bottommost;
         }
         else
         {
-            no_a11y = previous_column_lowest;
+            fallback = previous_column_lowest;
         }
     }
 
@@ -4406,7 +4402,7 @@ keyboard_up (CajaIconContainer *container,
                         caja_icon_container_is_layout_rtl (container) ?
                         rightmost_in_top_row : leftmost_in_top_row,
                         same_column_above_lowest,
-                        no_a11y,
+                        fallback,
                         NULL,
                         closest_in_90_degrees);
 }
