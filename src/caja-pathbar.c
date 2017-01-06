@@ -1337,47 +1337,6 @@ button_clicked_cb (GtkWidget *button,
 }
 
 static CajaIconInfo *
-get_custom_user_icon_info (ButtonData *button_data)
-{
-    /* Bug 80925: With tiny display sizes we get huge memory allocations. */
-#if 0
-    CajaIconInfo *icon_info;
-    GFile *icon_file;
-    GIcon *icon;
-    char *custom_icon_uri;
-
-    icon = NULL;
-
-    if (button_data->file != NULL)
-    {
-        custom_icon_uri = caja_file_get_custom_icon (button_data->file);
-        if (custom_icon_uri != NULL)
-        {
-            icon_file = g_file_new_for_uri (custom_icon_uri);
-
-            if (g_file_is_native (icon_file))
-            {
-                icon = g_file_icon_new (icon_file);
-            }
-
-            g_object_unref (icon_file);
-            g_free (custom_icon_uri);
-        }
-    }
-
-    if (icon != NULL)
-    {
-        icon_info = caja_icon_info_lookup (icon, CAJA_PATH_BAR_ICON_SIZE);
-        g_object_unref (icon);
-
-        return icon_info;
-    }
-#endif
-
-    return NULL;
-}
-
-static CajaIconInfo *
 get_type_icon_info (ButtonData *button_data)
 {
     switch (button_data->type)
@@ -1511,12 +1470,7 @@ caja_path_bar_update_button_appearance (ButtonData *button_data)
         }
         else
         {
-            icon_info = get_custom_user_icon_info (button_data);
-            if (icon_info == NULL)
-            {
-                icon_info = get_type_icon_info (button_data);
-            }
-
+            icon_info = get_type_icon_info (button_data);
             pixbuf = NULL;
 
             if (icon_info != NULL)
@@ -2148,60 +2102,6 @@ caja_path_bar_get_path_for_button (CajaPathBar *path_bar,
     }
 
     return NULL;
-}
-
-/**
- * _caja_path_bar_up:
- * @path_bar: a #CajaPathBar
- *
- * If the selected button in the pathbar is not the furthest button "up" (in the
- * root direction), act as if the user clicked on the next button up.
- **/
-void
-caja_path_bar_up (CajaPathBar *path_bar)
-{
-    GList *l;
-
-    for (l = path_bar->button_list; l; l = l->next)
-    {
-        GtkWidget *button = BUTTON_DATA (l->data)->button;
-        if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button)))
-        {
-            if (l->next)
-            {
-                GtkWidget *next_button = BUTTON_DATA (l->next->data)->button;
-                button_clicked_cb (next_button, l->next->data);
-            }
-            break;
-        }
-    }
-}
-
-/**
- * _caja_path_bar_down:
- * @path_bar: a #CajaPathBar
- *
- * If the selected button in the pathbar is not the furthest button "down" (in the
- * leaf direction), act as if the user clicked on the next button down.
- **/
-void
-caja_path_bar_down (CajaPathBar *path_bar)
-{
-    GList *l;
-
-    for (l = path_bar->button_list; l; l = l->next)
-    {
-        GtkWidget *button = BUTTON_DATA (l->data)->button;
-        if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button)))
-        {
-            if (l->prev)
-            {
-                GtkWidget *prev_button = BUTTON_DATA (l->prev->data)->button;
-                button_clicked_cb (prev_button, l->prev->data);
-            }
-            break;
-        }
-    }
 }
 
 GtkWidget *

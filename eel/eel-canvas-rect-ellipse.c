@@ -806,14 +806,6 @@ eel_canvas_rect_update (EelCanvasItem *item, double i2w_dx, double i2w_dy, gint 
     eel_canvas_w2c (item->canvas, x2, y2, &cx2, &cy2);
 
     update_rect = make_rect (cx1, cy1, cx2+1, cy2+1);
-#if 0
-    eel_canvas_request_redraw (item->canvas,
-                               update_rect.x0, update_rect.y0,
-                               update_rect.x1, update_rect.y1);
-    eel_canvas_request_redraw (item->canvas,
-                               priv->last_update_rect.x0, priv->last_update_rect.y0,
-                               priv->last_update_rect.x1, priv->last_update_rect.y1);
-#else
     diff_rects (update_rect, priv->last_update_rect,
                 &repaint_rects_count, repaint_rects);
     for (i = 0; i < repaint_rects_count; i++)
@@ -822,7 +814,7 @@ eel_canvas_rect_update (EelCanvasItem *item, double i2w_dx, double i2w_dy, gint 
                                    repaint_rects[i].x0, repaint_rects[i].y0,
                                    repaint_rects[i].x1, repaint_rects[i].y1);
     }
-#endif
+
     priv->last_update_rect = update_rect;
 
     if (re->outline_set)

@@ -82,9 +82,6 @@ GFile *  caja_path_bar_get_path_for_button (CajaPathBar *path_bar,
         GtkWidget       *button);
 void     caja_path_bar_clear_buttons (CajaPathBar *path_bar);
 
-void     caja_path_bar_up              (CajaPathBar *path_bar);
-void     caja_path_bar_down            (CajaPathBar *path_bar);
-
 GtkWidget * caja_path_bar_get_button_from_button_list_entry (gpointer entry);
 
 #endif /* CAJA_PATHBAR_H */

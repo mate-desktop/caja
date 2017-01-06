@@ -1243,20 +1243,6 @@ resort (CajaIconContainer *container)
     sort_icons (container, &container->details->icons);
 }
 
-#if 0
-static double
-get_grid_width (CajaIconContainer *container)
-{
-    if (container->details->label_position == CAJA_ICON_LABEL_POSITION_BESIDE)
-    {
-        return TEXT_BESIDE_ICON_GRID_WIDTH;
-    }
-    else
-    {
-        return STANDARD_ICON_GRID_WIDTH;
-    }
-}
-#endif
 typedef struct
 {
     double width;
