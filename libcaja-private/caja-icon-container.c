@@ -6621,6 +6621,15 @@ handle_focus_out_event (GtkWidget *widget, GdkEventFocus *event, gpointer user_d
     return FALSE;
 }
 
+static void
+handle_scale_factor_changed (GObject    *object,
+                             GParamSpec *pspec,
+                             gpointer    user_data)
+{
+    invalidate_labels (CAJA_ICON_CONTAINER (object));
+    caja_icon_container_request_update_all (CAJA_ICON_CONTAINER (object));
+}
+
 
 static int text_ellipsis_limits[CAJA_ZOOM_LEVEL_N_ENTRIES];
 static int desktop_text_ellipsis_limit;
@@ -6742,6 +6751,9 @@ caja_icon_container_init (CajaIconContainer *container)
                       G_CALLBACK (handle_focus_in_event), NULL);
     g_signal_connect (container, "focus-out-event",
                       G_CALLBACK (handle_focus_out_event), NULL);
+
+    g_signal_connect (container, "notify::scale-factor",
+                      G_CALLBACK (handle_scale_factor_changed), NULL);
 
     eel_background_set_use_base (background, TRUE);
 
