@@ -3992,21 +3992,6 @@ eel_canvas_item_accessible_ref_state_set (AtkObject *accessible)
     return state_set;
 }
 
-static GType eel_canvas_item_accessible_get_type (void);
-
-typedef struct _EelCanvasItemAccessible EelCanvasItemAccessible;
-typedef struct _EelCanvasItemAccessibleClass EelCanvasItemAccessibleClass;
-
-struct _EelCanvasItemAccessible
-{
-    GtkAccessible parent;
-};
-
-struct _EelCanvasItemAccessibleClass
-{
-    GtkAccessibleClass parent_class;
-};
-
 G_DEFINE_TYPE_WITH_CODE (EelCanvasItemAccessible,
                          eel_canvas_item_accessible,
                          ATK_TYPE_GOBJECT_ACCESSIBLE,

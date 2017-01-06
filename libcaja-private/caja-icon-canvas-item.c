@@ -3436,16 +3436,16 @@ caja_icon_canvas_item_accessible_text_interface_init (AtkTextIface *iface)
 }
 
 typedef struct {
-	AtkGObjectAccessible parent;
+	EelCanvasItemAccessible parent;
 } CajaIconCanvasItemAccessible;
 
 typedef struct {
-	AtkGObjectAccessibleClass parent_class;
+	EelCanvasItemAccessibleClass parent_class;
 } CajaIconCanvasItemAccessibleClass;
 
 G_DEFINE_TYPE_WITH_CODE (CajaIconCanvasItemAccessible,
 			 caja_icon_canvas_item_accessible,
-			 ATK_TYPE_GOBJECT_ACCESSIBLE,
+			 eel_canvas_item_accessible_get_type (),
 			 G_IMPLEMENT_INTERFACE (ATK_TYPE_IMAGE,
 						caja_icon_canvas_item_accessible_image_interface_init)
 			 G_IMPLEMENT_INTERFACE (ATK_TYPE_TEXT,
