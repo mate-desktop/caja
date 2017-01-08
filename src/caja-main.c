@@ -438,7 +438,9 @@ main (int argc, char *argv[])
 
     g_set_prgname ("caja");
 
+#if GTK_CHECK_VERSION(3, 0, 0)
     gdk_set_allowed_backends ("x11");
+#endif
 
     if (g_file_test (DATADIR "/applications/caja.desktop", G_FILE_TEST_EXISTS))
     {
