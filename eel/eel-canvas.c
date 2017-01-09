@@ -4297,21 +4297,6 @@ eel_canvas_item_accessible_ref_state_set (AtkObject *accessible)
 }
 
 #if GTK_CHECK_VERSION(3, 0, 0)
-static GType eel_canvas_item_accessible_get_type (void);
-
-typedef struct _EelCanvasItemAccessible EelCanvasItemAccessible;
-typedef struct _EelCanvasItemAccessibleClass EelCanvasItemAccessibleClass;
-
-struct _EelCanvasItemAccessible
-{
-    GtkAccessible parent;
-};
-
-struct _EelCanvasItemAccessibleClass
-{
-    GtkAccessibleClass parent_class;
-};
-
 G_DEFINE_TYPE_WITH_CODE (EelCanvasItemAccessible,
                          eel_canvas_item_accessible,
                          ATK_TYPE_GOBJECT_ACCESSIBLE,
@@ -4370,6 +4355,12 @@ eel_canvas_item_accessible_get_type (void)
         if (!parent_atk_type)
         {
             return G_TYPE_INVALID;
+        }
+        else if (parent_atk_type == ATK_TYPE_NO_OP_OBJECT)
+        {
+            /* use at least AtkGObjectAccessible as basis if nothing else
+             * is advertized in the registry */
+            parent_atk_type = ATK_TYPE_GOBJECT_ACCESSIBLE;
         }
         g_type_query (parent_atk_type, &query);
         tinfo.class_init = (GClassInitFunc) eel_canvas_item_accessible_class_init;

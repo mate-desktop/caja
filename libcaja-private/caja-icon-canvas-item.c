@@ -3976,23 +3976,76 @@ caja_icon_canvas_item_accessible_text_interface_init (AtkTextIface *iface)
     iface->get_offset_at_point     = caja_icon_canvas_item_accessible_get_offset_at_point;
 }
 
+#if GTK_CHECK_VERSION(3, 0, 0)
 typedef struct {
-	AtkGObjectAccessible parent;
+	EelCanvasItemAccessible parent;
 } CajaIconCanvasItemAccessible;
 
 typedef struct {
-	AtkGObjectAccessibleClass parent_class;
+	EelCanvasItemAccessibleClass parent_class;
 } CajaIconCanvasItemAccessibleClass;
 
 G_DEFINE_TYPE_WITH_CODE (CajaIconCanvasItemAccessible,
 			 caja_icon_canvas_item_accessible,
-			 ATK_TYPE_GOBJECT_ACCESSIBLE,
+			 eel_canvas_item_accessible_get_type (),
 			 G_IMPLEMENT_INTERFACE (ATK_TYPE_IMAGE,
 						caja_icon_canvas_item_accessible_image_interface_init)
 			 G_IMPLEMENT_INTERFACE (ATK_TYPE_TEXT,
 						caja_icon_canvas_item_accessible_text_interface_init)
 			 G_IMPLEMENT_INTERFACE (ATK_TYPE_ACTION,
 						caja_icon_canvas_item_accessible_action_interface_init));
+#else
+/* dummy typedef */
+typedef AtkObject CajaIconCanvasItemAccessible;
+typedef AtkObjectClass CajaIconCanvasItemAccessibleClass;
+
+static void caja_icon_canvas_item_accessible_class_init (CajaIconCanvasItemAccessibleClass *klass);
+static gpointer caja_icon_canvas_item_accessible_parent_class = NULL;
+
+static GType
+caja_icon_canvas_item_accessible_get_type (void)
+{
+    static GType type = 0;
+
+    if (!type)
+    {
+        static GInterfaceInfo atk_image_info =
+        {
+            (GInterfaceInitFunc) caja_icon_canvas_item_accessible_image_interface_init,
+            (GInterfaceFinalizeFunc) NULL,
+            NULL
+        };
+
+        static GInterfaceInfo atk_text_info =
+        {
+            (GInterfaceInitFunc) caja_icon_canvas_item_accessible_text_interface_init,
+            (GInterfaceFinalizeFunc) NULL,
+            NULL
+        };
+
+        static GInterfaceInfo atk_action_info =
+        {
+            (GInterfaceInitFunc) caja_icon_canvas_item_accessible_action_interface_init,
+            (GInterfaceFinalizeFunc) NULL,
+            NULL
+        };
+
+        type = eel_accessibility_create_derived_type
+               ("CajaIconCanvasItemAccessible",
+                EEL_TYPE_CANVAS_ITEM,
+                caja_icon_canvas_item_accessible_class_init);
+
+        g_type_add_interface_static (type, ATK_TYPE_IMAGE,
+                                     &atk_image_info);
+        g_type_add_interface_static (type, ATK_TYPE_TEXT,
+                                     &atk_text_info);
+        g_type_add_interface_static (type, ATK_TYPE_ACTION,
+                                     &atk_action_info);
+    }
+
+    return type;
+}
+#endif
 
 static AtkStateSet*
 caja_icon_canvas_item_accessible_ref_state_set (AtkObject *accessible)
@@ -4075,6 +4128,10 @@ caja_icon_canvas_item_accessible_class_init (CajaIconCanvasItemAccessibleClass *
 	AtkObjectClass *aclass = ATK_OBJECT_CLASS (klass);
 	GObjectClass *oclass = G_OBJECT_CLASS (klass);
 
+#if ! GTK_CHECK_VERSION(3, 0, 0)
+	caja_icon_canvas_item_accessible_parent_class = g_type_class_peek_parent (klass);
+#endif
+
 	oclass->finalize = caja_icon_canvas_item_accessible_finalize;
 
 	aclass->initialize = caja_icon_canvas_item_accessible_initialize;
@@ -4088,10 +4145,12 @@ caja_icon_canvas_item_accessible_class_init (CajaIconCanvasItemAccessibleClass *
 	g_type_class_add_private (klass, sizeof (CajaIconCanvasItemAccessiblePrivate));
 }
 
+#if GTK_CHECK_VERSION(3, 0, 0)
 static void
 caja_icon_canvas_item_accessible_init (CajaIconCanvasItemAccessible *self)
 {
 }
+#endif
 
 /* dummy typedef */
 typedef AtkObjectFactory      CajaIconCanvasItemAccessibleFactory;
