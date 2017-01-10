@@ -573,6 +573,21 @@ extern "C" {
     {
         GtkContainerAccessibleClass parent_class;
     };
+
+    GType eel_canvas_item_accessible_get_type (void);
+
+    typedef struct _EelCanvasItemAccessible EelCanvasItemAccessible;
+    typedef struct _EelCanvasItemAccessibleClass EelCanvasItemAccessibleClass;
+
+    struct _EelCanvasItemAccessible
+    {
+        GtkAccessible parent;
+    };
+
+    struct _EelCanvasItemAccessibleClass
+    {
+        GtkAccessibleClass parent_class;
+    };
 #endif
 
 #ifdef __cplusplus
