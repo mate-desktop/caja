@@ -1,174 +1,187 @@
-Major changes in 1.17.2 are:
+### caja 1.17.2
 
-* Translations update
-* Fix keyboard-down wraparound on compact view
-* Single click navigation: keep hand cursor when opening folder...
-* Fix cursor on single-click navigation mode.
-* file: don't consider all desktop files caja links
-* Show "open with" tab in properties window when "open with" menu available
-* Show "open with" menu for desktop and theme files
-* fix build warning about wrong variable type
-* fix indent and spacing a bit
-* check for stable version of GTK+3, not for development one
-* Add a separator when concatenating strings in icon text accessible
-* prefs dialog: fix vertical expand of content with window resize
-* schema: capitalize MIME in descriptions
-* schema: add missing capitalization of Caja
-* Rename labels: follow theme if available, sane default
-* caja.css: fix missing comma
-* Fix restart loop when started without icons on the desktop
-* build: require libmate-desktop >= 1.17.0
+  * Translations update
+  * Fix keyboard-down wraparound on compact view
+  * Single click navigation: keep hand cursor when opening folder...
+  * Fix cursor on single-click navigation mode.
+  * file: don't consider all desktop files caja links
+  * Show "open with" tab in properties window when "open with" menu available
+  * Show "open with" menu for desktop and theme files
+  * fix build warning about wrong variable type
+  * fix indent and spacing a bit
+  * check for stable version of GTK+3, not for development one
+  * Add a separator when concatenating strings in icon text accessible
+  * prefs dialog: fix vertical expand of content with window resize
+  * schema: capitalize MIME in descriptions
+  * schema: add missing capitalization of Caja
+  * Rename labels: follow theme if available, sane default
+  * caja.css: fix missing comma
+  * Fix restart loop when started without icons on the desktop
+  * build: require libmate-desktop >= 1.17.0
 
-Major changes in 1.17.1 are:
+### caja 1.17.1
 
-* Translations update
-* move to GTK+3 (>= 3.14), drop libunique,  GTK+2 code, and --with-gtk build option
-* configure.ac: Check for libnotify
-* application: correct description of --force-desktop option
-* application: remove unused function
-* remove convert metadata
-* Compact view: ensure horizontal mouse wheel works both directions
-* Fix mousewheel scrolling in compact view
-* Improved merge folder dialog
-* Fixes partially #535
-* suppress notification on unmounting non-ejectiable device
-* Add gsettings preference to enable/disable notifications
-* libunique builds: enable eject notifications
-* Refactor notification code to remove duplicate function
-* GtkApplication: show notifications for ejecting from the desktop too
-* GtkApplication: Notify when ejected volumes safe to unplug
-* GtkApplication: fix "caja 3.0" message
+  * Translations update
+  * move to GTK+3 (>= 3.14), drop libunique,  GTK+2 code, and --with-gtk build option
+  * configure.ac: Check for libnotify
+  * application: correct description of --force-desktop option
+  * application: remove unused function
+  * remove convert metadata
+  * Compact view: ensure horizontal mouse wheel works both directions
+  * Fix mousewheel scrolling in compact view
+  * Improved merge folder dialog
+  * Fixes partially #535
+  * suppress notification on unmounting non-ejectiable device
+  * Add gsettings preference to enable/disable notifications
+  * libunique builds: enable eject notifications
+  * Refactor notification code to remove duplicate function
+  * GtkApplication: show notifications for ejecting from the desktop too
+  * GtkApplication: Notify when ejected volumes safe to unplug
+  * GtkApplication: fix "caja 3.0" message
 
-Major changes in 1.17.0 are:
+### caja 1.17.0
 
-* Translations update
-* Implement copy queue and pausing
-* GTK+2: use eel helper again to set adjustment values
-* support back and forward mouse buttons to navigate
-* Fix accessible object inherritance when used with GTK 3
-* Fix hashtable warnings on close
-* GTK3: port libunique ->GtkApplication as build time option
-* Stop warnings on window-close and 3 warnings on exit
-* Fix the gsignal warnings on window-close
-* GTK3: fix warnings cause by GtkGrid
+  * Translations update
+  * Implement copy queue and pausing
+  * GTK+2: use eel helper again to set adjustment values
+  * support back and forward mouse buttons to navigate
+  * Fix accessible object inherritance when used with GTK 3
+  * Fix hashtable warnings on close
+  * GTK3: port libunique ->GtkApplication as build time option
+  * Stop warnings on window-close and 3 warnings on exit
+  * Fix the gsignal warnings on window-close
+  * GTK3: fix warnings cause by GtkGrid
 
-Major changes in 1.16.0 are:
-* Use GtkAboutDialog instead of MateAboutDialog
-* Pathbar: always show right arrow button
-* Fix changing taskbar icon when switching between tabs with different
-  icons
-* Fix lots of warnings when building docs for libcaja-extension
-* GTK+3: add style classes for elements of pathbar
-* GTK+3: fix drawing and changing of desktop background with 3.21
-* GTK+3: fix a large amount of deprecations
-* Some more fixes and cleanups
-* Translations update
+### caja 1.16.0
 
-Major changes in 1.14.2 are:
-* Translations update
-* Make distcheck use currently selected GTK+ version
+  * Use GtkAboutDialog instead of MateAboutDialog
+  * Pathbar: always show right arrow button
+  * Fix changing taskbar icon when switching between tabs with different icons
+  * Fix lots of warnings when building docs for libcaja-extension
+  * GTK+3: add style classes for elements of pathbar
+  * GTK+3: fix drawing and changing of desktop background with 3.21
+  * GTK+3: fix a large amount of deprecations
+  * Some more fixes and cleanups
+  * Translations update
 
-Major changes in 1.14.1 are:
-* prefs dialog: don't crash on toggling "Show hidden and backup files"
-* GTK+-3 theming: add a CSS file for caja, and initialize it at startup
-* GTK+3: add style class caja-desktop-window at top level
-* Translation update
+### caja 1.14.2
 
-Major changes in 1.14.0 are:
-* Drop MateConf migration script
-* Allow closing tabs on middle-click
-* List Python extensions separately in extensions list
-* GTK+3: add several style classes to simplify theming
-* GTK+3: fix desktop flash issue
-* GTK+3: a lot of deprecation fixes
-* Some more fixes and cleanups
-* Translations update
-* Add Changelog generation
+  * Translations update
+  * Make distcheck use currently selected GTK+ version
 
-Major changes in 1.12.7 are:
-* Fix remaining random changes of font color in icon view
+### caja 1.14.1
 
-Major changes in 1.12.6 are:
-* Really fix loading multiple python extensions: revert the commit
+  * prefs dialog: don't crash on toggling "Show hidden and backup files"
+  * GTK+-3 theming: add a CSS file for caja, and initialize it at startup
+  * GTK+3: add style class caja-desktop-window at top level
+  * Translation update
+
+### caja 1.14.0
+
+  * Drop MateConf migration script
+  * Allow closing tabs on middle-click
+  * List Python extensions separately in extensions list
+  * GTK+3: add several style classes to simplify theming
+  * GTK+3: fix desktop flash issue
+  * GTK+3: a lot of deprecation fixes
+  * Some more fixes and cleanups
+  * Translations update
+  * Add Changelog generation
+
+### caja 1.12.7
+
+  * Fix remaining random changes of font color in icon view
+
+### caja 1.12.6
+
+  * Really fix loading multiple python extensions: revert the commit
   that proved to broke the fix. NOTE: as a side effect, the extensions
   list will now have duplicate Python entries if more than one Python
   extension is loaded.
 
-Major changes in 1.12.5 are:
-* Fix loading multiple python extensions
-* GTK+3: fix crash on Ctrl + scroll wheel
+### caja 1.12.5
 
-Major changes in 1.12.4 are:
-* Fix random crash on startup when python-caja extension is enabled
-* Fix crash when restoring file with special characters from trash
-* Fix a few memleaks
+  * Fix loading multiple python extensions
+  * GTK+3: fix crash on Ctrl + scroll wheel
 
-Major changes in 1.12.3 are:
-* Fix wrong text color in icon view with some light themes
-* Fix crash due to unneeded assert
+### caja 1.12.4
 
-Major changes in 1.12.2 are:
-* Set smclient mode to "no restart" when either running as root
-  or on other desktops
-* Properties -> custom icon dialog: add missing /usr/share/icons
-  to Places
-* Some more fixes
+  * Fix random crash on startup when python-caja extension is enabled
+  * Fix crash when restoring file with special characters from trash
+  * Fix a few memleaks
 
-Major changes in 1.12.1 are:
-* Assorted bugfixes
-* Translations update
+### caja 1.12.3
 
-Major changes in 1.12.0 are:
-* Connect to server dialog: add support for AFP
-* Retrieve strings directly from gschema (requires intltool 0.50.1)
-* Switch to org.gnome.SessionManager for logout/suspend inhibit
-* Improve multi-monitor support
-* GTK+3 fixes
-* Some UI fixes
+  * Fix wrong text color in icon view with some light themes
+  * Fix crash due to unneeded assert
 
-Major changes in 1.10.4 are:
-* Fix a crash when using undo following a file deletion.
+### caja 1.12.2
 
-Major changes in 1.10.3 are:
-* File properties dialog: bring back missing Notes and Image Properties tabs
+  * Set smclient mode to "no restart" when either running as root or on other desktops
+  * Properties -> custom icon dialog: add missing /usr/share/icons to Places
+  * Some more fixes
 
-Major changes in 1.10.2 are:
-* Places sidebar: enable both creating bookmarks and dropping files
-* Compact view: don't auto-scroll to the right on long filenames
-* Don't manage desktop and exit with last window when either running
-  as root or on other desktops
-* Fix double-click behavior when clicking on a folder and then
-  on a file/folder inside it
-* GTK+3 fixes
-* Translations update
+### caja 1.12.1
 
-Major changes in 1.10.1 are:
-* Do not automount USB flash drives and CD/DVD drives while session is locked
-* Reverted dropping of files to Bookmarks sidebar
-  * See https://github.com/mate-desktop/caja/issues/423
-* UI bugfixes
+  * Assorted bugfixes
+  * Translations update
 
-Major changes in 1.10.0 are:
-* Allow extensions to be enabled/disabled at runtime
-* Bugfixes
+### caja 1.12.0
 
-Major changes in 1.8.0 are:
-* Add GTK3 support
-* Re add bookmark section in connect server dialog
-* Add option to show file sizes with IEC units instead of SI units
-* Add "Open parent location" in menu if we are in search view
+  * Connect to server dialog: add support for AFP
+  * Retrieve strings directly from gschema (requires intltool 0.50.1)
+  * Switch to org.gnome.SessionManager for logout/suspend inhibit
+  * Improve multi-monitor support
+  * GTK+3 fixes
+  * Some UI fixes
 
-Major changes in 1.6.0 are:
-* Replace mateconf with gsettings
-  (much code taken from Nautilus 3.0 patches by Alexander Larsson)
-* "Show backup files" option merged in "Show hidden files"
-* Add support for freedesktop.org File Manager DBus Interface
-  (http://www.freedesktop.org/wiki/Specifications/file-manager-interface)
-* Allow to open files, if passed as arguments
+### caja 1.10.4
 
-Major changes in 1.3.0 are:
-* Restore toggle button for button and text-based location bar
-* Add the ability to open bookmarks in the places side pane via the enter and space keys
-* Add diff button for text files in file conflict dialog
-* Fix autocompletion for remote locations
-* Makes the filename column expand to its maximum instead of shrinking to a hardcoded value
+  * Fix a crash when using undo following a file deletion.
+
+### caja 1.10.3
+
+  * File properties dialog: bring back missing Notes and Image Properties tabs
+
+### caja 1.10.2
+
+  * Places sidebar: enable both creating bookmarks and dropping files
+  * Compact view: don't auto-scroll to the right on long filenames
+  * Don't manage desktop and exit with last window when either running as root or on other desktops
+  * Fix double-click behavior when clicking on a folder and then on a file/folder inside it
+  * GTK+3 fixes
+  * Translations update
+
+### caja 1.10.1
+
+  * Do not automount USB flash drives and CD/DVD drives while session is locked
+  * Reverted dropping of files to Bookmarks sidebar
+    * See https://github.com/mate-desktop/caja/issues/423
+  * UI bugfixes
+
+### caja 1.10.0
+
+  * Allow extensions to be enabled/disabled at runtime
+  * Bugfixes
+
+### caja 1.8.0
+
+  * Add GTK3 support
+  * Re add bookmark section in connect server dialog
+  * Add option to show file sizes with IEC units instead of SI units
+  * Add "Open parent location" in menu if we are in search view
+
+### caja 1.6.0
+
+  * Replace mateconf with gsettings (much code taken from Nautilus 3.0 patches by Alexander Larsson)
+  * "Show backup files" option merged in "Show hidden files"
+  * Add support for freedesktop.org File Manager DBus Interface (http://www.freedesktop.org/wiki/Specifications/file-manager-interface)
+  * Allow to open files, if passed as arguments
+
+### caja 1.3.0
+
+  * Restore toggle button for button and text-based location bar
+  * Add the ability to open bookmarks in the places side pane via the enter and space keys
+  * Add diff button for text files in file conflict dialog
+  * Fix autocompletion for remote locations
+  * Makes the filename column expand to its maximum instead of shrinking to a hardcoded value
