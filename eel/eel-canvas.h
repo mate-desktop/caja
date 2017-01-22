@@ -575,6 +575,21 @@ extern "C" {
     };
 #endif
 
+    GType eel_canvas_item_accessible_get_type (void);
+
+    typedef struct _EelCanvasItemAccessible EelCanvasItemAccessible;
+    typedef struct _EelCanvasItemAccessibleClass EelCanvasItemAccessibleClass;
+
+    struct _EelCanvasItemAccessible
+    {
+        AtkGObjectAccessible parent;
+    };
+
+    struct _EelCanvasItemAccessibleClass
+    {
+        AtkGObjectAccessibleClass parent_class;
+    };
+
 #ifdef __cplusplus
 }
 #endif

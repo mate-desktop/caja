@@ -4296,22 +4296,6 @@ eel_canvas_item_accessible_ref_state_set (AtkObject *accessible)
     return state_set;
 }
 
-#if GTK_CHECK_VERSION(3, 0, 0)
-static GType eel_canvas_item_accessible_get_type (void);
-
-typedef struct _EelCanvasItemAccessible EelCanvasItemAccessible;
-typedef struct _EelCanvasItemAccessibleClass EelCanvasItemAccessibleClass;
-
-struct _EelCanvasItemAccessible
-{
-    GtkAccessible parent;
-};
-
-struct _EelCanvasItemAccessibleClass
-{
-    GtkAccessibleClass parent_class;
-};
-
 G_DEFINE_TYPE_WITH_CODE (EelCanvasItemAccessible,
                          eel_canvas_item_accessible,
                          ATK_TYPE_GOBJECT_ACCESSIBLE,
@@ -4332,61 +4316,7 @@ static void
 eel_canvas_item_accessible_init (EelCanvasItemAccessible *accessible)
 {
 }
-#else
-static void
-eel_canvas_item_accessible_class_init (AtkObjectClass *klass)
-{
-    accessible_item_parent_class = g_type_class_peek_parent (klass);
 
-    klass->initialize = eel_canvas_item_accessible_initialize;
-    klass->ref_state_set = eel_canvas_item_accessible_ref_state_set;
-}
-
-static GType
-eel_canvas_item_accessible_get_type (void)
-{
-    static GType type = 0;
-
-    if (!type)
-    {
-        static const GInterfaceInfo atk_component_info =
-        {
-            (GInterfaceInitFunc) eel_canvas_item_accessible_component_interface_init,
-            (GInterfaceFinalizeFunc) NULL,
-            NULL
-        };
-        AtkObjectFactory *factory;
-        GType parent_atk_type;
-        GTypeQuery query;
-        GTypeInfo tinfo = { 0 };
-
-        factory = atk_registry_get_factory (atk_get_default_registry(),
-                                            G_TYPE_INITIALLY_UNOWNED);
-        if (!factory)
-        {
-            return G_TYPE_INVALID;
-        }
-        parent_atk_type = atk_object_factory_get_accessible_type (factory);
-        if (!parent_atk_type)
-        {
-            return G_TYPE_INVALID;
-        }
-        g_type_query (parent_atk_type, &query);
-        tinfo.class_init = (GClassInitFunc) eel_canvas_item_accessible_class_init;
-        tinfo.class_size = query.class_size;
-        tinfo.instance_size = query.instance_size;
-        type = g_type_register_static (parent_atk_type,
-                                       "EelCanvasItemAccessibility",
-                                       &tinfo, 0);
-
-        g_type_add_interface_static (type, ATK_TYPE_COMPONENT,
-                                     &atk_component_info);
-
-    }
-
-    return type;
-}
-#endif
 static AtkObject *
 eel_canvas_item_accessible_create (GObject *for_object)
 {
