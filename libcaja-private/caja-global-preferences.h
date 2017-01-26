@@ -55,6 +55,7 @@ G_BEGIN_DECLS
 
 /* Trash options */
 #define CAJA_PREFERENCES_CONFIRM_TRASH			"confirm-trash"
+#define CAJA_PREFERENCES_CONFIRM_MOVE_TO_TRASH	"confirm-move-to-trash"
 #define CAJA_PREFERENCES_ENABLE_DELETE			"enable-delete"
 
 /* Desktop options */

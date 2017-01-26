@@ -63,6 +63,7 @@
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_ALWAYS_USE_BROWSER_WIDGET "always_use_browser_checkbutton"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_ALWAYS_USE_LOCATION_ENTRY_WIDGET "always_use_location_entry_checkbutton"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_TRASH_CONFIRM_WIDGET "trash_confirm_checkbutton"
+#define CAJA_FILE_MANAGEMENT_PROPERTIES_TRASH_CONFIRM_TRASH_WIDGET "trash_confirm_trash_checkbutton"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_TRASH_DELETE_WIDGET "trash_delete_checkbutton"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_SHOW_HIDDEN_WIDGET "hidden_files_checkbutton"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_TREE_VIEW_FOLDERS_WIDGET "treeview_folders_checkbutton"
@@ -1100,6 +1101,9 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
     bind_builder_bool (builder, caja_preferences,
                        CAJA_FILE_MANAGEMENT_PROPERTIES_TRASH_CONFIRM_WIDGET,
                        CAJA_PREFERENCES_CONFIRM_TRASH);
+    bind_builder_bool (builder, caja_preferences,
+                       CAJA_FILE_MANAGEMENT_PROPERTIES_TRASH_CONFIRM_TRASH_WIDGET,
+                       CAJA_PREFERENCES_CONFIRM_MOVE_TO_TRASH);
 
     bind_builder_bool (builder, caja_preferences,
                        CAJA_FILE_MANAGEMENT_PROPERTIES_TRASH_DELETE_WIDGET,

@@ -1316,6 +1316,18 @@ should_confirm_trash (void)
 }
 
 static gboolean
+should_confirm_move_to_trash (void)
+{
+	GSettings *prefs;
+	gboolean confirm_trash;
+
+	prefs = g_settings_new ("org.mate.caja.preferences");
+	confirm_trash = g_settings_get_boolean (prefs, CAJA_PREFERENCES_CONFIRM_MOVE_TO_TRASH);
+	g_object_unref (prefs);
+	return confirm_trash;
+}
+
+static gboolean
 job_aborted (CommonJob *job)
 {
 	return g_cancellable_is_cancelled (job->cancellable);
@@ -1421,6 +1433,48 @@ confirm_delete_directly (CommonJob *job,
 				NULL,
 				FALSE,
 				GTK_STOCK_CANCEL, GTK_STOCK_DELETE,
+				NULL);
+
+	return response == 1;
+}
+
+static gboolean
+confirm_trash (CommonJob *job,
+	       GList *files)
+{
+	char *prompt;
+	int file_count;
+	int response;
+
+	/* Just Say Yes if the preference says not to confirm. */
+	if (!should_confirm_move_to_trash ()) {
+		return TRUE;
+	}
+
+	file_count = g_list_length (files);
+	g_assert (file_count > 0);
+
+	if (can_delete_files_without_confirm (files)) {
+		return TRUE;
+	}
+
+	if (file_count == 1) {
+		prompt = f (_("Are you sure you want to trash \"%B\"?"),
+			    files->data);
+	} else {
+		prompt = f (ngettext("Are you sure you want to trash "
+				     "the %'d selected item?",
+				     "Are you sure you want to trash "
+				     "the %'d selected items?", file_count),
+			    file_count);
+	}
+
+	response = run_warning (job,
+				prompt,
+				f (_("Items moved to the trash may be recovered until the trash is emptied.")),
+				NULL,
+				FALSE,
+				GTK_STOCK_CANCEL, _("Move to _Trash"),
 				NULL);
 
 	return response == 1;
@@ -1917,6 +1971,7 @@ delete_job (GIOSchedulerJob *io_job,
 	CommonJob *common;
 	gboolean must_confirm_delete_in_trash;
 	gboolean must_confirm_delete;
+	gboolean must_confirm_trash;
 	int files_skipped;
 
 	common = (CommonJob *)job;
@@ -1929,6 +1984,7 @@ delete_job (GIOSchedulerJob *io_job,
 
 	must_confirm_delete_in_trash = FALSE;
 	must_confirm_delete = FALSE;
+	must_confirm_trash = FALSE;
 	files_skipped = 0;
 
 	for (l = job->files; l != NULL; l = l->next) {
@@ -1942,6 +1998,7 @@ delete_job (GIOSchedulerJob *io_job,
 			to_delete_files = g_list_prepend (to_delete_files, file);
 		} else {
 			if (job->try_trash) {
+				must_confirm_trash = TRUE;
 				to_trash_files = g_list_prepend (to_trash_files, file);
 			} else {
 				must_confirm_delete = TRUE;
@@ -1968,7 +2025,11 @@ delete_job (GIOSchedulerJob *io_job,
 	if (to_trash_files != NULL) {
 		to_trash_files = g_list_reverse (to_trash_files);
 
-		trash_files (common, to_trash_files, &files_skipped);
+		if (! must_confirm_trash || confirm_trash (common, to_trash_files)) {
+			trash_files (common, to_trash_files, &files_skipped);
+		} else {
+			job->user_cancel = TRUE;
+		}
 	}
 
 	g_list_free (to_trash_files);
