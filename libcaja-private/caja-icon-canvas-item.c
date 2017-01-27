@@ -357,9 +357,11 @@ caja_icon_canvas_item_set_property (GObject        *object,
 {
     CajaIconCanvasItem *item;
     CajaIconCanvasItemDetails *details;
+    AtkObject *accessible;
 
     item = CAJA_ICON_CANVAS_ITEM (object);
     details = item->details;
+    accessible = atk_gobject_accessible_for_object (G_OBJECT (item));
 
     switch (property_id)
     {
@@ -375,11 +377,8 @@ caja_icon_canvas_item_set_property (GObject        *object,
         details->editable_text = g_strdup (g_value_get_string (value));
         if (details->text_util)
         {
-            AtkObject *accessible;
-
             gail_text_util_text_setup (details->text_util,
                                        details->editable_text);
-            accessible = atk_gobject_accessible_for_object (G_OBJECT (item));
             g_object_notify (G_OBJECT(accessible), "accessible-name");
         }
 
@@ -416,6 +415,9 @@ caja_icon_canvas_item_set_property (GObject        *object,
         }
         details->is_highlighted_for_selection = g_value_get_boolean (value);
         caja_icon_canvas_item_invalidate_label_size (item);
+
+        atk_object_notify_state_change (accessible, ATK_STATE_SELECTED,
+                                        details->is_highlighted_for_selection);
         break;
 
     case PROP_HIGHLIGHTED_AS_KEYBOARD_FOCUS:
@@ -424,12 +426,8 @@ caja_icon_canvas_item_set_property (GObject        *object,
             return;
         }
         details->is_highlighted_as_keyboard_focus = g_value_get_boolean (value);
-
-        if (details->is_highlighted_as_keyboard_focus)
-        {
-            AtkObject *atk_object = atk_gobject_accessible_for_object (object);
-            atk_focus_tracker_notify (atk_object);
-        }
+        atk_object_notify_state_change (accessible, ATK_STATE_FOCUSED,
+                                        details->is_highlighted_as_keyboard_focus);
         break;
 
     case PROP_HIGHLIGHTED_FOR_DROP:
