@@ -914,10 +914,10 @@ clear_keyboard_focus (CajaIconContainer *container)
 }
 
 static void inline
-emit_atk_focus_tracker_notify (CajaIcon *icon)
+emit_atk_focus_state_change (CajaIcon *icon, gboolean focused)
 {
     AtkObject *atk_object = atk_gobject_accessible_for_object (G_OBJECT (icon->item));
-    atk_focus_tracker_notify (atk_object);
+    atk_object_notify_state_change (atk_object, ATK_STATE_FOCUSED, focused);
 }
 
 /* Set @icon as the icon currently selected for keyboard operations. */
@@ -940,7 +940,7 @@ set_keyboard_focus (CajaIconContainer *container,
                          "highlighted_as_keyboard_focus", 1,
                          NULL);
 
-    emit_atk_focus_tracker_notify (icon);
+    emit_atk_focus_state_change (icon, TRUE);
 }
 
 static void
@@ -2621,7 +2621,7 @@ select_range (CajaIconContainer *container,
 
     if (selection_changed && icon2 != NULL)
     {
-        emit_atk_focus_tracker_notify (icon2);
+        emit_atk_focus_state_change (icon2, TRUE);
     }
     return selection_changed;
 }
@@ -2647,7 +2647,7 @@ select_one_unselect_others (CajaIconContainer *container,
 
     if (selection_changed && icon_to_select != NULL)
     {
-        emit_atk_focus_tracker_notify (icon_to_select);
+        emit_atk_focus_state_change (icon_to_select, TRUE);
         reveal_icon (container, icon_to_select);
     }
     return selection_changed;
