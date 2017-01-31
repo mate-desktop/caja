@@ -103,7 +103,6 @@ AC_DEFINE([HAVE_GTK_MULTIHEAD], [], [needed for egg-screen-exec functions])
 
 AH_TEMPLATE([HAVE_STARTUP_NOTIFICATION])
 AH_TEMPLATE([HAVE_EXIF])
-AH_TEMPLATE([HAVE_RENDER])
 
 AM_GLIB_GNU_GETTEXT
 GLIB_DEFINE_LOCALEDIR(MATELOCALEDIR)
@@ -263,19 +262,6 @@ AC_TRY_RUN([#include <time.h>
             ],
     AC_DEFINE(HAVE_STRFTIME_EXTENSION, 1, [Define if strftime supports %E and %O modifiers.])
 )
-
-dnl ===========================================================================
-
-#
-# Checks for Xft/XRender
-#
-
-PKG_CHECK_MODULES([RENDER], [xrender xext], [have_render=yes], [have_render=no])
-if test x$have_render = xyes; then
-  AC_DEFINE(HAVE_RENDER)
-  AC_SUBST(RENDER_CFLAGS)
-  AC_SUBST(RENDER_LIBS)
-fi
 
 dnl ==========================================================================
 

@@ -37,14 +37,7 @@
 #include "eel-canvas-rect-ellipse.h"
 #include <string.h>
 
-#ifdef HAVE_RENDER
-#include <gdk/gdkx.h>
-#include <X11/extensions/Xrender.h>
-#endif
-
 /* Base class for rectangle and ellipse item types */
-
-#define noVERBOSE
 
 enum
 {
@@ -485,7 +478,6 @@ eel_canvas_re_bounds (EelCanvasItem *item, double *x1, double *y1, double *x2, d
 static void eel_canvas_rect_class_init (EelCanvasRectClass *klass);
 static void eel_canvas_rect_init (EelCanvasRect *rect);
 static void eel_canvas_rect_finalize (GObject *object);
-static void eel_canvas_rect_realize  (EelCanvasItem *item);
 
 static void   eel_canvas_rect_draw   (EelCanvasItem *item, cairo_t *cr, cairo_region_t *region);
 
@@ -497,11 +489,6 @@ struct _EelCanvasRectPrivate
     Rect last_update_rect;
     Rect last_outline_update_rect;
     int last_outline_update_width;
-
-#ifdef HAVE_RENDER
-    gboolean use_render;
-    XRenderPictFormat *format;
-#endif
 };
 
 GType
@@ -545,7 +532,6 @@ eel_canvas_rect_class_init (EelCanvasRectClass *klass)
     item_class->draw = eel_canvas_rect_draw;
     item_class->point = eel_canvas_rect_point;
     item_class->update = eel_canvas_rect_update;
-    item_class->realize = eel_canvas_rect_realize;
 
     G_OBJECT_CLASS (klass)->finalize = eel_canvas_rect_finalize;
 
@@ -569,38 +555,6 @@ eel_canvas_rect_finalize (GObject *object)
 
     G_OBJECT_CLASS (rect_parent_class)->finalize (object);
 }
-
-static void
-eel_canvas_rect_realize  (EelCanvasItem *item)
-{
-#ifdef HAVE_RENDER
-    EelCanvasRectPrivate *priv;
-    int event_base, error_base;
-    Display *dpy;
-
-    priv = EEL_CANVAS_RECT (item)->priv;
-
-    dpy = GDK_WINDOW_XDISPLAY (gtk_widget_get_window (GTK_WIDGET (item->canvas)));
-    priv->use_render = XRenderQueryExtension (dpy, &event_base, &error_base);
-
-    if (priv->use_render)
-    {
-        GdkVisual *gdk_visual;
-        Visual *visual;
-
-        gdk_visual = gtk_widget_get_visual (GTK_WIDGET (item->canvas));
-        visual = gdk_x11_visual_get_xvisual (gdk_visual);
-
-        priv->format = XRenderFindVisualFormat (dpy, visual);
-    }
-#endif
-
-    if (EEL_CANVAS_ITEM_CLASS (rect_parent_class)->realize)
-    {
-        (* EEL_CANVAS_ITEM_CLASS (rect_parent_class)->realize) (item);
-    }
-}
-
 
 static void
 eel_canvas_set_source_color (cairo_t *cr,
