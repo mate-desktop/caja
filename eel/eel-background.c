@@ -137,20 +137,20 @@ eel_background_unrealize (EelBackground *self)
 
     self->details->bg_entire_width = 0;
     self->details->bg_entire_height = 0;
-    self->details->default_color.red = 0xffff;
-    self->details->default_color.green = 0xffff;
-    self->details->default_color.blue = 0xffff;
+    self->details->default_color.red = 1.0;
+    self->details->default_color.green = 1.0;
+    self->details->default_color.blue = 1.0;
+    self->details->default_color.alpha = 1.0;
 }
 
-#define CLAMP_COLOR(v) (t = (v), CLAMP (t, 0, G_MAXUSHORT))
+#define CLAMP_COLOR(v) (CLAMP ((v), 0, 1))
 #define SATURATE(v) ((1.0 - saturation) * intensity + saturation * (v))
 
 static void
 make_color_inactive (EelBackground *self,
-		     GdkRGBA      *color)
+                     GdkRGBA       *color)
 {
     double intensity, saturation;
-    gushort t;
 
     if (!self->details->is_active) {
         saturation = 0.7;
@@ -159,7 +159,7 @@ make_color_inactive (EelBackground *self,
         color->green = SATURATE (color->green);
         color->blue = SATURATE (color->blue);
 
-        if (intensity > G_MAXUSHORT / 2)
+        if (intensity > 0.5)
         {
            color->red *= 0.9;
            color->green *= 0.9;
@@ -785,9 +785,10 @@ eel_background_init (EelBackground *self)
         			       EelBackgroundDetails);
 
     self->details->bg = mate_bg_new ();
-    self->details->default_color.red = 0xffff;
-    self->details->default_color.green = 0xffff;
-    self->details->default_color.blue = 0xffff;
+    self->details->default_color.red = 1.0;
+    self->details->default_color.green = 1.0;
+    self->details->default_color.blue = 1.0;
+    self->details->default_color.alpha = 1.0;
     self->details->is_active = TRUE;
 
     g_signal_connect (self->details->bg, "changed",
