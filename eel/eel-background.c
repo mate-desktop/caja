@@ -157,12 +157,24 @@ eel_background_unrealize (EelBackground *self)
 
     self->details->bg_entire_width = 0;
     self->details->bg_entire_height = 0;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    self->details->default_color.red = 1.0;
+    self->details->default_color.green = 1.0;
+    self->details->default_color.blue = 1.0;
+    self->details->default_color.alpha = 1.0;
+#else
     self->details->default_color.red = 0xffff;
     self->details->default_color.green = 0xffff;
     self->details->default_color.blue = 0xffff;
+#endif
 }
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+#define CLAMP_COLOR(v) (CLAMP ((v), 0, 1))
+#else
 #define CLAMP_COLOR(v) (t = (v), CLAMP (t, 0, G_MAXUSHORT))
+#endif
+
 #define SATURATE(v) ((1.0 - saturation) * intensity + saturation * (v))
 
 static void
@@ -174,7 +186,9 @@ make_color_inactive (EelBackground *self,
 #endif
 {
     double intensity, saturation;
+#if !GTK_CHECK_VERSION (3, 0, 0)
     gushort t;
+#endif
 
     if (!self->details->is_active) {
         saturation = 0.7;
@@ -183,7 +197,11 @@ make_color_inactive (EelBackground *self,
         color->green = SATURATE (color->green);
         color->blue = SATURATE (color->blue);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+        if (intensity > 0.5)
+#else
         if (intensity > G_MAXUSHORT / 2)
+#endif
         {
            color->red *= 0.9;
            color->green *= 0.9;
@@ -928,9 +946,16 @@ eel_background_init (EelBackground *self)
         			       EelBackgroundDetails);
 
     self->details->bg = mate_bg_new ();
+#if GTK_CHECK_VERSION (3, 0, 0)
+    self->details->default_color.red = 1.0;
+    self->details->default_color.green = 1.0;
+    self->details->default_color.blue = 1.0;
+    self->details->default_color.alpha = 1.0;
+#else
     self->details->default_color.red = 0xffff;
     self->details->default_color.green = 0xffff;
     self->details->default_color.blue = 0xffff;
+#endif
     self->details->is_active = TRUE;
 
     g_signal_connect (self->details->bg, "changed",

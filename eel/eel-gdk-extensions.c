@@ -343,6 +343,7 @@ eel_gdk_rgba_parse_with_white_default (GdkRGBA *color,
         color->red = 1.0;
         color->green = 1.0;
         color->blue = 1.0;
+        color->alpha = 1.0;
     }
 }
 #else
@@ -494,9 +495,9 @@ eel_gdk_rgba_is_dark (const GdkRGBA *color)
 {
     int intensity;
 
-    intensity = ((((int) (color->red) >> 8) * 77)
-                 + (((int) (color->green) >> 8) * 150)
-                 + (((int) (color->blue) >> 8) * 28)) >> 8;
+    intensity = (((guint) (color->red * 0xff) * 77)
+                 + ((guint) (color->green * 0xff) * 150)
+                 + ((guint) (color->blue * 0xff) * 28)) >> 8;
 #else
 /**
  * eel_gdk_color_is_dark:
