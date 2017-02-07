@@ -4712,7 +4712,7 @@ reset_open_with_menu (FMDirectoryView *view, GList *selection)
 
 		file = CAJA_FILE (node->data);
 
-		other_applications_visible &= (!caja_file_is_directory (file));
+		other_applications_visible;
 	}
 
 	default_app = NULL;
