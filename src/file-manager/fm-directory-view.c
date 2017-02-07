@@ -4708,13 +4708,6 @@ reset_open_with_menu (FMDirectoryView *view, GList *selection)
 	other_applications_visible = (selection != NULL);
 	filter_default = (selection != NULL);
 
-	for (node = selection; node != NULL; node = node->next) {
-
-		file = CAJA_FILE (node->data);
-
-		other_applications_visible;
-	}
-
 	default_app = NULL;
 	if (filter_default) {
 		default_app = caja_mime_get_default_application_for_files (selection);
