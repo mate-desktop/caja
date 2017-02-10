@@ -38,6 +38,7 @@
 #if GTK_CHECK_VERSION (3, 22, 0)
 #define MATE_DESKTOP_USE_UNSTABLE_API
 #include <libmate-desktop/mate-bg.h>
+#include <libcaja-private/caja-global-preferences.h>
 #endif
 
 struct CajaDesktopWindowDetails
@@ -60,6 +61,12 @@ static void
 background_changed (CajaDesktopWindow *window)
 {
     GdkScreen *screen = gdk_screen_get_default ();
+    gboolean has_icons = TRUE;
+    has_icons = g_settings_get_boolean (mate_background_preferences, 
+                                       MATE_BG_KEY_SHOW_DESKTOP );
+    if (has_icons == FALSE){
+        return; 
+    }
 
     if (window->details->surface) {
         cairo_surface_destroy (window->details->surface);
