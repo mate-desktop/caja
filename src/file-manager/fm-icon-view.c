@@ -30,9 +30,7 @@
 #include "fm-desktop-icon-view.h"
 #include "fm-error-reporting.h"
 #include <stdlib.h>
-#if !GTK_CHECK_VERSION(3, 21, 0)
 #include <eel/eel-background.h>
-#endif
 #include <eel/eel-glib-extensions.h>
 #include <eel/eel-gtk-extensions.h>
 #include <eel/eel-gtk-macros.h>
@@ -45,9 +43,7 @@
 #include <glib/gi18n.h>
 #include <gio/gio.h>
 #include <libcaja-private/caja-clipboard-monitor.h>
-#if !GTK_CHECK_VERSION(3, 21, 0)
 #include <libcaja-private/caja-directory-background.h>
-#endif
 #include <libcaja-private/caja-directory.h>
 #include <libcaja-private/caja-dnd.h>
 #include <libcaja-private/caja-file-utilities.h>
@@ -1281,7 +1277,6 @@ fm_icon_view_begin_loading (FMDirectoryView *view)
 
     /* kill any sound preview process that is ongoing */
     preview_audio (icon_view, NULL, FALSE);
-#if !GTK_CHECK_VERSION(3, 21, 0)
     /* FIXME bugzilla.gnome.org 45060: Should use methods instead
      * of hardcoding desktop knowledge in here.
      */
@@ -1305,7 +1300,6 @@ fm_icon_view_begin_loading (FMDirectoryView *view)
         caja_connect_background_to_file_metadata (icon_container, file, default_action);
     }
 
-#endif
     /* Set up the zoom level from the metadata. */
     if (fm_directory_view_supports_zooming (FM_DIRECTORY_VIEW (icon_view)))
     {
@@ -1511,7 +1505,6 @@ fm_icon_view_can_zoom_out (FMDirectoryView *view)
            > CAJA_ZOOM_LEVEL_SMALLEST;
 }
 
-#if !GTK_CHECK_VERSION(3, 21, 0)
 static GtkWidget *
 fm_icon_view_get_background_widget (FMDirectoryView *view)
 {
@@ -1519,7 +1512,6 @@ fm_icon_view_get_background_widget (FMDirectoryView *view)
 
     return GTK_WIDGET (get_icon_container (FM_ICON_VIEW (view)));
 }
-#endif
 
 static gboolean
 fm_icon_view_is_empty (FMDirectoryView *view)
@@ -3199,9 +3191,7 @@ fm_icon_view_class_init (FMIconViewClass *klass)
     fm_directory_view_class->clear = fm_icon_view_clear;
     fm_directory_view_class->end_loading = fm_icon_view_end_loading;
     fm_directory_view_class->file_changed = fm_icon_view_file_changed;
-#if !GTK_CHECK_VERSION(3, 21, 0)
     fm_directory_view_class->get_background_widget = fm_icon_view_get_background_widget;
-#endif
     fm_directory_view_class->get_selected_icon_locations = fm_icon_view_get_selected_icon_locations;
     fm_directory_view_class->get_selection = fm_icon_view_get_selection;
     fm_directory_view_class->get_selection_for_file_transfer = fm_icon_view_get_selection;
