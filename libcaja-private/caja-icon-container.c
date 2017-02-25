@@ -4529,15 +4529,12 @@ realize (GtkWidget *widget)
     GTK_WIDGET_CLASS (caja_icon_container_parent_class)->realize (widget);
 
     container = CAJA_ICON_CONTAINER (widget);
-     /* Unless GTK 3.21 or later is in use and the desktop must be transparent*/
-#if !GTK_CHECK_VERSION (3, 22, 0)
     /* Ensure that the desktop window is native so the background
        set on it is drawn by X. */
     if (container->details->is_desktop)
     {
         gdk_x11_window_get_xid (gtk_layout_get_bin_window (GTK_LAYOUT (widget)));
     }
-#endif
     /* Set up DnD.  */
     caja_icon_dnd_init (container);
 
@@ -6072,14 +6069,12 @@ popup_menu (GtkWidget *widget)
     return TRUE;
 }
 
-#if !GTK_CHECK_VERSION (3, 22, 0)
 static void
 draw_canvas_background (EelCanvas *canvas,
                         cairo_t   *cr)
 {
     /* Don't chain up to the parent to avoid clearing and redrawing */
 }
-#endif
 
 static void
 grab_notify_cb  (GtkWidget        *widget,
@@ -6525,9 +6520,7 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
     gtk_widget_class_set_accessible_type (widget_class, caja_icon_container_accessible_get_type ());
 
     canvas_class = EEL_CANVAS_CLASS (class);
-#if !GTK_CHECK_VERSION (3, 22, 0)
     canvas_class->draw_background = draw_canvas_background;
-#endif
     class->start_interactive_search = caja_icon_container_start_interactive_search;
 
     gtk_widget_class_install_style_property (widget_class,

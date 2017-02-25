@@ -61,9 +61,7 @@
 #include <libcaja-private/caja-desktop-directory.h>
 #include <libcaja-private/caja-extensions.h>
 #include <libcaja-private/caja-search-directory.h>
-#if !GTK_CHECK_VERSION (3, 22, 0)
 #include <libcaja-private/caja-directory-background.h>
-#endif
 #include <libcaja-private/caja-directory.h>
 #include <libcaja-private/caja-dnd.h>
 #include <libcaja-private/caja-file-attributes.h>
@@ -419,9 +417,7 @@ EEL_IMPLEMENT_MUST_OVERRIDE_SIGNAL (fm_directory_view, can_zoom_in)
 EEL_IMPLEMENT_MUST_OVERRIDE_SIGNAL (fm_directory_view, can_zoom_out)
 EEL_IMPLEMENT_MUST_OVERRIDE_SIGNAL (fm_directory_view, clear)
 EEL_IMPLEMENT_MUST_OVERRIDE_SIGNAL (fm_directory_view, file_changed)
-#if !GTK_CHECK_VERSION (3, 22, 0)
 EEL_IMPLEMENT_MUST_OVERRIDE_SIGNAL (fm_directory_view, get_background_widget)
-#endif
 EEL_IMPLEMENT_MUST_OVERRIDE_SIGNAL (fm_directory_view, get_selection)
 EEL_IMPLEMENT_MUST_OVERRIDE_SIGNAL (fm_directory_view, get_selection_for_file_transfer)
 EEL_IMPLEMENT_MUST_OVERRIDE_SIGNAL (fm_directory_view, get_item_count)
@@ -3616,7 +3612,6 @@ fm_directory_view_can_zoom_out (FMDirectoryView *view)
 		 can_zoom_out, (view));
 }
 
-#if !GTK_CHECK_VERSION (3, 22, 0)
 GtkWidget *
 fm_directory_view_get_background_widget (FMDirectoryView *view)
 {
@@ -3642,7 +3637,6 @@ real_set_is_active (FMDirectoryView *view,
 	bg = fm_directory_view_get_background (view);
 	eel_background_set_active (bg, is_active);
 }
-#endif
 
 static void
 fm_directory_view_set_is_active (FMDirectoryView *view,
@@ -7670,11 +7664,9 @@ real_merge_menus (FMDirectoryView *view)
 
 	ui = caja_ui_string_get ("caja-directory-view-ui.xml");
 	view->details->dir_merge_id = gtk_ui_manager_add_ui_from_string (ui_manager, ui, -1, NULL);
-#if !GTK_CHECK_VERSION (3, 22, 0)
 	g_signal_connect_object (fm_directory_view_get_background (view), "settings_changed",
 				 G_CALLBACK (schedule_update_menus), G_OBJECT (view),
 				 G_CONNECT_SWAPPED);
-#endif
 	view->details->scripts_invalid = TRUE;
 	view->details->templates_invalid = TRUE;
 }
@@ -11028,9 +11020,7 @@ fm_directory_view_class_init (FMDirectoryViewClass *klass)
 	klass->merge_menus = real_merge_menus;
 	klass->unmerge_menus = real_unmerge_menus;
 	klass->update_menus = real_update_menus;
-#if !GTK_CHECK_VERSION (3, 22, 0)
 	klass->set_is_active = real_set_is_active;
-#endif
 	/* Function pointers that subclasses must override */
 	EEL_ASSIGN_MUST_OVERRIDE_SIGNAL (klass, fm_directory_view, add_file);
 	EEL_ASSIGN_MUST_OVERRIDE_SIGNAL (klass, fm_directory_view, bump_zoom_level);
@@ -11038,9 +11028,7 @@ fm_directory_view_class_init (FMDirectoryViewClass *klass)
 	EEL_ASSIGN_MUST_OVERRIDE_SIGNAL (klass, fm_directory_view, can_zoom_out);
 	EEL_ASSIGN_MUST_OVERRIDE_SIGNAL (klass, fm_directory_view, clear);
 	EEL_ASSIGN_MUST_OVERRIDE_SIGNAL (klass, fm_directory_view, file_changed);
-#if !GTK_CHECK_VERSION (3, 22, 0)
 	EEL_ASSIGN_MUST_OVERRIDE_SIGNAL (klass, fm_directory_view, get_background_widget);
-#endif
 	EEL_ASSIGN_MUST_OVERRIDE_SIGNAL (klass, fm_directory_view, get_selection);
 	EEL_ASSIGN_MUST_OVERRIDE_SIGNAL (klass, fm_directory_view, get_selection_for_file_transfer);
 	EEL_ASSIGN_MUST_OVERRIDE_SIGNAL (klass, fm_directory_view, get_item_count);
