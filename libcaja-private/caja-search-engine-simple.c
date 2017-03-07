@@ -38,6 +38,7 @@ typedef struct
     GCancellable *cancellable;
 
     GList *mime_types;
+    GList *tags;
     char **words;
     GList *found_list;
 
@@ -121,6 +122,7 @@ search_thread_data_new (CajaSearchEngineSimple *engine,
     g_free (lower);
     g_free (normalized);
 
+    data->tags = caja_query_get_tags (query);
     data->mime_types = caja_query_get_mime_types (query);
 
     data->cancellable = g_cancellable_new ();
@@ -137,6 +139,7 @@ search_thread_data_free (SearchThreadData *data)
     g_hash_table_destroy (data->visited);
     g_object_unref (data->cancellable);
     g_strfreev (data->words);
+    g_list_free_full (data->tags, g_free);
     g_list_free_full (data->mime_types, g_free);
     g_list_free_full (data->uri_hits, g_free);
     g_free (data);
@@ -203,6 +206,8 @@ send_batch (SearchThreadData *data)
     data->uri_hits = NULL;
 }
 
+#define G_FILE_ATTRIBUTE_XATTR_XDG_TAGS "xattr::xdg.tags"
+
 #define STD_ATTRIBUTES \
 	G_FILE_ATTRIBUTE_STANDARD_NAME "," \
 	G_FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME "," \
@@ -210,13 +215,131 @@ send_batch (SearchThreadData *data)
 	G_FILE_ATTRIBUTE_STANDARD_TYPE "," \
 	G_FILE_ATTRIBUTE_ID_FILE
 
+
+/* Stolen code
+ * file: glocalfileinfo.c
+ * function: hex_unescape_string
+ * GIO - GLib Input, Output and Streaming Library
+ */
+static char *
+hex_unescape_string (const char *str,
+                     int        *out_len,
+                     gboolean   *free_return)
+{
+    int i;
+    char *unescaped_str, *p;
+    unsigned char c;
+    int len;
+
+    len = strlen (str);
+
+    if (strchr (str, '\\') == NULL)
+    {
+        if (out_len)
+            *out_len = len;
+        *free_return = FALSE;
+        return (char *)str;
+    }
+
+    unescaped_str = g_malloc (len + 1);
+
+    p = unescaped_str;
+    for (i = 0; i < len; i++)
+    {
+        if (str[i] == '\\' &&
+            str[i+1] == 'x' &&
+            len - i >= 4)
+        {
+            c =
+                (g_ascii_xdigit_value (str[i+2]) << 4) |
+                 g_ascii_xdigit_value (str[i+3]);
+            *p++ = c;
+            i += 3;
+        }
+        else
+            *p++ = str[i];
+    }
+    *p++ = 0;
+
+    if (out_len)
+        *out_len = p - unescaped_str;
+    *free_return = TRUE;
+    return unescaped_str;
+}
+/* End of stolen code */
+
+static inline gchar **
+get_tags_from_info (GFileInfo *info)
+{
+    char **result;
+    const gchar *escaped_tags_string
+        = g_file_info_get_attribute_string (info, G_FILE_ATTRIBUTE_XATTR_XDG_TAGS);
+
+    gboolean new_created;
+    gchar *tags_string = hex_unescape_string (escaped_tags_string,
+                                              NULL,
+                                              &new_created);
+
+    gchar *normalized = g_utf8_normalize (tags_string, -1, G_NORMALIZE_NFD);
+
+    if (new_created)
+        g_free (tags_string);
+
+    gchar *lower_case = g_utf8_strdown (normalized, -1);
+    g_free (normalized);
+
+    result = g_strsplit (lower_case, ",", -1);
+    g_free (lower_case);
+
+    return result;
+}
+
+static inline gboolean
+file_has_all_tags (GFileInfo *info, GList *tags)
+{
+    if (g_list_length (tags) == 0) {
+        return TRUE;
+    }
+
+    if (!g_file_info_has_attribute (info, G_FILE_ATTRIBUTE_XATTR_XDG_TAGS))
+    {
+        return FALSE;
+    }
+
+    char **file_tags = get_tags_from_info (info);
+
+    guint file_tags_len = g_strv_length (file_tags);
+    if (file_tags_len < g_list_length (tags)) {
+        g_strfreev (file_tags);
+        return FALSE;
+    }
+
+    for (GList *l = tags; l != NULL; l = l->next) {
+        gboolean found = FALSE;
+        for (int i = 0; i < file_tags_len; ++i) {
+            if (g_strcmp0 (l->data, file_tags[i]) == 0) {
+                found = TRUE;
+                break;
+            }
+        }
+
+        if (found == FALSE) {
+            g_strfreev (file_tags);
+            return FALSE;
+        }
+    }
+
+    g_strfreev (file_tags);
+    return TRUE;
+}
+
 static void
 visit_directory (GFile *dir, SearchThreadData *data)
 {
     GFileEnumerator *enumerator;
     GFileInfo *info;
     GFile *child;
-    const char *mime_type, *display_name;
+    const char *tag, *mime_type, *display_name;
     char *lower_name, *normalized;
     gboolean hit;
     int i;
@@ -224,14 +347,27 @@ visit_directory (GFile *dir, SearchThreadData *data)
     const char *id;
     gboolean visited;
 
-    enumerator = g_file_enumerate_children (dir,
-                                            data->mime_types != NULL ?
-                                            STD_ATTRIBUTES ","
-                                            G_FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE
-                                            :
-                                            STD_ATTRIBUTES
-                                            ,
-                                            0, data->cancellable, NULL);
+    const char *attributes;
+    if (data->mime_types != NULL) {
+        if (data->tags != NULL) {
+            attributes = STD_ATTRIBUTES ","
+                         G_FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE ","
+                         G_FILE_ATTRIBUTE_XATTR_XDG_TAGS;
+        } else {
+            attributes = STD_ATTRIBUTES ","
+                         G_FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE;
+        }
+    } else {
+        if (data->tags != NULL) {
+            attributes = STD_ATTRIBUTES ","
+                         G_FILE_ATTRIBUTE_XATTR_XDG_TAGS;
+        } else {
+            attributes = STD_ATTRIBUTES;
+        }
+    }
+
+    enumerator = g_file_enumerate_children (dir, attributes, 0,
+                                            data->cancellable, NULL);
 
     if (enumerator == NULL)
     {
@@ -279,6 +415,11 @@ visit_directory (GFile *dir, SearchThreadData *data)
                     break;
                 }
             }
+        }
+
+        if (hit && data->tags)
+        {
+            hit = file_has_all_tags (info, data->tags);
         }
 
         child = g_file_get_child (dir, g_file_info_get_name (info));

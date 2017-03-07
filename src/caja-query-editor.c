@@ -38,6 +38,7 @@ typedef enum
 {
     CAJA_QUERY_EDITOR_ROW_LOCATION,
     CAJA_QUERY_EDITOR_ROW_TYPE,
+    CAJA_QUERY_EDITOR_ROW_TAGS,
 
     CAJA_QUERY_EDITOR_ROW_LAST
 } CajaQueryEditorRowType;
@@ -95,6 +96,8 @@ static guint signals[LAST_SIGNAL] = { 0 };
 static void  caja_query_editor_class_init       (CajaQueryEditorClass *class);
 static void  caja_query_editor_init             (CajaQueryEditor      *editor);
 
+static void go_search_cb (GtkButton *clicked_button, CajaQueryEditor *editor);
+
 static void entry_activate_cb (GtkWidget *entry, CajaQueryEditor *editor);
 static void entry_changed_cb  (GtkWidget *entry, CajaQueryEditor *editor);
 static void caja_query_editor_changed_force (CajaQueryEditor *editor,
@@ -109,6 +112,14 @@ static void       location_row_add_to_query    (CajaQueryEditorRow *row,
 static void       location_row_free_data       (CajaQueryEditorRow *row);
 static void       location_add_rows_from_query (CajaQueryEditor    *editor,
         CajaQuery          *query);
+
+static GtkWidget *tags_row_create_widgets      (CajaQueryEditorRow *row);
+static void       tags_row_add_to_query        (CajaQueryEditorRow *row,
+                                                CajaQuery          *query);
+static void       tags_row_free_data           (CajaQueryEditorRow *row);
+static void       tags_add_rows_from_query     (CajaQueryEditor    *editor,
+                                                CajaQuery          *query);
+
 static GtkWidget *type_row_create_widgets      (CajaQueryEditorRow *row);
 static void       type_row_add_to_query        (CajaQueryEditorRow *row,
         CajaQuery          *query);
@@ -134,6 +145,13 @@ static CajaQueryEditorRowOps row_type[] =
         type_row_free_data,
         type_add_rows_from_query
     },
+    {
+        N_("Tags"),
+        tags_row_create_widgets,
+        tags_row_add_to_query,
+        tags_row_free_data,
+        tags_add_rows_from_query
+    }
 };
 
 EEL_CLASS_BOILERPLATE (CajaQueryEditor,
@@ -342,6 +360,111 @@ location_add_rows_from_query (CajaQueryEditor    *editor,
                                          folder);
 
     g_free (folder);
+}
+
+/* Tags */
+static void
+tags_entry_changed_cb (GtkWidget *entry, gpointer *data)
+{
+  /* remove commas from string */
+  const gchar *text = gtk_entry_get_text ( GTK_ENTRY (entry));
+  if (g_strrstr (text, ",") == NULL) {
+    return;
+  }
+
+  gchar **words = g_strsplit (text, ",", -1);
+  gchar *sanitized = g_strjoinv ("", words);
+  g_strfreev (words);
+
+  gtk_entry_set_text (GTK_ENTRY (entry), sanitized);
+  g_free(sanitized);
+}
+
+#define MAX_TAGS_ENTRY_LEN 4096 // arbitrary value.
+
+static GtkWidget *
+tags_row_create_widgets (CajaQueryEditorRow *row)
+{
+    GtkWidget *entry = gtk_entry_new();
+    gtk_entry_set_max_length (GTK_ENTRY (entry), MAX_TAGS_ENTRY_LEN);
+    gtk_widget_set_tooltip_text (entry,
+        _("Tags separated by spaces. "
+          "Matches files that contains ALL specified tags."));
+
+    gtk_entry_set_placeholder_text (GTK_ENTRY (entry),
+        _("Tags separated by spaces. "
+          "Matches files that contains ALL specified tags."));
+
+    gtk_widget_show (entry);
+    gtk_box_pack_start (GTK_BOX (row->hbox), entry, TRUE, TRUE, 0);
+    g_signal_connect (entry, "changed", G_CALLBACK (tags_entry_changed_cb), entry);
+    g_signal_connect (entry, "activate", G_CALLBACK (go_search_cb), row->editor);
+
+    return entry;
+}
+
+static void
+tags_row_add_to_query (CajaQueryEditorRow *row,
+                           CajaQuery      *query)
+{
+    GtkEntry *entry = GTK_ENTRY (row->type_widget);
+    const gchar *tags = gtk_entry_get_text (entry);
+
+    char **strv = g_strsplit (tags, " ", -1);
+    guint len = g_strv_length (strv);
+    for (int i=0; i<len; ++i) {
+        strv[i] = g_strstrip (strv[i]);
+        if (strlen (strv[i]) > 0) {
+            caja_query_add_tag (query, strv[i]);
+        }
+    }
+    g_strfreev (strv);
+}
+
+static void
+tags_row_free_data (CajaQueryEditorRow *row)
+{
+}
+
+gchar *
+xattr_tags_list_to_str (const GList *tags)
+{
+    gchar *result = NULL;
+
+    const GList *tags_iter = NULL;
+    for (tags_iter = tags; tags_iter; tags_iter = tags_iter->next) {
+        gchar *tmp;
+
+        if (result != NULL) {
+            tmp = g_strconcat (result, ",", tags_iter->data, NULL);
+            g_free (result);
+        } else {
+            tmp = g_strdup (tags_iter->data);
+        }
+
+        result = tmp;
+    }
+
+    return result;
+}
+
+static void
+tags_add_rows_from_query (CajaQueryEditor *editor,
+                              CajaQuery   *query)
+{
+    GList *tags = caja_query_get_tags (query);
+    if (tags == NULL) {
+        return;
+    }
+
+    CajaQueryEditorRow *row;
+    row = caja_query_editor_add_row (editor, CAJA_QUERY_EDITOR_ROW_TAGS);
+
+    const gchar *tags_str = xattr_tags_list_to_str (tags);
+    g_list_free_full (tags, g_free);
+
+    gtk_entry_set_text (GTK_ENTRY (row->type_widget), tags_str);
+    g_free (tags_str);
 }
 
 
