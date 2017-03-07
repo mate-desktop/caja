@@ -57,6 +57,10 @@ void           caja_query_set_text           (CajaQuery *query, const char *text
 char *         caja_query_get_location       (CajaQuery *query);
 void           caja_query_set_location       (CajaQuery *query, const char *uri);
 
+GList *        caja_query_get_tags           (CajaQuery *query);
+void           caja_query_set_tags           (CajaQuery *query, GList *tags);
+void           caja_query_add_tag            (CajaQuery *query, const char *tag);
+
 GList *        caja_query_get_mime_types     (CajaQuery *query);
 void           caja_query_set_mime_types     (CajaQuery *query, GList *mime_types);
 void           caja_query_add_mime_type      (CajaQuery *query, const char *mime_type);

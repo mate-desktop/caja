@@ -35,6 +35,7 @@ struct CajaQueryDetails
     char *text;
     char *location_uri;
     GList *mime_types;
+    GList *tags;
 };
 
 static void  caja_query_class_init       (CajaQueryClass *class);
@@ -129,6 +130,29 @@ caja_query_add_mime_type (CajaQuery *query, const char *mime_type)
                                  g_strdup (mime_type));
 }
 
+GList *
+caja_query_get_tags (CajaQuery *query)
+{
+    return eel_g_str_list_copy (query->details->tags);
+}
+
+void
+caja_query_set_tags (CajaQuery *query, GList *tags)
+{
+    g_list_free_full (query->details->tags, g_free);
+    query->details->tags = eel_g_str_list_copy (tags);
+}
+
+void
+caja_query_add_tag (CajaQuery *query, const char *tag)
+{
+    gchar *normalized = g_utf8_normalize (tag, -1, G_NORMALIZE_NFD);
+    gchar *lower_case = g_utf8_strdown (normalized, -1);
+
+    g_free (normalized);
+    query->details->tags = g_list_append (query->details->tags, lower_case);
+}
+
 char *
 caja_query_to_readable_string (CajaQuery *query)
 {
@@ -196,6 +220,8 @@ typedef struct
     gboolean in_location;
     gboolean in_mimetypes;
     gboolean in_mimetype;
+    gboolean in_tags;
+    gboolean in_tag;
 } ParserInfo;
 
 static void
@@ -218,6 +244,10 @@ start_element_cb (GMarkupParseContext *ctx,
         info->in_mimetypes = TRUE;
     else if (strcmp (element_name, "mimetype") == 0)
         info->in_mimetype = TRUE;
+    else if (strcmp (element_name, "tags") == 0)
+        info->in_tags = TRUE;
+    else if (strcmp (element_name, "tag") == 0)
+        info->in_tag = TRUE;
 }
 
 static void
@@ -238,6 +268,10 @@ end_element_cb (GMarkupParseContext *ctx,
         info->in_mimetypes = FALSE;
     else if (strcmp (element_name, "mimetype") == 0)
         info->in_mimetype = FALSE;
+    else if (strcmp (element_name, "tags") == 0)
+        info->in_tags = FALSE;
+    else if (strcmp (element_name, "tag") == 0)
+        info->in_tag = FALSE;
 }
 
 static void
@@ -267,6 +301,10 @@ text_cb (GMarkupParseContext *ctx,
     else if (info->in_mimetypes && info->in_mimetype)
     {
         caja_query_add_mime_type (info->query, t);
+    }
+    else if (info->in_tags && info->in_tag)
+    {
+        caja_query_add_tag (info->query, t);
     }
 
     g_free (t);
@@ -339,6 +377,7 @@ caja_query_to_xml (CajaQuery *query)
     char *text;
     char *uri;
     char *mimetype;
+    char *tag;
     GList *l;
 
     xml = g_string_new ("");
@@ -367,6 +406,18 @@ caja_query_to_xml (CajaQuery *query)
             g_free (mimetype);
         }
         g_string_append (xml, "   </mimetypes>\n");
+    }
+
+    if (query->details->tags)
+    {
+        g_string_append (xml, "   <tags>\n");
+        for (l = query->details->tags; l != NULL; l = l->next)
+        {
+          tag = g_markup_escape_text (l->data, -1);
+            g_string_append_printf (xml, "      <tag>%s</tag>\n", tag);
+            g_free (tag);
+        }
+        g_string_append (xml, "   </tags>\n");
     }
 
     g_string_append (xml, "</query>\n");
