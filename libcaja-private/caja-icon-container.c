@@ -2105,6 +2105,7 @@ lay_down_icons_vertical_desktop (CajaIconContainer *container, GList *icons)
     int total, new_length, placed;
     CajaIcon *icon;
     int height, max_width, column_width, icon_width, icon_height;
+    int screen_height;
     int x, y, x1, x2, y1, y2;
     EelDRect icon_rect;
     GtkAllocation allocation;
@@ -2112,6 +2113,9 @@ lay_down_icons_vertical_desktop (CajaIconContainer *container, GList *icons)
     /* Get container dimensions */
     gtk_widget_get_allocation (GTK_WIDGET (container), &allocation);
     height = CANVAS_HEIGHT(container, allocation);
+    screen_height = gdk_screen_get_height (gtk_widget_get_screen(GTK_WIDGET(container)));
+    if (height > screen_height)
+        height = screen_height;
 
     /* Determine which icons have and have not been placed */
     placed_icons = NULL;

@@ -313,6 +313,13 @@ fm_desktop_icon_view_class_init (FMDesktopIconViewClass *class)
 }
 
 static void
+fm_desktop_icon_view_handle_size_changed (GdkScreen *screen,
+        FMDesktopIconView *desktop_icon_view)
+{
+    FM_ICON_VIEW_CLASS (fm_desktop_icon_view_parent_class)->clean_up (desktop_icon_view);
+}
+
+static void
 fm_desktop_icon_view_handle_middle_click (CajaIconContainer *icon_container,
         GdkEventButton *event,
         FMDesktopIconView *desktop_icon_view)
@@ -652,6 +659,8 @@ fm_desktop_icon_view_init (FMDesktopIconView *desktop_icon_view)
                                          CAJA_ICON_LAYOUT_T_B_R_L :
                                          CAJA_ICON_LAYOUT_T_B_L_R);
 
+    g_signal_connect_after (gtk_widget_get_screen(GTK_WIDGET(icon_container)), "size_changed",
+                            G_CALLBACK (fm_desktop_icon_view_handle_size_changed), desktop_icon_view);
     g_signal_connect_object (icon_container, "middle_click",
                              G_CALLBACK (fm_desktop_icon_view_handle_middle_click), desktop_icon_view, 0);
     g_signal_connect_object (desktop_icon_view, "realize",
