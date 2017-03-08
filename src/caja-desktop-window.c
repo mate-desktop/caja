@@ -181,8 +181,10 @@ caja_desktop_window_init (CajaDesktopWindow *window)
     /* shouldn't really be needed given our semantic type
      * of _NET_WM_TYPE_DESKTOP, but why not
      */
+#if !GTK_CHECK_VERSION (3, 19, 0)     
     gtk_window_set_resizable (GTK_WINDOW (window),
                               FALSE);
+#endif
 
     g_object_set_data (G_OBJECT (window), "is_desktop_window",
                        GINT_TO_POINTER (1));
