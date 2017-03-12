@@ -83,7 +83,6 @@ void                        eel_bg_set_placement                 (EelBackground 
 /* Should be TRUE for desktop background */
 gboolean		    eel_background_is_desktop 		 (EelBackground   *self);
 void			    eel_background_set_desktop 		 (EelBackground   *self,
-        							  GtkWidget       *widget,
         							  gboolean         is_desktop);
 
 /* Calls to interrogate the current state of a background. */

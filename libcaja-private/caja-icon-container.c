@@ -185,8 +185,6 @@ static void          end_renaming_mode                              (CajaIconCon
         gboolean               commit);
 static CajaIcon *get_icon_being_renamed                         (CajaIconContainer *container);
 static void          finish_adding_new_icons                        (CajaIconContainer *container);
-static void          update_label_color                             (EelBackground         *background,
-        CajaIconContainer *icon_container);
 static inline void   icon_get_bounding_box                          (CajaIcon          *icon,
         int                   *x1_return,
         int                   *y1_return,
@@ -4520,6 +4518,18 @@ size_allocate (GtkWidget *widget,
     }
 }
 
+static gboolean
+draw (GtkWidget *widget, cairo_t *cr)
+{
+    if (!CAJA_ICON_CONTAINER (widget)->details->is_desktop)
+    {
+        eel_background_draw (widget, cr);
+    }
+
+    return GTK_WIDGET_CLASS (caja_icon_container_parent_class)->draw (widget,
+                                                                      cr);
+}
+
 static void
 realize (GtkWidget *widget)
 {
@@ -4529,12 +4539,14 @@ realize (GtkWidget *widget)
     GTK_WIDGET_CLASS (caja_icon_container_parent_class)->realize (widget);
 
     container = CAJA_ICON_CONTAINER (widget);
+#if !GTK_CHECK_VERSION (3, 22, 0)
     /* Ensure that the desktop window is native so the background
        set on it is drawn by X. */
     if (container->details->is_desktop)
     {
         gdk_x11_window_get_xid (gtk_layout_get_bin_window (GTK_LAYOUT (widget)));
     }
+#endif
     /* Set up DnD.  */
     caja_icon_dnd_init (container);
 
@@ -6507,6 +6519,7 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
 
     widget_class = GTK_WIDGET_CLASS (class);
     widget_class->size_allocate = size_allocate;
+    widget_class->draw = draw;
     widget_class->realize = realize;
     widget_class->unrealize = unrealize;
     widget_class->button_press_event = button_press_event;

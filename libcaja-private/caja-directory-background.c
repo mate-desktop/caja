@@ -382,8 +382,7 @@ caja_connect_desktop_background_to_settings (CajaIconContainer *icon_container)
 
     background = eel_get_widget_background (GTK_WIDGET (icon_container));
 
-    eel_background_set_desktop (background,
-                                GTK_WIDGET (icon_container), TRUE);
+    eel_background_set_desktop (background, TRUE);
 
     g_signal_connect_object (background, "settings_changed",
                              G_CALLBACK (desktop_background_changed_cb), NULL, 0);
