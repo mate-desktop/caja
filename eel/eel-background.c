@@ -68,6 +68,7 @@ static guint signals[LAST_SIGNAL] = { 0 };
 struct EelBackgroundDetails
 {
     GtkWidget *widget;
+    GtkWidget *front_widget;
     MateBG *bg;
     char *color;
 
@@ -98,6 +99,10 @@ struct EelBackgroundDetails
     /* activity status */
     gboolean is_active;
 };
+
+#if GTK_CHECK_VERSION (3, 22, 0)
+static GList *desktop_bg_objects = NULL;
+#endif
 
 static void
 free_fade (EelBackground *self)
@@ -144,9 +149,16 @@ eel_background_finalize (GObject *object)
     }
 
     free_background_surface (self);
-
     free_fade (self);
 
+#if GTK_CHECK_VERSION (3, 22, 0)
+    if (self->details->is_desktop)
+    {
+        desktop_bg_objects = g_list_remove (desktop_bg_objects,
+                                            G_OBJECT (self));
+    }
+
+#endif
     G_OBJECT_CLASS (eel_background_parent_class)->finalize (object);
 }
 
@@ -468,14 +480,21 @@ eel_background_ensure_realized (EelBackground *self)
 
 void
 eel_background_draw (GtkWidget *widget,
-#  if GTK_CHECK_VERSION (3, 0, 0)
                      cairo_t   *cr)
 {
-    int width, height;
-    GdkWindow *window = gtk_widget_get_window (widget);
-    GdkRGBA color;
-
     EelBackground *self = eel_get_widget_background (widget);
+#if GTK_CHECK_VERSION (3, 0, 0)
+    GdkRGBA color;
+#else
+    GdkColor color;
+#endif
+    int width, height;
+
+    if (self->details->fade != NULL &&
+        mate_bg_crossfade_is_started (self->details->fade))
+    {
+        return;
+    }
 
     drawable_get_adjusted_size (self, &width, &height);
 
@@ -485,11 +504,16 @@ eel_background_draw (GtkWidget *widget,
 
     cairo_save (cr);
 
-    if (self->details->bg_surface != NULL) {
+    if (self->details->bg_surface != NULL)
+    {
         cairo_set_source_surface (cr, self->details->bg_surface, 0, 0);
         cairo_pattern_set_extend (cairo_get_source (cr), CAIRO_EXTEND_REPEAT);
     } else {
+#if GTK_CHECK_VERSION (3, 0, 0)
         gdk_cairo_set_source_rgba (cr, &color);
+#else
+        gdk_cairo_set_source_color (cr, &color);
+#endif
     }
 
     cairo_rectangle (cr, 0, 0, width, height);
@@ -497,42 +521,6 @@ eel_background_draw (GtkWidget *widget,
 
     cairo_restore (cr);
 }
-#  else
-                     GdkEventExpose *event)
-{
-    int width, height;
-    GdkWindow *window = gtk_widget_get_window (widget);
-    GdkColor color;
-
-    if (event->window != window)
-        return;
-
-    EelBackground *self = eel_get_widget_background (widget);
-
-    drawable_get_adjusted_size (self, &width, &height);
-
-    eel_background_ensure_realized (self);
-    color = self->details->default_color;
-    make_color_inactive (self, &color);
-
-    cairo_t *cr = gdk_cairo_create (window);
-
-    if (self->details->bg_surface != NULL) {
-        cairo_set_source_surface (cr, self->details->bg_surface, 0, 0);
-        cairo_pattern_set_extend (cairo_get_source (cr), CAIRO_EXTEND_REPEAT);
-    } else {
-        gdk_cairo_set_source_color (cr, &color);
-    }
-
-    gdk_cairo_rectangle (cr, &event->area);
-    cairo_clip (cr);
-
-    cairo_rectangle (cr, 0, 0, width, height);
-    cairo_fill (cr);
-
-    cairo_destroy (cr);
-}
-#  endif
 
 static void
 set_root_surface (EelBackground *self,
@@ -617,7 +605,7 @@ on_fade_finished (MateBGCrossfade *fade,
 
 static gboolean
 fade_to_surface (EelBackground   *self,
-                 GdkWindow       *window,
+                 GtkWidget       *widget,
                  cairo_surface_t *surface)
 {
     if (self->details->fade == NULL ||
@@ -628,7 +616,22 @@ fade_to_surface (EelBackground   *self,
 
     if (!mate_bg_crossfade_is_started (self->details->fade))
     {
+#if GTK_CHECK_VERSION (3, 22, 0)
+        mate_bg_crossfade_start_widget (self->details->fade, widget);
+#else
+        GdkWindow *window;
+
+        if (EEL_IS_CANVAS (widget))
+        {
+            window = gtk_layout_get_bin_window (GTK_LAYOUT (widget));
+        }
+        else
+        {
+            window = gtk_widget_get_window (widget);
+        }
+
         mate_bg_crossfade_start (self->details->fade, window);
+#endif
         if (self->details->is_desktop)
         {
             g_signal_connect (self->details->fade,
@@ -643,63 +646,66 @@ fade_to_surface (EelBackground   *self,
 static void
 eel_background_set_up_widget (EelBackground *self)
 {
-    GdkWindow *window;
     GtkWidget *widget = self->details->widget;
-#  if GTK_CHECK_VERSION (3, 0, 0)
-    GdkRGBA color;
-#else
-    GdkColor color;
-#endif
     gboolean in_fade = FALSE;
 
     if (!gtk_widget_get_realized (widget))
         return;
 
     eel_background_ensure_realized (self);
-    color = self->details->default_color;
-    make_color_inactive (self, &color);
 
     if (self->details->bg_surface == NULL)
         return;
 
-    if (EEL_IS_CANVAS (widget)) {
-        window = gtk_layout_get_bin_window (GTK_LAYOUT (widget));
-    } else {
-        window = gtk_widget_get_window (widget);
-    }
+    gtk_widget_queue_draw (widget);
 
     if (self->details->fade != NULL)
-        in_fade = fade_to_surface (self, window, self->details->bg_surface);
+        in_fade = fade_to_surface (self, widget, self->details->bg_surface);
 
     if (!in_fade)
     {
-#  if GTK_CHECK_VERSION (3, 0, 0)
-        cairo_pattern_t *pattern;
-        pattern = cairo_pattern_create_for_surface (self->details->bg_surface);
-        gdk_window_set_background_pattern (window, pattern);
-        cairo_pattern_destroy (pattern);
-#  endif
+        GdkWindow *window;
 
-        if (self->details->is_desktop)
+        if (EEL_IS_CANVAS (widget))
         {
-#  if !GTK_CHECK_VERSION (3, 0, 0)
-            gdk_window_set_back_pixmap (window, self->details->bg_surface, FALSE);
-#  endif
-            set_root_surface (self, window, gtk_widget_get_screen (widget));
+            window = gtk_layout_get_bin_window (GTK_LAYOUT (widget));
         }
         else
         {
-#if GTK_CHECK_VERSION (3, 0, 0)
-            gdk_window_set_background_rgba (window, &color);
-#else
-            gdk_window_set_background (window, &color);
-#endif
-#  if !GTK_CHECK_VERSION (3, 0, 0)
-            gdk_window_set_back_pixmap (window, self->details->bg_surface, FALSE);
-#  endif
+            window = gtk_widget_get_window (widget);
         }
 
-        gdk_window_invalidate_rect (window, NULL, TRUE);
+        if (self->details->is_desktop)
+        {
+#if !GTK_CHECK_VERSION (3, 22, 0)
+            if (self->details->bg_surface != NULL)
+            {
+#if GTK_CHECK_VERSION (3, 0, 0)
+                cairo_pattern_t *pattern =
+                  cairo_pattern_create_for_surface (self->details->bg_surface);
+                gdk_window_set_background_pattern (window, pattern);
+                cairo_pattern_destroy (pattern);
+#else
+                gdk_window_set_back_pixmap (window,
+                                            self->details->bg_surface, FALSE);
+#endif
+            }
+            else
+            {
+#if GTK_CHECK_VERSION (3, 0, 0)
+                GdkRGBA color = self->details->default_color;
+                make_color_inactive (self, &color);
+                gdk_window_set_background_rgba (window, &color);
+#else
+                GdkColor color = self->details->default_color;
+                make_color_inactive (self, &color);
+                gdk_window_set_background (window, &color);
+#endif
+            }
+            gdk_window_invalidate_rect (window, NULL, TRUE);
+#endif
+            set_root_surface (self, window, gtk_widget_get_screen (widget));
+        }
     }
 }
 
@@ -713,8 +719,6 @@ background_changed_cb (EelBackground *self)
 
     eel_background_unrealize (self);
     eel_background_set_up_widget (self);
-
-    gtk_widget_queue_draw (self->details->widget);
 
     return FALSE;
 }
@@ -738,6 +742,13 @@ widget_queue_background_change (GtkWidget *widget,
  * EelBackgroundStyle so that it will match the chosen GTK+ theme.
  */
 static void
+#if GTK_CHECK_VERSION (3, 0, 0)
+widget_style_updated_cb (GtkWidget *widget,
+                         gpointer   user_data)
+{
+    widget_queue_background_change (widget, user_data);
+}
+#else
 widget_style_set_cb (GtkWidget *widget,
                      GtkStyle  *previous_style,
                      gpointer   user_data)
@@ -745,6 +756,7 @@ widget_style_set_cb (GtkWidget *widget,
     if (previous_style != NULL)
         widget_queue_background_change (widget, user_data);
 }
+#endif
 
 static void
 eel_background_changed (MateBG *bg,
@@ -853,7 +865,9 @@ on_widget_destroyed (GtkWidget *widget,
     }
 
     free_fade (self);
+
     self->details->widget = NULL;
+    self->details->front_widget = NULL;
 }
 
 /* Gets the background attached to a widget.
@@ -862,9 +876,9 @@ on_widget_destroyed (GtkWidget *widget,
    this will create one. To change the widget's background, you can
    just call eel_background methods on the widget.
 
-   If the widget is a canvas, nothing more needs to be done.  For
-   normal widgets, you need to call eel_background_draw() from your
-   draw/expose handler to draw the background.
+   If the widget is a desktop window, nothing more needs to be done, otherwise
+   you need to call eel_background_draw() from your draw/expose event handler
+   to draw the background.
 
    Later, we might want a call to find out if we already have a background,
    or a way to share the same background among multiple widgets; both would
@@ -873,22 +887,41 @@ on_widget_destroyed (GtkWidget *widget,
 EelBackground *
 eel_get_widget_background (GtkWidget *widget)
 {
+    EelBackground *self;
+    gpointer data;
+#if GTK_CHECK_VERSION (3, 22, 0)
+    GList *l;
+#endif
 
     g_return_val_if_fail (GTK_IS_WIDGET (widget), NULL);
 
     /* Check for an existing background. */
-    gpointer data = g_object_get_data (G_OBJECT (widget), "eel_background");
+    data = g_object_get_data (G_OBJECT (widget), "eel_background");
     if (data != NULL)
     {
         g_assert (EEL_IS_BACKGROUND (data));
         return data;
     }
+#if GTK_CHECK_VERSION (3, 22, 0)
+    /* Check for an existing desktop window background. */
+    for (l = desktop_bg_objects; l != NULL; l = l->next)
+    {
+        g_assert (EEL_IS_BACKGROUND (l->data));
+        self = EEL_BACKGROUND (l->data);
+        if (widget == self->details->widget)
+        {
+            return self;
+        }
+    }
+#endif
+
+    self = eel_background_new ();
+    self->details->widget = widget;
+    self->details->front_widget = widget;
 
     /* Store the background in the widget's data. */
-    EelBackground *self = eel_background_new ();
     g_object_set_data_full (G_OBJECT (widget), "eel_background",
                             self, g_object_unref);
-    self->details->widget = widget;
 
     g_signal_connect_object (widget, "destroy",
                              G_CALLBACK (on_widget_destroyed), self, 0);
@@ -897,8 +930,13 @@ eel_get_widget_background (GtkWidget *widget)
     g_signal_connect_object (widget, "unrealize",
                              G_CALLBACK (widget_unrealize_cb), self, 0);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+    g_signal_connect_object (widget, "style-updated",
+                             G_CALLBACK (widget_style_updated_cb), self, 0);
+#else
     g_signal_connect_object (widget, "style_set",
                              G_CALLBACK (widget_style_set_cb), self, 0);
+#endif
 
     /* Arrange to get the signal whenever the background changes. */
     g_signal_connect_object (self, "appearance_changed",
@@ -995,14 +1033,32 @@ eel_background_reset (EelBackground *self)
 
 void
 eel_background_set_desktop (EelBackground *self,
-                            GtkWidget     *widget,
                             gboolean       is_desktop)
 {
     self->details->is_desktop = is_desktop;
 
-    if (gtk_widget_get_realized (widget) && is_desktop)
+    if (is_desktop)
     {
-        widget_realized_setup (widget, self);
+#if GTK_CHECK_VERSION (3, 22, 0)
+        self->details->widget =
+          gtk_widget_get_toplevel (self->details->front_widget);
+
+        desktop_bg_objects = g_list_prepend (desktop_bg_objects,
+                                             G_OBJECT (self));
+
+#endif
+        if (gtk_widget_get_realized (self->details->widget))
+        {
+            widget_realized_setup (self->details->widget, self);
+        }
+    }
+    else
+    {
+#if GTK_CHECK_VERSION (3, 22, 0)
+        desktop_bg_objects = g_list_remove (desktop_bg_objects,
+                                            G_OBJECT (self));
+        self->details->widget = self->details->front_widget;
+#endif
     }
 }
 
@@ -1020,6 +1076,7 @@ eel_background_set_active (EelBackground *self,
     {
         self->details->is_active = is_active;
         set_image_properties (self);
+        gtk_widget_queue_draw (self->details->widget);
     }
 }
 

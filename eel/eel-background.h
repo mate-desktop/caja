@@ -83,7 +83,6 @@ void                        eel_bg_set_placement                 (EelBackground 
 /* Should be TRUE for desktop background */
 gboolean		    eel_background_is_desktop 		 (EelBackground   *self);
 void			    eel_background_set_desktop 		 (EelBackground   *self,
-        							  GtkWidget       *widget,
         							  gboolean         is_desktop);
 
 /* Calls to interrogate the current state of a background. */
@@ -95,11 +94,7 @@ gboolean                    eel_background_is_set                (EelBackground 
 
 /* Helper function for widgets using EelBackground */
 void                        eel_background_draw                  (GtkWidget       *widget,
-#if GTK_CHECK_VERSION (3, 0, 0)
         							  cairo_t         *cr);
-#else
-        							  GdkEventExpose  *event);
-#endif
 
 /* Handles a dragged color being dropped on a widget to change the background color. */
 void                        eel_background_set_dropped_color     (EelBackground   *self,

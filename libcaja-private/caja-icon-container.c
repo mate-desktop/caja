@@ -220,8 +220,10 @@ static void          end_renaming_mode                              (CajaIconCon
         gboolean               commit);
 static CajaIcon *get_icon_being_renamed                         (CajaIconContainer *container);
 static void          finish_adding_new_icons                        (CajaIconContainer *container);
+#if !GTK_CHECK_VERSION(3,0,0)
 static void          update_label_color                             (EelBackground         *background,
         CajaIconContainer *icon_container);
+#endif
 static inline void   icon_get_bounding_box                          (CajaIcon          *icon,
         int                   *x1_return,
         int                   *y1_return,
@@ -4698,6 +4700,39 @@ size_allocate (GtkWidget *widget,
     }
 }
 
+static gboolean
+#if GTK_CHECK_VERSION (3, 0, 0)
+draw (GtkWidget *widget, cairo_t *cr)
+#else
+expose_event (GtkWidget *widget, GdkEventExpose *event)
+#endif
+{
+    if (!CAJA_ICON_CONTAINER (widget)->details->is_desktop)
+    {
+#if !GTK_CHECK_VERSION (3, 0, 0)
+        cairo_t *cr = gdk_cairo_create (event->window);
+
+        gdk_cairo_rectangle (cr, &event->area);
+        cairo_clip (cr);
+
+#endif
+        eel_background_draw (widget, cr);
+#if !GTK_CHECK_VERSION (3, 0, 0)
+
+        cairo_destroy (cr);
+#endif
+    }
+
+#if GTK_CHECK_VERSION (3, 0, 0)
+    return GTK_WIDGET_CLASS (caja_icon_container_parent_class)->draw (widget,
+                                                                      cr);
+#else
+    return
+      GTK_WIDGET_CLASS (caja_icon_container_parent_class)->expose_event (widget,
+                                                                         event);
+#endif
+}
+
 static void
 realize (GtkWidget *widget)
 {
@@ -4707,6 +4742,7 @@ realize (GtkWidget *widget)
     GTK_WIDGET_CLASS (caja_icon_container_parent_class)->realize (widget);
 
     container = CAJA_ICON_CONTAINER (widget);
+#if !GTK_CHECK_VERSION (3, 22, 0)
     /* Ensure that the desktop window is native so the background
        set on it is drawn by X. */
     if (container->details->is_desktop)
@@ -4717,6 +4753,7 @@ realize (GtkWidget *widget)
         gdk_x11_drawable_get_xid (gtk_layout_get_bin_window (GTK_LAYOUT (widget)));
 #endif
     }
+#endif
     /* Set up DnD.  */
     caja_icon_dnd_init (container);
 
@@ -6294,20 +6331,6 @@ draw_canvas_background (EelCanvas *canvas,
 }
 
 
-#if !GTK_CHECK_VERSION(3,0,0)
-static gboolean
-expose_event (GtkWidget      *widget,
-              GdkEventExpose *event)
-{
-    /*	g_warning ("Expose Icon Container %p '%d,%d: %d,%d'",
-    		   widget,
-    		   event->area.x, event->area.y,
-    		   event->area.width, event->area.height); */
-
-    return GTK_WIDGET_CLASS (caja_icon_container_parent_class)->expose_event (widget, event);
-}
-#endif
-
 #if !GTK_CHECK_VERSION(3, 0, 0)
 static AtkObject *
 get_accessible (GtkWidget *widget)
@@ -6761,6 +6784,11 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
 
     widget_class = GTK_WIDGET_CLASS (class);
     widget_class->size_allocate = size_allocate;
+#if GTK_CHECK_VERSION (3, 0, 0)
+    widget_class->draw = draw;
+#else
+    widget_class->expose_event = expose_event;
+#endif
     widget_class->realize = realize;
     widget_class->unrealize = unrealize;
     widget_class->button_press_event = button_press_event;
