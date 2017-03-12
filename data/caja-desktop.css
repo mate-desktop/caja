@@ -2,16 +2,8 @@
 /* This is loaded with GTK_STYLE_PROVIDER_PRIORITY_APPLICATION and overrides themes */
 
 .caja-desktop-window,
-.caja-desktop {
+.caja-desktop:not(:selected):not(:active):not(.rubberband){
 	background-color: transparent;
-}
-
-.caja-desktop:selected, .caja-desktop:active {
-	background-color: @theme_selected_bg_color;
-}
-
-.caja-desktop.rubberband {
-	background-color: alpha(@theme_selected_bg_color,0.35);
 }
 
 /* desktop mode */
