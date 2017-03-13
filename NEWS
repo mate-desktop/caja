@@ -1,64 +1,53 @@
-### caja 1.17.4
+### caja 1.18.0
 
-### caja 1.17.3
-
-  * show/hide columns instead of appending/removing them
-  * a11y: fix accessibility implementation for CajaIconCanvasItemAccessible
-  * Code clean up
-
-### caja 1.17.2
-
-  * Translations update
-  * Fix keyboard-down wraparound on compact view
-  * Single click navigation: keep hand cursor when opening folder...
-  * Fix cursor on single-click navigation mode.
-  * file: don't consider all desktop files caja links
-  * Show "open with" tab in properties window when "open with" menu available
-  * Show "open with" menu for desktop and theme files
-  * fix build warning about wrong variable type
-  * fix indent and spacing a bit
-  * check for stable version of GTK+3, not for development one
-  * Add a separator when concatenating strings in icon text accessible
-  * prefs dialog: fix vertical expand of content with window resize
-  * schema: capitalize MIME in descriptions
-  * schema: add missing capitalization of Caja
-  * Rename labels: follow theme if available, sane default
-  * caja.css: fix missing comma
-  * Fix restart loop when started without icons on the desktop
-  * build: require libmate-desktop >= 1.17.0
-
-### caja 1.17.1
-
-  * Translations update
-  * move to GTK+3 (>= 3.14), drop libunique,  GTK+2 code, and --with-gtk build option
-  * configure.ac: Check for libnotify
-  * application: correct description of --force-desktop option
-  * application: remove unused function
-  * remove convert metadata
-  * Compact view: ensure horizontal mouse wheel works both directions
-  * Fix mousewheel scrolling in compact view
-  * Improved merge folder dialog
-  * Fixes partially #535
-  * suppress notification on unmounting non-ejectiable device
-  * Add gsettings preference to enable/disable notifications
-  * libunique builds: enable eject notifications
-  * Refactor notification code to remove duplicate function
-  * GtkApplication: show notifications for ejecting from the desktop too
-  * GtkApplication: Notify when ejected volumes safe to unplug
-  * GtkApplication: fix "caja 3.0" message
-
-### caja 1.17.0
-
-  * Translations update
+  * NEWS: use consistent, project wide, markdown-like formatting to make
+    generating release announcements easier
+  * Build: require libmate-desktop >= 1.17.3
+  * Move to GTK+3 (require GTK+ >= 3.14), drop GTK+2 code and --with-gtk
+    build option
+  * Port from libunique to GtkApplication
   * Implement copy queue and pausing
-  * GTK+2: use eel helper again to set adjustment values
-  * support back and forward mouse buttons to navigate
-  * Fix accessible object inherritance when used with GTK 3
-  * Fix hashtable warnings on close
-  * GTK3: port libunique ->GtkApplication as build time option
-  * Stop warnings on window-close and 3 warnings on exit
-  * Fix the gsignal warnings on window-close
-  * GTK3: fix warnings cause by GtkGrid
+  * Add option for asking confirmation before moving files to trash
+  * Add support for back/forward mouse buttons for directory navigation
+  * Add notification when ejected drives are safe to unplug (and require
+    libnotify at build time)
+  * Add --force-desktop command line option to make Caja always manage
+    the desktop
+  * Add ability to get feedback from Orca when additional icons are
+    selected/deselected
+  * Drop metadata converting tool
+  * Fix crossfade issues with recent GTK+ versions
+  * Fix more graphics issues to allow Caja to use background for directory
+    windows
+  * Fix some more GTK+ deprecations and runtime warnings
+  * Schema: some fixes and cleanups
+  * Translations update
+
+### caja 1.16.2
+
+  * List view: show/hide columns instead of appending/removing them
+    (fixes crash when moving between trash and other folder with GTK+3)
+  * Icon view: fix accessibility issues
+  * Icon and compact views: fix moving to next/previous row (or column)
+    with right/left (or down/up) keys
+  * Prefs dialog: fix vertical expand of content with window resize
+  * Show "Open with" menu item and "Open with" tab in properties window
+    for .desktop and .theme files
+  * Fix cursor refresh issues on folder change in single click mode
+  * Fix runtime warnings on window closing and Caja exit
+  * GTK+3: fix mousewheel scrolling in compact view
+  * GTK+3: fix visual issues when renaming files
+  * GTK+3: force X11 backend
+  * Some more fixes and cleanups
+
+### caja 1.16.1
+
+  * Fix regression that sometimes caused visual glitches when selecting
+    icons
+  * GTK+3: some CSS adjustments
+  * GTK+3: fix accessibility on desktop (for Orca)
+  * GTK+3: fix several runtime warnings
+  * Translations update
 
 ### caja 1.16.0
 
