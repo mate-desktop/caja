@@ -50,6 +50,7 @@
 #include <gtk/gtk.h>
 #include <gdk/gdkx.h>
 #include <glib/gi18n.h>
+#include <xcb/xcb.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -2105,7 +2106,7 @@ lay_down_icons_vertical_desktop (CajaIconContainer *container, GList *icons)
     int total, new_length, placed;
     CajaIcon *icon;
     int height, max_width, column_width, icon_width, icon_height;
-    int screen_height;
+    int i, screenNum;
     int x, y, x1, x2, y1, y2;
     EelDRect icon_rect;
     GtkAllocation allocation;
@@ -2113,9 +2114,15 @@ lay_down_icons_vertical_desktop (CajaIconContainer *container, GList *icons)
     /* Get container dimensions */
     gtk_widget_get_allocation (GTK_WIDGET (container), &allocation);
     height = CANVAS_HEIGHT(container, allocation);
-    screen_height = gdk_screen_get_height (gtk_widget_get_screen(GTK_WIDGET(container)));
-    if (height > screen_height)
-        height = screen_height;
+    xcb_connection_t *connection = xcb_connect (NULL, &screenNum);
+    const xcb_setup_t *setup = xcb_get_setup (connection);
+    xcb_screen_iterator_t iter = xcb_setup_roots_iterator (setup);
+    for (i = 0; i < screenNum; ++i) {
+        xcb_screen_next (&iter);
+    }
+    xcb_screen_t *screen = iter.data;
+    if (height > screen->height_in_pixels)
+        height = screen->height_in_pixels;
 
     /* Determine which icons have and have not been placed */
     placed_icons = NULL;

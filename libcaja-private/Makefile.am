@@ -38,7 +38,8 @@ libcaja_private_la_LIBADD = \
 	$(top_builddir)/eel/libeel-2.la \
 	$(top_builddir)/libcaja-extension/libcaja-extension.la \
 	$(CORE_LIBS) \
-    -lnotify
+    -lnotify \
+    -lxcb
 	$(NULL)
 
 libcaja_private_la_SOURCES = \
