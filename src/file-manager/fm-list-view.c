@@ -2908,9 +2908,10 @@ fm_list_view_start_renaming_file (FMDirectoryView *view,
                                   NULL,
                                   list_view->details->file_name_column,
                                   TRUE, 0.0, 0.0);
-    gtk_tree_view_set_cursor (list_view->details->tree_view,
+    gtk_tree_view_set_cursor_on_cell (list_view->details->tree_view,
                               path,
                               list_view->details->file_name_column,
+                              GTK_CELL_RENDERER (list_view->details->file_name_cell),
                               TRUE);
 
     /* set cursor also triggers editing-started, where we save the editable widget */
