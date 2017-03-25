@@ -1,3 +1,15 @@
+Major changes in 1.16.3 are:
+* Build: require libmate-desktop >= 1.16.2
+* Add ability to get feedback from Orca when additional icons are
+  selected/deselected
+* Restore "Open with other application" menu entry for directories
+  (regression in 1.16.2)
+* Fix crossfade issues with recent GTK+3 versions
+* Fix more graphics issues to allow Caja to use background for
+  directory windows in GTK+3 build
+* GTK+3: fix broken rename in list view after keyboard navigation
+* GTK+3: property-browser: add style class frame to scrolledwindows
+
 Major changes in 1.16.2 are:
 * List view: show/hide columns instead of appending/removing them
   (fixes crash when moving between trash and other folder with GTK+3)
