@@ -675,32 +675,36 @@ eel_background_set_up_widget (EelBackground *self)
             window = gtk_widget_get_window (widget);
         }
 
+#if !GTK_CHECK_VERSION (3, 0, 0)
+        if (self->details->bg_surface != NULL)
+        {
+            gdk_window_set_back_pixmap (window,
+                                        self->details->bg_surface, FALSE);
+        }
+        else
+        {
+            GdkColor color = self->details->default_color;
+            make_color_inactive (self, &color);
+            gdk_window_set_background (window, &color);
+        }
+        gdk_window_invalidate_rect (window, NULL, TRUE);
+
+#endif
         if (self->details->is_desktop)
         {
-#if !GTK_CHECK_VERSION (3, 22, 0)
+#if GTK_CHECK_VERSION (3, 0, 0) && !GTK_CHECK_VERSION (3, 22, 0)
             if (self->details->bg_surface != NULL)
             {
-#if GTK_CHECK_VERSION (3, 0, 0)
                 cairo_pattern_t *pattern =
                   cairo_pattern_create_for_surface (self->details->bg_surface);
                 gdk_window_set_background_pattern (window, pattern);
                 cairo_pattern_destroy (pattern);
-#else
-                gdk_window_set_back_pixmap (window,
-                                            self->details->bg_surface, FALSE);
-#endif
             }
             else
             {
-#if GTK_CHECK_VERSION (3, 0, 0)
                 GdkRGBA color = self->details->default_color;
                 make_color_inactive (self, &color);
                 gdk_window_set_background_rgba (window, &color);
-#else
-                GdkColor color = self->details->default_color;
-                make_color_inactive (self, &color);
-                gdk_window_set_background (window, &color);
-#endif
             }
             gdk_window_invalidate_rect (window, NULL, TRUE);
 #endif

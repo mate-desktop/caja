@@ -4700,38 +4700,19 @@ size_allocate (GtkWidget *widget,
     }
 }
 
-static gboolean
 #if GTK_CHECK_VERSION (3, 0, 0)
+static gboolean
 draw (GtkWidget *widget, cairo_t *cr)
-#else
-expose_event (GtkWidget *widget, GdkEventExpose *event)
-#endif
 {
     if (!CAJA_ICON_CONTAINER (widget)->details->is_desktop)
     {
-#if !GTK_CHECK_VERSION (3, 0, 0)
-        cairo_t *cr = gdk_cairo_create (event->window);
-
-        gdk_cairo_rectangle (cr, &event->area);
-        cairo_clip (cr);
-
-#endif
         eel_background_draw (widget, cr);
-#if !GTK_CHECK_VERSION (3, 0, 0)
-
-        cairo_destroy (cr);
-#endif
     }
 
-#if GTK_CHECK_VERSION (3, 0, 0)
     return GTK_WIDGET_CLASS (caja_icon_container_parent_class)->draw (widget,
                                                                       cr);
-#else
-    return
-      GTK_WIDGET_CLASS (caja_icon_container_parent_class)->expose_event (widget,
-                                                                         event);
-#endif
 }
+#endif
 
 static void
 realize (GtkWidget *widget)
@@ -6786,8 +6767,6 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
     widget_class->size_allocate = size_allocate;
 #if GTK_CHECK_VERSION (3, 0, 0)
     widget_class->draw = draw;
-#else
-    widget_class->expose_event = expose_event;
 #endif
     widget_class->realize = realize;
     widget_class->unrealize = unrealize;
@@ -6805,7 +6784,6 @@ caja_icon_container_class_init (CajaIconContainerClass *class)
     widget_class->style_updated = style_updated;
 #else
     widget_class->style_set = style_set;
-    widget_class->expose_event = expose_event;
 #endif
     widget_class->grab_notify = grab_notify_cb;
 
