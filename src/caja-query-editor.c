@@ -462,7 +462,7 @@ tags_add_rows_from_query (CajaQueryEditor *editor,
     CajaQueryEditorRow *row;
     row = caja_query_editor_add_row (editor, CAJA_QUERY_EDITOR_ROW_TAGS);
 
-    const gchar *tags_str = xattr_tags_list_to_str (tags);
+    gchar *tags_str = xattr_tags_list_to_str (tags);
     g_list_free_full (tags, g_free);
 
     gtk_entry_set_text (GTK_ENTRY (row->type_widget), tags_str);
