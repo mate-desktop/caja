@@ -314,9 +314,13 @@ file_has_all_tags (GFileInfo *info, GList *tags)
         return FALSE;
     }
 
-    for (GList *l = tags; l != NULL; l = l->next) {
+    GList *l;
+
+    for (l = tags; l != NULL; l = l->next) {
         gboolean found = FALSE;
-        for (int i = 0; i < file_tags_len; ++i) {
+        int i;
+
+        for (i = 0; i < file_tags_len; ++i) {
             if (g_strcmp0 (l->data, file_tags[i]) == 0) {
                 found = TRUE;
                 break;

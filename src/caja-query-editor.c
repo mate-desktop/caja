@@ -412,7 +412,9 @@ tags_row_add_to_query (CajaQueryEditorRow *row,
 
     char **strv = g_strsplit (tags, " ", -1);
     guint len = g_strv_length (strv);
-    for (int i=0; i<len; ++i) {
+    int i;
+
+    for (i = 0; i < len; ++i) {
         strv[i] = g_strstrip (strv[i]);
         if (strlen (strv[i]) > 0) {
             caja_query_add_tag (query, strv[i]);
