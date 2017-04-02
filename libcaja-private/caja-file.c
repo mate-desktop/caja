@@ -119,6 +119,7 @@ static GHashTable *symbolic_links;
 
 static GQuark attribute_name_q,
 	attribute_size_q,
+	attribute_size_on_disk_q,
 	attribute_type_q,
 	attribute_modification_date_q,
 	attribute_date_modified_q,
@@ -127,7 +128,9 @@ static GQuark attribute_name_q,
 	attribute_emblems_q,
 	attribute_mime_type_q,
 	attribute_size_detail_q,
+	attribute_size_on_disk_detail_q,
 	attribute_deep_size_q,
+	attribute_deep_size_on_disk_q,
 	attribute_deep_file_count_q,
 	attribute_deep_directory_count_q,
 	attribute_deep_total_count_q,
@@ -466,6 +469,7 @@ caja_file_clear_info (CajaFile *file)
 	file->details->has_permissions = FALSE;
 	file->details->permissions = 0;
 	file->details->size = -1;
+	file->details->size_on_disk = -1;
 	file->details->sort_order = 0;
 	file->details->mtime = 0;
 	file->details->atime = 0;
@@ -2094,6 +2098,7 @@ update_info_internal (CajaFile *file,
 	gboolean thumbnailing_failed;
 	int uid, gid;
 	goffset size;
+	goffset size_on_disk;
 	int sort_order;
 	time_t atime, mtime, ctime;
 	time_t trash_time;
@@ -2368,6 +2373,15 @@ update_info_internal (CajaFile *file,
 		changed = TRUE;
 	}
 	file->details->size = size;
+
+	size_on_disk = -1;
+	if (g_file_info_has_attribute (info, G_FILE_ATTRIBUTE_STANDARD_ALLOCATED_SIZE)) {
+		size_on_disk = g_file_info_get_attribute_uint64 (info, G_FILE_ATTRIBUTE_STANDARD_ALLOCATED_SIZE);
+	}
+	if (file->details->size_on_disk != size_on_disk) {
+		changed = TRUE;
+	}
+	file->details->size_on_disk = size_on_disk;
 
 	sort_order = g_file_info_get_sort_order (info);
 	if (file->details->sort_order != sort_order) {
@@ -2662,7 +2676,8 @@ get_item_count (CajaFile *file,
 
 static Knowledge
 get_size (CajaFile *file,
-	  goffset *size)
+	  goffset *size,
+	  gboolean size_on_disk)
 {
 	/* If we tried and failed, then treat it like there is no size
 	 * to know.
@@ -2682,12 +2697,21 @@ get_size (CajaFile *file,
 	 * such thing as a size as far as mate-vfs is concerned,
 	 * so "unknowable".
 	 */
-	if (file->details->size == -1) {
+	if (size_on_disk && file->details->size_on_disk == -1) {
+		return UNKNOWABLE;
+	}
+
+	if (!size_on_disk && file->details->size == -1) {
 		return UNKNOWABLE;
 	}
 
 	/* We have a size! */
-	*size = file->details->size;
+	if (size_on_disk) {
+		*size = file->details->size_on_disk;
+	} else {
+		*size = file->details->size;
+	}
+
 	return KNOWN;
 }
 
@@ -2781,7 +2805,7 @@ compare_directories_by_count (CajaFile *file_1, CajaFile *file_2)
 }
 
 static int
-compare_files_by_size (CajaFile *file_1, CajaFile *file_2)
+compare_files_by_size (CajaFile *file_1, CajaFile *file_2, gboolean size_on_disk)
 {
 	/* Sort order:
 	 *   Files with unknown size.
@@ -2793,8 +2817,8 @@ compare_files_by_size (CajaFile *file_1, CajaFile *file_2)
 	Knowledge size_known_1, size_known_2;
 	goffset size_1 = 0, size_2 = 0;
 
-	size_known_1 = get_size (file_1, &size_1);
-	size_known_2 = get_size (file_2, &size_2);
+	size_known_1 = get_size (file_1, &size_1, size_on_disk);
+	size_known_2 = get_size (file_2, &size_2, size_on_disk);
 
 	if (size_known_1 > size_known_2) {
 		return -1;
@@ -2821,7 +2845,7 @@ compare_files_by_size (CajaFile *file_1, CajaFile *file_2)
 }
 
 static int
-compare_by_size (CajaFile *file_1, CajaFile *file_2)
+compare_by_size (CajaFile *file_1, CajaFile *file_2, gboolean size_on_disk)
 {
 	/* Sort order:
 	 *   Directories with n items
@@ -2849,7 +2873,7 @@ compare_by_size (CajaFile *file_1, CajaFile *file_2)
 	if (is_directory_1) {
 		return compare_directories_by_count (file_1, file_2);
 	} else {
-		return compare_files_by_size (file_1, file_2);
+		return compare_files_by_size (file_1, file_2, size_on_disk);
 	}
 }
 
@@ -3211,7 +3235,16 @@ caja_file_compare_for_sort (CajaFile *file_1,
 			/* Compare directory sizes ourselves, then if necessary
 			 * use MateVFS to compare file sizes.
 			 */
-			result = compare_by_size (file_1, file_2);
+			result = compare_by_size (file_1, file_2, FALSE);
+			if (result == 0) {
+				result = compare_by_full_path (file_1, file_2);
+			}
+			break;
+		case CAJA_FILE_SORT_BY_SIZE_ON_DISK:
+			/* Compare directory sizes ourselves, then if necessary
+			 * use MateVFS to compare file sizes.
+			 */
+			result = compare_by_size (file_1, file_2, TRUE);
 			if (result == 0) {
 				result = compare_by_full_path (file_1, file_2);
 			}
@@ -3289,6 +3322,11 @@ caja_file_compare_for_sort_by_attribute_q   (CajaFile                   *file_1,
 	} else if (attribute == attribute_size_q) {
 		return caja_file_compare_for_sort (file_1, file_2,
 						       CAJA_FILE_SORT_BY_SIZE,
+						       directories_first,
+						       reversed);
+	} else if (attribute == attribute_size_on_disk_q) {
+		return caja_file_compare_for_sort (file_1, file_2,
+						       CAJA_FILE_SORT_BY_SIZE_ON_DISK,
 						       directories_first,
 						       reversed);
 	} else if (attribute == attribute_type_q) {
@@ -4881,6 +4919,7 @@ caja_file_get_directory_item_count (CajaFile *file,
  * @unreadable_directory_count: Number of directories encountered
  * that were unreadable.
  * @total_size: Total size of all files and directories visited.
+ * @total_size_on_disk: Total size on disk of all files and directories visited.
  * @force: Whether the deep counts should even be collected if
  * caja_file_should_show_directory_item_count returns FALSE
  * for this file.
@@ -4894,6 +4933,7 @@ caja_file_get_deep_counts (CajaFile *file,
 			       guint *file_count,
 			       guint *unreadable_directory_count,
 			       goffset *total_size,
+			       goffset *total_size_on_disk,
 			       gboolean force)
 {
 	if (directory_count != NULL) {
@@ -4907,6 +4947,9 @@ caja_file_get_deep_counts (CajaFile *file,
 	}
 	if (total_size != NULL) {
 		*total_size = 0;
+	}
+	if (total_size_on_disk != NULL) {
+		*total_size_on_disk = 0;
 	}
 
 	g_return_val_if_fail (CAJA_IS_FILE (file), CAJA_REQUEST_DONE);
@@ -4925,7 +4968,8 @@ caja_file_get_deep_counts (CajaFile *file,
 				   directory_count,
 				   file_count,
 				   unreadable_directory_count,
-				   total_size));
+				   total_size,
+				   total_size_on_disk));
 }
 
 void
@@ -4963,6 +5007,27 @@ caja_file_get_size (CajaFile *file)
 	if (file->details->size == -1)
 		return 0;
 	return file->details->size;
+}
+
+/**
+ * caja_file_get_size_on_disk
+ *
+ * Get the file size on disk (how many bytes is using on the filesystem).
+ * e.g.: usually files with 1 byte will use a whole inode so it will return the
+ * size of 1 inode. If the file is sparse the size on disk will be equal or less
+ * than the size of the file.
+ * @file: CajaFile representing the file in question.
+ *
+ * Returns: Size in bytes.
+ *
+ **/
+goffset
+caja_file_get_size_on_disk (CajaFile *file)
+{
+	/* Before we have info on the file, we don't know the size. */
+	if (file->details->size_on_disk == -1)
+		return 0;
+	return file->details->size_on_disk;
 }
 
 time_t
@@ -5898,15 +5963,18 @@ format_item_count_for_display (guint item_count,
  * is responsible for g_free-ing this string. The string is an item
  * count for directories.
  * @file: CajaFile representing the file in question.
+ * @size_on_disk: If TRUE will return the size on disk. If FALSE return file size.
  *
  * Returns: Newly allocated string ready to display to the user.
  *
  **/
 static char *
-caja_file_get_size_as_string (CajaFile *file)
+caja_file_get_size_as_string (CajaFile *file,
+							  gboolean  size_on_disk)
 {
 	guint item_count;
 	gboolean count_unreadable;
+	goffset size;
 
 	if (file == NULL) {
 		return NULL;
@@ -5921,14 +5989,20 @@ caja_file_get_size_as_string (CajaFile *file)
 		return format_item_count_for_display (item_count, TRUE, TRUE);
 	}
 
-	if (file->details->size == -1) {
+	if (size_on_disk) {
+		size = file->details->size_on_disk;
+	} else {
+		size = file->details->size;
+	}
+
+	if (size == -1) {
 		return NULL;
 	}
 
 	if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_USE_IEC_UNITS))
-		return g_format_size_full (file->details->size, G_FORMAT_SIZE_IEC_UNITS);
+		return g_format_size_full (size, G_FORMAT_SIZE_IEC_UNITS);
 	else
-		return g_format_size (file->details->size);
+		return g_format_size (size);
 }
 
 /**
@@ -5944,10 +6018,12 @@ caja_file_get_size_as_string (CajaFile *file)
  *
  **/
 static char *
-caja_file_get_size_as_string_with_real_size (CajaFile *file)
+caja_file_get_size_as_string_with_real_size (CajaFile *file,
+											 gboolean  size_on_disk)
 {
 	guint item_count;
 	gboolean count_unreadable;
+	goffset size;
 	char * formatted;
 	char * formatted_plus_real;
 	char * real_size;
@@ -5965,27 +6041,33 @@ caja_file_get_size_as_string_with_real_size (CajaFile *file)
 		return format_item_count_for_display (item_count, TRUE, TRUE);
 	}
 
-	if (file->details->size == -1) {
+	if (size_on_disk) {
+		size = file->details->size_on_disk;
+	} else {
+		size = file->details->size;
+	}
+
+	if (size == -1) {
 		return NULL;
 	}
 
 	if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_USE_IEC_UNITS))
-		formatted = g_format_size_full (file->details->size, G_FORMAT_SIZE_IEC_UNITS);
+		formatted = g_format_size_full (size, G_FORMAT_SIZE_IEC_UNITS);
 	else
-		formatted = g_format_size(file->details->size);
+		formatted = g_format_size(size);
 
 	/* Do this in a separate stage so that we don't have to put G_GUINT64_FORMAT in the translated string */
-	real_size = g_strdup_printf (_("%"G_GUINT64_FORMAT), (guint64) file->details->size);
+	real_size = g_strdup_printf (_("%"G_GUINT64_FORMAT), (guint64) size);
 	formatted_plus_real = g_strdup_printf (_("%s (%s bytes)"), formatted, real_size);
 	g_free (real_size);
 	g_free (formatted);
 	return formatted_plus_real;
 }
 
-
 static char *
 caja_file_get_deep_count_as_string_internal (CajaFile *file,
 						 gboolean report_size,
+						 gboolean report_size_on_disk,
 						 gboolean report_directory_count,
 						 gboolean report_file_count)
 {
@@ -5995,10 +6077,15 @@ caja_file_get_deep_count_as_string_internal (CajaFile *file,
 	guint unreadable_count;
 	guint total_count;
 	goffset total_size;
+	goffset total_size_on_disk;
 
-	/* Must ask for size or some kind of count, but not both. */
-	g_assert (!report_size || (!report_directory_count && !report_file_count));
-	g_assert (report_size || report_directory_count || report_file_count);
+	/* Can't ask for more than one of those: size, size on disk or (directory and/or file count) */
+	g_assert (!(report_size && report_size_on_disk));
+	g_assert (!(report_size         && (report_directory_count || report_file_count)));
+	g_assert (!(report_size_on_disk && (report_directory_count || report_file_count)));
+
+	/* Must ask for something */
+	g_assert (report_size || report_size_on_disk || report_directory_count || report_file_count);
 
 	if (file == NULL) {
 		return NULL;
@@ -6007,8 +6094,13 @@ caja_file_get_deep_count_as_string_internal (CajaFile *file,
 	g_assert (CAJA_IS_FILE (file));
 	g_assert (caja_file_is_directory (file));
 
-	status = caja_file_get_deep_counts
-		(file, &directory_count, &file_count, &unreadable_count, &total_size, FALSE);
+	status = caja_file_get_deep_counts (file,
+										&directory_count,
+										&file_count,
+										&unreadable_count,
+										&total_size,
+										&total_size_on_disk,
+										FALSE);
 
 	/* Check whether any info is available. */
 	if (status == CAJA_REQUEST_NOT_STARTED) {
@@ -6046,6 +6138,14 @@ caja_file_get_deep_count_as_string_internal (CajaFile *file,
 			return g_format_size(total_size);
 	}
 
+	if (report_size_on_disk)
+	{
+		if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_USE_IEC_UNITS))
+			return g_format_size_full (total_size_on_disk, G_FORMAT_SIZE_IEC_UNITS);
+		else
+			return g_format_size (total_size_on_disk);
+	}
+
 	return format_item_count_for_display (report_directory_count
 		? (report_file_count ? total_count : directory_count)
 		: file_count,
@@ -6059,14 +6159,19 @@ caja_file_get_deep_count_as_string_internal (CajaFile *file,
  * items (only makes sense for directories). The caller
  * is responsible for g_free-ing this string.
  * @file: CajaFile representing the file in question.
+ * @size_on_disk: if TRUE will return the size on disk, else return size of file.
  *
  * Returns: Newly allocated string ready to display to the user.
  *
  **/
 static char *
-caja_file_get_deep_size_as_string (CajaFile *file)
+caja_file_get_deep_size_as_string (CajaFile *file, gboolean size_on_disk)
 {
-	return caja_file_get_deep_count_as_string_internal (file, TRUE, FALSE, FALSE);
+	if (size_on_disk) {
+		return caja_file_get_deep_count_as_string_internal (file, FALSE, TRUE, FALSE, FALSE);
+	} else {
+		return caja_file_get_deep_count_as_string_internal (file, TRUE, FALSE, FALSE, FALSE);
+	}
 }
 
 /**
@@ -6083,7 +6188,7 @@ caja_file_get_deep_size_as_string (CajaFile *file)
 static char *
 caja_file_get_deep_total_count_as_string (CajaFile *file)
 {
-	return caja_file_get_deep_count_as_string_internal (file, FALSE, TRUE, TRUE);
+	return caja_file_get_deep_count_as_string_internal (file, FALSE, FALSE, TRUE, TRUE);
 }
 
 /**
@@ -6101,7 +6206,7 @@ caja_file_get_deep_total_count_as_string (CajaFile *file)
 static char *
 caja_file_get_deep_file_count_as_string (CajaFile *file)
 {
-	return caja_file_get_deep_count_as_string_internal (file, FALSE, FALSE, TRUE);
+	return caja_file_get_deep_count_as_string_internal (file, FALSE, FALSE, FALSE, TRUE);
 }
 
 /**
@@ -6119,7 +6224,7 @@ caja_file_get_deep_file_count_as_string (CajaFile *file)
 static char *
 caja_file_get_deep_directory_count_as_string (CajaFile *file)
 {
-	return caja_file_get_deep_count_as_string_internal (file, FALSE, TRUE, FALSE);
+	return caja_file_get_deep_count_as_string_internal (file, FALSE, FALSE, TRUE, FALSE);
 }
 
 /**
@@ -6132,9 +6237,9 @@ caja_file_get_deep_directory_count_as_string (CajaFile *file)
  *
  * @file: CajaFile representing the file in question.
  * @attribute_name: The name of the desired attribute. The currently supported
- * set includes "name", "type", "mime_type", "size", "deep_size", "deep_directory_count",
- * "deep_file_count", "deep_total_count", "date_modified", "date_changed", "date_accessed",
- * "date_permissions", "owner", "group", "permissions", "octal_permissions", "uri", "where",
+ * set includes "name", "type", "mime_type", "size", "size_on_disk", "deep_size", "deep_size_on_disk",
+ * "deep_directory_count", "deep_file_count", "deep_total_count", "date_modified", "date_changed",
+ * "date_accessed", "date_permissions", "owner", "group", "permissions", "octal_permissions", "uri", "where",
  * "link_target", "volume", "free_space", "selinux_context", "trashed_on", "trashed_orig_path"
  *
  * Returns: Newly allocated string ready to display to the user, or NULL
@@ -6156,13 +6261,22 @@ caja_file_get_string_attribute_q (CajaFile *file, GQuark attribute_q)
 		return caja_file_get_mime_type (file);
 	}
 	if (attribute_q == attribute_size_q) {
-		return caja_file_get_size_as_string (file);
+		return caja_file_get_size_as_string (file, FALSE);
+	}
+	if (attribute_q == attribute_size_on_disk_q) {
+		return caja_file_get_size_as_string (file, TRUE);
 	}
 	if (attribute_q == attribute_size_detail_q) {
-		return caja_file_get_size_as_string_with_real_size (file);
+		return caja_file_get_size_as_string_with_real_size (file, FALSE);
+	}
+	if (attribute_q == attribute_size_on_disk_detail_q) {
+        return caja_file_get_size_as_string_with_real_size (file, TRUE);
 	}
 	if (attribute_q == attribute_deep_size_q) {
-		return caja_file_get_deep_size_as_string (file);
+		return caja_file_get_deep_size_as_string (file, FALSE);
+	}
+	if (attribute_q == attribute_deep_size_on_disk_q) {
+		return caja_file_get_deep_size_as_string (file, TRUE);
 	}
 	if (attribute_q == attribute_deep_file_count_q) {
 		return caja_file_get_deep_file_count_as_string (file);
@@ -6294,7 +6408,15 @@ caja_file_get_string_attribute_with_default_q (CajaFile *file, GQuark attribute_
 		return g_strdup (count_unreadable ? _("? items") : "...");
 	}
 	if (attribute_q == attribute_deep_size_q) {
-		status = caja_file_get_deep_counts (file, NULL, NULL, NULL, NULL, FALSE);
+		status = caja_file_get_deep_counts (file, NULL, NULL, NULL, NULL, NULL, FALSE);
+		if (status == CAJA_REQUEST_DONE) {
+			/* This means no contents at all were readable */
+			return g_strdup (_("? bytes"));
+		}
+		return g_strdup ("...");
+	}
+    if (attribute_q == attribute_deep_size_on_disk_q) {
+		status = caja_file_get_deep_counts (file, NULL, NULL, NULL, NULL, NULL, FALSE);
 		if (status == CAJA_REQUEST_DONE) {
 			/* This means no contents at all were readable */
 			return g_strdup (_("? bytes"));
@@ -6304,7 +6426,7 @@ caja_file_get_string_attribute_with_default_q (CajaFile *file, GQuark attribute_
 	if (attribute_q == attribute_deep_file_count_q
 	    || attribute_q == attribute_deep_directory_count_q
 	    || attribute_q == attribute_deep_total_count_q) {
-		status = caja_file_get_deep_counts (file, NULL, NULL, NULL, NULL, FALSE);
+		status = caja_file_get_deep_counts (file, NULL, NULL, NULL, NULL, NULL, FALSE);
 		if (status == CAJA_REQUEST_DONE) {
 			/* This means no contents at all were readable */
 			return g_strdup (_("? items"));
@@ -7692,6 +7814,7 @@ void
 caja_file_dump (CajaFile *file)
 {
 	long size = file->details->deep_size;
+	long size_on_disk = file->details->deep_size_on_disk;
 	char *uri;
 	const char *file_kind;
 
@@ -7703,6 +7826,7 @@ caja_file_dump (CajaFile *file)
 		g_print ("failed to get file info \n");
 	} else {
 		g_print ("size: %ld \n", size);
+		g_print ("disk size: %ld \n", size_on_disk);
 		switch (file->details->type) {
 		case G_FILE_TYPE_REGULAR:
 			file_kind = "regular file";
@@ -8203,6 +8327,7 @@ caja_file_class_init (CajaFileClass *class)
 
 	attribute_name_q = g_quark_from_static_string ("name");
 	attribute_size_q = g_quark_from_static_string ("size");
+	attribute_size_on_disk_q = g_quark_from_static_string ("size_on_disk");
 	attribute_type_q = g_quark_from_static_string ("type");
 	attribute_modification_date_q = g_quark_from_static_string ("modification_date");
 	attribute_date_modified_q = g_quark_from_static_string ("date_modified");
@@ -8211,7 +8336,9 @@ caja_file_class_init (CajaFileClass *class)
 	attribute_emblems_q = g_quark_from_static_string ("emblems");
 	attribute_mime_type_q = g_quark_from_static_string ("mime_type");
 	attribute_size_detail_q = g_quark_from_static_string ("size_detail");
+	attribute_size_on_disk_detail_q = g_quark_from_static_string ("size_on_disk_detail");
 	attribute_deep_size_q = g_quark_from_static_string ("deep_size");
+	attribute_deep_size_on_disk_q = g_quark_from_static_string ("deep_size_on_disk");
 	attribute_deep_file_count_q = g_quark_from_static_string ("deep_file_count");
 	attribute_deep_directory_count_q = g_quark_from_static_string ("deep_directory_count");
 	attribute_deep_total_count_q = g_quark_from_static_string ("deep_total_count");

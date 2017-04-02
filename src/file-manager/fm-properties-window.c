@@ -128,6 +128,7 @@ struct FMPropertiesWindowDetails {
 
 	guint total_count;
 	goffset total_size;
+	goffset total_size_on_disk;
 
 	guint long_operation_underway;
 
@@ -2203,11 +2204,13 @@ directory_contents_value_field_update (FMPropertiesWindow *window)
 	guint total_count;
 	guint unreadable_directory_count;
 	goffset total_size;
+	goffset total_size_on_disk;
 	gboolean used_two_lines;
 	CajaFile *file;
 	GList *l;
 	guint file_unreadable;
 	goffset file_size;
+	goffset file_size_on_disk;
 
 	g_assert (FM_IS_PROPERTIES_WINDOW (window));
 
@@ -2215,6 +2218,7 @@ directory_contents_value_field_update (FMPropertiesWindow *window)
 	file_status = CAJA_REQUEST_NOT_STARTED;
 	total_count = window->details->total_count;
 	total_size = window->details->total_size;
+	total_size_on_disk = window->details->total_size_on_disk;
 	unreadable_directory_count = FALSE;
 
 	for (l = window->details->target_files; l; l = l->next) {
@@ -2231,9 +2235,11 @@ directory_contents_value_field_update (FMPropertiesWindow *window)
 					 &file_count,
 					 &file_unreadable,
 					 &file_size,
+					 &file_size_on_disk,
 					 TRUE);
 			total_count += (file_count + directory_count);
 			total_size += file_size;
+			total_size_on_disk += file_size_on_disk;
 
 			if (file_unreadable) {
 				unreadable_directory_count = TRUE;
@@ -2245,6 +2251,7 @@ directory_contents_value_field_update (FMPropertiesWindow *window)
 		} else {
 			++total_count;
 			total_size += caja_file_get_size (file);
+			total_size_on_disk += caja_file_get_size_on_disk (file);
 		}
 	}
 
@@ -2275,17 +2282,22 @@ directory_contents_value_field_update (FMPropertiesWindow *window)
 		}
 	} else {
 		char *size_str;
+		char *size_on_disk_str;
 
-		if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_USE_IEC_UNITS))
+		if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_USE_IEC_UNITS)) {
 			size_str = g_format_size_full (total_size, G_FORMAT_SIZE_IEC_UNITS);
-		else
-			size_str = g_format_size(total_size);
+			size_on_disk_str = g_format_size_full (total_size_on_disk, G_FORMAT_SIZE_IEC_UNITS);
+		} else {
+			size_str = g_format_size (total_size);
+			size_on_disk_str = g_format_size (total_size_on_disk);
+		}
 
-		text = g_strdup_printf (ngettext("%'d item, with size %s",
-						 "%'d items, totalling %s",
+		text = g_strdup_printf (ngettext("%'d item, with size %s (%s on disk)",
+						 "%'d items, totalling %s (%s on disk)",
 						 total_count),
-					total_count, size_str);
+					total_count, size_str, size_on_disk_str);
 		g_free (size_str);
+		g_free (size_on_disk_str);
 
 		if (unreadable_directory_count != 0) {
 			temp = text;
@@ -3263,6 +3275,10 @@ create_basic_page (FMPropertiesWindow *window)
 	} else {
 		append_title_value_pair (window, grid, _("Size:"),
 					 "size_detail",
+					 INCONSISTENT_STATE_STRING,
+					 FALSE);
+		append_title_value_pair (window, grid, _("Size on Disk:"),
+					 "size_on_disk_detail",
 					 INCONSISTENT_STATE_STRING,
 					 FALSE);
 	}
