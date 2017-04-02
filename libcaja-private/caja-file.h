@@ -63,7 +63,8 @@ typedef enum
     CAJA_FILE_SORT_BY_MTIME,
     CAJA_FILE_SORT_BY_ATIME,
     CAJA_FILE_SORT_BY_EMBLEMS,
-    CAJA_FILE_SORT_BY_TRASHED_TIME
+    CAJA_FILE_SORT_BY_TRASHED_TIME,
+    CAJA_FILE_SORT_BY_SIZE_ON_DISK
 } CajaFileSortType;
 
 typedef enum
@@ -175,6 +176,7 @@ char *                  caja_file_get_parent_uri                    (CajaFile   
 char *                  caja_file_get_parent_uri_for_display        (CajaFile                   *file);
 gboolean                caja_file_can_get_size                      (CajaFile                   *file);
 goffset                 caja_file_get_size                          (CajaFile                   *file);
+goffset                 caja_file_get_size_on_disk                  (CajaFile                   *file);
 time_t                  caja_file_get_mtime                         (CajaFile                   *file);
 GFileType               caja_file_get_file_type                     (CajaFile                   *file);
 char *                  caja_file_get_mime_type                     (CajaFile                   *file);
@@ -208,7 +210,8 @@ CajaRequestStatus   caja_file_get_deep_counts                   (CajaFile       
         guint                          *directory_count,
         guint                          *file_count,
         guint                          *unreadable_directory_count,
-        goffset               *total_size,
+        goffset                        *total_size,
+        goffset                        *total_size_on_disk,
         gboolean                        force);
 gboolean                caja_file_should_show_thumbnail             (CajaFile                   *file);
 gboolean                caja_file_should_show_directory_item_count  (CajaFile                   *file);
@@ -539,7 +542,8 @@ typedef struct
             guint                  *directory_count,
             guint                  *file_count,
             guint                  *unreadable_directory_count,
-            goffset       *total_size);
+            goffset                *total_size,
+            goffset                *total_size_on_disk);
     gboolean              (* get_date)               (CajaFile           *file,
             CajaDateType        type,
             time_t                 *date);

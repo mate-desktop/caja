@@ -244,7 +244,8 @@ vfs_file_get_deep_counts (CajaFile *file,
                           guint *directory_count,
                           guint *file_count,
                           guint *unreadable_directory_count,
-                          goffset *total_size)
+                          goffset *total_size,
+                          goffset *total_size_on_disk)
 {
     GFileType type;
 
@@ -263,6 +264,10 @@ vfs_file_get_deep_counts (CajaFile *file,
     if (total_size != NULL)
     {
         *total_size = 0;
+    }
+    if (total_size_on_disk != NULL)
+    {
+        *total_size_on_disk = 0;
     }
 
     if (!caja_file_is_directory (file))
@@ -287,6 +292,10 @@ vfs_file_get_deep_counts (CajaFile *file,
         if (total_size != NULL)
         {
             *total_size = file->details->deep_size;
+        }
+        if (total_size_on_disk != NULL)
+        {
+            *total_size_on_disk = file->details->deep_size_on_disk;
         }
         return file->details->deep_counts_status;
     }

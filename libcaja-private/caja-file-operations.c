@@ -2585,7 +2585,8 @@ scan_dir (GFile *dir,
 	enumerator = g_file_enumerate_children (dir,
 						G_FILE_ATTRIBUTE_STANDARD_NAME","
 						G_FILE_ATTRIBUTE_STANDARD_TYPE","
-						G_FILE_ATTRIBUTE_STANDARD_SIZE,
+						G_FILE_ATTRIBUTE_STANDARD_SIZE","
+						G_FILE_ATTRIBUTE_STANDARD_ALLOCATED_SIZE,
 						G_FILE_QUERY_INFO_NOFOLLOW_SYMLINKS,
 						job->cancellable,
 						&error);
@@ -2707,7 +2708,8 @@ scan_file (GFile *file,
 	error = NULL;
 	info = g_file_query_info (file,
 				  G_FILE_ATTRIBUTE_STANDARD_TYPE","
-				  G_FILE_ATTRIBUTE_STANDARD_SIZE,
+				  G_FILE_ATTRIBUTE_STANDARD_SIZE","
+				  G_FILE_ATTRIBUTE_STANDARD_ALLOCATED_SIZE,
 				  G_FILE_QUERY_INFO_NOFOLLOW_SYMLINKS,
 				  job->cancellable,
 				  &error);

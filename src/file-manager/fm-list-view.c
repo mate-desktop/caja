@@ -183,6 +183,7 @@ get_default_sort_order (CajaFile *file, gboolean *reversed)
         "name",
         "uri",
         "size",
+        "size_on_disk",
         "type",
         "date_modified",
         "date_accessed",

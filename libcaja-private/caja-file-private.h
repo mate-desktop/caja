@@ -72,6 +72,7 @@ struct CajaFileDetails
     eel_ref_str edit_name;
 
     goffset size; /* -1 is unknown */
+    goffset size_on_disk; /* -1 is unknown */
 
     int sort_order;
 
@@ -102,6 +103,7 @@ struct CajaFileDetails
     guint deep_file_count;
     guint deep_unreadable_count;
     goffset deep_size;
+    goffset deep_size_on_disk;
 
     GIcon *icon;
 

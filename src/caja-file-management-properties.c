@@ -99,6 +99,7 @@ static const char * const sort_order_values[] =
     "name",
     "directory",
     "size",
+    "size_on_disk",
     "type",
     "mtime",
     "atime",

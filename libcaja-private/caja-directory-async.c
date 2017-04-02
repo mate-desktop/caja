@@ -2874,6 +2874,12 @@ deep_count_one (DeepCountState *state,
     {
         file->details->deep_size += g_file_info_get_size (info);
     }
+    /* Count the disk size. */
+    if (!is_seen_inode && g_file_info_has_attribute (info, G_FILE_ATTRIBUTE_STANDARD_ALLOCATED_SIZE))
+    {
+        file->details->deep_size_on_disk +=
+            g_file_info_get_attribute_uint64 (info, G_FILE_ATTRIBUTE_STANDARD_ALLOCATED_SIZE);
+    }
 }
 
 static void
@@ -3053,6 +3059,7 @@ deep_count_load (DeepCountState *state, GFile *location)
                                      G_FILE_ATTRIBUTE_STANDARD_NAME ","
                                      G_FILE_ATTRIBUTE_STANDARD_TYPE ","
                                      G_FILE_ATTRIBUTE_STANDARD_SIZE ","
+                                     G_FILE_ATTRIBUTE_STANDARD_ALLOCATED_SIZE ","
                                      G_FILE_ATTRIBUTE_STANDARD_IS_HIDDEN ","
                                      G_FILE_ATTRIBUTE_STANDARD_IS_BACKUP ","
                                      G_FILE_ATTRIBUTE_ID_FILESYSTEM ","
@@ -3150,6 +3157,7 @@ deep_count_start (CajaDirectory *directory,
     file->details->deep_file_count = 0;
     file->details->deep_unreadable_count = 0;
     file->details->deep_size = 0;
+    file->details->deep_size_on_disk = 0;
     directory->details->deep_count_file = file;
 
     state = g_new0 (DeepCountState, 1);
