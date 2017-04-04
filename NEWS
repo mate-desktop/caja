@@ -1,3 +1,14 @@
+### caja 1.18.1
+
+  * fix build warning (no const needed there)
+  * fix build with gcc 4.9.2 (looks like it's in c89 mode by default)
+  * search: added tag support (xattr::xdg.tags).
+  * Fix broken rename in list view by selectin file name cell.
+  * property-browser: don't recast GtkWidget as GtkWidget
+  * property-browser: add style class frame to scrolledwindows
+  * caja-application.c: Fix uninitialized variable
+  * Translations update
+
 ### caja 1.18.0
 
   * NEWS: use consistent, project wide, markdown-like formatting to make
