@@ -3,19 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Falu <info@falu.me>, 2016
+# Falu <info@falu.me>, 2016-2017
 # István Szőllősi <szollosi.istv4n@gmail.com>, 2014
 # kami911 <kami911@gmail.com>, 2014
 # kami911 <kami911@gmail.com>, 2014,2016
 # Rezső Páder <rezso@rezso.net>, 2013-2015
 # Falu <info@falu.me>, 2016
+# Zoltán Rápolthy <real_zolee@hotmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-07 22:06+0300\n"
-"PO-Revision-Date: 2017-02-07 19:06+0000\n"
-"Last-Translator: monsta <monsta@inbox.ru>\n"
+"PO-Revision-Date: 2017-03-31 20:08+0000\n"
+"Last-Translator: Zoltán Rápolthy <real_zolee@hotmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/mate/MATE/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -905,12 +906,12 @@ msgstr "Már létezik ilyen nevű másik fájl „%s” alatt."
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:279
 msgid "Original folder"
-msgstr ""
+msgstr "Eredeti mappa"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:280
 #: ../libcaja-private/caja-file-conflict-dialog.c:319
 msgid "Items:"
-msgstr ""
+msgstr "Elemek:"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:283
 msgid "Original file"
@@ -937,7 +938,7 @@ msgstr "Utoljára módosítva:"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:318
 msgid "Merge with"
-msgstr ""
+msgstr "Egyesítés ezzel"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:318
 #: ../libcaja-private/caja-file-conflict-dialog.c:322
@@ -961,7 +962,7 @@ msgstr "Különbségek..."
 #. Setup the checkbox to apply the action to all files
 #: ../libcaja-private/caja-file-conflict-dialog.c:652
 msgid "Apply this action to all files and folders"
-msgstr ""
+msgstr "Művelet alkalmazása az összes fájlra és mappára"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:664
 #: ../libcaja-private/caja-file-operations.c:185
@@ -978,7 +979,7 @@ msgstr "Csere"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:759
 msgid "Merge Folder"
-msgstr ""
+msgstr "Mappa egyesítés"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:759
 #: ../libcaja-private/caja-file-conflict-dialog.c:764
@@ -1239,22 +1240,22 @@ msgstr[1] "Biztosan véglegesen törölni akarja a kijelölt %'d elemet?"
 
 #: ../libcaja-private/caja-file-operations.c:1462
 msgid "Are you sure you want to trash \"%B\"?"
-msgstr ""
+msgstr "Biztos, hogy kukázni akarja ezt: \"%B\"?"
 
 #: ../libcaja-private/caja-file-operations.c:1465
 #, c-format
 msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Biztos a Kukába szeretné helyezni a kijelölt %'d elemet?"
+msgstr[1] "Biztos a Kukába szeretné helyezni a kijelölt %'d elemet?"
 
 #: ../libcaja-private/caja-file-operations.c:1474
 msgid "Items moved to the trash may be recovered until the trash is emptied."
-msgstr ""
+msgstr "A Kukába helyezett elemek visszaállítódhatnak a Kuka ürítéséig."
 
 #: ../libcaja-private/caja-file-operations.c:1477
 msgid "Move to _Trash"
-msgstr ""
+msgstr "Áthelyezés a _Kukába"
 
 #: ../libcaja-private/caja-file-operations.c:1508
 #, c-format
@@ -2388,19 +2389,19 @@ msgstr "Fájlműveletek"
 
 #: ../libcaja-private/caja-progress-info.c:313
 msgid "paused"
-msgstr ""
+msgstr "szüneteltetve"
 
 #: ../libcaja-private/caja-progress-info.c:316
 msgid "pausing"
-msgstr ""
+msgstr "szünetel"
 
 #: ../libcaja-private/caja-progress-info.c:319
 msgid "queued"
-msgstr ""
+msgstr "sorba állítva"
 
 #: ../libcaja-private/caja-progress-info.c:322
 msgid "queuing"
-msgstr ""
+msgstr "sorban áll"
 
 #: ../libcaja-private/caja-progress-info.c:599
 #, c-format
@@ -2822,7 +2823,7 @@ msgid ""
 "If set to true, then Caja will exit when all windows are destroyed. This is "
 "the default setting. If set to false, it can be started without any window, "
 "so Caja can serve as a daemon to monitor media automount, or similar tasks."
-msgstr ""
+msgstr "Ha igazra van állítva, a Caja kilép az összes ablak bezárásakor. Ez az alapértelmezett beállítás. Ha hamisra van állítva, ablakok nélkül fog indulni, így használható adathordozók automatikus csatolásának figyelésére vagy hasonló feladatokra."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:5
 msgid "Enables the classic Caja behavior, where all windows are browsers"
@@ -2857,13 +2858,13 @@ msgstr "Ha ez igazra van állítva, akkor a Caja megerősítést kér, amikor f�
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:11
 msgid "Whether to ask for confirmation when moving files to the Trash"
-msgstr ""
+msgstr "Kérjen-e megerősítést a fájlok Kukába való helyezésekor"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:12
 msgid ""
 "If set to true, then Caja will ask for confirmation when you attempt to move"
 " files to the Trash."
-msgstr ""
+msgstr "Ha ez igazra van állítva, akkor a Caja megerősítést kér, amikor fájlok Kukába való helyezésére tesz kísérletet."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:13
 msgid "Whether to enable immediate deletion"
@@ -2925,7 +2926,7 @@ msgstr "Mit tegyen a végrehajtható szöveges fájlokkal aktiváláskor (egysze
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:23
 msgid "Show the package installer for unknown MIME types"
-msgstr ""
+msgstr "A csomagtelepítő jelenjen meg ismeretlen MIME-típusoknál"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:24
 msgid ""
@@ -3152,11 +3153,11 @@ msgstr "Ha igazra állítod, a fájlméretek IEC (1024 alapban) lesznek megjelen
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:67
 msgid "Whether to show desktop notifications"
-msgstr ""
+msgstr "Megjelenjenek-e asztali értesítések"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:68
 msgid "If set to true, Caja will show desktop notifications for eject events"
-msgstr ""
+msgstr "Ha ez igazra van állítva, akkor a Caja asztali értesítéseket jelenít meg leválasztás (kiadás) következtében."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:69
 msgid "List of possible captions on icons"
@@ -5595,7 +5596,7 @@ msgstr ""
 
 #: ../src/caja-application.c:2045
 msgid "Open a browser window."
-msgstr ""
+msgstr "Böngészőablak megnyitása."
 
 #: ../src/caja-application.c:2047
 msgid "Quit Caja."
