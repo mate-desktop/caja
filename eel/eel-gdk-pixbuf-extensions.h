@@ -26,21 +26,9 @@
 #ifndef EEL_GDK_PIXBUF_EXTENSIONS_H
 #define EEL_GDK_PIXBUF_EXTENSIONS_H
 
-#include <eel/eel-art-extensions.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gdk/gdk.h>
 #include <gio/gio.h>
-#include <gtk/gtk.h>
-
-#define EEL_OPACITY_FULLY_TRANSPARENT 0
-#define EEL_OPACITY_FULLY_OPAQUE      255
-
-extern const EelIRect eel_gdk_pixbuf_whole_pixbuf;
-
-typedef struct EelPixbufLoadHandle EelPixbufLoadHandle;
-typedef void (* EelPixbufLoadCallback) (GError         *error,
-                                        GdkPixbuf      *pixbuf,
-                                        gpointer        callback_data);
 
 /* Loading a GdkPixbuf with a URI. */
 GdkPixbuf *          eel_gdk_pixbuf_load                      (const char            *uri);
@@ -49,12 +37,6 @@ GdkPixbuf *          eel_gdk_pixbuf_load_from_stream_at_size  (GInputStream     
         int                    size);
 
 
-/* Same thing async. */
-EelPixbufLoadHandle *eel_gdk_pixbuf_load_async                (const char            *uri,
-        int                    priority,
-        EelPixbufLoadCallback  callback,
-        gpointer               callback_data);
-void                 eel_cancel_gdk_pixbuf_load               (EelPixbufLoadHandle   *handle);
 GdkPixbuf *          eel_gdk_pixbuf_scale_down_to_fit         (GdkPixbuf             *pixbuf,
         int                    max_width,
         int                    max_height);
@@ -77,12 +59,6 @@ double              eel_gdk_scale_to_min_factor               (int              
         int                   *scaled_width,
         int                   *scaled_height);
 
-/* return average color values for each component (argb) */
-guint32              eel_gdk_pixbuf_average_value             (GdkPixbuf             *pixbuf);
-void                 eel_gdk_pixbuf_fill_rectangle_with_color (GdkPixbuf             *pixbuf,
-        EelIRect               area,
-        guint32                color);
-
 
 /* Save a pixbuf to a png file.  Return value indicates succss/TRUE or failure/FALSE */
 gboolean             eel_gdk_pixbuf_save_to_file              (const GdkPixbuf       *pixbuf,
@@ -91,63 +67,9 @@ void                 eel_gdk_pixbuf_ref_if_not_null           (GdkPixbuf        
 void                 eel_gdk_pixbuf_unref_if_not_null         (GdkPixbuf             *pixbuf_or_null);
 
 
-/* Copy a pixbuf to an area of a GdkDrawable */
-void                 eel_gdk_pixbuf_draw_to_drawable          (const GdkPixbuf       *pixbuf,
-        cairo_t               *cr,
-        int                    source_x,
-        int                    source_y,
-							       EelIRect               destination_area);
-
-/* Copy a pixbuf to an area of another pixbuf */
-void                 eel_gdk_pixbuf_draw_to_pixbuf            (const GdkPixbuf       *pixbuf,
-        GdkPixbuf             *destination_pixbuf,
-        int                    source_x,
-        int                    source_y,
-        EelIRect               destination_area);
-
-
-/* Composite one pixbuf over another with the given opacity */
-void                 eel_gdk_pixbuf_draw_to_pixbuf_alpha      (const GdkPixbuf       *pixbuf,
-        GdkPixbuf             *destination_pixbuf,
-        int                    source_x,
-        int                    source_y,
-        EelIRect               destination_area,
-        int                    opacity,
-        GdkInterpType          interpolation_mode);
-
-
-/* Create a pixbuf from a sub area of another pixbuf */
-GdkPixbuf *          eel_gdk_pixbuf_new_from_pixbuf_sub_area  (GdkPixbuf             *pixbuf,
-        EelIRect               area);
-/* Create a pixbuf from an existing buffer. */
-GdkPixbuf *          eel_gdk_pixbuf_new_from_existing_buffer  (guchar                *buffer,
-        int                    buffer_rowstride,
-        gboolean               buffer_has_alpha,
-        EelIRect               area);
-
-/* Determine whether a pixbuf is valid or not */
-gboolean             eel_gdk_pixbuf_is_valid                  (const GdkPixbuf       *pixbuf);
-
-/* Access the dimensions of a pixbuf. */
-EelDimensions        eel_gdk_pixbuf_get_dimensions            (const GdkPixbuf       *pixbuf);
-
-/* Return the intersection of the pixbuf with the given rectangle. */
-EelIRect             eel_gdk_pixbuf_intersect                 (const GdkPixbuf       *pixbuf,
-        int                    pixbuf_x,
-        int                    pixbuf_y,
-        EelIRect               rectangle);
-
 /* Scales large pixbufs down fast */
 GdkPixbuf *          eel_gdk_pixbuf_scale_down                (GdkPixbuf *pixbuf,
         int dest_width,
         int dest_height);
-
-GdkPixbuf *          eel_gdk_pixbuf_render                    (GdkPixbuf *pixbuf,
-        guint render_mode,
-        guint saturation,
-        guint brightness,
-        guint lighten_value,
-        GdkRGBA *color);
-
 
 #endif /* EEL_GDK_PIXBUF_EXTENSIONS_H */
