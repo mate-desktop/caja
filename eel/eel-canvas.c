@@ -578,6 +578,15 @@ eel_canvas_item_move (EelCanvasItem *item, double dx, double dy)
 
 }
 
+#if GTK_CHECK_VERSION (3, 0, 0)
+static void
+eel_canvas_queue_resize (EelCanvas *canvas)
+{
+    if (gtk_widget_is_drawable (GTK_WIDGET (canvas)))
+            gtk_widget_queue_resize (GTK_WIDGET (canvas));
+}
+#endif
+
 /* Convenience function to reorder items in a group's child list.  This puts the
  * specified link after the "before" link. Returns TRUE if the list was changed.
  */
@@ -851,6 +860,9 @@ eel_canvas_item_show (EelCanvasItem *item)
         }
 
         redraw_and_repick_if_mapped (item);
+#if GTK_CHECK_VERSION (3, 0, 0)
+        eel_canvas_queue_resize (item->canvas);
+#endif
     }
 }
 
@@ -875,6 +887,10 @@ eel_canvas_item_hide (EelCanvasItem *item)
 
         if (item->flags & EEL_CANVAS_ITEM_MAPPED)
             (* EEL_CANVAS_ITEM_GET_CLASS (item)->unmap) (item);
+
+#if GTK_CHECK_VERSION (3, 0, 0)
+        eel_canvas_queue_resize (item->canvas);
+#endif
 
         /* No need to unrealize when we just want to hide */
     }
@@ -1909,6 +1925,11 @@ group_add (EelCanvasGroup *group, EelCanvasItem *item)
         if (!(item->flags & EEL_CANVAS_ITEM_MAPPED))
             (* EEL_CANVAS_ITEM_GET_CLASS (item)->map) (item);
     }
+
+#if GTK_CHECK_VERSION (3, 0, 0)
+    if (item->flags & EEL_CANVAS_ITEM_VISIBLE)
+            eel_canvas_queue_resize (EEL_CANVAS_ITEM (group)->canvas);
+#endif
 }
 
 /* Removes an item from a group */
@@ -1928,6 +1949,11 @@ group_remove (EelCanvasGroup *group, EelCanvasItem *item)
 
             if (item->flags & EEL_CANVAS_ITEM_REALIZED)
                 (* EEL_CANVAS_ITEM_GET_CLASS (item)->unrealize) (item);
+
+#if GTK_CHECK_VERSION (3, 0, 0)
+            if (item->flags & EEL_CANVAS_ITEM_VISIBLE)
+                    eel_canvas_queue_resize (item->canvas);
+#endif
 
             /* Unparent the child */
 
