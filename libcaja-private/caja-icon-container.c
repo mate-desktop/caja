@@ -601,8 +601,13 @@ caja_icon_container_scroll (CajaIconContainer *container,
     old_h_value = gtk_adjustment_get_value (hadj);
     old_v_value = gtk_adjustment_get_value (vadj);
 
+#if GTK_CHECK_VERSION (3, 0, 0)
     gtk_adjustment_set_value (hadj, gtk_adjustment_get_value (hadj) + delta_x);
     gtk_adjustment_set_value (vadj, gtk_adjustment_get_value (vadj) + delta_y);
+#else
+    eel_gtk_adjustment_set_value (hadj, gtk_adjustment_get_value (hadj) + delta_x);
+    eel_gtk_adjustment_set_value (vadj, gtk_adjustment_get_value (vadj) + delta_y);
+#endif
 
     /* return TRUE if we did scroll */
     return gtk_adjustment_get_value (hadj) != old_h_value || gtk_adjustment_get_value (vadj) != old_v_value;
@@ -756,6 +761,7 @@ reveal_icon (CajaIconContainer *container,
         item_get_canvas_bounds (EEL_CANVAS_ITEM (icon->item), &bounds, TRUE);
     }
     if (bounds.y0 < gtk_adjustment_get_value (vadj)) {
+#if GTK_CHECK_VERSION (3, 0, 0)
         gtk_adjustment_set_value (vadj, bounds.y0);
     } else if (bounds.y1 > gtk_adjustment_get_value (vadj) + allocation.height) {
         gtk_adjustment_set_value (vadj, bounds.y1 - allocation.height);
@@ -768,6 +774,20 @@ reveal_icon (CajaIconContainer *container,
             gtk_adjustment_set_value (hadj, bounds.x0);
         } else {
             gtk_adjustment_set_value (hadj, bounds.x1 - allocation.width);
+#else
+        eel_gtk_adjustment_set_value (vadj, bounds.y0);
+    } else if (bounds.y1 > gtk_adjustment_get_value (vadj) + allocation.height) {
+        eel_gtk_adjustment_set_value (vadj, bounds.y1 - allocation.height);
+    }
+
+    if (bounds.x0 < gtk_adjustment_get_value (hadj)) {
+        eel_gtk_adjustment_set_value (hadj, bounds.x0);
+    } else if (bounds.x1 > gtk_adjustment_get_value (hadj) + allocation.width) {
+        if (bounds.x1 - allocation.width > bounds.x0) {
+            eel_gtk_adjustment_set_value (hadj, bounds.x0);
+        } else {
+            eel_gtk_adjustment_set_value (hadj, bounds.x1 - allocation.width);
+#endif
         }
     }
 }
@@ -1208,6 +1228,13 @@ caja_icon_container_update_scroll_region (CajaIconContainer *container)
     {
         gtk_adjustment_set_step_increment (vadj, step_increment);
     }
+#if !GTK_CHECK_VERSION (3, 0, 0)
+    /* Now that we have a new scroll region, clamp the
+     * adjustments so we are within the valid scroll area.
+     */
+    eel_gtk_adjustment_clamp_value (hadj);
+    eel_gtk_adjustment_clamp_value (vadj);
+#endif
 }
 
 static int
@@ -7195,12 +7222,21 @@ caja_icon_container_scroll_to_icon (CajaIconContainer  *container,
 
             if (caja_icon_container_is_layout_vertical (container)) {
                 if (caja_icon_container_is_layout_rtl (container)) {
+#if GTK_CHECK_VERSION (3, 0, 0)
                     gtk_adjustment_set_value (hadj, bounds.x1 - allocation.width);
                 } else {
                     gtk_adjustment_set_value (hadj, bounds.x0);
                 }
             } else {
                 gtk_adjustment_set_value (vadj, bounds.y0);
+#else
+                    eel_gtk_adjustment_set_value (hadj, bounds.x1 - allocation.width);
+                } else {
+                    eel_gtk_adjustment_set_value (hadj, bounds.x0);
+                }
+            } else {
+                eel_gtk_adjustment_set_value (vadj, bounds.y0);
+#endif
             }
         }
 
