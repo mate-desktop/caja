@@ -42,42 +42,6 @@ eel_accessibility_set_up_label_widget_relation (GtkWidget *label, GtkWidget *wid
     atk_object_add_relationship (atk_widget, ATK_RELATION_LABELLED_BY, atk_label);
 }
 
-/*
- * Hacks to make re-using gail somewhat easier.
- */
-
-/**
- * eel_accessibility_create_derived_type:
- * @type_name: the name for the new accessible type eg. CajaIconCanvasItemAccessible
- * @existing_gobject_with_proxy: the GType of an object that has a registered factory that
- *      manufactures the type we want to inherit from. ie. to inherit from a GailCanvasItem
- *      we need to pass MATE_TYPE_CANVAS_ITEM - since GailCanvasItem is registered against
- *      that type.
- * @opt_gail_parent_class: the name of the Gail class to derive from eg. GailCanvasItem
- * @class_init: the init function to run for this class
- *
- * This should be run to register the type, it can subsequently be run with
- * the same name and will not re-register it, but simply return it.
- *
- * NB. to do instance init, you prolly want to override AtkObject::initialize
- *
- * Return value: the registered type, or 0 on failure.
- **/
-
-static GQuark
-get_quark_accessible (void)
-{
-    static GQuark quark_accessible_object = 0;
-
-    if (!quark_accessible_object)
-    {
-        quark_accessible_object = g_quark_from_static_string
-                                  ("accessible-object");
-    }
-
-    return quark_accessible_object;
-}
-
 static GQuark
 get_quark_gobject (void)
 {
@@ -90,20 +54,6 @@ get_quark_gobject (void)
     }
 
     return quark_accessible_gobject;
-}
-
-/**
- * eel_accessibility_get_atk_object:
- * @object: a GObject of some sort
- *
- * gets an AtkObject associated with a GObject
- *
- * Return value: the associated accessible if one exists or NULL
- **/
-AtkObject *
-eel_accessibility_get_atk_object (gpointer object)
-{
-    return g_object_get_qdata (object, get_quark_accessible ());
 }
 
 /**
@@ -138,24 +88,6 @@ eel_accessibility_get_gobject (AtkObject *object)
 {
     return g_object_get_qdata (G_OBJECT (object), get_quark_gobject ());
 }
-
-static void
-eel_accessibility_destroy (gpointer data,
-                           GObject *where_the_object_was)
-{
-    atk_object_notify_state_change
-    (ATK_OBJECT (data), ATK_STATE_DEFUNCT, TRUE);
-}
-
-/**
- * eel_accessibility_set_atk_object_return:
- * @object: a GObject
- * @atk_object: it's AtkObject
- *
- * used to register and return a new accessible object for something
- *
- * Return value: @atk_object.
- **/
 
 static GailTextUtil *
 get_simple_text (gpointer object)
@@ -274,46 +206,6 @@ eel_accessibility_text_get_character_count (AtkText *text)
     g_return_val_if_fail (util != NULL, -1);
 
     return gtk_text_buffer_get_char_count (util->buffer);
-}
-
-static void
-eel_accessibility_simple_text_interface_init (AtkTextIface *iface)
-{
-    iface->get_text                = eel_accessibility_text_get_text;
-    iface->get_character_at_offset = eel_accessibility_text_get_character_at_offset;
-    iface->get_text_before_offset  = eel_accessibility_text_get_text_before_offset;
-    iface->get_text_at_offset      = eel_accessibility_text_get_text_at_offset;
-    iface->get_text_after_offset   = eel_accessibility_text_get_text_after_offset;
-    iface->get_character_count     = eel_accessibility_text_get_character_count;
-
-    /*	iface->get_caret_offset = eel_accessibility_text_get_caret_offset;
-    	iface->set_caret_offset = eel_accessibility_text_set_caret_offset;
-    	iface->get_selection = eel_accessibility_text_get_selection;
-    	iface->get_n_selections = eel_accessibility_text_get_n_selections;
-    	iface->add_selection = eel_accessibility_text_add_selection;
-    	iface->remove_selection = eel_accessibility_text_remove_selection;
-    	iface->set_selection = eel_accessibility_text_set_selection;
-    	iface->get_run_attributes = eel_accessibility_text_get_run_attributes;
-    	iface->get_default_attributes = eel_accessibility_text_get_default_attributes;
-    	iface->get_character_extents = eel_accessibility_text_get_character_extents;
-    	iface->get_offset_at_point = eel_accessibility_text_get_offset_at_point; */
-}
-
-void
-eel_accessibility_add_simple_text (GType type)
-{
-    const GInterfaceInfo simple_text_info =
-    {
-        (GInterfaceInitFunc)
-        eel_accessibility_simple_text_interface_init,
-        (GInterfaceFinalizeFunc) NULL,
-        NULL
-    };
-
-    g_return_if_fail (type != G_TYPE_INVALID);
-
-    g_type_add_interface_static (
-        type, ATK_TYPE_TEXT, &simple_text_info);
 }
 
 GType

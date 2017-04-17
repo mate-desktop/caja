@@ -33,9 +33,6 @@
 
 void eel_accessibility_set_up_label_widget_relation (GtkWidget *label, GtkWidget *widget);
 
-typedef void     (*EelAccessibilityClassInitFn)    (AtkObjectClass *klass);
-
-AtkObject    *eel_accessibility_get_atk_object        (gpointer              object);
 AtkObject    *eel_accessibility_for_object            (gpointer              object);
 gpointer      eel_accessibility_get_gobject           (AtkObject            *object);
 void          eel_accessibility_set_name              (gpointer              object,
@@ -88,7 +85,6 @@ typedef struct
 } EelAccessibleTextIface;
 
 GType eel_accessible_text_get_type      (void);
-void  eel_accessibility_add_simple_text (GType type);
 
 /* From gail - should be unneccessary when AtkObjectFactory is fixed */
 #define EEL_ACCESSIBLE_FACTORY(type, factory_name, type_as_function, opt_create_accessible)	\
