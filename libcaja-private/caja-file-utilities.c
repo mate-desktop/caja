@@ -172,22 +172,11 @@ char* caja_get_user_directory(void)
  * Get the path for the filename containing caja accelerator map.
  * The filename need not exist.
  *
- * Return value: the filename path, or NULL if the home directory could not be found
+ * Return value: the filename path
  **/
 char* caja_get_accel_map_file(void)
 {
-	const gchar* override;
-
-	override = g_getenv ("MATE22_USER_DIR");
-
-	if (override)
-	{
-		return g_build_filename(override, "accels", "caja", NULL);
-	}
-	else
-	{
-		return g_build_filename(g_get_user_config_dir(), "caja", "accels", NULL);
-	}
+	return g_build_filename (g_get_user_config_dir (), "caja", "accels", NULL);
 }
 
 typedef struct {

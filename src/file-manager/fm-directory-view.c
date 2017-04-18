@@ -1657,16 +1657,7 @@ static void set_up_scripts_directory_global(void)
 	}
 
 	char* scripts_directory_path;
-	const char* override = g_getenv ("MATE22_USER_DIR"); //TODO: remove?
-
-	if (override)
-	{
-		scripts_directory_path = g_build_filename(override, "caja", "scripts", NULL);
-	}
-	else
-	{
-		scripts_directory_path = g_build_filename(g_get_user_config_dir(), "caja", "scripts", NULL);
-	}
+	scripts_directory_path = g_build_filename (g_get_user_config_dir (), "caja", "scripts", NULL);
 
 	if (g_mkdir_with_parents(scripts_directory_path, 0755) == 0)
 	{
