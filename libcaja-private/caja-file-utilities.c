@@ -1059,14 +1059,13 @@ caja_uninhibit_power_manager (gint cookie)
     g_variant_unref (result);
 }
 
-/* Returns TRUE if the file is in XDG_DATA_DIRS or
-   in "~/.mate2/". This is used for deciding
-   if a desktop file is "trusted" based on the path */
+/* Returns TRUE if the file is in XDG_DATA_DIRS. This is used for
+   deciding if a desktop file is "trusted" based on the path */
 gboolean
 caja_is_in_system_dir (GFile *file)
 {
     const char * const * data_dirs;
-    char *path, *mate2;
+    char *path;
     int i;
     gboolean res;
 
@@ -1090,18 +1089,6 @@ caja_is_in_system_dir (GFile *file)
 
     }
 
-    if (!res)
-    {
-        /* Panel desktop files are here, trust them */
-        mate2 = g_build_filename(g_get_home_dir(), ".mate2", NULL);
-
-        if (g_str_has_prefix (path, mate2))
-        {
-            res = TRUE;
-        }
-
-        g_free(mate2);
-    }
     g_free (path);
 
     return res;
