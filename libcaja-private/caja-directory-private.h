@@ -136,8 +136,6 @@ struct CajaDirectoryDetails
 
     GList *file_operations_in_progress; /* list of FileOperation * */
 
-    GHashTable *hidden_file_hash;
-
     guint64 free_space; /* (guint)-1 for unknown */
     time_t free_space_read; /* The time free_space was updated, or 0 for never */
 };
@@ -236,10 +234,6 @@ void               caja_directory_add_file_to_work_queue          (CajaDirectory
         CajaFile *file);
 void               caja_directory_remove_file_from_work_queue     (CajaDirectory *directory,
         CajaFile *file);
-
-/* KDE compatibility hacks */
-
-void               caja_set_kde_trash_name                        (const char *trash_dir);
 
 /* debugging functions */
 int                caja_directory_number_outstanding              (void);

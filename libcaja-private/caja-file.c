@@ -3389,15 +3389,6 @@ caja_file_is_hidden_file (CajaFile *file)
 	return file->details->is_hidden;
 }
 
-static gboolean
-is_file_hidden (CajaFile *file)
-{
-	return file->details->directory->details->hidden_file_hash != NULL &&
-		g_hash_table_lookup (file->details->directory->details->hidden_file_hash,
-				     eel_ref_str_peek (file->details->name)) != NULL;
-
-}
-
 /**
  * caja_file_should_show:
  * @file: the file to check.
@@ -3417,7 +3408,7 @@ caja_file_should_show (CajaFile *file,
 	if (caja_file_is_in_trash (file)) {
 		return TRUE;
 	} else {
-		return (show_hidden || (!caja_file_is_hidden_file (file) && !is_file_hidden (file))) &&
+		return (show_hidden || !caja_file_is_hidden_file (file)) &&
 			(show_foreign || !(caja_file_is_in_desktop (file) && caja_file_is_foreign_link (file)));
 	}
 }
