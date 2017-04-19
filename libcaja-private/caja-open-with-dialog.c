@@ -526,7 +526,7 @@ get_pixbuf_for_icon (GIcon *icon)
                 *p = 0;
             }
             pixbuf = gtk_icon_theme_load_icon (gtk_icon_theme_get_default (),
-                                               icon_no_extension, 24, 0, NULL);
+                                               icon_no_extension, 24, GTK_ICON_LOOKUP_FORCE_SIZE, NULL);
             g_free (icon_no_extension);
         }
     }
