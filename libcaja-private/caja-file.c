@@ -4132,6 +4132,11 @@ caja_file_get_gicon (CajaFile *file,
 		return NULL;
 	}
 
+	icon = get_custom_icon (file);
+	if (icon != NULL) {
+		return icon;
+	}
+
 	if (file->details->icon) {
 		icon = NULL;
 
