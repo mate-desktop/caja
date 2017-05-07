@@ -2339,7 +2339,7 @@ caja_application_startup (GApplication *app)
     G_APPLICATION_CLASS (caja_application_parent_class)->startup (app);
 
     /* Start the File Manager DBus Interface */
-    fdb_manager = caja_freedesktop_dbus_new (app);
+    fdb_manager = caja_freedesktop_dbus_new (self);
 
     /* Initialize preferences. This is needed so that proper
      * defaults are available before any preference peeking
