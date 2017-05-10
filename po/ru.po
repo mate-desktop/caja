@@ -7,17 +7,17 @@
 # Alexei Sorokin <sor.alexei@meowr.ru>, 2012-2013
 # Alexei Sorokin <sor.alexei@meowr.ru>, 2014
 # AlexL <loginov.alex.valer@gmail.com>, 2016-2017
-# monsta <monsta@inbox.ru>, 2016
+# monsta <monsta@inbox.ru>, 2016-2017
 # monsta <monsta@inbox.ru>, 2015
 # Cyber Tailor <cybertailor@gmail.com>, 2015
-# Дмитрий Михирев <bizdelnick@gmail.com>, 2017
+# Дмитрий Михирев, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-07 22:06+0300\n"
-"PO-Revision-Date: 2017-02-26 20:42+0000\n"
-"Last-Translator: Дмитрий Михирев <bizdelnick@gmail.com>\n"
+"POT-Creation-Date: 2017-04-18 18:17+0300\n"
+"PO-Revision-Date: 2017-04-18 19:36+0000\n"
+"Last-Translator: AlexL <loginov.alex.valer@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/mate/MATE/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -376,11 +376,11 @@ msgstr "p> Caja – официальный файловый менеджер с�
 msgid "Saved search"
 msgstr "Сохранённый поиск"
 
-#: ../eel/eel-canvas.c:1379 ../eel/eel-canvas.c:1380
+#: ../eel/eel-canvas.c:1389 ../eel/eel-canvas.c:1390
 msgid "X"
 msgstr "X"
 
-#: ../eel/eel-canvas.c:1386 ../eel/eel-canvas.c:1387
+#: ../eel/eel-canvas.c:1396 ../eel/eel-canvas.c:1397
 msgid "Y"
 msgstr "Y"
 
@@ -556,9 +556,9 @@ msgstr "_Всегда выполнять это действие"
 #. label, accelerator
 #. add the "Eject" menu item
 #: ../libcaja-private/caja-autorun.c:1146
-#: ../src/file-manager/fm-directory-view.c:7416
-#: ../src/file-manager/fm-directory-view.c:7444
-#: ../src/file-manager/fm-directory-view.c:7525
+#: ../src/file-manager/fm-directory-view.c:7401
+#: ../src/file-manager/fm-directory-view.c:7429
+#: ../src/file-manager/fm-directory-view.c:7510
 #: ../src/file-manager/fm-tree-view.c:1382 ../src/caja-places-sidebar.c:2740
 msgid "_Eject"
 msgstr "_Извлечь"
@@ -567,9 +567,9 @@ msgstr "_Извлечь"
 #. label, accelerator
 #. add the "Unmount" menu item
 #: ../libcaja-private/caja-autorun.c:1159
-#: ../src/file-manager/fm-directory-view.c:7412
-#: ../src/file-manager/fm-directory-view.c:7440
-#: ../src/file-manager/fm-directory-view.c:7521
+#: ../src/file-manager/fm-directory-view.c:7397
+#: ../src/file-manager/fm-directory-view.c:7425
+#: ../src/file-manager/fm-directory-view.c:7506
 #: ../src/file-manager/fm-tree-view.c:1373 ../src/caja-places-sidebar.c:2733
 msgid "_Unmount"
 msgstr "О_тсоединить том"
@@ -598,7 +598,7 @@ msgstr "Вставить текст, сохранённый в буфере об
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-clipboard.c:470
-#: ../src/file-manager/fm-directory-view.c:7345
+#: ../src/file-manager/fm-directory-view.c:7330
 msgid "Select _All"
 msgstr "Выделить вс_ё"
 
@@ -621,7 +621,7 @@ msgstr "По _умолчанию"
 
 #: ../libcaja-private/caja-column-utilities.c:44
 #: ../libcaja-private/caja-mime-application-chooser.c:274
-#: ../src/file-manager/fm-list-view.c:1768
+#: ../src/file-manager/fm-list-view.c:1766
 msgid "Name"
 msgstr "Имя"
 
@@ -712,7 +712,7 @@ msgid "The SELinux security context of the file."
 msgstr "Контекст безопасности SELinux для этого файла."
 
 #: ../libcaja-private/caja-column-utilities.c:130
-#: ../src/caja-image-properties-page.c:369 ../src/caja-query-editor.c:124
+#: ../src/caja-image-properties-page.c:369 ../src/caja-query-editor.c:135
 msgid "Location"
 msgstr "Адрес"
 
@@ -1065,8 +1065,8 @@ msgstr[3] "примерно %'d часов"
 #. * (e.g. "folder", "plain text") to file type for symbolic link
 #. * to that kind of file (e.g. "link to folder").
 #: ../libcaja-private/caja-file-operations.c:406
-#: ../libcaja-private/caja-file.c:6408
-#: ../src/file-manager/fm-directory-view.c:10538
+#: ../libcaja-private/caja-file.c:6399
+#: ../src/file-manager/fm-directory-view.c:10521
 #, c-format
 msgid "Link to %s"
 msgstr "Ссылка на %s"
@@ -1772,12 +1772,12 @@ msgstr "Очистка корзины"
 msgid "Unable to mark launcher trusted (executable)"
 msgstr "Не удалось отметить значок запуска проверенным (выполняемый)"
 
-#: ../libcaja-private/caja-file-utilities.c:1207
+#: ../libcaja-private/caja-file-utilities.c:1183
 #, c-format
 msgid "Could not determine original location of \"%s\" "
 msgstr "Не удалось определить исходное расположение \"%s\" "
 
-#: ../libcaja-private/caja-file-utilities.c:1211
+#: ../libcaja-private/caja-file-utilities.c:1187
 msgid "The item cannot be restored from trash"
 msgstr "Объект не может быть восстановлен из корзины."
 
@@ -1840,62 +1840,62 @@ msgstr "Не удалось переименовать desktop-файл"
 #. * between the "%" and any numeric directive will turn
 #. * off zero padding, and putting a "_" there will use
 #. * space padding instead of zero padding.
-#: ../libcaja-private/caja-file.c:4474
+#: ../libcaja-private/caja-file.c:4465
 msgid "today at 00:00:00 PM"
 msgstr "сегодня в 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4475
+#: ../libcaja-private/caja-file.c:4466
 #: ../src/caja-file-management-properties.c:520
 msgid "today at %-I:%M:%S %p"
 msgstr "сегодня в %-H:%M:%S %p"
 
-#: ../libcaja-private/caja-file.c:4477
+#: ../libcaja-private/caja-file.c:4468
 msgid "today at 00:00 PM"
 msgstr "сегодня в 00:00"
 
-#: ../libcaja-private/caja-file.c:4478
+#: ../libcaja-private/caja-file.c:4469
 msgid "today at %-I:%M %p"
 msgstr "сегодня в %-H:%M %p"
 
-#: ../libcaja-private/caja-file.c:4480
+#: ../libcaja-private/caja-file.c:4471
 msgid "today, 00:00 PM"
 msgstr "сегодня, 00:00"
 
-#: ../libcaja-private/caja-file.c:4481
+#: ../libcaja-private/caja-file.c:4472
 msgid "today, %-I:%M %p"
 msgstr "сегодня, %-H:%M %p"
 
-#: ../libcaja-private/caja-file.c:4483 ../libcaja-private/caja-file.c:4484
+#: ../libcaja-private/caja-file.c:4474 ../libcaja-private/caja-file.c:4475
 msgid "today"
 msgstr "сегодня"
 
 #. Yesterday, use special word.
 #. * Note to localizers: Same issues as "today" string.
-#: ../libcaja-private/caja-file.c:4493
+#: ../libcaja-private/caja-file.c:4484
 msgid "yesterday at 00:00:00 PM"
 msgstr "вчера в 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4494
+#: ../libcaja-private/caja-file.c:4485
 msgid "yesterday at %-I:%M:%S %p"
 msgstr "вчера в %-H:%M:%S"
 
-#: ../libcaja-private/caja-file.c:4496
+#: ../libcaja-private/caja-file.c:4487
 msgid "yesterday at 00:00 PM"
 msgstr "вчера в 00:00"
 
-#: ../libcaja-private/caja-file.c:4497
+#: ../libcaja-private/caja-file.c:4488
 msgid "yesterday at %-I:%M %p"
 msgstr "вчера в %-H:%M"
 
-#: ../libcaja-private/caja-file.c:4499
+#: ../libcaja-private/caja-file.c:4490
 msgid "yesterday, 00:00 PM"
 msgstr "вчера, 00:00"
 
-#: ../libcaja-private/caja-file.c:4500
+#: ../libcaja-private/caja-file.c:4491
 msgid "yesterday, %-I:%M %p"
 msgstr "вчера, %-H:%M"
 
-#: ../libcaja-private/caja-file.c:4502 ../libcaja-private/caja-file.c:4503
+#: ../libcaja-private/caja-file.c:4493 ../libcaja-private/caja-file.c:4494
 msgid "yesterday"
 msgstr "вчера"
 
@@ -1903,89 +1903,89 @@ msgstr "вчера"
 #. * Note to localizers: Same issues as "today" string.
 #. * The width measurement templates correspond to
 #. * the day/month name with the most letters.
-#: ../libcaja-private/caja-file.c:4514
+#: ../libcaja-private/caja-file.c:4505
 msgid "Wednesday, September 00 0000 at 00:00:00 PM"
 msgstr "Воскресенье, 00 сентября 0000 в 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4515
+#: ../libcaja-private/caja-file.c:4506
 msgid "%A, %B %-d %Y at %-I:%M:%S %p"
 msgstr "%A, %-d %B %Y в %-H:%M:%S"
 
-#: ../libcaja-private/caja-file.c:4517
+#: ../libcaja-private/caja-file.c:4508
 msgid "Mon, Oct 00 0000 at 00:00:00 PM"
 msgstr "Пон, 00 окт 0000 в 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4518
+#: ../libcaja-private/caja-file.c:4509
 msgid "%a, %b %-d %Y at %-I:%M:%S %p"
 msgstr "%a %-d %b %Y в %-H:%M:%S"
 
-#: ../libcaja-private/caja-file.c:4520
+#: ../libcaja-private/caja-file.c:4511
 msgid "Mon, Oct 00 0000 at 00:00 PM"
 msgstr "Пон, 00 окт 0000 в 00:00 ПП"
 
-#: ../libcaja-private/caja-file.c:4521
+#: ../libcaja-private/caja-file.c:4512
 msgid "%a, %b %-d %Y at %-I:%M %p"
 msgstr "%a %-d %b %Y в %-H:%M"
 
-#: ../libcaja-private/caja-file.c:4523
+#: ../libcaja-private/caja-file.c:4514
 msgid "Oct 00 0000 at 00:00 PM"
 msgstr "00 окт 0000 в 00:00"
 
-#: ../libcaja-private/caja-file.c:4524
+#: ../libcaja-private/caja-file.c:4515
 msgid "%b %-d %Y at %-I:%M %p"
 msgstr "%-d %b %Y в %-H:%M"
 
-#: ../libcaja-private/caja-file.c:4526
+#: ../libcaja-private/caja-file.c:4517
 msgid "Oct 00 0000, 00:00 PM"
 msgstr "00 окт 0000, 00:00"
 
-#: ../libcaja-private/caja-file.c:4527
+#: ../libcaja-private/caja-file.c:4518
 msgid "%b %-d %Y, %-I:%M %p"
 msgstr "%-d %b %Y, %-H:%M"
 
-#: ../libcaja-private/caja-file.c:4529
+#: ../libcaja-private/caja-file.c:4520
 msgid "00/00/00, 00:00 PM"
 msgstr "00.00.00, 00:00"
 
-#: ../libcaja-private/caja-file.c:4530
+#: ../libcaja-private/caja-file.c:4521
 msgid "%m/%-d/%y, %-I:%M %p"
 msgstr "%-d.%m.%y, %-H:%M"
 
-#: ../libcaja-private/caja-file.c:4532
+#: ../libcaja-private/caja-file.c:4523
 msgid "00/00/00"
 msgstr "00.00.00"
 
-#: ../libcaja-private/caja-file.c:4533
+#: ../libcaja-private/caja-file.c:4524
 msgid "%m/%d/%y"
 msgstr "%d.%m.%y"
 
-#: ../libcaja-private/caja-file.c:5145
+#: ../libcaja-private/caja-file.c:5136
 #, c-format
 msgid "Not allowed to set permissions"
 msgstr "Запрещено устанавливать права"
 
-#: ../libcaja-private/caja-file.c:5439
+#: ../libcaja-private/caja-file.c:5430
 #, c-format
 msgid "Not allowed to set owner"
 msgstr "Запрещено устанавливать владельца"
 
-#: ../libcaja-private/caja-file.c:5457
+#: ../libcaja-private/caja-file.c:5448
 #, c-format
 msgid "Specified owner '%s' doesn't exist"
 msgstr "Указанный владелец «%s» не существует"
 
-#: ../libcaja-private/caja-file.c:5717
+#: ../libcaja-private/caja-file.c:5708
 #, c-format
 msgid "Not allowed to set group"
 msgstr "Запрещено устанавливать группу"
 
-#: ../libcaja-private/caja-file.c:5735
+#: ../libcaja-private/caja-file.c:5726
 #, c-format
 msgid "Specified group '%s' doesn't exist"
 msgstr "Указанная группа «%s» не существует"
 
-#: ../libcaja-private/caja-file.c:5889
-#: ../src/file-manager/fm-directory-view.c:2374
+#: ../libcaja-private/caja-file.c:5880
+#: ../src/file-manager/fm-directory-view.c:2361
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
@@ -1994,7 +1994,7 @@ msgstr[1] "%'u объекта"
 msgstr[2] "%'u объектов"
 msgstr[3] "%'u объектов"
 
-#: ../libcaja-private/caja-file.c:5890
+#: ../libcaja-private/caja-file.c:5881
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
@@ -2003,7 +2003,7 @@ msgstr[1] "%'u папки"
 msgstr[2] "%'u папок"
 msgstr[3] "%'u папок"
 
-#: ../libcaja-private/caja-file.c:5891
+#: ../libcaja-private/caja-file.c:5882
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
@@ -2014,53 +2014,53 @@ msgstr[3] "%'u файлов"
 
 #. Do this in a separate stage so that we don't have to put G_GUINT64_FORMAT
 #. in the translated string
-#: ../libcaja-private/caja-file.c:5978
+#: ../libcaja-private/caja-file.c:5969
 msgid "%"
 msgstr "%"
 
-#: ../libcaja-private/caja-file.c:5979
+#: ../libcaja-private/caja-file.c:5970
 #, c-format
 msgid "%s (%s bytes)"
 msgstr "%s (%s байт)"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6294 ../libcaja-private/caja-file.c:6310
+#: ../libcaja-private/caja-file.c:6285 ../libcaja-private/caja-file.c:6301
 msgid "? items"
 msgstr "? объектов"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6300
+#: ../libcaja-private/caja-file.c:6291
 msgid "? bytes"
 msgstr "? байт"
 
-#: ../libcaja-private/caja-file.c:6315
+#: ../libcaja-private/caja-file.c:6306
 msgid "unknown type"
 msgstr "неизвестный тип"
 
-#: ../libcaja-private/caja-file.c:6318
+#: ../libcaja-private/caja-file.c:6309
 msgid "unknown MIME type"
 msgstr "неизвестный тип MIME"
 
 #. Fallback, use for both unknown attributes and attributes
 #. * for which we have no more appropriate default.
-#: ../libcaja-private/caja-file.c:6332
+#: ../libcaja-private/caja-file.c:6323
 #: ../src/file-manager/fm-properties-window.c:1286
 msgid "unknown"
 msgstr "неизвестно"
 
-#: ../libcaja-private/caja-file.c:6382
+#: ../libcaja-private/caja-file.c:6373
 msgid "program"
 msgstr "программа"
 
-#: ../libcaja-private/caja-file.c:6402
+#: ../libcaja-private/caja-file.c:6393
 msgid "link"
 msgstr "ссылка"
 
-#: ../libcaja-private/caja-file.c:6424
+#: ../libcaja-private/caja-file.c:6415
 msgid "link (broken)"
 msgstr "ссылка (испорченная)"
 
-#: ../libcaja-private/caja-icon-container.c:2917
+#: ../libcaja-private/caja-icon-container.c:2915
 msgid "The selection rectangle"
 msgstr "Область выделения"
 
@@ -2086,10 +2086,10 @@ msgstr "Эту ссылку нельзя использовать, потому 
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-mime-actions.c:744
-#: ../src/file-manager/fm-directory-view.c:7373
-#: ../src/file-manager/fm-directory-view.c:7505
-#: ../src/file-manager/fm-directory-view.c:8606
-#: ../src/file-manager/fm-directory-view.c:8931
+#: ../src/file-manager/fm-directory-view.c:7358
+#: ../src/file-manager/fm-directory-view.c:7490
+#: ../src/file-manager/fm-directory-view.c:8589
+#: ../src/file-manager/fm-directory-view.c:8914
 #: ../src/file-manager/fm-tree-view.c:1346
 msgid "Mo_ve to Trash"
 msgstr "_Удалить"
@@ -2118,7 +2118,7 @@ msgid "_Run"
 msgstr "За_пустить"
 
 #: ../libcaja-private/caja-mime-actions.c:1170
-#: ../src/file-manager/fm-directory-view.c:656
+#: ../src/file-manager/fm-directory-view.c:652
 msgid "Are you sure you want to open all files?"
 msgstr "Вы действительно хотите открыть все файлы?"
 
@@ -2200,12 +2200,12 @@ msgstr "Считать _проверенным"
 
 #: ../libcaja-private/caja-mime-actions.c:2010
 #: ../libcaja-private/caja-mime-actions.c:2316
-#: ../src/file-manager/fm-directory-view.c:6391
+#: ../src/file-manager/fm-directory-view.c:6376
 msgid "Unable to mount location"
 msgstr "Не удалось присоединить местоположение"
 
 #: ../libcaja-private/caja-mime-actions.c:2404
-#: ../src/file-manager/fm-directory-view.c:6565
+#: ../src/file-manager/fm-directory-view.c:6550
 msgid "Unable to start location"
 msgstr "Не удалось запустить местоположение"
 
@@ -2316,8 +2316,8 @@ msgstr "_Просмотреть..."
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-open-with-dialog.c:962
-#: ../src/file-manager/fm-directory-view.c:7289
-#: ../src/file-manager/fm-directory-view.c:8800
+#: ../src/file-manager/fm-directory-view.c:7274
+#: ../src/file-manager/fm-directory-view.c:8783
 #: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2682
 msgid "_Open"
 msgstr "_Открыть"
@@ -2476,14 +2476,14 @@ msgstr[3] "Идёт %'d действий над файлами"
 msgid "Preparing"
 msgstr "Идёт подготовка"
 
-#: ../libcaja-private/caja-query.c:137
+#: ../libcaja-private/caja-query.c:161
 #: ../libcaja-private/caja-search-directory-file.c:170
 #: ../libcaja-private/caja-search-directory-file.c:199
 #: ../libcaja-private/caja-search-directory-file.c:232
 msgid "Search"
 msgstr "Поиск"
 
-#: ../libcaja-private/caja-query.c:140
+#: ../libcaja-private/caja-query.c:164
 #, c-format
 msgid "Search for \"%s\""
 msgstr "Поиск «%s»"
@@ -3677,63 +3677,63 @@ msgstr "Открыть вашу личную папку"
 msgid "File Manager"
 msgstr "Файловый менеджер"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:708
+#: ../src/file-manager/fm-desktop-icon-view.c:706
 msgid "Background"
 msgstr "Фон"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:785
-#: ../src/file-manager/fm-directory-view.c:7321
-#: ../src/file-manager/fm-directory-view.c:9000
+#: ../src/file-manager/fm-desktop-icon-view.c:783
+#: ../src/file-manager/fm-directory-view.c:7306
+#: ../src/file-manager/fm-directory-view.c:8983
 msgid "E_mpty Trash"
 msgstr "О_чистить корзину"
 
 #. label, accelerator
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:799
-#: ../src/file-manager/fm-directory-view.c:7285
+#: ../src/file-manager/fm-desktop-icon-view.c:797
+#: ../src/file-manager/fm-directory-view.c:7270
 msgid "Create L_auncher..."
 msgstr "Создать кнопку _запуска..."
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:801
-#: ../src/file-manager/fm-directory-view.c:7286
+#: ../src/file-manager/fm-desktop-icon-view.c:799
+#: ../src/file-manager/fm-directory-view.c:7271
 msgid "Create a new launcher"
 msgstr "Создать новую кнопку запуска"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:808
+#: ../src/file-manager/fm-desktop-icon-view.c:806
 msgid "Change Desktop _Background"
 msgstr "Параметры внешнего вида"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:810
+#: ../src/file-manager/fm-desktop-icon-view.c:808
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr "Показать окно, которое позволит вам установить орнамент или цвет фона вашего рабочего стола"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:817
+#: ../src/file-manager/fm-desktop-icon-view.c:815
 msgid "Empty Trash"
 msgstr "Очистить корзину"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:819
-#: ../src/file-manager/fm-directory-view.c:7322 ../src/caja-trash-bar.c:204
+#: ../src/file-manager/fm-desktop-icon-view.c:817
+#: ../src/file-manager/fm-directory-view.c:7307 ../src/caja-trash-bar.c:204
 msgid "Delete all items in the Trash"
 msgstr "Удалить все объекты из корзины"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:919
+#: ../src/file-manager/fm-desktop-icon-view.c:917
 msgid "The desktop view encountered an error."
 msgstr "Компонент просмотра «Рабочий стол» столкнулся с ошибкой."
 
-#: ../src/file-manager/fm-desktop-icon-view.c:920
+#: ../src/file-manager/fm-desktop-icon-view.c:918
 msgid "The desktop view encountered an error while starting up."
 msgstr "Компонент просмотра «Рабочий стол» столкнулся с ошибкой при запуске."
 
-#: ../src/file-manager/fm-directory-view.c:658
+#: ../src/file-manager/fm-directory-view.c:654
 #, c-format
 msgid "This will open %'d separate tab."
 msgid_plural "This will open %'d separate tabs."
@@ -3742,7 +3742,7 @@ msgstr[1] "Будет открыто %'d отдельные вкладки."
 msgstr[2] "Будет открыто %'d отдельных вкладок."
 msgstr[3] "Будет открыто %'d отдельных вкладок."
 
-#: ../src/file-manager/fm-directory-view.c:661
+#: ../src/file-manager/fm-directory-view.c:657
 #, c-format
 msgid "This will open %'d separate window."
 msgid_plural "This will open %'d separate windows."
@@ -3751,47 +3751,47 @@ msgstr[1] "Будет открыто %'d отдельных окна."
 msgstr[2] "Будет открыто %'d отдельных окон."
 msgstr[3] "Будет открыто %'d отдельных окон."
 
-#: ../src/file-manager/fm-directory-view.c:1180
+#: ../src/file-manager/fm-directory-view.c:1176
 #: ../src/file-manager/fm-properties-window.c:5397
 #: ../src/caja-connect-server-dialog.c:718 ../src/caja-location-dialog.c:102
 msgid "There was an error displaying help."
 msgstr "При показе справки произошла ошибка."
 
-#: ../src/file-manager/fm-directory-view.c:1200
+#: ../src/file-manager/fm-directory-view.c:1196
 msgid "Select Items Matching"
 msgstr "Выделить объекты по шаблону"
 
-#: ../src/file-manager/fm-directory-view.c:1215
+#: ../src/file-manager/fm-directory-view.c:1211
 msgid "_Pattern:"
 msgstr "_Шаблон:"
 
-#: ../src/file-manager/fm-directory-view.c:1222
+#: ../src/file-manager/fm-directory-view.c:1218
 msgid "Examples: "
 msgstr "Примеры: "
 
-#: ../src/file-manager/fm-directory-view.c:1338
+#: ../src/file-manager/fm-directory-view.c:1334
 msgid "Save Search as"
 msgstr "Сохранить поиск как"
 
-#: ../src/file-manager/fm-directory-view.c:1361
+#: ../src/file-manager/fm-directory-view.c:1357
 msgid "Search _name:"
 msgstr "_Имя поиска:"
 
-#: ../src/file-manager/fm-directory-view.c:1381
+#: ../src/file-manager/fm-directory-view.c:1377
 msgid "_Folder:"
 msgstr "_Папка:"
 
-#: ../src/file-manager/fm-directory-view.c:1390
+#: ../src/file-manager/fm-directory-view.c:1386
 msgid "Select Folder to Save Search In"
 msgstr "Выберите папку для сохранения поиска"
 
-#: ../src/file-manager/fm-directory-view.c:2287
-#: ../src/file-manager/fm-directory-view.c:2324
+#: ../src/file-manager/fm-directory-view.c:2274
+#: ../src/file-manager/fm-directory-view.c:2311
 #, c-format
 msgid "\"%s\" selected"
 msgstr "«%s» выделен"
 
-#: ../src/file-manager/fm-directory-view.c:2289
+#: ../src/file-manager/fm-directory-view.c:2276
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
@@ -3800,7 +3800,7 @@ msgstr[1] "Выделено %'d папки"
 msgstr[2] "Выделено %'d папок"
 msgstr[3] "Выделено %'d папок"
 
-#: ../src/file-manager/fm-directory-view.c:2299
+#: ../src/file-manager/fm-directory-view.c:2286
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
@@ -3811,7 +3811,7 @@ msgstr[3] " (внутри %'d объектов)"
 
 #. translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
-#: ../src/file-manager/fm-directory-view.c:2310
+#: ../src/file-manager/fm-directory-view.c:2297
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
@@ -3820,7 +3820,7 @@ msgstr[1] " (внутри всего %'d объекта)"
 msgstr[2] " (внутри всего %'d объектов)"
 msgstr[3] " (внутри всего %'d объектов)"
 
-#: ../src/file-manager/fm-directory-view.c:2327
+#: ../src/file-manager/fm-directory-view.c:2314
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
@@ -3830,7 +3830,7 @@ msgstr[2] "Выделено %'d объектов"
 msgstr[3] "Выделено %'d объектов"
 
 #. Folders selected also, use "other" terminology
-#: ../src/file-manager/fm-directory-view.c:2334
+#: ../src/file-manager/fm-directory-view.c:2321
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
@@ -3843,17 +3843,17 @@ msgstr[3] "Выделено %'d других объектов"
 #. * needs to use something other than parentheses. The
 #. * first message gives the number of items selected;
 #. * the message in parentheses the size of those items.
-#: ../src/file-manager/fm-directory-view.c:2353
+#: ../src/file-manager/fm-directory-view.c:2340
 #, c-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-directory-view.c:2366
+#: ../src/file-manager/fm-directory-view.c:2353
 #, c-format
 msgid "Free space: %s"
 msgstr "Свободное место: %s"
 
-#: ../src/file-manager/fm-directory-view.c:2377
+#: ../src/file-manager/fm-directory-view.c:2364
 #, c-format
 msgid "%s, Free space: %s"
 msgstr "%s, свободно: %s"
@@ -3862,7 +3862,7 @@ msgstr "%s, свободно: %s"
 #. * might want to change "," to something else.
 #. * After the comma the amount of free space will
 #. * be shown.
-#: ../src/file-manager/fm-directory-view.c:2392
+#: ../src/file-manager/fm-directory-view.c:2379
 #, c-format
 msgid "%s, %s"
 msgstr "%s, %s"
@@ -3877,8 +3877,8 @@ msgstr "%s, %s"
 #. * and the number of items in those folders and the
 #. * message about the number of other items and the
 #. * total size of those items.
-#: ../src/file-manager/fm-directory-view.c:2411
-#: ../src/file-manager/fm-directory-view.c:2425
+#: ../src/file-manager/fm-directory-view.c:2398
+#: ../src/file-manager/fm-directory-view.c:2412
 #, c-format
 msgid "%s%s, %s"
 msgstr "%s%s, %s"
@@ -3890,18 +3890,18 @@ msgstr "%s%s, %s"
 #. * message about the number of other items and the
 #. * total size of those items. After the second comma
 #. * the free space is written.
-#: ../src/file-manager/fm-directory-view.c:2438
+#: ../src/file-manager/fm-directory-view.c:2425
 #, c-format
 msgid "%s%s, %s, %s"
 msgstr "%s%s, %s, %s"
 
-#: ../src/file-manager/fm-directory-view.c:4485
+#: ../src/file-manager/fm-directory-view.c:4470
 #: ../src/caja-information-panel.c:905
 #, c-format
 msgid "Open With %s"
 msgstr "Открыть в %s"
 
-#: ../src/file-manager/fm-directory-view.c:4487
+#: ../src/file-manager/fm-directory-view.c:4472
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
@@ -3910,35 +3910,35 @@ msgstr[1] "Использовать приложение «%s» для откр�
 msgstr[2] "Использовать приложение «%s» для открытия выделенных объектов"
 msgstr[3] "Использовать приложение «%s» для открытия выделенных объектов"
 
-#: ../src/file-manager/fm-directory-view.c:4576
+#: ../src/file-manager/fm-directory-view.c:4561
 msgid "Open parent location"
 msgstr "Открыть адрес верхнего уровня"
 
-#: ../src/file-manager/fm-directory-view.c:4577
+#: ../src/file-manager/fm-directory-view.c:4562
 msgid "Open parent location for the selected item"
 msgstr "Открыть адрес верхнего уровня для выделенного объекта"
 
-#: ../src/file-manager/fm-directory-view.c:5426
+#: ../src/file-manager/fm-directory-view.c:5411
 #, c-format
 msgid "Run \"%s\" on any selected items"
 msgstr "Использовать приложение «%s» для выделенных объектов"
 
-#: ../src/file-manager/fm-directory-view.c:5677
+#: ../src/file-manager/fm-directory-view.c:5662
 #, c-format
 msgid "Create Document from template \"%s\""
 msgstr "Создать документ из шаблона «%s»"
 
-#: ../src/file-manager/fm-directory-view.c:5927
+#: ../src/file-manager/fm-directory-view.c:5912
 msgid "All executable files in this folder will appear in the Scripts menu."
 msgstr "Все исполняемые файлы из этой папки будут показаны в меню «Сценарии»."
 
-#: ../src/file-manager/fm-directory-view.c:5929
+#: ../src/file-manager/fm-directory-view.c:5914
 msgid ""
 "Choosing a script from the menu will run that script with any selected items"
 " as input."
 msgstr "Если выбрать сценарий из меню, он будет запущен, и ему будут переданы все выделенные объекты."
 
-#: ../src/file-manager/fm-directory-view.c:5931
+#: ../src/file-manager/fm-directory-view.c:5916
 msgid ""
 "All executable files in this folder will appear in the Scripts menu. Choosing a script from the menu will run that script.\n"
 "\n"
@@ -3961,19 +3961,19 @@ msgid ""
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI for current location in the inactive pane of a split-view window"
 msgstr "Все исполняемые файлы из этой папки появятся в меню «Сценарии». Если выбрать сценарий из меню, он будет запущен.\n\nПри запуске из локальной папки сценариям будут переданы имена выделенных файлов. При загрузке из удалённой папки (к примеру, из папки, отображающей содержимое веб или FTP-сервера), сценариям не будут переданы параметры.\n\nВо всех случаях Caja установит для сценариев следующие переменные окружения:\n\nCAJA_SCRIPT_SELECTED_FILE_PATHS: список выделенных файлов, разделённых переводом строки (только в локальном случае)\n\nCAJA_SCRIPT_SELECTED_URIS: список адресов (URI) выделенных файлов, разделённых переводом строки\n\nCAJA_SCRIPT_CURRENT_URI: текущий адрес URI\n\nCAJA_SCRIPT_WINDOW_GEOMETRY: положение и размер текущего окна \nCAJA_SCRIPT_NEXT_PANE_SELECTED_FILE_PATHS: список выделенных файлов, разделённых переводом строки, в неактивной панели окна раздельного вида (только в локальном случае)\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: список адресов (URI) выделенных файлов, разделённых переводом строки, в неактивной панели окна раздельного вида\n\nCAJA_SCRIPT_NEXT_PANE_CURRENT_URI: текущий адрес URI в неактивной панели окна раздельного вида "
 
-#: ../src/file-manager/fm-directory-view.c:5999
+#: ../src/file-manager/fm-directory-view.c:5984
 #: ../src/file-manager/fm-tree-view.c:1009
 #, c-format
 msgid "\"%s\" will be moved if you select the Paste command"
 msgstr "Объект «%s» будет перемещён, когда вы выберете команду «Вставить»"
 
-#: ../src/file-manager/fm-directory-view.c:6003
+#: ../src/file-manager/fm-directory-view.c:5988
 #: ../src/file-manager/fm-tree-view.c:1015
 #, c-format
 msgid "\"%s\" will be copied if you select the Paste command"
 msgstr "Объект «%s» будет скопирован, когда вы выберете команду «Вставить»"
 
-#: ../src/file-manager/fm-directory-view.c:6010
+#: ../src/file-manager/fm-directory-view.c:5995
 #, c-format
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
@@ -3983,7 +3983,7 @@ msgstr[1] "%'d выделенных объекта будут перемещен
 msgstr[2] "%'d выделенных объектов будет перемещено, когда вы выберете команду «Вставить»"
 msgstr[3] "%'d выделенных объектов будет перемещено, когда вы выберете команду «Вставить»"
 
-#: ../src/file-manager/fm-directory-view.c:6017
+#: ../src/file-manager/fm-directory-view.c:6002
 #, c-format
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
@@ -3993,98 +3993,98 @@ msgstr[1] "%'d выделенных объекта будут скопирова
 msgstr[2] "%'d выделенных объектов будет скопировано, когда вы выберете команду «Вставить»"
 msgstr[3] "%'d выделенных объектов будет скопировано, когда вы выберете команду «Вставить»"
 
-#: ../src/file-manager/fm-directory-view.c:6197
+#: ../src/file-manager/fm-directory-view.c:6182
 #: ../src/file-manager/fm-tree-view.c:1055
 msgid "There is nothing on the clipboard to paste."
 msgstr "В буфере обмена нет ничего, что можно вставить."
 
-#: ../src/file-manager/fm-directory-view.c:6412
+#: ../src/file-manager/fm-directory-view.c:6397
 msgid "Unable to unmount location"
 msgstr "Не удалось отсоединить местоположение"
 
-#: ../src/file-manager/fm-directory-view.c:6433
+#: ../src/file-manager/fm-directory-view.c:6418
 msgid "Unable to eject location"
 msgstr "Не удалось извлечь местоположение"
 
-#: ../src/file-manager/fm-directory-view.c:6448
+#: ../src/file-manager/fm-directory-view.c:6433
 msgid "Unable to stop drive"
 msgstr "Не удалось остановить привод"
 
-#: ../src/file-manager/fm-directory-view.c:7005
+#: ../src/file-manager/fm-directory-view.c:6990
 #, c-format
 msgid "Connect to Server %s"
 msgstr "Соединение с сервером «%s»"
 
-#: ../src/file-manager/fm-directory-view.c:7010
-#: ../src/file-manager/fm-directory-view.c:8219
-#: ../src/file-manager/fm-directory-view.c:8311
-#: ../src/file-manager/fm-directory-view.c:8421
+#: ../src/file-manager/fm-directory-view.c:6995
+#: ../src/file-manager/fm-directory-view.c:8202
+#: ../src/file-manager/fm-directory-view.c:8294
+#: ../src/file-manager/fm-directory-view.c:8404
 msgid "_Connect"
 msgstr "_Соединиться"
 
-#: ../src/file-manager/fm-directory-view.c:7024
+#: ../src/file-manager/fm-directory-view.c:7009
 msgid "Link _name:"
 msgstr "_Имя ссылки:"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7263
+#: ../src/file-manager/fm-directory-view.c:7248
 msgid "Create _Document"
 msgstr "Создать _документ"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7264
+#: ../src/file-manager/fm-directory-view.c:7249
 msgid "Open Wit_h"
 msgstr "Открыть в про_грамме"
 
-#: ../src/file-manager/fm-directory-view.c:7265
+#: ../src/file-manager/fm-directory-view.c:7250
 msgid "Choose a program with which to open the selected item"
 msgstr "Выбрать программу для открытия выделенного объекта"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7267
-#: ../src/file-manager/fm-directory-view.c:7546
+#: ../src/file-manager/fm-directory-view.c:7252
+#: ../src/file-manager/fm-directory-view.c:7531
 msgid "_Properties"
 msgstr "_Свойства"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7268
-#: ../src/file-manager/fm-directory-view.c:8987
+#: ../src/file-manager/fm-directory-view.c:7253
+#: ../src/file-manager/fm-directory-view.c:8970
 msgid "View or modify the properties of each selected item"
 msgstr "Просмотреть или изменить свойства каждого выделенного объекта"
 
 #. name, stock id
 #. label, accelerator
 #. add the "create folder" menu item
-#: ../src/file-manager/fm-directory-view.c:7275
+#: ../src/file-manager/fm-directory-view.c:7260
 #: ../src/file-manager/fm-tree-view.c:1298
 msgid "Create _Folder"
 msgstr "Создать _папку"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7276
+#: ../src/file-manager/fm-directory-view.c:7261
 msgid "Create a new empty folder inside this folder"
 msgstr "Создать новую пустую папку внутри этой папки"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7278
+#: ../src/file-manager/fm-directory-view.c:7263
 msgid "No templates installed"
 msgstr "Шаблоны не установлены"
 
 #. name, stock id
 #. translators: this is used to indicate that a file doesn't contain anything
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7281
+#: ../src/file-manager/fm-directory-view.c:7266
 msgid "_Empty File"
 msgstr "_Пустой файл"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7282
+#: ../src/file-manager/fm-directory-view.c:7267
 msgid "Create a new empty file inside this folder"
 msgstr "Создать новый пустой файл внутри этой папки"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7290
+#: ../src/file-manager/fm-directory-view.c:7275
 msgid "Open the selected item in this window"
 msgstr "Открыть выделенный объект в этом окне"
 
@@ -4093,91 +4093,91 @@ msgstr "Открыть выделенный объект в этом окне"
 #. Location-specific actions
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7297
-#: ../src/file-manager/fm-directory-view.c:7478
+#: ../src/file-manager/fm-directory-view.c:7282
+#: ../src/file-manager/fm-directory-view.c:7463
 msgid "Open in Navigation Window"
 msgstr "Открыть в окне обозревателя"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7298
+#: ../src/file-manager/fm-directory-view.c:7283
 msgid "Open each selected item in a navigation window"
 msgstr "Открыть каждый выделенный объект в окне обозревателя"
 
 #. name, stock id
 #. label, accelerator
 #. add the "open in new tab" menu item
-#: ../src/file-manager/fm-directory-view.c:7301
-#: ../src/file-manager/fm-directory-view.c:7482
-#: ../src/file-manager/fm-directory-view.c:8551
-#: ../src/file-manager/fm-directory-view.c:8877
+#: ../src/file-manager/fm-directory-view.c:7286
+#: ../src/file-manager/fm-directory-view.c:7467
+#: ../src/file-manager/fm-directory-view.c:8534
+#: ../src/file-manager/fm-directory-view.c:8860
 #: ../src/file-manager/fm-tree-view.c:1278 ../src/caja-places-sidebar.c:2690
 msgid "Open in New _Tab"
 msgstr "Открыть в новой вк_ладке"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7302
+#: ../src/file-manager/fm-directory-view.c:7287
 msgid "Open each selected item in a new tab"
 msgstr "Открыть каждый выделенный объект в отдельной вкладке"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7305
-#: ../src/file-manager/fm-directory-view.c:7487
+#: ../src/file-manager/fm-directory-view.c:7290
+#: ../src/file-manager/fm-directory-view.c:7472
 msgid "Open in _Folder Window"
 msgstr "Открыть в окне п_апки"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7306
+#: ../src/file-manager/fm-directory-view.c:7291
 msgid "Open each selected item in a folder window"
 msgstr "Открыть каждый выделенный объект в окне папки"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7309
+#: ../src/file-manager/fm-directory-view.c:7294
 msgid "Other _Application..."
 msgstr "_Другое приложение..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7310
-#: ../src/file-manager/fm-directory-view.c:7314
+#: ../src/file-manager/fm-directory-view.c:7295
+#: ../src/file-manager/fm-directory-view.c:7299
 msgid "Choose another application with which to open the selected item"
 msgstr "Выбрать другое приложение для открытия выделенного объекта"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7313
+#: ../src/file-manager/fm-directory-view.c:7298
 msgid "Open With Other _Application..."
 msgstr "Открыть в другой _программе..."
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7317
+#: ../src/file-manager/fm-directory-view.c:7302
 msgid "_Open Scripts Folder"
 msgstr "Открыть папку с_ценариев"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7318
+#: ../src/file-manager/fm-directory-view.c:7303
 msgid "Show the folder containing the scripts that appear in this menu"
 msgstr "Показать папку, содержащую сценарии, которые показаны в этом меню"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7326
+#: ../src/file-manager/fm-directory-view.c:7311
 msgid "Prepare the selected files to be moved with a Paste command"
 msgstr "Подготовить выделенные файлы к перемещению с помощью команды «Вставить»"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7330
+#: ../src/file-manager/fm-directory-view.c:7315
 msgid "Prepare the selected files to be copied with a Paste command"
 msgstr "Подготовить выделенные файлы к копированию с помощью команды «Вставить»"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7334
+#: ../src/file-manager/fm-directory-view.c:7319
 msgid "Move or copy files previously selected by a Cut or Copy command"
 msgstr "Переместить или скопировать файлы, выбранные ранее командой «Вырезать» или «Копировать»"
 
@@ -4185,71 +4185,71 @@ msgstr "Переместить или скопировать файлы, выб�
 #. accelerator for paste
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7339
-#: ../src/file-manager/fm-directory-view.c:7500
+#: ../src/file-manager/fm-directory-view.c:7324
+#: ../src/file-manager/fm-directory-view.c:7485
 #: ../src/file-manager/fm-tree-view.c:1330
 msgid "_Paste Into Folder"
 msgstr "Вст_авить в папку"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7340
+#: ../src/file-manager/fm-directory-view.c:7325
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into the "
 "selected folder"
 msgstr "Переместить или скопировать файлы, выбранные ранее командой «Вырезать» или «Копировать», в выделенную папку"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7342
+#: ../src/file-manager/fm-directory-view.c:7327
 msgid "Cop_y to"
 msgstr "_Копировать в"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7343
+#: ../src/file-manager/fm-directory-view.c:7328
 msgid "M_ove to"
 msgstr "_Переместить в"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7346
+#: ../src/file-manager/fm-directory-view.c:7331
 msgid "Select all items in this window"
 msgstr "Выделить все объекты в этом окне"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7349
+#: ../src/file-manager/fm-directory-view.c:7334
 msgid "Select I_tems Matching..."
 msgstr "Выделить о_бъекты по шаблону..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7350
+#: ../src/file-manager/fm-directory-view.c:7335
 msgid "Select items in this window matching a given pattern"
 msgstr "Выделить в этом окне все объекты, соответствующие заданному шаблону"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7353
+#: ../src/file-manager/fm-directory-view.c:7338
 msgid "_Invert Selection"
 msgstr "_Обратить выделение"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7354
+#: ../src/file-manager/fm-directory-view.c:7339
 msgid "Select all and only the items that are not currently selected"
 msgstr "Выделить только те объекты, которые ещё не выделены"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7357
+#: ../src/file-manager/fm-directory-view.c:7342
 msgid "D_uplicate"
 msgstr "Прод_ублировать"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7358
+#: ../src/file-manager/fm-directory-view.c:7343
 msgid "Duplicate each selected item"
 msgstr "Продублировать каждый выделенный объект"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7361
-#: ../src/file-manager/fm-directory-view.c:8971
+#: ../src/file-manager/fm-directory-view.c:7346
+#: ../src/file-manager/fm-directory-view.c:8954
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
 msgstr[0] "Создать сс_ылку"
@@ -4258,69 +4258,69 @@ msgstr[2] "Создать сс_ылки"
 msgstr[3] "Создать сс_ылки"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7362
+#: ../src/file-manager/fm-directory-view.c:7347
 msgid "Create a symbolic link for each selected item"
 msgstr "Создать символьную ссылку для каждого выделенного объекта"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7365
+#: ../src/file-manager/fm-directory-view.c:7350
 msgid "_Rename..."
 msgstr "Переи_меновать..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7366
+#: ../src/file-manager/fm-directory-view.c:7351
 msgid "Rename selected item"
 msgstr "Переименовать выделенный объект"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7374
-#: ../src/file-manager/fm-directory-view.c:8932
+#: ../src/file-manager/fm-directory-view.c:7359
+#: ../src/file-manager/fm-directory-view.c:8915
 msgid "Move each selected item to the Trash"
 msgstr "Переместить каждый выделенный объект в корзину"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7377
-#: ../src/file-manager/fm-directory-view.c:7509
-#: ../src/file-manager/fm-directory-view.c:8952
+#: ../src/file-manager/fm-directory-view.c:7362
+#: ../src/file-manager/fm-directory-view.c:7494
+#: ../src/file-manager/fm-directory-view.c:8935
 #: ../src/file-manager/fm-tree-view.c:1360
 msgid "_Delete"
 msgstr "Удалить _безвозвратно"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7378
+#: ../src/file-manager/fm-directory-view.c:7363
 msgid "Delete each selected item, without moving to the Trash"
 msgstr "Удалить каждый выделенный объект, не перемещая его в корзину"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7381
-#: ../src/file-manager/fm-directory-view.c:7513
+#: ../src/file-manager/fm-directory-view.c:7366
+#: ../src/file-manager/fm-directory-view.c:7498
 msgid "_Restore"
 msgstr "Вос_становить"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7385
+#: ../src/file-manager/fm-directory-view.c:7370
 msgid "_Undo"
 msgstr "_Отменить"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7386
-#: ../src/file-manager/fm-directory-view.c:11138
+#: ../src/file-manager/fm-directory-view.c:7371
+#: ../src/file-manager/fm-directory-view.c:11117
 msgid "Undo the last action"
 msgstr "Отменить последнее действие"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7389
+#: ../src/file-manager/fm-directory-view.c:7374
 msgid "_Redo"
 msgstr "_Вернуть"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7390
-#: ../src/file-manager/fm-directory-view.c:11156
+#: ../src/file-manager/fm-directory-view.c:7375
+#: ../src/file-manager/fm-directory-view.c:11135
 msgid "Redo the last undone action"
 msgstr "Вернуть последнее несделанное действие"
 
@@ -4330,320 +4330,320 @@ msgstr "Вернуть последнее несделанное действи�
 #. * it is a mixture of both ATM.
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7400
+#: ../src/file-manager/fm-directory-view.c:7385
 msgid "Reset View to _Defaults"
 msgstr "Сб_росить параметры просмотра"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7401
+#: ../src/file-manager/fm-directory-view.c:7386
 msgid "Reset sorting order and zoom level to match preferences for this view"
 msgstr "Привести порядок сортировки и масштаб в соответствие с параметрами этого режима просмотра"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7404
+#: ../src/file-manager/fm-directory-view.c:7389
 msgid "Connect To This Server"
 msgstr "Соединиться с этим сервером"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7405
+#: ../src/file-manager/fm-directory-view.c:7390
 msgid "Make a permanent connection to this server"
 msgstr "Создать постоянное соединение с этим сервером"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7408
-#: ../src/file-manager/fm-directory-view.c:7436
-#: ../src/file-manager/fm-directory-view.c:7517
+#: ../src/file-manager/fm-directory-view.c:7393
+#: ../src/file-manager/fm-directory-view.c:7421
+#: ../src/file-manager/fm-directory-view.c:7502
 #: ../src/caja-places-sidebar.c:2726
 msgid "_Mount"
 msgstr "_Присоединить"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7409
+#: ../src/file-manager/fm-directory-view.c:7394
 msgid "Mount the selected volume"
 msgstr "Присоединить выделенный том"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7413
+#: ../src/file-manager/fm-directory-view.c:7398
 msgid "Unmount the selected volume"
 msgstr "Отсоединить выделенный том"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7417
+#: ../src/file-manager/fm-directory-view.c:7402
 msgid "Eject the selected volume"
 msgstr "Извлечь выделенный том"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7420
-#: ../src/file-manager/fm-directory-view.c:7448
-#: ../src/file-manager/fm-directory-view.c:7529
+#: ../src/file-manager/fm-directory-view.c:7405
+#: ../src/file-manager/fm-directory-view.c:7433
+#: ../src/file-manager/fm-directory-view.c:7514
 #: ../src/caja-places-sidebar.c:2754
 msgid "_Format"
 msgstr "_Форматировать"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7421
+#: ../src/file-manager/fm-directory-view.c:7406
 msgid "Format the selected volume"
 msgstr "Форматировать выделенный том"
 
 #. name, stock id
 #. label, accelerator
 #. Adjust start/stop items to reflect the type of the drive
-#: ../src/file-manager/fm-directory-view.c:7424
-#: ../src/file-manager/fm-directory-view.c:7452
-#: ../src/file-manager/fm-directory-view.c:7533
-#: ../src/file-manager/fm-directory-view.c:8211
-#: ../src/file-manager/fm-directory-view.c:8215
-#: ../src/file-manager/fm-directory-view.c:8303
-#: ../src/file-manager/fm-directory-view.c:8307
-#: ../src/file-manager/fm-directory-view.c:8413
-#: ../src/file-manager/fm-directory-view.c:8417
+#: ../src/file-manager/fm-directory-view.c:7409
+#: ../src/file-manager/fm-directory-view.c:7437
+#: ../src/file-manager/fm-directory-view.c:7518
+#: ../src/file-manager/fm-directory-view.c:8194
+#: ../src/file-manager/fm-directory-view.c:8198
+#: ../src/file-manager/fm-directory-view.c:8286
+#: ../src/file-manager/fm-directory-view.c:8290
+#: ../src/file-manager/fm-directory-view.c:8396
+#: ../src/file-manager/fm-directory-view.c:8400
 #: ../src/caja-places-sidebar.c:1808 ../src/caja-places-sidebar.c:2761
 msgid "_Start"
 msgstr "_Запуск"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7425
+#: ../src/file-manager/fm-directory-view.c:7410
 msgid "Start the selected volume"
 msgstr "Запустить выделенный том"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7428
-#: ../src/file-manager/fm-directory-view.c:7456
-#: ../src/file-manager/fm-directory-view.c:7537
-#: ../src/file-manager/fm-directory-view.c:8240
-#: ../src/file-manager/fm-directory-view.c:8332
-#: ../src/file-manager/fm-directory-view.c:8442
+#: ../src/file-manager/fm-directory-view.c:7413
+#: ../src/file-manager/fm-directory-view.c:7441
+#: ../src/file-manager/fm-directory-view.c:7522
+#: ../src/file-manager/fm-directory-view.c:8223
+#: ../src/file-manager/fm-directory-view.c:8315
+#: ../src/file-manager/fm-directory-view.c:8425
 #: ../src/caja-places-sidebar.c:1809 ../src/caja-places-sidebar.c:2768
 #: ../src/caja-window-menus.c:836
 msgid "_Stop"
 msgstr "Ос_тановить"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7429
-#: ../src/file-manager/fm-directory-view.c:8443
+#: ../src/file-manager/fm-directory-view.c:7414
+#: ../src/file-manager/fm-directory-view.c:8426
 msgid "Stop the selected volume"
 msgstr "Остановить выделенный том"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7432
-#: ../src/file-manager/fm-directory-view.c:7460
-#: ../src/file-manager/fm-directory-view.c:7541
+#: ../src/file-manager/fm-directory-view.c:7417
+#: ../src/file-manager/fm-directory-view.c:7445
+#: ../src/file-manager/fm-directory-view.c:7526
 #: ../src/caja-places-sidebar.c:2747
 msgid "_Detect Media"
 msgstr "Опреде_лить носитель"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7433
-#: ../src/file-manager/fm-directory-view.c:7461
-#: ../src/file-manager/fm-directory-view.c:7542
+#: ../src/file-manager/fm-directory-view.c:7418
+#: ../src/file-manager/fm-directory-view.c:7446
+#: ../src/file-manager/fm-directory-view.c:7527
 msgid "Detect media in the selected drive"
 msgstr "Определить носитель в выделенном приводе"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7437
+#: ../src/file-manager/fm-directory-view.c:7422
 msgid "Mount the volume associated with the open folder"
 msgstr "Присоединить том, связанный с открытой папкой"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7441
+#: ../src/file-manager/fm-directory-view.c:7426
 msgid "Unmount the volume associated with the open folder"
 msgstr "Отсоединить том, связанный с открытой папкой"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7445
+#: ../src/file-manager/fm-directory-view.c:7430
 msgid "Eject the volume associated with the open folder"
 msgstr "Извлечь том, связанный с открытой папкой"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7449
+#: ../src/file-manager/fm-directory-view.c:7434
 msgid "Format the volume associated with the open folder"
 msgstr "Форматировать том, связанный с открытой папкой"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7453
+#: ../src/file-manager/fm-directory-view.c:7438
 msgid "Start the volume associated with the open folder"
 msgstr "Запустить том, связанный с открытой папкой"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7457
+#: ../src/file-manager/fm-directory-view.c:7442
 msgid "Stop the volume associated with the open folder"
 msgstr "Остановить том, связанный с открытой папкой"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7464
+#: ../src/file-manager/fm-directory-view.c:7449
 msgid "Open File and Close window"
 msgstr "Открыть файл и закрыть окно"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7468
+#: ../src/file-manager/fm-directory-view.c:7453
 msgid "Sa_ve Search"
 msgstr "Со_хранить поиск"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7469
+#: ../src/file-manager/fm-directory-view.c:7454
 msgid "Save the edited search"
 msgstr "Сохранить изменённый поиск"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7472
+#: ../src/file-manager/fm-directory-view.c:7457
 msgid "Sa_ve Search As..."
 msgstr "Со_хранить поиск как..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7473
+#: ../src/file-manager/fm-directory-view.c:7458
 msgid "Save the current search as a file"
 msgstr "Сохранить текущий поиск как файл"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7479
+#: ../src/file-manager/fm-directory-view.c:7464
 msgid "Open this folder in a navigation window"
 msgstr "Открыть эту папку в окне обозревателя файлов"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7483
+#: ../src/file-manager/fm-directory-view.c:7468
 msgid "Open this folder in a new tab"
 msgstr "Открыть эту папку в новой вкладке"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7488
+#: ../src/file-manager/fm-directory-view.c:7473
 msgid "Open this folder in a folder window"
 msgstr "Открыть эту папку в окне папки"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7493
+#: ../src/file-manager/fm-directory-view.c:7478
 msgid "Prepare this folder to be moved with a Paste command"
 msgstr "Подготовить эту папку к перемещению с помощью команды «Вставить»"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7497
+#: ../src/file-manager/fm-directory-view.c:7482
 msgid "Prepare this folder to be copied with a Paste command"
 msgstr "Подготовить эту папку к копированию с помощью команды «Вставить»"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7501
+#: ../src/file-manager/fm-directory-view.c:7486
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into this "
 "folder"
 msgstr "Переместить или скопировать файлы, выбранные ранее командой «Вырезать» или «Копировать», в выделенную папку"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7506
+#: ../src/file-manager/fm-directory-view.c:7491
 msgid "Move this folder to the Trash"
 msgstr "Переместить эту папку в корзину"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7510
+#: ../src/file-manager/fm-directory-view.c:7495
 msgid "Delete this folder, without moving to the Trash"
 msgstr "Удалить эту папку, не помещая её в корзину"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7518
+#: ../src/file-manager/fm-directory-view.c:7503
 msgid "Mount the volume associated with this folder"
 msgstr "Присоединить том, связанный с открытой папкой"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7522
+#: ../src/file-manager/fm-directory-view.c:7507
 msgid "Unmount the volume associated with this folder"
 msgstr "Отсоединить том, связанный с открытой папкой"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7526
+#: ../src/file-manager/fm-directory-view.c:7511
 msgid "Eject the volume associated with this folder"
 msgstr "Извлечь том, связанный с открытой папкой"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7530
+#: ../src/file-manager/fm-directory-view.c:7515
 msgid "Format the volume associated with this folder"
 msgstr "Форматировать том, связанный с открытой папкой"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7534
+#: ../src/file-manager/fm-directory-view.c:7519
 msgid "Start the volume associated with this folder"
 msgstr "Запустить том, связанный с этой папкой"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7538
+#: ../src/file-manager/fm-directory-view.c:7523
 msgid "Stop the volume associated with this folder"
 msgstr "Остановить том, связанный с этой папкой"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7547
+#: ../src/file-manager/fm-directory-view.c:7532
 msgid "View or modify the properties of this folder"
 msgstr "Просмотреть или изменить свойства открытой папки"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7550
-#: ../src/file-manager/fm-directory-view.c:7553
+#: ../src/file-manager/fm-directory-view.c:7535
+#: ../src/file-manager/fm-directory-view.c:7538
 msgid "_Other pane"
 msgstr "_Другая панель..."
 
-#: ../src/file-manager/fm-directory-view.c:7551
+#: ../src/file-manager/fm-directory-view.c:7536
 msgid "Copy the current selection to the other pane in the window"
 msgstr "Копировать текущее выделение в другую панель окна"
 
-#: ../src/file-manager/fm-directory-view.c:7554
+#: ../src/file-manager/fm-directory-view.c:7539
 msgid "Move the current selection to the other pane in the window"
 msgstr "Переместить текущее выделение в другую панель окна"
 
 #. name, stock id, label
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7557
-#: ../src/file-manager/fm-directory-view.c:7561 ../src/caja-window-menus.c:891
+#: ../src/file-manager/fm-directory-view.c:7542
+#: ../src/file-manager/fm-directory-view.c:7546 ../src/caja-window-menus.c:891
 msgid "_Home Folder"
 msgstr "_Домашняя папка"
 
-#: ../src/file-manager/fm-directory-view.c:7558
+#: ../src/file-manager/fm-directory-view.c:7543
 msgid "Copy the current selection to the home folder"
 msgstr "Копировать текущее выделение в домашнюю папку"
 
-#: ../src/file-manager/fm-directory-view.c:7562
+#: ../src/file-manager/fm-directory-view.c:7547
 msgid "Move the current selection to the home folder"
 msgstr "Переместить текущее выделение в домашнюю папку"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7565
-#: ../src/file-manager/fm-directory-view.c:7569
+#: ../src/file-manager/fm-directory-view.c:7550
+#: ../src/file-manager/fm-directory-view.c:7554
 msgid "_Desktop"
 msgstr "_Рабочий стол"
 
-#: ../src/file-manager/fm-directory-view.c:7566
+#: ../src/file-manager/fm-directory-view.c:7551
 msgid "Copy the current selection to the desktop"
 msgstr "Копировать текущее выделение на рабочий стол"
 
-#: ../src/file-manager/fm-directory-view.c:7570
+#: ../src/file-manager/fm-directory-view.c:7555
 msgid "Move the current selection to the desktop"
 msgstr "Переместить текущее выделение на рабочий стол"
 
 #. Translators: %s is a directory
-#: ../src/file-manager/fm-directory-view.c:7650
+#: ../src/file-manager/fm-directory-view.c:7635
 #, c-format
 msgid "Run or manage scripts from %s"
 msgstr "Запуск или управление сценариями из %s"
 
 #. Create a script action here specially because its tooltip is dynamic
-#: ../src/file-manager/fm-directory-view.c:7652
+#: ../src/file-manager/fm-directory-view.c:7637
 msgid "_Scripts"
 msgstr "С_ценарии"
 
-#: ../src/file-manager/fm-directory-view.c:8059
+#: ../src/file-manager/fm-directory-view.c:8042
 #, c-format
 msgid "Move the open folder out of the trash to \"%s\""
 msgstr "Перенести открытую папку из корзину в «%s»"
 
-#: ../src/file-manager/fm-directory-view.c:8062
+#: ../src/file-manager/fm-directory-view.c:8045
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
@@ -4652,7 +4652,7 @@ msgstr[1] "Перенести открытые папки из корзины в
 msgstr[2] "Перенести открытые папки из корзины в «%s»"
 msgstr[3] "Перенести открытые папки из корзины в «%s»"
 
-#: ../src/file-manager/fm-directory-view.c:8066
+#: ../src/file-manager/fm-directory-view.c:8049
 #, c-format
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
@@ -4661,7 +4661,7 @@ msgstr[1] "Перенести открытые папки из корзины"
 msgstr[2] "Перенести открытые папки из корзины"
 msgstr[3] "Перенести открытые папки из корзины"
 
-#: ../src/file-manager/fm-directory-view.c:8072
+#: ../src/file-manager/fm-directory-view.c:8055
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
@@ -4670,7 +4670,7 @@ msgstr[1] "Перенести выделенные файлы из корзин�
 msgstr[2] "Перенести выделенные файлы из корзины в \"%s\""
 msgstr[3] "Перенести выделенные файлы из корзины в \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:8076
+#: ../src/file-manager/fm-directory-view.c:8059
 #, c-format
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
@@ -4679,7 +4679,7 @@ msgstr[1] "Перенести выделенные файлы из корзин�
 msgstr[2] "Перенести выделенные файлы из корзины"
 msgstr[3] "Перенести выделенные файлы из корзины"
 
-#: ../src/file-manager/fm-directory-view.c:8082
+#: ../src/file-manager/fm-directory-view.c:8065
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
@@ -4688,7 +4688,7 @@ msgstr[1] "Перенести выделенные объекты из корз�
 msgstr[2] "Перенести выделенные объекты из корзины в «%s»"
 msgstr[3] "Перенести выделенные объекты из корзины в «%s»"
 
-#: ../src/file-manager/fm-directory-view.c:8086
+#: ../src/file-manager/fm-directory-view.c:8069
 #, c-format
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
@@ -4697,146 +4697,146 @@ msgstr[1] "Перенести выделенные объекты из корз�
 msgstr[2] "Перенести выделенные объекты из корзины"
 msgstr[3] "Перенести выделенные объекты из корзины"
 
-#: ../src/file-manager/fm-directory-view.c:8212
-#: ../src/file-manager/fm-directory-view.c:8216
-#: ../src/file-manager/fm-directory-view.c:8414
-#: ../src/file-manager/fm-directory-view.c:8418
+#: ../src/file-manager/fm-directory-view.c:8195
+#: ../src/file-manager/fm-directory-view.c:8199
+#: ../src/file-manager/fm-directory-view.c:8397
+#: ../src/file-manager/fm-directory-view.c:8401
 msgid "Start the selected drive"
 msgstr "Запустить выделенный привод"
 
-#: ../src/file-manager/fm-directory-view.c:8220
-#: ../src/file-manager/fm-directory-view.c:8422
+#: ../src/file-manager/fm-directory-view.c:8203
+#: ../src/file-manager/fm-directory-view.c:8405
 msgid "Connect to the selected drive"
 msgstr "Подключиться к выделенному приводу"
 
-#: ../src/file-manager/fm-directory-view.c:8223
-#: ../src/file-manager/fm-directory-view.c:8315
-#: ../src/file-manager/fm-directory-view.c:8425
+#: ../src/file-manager/fm-directory-view.c:8206
+#: ../src/file-manager/fm-directory-view.c:8298
+#: ../src/file-manager/fm-directory-view.c:8408
 msgid "_Start Multi-disk Drive"
 msgstr "_Запустить мультидисковый привод"
 
-#: ../src/file-manager/fm-directory-view.c:8224
-#: ../src/file-manager/fm-directory-view.c:8426
+#: ../src/file-manager/fm-directory-view.c:8207
+#: ../src/file-manager/fm-directory-view.c:8409
 msgid "Start the selected multi-disk drive"
 msgstr "Запустить выбранный мультидисковый привод"
 
-#: ../src/file-manager/fm-directory-view.c:8227
+#: ../src/file-manager/fm-directory-view.c:8210
 msgid "U_nlock Drive"
 msgstr "_Разблокировать привод"
 
-#: ../src/file-manager/fm-directory-view.c:8228
-#: ../src/file-manager/fm-directory-view.c:8430
+#: ../src/file-manager/fm-directory-view.c:8211
+#: ../src/file-manager/fm-directory-view.c:8413
 msgid "Unlock the selected drive"
 msgstr "Разблокировать выбранный привод"
 
-#: ../src/file-manager/fm-directory-view.c:8241
+#: ../src/file-manager/fm-directory-view.c:8224
 msgid "Stop the selected drive"
 msgstr "Остановить выбранный привод"
 
-#: ../src/file-manager/fm-directory-view.c:8244
-#: ../src/file-manager/fm-directory-view.c:8336
-#: ../src/file-manager/fm-directory-view.c:8446
+#: ../src/file-manager/fm-directory-view.c:8227
+#: ../src/file-manager/fm-directory-view.c:8319
+#: ../src/file-manager/fm-directory-view.c:8429
 #: ../src/caja-places-sidebar.c:1817
 msgid "_Safely Remove Drive"
 msgstr "_Безопасно удалить привод"
 
-#: ../src/file-manager/fm-directory-view.c:8245
-#: ../src/file-manager/fm-directory-view.c:8447
+#: ../src/file-manager/fm-directory-view.c:8228
+#: ../src/file-manager/fm-directory-view.c:8430
 msgid "Safely remove the selected drive"
 msgstr "Безопасно удалить выбранный привод"
 
-#: ../src/file-manager/fm-directory-view.c:8248
-#: ../src/file-manager/fm-directory-view.c:8340
-#: ../src/file-manager/fm-directory-view.c:8450
+#: ../src/file-manager/fm-directory-view.c:8231
+#: ../src/file-manager/fm-directory-view.c:8323
+#: ../src/file-manager/fm-directory-view.c:8433
 msgid "_Disconnect"
 msgstr "_Отсоединиться"
 
-#: ../src/file-manager/fm-directory-view.c:8249
-#: ../src/file-manager/fm-directory-view.c:8451
+#: ../src/file-manager/fm-directory-view.c:8232
+#: ../src/file-manager/fm-directory-view.c:8434
 msgid "Disconnect the selected drive"
 msgstr "Отсоединить выбранный привод"
 
-#: ../src/file-manager/fm-directory-view.c:8252
-#: ../src/file-manager/fm-directory-view.c:8344
-#: ../src/file-manager/fm-directory-view.c:8454
+#: ../src/file-manager/fm-directory-view.c:8235
+#: ../src/file-manager/fm-directory-view.c:8327
+#: ../src/file-manager/fm-directory-view.c:8437
 msgid "_Stop Multi-disk Drive"
 msgstr "_Остановить мультидисковый привод"
 
-#: ../src/file-manager/fm-directory-view.c:8253
-#: ../src/file-manager/fm-directory-view.c:8455
+#: ../src/file-manager/fm-directory-view.c:8236
+#: ../src/file-manager/fm-directory-view.c:8438
 msgid "Stop the selected multi-disk drive"
 msgstr "Остановить выбранный мультидисковый привод"
 
-#: ../src/file-manager/fm-directory-view.c:8256
-#: ../src/file-manager/fm-directory-view.c:8348
-#: ../src/file-manager/fm-directory-view.c:8458
+#: ../src/file-manager/fm-directory-view.c:8239
+#: ../src/file-manager/fm-directory-view.c:8331
+#: ../src/file-manager/fm-directory-view.c:8441
 #: ../src/caja-places-sidebar.c:1830
 msgid "_Lock Drive"
 msgstr "Б_локировать привод"
 
-#: ../src/file-manager/fm-directory-view.c:8257
-#: ../src/file-manager/fm-directory-view.c:8459
+#: ../src/file-manager/fm-directory-view.c:8240
+#: ../src/file-manager/fm-directory-view.c:8442
 msgid "Lock the selected drive"
 msgstr "Блокировать выбранный привод"
 
-#: ../src/file-manager/fm-directory-view.c:8304
-#: ../src/file-manager/fm-directory-view.c:8308
+#: ../src/file-manager/fm-directory-view.c:8287
+#: ../src/file-manager/fm-directory-view.c:8291
 msgid "Start the drive associated with the open folder"
 msgstr "Запустить привод, связанный с открытой папкой"
 
-#: ../src/file-manager/fm-directory-view.c:8312
+#: ../src/file-manager/fm-directory-view.c:8295
 msgid "Connect to the drive associated with the open folder"
 msgstr "Подключить привод, связанный с открытой папкой"
 
-#: ../src/file-manager/fm-directory-view.c:8316
+#: ../src/file-manager/fm-directory-view.c:8299
 msgid "Start the multi-disk drive associated with the open folder"
 msgstr "Запустить мультидисковый привод, связанный с открытой папкой"
 
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
-#: ../src/file-manager/fm-directory-view.c:8319
-#: ../src/file-manager/fm-directory-view.c:8429
+#: ../src/file-manager/fm-directory-view.c:8302
+#: ../src/file-manager/fm-directory-view.c:8412
 #: ../src/caja-places-sidebar.c:1829
 msgid "_Unlock Drive"
 msgstr "_Разблокировать привод"
 
-#: ../src/file-manager/fm-directory-view.c:8320
+#: ../src/file-manager/fm-directory-view.c:8303
 msgid "Unlock the drive associated with the open folder"
 msgstr "Разблокировать привод, связанный с открытой папкой"
 
-#: ../src/file-manager/fm-directory-view.c:8333
+#: ../src/file-manager/fm-directory-view.c:8316
 msgid "_Stop the drive associated with the open folder"
 msgstr "_Остановить привод, связанный с открытой папкой"
 
-#: ../src/file-manager/fm-directory-view.c:8337
+#: ../src/file-manager/fm-directory-view.c:8320
 msgid "Safely remove the drive associated with the open folder"
 msgstr "Безопасно удалить привод, связанный с открытой папкой"
 
-#: ../src/file-manager/fm-directory-view.c:8341
+#: ../src/file-manager/fm-directory-view.c:8324
 msgid "Disconnect the drive associated with the open folder"
 msgstr "Отсоединить привод, связанный с открытой папкой"
 
-#: ../src/file-manager/fm-directory-view.c:8345
+#: ../src/file-manager/fm-directory-view.c:8328
 msgid "Stop the multi-disk drive associated with the open folder"
 msgstr "Остановить мультидисковый привод, связанный с открытой папкой"
 
-#: ../src/file-manager/fm-directory-view.c:8349
+#: ../src/file-manager/fm-directory-view.c:8332
 msgid "Lock the drive associated with the open folder"
 msgstr "Заблокировать привод, связанный с открытой папкой"
 
 #. add the "open in new window" menu item
-#: ../src/file-manager/fm-directory-view.c:8528
-#: ../src/file-manager/fm-directory-view.c:8838
+#: ../src/file-manager/fm-directory-view.c:8511
+#: ../src/file-manager/fm-directory-view.c:8821
 #: ../src/file-manager/fm-tree-view.c:1287 ../src/caja-places-sidebar.c:2697
 msgid "Open in New _Window"
 msgstr "Открыть в _новом окне"
 
-#: ../src/file-manager/fm-directory-view.c:8530
-#: ../src/file-manager/fm-directory-view.c:8847
+#: ../src/file-manager/fm-directory-view.c:8513
+#: ../src/file-manager/fm-directory-view.c:8830
 msgid "Browse in New _Window"
 msgstr "Открыть в _новом окне обозревателя"
 
-#: ../src/file-manager/fm-directory-view.c:8536
-#: ../src/file-manager/fm-directory-view.c:8857
+#: ../src/file-manager/fm-directory-view.c:8519
+#: ../src/file-manager/fm-directory-view.c:8840
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
 msgstr[0] "Открыть _папку в обозревателе"
@@ -4844,30 +4844,30 @@ msgstr[1] "Открыть _папки в обозревателе"
 msgstr[2] "Открыть _папки в обозревателе"
 msgstr[3] "Открыть _папки в обозревателе"
 
-#: ../src/file-manager/fm-directory-view.c:8553
-#: ../src/file-manager/fm-directory-view.c:8886
+#: ../src/file-manager/fm-directory-view.c:8536
+#: ../src/file-manager/fm-directory-view.c:8869
 msgid "Browse in New _Tab"
 msgstr "Открыть в новом вк_ладке"
 
-#: ../src/file-manager/fm-directory-view.c:8602
-#: ../src/file-manager/fm-directory-view.c:8927
+#: ../src/file-manager/fm-directory-view.c:8585
+#: ../src/file-manager/fm-directory-view.c:8910
 msgid "_Delete Permanently"
 msgstr "_Удалить окончательно"
 
-#: ../src/file-manager/fm-directory-view.c:8603
+#: ../src/file-manager/fm-directory-view.c:8586
 msgid "Delete the open folder permanently"
 msgstr "Окончательно удалить открытую папку"
 
-#: ../src/file-manager/fm-directory-view.c:8607
+#: ../src/file-manager/fm-directory-view.c:8590
 msgid "Move the open folder to the Trash"
 msgstr "Переместить открытую папку в корзину"
 
-#: ../src/file-manager/fm-directory-view.c:8787
+#: ../src/file-manager/fm-directory-view.c:8770
 #, c-format
 msgid "_Open With %s"
 msgstr "_Открыть в %s"
 
-#: ../src/file-manager/fm-directory-view.c:8840
+#: ../src/file-manager/fm-directory-view.c:8823
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
@@ -4876,7 +4876,7 @@ msgstr[1] "Открыть в %'d _новых окнах"
 msgstr[2] "Открыть в %'d _новых окнах"
 msgstr[3] "Открыть в %'d _новых окнах"
 
-#: ../src/file-manager/fm-directory-view.c:8849
+#: ../src/file-manager/fm-directory-view.c:8832
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
@@ -4885,7 +4885,7 @@ msgstr[1] "Открыть в %'d _новых окнах обозревателя
 msgstr[2] "Открыть в %'d _новых окнах обозревателя"
 msgstr[3] "Открыть в %'d _новых окнах обозревателя"
 
-#: ../src/file-manager/fm-directory-view.c:8879
+#: ../src/file-manager/fm-directory-view.c:8862
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
@@ -4894,7 +4894,7 @@ msgstr[1] "Открыть в %'d новых вк_ладках"
 msgstr[2] "Открыть в %'d новых вк_ладках"
 msgstr[3] "Открыть в %'d новых вк_ладках"
 
-#: ../src/file-manager/fm-directory-view.c:8888
+#: ../src/file-manager/fm-directory-view.c:8871
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
@@ -4903,63 +4903,63 @@ msgstr[1] "Открыть в %'d новых вк_ладках обозреват
 msgstr[2] "Открыть в %'d новых вк_ладках обозревателя"
 msgstr[3] "Открыть в %'d новых вк_ладках обозревателя"
 
-#: ../src/file-manager/fm-directory-view.c:8928
+#: ../src/file-manager/fm-directory-view.c:8911
 msgid "Delete all selected items permanently"
 msgstr "Окончательно удалить все выделенные объекты"
 
-#: ../src/file-manager/fm-directory-view.c:8985
+#: ../src/file-manager/fm-directory-view.c:8968
 msgid "View or modify the properties of the open folder"
 msgstr "Просмотреть или изменить свойства открытой папки"
 
-#: ../src/file-manager/fm-directory-view.c:10288
+#: ../src/file-manager/fm-directory-view.c:10271
 msgid "Download location?"
 msgstr "Скачать этот адрес?"
 
-#: ../src/file-manager/fm-directory-view.c:10291
+#: ../src/file-manager/fm-directory-view.c:10274
 msgid "You can download it or make a link to it."
 msgstr "Вы можете скачать его или создать ссылку на него."
 
-#: ../src/file-manager/fm-directory-view.c:10294
+#: ../src/file-manager/fm-directory-view.c:10277
 msgid "Make a _Link"
 msgstr "Создать сс_ылку"
 
-#: ../src/file-manager/fm-directory-view.c:10298
+#: ../src/file-manager/fm-directory-view.c:10281
 msgid "_Download"
 msgstr "_Скачать"
 
-#: ../src/file-manager/fm-directory-view.c:10459
-#: ../src/file-manager/fm-directory-view.c:10518
-#: ../src/file-manager/fm-directory-view.c:10623
+#: ../src/file-manager/fm-directory-view.c:10442
+#: ../src/file-manager/fm-directory-view.c:10501
+#: ../src/file-manager/fm-directory-view.c:10606
 msgid "Drag and drop is not supported."
 msgstr "Перетаскивание не поддерживается."
 
-#: ../src/file-manager/fm-directory-view.c:10460
+#: ../src/file-manager/fm-directory-view.c:10443
 msgid "Drag and drop is only supported on local file systems."
 msgstr "Перетаскивание поддерживается только на локальных файловых системах."
 
-#: ../src/file-manager/fm-directory-view.c:10519
-#: ../src/file-manager/fm-directory-view.c:10624
+#: ../src/file-manager/fm-directory-view.c:10502
+#: ../src/file-manager/fm-directory-view.c:10607
 msgid "An invalid drag type was used."
 msgstr "Был использован недопустимый тип перетаскивания."
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10701
+#: ../src/file-manager/fm-directory-view.c:10684
 msgid "dropped text.txt"
 msgstr "брошенный текст.txt"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10746
+#: ../src/file-manager/fm-directory-view.c:10729
 msgid "dropped data"
 msgstr "брошенные данные"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11137
+#: ../src/file-manager/fm-directory-view.c:11116
 msgid "Undo"
 msgstr "Отменить"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11155
+#: ../src/file-manager/fm-directory-view.c:11134
 msgid "Redo"
 msgstr "Вернуть"
 
@@ -5080,220 +5080,220 @@ msgstr "Объект «%s» переименовывается в «%s»."
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: ../src/file-manager/fm-icon-container.c:611
-#: ../src/file-manager/fm-icon-view.c:3402
+#: ../src/file-manager/fm-icon-view.c:3392
 #: ../src/caja-file-management-properties.ui.h:1
 msgid "Icon View"
 msgstr "Просмотр в виде значков"
 
-#: ../src/file-manager/fm-icon-view.c:132
+#: ../src/file-manager/fm-icon-view.c:128
 msgid "by _Name"
 msgstr "по _имени"
 
-#: ../src/file-manager/fm-icon-view.c:133
-#: ../src/file-manager/fm-icon-view.c:1741
+#: ../src/file-manager/fm-icon-view.c:129
+#: ../src/file-manager/fm-icon-view.c:1733
 msgid "Keep icons sorted by name in rows"
 msgstr "Упорядочивать значки по имени, выстраивая их в ряды"
 
-#: ../src/file-manager/fm-icon-view.c:139
+#: ../src/file-manager/fm-icon-view.c:135
 msgid "by _Size"
 msgstr "по _размеру"
 
-#: ../src/file-manager/fm-icon-view.c:140
-#: ../src/file-manager/fm-icon-view.c:1747
+#: ../src/file-manager/fm-icon-view.c:136
+#: ../src/file-manager/fm-icon-view.c:1739
 msgid "Keep icons sorted by size in rows"
 msgstr "Упорядочивать значки по размеру, выстраивая их в ряды"
 
-#: ../src/file-manager/fm-icon-view.c:146
+#: ../src/file-manager/fm-icon-view.c:142
 msgid "by _Type"
 msgstr "по _типу"
 
-#: ../src/file-manager/fm-icon-view.c:147
-#: ../src/file-manager/fm-icon-view.c:1753
+#: ../src/file-manager/fm-icon-view.c:143
+#: ../src/file-manager/fm-icon-view.c:1745
 msgid "Keep icons sorted by type in rows"
 msgstr "Упорядочивать значки по типу, выстраивая их в ряды"
 
-#: ../src/file-manager/fm-icon-view.c:153
+#: ../src/file-manager/fm-icon-view.c:149
 msgid "by Modification _Date"
 msgstr "по _дате изменения"
 
-#: ../src/file-manager/fm-icon-view.c:154
-#: ../src/file-manager/fm-icon-view.c:1759
+#: ../src/file-manager/fm-icon-view.c:150
+#: ../src/file-manager/fm-icon-view.c:1751
 msgid "Keep icons sorted by modification date in rows"
 msgstr "Упорядочивать значки по дате изменения, выстраивая их в ряды"
 
-#: ../src/file-manager/fm-icon-view.c:160
+#: ../src/file-manager/fm-icon-view.c:156
 msgid "by _Emblems"
 msgstr "по _эмблемам"
 
-#: ../src/file-manager/fm-icon-view.c:161
-#: ../src/file-manager/fm-icon-view.c:1765
+#: ../src/file-manager/fm-icon-view.c:157
+#: ../src/file-manager/fm-icon-view.c:1757
 msgid "Keep icons sorted by emblems in rows"
 msgstr "Упорядочивать значки по эмблемам, выстраивая их в ряды"
 
-#: ../src/file-manager/fm-icon-view.c:167
+#: ../src/file-manager/fm-icon-view.c:163
 msgid "by T_rash Time"
 msgstr "по времени удаления в корзину"
 
-#: ../src/file-manager/fm-icon-view.c:168
-#: ../src/file-manager/fm-icon-view.c:1771
+#: ../src/file-manager/fm-icon-view.c:164
+#: ../src/file-manager/fm-icon-view.c:1763
 msgid "Keep icons sorted by trash time in rows"
 msgstr "Упорядочивать значки по по времени удаления в корзину, выстраивая их в ряды"
 
-#: ../src/file-manager/fm-icon-view.c:777
+#: ../src/file-manager/fm-icon-view.c:773
 msgid "_Organize Desktop by Name"
 msgstr "Расставить рабочий стол по имени"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-icon-view.c:1690
+#: ../src/file-manager/fm-icon-view.c:1682
 msgid "Arran_ge Items"
 msgstr "Выстраивать _объекты"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1692
+#: ../src/file-manager/fm-icon-view.c:1684
 msgid "Resize Icon..."
 msgstr "Изменить размер значка..."
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1693
+#: ../src/file-manager/fm-icon-view.c:1685
 msgid "Make the selected icon resizable"
 msgstr "Включить изменение размера для выделенного значка"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1697
-#: ../src/file-manager/fm-icon-view.c:1898
+#: ../src/file-manager/fm-icon-view.c:1689
+#: ../src/file-manager/fm-icon-view.c:1890
 msgid "Restore Icons' Original Si_zes"
 msgstr "Вернуть ис_ходные размеры значков"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1698
+#: ../src/file-manager/fm-icon-view.c:1690
 msgid "Restore each selected icon to its original size"
 msgstr "Вернуть каждый выделенный значок к его первоначальному размеру"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1702
+#: ../src/file-manager/fm-icon-view.c:1694
 msgid "_Organize by Name"
 msgstr "Расставить по имени"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1703
+#: ../src/file-manager/fm-icon-view.c:1695
 msgid "Reposition icons to better fit in the window and avoid overlapping"
 msgstr "Переставить значки для лучшего заполнения окна и предотвращения перекрывания"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1711
+#: ../src/file-manager/fm-icon-view.c:1703
 msgid "Compact _Layout"
 msgstr "Располагать _уплотнённо"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1712
+#: ../src/file-manager/fm-icon-view.c:1704
 msgid "Toggle using a tighter layout scheme"
 msgstr "Использовать плотное размещение значков в окне"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1717
+#: ../src/file-manager/fm-icon-view.c:1709
 msgid "Re_versed Order"
 msgstr "В _обратном порядке"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1718
+#: ../src/file-manager/fm-icon-view.c:1710
 msgid "Display icons in the opposite order"
 msgstr "Показывать значки в обратном порядке"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1723
+#: ../src/file-manager/fm-icon-view.c:1715
 msgid "_Keep Aligned"
 msgstr "Сохранять в_ыровненными"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1724
+#: ../src/file-manager/fm-icon-view.c:1716
 msgid "Keep icons lined up on a grid"
 msgstr "Сохранять значки выровненными по сетке"
 
-#: ../src/file-manager/fm-icon-view.c:1734
+#: ../src/file-manager/fm-icon-view.c:1726
 msgid "_Manually"
 msgstr "_вручную"
 
-#: ../src/file-manager/fm-icon-view.c:1735
+#: ../src/file-manager/fm-icon-view.c:1727
 msgid "Leave icons wherever they are dropped"
 msgstr "Оставлять значки там, куда они были брошены"
 
-#: ../src/file-manager/fm-icon-view.c:1740
+#: ../src/file-manager/fm-icon-view.c:1732
 msgid "By _Name"
 msgstr "по _имени"
 
-#: ../src/file-manager/fm-icon-view.c:1746
+#: ../src/file-manager/fm-icon-view.c:1738
 msgid "By _Size"
 msgstr "по _размеру"
 
-#: ../src/file-manager/fm-icon-view.c:1752
+#: ../src/file-manager/fm-icon-view.c:1744
 msgid "By _Type"
 msgstr "по _типу"
 
-#: ../src/file-manager/fm-icon-view.c:1758
+#: ../src/file-manager/fm-icon-view.c:1750
 msgid "By Modification _Date"
 msgstr "по _дате изменения"
 
-#: ../src/file-manager/fm-icon-view.c:1764
+#: ../src/file-manager/fm-icon-view.c:1756
 msgid "By _Emblems"
 msgstr "по _эмблемам"
 
-#: ../src/file-manager/fm-icon-view.c:1770
+#: ../src/file-manager/fm-icon-view.c:1762
 msgid "By T_rash Time"
 msgstr "По времени попадания в корзину"
 
-#: ../src/file-manager/fm-icon-view.c:1899
+#: ../src/file-manager/fm-icon-view.c:1891
 msgid "Restore Icon's Original Si_ze"
 msgstr "Вернуть ис_ходный размер значка"
 
-#: ../src/file-manager/fm-icon-view.c:2374
+#: ../src/file-manager/fm-icon-view.c:2366
 #, c-format
 msgid "pointing at \"%s\""
 msgstr "указывает на «%s»"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3404
+#: ../src/file-manager/fm-icon-view.c:3394
 msgid "_Icons"
 msgstr "_Значки"
 
-#: ../src/file-manager/fm-icon-view.c:3405
+#: ../src/file-manager/fm-icon-view.c:3395
 msgid "The icon view encountered an error."
 msgstr "Компонент просмотра «Значки» столкнулся с ошибкой."
 
-#: ../src/file-manager/fm-icon-view.c:3406
+#: ../src/file-manager/fm-icon-view.c:3396
 msgid "The icon view encountered an error while starting up."
 msgstr "Компонент просмотра «Значки» столкнулся с ошибкой при запуске."
 
-#: ../src/file-manager/fm-icon-view.c:3407
+#: ../src/file-manager/fm-icon-view.c:3397
 msgid "Display this location with the icon view."
 msgstr "Просматривать этот адрес в виде значков."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-icon-view.c:3417
+#: ../src/file-manager/fm-icon-view.c:3407
 #: ../src/caja-file-management-properties.ui.h:3
 msgid "Compact View"
 msgstr "Компактный вид"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3419
+#: ../src/file-manager/fm-icon-view.c:3409
 msgid "_Compact"
 msgstr "_Компактный"
 
-#: ../src/file-manager/fm-icon-view.c:3420
+#: ../src/file-manager/fm-icon-view.c:3410
 msgid "The compact view encountered an error."
 msgstr "Компонент просмотра «Компактный вид» столкнулся с ошибкой."
 
-#: ../src/file-manager/fm-icon-view.c:3421
+#: ../src/file-manager/fm-icon-view.c:3411
 msgid "The compact view encountered an error while starting up."
 msgstr "Компонент просмотра «Компактный вид» столкнулся с ошибкой при запуске."
 
-#: ../src/file-manager/fm-icon-view.c:3422
+#: ../src/file-manager/fm-icon-view.c:3412
 msgid "Display this location with the compact view."
 msgstr "Просматривать этот адрес в компактном виде."
 
@@ -5309,46 +5309,46 @@ msgstr "Идёт загрузка..."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-list-view.c:1827
-#: ../src/file-manager/fm-list-view.c:3442
+#: ../src/file-manager/fm-list-view.c:1825
+#: ../src/file-manager/fm-list-view.c:3437
 #: ../src/caja-file-management-properties.ui.h:2
 msgid "List View"
 msgstr "Просмотр в виде списка"
 
-#: ../src/file-manager/fm-list-view.c:2523
+#: ../src/file-manager/fm-list-view.c:2519
 #, c-format
 msgid "%s Visible Columns"
 msgstr "%s видимых столбцов"
 
-#: ../src/file-manager/fm-list-view.c:2542
+#: ../src/file-manager/fm-list-view.c:2538
 msgid "Choose the order of information to appear in this folder:"
 msgstr "Выберите порядок, в котором в этой папке будут появляться сведения:"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-list-view.c:2600
+#: ../src/file-manager/fm-list-view.c:2596
 msgid "Visible _Columns..."
 msgstr "Изменить видимые _столбцы..."
 
 #. tooltip
-#: ../src/file-manager/fm-list-view.c:2601
+#: ../src/file-manager/fm-list-view.c:2597
 msgid "Select the columns visible in this folder"
 msgstr "Выбрать столбцы, видимые в этой папке"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-list-view.c:3444
+#: ../src/file-manager/fm-list-view.c:3439
 msgid "_List"
 msgstr "С_писок"
 
-#: ../src/file-manager/fm-list-view.c:3445
+#: ../src/file-manager/fm-list-view.c:3440
 msgid "The list view encountered an error."
 msgstr "Компонент просмотра «Список» столкнулся с ошибкой."
 
-#: ../src/file-manager/fm-list-view.c:3446
+#: ../src/file-manager/fm-list-view.c:3441
 msgid "The list view encountered an error while starting up."
 msgstr "Компонент просмотра «Список» столкнулся с ошибкой при запуске."
 
-#: ../src/file-manager/fm-list-view.c:3447
+#: ../src/file-manager/fm-list-view.c:3442
 msgid "Display this location with the list view."
 msgstr "Показывать этот адрес в виде списка."
 
@@ -5966,7 +5966,7 @@ msgstr "До_бавить закладку"
 msgid "Bookmark Name:"
 msgstr "Имя закладки:"
 
-#: ../src/caja-desktop-window.c:202 ../src/caja-desktop-window.c:387
+#: ../src/caja-desktop-window.c:87 ../src/caja-desktop-window.c:267
 #: ../src/caja-pathbar.c:1399 ../src/caja-places-sidebar.c:523
 msgid "Desktop"
 msgstr "Рабочий стол"
@@ -7090,155 +7090,164 @@ msgstr "«%s» не является подходящим файлом изоб�
 msgid "The file is not an image."
 msgstr "Этот файл не является изображением."
 
-#: ../src/caja-property-browser.c:2283
+#: ../src/caja-property-browser.c:2286
 msgid "Select a Category:"
 msgstr "Выбрать категорию:"
 
-#: ../src/caja-property-browser.c:2295
+#: ../src/caja-property-browser.c:2298
 msgid "C_ancel Remove"
 msgstr "О_тменить удаление"
 
-#: ../src/caja-property-browser.c:2304
+#: ../src/caja-property-browser.c:2307
 msgid "_Add a New Pattern..."
 msgstr "_Добавить новый орнамент..."
 
-#: ../src/caja-property-browser.c:2307
+#: ../src/caja-property-browser.c:2310
 msgid "_Add a New Color..."
 msgstr "_Добавить новый цвет..."
 
-#: ../src/caja-property-browser.c:2310
+#: ../src/caja-property-browser.c:2313
 msgid "_Add a New Emblem..."
 msgstr "_Добавить новую эмблему..."
 
-#: ../src/caja-property-browser.c:2336
+#: ../src/caja-property-browser.c:2339
 msgid "Click on a pattern to remove it"
 msgstr "Щёлкните на орнаменте, чтобы удалить его"
 
-#: ../src/caja-property-browser.c:2339
+#: ../src/caja-property-browser.c:2342
 msgid "Click on a color to remove it"
 msgstr "Щёлкните на цвете, чтобы удалить его"
 
-#: ../src/caja-property-browser.c:2342
+#: ../src/caja-property-browser.c:2345
 msgid "Click on an emblem to remove it"
 msgstr "Щёлкните на эмблеме, чтобы удалить её"
 
-#: ../src/caja-property-browser.c:2354
+#: ../src/caja-property-browser.c:2357
 msgid "Patterns:"
 msgstr "Орнаменты:"
 
-#: ../src/caja-property-browser.c:2357
+#: ../src/caja-property-browser.c:2360
 msgid "Colors:"
 msgstr "Цвета:"
 
-#: ../src/caja-property-browser.c:2360
+#: ../src/caja-property-browser.c:2363
 msgid "Emblems:"
 msgstr "Эмблемы:"
 
-#: ../src/caja-property-browser.c:2382
+#: ../src/caja-property-browser.c:2385
 msgid "_Remove a Pattern..."
 msgstr "_Удалить орнамент..."
 
-#: ../src/caja-property-browser.c:2385
+#: ../src/caja-property-browser.c:2388
 msgid "_Remove a Color..."
 msgstr "_Удалить цвет..."
 
-#: ../src/caja-property-browser.c:2388
+#: ../src/caja-property-browser.c:2391
 msgid "_Remove an Emblem..."
 msgstr "_Удалить эмблему..."
 
-#: ../src/caja-query-editor.c:131
+#: ../src/caja-query-editor.c:142
 msgid "File Type"
 msgstr "Тип файла"
 
-#: ../src/caja-query-editor.c:277
+#: ../src/caja-query-editor.c:149
+msgid "Tags"
+msgstr "Теги"
+
+#: ../src/caja-query-editor.c:295
 msgid "Select folder to search in"
 msgstr "Выбрать папку для поиска"
 
-#: ../src/caja-query-editor.c:373
+#: ../src/caja-query-editor.c:391 ../src/caja-query-editor.c:395
+msgid ""
+"Tags separated by spaces. Matches files that contains ALL specified tags."
+msgstr ""
+
+#: ../src/caja-query-editor.c:498
 msgid "Documents"
 msgstr "Документы"
 
-#: ../src/caja-query-editor.c:393
+#: ../src/caja-query-editor.c:518
 msgid "Music"
 msgstr "Музыка"
 
-#: ../src/caja-query-editor.c:409
+#: ../src/caja-query-editor.c:534
 msgid "Video"
 msgstr "Видео"
 
-#: ../src/caja-query-editor.c:427
+#: ../src/caja-query-editor.c:552
 msgid "Picture"
 msgstr "Изображение"
 
-#: ../src/caja-query-editor.c:449
+#: ../src/caja-query-editor.c:574
 msgid "Illustration"
 msgstr "Иллюстрация"
 
-#: ../src/caja-query-editor.c:465
+#: ../src/caja-query-editor.c:590
 msgid "Spreadsheet"
 msgstr "Электронная таблица"
 
-#: ../src/caja-query-editor.c:483
+#: ../src/caja-query-editor.c:608
 msgid "Presentation"
 msgstr "Презентация"
 
-#: ../src/caja-query-editor.c:494
+#: ../src/caja-query-editor.c:619
 msgid "Pdf / Postscript"
 msgstr "PDF / Postscript"
 
-#: ../src/caja-query-editor.c:504
+#: ../src/caja-query-editor.c:629
 msgid "Text File"
 msgstr "Текстовый файл"
 
-#: ../src/caja-query-editor.c:588
+#: ../src/caja-query-editor.c:713
 msgid "Select type"
 msgstr "Выбрать тип"
 
-#: ../src/caja-query-editor.c:675
+#: ../src/caja-query-editor.c:800
 msgid "Any"
 msgstr "Любой"
 
-#: ../src/caja-query-editor.c:691
+#: ../src/caja-query-editor.c:816
 msgid "Other Type..."
 msgstr "Другой тип..."
 
-#: ../src/caja-query-editor.c:995
+#: ../src/caja-query-editor.c:1120
 msgid "Remove this criterion from the search"
 msgstr "Удалить этот критерий из поиска"
 
-#: ../src/caja-query-editor.c:1042
+#: ../src/caja-query-editor.c:1167
 msgid "Search Folder"
 msgstr "Папка поиска"
 
-#: ../src/caja-query-editor.c:1048
+#: ../src/caja-query-editor.c:1173
 msgid "Edit"
 msgstr "Изменить"
 
-#: ../src/caja-query-editor.c:1056
+#: ../src/caja-query-editor.c:1181
 msgid "Edit the saved search"
 msgstr "Изменить сохранённый поиск"
 
-#: ../src/caja-query-editor.c:1088
+#: ../src/caja-query-editor.c:1213
 msgid "Add a new criterion to this search"
 msgstr "Добавить новый критерий в этот поиск"
 
-#: ../src/caja-query-editor.c:1094
+#: ../src/caja-query-editor.c:1219
 msgid "Go"
 msgstr "Перейти"
 
-#: ../src/caja-query-editor.c:1098
+#: ../src/caja-query-editor.c:1223
 msgid "Reload"
 msgstr "Перезагрузить"
 
-#: ../src/caja-query-editor.c:1103
+#: ../src/caja-query-editor.c:1228
 msgid "Perform or update the search"
 msgstr "Выполнить или обновить поиск"
 
-#: ../src/caja-query-editor.c:1124
+#: ../src/caja-query-editor.c:1249
 msgid "_Search for:"
 msgstr "_Искать:"
 
-#: ../src/caja-query-editor.c:1153
+#: ../src/caja-query-editor.c:1278
 msgid "Search results"
 msgstr "Результаты поиска"
 
@@ -7406,8 +7415,8 @@ msgstr "Caja позволяет организовать файлы и папк�
 #: ../src/caja-window-menus.c:540
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
-"Copyright © 2011-2016 The Caja authors"
-msgstr "Copyright © 1999-2009 Авторы Nautilus\nCopyright © 2011-2016 Авторы Caja"
+"Copyright © 2011-2017 The Caja authors"
+msgstr "Copyright © 1999-2009 Авторы Nautilus\nCopyright © 2011-2017 Авторы Caja"
 
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about

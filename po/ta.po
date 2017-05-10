@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-07 22:06+0300\n"
-"PO-Revision-Date: 2017-02-07 19:06+0000\n"
+"POT-Creation-Date: 2017-04-18 18:17+0300\n"
+"PO-Revision-Date: 2017-04-18 15:18+0000\n"
 "Last-Translator: monsta <monsta@inbox.ru>\n"
 "Language-Team: Tamil (http://www.transifex.com/mate/MATE/language/ta/)\n"
 "MIME-Version: 1.0\n"
@@ -368,11 +368,11 @@ msgstr ""
 msgid "Saved search"
 msgstr "சேமிக்கப்பட்ட தேடல்"
 
-#: ../eel/eel-canvas.c:1379 ../eel/eel-canvas.c:1380
+#: ../eel/eel-canvas.c:1389 ../eel/eel-canvas.c:1390
 msgid "X"
 msgstr "X"
 
-#: ../eel/eel-canvas.c:1386 ../eel/eel-canvas.c:1387
+#: ../eel/eel-canvas.c:1396 ../eel/eel-canvas.c:1397
 msgid "Y"
 msgstr "Y"
 
@@ -548,9 +548,9 @@ msgstr "_எப்போதுமே இதே செயலை செய்ய�
 #. label, accelerator
 #. add the "Eject" menu item
 #: ../libcaja-private/caja-autorun.c:1146
-#: ../src/file-manager/fm-directory-view.c:7416
-#: ../src/file-manager/fm-directory-view.c:7444
-#: ../src/file-manager/fm-directory-view.c:7525
+#: ../src/file-manager/fm-directory-view.c:7401
+#: ../src/file-manager/fm-directory-view.c:7429
+#: ../src/file-manager/fm-directory-view.c:7510
 #: ../src/file-manager/fm-tree-view.c:1382 ../src/caja-places-sidebar.c:2740
 msgid "_Eject"
 msgstr "வெளியேற்று (_E)"
@@ -559,9 +559,9 @@ msgstr "வெளியேற்று (_E)"
 #. label, accelerator
 #. add the "Unmount" menu item
 #: ../libcaja-private/caja-autorun.c:1159
-#: ../src/file-manager/fm-directory-view.c:7412
-#: ../src/file-manager/fm-directory-view.c:7440
-#: ../src/file-manager/fm-directory-view.c:7521
+#: ../src/file-manager/fm-directory-view.c:7397
+#: ../src/file-manager/fm-directory-view.c:7425
+#: ../src/file-manager/fm-directory-view.c:7506
 #: ../src/file-manager/fm-tree-view.c:1373 ../src/caja-places-sidebar.c:2733
 msgid "_Unmount"
 msgstr "இறக்கு (_U)"
@@ -590,7 +590,7 @@ msgstr "சேமிக்கப்பட்ட உரையை தற்கா�
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-clipboard.c:470
-#: ../src/file-manager/fm-directory-view.c:7345
+#: ../src/file-manager/fm-directory-view.c:7330
 msgid "Select _All"
 msgstr "(_A)அனைத்தையும் தேர்வு செய்"
 
@@ -613,7 +613,7 @@ msgstr "முன்னிருப்பை பயன்படுத்து (
 
 #: ../libcaja-private/caja-column-utilities.c:44
 #: ../libcaja-private/caja-mime-application-chooser.c:274
-#: ../src/file-manager/fm-list-view.c:1768
+#: ../src/file-manager/fm-list-view.c:1766
 msgid "Name"
 msgstr "பெயர்"
 
@@ -704,7 +704,7 @@ msgid "The SELinux security context of the file."
 msgstr "கோப்பின் எஸ்ஈலினக்ஸ் பாதுகாப்பு சூழல்."
 
 #: ../libcaja-private/caja-column-utilities.c:130
-#: ../src/caja-image-properties-page.c:369 ../src/caja-query-editor.c:124
+#: ../src/caja-image-properties-page.c:369 ../src/caja-query-editor.c:135
 msgid "Location"
 msgstr "இடம்"
 
@@ -1049,8 +1049,8 @@ msgstr[1] "தோராயமாக %'d  மணிகள்"
 #. * (e.g. "folder", "plain text") to file type for symbolic link
 #. * to that kind of file (e.g. "link to folder").
 #: ../libcaja-private/caja-file-operations.c:406
-#: ../libcaja-private/caja-file.c:6408
-#: ../src/file-manager/fm-directory-view.c:10538
+#: ../libcaja-private/caja-file.c:6399
+#: ../src/file-manager/fm-directory-view.c:10521
 #, c-format
 msgid "Link to %s"
 msgstr "%s உடன் தொடுப்பு"
@@ -1718,12 +1718,12 @@ msgstr "குப்பையை காலி செய்"
 msgid "Unable to mark launcher trusted (executable)"
 msgstr "நம்பப்பட்ட ஏற்றியை குறிக்க முடியவில்லை (இயங்கக்கூடியது)"
 
-#: ../libcaja-private/caja-file-utilities.c:1207
+#: ../libcaja-private/caja-file-utilities.c:1183
 #, c-format
 msgid "Could not determine original location of \"%s\" "
 msgstr "\"%s\" இன் உண்மை இடத்தை நிர்ணயம் செய்ய முடியாது."
 
-#: ../libcaja-private/caja-file-utilities.c:1211
+#: ../libcaja-private/caja-file-utilities.c:1187
 msgid "The item cannot be restored from trash"
 msgstr "குப்பையிலிருந்து உருப்படியை மீட்டு எடுக்க முடியாது."
 
@@ -1786,62 +1786,62 @@ msgstr "மேல்மேசை சின்னத்தை வேறு பெ
 #. * between the "%" and any numeric directive will turn
 #. * off zero padding, and putting a "_" there will use
 #. * space padding instead of zero padding.
-#: ../libcaja-private/caja-file.c:4474
+#: ../libcaja-private/caja-file.c:4465
 msgid "today at 00:00:00 PM"
 msgstr "இன்று 00:00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4475
+#: ../libcaja-private/caja-file.c:4466
 #: ../src/caja-file-management-properties.c:520
 msgid "today at %-I:%M:%S %p"
 msgstr "இன்று  PM%-I:%M:%S %p"
 
-#: ../libcaja-private/caja-file.c:4477
+#: ../libcaja-private/caja-file.c:4468
 msgid "today at 00:00 PM"
 msgstr "இன்று 00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4478
+#: ../libcaja-private/caja-file.c:4469
 msgid "today at %-I:%M %p"
 msgstr "இன்று %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4480
+#: ../libcaja-private/caja-file.c:4471
 msgid "today, 00:00 PM"
 msgstr "இன்று 00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4481
+#: ../libcaja-private/caja-file.c:4472
 msgid "today, %-I:%M %p"
 msgstr "இன்று %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4483 ../libcaja-private/caja-file.c:4484
+#: ../libcaja-private/caja-file.c:4474 ../libcaja-private/caja-file.c:4475
 msgid "today"
 msgstr "இன்று"
 
 #. Yesterday, use special word.
 #. * Note to localizers: Same issues as "today" string.
-#: ../libcaja-private/caja-file.c:4493
+#: ../libcaja-private/caja-file.c:4484
 msgid "yesterday at 00:00:00 PM"
 msgstr "நேற்று 00:00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4494
+#: ../libcaja-private/caja-file.c:4485
 msgid "yesterday at %-I:%M:%S %p"
 msgstr "நேற்று %-I:%M:%S %p"
 
-#: ../libcaja-private/caja-file.c:4496
+#: ../libcaja-private/caja-file.c:4487
 msgid "yesterday at 00:00 PM"
 msgstr "நேற்று 00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4497
+#: ../libcaja-private/caja-file.c:4488
 msgid "yesterday at %-I:%M %p"
 msgstr "நேற்று %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4499
+#: ../libcaja-private/caja-file.c:4490
 msgid "yesterday, 00:00 PM"
 msgstr "நேற்று 00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4500
+#: ../libcaja-private/caja-file.c:4491
 msgid "yesterday, %-I:%M %p"
 msgstr "நேற்று %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4502 ../libcaja-private/caja-file.c:4503
+#: ../libcaja-private/caja-file.c:4493 ../libcaja-private/caja-file.c:4494
 msgid "yesterday"
 msgstr "நேற்று "
 
@@ -1849,103 +1849,103 @@ msgstr "நேற்று "
 #. * Note to localizers: Same issues as "today" string.
 #. * The width measurement templates correspond to
 #. * the day/month name with the most letters.
-#: ../libcaja-private/caja-file.c:4514
+#: ../libcaja-private/caja-file.c:4505
 msgid "Wednesday, September 00 0000 at 00:00:00 PM"
 msgstr "புதன்கிழமை, செப்டம்பர் 00 0000 00:00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4515
+#: ../libcaja-private/caja-file.c:4506
 msgid "%A, %B %-d %Y at %-I:%M:%S %p"
 msgstr "%A, %B %-d %Y at %-I:%M:%S %p"
 
-#: ../libcaja-private/caja-file.c:4517
+#: ../libcaja-private/caja-file.c:4508
 msgid "Mon, Oct 00 0000 at 00:00:00 PM"
 msgstr "திங்கள், அக்டோபர் 00 0000  00:00:00 PM "
 
-#: ../libcaja-private/caja-file.c:4518
+#: ../libcaja-private/caja-file.c:4509
 msgid "%a, %b %-d %Y at %-I:%M:%S %p"
 msgstr "%a, %b %-d %Y at %-I:%M:%S %p"
 
-#: ../libcaja-private/caja-file.c:4520
+#: ../libcaja-private/caja-file.c:4511
 msgid "Mon, Oct 00 0000 at 00:00 PM"
 msgstr "திங்கள், அக்டோபர் 00 0000 00:00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4521
+#: ../libcaja-private/caja-file.c:4512
 msgid "%a, %b %-d %Y at %-I:%M %p"
 msgstr "%a, %b %-d %Y at %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4523
+#: ../libcaja-private/caja-file.c:4514
 msgid "Oct 00 0000 at 00:00 PM"
 msgstr "அக்டோபர் 00 0000  00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4524
+#: ../libcaja-private/caja-file.c:4515
 msgid "%b %-d %Y at %-I:%M %p"
 msgstr "%b %-d %Y at %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4526
+#: ../libcaja-private/caja-file.c:4517
 msgid "Oct 00 0000, 00:00 PM"
 msgstr "அக்டோபர்00 0000, 00:00 PM "
 
-#: ../libcaja-private/caja-file.c:4527
+#: ../libcaja-private/caja-file.c:4518
 msgid "%b %-d %Y, %-I:%M %p"
 msgstr "%b %-d %Y, %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4529
+#: ../libcaja-private/caja-file.c:4520
 msgid "00/00/00, 00:00 PM"
 msgstr "00/00/00, 00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4530
+#: ../libcaja-private/caja-file.c:4521
 msgid "%m/%-d/%y, %-I:%M %p"
 msgstr "%m/%-d/%y, %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4532
+#: ../libcaja-private/caja-file.c:4523
 msgid "00/00/00"
 msgstr "00/00/00"
 
-#: ../libcaja-private/caja-file.c:4533
+#: ../libcaja-private/caja-file.c:4524
 msgid "%m/%d/%y"
 msgstr "%m/%d/%y"
 
-#: ../libcaja-private/caja-file.c:5145
+#: ../libcaja-private/caja-file.c:5136
 #, c-format
 msgid "Not allowed to set permissions"
 msgstr "அனுமதிகளை அமைக்க முடியாது "
 
-#: ../libcaja-private/caja-file.c:5439
+#: ../libcaja-private/caja-file.c:5430
 #, c-format
 msgid "Not allowed to set owner"
 msgstr "உரிமையாளரை அமைக்க முடியாது"
 
-#: ../libcaja-private/caja-file.c:5457
+#: ../libcaja-private/caja-file.c:5448
 #, c-format
 msgid "Specified owner '%s' doesn't exist"
 msgstr "குறிப்பிட்ட உரிமையாளர் '%s'  இருப்பில் இல்லை "
 
-#: ../libcaja-private/caja-file.c:5717
+#: ../libcaja-private/caja-file.c:5708
 #, c-format
 msgid "Not allowed to set group"
 msgstr "குழுவை அமைக்க முடியாது"
 
-#: ../libcaja-private/caja-file.c:5735
+#: ../libcaja-private/caja-file.c:5726
 #, c-format
 msgid "Specified group '%s' doesn't exist"
 msgstr "குறிப்பிட்ட குழு '%s'  இருப்பில் இல்லை "
 
-#: ../libcaja-private/caja-file.c:5889
-#: ../src/file-manager/fm-directory-view.c:2374
+#: ../libcaja-private/caja-file.c:5880
+#: ../src/file-manager/fm-directory-view.c:2361
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
 msgstr[0] "%'u உருப்படி"
 msgstr[1] "%'u உருப்படிகள்"
 
-#: ../libcaja-private/caja-file.c:5890
+#: ../libcaja-private/caja-file.c:5881
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
 msgstr[0] "%'u அடைவு"
 msgstr[1] "%'u அடைவுகள்"
 
-#: ../libcaja-private/caja-file.c:5891
+#: ../libcaja-private/caja-file.c:5882
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
@@ -1954,53 +1954,53 @@ msgstr[1] "%'u கோப்புகள்"
 
 #. Do this in a separate stage so that we don't have to put G_GUINT64_FORMAT
 #. in the translated string
-#: ../libcaja-private/caja-file.c:5978
+#: ../libcaja-private/caja-file.c:5969
 msgid "%"
 msgstr "%"
 
-#: ../libcaja-private/caja-file.c:5979
+#: ../libcaja-private/caja-file.c:5970
 #, c-format
 msgid "%s (%s bytes)"
 msgstr "%s (%s பைட்டுகள்)"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6294 ../libcaja-private/caja-file.c:6310
+#: ../libcaja-private/caja-file.c:6285 ../libcaja-private/caja-file.c:6301
 msgid "? items"
 msgstr "? உருப்படிகள்"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6300
+#: ../libcaja-private/caja-file.c:6291
 msgid "? bytes"
 msgstr "? பைட்கள்"
 
-#: ../libcaja-private/caja-file.c:6315
+#: ../libcaja-private/caja-file.c:6306
 msgid "unknown type"
 msgstr "தெரியாத வகை"
 
-#: ../libcaja-private/caja-file.c:6318
+#: ../libcaja-private/caja-file.c:6309
 msgid "unknown MIME type"
 msgstr "தெரியாத மைம் வகை"
 
 #. Fallback, use for both unknown attributes and attributes
 #. * for which we have no more appropriate default.
-#: ../libcaja-private/caja-file.c:6332
+#: ../libcaja-private/caja-file.c:6323
 #: ../src/file-manager/fm-properties-window.c:1286
 msgid "unknown"
 msgstr "தெரியாத"
 
-#: ../libcaja-private/caja-file.c:6382
+#: ../libcaja-private/caja-file.c:6373
 msgid "program"
 msgstr "நிரல்"
 
-#: ../libcaja-private/caja-file.c:6402
+#: ../libcaja-private/caja-file.c:6393
 msgid "link"
 msgstr "இணைப்பு"
 
-#: ../libcaja-private/caja-file.c:6424
+#: ../libcaja-private/caja-file.c:6415
 msgid "link (broken)"
 msgstr "இணைப்பு(அருபட்டது)"
 
-#: ../libcaja-private/caja-icon-container.c:2917
+#: ../libcaja-private/caja-icon-container.c:2915
 msgid "The selection rectangle"
 msgstr "செவ்வக தேர்வு"
 
@@ -2026,10 +2026,10 @@ msgstr "இந்த தொடுப்பை பயன்படுத்த ம
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-mime-actions.c:744
-#: ../src/file-manager/fm-directory-view.c:7373
-#: ../src/file-manager/fm-directory-view.c:7505
-#: ../src/file-manager/fm-directory-view.c:8606
-#: ../src/file-manager/fm-directory-view.c:8931
+#: ../src/file-manager/fm-directory-view.c:7358
+#: ../src/file-manager/fm-directory-view.c:7490
+#: ../src/file-manager/fm-directory-view.c:8589
+#: ../src/file-manager/fm-directory-view.c:8914
 #: ../src/file-manager/fm-tree-view.c:1346
 msgid "Mo_ve to Trash"
 msgstr "குப்பைக்கு நகர்த்து (_v)"
@@ -2058,7 +2058,7 @@ msgid "_Run"
 msgstr "(_R)இயக்கு"
 
 #: ../libcaja-private/caja-mime-actions.c:1170
-#: ../src/file-manager/fm-directory-view.c:656
+#: ../src/file-manager/fm-directory-view.c:652
 msgid "Are you sure you want to open all files?"
 msgstr "நிச்சயம் எல்லா கோப்புகளையும் திறக்க வேண்டுமா?"
 
@@ -2136,12 +2136,12 @@ msgstr "நம்பப்பட்டது என குறி (_T)"
 
 #: ../libcaja-private/caja-mime-actions.c:2010
 #: ../libcaja-private/caja-mime-actions.c:2316
-#: ../src/file-manager/fm-directory-view.c:6391
+#: ../src/file-manager/fm-directory-view.c:6376
 msgid "Unable to mount location"
 msgstr "இடத்தை ஏற்ற முடியவில்லை"
 
 #: ../libcaja-private/caja-mime-actions.c:2404
-#: ../src/file-manager/fm-directory-view.c:6565
+#: ../src/file-manager/fm-directory-view.c:6550
 msgid "Unable to start location"
 msgstr "இடத்தை துவக்க முடியவில்லை"
 
@@ -2250,8 +2250,8 @@ msgstr "_B மேலோடு..."
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-open-with-dialog.c:962
-#: ../src/file-manager/fm-directory-view.c:7289
-#: ../src/file-manager/fm-directory-view.c:8800
+#: ../src/file-manager/fm-directory-view.c:7274
+#: ../src/file-manager/fm-directory-view.c:8783
 #: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2682
 msgid "_Open"
 msgstr "(_O)திற"
@@ -2408,14 +2408,14 @@ msgstr[1] " %'d கோப்பு செயல்கள் உள்ளன"
 msgid "Preparing"
 msgstr "தயார்படுத்துகிறது"
 
-#: ../libcaja-private/caja-query.c:137
+#: ../libcaja-private/caja-query.c:161
 #: ../libcaja-private/caja-search-directory-file.c:170
 #: ../libcaja-private/caja-search-directory-file.c:199
 #: ../libcaja-private/caja-search-directory-file.c:232
 msgid "Search"
 msgstr "தேடு"
 
-#: ../libcaja-private/caja-query.c:140
+#: ../libcaja-private/caja-query.c:164
 #, c-format
 msgid "Search for \"%s\""
 msgstr "\"%s\"க்கு தேடுகிறது"
@@ -3557,124 +3557,124 @@ msgstr "உங்கள் அந்தரங்க அடைவை திறக
 msgid "File Manager"
 msgstr "கோப்பு மேலாளர்"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:708
+#: ../src/file-manager/fm-desktop-icon-view.c:706
 msgid "Background"
 msgstr "பின்னனி"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:785
-#: ../src/file-manager/fm-directory-view.c:7321
-#: ../src/file-manager/fm-directory-view.c:9000
+#: ../src/file-manager/fm-desktop-icon-view.c:783
+#: ../src/file-manager/fm-directory-view.c:7306
+#: ../src/file-manager/fm-directory-view.c:8983
 msgid "E_mpty Trash"
 msgstr "தேவையற்றதை வெறுமையாக்கு"
 
 #. label, accelerator
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:799
-#: ../src/file-manager/fm-directory-view.c:7285
+#: ../src/file-manager/fm-desktop-icon-view.c:797
+#: ../src/file-manager/fm-directory-view.c:7270
 msgid "Create L_auncher..."
 msgstr "(_a)துவக்கியை உருவாக்குக..."
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:801
-#: ../src/file-manager/fm-directory-view.c:7286
+#: ../src/file-manager/fm-desktop-icon-view.c:799
+#: ../src/file-manager/fm-directory-view.c:7271
 msgid "Create a new launcher"
 msgstr "புதிய துவக்கியை உருவாக்கு"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:808
+#: ../src/file-manager/fm-desktop-icon-view.c:806
 msgid "Change Desktop _Background"
 msgstr "(_B)மேல்மேசையின் பின்னனியை மாற்று"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:810
+#: ../src/file-manager/fm-desktop-icon-view.c:808
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr "உங்கள் மேல்மேசையின் நிறம் மற்றும் மாதிரியை தேர்வு செய்யும் சாளரத்தை காட்டவும்"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:817
+#: ../src/file-manager/fm-desktop-icon-view.c:815
 msgid "Empty Trash"
 msgstr "குப்பையை காலி செய்"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:819
-#: ../src/file-manager/fm-directory-view.c:7322 ../src/caja-trash-bar.c:204
+#: ../src/file-manager/fm-desktop-icon-view.c:817
+#: ../src/file-manager/fm-directory-view.c:7307 ../src/caja-trash-bar.c:204
 msgid "Delete all items in the Trash"
 msgstr "குப்பைதொட்டியில் உள்ள அனைத்து உருப்படிகளையும் நீக்கு"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:919
+#: ../src/file-manager/fm-desktop-icon-view.c:917
 msgid "The desktop view encountered an error."
 msgstr "பணிமேடை பார்வை ஒரு பிழையை கண்டுள்ளது."
 
-#: ../src/file-manager/fm-desktop-icon-view.c:920
+#: ../src/file-manager/fm-desktop-icon-view.c:918
 msgid "The desktop view encountered an error while starting up."
 msgstr "மேல்மேசை காட்சி துவங்கும் போது பிழை ஏற்பட்டது"
 
-#: ../src/file-manager/fm-directory-view.c:658
+#: ../src/file-manager/fm-directory-view.c:654
 #, c-format
 msgid "This will open %'d separate tab."
 msgid_plural "This will open %'d separate tabs."
 msgstr[0] "இது %'d தனி சாளரத்தை திறக்கும்."
 msgstr[1] "இது %'d தனி சாளரங்களை திறக்கும்."
 
-#: ../src/file-manager/fm-directory-view.c:661
+#: ../src/file-manager/fm-directory-view.c:657
 #, c-format
 msgid "This will open %'d separate window."
 msgid_plural "This will open %'d separate windows."
 msgstr[0] "இது %'d தனி சாளரத்தை திறக்கும்."
 msgstr[1] "இது %'d தனி சாளரங்களை திறக்கும்."
 
-#: ../src/file-manager/fm-directory-view.c:1180
+#: ../src/file-manager/fm-directory-view.c:1176
 #: ../src/file-manager/fm-properties-window.c:5397
 #: ../src/caja-connect-server-dialog.c:718 ../src/caja-location-dialog.c:102
 msgid "There was an error displaying help."
 msgstr "உதவியை காட்டுவதில் பிழை"
 
-#: ../src/file-manager/fm-directory-view.c:1200
+#: ../src/file-manager/fm-directory-view.c:1196
 msgid "Select Items Matching"
 msgstr "பொருந்தும் அனைத்து உருப்படிகளையும் தேர்வு செய்"
 
-#: ../src/file-manager/fm-directory-view.c:1215
+#: ../src/file-manager/fm-directory-view.c:1211
 msgid "_Pattern:"
 msgstr "(_P)மாதிரி:"
 
-#: ../src/file-manager/fm-directory-view.c:1222
+#: ../src/file-manager/fm-directory-view.c:1218
 msgid "Examples: "
 msgstr "உதாரணங்கள்:"
 
-#: ../src/file-manager/fm-directory-view.c:1338
+#: ../src/file-manager/fm-directory-view.c:1334
 msgid "Save Search as"
 msgstr "தேடலை இப்படி சேமிக்கவும்"
 
-#: ../src/file-manager/fm-directory-view.c:1361
+#: ../src/file-manager/fm-directory-view.c:1357
 msgid "Search _name:"
 msgstr "தேடல் பெயர்: (_n)"
 
-#: ../src/file-manager/fm-directory-view.c:1381
+#: ../src/file-manager/fm-directory-view.c:1377
 msgid "_Folder:"
 msgstr "(_F)அடைவு:"
 
-#: ../src/file-manager/fm-directory-view.c:1390
+#: ../src/file-manager/fm-directory-view.c:1386
 msgid "Select Folder to Save Search In"
 msgstr "தேடுதலில் சேமிக்க அடைவினை தேர்ந்தெடுக்கவும்"
 
-#: ../src/file-manager/fm-directory-view.c:2287
-#: ../src/file-manager/fm-directory-view.c:2324
+#: ../src/file-manager/fm-directory-view.c:2274
+#: ../src/file-manager/fm-directory-view.c:2311
 #, c-format
 msgid "\"%s\" selected"
 msgstr "\"%s\" தேர்வு செய்யப்பட்டது"
 
-#: ../src/file-manager/fm-directory-view.c:2289
+#: ../src/file-manager/fm-directory-view.c:2276
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
 msgstr[0] "%'d அடைவு தேர்ந்தெடுக்கப்பட்டது"
 msgstr[1] "%'d அடைவுகள் தேர்ந்தெடுக்கப்பட்டன"
 
-#: ../src/file-manager/fm-directory-view.c:2299
+#: ../src/file-manager/fm-directory-view.c:2286
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
@@ -3683,14 +3683,14 @@ msgstr[1] "(%'d உருப்படிகள் கொண்டது)"
 
 #. translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
-#: ../src/file-manager/fm-directory-view.c:2310
+#: ../src/file-manager/fm-directory-view.c:2297
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
 msgstr[0] "(மொத்தம் %'d உருப்படி கொண்டது)"
 msgstr[1] "(மொத்தம் %'d உருப்படிகள் கொண்டது)"
 
-#: ../src/file-manager/fm-directory-view.c:2327
+#: ../src/file-manager/fm-directory-view.c:2314
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
@@ -3698,7 +3698,7 @@ msgstr[0] "%'d  உருப்படி தேர்ந்தெடுக்க
 msgstr[1] "%'d  உருப்படிகள் தேர்ந்தெடுக்கப்பட்டன"
 
 #. Folders selected also, use "other" terminology
-#: ../src/file-manager/fm-directory-view.c:2334
+#: ../src/file-manager/fm-directory-view.c:2321
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
@@ -3709,17 +3709,17 @@ msgstr[1] "%'d  மற்ற உருப்படிகள் தேர்ந�
 #. * needs to use something other than parentheses. The
 #. * first message gives the number of items selected;
 #. * the message in parentheses the size of those items.
-#: ../src/file-manager/fm-directory-view.c:2353
+#: ../src/file-manager/fm-directory-view.c:2340
 #, c-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-directory-view.c:2366
+#: ../src/file-manager/fm-directory-view.c:2353
 #, c-format
 msgid "Free space: %s"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:2377
+#: ../src/file-manager/fm-directory-view.c:2364
 #, c-format
 msgid "%s, Free space: %s"
 msgstr "%s, காலி இடம்: %s"
@@ -3728,7 +3728,7 @@ msgstr "%s, காலி இடம்: %s"
 #. * might want to change "," to something else.
 #. * After the comma the amount of free space will
 #. * be shown.
-#: ../src/file-manager/fm-directory-view.c:2392
+#: ../src/file-manager/fm-directory-view.c:2379
 #, c-format
 msgid "%s, %s"
 msgstr ""
@@ -3743,8 +3743,8 @@ msgstr ""
 #. * and the number of items in those folders and the
 #. * message about the number of other items and the
 #. * total size of those items.
-#: ../src/file-manager/fm-directory-view.c:2411
-#: ../src/file-manager/fm-directory-view.c:2425
+#: ../src/file-manager/fm-directory-view.c:2398
+#: ../src/file-manager/fm-directory-view.c:2412
 #, c-format
 msgid "%s%s, %s"
 msgstr "%s%s, %s"
@@ -3756,53 +3756,53 @@ msgstr "%s%s, %s"
 #. * message about the number of other items and the
 #. * total size of those items. After the second comma
 #. * the free space is written.
-#: ../src/file-manager/fm-directory-view.c:2438
+#: ../src/file-manager/fm-directory-view.c:2425
 #, c-format
 msgid "%s%s, %s, %s"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:4485
+#: ../src/file-manager/fm-directory-view.c:4470
 #: ../src/caja-information-panel.c:905
 #, c-format
 msgid "Open With %s"
 msgstr "இதனோடு திற %s"
 
-#: ../src/file-manager/fm-directory-view.c:4487
+#: ../src/file-manager/fm-directory-view.c:4472
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
 msgstr[0] "\"%s\" ஐ பயன்படுத்தி தேர்வு செய்த உருப்படியை திறக்கவும்"
 msgstr[1] "\"%s\" ஐ பயன்படுத்தி தேர்வு செய்த உருப்படிகளை திறக்கவும்"
 
-#: ../src/file-manager/fm-directory-view.c:4576
+#: ../src/file-manager/fm-directory-view.c:4561
 msgid "Open parent location"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:4577
+#: ../src/file-manager/fm-directory-view.c:4562
 msgid "Open parent location for the selected item"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:5426
+#: ../src/file-manager/fm-directory-view.c:5411
 #, c-format
 msgid "Run \"%s\" on any selected items"
 msgstr "\"%s\" ஐ தேர்வு உருப்படியில் இயக்கு"
 
-#: ../src/file-manager/fm-directory-view.c:5677
+#: ../src/file-manager/fm-directory-view.c:5662
 #, c-format
 msgid "Create Document from template \"%s\""
 msgstr "\"%s\" வார்புருவிலிருந்து ஆவணத்தை உருவாக்கு"
 
-#: ../src/file-manager/fm-directory-view.c:5927
+#: ../src/file-manager/fm-directory-view.c:5912
 msgid "All executable files in this folder will appear in the Scripts menu."
 msgstr "இந்த அடைவில் உள்ள அனைத்து இயக்க கோப்புகளும் சிறுநிரம் மெனுவில் காட்டப்படும்"
 
-#: ../src/file-manager/fm-directory-view.c:5929
+#: ../src/file-manager/fm-directory-view.c:5914
 msgid ""
 "Choosing a script from the menu will run that script with any selected items"
 " as input."
 msgstr "மெனுவிலிருந்து சிறுநிரலை தேர்வு செய்து தேர்வு செய்த உருப்படியை பயன்படுத்தி இயக்கவும்"
 
-#: ../src/file-manager/fm-directory-view.c:5931
+#: ../src/file-manager/fm-directory-view.c:5916
 msgid ""
 "All executable files in this folder will appear in the Scripts menu. Choosing a script from the menu will run that script.\n"
 "\n"
@@ -3825,19 +3825,19 @@ msgid ""
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI for current location in the inactive pane of a split-view window"
 msgstr "இந்த அடைவில் இருக்கும் இயக்க கோப்புகள் எல்லாம் சிறுநிரல் மெனுவில் காணப்படும்.  சிறுநிரலை தேர்வு செய்தல் அதை இயக்கும்\n\nஉள் அடைவிலிருந்து இயக்கப்படும் போது,  சிறுநிரலுக்கு கோப்பின் பெயர் அனுப்பப்படும். தொலை அடைவில் இருந்து இஅய்க்கினால் (உ.ம் அடைவில் web அல்லது ftp உள்ளடக்கங்கள்), சிறுநிரலுக்கு அளவுரு அனுப்பப்படமாட்டாது.\n\nஎல்லா நிலையிலும் சிறு நிரல் பயன்படுத்தும் கீழ்கண்ட இயக்க சூழ்நிலை மாறிகள் அனுப்பப்படும்:\n\nCAJA_SCRIPT_SELECTED_FILE_PATHS: புதிய வரியால் பிரிக்கப்பட்ட தேர்வு செய்யப்பட்ட கோப்புகள்(உள் கணினி மட்டும்)\n\nCAJA_SCRIPT_SELECTED_URIS:புதிய வரியால் பிரிக்கப்பட்ட தேர்வு செய்யப்பட்ட கோப்புகளின் URIs  \n\nCAJA_SCRIPT_CURRENT_URI: தற்போதைய இடத்தின் URI \n\nCAJA_SCRIPT_WINDOW_GEOMETRY: தற்போதைய சாளரத்தின் நிலை மற்றும் அளவு\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_FILE_PATHS: பிளந்த சாளர காட்சியில் (உள்ளமையாக இருந்தால் மட்டில்)  செயலில் இல்லா பலகத்தின் தேர்ந்தெடுத்த கோப்புகளுக்கு புதிய வரியால் பிரித்த யூஆர்ஐ\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: பிளந்த சாளர காட்சியில் செயலில் இல்லா பலகத்தின் தேர்ந்தெடுத்த கோப்புகளுக்கு புதிய வரியால் பிரித்த யூஆர்ஐ \n\nCAJA_SCRIPT_NEXT_PANE_CURRENT_URI: பிளந்த சாளர காட்சியில் செயலில் இல்லா பலகத்தின் தற்போதைய இடத்தின் யூஆர்ஐ"
 
-#: ../src/file-manager/fm-directory-view.c:5999
+#: ../src/file-manager/fm-directory-view.c:5984
 #: ../src/file-manager/fm-tree-view.c:1009
 #, c-format
 msgid "\"%s\" will be moved if you select the Paste command"
 msgstr "ஒட்டு கட்டளையை தேர்வு செய்தால் \"%s\" நகர்த்தப்படும்"
 
-#: ../src/file-manager/fm-directory-view.c:6003
+#: ../src/file-manager/fm-directory-view.c:5988
 #: ../src/file-manager/fm-tree-view.c:1015
 #, c-format
 msgid "\"%s\" will be copied if you select the Paste command"
 msgstr "ஒட்டு கட்டளையை தேர்வு செய்தால் \"%s\" நகலெடுக்கப்படும்"
 
-#: ../src/file-manager/fm-directory-view.c:6010
+#: ../src/file-manager/fm-directory-view.c:5995
 #, c-format
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
@@ -3845,7 +3845,7 @@ msgid_plural ""
 msgstr[0] "தேர்ந்தெடுக்கப்பட்ட %'d  உருப்படி ஒட்டு கட்டளையை தேர்ந்தெடுத்தால் நகர்த்தப்படும்"
 msgstr[1] "தேர்ந்தெடுக்கப்பட்ட %'d  உருப்படிகள் ஒட்டு கட்டளையை தேர்ந்தெடுத்தால் நகர்த்தப்படும்"
 
-#: ../src/file-manager/fm-directory-view.c:6017
+#: ../src/file-manager/fm-directory-view.c:6002
 #, c-format
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
@@ -3853,98 +3853,98 @@ msgid_plural ""
 msgstr[0] "தேர்ந்தெடுக்கப்பட்ட %'d  உருப்படி ஒட்டு கட்டளையை தேர்ந்தெடுத்தால் பிரதி எடுக்கப்படும்"
 msgstr[1] "தேர்ந்தெடுக்கப்பட்ட %'d  உருப்படிகள் ஒட்டு கட்டளையை தேர்ந்தெடுத்தால் பிரதி எடுக்கப்படும்"
 
-#: ../src/file-manager/fm-directory-view.c:6197
+#: ../src/file-manager/fm-directory-view.c:6182
 #: ../src/file-manager/fm-tree-view.c:1055
 msgid "There is nothing on the clipboard to paste."
 msgstr "ஒட்டுவதற்கு தற்காலிக நினைவிடத்தில் ஒன்றும் இல்லை"
 
-#: ../src/file-manager/fm-directory-view.c:6412
+#: ../src/file-manager/fm-directory-view.c:6397
 msgid "Unable to unmount location"
 msgstr "இடத்தை ஏற்றம் நீக்க முடியவில்லை"
 
-#: ../src/file-manager/fm-directory-view.c:6433
+#: ../src/file-manager/fm-directory-view.c:6418
 msgid "Unable to eject location"
 msgstr "இடத்தை வெளியேற்ற முடியவில்லை"
 
-#: ../src/file-manager/fm-directory-view.c:6448
+#: ../src/file-manager/fm-directory-view.c:6433
 msgid "Unable to stop drive"
 msgstr "இயக்கியை நிறுத்த முடியவில்லை "
 
-#: ../src/file-manager/fm-directory-view.c:7005
+#: ../src/file-manager/fm-directory-view.c:6990
 #, c-format
 msgid "Connect to Server %s"
 msgstr "%s சேவகனுடன் இணை"
 
-#: ../src/file-manager/fm-directory-view.c:7010
-#: ../src/file-manager/fm-directory-view.c:8219
-#: ../src/file-manager/fm-directory-view.c:8311
-#: ../src/file-manager/fm-directory-view.c:8421
+#: ../src/file-manager/fm-directory-view.c:6995
+#: ../src/file-manager/fm-directory-view.c:8202
+#: ../src/file-manager/fm-directory-view.c:8294
+#: ../src/file-manager/fm-directory-view.c:8404
 msgid "_Connect"
 msgstr "(_C)இணை"
 
-#: ../src/file-manager/fm-directory-view.c:7024
+#: ../src/file-manager/fm-directory-view.c:7009
 msgid "Link _name:"
 msgstr "(_n) இணைப்பின் பெயர்:"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7263
+#: ../src/file-manager/fm-directory-view.c:7248
 msgid "Create _Document"
 msgstr "(_D)ஆவணத்தை உருவாக்கு"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7264
+#: ../src/file-manager/fm-directory-view.c:7249
 msgid "Open Wit_h"
 msgstr "(_h)இதனால் திற"
 
-#: ../src/file-manager/fm-directory-view.c:7265
+#: ../src/file-manager/fm-directory-view.c:7250
 msgid "Choose a program with which to open the selected item"
 msgstr "தேர்வு செய்த உருப்படியை திறக்க வேறு பயன்பாட்டை தேர்வு செய்யவும்"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7267
-#: ../src/file-manager/fm-directory-view.c:7546
+#: ../src/file-manager/fm-directory-view.c:7252
+#: ../src/file-manager/fm-directory-view.c:7531
 msgid "_Properties"
 msgstr "(_P)பண்புகள்"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7268
-#: ../src/file-manager/fm-directory-view.c:8987
+#: ../src/file-manager/fm-directory-view.c:7253
+#: ../src/file-manager/fm-directory-view.c:8970
 msgid "View or modify the properties of each selected item"
 msgstr "தேர்வு செய்த கோப்புகளின் பண்புகளை பார் அல்லது மாற்று"
 
 #. name, stock id
 #. label, accelerator
 #. add the "create folder" menu item
-#: ../src/file-manager/fm-directory-view.c:7275
+#: ../src/file-manager/fm-directory-view.c:7260
 #: ../src/file-manager/fm-tree-view.c:1298
 msgid "Create _Folder"
 msgstr "(_F)அடைவை உருவாக்கு"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7276
+#: ../src/file-manager/fm-directory-view.c:7261
 msgid "Create a new empty folder inside this folder"
 msgstr "இந்த அடைவுக்குள் புதிய காலி அடைவை உருவாக்கு"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7278
+#: ../src/file-manager/fm-directory-view.c:7263
 msgid "No templates installed"
 msgstr "வார்ப்புருக்கள் நிறுவவில்லை"
 
 #. name, stock id
 #. translators: this is used to indicate that a file doesn't contain anything
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7281
+#: ../src/file-manager/fm-directory-view.c:7266
 msgid "_Empty File"
 msgstr "(_E)வெற்று கோப்பு"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7282
+#: ../src/file-manager/fm-directory-view.c:7267
 msgid "Create a new empty file inside this folder"
 msgstr "இந்த அடைவுக்குள் புதிய காலி அடைவை உருவாக்கு"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7290
+#: ../src/file-manager/fm-directory-view.c:7275
 msgid "Open the selected item in this window"
 msgstr "தேர்வு செய்த உருப்படியை இந்த சாளரத்தில் திற"
 
@@ -3953,91 +3953,91 @@ msgstr "தேர்வு செய்த உருப்படியை இந
 #. Location-specific actions
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7297
-#: ../src/file-manager/fm-directory-view.c:7478
+#: ../src/file-manager/fm-directory-view.c:7282
+#: ../src/file-manager/fm-directory-view.c:7463
 msgid "Open in Navigation Window"
 msgstr "வழிகாணும் சாளரத்தில் திற"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7298
+#: ../src/file-manager/fm-directory-view.c:7283
 msgid "Open each selected item in a navigation window"
 msgstr "தேர்வு செய்த உருப்படியை வழிகாணும் சாளரத்தில் திற"
 
 #. name, stock id
 #. label, accelerator
 #. add the "open in new tab" menu item
-#: ../src/file-manager/fm-directory-view.c:7301
-#: ../src/file-manager/fm-directory-view.c:7482
-#: ../src/file-manager/fm-directory-view.c:8551
-#: ../src/file-manager/fm-directory-view.c:8877
+#: ../src/file-manager/fm-directory-view.c:7286
+#: ../src/file-manager/fm-directory-view.c:7467
+#: ../src/file-manager/fm-directory-view.c:8534
+#: ../src/file-manager/fm-directory-view.c:8860
 #: ../src/file-manager/fm-tree-view.c:1278 ../src/caja-places-sidebar.c:2690
 msgid "Open in New _Tab"
 msgstr "புது _சாளரத்தில் திறக்கவும்"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7302
+#: ../src/file-manager/fm-directory-view.c:7287
 msgid "Open each selected item in a new tab"
 msgstr "ஒவ்வொரு தேர்ந்தெடுத்த உருப்படியையும் ஒரு புதிய சாளரத்தில் திற "
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7305
-#: ../src/file-manager/fm-directory-view.c:7487
+#: ../src/file-manager/fm-directory-view.c:7290
+#: ../src/file-manager/fm-directory-view.c:7472
 msgid "Open in _Folder Window"
 msgstr "(_F)  ஒரு அடைவு சாளரத்தில் திற "
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7306
+#: ../src/file-manager/fm-directory-view.c:7291
 msgid "Open each selected item in a folder window"
 msgstr "ஒவ்வொரு தேர்ந்தெடுத்த உருப்படியையும் ஒரு அடைவு சாளரத்தில் திற "
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7309
+#: ../src/file-manager/fm-directory-view.c:7294
 msgid "Other _Application..."
 msgstr "(_A) மற்றொரு பயன்பாடு"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7310
-#: ../src/file-manager/fm-directory-view.c:7314
+#: ../src/file-manager/fm-directory-view.c:7295
+#: ../src/file-manager/fm-directory-view.c:7299
 msgid "Choose another application with which to open the selected item"
 msgstr "தேர்வு செய்த உருப்படியை திறக்க வேறு பயன்பாட்டை தேர்வு செய்யவும்"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7313
+#: ../src/file-manager/fm-directory-view.c:7298
 msgid "Open With Other _Application..."
 msgstr "(_A)மற்றொரு பயன்பாட்டால் திற..."
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7317
+#: ../src/file-manager/fm-directory-view.c:7302
 msgid "_Open Scripts Folder"
 msgstr "(_O)சிறுநிரல் அடைவை திற"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7318
+#: ../src/file-manager/fm-directory-view.c:7303
 msgid "Show the folder containing the scripts that appear in this menu"
 msgstr "இந்த மெனுவில் உள்ள சிறுநிரல்களை காட்டு"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7326
+#: ../src/file-manager/fm-directory-view.c:7311
 msgid "Prepare the selected files to be moved with a Paste command"
 msgstr "தேர்வு செய்த கோப்புகள் ஒட்டு கட்டளையோடு நகர ஏற்பாடு செய்"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7330
+#: ../src/file-manager/fm-directory-view.c:7315
 msgid "Prepare the selected files to be copied with a Paste command"
 msgstr "தேர்வு செய்த கோப்புகள் ஒட்டு கட்டளையோடு நகலெடுக்க ஏற்பாடு செய்"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7334
+#: ../src/file-manager/fm-directory-view.c:7319
 msgid "Move or copy files previously selected by a Cut or Copy command"
 msgstr "ஏற்கெனவே தேர்வு செய்த ஒட்டு அல்லது பிரதியெடு கட்டளைப்படி கோப்புகளை நகர்த்தவும் அல்லது பிரதி எடுக்கவும்"
 
@@ -4045,140 +4045,140 @@ msgstr "ஏற்கெனவே தேர்வு செய்த ஒட்ட
 #. accelerator for paste
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7339
-#: ../src/file-manager/fm-directory-view.c:7500
+#: ../src/file-manager/fm-directory-view.c:7324
+#: ../src/file-manager/fm-directory-view.c:7485
 #: ../src/file-manager/fm-tree-view.c:1330
 msgid "_Paste Into Folder"
 msgstr "கோப்புகளை அடைவுகளில் _ஒட்டு"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7340
+#: ../src/file-manager/fm-directory-view.c:7325
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into the "
 "selected folder"
 msgstr "ஏற்கெனவே தேர்வு செய்த ஒட்டு அல்லது பிரதியெடு கட்டளை படி கோப்பை தேர்வு செய்த அடைவிற்கு நகர்த்த அல்லது பிரதி எடுக்கவும்"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7342
+#: ../src/file-manager/fm-directory-view.c:7327
 msgid "Cop_y to"
 msgstr "_y இவருக்கு நகல்"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7343
+#: ../src/file-manager/fm-directory-view.c:7328
 msgid "M_ove to"
 msgstr "_o இங்கே நகர்த்து "
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7346
+#: ../src/file-manager/fm-directory-view.c:7331
 msgid "Select all items in this window"
 msgstr "இந்த சாளரத்தில் உள்ள அனைத்து உருப்படிகளையும் தேர்வு செய்"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7349
+#: ../src/file-manager/fm-directory-view.c:7334
 msgid "Select I_tems Matching..."
 msgstr "(_t) பொருந்தும் உருப்படிகளை தேர்ந்தெடு..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7350
+#: ../src/file-manager/fm-directory-view.c:7335
 msgid "Select items in this window matching a given pattern"
 msgstr "கொடுக்கப்பட்ட மாதிரியில் பொருந்தக்கூடிய மறைந்த உருப்படிகளை தேர்வு செய்"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7353
+#: ../src/file-manager/fm-directory-view.c:7338
 msgid "_Invert Selection"
 msgstr "(_I) தேர்வை தலைகீழாக்கு"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7354
+#: ../src/file-manager/fm-directory-view.c:7339
 msgid "Select all and only the items that are not currently selected"
 msgstr "அனைத்தயும் தேர்வு செய் மற்றும் இப்போது தேர்ந்தெடுக்காததை தவிர மற்றதை மட்டும்."
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7357
+#: ../src/file-manager/fm-directory-view.c:7342
 msgid "D_uplicate"
 msgstr "(_u)படியெடு"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7358
+#: ../src/file-manager/fm-directory-view.c:7343
 msgid "Duplicate each selected item"
 msgstr "தேர்வு செய்த உருப்படிகளை படியெடு"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7361
-#: ../src/file-manager/fm-directory-view.c:8971
+#: ../src/file-manager/fm-directory-view.c:7346
+#: ../src/file-manager/fm-directory-view.c:8954
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
 msgstr[0] "இணைப்பினை உருவாக்கு (_k)"
 msgstr[1] "இணைப்புகளை உருவாக்கு (_k)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7362
+#: ../src/file-manager/fm-directory-view.c:7347
 msgid "Create a symbolic link for each selected item"
 msgstr "தேர்வு செய்த உருப்படிக்கு குறியீட்டு இணைப்பை உருவாக்கு"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7365
+#: ../src/file-manager/fm-directory-view.c:7350
 msgid "_Rename..."
 msgstr "(_R)மறுபெயரிடு..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7366
+#: ../src/file-manager/fm-directory-view.c:7351
 msgid "Rename selected item"
 msgstr "தேர்வு செய்த உருப்படியின் பெயரை மாற்று"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7374
-#: ../src/file-manager/fm-directory-view.c:8932
+#: ../src/file-manager/fm-directory-view.c:7359
+#: ../src/file-manager/fm-directory-view.c:8915
 msgid "Move each selected item to the Trash"
 msgstr "தேர்வு செய்த உருப்படிகளை குப்பைக்கு நகர்த்து"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7377
-#: ../src/file-manager/fm-directory-view.c:7509
-#: ../src/file-manager/fm-directory-view.c:8952
+#: ../src/file-manager/fm-directory-view.c:7362
+#: ../src/file-manager/fm-directory-view.c:7494
+#: ../src/file-manager/fm-directory-view.c:8935
 #: ../src/file-manager/fm-tree-view.c:1360
 msgid "_Delete"
 msgstr "(_D)நீக்கு"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7378
+#: ../src/file-manager/fm-directory-view.c:7363
 msgid "Delete each selected item, without moving to the Trash"
 msgstr "தேர்வு செய்த உருப்படிகளை குப்பை நகர்தாமல் நீக்கு"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7381
-#: ../src/file-manager/fm-directory-view.c:7513
+#: ../src/file-manager/fm-directory-view.c:7366
+#: ../src/file-manager/fm-directory-view.c:7498
 msgid "_Restore"
 msgstr "(_R)மீட்டு அமை"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7385
+#: ../src/file-manager/fm-directory-view.c:7370
 msgid "_Undo"
 msgstr "(_U)செயல் நீக்கு"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7386
-#: ../src/file-manager/fm-directory-view.c:11138
+#: ../src/file-manager/fm-directory-view.c:7371
+#: ../src/file-manager/fm-directory-view.c:11117
 msgid "Undo the last action"
 msgstr ""
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7389
+#: ../src/file-manager/fm-directory-view.c:7374
 msgid "_Redo"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7390
-#: ../src/file-manager/fm-directory-view.c:11156
+#: ../src/file-manager/fm-directory-view.c:7375
+#: ../src/file-manager/fm-directory-view.c:11135
 msgid "Redo the last undone action"
 msgstr ""
 
@@ -4188,614 +4188,614 @@ msgstr ""
 #. * it is a mixture of both ATM.
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7400
+#: ../src/file-manager/fm-directory-view.c:7385
 msgid "Reset View to _Defaults"
 msgstr "(_D)இயல்பான காட்சியாக மாற்று"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7401
+#: ../src/file-manager/fm-directory-view.c:7386
 msgid "Reset sorting order and zoom level to match preferences for this view"
 msgstr "இந்த காட்சிக்கு ஏற்ப அடுக்கும் முறை மற்றும் அளவு ஆகியவற்றை மாற்றி அமை"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7404
+#: ../src/file-manager/fm-directory-view.c:7389
 msgid "Connect To This Server"
 msgstr "இந்த சேவகனோடு இணை"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7405
+#: ../src/file-manager/fm-directory-view.c:7390
 msgid "Make a permanent connection to this server"
 msgstr "இந்த சேவகனுடன் நிலையான இணைப்பை ஏற்படுத்து"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7408
-#: ../src/file-manager/fm-directory-view.c:7436
-#: ../src/file-manager/fm-directory-view.c:7517
+#: ../src/file-manager/fm-directory-view.c:7393
+#: ../src/file-manager/fm-directory-view.c:7421
+#: ../src/file-manager/fm-directory-view.c:7502
 #: ../src/caja-places-sidebar.c:2726
 msgid "_Mount"
 msgstr "ஏற்று (_M)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7409
+#: ../src/file-manager/fm-directory-view.c:7394
 msgid "Mount the selected volume"
 msgstr "தேர்வு செய்த வன்பொருளை ஏற்றவும்"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7413
+#: ../src/file-manager/fm-directory-view.c:7398
 msgid "Unmount the selected volume"
 msgstr "தேர்வு செய்த பொருள்களை வெளியேற்று"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7417
+#: ../src/file-manager/fm-directory-view.c:7402
 msgid "Eject the selected volume"
 msgstr "தேர்வு செய்த தொகுப்பை வெளியேற்று"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7420
-#: ../src/file-manager/fm-directory-view.c:7448
-#: ../src/file-manager/fm-directory-view.c:7529
+#: ../src/file-manager/fm-directory-view.c:7405
+#: ../src/file-manager/fm-directory-view.c:7433
+#: ../src/file-manager/fm-directory-view.c:7514
 #: ../src/caja-places-sidebar.c:2754
 msgid "_Format"
 msgstr "(_F)வடிவமை"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7421
+#: ../src/file-manager/fm-directory-view.c:7406
 msgid "Format the selected volume"
 msgstr "தேர்வு செய்த வன்பொருளை வடிவமை"
 
 #. name, stock id
 #. label, accelerator
 #. Adjust start/stop items to reflect the type of the drive
-#: ../src/file-manager/fm-directory-view.c:7424
-#: ../src/file-manager/fm-directory-view.c:7452
-#: ../src/file-manager/fm-directory-view.c:7533
-#: ../src/file-manager/fm-directory-view.c:8211
-#: ../src/file-manager/fm-directory-view.c:8215
-#: ../src/file-manager/fm-directory-view.c:8303
-#: ../src/file-manager/fm-directory-view.c:8307
-#: ../src/file-manager/fm-directory-view.c:8413
-#: ../src/file-manager/fm-directory-view.c:8417
+#: ../src/file-manager/fm-directory-view.c:7409
+#: ../src/file-manager/fm-directory-view.c:7437
+#: ../src/file-manager/fm-directory-view.c:7518
+#: ../src/file-manager/fm-directory-view.c:8194
+#: ../src/file-manager/fm-directory-view.c:8198
+#: ../src/file-manager/fm-directory-view.c:8286
+#: ../src/file-manager/fm-directory-view.c:8290
+#: ../src/file-manager/fm-directory-view.c:8396
+#: ../src/file-manager/fm-directory-view.c:8400
 #: ../src/caja-places-sidebar.c:1808 ../src/caja-places-sidebar.c:2761
 msgid "_Start"
 msgstr "துவக்கு (_S):"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7425
+#: ../src/file-manager/fm-directory-view.c:7410
 msgid "Start the selected volume"
 msgstr "தேர்வு செய்த தொகுதியை துவக்கு"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7428
-#: ../src/file-manager/fm-directory-view.c:7456
-#: ../src/file-manager/fm-directory-view.c:7537
-#: ../src/file-manager/fm-directory-view.c:8240
-#: ../src/file-manager/fm-directory-view.c:8332
-#: ../src/file-manager/fm-directory-view.c:8442
+#: ../src/file-manager/fm-directory-view.c:7413
+#: ../src/file-manager/fm-directory-view.c:7441
+#: ../src/file-manager/fm-directory-view.c:7522
+#: ../src/file-manager/fm-directory-view.c:8223
+#: ../src/file-manager/fm-directory-view.c:8315
+#: ../src/file-manager/fm-directory-view.c:8425
 #: ../src/caja-places-sidebar.c:1809 ../src/caja-places-sidebar.c:2768
 #: ../src/caja-window-menus.c:836
 msgid "_Stop"
 msgstr "(_S) நிறுத்து"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7429
-#: ../src/file-manager/fm-directory-view.c:8443
+#: ../src/file-manager/fm-directory-view.c:7414
+#: ../src/file-manager/fm-directory-view.c:8426
 msgid "Stop the selected volume"
 msgstr "தேர்வு செய்த தொகுதியை நிறுத்து"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7432
-#: ../src/file-manager/fm-directory-view.c:7460
-#: ../src/file-manager/fm-directory-view.c:7541
+#: ../src/file-manager/fm-directory-view.c:7417
+#: ../src/file-manager/fm-directory-view.c:7445
+#: ../src/file-manager/fm-directory-view.c:7526
 #: ../src/caja-places-sidebar.c:2747
 msgid "_Detect Media"
 msgstr "(_D) ஊடகத்தை கண்டுபிடி"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7433
-#: ../src/file-manager/fm-directory-view.c:7461
-#: ../src/file-manager/fm-directory-view.c:7542
+#: ../src/file-manager/fm-directory-view.c:7418
+#: ../src/file-manager/fm-directory-view.c:7446
+#: ../src/file-manager/fm-directory-view.c:7527
 msgid "Detect media in the selected drive"
 msgstr "தேர்வு செய்த இயக்கியில் ஊடகத்தை கண்டுபிடி"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7437
+#: ../src/file-manager/fm-directory-view.c:7422
 msgid "Mount the volume associated with the open folder"
 msgstr "திறக்கும் அடைவில் தொடர்புடைய தொகுதியை ஏற்றவும்"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7441
+#: ../src/file-manager/fm-directory-view.c:7426
 msgid "Unmount the volume associated with the open folder"
 msgstr "திறக்கும் அடைவில் தொடர்புடைய தொகுதியை ஏற்றம் நீக்கவும்"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7445
+#: ../src/file-manager/fm-directory-view.c:7430
 msgid "Eject the volume associated with the open folder"
 msgstr "திறந்துள்ள அடைவுடன் தொடர்புடைய தொகுதியை வெளியேற்றுக"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7449
+#: ../src/file-manager/fm-directory-view.c:7434
 msgid "Format the volume associated with the open folder"
 msgstr "திறந்துள்ள அடைவுடன் தொடர்புடைய தொகுதியை ஒழுங்கு செய்யவும்."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7453
+#: ../src/file-manager/fm-directory-view.c:7438
 msgid "Start the volume associated with the open folder"
 msgstr "திறந்துள்ள அடைவுடன் தொடர்புடைய தொகுதியை துவக்கவும்"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7457
+#: ../src/file-manager/fm-directory-view.c:7442
 msgid "Stop the volume associated with the open folder"
 msgstr "திறக்கும் அடைவில் தொடர்புடைய தொகுதியை நிறுத்தவும்"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7464
+#: ../src/file-manager/fm-directory-view.c:7449
 msgid "Open File and Close window"
 msgstr "கோப்பை திற மற்றும் மூடு சாளரம்"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7468
+#: ../src/file-manager/fm-directory-view.c:7453
 msgid "Sa_ve Search"
 msgstr "தேடலை சேமி (_v)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7469
+#: ../src/file-manager/fm-directory-view.c:7454
 msgid "Save the edited search"
 msgstr "தொகுப்பட்ட தேடலை சேமி"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7472
+#: ../src/file-manager/fm-directory-view.c:7457
 msgid "Sa_ve Search As..."
 msgstr "தேடலை மறுபெயரில் சேமி... (_v)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7473
+#: ../src/file-manager/fm-directory-view.c:7458
 msgid "Save the current search as a file"
 msgstr "நடப்பு தேடலை ஒரு கோப்பாக சேமி"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7479
+#: ../src/file-manager/fm-directory-view.c:7464
 msgid "Open this folder in a navigation window"
 msgstr "இந்த அடைவை வழிகாணும் சாளரத்தில் திற"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7483
+#: ../src/file-manager/fm-directory-view.c:7468
 msgid "Open this folder in a new tab"
 msgstr "இந்த அடைவை ஒரு புதிய சாளரத்தில் திற  "
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7488
+#: ../src/file-manager/fm-directory-view.c:7473
 msgid "Open this folder in a folder window"
 msgstr "அடைவை ஒரு அடைவு சாளரத்தில் திற  "
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7493
+#: ../src/file-manager/fm-directory-view.c:7478
 msgid "Prepare this folder to be moved with a Paste command"
 msgstr "இந்த அடைவை ஒட்டு கட்டளையோடு நகர ஏற்பாடு செய்"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7497
+#: ../src/file-manager/fm-directory-view.c:7482
 msgid "Prepare this folder to be copied with a Paste command"
 msgstr "இந்த அடைவினை ஒரு ஒட்டு கட்டளையோடு நகலெடுக்க தயார் செய்யவும்"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7501
+#: ../src/file-manager/fm-directory-view.c:7486
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into this "
 "folder"
 msgstr "ஏற்கெனவே தேர்வு செய்த ஒட்டு அல்லது பிரதியெடு கட்டளை படி கோப்புகளை தேர்வு செய்த அடைவிற்கு நகர்த்தவும் அல்லது பிரதி எடுக்கவும்"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7506
+#: ../src/file-manager/fm-directory-view.c:7491
 msgid "Move this folder to the Trash"
 msgstr "இந்த அடைவை குப்பைக்கு நகர்த்துகிறது"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7510
+#: ../src/file-manager/fm-directory-view.c:7495
 msgid "Delete this folder, without moving to the Trash"
 msgstr "இந்த அடைவை குப்பை நகர்த்தாமல் நீக்கு"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7518
+#: ../src/file-manager/fm-directory-view.c:7503
 msgid "Mount the volume associated with this folder"
 msgstr "இந்த அடைவுடன் தொடர்புடைய தொகுதியை ஏற்றவும்"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7522
+#: ../src/file-manager/fm-directory-view.c:7507
 msgid "Unmount the volume associated with this folder"
 msgstr "இந்த அடைவில் தொடர்புடைய தொகுதியை ஏற்றம் நீக்கவும்"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7526
+#: ../src/file-manager/fm-directory-view.c:7511
 msgid "Eject the volume associated with this folder"
 msgstr "இந்த அடைவுடன் தொடர்புடைய தொகுதியை வெளியேற்றுக"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7530
+#: ../src/file-manager/fm-directory-view.c:7515
 msgid "Format the volume associated with this folder"
 msgstr "இந்த அடைவுடன் தொடர்புடைய தொகுதியை ஒழுங்கு செய்யவும்."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7534
+#: ../src/file-manager/fm-directory-view.c:7519
 msgid "Start the volume associated with this folder"
 msgstr "இந்த அடைவுடன் தொடர்புடைய தொகுதியை துவக்கவும்."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7538
+#: ../src/file-manager/fm-directory-view.c:7523
 msgid "Stop the volume associated with this folder"
 msgstr "இந்த அடைவுடன் தொடர்புடைய தொகுதியை நிறுத்தவும்"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7547
+#: ../src/file-manager/fm-directory-view.c:7532
 msgid "View or modify the properties of this folder"
 msgstr "இந்த அடைவின்  பண்புகளை பார் அல்லது மாற்று"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7550
-#: ../src/file-manager/fm-directory-view.c:7553
+#: ../src/file-manager/fm-directory-view.c:7535
+#: ../src/file-manager/fm-directory-view.c:7538
 msgid "_Other pane"
 msgstr "(_O) மற்ற பலகம்"
 
-#: ../src/file-manager/fm-directory-view.c:7551
+#: ../src/file-manager/fm-directory-view.c:7536
 msgid "Copy the current selection to the other pane in the window"
 msgstr "நடப்பு தேர்வை சாளரத்தில் வேறு பலகத்தில் திற"
 
-#: ../src/file-manager/fm-directory-view.c:7554
+#: ../src/file-manager/fm-directory-view.c:7539
 msgid "Move the current selection to the other pane in the window"
 msgstr "நடப்பு தேர்வை சாளரத்தில் வேறு பலகத்திற்கு நகர்த்து"
 
 #. name, stock id, label
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7557
-#: ../src/file-manager/fm-directory-view.c:7561 ../src/caja-window-menus.c:891
+#: ../src/file-manager/fm-directory-view.c:7542
+#: ../src/file-manager/fm-directory-view.c:7546 ../src/caja-window-menus.c:891
 msgid "_Home Folder"
 msgstr "இல்ல அடைவு"
 
-#: ../src/file-manager/fm-directory-view.c:7558
+#: ../src/file-manager/fm-directory-view.c:7543
 msgid "Copy the current selection to the home folder"
 msgstr "நடப்பு தேர்வை இல்ல அடைவுக்கு நகலெடு"
 
-#: ../src/file-manager/fm-directory-view.c:7562
+#: ../src/file-manager/fm-directory-view.c:7547
 msgid "Move the current selection to the home folder"
 msgstr "நடப்பு தேர்வை இல்ல அடைவுக்கு நகர்த்து "
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7565
-#: ../src/file-manager/fm-directory-view.c:7569
+#: ../src/file-manager/fm-directory-view.c:7550
+#: ../src/file-manager/fm-directory-view.c:7554
 msgid "_Desktop"
 msgstr "_D பணிமேடை"
 
-#: ../src/file-manager/fm-directory-view.c:7566
+#: ../src/file-manager/fm-directory-view.c:7551
 msgid "Copy the current selection to the desktop"
 msgstr "நடப்பு தேர்வை பணிமேடைக்கு நகலெடு"
 
-#: ../src/file-manager/fm-directory-view.c:7570
+#: ../src/file-manager/fm-directory-view.c:7555
 msgid "Move the current selection to the desktop"
 msgstr "நடப்பு தேர்வை பணிமேடைக்கு நகர்த்து"
 
 #. Translators: %s is a directory
-#: ../src/file-manager/fm-directory-view.c:7650
+#: ../src/file-manager/fm-directory-view.c:7635
 #, c-format
 msgid "Run or manage scripts from %s"
 msgstr "%s லிருந்து உரையை இயக்கவும் அல்லது மேலாண்மை செய்யவும்."
 
 #. Create a script action here specially because its tooltip is dynamic
-#: ../src/file-manager/fm-directory-view.c:7652
+#: ../src/file-manager/fm-directory-view.c:7637
 msgid "_Scripts"
 msgstr "(_S)சிறுநிரல்கள்"
 
-#: ../src/file-manager/fm-directory-view.c:8059
+#: ../src/file-manager/fm-directory-view.c:8042
 #, c-format
 msgid "Move the open folder out of the trash to \"%s\""
 msgstr "திறந்துள்ள அடைவை குப்பையிலிருந்து \"%s\" க்கு நகர்த்துக"
 
-#: ../src/file-manager/fm-directory-view.c:8062
+#: ../src/file-manager/fm-directory-view.c:8045
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
 msgstr[0] "தேர்ந்தெடுத்த அடைவை குப்பையிலிருந்து \"%s\" க்கு நகர்த்துக"
 msgstr[1] "தேர்ந்தெடுத்த அடைவுகளை குப்பையிலிருந்து \"%s\" க்கு நகர்த்துக"
 
-#: ../src/file-manager/fm-directory-view.c:8066
+#: ../src/file-manager/fm-directory-view.c:8049
 #, c-format
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
 msgstr[0] "தேர்ந்தெடுத்த அடைவை குப்பையிலிருந்து வெளியே நகர்த்துக"
 msgstr[1] "தேர்ந்தெடுத்த அடைவுகளை குப்பையிலிருந்து வெளியே நகர்த்துக"
 
-#: ../src/file-manager/fm-directory-view.c:8072
+#: ../src/file-manager/fm-directory-view.c:8055
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
 msgstr[0] "தேர்ந்தெடுத்த கோப்பை குப்பையிலிருந்து \"%s\" க்கு நகர்த்துக"
 msgstr[1] "தேர்ந்தெடுத்த கோப்புகளை குப்பையிலிருந்து \"%s\" க்கு நகர்த்துக"
 
-#: ../src/file-manager/fm-directory-view.c:8076
+#: ../src/file-manager/fm-directory-view.c:8059
 #, c-format
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
 msgstr[0] "தேர்வு செய்த கோப்பை குப்பையிலிருந்து வெளியே நகர்த்துக"
 msgstr[1] "தேர்வு செய்த கோப்புகளை குப்பையிலிருந்து வெளியே நகர்த்துக"
 
-#: ../src/file-manager/fm-directory-view.c:8082
+#: ../src/file-manager/fm-directory-view.c:8065
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
 msgstr[0] "தேர்வு செய்த உருப்படியை குப்பையிலிருந்து \"%s\" க்கு நகர்த்துக"
 msgstr[1] "தேர்வு செய்த உருப்படிகளை குப்பையிலிருந்து \"%s\" க்கு நகர்த்துக"
 
-#: ../src/file-manager/fm-directory-view.c:8086
+#: ../src/file-manager/fm-directory-view.c:8069
 #, c-format
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
 msgstr[0] "தேர்வு செய்த உருப்படியை குப்பையிலிருந்து வெளியே நகர்த்துக"
 msgstr[1] "தேர்வு செய்த உருப்படிகளை குப்பையிலிருந்து வெளியே நகர்த்துக"
 
-#: ../src/file-manager/fm-directory-view.c:8212
-#: ../src/file-manager/fm-directory-view.c:8216
-#: ../src/file-manager/fm-directory-view.c:8414
-#: ../src/file-manager/fm-directory-view.c:8418
+#: ../src/file-manager/fm-directory-view.c:8195
+#: ../src/file-manager/fm-directory-view.c:8199
+#: ../src/file-manager/fm-directory-view.c:8397
+#: ../src/file-manager/fm-directory-view.c:8401
 msgid "Start the selected drive"
 msgstr "தேர்வு செய்த இயக்கியை துவக்கு"
 
-#: ../src/file-manager/fm-directory-view.c:8220
-#: ../src/file-manager/fm-directory-view.c:8422
+#: ../src/file-manager/fm-directory-view.c:8203
+#: ../src/file-manager/fm-directory-view.c:8405
 msgid "Connect to the selected drive"
 msgstr "தேர்வு செய்த இயக்கியை நிறுத்துக"
 
-#: ../src/file-manager/fm-directory-view.c:8223
-#: ../src/file-manager/fm-directory-view.c:8315
-#: ../src/file-manager/fm-directory-view.c:8425
+#: ../src/file-manager/fm-directory-view.c:8206
+#: ../src/file-manager/fm-directory-view.c:8298
+#: ../src/file-manager/fm-directory-view.c:8408
 msgid "_Start Multi-disk Drive"
 msgstr "(_S) பல் வட்டு இயக்கியை துவக்கு"
 
-#: ../src/file-manager/fm-directory-view.c:8224
-#: ../src/file-manager/fm-directory-view.c:8426
+#: ../src/file-manager/fm-directory-view.c:8207
+#: ../src/file-manager/fm-directory-view.c:8409
 msgid "Start the selected multi-disk drive"
 msgstr "தேர்வு செய்த பல்வட்டு இயக்கியை துவக்கு"
 
-#: ../src/file-manager/fm-directory-view.c:8227
+#: ../src/file-manager/fm-directory-view.c:8210
 msgid "U_nlock Drive"
 msgstr "(_n) இயக்கியின் பூட்டு திற"
 
-#: ../src/file-manager/fm-directory-view.c:8228
-#: ../src/file-manager/fm-directory-view.c:8430
+#: ../src/file-manager/fm-directory-view.c:8211
+#: ../src/file-manager/fm-directory-view.c:8413
 msgid "Unlock the selected drive"
 msgstr "தேர்வு செய்த இயக்கியை பூட்டு திற"
 
-#: ../src/file-manager/fm-directory-view.c:8241
+#: ../src/file-manager/fm-directory-view.c:8224
 msgid "Stop the selected drive"
 msgstr "தேர்வு செய்த இயக்கியை நிறுத்து"
 
-#: ../src/file-manager/fm-directory-view.c:8244
-#: ../src/file-manager/fm-directory-view.c:8336
-#: ../src/file-manager/fm-directory-view.c:8446
+#: ../src/file-manager/fm-directory-view.c:8227
+#: ../src/file-manager/fm-directory-view.c:8319
+#: ../src/file-manager/fm-directory-view.c:8429
 #: ../src/caja-places-sidebar.c:1817
 msgid "_Safely Remove Drive"
 msgstr "(_S) பாதுகாப்பாக இயக்கியை நீக்கு"
 
-#: ../src/file-manager/fm-directory-view.c:8245
-#: ../src/file-manager/fm-directory-view.c:8447
+#: ../src/file-manager/fm-directory-view.c:8228
+#: ../src/file-manager/fm-directory-view.c:8430
 msgid "Safely remove the selected drive"
 msgstr "தேர்வு செய்த இயக்கியை பாதுகாப்பாக நீக்கு"
 
-#: ../src/file-manager/fm-directory-view.c:8248
-#: ../src/file-manager/fm-directory-view.c:8340
-#: ../src/file-manager/fm-directory-view.c:8450
+#: ../src/file-manager/fm-directory-view.c:8231
+#: ../src/file-manager/fm-directory-view.c:8323
+#: ../src/file-manager/fm-directory-view.c:8433
 msgid "_Disconnect"
 msgstr "(_D) இணைப்பு நீக்கு"
 
-#: ../src/file-manager/fm-directory-view.c:8249
-#: ../src/file-manager/fm-directory-view.c:8451
+#: ../src/file-manager/fm-directory-view.c:8232
+#: ../src/file-manager/fm-directory-view.c:8434
 msgid "Disconnect the selected drive"
 msgstr "தேர்வு செய்த இயக்கியை இணைப்பு நீக்கு"
 
-#: ../src/file-manager/fm-directory-view.c:8252
-#: ../src/file-manager/fm-directory-view.c:8344
-#: ../src/file-manager/fm-directory-view.c:8454
+#: ../src/file-manager/fm-directory-view.c:8235
+#: ../src/file-manager/fm-directory-view.c:8327
+#: ../src/file-manager/fm-directory-view.c:8437
 msgid "_Stop Multi-disk Drive"
 msgstr "(_S) பல்வட்டு இயக்கியை நிறுத்து"
 
-#: ../src/file-manager/fm-directory-view.c:8253
-#: ../src/file-manager/fm-directory-view.c:8455
+#: ../src/file-manager/fm-directory-view.c:8236
+#: ../src/file-manager/fm-directory-view.c:8438
 msgid "Stop the selected multi-disk drive"
 msgstr "தேர்வு செய்த பல்வட்டு இயக்கியை நிறுத்து"
 
-#: ../src/file-manager/fm-directory-view.c:8256
-#: ../src/file-manager/fm-directory-view.c:8348
-#: ../src/file-manager/fm-directory-view.c:8458
+#: ../src/file-manager/fm-directory-view.c:8239
+#: ../src/file-manager/fm-directory-view.c:8331
+#: ../src/file-manager/fm-directory-view.c:8441
 #: ../src/caja-places-sidebar.c:1830
 msgid "_Lock Drive"
 msgstr "(_L) இயக்கியை பூட்டு"
 
-#: ../src/file-manager/fm-directory-view.c:8257
-#: ../src/file-manager/fm-directory-view.c:8459
+#: ../src/file-manager/fm-directory-view.c:8240
+#: ../src/file-manager/fm-directory-view.c:8442
 msgid "Lock the selected drive"
 msgstr "தேர்வு செய்த இயக்கியை பூட்டு"
 
-#: ../src/file-manager/fm-directory-view.c:8304
-#: ../src/file-manager/fm-directory-view.c:8308
+#: ../src/file-manager/fm-directory-view.c:8287
+#: ../src/file-manager/fm-directory-view.c:8291
 msgid "Start the drive associated with the open folder"
 msgstr "திறந்துள்ள அடைவுடன் தொடர்புடைய இயக்கியை துவக்கவும்"
 
-#: ../src/file-manager/fm-directory-view.c:8312
+#: ../src/file-manager/fm-directory-view.c:8295
 msgid "Connect to the drive associated with the open folder"
 msgstr "திறந்துள்ள அடைவுடன் தொடர்புடைய இயக்கியை இணைக்கவும்"
 
-#: ../src/file-manager/fm-directory-view.c:8316
+#: ../src/file-manager/fm-directory-view.c:8299
 msgid "Start the multi-disk drive associated with the open folder"
 msgstr "திறந்துள்ள அடைவுடன் தொடர்புடைய பல்வட்டு இயக்கியை துவக்கவும்"
 
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
-#: ../src/file-manager/fm-directory-view.c:8319
-#: ../src/file-manager/fm-directory-view.c:8429
+#: ../src/file-manager/fm-directory-view.c:8302
+#: ../src/file-manager/fm-directory-view.c:8412
 #: ../src/caja-places-sidebar.c:1829
 msgid "_Unlock Drive"
 msgstr "(_U) இயக்கி பூட்டு திற"
 
-#: ../src/file-manager/fm-directory-view.c:8320
+#: ../src/file-manager/fm-directory-view.c:8303
 msgid "Unlock the drive associated with the open folder"
 msgstr "திறந்துள்ள அடைவுடன் தொடர்புடைய இயக்கியை பூட்டு திறக்கவும்"
 
-#: ../src/file-manager/fm-directory-view.c:8333
+#: ../src/file-manager/fm-directory-view.c:8316
 msgid "_Stop the drive associated with the open folder"
 msgstr "(_S) திறந்துள்ள அடைவுடன் தொடர்புடைய இயக்கியை நிறுத்தவும்"
 
-#: ../src/file-manager/fm-directory-view.c:8337
+#: ../src/file-manager/fm-directory-view.c:8320
 msgid "Safely remove the drive associated with the open folder"
 msgstr "திறந்துள்ள அடைவுடன் தொடர்புடைய இயக்கியை பாதுகாப்பாக நீக்கவும்"
 
-#: ../src/file-manager/fm-directory-view.c:8341
+#: ../src/file-manager/fm-directory-view.c:8324
 msgid "Disconnect the drive associated with the open folder"
 msgstr "திறந்துள்ள அடைவுடன் தொடர்புடைய இயக்கியை இணைப்பு நீக்கவும்"
 
-#: ../src/file-manager/fm-directory-view.c:8345
+#: ../src/file-manager/fm-directory-view.c:8328
 msgid "Stop the multi-disk drive associated with the open folder"
 msgstr "திறந்துள்ள அடைவுடன் தொடர்புடைய பல்வட்டு இயக்கியை நிறுத்தவும்"
 
-#: ../src/file-manager/fm-directory-view.c:8349
+#: ../src/file-manager/fm-directory-view.c:8332
 msgid "Lock the drive associated with the open folder"
 msgstr "திறந்துள்ள அடைவுடன் தொடர்புடைய இயக்கியை பூட்டுக"
 
 #. add the "open in new window" menu item
-#: ../src/file-manager/fm-directory-view.c:8528
-#: ../src/file-manager/fm-directory-view.c:8838
+#: ../src/file-manager/fm-directory-view.c:8511
+#: ../src/file-manager/fm-directory-view.c:8821
 #: ../src/file-manager/fm-tree-view.c:1287 ../src/caja-places-sidebar.c:2697
 msgid "Open in New _Window"
 msgstr "புது _சாளரத்தில் திறக்கவும்"
 
-#: ../src/file-manager/fm-directory-view.c:8530
-#: ../src/file-manager/fm-directory-view.c:8847
+#: ../src/file-manager/fm-directory-view.c:8513
+#: ../src/file-manager/fm-directory-view.c:8830
 msgid "Browse in New _Window"
 msgstr "(_W) புதிய சாளரத்தில் மேலோடு."
 
-#: ../src/file-manager/fm-directory-view.c:8536
-#: ../src/file-manager/fm-directory-view.c:8857
+#: ../src/file-manager/fm-directory-view.c:8519
+#: ../src/file-manager/fm-directory-view.c:8840
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
 msgstr[0] "அடைவில் உலாவு (_B)"
 msgstr[1] "அடைவுகளில் உலாவு (_B)"
 
-#: ../src/file-manager/fm-directory-view.c:8553
-#: ../src/file-manager/fm-directory-view.c:8886
+#: ../src/file-manager/fm-directory-view.c:8536
+#: ../src/file-manager/fm-directory-view.c:8869
 msgid "Browse in New _Tab"
 msgstr "புதிய கீற்றில் மேலோடு."
 
-#: ../src/file-manager/fm-directory-view.c:8602
-#: ../src/file-manager/fm-directory-view.c:8927
+#: ../src/file-manager/fm-directory-view.c:8585
+#: ../src/file-manager/fm-directory-view.c:8910
 msgid "_Delete Permanently"
 msgstr "(_D) முழுமையாக நீக்குக"
 
-#: ../src/file-manager/fm-directory-view.c:8603
+#: ../src/file-manager/fm-directory-view.c:8586
 msgid "Delete the open folder permanently"
 msgstr "திறந்துள்ள அடைவை முழுமையாக நீக்குக"
 
-#: ../src/file-manager/fm-directory-view.c:8607
+#: ../src/file-manager/fm-directory-view.c:8590
 msgid "Move the open folder to the Trash"
 msgstr "திறந்துள்ள அடைவை குப்பைக்கு நகர்த்துக"
 
-#: ../src/file-manager/fm-directory-view.c:8787
+#: ../src/file-manager/fm-directory-view.c:8770
 #, c-format
 msgid "_Open With %s"
 msgstr "_O %s ஆல் திற"
 
-#: ../src/file-manager/fm-directory-view.c:8840
+#: ../src/file-manager/fm-directory-view.c:8823
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
 msgstr[0] "(_W) %'d  புதிய சாளரத்தில் திற"
 msgstr[1] "(_W) %'d  புதிய சாளரங்களில் திற"
 
-#: ../src/file-manager/fm-directory-view.c:8849
+#: ../src/file-manager/fm-directory-view.c:8832
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
 msgstr[0] "(_W)  %'d  புதிய சாளரத்தில் மேலோடு."
 msgstr[1] "(_W)  %'d  புதிய சாளரங்களில் மேலோடு."
 
-#: ../src/file-manager/fm-directory-view.c:8879
+#: ../src/file-manager/fm-directory-view.c:8862
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
 msgstr[0] "(_T) %'d  புதிய கீற்றில் திற"
 msgstr[1] "(_T) %'d  புதிய கீற்றுகளில் திற"
 
-#: ../src/file-manager/fm-directory-view.c:8888
+#: ../src/file-manager/fm-directory-view.c:8871
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
 msgstr[0] "(_T) %'d  புதிய கீற்றில் மேலோடு."
 msgstr[1] "(_T) %'d  புதிய கீற்றுகளில் மேலோடு."
 
-#: ../src/file-manager/fm-directory-view.c:8928
+#: ../src/file-manager/fm-directory-view.c:8911
 msgid "Delete all selected items permanently"
 msgstr "தேர்வு செய்த உருப்படிகளை முழுமையாக நீக்கு"
 
-#: ../src/file-manager/fm-directory-view.c:8985
+#: ../src/file-manager/fm-directory-view.c:8968
 msgid "View or modify the properties of the open folder"
 msgstr "தேர்வு செய்த கோப்புகளின் பண்புகளை பார் அல்லது மாற்று"
 
-#: ../src/file-manager/fm-directory-view.c:10288
+#: ../src/file-manager/fm-directory-view.c:10271
 msgid "Download location?"
 msgstr "இடங்களை பதிவிறக்கம் செய்ய வேண்டுமா?"
 
-#: ../src/file-manager/fm-directory-view.c:10291
+#: ../src/file-manager/fm-directory-view.c:10274
 msgid "You can download it or make a link to it."
 msgstr "அதை தரவிறக்க அல்லது அதற்கு தொடுப்பு உருவாக்க முடியாது"
 
-#: ../src/file-manager/fm-directory-view.c:10294
+#: ../src/file-manager/fm-directory-view.c:10277
 msgid "Make a _Link"
 msgstr "_த தொடுப்பை உருவாக்கு"
 
-#: ../src/file-manager/fm-directory-view.c:10298
+#: ../src/file-manager/fm-directory-view.c:10281
 msgid "_Download"
 msgstr "பதிவிறக்கு (_D)"
 
-#: ../src/file-manager/fm-directory-view.c:10459
-#: ../src/file-manager/fm-directory-view.c:10518
-#: ../src/file-manager/fm-directory-view.c:10623
+#: ../src/file-manager/fm-directory-view.c:10442
+#: ../src/file-manager/fm-directory-view.c:10501
+#: ../src/file-manager/fm-directory-view.c:10606
 msgid "Drag and drop is not supported."
 msgstr "இழுத்து நகர்துவற்கு ஆதரவு இல்லை"
 
-#: ../src/file-manager/fm-directory-view.c:10460
+#: ../src/file-manager/fm-directory-view.c:10443
 msgid "Drag and drop is only supported on local file systems."
 msgstr "இழுத்து நகர்த்துவது உங்கள் கணினிக்குள் மட்டுமே செய்ய முடியும்"
 
-#: ../src/file-manager/fm-directory-view.c:10519
-#: ../src/file-manager/fm-directory-view.c:10624
+#: ../src/file-manager/fm-directory-view.c:10502
+#: ../src/file-manager/fm-directory-view.c:10607
 msgid "An invalid drag type was used."
 msgstr "செல்லாத இழுத்தல் வகை பயன்படுத்தபட்டது"
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10701
+#: ../src/file-manager/fm-directory-view.c:10684
 msgid "dropped text.txt"
 msgstr "விடப்பட்ட text.txt "
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10746
+#: ../src/file-manager/fm-directory-view.c:10729
 msgid "dropped data"
 msgstr "விடப்பட்ட தரவு"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11137
+#: ../src/file-manager/fm-directory-view.c:11116
 msgid "Undo"
 msgstr ""
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11155
+#: ../src/file-manager/fm-directory-view.c:11134
 msgid "Redo"
 msgstr ""
 
@@ -4916,220 +4916,220 @@ msgstr "\"%s\" ஐ \"%s\" ஆக மறுபெயரிடுகிறது"
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: ../src/file-manager/fm-icon-container.c:611
-#: ../src/file-manager/fm-icon-view.c:3402
+#: ../src/file-manager/fm-icon-view.c:3392
 #: ../src/caja-file-management-properties.ui.h:1
 msgid "Icon View"
 msgstr "சின்னம் காட்சி"
 
-#: ../src/file-manager/fm-icon-view.c:132
+#: ../src/file-manager/fm-icon-view.c:128
 msgid "by _Name"
 msgstr "(_N)பெயர்வாரியாக"
 
-#: ../src/file-manager/fm-icon-view.c:133
-#: ../src/file-manager/fm-icon-view.c:1741
+#: ../src/file-manager/fm-icon-view.c:129
+#: ../src/file-manager/fm-icon-view.c:1733
 msgid "Keep icons sorted by name in rows"
 msgstr "சின்னங்களை பெயர்வாரியாக வரிசையாக அடுக்கு"
 
-#: ../src/file-manager/fm-icon-view.c:139
+#: ../src/file-manager/fm-icon-view.c:135
 msgid "by _Size"
 msgstr "(_S)அளவு வாரியாக"
 
-#: ../src/file-manager/fm-icon-view.c:140
-#: ../src/file-manager/fm-icon-view.c:1747
+#: ../src/file-manager/fm-icon-view.c:136
+#: ../src/file-manager/fm-icon-view.c:1739
 msgid "Keep icons sorted by size in rows"
 msgstr "சின்ங்களை அளவு வாரியாக வரிசையாக அடுக்கு"
 
-#: ../src/file-manager/fm-icon-view.c:146
+#: ../src/file-manager/fm-icon-view.c:142
 msgid "by _Type"
 msgstr "(_T)வகைவாரியாக"
 
-#: ../src/file-manager/fm-icon-view.c:147
-#: ../src/file-manager/fm-icon-view.c:1753
+#: ../src/file-manager/fm-icon-view.c:143
+#: ../src/file-manager/fm-icon-view.c:1745
 msgid "Keep icons sorted by type in rows"
 msgstr "சின்ங்கலை வகைவாரியாக வரிசையாக அடுக்கு"
 
-#: ../src/file-manager/fm-icon-view.c:153
+#: ../src/file-manager/fm-icon-view.c:149
 msgid "by Modification _Date"
 msgstr "(_D)திருத்திய தேதியில்"
 
-#: ../src/file-manager/fm-icon-view.c:154
-#: ../src/file-manager/fm-icon-view.c:1759
+#: ../src/file-manager/fm-icon-view.c:150
+#: ../src/file-manager/fm-icon-view.c:1751
 msgid "Keep icons sorted by modification date in rows"
 msgstr "சின்ங்களை தேரிவாரியாக வரிசையாக அடுக்கு"
 
-#: ../src/file-manager/fm-icon-view.c:160
+#: ../src/file-manager/fm-icon-view.c:156
 msgid "by _Emblems"
 msgstr ""
 
-#: ../src/file-manager/fm-icon-view.c:161
-#: ../src/file-manager/fm-icon-view.c:1765
+#: ../src/file-manager/fm-icon-view.c:157
+#: ../src/file-manager/fm-icon-view.c:1757
 msgid "Keep icons sorted by emblems in rows"
 msgstr ""
 
-#: ../src/file-manager/fm-icon-view.c:167
+#: ../src/file-manager/fm-icon-view.c:163
 msgid "by T_rash Time"
 msgstr "_r குப்பைக்கு நகர்த்திய நேரமடிப்படையில்"
 
-#: ../src/file-manager/fm-icon-view.c:168
-#: ../src/file-manager/fm-icon-view.c:1771
+#: ../src/file-manager/fm-icon-view.c:164
+#: ../src/file-manager/fm-icon-view.c:1763
 msgid "Keep icons sorted by trash time in rows"
 msgstr "சின்னங்களை குப்பைக்கு நகர்த்திய நேரமடிப்படையில் வரிசையாக அடுக்கு"
 
-#: ../src/file-manager/fm-icon-view.c:777
+#: ../src/file-manager/fm-icon-view.c:773
 msgid "_Organize Desktop by Name"
 msgstr "_O மேல்மேசையை பெயரால் அடுக்குக"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-icon-view.c:1690
+#: ../src/file-manager/fm-icon-view.c:1682
 msgid "Arran_ge Items"
 msgstr "(_g)உருப்படிகளை அடுக்கு"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1692
+#: ../src/file-manager/fm-icon-view.c:1684
 msgid "Resize Icon..."
 msgstr "சின்னத்தை அளவு மாற்று..."
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1693
+#: ../src/file-manager/fm-icon-view.c:1685
 msgid "Make the selected icon resizable"
 msgstr "தேர்வு செய்த சின்னத்தை அளவு மாற்றக்கூடியதாக்கு"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1697
-#: ../src/file-manager/fm-icon-view.c:1898
+#: ../src/file-manager/fm-icon-view.c:1689
+#: ../src/file-manager/fm-icon-view.c:1890
 msgid "Restore Icons' Original Si_zes"
 msgstr "(_z)சின்னத்தின் உண்மையான அளவுக்கு மீட்டமை"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1698
+#: ../src/file-manager/fm-icon-view.c:1690
 msgid "Restore each selected icon to its original size"
 msgstr "தேர்வு செய்த சின்னத்தின் சரியான அளவை மீட்கவும்"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1702
+#: ../src/file-manager/fm-icon-view.c:1694
 msgid "_Organize by Name"
 msgstr "_O பெயரால் அடுக்குக "
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1703
+#: ../src/file-manager/fm-icon-view.c:1695
 msgid "Reposition icons to better fit in the window and avoid overlapping"
 msgstr "சின்னங்களை சாளரத்தில் பொருந்துமாறு மாற்றி அமைத்து ஒன்றின் மேல் ஒன்றாக அடுக்குவதை தவிர்க"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1711
+#: ../src/file-manager/fm-icon-view.c:1703
 msgid "Compact _Layout"
 msgstr "(_L)பொருத்தமான அமைப்பு"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1712
+#: ../src/file-manager/fm-icon-view.c:1704
 msgid "Toggle using a tighter layout scheme"
 msgstr "இறுக்கமான உருவரையை பயன்படுத்தி நிலை மாறவும்"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1717
+#: ../src/file-manager/fm-icon-view.c:1709
 msgid "Re_versed Order"
 msgstr "(_v)தலைகீழ் வரிசை"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1718
+#: ../src/file-manager/fm-icon-view.c:1710
 msgid "Display icons in the opposite order"
 msgstr "சின்னங்களை எதிர்வரிசையில் காட்டவும்"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1723
+#: ../src/file-manager/fm-icon-view.c:1715
 msgid "_Keep Aligned"
 msgstr "(_K)சரியாக அடுக்கவும்"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1724
+#: ../src/file-manager/fm-icon-view.c:1716
 msgid "Keep icons lined up on a grid"
 msgstr "சின்னங்களை கட்டங்களுக்குள் பொருத்தவும்"
 
-#: ../src/file-manager/fm-icon-view.c:1734
+#: ../src/file-manager/fm-icon-view.c:1726
 msgid "_Manually"
 msgstr "(_M)கைமுறையாக"
 
-#: ../src/file-manager/fm-icon-view.c:1735
+#: ../src/file-manager/fm-icon-view.c:1727
 msgid "Leave icons wherever they are dropped"
 msgstr "விடும்போது சின்னத்தை விட்டுவிடவும்"
 
-#: ../src/file-manager/fm-icon-view.c:1740
+#: ../src/file-manager/fm-icon-view.c:1732
 msgid "By _Name"
 msgstr "(_N)பெயரின் படி"
 
-#: ../src/file-manager/fm-icon-view.c:1746
+#: ../src/file-manager/fm-icon-view.c:1738
 msgid "By _Size"
 msgstr "(_S)அளவின் படி"
 
-#: ../src/file-manager/fm-icon-view.c:1752
+#: ../src/file-manager/fm-icon-view.c:1744
 msgid "By _Type"
 msgstr "(_T)வகைவாரியாக"
 
-#: ../src/file-manager/fm-icon-view.c:1758
+#: ../src/file-manager/fm-icon-view.c:1750
 msgid "By Modification _Date"
 msgstr "(_D)மாற்றிய தேதிகளின் வரிசையில்"
 
-#: ../src/file-manager/fm-icon-view.c:1764
+#: ../src/file-manager/fm-icon-view.c:1756
 msgid "By _Emblems"
 msgstr ""
 
-#: ../src/file-manager/fm-icon-view.c:1770
+#: ../src/file-manager/fm-icon-view.c:1762
 msgid "By T_rash Time"
 msgstr "_r குப்பைக்கு நகர்த்திய நேரமடிப்படையில்"
 
-#: ../src/file-manager/fm-icon-view.c:1899
+#: ../src/file-manager/fm-icon-view.c:1891
 msgid "Restore Icon's Original Si_ze"
 msgstr "(_z)சின்னத்தின் உண்மையான அளவுக்கு மீட்டமை"
 
-#: ../src/file-manager/fm-icon-view.c:2374
+#: ../src/file-manager/fm-icon-view.c:2366
 #, c-format
 msgid "pointing at \"%s\""
 msgstr "\"%s\" ஐ குறிக்கிறது"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3404
+#: ../src/file-manager/fm-icon-view.c:3394
 msgid "_Icons"
 msgstr "(_I) சின்னங்கள்"
 
-#: ../src/file-manager/fm-icon-view.c:3405
+#: ../src/file-manager/fm-icon-view.c:3395
 msgid "The icon view encountered an error."
 msgstr "சின்ன காட்சியில் பிழை ஏற்பட்டது."
 
-#: ../src/file-manager/fm-icon-view.c:3406
+#: ../src/file-manager/fm-icon-view.c:3396
 msgid "The icon view encountered an error while starting up."
 msgstr "சின்ன காட்சி துவங்கும் போது பிழை ஏற்பட்டது"
 
-#: ../src/file-manager/fm-icon-view.c:3407
+#: ../src/file-manager/fm-icon-view.c:3397
 msgid "Display this location with the icon view."
 msgstr "இந்த இடத்தை சின்னத்தின் பார்வையில் காட்டவும்"
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-icon-view.c:3417
+#: ../src/file-manager/fm-icon-view.c:3407
 #: ../src/caja-file-management-properties.ui.h:3
 msgid "Compact View"
 msgstr "உள்ளடக்க காட்சி"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3419
+#: ../src/file-manager/fm-icon-view.c:3409
 msgid "_Compact"
 msgstr "(_C) உள்ளடக்கமான"
 
-#: ../src/file-manager/fm-icon-view.c:3420
+#: ../src/file-manager/fm-icon-view.c:3410
 msgid "The compact view encountered an error."
 msgstr "உள்ளடக்க காட்சியில் பிழை ஏற்பட்டது."
 
-#: ../src/file-manager/fm-icon-view.c:3421
+#: ../src/file-manager/fm-icon-view.c:3411
 msgid "The compact view encountered an error while starting up."
 msgstr "உள்ளடக்க காட்சி துவங்கும் போது பிழை ஏற்பட்டது"
 
-#: ../src/file-manager/fm-icon-view.c:3422
+#: ../src/file-manager/fm-icon-view.c:3412
 msgid "Display this location with the compact view."
 msgstr "இந்த இடத்தை உள்ளடக்க பார்வையில் காட்டவும்"
 
@@ -5145,46 +5145,46 @@ msgstr "ஏற்றுகிறது..."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-list-view.c:1827
-#: ../src/file-manager/fm-list-view.c:3442
+#: ../src/file-manager/fm-list-view.c:1825
+#: ../src/file-manager/fm-list-view.c:3437
 #: ../src/caja-file-management-properties.ui.h:2
 msgid "List View"
 msgstr "பட்டியல் காட்சி"
 
-#: ../src/file-manager/fm-list-view.c:2523
+#: ../src/file-manager/fm-list-view.c:2519
 #, c-format
 msgid "%s Visible Columns"
 msgstr "%s தெரியும் நெடுவரிசைகள்"
 
-#: ../src/file-manager/fm-list-view.c:2542
+#: ../src/file-manager/fm-list-view.c:2538
 msgid "Choose the order of information to appear in this folder:"
 msgstr "இந்த அடைவில் தகவல் தெரிய வேண்டிய வரிசையை  தேர்வு செய்யவும்"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-list-view.c:2600
+#: ../src/file-manager/fm-list-view.c:2596
 msgid "Visible _Columns..."
 msgstr "(_C)தெரியும் நெடுவரிசைகள்..,"
 
 #. tooltip
-#: ../src/file-manager/fm-list-view.c:2601
+#: ../src/file-manager/fm-list-view.c:2597
 msgid "Select the columns visible in this folder"
 msgstr "இந்த அடைவில் மட்டும் தெரியும் நெடுவரிசைகளை தேர்வுசெய்யவும்"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-list-view.c:3444
+#: ../src/file-manager/fm-list-view.c:3439
 msgid "_List"
 msgstr "(_L) பட்டியல்"
 
-#: ../src/file-manager/fm-list-view.c:3445
+#: ../src/file-manager/fm-list-view.c:3440
 msgid "The list view encountered an error."
 msgstr "பட்டியல் பார்வை ஒரு பிழையை கண்டுள்ளது."
 
-#: ../src/file-manager/fm-list-view.c:3446
+#: ../src/file-manager/fm-list-view.c:3441
 msgid "The list view encountered an error while starting up."
 msgstr "துவங்கும் போது பட்டியல் பார்வையில் பிழை ஏற்பட்டது"
 
-#: ../src/file-manager/fm-list-view.c:3447
+#: ../src/file-manager/fm-list-view.c:3442
 msgid "Display this location with the list view."
 msgstr "இந்த இடத்தை பட்டியல் காட்சியில் காட்டு"
 
@@ -5798,7 +5798,7 @@ msgstr ""
 msgid "Bookmark Name:"
 msgstr ""
 
-#: ../src/caja-desktop-window.c:202 ../src/caja-desktop-window.c:387
+#: ../src/caja-desktop-window.c:87 ../src/caja-desktop-window.c:267
 #: ../src/caja-pathbar.c:1399 ../src/caja-places-sidebar.c:523
 msgid "Desktop"
 msgstr "மேல்மேசை"
@@ -6916,155 +6916,164 @@ msgstr ""
 msgid "The file is not an image."
 msgstr ""
 
-#: ../src/caja-property-browser.c:2283
+#: ../src/caja-property-browser.c:2286
 msgid "Select a Category:"
 msgstr ""
 
-#: ../src/caja-property-browser.c:2295
+#: ../src/caja-property-browser.c:2298
 msgid "C_ancel Remove"
 msgstr ""
 
-#: ../src/caja-property-browser.c:2304
+#: ../src/caja-property-browser.c:2307
 msgid "_Add a New Pattern..."
 msgstr ""
 
-#: ../src/caja-property-browser.c:2307
+#: ../src/caja-property-browser.c:2310
 msgid "_Add a New Color..."
 msgstr ""
 
-#: ../src/caja-property-browser.c:2310
+#: ../src/caja-property-browser.c:2313
 msgid "_Add a New Emblem..."
 msgstr ""
 
-#: ../src/caja-property-browser.c:2336
+#: ../src/caja-property-browser.c:2339
 msgid "Click on a pattern to remove it"
 msgstr ""
 
-#: ../src/caja-property-browser.c:2339
+#: ../src/caja-property-browser.c:2342
 msgid "Click on a color to remove it"
 msgstr ""
 
-#: ../src/caja-property-browser.c:2342
+#: ../src/caja-property-browser.c:2345
 msgid "Click on an emblem to remove it"
 msgstr ""
 
-#: ../src/caja-property-browser.c:2354
+#: ../src/caja-property-browser.c:2357
 msgid "Patterns:"
 msgstr ""
 
-#: ../src/caja-property-browser.c:2357
+#: ../src/caja-property-browser.c:2360
 msgid "Colors:"
 msgstr ""
 
-#: ../src/caja-property-browser.c:2360
+#: ../src/caja-property-browser.c:2363
 msgid "Emblems:"
 msgstr ""
 
-#: ../src/caja-property-browser.c:2382
+#: ../src/caja-property-browser.c:2385
 msgid "_Remove a Pattern..."
 msgstr ""
 
-#: ../src/caja-property-browser.c:2385
+#: ../src/caja-property-browser.c:2388
 msgid "_Remove a Color..."
 msgstr ""
 
-#: ../src/caja-property-browser.c:2388
+#: ../src/caja-property-browser.c:2391
 msgid "_Remove an Emblem..."
 msgstr ""
 
-#: ../src/caja-query-editor.c:131
+#: ../src/caja-query-editor.c:142
 msgid "File Type"
 msgstr "கோப்பு வகை"
 
-#: ../src/caja-query-editor.c:277
+#: ../src/caja-query-editor.c:149
+msgid "Tags"
+msgstr ""
+
+#: ../src/caja-query-editor.c:295
 msgid "Select folder to search in"
 msgstr "தேட வேண்டிய அடைவினை தேர்ந்தெடு"
 
-#: ../src/caja-query-editor.c:373
+#: ../src/caja-query-editor.c:391 ../src/caja-query-editor.c:395
+msgid ""
+"Tags separated by spaces. Matches files that contains ALL specified tags."
+msgstr ""
+
+#: ../src/caja-query-editor.c:498
 msgid "Documents"
 msgstr "ஆவணங்கள்"
 
-#: ../src/caja-query-editor.c:393
+#: ../src/caja-query-editor.c:518
 msgid "Music"
 msgstr "இசை"
 
-#: ../src/caja-query-editor.c:409
+#: ../src/caja-query-editor.c:534
 msgid "Video"
 msgstr "வீடியோ"
 
-#: ../src/caja-query-editor.c:427
+#: ../src/caja-query-editor.c:552
 msgid "Picture"
 msgstr "படம்"
 
-#: ../src/caja-query-editor.c:449
+#: ../src/caja-query-editor.c:574
 msgid "Illustration"
 msgstr "விளக்கம்"
 
-#: ../src/caja-query-editor.c:465
+#: ../src/caja-query-editor.c:590
 msgid "Spreadsheet"
 msgstr "விரிதாள்"
 
-#: ../src/caja-query-editor.c:483
+#: ../src/caja-query-editor.c:608
 msgid "Presentation"
 msgstr "காட்சி"
 
-#: ../src/caja-query-editor.c:494
+#: ../src/caja-query-editor.c:619
 msgid "Pdf / Postscript"
 msgstr "Pdf / Postscript"
 
-#: ../src/caja-query-editor.c:504
+#: ../src/caja-query-editor.c:629
 msgid "Text File"
 msgstr "உரை கோப்பு"
 
-#: ../src/caja-query-editor.c:588
+#: ../src/caja-query-editor.c:713
 msgid "Select type"
 msgstr "வகையை தேர்ந்தெடு"
 
-#: ../src/caja-query-editor.c:675
+#: ../src/caja-query-editor.c:800
 msgid "Any"
 msgstr "ஏதாவது"
 
-#: ../src/caja-query-editor.c:691
+#: ../src/caja-query-editor.c:816
 msgid "Other Type..."
 msgstr "வேறு வகை..."
 
-#: ../src/caja-query-editor.c:995
+#: ../src/caja-query-editor.c:1120
 msgid "Remove this criterion from the search"
 msgstr "தேடலிலிருந்து இந்த வகையை நீக்கு"
 
-#: ../src/caja-query-editor.c:1042
+#: ../src/caja-query-editor.c:1167
 msgid "Search Folder"
 msgstr "அடைவு தேடுக"
 
-#: ../src/caja-query-editor.c:1048
+#: ../src/caja-query-editor.c:1173
 msgid "Edit"
 msgstr "திருத்து"
 
-#: ../src/caja-query-editor.c:1056
+#: ../src/caja-query-editor.c:1181
 msgid "Edit the saved search"
 msgstr "சேமிக்கப்பட்ட தேடலை தொகு"
 
-#: ../src/caja-query-editor.c:1088
+#: ../src/caja-query-editor.c:1213
 msgid "Add a new criterion to this search"
 msgstr "இந்த தேடலுக்கு புதிய அளவை சேர்க்க"
 
-#: ../src/caja-query-editor.c:1094
+#: ../src/caja-query-editor.c:1219
 msgid "Go"
 msgstr "போ"
 
-#: ../src/caja-query-editor.c:1098
+#: ../src/caja-query-editor.c:1223
 msgid "Reload"
 msgstr "மீண்டும் ஏற்று"
 
-#: ../src/caja-query-editor.c:1103
+#: ../src/caja-query-editor.c:1228
 msgid "Perform or update the search"
 msgstr "தேடு அல்லது தேடலை புதுப்பி"
 
-#: ../src/caja-query-editor.c:1124
+#: ../src/caja-query-editor.c:1249
 msgid "_Search for:"
 msgstr "இதற்காக _த தேடுக:"
 
-#: ../src/caja-query-editor.c:1153
+#: ../src/caja-query-editor.c:1278
 msgid "Search results"
 msgstr "தேடல் முடிவுகள்"
 
@@ -7232,7 +7241,7 @@ msgstr "நாடுலஸ் உங்கள் கோப்புகள் ம
 #: ../src/caja-window-menus.c:540
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
-"Copyright © 2011-2016 The Caja authors"
+"Copyright © 2011-2017 The Caja authors"
 msgstr ""
 
 #. Translators should localize the following string
