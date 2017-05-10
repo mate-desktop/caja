@@ -413,7 +413,8 @@ desktop_directory_file_get_deep_counts (CajaFile *file,
                                         guint *directory_count,
                                         guint *file_count,
                                         guint *unreadable_directory_count,
-                                        goffset *total_size)
+                                        goffset *total_size,
+                                        goffset *total_size_on_disk)
 {
     CajaDesktopDirectoryFile *desktop_file;
     CajaRequestStatus status;
@@ -425,6 +426,7 @@ desktop_directory_file_get_deep_counts (CajaFile *file,
                                         file_count,
                                         unreadable_directory_count,
                                         total_size,
+                                        total_size_on_disk,
                                         TRUE);
 
     if (file_count)

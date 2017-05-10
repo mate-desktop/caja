@@ -54,6 +54,14 @@ get_builtin_columns (void)
                                            NULL));
     columns = g_list_append (columns,
                              g_object_new (CAJA_TYPE_COLUMN,
+                                           "name", "size_on_disk",
+                                           "attribute", "size_on_disk",
+                                           "label", _("Size on Disk"),
+                                           "description", _("The size on disk of the file."),
+                                           "xalign", 1.0,
+                                           NULL));
+    columns = g_list_append (columns,
+                             g_object_new (CAJA_TYPE_COLUMN,
                                            "name", "type",
                                            "attribute", "type",
                                            "label", _("Type"),

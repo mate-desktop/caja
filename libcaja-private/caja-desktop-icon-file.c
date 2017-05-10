@@ -117,7 +117,8 @@ desktop_icon_file_get_deep_counts (CajaFile *file,
                                    guint *directory_count,
                                    guint *file_count,
                                    guint *unreadable_directory_count,
-                                   goffset *total_size)
+                                   goffset *total_size,
+                                   goffset *total_size_on_disk)
 {
     if (directory_count != NULL)
     {
@@ -134,6 +135,10 @@ desktop_icon_file_get_deep_counts (CajaFile *file,
     if (total_size != NULL)
     {
         *total_size = 0;
+    }
+    if (total_size_on_disk != NULL)
+    {
+        *total_size_on_disk = 0;
     }
 
     return CAJA_REQUEST_DONE;

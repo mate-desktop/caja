@@ -136,6 +136,13 @@ static const SortCriterion sort_criteria[] =
         N_("Keep icons sorted by size in rows")
     },
     {
+        CAJA_FILE_SORT_BY_SIZE_ON_DISK,
+        "size_on_disk",
+        "Sort by Size on Disk",
+        N_("by Size on Disk"),
+        N_("Keep icons sorted by disk usage in rows")
+    },
+    {
         CAJA_FILE_SORT_BY_TYPE,
         "type",
         "Sort by Type",

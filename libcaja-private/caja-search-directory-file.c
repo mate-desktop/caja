@@ -117,7 +117,8 @@ search_directory_file_get_deep_counts (CajaFile *file,
                                        guint *directory_count,
                                        guint *file_count,
                                        guint *unreadable_directory_count,
-                                       goffset *total_size)
+                                       goffset *total_size,
+                                       goffset *total_size_on_disk)
 {
     CajaFile *dir_file;
     GList *file_list, *l;
@@ -157,6 +158,11 @@ search_directory_file_get_deep_counts (CajaFile *file,
     {
         /* FIXME: Maybe we want to calculate this? */
         *total_size = 0;
+    }
+    if (total_size_on_disk != NULL)
+    {
+        /* FIXME: Maybe we want to calculate this? */
+        *total_size_on_disk = 0;
     }
 
     caja_file_list_free (file_list);
