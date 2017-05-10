@@ -1,5 +1,31 @@
 ### caja 1.19.0
 
+  * sync with transifex
+  * restore DBus interface initialization
+  * CSS: Load a different caja-desktop.css with GTK 3.14
+  * Use gtk+-3 bookmarks location
+  * Open With dialog: force icon size
+  * file: make caja_file_get_gicon return custom icons too (#765)
+  * Expand grid width to canvas
+  * update copyright year to 2017
+  * use atk_component_get_extents instead of atk_component_get_position
+  * don't parse .hidden files manually - GIO does it since 2.36
+  * don't check nonexistent MATE22_USER_DIR env var
+  * don't check nonexistent ~/.mate2 directory
+  * eel-accessibility: remove unused code and outdated comments
+  * show correct right-click menu after making selection
+  * eel: Queue resizes on the canvas as elements change visibility
+  * Add size_request to IconContainer to work around unncecessary relayouting
+  * IconCanvasItem: fix overlapping filenames on hover
+  * eel: remove unneeded #include with condition
+  * eel: remove some unused code from eel-gdk-pixbuf-extensions
+  * fix build warning (no const needed there)
+  * fix build with gcc 4.9.2 (looks like it's in c89 mode by default)
+  * search: added tag support (xattr::xdg.tags).
+  * Fix broken rename in list view by selectin file name cell.
+  * property-browser: add style class frame to scrolledwindows
+  * caja-application.c: Fix uninitialized variable
+
 ### caja 1.18.0
 
   * NEWS: use consistent, project wide, markdown-like formatting to make
