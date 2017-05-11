@@ -149,6 +149,11 @@ caja_desktop_window_new (CajaApplication *application,
 #endif
     /* Special sawmill setting*/
     gtk_window_set_wmclass (GTK_WINDOW (window), "desktop_window", "Caja");
+    
+#if GTK_CHECK_VERSION (3, 0, 0)      /*turn remaining gtk3.16 and later flashes transparent */   
+    GdkVisual *visual = gdk_screen_get_rgba_visual(screen);
+    gtk_widget_set_visual(GTK_WIDGET(window), visual);
+#endif
 
     g_signal_connect (window, "delete_event", G_CALLBACK (caja_desktop_window_delete_event), NULL);
 
