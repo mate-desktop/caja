@@ -893,6 +893,23 @@ fm_desktop_icon_view_create (CajaWindowSlotInfo *slot)
     view = g_object_new (FM_TYPE_DESKTOP_ICON_VIEW,
                          "window-slot", slot,
                          NULL);
+                         
+     /*fix most of the nasty gtk3.16 and later flashes*/
+#if GTK_CHECK_VERSION (3, 0, 0) 
+    gtk_widget_set_name(view, "fmdesktopiconview");
+    GtkCssProvider  *cssProvider;
+    cssProvider = gtk_css_provider_new ();
+    gtk_css_provider_load_from_data (cssProvider,
+                                     "#fmdesktopiconview>.view,  \n"
+                                     "#fmdesktopiconview>.view:backdrop {\n"                                       
+                                     "background-color:transparent;\n"
+                                     "color: black;" /*theme can override with #fmdesktopiconview>.view>* selector*/
+                                      "}",-1, NULL);
+    gtk_style_context_add_provider_for_screen (gdk_screen_get_default(), 
+    GTK_STYLE_PROVIDER(cssProvider),  
+    GTK_STYLE_PROVIDER_PRIORITY_APPLICATION); /*don't let themes bring the flashes back*/
+#endif  
+
     return CAJA_VIEW (view);
 }
 
