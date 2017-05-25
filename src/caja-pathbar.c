@@ -1354,12 +1354,9 @@ get_type_icon_info (ButtonData *button_data)
                                                 CAJA_PATH_BAR_ICON_SIZE);
 
     case NORMAL_BUTTON:
-        if (button_data->is_base_dir)
-        {
-            return caja_file_get_icon (button_data->file,
-                                       CAJA_PATH_BAR_ICON_SIZE,
-                                       CAJA_FILE_ICON_FLAGS_NONE);
-        }
+        return caja_file_get_icon (button_data->file,
+                                   CAJA_PATH_BAR_ICON_SIZE,
+                                   CAJA_FILE_ICON_FLAGS_NONE);
 
     default:
         return NULL;
