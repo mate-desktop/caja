@@ -1426,7 +1426,9 @@ set_label_padding_size (ButtonData *button_data)
     pango_layout_get_pixel_size (layout, &bold_width, &bold_height);
 
     pad_left = (bold_width - width) / 2;
-    pad_right = (bold_width - width) / 2;
+    pad_right = (bold_width + 1 - width) / 2; /* this ensures rounding up - the
+    pixel size difference between bold and normal fonts is not always even and
+    will give an off-by-one error when dividing by 2 */
 
     gtk_widget_set_margin_start (GTK_WIDGET (button_data->label), pad_left);
     gtk_widget_set_margin_end (GTK_WIDGET (button_data->label), pad_right);
