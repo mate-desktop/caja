@@ -2189,6 +2189,8 @@ caja_property_browser_update_contents (CajaPropertyBrowser *property_browser)
     /* allocate a new container, with a scrollwindow and viewport */
     property_browser->details->content_frame = gtk_scrolled_window_new (NULL, NULL);
     gtk_widget_set_vexpand (property_browser->details->content_frame, TRUE);
+    gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (property_browser->details->content_frame),
+                                         GTK_SHADOW_IN);
     viewport = gtk_viewport_new (NULL, NULL);
     gtk_widget_show(viewport);
     gtk_viewport_set_shadow_type(GTK_VIEWPORT(viewport), GTK_SHADOW_IN);
