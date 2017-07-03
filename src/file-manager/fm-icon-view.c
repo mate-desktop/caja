@@ -2472,48 +2472,29 @@ fm_icon_view_scroll_event (GtkWidget *widget,
                            GdkEventScroll *scroll_event)
 {
     FMIconView *icon_view;
-    GdkEvent *event_copy;
-    GdkEventScroll *scroll_event_copy;
     gboolean ret;
 
     icon_view = FM_ICON_VIEW (widget);
-    if (icon_view->details->compact &&
-        (scroll_event->direction == GDK_SCROLL_UP ||
-        scroll_event->direction == GDK_SCROLL_DOWN ||
-        scroll_event->direction == GDK_SCROLL_SMOOTH)) {
-        ret = fm_directory_view_handle_scroll_event (FM_DIRECTORY_VIEW (icon_view), scroll_event);
-        if (!ret)
+
+    if(icon_view->details->compact)
+    {
+        if((ret = fm_directory_view_handle_scroll_event(FM_DIRECTORY_VIEW(icon_view), scroll_event)))
+            return ret;
+
+        if(scroll_event->direction == GDK_SCROLL_UP)
+            scroll_event->direction = GDK_SCROLL_LEFT;
+        else if(scroll_event->direction == GDK_SCROLL_DOWN)
+            scroll_event->direction = GDK_SCROLL_RIGHT;
+        else if(scroll_event->direction == GDK_SCROLL_SMOOTH)
         {
-            /* in column-wise layout, re-emit vertical mouse scroll events as horizontal ones,
-             * if they don't bump zoom */
-            event_copy = gdk_event_copy ((GdkEvent *) scroll_event);
-
-            scroll_event_copy = (GdkEventScroll *) event_copy;
-
-            /* transform vertical integer smooth scroll events into horizontal events */
-            if (scroll_event_copy->direction == GDK_SCROLL_SMOOTH && scroll_event_copy->delta_x == 0) {
-                if (scroll_event_copy->delta_y == 1.0) {
-                    scroll_event_copy->direction = GDK_SCROLL_DOWN;
-                } else if (scroll_event_copy->delta_y == -1.0) {
-                    scroll_event_copy->direction = GDK_SCROLL_UP;
-                }
-            }
-            if ((scroll_event_copy->direction == GDK_SCROLL_UP) || (scroll_event_copy->delta_x == -1.0))
-
-
+            /* no x value implies only vertical scrolling enabled */
+            if(scroll_event->delta_x == 0.0)
             {
-                scroll_event_copy->direction = GDK_SCROLL_LEFT;
+                /* convert vertical to horizontal */
+                scroll_event->delta_x = scroll_event->delta_y;
+                scroll_event->delta_y = 0.0;
             }
-            else
-            {
-                scroll_event_copy->direction = GDK_SCROLL_RIGHT;
-            }
-
-            ret = gtk_widget_event (widget, event_copy);
-            gdk_event_free (event_copy);
         }
-
-        return ret;
     }
 
     return GTK_WIDGET_CLASS (fm_icon_view_parent_class)->scroll_event (widget, scroll_event);
