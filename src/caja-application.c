@@ -1373,6 +1373,7 @@ mount_added_callback (GVolumeMonitor *monitor,
         caja_directory_force_reload (directory);
         caja_directory_unref (directory);
     }
+	caja_autorun (mount, autorun_show_window, application);
 }
 
 static CajaWindowSlot *
