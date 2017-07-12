@@ -102,27 +102,6 @@ static gboolean save_of_accel_map_requested = FALSE;
 /* File Manager DBus Interface */
 static CajaFreedesktopDBus *fdb_manager = NULL;
 
-static void     desktop_changed_callback          (gpointer                  user_data);
-
-static void     mount_removed_callback            (GVolumeMonitor            *monitor,
-        GMount                    *mount,
-        CajaApplication       *application);
-static void     mount_added_callback              (GVolumeMonitor            *monitor,
-        GMount                    *mount,
-        CajaApplication       *application);
-static void     volume_added_callback              (GVolumeMonitor           *monitor,
-        GVolume                  *volume,
-        CajaApplication      *application);
-static void     volume_removed_callback            (GVolumeMonitor           *monitor,
-	    GVolume                  *volume,
-	    CajaApplication      *application);
- static void     drive_connected_callback           (GVolumeMonitor           *monitor,
-        GDrive                   *drive,
-        CajaApplication      *application);
-static void     drive_listen_for_eject_button      (GDrive *drive,
-        CajaApplication *application);
-
-static void     caja_application_load_session    (CajaApplication *application);
 static char *   caja_application_get_session_data (CajaApplication *self);
 void caja_application_quit (CajaApplication *self);
 
@@ -1689,7 +1668,8 @@ caja_application_get_session_data (CajaApplication *self)
 
     return data;
 }
-void
+
+static void
 caja_application_load_session (CajaApplication *application)
 
 {
