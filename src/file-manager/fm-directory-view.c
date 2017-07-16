@@ -48,6 +48,7 @@
 #include <eel/eel-string.h>
 #include <eel/eel-vfs-extensions.h>
 #include <gdk/gdkkeysyms.h>
+#include <gdk/gdkx.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 #include <glib/gstdio.h>
@@ -2050,7 +2051,7 @@ fm_directory_view_init (FMDirectoryView *view)
 							  G_CALLBACK(click_policy_changed_callback),
 							  view);
 	g_signal_connect_swapped (caja_preferences,
-							  "changed::" CAJA_PREFERENCES_SORT_DIRECTORIES_FIRST, 
+							  "changed::" CAJA_PREFERENCES_SORT_DIRECTORIES_FIRST,
 							  G_CALLBACK(sort_directories_first_changed_callback),
 							  view);
 	g_signal_connect_swapped (mate_lockdown_preferences,
@@ -2753,7 +2754,7 @@ copy_move_done_callback (GHashTable *debuting_files, gpointer data)
 
 		/* Schedule menu update for undo items */
 		schedule_update_menus (directory_view);
-		
+
 	}
 
 	copy_move_done_data_free (copy_move_done_data);
@@ -4072,7 +4073,7 @@ new_folder_done (GFile *new_folder, gpointer user_data)
 	}
 
 	screen = gtk_widget_get_screen (GTK_WIDGET (directory_view));
-	g_snprintf (screen_string, sizeof (screen_string), "%d", gdk_screen_get_number (screen));
+	g_snprintf (screen_string, sizeof (screen_string), "%d", gdk_x11_screen_get_screen_number (screen));
 
 
 	file = caja_file_get (new_folder);
@@ -7374,7 +7375,7 @@ static const GtkActionEntry directory_view_entries[] = {
   /* label, accelerator */	     N_("_Redo"), "<control>Y",
   /* tooltip */     			 	 N_("Redo the last undone action"),
 								 G_CALLBACK (action_redo_callback) },
- 
+
   /*
    * multiview-TODO: decide whether "Reset to Defaults" should
    * be window-wide, and not just view-wide.
@@ -10528,7 +10529,7 @@ fm_directory_view_handle_netscape_url_drop (FMDirectoryView  *view,
 			point.y = y;
 
 			screen = gtk_widget_get_screen (GTK_WIDGET (view));
-			screen_num = gdk_screen_get_number (screen);
+			screen_num = gdk_x11_screen_get_screen_number (screen);
 
 			caja_link_local_create (target_uri != NULL ? target_uri : container_uri,
 						    link_name,

@@ -1187,7 +1187,7 @@ egg_desktop_file_launchv (EggDesktopFile *desktop_file,
         display = gdk_display_get_default ();
         screen = gdk_display_get_default_screen (display);
     }
-    screen_num = gdk_screen_get_number (screen);
+    screen_num = gdk_x11_screen_get_screen_number (screen);
 
     translated_documents = translate_document_list (desktop_file, documents);
     docs = translated_documents;

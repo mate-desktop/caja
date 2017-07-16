@@ -52,6 +52,7 @@
 #include <glib/gi18n.h>
 #include <glib/gstdio.h>
 #include <gdk/gdk.h>
+#include <gdk/gdkx.h>
 #include <gtk/gtk.h>
 #include <gio/gio.h>
 #include <glib.h>
@@ -965,7 +966,7 @@ init_common (gsize job_size,
 	common->screen_num = 0;
 	if (parent_window) {
 		screen = gtk_widget_get_screen (GTK_WIDGET (parent_window));
-		common->screen_num = gdk_screen_get_number (screen);
+		common->screen_num = gdk_x11_screen_get_screen_number (screen);
 	}
 
 	return common;

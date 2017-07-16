@@ -980,7 +980,7 @@ handle_local_move (CajaIconContainer *container,
 
             screen = gtk_widget_get_screen (GTK_WIDGET (container));
             g_snprintf (screen_string, sizeof (screen_string), "%d",
-                        gdk_screen_get_number (screen));
+                        gdk_x11_screen_get_screen_number (screen));
             caja_file_set_metadata (file,
                                     CAJA_METADATA_KEY_SCREEN,
                                     NULL, screen_string);
@@ -1545,7 +1545,7 @@ caja_icon_dnd_begin_drag (CajaIconContainer *container,
     dnd_info->drag_info.start_x = start_x -
     	gtk_adjustment_get_value (gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (container)));
     dnd_info->drag_info.start_y = start_y -
-    	gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container)));	
+    	gtk_adjustment_get_value (gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (container)));
 
     /* start the drag */
     gtk_drag_begin_with_coordinates (GTK_WIDGET (container),
@@ -1907,7 +1907,7 @@ drag_data_received_callback (GtkWidget *widget,
                 caja_file_changes_queue_schedule_position_set (
                     location,
                     p,
-                    gdk_screen_get_number (
+                    gdk_x11_screen_get_screen_number (
                         gtk_widget_get_screen (widget)));
                 g_object_unref (location);
                 caja_file_changes_consume_changes (TRUE);
