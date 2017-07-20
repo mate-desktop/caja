@@ -3802,6 +3802,43 @@ file_info_start (CajaDirectory *directory,
     g_object_unref (location);
 }
 
+static gboolean is_trusted_system_desktop_file (GFile *file)
+{
+    gboolean res = FALSE;
+    GFileInfo *info;
+    const gchar *target = NULL;
+    GFile *location = NULL;
+
+    info = g_file_query_info (file,
+                              G_FILE_ATTRIBUTE_STANDARD_TYPE ","
+                              G_FILE_ATTRIBUTE_STANDARD_SYMLINK_TARGET,
+                              G_FILE_QUERY_INFO_NOFOLLOW_SYMLINKS,
+                              NULL,
+                              NULL);
+
+    if (info == NULL)
+    {
+        return FALSE;
+    }
+
+    target = g_file_info_get_symlink_target (info);
+    if (!target) {
+        goto done;
+    }
+
+    location = g_file_new_for_path (target);
+
+    res = caja_is_in_system_dir (location);
+
+done:
+    if (location) {
+        g_object_unref (location);
+    }
+    g_object_unref (info);
+
+    return res;
+}
+
 static gboolean
 is_link_trusted (CajaFile *file,
                  gboolean is_launcher)
@@ -3825,6 +3862,11 @@ is_link_trusted (CajaFile *file,
     {
         location = caja_file_get_location (file);
         res = caja_is_in_system_dir (location);
+
+        if (!res) {
+            res = is_trusted_system_desktop_file (location);
+        }
+
         g_object_unref (location);
     }
 
