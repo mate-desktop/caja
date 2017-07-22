@@ -710,9 +710,15 @@ connect_dialog_response_cb (CajaConnectServerDialog *dialog,
         break;
     case GTK_RESPONSE_HELP :
         error = NULL;
+#if GTK_CHECK_VERSION (3, 22, 0)
+        gtk_show_uri_on_window (GTK_WINDOW (dialog),
+                                "help:mate-user-guide/caja-server-connect",
+                                gtk_get_current_event_time (), &error);
+#else
         gtk_show_uri (gtk_window_get_screen (GTK_WINDOW (dialog)),
                       "help:mate-user-guide/caja-server-connect",
                       gtk_get_current_event_time (), &error);
+#endif
         if (error)
         {
             eel_show_error_dialog (_("There was an error displaying help."), error->message,

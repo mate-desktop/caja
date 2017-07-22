@@ -1654,9 +1654,15 @@ help_button_callback (GtkWidget *widget, GtkWidget *property_browser)
     GError *error = NULL;
     GtkWidget *dialog;
 
+#if GTK_CHECK_VERSION (3, 22, 0)
+    gtk_show_uri_on_window (GTK_WINDOW (property_browser),
+                            "help:mate-user-guide/goscaja-50",
+                            gtk_get_current_event_time (), &error);
+#else
     gtk_show_uri (gtk_widget_get_screen (property_browser),
                   "help:mate-user-guide/goscaja-50",
                   gtk_get_current_event_time (), &error);
+#endif
 
     if (error)
     {

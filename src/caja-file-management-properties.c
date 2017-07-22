@@ -222,9 +222,15 @@ preferences_show_help (GtkWindow *parent,
 
     help_string = g_strdup_printf ("help:%s/%s", helpfile, sect_id);
 
+#if GTK_CHECK_VERSION (3, 22, 0)
+    gtk_show_uri_on_window (parent,
+                            help_string, gtk_get_current_event_time (),
+                            &error);
+#else
     gtk_show_uri (gtk_window_get_screen (parent),
                   help_string, gtk_get_current_event_time (),
                   &error);
+#endif
     g_free (help_string);
 
     if (error)
