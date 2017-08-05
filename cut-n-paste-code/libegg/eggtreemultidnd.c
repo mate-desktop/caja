@@ -318,11 +318,13 @@ egg_tree_multi_drag_motion_event (GtkWidget      *widget,
         if (egg_tree_multi_drag_source_row_draggable (EGG_TREE_MULTI_DRAG_SOURCE (model), path_list))
         {
 
-            context = gtk_drag_begin (widget,
-                                      gtk_drag_source_get_target_list (widget),
-                                      di->source_actions,
-                                      priv_data->pressed_button,
-                                      (GdkEvent*)event);
+            context = gtk_drag_begin_with_coordinates (widget,
+                                                       gtk_drag_source_get_target_list (widget),
+                                                       di->source_actions,
+                                                       priv_data->pressed_button,
+                                                       (GdkEvent*)event,
+                                                       event->x,
+                                                       event->y);
             set_context_data (context, path_list);
             gtk_drag_set_icon_default (context);
 
