@@ -5285,6 +5285,7 @@ caja_icon_container_search_position_func (CajaIconContainer *container,
     gint x, y;
     gint cont_x, cont_y;
     gint cont_width, cont_height;
+    gint sc_width, sc_height;
     GdkWindow *cont_window;
     GdkScreen *screen;
     GtkRequisition requisition;
@@ -5305,11 +5306,14 @@ caja_icon_container_search_position_func (CajaIconContainer *container,
     cont_width = gdk_window_get_width (cont_window);
     cont_height = gdk_window_get_height (cont_window);
 
+    gdk_window_get_geometry (gdk_screen_get_root_window (screen), NULL, NULL,
+                             &sc_width, &sc_height);
+
     gtk_widget_get_preferred_size (search_dialog, &requisition, NULL);
 
-    if (cont_x + cont_width - requisition.width > gdk_screen_get_width (screen))
+    if (cont_x + cont_width - requisition.width > sc_width)
     {
-        x = gdk_screen_get_width (screen) - requisition.width;
+        x = sc_width - requisition.width;
     }
     else if (cont_x + cont_width - requisition.width < 0)
     {
@@ -5320,9 +5324,9 @@ caja_icon_container_search_position_func (CajaIconContainer *container,
         x = cont_x + cont_width - requisition.width;
     }
 
-    if (cont_y + cont_height > gdk_screen_get_height (screen))
+    if (cont_y + cont_height > sc_height)
     {
-        y = gdk_screen_get_height (screen) - requisition.height;
+        y = sc_height - requisition.height;
     }
     else if (cont_y + cont_height < 0)     /* isn't really possible ... */
     {
@@ -6068,6 +6072,7 @@ key_press_event (GtkWidget *widget,
         const char *new_text;
         gboolean retval;
         GdkScreen *screen;
+        gint sc_width, sc_height;
         gboolean text_modified;
         gulong popup_menu_id;
 
@@ -6085,9 +6090,13 @@ key_press_event (GtkWidget *widget,
 
         /* Move the entry off screen */
         screen = gtk_widget_get_screen (GTK_WIDGET (container));
+
+        gdk_window_get_geometry (gdk_screen_get_root_window (screen), NULL, NULL,
+                                 &sc_width, &sc_height);
+
         gtk_window_move (GTK_WINDOW (container->details->search_window),
-                         gdk_screen_get_width (screen) + 1,
-                         gdk_screen_get_height (screen) + 1);
+                         sc_width + 1,
+                         sc_height + 1);
         gtk_widget_show (container->details->search_window);
 
         /* Send the event to the window.  If the preedit_changed signal is emitted

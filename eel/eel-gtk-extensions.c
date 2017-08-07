@@ -168,8 +168,9 @@ eel_gtk_window_set_initial_geometry (GtkWindow *window,
         real_top = top;
 
         screen = gtk_window_get_screen (window);
-        screen_width  = gdk_screen_get_width  (screen);
-        screen_height = gdk_screen_get_height (screen);
+
+        gdk_window_get_geometry (gdk_screen_get_root_window (screen), NULL, NULL,
+                                 &screen_width, &screen_height);
 
         /* This is sub-optimal. GDK doesn't allow us to set win_gravity
          * to South/East types, which should be done if using negative

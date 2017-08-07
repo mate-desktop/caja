@@ -119,8 +119,8 @@ icon_container_set_workarea (CajaIconContainer *icon_container,
 
     left = right = top = bottom = 0;
 
-    screen_width  = gdk_screen_get_width (screen);
-    screen_height = gdk_screen_get_height (screen);
+    gdk_window_get_geometry (gdk_screen_get_root_window (screen), NULL, NULL,
+                             &screen_width, &screen_height);
 
     for (i = 0; i < n_items; i += 4)
     {
@@ -442,8 +442,10 @@ realized_callback (GtkWidget *widget, FMDesktopIconView *desktop_icon_view)
      */
     allocation.x = 0;
     allocation.y = 0;
-    allocation.width = gdk_screen_get_width (screen);
-    allocation.height = gdk_screen_get_height (screen);
+
+    gdk_window_get_geometry (gdk_screen_get_root_window (screen), NULL, NULL,
+                             &allocation.width, &allocation.height);
+
     gtk_widget_size_allocate (GTK_WIDGET(get_icon_container(desktop_icon_view)),
                               &allocation);
 
