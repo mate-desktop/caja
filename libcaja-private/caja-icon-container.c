@@ -326,6 +326,7 @@ icon_set_position (CajaIcon *icon,
     int item_width, item_height;
     int height_above, width_left;
     int min_x, max_x, min_y, max_y;
+    int sc_width, sc_height;
 
     if (icon->x == x && icon->y == y)
     {
@@ -354,12 +355,16 @@ icon_set_position (CajaIcon *icon,
 
         For now, we have a cheesy workaround:
         */
+
+        gdk_window_get_geometry (gdk_screen_get_root_window (gdk_screen_get_default()),
+                                 NULL, NULL, &sc_width, &sc_height);
+
         container_x = 0;
         container_y = 0;
-        container_width = gdk_screen_width () - container_x
+        container_width = sc_width - container_x
                           - container->details->left_margin
                           - container->details->right_margin;
-        container_height = gdk_screen_height () - container_y
+        container_height = sc_height - container_y
                            - container->details->top_margin
                            - container->details->bottom_margin;
         pixels_per_unit = EEL_CANVAS (container)->pixels_per_unit;

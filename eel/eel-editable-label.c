@@ -1051,6 +1051,7 @@ eel_editable_label_ensure_layout (EelEditableLabel *label,
             else
             {
                 gint wrap_width;
+                gint sc_width;
 
                 pango_layout_set_width (label->layout, -1);
                 pango_layout_get_extents (label->layout, NULL, &logical_rect);
@@ -1060,10 +1061,13 @@ eel_editable_label_ensure_layout (EelEditableLabel *label,
                 /* Try to guess a reasonable maximum width */
                 longest_paragraph = width;
 
+                gdk_window_get_geometry (gdk_screen_get_root_window (gdk_screen_get_default()),
+                                         NULL, NULL, &sc_width, NULL);
+
                 wrap_width = get_label_wrap_width (label);
                 width = MIN (width, wrap_width);
                 width = MIN (width,
-                             PANGO_SCALE * (gdk_screen_width () + 1) / 2);
+                             PANGO_SCALE * (sc_width + 1) / 2);
 
                 pango_layout_set_width (label->layout, width);
                 pango_layout_get_extents (label->layout, NULL, &logical_rect);
@@ -3047,6 +3051,7 @@ popup_position_func (GtkMenu   *menu,
     GtkWidget *widget;
     GtkRequisition req;
     GtkAllocation allocation;
+    gint sc_width, sc_height;
 
     label = EEL_EDITABLE_LABEL (user_data);
     widget = GTK_WIDGET (label);
@@ -3061,8 +3066,11 @@ popup_position_func (GtkMenu   *menu,
     *x += allocation.width / 2;
     *y += allocation.height;
 
-    *x = CLAMP (*x, 0, MAX (0, gdk_screen_width () - req.width));
-    *y = CLAMP (*y, 0, MAX (0, gdk_screen_height () - req.height));
+    gdk_window_get_geometry (gdk_screen_get_root_window (gdk_screen_get_default()),
+                             NULL, NULL, &sc_width, &sc_height);
+
+    *x = CLAMP (*x, 0, MAX (0, sc_width - req.width));
+    *y = CLAMP (*y, 0, MAX (0, sc_height - req.height));
 }
 
 static void
