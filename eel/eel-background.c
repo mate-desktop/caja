@@ -941,7 +941,12 @@ eel_background_is_dark (EelBackground *self)
 
     /* only check for the background on the 0th monitor */
     GdkScreen *screen = gdk_screen_get_default ();
+#if GTK_CHECK_VERSION (3, 22, 0)
+    GdkDisplay *display = gdk_screen_get_display (screen);
+    gdk_monitor_get_geometry (gdk_display_get_monitor (display, 0), &rect);
+#else
     gdk_screen_get_monitor_geometry (screen, 0, &rect);
+#endif
 
     return mate_bg_is_dark (self->details->bg, rect.width, rect.height);
 }
