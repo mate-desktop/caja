@@ -964,7 +964,7 @@ caja_open_with_dialog_init (CajaOpenWithDialog *dialog)
     gtk_widget_show (label);
     dialog->details->open_label = label;
 
-    gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (hbox), label, TRUE, FALSE, 0);
 
     gtk_widget_show (dialog->details->button);
     gtk_widget_set_can_default (dialog->details->button, TRUE);
