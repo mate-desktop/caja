@@ -5294,15 +5294,25 @@ caja_icon_container_search_position_func (CajaIconContainer *container,
     GdkWindow *cont_window;
     GdkScreen *screen;
     GtkRequisition requisition;
+#if GTK_CHECK_VERSION (3, 22, 0)
+    GdkMonitor *monitor_num;
+#else
     gint monitor_num;
+#endif
     GdkRectangle monitor;
 
 
     cont_window = gtk_widget_get_window (GTK_WIDGET (container));
     screen = gdk_window_get_screen (cont_window);
 
+#if GTK_CHECK_VERSION (3, 22, 0)
+    monitor_num = gdk_display_get_monitor_at_window (gdk_screen_get_display (screen),
+                                                     cont_window);
+    gdk_monitor_get_geometry (monitor_num, &monitor);
+#else
     monitor_num = gdk_screen_get_monitor_at_window (screen, cont_window);
     gdk_screen_get_monitor_geometry (screen, monitor_num, &monitor);
+#endif
 
     gtk_widget_realize (search_dialog);
 

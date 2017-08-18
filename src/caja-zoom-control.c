@@ -144,8 +144,13 @@ menu_position_under_widget (GtkMenu   *menu,
     GtkRequisition req;
     GtkRequisition menu_req;
     GdkRectangle monitor;
+#if GTK_CHECK_VERSION (3, 22, 0)
+    GdkMonitor *monitor_num;
+    GdkDisplay *display;
+#else
     int monitor_num;
     GdkScreen *screen;
+#endif
     GtkAllocation allocation;
 
     widget = GTK_WIDGET (user_data);
@@ -158,6 +163,13 @@ menu_position_under_widget (GtkMenu   *menu,
     gtk_widget_get_preferred_size (widget, &req, NULL);
     gtk_widget_get_allocation (widget, &allocation);
 
+#if GTK_CHECK_VERSION (3, 22, 0)
+    display = gtk_widget_get_display (GTK_WIDGET (menu));
+    monitor_num = gdk_display_get_monitor_at_window (display, gtk_widget_get_window (widget));
+    if (monitor_num == NULL)
+        monitor_num = gdk_display_get_monitor (display, 0);
+    gdk_monitor_get_geometry (monitor_num, &monitor);
+#else
     screen = gtk_widget_get_screen (GTK_WIDGET (menu));
     monitor_num = gdk_screen_get_monitor_at_window (screen, gtk_widget_get_window (widget));
     if (monitor_num < 0)
@@ -165,6 +177,7 @@ menu_position_under_widget (GtkMenu   *menu,
         monitor_num = 0;
     }
     gdk_screen_get_monitor_geometry (screen, monitor_num, &monitor);
+#endif
 
     gdk_window_get_origin (gtk_widget_get_window (widget), x, y);
     if (!gtk_widget_get_has_window (widget))
