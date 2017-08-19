@@ -884,6 +884,7 @@ caja_open_with_dialog_init (CajaOpenWithDialog *dialog)
     gtk_misc_set_alignment (GTK_MISC (dialog->details->desc_label), 0.0, 0.5);
 #endif
     gtk_label_set_justify (GTK_LABEL (dialog->details->desc_label), GTK_JUSTIFY_LEFT);
+    gtk_label_set_max_width_chars (GTK_LABEL (dialog->details->desc_label), 54);
     gtk_label_set_line_wrap (GTK_LABEL (dialog->details->desc_label), TRUE);
     gtk_label_set_single_line_mode (GTK_LABEL (dialog->details->desc_label), FALSE);
     gtk_box_pack_start (GTK_BOX (vbox2), dialog->details->desc_label, FALSE, FALSE, 0);
