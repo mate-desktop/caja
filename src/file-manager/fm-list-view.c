@@ -2778,6 +2778,8 @@ fm_list_view_set_zoom_level (FMListView *view,
                                       -1, icon_size);
 
     fm_directory_view_update_menus (FM_DIRECTORY_VIEW (view));
+
+    gtk_widget_queue_draw(view->details->tree_view);
 }
 
 static void
