@@ -155,6 +155,7 @@ get_slider_button (CajaPathBar  *path_bar,
 #else
     gtk_button_set_focus_on_click (GTK_BUTTON (button), FALSE);
 #endif
+    gtk_widget_add_events (button, GDK_SCROLL_MASK);
     gtk_container_add (GTK_CONTAINER (button),
                        gtk_image_new_from_icon_name (arrow_type, GTK_ICON_SIZE_MENU));
     gtk_container_add (GTK_CONTAINER (path_bar), button);
@@ -918,6 +919,9 @@ caja_path_bar_scroll (GtkWidget      *widget,
     case GDK_SCROLL_UP:
         caja_path_bar_scroll_up (path_bar);
         return TRUE;
+
+    case GDK_SCROLL_SMOOTH:
+        break;
     }
 
     return FALSE;
@@ -1842,6 +1846,7 @@ make_directory_button (CajaPathBar  *path_bar,
 #else
     gtk_button_set_focus_on_click (GTK_BUTTON (button_data->button), FALSE);
 #endif
+    gtk_widget_add_events (button_data->button, GDK_SCROLL_MASK);
     /* TODO update button type when xdg directories change */
 
     button_data->drag_info.target_location = g_object_ref (path);
