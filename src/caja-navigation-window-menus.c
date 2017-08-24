@@ -823,12 +823,12 @@ action_tab_change_action_activate_callback (GtkAction *action, gpointer user_dat
 static gboolean
 on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data)
 {
-    if (event->keyval == GDK_KEY_ISO_Left_Tab && event->state == (GDK_CONTROL_MASK | GDK_SHIFT_MASK))
+    if (event->keyval == GDK_KEY_ISO_Left_Tab && event->state & GDK_CONTROL_MASK)
     {
         action_tabs_previous_callback(NULL, user_data);
         return TRUE;
     }
-    if (event->keyval == GDK_KEY_Tab && event->state == GDK_CONTROL_MASK)
+    if (event->keyval == GDK_KEY_Tab && event->state & GDK_CONTROL_MASK)
     {
         action_tabs_next_callback(NULL, user_data);
         return TRUE;
