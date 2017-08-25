@@ -1766,6 +1766,7 @@ create_and_set_up_tree_view (FMListView *view)
             gtk_tree_view_column_set_sort_column_id (view->details->file_name_column, column_num);
             gtk_tree_view_column_set_title (view->details->file_name_column, _("Name"));
             gtk_tree_view_column_set_resizable (view->details->file_name_column, TRUE);
+            gtk_tree_view_column_set_sizing(view->details->file_name_column, GTK_TREE_VIEW_COLUMN_AUTOSIZE);
 
             gtk_tree_view_column_pack_start (view->details->file_name_column, cell, FALSE);
             gtk_tree_view_column_set_attributes (view->details->file_name_column,
@@ -1805,6 +1806,7 @@ create_and_set_up_tree_view (FMListView *view)
                                  column);
 
             gtk_tree_view_column_set_resizable (column, TRUE);
+            gtk_tree_view_column_set_sizing(column, GTK_TREE_VIEW_COLUMN_AUTOSIZE);
         }
         g_free (name);
         g_free (label);
