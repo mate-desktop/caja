@@ -11,6 +11,7 @@
 # Lukasz Kaminski <elpikej@gmail.com>, 2017
 # m4sk1n <m4sk1n@vivaldi.net>, 2017
 # Marcin Kralka <marcink96@gmail.com>, 2013-2014
+# Piotr Drąg <piotrdrag@gmail.com>, 2017
 # Piotr Strębski <strebski@gmail.com>, 2017
 # Rafał Babiarz <sauler1995@gmail.com>, 2015
 # Robert Strojec <ross606@gmail.com>, 2012
@@ -19,14 +20,14 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-18 18:17+0300\n"
-"PO-Revision-Date: 2017-04-24 13:30+0000\n"
-"Last-Translator: Kajetan Rosiak <roskaj@gmail.com>\n"
+"PO-Revision-Date: 2017-08-21 15:01+0000\n"
+"Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/mate/MATE/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
-"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>=14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
 #: ../cut-n-paste-code/libegg/eggdesktopfile.c:166
 #, c-format
@@ -363,7 +364,7 @@ msgstr "Wyczyść"
 
 #: ../data/caja.appdata.xml.in.h:1
 msgid "File manager for the MATE desktop environment"
-msgstr "Menadżer plików dla środowiska graficznego MATE"
+msgstr "Menedżer plików dla środowiska MATE"
 
 #: ../data/caja.appdata.xml.in.h:2
 msgid ""
@@ -373,7 +374,7 @@ msgid ""
 "MATE desktop. It works on local and remote file systems. </p> <p> Caja is "
 "extensible through a plugin system, similar to that of GNOME Nautilus, of "
 "which Caja is a fork. </p>"
-msgstr "<p> Caja jest oficjalnym menadżerem plików dla środowiska graficznego MATE. Pozwala na przeglądanie katalogów, jak również na podglądaniu plików oraz uruchomienia aplikacji powiązanych z nimi. Jest również odpowiedzialne za obsługę ikon na pulpicie MATE. Działa na lokalnych oraz zdalnych systemach plików </p> <p> Caja jest rozszerzalny przez system wtyczek, podobnego do tego z GNOME Nautilus, którego Caja jest forkiem. </p>"
+msgstr "<p> Caja jest oficjalnym menedżerem plików dla środowiska MATE. Umożliwia przeglądanie katalogów, a także podglądanie plików oraz uruchamiania aplikacji powiązanych z nimi. Jest również odpowiedzialne za obsługę ikon na pulpicie MATE. Działa na lokalnych oraz zdalnych systemach plików. </p> <p> Caja jest rozszerzalny przez system wtyczek, podobny do tego z GNOME Nautilus, którego Caja jest forkiem. </p>"
 
 #: ../data/caja.xml.in.h:1
 msgid "Saved search"
@@ -910,7 +911,7 @@ msgstr "Inny plik o tej samej nazwie już istnieje w \"%s\"."
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:279
 msgid "Original folder"
-msgstr "Folder oryginalny"
+msgstr "Katalog oryginalny"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:280
 #: ../libcaja-private/caja-file-conflict-dialog.c:319
@@ -966,7 +967,7 @@ msgstr "Różnice..."
 #. Setup the checkbox to apply the action to all files
 #: ../libcaja-private/caja-file-conflict-dialog.c:652
 msgid "Apply this action to all files and folders"
-msgstr "Zastosuj tę akcję do wszystkich plików i folderów"
+msgstr "Zastosuj tę akcję do wszystkich plików i katalogów"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:664
 #: ../libcaja-private/caja-file-operations.c:185
@@ -983,12 +984,12 @@ msgstr "Zastąp"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:759
 msgid "Merge Folder"
-msgstr "Scal folder"
+msgstr "Scal katalog"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:759
 #: ../libcaja-private/caja-file-conflict-dialog.c:764
 msgid "File and Folder conflict"
-msgstr "Konflikt plików i folderów"
+msgstr "Konflikt plików i katalogów"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:764
 msgid "File conflict"
@@ -1850,7 +1851,7 @@ msgstr "dzisiaj o 00:00:00"
 #: ../libcaja-private/caja-file.c:4466
 #: ../src/caja-file-management-properties.c:520
 msgid "today at %-I:%M:%S %p"
-msgstr "dzisiaj o %-H:%M:%S"
+msgstr "dzisiaj o %H:%M:%S"
 
 #: ../libcaja-private/caja-file.c:4468
 msgid "today at 00:00 PM"
@@ -1858,7 +1859,7 @@ msgstr "dzisiaj o 00:00"
 
 #: ../libcaja-private/caja-file.c:4469
 msgid "today at %-I:%M %p"
-msgstr "dzisiaj o %-H:%M"
+msgstr "dzisiaj o %H:%M"
 
 #: ../libcaja-private/caja-file.c:4471
 msgid "today, 00:00 PM"
@@ -1866,7 +1867,7 @@ msgstr "dzisiaj, 00:00"
 
 #: ../libcaja-private/caja-file.c:4472
 msgid "today, %-I:%M %p"
-msgstr "dzisiaj, %-H:%M"
+msgstr "dzisiaj, %H:%M"
 
 #: ../libcaja-private/caja-file.c:4474 ../libcaja-private/caja-file.c:4475
 msgid "today"
@@ -1880,7 +1881,7 @@ msgstr "wczoraj o 00:00:00"
 
 #: ../libcaja-private/caja-file.c:4485
 msgid "yesterday at %-I:%M:%S %p"
-msgstr "wczoraj o %-H:%M:%S"
+msgstr "wczoraj o %H:%M:%S"
 
 #: ../libcaja-private/caja-file.c:4487
 msgid "yesterday at 00:00 PM"
@@ -1888,7 +1889,7 @@ msgstr "wczoraj o 00:00"
 
 #: ../libcaja-private/caja-file.c:4488
 msgid "yesterday at %-I:%M %p"
-msgstr "wczoraj o %-H:%M"
+msgstr "wczoraj o %H:%M"
 
 #: ../libcaja-private/caja-file.c:4490
 msgid "yesterday, 00:00 PM"
@@ -1896,7 +1897,7 @@ msgstr "wczoraj, 00:00"
 
 #: ../libcaja-private/caja-file.c:4491
 msgid "yesterday, %-I:%M %p"
-msgstr "wczoraj, %-H:%M"
+msgstr "wczoraj, %H:%M"
 
 #: ../libcaja-private/caja-file.c:4493 ../libcaja-private/caja-file.c:4494
 msgid "yesterday"
@@ -1908,59 +1909,59 @@ msgstr "wczoraj"
 #. * the day/month name with the most letters.
 #: ../libcaja-private/caja-file.c:4505
 msgid "Wednesday, September 00 0000 at 00:00:00 PM"
-msgstr "Poniedziałek, 00 październik 0000 o 00:00:00"
+msgstr "Poniedziałek, 00 października 0000 o 00:00:00"
 
 #: ../libcaja-private/caja-file.c:4506
 msgid "%A, %B %-d %Y at %-I:%M:%S %p"
-msgstr "%A %-d %B %Y o %-H:%M:%S"
+msgstr "%A, %-d %B %Y o %H:%M:%S"
 
 #: ../libcaja-private/caja-file.c:4508
 msgid "Mon, Oct 00 0000 at 00:00:00 PM"
-msgstr "Pon, 00 Paź 0000 o 00:00:00"
+msgstr "Pon, 00 paź 0000 o 00:00:00"
 
 #: ../libcaja-private/caja-file.c:4509
 msgid "%a, %b %-d %Y at %-I:%M:%S %p"
-msgstr "%a, %-d %b %Y o %-H:%M:%S"
+msgstr "%a, %-d %b %Y o %H:%M:%S"
 
 #: ../libcaja-private/caja-file.c:4511
 msgid "Mon, Oct 00 0000 at 00:00 PM"
-msgstr "Pon, 00 Paź 0000 o 00:00"
+msgstr "Pon, 00 paź 0000 o 00:00"
 
 #: ../libcaja-private/caja-file.c:4512
 msgid "%a, %b %-d %Y at %-I:%M %p"
-msgstr "%a, %-d %b %Y o %-H:%M"
+msgstr "%a, %-d %b %Y o %H:%M"
 
 #: ../libcaja-private/caja-file.c:4514
 msgid "Oct 00 0000 at 00:00 PM"
-msgstr "00 Paź 0000 o 00:00"
+msgstr "00 paź 0000 o 00:00"
 
 #: ../libcaja-private/caja-file.c:4515
 msgid "%b %-d %Y at %-I:%M %p"
-msgstr "%-d %b %Y o %-H:%M"
+msgstr "%-d %b %Y o %H:%M"
 
 #: ../libcaja-private/caja-file.c:4517
 msgid "Oct 00 0000, 00:00 PM"
-msgstr "00 Paź 0000, 00:00"
+msgstr "00 paź 0000, 00:00"
 
 #: ../libcaja-private/caja-file.c:4518
 msgid "%b %-d %Y, %-I:%M %p"
-msgstr "%-d %b %Y o %-H:%M"
+msgstr "%-d %b %Y o %H:%M"
 
 #: ../libcaja-private/caja-file.c:4520
 msgid "00/00/00, 00:00 PM"
-msgstr "00/00/00, 00:00"
+msgstr "00.00.00, 00:00"
 
 #: ../libcaja-private/caja-file.c:4521
 msgid "%m/%-d/%y, %-I:%M %p"
-msgstr "%y.%m.%-d %-H:%M"
+msgstr "%-d.%m.%y, %H:%M"
 
 #: ../libcaja-private/caja-file.c:4523
 msgid "00/00/00"
-msgstr "00/00/00"
+msgstr "00.00.00"
 
 #: ../libcaja-private/caja-file.c:4524
 msgid "%m/%d/%y"
-msgstr "%d/%m/%y"
+msgstr "%d.%m.%y"
 
 #: ../libcaja-private/caja-file.c:5136
 #, c-format
@@ -2494,176 +2495,176 @@ msgstr "Wyszukiwanie \"%s\""
 #: ../libcaja-private/caja-undostack-manager.c:1175
 #, c-format
 msgid "Delete %d copied items"
-msgstr "Kasuje %d elementów skopiowanych"
+msgstr "Usuń %d skopiowanych elementów"
 
 #: ../libcaja-private/caja-undostack-manager.c:1178
 #: ../libcaja-private/caja-undostack-manager.c:1188
 #: ../libcaja-private/caja-undostack-manager.c:1219
 #, c-format
 msgid "Delete '%s'"
-msgstr "Kasuj '%s'"
+msgstr "Usuń \"%s\""
 
 #: ../libcaja-private/caja-undostack-manager.c:1185
 #, c-format
 msgid "Delete %d duplicated items"
-msgstr "Kasuje %d zduplikowanych elementów"
+msgstr "Usuń %d zduplikowanych elementów"
 
 #: ../libcaja-private/caja-undostack-manager.c:1196
 #, c-format
 msgid "Move %d items back to '%s'"
-msgstr "Przenieś %d elementy z powrotem do '%s'"
+msgstr "Przenieś %d elementy z powrotem do \"%s\""
 
 #: ../libcaja-private/caja-undostack-manager.c:1200
 #, c-format
 msgid "Move '%s' back to '%s'"
-msgstr "Przenieś '%s' z powrotem do '%s'"
+msgstr "Przenieś \"%s\" z powrotem do \"%s\""
 
 #: ../libcaja-private/caja-undostack-manager.c:1209
 #: ../libcaja-private/caja-undostack-manager.c:1376
 #, c-format
 msgid "Rename '%s' as '%s'"
-msgstr "Zmieniam nazwę z %s na %s"
+msgstr "Zmień nazwę \"%s\" na \"%s\""
 
 #: ../libcaja-private/caja-undostack-manager.c:1228
 #: ../libcaja-private/caja-undostack-manager.c:1423
 #, c-format
 msgid "Restore %d items from trash"
-msgstr "Przywracam %d elemtów z śmietnika"
+msgstr "Przywróć %d elementów z kosza"
 
 #: ../libcaja-private/caja-undostack-manager.c:1236
 #, c-format
 msgid "Restore '%s' to '%s'"
-msgstr "Przywracam '%s' do '%s'"
+msgstr "Przywróć \"%s\" do \"%s\""
 
 #: ../libcaja-private/caja-undostack-manager.c:1247
 #, c-format
 msgid "Move %d items back to trash"
-msgstr "Przenoszenie %d elementów spowrotem do śmietnika"
+msgstr "Przenieś %d elementów z powrotem do kosza"
 
 #: ../libcaja-private/caja-undostack-manager.c:1250
 #, c-format
 msgid "Move '%s' back to trash"
-msgstr "Przenoszę '%s' element do śmietnika"
+msgstr "Przenieś \"%s\" z powrotem do kosza"
 
 #: ../libcaja-private/caja-undostack-manager.c:1259
 #, c-format
 msgid "Delete links to %d items"
-msgstr "Usuń linki do %d elementów"
+msgstr "Usuń dowiązania do %d elementów"
 
 #: ../libcaja-private/caja-undostack-manager.c:1262
 #, c-format
 msgid "Delete link to '%s'"
-msgstr "Usuń link do '%s'"
+msgstr "Usuń dowiązanie do \"%s\""
 
 #: ../libcaja-private/caja-undostack-manager.c:1272
 #, c-format
 msgid "Restore original permissions of items enclosed in '%s'"
-msgstr "Przywróć oryginalne uprawnienia elementów ujęte w '%s'"
+msgstr "Przywróć oryginalne uprawnienia elementów zawartych w \"%s\""
 
 #: ../libcaja-private/caja-undostack-manager.c:1280
 #, c-format
 msgid "Restore original permissions of '%s'"
-msgstr "Przywróć orginale uprawnienia dla '%s'"
+msgstr "Przywróć oryginalne uprawnienia dla \"%s\""
 
 #: ../libcaja-private/caja-undostack-manager.c:1289
 #, c-format
 msgid "Restore group of '%s' to '%s'"
-msgstr "Przywróć grupę '%s' do '%s'"
+msgstr "Przywróć grupę \"%s\" do \"%s\""
 
 #: ../libcaja-private/caja-undostack-manager.c:1299
 #, c-format
 msgid "Restore owner of '%s' to '%s'"
-msgstr "Przywróć właściciela '%s' do '%s'"
+msgstr "Przywróć właściciela \"%s\" do \"%s\""
 
 #: ../libcaja-private/caja-undostack-manager.c:1338
 #, c-format
 msgid "Copy %d items to '%s'"
-msgstr "Kopiuj %d elementów do '%s'"
+msgstr "Skopiuj %d elementów do \"%s\""
 
 #: ../libcaja-private/caja-undostack-manager.c:1342
 #, c-format
 msgid "Copy '%s' to '%s'"
-msgstr "Kopiuje '%s' do '%s'"
+msgstr "Skopiuj \"%s\" do \"%s\""
 
 #: ../libcaja-private/caja-undostack-manager.c:1350
 #, c-format
 msgid "Duplicate of %d items in '%s'"
-msgstr "Duplikuj %d elementy w '%s'"
+msgstr "Duplikuj %d elementy w \"%s\""
 
 #: ../libcaja-private/caja-undostack-manager.c:1355
 #, c-format
 msgid "Duplicate '%s' in '%s'"
-msgstr "Dupilikuje '%s' w '%s'"
+msgstr "Duplikuj \"%s\" w \"%s\""
 
 #: ../libcaja-private/caja-undostack-manager.c:1363
 #, c-format
 msgid "Move %d items to '%s'"
-msgstr "Przenoszę %d elemntów do '%s'"
+msgstr "Przenieś %d elementów do \"%s\""
 
 #: ../libcaja-private/caja-undostack-manager.c:1367
 #, c-format
 msgid "Move '%s' to '%s'"
-msgstr "Przenoszę '%s' do '%s'"
+msgstr "Przenieś \"%s\" do \"%s\""
 
 #: ../libcaja-private/caja-undostack-manager.c:1385
 #, c-format
 msgid "Create new file '%s' from template "
-msgstr "Tworzę nowy plik '%s' z szablonu"
+msgstr "Utwórz nowy plik \"%s\" z szablonu"
 
 #: ../libcaja-private/caja-undostack-manager.c:1392
 #, c-format
 msgid "Create an empty file '%s'"
-msgstr "Tworze pusty plik '%s'"
+msgstr "Utwórz pusty plik \"%s\""
 
 #: ../libcaja-private/caja-undostack-manager.c:1399
 #, c-format
 msgid "Create a new folder '%s'"
-msgstr "Utwórz nowy folder '%s'"
+msgstr "Utwórz nowy katalog \"%s\""
 
 #: ../libcaja-private/caja-undostack-manager.c:1407
 #, c-format
 msgid "Move %d items to trash"
-msgstr "Przenieś %d elementów do śmietnika"
+msgstr "Przenieś %d elementów do kosza"
 
 #: ../libcaja-private/caja-undostack-manager.c:1413
 #, c-format
 msgid "Move '%s' to trash"
-msgstr "Przenieś '%s' do śmietnika"
+msgstr "Przenieś \"%s\" do kosza"
 
 #: ../libcaja-private/caja-undostack-manager.c:1426
 #, c-format
 msgid "Restore '%s' from trash"
-msgstr "Przywróć '%s' ze śmietnika"
+msgstr "Przywróć \"%s\" z kosza"
 
 #: ../libcaja-private/caja-undostack-manager.c:1435
 #, c-format
 msgid "Create links to %d items"
-msgstr "Utwórz dowiązanie do %d elementów"
+msgstr "Utwórz dowiązania do %d elementów"
 
 #: ../libcaja-private/caja-undostack-manager.c:1438
 #, c-format
 msgid "Create link to '%s'"
-msgstr "Utwórz dowiązanie do '%s'"
+msgstr "Utwórz dowiązanie do \"%s\""
 
 #: ../libcaja-private/caja-undostack-manager.c:1447
 #, c-format
 msgid "Set permissions of items enclosed in '%s'"
-msgstr "Ustaw uprawnienia elementów ujęte w '%s'"
+msgstr "Ustaw uprawnienia elementów zawartych w \"%s\""
 
 #: ../libcaja-private/caja-undostack-manager.c:1455
 #, c-format
 msgid "Set permissions of '%s'"
-msgstr "Ustaw uprawnienia dla '%s'"
+msgstr "Ustaw uprawnienia dla \"%s\""
 
 #: ../libcaja-private/caja-undostack-manager.c:1464
 #, c-format
 msgid "Set group of '%s' to '%s'"
-msgstr "Ustaw grupę dla '%s' do '%s'"
+msgstr "Ustaw grupę dla \"%s\" na \"%s\""
 
 #: ../libcaja-private/caja-undostack-manager.c:1474
 #, c-format
 msgid "Set owner of '%s' to '%s'"
-msgstr "Ustaw innych dla '%s' do '%s'"
+msgstr "Ustaw innych dla \"%s\" na \"%s\""
 
 #: ../libcaja-private/caja-undostack-manager.c:1506
 #, c-format
@@ -2709,16 +2710,16 @@ msgstr "_Cofnij utworzenie pustego pliku"
 #: ../libcaja-private/caja-undostack-manager.c:1528
 #, c-format
 msgid "_Undo creation of a file from template"
-msgstr "_Cofnij utworzenie pliku z przykładu"
+msgstr "_Cofnij utworzenie pliku z szablonu"
 
 #: ../libcaja-private/caja-undostack-manager.c:1532
 #, c-format
 msgid "_Undo creation of %d folder"
 msgid_plural "_Undo creation of %d folders"
-msgstr[0] "_Cofnij stworzenie %d folderu"
-msgstr[1] "_Cofnij stworzenie %d folderów"
-msgstr[2] "_Cofnij stworzenie %d folderów"
-msgstr[3] "_Cofnij stworzenie %d folderów"
+msgstr[0] "_Cofnij utworzenie %d katalogu"
+msgstr[1] "_Cofnij utworzenie %d katalogów"
+msgstr[2] "_Cofnij utworzenie %d katalogów"
+msgstr[3] "_Cofnij utworzenie %d katalogów"
 
 #: ../libcaja-private/caja-undostack-manager.c:1537
 #, c-format
@@ -2842,10 +2843,10 @@ msgstr "_Ponów utworzenie pliku z przykładu"
 #, c-format
 msgid "_Redo creation of %d folder"
 msgid_plural "_Redo creation of %d folders"
-msgstr[0] "_Ponów stworzenie %d folderu"
-msgstr[1] "_Ponów stworzenie %d folderów"
-msgstr[2] "_Ponów stworzenie %d folderów"
-msgstr[3] "_Ponów stworzenie %d folderów"
+msgstr[0] "_Ponów utworzenie %d katalogu"
+msgstr[1] "_Ponów utworzenie %d katalogów"
+msgstr[2] "_Ponów utworzenie %d katalogów"
+msgstr[3] "_Ponów utworzenie %d katalogów"
 
 #: ../libcaja-private/caja-undostack-manager.c:1632
 #, c-format
@@ -2869,10 +2870,10 @@ msgstr[3] "_Ponów przywrócenie z kosza %d elementów"
 #, c-format
 msgid "_Redo create link to %d item"
 msgid_plural "_Redo create link to %d items"
-msgstr[0] "_Ponów tworzenie skrótu dla %d elementu"
-msgstr[1] "_Ponów tworzenie skrótu dla %d elementów"
-msgstr[2] "_Ponów tworzenie skrótu dla %d elementów"
-msgstr[3] "_Ponów tworzenie skrótu dla %d elementów"
+msgstr[0] "_Ponów utworzenie dowiązania dla %d elementu"
+msgstr[1] "_Ponów utworzenie dowiązania dla %d elementów"
+msgstr[2] "_Ponów utworzenie dowiązania dla %d elementów"
+msgstr[3] "_Ponów utworzenie dowiązania dla %d elementów"
 
 #: ../libcaja-private/caja-undostack-manager.c:1647
 #, c-format
@@ -2921,7 +2922,7 @@ msgstr[3] "Ponów zmianę właściciela dla %d elementów"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:1
 msgid "Where to position newly open tabs in browser windows."
-msgstr "Określa, gdzie umieszone zostaną nowootwarte karty okien przeglądania."
+msgstr "Określa, gdzie umieszczone zostaną nowo otwarte karty okien przeglądania."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:2
 msgid ""
@@ -3195,7 +3196,7 @@ msgstr "Domyślna nazwa pliku tła"
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:52
 msgid ""
 "Uri of the default folder background. Only used if background_set is true."
-msgstr "URI domyślnego tła folderu. Używane tylko jeśli background_set ma wartość Prawda."
+msgstr "URI domyślnego tła katalogu. Używane tylko, jeśli background_set ma wartość Prawda."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:53
 msgid "Custom Side Pane Background Set"
@@ -3255,7 +3256,7 @@ msgid ""
 "If set to true, then hidden files are shown by default in the file manager. "
 "Hidden files are either dotfiles, listed in the folder's .hidden file or "
 "backup files ending with a tilde (~)."
-msgstr "Jeżeli ustawione jako prawda, to ukryte pliki będą domyślnie pokazywane przez menadżer plików. Ukrytymi plikami są zarówno pliki z kropką (.) na początku nazwy, jak i wymieniony w folderze plik .hidden lub plik kopii zapasowej kończący się tyldą (~)."
+msgstr "Jeżeli ustawione jako prawda, to ukryte pliki będą domyślnie pokazywane przez menadżer plików. Ukrytymi plikami są zarówno pliki z kropką (.) na początku nazwy, jak i wymieniony w katalogu plik .hidden lub plik kopii zapasowej kończący się tyldą (~)."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:65
 msgid "Whether to show file sizes with IEC units"
@@ -4313,7 +4314,7 @@ msgstr "_Cofnij"
 #: ../src/file-manager/fm-directory-view.c:7371
 #: ../src/file-manager/fm-directory-view.c:11117
 msgid "Undo the last action"
-msgstr "Cofnij ostanią akcję"
+msgstr "Cofnij ostatnie działanie"
 
 #. name, stock id
 #. label, accelerator
@@ -4325,7 +4326,7 @@ msgstr "_Ponów"
 #: ../src/file-manager/fm-directory-view.c:7375
 #: ../src/file-manager/fm-directory-view.c:11135
 msgid "Redo the last undone action"
-msgstr "Ponów ostatnią nie spełnioną operację"
+msgstr "Ponów ostatnie cofnięte działanie"
 
 #. * multiview-TODO: decide whether "Reset to Defaults" should
 #. * be window-wide, and not just view-wide.
@@ -5396,7 +5397,7 @@ msgstr "Właściwości"
 #: ../src/file-manager/fm-properties-window.c:999
 #, c-format
 msgid "%s Properties"
-msgstr "Właściwości %s"
+msgstr "Właściwości \"%s\""
 
 #: ../src/file-manager/fm-properties-window.c:1327
 #, c-format
@@ -5716,7 +5717,7 @@ msgstr "Nie można wysunąć %s"
 
 #: ../src/caja-application.c:1956
 msgid "--check cannot be used with other options."
-msgstr "--zaznaczenie nie może być stosowane z innymi opcjami."
+msgstr "--check nie może być stosowane z innymi opcjami."
 
 #: ../src/caja-application.c:1962
 msgid "--quit cannot be used with URIs."
@@ -5884,7 +5885,7 @@ msgstr "Nie można wczytać listy wspieranych metod serwera.\nProszę sprawdzić
 #: ../src/caja-connect-server-dialog.c:298
 #, c-format
 msgid "The folder \"%s\" cannot be opened on \"%s\"."
-msgstr "Folder \"%s\" nie może zostać otworzony w \"%s\"."
+msgstr "Katalog \"%s\" nie może zostać otwarty w \"%s\"."
 
 #: ../src/caja-connect-server-dialog.c:308
 #, c-format
@@ -5915,7 +5916,7 @@ msgstr "Połączenie z serwerem"
 
 #: ../src/caja-connect-server-dialog.c:874
 msgid "Server Details"
-msgstr "Szczegóły Serwera"
+msgstr "Szczegóły serwera"
 
 #. first row: server entry + port spinbutton
 #: ../src/caja-connect-server-dialog.c:898
@@ -5935,7 +5936,7 @@ msgstr "Udostępnij:"
 #. fourth row: folder entry
 #: ../src/caja-connect-server-dialog.c:1035
 msgid "Folder:"
-msgstr "Folder:"
+msgstr "Katalog:"
 
 #: ../src/caja-connect-server-dialog.c:1052
 msgid "User Details"
@@ -5967,7 +5968,7 @@ msgstr "Dodaj _zakładkę"
 
 #: ../src/caja-connect-server-dialog.c:1143
 msgid "Bookmark Name:"
-msgstr "Nazwa Zakładki:"
+msgstr "Nazwa zakładki:"
 
 #: ../src/caja-desktop-window.c:87 ../src/caja-desktop-window.c:267
 #: ../src/caja-pathbar.c:1399 ../src/caja-places-sidebar.c:523
@@ -6049,7 +6050,7 @@ msgstr "Wyświetla symbole"
 
 #: ../src/caja-file-management-properties.c:631
 msgid "About Extension"
-msgstr "O Rozszerzeniu"
+msgstr "O rozszerzeniu"
 
 #: ../src/caja-file-management-properties.ui.h:4
 msgid "Always"
@@ -6314,7 +6315,7 @@ msgstr "_Format:"
 
 #: ../src/caja-file-management-properties.ui.h:74
 msgid "<b>Size</b>"
-msgstr "<b>Wielkość</b>"
+msgstr "<b>Rozmiar</b>"
 
 #: ../src/caja-file-management-properties.ui.h:75
 msgid "_Show file sizes with IEC units"
@@ -6435,7 +6436,7 @@ msgstr "Nośniki"
 
 #: ../src/caja-file-management-properties.ui.h:104
 msgid "<b>Available _Extensions:</b>"
-msgstr "<b>Dostępne _Rozszerzenia:</b>"
+msgstr "<b>Dostępne _rozszerzenia:</b>"
 
 #: ../src/caja-file-management-properties.ui.h:105
 msgid "column"
@@ -6447,11 +6448,11 @@ msgstr "Rozszerzenie"
 
 #: ../src/caja-file-management-properties.ui.h:107
 msgid "_About Extension"
-msgstr "_O Rozszerzeniu"
+msgstr "_O rozszerzeniu"
 
 #: ../src/caja-file-management-properties.ui.h:108
 msgid "C_onfigure Extension"
-msgstr "K_onfiguruj Rozszerzenie"
+msgstr "K_onfiguruj rozszerzenie"
 
 #: ../src/caja-file-management-properties.ui.h:109
 msgid "Extensions"
@@ -6875,7 +6876,7 @@ msgstr "Przełącz pomiędzy przyciskiem a tekstowym paskiem adresu"
 
 #: ../src/caja-navigation-window-pane.c:454
 msgid "_New Tab"
-msgstr "_Nowa Karta"
+msgstr "_Nowa karta"
 
 #: ../src/caja-navigation-window-pane.c:483
 msgid "_Close Tab"
@@ -7426,11 +7427,11 @@ msgstr "Copyright © 1999-2009 Autorzy programu Nautilus\nCopyright © 2011-2017
 #. * box to give credit to the translator(s).
 #: ../src/caja-window-menus.c:550
 msgid "translator-credits"
-msgstr "Aviary.pl <matepl@aviary.pl>, 2006, 2007, 2008, 2009, 2010\nMarcin Kralka <marcink96@gmail.com>, 2013, 2014"
+msgstr "Tłumacze środowiska MATE, 2012-2017\n\nZbigniew Chyla, 2000-2003\nArtur Flinta, 2003-2006\nWadim Dziedzic, 2006-2009\nTomasz Dominikowski, 2007-2009\nWojciech Kapusta, 2009\nPiotr Drąg, 2009-2010\nAviary.pl, 2006-2010"
 
 #: ../src/caja-window-menus.c:553
 msgid "MATE Web Site"
-msgstr "MATE Strona www"
+msgstr "Strona środowiska MATE"
 
 #. name, stock id, label
 #: ../src/caja-window-menus.c:806
