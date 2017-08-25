@@ -2778,7 +2778,7 @@ fm_list_view_set_zoom_level (FMListView *view,
 
     fm_directory_view_update_menus (FM_DIRECTORY_VIEW (view));
 
-    gtk_widget_queue_draw(view->details->tree_view);
+    gtk_tree_model_foreach (GTK_TREE_MODEL (view->details->model), list_view_changed_foreach, NULL);
 }
 
 static void
