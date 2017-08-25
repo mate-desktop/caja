@@ -1,6 +1,33 @@
+### caja 1.19.1
+
+  * Translations update
+    gtk 3.22: avoid deprecated gdk_screen_get_monitor... functions:
+    Adds columns autosizing
+    Refresh all rows on zoom change
+    Forces widget redraw on zoom
+    pathbar: enable mousewheel scrolling like it was with GTK+2
+    libcaja-private: remove wrong link from internal README
+    private: Ensure we allow launching .desktop files from trusted symlinks
+    Fix: Scaling the desktop wallpaper doesn't work
+    open-with-dialog: set max-char-width for a label
+    Fix "Open With" dialog "Open" button's text misaligned
+    avoid deprecated gdk_screen_width/height
+    avoid deprecated gdk_screen_get_width/height
+    avoid deprecated gdk_screen_make_display_name
+    libegg: replace deprecated gtk_drag_begin
+    eggsmclient: fix a build warning because of -Wcomment
+    don't use deprecated gtk_show_uri
+    avoid deprecated gdk_screen_get_number
+    Fix browsing/autorun media on insertion
+    fix vertical Compact View scrolling in fm_icon_view_scroll_event()
+    property-browser: add style class frame to scrolledwindows"
+    Fix off-by-one error in caja-pathbar.c
+    Restore Polish translation credits from GNOME
+    added feature: present the size on disk of files as we present the size of the file.
+
 ### caja 1.19.0
 
-  * sync with transifex
+  * Translations update
   * restore DBus interface initialization
   * CSS: Load a different caja-desktop.css with GTK 3.14
   * Use gtk+-3 bookmarks location
