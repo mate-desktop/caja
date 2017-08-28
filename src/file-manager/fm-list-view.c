@@ -2777,6 +2777,9 @@ fm_list_view_set_zoom_level (FMListView *view,
     gtk_cell_renderer_set_fixed_size (GTK_CELL_RENDERER (view->details->pixbuf_cell),
                                       -1, icon_size);
 
+    /* FIXME: https://bugzilla.gnome.org/show_bug.cgi?id=641518 */
+    gtk_tree_view_columns_autosize (view->details->tree_view);
+
     fm_directory_view_update_menus (FM_DIRECTORY_VIEW (view));
 
     gtk_tree_model_foreach (GTK_TREE_MODEL (view->details->model), list_view_changed_foreach, NULL);
