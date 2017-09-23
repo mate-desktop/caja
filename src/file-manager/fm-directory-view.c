@@ -1063,7 +1063,7 @@ real_delete (FMDirectoryView *view)
 	GtkAction *action;
 
 	action = gtk_action_group_get_action (view->details->dir_action_group,
-					      FM_ACTION_DELETE);
+					      FM_ACTION_TRASH);
 	if (gtk_action_get_sensitive (action) &&
 	    gtk_action_get_visible (action)) {
 		delete_selected_files (view);
@@ -7368,7 +7368,7 @@ static const GtkActionEntry directory_view_entries[] = {
   /* tooltip */                  N_("Move each selected item to the Trash"),
                                  G_CALLBACK (action_trash_callback) },
   /* name, stock id */         { "Delete", NULL,
-  /* label, accelerator */       N_("_Delete"), "<shift>Delete",
+  /* label, accelerator */       N_("_Delete"), NULL,
   /* tooltip */                  N_("Delete each selected item, without moving to the Trash"),
                                  G_CALLBACK (action_delete_callback) },
   /* name, stock id */         { "Restore From Trash", NULL,
@@ -11074,6 +11074,8 @@ fm_directory_view_class_init (FMDirectoryViewClass *klass)
 				      "trash", 0);
 	gtk_binding_entry_add_signal (binding_set, GDK_KEY_KP_Delete, 0,
 				      "trash", 0);
+	gtk_binding_entry_add_signal (binding_set, GDK_KEY_Delete, GDK_SHIFT_MASK,
+				      "delete", 0);
 	gtk_binding_entry_add_signal (binding_set, GDK_KEY_KP_Delete, GDK_SHIFT_MASK,
 				      "delete", 0);
 
