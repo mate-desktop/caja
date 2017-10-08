@@ -57,7 +57,7 @@ get_builtin_columns (void)
                                            "name", "size_on_disk",
                                            "attribute", "size_on_disk",
                                            "label", _("Size on Disk"),
-                                           "description", _("The size on disk of the file."),
+                                           "description", _("The size of the file on disk."),
                                            "xalign", 1.0,
                                            NULL));
     columns = g_list_append (columns,
