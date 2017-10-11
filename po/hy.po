@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-18 18:17+0300\n"
-"PO-Revision-Date: 2017-04-18 15:18+0000\n"
+"POT-Creation-Date: 2017-10-08 13:31+0300\n"
+"PO-Revision-Date: 2017-10-08 10:32+0000\n"
 "Last-Translator: monsta <monsta@inbox.ru>\n"
 "Language-Team: Armenian (http://www.transifex.com/mate/MATE/language/hy/)\n"
 "MIME-Version: 1.0\n"
@@ -43,12 +43,12 @@ msgstr "Ծրագիրը փաստաթուղթ չի ընդունում հրաման
 msgid "Unrecognized launch option: %d"
 msgstr "Չճանաչված գործարկչի ընտրացանկ: %d"
 
-#: ../cut-n-paste-code/libegg/eggdesktopfile.c:1367
+#: ../cut-n-paste-code/libegg/eggdesktopfile.c:1366
 #, c-format
 msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
 msgstr "Չի հաջողվել անցկացնել փաստաթղթի URI–ները աշխատաքային սեղանի մուտքի 'Type=Link'–ին "
 
-#: ../cut-n-paste-code/libegg/eggdesktopfile.c:1386
+#: ../cut-n-paste-code/libegg/eggdesktopfile.c:1385
 #, c-format
 msgid "Not a launchable item"
 msgstr "Չգործարկվող տարր"
@@ -347,7 +347,7 @@ msgstr "Քաշեք էմբլեմը առարկայի վրա` այն առարկայ
 
 #. translators: this is the name of an emblem
 #: ../data/browser.xml.h:68 ../src/caja-emblem-sidebar.c:982
-#: ../src/caja-property-browser.c:1938
+#: ../src/caja-property-browser.c:1944
 msgid "Erase"
 msgstr "Ջնջել"
 
@@ -421,15 +421,15 @@ msgid ""
 "The position of the opposite end of the selection from the cursor in chars."
 msgstr "Հնադիպակաց դիրքի վերջի ընտրությունը կուրսորի համար սիմվոլների մեջ։ "
 
-#: ../eel/eel-editable-label.c:3119
+#: ../eel/eel-editable-label.c:3127
 msgid "Select All"
 msgstr "Ընտրել բոլորը"
 
-#: ../eel/eel-editable-label.c:3130
+#: ../eel/eel-editable-label.c:3138
 msgid "Input Methods"
 msgstr "Մուտքագրման մեթոդներ"
 
-#: ../eel/eel-gtk-extensions.c:445
+#: ../eel/eel-gtk-extensions.c:456
 msgid "Show more _details"
 msgstr "Ցույց տալ ավելի շատ _մանրամասներ"
 
@@ -549,9 +549,9 @@ msgstr "_Միշտ կատարել այս գործողությունը"
 #. label, accelerator
 #. add the "Eject" menu item
 #: ../libcaja-private/caja-autorun.c:1146
-#: ../src/file-manager/fm-directory-view.c:7401
-#: ../src/file-manager/fm-directory-view.c:7429
-#: ../src/file-manager/fm-directory-view.c:7510
+#: ../src/file-manager/fm-directory-view.c:7408
+#: ../src/file-manager/fm-directory-view.c:7436
+#: ../src/file-manager/fm-directory-view.c:7517
 #: ../src/file-manager/fm-tree-view.c:1382 ../src/caja-places-sidebar.c:2740
 msgid "_Eject"
 msgstr "_Դուրս բերում"
@@ -560,9 +560,9 @@ msgstr "_Դուրս բերում"
 #. label, accelerator
 #. add the "Unmount" menu item
 #: ../libcaja-private/caja-autorun.c:1159
-#: ../src/file-manager/fm-directory-view.c:7397
-#: ../src/file-manager/fm-directory-view.c:7425
-#: ../src/file-manager/fm-directory-view.c:7506
+#: ../src/file-manager/fm-directory-view.c:7404
+#: ../src/file-manager/fm-directory-view.c:7432
+#: ../src/file-manager/fm-directory-view.c:7513
 #: ../src/file-manager/fm-tree-view.c:1373 ../src/caja-places-sidebar.c:2733
 msgid "_Unmount"
 msgstr "_Ապամոնտաժում"
@@ -591,7 +591,7 @@ msgstr "Տեքստը տեղադրել տվյալների փոխանակությ�
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-clipboard.c:470
-#: ../src/file-manager/fm-directory-view.c:7330
+#: ../src/file-manager/fm-directory-view.c:7337
 msgid "Select _All"
 msgstr "Ընտրել _բոլորը"
 
@@ -614,7 +614,7 @@ msgstr "Օգտագործել դե_ֆոլտ"
 
 #: ../libcaja-private/caja-column-utilities.c:44
 #: ../libcaja-private/caja-mime-application-chooser.c:274
-#: ../src/file-manager/fm-list-view.c:1766
+#: ../src/file-manager/fm-list-view.c:1767
 msgid "Name"
 msgstr "Անուն"
 
@@ -631,113 +631,121 @@ msgid "The size of the file."
 msgstr "Ֆայլի չափսը"
 
 #: ../libcaja-private/caja-column-utilities.c:59
+msgid "Size on Disk"
+msgstr ""
+
+#: ../libcaja-private/caja-column-utilities.c:60
+msgid "The size of the file on disk."
+msgstr ""
+
+#: ../libcaja-private/caja-column-utilities.c:67
 msgid "Type"
 msgstr "Տեսակը"
 
-#: ../libcaja-private/caja-column-utilities.c:60
+#: ../libcaja-private/caja-column-utilities.c:68
 msgid "The type of the file."
 msgstr "Ֆայլի տեսակը։"
 
-#: ../libcaja-private/caja-column-utilities.c:66
+#: ../libcaja-private/caja-column-utilities.c:74
 #: ../src/caja-image-properties-page.c:288
 msgid "Date Modified"
 msgstr "Փոփոխված ամսաթիվը։"
 
-#: ../libcaja-private/caja-column-utilities.c:67
+#: ../libcaja-private/caja-column-utilities.c:75
 msgid "The date the file was modified."
 msgstr "Ֆայլի մոդիֆիկացիայի ամսաթիվը"
 
-#: ../libcaja-private/caja-column-utilities.c:74
+#: ../libcaja-private/caja-column-utilities.c:82
 msgid "Date Accessed"
 msgstr "Մուտքի ամսաթիվը։"
 
-#: ../libcaja-private/caja-column-utilities.c:75
+#: ../libcaja-private/caja-column-utilities.c:83
 msgid "The date the file was accessed."
 msgstr "Ֆայլի մուտքի ամսաթիվը"
 
-#: ../libcaja-private/caja-column-utilities.c:82
+#: ../libcaja-private/caja-column-utilities.c:90
 msgid "Owner"
 msgstr "Սեփականատերը"
 
-#: ../libcaja-private/caja-column-utilities.c:83
+#: ../libcaja-private/caja-column-utilities.c:91
 msgid "The owner of the file."
 msgstr "Ֆայլի սեփականատերը"
 
-#: ../libcaja-private/caja-column-utilities.c:90
+#: ../libcaja-private/caja-column-utilities.c:98
 msgid "Group"
 msgstr "Խումբ"
 
-#: ../libcaja-private/caja-column-utilities.c:91
+#: ../libcaja-private/caja-column-utilities.c:99
 msgid "The group of the file."
 msgstr "Ֆայլի խումբը"
 
-#: ../libcaja-private/caja-column-utilities.c:98
-#: ../src/file-manager/fm-properties-window.c:4734
+#: ../libcaja-private/caja-column-utilities.c:106
+#: ../src/file-manager/fm-properties-window.c:4750
 msgid "Permissions"
 msgstr "Թույլտվություններ"
 
-#: ../libcaja-private/caja-column-utilities.c:99
+#: ../libcaja-private/caja-column-utilities.c:107
 msgid "The permissions of the file."
 msgstr "Ֆայլի թույլտվություններ"
 
-#: ../libcaja-private/caja-column-utilities.c:106
+#: ../libcaja-private/caja-column-utilities.c:114
 msgid "Octal Permissions"
 msgstr "Ութանգամյան թույլտվություն"
 
-#: ../libcaja-private/caja-column-utilities.c:107
+#: ../libcaja-private/caja-column-utilities.c:115
 msgid "The permissions of the file, in octal notation."
 msgstr "Ֆայլի թույտվությունները ութանգամյա նշագրմամբ։"
 
-#: ../libcaja-private/caja-column-utilities.c:114
+#: ../libcaja-private/caja-column-utilities.c:122
 msgid "MIME Type"
 msgstr "MIME տեսակ"
 
-#: ../libcaja-private/caja-column-utilities.c:115
+#: ../libcaja-private/caja-column-utilities.c:123
 msgid "The mime type of the file."
 msgstr "Ֆայլի mime տեսակը "
 
-#: ../libcaja-private/caja-column-utilities.c:122
+#: ../libcaja-private/caja-column-utilities.c:130
 msgid "SELinux Context"
 msgstr "SELinux Կոնտեքստ"
 
-#: ../libcaja-private/caja-column-utilities.c:123
+#: ../libcaja-private/caja-column-utilities.c:131
 msgid "The SELinux security context of the file."
 msgstr "SELinux անվտանգության համատեքստի ֆայլը։"
 
-#: ../libcaja-private/caja-column-utilities.c:130
+#: ../libcaja-private/caja-column-utilities.c:138
 #: ../src/caja-image-properties-page.c:369 ../src/caja-query-editor.c:135
 msgid "Location"
 msgstr "Գտնվելու վայր"
 
-#: ../libcaja-private/caja-column-utilities.c:131
+#: ../libcaja-private/caja-column-utilities.c:139
 msgid "The location of the file."
 msgstr "Ֆայլի գտնվելու վայրը"
 
-#: ../libcaja-private/caja-column-utilities.c:174
+#: ../libcaja-private/caja-column-utilities.c:182
 msgid "Trashed On"
 msgstr "Խոտանված"
 
-#: ../libcaja-private/caja-column-utilities.c:175
+#: ../libcaja-private/caja-column-utilities.c:183
 msgid "Date when file was moved to the Trash"
 msgstr "Ժամանակը, երբ ֆայլը տեղափոխվել է Զամբյուղ"
 
-#: ../libcaja-private/caja-column-utilities.c:181
+#: ../libcaja-private/caja-column-utilities.c:189
 msgid "Original Location"
 msgstr "Բնօրինակ Տեզադրություն"
 
-#: ../libcaja-private/caja-column-utilities.c:182
+#: ../libcaja-private/caja-column-utilities.c:190
 msgid "Original location of file before moved to the Trash"
 msgstr "Ֆայլի բնօրինակ տեղադրությունը մինչև թափոնների մեջ տեղափոխելը"
 
 #: ../libcaja-private/caja-customization-data.c:431
 #: ../libcaja-private/caja-file-conflict-dialog.c:631
 #: ../libcaja-private/caja-mime-application-chooser.c:441
-#: ../src/caja-property-browser.c:1985
+#: ../src/caja-property-browser.c:1991
 msgid "Reset"
 msgstr "Վերամիացնել"
 
-#: ../libcaja-private/caja-desktop-directory-file.c:455
-#: ../libcaja-private/caja-desktop-icon-file.c:158
+#: ../libcaja-private/caja-desktop-directory-file.c:457
+#: ../libcaja-private/caja-desktop-icon-file.c:163
 msgid "on the desktop"
 msgstr "Աշխատասեղանի վրա"
 
@@ -913,15 +921,15 @@ msgstr "Ֆայլի Բնօրինակ"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:284
 #: ../libcaja-private/caja-file-conflict-dialog.c:323
-#: ../src/file-manager/fm-properties-window.c:3264
+#: ../src/file-manager/fm-properties-window.c:3276
 msgid "Size:"
 msgstr "Չափս"
 
 #. second row: type combobox
 #: ../libcaja-private/caja-file-conflict-dialog.c:289
 #: ../libcaja-private/caja-file-conflict-dialog.c:328
-#: ../src/file-manager/fm-properties-window.c:3246
-#: ../src/caja-connect-server-dialog.c:942
+#: ../src/file-manager/fm-properties-window.c:3258
+#: ../src/caja-connect-server-dialog.c:948
 msgid "Type:"
 msgstr "Տեսակ"
 
@@ -959,7 +967,7 @@ msgid "Apply this action to all files and folders"
 msgstr ""
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:664
-#: ../libcaja-private/caja-file-operations.c:185
+#: ../libcaja-private/caja-file-operations.c:186
 msgid "_Skip"
 msgstr "_Բաց թողնել"
 
@@ -984,61 +992,61 @@ msgstr ""
 msgid "File conflict"
 msgstr "Ֆայլի հակասություն"
 
-#: ../libcaja-private/caja-file-operations.c:186
+#: ../libcaja-private/caja-file-operations.c:187
 msgid "S_kip All"
 msgstr "Բաց թողնել բոլորը"
 
-#: ../libcaja-private/caja-file-operations.c:187
+#: ../libcaja-private/caja-file-operations.c:188
 msgid "_Retry"
 msgstr "_Retry վերափորձել"
 
-#: ../libcaja-private/caja-file-operations.c:188
+#: ../libcaja-private/caja-file-operations.c:189
 msgid "Delete _All"
 msgstr "Ջնջել բոլորը"
 
-#: ../libcaja-private/caja-file-operations.c:189
+#: ../libcaja-private/caja-file-operations.c:190
 msgid "_Replace"
 msgstr "_Փոխարինել"
 
-#: ../libcaja-private/caja-file-operations.c:190
+#: ../libcaja-private/caja-file-operations.c:191
 msgid "Replace _All"
 msgstr "Փոխարինել _ամբողջը"
 
-#: ../libcaja-private/caja-file-operations.c:191
+#: ../libcaja-private/caja-file-operations.c:192
 msgid "_Merge"
 msgstr "_Միաձուլել"
 
-#: ../libcaja-private/caja-file-operations.c:192
+#: ../libcaja-private/caja-file-operations.c:193
 msgid "Merge _All"
 msgstr "Միաձուլել _Բոլորը"
 
-#: ../libcaja-private/caja-file-operations.c:193
+#: ../libcaja-private/caja-file-operations.c:194
 msgid "Copy _Anyway"
 msgstr "Պատճեն _Ամեն դեպքում"
 
-#: ../libcaja-private/caja-file-operations.c:307
+#: ../libcaja-private/caja-file-operations.c:308
 #, c-format
 msgid "%'d second"
 msgid_plural "%'d seconds"
 msgstr[0] "%'d երկրորդ"
 msgstr[1] "%'d երկրորդ"
 
-#: ../libcaja-private/caja-file-operations.c:312
-#: ../libcaja-private/caja-file-operations.c:323
+#: ../libcaja-private/caja-file-operations.c:313
+#: ../libcaja-private/caja-file-operations.c:324
 #, c-format
 msgid "%'d minute"
 msgid_plural "%'d minutes"
 msgstr[0] "%'d րոպեներ"
 msgstr[1] "%'d րոպեներ"
 
-#: ../libcaja-private/caja-file-operations.c:322
+#: ../libcaja-private/caja-file-operations.c:323
 #, c-format
 msgid "%'d hour"
 msgid_plural "%'d hours"
 msgstr[0] "%'d ժամներ"
 msgstr[1] "%'d ժամեր"
 
-#: ../libcaja-private/caja-file-operations.c:330
+#: ../libcaja-private/caja-file-operations.c:331
 #, c-format
 msgid "approximately %'d hour"
 msgid_plural "approximately %'d hours"
@@ -1049,15 +1057,15 @@ msgstr[1] "մոտավորապես %'d ժամ"
 #. Note to localizers: convert file type string for file
 #. * (e.g. "folder", "plain text") to file type for symbolic link
 #. * to that kind of file (e.g. "link to folder").
-#: ../libcaja-private/caja-file-operations.c:406
-#: ../libcaja-private/caja-file.c:6399
-#: ../src/file-manager/fm-directory-view.c:10521
+#: ../libcaja-private/caja-file-operations.c:407
+#: ../libcaja-private/caja-file.c:6526
+#: ../src/file-manager/fm-directory-view.c:10528
 #, c-format
 msgid "Link to %s"
 msgstr "Հղում դեպի %s"
 
 #. appended to new link file
-#: ../libcaja-private/caja-file-operations.c:410
+#: ../libcaja-private/caja-file-operations.c:411
 #, c-format
 msgid "Another link to %s"
 msgstr "Մեկ այլ հղում դեպի %s"
@@ -1065,25 +1073,25 @@ msgstr "Մեկ այլ հղում դեպի %s"
 #. Localizers: Feel free to leave out the "st" suffix
 #. * if there's no way to do that nicely for a
 #. * particular language.
-#: ../libcaja-private/caja-file-operations.c:426
+#: ../libcaja-private/caja-file-operations.c:427
 #, c-format
 msgid "%'dst link to %s"
 msgstr "%'dst հղում դեպի %s"
 
 #. appended to new link file
-#: ../libcaja-private/caja-file-operations.c:430
+#: ../libcaja-private/caja-file-operations.c:431
 #, c-format
 msgid "%'dnd link to %s"
 msgstr "%'dnd հղում դեպի %s"
 
 #. appended to new link file
-#: ../libcaja-private/caja-file-operations.c:434
+#: ../libcaja-private/caja-file-operations.c:435
 #, c-format
 msgid "%'drd link to %s"
 msgstr "%'dnd հղում դեպի %s"
 
 #. appended to new link file
-#: ../libcaja-private/caja-file-operations.c:438
+#: ../libcaja-private/caja-file-operations.c:439
 #, c-format
 msgid "%'dth link to %s"
 msgstr "%'dth հղում դեպի %s"
@@ -1092,12 +1100,12 @@ msgstr "%'dth հղում դեպի %s"
 #. * Feel free to leave out the st, nd, rd and th suffix or
 #. * make some or all of them match.
 #. localizers: tag used to detect the first copy of a file
-#: ../libcaja-private/caja-file-operations.c:477
+#: ../libcaja-private/caja-file-operations.c:478
 msgid " (copy)"
 msgstr "(պատճենում)"
 
 #. localizers: tag used to detect the second copy of a file
-#: ../libcaja-private/caja-file-operations.c:479
+#: ../libcaja-private/caja-file-operations.c:480
 msgid " (another copy)"
 msgstr "(մեկ այլ պատճենում)"
 
@@ -1105,36 +1113,36 @@ msgstr "(մեկ այլ պատճենում)"
 #. localizers: tag used to detect the x12th copy of a file
 #. localizers: tag used to detect the x13th copy of a file
 #. localizers: tag used to detect the xxth copy of a file
-#: ../libcaja-private/caja-file-operations.c:482
-#: ../libcaja-private/caja-file-operations.c:484
-#: ../libcaja-private/caja-file-operations.c:486
-#: ../libcaja-private/caja-file-operations.c:496
+#: ../libcaja-private/caja-file-operations.c:483
+#: ../libcaja-private/caja-file-operations.c:485
+#: ../libcaja-private/caja-file-operations.c:487
+#: ../libcaja-private/caja-file-operations.c:497
 msgid "th copy)"
 msgstr "րդ պատճեն"
 
 #. localizers: tag used to detect the x1st copy of a file
-#: ../libcaja-private/caja-file-operations.c:489
+#: ../libcaja-private/caja-file-operations.c:490
 msgid "st copy)"
 msgstr "ին պատճեն"
 
 #. localizers: tag used to detect the x2nd copy of a file
-#: ../libcaja-private/caja-file-operations.c:491
+#: ../libcaja-private/caja-file-operations.c:492
 msgid "nd copy)"
 msgstr "րդ պատճեն"
 
 #. localizers: tag used to detect the x3rd copy of a file
-#: ../libcaja-private/caja-file-operations.c:493
+#: ../libcaja-private/caja-file-operations.c:494
 msgid "rd copy)"
 msgstr "րդ պատճեն"
 
 #. localizers: appended to first file copy
-#: ../libcaja-private/caja-file-operations.c:510
+#: ../libcaja-private/caja-file-operations.c:511
 #, c-format
 msgid "%s (copy)%s"
 msgstr "%s (պատճե)%s"
 
 #. localizers: appended to second file copy
-#: ../libcaja-private/caja-file-operations.c:512
+#: ../libcaja-private/caja-file-operations.c:513
 #, c-format
 msgid "%s (another copy)%s"
 msgstr "%s (մեկ այլ պատճե)%s"
@@ -1143,10 +1151,10 @@ msgstr "%s (մեկ այլ պատճե)%s"
 #. localizers: appended to x12th file copy
 #. localizers: appended to x13th file copy
 #. localizers: appended to xxth file copy
-#: ../libcaja-private/caja-file-operations.c:515
-#: ../libcaja-private/caja-file-operations.c:517
-#: ../libcaja-private/caja-file-operations.c:519
-#: ../libcaja-private/caja-file-operations.c:533
+#: ../libcaja-private/caja-file-operations.c:516
+#: ../libcaja-private/caja-file-operations.c:518
+#: ../libcaja-private/caja-file-operations.c:520
+#: ../libcaja-private/caja-file-operations.c:534
 #, c-format
 msgid "%s (%'dth copy)%s"
 msgstr "%s (%'dth պատճե)%s"
@@ -1157,39 +1165,39 @@ msgstr "%s (%'dth պատճե)%s"
 #. translated
 #. * strings look like "%s (copy %'d)%s".
 #. localizers: appended to x1st file copy
-#: ../libcaja-private/caja-file-operations.c:527
+#: ../libcaja-private/caja-file-operations.c:528
 #, c-format
 msgid "%s (%'dst copy)%s"
 msgstr "%s (%'dst պատճե)%s"
 
 #. localizers: appended to x2nd file copy
-#: ../libcaja-private/caja-file-operations.c:529
+#: ../libcaja-private/caja-file-operations.c:530
 #, c-format
 msgid "%s (%'dnd copy)%s"
 msgstr "%s (%'dnd պատճե)%s"
 
 #. localizers: appended to x3rd file copy
-#: ../libcaja-private/caja-file-operations.c:531
+#: ../libcaja-private/caja-file-operations.c:532
 #, c-format
 msgid "%s (%'drd copy)%s"
 msgstr "%s (%'drd պատճե)%s"
 
 #. localizers: opening parentheses to match the "th copy)" string
-#: ../libcaja-private/caja-file-operations.c:631
+#: ../libcaja-private/caja-file-operations.c:632
 msgid " ("
 msgstr "("
 
 #. localizers: opening parentheses of the "th copy)" string
-#: ../libcaja-private/caja-file-operations.c:639
+#: ../libcaja-private/caja-file-operations.c:640
 #, c-format
 msgid " (%'d"
 msgstr " (%'d"
 
-#: ../libcaja-private/caja-file-operations.c:1353
+#: ../libcaja-private/caja-file-operations.c:1354
 msgid "Are you sure you want to permanently delete \"%B\" from the trash?"
 msgstr "Դուք համոզվա՞ծ եք, որ ցանկանում եք մշտապես ջնջել «% B» զամբյուղից"
 
-#: ../libcaja-private/caja-file-operations.c:1356
+#: ../libcaja-private/caja-file-operations.c:1357
 #, c-format
 msgid ""
 "Are you sure you want to permanently delete the %'d selected item from the "
@@ -1200,31 +1208,31 @@ msgid_plural ""
 msgstr[0] "Դուք համոզվա՞ծ եք, որ ուզում եք ընդմիշտ ջնջել %'d ընտրված տարրերը զամբյուղից"
 msgstr[1] "Դուք համոզվա՞ծ եք, որ ուզում եք ընդմիշտ ջնջել %'d ընտրված տարրերը զամբյուղից"
 
-#: ../libcaja-private/caja-file-operations.c:1366
-#: ../libcaja-private/caja-file-operations.c:1432
+#: ../libcaja-private/caja-file-operations.c:1367
+#: ../libcaja-private/caja-file-operations.c:1433
 msgid "If you delete an item, it will be permanently lost."
 msgstr "Եթե դուք հեռացնեք տարրը, այն վերջնականապես կկորչի"
 
-#: ../libcaja-private/caja-file-operations.c:1386
+#: ../libcaja-private/caja-file-operations.c:1387
 msgid "Empty all items from Trash?"
 msgstr "Դատարկե՞լ զամբյուղի բոլոր տարրերը։"
 
-#: ../libcaja-private/caja-file-operations.c:1390
+#: ../libcaja-private/caja-file-operations.c:1391
 msgid "All items in the Trash will be permanently deleted."
 msgstr "Բոլոր տարրերը Զամբյուզից ընդմիշտ կջնջվեն."
 
 #. Empty Trash menu item
-#: ../libcaja-private/caja-file-operations.c:1393
-#: ../libcaja-private/caja-file-operations.c:2316
+#: ../libcaja-private/caja-file-operations.c:1394
+#: ../libcaja-private/caja-file-operations.c:2317
 #: ../src/caja-places-sidebar.c:2777 ../src/caja-trash-bar.c:197
 msgid "Empty _Trash"
 msgstr "Դատարկել _թափոն զամբյուղը"
 
-#: ../libcaja-private/caja-file-operations.c:1420
+#: ../libcaja-private/caja-file-operations.c:1421
 msgid "Are you sure you want to permanently delete \"%B\"?"
 msgstr "Դուք համոզվա՞ծ եք, որ ցանկանում եք մշտապես ջնջել «% B»."
 
-#: ../libcaja-private/caja-file-operations.c:1423
+#: ../libcaja-private/caja-file-operations.c:1424
 #, c-format
 msgid "Are you sure you want to permanently delete the %'d selected item?"
 msgid_plural ""
@@ -1232,289 +1240,289 @@ msgid_plural ""
 msgstr[0] "Դուք համոզվա՞ծ եք, որ ցանկանում եք մշտապես ջնջել  %'d ընտրված տարրերը"
 msgstr[1] "Դուք համոզվա՞ծ եք, որ ցանկանում եք մշտապես ջնջել  %'d ընտրված տարրերը"
 
-#: ../libcaja-private/caja-file-operations.c:1462
+#: ../libcaja-private/caja-file-operations.c:1463
 msgid "Are you sure you want to trash \"%B\"?"
 msgstr ""
 
-#: ../libcaja-private/caja-file-operations.c:1465
+#: ../libcaja-private/caja-file-operations.c:1466
 #, c-format
 msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../libcaja-private/caja-file-operations.c:1474
+#: ../libcaja-private/caja-file-operations.c:1475
 msgid "Items moved to the trash may be recovered until the trash is emptied."
 msgstr ""
 
-#: ../libcaja-private/caja-file-operations.c:1477
+#: ../libcaja-private/caja-file-operations.c:1478
 msgid "Move to _Trash"
 msgstr ""
 
-#: ../libcaja-private/caja-file-operations.c:1508
+#: ../libcaja-private/caja-file-operations.c:1509
 #, c-format
 msgid "%'d file left to delete"
 msgid_plural "%'d files left to delete"
 msgstr[0] "%'d ֆայլը հանձնել ջնջելու"
 msgstr[1] "%'d ֆայլերը հանձնել ջնջելու"
 
-#: ../libcaja-private/caja-file-operations.c:1514
+#: ../libcaja-private/caja-file-operations.c:1515
 msgid "Deleting files"
 msgstr "Ֆայլերի հեռացում։"
 
 #. To translators: %T will expand to a time like "2 minutes".
 #. * The singular/plural form will be used depending on the remaining time
 #. (i.e. the %T argument).
-#: ../libcaja-private/caja-file-operations.c:1528
+#: ../libcaja-private/caja-file-operations.c:1529
 msgid "%T left"
 msgid_plural "%T left"
 msgstr[0] "%T ձախ"
 msgstr[1] "%T ձախ"
 
-#: ../libcaja-private/caja-file-operations.c:1595
-#: ../libcaja-private/caja-file-operations.c:1629
-#: ../libcaja-private/caja-file-operations.c:1668
-#: ../libcaja-private/caja-file-operations.c:1745
-#: ../libcaja-private/caja-file-operations.c:2561
+#: ../libcaja-private/caja-file-operations.c:1596
+#: ../libcaja-private/caja-file-operations.c:1630
+#: ../libcaja-private/caja-file-operations.c:1669
+#: ../libcaja-private/caja-file-operations.c:1746
+#: ../libcaja-private/caja-file-operations.c:2562
 msgid "Error while deleting."
 msgstr "Հեռացման սխալ"
 
-#: ../libcaja-private/caja-file-operations.c:1599
+#: ../libcaja-private/caja-file-operations.c:1600
 msgid ""
 "Files in the folder \"%B\" cannot be deleted because you do not have "
 "permissions to see them."
 msgstr "\"%B\" թղթապանակում ֆայլերը չեն կարող ջնջվել, որովհոտև դուք չունեք թույլտվություններ դրանք տեսնելու համար։"
 
-#: ../libcaja-private/caja-file-operations.c:1602
-#: ../libcaja-private/caja-file-operations.c:2620
-#: ../libcaja-private/caja-file-operations.c:3601
+#: ../libcaja-private/caja-file-operations.c:1603
+#: ../libcaja-private/caja-file-operations.c:2622
+#: ../libcaja-private/caja-file-operations.c:3604
 msgid ""
 "There was an error getting information about the files in the folder \"%B\"."
 msgstr "Տեղի է ունեցել սխալ \"%B\" թղթապանակում ֆայլերի մասին տեղեկատվություն ստանալու ժամանակ։"
 
-#: ../libcaja-private/caja-file-operations.c:1611
-#: ../libcaja-private/caja-file-operations.c:3610
+#: ../libcaja-private/caja-file-operations.c:1612
+#: ../libcaja-private/caja-file-operations.c:3613
 msgid "_Skip files"
 msgstr "_Բաց թողնել ֆայլերը"
 
-#: ../libcaja-private/caja-file-operations.c:1632
+#: ../libcaja-private/caja-file-operations.c:1633
 msgid ""
 "The folder \"%B\" cannot be deleted because you do not have permissions to "
 "read it."
 msgstr " \"%B\" թղթապանակը չի կարող ջնջվել, որովհետև դուք այն կարդալու թույլտվություն չունեք։"
 
-#: ../libcaja-private/caja-file-operations.c:1635
-#: ../libcaja-private/caja-file-operations.c:2659
-#: ../libcaja-private/caja-file-operations.c:3646
+#: ../libcaja-private/caja-file-operations.c:1636
+#: ../libcaja-private/caja-file-operations.c:2661
+#: ../libcaja-private/caja-file-operations.c:3649
 msgid "There was an error reading the folder \"%B\"."
 msgstr "Տեղի է ունեցել ֆայլի ընթերցման սխալ \"%B\"։"
 
-#: ../libcaja-private/caja-file-operations.c:1669
+#: ../libcaja-private/caja-file-operations.c:1670
 msgid "Could not remove the folder %B."
 msgstr "Չհաջողվեց հեռացնել թղթապանակը %B."
 
-#: ../libcaja-private/caja-file-operations.c:1746
+#: ../libcaja-private/caja-file-operations.c:1747
 msgid "There was an error deleting %B."
 msgstr "Ոչնչացման ընթացքում սխալ կար %B."
 
-#: ../libcaja-private/caja-file-operations.c:1826
+#: ../libcaja-private/caja-file-operations.c:1827
 msgid "Moving files to trash"
 msgstr "Տեղափոխել ֆայլերը դեպի աղբարկղ"
 
-#: ../libcaja-private/caja-file-operations.c:1828
+#: ../libcaja-private/caja-file-operations.c:1829
 #, c-format
 msgid "%'d file left to trash"
 msgid_plural "%'d files left to trash"
 msgstr[0] "%'d ֆայլը ուղղարկել թափոնների զամբյուղ"
 msgstr[1] "%'d ֆայլերը ուղղարկել թափոնների զամբյուղ"
 
-#: ../libcaja-private/caja-file-operations.c:1885
+#: ../libcaja-private/caja-file-operations.c:1886
 msgid "Cannot move file to trash, do you want to delete immediately?"
 msgstr "Չի հաջողվել ֆայլը թափոն զամբյուղ տեղափոխել, դուք ցանկանու՞մ եք հեռացնել այն անմիջապես։"
 
-#: ../libcaja-private/caja-file-operations.c:1886
+#: ../libcaja-private/caja-file-operations.c:1887
 msgid "The file \"%B\" cannot be moved to the trash."
 msgstr "\"%B\" ֆայլը չեն կարող տեղափոխվել թափոնների զամբյուղի մեջ։"
 
-#: ../libcaja-private/caja-file-operations.c:2070
+#: ../libcaja-private/caja-file-operations.c:2071
 msgid "Trashing Files"
 msgstr "Ֆայլերի Խոտանում"
 
-#: ../libcaja-private/caja-file-operations.c:2072
+#: ../libcaja-private/caja-file-operations.c:2073
 msgid "Deleting Files"
 msgstr "ֆայլերի ջնջում"
 
-#: ../libcaja-private/caja-file-operations.c:2146
+#: ../libcaja-private/caja-file-operations.c:2147
 msgid "Unable to eject %V"
 msgstr "Անհնար է դուրս հանել %V"
 
-#: ../libcaja-private/caja-file-operations.c:2148
+#: ../libcaja-private/caja-file-operations.c:2149
 msgid "Unable to unmount %V"
 msgstr "Անհնար է ապամոնտաժել %V"
 
-#: ../libcaja-private/caja-file-operations.c:2306
+#: ../libcaja-private/caja-file-operations.c:2307
 msgid "Do you want to empty the trash before you unmount?"
 msgstr "Ցանկանու՞մ եք դատարկել զաբյուղը մինչ ձեր հեռանալը։"
 
-#: ../libcaja-private/caja-file-operations.c:2308
+#: ../libcaja-private/caja-file-operations.c:2309
 msgid ""
 "In order to regain the free space on this volume the trash must be emptied. "
 "All trashed items on the volume will be permanently lost."
 msgstr "Որպեսզի վերականգնել ազատ տարածությունը այս ծավալի վրա աղբը պետք է դատարկել։ Բոլոր Խոտանված տարրերը ծավալի վրա ընդմիշտ պետք է կորչեն։"
 
-#: ../libcaja-private/caja-file-operations.c:2314
+#: ../libcaja-private/caja-file-operations.c:2315
 msgid "Do _not Empty Trash"
 msgstr "Ոչ դատարկ Զամբյուզ"
 
-#: ../libcaja-private/caja-file-operations.c:2430
+#: ../libcaja-private/caja-file-operations.c:2431
 #, c-format
 msgid "Unable to mount %s"
 msgstr "Հնարավոր չէ %s–ը տեղադրել"
 
-#: ../libcaja-private/caja-file-operations.c:2508
+#: ../libcaja-private/caja-file-operations.c:2509
 #, c-format
 msgid "Preparing to copy %'d file (%S)"
 msgid_plural "Preparing to copy %'d files (%S)"
 msgstr[0] "Նախապատրաստվում է պատճենել  %'d ֆայլը (%S)"
 msgstr[1] "Նախապատրաստվում է պատճենել  %'d ֆայլերը (%S)"
 
-#: ../libcaja-private/caja-file-operations.c:2514
+#: ../libcaja-private/caja-file-operations.c:2515
 #, c-format
 msgid "Preparing to move %'d file (%S)"
 msgid_plural "Preparing to move %'d files (%S)"
 msgstr[0] "Նախապատրաստվում է տեղափոխել %'d ֆայլը (%S)"
 msgstr[1] "Նախապատրաստվում է տեղափոխել %'d ֆայլերը (%S)"
 
-#: ../libcaja-private/caja-file-operations.c:2520
+#: ../libcaja-private/caja-file-operations.c:2521
 #, c-format
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
 msgstr[0] "Նախապատրաստվում է ջնջել %'d ֆայլը (%S)"
 msgstr[1] "Նախապատրաստվում է ջնջել %'d ֆայլերը (%S)"
 
-#: ../libcaja-private/caja-file-operations.c:2526
+#: ../libcaja-private/caja-file-operations.c:2527
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
 msgstr[0] "%'d ֆայլը նախապատրաստվում է ուղղարկվել զամբյուղ"
 msgstr[1] "%'d ֆայլերը նախապատրաստվում է ուղղարկվել զամբյուղ"
 
-#: ../libcaja-private/caja-file-operations.c:2557
-#: ../libcaja-private/caja-file-operations.c:3453
-#: ../libcaja-private/caja-file-operations.c:3593
-#: ../libcaja-private/caja-file-operations.c:3638
+#: ../libcaja-private/caja-file-operations.c:2558
+#: ../libcaja-private/caja-file-operations.c:3456
+#: ../libcaja-private/caja-file-operations.c:3596
+#: ../libcaja-private/caja-file-operations.c:3641
 msgid "Error while copying."
 msgstr "Պատճենման սխալ"
 
-#: ../libcaja-private/caja-file-operations.c:2559
-#: ../libcaja-private/caja-file-operations.c:3591
-#: ../libcaja-private/caja-file-operations.c:3636
+#: ../libcaja-private/caja-file-operations.c:2560
+#: ../libcaja-private/caja-file-operations.c:3594
+#: ../libcaja-private/caja-file-operations.c:3639
 msgid "Error while moving."
 msgstr "Տեղափոխման սխալ"
 
-#: ../libcaja-private/caja-file-operations.c:2563
+#: ../libcaja-private/caja-file-operations.c:2564
 msgid "Error while moving files to trash."
 msgstr "Սխալ, մինչ ֆայլի տեղափոխումը թափոնների զամբյուղ։"
 
-#: ../libcaja-private/caja-file-operations.c:2617
+#: ../libcaja-private/caja-file-operations.c:2619
 msgid ""
 "Files in the folder \"%B\" cannot be handled because you do not have "
 "permissions to see them."
 msgstr "\"%B\" թղթապանակում ֆայլերը չեն կարող կառավարվել, որովհետև դուք դրանք տեսնելու թույլտվություններ չունեք։"
 
-#: ../libcaja-private/caja-file-operations.c:2656
+#: ../libcaja-private/caja-file-operations.c:2658
 msgid ""
 "The folder \"%B\" cannot be handled because you do not have permissions to "
 "read it."
 msgstr "\"%B\" թղթապանակը չի կարող կառավարվել, որովհետև դուք դրանք կարդալու թույլտվություններ չունեք։"
 
-#: ../libcaja-private/caja-file-operations.c:2733
+#: ../libcaja-private/caja-file-operations.c:2736
 msgid ""
 "The file \"%B\" cannot be handled because you do not have permissions to "
 "read it."
 msgstr "\"%B\"  ֆայլը չի կարող կառավարվել, որովհետև դուք դա կարդալու թույլտվություններ չունեք։"
 
-#: ../libcaja-private/caja-file-operations.c:2736
+#: ../libcaja-private/caja-file-operations.c:2739
 msgid "There was an error getting information about \"%B\"."
 msgstr "Տեղեկություններ ստանալու մասին սխալ կա \"%B\"."
 
-#: ../libcaja-private/caja-file-operations.c:2836
-#: ../libcaja-private/caja-file-operations.c:2878
-#: ../libcaja-private/caja-file-operations.c:2911
-#: ../libcaja-private/caja-file-operations.c:2941
+#: ../libcaja-private/caja-file-operations.c:2839
+#: ../libcaja-private/caja-file-operations.c:2881
+#: ../libcaja-private/caja-file-operations.c:2914
+#: ../libcaja-private/caja-file-operations.c:2944
 msgid "Error while copying to \"%B\"."
 msgstr "Սխալ մինչ պատճենահանումը դեպի \"%B\"։"
 
-#: ../libcaja-private/caja-file-operations.c:2840
+#: ../libcaja-private/caja-file-operations.c:2843
 msgid "You do not have permissions to access the destination folder."
 msgstr "Դուք չունեք թույլտվություններ նպատակային թղթապանակ ներգործելու համար։"
 
-#: ../libcaja-private/caja-file-operations.c:2842
+#: ../libcaja-private/caja-file-operations.c:2845
 msgid "There was an error getting information about the destination."
 msgstr "Տեղի է ունեցել սխալ նպատակային վայրի մասին տեղեկություն ստանալու ժամանակ։"
 
-#: ../libcaja-private/caja-file-operations.c:2879
+#: ../libcaja-private/caja-file-operations.c:2882
 msgid "The destination is not a folder."
 msgstr "Նպատակային վայրը թղթապանակ չէ։"
 
-#: ../libcaja-private/caja-file-operations.c:2912
+#: ../libcaja-private/caja-file-operations.c:2915
 msgid ""
 "There is not enough space on the destination. Try to remove files to make "
 "space."
 msgstr "Չկա ոչ բավարար տարածք նպատակակետի վրա: Փորձեք հեռացնել ֆայլերը, որպեսզի ազատեք տարածք։"
 
-#: ../libcaja-private/caja-file-operations.c:2914
+#: ../libcaja-private/caja-file-operations.c:2917
 #, c-format
 msgid "There is %S available, but %S is required."
 msgstr "%S հասանելի է, իսկ %S պահանջվում է։"
 
-#: ../libcaja-private/caja-file-operations.c:2942
+#: ../libcaja-private/caja-file-operations.c:2945
 msgid "The destination is read-only."
 msgstr "Նախատեսված վերջնակետը միայն ընթերցվող է:"
 
-#: ../libcaja-private/caja-file-operations.c:3001
+#: ../libcaja-private/caja-file-operations.c:3004
 msgid "Moving \"%B\" to \"%B\""
 msgstr "Տեղափոխում \"%B\" դեպի \"%B\""
 
-#: ../libcaja-private/caja-file-operations.c:3002
+#: ../libcaja-private/caja-file-operations.c:3005
 msgid "Copying \"%B\" to \"%B\""
 msgstr "Պատճենում \"%B\" դեպի \"%B\""
 
-#: ../libcaja-private/caja-file-operations.c:3007
+#: ../libcaja-private/caja-file-operations.c:3010
 msgid "Duplicating \"%B\""
 msgstr "Բազմացնող \"%B\""
 
-#: ../libcaja-private/caja-file-operations.c:3015
+#: ../libcaja-private/caja-file-operations.c:3018
 msgid "Moving %'d file (in \"%B\") to \"%B\""
 msgid_plural "Moving %'d files (in \"%B\") to \"%B\""
 msgstr[0] "Տեղափոխել %'d ֆայլը (\"%B\" մեջ) դեպի \"%B\""
 msgstr[1] "Տեղափոխել %'d ֆայլերը (\"%B\" մեջ) դեպի \"%B\""
 
-#: ../libcaja-private/caja-file-operations.c:3019
+#: ../libcaja-private/caja-file-operations.c:3022
 msgid "Copying %'d file (in \"%B\") to \"%B\""
 msgid_plural "Copying %'d files (in \"%B\") to \"%B\""
 msgstr[0] "Պատճենահանել %'d ֆայլը (\"%B\" մեջ) դեպի \"%B\""
 msgstr[1] "Պատճենահանել %'d ֆայլերը (\"%B\" մեջ) դեպի \"%B\""
 
-#: ../libcaja-private/caja-file-operations.c:3027
+#: ../libcaja-private/caja-file-operations.c:3030
 msgid "Duplicating %'d file (in \"%B\")"
 msgid_plural "Duplicating %'d files (in \"%B\")"
 msgstr[0] "Կրկնճրինակել %'d ֆայլը (\"%B\" մեջ)"
 msgstr[1] "Կրկնօրինակել %'d ֆայլերը (\"%B\" մեջ)"
 
-#: ../libcaja-private/caja-file-operations.c:3037
+#: ../libcaja-private/caja-file-operations.c:3040
 msgid "Moving %'d file to \"%B\""
 msgid_plural "Moving %'d files to \"%B\""
 msgstr[0] "Տեղափոխել %'d ֆայլը դեպի \"%B\" "
 msgstr[1] "Տեղափոխել %'d ֆայլերը դեպի \"%B\" "
 
-#: ../libcaja-private/caja-file-operations.c:3041
+#: ../libcaja-private/caja-file-operations.c:3044
 msgid "Copying %'d file to \"%B\""
 msgid_plural "Copying %'d files to \"%B\""
 msgstr[0] "Պատճենահանել %'d ֆայլը դեպի \"%B\" "
 msgstr[1] "Պատճենահանել %'d ֆայլերը դեպի \"%B\" "
 
-#: ../libcaja-private/caja-file-operations.c:3047
+#: ../libcaja-private/caja-file-operations.c:3050
 #, c-format
 msgid "Duplicating %'d file"
 msgid_plural "Duplicating %'d files"
@@ -1523,7 +1531,7 @@ msgstr[1] "Կրկնօրինակել %'d ֆայլեր"
 
 #. To translators: %S will expand to a size like "2 bytes" or "3 MB", so
 #. something like "4 kb of 4 MB"
-#: ../libcaja-private/caja-file-operations.c:3067
+#: ../libcaja-private/caja-file-operations.c:3070
 #, c-format
 msgid "%S of %S"
 msgstr "%S  %S"
@@ -1535,187 +1543,187 @@ msgstr "%S  %S"
 #. *
 #. * The singular/plural form will be used depending on the remaining time
 #. (i.e. the %T argument).
-#: ../libcaja-private/caja-file-operations.c:3078
+#: ../libcaja-private/caja-file-operations.c:3081
 msgid "%S of %S — %T left (%S/sec)"
 msgid_plural "%S of %S — %T left (%S/sec)"
 msgstr[0] "%S %S — %T ձախ (%S/վրկ)"
 msgstr[1] "%S %S — %T ձախ (%S/վրկ)"
 
-#: ../libcaja-private/caja-file-operations.c:3457
+#: ../libcaja-private/caja-file-operations.c:3460
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "create it in the destination."
 msgstr "\"%B\" թղթապանակը չի կարող պատճենահանվել, քանի որ դուք այս վայրում ստեղծելու թույլտվություններ չունեք։"
 
-#: ../libcaja-private/caja-file-operations.c:3460
+#: ../libcaja-private/caja-file-operations.c:3463
 msgid "There was an error creating the folder \"%B\"."
 msgstr "Սխալ է տեղի ունեցել \"%B\" թղթապանակի ստեղծման ժամանակ։"
 
-#: ../libcaja-private/caja-file-operations.c:3598
+#: ../libcaja-private/caja-file-operations.c:3601
 msgid ""
 "Files in the folder \"%B\" cannot be copied because you do not have "
 "permissions to see them."
 msgstr "\"%B\" թղթապանակում ֆայլերը չեն կարող պատճենահանվել, քանի որ դուք դրանք տեսնելու թույլտվություններ չունեք։"
 
-#: ../libcaja-private/caja-file-operations.c:3643
+#: ../libcaja-private/caja-file-operations.c:3646
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "read it."
 msgstr "\"%B\" թղթապանակը չի կարող պատճենահանվել, քանի որ դուք չունեք թույլտվություններ դրանք կարդալու։"
 
-#: ../libcaja-private/caja-file-operations.c:3688
-#: ../libcaja-private/caja-file-operations.c:4382
-#: ../libcaja-private/caja-file-operations.c:4974
+#: ../libcaja-private/caja-file-operations.c:3691
+#: ../libcaja-private/caja-file-operations.c:4385
+#: ../libcaja-private/caja-file-operations.c:4977
 msgid "Error while moving \"%B\"."
 msgstr "Սխալ մինչև տեղափոխումը \"%B\"։"
 
-#: ../libcaja-private/caja-file-operations.c:3689
+#: ../libcaja-private/caja-file-operations.c:3692
 msgid "Could not remove the source folder."
 msgstr "Չհաջողվեց հեռացնել աղբյուրի թղթապանակը։"
 
-#: ../libcaja-private/caja-file-operations.c:3774
-#: ../libcaja-private/caja-file-operations.c:3815
-#: ../libcaja-private/caja-file-operations.c:4384
-#: ../libcaja-private/caja-file-operations.c:4456
+#: ../libcaja-private/caja-file-operations.c:3777
+#: ../libcaja-private/caja-file-operations.c:3818
+#: ../libcaja-private/caja-file-operations.c:4387
+#: ../libcaja-private/caja-file-operations.c:4459
 msgid "Error while copying \"%B\"."
 msgstr "Սխալ մինչ պատճենահանումը \"%B\"."
 
-#: ../libcaja-private/caja-file-operations.c:3775
+#: ../libcaja-private/caja-file-operations.c:3778
 #, c-format
 msgid "Could not remove files from the already existing folder %F."
 msgstr "Չի կարող հեռացվել ֆայլերը արդեն գոյություն ունեցող թզթապանակից %F։"
 
-#: ../libcaja-private/caja-file-operations.c:3816
+#: ../libcaja-private/caja-file-operations.c:3819
 #, c-format
 msgid "Could not remove the already existing file %F."
 msgstr "Չլ կարող հեռացնել արդեն գոյություն ունեցող ֆայլը  %F։"
 
 #. the run_warning() frees all strings passed in automatically
-#: ../libcaja-private/caja-file-operations.c:4135
-#: ../libcaja-private/caja-file-operations.c:4820
+#: ../libcaja-private/caja-file-operations.c:4138
+#: ../libcaja-private/caja-file-operations.c:4823
 msgid "You cannot move a folder into itself."
 msgstr "Դուք չեք կարող պանակը տեղափոխել իր մեջ։"
 
-#: ../libcaja-private/caja-file-operations.c:4136
-#: ../libcaja-private/caja-file-operations.c:4821
+#: ../libcaja-private/caja-file-operations.c:4139
+#: ../libcaja-private/caja-file-operations.c:4824
 msgid "You cannot copy a folder into itself."
 msgstr "Դուք չեք կարող պատճենել պանակը իր մեջ։"
 
-#: ../libcaja-private/caja-file-operations.c:4137
-#: ../libcaja-private/caja-file-operations.c:4822
+#: ../libcaja-private/caja-file-operations.c:4140
+#: ../libcaja-private/caja-file-operations.c:4825
 msgid "The destination folder is inside the source folder."
 msgstr "Նշանակման վայրի պանակը հիմնական պանակի մեջ է։"
 
 #. the run_warning() frees all strings passed in automatically
-#: ../libcaja-private/caja-file-operations.c:4168
+#: ../libcaja-private/caja-file-operations.c:4171
 msgid "You cannot move a file over itself."
 msgstr "Դուք չեք կարող տեղափոխել ինքն իր վրայով։"
 
-#: ../libcaja-private/caja-file-operations.c:4169
+#: ../libcaja-private/caja-file-operations.c:4172
 msgid "You cannot copy a file over itself."
 msgstr "Դուք չեք կարող պատճենել ֆայլը իր վրայով։"
 
-#: ../libcaja-private/caja-file-operations.c:4170
+#: ../libcaja-private/caja-file-operations.c:4173
 msgid "The source file would be overwritten by the destination."
 msgstr "Աղբյուր ֆայլը կլինի վերագրված ըստ նշանակման վայրի։"
 
-#: ../libcaja-private/caja-file-operations.c:4386
+#: ../libcaja-private/caja-file-operations.c:4389
 #, c-format
 msgid "Could not remove the already existing file with the same name in %F."
 msgstr "Չի կարող հեռացնել արդեն գոյություն ունեցող ֆայլը նույն անունով %F։"
 
-#: ../libcaja-private/caja-file-operations.c:4457
+#: ../libcaja-private/caja-file-operations.c:4460
 #, c-format
 msgid "There was an error copying the file into %F."
 msgstr "Մինչ ընդրված ֆայլի պատճենահանումը %F մեջ։"
 
-#: ../libcaja-private/caja-file-operations.c:4703
+#: ../libcaja-private/caja-file-operations.c:4706
 msgid "Copying Files"
 msgstr "ՖայլերիՊատճենում "
 
-#: ../libcaja-private/caja-file-operations.c:4730
+#: ../libcaja-private/caja-file-operations.c:4733
 msgid "Preparing to Move to \"%B\""
 msgstr "Նախապատրաստվում է տեղափոխել \"%B\""
 
-#: ../libcaja-private/caja-file-operations.c:4734
+#: ../libcaja-private/caja-file-operations.c:4737
 #, c-format
 msgid "Preparing to move %'d file"
 msgid_plural "Preparing to move %'d files"
 msgstr[0] "Նախապատրաստվում է տեղափոխել %'d ֆայլը"
 msgstr[1] "Նախապատրաստվում է տեղափոխել %'d ֆայլերը"
 
-#: ../libcaja-private/caja-file-operations.c:4975
+#: ../libcaja-private/caja-file-operations.c:4978
 #, c-format
 msgid "There was an error moving the file into %F."
 msgstr "Մինչ ֆայլի տեղափոխումը սխալ կա %F մեջ։"
 
-#: ../libcaja-private/caja-file-operations.c:5245
+#: ../libcaja-private/caja-file-operations.c:5248
 msgid "Moving Files"
 msgstr "Ֆայլերի Տեղափոխում "
 
-#: ../libcaja-private/caja-file-operations.c:5276
+#: ../libcaja-private/caja-file-operations.c:5279
 msgid "Creating links in \"%B\""
 msgstr "Հղումների Ստեղծում \"%B\""
 
-#: ../libcaja-private/caja-file-operations.c:5280
+#: ../libcaja-private/caja-file-operations.c:5283
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
 msgstr[0] "%'d ֆայլի հղման պատրաստում"
 msgstr[1] "%'d ֆայլերի հղման պատրաստում"
 
-#: ../libcaja-private/caja-file-operations.c:5412
+#: ../libcaja-private/caja-file-operations.c:5415
 msgid "Error while creating link to %B."
 msgstr "Սխալ մինչ %B հղման ստեղծումը։"
 
-#: ../libcaja-private/caja-file-operations.c:5414
+#: ../libcaja-private/caja-file-operations.c:5417
 msgid "Symbolic links only supported for local files"
 msgstr "Խորհրդանշական հղումները ապահովվում է միայն տեղական ֆայլերի համար"
 
-#: ../libcaja-private/caja-file-operations.c:5417
+#: ../libcaja-private/caja-file-operations.c:5420
 msgid "The target doesn't support symbolic links."
 msgstr "Թիրախը չի աջակցում խորհրդանշական հղումները։"
 
-#: ../libcaja-private/caja-file-operations.c:5420
+#: ../libcaja-private/caja-file-operations.c:5423
 #, c-format
 msgid "There was an error creating the symlink in %F."
 msgstr "Տեղի է ունեցել symlink ստեղծման սխալ, %F մեջ։"
 
-#: ../libcaja-private/caja-file-operations.c:5736
+#: ../libcaja-private/caja-file-operations.c:5739
 msgid "Setting permissions"
 msgstr " Թույլտվությունների կարգաբերում"
 
 #. localizers: the initial name of a new folder
-#: ../libcaja-private/caja-file-operations.c:5995
+#: ../libcaja-private/caja-file-operations.c:5998
 msgid "untitled folder"
 msgstr "Անվերնագիր պանակ։"
 
 #. localizers: the initial name of a new empty file
-#: ../libcaja-private/caja-file-operations.c:6003
+#: ../libcaja-private/caja-file-operations.c:6006
 msgid "new file"
 msgstr "Նոր ֆայլ"
 
-#: ../libcaja-private/caja-file-operations.c:6175
+#: ../libcaja-private/caja-file-operations.c:6178
 msgid "Error while creating directory %B."
 msgstr "Սխալ մինչ %B թղթապանակի ստեղծումը։"
 
-#: ../libcaja-private/caja-file-operations.c:6177
+#: ../libcaja-private/caja-file-operations.c:6180
 msgid "Error while creating file %B."
 msgstr "Սխալ մինչ %B ֆայլի ստեղծումը։"
 
-#: ../libcaja-private/caja-file-operations.c:6179
+#: ../libcaja-private/caja-file-operations.c:6182
 #, c-format
 msgid "There was an error creating the directory in %F."
 msgstr "Տեղի է ունեցել թղթապանակի ստեղծման սխալ, %F մեջ։"
 
-#: ../libcaja-private/caja-file-operations.c:6457
+#: ../libcaja-private/caja-file-operations.c:6460
 msgid "Emptying Trash"
 msgstr "Թափոնների զամբյուղի դատարկում"
 
-#: ../libcaja-private/caja-file-operations.c:6506
-#: ../libcaja-private/caja-file-operations.c:6547
-#: ../libcaja-private/caja-file-operations.c:6582
-#: ../libcaja-private/caja-file-operations.c:6617
+#: ../libcaja-private/caja-file-operations.c:6509
+#: ../libcaja-private/caja-file-operations.c:6550
+#: ../libcaja-private/caja-file-operations.c:6585
+#: ../libcaja-private/caja-file-operations.c:6620
 msgid "Unable to mark launcher trusted (executable)"
 msgstr "Անհնար է պիտակը նշել վստահված (գործարկվող)"
 
@@ -1728,47 +1736,47 @@ msgstr "Չի կարող որոշել բնօրինակի դիրքը \"%s\""
 msgid "The item cannot be restored from trash"
 msgstr "Տարրը չի կարող վերականգնվել զամբյուղից"
 
-#: ../libcaja-private/caja-file.c:1213 ../libcaja-private/caja-vfs-file.c:430
+#: ../libcaja-private/caja-file.c:1217 ../libcaja-private/caja-vfs-file.c:439
 msgid "This file cannot be mounted"
 msgstr "Այս ֆայլը չի կարող տեղադրվել"
 
-#: ../libcaja-private/caja-file.c:1258
+#: ../libcaja-private/caja-file.c:1262
 msgid "This file cannot be unmounted"
 msgstr "Այս ֆայլը չի կարող չտեղադրված լինել"
 
-#: ../libcaja-private/caja-file.c:1292
+#: ../libcaja-private/caja-file.c:1296
 msgid "This file cannot be ejected"
 msgstr "Այս ֆայլը չի կարող լինել հեռացված"
 
-#: ../libcaja-private/caja-file.c:1325 ../libcaja-private/caja-vfs-file.c:619
+#: ../libcaja-private/caja-file.c:1329 ../libcaja-private/caja-vfs-file.c:628
 msgid "This file cannot be started"
 msgstr "Այս ֆայլը չի կարող սկսվել"
 
-#: ../libcaja-private/caja-file.c:1377 ../libcaja-private/caja-file.c:1408
+#: ../libcaja-private/caja-file.c:1381 ../libcaja-private/caja-file.c:1412
 msgid "This file cannot be stopped"
 msgstr "Այս ֆայլը չի կարող դադարեցվել"
 
-#: ../libcaja-private/caja-file.c:1816
+#: ../libcaja-private/caja-file.c:1820
 #, c-format
 msgid "Slashes are not allowed in filenames"
 msgstr "Չի թույլատրվում նվազեցնել ֆայլի անումը"
 
-#: ../libcaja-private/caja-file.c:1834
+#: ../libcaja-private/caja-file.c:1838
 #, c-format
 msgid "File not found"
 msgstr "Ֆայլը չի գտնվել"
 
-#: ../libcaja-private/caja-file.c:1862
+#: ../libcaja-private/caja-file.c:1866
 #, c-format
 msgid "Toplevel files cannot be renamed"
 msgstr "Բարձր կարգի ֆայլերը չեն կարող վերանվանվել"
 
-#: ../libcaja-private/caja-file.c:1885
+#: ../libcaja-private/caja-file.c:1889
 #, c-format
 msgid "Unable to rename desktop icon"
 msgstr "Աշխատասեղանի պատկերը անհնար է վերանվանել"
 
-#: ../libcaja-private/caja-file.c:1914
+#: ../libcaja-private/caja-file.c:1918
 #, c-format
 msgid "Unable to rename desktop file"
 msgstr "Աշխատասեղանին ֆայլը անհնար է վերանվանել "
@@ -1787,62 +1795,62 @@ msgstr "Աշխատասեղանին ֆայլը անհնար է վերանվանե
 #. * between the "%" and any numeric directive will turn
 #. * off zero padding, and putting a "_" there will use
 #. * space padding instead of zero padding.
-#: ../libcaja-private/caja-file.c:4465
+#: ../libcaja-private/caja-file.c:4508
 msgid "today at 00:00:00 PM"
 msgstr "այսօր ժամը 00:00:00 PM "
 
-#: ../libcaja-private/caja-file.c:4466
-#: ../src/caja-file-management-properties.c:520
+#: ../libcaja-private/caja-file.c:4509
+#: ../src/caja-file-management-properties.c:527
 msgid "today at %-I:%M:%S %p"
 msgstr "այսօր ժամը %-I:%M:%S %p"
 
-#: ../libcaja-private/caja-file.c:4468
+#: ../libcaja-private/caja-file.c:4511
 msgid "today at 00:00 PM"
 msgstr "այսօր ժամը 00:00 PM "
 
-#: ../libcaja-private/caja-file.c:4469
+#: ../libcaja-private/caja-file.c:4512
 msgid "today at %-I:%M %p"
 msgstr "այսօր ժամը %-I:%M %p "
 
-#: ../libcaja-private/caja-file.c:4471
+#: ../libcaja-private/caja-file.c:4514
 msgid "today, 00:00 PM"
 msgstr "այսօր, 00:00 PM "
 
-#: ../libcaja-private/caja-file.c:4472
+#: ../libcaja-private/caja-file.c:4515
 msgid "today, %-I:%M %p"
 msgstr "այսօր, %-I:%M %p "
 
-#: ../libcaja-private/caja-file.c:4474 ../libcaja-private/caja-file.c:4475
+#: ../libcaja-private/caja-file.c:4517 ../libcaja-private/caja-file.c:4518
 msgid "today"
 msgstr "այսօր"
 
 #. Yesterday, use special word.
 #. * Note to localizers: Same issues as "today" string.
-#: ../libcaja-private/caja-file.c:4484
+#: ../libcaja-private/caja-file.c:4527
 msgid "yesterday at 00:00:00 PM"
 msgstr "երեկ ժամը 00:00:00 PM "
 
-#: ../libcaja-private/caja-file.c:4485
+#: ../libcaja-private/caja-file.c:4528
 msgid "yesterday at %-I:%M:%S %p"
 msgstr "երեկ ժամը %-I:%M:%S %p "
 
-#: ../libcaja-private/caja-file.c:4487
+#: ../libcaja-private/caja-file.c:4530
 msgid "yesterday at 00:00 PM"
 msgstr "երեկ ժամը 00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4488
+#: ../libcaja-private/caja-file.c:4531
 msgid "yesterday at %-I:%M %p"
 msgstr "երեկ ժամը %-I:%M %p "
 
-#: ../libcaja-private/caja-file.c:4490
+#: ../libcaja-private/caja-file.c:4533
 msgid "yesterday, 00:00 PM"
 msgstr "երեկ, ժամը 00:00 PM "
 
-#: ../libcaja-private/caja-file.c:4491
+#: ../libcaja-private/caja-file.c:4534
 msgid "yesterday, %-I:%M %p"
 msgstr "երեկ, %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4493 ../libcaja-private/caja-file.c:4494
+#: ../libcaja-private/caja-file.c:4536 ../libcaja-private/caja-file.c:4537
 msgid "yesterday"
 msgstr "երեկ"
 
@@ -1850,103 +1858,103 @@ msgstr "երեկ"
 #. * Note to localizers: Same issues as "today" string.
 #. * The width measurement templates correspond to
 #. * the day/month name with the most letters.
-#: ../libcaja-private/caja-file.c:4505
+#: ../libcaja-private/caja-file.c:4548
 msgid "Wednesday, September 00 0000 at 00:00:00 PM"
 msgstr "Չորեքշաբթի, 00 սեպտեմբերի 0000, ժամը 00:00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4506
+#: ../libcaja-private/caja-file.c:4549
 msgid "%A, %B %-d %Y at %-I:%M:%S %p"
 msgstr "%A, %B %-d %Y at %-I:%M:%S %p"
 
-#: ../libcaja-private/caja-file.c:4508
+#: ../libcaja-private/caja-file.c:4551
 msgid "Mon, Oct 00 0000 at 00:00:00 PM"
 msgstr "Երկուշաբթի, 00 հոկտեմբերի, ժամը 00:00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4509
+#: ../libcaja-private/caja-file.c:4552
 msgid "%a, %b %-d %Y at %-I:%M:%S %p"
 msgstr "%a, %b %-d %Y at %-I:%M:%S %p"
 
-#: ../libcaja-private/caja-file.c:4511
+#: ../libcaja-private/caja-file.c:4554
 msgid "Mon, Oct 00 0000 at 00:00 PM"
 msgstr "Երկուշաբթի, 00 հոկտեմբերի, ժամը 00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4512
+#: ../libcaja-private/caja-file.c:4555
 msgid "%a, %b %-d %Y at %-I:%M %p"
 msgstr "%a, %b %-d %Y at %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4514
+#: ../libcaja-private/caja-file.c:4557
 msgid "Oct 00 0000 at 00:00 PM"
 msgstr "00 հոկտեմբերի, ժամը 00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4515
+#: ../libcaja-private/caja-file.c:4558
 msgid "%b %-d %Y at %-I:%M %p"
 msgstr "%b %-d %Y at %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4517
+#: ../libcaja-private/caja-file.c:4560
 msgid "Oct 00 0000, 00:00 PM"
 msgstr "00 հոկտեմբերի, ժամը 00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4518
+#: ../libcaja-private/caja-file.c:4561
 msgid "%b %-d %Y, %-I:%M %p"
 msgstr "%b %-d %Y, %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4520
+#: ../libcaja-private/caja-file.c:4563
 msgid "00/00/00, 00:00 PM"
 msgstr "00/00/00, 00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4521
+#: ../libcaja-private/caja-file.c:4564
 msgid "%m/%-d/%y, %-I:%M %p"
 msgstr "%m/%-d/%y, %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4523
+#: ../libcaja-private/caja-file.c:4566
 msgid "00/00/00"
 msgstr "00/00/00"
 
-#: ../libcaja-private/caja-file.c:4524
+#: ../libcaja-private/caja-file.c:4567
 msgid "%m/%d/%y"
 msgstr "%m/%d/%y"
 
-#: ../libcaja-private/caja-file.c:5136
+#: ../libcaja-private/caja-file.c:5206
 #, c-format
 msgid "Not allowed to set permissions"
 msgstr "Չի թույլատրվում է սահմանել թույլտվությունները"
 
-#: ../libcaja-private/caja-file.c:5430
+#: ../libcaja-private/caja-file.c:5500
 #, c-format
 msgid "Not allowed to set owner"
 msgstr "Չի թույլատրվում է սահմանել սեփականատեր"
 
-#: ../libcaja-private/caja-file.c:5448
+#: ../libcaja-private/caja-file.c:5518
 #, c-format
 msgid "Specified owner '%s' doesn't exist"
 msgstr "Նշված սեփականատեր '%s' գոյություն չունի"
 
-#: ../libcaja-private/caja-file.c:5708
+#: ../libcaja-private/caja-file.c:5778
 #, c-format
 msgid "Not allowed to set group"
 msgstr "Չի թույլատրվում սահմանել խումբ"
 
-#: ../libcaja-private/caja-file.c:5726
+#: ../libcaja-private/caja-file.c:5796
 #, c-format
 msgid "Specified group '%s' doesn't exist"
 msgstr "Նշված խումբ '%s'  գոյություն չունի"
 
-#: ../libcaja-private/caja-file.c:5880
-#: ../src/file-manager/fm-directory-view.c:2361
+#: ../libcaja-private/caja-file.c:5950
+#: ../src/file-manager/fm-directory-view.c:2368
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
 msgstr[0] "%'u տարրեր"
 msgstr[1] "%'u տարրեր"
 
-#: ../libcaja-private/caja-file.c:5881
+#: ../libcaja-private/caja-file.c:5951
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
 msgstr[0] "%'u թղթապանակներ"
 msgstr[1] "%'u թղթապանակներ"
 
-#: ../libcaja-private/caja-file.c:5882
+#: ../libcaja-private/caja-file.c:5952
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
@@ -1955,53 +1963,53 @@ msgstr[1] "%'u ֆայլեր"
 
 #. Do this in a separate stage so that we don't have to put G_GUINT64_FORMAT
 #. in the translated string
-#: ../libcaja-private/caja-file.c:5969
+#: ../libcaja-private/caja-file.c:6056
 msgid "%"
 msgstr "%"
 
-#: ../libcaja-private/caja-file.c:5970
+#: ../libcaja-private/caja-file.c:6057
 #, c-format
 msgid "%s (%s bytes)"
 msgstr "%s (%s բայթեր)"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6285 ../libcaja-private/caja-file.c:6301
+#: ../libcaja-private/caja-file.c:6404 ../libcaja-private/caja-file.c:6428
 msgid "? items"
 msgstr "? տարրեր"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6291
+#: ../libcaja-private/caja-file.c:6410 ../libcaja-private/caja-file.c:6418
 msgid "? bytes"
 msgstr "? բայթեր"
 
-#: ../libcaja-private/caja-file.c:6306
+#: ../libcaja-private/caja-file.c:6433
 msgid "unknown type"
 msgstr "անհայտ տեսակ"
 
-#: ../libcaja-private/caja-file.c:6309
+#: ../libcaja-private/caja-file.c:6436
 msgid "unknown MIME type"
 msgstr "անհայտ MIME տեսակ"
 
 #. Fallback, use for both unknown attributes and attributes
 #. * for which we have no more appropriate default.
-#: ../libcaja-private/caja-file.c:6323
-#: ../src/file-manager/fm-properties-window.c:1286
+#: ../libcaja-private/caja-file.c:6450
+#: ../src/file-manager/fm-properties-window.c:1287
 msgid "unknown"
 msgstr "անհայտ"
 
-#: ../libcaja-private/caja-file.c:6373
+#: ../libcaja-private/caja-file.c:6500
 msgid "program"
 msgstr "ծրագիր"
 
-#: ../libcaja-private/caja-file.c:6393
+#: ../libcaja-private/caja-file.c:6520
 msgid "link"
 msgstr "հղում"
 
-#: ../libcaja-private/caja-file.c:6415
+#: ../libcaja-private/caja-file.c:6542
 msgid "link (broken)"
 msgstr "հղում (կոտրված)"
 
-#: ../libcaja-private/caja-icon-container.c:2915
+#: ../libcaja-private/caja-icon-container.c:2925
 msgid "The selection rectangle"
 msgstr "Ընտրության ուղղանկյուն"
 
@@ -2027,10 +2035,10 @@ msgstr "Այս հղումը չի կարող օգտագործվել, քանի ո�
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-mime-actions.c:744
-#: ../src/file-manager/fm-directory-view.c:7358
-#: ../src/file-manager/fm-directory-view.c:7490
-#: ../src/file-manager/fm-directory-view.c:8589
-#: ../src/file-manager/fm-directory-view.c:8914
+#: ../src/file-manager/fm-directory-view.c:7365
+#: ../src/file-manager/fm-directory-view.c:7497
+#: ../src/file-manager/fm-directory-view.c:8596
+#: ../src/file-manager/fm-directory-view.c:8921
 #: ../src/file-manager/fm-tree-view.c:1346
 msgid "Mo_ve to Trash"
 msgstr "Տե_ղափոխել թափոն զամբյուղ"
@@ -2059,7 +2067,7 @@ msgid "_Run"
 msgstr "-Գործարկել"
 
 #: ../libcaja-private/caja-mime-actions.c:1170
-#: ../src/file-manager/fm-directory-view.c:652
+#: ../src/file-manager/fm-directory-view.c:653
 msgid "Are you sure you want to open all files?"
 msgstr "Դուք համոզվա՞ծ եք, որ ցանկանում եք բացել բոլոր ֆայլերը"
 
@@ -2137,12 +2145,12 @@ msgstr "Նշել որպես _Վստահված"
 
 #: ../libcaja-private/caja-mime-actions.c:2010
 #: ../libcaja-private/caja-mime-actions.c:2316
-#: ../src/file-manager/fm-directory-view.c:6376
+#: ../src/file-manager/fm-directory-view.c:6383
 msgid "Unable to mount location"
 msgstr "Անհնար է տեղակայել դիրքը"
 
 #: ../libcaja-private/caja-mime-actions.c:2404
-#: ../src/file-manager/fm-directory-view.c:6550
+#: ../src/file-manager/fm-directory-view.c:6557
 msgid "Unable to start location"
 msgstr "Անհնար է սկսել դիրքը"
 
@@ -2191,7 +2199,7 @@ msgid "%s document"
 msgstr "%s փաստաթուղթ"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:598
-#: ../libcaja-private/caja-open-with-dialog.c:1077
+#: ../libcaja-private/caja-open-with-dialog.c:1078
 msgid "Unknown"
 msgstr "Անհայտ"
 
@@ -2232,7 +2240,7 @@ msgid "Select an Application"
 msgstr "Ընտրել Դիմումը"
 
 #: ../libcaja-private/caja-open-with-dialog.c:840
-#: ../src/file-manager/fm-properties-window.c:5057
+#: ../src/file-manager/fm-properties-window.c:5073
 msgid "Open With"
 msgstr "Բացել ծրագրով"
 
@@ -2240,72 +2248,72 @@ msgstr "Բացել ծրագրով"
 msgid "Select an application to view its description."
 msgstr "Ընտրել ծրագիրը նկարագրությունը տեսնելու համար։"
 
-#: ../libcaja-private/caja-open-with-dialog.c:909
+#: ../libcaja-private/caja-open-with-dialog.c:910
 msgid "_Use a custom command"
 msgstr "_Օգտագործել գործարկողի հրամանը"
 
-#: ../libcaja-private/caja-open-with-dialog.c:926
+#: ../libcaja-private/caja-open-with-dialog.c:927
 msgid "_Browse..."
 msgstr "_Զննել․․․"
 
 #. name, stock id
 #. label, accelerator
-#: ../libcaja-private/caja-open-with-dialog.c:962
-#: ../src/file-manager/fm-directory-view.c:7274
-#: ../src/file-manager/fm-directory-view.c:8783
+#: ../libcaja-private/caja-open-with-dialog.c:963
+#: ../src/file-manager/fm-directory-view.c:7281
+#: ../src/file-manager/fm-directory-view.c:8790
 #: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2682
 msgid "_Open"
 msgstr "_Բացել"
 
 #. first %s is a filename and second %s is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1047
+#: ../libcaja-private/caja-open-with-dialog.c:1048
 #, c-format
 msgid "Open %s and other %s document with:"
 msgstr "Բաց %s այլ %s փաստաթուղթը հետ:"
 
 #. the %s here is a file name
 #. %s is a filename
-#: ../libcaja-private/caja-open-with-dialog.c:1053
-#: ../libcaja-private/caja-open-with-dialog.c:1093
+#: ../libcaja-private/caja-open-with-dialog.c:1054
+#: ../libcaja-private/caja-open-with-dialog.c:1094
 #, c-format
 msgid "Open %s with:"
 msgstr "Բացել %s հետ։"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1054
+#: ../libcaja-private/caja-open-with-dialog.c:1055
 #, c-format
 msgid "_Remember this application for %s documents"
 msgstr "_Հիշել այս դիմումը %s փաստաթղթերի համար"
 
 #. Only in add mode - the %s here is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1065
+#: ../libcaja-private/caja-open-with-dialog.c:1066
 #, c-format
 msgid "Open all %s documents with:"
 msgstr "Բացել բոլորը %s փաստաթղթերի հետ:"
 
 #. First %s is a filename, second is a description
 #. * of the type, eg "plain text document"
-#: ../libcaja-private/caja-open-with-dialog.c:1087
+#: ../libcaja-private/caja-open-with-dialog.c:1088
 #, c-format
 msgid "Open %s and other \"%s\" files with:"
 msgstr "Բացել %s և այլ \"%s\" փաստաթղթի հետ:"
 
 #. %s is a file type description
-#: ../libcaja-private/caja-open-with-dialog.c:1095
+#: ../libcaja-private/caja-open-with-dialog.c:1096
 #, c-format
 msgid "_Remember this application for \"%s\" files"
 msgstr "_Հիշել այս դիմումը \"%s\" ֆայլերի  համար"
 
 #. Only in add mode
-#: ../libcaja-private/caja-open-with-dialog.c:1106
+#: ../libcaja-private/caja-open-with-dialog.c:1107
 #, c-format
 msgid "Open all \"%s\" files with:"
 msgstr "Բացել բոլորը \"%s\" ֆայլերի հետ:"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1118
+#: ../libcaja-private/caja-open-with-dialog.c:1119
 msgid "_Add"
 msgstr "_Ավելացնել"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1119
+#: ../libcaja-private/caja-open-with-dialog.c:1120
 msgid "Add Application"
 msgstr "Ավելացնել Դիմում"
 
@@ -2410,9 +2418,9 @@ msgid "Preparing"
 msgstr "Պատրաստում"
 
 #: ../libcaja-private/caja-query.c:161
-#: ../libcaja-private/caja-search-directory-file.c:170
-#: ../libcaja-private/caja-search-directory-file.c:199
-#: ../libcaja-private/caja-search-directory-file.c:232
+#: ../libcaja-private/caja-search-directory-file.c:176
+#: ../libcaja-private/caja-search-directory-file.c:205
+#: ../libcaja-private/caja-search-directory-file.c:238
 msgid "Search"
 msgstr "Որոնում"
 
@@ -3531,7 +3539,7 @@ msgid "Browse the file system with the file manager"
 msgstr "Ֆայլերի համակարգում բրաուզ կատարել ֆայլերի մենեջերի միջոցով։"
 
 #. tooltip
-#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:897
+#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:905
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
 msgstr "Թերթել բոլոր տեղական և հեռավոր սկավառակները և թղթապանակները, որոնք հասանելի են այս համակարգչում"
@@ -3550,7 +3558,7 @@ msgstr "Սեփական տուն պանակ"
 
 #. tooltip
 #: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:509
-#: ../src/caja-window-menus.c:892
+#: ../src/caja-window-menus.c:900
 msgid "Open your personal folder"
 msgstr "Բացել անձնական պանակը"
 
@@ -3558,124 +3566,124 @@ msgstr "Բացել անձնական պանակը"
 msgid "File Manager"
 msgstr "Ֆայլի մենեջեր"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:706
+#: ../src/file-manager/fm-desktop-icon-view.c:708
 msgid "Background"
 msgstr "Հետին պլան"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:783
-#: ../src/file-manager/fm-directory-view.c:7306
-#: ../src/file-manager/fm-directory-view.c:8983
+#: ../src/file-manager/fm-desktop-icon-view.c:785
+#: ../src/file-manager/fm-directory-view.c:7313
+#: ../src/file-manager/fm-directory-view.c:8990
 msgid "E_mpty Trash"
 msgstr "Դ_ատարկ թափոն զամբյուղ"
 
 #. label, accelerator
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:797
-#: ../src/file-manager/fm-directory-view.c:7270
+#: ../src/file-manager/fm-desktop-icon-view.c:799
+#: ../src/file-manager/fm-directory-view.c:7277
 msgid "Create L_auncher..."
 msgstr "Կերտել գ_ործարկիչ"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:799
-#: ../src/file-manager/fm-directory-view.c:7271
+#: ../src/file-manager/fm-desktop-icon-view.c:801
+#: ../src/file-manager/fm-directory-view.c:7278
 msgid "Create a new launcher"
 msgstr "Կերտել նոր պիտակ"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:806
+#: ../src/file-manager/fm-desktop-icon-view.c:808
 msgid "Change Desktop _Background"
 msgstr "Փոխել աշխատասեղանի _հետին պլանը"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:808
+#: ../src/file-manager/fm-desktop-icon-view.c:810
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr "Ցույց տալ պատուհանը, որը ձեզ թույլ է տալիս սահմանել ձեր աշխատանքային սեղանի հետին պլանի նկարը և գույնը։"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:815
+#: ../src/file-manager/fm-desktop-icon-view.c:817
 msgid "Empty Trash"
 msgstr "Դատարկ թափոն զամբյուղ"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:817
-#: ../src/file-manager/fm-directory-view.c:7307 ../src/caja-trash-bar.c:204
+#: ../src/file-manager/fm-desktop-icon-view.c:819
+#: ../src/file-manager/fm-directory-view.c:7314 ../src/caja-trash-bar.c:204
 msgid "Delete all items in the Trash"
 msgstr "Հեռացնել թափոն զամբյուղի բոլոր տարրերը։"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:917
+#: ../src/file-manager/fm-desktop-icon-view.c:919
 msgid "The desktop view encountered an error."
 msgstr "Աշխատանքային սեղանի տեսաբերման պրոցեսում սխալ է կատարվել"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:918
+#: ../src/file-manager/fm-desktop-icon-view.c:920
 msgid "The desktop view encountered an error while starting up."
 msgstr "Աշխատանքային սեղանի տեսաբերման պրոցեսում, միացման ժամանակ սխալ է կատարվել"
 
-#: ../src/file-manager/fm-directory-view.c:654
+#: ../src/file-manager/fm-directory-view.c:655
 #, c-format
 msgid "This will open %'d separate tab."
 msgid_plural "This will open %'d separate tabs."
 msgstr[0] "Սա կբացի %'d առանձին էջ։"
 msgstr[1] "Սա կբացի %'d առանձին էջեր։"
 
-#: ../src/file-manager/fm-directory-view.c:657
+#: ../src/file-manager/fm-directory-view.c:658
 #, c-format
 msgid "This will open %'d separate window."
 msgid_plural "This will open %'d separate windows."
 msgstr[0] "Սա կբացի %'d առանձին պատուհան։"
 msgstr[1] "Սա կբացի %'d առանձին պատուհաններ։"
 
-#: ../src/file-manager/fm-directory-view.c:1176
-#: ../src/file-manager/fm-properties-window.c:5397
-#: ../src/caja-connect-server-dialog.c:718 ../src/caja-location-dialog.c:102
+#: ../src/file-manager/fm-directory-view.c:1183
+#: ../src/file-manager/fm-properties-window.c:5420
+#: ../src/caja-connect-server-dialog.c:724 ../src/caja-location-dialog.c:108
 msgid "There was an error displaying help."
 msgstr "Ձեռնարկի ցուցադրման ժամանակ սխալ է կատարվել"
 
-#: ../src/file-manager/fm-directory-view.c:1196
+#: ../src/file-manager/fm-directory-view.c:1203
 msgid "Select Items Matching"
 msgstr "Ընտրել Համապատասխան Տարրեր"
 
-#: ../src/file-manager/fm-directory-view.c:1211
+#: ../src/file-manager/fm-directory-view.c:1218
 msgid "_Pattern:"
 msgstr "_Նմուշ"
 
-#: ../src/file-manager/fm-directory-view.c:1218
+#: ../src/file-manager/fm-directory-view.c:1225
 msgid "Examples: "
 msgstr "Օրինակներ:"
 
-#: ../src/file-manager/fm-directory-view.c:1334
+#: ../src/file-manager/fm-directory-view.c:1341
 msgid "Save Search as"
 msgstr "Պահպանել Որոնում ինչպես"
 
-#: ../src/file-manager/fm-directory-view.c:1357
+#: ../src/file-manager/fm-directory-view.c:1364
 msgid "Search _name:"
 msgstr "Որոնել  _անուն։"
 
-#: ../src/file-manager/fm-directory-view.c:1377
+#: ../src/file-manager/fm-directory-view.c:1384
 msgid "_Folder:"
 msgstr "_Պանակ"
 
-#: ../src/file-manager/fm-directory-view.c:1386
+#: ../src/file-manager/fm-directory-view.c:1393
 msgid "Select Folder to Save Search In"
 msgstr "Ընտրել Թղթապանակ Որոնման մեջ Պահպանելու"
 
-#: ../src/file-manager/fm-directory-view.c:2274
-#: ../src/file-manager/fm-directory-view.c:2311
+#: ../src/file-manager/fm-directory-view.c:2281
+#: ../src/file-manager/fm-directory-view.c:2318
 #, c-format
 msgid "\"%s\" selected"
 msgstr "\"%s\"–ը ընտրված է"
 
-#: ../src/file-manager/fm-directory-view.c:2276
+#: ../src/file-manager/fm-directory-view.c:2283
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
 msgstr[0] "%'d թղթապանակը ընտրված է"
 msgstr[1] "%'d թղթապանակները ընտրված են"
 
-#: ../src/file-manager/fm-directory-view.c:2286
+#: ../src/file-manager/fm-directory-view.c:2293
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
@@ -3684,14 +3692,14 @@ msgstr[1] "(պարունակող %'d տարրեր)"
 
 #. translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
-#: ../src/file-manager/fm-directory-view.c:2297
+#: ../src/file-manager/fm-directory-view.c:2304
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
 msgstr[0] " (պարունակում է ընդհանուր %'d տարր)"
 msgstr[1] " (պարունակում է ընդհանուր %'d տարրեր)"
 
-#: ../src/file-manager/fm-directory-view.c:2314
+#: ../src/file-manager/fm-directory-view.c:2321
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
@@ -3699,7 +3707,7 @@ msgstr[0] "%'d տարրերը ընտրված են"
 msgstr[1] "%'d տարրերը ընտրված են"
 
 #. Folders selected also, use "other" terminology
-#: ../src/file-manager/fm-directory-view.c:2321
+#: ../src/file-manager/fm-directory-view.c:2328
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
@@ -3710,17 +3718,17 @@ msgstr[1] "%'d մյուս տարրերը ընտրված են"
 #. * needs to use something other than parentheses. The
 #. * first message gives the number of items selected;
 #. * the message in parentheses the size of those items.
-#: ../src/file-manager/fm-directory-view.c:2340
+#: ../src/file-manager/fm-directory-view.c:2347
 #, c-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-directory-view.c:2353
+#: ../src/file-manager/fm-directory-view.c:2360
 #, c-format
 msgid "Free space: %s"
 msgstr "Ազատ տարածություն: %s"
 
-#: ../src/file-manager/fm-directory-view.c:2364
+#: ../src/file-manager/fm-directory-view.c:2371
 #, c-format
 msgid "%s, Free space: %s"
 msgstr "%s, Ազատ տարածք: %s"
@@ -3729,7 +3737,7 @@ msgstr "%s, Ազատ տարածք: %s"
 #. * might want to change "," to something else.
 #. * After the comma the amount of free space will
 #. * be shown.
-#: ../src/file-manager/fm-directory-view.c:2379
+#: ../src/file-manager/fm-directory-view.c:2386
 #, c-format
 msgid "%s, %s"
 msgstr "%s, %s"
@@ -3744,8 +3752,8 @@ msgstr "%s, %s"
 #. * and the number of items in those folders and the
 #. * message about the number of other items and the
 #. * total size of those items.
-#: ../src/file-manager/fm-directory-view.c:2398
-#: ../src/file-manager/fm-directory-view.c:2412
+#: ../src/file-manager/fm-directory-view.c:2405
+#: ../src/file-manager/fm-directory-view.c:2419
 #, c-format
 msgid "%s%s, %s"
 msgstr "%s%s, %s"
@@ -3757,53 +3765,53 @@ msgstr "%s%s, %s"
 #. * message about the number of other items and the
 #. * total size of those items. After the second comma
 #. * the free space is written.
-#: ../src/file-manager/fm-directory-view.c:2425
+#: ../src/file-manager/fm-directory-view.c:2432
 #, c-format
 msgid "%s%s, %s, %s"
 msgstr "%s%s, %s, %s"
 
-#: ../src/file-manager/fm-directory-view.c:4470
+#: ../src/file-manager/fm-directory-view.c:4477
 #: ../src/caja-information-panel.c:905
 #, c-format
 msgid "Open With %s"
 msgstr "Բացել միասին %s"
 
-#: ../src/file-manager/fm-directory-view.c:4472
+#: ../src/file-manager/fm-directory-view.c:4479
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
 msgstr[0] "Օգտագործել \"%s\" ընտրված տարրը բացելու համար"
 msgstr[1] "Օգտագործել \"%s\" ընտրված տարրերը բացելու համար"
 
-#: ../src/file-manager/fm-directory-view.c:4561
+#: ../src/file-manager/fm-directory-view.c:4568
 msgid "Open parent location"
 msgstr "Բացել հիմնադրվածք տեղակայությունը"
 
-#: ../src/file-manager/fm-directory-view.c:4562
+#: ../src/file-manager/fm-directory-view.c:4569
 msgid "Open parent location for the selected item"
 msgstr "Բացել ընտրված տարրի հիմնադրվածք տեղակայությունը"
 
-#: ../src/file-manager/fm-directory-view.c:5411
+#: ../src/file-manager/fm-directory-view.c:5418
 #, c-format
 msgid "Run \"%s\" on any selected items"
 msgstr "Գործարկել \"%s\"–ը ցանկացած ընտրված տարրի համար"
 
-#: ../src/file-manager/fm-directory-view.c:5662
+#: ../src/file-manager/fm-directory-view.c:5669
 #, c-format
 msgid "Create Document from template \"%s\""
 msgstr "Կերտել փաստաթուղթ շաբլոնից \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:5912
+#: ../src/file-manager/fm-directory-view.c:5919
 msgid "All executable files in this folder will appear in the Scripts menu."
 msgstr "Այս պանակի բոլոր գործարկվող ֆայլերը կհայտնվեն Scripts, սցենարներ ցանկի մեջ"
 
-#: ../src/file-manager/fm-directory-view.c:5914
+#: ../src/file-manager/fm-directory-view.c:5921
 msgid ""
 "Choosing a script from the menu will run that script with any selected items"
 " as input."
 msgstr "Ցանկից ընտրելով սցենարները այդ սցենարը կգործարկվի որևէ այլ ընտրված տարրի հետ "
 
-#: ../src/file-manager/fm-directory-view.c:5916
+#: ../src/file-manager/fm-directory-view.c:5923
 msgid ""
 "All executable files in this folder will appear in the Scripts menu. Choosing a script from the menu will run that script.\n"
 "\n"
@@ -3826,19 +3834,19 @@ msgid ""
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI for current location in the inactive pane of a split-view window"
 msgstr "Այս թղթապանակում բոլոր գործարկվող ֆայլերը կհայտնվեն Scripts ընտրացանկի մեջ։ Ընտրացանկից ընտրելով Scripts կկատարվի այդ ենթածրագիրը։\n\nԵրբ ենթածրագիրը ավարտվում է տեղային թղթապանակից, այն կարող է անցնել ընտրված ֆայլի անուններին։ Երբ ավարտվում է հեռավոր թղթապանակից (օրինակ թղթապանակը ցույց է տալիս վեբկայքը կամ ftp բովանդակությունը), ենթածրագիրը ոչ մի պարամետրի չի անցնի։\n\nԲոլոր դեպքերում միջավայրի փոփոխականների իրականացումը սահմանվում է ըստ Caja֊ի, որ ենթածրագրերը կարող են օգտագործվել․\n\nCAJA_SCRIPT_SELECTED_FILE_PATHS։ Նորտող―բաժանված ուղիները ընտրված ֆայլերի (միայն, եթե տեղական)\n\nCAJA_SCRIPT_SELECTED_URIS։ Նոր֊տող֊բաժանված URI֊ներ ընտրված ֆայլերի համար\n\nCAJA_SCRIPT_CURRENT_URI: URI ընթացիկ դիրքի համար\n\nCAJA_SCRIPT_WINDOW_GEOMETRY: Ընթացիկ պատուհանի դիրքը և չափը\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_FILE_PATHS: Նոր֊տող֊բաժանված ուղղիներ ընտրված ֆայլերի համար բաժանել֊տեսք պատուհանի ոչ ակտիվ ենթապատուհանի մեջ (եթե միայն տեղական)\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: Նոր֊տող֊բաժանված URI֊ներ ընտրված ֆայլերի համար բաժանել֊տեսք պատուհանի ոչ ակտիվ ենթապատուհանի մեջ \n\nCAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI ընթացիկ դիրքի համար բաժանել֊տեսք պատուհանի ոչ ակտիվ ենթապատուհանի մեջ"
 
-#: ../src/file-manager/fm-directory-view.c:5984
+#: ../src/file-manager/fm-directory-view.c:5991
 #: ../src/file-manager/fm-tree-view.c:1009
 #, c-format
 msgid "\"%s\" will be moved if you select the Paste command"
 msgstr "\"%s\" կտեղափոխվի եթե ըտրեք Փակցնել հրամանը"
 
-#: ../src/file-manager/fm-directory-view.c:5988
+#: ../src/file-manager/fm-directory-view.c:5995
 #: ../src/file-manager/fm-tree-view.c:1015
 #, c-format
 msgid "\"%s\" will be copied if you select the Paste command"
 msgstr "\"%s\"-ը կպատճենահանվի, եթե դուք ընտրեք զետեղել հրահանգը"
 
-#: ../src/file-manager/fm-directory-view.c:5995
+#: ../src/file-manager/fm-directory-view.c:6002
 #, c-format
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
@@ -3846,7 +3854,7 @@ msgid_plural ""
 msgstr[0] "%'d ընտրված տարրը կարող է տեղափոխվել, եթե դուք ընտրեք Paste հրաման"
 msgstr[1] "%'d ընտրված տարրերը կարող են տեղափոխվել, եթե դուք ընտրեք Paste հրաման"
 
-#: ../src/file-manager/fm-directory-view.c:6002
+#: ../src/file-manager/fm-directory-view.c:6009
 #, c-format
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
@@ -3854,98 +3862,98 @@ msgid_plural ""
 msgstr[0] " %'d ընտրված տարրը կարող է պատճենահանվել, եթե դուք ընտրեք  Paste հրաման"
 msgstr[1] " %'d ընտրված տարրերը կարող են պատճենահանվել, եթե դուք ընտրեք  Paste հրաման"
 
-#: ../src/file-manager/fm-directory-view.c:6182
+#: ../src/file-manager/fm-directory-view.c:6189
 #: ../src/file-manager/fm-tree-view.c:1055
 msgid "There is nothing on the clipboard to paste."
 msgstr "Տվյալների փոխանակման բուֆերում զետեղելու ոչինչ չկա"
 
-#: ../src/file-manager/fm-directory-view.c:6397
+#: ../src/file-manager/fm-directory-view.c:6404
 msgid "Unable to unmount location"
 msgstr "Անհնար է չտեղակայել դիրքը"
 
-#: ../src/file-manager/fm-directory-view.c:6418
+#: ../src/file-manager/fm-directory-view.c:6425
 msgid "Unable to eject location"
 msgstr "Անհնար է հեռացնել տեղակայությունը"
 
-#: ../src/file-manager/fm-directory-view.c:6433
+#: ../src/file-manager/fm-directory-view.c:6440
 msgid "Unable to stop drive"
 msgstr "Անհնար է գործարկումը դադարեցնել"
 
-#: ../src/file-manager/fm-directory-view.c:6990
+#: ../src/file-manager/fm-directory-view.c:6997
 #, c-format
 msgid "Connect to Server %s"
 msgstr "Միացնել սերվերին %s"
 
-#: ../src/file-manager/fm-directory-view.c:6995
-#: ../src/file-manager/fm-directory-view.c:8202
-#: ../src/file-manager/fm-directory-view.c:8294
-#: ../src/file-manager/fm-directory-view.c:8404
+#: ../src/file-manager/fm-directory-view.c:7002
+#: ../src/file-manager/fm-directory-view.c:8209
+#: ../src/file-manager/fm-directory-view.c:8301
+#: ../src/file-manager/fm-directory-view.c:8411
 msgid "_Connect"
 msgstr "_Միացնել"
 
-#: ../src/file-manager/fm-directory-view.c:7009
+#: ../src/file-manager/fm-directory-view.c:7016
 msgid "Link _name:"
 msgstr "Հղում _անուն:"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7248
+#: ../src/file-manager/fm-directory-view.c:7255
 msgid "Create _Document"
 msgstr "Ստեղծել _Փաստաթուղթ"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7249
+#: ../src/file-manager/fm-directory-view.c:7256
 msgid "Open Wit_h"
 msgstr "Բացել _հետ"
 
-#: ../src/file-manager/fm-directory-view.c:7250
+#: ../src/file-manager/fm-directory-view.c:7257
 msgid "Choose a program with which to open the selected item"
 msgstr "Ընտրել ծրագիրը, որով պետք է բացել ընտրված տարրը"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7252
-#: ../src/file-manager/fm-directory-view.c:7531
+#: ../src/file-manager/fm-directory-view.c:7259
+#: ../src/file-manager/fm-directory-view.c:7538
 msgid "_Properties"
 msgstr "_Հատկություններ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7253
-#: ../src/file-manager/fm-directory-view.c:8970
+#: ../src/file-manager/fm-directory-view.c:7260
+#: ../src/file-manager/fm-directory-view.c:8977
 msgid "View or modify the properties of each selected item"
 msgstr "Տեսաբերել կամ փոփոխել յուրաքանչյուր ընտրված տարրի հատկությունները"
 
 #. name, stock id
 #. label, accelerator
 #. add the "create folder" menu item
-#: ../src/file-manager/fm-directory-view.c:7260
+#: ../src/file-manager/fm-directory-view.c:7267
 #: ../src/file-manager/fm-tree-view.c:1298
 msgid "Create _Folder"
 msgstr "Կերտել _պանակ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7261
+#: ../src/file-manager/fm-directory-view.c:7268
 msgid "Create a new empty folder inside this folder"
 msgstr "Այս պանակի մեջ կերտել նոր դատարկ պանակ"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7263
+#: ../src/file-manager/fm-directory-view.c:7270
 msgid "No templates installed"
 msgstr "Չտեղադրված կաղապարներ"
 
 #. name, stock id
 #. translators: this is used to indicate that a file doesn't contain anything
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7266
+#: ../src/file-manager/fm-directory-view.c:7273
 msgid "_Empty File"
 msgstr "_Դատարկ ֆայլ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7267
+#: ../src/file-manager/fm-directory-view.c:7274
 msgid "Create a new empty file inside this folder"
 msgstr "Կերտել նոր դատարկ ֆայլ այս պանակի մեջ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7275
+#: ../src/file-manager/fm-directory-view.c:7282
 msgid "Open the selected item in this window"
 msgstr "Այս պատուհանում բացել ընտրված տարրը"
 
@@ -3954,91 +3962,91 @@ msgstr "Այս պատուհանում բացել ընտրված տարրը"
 #. Location-specific actions
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7282
-#: ../src/file-manager/fm-directory-view.c:7463
+#: ../src/file-manager/fm-directory-view.c:7289
+#: ../src/file-manager/fm-directory-view.c:7470
 msgid "Open in Navigation Window"
 msgstr "Բացել նավիգացիոն պատուհանը"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7283
+#: ../src/file-manager/fm-directory-view.c:7290
 msgid "Open each selected item in a navigation window"
 msgstr "Յուրաքանչյուր ընտրված տարր բացել նավիգացիոն պատուհանում"
 
 #. name, stock id
 #. label, accelerator
 #. add the "open in new tab" menu item
-#: ../src/file-manager/fm-directory-view.c:7286
-#: ../src/file-manager/fm-directory-view.c:7467
-#: ../src/file-manager/fm-directory-view.c:8534
-#: ../src/file-manager/fm-directory-view.c:8860
+#: ../src/file-manager/fm-directory-view.c:7293
+#: ../src/file-manager/fm-directory-view.c:7474
+#: ../src/file-manager/fm-directory-view.c:8541
+#: ../src/file-manager/fm-directory-view.c:8867
 #: ../src/file-manager/fm-tree-view.c:1278 ../src/caja-places-sidebar.c:2690
 msgid "Open in New _Tab"
 msgstr "Բացել նոր _էջանիշ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7287
+#: ../src/file-manager/fm-directory-view.c:7294
 msgid "Open each selected item in a new tab"
 msgstr "Յուրաքանչյուր ընտրված տարր բացել նոր էջում"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7290
-#: ../src/file-manager/fm-directory-view.c:7472
+#: ../src/file-manager/fm-directory-view.c:7297
+#: ../src/file-manager/fm-directory-view.c:7479
 msgid "Open in _Folder Window"
 msgstr "Բացել _Թղթապանակի Պատուհանի մեջ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7291
+#: ../src/file-manager/fm-directory-view.c:7298
 msgid "Open each selected item in a folder window"
 msgstr "Բացել յուրաքանչյուր ընտրված տարրը մի թղթապանակի պատուհանից"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7294
+#: ../src/file-manager/fm-directory-view.c:7301
 msgid "Other _Application..."
 msgstr "Այլ _Դիմում ..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7295
-#: ../src/file-manager/fm-directory-view.c:7299
+#: ../src/file-manager/fm-directory-view.c:7302
+#: ../src/file-manager/fm-directory-view.c:7306
 msgid "Choose another application with which to open the selected item"
 msgstr "Ընտրել այլ կիրառական ծրագիր,որով բացել ընտրված տարրը"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7298
+#: ../src/file-manager/fm-directory-view.c:7305
 msgid "Open With Other _Application..."
 msgstr "Բացել մեկ այլ _Ծրագիր..."
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7302
+#: ../src/file-manager/fm-directory-view.c:7309
 msgid "_Open Scripts Folder"
 msgstr "_Բացել սցենարների պանակը"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7303
+#: ../src/file-manager/fm-directory-view.c:7310
 msgid "Show the folder containing the scripts that appear in this menu"
 msgstr "Ցույց տալ այս ցանկի մեջ հայտնվող սցենարները պարունակող պանակը"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7311
+#: ../src/file-manager/fm-directory-view.c:7318
 msgid "Prepare the selected files to be moved with a Paste command"
 msgstr "Պատրաստել ընտրված ֆայլերը, որոնք պետք է տեղափոխել զետեղել հրահանգով"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7315
+#: ../src/file-manager/fm-directory-view.c:7322
 msgid "Prepare the selected files to be copied with a Paste command"
 msgstr "Պատրաստել ընտրված ֆայլերը, որոնք պետք է պատճենել զետեղել հրահանգով"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7319
+#: ../src/file-manager/fm-directory-view.c:7326
 msgid "Move or copy files previously selected by a Cut or Copy command"
 msgstr "Տեղափոխել կամ պատճենել ֆայլերը, որոնք նախկինում ընտրվել են կտրել կամ պատճենել հրահանգներով"
 
@@ -4046,140 +4054,140 @@ msgstr "Տեղափոխել կամ պատճենել ֆայլերը, որոնք ն
 #. accelerator for paste
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7324
-#: ../src/file-manager/fm-directory-view.c:7485
+#: ../src/file-manager/fm-directory-view.c:7331
+#: ../src/file-manager/fm-directory-view.c:7492
 #: ../src/file-manager/fm-tree-view.c:1330
 msgid "_Paste Into Folder"
 msgstr "_Զետեղել պանակի մեջ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7325
+#: ../src/file-manager/fm-directory-view.c:7332
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into the "
 "selected folder"
 msgstr "Տեղափոխել կամ պատճենել ֆայլերը, որոնք նախկինում ընտրվել են կտրել կամ պատճենել հրահանգներով ընտրված պանակների մեջ"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7327
+#: ../src/file-manager/fm-directory-view.c:7334
 msgid "Cop_y to"
 msgstr "Պատճենել"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7328
+#: ../src/file-manager/fm-directory-view.c:7335
 msgid "M_ove to"
 msgstr "Տեղափոխել"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7331
+#: ../src/file-manager/fm-directory-view.c:7338
 msgid "Select all items in this window"
 msgstr "Ընտրել այս պատուհանի բոլոր տարրերը"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7334
+#: ../src/file-manager/fm-directory-view.c:7341
 msgid "Select I_tems Matching..."
 msgstr "Ընտրել համապատասխան Տարրերը..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7335
+#: ../src/file-manager/fm-directory-view.c:7342
 msgid "Select items in this window matching a given pattern"
 msgstr "Ընտրել տարրը այս պատուհանում, որը համաատասխանում է տվյալ նմուշին"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7338
+#: ../src/file-manager/fm-directory-view.c:7345
 msgid "_Invert Selection"
 msgstr "_Շրջել Ընտրությունը"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7339
+#: ../src/file-manager/fm-directory-view.c:7346
 msgid "Select all and only the items that are not currently selected"
 msgstr "Ընտրել բոլոր և միայն այն տարրերը որոնք ներկայումս ընտրված չեն"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7342
+#: ../src/file-manager/fm-directory-view.c:7349
 msgid "D_uplicate"
 msgstr "կրկն_օրինակել"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7343
+#: ../src/file-manager/fm-directory-view.c:7350
 msgid "Duplicate each selected item"
 msgstr "Կրկնօրինակել յուրաքանչյուր ընտրված տարր"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7346
-#: ../src/file-manager/fm-directory-view.c:8954
+#: ../src/file-manager/fm-directory-view.c:7353
+#: ../src/file-manager/fm-directory-view.c:8961
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
 msgstr[0] "Կե_րտել հղում"
 msgstr[1] "Կե_րտել հղումներ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7347
+#: ../src/file-manager/fm-directory-view.c:7354
 msgid "Create a symbolic link for each selected item"
 msgstr "Կերտել սիմվոլիկ հղում յուրաքանչյուր ընտրված տարրի համար"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7350
+#: ../src/file-manager/fm-directory-view.c:7357
 msgid "_Rename..."
 msgstr "_Վերանվանել..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7351
+#: ../src/file-manager/fm-directory-view.c:7358
 msgid "Rename selected item"
 msgstr "Վերանվանել ընտրված տարրը"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7359
-#: ../src/file-manager/fm-directory-view.c:8915
+#: ../src/file-manager/fm-directory-view.c:7366
+#: ../src/file-manager/fm-directory-view.c:8922
 msgid "Move each selected item to the Trash"
 msgstr "Տեղափոխել յուրաքանչյուր ընտրված տարր թափոն զամբյուղի մեջ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7362
-#: ../src/file-manager/fm-directory-view.c:7494
-#: ../src/file-manager/fm-directory-view.c:8935
+#: ../src/file-manager/fm-directory-view.c:7369
+#: ../src/file-manager/fm-directory-view.c:7501
+#: ../src/file-manager/fm-directory-view.c:8942
 #: ../src/file-manager/fm-tree-view.c:1360
 msgid "_Delete"
 msgstr "_Հեռացնել"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7363
+#: ../src/file-manager/fm-directory-view.c:7370
 msgid "Delete each selected item, without moving to the Trash"
 msgstr "Հեռացնել յուրաքանչյուր ընտրված տարր առանց թափոն զամբյուղի մեջ տեղափոխելու"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7366
-#: ../src/file-manager/fm-directory-view.c:7498
+#: ../src/file-manager/fm-directory-view.c:7373
+#: ../src/file-manager/fm-directory-view.c:7505
 msgid "_Restore"
 msgstr "_Վերականգնել"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7370
+#: ../src/file-manager/fm-directory-view.c:7377
 msgid "_Undo"
 msgstr "_Հետադարձել"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7371
-#: ../src/file-manager/fm-directory-view.c:11117
+#: ../src/file-manager/fm-directory-view.c:7378
+#: ../src/file-manager/fm-directory-view.c:11126
 msgid "Undo the last action"
 msgstr "Հետադարձել վերջին գործողությունը"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7374
+#: ../src/file-manager/fm-directory-view.c:7381
 msgid "_Redo"
 msgstr "_Կրկնել"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7375
-#: ../src/file-manager/fm-directory-view.c:11135
+#: ../src/file-manager/fm-directory-view.c:7382
+#: ../src/file-manager/fm-directory-view.c:11144
 msgid "Redo the last undone action"
 msgstr "Կրկնել վերջին հետադարձել գործողությունը"
 
@@ -4189,614 +4197,614 @@ msgstr "Կրկնել վերջին հետադարձել գործողությու�
 #. * it is a mixture of both ATM.
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7385
+#: ../src/file-manager/fm-directory-view.c:7392
 msgid "Reset View to _Defaults"
 msgstr "Տեսաբերումը կրկնակի միացնել ըստ _նախնականի"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7386
+#: ../src/file-manager/fm-directory-view.c:7393
 msgid "Reset sorting order and zoom level to match preferences for this view"
 msgstr "Տեսակավորման կարգը և պատկերման մասշտաբի մակարդակը համապատասպանեցնել այս տեսաբերման պարամետրերին։"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7389
+#: ../src/file-manager/fm-directory-view.c:7396
 msgid "Connect To This Server"
 msgstr "Միանալ այս սերվերին"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7390
+#: ../src/file-manager/fm-directory-view.c:7397
 msgid "Make a permanent connection to this server"
 msgstr "Կատարել մշտական միացում այս սերվերի հետ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7393
-#: ../src/file-manager/fm-directory-view.c:7421
-#: ../src/file-manager/fm-directory-view.c:7502
+#: ../src/file-manager/fm-directory-view.c:7400
+#: ../src/file-manager/fm-directory-view.c:7428
+#: ../src/file-manager/fm-directory-view.c:7509
 #: ../src/caja-places-sidebar.c:2726
 msgid "_Mount"
 msgstr "_Տեղակայել"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7394
+#: ../src/file-manager/fm-directory-view.c:7401
 msgid "Mount the selected volume"
 msgstr "Միացնել ընտրված հատորը"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7398
+#: ../src/file-manager/fm-directory-view.c:7405
 msgid "Unmount the selected volume"
 msgstr "Անջատել ընտրված հատորը"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7402
+#: ../src/file-manager/fm-directory-view.c:7409
 msgid "Eject the selected volume"
 msgstr "Դուրս բերել ընտրված հատորը"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7405
-#: ../src/file-manager/fm-directory-view.c:7433
-#: ../src/file-manager/fm-directory-view.c:7514
+#: ../src/file-manager/fm-directory-view.c:7412
+#: ../src/file-manager/fm-directory-view.c:7440
+#: ../src/file-manager/fm-directory-view.c:7521
 #: ../src/caja-places-sidebar.c:2754
 msgid "_Format"
 msgstr "_Ֆորմատ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7406
+#: ../src/file-manager/fm-directory-view.c:7413
 msgid "Format the selected volume"
 msgstr "Ընտրված հատորի Ֆորմատը"
 
 #. name, stock id
 #. label, accelerator
 #. Adjust start/stop items to reflect the type of the drive
-#: ../src/file-manager/fm-directory-view.c:7409
-#: ../src/file-manager/fm-directory-view.c:7437
-#: ../src/file-manager/fm-directory-view.c:7518
-#: ../src/file-manager/fm-directory-view.c:8194
-#: ../src/file-manager/fm-directory-view.c:8198
-#: ../src/file-manager/fm-directory-view.c:8286
-#: ../src/file-manager/fm-directory-view.c:8290
-#: ../src/file-manager/fm-directory-view.c:8396
-#: ../src/file-manager/fm-directory-view.c:8400
+#: ../src/file-manager/fm-directory-view.c:7416
+#: ../src/file-manager/fm-directory-view.c:7444
+#: ../src/file-manager/fm-directory-view.c:7525
+#: ../src/file-manager/fm-directory-view.c:8201
+#: ../src/file-manager/fm-directory-view.c:8205
+#: ../src/file-manager/fm-directory-view.c:8293
+#: ../src/file-manager/fm-directory-view.c:8297
+#: ../src/file-manager/fm-directory-view.c:8403
+#: ../src/file-manager/fm-directory-view.c:8407
 #: ../src/caja-places-sidebar.c:1808 ../src/caja-places-sidebar.c:2761
 msgid "_Start"
 msgstr "_Սկիզբ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7410
+#: ../src/file-manager/fm-directory-view.c:7417
 msgid "Start the selected volume"
 msgstr "Սկսել ընտրված ուժգնությունը"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7413
-#: ../src/file-manager/fm-directory-view.c:7441
-#: ../src/file-manager/fm-directory-view.c:7522
-#: ../src/file-manager/fm-directory-view.c:8223
-#: ../src/file-manager/fm-directory-view.c:8315
-#: ../src/file-manager/fm-directory-view.c:8425
+#: ../src/file-manager/fm-directory-view.c:7420
+#: ../src/file-manager/fm-directory-view.c:7448
+#: ../src/file-manager/fm-directory-view.c:7529
+#: ../src/file-manager/fm-directory-view.c:8230
+#: ../src/file-manager/fm-directory-view.c:8322
+#: ../src/file-manager/fm-directory-view.c:8432
 #: ../src/caja-places-sidebar.c:1809 ../src/caja-places-sidebar.c:2768
-#: ../src/caja-window-menus.c:836
+#: ../src/caja-window-menus.c:844
 msgid "_Stop"
 msgstr "_Կանգառ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7414
-#: ../src/file-manager/fm-directory-view.c:8426
+#: ../src/file-manager/fm-directory-view.c:7421
+#: ../src/file-manager/fm-directory-view.c:8433
 msgid "Stop the selected volume"
 msgstr "Դադարեցնել ընտրված ուժգնությունը"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7417
-#: ../src/file-manager/fm-directory-view.c:7445
-#: ../src/file-manager/fm-directory-view.c:7526
+#: ../src/file-manager/fm-directory-view.c:7424
+#: ../src/file-manager/fm-directory-view.c:7452
+#: ../src/file-manager/fm-directory-view.c:7533
 #: ../src/caja-places-sidebar.c:2747
 msgid "_Detect Media"
 msgstr "_Հայտնաբերել Մեդիա"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7418
-#: ../src/file-manager/fm-directory-view.c:7446
-#: ../src/file-manager/fm-directory-view.c:7527
+#: ../src/file-manager/fm-directory-view.c:7425
+#: ../src/file-manager/fm-directory-view.c:7453
+#: ../src/file-manager/fm-directory-view.c:7534
 msgid "Detect media in the selected drive"
 msgstr "Հայտնաբերել լրատվամիջոցները ընտրված սարքում"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7422
+#: ../src/file-manager/fm-directory-view.c:7429
 msgid "Mount the volume associated with the open folder"
 msgstr "Տեղադրել ծավալի հետ կապված բաց թղթապանակը"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7426
+#: ../src/file-manager/fm-directory-view.c:7433
 msgid "Unmount the volume associated with the open folder"
 msgstr "Ապամոնտաժել ծավալի հետ կապված բաց թղթապանակը"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7430
+#: ../src/file-manager/fm-directory-view.c:7437
 msgid "Eject the volume associated with the open folder"
 msgstr "Խմբագրել ծավալի հետ կապված բաց թղթապանակը"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7434
+#: ../src/file-manager/fm-directory-view.c:7441
 msgid "Format the volume associated with the open folder"
 msgstr "Ֆորմատավորել ծավալի հետ կապված բաց թղթապանակը"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7438
+#: ../src/file-manager/fm-directory-view.c:7445
 msgid "Start the volume associated with the open folder"
 msgstr "Սկսել ծավալի հետ կապված բաց թղթապանակը"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7442
+#: ../src/file-manager/fm-directory-view.c:7449
 msgid "Stop the volume associated with the open folder"
 msgstr "Դադարեցնել ծավալի հետ կապված բաց թղթապանակը"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7449
+#: ../src/file-manager/fm-directory-view.c:7456
 msgid "Open File and Close window"
 msgstr "Բացել ֆայլը և փակել պատուհանը"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7453
+#: ../src/file-manager/fm-directory-view.c:7460
 msgid "Sa_ve Search"
 msgstr "Պա_հպանել Որոնումը"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7454
+#: ../src/file-manager/fm-directory-view.c:7461
 msgid "Save the edited search"
 msgstr "Պահպանել խմբագրված որոնումը"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7457
+#: ../src/file-manager/fm-directory-view.c:7464
 msgid "Sa_ve Search As..."
 msgstr "Պահպանել Որոնումը Որպես..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7458
+#: ../src/file-manager/fm-directory-view.c:7465
 msgid "Save the current search as a file"
 msgstr "Պահպանել ներկայիս որոնումը որպես ֆայլ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7464
+#: ../src/file-manager/fm-directory-view.c:7471
 msgid "Open this folder in a navigation window"
 msgstr "Բացել այս պանակը նավիգացիոն պատուհանում"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7468
+#: ../src/file-manager/fm-directory-view.c:7475
 msgid "Open this folder in a new tab"
 msgstr "Բացել այս թղթապանակը նոր էջանիշից"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7473
+#: ../src/file-manager/fm-directory-view.c:7480
 msgid "Open this folder in a folder window"
 msgstr "Բացել այս թղթապանակը թղթապանակի պատուհանից"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7478
+#: ../src/file-manager/fm-directory-view.c:7485
 msgid "Prepare this folder to be moved with a Paste command"
 msgstr "Պատրաստել այս պանակը, որը պետք է հեռացվի զետեղել հրահանգով"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7482
+#: ../src/file-manager/fm-directory-view.c:7489
 msgid "Prepare this folder to be copied with a Paste command"
 msgstr "Պատրաստել այս պանակը, որը պետք է պատճենվի զետեղել հրահանգով"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7486
+#: ../src/file-manager/fm-directory-view.c:7493
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into this "
 "folder"
 msgstr "Տեղափոխել կամ պատճենել ֆայլերը, որոնք նախկինում ընտրվել են կտրել կամ պատճենել հրահանգներով ընտրված պանակների մեջ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7491
+#: ../src/file-manager/fm-directory-view.c:7498
 msgid "Move this folder to the Trash"
 msgstr "Տեղափոխել այս պանակը թափոն զամբյուղի մեջ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7495
+#: ../src/file-manager/fm-directory-view.c:7502
 msgid "Delete this folder, without moving to the Trash"
 msgstr "Հեռացնել այս պանակը առանց տեղափոխելու թափոն զամբյուղի մեջ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7503
+#: ../src/file-manager/fm-directory-view.c:7510
 msgid "Mount the volume associated with this folder"
 msgstr "Տեղադրել ձայնի հետ կապված այս թղթապանակը"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7507
+#: ../src/file-manager/fm-directory-view.c:7514
 msgid "Unmount the volume associated with this folder"
 msgstr "Ապատեղադրել ձայնի հետ կապված այս թղթապանակը"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7511
+#: ../src/file-manager/fm-directory-view.c:7518
 msgid "Eject the volume associated with this folder"
 msgstr "Մերժել ձայնի հետ կապված այս թղթապանակը"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7515
+#: ../src/file-manager/fm-directory-view.c:7522
 msgid "Format the volume associated with this folder"
 msgstr "Ֆորմատավորել ձայնի հետ կապված այս թղթապանակը"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7519
+#: ../src/file-manager/fm-directory-view.c:7526
 msgid "Start the volume associated with this folder"
 msgstr "Սկսել ձայնի հետ կապված այս թղթապանակը"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7523
+#: ../src/file-manager/fm-directory-view.c:7530
 msgid "Stop the volume associated with this folder"
 msgstr "Դադարեցնել ձայնի հետ կապված այս թղթապանակը"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7532
+#: ../src/file-manager/fm-directory-view.c:7539
 msgid "View or modify the properties of this folder"
 msgstr "Դիտել կամ փոփոխել այս թղթապանակի հատկությունները"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7535
-#: ../src/file-manager/fm-directory-view.c:7538
+#: ../src/file-manager/fm-directory-view.c:7542
+#: ../src/file-manager/fm-directory-view.c:7545
 msgid "_Other pane"
 msgstr "_Այլ վահանակ"
 
-#: ../src/file-manager/fm-directory-view.c:7536
+#: ../src/file-manager/fm-directory-view.c:7543
 msgid "Copy the current selection to the other pane in the window"
 msgstr "Պատճենել ընթացիկ ընտրությունը դեպի այլ վահանակ պատուհանի մեջ"
 
-#: ../src/file-manager/fm-directory-view.c:7539
+#: ../src/file-manager/fm-directory-view.c:7546
 msgid "Move the current selection to the other pane in the window"
 msgstr "Տեղափոխել ընթացիկ ընտրությունը դեպի այլ վահանակ պատուհանի մեջ"
 
 #. name, stock id, label
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7542
-#: ../src/file-manager/fm-directory-view.c:7546 ../src/caja-window-menus.c:891
+#: ../src/file-manager/fm-directory-view.c:7549
+#: ../src/file-manager/fm-directory-view.c:7553 ../src/caja-window-menus.c:899
 msgid "_Home Folder"
 msgstr "_Տուն Թղթապանակ"
 
-#: ../src/file-manager/fm-directory-view.c:7543
+#: ../src/file-manager/fm-directory-view.c:7550
 msgid "Copy the current selection to the home folder"
 msgstr "Պատճենել ընթացիկ ընտրությունը դեպի տուն թղթապանակ"
 
-#: ../src/file-manager/fm-directory-view.c:7547
+#: ../src/file-manager/fm-directory-view.c:7554
 msgid "Move the current selection to the home folder"
 msgstr "Տեղափոխել ընթացիկ ընտրությունը դեպի տուն թղթապանակ"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7550
-#: ../src/file-manager/fm-directory-view.c:7554
+#: ../src/file-manager/fm-directory-view.c:7557
+#: ../src/file-manager/fm-directory-view.c:7561
 msgid "_Desktop"
 msgstr "_Աշխատանքային սեղան"
 
-#: ../src/file-manager/fm-directory-view.c:7551
+#: ../src/file-manager/fm-directory-view.c:7558
 msgid "Copy the current selection to the desktop"
 msgstr "Պատճենել ընթացիկ ընտրությունը աշխատասեղանի վրա"
 
-#: ../src/file-manager/fm-directory-view.c:7555
+#: ../src/file-manager/fm-directory-view.c:7562
 msgid "Move the current selection to the desktop"
 msgstr "Տեզափոխել է ընթացիկ ընտրությունը աշխատասեղանի վրա"
 
 #. Translators: %s is a directory
-#: ../src/file-manager/fm-directory-view.c:7635
+#: ../src/file-manager/fm-directory-view.c:7642
 #, c-format
 msgid "Run or manage scripts from %s"
 msgstr "Գործարկել կամ կառավարել %s–օ սցենարները"
 
 #. Create a script action here specially because its tooltip is dynamic
-#: ../src/file-manager/fm-directory-view.c:7637
+#: ../src/file-manager/fm-directory-view.c:7644
 msgid "_Scripts"
 msgstr "_Սցենարներ"
 
-#: ../src/file-manager/fm-directory-view.c:8042
+#: ../src/file-manager/fm-directory-view.c:8049
 #, c-format
 msgid "Move the open folder out of the trash to \"%s\""
 msgstr "Տեղափոխել բաց թղթապանակը զամբյուղից դեպի \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:8045
+#: ../src/file-manager/fm-directory-view.c:8052
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
 msgstr[0] "Տեղափոխել ընտրված թղթապանակը զամբյուղից դեպի \"%s\""
 msgstr[1] "Տեղափոխել ընտրված թղթապանակները զամբյուղից դեպի \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:8049
+#: ../src/file-manager/fm-directory-view.c:8056
 #, c-format
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
 msgstr[0] "Տեղափոխել ընտրված թղթապանակնը զամբյուղից դուրս"
 msgstr[1] "Տեղափոխել ընտրված թղթապանակները զամբյուղից դուրս"
 
-#: ../src/file-manager/fm-directory-view.c:8055
+#: ../src/file-manager/fm-directory-view.c:8062
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
 msgstr[0] "Տեղափոխել ընտրված ֆայլը զամբյուղից դեպի \"%s\""
 msgstr[1] "Տեղափոխել ընտրված ֆայլերը զամբյուղից դեպի \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:8059
+#: ../src/file-manager/fm-directory-view.c:8066
 #, c-format
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
 msgstr[0] "Տեղափոխել ընտրված ֆայլը զամբյուղից դուրս"
 msgstr[1] "Տեղափոխել ընտրված ֆայլերը զամբյուղից դուրս"
 
-#: ../src/file-manager/fm-directory-view.c:8065
+#: ../src/file-manager/fm-directory-view.c:8072
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
 msgstr[0] "Տեղափոխել ընտրված տարրը զամբյուղից դեպի \"%s\""
 msgstr[1] "Տեղափոխել ընտրված տարրերը զամբյուղից դեպի \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:8069
+#: ../src/file-manager/fm-directory-view.c:8076
 #, c-format
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
 msgstr[0] "Տեղափոխել ընտրված նյութը զամբյուղից դուրս"
 msgstr[1] "Տեղափոխել ընտրված նյութերը զամբյուղից դուրս"
 
-#: ../src/file-manager/fm-directory-view.c:8195
-#: ../src/file-manager/fm-directory-view.c:8199
-#: ../src/file-manager/fm-directory-view.c:8397
-#: ../src/file-manager/fm-directory-view.c:8401
+#: ../src/file-manager/fm-directory-view.c:8202
+#: ../src/file-manager/fm-directory-view.c:8206
+#: ../src/file-manager/fm-directory-view.c:8404
+#: ../src/file-manager/fm-directory-view.c:8408
 msgid "Start the selected drive"
 msgstr "Սկսել ընտրված սարքը"
 
-#: ../src/file-manager/fm-directory-view.c:8203
-#: ../src/file-manager/fm-directory-view.c:8405
+#: ../src/file-manager/fm-directory-view.c:8210
+#: ../src/file-manager/fm-directory-view.c:8412
 msgid "Connect to the selected drive"
 msgstr "Միացնել ընտրված սարքը"
 
-#: ../src/file-manager/fm-directory-view.c:8206
-#: ../src/file-manager/fm-directory-view.c:8298
-#: ../src/file-manager/fm-directory-view.c:8408
+#: ../src/file-manager/fm-directory-view.c:8213
+#: ../src/file-manager/fm-directory-view.c:8305
+#: ../src/file-manager/fm-directory-view.c:8415
 msgid "_Start Multi-disk Drive"
 msgstr "_Սկսել Բազմասկավառակ Սարքը"
 
-#: ../src/file-manager/fm-directory-view.c:8207
-#: ../src/file-manager/fm-directory-view.c:8409
+#: ../src/file-manager/fm-directory-view.c:8214
+#: ../src/file-manager/fm-directory-view.c:8416
 msgid "Start the selected multi-disk drive"
 msgstr "Սկսել ընտրված բազմասկավառակ սարքը"
 
-#: ../src/file-manager/fm-directory-view.c:8210
+#: ../src/file-manager/fm-directory-view.c:8217
 msgid "U_nlock Drive"
 msgstr "Ապաարգելափակել Սարքը"
 
-#: ../src/file-manager/fm-directory-view.c:8211
-#: ../src/file-manager/fm-directory-view.c:8413
+#: ../src/file-manager/fm-directory-view.c:8218
+#: ../src/file-manager/fm-directory-view.c:8420
 msgid "Unlock the selected drive"
 msgstr "Ապաարգելափակել ընտրված սարքը"
 
-#: ../src/file-manager/fm-directory-view.c:8224
+#: ../src/file-manager/fm-directory-view.c:8231
 msgid "Stop the selected drive"
 msgstr "Դադարեցնել ընտրված սարքը"
 
-#: ../src/file-manager/fm-directory-view.c:8227
-#: ../src/file-manager/fm-directory-view.c:8319
-#: ../src/file-manager/fm-directory-view.c:8429
+#: ../src/file-manager/fm-directory-view.c:8234
+#: ../src/file-manager/fm-directory-view.c:8326
+#: ../src/file-manager/fm-directory-view.c:8436
 #: ../src/caja-places-sidebar.c:1817
 msgid "_Safely Remove Drive"
 msgstr "_Ապահով կերպով Հեռացնել Սարքը"
 
-#: ../src/file-manager/fm-directory-view.c:8228
-#: ../src/file-manager/fm-directory-view.c:8430
+#: ../src/file-manager/fm-directory-view.c:8235
+#: ../src/file-manager/fm-directory-view.c:8437
 msgid "Safely remove the selected drive"
 msgstr "Ապահով կերպով հեռացնել ընտրված սարքը"
 
-#: ../src/file-manager/fm-directory-view.c:8231
-#: ../src/file-manager/fm-directory-view.c:8323
-#: ../src/file-manager/fm-directory-view.c:8433
+#: ../src/file-manager/fm-directory-view.c:8238
+#: ../src/file-manager/fm-directory-view.c:8330
+#: ../src/file-manager/fm-directory-view.c:8440
 msgid "_Disconnect"
 msgstr "_Անջատել"
 
-#: ../src/file-manager/fm-directory-view.c:8232
-#: ../src/file-manager/fm-directory-view.c:8434
+#: ../src/file-manager/fm-directory-view.c:8239
+#: ../src/file-manager/fm-directory-view.c:8441
 msgid "Disconnect the selected drive"
 msgstr "Անջատել ընդրված սարքը"
 
-#: ../src/file-manager/fm-directory-view.c:8235
-#: ../src/file-manager/fm-directory-view.c:8327
-#: ../src/file-manager/fm-directory-view.c:8437
+#: ../src/file-manager/fm-directory-view.c:8242
+#: ../src/file-manager/fm-directory-view.c:8334
+#: ../src/file-manager/fm-directory-view.c:8444
 msgid "_Stop Multi-disk Drive"
 msgstr "_Կանգնեցնել Բազմասկավառակային Սարքը"
 
-#: ../src/file-manager/fm-directory-view.c:8236
-#: ../src/file-manager/fm-directory-view.c:8438
+#: ../src/file-manager/fm-directory-view.c:8243
+#: ../src/file-manager/fm-directory-view.c:8445
 msgid "Stop the selected multi-disk drive"
 msgstr "Դադարեցնել ընտրված բազմասկավառակ սկավառակատարը"
 
-#: ../src/file-manager/fm-directory-view.c:8239
-#: ../src/file-manager/fm-directory-view.c:8331
-#: ../src/file-manager/fm-directory-view.c:8441
+#: ../src/file-manager/fm-directory-view.c:8246
+#: ../src/file-manager/fm-directory-view.c:8338
+#: ../src/file-manager/fm-directory-view.c:8448
 #: ../src/caja-places-sidebar.c:1830
 msgid "_Lock Drive"
 msgstr "_Արգելափակել Սկավառակատարը"
 
-#: ../src/file-manager/fm-directory-view.c:8240
-#: ../src/file-manager/fm-directory-view.c:8442
+#: ../src/file-manager/fm-directory-view.c:8247
+#: ../src/file-manager/fm-directory-view.c:8449
 msgid "Lock the selected drive"
 msgstr "Արգելափակել ընտրված սկավառակատարը"
 
-#: ../src/file-manager/fm-directory-view.c:8287
-#: ../src/file-manager/fm-directory-view.c:8291
+#: ../src/file-manager/fm-directory-view.c:8294
+#: ../src/file-manager/fm-directory-view.c:8298
 msgid "Start the drive associated with the open folder"
 msgstr "Սկսել ասոցացված սկավառակատարը բաց թղթապանակով"
 
-#: ../src/file-manager/fm-directory-view.c:8295
+#: ../src/file-manager/fm-directory-view.c:8302
 msgid "Connect to the drive associated with the open folder"
 msgstr "Միացնել բազմասկավառակ ասոցացված սկավառակատարը բաց թղթապանակով"
 
-#: ../src/file-manager/fm-directory-view.c:8299
+#: ../src/file-manager/fm-directory-view.c:8306
 msgid "Start the multi-disk drive associated with the open folder"
 msgstr "Սկսել բազմասկավառակ ասոցացված սկավառակատարը բաց թղթապանակով"
 
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
-#: ../src/file-manager/fm-directory-view.c:8302
-#: ../src/file-manager/fm-directory-view.c:8412
+#: ../src/file-manager/fm-directory-view.c:8309
+#: ../src/file-manager/fm-directory-view.c:8419
 #: ../src/caja-places-sidebar.c:1829
 msgid "_Unlock Drive"
 msgstr "_Բաց Սկավառակատար"
 
-#: ../src/file-manager/fm-directory-view.c:8303
+#: ../src/file-manager/fm-directory-view.c:8310
 msgid "Unlock the drive associated with the open folder"
 msgstr "Բացել ասոցացված սկավառակատարը բաց թղթապանակով"
 
-#: ../src/file-manager/fm-directory-view.c:8316
+#: ../src/file-manager/fm-directory-view.c:8323
 msgid "_Stop the drive associated with the open folder"
 msgstr "_Կանգնեցնել ասոցացված սկավառակատարը բաց թղթապանակով"
 
-#: ../src/file-manager/fm-directory-view.c:8320
+#: ../src/file-manager/fm-directory-view.c:8327
 msgid "Safely remove the drive associated with the open folder"
 msgstr "Ապահով կերպով հեռացնել ասոցացված սկավառակատարը բաց թղթապանակով"
 
-#: ../src/file-manager/fm-directory-view.c:8324
+#: ../src/file-manager/fm-directory-view.c:8331
 msgid "Disconnect the drive associated with the open folder"
 msgstr "Անջատել ասոցացված սկավառակատարը բաց թղթապանակով"
 
-#: ../src/file-manager/fm-directory-view.c:8328
+#: ../src/file-manager/fm-directory-view.c:8335
 msgid "Stop the multi-disk drive associated with the open folder"
 msgstr "Կանգնեցնել ասոցացված բազմասկավառակ սկավառակատարը բաց թղթապանակով"
 
-#: ../src/file-manager/fm-directory-view.c:8332
+#: ../src/file-manager/fm-directory-view.c:8339
 msgid "Lock the drive associated with the open folder"
 msgstr "Արգելափակել ասոցացված սկավառակատարը բաց թղթապանակով"
 
 #. add the "open in new window" menu item
-#: ../src/file-manager/fm-directory-view.c:8511
-#: ../src/file-manager/fm-directory-view.c:8821
+#: ../src/file-manager/fm-directory-view.c:8518
+#: ../src/file-manager/fm-directory-view.c:8828
 #: ../src/file-manager/fm-tree-view.c:1287 ../src/caja-places-sidebar.c:2697
 msgid "Open in New _Window"
 msgstr "Բացել Նոր _Պատուհան"
 
-#: ../src/file-manager/fm-directory-view.c:8513
-#: ../src/file-manager/fm-directory-view.c:8830
+#: ../src/file-manager/fm-directory-view.c:8520
+#: ../src/file-manager/fm-directory-view.c:8837
 msgid "Browse in New _Window"
 msgstr "Փնտրել նոր _Պատուհանում"
 
-#: ../src/file-manager/fm-directory-view.c:8519
-#: ../src/file-manager/fm-directory-view.c:8840
+#: ../src/file-manager/fm-directory-view.c:8526
+#: ../src/file-manager/fm-directory-view.c:8847
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
 msgstr[0] "_Բրաուզ կատարել պանակի մեջ"
 msgstr[1] "_Բրաուզ կատարել պանակների մեջ"
 
-#: ../src/file-manager/fm-directory-view.c:8536
-#: ../src/file-manager/fm-directory-view.c:8869
+#: ../src/file-manager/fm-directory-view.c:8543
+#: ../src/file-manager/fm-directory-view.c:8876
 msgid "Browse in New _Tab"
 msgstr "Փնտրել Նոր _Էջ"
 
-#: ../src/file-manager/fm-directory-view.c:8585
-#: ../src/file-manager/fm-directory-view.c:8910
+#: ../src/file-manager/fm-directory-view.c:8592
+#: ../src/file-manager/fm-directory-view.c:8917
 msgid "_Delete Permanently"
 msgstr "_Ջնջել մշտապես"
 
-#: ../src/file-manager/fm-directory-view.c:8586
+#: ../src/file-manager/fm-directory-view.c:8593
 msgid "Delete the open folder permanently"
 msgstr "Հեռացնել բաց պանակը շարունակաբար"
 
-#: ../src/file-manager/fm-directory-view.c:8590
+#: ../src/file-manager/fm-directory-view.c:8597
 msgid "Move the open folder to the Trash"
 msgstr "Տեղափոխել բաց պանակը թափոն զամբյուղի մեջ"
 
-#: ../src/file-manager/fm-directory-view.c:8770
+#: ../src/file-manager/fm-directory-view.c:8777
 #, c-format
 msgid "_Open With %s"
 msgstr "_Բացել Միասին %s"
 
-#: ../src/file-manager/fm-directory-view.c:8823
+#: ../src/file-manager/fm-directory-view.c:8830
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
 msgstr[0] "Բացել %'d Նոր _Պատուհանով"
 msgstr[1] "Բացել %'d Նոր _Պատուհաններով"
 
-#: ../src/file-manager/fm-directory-view.c:8832
+#: ../src/file-manager/fm-directory-view.c:8839
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
 msgstr[0] "Աչքի անցկացնել %'d Նոր _Պատուհանով"
 msgstr[1] "Աչքի անցկացնել %'d Նոր _Պատուհաններով"
 
-#: ../src/file-manager/fm-directory-view.c:8862
+#: ../src/file-manager/fm-directory-view.c:8869
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
 msgstr[0] "Բացել %'d Նոր _Էջով"
 msgstr[1] "Բացել %'d Նոր _Էջերով"
 
-#: ../src/file-manager/fm-directory-view.c:8871
+#: ../src/file-manager/fm-directory-view.c:8878
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
 msgstr[0] "Աչքի անցկացնել %'d Նոր _Էջով"
 msgstr[1] "Աչքի անցկացնել %'d Նոր _Էջերով"
 
-#: ../src/file-manager/fm-directory-view.c:8911
+#: ../src/file-manager/fm-directory-view.c:8918
 msgid "Delete all selected items permanently"
 msgstr "Բոլոր ընտրված տարրերը շարունակաբար հեռացնել"
 
-#: ../src/file-manager/fm-directory-view.c:8968
+#: ../src/file-manager/fm-directory-view.c:8975
 msgid "View or modify the properties of the open folder"
 msgstr "Տեսաբերել կամ փոփոխել բաց պանակի հատկությունները"
 
-#: ../src/file-manager/fm-directory-view.c:10271
+#: ../src/file-manager/fm-directory-view.c:10278
 msgid "Download location?"
 msgstr "Ներբեռնե՞լ տեղակայությունը"
 
-#: ../src/file-manager/fm-directory-view.c:10274
+#: ../src/file-manager/fm-directory-view.c:10281
 msgid "You can download it or make a link to it."
 msgstr "Դուք կարող եք ներբեռնել այն կամ հղում կատարել դրան"
 
-#: ../src/file-manager/fm-directory-view.c:10277
+#: ../src/file-manager/fm-directory-view.c:10284
 msgid "Make a _Link"
 msgstr "Կերտել _հղում"
 
-#: ../src/file-manager/fm-directory-view.c:10281
+#: ../src/file-manager/fm-directory-view.c:10288
 msgid "_Download"
 msgstr "_Ներբեռնում"
 
-#: ../src/file-manager/fm-directory-view.c:10442
-#: ../src/file-manager/fm-directory-view.c:10501
-#: ../src/file-manager/fm-directory-view.c:10606
+#: ../src/file-manager/fm-directory-view.c:10449
+#: ../src/file-manager/fm-directory-view.c:10508
+#: ../src/file-manager/fm-directory-view.c:10613
 msgid "Drag and drop is not supported."
 msgstr "Քաշել և նետելը աջակցում չունի"
 
-#: ../src/file-manager/fm-directory-view.c:10443
+#: ../src/file-manager/fm-directory-view.c:10450
 msgid "Drag and drop is only supported on local file systems."
 msgstr "Քաշել և նետելը աջակցում ունի միայն տեղային ֆայլերի համակարգում"
 
-#: ../src/file-manager/fm-directory-view.c:10502
-#: ../src/file-manager/fm-directory-view.c:10607
+#: ../src/file-manager/fm-directory-view.c:10509
+#: ../src/file-manager/fm-directory-view.c:10614
 msgid "An invalid drag type was used."
 msgstr "Ահնամապատասխան քաշել տեսակ է օգտագործվել"
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10684
+#: ../src/file-manager/fm-directory-view.c:10691
 msgid "dropped text.txt"
 msgstr "Կրճատված text.txt"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10729
+#: ../src/file-manager/fm-directory-view.c:10736
 msgid "dropped data"
 msgstr "Կրճատված տվյալներ"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11116
+#: ../src/file-manager/fm-directory-view.c:11125
 msgid "Undo"
 msgstr "Ետ շրջել"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11134
+#: ../src/file-manager/fm-directory-view.c:11143
 msgid "Redo"
 msgstr "Կրկնել"
 
@@ -4917,7 +4925,7 @@ msgstr "Վերանվանում \"%s\"ից \"%s\"–ի"
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: ../src/file-manager/fm-icon-container.c:611
-#: ../src/file-manager/fm-icon-view.c:3392
+#: ../src/file-manager/fm-icon-view.c:3380
 #: ../src/caja-file-management-properties.ui.h:1
 msgid "Icon View"
 msgstr "Պատկերակների տեսաբերում"
@@ -4927,7 +4935,7 @@ msgid "by _Name"
 msgstr "Ըստ _անվան"
 
 #: ../src/file-manager/fm-icon-view.c:129
-#: ../src/file-manager/fm-icon-view.c:1733
+#: ../src/file-manager/fm-icon-view.c:1740
 msgid "Keep icons sorted by name in rows"
 msgstr "Պատկերակները պահել տողերով՝ տեսակավորված ըստ անվան"
 
@@ -4936,201 +4944,209 @@ msgid "by _Size"
 msgstr "Ըստ _չափսի"
 
 #: ../src/file-manager/fm-icon-view.c:136
-#: ../src/file-manager/fm-icon-view.c:1739
+#: ../src/file-manager/fm-icon-view.c:1746
 msgid "Keep icons sorted by size in rows"
 msgstr "Պատկերակները պահել տողերով՝ տեսակավորված ըստ չափսի"
 
 #: ../src/file-manager/fm-icon-view.c:142
+msgid "by Size on Disk"
+msgstr ""
+
+#: ../src/file-manager/fm-icon-view.c:143
+msgid "Keep icons sorted by disk usage in rows"
+msgstr ""
+
+#: ../src/file-manager/fm-icon-view.c:149
 msgid "by _Type"
 msgstr "Ըստ _տեսակի"
 
-#: ../src/file-manager/fm-icon-view.c:143
-#: ../src/file-manager/fm-icon-view.c:1745
+#: ../src/file-manager/fm-icon-view.c:150
+#: ../src/file-manager/fm-icon-view.c:1752
 msgid "Keep icons sorted by type in rows"
 msgstr "Պատկերակները պահել տողերով՝ տեսակավորված ըստ տեսակի"
 
-#: ../src/file-manager/fm-icon-view.c:149
+#: ../src/file-manager/fm-icon-view.c:156
 msgid "by Modification _Date"
 msgstr "Ըստ մոդիֆիկացիաների _ամսաթիվ"
 
-#: ../src/file-manager/fm-icon-view.c:150
-#: ../src/file-manager/fm-icon-view.c:1751
+#: ../src/file-manager/fm-icon-view.c:157
+#: ../src/file-manager/fm-icon-view.c:1758
 msgid "Keep icons sorted by modification date in rows"
 msgstr "Պատկերակները պահել տողերով՝ տեսակավորված ըստ մոդիֆիկացիաների"
 
-#: ../src/file-manager/fm-icon-view.c:156
+#: ../src/file-manager/fm-icon-view.c:163
 msgid "by _Emblems"
 msgstr "Ըստ _էմբլեմների"
 
-#: ../src/file-manager/fm-icon-view.c:157
-#: ../src/file-manager/fm-icon-view.c:1757
+#: ../src/file-manager/fm-icon-view.c:164
+#: ../src/file-manager/fm-icon-view.c:1764
 msgid "Keep icons sorted by emblems in rows"
 msgstr "Պատկերակները պահել տողերով՝ տեսակավորված ըստ էմբլեմների"
 
-#: ../src/file-manager/fm-icon-view.c:163
+#: ../src/file-manager/fm-icon-view.c:170
 msgid "by T_rash Time"
 msgstr "Ըստ Վնասված Ժամանակի"
 
-#: ../src/file-manager/fm-icon-view.c:164
-#: ../src/file-manager/fm-icon-view.c:1763
+#: ../src/file-manager/fm-icon-view.c:171
+#: ../src/file-manager/fm-icon-view.c:1770
 msgid "Keep icons sorted by trash time in rows"
 msgstr "Պահել պատկերանշանները տեսակավորված, ըստ զամբյուղի ժամանակի տողերի մեջ"
 
-#: ../src/file-manager/fm-icon-view.c:773
+#: ../src/file-manager/fm-icon-view.c:780
 msgid "_Organize Desktop by Name"
 msgstr " _Կազմակերպել Աշխատանքային էկրանը ըստ Անունի"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-icon-view.c:1682
+#: ../src/file-manager/fm-icon-view.c:1689
 msgid "Arran_ge Items"
 msgstr "Դասավո_րել տարրերը"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1684
+#: ../src/file-manager/fm-icon-view.c:1691
 msgid "Resize Icon..."
 msgstr "Չափափոխել Պատկերակը ..."
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1685
+#: ../src/file-manager/fm-icon-view.c:1692
 msgid "Make the selected icon resizable"
 msgstr "Ընտրված պատկերանշանը դարձնել չափափոխելի"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1689
-#: ../src/file-manager/fm-icon-view.c:1890
+#: ../src/file-manager/fm-icon-view.c:1696
+#: ../src/file-manager/fm-icon-view.c:1897
 msgid "Restore Icons' Original Si_zes"
 msgstr "Վերականգնել պատկերակների նախնական չա_փսը"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1690
+#: ../src/file-manager/fm-icon-view.c:1697
 msgid "Restore each selected icon to its original size"
 msgstr "Վերականգնել յուրաքանչյուր ընտրված պատկերակ իր նախնական չափսին"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1694
+#: ../src/file-manager/fm-icon-view.c:1701
 msgid "_Organize by Name"
 msgstr "_Կազմակերպել ըստ անվան"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1695
+#: ../src/file-manager/fm-icon-view.c:1702
 msgid "Reposition icons to better fit in the window and avoid overlapping"
 msgstr "Պատկերակները վերադասավորել դրանք պատուհանների մեջ տեղավորելու և համընկնումից խուսափելու համար"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1703
+#: ../src/file-manager/fm-icon-view.c:1710
 msgid "Compact _Layout"
 msgstr "Խտացված _դասավորություն"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1704
+#: ../src/file-manager/fm-icon-view.c:1711
 msgid "Toggle using a tighter layout scheme"
 msgstr "Փոխարկել օգտագործելով առավել խիտ սխեմա"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1709
+#: ../src/file-manager/fm-icon-view.c:1716
 msgid "Re_versed Order"
 msgstr "Հա_կադարձ կարգ"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1710
+#: ../src/file-manager/fm-icon-view.c:1717
 msgid "Display icons in the opposite order"
 msgstr "Պատկերակները ցույց տալ հակառակ կարգով"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1715
+#: ../src/file-manager/fm-icon-view.c:1722
 msgid "_Keep Aligned"
 msgstr "_Պահպանել շարքը"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1716
+#: ../src/file-manager/fm-icon-view.c:1723
 msgid "Keep icons lined up on a grid"
 msgstr "Պատկերակները պահել ցանցի վրա՝ շարքով"
 
-#: ../src/file-manager/fm-icon-view.c:1726
+#: ../src/file-manager/fm-icon-view.c:1733
 msgid "_Manually"
 msgstr "_Ձեռքով կառավարվող"
 
-#: ../src/file-manager/fm-icon-view.c:1727
+#: ../src/file-manager/fm-icon-view.c:1734
 msgid "Leave icons wherever they are dropped"
 msgstr "Թողնել պատկերակները այնտեղ որտեղ դրված են"
 
-#: ../src/file-manager/fm-icon-view.c:1732
+#: ../src/file-manager/fm-icon-view.c:1739
 msgid "By _Name"
 msgstr "Ըստ _անվան"
 
-#: ../src/file-manager/fm-icon-view.c:1738
+#: ../src/file-manager/fm-icon-view.c:1745
 msgid "By _Size"
 msgstr "Ըստ _չափսի"
 
-#: ../src/file-manager/fm-icon-view.c:1744
+#: ../src/file-manager/fm-icon-view.c:1751
 msgid "By _Type"
 msgstr "Ըստ _տեսակի"
 
-#: ../src/file-manager/fm-icon-view.c:1750
+#: ../src/file-manager/fm-icon-view.c:1757
 msgid "By Modification _Date"
 msgstr "Ըստ մոդիֆիկացիայի _ամսաթվի"
 
-#: ../src/file-manager/fm-icon-view.c:1756
+#: ../src/file-manager/fm-icon-view.c:1763
 msgid "By _Emblems"
 msgstr "Ըստ _էմբլեմների"
 
-#: ../src/file-manager/fm-icon-view.c:1762
+#: ../src/file-manager/fm-icon-view.c:1769
 msgid "By T_rash Time"
 msgstr "Վնասված ժամանակով"
 
-#: ../src/file-manager/fm-icon-view.c:1891
+#: ../src/file-manager/fm-icon-view.c:1898
 msgid "Restore Icon's Original Si_ze"
 msgstr "Վերականգնել պատկերակի նախնական չա_փսը"
 
-#: ../src/file-manager/fm-icon-view.c:2366
+#: ../src/file-manager/fm-icon-view.c:2373
 #, c-format
 msgid "pointing at \"%s\""
 msgstr "ցույց է տալիս \"%s\""
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3394
+#: ../src/file-manager/fm-icon-view.c:3382
 msgid "_Icons"
 msgstr "_Պատկերակներ"
 
-#: ../src/file-manager/fm-icon-view.c:3395
+#: ../src/file-manager/fm-icon-view.c:3383
 msgid "The icon view encountered an error."
 msgstr "Պատկերակի տեսաբերման ժամանակ սխալ է կատարվել"
 
-#: ../src/file-manager/fm-icon-view.c:3396
+#: ../src/file-manager/fm-icon-view.c:3384
 msgid "The icon view encountered an error while starting up."
 msgstr "Գործարկման պահին պատկերակի տեսաբերումը  սխալ կատարվեց"
 
-#: ../src/file-manager/fm-icon-view.c:3397
+#: ../src/file-manager/fm-icon-view.c:3385
 msgid "Display this location with the icon view."
 msgstr "Այս տեղակայությունը ցույց տալ պատկերակի տեսաբերմամբ"
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-icon-view.c:3407
+#: ../src/file-manager/fm-icon-view.c:3395
 #: ../src/caja-file-management-properties.ui.h:3
 msgid "Compact View"
 msgstr "_Հակիրճ տեսք"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3409
+#: ../src/file-manager/fm-icon-view.c:3397
 msgid "_Compact"
 msgstr "_Հակիրճ"
 
-#: ../src/file-manager/fm-icon-view.c:3410
+#: ../src/file-manager/fm-icon-view.c:3398
 msgid "The compact view encountered an error."
 msgstr "Կոմպակտ տեսքի հանդիպած սխալ։"
 
-#: ../src/file-manager/fm-icon-view.c:3411
+#: ../src/file-manager/fm-icon-view.c:3399
 msgid "The compact view encountered an error while starting up."
 msgstr "Կոմպակտ տեսքի հանդիպած սխալ, իսկ սկսումը։"
 
-#: ../src/file-manager/fm-icon-view.c:3412
+#: ../src/file-manager/fm-icon-view.c:3400
 msgid "Display this location with the compact view."
 msgstr "Ցուցադրել այս դիրքը կոմպակտ տեսքով։"
 
@@ -5146,120 +5162,120 @@ msgstr "Բեռնում..."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-list-view.c:1825
-#: ../src/file-manager/fm-list-view.c:3437
+#: ../src/file-manager/fm-list-view.c:1826
+#: ../src/file-manager/fm-list-view.c:3443
 #: ../src/caja-file-management-properties.ui.h:2
 msgid "List View"
 msgstr "Ցանկի տեսաբերում"
 
-#: ../src/file-manager/fm-list-view.c:2519
+#: ../src/file-manager/fm-list-view.c:2520
 #, c-format
 msgid "%s Visible Columns"
 msgstr "%s տեսանելի շարքեր"
 
-#: ../src/file-manager/fm-list-view.c:2538
+#: ../src/file-manager/fm-list-view.c:2539
 msgid "Choose the order of information to appear in this folder:"
 msgstr "Ընտրել այս թղթապանակում ինֆորմացիայի հայտնվելու կարգը․"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-list-view.c:2596
+#: ../src/file-manager/fm-list-view.c:2597
 msgid "Visible _Columns..."
 msgstr "Տեսանելի _շարքեր"
 
 #. tooltip
-#: ../src/file-manager/fm-list-view.c:2597
+#: ../src/file-manager/fm-list-view.c:2598
 msgid "Select the columns visible in this folder"
 msgstr "Ընտրել այս պանակի մեջ տեսանելի շարքերը"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-list-view.c:3439
+#: ../src/file-manager/fm-list-view.c:3445
 msgid "_List"
 msgstr "_Ցուցակ"
 
-#: ../src/file-manager/fm-list-view.c:3440
+#: ../src/file-manager/fm-list-view.c:3446
 msgid "The list view encountered an error."
 msgstr "Ցուցակի տեսաբերումը սխալ է կատարվել"
 
-#: ../src/file-manager/fm-list-view.c:3441
+#: ../src/file-manager/fm-list-view.c:3447
 msgid "The list view encountered an error while starting up."
 msgstr "Գործարկման պահին ցուցակի տեսաբերումը  սխալ կատարվեց"
 
-#: ../src/file-manager/fm-list-view.c:3442
+#: ../src/file-manager/fm-list-view.c:3448
 msgid "Display this location with the list view."
 msgstr "Ցույց տալ այս տեղակայությունը ցուցակի տեսաբերմամբ"
 
-#: ../src/file-manager/fm-properties-window.c:494
+#: ../src/file-manager/fm-properties-window.c:495
 msgid "You cannot assign more than one custom icon at a time!"
 msgstr "Դուք չեք կարող վերագրել ավելի քան մեկ գործարկողի պատկերանշան միաժամանակ։"
 
-#: ../src/file-manager/fm-properties-window.c:495
+#: ../src/file-manager/fm-properties-window.c:496
 #: ../src/caja-information-panel.c:528
 msgid "Please drag just one image to set a custom icon."
 msgstr "Խնդրվում է քաշել միայն մեկ պատկեր գործարկողի պատկերակ սահմանելու համար "
 
-#: ../src/file-manager/fm-properties-window.c:506
+#: ../src/file-manager/fm-properties-window.c:507
 #: ../src/caja-information-panel.c:555
 msgid "The file that you dropped is not local."
 msgstr "Ֆայլը, որը դուք նետել եք տեղային ֆայլ չէ"
 
-#: ../src/file-manager/fm-properties-window.c:507
-#: ../src/file-manager/fm-properties-window.c:513
+#: ../src/file-manager/fm-properties-window.c:508
+#: ../src/file-manager/fm-properties-window.c:514
 #: ../src/caja-information-panel.c:556
 msgid "You can only use local images as custom icons."
 msgstr "Դուք կարող եք օգտագործել միայն տեղային պատկերները որպես գործարկողի պատկերակներ"
 
-#: ../src/file-manager/fm-properties-window.c:512
+#: ../src/file-manager/fm-properties-window.c:513
 #: ../src/caja-information-panel.c:563
 msgid "The file that you dropped is not an image."
 msgstr "Ֆայլը, որը դուք նետել եք պատկեր չէ"
 
-#: ../src/file-manager/fm-properties-window.c:635
+#: ../src/file-manager/fm-properties-window.c:636
 msgid "_Name:"
 msgid_plural "_Names:"
 msgstr[0] "Անուն"
 msgstr[1] "_Անուններ"
 
-#: ../src/file-manager/fm-properties-window.c:991
+#: ../src/file-manager/fm-properties-window.c:992
 #, c-format
 msgid "Properties"
 msgstr "Հատկություններ"
 
-#: ../src/file-manager/fm-properties-window.c:999
+#: ../src/file-manager/fm-properties-window.c:1000
 #, c-format
 msgid "%s Properties"
 msgstr "%s հատկություններ"
 
-#: ../src/file-manager/fm-properties-window.c:1327
+#: ../src/file-manager/fm-properties-window.c:1328
 #, c-format
 msgctxt "MIME type description (MIME type)"
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-properties-window.c:1539
+#: ../src/file-manager/fm-properties-window.c:1540
 msgid "Cancel Group Change?"
 msgstr "Ոչնչացնե՞լ խմբի փոփոխությունը"
 
-#: ../src/file-manager/fm-properties-window.c:1949
+#: ../src/file-manager/fm-properties-window.c:1950
 msgid "Cancel Owner Change?"
 msgstr "Ոչնչացնե՞լ սեփականատիրոջ փոփոխումը"
 
-#: ../src/file-manager/fm-properties-window.c:2267
+#: ../src/file-manager/fm-properties-window.c:2274
 msgid "nothing"
 msgstr "ոչինչ"
 
-#: ../src/file-manager/fm-properties-window.c:2269
+#: ../src/file-manager/fm-properties-window.c:2276
 msgid "unreadable"
 msgstr "անընթեռելի"
 
-#: ../src/file-manager/fm-properties-window.c:2284
+#: ../src/file-manager/fm-properties-window.c:2295
 #, c-format
-msgid "%'d item, with size %s"
-msgid_plural "%'d items, totalling %s"
-msgstr[0] "%'d տարր, %s չափով"
-msgstr[1] "%'d տարրեր, %s կազմելով"
+msgid "%'d item, with size %s (%s on disk)"
+msgid_plural "%'d items, totalling %s (%s on disk)"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-properties-window.c:2293
+#: ../src/file-manager/fm-properties-window.c:2305
 msgid "(some contents unreadable)"
 msgstr "(որոշ անընթեռնելի բովանդակություններ)"
 
@@ -5268,239 +5284,243 @@ msgstr "(որոշ անընթեռնելի բովանդակություններ)"
 #. * "Contents:" title to line up with the first line of the
 #. * 2-line value. Maybe there's a better way to do this, but I
 #. * couldn't think of one.
-#: ../src/file-manager/fm-properties-window.c:2310
+#: ../src/file-manager/fm-properties-window.c:2322
 msgid "Contents:"
 msgstr "Բովանդակություն"
 
 #. Translators: "used" refers to the capacity of the filesystem
-#: ../src/file-manager/fm-properties-window.c:3086
+#: ../src/file-manager/fm-properties-window.c:3098
 msgid "used"
 msgstr "օգտագործված"
 
 #. Translators: "free" refers to the capacity of the filesystem
-#: ../src/file-manager/fm-properties-window.c:3095
+#: ../src/file-manager/fm-properties-window.c:3107
 msgid "free"
 msgstr "ազատ"
 
-#: ../src/file-manager/fm-properties-window.c:3097
+#: ../src/file-manager/fm-properties-window.c:3109
 msgid "Total capacity:"
 msgstr "Ընդհանուր տարողություն։"
 
-#: ../src/file-manager/fm-properties-window.c:3106
+#: ../src/file-manager/fm-properties-window.c:3118
 msgid "Filesystem type:"
 msgstr "Ֆայլային համակարգի տեսակը։"
 
-#: ../src/file-manager/fm-properties-window.c:3192
+#: ../src/file-manager/fm-properties-window.c:3204
 msgid "Basic"
 msgstr "Հիմնական"
 
-#: ../src/file-manager/fm-properties-window.c:3254
+#: ../src/file-manager/fm-properties-window.c:3266
 msgid "Link target:"
 msgstr "Հղման նշանակետ"
 
-#: ../src/file-manager/fm-properties-window.c:3273
+#: ../src/file-manager/fm-properties-window.c:3280
+msgid "Size on Disk:"
+msgstr ""
+
+#: ../src/file-manager/fm-properties-window.c:3289
 #: ../src/caja-location-bar.c:57
 msgid "Location:"
 msgstr "Տեղակայություն"
 
-#: ../src/file-manager/fm-properties-window.c:3279
+#: ../src/file-manager/fm-properties-window.c:3295
 msgid "Volume:"
 msgstr "Ծավալ"
 
-#: ../src/file-manager/fm-properties-window.c:3288
+#: ../src/file-manager/fm-properties-window.c:3304
 msgid "Accessed:"
 msgstr "Մատչելի"
 
-#: ../src/file-manager/fm-properties-window.c:3292
+#: ../src/file-manager/fm-properties-window.c:3308
 msgid "Modified:"
 msgstr "Մոդիֆիկացված"
 
-#: ../src/file-manager/fm-properties-window.c:3301
+#: ../src/file-manager/fm-properties-window.c:3317
 msgid "Free space:"
 msgstr "Ազատ տարածություն"
 
-#: ../src/file-manager/fm-properties-window.c:3415
+#: ../src/file-manager/fm-properties-window.c:3431
 #: ../src/caja-emblem-sidebar.c:1085
 msgid "Emblems"
 msgstr "Էմբլեմներ"
 
-#: ../src/file-manager/fm-properties-window.c:3824
+#: ../src/file-manager/fm-properties-window.c:3840
 msgid "_Read"
 msgstr "_Կարդալ"
 
-#: ../src/file-manager/fm-properties-window.c:3826
+#: ../src/file-manager/fm-properties-window.c:3842
 msgid "_Write"
 msgstr "_Գրել"
 
-#: ../src/file-manager/fm-properties-window.c:3828
+#: ../src/file-manager/fm-properties-window.c:3844
 msgid "E_xecute"
 msgstr "Կ_ատարել"
 
 #. translators: this gets concatenated to "no read",
 #. * "no access", etc. (see following strings)
-#: ../src/file-manager/fm-properties-window.c:4096
-#: ../src/file-manager/fm-properties-window.c:4107
-#: ../src/file-manager/fm-properties-window.c:4119
+#: ../src/file-manager/fm-properties-window.c:4112
+#: ../src/file-manager/fm-properties-window.c:4123
+#: ../src/file-manager/fm-properties-window.c:4135
 msgid "no "
 msgstr "ոչ"
 
-#: ../src/file-manager/fm-properties-window.c:4099
+#: ../src/file-manager/fm-properties-window.c:4115
 msgid "list"
 msgstr "ցուցակ"
 
-#: ../src/file-manager/fm-properties-window.c:4101
+#: ../src/file-manager/fm-properties-window.c:4117
 msgid "read"
 msgstr "կարդալ"
 
-#: ../src/file-manager/fm-properties-window.c:4110
+#: ../src/file-manager/fm-properties-window.c:4126
 msgid "create/delete"
 msgstr "ստեզծել/ջնջել"
 
-#: ../src/file-manager/fm-properties-window.c:4112
+#: ../src/file-manager/fm-properties-window.c:4128
 msgid "write"
 msgstr "գրել"
 
-#: ../src/file-manager/fm-properties-window.c:4121
+#: ../src/file-manager/fm-properties-window.c:4137
 msgid "access"
 msgstr "մուտք"
 
-#: ../src/file-manager/fm-properties-window.c:4169
+#: ../src/file-manager/fm-properties-window.c:4185
 msgid "Access:"
 msgstr "Մուտք։"
 
-#: ../src/file-manager/fm-properties-window.c:4171
+#: ../src/file-manager/fm-properties-window.c:4187
 msgid "Folder access:"
 msgstr "Թղթապանակի մուտք:"
 
-#: ../src/file-manager/fm-properties-window.c:4173
+#: ../src/file-manager/fm-properties-window.c:4189
 msgid "File access:"
 msgstr "Ֆայլի մուտք։"
 
 #. Translators: this is referred to the permissions
 #. * the user has in a directory.
 #. Translators: this is referred to captions under icons.
-#: ../src/file-manager/fm-properties-window.c:4188
-#: ../src/file-manager/fm-properties-window.c:4199
-#: ../src/caja-file-management-properties.c:328
+#: ../src/file-manager/fm-properties-window.c:4204
+#: ../src/file-manager/fm-properties-window.c:4215
+#: ../src/caja-file-management-properties.c:335
 msgid "None"
 msgstr "Ոչինչ"
 
-#: ../src/file-manager/fm-properties-window.c:4191
+#: ../src/file-manager/fm-properties-window.c:4207
 msgid "List files only"
 msgstr "Միայն ֆայլերի ցուցակը"
 
-#: ../src/file-manager/fm-properties-window.c:4193
+#: ../src/file-manager/fm-properties-window.c:4209
 msgid "Access files"
 msgstr "Ֆայլերի մուտք"
 
-#: ../src/file-manager/fm-properties-window.c:4195
+#: ../src/file-manager/fm-properties-window.c:4211
 msgid "Create and delete files"
 msgstr "Ստեղծել և ջնջել ֆայլերը"
 
-#: ../src/file-manager/fm-properties-window.c:4202
+#: ../src/file-manager/fm-properties-window.c:4218
 msgid "Read-only"
 msgstr "Կարդալ միայն"
 
-#: ../src/file-manager/fm-properties-window.c:4204
+#: ../src/file-manager/fm-properties-window.c:4220
 msgid "Read and write"
 msgstr "Կարդալ և գրել"
 
-#: ../src/file-manager/fm-properties-window.c:4269
+#: ../src/file-manager/fm-properties-window.c:4285
 msgid "Special flags:"
 msgstr "Հատուկ դրոշներ"
 
-#: ../src/file-manager/fm-properties-window.c:4271
+#: ../src/file-manager/fm-properties-window.c:4287
 msgid "Set _user ID"
 msgstr "Սահմանել _գործարկողի իդենտիֆիկացիան"
 
-#: ../src/file-manager/fm-properties-window.c:4272
+#: ../src/file-manager/fm-properties-window.c:4288
 msgid "Set gro_up ID"
 msgstr "Սահմանել խմբ_ի իդենտիֆիկացիան"
 
-#: ../src/file-manager/fm-properties-window.c:4273
+#: ../src/file-manager/fm-properties-window.c:4289
 msgid "_Sticky"
 msgstr "_Կպչուն"
 
-#: ../src/file-manager/fm-properties-window.c:4348
-#: ../src/file-manager/fm-properties-window.c:4539
+#: ../src/file-manager/fm-properties-window.c:4364
+#: ../src/file-manager/fm-properties-window.c:4555
 msgid "_Owner:"
 msgstr "_Սեփականատեր:"
 
-#: ../src/file-manager/fm-properties-window.c:4356
-#: ../src/file-manager/fm-properties-window.c:4444
-#: ../src/file-manager/fm-properties-window.c:4548
+#: ../src/file-manager/fm-properties-window.c:4372
+#: ../src/file-manager/fm-properties-window.c:4460
+#: ../src/file-manager/fm-properties-window.c:4564
 msgid "Owner:"
 msgstr "Սեփականատեր"
 
-#: ../src/file-manager/fm-properties-window.c:4378
-#: ../src/file-manager/fm-properties-window.c:4561
+#: ../src/file-manager/fm-properties-window.c:4394
+#: ../src/file-manager/fm-properties-window.c:4577
 msgid "_Group:"
 msgstr "_Խումբ"
 
-#: ../src/file-manager/fm-properties-window.c:4386
-#: ../src/file-manager/fm-properties-window.c:4445
-#: ../src/file-manager/fm-properties-window.c:4569
+#: ../src/file-manager/fm-properties-window.c:4402
+#: ../src/file-manager/fm-properties-window.c:4461
+#: ../src/file-manager/fm-properties-window.c:4585
 msgid "Group:"
 msgstr "Խումբ"
 
-#: ../src/file-manager/fm-properties-window.c:4410
+#: ../src/file-manager/fm-properties-window.c:4426
 msgid "Others"
 msgstr "Մյուսները"
 
-#: ../src/file-manager/fm-properties-window.c:4425
+#: ../src/file-manager/fm-properties-window.c:4441
 msgid "Execute:"
 msgstr "Կատարել:"
 
-#: ../src/file-manager/fm-properties-window.c:4428
+#: ../src/file-manager/fm-properties-window.c:4444
 msgid "Allow _executing file as program"
 msgstr "Թույլ տալ _իրականացնել ֆայլը որպես ծրագիր"
 
-#: ../src/file-manager/fm-properties-window.c:4446
+#: ../src/file-manager/fm-properties-window.c:4462
 msgid "Others:"
 msgstr "Այլ"
 
-#: ../src/file-manager/fm-properties-window.c:4585
+#: ../src/file-manager/fm-properties-window.c:4601
 msgid "Folder Permissions:"
 msgstr "Թղթապանակի Թույլտվություններ։"
 
-#: ../src/file-manager/fm-properties-window.c:4592
+#: ../src/file-manager/fm-properties-window.c:4608
 msgid "File Permissions:"
 msgstr "Ֆայլի Թույլտվություններ"
 
-#: ../src/file-manager/fm-properties-window.c:4601
+#: ../src/file-manager/fm-properties-window.c:4617
 msgid "Text view:"
 msgstr "Տեքստի տեսաբերում"
 
-#: ../src/file-manager/fm-properties-window.c:4747
+#: ../src/file-manager/fm-properties-window.c:4763
 msgid "You are not the owner, so you cannot change these permissions."
 msgstr "Դուք սեփականատերը չեք, այնպես որ դուք չեք կարող փոխել այդ թույլտվությունները։"
 
-#: ../src/file-manager/fm-properties-window.c:4767
+#: ../src/file-manager/fm-properties-window.c:4783
 msgid "SELinux context:"
 msgstr "SELinux կոնտեքստ։"
 
-#: ../src/file-manager/fm-properties-window.c:4772
+#: ../src/file-manager/fm-properties-window.c:4788
 msgid "Last changed:"
 msgstr "Վերջին փոփոխությունը"
 
-#: ../src/file-manager/fm-properties-window.c:4783
+#: ../src/file-manager/fm-properties-window.c:4799
 msgid "Apply Permissions to Enclosed Files"
 msgstr "Գործածել Կից Ֆայլերի Թույլատվությունները"
 
-#: ../src/file-manager/fm-properties-window.c:4793
+#: ../src/file-manager/fm-properties-window.c:4809
 #, c-format
 msgid "The permissions of \"%s\" could not be determined."
 msgstr "\"%s\"–ի փոփոխությունները հնարավոր չէ հայտնաբերել"
 
-#: ../src/file-manager/fm-properties-window.c:4796
+#: ../src/file-manager/fm-properties-window.c:4812
 msgid "The permissions of the selected file could not be determined."
 msgstr "Ընտրված ֆայլի թույտվությունները հնարավոր չէ հայտնաբերել"
 
-#: ../src/file-manager/fm-properties-window.c:5370
+#: ../src/file-manager/fm-properties-window.c:5386
 msgid "Creating Properties window."
 msgstr "Կերտել հատկությունների պատուհան"
 
-#: ../src/file-manager/fm-properties-window.c:5659
+#: ../src/file-manager/fm-properties-window.c:5682
 msgid "Select Custom Icon"
 msgstr "Ընտրել Գործարկողի պատկերակը"
 
@@ -5516,91 +5536,91 @@ msgstr "Ծառ"
 msgid "Show Tree"
 msgstr "Ցույց տալ ծառը"
 
-#: ../src/caja-application.c:502
+#: ../src/caja-application.c:481
 #, c-format
 msgid "Caja could not create the required folder \"%s\"."
 msgstr "Նաուտիլիուսը չկարողացավ կերտել պահանջվող պանակը \"%s\""
 
-#: ../src/caja-application.c:504
+#: ../src/caja-application.c:483
 msgid ""
 "Before running Caja, please create the following folder, or set permissions "
 "such that Caja can create it."
 msgstr "Նախքան նաուտիլիուսի գործարկումը խնդրվում է կերտել հետևյալ պանակը կամ սահմանել թույտվությունները, այնպես որ նաուտիլիուսը կարողանա դրանք կերտել"
 
-#: ../src/caja-application.c:509
+#: ../src/caja-application.c:488
 #, c-format
 msgid "Caja could not create the following required folders: %s."
 msgstr "Նաուտիլիուսը չկարողացավ կերտել հետևյալ պահանջվող պանակները %s "
 
-#: ../src/caja-application.c:511
+#: ../src/caja-application.c:490
 msgid ""
 "Before running Caja, please create these folders, or set permissions such "
 "that Caja can create them."
 msgstr "Նախքան նաուտիլիուսի գործարկումը խնդրվում է կերտել այս պանակները, սահմանել թույլտվությունները, այնպես որ նաուտիիուսը կարողանա կերտել դրանք"
 
-#: ../src/caja-application.c:1285 ../src/caja-places-sidebar.c:2214
+#: ../src/caja-application.c:1264 ../src/caja-places-sidebar.c:2214
 #: ../src/caja-places-sidebar.c:2248 ../src/caja-places-sidebar.c:2283
 #, c-format
 msgid "Unable to eject %s"
 msgstr "Անհնար է մերժել %s"
 
-#: ../src/caja-application.c:1956
+#: ../src/caja-application.c:1937
 msgid "--check cannot be used with other options."
 msgstr ""
 
-#: ../src/caja-application.c:1962
+#: ../src/caja-application.c:1943
 msgid "--quit cannot be used with URIs."
 msgstr ""
 
-#: ../src/caja-application.c:1969
+#: ../src/caja-application.c:1950
 msgid "--geometry cannot be used with more than one URI."
 msgstr ""
 
-#: ../src/caja-application.c:2032
+#: ../src/caja-application.c:2013
 msgid "Perform a quick set of self-check tests."
 msgstr "Կատարել ինքնաստուգման արագ տեստ"
 
-#: ../src/caja-application.c:2035
+#: ../src/caja-application.c:2016
 msgid "Show the version of the program."
 msgstr "Ցույց տալ ծրագրի տարբերակը։"
 
-#: ../src/caja-application.c:2037
+#: ../src/caja-application.c:2018
 msgid "Create the initial window with the given geometry."
 msgstr "Կերտել նախնական պատուհան տրված երկրաչափությամբ"
 
-#: ../src/caja-application.c:2037
+#: ../src/caja-application.c:2018
 msgid "GEOMETRY"
 msgstr "ԵՐԿՐԱՉԱՓՈՒԹՅՈՒՆ"
 
-#: ../src/caja-application.c:2039
+#: ../src/caja-application.c:2020
 msgid "Only create windows for explicitly specified URIs."
 msgstr "Միայն կերտել պատուհաններ ճշգրիտ սահմանված URI–ներով"
 
-#: ../src/caja-application.c:2041
+#: ../src/caja-application.c:2022
 msgid ""
 "Do not manage the desktop (ignore the preference set in the preferences "
 "dialog)."
 msgstr "Աշխատասեղանը չկառավարել (բաց թողնելով պարամետրերի կարգադրվածքը պարամետրերի դիալոգում)"
 
-#: ../src/caja-application.c:2043
+#: ../src/caja-application.c:2024
 msgid ""
 "Manage the desktop regardless of set preferences or environment (on new "
 "startup only)"
 msgstr ""
 
-#: ../src/caja-application.c:2045
+#: ../src/caja-application.c:2026
 msgid "Open a browser window."
 msgstr ""
 
-#: ../src/caja-application.c:2047
+#: ../src/caja-application.c:2028
 msgid "Quit Caja."
 msgstr "Հեռացնել նաուտիլիուսը"
 
-#: ../src/caja-application.c:2048
+#: ../src/caja-application.c:2029
 msgid "[URI...]"
 msgstr "[URI...]"
 
-#: ../src/caja-application.c:2059
+#: ../src/caja-application.c:2040
 msgid ""
 "\n"
 "\n"
@@ -5635,16 +5655,16 @@ msgid ""
 "If in doubt, press Cancel."
 msgstr "Ծրագիրը կգործարկվի անմիջապես կրիչից \"%s\"։ Դուք երբեք չպետք է գործարկեք այն ծրագրային միջոցը, որին դուք չեք վստահում։\n\nԵթե կասկածում եք, սեղմեք Չեղարկել։"
 
-#: ../src/caja-bookmarks-window.c:158
-#: ../src/caja-file-management-properties.c:235
-#: ../src/caja-property-browser.c:1667 ../src/caja-window-menus.c:590
+#: ../src/caja-bookmarks-window.c:164
+#: ../src/caja-file-management-properties.c:242
+#: ../src/caja-property-browser.c:1673 ../src/caja-window-menus.c:598
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
 "%s"
 msgstr "Ձեռնարկի պատկերակման ժամանակ սխալ է կատարվել։ \n%s"
 
-#: ../src/caja-bookmarks-window.c:194
+#: ../src/caja-bookmarks-window.c:200
 msgid "No bookmarks defined"
 msgstr "Էջանշաններ սահմանված չեն"
 
@@ -5733,74 +5753,74 @@ msgstr "Խնդրում ենք ստուգել Ձեր օգտագործողի մա�
 msgid "Continue"
 msgstr "Շարունակել"
 
-#: ../src/caja-connect-server-dialog.c:736
-#: ../src/caja-connect-server-dialog.c:1165
+#: ../src/caja-connect-server-dialog.c:742
+#: ../src/caja-connect-server-dialog.c:1171
 msgid "C_onnect"
 msgstr "Մ_իացում"
 
 #. set dialog properties
-#: ../src/caja-connect-server-dialog.c:860
+#: ../src/caja-connect-server-dialog.c:866
 msgid "Connect to Server"
 msgstr "Միանալ սերվերին"
 
-#: ../src/caja-connect-server-dialog.c:874
+#: ../src/caja-connect-server-dialog.c:880
 msgid "Server Details"
 msgstr "Սերվերի Մանրամասնությունները"
 
 #. first row: server entry + port spinbutton
-#: ../src/caja-connect-server-dialog.c:898
+#: ../src/caja-connect-server-dialog.c:904
 msgid "_Server:"
 msgstr "_Սերվեր։"
 
 #. port
-#: ../src/caja-connect-server-dialog.c:920
+#: ../src/caja-connect-server-dialog.c:926
 msgid "_Port:"
 msgstr "_Պորտ"
 
 #. third row: share entry
-#: ../src/caja-connect-server-dialog.c:1019
+#: ../src/caja-connect-server-dialog.c:1025
 msgid "Share:"
 msgstr "Ռեսուրս։"
 
 #. fourth row: folder entry
-#: ../src/caja-connect-server-dialog.c:1035
+#: ../src/caja-connect-server-dialog.c:1041
 msgid "Folder:"
 msgstr "Թղթապանակ։"
 
-#: ../src/caja-connect-server-dialog.c:1052
+#: ../src/caja-connect-server-dialog.c:1058
 msgid "User Details"
 msgstr "Օգտագործողի Մանրամասնությունները"
 
 #. first row: domain entry
-#: ../src/caja-connect-server-dialog.c:1076
+#: ../src/caja-connect-server-dialog.c:1082
 msgid "Domain Name:"
 msgstr "Դոմեն Անուն։"
 
 #. second row: username entry
-#: ../src/caja-connect-server-dialog.c:1092
+#: ../src/caja-connect-server-dialog.c:1098
 msgid "User Name:"
 msgstr "Գործարկողի անուն։"
 
 #. third row: password entry
-#: ../src/caja-connect-server-dialog.c:1108
+#: ../src/caja-connect-server-dialog.c:1114
 msgid "Password:"
 msgstr "Ծածկագիր։"
 
 #. fourth row: remember checkbox
-#: ../src/caja-connect-server-dialog.c:1125
+#: ../src/caja-connect-server-dialog.c:1131
 msgid "Remember this password"
 msgstr "Հիշել այս գաղտնաբառը"
 
-#: ../src/caja-connect-server-dialog.c:1136
+#: ../src/caja-connect-server-dialog.c:1142
 msgid "Add _bookmark"
 msgstr "Ավելացնել _ ջանիշ"
 
-#: ../src/caja-connect-server-dialog.c:1143
+#: ../src/caja-connect-server-dialog.c:1149
 msgid "Bookmark Name:"
 msgstr "Էջանշանի անուն։"
 
 #: ../src/caja-desktop-window.c:87 ../src/caja-desktop-window.c:267
-#: ../src/caja-pathbar.c:1399 ../src/caja-places-sidebar.c:523
+#: ../src/caja-pathbar.c:1403 ../src/caja-places-sidebar.c:523
 msgid "Desktop"
 msgstr "Աշխատանքային սեղան"
 
@@ -5877,7 +5897,7 @@ msgstr "Էմբլեմը հնարավոր չէ ավելացնել"
 msgid "Show Emblems"
 msgstr "Ցույց տալ էմբլեմները"
 
-#: ../src/caja-file-management-properties.c:631
+#: ../src/caja-file-management-properties.c:638
 msgid "About Extension"
 msgstr "Ընդարձակման Մասին"
 
@@ -6422,11 +6442,11 @@ msgid_plural "Do you want to view %d locations?"
 msgstr[0] "Դուք ցանկանու՞մ եք տեսաբերել %d տեղակայությունը"
 msgstr[1] "Դուք ցանկանու՞մ եք տեսաբերել %d տեղակայությունները"
 
-#: ../src/caja-location-dialog.c:157
+#: ../src/caja-location-dialog.c:163
 msgid "Open Location"
 msgstr "Բացել տեղակայությունը"
 
-#: ../src/caja-location-dialog.c:167
+#: ../src/caja-location-dialog.c:173
 msgid "_Location:"
 msgstr "_Տեղակայություն"
 
@@ -6917,59 +6937,59 @@ msgstr "Ներողություն, \"%s\"–ը օգտագործելի պատկե�
 msgid "The file is not an image."
 msgstr "Ֆայլը պատկեր չէ"
 
-#: ../src/caja-property-browser.c:2286
+#: ../src/caja-property-browser.c:2291
 msgid "Select a Category:"
 msgstr "Ընտրել կատեգորիան"
 
-#: ../src/caja-property-browser.c:2298
+#: ../src/caja-property-browser.c:2303
 msgid "C_ancel Remove"
 msgstr "Հ_եռացնելը ոչնչացնել"
 
-#: ../src/caja-property-browser.c:2307
+#: ../src/caja-property-browser.c:2312
 msgid "_Add a New Pattern..."
 msgstr "_Ավելացնել նոր նմուշ"
 
-#: ../src/caja-property-browser.c:2310
+#: ../src/caja-property-browser.c:2315
 msgid "_Add a New Color..."
 msgstr "_Ավելացնել նոր գույն"
 
-#: ../src/caja-property-browser.c:2313
+#: ../src/caja-property-browser.c:2318
 msgid "_Add a New Emblem..."
 msgstr "_Ավելացնել նոր էմբլեմ"
 
-#: ../src/caja-property-browser.c:2339
+#: ../src/caja-property-browser.c:2344
 msgid "Click on a pattern to remove it"
 msgstr "Կտտացնել նմուշի վրա այն հեռացնելու համար"
 
-#: ../src/caja-property-browser.c:2342
+#: ../src/caja-property-browser.c:2347
 msgid "Click on a color to remove it"
 msgstr "Կտտացնել գույնի վրա այն հեռացնելու համար"
 
-#: ../src/caja-property-browser.c:2345
+#: ../src/caja-property-browser.c:2350
 msgid "Click on an emblem to remove it"
 msgstr "Կտտացնել էմբլեմի վրա այն հեռացնելու համար"
 
-#: ../src/caja-property-browser.c:2357
+#: ../src/caja-property-browser.c:2362
 msgid "Patterns:"
 msgstr "Նմուշներ"
 
-#: ../src/caja-property-browser.c:2360
+#: ../src/caja-property-browser.c:2365
 msgid "Colors:"
 msgstr "Գույներ"
 
-#: ../src/caja-property-browser.c:2363
+#: ../src/caja-property-browser.c:2368
 msgid "Emblems:"
 msgstr "Էմբլեմներ"
 
-#: ../src/caja-property-browser.c:2385
+#: ../src/caja-property-browser.c:2390
 msgid "_Remove a Pattern..."
 msgstr "_Հեռացնել նմուշը"
 
-#: ../src/caja-property-browser.c:2388
+#: ../src/caja-property-browser.c:2393
 msgid "_Remove a Color..."
 msgstr "_Հեռացնել գույնը "
 
-#: ../src/caja-property-browser.c:2391
+#: ../src/caja-property-browser.c:2396
 msgid "_Remove an Emblem..."
 msgstr "_Հեռացնել էմբլեմը"
 
@@ -7257,203 +7277,203 @@ msgid "MATE Web Site"
 msgstr "MATE Վեբ Կայք"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:806
+#: ../src/caja-window-menus.c:814
 msgid "_File"
 msgstr "_Ֆայլ"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:807
+#: ../src/caja-window-menus.c:815
 msgid "_Edit"
 msgstr "_Խմբագրել"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:808
+#: ../src/caja-window-menus.c:816
 msgid "_View"
 msgstr "_Տեսաբերել"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:809
+#: ../src/caja-window-menus.c:817
 msgid "_Help"
 msgstr "_Ձեռնարկ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:811
+#: ../src/caja-window-menus.c:819
 msgid "_Close"
 msgstr "_Փակել"
 
 #. tooltip
-#: ../src/caja-window-menus.c:812
+#: ../src/caja-window-menus.c:820
 msgid "Close this folder"
 msgstr "Փակել այս պանակ"
 
-#: ../src/caja-window-menus.c:817
+#: ../src/caja-window-menus.c:825
 msgid "_Backgrounds and Emblems..."
 msgstr "_Հետին պլան և էմբլեմներ"
 
-#: ../src/caja-window-menus.c:818
+#: ../src/caja-window-menus.c:826
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
 msgstr "Պատկերակել նմուշները, գույները և էմբլեմները, որոնք կարող են օգտագործվել գործարկողի բնութագրիչ տեսքի համար"
 
-#: ../src/caja-window-menus.c:823
+#: ../src/caja-window-menus.c:831
 msgid "Prefere_nces"
 msgstr "Պարամետր_եր"
 
-#: ../src/caja-window-menus.c:824
+#: ../src/caja-window-menus.c:832
 msgid "Edit Caja preferences"
 msgstr "Խմբագրել նաուտիլիուսի պարամետրերը"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:827
+#: ../src/caja-window-menus.c:835
 msgid "Open _Parent"
 msgstr "Բացել _հիմնադրվածքը"
 
-#: ../src/caja-window-menus.c:828
+#: ../src/caja-window-menus.c:836
 msgid "Open the parent folder"
 msgstr "Բացել հիմնադրվածք պանակը"
 
 #. tooltip
-#: ../src/caja-window-menus.c:837
+#: ../src/caja-window-menus.c:845
 msgid "Stop loading the current location"
 msgstr "Դադարեցնել ընթացիկ դիրքի բեռնումը"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:841
+#: ../src/caja-window-menus.c:849
 msgid "_Reload"
 msgstr "_Վերաբեռնում"
 
 #. tooltip
-#: ../src/caja-window-menus.c:842
+#: ../src/caja-window-menus.c:850
 msgid "Reload the current location"
 msgstr "Վերբեռնել ընթացիկ տեղակայությունը"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:846
+#: ../src/caja-window-menus.c:854
 msgid "_Contents"
 msgstr "_Բովանդակություն"
 
 #. tooltip
-#: ../src/caja-window-menus.c:847
+#: ../src/caja-window-menus.c:855
 msgid "Display Caja help"
 msgstr "Ցույց տալ նաուտիլիուսի ձեռնարկը"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:851
+#: ../src/caja-window-menus.c:859
 msgid "_About"
 msgstr "_Մասին"
 
 #. tooltip
-#: ../src/caja-window-menus.c:852
+#: ../src/caja-window-menus.c:860
 msgid "Display credits for the creators of Caja"
 msgstr "Ցուցադրել նաուտիլիուսի կերտողների անունները"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:856
+#: ../src/caja-window-menus.c:864
 msgid "Zoom _In"
 msgstr "Մեծացնել մասշտաբը"
 
 #. tooltip
-#: ../src/caja-window-menus.c:857 ../src/caja-zoom-control.c:96
-#: ../src/caja-zoom-control.c:384
+#: ../src/caja-window-menus.c:865 ../src/caja-zoom-control.c:96
+#: ../src/caja-zoom-control.c:397
 msgid "Increase the view size"
 msgstr "Մեծացնել տեսքի չափը"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:871
+#: ../src/caja-window-menus.c:879
 msgid "Zoom _Out"
 msgstr "Փոքրացնել մասշտաբը"
 
 #. tooltip
-#: ../src/caja-window-menus.c:872 ../src/caja-zoom-control.c:97
-#: ../src/caja-zoom-control.c:322
+#: ../src/caja-window-menus.c:880 ../src/caja-zoom-control.c:97
+#: ../src/caja-zoom-control.c:335
 msgid "Decrease the view size"
 msgstr "Նվազեցնել տեսքի չափը"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:881
+#: ../src/caja-window-menus.c:889
 msgid "Normal Si_ze"
 msgstr "Նորմալ չա_փս"
 
 #. tooltip
-#: ../src/caja-window-menus.c:882 ../src/caja-zoom-control.c:98
-#: ../src/caja-zoom-control.c:342
+#: ../src/caja-window-menus.c:890 ../src/caja-zoom-control.c:98
+#: ../src/caja-zoom-control.c:355
 msgid "Use the normal view size"
 msgstr "Օգտագործել տեսքի նորմալ չափը"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:886
+#: ../src/caja-window-menus.c:894
 msgid "Connect to _Server..."
 msgstr "Միանալ _սերվերին"
 
 #. tooltip
-#: ../src/caja-window-menus.c:887
+#: ../src/caja-window-menus.c:895
 msgid "Connect to a remote computer or shared disk"
 msgstr "Միացեք հեռադիր քոմփյութերին կամ բաժանված սկավառակին"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:896
+#: ../src/caja-window-menus.c:904
 msgid "_Computer"
 msgstr "_Համակարգիչ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:901
+#: ../src/caja-window-menus.c:909
 msgid "_Network"
 msgstr "_Ցանց"
 
 #. tooltip
-#: ../src/caja-window-menus.c:902 ../src/mate-network-scheme.desktop.in.h:2
+#: ../src/caja-window-menus.c:910 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
 msgstr "Փնտրել էջանշված և տեղական ցանցային վայրերը"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:906
+#: ../src/caja-window-menus.c:914
 msgid "T_emplates"
 msgstr "Շ_աբլոններ"
 
 #. tooltip
-#: ../src/caja-window-menus.c:907
+#: ../src/caja-window-menus.c:915
 msgid "Open your personal templates folder"
 msgstr "Բացեք Ձեր անձնական կաղապարների թղթապանակը"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:911
+#: ../src/caja-window-menus.c:919
 msgid "_Trash"
 msgstr "_Թափոն զամբյուղ"
 
 #. tooltip
-#: ../src/caja-window-menus.c:912
+#: ../src/caja-window-menus.c:920
 msgid "Open your personal trash folder"
 msgstr "Բացեք Ձեր անձնական աղբարկղի թղթապանակը"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:920
+#: ../src/caja-window-menus.c:928
 msgid "Show _Hidden Files"
 msgstr "Ցույց տալ _թաքնված ֆայլերը"
 
 #. tooltip
-#: ../src/caja-window-menus.c:921
+#: ../src/caja-window-menus.c:929
 msgid "Toggle the display of hidden files in the current window"
 msgstr "Ցույց տալ թաքնված ֆայլերը ընթացիկ պատուհանում"
 
-#: ../src/caja-window-menus.c:952
+#: ../src/caja-window-menus.c:960
 msgid "_Up"
 msgstr "_Վերև"
 
-#: ../src/caja-window-menus.c:955
+#: ../src/caja-window-menus.c:963
 msgid "_Home"
 msgstr "_Սեփական տուն"
 
@@ -7515,10 +7535,10 @@ msgstr "Փոքրացնել մասշտաբը"
 msgid "Zoom to Default"
 msgstr "Նախնականի մասշտաբը մեծացնել"
 
-#: ../src/caja-zoom-control.c:926
+#: ../src/caja-zoom-control.c:939
 msgid "Zoom"
 msgstr "Պատկերման մասշտաբ"
 
-#: ../src/caja-zoom-control.c:931
+#: ../src/caja-zoom-control.c:944
 msgid "Set the zoom level of the current view"
 msgstr "Սահմանել ընթացիկ տեսապատկերման մասշտաբը "
