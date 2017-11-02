@@ -357,7 +357,8 @@ caja_zoom_control_init (CajaZoomControl *zoom_control)
     gtk_widget_add_events (GTK_WIDGET (zoom_control->details->zoom_button),
                            GDK_BUTTON_PRESS_MASK
                            | GDK_BUTTON_RELEASE_MASK
-                           | GDK_POINTER_MOTION_MASK);
+                           | GDK_POINTER_MOTION_MASK
+                           | GDK_SCROLL_MASK);
 
     g_signal_connect (G_OBJECT (zoom_control->details->zoom_button),
                       "button-press-event",
