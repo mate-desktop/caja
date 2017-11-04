@@ -1100,6 +1100,7 @@ static gboolean
 key_press_callback (GtkWidget *widget, GdkEventKey *event, gpointer callback_data)
 {
     FMDirectoryView *view;
+    FMListView *listview;
     GdkEventButton button_event = { 0 };
     gboolean handled;
     GtkTreeView *tree_view;
@@ -1108,6 +1109,7 @@ key_press_callback (GtkWidget *widget, GdkEventKey *event, gpointer callback_dat
     tree_view = GTK_TREE_VIEW (widget);
 
     view = FM_DIRECTORY_VIEW (callback_data);
+    listview = FM_LIST_VIEW (view);
     handled = FALSE;
 
     switch (event->keyval)
@@ -1168,17 +1170,26 @@ key_press_callback (GtkWidget *widget, GdkEventKey *event, gpointer callback_dat
         break;
     case GDK_KEY_Return:
     case GDK_KEY_KP_Enter:
-        if ((event->state & GDK_SHIFT_MASK) != 0)
-        {
-            activate_selected_items_alternate (FM_LIST_VIEW (view), NULL, TRUE);
-        }
-        else
-        {
-            activate_selected_items (FM_LIST_VIEW (view));
-        }
-        handled = TRUE;
+	if (GTK_IS_CELL_EDITABLE (listview->details->editable_widget) &&
+	    ((event->state & GDK_SHIFT_MASK) || (event->state & GDK_CONTROL_MASK)))
+	{
+		event->state = 0;
+		handled = FALSE;
+	}
+	else
+	{
+	        if ((event->state & GDK_SHIFT_MASK) != 0)
+	        {
+	            activate_selected_items_alternate (FM_LIST_VIEW (view), NULL, TRUE);
+	        }
+	        else
+	        {
+	            activate_selected_items (FM_LIST_VIEW (view));
+	        }
+	        handled = TRUE;
+	}
         break;
-	case GDK_KEY_v:
+    case GDK_KEY_v:
         /* Eat Control + v to not enable type ahead */
         if ((event->state & GDK_CONTROL_MASK) != 0)
         {
