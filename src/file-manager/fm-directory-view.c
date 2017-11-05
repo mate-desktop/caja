@@ -7288,7 +7288,7 @@ static const GtkActionEntry directory_view_entries[] = {
   /* tooltip */                  NULL,
                                  G_CALLBACK (action_open_callback) },
   /* name, stock id */         { "OpenAlternate", NULL,
-  /* label, accelerator */       N_("Open in Navigation Window"), "<control><shift>o",
+  /* label, accelerator */       N_("Open in Navigation Window"), "<control><shift>w",
   /* tooltip */                  N_("Open each selected item in a navigation window"),
                                  G_CALLBACK (action_open_alternate_callback) },
   /* name, stock id */         { "OpenInNewTab", NULL,
