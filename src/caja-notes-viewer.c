@@ -343,8 +343,6 @@ caja_notes_viewer_init (CajaNotesViewer *sidebar)
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (sidebar),
                                     GTK_POLICY_AUTOMATIC,
                                     GTK_POLICY_AUTOMATIC);
-    gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (sidebar),
-                                         GTK_SHADOW_IN);
     gtk_scrolled_window_set_hadjustment (GTK_SCROLLED_WINDOW (sidebar), NULL);
     gtk_scrolled_window_set_vadjustment (GTK_SCROLLED_WINDOW (sidebar), NULL);
     gtk_container_add (GTK_CONTAINER (sidebar), details->note_text_field);
