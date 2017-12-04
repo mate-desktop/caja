@@ -86,11 +86,6 @@ eel_gtk_window_get_geometry_string (GtkWindow *window)
 static void
 sanity_check_window_position (int *left, int *top)
 {
-    gint sc_width, sc_height;
-
-    gdk_window_get_geometry (gdk_screen_get_root_window (gdk_screen_get_default()),
-                             NULL, NULL, &sc_width, &sc_height);
-
     g_assert (left != NULL);
     g_assert (top != NULL);
 
@@ -100,7 +95,7 @@ sanity_check_window_position (int *left, int *top)
      * isn't off the bottom of the screen, or so close to the bottom
      * that it might be obscured by the panel.
      */
-    *top = CLAMP (*top, 0, sc_height - MINIMUM_ON_SCREEN_HEIGHT);
+    *top = CLAMP (*top, 0, HeightOfScreen (gdk_x11_screen_get_xscreen (gdk_screen_get_default ())) - MINIMUM_ON_SCREEN_HEIGHT);
 
     /* FIXME bugzilla.eazel.com 669:
      * If window has negative left coordinate, set_uposition sends it
@@ -113,17 +108,12 @@ sanity_check_window_position (int *left, int *top)
      * the screen, or so close to the right edge that it might be
      * obscured by the panel.
      */
-    *left = CLAMP (*left, 0, sc_width - MINIMUM_ON_SCREEN_WIDTH);
+    *left = CLAMP (*left, 0, WidthOfScreen (gdk_x11_screen_get_xscreen (gdk_screen_get_default ())) - MINIMUM_ON_SCREEN_WIDTH);
 }
 
 static void
 sanity_check_window_dimensions (guint *width, guint *height)
 {
-    gint sc_width, sc_height;
-
-    gdk_window_get_geometry (gdk_screen_get_root_window (gdk_screen_get_default()),
-                             NULL, NULL, &sc_width, &sc_height);
-
     g_assert (width != NULL);
     g_assert (height != NULL);
 
@@ -132,8 +122,8 @@ sanity_check_window_dimensions (guint *width, guint *height)
      * be reached (might not be necessary with all window managers,
      * but seems reasonable anyway).
      */
-    *width = MIN (*width, sc_width);
-    *height = MIN (*height, sc_height);
+    *width = MIN (*width, WidthOfScreen (gdk_x11_screen_get_xscreen (gdk_screen_get_default ())));
+    *height = MIN (*height, HeightOfScreen (gdk_x11_screen_get_xscreen (gdk_screen_get_default ())));
 }
 
 /**
@@ -178,9 +168,8 @@ eel_gtk_window_set_initial_geometry (GtkWindow *window,
         real_top = top;
 
         screen = gtk_window_get_screen (window);
-
-        gdk_window_get_geometry (gdk_screen_get_root_window (screen), NULL, NULL,
-                                 &screen_width, &screen_height);
+        screen_width  = WidthOfScreen (gdk_x11_screen_get_xscreen (screen));
+        screen_height = HeightOfScreen (gdk_x11_screen_get_xscreen (screen));
 
         /* This is sub-optimal. GDK doesn't allow us to set win_gravity
          * to South/East types, which should be done if using negative
