@@ -31,7 +31,7 @@
 #include "eel-lib-self-check-functions.h"
 #include <gtk/gtk.h>
 #include <eel/eel-canvas.h>
-# include <cairo-xlib.h>
+#include <cairo-xlib.h>
 #include <gdk/gdkx.h>
 #include <gio/gio.h>
 #include <math.h>
@@ -311,33 +311,9 @@ drawable_get_adjusted_size (EelBackground *self,
 {
     if (self->details->is_desktop)
     {
-#if GTK_CHECK_VERSION (3, 22, 0)
-        GdkRectangle geometry;
-        GdkMonitor  *monitor;
-        GdkDisplay  *display;
-        int n = 0;
-        int i = 0;
-        int sc_width = 0;
-        int sc_height = 0;
-
-        display = gtk_widget_get_display (self->details->widget);
-        n = gdk_display_get_n_monitors (display);
-
-        for (i = 0; i < n; ++i)
-        {
-            monitor = gdk_display_get_monitor (display, i);
-            gdk_monitor_get_geometry (monitor, &geometry);
-            sc_width = sc_width + geometry.width;
-            sc_height = sc_height + geometry.height;
-        }
-
-        *width = sc_width;
-        *height = sc_height;
-#else
         GdkScreen *screen = gtk_widget_get_screen (self->details->widget);
-        *width = gdk_screen_get_width (screen);
-        *height = gdk_screen_get_height (screen);
-#endif
+        *width = WidthOfScreen (gdk_x11_screen_get_xscreen (screen));
+        *height = HeightOfScreen (gdk_x11_screen_get_xscreen (screen));
     }
     else
     {

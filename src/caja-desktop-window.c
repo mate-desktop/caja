@@ -115,8 +115,8 @@ caja_desktop_window_screen_size_changed (GdkScreen             *screen,
 {
     int width_request, height_request;
 
-    gdk_window_get_geometry (gdk_screen_get_root_window (screen), NULL, NULL,
-                             &width_request, &height_request);
+    width_request = WidthOfScreen (gdk_x11_screen_get_xscreen (screen));
+    height_request = HeightOfScreen (gdk_x11_screen_get_xscreen (screen));
 
     g_object_set (window,
                   "width_request", width_request,
@@ -131,8 +131,8 @@ caja_desktop_window_new (CajaApplication *application,
     CajaDesktopWindow *window;
     int width_request, height_request;
 
-    gdk_window_get_geometry (gdk_screen_get_root_window (screen), NULL, NULL,
-                             &width_request, &height_request);
+    width_request = WidthOfScreen (gdk_x11_screen_get_xscreen (screen));
+    height_request = HeightOfScreen (gdk_x11_screen_get_xscreen (screen));
 
     window = CAJA_DESKTOP_WINDOW
              (gtk_widget_new (caja_desktop_window_get_type(),
