@@ -1028,6 +1028,9 @@ over_eject_button (CajaPlacesSidebar *sidebar,
             x - total_width <= eject_button_size) {
             return TRUE;
         }
+        /* Fix refusal to unmount when sidebar is wide enough to expand the eject column */
+        if (x >= 180)
+        return TRUE;
     }
 
 out:
