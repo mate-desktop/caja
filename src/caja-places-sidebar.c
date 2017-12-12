@@ -3240,6 +3240,9 @@ caja_places_sidebar_init (CajaPlacesSidebar *sidebar)
                   "mode", GTK_CELL_RENDERER_MODE_ACTIVATABLE,
                   "stock-size", GTK_ICON_SIZE_MENU,
                   "xpad", EJECT_BUTTON_XPAD,
+                  /* align right, because for some reason gtk+ expands
+                  this even though we tell it not to. */
+                  "xalign", 1.0,
                   NULL);
     gtk_tree_view_column_pack_start (col, cell, FALSE);
     gtk_tree_view_column_set_attributes (col, cell,
