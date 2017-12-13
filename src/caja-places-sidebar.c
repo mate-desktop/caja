@@ -232,16 +232,26 @@ G_DEFINE_TYPE_WITH_CODE (CajaPlacesSidebarProvider, caja_places_sidebar_provider
                                  sidebar_provider_iface_init));
 
 static GdkPixbuf *
-get_eject_icon (gboolean highlighted)
+get_eject_icon (CajaPlacesSidebar *sidebar,
+                gboolean highlighted)
 {
     GdkPixbuf *eject;
-    CajaIconInfo *eject_icon_info;
+    GtkIconInfo *icon_info;
+    GIcon *icon;
     int icon_size;
+    GtkIconTheme *icon_theme;
+    GtkStyleContext *style;
 
-    icon_size = caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU);
+    icon_theme = gtk_icon_theme_get_default ();
+    icon_size = caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_SMALL_TOOLBAR);
+    icon = g_themed_icon_new_with_default_fallbacks ("media-eject-symbolic");
+    icon_info = gtk_icon_theme_lookup_by_gicon (icon_theme, icon, icon_size, 0);
 
-    eject_icon_info = caja_icon_info_lookup_from_name ("media-eject", icon_size);
-    eject = caja_icon_info_get_pixbuf_at_size (eject_icon_info, icon_size);
+    style = gtk_widget_get_style_context (GTK_WIDGET (sidebar));
+    eject = gtk_icon_info_load_symbolic_for_context (icon_info,
+                                                     style,
+                                                     NULL,
+                                                     NULL);
 
     if (highlighted) {
         GdkPixbuf *high;
@@ -250,7 +260,8 @@ get_eject_icon (gboolean highlighted)
         eject = high;
     }
 
-    g_object_unref (eject_icon_info);
+    g_object_unref (icon);
+    gtk_icon_info_free (icon_info);
 
     return eject;
 }
@@ -375,7 +386,7 @@ add_place (CajaPlacesSidebar *sidebar,
     }
 
     if (show_eject_button) {
-        eject = get_eject_icon (FALSE);
+        eject = get_eject_icon (sidebar, FALSE);
     } else {
         eject = NULL;
     }
@@ -1022,6 +1033,9 @@ over_eject_button (CajaPlacesSidebar *sidebar,
         eject_button_size = caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU);
 
         if (x - total_width >= 0 &&
+            /* fix unwanted unmount requests if clicking on the label */
+            x >= total_width - eject_button_size &&
+            x >= 80 &&
             x - total_width <= eject_button_size) {
             return TRUE;
         }
@@ -2897,7 +2911,7 @@ update_eject_buttons (CajaPlacesSidebar *sidebar,
 
             gtk_list_store_set (sidebar->store,
                         &iter,
-                        PLACES_SIDEBAR_COLUMN_EJECT_ICON, get_eject_icon (FALSE),
+                        PLACES_SIDEBAR_COLUMN_EJECT_ICON, get_eject_icon (sidebar, FALSE),
                         -1);
             gtk_tree_model_filter_refilter (GTK_TREE_MODEL_FILTER (sidebar->filter_model));
 
@@ -2919,7 +2933,7 @@ update_eject_buttons (CajaPlacesSidebar *sidebar,
                      path);
         gtk_list_store_set (sidebar->store,
                     &iter,
-                    PLACES_SIDEBAR_COLUMN_EJECT_ICON, get_eject_icon (TRUE),
+                    PLACES_SIDEBAR_COLUMN_EJECT_ICON, get_eject_icon (sidebar, TRUE),
                     -1);
         gtk_tree_model_filter_refilter (GTK_TREE_MODEL_FILTER (sidebar->filter_model));
 
