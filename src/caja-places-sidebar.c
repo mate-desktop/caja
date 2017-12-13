@@ -1022,15 +1022,9 @@ over_eject_button (CajaPlacesSidebar *sidebar,
         eject_button_size = caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU);
 
         if (x - total_width >= 0 &&
-            /* fix unwanted unmount requests if clicking on the label */
-            x >= total_width - eject_button_size &&
-            x >= 80 &&
             x - total_width <= eject_button_size) {
             return TRUE;
         }
-        /* Fix refusal to unmount when sidebar is wide enough to expand the eject column */
-        if (x >= 180)
-        return TRUE;
     }
 
 out:
@@ -3240,9 +3234,6 @@ caja_places_sidebar_init (CajaPlacesSidebar *sidebar)
                   "mode", GTK_CELL_RENDERER_MODE_ACTIVATABLE,
                   "stock-size", GTK_ICON_SIZE_MENU,
                   "xpad", EJECT_BUTTON_XPAD,
-                  /* align right, because for some reason gtk+ expands
-                  this even though we tell it not to. */
-                  "xalign", 1.0,
                   NULL);
     gtk_tree_view_column_pack_start (col, cell, FALSE);
     gtk_tree_view_column_set_attributes (col, cell,
