@@ -25,7 +25,10 @@
 #include "caja-search-engine.h"
 #include "caja-search-engine-beagle.h"
 #include "caja-search-engine-simple.h"
+
+#ifdef ENABLE_TRACKER
 #include "caja-search-engine-tracker.h"
+#endif
 
 #include <eel/eel-gtk-macros.h>
 
@@ -128,11 +131,13 @@ caja_search_engine_new (void)
 {
     CajaSearchEngine *engine;
 
+#ifdef ENABLE_TRACKER
     engine = caja_search_engine_tracker_new ();
     if (engine)
     {
         return engine;
     }
+#endif
 
     engine = caja_search_engine_beagle_new ();
     if (engine)
