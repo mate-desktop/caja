@@ -241,7 +241,7 @@ get_eject_icon (CajaPlacesSidebar *sidebar,
 
     icon_theme = gtk_icon_theme_get_default ();
     icon_size = caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_SMALL_TOOLBAR);
-    icon = g_themed_icon_new_with_default_fallbacks ("media-eject-symbolic");
+    icon = g_themed_icon_new_with_default_fallbacks ("media-eject");
     icon_info = gtk_icon_theme_lookup_by_gicon (icon_theme, icon, icon_size, 0);
 
     style = gtk_widget_get_style_context (GTK_WIDGET (sidebar));
