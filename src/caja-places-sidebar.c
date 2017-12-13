@@ -245,20 +245,27 @@ get_eject_icon (CajaPlacesSidebar *sidebar,
     icon_info = gtk_icon_theme_lookup_by_gicon (icon_theme, icon, icon_size, 0);
 
     style = gtk_widget_get_style_context (GTK_WIDGET (sidebar));
-    eject = gtk_icon_info_load_symbolic_for_context (icon_info,
-                                                     style,
-                                                     NULL,
-                                                     NULL);
 
-    if (highlighted) {
-        GdkPixbuf *high;
-        high = eel_create_spotlight_pixbuf (eject);
-        g_object_unref (eject);
-        eject = high;
+    if (icon_info != NULL) {
+        eject = gtk_icon_info_load_symbolic_for_context (icon_info,
+                                                         style,
+                                                         NULL,
+                                                         NULL);
+
+        if (highlighted) {
+            GdkPixbuf *high;
+            high = eel_create_spotlight_pixbuf (eject);
+            g_object_unref (eject);
+            eject = high;
+        }
+
+    } else {
+        GtkIconSet *icon_set;
+        gtk_style_context_set_state (style, GTK_STATE_FLAG_NORMAL);
+        icon_set = gtk_style_context_lookup_icon_set (style, GTK_STOCK_MISSING_IMAGE);
+        eject = gtk_icon_set_render_icon_pixbuf (icon_set, style, GTK_ICON_SIZE_MENU);
     }
-
-    g_object_unref (icon);
-    gtk_icon_info_free (icon_info);
+        gtk_icon_info_free (icon_info);
 
     return eject;
 }
