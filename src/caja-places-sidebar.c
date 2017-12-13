@@ -265,6 +265,7 @@ get_eject_icon (CajaPlacesSidebar *sidebar,
         icon_set = gtk_style_context_lookup_icon_set (style, GTK_STOCK_MISSING_IMAGE);
         eject = gtk_icon_set_render_icon_pixbuf (icon_set, style, GTK_ICON_SIZE_MENU);
     }
+        g_object_unref (icon);
         gtk_icon_info_free (icon_info);
 
     return eject;
