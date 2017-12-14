@@ -10,7 +10,6 @@ AM_CPPFLAGS = \
 	$(WARNING_CFLAGS) \
 	$(DISABLE_DEPRECATED_CFLAGS) \
 	$(TRACKER_CFLAGS) \
-	$(BEAGLE_CFLAGS) \
 	-DDATADIR=\""$(datadir)"\" \
 	-DSYSCONFDIR=\""$(sysconfdir)"\" \
 	-DCAJA_DATADIR=\""$(datadir)/caja"\" \
@@ -33,7 +32,6 @@ libcaja_private_la_LDFLAGS = \
 libcaja_private_la_LIBADD = \
 	$(dependency_static_libs) \
 	$(SELINUX_LIBS) \
-	$(BEAGLE_LIBS) \
 	$(TRACKER_LIBS) \
 	$(top_builddir)/eel/libeel-2.la \
 	$(top_builddir)/libcaja-extension/libcaja-extension.la \
@@ -151,8 +149,6 @@ libcaja_private_la_SOURCES = \
 	caja-search-engine.h \
 	caja-search-engine-simple.c \
 	caja-search-engine-simple.h \
-	caja-search-engine-beagle.c \
-	caja-search-engine-beagle.h \
 	caja-search-engine-tracker.c \
 	caja-search-engine-tracker.h \
 	caja-sidebar-provider.c \
@@ -220,7 +216,6 @@ gsettings_SCHEMAS = org.mate.caja.gschema.xml org.mate.media-handling.gschema.xm
 EXTRA_DIST = \
 	caja-marshal.list \
 	$(gsettings_SCHEMAS) \
-	$(BEAGLE_SOURCES) \
 	$(TRACKER_SOURCES) \
 	$(NULL)
 

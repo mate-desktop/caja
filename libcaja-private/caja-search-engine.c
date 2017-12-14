@@ -23,7 +23,6 @@
 
 #include <config.h>
 #include "caja-search-engine.h"
-#include "caja-search-engine-beagle.h"
 #include "caja-search-engine-simple.h"
 
 #ifdef ENABLE_TRACKER
@@ -138,12 +137,6 @@ caja_search_engine_new (void)
         return engine;
     }
 #endif
-
-    engine = caja_search_engine_beagle_new ();
-    if (engine)
-    {
-        return engine;
-    }
 
     engine = caja_search_engine_simple_new ();
     return engine;
