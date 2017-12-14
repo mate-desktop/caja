@@ -299,9 +299,9 @@ dnl ===========================================================================
 
 AC_ARG_ENABLE(tracker,
               [AS_HELP_STRING([--enable-tracker=@<:@yes/no@:>@],
-                              [build Tracker builtin support [default=yes]])],
+                              [build Tracker builtin support [default=no]])],
               [enable_tracker="$enableval"],
-              [enable_tracker=yes])
+              [enable_tracker=no])
 
 if test "x$enable_tracker" != "xno"; then
  if $PKG_CONFIG --exists tracker-sparql-2.0; then
