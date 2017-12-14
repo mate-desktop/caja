@@ -233,40 +233,27 @@ get_eject_icon (CajaPlacesSidebar *sidebar,
                 gboolean highlighted)
 {
     GdkPixbuf *eject;
-    GtkIconInfo *icon_info;
-    GIcon *icon;
+    CajaIconInfo *icon_info;
     int icon_size;
     GtkIconTheme *icon_theme;
     GtkStyleContext *style;
 
     icon_theme = gtk_icon_theme_get_default ();
     icon_size = caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU);
-    icon = g_themed_icon_new_with_default_fallbacks ("media-eject");
-    icon_info = gtk_icon_theme_lookup_by_gicon (icon_theme, icon, icon_size, 0);
+    icon_info = caja_icon_info_lookup_from_name ("media-eject", icon_size);
 
     style = gtk_widget_get_style_context (GTK_WIDGET (sidebar));
 
-    if (icon_info != NULL) {
-        eject = gtk_icon_info_load_symbolic_for_context (icon_info,
-                                                         style,
-                                                         NULL,
-                                                         NULL);
+    eject = caja_icon_info_get_pixbuf_at_size (icon_info, icon_size);
 
-        if (highlighted) {
-            GdkPixbuf *high;
-            high = eel_create_spotlight_pixbuf (eject);
-            g_object_unref (eject);
-            eject = high;
+    if (highlighted) {
+        GdkPixbuf *high;
+        high = eel_create_spotlight_pixbuf (eject);
+        g_object_unref (eject);
+        eject = high;
         }
 
-    } else {
-        GtkIconSet *icon_set;
-        gtk_style_context_set_state (style, GTK_STATE_FLAG_NORMAL);
-        icon_set = gtk_style_context_lookup_icon_set (style, GTK_STOCK_MISSING_IMAGE);
-        eject = gtk_icon_set_render_icon_pixbuf (icon_set, style, GTK_ICON_SIZE_MENU);
-    }
-        g_object_unref (icon);
-        gtk_icon_info_free (icon_info);
+    g_object_unref (icon_info);
 
     return eject;
 }
