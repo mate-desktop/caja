@@ -39,6 +39,12 @@ libcaja_private_la_LIBADD = \
     -lnotify
 	$(NULL)
 
+if ENABLE_TRACKER
+caja_tracker_engine_sources = \
+	caja-search-engine-tracker.c \
+	caja-search-engine-tracker.h
+endif
+
 libcaja_private_la_SOURCES = \
 	caja-autorun.c \
 	caja-autorun.h \
@@ -149,8 +155,6 @@ libcaja_private_la_SOURCES = \
 	caja-search-engine.h \
 	caja-search-engine-simple.c \
 	caja-search-engine-simple.h \
-	caja-search-engine-tracker.c \
-	caja-search-engine-tracker.h \
 	caja-sidebar-provider.c \
 	caja-sidebar-provider.h \
 	caja-sidebar.c \
@@ -181,6 +185,7 @@ libcaja_private_la_SOURCES = \
 	caja-window-slot-info.h \
 	caja-undostack-manager.c \
 	caja-undostack-manager.h \
+	$(caja_tracker_engine_sources)	\
 	$(NULL)
 
 nodist_libcaja_private_la_SOURCES =\
