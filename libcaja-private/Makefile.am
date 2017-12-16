@@ -185,7 +185,7 @@ libcaja_private_la_SOURCES = \
 	caja-window-slot-info.h \
 	caja-undostack-manager.c \
 	caja-undostack-manager.h \
-	$(caja_tracker_engine_sources)	\
+	$(caja_tracker_engine_sources) \
 	$(NULL)
 
 nodist_libcaja_private_la_SOURCES =\
