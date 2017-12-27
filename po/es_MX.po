@@ -6,14 +6,15 @@
 # David García <luisd@outlook.com>, 2015
 # José Humberto Oliveros Magaña <holiveros@gmail.com>, 2016
 # Luis Armando Medina <lamedina@gmail.com>, 2016
+# Luis Manuel Prado Moreno <luis_manuel_prado@yahoo.com>, 2017
 # Luis Medina <luis.medina@sacc.com.mx>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-08 13:31+0300\n"
-"PO-Revision-Date: 2017-10-08 10:32+0000\n"
-"Last-Translator: monsta <monsta@inbox.ru>\n"
+"POT-Creation-Date: 2017-11-28 09:22+0100\n"
+"PO-Revision-Date: 2017-11-23 18:54+0000\n"
+"Last-Translator: Luis Manuel Prado Moreno <luis_manuel_prado@yahoo.com>\n"
 "Language-Team: Spanish (Mexico) (http://www.transifex.com/mate/MATE/language/es_MX/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +25,7 @@ msgstr ""
 #: ../cut-n-paste-code/libegg/eggdesktopfile.c:166
 #, c-format
 msgid "File is not a valid .desktop file"
-msgstr "El archivo .desktop no es válido"
+msgstr "Este archivo .desktop no es válido"
 
 #: ../cut-n-paste-code/libegg/eggdesktopfile.c:189
 #, c-format
@@ -44,7 +45,7 @@ msgstr "La aplicación no acepta documentos en linea de comandos"
 #: ../cut-n-paste-code/libegg/eggdesktopfile.c:1168
 #, c-format
 msgid "Unrecognized launch option: %d"
-msgstr "Irreconocible opción de inicio: %d"
+msgstr "Opción de inicio no reconocible: %d"
 
 #: ../cut-n-paste-code/libegg/eggdesktopfile.c:1366
 #, c-format
@@ -58,11 +59,11 @@ msgstr "No es un elemento que pueda ser lanzado"
 
 #: ../cut-n-paste-code/libegg/eggsmclient.c:237
 msgid "Disable connection to session manager"
-msgstr "Deshabilitar la conexión con el gestor de sesiones"
+msgstr "Deshabilite la conexión con el gestor de sesiones"
 
 #: ../cut-n-paste-code/libegg/eggsmclient.c:242
 msgid "Specify file containing saved configuration"
-msgstr "Especificar el archivo que contiene la configuración guardada"
+msgstr "Especifique el archivo que contiene la configuración guardada"
 
 #: ../cut-n-paste-code/libegg/eggsmclient.c:242
 msgid "FILE"
@@ -70,7 +71,7 @@ msgstr "ARCHIVO"
 
 #: ../cut-n-paste-code/libegg/eggsmclient.c:247
 msgid "Specify session management ID"
-msgstr "Especificar el ID de la administración de sesiones."
+msgstr "Especifique el ID de la administración de sesiones."
 
 #: ../cut-n-paste-code/libegg/eggsmclient.c:247
 msgid "ID"
@@ -617,7 +618,7 @@ msgstr ""
 
 #: ../libcaja-private/caja-column-utilities.c:44
 #: ../libcaja-private/caja-mime-application-chooser.c:274
-#: ../src/file-manager/fm-list-view.c:1767
+#: ../src/file-manager/fm-list-view.c:1778
 msgid "Name"
 msgstr "Nombre"
 
@@ -5165,46 +5166,46 @@ msgstr ""
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-list-view.c:1826
-#: ../src/file-manager/fm-list-view.c:3443
+#: ../src/file-manager/fm-list-view.c:1837
+#: ../src/file-manager/fm-list-view.c:3454
 #: ../src/caja-file-management-properties.ui.h:2
 msgid "List View"
 msgstr ""
 
-#: ../src/file-manager/fm-list-view.c:2520
+#: ../src/file-manager/fm-list-view.c:2531
 #, c-format
 msgid "%s Visible Columns"
 msgstr ""
 
-#: ../src/file-manager/fm-list-view.c:2539
+#: ../src/file-manager/fm-list-view.c:2550
 msgid "Choose the order of information to appear in this folder:"
 msgstr ""
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-list-view.c:2597
+#: ../src/file-manager/fm-list-view.c:2608
 msgid "Visible _Columns..."
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-list-view.c:2598
+#: ../src/file-manager/fm-list-view.c:2609
 msgid "Select the columns visible in this folder"
 msgstr ""
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-list-view.c:3445
+#: ../src/file-manager/fm-list-view.c:3456
 msgid "_List"
 msgstr ""
 
-#: ../src/file-manager/fm-list-view.c:3446
+#: ../src/file-manager/fm-list-view.c:3457
 msgid "The list view encountered an error."
 msgstr ""
 
-#: ../src/file-manager/fm-list-view.c:3447
+#: ../src/file-manager/fm-list-view.c:3458
 msgid "The list view encountered an error while starting up."
 msgstr ""
 
-#: ../src/file-manager/fm-list-view.c:3448
+#: ../src/file-manager/fm-list-view.c:3459
 msgid "Display this location with the list view."
 msgstr ""
 
@@ -7207,7 +7208,7 @@ msgstr "No se pudo montar la ubicación."
 
 #: ../src/caja-window-manage-views.c:2151
 msgid "Access was denied."
-msgstr "Acceso denegado."
+msgstr "El acceso fue denegado."
 
 #. This case can be hit for user-typed strings like "foo" due to
 #. * the code that guesses web addresses when there's no initial "/".
@@ -7383,7 +7384,7 @@ msgstr "_Ampliar"
 
 #. tooltip
 #: ../src/caja-window-menus.c:865 ../src/caja-zoom-control.c:96
-#: ../src/caja-zoom-control.c:397
+#: ../src/caja-zoom-control.c:398
 msgid "Increase the view size"
 msgstr "Aumenta el tamaño de la vista"
 
@@ -7538,10 +7539,10 @@ msgstr "Reducir"
 msgid "Zoom to Default"
 msgstr "Ampliar al nivel predeterminado"
 
-#: ../src/caja-zoom-control.c:939
+#: ../src/caja-zoom-control.c:940
 msgid "Zoom"
 msgstr "Ampliación"
 
-#: ../src/caja-zoom-control.c:944
+#: ../src/caja-zoom-control.c:945
 msgid "Set the zoom level of the current view"
 msgstr "Establece el nivel de ampliación de la vista actual"

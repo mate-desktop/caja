@@ -18,9 +18,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-08 13:31+0300\n"
-"PO-Revision-Date: 2017-10-08 10:32+0000\n"
-"Last-Translator: monsta <monsta@inbox.ru>\n"
+"POT-Creation-Date: 2017-11-28 09:22+0100\n"
+"PO-Revision-Date: 2017-11-22 23:55+0000\n"
+"Last-Translator: José Vieira <jvieira33@sapo.pt>\n"
 "Language-Team: Portuguese (http://www.transifex.com/mate/MATE/language/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -624,7 +624,7 @@ msgstr "Usar Padrão"
 
 #: ../libcaja-private/caja-column-utilities.c:44
 #: ../libcaja-private/caja-mime-application-chooser.c:274
-#: ../src/file-manager/fm-list-view.c:1767
+#: ../src/file-manager/fm-list-view.c:1778
 msgid "Name"
 msgstr "Nome"
 
@@ -642,11 +642,11 @@ msgstr "O tamanho do ficheiro."
 
 #: ../libcaja-private/caja-column-utilities.c:59
 msgid "Size on Disk"
-msgstr ""
+msgstr "Espaço no Disco"
 
 #: ../libcaja-private/caja-column-utilities.c:60
 msgid "The size of the file on disk."
-msgstr ""
+msgstr "O espaço que o ficheiro ocupa no disco."
 
 #: ../libcaja-private/caja-column-utilities.c:67
 msgid "Type"
@@ -4960,11 +4960,11 @@ msgstr "Manter ícones ordenados por tamanho nas linhas"
 
 #: ../src/file-manager/fm-icon-view.c:142
 msgid "by Size on Disk"
-msgstr ""
+msgstr "pelo Espaço no Disco"
 
 #: ../src/file-manager/fm-icon-view.c:143
 msgid "Keep icons sorted by disk usage in rows"
-msgstr ""
+msgstr "Manter os ícones ordenados pelo espaço em disco, em linhas"
 
 #: ../src/file-manager/fm-icon-view.c:149
 msgid "by _Type"
@@ -5172,46 +5172,46 @@ msgstr "A Ler..."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-list-view.c:1826
-#: ../src/file-manager/fm-list-view.c:3443
+#: ../src/file-manager/fm-list-view.c:1837
+#: ../src/file-manager/fm-list-view.c:3454
 #: ../src/caja-file-management-properties.ui.h:2
 msgid "List View"
 msgstr "Vista em Lista"
 
-#: ../src/file-manager/fm-list-view.c:2520
+#: ../src/file-manager/fm-list-view.c:2531
 #, c-format
 msgid "%s Visible Columns"
 msgstr "%s Colunas Visíveis"
 
-#: ../src/file-manager/fm-list-view.c:2539
+#: ../src/file-manager/fm-list-view.c:2550
 msgid "Choose the order of information to appear in this folder:"
 msgstr "Escolha a ordem da informação a apresentar nesta pasta:"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-list-view.c:2597
+#: ../src/file-manager/fm-list-view.c:2608
 msgid "Visible _Columns..."
 msgstr "_Colunas Visíveis..."
 
 #. tooltip
-#: ../src/file-manager/fm-list-view.c:2598
+#: ../src/file-manager/fm-list-view.c:2609
 msgid "Select the columns visible in this folder"
 msgstr "Selecione as colunas visíveis nesta pasta"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-list-view.c:3445
+#: ../src/file-manager/fm-list-view.c:3456
 msgid "_List"
 msgstr "_Lista"
 
-#: ../src/file-manager/fm-list-view.c:3446
+#: ../src/file-manager/fm-list-view.c:3457
 msgid "The list view encountered an error."
 msgstr "Ocorreu um erro na vista em lista."
 
-#: ../src/file-manager/fm-list-view.c:3447
+#: ../src/file-manager/fm-list-view.c:3458
 msgid "The list view encountered an error while starting up."
 msgstr "Ocorreu um erro ao iniciar a vista em lista."
 
-#: ../src/file-manager/fm-list-view.c:3448
+#: ../src/file-manager/fm-list-view.c:3459
 msgid "Display this location with the list view."
 msgstr "Apresentar esta localização com a vista em lista."
 
@@ -5282,8 +5282,8 @@ msgstr "ilegível"
 #, c-format
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d item, num total de %s (%s on disco)"
+msgstr[1] "%'d itens, num total de %s (%s no disco)"
 
 #: ../src/file-manager/fm-properties-window.c:2305
 msgid "(some contents unreadable)"
@@ -5326,7 +5326,7 @@ msgstr "Destino do atalho:"
 
 #: ../src/file-manager/fm-properties-window.c:3280
 msgid "Size on Disk:"
-msgstr ""
+msgstr "Espaço no Disco:"
 
 #: ../src/file-manager/fm-properties-window.c:3289
 #: ../src/caja-location-bar.c:57
@@ -7390,7 +7390,7 @@ msgstr "_Ampliar"
 
 #. tooltip
 #: ../src/caja-window-menus.c:865 ../src/caja-zoom-control.c:96
-#: ../src/caja-zoom-control.c:397
+#: ../src/caja-zoom-control.c:398
 msgid "Increase the view size"
 msgstr "Aumentar o tamanho da vista"
 
@@ -7545,10 +7545,10 @@ msgstr "Reduzir"
 msgid "Zoom to Default"
 msgstr "Zoom por Defeito"
 
-#: ../src/caja-zoom-control.c:939
+#: ../src/caja-zoom-control.c:940
 msgid "Zoom"
 msgstr "Zoom"
 
-#: ../src/caja-zoom-control.c:944
+#: ../src/caja-zoom-control.c:945
 msgid "Set the zoom level of the current view"
 msgstr "Definir o nível de ampliação da vista atual"

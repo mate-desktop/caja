@@ -9,14 +9,15 @@
 # Henrik Mattsson-Mårn <h@reglage.net>, 2016
 # Jonatan Nyberg, 2016
 # Kristoffer Grundström <kristoffer.grundstrom1983@gmail.com>, 2014
+# Marcus Larborg, 2017
 # Tobias Lekare <lekare@linux.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-08 13:31+0300\n"
-"PO-Revision-Date: 2017-10-08 10:32+0000\n"
-"Last-Translator: monsta <monsta@inbox.ru>\n"
+"POT-Creation-Date: 2017-11-28 09:22+0100\n"
+"PO-Revision-Date: 2017-12-01 19:46+0000\n"
+"Last-Translator: Marcus Larborg\n"
 "Language-Team: Swedish (http://www.transifex.com/mate/MATE/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -620,7 +621,7 @@ msgstr "Använd _standard"
 
 #: ../libcaja-private/caja-column-utilities.c:44
 #: ../libcaja-private/caja-mime-application-chooser.c:274
-#: ../src/file-manager/fm-list-view.c:1767
+#: ../src/file-manager/fm-list-view.c:1778
 msgid "Name"
 msgstr "Namn"
 
@@ -638,11 +639,11 @@ msgstr "Storleken på filen."
 
 #: ../libcaja-private/caja-column-utilities.c:59
 msgid "Size on Disk"
-msgstr ""
+msgstr "Storlek på Disken"
 
 #: ../libcaja-private/caja-column-utilities.c:60
 msgid "The size of the file on disk."
-msgstr ""
+msgstr "Storleken på filen på disken."
 
 #: ../libcaja-private/caja-column-utilities.c:67
 msgid "Type"
@@ -1254,8 +1255,8 @@ msgstr "Är du säker på att du vill slänga \"%B\"?"
 #, c-format
 msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Är du säker på att du vill slänga det %'d markerade objektet?"
+msgstr[1] "Är du säker på att du vill slänga de %'d markerade objekten?"
 
 #: ../libcaja-private/caja-file-operations.c:1475
 msgid "Items moved to the trash may be recovered until the trash is emptied."
@@ -4956,11 +4957,11 @@ msgstr "Sortera ikoner i rader efter storlek"
 
 #: ../src/file-manager/fm-icon-view.c:142
 msgid "by Size on Disk"
-msgstr ""
+msgstr "via Storlek på Disken"
 
 #: ../src/file-manager/fm-icon-view.c:143
 msgid "Keep icons sorted by disk usage in rows"
-msgstr ""
+msgstr "Behåll ikonerna sorterade genom diskanvändning i rader"
 
 #: ../src/file-manager/fm-icon-view.c:149
 msgid "by _Type"
@@ -5168,46 +5169,46 @@ msgstr "Läser in..."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-list-view.c:1826
-#: ../src/file-manager/fm-list-view.c:3443
+#: ../src/file-manager/fm-list-view.c:1837
+#: ../src/file-manager/fm-list-view.c:3454
 #: ../src/caja-file-management-properties.ui.h:2
 msgid "List View"
 msgstr "Listvy"
 
-#: ../src/file-manager/fm-list-view.c:2520
+#: ../src/file-manager/fm-list-view.c:2531
 #, c-format
 msgid "%s Visible Columns"
 msgstr "%s synliga kolumner"
 
-#: ../src/file-manager/fm-list-view.c:2539
+#: ../src/file-manager/fm-list-view.c:2550
 msgid "Choose the order of information to appear in this folder:"
 msgstr "Välj i vilken ordning informationen ska visas i denna mapp:"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-list-view.c:2597
+#: ../src/file-manager/fm-list-view.c:2608
 msgid "Visible _Columns..."
 msgstr "Synliga _kolumner..."
 
 #. tooltip
-#: ../src/file-manager/fm-list-view.c:2598
+#: ../src/file-manager/fm-list-view.c:2609
 msgid "Select the columns visible in this folder"
 msgstr "Välj de kolumner som ska vara synliga i denna mapp"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-list-view.c:3445
+#: ../src/file-manager/fm-list-view.c:3456
 msgid "_List"
 msgstr "_Lista"
 
-#: ../src/file-manager/fm-list-view.c:3446
+#: ../src/file-manager/fm-list-view.c:3457
 msgid "The list view encountered an error."
 msgstr "Listvyn råkade ut för ett fel."
 
-#: ../src/file-manager/fm-list-view.c:3447
+#: ../src/file-manager/fm-list-view.c:3458
 msgid "The list view encountered an error while starting up."
 msgstr "Listvyn råkade ut för ett fel vid uppstarten."
 
-#: ../src/file-manager/fm-list-view.c:3448
+#: ../src/file-manager/fm-list-view.c:3459
 msgid "Display this location with the list view."
 msgstr "Visa denna plats med listvyn."
 
@@ -5278,8 +5279,8 @@ msgstr "oläsbar"
 #, c-format
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d objekt, storlek %s (%s på disk)"
+msgstr[1] "%'d objekt, totalt %s (%s på disk)"
 
 #: ../src/file-manager/fm-properties-window.c:2305
 msgid "(some contents unreadable)"
@@ -5322,7 +5323,7 @@ msgstr "Länkmål:"
 
 #: ../src/file-manager/fm-properties-window.c:3280
 msgid "Size on Disk:"
-msgstr ""
+msgstr "Storlek på Disk:"
 
 #: ../src/file-manager/fm-properties-window.c:3289
 #: ../src/caja-location-bar.c:57
@@ -7386,7 +7387,7 @@ msgstr "Zooma _in"
 
 #. tooltip
 #: ../src/caja-window-menus.c:865 ../src/caja-zoom-control.c:96
-#: ../src/caja-zoom-control.c:397
+#: ../src/caja-zoom-control.c:398
 msgid "Increase the view size"
 msgstr "Öka vystorleken"
 
@@ -7541,10 +7542,10 @@ msgstr "Zooma ut"
 msgid "Zoom to Default"
 msgstr "Zooma till standard"
 
-#: ../src/caja-zoom-control.c:939
+#: ../src/caja-zoom-control.c:940
 msgid "Zoom"
 msgstr "Zooma"
 
-#: ../src/caja-zoom-control.c:944
+#: ../src/caja-zoom-control.c:945
 msgid "Set the zoom level of the current view"
 msgstr "Ställ in zoomnivån på den aktuella vyn"
