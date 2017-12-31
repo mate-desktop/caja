@@ -51,6 +51,7 @@
 #include <gdk/gdkx.h>
 #include <glib/gi18n.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #define TAB_NAVIGATION_DISABLED
@@ -225,6 +226,16 @@ static int compare_icons_vertical (CajaIconContainer *container,
                                    CajaIcon *icon_b);
 
 static void store_layout_timestamps_now (CajaIconContainer *container);
+
+typedef gboolean (*IsBetterIconFunction)(CajaIconContainer *container,
+                                         CajaIcon *start_icon,
+                                         CajaIcon *best_so_far,
+                                         CajaIcon *candidate, void *data);
+
+static CajaIcon *   find_best_icon (CajaIconContainer *container,
+                                    CajaIcon *start_icon,
+                                    IsBetterIconFunction function,
+                                    void *data);
 
 static gpointer accessible_parent_class;
 
@@ -2583,6 +2594,68 @@ unselect_all (CajaIconContainer *container)
     return select_one_unselect_others (container, NULL);
 }
 
+/* d=(x0-x1)^2+(y0-y1)^2 */
+static gboolean is_icon_nearer(CajaIconContainer *container,
+                                          CajaIcon *not_used,
+                                          CajaIcon *best_so_far,
+                                          CajaIcon *candidate, void *icon)
+{
+    if (best_so_far == NULL)
+    {
+        return TRUE;
+    }
+
+
+    if (candidate == NULL)
+    {            
+        return FALSE;
+    }
+
+    EelDRect icon_position;
+    EelDRect best_so_far_position;
+    EelDRect candidate_position;
+
+    int icon_width, icon_height;
+    int best_so_far_width, best_so_far_height;
+    int candidate_width, candidate_height;
+
+    int icon_center_x, icon_center_y;
+    int best_so_far_center_x, best_so_far_center_y;
+    int candidate_center_x, candidate_center_y;
+
+    icon_position= caja_icon_canvas_item_get_icon_rectangle(((CajaIcon *)icon)->item);
+    icon_width = icon_position.x1 - icon_position.x0;
+    icon_height = icon_position.y1 - icon_position.y0;
+
+    best_so_far_position = caja_icon_canvas_item_get_icon_rectangle(best_so_far->item);
+    best_so_far_width = best_so_far_position.x1 - best_so_far_position.x0;
+    best_so_far_height = best_so_far_position.y1 - best_so_far_position.y0;
+
+    candidate_position = caja_icon_canvas_item_get_icon_rectangle(candidate->item);
+    candidate_width = candidate_position.x1 - candidate_position.x0;
+    candidate_height = candidate_position.y1 - candidate_position.y0;
+
+    icon_center_x = ((CajaIcon *)icon)->x + icon_width / 2;
+    icon_center_y = ((CajaIcon *)icon)->y + icon_height / 2;
+
+    best_so_far_center_x = best_so_far->x + best_so_far_width / 2;
+    best_so_far_center_y = best_so_far->y + best_so_far_height / 2;
+
+    candidate_center_x = candidate->x + candidate_width / 2;
+    candidate_center_y = candidate->y + candidate_height / 2;
+
+    if ((pow(candidate_center_x - icon_center_x, 2) +
+         pow(candidate_center_y - icon_center_y, 2)) <
+        (pow(best_so_far_center_x - icon_center_x, 2) +
+         pow(best_so_far_center_y - icon_center_y, 2)))
+    {
+        return TRUE;
+    }
+ 
+
+    return FALSE;
+}
+
 void
 caja_icon_container_move_icon (CajaIconContainer *container,
                                CajaIcon *icon,
@@ -2625,6 +2698,27 @@ caja_icon_container_move_icon (CajaIconContainer *container,
 
         if (x != icon->x || y != icon->y)
         {
+            if (details->keep_aligned && snap)
+            {    
+                 /* Icon with the position to be placed at */
+                 CajaIcon new_icon;
+                 memcpy(&new_icon, icon, sizeof(CajaIcon));
+                 new_icon.x = x;
+                 new_icon.y = y;
+
+                 CajaIcon *nearest_icon = find_best_icon(
+                     container, NULL, is_icon_nearer, &new_icon);
+                 /* Swap position if they are too close */
+                 if (nearest_icon &&
+                     abs(nearest_icon->x - x) < SNAP_SIZE_X / 2 &&
+                     abs(nearest_icon->y - y) < 96)
+                 {
+                       /* resnap position after swap */
+                       int orig_x = icon->x, orig_y = icon->y;
+                       snap_position(container, nearest_icon, &orig_x, &orig_y);
+                       icon_set_position(nearest_icon, orig_x, orig_y);
+                 }
+            }
             icon_set_position (icon, x, y);
             emit_signal = update_position;
         }
@@ -2985,12 +3079,6 @@ stop_rubberbanding (CajaIconContainer *container,
 }
 
 /* Keyboard navigation.  */
-
-typedef gboolean (* IsBetterIconFunction) (CajaIconContainer *container,
-        CajaIcon *start_icon,
-        CajaIcon *best_so_far,
-        CajaIcon *candidate,
-        void *data);
 
 static CajaIcon *
 find_best_icon (CajaIconContainer *container,
