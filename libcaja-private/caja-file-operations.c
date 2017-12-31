@@ -2135,7 +2135,10 @@ unmount_mount_callback (GObject *source_object,
 	if (data->eject) {
 		unmounted = g_mount_eject_with_operation_finish (G_MOUNT (source_object),
 								 res, &error);
-                caja_application_notify_unmount_show ("It is now safe to remove the drive");
+		if ((!error) || (unmounted == TRUE)){
+			caja_application_notify_unmount_show ("It is now safe to remove the drive");
+		}
+
 	} else {
 		unmounted = g_mount_unmount_with_operation_finish (G_MOUNT (source_object),
 								   res, &error);
