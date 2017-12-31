@@ -2220,9 +2220,6 @@ drive_eject_cb (GObject *source_object,
         }
         g_error_free (error);
     }
-    else {
-        caja_application_notify_unmount_show ("It is now safe to remove the drive");
-    }
 }
 
 static void
