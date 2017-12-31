@@ -493,42 +493,42 @@ update_places (CajaPlacesSidebar *sidebar)
                              _("Computer"));
 
     /* add built in bookmarks */
-    desktop_path = caja_get_desktop_directory ();
 
     /* home folder */
-    if (strcmp (g_get_home_dir(), desktop_path) != 0) {
-        char *display_name;
+    char *display_name;
 
-        mount_uri = caja_get_home_directory_uri ();
-        display_name = g_filename_display_basename (g_get_home_dir ());
-        icon = g_themed_icon_new (CAJA_ICON_HOME);
-        last_iter = add_place (sidebar, PLACES_BUILT_IN,
-                               SECTION_COMPUTER,
-                               display_name, icon,
-                               mount_uri, NULL, NULL, NULL, 0,
-                               _("Open your personal folder"));
-        g_object_unref (icon);
-        g_free (display_name);
-        compare_for_selection (sidebar,
-                               location, mount_uri, last_uri,
-                               &last_iter, &select_path);
-        g_free (mount_uri);
-    }
-
-    /* desktop */
-    mount_uri = g_filename_to_uri (desktop_path, NULL, NULL);
-    icon = g_themed_icon_new (CAJA_ICON_DESKTOP);
+    mount_uri = caja_get_home_directory_uri ();
+    display_name = g_filename_display_basename (g_get_home_dir ());
+    icon = g_themed_icon_new (CAJA_ICON_HOME);
     last_iter = add_place (sidebar, PLACES_BUILT_IN,
                            SECTION_COMPUTER,
-                           _("Desktop"), icon,
+                           display_name, icon,
                            mount_uri, NULL, NULL, NULL, 0,
-                           _("Open the contents of your desktop in a folder"));
+                           _("Open your personal folder"));
     g_object_unref (icon);
+    g_free (display_name);
     compare_for_selection (sidebar,
                            location, mount_uri, last_uri,
                            &last_iter, &select_path);
     g_free (mount_uri);
-    g_free (desktop_path);
+
+    /* desktop */
+    desktop_path = caja_get_desktop_directory ();
+    if (strcmp (g_get_home_dir(), desktop_path) != 0) {
+	    mount_uri = g_filename_to_uri (desktop_path, NULL, NULL);
+	    icon = g_themed_icon_new (CAJA_ICON_DESKTOP);
+	    last_iter = add_place (sidebar, PLACES_BUILT_IN,
+	                           SECTION_COMPUTER,
+	                           _("Desktop"), icon,
+	                           mount_uri, NULL, NULL, NULL, 0,
+	                           _("Open the contents of your desktop in a folder"));
+	    g_object_unref (icon);
+	    compare_for_selection (sidebar,
+	                           location, mount_uri, last_uri,
+	                           &last_iter, &select_path);
+	    g_free (mount_uri);
+    }
+	g_free (desktop_path);
 
     /* file system root */
     mount_uri = "file:///"; /* No need to strdup */
