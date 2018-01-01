@@ -632,7 +632,7 @@ extension_about_clicked (GtkButton *button, Extension *ext)
     gtk_about_dialog_set_comments (extension_about_dialog, ext->description);
     gtk_about_dialog_set_logo_icon_name (extension_about_dialog, ext->icon != NULL ? ext->icon : "system-run");
     gtk_about_dialog_set_copyright (extension_about_dialog, ext->copyright);
-    gtk_about_dialog_set_authors (extension_about_dialog, ext->author);
+    gtk_about_dialog_set_authors (extension_about_dialog, (const gchar **) ext->author);
     gtk_about_dialog_set_version (extension_about_dialog, ext->version);
     gtk_about_dialog_set_website (extension_about_dialog, ext->website);
     gtk_window_set_title (GTK_WINDOW(extension_about_dialog), _("About Extension"));
