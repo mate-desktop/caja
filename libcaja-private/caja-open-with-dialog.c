@@ -870,6 +870,9 @@ caja_open_with_dialog_init (CajaOpenWithDialog *dialog)
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolled_window),
                                     GTK_POLICY_AUTOMATIC,
                                     GTK_POLICY_AUTOMATIC);
+#if GTK_CHECK_VERSION (3, 16, 0)
+    gtk_scrolled_window_set_overlay_scrolling (GTK_SCROLLED_WINDOW (scrolled_window), FALSE);
+#endif
     dialog->details->program_list = gtk_tree_view_new ();
     gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (dialog->details->program_list),
                                        FALSE);

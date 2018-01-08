@@ -1101,6 +1101,9 @@ eel_scrolled_wrap_table_new (gboolean homogeneous,
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolled_window),
                                     GTK_POLICY_NEVER,
                                     GTK_POLICY_AUTOMATIC);
+#if GTK_CHECK_VERSION (3, 16, 0)
+    gtk_scrolled_window_set_overlay_scrolling (GTK_SCROLLED_WINDOW (scrolled_window), FALSE);
+#endif
 
     viewport = gtk_viewport_new (gtk_scrolled_window_get_hadjustment (GTK_SCROLLED_WINDOW (scrolled_window)),
                                  gtk_scrolled_window_get_vadjustment (GTK_SCROLLED_WINDOW (scrolled_window)));

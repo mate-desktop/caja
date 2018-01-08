@@ -404,6 +404,9 @@ caja_mime_application_chooser_init (CajaMimeApplicationChooser *chooser)
                                     GTK_POLICY_AUTOMATIC);
     gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolled),
                                          GTK_SHADOW_IN);
+#if GTK_CHECK_VERSION (3, 16, 0)
+    gtk_scrolled_window_set_overlay_scrolling (GTK_SCROLLED_WINDOW (scrolled), FALSE);
+#endif
 
     gtk_widget_show (scrolled);
     gtk_box_pack_start (GTK_BOX (chooser), scrolled, TRUE, TRUE, 6);

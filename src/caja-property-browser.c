@@ -326,6 +326,10 @@ caja_property_browser_init (CajaPropertyBrowser *property_browser)
     gtk_widget_show (property_browser->details->category_container);
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (property_browser->details->category_container),
                                     GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
+#if GTK_CHECK_VERSION (3, 16, 0)
+    gtk_scrolled_window_set_overlay_scrolling (GTK_SCROLLED_WINDOW (property_browser->details->category_container),
+                                               FALSE);
+#endif
 
     /* allocate a table to hold the category selector */
     property_browser->details->category_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
@@ -2204,6 +2208,10 @@ caja_property_browser_update_contents (CajaPropertyBrowser *property_browser)
     gtk_widget_show (property_browser->details->content_frame);
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (property_browser->details->content_frame),
                                     GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
+#if GTK_CHECK_VERSION (3, 16, 0)
+    gtk_scrolled_window_set_overlay_scrolling (GTK_SCROLLED_WINDOW (property_browser->details->content_frame),
+                                               FALSE);
+#endif
 
     /* allocate a table to hold the content widgets */
     property_browser->details->content_table = eel_image_table_new (TRUE);

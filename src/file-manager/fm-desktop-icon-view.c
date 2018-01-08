@@ -637,6 +637,9 @@ fm_desktop_icon_view_init (FMDesktopIconView *desktop_icon_view)
 
     gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (desktop_icon_view),
                                          GTK_SHADOW_NONE);
+#if GTK_CHECK_VERSION (3, 16, 0)
+    gtk_scrolled_window_set_overlay_scrolling (GTK_SCROLLED_WINDOW (desktop_icon_view), FALSE);
+#endif
 
     fm_directory_view_ignore_hidden_file_preferences
     (FM_DIRECTORY_VIEW (desktop_icon_view));
