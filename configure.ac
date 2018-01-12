@@ -323,8 +323,7 @@ AM_CONDITIONAL([ICON_UPDATE], [test -n "$UPDATE_ICON_CACHE"])
 
 AC_CONFIG_FILES([
 Makefile
-cut-n-paste-code/Makefile
-cut-n-paste-code/libegg/Makefile
+libegg/Makefile
 data/Makefile
 data/icons/Makefile
 data/patterns/Makefile

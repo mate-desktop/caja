@@ -3,7 +3,7 @@ include $(top_srcdir)/Makefile.shared
 SUBDIRS = \
 	eel \
 	libcaja-extension \
-	cut-n-paste-code \
+	libegg \
 	libcaja-private \
 	src \
 	test \

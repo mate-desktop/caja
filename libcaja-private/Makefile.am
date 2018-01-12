@@ -5,7 +5,6 @@ noinst_LTLIBRARIES=libcaja-private.la
 AM_CPPFLAGS = \
 	-I$(top_srcdir) \
 	-I$(top_builddir) \
-	-I$(top_srcdir)/cut-n-paste-code \
 	$(CORE_CFLAGS) \
 	$(WARNING_CFLAGS) \
 	$(DISABLE_DEPRECATED_CFLAGS) \
@@ -23,7 +22,7 @@ BUILT_SOURCES = \
 	$(NULL)
 
 dependency_static_libs = \
-	$(top_builddir)/cut-n-paste-code/libegg/libegg.la \
+	$(top_builddir)/libegg/libegg.la \
 	$(NULL)
 
 libcaja_private_la_LDFLAGS = \

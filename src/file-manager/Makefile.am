@@ -4,7 +4,6 @@ noinst_LTLIBRARIES=libcaja-file-manager.la
 
 AM_CPPFLAGS = \
 	-I$(top_srcdir) \
-	-I$(top_srcdir)/cut-n-paste-code \
 	$(CORE_CFLAGS) \
 	$(WARNING_CFLAGS) \
 	-DCAJA_DATADIR=\""$(datadir)/caja"\" \
