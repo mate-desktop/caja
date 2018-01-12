@@ -33,14 +33,3 @@ libegg_la_CFLAGS =				\
 libegg_la_LIBADD = 	\
 	$(LIBEGG_LIBS)	\
 	-lSM -lICE
-
-EXTRA_DIST = 			\
-	update-from-egg.sh	\
-	$(NULL)
-
-EGG_TREE_DND_DIR = $(srcdir)/../../../libegg/libegg/treeviewutils
-EGG_SMCLIENT_DIR = $(srcdir)/../../../libegg/libegg/smclient
-
-regenerate-built-sources:
-	EGGFILES="$(EGG_TREE_DND_FILES)" EGGDIR="$(EGG_TREE_DND_DIR)" $(srcdir)/update-from-egg.sh
-	EGGFILES="$(EGG_SMCLIENT_FILES)" EGGDIR="$(EGG_SMCLIENT_DIR)" $(srcdir)/update-from-egg.sh
