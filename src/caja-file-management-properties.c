@@ -636,6 +636,7 @@ extension_about_clicked (GtkButton *button, Extension *ext)
     gtk_about_dialog_set_version (extension_about_dialog, ext->version);
     gtk_about_dialog_set_website (extension_about_dialog, ext->website);
     gtk_window_set_title (GTK_WINDOW(extension_about_dialog), _("About Extension"));
+    gtk_window_set_icon_name (GTK_WINDOW(extension_about_dialog), ext->icon != NULL ? ext->icon : "system-run");
     gtk_dialog_run (GTK_DIALOG (extension_about_dialog));
     gtk_widget_destroy (GTK_WIDGET (extension_about_dialog));
 }
