@@ -572,7 +572,6 @@ caja_bookmark_new (GFile *location, const char *name, gboolean has_custom_name,
     CajaBookmark *new_bookmark;
 
     new_bookmark = CAJA_BOOKMARK (g_object_new (CAJA_TYPE_BOOKMARK, NULL));
-    g_object_ref_sink (new_bookmark);
 
     new_bookmark->details->name = g_strdup (name);
     new_bookmark->details->location = g_object_ref (location);
