@@ -1,0 +1,6 @@
+language: c
+sudo: required
+services:
+  - docker
+script:
+  - docker run -v$PWD:/w -it fedora:27 /bin/sh -c "cd w && dnf install -y mate-common gobject-introspection-devel mate-desktop-devel libxml2-devel libnotify-devel redhat-rpm-config libSM-devel -yq && ./autogen.sh && make"
