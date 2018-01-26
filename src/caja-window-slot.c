@@ -377,6 +377,9 @@ caja_window_slot_update_icon (CajaWindowSlot *slot)
     info = EEL_CALL_METHOD_WITH_RETURN_VALUE (CAJA_WINDOW_CLASS, window,
             get_icon, (window, slot));
 
+    if (slot != slot->pane->active_slot)
+        return;
+
     icon_name = NULL;
     if (info)
     {
