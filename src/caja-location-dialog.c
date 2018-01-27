@@ -192,13 +192,13 @@ caja_location_dialog_init (CajaLocationDialog *dialog)
                         box, FALSE, TRUE, 0);
 
     gtk_dialog_add_button (GTK_DIALOG (dialog),
-                           GTK_STOCK_HELP,
+                           "gtk-help",
                            GTK_RESPONSE_HELP);
     gtk_dialog_add_button (GTK_DIALOG (dialog),
-                           GTK_STOCK_CANCEL,
+                           "gtk-cancel",
                            GTK_RESPONSE_CANCEL);
     gtk_dialog_add_button (GTK_DIALOG (dialog),
-                           GTK_STOCK_OPEN,
+                           "gtk-open",
                            RESPONSE_OPEN);
     gtk_dialog_set_default_response (GTK_DIALOG (dialog),
                                      RESPONSE_OPEN);

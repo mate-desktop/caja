@@ -389,14 +389,23 @@ caja_property_browser_init (CajaPropertyBrowser *property_browser)
     gtk_container_add (GTK_CONTAINER (temp_box), property_browser->details->bottom_box);
 
     /* create the "help" button */
-    temp_button = gtk_button_new_from_stock (GTK_STOCK_HELP);
+    temp_button = GTK_WIDGET (g_object_new (GTK_TYPE_BUTTON,
+                                            "label", "gtk-help",
+                                            "use-stock", TRUE,
+                                            "use-underline", TRUE,
+                                            NULL));
 
     gtk_widget_show (temp_button);
     gtk_box_pack_start (GTK_BOX (property_browser->details->bottom_box), temp_button, FALSE, FALSE, 0);
     g_signal_connect_object (temp_button, "clicked", G_CALLBACK (help_button_callback), property_browser, 0);
 
     /* create the "done" button */
-    temp_button = gtk_button_new_from_stock (GTK_STOCK_CLOSE);
+    temp_button = GTK_WIDGET (g_object_new (GTK_TYPE_BUTTON,
+                                            "label", "gtk-close",
+                                            "use-stock", TRUE,
+                                            "use-underline", TRUE,
+                                            NULL));
+
     gtk_widget_set_can_default (temp_button, TRUE);
 
     gtk_widget_show (temp_button);
@@ -408,7 +417,7 @@ caja_property_browser_init (CajaPropertyBrowser *property_browser)
     /* create the "remove" button */
     property_browser->details->remove_button = gtk_button_new_with_mnemonic (_("_Remove..."));
 
-    property_browser->details->remove_button_image = gtk_image_new_from_stock (GTK_STOCK_REMOVE, GTK_ICON_SIZE_BUTTON);
+    property_browser->details->remove_button_image = gtk_image_new_from_icon_name ("list-remove", GTK_ICON_SIZE_BUTTON);
     gtk_button_set_image (GTK_BUTTON (property_browser->details->remove_button),
                           property_browser->details->remove_button_image);
     gtk_widget_show_all (property_browser->details->remove_button);
@@ -422,7 +431,7 @@ caja_property_browser_init (CajaPropertyBrowser *property_browser)
     /* now create the "add new" button */
     property_browser->details->add_button = gtk_button_new_with_mnemonic (_("Add new..."));
 
-    property_browser->details->add_button_image = gtk_image_new_from_stock (GTK_STOCK_ADD, GTK_ICON_SIZE_BUTTON);
+    property_browser->details->add_button_image = gtk_image_new_from_icon_name ("list-add", GTK_ICON_SIZE_BUTTON);
     gtk_button_set_image (GTK_BUTTON (property_browser->details->add_button),
                           property_browser->details->add_button_image);
     gtk_widget_show_all (property_browser->details->add_button);
@@ -1064,8 +1073,8 @@ icon_button_clicked_cb (GtkButton *b,
     dialog = gtk_file_chooser_dialog_new (_("Select an Image File for the New Emblem"),
                                           GTK_WINDOW (browser),
                                           GTK_FILE_CHOOSER_ACTION_OPEN,
-                                          GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-                                          GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
+                                          "gtk-cancel", GTK_RESPONSE_CANCEL,
+                                          "gtk-open", GTK_RESPONSE_ACCEPT,
                                           NULL);
     gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (dialog),
                                          DATADIR "/pixmaps");
@@ -1104,8 +1113,8 @@ caja_emblem_dialog_new (CajaPropertyBrowser *property_browser)
 
     dialog = gtk_dialog_new_with_buttons (_("Create a New Emblem"),
                                           GTK_WINDOW (property_browser), 0,
-                                          GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-                                          GTK_STOCK_OK, GTK_RESPONSE_OK,
+                                          "gtk-cancel", GTK_RESPONSE_CANCEL,
+                                          "gtk-ok", GTK_RESPONSE_OK,
                                           NULL);
 
     /* install the grid in the dialog */
@@ -1184,8 +1193,8 @@ caja_color_selection_dialog_new (CajaPropertyBrowser *property_browser)
 
     dialog = gtk_dialog_new_with_buttons (_("Create a New Color:"),
                                           GTK_WINDOW (property_browser), 0,
-                                          GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-                                          GTK_STOCK_OK, GTK_RESPONSE_OK,
+                                          "gtk-cancel", GTK_RESPONSE_CANCEL,
+                                          "gtk-ok", GTK_RESPONSE_OK,
                                           NULL);
 
     /* install the grid in the dialog */
@@ -1313,8 +1322,8 @@ add_new_pattern (CajaPropertyBrowser *property_browser)
                     gtk_file_chooser_dialog_new (_("Select an Image File to Add as a Pattern"),
                             GTK_WINDOW (property_browser),
                             GTK_FILE_CHOOSER_ACTION_OPEN,
-                            GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-                            GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
+                            "gtk-cancel", GTK_RESPONSE_CANCEL,
+                            "gtk-open", GTK_RESPONSE_ACCEPT,
                             NULL);
         gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (dialog),
                                              DATADIR "/caja/patterns/");
@@ -2304,15 +2313,15 @@ caja_property_browser_update_contents (CajaPropertyBrowser *property_browser)
     else
     {
         char *label_text;
-        char *stock_id;
+        char *icon_name;
         if (property_browser->details->remove_mode)
         {
-            stock_id = GTK_STOCK_CANCEL;
+            icon_name = "process-stop";
             text = _("C_ancel Remove");
         }
         else
         {
-            stock_id = GTK_STOCK_ADD;
+            icon_name = "list-add";
             /* FIXME: Using spaces to add padding is not good design. */
             switch (property_browser->details->category_type)
             {
@@ -2332,8 +2341,8 @@ caja_property_browser_update_contents (CajaPropertyBrowser *property_browser)
         }
 
         /* enable the "add new" button and update it's name and icon */
-        gtk_image_set_from_stock (GTK_IMAGE(property_browser->details->add_button_image), stock_id,
-                                  GTK_ICON_SIZE_BUTTON);
+        gtk_image_set_from_icon_name (GTK_IMAGE(property_browser->details->add_button_image), icon_name,
+                                      GTK_ICON_SIZE_BUTTON);
 
         if (text != NULL)
         {

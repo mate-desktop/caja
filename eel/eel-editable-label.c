@@ -3110,11 +3110,11 @@ popup_targets_received (GtkClipboard     *clipboard,
 
         clipboard_contains_text = gtk_selection_data_targets_include_text (data);
 
-        append_action_signal (label, label->popup_menu, GTK_STOCK_CUT, "cut_clipboard",
+        append_action_signal (label, label->popup_menu, "gtk-cut", "cut_clipboard",
                               have_selection);
-        append_action_signal (label, label->popup_menu, GTK_STOCK_COPY, "copy_clipboard",
+        append_action_signal (label, label->popup_menu, "gtk-copy", "copy_clipboard",
                               have_selection);
-        append_action_signal (label, label->popup_menu, GTK_STOCK_PASTE, "paste_clipboard",
+        append_action_signal (label, label->popup_menu, "gtk-paste", "paste_clipboard",
                               clipboard_contains_text);
 
         menuitem = gtk_menu_item_new_with_label (_("Select All"));
