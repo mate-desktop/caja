@@ -803,11 +803,11 @@ caja_window_initialize_trash_icon_monitor (CajaWindow *window)
 
 static const GtkActionEntry main_entries[] =
 {
-    /* name, stock id, label */  { "File", NULL, N_("_File") },
-    /* name, stock id, label */  { "Edit", NULL, N_("_Edit") },
-    /* name, stock id, label */  { "View", NULL, N_("_View") },
-    /* name, stock id, label */  { "Help", NULL, N_("_Help") },
-    /* name, stock id */         { "Close", GTK_STOCK_CLOSE,
+    /* name, icon name, label */ { "File", NULL, N_("_File") },
+    /* name, icon name, label */ { "Edit", NULL, N_("_Edit") },
+    /* name, icon name, label */ { "View", NULL, N_("_View") },
+    /* name, icon name, label */ { "Help", NULL, N_("_Help") },
+    /* name, icon name */        { "Close", "window-close",
         /* label, accelerator */       N_("_Close"), "<control>W",
         /* tooltip */                  N_("Close this folder"),
         G_CALLBACK (action_close_window_slot_callback)
@@ -819,95 +819,95 @@ static const GtkActionEntry main_entries[] =
         G_CALLBACK (action_backgrounds_and_emblems_callback)
     },
     {
-        "Preferences", GTK_STOCK_PREFERENCES,
+        "Preferences", "preferences-desktop",
         N_("Prefere_nces"),
         NULL, N_("Edit Caja preferences"),
         G_CALLBACK (action_preferences_callback)
     },
-    /* name, stock id, label */  { "Up", GTK_STOCK_GO_UP, N_("Open _Parent"),
+    /* name, icon name, label */ { "Up", "go-up", N_("Open _Parent"),
         "<alt>Up", N_("Open the parent folder"),
         G_CALLBACK (action_up_callback)
     },
-    /* name, stock id, label */  { "UpAccel", NULL, "UpAccel",
+    /* name, icon name, label */ { "UpAccel", NULL, "UpAccel",
         "", NULL,
         G_CALLBACK (action_up_callback)
     },
-    /* name, stock id */         { "Stop", GTK_STOCK_STOP,
+    /* name, icon name */        { "Stop", "process-stop",
         /* label, accelerator */       N_("_Stop"), NULL,
         /* tooltip */                  N_("Stop loading the current location"),
         G_CALLBACK (action_stop_callback)
     },
-    /* name, stock id */         { "Reload", GTK_STOCK_REFRESH,
+    /* name, icon name */        { "Reload", "view-refresh",
         /* label, accelerator */       N_("_Reload"), "<control>R",
         /* tooltip */                  N_("Reload the current location"),
         G_CALLBACK (action_reload_callback)
     },
-    /* name, stock id */         { "Caja Manual", GTK_STOCK_HELP,
+    /* name, icon name */        { "Caja Manual", "help-browser",
         /* label, accelerator */       N_("_Contents"), "F1",
         /* tooltip */                  N_("Display Caja help"),
         G_CALLBACK (action_caja_manual_callback)
     },
-    /* name, stock id */         { "About Caja", GTK_STOCK_ABOUT,
+    /* name, icon name */        { "About Caja", "help-about",
         /* label, accelerator */       N_("_About"), NULL,
         /* tooltip */                  N_("Display credits for the creators of Caja"),
         G_CALLBACK (action_about_caja_callback)
     },
-    /* name, stock id */         { "Zoom In", GTK_STOCK_ZOOM_IN,
+    /* name, icon name */        { "Zoom In", "zoom-in",
         /* label, accelerator */       N_("Zoom _In"), "<control>plus",
         /* tooltip */                  N_("Increase the view size"),
         G_CALLBACK (action_zoom_in_callback)
     },
-    /* name, stock id */         { "ZoomInAccel", NULL,
+    /* name, icon name */        { "ZoomInAccel", NULL,
         /* label, accelerator */       "ZoomInAccel", "<control>equal",
         /* tooltip */                  NULL,
         G_CALLBACK (action_zoom_in_callback)
     },
-    /* name, stock id */         { "ZoomInAccel2", NULL,
+    /* name, icon name */        { "ZoomInAccel2", NULL,
         /* label, accelerator */       "ZoomInAccel2", "<control>KP_Add",
         /* tooltip */                  NULL,
         G_CALLBACK (action_zoom_in_callback)
     },
-    /* name, stock id */         { "Zoom Out", GTK_STOCK_ZOOM_OUT,
+    /* name, icon name */        { "Zoom Out", "zoom-out",
         /* label, accelerator */       N_("Zoom _Out"), "<control>minus",
         /* tooltip */                  N_("Decrease the view size"),
         G_CALLBACK (action_zoom_out_callback)
     },
-    /* name, stock id */         { "ZoomOutAccel", NULL,
+    /* name, icon name */        { "ZoomOutAccel", NULL,
         /* label, accelerator */       "ZoomOutAccel", "<control>KP_Subtract",
         /* tooltip */                  NULL,
         G_CALLBACK (action_zoom_out_callback)
     },
-    /* name, stock id */         { "Zoom Normal", GTK_STOCK_ZOOM_100,
+    /* name, icon name */        { "Zoom Normal", "zoom-original",
         /* label, accelerator */       N_("Normal Si_ze"), "<control>0",
         /* tooltip */                  N_("Use the normal view size"),
         G_CALLBACK (action_zoom_normal_callback)
     },
-    /* name, stock id */         { "Connect to Server", NULL,
+    /* name, icon name */        { "Connect to Server", NULL,
         /* label, accelerator */       N_("Connect to _Server..."), NULL,
         /* tooltip */                  N_("Connect to a remote computer or shared disk"),
         G_CALLBACK (action_connect_to_server_callback)
     },
-    /* name, stock id */         { "Home", CAJA_ICON_HOME,
+    /* name, icon name */        { "Home", CAJA_ICON_HOME,
         /* label, accelerator */       N_("_Home Folder"), "<alt>Home",
         /* tooltip */                  N_("Open your personal folder"),
         G_CALLBACK (action_home_callback)
     },
-    /* name, stock id */         { "Go to Computer", CAJA_ICON_COMPUTER,
+    /* name, icon name */        { "Go to Computer", CAJA_ICON_COMPUTER,
         /* label, accelerator */       N_("_Computer"), NULL,
         /* tooltip */                  N_("Browse all local and remote disks and folders accessible from this computer"),
         G_CALLBACK (action_go_to_computer_callback)
     },
-    /* name, stock id */         { "Go to Network", CAJA_ICON_NETWORK,
+    /* name, icon name */        { "Go to Network", CAJA_ICON_NETWORK,
         /* label, accelerator */       N_("_Network"), NULL,
         /* tooltip */                  N_("Browse bookmarked and local network locations"),
         G_CALLBACK (action_go_to_network_callback)
     },
-    /* name, stock id */         { "Go to Templates", CAJA_ICON_TEMPLATE,
+    /* name, icon name */        { "Go to Templates", CAJA_ICON_TEMPLATE,
         /* label, accelerator */       N_("T_emplates"), NULL,
         /* tooltip */                  N_("Open your personal templates folder"),
         G_CALLBACK (action_go_to_templates_callback)
     },
-    /* name, stock id */         { "Go to Trash", CAJA_ICON_TRASH,
+    /* name, icon name */        { "Go to Trash", CAJA_ICON_TRASH,
         /* label, accelerator */       N_("_Trash"), NULL,
         /* tooltip */                  N_("Open your personal trash folder"),
         G_CALLBACK (action_go_to_trash_callback)
@@ -916,7 +916,7 @@ static const GtkActionEntry main_entries[] =
 
 static const GtkToggleActionEntry main_toggle_entries[] =
 {
-    /* name, stock id */         { "Show Hidden Files", NULL,
+    /* name, icon name */        { "Show Hidden Files", NULL,
         /* label, accelerator */       N_("Show _Hidden Files"), "<control>H",
         /* tooltip */                  N_("Toggle the display of hidden files in the current window"),
         G_CALLBACK (action_show_hidden_files_callback),

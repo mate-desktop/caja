@@ -2534,7 +2534,7 @@ create_column_editor (FMListView *view)
     window = gtk_dialog_new_with_buttons (str,
                                           GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (view))),
                                           GTK_DIALOG_DESTROY_WITH_PARENT,
-                                          GTK_STOCK_CLOSE, GTK_RESPONSE_CLOSE,
+                                          "gtk-close", GTK_RESPONSE_CLOSE,
                                           NULL);
     g_free (str);
     g_signal_connect (window, "response",

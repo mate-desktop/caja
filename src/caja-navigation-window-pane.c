@@ -481,7 +481,7 @@ notebook_popup_menu_show (CajaNavigationWindowPane *pane,
                            gtk_separator_menu_item_new ());
 
     item = gtk_image_menu_item_new_with_mnemonic (_("_Close Tab"));
-    image = gtk_image_new_from_stock (GTK_STOCK_CLOSE, GTK_ICON_SIZE_MENU);
+    image = gtk_image_new_from_icon_name ("window-close", GTK_ICON_SIZE_MENU);
     gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (item), image);
     g_signal_connect (item, "activate",
                       G_CALLBACK (notebook_popup_menu_close_cb), pane);

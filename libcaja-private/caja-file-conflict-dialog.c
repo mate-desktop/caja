@@ -622,7 +622,7 @@ caja_file_conflict_dialog_init (CajaFileConflictDialog *fcd)
 
     widget = gtk_button_new_with_label (_("Reset"));
     gtk_button_set_image (GTK_BUTTON (widget),
-                          gtk_image_new_from_stock (GTK_STOCK_UNDO,
+                          gtk_image_new_from_icon_name ("edit-undo",
                                   GTK_ICON_SIZE_MENU));
     gtk_box_pack_start (GTK_BOX (hbox), widget, FALSE, FALSE, 6);
     g_signal_connect (widget, "clicked",
@@ -633,7 +633,7 @@ caja_file_conflict_dialog_init (CajaFileConflictDialog *fcd)
     /* Setup the diff button for text files */
     details->diff_button = gtk_button_new_with_label (_("Differences..."));
     gtk_button_set_image (GTK_BUTTON (details->diff_button),
-                          gtk_image_new_from_stock (GTK_STOCK_FIND,
+                          gtk_image_new_from_icon_name ("edit-find",
                                   GTK_ICON_SIZE_MENU));
     gtk_box_pack_start (GTK_BOX (vbox), details->diff_button, FALSE, FALSE, 6);
     g_signal_connect (details->diff_button, "clicked",
@@ -651,7 +651,7 @@ caja_file_conflict_dialog_init (CajaFileConflictDialog *fcd)
 
     /* Add buttons */
     gtk_dialog_add_buttons (dialog,
-                            GTK_STOCK_CANCEL,
+                            "gtk-cancel",
                             GTK_RESPONSE_CANCEL,
                             _("_Skip"),
                             CONFLICT_RESPONSE_SKIP,

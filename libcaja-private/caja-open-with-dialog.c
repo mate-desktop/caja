@@ -450,9 +450,9 @@ browse_clicked_cb (GtkWidget *button,
     chooser = gtk_file_chooser_dialog_new (_("Select an Application"),
                                            GTK_WINDOW (dialog),
                                            GTK_FILE_CHOOSER_ACTION_OPEN,
-                                           GTK_STOCK_CANCEL,
+                                           "gtk-cancel",
                                            GTK_RESPONSE_CANCEL,
-                                           GTK_STOCK_OPEN,
+                                           "gtk-open",
                                            GTK_RESPONSE_OK,
                                            NULL);
     gtk_window_set_destroy_with_parent (GTK_WINDOW (chooser), TRUE);
@@ -932,14 +932,14 @@ caja_open_with_dialog_init (CajaOpenWithDialog *dialog)
     gtk_box_pack_start (GTK_BOX (vbox), dialog->details->checkbox, FALSE, FALSE, 0);
 
     gtk_dialog_add_button (GTK_DIALOG (dialog),
-                           GTK_STOCK_REMOVE,
+                           "gtk-remove",
                            RESPONSE_REMOVE);
     gtk_dialog_set_response_sensitive (GTK_DIALOG (dialog),
                                        RESPONSE_REMOVE,
                                        FALSE);
 
     gtk_dialog_add_button (GTK_DIALOG (dialog),
-                           GTK_STOCK_CANCEL,
+                           "gtk-cancel",
                            GTK_RESPONSE_CANCEL);
 
 

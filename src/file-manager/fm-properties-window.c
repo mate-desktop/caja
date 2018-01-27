@@ -5169,8 +5169,8 @@ create_properties_window (StartupData *startup_data)
 	append_extension_pages (window);
 
 	gtk_dialog_add_buttons (GTK_DIALOG (window),
-				GTK_STOCK_HELP, GTK_RESPONSE_HELP,
-				GTK_STOCK_CLOSE, GTK_RESPONSE_CLOSE,
+				"gtk-help", GTK_RESPONSE_HELP,
+				"gtk-close", GTK_RESPONSE_CLOSE,
 				NULL);
 
 	/* FIXME - HIGificiation, should be done inside GTK+ */
@@ -5670,9 +5670,9 @@ select_image_button_callback (GtkWidget *widget,
 	if (dialog == NULL) {
 		dialog = gtk_file_chooser_dialog_new (_("Select Custom Icon"), GTK_WINDOW (window),
 						      GTK_FILE_CHOOSER_ACTION_OPEN,
-						      GTK_STOCK_REVERT_TO_SAVED, GTK_RESPONSE_NO,
-						      GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-						      GTK_STOCK_OPEN, GTK_RESPONSE_OK,
+						      "gtk-revert-to-saved", GTK_RESPONSE_NO,
+						      "gtk-cancel", GTK_RESPONSE_CANCEL,
+						      "gtk-open", GTK_RESPONSE_OK,
 						      NULL);
 		gtk_file_chooser_add_shortcut_folder (GTK_FILE_CHOOSER (dialog), "/usr/share/icons", NULL);
 		gtk_file_chooser_add_shortcut_folder (GTK_FILE_CHOOSER (dialog), "/usr/share/pixmaps", NULL);

@@ -1261,8 +1261,8 @@ create_popup_menu (FMTreeView *view)
 
 
     /* add the "open" menu item */
-    menu_image = gtk_image_new_from_stock (GTK_STOCK_OPEN,
-                                           GTK_ICON_SIZE_MENU);
+    menu_image = gtk_image_new_from_icon_name ("document-open",
+                                               GTK_ICON_SIZE_MENU);
     gtk_widget_show (menu_image);
     menu_item = gtk_image_menu_item_new_with_mnemonic (_("_Open"));
     gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (menu_item),
@@ -1306,7 +1306,7 @@ create_popup_menu (FMTreeView *view)
     eel_gtk_menu_append_separator (GTK_MENU (popup));
 
     /* add the "cut folder" menu item */
-    menu_item = gtk_image_menu_item_new_from_stock (GTK_STOCK_CUT, NULL);
+    menu_item = gtk_image_menu_item_new_from_stock ("gtk-cut", NULL);
     g_signal_connect (menu_item, "activate",
                       G_CALLBACK (fm_tree_view_cut_cb),
                       view);
@@ -1315,7 +1315,7 @@ create_popup_menu (FMTreeView *view)
     view->details->popup_cut = menu_item;
 
     /* add the "copy folder" menu item */
-    menu_item = gtk_image_menu_item_new_from_stock (GTK_STOCK_COPY, NULL);
+    menu_item = gtk_image_menu_item_new_from_stock ("gtk-copy", NULL);
     g_signal_connect (menu_item, "activate",
                       G_CALLBACK (fm_tree_view_copy_cb),
                       view);
@@ -1324,8 +1324,8 @@ create_popup_menu (FMTreeView *view)
     view->details->popup_copy = menu_item;
 
     /* add the "paste files into folder" menu item */
-    menu_image = gtk_image_new_from_stock (GTK_STOCK_PASTE,
-                                           GTK_ICON_SIZE_MENU);
+    menu_image = gtk_image_new_from_icon_name ("edit-paste",
+                                               GTK_ICON_SIZE_MENU);
     gtk_widget_show (menu_image);
     menu_item = gtk_image_menu_item_new_with_mnemonic (_("_Paste Into Folder"));
     gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (menu_item),
@@ -1392,7 +1392,7 @@ create_popup_menu (FMTreeView *view)
         GTK_WIDGET (eel_gtk_menu_append_separator (GTK_MENU (popup)));
 
     /* add the "properties" menu item */
-    menu_item = gtk_image_menu_item_new_from_stock (GTK_STOCK_PROPERTIES, NULL);
+    menu_item = gtk_image_menu_item_new_from_stock ("gtk-properties", NULL);
     g_signal_connect (menu_item, "activate",
                       G_CALLBACK (fm_tree_view_properties_cb),
                       view);

@@ -1127,8 +1127,8 @@ show_dialog:
     gtk_box_pack_start (GTK_BOX (vbox), always_check_button, TRUE, TRUE, 0);
 
     gtk_dialog_add_buttons (GTK_DIALOG (dialog),
-                            GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-                            GTK_STOCK_OK, GTK_RESPONSE_OK,
+                            "gtk-cancel", GTK_RESPONSE_CANCEL,
+                            "gtk-ok", GTK_RESPONSE_OK,
                             NULL);
     gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_OK);
 

@@ -1116,10 +1116,10 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
 
 
     gtk_dialog_add_button (GTK_DIALOG (dialog),
-                           GTK_STOCK_HELP,
+                           "gtk-help",
                            GTK_RESPONSE_HELP);
     gtk_dialog_add_button (GTK_DIALOG (dialog),
-                           GTK_STOCK_CANCEL,
+                           "gtk-cancel",
                            GTK_RESPONSE_CANCEL);
     connect_button = gtk_dialog_add_button (GTK_DIALOG (dialog),
     					_("C_onnect"),
