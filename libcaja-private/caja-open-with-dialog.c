@@ -851,11 +851,7 @@ caja_open_with_dialog_init (CajaOpenWithDialog *dialog)
     gtk_box_pack_start (GTK_BOX (vbox), vbox2, TRUE, TRUE, 0);
 
     dialog->details->label = gtk_label_new ("");
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_label_set_xalign (GTK_LABEL (dialog->details->label), 0.0);
-#else
-    gtk_misc_set_alignment (GTK_MISC (dialog->details->label), 0.0, 0.5);
-#endif
     gtk_label_set_line_wrap (GTK_LABEL (dialog->details->label), TRUE);
     gtk_box_pack_start (GTK_BOX (vbox2), dialog->details->label,
                         FALSE, FALSE, 0);
@@ -870,9 +866,8 @@ caja_open_with_dialog_init (CajaOpenWithDialog *dialog)
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolled_window),
                                     GTK_POLICY_AUTOMATIC,
                                     GTK_POLICY_AUTOMATIC);
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_scrolled_window_set_overlay_scrolling (GTK_SCROLLED_WINDOW (scrolled_window), FALSE);
-#endif
+
     dialog->details->program_list = gtk_tree_view_new ();
     gtk_tree_view_set_headers_visible (GTK_TREE_VIEW (dialog->details->program_list),
                                        FALSE);
@@ -881,11 +876,7 @@ caja_open_with_dialog_init (CajaOpenWithDialog *dialog)
     gtk_box_pack_start (GTK_BOX (vbox2), scrolled_window, TRUE, TRUE, 0);
 
     dialog->details->desc_label = gtk_label_new (_("Select an application to view its description."));
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_label_set_xalign (GTK_LABEL (dialog->details->desc_label), 0.0);
-#else
-    gtk_misc_set_alignment (GTK_MISC (dialog->details->desc_label), 0.0, 0.5);
-#endif
     gtk_label_set_justify (GTK_LABEL (dialog->details->desc_label), GTK_JUSTIFY_LEFT);
     gtk_label_set_max_width_chars (GTK_LABEL (dialog->details->desc_label), 54);
     gtk_label_set_line_wrap (GTK_LABEL (dialog->details->desc_label), TRUE);

@@ -1170,15 +1170,9 @@ pattern_select_response_cb (GtkWidget *dialog, int response, gpointer user_data)
 		break;
 	case GTK_RESPONSE_HELP :
 		error = NULL;
-#if GTK_CHECK_VERSION (3, 22, 0)
 		gtk_show_uri_on_window (GTK_WINDOW (dialog),
 			                "help:mate-user-guide/caja-select-pattern",
 			                gtk_get_current_event_time (), &error);
-#else
-		gtk_show_uri (gtk_window_get_screen (GTK_WINDOW (dialog)),
-			      "help:mate-user-guide/caja-select-pattern",
-			      gtk_get_current_event_time (), &error);
-#endif
 		if (error) {
 			eel_show_error_dialog (_("There was an error displaying help."), error->message,
 					       GTK_WINDOW (dialog));
@@ -1362,11 +1356,7 @@ action_save_search_as_callback (GtkAction *action,
 		gtk_widget_show (grid);
 
 		label = gtk_label_new_with_mnemonic (_("Search _name:"));
-#if GTK_CHECK_VERSION (3, 16, 0)
 		gtk_label_set_xalign (GTK_LABEL (label), 0.0);
-#else
-		gtk_misc_set_alignment (GTK_MISC(label), 0.0, 0.5);
-#endif
 		gtk_container_add (GTK_CONTAINER (grid), label);
 		gtk_widget_show (label);
 		entry = gtk_entry_new ();
@@ -1382,11 +1372,7 @@ action_save_search_as_callback (GtkAction *action,
 
 		gtk_widget_show (entry);
 		label = gtk_label_new_with_mnemonic (_("_Folder:"));
-#if GTK_CHECK_VERSION (3, 16, 0)
 		gtk_label_set_xalign (GTK_LABEL (label), 0.0);
-#else
-		gtk_misc_set_alignment (GTK_MISC(label), 0.0, 0.5);
-#endif
 		gtk_container_add (GTK_CONTAINER (grid), label);
 		gtk_widget_show (label);
 
@@ -2006,9 +1992,7 @@ fm_directory_view_init (FMDirectoryView *view)
 	gtk_scrolled_window_set_hadjustment (GTK_SCROLLED_WINDOW (view), NULL);
 	gtk_scrolled_window_set_vadjustment (GTK_SCROLLED_WINDOW (view), NULL);
 	gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (view), GTK_SHADOW_ETCHED_IN);
-#if GTK_CHECK_VERSION (3, 16, 0)
 	gtk_scrolled_window_set_overlay_scrolling (GTK_SCROLLED_WINDOW (view), FALSE);
-#endif
 
 	set_up_scripts_directory_global ();
 	scripts_directory = caja_directory_get_by_uri (scripts_directory_uri);

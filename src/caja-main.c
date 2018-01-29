@@ -250,11 +250,6 @@ main (int argc, char *argv[])
 	mallopt (M_MMAP_THRESHOLD, 128 *1024);
 #endif
 
-#if !GLIB_CHECK_VERSION (2, 42, 0)
-    /* This will be done by gtk+ later, but for now, force it to MATE */
-    g_desktop_app_info_set_desktop_env ("MATE");
-#endif
-
 	if (g_getenv ("CAJA_DEBUG") != NULL) {
 		eel_make_warnings_and_criticals_stop_in_debugger ();
 	}

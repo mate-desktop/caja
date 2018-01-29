@@ -2208,11 +2208,7 @@ init_icons_and_styles (void)
 /* add our desktop CSS provider,  ensures the desktop background does not get covered */
     provider = gtk_css_provider_new ();
 
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_css_provider_load_from_path (provider, CAJA_DATADIR G_DIR_SEPARATOR_S "caja-desktop.css", &error);
-#else
-    gtk_css_provider_load_from_path (provider, CAJA_DATADIR G_DIR_SEPARATOR_S "caja-desktop-3.14.css", &error);
-#endif
 
     if (error != NULL) {
         g_warning ("Can't parse Caja' CSS custom description: %s\n", error->message);

@@ -150,11 +150,7 @@ get_slider_button (CajaPathBar  *path_bar,
     GtkWidget *button;
 
     button = gtk_button_new ();
-#if GTK_CHECK_VERSION (3, 20, 0)
     gtk_widget_set_focus_on_click (button, FALSE);
-#else
-    gtk_button_set_focus_on_click (GTK_BUTTON (button), FALSE);
-#endif
     gtk_widget_add_events (button, GDK_SCROLL_MASK);
     gtk_container_add (GTK_CONTAINER (button),
                        gtk_image_new_from_icon_name (arrow_type, GTK_ICON_SIZE_MENU));
@@ -1841,11 +1837,7 @@ make_directory_button (CajaPathBar  *path_bar,
     button_data->button = gtk_toggle_button_new ();
     gtk_style_context_add_class (gtk_widget_get_style_context (button_data->button),
                                  "text-button");
-#if GTK_CHECK_VERSION (3, 20, 0)
     gtk_widget_set_focus_on_click (button_data->button, FALSE);
-#else
-    gtk_button_set_focus_on_click (GTK_BUTTON (button_data->button), FALSE);
-#endif
     gtk_widget_add_events (button_data->button, GDK_SCROLL_MASK);
     /* TODO update button type when xdg directories change */
 

@@ -2719,10 +2719,8 @@ rubberband_timeout_callback (gpointer data)
     double world_x, world_y;
     int x_scroll, y_scroll;
     int adj_x, adj_y;
-#if GTK_CHECK_VERSION (3, 20, 0)
     GdkDisplay *display;
     GdkSeat *seat;
-#endif
     gboolean adj_changed;
     GtkAllocation allocation;
 
@@ -2752,20 +2750,12 @@ rubberband_timeout_callback (gpointer data)
         band_info->last_adj_y = adj_y;
         adj_changed = TRUE;
     }
-#if GTK_CHECK_VERSION (3, 20, 0)
     display = gtk_widget_get_display (widget);
     seat = gdk_display_get_default_seat (display);
 
     gdk_window_get_device_position (gtk_widget_get_window (widget),
                                     gdk_seat_get_pointer (seat),
                                     &x, &y, NULL);
-#else
-    gdk_window_get_device_position (gtk_widget_get_window (widget),
-                                    gdk_device_manager_get_client_pointer (
-                                    gdk_display_get_device_manager (
-                                    gtk_widget_get_display (widget))),
-                                    &x, &y, NULL);
-#endif
 
     if (x < 0)
     {
@@ -2935,21 +2925,12 @@ start_rubberbanding (CajaIconContainer *container,
 				(GDK_POINTER_MOTION_MASK
 				 | GDK_BUTTON_RELEASE_MASK
 				 | GDK_SCROLL_MASK),
-#if GTK_CHECK_VERSION (3, 20, 0)
 				NULL,
 				(GdkEvent *)event);
-#else
-				NULL, event->time);
-#endif
 }
 
 static void
-#if GTK_CHECK_VERSION (3, 20, 0)
 stop_rubberbanding (CajaIconContainer *container)
-#else
-stop_rubberbanding (CajaIconContainer *container,
-                    guint32 time)
-#endif
 {
     CajaIconRubberbandInfo *band_info;
     GList *icons;
@@ -2963,11 +2944,7 @@ stop_rubberbanding (CajaIconContainer *container,
     band_info->active = FALSE;
 
     /* Destroy this canvas item; the parent will unref it. */
-#if GTK_CHECK_VERSION (3, 20, 0)
     eel_canvas_item_ungrab (band_info->selection_rectangle);
-#else
-    eel_canvas_item_ungrab (band_info->selection_rectangle, time);
-#endif
     eel_canvas_item_destroy (band_info->selection_rectangle);
     band_info->selection_rectangle = NULL;
 
@@ -4605,14 +4582,7 @@ realize (GtkWidget *widget)
     GTK_WIDGET_CLASS (caja_icon_container_parent_class)->realize (widget);
 
     container = CAJA_ICON_CONTAINER (widget);
-#if !GTK_CHECK_VERSION (3, 22, 0)
-    /* Ensure that the desktop window is native so the background
-       set on it is drawn by X. */
-    if (container->details->is_desktop)
-    {
-        gdk_x11_window_get_xid (gtk_layout_get_bin_window (GTK_LAYOUT (widget)));
-    }
-#endif
+
     /* Set up DnD.  */
     caja_icon_dnd_init (container);
 
@@ -4898,12 +4868,8 @@ clear_drag_state (CajaIconContainer *container)
 }
 
 static gboolean
-#if GTK_CHECK_VERSION (3, 20, 0)
 start_stretching (CajaIconContainer *container,
 		  GdkEvent *event)
-#else
-start_stretching (CajaIconContainer *container)
-#endif
 {
     CajaIconContainerDetails *details;
     CajaIcon *icon;
@@ -4961,11 +4927,8 @@ start_stretching (CajaIconContainer *container)
                           (GDK_POINTER_MOTION_MASK
                            | GDK_BUTTON_RELEASE_MASK),
                           cursor,
-#if GTK_CHECK_VERSION (3, 20, 0)
                           event);
-#else
-                          GDK_CURRENT_TIME);
-#endif
+
     if (cursor)
         g_object_unref (cursor);
 
@@ -5073,12 +5036,7 @@ keyboard_stretching (CajaIconContainer *container,
 static void
 ungrab_stretch_icon (CajaIconContainer *container)
 {
-#if GTK_CHECK_VERSION (3, 20, 0)
     eel_canvas_item_ungrab (EEL_CANVAS_ITEM (container->details->stretch_icon->item));
-#else
-    eel_canvas_item_ungrab (EEL_CANVAS_ITEM (container->details->stretch_icon->item),
-                            GDK_CURRENT_TIME);
-#endif
 }
 
 static void
@@ -5161,11 +5119,7 @@ button_release_event (GtkWidget *widget,
 
     if (event->button == RUBBERBAND_BUTTON && details->rubberband_info.active)
     {
-#if GTK_CHECK_VERSION (3, 20, 0)
         stop_rubberbanding (container);
-#else
-        stop_rubberbanding (container, event->time);
-#endif
         return TRUE;
     }
 
@@ -5288,25 +5242,16 @@ caja_icon_container_search_position_func (CajaIconContainer *container,
     GdkWindow *cont_window;
     GdkScreen *screen;
     GtkRequisition requisition;
-#if GTK_CHECK_VERSION (3, 22, 0)
     GdkMonitor *monitor_num;
-#else
-    gint monitor_num;
-#endif
     GdkRectangle monitor;
 
 
     cont_window = gtk_widget_get_window (GTK_WIDGET (container));
     screen = gdk_window_get_screen (cont_window);
 
-#if GTK_CHECK_VERSION (3, 22, 0)
     monitor_num = gdk_display_get_monitor_at_window (gdk_screen_get_display (screen),
                                                      cont_window);
     gdk_monitor_get_geometry (monitor_num, &monitor);
-#else
-    monitor_num = gdk_screen_get_monitor_at_window (screen, cont_window);
-    gdk_screen_get_monitor_geometry (screen, monitor_num, &monitor);
-#endif
 
     gtk_widget_realize (search_dialog);
 
@@ -6180,12 +6125,7 @@ grab_notify_cb  (GtkWidget        *widget,
          * up (e.g. authentication or an error). Stop
          * the rubberbanding so that we can handle the
          * dialog. */
-#if GTK_CHECK_VERSION (3, 20, 0)
         stop_rubberbanding (container);
-#else
-        stop_rubberbanding (container,
-                            GDK_CURRENT_TIME);
-#endif
     }
 }
 
@@ -6930,13 +6870,8 @@ handle_icon_button_press (CajaIconContainer *container,
          */
         if (icon == container->details->stretch_icon)
         {
-#if GTK_CHECK_VERSION (3, 20, 0)
             if (start_stretching (container, (GdkEvent *)event))
             {
-#else
-            if (start_stretching (container))
-            {
-#endif
                 return TRUE;
             }
         }

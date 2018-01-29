@@ -384,11 +384,7 @@ caja_mime_application_chooser_init (CajaMimeApplicationChooser *chooser)
     gtk_box_set_homogeneous (GTK_BOX (chooser), FALSE);
 
     chooser->details->label = gtk_label_new ("");
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_label_set_xalign (GTK_LABEL (chooser->details->label), 0);
-#else
-    gtk_misc_set_alignment (GTK_MISC (chooser->details->label), 0.0, 0.5);
-#endif
     gtk_label_set_line_wrap (GTK_LABEL (chooser->details->label), TRUE);
     gtk_label_set_line_wrap_mode (GTK_LABEL (chooser->details->label),
                                   PANGO_WRAP_WORD_CHAR);
@@ -404,9 +400,7 @@ caja_mime_application_chooser_init (CajaMimeApplicationChooser *chooser)
                                     GTK_POLICY_AUTOMATIC);
     gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolled),
                                          GTK_SHADOW_IN);
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_scrolled_window_set_overlay_scrolling (GTK_SCROLLED_WINDOW (scrolled), FALSE);
-#endif
 
     gtk_widget_show (scrolled);
     gtk_box_pack_start (GTK_BOX (chooser), scrolled, TRUE, TRUE, 6);

@@ -1372,11 +1372,7 @@ attach_label (GtkGrid *grid,
 		gtk_label_set_selectable (GTK_LABEL (label_field), TRUE);
 	}
 
-#if GTK_CHECK_VERSION (3, 16, 0)
 	gtk_label_set_xalign (GTK_LABEL (label_field), 0);
-#else
-	gtk_misc_set_alignment (GTK_MISC (label_field), 0, 0.5);
-#endif
 	gtk_widget_show (label_field);
 	if (ellipsize_text) {
 		gtk_widget_set_hexpand (label_field, TRUE);
@@ -3421,10 +3417,10 @@ create_emblems_page (FMPropertiesWindow *window)
 	scroller = eel_scrolled_wrap_table_new (TRUE, GTK_SHADOW_NONE, &emblems_table);
 
 	gtk_container_set_border_width (GTK_CONTAINER (emblems_table), 12);
-/*stop GTK 3.22 builds from ballooning the properties dialog to full screen height */
-#if GTK_CHECK_VERSION (3, 22, 0)
+
+	/* stop GTK 3.22 builds from ballooning the properties dialog to full screen height */
 	gtk_scrolled_window_set_max_content_height (GTK_SCROLLED_WINDOW (scroller), 300);
-#endif
+
 	gtk_widget_show (scroller);
 
 	gtk_notebook_append_page (window->details->notebook,
@@ -5405,17 +5401,10 @@ real_response (GtkDialog *dialog,
 
 	switch (response) {
 	case GTK_RESPONSE_HELP:
-#if GTK_CHECK_VERSION (3, 22, 0)
 		gtk_show_uri_on_window (GTK_WINDOW (dialog),
 			                "help:mate-user-guide/goscaja-51",
 			                gtk_get_current_event_time (),
 			                &error);
-#else
-		gtk_show_uri (gtk_window_get_screen (GTK_WINDOW (dialog)),
-			      "help:mate-user-guide/goscaja-51",
-			      gtk_get_current_event_time (),
-			      &error);
-#endif
 		if (error != NULL) {
 			eel_show_error_dialog (_("There was an error displaying help."), error->message,
 					       GTK_WINDOW (dialog));

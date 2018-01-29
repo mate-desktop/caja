@@ -326,10 +326,8 @@ caja_property_browser_init (CajaPropertyBrowser *property_browser)
     gtk_widget_show (property_browser->details->category_container);
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (property_browser->details->category_container),
                                     GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_scrolled_window_set_overlay_scrolling (GTK_SCROLLED_WINDOW (property_browser->details->category_container),
                                                FALSE);
-#endif
 
     /* allocate a table to hold the category selector */
     property_browser->details->category_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
@@ -1124,11 +1122,7 @@ caja_emblem_dialog_new (CajaPropertyBrowser *property_browser)
     /* make the keyword label and field */
 
     widget = gtk_label_new_with_mnemonic(_("_Keyword:"));
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_label_set_xalign (GTK_LABEL (widget), 0.0);
-#else
-    gtk_misc_set_alignment (GTK_MISC (widget), 0, 0.5);
-#endif
     gtk_widget_show(widget);
     gtk_grid_attach(GTK_GRID(grid), widget, 0, 0, 1, 1);
 
@@ -1147,11 +1141,7 @@ caja_emblem_dialog_new (CajaPropertyBrowser *property_browser)
 
     /* set up a file chooser to pick the image file */
     label = gtk_label_new_with_mnemonic (_("_Image:"));
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_label_set_xalign (GTK_LABEL (label), 0.0);
-#else
-    gtk_misc_set_alignment (GTK_MISC (label), 0, 0.5);
-#endif
     gtk_widget_show (label);
     gtk_grid_attach (GTK_GRID(grid), label, 0, 1, 1, 1);
 
@@ -1658,15 +1648,9 @@ help_button_callback (GtkWidget *widget, GtkWidget *property_browser)
     GError *error = NULL;
     GtkWidget *dialog;
 
-#if GTK_CHECK_VERSION (3, 22, 0)
     gtk_show_uri_on_window (GTK_WINDOW (property_browser),
                             "help:mate-user-guide/goscaja-50",
                             gtk_get_current_event_time (), &error);
-#else
-    gtk_show_uri (gtk_widget_get_screen (property_browser),
-                  "help:mate-user-guide/goscaja-50",
-                  gtk_get_current_event_time (), &error);
-#endif
 
     if (error)
     {
@@ -2208,10 +2192,8 @@ caja_property_browser_update_contents (CajaPropertyBrowser *property_browser)
     gtk_widget_show (property_browser->details->content_frame);
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (property_browser->details->content_frame),
                                     GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_scrolled_window_set_overlay_scrolling (GTK_SCROLLED_WINDOW (property_browser->details->content_frame),
                                                FALSE);
-#endif
 
     /* allocate a table to hold the content widgets */
     property_browser->details->content_table = eel_image_table_new (TRUE);

@@ -306,12 +306,9 @@ build_tab_label (CajaNotebook *nb, CajaWindowSlot *slot)
     label = gtk_label_new (NULL);
     gtk_label_set_ellipsize (GTK_LABEL (label), PANGO_ELLIPSIZE_END);
     gtk_label_set_single_line_mode (GTK_LABEL (label), TRUE);
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_label_set_xalign (GTK_LABEL (label), 0.0);
     gtk_label_set_yalign (GTK_LABEL (label), 0.5);
-#else
-    gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-#endif
+
     gtk_widget_set_margin_start (label, 0);
     gtk_widget_set_margin_end (label, 0);
     gtk_widget_set_margin_top (label, 0);
@@ -325,11 +322,7 @@ build_tab_label (CajaNotebook *nb, CajaWindowSlot *slot)
     gtk_button_set_relief (GTK_BUTTON (close_button),
                            GTK_RELIEF_NONE);
     /* don't allow focus on the close button */
-#if GTK_CHECK_VERSION (3, 20, 0)
     gtk_widget_set_focus_on_click (close_button, FALSE);
-#else
-    gtk_button_set_focus_on_click (GTK_BUTTON (close_button), FALSE);
-#endif
 
     gtk_widget_set_name (close_button, "caja-tab-close-button");
 
