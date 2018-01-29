@@ -144,9 +144,8 @@ caja_desktop_window_new (CajaApplication *application,
     /* Stop wrong desktop window size in GTK 3.20*/
     /* We don't want to set a default size, which the parent does, since this */
     /* will cause the desktop window to open at the wrong size in gtk 3.20 */
-#if GTK_CHECK_VERSION (3, 20, 0)
     gtk_window_set_default_size (GTK_WINDOW (window), -1, -1);
-#endif
+
     /* Special sawmill setting*/
     gtk_window_set_wmclass (GTK_WINDOW (window), "desktop_window", "Caja");
 
@@ -250,7 +249,6 @@ realize (GtkWidget *widget)
                           G_CALLBACK (caja_desktop_window_screen_size_changed), window);
 }
 
-#if GTK_CHECK_VERSION (3, 22, 0)
 static gboolean
 draw (GtkWidget *widget,
       cairo_t   *cr)
@@ -259,7 +257,6 @@ draw (GtkWidget *widget,
 
     return GTK_WIDGET_CLASS (caja_desktop_window_parent_class)->draw (widget, cr);
 }
-#endif
 
 static char *
 real_get_title (CajaWindow *window)
@@ -283,9 +280,8 @@ caja_desktop_window_class_init (CajaDesktopWindowClass *klass)
     wclass->realize = realize;
     wclass->unrealize = unrealize;
     wclass->map = map;
-#if GTK_CHECK_VERSION (3, 22, 0)
     wclass->draw = draw;
-#endif
+
     nclass->window_type = CAJA_WINDOW_DESKTOP;
     nclass->get_title = real_get_title;
     nclass->get_icon = real_get_icon;

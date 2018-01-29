@@ -575,19 +575,11 @@ action_caja_manual_callback (GtkAction *action,
     error = NULL;
     window = CAJA_WINDOW (user_data);
 
-#if GTK_CHECK_VERSION (3, 22, 0)
     gtk_show_uri_on_window (GTK_WINDOW (window),
                             CAJA_IS_DESKTOP_WINDOW (window)
                                ? "help:mate-user-guide"
                                : "help:mate-user-guide/goscaja-1",
                             gtk_get_current_event_time (), &error);
-#else
-    gtk_show_uri (gtk_window_get_screen (GTK_WINDOW (window)),
-                   CAJA_IS_DESKTOP_WINDOW (window)
-                      ? "help:mate-user-guide"
-                      : "help:mate-user-guide/goscaja-1",
-                  gtk_get_current_event_time (), &error);
-#endif
 
     if (error)
     {

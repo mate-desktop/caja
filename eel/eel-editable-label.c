@@ -40,11 +40,6 @@
 #include <gdk/gdkkeysyms.h>
 
 
-/* g_memmove is removed in glib 2.40 */
-#if GLIB_CHECK_VERSION (2, 39, 0)
-#define g_memmove memmove
-#endif
-
 enum
 {
     MOVE_CURSOR,
@@ -2282,7 +2277,7 @@ eel_editable_label_delete_text (EelEditableLabel *label,
 
     if (start_pos < end_pos)
     {
-        g_memmove (label->text + start_pos, label->text + end_pos, label->n_bytes + 1 - end_pos);
+        memmove (label->text + start_pos, label->text + end_pos, label->n_bytes + 1 - end_pos);
         label->n_bytes -= (end_pos - start_pos);
 
         anchor = label->selection_anchor;
@@ -2325,7 +2320,7 @@ eel_editable_label_insert_text (EelEditableLabel *label,
 
     g_object_freeze_notify (G_OBJECT (label));
 
-    g_memmove (label->text + *index + new_text_length, label->text + *index, label->n_bytes - *index);
+    memmove (label->text + *index + new_text_length, label->text + *index, label->n_bytes - *index);
     memcpy (label->text + *index, new_text, new_text_length);
 
     label->n_bytes += new_text_length;

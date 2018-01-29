@@ -280,9 +280,8 @@ add_tree_view (CajaColumnChooser *chooser)
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolled),
                                     GTK_POLICY_AUTOMATIC,
                                     GTK_POLICY_AUTOMATIC);
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_scrolled_window_set_overlay_scrolling (GTK_SCROLLED_WINDOW (scrolled), FALSE);
-#endif
+
     gtk_widget_show (GTK_WIDGET (scrolled));
 
     gtk_container_add (GTK_CONTAINER (scrolled), view);

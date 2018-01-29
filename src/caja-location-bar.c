@@ -492,12 +492,8 @@ caja_location_bar_init (CajaLocationBar *bar)
     label = gtk_label_new (LOCATION_LABEL);
     gtk_container_add   (GTK_CONTAINER (event_box), label);
     gtk_label_set_justify (GTK_LABEL (label), GTK_JUSTIFY_RIGHT);
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_label_set_xalign (GTK_LABEL (label), 1.0);
     gtk_label_set_yalign (GTK_LABEL (label), 0.5);
-#else
-    gtk_misc_set_alignment (GTK_MISC (label), 1, 0.5);
-#endif
     g_signal_connect (label, "style_set",
                       G_CALLBACK (style_set_handler), NULL);
 

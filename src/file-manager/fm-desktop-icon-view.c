@@ -316,7 +316,6 @@ fm_desktop_icon_view_handle_middle_click (CajaIconContainer *icon_container,
         FMDesktopIconView *desktop_icon_view)
 {
     XButtonEvent x_event;
-#if GTK_CHECK_VERSION (3, 20, 0)
     GdkDevice *keyboard = NULL, *pointer = NULL, *cur;
     GdkSeat *seat;
 
@@ -346,45 +345,6 @@ fm_desktop_icon_view_handle_middle_click (CajaIconContainer *icon_container,
     if (keyboard != NULL) {
             gdk_seat_ungrab (seat);
     }
-#else
-    GdkDevice *keyboard = NULL, *pointer = NULL, *cur;
-    GdkDeviceManager *manager;
-    GList *list, *l;
-
-    manager = gdk_display_get_device_manager (gtk_widget_get_display (GTK_WIDGET (icon_container)));
-    list = gdk_device_manager_list_devices (manager, GDK_DEVICE_TYPE_MASTER);
-
-    for (l = list; l != NULL; l = l->next) {
-            cur = l->data;
-
-            if (pointer == NULL && (gdk_device_get_source (cur) == GDK_SOURCE_MOUSE)) {
-                    pointer = cur;
-            }
-
-            if (keyboard == NULL && (gdk_device_get_source (cur) == GDK_SOURCE_KEYBOARD)) {
-                    keyboard = cur;
-            }
-
-            if (pointer != NULL && keyboard != NULL) {
-                    break;
-            }
-    }
-
-    g_list_free (list);
-
-    /* During a mouse click we have the pointer and keyboard grab.
-     * We will send a fake event to the root window which will cause it
-     * to try to get the grab so we need to let go ourselves.
-     */
-
-    if (pointer != NULL) {
-            gdk_device_ungrab (pointer, GDK_CURRENT_TIME);
-    }
-
-    if (keyboard != NULL) {
-            gdk_device_ungrab (keyboard, GDK_CURRENT_TIME);
-    }
-#endif
 
     /* Stop the event because we don't want anyone else dealing with it. */
     gdk_flush ();
@@ -637,9 +597,7 @@ fm_desktop_icon_view_init (FMDesktopIconView *desktop_icon_view)
 
     gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (desktop_icon_view),
                                          GTK_SHADOW_NONE);
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_scrolled_window_set_overlay_scrolling (GTK_SCROLLED_WINDOW (desktop_icon_view), FALSE);
-#endif
 
     fm_directory_view_ignore_hidden_file_preferences
     (FM_DIRECTORY_VIEW (desktop_icon_view));

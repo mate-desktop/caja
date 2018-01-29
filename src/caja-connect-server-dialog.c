@@ -710,15 +710,9 @@ connect_dialog_response_cb (CajaConnectServerDialog *dialog,
         break;
     case GTK_RESPONSE_HELP :
         error = NULL;
-#if GTK_CHECK_VERSION (3, 22, 0)
         gtk_show_uri_on_window (GTK_WINDOW (dialog),
                                 "help:mate-user-guide/caja-server-connect",
                                 gtk_get_current_event_time (), &error);
-#else
-        gtk_show_uri (gtk_window_get_screen (GTK_WINDOW (dialog)),
-                      "help:mate-user-guide/caja-server-connect",
-                      gtk_get_current_event_time (), &error);
-#endif
         if (error)
         {
             eel_show_error_dialog (_("There was an error displaying help."), error->message,
@@ -880,11 +874,7 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
     str = g_strdup_printf ("<b>%s</b>", _("Server Details"));
     gtk_label_set_markup (GTK_LABEL (label), str);
     g_free (str);
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_label_set_xalign (GTK_LABEL (label), 0);
-#else
-    gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-#endif
     gtk_box_pack_start (GTK_BOX (content_area), label, FALSE, FALSE, 6);
     gtk_widget_show (label);
 
@@ -902,11 +892,7 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
 
     /* first row: server entry + port spinbutton */
     label = gtk_label_new_with_mnemonic (_("_Server:"));
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_label_set_xalign (GTK_LABEL (label), 0);
-#else
-    gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-#endif
     gtk_container_add (GTK_CONTAINER (grid), label);
     gtk_widget_show (label);
 
@@ -924,11 +910,7 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
 
     /* port */
     label = gtk_label_new_with_mnemonic (_("_Port:"));
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_label_set_xalign (GTK_LABEL (label), 0);
-#else
-    gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-#endif
     gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 0);
     gtk_widget_show (label);
 
@@ -946,11 +928,7 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
 
     /* second row: type combobox */
     label = gtk_label_new (_("Type:"));
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_label_set_xalign (GTK_LABEL (label), 0);
-#else
-    gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-#endif
     gtk_container_add (GTK_CONTAINER (grid), label);
     gtk_widget_show (label);
 
@@ -1023,11 +1001,7 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
 
     /* third row: share entry */
     label = gtk_label_new (_("Share:"));
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_label_set_xalign (GTK_LABEL (label), 0);
-#else
-    gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-#endif
     gtk_container_add (GTK_CONTAINER (grid), label);
 
     dialog->details->share_entry = gtk_entry_new ();
@@ -1039,11 +1013,7 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
 
     /* fourth row: folder entry */
     label = gtk_label_new (_("Folder:"));
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_label_set_xalign (GTK_LABEL (label), 0);
-#else
-    gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-#endif
     gtk_container_add (GTK_CONTAINER (grid), label);
     gtk_widget_show (label);
     dialog->details->folder_entry = gtk_entry_new ();
@@ -1058,11 +1028,7 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
     str = g_strdup_printf ("<b>%s</b>", _("User Details"));
     gtk_label_set_markup (GTK_LABEL (label), str);
     g_free (str);
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_label_set_xalign (GTK_LABEL (label), 0);
-#else
-    gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-#endif
     gtk_box_pack_start (GTK_BOX (content_area), label, FALSE, FALSE, 6);
 
     grid = gtk_grid_new ();
@@ -1080,11 +1046,7 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
 
     /* first row: domain entry */
     label = gtk_label_new (_("Domain Name:"));
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_label_set_xalign (GTK_LABEL (label), 0);
-#else
-    gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-#endif
     gtk_container_add (GTK_CONTAINER (grid), label);
 
     dialog->details->domain_entry = gtk_entry_new ();
@@ -1096,11 +1058,7 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
 
     /* second row: username entry */
     label = gtk_label_new (_("User Name:"));
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_label_set_xalign (GTK_LABEL (label), 0);
-#else
-    gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-#endif
     gtk_container_add (GTK_CONTAINER (grid), label);
 
     dialog->details->user_entry = gtk_entry_new ();
@@ -1112,11 +1070,7 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
 
     /* third row: password entry */
     label = gtk_label_new (_("Password:"));
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_label_set_xalign (GTK_LABEL (label), 0);
-#else
-    gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-#endif
     gtk_container_add (GTK_CONTAINER (grid), label);
 
     dialog->details->password_entry = gtk_entry_new ();

@@ -211,11 +211,7 @@ file_list_ready_cb (GList *files,
     label = gtk_label_new (primary_text);
     gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
     gtk_label_set_line_wrap_mode (GTK_LABEL (label), PANGO_WRAP_WORD_CHAR);
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_label_set_xalign (GTK_LABEL (label), 0.0);
-#else
-    gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-#endif
     gtk_box_pack_start (GTK_BOX (details->titles_vbox),
                         label, FALSE, FALSE, 0);
     gtk_widget_show (label);
@@ -231,11 +227,7 @@ file_list_ready_cb (GList *files,
     label = gtk_label_new (secondary_text);
     gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
     gtk_label_set_max_width_chars (GTK_LABEL (label), 60);
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_label_set_xalign (GTK_LABEL (label), 0.0);
-#else
-    gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-#endif
     gtk_box_pack_start (GTK_BOX (details->titles_vbox),
                         label, FALSE, FALSE, 0);
     gtk_widget_show (label);

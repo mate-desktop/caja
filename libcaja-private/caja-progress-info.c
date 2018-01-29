@@ -800,11 +800,7 @@ progress_widget_new (CajaProgressInfo *info)
     gtk_widget_set_size_request (label, 500, -1);
     gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
     gtk_label_set_line_wrap_mode (GTK_LABEL (label), PANGO_WRAP_WORD_CHAR);
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_label_set_xalign (GTK_LABEL (label), 0.0);
-#else
-    gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-#endif
     gtk_box_pack_start (GTK_BOX (vbox),
                         label,
                         TRUE, FALSE,
@@ -855,11 +851,7 @@ progress_widget_new (CajaProgressInfo *info)
                         0);
 
     label = gtk_label_new ("details");
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_label_set_xalign (GTK_LABEL (label), 0.0);
-#else
-    gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-#endif
     gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
     gtk_box_pack_start (GTK_BOX (vbox),
                         label,

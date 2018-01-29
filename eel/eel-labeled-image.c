@@ -1058,13 +1058,8 @@ labeled_image_update_alignments (EelLabeledImage *labeled_image)
 
         if (labeled_image->details->fill)
         {
-#if GTK_CHECK_VERSION (3, 16, 0)
             x_alignment = gtk_label_get_xalign (GTK_LABEL (labeled_image->details->label));
             y_alignment = gtk_label_get_yalign (GTK_LABEL (labeled_image->details->label));
-#else
-            gtk_misc_get_alignment (GTK_MISC (labeled_image->details->label),
-                                    &x_alignment, &y_alignment);
-#endif
 
             /* Only the label is shown */
             if (!labeled_image_show_image (labeled_image))
@@ -1100,14 +1095,8 @@ labeled_image_update_alignments (EelLabeledImage *labeled_image)
 
             }
 
-#if GTK_CHECK_VERSION (3, 16, 0)
             gtk_label_set_xalign (GTK_LABEL (labeled_image->details->label), x_alignment);
             gtk_label_set_yalign (GTK_LABEL (labeled_image->details->label), y_alignment);
-#else
-            gtk_misc_set_alignment (GTK_MISC (labeled_image->details->label),
-                                    x_alignment,
-                                    y_alignment);
-#endif
         }
     }
 
