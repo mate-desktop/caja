@@ -7,6 +7,7 @@
 # Albion von Darx, 2013
 # huskyviking <husky.viking@seznam.cz>, 2014
 # huskyviking <husky.viking@seznam.cz>, 2014
+# LiberteCzech <liberte.czech@gmail.com>, 2015
 # Lukáš Kvídera <lukas.kvidera@seznam.cz>, 2013-2014
 # LiberteCzech <liberte.czech@gmail.com>, 2015-2016
 # LiberteCzech <liberte.czech@gmail.com>, 2015
@@ -18,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 09:22+0100\n"
-"PO-Revision-Date: 2017-10-08 14:37+0000\n"
+"POT-Creation-Date: 2018-01-15 13:19+0300\n"
+"PO-Revision-Date: 2018-01-14 13:50+0000\n"
 "Last-Translator: ToMáš Marný\n"
 "Language-Team: Czech (http://www.transifex.com/mate/MATE/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -27,69 +28,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-
-#: ../cut-n-paste-code/libegg/eggdesktopfile.c:166
-#, c-format
-msgid "File is not a valid .desktop file"
-msgstr "Soubor není platným souborem typu .desktop"
-
-#: ../cut-n-paste-code/libegg/eggdesktopfile.c:189
-#, c-format
-msgid "Unrecognized desktop file Version '%s'"
-msgstr "Nerozpoznaný soubor plochy verze '%s'"
-
-#: ../cut-n-paste-code/libegg/eggdesktopfile.c:958
-#, c-format
-msgid "Starting %s"
-msgstr "Spouští se %s"
-
-#: ../cut-n-paste-code/libegg/eggdesktopfile.c:1100
-#, c-format
-msgid "Application does not accept documents on command line"
-msgstr "Aplikace nepřijímá dokumenty z příkazové řádky"
-
-#: ../cut-n-paste-code/libegg/eggdesktopfile.c:1168
-#, c-format
-msgid "Unrecognized launch option: %d"
-msgstr "Nerozpoznaná volba spuštění: %d"
-
-#: ../cut-n-paste-code/libegg/eggdesktopfile.c:1366
-#, c-format
-msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
-msgstr "Nelze předat adresu URI položce plochy s typem 'Type=Link'"
-
-#: ../cut-n-paste-code/libegg/eggdesktopfile.c:1385
-#, c-format
-msgid "Not a launchable item"
-msgstr "Nespustitelná položka"
-
-#: ../cut-n-paste-code/libegg/eggsmclient.c:237
-msgid "Disable connection to session manager"
-msgstr "Zakázat spojení na správce sezení"
-
-#: ../cut-n-paste-code/libegg/eggsmclient.c:242
-msgid "Specify file containing saved configuration"
-msgstr "Zadejte soubor obsahující uloženou konfiguraci"
-
-#: ../cut-n-paste-code/libegg/eggsmclient.c:242
-msgid "FILE"
-msgstr "SOUBOR"
-
-#: ../cut-n-paste-code/libegg/eggsmclient.c:247
-msgid "Specify session management ID"
-msgstr "Stanovit ID Správy sezení"
-
-#: ../cut-n-paste-code/libegg/eggsmclient.c:247
-msgid "ID"
-msgstr "ID"
-
-#: ../cut-n-paste-code/libegg/eggsmclient.c:273
-msgid "Session management options:"
-msgstr "Volby správy sezení:"
-
-#: ../cut-n-paste-code/libegg/eggsmclient.c:274
-msgid "Show session management options"
-msgstr "Zobrazit volby správy sezení"
 
 #: ../data/browser.xml.h:1
 msgid "_Patterns"
@@ -357,7 +295,7 @@ msgstr "Emblém k objektu přidáte přetažením na daný objekt"
 
 #. translators: this is the name of an emblem
 #: ../data/browser.xml.h:68 ../src/caja-emblem-sidebar.c:982
-#: ../src/caja-property-browser.c:1944
+#: ../src/caja-property-browser.c:1948
 msgid "Erase"
 msgstr "Smazat"
 
@@ -375,6 +313,64 @@ msgid ""
 "which Caja is a fork. </p>"
 msgstr "<p> Caja je oficiální správce souborů pro plochu MATE. Umožňuje procházení adresářů stejně tak dobře jako náhledy souborů a spouštění aplikací s nimi asociovaných. Je také zodpovědný za správu ikon plochy MATE. Pracuje na místních a vzdálených souborových systémech. </p> <p> Caja je rozšiřitelná systémy pluginů, podobně jako Nautilus z GNOME, jehože je Caja odnoží. </p>"
 
+#: ../data/caja-autorun-software.desktop.in.in.h:1
+msgid "Autorun Prompt"
+msgstr "Výzva automatického spuštění"
+
+#. Set initial window title
+#: ../data/caja-browser.desktop.in.in.h:1 ../data/caja.desktop.in.in.h:1
+#: ../data/caja-folder-handler.desktop.in.in.h:1
+#: ../src/caja-spatial-window.c:373 ../src/caja-window-menus.c:535
+#: ../src/caja-window.c:172
+msgid "Caja"
+msgstr "Caja"
+
+#: ../data/caja-browser.desktop.in.in.h:2
+msgid "File Browser"
+msgstr "Prohlížeč souborů"
+
+#: ../data/caja-browser.desktop.in.in.h:3
+msgid "Browse the file system with the file manager"
+msgstr "Procházet systém souborů správcem souborů"
+
+#: ../data/caja-computer.desktop.in.in.h:1
+#: ../libcaja-private/caja-desktop-link.c:113 ../src/caja-places-sidebar.c:490
+msgid "Computer"
+msgstr "Počítač"
+
+#. tooltip
+#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:905
+msgid ""
+"Browse all local and remote disks and folders accessible from this computer"
+msgstr "Procházet všechny místní a vzdálené disky a složky dostupné z tohoto počítače"
+
+#: ../data/caja.desktop.in.in.h:2
+msgid "File Manager"
+msgstr "Správce souborů"
+
+#: ../data/caja-file-management-properties.desktop.in.in.h:1
+msgid "File Management"
+msgstr "Správa souborů"
+
+#: ../data/caja-file-management-properties.desktop.in.in.h:2
+msgid "Change the behaviour and appearance of file manager windows"
+msgstr "Změnit chování a vzhled oken správce souborů"
+
+#: ../data/caja-folder-handler.desktop.in.in.h:2
+#: ../libcaja-private/caja-autorun.c:567
+msgid "Open Folder"
+msgstr "Otevřít složku"
+
+#: ../data/caja-home.desktop.in.in.h:1 ../src/file-manager/fm-tree-view.c:1434
+msgid "Home Folder"
+msgstr "Domovská složka"
+
+#. tooltip
+#: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:504
+#: ../src/caja-window-menus.c:900
+msgid "Open your personal folder"
+msgstr "Otevřít osobní složku"
+
 #: ../data/caja.xml.in.h:1
 msgid "Saved search"
 msgstr "Uložené hledání"
@@ -387,59 +383,59 @@ msgstr "X"
 msgid "Y"
 msgstr "Y"
 
-#: ../eel/eel-editable-label.c:331
+#: ../eel/eel-editable-label.c:332
 msgid "Text"
 msgstr "Text"
 
-#: ../eel/eel-editable-label.c:332
+#: ../eel/eel-editable-label.c:333
 msgid "The text of the label."
 msgstr "Text jmenovky."
 
-#: ../eel/eel-editable-label.c:338
+#: ../eel/eel-editable-label.c:339
 msgid "Justification"
 msgstr "Zarovnání"
 
-#: ../eel/eel-editable-label.c:339
+#: ../eel/eel-editable-label.c:340
 msgid ""
 "The alignment of the lines in the text of the label relative to each other. "
 "This does NOT affect the alignment of the label within its allocation. See "
 "GtkMisc::xalign for that."
 msgstr "Relativní zarovnání řádků textu jmenovky navzájem. Toto NEMÁ vliv na zarovnání jmenovky v její alokaci. K tomu použijte GtkMisc::xalign."
 
-#: ../eel/eel-editable-label.c:347
+#: ../eel/eel-editable-label.c:348
 msgid "Line wrap"
 msgstr "Lámání řádků"
 
-#: ../eel/eel-editable-label.c:348
+#: ../eel/eel-editable-label.c:349
 msgid "If set, wrap lines if the text becomes too wide."
 msgstr "Je-li nastaveno, zalamovat řádky, je-li text příliš široký."
 
-#: ../eel/eel-editable-label.c:355
+#: ../eel/eel-editable-label.c:356
 msgid "Cursor Position"
 msgstr "Pozice kurzoru"
 
-#: ../eel/eel-editable-label.c:356
+#: ../eel/eel-editable-label.c:357
 msgid "The current position of the insertion cursor in chars."
 msgstr "Aktuální pozice vkládacího kurzoru ve znacích."
 
-#: ../eel/eel-editable-label.c:365
+#: ../eel/eel-editable-label.c:366
 msgid "Selection Bound"
 msgstr "Hranice výběru"
 
-#: ../eel/eel-editable-label.c:366
+#: ../eel/eel-editable-label.c:367
 msgid ""
 "The position of the opposite end of the selection from the cursor in chars."
 msgstr "Pozice konce výběru vzdálenějšího od kurzoru ve znacích."
 
-#: ../eel/eel-editable-label.c:3127
+#: ../eel/eel-editable-label.c:3120
 msgid "Select All"
 msgstr "Vybrat vše"
 
-#: ../eel/eel-editable-label.c:3138
+#: ../eel/eel-editable-label.c:3131
 msgid "Input Methods"
 msgstr "Vstupní metody"
 
-#: ../eel/eel-gtk-extensions.c:456
+#: ../eel/eel-gtk-extensions.c:445
 msgid "Show more _details"
 msgstr "Zobrazit více _podrobností"
 
@@ -462,11 +458,6 @@ msgstr "Zeptat se, co dělat"
 #: ../libcaja-private/caja-autorun.c:552
 msgid "Do Nothing"
 msgstr "Nedělat nic"
-
-#: ../libcaja-private/caja-autorun.c:567
-#: ../data/caja-folder-handler.desktop.in.in.h:2
-msgid "Open Folder"
-msgstr "Otevřít složku"
 
 #: ../libcaja-private/caja-autorun.c:600 ../src/caja-x-content-bar.c:148
 #, c-format
@@ -559,10 +550,10 @@ msgstr "_Vždy provádět tuto akci"
 #. label, accelerator
 #. add the "Eject" menu item
 #: ../libcaja-private/caja-autorun.c:1146
-#: ../src/file-manager/fm-directory-view.c:7408
-#: ../src/file-manager/fm-directory-view.c:7436
-#: ../src/file-manager/fm-directory-view.c:7517
-#: ../src/file-manager/fm-tree-view.c:1382 ../src/caja-places-sidebar.c:2740
+#: ../src/file-manager/fm-directory-view.c:7411
+#: ../src/file-manager/fm-directory-view.c:7439
+#: ../src/file-manager/fm-directory-view.c:7520
+#: ../src/file-manager/fm-tree-view.c:1382 ../src/caja-places-sidebar.c:2714
 msgid "_Eject"
 msgstr "V_ysunout"
 
@@ -570,10 +561,10 @@ msgstr "V_ysunout"
 #. label, accelerator
 #. add the "Unmount" menu item
 #: ../libcaja-private/caja-autorun.c:1159
-#: ../src/file-manager/fm-directory-view.c:7404
-#: ../src/file-manager/fm-directory-view.c:7432
-#: ../src/file-manager/fm-directory-view.c:7513
-#: ../src/file-manager/fm-tree-view.c:1373 ../src/caja-places-sidebar.c:2733
+#: ../src/file-manager/fm-directory-view.c:7407
+#: ../src/file-manager/fm-directory-view.c:7435
+#: ../src/file-manager/fm-directory-view.c:7516
+#: ../src/file-manager/fm-tree-view.c:1373 ../src/caja-places-sidebar.c:2707
 msgid "_Unmount"
 msgstr "_Odpojit"
 
@@ -601,7 +592,7 @@ msgstr "Vložit text uložený ve schránce"
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-clipboard.c:470
-#: ../src/file-manager/fm-directory-view.c:7337
+#: ../src/file-manager/fm-directory-view.c:7340
 msgid "Select _All"
 msgstr "Vybr_at vše"
 
@@ -610,15 +601,15 @@ msgstr "Vybr_at vše"
 msgid "Select all the text in a text field"
 msgstr "Vybrat všechen text v textovém poli"
 
-#: ../libcaja-private/caja-column-chooser.c:378
+#: ../libcaja-private/caja-column-chooser.c:381
 msgid "Move _Up"
 msgstr "Posunout na_horu"
 
-#: ../libcaja-private/caja-column-chooser.c:388
+#: ../libcaja-private/caja-column-chooser.c:391
 msgid "Move Dow_n"
 msgstr "Posunout _dolů"
 
-#: ../libcaja-private/caja-column-chooser.c:401
+#: ../libcaja-private/caja-column-chooser.c:404
 msgid "Use De_fault"
 msgstr "_Používat výchozí"
 
@@ -749,8 +740,8 @@ msgstr "Původní pozice souboru před přesunutím do koše"
 
 #: ../libcaja-private/caja-customization-data.c:431
 #: ../libcaja-private/caja-file-conflict-dialog.c:631
-#: ../libcaja-private/caja-mime-application-chooser.c:441
-#: ../src/caja-property-browser.c:1991
+#: ../libcaja-private/caja-mime-application-chooser.c:444
+#: ../src/caja-property-browser.c:1995
 msgid "Reset"
 msgstr "Výchozí"
 
@@ -771,17 +762,12 @@ msgstr "na ploše"
 msgid "%s's Home"
 msgstr "Domov %s"
 
-#: ../libcaja-private/caja-desktop-link.c:113
-#: ../data/caja-computer.desktop.in.in.h:1 ../src/caja-places-sidebar.c:493
-msgid "Computer"
-msgstr "Počítač"
-
 #: ../libcaja-private/caja-desktop-link.c:116
 msgid "Network Servers"
 msgstr "Síťové servery"
 
 #: ../libcaja-private/caja-desktop-link.c:119
-#: ../src/file-manager/fm-tree-view.c:1441 ../src/caja-places-sidebar.c:597
+#: ../src/file-manager/fm-tree-view.c:1441 ../src/caja-places-sidebar.c:594
 #: ../src/caja-trash-bar.c:190
 msgid "Trash"
 msgstr "Koš"
@@ -1073,7 +1059,7 @@ msgstr[2] "přibližně %'d hodin"
 #. * to that kind of file (e.g. "link to folder").
 #: ../libcaja-private/caja-file-operations.c:407
 #: ../libcaja-private/caja-file.c:6526
-#: ../src/file-manager/fm-directory-view.c:10528
+#: ../src/file-manager/fm-directory-view.c:10531
 #, c-format
 msgid "Link to %s"
 msgstr "Odkaz na %s"
@@ -1238,8 +1224,8 @@ msgstr "Všechny soubory z koše budou nenávratně smazány."
 
 #. Empty Trash menu item
 #: ../libcaja-private/caja-file-operations.c:1394
-#: ../libcaja-private/caja-file-operations.c:2317
-#: ../src/caja-places-sidebar.c:2777 ../src/caja-trash-bar.c:197
+#: ../libcaja-private/caja-file-operations.c:2320
+#: ../src/caja-places-sidebar.c:2751 ../src/caja-trash-bar.c:197
 msgid "Empty _Trash"
 msgstr "Vyprázdnit _koš"
 
@@ -1302,7 +1288,7 @@ msgstr[2] "zbývá %T"
 #: ../libcaja-private/caja-file-operations.c:1630
 #: ../libcaja-private/caja-file-operations.c:1669
 #: ../libcaja-private/caja-file-operations.c:1746
-#: ../libcaja-private/caja-file-operations.c:2562
+#: ../libcaja-private/caja-file-operations.c:2565
 msgid "Error while deleting."
 msgstr "Chyba při odstraňování."
 
@@ -1313,14 +1299,14 @@ msgid ""
 msgstr "Soubory ve složce „%B“ nelze odstranit, protože nemáte oprávnění na jejich zobrazení."
 
 #: ../libcaja-private/caja-file-operations.c:1603
-#: ../libcaja-private/caja-file-operations.c:2622
-#: ../libcaja-private/caja-file-operations.c:3604
+#: ../libcaja-private/caja-file-operations.c:2625
+#: ../libcaja-private/caja-file-operations.c:3607
 msgid ""
 "There was an error getting information about the files in the folder \"%B\"."
 msgstr "Nastala chyba při zjišťování informací o souborech ve složce „%B“."
 
 #: ../libcaja-private/caja-file-operations.c:1612
-#: ../libcaja-private/caja-file-operations.c:3613
+#: ../libcaja-private/caja-file-operations.c:3616
 msgid "_Skip files"
 msgstr "Pře_skočit soubory"
 
@@ -1331,8 +1317,8 @@ msgid ""
 msgstr "Složku „%B“ nelze odstranit, protože nemáte oprávnění na její zobrazení."
 
 #: ../libcaja-private/caja-file-operations.c:1636
-#: ../libcaja-private/caja-file-operations.c:2661
-#: ../libcaja-private/caja-file-operations.c:3649
+#: ../libcaja-private/caja-file-operations.c:2664
+#: ../libcaja-private/caja-file-operations.c:3652
 msgid "There was an error reading the folder \"%B\"."
 msgstr "Došlo k chybě při čtení složky „%B“."
 
@@ -1372,34 +1358,34 @@ msgstr "Soubory se přesunují do koše"
 msgid "Deleting Files"
 msgstr "Soubory se odstraňují"
 
-#: ../libcaja-private/caja-file-operations.c:2147
+#: ../libcaja-private/caja-file-operations.c:2150
 msgid "Unable to eject %V"
 msgstr "Nelze vysunout %V"
 
-#: ../libcaja-private/caja-file-operations.c:2149
+#: ../libcaja-private/caja-file-operations.c:2152
 msgid "Unable to unmount %V"
 msgstr "Nelze odpojit %V"
 
-#: ../libcaja-private/caja-file-operations.c:2307
+#: ../libcaja-private/caja-file-operations.c:2310
 msgid "Do you want to empty the trash before you unmount?"
 msgstr "Chcete před odpojením vysypat koš?"
 
-#: ../libcaja-private/caja-file-operations.c:2309
+#: ../libcaja-private/caja-file-operations.c:2312
 msgid ""
 "In order to regain the free space on this volume the trash must be emptied. "
 "All trashed items on the volume will be permanently lost."
 msgstr "Aby bylo možné obnovit volný prostor na tomto svazku, je nutné vyprázdnit koš. Všechny položky v koši na tomto svazku budou trvale ztraceny."
 
-#: ../libcaja-private/caja-file-operations.c:2315
+#: ../libcaja-private/caja-file-operations.c:2318
 msgid "Do _not Empty Trash"
 msgstr "_Nevyprazdňovat koš"
 
-#: ../libcaja-private/caja-file-operations.c:2431
+#: ../libcaja-private/caja-file-operations.c:2434
 #, c-format
 msgid "Unable to mount %s"
 msgstr "Nelze připojit %s"
 
-#: ../libcaja-private/caja-file-operations.c:2509
+#: ../libcaja-private/caja-file-operations.c:2512
 #, c-format
 msgid "Preparing to copy %'d file (%S)"
 msgid_plural "Preparing to copy %'d files (%S)"
@@ -1407,7 +1393,7 @@ msgstr[0] "Připravuje se kopírování %'d souboru (%S)"
 msgstr[1] "Připravuje se kopírování %'d souborů (%S)"
 msgstr[2] "Připravuje se kopírování %'d souborů (%S)"
 
-#: ../libcaja-private/caja-file-operations.c:2515
+#: ../libcaja-private/caja-file-operations.c:2518
 #, c-format
 msgid "Preparing to move %'d file (%S)"
 msgid_plural "Preparing to move %'d files (%S)"
@@ -1415,7 +1401,7 @@ msgstr[0] "Připravuje se přesun %'d souboru (%S)"
 msgstr[1] "Připravuje se přesun %'d souborů (%S)"
 msgstr[2] "Připravuje se přesun %'d souborů (%S)"
 
-#: ../libcaja-private/caja-file-operations.c:2521
+#: ../libcaja-private/caja-file-operations.c:2524
 #, c-format
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
@@ -1423,7 +1409,7 @@ msgstr[0] "Připravuje se odstranění %'d souboru (%S)"
 msgstr[1] "Připravuje se odstranění %'d souborů (%S)"
 msgstr[2] "Připravuje se odstranění %'d souborů (%S)"
 
-#: ../libcaja-private/caja-file-operations.c:2527
+#: ../libcaja-private/caja-file-operations.c:2530
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
@@ -1431,127 +1417,127 @@ msgstr[0] "Připravuje se přesun %'d souboru do koše"
 msgstr[1] "Připravuje se přesun %'d souborů do koše"
 msgstr[2] "Připravuje se přesun %'d souborů do koše"
 
-#: ../libcaja-private/caja-file-operations.c:2558
-#: ../libcaja-private/caja-file-operations.c:3456
-#: ../libcaja-private/caja-file-operations.c:3596
-#: ../libcaja-private/caja-file-operations.c:3641
+#: ../libcaja-private/caja-file-operations.c:2561
+#: ../libcaja-private/caja-file-operations.c:3459
+#: ../libcaja-private/caja-file-operations.c:3599
+#: ../libcaja-private/caja-file-operations.c:3644
 msgid "Error while copying."
 msgstr "Chyba při kopírování."
 
-#: ../libcaja-private/caja-file-operations.c:2560
-#: ../libcaja-private/caja-file-operations.c:3594
-#: ../libcaja-private/caja-file-operations.c:3639
+#: ../libcaja-private/caja-file-operations.c:2563
+#: ../libcaja-private/caja-file-operations.c:3597
+#: ../libcaja-private/caja-file-operations.c:3642
 msgid "Error while moving."
 msgstr "Chyba při přesunu."
 
-#: ../libcaja-private/caja-file-operations.c:2564
+#: ../libcaja-private/caja-file-operations.c:2567
 msgid "Error while moving files to trash."
 msgstr "Chyba při přesunu souborů do koše."
 
-#: ../libcaja-private/caja-file-operations.c:2619
+#: ../libcaja-private/caja-file-operations.c:2622
 msgid ""
 "Files in the folder \"%B\" cannot be handled because you do not have "
 "permissions to see them."
 msgstr "Soubory ve složce „%B“ nelze spravovat, protože nemáte oprávnění pro jejich zobrazení."
 
-#: ../libcaja-private/caja-file-operations.c:2658
+#: ../libcaja-private/caja-file-operations.c:2661
 msgid ""
 "The folder \"%B\" cannot be handled because you do not have permissions to "
 "read it."
 msgstr "Složku „%B“ nelze spravovat, protože nemáte oprávnění na její čtení."
 
-#: ../libcaja-private/caja-file-operations.c:2736
+#: ../libcaja-private/caja-file-operations.c:2739
 msgid ""
 "The file \"%B\" cannot be handled because you do not have permissions to "
 "read it."
 msgstr "Soubor „%B“ nelze spravovat, protože nemáte oprávnění jej číst."
 
-#: ../libcaja-private/caja-file-operations.c:2739
+#: ../libcaja-private/caja-file-operations.c:2742
 msgid "There was an error getting information about \"%B\"."
 msgstr "Při získávání informací o „%B“ došlo k chybě."
 
-#: ../libcaja-private/caja-file-operations.c:2839
-#: ../libcaja-private/caja-file-operations.c:2881
-#: ../libcaja-private/caja-file-operations.c:2914
-#: ../libcaja-private/caja-file-operations.c:2944
+#: ../libcaja-private/caja-file-operations.c:2842
+#: ../libcaja-private/caja-file-operations.c:2884
+#: ../libcaja-private/caja-file-operations.c:2917
+#: ../libcaja-private/caja-file-operations.c:2947
 msgid "Error while copying to \"%B\"."
 msgstr "Chyba při kopírování do „%B“."
 
-#: ../libcaja-private/caja-file-operations.c:2843
+#: ../libcaja-private/caja-file-operations.c:2846
 msgid "You do not have permissions to access the destination folder."
 msgstr "Nemáte oprávnění přistupovat k cílové složce."
 
-#: ../libcaja-private/caja-file-operations.c:2845
+#: ../libcaja-private/caja-file-operations.c:2848
 msgid "There was an error getting information about the destination."
 msgstr "Při získávání informací o cíli došlo k chybě."
 
-#: ../libcaja-private/caja-file-operations.c:2882
+#: ../libcaja-private/caja-file-operations.c:2885
 msgid "The destination is not a folder."
 msgstr "Cílové umístění není složka."
 
-#: ../libcaja-private/caja-file-operations.c:2915
+#: ../libcaja-private/caja-file-operations.c:2918
 msgid ""
 "There is not enough space on the destination. Try to remove files to make "
 "space."
 msgstr "V cíli není dostatek místa. Zkuste uvolnit místo odstraněním souborů."
 
-#: ../libcaja-private/caja-file-operations.c:2917
+#: ../libcaja-private/caja-file-operations.c:2920
 #, c-format
 msgid "There is %S available, but %S is required."
 msgstr "Dostupno je %S, ale vyžadováno je %S."
 
-#: ../libcaja-private/caja-file-operations.c:2945
+#: ../libcaja-private/caja-file-operations.c:2948
 msgid "The destination is read-only."
 msgstr "Cílové umístění je pouze pro čtení."
 
-#: ../libcaja-private/caja-file-operations.c:3004
+#: ../libcaja-private/caja-file-operations.c:3007
 msgid "Moving \"%B\" to \"%B\""
 msgstr "Přesunuje se „%B“ do „%B“"
 
-#: ../libcaja-private/caja-file-operations.c:3005
+#: ../libcaja-private/caja-file-operations.c:3008
 msgid "Copying \"%B\" to \"%B\""
 msgstr "Kopíruje se „%B“ do „%B“"
 
-#: ../libcaja-private/caja-file-operations.c:3010
+#: ../libcaja-private/caja-file-operations.c:3013
 msgid "Duplicating \"%B\""
 msgstr "Zdvojuje se „%B“"
 
-#: ../libcaja-private/caja-file-operations.c:3018
+#: ../libcaja-private/caja-file-operations.c:3021
 msgid "Moving %'d file (in \"%B\") to \"%B\""
 msgid_plural "Moving %'d files (in \"%B\") to \"%B\""
 msgstr[0] "Přesunuje se %'d soubor (z „%B“) do „%B“"
 msgstr[1] "Přesunují se %'d soubory (z „%B“) do „%B“"
 msgstr[2] "Přesunuje se %'d souborů (z „%B“) do „%B“"
 
-#: ../libcaja-private/caja-file-operations.c:3022
+#: ../libcaja-private/caja-file-operations.c:3025
 msgid "Copying %'d file (in \"%B\") to \"%B\""
 msgid_plural "Copying %'d files (in \"%B\") to \"%B\""
 msgstr[0] "Kopíruje se %'d soubor (z „%B“) do „%B“"
 msgstr[1] "Kopírují se %'d soubory (z „%B“) do „%B“"
 msgstr[2] "Kopíruje se %'d souborů (z „%B“) do „%B“"
 
-#: ../libcaja-private/caja-file-operations.c:3030
+#: ../libcaja-private/caja-file-operations.c:3033
 msgid "Duplicating %'d file (in \"%B\")"
 msgid_plural "Duplicating %'d files (in \"%B\")"
 msgstr[0] "Zdvojuje se %'d soubor (v „%B“)"
 msgstr[1] "Zdvojují se %'d soubory (v „%B“)"
 msgstr[2] "Zdvojuje se %'d souborů (v „%B“)"
 
-#: ../libcaja-private/caja-file-operations.c:3040
+#: ../libcaja-private/caja-file-operations.c:3043
 msgid "Moving %'d file to \"%B\""
 msgid_plural "Moving %'d files to \"%B\""
 msgstr[0] "Přesouvá se %'d soubor do „%B“"
 msgstr[1] "Přesouvají se %'d soubory do „%B“"
 msgstr[2] "Přesouvá se %'d souborů do „%B“"
 
-#: ../libcaja-private/caja-file-operations.c:3044
+#: ../libcaja-private/caja-file-operations.c:3047
 msgid "Copying %'d file to \"%B\""
 msgid_plural "Copying %'d files to \"%B\""
 msgstr[0] "Kopíruje se %'d soubor do „%B“"
 msgstr[1] "Kopírují se %'d soubory do „%B“"
 msgstr[2] "Kopíruje se %'d souborů do „%B“"
 
-#: ../libcaja-private/caja-file-operations.c:3050
+#: ../libcaja-private/caja-file-operations.c:3053
 #, c-format
 msgid "Duplicating %'d file"
 msgid_plural "Duplicating %'d files"
@@ -1561,7 +1547,7 @@ msgstr[2] "Zdvojuje se %'d souborů"
 
 #. To translators: %S will expand to a size like "2 bytes" or "3 MB", so
 #. something like "4 kb of 4 MB"
-#: ../libcaja-private/caja-file-operations.c:3070
+#: ../libcaja-private/caja-file-operations.c:3073
 #, c-format
 msgid "%S of %S"
 msgstr "%S z %S"
@@ -1573,110 +1559,110 @@ msgstr "%S z %S"
 #. *
 #. * The singular/plural form will be used depending on the remaining time
 #. (i.e. the %T argument).
-#: ../libcaja-private/caja-file-operations.c:3081
+#: ../libcaja-private/caja-file-operations.c:3084
 msgid "%S of %S — %T left (%S/sec)"
 msgid_plural "%S of %S — %T left (%S/sec)"
 msgstr[0] "%S z %S — zbývá %T (%S/s)"
 msgstr[1] "%S z %S — zbývají %T (%S/s)"
 msgstr[2] "%S z %S — zbývá %T (%S/s)"
 
-#: ../libcaja-private/caja-file-operations.c:3460
+#: ../libcaja-private/caja-file-operations.c:3463
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "create it in the destination."
 msgstr "Složku „%B“ nelze zkopírovat, protože nemáte oprávnění vytvořit ji v cílovém umístění."
 
-#: ../libcaja-private/caja-file-operations.c:3463
+#: ../libcaja-private/caja-file-operations.c:3466
 msgid "There was an error creating the folder \"%B\"."
 msgstr "Při vytváření složky „%B“ došlo k chybě."
 
-#: ../libcaja-private/caja-file-operations.c:3601
+#: ../libcaja-private/caja-file-operations.c:3604
 msgid ""
 "Files in the folder \"%B\" cannot be copied because you do not have "
 "permissions to see them."
 msgstr "Soubory ve složce „%B“ nelze zkopírovat, protože nemáte oprávnění na jejich zobrazení."
 
-#: ../libcaja-private/caja-file-operations.c:3646
+#: ../libcaja-private/caja-file-operations.c:3649
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "read it."
 msgstr "Složku „%B“ nelze zkopírovat, protože nemáte oprávnění na její čtení."
 
-#: ../libcaja-private/caja-file-operations.c:3691
-#: ../libcaja-private/caja-file-operations.c:4385
-#: ../libcaja-private/caja-file-operations.c:4977
+#: ../libcaja-private/caja-file-operations.c:3694
+#: ../libcaja-private/caja-file-operations.c:4388
+#: ../libcaja-private/caja-file-operations.c:4980
 msgid "Error while moving \"%B\"."
 msgstr "Chyba při přesunu „%B“."
 
-#: ../libcaja-private/caja-file-operations.c:3692
+#: ../libcaja-private/caja-file-operations.c:3695
 msgid "Could not remove the source folder."
 msgstr "Nelze odstranit zdrojovou složku."
 
-#: ../libcaja-private/caja-file-operations.c:3777
-#: ../libcaja-private/caja-file-operations.c:3818
-#: ../libcaja-private/caja-file-operations.c:4387
-#: ../libcaja-private/caja-file-operations.c:4459
+#: ../libcaja-private/caja-file-operations.c:3780
+#: ../libcaja-private/caja-file-operations.c:3821
+#: ../libcaja-private/caja-file-operations.c:4390
+#: ../libcaja-private/caja-file-operations.c:4462
 msgid "Error while copying \"%B\"."
 msgstr "Chyba při kopírování „%B“."
 
-#: ../libcaja-private/caja-file-operations.c:3778
+#: ../libcaja-private/caja-file-operations.c:3781
 #, c-format
 msgid "Could not remove files from the already existing folder %F."
 msgstr "Nelze odstranit soubory z již existující složky %F."
 
-#: ../libcaja-private/caja-file-operations.c:3819
+#: ../libcaja-private/caja-file-operations.c:3822
 #, c-format
 msgid "Could not remove the already existing file %F."
 msgstr "Nelze odstranit již existující soubor %F."
 
 #. the run_warning() frees all strings passed in automatically
-#: ../libcaja-private/caja-file-operations.c:4138
-#: ../libcaja-private/caja-file-operations.c:4823
+#: ../libcaja-private/caja-file-operations.c:4141
+#: ../libcaja-private/caja-file-operations.c:4826
 msgid "You cannot move a folder into itself."
 msgstr "Nelze přesunout složku samu do sebe."
 
-#: ../libcaja-private/caja-file-operations.c:4139
-#: ../libcaja-private/caja-file-operations.c:4824
+#: ../libcaja-private/caja-file-operations.c:4142
+#: ../libcaja-private/caja-file-operations.c:4827
 msgid "You cannot copy a folder into itself."
 msgstr "Nelze kopírovat složku samu do sebe."
 
-#: ../libcaja-private/caja-file-operations.c:4140
-#: ../libcaja-private/caja-file-operations.c:4825
+#: ../libcaja-private/caja-file-operations.c:4143
+#: ../libcaja-private/caja-file-operations.c:4828
 msgid "The destination folder is inside the source folder."
 msgstr "Cílové umístění je uvnitř zdrojové složky."
 
 #. the run_warning() frees all strings passed in automatically
-#: ../libcaja-private/caja-file-operations.c:4171
+#: ../libcaja-private/caja-file-operations.c:4174
 msgid "You cannot move a file over itself."
 msgstr "Nelze přesunout soubor sám na sebe."
 
-#: ../libcaja-private/caja-file-operations.c:4172
+#: ../libcaja-private/caja-file-operations.c:4175
 msgid "You cannot copy a file over itself."
 msgstr "Nelze kopírovat soubor sám na sebe."
 
-#: ../libcaja-private/caja-file-operations.c:4173
+#: ../libcaja-private/caja-file-operations.c:4176
 msgid "The source file would be overwritten by the destination."
 msgstr "Zdrojový soubor by byl přepsán cílovým."
 
-#: ../libcaja-private/caja-file-operations.c:4389
+#: ../libcaja-private/caja-file-operations.c:4392
 #, c-format
 msgid "Could not remove the already existing file with the same name in %F."
 msgstr "Nelze odstranit již existující soubor stejného názvu v %F."
 
-#: ../libcaja-private/caja-file-operations.c:4460
+#: ../libcaja-private/caja-file-operations.c:4463
 #, c-format
 msgid "There was an error copying the file into %F."
 msgstr "Při kopírování souboru do %F došlo k chybě."
 
-#: ../libcaja-private/caja-file-operations.c:4706
+#: ../libcaja-private/caja-file-operations.c:4709
 msgid "Copying Files"
 msgstr "Soubory se kopírují"
 
-#: ../libcaja-private/caja-file-operations.c:4733
+#: ../libcaja-private/caja-file-operations.c:4736
 msgid "Preparing to Move to \"%B\""
 msgstr "Připravuje se přesun do „%B“"
 
-#: ../libcaja-private/caja-file-operations.c:4737
+#: ../libcaja-private/caja-file-operations.c:4740
 #, c-format
 msgid "Preparing to move %'d file"
 msgid_plural "Preparing to move %'d files"
@@ -1684,20 +1670,20 @@ msgstr[0] "Připravuje se přesun %'d souboru"
 msgstr[1] "Připravuje se přesun %'d souborů"
 msgstr[2] "Připravuje se přesun %'d souborů"
 
-#: ../libcaja-private/caja-file-operations.c:4978
+#: ../libcaja-private/caja-file-operations.c:4981
 #, c-format
 msgid "There was an error moving the file into %F."
 msgstr "Při přesunu souboru do %F došlo k chybě."
 
-#: ../libcaja-private/caja-file-operations.c:5248
+#: ../libcaja-private/caja-file-operations.c:5251
 msgid "Moving Files"
 msgstr "Soubory se přesunují"
 
-#: ../libcaja-private/caja-file-operations.c:5279
+#: ../libcaja-private/caja-file-operations.c:5282
 msgid "Creating links in \"%B\""
 msgstr "Vytváří se odkazy v „%B“"
 
-#: ../libcaja-private/caja-file-operations.c:5283
+#: ../libcaja-private/caja-file-operations.c:5286
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
@@ -1705,58 +1691,58 @@ msgstr[0] "Vytváří se odkaz k %'d souboru"
 msgstr[1] "Vytváří se odkazy k %'d souborům"
 msgstr[2] "Vytváří se odkazy k %'d souborům"
 
-#: ../libcaja-private/caja-file-operations.c:5415
+#: ../libcaja-private/caja-file-operations.c:5418
 msgid "Error while creating link to %B."
 msgstr "Chyba při vytváření odkazu na %B."
 
-#: ../libcaja-private/caja-file-operations.c:5417
+#: ../libcaja-private/caja-file-operations.c:5420
 msgid "Symbolic links only supported for local files"
 msgstr "Symbolické odkazy jsou podporovány pouze pro místní soubory"
 
-#: ../libcaja-private/caja-file-operations.c:5420
+#: ../libcaja-private/caja-file-operations.c:5423
 msgid "The target doesn't support symbolic links."
 msgstr "Tento cíl nepodporuje symbolické odkazy."
 
-#: ../libcaja-private/caja-file-operations.c:5423
+#: ../libcaja-private/caja-file-operations.c:5426
 #, c-format
 msgid "There was an error creating the symlink in %F."
 msgstr "Při vytváření symbolického odkazu v %F došlo k chybě."
 
-#: ../libcaja-private/caja-file-operations.c:5739
+#: ../libcaja-private/caja-file-operations.c:5742
 msgid "Setting permissions"
 msgstr "Oprávnění se nastavuje"
 
 #. localizers: the initial name of a new folder
-#: ../libcaja-private/caja-file-operations.c:5998
+#: ../libcaja-private/caja-file-operations.c:6001
 msgid "untitled folder"
 msgstr "nepojmenovaná složka"
 
 #. localizers: the initial name of a new empty file
-#: ../libcaja-private/caja-file-operations.c:6006
+#: ../libcaja-private/caja-file-operations.c:6009
 msgid "new file"
 msgstr "nový soubor"
 
-#: ../libcaja-private/caja-file-operations.c:6178
+#: ../libcaja-private/caja-file-operations.c:6181
 msgid "Error while creating directory %B."
 msgstr "Chyba při vytváření složky %B."
 
-#: ../libcaja-private/caja-file-operations.c:6180
+#: ../libcaja-private/caja-file-operations.c:6183
 msgid "Error while creating file %B."
 msgstr "Chyba při vytváření souboru %B."
 
-#: ../libcaja-private/caja-file-operations.c:6182
+#: ../libcaja-private/caja-file-operations.c:6185
 #, c-format
 msgid "There was an error creating the directory in %F."
 msgstr "Při vytváření složky v %F došlo k chybě."
 
-#: ../libcaja-private/caja-file-operations.c:6460
+#: ../libcaja-private/caja-file-operations.c:6463
 msgid "Emptying Trash"
 msgstr "Vysypává se koš"
 
-#: ../libcaja-private/caja-file-operations.c:6509
-#: ../libcaja-private/caja-file-operations.c:6550
-#: ../libcaja-private/caja-file-operations.c:6585
-#: ../libcaja-private/caja-file-operations.c:6620
+#: ../libcaja-private/caja-file-operations.c:6512
+#: ../libcaja-private/caja-file-operations.c:6553
+#: ../libcaja-private/caja-file-operations.c:6588
+#: ../libcaja-private/caja-file-operations.c:6623
 msgid "Unable to mark launcher trusted (executable)"
 msgstr "Nelze označit spouštěč jako důvěryhodný (spustitelný)"
 
@@ -1973,7 +1959,7 @@ msgid "Specified group '%s' doesn't exist"
 msgstr "Vybraná skupina '%s' neexistuje"
 
 #: ../libcaja-private/caja-file.c:5950
-#: ../src/file-manager/fm-directory-view.c:2368
+#: ../src/file-manager/fm-directory-view.c:2371
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
@@ -2045,7 +2031,7 @@ msgstr "odkaz"
 msgid "link (broken)"
 msgstr "odkaz (neplatný)"
 
-#: ../libcaja-private/caja-icon-container.c:2925
+#: ../libcaja-private/caja-icon-container.c:2920
 msgid "The selection rectangle"
 msgstr "Výběrový obdélník"
 
@@ -2071,10 +2057,10 @@ msgstr "Tento odkaz nelze použít, protože jeho cíl „%s“ neexistuje."
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-mime-actions.c:744
-#: ../src/file-manager/fm-directory-view.c:7365
-#: ../src/file-manager/fm-directory-view.c:7497
-#: ../src/file-manager/fm-directory-view.c:8596
-#: ../src/file-manager/fm-directory-view.c:8921
+#: ../src/file-manager/fm-directory-view.c:7368
+#: ../src/file-manager/fm-directory-view.c:7500
+#: ../src/file-manager/fm-directory-view.c:8599
+#: ../src/file-manager/fm-directory-view.c:8924
 #: ../src/file-manager/fm-tree-view.c:1346
 msgid "Mo_ve to Trash"
 msgstr "Pře_sunout do koše"
@@ -2183,12 +2169,12 @@ msgstr "Označit jako _důveryhodný"
 
 #: ../libcaja-private/caja-mime-actions.c:2010
 #: ../libcaja-private/caja-mime-actions.c:2316
-#: ../src/file-manager/fm-directory-view.c:6383
+#: ../src/file-manager/fm-directory-view.c:6386
 msgid "Unable to mount location"
 msgstr "Nelze připojit umístění"
 
 #: ../libcaja-private/caja-mime-actions.c:2404
-#: ../src/file-manager/fm-directory-view.c:6557
+#: ../src/file-manager/fm-directory-view.c:6560
 msgid "Unable to start location"
 msgstr "Umístění nelze aktivovat"
 
@@ -2228,26 +2214,26 @@ msgstr "Ikona"
 msgid "Could not remove application"
 msgstr "Nelze odstranit aplikaci"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:558
+#: ../libcaja-private/caja-mime-application-chooser.c:561
 msgid "No applications selected"
 msgstr "Nevybrány žádné aplikace"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:588
+#: ../libcaja-private/caja-mime-application-chooser.c:591
 #, c-format
 msgid "%s document"
 msgstr "%s dokument"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:598
-#: ../libcaja-private/caja-open-with-dialog.c:1078
+#: ../libcaja-private/caja-mime-application-chooser.c:601
+#: ../libcaja-private/caja-open-with-dialog.c:1081
 msgid "Unknown"
 msgstr "Neznámý"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:631
+#: ../libcaja-private/caja-mime-application-chooser.c:634
 #, c-format
 msgid "Select an application to open %s and other files of type \"%s\""
 msgstr "Zvolte aplikaci pro otevření %s a dalších souborů typu „%s“"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:703
+#: ../libcaja-private/caja-mime-application-chooser.c:706
 #, c-format
 msgid "Open all files of type \"%s\" with:"
 msgstr "Otevřít všechny soubory typu „%s“ pomocí:"
@@ -2283,76 +2269,76 @@ msgstr "Zvolte aplikaci"
 msgid "Open With"
 msgstr "Otevřít s"
 
-#: ../libcaja-private/caja-open-with-dialog.c:880
+#: ../libcaja-private/caja-open-with-dialog.c:883
 msgid "Select an application to view its description."
 msgstr "Vyberte aplikaci pro zobrazení jejího popisu."
 
-#: ../libcaja-private/caja-open-with-dialog.c:910
+#: ../libcaja-private/caja-open-with-dialog.c:913
 msgid "_Use a custom command"
 msgstr "Po_užít vlastní příkaz"
 
-#: ../libcaja-private/caja-open-with-dialog.c:927
+#: ../libcaja-private/caja-open-with-dialog.c:930
 msgid "_Browse..."
 msgstr "_Procházet…"
 
 #. name, stock id
 #. label, accelerator
-#: ../libcaja-private/caja-open-with-dialog.c:963
-#: ../src/file-manager/fm-directory-view.c:7281
-#: ../src/file-manager/fm-directory-view.c:8790
-#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2682
+#: ../libcaja-private/caja-open-with-dialog.c:966
+#: ../src/file-manager/fm-directory-view.c:7284
+#: ../src/file-manager/fm-directory-view.c:8793
+#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2656
 msgid "_Open"
 msgstr "_Otevřít"
 
 #. first %s is a filename and second %s is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1048
+#: ../libcaja-private/caja-open-with-dialog.c:1051
 #, c-format
 msgid "Open %s and other %s document with:"
 msgstr "Otevřít %s a další dokumenty typu %s pomocí:"
 
 #. the %s here is a file name
 #. %s is a filename
-#: ../libcaja-private/caja-open-with-dialog.c:1054
-#: ../libcaja-private/caja-open-with-dialog.c:1094
+#: ../libcaja-private/caja-open-with-dialog.c:1057
+#: ../libcaja-private/caja-open-with-dialog.c:1097
 #, c-format
 msgid "Open %s with:"
 msgstr "Otevřít %s pomocí:"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1055
+#: ../libcaja-private/caja-open-with-dialog.c:1058
 #, c-format
 msgid "_Remember this application for %s documents"
 msgstr "_Zapamatovat si tuto aplikaci k použití s dokumenty typu %s"
 
 #. Only in add mode - the %s here is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1066
+#: ../libcaja-private/caja-open-with-dialog.c:1069
 #, c-format
 msgid "Open all %s documents with:"
 msgstr "Otevřít všechny dokumenty typu %s pomocí:"
 
 #. First %s is a filename, second is a description
 #. * of the type, eg "plain text document"
-#: ../libcaja-private/caja-open-with-dialog.c:1088
+#: ../libcaja-private/caja-open-with-dialog.c:1091
 #, c-format
 msgid "Open %s and other \"%s\" files with:"
 msgstr "Otevřít %s a další soubory „%s“ pomocí:"
 
 #. %s is a file type description
-#: ../libcaja-private/caja-open-with-dialog.c:1096
+#: ../libcaja-private/caja-open-with-dialog.c:1099
 #, c-format
 msgid "_Remember this application for \"%s\" files"
 msgstr "_Zapamatovat si tuto aplikaci k použití se soubory typu „%s“"
 
 #. Only in add mode
-#: ../libcaja-private/caja-open-with-dialog.c:1107
+#: ../libcaja-private/caja-open-with-dialog.c:1110
 #, c-format
 msgid "Open all \"%s\" files with:"
 msgstr "Otevřít všechny soubory „%s“ pomocí:"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1119
+#: ../libcaja-private/caja-open-with-dialog.c:1122
 msgid "_Add"
 msgstr "Přid_at"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1120
+#: ../libcaja-private/caja-open-with-dialog.c:1123
 msgid "Add Application"
 msgstr "Přidat aplikaci"
 
@@ -2902,7 +2888,7 @@ msgid ""
 "If set to true, then all Caja windows will be browser windows. This is how "
 "Nautilus used to behave before version 2.6, and some people prefer this "
 "behavior."
-msgstr "Je-li nastaveno na pravda (true), budou všechna okna Nautilu okny prohlížeče. Takto se Caja choval před verzí 2.6 a někteří lidé dávají tomuto chování přednost."
+msgstr "Je-li nastaveno na pravda (true), budou všechna okna Caja okny prohlížeče. Takto se Nautilus choval před verzí 2.6 a někteří lidé dávají tomuto chování přednost."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:7
 msgid "Always use the location entry, instead of the pathbar"
@@ -3584,107 +3570,122 @@ msgid ""
 "media matching these types."
 msgstr "Seznam typů x-content/*, pro které uživatel nastavil vlastnost „Otevřít složku“. Po vložení média odpovídajícího typu bude zobrazeno okno s obsahem složky."
 
-#: ../data/caja-autorun-software.desktop.in.in.h:1
-msgid "Autorun Prompt"
-msgstr "Výzva automatického spuštění"
+#: ../libegg/eggdesktopfile.c:166
+#, c-format
+msgid "File is not a valid .desktop file"
+msgstr "Soubor není platným souborem typu .desktop"
 
-#. Set initial window title
-#: ../data/caja-browser.desktop.in.in.h:1
-#: ../data/caja-folder-handler.desktop.in.in.h:1
-#: ../data/caja.desktop.in.in.h:1 ../src/caja-spatial-window.c:373
-#: ../src/caja-window-menus.c:535 ../src/caja-window.c:172
-msgid "Caja"
-msgstr "Caja"
+#: ../libegg/eggdesktopfile.c:189
+#, c-format
+msgid "Unrecognized desktop file Version '%s'"
+msgstr "Nerozpoznaný soubor plochy verze '%s'"
 
-#: ../data/caja-browser.desktop.in.in.h:2
-msgid "File Browser"
-msgstr "Prohlížeč souborů"
+#: ../libegg/eggdesktopfile.c:958
+#, c-format
+msgid "Starting %s"
+msgstr "Spouští se %s"
 
-#: ../data/caja-browser.desktop.in.in.h:3
-msgid "Browse the file system with the file manager"
-msgstr "Procházet systém souborů správcem souborů"
+#: ../libegg/eggdesktopfile.c:1100
+#, c-format
+msgid "Application does not accept documents on command line"
+msgstr "Aplikace nepřijímá dokumenty z příkazové řádky"
 
-#. tooltip
-#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:905
-msgid ""
-"Browse all local and remote disks and folders accessible from this computer"
-msgstr "Procházet všechny místní a vzdálené disky a složky dostupné z tohoto počítače"
+#: ../libegg/eggdesktopfile.c:1168
+#, c-format
+msgid "Unrecognized launch option: %d"
+msgstr "Nerozpoznaná volba spuštění: %d"
 
-#: ../data/caja-file-management-properties.desktop.in.in.h:1
-msgid "File Management"
-msgstr "Správa souborů"
+#: ../libegg/eggdesktopfile.c:1366
+#, c-format
+msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
+msgstr "Nelze předat adresu URI položce plochy s typem 'Type=Link'"
 
-#: ../data/caja-file-management-properties.desktop.in.in.h:2
-msgid "Change the behaviour and appearance of file manager windows"
-msgstr "Změnit chování a vzhled oken správce souborů"
+#: ../libegg/eggdesktopfile.c:1385
+#, c-format
+msgid "Not a launchable item"
+msgstr "Nespustitelná položka"
 
-#: ../data/caja-home.desktop.in.in.h:1 ../src/file-manager/fm-tree-view.c:1434
-msgid "Home Folder"
-msgstr "Domovská složka"
+#: ../libegg/eggsmclient.c:237
+msgid "Disable connection to session manager"
+msgstr "Zakázat spojení na správce sezení"
 
-#. tooltip
-#: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:509
-#: ../src/caja-window-menus.c:900
-msgid "Open your personal folder"
-msgstr "Otevřít osobní složku"
+#: ../libegg/eggsmclient.c:242
+msgid "Specify file containing saved configuration"
+msgstr "Zadejte soubor obsahující uloženou konfiguraci"
 
-#: ../data/caja.desktop.in.in.h:2
-msgid "File Manager"
-msgstr "Správce souborů"
+#: ../libegg/eggsmclient.c:242
+msgid "FILE"
+msgstr "SOUBOR"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:708
+#: ../libegg/eggsmclient.c:247
+msgid "Specify session management ID"
+msgstr "Stanovit ID Správy sezení"
+
+#: ../libegg/eggsmclient.c:247
+msgid "ID"
+msgstr "ID"
+
+#: ../libegg/eggsmclient.c:273
+msgid "Session management options:"
+msgstr "Volby správy sezení:"
+
+#: ../libegg/eggsmclient.c:274
+msgid "Show session management options"
+msgstr "Zobrazit volby správy sezení"
+
+#: ../src/file-manager/fm-desktop-icon-view.c:709
 msgid "Background"
 msgstr "Pozadí"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:785
-#: ../src/file-manager/fm-directory-view.c:7313
-#: ../src/file-manager/fm-directory-view.c:8990
+#: ../src/file-manager/fm-desktop-icon-view.c:786
+#: ../src/file-manager/fm-directory-view.c:7316
+#: ../src/file-manager/fm-directory-view.c:8993
 msgid "E_mpty Trash"
 msgstr "Vy_prázdnit koš"
 
 #. label, accelerator
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:799
-#: ../src/file-manager/fm-directory-view.c:7277
+#: ../src/file-manager/fm-desktop-icon-view.c:800
+#: ../src/file-manager/fm-directory-view.c:7280
 msgid "Create L_auncher..."
 msgstr "Vytvořit s_pouštěč…"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:801
-#: ../src/file-manager/fm-directory-view.c:7278
+#: ../src/file-manager/fm-desktop-icon-view.c:802
+#: ../src/file-manager/fm-directory-view.c:7281
 msgid "Create a new launcher"
 msgstr "Vytvořit nový spouštěč"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:808
+#: ../src/file-manager/fm-desktop-icon-view.c:809
 msgid "Change Desktop _Background"
 msgstr "Změnit _pozadí plochy"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:810
+#: ../src/file-manager/fm-desktop-icon-view.c:811
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr "Zobrazit okno, které vám umožní nastavit vzor nebo barvu pozadí pracovní plochy"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:817
+#: ../src/file-manager/fm-desktop-icon-view.c:818
 msgid "Empty Trash"
 msgstr "Vyprázdnit koš"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:819
-#: ../src/file-manager/fm-directory-view.c:7314 ../src/caja-trash-bar.c:204
+#: ../src/file-manager/fm-desktop-icon-view.c:820
+#: ../src/file-manager/fm-directory-view.c:7317 ../src/caja-trash-bar.c:204
 msgid "Delete all items in the Trash"
 msgstr "Odstranit všechny položky z koše"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:919
+#: ../src/file-manager/fm-desktop-icon-view.c:920
 msgid "The desktop view encountered an error."
 msgstr "Při zobrazení pracovní plochy došlo k chybě."
 
-#: ../src/file-manager/fm-desktop-icon-view.c:920
+#: ../src/file-manager/fm-desktop-icon-view.c:921
 msgid "The desktop view encountered an error while starting up."
 msgstr "Při zobrazení pracovní plochy došlo k chybě během startu."
 
@@ -3738,13 +3739,13 @@ msgstr "_Složka:"
 msgid "Select Folder to Save Search In"
 msgstr "Vybrat složku pro uložení hledání"
 
-#: ../src/file-manager/fm-directory-view.c:2281
-#: ../src/file-manager/fm-directory-view.c:2318
+#: ../src/file-manager/fm-directory-view.c:2284
+#: ../src/file-manager/fm-directory-view.c:2321
 #, c-format
 msgid "\"%s\" selected"
 msgstr "„%s“ vybrán"
 
-#: ../src/file-manager/fm-directory-view.c:2283
+#: ../src/file-manager/fm-directory-view.c:2286
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
@@ -3752,7 +3753,7 @@ msgstr[0] "Vybrána %'d složka"
 msgstr[1] "Vybrány %'d složky"
 msgstr[2] "Vybráno %'d složek"
 
-#: ../src/file-manager/fm-directory-view.c:2293
+#: ../src/file-manager/fm-directory-view.c:2296
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
@@ -3762,7 +3763,7 @@ msgstr[2] " (obsahuje %'d položek)"
 
 #. translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
-#: ../src/file-manager/fm-directory-view.c:2304
+#: ../src/file-manager/fm-directory-view.c:2307
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
@@ -3770,7 +3771,7 @@ msgstr[0] " (obsahují celkem %'d položku)"
 msgstr[1] " (obsahují celkem %'d položky)"
 msgstr[2] " (obsahují celkem %'d položek)"
 
-#: ../src/file-manager/fm-directory-view.c:2321
+#: ../src/file-manager/fm-directory-view.c:2324
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
@@ -3779,7 +3780,7 @@ msgstr[1] "Vybrány %'d položky"
 msgstr[2] "Vybráno %'d položek"
 
 #. Folders selected also, use "other" terminology
-#: ../src/file-manager/fm-directory-view.c:2328
+#: ../src/file-manager/fm-directory-view.c:2331
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
@@ -3791,17 +3792,17 @@ msgstr[2] "vybráno %'d dalších položek"
 #. * needs to use something other than parentheses. The
 #. * first message gives the number of items selected;
 #. * the message in parentheses the size of those items.
-#: ../src/file-manager/fm-directory-view.c:2347
+#: ../src/file-manager/fm-directory-view.c:2350
 #, c-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-directory-view.c:2360
+#: ../src/file-manager/fm-directory-view.c:2363
 #, c-format
 msgid "Free space: %s"
 msgstr "Volné místo: %s"
 
-#: ../src/file-manager/fm-directory-view.c:2371
+#: ../src/file-manager/fm-directory-view.c:2374
 #, c-format
 msgid "%s, Free space: %s"
 msgstr "%s, Volné místo: %s"
@@ -3810,7 +3811,7 @@ msgstr "%s, Volné místo: %s"
 #. * might want to change "," to something else.
 #. * After the comma the amount of free space will
 #. * be shown.
-#: ../src/file-manager/fm-directory-view.c:2386
+#: ../src/file-manager/fm-directory-view.c:2389
 #, c-format
 msgid "%s, %s"
 msgstr "%s, %s"
@@ -3825,8 +3826,8 @@ msgstr "%s, %s"
 #. * and the number of items in those folders and the
 #. * message about the number of other items and the
 #. * total size of those items.
-#: ../src/file-manager/fm-directory-view.c:2405
-#: ../src/file-manager/fm-directory-view.c:2419
+#: ../src/file-manager/fm-directory-view.c:2408
+#: ../src/file-manager/fm-directory-view.c:2422
 #, c-format
 msgid "%s%s, %s"
 msgstr "%s%s, %s"
@@ -3838,18 +3839,18 @@ msgstr "%s%s, %s"
 #. * message about the number of other items and the
 #. * total size of those items. After the second comma
 #. * the free space is written.
-#: ../src/file-manager/fm-directory-view.c:2432
+#: ../src/file-manager/fm-directory-view.c:2435
 #, c-format
 msgid "%s%s, %s, %s"
 msgstr "%s%s, %s, %s"
 
-#: ../src/file-manager/fm-directory-view.c:4477
+#: ../src/file-manager/fm-directory-view.c:4480
 #: ../src/caja-information-panel.c:905
 #, c-format
 msgid "Open With %s"
 msgstr "Otevřít s %s"
 
-#: ../src/file-manager/fm-directory-view.c:4479
+#: ../src/file-manager/fm-directory-view.c:4482
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
@@ -3857,35 +3858,35 @@ msgstr[0] "Použít „%s“ k otevření vybrané položky"
 msgstr[1] "Použít „%s“ k otevření vybraných položek"
 msgstr[2] "Použít „%s“ k otevření vybraných položek"
 
-#: ../src/file-manager/fm-directory-view.c:4568
+#: ../src/file-manager/fm-directory-view.c:4571
 msgid "Open parent location"
 msgstr "Otevřít výchozí umístění"
 
-#: ../src/file-manager/fm-directory-view.c:4569
+#: ../src/file-manager/fm-directory-view.c:4572
 msgid "Open parent location for the selected item"
 msgstr "Otevřít výchozí umístění pro vybranou položku"
 
-#: ../src/file-manager/fm-directory-view.c:5418
+#: ../src/file-manager/fm-directory-view.c:5421
 #, c-format
 msgid "Run \"%s\" on any selected items"
 msgstr "Spustit „%s“ na vybraných souborech"
 
-#: ../src/file-manager/fm-directory-view.c:5669
+#: ../src/file-manager/fm-directory-view.c:5672
 #, c-format
 msgid "Create Document from template \"%s\""
 msgstr "Vytvořit dokument ze šablony „%s“"
 
-#: ../src/file-manager/fm-directory-view.c:5919
+#: ../src/file-manager/fm-directory-view.c:5922
 msgid "All executable files in this folder will appear in the Scripts menu."
 msgstr "Všechny spustitelné soubory z této složky se objeví v nabídce Skripty."
 
-#: ../src/file-manager/fm-directory-view.c:5921
+#: ../src/file-manager/fm-directory-view.c:5924
 msgid ""
 "Choosing a script from the menu will run that script with any selected items"
 " as input."
 msgstr "Výběr skriptu z této nabídky spustí skript s vybranými položkami jako vstup."
 
-#: ../src/file-manager/fm-directory-view.c:5923
+#: ../src/file-manager/fm-directory-view.c:5926
 msgid ""
 "All executable files in this folder will appear in the Scripts menu. Choosing a script from the menu will run that script.\n"
 "\n"
@@ -3908,19 +3909,19 @@ msgid ""
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI for current location in the inactive pane of a split-view window"
 msgstr "Všechny spustitelné soubory z této složky se objeví v nabídce Skripty. Výběr skriptu z této nabídky tento skript spustí.\n\nJsou-li skripty spuštěny z místní složky, dostanou názvy vybraných souborů. Jsou-li spuštěny ze vzdálené složky (např. složky zobrazující obsah WWW nebo ftp), nedostanou žádné parametry.\n\nVe všech případech nastaví Caja následující proměnné prostředí, které skripty mohou použít:\n\nCAJA_SCRIPT_SELECTED_FILE_PATHS: cesty vybraných souborů oddělené koncem řádku (jen místní)\n\nCAJA_SCRIPT_SELECTED_URIS: URI vybraných souborů oddělené koncem řádku\n\nCAJA_SCRIPT_CURRENT_URI: URI aktuálního umístění\n\nCAJA_SCRIPT_WINDOW_GEOMETRY: pozice a velikost aktuálního okna\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_FILE_PATHS: cesty vybraných souborů oddělené koncem řádku v neaktivním panelu rozděleného zobrazení (jen místní)\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: URI vybraných souborů oddělené koncem řádku v neaktivním panelu rozděleného zobrazení\n\nCAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI aktuálního umístění neaktivního panelu rozděleného zobrazení"
 
-#: ../src/file-manager/fm-directory-view.c:5991
+#: ../src/file-manager/fm-directory-view.c:5994
 #: ../src/file-manager/fm-tree-view.c:1009
 #, c-format
 msgid "\"%s\" will be moved if you select the Paste command"
 msgstr "„%s“ bude přesunut, pokud vyberete příkaz Vložit"
 
-#: ../src/file-manager/fm-directory-view.c:5995
+#: ../src/file-manager/fm-directory-view.c:5998
 #: ../src/file-manager/fm-tree-view.c:1015
 #, c-format
 msgid "\"%s\" will be copied if you select the Paste command"
 msgstr "„%s“ bude zkopírován, pokud vyberete příkaz Vložit"
 
-#: ../src/file-manager/fm-directory-view.c:6002
+#: ../src/file-manager/fm-directory-view.c:6005
 #, c-format
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
@@ -3929,7 +3930,7 @@ msgstr[0] "%'d vybraná položka bude přesunuta, pokud zvolíte příkaz Vloži
 msgstr[1] "%'d vybrané položky budou přesunuty, pokud zvolíte příkaz Vložit"
 msgstr[2] "%'d vybraných položek bude přesunuto, pokud zvolíte příkaz Vložit"
 
-#: ../src/file-manager/fm-directory-view.c:6009
+#: ../src/file-manager/fm-directory-view.c:6012
 #, c-format
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
@@ -3938,98 +3939,98 @@ msgstr[0] "%'d vybraná položka bude zkopírována, pokud zvolíte příkaz Vlo
 msgstr[1] "%'d vybrané položky budou zkopírovány, pokud zvolíte příkaz Vložit"
 msgstr[2] "%'d vybraných položek bude zkopírováno, pokud zvolíte příkaz Vložit"
 
-#: ../src/file-manager/fm-directory-view.c:6189
+#: ../src/file-manager/fm-directory-view.c:6192
 #: ../src/file-manager/fm-tree-view.c:1055
 msgid "There is nothing on the clipboard to paste."
 msgstr "Ve schránce není nic ke vložení."
 
-#: ../src/file-manager/fm-directory-view.c:6404
+#: ../src/file-manager/fm-directory-view.c:6407
 msgid "Unable to unmount location"
 msgstr "Umístění nelze odpojit"
 
-#: ../src/file-manager/fm-directory-view.c:6425
+#: ../src/file-manager/fm-directory-view.c:6428
 msgid "Unable to eject location"
 msgstr "Umístění nelze vysunout"
 
-#: ../src/file-manager/fm-directory-view.c:6440
+#: ../src/file-manager/fm-directory-view.c:6443
 msgid "Unable to stop drive"
 msgstr "Zařízení nelze deaktivovat"
 
-#: ../src/file-manager/fm-directory-view.c:6997
+#: ../src/file-manager/fm-directory-view.c:7000
 #, c-format
 msgid "Connect to Server %s"
 msgstr "Připojit se k serveru %s"
 
-#: ../src/file-manager/fm-directory-view.c:7002
-#: ../src/file-manager/fm-directory-view.c:8209
-#: ../src/file-manager/fm-directory-view.c:8301
-#: ../src/file-manager/fm-directory-view.c:8411
+#: ../src/file-manager/fm-directory-view.c:7005
+#: ../src/file-manager/fm-directory-view.c:8212
+#: ../src/file-manager/fm-directory-view.c:8304
+#: ../src/file-manager/fm-directory-view.c:8414
 msgid "_Connect"
 msgstr "_Připojit"
 
-#: ../src/file-manager/fm-directory-view.c:7016
+#: ../src/file-manager/fm-directory-view.c:7019
 msgid "Link _name:"
 msgstr "_Název odkazu:"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7255
+#: ../src/file-manager/fm-directory-view.c:7258
 msgid "Create _Document"
 msgstr "Vytvořit _dokument"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7256
+#: ../src/file-manager/fm-directory-view.c:7259
 msgid "Open Wit_h"
 msgstr "Otevřít _s"
 
-#: ../src/file-manager/fm-directory-view.c:7257
+#: ../src/file-manager/fm-directory-view.c:7260
 msgid "Choose a program with which to open the selected item"
 msgstr "Vyberte program, se kterým otevřít vybranou položku"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7259
-#: ../src/file-manager/fm-directory-view.c:7538
+#: ../src/file-manager/fm-directory-view.c:7262
+#: ../src/file-manager/fm-directory-view.c:7541
 msgid "_Properties"
 msgstr "_Vlastnosti"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7260
-#: ../src/file-manager/fm-directory-view.c:8977
+#: ../src/file-manager/fm-directory-view.c:7263
+#: ../src/file-manager/fm-directory-view.c:8980
 msgid "View or modify the properties of each selected item"
 msgstr "Zobrazit nebo upravit vlastnosti každé vybrané položky"
 
 #. name, stock id
 #. label, accelerator
 #. add the "create folder" menu item
-#: ../src/file-manager/fm-directory-view.c:7267
+#: ../src/file-manager/fm-directory-view.c:7270
 #: ../src/file-manager/fm-tree-view.c:1298
 msgid "Create _Folder"
 msgstr "Vytvořit _složku"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7268
+#: ../src/file-manager/fm-directory-view.c:7271
 msgid "Create a new empty folder inside this folder"
 msgstr "Vytvořit novou prázdnou složku v této složce"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7270
+#: ../src/file-manager/fm-directory-view.c:7273
 msgid "No templates installed"
 msgstr "Nenainstalovány žádné šablony"
 
 #. name, stock id
 #. translators: this is used to indicate that a file doesn't contain anything
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7273
+#: ../src/file-manager/fm-directory-view.c:7276
 msgid "_Empty File"
 msgstr "_Prázdný soubor"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7274
+#: ../src/file-manager/fm-directory-view.c:7277
 msgid "Create a new empty file inside this folder"
 msgstr "Vytvořit nový prázdný soubor v této složce"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7282
+#: ../src/file-manager/fm-directory-view.c:7285
 msgid "Open the selected item in this window"
 msgstr "Otevřít vybranou položku v tomto okně"
 
@@ -4038,91 +4039,91 @@ msgstr "Otevřít vybranou položku v tomto okně"
 #. Location-specific actions
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7289
-#: ../src/file-manager/fm-directory-view.c:7470
+#: ../src/file-manager/fm-directory-view.c:7292
+#: ../src/file-manager/fm-directory-view.c:7473
 msgid "Open in Navigation Window"
 msgstr "Otevřít v navigačním okně"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7290
+#: ../src/file-manager/fm-directory-view.c:7293
 msgid "Open each selected item in a navigation window"
 msgstr "Otevřít každou vybranou položku v navigačním okně"
 
 #. name, stock id
 #. label, accelerator
 #. add the "open in new tab" menu item
-#: ../src/file-manager/fm-directory-view.c:7293
-#: ../src/file-manager/fm-directory-view.c:7474
-#: ../src/file-manager/fm-directory-view.c:8541
-#: ../src/file-manager/fm-directory-view.c:8867
-#: ../src/file-manager/fm-tree-view.c:1278 ../src/caja-places-sidebar.c:2690
+#: ../src/file-manager/fm-directory-view.c:7296
+#: ../src/file-manager/fm-directory-view.c:7477
+#: ../src/file-manager/fm-directory-view.c:8544
+#: ../src/file-manager/fm-directory-view.c:8870
+#: ../src/file-manager/fm-tree-view.c:1278 ../src/caja-places-sidebar.c:2664
 msgid "Open in New _Tab"
 msgstr "Otevřít v nové kar_tě"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7294
+#: ../src/file-manager/fm-directory-view.c:7297
 msgid "Open each selected item in a new tab"
 msgstr "Otevřít každou vybranou položku v nové kartě"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7297
-#: ../src/file-manager/fm-directory-view.c:7479
+#: ../src/file-manager/fm-directory-view.c:7300
+#: ../src/file-manager/fm-directory-view.c:7482
 msgid "Open in _Folder Window"
 msgstr "Otevřít v okně _složky"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7298
+#: ../src/file-manager/fm-directory-view.c:7301
 msgid "Open each selected item in a folder window"
 msgstr "Otevřít každou vybranou položku v okně složky"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7301
+#: ../src/file-manager/fm-directory-view.c:7304
 msgid "Other _Application..."
 msgstr "Jiná _aplikace…"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7302
-#: ../src/file-manager/fm-directory-view.c:7306
+#: ../src/file-manager/fm-directory-view.c:7305
+#: ../src/file-manager/fm-directory-view.c:7309
 msgid "Choose another application with which to open the selected item"
 msgstr "Vyberte jinou aplikaci, se kterou otevřít vybranou položku"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7305
+#: ../src/file-manager/fm-directory-view.c:7308
 msgid "Open With Other _Application..."
 msgstr "Otevřít v jiné _aplikací…"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7309
+#: ../src/file-manager/fm-directory-view.c:7312
 msgid "_Open Scripts Folder"
 msgstr "_Otevřít složku skriptů"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7310
+#: ../src/file-manager/fm-directory-view.c:7313
 msgid "Show the folder containing the scripts that appear in this menu"
 msgstr "Zobrazit složku, ve které jsou skripty z této nabídky"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7318
+#: ../src/file-manager/fm-directory-view.c:7321
 msgid "Prepare the selected files to be moved with a Paste command"
 msgstr "Připravit vybrané soubory k přesunutí příkazem Vložit"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7322
+#: ../src/file-manager/fm-directory-view.c:7325
 msgid "Prepare the selected files to be copied with a Paste command"
 msgstr "Připravit vybrané soubory ke kopírování příkazem Vložit"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7326
+#: ../src/file-manager/fm-directory-view.c:7329
 msgid "Move or copy files previously selected by a Cut or Copy command"
 msgstr "Přesunout nebo zkopírovat soubory dříve vybrané příkazem Vyjmout nebo Kopírovat"
 
@@ -4130,71 +4131,71 @@ msgstr "Přesunout nebo zkopírovat soubory dříve vybrané příkazem Vyjmout 
 #. accelerator for paste
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7331
-#: ../src/file-manager/fm-directory-view.c:7492
+#: ../src/file-manager/fm-directory-view.c:7334
+#: ../src/file-manager/fm-directory-view.c:7495
 #: ../src/file-manager/fm-tree-view.c:1330
 msgid "_Paste Into Folder"
 msgstr "Vl_ožit do složky"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7332
+#: ../src/file-manager/fm-directory-view.c:7335
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into the "
 "selected folder"
 msgstr "Přesunout nebo zkopírovat soubory dříve vybrané příkazem Vyjmout nebo Kopírovat do vybrané složky"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7334
+#: ../src/file-manager/fm-directory-view.c:7337
 msgid "Cop_y to"
 msgstr "Zkopírovat do"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7335
+#: ../src/file-manager/fm-directory-view.c:7338
 msgid "M_ove to"
 msgstr "Přesunout"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7338
+#: ../src/file-manager/fm-directory-view.c:7341
 msgid "Select all items in this window"
 msgstr "Vybrat všechny položky v tomto okně"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7341
+#: ../src/file-manager/fm-directory-view.c:7344
 msgid "Select I_tems Matching..."
 msgstr "Zvoli_t položky odpovídající…"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7342
+#: ../src/file-manager/fm-directory-view.c:7345
 msgid "Select items in this window matching a given pattern"
 msgstr "Vybrat položky v tomto okně odpovídající zadanému vzorku"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7345
+#: ../src/file-manager/fm-directory-view.c:7348
 msgid "_Invert Selection"
 msgstr "_Invertovat výběr"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7346
+#: ../src/file-manager/fm-directory-view.c:7349
 msgid "Select all and only the items that are not currently selected"
 msgstr "Zvolit všechny položky, které nejsou momentálně zvoleny"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7349
+#: ../src/file-manager/fm-directory-view.c:7352
 msgid "D_uplicate"
 msgstr "D_uplikovat"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7350
+#: ../src/file-manager/fm-directory-view.c:7353
 msgid "Duplicate each selected item"
 msgstr "Duplikovat každou vybranou položku"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7353
-#: ../src/file-manager/fm-directory-view.c:8961
+#: ../src/file-manager/fm-directory-view.c:7356
+#: ../src/file-manager/fm-directory-view.c:8964
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
 msgstr[0] "V_ytvořit odkaz"
@@ -4202,69 +4203,69 @@ msgstr[1] "V_ytvořit odkazy"
 msgstr[2] "V_ytvořit odkazy"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7354
+#: ../src/file-manager/fm-directory-view.c:7357
 msgid "Create a symbolic link for each selected item"
 msgstr "Vytvořit symbolický odkaz na každou vybranou položku"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7357
+#: ../src/file-manager/fm-directory-view.c:7360
 msgid "_Rename..."
 msgstr "_Přejmenovat…"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7358
+#: ../src/file-manager/fm-directory-view.c:7361
 msgid "Rename selected item"
 msgstr "Přejmenovat vybranou položku"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7366
-#: ../src/file-manager/fm-directory-view.c:8922
+#: ../src/file-manager/fm-directory-view.c:7369
+#: ../src/file-manager/fm-directory-view.c:8925
 msgid "Move each selected item to the Trash"
 msgstr "Přesunout všechny vybrané položky do koše"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7369
-#: ../src/file-manager/fm-directory-view.c:7501
-#: ../src/file-manager/fm-directory-view.c:8942
+#: ../src/file-manager/fm-directory-view.c:7372
+#: ../src/file-manager/fm-directory-view.c:7504
+#: ../src/file-manager/fm-directory-view.c:8945
 #: ../src/file-manager/fm-tree-view.c:1360
 msgid "_Delete"
 msgstr "_Odstranit"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7370
+#: ../src/file-manager/fm-directory-view.c:7373
 msgid "Delete each selected item, without moving to the Trash"
 msgstr "Odstranit každou vybranou položku bez přesunu do koše"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7373
-#: ../src/file-manager/fm-directory-view.c:7505
+#: ../src/file-manager/fm-directory-view.c:7376
+#: ../src/file-manager/fm-directory-view.c:7508
 msgid "_Restore"
 msgstr "_Obnovit"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7377
+#: ../src/file-manager/fm-directory-view.c:7380
 msgid "_Undo"
 msgstr "Akce _zpět"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7378
-#: ../src/file-manager/fm-directory-view.c:11126
+#: ../src/file-manager/fm-directory-view.c:7381
+#: ../src/file-manager/fm-directory-view.c:11129
 msgid "Undo the last action"
 msgstr "Vrátit zpět poslední akci"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7381
+#: ../src/file-manager/fm-directory-view.c:7384
 msgid "_Redo"
 msgstr "Zn_ovu"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7382
-#: ../src/file-manager/fm-directory-view.c:11144
+#: ../src/file-manager/fm-directory-view.c:7385
+#: ../src/file-manager/fm-directory-view.c:11147
 msgid "Redo the last undone action"
 msgstr "Provést znovu poslední akci vzatou zpět"
 
@@ -4274,320 +4275,320 @@ msgstr "Provést znovu poslední akci vzatou zpět"
 #. * it is a mixture of both ATM.
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7392
+#: ../src/file-manager/fm-directory-view.c:7395
 msgid "Reset View to _Defaults"
 msgstr "Obnovit Zobrazení na _výchozí"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7393
+#: ../src/file-manager/fm-directory-view.c:7396
 msgid "Reset sorting order and zoom level to match preferences for this view"
 msgstr "Obnovit pořadí řazení a úroveň zvětšení podle nastavení pro toto zobrazení"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7396
+#: ../src/file-manager/fm-directory-view.c:7399
 msgid "Connect To This Server"
 msgstr "Připojit se k tomuto serveru"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7397
+#: ../src/file-manager/fm-directory-view.c:7400
 msgid "Make a permanent connection to this server"
 msgstr "Vytvořit trvalé spojení k tomuto serveru"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7400
-#: ../src/file-manager/fm-directory-view.c:7428
-#: ../src/file-manager/fm-directory-view.c:7509
-#: ../src/caja-places-sidebar.c:2726
+#: ../src/file-manager/fm-directory-view.c:7403
+#: ../src/file-manager/fm-directory-view.c:7431
+#: ../src/file-manager/fm-directory-view.c:7512
+#: ../src/caja-places-sidebar.c:2700
 msgid "_Mount"
 msgstr "_Připojit"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7401
+#: ../src/file-manager/fm-directory-view.c:7404
 msgid "Mount the selected volume"
 msgstr "Připojit vybraný svazek"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7405
+#: ../src/file-manager/fm-directory-view.c:7408
 msgid "Unmount the selected volume"
 msgstr "Odpojit vybraný svazek"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7409
+#: ../src/file-manager/fm-directory-view.c:7412
 msgid "Eject the selected volume"
 msgstr "Vysunout vybraný svazek"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7412
-#: ../src/file-manager/fm-directory-view.c:7440
-#: ../src/file-manager/fm-directory-view.c:7521
-#: ../src/caja-places-sidebar.c:2754
+#: ../src/file-manager/fm-directory-view.c:7415
+#: ../src/file-manager/fm-directory-view.c:7443
+#: ../src/file-manager/fm-directory-view.c:7524
+#: ../src/caja-places-sidebar.c:2728
 msgid "_Format"
 msgstr "_Formátovat"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7413
+#: ../src/file-manager/fm-directory-view.c:7416
 msgid "Format the selected volume"
 msgstr "Formátovat vybraný svazek"
 
 #. name, stock id
 #. label, accelerator
 #. Adjust start/stop items to reflect the type of the drive
-#: ../src/file-manager/fm-directory-view.c:7416
-#: ../src/file-manager/fm-directory-view.c:7444
-#: ../src/file-manager/fm-directory-view.c:7525
-#: ../src/file-manager/fm-directory-view.c:8201
-#: ../src/file-manager/fm-directory-view.c:8205
-#: ../src/file-manager/fm-directory-view.c:8293
-#: ../src/file-manager/fm-directory-view.c:8297
-#: ../src/file-manager/fm-directory-view.c:8403
-#: ../src/file-manager/fm-directory-view.c:8407
-#: ../src/caja-places-sidebar.c:1808 ../src/caja-places-sidebar.c:2761
+#: ../src/file-manager/fm-directory-view.c:7419
+#: ../src/file-manager/fm-directory-view.c:7447
+#: ../src/file-manager/fm-directory-view.c:7528
+#: ../src/file-manager/fm-directory-view.c:8204
+#: ../src/file-manager/fm-directory-view.c:8208
+#: ../src/file-manager/fm-directory-view.c:8296
+#: ../src/file-manager/fm-directory-view.c:8300
+#: ../src/file-manager/fm-directory-view.c:8406
+#: ../src/file-manager/fm-directory-view.c:8410
+#: ../src/caja-places-sidebar.c:1785 ../src/caja-places-sidebar.c:2735
 msgid "_Start"
 msgstr "_Aktivovat"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7417
+#: ../src/file-manager/fm-directory-view.c:7420
 msgid "Start the selected volume"
 msgstr "Aktivovat vybraný svazek"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7420
-#: ../src/file-manager/fm-directory-view.c:7448
-#: ../src/file-manager/fm-directory-view.c:7529
-#: ../src/file-manager/fm-directory-view.c:8230
-#: ../src/file-manager/fm-directory-view.c:8322
-#: ../src/file-manager/fm-directory-view.c:8432
-#: ../src/caja-places-sidebar.c:1809 ../src/caja-places-sidebar.c:2768
+#: ../src/file-manager/fm-directory-view.c:7423
+#: ../src/file-manager/fm-directory-view.c:7451
+#: ../src/file-manager/fm-directory-view.c:7532
+#: ../src/file-manager/fm-directory-view.c:8233
+#: ../src/file-manager/fm-directory-view.c:8325
+#: ../src/file-manager/fm-directory-view.c:8435
+#: ../src/caja-places-sidebar.c:1786 ../src/caja-places-sidebar.c:2742
 #: ../src/caja-window-menus.c:844
 msgid "_Stop"
 msgstr "_Deaktivovat"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7421
-#: ../src/file-manager/fm-directory-view.c:8433
+#: ../src/file-manager/fm-directory-view.c:7424
+#: ../src/file-manager/fm-directory-view.c:8436
 msgid "Stop the selected volume"
 msgstr "Deaktivovat vybraný svazek"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7424
-#: ../src/file-manager/fm-directory-view.c:7452
-#: ../src/file-manager/fm-directory-view.c:7533
-#: ../src/caja-places-sidebar.c:2747
+#: ../src/file-manager/fm-directory-view.c:7427
+#: ../src/file-manager/fm-directory-view.c:7455
+#: ../src/file-manager/fm-directory-view.c:7536
+#: ../src/caja-places-sidebar.c:2721
 msgid "_Detect Media"
 msgstr "_Detekce média"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7425
-#: ../src/file-manager/fm-directory-view.c:7453
-#: ../src/file-manager/fm-directory-view.c:7534
+#: ../src/file-manager/fm-directory-view.c:7428
+#: ../src/file-manager/fm-directory-view.c:7456
+#: ../src/file-manager/fm-directory-view.c:7537
 msgid "Detect media in the selected drive"
 msgstr "Detekovat média ve vybraném zařízení"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7429
+#: ../src/file-manager/fm-directory-view.c:7432
 msgid "Mount the volume associated with the open folder"
 msgstr "Připojit svazek asociovaný s otevřenou složkou"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7433
+#: ../src/file-manager/fm-directory-view.c:7436
 msgid "Unmount the volume associated with the open folder"
 msgstr "Odpojit svazek asociovaný s otevřenou složkou"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7437
+#: ../src/file-manager/fm-directory-view.c:7440
 msgid "Eject the volume associated with the open folder"
 msgstr "Vysunout svazek asociovaný s otevřenou složkou"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7441
+#: ../src/file-manager/fm-directory-view.c:7444
 msgid "Format the volume associated with the open folder"
 msgstr "Naformátovat svazek asociovaný s otevřenou složkou"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7445
+#: ../src/file-manager/fm-directory-view.c:7448
 msgid "Start the volume associated with the open folder"
 msgstr "Aktivovat svazek asociovaný s otevřenou složkou"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7449
+#: ../src/file-manager/fm-directory-view.c:7452
 msgid "Stop the volume associated with the open folder"
 msgstr "Deaktivovat svazek asociovaný s otevřenou složkou"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7456
+#: ../src/file-manager/fm-directory-view.c:7459
 msgid "Open File and Close window"
 msgstr "Otevřít soubor a zavřít okno"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7460
+#: ../src/file-manager/fm-directory-view.c:7463
 msgid "Sa_ve Search"
 msgstr "_Uložit vyhledané"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7461
+#: ../src/file-manager/fm-directory-view.c:7464
 msgid "Save the edited search"
 msgstr "Uložit upravené hledání"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7464
+#: ../src/file-manager/fm-directory-view.c:7467
 msgid "Sa_ve Search As..."
 msgstr "_Uložit vyhledané jako…"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7465
+#: ../src/file-manager/fm-directory-view.c:7468
 msgid "Save the current search as a file"
 msgstr "Uložit jako soubor aktuální hledání"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7471
+#: ../src/file-manager/fm-directory-view.c:7474
 msgid "Open this folder in a navigation window"
 msgstr "Otevřít tuto složku v navigačním okně"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7475
+#: ../src/file-manager/fm-directory-view.c:7478
 msgid "Open this folder in a new tab"
 msgstr "Otevřít tuto složku v nové kartě"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7480
+#: ../src/file-manager/fm-directory-view.c:7483
 msgid "Open this folder in a folder window"
 msgstr "Otevřít tuto složku v okně složky"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7485
+#: ../src/file-manager/fm-directory-view.c:7488
 msgid "Prepare this folder to be moved with a Paste command"
 msgstr "Připravit tuto složku k přesunu příkazem Vložit"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7489
+#: ../src/file-manager/fm-directory-view.c:7492
 msgid "Prepare this folder to be copied with a Paste command"
 msgstr "Připravit tuto složku ke kopírování příkazem Vložit"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7493
+#: ../src/file-manager/fm-directory-view.c:7496
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into this "
 "folder"
 msgstr "Přesunout nebo zkopírovat soubory dříve vybrané příkazem Vyjmout nebo Kopírovat do této složky"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7498
+#: ../src/file-manager/fm-directory-view.c:7501
 msgid "Move this folder to the Trash"
 msgstr "Přesunout tuto složku do koše"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7502
+#: ../src/file-manager/fm-directory-view.c:7505
 msgid "Delete this folder, without moving to the Trash"
 msgstr "Odstranit tuto složku bez přesunu do koše"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7510
+#: ../src/file-manager/fm-directory-view.c:7513
 msgid "Mount the volume associated with this folder"
 msgstr "Připojit svazek asociovaný s touto složkou"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7514
+#: ../src/file-manager/fm-directory-view.c:7517
 msgid "Unmount the volume associated with this folder"
 msgstr "Odpojit svazek asociovaný s touto složkou"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7518
+#: ../src/file-manager/fm-directory-view.c:7521
 msgid "Eject the volume associated with this folder"
 msgstr "Vysunout svazek asociovaný s touto složkou"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7522
+#: ../src/file-manager/fm-directory-view.c:7525
 msgid "Format the volume associated with this folder"
 msgstr "Naformátovat svazek asociovaný s touto složkou"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7526
+#: ../src/file-manager/fm-directory-view.c:7529
 msgid "Start the volume associated with this folder"
 msgstr "Aktivovat svazek asociovaný s touto složkou"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7530
+#: ../src/file-manager/fm-directory-view.c:7533
 msgid "Stop the volume associated with this folder"
 msgstr "Deaktivovat svazek asociovaný s touto složkou"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7539
+#: ../src/file-manager/fm-directory-view.c:7542
 msgid "View or modify the properties of this folder"
 msgstr "Zobrazit nebo upravit vlastnosti této složky"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7542
 #: ../src/file-manager/fm-directory-view.c:7545
+#: ../src/file-manager/fm-directory-view.c:7548
 msgid "_Other pane"
 msgstr "_Druhý panel"
 
-#: ../src/file-manager/fm-directory-view.c:7543
+#: ../src/file-manager/fm-directory-view.c:7546
 msgid "Copy the current selection to the other pane in the window"
 msgstr "Kopírovat aktuální výběr do druhého panelu okna"
 
-#: ../src/file-manager/fm-directory-view.c:7546
+#: ../src/file-manager/fm-directory-view.c:7549
 msgid "Move the current selection to the other pane in the window"
 msgstr "Přesunout aktuální výběr do druhého panelu okna"
 
 #. name, stock id, label
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7549
-#: ../src/file-manager/fm-directory-view.c:7553 ../src/caja-window-menus.c:899
+#: ../src/file-manager/fm-directory-view.c:7552
+#: ../src/file-manager/fm-directory-view.c:7556 ../src/caja-window-menus.c:899
 msgid "_Home Folder"
 msgstr "_Domovská složka"
 
-#: ../src/file-manager/fm-directory-view.c:7550
+#: ../src/file-manager/fm-directory-view.c:7553
 msgid "Copy the current selection to the home folder"
 msgstr "Kopírovat aktuální výběr do domovské složky"
 
-#: ../src/file-manager/fm-directory-view.c:7554
+#: ../src/file-manager/fm-directory-view.c:7557
 msgid "Move the current selection to the home folder"
 msgstr "Přesunout aktuální výběr do domovské složky"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7557
-#: ../src/file-manager/fm-directory-view.c:7561
+#: ../src/file-manager/fm-directory-view.c:7560
+#: ../src/file-manager/fm-directory-view.c:7564
 msgid "_Desktop"
 msgstr "_Pracovní plocha"
 
-#: ../src/file-manager/fm-directory-view.c:7558
+#: ../src/file-manager/fm-directory-view.c:7561
 msgid "Copy the current selection to the desktop"
 msgstr "Kopírovat aktuální výběr na pracovní plochu"
 
-#: ../src/file-manager/fm-directory-view.c:7562
+#: ../src/file-manager/fm-directory-view.c:7565
 msgid "Move the current selection to the desktop"
 msgstr "Přesunout aktuální výběr na pracovní plochu"
 
 #. Translators: %s is a directory
-#: ../src/file-manager/fm-directory-view.c:7642
+#: ../src/file-manager/fm-directory-view.c:7645
 #, c-format
 msgid "Run or manage scripts from %s"
 msgstr "Spustit nebo spravovat skripty z %s"
 
 #. Create a script action here specially because its tooltip is dynamic
-#: ../src/file-manager/fm-directory-view.c:7644
+#: ../src/file-manager/fm-directory-view.c:7647
 msgid "_Scripts"
 msgstr "_Skripty"
 
-#: ../src/file-manager/fm-directory-view.c:8049
+#: ../src/file-manager/fm-directory-view.c:8052
 #, c-format
 msgid "Move the open folder out of the trash to \"%s\""
 msgstr "Přesunout otevřenou složku z koše do „%s“"
 
-#: ../src/file-manager/fm-directory-view.c:8052
+#: ../src/file-manager/fm-directory-view.c:8055
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
@@ -4595,7 +4596,7 @@ msgstr[0] "Přesunout zvolenou složku z koše do „%s“"
 msgstr[1] "Přesunout zvolené složky z koše do „%s“"
 msgstr[2] "Přesunout zvolené složky z koše do „%s“"
 
-#: ../src/file-manager/fm-directory-view.c:8056
+#: ../src/file-manager/fm-directory-view.c:8059
 #, c-format
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
@@ -4603,7 +4604,7 @@ msgstr[0] "Přesunout vybranou složku z koše"
 msgstr[1] "Přesunout vybrané složky z koše"
 msgstr[2] "Přesunout vybrané složky z koše"
 
-#: ../src/file-manager/fm-directory-view.c:8062
+#: ../src/file-manager/fm-directory-view.c:8065
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
@@ -4611,7 +4612,7 @@ msgstr[0] "Přesunout zvolený soubor z koše do „%s“"
 msgstr[1] "Přesunout zvolené soubory z koše do „%s“"
 msgstr[2] "Přesunout zvolené soubory z koše do „%s“"
 
-#: ../src/file-manager/fm-directory-view.c:8066
+#: ../src/file-manager/fm-directory-view.c:8069
 #, c-format
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
@@ -4619,7 +4620,7 @@ msgstr[0] "Přesunout zvolený soubor z koše"
 msgstr[1] "Přesunout zvolené soubory z koše"
 msgstr[2] "Přesunout zvolené soubory z koše"
 
-#: ../src/file-manager/fm-directory-view.c:8072
+#: ../src/file-manager/fm-directory-view.c:8075
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
@@ -4627,7 +4628,7 @@ msgstr[0] "Přesunout zvolenou položku z koše do „%s“"
 msgstr[1] "Přesunout zvolené položky z koše do „%s“"
 msgstr[2] "Přesunout zvolené položky z koše do „%s“"
 
-#: ../src/file-manager/fm-directory-view.c:8076
+#: ../src/file-manager/fm-directory-view.c:8079
 #, c-format
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
@@ -4635,176 +4636,176 @@ msgstr[0] "Přesunout zvolenou položku z koše"
 msgstr[1] "Přesunout zvolené položky z koše"
 msgstr[2] "Přesunout zvolené položky z koše"
 
-#: ../src/file-manager/fm-directory-view.c:8202
-#: ../src/file-manager/fm-directory-view.c:8206
-#: ../src/file-manager/fm-directory-view.c:8404
-#: ../src/file-manager/fm-directory-view.c:8408
+#: ../src/file-manager/fm-directory-view.c:8205
+#: ../src/file-manager/fm-directory-view.c:8209
+#: ../src/file-manager/fm-directory-view.c:8407
+#: ../src/file-manager/fm-directory-view.c:8411
 msgid "Start the selected drive"
 msgstr "Aktivovat vybrané zařízení"
 
-#: ../src/file-manager/fm-directory-view.c:8210
-#: ../src/file-manager/fm-directory-view.c:8412
+#: ../src/file-manager/fm-directory-view.c:8213
+#: ../src/file-manager/fm-directory-view.c:8415
 msgid "Connect to the selected drive"
 msgstr "Připojit k vybranému zařízení"
 
-#: ../src/file-manager/fm-directory-view.c:8213
-#: ../src/file-manager/fm-directory-view.c:8305
-#: ../src/file-manager/fm-directory-view.c:8415
+#: ../src/file-manager/fm-directory-view.c:8216
+#: ../src/file-manager/fm-directory-view.c:8308
+#: ../src/file-manager/fm-directory-view.c:8418
 msgid "_Start Multi-disk Drive"
 msgstr "_Aktivovat vícediskovou jednotku"
 
-#: ../src/file-manager/fm-directory-view.c:8214
-#: ../src/file-manager/fm-directory-view.c:8416
+#: ../src/file-manager/fm-directory-view.c:8217
+#: ../src/file-manager/fm-directory-view.c:8419
 msgid "Start the selected multi-disk drive"
 msgstr "Aktivovat vybranou vícediskovou jednotku"
 
-#: ../src/file-manager/fm-directory-view.c:8217
+#: ../src/file-manager/fm-directory-view.c:8220
 msgid "U_nlock Drive"
 msgstr "Odemk_nout zařízení"
 
-#: ../src/file-manager/fm-directory-view.c:8218
-#: ../src/file-manager/fm-directory-view.c:8420
+#: ../src/file-manager/fm-directory-view.c:8221
+#: ../src/file-manager/fm-directory-view.c:8423
 msgid "Unlock the selected drive"
 msgstr "Odemknout vybrané zařízení"
 
-#: ../src/file-manager/fm-directory-view.c:8231
+#: ../src/file-manager/fm-directory-view.c:8234
 msgid "Stop the selected drive"
 msgstr "Deaktivovat vybrané zařízení"
 
-#: ../src/file-manager/fm-directory-view.c:8234
-#: ../src/file-manager/fm-directory-view.c:8326
-#: ../src/file-manager/fm-directory-view.c:8436
-#: ../src/caja-places-sidebar.c:1817
+#: ../src/file-manager/fm-directory-view.c:8237
+#: ../src/file-manager/fm-directory-view.c:8329
+#: ../src/file-manager/fm-directory-view.c:8439
+#: ../src/caja-places-sidebar.c:1794
 msgid "_Safely Remove Drive"
 msgstr "_Bezpečně odebrat zařízení"
 
-#: ../src/file-manager/fm-directory-view.c:8235
-#: ../src/file-manager/fm-directory-view.c:8437
+#: ../src/file-manager/fm-directory-view.c:8238
+#: ../src/file-manager/fm-directory-view.c:8440
 msgid "Safely remove the selected drive"
 msgstr "Bezpečně odebrat vybrané zařízení"
 
-#: ../src/file-manager/fm-directory-view.c:8238
-#: ../src/file-manager/fm-directory-view.c:8330
-#: ../src/file-manager/fm-directory-view.c:8440
+#: ../src/file-manager/fm-directory-view.c:8241
+#: ../src/file-manager/fm-directory-view.c:8333
+#: ../src/file-manager/fm-directory-view.c:8443
 msgid "_Disconnect"
 msgstr "O_dpojit"
 
-#: ../src/file-manager/fm-directory-view.c:8239
-#: ../src/file-manager/fm-directory-view.c:8441
+#: ../src/file-manager/fm-directory-view.c:8242
+#: ../src/file-manager/fm-directory-view.c:8444
 msgid "Disconnect the selected drive"
 msgstr "Odpojit vybrané zařízení"
 
-#: ../src/file-manager/fm-directory-view.c:8242
-#: ../src/file-manager/fm-directory-view.c:8334
-#: ../src/file-manager/fm-directory-view.c:8444
+#: ../src/file-manager/fm-directory-view.c:8245
+#: ../src/file-manager/fm-directory-view.c:8337
+#: ../src/file-manager/fm-directory-view.c:8447
 msgid "_Stop Multi-disk Drive"
 msgstr "_Deaktivovat vícediskovou jednotku"
 
-#: ../src/file-manager/fm-directory-view.c:8243
-#: ../src/file-manager/fm-directory-view.c:8445
+#: ../src/file-manager/fm-directory-view.c:8246
+#: ../src/file-manager/fm-directory-view.c:8448
 msgid "Stop the selected multi-disk drive"
 msgstr "Deaktivovat vybranou vícediskovou jednotku"
 
-#: ../src/file-manager/fm-directory-view.c:8246
-#: ../src/file-manager/fm-directory-view.c:8338
-#: ../src/file-manager/fm-directory-view.c:8448
-#: ../src/caja-places-sidebar.c:1830
+#: ../src/file-manager/fm-directory-view.c:8249
+#: ../src/file-manager/fm-directory-view.c:8341
+#: ../src/file-manager/fm-directory-view.c:8451
+#: ../src/caja-places-sidebar.c:1807
 msgid "_Lock Drive"
 msgstr "_Uzamknout zařízení"
 
-#: ../src/file-manager/fm-directory-view.c:8247
-#: ../src/file-manager/fm-directory-view.c:8449
+#: ../src/file-manager/fm-directory-view.c:8250
+#: ../src/file-manager/fm-directory-view.c:8452
 msgid "Lock the selected drive"
 msgstr "Uzamknout vybrané zařízení"
 
-#: ../src/file-manager/fm-directory-view.c:8294
-#: ../src/file-manager/fm-directory-view.c:8298
+#: ../src/file-manager/fm-directory-view.c:8297
+#: ../src/file-manager/fm-directory-view.c:8301
 msgid "Start the drive associated with the open folder"
 msgstr "Aktivovat zařízení asociované s otevřenou složkou"
 
-#: ../src/file-manager/fm-directory-view.c:8302
+#: ../src/file-manager/fm-directory-view.c:8305
 msgid "Connect to the drive associated with the open folder"
 msgstr "Připojit k zařízení asociované s otevřenou složkou"
 
-#: ../src/file-manager/fm-directory-view.c:8306
+#: ../src/file-manager/fm-directory-view.c:8309
 msgid "Start the multi-disk drive associated with the open folder"
 msgstr "Aktivovat vícediskovou jednotku asociovanou s otevřenou složkou"
 
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
-#: ../src/file-manager/fm-directory-view.c:8309
-#: ../src/file-manager/fm-directory-view.c:8419
-#: ../src/caja-places-sidebar.c:1829
+#: ../src/file-manager/fm-directory-view.c:8312
+#: ../src/file-manager/fm-directory-view.c:8422
+#: ../src/caja-places-sidebar.c:1806
 msgid "_Unlock Drive"
 msgstr "_Odemknout zařízení"
 
-#: ../src/file-manager/fm-directory-view.c:8310
+#: ../src/file-manager/fm-directory-view.c:8313
 msgid "Unlock the drive associated with the open folder"
 msgstr "Odemknout zařízení asociované s otevřenou složkou"
 
-#: ../src/file-manager/fm-directory-view.c:8323
+#: ../src/file-manager/fm-directory-view.c:8326
 msgid "_Stop the drive associated with the open folder"
 msgstr "_Deaktivovat zařízení asociované s otevřenou složkou"
 
-#: ../src/file-manager/fm-directory-view.c:8327
+#: ../src/file-manager/fm-directory-view.c:8330
 msgid "Safely remove the drive associated with the open folder"
 msgstr "Bezpečně odebrat zařízení asociované s otevřenou složkou"
 
-#: ../src/file-manager/fm-directory-view.c:8331
+#: ../src/file-manager/fm-directory-view.c:8334
 msgid "Disconnect the drive associated with the open folder"
 msgstr "Odpojit zařízení asociované s otevřenou složkou"
 
-#: ../src/file-manager/fm-directory-view.c:8335
+#: ../src/file-manager/fm-directory-view.c:8338
 msgid "Stop the multi-disk drive associated with the open folder"
 msgstr "Deaktivovat vícediskovou jednotku asociovanou s otevřenou složkou"
 
-#: ../src/file-manager/fm-directory-view.c:8339
+#: ../src/file-manager/fm-directory-view.c:8342
 msgid "Lock the drive associated with the open folder"
 msgstr "Uzamknout zařízení asociované s otevřenou složkou"
 
 #. add the "open in new window" menu item
-#: ../src/file-manager/fm-directory-view.c:8518
-#: ../src/file-manager/fm-directory-view.c:8828
-#: ../src/file-manager/fm-tree-view.c:1287 ../src/caja-places-sidebar.c:2697
+#: ../src/file-manager/fm-directory-view.c:8521
+#: ../src/file-manager/fm-directory-view.c:8831
+#: ../src/file-manager/fm-tree-view.c:1287 ../src/caja-places-sidebar.c:2671
 msgid "Open in New _Window"
 msgstr "Otevřít v novém _okně"
 
-#: ../src/file-manager/fm-directory-view.c:8520
-#: ../src/file-manager/fm-directory-view.c:8837
+#: ../src/file-manager/fm-directory-view.c:8523
+#: ../src/file-manager/fm-directory-view.c:8840
 msgid "Browse in New _Window"
 msgstr "Procházet v novém _okně"
 
-#: ../src/file-manager/fm-directory-view.c:8526
-#: ../src/file-manager/fm-directory-view.c:8847
+#: ../src/file-manager/fm-directory-view.c:8529
+#: ../src/file-manager/fm-directory-view.c:8850
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
 msgstr[0] "_Procházet složku"
 msgstr[1] "_Procházet složky"
 msgstr[2] "_Procházet složky"
 
-#: ../src/file-manager/fm-directory-view.c:8543
-#: ../src/file-manager/fm-directory-view.c:8876
+#: ../src/file-manager/fm-directory-view.c:8546
+#: ../src/file-manager/fm-directory-view.c:8879
 msgid "Browse in New _Tab"
 msgstr "Procházet v nové kar_tě"
 
-#: ../src/file-manager/fm-directory-view.c:8592
-#: ../src/file-manager/fm-directory-view.c:8917
+#: ../src/file-manager/fm-directory-view.c:8595
+#: ../src/file-manager/fm-directory-view.c:8920
 msgid "_Delete Permanently"
 msgstr "O_dstranit natrvalo"
 
-#: ../src/file-manager/fm-directory-view.c:8593
+#: ../src/file-manager/fm-directory-view.c:8596
 msgid "Delete the open folder permanently"
 msgstr "Odstranit otevřenou složku natrvalo"
 
-#: ../src/file-manager/fm-directory-view.c:8597
+#: ../src/file-manager/fm-directory-view.c:8600
 msgid "Move the open folder to the Trash"
 msgstr "Přesunout otevřenou složku do koše"
 
-#: ../src/file-manager/fm-directory-view.c:8777
+#: ../src/file-manager/fm-directory-view.c:8780
 #, c-format
 msgid "_Open With %s"
 msgstr "_Otevřít s %s"
 
-#: ../src/file-manager/fm-directory-view.c:8830
+#: ../src/file-manager/fm-directory-view.c:8833
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
@@ -4812,7 +4813,7 @@ msgstr[0] "Otevřít v %'d novém _okně"
 msgstr[1] "Otevřít ve %'d nových _oknech"
 msgstr[2] "Otevřít v %'d nových _oknech"
 
-#: ../src/file-manager/fm-directory-view.c:8839
+#: ../src/file-manager/fm-directory-view.c:8842
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
@@ -4820,7 +4821,7 @@ msgstr[0] "Procházet v %'d novém _okně"
 msgstr[1] "Procházet ve %'d nových _oknech"
 msgstr[2] "Procházet v %'d nových _oknech"
 
-#: ../src/file-manager/fm-directory-view.c:8869
+#: ../src/file-manager/fm-directory-view.c:8872
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
@@ -4828,7 +4829,7 @@ msgstr[0] "Otevřít v %'d nové kar_tě"
 msgstr[1] "Otevřít ve %'d nových kar_tách"
 msgstr[2] "Otevřít v %'d nových kar_tách"
 
-#: ../src/file-manager/fm-directory-view.c:8878
+#: ../src/file-manager/fm-directory-view.c:8881
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
@@ -4836,63 +4837,63 @@ msgstr[0] "Procházet v %'d nové kar_tě"
 msgstr[1] "Procházet ve %'d nových kar_tách"
 msgstr[2] "Procházet v %'d nových kar_tách"
 
-#: ../src/file-manager/fm-directory-view.c:8918
+#: ../src/file-manager/fm-directory-view.c:8921
 msgid "Delete all selected items permanently"
 msgstr "Natrvalo odstranit všechny vybrané položky"
 
-#: ../src/file-manager/fm-directory-view.c:8975
+#: ../src/file-manager/fm-directory-view.c:8978
 msgid "View or modify the properties of the open folder"
 msgstr "Zobrazit nebo upravit vlastnosti otevřené složky"
 
-#: ../src/file-manager/fm-directory-view.c:10278
+#: ../src/file-manager/fm-directory-view.c:10281
 msgid "Download location?"
 msgstr "Umístění stahování?"
 
-#: ../src/file-manager/fm-directory-view.c:10281
+#: ../src/file-manager/fm-directory-view.c:10284
 msgid "You can download it or make a link to it."
 msgstr "Můžete jej stáhnout nebo na něj vytvořit odkaz."
 
-#: ../src/file-manager/fm-directory-view.c:10284
+#: ../src/file-manager/fm-directory-view.c:10287
 msgid "Make a _Link"
 msgstr "Vytvořit _odkaz"
 
-#: ../src/file-manager/fm-directory-view.c:10288
+#: ../src/file-manager/fm-directory-view.c:10291
 msgid "_Download"
 msgstr "_Stáhnout"
 
-#: ../src/file-manager/fm-directory-view.c:10449
-#: ../src/file-manager/fm-directory-view.c:10508
-#: ../src/file-manager/fm-directory-view.c:10613
+#: ../src/file-manager/fm-directory-view.c:10452
+#: ../src/file-manager/fm-directory-view.c:10511
+#: ../src/file-manager/fm-directory-view.c:10616
 msgid "Drag and drop is not supported."
 msgstr "Přetažení objektů není podporováno."
 
-#: ../src/file-manager/fm-directory-view.c:10450
+#: ../src/file-manager/fm-directory-view.c:10453
 msgid "Drag and drop is only supported on local file systems."
 msgstr "Přetažení objektů je podporováno jen na místních systémech souborů."
 
-#: ../src/file-manager/fm-directory-view.c:10509
-#: ../src/file-manager/fm-directory-view.c:10614
+#: ../src/file-manager/fm-directory-view.c:10512
+#: ../src/file-manager/fm-directory-view.c:10617
 msgid "An invalid drag type was used."
 msgstr "Byl použit neplatný typ přetažení."
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10691
+#: ../src/file-manager/fm-directory-view.c:10694
 msgid "dropped text.txt"
 msgstr "upuštěný text.txt"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10736
+#: ../src/file-manager/fm-directory-view.c:10739
 msgid "dropped data"
 msgstr "upuštěná data"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11125
+#: ../src/file-manager/fm-directory-view.c:11128
 msgid "Undo"
 msgstr "Zpět"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11143
+#: ../src/file-manager/fm-directory-view.c:11146
 msgid "Redo"
 msgstr "Znovu"
 
@@ -5614,15 +5615,15 @@ msgstr "Vytváří se okno vlastností."
 msgid "Select Custom Icon"
 msgstr "Vybrat vlastní ikonu"
 
-#: ../src/file-manager/fm-tree-view.c:1438 ../src/caja-places-sidebar.c:538
+#: ../src/file-manager/fm-tree-view.c:1438 ../src/caja-places-sidebar.c:535
 msgid "File System"
 msgstr "Systém souborů"
 
-#: ../src/file-manager/fm-tree-view.c:1726
+#: ../src/file-manager/fm-tree-view.c:1729
 msgid "Tree"
 msgstr "Strom"
 
-#: ../src/file-manager/fm-tree-view.c:1732
+#: ../src/file-manager/fm-tree-view.c:1735
 msgid "Show Tree"
 msgstr "Zobrazit strom"
 
@@ -5648,8 +5649,8 @@ msgid ""
 "that Caja can create them."
 msgstr "Před spuštěním Nautilu prosím vytvořte tyto složky, nebo nastavte oprávnění tak, aby je Caja mohl vytvořit."
 
-#: ../src/caja-application.c:1264 ../src/caja-places-sidebar.c:2214
-#: ../src/caja-places-sidebar.c:2248 ../src/caja-places-sidebar.c:2283
+#: ../src/caja-application.c:1264 ../src/caja-places-sidebar.c:2191
+#: ../src/caja-places-sidebar.c:2222 ../src/caja-places-sidebar.c:2257
 #, c-format
 msgid "Unable to eject %s"
 msgstr "Nelze vysunout %s"
@@ -5747,7 +5748,7 @@ msgstr "Tento software se spustí přímo z média „%s“. Nikdy byste neměli
 
 #: ../src/caja-bookmarks-window.c:164
 #: ../src/caja-file-management-properties.c:242
-#: ../src/caja-property-browser.c:1673 ../src/caja-window-menus.c:598
+#: ../src/caja-property-browser.c:1677 ../src/caja-window-menus.c:598
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
@@ -5910,7 +5911,7 @@ msgid "Bookmark Name:"
 msgstr "Jméno záložky:"
 
 #: ../src/caja-desktop-window.c:87 ../src/caja-desktop-window.c:267
-#: ../src/caja-pathbar.c:1403 ../src/caja-places-sidebar.c:523
+#: ../src/caja-pathbar.c:1403 ../src/caja-places-sidebar.c:519
 msgid "Desktop"
 msgstr "Pracovní plocha"
 
@@ -6397,11 +6398,11 @@ msgstr "N_astavovat rozšíření"
 msgid "Extensions"
 msgstr "Rozšíření"
 
-#: ../src/caja-history-sidebar.c:335
+#: ../src/caja-history-sidebar.c:338
 msgid "History"
 msgstr "Historie"
 
-#: ../src/caja-history-sidebar.c:341
+#: ../src/caja-history-sidebar.c:344
 msgid "Show History"
 msgstr "Zobrazit historii"
 
@@ -6827,100 +6828,100 @@ msgstr "%s - Prohlížeč souborů"
 msgid "Close tab"
 msgstr "Zavřít kartu"
 
-#: ../src/caja-notes-viewer.c:396 ../src/caja-notes-viewer.c:500
+#: ../src/caja-notes-viewer.c:399 ../src/caja-notes-viewer.c:503
 msgid "Notes"
 msgstr "Poznámky"
 
-#: ../src/caja-notes-viewer.c:402
+#: ../src/caja-notes-viewer.c:405
 msgid "Show Notes"
 msgstr "Zobrazit poznámky"
 
-#: ../src/caja-places-sidebar.c:312
+#: ../src/caja-places-sidebar.c:309
 msgid "Devices"
 msgstr "Zařízení"
 
-#: ../src/caja-places-sidebar.c:320
+#: ../src/caja-places-sidebar.c:317
 msgid "Bookmarks"
 msgstr "Záložky"
 
-#: ../src/caja-places-sidebar.c:525
+#: ../src/caja-places-sidebar.c:521
 msgid "Open the contents of your desktop in a folder"
 msgstr "Otevřít obsah pracovní plochy ve složce"
 
-#: ../src/caja-places-sidebar.c:540
+#: ../src/caja-places-sidebar.c:537
 msgid "Open the contents of the File System"
 msgstr "Otevřít obsah souborového systému"
 
-#: ../src/caja-places-sidebar.c:599
+#: ../src/caja-places-sidebar.c:596
 msgid "Open the trash"
 msgstr "Otevřít koš"
 
-#: ../src/caja-places-sidebar.c:654 ../src/caja-places-sidebar.c:682
+#: ../src/caja-places-sidebar.c:651 ../src/caja-places-sidebar.c:679
 #, c-format
 msgid "Mount and open %s"
 msgstr "Připojit a otevřít %s"
 
-#: ../src/caja-places-sidebar.c:835 ../src/mate-network-scheme.desktop.in.h:1
+#: ../src/caja-places-sidebar.c:832 ../src/mate-network-scheme.desktop.in.h:1
 msgid "Network"
 msgstr "Síť"
 
-#: ../src/caja-places-sidebar.c:867
+#: ../src/caja-places-sidebar.c:864
 msgid "Browse Network"
 msgstr "Procházet síť"
 
-#: ../src/caja-places-sidebar.c:869
+#: ../src/caja-places-sidebar.c:866
 msgid "Browse the contents of the network"
 msgstr "Procházet obsah sítě"
 
 #. start() for type G_DRIVE_START_STOP_TYPE_SHUTDOWN is normally not used
-#: ../src/caja-places-sidebar.c:1816
+#: ../src/caja-places-sidebar.c:1793
 msgid "_Power On"
 msgstr "Za_pnout"
 
-#: ../src/caja-places-sidebar.c:1820
+#: ../src/caja-places-sidebar.c:1797
 msgid "_Connect Drive"
 msgstr "_Připojit zařízení"
 
-#: ../src/caja-places-sidebar.c:1821
+#: ../src/caja-places-sidebar.c:1798
 msgid "_Disconnect Drive"
 msgstr "O_dpojit zařízení"
 
-#: ../src/caja-places-sidebar.c:1824
+#: ../src/caja-places-sidebar.c:1801
 msgid "_Start Multi-disk Device"
 msgstr "_Aktivovat vícediskové zařízení"
 
-#: ../src/caja-places-sidebar.c:1825
+#: ../src/caja-places-sidebar.c:1802
 msgid "_Stop Multi-disk Device"
 msgstr "_Deaktivovat vícediskové zařízení"
 
-#: ../src/caja-places-sidebar.c:1911 ../src/caja-places-sidebar.c:2503
+#: ../src/caja-places-sidebar.c:1888 ../src/caja-places-sidebar.c:2477
 #, c-format
 msgid "Unable to start %s"
 msgstr "Nelze aktivovat %s"
 
-#: ../src/caja-places-sidebar.c:2447
+#: ../src/caja-places-sidebar.c:2421
 #, c-format
 msgid "Unable to poll %s for media changes"
 msgstr "Nelze se dotazovat %s ohledně změn média"
 
-#: ../src/caja-places-sidebar.c:2563
+#: ../src/caja-places-sidebar.c:2537
 #, c-format
 msgid "Unable to stop %s"
 msgstr "Nelze zastavit %s"
 
-#: ../src/caja-places-sidebar.c:2705
+#: ../src/caja-places-sidebar.c:2679
 msgid "Remove"
 msgstr "Odstranit"
 
-#: ../src/caja-places-sidebar.c:2714
+#: ../src/caja-places-sidebar.c:2688
 msgid "Rename..."
 msgstr "Přejmenovat…"
 
-#: ../src/caja-places-sidebar.c:3406
+#: ../src/caja-places-sidebar.c:3382
 msgid "Places"
 msgstr "Místa"
 
-#: ../src/caja-places-sidebar.c:3412
+#: ../src/caja-places-sidebar.c:3388
 msgid "Show Places"
 msgstr "Zobrazit místa"
 
@@ -6930,159 +6931,159 @@ msgid "Backgrounds and Emblems"
 msgstr "Pozadí a emblémy"
 
 #. create the "remove" button
-#: ../src/caja-property-browser.c:405
+#: ../src/caja-property-browser.c:409
 msgid "_Remove..."
 msgstr "_Odstranit…"
 
 #. now create the "add new" button
-#: ../src/caja-property-browser.c:419
+#: ../src/caja-property-browser.c:423
 msgid "Add new..."
 msgstr "Přidat nové…"
 
-#: ../src/caja-property-browser.c:970
+#: ../src/caja-property-browser.c:974
 #, c-format
 msgid "Sorry, but pattern %s could not be deleted."
 msgstr "Promiňte, ale vzorek %s nelze odstranit."
 
-#: ../src/caja-property-browser.c:971
+#: ../src/caja-property-browser.c:975
 msgid "Check that you have permission to delete the pattern."
 msgstr "Zkontrolujte, že máte oprávnění odstranit vzorek."
 
-#: ../src/caja-property-browser.c:987
+#: ../src/caja-property-browser.c:991
 #, c-format
 msgid "Sorry, but emblem %s could not be deleted."
 msgstr "Promiňte, ale emblém %s nelze odstranit."
 
-#: ../src/caja-property-browser.c:988
+#: ../src/caja-property-browser.c:992
 msgid "Check that you have permission to delete the emblem."
 msgstr "Zkontrolujte, že máte oprávnění odstranit emblém."
 
-#: ../src/caja-property-browser.c:1060
+#: ../src/caja-property-browser.c:1064
 msgid "Select an Image File for the New Emblem"
 msgstr "Vybrat soubor obrázku k novému emblému"
 
-#: ../src/caja-property-browser.c:1101
+#: ../src/caja-property-browser.c:1105
 msgid "Create a New Emblem"
 msgstr "Vytvořit nový emblém"
 
 #. make the keyword label and field
-#: ../src/caja-property-browser.c:1122
+#: ../src/caja-property-browser.c:1126
 msgid "_Keyword:"
 msgstr "_Klíčové slovo:"
 
 #. set up a file chooser to pick the image file
-#: ../src/caja-property-browser.c:1145
+#: ../src/caja-property-browser.c:1149
 msgid "_Image:"
 msgstr "_Obrázek:"
 
-#: ../src/caja-property-browser.c:1181
+#: ../src/caja-property-browser.c:1185
 msgid "Create a New Color:"
 msgstr "Vytvořit novou barvu:"
 
 #. make the name label and field
-#: ../src/caja-property-browser.c:1195
+#: ../src/caja-property-browser.c:1199
 msgid "Color _name:"
 msgstr "_Název barvy:"
 
-#: ../src/caja-property-browser.c:1211
+#: ../src/caja-property-browser.c:1215
 msgid "Color _value:"
 msgstr "_Hodnota barvy:"
 
-#: ../src/caja-property-browser.c:1247
+#: ../src/caja-property-browser.c:1251
 msgid "Sorry, but you cannot replace the reset image."
 msgstr "Promiňte, ale nemůžete nahradit obrázek Vymazat."
 
-#: ../src/caja-property-browser.c:1248
+#: ../src/caja-property-browser.c:1252
 msgid "Reset is a special image that cannot be deleted."
 msgstr "Vymazat je speciální obrázek, který nemůže být odstraněn."
 
-#: ../src/caja-property-browser.c:1278
+#: ../src/caja-property-browser.c:1282
 #, c-format
 msgid "Sorry, but the pattern %s could not be installed."
 msgstr "Promiňte, ale vzorek %s nelze nainstalovat."
 
-#: ../src/caja-property-browser.c:1309
+#: ../src/caja-property-browser.c:1313
 msgid "Select an Image File to Add as a Pattern"
 msgstr "Výběr souboru s obrázkem pro přidání jako vzorek"
 
-#: ../src/caja-property-browser.c:1388 ../src/caja-property-browser.c:1418
+#: ../src/caja-property-browser.c:1392 ../src/caja-property-browser.c:1422
 msgid "The color cannot be installed."
 msgstr "Barva nemohla být nainstalována."
 
-#: ../src/caja-property-browser.c:1389
+#: ../src/caja-property-browser.c:1393
 msgid "Sorry, but you must specify an unused color name for the new color."
 msgstr "Promiňte, ale musíte zadat nepoužívaný název barvy pro novou barvu."
 
-#: ../src/caja-property-browser.c:1419
+#: ../src/caja-property-browser.c:1423
 msgid "Sorry, but you must specify a non-blank name for the new color."
 msgstr "Promiňte, ale musíte zadat neprázdný název pro novou barvu."
 
-#: ../src/caja-property-browser.c:1479
+#: ../src/caja-property-browser.c:1483
 msgid "Select a Color to Add"
 msgstr "Vyberte barvu pro přidání"
 
-#: ../src/caja-property-browser.c:1525 ../src/caja-property-browser.c:1543
+#: ../src/caja-property-browser.c:1529 ../src/caja-property-browser.c:1547
 #, c-format
 msgid "Sorry, but \"%s\" is not a usable image file."
 msgstr "Promiňte, ale „%s“ není použitelný soubor obrázku."
 
-#: ../src/caja-property-browser.c:1526 ../src/caja-property-browser.c:1544
+#: ../src/caja-property-browser.c:1530 ../src/caja-property-browser.c:1548
 msgid "The file is not an image."
 msgstr "Soubor není obrázek."
 
-#: ../src/caja-property-browser.c:2291
+#: ../src/caja-property-browser.c:2299
 msgid "Select a Category:"
 msgstr "Vyberte kategorii:"
 
-#: ../src/caja-property-browser.c:2303
+#: ../src/caja-property-browser.c:2311
 msgid "C_ancel Remove"
 msgstr "Z_rušit odstranění"
 
-#: ../src/caja-property-browser.c:2312
+#: ../src/caja-property-browser.c:2320
 msgid "_Add a New Pattern..."
 msgstr "_Přidat nový vzorek…"
 
-#: ../src/caja-property-browser.c:2315
+#: ../src/caja-property-browser.c:2323
 msgid "_Add a New Color..."
 msgstr "_Přidat novou barvu…"
 
-#: ../src/caja-property-browser.c:2318
+#: ../src/caja-property-browser.c:2326
 msgid "_Add a New Emblem..."
 msgstr "_Přidat nový emblém…"
 
-#: ../src/caja-property-browser.c:2344
+#: ../src/caja-property-browser.c:2352
 msgid "Click on a pattern to remove it"
 msgstr "Vzorek odstraníte klepnutím na něj"
 
-#: ../src/caja-property-browser.c:2347
+#: ../src/caja-property-browser.c:2355
 msgid "Click on a color to remove it"
 msgstr "Barvu odstraníte klepnutím na ni"
 
-#: ../src/caja-property-browser.c:2350
+#: ../src/caja-property-browser.c:2358
 msgid "Click on an emblem to remove it"
 msgstr "Emblém odstraníte klepnutím na něj"
 
-#: ../src/caja-property-browser.c:2362
+#: ../src/caja-property-browser.c:2370
 msgid "Patterns:"
 msgstr "Vzorky:"
 
-#: ../src/caja-property-browser.c:2365
+#: ../src/caja-property-browser.c:2373
 msgid "Colors:"
 msgstr "Barvy:"
 
-#: ../src/caja-property-browser.c:2368
+#: ../src/caja-property-browser.c:2376
 msgid "Emblems:"
 msgstr "Emblémy:"
 
-#: ../src/caja-property-browser.c:2390
+#: ../src/caja-property-browser.c:2398
 msgid "_Remove a Pattern..."
 msgstr "_Odstranit vzorek…"
 
-#: ../src/caja-property-browser.c:2393
+#: ../src/caja-property-browser.c:2401
 msgid "_Remove a Color..."
 msgstr "_Odstranit barvu…"
 
-#: ../src/caja-property-browser.c:2396
+#: ../src/caja-property-browser.c:2404
 msgid "_Remove an Emblem..."
 msgstr "_Odstranit emblém…"
 
@@ -7143,51 +7144,51 @@ msgstr "Textový soubor"
 msgid "Select type"
 msgstr "Vyberte typ"
 
-#: ../src/caja-query-editor.c:800
+#: ../src/caja-query-editor.c:804
 msgid "Any"
 msgstr "Libovolné"
 
-#: ../src/caja-query-editor.c:816
+#: ../src/caja-query-editor.c:820
 msgid "Other Type..."
 msgstr "Jiný typ…"
 
-#: ../src/caja-query-editor.c:1120
+#: ../src/caja-query-editor.c:1124
 msgid "Remove this criterion from the search"
 msgstr "Odebrat tuto podmínku hledání"
 
-#: ../src/caja-query-editor.c:1167
+#: ../src/caja-query-editor.c:1171
 msgid "Search Folder"
 msgstr "Najít složku"
 
-#: ../src/caja-query-editor.c:1173
+#: ../src/caja-query-editor.c:1177
 msgid "Edit"
 msgstr "Upravit"
 
-#: ../src/caja-query-editor.c:1181
+#: ../src/caja-query-editor.c:1185
 msgid "Edit the saved search"
 msgstr "Upravit uložené hledání"
 
-#: ../src/caja-query-editor.c:1213
+#: ../src/caja-query-editor.c:1217
 msgid "Add a new criterion to this search"
 msgstr "Přidat novou podmínku hledání"
 
-#: ../src/caja-query-editor.c:1219
+#: ../src/caja-query-editor.c:1223
 msgid "Go"
 msgstr "Hledat"
 
-#: ../src/caja-query-editor.c:1223
+#: ../src/caja-query-editor.c:1227
 msgid "Reload"
 msgstr "Obnovit"
 
-#: ../src/caja-query-editor.c:1228
+#: ../src/caja-query-editor.c:1232
 msgid "Perform or update the search"
 msgstr "Provést nebo aktualizovat hledání"
 
-#: ../src/caja-query-editor.c:1249
+#: ../src/caja-query-editor.c:1253
 msgid "_Search for:"
 msgstr "N_ajít:"
 
-#: ../src/caja-query-editor.c:1278
+#: ../src/caja-query-editor.c:1282
 msgid "Search results"
 msgstr "Výsledky hledání"
 
@@ -7355,8 +7356,8 @@ msgstr "Caja vám umožňuje organizovat soubory a adresáře, jak v počítači
 #: ../src/caja-window-menus.c:540
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
-"Copyright © 2011-2017 The Caja authors"
-msgstr "Copyright © 1999-2009 autoři Nautilus\nCopyright © 2011-2017 autoři Caja"
+"Copyright © 2011-2018 The Caja authors"
+msgstr "Copyright © 1999-2009 autoři aplikace Nautilus\nCopyright © 2011-2018 autoři Caja"
 
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
