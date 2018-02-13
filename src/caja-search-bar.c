@@ -28,6 +28,7 @@
 #include <eel/eel-gtk-macros.h>
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
+#include <libcaja-private/caja-clipboard.h>
 
 struct CajaSearchBarDetails
 {
@@ -212,11 +213,19 @@ caja_search_bar_return_entry (CajaSearchBar *bar)
 }
 
 GtkWidget *
-caja_search_bar_new (void)
+caja_search_bar_new (CajaWindow *window)
 {
     GtkWidget *bar;
+    CajaSearchBar *search_bar;
 
     bar = g_object_new (CAJA_TYPE_SEARCH_BAR, NULL);
+    search_bar = CAJA_SEARCH_BAR(bar);
+
+    /* Clipboard */
+    caja_clipboard_set_up_editable
+    (GTK_EDITABLE (search_bar->details->entry),
+     caja_window_get_ui_manager (window),
+     FALSE);
 
     return bar;
 }
