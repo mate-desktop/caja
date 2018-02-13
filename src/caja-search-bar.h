@@ -26,6 +26,7 @@
 
 #include <gtk/gtk.h>
 #include <libcaja-private/caja-query.h>
+#include "caja-window.h"
 
 #define CAJA_TYPE_SEARCH_BAR caja_search_bar_get_type()
 #define CAJA_SEARCH_BAR(obj) \
@@ -57,7 +58,7 @@ typedef struct
 } CajaSearchBarClass;
 
 GType      caja_search_bar_get_type     	(void);
-GtkWidget* caja_search_bar_new          	(void);
+GtkWidget* caja_search_bar_new          	(CajaWindow *window);
 
 GtkWidget *    caja_search_bar_borrow_entry  (CajaSearchBar *bar);
 void           caja_search_bar_return_entry  (CajaSearchBar *bar);

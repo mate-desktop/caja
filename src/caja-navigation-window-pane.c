@@ -784,7 +784,7 @@ caja_navigation_window_pane_setup (CajaNavigationWindowPane *pane)
                         pane->navigation_bar,
                         TRUE, TRUE, 0);
 
-    pane->search_bar = caja_search_bar_new ();
+    pane->search_bar = caja_search_bar_new (CAJA_WINDOW_PANE (pane)->window);
     g_signal_connect_object (pane->search_bar, "activate",
                              G_CALLBACK (search_bar_activate_callback), pane, 0);
     g_signal_connect_object (pane->search_bar, "cancel",
