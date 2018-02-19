@@ -917,7 +917,7 @@ static const GtkToggleActionEntry navigation_toggle_entries[] =
         G_CALLBACK (action_show_hide_statusbar_callback),
         /* is_active */            TRUE
     },
-    /* name, icon name */    { "Search", "gtk-find",
+    /* name, icon name */    { "Search", "edit-find",
         /* label, accelerator */   N_("_Search for Files..."),
         /* Accelerator is in ShowSearch */"",
         /* tooltip */              N_("Search documents and folders by name"),
