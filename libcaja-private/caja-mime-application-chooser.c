@@ -417,11 +417,8 @@ caja_mime_application_chooser_init (CajaMimeApplicationChooser *chooser)
     gtk_box_pack_start (GTK_BOX (chooser), box, FALSE, FALSE, 6);
     gtk_widget_show (box);
 
-    button = GTK_WIDGET (g_object_new (GTK_TYPE_BUTTON,
-                                       "label", "gtk-add",
-                                       "use-stock", TRUE,
-                                       "use-underline", TRUE,
-                                       NULL));
+    button = gtk_button_new_with_mnemonic (_("_Add"));
+    gtk_button_set_image (GTK_BUTTON (button), gtk_image_new_from_icon_name ("list-add", GTK_ICON_SIZE_BUTTON));
 
     g_signal_connect (button, "clicked",
                       G_CALLBACK (add_clicked_cb),
@@ -430,11 +427,8 @@ caja_mime_application_chooser_init (CajaMimeApplicationChooser *chooser)
     gtk_widget_show (button);
     gtk_container_add (GTK_CONTAINER (box), button);
 
-    button = GTK_WIDGET (g_object_new (GTK_TYPE_BUTTON,
-                                       "label", "gtk-remove",
-                                       "use-stock", TRUE,
-                                       "use-underline", TRUE,
-                                       NULL));
+    button = gtk_button_new_with_mnemonic (_("_Remove"));
+    gtk_button_set_image (GTK_BUTTON (button), gtk_image_new_from_icon_name ("list-remove", GTK_ICON_SIZE_BUTTON));
 
     g_signal_connect (button, "clicked",
                       G_CALLBACK (remove_clicked_cb),

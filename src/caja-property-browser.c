@@ -387,22 +387,16 @@ caja_property_browser_init (CajaPropertyBrowser *property_browser)
     gtk_container_add (GTK_CONTAINER (temp_box), property_browser->details->bottom_box);
 
     /* create the "help" button */
-    temp_button = GTK_WIDGET (g_object_new (GTK_TYPE_BUTTON,
-                                            "label", "gtk-help",
-                                            "use-stock", TRUE,
-                                            "use-underline", TRUE,
-                                            NULL));
+    temp_button = gtk_button_new_with_mnemonic (_("_Help"));
+    gtk_button_set_image (GTK_BUTTON (temp_button), gtk_image_new_from_icon_name ("help-browser", GTK_ICON_SIZE_BUTTON));
 
     gtk_widget_show (temp_button);
     gtk_box_pack_start (GTK_BOX (property_browser->details->bottom_box), temp_button, FALSE, FALSE, 0);
     g_signal_connect_object (temp_button, "clicked", G_CALLBACK (help_button_callback), property_browser, 0);
 
-    /* create the "done" button */
-    temp_button = GTK_WIDGET (g_object_new (GTK_TYPE_BUTTON,
-                                            "label", "gtk-close",
-                                            "use-stock", TRUE,
-                                            "use-underline", TRUE,
-                                            NULL));
+    /* create the "close" button */
+    temp_button = gtk_button_new_with_mnemonic (_("_Close"));
+    gtk_button_set_image (GTK_BUTTON (temp_button), gtk_image_new_from_icon_name ("window-close", GTK_ICON_SIZE_BUTTON));
 
     gtk_widget_set_can_default (temp_button, TRUE);
 
