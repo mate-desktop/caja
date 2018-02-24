@@ -191,6 +191,24 @@ trash_dialog_response_callback (GtkDialog *dialog,
     gtk_widget_destroy (GTK_WIDGET (dialog));
 }
 
+static void
+mate_dialog_add_button (GtkDialog   *dialog,
+                        const gchar *button_text,
+                        const gchar *icon_name,
+                        gint         response_id)
+{
+    GtkWidget *button;
+
+    button = gtk_button_new_with_mnemonic (button_text);
+    gtk_button_set_image (GTK_BUTTON (button), gtk_image_new_from_icon_name (icon_name, GTK_ICON_SIZE_BUTTON));
+
+    gtk_button_set_use_underline (GTK_BUTTON (button), TRUE);
+    gtk_style_context_add_class (gtk_widget_get_style_context (button), "text-button");
+    gtk_widget_set_can_default (button, TRUE);
+    gtk_widget_show (button);
+    gtk_dialog_add_action_widget (GTK_DIALOG (dialog), button, response_id);
+}
+
 static gboolean
 timed_wait_callback (gpointer callback_data)
 {
@@ -201,7 +219,7 @@ timed_wait_callback (gpointer callback_data)
     wait = callback_data;
 
     /* Put up the timed wait window. */
-    button = wait->cancel_callback != NULL ? "gtk-cancel" : "gtk-ok";
+    button = wait->cancel_callback != NULL ? "process-stop" : "gtk-ok";
 	dialog = GTK_DIALOG (gtk_message_dialog_new (wait->parent_window,
 						     0,
 						     GTK_MESSAGE_INFO,
@@ -213,7 +231,11 @@ timed_wait_callback (gpointer callback_data)
 		      "secondary-text", _("You can stop this operation by clicking cancel."),
 		      NULL);
 
-    gtk_dialog_add_button (GTK_DIALOG (dialog), button, GTK_RESPONSE_OK);
+    if (g_strcmp0 (button, "process-stop") == 0)
+        mate_dialog_add_button (GTK_DIALOG (dialog), _("_Cancel"), button, GTK_RESPONSE_OK);
+    else
+        mate_dialog_add_button (GTK_DIALOG (dialog), _("_OK"), button, GTK_RESPONSE_OK);
+
     gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_OK);
 
     /* The contents are often very small, causing tiny little
