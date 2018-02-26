@@ -203,7 +203,7 @@ drag_data_received_callback (GtkWidget *widget,
                                   GTK_MESSAGE_QUESTION,
                                   prompt,
                                   detail,
-                                  GTK_STOCK_CANCEL, GTK_STOCK_OK,
+                                  "gtk-cancel", "gtk-ok",
                                   NULL) != 0 /* MATE_OK */;
 
         g_free (prompt);
@@ -492,12 +492,8 @@ caja_location_bar_init (CajaLocationBar *bar)
     label = gtk_label_new (LOCATION_LABEL);
     gtk_container_add   (GTK_CONTAINER (event_box), label);
     gtk_label_set_justify (GTK_LABEL (label), GTK_JUSTIFY_RIGHT);
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_label_set_xalign (GTK_LABEL (label), 1.0);
     gtk_label_set_yalign (GTK_LABEL (label), 0.5);
-#else
-    gtk_misc_set_alignment (GTK_MISC (label), 1, 0.5);
-#endif
     g_signal_connect (label, "style_set",
                       G_CALLBACK (style_set_handler), NULL);
 

@@ -16,78 +16,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-08 13:31+0300\n"
-"PO-Revision-Date: 2017-10-08 10:32+0000\n"
-"Last-Translator: monsta <monsta@inbox.ru>\n"
+"POT-Creation-Date: 2018-01-15 13:19+0300\n"
+"PO-Revision-Date: 2018-01-09 15:11+0000\n"
+"Last-Translator: Vlad Orlov <monsta@inbox.ru>\n"
 "Language-Team: Croatian (http://www.transifex.com/mate/MATE/language/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hr\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-
-#: ../cut-n-paste-code/libegg/eggdesktopfile.c:166
-#, c-format
-msgid "File is not a valid .desktop file"
-msgstr "Datoteka nije valjana .desktop datoteka"
-
-#: ../cut-n-paste-code/libegg/eggdesktopfile.c:189
-#, c-format
-msgid "Unrecognized desktop file Version '%s'"
-msgstr "Neprepoznata inačica datoteke radne površine '%s'"
-
-#: ../cut-n-paste-code/libegg/eggdesktopfile.c:958
-#, c-format
-msgid "Starting %s"
-msgstr "Pokretanje %s"
-
-#: ../cut-n-paste-code/libegg/eggdesktopfile.c:1100
-#, c-format
-msgid "Application does not accept documents on command line"
-msgstr "Program ne prihvaća zapise u naredbenom retku"
-
-#: ../cut-n-paste-code/libegg/eggdesktopfile.c:1168
-#, c-format
-msgid "Unrecognized launch option: %d"
-msgstr "Neprepoznata mogućnost pokretanja: %d"
-
-#: ../cut-n-paste-code/libegg/eggdesktopfile.c:1366
-#, c-format
-msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
-msgstr "Nije moguće proslijediti URI-je zapisa na unos radne površine 'Type=Link'"
-
-#: ../cut-n-paste-code/libegg/eggdesktopfile.c:1385
-#, c-format
-msgid "Not a launchable item"
-msgstr "Nije izvršna stavka"
-
-#: ../cut-n-paste-code/libegg/eggsmclient.c:237
-msgid "Disable connection to session manager"
-msgstr "Onemogući vezu prema upravitelju pristupne dionice"
-
-#: ../cut-n-paste-code/libegg/eggsmclient.c:242
-msgid "Specify file containing saved configuration"
-msgstr "Navedi datoteku koja sadrži pohranjene postavke"
-
-#: ../cut-n-paste-code/libegg/eggsmclient.c:242
-msgid "FILE"
-msgstr "DATOTEKA"
-
-#: ../cut-n-paste-code/libegg/eggsmclient.c:247
-msgid "Specify session management ID"
-msgstr "Navedi označivač upravljanja pristupnom dionicom"
-
-#: ../cut-n-paste-code/libegg/eggsmclient.c:247
-msgid "ID"
-msgstr "Označivač"
-
-#: ../cut-n-paste-code/libegg/eggsmclient.c:273
-msgid "Session management options:"
-msgstr "Mogućnosti upravljanja pristupnom dionicom:"
-
-#: ../cut-n-paste-code/libegg/eggsmclient.c:274
-msgid "Show session management options"
-msgstr "Prikaži mogućnosti upravljanja pristupnom dionicom"
 
 #: ../data/browser.xml.h:1
 msgid "_Patterns"
@@ -355,7 +292,7 @@ msgstr "Povuci oznaku na stavku za njeno postavljanje na nju"
 
 #. translators: this is the name of an emblem
 #: ../data/browser.xml.h:68 ../src/caja-emblem-sidebar.c:982
-#: ../src/caja-property-browser.c:1944
+#: ../src/caja-property-browser.c:1948
 msgid "Erase"
 msgstr "Izbriši"
 
@@ -373,6 +310,64 @@ msgid ""
 "which Caja is a fork. </p>"
 msgstr "<p> Caja je službeni datotečni upravitelj za radno okružje MATE. On omogućuje pregled direktorija, kao i pretprikaz datoteka te pokretanje programa povezanih s njima. On je također odgovoran za upravljanje sličicama u radnom okružju MATE. Radi na mjesnim i udaljenim datotečnim sustavima. </p> <p> Caja je proširiva putem sustava priključaka, sličnog onome u GNOME Nautilusu, čiji je Caja ogranak. </p>"
 
+#: ../data/caja-autorun-software.desktop.in.in.h:1
+msgid "Autorun Prompt"
+msgstr "Samopokreni odzivnu poruku"
+
+#. Set initial window title
+#: ../data/caja-browser.desktop.in.in.h:1 ../data/caja.desktop.in.in.h:1
+#: ../data/caja-folder-handler.desktop.in.in.h:1
+#: ../src/caja-spatial-window.c:373 ../src/caja-window-menus.c:535
+#: ../src/caja-window.c:172
+msgid "Caja"
+msgstr "Caja"
+
+#: ../data/caja-browser.desktop.in.in.h:2
+msgid "File Browser"
+msgstr "Preglednik datoteka"
+
+#: ../data/caja-browser.desktop.in.in.h:3
+msgid "Browse the file system with the file manager"
+msgstr "Pregledaj datotečni sustav upraviteljem datoteka"
+
+#: ../data/caja-computer.desktop.in.in.h:1
+#: ../libcaja-private/caja-desktop-link.c:113 ../src/caja-places-sidebar.c:490
+msgid "Computer"
+msgstr "Računalo"
+
+#. tooltip
+#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:905
+msgid ""
+"Browse all local and remote disks and folders accessible from this computer"
+msgstr "Pregledaj sve lokalne i udaljene diskove i mape dostupne s ovog računala"
+
+#: ../data/caja.desktop.in.in.h:2
+msgid "File Manager"
+msgstr "Upravitelj datoteka"
+
+#: ../data/caja-file-management-properties.desktop.in.in.h:1
+msgid "File Management"
+msgstr "Upravljanje datotekama"
+
+#: ../data/caja-file-management-properties.desktop.in.in.h:2
+msgid "Change the behaviour and appearance of file manager windows"
+msgstr "Promijeni ponašanje i izgled prozora upravitelja datoteka"
+
+#: ../data/caja-folder-handler.desktop.in.in.h:2
+#: ../libcaja-private/caja-autorun.c:567
+msgid "Open Folder"
+msgstr "Otvori mapu"
+
+#: ../data/caja-home.desktop.in.in.h:1 ../src/file-manager/fm-tree-view.c:1434
+msgid "Home Folder"
+msgstr "Osobna mapa"
+
+#. tooltip
+#: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:504
+#: ../src/caja-window-menus.c:900
+msgid "Open your personal folder"
+msgstr "Otvori svoju osobnu mapu"
+
 #: ../data/caja.xml.in.h:1
 msgid "Saved search"
 msgstr "Spremljena pretraga"
@@ -385,59 +380,59 @@ msgstr "X"
 msgid "Y"
 msgstr "Y"
 
-#: ../eel/eel-editable-label.c:331
+#: ../eel/eel-editable-label.c:332
 msgid "Text"
 msgstr "Napis"
 
-#: ../eel/eel-editable-label.c:332
+#: ../eel/eel-editable-label.c:333
 msgid "The text of the label."
 msgstr "Napis na oznaci."
 
-#: ../eel/eel-editable-label.c:338
+#: ../eel/eel-editable-label.c:339
 msgid "Justification"
 msgstr "Obostrano poravnanje"
 
-#: ../eel/eel-editable-label.c:339
+#: ../eel/eel-editable-label.c:340
 msgid ""
 "The alignment of the lines in the text of the label relative to each other. "
 "This does NOT affect the alignment of the label within its allocation. See "
 "GtkMisc::xalign for that."
 msgstr "Međusobno poravnanje redaka u napisu oznake. Ovo NE utječe na poravnanje oznake unutar njene dodjele. Za to pogledaj GtkMisc::xalign."
 
-#: ../eel/eel-editable-label.c:347
+#: ../eel/eel-editable-label.c:348
 msgid "Line wrap"
 msgstr "Prijelom retka"
 
-#: ../eel/eel-editable-label.c:348
+#: ../eel/eel-editable-label.c:349
 msgid "If set, wrap lines if the text becomes too wide."
 msgstr "Ako je postavljeno, prelomi retke ako napis postane preširok."
 
-#: ../eel/eel-editable-label.c:355
+#: ../eel/eel-editable-label.c:356
 msgid "Cursor Position"
 msgstr "Položaj pokazivača"
 
-#: ../eel/eel-editable-label.c:356
+#: ../eel/eel-editable-label.c:357
 msgid "The current position of the insertion cursor in chars."
 msgstr "Trenutni položaj pokazivača ubacivanja u znakovima."
 
-#: ../eel/eel-editable-label.c:365
+#: ../eel/eel-editable-label.c:366
 msgid "Selection Bound"
 msgstr "Granica odabira"
 
-#: ../eel/eel-editable-label.c:366
+#: ../eel/eel-editable-label.c:367
 msgid ""
 "The position of the opposite end of the selection from the cursor in chars."
 msgstr "Položaj suprotne strane odabira od pokazivača u znakovima."
 
-#: ../eel/eel-editable-label.c:3127
+#: ../eel/eel-editable-label.c:3120
 msgid "Select All"
 msgstr "Odaberi sve"
 
-#: ../eel/eel-editable-label.c:3138
+#: ../eel/eel-editable-label.c:3131
 msgid "Input Methods"
 msgstr "Načini unosa"
 
-#: ../eel/eel-gtk-extensions.c:456
+#: ../eel/eel-gtk-extensions.c:445
 msgid "Show more _details"
 msgstr "Prikaži više _pojedinosti"
 
@@ -460,11 +455,6 @@ msgstr "Upitaj što poduzeti"
 #: ../libcaja-private/caja-autorun.c:552
 msgid "Do Nothing"
 msgstr "Ne poduzimaj ništa"
-
-#: ../libcaja-private/caja-autorun.c:567
-#: ../data/caja-folder-handler.desktop.in.in.h:2
-msgid "Open Folder"
-msgstr "Otvori mapu"
 
 #: ../libcaja-private/caja-autorun.c:600 ../src/caja-x-content-bar.c:148
 #, c-format
@@ -557,10 +547,10 @@ msgstr "_Uvijek izvrši ovu radnju"
 #. label, accelerator
 #. add the "Eject" menu item
 #: ../libcaja-private/caja-autorun.c:1146
-#: ../src/file-manager/fm-directory-view.c:7408
-#: ../src/file-manager/fm-directory-view.c:7436
-#: ../src/file-manager/fm-directory-view.c:7517
-#: ../src/file-manager/fm-tree-view.c:1382 ../src/caja-places-sidebar.c:2740
+#: ../src/file-manager/fm-directory-view.c:7411
+#: ../src/file-manager/fm-directory-view.c:7439
+#: ../src/file-manager/fm-directory-view.c:7520
+#: ../src/file-manager/fm-tree-view.c:1382 ../src/caja-places-sidebar.c:2714
 msgid "_Eject"
 msgstr "_Izbaci"
 
@@ -568,10 +558,10 @@ msgstr "_Izbaci"
 #. label, accelerator
 #. add the "Unmount" menu item
 #: ../libcaja-private/caja-autorun.c:1159
-#: ../src/file-manager/fm-directory-view.c:7404
-#: ../src/file-manager/fm-directory-view.c:7432
-#: ../src/file-manager/fm-directory-view.c:7513
-#: ../src/file-manager/fm-tree-view.c:1373 ../src/caja-places-sidebar.c:2733
+#: ../src/file-manager/fm-directory-view.c:7407
+#: ../src/file-manager/fm-directory-view.c:7435
+#: ../src/file-manager/fm-directory-view.c:7516
+#: ../src/file-manager/fm-tree-view.c:1373 ../src/caja-places-sidebar.c:2707
 msgid "_Unmount"
 msgstr "_Demontiraj"
 
@@ -599,7 +589,7 @@ msgstr "Umetni napis pohranjen u međuspremniku"
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-clipboard.c:470
-#: ../src/file-manager/fm-directory-view.c:7337
+#: ../src/file-manager/fm-directory-view.c:7340
 msgid "Select _All"
 msgstr "Odaberi _sve"
 
@@ -608,21 +598,21 @@ msgstr "Odaberi _sve"
 msgid "Select all the text in a text field"
 msgstr "Odaberi sav napis u napisnom polju"
 
-#: ../libcaja-private/caja-column-chooser.c:378
+#: ../libcaja-private/caja-column-chooser.c:381
 msgid "Move _Up"
 msgstr "Pomakni _gore"
 
-#: ../libcaja-private/caja-column-chooser.c:388
+#: ../libcaja-private/caja-column-chooser.c:391
 msgid "Move Dow_n"
 msgstr "Pomakni dolj_e"
 
-#: ../libcaja-private/caja-column-chooser.c:401
+#: ../libcaja-private/caja-column-chooser.c:404
 msgid "Use De_fault"
 msgstr "Koristi za_dano"
 
 #: ../libcaja-private/caja-column-utilities.c:44
 #: ../libcaja-private/caja-mime-application-chooser.c:274
-#: ../src/file-manager/fm-list-view.c:1767
+#: ../src/file-manager/fm-list-view.c:1778
 msgid "Name"
 msgstr "Naziv"
 
@@ -640,11 +630,11 @@ msgstr "Veličina datoteke."
 
 #: ../libcaja-private/caja-column-utilities.c:59
 msgid "Size on Disk"
-msgstr ""
+msgstr "Veličina na disku"
 
 #: ../libcaja-private/caja-column-utilities.c:60
 msgid "The size of the file on disk."
-msgstr ""
+msgstr "Veličina datoteke na disku."
 
 #: ../libcaja-private/caja-column-utilities.c:67
 msgid "Type"
@@ -747,8 +737,8 @@ msgstr "Izvorni položaj datoteke prije premještaja u smeće"
 
 #: ../libcaja-private/caja-customization-data.c:431
 #: ../libcaja-private/caja-file-conflict-dialog.c:631
-#: ../libcaja-private/caja-mime-application-chooser.c:441
-#: ../src/caja-property-browser.c:1991
+#: ../libcaja-private/caja-mime-application-chooser.c:444
+#: ../src/caja-property-browser.c:1995
 msgid "Reset"
 msgstr "Ponovno postavi"
 
@@ -769,17 +759,12 @@ msgstr "na radnoj površini"
 msgid "%s's Home"
 msgstr "Osobna mapa korisnika %s"
 
-#: ../libcaja-private/caja-desktop-link.c:113
-#: ../data/caja-computer.desktop.in.in.h:1 ../src/caja-places-sidebar.c:493
-msgid "Computer"
-msgstr "Računalo"
-
 #: ../libcaja-private/caja-desktop-link.c:116
 msgid "Network Servers"
 msgstr "Mrežni poslužitelji"
 
 #: ../libcaja-private/caja-desktop-link.c:119
-#: ../src/file-manager/fm-tree-view.c:1441 ../src/caja-places-sidebar.c:597
+#: ../src/file-manager/fm-tree-view.c:1441 ../src/caja-places-sidebar.c:594
 #: ../src/caja-trash-bar.c:190
 msgid "Trash"
 msgstr "Smeće"
@@ -1071,7 +1056,7 @@ msgstr[2] "približno %'d sati"
 #. * to that kind of file (e.g. "link to folder").
 #: ../libcaja-private/caja-file-operations.c:407
 #: ../libcaja-private/caja-file.c:6526
-#: ../src/file-manager/fm-directory-view.c:10528
+#: ../src/file-manager/fm-directory-view.c:10531
 #, c-format
 msgid "Link to %s"
 msgstr "Poveznica na %s"
@@ -1236,8 +1221,8 @@ msgstr "Sve stavke u smeću bit će trajno izbrisane."
 
 #. Empty Trash menu item
 #: ../libcaja-private/caja-file-operations.c:1394
-#: ../libcaja-private/caja-file-operations.c:2317
-#: ../src/caja-places-sidebar.c:2777 ../src/caja-trash-bar.c:197
+#: ../libcaja-private/caja-file-operations.c:2320
+#: ../src/caja-places-sidebar.c:2751 ../src/caja-trash-bar.c:197
 msgid "Empty _Trash"
 msgstr "Isprazni _smeće"
 
@@ -1300,7 +1285,7 @@ msgstr[2] "%T preostalo"
 #: ../libcaja-private/caja-file-operations.c:1630
 #: ../libcaja-private/caja-file-operations.c:1669
 #: ../libcaja-private/caja-file-operations.c:1746
-#: ../libcaja-private/caja-file-operations.c:2562
+#: ../libcaja-private/caja-file-operations.c:2565
 msgid "Error while deleting."
 msgstr "Neispravnost pri brisanju."
 
@@ -1311,14 +1296,14 @@ msgid ""
 msgstr "Datoteke u mapi \"%B\" ne mogu biti izbrisane jer nemaš dopuštenje za njihov pregled."
 
 #: ../libcaja-private/caja-file-operations.c:1603
-#: ../libcaja-private/caja-file-operations.c:2622
-#: ../libcaja-private/caja-file-operations.c:3604
+#: ../libcaja-private/caja-file-operations.c:2625
+#: ../libcaja-private/caja-file-operations.c:3607
 msgid ""
 "There was an error getting information about the files in the folder \"%B\"."
 msgstr "Pojavila se neispravnost u pribavljanju podataka o datotekama u mapi \"%B\"."
 
 #: ../libcaja-private/caja-file-operations.c:1612
-#: ../libcaja-private/caja-file-operations.c:3613
+#: ../libcaja-private/caja-file-operations.c:3616
 msgid "_Skip files"
 msgstr "_Preskoči datoteke"
 
@@ -1329,8 +1314,8 @@ msgid ""
 msgstr "Mapa \"%B\" ne može biti izbrisana jer nemaš dopuštenje za njeno čitanje."
 
 #: ../libcaja-private/caja-file-operations.c:1636
-#: ../libcaja-private/caja-file-operations.c:2661
-#: ../libcaja-private/caja-file-operations.c:3649
+#: ../libcaja-private/caja-file-operations.c:2664
+#: ../libcaja-private/caja-file-operations.c:3652
 msgid "There was an error reading the folder \"%B\"."
 msgstr "Pojavila se neispravnost u čitanju mape \"%B\"."
 
@@ -1370,34 +1355,34 @@ msgstr "Odbacivanje datoteka u smeće"
 msgid "Deleting Files"
 msgstr "Brisanje datoteka"
 
-#: ../libcaja-private/caja-file-operations.c:2147
+#: ../libcaja-private/caja-file-operations.c:2150
 msgid "Unable to eject %V"
 msgstr "Nije moguće izbaciti %V"
 
-#: ../libcaja-private/caja-file-operations.c:2149
+#: ../libcaja-private/caja-file-operations.c:2152
 msgid "Unable to unmount %V"
 msgstr "Nije moguće rastaviti %V"
 
-#: ../libcaja-private/caja-file-operations.c:2307
+#: ../libcaja-private/caja-file-operations.c:2310
 msgid "Do you want to empty the trash before you unmount?"
 msgstr "Želiš li isprazniti smeće prije rastavljanja?"
 
-#: ../libcaja-private/caja-file-operations.c:2309
+#: ../libcaja-private/caja-file-operations.c:2312
 msgid ""
 "In order to regain the free space on this volume the trash must be emptied. "
 "All trashed items on the volume will be permanently lost."
 msgstr "Kako bi se povratio slobodan prostor na ovom uređaju za pohranu, smeće se mora isprazniti. Sve datoteke u smeću bit će bespovratno izgubljene."
 
-#: ../libcaja-private/caja-file-operations.c:2315
+#: ../libcaja-private/caja-file-operations.c:2318
 msgid "Do _not Empty Trash"
 msgstr "_Nemoj isprazniti smeće "
 
-#: ../libcaja-private/caja-file-operations.c:2431
+#: ../libcaja-private/caja-file-operations.c:2434
 #, c-format
 msgid "Unable to mount %s"
 msgstr "Nije moguće postaviti %s"
 
-#: ../libcaja-private/caja-file-operations.c:2509
+#: ../libcaja-private/caja-file-operations.c:2512
 #, c-format
 msgid "Preparing to copy %'d file (%S)"
 msgid_plural "Preparing to copy %'d files (%S)"
@@ -1405,7 +1390,7 @@ msgstr[0] "Priprema za preslikavanje %'d datoteke (%S)"
 msgstr[1] "Priprema za preslikavanje %'d datoteke (%S)"
 msgstr[2] "Priprema za preslikavanje %'d datoteka (%S)"
 
-#: ../libcaja-private/caja-file-operations.c:2515
+#: ../libcaja-private/caja-file-operations.c:2518
 #, c-format
 msgid "Preparing to move %'d file (%S)"
 msgid_plural "Preparing to move %'d files (%S)"
@@ -1413,7 +1398,7 @@ msgstr[0] "Priprema za premještanje %'d datoteke (%S)"
 msgstr[1] "Priprema za premještanje %'d datoteke (%S)"
 msgstr[2] "Priprema za premještanje %'d datoteka (%S)"
 
-#: ../libcaja-private/caja-file-operations.c:2521
+#: ../libcaja-private/caja-file-operations.c:2524
 #, c-format
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
@@ -1421,7 +1406,7 @@ msgstr[0] "Priprema za brisanje %'d datoteke (%S)"
 msgstr[1] "Priprema za brisanje %'d datoteke (%S)"
 msgstr[2] "Priprema za brisanje %'d datoteka (%S)"
 
-#: ../libcaja-private/caja-file-operations.c:2527
+#: ../libcaja-private/caja-file-operations.c:2530
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
@@ -1429,127 +1414,127 @@ msgstr[0] "Priprema za odbacivanje u smeće %'d datoteke"
 msgstr[1] "Priprema za odbacivanje u smeće %'d datoteke"
 msgstr[2] "Priprema za odbacivanje u smeće %'d datoteka"
 
-#: ../libcaja-private/caja-file-operations.c:2558
-#: ../libcaja-private/caja-file-operations.c:3456
-#: ../libcaja-private/caja-file-operations.c:3596
-#: ../libcaja-private/caja-file-operations.c:3641
+#: ../libcaja-private/caja-file-operations.c:2561
+#: ../libcaja-private/caja-file-operations.c:3459
+#: ../libcaja-private/caja-file-operations.c:3599
+#: ../libcaja-private/caja-file-operations.c:3644
 msgid "Error while copying."
 msgstr "Neispravnost pri preslikavanju."
 
-#: ../libcaja-private/caja-file-operations.c:2560
-#: ../libcaja-private/caja-file-operations.c:3594
-#: ../libcaja-private/caja-file-operations.c:3639
+#: ../libcaja-private/caja-file-operations.c:2563
+#: ../libcaja-private/caja-file-operations.c:3597
+#: ../libcaja-private/caja-file-operations.c:3642
 msgid "Error while moving."
 msgstr "Neispravnost pri premještanju."
 
-#: ../libcaja-private/caja-file-operations.c:2564
+#: ../libcaja-private/caja-file-operations.c:2567
 msgid "Error while moving files to trash."
 msgstr "Neispravnost pri premještanju datoteka u smeće."
 
-#: ../libcaja-private/caja-file-operations.c:2619
+#: ../libcaja-private/caja-file-operations.c:2622
 msgid ""
 "Files in the folder \"%B\" cannot be handled because you do not have "
 "permissions to see them."
 msgstr "Datotekama u mapi \"%B\" nije moguće rukovati jer nemaš dopuštenje za njihov pregled."
 
-#: ../libcaja-private/caja-file-operations.c:2658
+#: ../libcaja-private/caja-file-operations.c:2661
 msgid ""
 "The folder \"%B\" cannot be handled because you do not have permissions to "
 "read it."
 msgstr "Mapom \"%B\" nije moguće rukovati jer nemaš dopuštenje za njeno čitanje."
 
-#: ../libcaja-private/caja-file-operations.c:2736
+#: ../libcaja-private/caja-file-operations.c:2739
 msgid ""
 "The file \"%B\" cannot be handled because you do not have permissions to "
 "read it."
 msgstr "Datotekom \"%B\" nije moguće rukovati jer nemaš dopuštenje za njeno čitanje."
 
-#: ../libcaja-private/caja-file-operations.c:2739
+#: ../libcaja-private/caja-file-operations.c:2742
 msgid "There was an error getting information about \"%B\"."
 msgstr "Pojavila se neispravnost u prikupljanju podataka o \"%B\"."
 
-#: ../libcaja-private/caja-file-operations.c:2839
-#: ../libcaja-private/caja-file-operations.c:2881
-#: ../libcaja-private/caja-file-operations.c:2914
-#: ../libcaja-private/caja-file-operations.c:2944
+#: ../libcaja-private/caja-file-operations.c:2842
+#: ../libcaja-private/caja-file-operations.c:2884
+#: ../libcaja-private/caja-file-operations.c:2917
+#: ../libcaja-private/caja-file-operations.c:2947
 msgid "Error while copying to \"%B\"."
 msgstr "Neispravnost pri preslikavanju u \"%B\"."
 
-#: ../libcaja-private/caja-file-operations.c:2843
+#: ../libcaja-private/caja-file-operations.c:2846
 msgid "You do not have permissions to access the destination folder."
 msgstr "Nemaš dopuštenje za pristup mapi odredišta."
 
-#: ../libcaja-private/caja-file-operations.c:2845
+#: ../libcaja-private/caja-file-operations.c:2848
 msgid "There was an error getting information about the destination."
 msgstr "Pojavila se neispravnost u pribavljanju podataka o odredištu."
 
-#: ../libcaja-private/caja-file-operations.c:2882
+#: ../libcaja-private/caja-file-operations.c:2885
 msgid "The destination is not a folder."
 msgstr "Odredište nije mapa."
 
-#: ../libcaja-private/caja-file-operations.c:2915
+#: ../libcaja-private/caja-file-operations.c:2918
 msgid ""
 "There is not enough space on the destination. Try to remove files to make "
 "space."
 msgstr "Nema dovoljno prostora na odredištu. Pokušaj ukloniti pojedine datoteke za oslobađanje prostora."
 
-#: ../libcaja-private/caja-file-operations.c:2917
+#: ../libcaja-private/caja-file-operations.c:2920
 #, c-format
 msgid "There is %S available, but %S is required."
 msgstr "%S je dostupno, a %S je potrebno."
 
-#: ../libcaja-private/caja-file-operations.c:2945
+#: ../libcaja-private/caja-file-operations.c:2948
 msgid "The destination is read-only."
 msgstr "Odredište dozvoljava samo čitanje."
 
-#: ../libcaja-private/caja-file-operations.c:3004
+#: ../libcaja-private/caja-file-operations.c:3007
 msgid "Moving \"%B\" to \"%B\""
 msgstr "Premještanje \"%B\" u \"%B\""
 
-#: ../libcaja-private/caja-file-operations.c:3005
+#: ../libcaja-private/caja-file-operations.c:3008
 msgid "Copying \"%B\" to \"%B\""
 msgstr "Preslikavanje \"%B\" u \"%B\""
 
-#: ../libcaja-private/caja-file-operations.c:3010
+#: ../libcaja-private/caja-file-operations.c:3013
 msgid "Duplicating \"%B\""
 msgstr "\"%B\" se udvostručava"
 
-#: ../libcaja-private/caja-file-operations.c:3018
+#: ../libcaja-private/caja-file-operations.c:3021
 msgid "Moving %'d file (in \"%B\") to \"%B\""
 msgid_plural "Moving %'d files (in \"%B\") to \"%B\""
 msgstr[0] "Premještanje %'d datoteke (u \"%B\") u \"%B\""
 msgstr[1] "Premještanje %'d datoteke (u \"%B\") u \"%B\""
 msgstr[2] "Premještanje %'d datoteka (u \"%B\") na \"%B\""
 
-#: ../libcaja-private/caja-file-operations.c:3022
+#: ../libcaja-private/caja-file-operations.c:3025
 msgid "Copying %'d file (in \"%B\") to \"%B\""
 msgid_plural "Copying %'d files (in \"%B\") to \"%B\""
 msgstr[0] "Preslikavanje %'d datoteke (u \"%B\") na \"%B\""
 msgstr[1] "Preslikavanje %'d datoteke (u \"%B\") na \"%B\""
 msgstr[2] "Preslikavanje %'d datoteka (u \"%B\") na \"%B\""
 
-#: ../libcaja-private/caja-file-operations.c:3030
+#: ../libcaja-private/caja-file-operations.c:3033
 msgid "Duplicating %'d file (in \"%B\")"
 msgid_plural "Duplicating %'d files (in \"%B\")"
 msgstr[0] "Udvostručavanje %'d datoteke (u \"%B\")"
 msgstr[1] "Udvostručavanje %'d datoteke (u \"%B\")"
 msgstr[2] "Udvostručavanje %'d datoteka (u \"%B\")"
 
-#: ../libcaja-private/caja-file-operations.c:3040
+#: ../libcaja-private/caja-file-operations.c:3043
 msgid "Moving %'d file to \"%B\""
 msgid_plural "Moving %'d files to \"%B\""
 msgstr[0] "Premještanje %'d datoteke u \"%B\""
 msgstr[1] "Premještanje %'d datoteke u \"%B\""
 msgstr[2] "Premještanje %'d datoteka u \"%B\""
 
-#: ../libcaja-private/caja-file-operations.c:3044
+#: ../libcaja-private/caja-file-operations.c:3047
 msgid "Copying %'d file to \"%B\""
 msgid_plural "Copying %'d files to \"%B\""
 msgstr[0] "Preslikavanje %'d datoteke u \"%B\""
 msgstr[1] "Preslikavanje %'d datoteke u \"%B\""
 msgstr[2] "Preslikavanje %'d datoteka u \"%B\""
 
-#: ../libcaja-private/caja-file-operations.c:3050
+#: ../libcaja-private/caja-file-operations.c:3053
 #, c-format
 msgid "Duplicating %'d file"
 msgid_plural "Duplicating %'d files"
@@ -1559,7 +1544,7 @@ msgstr[2] "Udvostručavanje %'d datoteka"
 
 #. To translators: %S will expand to a size like "2 bytes" or "3 MB", so
 #. something like "4 kb of 4 MB"
-#: ../libcaja-private/caja-file-operations.c:3070
+#: ../libcaja-private/caja-file-operations.c:3073
 #, c-format
 msgid "%S of %S"
 msgstr "%S od %S"
@@ -1571,110 +1556,110 @@ msgstr "%S od %S"
 #. *
 #. * The singular/plural form will be used depending on the remaining time
 #. (i.e. the %T argument).
-#: ../libcaja-private/caja-file-operations.c:3081
+#: ../libcaja-private/caja-file-operations.c:3084
 msgid "%S of %S — %T left (%S/sec)"
 msgid_plural "%S of %S — %T left (%S/sec)"
 msgstr[0] "%S od %S — %T preostalo (%S/sek)"
 msgstr[1] "%S od %S — %T preostalo (%S/sek)"
 msgstr[2] "%S od %S — %T preostalo (%S/sek)"
 
-#: ../libcaja-private/caja-file-operations.c:3460
+#: ../libcaja-private/caja-file-operations.c:3463
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "create it in the destination."
 msgstr "Mapa \"%B\" ne može biti preslikana jer nemaš dopuštenje za njeno stvaranje na odredištu."
 
-#: ../libcaja-private/caja-file-operations.c:3463
+#: ../libcaja-private/caja-file-operations.c:3466
 msgid "There was an error creating the folder \"%B\"."
 msgstr "Pojavila se neispravnost pri stvaranju mape \"%B\"."
 
-#: ../libcaja-private/caja-file-operations.c:3601
+#: ../libcaja-private/caja-file-operations.c:3604
 msgid ""
 "Files in the folder \"%B\" cannot be copied because you do not have "
 "permissions to see them."
 msgstr "Datoteke u mapi \"%B\" ne mogu biti preslikane jer nemaš dopuštenje za njihov pregled."
 
-#: ../libcaja-private/caja-file-operations.c:3646
+#: ../libcaja-private/caja-file-operations.c:3649
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "read it."
 msgstr "Mapa \"%B\" ne može biti preslikana jer nemaš dopuštenje za njeno čitanje."
 
-#: ../libcaja-private/caja-file-operations.c:3691
-#: ../libcaja-private/caja-file-operations.c:4385
-#: ../libcaja-private/caja-file-operations.c:4977
+#: ../libcaja-private/caja-file-operations.c:3694
+#: ../libcaja-private/caja-file-operations.c:4388
+#: ../libcaja-private/caja-file-operations.c:4980
 msgid "Error while moving \"%B\"."
 msgstr "Neispravnost pri premještanju \"%B\"."
 
-#: ../libcaja-private/caja-file-operations.c:3692
+#: ../libcaja-private/caja-file-operations.c:3695
 msgid "Could not remove the source folder."
 msgstr "Nije bilo moguće ukloniti ishodišnu mapu."
 
-#: ../libcaja-private/caja-file-operations.c:3777
-#: ../libcaja-private/caja-file-operations.c:3818
-#: ../libcaja-private/caja-file-operations.c:4387
-#: ../libcaja-private/caja-file-operations.c:4459
+#: ../libcaja-private/caja-file-operations.c:3780
+#: ../libcaja-private/caja-file-operations.c:3821
+#: ../libcaja-private/caja-file-operations.c:4390
+#: ../libcaja-private/caja-file-operations.c:4462
 msgid "Error while copying \"%B\"."
 msgstr "Neispravnost pri preslikavanju \"%B\"."
 
-#: ../libcaja-private/caja-file-operations.c:3778
+#: ../libcaja-private/caja-file-operations.c:3781
 #, c-format
 msgid "Could not remove files from the already existing folder %F."
 msgstr "Nije bilo moguće ukloniti datoteke iz već postojeće mape %F."
 
-#: ../libcaja-private/caja-file-operations.c:3819
+#: ../libcaja-private/caja-file-operations.c:3822
 #, c-format
 msgid "Could not remove the already existing file %F."
 msgstr "Nije bilo moguće ukloniti već postojeću datoteku %F."
 
 #. the run_warning() frees all strings passed in automatically
-#: ../libcaja-private/caja-file-operations.c:4138
-#: ../libcaja-private/caja-file-operations.c:4823
+#: ../libcaja-private/caja-file-operations.c:4141
+#: ../libcaja-private/caja-file-operations.c:4826
 msgid "You cannot move a folder into itself."
 msgstr "Ne možeš premjestiti mapu u nju samu."
 
-#: ../libcaja-private/caja-file-operations.c:4139
-#: ../libcaja-private/caja-file-operations.c:4824
+#: ../libcaja-private/caja-file-operations.c:4142
+#: ../libcaja-private/caja-file-operations.c:4827
 msgid "You cannot copy a folder into itself."
 msgstr "Ne možeš preslikati mapu u nju samu."
 
-#: ../libcaja-private/caja-file-operations.c:4140
-#: ../libcaja-private/caja-file-operations.c:4825
+#: ../libcaja-private/caja-file-operations.c:4143
+#: ../libcaja-private/caja-file-operations.c:4828
 msgid "The destination folder is inside the source folder."
 msgstr "Odredišna mapa je unutar ishodišne mape."
 
 #. the run_warning() frees all strings passed in automatically
-#: ../libcaja-private/caja-file-operations.c:4171
+#: ../libcaja-private/caja-file-operations.c:4174
 msgid "You cannot move a file over itself."
 msgstr "Ne možeš premjestiti datoteku na nju samu."
 
-#: ../libcaja-private/caja-file-operations.c:4172
+#: ../libcaja-private/caja-file-operations.c:4175
 msgid "You cannot copy a file over itself."
 msgstr "Ne možeš preslikati datoteku na nju samu."
 
-#: ../libcaja-private/caja-file-operations.c:4173
+#: ../libcaja-private/caja-file-operations.c:4176
 msgid "The source file would be overwritten by the destination."
 msgstr "Odredište bi prepisalo ishodišnu datoteku."
 
-#: ../libcaja-private/caja-file-operations.c:4389
+#: ../libcaja-private/caja-file-operations.c:4392
 #, c-format
 msgid "Could not remove the already existing file with the same name in %F."
 msgstr "Nije bilo moguće ukloniti već postojeću datoteku s istim nazivom u %F."
 
-#: ../libcaja-private/caja-file-operations.c:4460
+#: ../libcaja-private/caja-file-operations.c:4463
 #, c-format
 msgid "There was an error copying the file into %F."
 msgstr "Pojavila se neispravnost pri preslikavanju datoteke u %F."
 
-#: ../libcaja-private/caja-file-operations.c:4706
+#: ../libcaja-private/caja-file-operations.c:4709
 msgid "Copying Files"
 msgstr "Preslikavanje datoteka"
 
-#: ../libcaja-private/caja-file-operations.c:4733
+#: ../libcaja-private/caja-file-operations.c:4736
 msgid "Preparing to Move to \"%B\""
 msgstr "Priprema se premještanje u \"%B\""
 
-#: ../libcaja-private/caja-file-operations.c:4737
+#: ../libcaja-private/caja-file-operations.c:4740
 #, c-format
 msgid "Preparing to move %'d file"
 msgid_plural "Preparing to move %'d files"
@@ -1682,20 +1667,20 @@ msgstr[0] "Priprema za premještanje %'d datoteke"
 msgstr[1] "Priprema za premještanje %'d datoteke"
 msgstr[2] "Priprema za premještanje %'d datoteka"
 
-#: ../libcaja-private/caja-file-operations.c:4978
+#: ../libcaja-private/caja-file-operations.c:4981
 #, c-format
 msgid "There was an error moving the file into %F."
 msgstr "Pojavila se neispravnost pri premještanju datoteke u %F."
 
-#: ../libcaja-private/caja-file-operations.c:5248
+#: ../libcaja-private/caja-file-operations.c:5251
 msgid "Moving Files"
 msgstr "Premještanje datoteka"
 
-#: ../libcaja-private/caja-file-operations.c:5279
+#: ../libcaja-private/caja-file-operations.c:5282
 msgid "Creating links in \"%B\""
 msgstr "Stvaranje poveznica u \"%B\""
 
-#: ../libcaja-private/caja-file-operations.c:5283
+#: ../libcaja-private/caja-file-operations.c:5286
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
@@ -1703,58 +1688,58 @@ msgstr[0] "Stvaranje poveznice do %'d datoteke"
 msgstr[1] "Stvaranje poveznice do %'d datoteke"
 msgstr[2] "Stvaranje poveznice do %'d datoteka"
 
-#: ../libcaja-private/caja-file-operations.c:5415
+#: ../libcaja-private/caja-file-operations.c:5418
 msgid "Error while creating link to %B."
 msgstr "Neispravnost pri stvaranju poveznice do %B."
 
-#: ../libcaja-private/caja-file-operations.c:5417
+#: ../libcaja-private/caja-file-operations.c:5420
 msgid "Symbolic links only supported for local files"
 msgstr "Simboličke poveznice jedino podržane za mjesne datoteke"
 
-#: ../libcaja-private/caja-file-operations.c:5420
+#: ../libcaja-private/caja-file-operations.c:5423
 msgid "The target doesn't support symbolic links."
 msgstr "Odredište ne podržava simboličke poveznice."
 
-#: ../libcaja-private/caja-file-operations.c:5423
+#: ../libcaja-private/caja-file-operations.c:5426
 #, c-format
 msgid "There was an error creating the symlink in %F."
 msgstr "Pojavila se neispravnost u stvaranju simboličke poveznice u %F."
 
-#: ../libcaja-private/caja-file-operations.c:5739
+#: ../libcaja-private/caja-file-operations.c:5742
 msgid "Setting permissions"
 msgstr "Postavljanje dopuštenja"
 
 #. localizers: the initial name of a new folder
-#: ../libcaja-private/caja-file-operations.c:5998
+#: ../libcaja-private/caja-file-operations.c:6001
 msgid "untitled folder"
 msgstr "nenaslovljena mapa"
 
 #. localizers: the initial name of a new empty file
-#: ../libcaja-private/caja-file-operations.c:6006
+#: ../libcaja-private/caja-file-operations.c:6009
 msgid "new file"
 msgstr "nova datoteka"
 
-#: ../libcaja-private/caja-file-operations.c:6178
+#: ../libcaja-private/caja-file-operations.c:6181
 msgid "Error while creating directory %B."
 msgstr "Neispravnost pri stvaranju direktorija %B."
 
-#: ../libcaja-private/caja-file-operations.c:6180
+#: ../libcaja-private/caja-file-operations.c:6183
 msgid "Error while creating file %B."
 msgstr "Neispravnost pri stvaranju datoteke %B."
 
-#: ../libcaja-private/caja-file-operations.c:6182
+#: ../libcaja-private/caja-file-operations.c:6185
 #, c-format
 msgid "There was an error creating the directory in %F."
 msgstr "Pojavila se neispravnost pri stvaranju direktorija u %F."
 
-#: ../libcaja-private/caja-file-operations.c:6460
+#: ../libcaja-private/caja-file-operations.c:6463
 msgid "Emptying Trash"
 msgstr "Pražnjenje smeća"
 
-#: ../libcaja-private/caja-file-operations.c:6509
-#: ../libcaja-private/caja-file-operations.c:6550
-#: ../libcaja-private/caja-file-operations.c:6585
-#: ../libcaja-private/caja-file-operations.c:6620
+#: ../libcaja-private/caja-file-operations.c:6512
+#: ../libcaja-private/caja-file-operations.c:6553
+#: ../libcaja-private/caja-file-operations.c:6588
+#: ../libcaja-private/caja-file-operations.c:6623
 msgid "Unable to mark launcher trusted (executable)"
 msgstr "Nije moguće označiti pokretač pouzdanim (izvršnim)"
 
@@ -1971,7 +1956,7 @@ msgid "Specified group '%s' doesn't exist"
 msgstr "Navedena skupina '%s' ne postoji"
 
 #: ../libcaja-private/caja-file.c:5950
-#: ../src/file-manager/fm-directory-view.c:2368
+#: ../src/file-manager/fm-directory-view.c:2371
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
@@ -2043,7 +2028,7 @@ msgstr "poveznica"
 msgid "link (broken)"
 msgstr "poveznica (prekinuta)"
 
-#: ../libcaja-private/caja-icon-container.c:2925
+#: ../libcaja-private/caja-icon-container.c:2920
 msgid "The selection rectangle"
 msgstr "Odabirni pravokutnik"
 
@@ -2069,10 +2054,10 @@ msgstr "Poveznica se ne može koristiti jer njeno odredište \"%s\" ne postoji."
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-mime-actions.c:744
-#: ../src/file-manager/fm-directory-view.c:7365
-#: ../src/file-manager/fm-directory-view.c:7497
-#: ../src/file-manager/fm-directory-view.c:8596
-#: ../src/file-manager/fm-directory-view.c:8921
+#: ../src/file-manager/fm-directory-view.c:7368
+#: ../src/file-manager/fm-directory-view.c:7500
+#: ../src/file-manager/fm-directory-view.c:8599
+#: ../src/file-manager/fm-directory-view.c:8924
 #: ../src/file-manager/fm-tree-view.c:1346
 msgid "Mo_ve to Trash"
 msgstr "Pre_mjesti u smeće"
@@ -2181,12 +2166,12 @@ msgstr "Označi kao _pouzdano"
 
 #: ../libcaja-private/caja-mime-actions.c:2010
 #: ../libcaja-private/caja-mime-actions.c:2316
-#: ../src/file-manager/fm-directory-view.c:6383
+#: ../src/file-manager/fm-directory-view.c:6386
 msgid "Unable to mount location"
 msgstr "Nije moguće postavljanje s položaja"
 
 #: ../libcaja-private/caja-mime-actions.c:2404
-#: ../src/file-manager/fm-directory-view.c:6557
+#: ../src/file-manager/fm-directory-view.c:6560
 msgid "Unable to start location"
 msgstr "Nije moguće pokretanje s položaja"
 
@@ -2226,26 +2211,26 @@ msgstr "Sličica"
 msgid "Could not remove application"
 msgstr "Nije bilo moguće ukloniti program"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:558
+#: ../libcaja-private/caja-mime-application-chooser.c:561
 msgid "No applications selected"
 msgstr "Nema odabranog programa"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:588
+#: ../libcaja-private/caja-mime-application-chooser.c:591
 #, c-format
 msgid "%s document"
 msgstr "%s zapis"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:598
-#: ../libcaja-private/caja-open-with-dialog.c:1078
+#: ../libcaja-private/caja-mime-application-chooser.c:601
+#: ../libcaja-private/caja-open-with-dialog.c:1081
 msgid "Unknown"
 msgstr "Nepoznato"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:631
+#: ../libcaja-private/caja-mime-application-chooser.c:634
 #, c-format
 msgid "Select an application to open %s and other files of type \"%s\""
 msgstr "Odaberi program za otvaranje %s i ostalih datoteka vrste \"%s\"."
 
-#: ../libcaja-private/caja-mime-application-chooser.c:703
+#: ../libcaja-private/caja-mime-application-chooser.c:706
 #, c-format
 msgid "Open all files of type \"%s\" with:"
 msgstr "Otvori sve datoteke vrste \"%s\" s: "
@@ -2281,76 +2266,76 @@ msgstr "Odaberi program"
 msgid "Open With"
 msgstr "Otvori pomoću"
 
-#: ../libcaja-private/caja-open-with-dialog.c:880
+#: ../libcaja-private/caja-open-with-dialog.c:883
 msgid "Select an application to view its description."
 msgstr "Odaberi program za pregled njegova opisa"
 
-#: ../libcaja-private/caja-open-with-dialog.c:910
+#: ../libcaja-private/caja-open-with-dialog.c:913
 msgid "_Use a custom command"
 msgstr "_Koristi prilagođenu naredbu"
 
-#: ../libcaja-private/caja-open-with-dialog.c:927
+#: ../libcaja-private/caja-open-with-dialog.c:930
 msgid "_Browse..."
 msgstr "_Pregledaj..."
 
 #. name, stock id
 #. label, accelerator
-#: ../libcaja-private/caja-open-with-dialog.c:963
-#: ../src/file-manager/fm-directory-view.c:7281
-#: ../src/file-manager/fm-directory-view.c:8790
-#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2682
+#: ../libcaja-private/caja-open-with-dialog.c:966
+#: ../src/file-manager/fm-directory-view.c:7284
+#: ../src/file-manager/fm-directory-view.c:8793
+#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2656
 msgid "_Open"
 msgstr "_Otvori"
 
 #. first %s is a filename and second %s is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1048
+#: ../libcaja-private/caja-open-with-dialog.c:1051
 #, c-format
 msgid "Open %s and other %s document with:"
 msgstr "Otvori %s i drugi %s zapis s:"
 
 #. the %s here is a file name
 #. %s is a filename
-#: ../libcaja-private/caja-open-with-dialog.c:1054
-#: ../libcaja-private/caja-open-with-dialog.c:1094
+#: ../libcaja-private/caja-open-with-dialog.c:1057
+#: ../libcaja-private/caja-open-with-dialog.c:1097
 #, c-format
 msgid "Open %s with:"
 msgstr "Otvori %s s:"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1055
+#: ../libcaja-private/caja-open-with-dialog.c:1058
 #, c-format
 msgid "_Remember this application for %s documents"
 msgstr "_Upamti ovaj program za %s zapise"
 
 #. Only in add mode - the %s here is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1066
+#: ../libcaja-private/caja-open-with-dialog.c:1069
 #, c-format
 msgid "Open all %s documents with:"
 msgstr "Otvori sve %s zapise s:"
 
 #. First %s is a filename, second is a description
 #. * of the type, eg "plain text document"
-#: ../libcaja-private/caja-open-with-dialog.c:1088
+#: ../libcaja-private/caja-open-with-dialog.c:1091
 #, c-format
 msgid "Open %s and other \"%s\" files with:"
 msgstr "Otvori %s i druge \"%s\" zapise s:"
 
 #. %s is a file type description
-#: ../libcaja-private/caja-open-with-dialog.c:1096
+#: ../libcaja-private/caja-open-with-dialog.c:1099
 #, c-format
 msgid "_Remember this application for \"%s\" files"
 msgstr "_Upamti ovaj program za \"%s\" datoteke"
 
 #. Only in add mode
-#: ../libcaja-private/caja-open-with-dialog.c:1107
+#: ../libcaja-private/caja-open-with-dialog.c:1110
 #, c-format
 msgid "Open all \"%s\" files with:"
 msgstr "Otvori sve \"%s\" datoteke s:"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1119
+#: ../libcaja-private/caja-open-with-dialog.c:1122
 msgid "_Add"
 msgstr "_Dodaj"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1120
+#: ../libcaja-private/caja-open-with-dialog.c:1123
 msgid "Add Application"
 msgstr "Dodaj program"
 
@@ -3582,107 +3567,122 @@ msgid ""
 "media matching these types."
 msgstr "Popis vrsti sadržaja \"x-content/*\" za koje je korisnik odabrao \"Otvori mapu\" u prilagodbama. Prozor mape bit će otvoren prilikom umetanja medija koji odgovara tim vrstama sadržaja."
 
-#: ../data/caja-autorun-software.desktop.in.in.h:1
-msgid "Autorun Prompt"
-msgstr "Samopokreni odzivnu poruku"
+#: ../libegg/eggdesktopfile.c:166
+#, c-format
+msgid "File is not a valid .desktop file"
+msgstr "Datoteka nije valjana .desktop datoteka"
 
-#. Set initial window title
-#: ../data/caja-browser.desktop.in.in.h:1
-#: ../data/caja-folder-handler.desktop.in.in.h:1
-#: ../data/caja.desktop.in.in.h:1 ../src/caja-spatial-window.c:373
-#: ../src/caja-window-menus.c:535 ../src/caja-window.c:172
-msgid "Caja"
-msgstr "Caja"
+#: ../libegg/eggdesktopfile.c:189
+#, c-format
+msgid "Unrecognized desktop file Version '%s'"
+msgstr "Neprepoznata inačica datoteke radne površine '%s'"
 
-#: ../data/caja-browser.desktop.in.in.h:2
-msgid "File Browser"
-msgstr "Preglednik datoteka"
+#: ../libegg/eggdesktopfile.c:958
+#, c-format
+msgid "Starting %s"
+msgstr "Pokretanje %s"
 
-#: ../data/caja-browser.desktop.in.in.h:3
-msgid "Browse the file system with the file manager"
-msgstr "Pregledaj datotečni sustav upraviteljem datoteka"
+#: ../libegg/eggdesktopfile.c:1100
+#, c-format
+msgid "Application does not accept documents on command line"
+msgstr "Program ne prihvaća zapise u naredbenom retku"
 
-#. tooltip
-#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:905
-msgid ""
-"Browse all local and remote disks and folders accessible from this computer"
-msgstr "Pregledaj sve lokalne i udaljene diskove i mape dostupne s ovog računala"
+#: ../libegg/eggdesktopfile.c:1168
+#, c-format
+msgid "Unrecognized launch option: %d"
+msgstr "Neprepoznata mogućnost pokretanja: %d"
 
-#: ../data/caja-file-management-properties.desktop.in.in.h:1
-msgid "File Management"
-msgstr "Upravljanje datotekama"
+#: ../libegg/eggdesktopfile.c:1366
+#, c-format
+msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
+msgstr "Nije moguće proslijediti URI-je zapisa na unos radne površine 'Type=Link'"
 
-#: ../data/caja-file-management-properties.desktop.in.in.h:2
-msgid "Change the behaviour and appearance of file manager windows"
-msgstr "Promijeni ponašanje i izgled prozora upravitelja datoteka"
+#: ../libegg/eggdesktopfile.c:1385
+#, c-format
+msgid "Not a launchable item"
+msgstr "Nije izvršna stavka"
 
-#: ../data/caja-home.desktop.in.in.h:1 ../src/file-manager/fm-tree-view.c:1434
-msgid "Home Folder"
-msgstr "Osobna mapa"
+#: ../libegg/eggsmclient.c:237
+msgid "Disable connection to session manager"
+msgstr "Onemogući vezu prema upravitelju pristupne dionice"
 
-#. tooltip
-#: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:509
-#: ../src/caja-window-menus.c:900
-msgid "Open your personal folder"
-msgstr "Otvori svoju osobnu mapu"
+#: ../libegg/eggsmclient.c:242
+msgid "Specify file containing saved configuration"
+msgstr "Navedi datoteku koja sadrži pohranjene postavke"
 
-#: ../data/caja.desktop.in.in.h:2
-msgid "File Manager"
-msgstr "Upravitelj datoteka"
+#: ../libegg/eggsmclient.c:242
+msgid "FILE"
+msgstr "DATOTEKA"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:708
+#: ../libegg/eggsmclient.c:247
+msgid "Specify session management ID"
+msgstr "Navedi označivač upravljanja pristupnom dionicom"
+
+#: ../libegg/eggsmclient.c:247
+msgid "ID"
+msgstr "Označivač"
+
+#: ../libegg/eggsmclient.c:273
+msgid "Session management options:"
+msgstr "Mogućnosti upravljanja pristupnom dionicom:"
+
+#: ../libegg/eggsmclient.c:274
+msgid "Show session management options"
+msgstr "Prikaži mogućnosti upravljanja pristupnom dionicom"
+
+#: ../src/file-manager/fm-desktop-icon-view.c:709
 msgid "Background"
 msgstr "Pozadina"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:785
-#: ../src/file-manager/fm-directory-view.c:7313
-#: ../src/file-manager/fm-directory-view.c:8990
+#: ../src/file-manager/fm-desktop-icon-view.c:786
+#: ../src/file-manager/fm-directory-view.c:7316
+#: ../src/file-manager/fm-directory-view.c:8993
 msgid "E_mpty Trash"
 msgstr "I_sprazni smeće"
 
 #. label, accelerator
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:799
-#: ../src/file-manager/fm-directory-view.c:7277
+#: ../src/file-manager/fm-desktop-icon-view.c:800
+#: ../src/file-manager/fm-directory-view.c:7280
 msgid "Create L_auncher..."
 msgstr "Stvori p_okretač..."
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:801
-#: ../src/file-manager/fm-directory-view.c:7278
+#: ../src/file-manager/fm-desktop-icon-view.c:802
+#: ../src/file-manager/fm-directory-view.c:7281
 msgid "Create a new launcher"
 msgstr "Stvori novi pokretač"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:808
+#: ../src/file-manager/fm-desktop-icon-view.c:809
 msgid "Change Desktop _Background"
 msgstr "Promjena _pozadine radne površine"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:810
+#: ../src/file-manager/fm-desktop-icon-view.c:811
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr "Prikaži prozor koji omogućava postavljanje uzorka ili boje pozadine na radnoj površini"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:817
+#: ../src/file-manager/fm-desktop-icon-view.c:818
 msgid "Empty Trash"
 msgstr "Isprazni smeće"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:819
-#: ../src/file-manager/fm-directory-view.c:7314 ../src/caja-trash-bar.c:204
+#: ../src/file-manager/fm-desktop-icon-view.c:820
+#: ../src/file-manager/fm-directory-view.c:7317 ../src/caja-trash-bar.c:204
 msgid "Delete all items in the Trash"
 msgstr "Izbriši sve stavke iz smeća"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:919
+#: ../src/file-manager/fm-desktop-icon-view.c:920
 msgid "The desktop view encountered an error."
 msgstr "Prikaz radne površine suočio se s neispravnošću."
 
-#: ../src/file-manager/fm-desktop-icon-view.c:920
+#: ../src/file-manager/fm-desktop-icon-view.c:921
 msgid "The desktop view encountered an error while starting up."
 msgstr "Prikaz radne površine suočio se s neispravnošću pri pokretanju."
 
@@ -3736,13 +3736,13 @@ msgstr "_Mapa:"
 msgid "Select Folder to Save Search In"
 msgstr "Odaberi mapu za spremanje pretrage"
 
-#: ../src/file-manager/fm-directory-view.c:2281
-#: ../src/file-manager/fm-directory-view.c:2318
+#: ../src/file-manager/fm-directory-view.c:2284
+#: ../src/file-manager/fm-directory-view.c:2321
 #, c-format
 msgid "\"%s\" selected"
 msgstr "\"%s\" odabrana"
 
-#: ../src/file-manager/fm-directory-view.c:2283
+#: ../src/file-manager/fm-directory-view.c:2286
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
@@ -3750,7 +3750,7 @@ msgstr[0] "%'d mapa odabrana"
 msgstr[1] "%'d mape odabrane"
 msgstr[2] "%'d mapa odabrano"
 
-#: ../src/file-manager/fm-directory-view.c:2293
+#: ../src/file-manager/fm-directory-view.c:2296
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
@@ -3760,7 +3760,7 @@ msgstr[2] " (sadrži %'d stavki)"
 
 #. translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
-#: ../src/file-manager/fm-directory-view.c:2304
+#: ../src/file-manager/fm-directory-view.c:2307
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
@@ -3768,7 +3768,7 @@ msgstr[0] " (sadrži ukupno %'d stavku)"
 msgstr[1] " (sadrži ukupno %'d stavke)"
 msgstr[2] " (sadrži ukupno %'d stavki)"
 
-#: ../src/file-manager/fm-directory-view.c:2321
+#: ../src/file-manager/fm-directory-view.c:2324
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
@@ -3777,7 +3777,7 @@ msgstr[1] "%'d stavke odabrane"
 msgstr[2] "%'d stavki odabrano"
 
 #. Folders selected also, use "other" terminology
-#: ../src/file-manager/fm-directory-view.c:2328
+#: ../src/file-manager/fm-directory-view.c:2331
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
@@ -3789,17 +3789,17 @@ msgstr[2] "%'d ostalih stavki odabrano"
 #. * needs to use something other than parentheses. The
 #. * first message gives the number of items selected;
 #. * the message in parentheses the size of those items.
-#: ../src/file-manager/fm-directory-view.c:2347
+#: ../src/file-manager/fm-directory-view.c:2350
 #, c-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-directory-view.c:2360
+#: ../src/file-manager/fm-directory-view.c:2363
 #, c-format
 msgid "Free space: %s"
 msgstr "Slobodni prostor: %s"
 
-#: ../src/file-manager/fm-directory-view.c:2371
+#: ../src/file-manager/fm-directory-view.c:2374
 #, c-format
 msgid "%s, Free space: %s"
 msgstr "%s, slobodni prostor: %s"
@@ -3808,7 +3808,7 @@ msgstr "%s, slobodni prostor: %s"
 #. * might want to change "," to something else.
 #. * After the comma the amount of free space will
 #. * be shown.
-#: ../src/file-manager/fm-directory-view.c:2386
+#: ../src/file-manager/fm-directory-view.c:2389
 #, c-format
 msgid "%s, %s"
 msgstr "%s, %s"
@@ -3823,8 +3823,8 @@ msgstr "%s, %s"
 #. * and the number of items in those folders and the
 #. * message about the number of other items and the
 #. * total size of those items.
-#: ../src/file-manager/fm-directory-view.c:2405
-#: ../src/file-manager/fm-directory-view.c:2419
+#: ../src/file-manager/fm-directory-view.c:2408
+#: ../src/file-manager/fm-directory-view.c:2422
 #, c-format
 msgid "%s%s, %s"
 msgstr "%s%s, %s"
@@ -3836,18 +3836,18 @@ msgstr "%s%s, %s"
 #. * message about the number of other items and the
 #. * total size of those items. After the second comma
 #. * the free space is written.
-#: ../src/file-manager/fm-directory-view.c:2432
+#: ../src/file-manager/fm-directory-view.c:2435
 #, c-format
 msgid "%s%s, %s, %s"
 msgstr "%s%s, %s, %s"
 
-#: ../src/file-manager/fm-directory-view.c:4477
+#: ../src/file-manager/fm-directory-view.c:4480
 #: ../src/caja-information-panel.c:905
 #, c-format
 msgid "Open With %s"
 msgstr "Otvori s %s"
 
-#: ../src/file-manager/fm-directory-view.c:4479
+#: ../src/file-manager/fm-directory-view.c:4482
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
@@ -3855,35 +3855,35 @@ msgstr[0] "Koristi \"%s\" za otvaranje odabrane stavke"
 msgstr[1] "Koristi \"%s\" za otvaranje odabranih stavki"
 msgstr[2] "Koristi \"%s\" za otvaranje odabranih stavki"
 
-#: ../src/file-manager/fm-directory-view.c:4568
+#: ../src/file-manager/fm-directory-view.c:4571
 msgid "Open parent location"
 msgstr "Otvori matični položaj"
 
-#: ../src/file-manager/fm-directory-view.c:4569
+#: ../src/file-manager/fm-directory-view.c:4572
 msgid "Open parent location for the selected item"
 msgstr "Otvori matični položaj za odabranu stavku"
 
-#: ../src/file-manager/fm-directory-view.c:5418
+#: ../src/file-manager/fm-directory-view.c:5421
 #, c-format
 msgid "Run \"%s\" on any selected items"
 msgstr "Pokreni \"%s\" na svakoj odabranoj stavci"
 
-#: ../src/file-manager/fm-directory-view.c:5669
+#: ../src/file-manager/fm-directory-view.c:5672
 #, c-format
 msgid "Create Document from template \"%s\""
 msgstr "Stvori zapis iz predloška \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:5919
+#: ../src/file-manager/fm-directory-view.c:5922
 msgid "All executable files in this folder will appear in the Scripts menu."
 msgstr "Sve izvršne datoteke u ovoj mapi će se pojaviti u izborniku naredbenih datoteka."
 
-#: ../src/file-manager/fm-directory-view.c:5921
+#: ../src/file-manager/fm-directory-view.c:5924
 msgid ""
 "Choosing a script from the menu will run that script with any selected items"
 " as input."
 msgstr "Odabir naredbene datoteke iz izbornika će istu pokrenuti s bilo kojom odabranom stavkom kao unosom."
 
-#: ../src/file-manager/fm-directory-view.c:5923
+#: ../src/file-manager/fm-directory-view.c:5926
 msgid ""
 "All executable files in this folder will appear in the Scripts menu. Choosing a script from the menu will run that script.\n"
 "\n"
@@ -3906,19 +3906,19 @@ msgid ""
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI for current location in the inactive pane of a split-view window"
 msgstr "Sve izvršne datoteke u ovoj mapi pojaviti će se u izborniku naredbenih datoteka. Odabir naredbene datoteke iz izbornika će istu pokrenuti.\n\nKada se izvršavaju iz mjesne mape, naredbenim datotekama dat će se odabrani datotečni nazivi. Kada se izvršavaju iz udaljene mape (npr. mape koja pokazuje mrežni ili ftp sadržaj), naredbenim datotekama se neće dati nikakve vrijednosti.\n\nU svim slučajevima Caja će postaviti sljedeće promjenjive veličine okružja, koje naredbene datoteke onda mogu koristiti:\n\nCAJA_SCRIPT_SELECTED_FILE_PATHS: putanje odvojene novim retkom za odabrane datoteke (samo ako su mjesne)\n\nCAJA_SCRIPT_SELECTED_URIS: URI-ji odvojeni novim retkom za odabrane datoteke\n\nCAJA_SCRIPT_CURRENT_URI: URI za trenutni smještaj\n\nCAJA_SCRIPT_WINDOW_GEOMETRY: položaj i veličina trenutnog prozora\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_FILE_PATHS: putanje odvojene novim retkom za odabrane datoteke u nedjelatnom okviru prozora s podijeljenim prikazom (samo ako su mjesne)\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: URI-ji odvojeni novim retkom za odabrane datoteke u nedjelatnom okviru prozora s podijeljenim prikazom\n\nCAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI za trenutni smještaj u nedjelatnom okviru prozora s podijeljenim prikazom"
 
-#: ../src/file-manager/fm-directory-view.c:5991
+#: ../src/file-manager/fm-directory-view.c:5994
 #: ../src/file-manager/fm-tree-view.c:1009
 #, c-format
 msgid "\"%s\" will be moved if you select the Paste command"
 msgstr "Za \"%s\" će biti izvršen premještaj ako odabereš naredbu priljepljivanja"
 
-#: ../src/file-manager/fm-directory-view.c:5995
+#: ../src/file-manager/fm-directory-view.c:5998
 #: ../src/file-manager/fm-tree-view.c:1015
 #, c-format
 msgid "\"%s\" will be copied if you select the Paste command"
 msgstr "Za \"%s\" će biti napravljena preslika ako odabereš naredbu priljepljivanja"
 
-#: ../src/file-manager/fm-directory-view.c:6002
+#: ../src/file-manager/fm-directory-view.c:6005
 #, c-format
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
@@ -3927,7 +3927,7 @@ msgstr[0] "%'d odabrana stavka bit će premještena ako odabereš naredbu prilje
 msgstr[1] "%'d odabrane stavke bit će premještene ako odabereš naredbu priljepljivanja"
 msgstr[2] "%'d odabranih stavki bit će premješteno ako odabereš naredbu priljepljivanja"
 
-#: ../src/file-manager/fm-directory-view.c:6009
+#: ../src/file-manager/fm-directory-view.c:6012
 #, c-format
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
@@ -3936,98 +3936,98 @@ msgstr[0] "%'d odabrana stavka bit će presliana ako odabereš naredbu priljeplj
 msgstr[1] "%'d odabrane stavke bit će preslikane ako odabereš naredbu priljepljivanja"
 msgstr[2] "%'d odabranih stavki bit će preslikano ako odabereš naredbu priljepljivanja"
 
-#: ../src/file-manager/fm-directory-view.c:6189
+#: ../src/file-manager/fm-directory-view.c:6192
 #: ../src/file-manager/fm-tree-view.c:1055
 msgid "There is nothing on the clipboard to paste."
 msgstr "Nema ništa za priljepljivanje u međuspremniku."
 
-#: ../src/file-manager/fm-directory-view.c:6404
+#: ../src/file-manager/fm-directory-view.c:6407
 msgid "Unable to unmount location"
 msgstr "Nije moguće rastavljanje s položaja"
 
-#: ../src/file-manager/fm-directory-view.c:6425
+#: ../src/file-manager/fm-directory-view.c:6428
 msgid "Unable to eject location"
 msgstr "Nije moguće izbacivanje s položaja"
 
-#: ../src/file-manager/fm-directory-view.c:6440
+#: ../src/file-manager/fm-directory-view.c:6443
 msgid "Unable to stop drive"
 msgstr "Nije moguće zaustaviti pogon"
 
-#: ../src/file-manager/fm-directory-view.c:6997
+#: ../src/file-manager/fm-directory-view.c:7000
 #, c-format
 msgid "Connect to Server %s"
 msgstr "Spoji se na poslužitelj %s"
 
-#: ../src/file-manager/fm-directory-view.c:7002
-#: ../src/file-manager/fm-directory-view.c:8209
-#: ../src/file-manager/fm-directory-view.c:8301
-#: ../src/file-manager/fm-directory-view.c:8411
+#: ../src/file-manager/fm-directory-view.c:7005
+#: ../src/file-manager/fm-directory-view.c:8212
+#: ../src/file-manager/fm-directory-view.c:8304
+#: ../src/file-manager/fm-directory-view.c:8414
 msgid "_Connect"
 msgstr "_Spoji se"
 
-#: ../src/file-manager/fm-directory-view.c:7016
+#: ../src/file-manager/fm-directory-view.c:7019
 msgid "Link _name:"
 msgstr "Naziv _poveznice:"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7255
+#: ../src/file-manager/fm-directory-view.c:7258
 msgid "Create _Document"
 msgstr "Stvori _zapis"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7256
+#: ../src/file-manager/fm-directory-view.c:7259
 msgid "Open Wit_h"
 msgstr "Otvori pomoć_u"
 
-#: ../src/file-manager/fm-directory-view.c:7257
+#: ../src/file-manager/fm-directory-view.c:7260
 msgid "Choose a program with which to open the selected item"
 msgstr "Izaberi program za otvaranje odabrane stavke"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7259
-#: ../src/file-manager/fm-directory-view.c:7538
+#: ../src/file-manager/fm-directory-view.c:7262
+#: ../src/file-manager/fm-directory-view.c:7541
 msgid "_Properties"
 msgstr "_Svojstva"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7260
-#: ../src/file-manager/fm-directory-view.c:8977
+#: ../src/file-manager/fm-directory-view.c:7263
+#: ../src/file-manager/fm-directory-view.c:8980
 msgid "View or modify the properties of each selected item"
 msgstr "Pogledaj ili promijeni svojstva svake odabrane stavke"
 
 #. name, stock id
 #. label, accelerator
 #. add the "create folder" menu item
-#: ../src/file-manager/fm-directory-view.c:7267
+#: ../src/file-manager/fm-directory-view.c:7270
 #: ../src/file-manager/fm-tree-view.c:1298
 msgid "Create _Folder"
 msgstr "Stvori _mapu"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7268
+#: ../src/file-manager/fm-directory-view.c:7271
 msgid "Create a new empty folder inside this folder"
 msgstr "Stvori novu praznu mapu unutar ove mape"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7270
+#: ../src/file-manager/fm-directory-view.c:7273
 msgid "No templates installed"
 msgstr "Nema ugrađenih predložaka"
 
 #. name, stock id
 #. translators: this is used to indicate that a file doesn't contain anything
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7273
+#: ../src/file-manager/fm-directory-view.c:7276
 msgid "_Empty File"
 msgstr "_Prazna datoteka"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7274
+#: ../src/file-manager/fm-directory-view.c:7277
 msgid "Create a new empty file inside this folder"
 msgstr "Stvori novu praznu datoteku unutar ove mape"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7282
+#: ../src/file-manager/fm-directory-view.c:7285
 msgid "Open the selected item in this window"
 msgstr "Otvori odabranu stavku u ovom prozoru"
 
@@ -4036,91 +4036,91 @@ msgstr "Otvori odabranu stavku u ovom prozoru"
 #. Location-specific actions
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7289
-#: ../src/file-manager/fm-directory-view.c:7470
+#: ../src/file-manager/fm-directory-view.c:7292
+#: ../src/file-manager/fm-directory-view.c:7473
 msgid "Open in Navigation Window"
 msgstr "Otvori u upravljačkom prozoru"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7290
+#: ../src/file-manager/fm-directory-view.c:7293
 msgid "Open each selected item in a navigation window"
 msgstr "Otvori svaku odabranu stavku u upravljačkom prozoru"
 
 #. name, stock id
 #. label, accelerator
 #. add the "open in new tab" menu item
-#: ../src/file-manager/fm-directory-view.c:7293
-#: ../src/file-manager/fm-directory-view.c:7474
-#: ../src/file-manager/fm-directory-view.c:8541
-#: ../src/file-manager/fm-directory-view.c:8867
-#: ../src/file-manager/fm-tree-view.c:1278 ../src/caja-places-sidebar.c:2690
+#: ../src/file-manager/fm-directory-view.c:7296
+#: ../src/file-manager/fm-directory-view.c:7477
+#: ../src/file-manager/fm-directory-view.c:8544
+#: ../src/file-manager/fm-directory-view.c:8870
+#: ../src/file-manager/fm-tree-view.c:1278 ../src/caja-places-sidebar.c:2664
 msgid "Open in New _Tab"
 msgstr "Otvori u novoj _kartici"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7294
+#: ../src/file-manager/fm-directory-view.c:7297
 msgid "Open each selected item in a new tab"
 msgstr "Otvori svaku odabranu stavku u novoj kartici"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7297
-#: ../src/file-manager/fm-directory-view.c:7479
+#: ../src/file-manager/fm-directory-view.c:7300
+#: ../src/file-manager/fm-directory-view.c:7482
 msgid "Open in _Folder Window"
 msgstr "Otvori u prozoru _mape"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7298
+#: ../src/file-manager/fm-directory-view.c:7301
 msgid "Open each selected item in a folder window"
 msgstr "Otvori svaku odabranu stavku u prozoru mape"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7301
+#: ../src/file-manager/fm-directory-view.c:7304
 msgid "Other _Application..."
 msgstr "Drugi _program..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7302
-#: ../src/file-manager/fm-directory-view.c:7306
+#: ../src/file-manager/fm-directory-view.c:7305
+#: ../src/file-manager/fm-directory-view.c:7309
 msgid "Choose another application with which to open the selected item"
 msgstr "Izaberi drugi program za otvaranje odabrane stavke"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7305
+#: ../src/file-manager/fm-directory-view.c:7308
 msgid "Open With Other _Application..."
 msgstr "Otvori s drugim _programom..."
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7309
+#: ../src/file-manager/fm-directory-view.c:7312
 msgid "_Open Scripts Folder"
 msgstr "_Otvori mapu naredbenih datoteka"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7310
+#: ../src/file-manager/fm-directory-view.c:7313
 msgid "Show the folder containing the scripts that appear in this menu"
 msgstr "Prikaži mapu s naredbenim datotekama koje se pojavljuju u ovom izborniku"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7318
+#: ../src/file-manager/fm-directory-view.c:7321
 msgid "Prepare the selected files to be moved with a Paste command"
 msgstr "Pripremi odabrane datoteke za premještaj naredbom priljepljivanja"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7322
+#: ../src/file-manager/fm-directory-view.c:7325
 msgid "Prepare the selected files to be copied with a Paste command"
 msgstr "Pripremi odabrane datoteke za preslikavanje naredbom priljepljivanja"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7326
+#: ../src/file-manager/fm-directory-view.c:7329
 msgid "Move or copy files previously selected by a Cut or Copy command"
 msgstr "Premjesti ili kopiraj datoteke prethodno odabrane naredbom Cut ili Copy."
 
@@ -4128,71 +4128,71 @@ msgstr "Premjesti ili kopiraj datoteke prethodno odabrane naredbom Cut ili Copy.
 #. accelerator for paste
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7331
-#: ../src/file-manager/fm-directory-view.c:7492
+#: ../src/file-manager/fm-directory-view.c:7334
+#: ../src/file-manager/fm-directory-view.c:7495
 #: ../src/file-manager/fm-tree-view.c:1330
 msgid "_Paste Into Folder"
 msgstr "_Prilijepi u mapu"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7332
+#: ../src/file-manager/fm-directory-view.c:7335
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into the "
 "selected folder"
 msgstr "Premjesti ili preslikaj datoteke prethodno odabrane naredbom izrezivanja ili preslikavanja u odabranu mapu."
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7334
+#: ../src/file-manager/fm-directory-view.c:7337
 msgid "Cop_y to"
 msgstr "Pre_slikaj u"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7335
+#: ../src/file-manager/fm-directory-view.c:7338
 msgid "M_ove to"
 msgstr "P_remjesti u"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7338
+#: ../src/file-manager/fm-directory-view.c:7341
 msgid "Select all items in this window"
 msgstr "Odaberi sve stavke u ovom prozoru"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7341
+#: ../src/file-manager/fm-directory-view.c:7344
 msgid "Select I_tems Matching..."
 msgstr "Odaberi s_tavke koje odgovaraju..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7342
+#: ../src/file-manager/fm-directory-view.c:7345
 msgid "Select items in this window matching a given pattern"
 msgstr "Izaberite stavke u ovom prozoru koje odgovaraju datom uzorku"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7345
+#: ../src/file-manager/fm-directory-view.c:7348
 msgid "_Invert Selection"
 msgstr "_Obrni odabir"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7346
+#: ../src/file-manager/fm-directory-view.c:7349
 msgid "Select all and only the items that are not currently selected"
 msgstr "Odaberi sve i samo stavke koje trenutno nisu odabrane"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7349
+#: ../src/file-manager/fm-directory-view.c:7352
 msgid "D_uplicate"
 msgstr "U_dvostruči"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7350
+#: ../src/file-manager/fm-directory-view.c:7353
 msgid "Duplicate each selected item"
 msgstr "Udvostruči svaku odabranu stavku"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7353
-#: ../src/file-manager/fm-directory-view.c:8961
+#: ../src/file-manager/fm-directory-view.c:7356
+#: ../src/file-manager/fm-directory-view.c:8964
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
 msgstr[0] "Napra_vi poveznicu"
@@ -4200,69 +4200,69 @@ msgstr[1] "Napra_vi poveznice"
 msgstr[2] "Napra_vi poveznice"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7354
+#: ../src/file-manager/fm-directory-view.c:7357
 msgid "Create a symbolic link for each selected item"
 msgstr "Stvaranje simboličke poveznice za svaku odabranu stavku"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7357
+#: ../src/file-manager/fm-directory-view.c:7360
 msgid "_Rename..."
 msgstr "_Preimenuj..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7358
+#: ../src/file-manager/fm-directory-view.c:7361
 msgid "Rename selected item"
 msgstr "Preimenuj odabranu stavku"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7366
-#: ../src/file-manager/fm-directory-view.c:8922
+#: ../src/file-manager/fm-directory-view.c:7369
+#: ../src/file-manager/fm-directory-view.c:8925
 msgid "Move each selected item to the Trash"
 msgstr "Premjesti svaku odabranu stavku u smeće"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7369
-#: ../src/file-manager/fm-directory-view.c:7501
-#: ../src/file-manager/fm-directory-view.c:8942
+#: ../src/file-manager/fm-directory-view.c:7372
+#: ../src/file-manager/fm-directory-view.c:7504
+#: ../src/file-manager/fm-directory-view.c:8945
 #: ../src/file-manager/fm-tree-view.c:1360
 msgid "_Delete"
 msgstr "_Izbriši"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7370
+#: ../src/file-manager/fm-directory-view.c:7373
 msgid "Delete each selected item, without moving to the Trash"
 msgstr "Izbriši svaku odabranu stavku bez premještanja u smeće"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7373
-#: ../src/file-manager/fm-directory-view.c:7505
+#: ../src/file-manager/fm-directory-view.c:7376
+#: ../src/file-manager/fm-directory-view.c:7508
 msgid "_Restore"
 msgstr "_Obnovi"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7377
+#: ../src/file-manager/fm-directory-view.c:7380
 msgid "_Undo"
 msgstr "_Poništi"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7378
-#: ../src/file-manager/fm-directory-view.c:11126
+#: ../src/file-manager/fm-directory-view.c:7381
+#: ../src/file-manager/fm-directory-view.c:11129
 msgid "Undo the last action"
 msgstr "Poništi posljednju radnju"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7381
+#: ../src/file-manager/fm-directory-view.c:7384
 msgid "_Redo"
 msgstr "_Ponovi"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7382
-#: ../src/file-manager/fm-directory-view.c:11144
+#: ../src/file-manager/fm-directory-view.c:7385
+#: ../src/file-manager/fm-directory-view.c:11147
 msgid "Redo the last undone action"
 msgstr "Ponovi zadnju poništenu radnju"
 
@@ -4272,320 +4272,320 @@ msgstr "Ponovi zadnju poništenu radnju"
 #. * it is a mixture of both ATM.
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7392
+#: ../src/file-manager/fm-directory-view.c:7395
 msgid "Reset View to _Defaults"
 msgstr "Postavi prikaz na _zadani"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7393
+#: ../src/file-manager/fm-directory-view.c:7396
 msgid "Reset sorting order and zoom level to match preferences for this view"
 msgstr "Postavi poredak i uvećanje prema postavkama za ovaj prikaz"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7396
+#: ../src/file-manager/fm-directory-view.c:7399
 msgid "Connect To This Server"
 msgstr "Spoji na ovaj poslužitelj"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7397
+#: ../src/file-manager/fm-directory-view.c:7400
 msgid "Make a permanent connection to this server"
 msgstr "Napravi stalnu vezu do ovog poslužitelja"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7400
-#: ../src/file-manager/fm-directory-view.c:7428
-#: ../src/file-manager/fm-directory-view.c:7509
-#: ../src/caja-places-sidebar.c:2726
+#: ../src/file-manager/fm-directory-view.c:7403
+#: ../src/file-manager/fm-directory-view.c:7431
+#: ../src/file-manager/fm-directory-view.c:7512
+#: ../src/caja-places-sidebar.c:2700
 msgid "_Mount"
 msgstr "_Postavi"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7401
+#: ../src/file-manager/fm-directory-view.c:7404
 msgid "Mount the selected volume"
 msgstr "Postavi odabrani uređaj za pohranu"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7405
+#: ../src/file-manager/fm-directory-view.c:7408
 msgid "Unmount the selected volume"
 msgstr "Rastavi odabrani uređaj za pohranu"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7409
+#: ../src/file-manager/fm-directory-view.c:7412
 msgid "Eject the selected volume"
 msgstr "Izbaci odabrani uređaj za pohranu"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7412
-#: ../src/file-manager/fm-directory-view.c:7440
-#: ../src/file-manager/fm-directory-view.c:7521
-#: ../src/caja-places-sidebar.c:2754
+#: ../src/file-manager/fm-directory-view.c:7415
+#: ../src/file-manager/fm-directory-view.c:7443
+#: ../src/file-manager/fm-directory-view.c:7524
+#: ../src/caja-places-sidebar.c:2728
 msgid "_Format"
 msgstr "_Oblikuj"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7413
+#: ../src/file-manager/fm-directory-view.c:7416
 msgid "Format the selected volume"
 msgstr "Oblikuj odabrani uređaj za pohranu"
 
 #. name, stock id
 #. label, accelerator
 #. Adjust start/stop items to reflect the type of the drive
-#: ../src/file-manager/fm-directory-view.c:7416
-#: ../src/file-manager/fm-directory-view.c:7444
-#: ../src/file-manager/fm-directory-view.c:7525
-#: ../src/file-manager/fm-directory-view.c:8201
-#: ../src/file-manager/fm-directory-view.c:8205
-#: ../src/file-manager/fm-directory-view.c:8293
-#: ../src/file-manager/fm-directory-view.c:8297
-#: ../src/file-manager/fm-directory-view.c:8403
-#: ../src/file-manager/fm-directory-view.c:8407
-#: ../src/caja-places-sidebar.c:1808 ../src/caja-places-sidebar.c:2761
+#: ../src/file-manager/fm-directory-view.c:7419
+#: ../src/file-manager/fm-directory-view.c:7447
+#: ../src/file-manager/fm-directory-view.c:7528
+#: ../src/file-manager/fm-directory-view.c:8204
+#: ../src/file-manager/fm-directory-view.c:8208
+#: ../src/file-manager/fm-directory-view.c:8296
+#: ../src/file-manager/fm-directory-view.c:8300
+#: ../src/file-manager/fm-directory-view.c:8406
+#: ../src/file-manager/fm-directory-view.c:8410
+#: ../src/caja-places-sidebar.c:1785 ../src/caja-places-sidebar.c:2735
 msgid "_Start"
 msgstr "_Pokreni"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7417
+#: ../src/file-manager/fm-directory-view.c:7420
 msgid "Start the selected volume"
 msgstr "Pokreni odabrani uređaj za pohranu"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7420
-#: ../src/file-manager/fm-directory-view.c:7448
-#: ../src/file-manager/fm-directory-view.c:7529
-#: ../src/file-manager/fm-directory-view.c:8230
-#: ../src/file-manager/fm-directory-view.c:8322
-#: ../src/file-manager/fm-directory-view.c:8432
-#: ../src/caja-places-sidebar.c:1809 ../src/caja-places-sidebar.c:2768
+#: ../src/file-manager/fm-directory-view.c:7423
+#: ../src/file-manager/fm-directory-view.c:7451
+#: ../src/file-manager/fm-directory-view.c:7532
+#: ../src/file-manager/fm-directory-view.c:8233
+#: ../src/file-manager/fm-directory-view.c:8325
+#: ../src/file-manager/fm-directory-view.c:8435
+#: ../src/caja-places-sidebar.c:1786 ../src/caja-places-sidebar.c:2742
 #: ../src/caja-window-menus.c:844
 msgid "_Stop"
 msgstr "_Zaustavi"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7421
-#: ../src/file-manager/fm-directory-view.c:8433
+#: ../src/file-manager/fm-directory-view.c:7424
+#: ../src/file-manager/fm-directory-view.c:8436
 msgid "Stop the selected volume"
 msgstr "Zaustavi odabrani uređaj za pohranu"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7424
-#: ../src/file-manager/fm-directory-view.c:7452
-#: ../src/file-manager/fm-directory-view.c:7533
-#: ../src/caja-places-sidebar.c:2747
+#: ../src/file-manager/fm-directory-view.c:7427
+#: ../src/file-manager/fm-directory-view.c:7455
+#: ../src/file-manager/fm-directory-view.c:7536
+#: ../src/caja-places-sidebar.c:2721
 msgid "_Detect Media"
 msgstr "_Prepoznaj nosač podataka"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7425
-#: ../src/file-manager/fm-directory-view.c:7453
-#: ../src/file-manager/fm-directory-view.c:7534
+#: ../src/file-manager/fm-directory-view.c:7428
+#: ../src/file-manager/fm-directory-view.c:7456
+#: ../src/file-manager/fm-directory-view.c:7537
 msgid "Detect media in the selected drive"
 msgstr "Prepoznaj nosač podataka u odabranoj pogonskoj jedinici"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7429
+#: ../src/file-manager/fm-directory-view.c:7432
 msgid "Mount the volume associated with the open folder"
 msgstr "Postavi uređaj za pohranu povezan s otvorenom mapom"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7433
+#: ../src/file-manager/fm-directory-view.c:7436
 msgid "Unmount the volume associated with the open folder"
 msgstr "Rastavi uređaj za pohranu povezan s otvorenom mapom"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7437
+#: ../src/file-manager/fm-directory-view.c:7440
 msgid "Eject the volume associated with the open folder"
 msgstr "Izbaci uređaj za pohranu povezan s otvorenom mapom"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7441
+#: ../src/file-manager/fm-directory-view.c:7444
 msgid "Format the volume associated with the open folder"
 msgstr "Oblikuj uređaj za pohranu povezan s otvorenom mapom"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7445
+#: ../src/file-manager/fm-directory-view.c:7448
 msgid "Start the volume associated with the open folder"
 msgstr "Pokreni uređaj za pohranu povezan s otvorenom mapom"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7449
+#: ../src/file-manager/fm-directory-view.c:7452
 msgid "Stop the volume associated with the open folder"
 msgstr "Zaustavi uređaj za pohranu povezan s otvorenom mapom"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7456
+#: ../src/file-manager/fm-directory-view.c:7459
 msgid "Open File and Close window"
 msgstr "Otvori datoteku i zatvori prozor"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7460
+#: ../src/file-manager/fm-directory-view.c:7463
 msgid "Sa_ve Search"
 msgstr "Snimi pretragu"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7461
+#: ../src/file-manager/fm-directory-view.c:7464
 msgid "Save the edited search"
 msgstr "Spremi uređenu pretragu"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7464
+#: ../src/file-manager/fm-directory-view.c:7467
 msgid "Sa_ve Search As..."
 msgstr "Snimi pretragu kao..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7465
+#: ../src/file-manager/fm-directory-view.c:7468
 msgid "Save the current search as a file"
 msgstr "Spremi sadašnju pretragu kao datoteku"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7471
+#: ../src/file-manager/fm-directory-view.c:7474
 msgid "Open this folder in a navigation window"
 msgstr "Otvori ovu mapu u navigacijskom prozoru"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7475
+#: ../src/file-manager/fm-directory-view.c:7478
 msgid "Open this folder in a new tab"
 msgstr "Otvori ovu mapu u novoj kartici"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7480
+#: ../src/file-manager/fm-directory-view.c:7483
 msgid "Open this folder in a folder window"
 msgstr "Otvori ovu mapu u prozoru mape"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7485
+#: ../src/file-manager/fm-directory-view.c:7488
 msgid "Prepare this folder to be moved with a Paste command"
 msgstr "Pripremi ovu mapu za premještanje naredbom \"Ubaci\""
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7489
+#: ../src/file-manager/fm-directory-view.c:7492
 msgid "Prepare this folder to be copied with a Paste command"
 msgstr "Pripremite mape za kopiranje naredbom \"Ubaci\""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7493
+#: ../src/file-manager/fm-directory-view.c:7496
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into this "
 "folder"
 msgstr "Premjesti ili preslikaj ranije odabrane datoteke naredbom \"Izreži\" ili \"Preslikaj\" u mapu"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7498
+#: ../src/file-manager/fm-directory-view.c:7501
 msgid "Move this folder to the Trash"
 msgstr "Premjesti ovu mapu u smeće"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7502
+#: ../src/file-manager/fm-directory-view.c:7505
 msgid "Delete this folder, without moving to the Trash"
 msgstr "Izbriši ovu mapu bez premještanja u smeće"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7510
+#: ../src/file-manager/fm-directory-view.c:7513
 msgid "Mount the volume associated with this folder"
 msgstr "Postavi uređaj za pohranu povezan s ovom mapom"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7514
+#: ../src/file-manager/fm-directory-view.c:7517
 msgid "Unmount the volume associated with this folder"
 msgstr "Rastavi uređaj za pohranu povezan s ovom mapom"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7518
+#: ../src/file-manager/fm-directory-view.c:7521
 msgid "Eject the volume associated with this folder"
 msgstr "Izbaci uređaj za pohranu povezan s ovom mapom"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7522
+#: ../src/file-manager/fm-directory-view.c:7525
 msgid "Format the volume associated with this folder"
 msgstr "Oblikuj uređaj za pohranu povezan s ovom mapom"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7526
+#: ../src/file-manager/fm-directory-view.c:7529
 msgid "Start the volume associated with this folder"
 msgstr "Pokreni uređaj za pohranu povezan s ovom mapom"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7530
+#: ../src/file-manager/fm-directory-view.c:7533
 msgid "Stop the volume associated with this folder"
 msgstr "Zaustavi uređaj za pohranu povezan s ovom mapom"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7539
+#: ../src/file-manager/fm-directory-view.c:7542
 msgid "View or modify the properties of this folder"
 msgstr "Pogledaj ili promijeni svojstva ove mape"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7542
 #: ../src/file-manager/fm-directory-view.c:7545
+#: ../src/file-manager/fm-directory-view.c:7548
 msgid "_Other pane"
 msgstr "_Drugo okno"
 
-#: ../src/file-manager/fm-directory-view.c:7543
+#: ../src/file-manager/fm-directory-view.c:7546
 msgid "Copy the current selection to the other pane in the window"
 msgstr "Preslikaj trenutni odabir u drugo okno u prozoru"
 
-#: ../src/file-manager/fm-directory-view.c:7546
+#: ../src/file-manager/fm-directory-view.c:7549
 msgid "Move the current selection to the other pane in the window"
 msgstr "Premjesti trenutni odabir u drugo okno u prozoru"
 
 #. name, stock id, label
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7549
-#: ../src/file-manager/fm-directory-view.c:7553 ../src/caja-window-menus.c:899
+#: ../src/file-manager/fm-directory-view.c:7552
+#: ../src/file-manager/fm-directory-view.c:7556 ../src/caja-window-menus.c:899
 msgid "_Home Folder"
 msgstr "_Osobna mapa"
 
-#: ../src/file-manager/fm-directory-view.c:7550
+#: ../src/file-manager/fm-directory-view.c:7553
 msgid "Copy the current selection to the home folder"
 msgstr "Preslikaj trenutni odabir u osobnu mapu"
 
-#: ../src/file-manager/fm-directory-view.c:7554
+#: ../src/file-manager/fm-directory-view.c:7557
 msgid "Move the current selection to the home folder"
 msgstr "Premjesti trenutni odabir u osobnu mapu"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7557
-#: ../src/file-manager/fm-directory-view.c:7561
+#: ../src/file-manager/fm-directory-view.c:7560
+#: ../src/file-manager/fm-directory-view.c:7564
 msgid "_Desktop"
 msgstr "_Radna površina"
 
-#: ../src/file-manager/fm-directory-view.c:7558
+#: ../src/file-manager/fm-directory-view.c:7561
 msgid "Copy the current selection to the desktop"
 msgstr "Preslikaj trenutni odabir na radnu površinu"
 
-#: ../src/file-manager/fm-directory-view.c:7562
+#: ../src/file-manager/fm-directory-view.c:7565
 msgid "Move the current selection to the desktop"
 msgstr "Premjesti trenutni odabir na radnu površinu"
 
 #. Translators: %s is a directory
-#: ../src/file-manager/fm-directory-view.c:7642
+#: ../src/file-manager/fm-directory-view.c:7645
 #, c-format
 msgid "Run or manage scripts from %s"
 msgstr "Izvrši ili upravljaj naredbenim datotekama iz %s"
 
 #. Create a script action here specially because its tooltip is dynamic
-#: ../src/file-manager/fm-directory-view.c:7644
+#: ../src/file-manager/fm-directory-view.c:7647
 msgid "_Scripts"
 msgstr "_Naredbene datoteke"
 
-#: ../src/file-manager/fm-directory-view.c:8049
+#: ../src/file-manager/fm-directory-view.c:8052
 #, c-format
 msgid "Move the open folder out of the trash to \"%s\""
 msgstr "Premjesti otvorenu mapu iz smeća u \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:8052
+#: ../src/file-manager/fm-directory-view.c:8055
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
@@ -4593,7 +4593,7 @@ msgstr[0] "Premjesti odabranu mapu iz smeća u \"%s\""
 msgstr[1] "Premjesti odabrane mape iz smeća u \"%s\""
 msgstr[2] "Premjesti odabranu mapu iz smeća u \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:8056
+#: ../src/file-manager/fm-directory-view.c:8059
 #, c-format
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
@@ -4601,7 +4601,7 @@ msgstr[0] "Premjesti odabranu mapu iz smeća"
 msgstr[1] "Premjesti odabrane mape iz smeća"
 msgstr[2] "Premjesti odabrane mape iz smeća"
 
-#: ../src/file-manager/fm-directory-view.c:8062
+#: ../src/file-manager/fm-directory-view.c:8065
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
@@ -4609,7 +4609,7 @@ msgstr[0] "Premjesti odabranu datoteku iz smeća u \"%s\""
 msgstr[1] "Premjesti odabrane datoteke iz smeća u \"%s\""
 msgstr[2] "Premjesti odabrane datoteke iz smeća u \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:8066
+#: ../src/file-manager/fm-directory-view.c:8069
 #, c-format
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
@@ -4617,7 +4617,7 @@ msgstr[0] "Premjesti odabranu datoteku iz smeća"
 msgstr[1] "Premjesti odabrane datoteke iz smeća"
 msgstr[2] "Premjesti odabrane datoteke iz smeća"
 
-#: ../src/file-manager/fm-directory-view.c:8072
+#: ../src/file-manager/fm-directory-view.c:8075
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
@@ -4625,7 +4625,7 @@ msgstr[0] "Premjesti odabranu stavku iz smeća u \"%s\""
 msgstr[1] "Premjesti odabrane stavke iz smeća u \"%s\""
 msgstr[2] "Premjesti odabrane stavke iz smeća u \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:8076
+#: ../src/file-manager/fm-directory-view.c:8079
 #, c-format
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
@@ -4633,176 +4633,176 @@ msgstr[0] "Premjesti odabranu stavku iz smeća"
 msgstr[1] "Premjesti odabrane stavke iz smeća"
 msgstr[2] "Premjesti odabrane stavke iz smeća"
 
-#: ../src/file-manager/fm-directory-view.c:8202
-#: ../src/file-manager/fm-directory-view.c:8206
-#: ../src/file-manager/fm-directory-view.c:8404
-#: ../src/file-manager/fm-directory-view.c:8408
+#: ../src/file-manager/fm-directory-view.c:8205
+#: ../src/file-manager/fm-directory-view.c:8209
+#: ../src/file-manager/fm-directory-view.c:8407
+#: ../src/file-manager/fm-directory-view.c:8411
 msgid "Start the selected drive"
 msgstr "Pokreni odabranu pogonsku jedinicu"
 
-#: ../src/file-manager/fm-directory-view.c:8210
-#: ../src/file-manager/fm-directory-view.c:8412
+#: ../src/file-manager/fm-directory-view.c:8213
+#: ../src/file-manager/fm-directory-view.c:8415
 msgid "Connect to the selected drive"
 msgstr "Spoji se na odabranu pogonsku jedinicu"
 
-#: ../src/file-manager/fm-directory-view.c:8213
-#: ../src/file-manager/fm-directory-view.c:8305
-#: ../src/file-manager/fm-directory-view.c:8415
+#: ../src/file-manager/fm-directory-view.c:8216
+#: ../src/file-manager/fm-directory-view.c:8308
+#: ../src/file-manager/fm-directory-view.c:8418
 msgid "_Start Multi-disk Drive"
 msgstr "_Pokreni višediskovnu pogonsku jedinicu"
 
-#: ../src/file-manager/fm-directory-view.c:8214
-#: ../src/file-manager/fm-directory-view.c:8416
+#: ../src/file-manager/fm-directory-view.c:8217
+#: ../src/file-manager/fm-directory-view.c:8419
 msgid "Start the selected multi-disk drive"
 msgstr "Pokreni odabranu višediskovnu pogonsku jedinicu"
 
-#: ../src/file-manager/fm-directory-view.c:8217
+#: ../src/file-manager/fm-directory-view.c:8220
 msgid "U_nlock Drive"
 msgstr "O_tključaj pogonsku jedinicu"
 
-#: ../src/file-manager/fm-directory-view.c:8218
-#: ../src/file-manager/fm-directory-view.c:8420
+#: ../src/file-manager/fm-directory-view.c:8221
+#: ../src/file-manager/fm-directory-view.c:8423
 msgid "Unlock the selected drive"
 msgstr "Otključaj odabranu pogonsku jedinicu"
 
-#: ../src/file-manager/fm-directory-view.c:8231
+#: ../src/file-manager/fm-directory-view.c:8234
 msgid "Stop the selected drive"
 msgstr "Zaustavi odabranu pogonsku jedinicu"
 
-#: ../src/file-manager/fm-directory-view.c:8234
-#: ../src/file-manager/fm-directory-view.c:8326
-#: ../src/file-manager/fm-directory-view.c:8436
-#: ../src/caja-places-sidebar.c:1817
+#: ../src/file-manager/fm-directory-view.c:8237
+#: ../src/file-manager/fm-directory-view.c:8329
+#: ../src/file-manager/fm-directory-view.c:8439
+#: ../src/caja-places-sidebar.c:1794
 msgid "_Safely Remove Drive"
 msgstr "_Sigurno uklanjanje pogonske jedinice"
 
-#: ../src/file-manager/fm-directory-view.c:8235
-#: ../src/file-manager/fm-directory-view.c:8437
+#: ../src/file-manager/fm-directory-view.c:8238
+#: ../src/file-manager/fm-directory-view.c:8440
 msgid "Safely remove the selected drive"
 msgstr "_Sigurno uklanjanje odabrane pogonske jedinice"
 
-#: ../src/file-manager/fm-directory-view.c:8238
-#: ../src/file-manager/fm-directory-view.c:8330
-#: ../src/file-manager/fm-directory-view.c:8440
+#: ../src/file-manager/fm-directory-view.c:8241
+#: ../src/file-manager/fm-directory-view.c:8333
+#: ../src/file-manager/fm-directory-view.c:8443
 msgid "_Disconnect"
 msgstr "_Odspoji"
 
-#: ../src/file-manager/fm-directory-view.c:8239
-#: ../src/file-manager/fm-directory-view.c:8441
+#: ../src/file-manager/fm-directory-view.c:8242
+#: ../src/file-manager/fm-directory-view.c:8444
 msgid "Disconnect the selected drive"
 msgstr "Odspoji odabranu pogonsku jedinicu"
 
-#: ../src/file-manager/fm-directory-view.c:8242
-#: ../src/file-manager/fm-directory-view.c:8334
-#: ../src/file-manager/fm-directory-view.c:8444
+#: ../src/file-manager/fm-directory-view.c:8245
+#: ../src/file-manager/fm-directory-view.c:8337
+#: ../src/file-manager/fm-directory-view.c:8447
 msgid "_Stop Multi-disk Drive"
 msgstr "_Zaustavi višediskovnu pogonsku jedinicu"
 
-#: ../src/file-manager/fm-directory-view.c:8243
-#: ../src/file-manager/fm-directory-view.c:8445
+#: ../src/file-manager/fm-directory-view.c:8246
+#: ../src/file-manager/fm-directory-view.c:8448
 msgid "Stop the selected multi-disk drive"
 msgstr "Zaustavi odabranu višediskovnu pogonsku jedinicu"
 
-#: ../src/file-manager/fm-directory-view.c:8246
-#: ../src/file-manager/fm-directory-view.c:8338
-#: ../src/file-manager/fm-directory-view.c:8448
-#: ../src/caja-places-sidebar.c:1830
+#: ../src/file-manager/fm-directory-view.c:8249
+#: ../src/file-manager/fm-directory-view.c:8341
+#: ../src/file-manager/fm-directory-view.c:8451
+#: ../src/caja-places-sidebar.c:1807
 msgid "_Lock Drive"
 msgstr "_Zaključaj pogonsku jedinicu"
 
-#: ../src/file-manager/fm-directory-view.c:8247
-#: ../src/file-manager/fm-directory-view.c:8449
+#: ../src/file-manager/fm-directory-view.c:8250
+#: ../src/file-manager/fm-directory-view.c:8452
 msgid "Lock the selected drive"
 msgstr "Zaključaj odabranu pogonsku jedinicu"
 
-#: ../src/file-manager/fm-directory-view.c:8294
-#: ../src/file-manager/fm-directory-view.c:8298
+#: ../src/file-manager/fm-directory-view.c:8297
+#: ../src/file-manager/fm-directory-view.c:8301
 msgid "Start the drive associated with the open folder"
 msgstr "Pokreni pogonsku jedinicu povezanu s otvorenom mapom"
 
-#: ../src/file-manager/fm-directory-view.c:8302
+#: ../src/file-manager/fm-directory-view.c:8305
 msgid "Connect to the drive associated with the open folder"
 msgstr "Spoji pogonsku jedinicu povezanu s otvorenom mapom"
 
-#: ../src/file-manager/fm-directory-view.c:8306
+#: ../src/file-manager/fm-directory-view.c:8309
 msgid "Start the multi-disk drive associated with the open folder"
 msgstr "Pokreni višediskovnu pogonsku jedinicu povezanu s otvorenom mapom"
 
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
-#: ../src/file-manager/fm-directory-view.c:8309
-#: ../src/file-manager/fm-directory-view.c:8419
-#: ../src/caja-places-sidebar.c:1829
+#: ../src/file-manager/fm-directory-view.c:8312
+#: ../src/file-manager/fm-directory-view.c:8422
+#: ../src/caja-places-sidebar.c:1806
 msgid "_Unlock Drive"
 msgstr "_Otključaj pogonsku jedinicu"
 
-#: ../src/file-manager/fm-directory-view.c:8310
+#: ../src/file-manager/fm-directory-view.c:8313
 msgid "Unlock the drive associated with the open folder"
 msgstr "Otključaj pogonsku jedinicu povezanu s otvorenom mapom"
 
-#: ../src/file-manager/fm-directory-view.c:8323
+#: ../src/file-manager/fm-directory-view.c:8326
 msgid "_Stop the drive associated with the open folder"
 msgstr "_Zaustavi pogonsku jedinicu povezanu s otvorenom mapom"
 
-#: ../src/file-manager/fm-directory-view.c:8327
+#: ../src/file-manager/fm-directory-view.c:8330
 msgid "Safely remove the drive associated with the open folder"
 msgstr "Sigurno uklanjanje pogonske jedinice povezane s otvorenom mapom"
 
-#: ../src/file-manager/fm-directory-view.c:8331
+#: ../src/file-manager/fm-directory-view.c:8334
 msgid "Disconnect the drive associated with the open folder"
 msgstr "Odspoji pogonsku jedinicu povezanu s otvorenom mapom"
 
-#: ../src/file-manager/fm-directory-view.c:8335
+#: ../src/file-manager/fm-directory-view.c:8338
 msgid "Stop the multi-disk drive associated with the open folder"
 msgstr "Zaustavi višediskovnu pogonsku jedinicu povezanu s otvorenom mapom"
 
-#: ../src/file-manager/fm-directory-view.c:8339
+#: ../src/file-manager/fm-directory-view.c:8342
 msgid "Lock the drive associated with the open folder"
 msgstr "Zaključaj pogonsku jedinicu povezanu s otvorenom mapom"
 
 #. add the "open in new window" menu item
-#: ../src/file-manager/fm-directory-view.c:8518
-#: ../src/file-manager/fm-directory-view.c:8828
-#: ../src/file-manager/fm-tree-view.c:1287 ../src/caja-places-sidebar.c:2697
+#: ../src/file-manager/fm-directory-view.c:8521
+#: ../src/file-manager/fm-directory-view.c:8831
+#: ../src/file-manager/fm-tree-view.c:1287 ../src/caja-places-sidebar.c:2671
 msgid "Open in New _Window"
 msgstr "Otvori u novom _prozoru"
 
-#: ../src/file-manager/fm-directory-view.c:8520
-#: ../src/file-manager/fm-directory-view.c:8837
+#: ../src/file-manager/fm-directory-view.c:8523
+#: ../src/file-manager/fm-directory-view.c:8840
 msgid "Browse in New _Window"
 msgstr "Pregledaj u novom _prozoru"
 
-#: ../src/file-manager/fm-directory-view.c:8526
-#: ../src/file-manager/fm-directory-view.c:8847
+#: ../src/file-manager/fm-directory-view.c:8529
+#: ../src/file-manager/fm-directory-view.c:8850
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
 msgstr[0] "_Pregledaj mapu"
 msgstr[1] "_Pregledaj mape"
 msgstr[2] "_Pregledaj mape"
 
-#: ../src/file-manager/fm-directory-view.c:8543
-#: ../src/file-manager/fm-directory-view.c:8876
+#: ../src/file-manager/fm-directory-view.c:8546
+#: ../src/file-manager/fm-directory-view.c:8879
 msgid "Browse in New _Tab"
 msgstr "Pregledaj u novoj _kartici"
 
-#: ../src/file-manager/fm-directory-view.c:8592
-#: ../src/file-manager/fm-directory-view.c:8917
+#: ../src/file-manager/fm-directory-view.c:8595
+#: ../src/file-manager/fm-directory-view.c:8920
 msgid "_Delete Permanently"
 msgstr "_Izbriši trajno"
 
-#: ../src/file-manager/fm-directory-view.c:8593
+#: ../src/file-manager/fm-directory-view.c:8596
 msgid "Delete the open folder permanently"
 msgstr "Trajno izbriši otvorenu mapu"
 
-#: ../src/file-manager/fm-directory-view.c:8597
+#: ../src/file-manager/fm-directory-view.c:8600
 msgid "Move the open folder to the Trash"
 msgstr "Premjesti otvorenu mapu u smeće"
 
-#: ../src/file-manager/fm-directory-view.c:8777
+#: ../src/file-manager/fm-directory-view.c:8780
 #, c-format
 msgid "_Open With %s"
 msgstr "_Otvori s %s"
 
-#: ../src/file-manager/fm-directory-view.c:8830
+#: ../src/file-manager/fm-directory-view.c:8833
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
@@ -4810,7 +4810,7 @@ msgstr[0] "Otvori u %'d novom _prozoru"
 msgstr[1] "Otvori u %'d novim _prozorima"
 msgstr[2] "Otvori u %'d novih _prozora"
 
-#: ../src/file-manager/fm-directory-view.c:8839
+#: ../src/file-manager/fm-directory-view.c:8842
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
@@ -4818,7 +4818,7 @@ msgstr[0] "Pregledaj u %'d novom _prozoru"
 msgstr[1] "Pregledaj u %'d novim _prozorima"
 msgstr[2] "Pregledaj u %'d novih _prozora"
 
-#: ../src/file-manager/fm-directory-view.c:8869
+#: ../src/file-manager/fm-directory-view.c:8872
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
@@ -4826,7 +4826,7 @@ msgstr[0] "Otvori u %'d novoj _kartici"
 msgstr[1] "Otvori u %'d novim _karticama"
 msgstr[2] "Otvori u %'d novih _kartica"
 
-#: ../src/file-manager/fm-directory-view.c:8878
+#: ../src/file-manager/fm-directory-view.c:8881
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
@@ -4834,63 +4834,63 @@ msgstr[0] "Pregledaj u %'d novoj _kartici"
 msgstr[1] "Pregledaj u %'d novim _karticama"
 msgstr[2] "Pregledaj u %'d novih _kartica"
 
-#: ../src/file-manager/fm-directory-view.c:8918
+#: ../src/file-manager/fm-directory-view.c:8921
 msgid "Delete all selected items permanently"
 msgstr "Trajno izbriši sve odabrane stavke"
 
-#: ../src/file-manager/fm-directory-view.c:8975
+#: ../src/file-manager/fm-directory-view.c:8978
 msgid "View or modify the properties of the open folder"
 msgstr "Pogledaj ili promijeni svojstva otvorene mape"
 
-#: ../src/file-manager/fm-directory-view.c:10278
+#: ../src/file-manager/fm-directory-view.c:10281
 msgid "Download location?"
 msgstr "Preuzeti položaj?"
 
-#: ../src/file-manager/fm-directory-view.c:10281
+#: ../src/file-manager/fm-directory-view.c:10284
 msgid "You can download it or make a link to it."
 msgstr "Možeš ga preuzeti ili stvoriti poveznicu na njega."
 
-#: ../src/file-manager/fm-directory-view.c:10284
+#: ../src/file-manager/fm-directory-view.c:10287
 msgid "Make a _Link"
 msgstr "Napravi _poveznicu"
 
-#: ../src/file-manager/fm-directory-view.c:10288
+#: ../src/file-manager/fm-directory-view.c:10291
 msgid "_Download"
 msgstr "_Preuzmi"
 
-#: ../src/file-manager/fm-directory-view.c:10449
-#: ../src/file-manager/fm-directory-view.c:10508
-#: ../src/file-manager/fm-directory-view.c:10613
+#: ../src/file-manager/fm-directory-view.c:10452
+#: ../src/file-manager/fm-directory-view.c:10511
+#: ../src/file-manager/fm-directory-view.c:10616
 msgid "Drag and drop is not supported."
 msgstr "Povlačenje i ispuštanje nije podržano."
 
-#: ../src/file-manager/fm-directory-view.c:10450
+#: ../src/file-manager/fm-directory-view.c:10453
 msgid "Drag and drop is only supported on local file systems."
 msgstr "Povlačenje i ispuštanje je podržano samo za mjesne datotečne sustave."
 
-#: ../src/file-manager/fm-directory-view.c:10509
-#: ../src/file-manager/fm-directory-view.c:10614
+#: ../src/file-manager/fm-directory-view.c:10512
+#: ../src/file-manager/fm-directory-view.c:10617
 msgid "An invalid drag type was used."
 msgstr "Korištena je neispravna vrsta povlačenja."
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10691
+#: ../src/file-manager/fm-directory-view.c:10694
 msgid "dropped text.txt"
 msgstr "ispušteni napis.txt"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10736
+#: ../src/file-manager/fm-directory-view.c:10739
 msgid "dropped data"
 msgstr "ispušteni podatci"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11125
+#: ../src/file-manager/fm-directory-view.c:11128
 msgid "Undo"
 msgstr "Poništi"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11143
+#: ../src/file-manager/fm-directory-view.c:11146
 msgid "Redo"
 msgstr "Ponovi"
 
@@ -5036,7 +5036,7 @@ msgstr "Održavaj sličice poredane po veličini u redcima"
 
 #: ../src/file-manager/fm-icon-view.c:142
 msgid "by Size on Disk"
-msgstr ""
+msgstr "po veličini na disku"
 
 #: ../src/file-manager/fm-icon-view.c:143
 msgid "Keep icons sorted by disk usage in rows"
@@ -5248,46 +5248,46 @@ msgstr "Učitavanje..."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-list-view.c:1826
-#: ../src/file-manager/fm-list-view.c:3443
+#: ../src/file-manager/fm-list-view.c:1837
+#: ../src/file-manager/fm-list-view.c:3454
 #: ../src/caja-file-management-properties.ui.h:2
 msgid "List View"
 msgstr "Popisni prikaz"
 
-#: ../src/file-manager/fm-list-view.c:2520
+#: ../src/file-manager/fm-list-view.c:2531
 #, c-format
 msgid "%s Visible Columns"
 msgstr "%s Vidljivi stupci"
 
-#: ../src/file-manager/fm-list-view.c:2539
+#: ../src/file-manager/fm-list-view.c:2550
 msgid "Choose the order of information to appear in this folder:"
 msgstr "Odaberi poredak podataka za pojavljivanje u ovoj mapi:"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-list-view.c:2597
+#: ../src/file-manager/fm-list-view.c:2608
 msgid "Visible _Columns..."
 msgstr "Vidljivi _stupci..."
 
 #. tooltip
-#: ../src/file-manager/fm-list-view.c:2598
+#: ../src/file-manager/fm-list-view.c:2609
 msgid "Select the columns visible in this folder"
 msgstr "Odaberi stupce vidljive u ovoj mapi"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-list-view.c:3445
+#: ../src/file-manager/fm-list-view.c:3456
 msgid "_List"
 msgstr "_Popis"
 
-#: ../src/file-manager/fm-list-view.c:3446
+#: ../src/file-manager/fm-list-view.c:3457
 msgid "The list view encountered an error."
 msgstr "Popisni prikaz naišao je na neispravnost."
 
-#: ../src/file-manager/fm-list-view.c:3447
+#: ../src/file-manager/fm-list-view.c:3458
 msgid "The list view encountered an error while starting up."
 msgstr "Popisni prikaz naišao je na neispravnost prigodom pokretanja."
 
-#: ../src/file-manager/fm-list-view.c:3448
+#: ../src/file-manager/fm-list-view.c:3459
 msgid "Display this location with the list view."
 msgstr "Prikaži ovaj položaj popisnim prikazom."
 
@@ -5404,7 +5404,7 @@ msgstr "Cilj poveznice:"
 
 #: ../src/file-manager/fm-properties-window.c:3280
 msgid "Size on Disk:"
-msgstr ""
+msgstr "Veličina na disku:"
 
 #: ../src/file-manager/fm-properties-window.c:3289
 #: ../src/caja-location-bar.c:57
@@ -5612,15 +5612,15 @@ msgstr "Stvaranje prozora sa svojstvima."
 msgid "Select Custom Icon"
 msgstr "Odaberi prilagođenu sličicu"
 
-#: ../src/file-manager/fm-tree-view.c:1438 ../src/caja-places-sidebar.c:538
+#: ../src/file-manager/fm-tree-view.c:1438 ../src/caja-places-sidebar.c:535
 msgid "File System"
 msgstr "Datotečni sustav"
 
-#: ../src/file-manager/fm-tree-view.c:1726
+#: ../src/file-manager/fm-tree-view.c:1729
 msgid "Tree"
 msgstr "Stablo"
 
-#: ../src/file-manager/fm-tree-view.c:1732
+#: ../src/file-manager/fm-tree-view.c:1735
 msgid "Show Tree"
 msgstr "Prikaži stablo"
 
@@ -5646,8 +5646,8 @@ msgid ""
 "that Caja can create them."
 msgstr "Molim da prije pokretanja Caje stvoriš sljedeće mape ili postaviš takva dopuštenja da ih Caja može stvoriti."
 
-#: ../src/caja-application.c:1264 ../src/caja-places-sidebar.c:2214
-#: ../src/caja-places-sidebar.c:2248 ../src/caja-places-sidebar.c:2283
+#: ../src/caja-application.c:1264 ../src/caja-places-sidebar.c:2191
+#: ../src/caja-places-sidebar.c:2222 ../src/caja-places-sidebar.c:2257
 #, c-format
 msgid "Unable to eject %s"
 msgstr "Nije moguće izbaciti %s"
@@ -5745,7 +5745,7 @@ msgstr "Softver će se pokrenuti izravno s nosača podataka \"%s\". Ne preporuč
 
 #: ../src/caja-bookmarks-window.c:164
 #: ../src/caja-file-management-properties.c:242
-#: ../src/caja-property-browser.c:1673 ../src/caja-window-menus.c:598
+#: ../src/caja-property-browser.c:1677 ../src/caja-window-menus.c:598
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
@@ -5908,7 +5908,7 @@ msgid "Bookmark Name:"
 msgstr "Ime zabilješke:"
 
 #: ../src/caja-desktop-window.c:87 ../src/caja-desktop-window.c:267
-#: ../src/caja-pathbar.c:1403 ../src/caja-places-sidebar.c:523
+#: ../src/caja-pathbar.c:1403 ../src/caja-places-sidebar.c:519
 msgid "Desktop"
 msgstr "Radna površina"
 
@@ -6395,11 +6395,11 @@ msgstr "K_onfiguriraj proširenje"
 msgid "Extensions"
 msgstr "Proširenja"
 
-#: ../src/caja-history-sidebar.c:335
+#: ../src/caja-history-sidebar.c:338
 msgid "History"
 msgstr "Povijest"
 
-#: ../src/caja-history-sidebar.c:341
+#: ../src/caja-history-sidebar.c:344
 msgid "Show History"
 msgstr "Prikaži povijest"
 
@@ -6825,100 +6825,100 @@ msgstr "%s - Preglednik datoteka"
 msgid "Close tab"
 msgstr "Zatvori karticu"
 
-#: ../src/caja-notes-viewer.c:396 ../src/caja-notes-viewer.c:500
+#: ../src/caja-notes-viewer.c:399 ../src/caja-notes-viewer.c:503
 msgid "Notes"
 msgstr "Bilješke"
 
-#: ../src/caja-notes-viewer.c:402
+#: ../src/caja-notes-viewer.c:405
 msgid "Show Notes"
 msgstr "Prikaži bilješke"
 
-#: ../src/caja-places-sidebar.c:312
+#: ../src/caja-places-sidebar.c:309
 msgid "Devices"
 msgstr "Uređaji"
 
-#: ../src/caja-places-sidebar.c:320
+#: ../src/caja-places-sidebar.c:317
 msgid "Bookmarks"
 msgstr "Zabilješke"
 
-#: ../src/caja-places-sidebar.c:525
+#: ../src/caja-places-sidebar.c:521
 msgid "Open the contents of your desktop in a folder"
 msgstr "Otvori sadržaj svoje radne površine u mapi"
 
-#: ../src/caja-places-sidebar.c:540
+#: ../src/caja-places-sidebar.c:537
 msgid "Open the contents of the File System"
 msgstr "Otvori sadržaj datotečnog sustava"
 
-#: ../src/caja-places-sidebar.c:599
+#: ../src/caja-places-sidebar.c:596
 msgid "Open the trash"
 msgstr "Otvori smeće"
 
-#: ../src/caja-places-sidebar.c:654 ../src/caja-places-sidebar.c:682
+#: ../src/caja-places-sidebar.c:651 ../src/caja-places-sidebar.c:679
 #, c-format
 msgid "Mount and open %s"
 msgstr "Montiraj i otvori %s"
 
-#: ../src/caja-places-sidebar.c:835 ../src/mate-network-scheme.desktop.in.h:1
+#: ../src/caja-places-sidebar.c:832 ../src/mate-network-scheme.desktop.in.h:1
 msgid "Network"
 msgstr "Mreža"
 
-#: ../src/caja-places-sidebar.c:867
+#: ../src/caja-places-sidebar.c:864
 msgid "Browse Network"
 msgstr "Pregledaj mrežu"
 
-#: ../src/caja-places-sidebar.c:869
+#: ../src/caja-places-sidebar.c:866
 msgid "Browse the contents of the network"
 msgstr "Pregledaj sadržaj mreže"
 
 #. start() for type G_DRIVE_START_STOP_TYPE_SHUTDOWN is normally not used
-#: ../src/caja-places-sidebar.c:1816
+#: ../src/caja-places-sidebar.c:1793
 msgid "_Power On"
 msgstr "_Uključi"
 
-#: ../src/caja-places-sidebar.c:1820
+#: ../src/caja-places-sidebar.c:1797
 msgid "_Connect Drive"
 msgstr "_Spoji pogon"
 
-#: ../src/caja-places-sidebar.c:1821
+#: ../src/caja-places-sidebar.c:1798
 msgid "_Disconnect Drive"
 msgstr "_Odspoji pogon"
 
-#: ../src/caja-places-sidebar.c:1824
+#: ../src/caja-places-sidebar.c:1801
 msgid "_Start Multi-disk Device"
 msgstr "_Pokreni višediskovni uređaj"
 
-#: ../src/caja-places-sidebar.c:1825
+#: ../src/caja-places-sidebar.c:1802
 msgid "_Stop Multi-disk Device"
 msgstr "_Zaustavi višediskovni uređaj"
 
-#: ../src/caja-places-sidebar.c:1911 ../src/caja-places-sidebar.c:2503
+#: ../src/caja-places-sidebar.c:1888 ../src/caja-places-sidebar.c:2477
 #, c-format
 msgid "Unable to start %s"
 msgstr "Nije moguće pokrenuti %s"
 
-#: ../src/caja-places-sidebar.c:2447
+#: ../src/caja-places-sidebar.c:2421
 #, c-format
 msgid "Unable to poll %s for media changes"
 msgstr "Nije moguće ispitati %s za promjene nosača podataka"
 
-#: ../src/caja-places-sidebar.c:2563
+#: ../src/caja-places-sidebar.c:2537
 #, c-format
 msgid "Unable to stop %s"
 msgstr "Nije moguće zaustaviti %s"
 
-#: ../src/caja-places-sidebar.c:2705
+#: ../src/caja-places-sidebar.c:2679
 msgid "Remove"
 msgstr "Ukloni"
 
-#: ../src/caja-places-sidebar.c:2714
+#: ../src/caja-places-sidebar.c:2688
 msgid "Rename..."
 msgstr "Preimenuj..."
 
-#: ../src/caja-places-sidebar.c:3406
+#: ../src/caja-places-sidebar.c:3382
 msgid "Places"
 msgstr "Mjesta"
 
-#: ../src/caja-places-sidebar.c:3412
+#: ../src/caja-places-sidebar.c:3388
 msgid "Show Places"
 msgstr "Prikaži mjesta"
 
@@ -6928,159 +6928,159 @@ msgid "Backgrounds and Emblems"
 msgstr "Pozadine i oznake"
 
 #. create the "remove" button
-#: ../src/caja-property-browser.c:405
+#: ../src/caja-property-browser.c:409
 msgid "_Remove..."
 msgstr "_Ukloni..."
 
 #. now create the "add new" button
-#: ../src/caja-property-browser.c:419
+#: ../src/caja-property-browser.c:423
 msgid "Add new..."
 msgstr "Dodaj novi..."
 
-#: ../src/caja-property-browser.c:970
+#: ../src/caja-property-browser.c:974
 #, c-format
 msgid "Sorry, but pattern %s could not be deleted."
 msgstr "Nažalost, uzorak %s nije mogao biti izbrisan."
 
-#: ../src/caja-property-browser.c:971
+#: ../src/caja-property-browser.c:975
 msgid "Check that you have permission to delete the pattern."
 msgstr "Provjeri imaš li dopuštenje za brisanje uzorka."
 
-#: ../src/caja-property-browser.c:987
+#: ../src/caja-property-browser.c:991
 #, c-format
 msgid "Sorry, but emblem %s could not be deleted."
 msgstr "Nažalost, oznaka %s nije mogla biti izbrisana."
 
-#: ../src/caja-property-browser.c:988
+#: ../src/caja-property-browser.c:992
 msgid "Check that you have permission to delete the emblem."
 msgstr "Provjeri imaš li dopuštenje za brisanje oznake."
 
-#: ../src/caja-property-browser.c:1060
+#: ../src/caja-property-browser.c:1064
 msgid "Select an Image File for the New Emblem"
 msgstr "Odaberi slikovnu datoteku za novu oznaku"
 
-#: ../src/caja-property-browser.c:1101
+#: ../src/caja-property-browser.c:1105
 msgid "Create a New Emblem"
 msgstr "Stvori novu oznaku"
 
 #. make the keyword label and field
-#: ../src/caja-property-browser.c:1122
+#: ../src/caja-property-browser.c:1126
 msgid "_Keyword:"
 msgstr "_Ključna riječ:"
 
 #. set up a file chooser to pick the image file
-#: ../src/caja-property-browser.c:1145
+#: ../src/caja-property-browser.c:1149
 msgid "_Image:"
 msgstr "_Slika:"
 
-#: ../src/caja-property-browser.c:1181
+#: ../src/caja-property-browser.c:1185
 msgid "Create a New Color:"
 msgstr "Napravite novu boju:"
 
 #. make the name label and field
-#: ../src/caja-property-browser.c:1195
+#: ../src/caja-property-browser.c:1199
 msgid "Color _name:"
 msgstr "_Ime boje:"
 
-#: ../src/caja-property-browser.c:1211
+#: ../src/caja-property-browser.c:1215
 msgid "Color _value:"
 msgstr "_Vrijednost boje:"
 
-#: ../src/caja-property-browser.c:1247
+#: ../src/caja-property-browser.c:1251
 msgid "Sorry, but you cannot replace the reset image."
 msgstr "Nažalost, ne možeš zamijeniti sliku za ponovno postavljanje."
 
-#: ../src/caja-property-browser.c:1248
+#: ../src/caja-property-browser.c:1252
 msgid "Reset is a special image that cannot be deleted."
 msgstr "Reset je posebna slika koja se ne može izbrisati."
 
-#: ../src/caja-property-browser.c:1278
+#: ../src/caja-property-browser.c:1282
 #, c-format
 msgid "Sorry, but the pattern %s could not be installed."
 msgstr "Nažalost, uzorak %s nije mogao biti ugrađen."
 
-#: ../src/caja-property-browser.c:1309
+#: ../src/caja-property-browser.c:1313
 msgid "Select an Image File to Add as a Pattern"
 msgstr "Odaberi datoteku slike za dodavanje kao uzorak"
 
-#: ../src/caja-property-browser.c:1388 ../src/caja-property-browser.c:1418
+#: ../src/caja-property-browser.c:1392 ../src/caja-property-browser.c:1422
 msgid "The color cannot be installed."
 msgstr "Boja ne može biti instalirana."
 
-#: ../src/caja-property-browser.c:1389
+#: ../src/caja-property-browser.c:1393
 msgid "Sorry, but you must specify an unused color name for the new color."
 msgstr "Žao mi je, ali morate specificirati nekorišteno ime boja za novu boju."
 
-#: ../src/caja-property-browser.c:1419
+#: ../src/caja-property-browser.c:1423
 msgid "Sorry, but you must specify a non-blank name for the new color."
 msgstr "Nažalost, morate unijeti neprazno ime za novu boju."
 
-#: ../src/caja-property-browser.c:1479
+#: ../src/caja-property-browser.c:1483
 msgid "Select a Color to Add"
 msgstr "Izaberi boju za dodavanje"
 
-#: ../src/caja-property-browser.c:1525 ../src/caja-property-browser.c:1543
+#: ../src/caja-property-browser.c:1529 ../src/caja-property-browser.c:1547
 #, c-format
 msgid "Sorry, but \"%s\" is not a usable image file."
 msgstr "Žao mi je, ali  \"%s\" nije upotrebljiva slika."
 
-#: ../src/caja-property-browser.c:1526 ../src/caja-property-browser.c:1544
+#: ../src/caja-property-browser.c:1530 ../src/caja-property-browser.c:1548
 msgid "The file is not an image."
 msgstr "Datoteka nije valjana slika."
 
-#: ../src/caja-property-browser.c:2291
+#: ../src/caja-property-browser.c:2299
 msgid "Select a Category:"
 msgstr "Izaberite kategoriju:"
 
-#: ../src/caja-property-browser.c:2303
+#: ../src/caja-property-browser.c:2311
 msgid "C_ancel Remove"
 msgstr "Odustani od _uklanjanja"
 
-#: ../src/caja-property-browser.c:2312
+#: ../src/caja-property-browser.c:2320
 msgid "_Add a New Pattern..."
 msgstr "_Dodaj novi obrazac..."
 
-#: ../src/caja-property-browser.c:2315
+#: ../src/caja-property-browser.c:2323
 msgid "_Add a New Color..."
 msgstr "_Dodaj novu boju..."
 
-#: ../src/caja-property-browser.c:2318
+#: ../src/caja-property-browser.c:2326
 msgid "_Add a New Emblem..."
 msgstr "_Dodaj novu oznaku"
 
-#: ../src/caja-property-browser.c:2344
+#: ../src/caja-property-browser.c:2352
 msgid "Click on a pattern to remove it"
 msgstr "Kliknite na uzorak kako biste ga uklonili"
 
-#: ../src/caja-property-browser.c:2347
+#: ../src/caja-property-browser.c:2355
 msgid "Click on a color to remove it"
 msgstr "Kliknite na boju kako biste je uklonili"
 
-#: ../src/caja-property-browser.c:2350
+#: ../src/caja-property-browser.c:2358
 msgid "Click on an emblem to remove it"
 msgstr "Klikni na oznaku za njeno uklanjanje"
 
-#: ../src/caja-property-browser.c:2362
+#: ../src/caja-property-browser.c:2370
 msgid "Patterns:"
 msgstr "Uzorci:"
 
-#: ../src/caja-property-browser.c:2365
+#: ../src/caja-property-browser.c:2373
 msgid "Colors:"
 msgstr "Boje:"
 
-#: ../src/caja-property-browser.c:2368
+#: ../src/caja-property-browser.c:2376
 msgid "Emblems:"
 msgstr "Oznake:"
 
-#: ../src/caja-property-browser.c:2390
+#: ../src/caja-property-browser.c:2398
 msgid "_Remove a Pattern..."
 msgstr "_Uklonite uzorak..."
 
-#: ../src/caja-property-browser.c:2393
+#: ../src/caja-property-browser.c:2401
 msgid "_Remove a Color..."
 msgstr "_Uklonite boju..."
 
-#: ../src/caja-property-browser.c:2396
+#: ../src/caja-property-browser.c:2404
 msgid "_Remove an Emblem..."
 msgstr "_Ukloni oznaku..."
 
@@ -7141,51 +7141,51 @@ msgstr "Napisna datoteka"
 msgid "Select type"
 msgstr "Odaberi vrstu"
 
-#: ../src/caja-query-editor.c:800
+#: ../src/caja-query-editor.c:804
 msgid "Any"
 msgstr "Svaki"
 
-#: ../src/caja-query-editor.c:816
+#: ../src/caja-query-editor.c:820
 msgid "Other Type..."
 msgstr "Druga vrsta..."
 
-#: ../src/caja-query-editor.c:1120
+#: ../src/caja-query-editor.c:1124
 msgid "Remove this criterion from the search"
 msgstr "Ukloni ovo mjerilo iz pretrage"
 
-#: ../src/caja-query-editor.c:1167
+#: ../src/caja-query-editor.c:1171
 msgid "Search Folder"
 msgstr "Pretraži mapu"
 
-#: ../src/caja-query-editor.c:1173
+#: ../src/caja-query-editor.c:1177
 msgid "Edit"
 msgstr "Uredi"
 
-#: ../src/caja-query-editor.c:1181
+#: ../src/caja-query-editor.c:1185
 msgid "Edit the saved search"
 msgstr "Uredi spremljenu pretragu"
 
-#: ../src/caja-query-editor.c:1213
+#: ../src/caja-query-editor.c:1217
 msgid "Add a new criterion to this search"
 msgstr "Dodaj novo mjerilo ovoj pretrazi"
 
-#: ../src/caja-query-editor.c:1219
+#: ../src/caja-query-editor.c:1223
 msgid "Go"
 msgstr "Kreni"
 
-#: ../src/caja-query-editor.c:1223
+#: ../src/caja-query-editor.c:1227
 msgid "Reload"
 msgstr "Ponovno učitavanje"
 
-#: ../src/caja-query-editor.c:1228
+#: ../src/caja-query-editor.c:1232
 msgid "Perform or update the search"
 msgstr "Izvedi ili dopuni pretragu"
 
-#: ../src/caja-query-editor.c:1249
+#: ../src/caja-query-editor.c:1253
 msgid "_Search for:"
 msgstr "_Potraži:"
 
-#: ../src/caja-query-editor.c:1278
+#: ../src/caja-query-editor.c:1282
 msgid "Search results"
 msgstr "Rezultati pretrage"
 
@@ -7353,7 +7353,7 @@ msgstr "Caja ti omogućava organiziranje datoteka i mapa, kako na računalu, tak
 #: ../src/caja-window-menus.c:540
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
-"Copyright © 2011-2017 The Caja authors"
+"Copyright © 2011-2018 The Caja authors"
 msgstr ""
 
 #. Translators should localize the following string
@@ -7471,7 +7471,7 @@ msgstr "U_većaj"
 
 #. tooltip
 #: ../src/caja-window-menus.c:865 ../src/caja-zoom-control.c:96
-#: ../src/caja-zoom-control.c:397
+#: ../src/caja-zoom-control.c:398
 msgid "Increase the view size"
 msgstr "Povećaj veličinu prikaza"
 
@@ -7626,10 +7626,10 @@ msgstr "Umanji"
 msgid "Zoom to Default"
 msgstr "Uvećaj na uobičajeno"
 
-#: ../src/caja-zoom-control.c:939
+#: ../src/caja-zoom-control.c:940
 msgid "Zoom"
 msgstr "Uvećaj/Umanji"
 
-#: ../src/caja-zoom-control.c:944
+#: ../src/caja-zoom-control.c:945
 msgid "Set the zoom level of the current view"
 msgstr "Postavi razinu uvećanja trenutnog prikaza"

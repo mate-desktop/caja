@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.20.2 -->
 <interface>
-  <requires lib="gtk+" version="2.24"/>
-  <!-- interface-naming-policy toplevel-contextual -->
+  <requires lib="gtk+" version="3.0"/>
   <object class="GtkListStore" id="extension_store">
     <columns>
       <!-- column-name ext-state -->
@@ -17,12 +17,22 @@
   <object class="GtkImage" id="image1">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="stock">gtk-about</property>
+    <property name="icon_name">help-about</property>
   </object>
   <object class="GtkImage" id="image2">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="stock">gtk-preferences</property>
+    <property name="icon_name">preferences-desktop</property>
+  </object>
+  <object class="GtkImage" id="image3">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">help-browser</property>
+  </object>
+  <object class="GtkImage" id="image4">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">window-close</property>
   </object>
   <object class="GtkListStore" id="model1">
     <columns>
@@ -275,23 +285,24 @@
     <property name="default_height">600</property>
     <property name="type_hint">dialog</property>
     <child internal-child="vbox">
-      <object class="GtkVBox" id="dialog-vbox1">
+      <object class="GtkBox" id="dialog-vbox1">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
-          <object class="GtkHButtonBox" id="dialog-action_area1">
+          <object class="GtkButtonBox" id="dialog-action_area1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="layout_style">end</property>
             <child>
               <object class="GtkButton" id="helpbutton1">
-                <property name="label">gtk-help</property>
+                <property name="label" translatable="yes">_Help</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="can_default">True</property>
                 <property name="receives_default">False</property>
-                <property name="use_stock">True</property>
+                <property name="image">image3</property>
+                <property name="use_underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -301,12 +312,13 @@
             </child>
             <child>
               <object class="GtkButton" id="closebutton1">
-                <property name="label">gtk-close</property>
+                <property name="label" translatable="yes">_Close</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="can_default">True</property>
                 <property name="receives_default">False</property>
-                <property name="use_stock">True</property>
+                <property name="image">image4</property>
+                <property name="use_underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -342,9 +354,9 @@
                       <object class="GtkLabel" id="label4">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="xalign">0</property>
                         <property name="label" translatable="yes">&lt;b&gt;Default View&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
+                        <property name="xalign">0</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -371,10 +383,10 @@
                                   <object class="GtkLabel" id="views_label_0">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="xalign">0</property>
                                     <property name="label" translatable="yes">View _new folders using:</property>
                                     <property name="use_underline">True</property>
                                     <property name="mnemonic_widget">default_view_combobox</property>
+                                    <property name="xalign">0</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -416,10 +428,10 @@
                                   <object class="GtkLabel" id="views_label_1">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="xalign">0</property>
                                     <property name="label" translatable="yes">_Arrange items:</property>
                                     <property name="use_underline">True</property>
                                     <property name="mnemonic_widget">sort_order_combobox</property>
+                                    <property name="xalign">0</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -507,9 +519,9 @@
                       <object class="GtkLabel" id="label5">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="xalign">0</property>
                         <property name="label" translatable="yes">&lt;b&gt;Icon View Defaults&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
+                        <property name="xalign">0</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -536,10 +548,10 @@
                                   <object class="GtkLabel" id="views_label_2">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="xalign">0</property>
                                     <property name="label" translatable="yes">Default _zoom level:</property>
                                     <property name="use_underline">True</property>
                                     <property name="mnemonic_widget">icon_view_zoom_combobox</property>
+                                    <property name="xalign">0</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -627,9 +639,9 @@
                       <object class="GtkLabel" id="label">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="xalign">0</property>
                         <property name="label" translatable="yes">&lt;b&gt;Compact View Defaults&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
+                        <property name="xalign">0</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -656,10 +668,10 @@
                                   <object class="GtkLabel" id="views_label_4">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="xalign">0</property>
                                     <property name="label" translatable="yes">_Default zoom level:</property>
                                     <property name="use_underline">True</property>
                                     <property name="mnemonic_widget">compact_view_zoom_combobox</property>
+                                    <property name="xalign">0</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -732,9 +744,9 @@
                       <object class="GtkLabel" id="label6">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="xalign">0</property>
                         <property name="label" translatable="yes">&lt;b&gt;List View Defaults&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
+                        <property name="xalign">0</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -761,10 +773,10 @@
                                   <object class="GtkLabel" id="views_label_3">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="xalign">0</property>
                                     <property name="label" translatable="yes">D_efault zoom level:</property>
                                     <property name="use_underline">True</property>
                                     <property name="mnemonic_widget">list_view_zoom_combobox</property>
+                                    <property name="xalign">0</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -822,9 +834,9 @@
                       <object class="GtkLabel" id="label25">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="xalign">0</property>
                         <property name="label" translatable="yes">&lt;b&gt;Tree View Defaults&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
+                        <property name="xalign">0</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -900,9 +912,9 @@
                       <object class="GtkLabel" id="label10">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="xalign">0</property>
                         <property name="label" translatable="yes">&lt;b&gt;Behavior&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
+                        <property name="xalign">0</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -991,9 +1003,9 @@
                       <object class="GtkLabel" id="label12">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="xalign">0</property>
                         <property name="label" translatable="yes">&lt;b&gt;Executable Text Files&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
+                        <property name="xalign">0</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1083,9 +1095,9 @@
                       <object class="GtkLabel" id="label14">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="xalign">0</property>
                         <property name="label" translatable="yes">&lt;b&gt;Trash&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
+                        <property name="xalign">0</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1195,9 +1207,9 @@
                       <object class="GtkLabel" id="label28">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="xalign">0</property>
                         <property name="label" translatable="yes">&lt;b&gt;Icon Captions&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
+                        <property name="xalign">0</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1219,9 +1231,9 @@
                               <object class="GtkLabel" id="label29">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="xalign">0</property>
                                 <property name="label" translatable="yes">Choose the order of information to appear beneath icon names. More information will appear when zooming in closer.</property>
                                 <property name="wrap">True</property>
+                                <property name="xalign">0</property>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -1248,7 +1260,6 @@
                                   <object class="GtkComboBoxText" id="captions_0_combobox">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="entry_text_column">0</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -1283,7 +1294,6 @@
                                   <object class="GtkComboBoxText" id="captions_1_combobox">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="entry_text_column">0</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -1317,7 +1327,6 @@
                                   <object class="GtkComboBoxText" id="captions_2_combobox">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="entry_text_column">0</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -1357,9 +1366,9 @@
                       <object class="GtkLabel" id="label34">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="xalign">0</property>
                         <property name="label" translatable="yes">&lt;b&gt;Date&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
+                        <property name="xalign">0</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1395,7 +1404,6 @@
                               <object class="GtkComboBoxText" id="date_format_combobox">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="entry_text_column">0</property>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -1428,9 +1436,9 @@
                       <object class="GtkLabel" id="label40">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="xalign">0</property>
                         <property name="label" translatable="yes">&lt;b&gt;Size&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
+                        <property name="xalign">0</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1498,9 +1506,9 @@
                       <object class="GtkLabel" id="label31">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="xalign">0</property>
                         <property name="label" translatable="yes">&lt;b&gt;List Columns&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
+                        <property name="xalign">0</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1522,9 +1530,9 @@
                               <object class="GtkLabel" id="label33">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="xalign">0</property>
                                 <property name="label" translatable="yes">Choose the order of information to appear in the list view.</property>
                                 <property name="wrap">True</property>
+                                <property name="xalign">0</property>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -1582,9 +1590,9 @@
                       <object class="GtkLabel" id="label16">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="xalign">0</property>
                         <property name="label" translatable="yes">&lt;b&gt;Text Files&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
+                        <property name="xalign">0</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1611,10 +1619,10 @@
                                   <object class="GtkLabel" id="preview_label_0">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="xalign">0</property>
                                     <property name="label" translatable="yes">Show te_xt in icons:</property>
                                     <property name="use_underline">True</property>
                                     <property name="mnemonic_widget">preview_text_combobox</property>
+                                    <property name="xalign">0</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -1672,9 +1680,9 @@
                       <object class="GtkLabel" id="label18">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="xalign">0</property>
                         <property name="label" translatable="yes">&lt;b&gt;Other Previewable Files&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
+                        <property name="xalign">0</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1701,10 +1709,10 @@
                                   <object class="GtkLabel" id="preview_label_1">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="xalign">0</property>
                                     <property name="label" translatable="yes">Show _thumbnails:</property>
                                     <property name="use_underline">True</property>
                                     <property name="mnemonic_widget">preview_image_combobox</property>
+                                    <property name="xalign">0</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -1746,10 +1754,10 @@
                                   <object class="GtkLabel" id="preview_label_2">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="xalign">0</property>
                                     <property name="label" translatable="yes">_Only for files smaller than:</property>
                                     <property name="use_underline">True</property>
                                     <property name="mnemonic_widget">preview_image_size_combobox</property>
+                                    <property name="xalign">0</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -1807,9 +1815,9 @@
                       <object class="GtkLabel" id="label20">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="xalign">0</property>
                         <property name="label" translatable="yes">&lt;b&gt;Sound Files&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
+                        <property name="xalign">0</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1836,10 +1844,10 @@
                                   <object class="GtkLabel" id="preview_label_3">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="xalign">0</property>
                                     <property name="label" translatable="yes">Preview _sound files:</property>
                                     <property name="use_underline">True</property>
                                     <property name="mnemonic_widget">preview_sound_combobox</property>
+                                    <property name="xalign">0</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -1897,9 +1905,9 @@
                       <object class="GtkLabel" id="label22">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="xalign">0</property>
                         <property name="label" translatable="yes">&lt;b&gt;Folders&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
+                        <property name="xalign">0</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1926,10 +1934,10 @@
                                   <object class="GtkLabel" id="preview_label_4">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="xalign">0</property>
                                     <property name="label" translatable="yes">Count _number of items:</property>
                                     <property name="use_underline">True</property>
                                     <property name="mnemonic_widget">preview_folder_combobox</property>
+                                    <property name="xalign">0</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -2014,9 +2022,9 @@
                           <object class="GtkLabel" id="label42">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="xalign">0</property>
                             <property name="label" translatable="yes">&lt;b&gt;Media Handling&lt;/b&gt;</property>
                             <property name="use_markup">True</property>
+                            <property name="xalign">0</property>
                           </object>
                           <packing>
                             <property name="expand">False</property>
@@ -2038,10 +2046,10 @@
                                   <object class="GtkLabel" id="label60">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="xalign">0</property>
                                     <property name="label" translatable="yes">Choose what happens when inserting media or connecting devices to the system</property>
                                     <property name="use_markup">True</property>
                                     <property name="wrap">True</property>
+                                    <property name="xalign">0</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -2061,10 +2069,10 @@
                                       <object class="GtkLabel" id="label44">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
-                                        <property name="xalign">0</property>
                                         <property name="label" translatable="yes">CD _Audio:</property>
                                         <property name="use_underline">True</property>
                                         <property name="mnemonic_widget">media_audio_cdda_combobox</property>
+                                        <property name="xalign">0</property>
                                       </object>
                                       <packing>
                                         <property name="x_options">GTK_FILL</property>
@@ -2075,10 +2083,10 @@
                                       <object class="GtkLabel" id="label50">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
-                                        <property name="xalign">0</property>
                                         <property name="label" translatable="yes">_DVD Video:</property>
                                         <property name="use_underline">True</property>
                                         <property name="mnemonic_widget">media_video_dvd_combobox</property>
+                                        <property name="xalign">0</property>
                                       </object>
                                       <packing>
                                         <property name="top_attach">1</property>
@@ -2116,10 +2124,10 @@
                                       <object class="GtkLabel" id="label54">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
-                                        <property name="xalign">0</property>
                                         <property name="label" translatable="yes">_Music Player:</property>
                                         <property name="use_underline">True</property>
                                         <property name="mnemonic_widget">media_music_player_combobox</property>
+                                        <property name="xalign">0</property>
                                       </object>
                                       <packing>
                                         <property name="top_attach">2</property>
@@ -2146,10 +2154,10 @@
                                       <object class="GtkLabel" id="label59">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
-                                        <property name="xalign">0</property>
                                         <property name="label" translatable="yes">_Photos:</property>
                                         <property name="use_underline">True</property>
                                         <property name="mnemonic_widget">media_dcf_combobox</property>
+                                        <property name="xalign">0</property>
                                       </object>
                                       <packing>
                                         <property name="top_attach">3</property>
@@ -2176,10 +2184,10 @@
                                       <object class="GtkLabel" id="label57">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
-                                        <property name="xalign">0</property>
                                         <property name="label" translatable="yes">_Software:</property>
                                         <property name="use_underline">True</property>
                                         <property name="mnemonic_widget">media_software_combobox</property>
+                                        <property name="xalign">0</property>
                                       </object>
                                       <packing>
                                         <property name="top_attach">4</property>
@@ -2234,9 +2242,9 @@
                           <object class="GtkLabel" id="label61">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="xalign">0</property>
                             <property name="label" translatable="yes">&lt;b&gt;Other Media&lt;/b&gt;</property>
                             <property name="use_markup">True</property>
+                            <property name="xalign">0</property>
                           </object>
                           <packing>
                             <property name="expand">False</property>
@@ -2258,10 +2266,10 @@
                                   <object class="GtkLabel" id="label65">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="xalign">0</property>
                                     <property name="label" translatable="yes">Less common media formats can be configured here</property>
                                     <property name="use_markup">True</property>
                                     <property name="wrap">True</property>
+                                    <property name="xalign">0</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -2292,10 +2300,10 @@
                                       <object class="GtkLabel" id="label64">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
-                                        <property name="xalign">0</property>
                                         <property name="label" translatable="yes">Acti_on:</property>
                                         <property name="use_underline">True</property>
                                         <property name="mnemonic_widget">media_other_action_combobox</property>
+                                        <property name="xalign">0</property>
                                       </object>
                                       <packing>
                                         <property name="top_attach">1</property>
@@ -2322,10 +2330,10 @@
                                       <object class="GtkLabel" id="label63">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
-                                        <property name="xalign">0</property>
                                         <property name="label" translatable="yes">_Type:</property>
                                         <property name="use_underline">True</property>
                                         <property name="mnemonic_widget">media_other_type_combobox</property>
+                                        <property name="xalign">0</property>
                                       </object>
                                       <packing>
                                         <property name="x_options">GTK_FILL</property>
@@ -2418,10 +2426,10 @@
                   <object class="GtkLabel" id="label7">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="xalign">0</property>
                     <property name="label" translatable="yes">&lt;b&gt;Available _Extensions:&lt;/b&gt;</property>
                     <property name="use_markup">True</property>
                     <property name="use_underline">True</property>
+                    <property name="xalign">0</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -2433,8 +2441,6 @@
                   <object class="GtkScrolledWindow" id="scrolledwindow1">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="hscrollbar_policy">automatic</property>
-                    <property name="vscrollbar_policy">automatic</property>
                     <property name="shadow_type">in</property>
                     <child>
                       <object class="GtkTreeView" id="extension_view">
@@ -2445,6 +2451,9 @@
                         <property name="model">extension_store</property>
                         <property name="headers_visible">False</property>
                         <property name="rules_hint">True</property>
+                        <child internal-child="selection">
+                          <object class="GtkTreeSelection"/>
+                        </child>
                         <child>
                           <object class="GtkTreeViewColumn" id="treeviewcolumn1">
                             <property name="resizable">True</property>
@@ -2564,5 +2573,8 @@
       <action-widget response="-11">helpbutton1</action-widget>
       <action-widget response="-7">closebutton1</action-widget>
     </action-widgets>
+    <child>
+      <placeholder/>
+    </child>
   </object>
 </interface>

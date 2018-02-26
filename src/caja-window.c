@@ -133,20 +133,11 @@ caja_window_init (CajaWindow *window)
     GtkWidget *menu;
     GtkWidget *statusbar;
 
-#if GTK_CHECK_VERSION (3, 20, 0)
     static const gchar css_custom[] =
       "#caja-extra-view-widget {"
       "  background-color: " EXTRA_VIEW_WIDGETS_BACKGROUND ";"
       "}";
-#else
-    static const gchar css_custom[] =
-      "#statusbar-no-border {"
-      "  -GtkStatusbar-shadow-type: none;"
-      "}"
-      "#caja-extra-view-widget {"
-      "  background-color: " EXTRA_VIEW_WIDGETS_BACKGROUND ";"
-      "}";
-#endif
+
     GError *error = NULL;
     GtkCssProvider *provider = gtk_css_provider_new ();
     gtk_css_provider_load_from_data (provider, css_custom, -1, &error);
@@ -516,12 +507,7 @@ caja_window_zoom_to_default (CajaWindow *window)
 static guint
 get_max_forced_height (GdkScreen *screen)
 {
-    gint height;
-
-    gdk_window_get_geometry (gdk_screen_get_root_window (screen), NULL, NULL,
-                             NULL, &height);
-
-    return (height * 90) / 100;
+    return (HeightOfScreen (gdk_x11_screen_get_xscreen (screen)) * 90) / 100;
 }
 
 /* Code should never force the window wider than this size.
@@ -530,12 +516,7 @@ get_max_forced_height (GdkScreen *screen)
 static guint
 get_max_forced_width (GdkScreen *screen)
 {
-    gint width;
-
-    gdk_window_get_geometry (gdk_screen_get_root_window (screen), NULL, NULL,
-                             &width, NULL);
-
-    return (width * 90) / 100;
+    return (WidthOfScreen (gdk_x11_screen_get_xscreen (screen)) * 90) / 100;
 }
 
 /* This must be called when construction of CajaWindow is finished,

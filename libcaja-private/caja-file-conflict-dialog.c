@@ -211,11 +211,7 @@ file_list_ready_cb (GList *files,
     label = gtk_label_new (primary_text);
     gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
     gtk_label_set_line_wrap_mode (GTK_LABEL (label), PANGO_WRAP_WORD_CHAR);
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_label_set_xalign (GTK_LABEL (label), 0.0);
-#else
-    gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-#endif
     gtk_box_pack_start (GTK_BOX (details->titles_vbox),
                         label, FALSE, FALSE, 0);
     gtk_widget_show (label);
@@ -231,11 +227,7 @@ file_list_ready_cb (GList *files,
     label = gtk_label_new (secondary_text);
     gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
     gtk_label_set_max_width_chars (GTK_LABEL (label), 60);
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_label_set_xalign (GTK_LABEL (label), 0.0);
-#else
-    gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-#endif
     gtk_box_pack_start (GTK_BOX (details->titles_vbox),
                         label, FALSE, FALSE, 0);
     gtk_widget_show (label);
@@ -563,6 +555,24 @@ diff_button_clicked_cb (GtkButton *w,
 }
 
 static void
+mate_dialog_add_button (GtkDialog   *dialog,
+                        const gchar *button_text,
+                        const gchar *icon_name,
+                        gint         response_id)
+{
+    GtkWidget *button;
+
+    button = gtk_button_new_with_mnemonic (button_text);
+    gtk_button_set_image (GTK_BUTTON (button), gtk_image_new_from_icon_name (icon_name, GTK_ICON_SIZE_BUTTON));
+
+    gtk_button_set_use_underline (GTK_BUTTON (button), TRUE);
+    gtk_style_context_add_class (gtk_widget_get_style_context (button), "text-button");
+    gtk_widget_set_can_default (button, TRUE);
+    gtk_widget_show (button);
+    gtk_dialog_add_action_widget (GTK_DIALOG (dialog), button, response_id);
+}
+
+static void
 caja_file_conflict_dialog_init (CajaFileConflictDialog *fcd)
 {
     GtkWidget *hbox, *vbox, *vbox2;
@@ -630,7 +640,7 @@ caja_file_conflict_dialog_init (CajaFileConflictDialog *fcd)
 
     widget = gtk_button_new_with_label (_("Reset"));
     gtk_button_set_image (GTK_BUTTON (widget),
-                          gtk_image_new_from_stock (GTK_STOCK_UNDO,
+                          gtk_image_new_from_icon_name ("edit-undo",
                                   GTK_ICON_SIZE_MENU));
     gtk_box_pack_start (GTK_BOX (hbox), widget, FALSE, FALSE, 6);
     g_signal_connect (widget, "clicked",
@@ -641,7 +651,7 @@ caja_file_conflict_dialog_init (CajaFileConflictDialog *fcd)
     /* Setup the diff button for text files */
     details->diff_button = gtk_button_new_with_label (_("Differences..."));
     gtk_button_set_image (GTK_BUTTON (details->diff_button),
-                          gtk_image_new_from_stock (GTK_STOCK_FIND,
+                          gtk_image_new_from_icon_name ("edit-find",
                                   GTK_ICON_SIZE_MENU));
     gtk_box_pack_start (GTK_BOX (vbox), details->diff_button, FALSE, FALSE, 6);
     g_signal_connect (details->diff_button, "clicked",
@@ -658,12 +668,15 @@ caja_file_conflict_dialog_init (CajaFileConflictDialog *fcd)
                       G_CALLBACK (checkbox_toggled_cb), dialog);
 
     /* Add buttons */
-    gtk_dialog_add_buttons (dialog,
-                            GTK_STOCK_CANCEL,
-                            GTK_RESPONSE_CANCEL,
-                            _("_Skip"),
-                            CONFLICT_RESPONSE_SKIP,
-                            NULL);
+    mate_dialog_add_button (dialog,
+                            _("_Cancel"),
+                            "process-stop",
+                            GTK_RESPONSE_CANCEL);
+
+    gtk_dialog_add_button (dialog,
+                           _("_Skip"),
+                           CONFLICT_RESPONSE_SKIP);
+
     details->rename_button =
         gtk_dialog_add_button (dialog,
                                _("Re_name"),

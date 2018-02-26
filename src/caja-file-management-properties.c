@@ -222,15 +222,9 @@ preferences_show_help (GtkWindow *parent,
 
     help_string = g_strdup_printf ("help:%s/%s", helpfile, sect_id);
 
-#if GTK_CHECK_VERSION (3, 22, 0)
     gtk_show_uri_on_window (parent,
                             help_string, gtk_get_current_event_time (),
                             &error);
-#else
-    gtk_show_uri (gtk_window_get_screen (parent),
-                  help_string, gtk_get_current_event_time (),
-                  &error);
-#endif
     g_free (help_string);
 
     if (error)
@@ -632,10 +626,11 @@ extension_about_clicked (GtkButton *button, Extension *ext)
     gtk_about_dialog_set_comments (extension_about_dialog, ext->description);
     gtk_about_dialog_set_logo_icon_name (extension_about_dialog, ext->icon != NULL ? ext->icon : "system-run");
     gtk_about_dialog_set_copyright (extension_about_dialog, ext->copyright);
-    gtk_about_dialog_set_authors (extension_about_dialog, ext->author);
+    gtk_about_dialog_set_authors (extension_about_dialog, (const gchar **) ext->author);
     gtk_about_dialog_set_version (extension_about_dialog, ext->version);
     gtk_about_dialog_set_website (extension_about_dialog, ext->website);
     gtk_window_set_title (GTK_WINDOW(extension_about_dialog), _("About Extension"));
+    gtk_window_set_icon_name (GTK_WINDOW(extension_about_dialog), ext->icon != NULL ? ext->icon : "system-run");
     gtk_dialog_run (GTK_DIALOG (extension_about_dialog));
     gtk_widget_destroy (GTK_WIDGET (extension_about_dialog));
 }

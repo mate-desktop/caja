@@ -36,13 +36,9 @@
 #include <pango/pango.h>
 #include <gtk/gtk.h>
 #include <gtk/gtk-a11y.h>
+#include <gdk/gdkx.h>
 #include <gdk/gdkkeysyms.h>
 
-
-/* g_memmove is removed in glib 2.40 */
-#if GLIB_CHECK_VERSION (2, 39, 0)
-#define g_memmove memmove
-#endif
 
 enum
 {
@@ -1051,7 +1047,6 @@ eel_editable_label_ensure_layout (EelEditableLabel *label,
             else
             {
                 gint wrap_width;
-                gint sc_width;
 
                 pango_layout_set_width (label->layout, -1);
                 pango_layout_get_extents (label->layout, NULL, &logical_rect);
@@ -1061,13 +1056,10 @@ eel_editable_label_ensure_layout (EelEditableLabel *label,
                 /* Try to guess a reasonable maximum width */
                 longest_paragraph = width;
 
-                gdk_window_get_geometry (gdk_screen_get_root_window (gdk_screen_get_default()),
-                                         NULL, NULL, &sc_width, NULL);
-
                 wrap_width = get_label_wrap_width (label);
                 width = MIN (width, wrap_width);
                 width = MIN (width,
-                             PANGO_SCALE * (sc_width + 1) / 2);
+                             PANGO_SCALE * (WidthOfScreen (gdk_x11_screen_get_xscreen (gdk_screen_get_default ())) + 1) / 2);
 
                 pango_layout_set_width (label->layout, width);
                 pango_layout_get_extents (label->layout, NULL, &logical_rect);
@@ -2285,7 +2277,7 @@ eel_editable_label_delete_text (EelEditableLabel *label,
 
     if (start_pos < end_pos)
     {
-        g_memmove (label->text + start_pos, label->text + end_pos, label->n_bytes + 1 - end_pos);
+        memmove (label->text + start_pos, label->text + end_pos, label->n_bytes + 1 - end_pos);
         label->n_bytes -= (end_pos - start_pos);
 
         anchor = label->selection_anchor;
@@ -2328,7 +2320,7 @@ eel_editable_label_insert_text (EelEditableLabel *label,
 
     g_object_freeze_notify (G_OBJECT (label));
 
-    g_memmove (label->text + *index + new_text_length, label->text + *index, label->n_bytes - *index);
+    memmove (label->text + *index + new_text_length, label->text + *index, label->n_bytes - *index);
     memcpy (label->text + *index, new_text, new_text_length);
 
     label->n_bytes += new_text_length;
@@ -3011,14 +3003,39 @@ activate_cb (GtkWidget *menuitem,
     g_signal_emit_by_name (label, signal);
 }
 
+static GtkWidget
+*mate_image_menu_item_new_from_icon (const gchar *icon_name,
+                                     const gchar *label_name)
+{
+    GtkWidget *icon;
+    GtkWidget *box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+
+    if (icon_name)
+        icon = gtk_image_new_from_icon_name (icon_name, GTK_ICON_SIZE_MENU);
+    else
+        icon = gtk_image_new ();
+
+    GtkWidget *label_menu = gtk_label_new_with_mnemonic (g_strconcat (label_name, "     ", NULL));
+    GtkWidget *menuitem = gtk_menu_item_new ();
+ 
+    gtk_container_add (GTK_CONTAINER (box), icon);
+    gtk_container_add (GTK_CONTAINER (box), label_menu);
+ 
+    gtk_container_add (GTK_CONTAINER (menuitem), box);
+    gtk_widget_show_all (menuitem);
+
+    return menuitem;
+}
+
 static void
 append_action_signal (EelEditableLabel     *label,
                       GtkWidget    *menu,
-                      const gchar  *stock_id,
+                      const gchar  *icon_name,
+                      const gchar  *label_name,
                       const gchar  *signal,
                       gboolean      sensitive)
 {
-    GtkWidget *menuitem = gtk_image_menu_item_new_from_stock (stock_id, NULL);
+    GtkWidget *menuitem = mate_image_menu_item_new_from_icon (icon_name, label_name);
 
     g_object_set_data (G_OBJECT (menuitem), "gtk-signal", (char *)signal);
     g_signal_connect (menuitem, "activate",
@@ -3051,7 +3068,6 @@ popup_position_func (GtkMenu   *menu,
     GtkWidget *widget;
     GtkRequisition req;
     GtkAllocation allocation;
-    gint sc_width, sc_height;
 
     label = EEL_EDITABLE_LABEL (user_data);
     widget = GTK_WIDGET (label);
@@ -3066,11 +3082,8 @@ popup_position_func (GtkMenu   *menu,
     *x += allocation.width / 2;
     *y += allocation.height;
 
-    gdk_window_get_geometry (gdk_screen_get_root_window (gdk_screen_get_default()),
-                             NULL, NULL, &sc_width, &sc_height);
-
-    *x = CLAMP (*x, 0, MAX (0, sc_width - req.width));
-    *y = CLAMP (*y, 0, MAX (0, sc_height - req.height));
+    *x = CLAMP (*x, 0, MAX (0, WidthOfScreen (gdk_x11_screen_get_xscreen (gdk_screen_get_default ())) - req.width));
+    *y = CLAMP (*y, 0, MAX (0, HeightOfScreen (gdk_x11_screen_get_xscreen (gdk_screen_get_default ())) - req.height));
 }
 
 static void
@@ -3108,6 +3121,8 @@ popup_targets_received (GtkClipboard     *clipboard,
 
         label->popup_menu = gtk_menu_new ();
 
+        gtk_menu_set_reserve_toggle_size (GTK_MENU (label->popup_menu), FALSE);
+
         gtk_menu_attach_to_widget (GTK_MENU (label->popup_menu),
                                    GTK_WIDGET (label),
                                    popup_menu_detach);
@@ -3117,14 +3132,14 @@ popup_targets_received (GtkClipboard     *clipboard,
 
         clipboard_contains_text = gtk_selection_data_targets_include_text (data);
 
-        append_action_signal (label, label->popup_menu, GTK_STOCK_CUT, "cut_clipboard",
+        append_action_signal (label, label->popup_menu, "gtk-cut", _("Cu_t"), "cut_clipboard",
                               have_selection);
-        append_action_signal (label, label->popup_menu, GTK_STOCK_COPY, "copy_clipboard",
+        append_action_signal (label, label->popup_menu, "gtk-copy", _("_Copy"), "copy_clipboard",
                               have_selection);
-        append_action_signal (label, label->popup_menu, GTK_STOCK_PASTE, "paste_clipboard",
+        append_action_signal (label, label->popup_menu, "gtk-paste", _("_Paste"), "paste_clipboard",
                               clipboard_contains_text);
 
-        menuitem = gtk_menu_item_new_with_label (_("Select All"));
+        menuitem = mate_image_menu_item_new_from_icon ("edit-select-all", _("Select All"));
         g_signal_connect_object (menuitem, "activate",
                                  G_CALLBACK (eel_editable_label_select_all), label,
                                  G_CONNECT_SWAPPED);
@@ -3135,7 +3150,7 @@ popup_targets_received (GtkClipboard     *clipboard,
         gtk_widget_show (menuitem);
         gtk_menu_shell_append (GTK_MENU_SHELL (label->popup_menu), menuitem);
 
-        menuitem = gtk_menu_item_new_with_label (_("Input Methods"));
+        menuitem = mate_image_menu_item_new_from_icon (NULL, _("Input Methods"));
         gtk_widget_show (menuitem);
         submenu = gtk_menu_new ();
         gtk_menu_item_set_submenu (GTK_MENU_ITEM (menuitem), submenu);

@@ -911,30 +911,18 @@ void
 caja_drag_autoscroll_calculate_delta (GtkWidget *widget, float *x_scroll_delta, float *y_scroll_delta)
 {
     GtkAllocation allocation;
-#if GTK_CHECK_VERSION (3, 20, 0)
     GdkDisplay *display;
     GdkSeat *seat;
     GdkDevice *pointer;
-#else
-    GdkDeviceManager *manager;
-    GdkDevice *pointer;
-#endif
     int x, y;
 
     g_assert (GTK_IS_WIDGET (widget));
 
-#if GTK_CHECK_VERSION (3, 20, 0)
     display = gtk_widget_get_display (widget);
     seat = gdk_display_get_default_seat (display);
     pointer = gdk_seat_get_pointer (seat);
     gdk_window_get_device_position (gtk_widget_get_window (widget), pointer,
                                     &x, &y, NULL);
-#else
-    manager = gdk_display_get_device_manager (gtk_widget_get_display (widget));
-    pointer = gdk_device_manager_get_client_pointer (manager);
-    gdk_window_get_device_position (gtk_widget_get_window (widget), pointer,
-                                    &x, &y, NULL);
-#endif
 
     /* Find out if we are anywhere close to the tree view edges
      * to see if we need to autoscroll.

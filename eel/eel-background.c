@@ -31,7 +31,7 @@
 #include "eel-lib-self-check-functions.h"
 #include <gtk/gtk.h>
 #include <eel/eel-canvas.h>
-# include <cairo-xlib.h>
+#include <cairo-xlib.h>
 #include <gdk/gdkx.h>
 #include <gio/gio.h>
 #include <math.h>
@@ -80,9 +80,7 @@ struct EelBackgroundDetails
     gboolean is_active;
 };
 
-#if GTK_CHECK_VERSION (3, 22, 0)
 static GList *desktop_bg_objects = NULL;
-#endif
 
 static void
 free_fade (EelBackground *self)
@@ -131,14 +129,12 @@ eel_background_finalize (GObject *object)
     free_background_surface (self);
     free_fade (self);
 
-#if GTK_CHECK_VERSION (3, 22, 0)
     if (self->details->is_desktop)
     {
         desktop_bg_objects = g_list_remove (desktop_bg_objects,
                                             G_OBJECT (self));
     }
 
-#endif
     G_OBJECT_CLASS (eel_background_parent_class)->finalize (object);
 }
 
@@ -311,33 +307,9 @@ drawable_get_adjusted_size (EelBackground *self,
 {
     if (self->details->is_desktop)
     {
-#if GTK_CHECK_VERSION (3, 22, 0)
-        GdkRectangle geometry;
-        GdkMonitor  *monitor;
-        GdkDisplay  *display;
-        int n = 0;
-        int i = 0;
-        int sc_width = 0;
-        int sc_height = 0;
-
-        display = gtk_widget_get_display (self->details->widget);
-        n = gdk_display_get_n_monitors (display);
-
-        for (i = 0; i < n; ++i)
-        {
-            monitor = gdk_display_get_monitor (display, i);
-            gdk_monitor_get_geometry (monitor, &geometry);
-            sc_width = sc_width + geometry.width;
-            sc_height = sc_height + geometry.height;
-        }
-
-        *width = sc_width;
-        *height = sc_height;
-#else
         GdkScreen *screen = gtk_widget_get_screen (self->details->widget);
-        *width = gdk_screen_get_width (screen);
-        *height = gdk_screen_get_height (screen);
-#endif
+        *width = WidthOfScreen (gdk_x11_screen_get_xscreen (screen));
+        *height = HeightOfScreen (gdk_x11_screen_get_xscreen (screen));
     }
     else
     {
@@ -520,22 +492,8 @@ fade_to_surface (EelBackground   *self,
 
     if (!mate_bg_crossfade_is_started (self->details->fade))
     {
-#if GTK_CHECK_VERSION (3, 22, 0)
         mate_bg_crossfade_start_widget (self->details->fade, widget);
-#else
-        GdkWindow *window;
 
-        if (EEL_IS_CANVAS (widget))
-        {
-            window = gtk_layout_get_bin_window (GTK_LAYOUT (widget));
-        }
-        else
-        {
-            window = gtk_widget_get_window (widget);
-        }
-
-        mate_bg_crossfade_start (self->details->fade, window);
-#endif
         if (self->details->is_desktop)
         {
             g_signal_connect (self->details->fade,
@@ -582,22 +540,6 @@ eel_background_set_up_widget (EelBackground *self)
 
         if (self->details->is_desktop)
         {
-#if !GTK_CHECK_VERSION (3, 22, 0)
-            if (self->details->bg_surface != NULL)
-            {
-                cairo_pattern_t *pattern =
-                  cairo_pattern_create_for_surface (self->details->bg_surface);
-                gdk_window_set_background_pattern (window, pattern);
-                cairo_pattern_destroy (pattern);
-            }
-            else
-            {
-                GdkRGBA color = self->details->default_color;
-                make_color_inactive (self, &color);
-                gdk_window_set_background_rgba (window, &color);
-            }
-            gdk_window_invalidate_rect (window, NULL, TRUE);
-#endif
             set_root_surface (self, window, gtk_widget_get_screen (widget));
         }
     }
@@ -772,9 +714,7 @@ eel_get_widget_background (GtkWidget *widget)
 {
     EelBackground *self;
     gpointer data;
-#if GTK_CHECK_VERSION (3, 22, 0)
     GList *l;
-#endif
 
     g_return_val_if_fail (GTK_IS_WIDGET (widget), NULL);
 
@@ -785,7 +725,7 @@ eel_get_widget_background (GtkWidget *widget)
         g_assert (EEL_IS_BACKGROUND (data));
         return data;
     }
-#if GTK_CHECK_VERSION (3, 22, 0)
+
     /* Check for an existing desktop window background. */
     for (l = desktop_bg_objects; l != NULL; l = l->next)
     {
@@ -796,7 +736,6 @@ eel_get_widget_background (GtkWidget *widget)
             return self;
         }
     }
-#endif
 
     self = eel_background_new ();
     self->details->widget = widget;
@@ -911,14 +850,12 @@ eel_background_set_desktop (EelBackground *self,
 
     if (is_desktop)
     {
-#if GTK_CHECK_VERSION (3, 22, 0)
         self->details->widget =
           gtk_widget_get_toplevel (self->details->front_widget);
 
         desktop_bg_objects = g_list_prepend (desktop_bg_objects,
                                              G_OBJECT (self));
 
-#endif
         if (gtk_widget_get_realized (self->details->widget))
         {
             widget_realized_setup (self->details->widget, self);
@@ -926,11 +863,9 @@ eel_background_set_desktop (EelBackground *self,
     }
     else
     {
-#if GTK_CHECK_VERSION (3, 22, 0)
         desktop_bg_objects = g_list_remove (desktop_bg_objects,
                                             G_OBJECT (self));
         self->details->widget = self->details->front_widget;
-#endif
     }
 }
 
@@ -961,12 +896,8 @@ eel_background_is_dark (EelBackground *self)
 
     /* only check for the background on the 0th monitor */
     GdkScreen *screen = gdk_screen_get_default ();
-#if GTK_CHECK_VERSION (3, 22, 0)
     GdkDisplay *display = gdk_screen_get_display (screen);
     gdk_monitor_get_geometry (gdk_display_get_monitor (display, 0), &rect);
-#else
-    gdk_screen_get_monitor_geometry (screen, 0, &rect);
-#endif
 
     return mate_bg_is_dark (self->details->bg, rect.width, rect.height);
 }

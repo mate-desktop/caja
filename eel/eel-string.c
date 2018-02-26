@@ -23,13 +23,13 @@
 */
 
 #include <config.h>
+#include "eel-glib-extensions.h"
 #include "eel-string.h"
 
 #include <errno.h>
 #include <locale.h>
 #include <stdlib.h>
 #include <string.h>
-#include <eel-glib-extensions.h>
 
 #if !defined (EEL_OMIT_SELF_CHECK)
 #include "eel-lib-self-check-functions.h"

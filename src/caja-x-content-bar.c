@@ -307,11 +307,7 @@ caja_x_content_bar_init (CajaXContentBar *bar)
 
     gtk_orientable_set_orientation (GTK_ORIENTABLE (bar), GTK_ORIENTATION_HORIZONTAL);
 
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_label_set_xalign (GTK_LABEL (bar->priv->label), 0.0);
-#else
-    gtk_misc_set_alignment (GTK_MISC (bar->priv->label), 0.0, 0.5);
-#endif
     gtk_box_pack_start (GTK_BOX (bar), bar->priv->label, TRUE, TRUE, 0);
 
     bar->priv->button = gtk_button_new ();

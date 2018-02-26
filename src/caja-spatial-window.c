@@ -590,7 +590,7 @@ got_file_info_for_location_menu_callback (CajaFile *file,
     }
     else
     {
-        icon = gtk_image_new_from_stock (GTK_STOCK_OPEN, GTK_ICON_SIZE_MENU);
+        icon = gtk_image_new_from_icon_name ("document-open", GTK_ICON_SIZE_MENU);
     }
 
     if (icon)
@@ -871,8 +871,8 @@ caja_spatial_window_set_location_button  (CajaSpatialWindow *window,
             }
             else
             {
-                gtk_image_set_from_stock (GTK_IMAGE (window->details->location_icon),
-                                          GTK_STOCK_OPEN, GTK_ICON_SIZE_MENU);
+                gtk_image_set_from_icon_name (GTK_IMAGE (window->details->location_icon),
+                                              "document-open", GTK_ICON_SIZE_MENU);
             }
         }
         g_object_unref (file);
@@ -937,31 +937,31 @@ action_search_callback (GtkAction *action,
 
 static const GtkActionEntry spatial_entries[] =
 {
-    /* name, stock id, label */  { SPATIAL_ACTION_PLACES, NULL, N_("_Places") },
-    /* name, stock id, label */  {
+    /* name, icon name, label */ { SPATIAL_ACTION_PLACES, NULL, N_("_Places") },
+    /* name, icon name, label */ {
         SPATIAL_ACTION_GO_TO_LOCATION, NULL, N_("Open _Location..."),
         "<control>L", N_("Specify a location to open"),
         G_CALLBACK (action_go_to_location_callback)
     },
-    /* name, stock id, label */  {
+    /* name, icon name, label */ {
         SPATIAL_ACTION_CLOSE_PARENT_FOLDERS, NULL, N_("Close P_arent Folders"),
         "<control><shift>W", N_("Close this folder's parents"),
         G_CALLBACK (action_close_parent_folders_callback)
     },
-    /* name, stock id, label */  {
+    /* name, icon name, label */ {
         SPATIAL_ACTION_CLOSE_ALL_FOLDERS, NULL, N_("Clos_e All Folders"),
         "<control>Q", N_("Close all folder windows"),
         G_CALLBACK (action_close_all_folders_callback)
     },
-    /* name, stock id, label */  { "Add Bookmark", GTK_STOCK_ADD, N_("_Add Bookmark"),
+    /* name, icon name, label */ { "Add Bookmark", "list-add", N_("_Add Bookmark"),
         "<control>d", N_("Add a bookmark for the current location to this menu"),
         G_CALLBACK (action_add_bookmark_callback)
     },
-    /* name, stock id, label */  { "Edit Bookmarks", NULL, N_("_Edit Bookmarks..."),
+    /* name, icon name, label */ { "Edit Bookmarks", NULL, N_("_Edit Bookmarks..."),
         "<control>b", N_("Display a window that allows editing the bookmarks in this menu"),
         G_CALLBACK (action_edit_bookmarks_callback)
     },
-    /* name, stock id, label */  { "Search", "gtk-find", N_("_Search for Files..."),
+    /* name, icon name, label */ { "Search", "gtk-find", N_("_Search for Files..."),
         "<control>F", N_("Locate documents and folders on this computer by name or content"),
         G_CALLBACK (action_search_callback)
     },
@@ -1032,7 +1032,7 @@ caja_spatial_window_init (CajaSpatialWindow *window)
                        hbox);
     gtk_widget_show (hbox);
 
-    window->details->location_icon = gtk_image_new_from_stock (GTK_STOCK_OPEN, GTK_ICON_SIZE_MENU);
+    window->details->location_icon = gtk_image_new_from_icon_name ("document-open", GTK_ICON_SIZE_MENU);
     gtk_box_pack_start (GTK_BOX (hbox), window->details->location_icon, FALSE, FALSE, 0);
     gtk_widget_show (window->details->location_icon);
 

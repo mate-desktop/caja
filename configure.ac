@@ -2,11 +2,11 @@ AC_PREREQ(2.54)
 
 dnl ===========================================================================
 
-m4_define(glib_minver,                 2.36.0)
-m4_define(gio_minver,                  2.26.0)
+m4_define(glib_minver,                 2.50.0)
+m4_define(gio_minver,                  2.50.0)
 m4_define(mate_desktop_minver,         1.17.3)
 m4_define(pango_minver,                1.1.2)
-m4_define(gtk_minver,                  3.14.0)
+m4_define(gtk_minver,                  3.22.0)
 m4_define(xml_minver,                  2.4.7)
 m4_define(exif_minver,                 0.6.14)
 m4_define(exempi_minver,               1.99.5)
@@ -20,7 +20,7 @@ dnl Interface break is not allowed.
 m4_define(caja_extension_current,  5)
 m4_define(caja_extension_revision, 0)
 
-AC_INIT([caja], [1.19.2], [http://www.mate-desktop.org])
+AC_INIT([caja], [1.20.0], [http://www.mate-desktop.org])
 
 dnl ---------------------------------------------------------------------------
 
@@ -323,8 +323,7 @@ AM_CONDITIONAL([ICON_UPDATE], [test -n "$UPDATE_ICON_CACHE"])
 
 AC_CONFIG_FILES([
 Makefile
-cut-n-paste-code/Makefile
-cut-n-paste-code/libegg/Makefile
+libegg/Makefile
 data/Makefile
 data/icons/Makefile
 data/patterns/Makefile

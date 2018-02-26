@@ -713,7 +713,7 @@ type_combo_changed (GtkComboBox *combo_box, CajaQueryEditorRow *row)
         dialog = gtk_dialog_new_with_buttons (_("Select type"),
                                               GTK_WINDOW (toplevel),
                                               0,
-                                              GTK_STOCK_OK, GTK_RESPONSE_OK,
+                                              "gtk-ok", GTK_RESPONSE_OK,
                                               NULL);
         gtk_window_set_default_size (GTK_WINDOW (dialog), 400, 600);
 
@@ -723,6 +723,8 @@ type_combo_changed (GtkComboBox *combo_box, CajaQueryEditorRow *row)
                                         GTK_POLICY_AUTOMATIC);
         gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolled),
                                              GTK_SHADOW_IN);
+        gtk_scrolled_window_set_overlay_scrolling (GTK_SCROLLED_WINDOW (scrolled),
+                                                   FALSE);
 
         gtk_widget_show (scrolled);
         gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), scrolled, TRUE, TRUE, 6);

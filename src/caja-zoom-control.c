@@ -144,13 +144,8 @@ menu_position_under_widget (GtkMenu   *menu,
     GtkRequisition req;
     GtkRequisition menu_req;
     GdkRectangle monitor;
-#if GTK_CHECK_VERSION (3, 22, 0)
     GdkMonitor *monitor_num;
     GdkDisplay *display;
-#else
-    int monitor_num;
-    GdkScreen *screen;
-#endif
     GtkAllocation allocation;
 
     widget = GTK_WIDGET (user_data);
@@ -163,21 +158,11 @@ menu_position_under_widget (GtkMenu   *menu,
     gtk_widget_get_preferred_size (widget, &req, NULL);
     gtk_widget_get_allocation (widget, &allocation);
 
-#if GTK_CHECK_VERSION (3, 22, 0)
     display = gtk_widget_get_display (GTK_WIDGET (menu));
     monitor_num = gdk_display_get_monitor_at_window (display, gtk_widget_get_window (widget));
     if (monitor_num == NULL)
         monitor_num = gdk_display_get_monitor (display, 0);
     gdk_monitor_get_geometry (monitor_num, &monitor);
-#else
-    screen = gtk_widget_get_screen (GTK_WIDGET (menu));
-    monitor_num = gdk_screen_get_monitor_at_window (screen, gtk_widget_get_window (widget));
-    if (monitor_num < 0)
-    {
-        monitor_num = 0;
-    }
-    gdk_screen_get_monitor_geometry (screen, monitor_num, &monitor);
-#endif
 
     gdk_window_get_origin (gtk_widget_get_window (widget), x, y);
     if (!gtk_widget_get_has_window (widget))
@@ -324,11 +309,7 @@ caja_zoom_control_init (CajaZoomControl *zoom_control)
 
     image = gtk_image_new_from_icon_name ("zoom-out", GTK_ICON_SIZE_MENU);
     zoom_control->details->zoom_out = gtk_button_new ();
-#if GTK_CHECK_VERSION (3, 20, 0)
     gtk_widget_set_focus_on_click (zoom_control->details->zoom_out, FALSE);
-#else
-    gtk_button_set_focus_on_click (GTK_BUTTON (zoom_control->details->zoom_out), FALSE);
-#endif
     gtk_button_set_relief (GTK_BUTTON (zoom_control->details->zoom_out),
                            GTK_RELIEF_NONE);
     gtk_widget_set_tooltip_text (zoom_control->details->zoom_out,
@@ -344,11 +325,7 @@ caja_zoom_control_init (CajaZoomControl *zoom_control)
                         zoom_control->details->zoom_out, FALSE, FALSE, 0);
 
     zoom_control->details->zoom_button = gtk_button_new ();
-#if GTK_CHECK_VERSION (3, 20, 0)
     gtk_widget_set_focus_on_click (zoom_control->details->zoom_button, FALSE);
-#else
-    gtk_button_set_focus_on_click (GTK_BUTTON (zoom_control->details->zoom_button), FALSE);
-#endif
     gtk_button_set_relief (GTK_BUTTON (zoom_control->details->zoom_button),
                            GTK_RELIEF_NONE);
     gtk_widget_set_tooltip_text (zoom_control->details->zoom_button,
@@ -387,11 +364,7 @@ caja_zoom_control_init (CajaZoomControl *zoom_control)
 
     image = gtk_image_new_from_icon_name ("zoom-in", GTK_ICON_SIZE_MENU);
     zoom_control->details->zoom_in = gtk_button_new ();
-#if GTK_CHECK_VERSION (3, 20, 0)
     gtk_widget_set_focus_on_click (zoom_control->details->zoom_in, FALSE);
-#else
-    gtk_button_set_focus_on_click (GTK_BUTTON (zoom_control->details->zoom_in), FALSE);
-#endif
     gtk_button_set_relief (GTK_BUTTON (zoom_control->details->zoom_in),
                            GTK_RELIEF_NONE);
     gtk_widget_set_tooltip_text (zoom_control->details->zoom_in,

@@ -284,11 +284,11 @@ create_rename_emblem_dialog (CajaEmblemSidebar *emblem_sidebar,
     dialog = gtk_dialog_new_with_buttons (_("Rename Emblem"),
                                           NULL,
                                           0,
-                                          GTK_STOCK_CANCEL,
+                                          "gtk-cancel",
                                           GTK_RESPONSE_CANCEL,
-                                          GTK_STOCK_OK,
+                                          "gtk-ok",
                                           GTK_RESPONSE_OK,
-                                          GTK_STOCK_HELP,
+                                          "gtk-help",
                                           GTK_RESPONSE_HELP,
                                           NULL);
 
@@ -351,8 +351,8 @@ create_popup_menu (CajaEmblemSidebar *emblem_sidebar)
     popup = gtk_menu_new ();
 
     /* add the "rename" menu item */
-    menu_image = gtk_image_new_from_stock (GTK_STOCK_PROPERTIES,
-                                           GTK_ICON_SIZE_MENU);
+    menu_image = gtk_image_new_from_icon_name ("document-properties",
+                                               GTK_ICON_SIZE_MENU);
     gtk_widget_show (menu_image);
     menu_item = gtk_image_menu_item_new_with_label (_("Rename"));
     gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (menu_item),
@@ -366,8 +366,8 @@ create_popup_menu (CajaEmblemSidebar *emblem_sidebar)
     emblem_sidebar->details->popup_rename = menu_item;
 
     /* add "delete" menu item */
-    menu_item = gtk_image_menu_item_new_from_stock (GTK_STOCK_DELETE,
-                NULL);
+    menu_item = gtk_image_menu_item_new_from_stock ("gtk-delete",
+                                                    NULL);
     g_signal_connect (menu_item, "activate",
                       G_CALLBACK (caja_emblem_sidebar_delete_cb),
                       emblem_sidebar);
@@ -537,11 +537,11 @@ create_add_emblems_dialog (CajaEmblemSidebar *emblem_sidebar,
     dialog = gtk_dialog_new_with_buttons (_("Add Emblems..."),
                                           NULL,
                                           0,
-                                          GTK_STOCK_CANCEL,
+                                          "gtk-cancel",
                                           GTK_RESPONSE_CANCEL,
-                                          GTK_STOCK_OK,
+                                          "gtk-ok",
                                           GTK_RESPONSE_OK,
-                                          GTK_STOCK_HELP,
+                                          "gtk-help",
                                           GTK_RESPONSE_HELP,
                                           NULL);
 

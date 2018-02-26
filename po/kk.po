@@ -8,78 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-08 13:31+0300\n"
-"PO-Revision-Date: 2017-10-08 10:32+0000\n"
-"Last-Translator: monsta <monsta@inbox.ru>\n"
+"POT-Creation-Date: 2018-01-15 13:19+0300\n"
+"PO-Revision-Date: 2018-01-09 15:11+0000\n"
+"Last-Translator: Vlad Orlov <monsta@inbox.ru>\n"
 "Language-Team: Kazakh (http://www.transifex.com/mate/MATE/language/kk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: kk\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-#: ../cut-n-paste-code/libegg/eggdesktopfile.c:166
-#, c-format
-msgid "File is not a valid .desktop file"
-msgstr "Файл дұрыс .desktop файлы емес"
-
-#: ../cut-n-paste-code/libegg/eggdesktopfile.c:189
-#, c-format
-msgid "Unrecognized desktop file Version '%s'"
-msgstr "Белгісіз desktop файлдың нұсқасы '%s'"
-
-#: ../cut-n-paste-code/libegg/eggdesktopfile.c:958
-#, c-format
-msgid "Starting %s"
-msgstr "%s қосылу"
-
-#: ../cut-n-paste-code/libegg/eggdesktopfile.c:1100
-#, c-format
-msgid "Application does not accept documents on command line"
-msgstr "Қолданба команда жолында құжаттарды қабылдамайды"
-
-#: ../cut-n-paste-code/libegg/eggdesktopfile.c:1168
-#, c-format
-msgid "Unrecognized launch option: %d"
-msgstr "Белгісіз жөнелту опциясы: %d"
-
-#: ../cut-n-paste-code/libegg/eggdesktopfile.c:1366
-#, c-format
-msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
-msgstr "Құжат URI-ін 'Type=Link' desktop элементіне беру мүмкін емес"
-
-#: ../cut-n-paste-code/libegg/eggdesktopfile.c:1385
-#, c-format
-msgid "Not a launchable item"
-msgstr "Жөнелтілетін элемент емес"
-
-#: ../cut-n-paste-code/libegg/eggsmclient.c:237
-msgid "Disable connection to session manager"
-msgstr "Сессиялар менеджеріне байланыстарды сөндіру"
-
-#: ../cut-n-paste-code/libegg/eggsmclient.c:242
-msgid "Specify file containing saved configuration"
-msgstr "Сақталған баптаулары бар файлды көрсету"
-
-#: ../cut-n-paste-code/libegg/eggsmclient.c:242
-msgid "FILE"
-msgstr "ФАЙЛ"
-
-#: ../cut-n-paste-code/libegg/eggsmclient.c:247
-msgid "Specify session management ID"
-msgstr "Сессия менеджментінің ID-ін көрсету"
-
-#: ../cut-n-paste-code/libegg/eggsmclient.c:247
-msgid "ID"
-msgstr "ID"
-
-#: ../cut-n-paste-code/libegg/eggsmclient.c:273
-msgid "Session management options:"
-msgstr "Сессияны басқару опциялары:"
-
-#: ../cut-n-paste-code/libegg/eggsmclient.c:274
-msgid "Show session management options"
-msgstr "Сессияны басқару опцияларын көрсету"
 
 #: ../data/browser.xml.h:1
 msgid "_Patterns"
@@ -347,7 +284,7 @@ msgstr ""
 
 #. translators: this is the name of an emblem
 #: ../data/browser.xml.h:68 ../src/caja-emblem-sidebar.c:982
-#: ../src/caja-property-browser.c:1944
+#: ../src/caja-property-browser.c:1948
 msgid "Erase"
 msgstr "Өшіру"
 
@@ -365,6 +302,64 @@ msgid ""
 "which Caja is a fork. </p>"
 msgstr ""
 
+#: ../data/caja-autorun-software.desktop.in.in.h:1
+msgid "Autorun Prompt"
+msgstr "Автожөнелту сұранымы"
+
+#. Set initial window title
+#: ../data/caja-browser.desktop.in.in.h:1 ../data/caja.desktop.in.in.h:1
+#: ../data/caja-folder-handler.desktop.in.in.h:1
+#: ../src/caja-spatial-window.c:373 ../src/caja-window-menus.c:535
+#: ../src/caja-window.c:172
+msgid "Caja"
+msgstr "Caja"
+
+#: ../data/caja-browser.desktop.in.in.h:2
+msgid "File Browser"
+msgstr "Файлдық шолушы"
+
+#: ../data/caja-browser.desktop.in.in.h:3
+msgid "Browse the file system with the file manager"
+msgstr "Файлдық жүйені файлдар басқарушысымен шолу"
+
+#: ../data/caja-computer.desktop.in.in.h:1
+#: ../libcaja-private/caja-desktop-link.c:113 ../src/caja-places-sidebar.c:490
+msgid "Computer"
+msgstr "Компьютер"
+
+#. tooltip
+#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:905
+msgid ""
+"Browse all local and remote disks and folders accessible from this computer"
+msgstr ""
+
+#: ../data/caja.desktop.in.in.h:2
+msgid "File Manager"
+msgstr "Файлдық басқарушы"
+
+#: ../data/caja-file-management-properties.desktop.in.in.h:1
+msgid "File Management"
+msgstr "Файлдарды басқару"
+
+#: ../data/caja-file-management-properties.desktop.in.in.h:2
+msgid "Change the behaviour and appearance of file manager windows"
+msgstr ""
+
+#: ../data/caja-folder-handler.desktop.in.in.h:2
+#: ../libcaja-private/caja-autorun.c:567
+msgid "Open Folder"
+msgstr "Буманы ашу"
+
+#: ../data/caja-home.desktop.in.in.h:1 ../src/file-manager/fm-tree-view.c:1434
+msgid "Home Folder"
+msgstr "Үй бумасы"
+
+#. tooltip
+#: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:504
+#: ../src/caja-window-menus.c:900
+msgid "Open your personal folder"
+msgstr "Жеке бумаңызды ашу"
+
 #: ../data/caja.xml.in.h:1
 msgid "Saved search"
 msgstr "Сақталған іздеу"
@@ -377,59 +372,59 @@ msgstr "X"
 msgid "Y"
 msgstr "Y"
 
-#: ../eel/eel-editable-label.c:331
+#: ../eel/eel-editable-label.c:332
 msgid "Text"
 msgstr "Мәтін"
 
-#: ../eel/eel-editable-label.c:332
+#: ../eel/eel-editable-label.c:333
 msgid "The text of the label."
 msgstr "Белгі мәтіні."
 
-#: ../eel/eel-editable-label.c:338
+#: ../eel/eel-editable-label.c:339
 msgid "Justification"
 msgstr "Туралауы"
 
-#: ../eel/eel-editable-label.c:339
+#: ../eel/eel-editable-label.c:340
 msgid ""
 "The alignment of the lines in the text of the label relative to each other. "
 "This does NOT affect the alignment of the label within its allocation. See "
 "GtkMisc::xalign for that."
 msgstr "Белгі мәтіні жолдарының өзара туралануы. Бұл баптау белгінің өз туралануына тиісПЕЙді, ол үшін GtkMisc::xalign қасиетін қолданыңыз."
 
-#: ../eel/eel-editable-label.c:347
+#: ../eel/eel-editable-label.c:348
 msgid "Line wrap"
 msgstr "Жолды тасымалдау"
 
-#: ../eel/eel-editable-label.c:348
+#: ../eel/eel-editable-label.c:349
 msgid "If set, wrap lines if the text becomes too wide."
 msgstr "Орнатылса, мәтін тым кең болған кезде жолдар тасымалданады."
 
-#: ../eel/eel-editable-label.c:355
+#: ../eel/eel-editable-label.c:356
 msgid "Cursor Position"
 msgstr "Курсор орны"
 
-#: ../eel/eel-editable-label.c:356
+#: ../eel/eel-editable-label.c:357
 msgid "The current position of the insertion cursor in chars."
 msgstr "Әріптер есебіндегі енгізу курсорының орны."
 
-#: ../eel/eel-editable-label.c:365
+#: ../eel/eel-editable-label.c:366
 msgid "Selection Bound"
 msgstr "Таңдау шекаралары"
 
-#: ../eel/eel-editable-label.c:366
+#: ../eel/eel-editable-label.c:367
 msgid ""
 "The position of the opposite end of the selection from the cursor in chars."
 msgstr "Әріптер есебіндегі таңдаудың қарама-қарсы шеттерінің курсордан орналасуы."
 
-#: ../eel/eel-editable-label.c:3127
+#: ../eel/eel-editable-label.c:3120
 msgid "Select All"
 msgstr "Барлығын таңдау"
 
-#: ../eel/eel-editable-label.c:3138
+#: ../eel/eel-editable-label.c:3131
 msgid "Input Methods"
 msgstr "Енгізу тәсілдері"
 
-#: ../eel/eel-gtk-extensions.c:456
+#: ../eel/eel-gtk-extensions.c:445
 msgid "Show more _details"
 msgstr "_Көбірек ақпарат шығару"
 
@@ -452,11 +447,6 @@ msgstr "Не істеуді сұрау"
 #: ../libcaja-private/caja-autorun.c:552
 msgid "Do Nothing"
 msgstr "Ешнәрсе жасамау"
-
-#: ../libcaja-private/caja-autorun.c:567
-#: ../data/caja-folder-handler.desktop.in.in.h:2
-msgid "Open Folder"
-msgstr "Буманы ашу"
 
 #: ../libcaja-private/caja-autorun.c:600 ../src/caja-x-content-bar.c:148
 #, c-format
@@ -549,10 +539,10 @@ msgstr "Бұл әрекетті әрқ_ашан орындау"
 #. label, accelerator
 #. add the "Eject" menu item
 #: ../libcaja-private/caja-autorun.c:1146
-#: ../src/file-manager/fm-directory-view.c:7408
-#: ../src/file-manager/fm-directory-view.c:7436
-#: ../src/file-manager/fm-directory-view.c:7517
-#: ../src/file-manager/fm-tree-view.c:1382 ../src/caja-places-sidebar.c:2740
+#: ../src/file-manager/fm-directory-view.c:7411
+#: ../src/file-manager/fm-directory-view.c:7439
+#: ../src/file-manager/fm-directory-view.c:7520
+#: ../src/file-manager/fm-tree-view.c:1382 ../src/caja-places-sidebar.c:2714
 msgid "_Eject"
 msgstr "Ш_ығару"
 
@@ -560,10 +550,10 @@ msgstr "Ш_ығару"
 #. label, accelerator
 #. add the "Unmount" menu item
 #: ../libcaja-private/caja-autorun.c:1159
-#: ../src/file-manager/fm-directory-view.c:7404
-#: ../src/file-manager/fm-directory-view.c:7432
-#: ../src/file-manager/fm-directory-view.c:7513
-#: ../src/file-manager/fm-tree-view.c:1373 ../src/caja-places-sidebar.c:2733
+#: ../src/file-manager/fm-directory-view.c:7407
+#: ../src/file-manager/fm-directory-view.c:7435
+#: ../src/file-manager/fm-directory-view.c:7516
+#: ../src/file-manager/fm-tree-view.c:1373 ../src/caja-places-sidebar.c:2707
 msgid "_Unmount"
 msgstr "_Тіркеуден шығару"
 
@@ -591,7 +581,7 @@ msgstr "Алмасу буферіндегі сақталған мәтінді к
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-clipboard.c:470
-#: ../src/file-manager/fm-directory-view.c:7337
+#: ../src/file-manager/fm-directory-view.c:7340
 msgid "Select _All"
 msgstr "Б_арлығын таңдау"
 
@@ -600,21 +590,21 @@ msgstr "Б_арлығын таңдау"
 msgid "Select all the text in a text field"
 msgstr "Мәтіндік өрісіндегі барлық мәтінді іздеу"
 
-#: ../libcaja-private/caja-column-chooser.c:378
+#: ../libcaja-private/caja-column-chooser.c:381
 msgid "Move _Up"
 msgstr "Ж_оғары апару"
 
-#: ../libcaja-private/caja-column-chooser.c:388
+#: ../libcaja-private/caja-column-chooser.c:391
 msgid "Move Dow_n"
 msgstr "Тө_мен апару"
 
-#: ../libcaja-private/caja-column-chooser.c:401
+#: ../libcaja-private/caja-column-chooser.c:404
 msgid "Use De_fault"
 msgstr "Бас_тапқысын қолдану"
 
 #: ../libcaja-private/caja-column-utilities.c:44
 #: ../libcaja-private/caja-mime-application-chooser.c:274
-#: ../src/file-manager/fm-list-view.c:1767
+#: ../src/file-manager/fm-list-view.c:1778
 msgid "Name"
 msgstr "Аты"
 
@@ -739,8 +729,8 @@ msgstr "Файл қоқыс шелегіне тасталғанға дейін �
 
 #: ../libcaja-private/caja-customization-data.c:431
 #: ../libcaja-private/caja-file-conflict-dialog.c:631
-#: ../libcaja-private/caja-mime-application-chooser.c:441
-#: ../src/caja-property-browser.c:1991
+#: ../libcaja-private/caja-mime-application-chooser.c:444
+#: ../src/caja-property-browser.c:1995
 msgid "Reset"
 msgstr "Тастау"
 
@@ -761,17 +751,12 @@ msgstr "жұмыс үстелінде"
 msgid "%s's Home"
 msgstr "%s үй бумасы"
 
-#: ../libcaja-private/caja-desktop-link.c:113
-#: ../data/caja-computer.desktop.in.in.h:1 ../src/caja-places-sidebar.c:493
-msgid "Computer"
-msgstr "Компьютер"
-
 #: ../libcaja-private/caja-desktop-link.c:116
 msgid "Network Servers"
 msgstr "Желілік серверлер"
 
 #: ../libcaja-private/caja-desktop-link.c:119
-#: ../src/file-manager/fm-tree-view.c:1441 ../src/caja-places-sidebar.c:597
+#: ../src/file-manager/fm-tree-view.c:1441 ../src/caja-places-sidebar.c:594
 #: ../src/caja-trash-bar.c:190
 msgid "Trash"
 msgstr "Қоқыс шелегі"
@@ -1055,7 +1040,7 @@ msgstr[0] "шамамен %'d сағат"
 #. * to that kind of file (e.g. "link to folder").
 #: ../libcaja-private/caja-file-operations.c:407
 #: ../libcaja-private/caja-file.c:6526
-#: ../src/file-manager/fm-directory-view.c:10528
+#: ../src/file-manager/fm-directory-view.c:10531
 #, c-format
 msgid "Link to %s"
 msgstr "%s үшін сілтеме"
@@ -1218,8 +1203,8 @@ msgstr "Қоқыс шелегіндегі барлық нәрсе толығым
 
 #. Empty Trash menu item
 #: ../libcaja-private/caja-file-operations.c:1394
-#: ../libcaja-private/caja-file-operations.c:2317
-#: ../src/caja-places-sidebar.c:2777 ../src/caja-trash-bar.c:197
+#: ../libcaja-private/caja-file-operations.c:2320
+#: ../src/caja-places-sidebar.c:2751 ../src/caja-trash-bar.c:197
 msgid "Empty _Trash"
 msgstr "Қ_оқыс шелегін тазарту"
 
@@ -1274,7 +1259,7 @@ msgstr[0] "%T қалды"
 #: ../libcaja-private/caja-file-operations.c:1630
 #: ../libcaja-private/caja-file-operations.c:1669
 #: ../libcaja-private/caja-file-operations.c:1746
-#: ../libcaja-private/caja-file-operations.c:2562
+#: ../libcaja-private/caja-file-operations.c:2565
 msgid "Error while deleting."
 msgstr "Өшіру кезіндегі қате."
 
@@ -1285,14 +1270,14 @@ msgid ""
 msgstr "\"%B\" бумасындағы файлдарды өшіру мүмкін емес, өйткені сізде оларды қарауға рұқсатыңыз жоқ."
 
 #: ../libcaja-private/caja-file-operations.c:1603
-#: ../libcaja-private/caja-file-operations.c:2622
-#: ../libcaja-private/caja-file-operations.c:3604
+#: ../libcaja-private/caja-file-operations.c:2625
+#: ../libcaja-private/caja-file-operations.c:3607
 msgid ""
 "There was an error getting information about the files in the folder \"%B\"."
 msgstr "\"%B\" бумасындағы файлдар жөнінде ақпаратты алу кезінде қате орын алды."
 
 #: ../libcaja-private/caja-file-operations.c:1612
-#: ../libcaja-private/caja-file-operations.c:3613
+#: ../libcaja-private/caja-file-operations.c:3616
 msgid "_Skip files"
 msgstr "Файлдарды аттап _кету"
 
@@ -1303,8 +1288,8 @@ msgid ""
 msgstr "\"%B\" бумасын өшіру емес, өйткені сізде оны оқуға рұқсатыңыз жоқ."
 
 #: ../libcaja-private/caja-file-operations.c:1636
-#: ../libcaja-private/caja-file-operations.c:2661
-#: ../libcaja-private/caja-file-operations.c:3649
+#: ../libcaja-private/caja-file-operations.c:2664
+#: ../libcaja-private/caja-file-operations.c:3652
 msgid "There was an error reading the folder \"%B\"."
 msgstr "\"%B\" бумасын оқу кезінде қате орын алды."
 
@@ -1342,168 +1327,168 @@ msgstr "Файлдарды қоқыс шелегіне тастау"
 msgid "Deleting Files"
 msgstr "Файлдарды өшіру"
 
-#: ../libcaja-private/caja-file-operations.c:2147
+#: ../libcaja-private/caja-file-operations.c:2150
 msgid "Unable to eject %V"
 msgstr "%V шығару мүмкін емес"
 
-#: ../libcaja-private/caja-file-operations.c:2149
+#: ../libcaja-private/caja-file-operations.c:2152
 msgid "Unable to unmount %V"
 msgstr "%V тіркеуден босату мүмкін емес"
 
-#: ../libcaja-private/caja-file-operations.c:2307
+#: ../libcaja-private/caja-file-operations.c:2310
 msgid "Do you want to empty the trash before you unmount?"
 msgstr "Тіркеуден босату алдында қоқыс шелегін тазартуды қалайсыз ба?"
 
-#: ../libcaja-private/caja-file-operations.c:2309
+#: ../libcaja-private/caja-file-operations.c:2312
 msgid ""
 "In order to regain the free space on this volume the trash must be emptied. "
 "All trashed items on the volume will be permanently lost."
 msgstr "Бұл томдағы бос орынды алып қалу үшін қоқыс шелегін тазарту керек. Томның қоқыс шелегіндегі барлық нәрселер қайтарылмайтындай жоғалады."
 
-#: ../libcaja-private/caja-file-operations.c:2315
+#: ../libcaja-private/caja-file-operations.c:2318
 msgid "Do _not Empty Trash"
 msgstr "Қоқыс шелегін та_зартпау"
 
-#: ../libcaja-private/caja-file-operations.c:2431
+#: ../libcaja-private/caja-file-operations.c:2434
 #, c-format
 msgid "Unable to mount %s"
 msgstr "%s тіркеу мүмкін емес"
 
-#: ../libcaja-private/caja-file-operations.c:2509
+#: ../libcaja-private/caja-file-operations.c:2512
 #, c-format
 msgid "Preparing to copy %'d file (%S)"
 msgid_plural "Preparing to copy %'d files (%S)"
 msgstr[0] "%'d файлды көшіруге дайындау (%S)"
 
-#: ../libcaja-private/caja-file-operations.c:2515
+#: ../libcaja-private/caja-file-operations.c:2518
 #, c-format
 msgid "Preparing to move %'d file (%S)"
 msgid_plural "Preparing to move %'d files (%S)"
 msgstr[0] "%'d файлды жылжытуға дайындау (%S)"
 
-#: ../libcaja-private/caja-file-operations.c:2521
+#: ../libcaja-private/caja-file-operations.c:2524
 #, c-format
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
 msgstr[0] "%'d файлды өшіруге дайындау (%S)"
 
-#: ../libcaja-private/caja-file-operations.c:2527
+#: ../libcaja-private/caja-file-operations.c:2530
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
 msgstr[0] "%'d файлды қоқыс шелегіне тастауға дайындау"
 
-#: ../libcaja-private/caja-file-operations.c:2558
-#: ../libcaja-private/caja-file-operations.c:3456
-#: ../libcaja-private/caja-file-operations.c:3596
-#: ../libcaja-private/caja-file-operations.c:3641
+#: ../libcaja-private/caja-file-operations.c:2561
+#: ../libcaja-private/caja-file-operations.c:3459
+#: ../libcaja-private/caja-file-operations.c:3599
+#: ../libcaja-private/caja-file-operations.c:3644
 msgid "Error while copying."
 msgstr "Көшіру кезінде қате орын алды."
 
-#: ../libcaja-private/caja-file-operations.c:2560
-#: ../libcaja-private/caja-file-operations.c:3594
-#: ../libcaja-private/caja-file-operations.c:3639
+#: ../libcaja-private/caja-file-operations.c:2563
+#: ../libcaja-private/caja-file-operations.c:3597
+#: ../libcaja-private/caja-file-operations.c:3642
 msgid "Error while moving."
 msgstr "Жылжыту кезінде қате орын алды."
 
-#: ../libcaja-private/caja-file-operations.c:2564
+#: ../libcaja-private/caja-file-operations.c:2567
 msgid "Error while moving files to trash."
 msgstr "Қоқыс шелегіне тастау кезінде қате орын алды."
 
-#: ../libcaja-private/caja-file-operations.c:2619
+#: ../libcaja-private/caja-file-operations.c:2622
 msgid ""
 "Files in the folder \"%B\" cannot be handled because you do not have "
 "permissions to see them."
 msgstr "\"%B\" бумасындағы файлдарды басқару мүмкін емес, өйткені сізде оларды қарауға рұқсатыңыз жоқ."
 
-#: ../libcaja-private/caja-file-operations.c:2658
+#: ../libcaja-private/caja-file-operations.c:2661
 msgid ""
 "The folder \"%B\" cannot be handled because you do not have permissions to "
 "read it."
 msgstr "\"%B\" бумасын басқару мүмкін емес, өйткені сізде оны оқуға рұқсатыңыз жоқ."
 
-#: ../libcaja-private/caja-file-operations.c:2736
+#: ../libcaja-private/caja-file-operations.c:2739
 msgid ""
 "The file \"%B\" cannot be handled because you do not have permissions to "
 "read it."
 msgstr "\"%B\" файлын басқару мүмкін емес, өйткені сізде оны оқуға рұқсатыңыз жоқ."
 
-#: ../libcaja-private/caja-file-operations.c:2739
+#: ../libcaja-private/caja-file-operations.c:2742
 msgid "There was an error getting information about \"%B\"."
 msgstr "\"%B\" туралы ақпаратты алу кезінде қате орын алды."
 
-#: ../libcaja-private/caja-file-operations.c:2839
-#: ../libcaja-private/caja-file-operations.c:2881
-#: ../libcaja-private/caja-file-operations.c:2914
-#: ../libcaja-private/caja-file-operations.c:2944
+#: ../libcaja-private/caja-file-operations.c:2842
+#: ../libcaja-private/caja-file-operations.c:2884
+#: ../libcaja-private/caja-file-operations.c:2917
+#: ../libcaja-private/caja-file-operations.c:2947
 msgid "Error while copying to \"%B\"."
 msgstr "\"%B\" ішіне көшіру кезінде қате орын алды."
 
-#: ../libcaja-private/caja-file-operations.c:2843
+#: ../libcaja-private/caja-file-operations.c:2846
 msgid "You do not have permissions to access the destination folder."
 msgstr "Мақсат бумасына қатынау үшін керек рұқсаттарыңыз жоқ."
 
-#: ../libcaja-private/caja-file-operations.c:2845
+#: ../libcaja-private/caja-file-operations.c:2848
 msgid "There was an error getting information about the destination."
 msgstr "Мақсат орналасуы туралы ақпаратты алу кезінде қате орын алды."
 
-#: ../libcaja-private/caja-file-operations.c:2882
+#: ../libcaja-private/caja-file-operations.c:2885
 msgid "The destination is not a folder."
 msgstr "Мақсат орналасуы бума емес."
 
-#: ../libcaja-private/caja-file-operations.c:2915
+#: ../libcaja-private/caja-file-operations.c:2918
 msgid ""
 "There is not enough space on the destination. Try to remove files to make "
 "space."
 msgstr "Мақсат бумасында бос орын жеткіліксіз. Орынды босату үшін файлдарды өшіріп көріңіз."
 
-#: ../libcaja-private/caja-file-operations.c:2917
+#: ../libcaja-private/caja-file-operations.c:2920
 #, c-format
 msgid "There is %S available, but %S is required."
 msgstr "%S қолжетерлік, бірақ, %S керек."
 
-#: ../libcaja-private/caja-file-operations.c:2945
+#: ../libcaja-private/caja-file-operations.c:2948
 msgid "The destination is read-only."
 msgstr "Мақсат орны тек оқу үшін қолжетерлік."
 
-#: ../libcaja-private/caja-file-operations.c:3004
+#: ../libcaja-private/caja-file-operations.c:3007
 msgid "Moving \"%B\" to \"%B\""
 msgstr "\"%B\" \"%B\" ішіне жылжыту"
 
-#: ../libcaja-private/caja-file-operations.c:3005
+#: ../libcaja-private/caja-file-operations.c:3008
 msgid "Copying \"%B\" to \"%B\""
 msgstr "\"%B\" \"%B\" ішіне көшірілуде"
 
-#: ../libcaja-private/caja-file-operations.c:3010
+#: ../libcaja-private/caja-file-operations.c:3013
 msgid "Duplicating \"%B\""
 msgstr "\"%B\" көшірмесі жасалуда"
 
-#: ../libcaja-private/caja-file-operations.c:3018
+#: ../libcaja-private/caja-file-operations.c:3021
 msgid "Moving %'d file (in \"%B\") to \"%B\""
 msgid_plural "Moving %'d files (in \"%B\") to \"%B\""
 msgstr[0] "%'d файл (\"%B\" ішінде) \"%B\" ішіне жылжытылуда"
 
-#: ../libcaja-private/caja-file-operations.c:3022
+#: ../libcaja-private/caja-file-operations.c:3025
 msgid "Copying %'d file (in \"%B\") to \"%B\""
 msgid_plural "Copying %'d files (in \"%B\") to \"%B\""
 msgstr[0] "%'d файл (\"%B\" ішінде) \"%B\" ішіне көшірілуде"
 
-#: ../libcaja-private/caja-file-operations.c:3030
+#: ../libcaja-private/caja-file-operations.c:3033
 msgid "Duplicating %'d file (in \"%B\")"
 msgid_plural "Duplicating %'d files (in \"%B\")"
 msgstr[0] "%'d файлдың (\"%B\" ішінде) көшірмелері жасалуда"
 
-#: ../libcaja-private/caja-file-operations.c:3040
+#: ../libcaja-private/caja-file-operations.c:3043
 msgid "Moving %'d file to \"%B\""
 msgid_plural "Moving %'d files to \"%B\""
 msgstr[0] "%'d файл \"%B\" ішіне жылжытылуда"
 
-#: ../libcaja-private/caja-file-operations.c:3044
+#: ../libcaja-private/caja-file-operations.c:3047
 msgid "Copying %'d file to \"%B\""
 msgid_plural "Copying %'d files to \"%B\""
 msgstr[0] "%'d файл \"%B\" ішіне көшірілуде"
 
-#: ../libcaja-private/caja-file-operations.c:3050
+#: ../libcaja-private/caja-file-operations.c:3053
 #, c-format
 msgid "Duplicating %'d file"
 msgid_plural "Duplicating %'d files"
@@ -1511,7 +1496,7 @@ msgstr[0] "%'d файлдың көшірмелері жасалуда"
 
 #. To translators: %S will expand to a size like "2 bytes" or "3 MB", so
 #. something like "4 kb of 4 MB"
-#: ../libcaja-private/caja-file-operations.c:3070
+#: ../libcaja-private/caja-file-operations.c:3073
 #, c-format
 msgid "%S of %S"
 msgstr "%S бар, барлығы %S"
@@ -1523,184 +1508,184 @@ msgstr "%S бар, барлығы %S"
 #. *
 #. * The singular/plural form will be used depending on the remaining time
 #. (i.e. the %T argument).
-#: ../libcaja-private/caja-file-operations.c:3081
+#: ../libcaja-private/caja-file-operations.c:3084
 msgid "%S of %S — %T left (%S/sec)"
 msgid_plural "%S of %S — %T left (%S/sec)"
 msgstr[0] "%S бар, барлығы %S — %T қалды (%S/сек)"
 
-#: ../libcaja-private/caja-file-operations.c:3460
+#: ../libcaja-private/caja-file-operations.c:3463
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "create it in the destination."
 msgstr "\"%B\" бумасын көшіру мүмкін емес, өйткені сізде оны мақсат орналасуда жасау үшін рұқсаттарыңыз жетпейді."
 
-#: ../libcaja-private/caja-file-operations.c:3463
+#: ../libcaja-private/caja-file-operations.c:3466
 msgid "There was an error creating the folder \"%B\"."
 msgstr "\"%B\" бумасын жасау кезінде қате орын алды."
 
-#: ../libcaja-private/caja-file-operations.c:3601
+#: ../libcaja-private/caja-file-operations.c:3604
 msgid ""
 "Files in the folder \"%B\" cannot be copied because you do not have "
 "permissions to see them."
 msgstr "\"%B\" бумасындағы файлдарды көшіру мүмкін емес, өйткені сізде оларды қарау үшін рұқсаттарыңыз жетпейді."
 
-#: ../libcaja-private/caja-file-operations.c:3646
+#: ../libcaja-private/caja-file-operations.c:3649
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "read it."
 msgstr "\"%B\" бумасын көшіру мүмкін емес, өйткені сізде оны оқуға рұқсаттарыңыз жетпейді."
 
-#: ../libcaja-private/caja-file-operations.c:3691
-#: ../libcaja-private/caja-file-operations.c:4385
-#: ../libcaja-private/caja-file-operations.c:4977
+#: ../libcaja-private/caja-file-operations.c:3694
+#: ../libcaja-private/caja-file-operations.c:4388
+#: ../libcaja-private/caja-file-operations.c:4980
 msgid "Error while moving \"%B\"."
 msgstr "\"%B\" жылжыту кезіндегі қате."
 
-#: ../libcaja-private/caja-file-operations.c:3692
+#: ../libcaja-private/caja-file-operations.c:3695
 msgid "Could not remove the source folder."
 msgstr "Қайнар көз бумасын өшіру мүмкін емес."
 
-#: ../libcaja-private/caja-file-operations.c:3777
-#: ../libcaja-private/caja-file-operations.c:3818
-#: ../libcaja-private/caja-file-operations.c:4387
-#: ../libcaja-private/caja-file-operations.c:4459
+#: ../libcaja-private/caja-file-operations.c:3780
+#: ../libcaja-private/caja-file-operations.c:3821
+#: ../libcaja-private/caja-file-operations.c:4390
+#: ../libcaja-private/caja-file-operations.c:4462
 msgid "Error while copying \"%B\"."
 msgstr "\"%B\" көшіру кезіндегі қате."
 
-#: ../libcaja-private/caja-file-operations.c:3778
+#: ../libcaja-private/caja-file-operations.c:3781
 #, c-format
 msgid "Could not remove files from the already existing folder %F."
 msgstr "Бар болып тұрған %F бумасынан файлдарды өшіру мүмкін емес."
 
-#: ../libcaja-private/caja-file-operations.c:3819
+#: ../libcaja-private/caja-file-operations.c:3822
 #, c-format
 msgid "Could not remove the already existing file %F."
 msgstr "Бар болып тұрған %F файлын өшіру мүмкін емес."
 
 #. the run_warning() frees all strings passed in automatically
-#: ../libcaja-private/caja-file-operations.c:4138
-#: ../libcaja-private/caja-file-operations.c:4823
+#: ../libcaja-private/caja-file-operations.c:4141
+#: ../libcaja-private/caja-file-operations.c:4826
 msgid "You cannot move a folder into itself."
 msgstr "Буманы оның өзінің ішіне жылжытуға болмайды."
 
-#: ../libcaja-private/caja-file-operations.c:4139
-#: ../libcaja-private/caja-file-operations.c:4824
+#: ../libcaja-private/caja-file-operations.c:4142
+#: ../libcaja-private/caja-file-operations.c:4827
 msgid "You cannot copy a folder into itself."
 msgstr "Буманы оның өзінің ішіне көшіуге болмайды."
 
-#: ../libcaja-private/caja-file-operations.c:4140
-#: ../libcaja-private/caja-file-operations.c:4825
+#: ../libcaja-private/caja-file-operations.c:4143
+#: ../libcaja-private/caja-file-operations.c:4828
 msgid "The destination folder is inside the source folder."
 msgstr "Мақсат бумасы қайнар көз бумасының ішінде орналасқан."
 
 #. the run_warning() frees all strings passed in automatically
-#: ../libcaja-private/caja-file-operations.c:4171
+#: ../libcaja-private/caja-file-operations.c:4174
 msgid "You cannot move a file over itself."
 msgstr "Файлды оның өзінің үстіне жылжытуға болмайды."
 
-#: ../libcaja-private/caja-file-operations.c:4172
+#: ../libcaja-private/caja-file-operations.c:4175
 msgid "You cannot copy a file over itself."
 msgstr "Файлды оның өзінің үстіне көшіруге болмайды."
 
-#: ../libcaja-private/caja-file-operations.c:4173
+#: ../libcaja-private/caja-file-operations.c:4176
 msgid "The source file would be overwritten by the destination."
 msgstr "Қайнар көз файлы мақсат файлымен алмастырылады."
 
-#: ../libcaja-private/caja-file-operations.c:4389
+#: ../libcaja-private/caja-file-operations.c:4392
 #, c-format
 msgid "Could not remove the already existing file with the same name in %F."
 msgstr "%F ішінен дәл солай аталатын файлды өшіру мүмкін емес."
 
-#: ../libcaja-private/caja-file-operations.c:4460
+#: ../libcaja-private/caja-file-operations.c:4463
 #, c-format
 msgid "There was an error copying the file into %F."
 msgstr "Файлды %F ішіне көшіру кезінде қате орын алды."
 
-#: ../libcaja-private/caja-file-operations.c:4706
+#: ../libcaja-private/caja-file-operations.c:4709
 msgid "Copying Files"
 msgstr "Файлдарды көшіру"
 
-#: ../libcaja-private/caja-file-operations.c:4733
+#: ../libcaja-private/caja-file-operations.c:4736
 msgid "Preparing to Move to \"%B\""
 msgstr "\"%B\" ішіне жылжытуға дайындау"
 
-#: ../libcaja-private/caja-file-operations.c:4737
+#: ../libcaja-private/caja-file-operations.c:4740
 #, c-format
 msgid "Preparing to move %'d file"
 msgid_plural "Preparing to move %'d files"
 msgstr[0] "%'d файлды жылжытуға дайындау"
 
-#: ../libcaja-private/caja-file-operations.c:4978
+#: ../libcaja-private/caja-file-operations.c:4981
 #, c-format
 msgid "There was an error moving the file into %F."
 msgstr "Файлды %F ішіне жылжыту кезінде қате орын алды."
 
-#: ../libcaja-private/caja-file-operations.c:5248
+#: ../libcaja-private/caja-file-operations.c:5251
 msgid "Moving Files"
 msgstr "Файлдарды жылжыту"
 
-#: ../libcaja-private/caja-file-operations.c:5279
+#: ../libcaja-private/caja-file-operations.c:5282
 msgid "Creating links in \"%B\""
 msgstr "\"%B\" ішінде сілтемелерді жасау"
 
-#: ../libcaja-private/caja-file-operations.c:5283
+#: ../libcaja-private/caja-file-operations.c:5286
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
 msgstr[0] "%'d файлға сілтеме жасау"
 
-#: ../libcaja-private/caja-file-operations.c:5415
+#: ../libcaja-private/caja-file-operations.c:5418
 msgid "Error while creating link to %B."
 msgstr "%B үшін сілтеме жасау кезінде қате орын алды."
 
-#: ../libcaja-private/caja-file-operations.c:5417
+#: ../libcaja-private/caja-file-operations.c:5420
 msgid "Symbolic links only supported for local files"
 msgstr "Символдық сілтемелердің тек жергілікті файлдар үшін қолдауы бар"
 
-#: ../libcaja-private/caja-file-operations.c:5420
+#: ../libcaja-private/caja-file-operations.c:5423
 msgid "The target doesn't support symbolic links."
 msgstr "Мақсат орналасуы символдық сілтемелерді қолдамайды."
 
-#: ../libcaja-private/caja-file-operations.c:5423
+#: ../libcaja-private/caja-file-operations.c:5426
 #, c-format
 msgid "There was an error creating the symlink in %F."
 msgstr "%F жерінде символдық сілтемені жасау кезінде қате орын алды."
 
-#: ../libcaja-private/caja-file-operations.c:5739
+#: ../libcaja-private/caja-file-operations.c:5742
 msgid "Setting permissions"
 msgstr "Рұқсаттарды орнату"
 
 #. localizers: the initial name of a new folder
-#: ../libcaja-private/caja-file-operations.c:5998
+#: ../libcaja-private/caja-file-operations.c:6001
 msgid "untitled folder"
 msgstr "атаусыз бума"
 
 #. localizers: the initial name of a new empty file
-#: ../libcaja-private/caja-file-operations.c:6006
+#: ../libcaja-private/caja-file-operations.c:6009
 msgid "new file"
 msgstr "жаңа файл"
 
-#: ../libcaja-private/caja-file-operations.c:6178
+#: ../libcaja-private/caja-file-operations.c:6181
 msgid "Error while creating directory %B."
 msgstr "%B бумасын жасау кезінде қате орын алды."
 
-#: ../libcaja-private/caja-file-operations.c:6180
+#: ../libcaja-private/caja-file-operations.c:6183
 msgid "Error while creating file %B."
 msgstr "%B файлын жасау кезінде қате орын алды."
 
-#: ../libcaja-private/caja-file-operations.c:6182
+#: ../libcaja-private/caja-file-operations.c:6185
 #, c-format
 msgid "There was an error creating the directory in %F."
 msgstr "%F жерінде буманы жасау кезінде қате орын алды."
 
-#: ../libcaja-private/caja-file-operations.c:6460
+#: ../libcaja-private/caja-file-operations.c:6463
 msgid "Emptying Trash"
 msgstr "Қоқыс шелегін тазарту"
 
-#: ../libcaja-private/caja-file-operations.c:6509
-#: ../libcaja-private/caja-file-operations.c:6550
-#: ../libcaja-private/caja-file-operations.c:6585
-#: ../libcaja-private/caja-file-operations.c:6620
+#: ../libcaja-private/caja-file-operations.c:6512
+#: ../libcaja-private/caja-file-operations.c:6553
+#: ../libcaja-private/caja-file-operations.c:6588
+#: ../libcaja-private/caja-file-operations.c:6623
 msgid "Unable to mark launcher trusted (executable)"
 msgstr "Жөнелткішті сенімді (орындалатын) етіп белгілеу мүмкін емес"
 
@@ -1917,7 +1902,7 @@ msgid "Specified group '%s' doesn't exist"
 msgstr "Көрсетілген '%s' бумасы жоқ болып тұр"
 
 #: ../libcaja-private/caja-file.c:5950
-#: ../src/file-manager/fm-directory-view.c:2368
+#: ../src/file-manager/fm-directory-view.c:2371
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
@@ -1983,7 +1968,7 @@ msgstr "сілтеме"
 msgid "link (broken)"
 msgstr "сілтеме (сынық)"
 
-#: ../libcaja-private/caja-icon-container.c:2925
+#: ../libcaja-private/caja-icon-container.c:2920
 msgid "The selection rectangle"
 msgstr "Таңдау төртбұрышы"
 
@@ -2009,10 +1994,10 @@ msgstr "Сілтемені қолдану мүмкін емес, өйткені 
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-mime-actions.c:744
-#: ../src/file-manager/fm-directory-view.c:7365
-#: ../src/file-manager/fm-directory-view.c:7497
-#: ../src/file-manager/fm-directory-view.c:8596
-#: ../src/file-manager/fm-directory-view.c:8921
+#: ../src/file-manager/fm-directory-view.c:7368
+#: ../src/file-manager/fm-directory-view.c:7500
+#: ../src/file-manager/fm-directory-view.c:8599
+#: ../src/file-manager/fm-directory-view.c:8924
 #: ../src/file-manager/fm-tree-view.c:1346
 msgid "Mo_ve to Trash"
 msgstr "Қоқы_с шелегіне тастау"
@@ -2117,12 +2102,12 @@ msgstr "Сені_мді ретінде белгілеу"
 
 #: ../libcaja-private/caja-mime-actions.c:2010
 #: ../libcaja-private/caja-mime-actions.c:2316
-#: ../src/file-manager/fm-directory-view.c:6383
+#: ../src/file-manager/fm-directory-view.c:6386
 msgid "Unable to mount location"
 msgstr "Орналасуды тіркеу мүмкін емес"
 
 #: ../libcaja-private/caja-mime-actions.c:2404
-#: ../src/file-manager/fm-directory-view.c:6557
+#: ../src/file-manager/fm-directory-view.c:6560
 msgid "Unable to start location"
 msgstr "Орналасуды бастау мүмкін емес"
 
@@ -2160,26 +2145,26 @@ msgstr "Таңбаша"
 msgid "Could not remove application"
 msgstr "Қолданбаны өшіру мүмкін емес"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:558
+#: ../libcaja-private/caja-mime-application-chooser.c:561
 msgid "No applications selected"
 msgstr "Қолданбалар таңдалмады"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:588
+#: ../libcaja-private/caja-mime-application-chooser.c:591
 #, c-format
 msgid "%s document"
 msgstr "%s құжаты"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:598
-#: ../libcaja-private/caja-open-with-dialog.c:1078
+#: ../libcaja-private/caja-mime-application-chooser.c:601
+#: ../libcaja-private/caja-open-with-dialog.c:1081
 msgid "Unknown"
 msgstr "Белгісіз"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:631
+#: ../libcaja-private/caja-mime-application-chooser.c:634
 #, c-format
 msgid "Select an application to open %s and other files of type \"%s\""
 msgstr "\"%s\" және басқа да \"%s\" түріндегі файлдарды ашу үшін қолданбаны таңдаңыз"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:703
+#: ../libcaja-private/caja-mime-application-chooser.c:706
 #, c-format
 msgid "Open all files of type \"%s\" with:"
 msgstr "\"%s\" түріндегі барлық файлдарды көмегімен ашу:"
@@ -2215,76 +2200,76 @@ msgstr "Қолданбаны таңдау"
 msgid "Open With"
 msgstr "Көмегімен ашу"
 
-#: ../libcaja-private/caja-open-with-dialog.c:880
+#: ../libcaja-private/caja-open-with-dialog.c:883
 msgid "Select an application to view its description."
 msgstr ""
 
-#: ../libcaja-private/caja-open-with-dialog.c:910
+#: ../libcaja-private/caja-open-with-dialog.c:913
 msgid "_Use a custom command"
 msgstr "Ба_сқа команда:"
 
-#: ../libcaja-private/caja-open-with-dialog.c:927
+#: ../libcaja-private/caja-open-with-dialog.c:930
 msgid "_Browse..."
 msgstr "Қара_п шығу..."
 
 #. name, stock id
 #. label, accelerator
-#: ../libcaja-private/caja-open-with-dialog.c:963
-#: ../src/file-manager/fm-directory-view.c:7281
-#: ../src/file-manager/fm-directory-view.c:8790
-#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2682
+#: ../libcaja-private/caja-open-with-dialog.c:966
+#: ../src/file-manager/fm-directory-view.c:7284
+#: ../src/file-manager/fm-directory-view.c:8793
+#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2656
 msgid "_Open"
 msgstr "А_шу"
 
 #. first %s is a filename and second %s is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1048
+#: ../libcaja-private/caja-open-with-dialog.c:1051
 #, c-format
 msgid "Open %s and other %s document with:"
 msgstr "%s және басқа да %s құжаттарын көмегімен ашу:"
 
 #. the %s here is a file name
 #. %s is a filename
-#: ../libcaja-private/caja-open-with-dialog.c:1054
-#: ../libcaja-private/caja-open-with-dialog.c:1094
+#: ../libcaja-private/caja-open-with-dialog.c:1057
+#: ../libcaja-private/caja-open-with-dialog.c:1097
 #, c-format
 msgid "Open %s with:"
 msgstr "%s ненің көмегімен ашу:"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1055
+#: ../libcaja-private/caja-open-with-dialog.c:1058
 #, c-format
 msgid "_Remember this application for %s documents"
 msgstr "Бұл қолданбаны %s құжаттары үшін е_сте сақтау"
 
 #. Only in add mode - the %s here is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1066
+#: ../libcaja-private/caja-open-with-dialog.c:1069
 #, c-format
 msgid "Open all %s documents with:"
 msgstr "Барлық %s құжаттарын көмегімен ашу:"
 
 #. First %s is a filename, second is a description
 #. * of the type, eg "plain text document"
-#: ../libcaja-private/caja-open-with-dialog.c:1088
+#: ../libcaja-private/caja-open-with-dialog.c:1091
 #, c-format
 msgid "Open %s and other \"%s\" files with:"
 msgstr "%s және басқа да \"%s\" файлдарын көмегімен ашу:"
 
 #. %s is a file type description
-#: ../libcaja-private/caja-open-with-dialog.c:1096
+#: ../libcaja-private/caja-open-with-dialog.c:1099
 #, c-format
 msgid "_Remember this application for \"%s\" files"
 msgstr "Бұл қолданбаны %s файлдары үшін е_сте сақтау"
 
 #. Only in add mode
-#: ../libcaja-private/caja-open-with-dialog.c:1107
+#: ../libcaja-private/caja-open-with-dialog.c:1110
 #, c-format
 msgid "Open all \"%s\" files with:"
 msgstr "\"%s\" түріндегі барлық файлдарды көмегімен ашу:"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1119
+#: ../libcaja-private/caja-open-with-dialog.c:1122
 msgid "_Add"
 msgstr "Қо_су"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1120
+#: ../libcaja-private/caja-open-with-dialog.c:1123
 msgid "Add Application"
 msgstr "Қолданбаны қосу"
 
@@ -3462,107 +3447,122 @@ msgid ""
 "media matching these types."
 msgstr ""
 
-#: ../data/caja-autorun-software.desktop.in.in.h:1
-msgid "Autorun Prompt"
-msgstr "Автожөнелту сұранымы"
+#: ../libegg/eggdesktopfile.c:166
+#, c-format
+msgid "File is not a valid .desktop file"
+msgstr "Файл дұрыс .desktop файлы емес"
 
-#. Set initial window title
-#: ../data/caja-browser.desktop.in.in.h:1
-#: ../data/caja-folder-handler.desktop.in.in.h:1
-#: ../data/caja.desktop.in.in.h:1 ../src/caja-spatial-window.c:373
-#: ../src/caja-window-menus.c:535 ../src/caja-window.c:172
-msgid "Caja"
-msgstr "Caja"
+#: ../libegg/eggdesktopfile.c:189
+#, c-format
+msgid "Unrecognized desktop file Version '%s'"
+msgstr "Белгісіз desktop файлдың нұсқасы '%s'"
 
-#: ../data/caja-browser.desktop.in.in.h:2
-msgid "File Browser"
-msgstr "Файлдық шолушы"
+#: ../libegg/eggdesktopfile.c:958
+#, c-format
+msgid "Starting %s"
+msgstr "%s қосылу"
 
-#: ../data/caja-browser.desktop.in.in.h:3
-msgid "Browse the file system with the file manager"
-msgstr "Файлдық жүйені файлдар басқарушысымен шолу"
+#: ../libegg/eggdesktopfile.c:1100
+#, c-format
+msgid "Application does not accept documents on command line"
+msgstr "Қолданба команда жолында құжаттарды қабылдамайды"
 
-#. tooltip
-#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:905
-msgid ""
-"Browse all local and remote disks and folders accessible from this computer"
-msgstr ""
+#: ../libegg/eggdesktopfile.c:1168
+#, c-format
+msgid "Unrecognized launch option: %d"
+msgstr "Белгісіз жөнелту опциясы: %d"
 
-#: ../data/caja-file-management-properties.desktop.in.in.h:1
-msgid "File Management"
-msgstr "Файлдарды басқару"
+#: ../libegg/eggdesktopfile.c:1366
+#, c-format
+msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
+msgstr "Құжат URI-ін 'Type=Link' desktop элементіне беру мүмкін емес"
 
-#: ../data/caja-file-management-properties.desktop.in.in.h:2
-msgid "Change the behaviour and appearance of file manager windows"
-msgstr ""
+#: ../libegg/eggdesktopfile.c:1385
+#, c-format
+msgid "Not a launchable item"
+msgstr "Жөнелтілетін элемент емес"
 
-#: ../data/caja-home.desktop.in.in.h:1 ../src/file-manager/fm-tree-view.c:1434
-msgid "Home Folder"
-msgstr "Үй бумасы"
+#: ../libegg/eggsmclient.c:237
+msgid "Disable connection to session manager"
+msgstr "Сессиялар менеджеріне байланыстарды сөндіру"
 
-#. tooltip
-#: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:509
-#: ../src/caja-window-menus.c:900
-msgid "Open your personal folder"
-msgstr "Жеке бумаңызды ашу"
+#: ../libegg/eggsmclient.c:242
+msgid "Specify file containing saved configuration"
+msgstr "Сақталған баптаулары бар файлды көрсету"
 
-#: ../data/caja.desktop.in.in.h:2
-msgid "File Manager"
-msgstr "Файлдық басқарушы"
+#: ../libegg/eggsmclient.c:242
+msgid "FILE"
+msgstr "ФАЙЛ"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:708
+#: ../libegg/eggsmclient.c:247
+msgid "Specify session management ID"
+msgstr "Сессия менеджментінің ID-ін көрсету"
+
+#: ../libegg/eggsmclient.c:247
+msgid "ID"
+msgstr "ID"
+
+#: ../libegg/eggsmclient.c:273
+msgid "Session management options:"
+msgstr "Сессияны басқару опциялары:"
+
+#: ../libegg/eggsmclient.c:274
+msgid "Show session management options"
+msgstr "Сессияны басқару опцияларын көрсету"
+
+#: ../src/file-manager/fm-desktop-icon-view.c:709
 msgid "Background"
 msgstr "Фон"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:785
-#: ../src/file-manager/fm-directory-view.c:7313
-#: ../src/file-manager/fm-directory-view.c:8990
+#: ../src/file-manager/fm-desktop-icon-view.c:786
+#: ../src/file-manager/fm-directory-view.c:7316
+#: ../src/file-manager/fm-directory-view.c:8993
 msgid "E_mpty Trash"
 msgstr "Қоқыс шелегін та_зарту"
 
 #. label, accelerator
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:799
-#: ../src/file-manager/fm-directory-view.c:7277
+#: ../src/file-manager/fm-desktop-icon-view.c:800
+#: ../src/file-manager/fm-directory-view.c:7280
 msgid "Create L_auncher..."
 msgstr "Жө_нелткішті жасау..."
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:801
-#: ../src/file-manager/fm-directory-view.c:7278
+#: ../src/file-manager/fm-desktop-icon-view.c:802
+#: ../src/file-manager/fm-directory-view.c:7281
 msgid "Create a new launcher"
 msgstr "Жаңа жөнелткішті жасау"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:808
+#: ../src/file-manager/fm-desktop-icon-view.c:809
 msgid "Change Desktop _Background"
 msgstr "Ф_он суретін ауыстыру"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:810
+#: ../src/file-manager/fm-desktop-icon-view.c:811
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr "Жұмыс үстелінің фоны үшін оюды не түсті орнатуға мүмкін ететін терезені көрсету"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:817
+#: ../src/file-manager/fm-desktop-icon-view.c:818
 msgid "Empty Trash"
 msgstr "Қоқыс шелегін тазарту"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:819
-#: ../src/file-manager/fm-directory-view.c:7314 ../src/caja-trash-bar.c:204
+#: ../src/file-manager/fm-desktop-icon-view.c:820
+#: ../src/file-manager/fm-directory-view.c:7317 ../src/caja-trash-bar.c:204
 msgid "Delete all items in the Trash"
 msgstr "Қоқыс шелегінен барлық нәрсені өшіру"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:919
+#: ../src/file-manager/fm-desktop-icon-view.c:920
 msgid "The desktop view encountered an error."
 msgstr "Жұмыс үстел көрінісінде қате орын алды."
 
-#: ../src/file-manager/fm-desktop-icon-view.c:920
+#: ../src/file-manager/fm-desktop-icon-view.c:921
 msgid "The desktop view encountered an error while starting up."
 msgstr ""
 
@@ -3612,19 +3612,19 @@ msgstr "Бу_ма:"
 msgid "Select Folder to Save Search In"
 msgstr "Іздеуді сақтау үшін буманы таңдаңыз"
 
-#: ../src/file-manager/fm-directory-view.c:2281
-#: ../src/file-manager/fm-directory-view.c:2318
+#: ../src/file-manager/fm-directory-view.c:2284
+#: ../src/file-manager/fm-directory-view.c:2321
 #, c-format
 msgid "\"%s\" selected"
 msgstr "\"%s\" таңдалды"
 
-#: ../src/file-manager/fm-directory-view.c:2283
+#: ../src/file-manager/fm-directory-view.c:2286
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
 msgstr[0] "%'d бума таңдалды"
 
-#: ../src/file-manager/fm-directory-view.c:2293
+#: ../src/file-manager/fm-directory-view.c:2296
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
@@ -3632,20 +3632,20 @@ msgstr[0] " (ішінде %'d нәрсе бар)"
 
 #. translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
-#: ../src/file-manager/fm-directory-view.c:2304
+#: ../src/file-manager/fm-directory-view.c:2307
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
 msgstr[0] " (ішінде жалпы %'d нәрсе бар)"
 
-#: ../src/file-manager/fm-directory-view.c:2321
+#: ../src/file-manager/fm-directory-view.c:2324
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
 msgstr[0] "%d нәрсе ерекшеленді"
 
 #. Folders selected also, use "other" terminology
-#: ../src/file-manager/fm-directory-view.c:2328
+#: ../src/file-manager/fm-directory-view.c:2331
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
@@ -3655,17 +3655,17 @@ msgstr[0] "%'d басқа нәрсе ерекшеленді"
 #. * needs to use something other than parentheses. The
 #. * first message gives the number of items selected;
 #. * the message in parentheses the size of those items.
-#: ../src/file-manager/fm-directory-view.c:2347
+#: ../src/file-manager/fm-directory-view.c:2350
 #, c-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-directory-view.c:2360
+#: ../src/file-manager/fm-directory-view.c:2363
 #, c-format
 msgid "Free space: %s"
 msgstr "Бос орны: %s"
 
-#: ../src/file-manager/fm-directory-view.c:2371
+#: ../src/file-manager/fm-directory-view.c:2374
 #, c-format
 msgid "%s, Free space: %s"
 msgstr "%s, Бос орны: %s"
@@ -3674,7 +3674,7 @@ msgstr "%s, Бос орны: %s"
 #. * might want to change "," to something else.
 #. * After the comma the amount of free space will
 #. * be shown.
-#: ../src/file-manager/fm-directory-view.c:2386
+#: ../src/file-manager/fm-directory-view.c:2389
 #, c-format
 msgid "%s, %s"
 msgstr "%s, %s"
@@ -3689,8 +3689,8 @@ msgstr "%s, %s"
 #. * and the number of items in those folders and the
 #. * message about the number of other items and the
 #. * total size of those items.
-#: ../src/file-manager/fm-directory-view.c:2405
-#: ../src/file-manager/fm-directory-view.c:2419
+#: ../src/file-manager/fm-directory-view.c:2408
+#: ../src/file-manager/fm-directory-view.c:2422
 #, c-format
 msgid "%s%s, %s"
 msgstr "%s%s, %s"
@@ -3702,52 +3702,52 @@ msgstr "%s%s, %s"
 #. * message about the number of other items and the
 #. * total size of those items. After the second comma
 #. * the free space is written.
-#: ../src/file-manager/fm-directory-view.c:2432
+#: ../src/file-manager/fm-directory-view.c:2435
 #, c-format
 msgid "%s%s, %s, %s"
 msgstr "%s%s, %s, %s"
 
-#: ../src/file-manager/fm-directory-view.c:4477
+#: ../src/file-manager/fm-directory-view.c:4480
 #: ../src/caja-information-panel.c:905
 #, c-format
 msgid "Open With %s"
 msgstr "%s көмегімен ашу"
 
-#: ../src/file-manager/fm-directory-view.c:4479
+#: ../src/file-manager/fm-directory-view.c:4482
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
 msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:4568
+#: ../src/file-manager/fm-directory-view.c:4571
 msgid "Open parent location"
 msgstr "Аталық орналасуды ашу"
 
-#: ../src/file-manager/fm-directory-view.c:4569
+#: ../src/file-manager/fm-directory-view.c:4572
 msgid "Open parent location for the selected item"
 msgstr "Таңдалған нәрсенің аталық орналасуын ашу"
 
-#: ../src/file-manager/fm-directory-view.c:5418
+#: ../src/file-manager/fm-directory-view.c:5421
 #, c-format
 msgid "Run \"%s\" on any selected items"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:5669
+#: ../src/file-manager/fm-directory-view.c:5672
 #, c-format
 msgid "Create Document from template \"%s\""
 msgstr "Жаңа құжатты \"%s\" үлгісінен жасау"
 
-#: ../src/file-manager/fm-directory-view.c:5919
+#: ../src/file-manager/fm-directory-view.c:5922
 msgid "All executable files in this folder will appear in the Scripts menu."
 msgstr "Бұл бумадағы орындалатын файлдар Скрипттер мәзірінде көрсетіледі."
 
-#: ../src/file-manager/fm-directory-view.c:5921
+#: ../src/file-manager/fm-directory-view.c:5924
 msgid ""
 "Choosing a script from the menu will run that script with any selected items"
 " as input."
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:5923
+#: ../src/file-manager/fm-directory-view.c:5926
 msgid ""
 "All executable files in this folder will appear in the Scripts menu. Choosing a script from the menu will run that script.\n"
 "\n"
@@ -3770,124 +3770,124 @@ msgid ""
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI for current location in the inactive pane of a split-view window"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:5991
+#: ../src/file-manager/fm-directory-view.c:5994
 #: ../src/file-manager/fm-tree-view.c:1009
 #, c-format
 msgid "\"%s\" will be moved if you select the Paste command"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:5995
+#: ../src/file-manager/fm-directory-view.c:5998
 #: ../src/file-manager/fm-tree-view.c:1015
 #, c-format
 msgid "\"%s\" will be copied if you select the Paste command"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:6002
+#: ../src/file-manager/fm-directory-view.c:6005
 #, c-format
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be moved if you select the Paste command"
 msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:6009
+#: ../src/file-manager/fm-directory-view.c:6012
 #, c-format
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be copied if you select the Paste command"
 msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:6189
+#: ../src/file-manager/fm-directory-view.c:6192
 #: ../src/file-manager/fm-tree-view.c:1055
 msgid "There is nothing on the clipboard to paste."
 msgstr "Кірістіру үшін алмасу буферінде ешнәрсе жоқ."
 
-#: ../src/file-manager/fm-directory-view.c:6404
+#: ../src/file-manager/fm-directory-view.c:6407
 msgid "Unable to unmount location"
 msgstr "Орналасуды тіркеуден босату мүмкін емес"
 
-#: ../src/file-manager/fm-directory-view.c:6425
+#: ../src/file-manager/fm-directory-view.c:6428
 msgid "Unable to eject location"
 msgstr "Орналасуды шығару мүмкін емес"
 
-#: ../src/file-manager/fm-directory-view.c:6440
+#: ../src/file-manager/fm-directory-view.c:6443
 msgid "Unable to stop drive"
 msgstr "Дискті тоқтату мүмкін емес"
 
-#: ../src/file-manager/fm-directory-view.c:6997
+#: ../src/file-manager/fm-directory-view.c:7000
 #, c-format
 msgid "Connect to Server %s"
 msgstr "%s серверімен байланысты орнату"
 
-#: ../src/file-manager/fm-directory-view.c:7002
-#: ../src/file-manager/fm-directory-view.c:8209
-#: ../src/file-manager/fm-directory-view.c:8301
-#: ../src/file-manager/fm-directory-view.c:8411
+#: ../src/file-manager/fm-directory-view.c:7005
+#: ../src/file-manager/fm-directory-view.c:8212
+#: ../src/file-manager/fm-directory-view.c:8304
+#: ../src/file-manager/fm-directory-view.c:8414
 msgid "_Connect"
 msgstr "Ба_йланысу"
 
-#: ../src/file-manager/fm-directory-view.c:7016
+#: ../src/file-manager/fm-directory-view.c:7019
 msgid "Link _name:"
 msgstr "Сілтеме _аты:"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7255
+#: ../src/file-manager/fm-directory-view.c:7258
 msgid "Create _Document"
 msgstr "Құжат_ты жасау"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7256
+#: ../src/file-manager/fm-directory-view.c:7259
 msgid "Open Wit_h"
 msgstr "Кө_мегімен ашу"
 
-#: ../src/file-manager/fm-directory-view.c:7257
+#: ../src/file-manager/fm-directory-view.c:7260
 msgid "Choose a program with which to open the selected item"
 msgstr "Таңдалған нәрсені ашу үшін бағдарламаны таңдау"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7259
-#: ../src/file-manager/fm-directory-view.c:7538
+#: ../src/file-manager/fm-directory-view.c:7262
+#: ../src/file-manager/fm-directory-view.c:7541
 msgid "_Properties"
 msgstr "Қас_иеттері"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7260
-#: ../src/file-manager/fm-directory-view.c:8977
+#: ../src/file-manager/fm-directory-view.c:7263
+#: ../src/file-manager/fm-directory-view.c:8980
 msgid "View or modify the properties of each selected item"
 msgstr "Әр таңдалған нәрсенің қасиеттерін қарау және түрлендіру"
 
 #. name, stock id
 #. label, accelerator
 #. add the "create folder" menu item
-#: ../src/file-manager/fm-directory-view.c:7267
+#: ../src/file-manager/fm-directory-view.c:7270
 #: ../src/file-manager/fm-tree-view.c:1298
 msgid "Create _Folder"
 msgstr "Буманы _жасау"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7268
+#: ../src/file-manager/fm-directory-view.c:7271
 msgid "Create a new empty folder inside this folder"
 msgstr "Бұл буманың ішінде жаңа бос буманы жасау"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7270
+#: ../src/file-manager/fm-directory-view.c:7273
 msgid "No templates installed"
 msgstr "Үлгілер орнатылмаған"
 
 #. name, stock id
 #. translators: this is used to indicate that a file doesn't contain anything
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7273
+#: ../src/file-manager/fm-directory-view.c:7276
 msgid "_Empty File"
 msgstr "_Бос файл"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7274
+#: ../src/file-manager/fm-directory-view.c:7277
 msgid "Create a new empty file inside this folder"
 msgstr "Бұл буманың ішінде жаңа бос буманы жасау"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7282
+#: ../src/file-manager/fm-directory-view.c:7285
 msgid "Open the selected item in this window"
 msgstr "Таңдалған нәрсені бұл терезеде ашу"
 
@@ -3896,91 +3896,91 @@ msgstr "Таңдалған нәрсені бұл терезеде ашу"
 #. Location-specific actions
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7289
-#: ../src/file-manager/fm-directory-view.c:7470
+#: ../src/file-manager/fm-directory-view.c:7292
+#: ../src/file-manager/fm-directory-view.c:7473
 msgid "Open in Navigation Window"
 msgstr "Навигация терезесінде ашу"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7290
+#: ../src/file-manager/fm-directory-view.c:7293
 msgid "Open each selected item in a navigation window"
 msgstr "Әр таңдалған нәрсені навигация терезесінде ашу"
 
 #. name, stock id
 #. label, accelerator
 #. add the "open in new tab" menu item
-#: ../src/file-manager/fm-directory-view.c:7293
-#: ../src/file-manager/fm-directory-view.c:7474
-#: ../src/file-manager/fm-directory-view.c:8541
-#: ../src/file-manager/fm-directory-view.c:8867
-#: ../src/file-manager/fm-tree-view.c:1278 ../src/caja-places-sidebar.c:2690
+#: ../src/file-manager/fm-directory-view.c:7296
+#: ../src/file-manager/fm-directory-view.c:7477
+#: ../src/file-manager/fm-directory-view.c:8544
+#: ../src/file-manager/fm-directory-view.c:8870
+#: ../src/file-manager/fm-tree-view.c:1278 ../src/caja-places-sidebar.c:2664
 msgid "Open in New _Tab"
 msgstr "Жаңа бе_тте ашу"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7294
+#: ../src/file-manager/fm-directory-view.c:7297
 msgid "Open each selected item in a new tab"
 msgstr "Әр таңдалған нәрсені жаңа бетте ашу"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7297
-#: ../src/file-manager/fm-directory-view.c:7479
+#: ../src/file-manager/fm-directory-view.c:7300
+#: ../src/file-manager/fm-directory-view.c:7482
 msgid "Open in _Folder Window"
 msgstr "_Бума терезесінде ашу"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7298
+#: ../src/file-manager/fm-directory-view.c:7301
 msgid "Open each selected item in a folder window"
 msgstr "Әр таңдалған нәрсені бума терезесінде ашу"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7301
+#: ../src/file-manager/fm-directory-view.c:7304
 msgid "Other _Application..."
 msgstr "Б_асқа қолданба..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7302
-#: ../src/file-manager/fm-directory-view.c:7306
+#: ../src/file-manager/fm-directory-view.c:7305
+#: ../src/file-manager/fm-directory-view.c:7309
 msgid "Choose another application with which to open the selected item"
 msgstr "Таңдалған нәрсені ашу үшін басқа қолданбаны таңдау"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7305
+#: ../src/file-manager/fm-directory-view.c:7308
 msgid "Open With Other _Application..."
 msgstr "Б_асқа қолданбамен ашу..."
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7309
+#: ../src/file-manager/fm-directory-view.c:7312
 msgid "_Open Scripts Folder"
 msgstr "Скрипттер бумасын а_шу"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7310
+#: ../src/file-manager/fm-directory-view.c:7313
 msgid "Show the folder containing the scripts that appear in this menu"
 msgstr "Бұл мәзірде көрсетілетін скрипттер сақталатын буманы көрсету"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7318
+#: ../src/file-manager/fm-directory-view.c:7321
 msgid "Prepare the selected files to be moved with a Paste command"
 msgstr "Таңдалған файлдарды Кірістіру командасы көмегімен жылжытуға дайындау"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7322
+#: ../src/file-manager/fm-directory-view.c:7325
 msgid "Prepare the selected files to be copied with a Paste command"
 msgstr "Таңдалған файлдарды Кірістіру командасы көмегімен көшіруге дайындау"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7326
+#: ../src/file-manager/fm-directory-view.c:7329
 msgid "Move or copy files previously selected by a Cut or Copy command"
 msgstr "Осыған дейін Қиып алынған не Көшірілген файлдарды жылжыту не кірістіру"
 
@@ -3988,139 +3988,139 @@ msgstr "Осыған дейін Қиып алынған не Көшірілге�
 #. accelerator for paste
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7331
-#: ../src/file-manager/fm-directory-view.c:7492
+#: ../src/file-manager/fm-directory-view.c:7334
+#: ../src/file-manager/fm-directory-view.c:7495
 #: ../src/file-manager/fm-tree-view.c:1330
 msgid "_Paste Into Folder"
 msgstr "Б_ума ішіне кірістіру"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7332
+#: ../src/file-manager/fm-directory-view.c:7335
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into the "
 "selected folder"
 msgstr "Ағымдағы бумаға осыған дейін Қиып алынған не Көшірілген файлдарды жылжыту не кірістіру"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7334
+#: ../src/file-manager/fm-directory-view.c:7337
 msgid "Cop_y to"
 msgstr "Қайда кө_шіру"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7335
+#: ../src/file-manager/fm-directory-view.c:7338
 msgid "M_ove to"
 msgstr "Қайда жы_лжыту"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7338
+#: ../src/file-manager/fm-directory-view.c:7341
 msgid "Select all items in this window"
 msgstr "Бұл терезедегі барлық нәрсені таңдау"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7341
+#: ../src/file-manager/fm-directory-view.c:7344
 msgid "Select I_tems Matching..."
 msgstr "Ү_лгі бойынша таңдау..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7342
+#: ../src/file-manager/fm-directory-view.c:7345
 msgid "Select items in this window matching a given pattern"
 msgstr "Бұл терезеден берілген үлгіге сәйкес нәрселерді таңдау"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7345
+#: ../src/file-manager/fm-directory-view.c:7348
 msgid "_Invert Selection"
 msgstr "Таңдауды тері_стеу"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7346
+#: ../src/file-manager/fm-directory-view.c:7349
 msgid "Select all and only the items that are not currently selected"
 msgstr "Тек ағымдағы таңдалмаған барлық нәрсені таңдау"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7349
+#: ../src/file-manager/fm-directory-view.c:7352
 msgid "D_uplicate"
 msgstr "Қо_сарлау"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7350
+#: ../src/file-manager/fm-directory-view.c:7353
 msgid "Duplicate each selected item"
 msgstr "Әр таңдалған нәрсені қосарлау"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7353
-#: ../src/file-manager/fm-directory-view.c:8961
+#: ../src/file-manager/fm-directory-view.c:7356
+#: ../src/file-manager/fm-directory-view.c:8964
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
 msgstr[0] "Сілте_ме(лер) жасау"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7354
+#: ../src/file-manager/fm-directory-view.c:7357
 msgid "Create a symbolic link for each selected item"
 msgstr "Әр таңдалған нәрсе үшін символдық сілтемені жасау"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7357
+#: ../src/file-manager/fm-directory-view.c:7360
 msgid "_Rename..."
 msgstr "Атын ауысты_ру..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7358
+#: ../src/file-manager/fm-directory-view.c:7361
 msgid "Rename selected item"
 msgstr "Белгіленгеннің атын ауыстыру"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7366
-#: ../src/file-manager/fm-directory-view.c:8922
+#: ../src/file-manager/fm-directory-view.c:7369
+#: ../src/file-manager/fm-directory-view.c:8925
 msgid "Move each selected item to the Trash"
 msgstr "Әр таңдалған нәрсені қоқыс шелегіне тастау"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7369
-#: ../src/file-manager/fm-directory-view.c:7501
-#: ../src/file-manager/fm-directory-view.c:8942
+#: ../src/file-manager/fm-directory-view.c:7372
+#: ../src/file-manager/fm-directory-view.c:7504
+#: ../src/file-manager/fm-directory-view.c:8945
 #: ../src/file-manager/fm-tree-view.c:1360
 msgid "_Delete"
 msgstr "Ө_шіру"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7370
+#: ../src/file-manager/fm-directory-view.c:7373
 msgid "Delete each selected item, without moving to the Trash"
 msgstr "Әр таңдалған нәрсені өшіру, қоқыс шелегіне тастамай-ақ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7373
-#: ../src/file-manager/fm-directory-view.c:7505
+#: ../src/file-manager/fm-directory-view.c:7376
+#: ../src/file-manager/fm-directory-view.c:7508
 msgid "_Restore"
 msgstr "Қал_пына келтіру"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7377
+#: ../src/file-manager/fm-directory-view.c:7380
 msgid "_Undo"
 msgstr "Бол_дырмау"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7378
-#: ../src/file-manager/fm-directory-view.c:11126
+#: ../src/file-manager/fm-directory-view.c:7381
+#: ../src/file-manager/fm-directory-view.c:11129
 msgid "Undo the last action"
 msgstr "Соңғы әрекетті болдырмау"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7381
+#: ../src/file-manager/fm-directory-view.c:7384
 msgid "_Redo"
 msgstr "Қай_талау"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7382
-#: ../src/file-manager/fm-directory-view.c:11144
+#: ../src/file-manager/fm-directory-view.c:7385
+#: ../src/file-manager/fm-directory-view.c:11147
 msgid "Redo the last undone action"
 msgstr "Соңғы болдырмаған әрекетті қайталау"
 
@@ -4130,603 +4130,603 @@ msgstr "Соңғы болдырмаған әрекетті қайталау"
 #. * it is a mixture of both ATM.
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7392
+#: ../src/file-manager/fm-directory-view.c:7395
 msgid "Reset View to _Defaults"
 msgstr "Бас_тапқы түріне тастау"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7393
+#: ../src/file-manager/fm-directory-view.c:7396
 msgid "Reset sorting order and zoom level to match preferences for this view"
 msgstr "Сұрыптау ретін және масштабын бұл көрініс баптауларына сәйкес тастау"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7396
+#: ../src/file-manager/fm-directory-view.c:7399
 msgid "Connect To This Server"
 msgstr "Бұл серверіне байланысу"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7397
+#: ../src/file-manager/fm-directory-view.c:7400
 msgid "Make a permanent connection to this server"
 msgstr "Сервермен тұрақты байланысты жасау"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7400
-#: ../src/file-manager/fm-directory-view.c:7428
-#: ../src/file-manager/fm-directory-view.c:7509
-#: ../src/caja-places-sidebar.c:2726
+#: ../src/file-manager/fm-directory-view.c:7403
+#: ../src/file-manager/fm-directory-view.c:7431
+#: ../src/file-manager/fm-directory-view.c:7512
+#: ../src/caja-places-sidebar.c:2700
 msgid "_Mount"
 msgstr "Ті_ркеу"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7401
+#: ../src/file-manager/fm-directory-view.c:7404
 msgid "Mount the selected volume"
 msgstr "Таңдалған бөлімді тіркеу"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7405
+#: ../src/file-manager/fm-directory-view.c:7408
 msgid "Unmount the selected volume"
 msgstr "Таңдалған бөлімді тіркеуден шығару"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7409
+#: ../src/file-manager/fm-directory-view.c:7412
 msgid "Eject the selected volume"
 msgstr "Таңдалған бөлімді шығару"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7412
-#: ../src/file-manager/fm-directory-view.c:7440
-#: ../src/file-manager/fm-directory-view.c:7521
-#: ../src/caja-places-sidebar.c:2754
+#: ../src/file-manager/fm-directory-view.c:7415
+#: ../src/file-manager/fm-directory-view.c:7443
+#: ../src/file-manager/fm-directory-view.c:7524
+#: ../src/caja-places-sidebar.c:2728
 msgid "_Format"
 msgstr "Пі_шімі"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7413
+#: ../src/file-manager/fm-directory-view.c:7416
 msgid "Format the selected volume"
 msgstr "Таңдалған томды пішімдеу"
 
 #. name, stock id
 #. label, accelerator
 #. Adjust start/stop items to reflect the type of the drive
-#: ../src/file-manager/fm-directory-view.c:7416
-#: ../src/file-manager/fm-directory-view.c:7444
-#: ../src/file-manager/fm-directory-view.c:7525
-#: ../src/file-manager/fm-directory-view.c:8201
-#: ../src/file-manager/fm-directory-view.c:8205
-#: ../src/file-manager/fm-directory-view.c:8293
-#: ../src/file-manager/fm-directory-view.c:8297
-#: ../src/file-manager/fm-directory-view.c:8403
-#: ../src/file-manager/fm-directory-view.c:8407
-#: ../src/caja-places-sidebar.c:1808 ../src/caja-places-sidebar.c:2761
+#: ../src/file-manager/fm-directory-view.c:7419
+#: ../src/file-manager/fm-directory-view.c:7447
+#: ../src/file-manager/fm-directory-view.c:7528
+#: ../src/file-manager/fm-directory-view.c:8204
+#: ../src/file-manager/fm-directory-view.c:8208
+#: ../src/file-manager/fm-directory-view.c:8296
+#: ../src/file-manager/fm-directory-view.c:8300
+#: ../src/file-manager/fm-directory-view.c:8406
+#: ../src/file-manager/fm-directory-view.c:8410
+#: ../src/caja-places-sidebar.c:1785 ../src/caja-places-sidebar.c:2735
 msgid "_Start"
 msgstr "Ба_стау"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7417
+#: ../src/file-manager/fm-directory-view.c:7420
 msgid "Start the selected volume"
 msgstr "Таңдалған бөлімді іске қосу"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7420
-#: ../src/file-manager/fm-directory-view.c:7448
-#: ../src/file-manager/fm-directory-view.c:7529
-#: ../src/file-manager/fm-directory-view.c:8230
-#: ../src/file-manager/fm-directory-view.c:8322
-#: ../src/file-manager/fm-directory-view.c:8432
-#: ../src/caja-places-sidebar.c:1809 ../src/caja-places-sidebar.c:2768
+#: ../src/file-manager/fm-directory-view.c:7423
+#: ../src/file-manager/fm-directory-view.c:7451
+#: ../src/file-manager/fm-directory-view.c:7532
+#: ../src/file-manager/fm-directory-view.c:8233
+#: ../src/file-manager/fm-directory-view.c:8325
+#: ../src/file-manager/fm-directory-view.c:8435
+#: ../src/caja-places-sidebar.c:1786 ../src/caja-places-sidebar.c:2742
 #: ../src/caja-window-menus.c:844
 msgid "_Stop"
 msgstr "Т_оқтату"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7421
-#: ../src/file-manager/fm-directory-view.c:8433
+#: ../src/file-manager/fm-directory-view.c:7424
+#: ../src/file-manager/fm-directory-view.c:8436
 msgid "Stop the selected volume"
 msgstr "Таңдалған бөлімді тоқтату"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7424
-#: ../src/file-manager/fm-directory-view.c:7452
-#: ../src/file-manager/fm-directory-view.c:7533
-#: ../src/caja-places-sidebar.c:2747
+#: ../src/file-manager/fm-directory-view.c:7427
+#: ../src/file-manager/fm-directory-view.c:7455
+#: ../src/file-manager/fm-directory-view.c:7536
+#: ../src/caja-places-sidebar.c:2721
 msgid "_Detect Media"
 msgstr "Тасушыны анық_тау"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7425
-#: ../src/file-manager/fm-directory-view.c:7453
-#: ../src/file-manager/fm-directory-view.c:7534
+#: ../src/file-manager/fm-directory-view.c:7428
+#: ../src/file-manager/fm-directory-view.c:7456
+#: ../src/file-manager/fm-directory-view.c:7537
 msgid "Detect media in the selected drive"
 msgstr "Таңдалған диск оқу құрылғысында тасушыны анықтау"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7429
+#: ../src/file-manager/fm-directory-view.c:7432
 msgid "Mount the volume associated with the open folder"
 msgstr "Ашық бумамен сәйкестелген томды тіркеу"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7433
+#: ../src/file-manager/fm-directory-view.c:7436
 msgid "Unmount the volume associated with the open folder"
 msgstr "Ашық бумамен сәйкестелген томды тіркеуден босату"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7437
+#: ../src/file-manager/fm-directory-view.c:7440
 msgid "Eject the volume associated with the open folder"
 msgstr "Ашық бумамен сәйкестелген томды шығару"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7441
+#: ../src/file-manager/fm-directory-view.c:7444
 msgid "Format the volume associated with the open folder"
 msgstr "Ашық бумамен сәйкестелген томды пішімдеу"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7445
+#: ../src/file-manager/fm-directory-view.c:7448
 msgid "Start the volume associated with the open folder"
 msgstr "Ашық бумамен сәйкестелген томды іске қосу"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7449
+#: ../src/file-manager/fm-directory-view.c:7452
 msgid "Stop the volume associated with the open folder"
 msgstr "Ашық бумамен сәйкестелген томды тоқтату"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7456
+#: ../src/file-manager/fm-directory-view.c:7459
 msgid "Open File and Close window"
 msgstr "Файлды ашу және терезені жабу"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7460
+#: ../src/file-manager/fm-directory-view.c:7463
 msgid "Sa_ve Search"
 msgstr "Іздеуді сақ_тау"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7461
+#: ../src/file-manager/fm-directory-view.c:7464
 msgid "Save the edited search"
 msgstr "Түзетілген іздеуді сақтау"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7464
+#: ../src/file-manager/fm-directory-view.c:7467
 msgid "Sa_ve Search As..."
 msgstr "Іздеуді қалайша сақ_тау..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7465
+#: ../src/file-manager/fm-directory-view.c:7468
 msgid "Save the current search as a file"
 msgstr "Ағымдағы іздеуді файл ретінде сақтау"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7471
+#: ../src/file-manager/fm-directory-view.c:7474
 msgid "Open this folder in a navigation window"
 msgstr "Бұл буманы навигация терезесінде ашу"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7475
+#: ../src/file-manager/fm-directory-view.c:7478
 msgid "Open this folder in a new tab"
 msgstr "Бұл буманы жаңа бетте ашу"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7480
+#: ../src/file-manager/fm-directory-view.c:7483
 msgid "Open this folder in a folder window"
 msgstr "Бұл буманы бума терезесінде ашу"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7485
+#: ../src/file-manager/fm-directory-view.c:7488
 msgid "Prepare this folder to be moved with a Paste command"
 msgstr "Бұл буманы Кірістіру командасы көмегімен жылжытуға дайындау"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7489
+#: ../src/file-manager/fm-directory-view.c:7492
 msgid "Prepare this folder to be copied with a Paste command"
 msgstr "Бұл буманы Кірістіру командасы көмегімен көшіруге дайындау"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7493
+#: ../src/file-manager/fm-directory-view.c:7496
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into this "
 "folder"
 msgstr "Бұл бумаға алдында Қиып алу не Көшіру көмегімен таңдалған файлдарды жылжыту не көшіру"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7498
+#: ../src/file-manager/fm-directory-view.c:7501
 msgid "Move this folder to the Trash"
 msgstr "Бұл буманы қоқыс шелегіне тастау"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7502
+#: ../src/file-manager/fm-directory-view.c:7505
 msgid "Delete this folder, without moving to the Trash"
 msgstr "Бұл бұманы қоқыс шелегіне тастамай-ақ, өшіру."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7510
+#: ../src/file-manager/fm-directory-view.c:7513
 msgid "Mount the volume associated with this folder"
 msgstr "Бұл бумамен сәйкестендірілген томды тіркеу"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7514
+#: ../src/file-manager/fm-directory-view.c:7517
 msgid "Unmount the volume associated with this folder"
 msgstr "Бұл бумамен сәйкестелген томды тіркеуден босату"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7518
+#: ../src/file-manager/fm-directory-view.c:7521
 msgid "Eject the volume associated with this folder"
 msgstr "Бұл бумамен сәйкестелген томды шығару"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7522
+#: ../src/file-manager/fm-directory-view.c:7525
 msgid "Format the volume associated with this folder"
 msgstr "Бұл бумамен сәйкестелген томды пішімдеу босату"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7526
+#: ../src/file-manager/fm-directory-view.c:7529
 msgid "Start the volume associated with this folder"
 msgstr "Бұл бумамен сәйкестелген томды іске қосу"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7530
+#: ../src/file-manager/fm-directory-view.c:7533
 msgid "Stop the volume associated with this folder"
 msgstr "Бұл бумамен сәйкестелген томды тоқтату"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7539
+#: ../src/file-manager/fm-directory-view.c:7542
 msgid "View or modify the properties of this folder"
 msgstr "Бұл буманың қасиеттерін қарау не өзгерту"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7542
 #: ../src/file-manager/fm-directory-view.c:7545
+#: ../src/file-manager/fm-directory-view.c:7548
 msgid "_Other pane"
 msgstr "_Басқа панель"
 
-#: ../src/file-manager/fm-directory-view.c:7543
+#: ../src/file-manager/fm-directory-view.c:7546
 msgid "Copy the current selection to the other pane in the window"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7546
+#: ../src/file-manager/fm-directory-view.c:7549
 msgid "Move the current selection to the other pane in the window"
 msgstr ""
 
 #. name, stock id, label
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7549
-#: ../src/file-manager/fm-directory-view.c:7553 ../src/caja-window-menus.c:899
+#: ../src/file-manager/fm-directory-view.c:7552
+#: ../src/file-manager/fm-directory-view.c:7556 ../src/caja-window-menus.c:899
 msgid "_Home Folder"
 msgstr "Ү_й бумасы"
 
-#: ../src/file-manager/fm-directory-view.c:7550
+#: ../src/file-manager/fm-directory-view.c:7553
 msgid "Copy the current selection to the home folder"
 msgstr "Ағымдағы ерекшелеуді үй бумасына көшіріп алу"
 
-#: ../src/file-manager/fm-directory-view.c:7554
+#: ../src/file-manager/fm-directory-view.c:7557
 msgid "Move the current selection to the home folder"
 msgstr "Ағымдағы ерекшелеуді үй бумасына жылжыту"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7557
-#: ../src/file-manager/fm-directory-view.c:7561
+#: ../src/file-manager/fm-directory-view.c:7560
+#: ../src/file-manager/fm-directory-view.c:7564
 msgid "_Desktop"
 msgstr "Жұм_ыс үстелі"
 
-#: ../src/file-manager/fm-directory-view.c:7558
+#: ../src/file-manager/fm-directory-view.c:7561
 msgid "Copy the current selection to the desktop"
 msgstr "Ағымдағы ерекшелеуді жұмыс үстеліне көшіріп алу"
 
-#: ../src/file-manager/fm-directory-view.c:7562
+#: ../src/file-manager/fm-directory-view.c:7565
 msgid "Move the current selection to the desktop"
 msgstr "Ағымдағы ерекшелеуді жұмыс үстеліне жылжыту"
 
 #. Translators: %s is a directory
-#: ../src/file-manager/fm-directory-view.c:7642
+#: ../src/file-manager/fm-directory-view.c:7645
 #, c-format
 msgid "Run or manage scripts from %s"
 msgstr ""
 
 #. Create a script action here specially because its tooltip is dynamic
-#: ../src/file-manager/fm-directory-view.c:7644
+#: ../src/file-manager/fm-directory-view.c:7647
 msgid "_Scripts"
 msgstr "Ск_рипттер"
 
-#: ../src/file-manager/fm-directory-view.c:8049
+#: ../src/file-manager/fm-directory-view.c:8052
 #, c-format
 msgid "Move the open folder out of the trash to \"%s\""
 msgstr "Ашық буманы қоқыс шелегі ішінен \"%s\" жеріне жылжыту"
 
-#: ../src/file-manager/fm-directory-view.c:8052
+#: ../src/file-manager/fm-directory-view.c:8055
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
 msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:8056
+#: ../src/file-manager/fm-directory-view.c:8059
 #, c-format
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
 msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:8062
+#: ../src/file-manager/fm-directory-view.c:8065
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
 msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:8066
+#: ../src/file-manager/fm-directory-view.c:8069
 #, c-format
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
 msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:8072
+#: ../src/file-manager/fm-directory-view.c:8075
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
 msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:8076
+#: ../src/file-manager/fm-directory-view.c:8079
 #, c-format
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
 msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:8202
-#: ../src/file-manager/fm-directory-view.c:8206
-#: ../src/file-manager/fm-directory-view.c:8404
-#: ../src/file-manager/fm-directory-view.c:8408
+#: ../src/file-manager/fm-directory-view.c:8205
+#: ../src/file-manager/fm-directory-view.c:8209
+#: ../src/file-manager/fm-directory-view.c:8407
+#: ../src/file-manager/fm-directory-view.c:8411
 msgid "Start the selected drive"
 msgstr "Таңдалған дискті іске қосу"
 
-#: ../src/file-manager/fm-directory-view.c:8210
-#: ../src/file-manager/fm-directory-view.c:8412
+#: ../src/file-manager/fm-directory-view.c:8213
+#: ../src/file-manager/fm-directory-view.c:8415
 msgid "Connect to the selected drive"
 msgstr "Таңдалған дискке байланыс орнату"
 
-#: ../src/file-manager/fm-directory-view.c:8213
-#: ../src/file-manager/fm-directory-view.c:8305
-#: ../src/file-manager/fm-directory-view.c:8415
+#: ../src/file-manager/fm-directory-view.c:8216
+#: ../src/file-manager/fm-directory-view.c:8308
+#: ../src/file-manager/fm-directory-view.c:8418
 msgid "_Start Multi-disk Drive"
 msgstr "Көпдискті жетекті іске қо_су"
 
-#: ../src/file-manager/fm-directory-view.c:8214
-#: ../src/file-manager/fm-directory-view.c:8416
+#: ../src/file-manager/fm-directory-view.c:8217
+#: ../src/file-manager/fm-directory-view.c:8419
 msgid "Start the selected multi-disk drive"
 msgstr "Таңдалған көпдискті жетегін іске қосу"
 
-#: ../src/file-manager/fm-directory-view.c:8217
+#: ../src/file-manager/fm-directory-view.c:8220
 msgid "U_nlock Drive"
 msgstr "Жетекті бо_сату"
 
-#: ../src/file-manager/fm-directory-view.c:8218
-#: ../src/file-manager/fm-directory-view.c:8420
+#: ../src/file-manager/fm-directory-view.c:8221
+#: ../src/file-manager/fm-directory-view.c:8423
 msgid "Unlock the selected drive"
 msgstr "Таңдалған жетекті босату"
 
-#: ../src/file-manager/fm-directory-view.c:8231
+#: ../src/file-manager/fm-directory-view.c:8234
 msgid "Stop the selected drive"
 msgstr "Таңдалған жетекті тоқтату"
 
-#: ../src/file-manager/fm-directory-view.c:8234
-#: ../src/file-manager/fm-directory-view.c:8326
-#: ../src/file-manager/fm-directory-view.c:8436
-#: ../src/caja-places-sidebar.c:1817
+#: ../src/file-manager/fm-directory-view.c:8237
+#: ../src/file-manager/fm-directory-view.c:8329
+#: ../src/file-manager/fm-directory-view.c:8439
+#: ../src/caja-places-sidebar.c:1794
 msgid "_Safely Remove Drive"
 msgstr "Жетекті қауі_псіз шығару"
 
-#: ../src/file-manager/fm-directory-view.c:8235
-#: ../src/file-manager/fm-directory-view.c:8437
+#: ../src/file-manager/fm-directory-view.c:8238
+#: ../src/file-manager/fm-directory-view.c:8440
 msgid "Safely remove the selected drive"
 msgstr "Таңдалған жетекті қауіпсіз шығару"
 
-#: ../src/file-manager/fm-directory-view.c:8238
-#: ../src/file-manager/fm-directory-view.c:8330
-#: ../src/file-manager/fm-directory-view.c:8440
+#: ../src/file-manager/fm-directory-view.c:8241
+#: ../src/file-manager/fm-directory-view.c:8333
+#: ../src/file-manager/fm-directory-view.c:8443
 msgid "_Disconnect"
 msgstr "Ба_йланысты үзу"
 
-#: ../src/file-manager/fm-directory-view.c:8239
-#: ../src/file-manager/fm-directory-view.c:8441
+#: ../src/file-manager/fm-directory-view.c:8242
+#: ../src/file-manager/fm-directory-view.c:8444
 msgid "Disconnect the selected drive"
 msgstr "Таңдалған жетекті ажыратып тастау"
 
-#: ../src/file-manager/fm-directory-view.c:8242
-#: ../src/file-manager/fm-directory-view.c:8334
-#: ../src/file-manager/fm-directory-view.c:8444
+#: ../src/file-manager/fm-directory-view.c:8245
+#: ../src/file-manager/fm-directory-view.c:8337
+#: ../src/file-manager/fm-directory-view.c:8447
 msgid "_Stop Multi-disk Drive"
 msgstr "Көпдискті жетекті тоқта_ту"
 
-#: ../src/file-manager/fm-directory-view.c:8243
-#: ../src/file-manager/fm-directory-view.c:8445
+#: ../src/file-manager/fm-directory-view.c:8246
+#: ../src/file-manager/fm-directory-view.c:8448
 msgid "Stop the selected multi-disk drive"
 msgstr "Таңдалған көпдискті жетегін тоқтату"
 
-#: ../src/file-manager/fm-directory-view.c:8246
-#: ../src/file-manager/fm-directory-view.c:8338
-#: ../src/file-manager/fm-directory-view.c:8448
-#: ../src/caja-places-sidebar.c:1830
+#: ../src/file-manager/fm-directory-view.c:8249
+#: ../src/file-manager/fm-directory-view.c:8341
+#: ../src/file-manager/fm-directory-view.c:8451
+#: ../src/caja-places-sidebar.c:1807
 msgid "_Lock Drive"
 msgstr "Жетекті б_локтау"
 
-#: ../src/file-manager/fm-directory-view.c:8247
-#: ../src/file-manager/fm-directory-view.c:8449
+#: ../src/file-manager/fm-directory-view.c:8250
+#: ../src/file-manager/fm-directory-view.c:8452
 msgid "Lock the selected drive"
 msgstr "Таңдалған жетекті блоктау"
 
-#: ../src/file-manager/fm-directory-view.c:8294
-#: ../src/file-manager/fm-directory-view.c:8298
+#: ../src/file-manager/fm-directory-view.c:8297
+#: ../src/file-manager/fm-directory-view.c:8301
 msgid "Start the drive associated with the open folder"
 msgstr "Ашық бумаға сәйкес келетін жетекті іске қосу"
 
-#: ../src/file-manager/fm-directory-view.c:8302
+#: ../src/file-manager/fm-directory-view.c:8305
 msgid "Connect to the drive associated with the open folder"
 msgstr "Ашық бумаға сәйкес келетін жетегіне байланысу"
 
-#: ../src/file-manager/fm-directory-view.c:8306
+#: ../src/file-manager/fm-directory-view.c:8309
 msgid "Start the multi-disk drive associated with the open folder"
 msgstr "Ашық бумаға сәйкес келетін көпдискті жетекті іске қосу"
 
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
-#: ../src/file-manager/fm-directory-view.c:8309
-#: ../src/file-manager/fm-directory-view.c:8419
-#: ../src/caja-places-sidebar.c:1829
+#: ../src/file-manager/fm-directory-view.c:8312
+#: ../src/file-manager/fm-directory-view.c:8422
+#: ../src/caja-places-sidebar.c:1806
 msgid "_Unlock Drive"
 msgstr "Жетекті бо_сату"
 
-#: ../src/file-manager/fm-directory-view.c:8310
+#: ../src/file-manager/fm-directory-view.c:8313
 msgid "Unlock the drive associated with the open folder"
 msgstr "Ашық бумаға сәйкес келетін жетекті босату"
 
-#: ../src/file-manager/fm-directory-view.c:8323
+#: ../src/file-manager/fm-directory-view.c:8326
 msgid "_Stop the drive associated with the open folder"
 msgstr "Ашық бумаға сәйкес келетін жетекті т_оқтату"
 
-#: ../src/file-manager/fm-directory-view.c:8327
+#: ../src/file-manager/fm-directory-view.c:8330
 msgid "Safely remove the drive associated with the open folder"
 msgstr "Ашық бумаға сәйкес келетін жетекті қауіпсіз шығару"
 
-#: ../src/file-manager/fm-directory-view.c:8331
+#: ../src/file-manager/fm-directory-view.c:8334
 msgid "Disconnect the drive associated with the open folder"
 msgstr "Ашық бумаға сәйкес келетін жетекті ажыратып тастау"
 
-#: ../src/file-manager/fm-directory-view.c:8335
+#: ../src/file-manager/fm-directory-view.c:8338
 msgid "Stop the multi-disk drive associated with the open folder"
 msgstr "Ашық бумаға сәйкес келетін көпдискті жетекті тоқтату"
 
-#: ../src/file-manager/fm-directory-view.c:8339
+#: ../src/file-manager/fm-directory-view.c:8342
 msgid "Lock the drive associated with the open folder"
 msgstr "Ашық бумаға сәйкес келетін жетекті блоктау"
 
 #. add the "open in new window" menu item
-#: ../src/file-manager/fm-directory-view.c:8518
-#: ../src/file-manager/fm-directory-view.c:8828
-#: ../src/file-manager/fm-tree-view.c:1287 ../src/caja-places-sidebar.c:2697
+#: ../src/file-manager/fm-directory-view.c:8521
+#: ../src/file-manager/fm-directory-view.c:8831
+#: ../src/file-manager/fm-tree-view.c:1287 ../src/caja-places-sidebar.c:2671
 msgid "Open in New _Window"
 msgstr "Жаңа тере_зеде ашу"
 
-#: ../src/file-manager/fm-directory-view.c:8520
-#: ../src/file-manager/fm-directory-view.c:8837
+#: ../src/file-manager/fm-directory-view.c:8523
+#: ../src/file-manager/fm-directory-view.c:8840
 msgid "Browse in New _Window"
 msgstr "Жаңа _терезеде шолу"
 
-#: ../src/file-manager/fm-directory-view.c:8526
-#: ../src/file-manager/fm-directory-view.c:8847
+#: ../src/file-manager/fm-directory-view.c:8529
+#: ../src/file-manager/fm-directory-view.c:8850
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
 msgstr[0] "_Буманы шолу"
 
-#: ../src/file-manager/fm-directory-view.c:8543
-#: ../src/file-manager/fm-directory-view.c:8876
+#: ../src/file-manager/fm-directory-view.c:8546
+#: ../src/file-manager/fm-directory-view.c:8879
 msgid "Browse in New _Tab"
 msgstr "Жаңа бе_тте шолу"
 
-#: ../src/file-manager/fm-directory-view.c:8592
-#: ../src/file-manager/fm-directory-view.c:8917
+#: ../src/file-manager/fm-directory-view.c:8595
+#: ../src/file-manager/fm-directory-view.c:8920
 msgid "_Delete Permanently"
 msgstr "_Толығымен өшіру"
 
-#: ../src/file-manager/fm-directory-view.c:8593
+#: ../src/file-manager/fm-directory-view.c:8596
 msgid "Delete the open folder permanently"
 msgstr "Ашық буманы толығымен өшіру"
 
-#: ../src/file-manager/fm-directory-view.c:8597
+#: ../src/file-manager/fm-directory-view.c:8600
 msgid "Move the open folder to the Trash"
 msgstr "Ашық буманы қоқыс шелегіне тастау"
 
-#: ../src/file-manager/fm-directory-view.c:8777
+#: ../src/file-manager/fm-directory-view.c:8780
 #, c-format
 msgid "_Open With %s"
 msgstr "%s _көмегімен ашу"
 
-#: ../src/file-manager/fm-directory-view.c:8830
+#: ../src/file-manager/fm-directory-view.c:8833
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
 msgstr[0] "Жаңа %'d терезеде ашу"
 
-#: ../src/file-manager/fm-directory-view.c:8839
+#: ../src/file-manager/fm-directory-view.c:8842
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
 msgstr[0] "Жаңа %'d _терезеде шолу"
 
-#: ../src/file-manager/fm-directory-view.c:8869
+#: ../src/file-manager/fm-directory-view.c:8872
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
 msgstr[0] "Жаңа %'d бетте ашу"
 
-#: ../src/file-manager/fm-directory-view.c:8878
+#: ../src/file-manager/fm-directory-view.c:8881
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
 msgstr[0] "Жаңа %'d бе_тте шолу"
 
-#: ../src/file-manager/fm-directory-view.c:8918
+#: ../src/file-manager/fm-directory-view.c:8921
 msgid "Delete all selected items permanently"
 msgstr "Барлық таңдалған нәрсені толығымен өшіру"
 
-#: ../src/file-manager/fm-directory-view.c:8975
+#: ../src/file-manager/fm-directory-view.c:8978
 msgid "View or modify the properties of the open folder"
 msgstr "Ашық бумасының қасиеттерін қарау не түзету"
 
-#: ../src/file-manager/fm-directory-view.c:10278
+#: ../src/file-manager/fm-directory-view.c:10281
 msgid "Download location?"
 msgstr "Орналасуды жүктеп алу керек пе?"
 
-#: ../src/file-manager/fm-directory-view.c:10281
+#: ../src/file-manager/fm-directory-view.c:10284
 msgid "You can download it or make a link to it."
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:10284
+#: ../src/file-manager/fm-directory-view.c:10287
 msgid "Make a _Link"
 msgstr "Сі_лтемені жасау"
 
-#: ../src/file-manager/fm-directory-view.c:10288
+#: ../src/file-manager/fm-directory-view.c:10291
 msgid "_Download"
 msgstr "Жү_ктеп алу"
 
-#: ../src/file-manager/fm-directory-view.c:10449
-#: ../src/file-manager/fm-directory-view.c:10508
-#: ../src/file-manager/fm-directory-view.c:10613
+#: ../src/file-manager/fm-directory-view.c:10452
+#: ../src/file-manager/fm-directory-view.c:10511
+#: ../src/file-manager/fm-directory-view.c:10616
 msgid "Drag and drop is not supported."
 msgstr "Ұстап апару мен тастауға қолдау жоқ."
 
-#: ../src/file-manager/fm-directory-view.c:10450
+#: ../src/file-manager/fm-directory-view.c:10453
 msgid "Drag and drop is only supported on local file systems."
 msgstr "Ұстап апару мен тастау тек жергілікті файлдық жүйелер үшін істейді."
 
-#: ../src/file-manager/fm-directory-view.c:10509
-#: ../src/file-manager/fm-directory-view.c:10614
+#: ../src/file-manager/fm-directory-view.c:10512
+#: ../src/file-manager/fm-directory-view.c:10617
 msgid "An invalid drag type was used."
 msgstr "Қате тартып апару түрі қолданылды."
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10691
+#: ../src/file-manager/fm-directory-view.c:10694
 msgid "dropped text.txt"
 msgstr "тасталған мәтін.txt"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10736
+#: ../src/file-manager/fm-directory-view.c:10739
 msgid "dropped data"
 msgstr "тасталған мәлімет"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11125
+#: ../src/file-manager/fm-directory-view.c:11128
 msgid "Undo"
 msgstr "Болдырмау"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11143
+#: ../src/file-manager/fm-directory-view.c:11146
 msgid "Redo"
 msgstr "Қайталау"
 
@@ -5084,46 +5084,46 @@ msgstr "Жүктеу..."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-list-view.c:1826
-#: ../src/file-manager/fm-list-view.c:3443
+#: ../src/file-manager/fm-list-view.c:1837
+#: ../src/file-manager/fm-list-view.c:3454
 #: ../src/caja-file-management-properties.ui.h:2
 msgid "List View"
 msgstr "Тізім көрінісі"
 
-#: ../src/file-manager/fm-list-view.c:2520
+#: ../src/file-manager/fm-list-view.c:2531
 #, c-format
 msgid "%s Visible Columns"
 msgstr "%s көрінетін баған"
 
-#: ../src/file-manager/fm-list-view.c:2539
+#: ../src/file-manager/fm-list-view.c:2550
 msgid "Choose the order of information to appear in this folder:"
 msgstr "Бұл бумада көрсетілетін ақпараттың ретін таңдаңыз:"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-list-view.c:2597
+#: ../src/file-manager/fm-list-view.c:2608
 msgid "Visible _Columns..."
 msgstr "Көрінетін _бағандар..."
 
 #. tooltip
-#: ../src/file-manager/fm-list-view.c:2598
+#: ../src/file-manager/fm-list-view.c:2609
 msgid "Select the columns visible in this folder"
 msgstr "Бұл бумада көрінетін бағандарды таңдаңыз"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-list-view.c:3445
+#: ../src/file-manager/fm-list-view.c:3456
 msgid "_List"
 msgstr "Тізі_м"
 
-#: ../src/file-manager/fm-list-view.c:3446
+#: ../src/file-manager/fm-list-view.c:3457
 msgid "The list view encountered an error."
 msgstr "Тізім көрінісінде қате орын алды."
 
-#: ../src/file-manager/fm-list-view.c:3447
+#: ../src/file-manager/fm-list-view.c:3458
 msgid "The list view encountered an error while starting up."
 msgstr ""
 
-#: ../src/file-manager/fm-list-view.c:3448
+#: ../src/file-manager/fm-list-view.c:3459
 msgid "Display this location with the list view."
 msgstr "Бұл орналасуды тізім түрінде көрсету."
 
@@ -5444,15 +5444,15 @@ msgstr "Қасиеттер терезесін жасау."
 msgid "Select Custom Icon"
 msgstr "Таңдауыңызша таңбашаны көрсетіңіз"
 
-#: ../src/file-manager/fm-tree-view.c:1438 ../src/caja-places-sidebar.c:538
+#: ../src/file-manager/fm-tree-view.c:1438 ../src/caja-places-sidebar.c:535
 msgid "File System"
 msgstr "Файлдық жүйе"
 
-#: ../src/file-manager/fm-tree-view.c:1726
+#: ../src/file-manager/fm-tree-view.c:1729
 msgid "Tree"
 msgstr "Ағаш"
 
-#: ../src/file-manager/fm-tree-view.c:1732
+#: ../src/file-manager/fm-tree-view.c:1735
 msgid "Show Tree"
 msgstr "Ағашты көрсету"
 
@@ -5478,8 +5478,8 @@ msgid ""
 "that Caja can create them."
 msgstr ""
 
-#: ../src/caja-application.c:1264 ../src/caja-places-sidebar.c:2214
-#: ../src/caja-places-sidebar.c:2248 ../src/caja-places-sidebar.c:2283
+#: ../src/caja-application.c:1264 ../src/caja-places-sidebar.c:2191
+#: ../src/caja-places-sidebar.c:2222 ../src/caja-places-sidebar.c:2257
 #, c-format
 msgid "Unable to eject %s"
 msgstr "%s шығару мүмкін емес"
@@ -5577,7 +5577,7 @@ msgstr ""
 
 #: ../src/caja-bookmarks-window.c:164
 #: ../src/caja-file-management-properties.c:242
-#: ../src/caja-property-browser.c:1673 ../src/caja-window-menus.c:598
+#: ../src/caja-property-browser.c:1677 ../src/caja-window-menus.c:598
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
@@ -5740,7 +5740,7 @@ msgid "Bookmark Name:"
 msgstr "Бетбелгі атауы:"
 
 #: ../src/caja-desktop-window.c:87 ../src/caja-desktop-window.c:267
-#: ../src/caja-pathbar.c:1403 ../src/caja-places-sidebar.c:523
+#: ../src/caja-pathbar.c:1403 ../src/caja-places-sidebar.c:519
 msgid "Desktop"
 msgstr "Жұмыс үстелі"
 
@@ -6227,11 +6227,11 @@ msgstr "Кеңетуді ба_птау"
 msgid "Extensions"
 msgstr "Кеңейтулер"
 
-#: ../src/caja-history-sidebar.c:335
+#: ../src/caja-history-sidebar.c:338
 msgid "History"
 msgstr "Тарихы"
 
-#: ../src/caja-history-sidebar.c:341
+#: ../src/caja-history-sidebar.c:344
 msgid "Show History"
 msgstr "Тарихты көрсету"
 
@@ -6651,100 +6651,100 @@ msgstr "%s - Файлдарды шолу"
 msgid "Close tab"
 msgstr "Бетті жабу"
 
-#: ../src/caja-notes-viewer.c:396 ../src/caja-notes-viewer.c:500
+#: ../src/caja-notes-viewer.c:399 ../src/caja-notes-viewer.c:503
 msgid "Notes"
 msgstr "Естеліктер"
 
-#: ../src/caja-notes-viewer.c:402
+#: ../src/caja-notes-viewer.c:405
 msgid "Show Notes"
 msgstr "Естеліктерді көрсету"
 
-#: ../src/caja-places-sidebar.c:312
+#: ../src/caja-places-sidebar.c:309
 msgid "Devices"
 msgstr "Құрылғылар"
 
-#: ../src/caja-places-sidebar.c:320
+#: ../src/caja-places-sidebar.c:317
 msgid "Bookmarks"
 msgstr "Бетбелгілер"
 
-#: ../src/caja-places-sidebar.c:525
+#: ../src/caja-places-sidebar.c:521
 msgid "Open the contents of your desktop in a folder"
 msgstr "Жұмыс үстеліңіздің құрамасын бумада ашу"
 
-#: ../src/caja-places-sidebar.c:540
+#: ../src/caja-places-sidebar.c:537
 msgid "Open the contents of the File System"
 msgstr "Файлдық жүйенің құрамасын ашу"
 
-#: ../src/caja-places-sidebar.c:599
+#: ../src/caja-places-sidebar.c:596
 msgid "Open the trash"
 msgstr "Қоқыс шелегін ашу"
 
-#: ../src/caja-places-sidebar.c:654 ../src/caja-places-sidebar.c:682
+#: ../src/caja-places-sidebar.c:651 ../src/caja-places-sidebar.c:679
 #, c-format
 msgid "Mount and open %s"
 msgstr "%s тіркеу мен ашу"
 
-#: ../src/caja-places-sidebar.c:835 ../src/mate-network-scheme.desktop.in.h:1
+#: ../src/caja-places-sidebar.c:832 ../src/mate-network-scheme.desktop.in.h:1
 msgid "Network"
 msgstr "Желі"
 
-#: ../src/caja-places-sidebar.c:867
+#: ../src/caja-places-sidebar.c:864
 msgid "Browse Network"
 msgstr "Желіні шолу"
 
-#: ../src/caja-places-sidebar.c:869
+#: ../src/caja-places-sidebar.c:866
 msgid "Browse the contents of the network"
 msgstr "Желі құрамасын шолу"
 
 #. start() for type G_DRIVE_START_STOP_TYPE_SHUTDOWN is normally not used
-#: ../src/caja-places-sidebar.c:1816
+#: ../src/caja-places-sidebar.c:1793
 msgid "_Power On"
 msgstr "І_ске қосу"
 
-#: ../src/caja-places-sidebar.c:1820
+#: ../src/caja-places-sidebar.c:1797
 msgid "_Connect Drive"
 msgstr "Дискті і_ске қосу"
 
-#: ../src/caja-places-sidebar.c:1821
+#: ../src/caja-places-sidebar.c:1798
 msgid "_Disconnect Drive"
 msgstr "Дискті а_жырату"
 
-#: ../src/caja-places-sidebar.c:1824
+#: ../src/caja-places-sidebar.c:1801
 msgid "_Start Multi-disk Device"
 msgstr "Көпдискті құрылғыны іске қ_осу"
 
-#: ../src/caja-places-sidebar.c:1825
+#: ../src/caja-places-sidebar.c:1802
 msgid "_Stop Multi-disk Device"
 msgstr "Көпдискті құрылғыны т_оқтату"
 
-#: ../src/caja-places-sidebar.c:1911 ../src/caja-places-sidebar.c:2503
+#: ../src/caja-places-sidebar.c:1888 ../src/caja-places-sidebar.c:2477
 #, c-format
 msgid "Unable to start %s"
 msgstr "%s іске қосу мүмкін емес"
 
-#: ../src/caja-places-sidebar.c:2447
+#: ../src/caja-places-sidebar.c:2421
 #, c-format
 msgid "Unable to poll %s for media changes"
 msgstr "%s тасушы өзгерістеріне бақылау мүмкін емес"
 
-#: ../src/caja-places-sidebar.c:2563
+#: ../src/caja-places-sidebar.c:2537
 #, c-format
 msgid "Unable to stop %s"
 msgstr "%s тоқтату мүмкін емес"
 
-#: ../src/caja-places-sidebar.c:2705
+#: ../src/caja-places-sidebar.c:2679
 msgid "Remove"
 msgstr "Өшіру"
 
-#: ../src/caja-places-sidebar.c:2714
+#: ../src/caja-places-sidebar.c:2688
 msgid "Rename..."
 msgstr "Атын ауыстыру..."
 
-#: ../src/caja-places-sidebar.c:3406
+#: ../src/caja-places-sidebar.c:3382
 msgid "Places"
 msgstr "Орындар"
 
-#: ../src/caja-places-sidebar.c:3412
+#: ../src/caja-places-sidebar.c:3388
 msgid "Show Places"
 msgstr "Орналасуларды көрсету"
 
@@ -6754,159 +6754,159 @@ msgid "Backgrounds and Emblems"
 msgstr "Фондар және эмблемалар"
 
 #. create the "remove" button
-#: ../src/caja-property-browser.c:405
+#: ../src/caja-property-browser.c:409
 msgid "_Remove..."
 msgstr "Ө_шіру..."
 
 #. now create the "add new" button
-#: ../src/caja-property-browser.c:419
+#: ../src/caja-property-browser.c:423
 msgid "Add new..."
 msgstr "Жаңасын қосу..."
 
-#: ../src/caja-property-browser.c:970
+#: ../src/caja-property-browser.c:974
 #, c-format
 msgid "Sorry, but pattern %s could not be deleted."
 msgstr "Кешіріңіз, \"%s\" оюын өшіру мүмкін емес."
 
-#: ../src/caja-property-browser.c:971
+#: ../src/caja-property-browser.c:975
 msgid "Check that you have permission to delete the pattern."
 msgstr ""
 
-#: ../src/caja-property-browser.c:987
+#: ../src/caja-property-browser.c:991
 #, c-format
 msgid "Sorry, but emblem %s could not be deleted."
 msgstr "Кешіріңіз, \"%s\" эмблемасын өшіру мүмкін емес."
 
-#: ../src/caja-property-browser.c:988
+#: ../src/caja-property-browser.c:992
 msgid "Check that you have permission to delete the emblem."
 msgstr ""
 
-#: ../src/caja-property-browser.c:1060
+#: ../src/caja-property-browser.c:1064
 msgid "Select an Image File for the New Emblem"
 msgstr "Жаңа эмблема үшін сурет файлын таңдау"
 
-#: ../src/caja-property-browser.c:1101
+#: ../src/caja-property-browser.c:1105
 msgid "Create a New Emblem"
 msgstr "Жаңа эмблеманы жасау"
 
 #. make the keyword label and field
-#: ../src/caja-property-browser.c:1122
+#: ../src/caja-property-browser.c:1126
 msgid "_Keyword:"
 msgstr "Кіл_тсөз:"
 
 #. set up a file chooser to pick the image file
-#: ../src/caja-property-browser.c:1145
+#: ../src/caja-property-browser.c:1149
 msgid "_Image:"
 msgstr "Суре_т:"
 
-#: ../src/caja-property-browser.c:1181
+#: ../src/caja-property-browser.c:1185
 msgid "Create a New Color:"
 msgstr "Жаңа түсті жасау:"
 
 #. make the name label and field
-#: ../src/caja-property-browser.c:1195
+#: ../src/caja-property-browser.c:1199
 msgid "Color _name:"
 msgstr "Тү_с аты:"
 
-#: ../src/caja-property-browser.c:1211
+#: ../src/caja-property-browser.c:1215
 msgid "Color _value:"
 msgstr "Түс _мәні:"
 
-#: ../src/caja-property-browser.c:1247
+#: ../src/caja-property-browser.c:1251
 msgid "Sorry, but you cannot replace the reset image."
 msgstr ""
 
-#: ../src/caja-property-browser.c:1248
+#: ../src/caja-property-browser.c:1252
 msgid "Reset is a special image that cannot be deleted."
 msgstr ""
 
-#: ../src/caja-property-browser.c:1278
+#: ../src/caja-property-browser.c:1282
 #, c-format
 msgid "Sorry, but the pattern %s could not be installed."
 msgstr ""
 
-#: ../src/caja-property-browser.c:1309
+#: ../src/caja-property-browser.c:1313
 msgid "Select an Image File to Add as a Pattern"
 msgstr ""
 
-#: ../src/caja-property-browser.c:1388 ../src/caja-property-browser.c:1418
+#: ../src/caja-property-browser.c:1392 ../src/caja-property-browser.c:1422
 msgid "The color cannot be installed."
 msgstr "Түсті орнату мүмкін емес."
 
-#: ../src/caja-property-browser.c:1389
+#: ../src/caja-property-browser.c:1393
 msgid "Sorry, but you must specify an unused color name for the new color."
 msgstr ""
 
-#: ../src/caja-property-browser.c:1419
+#: ../src/caja-property-browser.c:1423
 msgid "Sorry, but you must specify a non-blank name for the new color."
 msgstr ""
 
-#: ../src/caja-property-browser.c:1479
+#: ../src/caja-property-browser.c:1483
 msgid "Select a Color to Add"
 msgstr "Қосу үшін түсті тандаңыз"
 
-#: ../src/caja-property-browser.c:1525 ../src/caja-property-browser.c:1543
+#: ../src/caja-property-browser.c:1529 ../src/caja-property-browser.c:1547
 #, c-format
 msgid "Sorry, but \"%s\" is not a usable image file."
 msgstr "Кешіріңіз, \"%s\" қолдануға жарайтын сурет файлы емес."
 
-#: ../src/caja-property-browser.c:1526 ../src/caja-property-browser.c:1544
+#: ../src/caja-property-browser.c:1530 ../src/caja-property-browser.c:1548
 msgid "The file is not an image."
 msgstr "Бұл файл сурет файлы емес."
 
-#: ../src/caja-property-browser.c:2291
+#: ../src/caja-property-browser.c:2299
 msgid "Select a Category:"
 msgstr "Санатты таңдаңыз:"
 
-#: ../src/caja-property-browser.c:2303
+#: ../src/caja-property-browser.c:2311
 msgid "C_ancel Remove"
 msgstr "Өшіруді б_олдырмау"
 
-#: ../src/caja-property-browser.c:2312
+#: ../src/caja-property-browser.c:2320
 msgid "_Add a New Pattern..."
 msgstr "Жаңа оюды қ_осу..."
 
-#: ../src/caja-property-browser.c:2315
+#: ../src/caja-property-browser.c:2323
 msgid "_Add a New Color..."
 msgstr "Жаңа түсті қ_осу..."
 
-#: ../src/caja-property-browser.c:2318
+#: ../src/caja-property-browser.c:2326
 msgid "_Add a New Emblem..."
 msgstr "Жаңа эмблеманы қ_осу..."
 
-#: ../src/caja-property-browser.c:2344
+#: ../src/caja-property-browser.c:2352
 msgid "Click on a pattern to remove it"
 msgstr "Өшіру үшін оюдың үстінен шертіңіз"
 
-#: ../src/caja-property-browser.c:2347
+#: ../src/caja-property-browser.c:2355
 msgid "Click on a color to remove it"
 msgstr "Өшіру үшін түстің үстінен шертіңіз"
 
-#: ../src/caja-property-browser.c:2350
+#: ../src/caja-property-browser.c:2358
 msgid "Click on an emblem to remove it"
 msgstr "Өшіру үшін эмблеманың үстінен шертіңіз"
 
-#: ../src/caja-property-browser.c:2362
+#: ../src/caja-property-browser.c:2370
 msgid "Patterns:"
 msgstr "Оюлар:"
 
-#: ../src/caja-property-browser.c:2365
+#: ../src/caja-property-browser.c:2373
 msgid "Colors:"
 msgstr "Түстер:"
 
-#: ../src/caja-property-browser.c:2368
+#: ../src/caja-property-browser.c:2376
 msgid "Emblems:"
 msgstr "Эмблемалар:"
 
-#: ../src/caja-property-browser.c:2390
+#: ../src/caja-property-browser.c:2398
 msgid "_Remove a Pattern..."
 msgstr "Оюды ө_шіру..."
 
-#: ../src/caja-property-browser.c:2393
+#: ../src/caja-property-browser.c:2401
 msgid "_Remove a Color..."
 msgstr "Түсті ө_шіру..."
 
-#: ../src/caja-property-browser.c:2396
+#: ../src/caja-property-browser.c:2404
 msgid "_Remove an Emblem..."
 msgstr "Эмблеманы ө_шіру..."
 
@@ -6967,51 +6967,51 @@ msgstr "Мәтін файлы"
 msgid "Select type"
 msgstr "Түрін таңдаңыз"
 
-#: ../src/caja-query-editor.c:800
+#: ../src/caja-query-editor.c:804
 msgid "Any"
 msgstr "Кез-келген"
 
-#: ../src/caja-query-editor.c:816
+#: ../src/caja-query-editor.c:820
 msgid "Other Type..."
 msgstr "Басқа түрі…"
 
-#: ../src/caja-query-editor.c:1120
+#: ../src/caja-query-editor.c:1124
 msgid "Remove this criterion from the search"
 msgstr "Бұл шартты іздеуден алып тастау"
 
-#: ../src/caja-query-editor.c:1167
+#: ../src/caja-query-editor.c:1171
 msgid "Search Folder"
 msgstr "Бумадан іздеу"
 
-#: ../src/caja-query-editor.c:1173
+#: ../src/caja-query-editor.c:1177
 msgid "Edit"
 msgstr "Түзету"
 
-#: ../src/caja-query-editor.c:1181
+#: ../src/caja-query-editor.c:1185
 msgid "Edit the saved search"
 msgstr "Сақталған іздеуді түзету"
 
-#: ../src/caja-query-editor.c:1213
+#: ../src/caja-query-editor.c:1217
 msgid "Add a new criterion to this search"
 msgstr "Бұл іздеуге жаңа шартты қосу"
 
-#: ../src/caja-query-editor.c:1219
+#: ../src/caja-query-editor.c:1223
 msgid "Go"
 msgstr "Өту"
 
-#: ../src/caja-query-editor.c:1223
+#: ../src/caja-query-editor.c:1227
 msgid "Reload"
 msgstr "Қайта жүктеу"
 
-#: ../src/caja-query-editor.c:1228
+#: ../src/caja-query-editor.c:1232
 msgid "Perform or update the search"
 msgstr "Іздеуді орындау немесе жаңарту"
 
-#: ../src/caja-query-editor.c:1249
+#: ../src/caja-query-editor.c:1253
 msgid "_Search for:"
 msgstr "_Нені іздеу керек:"
 
-#: ../src/caja-query-editor.c:1278
+#: ../src/caja-query-editor.c:1282
 msgid "Search results"
 msgstr "Іздеу нәтижелері"
 
@@ -7179,7 +7179,7 @@ msgstr "Caja көмегімен сіз компьютеріңіздегі жән
 #: ../src/caja-window-menus.c:540
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
-"Copyright © 2011-2017 The Caja authors"
+"Copyright © 2011-2018 The Caja authors"
 msgstr ""
 
 #. Translators should localize the following string
@@ -7297,7 +7297,7 @@ msgstr "Үлке_йту"
 
 #. tooltip
 #: ../src/caja-window-menus.c:865 ../src/caja-zoom-control.c:96
-#: ../src/caja-zoom-control.c:397
+#: ../src/caja-zoom-control.c:398
 msgid "Increase the view size"
 msgstr "Көрініс түрін үлкейту"
 
@@ -7452,10 +7452,10 @@ msgstr "Кішірейту"
 msgid "Zoom to Default"
 msgstr "Масштабты тастау"
 
-#: ../src/caja-zoom-control.c:939
+#: ../src/caja-zoom-control.c:940
 msgid "Zoom"
 msgstr "Үлкейту"
 
-#: ../src/caja-zoom-control.c:944
+#: ../src/caja-zoom-control.c:945
 msgid "Set the zoom level of the current view"
 msgstr "Ағымдағы көріністің масштабын орнату"

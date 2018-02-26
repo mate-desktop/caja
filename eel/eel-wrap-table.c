@@ -53,6 +53,7 @@ struct EelWrapTableDetails
 
     guint is_scrolled : 1;
     guint cols;
+    gboolean drawn;
 };
 
 /* Private EelWrapTable methods */
@@ -252,6 +253,11 @@ eel_wrap_table_draw (GtkWidget *widget,
                                       cr);
     }
 
+    /*Redraw the table once and only once to ensure it is displayed */
+    if (wrap_table->details->drawn == FALSE){
+        gtk_widget_queue_allocate (GTK_WIDGET(widget));
+        wrap_table->details->drawn = TRUE;
+        }
     return FALSE;
 }
 
@@ -798,6 +804,8 @@ eel_wrap_table_new (gboolean homogeneous)
 
     eel_wrap_table_set_homogeneous (wrap_table, homogeneous);
 
+    wrap_table->details->drawn = FALSE;
+
     return GTK_WIDGET (wrap_table);
 }
 
@@ -1101,6 +1109,7 @@ eel_scrolled_wrap_table_new (gboolean homogeneous,
     gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolled_window),
                                     GTK_POLICY_NEVER,
                                     GTK_POLICY_AUTOMATIC);
+    gtk_scrolled_window_set_overlay_scrolling (GTK_SCROLLED_WINDOW (scrolled_window), FALSE);
 
     viewport = gtk_viewport_new (gtk_scrolled_window_get_hadjustment (GTK_SCROLLED_WINDOW (scrolled_window)),
                                  gtk_scrolled_window_get_vadjustment (GTK_SCROLLED_WINDOW (scrolled_window)));

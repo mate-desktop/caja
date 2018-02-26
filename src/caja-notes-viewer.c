@@ -347,6 +347,8 @@ caja_notes_viewer_init (CajaNotesViewer *sidebar)
                                          GTK_SHADOW_IN);
     gtk_scrolled_window_set_hadjustment (GTK_SCROLLED_WINDOW (sidebar), NULL);
     gtk_scrolled_window_set_vadjustment (GTK_SCROLLED_WINDOW (sidebar), NULL);
+    gtk_scrolled_window_set_overlay_scrolling (GTK_SCROLLED_WINDOW (sidebar), FALSE);
+
     gtk_container_add (GTK_CONTAINER (sidebar), details->note_text_field);
 
     g_signal_connect (details->note_text_field, "focus_out_event",

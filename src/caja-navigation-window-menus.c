@@ -131,8 +131,8 @@ forget_history_if_confirmed (CajaWindow *window)
     dialog = eel_create_question_dialog (_("Are you sure you want to clear the list "
                                            "of locations you have visited?"),
                                          NULL,
-                                         GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-                                         GTK_STOCK_CLEAR, RESPONSE_FORGET,
+                                         "gtk-cancel", GTK_RESPONSE_CANCEL,
+                                         "gtk-clear", RESPONSE_FORGET,
                                          GTK_WINDOW (window));
 
     gtk_widget_show (GTK_WIDGET (dialog));
@@ -821,46 +821,46 @@ action_tab_change_action_activate_callback (GtkAction *action, gpointer user_dat
 
 static const GtkActionEntry navigation_entries[] =
 {
-    /* name, stock id, label */  { "Go", NULL, N_("_Go") },
-    /* name, stock id, label */  { "Bookmarks", NULL, N_("_Bookmarks") },
-    /* name, stock id, label */  { "Tabs", NULL, N_("_Tabs") },
-    /* name, stock id, label */  { "New Window", "window-new", N_("New _Window"),
+    /* name, icon name, label */ { "Go", NULL, N_("_Go") },
+    /* name, icon name, label */ { "Bookmarks", NULL, N_("_Bookmarks") },
+    /* name, icon name, label */ { "Tabs", NULL, N_("_Tabs") },
+    /* name, icon name, label */ { "New Window", "window-new", N_("New _Window"),
         "<control>N", N_("Open another Caja window for the displayed location"),
         G_CALLBACK (action_new_window_callback)
     },
-    /* name, stock id, label */  { "New Tab", "tab-new", N_("New _Tab"),
+    /* name, icon name, label */ { "New Tab", "tab-new", N_("New _Tab"),
         "<control>T", N_("Open another tab for the displayed location"),
         G_CALLBACK (action_new_tab_callback)
     },
-    /* name, stock id, label */  { "Folder Window", "folder", N_("Open Folder W_indow"),
+    /* name, icon name, label */ { "Folder Window", "folder", N_("Open Folder W_indow"),
         NULL, N_("Open a folder window for the displayed location"),
         G_CALLBACK (action_folder_window_callback)
     },
-    /* name, stock id, label */  { "Close All Windows", NULL, N_("Close _All Windows"),
+    /* name, icon name, label */ { "Close All Windows", NULL, N_("Close _All Windows"),
         "<control>Q", N_("Close all Navigation windows"),
         G_CALLBACK (action_close_all_windows_callback)
     },
-    /* name, stock id, label */  { "Go to Location", NULL, N_("_Location..."),
+    /* name, icon name, label */ { "Go to Location", NULL, N_("_Location..."),
         "<control>L", N_("Specify a location to open"),
         G_CALLBACK (action_go_to_location_callback)
     },
-    /* name, stock id, label */  { "Clear History", NULL, N_("Clea_r History"),
+    /* name, icon name, label */ { "Clear History", NULL, N_("Clea_r History"),
         NULL, N_("Clear contents of Go menu and Back/Forward lists"),
         G_CALLBACK (action_clear_history_callback)
     },
-    /* name, stock id, label */  { "SplitViewNextPane", NULL, N_("S_witch to Other Pane"),
+    /* name, icon name, label */ { "SplitViewNextPane", NULL, N_("S_witch to Other Pane"),
         "F6", N_("Move focus to the other pane in a split view window"),
         G_CALLBACK (action_split_view_switch_next_pane_callback)
     },
-    /* name, stock id, label */  { "SplitViewSameLocation", NULL, N_("Sa_me Location as Other Pane"),
+    /* name, icon name, label */ { "SplitViewSameLocation", NULL, N_("Sa_me Location as Other Pane"),
         NULL, N_("Go to the same location as in the extra pane"),
         G_CALLBACK (action_split_view_same_location_callback)
     },
-    /* name, stock id, label */  { "Add Bookmark", GTK_STOCK_ADD, N_("_Add Bookmark"),
+    /* name, icon name, label */ { "Add Bookmark", "list-add", N_("_Add Bookmark"),
         "<control>d", N_("Add a bookmark for the current location to this menu"),
         G_CALLBACK (action_add_bookmark_callback)
     },
-    /* name, stock id, label */  { "Edit Bookmarks", NULL, N_("_Edit Bookmarks..."),
+    /* name, icon name, label */ { "Edit Bookmarks", NULL, N_("_Edit Bookmarks..."),
         "<control>b", N_("Display a window that allows editing the bookmarks in this menu"),
         G_CALLBACK (action_edit_bookmarks_callback)
     },
@@ -893,38 +893,38 @@ static const GtkActionEntry navigation_entries[] =
 
 static const GtkToggleActionEntry navigation_toggle_entries[] =
 {
-    /* name, stock id */     { "Show Hide Toolbar", NULL,
+    /* name, icon name */    { "Show Hide Toolbar", NULL,
         /* label, accelerator */   N_("_Main Toolbar"), NULL,
         /* tooltip */              N_("Change the visibility of this window's main toolbar"),
         G_CALLBACK (action_show_hide_toolbar_callback),
         /* is_active */            TRUE
     },
-    /* name, stock id */     { "Show Hide Sidebar", NULL,
+    /* name, icon name */    { "Show Hide Sidebar", NULL,
         /* label, accelerator */   N_("_Side Pane"), "F9",
         /* tooltip */              N_("Change the visibility of this window's side pane"),
         G_CALLBACK (action_show_hide_sidebar_callback),
         /* is_active */            TRUE
     },
-    /* name, stock id */     { "Show Hide Location Bar", NULL,
+    /* name, icon name */    { "Show Hide Location Bar", NULL,
         /* label, accelerator */   N_("Location _Bar"), NULL,
         /* tooltip */              N_("Change the visibility of this window's location bar"),
         G_CALLBACK (action_show_hide_location_bar_callback),
         /* is_active */            TRUE
     },
-    /* name, stock id */     { "Show Hide Statusbar", NULL,
+    /* name, icon name */    { "Show Hide Statusbar", NULL,
         /* label, accelerator */   N_("St_atusbar"), NULL,
         /* tooltip */              N_("Change the visibility of this window's statusbar"),
         G_CALLBACK (action_show_hide_statusbar_callback),
         /* is_active */            TRUE
     },
-    /* name, stock id */     { "Search", "gtk-find",
+    /* name, icon name */    { "Search", "edit-find",
         /* label, accelerator */   N_("_Search for Files..."),
         /* Accelerator is in ShowSearch */"",
         /* tooltip */              N_("Search documents and folders by name"),
         G_CALLBACK (action_show_hide_search_callback),
         /* is_active */            FALSE
     },
-    /* name, stock id */     {
+    /* name, icon name */    {
         CAJA_ACTION_SHOW_HIDE_EXTRA_PANE, NULL,
         /* label, accelerator */   N_("E_xtra Pane"), "F3",
         /* tooltip */              N_("Open an extra folder view side-by-side"),
@@ -954,7 +954,7 @@ caja_navigation_window_initialize_actions (CajaNavigationWindow *window)
     action = g_object_new (CAJA_TYPE_NAVIGATION_ACTION,
                            "name", "Back",
                            "label", _("_Back"),
-                           "stock_id", GTK_STOCK_GO_BACK,
+                           "icon-name", "go-previous",
                            "tooltip", _("Go to the previous visited location"),
                            "arrow-tooltip", _("Back history"),
                            "window", window,
@@ -971,7 +971,7 @@ caja_navigation_window_initialize_actions (CajaNavigationWindow *window)
     action = g_object_new (CAJA_TYPE_NAVIGATION_ACTION,
                            "name", "Forward",
                            "label", _("_Forward"),
-                           "stock_id", GTK_STOCK_GO_FORWARD,
+                           "icon-name", "go-next",
                            "tooltip", _("Go to the next visited location"),
                            "arrow-tooltip", _("Forward history"),
                            "window", window,

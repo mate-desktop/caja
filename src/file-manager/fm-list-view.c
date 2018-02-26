@@ -2534,7 +2534,7 @@ create_column_editor (FMListView *view)
     window = gtk_dialog_new_with_buttons (str,
                                           GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (view))),
                                           GTK_DIALOG_DESTROY_WITH_PARENT,
-                                          GTK_STOCK_CLOSE, GTK_RESPONSE_CLOSE,
+                                          "gtk-close", GTK_RESPONSE_CLOSE,
                                           NULL);
     g_free (str);
     g_signal_connect (window, "response",
@@ -2552,12 +2552,8 @@ create_column_editor (FMListView *view)
     label = gtk_label_new (NULL);
     gtk_label_set_markup (GTK_LABEL (label), str);
     gtk_label_set_line_wrap (GTK_LABEL (label), FALSE);
-#if GTK_CHECK_VERSION (3, 16, 0)
     gtk_label_set_xalign (GTK_LABEL (label), 0);
     gtk_label_set_yalign (GTK_LABEL (label), 0);
-#else
-    gtk_misc_set_alignment (GTK_MISC (label), 0, 0);
-#endif
     gtk_widget_show (label);
     gtk_box_pack_start (GTK_BOX (box), label, FALSE, FALSE, 0);
 

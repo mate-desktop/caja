@@ -60,10 +60,7 @@ typedef struct
 {
     GtkScrolledWindow  parent;
     GtkTreeView        *tree_view;
-    GtkCellRenderer    *eject_text_cell_renderer;
-    GtkCellRenderer    *icon_cell_renderer;
-    GtkCellRenderer    *icon_padding_cell_renderer;
-    GtkCellRenderer    *padding_cell_renderer;
+    GtkCellRenderer    *eject_icon_cell_renderer;
     char               *uri;
     GtkListStore       *store;
     GtkTreeModel       *filter_model;
@@ -493,42 +490,42 @@ update_places (CajaPlacesSidebar *sidebar)
                              _("Computer"));
 
     /* add built in bookmarks */
-    desktop_path = caja_get_desktop_directory ();
 
     /* home folder */
-    if (strcmp (g_get_home_dir(), desktop_path) != 0) {
-        char *display_name;
+    char *display_name;
 
-        mount_uri = caja_get_home_directory_uri ();
-        display_name = g_filename_display_basename (g_get_home_dir ());
-        icon = g_themed_icon_new (CAJA_ICON_HOME);
-        last_iter = add_place (sidebar, PLACES_BUILT_IN,
-                               SECTION_COMPUTER,
-                               display_name, icon,
-                               mount_uri, NULL, NULL, NULL, 0,
-                               _("Open your personal folder"));
-        g_object_unref (icon);
-        g_free (display_name);
-        compare_for_selection (sidebar,
-                               location, mount_uri, last_uri,
-                               &last_iter, &select_path);
-        g_free (mount_uri);
-    }
-
-    /* desktop */
-    mount_uri = g_filename_to_uri (desktop_path, NULL, NULL);
-    icon = g_themed_icon_new (CAJA_ICON_DESKTOP);
+    mount_uri = caja_get_home_directory_uri ();
+    display_name = g_filename_display_basename (g_get_home_dir ());
+    icon = g_themed_icon_new (CAJA_ICON_HOME);
     last_iter = add_place (sidebar, PLACES_BUILT_IN,
                            SECTION_COMPUTER,
-                           _("Desktop"), icon,
+                           display_name, icon,
                            mount_uri, NULL, NULL, NULL, 0,
-                           _("Open the contents of your desktop in a folder"));
+                           _("Open your personal folder"));
     g_object_unref (icon);
+    g_free (display_name);
     compare_for_selection (sidebar,
                            location, mount_uri, last_uri,
                            &last_iter, &select_path);
     g_free (mount_uri);
-    g_free (desktop_path);
+
+    /* desktop */
+    desktop_path = caja_get_desktop_directory ();
+    if (strcmp (g_get_home_dir(), desktop_path) != 0) {
+	    mount_uri = g_filename_to_uri (desktop_path, NULL, NULL);
+	    icon = g_themed_icon_new (CAJA_ICON_DESKTOP);
+	    last_iter = add_place (sidebar, PLACES_BUILT_IN,
+	                           SECTION_COMPUTER,
+	                           _("Desktop"), icon,
+	                           mount_uri, NULL, NULL, NULL, 0,
+	                           _("Open the contents of your desktop in a folder"));
+	    g_object_unref (icon);
+	    compare_for_selection (sidebar,
+	                           location, mount_uri, last_uri,
+	                           &last_iter, &select_path);
+	    g_free (mount_uri);
+    }
+	g_free (desktop_path);
 
     /* file system root */
     mount_uri = "file:///"; /* No need to strdup */
@@ -964,8 +961,7 @@ over_eject_button (CajaPlacesSidebar *sidebar,
                    GtkTreePath **path)
 {
     GtkTreeViewColumn *column;
-    GtkTextDirection direction;
-    int width, total_width;
+    int width, x_offset, hseparator;
     int eject_button_size;
     gboolean show_eject;
     GtkTreeIter iter;
@@ -987,45 +983,26 @@ over_eject_button (CajaPlacesSidebar *sidebar,
             goto out;
         }
 
-        total_width = 0;
-
         gtk_widget_style_get (GTK_WIDGET (sidebar->tree_view),
-                              "horizontal-separator", &width,
+                              "horizontal-separator",&hseparator,
                               NULL);
-        total_width += width;
+        /* Reload cell attributes for this particular row */
+        gtk_tree_view_column_cell_set_cell_data (column,
+                                                 model, &iter, FALSE, FALSE);
 
-        direction = gtk_widget_get_direction (GTK_WIDGET (sidebar->tree_view));
-        if (direction != GTK_TEXT_DIR_RTL) {
-            gtk_tree_view_column_cell_get_position (column,
-                                                    sidebar->padding_cell_renderer,
-                                                    NULL, &width);
-            total_width += width;
-
-            gtk_tree_view_column_cell_get_position (column,
-                                                    sidebar->icon_padding_cell_renderer,
-                                                    NULL, &width);
-            total_width += width;
-            
-            gtk_tree_view_column_cell_get_position (column,
-                                                    sidebar->icon_cell_renderer,
-                                                    NULL, &width);
-            total_width += width;
-
-            gtk_tree_view_column_cell_get_position (column,
-                                                    sidebar->eject_text_cell_renderer,
-                                                    NULL, &width);
-            total_width += width;
-        }
-
-        total_width += EJECT_BUTTON_XPAD;
+        gtk_tree_view_column_cell_get_position (column,
+                                                sidebar->eject_icon_cell_renderer,
+                                                &x_offset, &width);
 
         eject_button_size = caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU);
 
-        if (x - total_width >= 0 &&
-            /* fix unwanted unmount requests if clicking on the label */
-            x >= total_width - eject_button_size &&
-            x >= 80 &&
-            x - total_width <= eject_button_size) {
+       /* This is kinda weird, but we have to do it to workaround gtk+ expanding
+       * the eject cell renderer (even thought we told it not to) and we then
+       * had to set it right-aligned */
+        x_offset += width - hseparator - EJECT_BUTTON_XPAD - eject_button_size;
+
+        if (x - x_offset >= 0 &&
+        x - x_offset <= eject_button_size) {
             return TRUE;
         }
     }
@@ -2220,9 +2197,6 @@ drive_eject_cb (GObject *source_object,
         }
         g_error_free (error);
     }
-    else {
-        caja_application_notify_unmount_show ("It is now safe to remove the drive");
-    }
 }
 
 static void
@@ -2681,7 +2655,7 @@ bookmarks_build_popup_menu (CajaPlacesSidebar *sidebar)
 
     item = gtk_image_menu_item_new_with_mnemonic (_("_Open"));
     gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (item),
-                                   gtk_image_new_from_stock (GTK_STOCK_OPEN, GTK_ICON_SIZE_MENU));
+                                   gtk_image_new_from_icon_name ("document-open", GTK_ICON_SIZE_MENU));
     g_signal_connect (item, "activate",
                       G_CALLBACK (open_shortcut_cb), sidebar);
     gtk_widget_show (item);
@@ -2705,7 +2679,7 @@ bookmarks_build_popup_menu (CajaPlacesSidebar *sidebar)
     item = gtk_image_menu_item_new_with_label (_("Remove"));
     sidebar->popup_menu_remove_item = item;
     gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (item),
-                                   gtk_image_new_from_stock (GTK_STOCK_REMOVE, GTK_ICON_SIZE_MENU));
+                                   gtk_image_new_from_icon_name ("list-remove", GTK_ICON_SIZE_MENU));
     g_signal_connect (item, "activate",
                       G_CALLBACK (remove_shortcut_cb), sidebar);
     gtk_widget_show (item);
@@ -3168,6 +3142,7 @@ caja_places_sidebar_init (CajaPlacesSidebar *sidebar)
     gtk_scrolled_window_set_hadjustment (GTK_SCROLLED_WINDOW (sidebar), NULL);
     gtk_scrolled_window_set_vadjustment (GTK_SCROLLED_WINDOW (sidebar), NULL);
     gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (sidebar), GTK_SHADOW_IN);
+    gtk_scrolled_window_set_overlay_scrolling(GTK_SCROLLED_WINDOW (sidebar), FALSE);
 
     /* tree view */
     tree_view = GTK_TREE_VIEW (gtk_tree_view_new ());
@@ -3177,7 +3152,6 @@ caja_places_sidebar_init (CajaPlacesSidebar *sidebar)
 
     /* initial padding */
     cell = gtk_cell_renderer_text_new ();
-    sidebar->padding_cell_renderer = cell;
     gtk_tree_view_column_pack_start (col, cell, FALSE);
     g_object_set (cell,
                   "xpad", 6,
@@ -3201,7 +3175,6 @@ caja_places_sidebar_init (CajaPlacesSidebar *sidebar)
 
     /* icon padding */
     cell = gtk_cell_renderer_text_new ();
-    sidebar->icon_padding_cell_renderer = cell;
     gtk_tree_view_column_pack_start (col, cell, FALSE);
     gtk_tree_view_column_set_cell_data_func (col, cell,
                                              padding_cell_renderer_func,
@@ -3209,7 +3182,6 @@ caja_places_sidebar_init (CajaPlacesSidebar *sidebar)
 
     /* icon renderer */
     cell = gtk_cell_renderer_pixbuf_new ();
-    sidebar->icon_cell_renderer = cell;
     gtk_tree_view_column_pack_start (col, cell, FALSE);
     gtk_tree_view_column_set_attributes (col, cell,
                                          "pixbuf", PLACES_SIDEBAR_COLUMN_ICON,
@@ -3220,7 +3192,6 @@ caja_places_sidebar_init (CajaPlacesSidebar *sidebar)
 
     /* eject text renderer */
     cell = gtk_cell_renderer_text_new ();
-    sidebar->eject_text_cell_renderer = cell;
     gtk_tree_view_column_pack_start (col, cell, TRUE);
     gtk_tree_view_column_set_attributes (col, cell,
                                          "text", PLACES_SIDEBAR_COLUMN_NAME,
@@ -3233,10 +3204,14 @@ caja_places_sidebar_init (CajaPlacesSidebar *sidebar)
 
     /* eject icon renderer */
     cell = gtk_cell_renderer_pixbuf_new ();
+    sidebar->eject_icon_cell_renderer = cell;
     g_object_set (cell,
                   "mode", GTK_CELL_RENDERER_MODE_ACTIVATABLE,
                   "stock-size", GTK_ICON_SIZE_MENU,
                   "xpad", EJECT_BUTTON_XPAD,
+                  /* align right, because for some reason gtk+ expands
+                  this even though we tell it not to. */
+                  "xalign", 1.0,
                   NULL);
     gtk_tree_view_column_pack_start (col, cell, FALSE);
     gtk_tree_view_column_set_attributes (col, cell,

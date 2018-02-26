@@ -326,7 +326,6 @@ icon_set_position (CajaIcon *icon,
     int item_width, item_height;
     int height_above, width_left;
     int min_x, max_x, min_y, max_y;
-    int sc_width, sc_height;
 
     if (icon->x == x && icon->y == y)
     {
@@ -355,16 +354,12 @@ icon_set_position (CajaIcon *icon,
 
         For now, we have a cheesy workaround:
         */
-
-        gdk_window_get_geometry (gdk_screen_get_root_window (gdk_screen_get_default()),
-                                 NULL, NULL, &sc_width, &sc_height);
-
         container_x = 0;
         container_y = 0;
-        container_width = sc_width - container_x
+        container_width = WidthOfScreen (gdk_x11_screen_get_xscreen (gdk_screen_get_default ())) - container_x
                           - container->details->left_margin
                           - container->details->right_margin;
-        container_height = sc_height - container_y
+        container_height = HeightOfScreen (gdk_x11_screen_get_xscreen (gdk_screen_get_default ())) - container_y
                            - container->details->top_margin
                            - container->details->bottom_margin;
         pixels_per_unit = EEL_CANVAS (container)->pixels_per_unit;
@@ -2724,10 +2719,8 @@ rubberband_timeout_callback (gpointer data)
     double world_x, world_y;
     int x_scroll, y_scroll;
     int adj_x, adj_y;
-#if GTK_CHECK_VERSION (3, 20, 0)
     GdkDisplay *display;
     GdkSeat *seat;
-#endif
     gboolean adj_changed;
     GtkAllocation allocation;
 
@@ -2757,20 +2750,12 @@ rubberband_timeout_callback (gpointer data)
         band_info->last_adj_y = adj_y;
         adj_changed = TRUE;
     }
-#if GTK_CHECK_VERSION (3, 20, 0)
     display = gtk_widget_get_display (widget);
     seat = gdk_display_get_default_seat (display);
 
     gdk_window_get_device_position (gtk_widget_get_window (widget),
                                     gdk_seat_get_pointer (seat),
                                     &x, &y, NULL);
-#else
-    gdk_window_get_device_position (gtk_widget_get_window (widget),
-                                    gdk_device_manager_get_client_pointer (
-                                    gdk_display_get_device_manager (
-                                    gtk_widget_get_display (widget))),
-                                    &x, &y, NULL);
-#endif
 
     if (x < 0)
     {
@@ -2940,21 +2925,12 @@ start_rubberbanding (CajaIconContainer *container,
 				(GDK_POINTER_MOTION_MASK
 				 | GDK_BUTTON_RELEASE_MASK
 				 | GDK_SCROLL_MASK),
-#if GTK_CHECK_VERSION (3, 20, 0)
 				NULL,
 				(GdkEvent *)event);
-#else
-				NULL, event->time);
-#endif
 }
 
 static void
-#if GTK_CHECK_VERSION (3, 20, 0)
 stop_rubberbanding (CajaIconContainer *container)
-#else
-stop_rubberbanding (CajaIconContainer *container,
-                    guint32 time)
-#endif
 {
     CajaIconRubberbandInfo *band_info;
     GList *icons;
@@ -2968,11 +2944,7 @@ stop_rubberbanding (CajaIconContainer *container,
     band_info->active = FALSE;
 
     /* Destroy this canvas item; the parent will unref it. */
-#if GTK_CHECK_VERSION (3, 20, 0)
     eel_canvas_item_ungrab (band_info->selection_rectangle);
-#else
-    eel_canvas_item_ungrab (band_info->selection_rectangle, time);
-#endif
     eel_canvas_item_destroy (band_info->selection_rectangle);
     band_info->selection_rectangle = NULL;
 
@@ -4610,14 +4582,7 @@ realize (GtkWidget *widget)
     GTK_WIDGET_CLASS (caja_icon_container_parent_class)->realize (widget);
 
     container = CAJA_ICON_CONTAINER (widget);
-#if !GTK_CHECK_VERSION (3, 22, 0)
-    /* Ensure that the desktop window is native so the background
-       set on it is drawn by X. */
-    if (container->details->is_desktop)
-    {
-        gdk_x11_window_get_xid (gtk_layout_get_bin_window (GTK_LAYOUT (widget)));
-    }
-#endif
+
     /* Set up DnD.  */
     caja_icon_dnd_init (container);
 
@@ -4903,12 +4868,8 @@ clear_drag_state (CajaIconContainer *container)
 }
 
 static gboolean
-#if GTK_CHECK_VERSION (3, 20, 0)
 start_stretching (CajaIconContainer *container,
 		  GdkEvent *event)
-#else
-start_stretching (CajaIconContainer *container)
-#endif
 {
     CajaIconContainerDetails *details;
     CajaIcon *icon;
@@ -4966,11 +4927,8 @@ start_stretching (CajaIconContainer *container)
                           (GDK_POINTER_MOTION_MASK
                            | GDK_BUTTON_RELEASE_MASK),
                           cursor,
-#if GTK_CHECK_VERSION (3, 20, 0)
                           event);
-#else
-                          GDK_CURRENT_TIME);
-#endif
+
     if (cursor)
         g_object_unref (cursor);
 
@@ -5078,12 +5036,7 @@ keyboard_stretching (CajaIconContainer *container,
 static void
 ungrab_stretch_icon (CajaIconContainer *container)
 {
-#if GTK_CHECK_VERSION (3, 20, 0)
     eel_canvas_item_ungrab (EEL_CANVAS_ITEM (container->details->stretch_icon->item));
-#else
-    eel_canvas_item_ungrab (EEL_CANVAS_ITEM (container->details->stretch_icon->item),
-                            GDK_CURRENT_TIME);
-#endif
 }
 
 static void
@@ -5166,11 +5119,7 @@ button_release_event (GtkWidget *widget,
 
     if (event->button == RUBBERBAND_BUTTON && details->rubberband_info.active)
     {
-#if GTK_CHECK_VERSION (3, 20, 0)
         stop_rubberbanding (container);
-#else
-        stop_rubberbanding (container, event->time);
-#endif
         return TRUE;
     }
 
@@ -5290,29 +5239,19 @@ caja_icon_container_search_position_func (CajaIconContainer *container,
     gint x, y;
     gint cont_x, cont_y;
     gint cont_width, cont_height;
-    gint sc_width, sc_height;
     GdkWindow *cont_window;
     GdkScreen *screen;
     GtkRequisition requisition;
-#if GTK_CHECK_VERSION (3, 22, 0)
     GdkMonitor *monitor_num;
-#else
-    gint monitor_num;
-#endif
     GdkRectangle monitor;
 
 
     cont_window = gtk_widget_get_window (GTK_WIDGET (container));
     screen = gdk_window_get_screen (cont_window);
 
-#if GTK_CHECK_VERSION (3, 22, 0)
     monitor_num = gdk_display_get_monitor_at_window (gdk_screen_get_display (screen),
                                                      cont_window);
     gdk_monitor_get_geometry (monitor_num, &monitor);
-#else
-    monitor_num = gdk_screen_get_monitor_at_window (screen, cont_window);
-    gdk_screen_get_monitor_geometry (screen, monitor_num, &monitor);
-#endif
 
     gtk_widget_realize (search_dialog);
 
@@ -5321,14 +5260,11 @@ caja_icon_container_search_position_func (CajaIconContainer *container,
     cont_width = gdk_window_get_width (cont_window);
     cont_height = gdk_window_get_height (cont_window);
 
-    gdk_window_get_geometry (gdk_screen_get_root_window (screen), NULL, NULL,
-                             &sc_width, &sc_height);
-
     gtk_widget_get_preferred_size (search_dialog, &requisition, NULL);
 
-    if (cont_x + cont_width - requisition.width > sc_width)
+    if (cont_x + cont_width - requisition.width > WidthOfScreen (gdk_x11_screen_get_xscreen (screen)))
     {
-        x = sc_width - requisition.width;
+        x = WidthOfScreen (gdk_x11_screen_get_xscreen (screen)) - requisition.width;
     }
     else if (cont_x + cont_width - requisition.width < 0)
     {
@@ -5339,9 +5275,9 @@ caja_icon_container_search_position_func (CajaIconContainer *container,
         x = cont_x + cont_width - requisition.width;
     }
 
-    if (cont_y + cont_height > sc_height)
+    if (cont_y + cont_height > HeightOfScreen (gdk_x11_screen_get_xscreen (screen)))
     {
-        y = sc_height - requisition.height;
+        y = HeightOfScreen (gdk_x11_screen_get_xscreen (screen)) - requisition.height;
     }
     else if (cont_y + cont_height < 0)     /* isn't really possible ... */
     {
@@ -6087,7 +6023,6 @@ key_press_event (GtkWidget *widget,
         const char *new_text;
         gboolean retval;
         GdkScreen *screen;
-        gint sc_width, sc_height;
         gboolean text_modified;
         gulong popup_menu_id;
 
@@ -6105,13 +6040,9 @@ key_press_event (GtkWidget *widget,
 
         /* Move the entry off screen */
         screen = gtk_widget_get_screen (GTK_WIDGET (container));
-
-        gdk_window_get_geometry (gdk_screen_get_root_window (screen), NULL, NULL,
-                                 &sc_width, &sc_height);
-
         gtk_window_move (GTK_WINDOW (container->details->search_window),
-                         sc_width + 1,
-                         sc_height + 1);
+                         WidthOfScreen (gdk_x11_screen_get_xscreen (screen)) + 1,
+                         HeightOfScreen (gdk_x11_screen_get_xscreen (screen)) + 1);
         gtk_widget_show (container->details->search_window);
 
         /* Send the event to the window.  If the preedit_changed signal is emitted
@@ -6194,12 +6125,7 @@ grab_notify_cb  (GtkWidget        *widget,
          * up (e.g. authentication or an error). Stop
          * the rubberbanding so that we can handle the
          * dialog. */
-#if GTK_CHECK_VERSION (3, 20, 0)
         stop_rubberbanding (container);
-#else
-        stop_rubberbanding (container,
-                            GDK_CURRENT_TIME);
-#endif
     }
 }
 
@@ -6944,13 +6870,8 @@ handle_icon_button_press (CajaIconContainer *container,
          */
         if (icon == container->details->stretch_icon)
         {
-#if GTK_CHECK_VERSION (3, 20, 0)
             if (start_stretching (container, (GdkEvent *)event))
             {
-#else
-            if (start_stretching (container))
-            {
-#endif
                 return TRUE;
             }
         }
