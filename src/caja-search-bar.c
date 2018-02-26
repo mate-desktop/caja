@@ -225,7 +225,7 @@ caja_search_bar_new (CajaWindow *window)
     caja_clipboard_set_up_editable
     (GTK_EDITABLE (search_bar->details->entry),
      caja_window_get_ui_manager (window),
-     TRUE);
+     FALSE);
 
     return bar;
 }
