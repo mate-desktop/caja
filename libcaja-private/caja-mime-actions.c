@@ -737,7 +737,7 @@ report_broken_symbolic_link (GtkWindow *parent_window, CajaFile *file)
     if (caja_file_is_in_trash (file))
     {
         eel_run_simple_dialog (GTK_WIDGET (parent_window), FALSE, GTK_MESSAGE_WARNING,
-                               prompt, detail, "gtk-cancel", NULL);
+                               prompt, detail, "process-stop", NULL);
         goto out;
     }
 

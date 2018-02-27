@@ -385,7 +385,12 @@ eel_run_simple_dialog (GtkWidget *parent, gboolean ignore_close_box,
         {
             break;
         }
-        gtk_dialog_add_button (GTK_DIALOG (dialog), button_title, response_id);
+
+        if (g_strcmp0 (button_title, "process-stop") == 0)
+            mate_dialog_add_button (GTK_DIALOG (dialog), _("_Cancel"), button_title, response_id);
+        else
+            mate_dialog_add_button (GTK_DIALOG (dialog), _("_OK"), button_title, response_id);
+
         gtk_dialog_set_default_response (GTK_DIALOG (dialog), response_id);
         response_id++;
     }
