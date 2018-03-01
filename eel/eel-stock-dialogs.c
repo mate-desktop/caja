@@ -586,6 +586,18 @@ eel_create_question_dialog (const char *primary_text,
                                     GTK_MESSAGE_QUESTION,
                                     GTK_BUTTONS_NONE,
                                     parent);
-    gtk_dialog_add_buttons (dialog, answer_1, response_1, answer_2, response_2, NULL);
+
+    if (g_strcmp0 (answer_1, "process-stop") == 0)
+        mate_dialog_add_button (dialog, _("_Cancel"), answer_1, response_1);
+    else
+        gtk_dialog_add_button (dialog, answer_1, response_1);
+
+    if (g_strcmp0 (answer_2, "gtk-ok") == 0)
+        mate_dialog_add_button (dialog, _("_OK"), answer_2, response_2);
+    else if (g_strcmp0 (answer_2, "edit-clear") == 0)
+        mate_dialog_add_button (dialog, _("_Clear"), answer_2, response_2);
+    else
+        gtk_dialog_add_button (dialog, answer_2, response_2);
+
     return dialog;
 }

@@ -659,7 +659,7 @@ fm_directory_view_confirm_multiple (GtkWindow *parent_window,
 						   "This will open %'d separate windows.", count), count);
 	}
 	dialog = eel_show_yes_no_dialog (prompt, detail,
-					 "gtk-ok", "gtk-cancel",
+					 "gtk-ok", "process-stop",
 					 parent_window);
 	g_free (detail);
 

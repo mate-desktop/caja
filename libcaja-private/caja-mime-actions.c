@@ -741,7 +741,7 @@ report_broken_symbolic_link (GtkWindow *parent_window, CajaFile *file)
         goto out;
     }
 
-    dialog = eel_show_yes_no_dialog (prompt, detail, _("Mo_ve to Trash"), "gtk-cancel",
+    dialog = eel_show_yes_no_dialog (prompt, detail, _("Mo_ve to Trash"), "process-stop",
                                      parent_window);
 
     gtk_dialog_set_default_response (dialog, GTK_RESPONSE_CANCEL);
@@ -1179,7 +1179,7 @@ confirm_multiple_windows (GtkWindow *parent_window,
                                            "This will open %d separate windows.", count), count);
     }
     dialog = eel_show_yes_no_dialog (prompt, detail,
-                                     "gtk-ok", "gtk-cancel",
+                                     "gtk-ok", "process-stop",
                                      parent_window);
     g_free (detail);
 

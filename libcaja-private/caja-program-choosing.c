@@ -91,10 +91,11 @@ application_cannot_open_location (GAppInfo *application,
         }
 
         message_dialog = eel_show_yes_no_dialog (prompt,
-                         message,
-                         GTK_STOCK_OK,
-                         GTK_STOCK_CANCEL,
-                         parent_window);
+                                                 message,
+                                                 "gtk-ok",
+                                                 "process-stop",
+                                                 parent_window);
+
         response = gtk_dialog_run (message_dialog);
         gtk_widget_destroy (GTK_WIDGET (message_dialog));
 

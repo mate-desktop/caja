@@ -84,7 +84,7 @@ show_bogus_bookmark_window (CajaWindow *window,
 
     dialog = eel_show_yes_no_dialog (prompt, detail,
                                      _("Bookmark for Nonexistent Location"),
-                                     "gtk-cancel",
+                                     "process-stop",
                                      GTK_WINDOW (window));
 
     g_signal_connect (dialog, "response",
