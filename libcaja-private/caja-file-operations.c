@@ -1085,24 +1085,6 @@ typedef struct {
 	int result;
 } RunSimpleDialogData;
 
-static void
-mate_dialog_add_button (GtkDialog   *dialog,
-                        const gchar *button_text,
-                        const gchar *icon_name,
-                        gint         response_id)
-{
-	GtkWidget *button;
-
-	button = gtk_button_new_with_mnemonic (button_text);
-	gtk_button_set_image (GTK_BUTTON (button), gtk_image_new_from_icon_name (icon_name, GTK_ICON_SIZE_BUTTON));
-
-	gtk_button_set_use_underline (GTK_BUTTON (button), TRUE);
-	gtk_style_context_add_class (gtk_widget_get_style_context (button), "text-button");
-	gtk_widget_set_can_default (button, TRUE);
-	gtk_widget_show (button);
-	gtk_dialog_add_action_widget (GTK_DIALOG (dialog), button, response_id);
-}
-
 static gboolean
 do_run_simple_dialog (gpointer _data)
 {
@@ -1133,9 +1115,9 @@ do_run_simple_dialog (gpointer _data)
 		}
 
 		if (g_strcmp0 (button_title, CANCEL) == 0)
-			mate_dialog_add_button (GTK_DIALOG (dialog), button_title, "process-stop", response_id);
+			eel_dialog_add_button (GTK_DIALOG (dialog), button_title, "process-stop", response_id);
 		else if (g_strcmp0 (button_title, DELETE) == 0)
-			mate_dialog_add_button (GTK_DIALOG (dialog), button_title, "edit-delete", response_id);
+			eel_dialog_add_button (GTK_DIALOG (dialog), button_title, "edit-delete", response_id);
 		else
 			gtk_dialog_add_button (GTK_DIALOG (dialog), button_title, response_id);
 
@@ -2344,8 +2326,8 @@ prompt_empty_trash (GtkWindow *parent_window)
 	gtk_dialog_add_button (GTK_DIALOG (dialog),
 	                       _("Do _not Empty Trash"), GTK_RESPONSE_REJECT);
 
-	mate_dialog_add_button (GTK_DIALOG (dialog),
-	                        CANCEL, "process-stop", GTK_RESPONSE_CANCEL);
+	eel_dialog_add_button (GTK_DIALOG (dialog),
+	                       CANCEL, "process-stop", GTK_RESPONSE_CANCEL);
 
 	gtk_dialog_add_button (GTK_DIALOG (dialog),
 	                       _("Empty _Trash"), GTK_RESPONSE_ACCEPT);

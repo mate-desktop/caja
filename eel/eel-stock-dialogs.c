@@ -191,11 +191,11 @@ trash_dialog_response_callback (GtkDialog *dialog,
     gtk_widget_destroy (GTK_WIDGET (dialog));
 }
 
-static void
-mate_dialog_add_button (GtkDialog   *dialog,
-                        const gchar *button_text,
-                        const gchar *icon_name,
-                        gint         response_id)
+void
+eel_dialog_add_button (GtkDialog   *dialog,
+                       const gchar *button_text,
+                       const gchar *icon_name,
+                             gint   response_id)
 {
     GtkWidget *button;
 
@@ -232,9 +232,9 @@ timed_wait_callback (gpointer callback_data)
 		      NULL);
 
     if (g_strcmp0 (button, "process-stop") == 0)
-        mate_dialog_add_button (GTK_DIALOG (dialog), _("_Cancel"), button, GTK_RESPONSE_OK);
+        eel_dialog_add_button (GTK_DIALOG (dialog), _("_Cancel"), button, GTK_RESPONSE_OK);
     else
-        mate_dialog_add_button (GTK_DIALOG (dialog), _("_OK"), button, GTK_RESPONSE_OK);
+        eel_dialog_add_button (GTK_DIALOG (dialog), _("_OK"), button, GTK_RESPONSE_OK);
 
     gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_OK);
 
@@ -387,9 +387,9 @@ eel_run_simple_dialog (GtkWidget *parent, gboolean ignore_close_box,
         }
 
         if (g_strcmp0 (button_title, "process-stop") == 0)
-            mate_dialog_add_button (GTK_DIALOG (dialog), _("_Cancel"), button_title, response_id);
+            eel_dialog_add_button (GTK_DIALOG (dialog), _("_Cancel"), button_title, response_id);
         else
-            mate_dialog_add_button (GTK_DIALOG (dialog), _("_OK"), button_title, response_id);
+            eel_dialog_add_button (GTK_DIALOG (dialog), _("_OK"), button_title, response_id);
 
         gtk_dialog_set_default_response (GTK_DIALOG (dialog), response_id);
         response_id++;
@@ -588,14 +588,14 @@ eel_create_question_dialog (const char *primary_text,
                                     parent);
 
     if (g_strcmp0 (answer_1, "process-stop") == 0)
-        mate_dialog_add_button (dialog, _("_Cancel"), answer_1, response_1);
+        eel_dialog_add_button (dialog, _("_Cancel"), answer_1, response_1);
     else
         gtk_dialog_add_button (dialog, answer_1, response_1);
 
     if (g_strcmp0 (answer_2, "gtk-ok") == 0)
-        mate_dialog_add_button (dialog, _("_OK"), answer_2, response_2);
+        eel_dialog_add_button (dialog, _("_OK"), answer_2, response_2);
     else if (g_strcmp0 (answer_2, "edit-clear") == 0)
-        mate_dialog_add_button (dialog, _("_Clear"), answer_2, response_2);
+        eel_dialog_add_button (dialog, _("_Clear"), answer_2, response_2);
     else
         gtk_dialog_add_button (dialog, answer_2, response_2);
 
