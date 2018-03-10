@@ -191,7 +191,7 @@ trash_dialog_response_callback (GtkDialog *dialog,
     gtk_widget_destroy (GTK_WIDGET (dialog));
 }
 
-void
+GtkWidget*
 eel_dialog_add_button (GtkDialog   *dialog,
                        const gchar *button_text,
                        const gchar *icon_name,
@@ -207,6 +207,8 @@ eel_dialog_add_button (GtkDialog   *dialog,
     gtk_widget_set_can_default (button, TRUE);
     gtk_widget_show (button);
     gtk_dialog_add_action_widget (GTK_DIALOG (dialog), button, response_id);
+
+    return button;
 }
 
 static gboolean

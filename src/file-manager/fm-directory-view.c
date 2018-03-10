@@ -1337,8 +1337,10 @@ action_save_search_as_callback (GtkAction *action,
 						      0,
 						      "gtk-cancel", GTK_RESPONSE_CANCEL,
 						      NULL);
-		save_button = gtk_dialog_add_button (GTK_DIALOG (dialog),
-						     "gtk-save", GTK_RESPONSE_OK);
+
+		save_button = eel_dialog_add_button (GTK_DIALOG (dialog), _("_Save"),
+						     "document-save", GTK_RESPONSE_OK);
+
 		gtk_dialog_set_default_response (GTK_DIALOG (dialog),
 						 GTK_RESPONSE_OK);
 		gtk_container_set_border_width (GTK_CONTAINER (dialog), 5);
@@ -10269,8 +10271,11 @@ ask_link_action (FMDirectoryView *view)
 
 	gtk_dialog_add_button (GTK_DIALOG (dialog),
 			       _("Make a _Link"), 0);
-	gtk_dialog_add_button (GTK_DIALOG (dialog),
-			       "gtk-cancel", 1);
+
+	eel_dialog_add_button (GTK_DIALOG (dialog),
+			       _("_Cancel"),
+			       "process-stop", 1);
+
 	gtk_dialog_add_button (GTK_DIALOG (dialog),
 			       _("_Download"), 2);
 

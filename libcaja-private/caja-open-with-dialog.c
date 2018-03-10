@@ -931,15 +931,18 @@ caja_open_with_dialog_init (CajaOpenWithDialog *dialog)
     gtk_widget_show (GTK_WIDGET (dialog->details->checkbox));
     gtk_box_pack_start (GTK_BOX (vbox), dialog->details->checkbox, FALSE, FALSE, 0);
 
-    gtk_dialog_add_button (GTK_DIALOG (dialog),
-                           "gtk-remove",
+    eel_dialog_add_button (GTK_DIALOG (dialog),
+                           _("_Remove"),
+                           "list-remove",
                            RESPONSE_REMOVE);
+
     gtk_dialog_set_response_sensitive (GTK_DIALOG (dialog),
                                        RESPONSE_REMOVE,
                                        FALSE);
 
-    gtk_dialog_add_button (GTK_DIALOG (dialog),
-                           "gtk-cancel",
+    eel_dialog_add_button (GTK_DIALOG (dialog),
+                           _("_Cancel"),
+                           "process-stop",
                            GTK_RESPONSE_CANCEL);
 
 

@@ -185,15 +185,21 @@ caja_location_dialog_init (CajaLocationDialog *dialog)
     gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))),
                         box, FALSE, TRUE, 0);
 
-    gtk_dialog_add_button (GTK_DIALOG (dialog),
-                           "gtk-help",
+    eel_dialog_add_button (GTK_DIALOG (dialog),
+                           _("_Help"),
+                           "help-browser",
                            GTK_RESPONSE_HELP);
-    gtk_dialog_add_button (GTK_DIALOG (dialog),
-                           "gtk-cancel",
+
+    eel_dialog_add_button (GTK_DIALOG (dialog),
+                           _("_Cancel"),
+                           "process-stop",
                            GTK_RESPONSE_CANCEL);
-    gtk_dialog_add_button (GTK_DIALOG (dialog),
-                           "gtk-open",
+
+    eel_dialog_add_button (GTK_DIALOG (dialog),
+                           _("_Open"),
+                           "document-open",
                            RESPONSE_OPEN);
+
     gtk_dialog_set_default_response (GTK_DIALOG (dialog),
                                      RESPONSE_OPEN);
 

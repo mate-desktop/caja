@@ -5168,10 +5168,15 @@ create_properties_window (StartupData *startup_data)
 	/* append pages from available views */
 	append_extension_pages (window);
 
-	gtk_dialog_add_buttons (GTK_DIALOG (window),
-				"gtk-help", GTK_RESPONSE_HELP,
-				"gtk-close", GTK_RESPONSE_CLOSE,
-				NULL);
+        eel_dialog_add_button (GTK_DIALOG (window),
+                               _("_Help"),
+                               "help-browser",
+                               GTK_RESPONSE_HELP);
+
+        eel_dialog_add_button (GTK_DIALOG (window),
+                               _("_Close"),
+                               "window-close",
+                               GTK_RESPONSE_CLOSE);
 
 	/* FIXME - HIGificiation, should be done inside GTK+ */
 	gtk_container_set_border_width (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (window))), 12);
