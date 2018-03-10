@@ -814,7 +814,12 @@ get_executable_text_file_action (GtkWindow *parent_window, CajaFile *file)
                                          _("Run in _Terminal"), RESPONSE_RUN_IN_TERMINAL,
                                          _("_Display"), RESPONSE_DISPLAY,
                                          parent_window);
-    gtk_dialog_add_button (dialog, "gtk-cancel", GTK_RESPONSE_CANCEL);
+
+    eel_dialog_add_button (dialog,
+                           _("_Cancel"),
+                           "process-stop",
+                           GTK_RESPONSE_CANCEL);
+
     gtk_dialog_add_button (dialog, _("_Run"), RESPONSE_RUN);
     gtk_dialog_set_default_response (dialog, GTK_RESPONSE_CANCEL);
     gtk_widget_show (GTK_WIDGET (dialog));
@@ -1361,7 +1366,10 @@ show_unhandled_type_error (ActivateParametersInstall *parameters)
 
     gtk_dialog_add_button (GTK_DIALOG (dialog), _("_Select Application"), GTK_RESPONSE_ACCEPT);
 
-    gtk_dialog_add_button (GTK_DIALOG (dialog), "gtk-ok", GTK_RESPONSE_OK);
+    eel_dialog_add_button (GTK_DIALOG (dialog),
+                           _("_OK"),
+                           "gtk-ok",
+                           GTK_RESPONSE_OK);
 
     gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_OK);
 
@@ -1713,8 +1721,12 @@ activate_desktop_file (ActivateParameters *parameters,
             gtk_dialog_add_button (GTK_DIALOG (dialog),
                                    _("Mark as _Trusted"), RESPONSE_MARK_TRUSTED);
         }
-        gtk_dialog_add_button (GTK_DIALOG (dialog),
-                               "gtk-cancel", GTK_RESPONSE_CANCEL);
+
+        eel_dialog_add_button (GTK_DIALOG (dialog),
+                               _("_Cancel"),
+                               "process-stop",
+                               GTK_RESPONSE_CANCEL);
+
         gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_CANCEL);
 
         g_signal_connect (dialog, "response",

@@ -49,7 +49,7 @@ int        eel_run_simple_dialog              (GtkWidget         *parent,
         const char        *primary_text,
         const char        *secondary_text,
         ...);
-void       eel_dialog_add_button (GtkDialog   *dialog,
+GtkWidget* eel_dialog_add_button (GtkDialog   *dialog,
         const gchar *button_text,
         const gchar *icon_name,
               gint   response_id);
