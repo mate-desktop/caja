@@ -255,7 +255,11 @@ eel_wrap_table_draw (GtkWidget *widget,
 
     /*Redraw the table once and only once to ensure it is displayed */
     if (wrap_table->details->drawn == FALSE){
+#if GTK_CHECK_VERSION (3, 20, 0)
         gtk_widget_queue_allocate (GTK_WIDGET(widget));
+#else
+        gtk_widget_queue_resize (GTK_WIDGET(widget));
+#endif
         wrap_table->details->drawn = TRUE;
         }
     return FALSE;
