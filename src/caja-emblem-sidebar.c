@@ -281,16 +281,24 @@ create_rename_emblem_dialog (CajaEmblemSidebar *emblem_sidebar,
     image = gtk_image_new_from_pixbuf (pixbuf);
     entry = gtk_entry_new ();
 
-    dialog = gtk_dialog_new_with_buttons (_("Rename Emblem"),
-                                          NULL,
-                                          0,
-                                          "gtk-cancel",
-                                          GTK_RESPONSE_CANCEL,
-                                          "gtk-ok",
-                                          GTK_RESPONSE_OK,
-                                          "gtk-help",
-                                          GTK_RESPONSE_HELP,
-                                          NULL);
+    dialog = gtk_dialog_new ();
+    gtk_window_set_title (GTK_WINDOW (dialog), _("Rename Emblem"));
+    gtk_window_set_transient_for (GTK_WINDOW (dialog), NULL);
+
+    eel_dialog_add_button (GTK_DIALOG (dialog),
+                           _("_Cancel"),
+                           "process-stop",
+                           GTK_RESPONSE_CANCEL);
+
+    eel_dialog_add_button (GTK_DIALOG (dialog),
+                           _("_OK"),
+                           "gtk-ok",
+                           GTK_RESPONSE_OK);
+
+    eel_dialog_add_button (GTK_DIALOG (dialog),
+                           _("_Help"),
+                           "help-browser",
+                           GTK_RESPONSE_HELP);
 
     gtk_dialog_set_default_response (GTK_DIALOG (dialog),
                                      GTK_RESPONSE_OK);
@@ -534,16 +542,24 @@ create_add_emblems_dialog (CajaEmblemSidebar *emblem_sidebar,
 
     first_entry = NULL;
 
-    dialog = gtk_dialog_new_with_buttons (_("Add Emblems..."),
-                                          NULL,
-                                          0,
-                                          "gtk-cancel",
-                                          GTK_RESPONSE_CANCEL,
-                                          "gtk-ok",
-                                          GTK_RESPONSE_OK,
-                                          "gtk-help",
-                                          GTK_RESPONSE_HELP,
-                                          NULL);
+    dialog = gtk_dialog_new ();
+    gtk_window_set_title (GTK_WINDOW (dialog), _("Add Emblems..."));
+    gtk_window_set_transient_for (GTK_WINDOW (dialog), NULL);
+
+    eel_dialog_add_button (GTK_DIALOG (dialog),
+                           _("_Cancel"),
+                           "process-stop",
+                           GTK_RESPONSE_CANCEL);
+
+    eel_dialog_add_button (GTK_DIALOG (dialog),
+                           _("_OK"),
+                           "gtk-ok",
+                           GTK_RESPONSE_OK);
+
+    eel_dialog_add_button (GTK_DIALOG (dialog),
+                           _("_Help"),
+                           "help-browser",
+                           GTK_RESPONSE_HELP);
 
     gtk_dialog_set_default_response (GTK_DIALOG (dialog),
                                      GTK_RESPONSE_OK);

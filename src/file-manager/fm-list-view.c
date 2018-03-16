@@ -36,6 +36,7 @@
 #include <eel/eel-gdk-extensions.h>
 #include <eel/eel-glib-extensions.h>
 #include <eel/eel-gtk-macros.h>
+#include <eel/eel-stock-dialogs.h>
 #include <gdk/gdk.h>
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
@@ -2531,11 +2532,16 @@ create_column_editor (FMListView *view)
     str = g_strdup_printf (_("%s Visible Columns"), name);
     g_free (name);
 
-    window = gtk_dialog_new_with_buttons (str,
-                                          GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (view))),
-                                          GTK_DIALOG_DESTROY_WITH_PARENT,
-                                          "gtk-close", GTK_RESPONSE_CLOSE,
-                                          NULL);
+    window = gtk_dialog_new ();
+    gtk_window_set_title (GTK_WINDOW (window), str);
+    gtk_window_set_transient_for (GTK_WINDOW (window), GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (view))));
+    gtk_window_set_destroy_with_parent (GTK_WINDOW (window), TRUE);
+
+    eel_dialog_add_button (GTK_DIALOG (window),
+                           _("_Close"),
+                           "window-close",
+                           GTK_RESPONSE_CLOSE);
+
     g_free (str);
     g_signal_connect (window, "response",
                       G_CALLBACK (column_editor_response_callback), NULL);

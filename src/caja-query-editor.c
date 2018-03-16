@@ -710,11 +710,16 @@ type_combo_changed (GtkComboBox *combo_box, CajaQueryEditorRow *row)
 
 
         toplevel = gtk_widget_get_toplevel (GTK_WIDGET (combo_box));
-        dialog = gtk_dialog_new_with_buttons (_("Select type"),
-                                              GTK_WINDOW (toplevel),
-                                              0,
-                                              "gtk-ok", GTK_RESPONSE_OK,
-                                              NULL);
+
+        dialog = gtk_dialog_new ();
+        gtk_window_set_title (GTK_WINDOW (dialog), _("Select type"));
+        gtk_window_set_transient_for (GTK_WINDOW (dialog), GTK_WINDOW (toplevel));
+
+        eel_dialog_add_button (GTK_DIALOG (dialog),
+                               _("_OK"),
+                               "gtk-ok",
+                               GTK_RESPONSE_OK);
+
         gtk_window_set_default_size (GTK_WINDOW (dialog), 400, 600);
 
         scrolled = gtk_scrolled_window_new (NULL, NULL);
