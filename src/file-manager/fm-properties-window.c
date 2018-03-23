@@ -5673,11 +5673,11 @@ select_image_button_callback (GtkWidget *widget,
 	dialog = window->details->icon_chooser;
 
 	if (dialog == NULL) {
-		dialog = gtk_file_chooser_dialog_new (_("Select Custom Icon"), GTK_WINDOW (window),
+		dialog = eel_file_chooser_dialog_new (_("Select Custom Icon"), GTK_WINDOW (window),
 						      GTK_FILE_CHOOSER_ACTION_OPEN,
-						      "gtk-revert-to-saved", GTK_RESPONSE_NO,
-						      "gtk-cancel", GTK_RESPONSE_CANCEL,
-						      "gtk-open", GTK_RESPONSE_OK,
+						      "document-revert", GTK_RESPONSE_NO,
+						      "process-stop", GTK_RESPONSE_CANCEL,
+						      "document-open", GTK_RESPONSE_OK,
 						      NULL);
 		gtk_file_chooser_add_shortcut_folder (GTK_FILE_CHOOSER (dialog), "/usr/share/icons", NULL);
 		gtk_file_chooser_add_shortcut_folder (GTK_FILE_CHOOSER (dialog), "/usr/share/pixmaps", NULL);
