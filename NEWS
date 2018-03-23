@@ -1,17 +1,43 @@
 ### caja 1.21.0
 
+  * tx: update translations
+  * caja-query-editor.c: add #include <eel/eel-stock-dialogs.h>
+  * avoid 'gtk_file_chooser_dialog_new' with stock ids
+  * avoid gtk_dialog_new_with_buttons with stock ids
+  * avoid gtk_dialog_add_buttons with stock ids
+  * caja-file-management-properties.ui: avoid deprecated GtkVBox and GtkHBox
+  * caja-bookmarks-window.ui: avoid deprecated:
+  * rename mate_dialog_add_button to eel_dialog_add_button
+  * use development version
+  * avoid eel_create_question_dialog with stock ids
+  * avoid eel_run_simple_dialog with stock ids
+  * eel-stock-dialogs: avoid gtk_dialog_add_button with stock ids
+  * caja-file-operations: avoid gtk_dialog_add_buttons with stock ids
+  * remove runtime warning in usage of caja_clipboard_set_up_editable
+  * caja-file-conflict-dialog: avoid gtk_dialog_add_buttons with stock id
+  * avoid deprecated GtkButton:use-stock
+  * can selected all the search keywords with Ctrl+a. #918
+  * caja-autorun: avoid gtk_dialog_add_buttons with stock ids
+  * eel-editable-label.c: avoid gtk_image_menu_item_new_from_stock
+  * caja-file-management-properties.ui: avoid stock properties:
+  * Toolbar: find icon: use icon name instead the stock id
+  * caja-bookmarks-window.ui: avoid deprecated GtkButton:use-stock
+  * CAJA_TYPE_NAVIGATION_ACTION: avoid deprecated property "stock_id"
+  * fix backgrounds and emblems dialog content rendering
+  * avoid deprecated GtkStock
+
 ### caja 1.20.0
 
-    sync with transifex
-    drop CSS for GTK+ 3.14
-    require GTK+ 3.22 and GLib 2.50
-    Fix tasklist icon change when opening new tab
-    Include local files with "" instead of <>
-    search_dispose and search_finilize can't be run after search finished
-    add missing window icon to About dialog for extensions
-    move libegg to the top srcdir and drop some leftovers
-    update copyright year to 2018
-    remove +x attr from source files
+  * sync with transifex
+  * drop CSS for GTK+ 3.14
+  * require GTK+ 3.22 and GLib 2.50
+  * Fix tasklist icon change when opening new tab
+  * Include local files with "" instead of <>
+  * search_dispose and search_finilize can't be run after search finished
+  * add missing window icon to About dialog for extensions
+  * move libegg to the top srcdir and drop some leftovers
+  * update copyright year to 2018
+  * remove +x attr from source files
 
 ### caja 1.19.3
 
