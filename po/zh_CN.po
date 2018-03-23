@@ -1,23 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Cravix <dr.neemous@gmail.com>, 2013
-# Mingcong Bai <jeffbai@aosc.xyz>, 2014
-# liushuyu011 <liushuyu011@gmail.com>, 2016-2017
-# Mingcong Bai <jeffbai@aosc.xyz>, 2017-2018
-# Wylmer Wang, 2013-2014
-# 775405984, 2014
-# Mingcong Bai <jeffbai@aosc.xyz>, 2015
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: MATE Desktop Environment\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-15 13:19+0300\n"
-"PO-Revision-Date: 2018-01-22 18:19+0000\n"
-"Last-Translator: Mingcong Bai <jeffbai@aosc.xyz>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/mate/MATE/language/zh_CN/)\n"
+"POT-Creation-Date: 2018-03-12 16:49+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Mingye Wang <arthur200126@gmail.com>, 2018\n"
+"Language-Team: Chinese (China) (https://www.transifex.com/mate/teams/13566/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -290,7 +284,7 @@ msgstr "拖放某徽标到对象上来将其添加到对象中"
 
 #. translators: this is the name of an emblem
 #: ../data/browser.xml.h:68 ../src/caja-emblem-sidebar.c:982
-#: ../src/caja-property-browser.c:1948
+#: ../src/caja-property-browser.c:1935
 msgid "Erase"
 msgstr "删除"
 
@@ -306,7 +300,10 @@ msgid ""
 "MATE desktop. It works on local and remote file systems. </p> <p> Caja is "
 "extensible through a plugin system, similar to that of GNOME Nautilus, of "
 "which Caja is a fork. </p>"
-msgstr "<p> Caja 是 MATE 桌面的官方文件管理器。Caja 为浏览目录、预览文件以及启动相关应用程序提供了便利。Caja 更管理着 MATE 桌面图标。它还能管理远程文件系统。<p> <p>Caja 的功能可以通过添加各种扩展来增强，类似于 GNOME 的 Nautilus，Caja 是 Nautilus 的 fork。</p>"
+msgstr ""
+"<p> Caja 是 MATE 桌面的官方文件管理器。Caja 为浏览目录、预览文件以及启动相关应用程序提供了便利。Caja 更管理着 MATE "
+"桌面图标。它还能管理远程文件系统。<p> <p>Caja 的功能可以通过添加各种扩展来增强，类似于 GNOME 的 Nautilus，Caja 是 "
+"Nautilus 的 fork。</p>"
 
 #: ../data/caja-autorun-software.desktop.in.in.h:1
 msgid "Autorun Prompt"
@@ -316,7 +313,7 @@ msgstr "自动运行提示"
 #: ../data/caja-browser.desktop.in.in.h:1 ../data/caja.desktop.in.in.h:1
 #: ../data/caja-folder-handler.desktop.in.in.h:1
 #: ../src/caja-spatial-window.c:373 ../src/caja-window-menus.c:535
-#: ../src/caja-window.c:172
+#: ../src/caja-window.c:163
 msgid "Caja"
 msgstr "Caja"
 
@@ -334,10 +331,10 @@ msgid "Computer"
 msgstr "计算机"
 
 #. tooltip
-#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:905
+#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:897
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
-msgstr "浏览可从本计算机访问的所有本地和远程磁盘和文件夹"
+msgstr "浏览可从本机访问的所有本地和远程磁盘和文件夹"
 
 #: ../data/caja.desktop.in.in.h:2
 msgid "File Manager"
@@ -352,7 +349,7 @@ msgid "Change the behaviour and appearance of file manager windows"
 msgstr "更改文件管理器窗口的行为和外观"
 
 #: ../data/caja-folder-handler.desktop.in.in.h:2
-#: ../libcaja-private/caja-autorun.c:567
+#: ../libcaja-private/caja-autorun.c:568
 msgid "Open Folder"
 msgstr "打开文件夹"
 
@@ -362,71 +359,94 @@ msgstr "主文件夹"
 
 #. tooltip
 #: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:504
-#: ../src/caja-window-menus.c:900
+#: ../src/caja-window-menus.c:892
 msgid "Open your personal folder"
-msgstr "打开您的个人文件夹"
+msgstr "打开个人文件夹"
 
 #: ../data/caja.xml.in.h:1
 msgid "Saved search"
 msgstr "保存的搜索"
 
-#: ../eel/eel-canvas.c:1389 ../eel/eel-canvas.c:1390
+#: ../eel/eel-canvas.c:1310 ../eel/eel-canvas.c:1311
 msgid "X"
 msgstr "X"
 
-#: ../eel/eel-canvas.c:1396 ../eel/eel-canvas.c:1397
+#: ../eel/eel-canvas.c:1317 ../eel/eel-canvas.c:1318
 msgid "Y"
 msgstr "Y"
 
-#: ../eel/eel-editable-label.c:332
+#: ../eel/eel-editable-label.c:327
 msgid "Text"
-msgstr "文字"
+msgstr "文本"
 
-#: ../eel/eel-editable-label.c:333
+#: ../eel/eel-editable-label.c:328
 msgid "The text of the label."
 msgstr "标签上的文字。"
 
-#: ../eel/eel-editable-label.c:339
+#: ../eel/eel-editable-label.c:334
 msgid "Justification"
-msgstr "调整"
+msgstr "对齐"
 
-#: ../eel/eel-editable-label.c:340
+#: ../eel/eel-editable-label.c:335
 msgid ""
 "The alignment of the lines in the text of the label relative to each other. "
 "This does NOT affect the alignment of the label within its allocation. See "
 "GtkMisc::xalign for that."
 msgstr "标签上的文字行之间的对齐方式。此设置并不影响标签自身的对齐。参看 GtkMisc::xalign 中的说明。"
 
-#: ../eel/eel-editable-label.c:348
+#: ../eel/eel-editable-label.c:343
 msgid "Line wrap"
 msgstr "自动换行"
 
-#: ../eel/eel-editable-label.c:349
+#: ../eel/eel-editable-label.c:344
 msgid "If set, wrap lines if the text becomes too wide."
 msgstr "如果设定了此选项，当文本太宽时就自动折行。"
 
-#: ../eel/eel-editable-label.c:356
+#: ../eel/eel-editable-label.c:351
 msgid "Cursor Position"
 msgstr "光标位置"
 
-#: ../eel/eel-editable-label.c:357
+#: ../eel/eel-editable-label.c:352
 msgid "The current position of the insertion cursor in chars."
 msgstr "插入点光标的当前位置，以字符数计。"
 
-#: ../eel/eel-editable-label.c:366
+#: ../eel/eel-editable-label.c:361
 msgid "Selection Bound"
 msgstr "选择范围"
 
-#: ../eel/eel-editable-label.c:367
+#: ../eel/eel-editable-label.c:362
 msgid ""
 "The position of the opposite end of the selection from the cursor in chars."
 msgstr "选择区另一端的位置，从光标处以字符数计。"
 
-#: ../eel/eel-editable-label.c:3120
+#. name, icon name
+#. label, accelerator
+#: ../eel/eel-editable-label.c:3135 ../libcaja-private/caja-clipboard.c:455
+#: ../src/file-manager/fm-directory-view.c:7306
+#: ../src/file-manager/fm-directory-view.c:7473
+msgid "Cu_t"
+msgstr "剪切(_T)"
+
+#. name, icon name
+#. label, accelerator
+#: ../eel/eel-editable-label.c:3137 ../libcaja-private/caja-clipboard.c:460
+#: ../src/file-manager/fm-directory-view.c:7310
+#: ../src/file-manager/fm-directory-view.c:7477
+msgid "_Copy"
+msgstr "复制(_C)"
+
+#. name, icon name
+#. label, accelerator
+#: ../eel/eel-editable-label.c:3139 ../libcaja-private/caja-clipboard.c:465
+#: ../src/file-manager/fm-directory-view.c:7314
+msgid "_Paste"
+msgstr "粘贴(_P)"
+
+#: ../eel/eel-editable-label.c:3142
 msgid "Select All"
 msgstr "全选"
 
-#: ../eel/eel-editable-label.c:3131
+#: ../eel/eel-editable-label.c:3153
 msgid "Input Methods"
 msgstr "输入法"
 
@@ -434,160 +454,176 @@ msgstr "输入法"
 msgid "Show more _details"
 msgstr "显示更多详情"
 
-#: ../eel/eel-stock-dialogs.c:213
+#: ../eel/eel-stock-dialogs.c:233
 msgid "You can stop this operation by clicking cancel."
 msgstr "你可以点击取消停止这个操作。"
+
+#: ../eel/eel-stock-dialogs.c:237 ../eel/eel-stock-dialogs.c:392
+#: ../eel/eel-stock-dialogs.c:593 ../libcaja-private/caja-autorun.c:1131
+#: ../libcaja-private/caja-file-conflict-dialog.c:655
+#: ../libcaja-private/caja-file-operations.c:186
+#: ../libcaja-private/caja-mime-actions.c:819
+#: ../libcaja-private/caja-mime-actions.c:1726
+#: ../libcaja-private/caja-open-with-dialog.c:944
+#: ../src/file-manager/fm-directory-view.c:10276
+#: ../src/caja-connect-server-dialog.c:1122 ../src/caja-location-dialog.c:194
+msgid "_Cancel"
+msgstr "取消(_C)"
+
+#: ../eel/eel-stock-dialogs.c:239 ../eel/eel-stock-dialogs.c:394
+#: ../eel/eel-stock-dialogs.c:598 ../libcaja-private/caja-autorun.c:1136
+#: ../libcaja-private/caja-mime-actions.c:1370
+msgid "_OK"
+msgstr "确定 (_O)"
+
+#: ../eel/eel-stock-dialogs.c:600
+msgid "_Clear"
+msgstr "清除(_C)"
 
 #: ../eel/eel-vfs-extensions.c:96
 msgid " (invalid Unicode)"
 msgstr " (无效的 Unicode)"
 
-#: ../libcaja-private/caja-autorun.c:517
+#: ../libcaja-private/caja-autorun.c:518
 msgid "No applications found"
 msgstr "未找到应用程序"
 
-#: ../libcaja-private/caja-autorun.c:536
+#: ../libcaja-private/caja-autorun.c:537
 msgid "Ask what to do"
 msgstr "询问操作"
 
-#: ../libcaja-private/caja-autorun.c:552
+#: ../libcaja-private/caja-autorun.c:553
 msgid "Do Nothing"
 msgstr "不执行操作"
 
-#: ../libcaja-private/caja-autorun.c:600 ../src/caja-x-content-bar.c:148
+#: ../libcaja-private/caja-autorun.c:601 ../src/caja-x-content-bar.c:148
 #, c-format
 msgid "Open %s"
 msgstr "打开 %s"
 
-#: ../libcaja-private/caja-autorun.c:642
+#: ../libcaja-private/caja-autorun.c:643
 msgid "Open with other Application..."
 msgstr "使用其它程序打开..."
 
-#: ../libcaja-private/caja-autorun.c:1024
+#: ../libcaja-private/caja-autorun.c:1025
 msgid "You have just inserted an Audio CD."
 msgstr "您刚刚插入了音频 CD。"
 
-#: ../libcaja-private/caja-autorun.c:1028
+#: ../libcaja-private/caja-autorun.c:1029
 msgid "You have just inserted an Audio DVD."
 msgstr "您刚刚插入了音频 DVD。"
 
-#: ../libcaja-private/caja-autorun.c:1032
+#: ../libcaja-private/caja-autorun.c:1033
 msgid "You have just inserted a Video DVD."
 msgstr "您刚刚插入了 DVD 影碟。"
 
-#: ../libcaja-private/caja-autorun.c:1036
+#: ../libcaja-private/caja-autorun.c:1037
 msgid "You have just inserted a Video CD."
 msgstr "您刚刚插入了 VCD 影碟。"
 
-#: ../libcaja-private/caja-autorun.c:1040
+#: ../libcaja-private/caja-autorun.c:1041
 msgid "You have just inserted a Super Video CD."
 msgstr "您刚刚插入了超级 VCD 影碟。"
 
-#: ../libcaja-private/caja-autorun.c:1044
+#: ../libcaja-private/caja-autorun.c:1045
 msgid "You have just inserted a blank CD."
 msgstr "您刚刚插入了空 CD。"
 
-#: ../libcaja-private/caja-autorun.c:1048
+#: ../libcaja-private/caja-autorun.c:1049
 msgid "You have just inserted a blank DVD."
 msgstr "您刚刚插入了空 DVD。"
 
-#: ../libcaja-private/caja-autorun.c:1052
+#: ../libcaja-private/caja-autorun.c:1053
 msgid "You have just inserted a blank Blu-Ray disc."
 msgstr "您刚刚插入了空蓝光碟片。"
 
-#: ../libcaja-private/caja-autorun.c:1056
+#: ../libcaja-private/caja-autorun.c:1057
 msgid "You have just inserted a blank HD DVD."
 msgstr "您刚刚插入了空 HD DVD。"
 
-#: ../libcaja-private/caja-autorun.c:1060
+#: ../libcaja-private/caja-autorun.c:1061
 msgid "You have just inserted a Photo CD."
 msgstr "您刚刚插入了照片 CD。"
 
-#: ../libcaja-private/caja-autorun.c:1064
+#: ../libcaja-private/caja-autorun.c:1065
 msgid "You have just inserted a Picture CD."
 msgstr "您刚刚插入了图片 CD。"
 
-#: ../libcaja-private/caja-autorun.c:1068
+#: ../libcaja-private/caja-autorun.c:1069
 msgid "You have just inserted a medium with digital photos."
 msgstr "您刚刚插入了带有数码照片的介质。"
 
-#: ../libcaja-private/caja-autorun.c:1072
+#: ../libcaja-private/caja-autorun.c:1073
 msgid "You have just inserted a digital audio player."
 msgstr "您刚刚插入了便携音乐播放器。"
 
-#: ../libcaja-private/caja-autorun.c:1076
+#: ../libcaja-private/caja-autorun.c:1077
 msgid ""
 "You have just inserted a medium with software intended to be automatically "
 "started."
 msgstr "您刚刚插入了即将自动启动软件的介质。"
 
 #. fallback to generic greeting
-#: ../libcaja-private/caja-autorun.c:1081
+#: ../libcaja-private/caja-autorun.c:1082
 msgid "You have just inserted a medium."
 msgstr "您刚刚插入了介质。"
 
-#: ../libcaja-private/caja-autorun.c:1083
+#: ../libcaja-private/caja-autorun.c:1084
 msgid "Choose what application to launch."
 msgstr "选择要调用的应用程序。"
 
-#: ../libcaja-private/caja-autorun.c:1097
+#: ../libcaja-private/caja-autorun.c:1094
 #, c-format
 msgid ""
 "Select how to open \"%s\" and whether to perform this action in the future "
 "for other media of type \"%s\"."
 msgstr "选择如何打开“%s”，以及是否在以后其它“%s”也执行这一操作。"
 
-#: ../libcaja-private/caja-autorun.c:1129
+#: ../libcaja-private/caja-autorun.c:1122
 msgid "_Always perform this action"
 msgstr "总是执行此操作(_A)"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
 #. add the "Eject" menu item
-#: ../libcaja-private/caja-autorun.c:1146
-#: ../src/file-manager/fm-directory-view.c:7411
-#: ../src/file-manager/fm-directory-view.c:7439
-#: ../src/file-manager/fm-directory-view.c:7520
+#: ../libcaja-private/caja-autorun.c:1145
+#: ../src/file-manager/fm-directory-view.c:7397
+#: ../src/file-manager/fm-directory-view.c:7425
+#: ../src/file-manager/fm-directory-view.c:7506
 #: ../src/file-manager/fm-tree-view.c:1382 ../src/caja-places-sidebar.c:2714
 msgid "_Eject"
 msgstr "弹出(_E)"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
 #. add the "Unmount" menu item
-#: ../libcaja-private/caja-autorun.c:1159
-#: ../src/file-manager/fm-directory-view.c:7407
-#: ../src/file-manager/fm-directory-view.c:7435
-#: ../src/file-manager/fm-directory-view.c:7516
+#: ../libcaja-private/caja-autorun.c:1158
+#: ../src/file-manager/fm-directory-view.c:7393
+#: ../src/file-manager/fm-directory-view.c:7421
+#: ../src/file-manager/fm-directory-view.c:7502
 #: ../src/file-manager/fm-tree-view.c:1373 ../src/caja-places-sidebar.c:2707
 msgid "_Unmount"
 msgstr "卸载(_U)"
 
-#. name, stock id
-#. label, accelerator
 #. tooltip
 #: ../libcaja-private/caja-clipboard.c:456
 msgid "Cut the selected text to the clipboard"
 msgstr "把选中的文本剪切到剪贴板"
 
-#. name, stock id
-#. label, accelerator
 #. tooltip
 #: ../libcaja-private/caja-clipboard.c:461
 msgid "Copy the selected text to the clipboard"
 msgstr "把选中的文本复制到剪贴板"
 
-#. name, stock id
-#. label, accelerator
 #. tooltip
 #: ../libcaja-private/caja-clipboard.c:466
 msgid "Paste the text stored on the clipboard"
 msgstr "粘贴剪贴板中的文字"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
 #: ../libcaja-private/caja-clipboard.c:470
-#: ../src/file-manager/fm-directory-view.c:7340
+#: ../src/file-manager/fm-directory-view.c:7326
 msgid "Select _All"
 msgstr "全选(_A)"
 
@@ -596,15 +632,15 @@ msgstr "全选(_A)"
 msgid "Select all the text in a text field"
 msgstr "选择文本域中的所有文本"
 
-#: ../libcaja-private/caja-column-chooser.c:381
+#: ../libcaja-private/caja-column-chooser.c:380
 msgid "Move _Up"
-msgstr "上移(_U)"
+msgstr "向上移动(_U)"
 
-#: ../libcaja-private/caja-column-chooser.c:391
+#: ../libcaja-private/caja-column-chooser.c:390
 msgid "Move Dow_n"
 msgstr "下移(_N)"
 
-#: ../libcaja-private/caja-column-chooser.c:404
+#: ../libcaja-private/caja-column-chooser.c:403
 msgid "Use De_fault"
 msgstr "使用默认值(_F)"
 
@@ -643,7 +679,7 @@ msgid "The type of the file."
 msgstr "文件的类型。"
 
 #: ../libcaja-private/caja-column-utilities.c:74
-#: ../src/caja-image-properties-page.c:288
+#: ../src/caja-image-properties-page.c:284
 msgid "Date Modified"
 msgstr "修改日期"
 
@@ -676,7 +712,7 @@ msgid "The group of the file."
 msgstr "文件的群组。"
 
 #: ../libcaja-private/caja-column-utilities.c:106
-#: ../src/file-manager/fm-properties-window.c:4750
+#: ../src/file-manager/fm-properties-window.c:4746
 msgid "Permissions"
 msgstr "权限"
 
@@ -709,7 +745,7 @@ msgid "The SELinux security context of the file."
 msgstr "文件的 SELinux 安全环境。"
 
 #: ../libcaja-private/caja-column-utilities.c:138
-#: ../src/caja-image-properties-page.c:369 ../src/caja-query-editor.c:135
+#: ../src/caja-image-properties-page.c:365 ../src/caja-query-editor.c:135
 msgid "Location"
 msgstr "位置"
 
@@ -734,9 +770,9 @@ msgid "Original location of file before moved to the Trash"
 msgstr "文件移动到回收站前的原始位置"
 
 #: ../libcaja-private/caja-customization-data.c:431
-#: ../libcaja-private/caja-file-conflict-dialog.c:631
-#: ../libcaja-private/caja-mime-application-chooser.c:444
-#: ../src/caja-property-browser.c:1995
+#: ../libcaja-private/caja-file-conflict-dialog.c:624
+#: ../libcaja-private/caja-mime-application-chooser.c:442
+#: ../src/caja-property-browser.c:1982
 msgid "Reset"
 msgstr "重置"
 
@@ -833,208 +869,218 @@ msgstr "抱歉，无法保存自定义徽标。"
 msgid "Sorry, unable to save custom emblem name."
 msgstr "抱歉，无法保存自定义徽标名称。"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:144
+#: ../libcaja-private/caja-file-conflict-dialog.c:145
 #, c-format
 msgid "Merge folder \"%s\"?"
 msgstr "合并文件夹“%s”？"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:148
+#: ../libcaja-private/caja-file-conflict-dialog.c:149
 msgid ""
 "Merging will ask for confirmation before replacing any files in the folder "
 "that conflict with the files being copied."
 msgstr "合并将会在替换冲突文件时请求确认。"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:154
+#: ../libcaja-private/caja-file-conflict-dialog.c:155
 #, c-format
 msgid "An older folder with the same name already exists in \"%s\"."
 msgstr "在“%s”中存在相同名称的旧文件夹。"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:160
+#: ../libcaja-private/caja-file-conflict-dialog.c:161
 #, c-format
 msgid "A newer folder with the same name already exists in \"%s\"."
 msgstr "在“%s”中存在相同名称的新文件夹。"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:166
+#: ../libcaja-private/caja-file-conflict-dialog.c:167
 #, c-format
 msgid "Another folder with the same name already exists in \"%s\"."
 msgstr "在“%s”中存在相同名称的文件夹。"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:173
+#: ../libcaja-private/caja-file-conflict-dialog.c:174
 msgid "Replacing it will remove all files in the folder."
 msgstr "替换将移除文件夹中的所有文件。"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:175
+#: ../libcaja-private/caja-file-conflict-dialog.c:176
 #, c-format
 msgid "Replace folder \"%s\"?"
 msgstr "替换文件夹“%s”？"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:177
+#: ../libcaja-private/caja-file-conflict-dialog.c:178
 #, c-format
 msgid "A folder with the same name already exists in \"%s\"."
 msgstr "在“%s”中存在相同名称的文件夹。"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:184
+#: ../libcaja-private/caja-file-conflict-dialog.c:185
 #, c-format
 msgid "Replace file \"%s\"?"
 msgstr "替换文件“%s”？"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:186
+#: ../libcaja-private/caja-file-conflict-dialog.c:187
 msgid "Replacing it will overwrite its content."
 msgstr "替换将覆盖它的内容。"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:191
+#: ../libcaja-private/caja-file-conflict-dialog.c:192
 #, c-format
 msgid "An older file with the same name already exists in \"%s\"."
 msgstr "在“%s”中存在相同名称的文件。"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:197
+#: ../libcaja-private/caja-file-conflict-dialog.c:198
 #, c-format
 msgid "A newer file with the same name already exists in \"%s\"."
 msgstr "在“%s”中存在相同名称的文件。"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:203
+#: ../libcaja-private/caja-file-conflict-dialog.c:204
 #, c-format
 msgid "Another file with the same name already exists in \"%s\"."
 msgstr "在“%s”中存在相同名称的文件。"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:279
+#: ../libcaja-private/caja-file-conflict-dialog.c:272
 msgid "Original folder"
 msgstr "原始文件夹"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:280
-#: ../libcaja-private/caja-file-conflict-dialog.c:319
+#: ../libcaja-private/caja-file-conflict-dialog.c:273
+#: ../libcaja-private/caja-file-conflict-dialog.c:312
 msgid "Items:"
 msgstr "项目："
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:283
+#: ../libcaja-private/caja-file-conflict-dialog.c:276
 msgid "Original file"
 msgstr "原始文件"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:284
-#: ../libcaja-private/caja-file-conflict-dialog.c:323
-#: ../src/file-manager/fm-properties-window.c:3276
+#: ../libcaja-private/caja-file-conflict-dialog.c:277
+#: ../libcaja-private/caja-file-conflict-dialog.c:316
+#: ../src/file-manager/fm-properties-window.c:3272
 msgid "Size:"
 msgstr "大小："
 
 #. second row: type combobox
-#: ../libcaja-private/caja-file-conflict-dialog.c:289
-#: ../libcaja-private/caja-file-conflict-dialog.c:328
-#: ../src/file-manager/fm-properties-window.c:3258
-#: ../src/caja-connect-server-dialog.c:948
+#: ../libcaja-private/caja-file-conflict-dialog.c:282
+#: ../libcaja-private/caja-file-conflict-dialog.c:321
+#: ../src/file-manager/fm-properties-window.c:3254
+#: ../src/caja-connect-server-dialog.c:930
 msgid "Type:"
 msgstr "类型："
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:292
-#: ../libcaja-private/caja-file-conflict-dialog.c:331
+#: ../libcaja-private/caja-file-conflict-dialog.c:285
+#: ../libcaja-private/caja-file-conflict-dialog.c:324
 msgid "Last modified:"
 msgstr "最后修改："
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:318
+#: ../libcaja-private/caja-file-conflict-dialog.c:311
 msgid "Merge with"
 msgstr "合并到"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:318
-#: ../libcaja-private/caja-file-conflict-dialog.c:322
+#: ../libcaja-private/caja-file-conflict-dialog.c:311
+#: ../libcaja-private/caja-file-conflict-dialog.c:315
 msgid "Replace with"
 msgstr "替换为"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:354
+#: ../libcaja-private/caja-file-conflict-dialog.c:347
 msgid "Merge"
 msgstr "合并"
 
 #. Setup the expander for the rename action
-#: ../libcaja-private/caja-file-conflict-dialog.c:617
+#: ../libcaja-private/caja-file-conflict-dialog.c:610
 msgid "Select a new name for the _destination"
 msgstr "为目标选择新的名称(_ )"
 
 #. Setup the diff button for text files
-#: ../libcaja-private/caja-file-conflict-dialog.c:642
+#: ../libcaja-private/caja-file-conflict-dialog.c:635
 msgid "Differences..."
 msgstr "差异..."
 
 #. Setup the checkbox to apply the action to all files
-#: ../libcaja-private/caja-file-conflict-dialog.c:652
+#: ../libcaja-private/caja-file-conflict-dialog.c:645
 msgid "Apply this action to all files and folders"
 msgstr "将这个动作应用到所有文件和文件夹"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:664
-#: ../libcaja-private/caja-file-operations.c:186
+#: ../libcaja-private/caja-file-conflict-dialog.c:660
+#: ../libcaja-private/caja-file-operations.c:187
 msgid "_Skip"
-msgstr "跳过(_S)"
+msgstr "跳过 (_S)"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:669
+#: ../libcaja-private/caja-file-conflict-dialog.c:665
 msgid "Re_name"
 msgstr "重命名(_N)"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:675
+#: ../libcaja-private/caja-file-conflict-dialog.c:671
 msgid "Replace"
 msgstr "替换"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:759
+#: ../libcaja-private/caja-file-conflict-dialog.c:755
 msgid "Merge Folder"
 msgstr "合并文件夹"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:759
-#: ../libcaja-private/caja-file-conflict-dialog.c:764
+#: ../libcaja-private/caja-file-conflict-dialog.c:755
+#: ../libcaja-private/caja-file-conflict-dialog.c:760
 msgid "File and Folder conflict"
 msgstr "文件和文件夹冲突"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:764
+#: ../libcaja-private/caja-file-conflict-dialog.c:760
 msgid "File conflict"
 msgstr "文件冲突"
 
-#: ../libcaja-private/caja-file-operations.c:187
+#: ../libcaja-private/caja-file-operations.c:188
 msgid "S_kip All"
 msgstr "全部跳过(_K)"
 
-#: ../libcaja-private/caja-file-operations.c:188
+#: ../libcaja-private/caja-file-operations.c:189
 msgid "_Retry"
 msgstr "重试(_R)"
 
-#: ../libcaja-private/caja-file-operations.c:189
+#. name, icon name
+#. label, accelerator
+#: ../libcaja-private/caja-file-operations.c:190
+#: ../src/file-manager/fm-directory-view.c:7358
+#: ../src/file-manager/fm-directory-view.c:7490
+#: ../src/file-manager/fm-directory-view.c:8931
+#: ../src/file-manager/fm-tree-view.c:1360
+msgid "_Delete"
+msgstr "删除(_D)"
+
+#: ../libcaja-private/caja-file-operations.c:191
 msgid "Delete _All"
 msgstr "全选删除(_A)"
 
-#: ../libcaja-private/caja-file-operations.c:190
-msgid "_Replace"
-msgstr "替换(_R)"
-
-#: ../libcaja-private/caja-file-operations.c:191
-msgid "Replace _All"
-msgstr "全部替换(_A)"
-
 #: ../libcaja-private/caja-file-operations.c:192
+msgid "_Replace"
+msgstr "替换 (_R)"
+
+#: ../libcaja-private/caja-file-operations.c:193
+msgid "Replace _All"
+msgstr "全部替换 (_A)"
+
+#: ../libcaja-private/caja-file-operations.c:194
 msgid "_Merge"
 msgstr "合并(_M)"
 
-#: ../libcaja-private/caja-file-operations.c:193
+#: ../libcaja-private/caja-file-operations.c:195
 msgid "Merge _All"
 msgstr "全部合并(_A)"
 
-#: ../libcaja-private/caja-file-operations.c:194
+#: ../libcaja-private/caja-file-operations.c:196
 msgid "Copy _Anyway"
 msgstr "仍然复制(_A)"
 
-#: ../libcaja-private/caja-file-operations.c:308
+#: ../libcaja-private/caja-file-operations.c:310
 #, c-format
 msgid "%'d second"
 msgid_plural "%'d seconds"
 msgstr[0] "%'d 秒"
 
-#: ../libcaja-private/caja-file-operations.c:313
-#: ../libcaja-private/caja-file-operations.c:324
+#: ../libcaja-private/caja-file-operations.c:315
+#: ../libcaja-private/caja-file-operations.c:326
 #, c-format
 msgid "%'d minute"
 msgid_plural "%'d minutes"
 msgstr[0] "%'d 分"
 
-#: ../libcaja-private/caja-file-operations.c:323
+#: ../libcaja-private/caja-file-operations.c:325
 #, c-format
 msgid "%'d hour"
 msgid_plural "%'d hours"
 msgstr[0] "%'d 小时"
 
-#: ../libcaja-private/caja-file-operations.c:331
+#: ../libcaja-private/caja-file-operations.c:333
 #, c-format
 msgid "approximately %'d hour"
 msgid_plural "approximately %'d hours"
@@ -1044,15 +1090,15 @@ msgstr[0] "约 %'d 小时"
 #. Note to localizers: convert file type string for file
 #. * (e.g. "folder", "plain text") to file type for symbolic link
 #. * to that kind of file (e.g. "link to folder").
-#: ../libcaja-private/caja-file-operations.c:407
+#: ../libcaja-private/caja-file-operations.c:409
 #: ../libcaja-private/caja-file.c:6526
-#: ../src/file-manager/fm-directory-view.c:10531
+#: ../src/file-manager/fm-directory-view.c:10520
 #, c-format
 msgid "Link to %s"
 msgstr "到 %s 的链接"
 
 #. appended to new link file
-#: ../libcaja-private/caja-file-operations.c:411
+#: ../libcaja-private/caja-file-operations.c:413
 #, c-format
 msgid "Another link to %s"
 msgstr "到 %s 的另一个链接"
@@ -1060,25 +1106,25 @@ msgstr "到 %s 的另一个链接"
 #. Localizers: Feel free to leave out the "st" suffix
 #. * if there's no way to do that nicely for a
 #. * particular language.
-#: ../libcaja-private/caja-file-operations.c:427
+#: ../libcaja-private/caja-file-operations.c:429
 #, c-format
 msgid "%'dst link to %s"
 msgstr "到 %2$s 的第 %1$'d 个链接"
 
 #. appended to new link file
-#: ../libcaja-private/caja-file-operations.c:431
+#: ../libcaja-private/caja-file-operations.c:433
 #, c-format
 msgid "%'dnd link to %s"
 msgstr "到 %2$s 的第 %1$'d 个链接"
 
 #. appended to new link file
-#: ../libcaja-private/caja-file-operations.c:435
+#: ../libcaja-private/caja-file-operations.c:437
 #, c-format
 msgid "%'drd link to %s"
 msgstr "到 %2$s 的第 %1$'d 个链接"
 
 #. appended to new link file
-#: ../libcaja-private/caja-file-operations.c:439
+#: ../libcaja-private/caja-file-operations.c:441
 #, c-format
 msgid "%'dth link to %s"
 msgstr "到 %2$s 的第 %1$'d 个链接"
@@ -1087,61 +1133,61 @@ msgstr "到 %2$s 的第 %1$'d 个链接"
 #. * Feel free to leave out the st, nd, rd and th suffix or
 #. * make some or all of them match.
 #. localizers: tag used to detect the first copy of a file
-#: ../libcaja-private/caja-file-operations.c:478
+#: ../libcaja-private/caja-file-operations.c:480
 msgid " (copy)"
-msgstr " (复件)"
+msgstr " (副本)"
 
 #. localizers: tag used to detect the second copy of a file
-#: ../libcaja-private/caja-file-operations.c:480
+#: ../libcaja-private/caja-file-operations.c:482
 msgid " (another copy)"
-msgstr " (另一个复件)"
+msgstr " (另一个副本)"
 
 #. localizers: tag used to detect the x11th copy of a file
 #. localizers: tag used to detect the x12th copy of a file
 #. localizers: tag used to detect the x13th copy of a file
 #. localizers: tag used to detect the xxth copy of a file
-#: ../libcaja-private/caja-file-operations.c:483
 #: ../libcaja-private/caja-file-operations.c:485
 #: ../libcaja-private/caja-file-operations.c:487
-#: ../libcaja-private/caja-file-operations.c:497
+#: ../libcaja-private/caja-file-operations.c:489
+#: ../libcaja-private/caja-file-operations.c:499
 msgid "th copy)"
-msgstr "复件)"
+msgstr " 个副本)"
 
 #. localizers: tag used to detect the x1st copy of a file
-#: ../libcaja-private/caja-file-operations.c:490
+#: ../libcaja-private/caja-file-operations.c:492
 msgid "st copy)"
-msgstr "复件)"
+msgstr " 个副本)"
 
 #. localizers: tag used to detect the x2nd copy of a file
-#: ../libcaja-private/caja-file-operations.c:492
+#: ../libcaja-private/caja-file-operations.c:494
 msgid "nd copy)"
-msgstr "复件)"
+msgstr " 个副本)"
 
 #. localizers: tag used to detect the x3rd copy of a file
-#: ../libcaja-private/caja-file-operations.c:494
+#: ../libcaja-private/caja-file-operations.c:496
 msgid "rd copy)"
-msgstr "复件)"
+msgstr " 个副本)"
 
 #. localizers: appended to first file copy
-#: ../libcaja-private/caja-file-operations.c:511
-#, c-format
-msgid "%s (copy)%s"
-msgstr "%s (复件)%s"
-
-#. localizers: appended to second file copy
 #: ../libcaja-private/caja-file-operations.c:513
 #, c-format
+msgid "%s (copy)%s"
+msgstr "%s (副本)%s"
+
+#. localizers: appended to second file copy
+#: ../libcaja-private/caja-file-operations.c:515
+#, c-format
 msgid "%s (another copy)%s"
-msgstr "%s (另一个复件)%s"
+msgstr "%s (另一个副本)%s"
 
 #. localizers: appended to x11th file copy
 #. localizers: appended to x12th file copy
 #. localizers: appended to x13th file copy
 #. localizers: appended to xxth file copy
-#: ../libcaja-private/caja-file-operations.c:516
 #: ../libcaja-private/caja-file-operations.c:518
 #: ../libcaja-private/caja-file-operations.c:520
-#: ../libcaja-private/caja-file-operations.c:534
+#: ../libcaja-private/caja-file-operations.c:522
+#: ../libcaja-private/caja-file-operations.c:536
 #, c-format
 msgid "%s (%'dth copy)%s"
 msgstr "%s (第%'d个复件)%s"
@@ -1152,39 +1198,39 @@ msgstr "%s (第%'d个复件)%s"
 #. translated
 #. * strings look like "%s (copy %'d)%s".
 #. localizers: appended to x1st file copy
-#: ../libcaja-private/caja-file-operations.c:528
+#: ../libcaja-private/caja-file-operations.c:530
 #, c-format
 msgid "%s (%'dst copy)%s"
 msgstr "%s (第%'d个复件)%s"
 
 #. localizers: appended to x2nd file copy
-#: ../libcaja-private/caja-file-operations.c:530
+#: ../libcaja-private/caja-file-operations.c:532
 #, c-format
 msgid "%s (%'dnd copy)%s"
 msgstr "%s (第%'d个复件)%s"
 
 #. localizers: appended to x3rd file copy
-#: ../libcaja-private/caja-file-operations.c:532
+#: ../libcaja-private/caja-file-operations.c:534
 #, c-format
 msgid "%s (%'drd copy)%s"
 msgstr "%s (第%'d个复件)%s"
 
 #. localizers: opening parentheses to match the "th copy)" string
-#: ../libcaja-private/caja-file-operations.c:632
+#: ../libcaja-private/caja-file-operations.c:634
 msgid " ("
 msgstr " ("
 
 #. localizers: opening parentheses of the "th copy)" string
-#: ../libcaja-private/caja-file-operations.c:640
+#: ../libcaja-private/caja-file-operations.c:642
 #, c-format
 msgid " (%'d"
 msgstr " (第%'d个"
 
-#: ../libcaja-private/caja-file-operations.c:1354
+#: ../libcaja-private/caja-file-operations.c:1362
 msgid "Are you sure you want to permanently delete \"%B\" from the trash?"
 msgstr "您确定要从回收站中永久删除“%B”吗？"
 
-#: ../libcaja-private/caja-file-operations.c:1357
+#: ../libcaja-private/caja-file-operations.c:1365
 #, c-format
 msgid ""
 "Are you sure you want to permanently delete the %'d selected item from the "
@@ -1194,307 +1240,307 @@ msgid_plural ""
 "trash?"
 msgstr[0] "您确定要从回收站中永久删除这 %'d 个选中项目吗？"
 
-#: ../libcaja-private/caja-file-operations.c:1367
-#: ../libcaja-private/caja-file-operations.c:1433
+#: ../libcaja-private/caja-file-operations.c:1375
+#: ../libcaja-private/caja-file-operations.c:1441
 msgid "If you delete an item, it will be permanently lost."
 msgstr "如果您删除了一个项目，则该项将永久丢失。"
 
-#: ../libcaja-private/caja-file-operations.c:1387
+#: ../libcaja-private/caja-file-operations.c:1395
 msgid "Empty all items from Trash?"
 msgstr "清空回收站中的全部项目吗？"
 
-#: ../libcaja-private/caja-file-operations.c:1391
+#: ../libcaja-private/caja-file-operations.c:1399
 msgid "All items in the Trash will be permanently deleted."
 msgstr "回收站中的所有项目将被永久删除。"
 
 #. Empty Trash menu item
-#: ../libcaja-private/caja-file-operations.c:1394
-#: ../libcaja-private/caja-file-operations.c:2320
+#: ../libcaja-private/caja-file-operations.c:1402
+#: ../libcaja-private/caja-file-operations.c:2333
 #: ../src/caja-places-sidebar.c:2751 ../src/caja-trash-bar.c:197
 msgid "Empty _Trash"
 msgstr "清空回收站(_T)"
 
-#: ../libcaja-private/caja-file-operations.c:1421
+#: ../libcaja-private/caja-file-operations.c:1429
 msgid "Are you sure you want to permanently delete \"%B\"?"
 msgstr "您确定要永久删除“%B”吗？"
 
-#: ../libcaja-private/caja-file-operations.c:1424
+#: ../libcaja-private/caja-file-operations.c:1432
 #, c-format
 msgid "Are you sure you want to permanently delete the %'d selected item?"
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items?"
 msgstr[0] "您确定要永久删除这 %'d 个选中项目吗？"
 
-#: ../libcaja-private/caja-file-operations.c:1463
+#: ../libcaja-private/caja-file-operations.c:1471
 msgid "Are you sure you want to trash \"%B\"?"
 msgstr "您确实要将“%B”移动到垃圾箱吗？"
 
-#: ../libcaja-private/caja-file-operations.c:1466
+#: ../libcaja-private/caja-file-operations.c:1474
 #, c-format
 msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
-msgstr[0] "您确定要将选中的 %‘d 项移动到垃圾箱吗？"
+msgstr[0] "您确定要将选中的 %'d 项移动到垃圾箱吗？"
 
-#: ../libcaja-private/caja-file-operations.c:1475
+#: ../libcaja-private/caja-file-operations.c:1483
 msgid "Items moved to the trash may be recovered until the trash is emptied."
 msgstr "在您清空垃圾箱之前可以恢复移动到垃圾箱的项目。"
 
-#: ../libcaja-private/caja-file-operations.c:1478
+#: ../libcaja-private/caja-file-operations.c:1486
 msgid "Move to _Trash"
 msgstr "移动到垃圾箱(_T)"
 
-#: ../libcaja-private/caja-file-operations.c:1509
+#: ../libcaja-private/caja-file-operations.c:1517
 #, c-format
 msgid "%'d file left to delete"
 msgid_plural "%'d files left to delete"
 msgstr[0] "还有 %'d 个文件要删除"
 
-#: ../libcaja-private/caja-file-operations.c:1515
+#: ../libcaja-private/caja-file-operations.c:1523
 msgid "Deleting files"
 msgstr "删除文件"
 
 #. To translators: %T will expand to a time like "2 minutes".
 #. * The singular/plural form will be used depending on the remaining time
 #. (i.e. the %T argument).
-#: ../libcaja-private/caja-file-operations.c:1529
+#: ../libcaja-private/caja-file-operations.c:1537
 msgid "%T left"
 msgid_plural "%T left"
 msgstr[0] "%T 剩余"
 
-#: ../libcaja-private/caja-file-operations.c:1596
-#: ../libcaja-private/caja-file-operations.c:1630
-#: ../libcaja-private/caja-file-operations.c:1669
-#: ../libcaja-private/caja-file-operations.c:1746
-#: ../libcaja-private/caja-file-operations.c:2565
+#: ../libcaja-private/caja-file-operations.c:1604
+#: ../libcaja-private/caja-file-operations.c:1638
+#: ../libcaja-private/caja-file-operations.c:1677
+#: ../libcaja-private/caja-file-operations.c:1754
+#: ../libcaja-private/caja-file-operations.c:2579
 msgid "Error while deleting."
 msgstr "删除时发生错误。"
 
-#: ../libcaja-private/caja-file-operations.c:1600
+#: ../libcaja-private/caja-file-operations.c:1608
 msgid ""
 "Files in the folder \"%B\" cannot be deleted because you do not have "
 "permissions to see them."
 msgstr "文件夹“%B”中的文件无法删除，因为您没有读取它的权限。"
 
-#: ../libcaja-private/caja-file-operations.c:1603
-#: ../libcaja-private/caja-file-operations.c:2625
-#: ../libcaja-private/caja-file-operations.c:3607
+#: ../libcaja-private/caja-file-operations.c:1611
+#: ../libcaja-private/caja-file-operations.c:2639
+#: ../libcaja-private/caja-file-operations.c:3621
 msgid ""
 "There was an error getting information about the files in the folder \"%B\"."
 msgstr "获得文件夹“%B”中文件的信息时出错"
 
-#: ../libcaja-private/caja-file-operations.c:1612
-#: ../libcaja-private/caja-file-operations.c:3616
+#: ../libcaja-private/caja-file-operations.c:1620
+#: ../libcaja-private/caja-file-operations.c:3630
 msgid "_Skip files"
 msgstr "跳过文件(_S)"
 
-#: ../libcaja-private/caja-file-operations.c:1633
+#: ../libcaja-private/caja-file-operations.c:1641
 msgid ""
 "The folder \"%B\" cannot be deleted because you do not have permissions to "
 "read it."
 msgstr "无法删除文件夹“%B”，因为您没有读取它的权限。"
 
-#: ../libcaja-private/caja-file-operations.c:1636
-#: ../libcaja-private/caja-file-operations.c:2664
-#: ../libcaja-private/caja-file-operations.c:3652
+#: ../libcaja-private/caja-file-operations.c:1644
+#: ../libcaja-private/caja-file-operations.c:2678
+#: ../libcaja-private/caja-file-operations.c:3666
 msgid "There was an error reading the folder \"%B\"."
 msgstr "读取文件夹“%B”时出错。"
 
-#: ../libcaja-private/caja-file-operations.c:1670
+#: ../libcaja-private/caja-file-operations.c:1678
 msgid "Could not remove the folder %B."
 msgstr "无法删除文件夹 %B。"
 
-#: ../libcaja-private/caja-file-operations.c:1747
+#: ../libcaja-private/caja-file-operations.c:1755
 msgid "There was an error deleting %B."
 msgstr "删除 %B 时出错。"
 
-#: ../libcaja-private/caja-file-operations.c:1827
+#: ../libcaja-private/caja-file-operations.c:1835
 msgid "Moving files to trash"
 msgstr "将文件移动到回收站"
 
-#: ../libcaja-private/caja-file-operations.c:1829
+#: ../libcaja-private/caja-file-operations.c:1837
 #, c-format
 msgid "%'d file left to trash"
 msgid_plural "%'d files left to trash"
 msgstr[0] "还有 %'d 个文件要移动到回收站"
 
-#: ../libcaja-private/caja-file-operations.c:1886
+#: ../libcaja-private/caja-file-operations.c:1894
 msgid "Cannot move file to trash, do you want to delete immediately?"
 msgstr "无法将文件移动到回收站。您要立即删除吗？"
 
-#: ../libcaja-private/caja-file-operations.c:1887
+#: ../libcaja-private/caja-file-operations.c:1895
 msgid "The file \"%B\" cannot be moved to the trash."
 msgstr "无法将文件“%B”移动到回收站中。"
 
-#: ../libcaja-private/caja-file-operations.c:2071
+#: ../libcaja-private/caja-file-operations.c:2079
 msgid "Trashing Files"
 msgstr "正在将文件移动至回收站"
 
-#: ../libcaja-private/caja-file-operations.c:2073
+#: ../libcaja-private/caja-file-operations.c:2081
 msgid "Deleting Files"
 msgstr "正在删除文件"
 
-#: ../libcaja-private/caja-file-operations.c:2150
+#: ../libcaja-private/caja-file-operations.c:2158
 msgid "Unable to eject %V"
 msgstr "无法弹出 %V"
 
-#: ../libcaja-private/caja-file-operations.c:2152
+#: ../libcaja-private/caja-file-operations.c:2160
 msgid "Unable to unmount %V"
 msgstr "无法卸载 %V"
 
-#: ../libcaja-private/caja-file-operations.c:2310
+#: ../libcaja-private/caja-file-operations.c:2318
 msgid "Do you want to empty the trash before you unmount?"
 msgstr "您在卸载之前是否想要清空回收站？"
 
-#: ../libcaja-private/caja-file-operations.c:2312
+#: ../libcaja-private/caja-file-operations.c:2320
 msgid ""
 "In order to regain the free space on this volume the trash must be emptied. "
 "All trashed items on the volume will be permanently lost."
 msgstr "为了重新利用此卷上的剩余空间，必须清空回收站。回收站中的全部内容都将永久丢失。"
 
-#: ../libcaja-private/caja-file-operations.c:2318
+#: ../libcaja-private/caja-file-operations.c:2327
 msgid "Do _not Empty Trash"
 msgstr "不清空回收站(_N)"
 
-#: ../libcaja-private/caja-file-operations.c:2434
+#: ../libcaja-private/caja-file-operations.c:2448
 #, c-format
 msgid "Unable to mount %s"
 msgstr "无法挂载 %s"
 
-#: ../libcaja-private/caja-file-operations.c:2512
+#: ../libcaja-private/caja-file-operations.c:2526
 #, c-format
 msgid "Preparing to copy %'d file (%S)"
 msgid_plural "Preparing to copy %'d files (%S)"
 msgstr[0] "准备复制 %'d 个文件(%S)"
 
-#: ../libcaja-private/caja-file-operations.c:2518
+#: ../libcaja-private/caja-file-operations.c:2532
 #, c-format
 msgid "Preparing to move %'d file (%S)"
 msgid_plural "Preparing to move %'d files (%S)"
 msgstr[0] "准备移动 %'d 个文件(%S)"
 
-#: ../libcaja-private/caja-file-operations.c:2524
+#: ../libcaja-private/caja-file-operations.c:2538
 #, c-format
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
 msgstr[0] "准备删除 %'d 个文件(%S)"
 
-#: ../libcaja-private/caja-file-operations.c:2530
+#: ../libcaja-private/caja-file-operations.c:2544
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
 msgstr[0] "准备将 %'d 个文件移动到回收站"
 
-#: ../libcaja-private/caja-file-operations.c:2561
-#: ../libcaja-private/caja-file-operations.c:3459
-#: ../libcaja-private/caja-file-operations.c:3599
-#: ../libcaja-private/caja-file-operations.c:3644
+#: ../libcaja-private/caja-file-operations.c:2575
+#: ../libcaja-private/caja-file-operations.c:3473
+#: ../libcaja-private/caja-file-operations.c:3613
+#: ../libcaja-private/caja-file-operations.c:3658
 msgid "Error while copying."
 msgstr "复制时发生错误。"
 
-#: ../libcaja-private/caja-file-operations.c:2563
-#: ../libcaja-private/caja-file-operations.c:3597
-#: ../libcaja-private/caja-file-operations.c:3642
+#: ../libcaja-private/caja-file-operations.c:2577
+#: ../libcaja-private/caja-file-operations.c:3611
+#: ../libcaja-private/caja-file-operations.c:3656
 msgid "Error while moving."
 msgstr "移动时发生错误。"
 
-#: ../libcaja-private/caja-file-operations.c:2567
+#: ../libcaja-private/caja-file-operations.c:2581
 msgid "Error while moving files to trash."
 msgstr "将文件移动到回收站时出错。"
 
-#: ../libcaja-private/caja-file-operations.c:2622
+#: ../libcaja-private/caja-file-operations.c:2636
 msgid ""
 "Files in the folder \"%B\" cannot be handled because you do not have "
 "permissions to see them."
 msgstr "无法处理文件夹“%B”中的文件，因为您没有读取它的权限。"
 
-#: ../libcaja-private/caja-file-operations.c:2661
+#: ../libcaja-private/caja-file-operations.c:2675
 msgid ""
 "The folder \"%B\" cannot be handled because you do not have permissions to "
 "read it."
 msgstr "无法处理文件夹“%B”，因为您没有读取它的权限。"
 
-#: ../libcaja-private/caja-file-operations.c:2739
+#: ../libcaja-private/caja-file-operations.c:2753
 msgid ""
 "The file \"%B\" cannot be handled because you do not have permissions to "
 "read it."
 msgstr "无法处理文件“%B”，因为您没有读取它的权限。"
 
-#: ../libcaja-private/caja-file-operations.c:2742
+#: ../libcaja-private/caja-file-operations.c:2756
 msgid "There was an error getting information about \"%B\"."
 msgstr "获得关于“%B”的信息时出错。"
 
-#: ../libcaja-private/caja-file-operations.c:2842
-#: ../libcaja-private/caja-file-operations.c:2884
-#: ../libcaja-private/caja-file-operations.c:2917
-#: ../libcaja-private/caja-file-operations.c:2947
+#: ../libcaja-private/caja-file-operations.c:2856
+#: ../libcaja-private/caja-file-operations.c:2898
+#: ../libcaja-private/caja-file-operations.c:2931
+#: ../libcaja-private/caja-file-operations.c:2961
 msgid "Error while copying to \"%B\"."
 msgstr "复制到“%B”时发生错误。"
 
-#: ../libcaja-private/caja-file-operations.c:2846
+#: ../libcaja-private/caja-file-operations.c:2860
 msgid "You do not have permissions to access the destination folder."
 msgstr "您没有访问目标文件夹的权限。"
 
-#: ../libcaja-private/caja-file-operations.c:2848
+#: ../libcaja-private/caja-file-operations.c:2862
 msgid "There was an error getting information about the destination."
 msgstr "获得关于目标的信息时出错。"
 
-#: ../libcaja-private/caja-file-operations.c:2885
+#: ../libcaja-private/caja-file-operations.c:2899
 msgid "The destination is not a folder."
 msgstr "目标位置不是文件夹。"
 
-#: ../libcaja-private/caja-file-operations.c:2918
+#: ../libcaja-private/caja-file-operations.c:2932
 msgid ""
 "There is not enough space on the destination. Try to remove files to make "
 "space."
 msgstr "目标位置中没有足够空间。请试着删除一些文件以便释放空间。"
 
-#: ../libcaja-private/caja-file-operations.c:2920
+#: ../libcaja-private/caja-file-operations.c:2934
 #, c-format
 msgid "There is %S available, but %S is required."
 msgstr "目前只有 %S，但需要 %S。"
 
-#: ../libcaja-private/caja-file-operations.c:2948
+#: ../libcaja-private/caja-file-operations.c:2962
 msgid "The destination is read-only."
 msgstr "目标是只读的。"
 
-#: ../libcaja-private/caja-file-operations.c:3007
+#: ../libcaja-private/caja-file-operations.c:3021
 msgid "Moving \"%B\" to \"%B\""
 msgstr "将“%B”移动到“%B”"
 
-#: ../libcaja-private/caja-file-operations.c:3008
+#: ../libcaja-private/caja-file-operations.c:3022
 msgid "Copying \"%B\" to \"%B\""
 msgstr "将“%B”复制到“%B”"
 
-#: ../libcaja-private/caja-file-operations.c:3013
+#: ../libcaja-private/caja-file-operations.c:3027
 msgid "Duplicating \"%B\""
 msgstr "就地复制“%B”"
 
-#: ../libcaja-private/caja-file-operations.c:3021
+#: ../libcaja-private/caja-file-operations.c:3035
 msgid "Moving %'d file (in \"%B\") to \"%B\""
 msgid_plural "Moving %'d files (in \"%B\") to \"%B\""
 msgstr[0] "将 %'d 个文件(“%B”中)移动到“%B”"
 
-#: ../libcaja-private/caja-file-operations.c:3025
+#: ../libcaja-private/caja-file-operations.c:3039
 msgid "Copying %'d file (in \"%B\") to \"%B\""
 msgid_plural "Copying %'d files (in \"%B\") to \"%B\""
 msgstr[0] "将 %'d 个文件(“%B”中)复制到“%B”"
 
-#: ../libcaja-private/caja-file-operations.c:3033
+#: ../libcaja-private/caja-file-operations.c:3047
 msgid "Duplicating %'d file (in \"%B\")"
 msgid_plural "Duplicating %'d files (in \"%B\")"
 msgstr[0] "就地复制 %'d 个文件(“%B”中)"
 
-#: ../libcaja-private/caja-file-operations.c:3043
+#: ../libcaja-private/caja-file-operations.c:3057
 msgid "Moving %'d file to \"%B\""
 msgid_plural "Moving %'d files to \"%B\""
 msgstr[0] "将 %'d 个文件移动到“%B”"
 
-#: ../libcaja-private/caja-file-operations.c:3047
+#: ../libcaja-private/caja-file-operations.c:3061
 msgid "Copying %'d file to \"%B\""
 msgid_plural "Copying %'d files to \"%B\""
 msgstr[0] "将 %'d 个文件复制到“%B”"
 
-#: ../libcaja-private/caja-file-operations.c:3053
+#: ../libcaja-private/caja-file-operations.c:3067
 #, c-format
 msgid "Duplicating %'d file"
 msgid_plural "Duplicating %'d files"
@@ -1502,7 +1548,7 @@ msgstr[0] "就地复制 %'d 个文件"
 
 #. To translators: %S will expand to a size like "2 bytes" or "3 MB", so
 #. something like "4 kb of 4 MB"
-#: ../libcaja-private/caja-file-operations.c:3073
+#: ../libcaja-private/caja-file-operations.c:3087
 #, c-format
 msgid "%S of %S"
 msgstr "%S，共 %S"
@@ -1514,184 +1560,184 @@ msgstr "%S，共 %S"
 #. *
 #. * The singular/plural form will be used depending on the remaining time
 #. (i.e. the %T argument).
-#: ../libcaja-private/caja-file-operations.c:3084
+#: ../libcaja-private/caja-file-operations.c:3098
 msgid "%S of %S — %T left (%S/sec)"
 msgid_plural "%S of %S — %T left (%S/sec)"
 msgstr[0] "%S，共 %S - 剩余 %T (%S/秒)"
 
-#: ../libcaja-private/caja-file-operations.c:3463
+#: ../libcaja-private/caja-file-operations.c:3477
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "create it in the destination."
 msgstr "无法复制文件夹“%B”，因为您没有在目标位置创建它的权限。"
 
-#: ../libcaja-private/caja-file-operations.c:3466
+#: ../libcaja-private/caja-file-operations.c:3480
 msgid "There was an error creating the folder \"%B\"."
 msgstr "创建文件夹“%B”时出错。"
 
-#: ../libcaja-private/caja-file-operations.c:3604
+#: ../libcaja-private/caja-file-operations.c:3618
 msgid ""
 "Files in the folder \"%B\" cannot be copied because you do not have "
 "permissions to see them."
 msgstr "无法复制文件夹“%B”中的文件，因为您没有读取它的权限。"
 
-#: ../libcaja-private/caja-file-operations.c:3649
+#: ../libcaja-private/caja-file-operations.c:3663
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "read it."
 msgstr "无法复制文件夹“%B”，因为您没有读取它的权限。"
 
-#: ../libcaja-private/caja-file-operations.c:3694
-#: ../libcaja-private/caja-file-operations.c:4388
-#: ../libcaja-private/caja-file-operations.c:4980
+#: ../libcaja-private/caja-file-operations.c:3708
+#: ../libcaja-private/caja-file-operations.c:4402
+#: ../libcaja-private/caja-file-operations.c:4994
 msgid "Error while moving \"%B\"."
 msgstr "移动到“%B”时出错。"
 
-#: ../libcaja-private/caja-file-operations.c:3695
+#: ../libcaja-private/caja-file-operations.c:3709
 msgid "Could not remove the source folder."
 msgstr "无法删除源文件夹。"
 
-#: ../libcaja-private/caja-file-operations.c:3780
-#: ../libcaja-private/caja-file-operations.c:3821
-#: ../libcaja-private/caja-file-operations.c:4390
-#: ../libcaja-private/caja-file-operations.c:4462
+#: ../libcaja-private/caja-file-operations.c:3794
+#: ../libcaja-private/caja-file-operations.c:3835
+#: ../libcaja-private/caja-file-operations.c:4404
+#: ../libcaja-private/caja-file-operations.c:4476
 msgid "Error while copying \"%B\"."
 msgstr "复制“%B”时出错。"
 
-#: ../libcaja-private/caja-file-operations.c:3781
+#: ../libcaja-private/caja-file-operations.c:3795
 #, c-format
 msgid "Could not remove files from the already existing folder %F."
 msgstr "无法从已存在的文件夹 %F 中删除文件。"
 
-#: ../libcaja-private/caja-file-operations.c:3822
+#: ../libcaja-private/caja-file-operations.c:3836
 #, c-format
 msgid "Could not remove the already existing file %F."
 msgstr "无法删除已有文件 %F。"
 
 #. the run_warning() frees all strings passed in automatically
-#: ../libcaja-private/caja-file-operations.c:4141
-#: ../libcaja-private/caja-file-operations.c:4826
+#: ../libcaja-private/caja-file-operations.c:4155
+#: ../libcaja-private/caja-file-operations.c:4840
 msgid "You cannot move a folder into itself."
 msgstr "您无法将文件夹移入自身。"
 
-#: ../libcaja-private/caja-file-operations.c:4142
-#: ../libcaja-private/caja-file-operations.c:4827
+#: ../libcaja-private/caja-file-operations.c:4156
+#: ../libcaja-private/caja-file-operations.c:4841
 msgid "You cannot copy a folder into itself."
 msgstr "您无法将文件夹复制到自身。"
 
-#: ../libcaja-private/caja-file-operations.c:4143
-#: ../libcaja-private/caja-file-operations.c:4828
+#: ../libcaja-private/caja-file-operations.c:4157
+#: ../libcaja-private/caja-file-operations.c:4842
 msgid "The destination folder is inside the source folder."
 msgstr "目标文件夹位于源文件夹内。"
 
 #. the run_warning() frees all strings passed in automatically
-#: ../libcaja-private/caja-file-operations.c:4174
+#: ../libcaja-private/caja-file-operations.c:4188
 msgid "You cannot move a file over itself."
 msgstr "您无法将文件夹移入自身。"
 
-#: ../libcaja-private/caja-file-operations.c:4175
+#: ../libcaja-private/caja-file-operations.c:4189
 msgid "You cannot copy a file over itself."
 msgstr "您无法将文件夹复制到自身。"
 
-#: ../libcaja-private/caja-file-operations.c:4176
+#: ../libcaja-private/caja-file-operations.c:4190
 msgid "The source file would be overwritten by the destination."
 msgstr "源文件将会被目标覆盖。"
 
-#: ../libcaja-private/caja-file-operations.c:4392
+#: ../libcaja-private/caja-file-operations.c:4406
 #, c-format
 msgid "Could not remove the already existing file with the same name in %F."
 msgstr "无法删除 %F 中已有的同名文件。"
 
-#: ../libcaja-private/caja-file-operations.c:4463
+#: ../libcaja-private/caja-file-operations.c:4477
 #, c-format
 msgid "There was an error copying the file into %F."
 msgstr "将文件复制到 %F 时出错。"
 
-#: ../libcaja-private/caja-file-operations.c:4709
+#: ../libcaja-private/caja-file-operations.c:4723
 msgid "Copying Files"
 msgstr "正在复制文件"
 
-#: ../libcaja-private/caja-file-operations.c:4736
+#: ../libcaja-private/caja-file-operations.c:4750
 msgid "Preparing to Move to \"%B\""
 msgstr "准备移动到“%B”"
 
-#: ../libcaja-private/caja-file-operations.c:4740
+#: ../libcaja-private/caja-file-operations.c:4754
 #, c-format
 msgid "Preparing to move %'d file"
 msgid_plural "Preparing to move %'d files"
 msgstr[0] "准备移动 %'d 个文件"
 
-#: ../libcaja-private/caja-file-operations.c:4981
+#: ../libcaja-private/caja-file-operations.c:4995
 #, c-format
 msgid "There was an error moving the file into %F."
 msgstr "将文件移动到 %F 时出错。"
 
-#: ../libcaja-private/caja-file-operations.c:5251
+#: ../libcaja-private/caja-file-operations.c:5265
 msgid "Moving Files"
 msgstr "正在移动文件"
 
-#: ../libcaja-private/caja-file-operations.c:5282
+#: ../libcaja-private/caja-file-operations.c:5296
 msgid "Creating links in \"%B\""
 msgstr "创建指向“%B”链接"
 
-#: ../libcaja-private/caja-file-operations.c:5286
+#: ../libcaja-private/caja-file-operations.c:5300
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
 msgstr[0] "创建 %'d 个文件的链接"
 
-#: ../libcaja-private/caja-file-operations.c:5418
+#: ../libcaja-private/caja-file-operations.c:5432
 msgid "Error while creating link to %B."
 msgstr "在创建到 %B 的链接时出错。"
 
-#: ../libcaja-private/caja-file-operations.c:5420
+#: ../libcaja-private/caja-file-operations.c:5434
 msgid "Symbolic links only supported for local files"
 msgstr "符号链接只支持本地文件"
 
-#: ../libcaja-private/caja-file-operations.c:5423
+#: ../libcaja-private/caja-file-operations.c:5437
 msgid "The target doesn't support symbolic links."
 msgstr "拖放目标不支持符号链接。"
 
-#: ../libcaja-private/caja-file-operations.c:5426
+#: ../libcaja-private/caja-file-operations.c:5440
 #, c-format
 msgid "There was an error creating the symlink in %F."
 msgstr "在 %F 中创建符号链结时出错。"
 
-#: ../libcaja-private/caja-file-operations.c:5742
+#: ../libcaja-private/caja-file-operations.c:5756
 msgid "Setting permissions"
 msgstr "设定权限"
 
 #. localizers: the initial name of a new folder
-#: ../libcaja-private/caja-file-operations.c:6001
+#: ../libcaja-private/caja-file-operations.c:6015
 msgid "untitled folder"
 msgstr "未命名文件夹"
 
 #. localizers: the initial name of a new empty file
-#: ../libcaja-private/caja-file-operations.c:6009
+#: ../libcaja-private/caja-file-operations.c:6023
 msgid "new file"
 msgstr "新文件"
 
-#: ../libcaja-private/caja-file-operations.c:6181
+#: ../libcaja-private/caja-file-operations.c:6195
 msgid "Error while creating directory %B."
 msgstr "创建目录 %B 时出错。"
 
-#: ../libcaja-private/caja-file-operations.c:6183
+#: ../libcaja-private/caja-file-operations.c:6197
 msgid "Error while creating file %B."
 msgstr "创建文件 %B 时出错。"
 
-#: ../libcaja-private/caja-file-operations.c:6185
+#: ../libcaja-private/caja-file-operations.c:6199
 #, c-format
 msgid "There was an error creating the directory in %F."
 msgstr "在 %F 中创建目录出错。"
 
-#: ../libcaja-private/caja-file-operations.c:6463
+#: ../libcaja-private/caja-file-operations.c:6477
 msgid "Emptying Trash"
 msgstr "正在清空回收站"
 
-#: ../libcaja-private/caja-file-operations.c:6512
-#: ../libcaja-private/caja-file-operations.c:6553
-#: ../libcaja-private/caja-file-operations.c:6588
-#: ../libcaja-private/caja-file-operations.c:6623
+#: ../libcaja-private/caja-file-operations.c:6526
+#: ../libcaja-private/caja-file-operations.c:6567
+#: ../libcaja-private/caja-file-operations.c:6602
+#: ../libcaja-private/caja-file-operations.c:6637
 msgid "Unable to mark launcher trusted (executable)"
 msgstr "无法标记启动器为可信任的(可执行)"
 
@@ -1732,7 +1778,7 @@ msgstr "文件名中不能出现斜线"
 #: ../libcaja-private/caja-file.c:1838
 #, c-format
 msgid "File not found"
-msgstr "文件未找到"
+msgstr "文件找不到"
 
 #: ../libcaja-private/caja-file.c:1866
 #, c-format
@@ -1768,7 +1814,7 @@ msgid "today at 00:00:00 PM"
 msgstr "今天 00:00:00"
 
 #: ../libcaja-private/caja-file.c:4509
-#: ../src/caja-file-management-properties.c:527
+#: ../src/caja-file-management-properties.c:521
 msgid "today at %-I:%M:%S %p"
 msgstr "今天 %H:%M:%S"
 
@@ -1832,7 +1878,7 @@ msgstr "0000年9月0日星期三，00:00:00"
 
 #: ../libcaja-private/caja-file.c:4549
 msgid "%A, %B %-d %Y at %-I:%M:%S %p"
-msgstr "%Y年%-m月%-d日%A，%-H:%M:%S"
+msgstr "%Y年%-m月%-d日 %H:%M:%S"
 
 #: ../libcaja-private/caja-file.c:4551
 msgid "Mon, Oct 00 0000 at 00:00:00 PM"
@@ -1908,7 +1954,7 @@ msgid "Specified group '%s' doesn't exist"
 msgstr "指定组“%s”不存在"
 
 #: ../libcaja-private/caja-file.c:5950
-#: ../src/file-manager/fm-directory-view.c:2371
+#: ../src/file-manager/fm-directory-view.c:2357
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
@@ -1972,9 +2018,9 @@ msgstr "链接"
 
 #: ../libcaja-private/caja-file.c:6542
 msgid "link (broken)"
-msgstr "链接(已断)"
+msgstr "链接(已断开)"
 
-#: ../libcaja-private/caja-icon-container.c:2920
+#: ../libcaja-private/caja-icon-container.c:2910
 msgid "The selection rectangle"
 msgstr "矩形选区"
 
@@ -1997,13 +2043,13 @@ msgstr "无法使用此链接，因为它没有目标。"
 msgid "This link cannot be used, because its target \"%s\" doesn't exist."
 msgstr "无法使用此链接，因为其目标“%s”不存在。"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
 #: ../libcaja-private/caja-mime-actions.c:744
-#: ../src/file-manager/fm-directory-view.c:7368
-#: ../src/file-manager/fm-directory-view.c:7500
-#: ../src/file-manager/fm-directory-view.c:8599
-#: ../src/file-manager/fm-directory-view.c:8924
+#: ../src/file-manager/fm-directory-view.c:7354
+#: ../src/file-manager/fm-directory-view.c:7486
+#: ../src/file-manager/fm-directory-view.c:8585
+#: ../src/file-manager/fm-directory-view.c:8910
 #: ../src/file-manager/fm-tree-view.c:1346
 msgid "Mo_ve to Trash"
 msgstr "移动到回收站(_V)"
@@ -2026,29 +2072,29 @@ msgstr "在终端中运行(_T)"
 msgid "_Display"
 msgstr "显示(_D)"
 
-#: ../libcaja-private/caja-mime-actions.c:818
+#: ../libcaja-private/caja-mime-actions.c:823
 #: ../src/caja-autorun-software.c:253
 msgid "_Run"
 msgstr "运行(_R)"
 
-#: ../libcaja-private/caja-mime-actions.c:1170
+#: ../libcaja-private/caja-mime-actions.c:1175
 #: ../src/file-manager/fm-directory-view.c:653
 msgid "Are you sure you want to open all files?"
 msgstr "您确定要打开全部文件吗？"
 
-#: ../libcaja-private/caja-mime-actions.c:1173
+#: ../libcaja-private/caja-mime-actions.c:1178
 #, c-format
 msgid "This will open %d separate tab."
 msgid_plural "This will open %d separate tabs."
 msgstr[0] "这将打开 %d 个独立的标签。"
 
-#: ../libcaja-private/caja-mime-actions.c:1178 ../src/caja-location-bar.c:194
+#: ../libcaja-private/caja-mime-actions.c:1183 ../src/caja-location-bar.c:194
 #, c-format
 msgid "This will open %d separate window."
 msgid_plural "This will open %d separate windows."
 msgstr[0] "这将打开 %d 个独立的窗口。"
 
-#: ../libcaja-private/caja-mime-actions.c:1256
+#: ../libcaja-private/caja-mime-actions.c:1261
 #: ../src/caja-window-manage-views.c:2101
 #: ../src/caja-window-manage-views.c:2109
 #: ../src/caja-window-manage-views.c:2129
@@ -2059,70 +2105,72 @@ msgstr[0] "这将打开 %d 个独立的窗口。"
 msgid "Could not display \"%s\"."
 msgstr "无法显示“%s”。"
 
-#: ../libcaja-private/caja-mime-actions.c:1343
+#: ../libcaja-private/caja-mime-actions.c:1348
 msgid "The file is of an unknown type"
 msgstr "文件是未知类型"
 
-#: ../libcaja-private/caja-mime-actions.c:1347
+#: ../libcaja-private/caja-mime-actions.c:1352
 #, c-format
 msgid "There is no application installed for %s files"
 msgstr "没有为 %s 文件类型安装应用程序"
 
-#: ../libcaja-private/caja-mime-actions.c:1362
+#: ../libcaja-private/caja-mime-actions.c:1367
 msgid "_Select Application"
 msgstr "选择程序(_S)"
 
-#: ../libcaja-private/caja-mime-actions.c:1400
+#: ../libcaja-private/caja-mime-actions.c:1408
 msgid "There was an internal error trying to search for applications:"
-msgstr "试图搜索应用程序时发生了内部错误："
+msgstr "在试图搜索应用程序时出现了一个内部错误："
 
-#: ../libcaja-private/caja-mime-actions.c:1402
+#: ../libcaja-private/caja-mime-actions.c:1410
 msgid "Unable to search for application"
 msgstr "无法搜索应用程序"
 
-#: ../libcaja-private/caja-mime-actions.c:1528
+#: ../libcaja-private/caja-mime-actions.c:1536
 #, c-format
 msgid ""
 "There is no application installed for %s files.\n"
 "Do you want to search for an application to open this file?"
-msgstr "没有为 %s 文件类型安装应用程序。\n您是否想要搜索可打开此文件的应用程序?"
+msgstr ""
+"没有为 %s 文件类型安装应用程序。\n"
+"您是否想要搜索可打开此文件的应用程序?"
 
-#: ../libcaja-private/caja-mime-actions.c:1692
+#: ../libcaja-private/caja-mime-actions.c:1700
 msgid "Untrusted application launcher"
 msgstr "未信任的应用程序启动器"
 
-#: ../libcaja-private/caja-mime-actions.c:1695
+#: ../libcaja-private/caja-mime-actions.c:1703
 #, c-format
 msgid ""
 "The application launcher \"%s\" has not been marked as trusted. If you do "
 "not know the source of this file, launching it may be unsafe."
 msgstr "应用程序启动器 “%s“ 还没有被标记为可信任的。如果您不知道这个文件的来源，那么启动它可能会不安全。"
 
-#: ../libcaja-private/caja-mime-actions.c:1710
+#: ../libcaja-private/caja-mime-actions.c:1718
 msgid "_Launch Anyway"
 msgstr "仍然启动(_L)"
 
-#: ../libcaja-private/caja-mime-actions.c:1714
+#: ../libcaja-private/caja-mime-actions.c:1722
 msgid "Mark as _Trusted"
 msgstr "标记为信任(_T)"
 
-#: ../libcaja-private/caja-mime-actions.c:2010
-#: ../libcaja-private/caja-mime-actions.c:2316
-#: ../src/file-manager/fm-directory-view.c:6386
+#: ../libcaja-private/caja-mime-actions.c:2022
+#: ../libcaja-private/caja-mime-actions.c:2328
+#: ../src/file-manager/fm-directory-view.c:6372
 msgid "Unable to mount location"
 msgstr "无法挂载位置"
 
-#: ../libcaja-private/caja-mime-actions.c:2404
-#: ../src/file-manager/fm-directory-view.c:6560
+#: ../libcaja-private/caja-mime-actions.c:2416
+#: ../src/file-manager/fm-directory-view.c:6546
 msgid "Unable to start location"
 msgstr "无法启动位置"
 
-#: ../libcaja-private/caja-mime-actions.c:2497
+#: ../libcaja-private/caja-mime-actions.c:2509
 #, c-format
 msgid "Opening \"%s\"."
 msgstr "正在打开“%s”。"
 
-#: ../libcaja-private/caja-mime-actions.c:2502
+#: ../libcaja-private/caja-mime-actions.c:2514
 #, c-format
 msgid "Opening %d item."
 msgid_plural "Opening %d items."
@@ -2151,26 +2199,37 @@ msgstr "图标"
 msgid "Could not remove application"
 msgstr "无法删除应用程序"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:561
+#: ../libcaja-private/caja-mime-application-chooser.c:420
+#: ../libcaja-private/caja-open-with-dialog.c:1116
+msgid "_Add"
+msgstr "添加(_A)"
+
+#: ../libcaja-private/caja-mime-application-chooser.c:430
+#: ../libcaja-private/caja-open-with-dialog.c:935
+#: ../src/caja-bookmarks-window.ui.h:4
+msgid "_Remove"
+msgstr "移除(_R)"
+
+#: ../libcaja-private/caja-mime-application-chooser.c:559
 msgid "No applications selected"
 msgstr "未选择应用程序"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:591
+#: ../libcaja-private/caja-mime-application-chooser.c:589
 #, c-format
 msgid "%s document"
 msgstr "%s 文档"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:601
-#: ../libcaja-private/caja-open-with-dialog.c:1081
+#: ../libcaja-private/caja-mime-application-chooser.c:599
+#: ../libcaja-private/caja-open-with-dialog.c:1075
 msgid "Unknown"
 msgstr "未知"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:634
+#: ../libcaja-private/caja-mime-application-chooser.c:632
 #, c-format
 msgid "Select an application to open %s and other files of type \"%s\""
 msgstr "选择一个应用程序用来打开 %s 及“%s”类型的其它文件"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:706
+#: ../libcaja-private/caja-mime-application-chooser.c:704
 #, c-format
 msgid "Open all files of type \"%s\" with:"
 msgstr "用此应用程序打开“%s”类型的全部文件："
@@ -2202,80 +2261,77 @@ msgid "Select an Application"
 msgstr "选择一个应用程序"
 
 #: ../libcaja-private/caja-open-with-dialog.c:840
-#: ../src/file-manager/fm-properties-window.c:5073
+#: ../src/file-manager/fm-properties-window.c:5069
 msgid "Open With"
 msgstr "打开方式"
 
-#: ../libcaja-private/caja-open-with-dialog.c:883
+#: ../libcaja-private/caja-open-with-dialog.c:878
 msgid "Select an application to view its description."
-msgstr "选择一个应用程序以查看其描述。"
+msgstr "选择应用程序可查看其描述。"
 
-#: ../libcaja-private/caja-open-with-dialog.c:913
+#: ../libcaja-private/caja-open-with-dialog.c:904
 msgid "_Use a custom command"
 msgstr "使用自定义命令(_U)"
 
-#: ../libcaja-private/caja-open-with-dialog.c:930
+#: ../libcaja-private/caja-open-with-dialog.c:921
 msgid "_Browse..."
 msgstr "浏览(_B)..."
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../libcaja-private/caja-open-with-dialog.c:966
-#: ../src/file-manager/fm-directory-view.c:7284
-#: ../src/file-manager/fm-directory-view.c:8793
-#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2656
+#: ../libcaja-private/caja-open-with-dialog.c:960
+#: ../src/file-manager/fm-directory-view.c:7270
+#: ../src/file-manager/fm-directory-view.c:8779
+#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-location-dialog.c:199
+#: ../src/caja-places-sidebar.c:2656
 msgid "_Open"
 msgstr "打开(_O)"
 
 #. first %s is a filename and second %s is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1051
+#: ../libcaja-private/caja-open-with-dialog.c:1045
 #, c-format
 msgid "Open %s and other %s document with:"
 msgstr "用此应用程序打开 %s 及“%s”类型的其它文件："
 
 #. the %s here is a file name
 #. %s is a filename
-#: ../libcaja-private/caja-open-with-dialog.c:1057
-#: ../libcaja-private/caja-open-with-dialog.c:1097
+#: ../libcaja-private/caja-open-with-dialog.c:1051
+#: ../libcaja-private/caja-open-with-dialog.c:1091
 #, c-format
 msgid "Open %s with:"
 msgstr "%s 的打开方式："
 
-#: ../libcaja-private/caja-open-with-dialog.c:1058
+#: ../libcaja-private/caja-open-with-dialog.c:1052
 #, c-format
 msgid "_Remember this application for %s documents"
 msgstr "记住打开 %s 类型文件使用的程序(_R)"
 
 #. Only in add mode - the %s here is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1069
+#: ../libcaja-private/caja-open-with-dialog.c:1063
 #, c-format
 msgid "Open all %s documents with:"
 msgstr "用此应用程序打开“%s”类型的全部文件："
 
 #. First %s is a filename, second is a description
 #. * of the type, eg "plain text document"
-#: ../libcaja-private/caja-open-with-dialog.c:1091
+#: ../libcaja-private/caja-open-with-dialog.c:1085
 #, c-format
 msgid "Open %s and other \"%s\" files with:"
 msgstr "用此应用程序打开 %s 及“%s”类型的其它文件："
 
 #. %s is a file type description
-#: ../libcaja-private/caja-open-with-dialog.c:1099
+#: ../libcaja-private/caja-open-with-dialog.c:1093
 #, c-format
 msgid "_Remember this application for \"%s\" files"
 msgstr "记住打开 %s 类型文件使用的程序(_R)"
 
 #. Only in add mode
-#: ../libcaja-private/caja-open-with-dialog.c:1110
+#: ../libcaja-private/caja-open-with-dialog.c:1104
 #, c-format
 msgid "Open all \"%s\" files with:"
 msgstr "用此应用程序打开“%s”类型的全部文件："
 
-#: ../libcaja-private/caja-open-with-dialog.c:1122
-msgid "_Add"
-msgstr "添加(_A)"
-
-#: ../libcaja-private/caja-open-with-dialog.c:1123
+#: ../libcaja-private/caja-open-with-dialog.c:1117
 msgid "Add Application"
 msgstr "添加应用程序"
 
@@ -2284,7 +2340,7 @@ msgid "Open Failed, would you like to choose another application?"
 msgstr "打开失败，您要选择另外的程序吗？"
 
 #: ../libcaja-private/caja-program-choosing.c:80
-#: ../libcaja-private/caja-program-choosing.c:117
+#: ../libcaja-private/caja-program-choosing.c:118
 #, c-format
 msgid "\"%s\" cannot open \"%s\" because \"%s\" cannot access files at \"%s\" locations."
 msgstr "“%s”无法打开“%s”，因为“%s”无法访问位于“%s”的文件。"
@@ -2294,56 +2350,56 @@ msgid "Open Failed, would you like to choose another action?"
 msgstr "打开失败，您要选择另外的操作吗？"
 
 #: ../libcaja-private/caja-program-choosing.c:88
-#: ../libcaja-private/caja-program-choosing.c:126
+#: ../libcaja-private/caja-program-choosing.c:127
 #, c-format
 msgid ""
 "The default action cannot open \"%s\" because it cannot access files at "
 "\"%s\" locations."
 msgstr "默认操作无法打开“%s”，原因是无法访问位于“%s”的文件。"
 
-#: ../libcaja-private/caja-program-choosing.c:120
+#: ../libcaja-private/caja-program-choosing.c:121
 msgid ""
 "No other applications are available to view this file. If you copy this file"
 " onto your computer, you may be able to open it."
 msgstr "没有可查看此文件的其它应用程序。如果您将该文件复制到您的机器上，也许可以打开它。"
 
-#: ../libcaja-private/caja-program-choosing.c:128
+#: ../libcaja-private/caja-program-choosing.c:129
 msgid ""
 "No other actions are available to view this file. If you copy this file onto"
 " your computer, you may be able to open it."
 msgstr "没有可查看此文件的其它动作。如果您将该文件复制到您的机器上，也许可以打开它。"
 
-#: ../libcaja-private/caja-program-choosing.c:458
+#: ../libcaja-private/caja-program-choosing.c:459
 msgid "Sorry, but you cannot execute commands from a remote site."
 msgstr "抱歉，您无法执行远程系统上的命令。"
 
-#: ../libcaja-private/caja-program-choosing.c:460
+#: ../libcaja-private/caja-program-choosing.c:461
 msgid "This is disabled due to security considerations."
 msgstr "鉴于安全考虑，此功能已被禁用。"
 
-#: ../libcaja-private/caja-program-choosing.c:472
-#: ../libcaja-private/caja-program-choosing.c:540
+#: ../libcaja-private/caja-program-choosing.c:473
+#: ../libcaja-private/caja-program-choosing.c:541
 msgid "There was an error launching the application."
 msgstr "启动应用程序出错。"
 
-#: ../libcaja-private/caja-program-choosing.c:501
-#: ../libcaja-private/caja-program-choosing.c:514
+#: ../libcaja-private/caja-program-choosing.c:502
+#: ../libcaja-private/caja-program-choosing.c:515
 msgid "This drop target only supports local files."
 msgstr "此拖放目标只支持本地文件。"
 
-#: ../libcaja-private/caja-program-choosing.c:502
+#: ../libcaja-private/caja-program-choosing.c:503
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again."
 msgstr "要打开非本地文件，请将它们复制到本地文件夹中再拖放它们。"
 
-#: ../libcaja-private/caja-program-choosing.c:515
+#: ../libcaja-private/caja-program-choosing.c:516
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again. The local files you dropped have already been opened."
 msgstr "要打开非本地文件，请将它们复制到本地文件夹中再拖放它们。您拖放的本地文件已经被打开。"
 
-#: ../libcaja-private/caja-program-choosing.c:538
+#: ../libcaja-private/caja-program-choosing.c:539
 msgid "Details: "
 msgstr "详细信息："
 
@@ -2371,10 +2427,10 @@ msgstr "正在加入队列"
 #, c-format
 msgid "%'d file operation active"
 msgid_plural "%'d file operations active"
-msgstr[0] "有 %'d 项文件操作正在进行中"
+msgstr[0] "有 %'d 项文件操作正在进行"
 
-#: ../libcaja-private/caja-progress-info.c:983
-#: ../libcaja-private/caja-progress-info.c:1004
+#: ../libcaja-private/caja-progress-info.c:975
+#: ../libcaja-private/caja-progress-info.c:996
 msgid "Preparing"
 msgstr "准备中"
 
@@ -2383,7 +2439,7 @@ msgstr "准备中"
 #: ../libcaja-private/caja-search-directory-file.c:205
 #: ../libcaja-private/caja-search-directory-file.c:238
 msgid "Search"
-msgstr "搜索"
+msgstr "查找"
 
 #: ../libcaja-private/caja-query.c:164
 #, c-format
@@ -2749,7 +2805,9 @@ msgid ""
 "If set to \"after-current-tab\", then new tabs are inserted after the "
 "current tab. If set to \"end\", then new tabs are appended to the end of the"
 " tab list."
-msgstr "如果设定到 “after-current-tab“，那么新的标签页就插入在当前标签页之后。如果设定为 “end“，那么新的标签页将出现在标签页列表的末尾。"
+msgstr ""
+"如果设定到 “after-current-tab“，那么新的标签页就插入在当前标签页之后。如果设定为 "
+"“end“，那么新的标签页将出现在标签页列表的末尾。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:3
 msgid "Caja will exit when last window destroyed."
@@ -2760,7 +2818,9 @@ msgid ""
 "If set to true, then Caja will exit when all windows are destroyed. This is "
 "the default setting. If set to false, it can be started without any window, "
 "so Caja can serve as a daemon to monitor media automount, or similar tasks."
-msgstr "如果设置为 true，Caja 将在所有窗口关闭后退出。这是默认的设置。如果设置为 false，它可以在没有窗口的状态下启动，那样 Caja 将作为一个守护进程提供自动挂载或者相似的任务。"
+msgstr ""
+"如果设置为 true，Caja 将在所有窗口关闭后退出。这是默认的设置。如果设置为 false，它可以在没有窗口的状态下启动，那样 Caja "
+"将作为一个守护进程提供自动挂载或者相似的任务。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:5
 msgid "Enables the classic Caja behavior, where all windows are browsers"
@@ -2825,7 +2885,8 @@ msgid ""
 "folder is on a remote server. If set to \"local-only\" then only show "
 "previews for local file systems. If set to \"never\" then never bother to "
 "read preview data."
-msgstr "在文件图标中显示文本文件内容预览的速度折衷。如果设为“总是”，将会总是显示预览，即使文件夹位于远程服务器上。如果设为“只是本地”，则只会显示本地文件系统上文件的预览。如果设为“从不”，则绝不读取任何预览数据。"
+msgstr ""
+"在文件图标中显示文本文件内容预览的速度折衷。如果设为“总是”，将会总是显示预览，即使文件夹位于远程服务器上。如果设为“只是本地”，则只会显示本地文件系统上文件的预览。如果设为“从不”，则绝不读取任何预览数据。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:17
 msgid "When to show number of items in a folder"
@@ -2837,7 +2898,8 @@ msgid ""
 "\"always\" then always show item counts, even if the folder is on a remote "
 "server. If set to \"local-only\" then only show counts for local file "
 "systems. If set to \"never\" then never bother to compute item counts."
-msgstr "显示文件夹中项目数时的速度折衷。如果设为“总是”，将会总是显示项目计数，即使文件夹位于远程服务器上。如果设为“只是本地”，则只会对本地文件系统上的文件显示计数。如果设为“从不”，则绝不计算项目数。"
+msgstr ""
+"显示文件夹中项目数时的速度折衷。如果设为“总是”，将会总是显示项目计数，即使文件夹位于远程服务器上。如果设为“只是本地”，则只会对本地文件系统上的文件显示计数。如果设为“从不”，则绝不计算项目数。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:19
 msgid "Type of click used to launch/open files"
@@ -2859,7 +2921,8 @@ msgid ""
 "double clicked). Possible values are \"launch\" to launch them as programs, "
 "\"ask\" to ask what to do via a dialog, and \"display\" to display them as "
 "text files."
-msgstr "激活(单击或双击)可执行的文本文件时要执行什么操作。可供选择的值中，“launch”可按程序调用文件，“ask”将显示对话框询问操作，“display”将以文本文件显示其内容。"
+msgstr ""
+"激活(单击或双击)可执行的文本文件时要执行什么操作。可供选择的值中，“launch”可按程序调用文件，“ask”将显示对话框询问操作，“display”将以文本文件显示其内容。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:23
 msgid "Show the package installer for unknown MIME types"
@@ -2890,7 +2953,8 @@ msgid ""
 "For users with mice that have buttons for \"Forward\" and \"Back\", this key"
 " will set which button activates the \"Forward\" command in a browser "
 "window. Possible values range between 6 and 14."
-msgstr "对于使用有 “前进“ 和 “后退“ 按钮的鼠标的用户，这个按键将设定哪个按钮可以激活在一个浏览器窗口的“前进“命令。可能的数值范围是 6 到 14。"
+msgstr ""
+"对于使用有 “前进“ 和 “后退“ 按钮的鼠标的用户，这个按键将设定哪个按钮可以激活在一个浏览器窗口的“前进“命令。可能的数值范围是 6 到 14。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:29
 msgid "Mouse button to activate the \"Back\" command in browser window"
@@ -2901,7 +2965,8 @@ msgid ""
 "For users with mice that have buttons for \"Forward\" and \"Back\", this key"
 " will set which button activates the \"Back\" command in a browser window. "
 "Possible values range between 6 and 14."
-msgstr "对于使用有 “前进“ 和 “后退“ 按钮的鼠标的用户，这个按键将设定哪个按钮可以激活在一个浏览器窗口的“后退“命令。可能的数值范围是 6 到 14。"
+msgstr ""
+"对于使用有 “前进“ 和 “后退“ 按钮的鼠标的用户，这个按键将设定哪个按钮可以激活在一个浏览器窗口的“后退“命令。可能的数值范围是 6 到 14。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:31
 msgid "When to show thumbnails of image files"
@@ -2914,7 +2979,8 @@ msgid ""
 "If set to \"local-only\" then only show thumbnails for local file systems. "
 "If set to \"never\" then never bother to thumbnail images, just use a "
 "generic icon."
-msgstr "将图像文件显示为缩略图时的速度折衷。如果设为“总是”，将会总是显示缩略图，即使文件夹位于远程服务器上。如果设为“只是本地”，则只会对本地文件系统上的文件创建缩略图。如果设为“从不”，则绝不预览图像，只是使用通用图标。"
+msgstr ""
+"将图像文件显示为缩略图时的速度折衷。如果设为“总是”，将会总是显示缩略图，即使文件夹位于远程服务器上。如果设为“只是本地”，则只会对本地文件系统上的文件创建缩略图。如果设为“从不”，则绝不预览图像，只是使用通用图标。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:33
 msgid "Maximum image size for thumbnailing"
@@ -2937,7 +3003,8 @@ msgid ""
 "icon. If set to \"always\" then always plays the sound, even if the file is "
 "on a remote server. If set to \"local-only\" then only plays previews on "
 "local file systems. If set to \"never\" then it never previews sound."
-msgstr "当鼠标指向声音文件图标时预览的速度折衷。如果设为“总是”，将会总是播放声音，即使文件位于远程服务器上。如果设为“只是本地”，则只会播放本地文件系统上的文件。如果设为“从不”，则绝不预览声音。"
+msgstr ""
+"当鼠标指向声音文件图标时预览的速度折衷。如果设为“总是”，将会总是播放声音，即使文件位于远程服务器上。如果设为“只是本地”，则只会播放本地文件系统上的文件。如果设为“从不”，则绝不预览声音。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:37
 msgid "Show advanced permissions in the file property dialog"
@@ -2967,7 +3034,8 @@ msgstr "默认排序次序"
 msgid ""
 "The default sort-order for items in the icon view. Possible values are "
 "\"name\", \"size\", \"type\", \"mtime\", and \"emblems\"."
-msgstr "图标视图中项目的默认排序。可供选择的值是“name”(名称)、“size”(大小)、“type”(类型)、“mtime”(修改时间)和“emblems”(徽标)。"
+msgstr ""
+"图标视图中项目的默认排序。可供选择的值是“name”(名称)、“size”(大小)、“type”(类型)、“mtime”(修改时间)和“emblems”(徽标)。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:43
 msgid "Reverse sort order in new windows"
@@ -2979,7 +3047,9 @@ msgid ""
 " by name, then instead of sorting the files from \"a\" to \"z\", they will "
 "be sorted from \"z\" to \"a\"; if sorted by size, instead of being "
 "incrementally they will be sorted decrementally."
-msgstr "如果为 true，新窗口中的文件将以逆序排序。即，如果是按照名称排序的话，会将“z”排在最前面，将“a”排在最后面；如果是按照大小排序的话，会将最大的文件排在最前面，将最小的文件排在最后面。"
+msgstr ""
+"如果为 "
+"true，新窗口中的文件将以逆序排序。即，如果是按照名称排序的话，会将“z”排在最前面，将“a”排在最后面；如果是按照大小排序的话，会将最大的文件排在最前面，将最小的文件排在最后面。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:45
 msgid "Caja uses the users home folder as the desktop"
@@ -3055,7 +3125,8 @@ msgid ""
 "When a folder is visited this viewer is used unless you have selected "
 "another view for that particular folder. Possible values are \"list-view\", "
 "\"icon-view\" and \"compact-view\"."
-msgstr "进入文件夹时，将使用此查看器，除非您为该文件夹特别选择了其它视图。可供选择的值有“list_view”(列表视图)、“icon_view”(图标视图)和“compact_view”(紧凑视图)。"
+msgstr ""
+"进入文件夹时，将使用此查看器，除非您为该文件夹特别选择了其它视图。可供选择的值有“list_view”(列表视图)、“icon_view”(图标视图)和“compact_view”(紧凑视图)。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:61
 msgid "Date Format"
@@ -3076,7 +3147,9 @@ msgid ""
 "If set to true, then hidden files are shown by default in the file manager. "
 "Hidden files are either dotfiles, listed in the folder's .hidden file or "
 "backup files ending with a tilde (~)."
-msgstr "如果设为 true，则在文件管理器中默认显示隐藏文件。隐藏文件或者是以 . 开头的文件，在文件夹的 .hidden 文件中列出的文件，或以波浪号(~)结尾的备份文件。"
+msgstr ""
+"如果设为 true，则在文件管理器中默认显示隐藏文件。隐藏文件或者是以 . 开头的文件，在文件夹的 .hidden "
+"文件中列出的文件，或以波浪号(~)结尾的备份文件。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:65
 msgid "Whether to show file sizes with IEC units"
@@ -3107,7 +3180,9 @@ msgid ""
 "values are: \"size\", \"type\", \"date_modified\", \"date_changed\", "
 "\"date_accessed\", \"owner\", \"group\", \"permissions\", "
 "\"octal_permissions\" and \"mime_type\"."
-msgstr "图标视图中的图标和桌面图标下标题的列表。实际显示的标题数取决于缩放级别。可供选择的值是：“size”(大小)、“type”(类型)、“date_modified”(修改日期)、“date_changed”(更改日期)、“date_accessed”(访问日期)、“owner”(所有者)、“group”(组)、“permissions”(权限)、“octal_permissions”(八进制权限)和“mime_type”(MIME 类型)。"
+msgstr ""
+"图标视图中的图标和桌面图标下标题的列表。实际显示的标题数取决于缩放级别。可供选择的值是：“size”(大小)、“type”(类型)、“date_modified”(修改日期)、“date_changed”(更改日期)、“date_accessed”(访问日期)、“owner”(所有者)、“group”(组)、“permissions”(权限)、“octal_permissions”(八进制权限)和“mime_type”(MIME"
+" 类型)。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:71
 msgid "Use tighter layout in new windows"
@@ -3152,7 +3227,10 @@ msgid ""
 "A string specifying how parts of overlong file names should be replaced by ellipses, depending on the zoom level. Each of the list entries is of the form \"Zoom Level:Integer\". For each specified zoom level, if the given integer is larger than 0, the file name will not exceed the given number of lines. If the integer is 0 or smaller, no limit is imposed on the specified zoom level. A default entry of the form \"Integer\" without any specified zoom level is also allowed. It defines the maximum number of lines for all other zoom levels. Examples: 0 - always display overlong file names; 3 - shorten file names if they exceed three lines; smallest:5,smaller:4,0 - shorten file names if they exceed five lines for zoom level \"smallest\". Shorten file names if they exceed four lines for zoom level \"smaller\". Do not shorten file names for other zoom levels.\n"
 "\n"
 "Available zoom levels: smallest (33%), smaller (50%), small (66%), standard (100%), large (150%), larger (200%), largest (400%)"
-msgstr "一个依赖于缩放级别指定超长文件名的多余部分如何通过省略号取代的字符串。每个列表的条目形式都是“缩放级别:整数”。对于每一个指定的缩放级别，如果给定的整数大于 0，那么文件名称将不会超过给定的行数。如果这个整数小于 0 或者更小，那么在指定的缩放级别上没有限制。一个默认条目的形式“整数”而没有任何指定的缩放级别也是允许的。它定义了所有其它缩放级别的最大行数。例如：0 - 一直显示超长文件名称；3 - 如果文件名称超过了 3 行那么缩短它们；最小：5，比较小：4，0 - 如果文件名称超过了缩放级别“最小“ 5 行，那么缩短它们。如果文件名称超过了缩放级别“比较小“ 4 行，那么缩短它们。对于其它缩放级别不缩短文件名称。\n\n可用的缩放解别：最小 (33%) ，比较小 (50%) ，小 (66%) ，大 (150%) ，比较大 (200%) ，最大 (400%)"
+msgstr ""
+"一个依赖于缩放级别指定超长文件名的多余部分如何通过省略号取代的字符串。每个列表的条目形式都是“缩放级别:整数”。对于每一个指定的缩放级别，如果给定的整数大于 0，那么文件名称将不会超过给定的行数。如果这个整数小于 0 或者更小，那么在指定的缩放级别上没有限制。一个默认条目的形式“整数”而没有任何指定的缩放级别也是允许的。它定义了所有其它缩放级别的最大行数。例如：0 - 一直显示超长文件名称；3 - 如果文件名称超过了 3 行那么缩短它们；最小：5，比较小：4，0 - 如果文件名称超过了缩放级别“最小“ 5 行，那么缩短它们。如果文件名称超过了缩放级别“比较小“ 4 行，那么缩短它们。对于其它缩放级别不缩短文件名称。\n"
+"\n"
+"可用的缩放解别：最小 (33%) ，比较小 (50%) ，小 (66%) ，大 (150%) ，比较大 (200%) ，最大 (400%)"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:84
 msgid "Default compact view zoom level"
@@ -3310,7 +3388,9 @@ msgid ""
 " ellipses on the desktop. If the number is larger than 0, the file name will"
 " not exceed the given number of lines. If the number is 0 or smaller, no "
 "limit is imposed on the number of displayed lines."
-msgstr "一个整数，指定在桌面上超长文件名的多余部分如何通过省略号取代。如果这个数大于 0，那么文件名称将不超过给定的行数。如果数字为 0 或更小，那么就没有显示行数的限制。"
+msgstr ""
+"一个整数，指定在桌面上超长文件名的多余部分如何通过省略号取代。如果这个数大于 0，那么文件名称将不超过给定的行数。如果数字为 0 "
+"或更小，那么就没有显示行数的限制。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:117
 msgid "The geometry string for a navigation window."
@@ -3407,7 +3487,9 @@ msgid ""
 "automounted. This only applies to media where no known x-content/* type was "
 "detected; for media where a known x-content type is detected, the user "
 "configurable action will be taken instead."
-msgstr "如果设为 true，Caja 将在自动挂载时介质时自动打开文件夹。此选项仅应用于未检测到 x-content/* 类型的介质；对于检测到已知 x-content 类型的介质，将执行用户可配置的操作。"
+msgstr ""
+"如果设为 true，Caja 将在自动挂载时介质时自动打开文件夹。此选项仅应用于未检测到 x-content/* 类型的介质；对于检测到已知 "
+"x-content 类型的介质，将执行用户可配置的操作。"
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:5
 msgid "Never prompt or autorun/autostart programs when media are inserted"
@@ -3429,7 +3511,8 @@ msgid ""
 "List of x-content/* types for which the user have chosen to start an "
 "application in the preference capplet. The preferred application for the "
 "given type will be started on insertion on media matching these types."
-msgstr "用户在首选项小程序中设置为“启动应用程序”的 x-content/* 类型列表。如果插入的介质与这些类型匹配，则会启动给定类型的首选应用程序。"
+msgstr ""
+"用户在首选项小程序中设置为“启动应用程序”的 x-content/* 类型列表。如果插入的介质与这些类型匹配，则会启动给定类型的首选应用程序。"
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:9
 msgid "List of x-content/* types set to \"Do Nothing\""
@@ -3440,7 +3523,8 @@ msgid ""
 "List of x-content/* types for which the user have chosen \"Do Nothing\" in "
 "the preference capplet. No prompt will be shown nor will any matching "
 "application be started on insertion of media matching these types."
-msgstr "用户在首选项小程序中设置为“不执行操作”的 x-content/* 类型列表。如果插入的介质与这些类型匹配，则既不会显示提示，也不会启动相应的应用程序。"
+msgstr ""
+"用户在首选项小程序中设置为“不执行操作”的 x-content/* 类型列表。如果插入的介质与这些类型匹配，则既不会显示提示，也不会启动相应的应用程序。"
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:11
 msgid "List of x-content/* types set to \"Open Folder\""
@@ -3456,12 +3540,12 @@ msgstr "用户在首选项小程序中设置为“打开文件夹”的 x-conten
 #: ../libegg/eggdesktopfile.c:166
 #, c-format
 msgid "File is not a valid .desktop file"
-msgstr "文件不是有效的 .desktop 文件"
+msgstr "不是一个有效的 .desktop 文件"
 
 #: ../libegg/eggdesktopfile.c:189
 #, c-format
 msgid "Unrecognized desktop file Version '%s'"
-msgstr "无法识别的桌面文件版本“%s”"
+msgstr "不能识别的桌面文件版本“%s”"
 
 #: ../libegg/eggdesktopfile.c:958
 #, c-format
@@ -3471,17 +3555,17 @@ msgstr "正在启动 %s"
 #: ../libegg/eggdesktopfile.c:1100
 #, c-format
 msgid "Application does not accept documents on command line"
-msgstr "应用程序在命令行上不接受文档"
+msgstr "程序在命令行中不接收文档"
 
 #: ../libegg/eggdesktopfile.c:1168
 #, c-format
 msgid "Unrecognized launch option: %d"
-msgstr "无法识别的启动选项：%d"
+msgstr "不能识别的启动选项：%d"
 
 #: ../libegg/eggdesktopfile.c:1366
 #, c-format
 msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
-msgstr "无法向 “Type=Link” 的桌面项传递文档 URI"
+msgstr "无法将文档 URL 传递给“Type=Link”的桌面项"
 
 #: ../libegg/eggdesktopfile.c:1385
 #, c-format
@@ -3494,7 +3578,7 @@ msgstr "禁止连接到会话管理器"
 
 #: ../libegg/eggsmclient.c:242
 msgid "Specify file containing saved configuration"
-msgstr "指定包含已存配置的文件"
+msgstr "指定包含有已保存配置的文件"
 
 #: ../libegg/eggsmclient.c:242
 msgid "FILE"
@@ -3516,59 +3600,59 @@ msgstr "会话管理选项："
 msgid "Show session management options"
 msgstr "显示会话管理选项"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:709
+#: ../src/file-manager/fm-desktop-icon-view.c:667
 msgid "Background"
 msgstr "背景"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:786
-#: ../src/file-manager/fm-directory-view.c:7316
-#: ../src/file-manager/fm-directory-view.c:8993
+#: ../src/file-manager/fm-desktop-icon-view.c:744
+#: ../src/file-manager/fm-directory-view.c:7302
+#: ../src/file-manager/fm-directory-view.c:8979
 msgid "E_mpty Trash"
 msgstr "清空回收站(_M)"
 
 #. label, accelerator
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:800
-#: ../src/file-manager/fm-directory-view.c:7280
+#: ../src/file-manager/fm-desktop-icon-view.c:758
+#: ../src/file-manager/fm-directory-view.c:7266
 msgid "Create L_auncher..."
 msgstr "创建启动器(_A)..."
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:802
-#: ../src/file-manager/fm-directory-view.c:7281
+#: ../src/file-manager/fm-desktop-icon-view.c:760
+#: ../src/file-manager/fm-directory-view.c:7267
 msgid "Create a new launcher"
 msgstr "创建新启动器"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:809
+#: ../src/file-manager/fm-desktop-icon-view.c:767
 msgid "Change Desktop _Background"
 msgstr "更改桌面背景(_B)"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:811
+#: ../src/file-manager/fm-desktop-icon-view.c:769
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr "显示允许您设置桌面背景的图案或颜色的窗口"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:818
+#: ../src/file-manager/fm-desktop-icon-view.c:776
 msgid "Empty Trash"
 msgstr "清空回收站"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:820
-#: ../src/file-manager/fm-directory-view.c:7317 ../src/caja-trash-bar.c:204
+#: ../src/file-manager/fm-desktop-icon-view.c:778
+#: ../src/file-manager/fm-directory-view.c:7303 ../src/caja-trash-bar.c:204
 msgid "Delete all items in the Trash"
 msgstr "删除回收站中的所有项目"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:920
+#: ../src/file-manager/fm-desktop-icon-view.c:878
 msgid "The desktop view encountered an error."
 msgstr "桌面视图遇到了错误。"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:921
+#: ../src/file-manager/fm-desktop-icon-view.c:879
 msgid "The desktop view encountered an error while starting up."
 msgstr "桌面视图在启动时遇到错误。"
 
@@ -3584,53 +3668,57 @@ msgid "This will open %'d separate window."
 msgid_plural "This will open %'d separate windows."
 msgstr[0] "这将打开 %'d 个独立的窗口。"
 
-#: ../src/file-manager/fm-directory-view.c:1183
-#: ../src/file-manager/fm-properties-window.c:5420
-#: ../src/caja-connect-server-dialog.c:724 ../src/caja-location-dialog.c:108
+#: ../src/file-manager/fm-directory-view.c:1177
+#: ../src/file-manager/fm-properties-window.c:5414
+#: ../src/caja-connect-server-dialog.c:718 ../src/caja-location-dialog.c:102
 msgid "There was an error displaying help."
 msgstr "显示帮助时出错。"
 
-#: ../src/file-manager/fm-directory-view.c:1203
+#: ../src/file-manager/fm-directory-view.c:1197
 msgid "Select Items Matching"
 msgstr "选择匹配的项目"
 
-#: ../src/file-manager/fm-directory-view.c:1218
+#: ../src/file-manager/fm-directory-view.c:1212
 msgid "_Pattern:"
-msgstr "模式(_P)："
+msgstr "图案(_P)："
 
-#: ../src/file-manager/fm-directory-view.c:1225
+#: ../src/file-manager/fm-directory-view.c:1219
 msgid "Examples: "
 msgstr "示例："
 
-#: ../src/file-manager/fm-directory-view.c:1341
+#: ../src/file-manager/fm-directory-view.c:1335
 msgid "Save Search as"
 msgstr "搜索另存为"
 
-#: ../src/file-manager/fm-directory-view.c:1364
+#: ../src/file-manager/fm-directory-view.c:1341
+msgid "_Save"
+msgstr "保存(_S)"
+
+#: ../src/file-manager/fm-directory-view.c:1360
 msgid "Search _name:"
 msgstr "搜索名称(_N)："
 
-#: ../src/file-manager/fm-directory-view.c:1384
+#: ../src/file-manager/fm-directory-view.c:1376
 msgid "_Folder:"
 msgstr "文件夹(_F)："
 
-#: ../src/file-manager/fm-directory-view.c:1393
+#: ../src/file-manager/fm-directory-view.c:1381
 msgid "Select Folder to Save Search In"
 msgstr "选择用来保存搜索的文件夹"
 
-#: ../src/file-manager/fm-directory-view.c:2284
-#: ../src/file-manager/fm-directory-view.c:2321
+#: ../src/file-manager/fm-directory-view.c:2270
+#: ../src/file-manager/fm-directory-view.c:2307
 #, c-format
 msgid "\"%s\" selected"
 msgstr "选中了“%s”"
 
-#: ../src/file-manager/fm-directory-view.c:2286
+#: ../src/file-manager/fm-directory-view.c:2272
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
 msgstr[0] "选中了 %'d 个文件夹"
 
-#: ../src/file-manager/fm-directory-view.c:2296
+#: ../src/file-manager/fm-directory-view.c:2282
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
@@ -3638,20 +3726,20 @@ msgstr[0] " (含有 %'d 项)"
 
 #. translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
-#: ../src/file-manager/fm-directory-view.c:2307
+#: ../src/file-manager/fm-directory-view.c:2293
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
 msgstr[0] " (总共有 %'d 项)"
 
-#: ../src/file-manager/fm-directory-view.c:2324
+#: ../src/file-manager/fm-directory-view.c:2310
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
 msgstr[0] "选中了 %'d 项"
 
 #. Folders selected also, use "other" terminology
-#: ../src/file-manager/fm-directory-view.c:2331
+#: ../src/file-manager/fm-directory-view.c:2317
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
@@ -3661,17 +3749,17 @@ msgstr[0] "又选中了 %'d 项"
 #. * needs to use something other than parentheses. The
 #. * first message gives the number of items selected;
 #. * the message in parentheses the size of those items.
-#: ../src/file-manager/fm-directory-view.c:2350
+#: ../src/file-manager/fm-directory-view.c:2336
 #, c-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-directory-view.c:2363
+#: ../src/file-manager/fm-directory-view.c:2349
 #, c-format
 msgid "Free space: %s"
 msgstr "剩余空间：%s"
 
-#: ../src/file-manager/fm-directory-view.c:2374
+#: ../src/file-manager/fm-directory-view.c:2360
 #, c-format
 msgid "%s, Free space: %s"
 msgstr "%s，剩余空间：%s"
@@ -3680,10 +3768,10 @@ msgstr "%s，剩余空间：%s"
 #. * might want to change "," to something else.
 #. * After the comma the amount of free space will
 #. * be shown.
-#: ../src/file-manager/fm-directory-view.c:2389
+#: ../src/file-manager/fm-directory-view.c:2375
 #, c-format
 msgid "%s, %s"
-msgstr "%s，%s"
+msgstr "%s %s"
 
 #. Marking this for translation, since you
 #. * might want to change "," to something else.
@@ -3695,8 +3783,8 @@ msgstr "%s，%s"
 #. * and the number of items in those folders and the
 #. * message about the number of other items and the
 #. * total size of those items.
+#: ../src/file-manager/fm-directory-view.c:2394
 #: ../src/file-manager/fm-directory-view.c:2408
-#: ../src/file-manager/fm-directory-view.c:2422
 #, c-format
 msgid "%s%s, %s"
 msgstr "%s%s，%s"
@@ -3708,52 +3796,52 @@ msgstr "%s%s，%s"
 #. * message about the number of other items and the
 #. * total size of those items. After the second comma
 #. * the free space is written.
-#: ../src/file-manager/fm-directory-view.c:2435
+#: ../src/file-manager/fm-directory-view.c:2421
 #, c-format
 msgid "%s%s, %s, %s"
 msgstr "%s%s，%s，%s"
 
-#: ../src/file-manager/fm-directory-view.c:4480
+#: ../src/file-manager/fm-directory-view.c:4466
 #: ../src/caja-information-panel.c:905
 #, c-format
 msgid "Open With %s"
 msgstr "用 %s 打开"
 
-#: ../src/file-manager/fm-directory-view.c:4482
+#: ../src/file-manager/fm-directory-view.c:4468
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
 msgstr[0] "用“%s”打开选中的项目"
 
-#: ../src/file-manager/fm-directory-view.c:4571
+#: ../src/file-manager/fm-directory-view.c:4557
 msgid "Open parent location"
 msgstr "打开父目录"
 
-#: ../src/file-manager/fm-directory-view.c:4572
+#: ../src/file-manager/fm-directory-view.c:4558
 msgid "Open parent location for the selected item"
 msgstr "打开已选择项目的父目录"
 
-#: ../src/file-manager/fm-directory-view.c:5421
+#: ../src/file-manager/fm-directory-view.c:5407
 #, c-format
 msgid "Run \"%s\" on any selected items"
 msgstr "在任意选中的项目上运行“%s”"
 
-#: ../src/file-manager/fm-directory-view.c:5672
+#: ../src/file-manager/fm-directory-view.c:5658
 #, c-format
 msgid "Create Document from template \"%s\""
 msgstr "根据模板“%s”创建文档"
 
-#: ../src/file-manager/fm-directory-view.c:5922
+#: ../src/file-manager/fm-directory-view.c:5908
 msgid "All executable files in this folder will appear in the Scripts menu."
 msgstr "该文件夹中所有的可执行文件都将显示在脚本菜单中。"
 
-#: ../src/file-manager/fm-directory-view.c:5924
+#: ../src/file-manager/fm-directory-view.c:5910
 msgid ""
 "Choosing a script from the menu will run that script with any selected items"
 " as input."
 msgstr "从该菜单中选择某脚本将会用任意选中项目作为输入来执行那个脚本。"
 
-#: ../src/file-manager/fm-directory-view.c:5926
+#: ../src/file-manager/fm-directory-view.c:5912
 msgid ""
 "All executable files in this folder will appear in the Scripts menu. Choosing a script from the menu will run that script.\n"
 "\n"
@@ -3774,359 +3862,357 @@ msgid ""
 "CAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: newline-delimited URIs for selected files in the inactive pane of a split-view window\n"
 "\n"
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI for current location in the inactive pane of a split-view window"
-msgstr "该文件夹中的所有可执行文件将显示在脚本菜单中。从该菜单中选择一个脚本来执行它。\n\n当从本地文件夹中执行时，选中的文件名将会被传递给脚本；当从远程文件夹中执行时(如Web 或 FTP 中的文件夹)，脚本将不会传递任何参数。\n\n无论何种情况，Caja 都会设置可供脚本使用的如下环境变量：\n\nCAJA_SCRIPT_SELECTED_FILE_PATHS：用新行分开的所选文件的路径(除非是本地文件)\n\nCAJA_SCRIPT_SELECTED_URIS：用新行分开的所选文件的 URI\n\nCAJA_SCRIPT_CURRENT_URI：当前位置的 URI\n\nCAJA_SCRIPT_WINDOW_GEOMETRY：当前窗口的位置和大小"
+msgstr ""
+"该文件夹中的所有可执行文件将显示在脚本菜单中。从该菜单中选择一个脚本来执行它。\n"
+"\n"
+"当从本地文件夹中执行时，选中的文件名将会被传递给脚本；当从远程文件夹中执行时(如Web 或 FTP 中的文件夹)，脚本将不会传递任何参数。\n"
+"\n"
+"无论何种情况，Caja 都会设置可供脚本使用的如下环境变量：\n"
+"\n"
+"CAJA_SCRIPT_SELECTED_FILE_PATHS：用新行分开的所选文件的路径(除非是本地文件)\n"
+"\n"
+"CAJA_SCRIPT_SELECTED_URIS：用新行分开的所选文件的 URI\n"
+"\n"
+"CAJA_SCRIPT_CURRENT_URI：当前位置的 URI\n"
+"\n"
+"CAJA_SCRIPT_WINDOW_GEOMETRY：当前窗口的位置和大小"
 
-#: ../src/file-manager/fm-directory-view.c:5994
+#: ../src/file-manager/fm-directory-view.c:5980
 #: ../src/file-manager/fm-tree-view.c:1009
 #, c-format
 msgid "\"%s\" will be moved if you select the Paste command"
 msgstr "如果您选择了粘贴命令，“%s”将被移动"
 
-#: ../src/file-manager/fm-directory-view.c:5998
+#: ../src/file-manager/fm-directory-view.c:5984
 #: ../src/file-manager/fm-tree-view.c:1015
 #, c-format
 msgid "\"%s\" will be copied if you select the Paste command"
 msgstr "如果您选择了粘贴命令，“%s”将被复制"
 
-#: ../src/file-manager/fm-directory-view.c:6005
+#: ../src/file-manager/fm-directory-view.c:5991
 #, c-format
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be moved if you select the Paste command"
 msgstr[0] "如果您选择了粘贴命令，将移动选中的 %'d 个项目"
 
-#: ../src/file-manager/fm-directory-view.c:6012
+#: ../src/file-manager/fm-directory-view.c:5998
 #, c-format
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be copied if you select the Paste command"
 msgstr[0] "如果您选择了粘贴命令，将复制选中的 %'d 个项目"
 
-#: ../src/file-manager/fm-directory-view.c:6192
+#: ../src/file-manager/fm-directory-view.c:6178
 #: ../src/file-manager/fm-tree-view.c:1055
 msgid "There is nothing on the clipboard to paste."
 msgstr "剪贴板中没有东西可以粘贴。"
 
-#: ../src/file-manager/fm-directory-view.c:6407
+#: ../src/file-manager/fm-directory-view.c:6393
 msgid "Unable to unmount location"
 msgstr "无法卸载位置"
 
-#: ../src/file-manager/fm-directory-view.c:6428
+#: ../src/file-manager/fm-directory-view.c:6414
 msgid "Unable to eject location"
 msgstr "无法弹出位置"
 
-#: ../src/file-manager/fm-directory-view.c:6443
+#: ../src/file-manager/fm-directory-view.c:6429
 msgid "Unable to stop drive"
 msgstr "无法停止驱动器"
 
-#: ../src/file-manager/fm-directory-view.c:7000
+#: ../src/file-manager/fm-directory-view.c:6986
 #, c-format
 msgid "Connect to Server %s"
 msgstr "连接到服务器 %s"
 
-#: ../src/file-manager/fm-directory-view.c:7005
-#: ../src/file-manager/fm-directory-view.c:8212
-#: ../src/file-manager/fm-directory-view.c:8304
-#: ../src/file-manager/fm-directory-view.c:8414
+#: ../src/file-manager/fm-directory-view.c:6991
+#: ../src/file-manager/fm-directory-view.c:8198
+#: ../src/file-manager/fm-directory-view.c:8290
+#: ../src/file-manager/fm-directory-view.c:8400
 msgid "_Connect"
 msgstr "连接(_C)"
 
-#: ../src/file-manager/fm-directory-view.c:7019
+#: ../src/file-manager/fm-directory-view.c:7005
 msgid "Link _name:"
 msgstr "链接名称(_N)："
 
-#. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7258
+#. name, icon name, label
+#: ../src/file-manager/fm-directory-view.c:7244
 msgid "Create _Document"
 msgstr "创建文档(_D)"
 
-#. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7259
+#. name, icon name, label
+#: ../src/file-manager/fm-directory-view.c:7245
 msgid "Open Wit_h"
 msgstr "打开方式(_H)"
 
-#: ../src/file-manager/fm-directory-view.c:7260
+#: ../src/file-manager/fm-directory-view.c:7246
 msgid "Choose a program with which to open the selected item"
 msgstr "选择用来打开选中项目的程序"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7262
-#: ../src/file-manager/fm-directory-view.c:7541
+#: ../src/file-manager/fm-directory-view.c:7248
+#: ../src/file-manager/fm-directory-view.c:7527
 msgid "_Properties"
-msgstr "属性(_P)"
+msgstr "属性 (_P)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7263
-#: ../src/file-manager/fm-directory-view.c:8980
+#: ../src/file-manager/fm-directory-view.c:7249
+#: ../src/file-manager/fm-directory-view.c:8966
 msgid "View or modify the properties of each selected item"
 msgstr "查看或修改每个选中项目的属性"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
 #. add the "create folder" menu item
-#: ../src/file-manager/fm-directory-view.c:7270
+#: ../src/file-manager/fm-directory-view.c:7256
 #: ../src/file-manager/fm-tree-view.c:1298
 msgid "Create _Folder"
 msgstr "创建文件夹(_F)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7271
+#: ../src/file-manager/fm-directory-view.c:7257
 msgid "Create a new empty folder inside this folder"
 msgstr "在该文件夹中创建新的空文件夹"
 
-#. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7273
+#. name, icon name, label
+#: ../src/file-manager/fm-directory-view.c:7259
 msgid "No templates installed"
 msgstr "没有安装模板"
 
-#. name, stock id
+#. name, icon name
 #. translators: this is used to indicate that a file doesn't contain anything
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7276
+#: ../src/file-manager/fm-directory-view.c:7262
 msgid "_Empty File"
 msgstr "空文件(_E)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7277
+#: ../src/file-manager/fm-directory-view.c:7263
 msgid "Create a new empty file inside this folder"
 msgstr "在该文件夹中创建新的空文件"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7285
+#: ../src/file-manager/fm-directory-view.c:7271
 msgid "Open the selected item in this window"
 msgstr "在本窗口中打开选中的项目"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
 #. Location-specific actions
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7292
-#: ../src/file-manager/fm-directory-view.c:7473
+#: ../src/file-manager/fm-directory-view.c:7278
+#: ../src/file-manager/fm-directory-view.c:7459
 msgid "Open in Navigation Window"
 msgstr "在导航窗口中打开"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7293
+#: ../src/file-manager/fm-directory-view.c:7279
 msgid "Open each selected item in a navigation window"
 msgstr "在导航窗口中打开每个选中的项目"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
 #. add the "open in new tab" menu item
-#: ../src/file-manager/fm-directory-view.c:7296
-#: ../src/file-manager/fm-directory-view.c:7477
-#: ../src/file-manager/fm-directory-view.c:8544
-#: ../src/file-manager/fm-directory-view.c:8870
+#: ../src/file-manager/fm-directory-view.c:7282
+#: ../src/file-manager/fm-directory-view.c:7463
+#: ../src/file-manager/fm-directory-view.c:8530
+#: ../src/file-manager/fm-directory-view.c:8856
 #: ../src/file-manager/fm-tree-view.c:1278 ../src/caja-places-sidebar.c:2664
 msgid "Open in New _Tab"
 msgstr "在新标签中打开(_T)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7297
+#: ../src/file-manager/fm-directory-view.c:7283
 msgid "Open each selected item in a new tab"
 msgstr "在新标签中打开选中的每个项目"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7300
-#: ../src/file-manager/fm-directory-view.c:7482
+#: ../src/file-manager/fm-directory-view.c:7286
+#: ../src/file-manager/fm-directory-view.c:7468
 msgid "Open in _Folder Window"
 msgstr "在文件夹窗口中打开(_F)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7301
+#: ../src/file-manager/fm-directory-view.c:7287
 msgid "Open each selected item in a folder window"
 msgstr "在文件夹窗口中打开每个选中的项目"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7304
+#: ../src/file-manager/fm-directory-view.c:7290
 msgid "Other _Application..."
 msgstr "其它程序(_A)..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7305
-#: ../src/file-manager/fm-directory-view.c:7309
+#: ../src/file-manager/fm-directory-view.c:7291
+#: ../src/file-manager/fm-directory-view.c:7295
 msgid "Choose another application with which to open the selected item"
 msgstr "另选一个用来打开选中项目的程序"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7308
+#: ../src/file-manager/fm-directory-view.c:7294
 msgid "Open With Other _Application..."
 msgstr "使用其它程序打开(_A)..."
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7312
+#: ../src/file-manager/fm-directory-view.c:7298
 msgid "_Open Scripts Folder"
 msgstr "打开脚本文件夹(_O)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7313
+#: ../src/file-manager/fm-directory-view.c:7299
 msgid "Show the folder containing the scripts that appear in this menu"
 msgstr "显示包含出现在该菜单中的脚本的文件夹"
 
-#. name, stock id
-#. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7321
+#: ../src/file-manager/fm-directory-view.c:7307
 msgid "Prepare the selected files to be moved with a Paste command"
 msgstr "准备将选中的文件用粘贴命令移动"
 
-#. name, stock id
-#. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7325
+#: ../src/file-manager/fm-directory-view.c:7311
 msgid "Prepare the selected files to be copied with a Paste command"
 msgstr "准备将选中的文件用粘贴命令复制"
 
-#. name, stock id
-#. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7329
+#: ../src/file-manager/fm-directory-view.c:7315
 msgid "Move or copy files previously selected by a Cut or Copy command"
 msgstr "移动或复制由前面的剪切或复制命令所选中的文件"
 
 #. We make accelerator "" instead of null here to not inherit the stock
 #. accelerator for paste
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7334
-#: ../src/file-manager/fm-directory-view.c:7495
+#: ../src/file-manager/fm-directory-view.c:7320
+#: ../src/file-manager/fm-directory-view.c:7481
 #: ../src/file-manager/fm-tree-view.c:1330
 msgid "_Paste Into Folder"
 msgstr "粘贴到文件夹(_P)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7335
+#: ../src/file-manager/fm-directory-view.c:7321
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into the "
 "selected folder"
 msgstr "将先前由剪切或复制命令所选中的文件移动或复制到选中文件夹中"
 
-#. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7337
+#. name, icon name, label
+#: ../src/file-manager/fm-directory-view.c:7323
 msgid "Cop_y to"
 msgstr "复制到(_Y)"
 
-#. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7338
+#. name, icon name, label
+#: ../src/file-manager/fm-directory-view.c:7324
 msgid "M_ove to"
 msgstr "移动到(_O)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7341
+#: ../src/file-manager/fm-directory-view.c:7327
 msgid "Select all items in this window"
 msgstr "选择该窗口中的所有项目"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7344
+#: ../src/file-manager/fm-directory-view.c:7330
 msgid "Select I_tems Matching..."
 msgstr "选择匹配的项目(_T)..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7345
+#: ../src/file-manager/fm-directory-view.c:7331
 msgid "Select items in this window matching a given pattern"
 msgstr "按给定模式选择此窗口中的项目"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7348
+#: ../src/file-manager/fm-directory-view.c:7334
 msgid "_Invert Selection"
 msgstr "反转选择(_I)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7349
+#: ../src/file-manager/fm-directory-view.c:7335
 msgid "Select all and only the items that are not currently selected"
 msgstr "全选那些目前没有选中的项目"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7352
+#: ../src/file-manager/fm-directory-view.c:7338
 msgid "D_uplicate"
 msgstr "就地复制(_U)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7353
+#: ../src/file-manager/fm-directory-view.c:7339
 msgid "Duplicate each selected item"
 msgstr "复制每个选中的项"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7356
-#: ../src/file-manager/fm-directory-view.c:8964
+#: ../src/file-manager/fm-directory-view.c:7342
+#: ../src/file-manager/fm-directory-view.c:8950
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
 msgstr[0] "创建链接(_K)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7357
+#: ../src/file-manager/fm-directory-view.c:7343
 msgid "Create a symbolic link for each selected item"
 msgstr "为每个选中的项目创建链接"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7360
+#: ../src/file-manager/fm-directory-view.c:7346
 msgid "_Rename..."
 msgstr "重命名(_R)..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7361
+#: ../src/file-manager/fm-directory-view.c:7347
 msgid "Rename selected item"
 msgstr "重命名选中的项目"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7369
-#: ../src/file-manager/fm-directory-view.c:8925
+#: ../src/file-manager/fm-directory-view.c:7355
+#: ../src/file-manager/fm-directory-view.c:8911
 msgid "Move each selected item to the Trash"
 msgstr "把每个选中项目都移到回收站"
 
-#. name, stock id
-#. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7372
-#: ../src/file-manager/fm-directory-view.c:7504
-#: ../src/file-manager/fm-directory-view.c:8945
-#: ../src/file-manager/fm-tree-view.c:1360
-msgid "_Delete"
-msgstr "删除(_D)"
-
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7373
+#: ../src/file-manager/fm-directory-view.c:7359
 msgid "Delete each selected item, without moving to the Trash"
 msgstr "删除每个选中的项目，而不移动到回收站"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7376
-#: ../src/file-manager/fm-directory-view.c:7508
+#: ../src/file-manager/fm-directory-view.c:7362
+#: ../src/file-manager/fm-directory-view.c:7494
 msgid "_Restore"
 msgstr "恢复(_R)"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7380
+#: ../src/file-manager/fm-directory-view.c:7366
 msgid "_Undo"
 msgstr "撤消(_U)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7381
-#: ../src/file-manager/fm-directory-view.c:11129
+#: ../src/file-manager/fm-directory-view.c:7367
+#: ../src/file-manager/fm-directory-view.c:11118
 msgid "Undo the last action"
 msgstr "撤消上次操作"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7384
+#: ../src/file-manager/fm-directory-view.c:7370
 msgid "_Redo"
 msgstr "重做(_R)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7385
-#: ../src/file-manager/fm-directory-view.c:11147
+#: ../src/file-manager/fm-directory-view.c:7371
+#: ../src/file-manager/fm-directory-view.c:11136
 msgid "Redo the last undone action"
 msgstr "重做上次撤消的操作"
 
@@ -4134,624 +4220,620 @@ msgstr "重做上次撤消的操作"
 #. * be window-wide, and not just view-wide.
 #. * Since this also resets the "Show hidden files" mode,
 #. * it is a mixture of both ATM.
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7395
+#: ../src/file-manager/fm-directory-view.c:7381
 msgid "Reset View to _Defaults"
 msgstr "将视图重置为默认值(_D)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7396
+#: ../src/file-manager/fm-directory-view.c:7382
 msgid "Reset sorting order and zoom level to match preferences for this view"
 msgstr "重置排序和缩放级别以符合该视图的首选项"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7399
+#: ../src/file-manager/fm-directory-view.c:7385
 msgid "Connect To This Server"
 msgstr "连接到此服务器"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7400
+#: ../src/file-manager/fm-directory-view.c:7386
 msgid "Make a permanent connection to this server"
 msgstr "永久连接到此服务器"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7403
-#: ../src/file-manager/fm-directory-view.c:7431
-#: ../src/file-manager/fm-directory-view.c:7512
+#: ../src/file-manager/fm-directory-view.c:7389
+#: ../src/file-manager/fm-directory-view.c:7417
+#: ../src/file-manager/fm-directory-view.c:7498
 #: ../src/caja-places-sidebar.c:2700
 msgid "_Mount"
 msgstr "挂载(_M)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7404
+#: ../src/file-manager/fm-directory-view.c:7390
 msgid "Mount the selected volume"
 msgstr "挂载选中的卷"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7408
+#: ../src/file-manager/fm-directory-view.c:7394
 msgid "Unmount the selected volume"
 msgstr "卸载选中的文件卷"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7412
+#: ../src/file-manager/fm-directory-view.c:7398
 msgid "Eject the selected volume"
 msgstr "弹出选中的卷"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7415
-#: ../src/file-manager/fm-directory-view.c:7443
-#: ../src/file-manager/fm-directory-view.c:7524
+#: ../src/file-manager/fm-directory-view.c:7401
+#: ../src/file-manager/fm-directory-view.c:7429
+#: ../src/file-manager/fm-directory-view.c:7510
 #: ../src/caja-places-sidebar.c:2728
 msgid "_Format"
 msgstr "格式化(_F)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7416
+#: ../src/file-manager/fm-directory-view.c:7402
 msgid "Format the selected volume"
 msgstr "格式化选中的卷"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
 #. Adjust start/stop items to reflect the type of the drive
-#: ../src/file-manager/fm-directory-view.c:7419
-#: ../src/file-manager/fm-directory-view.c:7447
-#: ../src/file-manager/fm-directory-view.c:7528
-#: ../src/file-manager/fm-directory-view.c:8204
-#: ../src/file-manager/fm-directory-view.c:8208
-#: ../src/file-manager/fm-directory-view.c:8296
-#: ../src/file-manager/fm-directory-view.c:8300
-#: ../src/file-manager/fm-directory-view.c:8406
-#: ../src/file-manager/fm-directory-view.c:8410
+#: ../src/file-manager/fm-directory-view.c:7405
+#: ../src/file-manager/fm-directory-view.c:7433
+#: ../src/file-manager/fm-directory-view.c:7514
+#: ../src/file-manager/fm-directory-view.c:8190
+#: ../src/file-manager/fm-directory-view.c:8194
+#: ../src/file-manager/fm-directory-view.c:8282
+#: ../src/file-manager/fm-directory-view.c:8286
+#: ../src/file-manager/fm-directory-view.c:8392
+#: ../src/file-manager/fm-directory-view.c:8396
 #: ../src/caja-places-sidebar.c:1785 ../src/caja-places-sidebar.c:2735
 msgid "_Start"
 msgstr "开始(_S)："
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7420
+#: ../src/file-manager/fm-directory-view.c:7406
 msgid "Start the selected volume"
 msgstr "开始选中的卷"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7423
-#: ../src/file-manager/fm-directory-view.c:7451
-#: ../src/file-manager/fm-directory-view.c:7532
-#: ../src/file-manager/fm-directory-view.c:8233
-#: ../src/file-manager/fm-directory-view.c:8325
-#: ../src/file-manager/fm-directory-view.c:8435
+#: ../src/file-manager/fm-directory-view.c:7409
+#: ../src/file-manager/fm-directory-view.c:7437
+#: ../src/file-manager/fm-directory-view.c:7518
+#: ../src/file-manager/fm-directory-view.c:8219
+#: ../src/file-manager/fm-directory-view.c:8311
+#: ../src/file-manager/fm-directory-view.c:8421
 #: ../src/caja-places-sidebar.c:1786 ../src/caja-places-sidebar.c:2742
-#: ../src/caja-window-menus.c:844
+#: ../src/caja-window-menus.c:836
 msgid "_Stop"
 msgstr "停止(_S)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7424
-#: ../src/file-manager/fm-directory-view.c:8436
+#: ../src/file-manager/fm-directory-view.c:7410
+#: ../src/file-manager/fm-directory-view.c:8422
 msgid "Stop the selected volume"
 msgstr "停止选中的卷"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7427
-#: ../src/file-manager/fm-directory-view.c:7455
-#: ../src/file-manager/fm-directory-view.c:7536
+#: ../src/file-manager/fm-directory-view.c:7413
+#: ../src/file-manager/fm-directory-view.c:7441
+#: ../src/file-manager/fm-directory-view.c:7522
 #: ../src/caja-places-sidebar.c:2721
 msgid "_Detect Media"
 msgstr "删除媒体(_D)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7428
-#: ../src/file-manager/fm-directory-view.c:7456
-#: ../src/file-manager/fm-directory-view.c:7537
+#: ../src/file-manager/fm-directory-view.c:7414
+#: ../src/file-manager/fm-directory-view.c:7442
+#: ../src/file-manager/fm-directory-view.c:7523
 msgid "Detect media in the selected drive"
 msgstr "检测选定驱动器中的媒体"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7432
+#: ../src/file-manager/fm-directory-view.c:7418
 msgid "Mount the volume associated with the open folder"
 msgstr "挂载与所打开文件夹关联的卷"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7436
+#: ../src/file-manager/fm-directory-view.c:7422
 msgid "Unmount the volume associated with the open folder"
 msgstr "卸载与所打开文件夹关联的卷"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7440
+#: ../src/file-manager/fm-directory-view.c:7426
 msgid "Eject the volume associated with the open folder"
 msgstr "弹出与所打开文件夹关联的卷"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7444
+#: ../src/file-manager/fm-directory-view.c:7430
 msgid "Format the volume associated with the open folder"
 msgstr "格式化与所打开文件夹关联的卷"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7448
+#: ../src/file-manager/fm-directory-view.c:7434
 msgid "Start the volume associated with the open folder"
 msgstr "启动与所打开文件夹关联的卷"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7452
+#: ../src/file-manager/fm-directory-view.c:7438
 msgid "Stop the volume associated with the open folder"
 msgstr "停止与所打开文件夹关联的卷"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7459
+#: ../src/file-manager/fm-directory-view.c:7445
 msgid "Open File and Close window"
 msgstr "打开文件并关闭窗口"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7463
+#: ../src/file-manager/fm-directory-view.c:7449
 msgid "Sa_ve Search"
 msgstr "保存搜索(_V)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7464
+#: ../src/file-manager/fm-directory-view.c:7450
 msgid "Save the edited search"
 msgstr "保存所编辑的搜索"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7467
+#: ../src/file-manager/fm-directory-view.c:7453
 msgid "Sa_ve Search As..."
 msgstr "搜索另存为(_V)..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7468
+#: ../src/file-manager/fm-directory-view.c:7454
 msgid "Save the current search as a file"
 msgstr "将当前搜索另存为文件"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7474
+#: ../src/file-manager/fm-directory-view.c:7460
 msgid "Open this folder in a navigation window"
 msgstr "在导航窗口中打开此文件夹"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7478
+#: ../src/file-manager/fm-directory-view.c:7464
 msgid "Open this folder in a new tab"
 msgstr "在新标签中打开此文件夹"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7483
+#: ../src/file-manager/fm-directory-view.c:7469
 msgid "Open this folder in a folder window"
 msgstr "在文件夹窗口中打开此文件夹"
 
-#. name, stock id
-#. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7488
+#: ../src/file-manager/fm-directory-view.c:7474
 msgid "Prepare this folder to be moved with a Paste command"
 msgstr "准备将此文件夹用粘贴命令移动"
 
-#. name, stock id
-#. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7492
+#: ../src/file-manager/fm-directory-view.c:7478
 msgid "Prepare this folder to be copied with a Paste command"
 msgstr "准备将此文件夹用粘贴命令复制"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7496
+#: ../src/file-manager/fm-directory-view.c:7482
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into this "
 "folder"
 msgstr "将先前由剪切或复制命令所选中的文件移动或复制到此文件夹中"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7501
+#: ../src/file-manager/fm-directory-view.c:7487
 msgid "Move this folder to the Trash"
 msgstr "将此文件夹移动到回收站"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7505
+#: ../src/file-manager/fm-directory-view.c:7491
 msgid "Delete this folder, without moving to the Trash"
 msgstr "删除此文件夹，而不移动到回收站"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7513
+#: ../src/file-manager/fm-directory-view.c:7499
 msgid "Mount the volume associated with this folder"
 msgstr "挂载与此文件夹关联的卷"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7517
+#: ../src/file-manager/fm-directory-view.c:7503
 msgid "Unmount the volume associated with this folder"
 msgstr "卸载与此文件夹关联的卷"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7521
+#: ../src/file-manager/fm-directory-view.c:7507
 msgid "Eject the volume associated with this folder"
 msgstr "弹出与此文件夹关联的卷"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7525
+#: ../src/file-manager/fm-directory-view.c:7511
 msgid "Format the volume associated with this folder"
 msgstr "格式化与此文件夹关联的卷"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7529
+#: ../src/file-manager/fm-directory-view.c:7515
 msgid "Start the volume associated with this folder"
 msgstr "启动与此文件夹关联的卷"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7533
+#: ../src/file-manager/fm-directory-view.c:7519
 msgid "Stop the volume associated with this folder"
 msgstr "停止与此文件夹关联的卷"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7542
+#: ../src/file-manager/fm-directory-view.c:7528
 msgid "View or modify the properties of this folder"
 msgstr "查看或修改此文件夹的属性"
 
-#. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7545
-#: ../src/file-manager/fm-directory-view.c:7548
+#. name, icon name, label
+#: ../src/file-manager/fm-directory-view.c:7531
+#: ../src/file-manager/fm-directory-view.c:7534
 msgid "_Other pane"
 msgstr "另一个窗格(_O)"
 
-#: ../src/file-manager/fm-directory-view.c:7546
+#: ../src/file-manager/fm-directory-view.c:7532
 msgid "Copy the current selection to the other pane in the window"
 msgstr "把选中的文件(夹)复制到本窗口的另一个窗格"
 
-#: ../src/file-manager/fm-directory-view.c:7549
+#: ../src/file-manager/fm-directory-view.c:7535
 msgid "Move the current selection to the other pane in the window"
 msgstr "把选中的文件(夹)移动到本窗口的另一个窗格"
 
-#. name, stock id, label
-#. name, stock id
+#. name, icon name, label
+#. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7552
-#: ../src/file-manager/fm-directory-view.c:7556 ../src/caja-window-menus.c:899
+#: ../src/file-manager/fm-directory-view.c:7538
+#: ../src/file-manager/fm-directory-view.c:7542 ../src/caja-window-menus.c:891
 msgid "_Home Folder"
 msgstr "主文件夹(_H)"
 
-#: ../src/file-manager/fm-directory-view.c:7553
+#: ../src/file-manager/fm-directory-view.c:7539
 msgid "Copy the current selection to the home folder"
 msgstr "把选中的文件(夹)复制到家目录"
 
-#: ../src/file-manager/fm-directory-view.c:7557
+#: ../src/file-manager/fm-directory-view.c:7543
 msgid "Move the current selection to the home folder"
 msgstr "把选中的文件(夹)移动到家目录"
 
-#. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7560
-#: ../src/file-manager/fm-directory-view.c:7564
+#. name, icon name, label
+#: ../src/file-manager/fm-directory-view.c:7546
+#: ../src/file-manager/fm-directory-view.c:7550
 msgid "_Desktop"
 msgstr "桌面(_D)"
 
-#: ../src/file-manager/fm-directory-view.c:7561
+#: ../src/file-manager/fm-directory-view.c:7547
 msgid "Copy the current selection to the desktop"
 msgstr "将选中的文件(夹)复制到桌面"
 
-#: ../src/file-manager/fm-directory-view.c:7565
+#: ../src/file-manager/fm-directory-view.c:7551
 msgid "Move the current selection to the desktop"
 msgstr "将选中的文件(夹)移到桌面"
 
 #. Translators: %s is a directory
-#: ../src/file-manager/fm-directory-view.c:7645
+#: ../src/file-manager/fm-directory-view.c:7631
 #, c-format
 msgid "Run or manage scripts from %s"
 msgstr "在 %s 中运行或管理脚本"
 
 #. Create a script action here specially because its tooltip is dynamic
-#: ../src/file-manager/fm-directory-view.c:7647
+#: ../src/file-manager/fm-directory-view.c:7633
 msgid "_Scripts"
 msgstr "脚本(_S)"
 
-#: ../src/file-manager/fm-directory-view.c:8052
+#: ../src/file-manager/fm-directory-view.c:8038
 #, c-format
 msgid "Move the open folder out of the trash to \"%s\""
 msgstr "将打开的文件夹从回收站移至“%s”"
 
-#: ../src/file-manager/fm-directory-view.c:8055
+#: ../src/file-manager/fm-directory-view.c:8041
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
 msgstr[0] "将选中的文件夹从回收站移至“%s”"
 
-#: ../src/file-manager/fm-directory-view.c:8059
+#: ../src/file-manager/fm-directory-view.c:8045
 #, c-format
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
 msgstr[0] "将选中的文件夹移出回收站"
 
-#: ../src/file-manager/fm-directory-view.c:8065
+#: ../src/file-manager/fm-directory-view.c:8051
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
 msgstr[0] "将选中的文件从回收站移至“%s”"
 
-#: ../src/file-manager/fm-directory-view.c:8069
+#: ../src/file-manager/fm-directory-view.c:8055
 #, c-format
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
 msgstr[0] "将选中的文件从回收站移出"
 
-#: ../src/file-manager/fm-directory-view.c:8075
+#: ../src/file-manager/fm-directory-view.c:8061
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
 msgstr[0] "将选中项从回收站移至“%s”"
 
-#: ../src/file-manager/fm-directory-view.c:8079
+#: ../src/file-manager/fm-directory-view.c:8065
 #, c-format
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
 msgstr[0] "将选中项从移出回收站"
 
-#: ../src/file-manager/fm-directory-view.c:8205
-#: ../src/file-manager/fm-directory-view.c:8209
-#: ../src/file-manager/fm-directory-view.c:8407
-#: ../src/file-manager/fm-directory-view.c:8411
+#: ../src/file-manager/fm-directory-view.c:8191
+#: ../src/file-manager/fm-directory-view.c:8195
+#: ../src/file-manager/fm-directory-view.c:8393
+#: ../src/file-manager/fm-directory-view.c:8397
 msgid "Start the selected drive"
 msgstr "开始选中的卷"
 
-#: ../src/file-manager/fm-directory-view.c:8213
-#: ../src/file-manager/fm-directory-view.c:8415
+#: ../src/file-manager/fm-directory-view.c:8199
+#: ../src/file-manager/fm-directory-view.c:8401
 msgid "Connect to the selected drive"
 msgstr "连接到选中的卷"
 
-#: ../src/file-manager/fm-directory-view.c:8216
-#: ../src/file-manager/fm-directory-view.c:8308
-#: ../src/file-manager/fm-directory-view.c:8418
+#: ../src/file-manager/fm-directory-view.c:8202
+#: ../src/file-manager/fm-directory-view.c:8294
+#: ../src/file-manager/fm-directory-view.c:8404
 msgid "_Start Multi-disk Drive"
 msgstr "启动多磁盘驱动(_S)"
 
-#: ../src/file-manager/fm-directory-view.c:8217
-#: ../src/file-manager/fm-directory-view.c:8419
+#: ../src/file-manager/fm-directory-view.c:8203
+#: ../src/file-manager/fm-directory-view.c:8405
 msgid "Start the selected multi-disk drive"
 msgstr "启动选择的多磁盘驱动"
 
-#: ../src/file-manager/fm-directory-view.c:8220
+#: ../src/file-manager/fm-directory-view.c:8206
 msgid "U_nlock Drive"
 msgstr "解锁驱动(_N)"
 
-#: ../src/file-manager/fm-directory-view.c:8221
-#: ../src/file-manager/fm-directory-view.c:8423
+#: ../src/file-manager/fm-directory-view.c:8207
+#: ../src/file-manager/fm-directory-view.c:8409
 msgid "Unlock the selected drive"
 msgstr "解锁选中的卷"
 
-#: ../src/file-manager/fm-directory-view.c:8234
+#: ../src/file-manager/fm-directory-view.c:8220
 msgid "Stop the selected drive"
 msgstr "停止选中的卷"
 
-#: ../src/file-manager/fm-directory-view.c:8237
-#: ../src/file-manager/fm-directory-view.c:8329
-#: ../src/file-manager/fm-directory-view.c:8439
+#: ../src/file-manager/fm-directory-view.c:8223
+#: ../src/file-manager/fm-directory-view.c:8315
+#: ../src/file-manager/fm-directory-view.c:8425
 #: ../src/caja-places-sidebar.c:1794
 msgid "_Safely Remove Drive"
 msgstr "安全移除驱动器(_S)"
 
-#: ../src/file-manager/fm-directory-view.c:8238
-#: ../src/file-manager/fm-directory-view.c:8440
+#: ../src/file-manager/fm-directory-view.c:8224
+#: ../src/file-manager/fm-directory-view.c:8426
 msgid "Safely remove the selected drive"
 msgstr "安全地移除选中的卷"
 
-#: ../src/file-manager/fm-directory-view.c:8241
-#: ../src/file-manager/fm-directory-view.c:8333
-#: ../src/file-manager/fm-directory-view.c:8443
+#: ../src/file-manager/fm-directory-view.c:8227
+#: ../src/file-manager/fm-directory-view.c:8319
+#: ../src/file-manager/fm-directory-view.c:8429
 msgid "_Disconnect"
-msgstr "断开连接(_D)"
+msgstr "断开(_D)"
 
-#: ../src/file-manager/fm-directory-view.c:8242
-#: ../src/file-manager/fm-directory-view.c:8444
+#: ../src/file-manager/fm-directory-view.c:8228
+#: ../src/file-manager/fm-directory-view.c:8430
 msgid "Disconnect the selected drive"
 msgstr "断开到选中的卷的连接"
 
-#: ../src/file-manager/fm-directory-view.c:8245
-#: ../src/file-manager/fm-directory-view.c:8337
-#: ../src/file-manager/fm-directory-view.c:8447
+#: ../src/file-manager/fm-directory-view.c:8231
+#: ../src/file-manager/fm-directory-view.c:8323
+#: ../src/file-manager/fm-directory-view.c:8433
 msgid "_Stop Multi-disk Drive"
 msgstr "停止多磁盘驱动(_S)"
 
-#: ../src/file-manager/fm-directory-view.c:8246
-#: ../src/file-manager/fm-directory-view.c:8448
+#: ../src/file-manager/fm-directory-view.c:8232
+#: ../src/file-manager/fm-directory-view.c:8434
 msgid "Stop the selected multi-disk drive"
 msgstr "停止选择的多磁盘驱动"
 
-#: ../src/file-manager/fm-directory-view.c:8249
-#: ../src/file-manager/fm-directory-view.c:8341
-#: ../src/file-manager/fm-directory-view.c:8451
+#: ../src/file-manager/fm-directory-view.c:8235
+#: ../src/file-manager/fm-directory-view.c:8327
+#: ../src/file-manager/fm-directory-view.c:8437
 #: ../src/caja-places-sidebar.c:1807
 msgid "_Lock Drive"
 msgstr "锁定驱动器(_L)"
 
-#: ../src/file-manager/fm-directory-view.c:8250
-#: ../src/file-manager/fm-directory-view.c:8452
+#: ../src/file-manager/fm-directory-view.c:8236
+#: ../src/file-manager/fm-directory-view.c:8438
 msgid "Lock the selected drive"
 msgstr "锁定选中的驱动器"
 
-#: ../src/file-manager/fm-directory-view.c:8297
-#: ../src/file-manager/fm-directory-view.c:8301
+#: ../src/file-manager/fm-directory-view.c:8283
+#: ../src/file-manager/fm-directory-view.c:8287
 msgid "Start the drive associated with the open folder"
 msgstr "启动与所打开文件夹关联的卷"
 
-#: ../src/file-manager/fm-directory-view.c:8305
+#: ../src/file-manager/fm-directory-view.c:8291
 msgid "Connect to the drive associated with the open folder"
 msgstr "连接到与所打开文件夹关联的驱动"
 
-#: ../src/file-manager/fm-directory-view.c:8309
+#: ../src/file-manager/fm-directory-view.c:8295
 msgid "Start the multi-disk drive associated with the open folder"
 msgstr "启动与所打开文件夹关联的多磁盘驱动"
 
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
-#: ../src/file-manager/fm-directory-view.c:8312
-#: ../src/file-manager/fm-directory-view.c:8422
+#: ../src/file-manager/fm-directory-view.c:8298
+#: ../src/file-manager/fm-directory-view.c:8408
 #: ../src/caja-places-sidebar.c:1806
 msgid "_Unlock Drive"
 msgstr "解锁驱动器(_U)"
 
-#: ../src/file-manager/fm-directory-view.c:8313
+#: ../src/file-manager/fm-directory-view.c:8299
 msgid "Unlock the drive associated with the open folder"
 msgstr "取消与所打开文件夹关联驱动的锁定"
 
-#: ../src/file-manager/fm-directory-view.c:8326
+#: ../src/file-manager/fm-directory-view.c:8312
 msgid "_Stop the drive associated with the open folder"
 msgstr "停止与所打开文件夹关联的驱动(_S)"
 
-#: ../src/file-manager/fm-directory-view.c:8330
+#: ../src/file-manager/fm-directory-view.c:8316
 msgid "Safely remove the drive associated with the open folder"
 msgstr "安全移除与所打开文件夹关联的驱动"
 
-#: ../src/file-manager/fm-directory-view.c:8334
+#: ../src/file-manager/fm-directory-view.c:8320
 msgid "Disconnect the drive associated with the open folder"
 msgstr "断开与所打开文件夹关联的驱动的连接"
 
-#: ../src/file-manager/fm-directory-view.c:8338
+#: ../src/file-manager/fm-directory-view.c:8324
 msgid "Stop the multi-disk drive associated with the open folder"
 msgstr "停止与所打开文件夹关联的多磁盘驱动"
 
-#: ../src/file-manager/fm-directory-view.c:8342
+#: ../src/file-manager/fm-directory-view.c:8328
 msgid "Lock the drive associated with the open folder"
 msgstr "锁定与所打开文件夹关联的驱动"
 
 #. add the "open in new window" menu item
-#: ../src/file-manager/fm-directory-view.c:8521
-#: ../src/file-manager/fm-directory-view.c:8831
+#: ../src/file-manager/fm-directory-view.c:8507
+#: ../src/file-manager/fm-directory-view.c:8817
 #: ../src/file-manager/fm-tree-view.c:1287 ../src/caja-places-sidebar.c:2671
 msgid "Open in New _Window"
 msgstr "在新窗口中打开(_W)"
 
-#: ../src/file-manager/fm-directory-view.c:8523
-#: ../src/file-manager/fm-directory-view.c:8840
+#: ../src/file-manager/fm-directory-view.c:8509
+#: ../src/file-manager/fm-directory-view.c:8826
 msgid "Browse in New _Window"
 msgstr "在新窗口中浏览(_W)"
 
-#: ../src/file-manager/fm-directory-view.c:8529
-#: ../src/file-manager/fm-directory-view.c:8850
+#: ../src/file-manager/fm-directory-view.c:8515
+#: ../src/file-manager/fm-directory-view.c:8836
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
 msgstr[0] "浏览文件夹(_B)"
 
-#: ../src/file-manager/fm-directory-view.c:8546
-#: ../src/file-manager/fm-directory-view.c:8879
+#: ../src/file-manager/fm-directory-view.c:8532
+#: ../src/file-manager/fm-directory-view.c:8865
 msgid "Browse in New _Tab"
 msgstr "在新标签中浏览(_T)"
 
-#: ../src/file-manager/fm-directory-view.c:8595
-#: ../src/file-manager/fm-directory-view.c:8920
+#: ../src/file-manager/fm-directory-view.c:8581
+#: ../src/file-manager/fm-directory-view.c:8906
 msgid "_Delete Permanently"
 msgstr "永久删除(_D)"
 
-#: ../src/file-manager/fm-directory-view.c:8596
+#: ../src/file-manager/fm-directory-view.c:8582
 msgid "Delete the open folder permanently"
 msgstr "永久删除打开的文件夹"
 
-#: ../src/file-manager/fm-directory-view.c:8600
+#: ../src/file-manager/fm-directory-view.c:8586
 msgid "Move the open folder to the Trash"
 msgstr "将打开的文件夹移动到回收站"
 
-#: ../src/file-manager/fm-directory-view.c:8780
+#: ../src/file-manager/fm-directory-view.c:8766
 #, c-format
 msgid "_Open With %s"
 msgstr "使用 %s 打开(_O)"
 
-#: ../src/file-manager/fm-directory-view.c:8833
+#: ../src/file-manager/fm-directory-view.c:8819
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
 msgstr[0] "在 %'d 个新窗口中打开(_W)"
 
-#: ../src/file-manager/fm-directory-view.c:8842
+#: ../src/file-manager/fm-directory-view.c:8828
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
 msgstr[0] "在 %'d 个新窗口中浏览(_W)"
 
-#: ../src/file-manager/fm-directory-view.c:8872
+#: ../src/file-manager/fm-directory-view.c:8858
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
 msgstr[0] "在 %'d 个新标签中打开(_T)"
 
-#: ../src/file-manager/fm-directory-view.c:8881
+#: ../src/file-manager/fm-directory-view.c:8867
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
 msgstr[0] "在 %'d 个新标签中浏览(_T)"
 
-#: ../src/file-manager/fm-directory-view.c:8921
+#: ../src/file-manager/fm-directory-view.c:8907
 msgid "Delete all selected items permanently"
 msgstr "永久删除所有选中的项目"
 
-#: ../src/file-manager/fm-directory-view.c:8978
+#: ../src/file-manager/fm-directory-view.c:8964
 msgid "View or modify the properties of the open folder"
 msgstr "查看或修改打开的文件夹的属性"
 
-#: ../src/file-manager/fm-directory-view.c:10281
+#: ../src/file-manager/fm-directory-view.c:10267
 msgid "Download location?"
 msgstr "下载位置？"
 
-#: ../src/file-manager/fm-directory-view.c:10284
+#: ../src/file-manager/fm-directory-view.c:10270
 msgid "You can download it or make a link to it."
 msgstr "您可以下载该位置或者创建指向它的链接。"
 
-#: ../src/file-manager/fm-directory-view.c:10287
+#: ../src/file-manager/fm-directory-view.c:10273
 msgid "Make a _Link"
 msgstr "创建链接(_L)"
 
-#: ../src/file-manager/fm-directory-view.c:10291
+#: ../src/file-manager/fm-directory-view.c:10280
 msgid "_Download"
 msgstr "下载(_D)"
 
-#: ../src/file-manager/fm-directory-view.c:10452
-#: ../src/file-manager/fm-directory-view.c:10511
-#: ../src/file-manager/fm-directory-view.c:10616
+#: ../src/file-manager/fm-directory-view.c:10441
+#: ../src/file-manager/fm-directory-view.c:10500
+#: ../src/file-manager/fm-directory-view.c:10605
 msgid "Drag and drop is not supported."
 msgstr "不支持拖放操作。"
 
-#: ../src/file-manager/fm-directory-view.c:10453
+#: ../src/file-manager/fm-directory-view.c:10442
 msgid "Drag and drop is only supported on local file systems."
 msgstr "拖放操作只能在本地文件系统中进行。"
 
-#: ../src/file-manager/fm-directory-view.c:10512
-#: ../src/file-manager/fm-directory-view.c:10617
+#: ../src/file-manager/fm-directory-view.c:10501
+#: ../src/file-manager/fm-directory-view.c:10606
 msgid "An invalid drag type was used."
 msgstr "使用了无效的拖放类型。"
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10694
+#: ../src/file-manager/fm-directory-view.c:10683
 msgid "dropped text.txt"
 msgstr "text.txt 的片段"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10739
+#: ../src/file-manager/fm-directory-view.c:10728
 msgid "dropped data"
 msgstr "丢弃的数据"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11128
+#: ../src/file-manager/fm-directory-view.c:11117
 msgid "Undo"
 msgstr "撤销"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11146
+#: ../src/file-manager/fm-directory-view.c:11135
 msgid "Redo"
 msgstr "重做"
 
-#: ../src/file-manager/fm-ditem-page.c:437
-#: ../src/file-manager/fm-ditem-page.c:449
+#: ../src/file-manager/fm-ditem-page.c:433
+#: ../src/file-manager/fm-ditem-page.c:445
 msgid "Comment"
-msgstr "注释"
+msgstr "评论"
 
-#: ../src/file-manager/fm-ditem-page.c:440
+#: ../src/file-manager/fm-ditem-page.c:436
 msgid "URL"
 msgstr "URL"
 
-#: ../src/file-manager/fm-ditem-page.c:443
-#: ../src/file-manager/fm-ditem-page.c:455
-#: ../src/caja-image-properties-page.c:370
+#: ../src/file-manager/fm-ditem-page.c:439
+#: ../src/file-manager/fm-ditem-page.c:451
+#: ../src/caja-image-properties-page.c:366
 msgid "Description"
 msgstr "描述"
 
-#: ../src/file-manager/fm-ditem-page.c:452
+#: ../src/file-manager/fm-ditem-page.c:448
 msgid "Command"
 msgstr "命令"
 
@@ -5091,7 +5173,7 @@ msgstr "正在载入..."
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: ../src/file-manager/fm-list-view.c:1837
-#: ../src/file-manager/fm-list-view.c:3454
+#: ../src/file-manager/fm-list-view.c:3450
 #: ../src/caja-file-management-properties.ui.h:2
 msgid "List View"
 msgstr "列表视图"
@@ -5107,29 +5189,29 @@ msgstr "为此文件夹中要显示的信息选择顺序："
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-list-view.c:2608
+#: ../src/file-manager/fm-list-view.c:2604
 msgid "Visible _Columns..."
 msgstr "可见列(_C)..."
 
 #. tooltip
-#: ../src/file-manager/fm-list-view.c:2609
+#: ../src/file-manager/fm-list-view.c:2605
 msgid "Select the columns visible in this folder"
 msgstr "选择此文件夹中的可见列"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-list-view.c:3456
+#: ../src/file-manager/fm-list-view.c:3452
 msgid "_List"
 msgstr "列表(_L)"
 
-#: ../src/file-manager/fm-list-view.c:3457
+#: ../src/file-manager/fm-list-view.c:3453
 msgid "The list view encountered an error."
 msgstr "列表视图遇到了错误。"
 
-#: ../src/file-manager/fm-list-view.c:3458
+#: ../src/file-manager/fm-list-view.c:3454
 msgid "The list view encountered an error while starting up."
 msgstr "列表视图在启动时遇到错误。"
 
-#: ../src/file-manager/fm-list-view.c:3459
+#: ../src/file-manager/fm-list-view.c:3455
 msgid "Display this location with the list view."
 msgstr "用列表视图显示该位置。"
 
@@ -5171,7 +5253,7 @@ msgstr "属性"
 #: ../src/file-manager/fm-properties-window.c:1000
 #, c-format
 msgid "%s Properties"
-msgstr "%s 属性"
+msgstr "%s 的属性"
 
 #: ../src/file-manager/fm-properties-window.c:1328
 #, c-format
@@ -5179,29 +5261,29 @@ msgctxt "MIME type description (MIME type)"
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-properties-window.c:1540
+#: ../src/file-manager/fm-properties-window.c:1536
 msgid "Cancel Group Change?"
 msgstr "取消群组更改？"
 
-#: ../src/file-manager/fm-properties-window.c:1950
+#: ../src/file-manager/fm-properties-window.c:1946
 msgid "Cancel Owner Change?"
 msgstr "取消所有者更改？"
 
-#: ../src/file-manager/fm-properties-window.c:2274
+#: ../src/file-manager/fm-properties-window.c:2270
 msgid "nothing"
 msgstr "无"
 
-#: ../src/file-manager/fm-properties-window.c:2276
+#: ../src/file-manager/fm-properties-window.c:2272
 msgid "unreadable"
 msgstr "不可读"
 
-#: ../src/file-manager/fm-properties-window.c:2295
+#: ../src/file-manager/fm-properties-window.c:2291
 #, c-format
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
 msgstr[0] "%'d项，总大小 %s (磁盘上大小 %s)"
 
-#: ../src/file-manager/fm-properties-window.c:2305
+#: ../src/file-manager/fm-properties-window.c:2301
 msgid "(some contents unreadable)"
 msgstr "(某些内容不可读)"
 
@@ -5210,243 +5292,264 @@ msgstr "(某些内容不可读)"
 #. * "Contents:" title to line up with the first line of the
 #. * 2-line value. Maybe there's a better way to do this, but I
 #. * couldn't think of one.
-#: ../src/file-manager/fm-properties-window.c:2322
+#: ../src/file-manager/fm-properties-window.c:2318
 msgid "Contents:"
 msgstr "内容："
 
 #. Translators: "used" refers to the capacity of the filesystem
-#: ../src/file-manager/fm-properties-window.c:3098
+#: ../src/file-manager/fm-properties-window.c:3094
 msgid "used"
 msgstr "已用"
 
 #. Translators: "free" refers to the capacity of the filesystem
-#: ../src/file-manager/fm-properties-window.c:3107
+#: ../src/file-manager/fm-properties-window.c:3103
 msgid "free"
 msgstr "剩余"
 
-#: ../src/file-manager/fm-properties-window.c:3109
+#: ../src/file-manager/fm-properties-window.c:3105
 msgid "Total capacity:"
 msgstr "总容量："
 
-#: ../src/file-manager/fm-properties-window.c:3118
+#: ../src/file-manager/fm-properties-window.c:3114
 msgid "Filesystem type:"
 msgstr "文件系统类型："
 
-#: ../src/file-manager/fm-properties-window.c:3204
+#: ../src/file-manager/fm-properties-window.c:3200
 msgid "Basic"
 msgstr "基本"
 
-#: ../src/file-manager/fm-properties-window.c:3266
+#: ../src/file-manager/fm-properties-window.c:3262
 msgid "Link target:"
 msgstr "链接目标："
 
-#: ../src/file-manager/fm-properties-window.c:3280
+#: ../src/file-manager/fm-properties-window.c:3276
 msgid "Size on Disk:"
 msgstr "磁盘上的大小："
 
-#: ../src/file-manager/fm-properties-window.c:3289
+#: ../src/file-manager/fm-properties-window.c:3285
 #: ../src/caja-location-bar.c:57
 msgid "Location:"
 msgstr "位置："
 
-#: ../src/file-manager/fm-properties-window.c:3295
+#: ../src/file-manager/fm-properties-window.c:3291
 msgid "Volume:"
 msgstr "文件卷："
 
-#: ../src/file-manager/fm-properties-window.c:3304
+#: ../src/file-manager/fm-properties-window.c:3300
 msgid "Accessed:"
 msgstr "访问："
 
-#: ../src/file-manager/fm-properties-window.c:3308
+#: ../src/file-manager/fm-properties-window.c:3304
 msgid "Modified:"
-msgstr "修改："
+msgstr "修改于："
 
-#: ../src/file-manager/fm-properties-window.c:3317
+#: ../src/file-manager/fm-properties-window.c:3313
 msgid "Free space:"
 msgstr "剩余空间："
 
-#: ../src/file-manager/fm-properties-window.c:3431
+#: ../src/file-manager/fm-properties-window.c:3427
 #: ../src/caja-emblem-sidebar.c:1085
 msgid "Emblems"
 msgstr "徽标"
 
-#: ../src/file-manager/fm-properties-window.c:3840
+#: ../src/file-manager/fm-properties-window.c:3836
 msgid "_Read"
 msgstr "读取(_R)"
 
-#: ../src/file-manager/fm-properties-window.c:3842
+#: ../src/file-manager/fm-properties-window.c:3838
 msgid "_Write"
 msgstr "写入(_W)"
 
-#: ../src/file-manager/fm-properties-window.c:3844
+#: ../src/file-manager/fm-properties-window.c:3840
 msgid "E_xecute"
 msgstr "执行(_X)"
 
 #. translators: this gets concatenated to "no read",
 #. * "no access", etc. (see following strings)
-#: ../src/file-manager/fm-properties-window.c:4112
-#: ../src/file-manager/fm-properties-window.c:4123
-#: ../src/file-manager/fm-properties-window.c:4135
+#: ../src/file-manager/fm-properties-window.c:4108
+#: ../src/file-manager/fm-properties-window.c:4119
+#: ../src/file-manager/fm-properties-window.c:4131
 msgid "no "
 msgstr "无"
 
-#: ../src/file-manager/fm-properties-window.c:4115
+#: ../src/file-manager/fm-properties-window.c:4111
 msgid "list"
 msgstr "列表"
 
-#: ../src/file-manager/fm-properties-window.c:4117
+#: ../src/file-manager/fm-properties-window.c:4113
 msgid "read"
 msgstr "读取"
 
-#: ../src/file-manager/fm-properties-window.c:4126
+#: ../src/file-manager/fm-properties-window.c:4122
 msgid "create/delete"
 msgstr "创建/删除"
 
-#: ../src/file-manager/fm-properties-window.c:4128
+#: ../src/file-manager/fm-properties-window.c:4124
 msgid "write"
 msgstr "写入"
 
-#: ../src/file-manager/fm-properties-window.c:4137
+#: ../src/file-manager/fm-properties-window.c:4133
 msgid "access"
 msgstr "访问"
 
-#: ../src/file-manager/fm-properties-window.c:4185
+#: ../src/file-manager/fm-properties-window.c:4181
 msgid "Access:"
 msgstr "访问："
 
-#: ../src/file-manager/fm-properties-window.c:4187
+#: ../src/file-manager/fm-properties-window.c:4183
 msgid "Folder access:"
 msgstr "文件夹访问："
 
-#: ../src/file-manager/fm-properties-window.c:4189
+#: ../src/file-manager/fm-properties-window.c:4185
 msgid "File access:"
 msgstr "文件访问："
 
 #. Translators: this is referred to the permissions
 #. * the user has in a directory.
 #. Translators: this is referred to captions under icons.
-#: ../src/file-manager/fm-properties-window.c:4204
-#: ../src/file-manager/fm-properties-window.c:4215
-#: ../src/caja-file-management-properties.c:335
+#: ../src/file-manager/fm-properties-window.c:4200
+#: ../src/file-manager/fm-properties-window.c:4211
+#: ../src/caja-file-management-properties.c:329
 msgid "None"
 msgstr "无"
 
-#: ../src/file-manager/fm-properties-window.c:4207
+#: ../src/file-manager/fm-properties-window.c:4203
 msgid "List files only"
 msgstr "只能列出文件"
 
-#: ../src/file-manager/fm-properties-window.c:4209
+#: ../src/file-manager/fm-properties-window.c:4205
 msgid "Access files"
 msgstr "访问文件"
 
-#: ../src/file-manager/fm-properties-window.c:4211
+#: ../src/file-manager/fm-properties-window.c:4207
 msgid "Create and delete files"
 msgstr "创建和删除文件"
 
-#: ../src/file-manager/fm-properties-window.c:4218
+#: ../src/file-manager/fm-properties-window.c:4214
 msgid "Read-only"
 msgstr "只读"
 
-#: ../src/file-manager/fm-properties-window.c:4220
+#: ../src/file-manager/fm-properties-window.c:4216
 msgid "Read and write"
 msgstr "读写"
 
-#: ../src/file-manager/fm-properties-window.c:4285
+#: ../src/file-manager/fm-properties-window.c:4281
 msgid "Special flags:"
 msgstr "特殊标志："
 
-#: ../src/file-manager/fm-properties-window.c:4287
+#: ../src/file-manager/fm-properties-window.c:4283
 msgid "Set _user ID"
 msgstr "设置用户 ID(_U)"
 
-#: ../src/file-manager/fm-properties-window.c:4288
+#: ../src/file-manager/fm-properties-window.c:4284
 msgid "Set gro_up ID"
 msgstr "设置群组 ID(_U)"
 
-#: ../src/file-manager/fm-properties-window.c:4289
+#: ../src/file-manager/fm-properties-window.c:4285
 msgid "_Sticky"
 msgstr "粘附(_S)"
 
-#: ../src/file-manager/fm-properties-window.c:4364
-#: ../src/file-manager/fm-properties-window.c:4555
+#: ../src/file-manager/fm-properties-window.c:4360
+#: ../src/file-manager/fm-properties-window.c:4551
 msgid "_Owner:"
 msgstr "所有者(_O)："
 
-#: ../src/file-manager/fm-properties-window.c:4372
-#: ../src/file-manager/fm-properties-window.c:4460
-#: ../src/file-manager/fm-properties-window.c:4564
+#: ../src/file-manager/fm-properties-window.c:4368
+#: ../src/file-manager/fm-properties-window.c:4456
+#: ../src/file-manager/fm-properties-window.c:4560
 msgid "Owner:"
 msgstr "所有者："
 
-#: ../src/file-manager/fm-properties-window.c:4394
-#: ../src/file-manager/fm-properties-window.c:4577
+#: ../src/file-manager/fm-properties-window.c:4390
+#: ../src/file-manager/fm-properties-window.c:4573
 msgid "_Group:"
 msgstr "群组(_G)："
 
-#: ../src/file-manager/fm-properties-window.c:4402
-#: ../src/file-manager/fm-properties-window.c:4461
-#: ../src/file-manager/fm-properties-window.c:4585
+#: ../src/file-manager/fm-properties-window.c:4398
+#: ../src/file-manager/fm-properties-window.c:4457
+#: ../src/file-manager/fm-properties-window.c:4581
 msgid "Group:"
 msgstr "群组："
 
-#: ../src/file-manager/fm-properties-window.c:4426
+#: ../src/file-manager/fm-properties-window.c:4422
 msgid "Others"
 msgstr "其它"
 
-#: ../src/file-manager/fm-properties-window.c:4441
+#: ../src/file-manager/fm-properties-window.c:4437
 msgid "Execute:"
 msgstr "执行："
 
-#: ../src/file-manager/fm-properties-window.c:4444
+#: ../src/file-manager/fm-properties-window.c:4440
 msgid "Allow _executing file as program"
 msgstr "允许以程序执行文件(_E)"
 
-#: ../src/file-manager/fm-properties-window.c:4462
+#: ../src/file-manager/fm-properties-window.c:4458
 msgid "Others:"
 msgstr "其它："
 
-#: ../src/file-manager/fm-properties-window.c:4601
+#: ../src/file-manager/fm-properties-window.c:4597
 msgid "Folder Permissions:"
 msgstr "文件夹权限："
 
-#: ../src/file-manager/fm-properties-window.c:4608
+#: ../src/file-manager/fm-properties-window.c:4604
 msgid "File Permissions:"
 msgstr "文件权限："
 
-#: ../src/file-manager/fm-properties-window.c:4617
+#: ../src/file-manager/fm-properties-window.c:4613
 msgid "Text view:"
 msgstr "文本视图："
 
-#: ../src/file-manager/fm-properties-window.c:4763
+#: ../src/file-manager/fm-properties-window.c:4759
 msgid "You are not the owner, so you cannot change these permissions."
 msgstr "您不是所有者，所以您不能更改这些权限。"
 
-#: ../src/file-manager/fm-properties-window.c:4783
+#: ../src/file-manager/fm-properties-window.c:4779
 msgid "SELinux context:"
 msgstr "SELinux 环境："
 
-#: ../src/file-manager/fm-properties-window.c:4788
+#: ../src/file-manager/fm-properties-window.c:4784
 msgid "Last changed:"
 msgstr "最后修改："
 
-#: ../src/file-manager/fm-properties-window.c:4799
+#: ../src/file-manager/fm-properties-window.c:4795
 msgid "Apply Permissions to Enclosed Files"
 msgstr "对包含的文件应用权限"
 
-#: ../src/file-manager/fm-properties-window.c:4809
+#: ../src/file-manager/fm-properties-window.c:4805
 #, c-format
 msgid "The permissions of \"%s\" could not be determined."
 msgstr "无法确定“%s”的权限。"
 
-#: ../src/file-manager/fm-properties-window.c:4812
+#: ../src/file-manager/fm-properties-window.c:4808
 msgid "The permissions of the selected file could not be determined."
 msgstr "无法确定选中文件的权限。"
 
-#: ../src/file-manager/fm-properties-window.c:5386
+#. create the "help" button
+#. name, icon name, label
+#: ../src/file-manager/fm-properties-window.c:5172
+#: ../src/caja-bookmarks-window.ui.h:2
+#: ../src/caja-connect-server-dialog.c:1117
+#: ../src/caja-file-management-properties.ui.h:40
+#: ../src/caja-location-dialog.c:189 ../src/caja-property-browser.c:390
+#: ../src/caja-window-menus.c:809
+msgid "_Help"
+msgstr "帮助（_H）"
+
+#. create the "close" button
+#. name, icon name
+#. label, accelerator
+#: ../src/file-manager/fm-properties-window.c:5177
+#: ../src/caja-bookmarks-window.ui.h:5
+#: ../src/caja-file-management-properties.ui.h:41
+#: ../src/caja-property-browser.c:398 ../src/caja-window-menus.c:811
+msgid "_Close"
+msgstr "关闭(_C)"
+
+#: ../src/file-manager/fm-properties-window.c:5387
 msgid "Creating Properties window."
 msgstr "创建属性窗口。"
 
-#: ../src/file-manager/fm-properties-window.c:5682
+#: ../src/file-manager/fm-properties-window.c:5676
 msgid "Select Custom Icon"
 msgstr "选择自定义图标"
 
@@ -5454,11 +5557,11 @@ msgstr "选择自定义图标"
 msgid "File System"
 msgstr "文件系统"
 
-#: ../src/file-manager/fm-tree-view.c:1729
+#: ../src/file-manager/fm-tree-view.c:1727
 msgid "Tree"
 msgstr "树"
 
-#: ../src/file-manager/fm-tree-view.c:1735
+#: ../src/file-manager/fm-tree-view.c:1733
 msgid "Show Tree"
 msgstr "显示树"
 
@@ -5516,7 +5619,7 @@ msgstr "用给定的几何属性创建初始窗口。"
 
 #: ../src/caja-application.c:2018
 msgid "GEOMETRY"
-msgstr "几何属性"
+msgstr "几何形状"
 
 #: ../src/caja-application.c:2020
 msgid "Only create windows for explicitly specified URIs."
@@ -5551,7 +5654,10 @@ msgid ""
 "\n"
 "\n"
 "Browse the file system with the file manager"
-msgstr "\n\n用文件管理器浏览文件系统"
+msgstr ""
+"\n"
+"\n"
+"用文件管理器浏览文件系统"
 
 #: ../src/caja-autorun-software.c:164 ../src/caja-autorun-software.c:167
 #, c-format
@@ -5579,18 +5685,23 @@ msgid ""
 "The software will run directly from the medium \"%s\". You should never run software that you don't trust.\n"
 "\n"
 "If in doubt, press Cancel."
-msgstr "软件将直接从介质“%s”中运行。请您绝对不要运行您不信任的软件。\n\n如果您持有怀疑的话，请点击取消。"
+msgstr ""
+"软件将直接从介质“%s”中运行。请您绝对不要运行您不信任的软件。\n"
+"\n"
+"如果您持有怀疑的话，请点击取消。"
 
-#: ../src/caja-bookmarks-window.c:164
-#: ../src/caja-file-management-properties.c:242
-#: ../src/caja-property-browser.c:1677 ../src/caja-window-menus.c:598
+#: ../src/caja-bookmarks-window.c:158
+#: ../src/caja-file-management-properties.c:236
+#: ../src/caja-property-browser.c:1664 ../src/caja-window-menus.c:590
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
 "%s"
-msgstr "显示帮助时出错：\n%s"
+msgstr ""
+"显示帮助时出错：\n"
+"%s"
 
-#: ../src/caja-bookmarks-window.c:200
+#: ../src/caja-bookmarks-window.c:194
 msgid "No bookmarks defined"
 msgstr "没有定义任何书签"
 
@@ -5598,15 +5709,19 @@ msgstr "没有定义任何书签"
 msgid "Edit Bookmarks"
 msgstr "编辑书签"
 
-#: ../src/caja-bookmarks-window.ui.h:2
+#: ../src/caja-bookmarks-window.ui.h:3
+msgid "_Jump to"
+msgstr "跳转至(_J)"
+
+#: ../src/caja-bookmarks-window.ui.h:6
 msgid "<b>_Bookmarks</b>"
 msgstr "<b>书签(_B)</b>"
 
-#: ../src/caja-bookmarks-window.ui.h:3
+#: ../src/caja-bookmarks-window.ui.h:7
 msgid "<b>_Name</b>"
 msgstr "<b>名称(_N)</b>"
 
-#: ../src/caja-bookmarks-window.ui.h:4
+#: ../src/caja-bookmarks-window.ui.h:8
 msgid "<b>_Location</b>"
 msgstr "<b>位置(_L)</b>"
 
@@ -5617,7 +5732,10 @@ msgid ""
 "\n"
 "\n"
 "Add connect to server mount"
-msgstr "\n\n添加“连接到服务器”挂载"
+msgstr ""
+"\n"
+"\n"
+"添加“连接到服务器”挂载"
 
 #: ../src/caja-connect-server-dialog.c:135
 msgid "SSH"
@@ -5625,7 +5743,7 @@ msgstr "SSH"
 
 #: ../src/caja-connect-server-dialog.c:138
 msgid "Public FTP"
-msgstr "公开 FTP"
+msgstr "公共 FTP"
 
 #: ../src/caja-connect-server-dialog.c:140
 msgid "FTP (with login)"
@@ -5641,7 +5759,7 @@ msgstr "WebDAV (HTTP)"
 
 #: ../src/caja-connect-server-dialog.c:147
 msgid "Secure WebDAV (HTTPS)"
-msgstr "安全 WebDAV (HTTPS)"
+msgstr "安全 WebDAV (HTTP)"
 
 #: ../src/caja-connect-server-dialog.c:150
 msgid "Apple Filing Protocol (AFP)"
@@ -5655,7 +5773,9 @@ msgstr "正在连接..."
 msgid ""
 "Can't load the supported server method list.\n"
 "Please check your GVfs installation."
-msgstr "无法加载支持的插口方法列表。\n请检查您的 GVfs 安装。"
+msgstr ""
+"无法加载支持的插口方法列表。\n"
+"请检查您的 GVfs 安装。"
 
 #: ../src/caja-connect-server-dialog.c:298
 #, c-format
@@ -5679,74 +5799,74 @@ msgstr "请核实您的用户详细信息。"
 msgid "Continue"
 msgstr "继续"
 
-#: ../src/caja-connect-server-dialog.c:742
-#: ../src/caja-connect-server-dialog.c:1171
+#: ../src/caja-connect-server-dialog.c:736
+#: ../src/caja-connect-server-dialog.c:1127
 msgid "C_onnect"
 msgstr "连接(_O)"
 
 #. set dialog properties
-#: ../src/caja-connect-server-dialog.c:866
+#: ../src/caja-connect-server-dialog.c:860
 msgid "Connect to Server"
 msgstr "连接到服务器"
 
-#: ../src/caja-connect-server-dialog.c:880
+#: ../src/caja-connect-server-dialog.c:874
 msgid "Server Details"
 msgstr "服务器详情"
 
 #. first row: server entry + port spinbutton
-#: ../src/caja-connect-server-dialog.c:904
+#: ../src/caja-connect-server-dialog.c:894
 msgid "_Server:"
 msgstr "服务器(_S)："
 
 #. port
-#: ../src/caja-connect-server-dialog.c:926
+#: ../src/caja-connect-server-dialog.c:912
 msgid "_Port:"
 msgstr "端口(_P)："
 
 #. third row: share entry
-#: ../src/caja-connect-server-dialog.c:1025
+#: ../src/caja-connect-server-dialog.c:1003
 msgid "Share:"
 msgstr "共享："
 
 #. fourth row: folder entry
-#: ../src/caja-connect-server-dialog.c:1041
+#: ../src/caja-connect-server-dialog.c:1015
 msgid "Folder:"
 msgstr "文件夹："
 
-#: ../src/caja-connect-server-dialog.c:1058
+#: ../src/caja-connect-server-dialog.c:1028
 msgid "User Details"
 msgstr "用户详细信息"
 
 #. first row: domain entry
-#: ../src/caja-connect-server-dialog.c:1082
+#: ../src/caja-connect-server-dialog.c:1048
 msgid "Domain Name:"
 msgstr "域名："
 
 #. second row: username entry
-#: ../src/caja-connect-server-dialog.c:1098
+#: ../src/caja-connect-server-dialog.c:1060
 msgid "User Name:"
 msgstr "用户名："
 
 #. third row: password entry
-#: ../src/caja-connect-server-dialog.c:1114
+#: ../src/caja-connect-server-dialog.c:1072
 msgid "Password:"
 msgstr "密码："
 
 #. fourth row: remember checkbox
-#: ../src/caja-connect-server-dialog.c:1131
+#: ../src/caja-connect-server-dialog.c:1085
 msgid "Remember this password"
 msgstr "记住该密码"
 
-#: ../src/caja-connect-server-dialog.c:1142
+#: ../src/caja-connect-server-dialog.c:1096
 msgid "Add _bookmark"
 msgstr "添加书签(_B)"
 
-#: ../src/caja-connect-server-dialog.c:1149
+#: ../src/caja-connect-server-dialog.c:1103
 msgid "Bookmark Name:"
 msgstr "书签名称："
 
-#: ../src/caja-desktop-window.c:87 ../src/caja-desktop-window.c:267
-#: ../src/caja-pathbar.c:1403 ../src/caja-places-sidebar.c:519
+#: ../src/caja-desktop-window.c:87 ../src/caja-desktop-window.c:264
+#: ../src/caja-pathbar.c:1399 ../src/caja-places-sidebar.c:519
 msgid "Desktop"
 msgstr "桌面"
 
@@ -5823,7 +5943,7 @@ msgstr "无法添加徽标。"
 msgid "Show Emblems"
 msgstr "显示徽标"
 
-#: ../src/caja-file-management-properties.c:638
+#: ../src/caja-file-management-properties.c:632
 msgid "About Extension"
 msgstr "关于扩展"
 
@@ -5950,387 +6070,387 @@ msgstr "4 GB"
 msgid "File Management Preferences"
 msgstr "文件管理首选项"
 
-#: ../src/caja-file-management-properties.ui.h:40
+#: ../src/caja-file-management-properties.ui.h:42
 msgid "<b>Default View</b>"
 msgstr "<b>默认视图</b>"
 
-#: ../src/caja-file-management-properties.ui.h:41
+#: ../src/caja-file-management-properties.ui.h:43
 msgid "View _new folders using:"
 msgstr "查看新建文件夹使用(_N)："
 
-#: ../src/caja-file-management-properties.ui.h:42
+#: ../src/caja-file-management-properties.ui.h:44
 msgid "_Arrange items:"
 msgstr "排列项目(_A)："
 
-#: ../src/caja-file-management-properties.ui.h:43
+#: ../src/caja-file-management-properties.ui.h:45
 msgid "Sort _folders before files"
 msgstr "将文件夹放在文件前(_F)"
 
-#: ../src/caja-file-management-properties.ui.h:44
+#: ../src/caja-file-management-properties.ui.h:46
 msgid "Show hidden and _backup files"
 msgstr "显示隐藏和备份文件(_B)"
 
-#: ../src/caja-file-management-properties.ui.h:45
+#: ../src/caja-file-management-properties.ui.h:47
 msgid "<b>Icon View Defaults</b>"
 msgstr "<b>图标视图默认值</b>"
 
-#: ../src/caja-file-management-properties.ui.h:46
+#: ../src/caja-file-management-properties.ui.h:48
 msgid "Default _zoom level:"
 msgstr "默认缩放级别(_Z)："
 
-#: ../src/caja-file-management-properties.ui.h:47
+#: ../src/caja-file-management-properties.ui.h:49
 msgid "_Use compact layout"
 msgstr "使用紧凑布局(_U)"
 
-#: ../src/caja-file-management-properties.ui.h:48
+#: ../src/caja-file-management-properties.ui.h:50
 msgid "_Text beside icons"
 msgstr "文字在图标旁(_T)"
 
-#: ../src/caja-file-management-properties.ui.h:49
+#: ../src/caja-file-management-properties.ui.h:51
 msgid "<b>Compact View Defaults</b>"
 msgstr "<b>紧凑视图默认值</b>"
 
-#: ../src/caja-file-management-properties.ui.h:50
+#: ../src/caja-file-management-properties.ui.h:52
 msgid "_Default zoom level:"
 msgstr "默认缩放级别(_D)："
 
-#: ../src/caja-file-management-properties.ui.h:51
+#: ../src/caja-file-management-properties.ui.h:53
 msgid "A_ll columns have the same width"
 msgstr "所有列的宽度相同(_L)"
 
-#: ../src/caja-file-management-properties.ui.h:52
+#: ../src/caja-file-management-properties.ui.h:54
 msgid "<b>List View Defaults</b>"
 msgstr "<b>列表视图默认值</b>"
 
-#: ../src/caja-file-management-properties.ui.h:53
+#: ../src/caja-file-management-properties.ui.h:55
 msgid "D_efault zoom level:"
 msgstr "默认缩放级别(_E)："
 
-#: ../src/caja-file-management-properties.ui.h:54
+#: ../src/caja-file-management-properties.ui.h:56
 msgid "<b>Tree View Defaults</b>"
 msgstr "<b>树视图默认值</b>"
 
-#: ../src/caja-file-management-properties.ui.h:55
+#: ../src/caja-file-management-properties.ui.h:57
 msgid "Show _only folders"
 msgstr "只显示文件夹(_O)"
 
-#: ../src/caja-file-management-properties.ui.h:56
+#: ../src/caja-file-management-properties.ui.h:58
 msgid "Views"
 msgstr "视图"
 
-#: ../src/caja-file-management-properties.ui.h:57
+#: ../src/caja-file-management-properties.ui.h:59
 msgid "<b>Behavior</b>"
 msgstr "<b>行为</b>"
 
-#: ../src/caja-file-management-properties.ui.h:58
+#: ../src/caja-file-management-properties.ui.h:60
 msgid "_Single click to open items"
 msgstr "单击时打开项目(_S)"
 
-#: ../src/caja-file-management-properties.ui.h:59
+#: ../src/caja-file-management-properties.ui.h:61
 msgid "_Double click to open items"
 msgstr "双击时打开项目(_D)"
 
-#: ../src/caja-file-management-properties.ui.h:60
+#: ../src/caja-file-management-properties.ui.h:62
 msgid "Open each _folder in its own window"
 msgstr "在单独的窗口打开每个文件夹(_F)"
 
-#: ../src/caja-file-management-properties.ui.h:61
+#: ../src/caja-file-management-properties.ui.h:63
 msgid "<b>Executable Text Files</b>"
 msgstr "<b>可执行文本文件</b>"
 
-#: ../src/caja-file-management-properties.ui.h:62
+#: ../src/caja-file-management-properties.ui.h:64
 msgid "_Run executable text files when they are opened"
 msgstr "打开时运行可执行文本文件(_R)"
 
-#: ../src/caja-file-management-properties.ui.h:63
+#: ../src/caja-file-management-properties.ui.h:65
 msgid "_View executable text files when they are opened"
 msgstr "打开时查看可执行文本文件(_V)"
 
-#: ../src/caja-file-management-properties.ui.h:64
+#: ../src/caja-file-management-properties.ui.h:66
 msgid "_Ask each time"
 msgstr "每次都询问(_A)"
 
-#: ../src/caja-file-management-properties.ui.h:65
+#: ../src/caja-file-management-properties.ui.h:67
 msgid "<b>Trash</b>"
 msgstr "<b>回收站</b>"
 
-#: ../src/caja-file-management-properties.ui.h:66
+#: ../src/caja-file-management-properties.ui.h:68
 msgid "Ask before _emptying the Trash or deleting files"
 msgstr "清空回收站或删除文件前询问(_E)"
 
-#: ../src/caja-file-management-properties.ui.h:67
+#: ../src/caja-file-management-properties.ui.h:69
 msgid "Ask before moving files to the _Trash"
 msgstr "在移动文件到垃圾箱时请求确认(_T)"
 
-#: ../src/caja-file-management-properties.ui.h:68
+#: ../src/caja-file-management-properties.ui.h:70
 msgid "I_nclude a Delete command that bypasses Trash"
 msgstr "包含绕过回收站的删除命令(_N)"
 
-#: ../src/caja-file-management-properties.ui.h:69
+#: ../src/caja-file-management-properties.ui.h:71
 msgid "Behavior"
 msgstr "行为"
 
-#: ../src/caja-file-management-properties.ui.h:70
+#: ../src/caja-file-management-properties.ui.h:72
 msgid "<b>Icon Captions</b>"
 msgstr "<b>图标标题</b>"
 
-#: ../src/caja-file-management-properties.ui.h:71
+#: ../src/caja-file-management-properties.ui.h:73
 msgid ""
 "Choose the order of information to appear beneath icon names. More "
 "information will appear when zooming in closer."
 msgstr "为图标名字下要显示的信息选择顺序。随着放大倍数的增加，所出现的信息会增多。"
 
-#: ../src/caja-file-management-properties.ui.h:72
+#: ../src/caja-file-management-properties.ui.h:74
 msgid "<b>Date</b>"
 msgstr "<b>日期</b>"
 
-#: ../src/caja-file-management-properties.ui.h:73
+#: ../src/caja-file-management-properties.ui.h:75
 msgid "_Format:"
 msgstr "格式(_F)："
 
-#: ../src/caja-file-management-properties.ui.h:74
+#: ../src/caja-file-management-properties.ui.h:76
 msgid "<b>Size</b>"
 msgstr "<b>尺寸</b>"
 
-#: ../src/caja-file-management-properties.ui.h:75
+#: ../src/caja-file-management-properties.ui.h:77
 msgid "_Show file sizes with IEC units"
 msgstr "以 IEC 单位显示文件大小(_S "
 
-#: ../src/caja-file-management-properties.ui.h:76
+#: ../src/caja-file-management-properties.ui.h:78
 msgid "Display"
 msgstr "显示"
 
-#: ../src/caja-file-management-properties.ui.h:77
+#: ../src/caja-file-management-properties.ui.h:79
 msgid "<b>List Columns</b>"
 msgstr "<b>列表列</b>"
 
-#: ../src/caja-file-management-properties.ui.h:78
+#: ../src/caja-file-management-properties.ui.h:80
 msgid "Choose the order of information to appear in the list view."
 msgstr "选择信息在列表视图下显示的顺序。"
 
-#: ../src/caja-file-management-properties.ui.h:79
+#: ../src/caja-file-management-properties.ui.h:81
 msgid "List Columns"
 msgstr "列表列"
 
-#: ../src/caja-file-management-properties.ui.h:80
+#: ../src/caja-file-management-properties.ui.h:82
 msgid "<b>Text Files</b>"
 msgstr "<b>文本文件</b>"
 
-#: ../src/caja-file-management-properties.ui.h:81
+#: ../src/caja-file-management-properties.ui.h:83
 msgid "Show te_xt in icons:"
 msgstr "图标中显示文字(_X)："
 
-#: ../src/caja-file-management-properties.ui.h:82
+#: ../src/caja-file-management-properties.ui.h:84
 msgid "<b>Other Previewable Files</b>"
 msgstr "<b>其它可预览文件</b>"
 
-#: ../src/caja-file-management-properties.ui.h:83
+#: ../src/caja-file-management-properties.ui.h:85
 msgid "Show _thumbnails:"
 msgstr "显示缩略图(_T)："
 
-#: ../src/caja-file-management-properties.ui.h:84
+#: ../src/caja-file-management-properties.ui.h:86
 msgid "_Only for files smaller than:"
 msgstr "仅显示小于指定大小的文件(_O)："
 
-#: ../src/caja-file-management-properties.ui.h:85
+#: ../src/caja-file-management-properties.ui.h:87
 msgid "<b>Sound Files</b>"
 msgstr "<b>声音文件</b>"
 
-#: ../src/caja-file-management-properties.ui.h:86
+#: ../src/caja-file-management-properties.ui.h:88
 msgid "Preview _sound files:"
 msgstr "预听声音文件(_S)："
 
-#: ../src/caja-file-management-properties.ui.h:87
+#: ../src/caja-file-management-properties.ui.h:89
 msgid "<b>Folders</b>"
 msgstr "<b>文件夹</b>"
 
-#: ../src/caja-file-management-properties.ui.h:88
+#: ../src/caja-file-management-properties.ui.h:90
 msgid "Count _number of items:"
 msgstr "统计项目数量(_N)："
 
-#: ../src/caja-file-management-properties.ui.h:89
+#: ../src/caja-file-management-properties.ui.h:91
 msgid "Preview"
 msgstr "预览"
 
-#: ../src/caja-file-management-properties.ui.h:90
+#: ../src/caja-file-management-properties.ui.h:92
 msgid "<b>Media Handling</b>"
 msgstr "<b>介质处理</b>"
 
-#: ../src/caja-file-management-properties.ui.h:91
+#: ../src/caja-file-management-properties.ui.h:93
 msgid ""
 "Choose what happens when inserting media or connecting devices to the system"
 msgstr "选择插入介质或将设备连接到系统时应执行何种操作"
 
-#: ../src/caja-file-management-properties.ui.h:92
+#: ../src/caja-file-management-properties.ui.h:94
 msgid "CD _Audio:"
 msgstr "音频 CD(_A)："
 
-#: ../src/caja-file-management-properties.ui.h:93
+#: ../src/caja-file-management-properties.ui.h:95
 msgid "_DVD Video:"
 msgstr "_DVD 视频："
 
-#: ../src/caja-file-management-properties.ui.h:94
+#: ../src/caja-file-management-properties.ui.h:96
 msgid "_Music Player:"
 msgstr "音乐播放器(_M)："
 
-#: ../src/caja-file-management-properties.ui.h:95
+#: ../src/caja-file-management-properties.ui.h:97
 msgid "_Photos:"
 msgstr "照片(_P)："
 
-#: ../src/caja-file-management-properties.ui.h:96
+#: ../src/caja-file-management-properties.ui.h:98
 msgid "_Software:"
 msgstr "软件(_S)："
 
-#: ../src/caja-file-management-properties.ui.h:97
+#: ../src/caja-file-management-properties.ui.h:99
 msgid "<b>Other Media</b>"
 msgstr "<b>其它介质</b>"
 
-#: ../src/caja-file-management-properties.ui.h:98
+#: ../src/caja-file-management-properties.ui.h:100
 msgid "Less common media formats can be configured here"
 msgstr "较不常见的介质类型可在此配置"
 
-#: ../src/caja-file-management-properties.ui.h:99
+#: ../src/caja-file-management-properties.ui.h:101
 msgid "Acti_on:"
 msgstr "动作(_O)："
 
-#: ../src/caja-file-management-properties.ui.h:100
+#: ../src/caja-file-management-properties.ui.h:102
 msgid "_Type:"
 msgstr "类型(_T)："
 
-#: ../src/caja-file-management-properties.ui.h:101
+#: ../src/caja-file-management-properties.ui.h:103
 msgid "_Never prompt or start programs on media insertion"
 msgstr "介质插入时从不提示或启动程序(_N)"
 
-#: ../src/caja-file-management-properties.ui.h:102
+#: ../src/caja-file-management-properties.ui.h:104
 msgid "B_rowse media when inserted"
 msgstr "插入时浏览介质(_R)"
 
-#: ../src/caja-file-management-properties.ui.h:103
+#: ../src/caja-file-management-properties.ui.h:105
 msgid "Media"
 msgstr "介质"
 
-#: ../src/caja-file-management-properties.ui.h:104
+#: ../src/caja-file-management-properties.ui.h:106
 msgid "<b>Available _Extensions:</b>"
 msgstr "<b>可用扩展(_E)：</b>"
 
-#: ../src/caja-file-management-properties.ui.h:105
+#: ../src/caja-file-management-properties.ui.h:107
 msgid "column"
 msgstr "列"
 
-#: ../src/caja-file-management-properties.ui.h:106
+#: ../src/caja-file-management-properties.ui.h:108
 msgid "Extension"
 msgstr "扩展"
 
-#: ../src/caja-file-management-properties.ui.h:107
+#: ../src/caja-file-management-properties.ui.h:109
 msgid "_About Extension"
 msgstr "关于扩展(_A "
 
-#: ../src/caja-file-management-properties.ui.h:108
+#: ../src/caja-file-management-properties.ui.h:110
 msgid "C_onfigure Extension"
 msgstr "配置扩展(_ )"
 
-#: ../src/caja-file-management-properties.ui.h:109
+#: ../src/caja-file-management-properties.ui.h:111
 msgid "Extensions"
 msgstr "扩展"
 
-#: ../src/caja-history-sidebar.c:338
+#: ../src/caja-history-sidebar.c:337
 msgid "History"
 msgstr "历史"
 
-#: ../src/caja-history-sidebar.c:344
+#: ../src/caja-history-sidebar.c:343
 msgid "Show History"
 msgstr "显示历史"
 
-#: ../src/caja-image-properties-page.c:280
+#: ../src/caja-image-properties-page.c:276
 msgid "Camera Brand"
 msgstr "相机品牌"
 
-#: ../src/caja-image-properties-page.c:281
+#: ../src/caja-image-properties-page.c:277
 msgid "Camera Model"
 msgstr "照相机型号"
 
 #. Choose which date to show in order of relevance
-#: ../src/caja-image-properties-page.c:284
+#: ../src/caja-image-properties-page.c:280
 msgid "Date Taken"
 msgstr "拍照日期"
 
-#: ../src/caja-image-properties-page.c:286
+#: ../src/caja-image-properties-page.c:282
 msgid "Date Digitized"
 msgstr "数字化日期"
 
-#: ../src/caja-image-properties-page.c:292
+#: ../src/caja-image-properties-page.c:288
 msgid "Exposure Time"
 msgstr "曝光时间"
 
-#: ../src/caja-image-properties-page.c:293
+#: ../src/caja-image-properties-page.c:289
 msgid "Aperture Value"
 msgstr "光圈值"
 
-#: ../src/caja-image-properties-page.c:294
+#: ../src/caja-image-properties-page.c:290
 msgid "ISO Speed Rating"
 msgstr "ISO 速度等级"
 
-#: ../src/caja-image-properties-page.c:295
+#: ../src/caja-image-properties-page.c:291
 msgid "Flash Fired"
 msgstr "闪光灯"
 
-#: ../src/caja-image-properties-page.c:296
+#: ../src/caja-image-properties-page.c:292
 msgid "Metering Mode"
 msgstr "测距模式"
 
-#: ../src/caja-image-properties-page.c:297
+#: ../src/caja-image-properties-page.c:293
 msgid "Exposure Program"
 msgstr "曝光程序"
 
-#: ../src/caja-image-properties-page.c:298
+#: ../src/caja-image-properties-page.c:294
 msgid "Focal Length"
 msgstr "焦距"
 
-#: ../src/caja-image-properties-page.c:299
+#: ../src/caja-image-properties-page.c:295
 msgid "Software"
 msgstr "软件"
 
-#: ../src/caja-image-properties-page.c:371
+#: ../src/caja-image-properties-page.c:367
 msgid "Keywords"
 msgstr "关键字"
 
-#: ../src/caja-image-properties-page.c:372
+#: ../src/caja-image-properties-page.c:368
 msgid "Creator"
 msgstr "创建者"
 
-#: ../src/caja-image-properties-page.c:373
+#: ../src/caja-image-properties-page.c:369
 msgid "Copyright"
 msgstr "版权"
 
-#: ../src/caja-image-properties-page.c:374
+#: ../src/caja-image-properties-page.c:370
 msgid "Rating"
 msgstr "评分"
 
-#: ../src/caja-image-properties-page.c:405
+#: ../src/caja-image-properties-page.c:401
 msgid "Image Type:"
 msgstr "图像类型："
 
-#: ../src/caja-image-properties-page.c:408
+#: ../src/caja-image-properties-page.c:404
 #, c-format
 msgid "<b>Width:</b> %d pixel"
 msgid_plural "<b>Width:</b> %d pixels"
 msgstr[0] "<b>宽度：</b> %d 像素"
 
-#: ../src/caja-image-properties-page.c:414
+#: ../src/caja-image-properties-page.c:410
 #, c-format
 msgid "<b>Height:</b> %d pixel"
 msgid_plural "<b>Height:</b> %d pixels"
 msgstr[0] "<b>高度：</b> %d 像素"
 
-#: ../src/caja-image-properties-page.c:433
+#: ../src/caja-image-properties-page.c:429
 msgid "Failed to load image information"
 msgstr "装入图像信息失败"
 
-#: ../src/caja-image-properties-page.c:661
+#: ../src/caja-image-properties-page.c:657
 msgid "loading..."
 msgstr "正在载入..."
 
-#: ../src/caja-image-properties-page.c:715
+#: ../src/caja-image-properties-page.c:711
 msgid "Image"
 msgstr "图像"
 
@@ -6365,11 +6485,11 @@ msgid "Do you want to view %d location?"
 msgid_plural "Do you want to view %d locations?"
 msgstr[0] "您想要查看这 %d 个位置吗？"
 
-#: ../src/caja-location-dialog.c:163
+#: ../src/caja-location-dialog.c:157
 msgid "Open Location"
 msgstr "打开位置"
 
-#: ../src/caja-location-dialog.c:173
+#: ../src/caja-location-dialog.c:167
 msgid "_Location:"
 msgstr "位置(_L)："
 
@@ -6386,22 +6506,22 @@ msgstr "位置“%s”不存在。"
 msgid "The history location doesn't exist."
 msgstr "历史位置不存在。"
 
-#. name, stock id, label
+#. name, icon name, label
 #: ../src/caja-navigation-window-menus.c:824
 msgid "_Go"
 msgstr "转到(_G)"
 
-#. name, stock id, label
+#. name, icon name, label
 #: ../src/caja-navigation-window-menus.c:825
 msgid "_Bookmarks"
-msgstr "书签(_B)"
+msgstr "书签 (_B)"
 
-#. name, stock id, label
+#. name, icon name, label
 #: ../src/caja-navigation-window-menus.c:826
 msgid "_Tabs"
 msgstr "标签(_T)"
 
-#. name, stock id, label
+#. name, icon name, label
 #: ../src/caja-navigation-window-menus.c:827
 msgid "New _Window"
 msgstr "新建窗口(_W)"
@@ -6410,7 +6530,7 @@ msgstr "新建窗口(_W)"
 msgid "Open another Caja window for the displayed location"
 msgstr "为显示的位置打开另外一个 Caja 窗口"
 
-#. name, stock id, label
+#. name, icon name, label
 #: ../src/caja-navigation-window-menus.c:831
 msgid "New _Tab"
 msgstr "新建标签(_T)"
@@ -6419,7 +6539,7 @@ msgstr "新建标签(_T)"
 msgid "Open another tab for the displayed location"
 msgstr "为显示的位置打开另外一个 Caja 标签"
 
-#. name, stock id, label
+#. name, icon name, label
 #: ../src/caja-navigation-window-menus.c:835
 msgid "Open Folder W_indow"
 msgstr "打开文件夹窗口(_I)"
@@ -6428,7 +6548,7 @@ msgstr "打开文件夹窗口(_I)"
 msgid "Open a folder window for the displayed location"
 msgstr "为显示的位置打开另外一个文件夹窗口"
 
-#. name, stock id, label
+#. name, icon name, label
 #: ../src/caja-navigation-window-menus.c:839
 msgid "Close _All Windows"
 msgstr "关闭全部窗口(_A)"
@@ -6437,7 +6557,7 @@ msgstr "关闭全部窗口(_A)"
 msgid "Close all Navigation windows"
 msgstr "关闭打开的全部导航窗口"
 
-#. name, stock id, label
+#. name, icon name, label
 #: ../src/caja-navigation-window-menus.c:843
 msgid "_Location..."
 msgstr "位置(_L)..."
@@ -6446,7 +6566,7 @@ msgstr "位置(_L)..."
 msgid "Specify a location to open"
 msgstr "指定要打开的位置"
 
-#. name, stock id, label
+#. name, icon name, label
 #: ../src/caja-navigation-window-menus.c:847
 msgid "Clea_r History"
 msgstr "清除历史(_R)"
@@ -6455,7 +6575,7 @@ msgstr "清除历史(_R)"
 msgid "Clear contents of Go menu and Back/Forward lists"
 msgstr "清除“转到”菜单和“前进”或“后退”列表中的内容"
 
-#. name, stock id, label
+#. name, icon name, label
 #: ../src/caja-navigation-window-menus.c:851
 msgid "S_witch to Other Pane"
 msgstr "切换到另一个窗格(_W)"
@@ -6464,7 +6584,7 @@ msgstr "切换到另一个窗格(_W)"
 msgid "Move focus to the other pane in a split view window"
 msgstr "在分割视图中将焦点移到另一个窗格"
 
-#. name, stock id, label
+#. name, icon name, label
 #: ../src/caja-navigation-window-menus.c:855
 msgid "Sa_me Location as Other Pane"
 msgstr "与另一个窗格相同的位置(_M)"
@@ -6473,16 +6593,16 @@ msgstr "与另一个窗格相同的位置(_M)"
 msgid "Go to the same location as in the extra pane"
 msgstr "转到附加窗格的相同位置"
 
-#. name, stock id, label
+#. name, icon name, label
 #: ../src/caja-navigation-window-menus.c:859 ../src/caja-spatial-window.c:956
 msgid "_Add Bookmark"
-msgstr "添加书签(_A)"
+msgstr "添加书签 (_A)"
 
 #: ../src/caja-navigation-window-menus.c:860 ../src/caja-spatial-window.c:957
 msgid "Add a bookmark for the current location to this menu"
 msgstr "在该菜单中添加一个当前位置的书签"
 
-#. name, stock id, label
+#. name, icon name, label
 #: ../src/caja-navigation-window-menus.c:863 ../src/caja-spatial-window.c:960
 msgid "_Edit Bookmarks..."
 msgstr "编辑书签(_E)..."
@@ -6493,7 +6613,7 @@ msgstr "显示能够编辑该菜单中的书签的窗口"
 
 #: ../src/caja-navigation-window-menus.c:868
 msgid "_Previous Tab"
-msgstr "上一个标签(_P)"
+msgstr "前一标签页(_P)"
 
 #: ../src/caja-navigation-window-menus.c:869
 msgid "Activate previous tab"
@@ -6501,7 +6621,7 @@ msgstr "激活上一个标签"
 
 #: ../src/caja-navigation-window-menus.c:873
 msgid "_Next Tab"
-msgstr "下一个标签(_N)"
+msgstr "后一标签页(_N)"
 
 #: ../src/caja-navigation-window-menus.c:874
 msgid "Activate next tab"
@@ -6510,7 +6630,7 @@ msgstr "激活下一个标签"
 #: ../src/caja-navigation-window-menus.c:878
 #: ../src/caja-navigation-window-pane.c:464
 msgid "Move Tab _Left"
-msgstr "标签左移(_L)"
+msgstr "标签页左移(_L)"
 
 #: ../src/caja-navigation-window-menus.c:879
 msgid "Move current tab to left"
@@ -6519,7 +6639,7 @@ msgstr "将当前标签向左移动"
 #: ../src/caja-navigation-window-menus.c:883
 #: ../src/caja-navigation-window-pane.c:472
 msgid "Move Tab _Right"
-msgstr "标签右移(_R)"
+msgstr "标签页右移(_R)"
 
 #: ../src/caja-navigation-window-menus.c:884
 msgid "Move current tab to right"
@@ -6533,7 +6653,7 @@ msgstr "显示搜索(_H)"
 msgid "Show search"
 msgstr "显示搜索"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
 #: ../src/caja-navigation-window-menus.c:897
 msgid "_Main Toolbar"
@@ -6544,7 +6664,7 @@ msgstr "主工具栏(_M)"
 msgid "Change the visibility of this window's main toolbar"
 msgstr "更改此窗口主工具栏的可见性"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
 #: ../src/caja-navigation-window-menus.c:903
 msgid "_Side Pane"
@@ -6555,7 +6675,7 @@ msgstr "侧边栏(_S)"
 msgid "Change the visibility of this window's side pane"
 msgstr "更改该窗口侧边栏的可见性"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
 #: ../src/caja-navigation-window-menus.c:909
 msgid "Location _Bar"
@@ -6566,7 +6686,7 @@ msgstr "位置栏(_B)"
 msgid "Change the visibility of this window's location bar"
 msgstr "更改该窗口位置栏的可见性"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
 #: ../src/caja-navigation-window-menus.c:915
 msgid "St_atusbar"
@@ -6577,9 +6697,9 @@ msgstr "状态栏(_A)"
 msgid "Change the visibility of this window's statusbar"
 msgstr "更改该窗口状态栏的可见性"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#. name, stock id, label
+#. name, icon name, label
 #: ../src/caja-navigation-window-menus.c:921 ../src/caja-spatial-window.c:964
 msgid "_Search for Files..."
 msgstr "搜索文件(_S)..."
@@ -6606,7 +6726,7 @@ msgstr "后退(_B)"
 
 #: ../src/caja-navigation-window-menus.c:958
 msgid "Go to the previous visited location"
-msgstr "转到上一个访问过的位置"
+msgstr "转到上一次访问的位置"
 
 #: ../src/caja-navigation-window-menus.c:959
 msgid "Back history"
@@ -6618,7 +6738,7 @@ msgstr "前进(_F)"
 
 #: ../src/caja-navigation-window-menus.c:975
 msgid "Go to the next visited location"
-msgstr "转到下一个访问过的位置"
+msgstr "转到下一次访问的位置"
 
 #: ../src/caja-navigation-window-menus.c:976
 msgid "Forward history"
@@ -6653,15 +6773,15 @@ msgstr "关闭标签(_C)"
 msgid "%s - File Browser"
 msgstr "%s - 文件浏览器"
 
-#: ../src/caja-notebook.c:337
+#: ../src/caja-notebook.c:330
 msgid "Close tab"
-msgstr "关闭标签"
+msgstr "关闭标签页"
 
-#: ../src/caja-notes-viewer.c:399 ../src/caja-notes-viewer.c:503
+#: ../src/caja-notes-viewer.c:398 ../src/caja-notes-viewer.c:502
 msgid "Notes"
 msgstr "备忘"
 
-#: ../src/caja-notes-viewer.c:405
+#: ../src/caja-notes-viewer.c:404
 msgid "Show Notes"
 msgstr "显示备忘"
 
@@ -6675,7 +6795,7 @@ msgstr "书签"
 
 #: ../src/caja-places-sidebar.c:521
 msgid "Open the contents of your desktop in a folder"
-msgstr "在一个文件夹里打开您桌面的内容"
+msgstr "将桌面以文件夹形式打开"
 
 #: ../src/caja-places-sidebar.c:537
 msgid "Open the contents of the File System"
@@ -6740,17 +6860,17 @@ msgstr "无法停止 %s"
 
 #: ../src/caja-places-sidebar.c:2679
 msgid "Remove"
-msgstr "删除"
+msgstr "移除"
 
 #: ../src/caja-places-sidebar.c:2688
 msgid "Rename..."
 msgstr "重命名..."
 
-#: ../src/caja-places-sidebar.c:3382
+#: ../src/caja-places-sidebar.c:3381
 msgid "Places"
 msgstr "位置"
 
-#: ../src/caja-places-sidebar.c:3388
+#: ../src/caja-places-sidebar.c:3387
 msgid "Show Places"
 msgstr "显示位置"
 
@@ -6760,159 +6880,159 @@ msgid "Backgrounds and Emblems"
 msgstr "背景和徽标"
 
 #. create the "remove" button
-#: ../src/caja-property-browser.c:409
+#: ../src/caja-property-browser.c:410
 msgid "_Remove..."
-msgstr "删除(_R)..."
+msgstr "移除:(_R)..."
 
 #. now create the "add new" button
-#: ../src/caja-property-browser.c:423
+#: ../src/caja-property-browser.c:424
 msgid "Add new..."
 msgstr "添加..."
 
-#: ../src/caja-property-browser.c:974
+#: ../src/caja-property-browser.c:975
 #, c-format
 msgid "Sorry, but pattern %s could not be deleted."
 msgstr "抱歉，无法删除图案 %s。"
 
-#: ../src/caja-property-browser.c:975
+#: ../src/caja-property-browser.c:976
 msgid "Check that you have permission to delete the pattern."
 msgstr "请检查您是否有权限删除图案。"
 
-#: ../src/caja-property-browser.c:991
+#: ../src/caja-property-browser.c:992
 #, c-format
 msgid "Sorry, but emblem %s could not be deleted."
 msgstr "抱歉，徽标 %s 无法被删除。"
 
-#: ../src/caja-property-browser.c:992
+#: ../src/caja-property-browser.c:993
 msgid "Check that you have permission to delete the emblem."
 msgstr "请检查您是否有删除徽标的权限。"
 
-#: ../src/caja-property-browser.c:1064
+#: ../src/caja-property-browser.c:1065
 msgid "Select an Image File for the New Emblem"
 msgstr "选择新徽标的图像文件"
 
-#: ../src/caja-property-browser.c:1105
+#: ../src/caja-property-browser.c:1106
 msgid "Create a New Emblem"
 msgstr "创建新徽标"
 
 #. make the keyword label and field
-#: ../src/caja-property-browser.c:1126
+#: ../src/caja-property-browser.c:1127
 msgid "_Keyword:"
 msgstr "关键词(_K)："
 
 #. set up a file chooser to pick the image file
-#: ../src/caja-property-browser.c:1149
+#: ../src/caja-property-browser.c:1146
 msgid "_Image:"
 msgstr "图像(_I)："
 
-#: ../src/caja-property-browser.c:1185
+#: ../src/caja-property-browser.c:1178
 msgid "Create a New Color:"
 msgstr "创建新颜色："
 
 #. make the name label and field
-#: ../src/caja-property-browser.c:1199
+#: ../src/caja-property-browser.c:1192
 msgid "Color _name:"
 msgstr "颜色名(_N)："
 
-#: ../src/caja-property-browser.c:1215
+#: ../src/caja-property-browser.c:1208
 msgid "Color _value:"
 msgstr "颜色值(_V)："
 
-#: ../src/caja-property-browser.c:1251
+#: ../src/caja-property-browser.c:1244
 msgid "Sorry, but you cannot replace the reset image."
 msgstr "抱歉，您不能替换重置图像。"
 
-#: ../src/caja-property-browser.c:1252
+#: ../src/caja-property-browser.c:1245
 msgid "Reset is a special image that cannot be deleted."
 msgstr "重置是特殊图像，无法删除。"
 
-#: ../src/caja-property-browser.c:1282
+#: ../src/caja-property-browser.c:1275
 #, c-format
 msgid "Sorry, but the pattern %s could not be installed."
 msgstr "抱歉，无法安装图案 %s。"
 
-#: ../src/caja-property-browser.c:1313
+#: ../src/caja-property-browser.c:1306
 msgid "Select an Image File to Add as a Pattern"
 msgstr "选择一个要添加为图案的图像文件"
 
-#: ../src/caja-property-browser.c:1392 ../src/caja-property-browser.c:1422
+#: ../src/caja-property-browser.c:1385 ../src/caja-property-browser.c:1415
 msgid "The color cannot be installed."
 msgstr "无法安装颜色。"
 
-#: ../src/caja-property-browser.c:1393
+#: ../src/caja-property-browser.c:1386
 msgid "Sorry, but you must specify an unused color name for the new color."
 msgstr "抱歉，您必须指定一个未用的名字用于新建的颜色。"
 
-#: ../src/caja-property-browser.c:1423
+#: ../src/caja-property-browser.c:1416
 msgid "Sorry, but you must specify a non-blank name for the new color."
 msgstr "抱歉，您必须指定一个非空的名字用于新建的颜色。"
 
-#: ../src/caja-property-browser.c:1483
+#: ../src/caja-property-browser.c:1476
 msgid "Select a Color to Add"
 msgstr "选择要添加的颜色"
 
-#: ../src/caja-property-browser.c:1529 ../src/caja-property-browser.c:1547
+#: ../src/caja-property-browser.c:1522 ../src/caja-property-browser.c:1540
 #, c-format
 msgid "Sorry, but \"%s\" is not a usable image file."
 msgstr "抱歉，“%s”不是一个可用的图像文件。"
 
-#: ../src/caja-property-browser.c:1530 ../src/caja-property-browser.c:1548
+#: ../src/caja-property-browser.c:1523 ../src/caja-property-browser.c:1541
 msgid "The file is not an image."
 msgstr "文件不是图像。"
 
-#: ../src/caja-property-browser.c:2299
+#: ../src/caja-property-browser.c:2284
 msgid "Select a Category:"
 msgstr "选择类别："
 
-#: ../src/caja-property-browser.c:2311
+#: ../src/caja-property-browser.c:2296
 msgid "C_ancel Remove"
 msgstr "取消删除(_A)"
 
-#: ../src/caja-property-browser.c:2320
+#: ../src/caja-property-browser.c:2305
 msgid "_Add a New Pattern..."
 msgstr "添加新图案(_A)..."
 
-#: ../src/caja-property-browser.c:2323
+#: ../src/caja-property-browser.c:2308
 msgid "_Add a New Color..."
 msgstr "添加新颜色(_A)..."
 
-#: ../src/caja-property-browser.c:2326
+#: ../src/caja-property-browser.c:2311
 msgid "_Add a New Emblem..."
 msgstr "添加新徽标(_A)..."
 
-#: ../src/caja-property-browser.c:2352
+#: ../src/caja-property-browser.c:2337
 msgid "Click on a pattern to remove it"
 msgstr "单击图案以删除"
 
-#: ../src/caja-property-browser.c:2355
+#: ../src/caja-property-browser.c:2340
 msgid "Click on a color to remove it"
 msgstr "单击颜色以删除"
 
-#: ../src/caja-property-browser.c:2358
+#: ../src/caja-property-browser.c:2343
 msgid "Click on an emblem to remove it"
 msgstr "单击徽标以删除"
 
-#: ../src/caja-property-browser.c:2370
+#: ../src/caja-property-browser.c:2355
 msgid "Patterns:"
 msgstr "图案："
 
-#: ../src/caja-property-browser.c:2373
+#: ../src/caja-property-browser.c:2358
 msgid "Colors:"
 msgstr "颜色："
 
-#: ../src/caja-property-browser.c:2376
+#: ../src/caja-property-browser.c:2361
 msgid "Emblems:"
 msgstr "徽标："
 
-#: ../src/caja-property-browser.c:2398
+#: ../src/caja-property-browser.c:2383
 msgid "_Remove a Pattern..."
 msgstr "删除图案(_R)..."
 
-#: ../src/caja-property-browser.c:2401
+#: ../src/caja-property-browser.c:2386
 msgid "_Remove a Color..."
 msgstr "删除颜色(_R)..."
 
-#: ../src/caja-property-browser.c:2404
+#: ../src/caja-property-browser.c:2389
 msgid "_Remove an Emblem..."
 msgstr "删除徽标(_R)..."
 
@@ -6922,7 +7042,7 @@ msgstr "文件类型"
 
 #: ../src/caja-query-editor.c:149
 msgid "Tags"
-msgstr "标记"
+msgstr "标签"
 
 #: ../src/caja-query-editor.c:295
 msgid "Select folder to search in"
@@ -6973,55 +7093,55 @@ msgstr "文本文件"
 msgid "Select type"
 msgstr "选择类型"
 
-#: ../src/caja-query-editor.c:804
+#: ../src/caja-query-editor.c:802
 msgid "Any"
 msgstr "任何"
 
-#: ../src/caja-query-editor.c:820
+#: ../src/caja-query-editor.c:818
 msgid "Other Type..."
 msgstr "其它类型..."
 
-#: ../src/caja-query-editor.c:1124
+#: ../src/caja-query-editor.c:1122
 msgid "Remove this criterion from the search"
 msgstr "从搜索中删除此条件"
 
-#: ../src/caja-query-editor.c:1171
+#: ../src/caja-query-editor.c:1169
 msgid "Search Folder"
 msgstr "搜索文件夹"
 
-#: ../src/caja-query-editor.c:1177
+#: ../src/caja-query-editor.c:1175
 msgid "Edit"
 msgstr "编辑"
 
-#: ../src/caja-query-editor.c:1185
+#: ../src/caja-query-editor.c:1183
 msgid "Edit the saved search"
 msgstr "编辑所保存的搜索"
 
-#: ../src/caja-query-editor.c:1217
+#: ../src/caja-query-editor.c:1215
 msgid "Add a new criterion to this search"
 msgstr "向此搜索中添加新条件"
 
-#: ../src/caja-query-editor.c:1223
+#: ../src/caja-query-editor.c:1221
 msgid "Go"
 msgstr "转到"
 
-#: ../src/caja-query-editor.c:1227
+#: ../src/caja-query-editor.c:1225
 msgid "Reload"
 msgstr "重新装入"
 
-#: ../src/caja-query-editor.c:1232
+#: ../src/caja-query-editor.c:1230
 msgid "Perform or update the search"
 msgstr "执行或更新搜索"
 
-#: ../src/caja-query-editor.c:1253
+#: ../src/caja-query-editor.c:1251
 msgid "_Search for:"
 msgstr "搜索(_S)："
 
-#: ../src/caja-query-editor.c:1282
+#: ../src/caja-query-editor.c:1280
 msgid "Search results"
 msgstr "搜索结果"
 
-#: ../src/caja-search-bar.c:170
+#: ../src/caja-search-bar.c:171
 msgid "Search:"
 msgstr "搜索："
 
@@ -7029,17 +7149,17 @@ msgstr "搜索："
 msgid "Close the side pane"
 msgstr "关闭侧边栏"
 
-#. name, stock id, label
+#. name, icon name, label
 #: ../src/caja-spatial-window.c:940
 msgid "_Places"
 msgstr "位置(_P)"
 
-#. name, stock id, label
+#. name, icon name, label
 #: ../src/caja-spatial-window.c:942
 msgid "Open _Location..."
 msgstr "打开位置(_L)..."
 
-#. name, stock id, label
+#. name, icon name, label
 #: ../src/caja-spatial-window.c:947
 msgid "Close P_arent Folders"
 msgstr "关闭父文件夹(_A)"
@@ -7048,7 +7168,7 @@ msgstr "关闭父文件夹(_A)"
 msgid "Close this folder's parents"
 msgstr "关闭此文件夹的父文件夹"
 
-#. name, stock id, label
+#. name, icon name, label
 #: ../src/caja-spatial-window.c:952
 msgid "Clos_e All Folders"
 msgstr "关闭全部文件夹(_E)"
@@ -7059,7 +7179,7 @@ msgstr "关闭全部文件夹窗口"
 
 #: ../src/caja-spatial-window.c:965
 msgid "Locate documents and folders on this computer by name or content"
-msgstr "按名称或内容定位此计算机上的文档和文件夹"
+msgstr "按照名称或内容定位此计算机中的文档和文件夹"
 
 #: ../src/caja-trash-bar.c:211
 msgid "Restore Selected Items"
@@ -7148,7 +7268,9 @@ msgstr "请检查拼写以及代理服务器设置的正确性。"
 msgid ""
 "Error: %s\n"
 "Please select another viewer and try again."
-msgstr "出错：%s\n请选择其它查看器，然后再试一次。"
+msgstr ""
+"出错：%s\n"
+"请选择其它查看器，然后再试一次。"
 
 #: ../src/caja-window-menus.c:195
 msgid "Go to the location specified by this bookmark"
@@ -7160,7 +7282,8 @@ msgid ""
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version."
-msgstr "Caja 是自由软件；您可以按照自由软件基金会所发表的 GNU GPL 协议自由发放和/或修改它；GPL 协议应该采用第二版或以后的任何版本。"
+msgstr ""
+"Caja 是自由软件；您可以按照自由软件基金会所发表的 GNU GPL 协议自由发放和/或修改它；GPL 协议应该采用第二版或以后的任何版本。"
 
 #: ../src/caja-window-menus.c:521
 msgid ""
@@ -7168,14 +7291,18 @@ msgid ""
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details."
-msgstr "Caja 发表的目的是希望它能够对您有用，但我们没有任何保证；对于以任何用途使用它所造成的任何直接或间接后果都不承担任何责任。请参看GNU GPL 协议中的细节。"
+msgstr ""
+"Caja 发表的目的是希望它能够对您有用，但我们没有任何保证；对于以任何用途使用它所造成的任何直接或间接后果都不承担任何责任。请参看GNU GPL "
+"协议中的细节。"
 
 #: ../src/caja-window-menus.c:525
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301 USA"
-msgstr "您应该在收到 Caja 的同时收到了 GNU GPL 协议的副本；如果您没有收到的话，请给自由软件基金会写信，地址是 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA"
+msgstr ""
+"您应该在收到 Caja 的同时收到了 GNU GPL 协议的副本；如果您没有收到的话，请给自由软件基金会写信，地址是 51 Franklin "
+"Street, Fifth Floor, Boston, MA 02110-1301 USA"
 
 #: ../src/caja-window-menus.c:537
 msgid ""
@@ -7186,217 +7313,218 @@ msgstr "Caja 可让您组织本机和网络上的文件和文件夹。"
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2018 The Caja authors"
-msgstr "Copyright © 1999-2009 Nautilus 作者\nCopyright © 2011-2018 Caja 作者"
+msgstr ""
+"Copyright © 1999-2009 Nautilus 作者\n"
+"Copyright © 2011-2018 Caja 作者"
 
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
 #. * box to give credit to the translator(s).
 #: ../src/caja-window-menus.c:550
 msgid "translator-credits"
-msgstr "Wang Jian <lark@linux.net.cn>, 2001\nSarah Smith <sarahs@redhat.com>, 2002\nFunda Wang <fundawang@linux.net.cn>, 2003-2008\nAron Xu <happyaron.xu@gmail.com>, 2009"
+msgstr ""
+"Christopher Meng <i@cicku.me>, 2012-2013\n"
+"ravix <dr.neemous@gmail.com>, 2013\n"
+"Dianjin Wang <1132321739qq@gmail.com>, 2012\n"
+"Cravix <dr.neemous@gmail.com>, 2013\n"
+"nyanyh <rebuilty@gmail.com>, 2013\n"
+"liulitchi <xingzuo88@qq.com>, 2013\n"
+"玉堂白鹤 <yjwork@qq.com>, 2015\n"
+"Mingye Wang <arthur200126@gmail.com>, 2015-2016\n"
+"白铭骢 <jeffbai@aosc.xyz>, 2015-2016\n"
+"刘子兴 <liushuyu@aosc.xyz>, 2015-2016"
 
 #: ../src/caja-window-menus.c:553
 msgid "MATE Web Site"
 msgstr "MATE 网站"
 
-#. name, stock id, label
-#: ../src/caja-window-menus.c:814
+#. name, icon name, label
+#: ../src/caja-window-menus.c:806
 msgid "_File"
-msgstr "文件(_F)"
+msgstr "文件 (_F)"
 
-#. name, stock id, label
-#: ../src/caja-window-menus.c:815
+#. name, icon name, label
+#: ../src/caja-window-menus.c:807
 msgid "_Edit"
-msgstr "编辑(_E)"
+msgstr "编辑（_E）"
 
-#. name, stock id, label
-#: ../src/caja-window-menus.c:816
+#. name, icon name, label
+#: ../src/caja-window-menus.c:808
 msgid "_View"
-msgstr "查看(_V)"
-
-#. name, stock id, label
-#: ../src/caja-window-menus.c:817
-msgid "_Help"
-msgstr "帮助(_H)"
-
-#. name, stock id
-#. label, accelerator
-#: ../src/caja-window-menus.c:819
-msgid "_Close"
-msgstr "关闭(_C)"
+msgstr "视图（_V）"
 
 #. tooltip
-#: ../src/caja-window-menus.c:820
+#: ../src/caja-window-menus.c:812
 msgid "Close this folder"
 msgstr "关闭此文件夹"
 
-#: ../src/caja-window-menus.c:825
+#: ../src/caja-window-menus.c:817
 msgid "_Backgrounds and Emblems..."
 msgstr "背景和徽标(_B)..."
 
-#: ../src/caja-window-menus.c:826
+#: ../src/caja-window-menus.c:818
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
 msgstr "显示可用来定制外观的图案、颜色和徽标"
 
-#: ../src/caja-window-menus.c:831
+#: ../src/caja-window-menus.c:823
 msgid "Prefere_nces"
 msgstr "首选项(_N)"
 
-#: ../src/caja-window-menus.c:832
+#: ../src/caja-window-menus.c:824
 msgid "Edit Caja preferences"
 msgstr "编辑 Caja 的首选项"
 
-#. name, stock id, label
-#: ../src/caja-window-menus.c:835
+#. name, icon name, label
+#: ../src/caja-window-menus.c:827
 msgid "Open _Parent"
 msgstr "打开父文件夹(_P)"
 
-#: ../src/caja-window-menus.c:836
+#: ../src/caja-window-menus.c:828
 msgid "Open the parent folder"
 msgstr "打开父文件夹"
 
 #. tooltip
-#: ../src/caja-window-menus.c:845
+#: ../src/caja-window-menus.c:837
 msgid "Stop loading the current location"
 msgstr "停止装入当前位置"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:849
+#: ../src/caja-window-menus.c:841
 msgid "_Reload"
-msgstr "刷新(_R)"
+msgstr "重新载入(_R)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:850
+#: ../src/caja-window-menus.c:842
 msgid "Reload the current location"
 msgstr "重新装入当前位置"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:854
+#: ../src/caja-window-menus.c:846
 msgid "_Contents"
 msgstr "目录(_C)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:855
+#: ../src/caja-window-menus.c:847
 msgid "Display Caja help"
 msgstr "显示 Caja 帮助"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:859
+#: ../src/caja-window-menus.c:851
 msgid "_About"
 msgstr "关于(_A)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:860
+#: ../src/caja-window-menus.c:852
 msgid "Display credits for the creators of Caja"
 msgstr "显示 Caja 的贡献者"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:864
+#: ../src/caja-window-menus.c:856
 msgid "Zoom _In"
 msgstr "放大(_I)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:865 ../src/caja-zoom-control.c:96
-#: ../src/caja-zoom-control.c:398
+#: ../src/caja-window-menus.c:857 ../src/caja-zoom-control.c:96
+#: ../src/caja-zoom-control.c:371
 msgid "Increase the view size"
 msgstr "增加视图大小"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:879
+#: ../src/caja-window-menus.c:871
 msgid "Zoom _Out"
 msgstr "缩小(_O)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:880 ../src/caja-zoom-control.c:97
-#: ../src/caja-zoom-control.c:335
+#: ../src/caja-window-menus.c:872 ../src/caja-zoom-control.c:97
+#: ../src/caja-zoom-control.c:316
 msgid "Decrease the view size"
 msgstr "减少视图大小"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:889
+#: ../src/caja-window-menus.c:881
 msgid "Normal Si_ze"
 msgstr "普通大小(_Z)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:890 ../src/caja-zoom-control.c:98
-#: ../src/caja-zoom-control.c:355
+#: ../src/caja-window-menus.c:882 ../src/caja-zoom-control.c:98
+#: ../src/caja-zoom-control.c:332
 msgid "Use the normal view size"
 msgstr "使用普通大小的视图"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:894
+#: ../src/caja-window-menus.c:886
 msgid "Connect to _Server..."
 msgstr "连接到服务器(_S)..."
 
 #. tooltip
-#: ../src/caja-window-menus.c:895
+#: ../src/caja-window-menus.c:887
 msgid "Connect to a remote computer or shared disk"
-msgstr "连接到远程计算机或共享磁盘"
+msgstr "连接到远程服务器或共享磁盘"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:904
+#: ../src/caja-window-menus.c:896
 msgid "_Computer"
 msgstr "计算机(_C)"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:909
+#: ../src/caja-window-menus.c:901
 msgid "_Network"
 msgstr "网络(_N)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:910 ../src/mate-network-scheme.desktop.in.h:2
+#: ../src/caja-window-menus.c:902 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
-msgstr "浏览书签和局域网中的位置"
+msgstr "浏览收藏和本地网络位置"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:914
+#: ../src/caja-window-menus.c:906
 msgid "T_emplates"
 msgstr "模板(_E)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:915
+#: ../src/caja-window-menus.c:907
 msgid "Open your personal templates folder"
 msgstr "打开您的个人模板文件夹"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:919
+#: ../src/caja-window-menus.c:911
 msgid "_Trash"
 msgstr "回收站(_T)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:920
+#: ../src/caja-window-menus.c:912
 msgid "Open your personal trash folder"
 msgstr "打开您的个人回收站文件夹"
 
-#. name, stock id
+#. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:928
+#: ../src/caja-window-menus.c:920
 msgid "Show _Hidden Files"
 msgstr "显示隐藏文件(_H)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:929
+#: ../src/caja-window-menus.c:921
 msgid "Toggle the display of hidden files in the current window"
 msgstr "切换当前窗口中是否显示隐藏文件"
 
-#: ../src/caja-window-menus.c:960
+#: ../src/caja-window-menus.c:952
 msgid "_Up"
 msgstr "向上(_U)"
 
-#: ../src/caja-window-menus.c:963
+#: ../src/caja-window-menus.c:955
 msgid "_Home"
 msgstr "主文件夹(_H)"
 
@@ -7458,10 +7586,10 @@ msgstr "缩小"
 msgid "Zoom to Default"
 msgstr "缩放到默认值"
 
-#: ../src/caja-zoom-control.c:940
+#: ../src/caja-zoom-control.c:913
 msgid "Zoom"
 msgstr "缩放"
 
-#: ../src/caja-zoom-control.c:945
+#: ../src/caja-zoom-control.c:918
 msgid "Set the zoom level of the current view"
 msgstr "设置当前视图的缩放级别"
