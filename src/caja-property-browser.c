@@ -1062,11 +1062,11 @@ icon_button_clicked_cb (GtkButton *b,
     GtkWidget *preview;
     int res;
 
-    dialog = gtk_file_chooser_dialog_new (_("Select an Image File for the New Emblem"),
+    dialog = eel_file_chooser_dialog_new (_("Select an Image File for the New Emblem"),
                                           GTK_WINDOW (browser),
                                           GTK_FILE_CHOOSER_ACTION_OPEN,
-                                          "gtk-cancel", GTK_RESPONSE_CANCEL,
-                                          "gtk-open", GTK_RESPONSE_ACCEPT,
+                                          "process-stop", GTK_RESPONSE_CANCEL,
+                                          "document-open", GTK_RESPONSE_ACCEPT,
                                           NULL);
     gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (dialog),
                                          DATADIR "/pixmaps");
@@ -1319,11 +1319,11 @@ add_new_pattern (CajaPropertyBrowser *property_browser)
     else
     {
         property_browser->details->patterns_dialog = dialog =
-                    gtk_file_chooser_dialog_new (_("Select an Image File to Add as a Pattern"),
+                    eel_file_chooser_dialog_new (_("Select an Image File to Add as a Pattern"),
                             GTK_WINDOW (property_browser),
                             GTK_FILE_CHOOSER_ACTION_OPEN,
-                            "gtk-cancel", GTK_RESPONSE_CANCEL,
-                            "gtk-open", GTK_RESPONSE_ACCEPT,
+                            "process-stop", GTK_RESPONSE_CANCEL,
+                            "document-open", GTK_RESPONSE_ACCEPT,
                             NULL);
         gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (dialog),
                                              DATADIR "/caja/patterns/");

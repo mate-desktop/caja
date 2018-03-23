@@ -447,12 +447,12 @@ browse_clicked_cb (GtkWidget *button,
 
     dialog = CAJA_OPEN_WITH_DIALOG (user_data);
 
-    chooser = gtk_file_chooser_dialog_new (_("Select an Application"),
+    chooser = eel_file_chooser_dialog_new (_("Select an Application"),
                                            GTK_WINDOW (dialog),
                                            GTK_FILE_CHOOSER_ACTION_OPEN,
-                                           "gtk-cancel",
+                                           "process-stop",
                                            GTK_RESPONSE_CANCEL,
-                                           "gtk-open",
+                                           "document-open",
                                            GTK_RESPONSE_OK,
                                            NULL);
     gtk_window_set_destroy_with_parent (GTK_WINDOW (chooser), TRUE);

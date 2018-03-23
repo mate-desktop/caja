@@ -211,6 +211,63 @@ eel_dialog_add_button (GtkDialog   *dialog,
     return button;
 }
 
+static GtkWidget *
+eel_file_chooser_dialog_new_valist (const gchar          *title,
+                                    GtkWindow            *parent,
+                                    GtkFileChooserAction  action,
+                                    const gchar          *first_button_text,
+                                    va_list               varargs)
+{
+    GtkWidget *result;
+    const char *button_text = first_button_text;
+    gint response_id;
+
+    result = g_object_new (GTK_TYPE_FILE_CHOOSER_DIALOG,
+                           "title", title,
+                           "action", action,
+                           NULL);
+
+    if (parent)
+        gtk_window_set_transient_for (GTK_WINDOW (result), parent);
+
+    while (button_text)
+        {
+            response_id = va_arg (varargs, gint);
+
+            if (g_strcmp0 (button_text, "process-stop") == 0)
+                eel_dialog_add_button (GTK_DIALOG (result), _("_Cancel"), button_text, response_id);
+            else if (g_strcmp0 (button_text, "document-open") == 0)
+                eel_dialog_add_button (GTK_DIALOG (result), _("_Open"), button_text, response_id);
+            else if (g_strcmp0 (button_text, "document-revert") == 0)
+                eel_dialog_add_button (GTK_DIALOG (result), _("_Revert"), button_text, response_id);
+            else
+                gtk_dialog_add_button (GTK_DIALOG (result), button_text, response_id);
+
+            button_text = va_arg (varargs, const gchar *);
+        }
+
+    return result;
+}
+
+GtkWidget *
+eel_file_chooser_dialog_new (const gchar          *title,
+                             GtkWindow            *parent,
+                             GtkFileChooserAction  action,
+                             const gchar          *first_button_text,
+                             ...)
+{
+    GtkWidget *result;
+    va_list varargs;
+
+    va_start (varargs, first_button_text);
+    result = eel_file_chooser_dialog_new_valist (title, parent, action,
+                                                 first_button_text,
+                                                 varargs);
+    va_end (varargs);
+
+    return result;
+}
+
 static gboolean
 timed_wait_callback (gpointer callback_data)
 {
