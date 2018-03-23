@@ -1,23 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# ABE Tsunehiko, 2014
-# ABE Tsunehiko, 2014-2015,2017
-# ふうせん Fu-sen. | BALLOON a.k.a. Fu-sen., 2014
-# Mika Kobayashi, 2014
-# Mika Kobayashi, 2014
-# OKANO Takayoshi <kano@na.rim.or.jp>, 2015
-# Yuki Shira <shirayuking@gmail.com>, 2014
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: MATE Desktop Environment\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-15 13:19+0300\n"
-"PO-Revision-Date: 2018-01-09 15:11+0000\n"
-"Last-Translator: Vlad Orlov <monsta@inbox.ru>\n"
-"Language-Team: Japanese (http://www.transifex.com/mate/MATE/language/ja/)\n"
+"POT-Creation-Date: 2018-03-12 17:01+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Yuki Shira <shirayuking@gmail.com>, 2018\n"
+"Language-Team: Japanese (https://www.transifex.com/mate/teams/13566/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -114,7 +108,7 @@ msgstr "モス・リッジ"
 
 #: ../data/browser.xml.h:23
 msgid "Numbers"
-msgstr "ナンバーズ"
+msgstr "数値"
 
 #: ../data/browser.xml.h:24
 msgid "Ocean Strips"
@@ -290,7 +284,7 @@ msgstr "エンブレムをオブジェクトに付与する場合はオブジェ
 
 #. translators: this is the name of an emblem
 #: ../data/browser.xml.h:68 ../src/caja-emblem-sidebar.c:982
-#: ../src/caja-property-browser.c:1948
+#: ../src/caja-property-browser.c:1932
 msgid "Erase"
 msgstr "削除"
 
@@ -306,7 +300,11 @@ msgid ""
 "MATE desktop. It works on local and remote file systems. </p> <p> Caja is "
 "extensible through a plugin system, similar to that of GNOME Nautilus, of "
 "which Caja is a fork. </p>"
-msgstr "<p> Caja は MATE デスクトップの公式ファイルマネージャーです。ディレクトリの参照やファイルのプレビュー、関連付けられたアプリケーションの起動が可能です。また、MATE デスクトップのアイコンの管理も行っています。ローカルのファイルシステムでもリモートのファイルシステムでも動作します。</p> <p> Caja は派生元の GNOME Nautilus と同様、プラグインシステムによって拡張することができます。</p>"
+msgstr ""
+"<p> Caja は MATE "
+"デスクトップの公式ファイルマネージャーです。ディレクトリの参照やファイルのプレビュー、関連付けられたアプリケーションの起動が可能です。また、MATE "
+"デスクトップのアイコンの管理も行っています。ローカルのファイルシステムでもリモートのファイルシステムでも動作します。</p> <p> Caja "
+"は派生元の GNOME Nautilus と同様、プラグインシステムによって拡張することができます。</p>"
 
 #: ../data/caja-autorun-software.desktop.in.in.h:1
 msgid "Autorun Prompt"
@@ -316,13 +314,13 @@ msgstr "オートランの問い合わせ"
 #: ../data/caja-browser.desktop.in.in.h:1 ../data/caja.desktop.in.in.h:1
 #: ../data/caja-folder-handler.desktop.in.in.h:1
 #: ../src/caja-spatial-window.c:373 ../src/caja-window-menus.c:535
-#: ../src/caja-window.c:172
+#: ../src/caja-window.c:163
 msgid "Caja"
 msgstr "Caja"
 
 #: ../data/caja-browser.desktop.in.in.h:2
 msgid "File Browser"
-msgstr "ファイルブラウザ"
+msgstr "ファイルブラウザー"
 
 #: ../data/caja-browser.desktop.in.in.h:3
 msgid "Browse the file system with the file manager"
@@ -334,14 +332,14 @@ msgid "Computer"
 msgstr "コンピュータ"
 
 #. tooltip
-#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:905
+#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:897
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
-msgstr "このコンピュータからアクセスできるすべてのディスクとフォルダーを参照します"
+msgstr "このコンピューターからアクセスできるすべてのローカルとリモートにあるディスクとフォルダーを閲覧する"
 
 #: ../data/caja.desktop.in.in.h:2
 msgid "File Manager"
-msgstr "ファイルマネージャ"
+msgstr "ファイルマネージャー"
 
 #: ../data/caja-file-management-properties.desktop.in.in.h:1
 msgid "File Management"
@@ -358,75 +356,77 @@ msgstr "フォルダーを開く"
 
 #: ../data/caja-home.desktop.in.in.h:1 ../src/file-manager/fm-tree-view.c:1434
 msgid "Home Folder"
-msgstr "ホームフォルダー"
+msgstr "ホームフォルダ"
 
 #. tooltip
 #: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:504
-#: ../src/caja-window-menus.c:900
+#: ../src/caja-window-menus.c:892
 msgid "Open your personal folder"
-msgstr "ユーザー専用のフォルダーを開きます"
+msgstr "個人用フォルダーを開く"
 
 #: ../data/caja.xml.in.h:1
 msgid "Saved search"
 msgstr "検索結果の保存"
 
-#: ../eel/eel-canvas.c:1389 ../eel/eel-canvas.c:1390
+#: ../eel/eel-canvas.c:1310 ../eel/eel-canvas.c:1311
 msgid "X"
 msgstr "X"
 
-#: ../eel/eel-canvas.c:1396 ../eel/eel-canvas.c:1397
+#: ../eel/eel-canvas.c:1317 ../eel/eel-canvas.c:1318
 msgid "Y"
 msgstr "Y"
 
-#: ../eel/eel-editable-label.c:332
+#: ../eel/eel-editable-label.c:327
 msgid "Text"
-msgstr "文字列"
+msgstr "テキスト"
 
-#: ../eel/eel-editable-label.c:333
+#: ../eel/eel-editable-label.c:328
 msgid "The text of the label."
 msgstr "ラベルの文字列です。"
 
-#: ../eel/eel-editable-label.c:339
+#: ../eel/eel-editable-label.c:334
 msgid "Justification"
 msgstr "行端揃え"
 
-#: ../eel/eel-editable-label.c:340
+#: ../eel/eel-editable-label.c:335
 msgid ""
 "The alignment of the lines in the text of the label relative to each other. "
 "This does NOT affect the alignment of the label within its allocation. See "
 "GtkMisc::xalign for that."
-msgstr "相互に関連するラベルのテキストの中にある行の調整です。これはラベルの中の調整には効果がありません。詳細は GtkMisc::xalign を参照してください。"
+msgstr ""
+"相互に関連するラベルのテキストの中にある行の調整です。これはラベルの中の調整には効果がありません。詳細は GtkMisc::xalign "
+"を参照してください。"
 
-#: ../eel/eel-editable-label.c:348
+#: ../eel/eel-editable-label.c:343
 msgid "Line wrap"
 msgstr "行ラップ"
 
-#: ../eel/eel-editable-label.c:349
+#: ../eel/eel-editable-label.c:344
 msgid "If set, wrap lines if the text becomes too wide."
 msgstr "これを有効にすると、テキストが長くなった場合に行を折り返します。"
 
-#: ../eel/eel-editable-label.c:356
+#: ../eel/eel-editable-label.c:351
 msgid "Cursor Position"
 msgstr "カーソル位置"
 
-#: ../eel/eel-editable-label.c:357
+#: ../eel/eel-editable-label.c:352
 msgid "The current position of the insertion cursor in chars."
 msgstr "挿入カーソルの現在位置です。"
 
-#: ../eel/eel-editable-label.c:366
+#: ../eel/eel-editable-label.c:361
 msgid "Selection Bound"
 msgstr "選択範囲の境界線"
 
-#: ../eel/eel-editable-label.c:367
+#: ../eel/eel-editable-label.c:362
 msgid ""
 "The position of the opposite end of the selection from the cursor in chars."
 msgstr "カーソル位置から選択範囲の終点です。"
 
-#: ../eel/eel-editable-label.c:3120
+#: ../eel/eel-editable-label.c:3115
 msgid "Select All"
 msgstr "すべて選択"
 
-#: ../eel/eel-editable-label.c:3131
+#: ../eel/eel-editable-label.c:3126
 msgid "Input Methods"
 msgstr "入力メソッド"
 
@@ -530,24 +530,24 @@ msgstr "メディアを挿入しました。"
 msgid "Choose what application to launch."
 msgstr "起動するアプリケーションを選択してください。"
 
-#: ../libcaja-private/caja-autorun.c:1097
+#: ../libcaja-private/caja-autorun.c:1093
 #, c-format
 msgid ""
 "Select how to open \"%s\" and whether to perform this action in the future "
 "for other media of type \"%s\"."
 msgstr "\"%s\" を開く方法と、このアクションを今後 \"%s\" というメディアに対して適用するかを選択してください。"
 
-#: ../libcaja-private/caja-autorun.c:1129
+#: ../libcaja-private/caja-autorun.c:1121
 msgid "_Always perform this action"
 msgstr "常にこのアクションを適用する(_A)"
 
 #. name, stock id
 #. label, accelerator
 #. add the "Eject" menu item
-#: ../libcaja-private/caja-autorun.c:1146
-#: ../src/file-manager/fm-directory-view.c:7411
-#: ../src/file-manager/fm-directory-view.c:7439
-#: ../src/file-manager/fm-directory-view.c:7520
+#: ../libcaja-private/caja-autorun.c:1138
+#: ../src/file-manager/fm-directory-view.c:7395
+#: ../src/file-manager/fm-directory-view.c:7423
+#: ../src/file-manager/fm-directory-view.c:7504
 #: ../src/file-manager/fm-tree-view.c:1382 ../src/caja-places-sidebar.c:2714
 msgid "_Eject"
 msgstr "取り出す(_E)"
@@ -555,10 +555,10 @@ msgstr "取り出す(_E)"
 #. name, stock id
 #. label, accelerator
 #. add the "Unmount" menu item
-#: ../libcaja-private/caja-autorun.c:1159
-#: ../src/file-manager/fm-directory-view.c:7407
-#: ../src/file-manager/fm-directory-view.c:7435
-#: ../src/file-manager/fm-directory-view.c:7516
+#: ../libcaja-private/caja-autorun.c:1151
+#: ../src/file-manager/fm-directory-view.c:7391
+#: ../src/file-manager/fm-directory-view.c:7419
+#: ../src/file-manager/fm-directory-view.c:7500
 #: ../src/file-manager/fm-tree-view.c:1373 ../src/caja-places-sidebar.c:2707
 msgid "_Unmount"
 msgstr "アンマウント(_U)"
@@ -587,7 +587,7 @@ msgstr "クリップボードに格納したテキストを貼り付けます"
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-clipboard.c:470
-#: ../src/file-manager/fm-directory-view.c:7340
+#: ../src/file-manager/fm-directory-view.c:7324
 msgid "Select _All"
 msgstr "すべて選択(_A)"
 
@@ -596,15 +596,15 @@ msgstr "すべて選択(_A)"
 msgid "Select all the text in a text field"
 msgstr "テキストフィールドにあるすべてのテキストを選択します"
 
-#: ../libcaja-private/caja-column-chooser.c:381
+#: ../libcaja-private/caja-column-chooser.c:380
 msgid "Move _Up"
-msgstr "上げる(_U)"
+msgstr "上に移動(_U)"
 
-#: ../libcaja-private/caja-column-chooser.c:391
+#: ../libcaja-private/caja-column-chooser.c:390
 msgid "Move Dow_n"
 msgstr "下げる(_N)"
 
-#: ../libcaja-private/caja-column-chooser.c:404
+#: ../libcaja-private/caja-column-chooser.c:403
 msgid "Use De_fault"
 msgstr "デフォルトに戻す(_F)"
 
@@ -628,11 +628,11 @@ msgstr "ファイルのサイズです。"
 
 #: ../libcaja-private/caja-column-utilities.c:59
 msgid "Size on Disk"
-msgstr ""
+msgstr "ディスク上のサイズ"
 
 #: ../libcaja-private/caja-column-utilities.c:60
 msgid "The size of the file on disk."
-msgstr ""
+msgstr "ディスク上のファイルのサイズ"
 
 #: ../libcaja-private/caja-column-utilities.c:67
 msgid "Type"
@@ -643,9 +643,9 @@ msgid "The type of the file."
 msgstr "ファイルの種類です。"
 
 #: ../libcaja-private/caja-column-utilities.c:74
-#: ../src/caja-image-properties-page.c:288
+#: ../src/caja-image-properties-page.c:284
 msgid "Date Modified"
-msgstr "更新日時"
+msgstr "変更日時"
 
 #: ../libcaja-private/caja-column-utilities.c:75
 msgid "The date the file was modified."
@@ -676,7 +676,7 @@ msgid "The group of the file."
 msgstr "ファイルが所属するグループです。"
 
 #: ../libcaja-private/caja-column-utilities.c:106
-#: ../src/file-manager/fm-properties-window.c:4750
+#: ../src/file-manager/fm-properties-window.c:4746
 msgid "Permissions"
 msgstr "アクセス権"
 
@@ -709,7 +709,7 @@ msgid "The SELinux security context of the file."
 msgstr "SELinux のセキュリティコンテキストです。"
 
 #: ../libcaja-private/caja-column-utilities.c:138
-#: ../src/caja-image-properties-page.c:369 ../src/caja-query-editor.c:135
+#: ../src/caja-image-properties-page.c:365 ../src/caja-query-editor.c:135
 msgid "Location"
 msgstr "場所"
 
@@ -734,9 +734,9 @@ msgid "Original location of file before moved to the Trash"
 msgstr "ファイルがゴミ箱に移動される前にあった場所です。"
 
 #: ../libcaja-private/caja-customization-data.c:431
-#: ../libcaja-private/caja-file-conflict-dialog.c:631
-#: ../libcaja-private/caja-mime-application-chooser.c:444
-#: ../src/caja-property-browser.c:1995
+#: ../libcaja-private/caja-file-conflict-dialog.c:623
+#: ../libcaja-private/caja-mime-application-chooser.c:438
+#: ../src/caja-property-browser.c:1979
 msgid "Reset"
 msgstr "リセット"
 
@@ -895,91 +895,91 @@ msgstr "同じ名前の新しいファイルが既に \"%s\" にあります。"
 #: ../libcaja-private/caja-file-conflict-dialog.c:203
 #, c-format
 msgid "Another file with the same name already exists in \"%s\"."
-msgstr "同じ名前の他のファイルが既に \"%s\" にあります。"
+msgstr "%s にはすでに同じ名前のファイルがあります"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:279
+#: ../libcaja-private/caja-file-conflict-dialog.c:271
 msgid "Original folder"
 msgstr "元のフォルダー"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:280
-#: ../libcaja-private/caja-file-conflict-dialog.c:319
+#: ../libcaja-private/caja-file-conflict-dialog.c:272
+#: ../libcaja-private/caja-file-conflict-dialog.c:311
 msgid "Items:"
 msgstr "アイテム:"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:283
+#: ../libcaja-private/caja-file-conflict-dialog.c:275
 msgid "Original file"
 msgstr "元のファイル"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:284
-#: ../libcaja-private/caja-file-conflict-dialog.c:323
-#: ../src/file-manager/fm-properties-window.c:3276
+#: ../libcaja-private/caja-file-conflict-dialog.c:276
+#: ../libcaja-private/caja-file-conflict-dialog.c:315
+#: ../src/file-manager/fm-properties-window.c:3272
 msgid "Size:"
 msgstr "サイズ:"
 
 #. second row: type combobox
-#: ../libcaja-private/caja-file-conflict-dialog.c:289
-#: ../libcaja-private/caja-file-conflict-dialog.c:328
-#: ../src/file-manager/fm-properties-window.c:3258
-#: ../src/caja-connect-server-dialog.c:948
+#: ../libcaja-private/caja-file-conflict-dialog.c:281
+#: ../libcaja-private/caja-file-conflict-dialog.c:320
+#: ../src/file-manager/fm-properties-window.c:3254
+#: ../src/caja-connect-server-dialog.c:930
 msgid "Type:"
 msgstr "種類:"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:292
-#: ../libcaja-private/caja-file-conflict-dialog.c:331
+#: ../libcaja-private/caja-file-conflict-dialog.c:284
+#: ../libcaja-private/caja-file-conflict-dialog.c:323
 msgid "Last modified:"
 msgstr "最終更新日時:"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:318
+#: ../libcaja-private/caja-file-conflict-dialog.c:310
 msgid "Merge with"
 msgstr "マージするフォルダー"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:318
-#: ../libcaja-private/caja-file-conflict-dialog.c:322
+#: ../libcaja-private/caja-file-conflict-dialog.c:310
+#: ../libcaja-private/caja-file-conflict-dialog.c:314
 msgid "Replace with"
 msgstr "置き換えるファイル"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:354
+#: ../libcaja-private/caja-file-conflict-dialog.c:346
 msgid "Merge"
 msgstr "マージする"
 
 #. Setup the expander for the rename action
-#: ../libcaja-private/caja-file-conflict-dialog.c:617
+#: ../libcaja-private/caja-file-conflict-dialog.c:609
 msgid "Select a new name for the _destination"
 msgstr "置き換え先の新しい名前を選択(_D)"
 
 #. Setup the diff button for text files
-#: ../libcaja-private/caja-file-conflict-dialog.c:642
+#: ../libcaja-private/caja-file-conflict-dialog.c:634
 msgid "Differences..."
 msgstr "差分..."
 
 #. Setup the checkbox to apply the action to all files
-#: ../libcaja-private/caja-file-conflict-dialog.c:652
+#: ../libcaja-private/caja-file-conflict-dialog.c:644
 msgid "Apply this action to all files and folders"
 msgstr "このアクションを全てのファイルとフォルダーに適用する"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:664
+#: ../libcaja-private/caja-file-conflict-dialog.c:656
 #: ../libcaja-private/caja-file-operations.c:186
 msgid "_Skip"
-msgstr "スキップする(_S)"
+msgstr "スキップ(_S)"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:669
+#: ../libcaja-private/caja-file-conflict-dialog.c:661
 msgid "Re_name"
 msgstr "名前の変更(_N)"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:675
+#: ../libcaja-private/caja-file-conflict-dialog.c:667
 msgid "Replace"
-msgstr "置き換える"
+msgstr "置換"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:759
+#: ../libcaja-private/caja-file-conflict-dialog.c:751
 msgid "Merge Folder"
 msgstr "フォルダーをマージする"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:759
-#: ../libcaja-private/caja-file-conflict-dialog.c:764
+#: ../libcaja-private/caja-file-conflict-dialog.c:751
+#: ../libcaja-private/caja-file-conflict-dialog.c:756
 msgid "File and Folder conflict"
 msgstr "ファイルとフォルダーの衝突"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:764
+#: ../libcaja-private/caja-file-conflict-dialog.c:756
 msgid "File conflict"
 msgstr "ファイルの衝突"
 
@@ -989,7 +989,7 @@ msgstr "すべてスキップする(_K)"
 
 #: ../libcaja-private/caja-file-operations.c:188
 msgid "_Retry"
-msgstr "再試行する(_R)"
+msgstr "再試行(_R)"
 
 #: ../libcaja-private/caja-file-operations.c:189
 msgid "Delete _All"
@@ -997,7 +997,7 @@ msgstr "すべて削除する(_A)"
 
 #: ../libcaja-private/caja-file-operations.c:190
 msgid "_Replace"
-msgstr "置き換える(_R)"
+msgstr "置換(_R)"
 
 #: ../libcaja-private/caja-file-operations.c:191
 msgid "Replace _All"
@@ -1038,7 +1038,7 @@ msgstr[0] "%'d 時間"
 #, c-format
 msgid "approximately %'d hour"
 msgid_plural "approximately %'d hours"
-msgstr[0] "およそ %'d 時間"
+msgstr[0] "約 %'d 時間"
 
 #. appended to new link file
 #. Note to localizers: convert file type string for file
@@ -1046,7 +1046,7 @@ msgstr[0] "およそ %'d 時間"
 #. * to that kind of file (e.g. "link to folder").
 #: ../libcaja-private/caja-file-operations.c:407
 #: ../libcaja-private/caja-file.c:6526
-#: ../src/file-manager/fm-directory-view.c:10531
+#: ../src/file-manager/fm-directory-view.c:10515
 #, c-format
 msgid "Link to %s"
 msgstr "%s へのリンク"
@@ -1192,7 +1192,7 @@ msgid ""
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items from the "
 "trash?"
-msgstr[0] "選択した %'d 個のアイテムをゴミ箱から完全に削除してもよろしいですか？"
+msgstr[0] "選択した %'d 個のアイテムをゴミ箱から完全に削除してもよろしいですか?"
 
 #: ../libcaja-private/caja-file-operations.c:1367
 #: ../libcaja-private/caja-file-operations.c:1433
@@ -1223,7 +1223,7 @@ msgstr "\"%B\" を完全に削除してもよろしいですか？"
 msgid "Are you sure you want to permanently delete the %'d selected item?"
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items?"
-msgstr[0] "選択した %'d 個のアイテムを完全に削除してもよろしいですか？"
+msgstr[0] "選択した %'d 個のアイテムを完全に削除してもよろしいですか?"
 
 #: ../libcaja-private/caja-file-operations.c:1463
 msgid "Are you sure you want to trash \"%B\"?"
@@ -1233,7 +1233,7 @@ msgstr "\"%B\" をゴミ箱に入れてもよろしいですか？"
 #, c-format
 msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
-msgstr[0] "選択した %'d 個のアイテムをゴミ箱に入れてもよろしいですか？"
+msgstr[0] "選択した %'d 個のアイテムをゴミ箱に入れてもよろしいですか?"
 
 #: ../libcaja-private/caja-file-operations.c:1475
 msgid "Items moved to the trash may be recovered until the trash is emptied."
@@ -1382,7 +1382,7 @@ msgstr[0] "%'d個のファイル (%S) を削除する準備をしています...
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
-msgstr[0] "%'d個のファイルをゴミ箱に移動する準備をしています..."
+msgstr[0] "%'d 個のファイルをゴミ箱に移動する準備をしています..."
 
 #: ../libcaja-private/caja-file-operations.c:2561
 #: ../libcaja-private/caja-file-operations.c:3459
@@ -1732,7 +1732,7 @@ msgstr "ファイル名にスラッシュは使えません"
 #: ../libcaja-private/caja-file.c:1838
 #, c-format
 msgid "File not found"
-msgstr "ファイルが見つかりません"
+msgstr "ファイルがありません"
 
 #: ../libcaja-private/caja-file.c:1866
 #, c-format
@@ -1768,7 +1768,7 @@ msgid "today at 00:00:00 PM"
 msgstr "今日の午後00:00:00"
 
 #: ../libcaja-private/caja-file.c:4509
-#: ../src/caja-file-management-properties.c:527
+#: ../src/caja-file-management-properties.c:521
 msgid "today at %-I:%M:%S %p"
 msgstr "今日の%p%-I:%M"
 
@@ -1778,7 +1778,7 @@ msgstr "今日の午後00:00"
 
 #: ../libcaja-private/caja-file.c:4512
 msgid "today at %-I:%M %p"
-msgstr "今日の%p%-I:%M"
+msgstr "今日の %p %-I:%M"
 
 #: ../libcaja-private/caja-file.c:4514
 msgid "today, 00:00 PM"
@@ -1808,7 +1808,7 @@ msgstr "昨日の午後00:00"
 
 #: ../libcaja-private/caja-file.c:4531
 msgid "yesterday at %-I:%M %p"
-msgstr "昨日の%p%-I:%M"
+msgstr "昨日の %p %-I:%M"
 
 #: ../libcaja-private/caja-file.c:4533
 msgid "yesterday, 00:00 PM"
@@ -1832,7 +1832,7 @@ msgstr "0000年9月00日 水曜日 午後00:00:00"
 
 #: ../libcaja-private/caja-file.c:4549
 msgid "%A, %B %-d %Y at %-I:%M:%S %p"
-msgstr "%Y年%-m月%-d日 %A %p%-I:%M:%S"
+msgstr "%Y年 %B%e日 %Aの %p %-I:%M:%S"
 
 #: ../libcaja-private/caja-file.c:4551
 msgid "Mon, Oct 00 0000 at 00:00:00 PM"
@@ -1908,7 +1908,7 @@ msgid "Specified group '%s' doesn't exist"
 msgstr "指定した '%s' というグループは存在しません"
 
 #: ../libcaja-private/caja-file.c:5950
-#: ../src/file-manager/fm-directory-view.c:2371
+#: ../src/file-manager/fm-directory-view.c:2355
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
@@ -1972,9 +1972,9 @@ msgstr "リンク"
 
 #: ../libcaja-private/caja-file.c:6542
 msgid "link (broken)"
-msgstr "リンク切れ"
+msgstr "リンク (リンク切れ)"
 
-#: ../libcaja-private/caja-icon-container.c:2920
+#: ../libcaja-private/caja-icon-container.c:2910
 msgid "The selection rectangle"
 msgstr "選択範囲"
 
@@ -2000,10 +2000,10 @@ msgstr "このリンクはリンク先である \"%s\" が存在しないので�
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-mime-actions.c:744
-#: ../src/file-manager/fm-directory-view.c:7368
-#: ../src/file-manager/fm-directory-view.c:7500
-#: ../src/file-manager/fm-directory-view.c:8599
-#: ../src/file-manager/fm-directory-view.c:8924
+#: ../src/file-manager/fm-directory-view.c:7352
+#: ../src/file-manager/fm-directory-view.c:7484
+#: ../src/file-manager/fm-directory-view.c:8583
+#: ../src/file-manager/fm-directory-view.c:8908
 #: ../src/file-manager/fm-tree-view.c:1346
 msgid "Mo_ve to Trash"
 msgstr "ゴミ箱へ移動する(_V)"
@@ -2029,7 +2029,7 @@ msgstr "表示する(_D)"
 #: ../libcaja-private/caja-mime-actions.c:818
 #: ../src/caja-autorun-software.c:253
 msgid "_Run"
-msgstr "実行する(_R)"
+msgstr "実行(_R)"
 
 #: ../libcaja-private/caja-mime-actions.c:1170
 #: ../src/file-manager/fm-directory-view.c:653
@@ -2046,7 +2046,7 @@ msgstr[0] "%d 個のタブを別々に開きます。"
 #, c-format
 msgid "This will open %d separate window."
 msgid_plural "This will open %d separate windows."
-msgstr[0] "%d 個のウィンドウを別々に開きます。"
+msgstr[0] "これは %d 個の別々のウィンドウを開くことになります。"
 
 #: ../libcaja-private/caja-mime-actions.c:1256
 #: ../src/caja-window-manage-views.c:2101
@@ -2074,7 +2074,7 @@ msgstr "アプリケーションの選択(_S)"
 
 #: ../libcaja-private/caja-mime-actions.c:1400
 msgid "There was an internal error trying to search for applications:"
-msgstr "アプリケーションを検索している最中に Caja の内部エラーが発生しました:"
+msgstr "アプリケーションの検索中に内部エラーが起こりました:"
 
 #: ../libcaja-private/caja-mime-actions.c:1402
 msgid "Unable to search for application"
@@ -2085,7 +2085,9 @@ msgstr "アプリケーションを検索できません"
 msgid ""
 "There is no application installed for %s files.\n"
 "Do you want to search for an application to open this file?"
-msgstr "%s という種類のファイルを扱えるアプリケーションがインストールされていません。\nこのファイルを開くことができるアプリケーションを検索してみますか？"
+msgstr ""
+"%s という種類のファイルを扱えるアプリケーションがインストールされていません。\n"
+"このファイルを開くことができるアプリケーションを検索してみますか？"
 
 #: ../libcaja-private/caja-mime-actions.c:1692
 msgid "Untrusted application launcher"
@@ -2096,7 +2098,9 @@ msgstr "信用できないアプリケーションのランチャー"
 msgid ""
 "The application launcher \"%s\" has not been marked as trusted. If you do "
 "not know the source of this file, launching it may be unsafe."
-msgstr "\"%s\" というランチャーの安全性が確認されていません。提供元が不明で信用できないファイルや実行形式を起動すると、セキュリティ上の安全性が損なわれる可能性があります。"
+msgstr ""
+"\"%s\" "
+"というランチャーの安全性が確認されていません。提供元が不明で信用できないファイルや実行形式を起動すると、セキュリティ上の安全性が損なわれる可能性があります。"
 
 #: ../libcaja-private/caja-mime-actions.c:1710
 msgid "_Launch Anyway"
@@ -2108,12 +2112,12 @@ msgstr "信用する(_T)"
 
 #: ../libcaja-private/caja-mime-actions.c:2010
 #: ../libcaja-private/caja-mime-actions.c:2316
-#: ../src/file-manager/fm-directory-view.c:6386
+#: ../src/file-manager/fm-directory-view.c:6370
 msgid "Unable to mount location"
 msgstr "場所をマウントできません"
 
 #: ../libcaja-private/caja-mime-actions.c:2404
-#: ../src/file-manager/fm-directory-view.c:6560
+#: ../src/file-manager/fm-directory-view.c:6544
 msgid "Unable to start location"
 msgstr "場所を起動できません"
 
@@ -2151,26 +2155,26 @@ msgstr "アイコン"
 msgid "Could not remove application"
 msgstr "アプリケーションを削除できませんでした"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:561
+#: ../libcaja-private/caja-mime-application-chooser.c:555
 msgid "No applications selected"
 msgstr "アプリケーションが選択されていません"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:591
+#: ../libcaja-private/caja-mime-application-chooser.c:585
 #, c-format
 msgid "%s document"
 msgstr "%s のドキュメント"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:601
-#: ../libcaja-private/caja-open-with-dialog.c:1081
+#: ../libcaja-private/caja-mime-application-chooser.c:595
+#: ../libcaja-private/caja-open-with-dialog.c:1072
 msgid "Unknown"
 msgstr "不明"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:634
+#: ../libcaja-private/caja-mime-application-chooser.c:628
 #, c-format
 msgid "Select an application to open %s and other files of type \"%s\""
 msgstr "%s と \"%s\" に属するファイルを開くアプリケーションを選択してください:"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:706
+#: ../libcaja-private/caja-mime-application-chooser.c:700
 #, c-format
 msgid "Open all files of type \"%s\" with:"
 msgstr "\"%s\" に属するすべてのファイルを開くアプリケーションを選択してください:"
@@ -2202,80 +2206,80 @@ msgid "Select an Application"
 msgstr "アプリケーションの選択"
 
 #: ../libcaja-private/caja-open-with-dialog.c:840
-#: ../src/file-manager/fm-properties-window.c:5073
+#: ../src/file-manager/fm-properties-window.c:5069
 msgid "Open With"
 msgstr "開き方"
 
-#: ../libcaja-private/caja-open-with-dialog.c:883
+#: ../libcaja-private/caja-open-with-dialog.c:878
 msgid "Select an application to view its description."
-msgstr "(アプリケーションを選択すると、その説明が表示されます)"
+msgstr "説明を表示するアプリケーションを選択してください"
 
-#: ../libcaja-private/caja-open-with-dialog.c:913
+#: ../libcaja-private/caja-open-with-dialog.c:904
 msgid "_Use a custom command"
 msgstr "コマンドを直接指定する(_U)"
 
-#: ../libcaja-private/caja-open-with-dialog.c:930
+#: ../libcaja-private/caja-open-with-dialog.c:921
 msgid "_Browse..."
 msgstr "参照(_B)..."
 
 #. name, stock id
 #. label, accelerator
-#: ../libcaja-private/caja-open-with-dialog.c:966
-#: ../src/file-manager/fm-directory-view.c:7284
-#: ../src/file-manager/fm-directory-view.c:8793
+#: ../libcaja-private/caja-open-with-dialog.c:957
+#: ../src/file-manager/fm-directory-view.c:7268
+#: ../src/file-manager/fm-directory-view.c:8777
 #: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2656
 msgid "_Open"
 msgstr "開く(_O)"
 
 #. first %s is a filename and second %s is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1051
+#: ../libcaja-private/caja-open-with-dialog.c:1042
 #, c-format
 msgid "Open %s and other %s document with:"
 msgstr "%s や他の %s のファイルを開くアプリケーションを選択してください:"
 
 #. the %s here is a file name
 #. %s is a filename
-#: ../libcaja-private/caja-open-with-dialog.c:1057
-#: ../libcaja-private/caja-open-with-dialog.c:1097
+#: ../libcaja-private/caja-open-with-dialog.c:1048
+#: ../libcaja-private/caja-open-with-dialog.c:1088
 #, c-format
 msgid "Open %s with:"
 msgstr "%s を次のアプリケーションで開く:"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1058
+#: ../libcaja-private/caja-open-with-dialog.c:1049
 #, c-format
 msgid "_Remember this application for %s documents"
 msgstr "これを %s のドキュメントを開くアプリケーションとして記憶する(_R)"
 
 #. Only in add mode - the %s here is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1069
+#: ../libcaja-private/caja-open-with-dialog.c:1060
 #, c-format
 msgid "Open all %s documents with:"
 msgstr "すべての %s のファイルを開くアプリケーションを選択してください:"
 
 #. First %s is a filename, second is a description
 #. * of the type, eg "plain text document"
-#: ../libcaja-private/caja-open-with-dialog.c:1091
+#: ../libcaja-private/caja-open-with-dialog.c:1082
 #, c-format
 msgid "Open %s and other \"%s\" files with:"
 msgstr "%s と \"%s\" に属するファイルを開くアプリケーションを選択してください:"
 
 #. %s is a file type description
-#: ../libcaja-private/caja-open-with-dialog.c:1099
+#: ../libcaja-private/caja-open-with-dialog.c:1090
 #, c-format
 msgid "_Remember this application for \"%s\" files"
 msgstr "これを \"%s\" のファイルを開くアプリケーションとして記憶する(_R)"
 
 #. Only in add mode
-#: ../libcaja-private/caja-open-with-dialog.c:1110
+#: ../libcaja-private/caja-open-with-dialog.c:1101
 #, c-format
 msgid "Open all \"%s\" files with:"
 msgstr "すべての \"%s\" ファイルを開くアプリケーションを選択してください:"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1122
+#: ../libcaja-private/caja-open-with-dialog.c:1113
 msgid "_Add"
 msgstr "追加(_A)"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1123
+#: ../libcaja-private/caja-open-with-dialog.c:1114
 msgid "Add Application"
 msgstr "アプリケーションの追加"
 
@@ -2353,19 +2357,19 @@ msgstr "ファイルの操作"
 
 #: ../libcaja-private/caja-progress-info.c:313
 msgid "paused"
-msgstr ""
+msgstr "一時停止"
 
 #: ../libcaja-private/caja-progress-info.c:316
 msgid "pausing"
-msgstr ""
+msgstr "一時停止中"
 
 #: ../libcaja-private/caja-progress-info.c:319
 msgid "queued"
-msgstr ""
+msgstr "キューに登録済み"
 
 #: ../libcaja-private/caja-progress-info.c:322
 msgid "queuing"
-msgstr ""
+msgstr "キューに登録中"
 
 #: ../libcaja-private/caja-progress-info.c:599
 #, c-format
@@ -2373,8 +2377,8 @@ msgid "%'d file operation active"
 msgid_plural "%'d file operations active"
 msgstr[0] "%'d 個のファイル操作を実行中です"
 
-#: ../libcaja-private/caja-progress-info.c:983
-#: ../libcaja-private/caja-progress-info.c:1004
+#: ../libcaja-private/caja-progress-info.c:975
+#: ../libcaja-private/caja-progress-info.c:996
 msgid "Preparing"
 msgstr "準備中"
 
@@ -2568,7 +2572,7 @@ msgstr "'%s' の所有者を '%s' に設定"
 #, c-format
 msgid "_Undo copy of %d item"
 msgid_plural "_Undo copy of %d items"
-msgstr[0] "%d 個のアイテムのコピーを取り消す"
+msgstr[0] "%d 個のアイテムのコピーを取り消す(_U)"
 
 #: ../libcaja-private/caja-undostack-manager.c:1511
 #, c-format
@@ -2749,7 +2753,9 @@ msgid ""
 "If set to \"after-current-tab\", then new tabs are inserted after the "
 "current tab. If set to \"end\", then new tabs are appended to the end of the"
 " tab list."
-msgstr "\"after-current-tab\" にすると、新しいタブが現在フォーカスが当たっているタブの後ろに挿入されるようになります。\"end\" にすると、新しいタブは常に一番最後に追加されます。"
+msgstr ""
+"\"after-current-tab\" にすると、新しいタブが現在フォーカスが当たっているタブの後ろに挿入されるようになります。\"end\" "
+"にすると、新しいタブは常に一番最後に追加されます。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:3
 msgid "Caja will exit when last window destroyed."
@@ -2760,7 +2766,9 @@ msgid ""
 "If set to true, then Caja will exit when all windows are destroyed. This is "
 "the default setting. If set to false, it can be started without any window, "
 "so Caja can serve as a daemon to monitor media automount, or similar tasks."
-msgstr "TRUE にすると、全てのウィンドウを閉じた時に Caja を終了します。これはデフォルトの設定です。FALSE にすると、ウィンドウなしで起動することができます。これにより、Caja はメディアの自動マウントなどのタスクを提供するデーモンとして振る舞います。"
+msgstr ""
+"TRUE にすると、全てのウィンドウを閉じた時に Caja を終了します。これはデフォルトの設定です。FALSE "
+"にすると、ウィンドウなしで起動することができます。これにより、Caja はメディアの自動マウントなどのタスクを提供するデーモンとして振る舞います。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:5
 msgid "Enables the classic Caja behavior, where all windows are browsers"
@@ -2771,7 +2779,9 @@ msgid ""
 "If set to true, then all Caja windows will be browser windows. This is how "
 "Nautilus used to behave before version 2.6, and some people prefer this "
 "behavior."
-msgstr "TRUE にすると、すべての Caja ウィンドウがブラウザ型式のウィンドウになります。これはバージョン 2.6 以前の Nautilus の動作を再現するものです (このスタイルを好むユーザーがいるために残してある機能です)。"
+msgstr ""
+"TRUE にすると、すべての Caja ウィンドウがブラウザ型式のウィンドウになります。これはバージョン 2.6 以前の Nautilus "
+"の動作を再現するものです (このスタイルを好むユーザーがいるために残してある機能です)。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:7
 msgid "Always use the location entry, instead of the pathbar"
@@ -2812,7 +2822,8 @@ msgid ""
 "If set to true, then Caja will have a feature allowing you to delete a file "
 "immediately and in-place, instead of moving it to the trash. This feature "
 "can be dangerous, so use caution."
-msgstr "TRUE にすると、Caja はファイルをゴミ箱に移動するかわりに直ちに削除する権限を得ます。この機能は危険なので、注意深く設定してください。"
+msgstr ""
+"TRUE にすると、Caja はファイルをゴミ箱に移動するかわりに直ちに削除する権限を得ます。この機能は危険なので、注意深く設定してください。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:15
 msgid "When to show preview text in icons"
@@ -2825,7 +2836,11 @@ msgid ""
 "folder is on a remote server. If set to \"local-only\" then only show "
 "previews for local file systems. If set to \"never\" then never bother to "
 "read preview data."
-msgstr "テキストファイルの中身をどういう時にファイルアイコンの中にプレビュー表示するかどうかです。指定内容により、処理速度のトレードオフがあります。\"always\" にすると、リモートサーバ上にあるファイルであってもプレビューを表示します。\"local-only\" にすると、ローカルのファイルシステムについてのみプレビューを表示します。\"never\" にするとわざわざプレビュー表示のためにファイルを読み込んだりしません。"
+msgstr ""
+"テキストファイルの中身をどういう時にファイルアイコンの中にプレビュー表示するかどうかです。指定内容により、処理速度のトレードオフがあります。\"always\""
+" にすると、リモートサーバ上にあるファイルであってもプレビューを表示します。\"local-only\" "
+"にすると、ローカルのファイルシステムについてのみプレビューを表示します。\"never\" "
+"にするとわざわざプレビュー表示のためにファイルを読み込んだりしません。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:17
 msgid "When to show number of items in a folder"
@@ -2837,7 +2852,10 @@ msgid ""
 "\"always\" then always show item counts, even if the folder is on a remote "
 "server. If set to \"local-only\" then only show counts for local file "
 "systems. If set to \"never\" then never bother to compute item counts."
-msgstr "フォルダーの中にあるアイテムの総数をどういう時に表示するかです。指定内容により処理速度のトレードオフがあります。\"always\" にすると、リモートサーバ上にあるファイルもカウントします。\"local-only\" にすると、ローカルのファイルシステム上にあるファイルのみカウントします。\"never\" にすると、わざわざアイテムの総数をカウントしません。"
+msgstr ""
+"フォルダーの中にあるアイテムの総数をどういう時に表示するかです。指定内容により処理速度のトレードオフがあります。\"always\" "
+"にすると、リモートサーバ上にあるファイルもカウントします。\"local-only\" "
+"にすると、ローカルのファイルシステム上にあるファイルのみカウントします。\"never\" にすると、わざわざアイテムの総数をカウントしません。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:19
 msgid "Type of click used to launch/open files"
@@ -2859,7 +2877,9 @@ msgid ""
 "double clicked). Possible values are \"launch\" to launch them as programs, "
 "\"ask\" to ask what to do via a dialog, and \"display\" to display them as "
 "text files."
-msgstr "(シングル/ダブルクリックで) 実行型式のテキストファイルをクリックした際にどのように扱うかです。利用可能な値: \"launch\" にするとプログラムとして起動、\"ask\" にするとダイアログ表示、\"display\" にするとテキストファイルとして表示"
+msgstr ""
+"(シングル/ダブルクリックで) 実行型式のテキストファイルをクリックした際にどのように扱うかです。利用可能な値: \"launch\" "
+"にするとプログラムとして起動、\"ask\" にするとダイアログ表示、\"display\" にするとテキストファイルとして表示"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:23
 msgid "Show the package installer for unknown MIME types"
@@ -2869,7 +2889,8 @@ msgstr "未知の MIME 型にはパッケージインストーラーを表示す
 msgid ""
 "Whether to show the user a package installer dialog in case an unknown MIME "
 "type is opened, in order to search for an application to handle it."
-msgstr "未知の MIME 型のファイルが開かれた際、ファイルを取り扱えるアプリケーションを探す代わりにパッケージインストーラーを表示するかどうかです。"
+msgstr ""
+"未知の MIME 型のファイルが開かれた際、ファイルを取り扱えるアプリケーションを探す代わりにパッケージインストーラーを表示するかどうかです。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:25
 msgid "Use extra mouse button events in Caja' browser window"
@@ -2879,7 +2900,9 @@ msgstr "Caja のブラウザウィンドウでマウスの特別なボタンを�
 msgid ""
 "For users with mice that have \"Forward\" and \"Back\" buttons, this key "
 "will determine if any action is taken inside of Caja when either is pressed."
-msgstr "「進む」「戻る」ボタンのあるマウスを使う場合、Caja 中においてそれらのボタンを押した時に何らかのアクションを実行するかどうか、このキーによって 決定します"
+msgstr ""
+"「進む」「戻る」ボタンのあるマウスを使う場合、Caja 中においてそれらのボタンを押した時に何らかのアクションを実行するかどうか、このキーによって "
+"決定します"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:27
 msgid "Mouse button to activate the \"Forward\" command in browser window"
@@ -2890,7 +2913,8 @@ msgid ""
 "For users with mice that have buttons for \"Forward\" and \"Back\", this key"
 " will set which button activates the \"Forward\" command in a browser "
 "window. Possible values range between 6 and 14."
-msgstr "「進む」「戻る」ボタンのあるボタンを使う場合、ブラウザウィンドウで「進む」コマンドをどのボタンで実行するかを、このキーで設定します。可能な値は6と14の間です。<"
+msgstr ""
+"「進む」「戻る」ボタンのあるボタンを使う場合、ブラウザウィンドウで「進む」コマンドをどのボタンで実行するかを、このキーで設定します。可能な値は6と14の間です。<"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:29
 msgid "Mouse button to activate the \"Back\" command in browser window"
@@ -2901,7 +2925,8 @@ msgid ""
 "For users with mice that have buttons for \"Forward\" and \"Back\", this key"
 " will set which button activates the \"Back\" command in a browser window. "
 "Possible values range between 6 and 14."
-msgstr "「進む」「戻る」ボタンのあるボタンを使う場合、ブラウザウィンドウで「戻る」コマンドをどのボタンで実行するかを、このキーで設定します。可能な値は6と14の間です。"
+msgstr ""
+"「進む」「戻る」ボタンのあるボタンを使う場合、ブラウザウィンドウで「戻る」コマンドをどのボタンで実行するかを、このキーで設定します。可能な値は6と14の間です。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:31
 msgid "When to show thumbnails of image files"
@@ -2914,7 +2939,11 @@ msgid ""
 "If set to \"local-only\" then only show thumbnails for local file systems. "
 "If set to \"never\" then never bother to thumbnail images, just use a "
 "generic icon."
-msgstr "画像ファイルをどういう時にサムネイル表示するかどうかです。指定内容により処理速度のトレードオフがあります。\"always\" にすると、リモートサーバ上にあるファイルでも常にサムネイル表示します。\"local-only\" にすると、ローカルのファイルシステム上のファイルのみサムネイル表示します。\"never\" にすると、サムネイル表示せずに一般的なアイコン表示になります。"
+msgstr ""
+"画像ファイルをどういう時にサムネイル表示するかどうかです。指定内容により処理速度のトレードオフがあります。\"always\" "
+"にすると、リモートサーバ上にあるファイルでも常にサムネイル表示します。\"local-only\" "
+"にすると、ローカルのファイルシステム上のファイルのみサムネイル表示します。\"never\" "
+"にすると、サムネイル表示せずに一般的なアイコン表示になります。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:33
 msgid "Maximum image size for thumbnailing"
@@ -2925,7 +2954,9 @@ msgid ""
 "Images over this size (in bytes) won't be thumbnailed. The purpose of this "
 "setting is to avoid thumbnailing large images that may take a long time to "
 "load or use lots of memory."
-msgstr "サムネイル表示の際に画像サイズがこのサイズ (バイト単位) を越えるものは表示しません。この設定の意図は表示するまでに時間がかかり、多くのメモリを消費する大きな画像のサムネイル表示を制限するためです。"
+msgstr ""
+"サムネイル表示の際に画像サイズがこのサイズ (バイト単位) "
+"を越えるものは表示しません。この設定の意図は表示するまでに時間がかかり、多くのメモリを消費する大きな画像のサムネイル表示を制限するためです。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:35
 msgid "Whether to preview sounds when mousing over an icon"
@@ -2937,7 +2968,10 @@ msgid ""
 "icon. If set to \"always\" then always plays the sound, even if the file is "
 "on a remote server. If set to \"local-only\" then only plays previews on "
 "local file systems. If set to \"never\" then it never previews sound."
-msgstr "ファイルのアイコンの上にマウスを移動した時、サウンドファイルをどういう場合にプレビュー再生するかです。指定内容により、処理速度のトレードオフがあります。\"always\" にすると、リモートサーバ上にあるファイルであってもサウンドを再生します。\"local-only\" にすると、ローカルのファイルシステムにあるサウンドファイルのみ再生します。\"never\" にすると再生しません。"
+msgstr ""
+"ファイルのアイコンの上にマウスを移動した時、サウンドファイルをどういう場合にプレビュー再生するかです。指定内容により、処理速度のトレードオフがあります。\"always\""
+" にすると、リモートサーバ上にあるファイルであってもサウンドを再生します。\"local-only\" "
+"にすると、ローカルのファイルシステムにあるサウンドファイルのみ再生します。\"never\" にすると再生しません。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:37
 msgid "Show advanced permissions in the file property dialog"
@@ -2947,7 +2981,8 @@ msgstr "ファイルのプロパティダイアログに拡張版のアクセス
 msgid ""
 "If set to true, then Caja lets you edit and display file permissions in a "
 "more unix-like way, accessing some more esoteric options."
-msgstr "TRUE にすると、UNIX 形式でファイルのアクセス権限を編集したり表示します。さらにいろいろな秘密のオプションにもアクセスできるようになります。"
+msgstr ""
+"TRUE にすると、UNIX 形式でファイルのアクセス権限を編集したり表示します。さらにいろいろな秘密のオプションにもアクセスできるようになります。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:39
 msgid "Show folders first in windows"
@@ -2979,7 +3014,9 @@ msgid ""
 " by name, then instead of sorting the files from \"a\" to \"z\", they will "
 "be sorted from \"z\" to \"a\"; if sorted by size, instead of being "
 "incrementally they will be sorted decrementally."
-msgstr "TRUE にすると、ウィンドウに表示されるファイルが逆順に並びます。つまり、名前順の場合は \"a\" 〜 \"z\" でファイルを並び替えるかわりに、\"z\" 〜 \"a\" の順番で並べます。サイズ順にすると、大きい順のかわりに小さい順で並べます。"
+msgstr ""
+"TRUE にすると、ウィンドウに表示されるファイルが逆順に並びます。つまり、名前順の場合は \"a\" 〜 \"z\" "
+"でファイルを並び替えるかわりに、\"z\" 〜 \"a\" の順番で並べます。サイズ順にすると、大きい順のかわりに小さい順で並べます。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:45
 msgid "Caja uses the users home folder as the desktop"
@@ -2989,7 +3026,8 @@ msgstr "Caja がユーザーのホームフォルダーをデスクトップと�
 msgid ""
 "If set to true, then Caja will use the user's home folder as the desktop. If"
 " it is false, then it will use ~/Desktop as the desktop."
-msgstr "TRUE にすると、ユーザーのホームフォルダーをデスクトップとして利用します。FALSE の場合は、~/Desktop をデスクトップとして利用します。"
+msgstr ""
+"TRUE にすると、ユーザーのホームフォルダーをデスクトップとして利用します。FALSE の場合は、~/Desktop をデスクトップとして利用します。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:47
 msgid "Custom Background"
@@ -3034,7 +3072,9 @@ msgstr "サイドペインの背景色 (デフォルト値)"
 msgid ""
 "Filename for the default side pane background. Only used if "
 "side_pane_background_set is true."
-msgstr "サイドペインの背景に使用するデフォルトのファイル名 (背景画像) で、side_pane_background_set が TRUE の場合にのみ指定可能です。"
+msgstr ""
+"サイドペインの背景に使用するデフォルトのファイル名 (背景画像) で、side_pane_background_set が TRUE "
+"の場合にのみ指定可能です。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:57
 msgid "Default Side Pane Background Filename"
@@ -3044,7 +3084,8 @@ msgstr "サイドペインの背景のファイル名 (デフォルト値)"
 msgid ""
 "Uri of the default side pane background. Only used if "
 "side_pane_background_set is true."
-msgstr "サイドペインの背景に使用するデフォルトのファイル名です。side_pane_background_set が TRUE の場合にのみ指定可能です。"
+msgstr ""
+"サイドペインの背景に使用するデフォルトのファイル名です。side_pane_background_set が TRUE の場合にのみ指定可能です。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:59
 msgid "Default folder viewer"
@@ -3055,7 +3096,9 @@ msgid ""
 "When a folder is visited this viewer is used unless you have selected "
 "another view for that particular folder. Possible values are \"list-view\", "
 "\"icon-view\" and \"compact-view\"."
-msgstr "フォルダーを開いたら、特定のフォルダーで別の表示形式を選択していない限り、デフォルトで使用する表示形式です。指定可能な値: \"list-view\", \"icon-view\"、\"compact-view\""
+msgstr ""
+"フォルダーを開いたら、特定のフォルダーで別の表示形式を選択していない限り、デフォルトで使用する表示形式です。指定可能な値: \"list-view\","
+" \"icon-view\"、\"compact-view\""
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:61
 msgid "Date Format"
@@ -3076,7 +3119,9 @@ msgid ""
 "If set to true, then hidden files are shown by default in the file manager. "
 "Hidden files are either dotfiles, listed in the folder's .hidden file or "
 "backup files ending with a tilde (~)."
-msgstr "TRUE にすると、ファイルマネージャーの中で隠しファイルが表示されます。隠しファイルは、ドット(.)で始まるファイル、フォルダー中の .hidden ファイルに記載されたファイル、チルダ(~)で終わるバックアップファイルです。"
+msgstr ""
+"TRUE にすると、ファイルマネージャーの中で隠しファイルが表示されます。隠しファイルは、ドット(.)で始まるファイル、フォルダー中の .hidden "
+"ファイルに記載されたファイル、チルダ(~)で終わるバックアップファイルです。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:65
 msgid "Whether to show file sizes with IEC units"
@@ -3086,7 +3131,9 @@ msgstr "ファイルサイズをIEC単位系で表示するかどうか"
 msgid ""
 "If set to true, file sizes are shown using IEC (base 1024) units with "
 "\"KiB\" style suffixes, instead of default with SI units."
-msgstr "TRUE に設定すると、デフォルトの SI 単位系の代わりに、IEC 単位系(1024区切り)と \"KiB\" 形式のサフィックスでファイルのサイズを表示します。"
+msgstr ""
+"TRUE に設定すると、デフォルトの SI 単位系の代わりに、IEC 単位系(1024区切り)と \"KiB\" "
+"形式のサフィックスでファイルのサイズを表示します。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:67
 msgid "Whether to show desktop notifications"
@@ -3107,7 +3154,10 @@ msgid ""
 "values are: \"size\", \"type\", \"date_modified\", \"date_changed\", "
 "\"date_accessed\", \"owner\", \"group\", \"permissions\", "
 "\"octal_permissions\" and \"mime_type\"."
-msgstr "デスクトップとアイコン表示でアイコンの下に表示する見出しの一覧です。実際に表示できる見出しの数はズームレベルに依存します。利用可能な値: \"size\", \"type\", \"date_modified\", \"date_changed\", \"date_accessed\", \"owner\", \"group\", \"permissions\", \"octal_permissions\", \"mime_type\""
+msgstr ""
+"デスクトップとアイコン表示でアイコンの下に表示する見出しの一覧です。実際に表示できる見出しの数はズームレベルに依存します。利用可能な値: "
+"\"size\", \"type\", \"date_modified\", \"date_changed\", \"date_accessed\", "
+"\"owner\", \"group\", \"permissions\", \"octal_permissions\", \"mime_type\""
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:71
 msgid "Use tighter layout in new windows"
@@ -3152,7 +3202,10 @@ msgid ""
 "A string specifying how parts of overlong file names should be replaced by ellipses, depending on the zoom level. Each of the list entries is of the form \"Zoom Level:Integer\". For each specified zoom level, if the given integer is larger than 0, the file name will not exceed the given number of lines. If the integer is 0 or smaller, no limit is imposed on the specified zoom level. A default entry of the form \"Integer\" without any specified zoom level is also allowed. It defines the maximum number of lines for all other zoom levels. Examples: 0 - always display overlong file names; 3 - shorten file names if they exceed three lines; smallest:5,smaller:4,0 - shorten file names if they exceed five lines for zoom level \"smallest\". Shorten file names if they exceed four lines for zoom level \"smaller\". Do not shorten file names for other zoom levels.\n"
 "\n"
 "Available zoom levels: smallest (33%), smaller (50%), small (66%), standard (100%), large (150%), larger (200%), largest (400%)"
-msgstr "ズームレベルに応じ、ファイル名の一部を省略記号 (...) で置き換えるべき長さを指定したリストです (すなわち、n 行に収まらないファイル名を省略文字で置き換えて表示するか、それともそのまま複数行にまたがって表示するかを、ズームレベル毎に指定します)。リストの各要素は \"ズームレベル:整数値\" という形式にして下さい。それぞれ指定したズームレベルに対して整数値が 0 より大きい場合、ファイル名は指定した行数を超えて表示されることはありません。整数値が 0 以下の場合、そのズームレベルでは無制限で表示されることになります。ズームレベルを指定せずに \"整数値\" の形式で指定することも可能です。この場合、既に指定しているズーム以外のレベルに対してその整数値が表示する際の最大行数になります。例: \"0\" (常にすべてのファイル名を表示する)、\"3\" (3 行を越えて表示されるファイル名を 3 行に納めるように省略記号で置き換える)、\"smallest:5,smaller:4,0\" というリスト (ズームレベルが \"smallest\" の場合には 5 行を越えて表示されるファイル名を 5 行に納めるように省略記号で置き換え、ズームレベルが \"smaller\" の場合には 4 行を越えて表示されるファイル名を 4 行に納めるように省略記号で置き換え、それ以外のズームレベルではすべてのファイル名を表示する)\n\nズームレベルで指定可能な値: smallest (33%)、smaller (50%)、small (66%)、standard (100%)、large (150%)、larger (200%)、largest (400%)"
+msgstr ""
+"ズームレベルに応じ、ファイル名の一部を省略記号 (...) で置き換えるべき長さを指定したリストです (すなわち、n 行に収まらないファイル名を省略文字で置き換えて表示するか、それともそのまま複数行にまたがって表示するかを、ズームレベル毎に指定します)。リストの各要素は \"ズームレベル:整数値\" という形式にして下さい。それぞれ指定したズームレベルに対して整数値が 0 より大きい場合、ファイル名は指定した行数を超えて表示されることはありません。整数値が 0 以下の場合、そのズームレベルでは無制限で表示されることになります。ズームレベルを指定せずに \"整数値\" の形式で指定することも可能です。この場合、既に指定しているズーム以外のレベルに対してその整数値が表示する際の最大行数になります。例: \"0\" (常にすべてのファイル名を表示する)、\"3\" (3 行を越えて表示されるファイル名を 3 行に納めるように省略記号で置き換える)、\"smallest:5,smaller:4,0\" というリスト (ズームレベルが \"smallest\" の場合には 5 行を越えて表示されるファイル名を 5 行に納めるように省略記号で置き換え、ズームレベルが \"smaller\" の場合には 4 行を越えて表示されるファイル名を 4 行に納めるように省略記号で置き換え、それ以外のズームレベルではすべてのファイル名を表示する)\n"
+"\n"
+"ズームレベルで指定可能な値: smallest (33%)、smaller (50%)、small (66%)、standard (100%)、large (150%)、larger (200%)、largest (400%)"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:84
 msgid "Default compact view zoom level"
@@ -3310,7 +3363,10 @@ msgid ""
 " ellipses on the desktop. If the number is larger than 0, the file name will"
 " not exceed the given number of lines. If the number is 0 or smaller, no "
 "limit is imposed on the number of displayed lines."
-msgstr "デスクトップで、ファイル名の一部を省略記号 (...) で置き換えるべき長さを指定します (すなわち、n 行に収まらないファイル名を省略文字で置き換えて表示するか、それともそのまま複数行にまたがって表示するかを指定します)。ここで指定した整数値が 0 より大きい場合、ファイル名は指定した行数を超えて表示されることはありません。整数値が 0 以下の場合は制限なしで表示されます。"
+msgstr ""
+"デスクトップで、ファイル名の一部を省略記号 (...) で置き換えるべき長さを指定します (すなわち、n "
+"行に収まらないファイル名を省略文字で置き換えて表示するか、それともそのまま複数行にまたがって表示するかを指定します)。ここで指定した整数値が 0 "
+"より大きい場合、ファイル名は指定した行数を超えて表示されることはありません。整数値が 0 以下の場合は制限なしで表示されます。"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:117
 msgid "The geometry string for a navigation window."
@@ -3395,7 +3451,9 @@ msgstr "メディアを自動的にマウントするかどうか"
 msgid ""
 "If set to true, then Caja will automatically mount media such as user-"
 "visible hard disks and removable media on start-up and media insertion."
-msgstr "TRUE にすると、MATE デスクトップを起動した時やメディアを挿入した時に、ユーザーに表示することが可能なハードディスクやリムーバブルメディアなどを自動的にマウントします。"
+msgstr ""
+"TRUE にすると、MATE "
+"デスクトップを起動した時やメディアを挿入した時に、ユーザーに表示することが可能なハードディスクやリムーバブルメディアなどを自動的にマウントします。"
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:3
 msgid "Whether to automatically open a folder for automounted media"
@@ -3407,7 +3465,9 @@ msgid ""
 "automounted. This only applies to media where no known x-content/* type was "
 "detected; for media where a known x-content type is detected, the user "
 "configurable action will be taken instead."
-msgstr "TRUE にすると、メディアがマウントされたら自動的にフォルダーとして開きます。この機能は未知の x-content/* 型が検出されたメディアにのみ適用されます。"
+msgstr ""
+"TRUE にすると、メディアがマウントされたら自動的にフォルダーとして開きます。この機能は未知の x-content/* "
+"型が検出されたメディアにのみ適用されます。"
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:5
 msgid "Never prompt or autorun/autostart programs when media are inserted"
@@ -3429,7 +3489,9 @@ msgid ""
 "List of x-content/* types for which the user have chosen to start an "
 "application in the preference capplet. The preferred application for the "
 "given type will be started on insertion on media matching these types."
-msgstr "メディアの取り扱いで何かアプリケーションを起動するような選択をしている場合に参照される x-content/* 型の並びです。この並びに一致するメディアをドライブに挿入すると指定した型に対してお気に入りのアプリケーションを起動します。"
+msgstr ""
+"メディアの取り扱いで何かアプリケーションを起動するような選択をしている場合に参照される x-content/* "
+"型の並びです。この並びに一致するメディアをドライブに挿入すると指定した型に対してお気に入りのアプリケーションを起動します。"
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:9
 msgid "List of x-content/* types set to \"Do Nothing\""
@@ -3440,7 +3502,9 @@ msgid ""
 "List of x-content/* types for which the user have chosen \"Do Nothing\" in "
 "the preference capplet. No prompt will be shown nor will any matching "
 "application be started on insertion of media matching these types."
-msgstr "メディアの取り扱いで \"何もしない\" を選択している場合に参照される x-content/* 型の並びです。この並びに一致するメディアをドライブに挿入した場合は何も問い合わせが行われないか、もしくは何もアプリケーションが起動されません。"
+msgstr ""
+"メディアの取り扱いで \"何もしない\" を選択している場合に参照される x-content/* "
+"型の並びです。この並びに一致するメディアをドライブに挿入した場合は何も問い合わせが行われないか、もしくは何もアプリケーションが起動されません。"
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:11
 msgid "List of x-content/* types set to \"Open Folder\""
@@ -3451,32 +3515,34 @@ msgid ""
 "List of x-content/* types for which the user have chosen \"Open Folder\" in "
 "the preferences capplet. A folder window will be opened on insertion of "
 "media matching these types."
-msgstr "メディアの取り扱いで \"フォルダーを開く\" を選択している場合に参照される x-content/* 型の並びです。この並びに一致するメディアをドライブに挿入するとフォルダーウィンドウを開きます。"
+msgstr ""
+"メディアの取り扱いで \"フォルダーを開く\" を選択している場合に参照される x-content/* "
+"型の並びです。この並びに一致するメディアをドライブに挿入するとフォルダーウィンドウを開きます。"
 
 #: ../libegg/eggdesktopfile.c:166
 #, c-format
 msgid "File is not a valid .desktop file"
-msgstr "正常な .desktop ファイルではありません"
+msgstr "妥当な .desktop ファイルではありません"
 
 #: ../libegg/eggdesktopfile.c:189
 #, c-format
 msgid "Unrecognized desktop file Version '%s'"
-msgstr ".desktop ファイルのバージョン '%s' は認識できません"
+msgstr "バージョン '%s' の .desktop ファイルはサポートしていません"
 
 #: ../libegg/eggdesktopfile.c:958
 #, c-format
 msgid "Starting %s"
-msgstr "%s の起動中"
+msgstr "%s の起動中です"
 
 #: ../libegg/eggdesktopfile.c:1100
 #, c-format
 msgid "Application does not accept documents on command line"
-msgstr "アプリケーションはコマンドラインからドキュメントを受け取れません"
+msgstr "コマンドラインからドキュメントにはアクセスできません"
 
 #: ../libegg/eggdesktopfile.c:1168
 #, c-format
 msgid "Unrecognized launch option: %d"
-msgstr "起動オプションの解析エラー: %d"
+msgstr "不明な起動オプションです: %d"
 
 #: ../libegg/eggdesktopfile.c:1366
 #, c-format
@@ -3494,7 +3560,7 @@ msgstr "セッションマネージャーに接続しない"
 
 #: ../libegg/eggsmclient.c:242
 msgid "Specify file containing saved configuration"
-msgstr "保存した設定を格納しているファイルを指定する"
+msgstr "設定を保存したファイルを指定する"
 
 #: ../libegg/eggsmclient.c:242
 msgid "FILE"
@@ -3502,7 +3568,7 @@ msgstr "FILE"
 
 #: ../libegg/eggsmclient.c:247
 msgid "Specify session management ID"
-msgstr "セッション管理の ID を指定する"
+msgstr "セッション管理 ID を指定する"
 
 #: ../libegg/eggsmclient.c:247
 msgid "ID"
@@ -3516,59 +3582,59 @@ msgstr "セッション管理のオプション:"
 msgid "Show session management options"
 msgstr "セッション管理のオプションを表示する"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:709
+#: ../src/file-manager/fm-desktop-icon-view.c:667
 msgid "Background"
 msgstr "背景"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:786
-#: ../src/file-manager/fm-directory-view.c:7316
-#: ../src/file-manager/fm-directory-view.c:8993
+#: ../src/file-manager/fm-desktop-icon-view.c:744
+#: ../src/file-manager/fm-directory-view.c:7300
+#: ../src/file-manager/fm-directory-view.c:8977
 msgid "E_mpty Trash"
 msgstr "ゴミ箱を空にする(_M)"
 
 #. label, accelerator
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:800
-#: ../src/file-manager/fm-directory-view.c:7280
+#: ../src/file-manager/fm-desktop-icon-view.c:758
+#: ../src/file-manager/fm-directory-view.c:7264
 msgid "Create L_auncher..."
 msgstr "ランチャの生成(_A)..."
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:802
-#: ../src/file-manager/fm-directory-view.c:7281
+#: ../src/file-manager/fm-desktop-icon-view.c:760
+#: ../src/file-manager/fm-directory-view.c:7265
 msgid "Create a new launcher"
-msgstr "新しいランチャを作成します"
+msgstr "新しい独自のランチャを生成します"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:809
+#: ../src/file-manager/fm-desktop-icon-view.c:767
 msgid "Change Desktop _Background"
 msgstr "背景の変更(_B)"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:811
+#: ../src/file-manager/fm-desktop-icon-view.c:769
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr "デスクトップ背景のパターンや色を設定します"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:818
+#: ../src/file-manager/fm-desktop-icon-view.c:776
 msgid "Empty Trash"
 msgstr "ゴミ箱を空にする"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:820
-#: ../src/file-manager/fm-directory-view.c:7317 ../src/caja-trash-bar.c:204
+#: ../src/file-manager/fm-desktop-icon-view.c:778
+#: ../src/file-manager/fm-directory-view.c:7301 ../src/caja-trash-bar.c:204
 msgid "Delete all items in the Trash"
 msgstr "ゴミ箱にあるすべてのアイテムを削除します"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:920
+#: ../src/file-manager/fm-desktop-icon-view.c:878
 msgid "The desktop view encountered an error."
 msgstr "デスクトップ表示にする際にエラーが発生しました。"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:921
+#: ../src/file-manager/fm-desktop-icon-view.c:879
 msgid "The desktop view encountered an error while starting up."
 msgstr "起動する際にデスクトップ表示でエラーが発生しました。"
 
@@ -3584,53 +3650,53 @@ msgid "This will open %'d separate window."
 msgid_plural "This will open %'d separate windows."
 msgstr[0] "%'d 個のウィンドウを別々に開きます。"
 
-#: ../src/file-manager/fm-directory-view.c:1183
-#: ../src/file-manager/fm-properties-window.c:5420
-#: ../src/caja-connect-server-dialog.c:724 ../src/caja-location-dialog.c:108
+#: ../src/file-manager/fm-directory-view.c:1177
+#: ../src/file-manager/fm-properties-window.c:5409
+#: ../src/caja-connect-server-dialog.c:718 ../src/caja-location-dialog.c:102
 msgid "There was an error displaying help."
 msgstr "ヘルプを表示する際にエラーが発生しました。"
 
-#: ../src/file-manager/fm-directory-view.c:1203
+#: ../src/file-manager/fm-directory-view.c:1197
 msgid "Select Items Matching"
 msgstr "パターンを指定することによるアイテムの選択"
 
-#: ../src/file-manager/fm-directory-view.c:1218
+#: ../src/file-manager/fm-directory-view.c:1212
 msgid "_Pattern:"
 msgstr "パターン(_P):"
 
-#: ../src/file-manager/fm-directory-view.c:1225
+#: ../src/file-manager/fm-directory-view.c:1219
 msgid "Examples: "
 msgstr "例: "
 
-#: ../src/file-manager/fm-directory-view.c:1341
+#: ../src/file-manager/fm-directory-view.c:1335
 msgid "Save Search as"
 msgstr "検索結果の保存"
 
-#: ../src/file-manager/fm-directory-view.c:1364
+#: ../src/file-manager/fm-directory-view.c:1358
 msgid "Search _name:"
 msgstr "検索名(_N):"
 
-#: ../src/file-manager/fm-directory-view.c:1384
+#: ../src/file-manager/fm-directory-view.c:1374
 msgid "_Folder:"
 msgstr "フォルダー(_F):"
 
-#: ../src/file-manager/fm-directory-view.c:1393
+#: ../src/file-manager/fm-directory-view.c:1379
 msgid "Select Folder to Save Search In"
 msgstr "検索結果を保存するフォルダーの選択"
 
-#: ../src/file-manager/fm-directory-view.c:2284
-#: ../src/file-manager/fm-directory-view.c:2321
+#: ../src/file-manager/fm-directory-view.c:2268
+#: ../src/file-manager/fm-directory-view.c:2305
 #, c-format
 msgid "\"%s\" selected"
 msgstr "\"%s\" を選択しました"
 
-#: ../src/file-manager/fm-directory-view.c:2286
+#: ../src/file-manager/fm-directory-view.c:2270
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
 msgstr[0] "%'d 個のフォルダーを選択しました"
 
-#: ../src/file-manager/fm-directory-view.c:2296
+#: ../src/file-manager/fm-directory-view.c:2280
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
@@ -3638,20 +3704,20 @@ msgstr[0] " (%'d 個のアイテムを含む)"
 
 #. translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
-#: ../src/file-manager/fm-directory-view.c:2307
+#: ../src/file-manager/fm-directory-view.c:2291
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
 msgstr[0] " (合計で %'d 個のアイテムを含む)"
 
-#: ../src/file-manager/fm-directory-view.c:2324
+#: ../src/file-manager/fm-directory-view.c:2308
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
 msgstr[0] "%'d 個のアイテムを選択しました"
 
 #. Folders selected also, use "other" terminology
-#: ../src/file-manager/fm-directory-view.c:2331
+#: ../src/file-manager/fm-directory-view.c:2315
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
@@ -3661,17 +3727,17 @@ msgstr[0] "他に %'d 個のアイテムを選択しました"
 #. * needs to use something other than parentheses. The
 #. * first message gives the number of items selected;
 #. * the message in parentheses the size of those items.
-#: ../src/file-manager/fm-directory-view.c:2350
+#: ../src/file-manager/fm-directory-view.c:2334
 #, c-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-directory-view.c:2363
+#: ../src/file-manager/fm-directory-view.c:2347
 #, c-format
 msgid "Free space: %s"
 msgstr "空き容量: %s"
 
-#: ../src/file-manager/fm-directory-view.c:2374
+#: ../src/file-manager/fm-directory-view.c:2358
 #, c-format
 msgid "%s, Free space: %s"
 msgstr "%s、%s 空き"
@@ -3680,10 +3746,10 @@ msgstr "%s、%s 空き"
 #. * might want to change "," to something else.
 #. * After the comma the amount of free space will
 #. * be shown.
-#: ../src/file-manager/fm-directory-view.c:2389
+#: ../src/file-manager/fm-directory-view.c:2373
 #, c-format
 msgid "%s, %s"
-msgstr "%s, %s"
+msgstr "%s、%s"
 
 #. Marking this for translation, since you
 #. * might want to change "," to something else.
@@ -3695,8 +3761,8 @@ msgstr "%s, %s"
 #. * and the number of items in those folders and the
 #. * message about the number of other items and the
 #. * total size of those items.
-#: ../src/file-manager/fm-directory-view.c:2408
-#: ../src/file-manager/fm-directory-view.c:2422
+#: ../src/file-manager/fm-directory-view.c:2392
+#: ../src/file-manager/fm-directory-view.c:2406
 #, c-format
 msgid "%s%s, %s"
 msgstr "%s%s, %s"
@@ -3708,52 +3774,52 @@ msgstr "%s%s, %s"
 #. * message about the number of other items and the
 #. * total size of those items. After the second comma
 #. * the free space is written.
-#: ../src/file-manager/fm-directory-view.c:2435
+#: ../src/file-manager/fm-directory-view.c:2419
 #, c-format
 msgid "%s%s, %s, %s"
 msgstr "%s%s, %s, %s"
 
-#: ../src/file-manager/fm-directory-view.c:4480
+#: ../src/file-manager/fm-directory-view.c:4464
 #: ../src/caja-information-panel.c:905
 #, c-format
 msgid "Open With %s"
 msgstr "%sで開く"
 
-#: ../src/file-manager/fm-directory-view.c:4482
+#: ../src/file-manager/fm-directory-view.c:4466
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
 msgstr[0] "選択したアイテムを \"%s\" を使って開きます"
 
-#: ../src/file-manager/fm-directory-view.c:4571
+#: ../src/file-manager/fm-directory-view.c:4555
 msgid "Open parent location"
 msgstr "親の場所を開く"
 
-#: ../src/file-manager/fm-directory-view.c:4572
+#: ../src/file-manager/fm-directory-view.c:4556
 msgid "Open parent location for the selected item"
 msgstr "選択したアイテムの親の場所を開く"
 
-#: ../src/file-manager/fm-directory-view.c:5421
+#: ../src/file-manager/fm-directory-view.c:5405
 #, c-format
 msgid "Run \"%s\" on any selected items"
 msgstr "選択したアイテムを \"%s\" で実行します"
 
-#: ../src/file-manager/fm-directory-view.c:5672
+#: ../src/file-manager/fm-directory-view.c:5656
 #, c-format
 msgid "Create Document from template \"%s\""
 msgstr "テンプレート \"%s\" からドキュメントを生成する"
 
-#: ../src/file-manager/fm-directory-view.c:5922
+#: ../src/file-manager/fm-directory-view.c:5906
 msgid "All executable files in this folder will appear in the Scripts menu."
 msgstr "このフォルダーにある実行可能なすべてのファイルが [スクリプト] メニューに表示されます。"
 
-#: ../src/file-manager/fm-directory-view.c:5924
+#: ../src/file-manager/fm-directory-view.c:5908
 msgid ""
 "Choosing a script from the menu will run that script with any selected items"
 " as input."
 msgstr "メニューからスクリプトを選択すると、選択したアイテムを入力値としてスクリプトを実行します。"
 
-#: ../src/file-manager/fm-directory-view.c:5926
+#: ../src/file-manager/fm-directory-view.c:5910
 msgid ""
 "All executable files in this folder will appear in the Scripts menu. Choosing a script from the menu will run that script.\n"
 "\n"
@@ -3774,126 +3840,145 @@ msgid ""
 "CAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: newline-delimited URIs for selected files in the inactive pane of a split-view window\n"
 "\n"
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI for current location in the inactive pane of a split-view window"
-msgstr "このフォルダーにある実行可能なすべてのファイルが [スクリプト] メニューに表示されます。メニューからスクリプトを選択すると、スクリプトが実行されます。\n\nローカルフォルダーで実行すると、選択したファイル名がスクリプトの引数になります。リモートフォルダー (例: Web や FTP の内容を表示するフォルダー) で実行すると、スクリプトには何も渡されません。\n\nすべてに共通することとして、スクリプトは Caja がセットした次の環境変数を使用します:\n\nCAJA_SCRIPT_SELECTED_FILE_PATHS: 選択したパス名を改行で区切ったもの (ローカルのみ)\n\nCAJA_SCRIPT_SELECTED_URIS: 選択した URI を改行で区切ったもの\n\nCAJA_SCRIPT_CURRENT_URI: 現在位置を示す URI\n\nCAJA_SCRIPT_WINDOW_GEOMETRY: ウィンドウの現在位置とサイズ\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_FILE_PATHS: スプリット表示ウィンドウの、アクティブでないペイン中の選択したファイルのパスを改行で区切ったもの (ローカルのみ)\n\nCAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: スプリット表示ウインドウの、アクティブでないペイン中の選択したファイルの URI を改行で区切ったもの\n\nCAJA_SCRIPT_NEXT_PANE_CURRENT_URI:  スプリット表示ウインドウの、アクティブでないペイン中の現在位置を示す URI"
+msgstr ""
+"このフォルダーにある実行可能なすべてのファイルが [スクリプト] メニューに表示されます。メニューからスクリプトを選択すると、スクリプトが実行されます。\n"
+"\n"
+"ローカルフォルダーで実行すると、選択したファイル名がスクリプトの引数になります。リモートフォルダー (例: Web や FTP の内容を表示するフォルダー) で実行すると、スクリプトには何も渡されません。\n"
+"\n"
+"すべてに共通することとして、スクリプトは Caja がセットした次の環境変数を使用します:\n"
+"\n"
+"CAJA_SCRIPT_SELECTED_FILE_PATHS: 選択したパス名を改行で区切ったもの (ローカルのみ)\n"
+"\n"
+"CAJA_SCRIPT_SELECTED_URIS: 選択した URI を改行で区切ったもの\n"
+"\n"
+"CAJA_SCRIPT_CURRENT_URI: 現在位置を示す URI\n"
+"\n"
+"CAJA_SCRIPT_WINDOW_GEOMETRY: ウィンドウの現在位置とサイズ\n"
+"\n"
+"CAJA_SCRIPT_NEXT_PANE_SELECTED_FILE_PATHS: スプリット表示ウィンドウの、アクティブでないペイン中の選択したファイルのパスを改行で区切ったもの (ローカルのみ)\n"
+"\n"
+"CAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: スプリット表示ウインドウの、アクティブでないペイン中の選択したファイルの URI を改行で区切ったもの\n"
+"\n"
+"CAJA_SCRIPT_NEXT_PANE_CURRENT_URI:  スプリット表示ウインドウの、アクティブでないペイン中の現在位置を示す URI"
 
-#: ../src/file-manager/fm-directory-view.c:5994
+#: ../src/file-manager/fm-directory-view.c:5978
 #: ../src/file-manager/fm-tree-view.c:1009
 #, c-format
 msgid "\"%s\" will be moved if you select the Paste command"
 msgstr "\"ファイルの貼り付け\" コマンドを選択すると \"%s\" を移動します"
 
-#: ../src/file-manager/fm-directory-view.c:5998
+#: ../src/file-manager/fm-directory-view.c:5982
 #: ../src/file-manager/fm-tree-view.c:1015
 #, c-format
 msgid "\"%s\" will be copied if you select the Paste command"
 msgstr "\"ファイルの貼り付け\" コマンドを選択すると \"%s\" をコピーします"
 
-#: ../src/file-manager/fm-directory-view.c:6005
+#: ../src/file-manager/fm-directory-view.c:5989
 #, c-format
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be moved if you select the Paste command"
 msgstr[0] "\"ファイルの貼り付け\" コマンドを選択すると %'d個 のファイルを移動します"
 
-#: ../src/file-manager/fm-directory-view.c:6012
+#: ../src/file-manager/fm-directory-view.c:5996
 #, c-format
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be copied if you select the Paste command"
 msgstr[0] "\"ファイルの貼り付け\" コマンドを選択すると %'d個のファイルをコピーします"
 
-#: ../src/file-manager/fm-directory-view.c:6192
+#: ../src/file-manager/fm-directory-view.c:6176
 #: ../src/file-manager/fm-tree-view.c:1055
 msgid "There is nothing on the clipboard to paste."
 msgstr "貼り付けるものがクリップボードにはありません。"
 
-#: ../src/file-manager/fm-directory-view.c:6407
+#: ../src/file-manager/fm-directory-view.c:6391
 msgid "Unable to unmount location"
 msgstr "場所をアンマウントできません"
 
-#: ../src/file-manager/fm-directory-view.c:6428
+#: ../src/file-manager/fm-directory-view.c:6412
 msgid "Unable to eject location"
 msgstr "場所を取り出せません"
 
-#: ../src/file-manager/fm-directory-view.c:6443
+#: ../src/file-manager/fm-directory-view.c:6427
 msgid "Unable to stop drive"
 msgstr "ドライブを停止できません"
 
-#: ../src/file-manager/fm-directory-view.c:7000
+#: ../src/file-manager/fm-directory-view.c:6984
 #, c-format
 msgid "Connect to Server %s"
 msgstr "サーバ %s への接続"
 
-#: ../src/file-manager/fm-directory-view.c:7005
-#: ../src/file-manager/fm-directory-view.c:8212
-#: ../src/file-manager/fm-directory-view.c:8304
-#: ../src/file-manager/fm-directory-view.c:8414
+#: ../src/file-manager/fm-directory-view.c:6989
+#: ../src/file-manager/fm-directory-view.c:8196
+#: ../src/file-manager/fm-directory-view.c:8288
+#: ../src/file-manager/fm-directory-view.c:8398
 msgid "_Connect"
-msgstr "接続する(_C)"
+msgstr "接続(_C)"
 
-#: ../src/file-manager/fm-directory-view.c:7019
+#: ../src/file-manager/fm-directory-view.c:7003
 msgid "Link _name:"
 msgstr "リンクの名前(_N):"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7258
+#: ../src/file-manager/fm-directory-view.c:7242
 msgid "Create _Document"
 msgstr "ドキュメントの生成(_D)"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7259
+#: ../src/file-manager/fm-directory-view.c:7243
 msgid "Open Wit_h"
-msgstr "別のアプリで開く(_H)"
+msgstr "開く(_H)"
 
-#: ../src/file-manager/fm-directory-view.c:7260
+#: ../src/file-manager/fm-directory-view.c:7244
 msgid "Choose a program with which to open the selected item"
 msgstr "選択したアイテムを開くプログラムを選びます"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7262
-#: ../src/file-manager/fm-directory-view.c:7541
+#: ../src/file-manager/fm-directory-view.c:7246
+#: ../src/file-manager/fm-directory-view.c:7525
 msgid "_Properties"
 msgstr "プロパティ(_P)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7263
-#: ../src/file-manager/fm-directory-view.c:8980
+#: ../src/file-manager/fm-directory-view.c:7247
+#: ../src/file-manager/fm-directory-view.c:8964
 msgid "View or modify the properties of each selected item"
 msgstr "選択したアイテムのプロパティを表示または変更します"
 
 #. name, stock id
 #. label, accelerator
 #. add the "create folder" menu item
-#: ../src/file-manager/fm-directory-view.c:7270
+#: ../src/file-manager/fm-directory-view.c:7254
 #: ../src/file-manager/fm-tree-view.c:1298
 msgid "Create _Folder"
 msgstr "フォルダーの生成(_F)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7271
+#: ../src/file-manager/fm-directory-view.c:7255
 msgid "Create a new empty folder inside this folder"
 msgstr "このフォルダーの中に空のフォルダーを新規に作成します"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7273
+#: ../src/file-manager/fm-directory-view.c:7257
 msgid "No templates installed"
 msgstr "テンプレートがインストールされていません"
 
 #. name, stock id
 #. translators: this is used to indicate that a file doesn't contain anything
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7276
+#: ../src/file-manager/fm-directory-view.c:7260
 msgid "_Empty File"
 msgstr "空のファイル(_E)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7277
+#: ../src/file-manager/fm-directory-view.c:7261
 msgid "Create a new empty file inside this folder"
 msgstr "このフォルダーの中に空のファイルを新規に作成します"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7285
+#: ../src/file-manager/fm-directory-view.c:7269
 msgid "Open the selected item in this window"
 msgstr "選択したアイテムを開きます"
 
@@ -3902,91 +3987,91 @@ msgstr "選択したアイテムを開きます"
 #. Location-specific actions
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7292
-#: ../src/file-manager/fm-directory-view.c:7473
+#: ../src/file-manager/fm-directory-view.c:7276
+#: ../src/file-manager/fm-directory-view.c:7457
 msgid "Open in Navigation Window"
 msgstr "新しいナビゲーションウィンドウで開く"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7293
+#: ../src/file-manager/fm-directory-view.c:7277
 msgid "Open each selected item in a navigation window"
 msgstr "選択したアイテムをナビゲーションウィンドウの中に開きます"
 
 #. name, stock id
 #. label, accelerator
 #. add the "open in new tab" menu item
-#: ../src/file-manager/fm-directory-view.c:7296
-#: ../src/file-manager/fm-directory-view.c:7477
-#: ../src/file-manager/fm-directory-view.c:8544
-#: ../src/file-manager/fm-directory-view.c:8870
+#: ../src/file-manager/fm-directory-view.c:7280
+#: ../src/file-manager/fm-directory-view.c:7461
+#: ../src/file-manager/fm-directory-view.c:8528
+#: ../src/file-manager/fm-directory-view.c:8854
 #: ../src/file-manager/fm-tree-view.c:1278 ../src/caja-places-sidebar.c:2664
 msgid "Open in New _Tab"
 msgstr "新しいタブの中に開く(_T)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7297
+#: ../src/file-manager/fm-directory-view.c:7281
 msgid "Open each selected item in a new tab"
 msgstr "選択したアイテムを新しいタブの中に開きます"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7300
-#: ../src/file-manager/fm-directory-view.c:7482
+#: ../src/file-manager/fm-directory-view.c:7284
+#: ../src/file-manager/fm-directory-view.c:7466
 msgid "Open in _Folder Window"
 msgstr "フォルダーウィンドウの中で開く(_F)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7301
+#: ../src/file-manager/fm-directory-view.c:7285
 msgid "Open each selected item in a folder window"
 msgstr "選択したアイテムをフォルダーウィンドウの中に開きます"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7304
+#: ../src/file-manager/fm-directory-view.c:7288
 msgid "Other _Application..."
 msgstr "別のアプリケーション(_A)..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7305
-#: ../src/file-manager/fm-directory-view.c:7309
+#: ../src/file-manager/fm-directory-view.c:7289
+#: ../src/file-manager/fm-directory-view.c:7293
 msgid "Choose another application with which to open the selected item"
 msgstr "選択したアイテムを開く別のアプリケーションを選びます"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7308
+#: ../src/file-manager/fm-directory-view.c:7292
 msgid "Open With Other _Application..."
 msgstr "別のアプリで開く(_A)..."
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7312
+#: ../src/file-manager/fm-directory-view.c:7296
 msgid "_Open Scripts Folder"
 msgstr "このフォルダーを開く(_O)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7313
+#: ../src/file-manager/fm-directory-view.c:7297
 msgid "Show the folder containing the scripts that appear in this menu"
 msgstr "スクリプトフォルダーへ移動します"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7321
+#: ../src/file-manager/fm-directory-view.c:7305
 msgid "Prepare the selected files to be moved with a Paste command"
 msgstr "選択したファイルを \"ファイルの貼り付け\" コマンドで移動する準備を行います"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7325
+#: ../src/file-manager/fm-directory-view.c:7309
 msgid "Prepare the selected files to be copied with a Paste command"
 msgstr "選択したファイルを \"ファイルの貼り付け\" コマンドでコピーする準備を行います"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7329
+#: ../src/file-manager/fm-directory-view.c:7313
 msgid "Move or copy files previously selected by a Cut or Copy command"
 msgstr "以前、ファイルの切り取りまたはコピーで指定したファイルを移動またはコピーします"
 
@@ -3994,139 +4079,139 @@ msgstr "以前、ファイルの切り取りまたはコピーで指定したフ
 #. accelerator for paste
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7334
-#: ../src/file-manager/fm-directory-view.c:7495
+#: ../src/file-manager/fm-directory-view.c:7318
+#: ../src/file-manager/fm-directory-view.c:7479
 #: ../src/file-manager/fm-tree-view.c:1330
 msgid "_Paste Into Folder"
 msgstr "フォルダーへ貼り付け(_P)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7335
+#: ../src/file-manager/fm-directory-view.c:7319
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into the "
 "selected folder"
 msgstr "ファイルの切り取りまたはファイルのコピーで指定したファイルを選択したフォルダーへ移動またはコピーします"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7337
+#: ../src/file-manager/fm-directory-view.c:7321
 msgid "Cop_y to"
 msgstr "指定先にコピー(_Y)"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7338
+#: ../src/file-manager/fm-directory-view.c:7322
 msgid "M_ove to"
 msgstr "指定先に移動(_O)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7341
+#: ../src/file-manager/fm-directory-view.c:7325
 msgid "Select all items in this window"
 msgstr "このウィンドウの中にあるすべてのアイテムを選択します"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7344
+#: ../src/file-manager/fm-directory-view.c:7328
 msgid "Select I_tems Matching..."
 msgstr "パターンによる選択(_T)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7345
+#: ../src/file-manager/fm-directory-view.c:7329
 msgid "Select items in this window matching a given pattern"
 msgstr "このウィンドウの中から指定されたパターンに一致するすべてのアイテムを選択します"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7348
+#: ../src/file-manager/fm-directory-view.c:7332
 msgid "_Invert Selection"
 msgstr "選択を反転する(_I)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7349
+#: ../src/file-manager/fm-directory-view.c:7333
 msgid "Select all and only the items that are not currently selected"
 msgstr "現在選択されていないすべてのアイテムを選択状態にします"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7352
+#: ../src/file-manager/fm-directory-view.c:7336
 msgid "D_uplicate"
 msgstr "複製(_U)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7353
+#: ../src/file-manager/fm-directory-view.c:7337
 msgid "Duplicate each selected item"
 msgstr "選択したアイテムの複製を作成します"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7356
-#: ../src/file-manager/fm-directory-view.c:8964
+#: ../src/file-manager/fm-directory-view.c:7340
+#: ../src/file-manager/fm-directory-view.c:8948
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
 msgstr[0] "リンクの作成(_K)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7357
+#: ../src/file-manager/fm-directory-view.c:7341
 msgid "Create a symbolic link for each selected item"
 msgstr "選択した各アイテムのシンボリックリンクを作成します"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7360
+#: ../src/file-manager/fm-directory-view.c:7344
 msgid "_Rename..."
 msgstr "名前の変更(_R)..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7361
+#: ../src/file-manager/fm-directory-view.c:7345
 msgid "Rename selected item"
 msgstr "選択したアイテムの名前を変更します"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7369
-#: ../src/file-manager/fm-directory-view.c:8925
+#: ../src/file-manager/fm-directory-view.c:7353
+#: ../src/file-manager/fm-directory-view.c:8909
 msgid "Move each selected item to the Trash"
 msgstr "選択したアイテムをゴミ箱へ移動します"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7372
-#: ../src/file-manager/fm-directory-view.c:7504
-#: ../src/file-manager/fm-directory-view.c:8945
+#: ../src/file-manager/fm-directory-view.c:7356
+#: ../src/file-manager/fm-directory-view.c:7488
+#: ../src/file-manager/fm-directory-view.c:8929
 #: ../src/file-manager/fm-tree-view.c:1360
 msgid "_Delete"
 msgstr "削除(_D)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7373
+#: ../src/file-manager/fm-directory-view.c:7357
 msgid "Delete each selected item, without moving to the Trash"
 msgstr "ゴミ箱へ移動せずに選択したアイテムを削除します"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7376
-#: ../src/file-manager/fm-directory-view.c:7508
+#: ../src/file-manager/fm-directory-view.c:7360
+#: ../src/file-manager/fm-directory-view.c:7492
 msgid "_Restore"
 msgstr "元に戻す(_R)"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7380
+#: ../src/file-manager/fm-directory-view.c:7364
 msgid "_Undo"
 msgstr "元に戻す(_U)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7381
-#: ../src/file-manager/fm-directory-view.c:11129
+#: ../src/file-manager/fm-directory-view.c:7365
+#: ../src/file-manager/fm-directory-view.c:11113
 msgid "Undo the last action"
 msgstr "最後に実行した操作を元に戻す"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7384
+#: ../src/file-manager/fm-directory-view.c:7368
 msgid "_Redo"
 msgstr "やり直す(_R)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7385
-#: ../src/file-manager/fm-directory-view.c:11147
+#: ../src/file-manager/fm-directory-view.c:7369
+#: ../src/file-manager/fm-directory-view.c:11131
 msgid "Redo the last undone action"
 msgstr "最後に実行しようとした操作をやり直す"
 
@@ -4136,622 +4221,622 @@ msgstr "最後に実行しようとした操作をやり直す"
 #. * it is a mixture of both ATM.
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7395
+#: ../src/file-manager/fm-directory-view.c:7379
 msgid "Reset View to _Defaults"
 msgstr "デフォルト表示にリセット(_D)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7396
+#: ../src/file-manager/fm-directory-view.c:7380
 msgid "Reset sorting order and zoom level to match preferences for this view"
 msgstr "並び替えとズームレベルをこのビューの設定にリセットします"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7399
+#: ../src/file-manager/fm-directory-view.c:7383
 msgid "Connect To This Server"
 msgstr "このサーバへの接続"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7400
+#: ../src/file-manager/fm-directory-view.c:7384
 msgid "Make a permanent connection to this server"
 msgstr "このサーバへ永続的に接続します"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7403
-#: ../src/file-manager/fm-directory-view.c:7431
-#: ../src/file-manager/fm-directory-view.c:7512
+#: ../src/file-manager/fm-directory-view.c:7387
+#: ../src/file-manager/fm-directory-view.c:7415
+#: ../src/file-manager/fm-directory-view.c:7496
 #: ../src/caja-places-sidebar.c:2700
 msgid "_Mount"
 msgstr "マウント(_M)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7404
+#: ../src/file-manager/fm-directory-view.c:7388
 msgid "Mount the selected volume"
 msgstr "選択したボリュームをマウントします"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7408
+#: ../src/file-manager/fm-directory-view.c:7392
 msgid "Unmount the selected volume"
 msgstr "選択したボリュームをアンマウントします"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7412
+#: ../src/file-manager/fm-directory-view.c:7396
 msgid "Eject the selected volume"
 msgstr "選択したボリュームを取り出します"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7415
-#: ../src/file-manager/fm-directory-view.c:7443
-#: ../src/file-manager/fm-directory-view.c:7524
+#: ../src/file-manager/fm-directory-view.c:7399
+#: ../src/file-manager/fm-directory-view.c:7427
+#: ../src/file-manager/fm-directory-view.c:7508
 #: ../src/caja-places-sidebar.c:2728
 msgid "_Format"
 msgstr "初期化(_F)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7416
+#: ../src/file-manager/fm-directory-view.c:7400
 msgid "Format the selected volume"
 msgstr "選択したボリュームをフォーマットします"
 
 #. name, stock id
 #. label, accelerator
 #. Adjust start/stop items to reflect the type of the drive
-#: ../src/file-manager/fm-directory-view.c:7419
-#: ../src/file-manager/fm-directory-view.c:7447
-#: ../src/file-manager/fm-directory-view.c:7528
-#: ../src/file-manager/fm-directory-view.c:8204
-#: ../src/file-manager/fm-directory-view.c:8208
-#: ../src/file-manager/fm-directory-view.c:8296
-#: ../src/file-manager/fm-directory-view.c:8300
-#: ../src/file-manager/fm-directory-view.c:8406
-#: ../src/file-manager/fm-directory-view.c:8410
+#: ../src/file-manager/fm-directory-view.c:7403
+#: ../src/file-manager/fm-directory-view.c:7431
+#: ../src/file-manager/fm-directory-view.c:7512
+#: ../src/file-manager/fm-directory-view.c:8188
+#: ../src/file-manager/fm-directory-view.c:8192
+#: ../src/file-manager/fm-directory-view.c:8280
+#: ../src/file-manager/fm-directory-view.c:8284
+#: ../src/file-manager/fm-directory-view.c:8390
+#: ../src/file-manager/fm-directory-view.c:8394
 #: ../src/caja-places-sidebar.c:1785 ../src/caja-places-sidebar.c:2735
 msgid "_Start"
 msgstr "開始(_S)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7420
+#: ../src/file-manager/fm-directory-view.c:7404
 msgid "Start the selected volume"
 msgstr "選択したボリュームを起動します"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7423
-#: ../src/file-manager/fm-directory-view.c:7451
-#: ../src/file-manager/fm-directory-view.c:7532
-#: ../src/file-manager/fm-directory-view.c:8233
-#: ../src/file-manager/fm-directory-view.c:8325
-#: ../src/file-manager/fm-directory-view.c:8435
+#: ../src/file-manager/fm-directory-view.c:7407
+#: ../src/file-manager/fm-directory-view.c:7435
+#: ../src/file-manager/fm-directory-view.c:7516
+#: ../src/file-manager/fm-directory-view.c:8217
+#: ../src/file-manager/fm-directory-view.c:8309
+#: ../src/file-manager/fm-directory-view.c:8419
 #: ../src/caja-places-sidebar.c:1786 ../src/caja-places-sidebar.c:2742
-#: ../src/caja-window-menus.c:844
+#: ../src/caja-window-menus.c:836
 msgid "_Stop"
 msgstr "停止(_S)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7424
-#: ../src/file-manager/fm-directory-view.c:8436
+#: ../src/file-manager/fm-directory-view.c:7408
+#: ../src/file-manager/fm-directory-view.c:8420
 msgid "Stop the selected volume"
 msgstr "選択したボリュームを停止します"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7427
-#: ../src/file-manager/fm-directory-view.c:7455
-#: ../src/file-manager/fm-directory-view.c:7536
+#: ../src/file-manager/fm-directory-view.c:7411
+#: ../src/file-manager/fm-directory-view.c:7439
+#: ../src/file-manager/fm-directory-view.c:7520
 #: ../src/caja-places-sidebar.c:2721
 msgid "_Detect Media"
 msgstr "メディアを検出(_D)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7428
-#: ../src/file-manager/fm-directory-view.c:7456
-#: ../src/file-manager/fm-directory-view.c:7537
+#: ../src/file-manager/fm-directory-view.c:7412
+#: ../src/file-manager/fm-directory-view.c:7440
+#: ../src/file-manager/fm-directory-view.c:7521
 msgid "Detect media in the selected drive"
 msgstr "選択したドライブのメディアを検出します"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7432
+#: ../src/file-manager/fm-directory-view.c:7416
 msgid "Mount the volume associated with the open folder"
 msgstr "オープンするフォルダーに関連づけられているボリュームをマウントします"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7436
+#: ../src/file-manager/fm-directory-view.c:7420
 msgid "Unmount the volume associated with the open folder"
 msgstr "オープンするフォルダーに関連づけられているボリュームをアンマウントします"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7440
+#: ../src/file-manager/fm-directory-view.c:7424
 msgid "Eject the volume associated with the open folder"
 msgstr "オープンするフォルダーに関連づけられているボリュームを取り出します"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7444
+#: ../src/file-manager/fm-directory-view.c:7428
 msgid "Format the volume associated with the open folder"
 msgstr "オープンするフォルダーに関連づけられているボリュームをフォーマットします"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7448
+#: ../src/file-manager/fm-directory-view.c:7432
 msgid "Start the volume associated with the open folder"
 msgstr "オープンするフォルダーに関連づけられているボリュームを開始します"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7452
+#: ../src/file-manager/fm-directory-view.c:7436
 msgid "Stop the volume associated with the open folder"
 msgstr "オープンするフォルダーに関連づけられているボリュームを停止します"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7459
+#: ../src/file-manager/fm-directory-view.c:7443
 msgid "Open File and Close window"
 msgstr "ファイルを開いてウィンドウを閉じます"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7463
+#: ../src/file-manager/fm-directory-view.c:7447
 msgid "Sa_ve Search"
 msgstr "検索結果の保存(_V)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7464
+#: ../src/file-manager/fm-directory-view.c:7448
 msgid "Save the edited search"
 msgstr "編集した検索結果を保存します"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7467
+#: ../src/file-manager/fm-directory-view.c:7451
 msgid "Sa_ve Search As..."
 msgstr "検索結果を別名で保存(_V)..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7468
+#: ../src/file-manager/fm-directory-view.c:7452
 msgid "Save the current search as a file"
 msgstr "この検索結果に名前を付けて保存します"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7474
+#: ../src/file-manager/fm-directory-view.c:7458
 msgid "Open this folder in a navigation window"
 msgstr "このフォルダーをナビゲーションウィンドウの中に開きます"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7478
+#: ../src/file-manager/fm-directory-view.c:7462
 msgid "Open this folder in a new tab"
 msgstr "このフォルダーを新しいタブの中に開きます"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7483
+#: ../src/file-manager/fm-directory-view.c:7467
 msgid "Open this folder in a folder window"
 msgstr "このフォルダーをフォルダウィンドウの中に開きます"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7488
+#: ../src/file-manager/fm-directory-view.c:7472
 msgid "Prepare this folder to be moved with a Paste command"
 msgstr "このフォルダーを \"貼り付け\" コマンドで移動する準備を行います"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7492
+#: ../src/file-manager/fm-directory-view.c:7476
 msgid "Prepare this folder to be copied with a Paste command"
 msgstr "このフォルダーを \"貼り付け\" コマンドでコピーする準備を行います"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7496
+#: ../src/file-manager/fm-directory-view.c:7480
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into this "
 "folder"
 msgstr "切り取りまたはコピーコマンドで選択したファイルをこのフォルダーの中に移動またはコピーします"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7501
+#: ../src/file-manager/fm-directory-view.c:7485
 msgid "Move this folder to the Trash"
 msgstr "このフォルダーをゴミ箱へ移動します"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7505
+#: ../src/file-manager/fm-directory-view.c:7489
 msgid "Delete this folder, without moving to the Trash"
 msgstr "ゴミ箱へ移動せずに、このフォルダーを削除します"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7513
+#: ../src/file-manager/fm-directory-view.c:7497
 msgid "Mount the volume associated with this folder"
 msgstr "このフォルダーに関連づけられているボリュームをマウントします"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7517
+#: ../src/file-manager/fm-directory-view.c:7501
 msgid "Unmount the volume associated with this folder"
 msgstr "このフォルダーに関連づけられているボリュームをアンマウントします"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7521
+#: ../src/file-manager/fm-directory-view.c:7505
 msgid "Eject the volume associated with this folder"
 msgstr "このフォルダーに関連づけられているボリュームを取り出します"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7525
+#: ../src/file-manager/fm-directory-view.c:7509
 msgid "Format the volume associated with this folder"
 msgstr "このフォルダーに関連づけられているボリュームをフォーマットします"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7529
+#: ../src/file-manager/fm-directory-view.c:7513
 msgid "Start the volume associated with this folder"
 msgstr "このフォルダーに関連づけられているボリュームを開始します"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7533
+#: ../src/file-manager/fm-directory-view.c:7517
 msgid "Stop the volume associated with this folder"
 msgstr "このフォルダーに関連づけられているボリュームを停止します"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7542
+#: ../src/file-manager/fm-directory-view.c:7526
 msgid "View or modify the properties of this folder"
 msgstr "このフォルダーのプロパティを表示または変更します"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7545
-#: ../src/file-manager/fm-directory-view.c:7548
+#: ../src/file-manager/fm-directory-view.c:7529
+#: ../src/file-manager/fm-directory-view.c:7532
 msgid "_Other pane"
 msgstr "他のペイン(_O)"
 
-#: ../src/file-manager/fm-directory-view.c:7546
+#: ../src/file-manager/fm-directory-view.c:7530
 msgid "Copy the current selection to the other pane in the window"
 msgstr "現在選択されているものをウィンドウの他のペインへコピーします"
 
-#: ../src/file-manager/fm-directory-view.c:7549
+#: ../src/file-manager/fm-directory-view.c:7533
 msgid "Move the current selection to the other pane in the window"
 msgstr "現在選択されているものをウィンドウの他のペインへ移動します"
 
 #. name, stock id, label
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7552
-#: ../src/file-manager/fm-directory-view.c:7556 ../src/caja-window-menus.c:899
+#: ../src/file-manager/fm-directory-view.c:7536
+#: ../src/file-manager/fm-directory-view.c:7540 ../src/caja-window-menus.c:891
 msgid "_Home Folder"
 msgstr "ホームフォルダー(_H)"
 
-#: ../src/file-manager/fm-directory-view.c:7553
+#: ../src/file-manager/fm-directory-view.c:7537
 msgid "Copy the current selection to the home folder"
 msgstr "現在選択されているものをホームフォルダーへコピーします"
 
-#: ../src/file-manager/fm-directory-view.c:7557
+#: ../src/file-manager/fm-directory-view.c:7541
 msgid "Move the current selection to the home folder"
 msgstr "現在選択されているものをホームフォルダーへ移動します"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7560
-#: ../src/file-manager/fm-directory-view.c:7564
+#: ../src/file-manager/fm-directory-view.c:7544
+#: ../src/file-manager/fm-directory-view.c:7548
 msgid "_Desktop"
 msgstr "デスクトップ(_D)"
 
-#: ../src/file-manager/fm-directory-view.c:7561
+#: ../src/file-manager/fm-directory-view.c:7545
 msgid "Copy the current selection to the desktop"
 msgstr "現在選択されているものをデスクトップへコピーします"
 
-#: ../src/file-manager/fm-directory-view.c:7565
+#: ../src/file-manager/fm-directory-view.c:7549
 msgid "Move the current selection to the desktop"
 msgstr "現在選択されているものをデスクトップへ移動します"
 
 #. Translators: %s is a directory
-#: ../src/file-manager/fm-directory-view.c:7645
+#: ../src/file-manager/fm-directory-view.c:7629
 #, c-format
 msgid "Run or manage scripts from %s"
 msgstr "%s にあるスクリプトの実行したり管理します"
 
 #. Create a script action here specially because its tooltip is dynamic
-#: ../src/file-manager/fm-directory-view.c:7647
+#: ../src/file-manager/fm-directory-view.c:7631
 msgid "_Scripts"
 msgstr "スクリプト(_S)"
 
-#: ../src/file-manager/fm-directory-view.c:8052
+#: ../src/file-manager/fm-directory-view.c:8036
 #, c-format
 msgid "Move the open folder out of the trash to \"%s\""
 msgstr "開いたフォルダーをゴミ箱から \"%s\" へ移動します"
 
-#: ../src/file-manager/fm-directory-view.c:8055
+#: ../src/file-manager/fm-directory-view.c:8039
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
 msgstr[0] "選択したフォルダーをゴミ箱から \"%s\" へ移動します"
 
-#: ../src/file-manager/fm-directory-view.c:8059
+#: ../src/file-manager/fm-directory-view.c:8043
 #, c-format
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
 msgstr[0] "選択したフォルダーをゴミ箱から移動します"
 
-#: ../src/file-manager/fm-directory-view.c:8065
+#: ../src/file-manager/fm-directory-view.c:8049
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
 msgstr[0] "選択したファイルをゴミ箱から \"%s\" へ移動します"
 
-#: ../src/file-manager/fm-directory-view.c:8069
+#: ../src/file-manager/fm-directory-view.c:8053
 #, c-format
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
 msgstr[0] "選択したファイルをゴミ箱から移動します"
 
-#: ../src/file-manager/fm-directory-view.c:8075
+#: ../src/file-manager/fm-directory-view.c:8059
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
 msgstr[0] "選択したアイテムをゴミ箱から \"%s\" へ移動します"
 
-#: ../src/file-manager/fm-directory-view.c:8079
+#: ../src/file-manager/fm-directory-view.c:8063
 #, c-format
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
 msgstr[0] "選択したアイテムをゴミ箱から移動します"
 
-#: ../src/file-manager/fm-directory-view.c:8205
-#: ../src/file-manager/fm-directory-view.c:8209
-#: ../src/file-manager/fm-directory-view.c:8407
-#: ../src/file-manager/fm-directory-view.c:8411
+#: ../src/file-manager/fm-directory-view.c:8189
+#: ../src/file-manager/fm-directory-view.c:8193
+#: ../src/file-manager/fm-directory-view.c:8391
+#: ../src/file-manager/fm-directory-view.c:8395
 msgid "Start the selected drive"
 msgstr "選択したドライブを起動します"
 
-#: ../src/file-manager/fm-directory-view.c:8213
-#: ../src/file-manager/fm-directory-view.c:8415
+#: ../src/file-manager/fm-directory-view.c:8197
+#: ../src/file-manager/fm-directory-view.c:8399
 msgid "Connect to the selected drive"
 msgstr "選択したドライブに接続します"
 
-#: ../src/file-manager/fm-directory-view.c:8216
-#: ../src/file-manager/fm-directory-view.c:8308
-#: ../src/file-manager/fm-directory-view.c:8418
+#: ../src/file-manager/fm-directory-view.c:8200
+#: ../src/file-manager/fm-directory-view.c:8292
+#: ../src/file-manager/fm-directory-view.c:8402
 msgid "_Start Multi-disk Drive"
 msgstr "マルチディスク・ドライブを起動(_S)"
 
-#: ../src/file-manager/fm-directory-view.c:8217
-#: ../src/file-manager/fm-directory-view.c:8419
+#: ../src/file-manager/fm-directory-view.c:8201
+#: ../src/file-manager/fm-directory-view.c:8403
 msgid "Start the selected multi-disk drive"
 msgstr "選択したマルチディスク・ドライブを起動します"
 
-#: ../src/file-manager/fm-directory-view.c:8220
+#: ../src/file-manager/fm-directory-view.c:8204
 msgid "U_nlock Drive"
 msgstr "ドライブのロック解除(_N)"
 
-#: ../src/file-manager/fm-directory-view.c:8221
-#: ../src/file-manager/fm-directory-view.c:8423
+#: ../src/file-manager/fm-directory-view.c:8205
+#: ../src/file-manager/fm-directory-view.c:8407
 msgid "Unlock the selected drive"
 msgstr "選択したドライブのロックを解除します"
 
-#: ../src/file-manager/fm-directory-view.c:8234
+#: ../src/file-manager/fm-directory-view.c:8218
 msgid "Stop the selected drive"
 msgstr "選択したドライブを停止します"
 
-#: ../src/file-manager/fm-directory-view.c:8237
-#: ../src/file-manager/fm-directory-view.c:8329
-#: ../src/file-manager/fm-directory-view.c:8439
+#: ../src/file-manager/fm-directory-view.c:8221
+#: ../src/file-manager/fm-directory-view.c:8313
+#: ../src/file-manager/fm-directory-view.c:8423
 #: ../src/caja-places-sidebar.c:1794
 msgid "_Safely Remove Drive"
 msgstr "ドライブの安全な取り出し(_S)"
 
-#: ../src/file-manager/fm-directory-view.c:8238
-#: ../src/file-manager/fm-directory-view.c:8440
+#: ../src/file-manager/fm-directory-view.c:8222
+#: ../src/file-manager/fm-directory-view.c:8424
 msgid "Safely remove the selected drive"
 msgstr "選択したドライブを安全に取り出します"
 
-#: ../src/file-manager/fm-directory-view.c:8241
-#: ../src/file-manager/fm-directory-view.c:8333
-#: ../src/file-manager/fm-directory-view.c:8443
+#: ../src/file-manager/fm-directory-view.c:8225
+#: ../src/file-manager/fm-directory-view.c:8317
+#: ../src/file-manager/fm-directory-view.c:8427
 msgid "_Disconnect"
-msgstr "切断(_D)"
+msgstr "切断する(_D)"
 
-#: ../src/file-manager/fm-directory-view.c:8242
-#: ../src/file-manager/fm-directory-view.c:8444
+#: ../src/file-manager/fm-directory-view.c:8226
+#: ../src/file-manager/fm-directory-view.c:8428
 msgid "Disconnect the selected drive"
 msgstr "選択したドライブを切断します"
 
-#: ../src/file-manager/fm-directory-view.c:8245
-#: ../src/file-manager/fm-directory-view.c:8337
-#: ../src/file-manager/fm-directory-view.c:8447
+#: ../src/file-manager/fm-directory-view.c:8229
+#: ../src/file-manager/fm-directory-view.c:8321
+#: ../src/file-manager/fm-directory-view.c:8431
 msgid "_Stop Multi-disk Drive"
 msgstr "マルチディスク・ドライブの停止(_S)"
 
-#: ../src/file-manager/fm-directory-view.c:8246
-#: ../src/file-manager/fm-directory-view.c:8448
+#: ../src/file-manager/fm-directory-view.c:8230
+#: ../src/file-manager/fm-directory-view.c:8432
 msgid "Stop the selected multi-disk drive"
 msgstr "選択したマルチディスク・ドライブを停止します"
 
-#: ../src/file-manager/fm-directory-view.c:8249
-#: ../src/file-manager/fm-directory-view.c:8341
-#: ../src/file-manager/fm-directory-view.c:8451
+#: ../src/file-manager/fm-directory-view.c:8233
+#: ../src/file-manager/fm-directory-view.c:8325
+#: ../src/file-manager/fm-directory-view.c:8435
 #: ../src/caja-places-sidebar.c:1807
 msgid "_Lock Drive"
 msgstr "ドライブのロック(_L)"
 
-#: ../src/file-manager/fm-directory-view.c:8250
-#: ../src/file-manager/fm-directory-view.c:8452
+#: ../src/file-manager/fm-directory-view.c:8234
+#: ../src/file-manager/fm-directory-view.c:8436
 msgid "Lock the selected drive"
 msgstr "選択したドライブをロックします"
 
-#: ../src/file-manager/fm-directory-view.c:8297
-#: ../src/file-manager/fm-directory-view.c:8301
+#: ../src/file-manager/fm-directory-view.c:8281
+#: ../src/file-manager/fm-directory-view.c:8285
 msgid "Start the drive associated with the open folder"
 msgstr "オープンするフォルダーに関連づけられているボリュームを起動します"
 
-#: ../src/file-manager/fm-directory-view.c:8305
+#: ../src/file-manager/fm-directory-view.c:8289
 msgid "Connect to the drive associated with the open folder"
 msgstr "オープンするフォルダーに関連づけられているドライブに接続します"
 
-#: ../src/file-manager/fm-directory-view.c:8309
+#: ../src/file-manager/fm-directory-view.c:8293
 msgid "Start the multi-disk drive associated with the open folder"
 msgstr "オープンするフォルダーに関連づけられているマルチディスク・ドライブを起動します"
 
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
-#: ../src/file-manager/fm-directory-view.c:8312
-#: ../src/file-manager/fm-directory-view.c:8422
+#: ../src/file-manager/fm-directory-view.c:8296
+#: ../src/file-manager/fm-directory-view.c:8406
 #: ../src/caja-places-sidebar.c:1806
 msgid "_Unlock Drive"
 msgstr "ドライブのロック解除(_U)"
 
-#: ../src/file-manager/fm-directory-view.c:8313
+#: ../src/file-manager/fm-directory-view.c:8297
 msgid "Unlock the drive associated with the open folder"
 msgstr "オープンするフォルダーに関連づけられているドライブのロックを解除します"
 
-#: ../src/file-manager/fm-directory-view.c:8326
+#: ../src/file-manager/fm-directory-view.c:8310
 msgid "_Stop the drive associated with the open folder"
 msgstr "オープンするフォルダーに関連づけられているドライブを停止(_S)"
 
-#: ../src/file-manager/fm-directory-view.c:8330
+#: ../src/file-manager/fm-directory-view.c:8314
 msgid "Safely remove the drive associated with the open folder"
 msgstr "オープンするフォルダーに関連づけられているドライブを安全に取り出します"
 
-#: ../src/file-manager/fm-directory-view.c:8334
+#: ../src/file-manager/fm-directory-view.c:8318
 msgid "Disconnect the drive associated with the open folder"
 msgstr "オープンするフォルダーに関連づけられているドライブを切断します"
 
-#: ../src/file-manager/fm-directory-view.c:8338
+#: ../src/file-manager/fm-directory-view.c:8322
 msgid "Stop the multi-disk drive associated with the open folder"
 msgstr "オープンするフォルダーに関連づけられているマルチディスク・ドライブを停止します"
 
-#: ../src/file-manager/fm-directory-view.c:8342
+#: ../src/file-manager/fm-directory-view.c:8326
 msgid "Lock the drive associated with the open folder"
 msgstr "オープンするフォルダーに関連づけられているドライブをロックします"
 
 #. add the "open in new window" menu item
-#: ../src/file-manager/fm-directory-view.c:8521
-#: ../src/file-manager/fm-directory-view.c:8831
+#: ../src/file-manager/fm-directory-view.c:8505
+#: ../src/file-manager/fm-directory-view.c:8815
 #: ../src/file-manager/fm-tree-view.c:1287 ../src/caja-places-sidebar.c:2671
 msgid "Open in New _Window"
-msgstr "新しいウィンドウの中に開く(_W)"
+msgstr "新しいウィンドウで開く(_W)"
 
-#: ../src/file-manager/fm-directory-view.c:8523
-#: ../src/file-manager/fm-directory-view.c:8840
+#: ../src/file-manager/fm-directory-view.c:8507
+#: ../src/file-manager/fm-directory-view.c:8824
 msgid "Browse in New _Window"
 msgstr "新しいウィンドウで表示する(_W)"
 
-#: ../src/file-manager/fm-directory-view.c:8529
-#: ../src/file-manager/fm-directory-view.c:8850
+#: ../src/file-manager/fm-directory-view.c:8513
+#: ../src/file-manager/fm-directory-view.c:8834
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
 msgstr[0] "フォルダーの表示(_B)"
 
-#: ../src/file-manager/fm-directory-view.c:8546
-#: ../src/file-manager/fm-directory-view.c:8879
+#: ../src/file-manager/fm-directory-view.c:8530
+#: ../src/file-manager/fm-directory-view.c:8863
 msgid "Browse in New _Tab"
 msgstr "新しいタブで表示する(_T)"
 
-#: ../src/file-manager/fm-directory-view.c:8595
-#: ../src/file-manager/fm-directory-view.c:8920
+#: ../src/file-manager/fm-directory-view.c:8579
+#: ../src/file-manager/fm-directory-view.c:8904
 msgid "_Delete Permanently"
 msgstr "完全に抹消する(_D)"
 
-#: ../src/file-manager/fm-directory-view.c:8596
+#: ../src/file-manager/fm-directory-view.c:8580
 msgid "Delete the open folder permanently"
 msgstr "開いたフォルダーを完全に削除します"
 
-#: ../src/file-manager/fm-directory-view.c:8600
+#: ../src/file-manager/fm-directory-view.c:8584
 msgid "Move the open folder to the Trash"
 msgstr "開いたフォルダーをゴミ箱へ移動します"
 
-#: ../src/file-manager/fm-directory-view.c:8780
+#: ../src/file-manager/fm-directory-view.c:8764
 #, c-format
 msgid "_Open With %s"
 msgstr "%sで開く(_O)"
 
-#: ../src/file-manager/fm-directory-view.c:8833
+#: ../src/file-manager/fm-directory-view.c:8817
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
-msgstr[0] "%'d個の新しいウィンドウの中に開く(_W)"
+msgstr[0] "%'d 個の新しいウィンドウの中に開く(_W)"
 
-#: ../src/file-manager/fm-directory-view.c:8842
+#: ../src/file-manager/fm-directory-view.c:8826
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
-msgstr[0] "%'d個の新しいウィンドウで表示する(_W)"
+msgstr[0] "%'d 個の新しいウィンドウで表示する(_W)"
 
-#: ../src/file-manager/fm-directory-view.c:8872
+#: ../src/file-manager/fm-directory-view.c:8856
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
-msgstr[0] "%'d個の新しいタブの中に開く(_T)"
+msgstr[0] "%'d 個の新しいタブの中に開く(_T)"
 
-#: ../src/file-manager/fm-directory-view.c:8881
+#: ../src/file-manager/fm-directory-view.c:8865
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
-msgstr[0] "%'d個の新しいタブで表示する(_T)"
+msgstr[0] "%'d 個の新しいタブで表示する(_T)"
 
-#: ../src/file-manager/fm-directory-view.c:8921
+#: ../src/file-manager/fm-directory-view.c:8905
 msgid "Delete all selected items permanently"
 msgstr "選択したすべてのアイテムを完全に削除します"
 
-#: ../src/file-manager/fm-directory-view.c:8978
+#: ../src/file-manager/fm-directory-view.c:8962
 msgid "View or modify the properties of the open folder"
 msgstr "開いたフォルダーのプロパティを表示または変更します"
 
-#: ../src/file-manager/fm-directory-view.c:10281
+#: ../src/file-manager/fm-directory-view.c:10265
 msgid "Download location?"
 msgstr "場所をダウンロードしますか?"
 
-#: ../src/file-manager/fm-directory-view.c:10284
+#: ../src/file-manager/fm-directory-view.c:10268
 msgid "You can download it or make a link to it."
 msgstr "そのまま、あるいは、その場所のリンクをダウンロードできます。"
 
-#: ../src/file-manager/fm-directory-view.c:10287
+#: ../src/file-manager/fm-directory-view.c:10271
 msgid "Make a _Link"
 msgstr "リンクを作成する(_L)"
 
-#: ../src/file-manager/fm-directory-view.c:10291
+#: ../src/file-manager/fm-directory-view.c:10275
 msgid "_Download"
-msgstr "ダウンロードする(_D)"
+msgstr "ダウンロード(_D)"
 
-#: ../src/file-manager/fm-directory-view.c:10452
-#: ../src/file-manager/fm-directory-view.c:10511
-#: ../src/file-manager/fm-directory-view.c:10616
+#: ../src/file-manager/fm-directory-view.c:10436
+#: ../src/file-manager/fm-directory-view.c:10495
+#: ../src/file-manager/fm-directory-view.c:10600
 msgid "Drag and drop is not supported."
 msgstr "ドラッグ&ドロップはサポートしていません。"
 
-#: ../src/file-manager/fm-directory-view.c:10453
+#: ../src/file-manager/fm-directory-view.c:10437
 msgid "Drag and drop is only supported on local file systems."
 msgstr "ドラッグ&ドロップはローカルのファイルシステムでのみサポートしています。"
 
-#: ../src/file-manager/fm-directory-view.c:10512
-#: ../src/file-manager/fm-directory-view.c:10617
+#: ../src/file-manager/fm-directory-view.c:10496
+#: ../src/file-manager/fm-directory-view.c:10601
 msgid "An invalid drag type was used."
 msgstr "使用したドラッグの種類は無効です。"
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10694
+#: ../src/file-manager/fm-directory-view.c:10678
 msgid "dropped text.txt"
 msgstr "ドロップしたテキスト.txt"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10739
+#: ../src/file-manager/fm-directory-view.c:10723
 msgid "dropped data"
 msgstr "ドロップしたデータ"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11128
+#: ../src/file-manager/fm-directory-view.c:11112
 msgid "Undo"
 msgstr "元に戻す"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11146
+#: ../src/file-manager/fm-directory-view.c:11130
 msgid "Redo"
 msgstr "繰返す"
 
-#: ../src/file-manager/fm-ditem-page.c:437
-#: ../src/file-manager/fm-ditem-page.c:449
+#: ../src/file-manager/fm-ditem-page.c:433
+#: ../src/file-manager/fm-ditem-page.c:445
 msgid "Comment"
 msgstr "コメント"
 
-#: ../src/file-manager/fm-ditem-page.c:440
+#: ../src/file-manager/fm-ditem-page.c:436
 msgid "URL"
 msgstr "URL"
 
-#: ../src/file-manager/fm-ditem-page.c:443
-#: ../src/file-manager/fm-ditem-page.c:455
-#: ../src/caja-image-properties-page.c:370
+#: ../src/file-manager/fm-ditem-page.c:439
+#: ../src/file-manager/fm-ditem-page.c:451
+#: ../src/caja-image-properties-page.c:366
 msgid "Description"
 msgstr "説明"
 
-#: ../src/file-manager/fm-ditem-page.c:452
+#: ../src/file-manager/fm-ditem-page.c:448
 msgid "Command"
 msgstr "コマンド"
 
@@ -4878,11 +4963,11 @@ msgstr "アイコンをサイズ順で並び替えます"
 
 #: ../src/file-manager/fm-icon-view.c:142
 msgid "by Size on Disk"
-msgstr ""
+msgstr "ディスク上のサイズ順"
 
 #: ../src/file-manager/fm-icon-view.c:143
 msgid "Keep icons sorted by disk usage in rows"
-msgstr ""
+msgstr "アイコンをディスク使用量順に並び替えます"
 
 #: ../src/file-manager/fm-icon-view.c:149
 msgid "by _Type"
@@ -5091,7 +5176,7 @@ msgstr "読み込み中..."
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: ../src/file-manager/fm-list-view.c:1837
-#: ../src/file-manager/fm-list-view.c:3454
+#: ../src/file-manager/fm-list-view.c:3450
 #: ../src/caja-file-management-properties.ui.h:2
 msgid "List View"
 msgstr "一覧表示"
@@ -5107,29 +5192,29 @@ msgstr "このフォルダーで表示する項目の順番を選択してくだ
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-list-view.c:2608
+#: ../src/file-manager/fm-list-view.c:2604
 msgid "Visible _Columns..."
 msgstr "表示する項目(_C)..."
 
 #. tooltip
-#: ../src/file-manager/fm-list-view.c:2609
+#: ../src/file-manager/fm-list-view.c:2605
 msgid "Select the columns visible in this folder"
 msgstr "このフォルダーで表示する項目を選択してください"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-list-view.c:3456
+#: ../src/file-manager/fm-list-view.c:3452
 msgid "_List"
 msgstr "一覧(_L)"
 
-#: ../src/file-manager/fm-list-view.c:3457
+#: ../src/file-manager/fm-list-view.c:3453
 msgid "The list view encountered an error."
 msgstr "一覧表示でエラーが発生しました。"
 
-#: ../src/file-manager/fm-list-view.c:3458
+#: ../src/file-manager/fm-list-view.c:3454
 msgid "The list view encountered an error while starting up."
 msgstr "起動する際に一覧表示でエラーが発生しました。"
 
-#: ../src/file-manager/fm-list-view.c:3459
+#: ../src/file-manager/fm-list-view.c:3455
 msgid "Display this location with the list view."
 msgstr "この場所を一覧表示で表示します"
 
@@ -5179,29 +5264,29 @@ msgctxt "MIME type description (MIME type)"
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-properties-window.c:1540
+#: ../src/file-manager/fm-properties-window.c:1536
 msgid "Cancel Group Change?"
 msgstr "グループの変更をキャンセルしますか?"
 
-#: ../src/file-manager/fm-properties-window.c:1950
+#: ../src/file-manager/fm-properties-window.c:1946
 msgid "Cancel Owner Change?"
 msgstr "所有者の変更をキャンセルしますか?"
 
-#: ../src/file-manager/fm-properties-window.c:2274
+#: ../src/file-manager/fm-properties-window.c:2270
 msgid "nothing"
 msgstr "何もありません"
 
-#: ../src/file-manager/fm-properties-window.c:2276
+#: ../src/file-manager/fm-properties-window.c:2272
 msgid "unreadable"
 msgstr "読み込み不可"
 
-#: ../src/file-manager/fm-properties-window.c:2295
+#: ../src/file-manager/fm-properties-window.c:2291
 #, c-format
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
-msgstr[0] ""
+msgstr[0] "%'d個のアイテム、サイズは %s (ディスク上のサイズは %s) "
 
-#: ../src/file-manager/fm-properties-window.c:2305
+#: ../src/file-manager/fm-properties-window.c:2301
 msgid "(some contents unreadable)"
 msgstr "(いくつかのファイルは読み込み不可です)"
 
@@ -5210,243 +5295,243 @@ msgstr "(いくつかのファイルは読み込み不可です)"
 #. * "Contents:" title to line up with the first line of the
 #. * 2-line value. Maybe there's a better way to do this, but I
 #. * couldn't think of one.
-#: ../src/file-manager/fm-properties-window.c:2322
+#: ../src/file-manager/fm-properties-window.c:2318
 msgid "Contents:"
 msgstr "内容:"
 
 #. Translators: "used" refers to the capacity of the filesystem
-#: ../src/file-manager/fm-properties-window.c:3098
+#: ../src/file-manager/fm-properties-window.c:3094
 msgid "used"
 msgstr "使用中"
 
 #. Translators: "free" refers to the capacity of the filesystem
-#: ../src/file-manager/fm-properties-window.c:3107
+#: ../src/file-manager/fm-properties-window.c:3103
 msgid "free"
 msgstr "空き"
 
-#: ../src/file-manager/fm-properties-window.c:3109
+#: ../src/file-manager/fm-properties-window.c:3105
 msgid "Total capacity:"
 msgstr "合計:"
 
-#: ../src/file-manager/fm-properties-window.c:3118
+#: ../src/file-manager/fm-properties-window.c:3114
 msgid "Filesystem type:"
 msgstr "ファイルシステムの種類:"
 
-#: ../src/file-manager/fm-properties-window.c:3204
+#: ../src/file-manager/fm-properties-window.c:3200
 msgid "Basic"
 msgstr "基本"
 
-#: ../src/file-manager/fm-properties-window.c:3266
+#: ../src/file-manager/fm-properties-window.c:3262
 msgid "Link target:"
 msgstr "リンク先:"
 
-#: ../src/file-manager/fm-properties-window.c:3280
+#: ../src/file-manager/fm-properties-window.c:3276
 msgid "Size on Disk:"
-msgstr ""
+msgstr "ディスク上のサイズ:"
 
-#: ../src/file-manager/fm-properties-window.c:3289
+#: ../src/file-manager/fm-properties-window.c:3285
 #: ../src/caja-location-bar.c:57
 msgid "Location:"
 msgstr "場所:"
 
-#: ../src/file-manager/fm-properties-window.c:3295
+#: ../src/file-manager/fm-properties-window.c:3291
 msgid "Volume:"
 msgstr "ボリューム:"
 
-#: ../src/file-manager/fm-properties-window.c:3304
+#: ../src/file-manager/fm-properties-window.c:3300
 msgid "Accessed:"
 msgstr "アクセス日時:"
 
-#: ../src/file-manager/fm-properties-window.c:3308
+#: ../src/file-manager/fm-properties-window.c:3304
 msgid "Modified:"
-msgstr "修正日時:"
+msgstr "変更日時:"
 
-#: ../src/file-manager/fm-properties-window.c:3317
+#: ../src/file-manager/fm-properties-window.c:3313
 msgid "Free space:"
 msgstr "空き容量:"
 
-#: ../src/file-manager/fm-properties-window.c:3431
+#: ../src/file-manager/fm-properties-window.c:3427
 #: ../src/caja-emblem-sidebar.c:1085
 msgid "Emblems"
 msgstr "エンブレム"
 
-#: ../src/file-manager/fm-properties-window.c:3840
+#: ../src/file-manager/fm-properties-window.c:3836
 msgid "_Read"
 msgstr "読み込み(_R)"
 
-#: ../src/file-manager/fm-properties-window.c:3842
+#: ../src/file-manager/fm-properties-window.c:3838
 msgid "_Write"
 msgstr "書き込み(_W)"
 
-#: ../src/file-manager/fm-properties-window.c:3844
+#: ../src/file-manager/fm-properties-window.c:3840
 msgid "E_xecute"
 msgstr "実行(_X)"
 
 #. translators: this gets concatenated to "no read",
 #. * "no access", etc. (see following strings)
-#: ../src/file-manager/fm-properties-window.c:4112
-#: ../src/file-manager/fm-properties-window.c:4123
-#: ../src/file-manager/fm-properties-window.c:4135
+#: ../src/file-manager/fm-properties-window.c:4108
+#: ../src/file-manager/fm-properties-window.c:4119
+#: ../src/file-manager/fm-properties-window.c:4131
 msgid "no "
 msgstr "無し: "
 
-#: ../src/file-manager/fm-properties-window.c:4115
+#: ../src/file-manager/fm-properties-window.c:4111
 msgid "list"
 msgstr "一覧"
 
-#: ../src/file-manager/fm-properties-window.c:4117
+#: ../src/file-manager/fm-properties-window.c:4113
 msgid "read"
 msgstr "読み込み"
 
-#: ../src/file-manager/fm-properties-window.c:4126
+#: ../src/file-manager/fm-properties-window.c:4122
 msgid "create/delete"
 msgstr "作成/削除"
 
-#: ../src/file-manager/fm-properties-window.c:4128
+#: ../src/file-manager/fm-properties-window.c:4124
 msgid "write"
 msgstr "書き込み"
 
-#: ../src/file-manager/fm-properties-window.c:4137
+#: ../src/file-manager/fm-properties-window.c:4133
 msgid "access"
 msgstr "アクセス"
 
-#: ../src/file-manager/fm-properties-window.c:4185
+#: ../src/file-manager/fm-properties-window.c:4181
 msgid "Access:"
 msgstr "アクセス:"
 
-#: ../src/file-manager/fm-properties-window.c:4187
+#: ../src/file-manager/fm-properties-window.c:4183
 msgid "Folder access:"
 msgstr "フォルダーのアクセス権:"
 
-#: ../src/file-manager/fm-properties-window.c:4189
+#: ../src/file-manager/fm-properties-window.c:4185
 msgid "File access:"
 msgstr "ファイルのアクセス権:"
 
 #. Translators: this is referred to the permissions
 #. * the user has in a directory.
 #. Translators: this is referred to captions under icons.
-#: ../src/file-manager/fm-properties-window.c:4204
-#: ../src/file-manager/fm-properties-window.c:4215
-#: ../src/caja-file-management-properties.c:335
+#: ../src/file-manager/fm-properties-window.c:4200
+#: ../src/file-manager/fm-properties-window.c:4211
+#: ../src/caja-file-management-properties.c:329
 msgid "None"
 msgstr "なし"
 
-#: ../src/file-manager/fm-properties-window.c:4207
+#: ../src/file-manager/fm-properties-window.c:4203
 msgid "List files only"
 msgstr "表示のみ"
 
-#: ../src/file-manager/fm-properties-window.c:4209
+#: ../src/file-manager/fm-properties-window.c:4205
 msgid "Access files"
 msgstr "アクセスのみ"
 
-#: ../src/file-manager/fm-properties-window.c:4211
+#: ../src/file-manager/fm-properties-window.c:4207
 msgid "Create and delete files"
 msgstr "作成と削除"
 
-#: ../src/file-manager/fm-properties-window.c:4218
+#: ../src/file-manager/fm-properties-window.c:4214
 msgid "Read-only"
 msgstr "読み込み専用"
 
-#: ../src/file-manager/fm-properties-window.c:4220
+#: ../src/file-manager/fm-properties-window.c:4216
 msgid "Read and write"
 msgstr "読み書き"
 
-#: ../src/file-manager/fm-properties-window.c:4285
+#: ../src/file-manager/fm-properties-window.c:4281
 msgid "Special flags:"
 msgstr "特別なフラグ:"
 
-#: ../src/file-manager/fm-properties-window.c:4287
+#: ../src/file-manager/fm-properties-window.c:4283
 msgid "Set _user ID"
 msgstr "ユーザー ID をセットする(_U)"
 
-#: ../src/file-manager/fm-properties-window.c:4288
+#: ../src/file-manager/fm-properties-window.c:4284
 msgid "Set gro_up ID"
 msgstr "グループ ID をセットする(_U)"
 
-#: ../src/file-manager/fm-properties-window.c:4289
+#: ../src/file-manager/fm-properties-window.c:4285
 msgid "_Sticky"
 msgstr "Sticky ビットを立てる(_S)"
 
-#: ../src/file-manager/fm-properties-window.c:4364
-#: ../src/file-manager/fm-properties-window.c:4555
+#: ../src/file-manager/fm-properties-window.c:4360
+#: ../src/file-manager/fm-properties-window.c:4551
 msgid "_Owner:"
 msgstr "所有者(_O):"
 
-#: ../src/file-manager/fm-properties-window.c:4372
-#: ../src/file-manager/fm-properties-window.c:4460
-#: ../src/file-manager/fm-properties-window.c:4564
+#: ../src/file-manager/fm-properties-window.c:4368
+#: ../src/file-manager/fm-properties-window.c:4456
+#: ../src/file-manager/fm-properties-window.c:4560
 msgid "Owner:"
 msgstr "所有者:"
 
-#: ../src/file-manager/fm-properties-window.c:4394
-#: ../src/file-manager/fm-properties-window.c:4577
+#: ../src/file-manager/fm-properties-window.c:4390
+#: ../src/file-manager/fm-properties-window.c:4573
 msgid "_Group:"
 msgstr "グループ(_G):"
 
-#: ../src/file-manager/fm-properties-window.c:4402
-#: ../src/file-manager/fm-properties-window.c:4461
-#: ../src/file-manager/fm-properties-window.c:4585
+#: ../src/file-manager/fm-properties-window.c:4398
+#: ../src/file-manager/fm-properties-window.c:4457
+#: ../src/file-manager/fm-properties-window.c:4581
 msgid "Group:"
 msgstr "グループ:"
 
-#: ../src/file-manager/fm-properties-window.c:4426
+#: ../src/file-manager/fm-properties-window.c:4422
 msgid "Others"
 msgstr "その他"
 
-#: ../src/file-manager/fm-properties-window.c:4441
+#: ../src/file-manager/fm-properties-window.c:4437
 msgid "Execute:"
 msgstr "実行:"
 
-#: ../src/file-manager/fm-properties-window.c:4444
+#: ../src/file-manager/fm-properties-window.c:4440
 msgid "Allow _executing file as program"
 msgstr "プログラムとして実行できる(_E)"
 
-#: ../src/file-manager/fm-properties-window.c:4462
+#: ../src/file-manager/fm-properties-window.c:4458
 msgid "Others:"
 msgstr "その他:"
 
-#: ../src/file-manager/fm-properties-window.c:4601
+#: ../src/file-manager/fm-properties-window.c:4597
 msgid "Folder Permissions:"
 msgstr "フォルダーのアクセス権:"
 
-#: ../src/file-manager/fm-properties-window.c:4608
+#: ../src/file-manager/fm-properties-window.c:4604
 msgid "File Permissions:"
 msgstr "ファイルのアクセス権:"
 
-#: ../src/file-manager/fm-properties-window.c:4617
+#: ../src/file-manager/fm-properties-window.c:4613
 msgid "Text view:"
 msgstr "文字形式:"
 
-#: ../src/file-manager/fm-properties-window.c:4763
+#: ../src/file-manager/fm-properties-window.c:4759
 msgid "You are not the owner, so you cannot change these permissions."
 msgstr "あなたは所有者ではありません (これらのアクセス権を変更することはできません)。"
 
-#: ../src/file-manager/fm-properties-window.c:4783
+#: ../src/file-manager/fm-properties-window.c:4779
 msgid "SELinux context:"
 msgstr "SELinux のコンテキスト:"
 
-#: ../src/file-manager/fm-properties-window.c:4788
+#: ../src/file-manager/fm-properties-window.c:4784
 msgid "Last changed:"
 msgstr "前回の変更:"
 
-#: ../src/file-manager/fm-properties-window.c:4799
+#: ../src/file-manager/fm-properties-window.c:4795
 msgid "Apply Permissions to Enclosed Files"
 msgstr "これらの権限をフォルダー内のすべてのファイルに適用する"
 
-#: ../src/file-manager/fm-properties-window.c:4809
+#: ../src/file-manager/fm-properties-window.c:4805
 #, c-format
 msgid "The permissions of \"%s\" could not be determined."
 msgstr "\"%s\" のアクセス権を確定できませんでした。"
 
-#: ../src/file-manager/fm-properties-window.c:4812
+#: ../src/file-manager/fm-properties-window.c:4808
 msgid "The permissions of the selected file could not be determined."
 msgstr "指定したファイルのアクセス権を決定できませんでした。"
 
-#: ../src/file-manager/fm-properties-window.c:5386
+#: ../src/file-manager/fm-properties-window.c:5382
 msgid "Creating Properties window."
 msgstr "プロパティウィンドウを生成しています"
 
-#: ../src/file-manager/fm-properties-window.c:5682
+#: ../src/file-manager/fm-properties-window.c:5671
 msgid "Select Custom Icon"
 msgstr "アイコンの選択"
 
@@ -5454,11 +5539,11 @@ msgstr "アイコンの選択"
 msgid "File System"
 msgstr "ファイルシステム"
 
-#: ../src/file-manager/fm-tree-view.c:1729
+#: ../src/file-manager/fm-tree-view.c:1727
 msgid "Tree"
 msgstr "ツリー"
 
-#: ../src/file-manager/fm-tree-view.c:1735
+#: ../src/file-manager/fm-tree-view.c:1733
 msgid "Show Tree"
 msgstr "ツリーの表示"
 
@@ -5482,7 +5567,8 @@ msgstr "Caja は必要なフォルダーを生成できませんでした: %s"
 msgid ""
 "Before running Caja, please create these folders, or set permissions such "
 "that Caja can create them."
-msgstr "Caja を起動する前にこれらのフォルダーを作成するか、Caja がそれらのフォルダーを作成できるように適切なパーミッションを設定してください。"
+msgstr ""
+"Caja を起動する前にこれらのフォルダーを作成するか、Caja がそれらのフォルダーを作成できるように適切なパーミッションを設定してください。"
 
 #: ../src/caja-application.c:1264 ../src/caja-places-sidebar.c:2191
 #: ../src/caja-places-sidebar.c:2222 ../src/caja-places-sidebar.c:2257
@@ -5492,15 +5578,15 @@ msgstr "%s を取り出せません"
 
 #: ../src/caja-application.c:1937
 msgid "--check cannot be used with other options."
-msgstr ""
+msgstr "--check オプションには他のオプションを指定できません。"
 
 #: ../src/caja-application.c:1943
 msgid "--quit cannot be used with URIs."
-msgstr ""
+msgstr "%s オプションには URI を指定できません。"
 
 #: ../src/caja-application.c:1950
 msgid "--geometry cannot be used with more than one URI."
-msgstr ""
+msgstr "--geometry オプションには複数の URI を指定できません。"
 
 #: ../src/caja-application.c:2013
 msgid "Perform a quick set of self-check tests."
@@ -5532,7 +5618,7 @@ msgstr "デスクトップを管理しない (設定ダイアログの設定を�
 msgid ""
 "Manage the desktop regardless of set preferences or environment (on new "
 "startup only)"
-msgstr ""
+msgstr "設定や環境に関係なくデスクトップを管理する (新しい起動時のみ)"
 
 #: ../src/caja-application.c:2026
 msgid "Open a browser window."
@@ -5551,7 +5637,10 @@ msgid ""
 "\n"
 "\n"
 "Browse the file system with the file manager"
-msgstr "\n\nファイルマネージャを使ってファイルシステムを閲覧します"
+msgstr ""
+"\n"
+"\n"
+"ファイルマネージャを使ってファイルシステムを閲覧します"
 
 #: ../src/caja-autorun-software.c:164 ../src/caja-autorun-software.c:167
 #, c-format
@@ -5579,18 +5668,23 @@ msgid ""
 "The software will run directly from the medium \"%s\". You should never run software that you don't trust.\n"
 "\n"
 "If in doubt, press Cancel."
-msgstr "\"%s\" というメディアからソフトウェアをそのまま実行します。ソフトウェアが信用できない場合は絶対に実行しないでください。\n\n信用できない場合はキャンセルを選択してください。"
+msgstr ""
+"\"%s\" というメディアからソフトウェアをそのまま実行します。ソフトウェアが信用できない場合は絶対に実行しないでください。\n"
+"\n"
+"信用できない場合はキャンセルを選択してください。"
 
-#: ../src/caja-bookmarks-window.c:164
-#: ../src/caja-file-management-properties.c:242
-#: ../src/caja-property-browser.c:1677 ../src/caja-window-menus.c:598
+#: ../src/caja-bookmarks-window.c:158
+#: ../src/caja-file-management-properties.c:236
+#: ../src/caja-property-browser.c:1661 ../src/caja-window-menus.c:590
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
 "%s"
-msgstr "ヘルプを表示する際にエラーが発生しました: \n%s"
+msgstr ""
+"ヘルプを表示する際にエラーが発生しました: \n"
+"%s"
 
-#: ../src/caja-bookmarks-window.c:200
+#: ../src/caja-bookmarks-window.c:194
 msgid "No bookmarks defined"
 msgstr "ブックマークは定義されていません"
 
@@ -5617,7 +5711,10 @@ msgid ""
 "\n"
 "\n"
 "Add connect to server mount"
-msgstr "\n\nサーバ・アプリへの接続を追加する"
+msgstr ""
+"\n"
+"\n"
+"サーバ・アプリへの接続を追加する"
 
 #: ../src/caja-connect-server-dialog.c:135
 msgid "SSH"
@@ -5625,11 +5722,11 @@ msgstr "SSH"
 
 #: ../src/caja-connect-server-dialog.c:138
 msgid "Public FTP"
-msgstr "パブリックな FTP"
+msgstr "公開 FTP"
 
 #: ../src/caja-connect-server-dialog.c:140
 msgid "FTP (with login)"
-msgstr "FTP (要ログイン)"
+msgstr "FTP (ログイン有り)"
 
 #: ../src/caja-connect-server-dialog.c:143
 msgid "Windows share"
@@ -5641,7 +5738,7 @@ msgstr "WebDAV (HTTP)"
 
 #: ../src/caja-connect-server-dialog.c:147
 msgid "Secure WebDAV (HTTPS)"
-msgstr "セキュアな WebDAV (HTTPS)"
+msgstr "セキュア WebDAV (HTTPS)"
 
 #: ../src/caja-connect-server-dialog.c:150
 msgid "Apple Filing Protocol (AFP)"
@@ -5655,7 +5752,9 @@ msgstr "接続中..."
 msgid ""
 "Can't load the supported server method list.\n"
 "Please check your GVfs installation."
-msgstr "サーバのサポートしているメソッド一覧を読み出せませんでした。\nGVfsがインストールされているか確認してください。"
+msgstr ""
+"サーバのサポートしているメソッド一覧を読み出せませんでした。\n"
+"GVfsがインストールされているか確認してください。"
 
 #: ../src/caja-connect-server-dialog.c:298
 #, c-format
@@ -5679,74 +5778,74 @@ msgstr "ユーザーの詳細を確認してください。"
 msgid "Continue"
 msgstr "続行"
 
-#: ../src/caja-connect-server-dialog.c:742
-#: ../src/caja-connect-server-dialog.c:1171
+#: ../src/caja-connect-server-dialog.c:736
+#: ../src/caja-connect-server-dialog.c:1125
 msgid "C_onnect"
 msgstr "接続する(_O)"
 
 #. set dialog properties
-#: ../src/caja-connect-server-dialog.c:866
+#: ../src/caja-connect-server-dialog.c:860
 msgid "Connect to Server"
 msgstr "サーバへの接続"
 
-#: ../src/caja-connect-server-dialog.c:880
+#: ../src/caja-connect-server-dialog.c:874
 msgid "Server Details"
 msgstr "サーバーの詳細"
 
 #. first row: server entry + port spinbutton
-#: ../src/caja-connect-server-dialog.c:904
+#: ../src/caja-connect-server-dialog.c:894
 msgid "_Server:"
-msgstr "サーバ名(_S):"
+msgstr "サーバ(_S):"
 
 #. port
-#: ../src/caja-connect-server-dialog.c:926
+#: ../src/caja-connect-server-dialog.c:912
 msgid "_Port:"
-msgstr "ポート番号(_P):"
+msgstr "ポート(_P):"
 
 #. third row: share entry
-#: ../src/caja-connect-server-dialog.c:1025
+#: ../src/caja-connect-server-dialog.c:1003
 msgid "Share:"
 msgstr "共有:"
 
 #. fourth row: folder entry
-#: ../src/caja-connect-server-dialog.c:1041
+#: ../src/caja-connect-server-dialog.c:1015
 msgid "Folder:"
 msgstr "フォルダー:"
 
-#: ../src/caja-connect-server-dialog.c:1058
+#: ../src/caja-connect-server-dialog.c:1028
 msgid "User Details"
 msgstr "ユーザーの詳細"
 
 #. first row: domain entry
-#: ../src/caja-connect-server-dialog.c:1082
+#: ../src/caja-connect-server-dialog.c:1048
 msgid "Domain Name:"
 msgstr "ドメイン名:"
 
 #. second row: username entry
-#: ../src/caja-connect-server-dialog.c:1098
+#: ../src/caja-connect-server-dialog.c:1060
 msgid "User Name:"
 msgstr "ユーザー名:"
 
 #. third row: password entry
-#: ../src/caja-connect-server-dialog.c:1114
+#: ../src/caja-connect-server-dialog.c:1072
 msgid "Password:"
 msgstr "パスワード:"
 
 #. fourth row: remember checkbox
-#: ../src/caja-connect-server-dialog.c:1131
+#: ../src/caja-connect-server-dialog.c:1085
 msgid "Remember this password"
 msgstr "このパスワードを記憶させる"
 
-#: ../src/caja-connect-server-dialog.c:1142
+#: ../src/caja-connect-server-dialog.c:1096
 msgid "Add _bookmark"
 msgstr "ブックマークを追加(_B)"
 
-#: ../src/caja-connect-server-dialog.c:1149
+#: ../src/caja-connect-server-dialog.c:1103
 msgid "Bookmark Name:"
 msgstr "ブックマーク名:"
 
-#: ../src/caja-desktop-window.c:87 ../src/caja-desktop-window.c:267
-#: ../src/caja-pathbar.c:1403 ../src/caja-places-sidebar.c:519
+#: ../src/caja-desktop-window.c:87 ../src/caja-desktop-window.c:264
+#: ../src/caja-pathbar.c:1399 ../src/caja-places-sidebar.c:519
 msgid "Desktop"
 msgstr "デスクトップ"
 
@@ -5823,7 +5922,7 @@ msgstr "エンブレムを追加できません。"
 msgid "Show Emblems"
 msgstr "エンブレムの表示"
 
-#: ../src/caja-file-management-properties.c:638
+#: ../src/caja-file-management-properties.c:632
 msgid "About Extension"
 msgstr "拡張について"
 
@@ -5837,7 +5936,7 @@ msgstr "ローカルファイルのみ"
 
 #: ../src/caja-file-management-properties.ui.h:6
 msgid "Never"
-msgstr "しない"
+msgstr "確認しない"
 
 #: ../src/caja-file-management-properties.ui.h:7
 msgid "By Name"
@@ -6098,7 +6197,7 @@ msgstr "ファイルサイズをIEC単位系で表示する(_S)"
 
 #: ../src/caja-file-management-properties.ui.h:76
 msgid "Display"
-msgstr "アイテム"
+msgstr "表示"
 
 #: ../src/caja-file-management-properties.ui.h:77
 msgid "<b>List Columns</b>"
@@ -6195,7 +6294,7 @@ msgstr "アクション(_O):"
 
 #: ../src/caja-file-management-properties.ui.h:100
 msgid "_Type:"
-msgstr "種類(_T):"
+msgstr "キーの型(_T):"
 
 #: ../src/caja-file-management-properties.ui.h:101
 msgid "_Never prompt or start programs on media insertion"
@@ -6233,104 +6332,104 @@ msgstr "拡張の設定(_O)"
 msgid "Extensions"
 msgstr "拡張"
 
-#: ../src/caja-history-sidebar.c:338
+#: ../src/caja-history-sidebar.c:337
 msgid "History"
-msgstr "履歴"
+msgstr "コマンドの履歴です"
 
-#: ../src/caja-history-sidebar.c:344
+#: ../src/caja-history-sidebar.c:343
 msgid "Show History"
 msgstr "履歴の表示"
 
-#: ../src/caja-image-properties-page.c:280
+#: ../src/caja-image-properties-page.c:276
 msgid "Camera Brand"
 msgstr "カメラのブランド"
 
-#: ../src/caja-image-properties-page.c:281
+#: ../src/caja-image-properties-page.c:277
 msgid "Camera Model"
 msgstr "カメラのモデル"
 
 #. Choose which date to show in order of relevance
-#: ../src/caja-image-properties-page.c:284
+#: ../src/caja-image-properties-page.c:280
 msgid "Date Taken"
 msgstr "撮影日時"
 
-#: ../src/caja-image-properties-page.c:286
+#: ../src/caja-image-properties-page.c:282
 msgid "Date Digitized"
 msgstr "保存日時"
 
-#: ../src/caja-image-properties-page.c:292
+#: ../src/caja-image-properties-page.c:288
 msgid "Exposure Time"
 msgstr "露出時間"
 
-#: ../src/caja-image-properties-page.c:293
+#: ../src/caja-image-properties-page.c:289
 msgid "Aperture Value"
 msgstr "口径"
 
-#: ../src/caja-image-properties-page.c:294
+#: ../src/caja-image-properties-page.c:290
 msgid "ISO Speed Rating"
 msgstr "ISO スピード率"
 
-#: ../src/caja-image-properties-page.c:295
+#: ../src/caja-image-properties-page.c:291
 msgid "Flash Fired"
 msgstr "フラッシュあり"
 
-#: ../src/caja-image-properties-page.c:296
+#: ../src/caja-image-properties-page.c:292
 msgid "Metering Mode"
 msgstr "測量モード"
 
-#: ../src/caja-image-properties-page.c:297
+#: ../src/caja-image-properties-page.c:293
 msgid "Exposure Program"
 msgstr "露出プログラム"
 
-#: ../src/caja-image-properties-page.c:298
+#: ../src/caja-image-properties-page.c:294
 msgid "Focal Length"
 msgstr "焦点距離"
 
-#: ../src/caja-image-properties-page.c:299
+#: ../src/caja-image-properties-page.c:295
 msgid "Software"
 msgstr "ソフトウェア"
 
-#: ../src/caja-image-properties-page.c:371
+#: ../src/caja-image-properties-page.c:367
 msgid "Keywords"
 msgstr "キーワード"
 
-#: ../src/caja-image-properties-page.c:372
+#: ../src/caja-image-properties-page.c:368
 msgid "Creator"
 msgstr "作成者"
 
-#: ../src/caja-image-properties-page.c:373
+#: ../src/caja-image-properties-page.c:369
 msgid "Copyright"
 msgstr "著作権"
 
-#: ../src/caja-image-properties-page.c:374
+#: ../src/caja-image-properties-page.c:370
 msgid "Rating"
 msgstr "評価"
 
-#: ../src/caja-image-properties-page.c:405
+#: ../src/caja-image-properties-page.c:401
 msgid "Image Type:"
 msgstr "画像の種類:"
 
-#: ../src/caja-image-properties-page.c:408
+#: ../src/caja-image-properties-page.c:404
 #, c-format
 msgid "<b>Width:</b> %d pixel"
 msgid_plural "<b>Width:</b> %d pixels"
 msgstr[0] "<b>幅:</b> %dピクセル"
 
-#: ../src/caja-image-properties-page.c:414
+#: ../src/caja-image-properties-page.c:410
 #, c-format
 msgid "<b>Height:</b> %d pixel"
 msgid_plural "<b>Height:</b> %d pixels"
 msgstr[0] "<b>高さ:</b> %dピクセル"
 
-#: ../src/caja-image-properties-page.c:433
+#: ../src/caja-image-properties-page.c:429
 msgid "Failed to load image information"
 msgstr "画像情報の読み込みに失敗しました"
 
-#: ../src/caja-image-properties-page.c:661
+#: ../src/caja-image-properties-page.c:657
 msgid "loading..."
 msgstr "読み込み中..."
 
-#: ../src/caja-image-properties-page.c:715
+#: ../src/caja-image-properties-page.c:711
 msgid "Image"
 msgstr "画像"
 
@@ -6365,11 +6464,11 @@ msgid "Do you want to view %d location?"
 msgid_plural "Do you want to view %d locations?"
 msgstr[0] " %d個の場所を表示しますか?"
 
-#: ../src/caja-location-dialog.c:163
+#: ../src/caja-location-dialog.c:157
 msgid "Open Location"
 msgstr "場所を開く"
 
-#: ../src/caja-location-dialog.c:173
+#: ../src/caja-location-dialog.c:167
 msgid "_Location:"
 msgstr "場所(_L):"
 
@@ -6389,7 +6488,7 @@ msgstr "履歴にある場所が存在しません。"
 #. name, stock id, label
 #: ../src/caja-navigation-window-menus.c:824
 msgid "_Go"
-msgstr "移動(_G)"
+msgstr "ジャンプ(_G)"
 
 #. name, stock id, label
 #: ../src/caja-navigation-window-menus.c:825
@@ -6476,7 +6575,7 @@ msgstr "エクストラペインで同じ場所に移動"
 #. name, stock id, label
 #: ../src/caja-navigation-window-menus.c:859 ../src/caja-spatial-window.c:956
 msgid "_Add Bookmark"
-msgstr "ブックマークの追加(_A)"
+msgstr "ブックマークに追加(_A)"
 
 #: ../src/caja-navigation-window-menus.c:860 ../src/caja-spatial-window.c:957
 msgid "Add a bookmark for the current location to this menu"
@@ -6606,7 +6705,7 @@ msgstr "戻る(_B)"
 
 #: ../src/caja-navigation-window-menus.c:958
 msgid "Go to the previous visited location"
-msgstr "前の訪問済みの場所へ移動します"
+msgstr "前に訪問したレベルへ移動します"
 
 #: ../src/caja-navigation-window-menus.c:959
 msgid "Back history"
@@ -6618,7 +6717,7 @@ msgstr "進む(_F)"
 
 #: ../src/caja-navigation-window-menus.c:975
 msgid "Go to the next visited location"
-msgstr "次の訪問済みの場所へ移動します"
+msgstr "次に訪問したレベルへ移動します"
 
 #: ../src/caja-navigation-window-menus.c:976
 msgid "Forward history"
@@ -6653,15 +6752,15 @@ msgstr "タブを閉じる(_C)"
 msgid "%s - File Browser"
 msgstr "%s - ファイルブラウザ"
 
-#: ../src/caja-notebook.c:337
+#: ../src/caja-notebook.c:330
 msgid "Close tab"
 msgstr "タブを閉じます"
 
-#: ../src/caja-notes-viewer.c:399 ../src/caja-notes-viewer.c:503
+#: ../src/caja-notes-viewer.c:398 ../src/caja-notes-viewer.c:502
 msgid "Notes"
 msgstr "メモ"
 
-#: ../src/caja-notes-viewer.c:405
+#: ../src/caja-notes-viewer.c:404
 msgid "Show Notes"
 msgstr "メモの表示"
 
@@ -6746,11 +6845,11 @@ msgstr "削除"
 msgid "Rename..."
 msgstr "名前の変更..."
 
-#: ../src/caja-places-sidebar.c:3382
+#: ../src/caja-places-sidebar.c:3381
 msgid "Places"
 msgstr "場所"
 
-#: ../src/caja-places-sidebar.c:3388
+#: ../src/caja-places-sidebar.c:3387
 msgid "Show Places"
 msgstr "場所の表示"
 
@@ -6760,159 +6859,159 @@ msgid "Backgrounds and Emblems"
 msgstr "背景とエンブレム"
 
 #. create the "remove" button
-#: ../src/caja-property-browser.c:409
+#: ../src/caja-property-browser.c:407
 msgid "_Remove..."
-msgstr "削除(_R)..."
+msgstr "削除(_R)"
 
 #. now create the "add new" button
-#: ../src/caja-property-browser.c:423
+#: ../src/caja-property-browser.c:421
 msgid "Add new..."
 msgstr "新規追加..."
 
-#: ../src/caja-property-browser.c:974
+#: ../src/caja-property-browser.c:972
 #, c-format
 msgid "Sorry, but pattern %s could not be deleted."
 msgstr "%s というパターンを削除できませんでした。"
 
-#: ../src/caja-property-browser.c:975
+#: ../src/caja-property-browser.c:973
 msgid "Check that you have permission to delete the pattern."
 msgstr "パターンを削除する権限があるか確認してください。"
 
-#: ../src/caja-property-browser.c:991
+#: ../src/caja-property-browser.c:989
 #, c-format
 msgid "Sorry, but emblem %s could not be deleted."
 msgstr "%s というエンブレムを削除できませんでした。"
 
-#: ../src/caja-property-browser.c:992
+#: ../src/caja-property-browser.c:990
 msgid "Check that you have permission to delete the emblem."
 msgstr "エンブレムを削除する権限があるか確認してください。"
 
-#: ../src/caja-property-browser.c:1064
+#: ../src/caja-property-browser.c:1062
 msgid "Select an Image File for the New Emblem"
 msgstr "新しいエンブレムにする画像ファイルの選択"
 
-#: ../src/caja-property-browser.c:1105
+#: ../src/caja-property-browser.c:1103
 msgid "Create a New Emblem"
 msgstr "新しいエンブレムの作成"
 
 #. make the keyword label and field
-#: ../src/caja-property-browser.c:1126
+#: ../src/caja-property-browser.c:1124
 msgid "_Keyword:"
 msgstr "キーワード(_K):"
 
 #. set up a file chooser to pick the image file
-#: ../src/caja-property-browser.c:1149
+#: ../src/caja-property-browser.c:1143
 msgid "_Image:"
 msgstr "画像(_I):"
 
-#: ../src/caja-property-browser.c:1185
+#: ../src/caja-property-browser.c:1175
 msgid "Create a New Color:"
 msgstr "新しい色を作成:"
 
 #. make the name label and field
-#: ../src/caja-property-browser.c:1199
+#: ../src/caja-property-browser.c:1189
 msgid "Color _name:"
 msgstr "色の名前(_N):"
 
-#: ../src/caja-property-browser.c:1215
+#: ../src/caja-property-browser.c:1205
 msgid "Color _value:"
 msgstr "色の値(_V):"
 
-#: ../src/caja-property-browser.c:1251
+#: ../src/caja-property-browser.c:1241
 msgid "Sorry, but you cannot replace the reset image."
 msgstr "リセットされた画像を置き換えることはできません。"
 
-#: ../src/caja-property-browser.c:1252
+#: ../src/caja-property-browser.c:1242
 msgid "Reset is a special image that cannot be deleted."
 msgstr "リセットは削除できない特別な画像です。"
 
-#: ../src/caja-property-browser.c:1282
+#: ../src/caja-property-browser.c:1272
 #, c-format
 msgid "Sorry, but the pattern %s could not be installed."
 msgstr "%s というパターンをインストールできませんでした。"
 
-#: ../src/caja-property-browser.c:1313
+#: ../src/caja-property-browser.c:1303
 msgid "Select an Image File to Add as a Pattern"
 msgstr "パターンとして追加する画像ファイルの選択"
 
-#: ../src/caja-property-browser.c:1392 ../src/caja-property-browser.c:1422
+#: ../src/caja-property-browser.c:1382 ../src/caja-property-browser.c:1412
 msgid "The color cannot be installed."
 msgstr "色をインストールできません。"
 
-#: ../src/caja-property-browser.c:1393
+#: ../src/caja-property-browser.c:1383
 msgid "Sorry, but you must specify an unused color name for the new color."
 msgstr "新しい色には使用していない色の名前を指定してください。"
 
-#: ../src/caja-property-browser.c:1423
+#: ../src/caja-property-browser.c:1413
 msgid "Sorry, but you must specify a non-blank name for the new color."
 msgstr "新しい色は空白以外の名前を指定してください。"
 
-#: ../src/caja-property-browser.c:1483
+#: ../src/caja-property-browser.c:1473
 msgid "Select a Color to Add"
 msgstr "追加する色の選択"
 
-#: ../src/caja-property-browser.c:1529 ../src/caja-property-browser.c:1547
+#: ../src/caja-property-browser.c:1519 ../src/caja-property-browser.c:1537
 #, c-format
 msgid "Sorry, but \"%s\" is not a usable image file."
 msgstr "画像ファイル '%s' は利用できません。"
 
-#: ../src/caja-property-browser.c:1530 ../src/caja-property-browser.c:1548
+#: ../src/caja-property-browser.c:1520 ../src/caja-property-browser.c:1538
 msgid "The file is not an image."
 msgstr "そのファイルは画像ではありません。"
 
-#: ../src/caja-property-browser.c:2299
+#: ../src/caja-property-browser.c:2281
 msgid "Select a Category:"
 msgstr "カテゴリの選択"
 
-#: ../src/caja-property-browser.c:2311
+#: ../src/caja-property-browser.c:2293
 msgid "C_ancel Remove"
 msgstr "削除のキャンセル(_A)"
 
-#: ../src/caja-property-browser.c:2320
+#: ../src/caja-property-browser.c:2302
 msgid "_Add a New Pattern..."
 msgstr "新しいパターンの追加(_A)..."
 
-#: ../src/caja-property-browser.c:2323
+#: ../src/caja-property-browser.c:2305
 msgid "_Add a New Color..."
 msgstr "新しい色の追加(_A)..."
 
-#: ../src/caja-property-browser.c:2326
+#: ../src/caja-property-browser.c:2308
 msgid "_Add a New Emblem..."
 msgstr "新しいエンブレムの追加(_A)..."
 
-#: ../src/caja-property-browser.c:2352
+#: ../src/caja-property-browser.c:2334
 msgid "Click on a pattern to remove it"
 msgstr "削除するパターンをクリックしてください"
 
-#: ../src/caja-property-browser.c:2355
+#: ../src/caja-property-browser.c:2337
 msgid "Click on a color to remove it"
 msgstr "削除する色をクリックしてください"
 
-#: ../src/caja-property-browser.c:2358
+#: ../src/caja-property-browser.c:2340
 msgid "Click on an emblem to remove it"
 msgstr "削除するエンブレムをクリックしてください"
 
-#: ../src/caja-property-browser.c:2370
+#: ../src/caja-property-browser.c:2352
 msgid "Patterns:"
 msgstr "パターン:"
 
-#: ../src/caja-property-browser.c:2373
+#: ../src/caja-property-browser.c:2355
 msgid "Colors:"
 msgstr "色:"
 
-#: ../src/caja-property-browser.c:2376
+#: ../src/caja-property-browser.c:2358
 msgid "Emblems:"
 msgstr "エンブレム:"
 
-#: ../src/caja-property-browser.c:2398
+#: ../src/caja-property-browser.c:2380
 msgid "_Remove a Pattern..."
 msgstr "パターンの削除(_R)..."
 
-#: ../src/caja-property-browser.c:2401
+#: ../src/caja-property-browser.c:2383
 msgid "_Remove a Color..."
 msgstr "色の削除(_R)..."
 
-#: ../src/caja-property-browser.c:2404
+#: ../src/caja-property-browser.c:2386
 msgid "_Remove an Emblem..."
 msgstr "エンブレムの削除(_R)..."
 
@@ -6922,7 +7021,7 @@ msgstr "ファイルの種類"
 
 #: ../src/caja-query-editor.c:149
 msgid "Tags"
-msgstr ""
+msgstr "タグ"
 
 #: ../src/caja-query-editor.c:295
 msgid "Select folder to search in"
@@ -6931,7 +7030,7 @@ msgstr "検索するフォルダーの選択"
 #: ../src/caja-query-editor.c:391 ../src/caja-query-editor.c:395
 msgid ""
 "Tags separated by spaces. Matches files that contains ALL specified tags."
-msgstr ""
+msgstr "スペースで区切られたタグ (指定されたすべてのタグを含むファイルと一致します)"
 
 #: ../src/caja-query-editor.c:498
 msgid "Documents"
@@ -6939,11 +7038,11 @@ msgstr "ドキュメント"
 
 #: ../src/caja-query-editor.c:518
 msgid "Music"
-msgstr "楽曲"
+msgstr "音楽"
 
 #: ../src/caja-query-editor.c:534
 msgid "Video"
-msgstr "動画"
+msgstr "ビデオ"
 
 #: ../src/caja-query-editor.c:552
 msgid "Picture"
@@ -6973,51 +7072,51 @@ msgstr "通常のファイル"
 msgid "Select type"
 msgstr "種類の選択"
 
-#: ../src/caja-query-editor.c:804
+#: ../src/caja-query-editor.c:802
 msgid "Any"
 msgstr "任意"
 
-#: ../src/caja-query-editor.c:820
+#: ../src/caja-query-editor.c:818
 msgid "Other Type..."
 msgstr "他の種類..."
 
-#: ../src/caja-query-editor.c:1124
+#: ../src/caja-query-editor.c:1122
 msgid "Remove this criterion from the search"
 msgstr "この検索条件を削除します"
 
-#: ../src/caja-query-editor.c:1171
+#: ../src/caja-query-editor.c:1169
 msgid "Search Folder"
 msgstr "検索フォルダー"
 
-#: ../src/caja-query-editor.c:1177
+#: ../src/caja-query-editor.c:1175
 msgid "Edit"
 msgstr "編集"
 
-#: ../src/caja-query-editor.c:1185
+#: ../src/caja-query-editor.c:1183
 msgid "Edit the saved search"
 msgstr "保存した検索結果を編集します"
 
-#: ../src/caja-query-editor.c:1217
+#: ../src/caja-query-editor.c:1215
 msgid "Add a new criterion to this search"
 msgstr "この検索に新しい条件を追加します"
 
-#: ../src/caja-query-editor.c:1223
+#: ../src/caja-query-editor.c:1221
 msgid "Go"
 msgstr "移動"
 
-#: ../src/caja-query-editor.c:1227
+#: ../src/caja-query-editor.c:1225
 msgid "Reload"
 msgstr "再読み込み"
 
-#: ../src/caja-query-editor.c:1232
+#: ../src/caja-query-editor.c:1230
 msgid "Perform or update the search"
 msgstr "検索を実行または更新します"
 
-#: ../src/caja-query-editor.c:1253
+#: ../src/caja-query-editor.c:1251
 msgid "_Search for:"
-msgstr "検索(_S):"
+msgstr "検索文字列(_S):"
 
-#: ../src/caja-query-editor.c:1282
+#: ../src/caja-query-editor.c:1280
 msgid "Search results"
 msgstr "検索結果"
 
@@ -7148,7 +7247,9 @@ msgstr "つづりとプロキシの設定が正しいか確認してください
 msgid ""
 "Error: %s\n"
 "Please select another viewer and try again."
-msgstr "エラー: %s\n別のビューアを選択して再試行してください。"
+msgstr ""
+"エラー: %s\n"
+"別のビューアを選択して再試行してください。"
 
 #: ../src/caja-window-menus.c:195
 msgid "Go to the location specified by this bookmark"
@@ -7160,7 +7261,9 @@ msgid ""
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version."
-msgstr "Caja はフリーソフトウェアです; フリーソフトウェア財団が発行する GNU 一般公有使用許諾契約書の第2版またはそれ以降の版の下で改変・修正・再配布が認められています。"
+msgstr ""
+"Caja はフリーソフトウェアです; フリーソフトウェア財団が発行する GNU "
+"一般公有使用許諾契約書の第2版またはそれ以降の版の下で改変・修正・再配布が認められています。"
 
 #: ../src/caja-window-menus.c:521
 msgid ""
@@ -7168,14 +7271,19 @@ msgid ""
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details."
-msgstr "Caja は便利に使ってもらえるように配布されていますが、完全に無保証です。商用利用または特定の目的における適合性の保証もありません。詳細は GNU 一般公有使用許諾契約書をご覧ください。"
+msgstr ""
+"Caja は便利に使ってもらえるように配布されていますが、完全に無保証です。商用利用または特定の目的における適合性の保証もありません。詳細は GNU "
+"一般公有使用許諾契約書をご覧ください。"
 
 #: ../src/caja-window-menus.c:525
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301 USA"
-msgstr "本プログラムと一緒に GNU 一般公有使用許諾契約書の写しを受け取っているはずです。そうでない場合は、Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA まで手紙を書いてください。"
+msgstr ""
+"本プログラムと一緒に GNU 一般公有使用許諾契約書の写しを受け取っているはずです。そうでない場合は、Free Software Foundation,"
+" Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA "
+"まで手紙を書いてください。"
 
 #: ../src/caja-window-menus.c:537
 msgid ""
@@ -7187,216 +7295,229 @@ msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2018 The Caja authors"
 msgstr ""
+"Copyright © 1999-2009 The Nautilus authors\n"
+"Copyright © 2011-2018 The Caja authors"
 
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
 #. * box to give credit to the translator(s).
 #: ../src/caja-window-menus.c:550
 msgid "translator-credits"
-msgstr "相花毅 <takeshi.aihana@gmail.com>\n佐藤 暁 <ss@gnome.gr.jp>\nKAMAGASAKO Masatoshi <emerald@gnome.gr.jp>\nJames Hashida <khashida@redhat.com>\nSatoru Sato <ss@gnome.gr.jp>\nYukihiro Nakai <nakai@gnome.gr.jp>\nTakuo Kitame <kitame@debian.org>\nAkira TAGOH <tagoh@gnome.gr.jp>\n草野 貴之 <AE5T-KSN@asahi-net.or.jp>\nやまねひでき <henrich@debian.or.jp>\n日本GNOMEユーザー会 <http://www.gnome.gr.jp/>"
+msgstr ""
+"相花 毅 <takeshi.aihana@gmail.com>\n"
+"佐藤 暁 <ss@gnome.gr.jp>\n"
+"KAMAGASAKO Masatoshi <emerald@gnome.gr.jp>\n"
+"Akira TAGOH <tagoh@gnome.gr.jp>\n"
+"Yukihiro Nakai <nakai@gnome.gr.jp>\n"
+"Yuusuke Tahara <tahara@gnome.gr.jp>\n"
+"Akira Higuchi <a-higuti@math.sci.hokudai.ac.jp>\n"
+"やまね ひでき <henrich@debian.or.jp>\n"
+"草野 貴之 <AE5T-KSN@asahi-net.or.jp>\n"
+"松澤 二郎 <jmatsuzawa@gnome.org>\n"
+"日本GNOMEユーザー会 http://www.gnome.gr.jp/"
 
 #: ../src/caja-window-menus.c:553
 msgid "MATE Web Site"
 msgstr "MATE のウェブサイト"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:814
+#: ../src/caja-window-menus.c:806
 msgid "_File"
 msgstr "ファイル(_F)"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:815
+#: ../src/caja-window-menus.c:807
 msgid "_Edit"
 msgstr "編集(_E)"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:816
+#: ../src/caja-window-menus.c:808
 msgid "_View"
 msgstr "表示(_V)"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:817
+#: ../src/caja-window-menus.c:809
 msgid "_Help"
 msgstr "ヘルプ(_H)"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:819
+#: ../src/caja-window-menus.c:811
 msgid "_Close"
 msgstr "閉じる(_C)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:820
+#: ../src/caja-window-menus.c:812
 msgid "Close this folder"
 msgstr "このフォルダーを閉じます"
 
-#: ../src/caja-window-menus.c:825
+#: ../src/caja-window-menus.c:817
 msgid "_Backgrounds and Emblems..."
 msgstr "背景とエンブレム(_B)..."
 
-#: ../src/caja-window-menus.c:826
+#: ../src/caja-window-menus.c:818
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
 msgstr "パターン、色、エンブレムなどの外観をカスタマイズします"
 
-#: ../src/caja-window-menus.c:831
+#: ../src/caja-window-menus.c:823
 msgid "Prefere_nces"
 msgstr "設定(_N)"
 
-#: ../src/caja-window-menus.c:832
+#: ../src/caja-window-menus.c:824
 msgid "Edit Caja preferences"
 msgstr "Caja の設定を編集します"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:835
+#: ../src/caja-window-menus.c:827
 msgid "Open _Parent"
 msgstr "親フォルダーを開く(_P)"
 
-#: ../src/caja-window-menus.c:836
+#: ../src/caja-window-menus.c:828
 msgid "Open the parent folder"
 msgstr "親フォルダーを開きます"
 
 #. tooltip
-#: ../src/caja-window-menus.c:845
+#: ../src/caja-window-menus.c:837
 msgid "Stop loading the current location"
 msgstr "この場所の読み込みを停止します"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:849
+#: ../src/caja-window-menus.c:841
 msgid "_Reload"
 msgstr "再読み込み(_R)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:850
+#: ../src/caja-window-menus.c:842
 msgid "Reload the current location"
 msgstr "この場所をもう一度読み込みます"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:854
+#: ../src/caja-window-menus.c:846
 msgid "_Contents"
 msgstr "目次(_C)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:855
+#: ../src/caja-window-menus.c:847
 msgid "Display Caja help"
 msgstr "Caja のヘルプを表示します"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:859
+#: ../src/caja-window-menus.c:851
 msgid "_About"
 msgstr "情報(_A)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:860
+#: ../src/caja-window-menus.c:852
 msgid "Display credits for the creators of Caja"
 msgstr "Caja を開発した人たちのクレジットを表示します"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:864
+#: ../src/caja-window-menus.c:856
 msgid "Zoom _In"
 msgstr "拡大(_I)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:865 ../src/caja-zoom-control.c:96
-#: ../src/caja-zoom-control.c:398
+#: ../src/caja-window-menus.c:857 ../src/caja-zoom-control.c:96
+#: ../src/caja-zoom-control.c:371
 msgid "Increase the view size"
 msgstr "表示サイズを大きくします"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:879
+#: ../src/caja-window-menus.c:871
 msgid "Zoom _Out"
 msgstr "縮小(_O)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:880 ../src/caja-zoom-control.c:97
-#: ../src/caja-zoom-control.c:335
+#: ../src/caja-window-menus.c:872 ../src/caja-zoom-control.c:97
+#: ../src/caja-zoom-control.c:316
 msgid "Decrease the view size"
 msgstr "表示サイズを小さくします"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:889
+#: ../src/caja-window-menus.c:881
 msgid "Normal Si_ze"
 msgstr "通常サイズ(_Z)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:890 ../src/caja-zoom-control.c:98
-#: ../src/caja-zoom-control.c:355
+#: ../src/caja-window-menus.c:882 ../src/caja-zoom-control.c:98
+#: ../src/caja-zoom-control.c:332
 msgid "Use the normal view size"
 msgstr "通常のサイズに戻します"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:894
+#: ../src/caja-window-menus.c:886
 msgid "Connect to _Server..."
 msgstr "サーバへ接続(_S)..."
 
 #. tooltip
-#: ../src/caja-window-menus.c:895
+#: ../src/caja-window-menus.c:887
 msgid "Connect to a remote computer or shared disk"
 msgstr "リモートのコンピュータや共有ディスクへ接続します"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:904
+#: ../src/caja-window-menus.c:896
 msgid "_Computer"
 msgstr "コンピュータ(_C)"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:909
+#: ../src/caja-window-menus.c:901
 msgid "_Network"
 msgstr "ネットワーク(_N)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:910 ../src/mate-network-scheme.desktop.in.h:2
+#: ../src/caja-window-menus.c:902 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
-msgstr "ブックマークの場所やローカルのネットワークの場所を参照します"
+msgstr "ブックマークやローカルネットワークの場所を閲覧する"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:914
+#: ../src/caja-window-menus.c:906
 msgid "T_emplates"
 msgstr "テンプレート(_E)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:915
+#: ../src/caja-window-menus.c:907
 msgid "Open your personal templates folder"
 msgstr "ユーザー専用のテンプレートフォルダーを開きます"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:919
+#: ../src/caja-window-menus.c:911
 msgid "_Trash"
 msgstr "ゴミ箱(_T)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:920
+#: ../src/caja-window-menus.c:912
 msgid "Open your personal trash folder"
 msgstr "ユーザー専用のゴミ箱フォルダーを開きます"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:928
+#: ../src/caja-window-menus.c:920
 msgid "Show _Hidden Files"
 msgstr "隠しファイルを表示する(_H)"
 
 #. tooltip
-#: ../src/caja-window-menus.c:929
+#: ../src/caja-window-menus.c:921
 msgid "Toggle the display of hidden files in the current window"
 msgstr "このウィンドウにある隠しファイルの表示を切り替えます"
 
-#: ../src/caja-window-menus.c:960
+#: ../src/caja-window-menus.c:952
 msgid "_Up"
 msgstr "上へ(_U)"
 
-#: ../src/caja-window-menus.c:963
+#: ../src/caja-window-menus.c:955
 msgid "_Home"
 msgstr "ホーム(_H)"
 
@@ -7458,10 +7579,10 @@ msgstr "縮小"
 msgid "Zoom to Default"
 msgstr "デフォルトのレベル"
 
-#: ../src/caja-zoom-control.c:940
+#: ../src/caja-zoom-control.c:913
 msgid "Zoom"
 msgstr "ズーム"
 
-#: ../src/caja-zoom-control.c:945
+#: ../src/caja-zoom-control.c:918
 msgid "Set the zoom level of the current view"
 msgstr "現在のビューのズームレベルを設定します"

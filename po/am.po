@@ -1,17 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# samson <sambelet@yahoo.com>, 2013-2018
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: MATE Desktop Environment\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-15 13:19+0300\n"
-"PO-Revision-Date: 2018-01-10 01:01+0000\n"
-"Last-Translator: samson <sambelet@yahoo.com>\n"
-"Language-Team: Amharic (http://www.transifex.com/mate/MATE/language/am/)\n"
+"POT-Creation-Date: 2018-03-12 17:01+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2018\n"
+"Language-Team: Amharic (https://www.transifex.com/mate/teams/13566/am/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -88,7 +88,7 @@ msgstr "ቅሪት"
 
 #: ../data/browser.xml.h:18
 msgid "MATE"
-msgstr "ሜት"
+msgstr "ሜት "
 
 #: ../data/browser.xml.h:19
 msgid "Green Weave"
@@ -108,7 +108,7 @@ msgstr "Moss Ridge"
 
 #: ../data/browser.xml.h:23
 msgid "Numbers"
-msgstr "ቍጥሮች"
+msgstr "ቁጥሮች"
 
 #: ../data/browser.xml.h:24
 msgid "Ocean Strips"
@@ -284,7 +284,7 @@ msgstr "አርማውን ወደ እቃው መጎተቻ ወድ እቃው ለመቀ
 
 #. translators: this is the name of an emblem
 #: ../data/browser.xml.h:68 ../src/caja-emblem-sidebar.c:982
-#: ../src/caja-property-browser.c:1948
+#: ../src/caja-property-browser.c:1932
 msgid "Erase"
 msgstr "መደምሰሻ"
 
@@ -310,7 +310,7 @@ msgstr "በራሱ ማስኬጃ መሞከሪያ"
 #: ../data/caja-browser.desktop.in.in.h:1 ../data/caja.desktop.in.in.h:1
 #: ../data/caja-folder-handler.desktop.in.in.h:1
 #: ../src/caja-spatial-window.c:373 ../src/caja-window-menus.c:535
-#: ../src/caja-window.c:172
+#: ../src/caja-window.c:163
 msgid "Caja"
 msgstr "ካጃ"
 
@@ -328,10 +328,10 @@ msgid "Computer"
 msgstr "ኮምፒዩተር"
 
 #. tooltip
-#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:905
+#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:897
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
-msgstr "መቃኛ ሁሉንም የ አካባቢ እና የ ሩቅ ዲስኮች ይህ ኮምፒዩተር ሊደርስባቸው የሚችለውን"
+msgstr "በዚህ ኮምፒዩተር ላይ ሊደረስበት የሚችለውን ዲስኮች እና ፎልደሮች መቃኛ"
 
 #: ../data/caja.desktop.in.in.h:2
 msgid "File Manager"
@@ -356,71 +356,73 @@ msgstr "የ ቤት ፎልደር"
 
 #. tooltip
 #: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:504
-#: ../src/caja-window-menus.c:900
+#: ../src/caja-window-menus.c:892
 msgid "Open your personal folder"
-msgstr "የ ግል ፎልደር መክፈቻ"
+msgstr "የ እርስዎን የ ግል ፎልደር መክፈቻ"
 
 #: ../data/caja.xml.in.h:1
 msgid "Saved search"
 msgstr "የተቀመጠ መፈለጊያ"
 
-#: ../eel/eel-canvas.c:1389 ../eel/eel-canvas.c:1390
+#: ../eel/eel-canvas.c:1310 ../eel/eel-canvas.c:1311
 msgid "X"
 msgstr "X"
 
-#: ../eel/eel-canvas.c:1396 ../eel/eel-canvas.c:1397
+#: ../eel/eel-canvas.c:1317 ../eel/eel-canvas.c:1318
 msgid "Y"
 msgstr "Y"
 
-#: ../eel/eel-editable-label.c:332
+#: ../eel/eel-editable-label.c:327
 msgid "Text"
-msgstr "ጽሁፍ"
+msgstr "ጽሁፍ "
 
-#: ../eel/eel-editable-label.c:333
+#: ../eel/eel-editable-label.c:328
 msgid "The text of the label."
 msgstr "የምልክቱ ጽሁፍ"
 
-#: ../eel/eel-editable-label.c:339
+#: ../eel/eel-editable-label.c:334
 msgid "Justification"
 msgstr "እኩል ማካፈያ"
 
-#: ../eel/eel-editable-label.c:340
+#: ../eel/eel-editable-label.c:335
 msgid ""
 "The alignment of the lines in the text of the label relative to each other. "
 "This does NOT affect the alignment of the label within its allocation. See "
 "GtkMisc::xalign for that."
-msgstr "የ መስመር ማሰለፊያ በ ጽሁፍ ምልክት ውስጥ አንፃራዊ ነው ከ እያንዳንዱ ጋር: ይህ ማሰለፊያ ምልክት ላይ ተጽእኖ አይፈጥርም: ይህን ይመልከቱ: GtkMisc::xalign for that."
+msgstr ""
+"የ መስመር ማሰለፊያ በ ጽሁፍ ምልክት ውስጥ አንፃራዊ ነው ከ እያንዳንዱ ጋር: ይህ ማሰለፊያ ምልክት ላይ ተጽእኖ "
+"አይፈጥርም: ይህን ይመልከቱ: GtkMisc::xalign for that."
 
-#: ../eel/eel-editable-label.c:348
+#: ../eel/eel-editable-label.c:343
 msgid "Line wrap"
 msgstr "መስመር መጠቅለያ"
 
-#: ../eel/eel-editable-label.c:349
+#: ../eel/eel-editable-label.c:344
 msgid "If set, wrap lines if the text becomes too wide."
 msgstr "ከ ተሰናዳ መስመሮች መጠቅለያ ጽሁፉ በጣም ሰፊ ከሆነ"
 
-#: ../eel/eel-editable-label.c:356
+#: ../eel/eel-editable-label.c:351
 msgid "Cursor Position"
 msgstr "የጠቋሚው ቦታ"
 
-#: ../eel/eel-editable-label.c:357
+#: ../eel/eel-editable-label.c:352
 msgid "The current position of the insertion cursor in chars."
 msgstr "የ አሁኑ ቦታ መጠቆሚያ ለማስገቢያ በ ባህሪ ውስጥ "
 
-#: ../eel/eel-editable-label.c:366
+#: ../eel/eel-editable-label.c:361
 msgid "Selection Bound"
 msgstr "ምርጫ መመደቢያ"
 
-#: ../eel/eel-editable-label.c:367
+#: ../eel/eel-editable-label.c:362
 msgid ""
 "The position of the opposite end of the selection from the cursor in chars."
 msgstr "የ ተቃራኒው መጨረሻ ቦታ ለ ምርጫው መጠቆሚያው ካለበት በ ባህሪዎች ውስጥ"
 
-#: ../eel/eel-editable-label.c:3120
+#: ../eel/eel-editable-label.c:3115
 msgid "Select All"
-msgstr "ሁሉንም መምረጫ"
+msgstr "ሁሉንም ይምረጡ"
 
-#: ../eel/eel-editable-label.c:3131
+#: ../eel/eel-editable-label.c:3126
 msgid "Input Methods"
 msgstr "የማስገቢያ ዘዴ"
 
@@ -434,7 +436,7 @@ msgstr "መሰረዣ በመጫን ተግባሩን ማስቆም ይችላሉ"
 
 #: ../eel/eel-vfs-extensions.c:96
 msgid " (invalid Unicode)"
-msgstr " (invalid Unicode)"
+msgstr " (ዋጋ የሌለው Unicode)"
 
 #: ../libcaja-private/caja-autorun.c:517
 msgid "No applications found"
@@ -524,24 +526,24 @@ msgstr "መገናኛ አስገብተዋል"
 msgid "Choose what application to launch."
 msgstr "ማስጀመር የሚፈልጉትን መተግበሪያ ይምረጡ"
 
-#: ../libcaja-private/caja-autorun.c:1097
+#: ../libcaja-private/caja-autorun.c:1093
 #, c-format
 msgid ""
 "Select how to open \"%s\" and whether to perform this action in the future "
 "for other media of type \"%s\"."
 msgstr "ይምረጡ እንዴት እንደሚከፈት \"%s\" እና ወደፊት ለዚህ አይነት መገናኛ ተመሳሳይ ተግባር እንደሚፈጸም \"%s\"."
 
-#: ../libcaja-private/caja-autorun.c:1129
+#: ../libcaja-private/caja-autorun.c:1121
 msgid "_Always perform this action"
 msgstr "_ሁልጊዜ ይህን ተግባር ፈጽም"
 
 #. name, stock id
 #. label, accelerator
 #. add the "Eject" menu item
-#: ../libcaja-private/caja-autorun.c:1146
-#: ../src/file-manager/fm-directory-view.c:7411
-#: ../src/file-manager/fm-directory-view.c:7439
-#: ../src/file-manager/fm-directory-view.c:7520
+#: ../libcaja-private/caja-autorun.c:1138
+#: ../src/file-manager/fm-directory-view.c:7395
+#: ../src/file-manager/fm-directory-view.c:7423
+#: ../src/file-manager/fm-directory-view.c:7504
 #: ../src/file-manager/fm-tree-view.c:1382 ../src/caja-places-sidebar.c:2714
 msgid "_Eject"
 msgstr "_ማውጫ"
@@ -549,10 +551,10 @@ msgstr "_ማውጫ"
 #. name, stock id
 #. label, accelerator
 #. add the "Unmount" menu item
-#: ../libcaja-private/caja-autorun.c:1159
-#: ../src/file-manager/fm-directory-view.c:7407
-#: ../src/file-manager/fm-directory-view.c:7435
-#: ../src/file-manager/fm-directory-view.c:7516
+#: ../libcaja-private/caja-autorun.c:1151
+#: ../src/file-manager/fm-directory-view.c:7391
+#: ../src/file-manager/fm-directory-view.c:7419
+#: ../src/file-manager/fm-directory-view.c:7500
 #: ../src/file-manager/fm-tree-view.c:1373 ../src/caja-places-sidebar.c:2707
 msgid "_Unmount"
 msgstr "_ማውረጃ"
@@ -581,7 +583,7 @@ msgstr "በ ቁራጭ ሰሌዳ ላይ የተጠራቀመውን ጽሁፍ መለ
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-clipboard.c:470
-#: ../src/file-manager/fm-directory-view.c:7340
+#: ../src/file-manager/fm-directory-view.c:7324
 msgid "Select _All"
 msgstr "_ሁሉንም መምረጫ"
 
@@ -590,15 +592,15 @@ msgstr "_ሁሉንም መምረጫ"
 msgid "Select all the text in a text field"
 msgstr "ሁሉንም ጽሁፍ ከጽሁፍ ሜዳ ውስጥ መምረጫ"
 
-#: ../libcaja-private/caja-column-chooser.c:381
+#: ../libcaja-private/caja-column-chooser.c:380
 msgid "Move _Up"
 msgstr "ወደ ላይ _ማንቀሳቀሻ"
 
-#: ../libcaja-private/caja-column-chooser.c:391
+#: ../libcaja-private/caja-column-chooser.c:390
 msgid "Move Dow_n"
 msgstr "ወደ ታ_ች ማንቀሳቀሻ"
 
-#: ../libcaja-private/caja-column-chooser.c:404
+#: ../libcaja-private/caja-column-chooser.c:403
 msgid "Use De_fault"
 msgstr "ነባ_ሩን መጠቀሚያ "
 
@@ -614,7 +616,7 @@ msgstr "የፋይሉ ስም እና ምልክት "
 
 #: ../libcaja-private/caja-column-utilities.c:51
 msgid "Size"
-msgstr "መጠን"
+msgstr "መጠን "
 
 #: ../libcaja-private/caja-column-utilities.c:52
 msgid "The size of the file."
@@ -637,9 +639,9 @@ msgid "The type of the file."
 msgstr "የፋይሉ አይነት "
 
 #: ../libcaja-private/caja-column-utilities.c:74
-#: ../src/caja-image-properties-page.c:288
+#: ../src/caja-image-properties-page.c:284
 msgid "Date Modified"
-msgstr "የተሻሻለበት ቀን "
+msgstr "የ ተሻሻለበት ቀን"
 
 #: ../libcaja-private/caja-column-utilities.c:75
 msgid "The date the file was modified."
@@ -670,7 +672,7 @@ msgid "The group of the file."
 msgstr "የፋይሉ ቡድን አይነት"
 
 #: ../libcaja-private/caja-column-utilities.c:106
-#: ../src/file-manager/fm-properties-window.c:4750
+#: ../src/file-manager/fm-properties-window.c:4746
 msgid "Permissions"
 msgstr "ፈቃዶች"
 
@@ -703,9 +705,9 @@ msgid "The SELinux security context of the file."
 msgstr "የ SELinux ደህንነት ይዞታ ለ ፋይል"
 
 #: ../libcaja-private/caja-column-utilities.c:138
-#: ../src/caja-image-properties-page.c:369 ../src/caja-query-editor.c:135
+#: ../src/caja-image-properties-page.c:365 ../src/caja-query-editor.c:135
 msgid "Location"
-msgstr "አካባቢ "
+msgstr "አካባቢ"
 
 #: ../libcaja-private/caja-column-utilities.c:139
 msgid "The location of the file."
@@ -728,11 +730,11 @@ msgid "Original location of file before moved to the Trash"
 msgstr "ፋይሉ ወደ ቆሻሻ ከመጣሉ በፊት የነበረበት ቦታ"
 
 #: ../libcaja-private/caja-customization-data.c:431
-#: ../libcaja-private/caja-file-conflict-dialog.c:631
-#: ../libcaja-private/caja-mime-application-chooser.c:444
-#: ../src/caja-property-browser.c:1995
+#: ../libcaja-private/caja-file-conflict-dialog.c:623
+#: ../libcaja-private/caja-mime-application-chooser.c:438
+#: ../src/caja-property-browser.c:1979
 msgid "Reset"
-msgstr "እንደ ነበር መመለሻ"
+msgstr "እንደነበር መመለሻ"
 
 #: ../libcaja-private/caja-desktop-directory-file.c:457
 #: ../libcaja-private/caja-desktop-icon-file.c:163
@@ -836,7 +838,8 @@ msgstr "ፎልደሩን ላዋህድ \"%s\"?"
 msgid ""
 "Merging will ask for confirmation before replacing any files in the folder "
 "that conflict with the files being copied."
-msgstr "ማዋሀጃ ማረጋገጫ ይጠይቃል ፋይሎች ከ መቀየሩ በፊት በ ፎልደር ውስጥ የሚጋጭ ከሆነ ኮፒ ከሚደረገው ፋይል ጋር "
+msgstr ""
+"ማዋሀጃ ማረጋገጫ ይጠይቃል ፋይሎች ከ መቀየሩ በፊት በ ፎልደር ውስጥ የሚጋጭ ከሆነ ኮፒ ከሚደረገው ፋይል ጋር "
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:154
 #, c-format
@@ -891,89 +894,89 @@ msgstr "አዲስ የሆነ ፋይል በዚህ ስም ቀደም ሲል ነበ�
 msgid "Another file with the same name already exists in \"%s\"."
 msgstr "ሌላ ፋይል በዚህ ስም ቀደም ሲል ነበር \"%s\"."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:279
+#: ../libcaja-private/caja-file-conflict-dialog.c:271
 msgid "Original folder"
 msgstr "ዋናው ፎልደር "
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:280
-#: ../libcaja-private/caja-file-conflict-dialog.c:319
+#: ../libcaja-private/caja-file-conflict-dialog.c:272
+#: ../libcaja-private/caja-file-conflict-dialog.c:311
 msgid "Items:"
 msgstr "እቃዎች"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:283
+#: ../libcaja-private/caja-file-conflict-dialog.c:275
 msgid "Original file"
 msgstr "ዋናው ፋይል "
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:284
-#: ../libcaja-private/caja-file-conflict-dialog.c:323
-#: ../src/file-manager/fm-properties-window.c:3276
+#: ../libcaja-private/caja-file-conflict-dialog.c:276
+#: ../libcaja-private/caja-file-conflict-dialog.c:315
+#: ../src/file-manager/fm-properties-window.c:3272
 msgid "Size:"
 msgstr "መጠን:"
 
 #. second row: type combobox
-#: ../libcaja-private/caja-file-conflict-dialog.c:289
-#: ../libcaja-private/caja-file-conflict-dialog.c:328
-#: ../src/file-manager/fm-properties-window.c:3258
-#: ../src/caja-connect-server-dialog.c:948
+#: ../libcaja-private/caja-file-conflict-dialog.c:281
+#: ../libcaja-private/caja-file-conflict-dialog.c:320
+#: ../src/file-manager/fm-properties-window.c:3254
+#: ../src/caja-connect-server-dialog.c:930
 msgid "Type:"
-msgstr "አይነት:"
+msgstr "አይነት: "
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:292
-#: ../libcaja-private/caja-file-conflict-dialog.c:331
+#: ../libcaja-private/caja-file-conflict-dialog.c:284
+#: ../libcaja-private/caja-file-conflict-dialog.c:323
 msgid "Last modified:"
 msgstr "መጨረሻ የተሻሻለው:"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:318
+#: ../libcaja-private/caja-file-conflict-dialog.c:310
 msgid "Merge with"
 msgstr "ማዋሀጃ ከ"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:318
-#: ../libcaja-private/caja-file-conflict-dialog.c:322
+#: ../libcaja-private/caja-file-conflict-dialog.c:310
+#: ../libcaja-private/caja-file-conflict-dialog.c:314
 msgid "Replace with"
 msgstr "መቀየሪያ በ"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:354
+#: ../libcaja-private/caja-file-conflict-dialog.c:346
 msgid "Merge"
 msgstr "ማዋሀጃ "
 
 #. Setup the expander for the rename action
-#: ../libcaja-private/caja-file-conflict-dialog.c:617
+#: ../libcaja-private/caja-file-conflict-dialog.c:609
 msgid "Select a new name for the _destination"
 msgstr "ለ_መድረሻው አዲስ ስም ይምረጡ"
 
 #. Setup the diff button for text files
-#: ../libcaja-private/caja-file-conflict-dialog.c:642
+#: ../libcaja-private/caja-file-conflict-dialog.c:634
 msgid "Differences..."
 msgstr "ልዩነቶች..."
 
 #. Setup the checkbox to apply the action to all files
-#: ../libcaja-private/caja-file-conflict-dialog.c:652
+#: ../libcaja-private/caja-file-conflict-dialog.c:644
 msgid "Apply this action to all files and folders"
 msgstr "ይህን ተግባር ለሁሉም ፋይሎች እና ፎልደሮች መፈጸሚያ"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:664
+#: ../libcaja-private/caja-file-conflict-dialog.c:656
 #: ../libcaja-private/caja-file-operations.c:186
 msgid "_Skip"
-msgstr "_መዝለያ "
+msgstr "_መዝለያ"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:669
+#: ../libcaja-private/caja-file-conflict-dialog.c:661
 msgid "Re_name"
 msgstr "እንደገና_መሰየሚያ "
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:675
+#: ../libcaja-private/caja-file-conflict-dialog.c:667
 msgid "Replace"
 msgstr "መቀየሪያ"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:759
+#: ../libcaja-private/caja-file-conflict-dialog.c:751
 msgid "Merge Folder"
 msgstr "ፎልደር ማዋሀጃ "
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:759
-#: ../libcaja-private/caja-file-conflict-dialog.c:764
+#: ../libcaja-private/caja-file-conflict-dialog.c:751
+#: ../libcaja-private/caja-file-conflict-dialog.c:756
 msgid "File and Folder conflict"
 msgstr "የፋይል እና ፎልደር ግጭት"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:764
+#: ../libcaja-private/caja-file-conflict-dialog.c:756
 msgid "File conflict"
 msgstr "የፋይል ግጭት"
 
@@ -983,7 +986,7 @@ msgstr "ሁሉንም መ_ዝለያ "
 
 #: ../libcaja-private/caja-file-operations.c:188
 msgid "_Retry"
-msgstr "_እንደገና መሞከሪያ "
+msgstr "_እንደገና መሞከሪያ"
 
 #: ../libcaja-private/caja-file-operations.c:189
 msgid "Delete _All"
@@ -995,7 +998,7 @@ msgstr "_መቀየሪያ"
 
 #: ../libcaja-private/caja-file-operations.c:191
 msgid "Replace _All"
-msgstr "ሁሉንም _መቀየሪያ"
+msgstr "_ሁሉንም መቀየሪያ"
 
 #: ../libcaja-private/caja-file-operations.c:192
 msgid "_Merge"
@@ -1013,30 +1016,30 @@ msgstr "_ለማንኛውም ኮፒ ማድረጊያ"
 #, c-format
 msgid "%'d second"
 msgid_plural "%'d seconds"
-msgstr[0] "%'d ሰከንድ "
-msgstr[1] "%'d ሰከንዶች"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:313
 #: ../libcaja-private/caja-file-operations.c:324
 #, c-format
 msgid "%'d minute"
 msgid_plural "%'d minutes"
-msgstr[0] "%'d ደቂቃ "
-msgstr[1] "%'d ደቂቆች "
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:323
 #, c-format
 msgid "%'d hour"
 msgid_plural "%'d hours"
-msgstr[0] "%'d ሰአት "
-msgstr[1] "%'d ሰአቶች "
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:331
 #, c-format
 msgid "approximately %'d hour"
 msgid_plural "approximately %'d hours"
-msgstr[0] "በግምት %'d ሰአት "
-msgstr[1] "በግምት %'d ሰአቶች "
+msgstr[0] ""
+msgstr[1] ""
 
 #. appended to new link file
 #. Note to localizers: convert file type string for file
@@ -1044,7 +1047,7 @@ msgstr[1] "በግምት %'d ሰአቶች "
 #. * to that kind of file (e.g. "link to folder").
 #: ../libcaja-private/caja-file-operations.c:407
 #: ../libcaja-private/caja-file.c:6526
-#: ../src/file-manager/fm-directory-view.c:10531
+#: ../src/file-manager/fm-directory-view.c:10515
 #, c-format
 msgid "Link to %s"
 msgstr "አገናኝ ወደ %s"
@@ -1190,8 +1193,8 @@ msgid ""
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items from the "
 "trash?"
-msgstr[0] "በ እርግጥ በቋሚነት ማጥፋት ይፈልጋሉ %'d የተመረጠውን እቃ ከ ቆሻሻ ውስጥ?"
-msgstr[1] "በ እርግጥ በቋሚነት ማጥፋት ይፈልጋሉ %'d የተመረጡትን እቃዎች ከ ቆሻሻ ውስጥ? "
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:1367
 #: ../libcaja-private/caja-file-operations.c:1433
@@ -1222,8 +1225,8 @@ msgstr "በ እርግጥ በቋሚነት ማጥፋት ይፈልጋሉ \"%B\"?"
 msgid "Are you sure you want to permanently delete the %'d selected item?"
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items?"
-msgstr[0] "በ እርግጥ በቋሚነት ማጥፋት ይፈልጋሉ %'d የተመረጠውን እቃ?"
-msgstr[1] "በ እርግጥ በቋሚነት ማጥፋት ይፈልጋሉ %'d የተመረጡትን እቃዎች?"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:1463
 msgid "Are you sure you want to trash \"%B\"?"
@@ -1233,8 +1236,8 @@ msgstr "በ እርግጥ ወደ ቆሻሻ መውሰድ ይፈልጋሉ \"%B\"?"
 #, c-format
 msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
-msgstr[0] "በ እርግጥ ወደ ቆሻሻ መውሰድ ይፈልጋሉ %'d የ ተመረጠውን እቃ?  "
-msgstr[1] "በ እርግጥ ወደ ቆሻሻ መውሰድ ይፈልጋሉ %'d የ ተመረጠውን እቃ? "
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:1475
 msgid "Items moved to the trash may be recovered until the trash is emptied."
@@ -1248,8 +1251,8 @@ msgstr "ወደ _ቆሻሻ ማንቀሳቀሻ"
 #, c-format
 msgid "%'d file left to delete"
 msgid_plural "%'d files left to delete"
-msgstr[0] "%'d ፋይል ቀርቷል የሚጠፋ "
-msgstr[1] "%'d ፋይሎች ቀርተዋል የሚጠፉ "
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:1515
 msgid "Deleting files"
@@ -1261,8 +1264,8 @@ msgstr "ፋይሎችን በማጥፋት ላይ"
 #: ../libcaja-private/caja-file-operations.c:1529
 msgid "%T left"
 msgid_plural "%T left"
-msgstr[0] "%T ቀርቷል "
-msgstr[1] "%T ቀርቷል "
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:1596
 #: ../libcaja-private/caja-file-operations.c:1630
@@ -1318,8 +1321,8 @@ msgstr "ፋይሎች ወደ ቆሻሻ በማንቀሳቀስ ላይ"
 #, c-format
 msgid "%'d file left to trash"
 msgid_plural "%'d files left to trash"
-msgstr[0] "%'d ፋይል ቀርቷል ወደ ቆሻሻ የሚሄድ"
-msgstr[1] "%'d ፋይሎች ቀርተዋል ወደ ቆሻሻ የሚሄዱ "
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:1886
 msgid "Cannot move file to trash, do you want to delete immediately?"
@@ -1368,29 +1371,29 @@ msgstr "መጫን አልተቻለም %s"
 #, c-format
 msgid "Preparing to copy %'d file (%S)"
 msgid_plural "Preparing to copy %'d files (%S)"
-msgstr[0] "ኮፒ ለማድረግ በዝግጅት ላይ %'d ፋይል (%S)"
-msgstr[1] "ኮፒ ለማድረግ በዝግጅት ላይ %'d ፋይሎች (%S)"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:2518
 #, c-format
 msgid "Preparing to move %'d file (%S)"
 msgid_plural "Preparing to move %'d files (%S)"
-msgstr[0] "ለማንቀሳቀስ በዝግጅት ላይ %'d ፋይል (%S)"
-msgstr[1] "ለማንቀሳቀስ በዝግጅት ላይ %'d ፋይሎች (%S)"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:2524
 #, c-format
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
-msgstr[0] "ለማጥፋት በዝግጅት ላይ %'d ፋይል (%S)"
-msgstr[1] "ለማጥፋት በዝግጅት ላይ %'d ፋይሎች (%S)"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:2530
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
-msgstr[0] "ወደ ቆሻሻ ለማንቀሳቀስ በዝግጅት ላይ %'d ፋይል"
-msgstr[1] "ወደ ቆሻሻ ለማንቀሳቀስ በዝግጅት ላይ %'d ፋይሎች"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:2561
 #: ../libcaja-private/caja-file-operations.c:3459
@@ -1480,39 +1483,39 @@ msgstr "በማባዛት ላይ \"%B\""
 #: ../libcaja-private/caja-file-operations.c:3021
 msgid "Moving %'d file (in \"%B\") to \"%B\""
 msgid_plural "Moving %'d files (in \"%B\") to \"%B\""
-msgstr[0] "በ ማንቀሳቀስ ላይ %'d ፋይል (in \"%B\") ወደ \"%B\""
-msgstr[1] "በ ማንቀሳቀስ ላይ %'d ፋይሎች (in \"%B\") ወደ \"%B\""
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:3025
 msgid "Copying %'d file (in \"%B\") to \"%B\""
 msgid_plural "Copying %'d files (in \"%B\") to \"%B\""
-msgstr[0] "ኮፒ በማድረግ ላይ %'d ፋይል (in \"%B\") ወደ \"%B\""
-msgstr[1] "ኮፒ በማድረግ ላይ %'d ፋይሎች (in \"%B\") ወደ \"%B\""
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:3033
 msgid "Duplicating %'d file (in \"%B\")"
 msgid_plural "Duplicating %'d files (in \"%B\")"
-msgstr[0] "በ ማባዛት ላይ %'d ፋይል (in \"%B\")"
-msgstr[1] "በ ማባዛት ላይ %'d ፋይሎች (in \"%B\")"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:3043
 msgid "Moving %'d file to \"%B\""
 msgid_plural "Moving %'d files to \"%B\""
-msgstr[0] "በ ማንቀሳቀስ ላይ %'d ፋይል ወደ \"%B\""
-msgstr[1] "በ ማንቀሳቀስ ላይ %'d ፋይሎች ወደ \"%B\""
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:3047
 msgid "Copying %'d file to \"%B\""
 msgid_plural "Copying %'d files to \"%B\""
-msgstr[0] "ኮፒ በማድረግ ላይ %'d ፋይል \"%B\""
-msgstr[1] "ኮፒ በማድረግ ላይ %'d ፋይሎች ወደ \"%B\""
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:3053
 #, c-format
 msgid "Duplicating %'d file"
 msgid_plural "Duplicating %'d files"
-msgstr[0] "በ ማባዛት ላይ %'d ፋይል"
-msgstr[1] "በ ማባዛት ላይ %'d ፋይሎች"
+msgstr[0] ""
+msgstr[1] ""
 
 #. To translators: %S will expand to a size like "2 bytes" or "3 MB", so
 #. something like "4 kb of 4 MB"
@@ -1531,8 +1534,8 @@ msgstr "%S ከ %S"
 #: ../libcaja-private/caja-file-operations.c:3084
 msgid "%S of %S — %T left (%S/sec)"
 msgid_plural "%S of %S — %T left (%S/sec)"
-msgstr[0] "%S ከ %S — %T የቀረው (%S/sec)"
-msgstr[1] "%S ከ %S — %T የቀረው (%S/sec)"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:3463
 msgid ""
@@ -1634,8 +1637,8 @@ msgstr "ለማንቀሳቀስ በማዘጋጀት ላይ ወደ \"%B\""
 #, c-format
 msgid "Preparing to move %'d file"
 msgid_plural "Preparing to move %'d files"
-msgstr[0] "ለማንቀሳቀስ በዝግጅት ላይ %'d ፋይሎች"
-msgstr[1] "ለማንቀሳቀስ በዝግጅት ላይ %'d ፋይሎች"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:4981
 #, c-format
@@ -1654,8 +1657,8 @@ msgstr "አገናኝ በመፍጠር ላይ ወደ \"%B\" ውስጥ"
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
-msgstr[0] "አገናኝ መፍጠሪያ ወደ %'d ፋይል"
-msgstr[1] "አገናኝ መፍጠሪያ ለ %'d ፋይሎች"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:5418
 msgid "Error while creating link to %B."
@@ -1785,7 +1788,7 @@ msgid "today at 00:00:00 PM"
 msgstr "ዛሬ በ 00:00:00 ከሰዓት"
 
 #: ../libcaja-private/caja-file.c:4509
-#: ../src/caja-file-management-properties.c:527
+#: ../src/caja-file-management-properties.c:521
 msgid "today at %-I:%M:%S %p"
 msgstr "ዛሬ በ %-I:%M:%S %p"
 
@@ -1849,7 +1852,7 @@ msgstr "ረቡዕ, መስከረም 00 0000 at 00:00:00 ከሰዓት"
 
 #: ../libcaja-private/caja-file.c:4549
 msgid "%A, %B %-d %Y at %-I:%M:%S %p"
-msgstr "%A፣ %B %-d %Y በ %-I:%M:%S %p"
+msgstr "%A, %B %-d %Y at %-I:%M:%S %p"
 
 #: ../libcaja-private/caja-file.c:4551
 msgid "Mon, Oct 00 0000 at 00:00:00 PM"
@@ -1925,26 +1928,26 @@ msgid "Specified group '%s' doesn't exist"
 msgstr "የተፈለገው ቡድን '%s' አልተገኘም"
 
 #: ../libcaja-private/caja-file.c:5950
-#: ../src/file-manager/fm-directory-view.c:2371
+#: ../src/file-manager/fm-directory-view.c:2355
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
-msgstr[0] "%'u እቃ"
-msgstr[1] "%'u እቃዎች"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file.c:5951
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
-msgstr[0] "%'u ፎልደር"
-msgstr[1] "%'u ፎልደሮች"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file.c:5952
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
-msgstr[0] "%'u ፋይል"
-msgstr[1] "%'u ፋይሎች"
+msgstr[0] ""
+msgstr[1] ""
 
 #. Do this in a separate stage so that we don't have to put G_GUINT64_FORMAT
 #. in the translated string
@@ -1969,7 +1972,7 @@ msgstr "? ባይትስ"
 
 #: ../libcaja-private/caja-file.c:6433
 msgid "unknown type"
-msgstr "ያልታወቀ ዓይነት"
+msgstr "ያልታወቀ አይነት "
 
 #: ../libcaja-private/caja-file.c:6436
 msgid "unknown MIME type"
@@ -1994,7 +1997,7 @@ msgstr "አገናኝ"
 msgid "link (broken)"
 msgstr "አገናኝ (የተሰበረ)"
 
-#: ../libcaja-private/caja-icon-container.c:2920
+#: ../libcaja-private/caja-icon-container.c:2910
 msgid "The selection rectangle"
 msgstr "የተመረጠው አራት ማእዘን"
 
@@ -2020,10 +2023,10 @@ msgstr "ይህን አገናኝ መጠቀም አይቻልም ምክንያቱም �
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-mime-actions.c:744
-#: ../src/file-manager/fm-directory-view.c:7368
-#: ../src/file-manager/fm-directory-view.c:7500
-#: ../src/file-manager/fm-directory-view.c:8599
-#: ../src/file-manager/fm-directory-view.c:8924
+#: ../src/file-manager/fm-directory-view.c:7352
+#: ../src/file-manager/fm-directory-view.c:7484
+#: ../src/file-manager/fm-directory-view.c:8583
+#: ../src/file-manager/fm-directory-view.c:8908
 #: ../src/file-manager/fm-tree-view.c:1346
 msgid "Mo_ve to Trash"
 msgstr "ወደ ቆሻሽ ማንቀ_ሳቀሻ"
@@ -2060,15 +2063,15 @@ msgstr "በእርግጥ ሁሉንም ፋይሎች መክፈት ይፈልጋሉ?"
 #, c-format
 msgid "This will open %d separate tab."
 msgid_plural "This will open %d separate tabs."
-msgstr[0] "ይህ  ይከፍታል %d የተለየ tabs "
-msgstr[1] "ይህ  ይከፍታል %d የተለየ tabs."
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-mime-actions.c:1178 ../src/caja-location-bar.c:194
 #, c-format
 msgid "This will open %d separate window."
 msgid_plural "This will open %d separate windows."
-msgstr[0] "ይህ የተለዩ መስኮቶች %d ይከፍታል "
-msgstr[1] "ይህ የተለዩ መስኮቶች %d ይከፍታል"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-mime-actions.c:1256
 #: ../src/caja-window-manage-views.c:2101
@@ -2107,7 +2110,9 @@ msgstr "መተግበሪያውን መፈለግ አልተቻለም"
 msgid ""
 "There is no application installed for %s files.\n"
 "Do you want to search for an application to open this file?"
-msgstr "ምንም መተግበሪያ አልተገጠመም ለ %s ፋይሎች\nእርስዎ ይህን ፋይል ለ መክፈት መተግበሪያ መፈልግ ይፈልጋሉ?"
+msgstr ""
+"ምንም መተግበሪያ አልተገጠመም ለ %s ፋይሎች\n"
+"እርስዎ ይህን ፋይል ለ መክፈት መተግበሪያ መፈልግ ይፈልጋሉ?"
 
 #: ../libcaja-private/caja-mime-actions.c:1692
 msgid "Untrusted application launcher"
@@ -2118,7 +2123,9 @@ msgstr "የማይታመን መተግበሪያ ማስጀመሪያ "
 msgid ""
 "The application launcher \"%s\" has not been marked as trusted. If you do "
 "not know the source of this file, launching it may be unsafe."
-msgstr "የ መተግበሪያ ማስጀመሪያ \"%s\" እንደሚታመን ምልክት አልተደረገበትም: እርስዎ ምንጩን የማያውቁት ከሆነ ማስጀመሩ ጥሩ አይደለም"
+msgstr ""
+"የ መተግበሪያ ማስጀመሪያ \"%s\" እንደሚታመን ምልክት አልተደረገበትም: እርስዎ ምንጩን የማያውቁት ከሆነ ማስጀመሩ ጥሩ"
+" አይደለም"
 
 #: ../libcaja-private/caja-mime-actions.c:1710
 msgid "_Launch Anyway"
@@ -2130,12 +2137,12 @@ msgstr "ምልክት ማድረጊያ _እንደሚታመን"
 
 #: ../libcaja-private/caja-mime-actions.c:2010
 #: ../libcaja-private/caja-mime-actions.c:2316
-#: ../src/file-manager/fm-directory-view.c:6386
+#: ../src/file-manager/fm-directory-view.c:6370
 msgid "Unable to mount location"
 msgstr "አካባቢውን መጫን አልተቻለም"
 
 #: ../libcaja-private/caja-mime-actions.c:2404
-#: ../src/file-manager/fm-directory-view.c:6560
+#: ../src/file-manager/fm-directory-view.c:6544
 msgid "Unable to start location"
 msgstr "አካባቢውን ማስጀመር አልተቻለም"
 
@@ -2148,8 +2155,8 @@ msgstr "በመክፈት ላይ \"%s\"."
 #, c-format
 msgid "Opening %d item."
 msgid_plural "Opening %d items."
-msgstr[0] "በመክፈት ላይ %d እቃ."
-msgstr[1] "በመክፈት ላይ %d እቃዎች."
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-mime-application-chooser.c:162
 #: ../libcaja-private/caja-open-with-dialog.c:299
@@ -2164,36 +2171,36 @@ msgstr "መተግበሪያውን እንደ ነባር ማዘጋጀት አልተ�
 
 #: ../libcaja-private/caja-mime-application-chooser.c:256
 msgid "Default"
-msgstr "ነባር"
+msgstr "ነባር "
 
 #: ../libcaja-private/caja-mime-application-chooser.c:266
 msgid "Icon"
-msgstr "ምልክት"
+msgstr "ምልክት "
 
 #: ../libcaja-private/caja-mime-application-chooser.c:332
 msgid "Could not remove application"
 msgstr "መተግበሪያውን ማስወገድ አልተቻለም"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:561
+#: ../libcaja-private/caja-mime-application-chooser.c:555
 msgid "No applications selected"
 msgstr "ምንም መተገበሪያ አልተመረጠም "
 
-#: ../libcaja-private/caja-mime-application-chooser.c:591
+#: ../libcaja-private/caja-mime-application-chooser.c:585
 #, c-format
 msgid "%s document"
 msgstr "%s ሰነድ"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:601
-#: ../libcaja-private/caja-open-with-dialog.c:1081
+#: ../libcaja-private/caja-mime-application-chooser.c:595
+#: ../libcaja-private/caja-open-with-dialog.c:1072
 msgid "Unknown"
 msgstr "ያልታወቀ"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:634
+#: ../libcaja-private/caja-mime-application-chooser.c:628
 #, c-format
 msgid "Select an application to open %s and other files of type \"%s\""
 msgstr "መተግባሪያ ይምረጡ ለ መክፈት %sእና ሌሎች ፋይሎች አይነት \"%s\""
 
-#: ../libcaja-private/caja-mime-application-chooser.c:706
+#: ../libcaja-private/caja-mime-application-chooser.c:700
 #, c-format
 msgid "Open all files of type \"%s\" with:"
 msgstr "መክፈቻ ሁሉንም አይነት \"%s\" ፋይሎች በ:"
@@ -2225,80 +2232,80 @@ msgid "Select an Application"
 msgstr "መተገበሪያ ይምረጡ "
 
 #: ../libcaja-private/caja-open-with-dialog.c:840
-#: ../src/file-manager/fm-properties-window.c:5073
+#: ../src/file-manager/fm-properties-window.c:5069
 msgid "Open With"
 msgstr "መክፈቻ በ "
 
-#: ../libcaja-private/caja-open-with-dialog.c:883
+#: ../libcaja-private/caja-open-with-dialog.c:878
 msgid "Select an application to view its description."
-msgstr "መተግባሪያ ይምረጡ መግለጫውን ለ መመልከት"
+msgstr "መተግበሪያ ይምረጡ መግለጫውን ለ መመልከት"
 
-#: ../libcaja-private/caja-open-with-dialog.c:913
+#: ../libcaja-private/caja-open-with-dialog.c:904
 msgid "_Use a custom command"
 msgstr "የ ትእዛዝ ማስተካከያ _ይጠቀሙ"
 
-#: ../libcaja-private/caja-open-with-dialog.c:930
+#: ../libcaja-private/caja-open-with-dialog.c:921
 msgid "_Browse..."
 msgstr "_መቃኛ..."
 
 #. name, stock id
 #. label, accelerator
-#: ../libcaja-private/caja-open-with-dialog.c:966
-#: ../src/file-manager/fm-directory-view.c:7284
-#: ../src/file-manager/fm-directory-view.c:8793
+#: ../libcaja-private/caja-open-with-dialog.c:957
+#: ../src/file-manager/fm-directory-view.c:7268
+#: ../src/file-manager/fm-directory-view.c:8777
 #: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2656
 msgid "_Open"
 msgstr "_መክፈቻ"
 
 #. first %s is a filename and second %s is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1051
+#: ../libcaja-private/caja-open-with-dialog.c:1042
 #, c-format
 msgid "Open %s and other %s document with:"
 msgstr "መክፈቻ %s እና ሌላ %s ሰነድ በ:"
 
 #. the %s here is a file name
 #. %s is a filename
-#: ../libcaja-private/caja-open-with-dialog.c:1057
-#: ../libcaja-private/caja-open-with-dialog.c:1097
+#: ../libcaja-private/caja-open-with-dialog.c:1048
+#: ../libcaja-private/caja-open-with-dialog.c:1088
 #, c-format
 msgid "Open %s with:"
 msgstr "መክፈቻ %s በ:"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1058
+#: ../libcaja-private/caja-open-with-dialog.c:1049
 #, c-format
 msgid "_Remember this application for %s documents"
 msgstr "ይህም መተግበሪያ _አስታውስ ለ %s ሰነዶች"
 
 #. Only in add mode - the %s here is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1069
+#: ../libcaja-private/caja-open-with-dialog.c:1060
 #, c-format
 msgid "Open all %s documents with:"
 msgstr "መክፈቻ ሁሉንም \"%s\" ሰነዶች በ:"
 
 #. First %s is a filename, second is a description
 #. * of the type, eg "plain text document"
-#: ../libcaja-private/caja-open-with-dialog.c:1091
+#: ../libcaja-private/caja-open-with-dialog.c:1082
 #, c-format
 msgid "Open %s and other \"%s\" files with:"
 msgstr "መክፈቻ %s እና ሌላ %s ሰነድ በ:"
 
 #. %s is a file type description
-#: ../libcaja-private/caja-open-with-dialog.c:1099
+#: ../libcaja-private/caja-open-with-dialog.c:1090
 #, c-format
 msgid "_Remember this application for \"%s\" files"
 msgstr "ይህም መተግበሪያ _አስታውስ ለ %s ፋይሎቹ"
 
 #. Only in add mode
-#: ../libcaja-private/caja-open-with-dialog.c:1110
+#: ../libcaja-private/caja-open-with-dialog.c:1101
 #, c-format
 msgid "Open all \"%s\" files with:"
 msgstr "መክፈቻ ሁሉንም \"%s\" ፍይሎች በ:"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1122
+#: ../libcaja-private/caja-open-with-dialog.c:1113
 msgid "_Add"
 msgstr "_መጨመሪያ"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1123
+#: ../libcaja-private/caja-open-with-dialog.c:1114
 msgid "Add Application"
 msgstr "መፈጸሚያ መጨመሪያ"
 
@@ -2328,13 +2335,17 @@ msgstr "ነባር ተግባር መክፈት አልተቻለም \"%s\" ምክን�
 msgid ""
 "No other applications are available to view this file. If you copy this file"
 " onto your computer, you may be able to open it."
-msgstr "ምንም ሌላ መተግበሪያ ዝግጁ አይደለም ይህን ፋይል ለ መመከት: እርስዎ ፋይሉን ኮፒ ካደረጉ ወደ እርስዎ ኮምፒዩተር ውስጥ ሊከፍቱት ይችላሉ"
+msgstr ""
+"ምንም ሌላ መተግበሪያ ዝግጁ አይደለም ይህን ፋይል ለ መመከት: እርስዎ ፋይሉን ኮፒ ካደረጉ ወደ እርስዎ ኮምፒዩተር ውስጥ"
+" ሊከፍቱት ይችላሉ"
 
 #: ../libcaja-private/caja-program-choosing.c:128
 msgid ""
 "No other actions are available to view this file. If you copy this file onto"
 " your computer, you may be able to open it."
-msgstr "ምንም ሌላ ተግባር ዝግጁ አይደለም ይህን ፋይል ለ መመከት: እርስዎ ፋይሉን ኮፒ ካደረጉ ወደ እርስዎ ኮምፒዩተር ውስጥ ሊከፍቱት ይችላሉ"
+msgstr ""
+"ምንም ሌላ ተግባር ዝግጁ አይደለም ይህን ፋይል ለ መመከት: እርስዎ ፋይሉን ኮፒ ካደረጉ ወደ እርስዎ ኮምፒዩተር ውስጥ "
+"ሊከፍቱት ይችላሉ"
 
 #: ../libcaja-private/caja-program-choosing.c:458
 msgid "Sorry, but you cannot execute commands from a remote site."
@@ -2364,7 +2375,9 @@ msgstr "ለ መክፈት ምንም-የ አካባቢ ያልሆነ ፋይል ኮ�
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again. The local files you dropped have already been opened."
-msgstr "ለ መክፈት ምንም-የ አካባቢ ያልሆነ ፋይል ኮፒ ያድርጉ ወደ አካባቢ ፎልደር ውስጥ እና ከዛ እንደገና ይጣሉት: እርስዎ የጣሉት ፋይል ቀደም ብሎ ተከፍቷል"
+msgstr ""
+"ለ መክፈት ምንም-የ አካባቢ ያልሆነ ፋይል ኮፒ ያድርጉ ወደ አካባቢ ፎልደር ውስጥ እና ከዛ እንደገና ይጣሉት: እርስዎ "
+"የጣሉት ፋይል ቀደም ብሎ ተከፍቷል"
 
 #: ../libcaja-private/caja-program-choosing.c:538
 msgid "Details: "
@@ -2394,11 +2407,11 @@ msgstr "ተራ በ መጠበቅ ላይ"
 #, c-format
 msgid "%'d file operation active"
 msgid_plural "%'d file operations active"
-msgstr[0] "%'d የፋይል ተግባር ንቁ ነው"
-msgstr[1] "%'d የፋይል ተግባሮች ንቁ ናቸው "
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../libcaja-private/caja-progress-info.c:983
-#: ../libcaja-private/caja-progress-info.c:1004
+#: ../libcaja-private/caja-progress-info.c:975
+#: ../libcaja-private/caja-progress-info.c:996
 msgid "Preparing"
 msgstr "በማዘጋጀት ላይ"
 
@@ -2592,29 +2605,29 @@ msgstr "ባለቤት ማሰናጃ ከ '%s' ወደ '%s'"
 #, c-format
 msgid "_Undo copy of %d item"
 msgid_plural "_Undo copy of %d items"
-msgstr[0] "_መተው ኮፒ ማድረግ %d እቃዎችን"
-msgstr[1] "_መተው ኮፒ ማድረግ %d እቃዎችን"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1511
 #, c-format
 msgid "_Undo duplicate of %d item"
 msgid_plural "_Undo duplicate of %d items"
-msgstr[0] "_መተው ኮፒ ማባዛት %d እቃዎችን"
-msgstr[1] "_መተው ማባዛት %d እቃዎችን"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1516
 #, c-format
 msgid "_Undo move of %d item"
 msgid_plural "_Undo move of %d items"
-msgstr[0] "_መተው ማንቀሳቀስ %d እቃዎችን"
-msgstr[1] "_መተው ማንቀሳቀስ %d እቃዎችን"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1521
 #, c-format
 msgid "_Undo rename of %d item"
 msgid_plural "_Undo rename of %d items"
-msgstr[0] "_መተው እንደ ገና መሰየሚያ %d እቃዎችን"
-msgstr[1] "_መተው እንደ ገና መሰየሚያ %d እቃዎችን "
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1525
 #, c-format
@@ -2630,92 +2643,92 @@ msgstr " _መተው ባዶ ፋይል ከ ቴምፕሌት ውስጥ መፍጠሪ�
 #, c-format
 msgid "_Undo creation of %d folder"
 msgid_plural "_Undo creation of %d folders"
-msgstr[0] " _መተው ባዶ %d ፎልደር መፍጠሪያ "
-msgstr[1] " _መተው ባዶ %d ፎልደር መፍጠሪያ "
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1537
 #, c-format
 msgid "_Undo move to trash of %d item"
 msgid_plural "_Undo move to trash of %d items"
-msgstr[0] "_መተው ማንቀሳቀስ ወደ ቆሻሻ %d እቃዎችን"
-msgstr[1] "_መተው ማንቀሳቀስ %d እቃዎችን"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1542
 #, c-format
 msgid "_Undo restore from trash of %d item"
 msgid_plural "_Undo restore from trash of %d items"
-msgstr[0] "_መተው እንደ ነበር መመለሻ ከ ቆሻሻ ውስጥ %d እቃዎች"
-msgstr[1] "_መተው እንደ ነበር መመለሻ ከ ቆሻሻ ውስጥ %d እቃዎች "
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1547
 #, c-format
 msgid "_Undo create link to %d item"
 msgid_plural "_Undo create link to %d items"
-msgstr[0] "_መተው አገናኝ መፍጠሪያ ወደ %d እቃዎች "
-msgstr[1] "_መተው አገናኝ መፍጠሪያ ወደ %d እቃዎች "
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1552
 #, c-format
 msgid "_Undo delete of %d item"
 msgid_plural "_Undo delete of %d items"
-msgstr[0] "_መተው እቃዎችን %d ማጥፋት "
-msgstr[1] "_መተው እቃዎችን %d ማጥፋት"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1557
 #, c-format
 msgid "Undo recursive change permissions of %d item"
 msgid_plural "Undo recursive change permissions of %d items"
-msgstr[0] "መተው የ ለውጦች ፍቃድ መደጋገሚያ ለ %d እቃዎች "
-msgstr[1] "መተው የ ለውጦች ፍቃድ መደጋገሚያ ለ %d እቃዎች"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1563
 #, c-format
 msgid "Undo change permissions of %d item"
 msgid_plural "Undo change permissions of %d items"
-msgstr[0] "መተው የ ተቀየረውን ፍቃድ ለ %d እቃዎች"
-msgstr[1] "መተው የ ተቀየረውን ፍቃድ ለ %d እቃዎች "
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1568
 #, c-format
 msgid "Undo change group of %d item"
 msgid_plural "Undo change group of %d items"
-msgstr[0] "መተው የ ቡድን ለውጦች ከ %d እቃዎች "
-msgstr[1] "መተው የ ቡድን ለውጦች ከ %d እቃዎች "
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1573
 #, c-format
 msgid "Undo change owner of %d item"
 msgid_plural "Undo change owner of %d items"
-msgstr[0] "መተው ባለቤቱን ለ %d እቃዎች "
-msgstr[1] "መተው ባለቤቱን ለ %d እቃዎች  "
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1601
 #, c-format
 msgid "_Redo copy of %d item"
 msgid_plural "_Redo copy of %d items"
-msgstr[0] "_እንደ ገና መስሪያ ኮፒ ማድረጉን ለ %d አካሎች"
-msgstr[1] "_እንደ ገና መስሪያ ኮፒ ማድረጉን ለ %d አካሎች"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1606
 #, c-format
 msgid "_Redo duplicate of %d item"
 msgid_plural "_Redo duplicate of %d items"
-msgstr[0] "_እንደ ገና መስሪያ ማባዣውን ለ %d አካሎች"
-msgstr[1] "_እንደ ገና መስሪያ ማባዣውን ለ %d አካሎች"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1611
 #, c-format
 msgid "_Redo move of %d item"
 msgid_plural "_Redo move of %d items"
-msgstr[0] "_እንደ ገና መስሪያ ማንቀሳቀሱን ለ %d አካሎች "
-msgstr[1] "_እንደ ገና መስሪያ ማንቀሳቀሱን ለ %d አካሎች"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1616
 #, c-format
 msgid "_Redo rename of %d item"
 msgid_plural "_Redo rename of %d items"
-msgstr[0] "_እንደ ገና መሰየሚያ ለ %d እቃዎች"
-msgstr[1] "_እንደ ገና መሰየሚያ ለ %d አካሎች "
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1620
 #, c-format
@@ -2731,64 +2744,64 @@ msgstr "_እንደገና መስሪያ መፍጠሪያ ፋይል ከ ቴምፕሌ
 #, c-format
 msgid "_Redo creation of %d folder"
 msgid_plural "_Redo creation of %d folders"
-msgstr[0] "_እንደገና መስሪያ መፍጠሪያ ለ %d ፎልደሮች "
-msgstr[1] "_እንደገና መስሪያ መፍጠሪያ ለ %d ፎልደሮች"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1632
 #, c-format
 msgid "_Redo move to trash of %d item"
 msgid_plural "_Redo move to trash of %d items"
-msgstr[0] "_እንደገና መስሪያ መፍጠሪያ ለ %d እቃዎች"
-msgstr[1] "_እንደገና መስሪያ ወደ ቆሻሻ ማንቀሳቀሻ ለ %d እቃዎች "
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1637
 #, c-format
 msgid "_Redo restore from trash of %d item"
 msgid_plural "_Redo restore from trash of %d items"
-msgstr[0] "_እንደገና መስሪያ ቆሻሻ እንደ ነበር መመለሻ ለ %d እቃዎች  "
-msgstr[1] "_እንደገና መስሪያ ቆሻሻ እንደ ነበር መመለሻ ለ %d እቃዎች "
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1642
 #, c-format
 msgid "_Redo create link to %d item"
 msgid_plural "_Redo create link to %d items"
-msgstr[0] "_እንደገና መስሪያ አገናኝ መፍጠሪያ ለ %d እቃዎች"
-msgstr[1] "_እንደገና መስሪያ አገናኝ መፍጠሪያ ለ %d እቃዎች "
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1647
 #, c-format
 msgid "_Redo delete of %d item"
 msgid_plural "_Redo delete of %d items"
-msgstr[0] "_እንደገና መስሪያ ማጥፊያ ለ %d እቃዎች "
-msgstr[1] "_እንደገና መስሪያ ማጥፊያ ለ %d እቃዎች "
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1652
 #, c-format
 msgid "Redo recursive change permissions of %d item"
 msgid_plural "Redo recursive change permissions of %d items"
-msgstr[0] "እንደገና መስሪያ የ ለውጦች ፍቃድ መደጋገሚያ ለ %d እቃዎች "
-msgstr[1] "እንደገና መስሪያ የ ለውጦች ፍቃድ መደጋገሚያ ለ %d እቃዎች"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1658
 #, c-format
 msgid "Redo change permissions of %d item"
 msgid_plural "Redo change permissions of %d items"
-msgstr[0] "እንደገና መስሪያ ፍቃድ መቀየሪያ ለ %d እቃዎች "
-msgstr[1] "እንደገና መስሪያ ፍቃድ መቀየሪያ ለ %d እቃዎች"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1663
 #, c-format
 msgid "Redo change group of %d item"
 msgid_plural "Redo change group of %d items"
-msgstr[0] "እንደገና መስሪያ በ ቡድን የ ተቀየሩ %d እቃዎች  "
-msgstr[1] "እንደገና መስሪያ በ ቡድን የ ተቀየሩ %d እቃዎች "
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1668
 #, c-format
 msgid "Redo change owner of %d item"
 msgid_plural "Redo change owner of %d items"
-msgstr[0] "እንደገና መስሪያ በ ቡድን የ ተቀየሩ %d እቃዎች "
-msgstr[1] "እንደገና መስሪያ በ ባለቤቱ የ ተቀየሩ %d እቃዎች "
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:1
 msgid "Where to position newly open tabs in browser windows."
@@ -2821,7 +2834,9 @@ msgid ""
 "If set to true, then all Caja windows will be browser windows. This is how "
 "Nautilus used to behave before version 2.6, and some people prefer this "
 "behavior."
-msgstr "እንደ እውነት ከ ተሰናዳ ሁሉም የ ካጃ መስኮት መቃኛ ይሆናል: ስለዚህ Nautilus ይጠቀም ነበር ከ 2.6, በፊት እና አንዳንድ ሰዎች ይህን ይመርጣሉ"
+msgstr ""
+"እንደ እውነት ከ ተሰናዳ ሁሉም የ ካጃ መስኮት መቃኛ ይሆናል: ስለዚህ Nautilus ይጠቀም ነበር ከ 2.6, በፊት እና"
+" አንዳንድ ሰዎች ይህን ይመርጣሉ"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:7
 msgid "Always use the location entry, instead of the pathbar"
@@ -2831,7 +2846,9 @@ msgstr "ሁል ጊዜ ይጠቀሙ የ አካባቢ ማስገቢያ ከ መን�
 msgid ""
 "If set to true, then Caja browser windows will always use a textual input "
 "entry for the location toolbar, instead of the pathbar."
-msgstr "እንደ እውነት ከ ተሰናዳ የ ካጃ መቃኛ መስኮት ሁልጊዜ የ ጽሁፍ ማስገቢያ ይጠቀማል: ለ አካባቢ መሳሪያ መደርደሪያ: ከ መንገድ መደርደሪያ ይልቅ"
+msgstr ""
+"እንደ እውነት ከ ተሰናዳ የ ካጃ መቃኛ መስኮት ሁልጊዜ የ ጽሁፍ ማስገቢያ ይጠቀማል: ለ አካባቢ መሳሪያ መደርደሪያ: ከ "
+"መንገድ መደርደሪያ ይልቅ"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:9
 msgid "Whether to ask for confirmation when deleting files, or emptying Trash"
@@ -2841,7 +2858,8 @@ msgstr "ፋይሎች ወይንም ቆሻሻውን ባዶ በሚደረግ ጊዜ 
 msgid ""
 "If set to true, then Caja will ask for confirmation when you attempt to "
 "delete files, or empty the Trash."
-msgstr "እንደ እውነት ከ ተሰናዳ የ ካጃ ማሰናጃ ይጠይቃል እርስዎ ፋይሎች ለማጥፋት በሚሞክሩ ጊዜ ወይንም ቆሻሻውን ባዶ ሲያደርጉ"
+msgstr ""
+"እንደ እውነት ከ ተሰናዳ የ ካጃ ማሰናጃ ይጠይቃል እርስዎ ፋይሎች ለማጥፋት በሚሞክሩ ጊዜ ወይንም ቆሻሻውን ባዶ ሲያደርጉ"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:11
 msgid "Whether to ask for confirmation when moving files to the Trash"
@@ -2862,7 +2880,9 @@ msgid ""
 "If set to true, then Caja will have a feature allowing you to delete a file "
 "immediately and in-place, instead of moving it to the trash. This feature "
 "can be dangerous, so use caution."
-msgstr "እንደ እውነት ከ ተሰናዳ የ ካጃ እርስዎ ፋይሎች ለማጥፋት ይችላሉ እና በ ቦታ-ውስጥ ወደ ቆሻሻ ከ መውሰድ ይልቅ: ይህ ገጽታ አደገኛ ሊሆን ይችላል ለ መጠቀም ስለዚህ ይጠንቀቁ:"
+msgstr ""
+"እንደ እውነት ከ ተሰናዳ የ ካጃ እርስዎ ፋይሎች ለማጥፋት ይችላሉ እና በ ቦታ-ውስጥ ወደ ቆሻሻ ከ መውሰድ ይልቅ: ይህ "
+"ገጽታ አደገኛ ሊሆን ይችላል ለ መጠቀም ስለዚህ ይጠንቀቁ:"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:15
 msgid "When to show preview text in icons"
@@ -2875,7 +2895,11 @@ msgid ""
 "folder is on a remote server. If set to \"local-only\" then only show "
 "previews for local file systems. If set to \"never\" then never bother to "
 "read preview data."
-msgstr "በፍጥነት መቀያየሪያ የ ጽሁፍ ፋይል ይዞታ በ ቅድመ እይታ መቼ እንደሚታይ በ ፋይሎች ምልክት ውስጥ: ከ ተሰናዳ ወደ \"ሁል ጊዜ\" ሁል ጊዜ ቅድመ እይታ ያሳያል: ፎልደሮቹ በ ሩቅ ሰርቨር ላይ ቢሆኑም እንኳን: ከ ተሰናዳ ወደ \"አካባቢ-ብቻ\" የ አካባቢውን ፋይል ስርአት ብቻ ያሳያል: ከ ተሰናዳ ወደ \"በፍጹም\" አታሳይ: በ ቅድመ እይታ አያሳይም"
+msgstr ""
+"በፍጥነት መቀያየሪያ የ ጽሁፍ ፋይል ይዞታ በ ቅድመ እይታ መቼ እንደሚታይ በ ፋይሎች ምልክት ውስጥ: ከ ተሰናዳ ወደ "
+"\"ሁል ጊዜ\" ሁል ጊዜ ቅድመ እይታ ያሳያል: ፎልደሮቹ በ ሩቅ ሰርቨር ላይ ቢሆኑም እንኳን: ከ ተሰናዳ ወደ "
+"\"አካባቢ-ብቻ\" የ አካባቢውን ፋይል ስርአት ብቻ ያሳያል: ከ ተሰናዳ ወደ \"በፍጹም\" አታሳይ: በ ቅድመ እይታ "
+"አያሳይም"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:17
 msgid "When to show number of items in a folder"
@@ -2887,7 +2911,10 @@ msgid ""
 "\"always\" then always show item counts, even if the folder is on a remote "
 "server. If set to \"local-only\" then only show counts for local file "
 "systems. If set to \"never\" then never bother to compute item counts."
-msgstr "በፍጥነት መቀያየሪያ በ ፎልደር ውስጥ ያለውን እቃ ቁጥር: ከ ተሰናዳ ወደ ሁል ጊዜ\" ሁል ጊዜ የ እቃውን ቁጥር ያሳያል: እቃው በ ሩቅ ሰርቨር ላይ ቢሆኑም እንኳን: ከ ተሰናዳ ወደ \"አካባቢ-ብቻ\" የ አካባቢውን  ፋይል ስርአት ቅቁጥር ብቻ ያሳያል: ከ ተሰናዳ ወደ \"በፍጹም\" አታሳይ: በ ቅድመ እይታ አያሳይም"
+msgstr ""
+"በፍጥነት መቀያየሪያ በ ፎልደር ውስጥ ያለውን እቃ ቁጥር: ከ ተሰናዳ ወደ ሁል ጊዜ\" ሁል ጊዜ የ እቃውን ቁጥር "
+"ያሳያል: እቃው በ ሩቅ ሰርቨር ላይ ቢሆኑም እንኳን: ከ ተሰናዳ ወደ \"አካባቢ-ብቻ\" የ አካባቢውን  ፋይል ስርአት "
+"ቅቁጥር ብቻ ያሳያል: ከ ተሰናዳ ወደ \"በፍጹም\" አታሳይ: በ ቅድመ እይታ አያሳይም"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:19
 msgid "Type of click used to launch/open files"
@@ -2929,7 +2956,9 @@ msgstr "ይጠቀሙ ተጨማሪ የ አይጥ ቁልፍ ሁኔታዎች በ �
 msgid ""
 "For users with mice that have \"Forward\" and \"Back\" buttons, this key "
 "will determine if any action is taken inside of Caja when either is pressed."
-msgstr "ለ ተጠቃሚዎች በ አይጥ \"ወደ ፊት\" እና \"ወደ ኋላ\" ቁልፎች: ይህ ቁልፍ ነው የሚወስነው ምን ተግባር እንደሚፈጸም በ ካጃ ውስጥ ከ ሁለቱ አንዱን ሲጫኑ"
+msgstr ""
+"ለ ተጠቃሚዎች በ አይጥ \"ወደ ፊት\" እና \"ወደ ኋላ\" ቁልፎች: ይህ ቁልፍ ነው የሚወስነው ምን ተግባር እንደሚፈጸም"
+" በ ካጃ ውስጥ ከ ሁለቱ አንዱን ሲጫኑ"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:27
 msgid "Mouse button to activate the \"Forward\" command in browser window"
@@ -2940,7 +2969,10 @@ msgid ""
 "For users with mice that have buttons for \"Forward\" and \"Back\", this key"
 " will set which button activates the \"Forward\" command in a browser "
 "window. Possible values range between 6 and 14."
-msgstr "ለ ተጠቃሚዎች በ አይጥ \"ወደ ፊት\" እና \"ወደ ኋላ\" ቁልፎች: ይህ ቁልፍ ነው የሚወስነው የትኛው ቁልፍ እንደሚያስጀምር የ \"ወደ ፊት\"  ትእዛዝ  በ መቃኛ መስኮት ውስጥ:  የሚቻሉት ዋጋዎች መጠን በ 6 እና በ 14. መካከል ነው"
+msgstr ""
+"ለ ተጠቃሚዎች በ አይጥ \"ወደ ፊት\" እና \"ወደ ኋላ\" ቁልፎች: ይህ ቁልፍ ነው የሚወስነው የትኛው ቁልፍ "
+"እንደሚያስጀምር የ \"ወደ ፊት\"  ትእዛዝ  በ መቃኛ መስኮት ውስጥ:  የሚቻሉት ዋጋዎች መጠን በ 6 እና በ 14. "
+"መካከል ነው"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:29
 msgid "Mouse button to activate the \"Back\" command in browser window"
@@ -2987,7 +3019,11 @@ msgid ""
 "icon. If set to \"always\" then always plays the sound, even if the file is "
 "on a remote server. If set to \"local-only\" then only plays previews on "
 "local file systems. If set to \"never\" then it never previews sound."
-msgstr "በፍጥነት መቀያየሪያ የ ጽሁፍ ፋይል ይዞታ በ ቅድመ እይታ መቼ እንደሚታይ የ ድምፅ ፋይሎች መጠቆሚያው በ ፋይሎች ምልክት ላይ ሲሆን: ከ ተሰናዳ ወደ \"ሁል ጊዜ\" ሁል ጊዜ ድምፅ ያጫውታል: ፋይሎቹ በ ሩቅ ሰርቨር ላይ ቢሆኑም እንኳን: ከ ተሰናዳ ወደ \"አካባቢ-ብቻ\" የ አካባቢውን ፋይል ስርአት ብቻ ያጫውታል: ከ ተሰናዳ ወደ \"በፍጹም\" አታሳይ: ድምፅ አያጫውትም"
+msgstr ""
+"በፍጥነት መቀያየሪያ የ ጽሁፍ ፋይል ይዞታ በ ቅድመ እይታ መቼ እንደሚታይ የ ድምፅ ፋይሎች መጠቆሚያው በ ፋይሎች ምልክት"
+" ላይ ሲሆን: ከ ተሰናዳ ወደ \"ሁል ጊዜ\" ሁል ጊዜ ድምፅ ያጫውታል: ፋይሎቹ በ ሩቅ ሰርቨር ላይ ቢሆኑም እንኳን: ከ"
+" ተሰናዳ ወደ \"አካባቢ-ብቻ\" የ አካባቢውን ፋይል ስርአት ብቻ ያጫውታል: ከ ተሰናዳ ወደ \"በፍጹም\" አታሳይ: "
+"ድምፅ አያጫውትም"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:37
 msgid "Show advanced permissions in the file property dialog"
@@ -2997,7 +3033,9 @@ msgstr "የ ረቀቀ ፍቃድ ማሳያ በ ፋይል ባህሪ ንግግር �
 msgid ""
 "If set to true, then Caja lets you edit and display file permissions in a "
 "more unix-like way, accessing some more esoteric options."
-msgstr " እንደ እውነት ከ ተሰናዳ ካጃ እርስዎን ማረም እና ማሳየት ያስችሎታል ፍቃድ ለ ተጨማሪ unix-like way: ተጨማሪ ምርጫዎችን መድረስ ያስችሎታል"
+msgstr ""
+" እንደ እውነት ከ ተሰናዳ ካጃ እርስዎን ማረም እና ማሳየት ያስችሎታል ፍቃድ ለ ተጨማሪ unix-like way: ተጨማሪ "
+"ምርጫዎችን መድረስ ያስችሎታል"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:39
 msgid "Show folders first in windows"
@@ -3007,7 +3045,8 @@ msgstr "በመስኮት ውስጥ መጀመሪያ ፎልደሮች ማሳያ"
 msgid ""
 "If set to true, then Caja shows folders prior to showing files in the icon "
 "and list views."
-msgstr "እንደ እውነት ከ ተሰናዳ ካጃ የሚያሳየው ፎልደር ፋይል ከማሳየቱ በፊት በ ምልክት እና ዝርዝር መመልከቻ ውስጥ ነው"
+msgstr ""
+"እንደ እውነት ከ ተሰናዳ ካጃ የሚያሳየው ፎልደር ፋይል ከማሳየቱ በፊት በ ምልክት እና ዝርዝር መመልከቻ ውስጥ ነው"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:41
 msgid "Default sort order"
@@ -3017,7 +3056,9 @@ msgstr "ነባር የመለያ ደንብ "
 msgid ""
 "The default sort-order for items in the icon view. Possible values are "
 "\"name\", \"size\", \"type\", \"mtime\", and \"emblems\"."
-msgstr "ነባር የ መለያ-ቅደም ተከተል ለ እቃዎች በ ምልክት መመልከቻ ውስጥ: የሚቻለው ዋጋ \"ስም\", \"መጠን\", \"አይነት\", \"mtime\", እና \"አርማ\". ናቸው"
+msgstr ""
+"ነባር የ መለያ-ቅደም ተከተል ለ እቃዎች በ ምልክት መመልከቻ ውስጥ: የሚቻለው ዋጋ \"ስም\", \"መጠን\", "
+"\"አይነት\", \"mtime\", እና \"አርማ\". ናቸው"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:43
 msgid "Reverse sort order in new windows"
@@ -3029,7 +3070,10 @@ msgid ""
 " by name, then instead of sorting the files from \"a\" to \"z\", they will "
 "be sorted from \"z\" to \"a\"; if sorted by size, instead of being "
 "incrementally they will be sorted decrementally."
-msgstr "እውነት ከሆነ ፋይሎች በ አዲስ መስኮት ውስጥ በ ግልባጭ ዘዴ ይለያሉ: ይህም ማለት : በ ስም ተለይተው ከነበረ: ፋይሎቹን ከ \"a\" ወደ \"z\": ከ መለየት ይልቅ ፋይሎቹ ከ \"z\" ወደ \"a\" ይለያሉ: በ መጠን ተለይተው ከ ነበረ: እየጨመረ በሚሄድ አሁን እየቀነሰ በሚሄድ ይለያሉ"
+msgstr ""
+"እውነት ከሆነ ፋይሎች በ አዲስ መስኮት ውስጥ በ ግልባጭ ዘዴ ይለያሉ: ይህም ማለት : በ ስም ተለይተው ከነበረ: "
+"ፋይሎቹን ከ \"a\" ወደ \"z\": ከ መለየት ይልቅ ፋይሎቹ ከ \"z\" ወደ \"a\" ይለያሉ: በ መጠን ተለይተው ከ"
+" ነበረ: እየጨመረ በሚሄድ አሁን እየቀነሰ በሚሄድ ይለያሉ"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:45
 msgid "Caja uses the users home folder as the desktop"
@@ -3094,7 +3138,8 @@ msgstr "ነባር የጎን ክፍል መደብ የፋይል ስም"
 msgid ""
 "Uri of the default side pane background. Only used if "
 "side_pane_background_set is true."
-msgstr "Uri ለ ፋይል ስም ለ ነባር የ ጎን ክፍል መደብ: የሚጠቀሙት የ ጎን_ክፍል_መደብ_ማሰናጃ እውነት ሲሆን ብቻ ነው"
+msgstr ""
+"Uri ለ ፋይል ስም ለ ነባር የ ጎን ክፍል መደብ: የሚጠቀሙት የ ጎን_ክፍል_መደብ_ማሰናጃ እውነት ሲሆን ብቻ ነው"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:59
 msgid "Default folder viewer"
@@ -3220,7 +3265,9 @@ msgstr "ሁሉም አምዶች ተመሳሳይ ስፋት አላቸው"
 msgid ""
 "If this preference is set, all columns in the compact view have the same "
 "width. Otherwise, the width of each column is determined seperately."
-msgstr "ይህ ምርጫ ከ ተሰናዳ: ሁሉም አምዶች በ አነስተኛ መመልከቻ ውስጥ ተመሳሳይ ስፋት ይኖራቸዋል: ያለ በለዚያ የ እያንዳኑ አምድ ስፋት የሚወሰነው የ ተለየ ነው"
+msgstr ""
+"ይህ ምርጫ ከ ተሰናዳ: ሁሉም አምዶች በ አነስተኛ መመልከቻ ውስጥ ተመሳሳይ ስፋት ይኖራቸዋል: ያለ በለዚያ የ እያንዳኑ "
+"አምድ ስፋት የሚወሰነው የ ተለየ ነው"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:88
 msgid "Default list zoom level"
@@ -3254,7 +3301,9 @@ msgstr "ፎልደሮች በ ዛፍ ክፍል በኩል ውስጥ ብቻ ማሳ�
 msgid ""
 "If set to true, Caja will only show folders in the tree side pane. Otherwise"
 " it will show both folders and files."
-msgstr "ወደ እውነት ከ ተሰናዳ ካጃ ፎልደሮች ብቻ ያሳያል በ ዛፍ ክፍል ማሳያ በኩል: ያለ በለዚያ ሁለቱንም ፎልደር እና ፋይል ያሳያል"
+msgstr ""
+"ወደ እውነት ከ ተሰናዳ ካጃ ፎልደሮች ብቻ ያሳያል በ ዛፍ ክፍል ማሳያ በኩል: ያለ በለዚያ ሁለቱንም ፎልደር እና ፋይል "
+"ያሳያል"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:96
 msgid "Desktop font"
@@ -3352,7 +3401,8 @@ msgstr "የ ኔትዎርክ ሰርቨሮች ምልክት ስም"
 msgid ""
 "This name can be set if you want a custom name for the network servers icon "
 "on the desktop."
-msgstr "ይህ ስም ከ ተሰናዳ እርስዎ ስም ማስተካከል ከ ፈለጉ ስም ለ ኔትዎርክ ሰርቨር ምልክት በ ዴስክቶፕ ላይ ይቀመጣል"
+msgstr ""
+"ይህ ስም ከ ተሰናዳ እርስዎ ስም ማስተካከል ከ ፈለጉ ስም ለ ኔትዎርክ ሰርቨር ምልክት በ ዴስክቶፕ ላይ ይቀመጣል"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:116
 msgid ""
@@ -3445,7 +3495,9 @@ msgstr "ራሱ በራሱ መገናኛ ይጫን ወይንስ ይተወው"
 msgid ""
 "If set to true, then Caja will automatically mount media such as user-"
 "visible hard disks and removable media on start-up and media insertion."
-msgstr "እንደ እውነት ከ ተሰናዳ ካጃ ራሱ በራሱ ይጭናል መገናኛ እንደ ለ ተጠቃሚው-የሚታይ ሀርድ ዲስክ እና የሚወልቁ መገናኛ በሚጀምር-ጊዜ እና መገናኛ በሚገባ ጊዜ"
+msgstr ""
+"እንደ እውነት ከ ተሰናዳ ካጃ ራሱ በራሱ ይጭናል መገናኛ እንደ ለ ተጠቃሚው-የሚታይ ሀርድ ዲስክ እና የሚወልቁ መገናኛ "
+"በሚጀምር-ጊዜ እና መገናኛ በሚገባ ጊዜ"
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:3
 msgid "Whether to automatically open a folder for automounted media"
@@ -3467,7 +3519,8 @@ msgstr "በፍጹም አትሞክር በራሱ ለማስኬድ/በራሱ ማስ�
 msgid ""
 "If set to true, then Caja will never prompt nor autorun/autostart programs "
 "when a medium is inserted."
-msgstr "እንደ እውነት ከ ተሰናዳ ካጃ ካጃ ፕሮግራሞች በራሱ ማስኬጃ/በራሱ ማስጀመሪያ አይሞክርም: የ መገናኝ አካል በሚገባ ጊዜ"
+msgstr ""
+"እንደ እውነት ከ ተሰናዳ ካጃ ካጃ ፕሮግራሞች በራሱ ማስኬጃ/በራሱ ማስጀመሪያ አይሞክርም: የ መገናኝ አካል በሚገባ ጊዜ"
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:7
 msgid ""
@@ -3506,12 +3559,12 @@ msgstr ""
 #: ../libegg/eggdesktopfile.c:166
 #, c-format
 msgid "File is not a valid .desktop file"
-msgstr "ፋይሉ ዋጋ ያለው የ ዴስክቶፕ ፋይል አይደለም"
+msgstr "ፋይሉ ዋጋ ያለው የ .ዴስክቶፕ ፋይል አይደለም"
 
 #: ../libegg/eggdesktopfile.c:189
 #, c-format
 msgid "Unrecognized desktop file Version '%s'"
-msgstr "የማይታወቅ የዴስክቶፕ ፋይል እትም '%s'"
+msgstr "ያልታወቀ የ ዴስክቶፕ ፋይል አይነት እትም '%s'"
 
 #: ../libegg/eggdesktopfile.c:958
 #, c-format
@@ -3521,30 +3574,30 @@ msgstr "በማስጀመር ላይ %s"
 #: ../libegg/eggdesktopfile.c:1100
 #, c-format
 msgid "Application does not accept documents on command line"
-msgstr "መፈጸሚያው ሰንዶችን በ ትእዛዝ መስመር አይቀበልም"
+msgstr "መተግበሪያው ሰነድ በ ትእዛዝ መስመር አይቀበልም"
 
 #: ../libegg/eggdesktopfile.c:1168
 #, c-format
 msgid "Unrecognized launch option: %d"
-msgstr "የማይታወቅ ማስጀመሪያ ምርጫ: %d"
+msgstr "ያልታወቀ ማስጀመሪያ ምርጫ: %d"
 
 #: ../libegg/eggdesktopfile.c:1366
 #, c-format
 msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
-msgstr "ማለፍ አልተቻለም የሰነዱን URIs to a 'Type=Link' ዴስክቶፕ ማስገቢያ"
+msgstr "የ ሰነድ URIs ማለፍ አልተቻለም ወደ የ 'አይነት=አገናኝ' ዴስክቶፕ ማስገቢያ"
 
 #: ../libegg/eggdesktopfile.c:1385
 #, c-format
 msgid "Not a launchable item"
-msgstr "እቃውን ማስጀመር አይቻልም"
+msgstr "እቃው የሚጀምር አይነት አይደለም"
 
 #: ../libegg/eggsmclient.c:237
 msgid "Disable connection to session manager"
-msgstr "ወደ ክፍለ ጊዜ አስተዳዳሪ ግንኙነት ማሳናከያ"
+msgstr "ከ ክፍለ ጊዜ አስተዳዳሪ ጋር ግንኙነት ማሰናከያ"
 
 #: ../libegg/eggsmclient.c:242
 msgid "Specify file containing saved configuration"
-msgstr "የተቀመጠውን ማዋቀሪያ የያዘውን ፋይል መግለጫ"
+msgstr "የ ተቀመጠውን የ ማሰናጃ ፋይል የያዘውን መወሰኛ"
 
 #: ../libegg/eggsmclient.c:242
 msgid "FILE"
@@ -3552,73 +3605,73 @@ msgstr "ፋይል"
 
 #: ../libegg/eggsmclient.c:247
 msgid "Specify session management ID"
-msgstr "የ ክፍለ ጊዜ አስተዳዳሪ ID"
+msgstr "የ ክፍለ ጊዜ አስተዳዳሪ ID ይወስኑ "
 
 #: ../libegg/eggsmclient.c:247
 msgid "ID"
-msgstr "ID"
+msgstr "መለያ"
 
 #: ../libegg/eggsmclient.c:273
 msgid "Session management options:"
-msgstr "የ ክፍለ ጊዜ አስተዳዳሪ ምርጫዎች:"
+msgstr "የ ክፍለ ጊዜ አስተዳዳሪ ምርጫ"
 
 #: ../libegg/eggsmclient.c:274
 msgid "Show session management options"
-msgstr "የ ክፍለ ጊዜ አስተዳዳሪ ምርጫዎች ማሳያ"
+msgstr "የ ክፍለ ጊዜ አስተዳዳሪ ምርጫ ማሳያ"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:709
+#: ../src/file-manager/fm-desktop-icon-view.c:667
 msgid "Background"
 msgstr "መደብ "
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:786
-#: ../src/file-manager/fm-directory-view.c:7316
-#: ../src/file-manager/fm-directory-view.c:8993
+#: ../src/file-manager/fm-desktop-icon-view.c:744
+#: ../src/file-manager/fm-directory-view.c:7300
+#: ../src/file-manager/fm-directory-view.c:8977
 msgid "E_mpty Trash"
 msgstr "ቆሻሻውን ባ_ዶ ማድረጊያ"
 
 #. label, accelerator
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:800
-#: ../src/file-manager/fm-directory-view.c:7280
+#: ../src/file-manager/fm-desktop-icon-view.c:758
+#: ../src/file-manager/fm-directory-view.c:7264
 msgid "Create L_auncher..."
 msgstr "ማ_ስጀመሪያ መፍጠሪያ"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:802
-#: ../src/file-manager/fm-directory-view.c:7281
+#: ../src/file-manager/fm-desktop-icon-view.c:760
+#: ../src/file-manager/fm-directory-view.c:7265
 msgid "Create a new launcher"
 msgstr "አዲስ ማስጀመሪያ መፍጠሪያ"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:809
+#: ../src/file-manager/fm-desktop-icon-view.c:767
 msgid "Change Desktop _Background"
 msgstr "የዴስክቶፕ _መደብ መቀየሪያ"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:811
+#: ../src/file-manager/fm-desktop-icon-view.c:769
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr "ይህ መስኮት ለ እርስዎ የሚያሳየው የ እርስዎን ዴስክቶፕ መደብ ንድፍ እና ቀለም ማሰናጃ ነ "
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:818
+#: ../src/file-manager/fm-desktop-icon-view.c:776
 msgid "Empty Trash"
 msgstr "ቆሻሻውን ባዶ ማድረጊያ"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:820
-#: ../src/file-manager/fm-directory-view.c:7317 ../src/caja-trash-bar.c:204
+#: ../src/file-manager/fm-desktop-icon-view.c:778
+#: ../src/file-manager/fm-directory-view.c:7301 ../src/caja-trash-bar.c:204
 msgid "Delete all items in the Trash"
 msgstr "በ ቆሻሻ ውስጥ ያሉ እቃዎችን ማጥፊያ"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:920
+#: ../src/file-manager/fm-desktop-icon-view.c:878
 msgid "The desktop view encountered an error."
 msgstr "የ ዴስክቶፕ መመልከቻ ችግር ገጥሞታል"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:921
+#: ../src/file-manager/fm-desktop-icon-view.c:879
 msgid "The desktop view encountered an error while starting up."
 msgstr "የ ዴስክቶፕ መመልከቻ ችግር ገጥሞታል በ መክፈት ላይ እንዳለ"
 
@@ -3626,109 +3679,109 @@ msgstr "የ ዴስክቶፕ መመልከቻ ችግር ገጥሞታል በ መክ
 #, c-format
 msgid "This will open %'d separate tab."
 msgid_plural "This will open %'d separate tabs."
-msgstr[0] "ይህ  ይከፍታል %'d የተለየ tab. "
-msgstr[1] "ይህ  ይከፍታል %'d የተለየ tabs."
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/file-manager/fm-directory-view.c:658
 #, c-format
 msgid "This will open %'d separate window."
 msgid_plural "This will open %'d separate windows."
-msgstr[0] "ይህ ይክፍታል %'d የ ተክለየ መስኮት"
-msgstr[1] "ይህ ይክፍታል %'d የ ተክለየ መስኮት  "
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:1183
-#: ../src/file-manager/fm-properties-window.c:5420
-#: ../src/caja-connect-server-dialog.c:724 ../src/caja-location-dialog.c:108
+#: ../src/file-manager/fm-directory-view.c:1177
+#: ../src/file-manager/fm-properties-window.c:5409
+#: ../src/caja-connect-server-dialog.c:718 ../src/caja-location-dialog.c:102
 msgid "There was an error displaying help."
 msgstr "ስህተት እርዳታ በማሳየት ላይ እንዳለ"
 
-#: ../src/file-manager/fm-directory-view.c:1203
+#: ../src/file-manager/fm-directory-view.c:1197
 msgid "Select Items Matching"
 msgstr "ተመሳሳይ እቃዎች መምረጫ"
 
-#: ../src/file-manager/fm-directory-view.c:1218
+#: ../src/file-manager/fm-directory-view.c:1212
 msgid "_Pattern:"
 msgstr "_ንድፎች:"
 
-#: ../src/file-manager/fm-directory-view.c:1225
+#: ../src/file-manager/fm-directory-view.c:1219
 msgid "Examples: "
 msgstr "ምሳሌዎች: "
 
-#: ../src/file-manager/fm-directory-view.c:1341
+#: ../src/file-manager/fm-directory-view.c:1335
 msgid "Save Search as"
 msgstr "ፍለጋውን ማስቀመጫ እንደ"
 
-#: ../src/file-manager/fm-directory-view.c:1364
+#: ../src/file-manager/fm-directory-view.c:1358
 msgid "Search _name:"
 msgstr "መፈለጊያ _ስም:"
 
-#: ../src/file-manager/fm-directory-view.c:1384
+#: ../src/file-manager/fm-directory-view.c:1374
 msgid "_Folder:"
 msgstr "_ፎልደር:"
 
-#: ../src/file-manager/fm-directory-view.c:1393
+#: ../src/file-manager/fm-directory-view.c:1379
 msgid "Select Folder to Save Search In"
 msgstr "በ ፎልደሩ ውስጡ ለ መፈለግ ይምረጡ"
 
-#: ../src/file-manager/fm-directory-view.c:2284
-#: ../src/file-manager/fm-directory-view.c:2321
+#: ../src/file-manager/fm-directory-view.c:2268
+#: ../src/file-manager/fm-directory-view.c:2305
 #, c-format
 msgid "\"%s\" selected"
 msgstr "\"%s\" ተመርጧል "
 
-#: ../src/file-manager/fm-directory-view.c:2286
+#: ../src/file-manager/fm-directory-view.c:2270
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
-msgstr[0] "%'d ፎልደር ተመርጧል"
-msgstr[1] "%'d ፎልደሮች ተመርጠዋል"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:2296
+#: ../src/file-manager/fm-directory-view.c:2280
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
-msgstr[0] " (የያዛቸው %'d እቃዎች) "
-msgstr[1] " (የያዛቸው %'d እቃዎች) "
+msgstr[0] ""
+msgstr[1] ""
 
 #. translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
-#: ../src/file-manager/fm-directory-view.c:2307
+#: ../src/file-manager/fm-directory-view.c:2291
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
-msgstr[0] " (ጠቅላላ የያዛቸው %'d እቃዎች)  "
-msgstr[1] " (ጠቅላላ የያዛቸው %'d እቃዎች) "
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:2324
+#: ../src/file-manager/fm-directory-view.c:2308
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
-msgstr[0] "%'d የተመረጠው እቃ"
-msgstr[1] "%'d የተመረጡት እቃዎች"
+msgstr[0] ""
+msgstr[1] ""
 
 #. Folders selected also, use "other" terminology
-#: ../src/file-manager/fm-directory-view.c:2331
+#: ../src/file-manager/fm-directory-view.c:2315
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
-msgstr[0] "%'d ሌላ የተመረጠው እቃ"
-msgstr[1] "%'d ሌሎች የተመረጡት እቃዎች"
+msgstr[0] ""
+msgstr[1] ""
 
 #. This is marked for translation in case a localiser
 #. * needs to use something other than parentheses. The
 #. * first message gives the number of items selected;
 #. * the message in parentheses the size of those items.
-#: ../src/file-manager/fm-directory-view.c:2350
+#: ../src/file-manager/fm-directory-view.c:2334
 #, c-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-directory-view.c:2363
+#: ../src/file-manager/fm-directory-view.c:2347
 #, c-format
 msgid "Free space: %s"
 msgstr "ነፃ ቦታ: %s"
 
-#: ../src/file-manager/fm-directory-view.c:2374
+#: ../src/file-manager/fm-directory-view.c:2358
 #, c-format
 msgid "%s, Free space: %s"
 msgstr "%s, ነፃ ቦታ: %s"
@@ -3737,7 +3790,7 @@ msgstr "%s, ነፃ ቦታ: %s"
 #. * might want to change "," to something else.
 #. * After the comma the amount of free space will
 #. * be shown.
-#: ../src/file-manager/fm-directory-view.c:2389
+#: ../src/file-manager/fm-directory-view.c:2373
 #, c-format
 msgid "%s, %s"
 msgstr "%s, %s"
@@ -3752,8 +3805,8 @@ msgstr "%s, %s"
 #. * and the number of items in those folders and the
 #. * message about the number of other items and the
 #. * total size of those items.
-#: ../src/file-manager/fm-directory-view.c:2408
-#: ../src/file-manager/fm-directory-view.c:2422
+#: ../src/file-manager/fm-directory-view.c:2392
+#: ../src/file-manager/fm-directory-view.c:2406
 #, c-format
 msgid "%s%s, %s"
 msgstr "%s%s፣ %s"
@@ -3765,53 +3818,53 @@ msgstr "%s%s፣ %s"
 #. * message about the number of other items and the
 #. * total size of those items. After the second comma
 #. * the free space is written.
-#: ../src/file-manager/fm-directory-view.c:2435
+#: ../src/file-manager/fm-directory-view.c:2419
 #, c-format
 msgid "%s%s, %s, %s"
 msgstr "%s%s, %s, %s"
 
-#: ../src/file-manager/fm-directory-view.c:4480
+#: ../src/file-manager/fm-directory-view.c:4464
 #: ../src/caja-information-panel.c:905
 #, c-format
 msgid "Open With %s"
 msgstr "መክፈቻበ %s"
 
-#: ../src/file-manager/fm-directory-view.c:4482
+#: ../src/file-manager/fm-directory-view.c:4466
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
-msgstr[0] "ይጠቀሙ \"%s\" የተመረጡ እቃዎችን ለ መክፈት"
-msgstr[1] "ይጠቀሙ \"%s\" የተመረጡ እቃዎችን ለ መክፈት"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:4571
+#: ../src/file-manager/fm-directory-view.c:4555
 msgid "Open parent location"
 msgstr "ወላጅ አካባቢውን መክፈቻ"
 
-#: ../src/file-manager/fm-directory-view.c:4572
+#: ../src/file-manager/fm-directory-view.c:4556
 msgid "Open parent location for the selected item"
 msgstr "ወላጅ አካባቢውን መክፈቻ ለተመረጠው እቃ"
 
-#: ../src/file-manager/fm-directory-view.c:5421
+#: ../src/file-manager/fm-directory-view.c:5405
 #, c-format
 msgid "Run \"%s\" on any selected items"
 msgstr "ማስኬጃ \"%s\" በተመረጡት እቃዎች ላይ"
 
-#: ../src/file-manager/fm-directory-view.c:5672
+#: ../src/file-manager/fm-directory-view.c:5656
 #, c-format
 msgid "Create Document from template \"%s\""
 msgstr "ከ ቴምፕሌት ሰነድ መፍጠሪያ \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:5922
+#: ../src/file-manager/fm-directory-view.c:5906
 msgid "All executable files in this folder will appear in the Scripts menu."
 msgstr "ሁሉም ሊፈጸሙ የሚችሉ ፋይሎች በዚህ ፎልደር ውስጥ ይታያሉ በ ጽሁፍ ዝርዝር ውስጥ"
 
-#: ../src/file-manager/fm-directory-view.c:5924
+#: ../src/file-manager/fm-directory-view.c:5908
 msgid ""
 "Choosing a script from the menu will run that script with any selected items"
 " as input."
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:5926
+#: ../src/file-manager/fm-directory-view.c:5910
 msgid ""
 "All executable files in this folder will appear in the Scripts menu. Choosing a script from the menu will run that script.\n"
 "\n"
@@ -3834,126 +3887,126 @@ msgid ""
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI for current location in the inactive pane of a split-view window"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:5994
+#: ../src/file-manager/fm-directory-view.c:5978
 #: ../src/file-manager/fm-tree-view.c:1009
 #, c-format
 msgid "\"%s\" will be moved if you select the Paste command"
 msgstr "\"%s\" ይንቀሳቀሳል እርስዎ መለጠፊያ ትእዛዝ ከ መረጡ"
 
-#: ../src/file-manager/fm-directory-view.c:5998
+#: ../src/file-manager/fm-directory-view.c:5982
 #: ../src/file-manager/fm-tree-view.c:1015
 #, c-format
 msgid "\"%s\" will be copied if you select the Paste command"
 msgstr "\"%s\" ኮፒ ይደረጋል እርስዎ የ መለጠፊያ ትእዛዝ ከ መረጡ"
 
-#: ../src/file-manager/fm-directory-view.c:6005
+#: ../src/file-manager/fm-directory-view.c:5989
 #, c-format
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be moved if you select the Paste command"
-msgstr[0] "ይህ %'d የ ተመረጠው እቃ ይንቀሳቀሳል እርስዎ ከ መረጡ የ መለጠፊያ ትእዛዝ ከ መረጡ "
-msgstr[1] "ይህ %'d የ ተመረጠው እቃ ይንቀሳቀሳል እርስዎ ከ መረጡ የ መለጠፊያ ትእዛዝ ከ መረጡ"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:6012
+#: ../src/file-manager/fm-directory-view.c:5996
 #, c-format
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be copied if you select the Paste command"
-msgstr[0] "ይህ %'d የ ተመረጠው እቃ ኮፒ ይደረጋል እርስዎ ከ መረጡ የ መለጠፊያ ትእዛዝ ከ መረጡ "
-msgstr[1] "ይህ %'d የ ተመረጠው እቃ ኮፒ ይደረጋል እርስዎ ከ መረጡ የ መለጠፊያ ትእዛዝ ከ መረጡ"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:6192
+#: ../src/file-manager/fm-directory-view.c:6176
 #: ../src/file-manager/fm-tree-view.c:1055
 msgid "There is nothing on the clipboard to paste."
 msgstr "በ ቁራጭ ሰሌዳ ውስጥ የሚለጠፍ ምንም የለም"
 
-#: ../src/file-manager/fm-directory-view.c:6407
+#: ../src/file-manager/fm-directory-view.c:6391
 msgid "Unable to unmount location"
 msgstr "አካባቢውን ማውረድ አልተቻለም"
 
-#: ../src/file-manager/fm-directory-view.c:6428
+#: ../src/file-manager/fm-directory-view.c:6412
 msgid "Unable to eject location"
 msgstr "አካባቢውን ማውጣት አልተቻለም"
 
-#: ../src/file-manager/fm-directory-view.c:6443
+#: ../src/file-manager/fm-directory-view.c:6427
 msgid "Unable to stop drive"
 msgstr "አካሉን ማስቆም አልተቻለም"
 
-#: ../src/file-manager/fm-directory-view.c:7000
+#: ../src/file-manager/fm-directory-view.c:6984
 #, c-format
 msgid "Connect to Server %s"
 msgstr "ወደ ሰቨር መገናኛ %s"
 
-#: ../src/file-manager/fm-directory-view.c:7005
-#: ../src/file-manager/fm-directory-view.c:8212
-#: ../src/file-manager/fm-directory-view.c:8304
-#: ../src/file-manager/fm-directory-view.c:8414
+#: ../src/file-manager/fm-directory-view.c:6989
+#: ../src/file-manager/fm-directory-view.c:8196
+#: ../src/file-manager/fm-directory-view.c:8288
+#: ../src/file-manager/fm-directory-view.c:8398
 msgid "_Connect"
 msgstr "_መገናኛ"
 
-#: ../src/file-manager/fm-directory-view.c:7019
+#: ../src/file-manager/fm-directory-view.c:7003
 msgid "Link _name:"
 msgstr "የአገናኙ _ስም:"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7258
+#: ../src/file-manager/fm-directory-view.c:7242
 msgid "Create _Document"
 msgstr "_ሰነድ መፍጠሪያ"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7259
+#: ../src/file-manager/fm-directory-view.c:7243
 msgid "Open Wit_h"
 msgstr "መክፈቻ በ_"
 
-#: ../src/file-manager/fm-directory-view.c:7260
+#: ../src/file-manager/fm-directory-view.c:7244
 msgid "Choose a program with which to open the selected item"
 msgstr "የ ተመረጠውን እቃ የሚከፈትበትን ፕሮግራም ይምረጡ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7262
-#: ../src/file-manager/fm-directory-view.c:7541
+#: ../src/file-manager/fm-directory-view.c:7246
+#: ../src/file-manager/fm-directory-view.c:7525
 msgid "_Properties"
-msgstr "ባህሪዎች"
+msgstr "_ባህሪዎች "
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7263
-#: ../src/file-manager/fm-directory-view.c:8980
+#: ../src/file-manager/fm-directory-view.c:7247
+#: ../src/file-manager/fm-directory-view.c:8964
 msgid "View or modify the properties of each selected item"
 msgstr "ለተመረጠው እቃ ባህሪ መመልከቻ ወይንም ማሻሻያ"
 
 #. name, stock id
 #. label, accelerator
 #. add the "create folder" menu item
-#: ../src/file-manager/fm-directory-view.c:7270
+#: ../src/file-manager/fm-directory-view.c:7254
 #: ../src/file-manager/fm-tree-view.c:1298
 msgid "Create _Folder"
 msgstr "_ፎልደር መፍጠሪያ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7271
+#: ../src/file-manager/fm-directory-view.c:7255
 msgid "Create a new empty folder inside this folder"
 msgstr "በዚህ ፎልደር ውስጥ አዲስ ባዶ ፎልደር መፍጠሪያ"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7273
+#: ../src/file-manager/fm-directory-view.c:7257
 msgid "No templates installed"
 msgstr "ቴምፕሌቶች አልተገጠሙም"
 
 #. name, stock id
 #. translators: this is used to indicate that a file doesn't contain anything
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7276
+#: ../src/file-manager/fm-directory-view.c:7260
 msgid "_Empty File"
 msgstr "_ባዶ ፋይል"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7277
+#: ../src/file-manager/fm-directory-view.c:7261
 msgid "Create a new empty file inside this folder"
 msgstr "በዚህ ፎልደር ውስጥ አዲስ ባዶ ፎልደር መፍጠሪያ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7285
+#: ../src/file-manager/fm-directory-view.c:7269
 msgid "Open the selected item in this window"
 msgstr "የተመረጠውን እቃ በዚህ መስኮት ውስጥ መክፈቻ"
 
@@ -3962,91 +4015,91 @@ msgstr "የተመረጠውን እቃ በዚህ መስኮት ውስጥ መክፈ�
 #. Location-specific actions
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7292
-#: ../src/file-manager/fm-directory-view.c:7473
+#: ../src/file-manager/fm-directory-view.c:7276
+#: ../src/file-manager/fm-directory-view.c:7457
 msgid "Open in Navigation Window"
 msgstr "በመቃኛ መስኮት መክፈቻ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7293
+#: ../src/file-manager/fm-directory-view.c:7277
 msgid "Open each selected item in a navigation window"
 msgstr "እያንዳንዱ የተመረጠውን እቃ በ አዲስ መቃኛ መስኮት ውስጥ መክፈቻ"
 
 #. name, stock id
 #. label, accelerator
 #. add the "open in new tab" menu item
-#: ../src/file-manager/fm-directory-view.c:7296
-#: ../src/file-manager/fm-directory-view.c:7477
-#: ../src/file-manager/fm-directory-view.c:8544
-#: ../src/file-manager/fm-directory-view.c:8870
+#: ../src/file-manager/fm-directory-view.c:7280
+#: ../src/file-manager/fm-directory-view.c:7461
+#: ../src/file-manager/fm-directory-view.c:8528
+#: ../src/file-manager/fm-directory-view.c:8854
 #: ../src/file-manager/fm-tree-view.c:1278 ../src/caja-places-sidebar.c:2664
 msgid "Open in New _Tab"
 msgstr "መክፈቻ በ አዲስ _Tab"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7297
+#: ../src/file-manager/fm-directory-view.c:7281
 msgid "Open each selected item in a new tab"
 msgstr "እያንዳንዱ የተመረጠውን እቃ በ አዲስ tab ውስጥ መክፈቻ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7300
-#: ../src/file-manager/fm-directory-view.c:7482
+#: ../src/file-manager/fm-directory-view.c:7284
+#: ../src/file-manager/fm-directory-view.c:7466
 msgid "Open in _Folder Window"
 msgstr "መክፈቻ በ _ፎልደር መስኮት"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7301
+#: ../src/file-manager/fm-directory-view.c:7285
 msgid "Open each selected item in a folder window"
 msgstr "እያንዳንዱ የተመረጠውን እቃ በ ፎልደር መስኮት ውስጥ መክፈቻ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7304
+#: ../src/file-manager/fm-directory-view.c:7288
 msgid "Other _Application..."
 msgstr "ሌላ _መተግበሪያ..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7305
-#: ../src/file-manager/fm-directory-view.c:7309
+#: ../src/file-manager/fm-directory-view.c:7289
+#: ../src/file-manager/fm-directory-view.c:7293
 msgid "Choose another application with which to open the selected item"
 msgstr "ይምረጡ ሌላ መተግበሪያ የ ተመረጠውን እቃ ለ መክፈት"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7308
+#: ../src/file-manager/fm-directory-view.c:7292
 msgid "Open With Other _Application..."
 msgstr "መክፈቻ በ ሌላ _መተግበሪያ..."
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7312
+#: ../src/file-manager/fm-directory-view.c:7296
 msgid "_Open Scripts Folder"
 msgstr "የ ጽሁፍ ፎልደር _መክፈቻ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7313
+#: ../src/file-manager/fm-directory-view.c:7297
 msgid "Show the folder containing the scripts that appear in this menu"
 msgstr "በ አሁኑ ዝርዝር ውስጥ የሚታየውን ጽሁፍ የያዘውን ፎልደር ማሳያ"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7321
+#: ../src/file-manager/fm-directory-view.c:7305
 msgid "Prepare the selected files to be moved with a Paste command"
 msgstr "የ ተመረጠውን ፋይል ማሰናጃ የሚንቀሳቀሰውን በ መለጠፊያ ትእዛዝ"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7325
+#: ../src/file-manager/fm-directory-view.c:7309
 msgid "Prepare the selected files to be copied with a Paste command"
 msgstr "የ ተመረጠውን ፋይል ማሰናጃ የሚንቀሳቀሰውን በ መለጠፊያ ትእዛዝ "
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7329
+#: ../src/file-manager/fm-directory-view.c:7313
 msgid "Move or copy files previously selected by a Cut or Copy command"
 msgstr "በ ቅድሚያ የ ተመረጠውን ፋይል ማንቀሳቀሻ ወይንም ኮፒ ማድረጊያ በ መቁረጫ ወይንም በ ኮፒ ትእዛዝ"
 
@@ -4054,140 +4107,141 @@ msgstr "በ ቅድሚያ የ ተመረጠውን ፋይል ማንቀሳቀሻ ወ
 #. accelerator for paste
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7334
-#: ../src/file-manager/fm-directory-view.c:7495
+#: ../src/file-manager/fm-directory-view.c:7318
+#: ../src/file-manager/fm-directory-view.c:7479
 #: ../src/file-manager/fm-tree-view.c:1330
 msgid "_Paste Into Folder"
 msgstr "ወደ ፎልደር _መለጠፊያ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7335
+#: ../src/file-manager/fm-directory-view.c:7319
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into the "
 "selected folder"
-msgstr "በ ቅድሚያ የ ተመረጠውን ፋይል ማንቀሳቀሻ ወይንም ኮፒ ማድረጊያ በ መቁረጫ ወይንም በ ኮፒ ትእዛዝ ወደ ተመረጠው ፎልደር"
+msgstr ""
+"በ ቅድሚያ የ ተመረጠውን ፋይል ማንቀሳቀሻ ወይንም ኮፒ ማድረጊያ በ መቁረጫ ወይንም በ ኮፒ ትእዛዝ ወደ ተመረጠው ፎልደር"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7337
+#: ../src/file-manager/fm-directory-view.c:7321
 msgid "Cop_y to"
 msgstr "ኮ_ፒ ወደ"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7338
+#: ../src/file-manager/fm-directory-view.c:7322
 msgid "M_ove to"
 msgstr "ማንቀሳቀሻ ወደ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7341
+#: ../src/file-manager/fm-directory-view.c:7325
 msgid "Select all items in this window"
 msgstr "በዚህ መስኮት ውስጥ ያሉትን እቃዎች በሙሉ መምረጫ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7344
+#: ../src/file-manager/fm-directory-view.c:7328
 msgid "Select I_tems Matching..."
 msgstr "ተመሳሳይ እ_ቃዎች መምረጫ..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7345
+#: ../src/file-manager/fm-directory-view.c:7329
 msgid "Select items in this window matching a given pattern"
 msgstr "የ ተሰጠውን ዘዴ የሚመሳሰል እቃዎች በዚህ መስኮት ውስጥ ይመርጣል"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7348
+#: ../src/file-manager/fm-directory-view.c:7332
 msgid "_Invert Selection"
 msgstr "ምርጫውን _እንደ ነበር መመለሻ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7349
+#: ../src/file-manager/fm-directory-view.c:7333
 msgid "Select all and only the items that are not currently selected"
 msgstr "ሁሉም መምረጫ እና አሁን ያልተመረጡትን እቃዎች ብቻ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7352
+#: ../src/file-manager/fm-directory-view.c:7336
 msgid "D_uplicate"
 msgstr "ማ_ባዣ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7353
+#: ../src/file-manager/fm-directory-view.c:7337
 msgid "Duplicate each selected item"
 msgstr "እያንዳንዱ የተመረጡትን እቃዎች ማባዣ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7356
-#: ../src/file-manager/fm-directory-view.c:8964
+#: ../src/file-manager/fm-directory-view.c:7340
+#: ../src/file-manager/fm-directory-view.c:8948
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
-msgstr[0] "አገናኝ _መፍጠሪያ"
-msgstr[1] "አገናኝ _መፍጠሪያ "
+msgstr[0] ""
+msgstr[1] ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7357
+#: ../src/file-manager/fm-directory-view.c:7341
 msgid "Create a symbolic link for each selected item"
 msgstr "ለ እያንዳንዱ ለተመረጠው እቃ አገናኝ ምልክት መፍጠሪያ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7360
+#: ../src/file-manager/fm-directory-view.c:7344
 msgid "_Rename..."
 msgstr "_እንደገና መሰየሚያ..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7361
+#: ../src/file-manager/fm-directory-view.c:7345
 msgid "Rename selected item"
 msgstr "የ ተመረጠውን እቃ እንደገና መሰየሚያ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7369
-#: ../src/file-manager/fm-directory-view.c:8925
+#: ../src/file-manager/fm-directory-view.c:7353
+#: ../src/file-manager/fm-directory-view.c:8909
 msgid "Move each selected item to the Trash"
 msgstr "የ ተመረጠውን እቃ ወደ ቆሻሻ ማንቀሳቀሻ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7372
-#: ../src/file-manager/fm-directory-view.c:7504
-#: ../src/file-manager/fm-directory-view.c:8945
+#: ../src/file-manager/fm-directory-view.c:7356
+#: ../src/file-manager/fm-directory-view.c:7488
+#: ../src/file-manager/fm-directory-view.c:8929
 #: ../src/file-manager/fm-tree-view.c:1360
 msgid "_Delete"
 msgstr "_ማጥፊያ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7373
+#: ../src/file-manager/fm-directory-view.c:7357
 msgid "Delete each selected item, without moving to the Trash"
 msgstr "የ ተመረጠውን እቃ ማጥፊያ ወደ ቆሻሻ ሳይንቀሳቀስ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7376
-#: ../src/file-manager/fm-directory-view.c:7508
+#: ../src/file-manager/fm-directory-view.c:7360
+#: ../src/file-manager/fm-directory-view.c:7492
 msgid "_Restore"
 msgstr "_እንደነበር መመለሻ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7380
+#: ../src/file-manager/fm-directory-view.c:7364
 msgid "_Undo"
 msgstr "_መተው"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7381
-#: ../src/file-manager/fm-directory-view.c:11129
+#: ../src/file-manager/fm-directory-view.c:7365
+#: ../src/file-manager/fm-directory-view.c:11113
 msgid "Undo the last action"
 msgstr "የ መጨረሻውን ተግባር መተው"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7384
+#: ../src/file-manager/fm-directory-view.c:7368
 msgid "_Redo"
 msgstr "_እንደገና መስሪያ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7385
-#: ../src/file-manager/fm-directory-view.c:11147
+#: ../src/file-manager/fm-directory-view.c:7369
+#: ../src/file-manager/fm-directory-view.c:11131
 msgid "Redo the last undone action"
 msgstr "መጨረሻ የተተወውን ተግባር እንደገና መስሪያ"
 
@@ -4197,633 +4251,635 @@ msgstr "መጨረሻ የተተወውን ተግባር እንደገና መስሪ�
 #. * it is a mixture of both ATM.
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7395
+#: ../src/file-manager/fm-directory-view.c:7379
 msgid "Reset View to _Defaults"
 msgstr "ለ _ነባሮች መመልከቻውን እንደነበር መመለሻ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7396
+#: ../src/file-manager/fm-directory-view.c:7380
 msgid "Reset sorting order and zoom level to match preferences for this view"
 msgstr "እንደ ነበር መመለሻ የ መለያ ደንብ እና ማሳያ መጠን ወደ ተመሳሳይ ምርጫዎች ለዚህ መመልከቻ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7399
+#: ../src/file-manager/fm-directory-view.c:7383
 msgid "Connect To This Server"
 msgstr "ወደ እዚህ ሰርቨር መገናኛ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7400
+#: ../src/file-manager/fm-directory-view.c:7384
 msgid "Make a permanent connection to this server"
 msgstr "ቋሚ መገናኛ መፍጠሪያ ከ ሰርቨሩ ጋር"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7403
-#: ../src/file-manager/fm-directory-view.c:7431
-#: ../src/file-manager/fm-directory-view.c:7512
+#: ../src/file-manager/fm-directory-view.c:7387
+#: ../src/file-manager/fm-directory-view.c:7415
+#: ../src/file-manager/fm-directory-view.c:7496
 #: ../src/caja-places-sidebar.c:2700
 msgid "_Mount"
 msgstr "_መጫኛ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7404
+#: ../src/file-manager/fm-directory-view.c:7388
 msgid "Mount the selected volume"
 msgstr "የ ተመረጠውን መጠን መጫኛ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7408
+#: ../src/file-manager/fm-directory-view.c:7392
 msgid "Unmount the selected volume"
 msgstr "የ ተመረጠውን መጠን ማውረጃ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7412
+#: ../src/file-manager/fm-directory-view.c:7396
 msgid "Eject the selected volume"
 msgstr "የተመረጠውን መጠን ማውጫ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7415
-#: ../src/file-manager/fm-directory-view.c:7443
-#: ../src/file-manager/fm-directory-view.c:7524
+#: ../src/file-manager/fm-directory-view.c:7399
+#: ../src/file-manager/fm-directory-view.c:7427
+#: ../src/file-manager/fm-directory-view.c:7508
 #: ../src/caja-places-sidebar.c:2728
 msgid "_Format"
 msgstr "_አቀራረብ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7416
+#: ../src/file-manager/fm-directory-view.c:7400
 msgid "Format the selected volume"
 msgstr "የተመረጠውን መጠን ማዘጋጃ "
 
 #. name, stock id
 #. label, accelerator
 #. Adjust start/stop items to reflect the type of the drive
-#: ../src/file-manager/fm-directory-view.c:7419
-#: ../src/file-manager/fm-directory-view.c:7447
-#: ../src/file-manager/fm-directory-view.c:7528
-#: ../src/file-manager/fm-directory-view.c:8204
-#: ../src/file-manager/fm-directory-view.c:8208
-#: ../src/file-manager/fm-directory-view.c:8296
-#: ../src/file-manager/fm-directory-view.c:8300
-#: ../src/file-manager/fm-directory-view.c:8406
-#: ../src/file-manager/fm-directory-view.c:8410
+#: ../src/file-manager/fm-directory-view.c:7403
+#: ../src/file-manager/fm-directory-view.c:7431
+#: ../src/file-manager/fm-directory-view.c:7512
+#: ../src/file-manager/fm-directory-view.c:8188
+#: ../src/file-manager/fm-directory-view.c:8192
+#: ../src/file-manager/fm-directory-view.c:8280
+#: ../src/file-manager/fm-directory-view.c:8284
+#: ../src/file-manager/fm-directory-view.c:8390
+#: ../src/file-manager/fm-directory-view.c:8394
 #: ../src/caja-places-sidebar.c:1785 ../src/caja-places-sidebar.c:2735
 msgid "_Start"
 msgstr "_ማስጀመሪያ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7420
+#: ../src/file-manager/fm-directory-view.c:7404
 msgid "Start the selected volume"
 msgstr "የተመረጠውን መጠን ማስጀመሪያ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7423
-#: ../src/file-manager/fm-directory-view.c:7451
-#: ../src/file-manager/fm-directory-view.c:7532
-#: ../src/file-manager/fm-directory-view.c:8233
-#: ../src/file-manager/fm-directory-view.c:8325
-#: ../src/file-manager/fm-directory-view.c:8435
+#: ../src/file-manager/fm-directory-view.c:7407
+#: ../src/file-manager/fm-directory-view.c:7435
+#: ../src/file-manager/fm-directory-view.c:7516
+#: ../src/file-manager/fm-directory-view.c:8217
+#: ../src/file-manager/fm-directory-view.c:8309
+#: ../src/file-manager/fm-directory-view.c:8419
 #: ../src/caja-places-sidebar.c:1786 ../src/caja-places-sidebar.c:2742
-#: ../src/caja-window-menus.c:844
+#: ../src/caja-window-menus.c:836
 msgid "_Stop"
 msgstr "_ማስቆሚያ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7424
-#: ../src/file-manager/fm-directory-view.c:8436
+#: ../src/file-manager/fm-directory-view.c:7408
+#: ../src/file-manager/fm-directory-view.c:8420
 msgid "Stop the selected volume"
 msgstr "የተመረጠውን መጠን ማስቆሚያ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7427
-#: ../src/file-manager/fm-directory-view.c:7455
-#: ../src/file-manager/fm-directory-view.c:7536
+#: ../src/file-manager/fm-directory-view.c:7411
+#: ../src/file-manager/fm-directory-view.c:7439
+#: ../src/file-manager/fm-directory-view.c:7520
 #: ../src/caja-places-sidebar.c:2721
 msgid "_Detect Media"
 msgstr "መገናኛ _ፈልጎ ማግኛ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7428
-#: ../src/file-manager/fm-directory-view.c:7456
-#: ../src/file-manager/fm-directory-view.c:7537
+#: ../src/file-manager/fm-directory-view.c:7412
+#: ../src/file-manager/fm-directory-view.c:7440
+#: ../src/file-manager/fm-directory-view.c:7521
 msgid "Detect media in the selected drive"
 msgstr "በ ተመረጠው አካል ውስጥ መገናኛ መፈለጊያ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7432
+#: ../src/file-manager/fm-directory-view.c:7416
 msgid "Mount the volume associated with the open folder"
 msgstr "መጠኑን መጫኛ የ ተዛመደውን ከ ተከፈተው ፎልደር ጋር"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7436
+#: ../src/file-manager/fm-directory-view.c:7420
 msgid "Unmount the volume associated with the open folder"
 msgstr "መጠኑን ማውረጃ የ ተዛመደውን ከ ተከፈተው ፎልደር ጋር"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7440
+#: ../src/file-manager/fm-directory-view.c:7424
 msgid "Eject the volume associated with the open folder"
 msgstr "መጠኑን ማውጫ የ ተዛመደውን ከ ተከፈተው ፎልደር ጋር"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7444
+#: ../src/file-manager/fm-directory-view.c:7428
 msgid "Format the volume associated with the open folder"
 msgstr "የ መጠን አቀራረብ የ ተዛመደውን ከ ተከፈተው ፎልደር ጋር"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7448
+#: ../src/file-manager/fm-directory-view.c:7432
 msgid "Start the volume associated with the open folder"
 msgstr "መጠን ማስጀመሪያ የ ተዛመደውን ከ ተከፈተው ፎልደር ጋር"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7452
+#: ../src/file-manager/fm-directory-view.c:7436
 msgid "Stop the volume associated with the open folder"
 msgstr "መጠን ማስቆሚያ የ ተዛመደውን ከ ተከፈተው ፎልደር ጋር"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7459
+#: ../src/file-manager/fm-directory-view.c:7443
 msgid "Open File and Close window"
 msgstr "ፋይል መክፈቻ እና መስኮቱን መዝጊያ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7463
+#: ../src/file-manager/fm-directory-view.c:7447
 msgid "Sa_ve Search"
 msgstr "ፍለጋውን ማስ_ቀመጫ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7464
+#: ../src/file-manager/fm-directory-view.c:7448
 msgid "Save the edited search"
 msgstr "የታረመውን ፍለጋ ማስቀመጫ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7467
+#: ../src/file-manager/fm-directory-view.c:7451
 msgid "Sa_ve Search As..."
 msgstr "ፍለጋውን ማስ_ቀመጫ እንደ..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7468
+#: ../src/file-manager/fm-directory-view.c:7452
 msgid "Save the current search as a file"
 msgstr "የ አሁኑን መፈለጊያ እንደ ፋይል ማስቀመጫ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7474
+#: ../src/file-manager/fm-directory-view.c:7458
 msgid "Open this folder in a navigation window"
 msgstr "ይህን ፎልደር በ መቃኛ መስኮት መክፈቻ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7478
+#: ../src/file-manager/fm-directory-view.c:7462
 msgid "Open this folder in a new tab"
 msgstr "ይህን ፎልደር በ አዲስ tab መክፈቻ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7483
+#: ../src/file-manager/fm-directory-view.c:7467
 msgid "Open this folder in a folder window"
 msgstr "ይህን ፎልደር በ ፎልደር መስኮት መክፈቻ"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7488
+#: ../src/file-manager/fm-directory-view.c:7472
 msgid "Prepare this folder to be moved with a Paste command"
 msgstr "ይህን ፎልደር ማሰናጃ እንዲቀሳቀስ በ ትእዛዝ መስኮት"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7492
+#: ../src/file-manager/fm-directory-view.c:7476
 msgid "Prepare this folder to be copied with a Paste command"
 msgstr "ይህን ፎልደር ኮፒ እንዲደረግ እና እንዲለጠፍ ማዘጋጃ በ ትእዛዝ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7496
+#: ../src/file-manager/fm-directory-view.c:7480
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into this "
 "folder"
-msgstr "በ ቅድሚያ የ ተመረጠውን ፋይል ማንቀሳቀሻ ወይንም ኮፒ ማድረጊያ በ መቁረጫ ወይንም በ ኮፒ ትእዛዝ ወደ እዚህ ፎልደር ውስጥ"
+msgstr ""
+"በ ቅድሚያ የ ተመረጠውን ፋይል ማንቀሳቀሻ ወይንም ኮፒ ማድረጊያ በ መቁረጫ ወይንም በ ኮፒ ትእዛዝ ወደ እዚህ ፎልደር "
+"ውስጥ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7501
+#: ../src/file-manager/fm-directory-view.c:7485
 msgid "Move this folder to the Trash"
 msgstr "ይህን ፎልደር ወደ ቆሻሻ ማንቀሳቀሻ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7505
+#: ../src/file-manager/fm-directory-view.c:7489
 msgid "Delete this folder, without moving to the Trash"
 msgstr "ይህን ፎልደር ማጥፊያ: ወደ ቆሻሻ ሳይንቀሳቀስ"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7513
+#: ../src/file-manager/fm-directory-view.c:7497
 msgid "Mount the volume associated with this folder"
 msgstr "መጠን መጫኛ የ ተዛመደውን ከዚህ ፎልደር ጋር"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7517
+#: ../src/file-manager/fm-directory-view.c:7501
 msgid "Unmount the volume associated with this folder"
 msgstr "መጠን ማውረጃ የ ተዛመደውን ከዚህ ፎልደር ጋር"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7521
+#: ../src/file-manager/fm-directory-view.c:7505
 msgid "Eject the volume associated with this folder"
 msgstr "መጠን ማውጫ የ ተዛመደውን ከዚህ ፎልደር ጋር"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7525
+#: ../src/file-manager/fm-directory-view.c:7509
 msgid "Format the volume associated with this folder"
 msgstr "የ መጠን አቀራረብ የ ተዛመደውን ከዚህ ፎልደር ጋር"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7529
+#: ../src/file-manager/fm-directory-view.c:7513
 msgid "Start the volume associated with this folder"
 msgstr "መጠን ማስጀመሪያ የ ተዛመደውን ከዚህ ፎልደር ጋር"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7533
+#: ../src/file-manager/fm-directory-view.c:7517
 msgid "Stop the volume associated with this folder"
 msgstr "መጠን ማስቆሚያ የ ተዛመደውን ከዚህ ፎልደር ጋር"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7542
+#: ../src/file-manager/fm-directory-view.c:7526
 msgid "View or modify the properties of this folder"
 msgstr "መጠን መመልከቻ ወይንም ማሻሻያ የ ተዛመደውን ከዚህ ፎልደር ጋር"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7545
-#: ../src/file-manager/fm-directory-view.c:7548
+#: ../src/file-manager/fm-directory-view.c:7529
+#: ../src/file-manager/fm-directory-view.c:7532
 msgid "_Other pane"
 msgstr "_ሌሎች ክፍሎች"
 
-#: ../src/file-manager/fm-directory-view.c:7546
+#: ../src/file-manager/fm-directory-view.c:7530
 msgid "Copy the current selection to the other pane in the window"
 msgstr "የ አሁኑን ምርጫ ኮፒ ማድረጊያ ወደ ሌላ ክፍል በ መስኮት ውስጥ"
 
-#: ../src/file-manager/fm-directory-view.c:7549
+#: ../src/file-manager/fm-directory-view.c:7533
 msgid "Move the current selection to the other pane in the window"
 msgstr "የ አሁኑን ምርጫ ማንቀሳቀሻ ወደ ሌላ ክፍል በ መስኮት ውስጥ"
 
 #. name, stock id, label
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7552
-#: ../src/file-manager/fm-directory-view.c:7556 ../src/caja-window-menus.c:899
+#: ../src/file-manager/fm-directory-view.c:7536
+#: ../src/file-manager/fm-directory-view.c:7540 ../src/caja-window-menus.c:891
 msgid "_Home Folder"
 msgstr "_የቤት ፎልደር"
 
-#: ../src/file-manager/fm-directory-view.c:7553
+#: ../src/file-manager/fm-directory-view.c:7537
 msgid "Copy the current selection to the home folder"
 msgstr "አሁን የተመረጠውን ኮፒ ማድረጊያ ወደ ቤት ፎልደር ውስጥ  "
 
-#: ../src/file-manager/fm-directory-view.c:7557
+#: ../src/file-manager/fm-directory-view.c:7541
 msgid "Move the current selection to the home folder"
 msgstr "አሁን የተመረጠውን ወደ ቤት ፎልደር ውስጥ ማንቀሳቀሻ"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7560
-#: ../src/file-manager/fm-directory-view.c:7564
+#: ../src/file-manager/fm-directory-view.c:7544
+#: ../src/file-manager/fm-directory-view.c:7548
 msgid "_Desktop"
 msgstr "_ዴስክቶፕ "
 
-#: ../src/file-manager/fm-directory-view.c:7561
+#: ../src/file-manager/fm-directory-view.c:7545
 msgid "Copy the current selection to the desktop"
 msgstr "የ አሁኑን ምርጫ ኮፒ ማድረጊያ ወደ ዴስክቶፕ ውስጥ"
 
-#: ../src/file-manager/fm-directory-view.c:7565
+#: ../src/file-manager/fm-directory-view.c:7549
 msgid "Move the current selection to the desktop"
 msgstr "የ አሁኑን ምርጫ ኮፒ ማንቀሳቀሻ ወደ ዴስክቶፕ ውስጥ"
 
 #. Translators: %s is a directory
-#: ../src/file-manager/fm-directory-view.c:7645
+#: ../src/file-manager/fm-directory-view.c:7629
 #, c-format
 msgid "Run or manage scripts from %s"
 msgstr "ማስኬጃ ወይንም ማስተዳደሪያ ጽሁፍ በ %s"
 
 #. Create a script action here specially because its tooltip is dynamic
-#: ../src/file-manager/fm-directory-view.c:7647
+#: ../src/file-manager/fm-directory-view.c:7631
 msgid "_Scripts"
 msgstr "_ጽሁፎች "
 
-#: ../src/file-manager/fm-directory-view.c:8052
+#: ../src/file-manager/fm-directory-view.c:8036
 #, c-format
 msgid "Move the open folder out of the trash to \"%s\""
 msgstr "የ ተከፈተውን ፎልደር ከ ቆሻሻ ውስጥ ማንቀሳቀሻ ወደ \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:8055
+#: ../src/file-manager/fm-directory-view.c:8039
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
-msgstr[0] "የ ተመረጠውን ፎልደር ከ ቆሻሻ ውስጥ ማንቀሳቀሻ ወደ \"%s\"    "
-msgstr[1] "የ ተመረጠውን ፎልደር ከ ቆሻሻ ውስጥ ማንቀሳቀሻ ወደ \"%s\"  "
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8059
+#: ../src/file-manager/fm-directory-view.c:8043
 #, c-format
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
-msgstr[0] "የ ተመረጠውን ፎልደር ከ ቆሻሻ ውስጥ ማንቀሳቀሻ"
-msgstr[1] "የ ተመረጠውን ፎልደር ከ ቆሻሻ ውስጥ ማንቀሳቀሻ  "
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8065
+#: ../src/file-manager/fm-directory-view.c:8049
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
-msgstr[0] "የተመረጡትን ፋይሎች ወደ ቆሻሻ ማንቀሳቀሻ \"%s\""
-msgstr[1] "የተመረጡትን ፋይሎች ወደ ቆሻሻ ማንቀሳቀሻ \"%s\""
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8069
+#: ../src/file-manager/fm-directory-view.c:8053
 #, c-format
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
-msgstr[0] "የ ተመረጠውን ፎልደር ከ ቆሻሻ ውስጥ ማንቀሳቀሻ"
-msgstr[1] "የ ተመረጠውን ፎልደር ከ ቆሻሻ ውስጥ ማንቀሳቀሻ "
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8075
+#: ../src/file-manager/fm-directory-view.c:8059
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
-msgstr[0] "የ ተመረጠውን እቃ ከ ቆሻሻ ውስጥ ማንቀሳቀሻ ወደ \"%s\""
-msgstr[1] "የ ተመረጠውን እቃ ከ ቆሻሻ ውስጥ ማንቀሳቀሻ ወደ \"%s\""
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8079
+#: ../src/file-manager/fm-directory-view.c:8063
 #, c-format
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
-msgstr[0] "የ ተመረጠውን እቃ ከ ቆሻሻ ውስጥ ማንቀሳቀሻ"
-msgstr[1] "የ ተመረጠውን እቃ ከ ቆሻሻ ውስጥ ማንቀሳቀሻ"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8205
-#: ../src/file-manager/fm-directory-view.c:8209
-#: ../src/file-manager/fm-directory-view.c:8407
-#: ../src/file-manager/fm-directory-view.c:8411
+#: ../src/file-manager/fm-directory-view.c:8189
+#: ../src/file-manager/fm-directory-view.c:8193
+#: ../src/file-manager/fm-directory-view.c:8391
+#: ../src/file-manager/fm-directory-view.c:8395
 msgid "Start the selected drive"
 msgstr "የተመረጠውን አካል ማስጀመሪያ"
 
-#: ../src/file-manager/fm-directory-view.c:8213
-#: ../src/file-manager/fm-directory-view.c:8415
+#: ../src/file-manager/fm-directory-view.c:8197
+#: ../src/file-manager/fm-directory-view.c:8399
 msgid "Connect to the selected drive"
 msgstr "ወደ ተመረጠው አካል መገናኛ"
 
-#: ../src/file-manager/fm-directory-view.c:8216
-#: ../src/file-manager/fm-directory-view.c:8308
-#: ../src/file-manager/fm-directory-view.c:8418
+#: ../src/file-manager/fm-directory-view.c:8200
+#: ../src/file-manager/fm-directory-view.c:8292
+#: ../src/file-manager/fm-directory-view.c:8402
 msgid "_Start Multi-disk Drive"
 msgstr "በርካታ የ ዲስክ አካል _ማስጀመሪያ"
 
-#: ../src/file-manager/fm-directory-view.c:8217
-#: ../src/file-manager/fm-directory-view.c:8419
+#: ../src/file-manager/fm-directory-view.c:8201
+#: ../src/file-manager/fm-directory-view.c:8403
 msgid "Start the selected multi-disk drive"
 msgstr "የ ተመረጠውን በርካታ-ዲስክ አካል ማስጀመሪያ"
 
-#: ../src/file-manager/fm-directory-view.c:8220
+#: ../src/file-manager/fm-directory-view.c:8204
 msgid "U_nlock Drive"
 msgstr "አካሉን መ_ክፈቻ"
 
-#: ../src/file-manager/fm-directory-view.c:8221
-#: ../src/file-manager/fm-directory-view.c:8423
+#: ../src/file-manager/fm-directory-view.c:8205
+#: ../src/file-manager/fm-directory-view.c:8407
 msgid "Unlock the selected drive"
 msgstr "የ ተመረጠውን አካል መክፈቻ"
 
-#: ../src/file-manager/fm-directory-view.c:8234
+#: ../src/file-manager/fm-directory-view.c:8218
 msgid "Stop the selected drive"
 msgstr "የ ተመረጠውን አካል ማስቆሚያ"
 
-#: ../src/file-manager/fm-directory-view.c:8237
-#: ../src/file-manager/fm-directory-view.c:8329
-#: ../src/file-manager/fm-directory-view.c:8439
+#: ../src/file-manager/fm-directory-view.c:8221
+#: ../src/file-manager/fm-directory-view.c:8313
+#: ../src/file-manager/fm-directory-view.c:8423
 #: ../src/caja-places-sidebar.c:1794
 msgid "_Safely Remove Drive"
 msgstr "በ _ጥንቃቄ አካሉን ማስወገጃ"
 
-#: ../src/file-manager/fm-directory-view.c:8238
-#: ../src/file-manager/fm-directory-view.c:8440
+#: ../src/file-manager/fm-directory-view.c:8222
+#: ../src/file-manager/fm-directory-view.c:8424
 msgid "Safely remove the selected drive"
 msgstr "በ ጥንቃቄ የ ተመረጠውን አካል ማስወገጃ"
 
-#: ../src/file-manager/fm-directory-view.c:8241
-#: ../src/file-manager/fm-directory-view.c:8333
-#: ../src/file-manager/fm-directory-view.c:8443
+#: ../src/file-manager/fm-directory-view.c:8225
+#: ../src/file-manager/fm-directory-view.c:8317
+#: ../src/file-manager/fm-directory-view.c:8427
 msgid "_Disconnect"
 msgstr "_መለያያ"
 
-#: ../src/file-manager/fm-directory-view.c:8242
-#: ../src/file-manager/fm-directory-view.c:8444
+#: ../src/file-manager/fm-directory-view.c:8226
+#: ../src/file-manager/fm-directory-view.c:8428
 msgid "Disconnect the selected drive"
 msgstr "የ ተመረጠውን አካል መለያያ"
 
-#: ../src/file-manager/fm-directory-view.c:8245
-#: ../src/file-manager/fm-directory-view.c:8337
-#: ../src/file-manager/fm-directory-view.c:8447
+#: ../src/file-manager/fm-directory-view.c:8229
+#: ../src/file-manager/fm-directory-view.c:8321
+#: ../src/file-manager/fm-directory-view.c:8431
 msgid "_Stop Multi-disk Drive"
 msgstr "የ በርካታ-ዲስክ አካል ማስቆሚያ"
 
-#: ../src/file-manager/fm-directory-view.c:8246
-#: ../src/file-manager/fm-directory-view.c:8448
+#: ../src/file-manager/fm-directory-view.c:8230
+#: ../src/file-manager/fm-directory-view.c:8432
 msgid "Stop the selected multi-disk drive"
 msgstr "የ ተመረጠውን በርካታ-ዲስክ አካል ማስቆሚያ"
 
-#: ../src/file-manager/fm-directory-view.c:8249
-#: ../src/file-manager/fm-directory-view.c:8341
-#: ../src/file-manager/fm-directory-view.c:8451
+#: ../src/file-manager/fm-directory-view.c:8233
+#: ../src/file-manager/fm-directory-view.c:8325
+#: ../src/file-manager/fm-directory-view.c:8435
 #: ../src/caja-places-sidebar.c:1807
 msgid "_Lock Drive"
 msgstr "አካሉን _መቆለፊያ"
 
-#: ../src/file-manager/fm-directory-view.c:8250
-#: ../src/file-manager/fm-directory-view.c:8452
+#: ../src/file-manager/fm-directory-view.c:8234
+#: ../src/file-manager/fm-directory-view.c:8436
 msgid "Lock the selected drive"
 msgstr "የ ተመረጠውን አካል መቆለፊያ"
 
-#: ../src/file-manager/fm-directory-view.c:8297
-#: ../src/file-manager/fm-directory-view.c:8301
+#: ../src/file-manager/fm-directory-view.c:8281
+#: ../src/file-manager/fm-directory-view.c:8285
 msgid "Start the drive associated with the open folder"
 msgstr "ከ ተከፈተ ፎልደር ጋር የ ተዛመደውን አካል ማስጀመሪያ"
 
-#: ../src/file-manager/fm-directory-view.c:8305
+#: ../src/file-manager/fm-directory-view.c:8289
 msgid "Connect to the drive associated with the open folder"
 msgstr "ከ ተከፈተ ፎልደር ጋር የ ተዛመደውን አካል መገናኛ"
 
-#: ../src/file-manager/fm-directory-view.c:8309
+#: ../src/file-manager/fm-directory-view.c:8293
 msgid "Start the multi-disk drive associated with the open folder"
 msgstr "ከ ተከፈተ ፎልደር ጋር የ ተዛመደውን በርካታ-አካል ማስጀመሪያ"
 
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
-#: ../src/file-manager/fm-directory-view.c:8312
-#: ../src/file-manager/fm-directory-view.c:8422
+#: ../src/file-manager/fm-directory-view.c:8296
+#: ../src/file-manager/fm-directory-view.c:8406
 #: ../src/caja-places-sidebar.c:1806
 msgid "_Unlock Drive"
 msgstr "አካሉን _መክፈቻ"
 
-#: ../src/file-manager/fm-directory-view.c:8313
+#: ../src/file-manager/fm-directory-view.c:8297
 msgid "Unlock the drive associated with the open folder"
 msgstr "ከ ተከፈተ ፎልደር ጋር የ ተዛመደውን አካል መክፈቻ"
 
-#: ../src/file-manager/fm-directory-view.c:8326
+#: ../src/file-manager/fm-directory-view.c:8310
 msgid "_Stop the drive associated with the open folder"
 msgstr "ከ ተከፈተ ፎልደር ጋር የ ተዛመደውን አካል _ማስቆሚያ"
 
-#: ../src/file-manager/fm-directory-view.c:8330
+#: ../src/file-manager/fm-directory-view.c:8314
 msgid "Safely remove the drive associated with the open folder"
 msgstr "ከ ተከፈተ ፎልደር ጋር የ ተዛመደውን አካል በ ጥንቃቄ ማስወገጃ"
 
-#: ../src/file-manager/fm-directory-view.c:8334
+#: ../src/file-manager/fm-directory-view.c:8318
 msgid "Disconnect the drive associated with the open folder"
 msgstr "ከ ተከፈተ ፎልደር ጋር የ ተዛመደውን አካል መለያያ"
 
-#: ../src/file-manager/fm-directory-view.c:8338
+#: ../src/file-manager/fm-directory-view.c:8322
 msgid "Stop the multi-disk drive associated with the open folder"
 msgstr "ከ ተከፈተ ፎልደር ጋር የ ተዛመደውን በርካታ-አካል ማስቆሚያ"
 
-#: ../src/file-manager/fm-directory-view.c:8342
+#: ../src/file-manager/fm-directory-view.c:8326
 msgid "Lock the drive associated with the open folder"
 msgstr "ከ ተከፈተ ፎልደር ጋር የ ተዛመደውን አካል መቆለፊያ"
 
 #. add the "open in new window" menu item
-#: ../src/file-manager/fm-directory-view.c:8521
-#: ../src/file-manager/fm-directory-view.c:8831
+#: ../src/file-manager/fm-directory-view.c:8505
+#: ../src/file-manager/fm-directory-view.c:8815
 #: ../src/file-manager/fm-tree-view.c:1287 ../src/caja-places-sidebar.c:2671
 msgid "Open in New _Window"
 msgstr "በአዲስ _መስኮት መክፈቻ"
 
-#: ../src/file-manager/fm-directory-view.c:8523
-#: ../src/file-manager/fm-directory-view.c:8840
+#: ../src/file-manager/fm-directory-view.c:8507
+#: ../src/file-manager/fm-directory-view.c:8824
 msgid "Browse in New _Window"
 msgstr "በአዲስ _መስኮት መቃኛ"
 
-#: ../src/file-manager/fm-directory-view.c:8529
-#: ../src/file-manager/fm-directory-view.c:8850
+#: ../src/file-manager/fm-directory-view.c:8513
+#: ../src/file-manager/fm-directory-view.c:8834
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
-msgstr[0] "ፎልደር _መቃኛ"
-msgstr[1] "ፎልደሮች _መቃኛ"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8546
-#: ../src/file-manager/fm-directory-view.c:8879
+#: ../src/file-manager/fm-directory-view.c:8530
+#: ../src/file-manager/fm-directory-view.c:8863
 msgid "Browse in New _Tab"
 msgstr "በ አዲስ _Tab ውስጥ መፈለጊያ"
 
-#: ../src/file-manager/fm-directory-view.c:8595
-#: ../src/file-manager/fm-directory-view.c:8920
+#: ../src/file-manager/fm-directory-view.c:8579
+#: ../src/file-manager/fm-directory-view.c:8904
 msgid "_Delete Permanently"
 msgstr "በቋሚነት ማጥፊያ"
 
-#: ../src/file-manager/fm-directory-view.c:8596
+#: ../src/file-manager/fm-directory-view.c:8580
 msgid "Delete the open folder permanently"
 msgstr "የ ተከፈተውን ፎልደር በ ቋሚነት ማጥፊያ"
 
-#: ../src/file-manager/fm-directory-view.c:8600
+#: ../src/file-manager/fm-directory-view.c:8584
 msgid "Move the open folder to the Trash"
 msgstr "የ ተከፈተውን ፎልደር ወደ ቆሻሻ ማንቀሳቀሻ"
 
-#: ../src/file-manager/fm-directory-view.c:8780
+#: ../src/file-manager/fm-directory-view.c:8764
 #, c-format
 msgid "_Open With %s"
 msgstr "_መክፈቻ በ %s"
 
-#: ../src/file-manager/fm-directory-view.c:8833
+#: ../src/file-manager/fm-directory-view.c:8817
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
-msgstr[0] "መክፈቻ በ %'d አዲስ _መስኮት"
-msgstr[1] "መክፈቻ በ %'d አዲስ _መስኮቶች"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8842
+#: ../src/file-manager/fm-directory-view.c:8826
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
-msgstr[0] "መቃኛ በ %'d አዲስ _መስኮቶች"
-msgstr[1] "መቃኛ በ %'d አዲስ _መስኮቶች"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8872
+#: ../src/file-manager/fm-directory-view.c:8856
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
-msgstr[0] "መክፈቻ በ %'d አዲስ _Tabs"
-msgstr[1] "መክፈቻ በ %'d አዲስ _Tabs"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8881
+#: ../src/file-manager/fm-directory-view.c:8865
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
-msgstr[0] "መቃኛ በ %'d አዲስ _Tabs"
-msgstr[1] "መቃኛ በ %'d አዲስ _Tabs "
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8921
+#: ../src/file-manager/fm-directory-view.c:8905
 msgid "Delete all selected items permanently"
 msgstr "የተመረጠውን እቃ በቋሚነት ማጥፊያ"
 
-#: ../src/file-manager/fm-directory-view.c:8978
+#: ../src/file-manager/fm-directory-view.c:8962
 msgid "View or modify the properties of the open folder"
 msgstr "የ ተፈተውን ፎልደር ባህሪ መመልከቻ ወይንም ማሻሻያ"
 
-#: ../src/file-manager/fm-directory-view.c:10281
+#: ../src/file-manager/fm-directory-view.c:10265
 msgid "Download location?"
 msgstr "የማውረጃው አካባቢ የት ነው?"
 
-#: ../src/file-manager/fm-directory-view.c:10284
+#: ../src/file-manager/fm-directory-view.c:10268
 msgid "You can download it or make a link to it."
 msgstr "እርስዎ ማውረድ ይችላሉ ወይንም አገናኝ ይፍጠሩለት"
 
-#: ../src/file-manager/fm-directory-view.c:10287
+#: ../src/file-manager/fm-directory-view.c:10271
 msgid "Make a _Link"
 msgstr "_አገናኝ መፍጠሪያ"
 
-#: ../src/file-manager/fm-directory-view.c:10291
+#: ../src/file-manager/fm-directory-view.c:10275
 msgid "_Download"
-msgstr "_ማውረጃ"
+msgstr "_የወረደ "
 
-#: ../src/file-manager/fm-directory-view.c:10452
-#: ../src/file-manager/fm-directory-view.c:10511
-#: ../src/file-manager/fm-directory-view.c:10616
+#: ../src/file-manager/fm-directory-view.c:10436
+#: ../src/file-manager/fm-directory-view.c:10495
+#: ../src/file-manager/fm-directory-view.c:10600
 msgid "Drag and drop is not supported."
 msgstr "መጎተቻ እና መጣያ የ ተደገፈ አይደለም"
 
-#: ../src/file-manager/fm-directory-view.c:10453
+#: ../src/file-manager/fm-directory-view.c:10437
 msgid "Drag and drop is only supported on local file systems."
 msgstr "መጎተት እና መጣል የሚደገፈው ለ አካባቢ ፋይል ስርአት ብቻ ነው"
 
-#: ../src/file-manager/fm-directory-view.c:10512
-#: ../src/file-manager/fm-directory-view.c:10617
+#: ../src/file-manager/fm-directory-view.c:10496
+#: ../src/file-manager/fm-directory-view.c:10601
 msgid "An invalid drag type was used."
 msgstr "ዋጋ የ ሌለው መጎተቻ አይነት ተጠቅመዋል"
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10694
+#: ../src/file-manager/fm-directory-view.c:10678
 msgid "dropped text.txt"
 msgstr "የ ተጣለ ጽሁፍ.txt"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10739
+#: ../src/file-manager/fm-directory-view.c:10723
 msgid "dropped data"
 msgstr "የ ተጣለ ዳታ"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11128
+#: ../src/file-manager/fm-directory-view.c:11112
 msgid "Undo"
 msgstr "መተው"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11146
+#: ../src/file-manager/fm-directory-view.c:11130
 msgid "Redo"
 msgstr "እንደገና መስሪያ"
 
-#: ../src/file-manager/fm-ditem-page.c:437
-#: ../src/file-manager/fm-ditem-page.c:449
+#: ../src/file-manager/fm-ditem-page.c:433
+#: ../src/file-manager/fm-ditem-page.c:445
 msgid "Comment"
 msgstr "አስተያየት"
 
-#: ../src/file-manager/fm-ditem-page.c:440
+#: ../src/file-manager/fm-ditem-page.c:436
 msgid "URL"
 msgstr "URL"
 
-#: ../src/file-manager/fm-ditem-page.c:443
-#: ../src/file-manager/fm-ditem-page.c:455
-#: ../src/caja-image-properties-page.c:370
+#: ../src/file-manager/fm-ditem-page.c:439
+#: ../src/file-manager/fm-ditem-page.c:451
+#: ../src/caja-image-properties-page.c:366
 msgid "Description"
 msgstr "መግለጫ"
 
-#: ../src/file-manager/fm-ditem-page.c:452
+#: ../src/file-manager/fm-ditem-page.c:448
 msgid "Command"
 msgstr "ትእዛዝ"
 
@@ -4932,7 +4988,7 @@ msgstr "ምልክት መመልከቻ"
 
 #: ../src/file-manager/fm-icon-view.c:128
 msgid "by _Name"
-msgstr "በ _ስም"
+msgstr "በ _ስም "
 
 #: ../src/file-manager/fm-icon-view.c:129
 #: ../src/file-manager/fm-icon-view.c:1740
@@ -5158,12 +5214,12 @@ msgstr "(ባዶ)"
 #: ../src/file-manager/fm-list-model.c:432
 #: ../src/file-manager/fm-tree-model.c:1358 ../src/caja-window-slot.c:207
 msgid "Loading..."
-msgstr "በመጫን ላይ..."
+msgstr "በመጫን ላይ... "
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: ../src/file-manager/fm-list-view.c:1837
-#: ../src/file-manager/fm-list-view.c:3454
+#: ../src/file-manager/fm-list-view.c:3450
 #: ../src/caja-file-management-properties.ui.h:2
 msgid "List View"
 msgstr "ዝርዝር መመልከቻ"
@@ -5179,29 +5235,29 @@ msgstr "በዚህ ፎልደር ውስጥ የ መረጃውን ቅደም ተከተ
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-list-view.c:2608
+#: ../src/file-manager/fm-list-view.c:2604
 msgid "Visible _Columns..."
 msgstr "የሚታዩ _አምዶች..."
 
 #. tooltip
-#: ../src/file-manager/fm-list-view.c:2609
+#: ../src/file-manager/fm-list-view.c:2605
 msgid "Select the columns visible in this folder"
 msgstr "ይምረጡ በዚህ ፎልደር ውስጥ የሚታዩትን አምዶች"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-list-view.c:3456
+#: ../src/file-manager/fm-list-view.c:3452
 msgid "_List"
 msgstr "_ዝርዝር"
 
-#: ../src/file-manager/fm-list-view.c:3457
+#: ../src/file-manager/fm-list-view.c:3453
 msgid "The list view encountered an error."
 msgstr "የ ዝርዝር መመልከቻ  ስህተት አጋጥሞታል"
 
-#: ../src/file-manager/fm-list-view.c:3458
+#: ../src/file-manager/fm-list-view.c:3454
 msgid "The list view encountered an error while starting up."
 msgstr "የ ዝርዝር መመልከቻ በሚጀምር ጊዜ ስህተት አጋጥሞታል"
 
-#: ../src/file-manager/fm-list-view.c:3459
+#: ../src/file-manager/fm-list-view.c:3455
 msgid "Display this location with the list view."
 msgstr "ይህን አካባቢ በ ዝርዝር መመልከቻ ውስጥ ማሳያ"
 
@@ -5233,8 +5289,8 @@ msgstr "እርስዎ የጣሉት ፋይል ምስል አይደለም"
 #: ../src/file-manager/fm-properties-window.c:636
 msgid "_Name:"
 msgid_plural "_Names:"
-msgstr[0] "_ስም:"
-msgstr[1] "_ስሞች:"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/file-manager/fm-properties-window.c:992
 #, c-format
@@ -5244,7 +5300,7 @@ msgstr "ባህሪዎች"
 #: ../src/file-manager/fm-properties-window.c:1000
 #, c-format
 msgid "%s Properties"
-msgstr "%s ባህሪዎች"
+msgstr "%s ምርጫዎች"
 
 #: ../src/file-manager/fm-properties-window.c:1328
 #, c-format
@@ -5252,30 +5308,30 @@ msgctxt "MIME type description (MIME type)"
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-properties-window.c:1540
+#: ../src/file-manager/fm-properties-window.c:1536
 msgid "Cancel Group Change?"
 msgstr "የቡድኑን ለውጥ ልሰርዘው?"
 
-#: ../src/file-manager/fm-properties-window.c:1950
+#: ../src/file-manager/fm-properties-window.c:1946
 msgid "Cancel Owner Change?"
 msgstr "ባለቤቱ የ ቀየረውን ልሰርዘው?"
 
-#: ../src/file-manager/fm-properties-window.c:2274
+#: ../src/file-manager/fm-properties-window.c:2270
 msgid "nothing"
 msgstr "ምንም"
 
-#: ../src/file-manager/fm-properties-window.c:2276
+#: ../src/file-manager/fm-properties-window.c:2272
 msgid "unreadable"
 msgstr "የማይነበብ"
 
-#: ../src/file-manager/fm-properties-window.c:2295
+#: ../src/file-manager/fm-properties-window.c:2291
 #, c-format
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-properties-window.c:2305
+#: ../src/file-manager/fm-properties-window.c:2301
 msgid "(some contents unreadable)"
 msgstr "(አንዳንድ ይዛታዎች አይነበቡም)"
 
@@ -5284,255 +5340,255 @@ msgstr "(አንዳንድ ይዛታዎች አይነበቡም)"
 #. * "Contents:" title to line up with the first line of the
 #. * 2-line value. Maybe there's a better way to do this, but I
 #. * couldn't think of one.
-#: ../src/file-manager/fm-properties-window.c:2322
+#: ../src/file-manager/fm-properties-window.c:2318
 msgid "Contents:"
 msgstr "ይዞታዎች"
 
 #. Translators: "used" refers to the capacity of the filesystem
-#: ../src/file-manager/fm-properties-window.c:3098
+#: ../src/file-manager/fm-properties-window.c:3094
 msgid "used"
 msgstr "የተጠቀሙት"
 
 #. Translators: "free" refers to the capacity of the filesystem
-#: ../src/file-manager/fm-properties-window.c:3107
+#: ../src/file-manager/fm-properties-window.c:3103
 msgid "free"
 msgstr "ነፃ"
 
-#: ../src/file-manager/fm-properties-window.c:3109
+#: ../src/file-manager/fm-properties-window.c:3105
 msgid "Total capacity:"
 msgstr "ጠቅላላ መጠን:"
 
-#: ../src/file-manager/fm-properties-window.c:3118
+#: ../src/file-manager/fm-properties-window.c:3114
 msgid "Filesystem type:"
 msgstr "የፋይል ስርአት አይነት:"
 
-#: ../src/file-manager/fm-properties-window.c:3204
+#: ../src/file-manager/fm-properties-window.c:3200
 msgid "Basic"
 msgstr "መሰረታዊ"
 
-#: ../src/file-manager/fm-properties-window.c:3266
+#: ../src/file-manager/fm-properties-window.c:3262
 msgid "Link target:"
 msgstr "ኢላማ አገናኝ:"
 
-#: ../src/file-manager/fm-properties-window.c:3280
+#: ../src/file-manager/fm-properties-window.c:3276
 msgid "Size on Disk:"
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:3289
+#: ../src/file-manager/fm-properties-window.c:3285
 #: ../src/caja-location-bar.c:57
 msgid "Location:"
-msgstr "ቦታ:"
+msgstr "አካባቢ:"
 
-#: ../src/file-manager/fm-properties-window.c:3295
+#: ../src/file-manager/fm-properties-window.c:3291
 msgid "Volume:"
 msgstr "መጠን:"
 
-#: ../src/file-manager/fm-properties-window.c:3304
+#: ../src/file-manager/fm-properties-window.c:3300
 msgid "Accessed:"
 msgstr "መድረሻ: "
 
-#: ../src/file-manager/fm-properties-window.c:3308
+#: ../src/file-manager/fm-properties-window.c:3304
 msgid "Modified:"
-msgstr "ተሻሽሏል:"
+msgstr "የተሻሻለው:"
 
-#: ../src/file-manager/fm-properties-window.c:3317
+#: ../src/file-manager/fm-properties-window.c:3313
 msgid "Free space:"
 msgstr "ነፃ ቦታ:"
 
-#: ../src/file-manager/fm-properties-window.c:3431
+#: ../src/file-manager/fm-properties-window.c:3427
 #: ../src/caja-emblem-sidebar.c:1085
 msgid "Emblems"
 msgstr "አርማዎች"
 
-#: ../src/file-manager/fm-properties-window.c:3840
+#: ../src/file-manager/fm-properties-window.c:3836
 msgid "_Read"
 msgstr "_ማንበቢያ"
 
-#: ../src/file-manager/fm-properties-window.c:3842
+#: ../src/file-manager/fm-properties-window.c:3838
 msgid "_Write"
 msgstr "_መጻፊያ"
 
-#: ../src/file-manager/fm-properties-window.c:3844
+#: ../src/file-manager/fm-properties-window.c:3840
 msgid "E_xecute"
 msgstr "መ_ፈጸሚያ"
 
 #. translators: this gets concatenated to "no read",
 #. * "no access", etc. (see following strings)
-#: ../src/file-manager/fm-properties-window.c:4112
-#: ../src/file-manager/fm-properties-window.c:4123
-#: ../src/file-manager/fm-properties-window.c:4135
+#: ../src/file-manager/fm-properties-window.c:4108
+#: ../src/file-manager/fm-properties-window.c:4119
+#: ../src/file-manager/fm-properties-window.c:4131
 msgid "no "
 msgstr "አይ"
 
-#: ../src/file-manager/fm-properties-window.c:4115
+#: ../src/file-manager/fm-properties-window.c:4111
 msgid "list"
 msgstr "ዝርዝር"
 
-#: ../src/file-manager/fm-properties-window.c:4117
+#: ../src/file-manager/fm-properties-window.c:4113
 msgid "read"
 msgstr "ማንበቢያ"
 
-#: ../src/file-manager/fm-properties-window.c:4126
+#: ../src/file-manager/fm-properties-window.c:4122
 msgid "create/delete"
 msgstr "መፍጠሪያ/ማጥፊያ"
 
-#: ../src/file-manager/fm-properties-window.c:4128
+#: ../src/file-manager/fm-properties-window.c:4124
 msgid "write"
 msgstr "መጻፊያ"
 
-#: ../src/file-manager/fm-properties-window.c:4137
+#: ../src/file-manager/fm-properties-window.c:4133
 msgid "access"
 msgstr "መድረሻ"
 
-#: ../src/file-manager/fm-properties-window.c:4185
+#: ../src/file-manager/fm-properties-window.c:4181
 msgid "Access:"
 msgstr "መድረሻ: "
 
-#: ../src/file-manager/fm-properties-window.c:4187
+#: ../src/file-manager/fm-properties-window.c:4183
 msgid "Folder access:"
 msgstr "ፎልደር ጋር መድረሻ:"
 
-#: ../src/file-manager/fm-properties-window.c:4189
+#: ../src/file-manager/fm-properties-window.c:4185
 msgid "File access:"
 msgstr "ፋይል ጋር መድረሻ:"
 
 #. Translators: this is referred to the permissions
 #. * the user has in a directory.
 #. Translators: this is referred to captions under icons.
-#: ../src/file-manager/fm-properties-window.c:4204
-#: ../src/file-manager/fm-properties-window.c:4215
-#: ../src/caja-file-management-properties.c:335
+#: ../src/file-manager/fm-properties-window.c:4200
+#: ../src/file-manager/fm-properties-window.c:4211
+#: ../src/caja-file-management-properties.c:329
 msgid "None"
 msgstr "ምንም"
 
-#: ../src/file-manager/fm-properties-window.c:4207
+#: ../src/file-manager/fm-properties-window.c:4203
 msgid "List files only"
 msgstr "የፋይሎች ዝርዝር ብቻ"
 
-#: ../src/file-manager/fm-properties-window.c:4209
+#: ../src/file-manager/fm-properties-window.c:4205
 msgid "Access files"
 msgstr "ፋይሎች ጋር መድረሻ"
 
-#: ../src/file-manager/fm-properties-window.c:4211
+#: ../src/file-manager/fm-properties-window.c:4207
 msgid "Create and delete files"
 msgstr "ፋይሎች መፍጠሪያ እና ማጥፊያ"
 
-#: ../src/file-manager/fm-properties-window.c:4218
+#: ../src/file-manager/fm-properties-window.c:4214
 msgid "Read-only"
 msgstr "ለማንበብ-ብቻ"
 
-#: ../src/file-manager/fm-properties-window.c:4220
+#: ../src/file-manager/fm-properties-window.c:4216
 msgid "Read and write"
 msgstr "ለማንበብ እና ለመጻፊያ"
 
-#: ../src/file-manager/fm-properties-window.c:4285
+#: ../src/file-manager/fm-properties-window.c:4281
 msgid "Special flags:"
 msgstr "የ ተለየ ባንዲራ:"
 
-#: ../src/file-manager/fm-properties-window.c:4287
+#: ../src/file-manager/fm-properties-window.c:4283
 msgid "Set _user ID"
 msgstr "የ ተጠቃሚ መለያ ማሰናጃ"
 
-#: ../src/file-manager/fm-properties-window.c:4288
+#: ../src/file-manager/fm-properties-window.c:4284
 msgid "Set gro_up ID"
 msgstr "የ ቡድን መለያ ማሰናጃ"
 
-#: ../src/file-manager/fm-properties-window.c:4289
+#: ../src/file-manager/fm-properties-window.c:4285
 msgid "_Sticky"
 msgstr "_ተጣባቂ"
 
-#: ../src/file-manager/fm-properties-window.c:4364
-#: ../src/file-manager/fm-properties-window.c:4555
+#: ../src/file-manager/fm-properties-window.c:4360
+#: ../src/file-manager/fm-properties-window.c:4551
 msgid "_Owner:"
 msgstr "_ባለቤት"
 
-#: ../src/file-manager/fm-properties-window.c:4372
-#: ../src/file-manager/fm-properties-window.c:4460
-#: ../src/file-manager/fm-properties-window.c:4564
+#: ../src/file-manager/fm-properties-window.c:4368
+#: ../src/file-manager/fm-properties-window.c:4456
+#: ../src/file-manager/fm-properties-window.c:4560
 msgid "Owner:"
 msgstr "ባለቤት:"
 
-#: ../src/file-manager/fm-properties-window.c:4394
-#: ../src/file-manager/fm-properties-window.c:4577
+#: ../src/file-manager/fm-properties-window.c:4390
+#: ../src/file-manager/fm-properties-window.c:4573
 msgid "_Group:"
 msgstr "_ቡድን:"
 
-#: ../src/file-manager/fm-properties-window.c:4402
-#: ../src/file-manager/fm-properties-window.c:4461
-#: ../src/file-manager/fm-properties-window.c:4585
+#: ../src/file-manager/fm-properties-window.c:4398
+#: ../src/file-manager/fm-properties-window.c:4457
+#: ../src/file-manager/fm-properties-window.c:4581
 msgid "Group:"
 msgstr "ቡድን:"
 
-#: ../src/file-manager/fm-properties-window.c:4426
+#: ../src/file-manager/fm-properties-window.c:4422
 msgid "Others"
 msgstr "ሌሎች"
 
-#: ../src/file-manager/fm-properties-window.c:4441
+#: ../src/file-manager/fm-properties-window.c:4437
 msgid "Execute:"
 msgstr "መፈጸሚያ"
 
-#: ../src/file-manager/fm-properties-window.c:4444
+#: ../src/file-manager/fm-properties-window.c:4440
 msgid "Allow _executing file as program"
 msgstr "ፋይል እንደ ፕሮግራም _መፈጸም ማስቻያ"
 
-#: ../src/file-manager/fm-properties-window.c:4462
+#: ../src/file-manager/fm-properties-window.c:4458
 msgid "Others:"
 msgstr "ሌሎች:"
 
-#: ../src/file-manager/fm-properties-window.c:4601
+#: ../src/file-manager/fm-properties-window.c:4597
 msgid "Folder Permissions:"
 msgstr "የፎልደር ፍቃዶች:"
 
-#: ../src/file-manager/fm-properties-window.c:4608
+#: ../src/file-manager/fm-properties-window.c:4604
 msgid "File Permissions:"
 msgstr "የፋይል ፍቃዶች:"
 
-#: ../src/file-manager/fm-properties-window.c:4617
+#: ../src/file-manager/fm-properties-window.c:4613
 msgid "Text view:"
 msgstr "ጽሁፍ መመልከቻ:"
 
-#: ../src/file-manager/fm-properties-window.c:4763
+#: ../src/file-manager/fm-properties-window.c:4759
 msgid "You are not the owner, so you cannot change these permissions."
 msgstr "እርስዎ ባለቤት አይደሉም: ስለዚህ ይህን ለ መቀየር በቂ ፍቃድ የለዎትም"
 
-#: ../src/file-manager/fm-properties-window.c:4783
+#: ../src/file-manager/fm-properties-window.c:4779
 msgid "SELinux context:"
 msgstr "SELinux ይዞታ:"
 
-#: ../src/file-manager/fm-properties-window.c:4788
+#: ../src/file-manager/fm-properties-window.c:4784
 msgid "Last changed:"
 msgstr "መጨረሻ የተቀየረው:"
 
-#: ../src/file-manager/fm-properties-window.c:4799
+#: ../src/file-manager/fm-properties-window.c:4795
 msgid "Apply Permissions to Enclosed Files"
 msgstr "ለ ተከበቡት ፋይሎች ፍቃድ መፈጸሚያ"
 
-#: ../src/file-manager/fm-properties-window.c:4809
+#: ../src/file-manager/fm-properties-window.c:4805
 #, c-format
 msgid "The permissions of \"%s\" could not be determined."
 msgstr "ይህን ፍቃድ \"%s\" መወሰን አልተቻለም"
 
-#: ../src/file-manager/fm-properties-window.c:4812
+#: ../src/file-manager/fm-properties-window.c:4808
 msgid "The permissions of the selected file could not be determined."
 msgstr "የ ተመረጠውን ፋይል ፍቃድ መወሰን አልተቻለም"
 
-#: ../src/file-manager/fm-properties-window.c:5386
+#: ../src/file-manager/fm-properties-window.c:5382
 msgid "Creating Properties window."
 msgstr "የ ባህሪዎች መስኮት በ መፍጠር ላይ"
 
-#: ../src/file-manager/fm-properties-window.c:5682
+#: ../src/file-manager/fm-properties-window.c:5671
 msgid "Select Custom Icon"
 msgstr "የ ምልክት ማስተካከያ ይምረጡ"
 
 #: ../src/file-manager/fm-tree-view.c:1438 ../src/caja-places-sidebar.c:535
 msgid "File System"
-msgstr "የፋይል ስርአት"
+msgstr "የ ስርአቱ ፋይል"
 
-#: ../src/file-manager/fm-tree-view.c:1729
+#: ../src/file-manager/fm-tree-view.c:1727
 msgid "Tree"
 msgstr "ዛፍ"
 
-#: ../src/file-manager/fm-tree-view.c:1735
+#: ../src/file-manager/fm-tree-view.c:1733
 msgid "Show Tree"
 msgstr "ዛፍ ማሳያ"
 
@@ -5625,7 +5681,10 @@ msgid ""
 "\n"
 "\n"
 "Browse the file system with the file manager"
-msgstr "\n\nበ ፋይል አስተዳዳሪ የ ፋይል ስርአት መቃኛ"
+msgstr ""
+"\n"
+"\n"
+"በ ፋይል አስተዳዳሪ የ ፋይል ስርአት መቃኛ"
 
 #: ../src/caja-autorun-software.c:164 ../src/caja-autorun-software.c:167
 #, c-format
@@ -5655,16 +5714,18 @@ msgid ""
 "If in doubt, press Cancel."
 msgstr ""
 
-#: ../src/caja-bookmarks-window.c:164
-#: ../src/caja-file-management-properties.c:242
-#: ../src/caja-property-browser.c:1677 ../src/caja-window-menus.c:598
+#: ../src/caja-bookmarks-window.c:158
+#: ../src/caja-file-management-properties.c:236
+#: ../src/caja-property-browser.c:1661 ../src/caja-window-menus.c:590
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
 "%s"
-msgstr "ስህተት ተፈጥሯል እርዳታ በማሳየት ላይ እንዳለ : \n%s"
+msgstr ""
+"ስህተት ተፈጥሯል እርዳታ በማሳየት ላይ እንዳለ : \n"
+"%s"
 
-#: ../src/caja-bookmarks-window.c:200
+#: ../src/caja-bookmarks-window.c:194
 msgid "No bookmarks defined"
 msgstr "ምንም ምልክት ማድረጊያ አልተገለጸም"
 
@@ -5691,7 +5752,10 @@ msgid ""
 "\n"
 "\n"
 "Add connect to server mount"
-msgstr "\n\nለ ሰርቨር መጫኛ ግንኙነት መጨመሪያ"
+msgstr ""
+"\n"
+"\n"
+"ለ ሰርቨር መጫኛ ግንኙነት መጨመሪያ"
 
 #: ../src/caja-connect-server-dialog.c:135
 msgid "SSH"
@@ -5723,13 +5787,15 @@ msgstr "Apple Filing Protocol (AFP)"
 
 #: ../src/caja-connect-server-dialog.c:196
 msgid "Connecting..."
-msgstr "በመገናኘት ላይ..."
+msgstr "በ መገናኘት ላይ..."
 
 #: ../src/caja-connect-server-dialog.c:220
 msgid ""
 "Can't load the supported server method list.\n"
 "Please check your GVfs installation."
-msgstr "የ ተደገፈውን የ ሰርቨር ዘዴ ዝርዝር መጫን አልተቻለም\nእባክዎን ይመርምሩ የ እርስዎን GVfs አገጣጠም."
+msgstr ""
+"የ ተደገፈውን የ ሰርቨር ዘዴ ዝርዝር መጫን አልተቻለም\n"
+"እባክዎን ይመርምሩ የ እርስዎን GVfs አገጣጠም."
 
 #: ../src/caja-connect-server-dialog.c:298
 #, c-format
@@ -5753,74 +5819,74 @@ msgstr "እባክዎን የ እርስዎን የ ተጠቃሚ ዝርዝር ያረ
 msgid "Continue"
 msgstr "ይቀጥሉ"
 
-#: ../src/caja-connect-server-dialog.c:742
-#: ../src/caja-connect-server-dialog.c:1171
+#: ../src/caja-connect-server-dialog.c:736
+#: ../src/caja-connect-server-dialog.c:1125
 msgid "C_onnect"
 msgstr "መ_ገናኛ"
 
 #. set dialog properties
-#: ../src/caja-connect-server-dialog.c:866
+#: ../src/caja-connect-server-dialog.c:860
 msgid "Connect to Server"
 msgstr "ወደ ሰቨር መገናኛ"
 
-#: ../src/caja-connect-server-dialog.c:880
+#: ../src/caja-connect-server-dialog.c:874
 msgid "Server Details"
 msgstr "የሰርቨር ዝርዝር"
 
 #. first row: server entry + port spinbutton
-#: ../src/caja-connect-server-dialog.c:904
+#: ../src/caja-connect-server-dialog.c:894
 msgid "_Server:"
 msgstr "_ሰርቨር:"
 
 #. port
-#: ../src/caja-connect-server-dialog.c:926
+#: ../src/caja-connect-server-dialog.c:912
 msgid "_Port:"
 msgstr "_Port:"
 
 #. third row: share entry
-#: ../src/caja-connect-server-dialog.c:1025
+#: ../src/caja-connect-server-dialog.c:1003
 msgid "Share:"
 msgstr "ማካፈያ:"
 
 #. fourth row: folder entry
-#: ../src/caja-connect-server-dialog.c:1041
+#: ../src/caja-connect-server-dialog.c:1015
 msgid "Folder:"
 msgstr "ፎልደር:"
 
-#: ../src/caja-connect-server-dialog.c:1058
+#: ../src/caja-connect-server-dialog.c:1028
 msgid "User Details"
 msgstr "የተጠቃሚ ዝርዝር:"
 
 #. first row: domain entry
-#: ../src/caja-connect-server-dialog.c:1082
+#: ../src/caja-connect-server-dialog.c:1048
 msgid "Domain Name:"
 msgstr "የግዛት ስም:"
 
 #. second row: username entry
-#: ../src/caja-connect-server-dialog.c:1098
+#: ../src/caja-connect-server-dialog.c:1060
 msgid "User Name:"
 msgstr "የተጠቃሚ ስም:"
 
 #. third row: password entry
-#: ../src/caja-connect-server-dialog.c:1114
+#: ../src/caja-connect-server-dialog.c:1072
 msgid "Password:"
 msgstr "የመግቢያ ቃል:"
 
 #. fourth row: remember checkbox
-#: ../src/caja-connect-server-dialog.c:1131
+#: ../src/caja-connect-server-dialog.c:1085
 msgid "Remember this password"
 msgstr "ይህን የመግቢያ ቃል አስታውስ:"
 
-#: ../src/caja-connect-server-dialog.c:1142
+#: ../src/caja-connect-server-dialog.c:1096
 msgid "Add _bookmark"
 msgstr "መጨመሪያ _ምልክት ማድረጊያ"
 
-#: ../src/caja-connect-server-dialog.c:1149
+#: ../src/caja-connect-server-dialog.c:1103
 msgid "Bookmark Name:"
 msgstr "የ ምልክት ማድረጊያ ስም:"
 
-#: ../src/caja-desktop-window.c:87 ../src/caja-desktop-window.c:267
-#: ../src/caja-pathbar.c:1403 ../src/caja-places-sidebar.c:519
+#: ../src/caja-desktop-window.c:87 ../src/caja-desktop-window.c:264
+#: ../src/caja-pathbar.c:1399 ../src/caja-places-sidebar.c:519
 msgid "Desktop"
 msgstr "ዴስክቶፕ"
 
@@ -5897,13 +5963,13 @@ msgstr "አርማ መጨመር አይቻልም"
 msgid "Show Emblems"
 msgstr "አርማ ማሳያ"
 
-#: ../src/caja-file-management-properties.c:638
+#: ../src/caja-file-management-properties.c:632
 msgid "About Extension"
 msgstr "ስለ ተጨማሪዎች"
 
 #: ../src/caja-file-management-properties.ui.h:4
 msgid "Always"
-msgstr "ሁል ጊዜ"
+msgstr "ሁልጊዜ "
 
 #: ../src/caja-file-management-properties.ui.h:5
 msgid "Local Files Only"
@@ -5911,7 +5977,7 @@ msgstr "የአካባቢ ፋይሎች ብቻ"
 
 #: ../src/caja-file-management-properties.ui.h:6
 msgid "Never"
-msgstr "በፍጹም"
+msgstr "በፍጹም "
 
 #: ../src/caja-file-management-properties.ui.h:7
 msgid "By Name"
@@ -6224,7 +6290,7 @@ msgstr "የ እቃዎች _ቁጥር መቁጠሪያ:"
 
 #: ../src/caja-file-management-properties.ui.h:89
 msgid "Preview"
-msgstr "ቅድመ እይታ"
+msgstr "ቅድመ እይታ "
 
 #: ../src/caja-file-management-properties.ui.h:90
 msgid "<b>Media Handling</b>"
@@ -6307,106 +6373,106 @@ msgstr "ተጨማሪ ማ_ሰናጃ"
 msgid "Extensions"
 msgstr "ተጨማሪዎች "
 
-#: ../src/caja-history-sidebar.c:338
+#: ../src/caja-history-sidebar.c:337
 msgid "History"
-msgstr "ታሪክ"
+msgstr "ታሪክ "
 
-#: ../src/caja-history-sidebar.c:344
+#: ../src/caja-history-sidebar.c:343
 msgid "Show History"
 msgstr "ታሪክ ማሳያ"
 
-#: ../src/caja-image-properties-page.c:280
+#: ../src/caja-image-properties-page.c:276
 msgid "Camera Brand"
 msgstr "የ ካሜራው ስም"
 
-#: ../src/caja-image-properties-page.c:281
+#: ../src/caja-image-properties-page.c:277
 msgid "Camera Model"
 msgstr "የ ካሜራው አይነት"
 
 #. Choose which date to show in order of relevance
-#: ../src/caja-image-properties-page.c:284
+#: ../src/caja-image-properties-page.c:280
 msgid "Date Taken"
 msgstr "የተነሳበት ቀን "
 
-#: ../src/caja-image-properties-page.c:286
+#: ../src/caja-image-properties-page.c:282
 msgid "Date Digitized"
 msgstr "ዲጂታይዝድ የሆነበት ቀን"
 
-#: ../src/caja-image-properties-page.c:292
+#: ../src/caja-image-properties-page.c:288
 msgid "Exposure Time"
 msgstr "የሚጋለጥበት ጊዜ"
 
-#: ../src/caja-image-properties-page.c:293
+#: ../src/caja-image-properties-page.c:289
 msgid "Aperture Value"
 msgstr ""
 
-#: ../src/caja-image-properties-page.c:294
+#: ../src/caja-image-properties-page.c:290
 msgid "ISO Speed Rating"
 msgstr ""
 
-#: ../src/caja-image-properties-page.c:295
+#: ../src/caja-image-properties-page.c:291
 msgid "Flash Fired"
 msgstr ""
 
-#: ../src/caja-image-properties-page.c:296
+#: ../src/caja-image-properties-page.c:292
 msgid "Metering Mode"
 msgstr ""
 
-#: ../src/caja-image-properties-page.c:297
+#: ../src/caja-image-properties-page.c:293
 msgid "Exposure Program"
 msgstr ""
 
-#: ../src/caja-image-properties-page.c:298
+#: ../src/caja-image-properties-page.c:294
 msgid "Focal Length"
 msgstr ""
 
-#: ../src/caja-image-properties-page.c:299
+#: ../src/caja-image-properties-page.c:295
 msgid "Software"
 msgstr "ሶፍትዌር"
 
-#: ../src/caja-image-properties-page.c:371
+#: ../src/caja-image-properties-page.c:367
 msgid "Keywords"
 msgstr "ቁልፍ ቃሎች"
 
-#: ../src/caja-image-properties-page.c:372
+#: ../src/caja-image-properties-page.c:368
 msgid "Creator"
 msgstr "የፈጠረው"
 
-#: ../src/caja-image-properties-page.c:373
+#: ../src/caja-image-properties-page.c:369
 msgid "Copyright"
 msgstr "የ ቅጂ መብት"
 
-#: ../src/caja-image-properties-page.c:374
+#: ../src/caja-image-properties-page.c:370
 msgid "Rating"
 msgstr "ደረጃው"
 
-#: ../src/caja-image-properties-page.c:405
+#: ../src/caja-image-properties-page.c:401
 msgid "Image Type:"
 msgstr "የምስል አይነት"
 
-#: ../src/caja-image-properties-page.c:408
+#: ../src/caja-image-properties-page.c:404
 #, c-format
 msgid "<b>Width:</b> %d pixel"
 msgid_plural "<b>Width:</b> %d pixels"
-msgstr[0] "<b>ስፋት:</b> %d ፒክስል"
-msgstr[1] "<b>ስፋት:</b> %d ፒክስልስ"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/caja-image-properties-page.c:414
+#: ../src/caja-image-properties-page.c:410
 #, c-format
 msgid "<b>Height:</b> %d pixel"
 msgid_plural "<b>Height:</b> %d pixels"
-msgstr[0] "<b>እርዝመት:</b> %d ፒክስል"
-msgstr[1] "<b>እርዝመት:</b> %d ፒክስልስ"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/caja-image-properties-page.c:433
+#: ../src/caja-image-properties-page.c:429
 msgid "Failed to load image information"
 msgstr "የምስል መረጃውን መጫን አልተቻለም"
 
-#: ../src/caja-image-properties-page.c:661
+#: ../src/caja-image-properties-page.c:657
 msgid "loading..."
 msgstr "በመጫን ላይ..."
 
-#: ../src/caja-image-properties-page.c:715
+#: ../src/caja-image-properties-page.c:711
 msgid "Image"
 msgstr "ምስል"
 
@@ -6439,14 +6505,14 @@ msgstr "መሄጃ ወደ:"
 #, c-format
 msgid "Do you want to view %d location?"
 msgid_plural "Do you want to view %d locations?"
-msgstr[0] "ማየት ይፈልጋሉ %d አካባቢውን?"
-msgstr[1] "ማየት ይፈልጋሉ %d አካባቢዎቹን "
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/caja-location-dialog.c:163
+#: ../src/caja-location-dialog.c:157
 msgid "Open Location"
 msgstr "አካባቢ መክፈቻ"
 
-#: ../src/caja-location-dialog.c:173
+#: ../src/caja-location-dialog.c:167
 msgid "_Location:"
 msgstr "_አካባቢ:"
 
@@ -6730,15 +6796,15 @@ msgstr "Tab _መዝጊያ"
 msgid "%s - File Browser"
 msgstr "%s - ፋይል መቃኛ"
 
-#: ../src/caja-notebook.c:337
+#: ../src/caja-notebook.c:330
 msgid "Close tab"
 msgstr "tab መዝጊያ"
 
-#: ../src/caja-notes-viewer.c:399 ../src/caja-notes-viewer.c:503
+#: ../src/caja-notes-viewer.c:398 ../src/caja-notes-viewer.c:502
 msgid "Notes"
 msgstr "ማስታወሻዎች"
 
-#: ../src/caja-notes-viewer.c:405
+#: ../src/caja-notes-viewer.c:404
 msgid "Show Notes"
 msgstr "ማስታወሻዎች ማሳያ"
 
@@ -6769,7 +6835,7 @@ msgstr "መጫኛ እና መክፈቻ %s"
 
 #: ../src/caja-places-sidebar.c:832 ../src/mate-network-scheme.desktop.in.h:1
 msgid "Network"
-msgstr "ኔትዎርክ"
+msgstr "ኔትዎርክ:"
 
 #: ../src/caja-places-sidebar.c:864
 msgid "Browse Network"
@@ -6823,11 +6889,11 @@ msgstr "ማስወገጃ"
 msgid "Rename..."
 msgstr "እንደገና መሰየሚያ..."
 
-#: ../src/caja-places-sidebar.c:3382
+#: ../src/caja-places-sidebar.c:3381
 msgid "Places"
 msgstr "ቦታዎች"
 
-#: ../src/caja-places-sidebar.c:3388
+#: ../src/caja-places-sidebar.c:3387
 msgid "Show Places"
 msgstr "ቦታዎች ማሳያ"
 
@@ -6837,159 +6903,159 @@ msgid "Backgrounds and Emblems"
 msgstr "መደቦች እና አርማዎች"
 
 #. create the "remove" button
-#: ../src/caja-property-browser.c:409
+#: ../src/caja-property-browser.c:407
 msgid "_Remove..."
-msgstr "_ማስወገጃ..."
+msgstr "_ማስወገጃ... "
 
 #. now create the "add new" button
-#: ../src/caja-property-browser.c:423
+#: ../src/caja-property-browser.c:421
 msgid "Add new..."
 msgstr "አዲስ መጨመሪያ..."
 
-#: ../src/caja-property-browser.c:974
+#: ../src/caja-property-browser.c:972
 #, c-format
 msgid "Sorry, but pattern %s could not be deleted."
 msgstr "አዝናለሁ ነገር ግን %s ድግግሞሽን ማጥፋት አልተቻለም"
 
-#: ../src/caja-property-browser.c:975
+#: ../src/caja-property-browser.c:973
 msgid "Check that you have permission to delete the pattern."
 msgstr "ድግግሞሽ ለ ማጥፋት ፍቃድ እንዳለዎት ይመርምሩ"
 
-#: ../src/caja-property-browser.c:991
+#: ../src/caja-property-browser.c:989
 #, c-format
 msgid "Sorry, but emblem %s could not be deleted."
 msgstr "አዝናለሁ ነገር ግን አርማ %s ማጥፋት አይቻልም"
 
-#: ../src/caja-property-browser.c:992
+#: ../src/caja-property-browser.c:990
 msgid "Check that you have permission to delete the emblem."
 msgstr "አርማ ለ ማጥፋት ፍቃድ እንዳለዎት ይመርምሩ"
 
-#: ../src/caja-property-browser.c:1064
+#: ../src/caja-property-browser.c:1062
 msgid "Select an Image File for the New Emblem"
 msgstr "ለ አዲስ አርማ የ ምስል ፋይል ይምረጡ"
 
-#: ../src/caja-property-browser.c:1105
+#: ../src/caja-property-browser.c:1103
 msgid "Create a New Emblem"
 msgstr "አዲስ አርማ መፍጠሪያ"
 
 #. make the keyword label and field
-#: ../src/caja-property-browser.c:1126
+#: ../src/caja-property-browser.c:1124
 msgid "_Keyword:"
 msgstr "_ቁልፍ ቃል:"
 
 #. set up a file chooser to pick the image file
-#: ../src/caja-property-browser.c:1149
+#: ../src/caja-property-browser.c:1143
 msgid "_Image:"
 msgstr "_ምስል:"
 
-#: ../src/caja-property-browser.c:1185
+#: ../src/caja-property-browser.c:1175
 msgid "Create a New Color:"
 msgstr "አዲስ ቀለም መፍጠሪያ:"
 
 #. make the name label and field
-#: ../src/caja-property-browser.c:1199
+#: ../src/caja-property-browser.c:1189
 msgid "Color _name:"
-msgstr "የቀለም _ስም"
+msgstr "የ ቀለም _ስም:"
 
-#: ../src/caja-property-browser.c:1215
+#: ../src/caja-property-browser.c:1205
 msgid "Color _value:"
 msgstr "የቀለም _ዋጋ:"
 
-#: ../src/caja-property-browser.c:1251
+#: ../src/caja-property-browser.c:1241
 msgid "Sorry, but you cannot replace the reset image."
 msgstr "አዝናለሁ: እርስዎ መቀየር አይችሉም እንደገና የ ተሰናዳውን ምስል"
 
-#: ../src/caja-property-browser.c:1252
+#: ../src/caja-property-browser.c:1242
 msgid "Reset is a special image that cannot be deleted."
 msgstr "እንደ ነበር መመለሻ ማጥፋት የማይቻለውን የ ተለየ ምስል"
 
-#: ../src/caja-property-browser.c:1282
+#: ../src/caja-property-browser.c:1272
 #, c-format
 msgid "Sorry, but the pattern %s could not be installed."
 msgstr "አዝናለሁ ነገር ግን ድግግሞሽ %s ማጥፋት አይቻልም "
 
-#: ../src/caja-property-browser.c:1313
+#: ../src/caja-property-browser.c:1303
 msgid "Select an Image File to Add as a Pattern"
 msgstr "የ ምስል ፋይል ይምረጡ እንደ ድግግሞሽ የሚጨመረውን"
 
-#: ../src/caja-property-browser.c:1392 ../src/caja-property-browser.c:1422
+#: ../src/caja-property-browser.c:1382 ../src/caja-property-browser.c:1412
 msgid "The color cannot be installed."
 msgstr "ቀለሙን መግጠም አይቻልም"
 
-#: ../src/caja-property-browser.c:1393
+#: ../src/caja-property-browser.c:1383
 msgid "Sorry, but you must specify an unused color name for the new color."
 msgstr "አዝናለሁ: ነገር ግን እርስዎ መወሰን አለብዎት ያልተጠቀሙትን የ ቀለም  ስም ለ አዲሱ ቀለም"
 
-#: ../src/caja-property-browser.c:1423
+#: ../src/caja-property-browser.c:1413
 msgid "Sorry, but you must specify a non-blank name for the new color."
 msgstr "አዝናለሁ ነገር ግን እርስዎ መግለጽ አልብዎት ምንም-ባዶ ያልሆነ ስም ለ አዲሱ ቀለም"
 
-#: ../src/caja-property-browser.c:1483
+#: ../src/caja-property-browser.c:1473
 msgid "Select a Color to Add"
 msgstr "ይምረጡ ቀለም ለ መጨመር"
 
-#: ../src/caja-property-browser.c:1529 ../src/caja-property-browser.c:1547
+#: ../src/caja-property-browser.c:1519 ../src/caja-property-browser.c:1537
 #, c-format
 msgid "Sorry, but \"%s\" is not a usable image file."
 msgstr "አዝናለሁ ነገር ግን \"%s\" ይህ የ ምስል ፋይል ዋጋ የለውም"
 
-#: ../src/caja-property-browser.c:1530 ../src/caja-property-browser.c:1548
+#: ../src/caja-property-browser.c:1520 ../src/caja-property-browser.c:1538
 msgid "The file is not an image."
 msgstr "ፋይሉ ምስል አይደለም"
 
-#: ../src/caja-property-browser.c:2299
+#: ../src/caja-property-browser.c:2281
 msgid "Select a Category:"
 msgstr "ምድብ ይምረጡ:"
 
-#: ../src/caja-property-browser.c:2311
+#: ../src/caja-property-browser.c:2293
 msgid "C_ancel Remove"
 msgstr "መ_ሰረዣ ማስወገጃ"
 
-#: ../src/caja-property-browser.c:2320
+#: ../src/caja-property-browser.c:2302
 msgid "_Add a New Pattern..."
 msgstr "አዲስ ንድፍ መጨመሪያ..."
 
-#: ../src/caja-property-browser.c:2323
+#: ../src/caja-property-browser.c:2305
 msgid "_Add a New Color..."
 msgstr "አዲስ ቀለም _መጨመሪያ..."
 
-#: ../src/caja-property-browser.c:2326
+#: ../src/caja-property-browser.c:2308
 msgid "_Add a New Emblem..."
 msgstr "አዲስ አርማ _መጨመሪያ..."
 
-#: ../src/caja-property-browser.c:2352
+#: ../src/caja-property-browser.c:2334
 msgid "Click on a pattern to remove it"
 msgstr "ንድፉን ለማስወገድ ይጫኑ"
 
-#: ../src/caja-property-browser.c:2355
+#: ../src/caja-property-browser.c:2337
 msgid "Click on a color to remove it"
 msgstr "ቀለሙን ለማስወገድ ይጫኑ"
 
-#: ../src/caja-property-browser.c:2358
+#: ../src/caja-property-browser.c:2340
 msgid "Click on an emblem to remove it"
 msgstr "አርማውን ለማስወገድ ይጫኑ "
 
-#: ../src/caja-property-browser.c:2370
+#: ../src/caja-property-browser.c:2352
 msgid "Patterns:"
 msgstr "ንድፎች:"
 
-#: ../src/caja-property-browser.c:2373
+#: ../src/caja-property-browser.c:2355
 msgid "Colors:"
 msgstr "ቀለሞች:"
 
-#: ../src/caja-property-browser.c:2376
+#: ../src/caja-property-browser.c:2358
 msgid "Emblems:"
 msgstr "አርማዎች:"
 
-#: ../src/caja-property-browser.c:2398
+#: ../src/caja-property-browser.c:2380
 msgid "_Remove a Pattern..."
 msgstr "ንድፍ _ማስወገጃ..."
 
-#: ../src/caja-property-browser.c:2401
+#: ../src/caja-property-browser.c:2383
 msgid "_Remove a Color..."
 msgstr "ቀለም _ማስወገጃ..."
 
-#: ../src/caja-property-browser.c:2404
+#: ../src/caja-property-browser.c:2386
 msgid "_Remove an Emblem..."
 msgstr "አርማ _ማስወገጃ..."
 
@@ -6999,7 +7065,7 @@ msgstr "የፋይል አይነት"
 
 #: ../src/caja-query-editor.c:149
 msgid "Tags"
-msgstr ""
+msgstr "Tags"
 
 #: ../src/caja-query-editor.c:295
 msgid "Select folder to search in"
@@ -7050,51 +7116,51 @@ msgstr "የጽሁፍ ፋይል"
 msgid "Select type"
 msgstr "የመምረጫ አይነት"
 
-#: ../src/caja-query-editor.c:804
+#: ../src/caja-query-editor.c:802
 msgid "Any"
 msgstr "ማንኛውም"
 
-#: ../src/caja-query-editor.c:820
+#: ../src/caja-query-editor.c:818
 msgid "Other Type..."
 msgstr "ሌላ አይነት..."
 
-#: ../src/caja-query-editor.c:1124
+#: ../src/caja-query-editor.c:1122
 msgid "Remove this criterion from the search"
 msgstr "ይህን መመዘኛ ከ መፈለጊያ ውስጥ ማስወገጃ"
 
-#: ../src/caja-query-editor.c:1171
+#: ../src/caja-query-editor.c:1169
 msgid "Search Folder"
 msgstr "ፎልደር መፈለጊያ"
 
-#: ../src/caja-query-editor.c:1177
+#: ../src/caja-query-editor.c:1175
 msgid "Edit"
 msgstr "ማረሚያ"
 
-#: ../src/caja-query-editor.c:1185
+#: ../src/caja-query-editor.c:1183
 msgid "Edit the saved search"
 msgstr "የተቀመጠውን መፈለጊያ ማረሚያ"
 
-#: ../src/caja-query-editor.c:1217
+#: ../src/caja-query-editor.c:1215
 msgid "Add a new criterion to this search"
 msgstr "አዲስ መመዘኛ ወደ መፈለጊያ ውስጥ መጨመሪያ"
 
-#: ../src/caja-query-editor.c:1223
+#: ../src/caja-query-editor.c:1221
 msgid "Go"
 msgstr "መሄጃ"
 
-#: ../src/caja-query-editor.c:1227
+#: ../src/caja-query-editor.c:1225
 msgid "Reload"
 msgstr "እንደገና መጫኛ"
 
-#: ../src/caja-query-editor.c:1232
+#: ../src/caja-query-editor.c:1230
 msgid "Perform or update the search"
 msgstr "መፈለጊያ መፈጸሚያ ወይንም ማሻሻያ"
 
-#: ../src/caja-query-editor.c:1253
+#: ../src/caja-query-editor.c:1251
 msgid "_Search for:"
 msgstr "_መፈለጊያ በ:"
 
-#: ../src/caja-query-editor.c:1282
+#: ../src/caja-query-editor.c:1280
 msgid "Search results"
 msgstr "የፍለጋው ውጤቶች "
 
@@ -7225,7 +7291,9 @@ msgstr "ይመርምሩ ፊደሉ ትክክል መሆኑን እና የ እርስ
 msgid ""
 "Error: %s\n"
 "Please select another viewer and try again."
-msgstr "ስህተት: %s\nእባክዎን ሌላ መመልከቻ ይምረጡ እና እንደገና ይሞክሩ"
+msgstr ""
+"ስህተት: %s\n"
+"እባክዎን ሌላ መመልከቻ ይምረጡ እና እንደገና ይሞክሩ"
 
 #: ../src/caja-window-menus.c:195
 msgid "Go to the location specified by this bookmark"
@@ -7237,7 +7305,10 @@ msgid ""
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version."
-msgstr "ካጃ ነፃ ሶፍትዌር ነው: እርስዎ ማሰራጨት ይችላሉ/ወይንም ማሻሻል በዚህ ደንብ መሰረት በ GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version."
+msgstr ""
+"ካጃ ነፃ ሶፍትዌር ነው: እርስዎ ማሰራጨት ይችላሉ/ወይንም ማሻሻል በዚህ ደንብ መሰረት በ GNU General Public "
+"License as published by the Free Software Foundation; either version 2 of "
+"the License, or (at your option) any later version."
 
 #: ../src/caja-window-menus.c:521
 msgid ""
@@ -7270,210 +7341,210 @@ msgstr ""
 #. * box to give credit to the translator(s).
 #: ../src/caja-window-menus.c:550
 msgid "translator-credits"
-msgstr "ምስጋና-ለተርጓሚዎች "
+msgstr "Samson-Belete-Belayineh"
 
 #: ../src/caja-window-menus.c:553
 msgid "MATE Web Site"
 msgstr "የ ሜት ድህረ ገጽ"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:814
+#: ../src/caja-window-menus.c:806
 msgid "_File"
 msgstr "_ፋይል"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:815
+#: ../src/caja-window-menus.c:807
 msgid "_Edit"
 msgstr "_ማረሚያ"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:816
+#: ../src/caja-window-menus.c:808
 msgid "_View"
 msgstr "_መመልከቻ"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:817
+#: ../src/caja-window-menus.c:809
 msgid "_Help"
 msgstr "_እርዳታ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:819
+#: ../src/caja-window-menus.c:811
 msgid "_Close"
 msgstr "_መዝጊያ"
 
 #. tooltip
-#: ../src/caja-window-menus.c:820
+#: ../src/caja-window-menus.c:812
 msgid "Close this folder"
 msgstr "ይህን ፎልደር መዝጊያ"
 
-#: ../src/caja-window-menus.c:825
+#: ../src/caja-window-menus.c:817
 msgid "_Backgrounds and Emblems..."
 msgstr "_መደብ እና አርማ..."
 
-#: ../src/caja-window-menus.c:826
+#: ../src/caja-window-menus.c:818
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
 msgstr "ማሳያ ድግግሞሽ: ቀለሞች: እና አርማዎች: ለ አቀራረብ ማስተካከያ የሚጠቀሙበት"
 
-#: ../src/caja-window-menus.c:831
+#: ../src/caja-window-menus.c:823
 msgid "Prefere_nces"
 msgstr "ምርጫ_ዎች"
 
-#: ../src/caja-window-menus.c:832
+#: ../src/caja-window-menus.c:824
 msgid "Edit Caja preferences"
 msgstr "የ ካጃ ምርጫዎችን ማረሚያ"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:835
+#: ../src/caja-window-menus.c:827
 msgid "Open _Parent"
 msgstr "_ወላጅ _መክፈቻ"
 
-#: ../src/caja-window-menus.c:836
+#: ../src/caja-window-menus.c:828
 msgid "Open the parent folder"
 msgstr "ወላጅ ፎልደር መክፈቻ"
 
 #. tooltip
-#: ../src/caja-window-menus.c:845
+#: ../src/caja-window-menus.c:837
 msgid "Stop loading the current location"
 msgstr "የ አሁኑን አካባቢ መጫን ማስቆሚያ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:849
+#: ../src/caja-window-menus.c:841
 msgid "_Reload"
 msgstr "_እንደገና መጫኛ"
 
 #. tooltip
-#: ../src/caja-window-menus.c:850
+#: ../src/caja-window-menus.c:842
 msgid "Reload the current location"
 msgstr "የ አሁኑን አካባቢ እንደገና መጫኛ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:854
+#: ../src/caja-window-menus.c:846
 msgid "_Contents"
 msgstr "_ይዞታዎች"
 
 #. tooltip
-#: ../src/caja-window-menus.c:855
+#: ../src/caja-window-menus.c:847
 msgid "Display Caja help"
 msgstr "የ ካጃ እርዳታ ማሳያ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:859
+#: ../src/caja-window-menus.c:851
 msgid "_About"
 msgstr "_ስለ"
 
 #. tooltip
-#: ../src/caja-window-menus.c:860
+#: ../src/caja-window-menus.c:852
 msgid "Display credits for the creators of Caja"
 msgstr "ለ ካጃ ፈጣሪዎች ምስጋና ማሳያ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:864
+#: ../src/caja-window-menus.c:856
 msgid "Zoom _In"
 msgstr "በቅርብ _ማሳያ"
 
 #. tooltip
-#: ../src/caja-window-menus.c:865 ../src/caja-zoom-control.c:96
-#: ../src/caja-zoom-control.c:398
+#: ../src/caja-window-menus.c:857 ../src/caja-zoom-control.c:96
+#: ../src/caja-zoom-control.c:371
 msgid "Increase the view size"
 msgstr "የ መመልከቻ መጠን መጨመሪያ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:879
+#: ../src/caja-window-menus.c:871
 msgid "Zoom _Out"
 msgstr "በርቀት _ማሳያ"
 
 #. tooltip
-#: ../src/caja-window-menus.c:880 ../src/caja-zoom-control.c:97
-#: ../src/caja-zoom-control.c:335
+#: ../src/caja-window-menus.c:872 ../src/caja-zoom-control.c:97
+#: ../src/caja-zoom-control.c:316
 msgid "Decrease the view size"
 msgstr "የ መመልከቻ መጠን መቀነሻ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:889
+#: ../src/caja-window-menus.c:881
 msgid "Normal Si_ze"
 msgstr "መደበኛ መጠ_ን"
 
 #. tooltip
-#: ../src/caja-window-menus.c:890 ../src/caja-zoom-control.c:98
-#: ../src/caja-zoom-control.c:355
+#: ../src/caja-window-menus.c:882 ../src/caja-zoom-control.c:98
+#: ../src/caja-zoom-control.c:332
 msgid "Use the normal view size"
 msgstr "መደበኛ የ መመልከቻ መጠን ይጠቀሙ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:894
+#: ../src/caja-window-menus.c:886
 msgid "Connect to _Server..."
 msgstr "ወደ  _ሰርቨር መገናኛ..."
 
 #. tooltip
-#: ../src/caja-window-menus.c:895
+#: ../src/caja-window-menus.c:887
 msgid "Connect to a remote computer or shared disk"
-msgstr "ወደ ሩቅ ኮምፒዩተር ወይንም የሚካፈሉት ዲስክ መገናኛ"
+msgstr "ወደ ሩቅ ኮምፒዩተር መገናኛ ወይንም ዲስክ መካፈያ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:904
+#: ../src/caja-window-menus.c:896
 msgid "_Computer"
 msgstr "_ኮምፒዩተር"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:909
+#: ../src/caja-window-menus.c:901
 msgid "_Network"
 msgstr "_ኔትዎርክ"
 
 #. tooltip
-#: ../src/caja-window-menus.c:910 ../src/mate-network-scheme.desktop.in.h:2
+#: ../src/caja-window-menus.c:902 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
-msgstr "ምልክት የ ተደረገባቸው እና የ ኔትዎርክ አካባቢ መቃኛ"
+msgstr "ምልክት የተደረገባቸው እና የ ኔትዎርክ አካባቢዎችን መቃኛ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:914
+#: ../src/caja-window-menus.c:906
 msgid "T_emplates"
 msgstr "ቴ_ምፕሌቶች"
 
 #. tooltip
-#: ../src/caja-window-menus.c:915
+#: ../src/caja-window-menus.c:907
 msgid "Open your personal templates folder"
 msgstr "የ እርስዎን የ ግል ቴምፕሌት ፎልደር መክፈቻ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:919
+#: ../src/caja-window-menus.c:911
 msgid "_Trash"
 msgstr "ቆሻሻ"
 
 #. tooltip
-#: ../src/caja-window-menus.c:920
+#: ../src/caja-window-menus.c:912
 msgid "Open your personal trash folder"
 msgstr "የ እርስዎን የ ግል የ ቆሻሻ ፎልደር መክፈቻ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:928
+#: ../src/caja-window-menus.c:920
 msgid "Show _Hidden Files"
 msgstr "_የተደበቁ ፋይሎች ማሳያ "
 
 #. tooltip
-#: ../src/caja-window-menus.c:929
+#: ../src/caja-window-menus.c:921
 msgid "Toggle the display of hidden files in the current window"
 msgstr "የ ተደበቁ ፋይሎች መቀየሪያ በ አሁኑ መስኮት ውስጥ"
 
-#: ../src/caja-window-menus.c:960
+#: ../src/caja-window-menus.c:952
 msgid "_Up"
 msgstr "ወደ _ላይ"
 
-#: ../src/caja-window-menus.c:963
+#: ../src/caja-window-menus.c:955
 msgid "_Home"
 msgstr "_ቤት"
 
@@ -7535,10 +7606,10 @@ msgstr "በርቀት ማሳያ"
 msgid "Zoom to Default"
 msgstr "ወደ ነባሩ ማሳያ"
 
-#: ../src/caja-zoom-control.c:940
+#: ../src/caja-zoom-control.c:913
 msgid "Zoom"
 msgstr "ማሳያ"
 
-#: ../src/caja-zoom-control.c:945
+#: ../src/caja-zoom-control.c:918
 msgid "Set the zoom level of the current view"
 msgstr "የ አሁኑን መመልከቻ መጠን ማሳያ ማሰናጃ"

@@ -1,18 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
-# Ardit Dani <ardit.dani@gmail.com>, 2014,2016
-# Indrit Bashkimi <indrit.bashkimi@gmail.com>, 2015
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: MATE Desktop Environment\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-15 13:19+0300\n"
-"PO-Revision-Date: 2018-01-09 15:11+0000\n"
-"Last-Translator: Vlad Orlov <monsta@inbox.ru>\n"
-"Language-Team: Albanian (http://www.transifex.com/mate/MATE/language/sq/)\n"
+"POT-Creation-Date: 2018-03-12 17:01+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Martin Wimpress <code@flexion.org>, 2018\n"
+"Language-Team: Albanian (https://www.transifex.com/mate/teams/13566/sq/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -285,7 +284,7 @@ msgstr "Për t'i shtuar një simbol tërhiq një simbol në objekt"
 
 #. translators: this is the name of an emblem
 #: ../data/browser.xml.h:68 ../src/caja-emblem-sidebar.c:982
-#: ../src/caja-property-browser.c:1948
+#: ../src/caja-property-browser.c:1932
 msgid "Erase"
 msgstr "Fshij"
 
@@ -311,7 +310,7 @@ msgstr "Konfermo ekzekutimin automatik"
 #: ../data/caja-browser.desktop.in.in.h:1 ../data/caja.desktop.in.in.h:1
 #: ../data/caja-folder-handler.desktop.in.in.h:1
 #: ../src/caja-spatial-window.c:373 ../src/caja-window-menus.c:535
-#: ../src/caja-window.c:172
+#: ../src/caja-window.c:163
 msgid "Caja"
 msgstr "Caja"
 
@@ -329,10 +328,12 @@ msgid "Computer"
 msgstr "Kompjuteri"
 
 #. tooltip
-#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:905
+#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:897
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
-msgstr "Shfleton të gjithë disqet dhe kartelat lokale dhe në distancë të arritshme nga ky kompjutër"
+msgstr ""
+"Shfleton të gjithë disqet dhe kartelat lokale dhe në distancë të arritshme "
+"nga ky kompjutër"
 
 #: ../data/caja.desktop.in.in.h:2
 msgid "File Manager"
@@ -344,7 +345,8 @@ msgstr "Administrimi i file"
 
 #: ../data/caja-file-management-properties.desktop.in.in.h:2
 msgid "Change the behaviour and appearance of file manager windows"
-msgstr "Ndryshon sjelljen dhe paraqitjen e dritareve të administruesit të file"
+msgstr ""
+"Ndryshon sjelljen dhe paraqitjen e dritareve të administruesit të file"
 
 #: ../data/caja-folder-handler.desktop.in.in.h:2
 #: ../libcaja-private/caja-autorun.c:567
@@ -353,11 +355,11 @@ msgstr "Hap kartelën"
 
 #: ../data/caja-home.desktop.in.in.h:1 ../src/file-manager/fm-tree-view.c:1434
 msgid "Home Folder"
-msgstr "Kartela home"
+msgstr "Kartela personale"
 
 #. tooltip
 #: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:504
-#: ../src/caja-window-menus.c:900
+#: ../src/caja-window-menus.c:892
 msgid "Open your personal folder"
 msgstr "Hap kartelën personale"
 
@@ -365,63 +367,68 @@ msgstr "Hap kartelën personale"
 msgid "Saved search"
 msgstr "kërkimi i ruajtur"
 
-#: ../eel/eel-canvas.c:1389 ../eel/eel-canvas.c:1390
+#: ../eel/eel-canvas.c:1310 ../eel/eel-canvas.c:1311
 msgid "X"
 msgstr "X"
 
-#: ../eel/eel-canvas.c:1396 ../eel/eel-canvas.c:1397
+#: ../eel/eel-canvas.c:1317 ../eel/eel-canvas.c:1318
 msgid "Y"
 msgstr "Y"
 
-#: ../eel/eel-editable-label.c:332
+#: ../eel/eel-editable-label.c:327
 msgid "Text"
 msgstr "Teksti"
 
-#: ../eel/eel-editable-label.c:333
+#: ../eel/eel-editable-label.c:328
 msgid "The text of the label."
 msgstr "Teksti i etiketës."
 
-#: ../eel/eel-editable-label.c:339
+#: ../eel/eel-editable-label.c:334
 msgid "Justification"
 msgstr "Orientimi"
 
-#: ../eel/eel-editable-label.c:340
+#: ../eel/eel-editable-label.c:335
 msgid ""
 "The alignment of the lines in the text of the label relative to each other. "
 "This does NOT affect the alignment of the label within its allocation. See "
 "GtkMisc::xalign for that."
-msgstr "Rreshtimi reciprok i rreshtave tek teksti i etiketës. NUK ka influencë mbi drejtimin e etiketës. Shiko GtkMisc::xalign për këtë."
+msgstr ""
+"Rreshtimi reciprok i rreshtave tek teksti i etiketës. NUK ka influencë mbi "
+"drejtimin e etiketës. Shiko GtkMisc::xalign për këtë."
 
-#: ../eel/eel-editable-label.c:348
+#: ../eel/eel-editable-label.c:343
 msgid "Line wrap"
 msgstr "Ndërprerja e rreshtit"
 
-#: ../eel/eel-editable-label.c:349
+#: ../eel/eel-editable-label.c:344
 msgid "If set, wrap lines if the text becomes too wide."
-msgstr "Nëse zgjidhet, shkon në krye të rreshtit nëse teksti bëhet tepër i gjatë."
+msgstr ""
+"Nëse zgjidhet, shkon në krye të rreshtit nëse teksti bëhet tepër i gjatë."
 
-#: ../eel/eel-editable-label.c:356
+#: ../eel/eel-editable-label.c:351
 msgid "Cursor Position"
 msgstr "Pozicioni i kursorit"
 
-#: ../eel/eel-editable-label.c:357
+#: ../eel/eel-editable-label.c:352
 msgid "The current position of the insertion cursor in chars."
 msgstr "Pozicioni aktual, në gërma, i kursorit të shtimit."
 
-#: ../eel/eel-editable-label.c:366
+#: ../eel/eel-editable-label.c:361
 msgid "Selection Bound"
 msgstr "Kufiri i zgjedhjes"
 
-#: ../eel/eel-editable-label.c:367
+#: ../eel/eel-editable-label.c:362
 msgid ""
 "The position of the opposite end of the selection from the cursor in chars."
-msgstr "Pozicioni, në gërma, i anës së kundërt të pjesës së zgjedhur, kundrejt kursorit."
+msgstr ""
+"Pozicioni, në gërma, i anës së kundërt të pjesës së zgjedhur, kundrejt "
+"kursorit."
 
-#: ../eel/eel-editable-label.c:3120
+#: ../eel/eel-editable-label.c:3115
 msgid "Select All"
 msgstr "Zgjidh gjithçka"
 
-#: ../eel/eel-editable-label.c:3131
+#: ../eel/eel-editable-label.c:3126
 msgid "Input Methods"
 msgstr "Metodat e shkrimit"
 
@@ -514,7 +521,9 @@ msgstr "Sapo është futur një lexues audio dixhitale."
 msgid ""
 "You have just inserted a medium with software intended to be automatically "
 "started."
-msgstr "Sapo është futur një suport me software të projektuar për tu nisur automatikisht."
+msgstr ""
+"Sapo është futur një suport me software të projektuar për tu nisur "
+"automatikisht."
 
 #. fallback to generic greeting
 #: ../libcaja-private/caja-autorun.c:1081
@@ -525,24 +534,26 @@ msgstr "Sapo është futur një suport."
 msgid "Choose what application to launch."
 msgstr "Zgjidhni aplikativin që duhet nisur."
 
-#: ../libcaja-private/caja-autorun.c:1097
+#: ../libcaja-private/caja-autorun.c:1093
 #, c-format
 msgid ""
 "Select how to open \"%s\" and whether to perform this action in the future "
 "for other media of type \"%s\"."
-msgstr "Zgjidhni si duhet hapur «%s» dhe nëse duhet kryer ky veprim në të ardhmen për suporte të tjerë të llojit «%s»."
+msgstr ""
+"Zgjidhni si duhet hapur «%s» dhe nëse duhet kryer ky veprim në të ardhmen "
+"për suporte të tjerë të llojit «%s»."
 
-#: ../libcaja-private/caja-autorun.c:1129
+#: ../libcaja-private/caja-autorun.c:1121
 msgid "_Always perform this action"
 msgstr "Kryej _gjithmonë këtë veprim"
 
 #. name, stock id
 #. label, accelerator
 #. add the "Eject" menu item
-#: ../libcaja-private/caja-autorun.c:1146
-#: ../src/file-manager/fm-directory-view.c:7411
-#: ../src/file-manager/fm-directory-view.c:7439
-#: ../src/file-manager/fm-directory-view.c:7520
+#: ../libcaja-private/caja-autorun.c:1138
+#: ../src/file-manager/fm-directory-view.c:7395
+#: ../src/file-manager/fm-directory-view.c:7423
+#: ../src/file-manager/fm-directory-view.c:7504
 #: ../src/file-manager/fm-tree-view.c:1382 ../src/caja-places-sidebar.c:2714
 msgid "_Eject"
 msgstr "Nxirr_e jashtë"
@@ -550,10 +561,10 @@ msgstr "Nxirr_e jashtë"
 #. name, stock id
 #. label, accelerator
 #. add the "Unmount" menu item
-#: ../libcaja-private/caja-autorun.c:1159
-#: ../src/file-manager/fm-directory-view.c:7407
-#: ../src/file-manager/fm-directory-view.c:7435
-#: ../src/file-manager/fm-directory-view.c:7516
+#: ../libcaja-private/caja-autorun.c:1151
+#: ../src/file-manager/fm-directory-view.c:7391
+#: ../src/file-manager/fm-directory-view.c:7419
+#: ../src/file-manager/fm-directory-view.c:7500
 #: ../src/file-manager/fm-tree-view.c:1373 ../src/caja-places-sidebar.c:2707
 msgid "_Unmount"
 msgstr "_Zmonto"
@@ -582,24 +593,24 @@ msgstr "Ngjit tekstin që gjendet tek shënimet"
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-clipboard.c:470
-#: ../src/file-manager/fm-directory-view.c:7340
+#: ../src/file-manager/fm-directory-view.c:7324
 msgid "Select _All"
-msgstr "Zgjidh gjithçk_a"
+msgstr "Zgjidh _gjithçka"
 
 #. tooltip
 #: ../libcaja-private/caja-clipboard.c:471
 msgid "Select all the text in a text field"
 msgstr "Zgjedh të gjithë tekstin e një fushë teksti"
 
-#: ../libcaja-private/caja-column-chooser.c:381
+#: ../libcaja-private/caja-column-chooser.c:380
 msgid "Move _Up"
 msgstr "Lëviz _sipër"
 
-#: ../libcaja-private/caja-column-chooser.c:391
+#: ../libcaja-private/caja-column-chooser.c:390
 msgid "Move Dow_n"
 msgstr "Lëviz posh_të"
 
-#: ../libcaja-private/caja-column-chooser.c:404
+#: ../libcaja-private/caja-column-chooser.c:403
 msgid "Use De_fault"
 msgstr "Përdor të para_caktuarin"
 
@@ -638,7 +649,7 @@ msgid "The type of the file."
 msgstr "Lloji i file."
 
 #: ../libcaja-private/caja-column-utilities.c:74
-#: ../src/caja-image-properties-page.c:288
+#: ../src/caja-image-properties-page.c:284
 msgid "Date Modified"
 msgstr "Ndryshimi i fundit"
 
@@ -671,7 +682,7 @@ msgid "The group of the file."
 msgstr "Grupi i file."
 
 #: ../libcaja-private/caja-column-utilities.c:106
-#: ../src/file-manager/fm-properties-window.c:4750
+#: ../src/file-manager/fm-properties-window.c:4746
 msgid "Permissions"
 msgstr "Autorizimet"
 
@@ -704,9 +715,9 @@ msgid "The SELinux security context of the file."
 msgstr "Konteksti i sigurisë SELinux i file."
 
 #: ../libcaja-private/caja-column-utilities.c:138
-#: ../src/caja-image-properties-page.c:369 ../src/caja-query-editor.c:135
+#: ../src/caja-image-properties-page.c:365 ../src/caja-query-editor.c:135
 msgid "Location"
-msgstr "Pozicioni"
+msgstr "Vendodhja"
 
 #: ../libcaja-private/caja-column-utilities.c:139
 msgid "The location of the file."
@@ -729,11 +740,11 @@ msgid "Original location of file before moved to the Trash"
 msgstr "Vendndodhja origjinale e dokumentit para zhvendosur në Kosh"
 
 #: ../libcaja-private/caja-customization-data.c:431
-#: ../libcaja-private/caja-file-conflict-dialog.c:631
-#: ../libcaja-private/caja-mime-application-chooser.c:444
-#: ../src/caja-property-browser.c:1995
+#: ../libcaja-private/caja-file-conflict-dialog.c:623
+#: ../libcaja-private/caja-mime-application-chooser.c:438
+#: ../src/caja-property-browser.c:1979
 msgid "Reset"
-msgstr "Pastro"
+msgstr "Nga fillimi"
 
 #: ../libcaja-private/caja-desktop-directory-file.c:457
 #: ../libcaja-private/caja-desktop-icon-file.c:163
@@ -780,7 +791,7 @@ msgstr "Caktoje si s_fond"
 
 #: ../libcaja-private/caja-dnd.c:817 ../libcaja-private/caja-dnd.c:871
 msgid "Cancel"
-msgstr "Anullo"
+msgstr "Anulo"
 
 #: ../libcaja-private/caja-dnd.c:859
 msgid "Set as background for _all folders"
@@ -892,89 +903,89 @@ msgstr "Një skedar më i ri me të njëjtin emër ekziston tashmë në \"%s\"."
 msgid "Another file with the same name already exists in \"%s\"."
 msgstr "Një skedar tjetër me të njëjtin emër ekziston tashmë në \"%s\"."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:279
+#: ../libcaja-private/caja-file-conflict-dialog.c:271
 msgid "Original folder"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:280
-#: ../libcaja-private/caja-file-conflict-dialog.c:319
+#: ../libcaja-private/caja-file-conflict-dialog.c:272
+#: ../libcaja-private/caja-file-conflict-dialog.c:311
 msgid "Items:"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:283
+#: ../libcaja-private/caja-file-conflict-dialog.c:275
 msgid "Original file"
 msgstr "Skedarë origjinal"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:284
-#: ../libcaja-private/caja-file-conflict-dialog.c:323
-#: ../src/file-manager/fm-properties-window.c:3276
+#: ../libcaja-private/caja-file-conflict-dialog.c:276
+#: ../libcaja-private/caja-file-conflict-dialog.c:315
+#: ../src/file-manager/fm-properties-window.c:3272
 msgid "Size:"
 msgstr "Madhësia:"
 
 #. second row: type combobox
-#: ../libcaja-private/caja-file-conflict-dialog.c:289
-#: ../libcaja-private/caja-file-conflict-dialog.c:328
-#: ../src/file-manager/fm-properties-window.c:3258
-#: ../src/caja-connect-server-dialog.c:948
+#: ../libcaja-private/caja-file-conflict-dialog.c:281
+#: ../libcaja-private/caja-file-conflict-dialog.c:320
+#: ../src/file-manager/fm-properties-window.c:3254
+#: ../src/caja-connect-server-dialog.c:930
 msgid "Type:"
 msgstr "Lloji:"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:292
-#: ../libcaja-private/caja-file-conflict-dialog.c:331
+#: ../libcaja-private/caja-file-conflict-dialog.c:284
+#: ../libcaja-private/caja-file-conflict-dialog.c:323
 msgid "Last modified:"
 msgstr "Modifikimi i fundit:"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:318
+#: ../libcaja-private/caja-file-conflict-dialog.c:310
 msgid "Merge with"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:318
-#: ../libcaja-private/caja-file-conflict-dialog.c:322
+#: ../libcaja-private/caja-file-conflict-dialog.c:310
+#: ../libcaja-private/caja-file-conflict-dialog.c:314
 msgid "Replace with"
 msgstr "Zëvendëso me"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:354
+#: ../libcaja-private/caja-file-conflict-dialog.c:346
 msgid "Merge"
 msgstr "Bashko"
 
 #. Setup the expander for the rename action
-#: ../libcaja-private/caja-file-conflict-dialog.c:617
+#: ../libcaja-private/caja-file-conflict-dialog.c:609
 msgid "Select a new name for the _destination"
 msgstr ""
 
 #. Setup the diff button for text files
-#: ../libcaja-private/caja-file-conflict-dialog.c:642
+#: ../libcaja-private/caja-file-conflict-dialog.c:634
 msgid "Differences..."
 msgstr "Ndryshimet"
 
 #. Setup the checkbox to apply the action to all files
-#: ../libcaja-private/caja-file-conflict-dialog.c:652
+#: ../libcaja-private/caja-file-conflict-dialog.c:644
 msgid "Apply this action to all files and folders"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:664
+#: ../libcaja-private/caja-file-conflict-dialog.c:656
 #: ../libcaja-private/caja-file-operations.c:186
 msgid "_Skip"
-msgstr "_Kapërce"
+msgstr "_Tejkalo"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:669
+#: ../libcaja-private/caja-file-conflict-dialog.c:661
 msgid "Re_name"
 msgstr "Rie_mërto"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:675
+#: ../libcaja-private/caja-file-conflict-dialog.c:667
 msgid "Replace"
 msgstr "Zëvendëso"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:759
+#: ../libcaja-private/caja-file-conflict-dialog.c:751
 msgid "Merge Folder"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:759
-#: ../libcaja-private/caja-file-conflict-dialog.c:764
+#: ../libcaja-private/caja-file-conflict-dialog.c:751
+#: ../libcaja-private/caja-file-conflict-dialog.c:756
 msgid "File and Folder conflict"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:764
+#: ../libcaja-private/caja-file-conflict-dialog.c:756
 msgid "File conflict"
 msgstr "Konflikt skedarësh"
 
@@ -996,7 +1007,7 @@ msgstr "_Zëvendëso"
 
 #: ../libcaja-private/caja-file-operations.c:191
 msgid "Replace _All"
-msgstr "Zëvendëso gjithçk_a"
+msgstr "Zëvendëso _Gjithçka"
 
 #: ../libcaja-private/caja-file-operations.c:192
 msgid "_Merge"
@@ -1014,30 +1025,30 @@ msgstr ""
 #, c-format
 msgid "%'d second"
 msgid_plural "%'d seconds"
-msgstr[0] "%'d sekondë"
-msgstr[1] "%'d sekonda"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:313
 #: ../libcaja-private/caja-file-operations.c:324
 #, c-format
 msgid "%'d minute"
 msgid_plural "%'d minutes"
-msgstr[0] "%'d minutë"
-msgstr[1] "%'d minuta"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:323
 #, c-format
 msgid "%'d hour"
 msgid_plural "%'d hours"
-msgstr[0] "%'d orë"
-msgstr[1] "%'d orë"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:331
 #, c-format
 msgid "approximately %'d hour"
 msgid_plural "approximately %'d hours"
-msgstr[0] "rreth %'d orë"
-msgstr[1] "rreth %'d orë"
+msgstr[0] ""
+msgstr[1] ""
 
 #. appended to new link file
 #. Note to localizers: convert file type string for file
@@ -1045,7 +1056,7 @@ msgstr[1] "rreth %'d orë"
 #. * to that kind of file (e.g. "link to folder").
 #: ../libcaja-private/caja-file-operations.c:407
 #: ../libcaja-private/caja-file.c:6526
-#: ../src/file-manager/fm-directory-view.c:10531
+#: ../src/file-manager/fm-directory-view.c:10515
 #, c-format
 msgid "Link to %s"
 msgstr "Lidhje me %s"
@@ -1104,7 +1115,7 @@ msgstr " (kopje e dytë)"
 #: ../libcaja-private/caja-file-operations.c:487
 #: ../libcaja-private/caja-file-operations.c:497
 msgid "th copy)"
-msgstr "(kopja"
+msgstr "kopja)"
 
 #. localizers: tag used to detect the x1st copy of a file
 #: ../libcaja-private/caja-file-operations.c:490
@@ -1171,7 +1182,7 @@ msgstr "%s (kopja %'d)%s"
 #. localizers: opening parentheses to match the "th copy)" string
 #: ../libcaja-private/caja-file-operations.c:632
 msgid " ("
-msgstr " ("
+msgstr "("
 
 #. localizers: opening parentheses of the "th copy)" string
 #: ../libcaja-private/caja-file-operations.c:640
@@ -1191,8 +1202,8 @@ msgid ""
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items from the "
 "trash?"
-msgstr[0] "Jeni i sigurt që dëshironi të eleminoni përgjithmonë %'d elementin e zgjedhur nga koshi?"
-msgstr[1] "Jeni i sigurt që dëshironi të eleminoni përgjithmonë %'d elementët e zgjedhur nga koshi?"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:1367
 #: ../libcaja-private/caja-file-operations.c:1433
@@ -1223,8 +1234,8 @@ msgstr "Eliminon me të vërtetë në menyrë të përhershme «%B»?"
 msgid "Are you sure you want to permanently delete the %'d selected item?"
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items?"
-msgstr[0] "Jeni i sigurt që dëshironi të eleminoni përgjithmonë %'d elementin e zgjedhur?"
-msgstr[1] "Jeni i sigurt që dëshironi të eleminoni përgjithmonë %'d elementët e zgjedhur?"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:1463
 msgid "Are you sure you want to trash \"%B\"?"
@@ -1243,14 +1254,14 @@ msgstr ""
 
 #: ../libcaja-private/caja-file-operations.c:1478
 msgid "Move to _Trash"
-msgstr ""
+msgstr "Hidhe në _Kosh"
 
 #: ../libcaja-private/caja-file-operations.c:1509
 #, c-format
 msgid "%'d file left to delete"
 msgid_plural "%'d files left to delete"
-msgstr[0] "%'d file akoma për tu eleminuar"
-msgstr[1] "%'d file akoma për tu eleminuar"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:1515
 msgid "Deleting files"
@@ -1262,8 +1273,8 @@ msgstr "Duke eleminuar files"
 #: ../libcaja-private/caja-file-operations.c:1529
 msgid "%T left"
 msgid_plural "%T left"
-msgstr[0] "%T majtas"
-msgstr[1] "%T majtas"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:1596
 #: ../libcaja-private/caja-file-operations.c:1630
@@ -1277,14 +1288,18 @@ msgstr "Gabim gjatë eleminimit."
 msgid ""
 "Files in the folder \"%B\" cannot be deleted because you do not have "
 "permissions to see them."
-msgstr "I pamundur eleminimi i file në kartelën «%B» sepse mungojnë të drejtat e duhura për t'i shfaqur."
+msgstr ""
+"I pamundur eleminimi i file në kartelën «%B» sepse mungojnë të drejtat e "
+"duhura për t'i shfaqur."
 
 #: ../libcaja-private/caja-file-operations.c:1603
 #: ../libcaja-private/caja-file-operations.c:2625
 #: ../libcaja-private/caja-file-operations.c:3607
 msgid ""
 "There was an error getting information about the files in the folder \"%B\"."
-msgstr "U ndesh një gabim gjatë marrjes së informacioneve në lidhje me file në kartelën «%B»."
+msgstr ""
+"U ndesh një gabim gjatë marrjes së informacioneve në lidhje me file në "
+"kartelën «%B»."
 
 #: ../libcaja-private/caja-file-operations.c:1612
 #: ../libcaja-private/caja-file-operations.c:3616
@@ -1295,7 +1310,9 @@ msgstr "_Kapërce file"
 msgid ""
 "The folder \"%B\" cannot be deleted because you do not have permissions to "
 "read it."
-msgstr "I pamundur eleminimi kartelës «%B» sepse mungojnë të drejtat e duhura për ta lexuar."
+msgstr ""
+"I pamundur eleminimi kartelës «%B» sepse mungojnë të drejtat e duhura për ta"
+" lexuar."
 
 #: ../libcaja-private/caja-file-operations.c:1636
 #: ../libcaja-private/caja-file-operations.c:2664
@@ -1319,8 +1336,8 @@ msgstr "Lëvizja e file në kosh"
 #, c-format
 msgid "%'d file left to trash"
 msgid_plural "%'d files left to trash"
-msgstr[0] "%'d file akoma për në kosh"
-msgstr[1] "%'d file akoma për në kosh"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:1886
 msgid "Cannot move file to trash, do you want to delete immediately?"
@@ -1354,7 +1371,10 @@ msgstr "Zbraz koshin para se të kryhet zmontimi?"
 msgid ""
 "In order to regain the free space on this volume the trash must be emptied. "
 "All trashed items on the volume will be permanently lost."
-msgstr "Që të mund të rifitohet hapësira e lirë në këtë volum, është e nevojshme zbrazja e koshit. Të gjithë objektet e lëvizur në kosh në volum do të humbasin në menyrë të përhershme."
+msgstr ""
+"Që të mund të rifitohet hapësira e lirë në këtë volum, është e nevojshme "
+"zbrazja e koshit. Të gjithë objektet e lëvizur në kosh në volum do të "
+"humbasin në menyrë të përhershme."
 
 #: ../libcaja-private/caja-file-operations.c:2318
 msgid "Do _not Empty Trash"
@@ -1369,29 +1389,29 @@ msgstr "I pamundur montimi i %s"
 #, c-format
 msgid "Preparing to copy %'d file (%S)"
 msgid_plural "Preparing to copy %'d files (%S)"
-msgstr[0] "Përgatitje për të kopjuar %'d file (%S)"
-msgstr[1] "Përgatitje për të kopjuar %'d file (%S)"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:2518
 #, c-format
 msgid "Preparing to move %'d file (%S)"
 msgid_plural "Preparing to move %'d files (%S)"
-msgstr[0] "Përgatitje për të lëvizur %'d file (%S)"
-msgstr[1] "Përgatitje për të lëvizur %'d file (%S)"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:2524
 #, c-format
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
-msgstr[0] "Përgatitje për të eleminuar %'d file (%S)"
-msgstr[1] "Përgatitje për të eleminuar %'d file (%S)"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:2530
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
-msgstr[0] "Përgatitje për të lëvizur kosh %'d file"
-msgstr[1] "Përgatitje për të lëvizur kosh %'d file"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:2561
 #: ../libcaja-private/caja-file-operations.c:3459
@@ -1414,19 +1434,25 @@ msgstr "Gabim gjatë lëvizjes së file në kosh."
 msgid ""
 "Files in the folder \"%B\" cannot be handled because you do not have "
 "permissions to see them."
-msgstr "I pamundur trajtimi i file në kartelën «%B» sepse mungojnë të drejtat e duhura për t'i shfaqur."
+msgstr ""
+"I pamundur trajtimi i file në kartelën «%B» sepse mungojnë të drejtat e "
+"duhura për t'i shfaqur."
 
 #: ../libcaja-private/caja-file-operations.c:2661
 msgid ""
 "The folder \"%B\" cannot be handled because you do not have permissions to "
 "read it."
-msgstr "I pamundur trajtimi kartelës «%B» sepse mungojnë të drejtat e duhura për ta lexuar."
+msgstr ""
+"I pamundur trajtimi kartelës «%B» sepse mungojnë të drejtat e duhura për ta "
+"lexuar."
 
 #: ../libcaja-private/caja-file-operations.c:2739
 msgid ""
 "The file \"%B\" cannot be handled because you do not have permissions to "
 "read it."
-msgstr "I pamundur trajtimi i file «%B» sepse mungojnë të drejtat e duhura për ta lexuar."
+msgstr ""
+"I pamundur trajtimi i file «%B» sepse mungojnë të drejtat e duhura për ta "
+"lexuar."
 
 #: ../libcaja-private/caja-file-operations.c:2742
 msgid "There was an error getting information about \"%B\"."
@@ -1445,7 +1471,8 @@ msgstr "Mungojnë të drejtat e duhura për tu futur në kartelën e destinuar."
 
 #: ../libcaja-private/caja-file-operations.c:2848
 msgid "There was an error getting information about the destination."
-msgstr "U ndesh një gabim gjatë marrjes së informacioneve në lidhje me objektivin."
+msgstr ""
+"U ndesh një gabim gjatë marrjes së informacioneve në lidhje me objektivin."
 
 #: ../libcaja-private/caja-file-operations.c:2885
 msgid "The destination is not a folder."
@@ -1455,7 +1482,9 @@ msgstr "Objektivi nuk është një kartelë."
 msgid ""
 "There is not enough space on the destination. Try to remove files to make "
 "space."
-msgstr "Nuk ka hapësirë të mjaftueshme në destinim. Provo të fshish disa file për të krijuar hapësirë."
+msgstr ""
+"Nuk ka hapësirë të mjaftueshme në destinim. Provo të fshish disa file për të"
+" krijuar hapësirë."
 
 #: ../libcaja-private/caja-file-operations.c:2920
 #, c-format
@@ -1481,39 +1510,39 @@ msgstr "Duke duplikuar «%B»"
 #: ../libcaja-private/caja-file-operations.c:3021
 msgid "Moving %'d file (in \"%B\") to \"%B\""
 msgid_plural "Moving %'d files (in \"%B\") to \"%B\""
-msgstr[0] "Duke lëvizur %'d file (nga «%B») në «%B»"
-msgstr[1] "Duke lëvizur %'d file (nga «%B») në «%B»"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:3025
 msgid "Copying %'d file (in \"%B\") to \"%B\""
 msgid_plural "Copying %'d files (in \"%B\") to \"%B\""
-msgstr[0] "Duke kopjuar %'d file (nga «%B») në «%B»"
-msgstr[1] "Duke kopjuar %'d file (nga «%B») në «%B»"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:3033
 msgid "Duplicating %'d file (in \"%B\")"
 msgid_plural "Duplicating %'d files (in \"%B\")"
-msgstr[0] "Duke duplikuar %'d file (në «%B»)"
-msgstr[1] "Duke duplikuar %'d file (në «%B»)"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:3043
 msgid "Moving %'d file to \"%B\""
 msgid_plural "Moving %'d files to \"%B\""
-msgstr[0] "Duke lëvizur %'d file në «%B»"
-msgstr[1] "Duke lëvizur %'d file në «%B»"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:3047
 msgid "Copying %'d file to \"%B\""
 msgid_plural "Copying %'d files to \"%B\""
-msgstr[0] "Duke kopjuar %'d file në «%B»"
-msgstr[1] "Duke kopjuar %'d file në «%B»"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:3053
 #, c-format
 msgid "Duplicating %'d file"
 msgid_plural "Duplicating %'d files"
-msgstr[0] "Duke duplikuar %'d file"
-msgstr[1] "Duke duplikuar %'d file"
+msgstr[0] ""
+msgstr[1] ""
 
 #. To translators: %S will expand to a size like "2 bytes" or "3 MB", so
 #. something like "4 kb of 4 MB"
@@ -1539,7 +1568,9 @@ msgstr[1] ""
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "create it in the destination."
-msgstr "I pamundur krijimi i kartelës «%B» sepse mungojnë të drejtat e nevojshme për ta krijuar në destinim."
+msgstr ""
+"I pamundur krijimi i kartelës «%B» sepse mungojnë të drejtat e nevojshme për"
+" ta krijuar në destinim."
 
 #: ../libcaja-private/caja-file-operations.c:3466
 msgid "There was an error creating the folder \"%B\"."
@@ -1549,13 +1580,17 @@ msgstr "U ndesh një gabim gjatë krijimit të kartelës «%B»."
 msgid ""
 "Files in the folder \"%B\" cannot be copied because you do not have "
 "permissions to see them."
-msgstr "I pamundur kopjimi i file në kartelën «%B» sepse mungojnë të drejtat e nevojshme për t'i shikuar."
+msgstr ""
+"I pamundur kopjimi i file në kartelën «%B» sepse mungojnë të drejtat e "
+"nevojshme për t'i shikuar."
 
 #: ../libcaja-private/caja-file-operations.c:3649
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "read it."
-msgstr "I pamundur kopjimi i kartelës «%B» pasi mungojnë të drejtat e nevojshme për ta lexuar."
+msgstr ""
+"I pamundur kopjimi i kartelës «%B» pasi mungojnë të drejtat e nevojshme për "
+"ta lexuar."
 
 #: ../libcaja-private/caja-file-operations.c:3694
 #: ../libcaja-private/caja-file-operations.c:4388
@@ -1616,7 +1651,8 @@ msgstr ""
 #: ../libcaja-private/caja-file-operations.c:4392
 #, c-format
 msgid "Could not remove the already existing file with the same name in %F."
-msgstr "E pamundur heqja e file rregullisht ekzistues e me të njëjtin emër në «%F»."
+msgstr ""
+"E pamundur heqja e file rregullisht ekzistues e me të njëjtin emër në «%F»."
 
 #: ../libcaja-private/caja-file-operations.c:4463
 #, c-format
@@ -1635,8 +1671,8 @@ msgstr "Duke përgatitur lëvizjen për në «%B»"
 #, c-format
 msgid "Preparing to move %'d file"
 msgid_plural "Preparing to move %'d files"
-msgstr[0] "Duke përgatitur lëvizjen e %'d file"
-msgstr[1] "Duke përgatitur lëvizjen e %'d file"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:4981
 #, c-format
@@ -1655,8 +1691,8 @@ msgstr "Krijimi i lidhjeve në «%B»"
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
-msgstr[0] "Krijimi i lidhjes me %'d file"
-msgstr[1] "Krijimi i lidhjes me %'d file"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:5418
 msgid "Error while creating link to %B."
@@ -1786,7 +1822,7 @@ msgid "today at 00:00:00 PM"
 msgstr "sot në 0.00.00"
 
 #: ../libcaja-private/caja-file.c:4509
-#: ../src/caja-file-management-properties.c:527
+#: ../src/caja-file-management-properties.c:521
 msgid "today at %-I:%M:%S %p"
 msgstr "sot në %-H.%M.%S"
 
@@ -1796,7 +1832,7 @@ msgstr "sot në 0.00"
 
 #: ../libcaja-private/caja-file.c:4512
 msgid "today at %-I:%M %p"
-msgstr "sot në %-H.%M"
+msgstr "sot më %-I:%M %p"
 
 #: ../libcaja-private/caja-file.c:4514
 msgid "today, 00:00 PM"
@@ -1826,7 +1862,7 @@ msgstr "dje në 0.00"
 
 #: ../libcaja-private/caja-file.c:4531
 msgid "yesterday at %-I:%M %p"
-msgstr "dje në %-H.%M"
+msgstr "dje më %-I:%M %p"
 
 #: ../libcaja-private/caja-file.c:4533
 msgid "yesterday, 00:00 PM"
@@ -1850,7 +1886,7 @@ msgstr "Të mërkurën, 0 shtator 0000 në orën 0.00.00"
 
 #: ../libcaja-private/caja-file.c:4549
 msgid "%A, %B %-d %Y at %-I:%M:%S %p"
-msgstr "%A, %-d %B %Y në %-H.%M.%S"
+msgstr "%A, %B %-d %Y më %-I:%M:%S %p"
 
 #: ../libcaja-private/caja-file.c:4551
 msgid "Mon, Oct 00 0000 at 00:00:00 PM"
@@ -1926,26 +1962,26 @@ msgid "Specified group '%s' doesn't exist"
 msgstr "Grupi «%s» i specifikuar nuk ekziston"
 
 #: ../libcaja-private/caja-file.c:5950
-#: ../src/file-manager/fm-directory-view.c:2371
+#: ../src/file-manager/fm-directory-view.c:2355
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
-msgstr[0] "%'u element"
-msgstr[1] "%'u elementë"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file.c:5951
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
-msgstr[0] "%'u kartelë"
-msgstr[1] "%'u kartela"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file.c:5952
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
-msgstr[0] "%'u file"
-msgstr[1] "%'u file"
+msgstr[0] ""
+msgstr[1] ""
 
 #. Do this in a separate stage so that we don't have to put G_GUINT64_FORMAT
 #. in the translated string
@@ -1981,7 +2017,7 @@ msgstr "lloj MIME i panjohur"
 #: ../libcaja-private/caja-file.c:6450
 #: ../src/file-manager/fm-properties-window.c:1287
 msgid "unknown"
-msgstr "i panjohur"
+msgstr "e panjohur"
 
 #: ../libcaja-private/caja-file.c:6500
 msgid "program"
@@ -1995,7 +2031,7 @@ msgstr "lidhje"
 msgid "link (broken)"
 msgstr "lidhje (e shkëputur)"
 
-#: ../libcaja-private/caja-icon-container.c:2920
+#: ../libcaja-private/caja-icon-container.c:2910
 msgid "The selection rectangle"
 msgstr "Katrori i zgjedhjes"
 
@@ -2021,13 +2057,13 @@ msgstr "Kjo lidhje nuk mund të përdoret, pasi objektivi «%s» nuk ekziston."
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-mime-actions.c:744
-#: ../src/file-manager/fm-directory-view.c:7368
-#: ../src/file-manager/fm-directory-view.c:7500
-#: ../src/file-manager/fm-directory-view.c:8599
-#: ../src/file-manager/fm-directory-view.c:8924
+#: ../src/file-manager/fm-directory-view.c:7352
+#: ../src/file-manager/fm-directory-view.c:7484
+#: ../src/file-manager/fm-directory-view.c:8583
+#: ../src/file-manager/fm-directory-view.c:8908
 #: ../src/file-manager/fm-tree-view.c:1346
 msgid "Mo_ve to Trash"
-msgstr "Lë_viz në kosh"
+msgstr "Lë_vize në Kosh"
 
 #: ../libcaja-private/caja-mime-actions.c:806
 #, c-format
@@ -2061,15 +2097,15 @@ msgstr "Hap me të vërtetë të gjithë file?"
 #, c-format
 msgid "This will open %d separate tab."
 msgid_plural "This will open %d separate tabs."
-msgstr[0] "Do të hapet %d skedë e veçantë."
-msgstr[1] "Do të hapen %d skeda e veçanta."
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-mime-actions.c:1178 ../src/caja-location-bar.c:194
 #, c-format
 msgid "This will open %d separate window."
 msgid_plural "This will open %d separate windows."
-msgstr[0] "Do të hapet %d dritare të veçantë."
-msgstr[1] "Do të hapen %d dritare të veçanta."
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-mime-actions.c:1256
 #: ../src/caja-window-manage-views.c:2101
@@ -2131,12 +2167,12 @@ msgstr ""
 
 #: ../libcaja-private/caja-mime-actions.c:2010
 #: ../libcaja-private/caja-mime-actions.c:2316
-#: ../src/file-manager/fm-directory-view.c:6386
+#: ../src/file-manager/fm-directory-view.c:6370
 msgid "Unable to mount location"
 msgstr "I pamundur montimi i pozicionit"
 
 #: ../libcaja-private/caja-mime-actions.c:2404
-#: ../src/file-manager/fm-directory-view.c:6560
+#: ../src/file-manager/fm-directory-view.c:6544
 msgid "Unable to start location"
 msgstr ""
 
@@ -2149,8 +2185,8 @@ msgstr "Hapja e «%s»."
 #, c-format
 msgid "Opening %d item."
 msgid_plural "Opening %d items."
-msgstr[0] "Hapja e %d elementi."
-msgstr[1] "Hapja e %d elementë."
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-mime-application-chooser.c:162
 #: ../libcaja-private/caja-open-with-dialog.c:299
@@ -2165,7 +2201,7 @@ msgstr "I pamundur caktimi si aplikativ i paracaktuar"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:256
 msgid "Default"
-msgstr "I paracaktuar"
+msgstr "E parazgjedhur"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:266
 msgid "Icon"
@@ -2175,26 +2211,27 @@ msgstr "Ikona"
 msgid "Could not remove application"
 msgstr "E pamundur heqja e aplikativit"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:561
+#: ../libcaja-private/caja-mime-application-chooser.c:555
 msgid "No applications selected"
 msgstr "Nuk është zgjedhur asnjë aplikativ"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:591
+#: ../libcaja-private/caja-mime-application-chooser.c:585
 #, c-format
 msgid "%s document"
 msgstr "Dokument %s"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:601
-#: ../libcaja-private/caja-open-with-dialog.c:1081
+#: ../libcaja-private/caja-mime-application-chooser.c:595
+#: ../libcaja-private/caja-open-with-dialog.c:1072
 msgid "Unknown"
-msgstr "I panjohur"
+msgstr "Panjohur"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:634
+#: ../libcaja-private/caja-mime-application-chooser.c:628
 #, c-format
 msgid "Select an application to open %s and other files of type \"%s\""
-msgstr "Zgjidh një aplikativ për të hapur «%s» dhe file e tjerë të llojit «%s»"
+msgstr ""
+"Zgjidh një aplikativ për të hapur «%s» dhe file e tjerë të llojit «%s»"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:706
+#: ../libcaja-private/caja-mime-application-chooser.c:700
 #, c-format
 msgid "Open all files of type \"%s\" with:"
 msgstr "Hap të gjithë file e llojit «%s» me:"
@@ -2215,7 +2252,8 @@ msgstr "E pamundur gjetja e aplikativit"
 #: ../libcaja-private/caja-open-with-dialog.c:251
 #, c-format
 msgid "Could not add application to the application database: %s"
-msgstr "I pamundur shtimi i aplikativit në bazën e të dhënave të aplikativëve: %s"
+msgstr ""
+"I pamundur shtimi i aplikativit në bazën e të dhënave të aplikativëve: %s"
 
 #: ../libcaja-private/caja-open-with-dialog.c:252
 msgid "Could not add application"
@@ -2226,80 +2264,80 @@ msgid "Select an Application"
 msgstr "Zgjidh një aplikativ"
 
 #: ../libcaja-private/caja-open-with-dialog.c:840
-#: ../src/file-manager/fm-properties-window.c:5073
+#: ../src/file-manager/fm-properties-window.c:5069
 msgid "Open With"
 msgstr "Hap me"
 
-#: ../libcaja-private/caja-open-with-dialog.c:883
+#: ../libcaja-private/caja-open-with-dialog.c:878
 msgid "Select an application to view its description."
-msgstr "Zgjidh një aplikativ për të shikuar përshkrimin e tij."
+msgstr "Zgjidh një aplikativ për të lexuar përshkrimin e tij."
 
-#: ../libcaja-private/caja-open-with-dialog.c:913
+#: ../libcaja-private/caja-open-with-dialog.c:904
 msgid "_Use a custom command"
 msgstr "_Përdor një komandë të personalizuar"
 
-#: ../libcaja-private/caja-open-with-dialog.c:930
+#: ../libcaja-private/caja-open-with-dialog.c:921
 msgid "_Browse..."
 msgstr "_Shfleto..."
 
 #. name, stock id
 #. label, accelerator
-#: ../libcaja-private/caja-open-with-dialog.c:966
-#: ../src/file-manager/fm-directory-view.c:7284
-#: ../src/file-manager/fm-directory-view.c:8793
+#: ../libcaja-private/caja-open-with-dialog.c:957
+#: ../src/file-manager/fm-directory-view.c:7268
+#: ../src/file-manager/fm-directory-view.c:8777
 #: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2656
 msgid "_Open"
 msgstr "_Hap"
 
 #. first %s is a filename and second %s is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1051
+#: ../libcaja-private/caja-open-with-dialog.c:1042
 #, c-format
 msgid "Open %s and other %s document with:"
 msgstr ""
 
 #. the %s here is a file name
 #. %s is a filename
-#: ../libcaja-private/caja-open-with-dialog.c:1057
-#: ../libcaja-private/caja-open-with-dialog.c:1097
+#: ../libcaja-private/caja-open-with-dialog.c:1048
+#: ../libcaja-private/caja-open-with-dialog.c:1088
 #, c-format
 msgid "Open %s with:"
 msgstr "Hap %s me:"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1058
+#: ../libcaja-private/caja-open-with-dialog.c:1049
 #, c-format
 msgid "_Remember this application for %s documents"
 msgstr ""
 
 #. Only in add mode - the %s here is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1069
+#: ../libcaja-private/caja-open-with-dialog.c:1060
 #, c-format
 msgid "Open all %s documents with:"
 msgstr "Hap të gjithë %s dokumentet me:"
 
 #. First %s is a filename, second is a description
 #. * of the type, eg "plain text document"
-#: ../libcaja-private/caja-open-with-dialog.c:1091
+#: ../libcaja-private/caja-open-with-dialog.c:1082
 #, c-format
 msgid "Open %s and other \"%s\" files with:"
 msgstr "Hap %s dhe \"%s\" skedarë të tjerë me:"
 
 #. %s is a file type description
-#: ../libcaja-private/caja-open-with-dialog.c:1099
+#: ../libcaja-private/caja-open-with-dialog.c:1090
 #, c-format
 msgid "_Remember this application for \"%s\" files"
 msgstr "_Kujto këtë program për skedarët \"%s\""
 
 #. Only in add mode
-#: ../libcaja-private/caja-open-with-dialog.c:1110
+#: ../libcaja-private/caja-open-with-dialog.c:1101
 #, c-format
 msgid "Open all \"%s\" files with:"
 msgstr "Hap të gjithë \"%s\" skedarët me:"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1122
+#: ../libcaja-private/caja-open-with-dialog.c:1113
 msgid "_Add"
 msgstr "_Shto"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1123
+#: ../libcaja-private/caja-open-with-dialog.c:1114
 msgid "Add Application"
 msgstr "Shtimi i aplikativit"
 
@@ -2311,7 +2349,9 @@ msgstr "Hapja dështoi, zgjidhet një apliaktiv tjetër?"
 #: ../libcaja-private/caja-program-choosing.c:117
 #, c-format
 msgid "\"%s\" cannot open \"%s\" because \"%s\" cannot access files at \"%s\" locations."
-msgstr "«%s» nuk mund të hapë «%s» pasi «%s» nuk mund të futet tek file në pozicionet «%s»."
+msgstr ""
+"«%s» nuk mund të hapë «%s» pasi «%s» nuk mund të futet tek file në "
+"pozicionet «%s»."
 
 #: ../libcaja-private/caja-program-choosing.c:87
 msgid "Open Failed, would you like to choose another action?"
@@ -2323,7 +2363,9 @@ msgstr "Hapja dështoi: zgjidhet një veprim tjetër?"
 msgid ""
 "The default action cannot open \"%s\" because it cannot access files at "
 "\"%s\" locations."
-msgstr "E pamundur hapja e «%s» me veprimin e paracaktuar, pasi nuk mund të hyjë tek file në pozicionet «%s». "
+msgstr ""
+"E pamundur hapja e «%s» me veprimin e paracaktuar, pasi nuk mund të hyjë tek"
+" file në pozicionet «%s». "
 
 #: ../libcaja-private/caja-program-choosing.c:120
 msgid ""
@@ -2359,13 +2401,17 @@ msgstr "Objektivi i kësaj zvarritje suporton vetëm file lokalë."
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again."
-msgstr "Për të hapur file jo lokalë kopjoi në një kartelë lokale e pastaj zvarritini përsëri."
+msgstr ""
+"Për të hapur file jo lokalë kopjoi në një kartelë lokale e pastaj zvarritini"
+" përsëri."
 
 #: ../libcaja-private/caja-program-choosing.c:515
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again. The local files you dropped have already been opened."
-msgstr "Për të hapur file jo lokale kopjoi në një kartelë lokale e pastaj zvarriteni përsëri. File lokalë që janë zvarritur do të hapen sidoqoftë."
+msgstr ""
+"Për të hapur file jo lokale kopjoi në një kartelë lokale e pastaj zvarriteni"
+" përsëri. File lokalë që janë zvarritur do të hapen sidoqoftë."
 
 #: ../libcaja-private/caja-program-choosing.c:538
 msgid "Details: "
@@ -2395,11 +2441,11 @@ msgstr ""
 #, c-format
 msgid "%'d file operation active"
 msgid_plural "%'d file operations active"
-msgstr[0] "%'d operacion mbi file aktiv"
-msgstr[1] "%'d operacione mbi file aktivë"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../libcaja-private/caja-progress-info.c:983
-#: ../libcaja-private/caja-progress-info.c:1004
+#: ../libcaja-private/caja-progress-info.c:975
+#: ../libcaja-private/caja-progress-info.c:996
 msgid "Preparing"
 msgstr "Përgatitja"
 
@@ -2793,7 +2839,8 @@ msgstr[1] ""
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:1
 msgid "Where to position newly open tabs in browser windows."
-msgstr "Tregon ku duhet vendosur skeda e fundit e hapur në dritaret e shfletimit"
+msgstr ""
+"Tregon ku duhet vendosur skeda e fundit e hapur në dritaret e shfletimit"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:2
 msgid ""
@@ -2815,7 +2862,9 @@ msgstr ""
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:5
 msgid "Enables the classic Caja behavior, where all windows are browsers"
-msgstr "Aktivizon sjelljen e zakonshme të Caja, në të cilën të gjitha dritaret janë dritare shfletimi"
+msgstr ""
+"Aktivizon sjelljen e zakonshme të Caja, në të cilën të gjitha dritaret janë "
+"dritare shfletimi"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:6
 msgid ""
@@ -2826,23 +2875,30 @@ msgstr ""
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:7
 msgid "Always use the location entry, instead of the pathbar"
-msgstr "Përdor gjithmonë zërin e pozicionit, në vend të shtyllës së vendodhjes"
+msgstr ""
+"Përdor gjithmonë zërin e pozicionit, në vend të shtyllës së vendodhjes"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:8
 msgid ""
 "If set to true, then Caja browser windows will always use a textual input "
 "entry for the location toolbar, instead of the pathbar."
-msgstr "Nëse caktuar në E VËRTETË, dritaret e shfletimit të Caja paraqisin një fushë shkrimi teksti për panelin e instrumentëve të pozicionit, në vend të pathbar."
+msgstr ""
+"Nëse caktuar në E VËRTETË, dritaret e shfletimit të Caja paraqisin një fushë"
+" shkrimi teksti për panelin e instrumentëve të pozicionit, në vend të "
+"pathbar."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:9
 msgid "Whether to ask for confirmation when deleting files, or emptying Trash"
-msgstr "Tregon nëse duhet kërkuar konfermim kur eleminohen file, apo zbrazet koshi"
+msgstr ""
+"Tregon nëse duhet kërkuar konfermim kur eleminohen file, apo zbrazet koshi"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:10
 msgid ""
 "If set to true, then Caja will ask for confirmation when you attempt to "
 "delete files, or empty the Trash."
-msgstr "Nëse caktuar në E VËRTETË, do të kërkohet konfermimi sa herë që kërkohet të eleminohen file apo zbrazja e koshit."
+msgstr ""
+"Nëse caktuar në E VËRTETË, do të kërkohet konfermimi sa herë që kërkohet të "
+"eleminohen file apo zbrazja e koshit."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:11
 msgid "Whether to ask for confirmation when moving files to the Trash"
@@ -2863,7 +2919,10 @@ msgid ""
 "If set to true, then Caja will have a feature allowing you to delete a file "
 "immediately and in-place, instead of moving it to the trash. This feature "
 "can be dangerous, so use caution."
-msgstr "Nëse caktuar në E VËRTETË, aktivizohet mundësia e fshirjes së një file menjëherë dhe \"në vend\", në vend të lëvizjes në kosh. Ky funksion mund të rezultojë i rrezikshëm, prandaj duhet përdorur me kujdes."
+msgstr ""
+"Nëse caktuar në E VËRTETË, aktivizohet mundësia e fshirjes së një file "
+"menjëherë dhe \"në vend\", në vend të lëvizjes në kosh. Ky funksion mund të "
+"rezultojë i rrezikshëm, prandaj duhet përdorur me kujdes."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:15
 msgid "When to show preview text in icons"
@@ -2898,7 +2957,9 @@ msgstr "Lloji i klik i përdorur për të hapur/lëshuar files"
 msgid ""
 "Possible values are \"single\" to launch files on a single click, or "
 "\"double\" to launch them on a double click."
-msgstr "Vlera të pranuara janë \"single\" për të lëshuar file me një klikim të vetëm, ose \"double\" për t'i lëshuar me dopio klikim."
+msgstr ""
+"Vlera të pranuara janë \"single\" për të lëshuar file me një klikim të "
+"vetëm, ose \"double\" për t'i lëshuar me dopio klikim."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:21
 msgid "What to do with executable text files when activated"
@@ -2910,7 +2971,11 @@ msgid ""
 "double clicked). Possible values are \"launch\" to launch them as programs, "
 "\"ask\" to ask what to do via a dialog, and \"display\" to display them as "
 "text files."
-msgstr "Si të sillem me files e ekzekutueshëm të tekstit kur aktivizohen (klikuar një apo dy herë). Vlerat e mundëshme janë \"launch\" për t'i lëshuar si programe, \"ask\" për të pyetur se si duhet të veprohet me anë të një dialogu dhe \"display\" për t'i shfaqur si tekste."
+msgstr ""
+"Si të sillem me files e ekzekutueshëm të tekstit kur aktivizohen (klikuar "
+"një apo dy herë). Vlerat e mundëshme janë \"launch\" për t'i lëshuar si "
+"programe, \"ask\" për të pyetur se si duhet të veprohet me anë të një "
+"dialogu dhe \"display\" për t'i shfaqur si tekste."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:23
 msgid "Show the package installer for unknown MIME types"
@@ -2976,11 +3041,17 @@ msgid ""
 "Images over this size (in bytes) won't be thumbnailed. The purpose of this "
 "setting is to avoid thumbnailing large images that may take a long time to "
 "load or use lots of memory."
-msgstr "Figurat me madhësi më të madhe se kjo (në byte) nuk kanë asnjë miniaturë. Qëllimi i këtij rregullimi është shmangia e proçesit të krijimit të miniaturave për figurat e mëdha; në fakt një proçes i tillë mund të kërkojë një kohë të gjatë ekzekutimi ose një përdorim të ndjeshëm të kujtesës."
+msgstr ""
+"Figurat me madhësi më të madhe se kjo (në byte) nuk kanë asnjë miniaturë. "
+"Qëllimi i këtij rregullimi është shmangia e proçesit të krijimit të "
+"miniaturave për figurat e mëdha; në fakt një proçes i tillë mund të kërkojë "
+"një kohë të gjatë ekzekutimi ose një përdorim të ndjeshëm të kujtesës."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:35
 msgid "Whether to preview sounds when mousing over an icon"
-msgstr "Tregon nëse duhet aktivizuar dëgjimi i një pjese audio kur mouse kalon mbi një ikonë"
+msgstr ""
+"Tregon nëse duhet aktivizuar dëgjimi i një pjese audio kur mouse kalon mbi "
+"një ikonë"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:36
 msgid ""
@@ -2998,7 +3069,10 @@ msgstr "Shfaq të drejtat e detajuara në dialogun e pronësisë së file"
 msgid ""
 "If set to true, then Caja lets you edit and display file permissions in a "
 "more unix-like way, accessing some more esoteric options."
-msgstr "Nëse caktuar në E VËRTETË, është i mundur ndryshimi dhe shfaqja e të drejtave të file në një menyrë më të ngjashme me atë të UNIX, duke patur hyrje në opsione më ezoterike."
+msgstr ""
+"Nëse caktuar në E VËRTETË, është i mundur ndryshimi dhe shfaqja e të "
+"drejtave të file në një menyrë më të ngjashme me atë të UNIX, duke patur "
+"hyrje në opsione më ezoterike."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:39
 msgid "Show folders first in windows"
@@ -3008,7 +3082,9 @@ msgstr "Në fillim shfaq kartelat në dritare"
 msgid ""
 "If set to true, then Caja shows folders prior to showing files in the icon "
 "and list views."
-msgstr "Nëse caktuar në E VËRTETË, kartelat do të rreshtohen gjithmonë përpara file në paraqitjen me ikona dhe në atë në formë liste."
+msgstr ""
+"Nëse caktuar në E VËRTETË, kartelat do të rreshtohen gjithmonë përpara file "
+"në paraqitjen me ikona dhe në atë në formë liste."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:41
 msgid "Default sort order"
@@ -3030,7 +3106,11 @@ msgid ""
 " by name, then instead of sorting the files from \"a\" to \"z\", they will "
 "be sorted from \"z\" to \"a\"; if sorted by size, instead of being "
 "incrementally they will be sorted decrementally."
-msgstr "Nëse e vërtetë, files në dritaret e reja do të rregullohen në renditje reverse. P.sh., nëse janë rregulluar sipas emrit, në vend që të vendosen nga \"a\" në \"z\", do të renditen nga \"z\" tek \"a\"; nëse të rregulluar sipas madhësisë, në vend që të fillojnë në rritje do të renditen në zbritje."
+msgstr ""
+"Nëse e vërtetë, files në dritaret e reja do të rregullohen në renditje "
+"reverse. P.sh., nëse janë rregulluar sipas emrit, në vend që të vendosen nga"
+" \"a\" në \"z\", do të renditen nga \"z\" tek \"a\"; nëse të rregulluar "
+"sipas madhësisë, në vend që të fillojnë në rritje do të renditen në zbritje."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:45
 msgid "Caja uses the users home folder as the desktop"
@@ -3040,7 +3120,9 @@ msgstr "Përdor kartelën home të përdoruesit në Caja si hapësirë pune"
 msgid ""
 "If set to true, then Caja will use the user's home folder as the desktop. If"
 " it is false, then it will use ~/Desktop as the desktop."
-msgstr "Nëse e vërtetë, Caja do të përdorë kartelën home të përdoruesit si desktop. Nëse jo, atëhere do të përdorë ~/Desktop si desktop."
+msgstr ""
+"Nëse e vërtetë, Caja do të përdorë kartelën home të përdoruesit si desktop. "
+"Nëse jo, atëhere do të përdorë ~/Desktop si desktop."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:47
 msgid "Custom Background"
@@ -3058,7 +3140,9 @@ msgstr "Ngjyra e paracaktuar e sfondit"
 msgid ""
 "Color for the default folder background. Only used if background_set is "
 "true."
-msgstr "Ngjyra për sfondin e paracaktuar të kartelave. Përdoret vetëm nëse background_set është TRUE."
+msgstr ""
+"Ngjyra për sfondin e paracaktuar të kartelave. Përdoret vetëm nëse "
+"background_set është TRUE."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:51
 msgid "Default Background Filename"
@@ -3075,7 +3159,8 @@ msgstr "Përcaktimi i sfondit të personalizuar të panelit anësor"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:54
 msgid "Whether a custom default side pane background has been set."
-msgstr "Tregon nëse duhet përcaktuar një sfond i personalizuar për panelin anësor."
+msgstr ""
+"Tregon nëse duhet përcaktuar një sfond i personalizuar për panelin anësor."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:55
 msgid "Default Side Pane Background Color"
@@ -3085,7 +3170,9 @@ msgstr "Ngjyra e paracaktuar e sfondit të panelit anësor"
 msgid ""
 "Filename for the default side pane background. Only used if "
 "side_pane_background_set is true."
-msgstr "Emri i file për sfondin e paracaktuar të panelit anësor. Përdoret vetëm nëse side_pane_background_set është TRUE."
+msgstr ""
+"Emri i file për sfondin e paracaktuar të panelit anësor. Përdoret vetëm nëse"
+" side_pane_background_set është TRUE."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:57
 msgid "Default Side Pane Background Filename"
@@ -3116,7 +3203,9 @@ msgstr "Formati i datës"
 msgid ""
 "The format of file dates. Possible values are \"locale\", \"iso\", and "
 "\"informal\"."
-msgstr "Formati i datave të file. Vlerat e mundëshme janë \"locale\", \"iso\", dhe \"informal\"."
+msgstr ""
+"Formati i datave të file. Vlerat e mundëshme janë \"locale\", \"iso\", dhe "
+"\"informal\"."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:63
 msgid "Whether to show hidden files"
@@ -3166,7 +3255,9 @@ msgstr "Përdor vendosjen e ngjeshur në dritaret e reja"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:72
 msgid "If true, icons will be laid out tighter by default in new windows."
-msgstr "Nëse caktuar në E VËRTETË, ikonat vendosen më afër njëra-tjetrës në menyrë të paracaktuar në dritaret e reja."
+msgstr ""
+"Nëse caktuar në E VËRTETË, ikonat vendosen më afër njëra-tjetrës në menyrë "
+"të paracaktuar në dritaret e reja."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:73
 msgid "Put labels beside icons"
@@ -3175,7 +3266,9 @@ msgstr "Vendos etiketat në krah të ikonave"
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:74
 msgid ""
 "If true, labels will be placed beside icons rather than underneath them."
-msgstr "Nëse caktuar në E VËRTETË, etiketat vendosen në krah të ikonave dhe jo poshtë tyre."
+msgstr ""
+"Nëse caktuar në E VËRTETË, etiketat vendosen në krah të ikonave dhe jo "
+"poshtë tyre."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:75
 msgid "Default icon zoom level"
@@ -3221,7 +3314,10 @@ msgstr "Të gjitha kollonat kanë të njëjtën gjerësi"
 msgid ""
 "If this preference is set, all columns in the compact view have the same "
 "width. Otherwise, the width of each column is determined seperately."
-msgstr "Nëse ky preferim është përcaktuar, të gjitha kollonat në paraqitjen kompakte do të kenë të njëjtën gjerësi. Në rast të kundërt, gjerësia e çdo kollone përcaktohet në menyrë të veçantë."
+msgstr ""
+"Nëse ky preferim është përcaktuar, të gjitha kollonat në paraqitjen kompakte"
+" do të kenë të njëjtën gjerësi. Në rast të kundërt, gjerësia e çdo kollone "
+"përcaktohet në menyrë të veçantë."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:88
 msgid "Default list zoom level"
@@ -3229,15 +3325,18 @@ msgstr "Niveli i zmadhimit i paracaktuar i listës"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:89
 msgid "Default zoom level used by the list view."
-msgstr "Niveli i zmadhimit i paracaktuar i përdorur në paraqitjen në formë liste."
+msgstr ""
+"Niveli i zmadhimit i paracaktuar i përdorur në paraqitjen në formë liste."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:90
 msgid "Default list of columns visible in the list view"
-msgstr "Lista e paracaktuar e kollonave të dukshme tek paraqitja në formë liste"
+msgstr ""
+"Lista e paracaktuar e kollonave të dukshme tek paraqitja në formë liste"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:91
 msgid "Default list of columns visible in the list view."
-msgstr "Lista e paracaktuar e kollonave të dukshme tek paraqitja në formë liste."
+msgstr ""
+"Lista e paracaktuar e kollonave të dukshme tek paraqitja në formë liste."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:92
 msgid "Default column order in the list view"
@@ -3255,7 +3354,9 @@ msgstr "Shfaq vetëm kartelat në panelin anësor"
 msgid ""
 "If set to true, Caja will only show folders in the tree side pane. Otherwise"
 " it will show both folders and files."
-msgstr "Nëse caktuar në E VËRTETË, në panelin anësor \"Degëzimi\" të Caja shfaqen vetëm kartelat. Në rast të kundërt shfaqen si kartelat ashtu dhe file."
+msgstr ""
+"Nëse caktuar në E VËRTETË, në panelin anësor \"Degëzimi\" të Caja shfaqen "
+"vetëm kartelat. Në rast të kundërt shfaqen si kartelat ashtu dhe file."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:96
 msgid "Desktop font"
@@ -3263,7 +3364,7 @@ msgstr "Lloji i shkronjave për hapësirën e punës"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:97
 msgid "The font description used for the icons on the desktop."
-msgstr ""
+msgstr "Gërma për përshkrimin e përdorur për ikonat në desktop."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:98
 msgid "Home icon visible on desktop"
@@ -3273,7 +3374,9 @@ msgstr "Ikona home e dukshme në hapësirën e punës"
 msgid ""
 "If this is set to true, an icon linking to the home folder will be put on "
 "the desktop."
-msgstr "Nëse caktuar në E VËRTETË, një ikonë që çon tek kartela home do të shfaqet në hapësirën e punës."
+msgstr ""
+"Nëse caktuar në E VËRTETË, një ikonë që çon tek kartela home do të shfaqet "
+"në hapësirën e punës."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:100
 msgid "Computer icon visible on desktop"
@@ -3283,7 +3386,9 @@ msgstr "Ikona Kompjuteri e dukshme në hapësirën e punës"
 msgid ""
 "If this is set to true, an icon linking to the computer location will be put"
 " on the desktop."
-msgstr "Nëse caktuar në E VËRTETË, një ikonë që çon tek pozicioni i kompjuterit do të shfaqet në hapësirën e punës."
+msgstr ""
+"Nëse caktuar në E VËRTETË, një ikonë që çon tek pozicioni i kompjuterit do "
+"të shfaqet në hapësirën e punës."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:102
 msgid "Trash icon visible on desktop"
@@ -3293,7 +3398,9 @@ msgstr "Ikona e koshit e dukshme në desktop"
 msgid ""
 "If this is set to true, an icon linking to the trash will be put on the "
 "desktop."
-msgstr "Nëse caktuar në E VËRTETË, një ikonë që çon në kosh do të shfaqet në hapësirën e punës."
+msgstr ""
+"Nëse caktuar në E VËRTETË, një ikonë që çon në kosh do të shfaqet në "
+"hapësirën e punës."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:104
 msgid "Show mounted volumes on the desktop"
@@ -3303,7 +3410,9 @@ msgstr "Shfaq volument e montuara në desktop"
 msgid ""
 "If this is set to true, icons linking to mounted volumes will be put on the "
 "desktop."
-msgstr "Nëse caktuar në E VËRTETË, një ikonë që çon tek volumet e montuar do të shfaqet në hapësirën e punës."
+msgstr ""
+"Nëse caktuar në E VËRTETË, një ikonë që çon tek volumet e montuar do të "
+"shfaqet në hapësirën e punës."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:106
 msgid "Network Servers icon visible on the desktop"
@@ -3313,7 +3422,9 @@ msgstr "Ikona Server rrjeti e dukshme në hapësirën e punës"
 msgid ""
 "If this is set to true, an icon linking to the Network Servers view will be "
 "put on the desktop."
-msgstr "Nëse caktuar në E VËRTETË, një ikonë që çon tek paraqitja e server-ëve të rrjetit do të shfaqet në hapësirën e punës."
+msgstr ""
+"Nëse caktuar në E VËRTETË, një ikonë që çon tek paraqitja e server-ëve të "
+"rrjetit do të shfaqet në hapësirën e punës."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:108
 msgid "Desktop computer icon name"
@@ -3323,7 +3434,9 @@ msgstr "Emri i ikonës së kompjuterit në hapësirën e punës"
 msgid ""
 "This name can be set if you want a custom name for the computer icon on the "
 "desktop."
-msgstr "Ky emër duhet përcaktuar nëse dëshirohet një emër i persoanlizuar për ikonën kompjuteri në hapësirën e punës."
+msgstr ""
+"Ky emër duhet përcaktuar nëse dëshirohet një emër i persoanlizuar për ikonën"
+" kompjuteri në hapësirën e punës."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:110
 msgid "Desktop home icon name"
@@ -3333,7 +3446,9 @@ msgstr "Emri i ikonës home në hapësirën e punës"
 msgid ""
 "This name can be set if you want a custom name for the home icon on the "
 "desktop."
-msgstr "Ky emër duhet përcaktuar nëse dëshirohet një emër i persoanlizuar për ikonën home në hapësirën e punës."
+msgstr ""
+"Ky emër duhet përcaktuar nëse dëshirohet një emër i persoanlizuar për ikonën"
+" home në hapësirën e punës."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:112
 msgid "Desktop trash icon name"
@@ -3343,7 +3458,9 @@ msgstr "Emri i ikonës së koshit në hapësirën e punës"
 msgid ""
 "This name can be set if you want a custom name for the trash icon on the "
 "desktop."
-msgstr "Ky emër duhet përcaktuar nëse dëshirohet një emër i persoanlizuar për ikonën e koshit në hapësirën e punës."
+msgstr ""
+"Ky emër duhet përcaktuar nëse dëshirohet një emër i persoanlizuar për ikonën"
+" e koshit në hapësirën e punës."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:114
 msgid "Network servers icon name"
@@ -3353,7 +3470,9 @@ msgstr "Emri i ikonës Server rrjeti"
 msgid ""
 "This name can be set if you want a custom name for the network servers icon "
 "on the desktop."
-msgstr "Ky emër duhet përcaktuar nëse dëshirohet një emër i persoanlizuar për ikonën e server-ëve të rrjetit në hapësirën e punës."
+msgstr ""
+"Ky emër duhet përcaktuar nëse dëshirohet një emër i persoanlizuar për ikonën"
+" e server-ëve të rrjetit në hapësirën e punës."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:116
 msgid ""
@@ -3361,7 +3480,12 @@ msgid ""
 " ellipses on the desktop. If the number is larger than 0, the file name will"
 " not exceed the given number of lines. If the number is 0 or smaller, no "
 "limit is imposed on the number of displayed lines."
-msgstr "Një i plotë që specifikon sa pjesë e emrit të file tepër të gjatë duhet të zëvendësohen me eklipse në hapësirën e punës. Nëse numri i plotë i dhënë është më i madh se 0, emri i file nuk do të tejkalojë numrin e rreshtave të caktuar. Nëse i ploti është 0 ose më i vogël se 0, nuk caktohet asnjë kufizim mbi numrin e rreshtave të shfaqur."
+msgstr ""
+"Një i plotë që specifikon sa pjesë e emrit të file tepër të gjatë duhet të "
+"zëvendësohen me eklipse në hapësirën e punës. Nëse numri i plotë i dhënë "
+"është më i madh se 0, emri i file nuk do të tejkalojë numrin e rreshtave të "
+"caktuar. Nëse i ploti është 0 ose më i vogël se 0, nuk caktohet asnjë "
+"kufizim mbi numrin e rreshtave të shfaqur."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:117
 msgid "The geometry string for a navigation window."
@@ -3395,7 +3519,9 @@ msgstr "Shfaq menu e veglave tek dritaret e reja"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:124
 msgid "If set to true, newly opened windows will have toolbars visible."
-msgstr "Nëse caktuar në E VËRTETË, dritaret e reja të hapura do të kenë panelët e instrumentëve të dukshëm."
+msgstr ""
+"Nëse caktuar në E VËRTETË, dritaret e reja të hapura do të kenë panelët e "
+"instrumentëve të dukshëm."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:125
 msgid "Show location bar in new windows"
@@ -3404,7 +3530,9 @@ msgstr "Shfaq menu e pozicionit tek dritaret e reja"
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:126
 msgid ""
 "If set to true, newly opened windows will have the location bar visible."
-msgstr "Nëse caktuar në E VËRTETË, dritaret e reja të hapura do ta kenë shtyllën e pozicionit të dukshme."
+msgstr ""
+"Nëse caktuar në E VËRTETË, dritaret e reja të hapura do ta kenë shtyllën e "
+"pozicionit të dukshme."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:127
 msgid "Show status bar in new windows"
@@ -3412,7 +3540,9 @@ msgstr "Shfaq status bar tek dritaret e reja"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:128
 msgid "If set to true, newly opened windows will have the status bar visible."
-msgstr "Nëse caktuar në E VËRTETË, dritaret e reja të hapura do ta kenë shtyllën e gjëndjes të dukshme."
+msgstr ""
+"Nëse caktuar në E VËRTETË, dritaret e reja të hapura do ta kenë shtyllën e "
+"gjëndjes të dukshme."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:129
 msgid "Show side pane in new windows"
@@ -3420,7 +3550,9 @@ msgstr "Bëj të dukshëm panelin anësor tek dritaret e reja"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:130
 msgid "If set to true, newly opened windows will have the side pane visible."
-msgstr "Nëse caktuar në E VËRTETË, dritaret e reja të hapura do ta kenë panelin anësor të dukshëm."
+msgstr ""
+"Nëse caktuar në E VËRTETË, dritaret e reja të hapura do ta kenë panelin "
+"anësor të dukshëm."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:131
 msgid "Side pane view"
@@ -3428,7 +3560,8 @@ msgstr "Paraqitja e panelit anësor"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:132
 msgid "The side pane view to show in newly opened windows."
-msgstr "Paraqitja e panelit anësor për tu shfaqur tek dritaret e reja të hapura."
+msgstr ""
+"Paraqitja e panelit anësor për tu shfaqur tek dritaret e reja të hapura."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:133
 msgid "List of extensions in disabled state."
@@ -3446,11 +3579,16 @@ msgstr "Tregon nëse duhen montuar automatikisht suportet"
 msgid ""
 "If set to true, then Caja will automatically mount media such as user-"
 "visible hard disks and removable media on start-up and media insertion."
-msgstr "Nëse caktuar në E VËRTETË, atëhere Caja do të montojë automatikisht dispozitivët e heqshëm dhe hard disqet e dukshëm nga përdoruesi në nisje dhe në futjen e dispozitivit."
+msgstr ""
+"Nëse caktuar në E VËRTETË, atëhere Caja do të montojë automatikisht "
+"dispozitivët e heqshëm dhe hard disqet e dukshëm nga përdoruesi në nisje dhe"
+" në futjen e dispozitivit."
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:3
 msgid "Whether to automatically open a folder for automounted media"
-msgstr "Tregon nëse duhet hapur automatikisht një kartelë për suportet e auto-montuar"
+msgstr ""
+"Tregon nëse duhet hapur automatikisht një kartelë për suportet e auto-"
+"montuar"
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:4
 msgid ""
@@ -3458,29 +3596,42 @@ msgid ""
 "automounted. This only applies to media where no known x-content/* type was "
 "detected; for media where a known x-content type is detected, the user "
 "configurable action will be taken instead."
-msgstr "Nëse caktuar në E VËRTETË, atëhere Caja do të hapë automatikisht një kartelë kur dispozitivët montohen në menyrë automatike. Kjo aplikohet vetëm për ata dispozitivë për të cilët është zbuluar një lloj i panjohur x-content/*; për dispozitivët për të cilët zbulohet një lloj i njohur x-content, do të kryhet aksioni i konfiguruar nga përdoruesi."
+msgstr ""
+"Nëse caktuar në E VËRTETË, atëhere Caja do të hapë automatikisht një kartelë"
+" kur dispozitivët montohen në menyrë automatike. Kjo aplikohet vetëm për ata"
+" dispozitivë për të cilët është zbuluar një lloj i panjohur x-content/*; për"
+" dispozitivët për të cilët zbulohet një lloj i njohur x-content, do të "
+"kryhet aksioni i konfiguruar nga përdoruesi."
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:5
 msgid "Never prompt or autorun/autostart programs when media are inserted"
-msgstr "Mos kërko konfermim e as mos zbato/nis automatikisht programet kur futen dispozitivë"
+msgstr ""
+"Mos kërko konfermim e as mos zbato/nis automatikisht programet kur futen "
+"dispozitivë"
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:6
 msgid ""
 "If set to true, then Caja will never prompt nor autorun/autostart programs "
 "when a medium is inserted."
-msgstr "Nëse caktuar në E VËRTETË, atëhere Caja nuk do të kërkojë konfermim, e as do të ekzekutohen/nisen automatikisht programet kur futet një dispozitiv."
+msgstr ""
+"Nëse caktuar në E VËRTETË, atëhere Caja nuk do të kërkojë konfermim, e as do"
+" të ekzekutohen/nisen automatikisht programet kur futet një dispozitiv."
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:7
 msgid ""
 "List of x-content/* types where the preferred application will be launched"
-msgstr "Lista e llojeve x-content/* për të cilët niset aplikativi i preferuar."
+msgstr ""
+"Lista e llojeve x-content/* për të cilët niset aplikativi i preferuar."
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:8
 msgid ""
 "List of x-content/* types for which the user have chosen to start an "
 "application in the preference capplet. The preferred application for the "
 "given type will be started on insertion on media matching these types."
-msgstr "Lista e llojeve x-content/* për të cilat përdoruesi ka zgjedhur nisjen e një aplikativi tek preferimet. Kur futet një dispozitiv që korrespondon me këto lloj, do të niset aplikativi i preferuar për llojin përkatës."
+msgstr ""
+"Lista e llojeve x-content/* për të cilat përdoruesi ka zgjedhur nisjen e një"
+" aplikativi tek preferimet. Kur futet një dispozitiv që korrespondon me këto"
+" lloj, do të niset aplikativi i preferuar për llojin përkatës."
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:9
 msgid "List of x-content/* types set to \"Do Nothing\""
@@ -3491,7 +3642,10 @@ msgid ""
 "List of x-content/* types for which the user have chosen \"Do Nothing\" in "
 "the preference capplet. No prompt will be shown nor will any matching "
 "application be started on insertion of media matching these types."
-msgstr "Lista e llojeve x-content/* për të cilat përdoruesi ka zgjedhur \"Asnjë veprim\" tek preferimet. Kur futet një dispozitiv që korrespondon me këto lloj, nuk shfaqet asnjë kërkesë dhe nuk niset asnjë aplikativ përkatës."
+msgstr ""
+"Lista e llojeve x-content/* për të cilat përdoruesi ka zgjedhur \"Asnjë "
+"veprim\" tek preferimet. Kur futet një dispozitiv që korrespondon me këto "
+"lloj, nuk shfaqet asnjë kërkesë dhe nuk niset asnjë aplikativ përkatës."
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:11
 msgid "List of x-content/* types set to \"Open Folder\""
@@ -3502,17 +3656,20 @@ msgid ""
 "List of x-content/* types for which the user have chosen \"Open Folder\" in "
 "the preferences capplet. A folder window will be opened on insertion of "
 "media matching these types."
-msgstr "Lista e llojeve x-content/* për të cilat përdoruesi ka zgjedhur \"Hap kartelën\" tek preferimet. Kur futet një dispozitiv që korrespondon me këto lloj, do të hapet një dritare e kartelës."
+msgstr ""
+"Lista e llojeve x-content/* për të cilat përdoruesi ka zgjedhur \"Hap "
+"kartelën\" tek preferimet. Kur futet një dispozitiv që korrespondon me këto "
+"lloj, do të hapet një dritare e kartelës."
 
 #: ../libegg/eggdesktopfile.c:166
 #, c-format
 msgid "File is not a valid .desktop file"
-msgstr "Skedari nuk është një skedarë .desktop i vlefshëm"
+msgstr "Skedari nuk është një skedar .desktop i vlefshëm"
 
 #: ../libegg/eggdesktopfile.c:189
 #, c-format
 msgid "Unrecognized desktop file Version '%s'"
-msgstr ""
+msgstr "Version i pasaktë file desktop '%s'"
 
 #: ../libegg/eggdesktopfile.c:958
 #, c-format
@@ -3561,65 +3718,67 @@ msgstr "ID"
 
 #: ../libegg/eggsmclient.c:273
 msgid "Session management options:"
-msgstr "Opsionet e organizimit të seancës:"
+msgstr "Opsionet e menaxhimit të seancës:"
 
 #: ../libegg/eggsmclient.c:274
 msgid "Show session management options"
-msgstr "Shfaq opsionet e organizimit të seancës"
+msgstr "Shfaq opsionet e menaxhimit të seancës"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:709
+#: ../src/file-manager/fm-desktop-icon-view.c:667
 msgid "Background"
 msgstr "Sfondi"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:786
-#: ../src/file-manager/fm-directory-view.c:7316
-#: ../src/file-manager/fm-directory-view.c:8993
+#: ../src/file-manager/fm-desktop-icon-view.c:744
+#: ../src/file-manager/fm-directory-view.c:7300
+#: ../src/file-manager/fm-directory-view.c:8977
 msgid "E_mpty Trash"
 msgstr "Z_braz koshin"
 
 #. label, accelerator
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:800
-#: ../src/file-manager/fm-directory-view.c:7280
+#: ../src/file-manager/fm-desktop-icon-view.c:758
+#: ../src/file-manager/fm-directory-view.c:7264
 msgid "Create L_auncher..."
 msgstr "Krijo lë_shues..."
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:802
-#: ../src/file-manager/fm-directory-view.c:7281
+#: ../src/file-manager/fm-desktop-icon-view.c:760
+#: ../src/file-manager/fm-directory-view.c:7265
 msgid "Create a new launcher"
-msgstr "Krijon një lëshues të ri"
+msgstr "Krijo një lëshues të ri"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:809
+#: ../src/file-manager/fm-desktop-icon-view.c:767
 msgid "Change Desktop _Background"
 msgstr "Ndrysho s_fondin e desktop"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:811
+#: ../src/file-manager/fm-desktop-icon-view.c:769
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
-msgstr "Shfaq një dritare që mundëson përcaktimin e ngjyrës apo motivit për sfondin e desktop"
+msgstr ""
+"Shfaq një dritare që mundëson përcaktimin e ngjyrës apo motivit për sfondin "
+"e desktop"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:818
+#: ../src/file-manager/fm-desktop-icon-view.c:776
 msgid "Empty Trash"
 msgstr "Zbraz koshin"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:820
-#: ../src/file-manager/fm-directory-view.c:7317 ../src/caja-trash-bar.c:204
+#: ../src/file-manager/fm-desktop-icon-view.c:778
+#: ../src/file-manager/fm-directory-view.c:7301 ../src/caja-trash-bar.c:204
 msgid "Delete all items in the Trash"
 msgstr "Eleminon të gjithë elementët në kosh"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:920
+#: ../src/file-manager/fm-desktop-icon-view.c:878
 msgid "The desktop view encountered an error."
 msgstr "Paraqitja si desktop ndeshi në një gabim."
 
-#: ../src/file-manager/fm-desktop-icon-view.c:921
+#: ../src/file-manager/fm-desktop-icon-view.c:879
 msgid "The desktop view encountered an error while starting up."
 msgstr "Paraqitja si desktop ndeshi në një gabim gjatë nisjes."
 
@@ -3627,109 +3786,109 @@ msgstr "Paraqitja si desktop ndeshi në një gabim gjatë nisjes."
 #, c-format
 msgid "This will open %'d separate tab."
 msgid_plural "This will open %'d separate tabs."
-msgstr[0] "Do të hapet %d skedë e veçantë."
-msgstr[1] "Do të hapen %d skeda të veçanta."
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/file-manager/fm-directory-view.c:658
 #, c-format
 msgid "This will open %'d separate window."
 msgid_plural "This will open %'d separate windows."
-msgstr[0] "Do të hapet %d dritare e veçantë."
-msgstr[1] "Do të hapen %d dritare të veçanta."
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:1183
-#: ../src/file-manager/fm-properties-window.c:5420
-#: ../src/caja-connect-server-dialog.c:724 ../src/caja-location-dialog.c:108
+#: ../src/file-manager/fm-directory-view.c:1177
+#: ../src/file-manager/fm-properties-window.c:5409
+#: ../src/caja-connect-server-dialog.c:718 ../src/caja-location-dialog.c:102
 msgid "There was an error displaying help."
-msgstr "U verifikua një gabim gjatë shfaqjes së ndihmës."
+msgstr "Gabim gjatë shfaqjes së ndihmës."
 
-#: ../src/file-manager/fm-directory-view.c:1203
+#: ../src/file-manager/fm-directory-view.c:1197
 msgid "Select Items Matching"
 msgstr "Zgjedhja e ekorrespondencës së elementëve"
 
-#: ../src/file-manager/fm-directory-view.c:1218
+#: ../src/file-manager/fm-directory-view.c:1212
 msgid "_Pattern:"
 msgstr "_Modeli:"
 
-#: ../src/file-manager/fm-directory-view.c:1225
+#: ../src/file-manager/fm-directory-view.c:1219
 msgid "Examples: "
 msgstr "Shëmbuj:"
 
-#: ../src/file-manager/fm-directory-view.c:1341
+#: ../src/file-manager/fm-directory-view.c:1335
 msgid "Save Search as"
 msgstr "Ruaj kërkimin si"
 
-#: ../src/file-manager/fm-directory-view.c:1364
+#: ../src/file-manager/fm-directory-view.c:1358
 msgid "Search _name:"
 msgstr "E_mri i kërkimit:"
 
-#: ../src/file-manager/fm-directory-view.c:1384
+#: ../src/file-manager/fm-directory-view.c:1374
 msgid "_Folder:"
 msgstr "_Kartela:"
 
-#: ../src/file-manager/fm-directory-view.c:1393
+#: ../src/file-manager/fm-directory-view.c:1379
 msgid "Select Folder to Save Search In"
 msgstr "Zgjedhja e kartelës në të cilën duhet ruajtur kërkimi"
 
-#: ../src/file-manager/fm-directory-view.c:2284
-#: ../src/file-manager/fm-directory-view.c:2321
+#: ../src/file-manager/fm-directory-view.c:2268
+#: ../src/file-manager/fm-directory-view.c:2305
 #, c-format
 msgid "\"%s\" selected"
 msgstr "Zgjedhur «%s»"
 
-#: ../src/file-manager/fm-directory-view.c:2286
+#: ../src/file-manager/fm-directory-view.c:2270
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
-msgstr[0] "%'d kartelë e zgjedhur"
-msgstr[1] "%'d kartela të zgjedhura"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:2296
+#: ../src/file-manager/fm-directory-view.c:2280
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
-msgstr[0] " (përmban %'d element)"
-msgstr[1] " (përmban %'d elementë)"
+msgstr[0] ""
+msgstr[1] ""
 
 #. translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
-#: ../src/file-manager/fm-directory-view.c:2307
+#: ../src/file-manager/fm-directory-view.c:2291
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
-msgstr[0] " (përmbajnë gjithsej %'d element)"
-msgstr[1] " (përmbajnë gjithsej %'d elementë)"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:2324
+#: ../src/file-manager/fm-directory-view.c:2308
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
-msgstr[0] "%'d element i zgjedhur"
-msgstr[1] "%'d elementë të zgjedhur"
+msgstr[0] ""
+msgstr[1] ""
 
 #. Folders selected also, use "other" terminology
-#: ../src/file-manager/fm-directory-view.c:2331
+#: ../src/file-manager/fm-directory-view.c:2315
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
-msgstr[0] "%'d element tjetër i zgjedhur"
-msgstr[1] "%'d elementë të tjerë të zgjedhur"
+msgstr[0] ""
+msgstr[1] ""
 
 #. This is marked for translation in case a localiser
 #. * needs to use something other than parentheses. The
 #. * first message gives the number of items selected;
 #. * the message in parentheses the size of those items.
-#: ../src/file-manager/fm-directory-view.c:2350
+#: ../src/file-manager/fm-directory-view.c:2334
 #, c-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-directory-view.c:2363
+#: ../src/file-manager/fm-directory-view.c:2347
 #, c-format
 msgid "Free space: %s"
 msgstr "Hapësira e lirë: %s"
 
-#: ../src/file-manager/fm-directory-view.c:2374
+#: ../src/file-manager/fm-directory-view.c:2358
 #, c-format
 msgid "%s, Free space: %s"
 msgstr "%s, %s me hapësirë të lirë"
@@ -3738,7 +3897,7 @@ msgstr "%s, %s me hapësirë të lirë"
 #. * might want to change "," to something else.
 #. * After the comma the amount of free space will
 #. * be shown.
-#: ../src/file-manager/fm-directory-view.c:2389
+#: ../src/file-manager/fm-directory-view.c:2373
 #, c-format
 msgid "%s, %s"
 msgstr "%s, %s"
@@ -3753,8 +3912,8 @@ msgstr "%s, %s"
 #. * and the number of items in those folders and the
 #. * message about the number of other items and the
 #. * total size of those items.
-#: ../src/file-manager/fm-directory-view.c:2408
-#: ../src/file-manager/fm-directory-view.c:2422
+#: ../src/file-manager/fm-directory-view.c:2392
+#: ../src/file-manager/fm-directory-view.c:2406
 #, c-format
 msgid "%s%s, %s"
 msgstr "%s%s, %s"
@@ -3766,53 +3925,57 @@ msgstr "%s%s, %s"
 #. * message about the number of other items and the
 #. * total size of those items. After the second comma
 #. * the free space is written.
-#: ../src/file-manager/fm-directory-view.c:2435
+#: ../src/file-manager/fm-directory-view.c:2419
 #, c-format
 msgid "%s%s, %s, %s"
 msgstr " %s%s, %s, %s "
 
-#: ../src/file-manager/fm-directory-view.c:4480
+#: ../src/file-manager/fm-directory-view.c:4464
 #: ../src/caja-information-panel.c:905
 #, c-format
 msgid "Open With %s"
 msgstr "Hap me %s"
 
-#: ../src/file-manager/fm-directory-view.c:4482
+#: ../src/file-manager/fm-directory-view.c:4466
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
-msgstr[0] "Përdor «%s» për të hapur elementin e zgjedhur"
-msgstr[1] "Përdor «%s» për të hapur elementët e zgjedhur"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:4571
+#: ../src/file-manager/fm-directory-view.c:4555
 msgid "Open parent location"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:4572
+#: ../src/file-manager/fm-directory-view.c:4556
 msgid "Open parent location for the selected item"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:5421
+#: ../src/file-manager/fm-directory-view.c:5405
 #, c-format
 msgid "Run \"%s\" on any selected items"
 msgstr "Zbaton «%s» mbi secilin nga elementët e zgjedhur"
 
-#: ../src/file-manager/fm-directory-view.c:5672
+#: ../src/file-manager/fm-directory-view.c:5656
 #, c-format
 msgid "Create Document from template \"%s\""
 msgstr "Krijon një dokument nga modeli «%s»"
 
-#: ../src/file-manager/fm-directory-view.c:5922
+#: ../src/file-manager/fm-directory-view.c:5906
 msgid "All executable files in this folder will appear in the Scripts menu."
-msgstr "Të gjithë files e ekzekutueshëm në këtë kartelë do të jenë të dukshëm tek menu «Script»."
+msgstr ""
+"Të gjithë files e ekzekutueshëm në këtë kartelë do të jenë të dukshëm tek "
+"menu «Script»."
 
-#: ../src/file-manager/fm-directory-view.c:5924
+#: ../src/file-manager/fm-directory-view.c:5908
 msgid ""
 "Choosing a script from the menu will run that script with any selected items"
 " as input."
-msgstr "Duke zgjedhur nga menu një script, ai do të zbatohet me çdo element të zgjedhur si input."
+msgstr ""
+"Duke zgjedhur nga menu një script, ai do të zbatohet me çdo element të "
+"zgjedhur si input."
 
-#: ../src/file-manager/fm-directory-view.c:5926
+#: ../src/file-manager/fm-directory-view.c:5910
 msgid ""
 "All executable files in this folder will appear in the Scripts menu. Choosing a script from the menu will run that script.\n"
 "\n"
@@ -3835,126 +3998,126 @@ msgid ""
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI for current location in the inactive pane of a split-view window"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:5994
+#: ../src/file-manager/fm-directory-view.c:5978
 #: ../src/file-manager/fm-tree-view.c:1009
 #, c-format
 msgid "\"%s\" will be moved if you select the Paste command"
 msgstr "Zgjidh komandën «Ngjit» për të zhvendosur «%s»"
 
-#: ../src/file-manager/fm-directory-view.c:5998
+#: ../src/file-manager/fm-directory-view.c:5982
 #: ../src/file-manager/fm-tree-view.c:1015
 #, c-format
 msgid "\"%s\" will be copied if you select the Paste command"
 msgstr "Zgjidh komandën «Ngjit» për të kopjuar «%s»"
 
-#: ../src/file-manager/fm-directory-view.c:6005
+#: ../src/file-manager/fm-directory-view.c:5989
 #, c-format
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be moved if you select the Paste command"
-msgstr[0] "Elementi i zgjedhur (%'d) do të lëvizet po të zgjidhet komanda «Ngjit»"
-msgstr[1] "Elementët e zgjedhur (%'d) do të lëvizen po të zgjidhet komanda «Ngjit»"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:6012
+#: ../src/file-manager/fm-directory-view.c:5996
 #, c-format
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be copied if you select the Paste command"
-msgstr[0] "Elementi i zgjedhur (%'d) do të kopjohet po të zgjidhet komanda «Ngjit»"
-msgstr[1] "Elementët e zgjedhur (%'d) do të kopjohen po të zgjidhet komanda «Ngjit»"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:6192
+#: ../src/file-manager/fm-directory-view.c:6176
 #: ../src/file-manager/fm-tree-view.c:1055
 msgid "There is nothing on the clipboard to paste."
 msgstr "Shënimet nuk përmbajnë asgjë për tu ngjitur."
 
-#: ../src/file-manager/fm-directory-view.c:6407
+#: ../src/file-manager/fm-directory-view.c:6391
 msgid "Unable to unmount location"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:6428
+#: ../src/file-manager/fm-directory-view.c:6412
 msgid "Unable to eject location"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:6443
+#: ../src/file-manager/fm-directory-view.c:6427
 msgid "Unable to stop drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7000
+#: ../src/file-manager/fm-directory-view.c:6984
 #, c-format
 msgid "Connect to Server %s"
 msgstr "Lidhja me server-in %s"
 
-#: ../src/file-manager/fm-directory-view.c:7005
-#: ../src/file-manager/fm-directory-view.c:8212
-#: ../src/file-manager/fm-directory-view.c:8304
-#: ../src/file-manager/fm-directory-view.c:8414
+#: ../src/file-manager/fm-directory-view.c:6989
+#: ../src/file-manager/fm-directory-view.c:8196
+#: ../src/file-manager/fm-directory-view.c:8288
+#: ../src/file-manager/fm-directory-view.c:8398
 msgid "_Connect"
 msgstr "_Lidhu"
 
-#: ../src/file-manager/fm-directory-view.c:7019
+#: ../src/file-manager/fm-directory-view.c:7003
 msgid "Link _name:"
 msgstr "E_mri i lidhjes:"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7258
+#: ../src/file-manager/fm-directory-view.c:7242
 msgid "Create _Document"
 msgstr "Krijo _dokument"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7259
+#: ../src/file-manager/fm-directory-view.c:7243
 msgid "Open Wit_h"
 msgstr "_Hap me"
 
-#: ../src/file-manager/fm-directory-view.c:7260
+#: ../src/file-manager/fm-directory-view.c:7244
 msgid "Choose a program with which to open the selected item"
 msgstr "Zgjedh një program me të cilin të hapet elementi i zgjedhur"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7262
-#: ../src/file-manager/fm-directory-view.c:7541
+#: ../src/file-manager/fm-directory-view.c:7246
+#: ../src/file-manager/fm-directory-view.c:7525
 msgid "_Properties"
 msgstr "_Pronësitë"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7263
-#: ../src/file-manager/fm-directory-view.c:8980
+#: ../src/file-manager/fm-directory-view.c:7247
+#: ../src/file-manager/fm-directory-view.c:8964
 msgid "View or modify the properties of each selected item"
 msgstr "Shfaq ose ndryshon pronësitë e secilit prej elementëve të zgjedhur"
 
 #. name, stock id
 #. label, accelerator
 #. add the "create folder" menu item
-#: ../src/file-manager/fm-directory-view.c:7270
+#: ../src/file-manager/fm-directory-view.c:7254
 #: ../src/file-manager/fm-tree-view.c:1298
 msgid "Create _Folder"
-msgstr "Krijo _kartelë"
+msgstr "Krijo një _Kartelë"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7271
+#: ../src/file-manager/fm-directory-view.c:7255
 msgid "Create a new empty folder inside this folder"
 msgstr "Krijon një kartelë të re bosh në brendësi të kësaj kartele"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7273
+#: ../src/file-manager/fm-directory-view.c:7257
 msgid "No templates installed"
 msgstr "Asnjë model i instaluar"
 
 #. name, stock id
 #. translators: this is used to indicate that a file doesn't contain anything
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7276
+#: ../src/file-manager/fm-directory-view.c:7260
 msgid "_Empty File"
 msgstr "File _bosh"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7277
+#: ../src/file-manager/fm-directory-view.c:7261
 msgid "Create a new empty file inside this folder"
 msgstr "Krijon një file të ri bosh në brendësi të kësaj kartele"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7285
+#: ../src/file-manager/fm-directory-view.c:7269
 msgid "Open the selected item in this window"
 msgstr "Hap elementin e zgjedhur në këtë dritare"
 
@@ -3963,232 +4126,240 @@ msgstr "Hap elementin e zgjedhur në këtë dritare"
 #. Location-specific actions
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7292
-#: ../src/file-manager/fm-directory-view.c:7473
+#: ../src/file-manager/fm-directory-view.c:7276
+#: ../src/file-manager/fm-directory-view.c:7457
 msgid "Open in Navigation Window"
 msgstr "Hap në dritaren e eksplorimit"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7293
+#: ../src/file-manager/fm-directory-view.c:7277
 msgid "Open each selected item in a navigation window"
 msgstr "Hap çdo element të zgjedhur në një dritare eksplorimi"
 
 #. name, stock id
 #. label, accelerator
 #. add the "open in new tab" menu item
-#: ../src/file-manager/fm-directory-view.c:7296
-#: ../src/file-manager/fm-directory-view.c:7477
-#: ../src/file-manager/fm-directory-view.c:8544
-#: ../src/file-manager/fm-directory-view.c:8870
+#: ../src/file-manager/fm-directory-view.c:7280
+#: ../src/file-manager/fm-directory-view.c:7461
+#: ../src/file-manager/fm-directory-view.c:8528
+#: ../src/file-manager/fm-directory-view.c:8854
 #: ../src/file-manager/fm-tree-view.c:1278 ../src/caja-places-sidebar.c:2664
 msgid "Open in New _Tab"
 msgstr "Hap në një s_kedë të re"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7297
+#: ../src/file-manager/fm-directory-view.c:7281
 msgid "Open each selected item in a new tab"
 msgstr "Hap secilin prej elementëve të zgjedhur në një skedë të re"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7300
-#: ../src/file-manager/fm-directory-view.c:7482
+#: ../src/file-manager/fm-directory-view.c:7284
+#: ../src/file-manager/fm-directory-view.c:7466
 msgid "Open in _Folder Window"
 msgstr "Hap në _dritaren e kartelës"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7301
+#: ../src/file-manager/fm-directory-view.c:7285
 msgid "Open each selected item in a folder window"
 msgstr "Hap secilin prej elementëve të zgjedhur në një dritare kartele"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7304
+#: ../src/file-manager/fm-directory-view.c:7288
 msgid "Other _Application..."
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7305
-#: ../src/file-manager/fm-directory-view.c:7309
+#: ../src/file-manager/fm-directory-view.c:7289
+#: ../src/file-manager/fm-directory-view.c:7293
 msgid "Choose another application with which to open the selected item"
 msgstr "Zgjedh një apliaktiv tjetër për të hapur elementin e zgjedhur"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7308
+#: ../src/file-manager/fm-directory-view.c:7292
 msgid "Open With Other _Application..."
 msgstr ""
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7312
+#: ../src/file-manager/fm-directory-view.c:7296
 msgid "_Open Scripts Folder"
 msgstr "_Hap kartelën e script-eve"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7313
+#: ../src/file-manager/fm-directory-view.c:7297
 msgid "Show the folder containing the scripts that appear in this menu"
 msgstr "Shfaq kartelën ku gjenden skriptet e dukshëm në këtë menu"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7321
+#: ../src/file-manager/fm-directory-view.c:7305
 msgid "Prepare the selected files to be moved with a Paste command"
 msgstr "Përgatit file e zgjedhur për tu lëvizur me një komandë «Ngjite»"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7325
+#: ../src/file-manager/fm-directory-view.c:7309
 msgid "Prepare the selected files to be copied with a Paste command"
 msgstr "Përgatit file e zgjedhur për tu kpojuar me një komandë «Ngjite»"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7329
+#: ../src/file-manager/fm-directory-view.c:7313
 msgid "Move or copy files previously selected by a Cut or Copy command"
-msgstr "Lëviz apo kopjon file e zgjedhur më parë me anë të një komande «Prite» apo «Ngjite»"
+msgstr ""
+"Lëviz apo kopjon file e zgjedhur më parë me anë të një komande «Prite» apo "
+"«Ngjite»"
 
 #. We make accelerator "" instead of null here to not inherit the stock
 #. accelerator for paste
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7334
-#: ../src/file-manager/fm-directory-view.c:7495
+#: ../src/file-manager/fm-directory-view.c:7318
+#: ../src/file-manager/fm-directory-view.c:7479
 #: ../src/file-manager/fm-tree-view.c:1330
 msgid "_Paste Into Folder"
 msgstr "_Ngjit në kartelë"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7335
+#: ../src/file-manager/fm-directory-view.c:7319
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into the "
 "selected folder"
-msgstr "Lëviz apo kopjon file e zgjedhur më parë me anë të një komande «Prite» apo «Ngjite» në kartelën e zgjedhur"
+msgstr ""
+"Lëviz apo kopjon file e zgjedhur më parë me anë të një komande «Prite» apo "
+"«Ngjite» në kartelën e zgjedhur"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7337
+#: ../src/file-manager/fm-directory-view.c:7321
 msgid "Cop_y to"
 msgstr "Ko_pjo në"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7338
+#: ../src/file-manager/fm-directory-view.c:7322
 msgid "M_ove to"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7341
+#: ../src/file-manager/fm-directory-view.c:7325
 msgid "Select all items in this window"
 msgstr "Zgjidh të gjithë elementët në këtë dritare"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7344
+#: ../src/file-manager/fm-directory-view.c:7328
 msgid "Select I_tems Matching..."
 msgstr "Zgjidh elemen_tët korrispondues..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7345
+#: ../src/file-manager/fm-directory-view.c:7329
 msgid "Select items in this window matching a given pattern"
-msgstr "Zgjedh të gjithë elementët në këtë dritare që korrispondojnë me modelin e dhënë"
+msgstr ""
+"Zgjedh të gjithë elementët në këtë dritare që korrispondojnë me modelin e "
+"dhënë"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7348
+#: ../src/file-manager/fm-directory-view.c:7332
 msgid "_Invert Selection"
 msgstr "_Inverto zgjedhjen"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7349
+#: ../src/file-manager/fm-directory-view.c:7333
 msgid "Select all and only the items that are not currently selected"
 msgstr "Zgjedh të gjithë e vetëm elementët që nuk janë aktualisht të zgjedhur"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7352
+#: ../src/file-manager/fm-directory-view.c:7336
 msgid "D_uplicate"
 msgstr "D_yfisho"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7353
+#: ../src/file-manager/fm-directory-view.c:7337
 msgid "Duplicate each selected item"
 msgstr "Krijon një kopje për secilin nga elementët e zgjedhur"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7356
-#: ../src/file-manager/fm-directory-view.c:8964
+#: ../src/file-manager/fm-directory-view.c:7340
+#: ../src/file-manager/fm-directory-view.c:8948
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
-msgstr[0] "Kr_ijo lidhje"
-msgstr[1] "Kr_ijo lidhje"
+msgstr[0] ""
+msgstr[1] ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7357
+#: ../src/file-manager/fm-directory-view.c:7341
 msgid "Create a symbolic link for each selected item"
 msgstr "Krijon një lidhje simbolike për secilin nga elementët e zgjedhur"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7360
+#: ../src/file-manager/fm-directory-view.c:7344
 msgid "_Rename..."
 msgstr "_Riemërto..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7361
+#: ../src/file-manager/fm-directory-view.c:7345
 msgid "Rename selected item"
 msgstr "Riemërton elementin e zgjedhur"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7369
-#: ../src/file-manager/fm-directory-view.c:8925
+#: ../src/file-manager/fm-directory-view.c:7353
+#: ../src/file-manager/fm-directory-view.c:8909
 msgid "Move each selected item to the Trash"
 msgstr "Lëviz secilin nga elementët e zgjedhur në kosh"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7372
-#: ../src/file-manager/fm-directory-view.c:7504
-#: ../src/file-manager/fm-directory-view.c:8945
+#: ../src/file-manager/fm-directory-view.c:7356
+#: ../src/file-manager/fm-directory-view.c:7488
+#: ../src/file-manager/fm-directory-view.c:8929
 #: ../src/file-manager/fm-tree-view.c:1360
 msgid "_Delete"
-msgstr "_Elemino"
+msgstr "_Fshi"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7373
+#: ../src/file-manager/fm-directory-view.c:7357
 msgid "Delete each selected item, without moving to the Trash"
-msgstr "Eleminon secilin nga elementët e zgjedhur, pa e lëvizur paraprakisht në kosh "
+msgstr ""
+"Eleminon secilin nga elementët e zgjedhur, pa e lëvizur paraprakisht në kosh"
+" "
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7376
-#: ../src/file-manager/fm-directory-view.c:7508
+#: ../src/file-manager/fm-directory-view.c:7360
+#: ../src/file-manager/fm-directory-view.c:7492
 msgid "_Restore"
 msgstr "_Rivendos"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7380
+#: ../src/file-manager/fm-directory-view.c:7364
 msgid "_Undo"
 msgstr "_Anullo"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7381
-#: ../src/file-manager/fm-directory-view.c:11129
+#: ../src/file-manager/fm-directory-view.c:7365
+#: ../src/file-manager/fm-directory-view.c:11113
 msgid "Undo the last action"
-msgstr ""
+msgstr "Anullo veprimin e fundit"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7384
+#: ../src/file-manager/fm-directory-view.c:7368
 msgid "_Redo"
-msgstr ""
+msgstr "_Përsërit"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7385
-#: ../src/file-manager/fm-directory-view.c:11147
+#: ../src/file-manager/fm-directory-view.c:7369
+#: ../src/file-manager/fm-directory-view.c:11131
 msgid "Redo the last undone action"
 msgstr "Rikthe veprimin e fundit të anulluar"
 
@@ -4198,633 +4369,637 @@ msgstr "Rikthe veprimin e fundit të anulluar"
 #. * it is a mixture of both ATM.
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7395
+#: ../src/file-manager/fm-directory-view.c:7379
 msgid "Reset View to _Defaults"
 msgstr "Përdor rregullimet e _paracaktuara"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7396
+#: ../src/file-manager/fm-directory-view.c:7380
 msgid "Reset sorting order and zoom level to match preferences for this view"
-msgstr "Rivendos kriterin e rreshtimit dhe nivelin e zoom sipas rregullimeve të paracaktuara për këtë paraqitje"
+msgstr ""
+"Rivendos kriterin e rreshtimit dhe nivelin e zoom sipas rregullimeve të "
+"paracaktuara për këtë paraqitje"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7399
+#: ../src/file-manager/fm-directory-view.c:7383
 msgid "Connect To This Server"
 msgstr "Lidhu me këtë server"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7400
+#: ../src/file-manager/fm-directory-view.c:7384
 msgid "Make a permanent connection to this server"
 msgstr "Krijon një lidhje të përhershme me këtë server"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7403
-#: ../src/file-manager/fm-directory-view.c:7431
-#: ../src/file-manager/fm-directory-view.c:7512
+#: ../src/file-manager/fm-directory-view.c:7387
+#: ../src/file-manager/fm-directory-view.c:7415
+#: ../src/file-manager/fm-directory-view.c:7496
 #: ../src/caja-places-sidebar.c:2700
 msgid "_Mount"
 msgstr "_Monto"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7404
+#: ../src/file-manager/fm-directory-view.c:7388
 msgid "Mount the selected volume"
 msgstr "Monton volumin e zgjedhur"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7408
+#: ../src/file-manager/fm-directory-view.c:7392
 msgid "Unmount the selected volume"
 msgstr "Zmonton volumin e zgjedhur"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7412
+#: ../src/file-manager/fm-directory-view.c:7396
 msgid "Eject the selected volume"
 msgstr "Nxjerr jashtë volumin e zgjedhur"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7415
-#: ../src/file-manager/fm-directory-view.c:7443
-#: ../src/file-manager/fm-directory-view.c:7524
+#: ../src/file-manager/fm-directory-view.c:7399
+#: ../src/file-manager/fm-directory-view.c:7427
+#: ../src/file-manager/fm-directory-view.c:7508
 #: ../src/caja-places-sidebar.c:2728
 msgid "_Format"
 msgstr "_Formato"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7416
+#: ../src/file-manager/fm-directory-view.c:7400
 msgid "Format the selected volume"
 msgstr "Formaton volumin e zgjedhur"
 
 #. name, stock id
 #. label, accelerator
 #. Adjust start/stop items to reflect the type of the drive
-#: ../src/file-manager/fm-directory-view.c:7419
-#: ../src/file-manager/fm-directory-view.c:7447
-#: ../src/file-manager/fm-directory-view.c:7528
-#: ../src/file-manager/fm-directory-view.c:8204
-#: ../src/file-manager/fm-directory-view.c:8208
-#: ../src/file-manager/fm-directory-view.c:8296
-#: ../src/file-manager/fm-directory-view.c:8300
-#: ../src/file-manager/fm-directory-view.c:8406
-#: ../src/file-manager/fm-directory-view.c:8410
+#: ../src/file-manager/fm-directory-view.c:7403
+#: ../src/file-manager/fm-directory-view.c:7431
+#: ../src/file-manager/fm-directory-view.c:7512
+#: ../src/file-manager/fm-directory-view.c:8188
+#: ../src/file-manager/fm-directory-view.c:8192
+#: ../src/file-manager/fm-directory-view.c:8280
+#: ../src/file-manager/fm-directory-view.c:8284
+#: ../src/file-manager/fm-directory-view.c:8390
+#: ../src/file-manager/fm-directory-view.c:8394
 #: ../src/caja-places-sidebar.c:1785 ../src/caja-places-sidebar.c:2735
 msgid "_Start"
 msgstr "_Fillo"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7420
+#: ../src/file-manager/fm-directory-view.c:7404
 msgid "Start the selected volume"
 msgstr ""
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7423
-#: ../src/file-manager/fm-directory-view.c:7451
-#: ../src/file-manager/fm-directory-view.c:7532
-#: ../src/file-manager/fm-directory-view.c:8233
-#: ../src/file-manager/fm-directory-view.c:8325
-#: ../src/file-manager/fm-directory-view.c:8435
+#: ../src/file-manager/fm-directory-view.c:7407
+#: ../src/file-manager/fm-directory-view.c:7435
+#: ../src/file-manager/fm-directory-view.c:7516
+#: ../src/file-manager/fm-directory-view.c:8217
+#: ../src/file-manager/fm-directory-view.c:8309
+#: ../src/file-manager/fm-directory-view.c:8419
 #: ../src/caja-places-sidebar.c:1786 ../src/caja-places-sidebar.c:2742
-#: ../src/caja-window-menus.c:844
+#: ../src/caja-window-menus.c:836
 msgid "_Stop"
 msgstr "_Ndalo"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7424
-#: ../src/file-manager/fm-directory-view.c:8436
+#: ../src/file-manager/fm-directory-view.c:7408
+#: ../src/file-manager/fm-directory-view.c:8420
 msgid "Stop the selected volume"
 msgstr ""
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7427
-#: ../src/file-manager/fm-directory-view.c:7455
-#: ../src/file-manager/fm-directory-view.c:7536
+#: ../src/file-manager/fm-directory-view.c:7411
+#: ../src/file-manager/fm-directory-view.c:7439
+#: ../src/file-manager/fm-directory-view.c:7520
 #: ../src/caja-places-sidebar.c:2721
 msgid "_Detect Media"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7428
-#: ../src/file-manager/fm-directory-view.c:7456
-#: ../src/file-manager/fm-directory-view.c:7537
+#: ../src/file-manager/fm-directory-view.c:7412
+#: ../src/file-manager/fm-directory-view.c:7440
+#: ../src/file-manager/fm-directory-view.c:7521
 msgid "Detect media in the selected drive"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7432
+#: ../src/file-manager/fm-directory-view.c:7416
 msgid "Mount the volume associated with the open folder"
 msgstr "Monton volumin e shoqëruar me kartelën e hapur"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7436
+#: ../src/file-manager/fm-directory-view.c:7420
 msgid "Unmount the volume associated with the open folder"
 msgstr "Zmonton volumin e shoqëruar me kartelën e hapur"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7440
+#: ../src/file-manager/fm-directory-view.c:7424
 msgid "Eject the volume associated with the open folder"
 msgstr "Nxjerr jashtë volumin e shoqëruar me kartelën e hapur"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7444
+#: ../src/file-manager/fm-directory-view.c:7428
 msgid "Format the volume associated with the open folder"
 msgstr "Formaton volumin e shoqëruar me kartelën e hapur"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7448
+#: ../src/file-manager/fm-directory-view.c:7432
 msgid "Start the volume associated with the open folder"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7452
+#: ../src/file-manager/fm-directory-view.c:7436
 msgid "Stop the volume associated with the open folder"
 msgstr ""
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7459
+#: ../src/file-manager/fm-directory-view.c:7443
 msgid "Open File and Close window"
 msgstr "Hap file dhe mbyll dritaren"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7463
+#: ../src/file-manager/fm-directory-view.c:7447
 msgid "Sa_ve Search"
 msgstr "Ru_aj kërkimin"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7464
+#: ../src/file-manager/fm-directory-view.c:7448
 msgid "Save the edited search"
 msgstr "Ruaj kërkimin e ndryshuar"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7467
+#: ../src/file-manager/fm-directory-view.c:7451
 msgid "Sa_ve Search As..."
 msgstr "Ru_aj kërkimin si..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7468
+#: ../src/file-manager/fm-directory-view.c:7452
 msgid "Save the current search as a file"
 msgstr "Ruaj kërkimin aktual si një file"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7474
+#: ../src/file-manager/fm-directory-view.c:7458
 msgid "Open this folder in a navigation window"
 msgstr "Hap këtë kartelë në një dritare eksplorimi"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7478
+#: ../src/file-manager/fm-directory-view.c:7462
 msgid "Open this folder in a new tab"
 msgstr "Hap këtë kartelë në një skedë të re"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7483
+#: ../src/file-manager/fm-directory-view.c:7467
 msgid "Open this folder in a folder window"
 msgstr "Hap këtë kartelë në një dritare kartele"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7488
+#: ../src/file-manager/fm-directory-view.c:7472
 msgid "Prepare this folder to be moved with a Paste command"
 msgstr "Përgatit kartelën për tu lëvizur me një komandë «Ngjite»"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7492
+#: ../src/file-manager/fm-directory-view.c:7476
 msgid "Prepare this folder to be copied with a Paste command"
 msgstr "Përgatit kartelën për tu kopjuar me një komandë «Ngjite»"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7496
+#: ../src/file-manager/fm-directory-view.c:7480
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into this "
 "folder"
-msgstr "Lëviz apo kopjon file paraprakisht të zgjedhur me anë të një komande «Preje» ose «Ngjite» në brendësi të kësaj kartele"
+msgstr ""
+"Lëviz apo kopjon file paraprakisht të zgjedhur me anë të një komande «Preje»"
+" ose «Ngjite» në brendësi të kësaj kartele"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7501
+#: ../src/file-manager/fm-directory-view.c:7485
 msgid "Move this folder to the Trash"
 msgstr "Lëviz këtë kartelë në kosh"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7505
+#: ../src/file-manager/fm-directory-view.c:7489
 msgid "Delete this folder, without moving to the Trash"
 msgstr "Eleminon këtë kartelë, pa e lëvizur paraprakisht në kosh"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7513
+#: ../src/file-manager/fm-directory-view.c:7497
 msgid "Mount the volume associated with this folder"
 msgstr "Monton volumin e shoqëruar me këtë kartelë"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7517
+#: ../src/file-manager/fm-directory-view.c:7501
 msgid "Unmount the volume associated with this folder"
 msgstr "Zmonton volumin e shoqëruar me këtë kartelë"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7521
+#: ../src/file-manager/fm-directory-view.c:7505
 msgid "Eject the volume associated with this folder"
 msgstr "Nxjerr jashtë volumin e shoqëruar me këtë kartelë"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7525
+#: ../src/file-manager/fm-directory-view.c:7509
 msgid "Format the volume associated with this folder"
 msgstr "Formaton volumin e shoqëruar me këtë kartelë"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7529
+#: ../src/file-manager/fm-directory-view.c:7513
 msgid "Start the volume associated with this folder"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7533
+#: ../src/file-manager/fm-directory-view.c:7517
 msgid "Stop the volume associated with this folder"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7542
+#: ../src/file-manager/fm-directory-view.c:7526
 msgid "View or modify the properties of this folder"
 msgstr "Shfaq ose ndryshon pronësitë e kësaj kartele"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7545
-#: ../src/file-manager/fm-directory-view.c:7548
+#: ../src/file-manager/fm-directory-view.c:7529
+#: ../src/file-manager/fm-directory-view.c:7532
 msgid "_Other pane"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7546
+#: ../src/file-manager/fm-directory-view.c:7530
 msgid "Copy the current selection to the other pane in the window"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7549
+#: ../src/file-manager/fm-directory-view.c:7533
 msgid "Move the current selection to the other pane in the window"
 msgstr ""
 
 #. name, stock id, label
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7552
-#: ../src/file-manager/fm-directory-view.c:7556 ../src/caja-window-menus.c:899
+#: ../src/file-manager/fm-directory-view.c:7536
+#: ../src/file-manager/fm-directory-view.c:7540 ../src/caja-window-menus.c:891
 msgid "_Home Folder"
 msgstr "Kartela _personale"
 
-#: ../src/file-manager/fm-directory-view.c:7553
+#: ../src/file-manager/fm-directory-view.c:7537
 msgid "Copy the current selection to the home folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7557
+#: ../src/file-manager/fm-directory-view.c:7541
 msgid "Move the current selection to the home folder"
 msgstr ""
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7560
-#: ../src/file-manager/fm-directory-view.c:7564
+#: ../src/file-manager/fm-directory-view.c:7544
+#: ../src/file-manager/fm-directory-view.c:7548
 msgid "_Desktop"
 msgstr "_Desktop"
 
-#: ../src/file-manager/fm-directory-view.c:7561
+#: ../src/file-manager/fm-directory-view.c:7545
 msgid "Copy the current selection to the desktop"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7565
+#: ../src/file-manager/fm-directory-view.c:7549
 msgid "Move the current selection to the desktop"
 msgstr ""
 
 #. Translators: %s is a directory
-#: ../src/file-manager/fm-directory-view.c:7645
+#: ../src/file-manager/fm-directory-view.c:7629
 #, c-format
 msgid "Run or manage scripts from %s"
 msgstr "Zbaton ose administron script-et në %s"
 
 #. Create a script action here specially because its tooltip is dynamic
-#: ../src/file-manager/fm-directory-view.c:7647
+#: ../src/file-manager/fm-directory-view.c:7631
 msgid "_Scripts"
 msgstr "_Script-e"
 
-#: ../src/file-manager/fm-directory-view.c:8052
+#: ../src/file-manager/fm-directory-view.c:8036
 #, c-format
 msgid "Move the open folder out of the trash to \"%s\""
 msgstr "Lëviz kartelën e hapur jashtë nga koshi në «%s»"
 
-#: ../src/file-manager/fm-directory-view.c:8055
+#: ../src/file-manager/fm-directory-view.c:8039
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
-msgstr[0] "Lëviz kartelën e zgjedhur jashtë nga koshi në «%s»"
-msgstr[1] "Lëviz kartelat e zgjedhura jashtë nga koshi në «%s»"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8059
+#: ../src/file-manager/fm-directory-view.c:8043
 #, c-format
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
-msgstr[0] "Lëviz kartelën e zgjedhur jashtë nga koshi"
-msgstr[1] "Lëviz kartelat e zgjedhura jashtë nga koshi"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8065
+#: ../src/file-manager/fm-directory-view.c:8049
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
-msgstr[0] "Lëviz file e zgjedhur jashtë nga koshi në «%s»"
-msgstr[1] "Lëviz file e zgjedhur jashtë nga koshi në «%s»"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8069
+#: ../src/file-manager/fm-directory-view.c:8053
 #, c-format
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
-msgstr[0] "Lëviz file e zgjedhur jashtë nga koshi"
-msgstr[1] "Lëviz file e zgjedhur jashtë nga koshi"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8075
+#: ../src/file-manager/fm-directory-view.c:8059
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
-msgstr[0] "Lëviz elementin e zgjedhur jashtë nga koshi në «%s»"
-msgstr[1] "Lëviz elementët e zgjedhur jashtë nga koshi në «%s»"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8079
+#: ../src/file-manager/fm-directory-view.c:8063
 #, c-format
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
-msgstr[0] "Lëviz elementin e zgjedhur jashtë nga koshi"
-msgstr[1] "Lëviz elementët e zgjedhur jashtë nga koshi"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8205
-#: ../src/file-manager/fm-directory-view.c:8209
-#: ../src/file-manager/fm-directory-view.c:8407
-#: ../src/file-manager/fm-directory-view.c:8411
+#: ../src/file-manager/fm-directory-view.c:8189
+#: ../src/file-manager/fm-directory-view.c:8193
+#: ../src/file-manager/fm-directory-view.c:8391
+#: ../src/file-manager/fm-directory-view.c:8395
 msgid "Start the selected drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8213
-#: ../src/file-manager/fm-directory-view.c:8415
+#: ../src/file-manager/fm-directory-view.c:8197
+#: ../src/file-manager/fm-directory-view.c:8399
 msgid "Connect to the selected drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8216
-#: ../src/file-manager/fm-directory-view.c:8308
-#: ../src/file-manager/fm-directory-view.c:8418
+#: ../src/file-manager/fm-directory-view.c:8200
+#: ../src/file-manager/fm-directory-view.c:8292
+#: ../src/file-manager/fm-directory-view.c:8402
 msgid "_Start Multi-disk Drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8217
-#: ../src/file-manager/fm-directory-view.c:8419
+#: ../src/file-manager/fm-directory-view.c:8201
+#: ../src/file-manager/fm-directory-view.c:8403
 msgid "Start the selected multi-disk drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8220
+#: ../src/file-manager/fm-directory-view.c:8204
 msgid "U_nlock Drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8221
-#: ../src/file-manager/fm-directory-view.c:8423
+#: ../src/file-manager/fm-directory-view.c:8205
+#: ../src/file-manager/fm-directory-view.c:8407
 msgid "Unlock the selected drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8234
+#: ../src/file-manager/fm-directory-view.c:8218
 msgid "Stop the selected drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8237
-#: ../src/file-manager/fm-directory-view.c:8329
-#: ../src/file-manager/fm-directory-view.c:8439
+#: ../src/file-manager/fm-directory-view.c:8221
+#: ../src/file-manager/fm-directory-view.c:8313
+#: ../src/file-manager/fm-directory-view.c:8423
 #: ../src/caja-places-sidebar.c:1794
 msgid "_Safely Remove Drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8238
-#: ../src/file-manager/fm-directory-view.c:8440
+#: ../src/file-manager/fm-directory-view.c:8222
+#: ../src/file-manager/fm-directory-view.c:8424
 msgid "Safely remove the selected drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8241
-#: ../src/file-manager/fm-directory-view.c:8333
-#: ../src/file-manager/fm-directory-view.c:8443
+#: ../src/file-manager/fm-directory-view.c:8225
+#: ../src/file-manager/fm-directory-view.c:8317
+#: ../src/file-manager/fm-directory-view.c:8427
 msgid "_Disconnect"
-msgstr ""
+msgstr "_Shkëputu"
 
-#: ../src/file-manager/fm-directory-view.c:8242
-#: ../src/file-manager/fm-directory-view.c:8444
+#: ../src/file-manager/fm-directory-view.c:8226
+#: ../src/file-manager/fm-directory-view.c:8428
 msgid "Disconnect the selected drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8245
-#: ../src/file-manager/fm-directory-view.c:8337
-#: ../src/file-manager/fm-directory-view.c:8447
+#: ../src/file-manager/fm-directory-view.c:8229
+#: ../src/file-manager/fm-directory-view.c:8321
+#: ../src/file-manager/fm-directory-view.c:8431
 msgid "_Stop Multi-disk Drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8246
-#: ../src/file-manager/fm-directory-view.c:8448
+#: ../src/file-manager/fm-directory-view.c:8230
+#: ../src/file-manager/fm-directory-view.c:8432
 msgid "Stop the selected multi-disk drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8249
-#: ../src/file-manager/fm-directory-view.c:8341
-#: ../src/file-manager/fm-directory-view.c:8451
+#: ../src/file-manager/fm-directory-view.c:8233
+#: ../src/file-manager/fm-directory-view.c:8325
+#: ../src/file-manager/fm-directory-view.c:8435
 #: ../src/caja-places-sidebar.c:1807
 msgid "_Lock Drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8250
-#: ../src/file-manager/fm-directory-view.c:8452
+#: ../src/file-manager/fm-directory-view.c:8234
+#: ../src/file-manager/fm-directory-view.c:8436
 msgid "Lock the selected drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8297
-#: ../src/file-manager/fm-directory-view.c:8301
+#: ../src/file-manager/fm-directory-view.c:8281
+#: ../src/file-manager/fm-directory-view.c:8285
 msgid "Start the drive associated with the open folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8305
+#: ../src/file-manager/fm-directory-view.c:8289
 msgid "Connect to the drive associated with the open folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8309
+#: ../src/file-manager/fm-directory-view.c:8293
 msgid "Start the multi-disk drive associated with the open folder"
 msgstr ""
 
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
-#: ../src/file-manager/fm-directory-view.c:8312
-#: ../src/file-manager/fm-directory-view.c:8422
+#: ../src/file-manager/fm-directory-view.c:8296
+#: ../src/file-manager/fm-directory-view.c:8406
 #: ../src/caja-places-sidebar.c:1806
 msgid "_Unlock Drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8313
+#: ../src/file-manager/fm-directory-view.c:8297
 msgid "Unlock the drive associated with the open folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8326
+#: ../src/file-manager/fm-directory-view.c:8310
 msgid "_Stop the drive associated with the open folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8330
+#: ../src/file-manager/fm-directory-view.c:8314
 msgid "Safely remove the drive associated with the open folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8334
+#: ../src/file-manager/fm-directory-view.c:8318
 msgid "Disconnect the drive associated with the open folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8338
+#: ../src/file-manager/fm-directory-view.c:8322
 msgid "Stop the multi-disk drive associated with the open folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8342
+#: ../src/file-manager/fm-directory-view.c:8326
 msgid "Lock the drive associated with the open folder"
 msgstr ""
 
 #. add the "open in new window" menu item
-#: ../src/file-manager/fm-directory-view.c:8521
-#: ../src/file-manager/fm-directory-view.c:8831
+#: ../src/file-manager/fm-directory-view.c:8505
+#: ../src/file-manager/fm-directory-view.c:8815
 #: ../src/file-manager/fm-tree-view.c:1287 ../src/caja-places-sidebar.c:2671
 msgid "Open in New _Window"
-msgstr "Hap në _dritare të re"
+msgstr "Hap në _Dritare të re"
 
-#: ../src/file-manager/fm-directory-view.c:8523
-#: ../src/file-manager/fm-directory-view.c:8840
+#: ../src/file-manager/fm-directory-view.c:8507
+#: ../src/file-manager/fm-directory-view.c:8824
 msgid "Browse in New _Window"
 msgstr "Shfleto në _dritare të re"
 
-#: ../src/file-manager/fm-directory-view.c:8529
-#: ../src/file-manager/fm-directory-view.c:8850
+#: ../src/file-manager/fm-directory-view.c:8513
+#: ../src/file-manager/fm-directory-view.c:8834
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
-msgstr[0] "_Shfleto kartelën"
-msgstr[1] "_Shfleto kartelat"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8546
-#: ../src/file-manager/fm-directory-view.c:8879
+#: ../src/file-manager/fm-directory-view.c:8530
+#: ../src/file-manager/fm-directory-view.c:8863
 msgid "Browse in New _Tab"
 msgstr "Shfleto në _skedë e re"
 
-#: ../src/file-manager/fm-directory-view.c:8595
-#: ../src/file-manager/fm-directory-view.c:8920
+#: ../src/file-manager/fm-directory-view.c:8579
+#: ../src/file-manager/fm-directory-view.c:8904
 msgid "_Delete Permanently"
 msgstr "_Elemino përgjithmonë"
 
-#: ../src/file-manager/fm-directory-view.c:8596
+#: ../src/file-manager/fm-directory-view.c:8580
 msgid "Delete the open folder permanently"
 msgstr "Eleminon në menyrë të përhershme kartelën e hapur"
 
-#: ../src/file-manager/fm-directory-view.c:8600
+#: ../src/file-manager/fm-directory-view.c:8584
 msgid "Move the open folder to the Trash"
 msgstr "Lëviz kartelën e hapur në kosh"
 
-#: ../src/file-manager/fm-directory-view.c:8780
+#: ../src/file-manager/fm-directory-view.c:8764
 #, c-format
 msgid "_Open With %s"
 msgstr "_Hap me %s"
 
-#: ../src/file-manager/fm-directory-view.c:8833
+#: ../src/file-manager/fm-directory-view.c:8817
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
-msgstr[0] "Hap në %'d _dritare të re"
-msgstr[1] "Hap në %'d _dritare të reja"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8842
+#: ../src/file-manager/fm-directory-view.c:8826
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
-msgstr[0] "Shfleto në %'d _dritare të re"
-msgstr[1] "Shfleto në %'d _dritare të reja"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8872
+#: ../src/file-manager/fm-directory-view.c:8856
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
-msgstr[0] "Hap në  %'d _skedë të re"
-msgstr[1] "Hap në  %'d _skeda të reja"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8881
+#: ../src/file-manager/fm-directory-view.c:8865
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
-msgstr[0] "Shfleto në  %'d _skedë të re"
-msgstr[1] "Shfleto në  %'d _skeda të reja"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8921
+#: ../src/file-manager/fm-directory-view.c:8905
 msgid "Delete all selected items permanently"
 msgstr "Eleminon përgjithmonë të gjithë elementët e zgjedhur"
 
-#: ../src/file-manager/fm-directory-view.c:8978
+#: ../src/file-manager/fm-directory-view.c:8962
 msgid "View or modify the properties of the open folder"
 msgstr "Shfaq ose ndryshon pronësitë e kartelës së hapur"
 
-#: ../src/file-manager/fm-directory-view.c:10281
+#: ../src/file-manager/fm-directory-view.c:10265
 msgid "Download location?"
 msgstr "Shkarkon pozicionin?"
 
-#: ../src/file-manager/fm-directory-view.c:10284
+#: ../src/file-manager/fm-directory-view.c:10268
 msgid "You can download it or make a link to it."
 msgstr "Është i mundur shkarkimi i pozicionit ose krijimi i një lidhje me të."
 
-#: ../src/file-manager/fm-directory-view.c:10287
+#: ../src/file-manager/fm-directory-view.c:10271
 msgid "Make a _Link"
 msgstr "Krijo _lidhje"
 
-#: ../src/file-manager/fm-directory-view.c:10291
+#: ../src/file-manager/fm-directory-view.c:10275
 msgid "_Download"
 msgstr "_Shkarko"
 
-#: ../src/file-manager/fm-directory-view.c:10452
-#: ../src/file-manager/fm-directory-view.c:10511
-#: ../src/file-manager/fm-directory-view.c:10616
+#: ../src/file-manager/fm-directory-view.c:10436
+#: ../src/file-manager/fm-directory-view.c:10495
+#: ../src/file-manager/fm-directory-view.c:10600
 msgid "Drag and drop is not supported."
 msgstr "Zvarritja nuk suportohet."
 
-#: ../src/file-manager/fm-directory-view.c:10453
+#: ../src/file-manager/fm-directory-view.c:10437
 msgid "Drag and drop is only supported on local file systems."
 msgstr "\"Kap e Zvarrit\" suportohet vetëm në file lokalë të sistemit."
 
-#: ../src/file-manager/fm-directory-view.c:10512
-#: ../src/file-manager/fm-directory-view.c:10617
+#: ../src/file-manager/fm-directory-view.c:10496
+#: ../src/file-manager/fm-directory-view.c:10601
 msgid "An invalid drag type was used."
 msgstr "Është përdorur një lloj kapjeje e pavlefshme."
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10694
+#: ../src/file-manager/fm-directory-view.c:10678
 msgid "dropped text.txt"
 msgstr "teksti zvarritur.txt"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10739
+#: ../src/file-manager/fm-directory-view.c:10723
 msgid "dropped data"
 msgstr ""
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11128
+#: ../src/file-manager/fm-directory-view.c:11112
 msgid "Undo"
-msgstr ""
+msgstr "Anullo"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11146
+#: ../src/file-manager/fm-directory-view.c:11130
 msgid "Redo"
 msgstr ""
 
-#: ../src/file-manager/fm-ditem-page.c:437
-#: ../src/file-manager/fm-ditem-page.c:449
+#: ../src/file-manager/fm-ditem-page.c:433
+#: ../src/file-manager/fm-ditem-page.c:445
 msgid "Comment"
-msgstr "Komenti"
+msgstr "Koment"
 
-#: ../src/file-manager/fm-ditem-page.c:440
+#: ../src/file-manager/fm-ditem-page.c:436
 msgid "URL"
 msgstr "URL"
 
-#: ../src/file-manager/fm-ditem-page.c:443
-#: ../src/file-manager/fm-ditem-page.c:455
-#: ../src/caja-image-properties-page.c:370
+#: ../src/file-manager/fm-ditem-page.c:439
+#: ../src/file-manager/fm-ditem-page.c:451
+#: ../src/caja-image-properties-page.c:366
 msgid "Description"
 msgstr "Përshkrimi"
 
-#: ../src/file-manager/fm-ditem-page.c:452
+#: ../src/file-manager/fm-ditem-page.c:448
 msgid "Command"
 msgstr "Komanda"
 
@@ -4851,7 +5026,9 @@ msgstr "Përmbajtja e kartelës nuk mund të shfaqet."
 #, c-format
 msgid ""
 "The name \"%s\" is already used in this folder. Please use a different name."
-msgstr "Emri \"%s\" eshtë përdorur njëherë në këtë kartelë. Ju lutem përdorni një emër tjetër."
+msgstr ""
+"Emri \"%s\" eshtë përdorur njëherë në këtë kartelë. Ju lutem përdorni një "
+"emër tjetër."
 
 #: ../src/file-manager/fm-error-reporting.c:122
 #, c-format
@@ -4868,7 +5045,9 @@ msgstr "Ju nuk keni të drejtat e nevojshme për të ndryshuar emrin e \"%s\"."
 msgid ""
 "The name \"%s\" is not valid because it contains the character \"/\". Please"
 " use a different name."
-msgstr "Emri \"%s\" nuk është i vlefshëm pasi përmban simbolin \"/\". Ju lutem, përdorni një emër tjetër."
+msgstr ""
+"Emri \"%s\" nuk është i vlefshëm pasi përmban simbolin \"/\". Ju lutem, "
+"përdorni një emër tjetër."
 
 #: ../src/file-manager/fm-error-reporting.c:139
 #, c-format
@@ -4933,7 +5112,7 @@ msgstr "Paraqitje me ikona"
 
 #: ../src/file-manager/fm-icon-view.c:128
 msgid "by _Name"
-msgstr "sipas _Emrit"
+msgstr "sipas _emrit"
 
 #: ../src/file-manager/fm-icon-view.c:129
 #: ../src/file-manager/fm-icon-view.c:1740
@@ -4942,7 +5121,7 @@ msgstr "Mban ikonat të rreshtuara sipas emrit"
 
 #: ../src/file-manager/fm-icon-view.c:135
 msgid "by _Size"
-msgstr "sipas _Madhësisë"
+msgstr "sipas madhë_sisë"
 
 #: ../src/file-manager/fm-icon-view.c:136
 #: ../src/file-manager/fm-icon-view.c:1746
@@ -5034,7 +5213,9 @@ msgstr ""
 #. tooltip
 #: ../src/file-manager/fm-icon-view.c:1702
 msgid "Reposition icons to better fit in the window and avoid overlapping"
-msgstr "Rivendos ikonat për të përmirësuar shpërndarjen në dritare dhe për të shmangur mbivendosjen midis tyre"
+msgstr ""
+"Rivendos ikonat për të përmirësuar shpërndarjen në dritare dhe për të "
+"shmangur mbivendosjen midis tyre"
 
 #. name, stock id
 #. label, accelerator
@@ -5164,10 +5345,10 @@ msgstr "Ngarkimi..."
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: ../src/file-manager/fm-list-view.c:1837
-#: ../src/file-manager/fm-list-view.c:3454
+#: ../src/file-manager/fm-list-view.c:3450
 #: ../src/caja-file-management-properties.ui.h:2
 msgid "List View"
-msgstr "Paraqitje në formë liste"
+msgstr "Paraqitja në formë liste"
 
 #: ../src/file-manager/fm-list-view.c:2531
 #, c-format
@@ -5180,35 +5361,37 @@ msgstr "Zgjidh renditjen me të cilën shfaqen informacionet në këtë kartelë
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-list-view.c:2608
+#: ../src/file-manager/fm-list-view.c:2604
 msgid "Visible _Columns..."
 msgstr "_Kollonat e dukshme..."
 
 #. tooltip
-#: ../src/file-manager/fm-list-view.c:2609
+#: ../src/file-manager/fm-list-view.c:2605
 msgid "Select the columns visible in this folder"
 msgstr "Zgjedh kollonat e dukshme në këtë kartelë"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-list-view.c:3456
+#: ../src/file-manager/fm-list-view.c:3452
 msgid "_List"
 msgstr "_Listë"
 
-#: ../src/file-manager/fm-list-view.c:3457
+#: ../src/file-manager/fm-list-view.c:3453
 msgid "The list view encountered an error."
 msgstr "Paraqitja në forme liste ndeshi një gabim."
 
-#: ../src/file-manager/fm-list-view.c:3458
+#: ../src/file-manager/fm-list-view.c:3454
 msgid "The list view encountered an error while starting up."
 msgstr "Paraqitja në formë liste ndeshi një gabim gjatë nisjes."
 
-#: ../src/file-manager/fm-list-view.c:3459
+#: ../src/file-manager/fm-list-view.c:3455
 msgid "Display this location with the list view."
 msgstr "Shfaq këtë pozicion me anë të paraqitjes në formë liste."
 
 #: ../src/file-manager/fm-properties-window.c:495
 msgid "You cannot assign more than one custom icon at a time!"
-msgstr "Nuk mund të caktohet më shumë se një ikonë të personalizuar në të njëjtën kohë!"
+msgstr ""
+"Nuk mund të caktohet më shumë se një ikonë të personalizuar në të njëjtën "
+"kohë!"
 
 #: ../src/file-manager/fm-properties-window.c:496
 #: ../src/caja-information-panel.c:528
@@ -5234,8 +5417,8 @@ msgstr "File i zvarritur nuk është një figurë."
 #: ../src/file-manager/fm-properties-window.c:636
 msgid "_Name:"
 msgid_plural "_Names:"
-msgstr[0] "_Emri:"
-msgstr[1] "_Emrat:"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/file-manager/fm-properties-window.c:992
 #, c-format
@@ -5245,38 +5428,38 @@ msgstr "Pronësitë"
 #: ../src/file-manager/fm-properties-window.c:1000
 #, c-format
 msgid "%s Properties"
-msgstr "Pronësitë e «%s»"
+msgstr "Pronësitë e %s"
 
 #: ../src/file-manager/fm-properties-window.c:1328
 #, c-format
 msgctxt "MIME type description (MIME type)"
 msgid "%s (%s)"
-msgstr ""
+msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-properties-window.c:1540
+#: ../src/file-manager/fm-properties-window.c:1536
 msgid "Cancel Group Change?"
 msgstr "Anullohet ndryshimi i grupit?"
 
-#: ../src/file-manager/fm-properties-window.c:1950
+#: ../src/file-manager/fm-properties-window.c:1946
 msgid "Cancel Owner Change?"
 msgstr "Anullohet ndryshimi i pronarit?"
 
-#: ../src/file-manager/fm-properties-window.c:2274
+#: ../src/file-manager/fm-properties-window.c:2270
 msgid "nothing"
 msgstr "asgjë"
 
-#: ../src/file-manager/fm-properties-window.c:2276
+#: ../src/file-manager/fm-properties-window.c:2272
 msgid "unreadable"
 msgstr "palexueshme"
 
-#: ../src/file-manager/fm-properties-window.c:2295
+#: ../src/file-manager/fm-properties-window.c:2291
 #, c-format
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-properties-window.c:2305
+#: ../src/file-manager/fm-properties-window.c:2301
 msgid "(some contents unreadable)"
 msgstr "(diçka nuk është e lexueshme)"
 
@@ -5285,243 +5468,243 @@ msgstr "(diçka nuk është e lexueshme)"
 #. * "Contents:" title to line up with the first line of the
 #. * 2-line value. Maybe there's a better way to do this, but I
 #. * couldn't think of one.
-#: ../src/file-manager/fm-properties-window.c:2322
+#: ../src/file-manager/fm-properties-window.c:2318
 msgid "Contents:"
 msgstr "Përmbajtja:"
 
 #. Translators: "used" refers to the capacity of the filesystem
-#: ../src/file-manager/fm-properties-window.c:3098
+#: ../src/file-manager/fm-properties-window.c:3094
 msgid "used"
 msgstr "përdorur"
 
 #. Translators: "free" refers to the capacity of the filesystem
-#: ../src/file-manager/fm-properties-window.c:3107
+#: ../src/file-manager/fm-properties-window.c:3103
 msgid "free"
 msgstr "e lirë"
 
-#: ../src/file-manager/fm-properties-window.c:3109
+#: ../src/file-manager/fm-properties-window.c:3105
 msgid "Total capacity:"
 msgstr "Kapaciteti gjithsej:"
 
-#: ../src/file-manager/fm-properties-window.c:3118
+#: ../src/file-manager/fm-properties-window.c:3114
 msgid "Filesystem type:"
 msgstr "Lloji i file të sistemit:"
 
-#: ../src/file-manager/fm-properties-window.c:3204
+#: ../src/file-manager/fm-properties-window.c:3200
 msgid "Basic"
 msgstr "Të përgjithshme"
 
-#: ../src/file-manager/fm-properties-window.c:3266
+#: ../src/file-manager/fm-properties-window.c:3262
 msgid "Link target:"
 msgstr "Lidhur me:"
 
-#: ../src/file-manager/fm-properties-window.c:3280
+#: ../src/file-manager/fm-properties-window.c:3276
 msgid "Size on Disk:"
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:3289
+#: ../src/file-manager/fm-properties-window.c:3285
 #: ../src/caja-location-bar.c:57
 msgid "Location:"
 msgstr "Pozicioni:"
 
-#: ../src/file-manager/fm-properties-window.c:3295
+#: ../src/file-manager/fm-properties-window.c:3291
 msgid "Volume:"
 msgstr "Volumi:"
 
-#: ../src/file-manager/fm-properties-window.c:3304
+#: ../src/file-manager/fm-properties-window.c:3300
 msgid "Accessed:"
 msgstr "Hyrja e fundit:"
 
-#: ../src/file-manager/fm-properties-window.c:3308
+#: ../src/file-manager/fm-properties-window.c:3304
 msgid "Modified:"
-msgstr "Ndryshimi i fundit:"
+msgstr "Modifikuar:"
 
-#: ../src/file-manager/fm-properties-window.c:3317
+#: ../src/file-manager/fm-properties-window.c:3313
 msgid "Free space:"
 msgstr "Hapësira e lirë:"
 
-#: ../src/file-manager/fm-properties-window.c:3431
+#: ../src/file-manager/fm-properties-window.c:3427
 #: ../src/caja-emblem-sidebar.c:1085
 msgid "Emblems"
 msgstr "Simbolet"
 
-#: ../src/file-manager/fm-properties-window.c:3840
+#: ../src/file-manager/fm-properties-window.c:3836
 msgid "_Read"
-msgstr "_Lexim"
+msgstr "_Leximi"
 
-#: ../src/file-manager/fm-properties-window.c:3842
+#: ../src/file-manager/fm-properties-window.c:3838
 msgid "_Write"
-msgstr "_Shkrim"
+msgstr "_Shkrimi"
 
-#: ../src/file-manager/fm-properties-window.c:3844
+#: ../src/file-manager/fm-properties-window.c:3840
 msgid "E_xecute"
 msgstr "E_kzekutim"
 
 #. translators: this gets concatenated to "no read",
 #. * "no access", etc. (see following strings)
-#: ../src/file-manager/fm-properties-window.c:4112
-#: ../src/file-manager/fm-properties-window.c:4123
-#: ../src/file-manager/fm-properties-window.c:4135
+#: ../src/file-manager/fm-properties-window.c:4108
+#: ../src/file-manager/fm-properties-window.c:4119
+#: ../src/file-manager/fm-properties-window.c:4131
 msgid "no "
 msgstr "jo "
 
-#: ../src/file-manager/fm-properties-window.c:4115
+#: ../src/file-manager/fm-properties-window.c:4111
 msgid "list"
 msgstr "lista"
 
-#: ../src/file-manager/fm-properties-window.c:4117
+#: ../src/file-manager/fm-properties-window.c:4113
 msgid "read"
 msgstr "lexim"
 
-#: ../src/file-manager/fm-properties-window.c:4126
+#: ../src/file-manager/fm-properties-window.c:4122
 msgid "create/delete"
 msgstr "krijim/eleminim"
 
-#: ../src/file-manager/fm-properties-window.c:4128
+#: ../src/file-manager/fm-properties-window.c:4124
 msgid "write"
 msgstr "shkrim"
 
-#: ../src/file-manager/fm-properties-window.c:4137
+#: ../src/file-manager/fm-properties-window.c:4133
 msgid "access"
 msgstr "futja"
 
-#: ../src/file-manager/fm-properties-window.c:4185
+#: ../src/file-manager/fm-properties-window.c:4181
 msgid "Access:"
 msgstr "Hyrja:"
 
-#: ../src/file-manager/fm-properties-window.c:4187
+#: ../src/file-manager/fm-properties-window.c:4183
 msgid "Folder access:"
 msgstr "Hyrja në kartelë:"
 
-#: ../src/file-manager/fm-properties-window.c:4189
+#: ../src/file-manager/fm-properties-window.c:4185
 msgid "File access:"
 msgstr "Hyrja në file:"
 
 #. Translators: this is referred to the permissions
 #. * the user has in a directory.
 #. Translators: this is referred to captions under icons.
-#: ../src/file-manager/fm-properties-window.c:4204
-#: ../src/file-manager/fm-properties-window.c:4215
-#: ../src/caja-file-management-properties.c:335
+#: ../src/file-manager/fm-properties-window.c:4200
+#: ../src/file-manager/fm-properties-window.c:4211
+#: ../src/caja-file-management-properties.c:329
 msgid "None"
-msgstr "Asnjë"
+msgstr "Asgjë"
 
-#: ../src/file-manager/fm-properties-window.c:4207
+#: ../src/file-manager/fm-properties-window.c:4203
 msgid "List files only"
 msgstr "Shfaq vetëm listën e file"
 
-#: ../src/file-manager/fm-properties-window.c:4209
+#: ../src/file-manager/fm-properties-window.c:4205
 msgid "Access files"
 msgstr "Hyrje në file"
 
-#: ../src/file-manager/fm-properties-window.c:4211
+#: ../src/file-manager/fm-properties-window.c:4207
 msgid "Create and delete files"
 msgstr "Krijon dhe eleminon file"
 
-#: ../src/file-manager/fm-properties-window.c:4218
+#: ../src/file-manager/fm-properties-window.c:4214
 msgid "Read-only"
 msgstr "Vetëm lexim"
 
-#: ../src/file-manager/fm-properties-window.c:4220
+#: ../src/file-manager/fm-properties-window.c:4216
 msgid "Read and write"
 msgstr "Lexim dhe shkrim"
 
-#: ../src/file-manager/fm-properties-window.c:4285
+#: ../src/file-manager/fm-properties-window.c:4281
 msgid "Special flags:"
 msgstr "Flag specialë:"
 
-#: ../src/file-manager/fm-properties-window.c:4287
+#: ../src/file-manager/fm-properties-window.c:4283
 msgid "Set _user ID"
 msgstr "Përcakto ID e përdor_uesit"
 
-#: ../src/file-manager/fm-properties-window.c:4288
+#: ../src/file-manager/fm-properties-window.c:4284
 msgid "Set gro_up ID"
 msgstr "Përcakto ID e gr_upit"
 
-#: ../src/file-manager/fm-properties-window.c:4289
+#: ../src/file-manager/fm-properties-window.c:4285
 msgid "_Sticky"
 msgstr "Ngjitë_s"
 
-#: ../src/file-manager/fm-properties-window.c:4364
-#: ../src/file-manager/fm-properties-window.c:4555
+#: ../src/file-manager/fm-properties-window.c:4360
+#: ../src/file-manager/fm-properties-window.c:4551
 msgid "_Owner:"
 msgstr "Pr_onari:"
 
-#: ../src/file-manager/fm-properties-window.c:4372
-#: ../src/file-manager/fm-properties-window.c:4460
-#: ../src/file-manager/fm-properties-window.c:4564
+#: ../src/file-manager/fm-properties-window.c:4368
+#: ../src/file-manager/fm-properties-window.c:4456
+#: ../src/file-manager/fm-properties-window.c:4560
 msgid "Owner:"
 msgstr "Pronari:"
 
-#: ../src/file-manager/fm-properties-window.c:4394
-#: ../src/file-manager/fm-properties-window.c:4577
+#: ../src/file-manager/fm-properties-window.c:4390
+#: ../src/file-manager/fm-properties-window.c:4573
 msgid "_Group:"
 msgstr "_Grupi:"
 
-#: ../src/file-manager/fm-properties-window.c:4402
-#: ../src/file-manager/fm-properties-window.c:4461
-#: ../src/file-manager/fm-properties-window.c:4585
+#: ../src/file-manager/fm-properties-window.c:4398
+#: ../src/file-manager/fm-properties-window.c:4457
+#: ../src/file-manager/fm-properties-window.c:4581
 msgid "Group:"
 msgstr "Grupi:"
 
-#: ../src/file-manager/fm-properties-window.c:4426
+#: ../src/file-manager/fm-properties-window.c:4422
 msgid "Others"
 msgstr "Të tjerë"
 
-#: ../src/file-manager/fm-properties-window.c:4441
+#: ../src/file-manager/fm-properties-window.c:4437
 msgid "Execute:"
 msgstr "Ekzekutim"
 
-#: ../src/file-manager/fm-properties-window.c:4444
+#: ../src/file-manager/fm-properties-window.c:4440
 msgid "Allow _executing file as program"
 msgstr "Lejon _ekzekutimin e file si program"
 
-#: ../src/file-manager/fm-properties-window.c:4462
+#: ../src/file-manager/fm-properties-window.c:4458
 msgid "Others:"
 msgstr "Të tjerë:"
 
-#: ../src/file-manager/fm-properties-window.c:4601
+#: ../src/file-manager/fm-properties-window.c:4597
 msgid "Folder Permissions:"
 msgstr "Të drejta mbi kartelë:"
 
-#: ../src/file-manager/fm-properties-window.c:4608
+#: ../src/file-manager/fm-properties-window.c:4604
 msgid "File Permissions:"
 msgstr "Të drejta mbi file:"
 
-#: ../src/file-manager/fm-properties-window.c:4617
+#: ../src/file-manager/fm-properties-window.c:4613
 msgid "Text view:"
 msgstr "Simbolikë:"
 
-#: ../src/file-manager/fm-properties-window.c:4763
+#: ../src/file-manager/fm-properties-window.c:4759
 msgid "You are not the owner, so you cannot change these permissions."
 msgstr "Vetëm pronari i file mund të ndryshojë këto të drejta."
 
-#: ../src/file-manager/fm-properties-window.c:4783
+#: ../src/file-manager/fm-properties-window.c:4779
 msgid "SELinux context:"
 msgstr "Konteksti SELinux:"
 
-#: ../src/file-manager/fm-properties-window.c:4788
+#: ../src/file-manager/fm-properties-window.c:4784
 msgid "Last changed:"
 msgstr "Ndryshimi i fundit:"
 
-#: ../src/file-manager/fm-properties-window.c:4799
+#: ../src/file-manager/fm-properties-window.c:4795
 msgid "Apply Permissions to Enclosed Files"
 msgstr "Apliko të drejtat tek file e përfshirë"
 
-#: ../src/file-manager/fm-properties-window.c:4809
+#: ../src/file-manager/fm-properties-window.c:4805
 #, c-format
 msgid "The permissions of \"%s\" could not be determined."
 msgstr "Të drejtat e «%s» nuk mund të përcaktohen."
 
-#: ../src/file-manager/fm-properties-window.c:4812
+#: ../src/file-manager/fm-properties-window.c:4808
 msgid "The permissions of the selected file could not be determined."
 msgstr "Të drejtat e file të zgjedhur nuk mund të përcaktohen."
 
-#: ../src/file-manager/fm-properties-window.c:5386
+#: ../src/file-manager/fm-properties-window.c:5382
 msgid "Creating Properties window."
 msgstr "Krijimi i dritares së pronësive."
 
-#: ../src/file-manager/fm-properties-window.c:5682
+#: ../src/file-manager/fm-properties-window.c:5671
 msgid "Select Custom Icon"
 msgstr "Zgjidh ikonën e personalizuar"
 
@@ -5529,11 +5712,11 @@ msgstr "Zgjidh ikonën e personalizuar"
 msgid "File System"
 msgstr "File i sistemit"
 
-#: ../src/file-manager/fm-tree-view.c:1729
+#: ../src/file-manager/fm-tree-view.c:1727
 msgid "Tree"
 msgstr "Degëzimi"
 
-#: ../src/file-manager/fm-tree-view.c:1735
+#: ../src/file-manager/fm-tree-view.c:1733
 msgid "Show Tree"
 msgstr "Shfaq degëzimin"
 
@@ -5546,7 +5729,9 @@ msgstr "Caja nuk mund të krijojë kartelën e duhur «%s»."
 msgid ""
 "Before running Caja, please create the following folder, or set permissions "
 "such that Caja can create it."
-msgstr "Përpara se të ekzekutohet Caja, krijoni kartelën në vazhdim, ose përcaktoni të drejtat në menyrë që ta krijojë Caja."
+msgstr ""
+"Përpara se të ekzekutohet Caja, krijoni kartelën në vazhdim, ose përcaktoni "
+"të drejtat në menyrë që ta krijojë Caja."
 
 #: ../src/caja-application.c:488
 #, c-format
@@ -5557,7 +5742,9 @@ msgstr "Caja nuk mund të krijojë kartelat e duhura në vijim: %s."
 msgid ""
 "Before running Caja, please create these folders, or set permissions such "
 "that Caja can create them."
-msgstr "Përpara se të ekzekutohet Caja, krijoni këto kartela, ose përcaktoni të drejtat në menyrë që t'i krijojë Caja."
+msgstr ""
+"Përpara se të ekzekutohet Caja, krijoni këto kartela, ose përcaktoni të "
+"drejtat në menyrë që t'i krijojë Caja."
 
 #: ../src/caja-application.c:1264 ../src/caja-places-sidebar.c:2191
 #: ../src/caja-places-sidebar.c:2222 ../src/caja-places-sidebar.c:2257
@@ -5601,7 +5788,9 @@ msgstr "Krijon vetëm dritaret për URL e specifikuara qartë."
 msgid ""
 "Do not manage the desktop (ignore the preference set in the preferences "
 "dialog)."
-msgstr "Nuk menzhon hapësirën e punës (duke shpërfillur preferimet tek dialogu i rregullimeve)."
+msgstr ""
+"Nuk menzhon hapësirën e punës (duke shpërfillur preferimet tek dialogu i "
+"rregullimeve)."
 
 #: ../src/caja-application.c:2024
 msgid ""
@@ -5626,7 +5815,10 @@ msgid ""
 "\n"
 "\n"
 "Browse the file system with the file manager"
-msgstr "\n\nShfleton file e sistemit me administruesin e file"
+msgstr ""
+"\n"
+"\n"
+"Shfleton file e sistemit me administruesin e file"
 
 #: ../src/caja-autorun-software.c:164 ../src/caja-autorun-software.c:167
 #, c-format
@@ -5646,7 +5838,9 @@ msgstr "<big><b>Gabim në ekzekutimin e automatik të software</b></big>"
 msgid ""
 "<big><b>This medium contains software intended to be automatically started. "
 "Would you like to run it?</b></big>"
-msgstr "<big><b>Ky suport përmban software të projektuar për tu nisur automatikisht. E ekzekuton?</b></big>"
+msgstr ""
+"<big><b>Ky suport përmban software të projektuar për tu nisur automatikisht."
+" E ekzekuton?</b></big>"
 
 #: ../src/caja-autorun-software.c:219
 #, c-format
@@ -5654,18 +5848,23 @@ msgid ""
 "The software will run directly from the medium \"%s\". You should never run software that you don't trust.\n"
 "\n"
 "If in doubt, press Cancel."
-msgstr "Software do të zbatohet direkt nga suporti «%s». Nuk duhet ekzekutuar asnjëherë software jo i besueshëm.\n\nNëse dyshohet, shtyp «Anullo»."
+msgstr ""
+"Software do të zbatohet direkt nga suporti «%s». Nuk duhet ekzekutuar asnjëherë software jo i besueshëm.\n"
+"\n"
+"Nëse dyshohet, shtyp «Anullo»."
 
-#: ../src/caja-bookmarks-window.c:164
-#: ../src/caja-file-management-properties.c:242
-#: ../src/caja-property-browser.c:1677 ../src/caja-window-menus.c:598
+#: ../src/caja-bookmarks-window.c:158
+#: ../src/caja-file-management-properties.c:236
+#: ../src/caja-property-browser.c:1661 ../src/caja-window-menus.c:590
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
 "%s"
-msgstr "Gabim gjatë shfaqjes së ndihmës: \n%s"
+msgstr ""
+"Gabim gjatë shfaqjes së ndihmës: \n"
+"%s"
 
-#: ../src/caja-bookmarks-window.c:200
+#: ../src/caja-bookmarks-window.c:194
 msgid "No bookmarks defined"
 msgstr "Nuk është përcaktuar asnjë libërshënues"
 
@@ -5692,7 +5891,10 @@ msgid ""
 "\n"
 "\n"
 "Add connect to server mount"
-msgstr "\n\nShton një mount lidhje në server"
+msgstr ""
+"\n"
+"\n"
+"Shton një mount lidhje në server"
 
 #: ../src/caja-connect-server-dialog.c:135
 msgid "SSH"
@@ -5754,76 +5956,76 @@ msgstr ""
 msgid "Continue"
 msgstr "Vazhdo"
 
-#: ../src/caja-connect-server-dialog.c:742
-#: ../src/caja-connect-server-dialog.c:1171
+#: ../src/caja-connect-server-dialog.c:736
+#: ../src/caja-connect-server-dialog.c:1125
 msgid "C_onnect"
 msgstr "Li_dhu"
 
 #. set dialog properties
-#: ../src/caja-connect-server-dialog.c:866
+#: ../src/caja-connect-server-dialog.c:860
 msgid "Connect to Server"
 msgstr "Lidhu me server-in"
 
-#: ../src/caja-connect-server-dialog.c:880
+#: ../src/caja-connect-server-dialog.c:874
 msgid "Server Details"
 msgstr ""
 
 #. first row: server entry + port spinbutton
-#: ../src/caja-connect-server-dialog.c:904
+#: ../src/caja-connect-server-dialog.c:894
 msgid "_Server:"
 msgstr "_Serveri:"
 
 #. port
-#: ../src/caja-connect-server-dialog.c:926
+#: ../src/caja-connect-server-dialog.c:912
 msgid "_Port:"
 msgstr "_Porta:"
 
 #. third row: share entry
-#: ../src/caja-connect-server-dialog.c:1025
+#: ../src/caja-connect-server-dialog.c:1003
 msgid "Share:"
 msgstr ""
 
 #. fourth row: folder entry
-#: ../src/caja-connect-server-dialog.c:1041
+#: ../src/caja-connect-server-dialog.c:1015
 msgid "Folder:"
 msgstr "Dosja:"
 
-#: ../src/caja-connect-server-dialog.c:1058
+#: ../src/caja-connect-server-dialog.c:1028
 msgid "User Details"
 msgstr "Detajet e përdoruesit"
 
 #. first row: domain entry
-#: ../src/caja-connect-server-dialog.c:1082
+#: ../src/caja-connect-server-dialog.c:1048
 msgid "Domain Name:"
 msgstr ""
 
 #. second row: username entry
-#: ../src/caja-connect-server-dialog.c:1098
+#: ../src/caja-connect-server-dialog.c:1060
 msgid "User Name:"
 msgstr "Emri i përdoruesit:"
 
 #. third row: password entry
-#: ../src/caja-connect-server-dialog.c:1114
+#: ../src/caja-connect-server-dialog.c:1072
 msgid "Password:"
 msgstr "Fjalëkalimi:"
 
 #. fourth row: remember checkbox
-#: ../src/caja-connect-server-dialog.c:1131
+#: ../src/caja-connect-server-dialog.c:1085
 msgid "Remember this password"
 msgstr "Kujto këtë fjalëkalim"
 
-#: ../src/caja-connect-server-dialog.c:1142
+#: ../src/caja-connect-server-dialog.c:1096
 msgid "Add _bookmark"
-msgstr ""
+msgstr "Shto li_bërshënues"
 
-#: ../src/caja-connect-server-dialog.c:1149
+#: ../src/caja-connect-server-dialog.c:1103
 msgid "Bookmark Name:"
 msgstr ""
 
-#: ../src/caja-desktop-window.c:87 ../src/caja-desktop-window.c:267
-#: ../src/caja-pathbar.c:1403 ../src/caja-places-sidebar.c:519
+#: ../src/caja-desktop-window.c:87 ../src/caja-desktop-window.c:264
+#: ../src/caja-pathbar.c:1399 ../src/caja-places-sidebar.c:519
 msgid "Desktop"
-msgstr "Ambienti grafik"
+msgstr "Desktopi"
 
 #: ../src/caja-emblem-sidebar.c:224
 #, c-format
@@ -5834,7 +6036,8 @@ msgstr "E pamundur heqja e simbolit me emrin «%s»."
 msgid ""
 "This is probably because the emblem is a permanent one, and not one that you"
 " added yourself."
-msgstr "Shkaku mund të jetë që simboli është i përhershëm, pra jo i krijuar nga ju."
+msgstr ""
+"Shkaku mund të jetë që simboli është i përhershëm, pra jo i krijuar nga ju."
 
 #: ../src/caja-emblem-sidebar.c:264
 #, c-format
@@ -5861,13 +6064,17 @@ msgstr "Shto simbol..."
 msgid ""
 "Enter a descriptive name next to each emblem.  This name will be used in "
 "other places to identify the emblem."
-msgstr "Shkruaj një emër tjetër përshkrues për simbolin. Ky emër do të përdoret në pozicione të tjera për të identifikuar simbolin."
+msgstr ""
+"Shkruaj një emër tjetër përshkrues për simbolin. Ky emër do të përdoret në "
+"pozicione të tjera për të identifikuar simbolin."
 
 #: ../src/caja-emblem-sidebar.c:558
 msgid ""
 "Enter a descriptive name next to the emblem.  This name will be used in "
 "other places to identify the emblem."
-msgstr "Shkruaj një emër përshkrues për simbolin. Ky emër do të përdoret në pozicione të tjera për të identifikuar simbolin."
+msgstr ""
+"Shkruaj një emër përshkrues për simbolin. Ky emër do të përdoret në "
+"pozicione të tjera për të identifikuar simbolin."
 
 #: ../src/caja-emblem-sidebar.c:800
 msgid "Some of the files could not be added as emblems."
@@ -5898,7 +6105,7 @@ msgstr "I pamundur shtimi i simbolit."
 msgid "Show Emblems"
 msgstr "Shfaq simbolet"
 
-#: ../src/caja-file-management-properties.c:638
+#: ../src/caja-file-management-properties.c:632
 msgid "About Extension"
 msgstr ""
 
@@ -6153,7 +6360,9 @@ msgstr "<b>Teksti i konave</b>"
 msgid ""
 "Choose the order of information to appear beneath icon names. More "
 "information will appear when zooming in closer."
-msgstr "Zgjidh rradhën e shfaqjes së informacione nën emrat e ikonave. Me rritjen e zmadhimit do të shfaqen më shumë informacione."
+msgstr ""
+"Zgjidh rradhën e shfaqjes së informacione nën emrat e ikonave. Me rritjen e "
+"zmadhimit do të shfaqen më shumë informacione."
 
 #: ../src/caja-file-management-properties.ui.h:72
 msgid "<b>Date</b>"
@@ -6173,7 +6382,7 @@ msgstr ""
 
 #: ../src/caja-file-management-properties.ui.h:76
 msgid "Display"
-msgstr "Shfaqja"
+msgstr "Shfaq"
 
 #: ../src/caja-file-management-properties.ui.h:77
 msgid "<b>List Columns</b>"
@@ -6181,7 +6390,9 @@ msgstr "<b>Kollonat e listës</b>"
 
 #: ../src/caja-file-management-properties.ui.h:78
 msgid "Choose the order of information to appear in the list view."
-msgstr "Zgjidh renditjen me të cilën informacionet do të shfaqjen në paraqitjen në formë liste."
+msgstr ""
+"Zgjidh renditjen me të cilën informacionet do të shfaqjen në paraqitjen në "
+"formë liste."
 
 #: ../src/caja-file-management-properties.ui.h:79
 msgid "List Columns"
@@ -6225,7 +6436,7 @@ msgstr "Numëro _numrin e elementëve:"
 
 #: ../src/caja-file-management-properties.ui.h:89
 msgid "Preview"
-msgstr "Pamja e parë"
+msgstr "Shikoje"
 
 #: ../src/caja-file-management-properties.ui.h:90
 msgid "<b>Media Handling</b>"
@@ -6234,7 +6445,9 @@ msgstr "<b>Trajtimi i suporteve</b>"
 #: ../src/caja-file-management-properties.ui.h:91
 msgid ""
 "Choose what happens when inserting media or connecting devices to the system"
-msgstr "Zgjidh veprimin për tu ndërmarrë kur futet një suport apo lidhen dispozitivë në sistem"
+msgstr ""
+"Zgjidh veprimin për tu ndërmarrë kur futet një suport apo lidhen dispozitivë"
+" në sistem"
 
 #: ../src/caja-file-management-properties.ui.h:92
 msgid "CD _Audio:"
@@ -6308,106 +6521,106 @@ msgstr ""
 msgid "Extensions"
 msgstr "Prapashtesat"
 
-#: ../src/caja-history-sidebar.c:338
+#: ../src/caja-history-sidebar.c:337
 msgid "History"
 msgstr "Kronollogjia"
 
-#: ../src/caja-history-sidebar.c:344
+#: ../src/caja-history-sidebar.c:343
 msgid "Show History"
 msgstr "Shfaq kronollogjinë"
 
-#: ../src/caja-image-properties-page.c:280
+#: ../src/caja-image-properties-page.c:276
 msgid "Camera Brand"
 msgstr "Marka e Kamerës"
 
-#: ../src/caja-image-properties-page.c:281
+#: ../src/caja-image-properties-page.c:277
 msgid "Camera Model"
 msgstr "Modeli i kamerës"
 
 #. Choose which date to show in order of relevance
-#: ../src/caja-image-properties-page.c:284
+#: ../src/caja-image-properties-page.c:280
 msgid "Date Taken"
 msgstr "Data marrjes"
 
-#: ../src/caja-image-properties-page.c:286
+#: ../src/caja-image-properties-page.c:282
 msgid "Date Digitized"
 msgstr "Data e dixhitalizimit"
 
-#: ../src/caja-image-properties-page.c:292
+#: ../src/caja-image-properties-page.c:288
 msgid "Exposure Time"
 msgstr "Koha e ekspozimit"
 
-#: ../src/caja-image-properties-page.c:293
+#: ../src/caja-image-properties-page.c:289
 msgid "Aperture Value"
 msgstr "Vlera e hapjes"
 
-#: ../src/caja-image-properties-page.c:294
+#: ../src/caja-image-properties-page.c:290
 msgid "ISO Speed Rating"
 msgstr "Ndjeshmëria ISO"
 
-#: ../src/caja-image-properties-page.c:295
+#: ../src/caja-image-properties-page.c:291
 msgid "Flash Fired"
 msgstr "Foto me flash"
 
-#: ../src/caja-image-properties-page.c:296
+#: ../src/caja-image-properties-page.c:292
 msgid "Metering Mode"
 msgstr "Modalitet ekspometër"
 
-#: ../src/caja-image-properties-page.c:297
+#: ../src/caja-image-properties-page.c:293
 msgid "Exposure Program"
 msgstr "Programi i ekspozimit"
 
-#: ../src/caja-image-properties-page.c:298
+#: ../src/caja-image-properties-page.c:294
 msgid "Focal Length"
 msgstr "Gjatësia e fokusit"
 
-#: ../src/caja-image-properties-page.c:299
+#: ../src/caja-image-properties-page.c:295
 msgid "Software"
 msgstr "Software"
 
-#: ../src/caja-image-properties-page.c:371
+#: ../src/caja-image-properties-page.c:367
 msgid "Keywords"
 msgstr "Fjalë kyçe"
 
-#: ../src/caja-image-properties-page.c:372
+#: ../src/caja-image-properties-page.c:368
 msgid "Creator"
 msgstr "Krijuesi"
 
-#: ../src/caja-image-properties-page.c:373
+#: ../src/caja-image-properties-page.c:369
 msgid "Copyright"
 msgstr "Copyright"
 
-#: ../src/caja-image-properties-page.c:374
+#: ../src/caja-image-properties-page.c:370
 msgid "Rating"
 msgstr "Vlerësimi"
 
-#: ../src/caja-image-properties-page.c:405
+#: ../src/caja-image-properties-page.c:401
 msgid "Image Type:"
 msgstr "Lloji i figurës:"
 
-#: ../src/caja-image-properties-page.c:408
+#: ../src/caja-image-properties-page.c:404
 #, c-format
 msgid "<b>Width:</b> %d pixel"
 msgid_plural "<b>Width:</b> %d pixels"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/caja-image-properties-page.c:414
+#: ../src/caja-image-properties-page.c:410
 #, c-format
 msgid "<b>Height:</b> %d pixel"
 msgid_plural "<b>Height:</b> %d pixels"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/caja-image-properties-page.c:433
+#: ../src/caja-image-properties-page.c:429
 msgid "Failed to load image information"
 msgstr "Leximi i informacioneve mbi figurën dështoi"
 
-#: ../src/caja-image-properties-page.c:661
+#: ../src/caja-image-properties-page.c:657
 msgid "loading..."
 msgstr "ngarkimi..."
 
-#: ../src/caja-image-properties-page.c:715
+#: ../src/caja-image-properties-page.c:711
 msgid "Image"
 msgstr "Figura"
 
@@ -6426,7 +6639,9 @@ msgstr "Përdor sfondin e _paracaktuar"
 
 #: ../src/caja-information-panel.c:527
 msgid "You cannot assign more than one custom icon at a time."
-msgstr "Nuk është i mundur caktimi i më shumë se një ikone të personalizuar njëkohësisht."
+msgstr ""
+"Nuk është i mundur caktimi i më shumë se një ikone të personalizuar "
+"njëkohësisht."
 
 #: ../src/caja-information-panel.c:564
 msgid "You can only use images as custom icons."
@@ -6440,14 +6655,14 @@ msgstr "Shko tek:"
 #, c-format
 msgid "Do you want to view %d location?"
 msgid_plural "Do you want to view %d locations?"
-msgstr[0] "Shfaq %d pozicion?"
-msgstr[1] "Shfaq %d pozicione?"
+msgstr[0] ""
+msgstr[1] ""
 
-#: ../src/caja-location-dialog.c:163
+#: ../src/caja-location-dialog.c:157
 msgid "Open Location"
 msgstr "Hap pozicionin"
 
-#: ../src/caja-location-dialog.c:173
+#: ../src/caja-location-dialog.c:167
 msgid "_Location:"
 msgstr "_Pozicioni:"
 
@@ -6554,7 +6769,7 @@ msgstr ""
 #. name, stock id, label
 #: ../src/caja-navigation-window-menus.c:859 ../src/caja-spatial-window.c:956
 msgid "_Add Bookmark"
-msgstr "_Shto libërshënues"
+msgstr "_Shto Libërshënues"
 
 #: ../src/caja-navigation-window-menus.c:860 ../src/caja-spatial-window.c:957
 msgid "Add a bookmark for the current location to this menu"
@@ -6567,11 +6782,12 @@ msgstr "_Ndrysho libërshënues..."
 
 #: ../src/caja-navigation-window-menus.c:864 ../src/caja-spatial-window.c:961
 msgid "Display a window that allows editing the bookmarks in this menu"
-msgstr "Hap një dritare për të ndryshuar libërshënuesit personalë në këtë menu"
+msgstr ""
+"Hap një dritare për të ndryshuar libërshënuesit personalë në këtë menu"
 
 #: ../src/caja-navigation-window-menus.c:868
 msgid "_Previous Tab"
-msgstr "Skeda _paraardhëse"
+msgstr "Skeda _Paraardhëse"
 
 #: ../src/caja-navigation-window-menus.c:869
 msgid "Activate previous tab"
@@ -6579,7 +6795,7 @@ msgstr "Aktivizon skedën paraardhëse"
 
 #: ../src/caja-navigation-window-menus.c:873
 msgid "_Next Tab"
-msgstr "Skeda në _vijim"
+msgstr "Skeda në _Vazhdim"
 
 #: ../src/caja-navigation-window-menus.c:874
 msgid "Activate next tab"
@@ -6696,7 +6912,7 @@ msgstr "_Para"
 
 #: ../src/caja-navigation-window-menus.c:975
 msgid "Go to the next visited location"
-msgstr "Shkon tek pozicioni në vijim i vizituar"
+msgstr "Shkon tek pozicioni në vazhdim i vizituar"
 
 #: ../src/caja-navigation-window-menus.c:976
 msgid "Forward history"
@@ -6731,15 +6947,15 @@ msgstr "_Mbyll skedën"
 msgid "%s - File Browser"
 msgstr "%s - Shfletimi i file"
 
-#: ../src/caja-notebook.c:337
+#: ../src/caja-notebook.c:330
 msgid "Close tab"
 msgstr "Mbyll skedën"
 
-#: ../src/caja-notes-viewer.c:399 ../src/caja-notes-viewer.c:503
+#: ../src/caja-notes-viewer.c:398 ../src/caja-notes-viewer.c:502
 msgid "Notes"
 msgstr "Shënime"
 
-#: ../src/caja-notes-viewer.c:405
+#: ../src/caja-notes-viewer.c:404
 msgid "Show Notes"
 msgstr "Shfaq shënimet"
 
@@ -6749,11 +6965,11 @@ msgstr "Pajisjet"
 
 #: ../src/caja-places-sidebar.c:317
 msgid "Bookmarks"
-msgstr ""
+msgstr "Libërshënues"
 
 #: ../src/caja-places-sidebar.c:521
 msgid "Open the contents of your desktop in a folder"
-msgstr ""
+msgstr "Hap përmbajtjen e hapësirës së punës në një kartelë"
 
 #: ../src/caja-places-sidebar.c:537
 msgid "Open the contents of the File System"
@@ -6824,11 +7040,11 @@ msgstr "Hiq"
 msgid "Rename..."
 msgstr "Riemërto..."
 
-#: ../src/caja-places-sidebar.c:3382
+#: ../src/caja-places-sidebar.c:3381
 msgid "Places"
 msgstr "Rezerva"
 
-#: ../src/caja-places-sidebar.c:3388
+#: ../src/caja-places-sidebar.c:3387
 msgid "Show Places"
 msgstr "Shfaq rezervat"
 
@@ -6838,159 +7054,159 @@ msgid "Backgrounds and Emblems"
 msgstr "Sfonde dhe simbolë"
 
 #. create the "remove" button
-#: ../src/caja-property-browser.c:409
+#: ../src/caja-property-browser.c:407
 msgid "_Remove..."
 msgstr "_Hiq..."
 
 #. now create the "add new" button
-#: ../src/caja-property-browser.c:423
+#: ../src/caja-property-browser.c:421
 msgid "Add new..."
 msgstr "Shto të ri..."
 
-#: ../src/caja-property-browser.c:974
+#: ../src/caja-property-browser.c:972
 #, c-format
 msgid "Sorry, but pattern %s could not be deleted."
 msgstr "Nuk është i mundur eleminimi i motivit «%s»."
 
-#: ../src/caja-property-browser.c:975
+#: ../src/caja-property-browser.c:973
 msgid "Check that you have permission to delete the pattern."
 msgstr "Kontrollo nëse ke të drejta të mjaftueshme për të eleminuar motivin."
 
-#: ../src/caja-property-browser.c:991
+#: ../src/caja-property-browser.c:989
 #, c-format
 msgid "Sorry, but emblem %s could not be deleted."
 msgstr "Nuk është i mundur elminimi i simbolit «%s»."
 
-#: ../src/caja-property-browser.c:992
+#: ../src/caja-property-browser.c:990
 msgid "Check that you have permission to delete the emblem."
 msgstr "Kontrollo nëse ke të drejta të mjaftueshme për të eleminuar simbolin."
 
-#: ../src/caja-property-browser.c:1064
+#: ../src/caja-property-browser.c:1062
 msgid "Select an Image File for the New Emblem"
 msgstr "Zgjidh një figurë për simbolin e ri"
 
-#: ../src/caja-property-browser.c:1105
+#: ../src/caja-property-browser.c:1103
 msgid "Create a New Emblem"
 msgstr "Krijo një simbol të ri"
 
 #. make the keyword label and field
-#: ../src/caja-property-browser.c:1126
+#: ../src/caja-property-browser.c:1124
 msgid "_Keyword:"
 msgstr "Fjalç _kyçi:"
 
 #. set up a file chooser to pick the image file
-#: ../src/caja-property-browser.c:1149
+#: ../src/caja-property-browser.c:1143
 msgid "_Image:"
 msgstr "F_igura:"
 
-#: ../src/caja-property-browser.c:1185
+#: ../src/caja-property-browser.c:1175
 msgid "Create a New Color:"
 msgstr "Krijo një ngjyrë të re:"
 
 #. make the name label and field
-#: ../src/caja-property-browser.c:1199
+#: ../src/caja-property-browser.c:1189
 msgid "Color _name:"
 msgstr "_Emri i ngjyrës:"
 
-#: ../src/caja-property-browser.c:1215
+#: ../src/caja-property-browser.c:1205
 msgid "Color _value:"
 msgstr "_Vlera e ngjyrës:"
 
-#: ../src/caja-property-browser.c:1251
+#: ../src/caja-property-browser.c:1241
 msgid "Sorry, but you cannot replace the reset image."
 msgstr "I pamundur zëvendësimi i figurës «Nga zero»."
 
-#: ../src/caja-property-browser.c:1252
+#: ../src/caja-property-browser.c:1242
 msgid "Reset is a special image that cannot be deleted."
 msgstr "«Nga zero» është një figurë speciale dhe nuk mund të eleminohet."
 
-#: ../src/caja-property-browser.c:1282
+#: ../src/caja-property-browser.c:1272
 #, c-format
 msgid "Sorry, but the pattern %s could not be installed."
 msgstr "I pamundur instalimi i motivit «%s»."
 
-#: ../src/caja-property-browser.c:1313
+#: ../src/caja-property-browser.c:1303
 msgid "Select an Image File to Add as a Pattern"
 msgstr "Zgjidh një figurë për ta shtuar si motiv"
 
-#: ../src/caja-property-browser.c:1392 ../src/caja-property-browser.c:1422
+#: ../src/caja-property-browser.c:1382 ../src/caja-property-browser.c:1412
 msgid "The color cannot be installed."
 msgstr "I pamundur instalimi i ngjyrës."
 
-#: ../src/caja-property-browser.c:1393
+#: ../src/caja-property-browser.c:1383
 msgid "Sorry, but you must specify an unused color name for the new color."
 msgstr "Duhet specifikuar një emër i papërdorur për ngjyrën e re."
 
-#: ../src/caja-property-browser.c:1423
+#: ../src/caja-property-browser.c:1413
 msgid "Sorry, but you must specify a non-blank name for the new color."
 msgstr "Duhet specifikuar një emër jo bosh për ngjyrën e re."
 
-#: ../src/caja-property-browser.c:1483
+#: ../src/caja-property-browser.c:1473
 msgid "Select a Color to Add"
 msgstr "Zgjidh një ngjyrë për të shtuar"
 
-#: ../src/caja-property-browser.c:1529 ../src/caja-property-browser.c:1547
+#: ../src/caja-property-browser.c:1519 ../src/caja-property-browser.c:1537
 #, c-format
 msgid "Sorry, but \"%s\" is not a usable image file."
 msgstr "«%s» nuk është një figurë e shfrytëzueshme."
 
-#: ../src/caja-property-browser.c:1530 ../src/caja-property-browser.c:1548
+#: ../src/caja-property-browser.c:1520 ../src/caja-property-browser.c:1538
 msgid "The file is not an image."
 msgstr "File nuk është një figurë."
 
-#: ../src/caja-property-browser.c:2299
+#: ../src/caja-property-browser.c:2281
 msgid "Select a Category:"
 msgstr "Zgjidh një kategori:"
 
-#: ../src/caja-property-browser.c:2311
+#: ../src/caja-property-browser.c:2293
 msgid "C_ancel Remove"
 msgstr "_Anullo heqjen"
 
-#: ../src/caja-property-browser.c:2320
+#: ../src/caja-property-browser.c:2302
 msgid "_Add a New Pattern..."
 msgstr "_Shto një motiv të ri..."
 
-#: ../src/caja-property-browser.c:2323
+#: ../src/caja-property-browser.c:2305
 msgid "_Add a New Color..."
 msgstr "_Shto një ngjyrë të re..."
 
-#: ../src/caja-property-browser.c:2326
+#: ../src/caja-property-browser.c:2308
 msgid "_Add a New Emblem..."
 msgstr "_Shto një simbol të ri..."
 
-#: ../src/caja-property-browser.c:2352
+#: ../src/caja-property-browser.c:2334
 msgid "Click on a pattern to remove it"
 msgstr "Kliko tek motivi për t'a hequr"
 
-#: ../src/caja-property-browser.c:2355
+#: ../src/caja-property-browser.c:2337
 msgid "Click on a color to remove it"
 msgstr "Kliko tek ngjyra për t'a hequr"
 
-#: ../src/caja-property-browser.c:2358
+#: ../src/caja-property-browser.c:2340
 msgid "Click on an emblem to remove it"
 msgstr "Kliko tek simboli për t'a hequr"
 
-#: ../src/caja-property-browser.c:2370
+#: ../src/caja-property-browser.c:2352
 msgid "Patterns:"
 msgstr "Motive:"
 
-#: ../src/caja-property-browser.c:2373
+#: ../src/caja-property-browser.c:2355
 msgid "Colors:"
 msgstr "Ngjyrat:"
 
-#: ../src/caja-property-browser.c:2376
+#: ../src/caja-property-browser.c:2358
 msgid "Emblems:"
 msgstr "Simbolet:"
 
-#: ../src/caja-property-browser.c:2398
+#: ../src/caja-property-browser.c:2380
 msgid "_Remove a Pattern..."
 msgstr "_Hiq një motiv..."
 
-#: ../src/caja-property-browser.c:2401
+#: ../src/caja-property-browser.c:2383
 msgid "_Remove a Color..."
 msgstr "_Hiq një ngjyrë..."
 
-#: ../src/caja-property-browser.c:2404
+#: ../src/caja-property-browser.c:2386
 msgid "_Remove an Emblem..."
 msgstr "_Hiq një simbol..."
 
@@ -7000,7 +7216,7 @@ msgstr "Lloji i file"
 
 #: ../src/caja-query-editor.c:149
 msgid "Tags"
-msgstr ""
+msgstr "Tags"
 
 #: ../src/caja-query-editor.c:295
 msgid "Select folder to search in"
@@ -7013,7 +7229,7 @@ msgstr ""
 
 #: ../src/caja-query-editor.c:498
 msgid "Documents"
-msgstr "Dokumentë"
+msgstr "Dokumente"
 
 #: ../src/caja-query-editor.c:518
 msgid "Music"
@@ -7051,51 +7267,51 @@ msgstr "File teksti"
 msgid "Select type"
 msgstr "Zgjidh llojin"
 
-#: ../src/caja-query-editor.c:804
+#: ../src/caja-query-editor.c:802
 msgid "Any"
 msgstr "Çfarëdolloj"
 
-#: ../src/caja-query-editor.c:820
+#: ../src/caja-query-editor.c:818
 msgid "Other Type..."
 msgstr "Tjetër lloj...."
 
-#: ../src/caja-query-editor.c:1124
+#: ../src/caja-query-editor.c:1122
 msgid "Remove this criterion from the search"
 msgstr "Hiq këtë kriter nga kërkimi"
 
-#: ../src/caja-query-editor.c:1171
+#: ../src/caja-query-editor.c:1169
 msgid "Search Folder"
 msgstr "Kartela e kërkimit"
 
-#: ../src/caja-query-editor.c:1177
+#: ../src/caja-query-editor.c:1175
 msgid "Edit"
 msgstr "Ndrysho"
 
-#: ../src/caja-query-editor.c:1185
+#: ../src/caja-query-editor.c:1183
 msgid "Edit the saved search"
 msgstr "Ndrysho kërkimin e ruajtur"
 
-#: ../src/caja-query-editor.c:1217
+#: ../src/caja-query-editor.c:1215
 msgid "Add a new criterion to this search"
 msgstr "Shto një kriter të ri tek ky kërkim"
 
-#: ../src/caja-query-editor.c:1223
+#: ../src/caja-query-editor.c:1221
 msgid "Go"
 msgstr "Shko"
 
-#: ../src/caja-query-editor.c:1227
+#: ../src/caja-query-editor.c:1225
 msgid "Reload"
 msgstr "Rifresko"
 
-#: ../src/caja-query-editor.c:1232
+#: ../src/caja-query-editor.c:1230
 msgid "Perform or update the search"
 msgstr "Kryen ose rifreskon kërkimin"
 
-#: ../src/caja-query-editor.c:1253
+#: ../src/caja-query-editor.c:1251
 msgid "_Search for:"
-msgstr "_Kërko për:"
+msgstr "_Kërko për: "
 
-#: ../src/caja-query-editor.c:1282
+#: ../src/caja-query-editor.c:1280
 msgid "Search results"
 msgstr "Rezultatet e kërkimit"
 
@@ -7137,7 +7353,8 @@ msgstr "Mbyll të gjitha dritaret e kartelave"
 
 #: ../src/caja-spatial-window.c:965
 msgid "Locate documents and folders on this computer by name or content"
-msgstr "Gjen dokumentë dhe kartela në këtë kompjuter sipas emrit apo përmbajtjes"
+msgstr ""
+"Gjej dokumenta dhe dosje në këtë kompjuter me anë të emrit apo përmbajtjes"
 
 #: ../src/caja-trash-bar.c:211
 msgid "Restore Selected Items"
@@ -7159,7 +7376,8 @@ msgstr "Libërshënues për një pozicion joekzistues"
 
 #: ../src/caja-window-manage-views.c:804
 msgid "You can choose another view or go to a different location."
-msgstr "Mund të zgjidhet një paraqitje tjetër ose të shkohet në një pozicion tjetër."
+msgstr ""
+"Mund të zgjidhet një paraqitje tjetër ose të shkohet në një pozicion tjetër."
 
 #: ../src/caja-window-manage-views.c:823
 msgid "The location cannot be displayed with this viewer."
@@ -7175,7 +7393,8 @@ msgstr "Paraqitja e kartelës aktuale"
 
 #: ../src/caja-window-manage-views.c:2104
 msgid "Caja has no installed viewer capable of displaying the folder."
-msgstr "Caja nuk ka një shikues të instaluar në gjendje të shfaqë këtë kartelë."
+msgstr ""
+"Caja nuk ka një shikues të instaluar në gjendje të shfaqë këtë kartelë."
 
 #: ../src/caja-window-manage-views.c:2112
 msgid "The location is not a folder."
@@ -7219,14 +7438,18 @@ msgstr "E pamundur shfaqja e «%s», pasi host nuk u gjet."
 #: ../src/caja-window-manage-views.c:2162
 msgid ""
 "Check that the spelling is correct and that your proxy settings are correct."
-msgstr "Sigurohu që është shkruar si duhet dhe që konfigurimi i proxy të jetë korrekt. "
+msgstr ""
+"Sigurohu që është shkruar si duhet dhe që konfigurimi i proxy të jetë "
+"korrekt. "
 
 #: ../src/caja-window-manage-views.c:2178
 #, c-format
 msgid ""
 "Error: %s\n"
 "Please select another viewer and try again."
-msgstr "Gabim: %s\nZgjidh një shikues tjetër dhe provo përsëri."
+msgstr ""
+"Gabim: %s\n"
+"Zgjidh një shikues tjetër dhe provo përsëri."
 
 #: ../src/caja-window-menus.c:195
 msgid "Go to the location specified by this bookmark"
@@ -7238,7 +7461,11 @@ msgid ""
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version."
-msgstr "Caja është program i lirë; ju mund t'a rishpërndani dhe/ose ndryshoni atë sipas kushteve së Liçencës Publike të Përgjithshme GNU sikurse publikuar nga Free Software Foundation; sipas versionit 2 të Liçencës, ose(sipas opinionit tuaj) çdo versioni të mëvonshëm."
+msgstr ""
+"Caja është program i lirë; ju mund t'a rishpërndani dhe/ose ndryshoni atë "
+"sipas kushteve së Liçencës Publike të Përgjithshme GNU sikurse publikuar nga"
+" Free Software Foundation; sipas versionit 2 të Liçencës, ose(sipas "
+"opinionit tuaj) çdo versioni të mëvonshëm."
 
 #: ../src/caja-window-menus.c:521
 msgid ""
@@ -7246,14 +7473,20 @@ msgid ""
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details."
-msgstr "Caja shpërndahet me dëshirën që të jetë i vlefshëm për ju, por PA ASNJË LLOJ GARANCIE; pa garancinë preçize të SHITJES apo PËRDORIMIT PËR NJË QËLLIM PREÇIZ. Shiko Liçencën Publike të Përgjithshme GNU për hollësi të tjera."
+msgstr ""
+"Caja shpërndahet me dëshirën që të jetë i vlefshëm për ju, por PA ASNJË LLOJ"
+" GARANCIE; pa garancinë preçize të SHITJES apo PËRDORIMIT PËR NJË QËLLIM "
+"PREÇIZ. Shiko Liçencën Publike të Përgjithshme GNU për hollësi të tjera."
 
 #: ../src/caja-window-menus.c:525
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301 USA"
-msgstr "Së bashku me Caja duhet të keni marrë edhe një kopje të Liçencës Publike të Përgjithshme GNU; Nëse jo, shkruani tek Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA."
+msgstr ""
+"Së bashku me Caja duhet të keni marrë edhe një kopje të Liçencës Publike të "
+"Përgjithshme GNU; Nëse jo, shkruani tek Free Software Foundation, Inc., 51 "
+"Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA."
 
 #: ../src/caja-window-menus.c:537
 msgid ""
@@ -7271,210 +7504,215 @@ msgstr ""
 #. * box to give credit to the translator(s).
 #: ../src/caja-window-menus.c:550
 msgid "translator-credits"
-msgstr "Laurent Dhima <laurenti@alblinux.net>"
+msgstr ""
+"Elian Myftiu <elian@alblinux.net>\n"
+"Indrit Bashkimi <indrit.bashkimi@gmail.com>\n"
+"Laurent Dhima <laurenti@alblinux.net>"
 
 #: ../src/caja-window-menus.c:553
 msgid "MATE Web Site"
 msgstr ""
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:814
+#: ../src/caja-window-menus.c:806
 msgid "_File"
-msgstr "_File"
+msgstr "_Skedari"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:815
+#: ../src/caja-window-menus.c:807
 msgid "_Edit"
 msgstr "_Ndrysho"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:816
+#: ../src/caja-window-menus.c:808
 msgid "_View"
 msgstr "_Shfaq"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:817
+#: ../src/caja-window-menus.c:809
 msgid "_Help"
 msgstr "_Ndihmë"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:819
+#: ../src/caja-window-menus.c:811
 msgid "_Close"
 msgstr "_Mbyll"
 
 #. tooltip
-#: ../src/caja-window-menus.c:820
+#: ../src/caja-window-menus.c:812
 msgid "Close this folder"
 msgstr "Mbyll këtë kartelë"
 
-#: ../src/caja-window-menus.c:825
+#: ../src/caja-window-menus.c:817
 msgid "_Backgrounds and Emblems..."
 msgstr "_Sfondet dhe simbolet..."
 
-#: ../src/caja-window-menus.c:826
+#: ../src/caja-window-menus.c:818
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
-msgstr "Shfaq motivet, ngjyrat dhe simbolet që mund të përdoren për të personalizuar paraqitjen"
+msgstr ""
+"Shfaq motivet, ngjyrat dhe simbolet që mund të përdoren për të personalizuar"
+" paraqitjen"
 
-#: ../src/caja-window-menus.c:831
+#: ../src/caja-window-menus.c:823
 msgid "Prefere_nces"
 msgstr "Preferi_met"
 
-#: ../src/caja-window-menus.c:832
+#: ../src/caja-window-menus.c:824
 msgid "Edit Caja preferences"
 msgstr "Ndrysho preferimet e Caja"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:835
+#: ../src/caja-window-menus.c:827
 msgid "Open _Parent"
 msgstr "Hap _prindin"
 
-#: ../src/caja-window-menus.c:836
+#: ../src/caja-window-menus.c:828
 msgid "Open the parent folder"
-msgstr "Hap kartelën e nivelit të mësipërm"
+msgstr "Hap kartelën e nivelit superior"
 
 #. tooltip
-#: ../src/caja-window-menus.c:845
+#: ../src/caja-window-menus.c:837
 msgid "Stop loading the current location"
 msgstr "Ndalon ngarkimin e pozicionit të tanishëm"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:849
+#: ../src/caja-window-menus.c:841
 msgid "_Reload"
 msgstr "_Ringarko"
 
 #. tooltip
-#: ../src/caja-window-menus.c:850
+#: ../src/caja-window-menus.c:842
 msgid "Reload the current location"
 msgstr "Ringarkon pozicionin e tanishëm"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:854
+#: ../src/caja-window-menus.c:846
 msgid "_Contents"
 msgstr "_Përmbajtja"
 
 #. tooltip
-#: ../src/caja-window-menus.c:855
+#: ../src/caja-window-menus.c:847
 msgid "Display Caja help"
 msgstr "Hap ndihmën e Caja"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:859
+#: ../src/caja-window-menus.c:851
 msgid "_About"
-msgstr "_Informacione"
+msgstr "_Rreth"
 
 #. tooltip
-#: ../src/caja-window-menus.c:860
+#: ../src/caja-window-menus.c:852
 msgid "Display credits for the creators of Caja"
 msgstr "Shfaq kreditet e krijuesve të Caja"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:864
+#: ../src/caja-window-menus.c:856
 msgid "Zoom _In"
 msgstr "Z_madho"
 
 #. tooltip
-#: ../src/caja-window-menus.c:865 ../src/caja-zoom-control.c:96
-#: ../src/caja-zoom-control.c:398
+#: ../src/caja-window-menus.c:857 ../src/caja-zoom-control.c:96
+#: ../src/caja-zoom-control.c:371
 msgid "Increase the view size"
 msgstr "Rrit madhësinë e shfaqjes"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:879
+#: ../src/caja-window-menus.c:871
 msgid "Zoom _Out"
-msgstr "Zv_ogëlo"
+msgstr "Z_vogëlo"
 
 #. tooltip
-#: ../src/caja-window-menus.c:880 ../src/caja-zoom-control.c:97
-#: ../src/caja-zoom-control.c:335
+#: ../src/caja-window-menus.c:872 ../src/caja-zoom-control.c:97
+#: ../src/caja-zoom-control.c:316
 msgid "Decrease the view size"
 msgstr "Zvogëlon madhësinë e shfaqjes"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:889
+#: ../src/caja-window-menus.c:881
 msgid "Normal Si_ze"
 msgstr "Madhë_si normale"
 
 #. tooltip
-#: ../src/caja-window-menus.c:890 ../src/caja-zoom-control.c:98
-#: ../src/caja-zoom-control.c:355
+#: ../src/caja-window-menus.c:882 ../src/caja-zoom-control.c:98
+#: ../src/caja-zoom-control.c:332
 msgid "Use the normal view size"
 msgstr "Përdor madhësinë normale të shfaqjes"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:894
+#: ../src/caja-window-menus.c:886
 msgid "Connect to _Server..."
 msgstr "Lidhu me _serverin..."
 
 #. tooltip
-#: ../src/caja-window-menus.c:895
+#: ../src/caja-window-menus.c:887
 msgid "Connect to a remote computer or shared disk"
-msgstr "Lidhu me një kompjuter në distancë ose një disk të përbashkët"
+msgstr "Lidhu me një kompjuter në distancë ose një disk të ndarë"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:904
+#: ../src/caja-window-menus.c:896
 msgid "_Computer"
 msgstr "_Kompjuteri"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:909
+#: ../src/caja-window-menus.c:901
 msgid "_Network"
 msgstr "_Rrjeti"
 
 #. tooltip
-#: ../src/caja-window-menus.c:910 ../src/mate-network-scheme.desktop.in.h:2
+#: ../src/caja-window-menus.c:902 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
 msgstr "Shfleton pozicionet e rrjetit lokal dhe në libërshënues"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:914
+#: ../src/caja-window-menus.c:906
 msgid "T_emplates"
 msgstr "Model_e"
 
 #. tooltip
-#: ../src/caja-window-menus.c:915
+#: ../src/caja-window-menus.c:907
 msgid "Open your personal templates folder"
 msgstr "Hap kartelën personale të modeleve"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:919
+#: ../src/caja-window-menus.c:911
 msgid "_Trash"
 msgstr "_Koshi"
 
 #. tooltip
-#: ../src/caja-window-menus.c:920
+#: ../src/caja-window-menus.c:912
 msgid "Open your personal trash folder"
 msgstr "Hap kartelën personale të koshit"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:928
+#: ../src/caja-window-menus.c:920
 msgid "Show _Hidden Files"
 msgstr "Shfaq file e paduks_hëm"
 
 #. tooltip
-#: ../src/caja-window-menus.c:929
+#: ../src/caja-window-menus.c:921
 msgid "Toggle the display of hidden files in the current window"
 msgstr "Shkëmben shfaqjen e file të padukshëm në dritaren aktuale"
 
-#: ../src/caja-window-menus.c:960
+#: ../src/caja-window-menus.c:952
 msgid "_Up"
 msgstr "_Sipër"
 
-#: ../src/caja-window-menus.c:963
+#: ../src/caja-window-menus.c:955
 msgid "_Home"
 msgstr "_Shtëpia"
 
@@ -7536,10 +7774,10 @@ msgstr "Zvogëlo"
 msgid "Zoom to Default"
 msgstr "Shkalla e paracaktuar e zmadhimit"
 
-#: ../src/caja-zoom-control.c:940
+#: ../src/caja-zoom-control.c:913
 msgid "Zoom"
 msgstr "Shkalla e zmadhimit"
 
-#: ../src/caja-zoom-control.c:945
+#: ../src/caja-zoom-control.c:918
 msgid "Set the zoom level of the current view"
 msgstr "Rregullo shkallën e zmadhimit për pamjen aktuale"

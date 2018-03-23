@@ -1,16 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: MATE Desktop Environment\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-15 13:19+0300\n"
-"PO-Revision-Date: 2018-01-09 15:11+0000\n"
-"Last-Translator: Vlad Orlov <monsta@inbox.ru>\n"
-"Language-Team: Georgian (http://www.transifex.com/mate/MATE/language/ka/)\n"
+"POT-Creation-Date: 2018-03-12 17:01+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Martin Wimpress <code@flexion.org>, 2018\n"
+"Language-Team: Georgian (https://www.transifex.com/mate/teams/13566/ka/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -87,7 +88,7 @@ msgstr "არქეოლოგიური"
 
 #: ../data/browser.xml.h:18
 msgid "MATE"
-msgstr "გნომის გარემო"
+msgstr "MATE"
 
 #: ../data/browser.xml.h:19
 msgid "Green Weave"
@@ -283,7 +284,7 @@ msgstr "გადაათრიეთ ემბლემა ობიექტ�
 
 #. translators: this is the name of an emblem
 #: ../data/browser.xml.h:68 ../src/caja-emblem-sidebar.c:982
-#: ../src/caja-property-browser.c:1948
+#: ../src/caja-property-browser.c:1932
 msgid "Erase"
 msgstr "წაშლა"
 
@@ -309,7 +310,7 @@ msgstr "ავტო-გაშვების შემოთავაზებ�
 #: ../data/caja-browser.desktop.in.in.h:1 ../data/caja.desktop.in.in.h:1
 #: ../data/caja-folder-handler.desktop.in.in.h:1
 #: ../src/caja-spatial-window.c:373 ../src/caja-window-menus.c:535
-#: ../src/caja-window.c:172
+#: ../src/caja-window.c:163
 msgid "Caja"
 msgstr "ნაუტილუსი"
 
@@ -327,14 +328,15 @@ msgid "Computer"
 msgstr "კომპიუტერი"
 
 #. tooltip
-#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:905
+#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:897
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
-msgstr "თქვენი კომპიუტერიდან ლოკალური ან დაშორებული დისკების, დასტების დათვალიერება"
+msgstr ""
+"თქვენი კომპიუტერიდან ლოკალური ან დაშორებული დისკების, დასტების დათვალიერება"
 
 #: ../data/caja.desktop.in.in.h:2
 msgid "File Manager"
-msgstr "ფაილთა მენეჯერი"
+msgstr "ფაილ მენეჯერი"
 
 #: ../data/caja-file-management-properties.desktop.in.in.h:1
 msgid "File Management"
@@ -347,7 +349,7 @@ msgstr "ფაილ მენჯერის ფანჯრის ქცევ
 #: ../data/caja-folder-handler.desktop.in.in.h:2
 #: ../libcaja-private/caja-autorun.c:567
 msgid "Open Folder"
-msgstr "დასტის გახსნა"
+msgstr "გახსენი საქაღალდე"
 
 #: ../data/caja-home.desktop.in.in.h:1 ../src/file-manager/fm-tree-view.c:1434
 msgid "Home Folder"
@@ -355,7 +357,7 @@ msgstr "სახლის დასტა"
 
 #. tooltip
 #: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:504
-#: ../src/caja-window-menus.c:900
+#: ../src/caja-window-menus.c:892
 msgid "Open your personal folder"
 msgstr "პირადი დასტის გახსნა"
 
@@ -363,69 +365,71 @@ msgstr "პირადი დასტის გახსნა"
 msgid "Saved search"
 msgstr "დამახსოვრებული ძიება"
 
-#: ../eel/eel-canvas.c:1389 ../eel/eel-canvas.c:1390
+#: ../eel/eel-canvas.c:1310 ../eel/eel-canvas.c:1311
 msgid "X"
 msgstr "X"
 
-#: ../eel/eel-canvas.c:1396 ../eel/eel-canvas.c:1397
+#: ../eel/eel-canvas.c:1317 ../eel/eel-canvas.c:1318
 msgid "Y"
 msgstr "Y"
 
-#: ../eel/eel-editable-label.c:332
+#: ../eel/eel-editable-label.c:327
 msgid "Text"
 msgstr "ტექსტი"
 
-#: ../eel/eel-editable-label.c:333
+#: ../eel/eel-editable-label.c:328
 msgid "The text of the label."
 msgstr "ეტიკეტის ტექსტი."
 
-#: ../eel/eel-editable-label.c:339
+#: ../eel/eel-editable-label.c:334
 msgid "Justification"
-msgstr "მორგება"
+msgstr "შევსება"
 
-#: ../eel/eel-editable-label.c:340
+#: ../eel/eel-editable-label.c:335
 msgid ""
 "The alignment of the lines in the text of the label relative to each other. "
 "This does NOT affect the alignment of the label within its allocation. See "
 "GtkMisc::xalign for that."
-msgstr "წარწერის ტექსტის ურთიერთგანთავსება.  არ მოქმედებს წარწერის მისთვის გამოყოფილ ადგილას განთავსებაზე.  იხ. აგრეთვე, GtkMisc::x-განთავსება."
+msgstr ""
+"წარწერის ტექსტის ურთიერთგანთავსება.  არ მოქმედებს წარწერის მისთვის გამოყოფილ"
+" ადგილას განთავსებაზე.  იხ. აგრეთვე, GtkMisc::x-განთავსება."
 
-#: ../eel/eel-editable-label.c:348
+#: ../eel/eel-editable-label.c:343
 msgid "Line wrap"
 msgstr "სტრიქონების გადატანა"
 
-#: ../eel/eel-editable-label.c:349
+#: ../eel/eel-editable-label.c:344
 msgid "If set, wrap lines if the text becomes too wide."
 msgstr "თუ ჩართულია, გადაიტანს ტექსტს თუ იგი ძალზედ განიერია."
 
-#: ../eel/eel-editable-label.c:356
+#: ../eel/eel-editable-label.c:351
 msgid "Cursor Position"
 msgstr "კურსორის პოზიცია"
 
-#: ../eel/eel-editable-label.c:357
+#: ../eel/eel-editable-label.c:352
 msgid "The current position of the insertion cursor in chars."
 msgstr "სიმბოლოების შეყვანის კურსორის მიმდინარე პოზიცია."
 
-#: ../eel/eel-editable-label.c:366
+#: ../eel/eel-editable-label.c:361
 msgid "Selection Bound"
 msgstr "მონიშნულის საზღვრები"
 
-#: ../eel/eel-editable-label.c:367
+#: ../eel/eel-editable-label.c:362
 msgid ""
 "The position of the opposite end of the selection from the cursor in chars."
 msgstr "ასოებში მონიშნულის უკიდურესობების მდებარეობა კურსორიდან."
 
-#: ../eel/eel-editable-label.c:3120
+#: ../eel/eel-editable-label.c:3115
 msgid "Select All"
 msgstr "ყველას მონიშვნა"
 
-#: ../eel/eel-editable-label.c:3131
+#: ../eel/eel-editable-label.c:3126
 msgid "Input Methods"
 msgstr "შეყვანის მეთოდები"
 
 #: ../eel/eel-gtk-extensions.c:445
 msgid "Show more _details"
-msgstr ""
+msgstr "დამატებითი ინფოს ჩ_ვენება"
 
 #: ../eel/eel-stock-dialogs.c:213
 msgid "You can stop this operation by clicking cancel."
@@ -523,24 +527,26 @@ msgstr "თქვენს მიერ შეყვანილია მედ
 msgid "Choose what application to launch."
 msgstr "გასაშვები პროგრამის ამორჩევა."
 
-#: ../libcaja-private/caja-autorun.c:1097
+#: ../libcaja-private/caja-autorun.c:1093
 #, c-format
 msgid ""
 "Select how to open \"%s\" and whether to perform this action in the future "
 "for other media of type \"%s\"."
-msgstr "ამოირჩიეთ თუ როგორ უნდა გაიხსნას \"%s\" და გნებავთ თუ არა ამ მოქმედების ჩატარება მომავალშიც \"%s\"-ის ტიპის მოწყობილობების გახსნისას."
+msgstr ""
+"ამოირჩიეთ თუ როგორ უნდა გაიხსნას \"%s\" და გნებავთ თუ არა ამ მოქმედების "
+"ჩატარება მომავალშიც \"%s\"-ის ტიპის მოწყობილობების გახსნისას."
 
-#: ../libcaja-private/caja-autorun.c:1129
+#: ../libcaja-private/caja-autorun.c:1121
 msgid "_Always perform this action"
 msgstr "ყოველთვის _ამ ქმედების ჩატარება"
 
 #. name, stock id
 #. label, accelerator
 #. add the "Eject" menu item
-#: ../libcaja-private/caja-autorun.c:1146
-#: ../src/file-manager/fm-directory-view.c:7411
-#: ../src/file-manager/fm-directory-view.c:7439
-#: ../src/file-manager/fm-directory-view.c:7520
+#: ../libcaja-private/caja-autorun.c:1138
+#: ../src/file-manager/fm-directory-view.c:7395
+#: ../src/file-manager/fm-directory-view.c:7423
+#: ../src/file-manager/fm-directory-view.c:7504
 #: ../src/file-manager/fm-tree-view.c:1382 ../src/caja-places-sidebar.c:2714
 msgid "_Eject"
 msgstr "_გამოღება"
@@ -548,10 +554,10 @@ msgstr "_გამოღება"
 #. name, stock id
 #. label, accelerator
 #. add the "Unmount" menu item
-#: ../libcaja-private/caja-autorun.c:1159
-#: ../src/file-manager/fm-directory-view.c:7407
-#: ../src/file-manager/fm-directory-view.c:7435
-#: ../src/file-manager/fm-directory-view.c:7516
+#: ../libcaja-private/caja-autorun.c:1151
+#: ../src/file-manager/fm-directory-view.c:7391
+#: ../src/file-manager/fm-directory-view.c:7419
+#: ../src/file-manager/fm-directory-view.c:7500
 #: ../src/file-manager/fm-tree-view.c:1373 ../src/caja-places-sidebar.c:2707
 msgid "_Unmount"
 msgstr "ტ_ომის მოხსნა"
@@ -580,24 +586,24 @@ msgstr "ბუფერში დამახსოვრებული ტე�
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-clipboard.c:470
-#: ../src/file-manager/fm-directory-view.c:7340
+#: ../src/file-manager/fm-directory-view.c:7324
 msgid "Select _All"
-msgstr "_ყველას მონიშვნა"
+msgstr "მონიშნე _ყველა"
 
 #. tooltip
 #: ../libcaja-private/caja-clipboard.c:471
 msgid "Select all the text in a text field"
 msgstr "ტექსტის ველში მთლიანი ტექსტის მონიშვნა"
 
-#: ../libcaja-private/caja-column-chooser.c:381
+#: ../libcaja-private/caja-column-chooser.c:380
 msgid "Move _Up"
 msgstr "ზ_ემოთ აწევა"
 
-#: ../libcaja-private/caja-column-chooser.c:391
+#: ../libcaja-private/caja-column-chooser.c:390
 msgid "Move Dow_n"
 msgstr "ქვემ_ოთ ჩამოწევა"
 
-#: ../libcaja-private/caja-column-chooser.c:404
+#: ../libcaja-private/caja-column-chooser.c:403
 msgid "Use De_fault"
 msgstr "ნა_გულისხმევის მოხმარება"
 
@@ -636,9 +642,9 @@ msgid "The type of the file."
 msgstr "ფაილის ტიპი."
 
 #: ../libcaja-private/caja-column-utilities.c:74
-#: ../src/caja-image-properties-page.c:288
+#: ../src/caja-image-properties-page.c:284
 msgid "Date Modified"
-msgstr "შეცვლილი თარიღი"
+msgstr "შეცვლის თარიღი"
 
 #: ../libcaja-private/caja-column-utilities.c:75
 msgid "The date the file was modified."
@@ -669,7 +675,7 @@ msgid "The group of the file."
 msgstr "ფაილის ჯგუფი."
 
 #: ../libcaja-private/caja-column-utilities.c:106
-#: ../src/file-manager/fm-properties-window.c:4750
+#: ../src/file-manager/fm-properties-window.c:4746
 msgid "Permissions"
 msgstr "უფლებები"
 
@@ -702,9 +708,9 @@ msgid "The SELinux security context of the file."
 msgstr "ფაილისთვის SELinux უშიშროების კონტექსტი."
 
 #: ../libcaja-private/caja-column-utilities.c:138
-#: ../src/caja-image-properties-page.c:369 ../src/caja-query-editor.c:135
+#: ../src/caja-image-properties-page.c:365 ../src/caja-query-editor.c:135
 msgid "Location"
-msgstr "მდებარეობა"
+msgstr "ადგილმდებარეობა"
 
 #: ../libcaja-private/caja-column-utilities.c:139
 msgid "The location of the file."
@@ -727,11 +733,11 @@ msgid "Original location of file before moved to the Trash"
 msgstr ""
 
 #: ../libcaja-private/caja-customization-data.c:431
-#: ../libcaja-private/caja-file-conflict-dialog.c:631
-#: ../libcaja-private/caja-mime-application-chooser.c:444
-#: ../src/caja-property-browser.c:1995
+#: ../libcaja-private/caja-file-conflict-dialog.c:623
+#: ../libcaja-private/caja-mime-application-chooser.c:438
+#: ../src/caja-property-browser.c:1979
 msgid "Reset"
-msgstr "საწყისი პარამეტრები"
+msgstr "განულება"
 
 #: ../libcaja-private/caja-desktop-directory-file.c:457
 #: ../libcaja-private/caja-desktop-icon-file.c:163
@@ -752,7 +758,7 @@ msgstr "%s'ის სახლი"
 
 #: ../libcaja-private/caja-desktop-link.c:116
 msgid "Network Servers"
-msgstr ""
+msgstr "ქსელის სერვერები"
 
 #: ../libcaja-private/caja-desktop-link.c:119
 #: ../src/file-manager/fm-tree-view.c:1441 ../src/caja-places-sidebar.c:594
@@ -798,12 +804,14 @@ msgstr "შეუძლებელია ემბლემის ჩადგ�
 
 #: ../libcaja-private/caja-emblem-utils.c:228
 msgid "Sorry, but you must specify a non-blank keyword for the new emblem."
-msgstr "უკაცრავად,ახალი ემბლემისთვის საჭიროა არაცარიელი სახელწოდების მინიჭება."
+msgstr ""
+"უკაცრავად,ახალი ემბლემისთვის საჭიროა არაცარიელი სახელწოდების მინიჭება."
 
 #: ../libcaja-private/caja-emblem-utils.c:235
 msgid ""
 "Sorry, but emblem keywords can only contain letters, spaces and numbers."
-msgstr "უკაცრავად, ემბლემის სახელი უნდა შეიცავდეს მხოლოდ ასოებს, მანძილს და ციფრებს."
+msgstr ""
+"უკაცრავად, ემბლემის სახელი უნდა შეიცავდეს მხოლოდ ასოებს, მანძილს და ციფრებს."
 
 #. this really should never happen, as a user has no idea
 #. * what a keyword is, and people should be passing a unique
@@ -824,7 +832,8 @@ msgstr "უკაცრავად, შეუძლებელია ინდ
 
 #: ../libcaja-private/caja-emblem-utils.c:323
 msgid "Sorry, unable to save custom emblem name."
-msgstr "უკაცრავად, შეუძლებელია ემბლემის ინდივიდუალური სახელწოდების დამახსოვრება."
+msgstr ""
+"უკაცრავად, შეუძლებელია ემბლემის ინდივიდუალური სახელწოდების დამახსოვრება."
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:144
 #, c-format
@@ -890,89 +899,89 @@ msgstr ""
 msgid "Another file with the same name already exists in \"%s\"."
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:279
+#: ../libcaja-private/caja-file-conflict-dialog.c:271
 msgid "Original folder"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:280
-#: ../libcaja-private/caja-file-conflict-dialog.c:319
+#: ../libcaja-private/caja-file-conflict-dialog.c:272
+#: ../libcaja-private/caja-file-conflict-dialog.c:311
 msgid "Items:"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:283
+#: ../libcaja-private/caja-file-conflict-dialog.c:275
 msgid "Original file"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:284
-#: ../libcaja-private/caja-file-conflict-dialog.c:323
-#: ../src/file-manager/fm-properties-window.c:3276
+#: ../libcaja-private/caja-file-conflict-dialog.c:276
+#: ../libcaja-private/caja-file-conflict-dialog.c:315
+#: ../src/file-manager/fm-properties-window.c:3272
 msgid "Size:"
 msgstr "ზომა:"
 
 #. second row: type combobox
-#: ../libcaja-private/caja-file-conflict-dialog.c:289
-#: ../libcaja-private/caja-file-conflict-dialog.c:328
-#: ../src/file-manager/fm-properties-window.c:3258
-#: ../src/caja-connect-server-dialog.c:948
+#: ../libcaja-private/caja-file-conflict-dialog.c:281
+#: ../libcaja-private/caja-file-conflict-dialog.c:320
+#: ../src/file-manager/fm-properties-window.c:3254
+#: ../src/caja-connect-server-dialog.c:930
 msgid "Type:"
 msgstr "ტიპი:"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:292
-#: ../libcaja-private/caja-file-conflict-dialog.c:331
+#: ../libcaja-private/caja-file-conflict-dialog.c:284
+#: ../libcaja-private/caja-file-conflict-dialog.c:323
 msgid "Last modified:"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:318
+#: ../libcaja-private/caja-file-conflict-dialog.c:310
 msgid "Merge with"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:318
-#: ../libcaja-private/caja-file-conflict-dialog.c:322
+#: ../libcaja-private/caja-file-conflict-dialog.c:310
+#: ../libcaja-private/caja-file-conflict-dialog.c:314
 msgid "Replace with"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:354
+#: ../libcaja-private/caja-file-conflict-dialog.c:346
 msgid "Merge"
 msgstr ""
 
 #. Setup the expander for the rename action
-#: ../libcaja-private/caja-file-conflict-dialog.c:617
+#: ../libcaja-private/caja-file-conflict-dialog.c:609
 msgid "Select a new name for the _destination"
 msgstr ""
 
 #. Setup the diff button for text files
-#: ../libcaja-private/caja-file-conflict-dialog.c:642
+#: ../libcaja-private/caja-file-conflict-dialog.c:634
 msgid "Differences..."
 msgstr ""
 
 #. Setup the checkbox to apply the action to all files
-#: ../libcaja-private/caja-file-conflict-dialog.c:652
+#: ../libcaja-private/caja-file-conflict-dialog.c:644
 msgid "Apply this action to all files and folders"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:664
+#: ../libcaja-private/caja-file-conflict-dialog.c:656
 #: ../libcaja-private/caja-file-operations.c:186
 msgid "_Skip"
 msgstr "_გამოტოვება"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:669
+#: ../libcaja-private/caja-file-conflict-dialog.c:661
 msgid "Re_name"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:675
+#: ../libcaja-private/caja-file-conflict-dialog.c:667
 msgid "Replace"
-msgstr ""
+msgstr "შეცვლა"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:759
+#: ../libcaja-private/caja-file-conflict-dialog.c:751
 msgid "Merge Folder"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:759
-#: ../libcaja-private/caja-file-conflict-dialog.c:764
+#: ../libcaja-private/caja-file-conflict-dialog.c:751
+#: ../libcaja-private/caja-file-conflict-dialog.c:756
 msgid "File and Folder conflict"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:764
+#: ../libcaja-private/caja-file-conflict-dialog.c:756
 msgid "File conflict"
 msgstr ""
 
@@ -982,7 +991,7 @@ msgstr "ყველა_ს გამოტოვება"
 
 #: ../libcaja-private/caja-file-operations.c:188
 msgid "_Retry"
-msgstr "_ცდა"
+msgstr "_სცადე"
 
 #: ../libcaja-private/caja-file-operations.c:189
 msgid "Delete _All"
@@ -990,7 +999,7 @@ msgstr "ყველ_აფრის წაშლა"
 
 #: ../libcaja-private/caja-file-operations.c:190
 msgid "_Replace"
-msgstr "_ჩანაცვლება"
+msgstr "_ჩაანაცვლე"
 
 #: ../libcaja-private/caja-file-operations.c:191
 msgid "Replace _All"
@@ -1012,26 +1021,26 @@ msgstr ""
 #, c-format
 msgid "%'d second"
 msgid_plural "%'d seconds"
-msgstr[0] "%'d წამი"
+msgstr[0] ""
 
 #: ../libcaja-private/caja-file-operations.c:313
 #: ../libcaja-private/caja-file-operations.c:324
 #, c-format
 msgid "%'d minute"
 msgid_plural "%'d minutes"
-msgstr[0] "%'d წუთი"
+msgstr[0] ""
 
 #: ../libcaja-private/caja-file-operations.c:323
 #, c-format
 msgid "%'d hour"
 msgid_plural "%'d hours"
-msgstr[0] "%'d საათი"
+msgstr[0] ""
 
 #: ../libcaja-private/caja-file-operations.c:331
 #, c-format
 msgid "approximately %'d hour"
 msgid_plural "approximately %'d hours"
-msgstr[0] "მიახლოებით %'d საათი"
+msgstr[0] ""
 
 #. appended to new link file
 #. Note to localizers: convert file type string for file
@@ -1039,7 +1048,7 @@ msgstr[0] "მიახლოებით %'d საათი"
 #. * to that kind of file (e.g. "link to folder").
 #: ../libcaja-private/caja-file-operations.c:407
 #: ../libcaja-private/caja-file.c:6526
-#: ../src/file-manager/fm-directory-view.c:10531
+#: ../src/file-manager/fm-directory-view.c:10515
 #, c-format
 msgid "Link to %s"
 msgstr "ბმული %s -ზე"
@@ -1175,7 +1184,9 @@ msgstr " (%'d"
 
 #: ../libcaja-private/caja-file-operations.c:1354
 msgid "Are you sure you want to permanently delete \"%B\" from the trash?"
-msgstr "დარწმუნებული ბრძანდებით რომ გნებავთ \"%B\"-ის სანაგვე ყუთიდან საბოოლოოდ წაშლა?"
+msgstr ""
+"დარწმუნებული ბრძანდებით რომ გნებავთ \"%B\"-ის სანაგვე ყუთიდან საბოოლოოდ "
+"წაშლა?"
 
 #: ../libcaja-private/caja-file-operations.c:1357
 #, c-format
@@ -1185,7 +1196,7 @@ msgid ""
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items from the "
 "trash?"
-msgstr[0] "დარწმუნებული ბრძანდებით რომ გნებავთ მონიშნული %'d ელემენტის სანაგვე ყუთიდან სამუდამოდ წაშლა?"
+msgstr[0] ""
 
 #: ../libcaja-private/caja-file-operations.c:1367
 #: ../libcaja-private/caja-file-operations.c:1433
@@ -1216,7 +1227,7 @@ msgstr "ნამდვილად გნებავთ \"%B\" -ის სა�
 msgid "Are you sure you want to permanently delete the %'d selected item?"
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items?"
-msgstr[0] "ნამდვილად გნებავთ მონიშნული %'d ელემენტის სამუდამოდ წაშლა ?"
+msgstr[0] ""
 
 #: ../libcaja-private/caja-file-operations.c:1463
 msgid "Are you sure you want to trash \"%B\"?"
@@ -1234,13 +1245,13 @@ msgstr ""
 
 #: ../libcaja-private/caja-file-operations.c:1478
 msgid "Move to _Trash"
-msgstr ""
+msgstr "_გადააგდე"
 
 #: ../libcaja-private/caja-file-operations.c:1509
 #, c-format
 msgid "%'d file left to delete"
 msgid_plural "%'d files left to delete"
-msgstr[0] "რჩება %'d წასაშლელი ფაილი"
+msgstr[0] ""
 
 #: ../libcaja-private/caja-file-operations.c:1515
 msgid "Deleting files"
@@ -1266,14 +1277,17 @@ msgstr "წაშლისას დაიშვა შეცდომა."
 msgid ""
 "Files in the folder \"%B\" cannot be deleted because you do not have "
 "permissions to see them."
-msgstr "შეუძლებელია \"%B\" დასტაში მყოფი ფაილების მოშორება, რადგანაც არ გაგაჩნიათ მათი დათვალიერების უფლება."
+msgstr ""
+"შეუძლებელია \"%B\" დასტაში მყოფი ფაილების მოშორება, რადგანაც არ გაგაჩნიათ "
+"მათი დათვალიერების უფლება."
 
 #: ../libcaja-private/caja-file-operations.c:1603
 #: ../libcaja-private/caja-file-operations.c:2625
 #: ../libcaja-private/caja-file-operations.c:3607
 msgid ""
 "There was an error getting information about the files in the folder \"%B\"."
-msgstr "დაიშვა შეცდომა \"%B\" დასტაში მყოფი ფაილების შესახებ ინფორმაციის მიღებისას."
+msgstr ""
+"დაიშვა შეცდომა \"%B\" დასტაში მყოფი ფაილების შესახებ ინფორმაციის მიღებისას."
 
 #: ../libcaja-private/caja-file-operations.c:1612
 #: ../libcaja-private/caja-file-operations.c:3616
@@ -1284,7 +1298,9 @@ msgstr "ფაილების _გამოტოვება"
 msgid ""
 "The folder \"%B\" cannot be deleted because you do not have permissions to "
 "read it."
-msgstr "შეუძლებელია \"%B\" დასტის წაშლა, რადგანაც არ გაგაჩნიათ მისი წაკითხვის უფლება."
+msgstr ""
+"შეუძლებელია \"%B\" დასტის წაშლა, რადგანაც არ გაგაჩნიათ მისი წაკითხვის "
+"უფლება."
 
 #: ../libcaja-private/caja-file-operations.c:1636
 #: ../libcaja-private/caja-file-operations.c:2664
@@ -1308,7 +1324,7 @@ msgstr "ფაილების სანაგვე ყუთში გად
 #, c-format
 msgid "%'d file left to trash"
 msgid_plural "%'d files left to trash"
-msgstr[0] "რჩება %'d წასაშლელი ფაილი"
+msgstr[0] ""
 
 #: ../libcaja-private/caja-file-operations.c:1886
 msgid "Cannot move file to trash, do you want to delete immediately?"
@@ -1342,7 +1358,9 @@ msgstr "ტომის მოხსნამდე, გნებავთ ს�
 msgid ""
 "In order to regain the free space on this volume the trash must be emptied. "
 "All trashed items on the volume will be permanently lost."
-msgstr "ტომზე ადგილის განთავისუფლების მიზნით საჭიროა სანაგვე ყუთის დაცარიელება. სანაგვე ყუთში მყოფი ყველა ელემენტი სამუდამოდ დაიკარგება."
+msgstr ""
+"ტომზე ადგილის განთავისუფლების მიზნით საჭიროა სანაგვე ყუთის დაცარიელება. "
+"სანაგვე ყუთში მყოფი ყველა ელემენტი სამუდამოდ დაიკარგება."
 
 #: ../libcaja-private/caja-file-operations.c:2318
 msgid "Do _not Empty Trash"
@@ -1351,31 +1369,31 @@ msgstr "არ _გაასუფთავო სანაგვე ყუთ�
 #: ../libcaja-private/caja-file-operations.c:2434
 #, c-format
 msgid "Unable to mount %s"
-msgstr "შეუძლებელი გახდა %s-ს მონტაჟი"
+msgstr "შეუძლებელია მონტაჟი %s"
 
 #: ../libcaja-private/caja-file-operations.c:2512
 #, c-format
 msgid "Preparing to copy %'d file (%S)"
 msgid_plural "Preparing to copy %'d files (%S)"
-msgstr[0] "ასლის შექმნისთვის მზადდება %'d ფაილი (%S)"
+msgstr[0] ""
 
 #: ../libcaja-private/caja-file-operations.c:2518
 #, c-format
 msgid "Preparing to move %'d file (%S)"
 msgid_plural "Preparing to move %'d files (%S)"
-msgstr[0] "გადასატანად მზადდება %'d ფაილი (%S)"
+msgstr[0] ""
 
 #: ../libcaja-private/caja-file-operations.c:2524
 #, c-format
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
-msgstr[0] "წასაშლელად მზადდება %'d ფაილი (%S)"
+msgstr[0] ""
 
 #: ../libcaja-private/caja-file-operations.c:2530
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
-msgstr[0] "სანაგვე ყუთში გადასატანად მზადდება %'d"
+msgstr[0] ""
 
 #: ../libcaja-private/caja-file-operations.c:2561
 #: ../libcaja-private/caja-file-operations.c:3459
@@ -1398,19 +1416,25 @@ msgstr "დაიშვა შეცდომა ფაილების სა
 msgid ""
 "Files in the folder \"%B\" cannot be handled because you do not have "
 "permissions to see them."
-msgstr "შეუძლებელია ფაილების დამუშავება \"%B\" დასტაში, რადგანაც თქვენ არ გაქვს მათი ხილვის უფლებები."
+msgstr ""
+"შეუძლებელია ფაილების დამუშავება \"%B\" დასტაში, რადგანაც თქვენ არ გაქვს მათი"
+" ხილვის უფლებები."
 
 #: ../libcaja-private/caja-file-operations.c:2661
 msgid ""
 "The folder \"%B\" cannot be handled because you do not have permissions to "
 "read it."
-msgstr "შეუძლებელია \"%B\" დასტის დამუშავება, რადგანაც არ გაგაჩნიათ მისი წაკითხვის უფლებები."
+msgstr ""
+"შეუძლებელია \"%B\" დასტის დამუშავება, რადგანაც არ გაგაჩნიათ მისი წაკითხვის "
+"უფლებები."
 
 #: ../libcaja-private/caja-file-operations.c:2739
 msgid ""
 "The file \"%B\" cannot be handled because you do not have permissions to "
 "read it."
-msgstr "შეუძლებელია \"%B\" ფაილის დამუშავება, რადგანაც არ გაგაჩნიათ მისი წაკითხვის უფლებები."
+msgstr ""
+"შეუძლებელია \"%B\" ფაილის დამუშავება, რადგანაც არ გაგაჩნიათ მისი წაკითხვის "
+"უფლებები."
 
 #: ../libcaja-private/caja-file-operations.c:2742
 msgid "There was an error getting information about \"%B\"."
@@ -1465,33 +1489,33 @@ msgstr "დუბლირდება \"%B\""
 #: ../libcaja-private/caja-file-operations.c:3021
 msgid "Moving %'d file (in \"%B\") to \"%B\""
 msgid_plural "Moving %'d files (in \"%B\") to \"%B\""
-msgstr[0] "გადამაქვს %'d ფაილი (\"%B\" დან) - \"%B\"-ში"
+msgstr[0] ""
 
 #: ../libcaja-private/caja-file-operations.c:3025
 msgid "Copying %'d file (in \"%B\") to \"%B\""
 msgid_plural "Copying %'d files (in \"%B\") to \"%B\""
-msgstr[0] "მიმდინარეობს %'d ფაილის ასლი (\"%B\" დან) - \"%B\"-ში"
+msgstr[0] ""
 
 #: ../libcaja-private/caja-file-operations.c:3033
 msgid "Duplicating %'d file (in \"%B\")"
 msgid_plural "Duplicating %'d files (in \"%B\")"
-msgstr[0] "იქმნება %'d ფაილის დუპლიკატი (\"%B\"-ში)"
+msgstr[0] ""
 
 #: ../libcaja-private/caja-file-operations.c:3043
 msgid "Moving %'d file to \"%B\""
 msgid_plural "Moving %'d files to \"%B\""
-msgstr[0] "გადამაქვს %'d ფაილი \"%B\"-ში"
+msgstr[0] ""
 
 #: ../libcaja-private/caja-file-operations.c:3047
 msgid "Copying %'d file to \"%B\""
 msgid_plural "Copying %'d files to \"%B\""
-msgstr[0] "მიმდინარეობს %'d ფაილის ასლის გადატანა \"%B\"-ში"
+msgstr[0] ""
 
 #: ../libcaja-private/caja-file-operations.c:3053
 #, c-format
 msgid "Duplicating %'d file"
 msgid_plural "Duplicating %'d files"
-msgstr[0] "მიმდინარეობს %'d ფაილის დუპლიკაცია"
+msgstr[0] ""
 
 #. To translators: %S will expand to a size like "2 bytes" or "3 MB", so
 #. something like "4 kb of 4 MB"
@@ -1516,7 +1540,9 @@ msgstr[0] ""
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "create it in the destination."
-msgstr "შეუძლებელია·\"%s\"-ის·გადაწერა, რადგანაც არ გაგაჩნიათ მისი წაკითხვის უფლებები."
+msgstr ""
+"შეუძლებელია·\"%s\"-ის·გადაწერა, რადგანაც არ გაგაჩნიათ მისი წაკითხვის "
+"უფლებები."
 
 #: ../libcaja-private/caja-file-operations.c:3466
 msgid "There was an error creating the folder \"%B\"."
@@ -1526,13 +1552,17 @@ msgstr "დაიშვა შეცდომა დახმარების 
 msgid ""
 "Files in the folder \"%B\" cannot be copied because you do not have "
 "permissions to see them."
-msgstr "შეუძლებელია·\"%s\"-ის·გადაწერა, რადგანაც არ გაგაჩნიათ მისი წაკითხვის უფლებები."
+msgstr ""
+"შეუძლებელია·\"%s\"-ის·გადაწერა, რადგანაც არ გაგაჩნიათ მისი წაკითხვის "
+"უფლებები."
 
 #: ../libcaja-private/caja-file-operations.c:3649
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "read it."
-msgstr "შეუძლებელია·\"%s\"-ის·გადაწერა, რადგანაც არ გაგაჩნიათ მისი წაკითხვის უფლებები."
+msgstr ""
+"შეუძლებელია·\"%s\"-ის·გადაწერა, რადგანაც არ გაგაჩნიათ მისი წაკითხვის "
+"უფლებები."
 
 #: ../libcaja-private/caja-file-operations.c:3694
 #: ../libcaja-private/caja-file-operations.c:4388
@@ -1612,7 +1642,7 @@ msgstr "ვემზადები \"%B\"-ში გადასატანა
 #, c-format
 msgid "Preparing to move %'d file"
 msgid_plural "Preparing to move %'d files"
-msgstr[0] "მიმდინარეობს მზადება %'d ფაილების გადასატანად"
+msgstr[0] ""
 
 #: ../libcaja-private/caja-file-operations.c:4981
 #, c-format
@@ -1631,7 +1661,7 @@ msgstr "ფაილთა ბმულების შექმნა"
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
-msgstr[0] "იქმნება ბმული %'d ფაილზე"
+msgstr[0] ""
 
 #: ../libcaja-private/caja-file-operations.c:5418
 msgid "Error while creating link to %B."
@@ -1761,7 +1791,7 @@ msgid "today at 00:00:00 PM"
 msgstr "დღეს ·00:00:00·საათზე"
 
 #: ../libcaja-private/caja-file.c:4509
-#: ../src/caja-file-management-properties.c:527
+#: ../src/caja-file-management-properties.c:521
 msgid "today at %-I:%M:%S %p"
 msgstr "დღეს დრო %-I:%M:%S·%p"
 
@@ -1771,7 +1801,7 @@ msgstr "დღეს დრო 00:00·საათზე"
 
 #: ../libcaja-private/caja-file.c:4512
 msgid "today at %-I:%M %p"
-msgstr "დგეს დრო %-I:%M·%p საათზე"
+msgstr "დღეს %-I:%M·%p საათზე"
 
 #: ../libcaja-private/caja-file.c:4514
 msgid "today, 00:00 PM"
@@ -1901,23 +1931,23 @@ msgid "Specified group '%s' doesn't exist"
 msgstr "მითითებული ჯგუფი '%s' არ არსებობს"
 
 #: ../libcaja-private/caja-file.c:5950
-#: ../src/file-manager/fm-directory-view.c:2371
+#: ../src/file-manager/fm-directory-view.c:2355
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
-msgstr[0] "%'u ელემენტი"
+msgstr[0] ""
 
 #: ../libcaja-private/caja-file.c:5951
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
-msgstr[0] "%'u დასტა"
+msgstr[0] ""
 
 #: ../libcaja-private/caja-file.c:5952
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
-msgstr[0] "%u ფაილი"
+msgstr[0] ""
 
 #. Do this in a separate stage so that we don't have to put G_GUINT64_FORMAT
 #. in the translated string
@@ -1942,7 +1972,7 @@ msgstr "? ბაიტი"
 
 #: ../libcaja-private/caja-file.c:6433
 msgid "unknown type"
-msgstr "უცნობი ტიპის"
+msgstr "უცნობი ტიპი"
 
 #: ../libcaja-private/caja-file.c:6436
 msgid "unknown MIME type"
@@ -1967,7 +1997,7 @@ msgstr "ბმული"
 msgid "link (broken)"
 msgstr "ბმული (გაწყვეტილი)"
 
-#: ../libcaja-private/caja-icon-container.c:2920
+#: ../libcaja-private/caja-icon-container.c:2910
 msgid "The selection rectangle"
 msgstr "მონიშვნის არე"
 
@@ -1988,18 +2018,19 @@ msgstr "მოცემული ბმული გამოუყენებ�
 #: ../libcaja-private/caja-mime-actions.c:733
 #, c-format
 msgid "This link cannot be used, because its target \"%s\" doesn't exist."
-msgstr "მოცემული ბმული გამოუყენებადია, რადგანაც მისი დანიშნულება \"%s\" არ არსებობს."
+msgstr ""
+"მოცემული ბმული გამოუყენებადია, რადგანაც მისი დანიშნულება \"%s\" არ არსებობს."
 
 #. name, stock id
 #. label, accelerator
 #: ../libcaja-private/caja-mime-actions.c:744
-#: ../src/file-manager/fm-directory-view.c:7368
-#: ../src/file-manager/fm-directory-view.c:7500
-#: ../src/file-manager/fm-directory-view.c:8599
-#: ../src/file-manager/fm-directory-view.c:8924
+#: ../src/file-manager/fm-directory-view.c:7352
+#: ../src/file-manager/fm-directory-view.c:7484
+#: ../src/file-manager/fm-directory-view.c:8583
+#: ../src/file-manager/fm-directory-view.c:8908
 #: ../src/file-manager/fm-tree-view.c:1346
 msgid "Mo_ve to Trash"
-msgstr "სანაგვე ყუთში გადატანა"
+msgstr "სანაგვე _ურნაში გადატანა"
 
 #: ../libcaja-private/caja-mime-actions.c:806
 #, c-format
@@ -2022,7 +2053,7 @@ msgstr "_გამოსახვა"
 #: ../libcaja-private/caja-mime-actions.c:818
 #: ../src/caja-autorun-software.c:253
 msgid "_Run"
-msgstr "_გაშვება"
+msgstr "გაშვე_ბა"
 
 #: ../libcaja-private/caja-mime-actions.c:1170
 #: ../src/file-manager/fm-directory-view.c:653
@@ -2033,13 +2064,13 @@ msgstr "ნამდვილად გნებავთ ყველა ფა
 #, c-format
 msgid "This will open %d separate tab."
 msgid_plural "This will open %d separate tabs."
-msgstr[0] "ეს %d-ს ცალკე დაფაში გახსნის."
+msgstr[0] ""
 
 #: ../libcaja-private/caja-mime-actions.c:1178 ../src/caja-location-bar.c:194
 #, c-format
 msgid "This will open %d separate window."
 msgid_plural "This will open %d separate windows."
-msgstr[0] "ეს %d-ს ცალკე ფანჯარაში გახსნის."
+msgstr[0] ""
 
 #: ../libcaja-private/caja-mime-actions.c:1256
 #: ../src/caja-window-manage-views.c:2101
@@ -2101,12 +2132,12 @@ msgstr ""
 
 #: ../libcaja-private/caja-mime-actions.c:2010
 #: ../libcaja-private/caja-mime-actions.c:2316
-#: ../src/file-manager/fm-directory-view.c:6386
+#: ../src/file-manager/fm-directory-view.c:6370
 msgid "Unable to mount location"
 msgstr "შეუძლებელია მდებარეობის მიერთება"
 
 #: ../libcaja-private/caja-mime-actions.c:2404
-#: ../src/file-manager/fm-directory-view.c:6560
+#: ../src/file-manager/fm-directory-view.c:6544
 msgid "Unable to start location"
 msgstr ""
 
@@ -2119,7 +2150,7 @@ msgstr "იხსნება \"%s\"."
 #, c-format
 msgid "Opening %d item."
 msgid_plural "Opening %d items."
-msgstr[0] "იხსნება %d ელემენტი"
+msgstr[0] ""
 
 #: ../libcaja-private/caja-mime-application-chooser.c:162
 #: ../libcaja-private/caja-open-with-dialog.c:299
@@ -2144,26 +2175,26 @@ msgstr "ხატულა"
 msgid "Could not remove application"
 msgstr "შეულებელია პროგრამის ამოღება"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:561
+#: ../libcaja-private/caja-mime-application-chooser.c:555
 msgid "No applications selected"
 msgstr ""
 
-#: ../libcaja-private/caja-mime-application-chooser.c:591
+#: ../libcaja-private/caja-mime-application-chooser.c:585
 #, c-format
 msgid "%s document"
 msgstr ""
 
-#: ../libcaja-private/caja-mime-application-chooser.c:601
-#: ../libcaja-private/caja-open-with-dialog.c:1081
+#: ../libcaja-private/caja-mime-application-chooser.c:595
+#: ../libcaja-private/caja-open-with-dialog.c:1072
 msgid "Unknown"
 msgstr "უცნობი"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:634
+#: ../libcaja-private/caja-mime-application-chooser.c:628
 #, c-format
 msgid "Select an application to open %s and other files of type \"%s\""
 msgstr "პროგრამის ამორჩევა %s-ის და სხვა ტიპის \"%s\" ფაილების გასახსნელად"
 
-#: ../libcaja-private/caja-mime-application-chooser.c:706
+#: ../libcaja-private/caja-mime-application-chooser.c:700
 #, c-format
 msgid "Open all files of type \"%s\" with:"
 msgstr "ყველა \"%s\" ტიპის ფაილების გახსნა:"
@@ -2195,80 +2226,80 @@ msgid "Select an Application"
 msgstr "პროგრამის ამორჩევა"
 
 #: ../libcaja-private/caja-open-with-dialog.c:840
-#: ../src/file-manager/fm-properties-window.c:5073
+#: ../src/file-manager/fm-properties-window.c:5069
 msgid "Open With"
 msgstr ""
 
-#: ../libcaja-private/caja-open-with-dialog.c:883
+#: ../libcaja-private/caja-open-with-dialog.c:878
 msgid "Select an application to view its description."
-msgstr "შეარჩიეთ პროგრამა მისი აღწერილობის სანახავად."
+msgstr "ამოირჩიეთ პროგრამა მისი აღწერილობის სანახავად."
 
-#: ../libcaja-private/caja-open-with-dialog.c:913
+#: ../libcaja-private/caja-open-with-dialog.c:904
 msgid "_Use a custom command"
 msgstr "_საკუთარი ბრძანების გამოყენება"
 
-#: ../libcaja-private/caja-open-with-dialog.c:930
+#: ../libcaja-private/caja-open-with-dialog.c:921
 msgid "_Browse..."
-msgstr "_ნუსხა..."
+msgstr "დ_ათვალიარება..."
 
 #. name, stock id
 #. label, accelerator
-#: ../libcaja-private/caja-open-with-dialog.c:966
-#: ../src/file-manager/fm-directory-view.c:7284
-#: ../src/file-manager/fm-directory-view.c:8793
+#: ../libcaja-private/caja-open-with-dialog.c:957
+#: ../src/file-manager/fm-directory-view.c:7268
+#: ../src/file-manager/fm-directory-view.c:8777
 #: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-places-sidebar.c:2656
 msgid "_Open"
 msgstr "_გახსნა"
 
 #. first %s is a filename and second %s is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1051
+#: ../libcaja-private/caja-open-with-dialog.c:1042
 #, c-format
 msgid "Open %s and other %s document with:"
 msgstr ""
 
 #. the %s here is a file name
 #. %s is a filename
-#: ../libcaja-private/caja-open-with-dialog.c:1057
-#: ../libcaja-private/caja-open-with-dialog.c:1097
+#: ../libcaja-private/caja-open-with-dialog.c:1048
+#: ../libcaja-private/caja-open-with-dialog.c:1088
 #, c-format
 msgid "Open %s with:"
 msgstr ""
 
-#: ../libcaja-private/caja-open-with-dialog.c:1058
+#: ../libcaja-private/caja-open-with-dialog.c:1049
 #, c-format
 msgid "_Remember this application for %s documents"
 msgstr ""
 
 #. Only in add mode - the %s here is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1069
+#: ../libcaja-private/caja-open-with-dialog.c:1060
 #, c-format
 msgid "Open all %s documents with:"
 msgstr ""
 
 #. First %s is a filename, second is a description
 #. * of the type, eg "plain text document"
-#: ../libcaja-private/caja-open-with-dialog.c:1091
+#: ../libcaja-private/caja-open-with-dialog.c:1082
 #, c-format
 msgid "Open %s and other \"%s\" files with:"
 msgstr ""
 
 #. %s is a file type description
-#: ../libcaja-private/caja-open-with-dialog.c:1099
+#: ../libcaja-private/caja-open-with-dialog.c:1090
 #, c-format
 msgid "_Remember this application for \"%s\" files"
 msgstr ""
 
 #. Only in add mode
-#: ../libcaja-private/caja-open-with-dialog.c:1110
+#: ../libcaja-private/caja-open-with-dialog.c:1101
 #, c-format
 msgid "Open all \"%s\" files with:"
 msgstr ""
 
-#: ../libcaja-private/caja-open-with-dialog.c:1122
+#: ../libcaja-private/caja-open-with-dialog.c:1113
 msgid "_Add"
-msgstr ""
+msgstr "დამატება"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1123
+#: ../libcaja-private/caja-open-with-dialog.c:1114
 msgid "Add Application"
 msgstr "პროგრამის დამატება"
 
@@ -2292,7 +2323,9 @@ msgstr "გახსნა ვერ მოხერხდა, გნება�
 msgid ""
 "The default action cannot open \"%s\" because it cannot access files at "
 "\"%s\" locations."
-msgstr "შეუძლებელია ნაგულისხმევი ქმედებით \"%s\"-ის გახსნა, რადგანაც მისი გამოყენებით ვერ მოხერხდა \"%s\" მდებარეობებში წვდომა."
+msgstr ""
+"შეუძლებელია ნაგულისხმევი ქმედებით \"%s\"-ის გახსნა, რადგანაც მისი "
+"გამოყენებით ვერ მოხერხდა \"%s\" მდებარეობებში წვდომა."
 
 #: ../libcaja-private/caja-program-choosing.c:120
 msgid ""
@@ -2308,7 +2341,9 @@ msgstr ""
 
 #: ../libcaja-private/caja-program-choosing.c:458
 msgid "Sorry, but you cannot execute commands from a remote site."
-msgstr "უკაცრავად, სამწუხაროდ თქვენ არ შეგიძლიათ დაშორებული კომპიუტერიდან პროგრამების გაშვება."
+msgstr ""
+"უკაცრავად, სამწუხაროდ თქვენ არ შეგიძლიათ დაშორებული კომპიუტერიდან "
+"პროგრამების გაშვება."
 
 #: ../libcaja-private/caja-program-choosing.c:460
 msgid "This is disabled due to security considerations."
@@ -2322,7 +2357,8 @@ msgstr "პროგრამის გაშვებისას წარმ�
 #: ../libcaja-private/caja-program-choosing.c:501
 #: ../libcaja-private/caja-program-choosing.c:514
 msgid "This drop target only supports local files."
-msgstr "დანიშნულების დასტას მხოლოდ ლოკალურ ფაილების გადათრევის მხარდაჭერა გააჩნია. "
+msgstr ""
+"დანიშნულების დასტას მხოლოდ ლოკალურ ფაილების გადათრევის მხარდაჭერა გააჩნია. "
 
 #: ../libcaja-private/caja-program-choosing.c:502
 msgid ""
@@ -2364,10 +2400,10 @@ msgstr ""
 #, c-format
 msgid "%'d file operation active"
 msgid_plural "%'d file operations active"
-msgstr[0] "ფაილებზე %'d ოპერაცია მიმდინარეობს"
+msgstr[0] ""
 
-#: ../libcaja-private/caja-progress-info.c:983
-#: ../libcaja-private/caja-progress-info.c:1004
+#: ../libcaja-private/caja-progress-info.c:975
+#: ../libcaja-private/caja-progress-info.c:996
 msgid "Preparing"
 msgstr "მომზადება"
 
@@ -2774,7 +2810,9 @@ msgstr "გეზის ზოლის ნაცვლად, ყოველ�
 msgid ""
 "If set to true, then Caja browser windows will always use a textual input "
 "entry for the location toolbar, instead of the pathbar."
-msgstr "თუ მონიშნულია, ნაუტილუსი გეზის ზოლის მაგივრად, ტექსტის შეყვანის შესაძლებლობის მქონე მისამართის ზოლს გამოიყენებს."
+msgstr ""
+"თუ მონიშნულია, ნაუტილუსი გეზის ზოლის მაგივრად, ტექსტის შეყვანის "
+"შესაძლებლობის მქონე მისამართის ზოლს გამოიყენებს."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:9
 msgid "Whether to ask for confirmation when deleting files, or emptying Trash"
@@ -2784,7 +2822,9 @@ msgstr "ფაილების წაშლის ან სანაგვე
 msgid ""
 "If set to true, then Caja will ask for confirmation when you attempt to "
 "delete files, or empty the Trash."
-msgstr "თუ მონიშნულია, ნაუტილუსი მოითხოვს დასტურს სანაგვე ყუთის დაცარიელების ან ფაილების წაშლის შემთხვევაში."
+msgstr ""
+"თუ მონიშნულია, ნაუტილუსი მოითხოვს დასტურს სანაგვე ყუთის დაცარიელების ან "
+"ფაილების წაშლის შემთხვევაში."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:11
 msgid "Whether to ask for confirmation when moving files to the Trash"
@@ -2805,7 +2845,10 @@ msgid ""
 "If set to true, then Caja will have a feature allowing you to delete a file "
 "immediately and in-place, instead of moving it to the trash. This feature "
 "can be dangerous, so use caution."
-msgstr "თუ მონიშნულია, შესაძლებელი გახდება ფაილების ნაგვის ყუთში გადატანის გარეშე წაშლა. ამ ოპერაციის ჩატარება სახიფათოა, საჭიროებს თქვენს დამატებით ყურადღებას."
+msgstr ""
+"თუ მონიშნულია, შესაძლებელი გახდება ფაილების ნაგვის ყუთში გადატანის გარეშე "
+"წაშლა. ამ ოპერაციის ჩატარება სახიფათოა, საჭიროებს თქვენს დამატებით "
+"ყურადღებას."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:15
 msgid "When to show preview text in icons"
@@ -2840,7 +2883,9 @@ msgstr "დაწკაპუნების ტიპი, გამოიყე
 msgid ""
 "Possible values are \"single\" to launch files on a single click, or "
 "\"double\" to launch them on a double click."
-msgstr "შესაძლებელი მნიშვნელობებია \"ერთმაგი\": ერთმაგი წკაპით ფაილების გაშვება, ან \"ორმაგი\": ორმაგი წკაპით ფაილების გაშვება."
+msgstr ""
+"შესაძლებელი მნიშვნელობებია \"ერთმაგი\": ერთმაგი წკაპით ფაილების გაშვება, ან "
+"\"ორმაგი\": ორმაგი წკაპით ფაილების გაშვება."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:21
 msgid "What to do with executable text files when activated"
@@ -2940,7 +2985,10 @@ msgstr "ფაილის თვისებების დიალოგშ�
 msgid ""
 "If set to true, then Caja lets you edit and display file permissions in a "
 "more unix-like way, accessing some more esoteric options."
-msgstr "თუ მონიშნულია, შესაძლებელი გახდება ნაუტილუსის მიერ ზოგიერთი \"ეზოთერიულ\" პარამეტრებზე წვდომა, ამის გარდა Unix სისტემების მაგვარად ფაილთა უფლებების რედაქტირება ან დათვალიერება."
+msgstr ""
+"თუ მონიშნულია, შესაძლებელი გახდება ნაუტილუსის მიერ ზოგიერთი \"ეზოთერიულ\" "
+"პარამეტრებზე წვდომა, ამის გარდა Unix სისტემების მაგვარად ფაილთა უფლებების "
+"რედაქტირება ან დათვალიერება."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:39
 msgid "Show folders first in windows"
@@ -2950,7 +2998,9 @@ msgstr "პირველ რიგში დასტების ჩვენ
 msgid ""
 "If set to true, then Caja shows folders prior to showing files in the icon "
 "and list views."
-msgstr "თუ მონიშნულია,\"პიქტოგრამული ხედი\" რეჟიმის შემთხვევაში, ნაუტილუსი ასახავს პირველ რიგში დასტებს და შემდგომ ფაილებს."
+msgstr ""
+"თუ მონიშნულია,\"პიქტოგრამული ხედი\" რეჟიმის შემთხვევაში, ნაუტილუსი ასახავს "
+"პირველ რიგში დასტებს და შემდგომ ფაილებს."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:41
 msgid "Default sort order"
@@ -2982,7 +3032,10 @@ msgstr "ნაუტილუსი მომხმარებლის \"ს�
 msgid ""
 "If set to true, then Caja will use the user's home folder as the desktop. If"
 " it is false, then it will use ~/Desktop as the desktop."
-msgstr "თუ მონიშნულია, ნაუტილუსი მოიხმარს \"სახლი\"-ის დასტას '/home/სახელი' როგორც სამუშაო მაგიდას, სხვა შემთხვევაში ~/Desktop გამოყენებულ იქნება როგორც სამუშაო მაგიდა."
+msgstr ""
+"თუ მონიშნულია, ნაუტილუსი მოიხმარს \"სახლი\"-ის დასტას '/home/სახელი' როგორც "
+"სამუშაო მაგიდას, სხვა შემთხვევაში ~/Desktop გამოყენებულ იქნება როგორც "
+"სამუშაო მაგიდა."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:47
 msgid "Custom Background"
@@ -3000,7 +3053,9 @@ msgstr "ფონის ნაგულისხმევი ფერი"
 msgid ""
 "Color for the default folder background. Only used if background_set is "
 "true."
-msgstr "ნაგულისხმევი დასტის ფონის ფერი. გამოიყენება მხოლოდ როცა background_set არის მონიშნული."
+msgstr ""
+"ნაგულისხმევი დასტის ფონის ფერი. გამოიყენება მხოლოდ როცა background_set არის "
+"მონიშნული."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:51
 msgid "Default Background Filename"
@@ -3017,7 +3072,8 @@ msgstr "პერსონალური გვერდითა პანე�
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:54
 msgid "Whether a custom default side pane background has been set."
-msgstr "ნაგულისხმევად დაყენებულია თუ არა მომხმარებლის ფონი გვერდითა პანელისთვის."
+msgstr ""
+"ნაგულისხმევად დაყენებულია თუ არა მომხმარებლის ფონი გვერდითა პანელისთვის."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:55
 msgid "Default Side Pane Background Color"
@@ -3027,7 +3083,9 @@ msgstr "გვერდითა პანელის ნაგულისხ�
 msgid ""
 "Filename for the default side pane background. Only used if "
 "side_pane_background_set is true."
-msgstr "გვერდითა პანელის ნაგულისხმევი ფონური ტიპის პიქტოგრამის დასახელება. გამოიყენება თუ side_pane_background_set მართებულზეა დაყენებული."
+msgstr ""
+"გვერდითა პანელის ნაგულისხმევი ფონური ტიპის პიქტოგრამის დასახელება. "
+"გამოიყენება თუ side_pane_background_set მართებულზეა დაყენებული."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:57
 msgid "Default Side Pane Background Filename"
@@ -3197,7 +3255,9 @@ msgstr "გვერდითა პანელში მხოლოდ და
 msgid ""
 "If set to true, Caja will only show folders in the tree side pane. Otherwise"
 " it will show both folders and files."
-msgstr "მონიშნულის შემთხვევაში, ნაუტილუსი გვერდითა პანელზე მხოლოდ დასტებს აჩვენებს, სხვაგვარად დასტებსაც და ფაილებსაც."
+msgstr ""
+"მონიშნულის შემთხვევაში, ნაუტილუსი გვერდითა პანელზე მხოლოდ დასტებს აჩვენებს, "
+"სხვაგვარად დასტებსაც და ფაილებსაც."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:96
 msgid "Desktop font"
@@ -3265,7 +3325,9 @@ msgstr "სამუშაო მაგიდაზე \"კომპიუტ�
 msgid ""
 "This name can be set if you want a custom name for the computer icon on the "
 "desktop."
-msgstr "შესაძლებელია სახელწოდების მინიჭება, თუ გნებავთ პიქტოგრამა \"კომპიუტერი\"-ს სახელწოდების შეცვლა."
+msgstr ""
+"შესაძლებელია სახელწოდების მინიჭება, თუ გნებავთ პიქტოგრამა \"კომპიუტერი\"-ს "
+"სახელწოდების შეცვლა."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:110
 msgid "Desktop home icon name"
@@ -3275,7 +3337,9 @@ msgstr "სამუშაო მაგიდაზე \"სახლის დ�
 msgid ""
 "This name can be set if you want a custom name for the home icon on the "
 "desktop."
-msgstr "შესაძლებელია სახელწოდების მინიჭება, თუ გნებავთ პიქტოგრამა \"სახლი\"-ს სახელწოდების შეცვლა."
+msgstr ""
+"შესაძლებელია სახელწოდების მინიჭება, თუ გნებავთ პიქტოგრამა \"სახლი\"-ს "
+"სახელწოდების შეცვლა."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:112
 msgid "Desktop trash icon name"
@@ -3285,7 +3349,9 @@ msgstr "სამუშაო მაგიდაზე \"სანაგვე �
 msgid ""
 "This name can be set if you want a custom name for the trash icon on the "
 "desktop."
-msgstr "მოცემული სახელწოდების შეცვლა შესაძლებელია, თუ გნებავთ \"სანაგვე ყუთის\" ხატულასთვის ალტერნატიული სახელწოდების მინიჭება."
+msgstr ""
+"მოცემული სახელწოდების შეცვლა შესაძლებელია, თუ გნებავთ \"სანაგვე ყუთის\" "
+"ხატულასთვის ალტერნატიული სახელწოდების მინიჭება."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:114
 msgid "Network servers icon name"
@@ -3295,7 +3361,9 @@ msgstr "ქსელის სერვერების პირტოგრ�
 msgid ""
 "This name can be set if you want a custom name for the network servers icon "
 "on the desktop."
-msgstr "შესაძლებელია \"ქსელის სერვერები\".პიქტოგრამის სახელწოდების შეცვლა და სამუშაო მაგიდაზე გამოჩენა."
+msgstr ""
+"შესაძლებელია \"ქსელის სერვერები\".პიქტოგრამის სახელწოდების შეცვლა და სამუშაო"
+" მაგიდაზე გამოჩენა."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:116
 msgid ""
@@ -3346,7 +3414,8 @@ msgstr "ახალ ფანჯრებში მდებარეობი�
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:126
 msgid ""
 "If set to true, newly opened windows will have the location bar visible."
-msgstr "თუ მონიშნულია, ახლად გახსნილ ფანჯრებს ექნებათ ხილული მდებარეობის ზოლი."
+msgstr ""
+"თუ მონიშნულია, ახლად გახსნილ ფანჯრებს ექნებათ ხილული მდებარეობის ზოლი."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:127
 msgid "Show status bar in new windows"
@@ -3388,7 +3457,9 @@ msgstr "გარე მედიის ავტო მიერთების
 msgid ""
 "If set to true, then Caja will automatically mount media such as user-"
 "visible hard disks and removable media on start-up and media insertion."
-msgstr "თუ მონიშნულია, ნაუტილუსი ავტომატურად მიაერთებს მოწყობილობებს, როგორიცაა გარე მყარი დისკი ან ავტომატურად გაუშვებს შეყვანილ მედიას."
+msgstr ""
+"თუ მონიშნულია, ნაუტილუსი ავტომატურად მიაერთებს მოწყობილობებს, როგორიცაა გარე"
+" მყარი დისკი ან ავტომატურად გაუშვებს შეყვანილ მედიას."
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:3
 msgid "Whether to automatically open a folder for automounted media"
@@ -3400,17 +3471,25 @@ msgid ""
 "automounted. This only applies to media where no known x-content/* type was "
 "detected; for media where a known x-content type is detected, the user "
 "configurable action will be taken instead."
-msgstr "თუ მონიშნულია, მოწყობილობის ავტომონტაჟისას გაიხსნება დასტა ნაუტილუსში. ეს ხდება მხოლოდ იმ მოწყობილობებში, რომლებშიც არ იქნა ამოცნობილი x-content/*ტიპი. x-content/*-ის ამოცნობის შემთხვევაში ჩატარდება მომხმარებლის მიერ ამორჩეული ქმედება."
+msgstr ""
+"თუ მონიშნულია, მოწყობილობის ავტომონტაჟისას გაიხსნება დასტა ნაუტილუსში. ეს "
+"ხდება მხოლოდ იმ მოწყობილობებში, რომლებშიც არ იქნა ამოცნობილი "
+"x-content/*ტიპი. x-content/*-ის ამოცნობის შემთხვევაში ჩატარდება მომხმარებლის"
+" მიერ ამორჩეული ქმედება."
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:5
 msgid "Never prompt or autorun/autostart programs when media are inserted"
-msgstr "თუ მონიშნულია, ნაუტილუსი აღარ მოითხოვს კომპაქტ დისკიდან ავტო-გაშვებად პროგრამების გაშვებას."
+msgstr ""
+"თუ მონიშნულია, ნაუტილუსი აღარ მოითხოვს კომპაქტ დისკიდან ავტო-გაშვებად "
+"პროგრამების გაშვებას."
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:6
 msgid ""
 "If set to true, then Caja will never prompt nor autorun/autostart programs "
 "when a medium is inserted."
-msgstr "თუ მონიშნულია, ნაუტილუსი აღარ მოგთხოვთ კომპაქტ დისკიდან ავტო-გაშვებად პროგრამების ჩართვას."
+msgstr ""
+"თუ მონიშნულია, ნაუტილუსი აღარ მოგთხოვთ კომპაქტ დისკიდან ავტო-გაშვებად "
+"პროგრამების ჩართვას."
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:7
 msgid ""
@@ -3454,12 +3533,12 @@ msgstr ""
 #: ../libegg/eggdesktopfile.c:189
 #, c-format
 msgid "Unrecognized desktop file Version '%s'"
-msgstr ""
+msgstr "ამოუცნობი desktop ფაილის ვერსია '%s'"
 
 #: ../libegg/eggdesktopfile.c:958
 #, c-format
 msgid "Starting %s"
-msgstr ""
+msgstr "ირთვება %s"
 
 #: ../libegg/eggdesktopfile.c:1100
 #, c-format
@@ -3479,27 +3558,27 @@ msgstr ""
 #: ../libegg/eggdesktopfile.c:1385
 #, c-format
 msgid "Not a launchable item"
-msgstr ""
+msgstr "არ არის გაშვებადი ელემენტი"
 
 #: ../libegg/eggsmclient.c:237
 msgid "Disable connection to session manager"
-msgstr ""
+msgstr "ვერ ვუკავშირდები სესიის მენეჯერს"
 
 #: ../libegg/eggsmclient.c:242
 msgid "Specify file containing saved configuration"
-msgstr ""
+msgstr "დამახსოვრებული კონფიგურაციის მქონე ფაილის მინიშნება"
 
 #: ../libegg/eggsmclient.c:242
 msgid "FILE"
-msgstr ""
+msgstr "ფაილი"
 
 #: ../libegg/eggsmclient.c:247
 msgid "Specify session management ID"
-msgstr ""
+msgstr "აღნიშნეთ თუ რომელი სეანსი ჩაიტვირთოს"
 
 #: ../libegg/eggsmclient.c:247
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: ../libegg/eggsmclient.c:273
 msgid "Session management options:"
@@ -3507,61 +3586,61 @@ msgstr ""
 
 #: ../libegg/eggsmclient.c:274
 msgid "Show session management options"
-msgstr ""
+msgstr "აჩვენე სეანსის მართვის პარამეტრები"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:709
+#: ../src/file-manager/fm-desktop-icon-view.c:667
 msgid "Background"
 msgstr "ფონი"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:786
-#: ../src/file-manager/fm-directory-view.c:7316
-#: ../src/file-manager/fm-directory-view.c:8993
+#: ../src/file-manager/fm-desktop-icon-view.c:744
+#: ../src/file-manager/fm-directory-view.c:7300
+#: ../src/file-manager/fm-directory-view.c:8977
 msgid "E_mpty Trash"
 msgstr "სანაგვე ყუთის დაცარიელ_ება"
 
 #. label, accelerator
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:800
-#: ../src/file-manager/fm-directory-view.c:7280
+#: ../src/file-manager/fm-desktop-icon-view.c:758
+#: ../src/file-manager/fm-directory-view.c:7264
 msgid "Create L_auncher..."
 msgstr "გამშვების შექმნა..."
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:802
-#: ../src/file-manager/fm-directory-view.c:7281
+#: ../src/file-manager/fm-desktop-icon-view.c:760
+#: ../src/file-manager/fm-directory-view.c:7265
 msgid "Create a new launcher"
-msgstr "ახალი გამშვების შექმნა"
+msgstr "შექმენი ახალი გამშვები"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:809
+#: ../src/file-manager/fm-desktop-icon-view.c:767
 msgid "Change Desktop _Background"
 msgstr "ფ_ონის შეცვლა"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:811
+#: ../src/file-manager/fm-desktop-icon-view.c:769
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr ""
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:818
+#: ../src/file-manager/fm-desktop-icon-view.c:776
 msgid "Empty Trash"
 msgstr "სანაგვე ყუთის დაცარიელება"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:820
-#: ../src/file-manager/fm-directory-view.c:7317 ../src/caja-trash-bar.c:204
+#: ../src/file-manager/fm-desktop-icon-view.c:778
+#: ../src/file-manager/fm-directory-view.c:7301 ../src/caja-trash-bar.c:204
 msgid "Delete all items in the Trash"
 msgstr "სანაგვედან ყველა ელემენტის წაშლა"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:920
+#: ../src/file-manager/fm-desktop-icon-view.c:878
 msgid "The desktop view encountered an error."
 msgstr "სამუშაო მაგიდის დათვალიერებისას დაიშვა შეცდომა."
 
-#: ../src/file-manager/fm-desktop-icon-view.c:921
+#: ../src/file-manager/fm-desktop-icon-view.c:879
 msgid "The desktop view encountered an error while starting up."
 msgstr "სამუშაო მაგიდის ხედის გაშვებისას დაიშვა შეცდომა."
 
@@ -3569,102 +3648,102 @@ msgstr "სამუშაო მაგიდის ხედის გაშვ
 #, c-format
 msgid "This will open %'d separate tab."
 msgid_plural "This will open %'d separate tabs."
-msgstr[0] "ეს %d-ს ცალკე დაფაში გახსნის."
+msgstr[0] ""
 
 #: ../src/file-manager/fm-directory-view.c:658
 #, c-format
 msgid "This will open %'d separate window."
 msgid_plural "This will open %'d separate windows."
-msgstr[0] "ეს %d-ს ცალკე ფანჯარაში გახსნის."
+msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:1183
-#: ../src/file-manager/fm-properties-window.c:5420
-#: ../src/caja-connect-server-dialog.c:724 ../src/caja-location-dialog.c:108
+#: ../src/file-manager/fm-directory-view.c:1177
+#: ../src/file-manager/fm-properties-window.c:5409
+#: ../src/caja-connect-server-dialog.c:718 ../src/caja-location-dialog.c:102
 msgid "There was an error displaying help."
-msgstr "დაიშვა შეცდომა დახმარების ჩვენებისას."
+msgstr "შეცდომა დახმარების ჩვენებისას."
 
-#: ../src/file-manager/fm-directory-view.c:1203
+#: ../src/file-manager/fm-directory-view.c:1197
 msgid "Select Items Matching"
 msgstr "მოცემულ ფანჯარაში ყველა ელემენტის ამორჩევა"
 
-#: ../src/file-manager/fm-directory-view.c:1218
+#: ../src/file-manager/fm-directory-view.c:1212
 msgid "_Pattern:"
 msgstr "_შაბლონი:"
 
-#: ../src/file-manager/fm-directory-view.c:1225
+#: ../src/file-manager/fm-directory-view.c:1219
 msgid "Examples: "
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:1341
+#: ../src/file-manager/fm-directory-view.c:1335
 msgid "Save Search as"
 msgstr "ძიების შენახვა როგორც"
 
-#: ../src/file-manager/fm-directory-view.c:1364
+#: ../src/file-manager/fm-directory-view.c:1358
 msgid "Search _name:"
 msgstr "ძიების ს_ახელი:"
 
-#: ../src/file-manager/fm-directory-view.c:1384
+#: ../src/file-manager/fm-directory-view.c:1374
 msgid "_Folder:"
 msgstr "_დასტა:"
 
-#: ../src/file-manager/fm-directory-view.c:1393
+#: ../src/file-manager/fm-directory-view.c:1379
 msgid "Select Folder to Save Search In"
 msgstr "ძიების დასამახსოვრებლად დასტის ამორჩევა"
 
-#: ../src/file-manager/fm-directory-view.c:2284
-#: ../src/file-manager/fm-directory-view.c:2321
+#: ../src/file-manager/fm-directory-view.c:2268
+#: ../src/file-manager/fm-directory-view.c:2305
 #, c-format
 msgid "\"%s\" selected"
 msgstr "მონიშნულია \"%s\" ელემენტი"
 
-#: ../src/file-manager/fm-directory-view.c:2286
+#: ../src/file-manager/fm-directory-view.c:2270
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
-msgstr[0] "%d მონიშნული დასტა"
+msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:2296
+#: ../src/file-manager/fm-directory-view.c:2280
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
-msgstr[0] " (მოიცავს %d ელემენტს)"
+msgstr[0] ""
 
 #. translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
-#: ../src/file-manager/fm-directory-view.c:2307
+#: ../src/file-manager/fm-directory-view.c:2291
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
-msgstr[0] " (სულ მოიცავს %d ელემენტს)"
+msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:2324
+#: ../src/file-manager/fm-directory-view.c:2308
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
-msgstr[0] "%d მონიშნული ელემენტი"
+msgstr[0] ""
 
 #. Folders selected also, use "other" terminology
-#: ../src/file-manager/fm-directory-view.c:2331
+#: ../src/file-manager/fm-directory-view.c:2315
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
-msgstr[0] "%d სხვა მონიშნული ელემენტი"
+msgstr[0] ""
 
 #. This is marked for translation in case a localiser
 #. * needs to use something other than parentheses. The
 #. * first message gives the number of items selected;
 #. * the message in parentheses the size of those items.
-#: ../src/file-manager/fm-directory-view.c:2350
+#: ../src/file-manager/fm-directory-view.c:2334
 #, c-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-directory-view.c:2363
+#: ../src/file-manager/fm-directory-view.c:2347
 #, c-format
 msgid "Free space: %s"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:2374
+#: ../src/file-manager/fm-directory-view.c:2358
 #, c-format
 msgid "%s, Free space: %s"
 msgstr "%s, თავისუფალია: %s"
@@ -3673,10 +3752,10 @@ msgstr "%s, თავისუფალია: %s"
 #. * might want to change "," to something else.
 #. * After the comma the amount of free space will
 #. * be shown.
-#: ../src/file-manager/fm-directory-view.c:2389
+#: ../src/file-manager/fm-directory-view.c:2373
 #, c-format
 msgid "%s, %s"
-msgstr ""
+msgstr "%s, %s"
 
 #. Marking this for translation, since you
 #. * might want to change "," to something else.
@@ -3688,8 +3767,8 @@ msgstr ""
 #. * and the number of items in those folders and the
 #. * message about the number of other items and the
 #. * total size of those items.
-#: ../src/file-manager/fm-directory-view.c:2408
-#: ../src/file-manager/fm-directory-view.c:2422
+#: ../src/file-manager/fm-directory-view.c:2392
+#: ../src/file-manager/fm-directory-view.c:2406
 #, c-format
 msgid "%s%s, %s"
 msgstr "%s%s, %s"
@@ -3701,52 +3780,52 @@ msgstr "%s%s, %s"
 #. * message about the number of other items and the
 #. * total size of those items. After the second comma
 #. * the free space is written.
-#: ../src/file-manager/fm-directory-view.c:2435
+#: ../src/file-manager/fm-directory-view.c:2419
 #, c-format
 msgid "%s%s, %s, %s"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:4480
+#: ../src/file-manager/fm-directory-view.c:4464
 #: ../src/caja-information-panel.c:905
 #, c-format
 msgid "Open With %s"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:4482
+#: ../src/file-manager/fm-directory-view.c:4466
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
-msgstr[0] "ამორჩეული ელემენტის გასახსნელად \"%s\"-ის გამოყენება"
+msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:4571
+#: ../src/file-manager/fm-directory-view.c:4555
 msgid "Open parent location"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:4572
+#: ../src/file-manager/fm-directory-view.c:4556
 msgid "Open parent location for the selected item"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:5421
+#: ../src/file-manager/fm-directory-view.c:5405
 #, c-format
 msgid "Run \"%s\" on any selected items"
 msgstr "\"%s\"-ის გაშვება ამორჩეული ელემენტებისთვის"
 
-#: ../src/file-manager/fm-directory-view.c:5672
+#: ../src/file-manager/fm-directory-view.c:5656
 #, c-format
 msgid "Create Document from template \"%s\""
 msgstr "დოკუმენტის შექმნა შაბლონიდან: \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:5922
+#: ../src/file-manager/fm-directory-view.c:5906
 msgid "All executable files in this folder will appear in the Scripts menu."
 msgstr "ყველა გაშვებადი ტექსტური ფაილი, გამოჩნდება მენუში \"სკრიპტები\"."
 
-#: ../src/file-manager/fm-directory-view.c:5924
+#: ../src/file-manager/fm-directory-view.c:5908
 msgid ""
 "Choosing a script from the menu will run that script with any selected items"
 " as input."
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:5926
+#: ../src/file-manager/fm-directory-view.c:5910
 msgid ""
 "All executable files in this folder will appear in the Scripts menu. Choosing a script from the menu will run that script.\n"
 "\n"
@@ -3769,124 +3848,124 @@ msgid ""
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI for current location in the inactive pane of a split-view window"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:5994
+#: ../src/file-manager/fm-directory-view.c:5978
 #: ../src/file-manager/fm-tree-view.c:1009
 #, c-format
 msgid "\"%s\" will be moved if you select the Paste command"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:5998
+#: ../src/file-manager/fm-directory-view.c:5982
 #: ../src/file-manager/fm-tree-view.c:1015
 #, c-format
 msgid "\"%s\" will be copied if you select the Paste command"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:6005
+#: ../src/file-manager/fm-directory-view.c:5989
 #, c-format
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be moved if you select the Paste command"
-msgstr[0] "შეუძლებელია მონიშნული %d ელემენტების სანაგვე ყუთში გადატანა"
+msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:6012
+#: ../src/file-manager/fm-directory-view.c:5996
 #, c-format
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be copied if you select the Paste command"
 msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:6192
+#: ../src/file-manager/fm-directory-view.c:6176
 #: ../src/file-manager/fm-tree-view.c:1055
 msgid "There is nothing on the clipboard to paste."
 msgstr "ბუფერში არაფერი ინახება ისეთი რისი ჩასმაც შეიძლება."
 
-#: ../src/file-manager/fm-directory-view.c:6407
+#: ../src/file-manager/fm-directory-view.c:6391
 msgid "Unable to unmount location"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:6428
+#: ../src/file-manager/fm-directory-view.c:6412
 msgid "Unable to eject location"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:6443
+#: ../src/file-manager/fm-directory-view.c:6427
 msgid "Unable to stop drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7000
+#: ../src/file-manager/fm-directory-view.c:6984
 #, c-format
 msgid "Connect to Server %s"
 msgstr "სერვერთან დაკავშირება %s"
 
-#: ../src/file-manager/fm-directory-view.c:7005
-#: ../src/file-manager/fm-directory-view.c:8212
-#: ../src/file-manager/fm-directory-view.c:8304
-#: ../src/file-manager/fm-directory-view.c:8414
+#: ../src/file-manager/fm-directory-view.c:6989
+#: ../src/file-manager/fm-directory-view.c:8196
+#: ../src/file-manager/fm-directory-view.c:8288
+#: ../src/file-manager/fm-directory-view.c:8398
 msgid "_Connect"
 msgstr "_დაკავშირება"
 
-#: ../src/file-manager/fm-directory-view.c:7019
+#: ../src/file-manager/fm-directory-view.c:7003
 msgid "Link _name:"
 msgstr "ბმულის _სახელი:"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7258
+#: ../src/file-manager/fm-directory-view.c:7242
 msgid "Create _Document"
 msgstr "_დოკუმენტის შექმნა"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7259
+#: ../src/file-manager/fm-directory-view.c:7243
 msgid "Open Wit_h"
 msgstr "_პროგრამით გახსნა"
 
-#: ../src/file-manager/fm-directory-view.c:7260
+#: ../src/file-manager/fm-directory-view.c:7244
 msgid "Choose a program with which to open the selected item"
 msgstr "ამოირჩიეთ პროგრამა ამორჩეული ელემენტის გასახსნელად"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7262
-#: ../src/file-manager/fm-directory-view.c:7541
+#: ../src/file-manager/fm-directory-view.c:7246
+#: ../src/file-manager/fm-directory-view.c:7525
 msgid "_Properties"
 msgstr "_პარამეტრები"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7263
-#: ../src/file-manager/fm-directory-view.c:8980
+#: ../src/file-manager/fm-directory-view.c:7247
+#: ../src/file-manager/fm-directory-view.c:8964
 msgid "View or modify the properties of each selected item"
 msgstr "ყოველი ამორჩეული ელემენტისთვის პარამეტრების შეცვლა ან დათვალიერება"
 
 #. name, stock id
 #. label, accelerator
 #. add the "create folder" menu item
-#: ../src/file-manager/fm-directory-view.c:7270
+#: ../src/file-manager/fm-directory-view.c:7254
 #: ../src/file-manager/fm-tree-view.c:1298
 msgid "Create _Folder"
-msgstr "_დასტის შექმნა"
+msgstr "საქაღალდის შექმნა"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7271
+#: ../src/file-manager/fm-directory-view.c:7255
 msgid "Create a new empty folder inside this folder"
 msgstr "მოცემულ დასტაში ახალი ცარიელი დასტის შექმნა"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7273
+#: ../src/file-manager/fm-directory-view.c:7257
 msgid "No templates installed"
 msgstr "არც ერთი დაყენებული შაბლონი"
 
 #. name, stock id
 #. translators: this is used to indicate that a file doesn't contain anything
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7276
+#: ../src/file-manager/fm-directory-view.c:7260
 msgid "_Empty File"
 msgstr "_ცარიელი ფაილი"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7277
+#: ../src/file-manager/fm-directory-view.c:7261
 msgid "Create a new empty file inside this folder"
 msgstr "მოცემულ დასტაში ახალი ცარიელი ფაილის შექმნა"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7285
+#: ../src/file-manager/fm-directory-view.c:7269
 msgid "Open the selected item in this window"
 msgstr "შერჩეული ელემენტის ამ ფანჯარაში გახსნა"
 
@@ -3895,91 +3974,91 @@ msgstr "შერჩეული ელემენტის ამ ფანჯ
 #. Location-specific actions
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7292
-#: ../src/file-manager/fm-directory-view.c:7473
+#: ../src/file-manager/fm-directory-view.c:7276
+#: ../src/file-manager/fm-directory-view.c:7457
 msgid "Open in Navigation Window"
 msgstr "ნავიგატორის ფანჯარაში გახსნა"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7293
+#: ../src/file-manager/fm-directory-view.c:7277
 msgid "Open each selected item in a navigation window"
 msgstr "ყოველი ელემენტი ნავიგატორის ცალკე ფანჯარაში გახსნა"
 
 #. name, stock id
 #. label, accelerator
 #. add the "open in new tab" menu item
-#: ../src/file-manager/fm-directory-view.c:7296
-#: ../src/file-manager/fm-directory-view.c:7477
-#: ../src/file-manager/fm-directory-view.c:8544
-#: ../src/file-manager/fm-directory-view.c:8870
+#: ../src/file-manager/fm-directory-view.c:7280
+#: ../src/file-manager/fm-directory-view.c:7461
+#: ../src/file-manager/fm-directory-view.c:8528
+#: ../src/file-manager/fm-directory-view.c:8854
 #: ../src/file-manager/fm-tree-view.c:1278 ../src/caja-places-sidebar.c:2664
 msgid "Open in New _Tab"
 msgstr "ახ_ალ დაფაში გახსნა"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7297
+#: ../src/file-manager/fm-directory-view.c:7281
 msgid "Open each selected item in a new tab"
 msgstr "ყოველი ელემენტის ნავიგატორის ცალკე დაფაში გახსნა"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7300
-#: ../src/file-manager/fm-directory-view.c:7482
+#: ../src/file-manager/fm-directory-view.c:7284
+#: ../src/file-manager/fm-directory-view.c:7466
 msgid "Open in _Folder Window"
 msgstr "დასტის ფანჯარაში _გახსნა"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7301
+#: ../src/file-manager/fm-directory-view.c:7285
 msgid "Open each selected item in a folder window"
 msgstr "ყოველი ელემენტი ნავიგატორის ცალკე ფანჯარაში გახსნა"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7304
+#: ../src/file-manager/fm-directory-view.c:7288
 msgid "Other _Application..."
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7305
-#: ../src/file-manager/fm-directory-view.c:7309
+#: ../src/file-manager/fm-directory-view.c:7289
+#: ../src/file-manager/fm-directory-view.c:7293
 msgid "Choose another application with which to open the selected item"
 msgstr "მონიშნული ელემენტის გასახსნელად სხვა პროგრამის ამორჩევა"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7308
+#: ../src/file-manager/fm-directory-view.c:7292
 msgid "Open With Other _Application..."
 msgstr ""
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7312
+#: ../src/file-manager/fm-directory-view.c:7296
 msgid "_Open Scripts Folder"
 msgstr "სკრ_იპტების საქაღალდის გახსნა"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7313
+#: ../src/file-manager/fm-directory-view.c:7297
 msgid "Show the folder containing the scripts that appear in this menu"
 msgstr ""
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7321
+#: ../src/file-manager/fm-directory-view.c:7305
 msgid "Prepare the selected files to be moved with a Paste command"
 msgstr ""
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7325
+#: ../src/file-manager/fm-directory-view.c:7309
 msgid "Prepare the selected files to be copied with a Paste command"
 msgstr ""
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7329
+#: ../src/file-manager/fm-directory-view.c:7313
 msgid "Move or copy files previously selected by a Cut or Copy command"
 msgstr ""
 
@@ -3987,139 +4066,140 @@ msgstr ""
 #. accelerator for paste
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7334
-#: ../src/file-manager/fm-directory-view.c:7495
+#: ../src/file-manager/fm-directory-view.c:7318
+#: ../src/file-manager/fm-directory-view.c:7479
 #: ../src/file-manager/fm-tree-view.c:1330
 msgid "_Paste Into Folder"
 msgstr "_დასტაში ჩასმა"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7335
+#: ../src/file-manager/fm-directory-view.c:7319
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into the "
 "selected folder"
 msgstr ""
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7337
+#: ../src/file-manager/fm-directory-view.c:7321
 msgid "Cop_y to"
 msgstr ""
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7338
+#: ../src/file-manager/fm-directory-view.c:7322
 msgid "M_ove to"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7341
+#: ../src/file-manager/fm-directory-view.c:7325
 msgid "Select all items in this window"
 msgstr "მოცემულ ფანჯარაში ყველა ელემენტის ამორჩევა"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7344
+#: ../src/file-manager/fm-directory-view.c:7328
 msgid "Select I_tems Matching..."
 msgstr "მონიშვნა რომ_ელიც ემთხვევა..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7345
+#: ../src/file-manager/fm-directory-view.c:7329
 msgid "Select items in this window matching a given pattern"
 msgstr "ელემენტების მონიშვნა რომლებიც გარკვეულ შაბლონს ემთხვევა"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7348
+#: ../src/file-manager/fm-directory-view.c:7332
 msgid "_Invert Selection"
 msgstr "_უკუ მონიშვნა"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7349
+#: ../src/file-manager/fm-directory-view.c:7333
 msgid "Select all and only the items that are not currently selected"
 msgstr "ყველა იმ ელემენტის მონიშვნა, რომელიც ამჟამად არ არის მონიშნული"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7352
+#: ../src/file-manager/fm-directory-view.c:7336
 msgid "D_uplicate"
 msgstr "დუპლიკატი"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7353
+#: ../src/file-manager/fm-directory-view.c:7337
 msgid "Duplicate each selected item"
 msgstr "ყოველი მონიშნული ელემენტის დუბლირება"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7356
-#: ../src/file-manager/fm-directory-view.c:8964
+#: ../src/file-manager/fm-directory-view.c:7340
+#: ../src/file-manager/fm-directory-view.c:8948
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
-msgstr[0] "_ბმულის შექმნა"
+msgstr[0] ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7357
+#: ../src/file-manager/fm-directory-view.c:7341
 msgid "Create a symbolic link for each selected item"
-msgstr "ყოველი მონიშნული ელემენტისთვის სიმბოლური ბმის შექმნაშექმნა a ბმული -თვის"
+msgstr ""
+"ყოველი მონიშნული ელემენტისთვის სიმბოლური ბმის შექმნაშექმნა a ბმული -თვის"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7360
+#: ../src/file-manager/fm-directory-view.c:7344
 msgid "_Rename..."
-msgstr "_გადარქმევა..."
+msgstr "სახელის გადარქმევა..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7361
+#: ../src/file-manager/fm-directory-view.c:7345
 msgid "Rename selected item"
 msgstr "შერჩეული ელემენტის სახელწოდების გადარქმევა"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7369
-#: ../src/file-manager/fm-directory-view.c:8925
+#: ../src/file-manager/fm-directory-view.c:7353
+#: ../src/file-manager/fm-directory-view.c:8909
 msgid "Move each selected item to the Trash"
 msgstr "მონიშნული ელემენტების სანაგვე ყუთში გადატანა"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7372
-#: ../src/file-manager/fm-directory-view.c:7504
-#: ../src/file-manager/fm-directory-view.c:8945
+#: ../src/file-manager/fm-directory-view.c:7356
+#: ../src/file-manager/fm-directory-view.c:7488
+#: ../src/file-manager/fm-directory-view.c:8929
 #: ../src/file-manager/fm-tree-view.c:1360
 msgid "_Delete"
-msgstr "სამუ_დამოდ წაშლა"
+msgstr "_წაშლა"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7373
+#: ../src/file-manager/fm-directory-view.c:7357
 msgid "Delete each selected item, without moving to the Trash"
 msgstr "მონიშნული ელემენტების საბოლოო წაშლა, სანაგვე ყუთში გადატანის გარეშე"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7376
-#: ../src/file-manager/fm-directory-view.c:7508
+#: ../src/file-manager/fm-directory-view.c:7360
+#: ../src/file-manager/fm-directory-view.c:7492
 msgid "_Restore"
 msgstr "აღ_დგენა"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7380
+#: ../src/file-manager/fm-directory-view.c:7364
 msgid "_Undo"
 msgstr "გა_უქმება"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7381
-#: ../src/file-manager/fm-directory-view.c:11129
+#: ../src/file-manager/fm-directory-view.c:7365
+#: ../src/file-manager/fm-directory-view.c:11113
 msgid "Undo the last action"
-msgstr ""
+msgstr "ბოლო მოქმედების გაუქმება"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7384
+#: ../src/file-manager/fm-directory-view.c:7368
 msgid "_Redo"
-msgstr ""
+msgstr "გამეო_რება"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7385
-#: ../src/file-manager/fm-directory-view.c:11147
+#: ../src/file-manager/fm-directory-view.c:7369
+#: ../src/file-manager/fm-directory-view.c:11131
 msgid "Redo the last undone action"
 msgstr ""
 
@@ -4129,622 +4209,622 @@ msgstr ""
 #. * it is a mixture of both ATM.
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7395
+#: ../src/file-manager/fm-directory-view.c:7379
 msgid "Reset View to _Defaults"
 msgstr "სტანდარტულ ხედზე გადართვა"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7396
+#: ../src/file-manager/fm-directory-view.c:7380
 msgid "Reset sorting order and zoom level to match preferences for this view"
 msgstr ""
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7399
+#: ../src/file-manager/fm-directory-view.c:7383
 msgid "Connect To This Server"
 msgstr "დაუკავშირდი მოცემულ სერვერს"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7400
+#: ../src/file-manager/fm-directory-view.c:7384
 msgid "Make a permanent connection to this server"
 msgstr "მუდმივი a -სკენ"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7403
-#: ../src/file-manager/fm-directory-view.c:7431
-#: ../src/file-manager/fm-directory-view.c:7512
+#: ../src/file-manager/fm-directory-view.c:7387
+#: ../src/file-manager/fm-directory-view.c:7415
+#: ../src/file-manager/fm-directory-view.c:7496
 #: ../src/caja-places-sidebar.c:2700
 msgid "_Mount"
 msgstr "ტო_მის მიერთება"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7404
+#: ../src/file-manager/fm-directory-view.c:7388
 msgid "Mount the selected volume"
 msgstr "ამორჩეული ტომის მიერთება"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7408
+#: ../src/file-manager/fm-directory-view.c:7392
 msgid "Unmount the selected volume"
 msgstr "შერჩეული ტომის მოხსნა"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7412
+#: ../src/file-manager/fm-directory-view.c:7396
 msgid "Eject the selected volume"
 msgstr "გამოიღე მონიშნული ტომი"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7415
-#: ../src/file-manager/fm-directory-view.c:7443
-#: ../src/file-manager/fm-directory-view.c:7524
+#: ../src/file-manager/fm-directory-view.c:7399
+#: ../src/file-manager/fm-directory-view.c:7427
+#: ../src/file-manager/fm-directory-view.c:7508
 #: ../src/caja-places-sidebar.c:2728
 msgid "_Format"
 msgstr "_ფორმატი"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7416
+#: ../src/file-manager/fm-directory-view.c:7400
 msgid "Format the selected volume"
 msgstr "მონიშნული ტომის ფორმატირებაფორმატი ხმის სიმაღლე"
 
 #. name, stock id
 #. label, accelerator
 #. Adjust start/stop items to reflect the type of the drive
-#: ../src/file-manager/fm-directory-view.c:7419
-#: ../src/file-manager/fm-directory-view.c:7447
-#: ../src/file-manager/fm-directory-view.c:7528
-#: ../src/file-manager/fm-directory-view.c:8204
-#: ../src/file-manager/fm-directory-view.c:8208
-#: ../src/file-manager/fm-directory-view.c:8296
-#: ../src/file-manager/fm-directory-view.c:8300
-#: ../src/file-manager/fm-directory-view.c:8406
-#: ../src/file-manager/fm-directory-view.c:8410
+#: ../src/file-manager/fm-directory-view.c:7403
+#: ../src/file-manager/fm-directory-view.c:7431
+#: ../src/file-manager/fm-directory-view.c:7512
+#: ../src/file-manager/fm-directory-view.c:8188
+#: ../src/file-manager/fm-directory-view.c:8192
+#: ../src/file-manager/fm-directory-view.c:8280
+#: ../src/file-manager/fm-directory-view.c:8284
+#: ../src/file-manager/fm-directory-view.c:8390
+#: ../src/file-manager/fm-directory-view.c:8394
 #: ../src/caja-places-sidebar.c:1785 ../src/caja-places-sidebar.c:2735
 msgid "_Start"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7420
+#: ../src/file-manager/fm-directory-view.c:7404
 msgid "Start the selected volume"
 msgstr ""
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7423
-#: ../src/file-manager/fm-directory-view.c:7451
-#: ../src/file-manager/fm-directory-view.c:7532
-#: ../src/file-manager/fm-directory-view.c:8233
-#: ../src/file-manager/fm-directory-view.c:8325
-#: ../src/file-manager/fm-directory-view.c:8435
+#: ../src/file-manager/fm-directory-view.c:7407
+#: ../src/file-manager/fm-directory-view.c:7435
+#: ../src/file-manager/fm-directory-view.c:7516
+#: ../src/file-manager/fm-directory-view.c:8217
+#: ../src/file-manager/fm-directory-view.c:8309
+#: ../src/file-manager/fm-directory-view.c:8419
 #: ../src/caja-places-sidebar.c:1786 ../src/caja-places-sidebar.c:2742
-#: ../src/caja-window-menus.c:844
+#: ../src/caja-window-menus.c:836
 msgid "_Stop"
 msgstr "_შეჩერება"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7424
-#: ../src/file-manager/fm-directory-view.c:8436
+#: ../src/file-manager/fm-directory-view.c:7408
+#: ../src/file-manager/fm-directory-view.c:8420
 msgid "Stop the selected volume"
 msgstr ""
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7427
-#: ../src/file-manager/fm-directory-view.c:7455
-#: ../src/file-manager/fm-directory-view.c:7536
+#: ../src/file-manager/fm-directory-view.c:7411
+#: ../src/file-manager/fm-directory-view.c:7439
+#: ../src/file-manager/fm-directory-view.c:7520
 #: ../src/caja-places-sidebar.c:2721
 msgid "_Detect Media"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7428
-#: ../src/file-manager/fm-directory-view.c:7456
-#: ../src/file-manager/fm-directory-view.c:7537
+#: ../src/file-manager/fm-directory-view.c:7412
+#: ../src/file-manager/fm-directory-view.c:7440
+#: ../src/file-manager/fm-directory-view.c:7521
 msgid "Detect media in the selected drive"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7432
+#: ../src/file-manager/fm-directory-view.c:7416
 msgid "Mount the volume associated with the open folder"
 msgstr "გახსნილ დასტასთან დაკავშირებული ტომის მიერთება"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7436
+#: ../src/file-manager/fm-directory-view.c:7420
 msgid "Unmount the volume associated with the open folder"
 msgstr "გახსნილ დასტასთან დაკავშირებული ტომის მოხსნა"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7440
+#: ../src/file-manager/fm-directory-view.c:7424
 msgid "Eject the volume associated with the open folder"
 msgstr "გახსნილ დასტასთან დაკავშირებული ტომის გამოღება"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7444
+#: ../src/file-manager/fm-directory-view.c:7428
 msgid "Format the volume associated with the open folder"
 msgstr "გახსნილ დასტასთან დაკავშირებული ტომის ფორმატირება"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7448
+#: ../src/file-manager/fm-directory-view.c:7432
 msgid "Start the volume associated with the open folder"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7452
+#: ../src/file-manager/fm-directory-view.c:7436
 msgid "Stop the volume associated with the open folder"
 msgstr ""
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7459
+#: ../src/file-manager/fm-directory-view.c:7443
 msgid "Open File and Close window"
 msgstr "ფაილის გახსნა და ფანჯრის დახურვა"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7463
+#: ../src/file-manager/fm-directory-view.c:7447
 msgid "Sa_ve Search"
 msgstr "ძიების და_მახსოვრება"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7464
+#: ../src/file-manager/fm-directory-view.c:7448
 msgid "Save the edited search"
 msgstr "შეცვლილი ძიების შენახვა"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7467
+#: ../src/file-manager/fm-directory-view.c:7451
 msgid "Sa_ve Search As..."
 msgstr "ძიების შენახ_ვა როგორც.."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7468
+#: ../src/file-manager/fm-directory-view.c:7452
 msgid "Save the current search as a file"
 msgstr "მიმდინარე ძიების ფაილის სახით შენახვა"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7474
+#: ../src/file-manager/fm-directory-view.c:7458
 msgid "Open this folder in a navigation window"
 msgstr "მოცემული დასტის ნავიგატორის ფანჯარაში გახსნა"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7478
+#: ../src/file-manager/fm-directory-view.c:7462
 msgid "Open this folder in a new tab"
 msgstr "მოცემული დასტის ნავიგატორის ფანჯარაში გახსნა"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7483
+#: ../src/file-manager/fm-directory-view.c:7467
 msgid "Open this folder in a folder window"
 msgstr "მოცემული დასტის ნავიგატორის ფანჯარაში გახსნა"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7488
+#: ../src/file-manager/fm-directory-view.c:7472
 msgid "Prepare this folder to be moved with a Paste command"
 msgstr "ამ დასტის \"ჩასმა\" ბრძანების დახმარებით გადატანისთვის მომზადება"
 
 #. name, stock id
 #. label, accelerator
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7492
+#: ../src/file-manager/fm-directory-view.c:7476
 msgid "Prepare this folder to be copied with a Paste command"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7496
+#: ../src/file-manager/fm-directory-view.c:7480
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into this "
 "folder"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7501
+#: ../src/file-manager/fm-directory-view.c:7485
 msgid "Move this folder to the Trash"
 msgstr "მოცემული დასტის სანაგვე ყუთში გადატანა"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7505
+#: ../src/file-manager/fm-directory-view.c:7489
 msgid "Delete this folder, without moving to the Trash"
 msgstr "მოცემული დასტის წაშლა, სანაგვე ყუთში გადატანის გარეშე"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7513
+#: ../src/file-manager/fm-directory-view.c:7497
 msgid "Mount the volume associated with this folder"
 msgstr "გახსნილ დასტასთან დაკავშირებული ტომის მიერთება"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7517
+#: ../src/file-manager/fm-directory-view.c:7501
 msgid "Unmount the volume associated with this folder"
 msgstr "მოცემულ დასტასთან დაკავშირებული ტომის მოხსნა"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7521
+#: ../src/file-manager/fm-directory-view.c:7505
 msgid "Eject the volume associated with this folder"
 msgstr "გახსნილ დასტასთან დაკავშირებული ტომის გამოღება"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7525
+#: ../src/file-manager/fm-directory-view.c:7509
 msgid "Format the volume associated with this folder"
 msgstr "გახსნილ დასტასთან დაკავშირებული ტომის ფორმატირება"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7529
+#: ../src/file-manager/fm-directory-view.c:7513
 msgid "Start the volume associated with this folder"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7533
+#: ../src/file-manager/fm-directory-view.c:7517
 msgid "Stop the volume associated with this folder"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7542
+#: ../src/file-manager/fm-directory-view.c:7526
 msgid "View or modify the properties of this folder"
 msgstr "მიმდინარე დასტის დათვალიერებახედი ის საქაღალდე"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7545
-#: ../src/file-manager/fm-directory-view.c:7548
+#: ../src/file-manager/fm-directory-view.c:7529
+#: ../src/file-manager/fm-directory-view.c:7532
 msgid "_Other pane"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7546
+#: ../src/file-manager/fm-directory-view.c:7530
 msgid "Copy the current selection to the other pane in the window"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7549
+#: ../src/file-manager/fm-directory-view.c:7533
 msgid "Move the current selection to the other pane in the window"
 msgstr ""
 
 #. name, stock id, label
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7552
-#: ../src/file-manager/fm-directory-view.c:7556 ../src/caja-window-menus.c:899
+#: ../src/file-manager/fm-directory-view.c:7536
+#: ../src/file-manager/fm-directory-view.c:7540 ../src/caja-window-menus.c:891
 msgid "_Home Folder"
 msgstr "სახლის _დასტა"
 
-#: ../src/file-manager/fm-directory-view.c:7553
+#: ../src/file-manager/fm-directory-view.c:7537
 msgid "Copy the current selection to the home folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7557
+#: ../src/file-manager/fm-directory-view.c:7541
 msgid "Move the current selection to the home folder"
 msgstr ""
 
 #. name, stock id, label
-#: ../src/file-manager/fm-directory-view.c:7560
-#: ../src/file-manager/fm-directory-view.c:7564
+#: ../src/file-manager/fm-directory-view.c:7544
+#: ../src/file-manager/fm-directory-view.c:7548
 msgid "_Desktop"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7561
+#: ../src/file-manager/fm-directory-view.c:7545
 msgid "Copy the current selection to the desktop"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7565
+#: ../src/file-manager/fm-directory-view.c:7549
 msgid "Move the current selection to the desktop"
 msgstr ""
 
 #. Translators: %s is a directory
-#: ../src/file-manager/fm-directory-view.c:7645
+#: ../src/file-manager/fm-directory-view.c:7629
 #, c-format
 msgid "Run or manage scripts from %s"
 msgstr "სკრიპტების მართვა ან გაშვება %s"
 
 #. Create a script action here specially because its tooltip is dynamic
-#: ../src/file-manager/fm-directory-view.c:7647
+#: ../src/file-manager/fm-directory-view.c:7631
 msgid "_Scripts"
 msgstr "_სკრიპტები"
 
-#: ../src/file-manager/fm-directory-view.c:8052
+#: ../src/file-manager/fm-directory-view.c:8036
 #, c-format
 msgid "Move the open folder out of the trash to \"%s\""
 msgstr "ღია დასტის სანაგვე ყუთიდან \"%s\"-ში გადატანა"
 
-#: ../src/file-manager/fm-directory-view.c:8055
+#: ../src/file-manager/fm-directory-view.c:8039
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
 msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:8059
+#: ../src/file-manager/fm-directory-view.c:8043
 #, c-format
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
-msgstr[0] "გახსნილი დასტის სანაგვე ყუთში გადატანა"
+msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:8065
+#: ../src/file-manager/fm-directory-view.c:8049
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
 msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:8069
+#: ../src/file-manager/fm-directory-view.c:8053
 #, c-format
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
-msgstr[0] "მონიშნული ელემენტების სანაგვე ყუთში გადატანა"
+msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:8075
+#: ../src/file-manager/fm-directory-view.c:8059
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
-msgstr[0] "მონიშნული ელემენტების სანაგვე ყუთიდან \"%s\"-ში გადატანა"
+msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:8079
+#: ../src/file-manager/fm-directory-view.c:8063
 #, c-format
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
-msgstr[0] "მონიშნული ელემენტების სანაგვე ყუთში გადატანა"
+msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:8205
-#: ../src/file-manager/fm-directory-view.c:8209
-#: ../src/file-manager/fm-directory-view.c:8407
-#: ../src/file-manager/fm-directory-view.c:8411
+#: ../src/file-manager/fm-directory-view.c:8189
+#: ../src/file-manager/fm-directory-view.c:8193
+#: ../src/file-manager/fm-directory-view.c:8391
+#: ../src/file-manager/fm-directory-view.c:8395
 msgid "Start the selected drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8213
-#: ../src/file-manager/fm-directory-view.c:8415
+#: ../src/file-manager/fm-directory-view.c:8197
+#: ../src/file-manager/fm-directory-view.c:8399
 msgid "Connect to the selected drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8216
-#: ../src/file-manager/fm-directory-view.c:8308
-#: ../src/file-manager/fm-directory-view.c:8418
+#: ../src/file-manager/fm-directory-view.c:8200
+#: ../src/file-manager/fm-directory-view.c:8292
+#: ../src/file-manager/fm-directory-view.c:8402
 msgid "_Start Multi-disk Drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8217
-#: ../src/file-manager/fm-directory-view.c:8419
+#: ../src/file-manager/fm-directory-view.c:8201
+#: ../src/file-manager/fm-directory-view.c:8403
 msgid "Start the selected multi-disk drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8220
+#: ../src/file-manager/fm-directory-view.c:8204
 msgid "U_nlock Drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8221
-#: ../src/file-manager/fm-directory-view.c:8423
+#: ../src/file-manager/fm-directory-view.c:8205
+#: ../src/file-manager/fm-directory-view.c:8407
 msgid "Unlock the selected drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8234
+#: ../src/file-manager/fm-directory-view.c:8218
 msgid "Stop the selected drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8237
-#: ../src/file-manager/fm-directory-view.c:8329
-#: ../src/file-manager/fm-directory-view.c:8439
+#: ../src/file-manager/fm-directory-view.c:8221
+#: ../src/file-manager/fm-directory-view.c:8313
+#: ../src/file-manager/fm-directory-view.c:8423
 #: ../src/caja-places-sidebar.c:1794
 msgid "_Safely Remove Drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8238
-#: ../src/file-manager/fm-directory-view.c:8440
+#: ../src/file-manager/fm-directory-view.c:8222
+#: ../src/file-manager/fm-directory-view.c:8424
 msgid "Safely remove the selected drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8241
-#: ../src/file-manager/fm-directory-view.c:8333
-#: ../src/file-manager/fm-directory-view.c:8443
+#: ../src/file-manager/fm-directory-view.c:8225
+#: ../src/file-manager/fm-directory-view.c:8317
+#: ../src/file-manager/fm-directory-view.c:8427
 msgid "_Disconnect"
-msgstr ""
+msgstr "_გათიშვა"
 
-#: ../src/file-manager/fm-directory-view.c:8242
-#: ../src/file-manager/fm-directory-view.c:8444
+#: ../src/file-manager/fm-directory-view.c:8226
+#: ../src/file-manager/fm-directory-view.c:8428
 msgid "Disconnect the selected drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8245
-#: ../src/file-manager/fm-directory-view.c:8337
-#: ../src/file-manager/fm-directory-view.c:8447
+#: ../src/file-manager/fm-directory-view.c:8229
+#: ../src/file-manager/fm-directory-view.c:8321
+#: ../src/file-manager/fm-directory-view.c:8431
 msgid "_Stop Multi-disk Drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8246
-#: ../src/file-manager/fm-directory-view.c:8448
+#: ../src/file-manager/fm-directory-view.c:8230
+#: ../src/file-manager/fm-directory-view.c:8432
 msgid "Stop the selected multi-disk drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8249
-#: ../src/file-manager/fm-directory-view.c:8341
-#: ../src/file-manager/fm-directory-view.c:8451
+#: ../src/file-manager/fm-directory-view.c:8233
+#: ../src/file-manager/fm-directory-view.c:8325
+#: ../src/file-manager/fm-directory-view.c:8435
 #: ../src/caja-places-sidebar.c:1807
 msgid "_Lock Drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8250
-#: ../src/file-manager/fm-directory-view.c:8452
+#: ../src/file-manager/fm-directory-view.c:8234
+#: ../src/file-manager/fm-directory-view.c:8436
 msgid "Lock the selected drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8297
-#: ../src/file-manager/fm-directory-view.c:8301
+#: ../src/file-manager/fm-directory-view.c:8281
+#: ../src/file-manager/fm-directory-view.c:8285
 msgid "Start the drive associated with the open folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8305
+#: ../src/file-manager/fm-directory-view.c:8289
 msgid "Connect to the drive associated with the open folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8309
+#: ../src/file-manager/fm-directory-view.c:8293
 msgid "Start the multi-disk drive associated with the open folder"
 msgstr ""
 
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
-#: ../src/file-manager/fm-directory-view.c:8312
-#: ../src/file-manager/fm-directory-view.c:8422
+#: ../src/file-manager/fm-directory-view.c:8296
+#: ../src/file-manager/fm-directory-view.c:8406
 #: ../src/caja-places-sidebar.c:1806
 msgid "_Unlock Drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8313
+#: ../src/file-manager/fm-directory-view.c:8297
 msgid "Unlock the drive associated with the open folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8326
+#: ../src/file-manager/fm-directory-view.c:8310
 msgid "_Stop the drive associated with the open folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8330
+#: ../src/file-manager/fm-directory-view.c:8314
 msgid "Safely remove the drive associated with the open folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8334
+#: ../src/file-manager/fm-directory-view.c:8318
 msgid "Disconnect the drive associated with the open folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8338
+#: ../src/file-manager/fm-directory-view.c:8322
 msgid "Stop the multi-disk drive associated with the open folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8342
+#: ../src/file-manager/fm-directory-view.c:8326
 msgid "Lock the drive associated with the open folder"
 msgstr ""
 
 #. add the "open in new window" menu item
-#: ../src/file-manager/fm-directory-view.c:8521
-#: ../src/file-manager/fm-directory-view.c:8831
+#: ../src/file-manager/fm-directory-view.c:8505
+#: ../src/file-manager/fm-directory-view.c:8815
 #: ../src/file-manager/fm-tree-view.c:1287 ../src/caja-places-sidebar.c:2671
 msgid "Open in New _Window"
 msgstr "ახალ ფან_ჯარაში გახსნა"
 
-#: ../src/file-manager/fm-directory-view.c:8523
-#: ../src/file-manager/fm-directory-view.c:8840
+#: ../src/file-manager/fm-directory-view.c:8507
+#: ../src/file-manager/fm-directory-view.c:8824
 msgid "Browse in New _Window"
 msgstr "ახალი ფა_ნჯრის დათვალიერება"
 
-#: ../src/file-manager/fm-directory-view.c:8529
-#: ../src/file-manager/fm-directory-view.c:8850
+#: ../src/file-manager/fm-directory-view.c:8513
+#: ../src/file-manager/fm-directory-view.c:8834
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
-msgstr[0] "_დასტის დათვალიერება"
+msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:8546
-#: ../src/file-manager/fm-directory-view.c:8879
+#: ../src/file-manager/fm-directory-view.c:8530
+#: ../src/file-manager/fm-directory-view.c:8863
 msgid "Browse in New _Tab"
 msgstr "ახალ _დაფაში დათვალიერება"
 
-#: ../src/file-manager/fm-directory-view.c:8595
-#: ../src/file-manager/fm-directory-view.c:8920
+#: ../src/file-manager/fm-directory-view.c:8579
+#: ../src/file-manager/fm-directory-view.c:8904
 msgid "_Delete Permanently"
 msgstr "გახსნილი დასტის სამუდამოდ წაშლა"
 
-#: ../src/file-manager/fm-directory-view.c:8596
+#: ../src/file-manager/fm-directory-view.c:8580
 msgid "Delete the open folder permanently"
 msgstr "გახსნილი დასტის სამუდამოდ წაშლა"
 
-#: ../src/file-manager/fm-directory-view.c:8600
+#: ../src/file-manager/fm-directory-view.c:8584
 msgid "Move the open folder to the Trash"
 msgstr "გახსნილი დასტის სანაგვე ყუთში გადატანა"
 
-#: ../src/file-manager/fm-directory-view.c:8780
+#: ../src/file-manager/fm-directory-view.c:8764
 #, c-format
 msgid "_Open With %s"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8833
+#: ../src/file-manager/fm-directory-view.c:8817
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
-msgstr[0] "ახალ %'d ფანჯარაში გახსნა"
+msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:8842
+#: ../src/file-manager/fm-directory-view.c:8826
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
-msgstr[0] "ახალ %'d ფანჯარაში დათვალიერება"
+msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:8872
+#: ../src/file-manager/fm-directory-view.c:8856
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
-msgstr[0] "ახალ %'d დაფაში გახსნა"
+msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:8881
+#: ../src/file-manager/fm-directory-view.c:8865
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
-msgstr[0] "ახალ %'d დაფაში დათვალიერება"
+msgstr[0] ""
 
-#: ../src/file-manager/fm-directory-view.c:8921
+#: ../src/file-manager/fm-directory-view.c:8905
 msgid "Delete all selected items permanently"
 msgstr "ყველა მონიშნული ელემენტის სამუდამოდ წაშლა"
 
-#: ../src/file-manager/fm-directory-view.c:8978
+#: ../src/file-manager/fm-directory-view.c:8962
 msgid "View or modify the properties of the open folder"
 msgstr "გახსნილი დასტის პარამეტრების შეცვლა ან დათვალიერება"
 
-#: ../src/file-manager/fm-directory-view.c:10281
+#: ../src/file-manager/fm-directory-view.c:10265
 msgid "Download location?"
 msgstr "გნებავთ მოცემული მდებარეობის გადმოქაჩვა?"
 
-#: ../src/file-manager/fm-directory-view.c:10284
+#: ../src/file-manager/fm-directory-view.c:10268
 msgid "You can download it or make a link to it."
 msgstr "შეგიძლიათ გადმოქაჩოთ, ან შექმნათ მასზე ბმული."
 
-#: ../src/file-manager/fm-directory-view.c:10287
+#: ../src/file-manager/fm-directory-view.c:10271
 msgid "Make a _Link"
 msgstr "_ბმულის შექმნა"
 
-#: ../src/file-manager/fm-directory-view.c:10291
+#: ../src/file-manager/fm-directory-view.c:10275
 msgid "_Download"
 msgstr "_გადმოქაჩვა"
 
-#: ../src/file-manager/fm-directory-view.c:10452
-#: ../src/file-manager/fm-directory-view.c:10511
-#: ../src/file-manager/fm-directory-view.c:10616
+#: ../src/file-manager/fm-directory-view.c:10436
+#: ../src/file-manager/fm-directory-view.c:10495
+#: ../src/file-manager/fm-directory-view.c:10600
 msgid "Drag and drop is not supported."
 msgstr "გადათრევა არ არის მხარდაჭერილი."
 
-#: ../src/file-manager/fm-directory-view.c:10453
+#: ../src/file-manager/fm-directory-view.c:10437
 msgid "Drag and drop is only supported on local file systems."
 msgstr "გადათრევა მხარდაჭერილია მხოლოდ ლოკალურ ფაილურ სისტემებში."
 
-#: ../src/file-manager/fm-directory-view.c:10512
-#: ../src/file-manager/fm-directory-view.c:10617
+#: ../src/file-manager/fm-directory-view.c:10496
+#: ../src/file-manager/fm-directory-view.c:10601
 msgid "An invalid drag type was used."
 msgstr "გადათრევის მცდარი ტიპი იქნა გამოყენებული."
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10694
+#: ../src/file-manager/fm-directory-view.c:10678
 msgid "dropped text.txt"
 msgstr "მიტოვებული ტექსტი.txt"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10739
+#: ../src/file-manager/fm-directory-view.c:10723
 msgid "dropped data"
 msgstr ""
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11128
+#: ../src/file-manager/fm-directory-view.c:11112
 msgid "Undo"
-msgstr ""
+msgstr "ბრძანების გაუქმება"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11146
+#: ../src/file-manager/fm-directory-view.c:11130
 msgid "Redo"
 msgstr ""
 
-#: ../src/file-manager/fm-ditem-page.c:437
-#: ../src/file-manager/fm-ditem-page.c:449
+#: ../src/file-manager/fm-ditem-page.c:433
+#: ../src/file-manager/fm-ditem-page.c:445
 msgid "Comment"
 msgstr "კომენტარი"
 
-#: ../src/file-manager/fm-ditem-page.c:440
+#: ../src/file-manager/fm-ditem-page.c:436
 msgid "URL"
-msgstr "URL მისამართი"
+msgstr "URL"
 
-#: ../src/file-manager/fm-ditem-page.c:443
-#: ../src/file-manager/fm-ditem-page.c:455
-#: ../src/caja-image-properties-page.c:370
+#: ../src/file-manager/fm-ditem-page.c:439
+#: ../src/file-manager/fm-ditem-page.c:451
+#: ../src/caja-image-properties-page.c:366
 msgid "Description"
-msgstr "დახასიათება"
+msgstr "აღწერა"
 
-#: ../src/file-manager/fm-ditem-page.c:452
+#: ../src/file-manager/fm-ditem-page.c:448
 msgid "Command"
 msgstr "ბრძანება"
 
@@ -4771,12 +4851,16 @@ msgstr "შეუძლებელი გახდა დასტის ში
 #, c-format
 msgid ""
 "The name \"%s\" is already used in this folder. Please use a different name."
-msgstr "მოცემულ დასტაში, დასახელება \"%s\" უკვე გამოყენებაშია, გთხოვთ ამოირჩიოთ სხვა დასახელება."
+msgstr ""
+"მოცემულ დასტაში, დასახელება \"%s\" უკვე გამოყენებაშია, გთხოვთ ამოირჩიოთ სხვა"
+" დასახელება."
 
 #: ../src/file-manager/fm-error-reporting.c:122
 #, c-format
 msgid "There is no \"%s\" in this folder. Perhaps it was just moved or deleted?"
-msgstr "ელემენტი \"%s\" ვერ მოიძებნა. შესაძლოა რომ გადატანილი იქნა სხვა მდებარეობაში ან სულაც წაიშალა?"
+msgstr ""
+"ელემენტი \"%s\" ვერ მოიძებნა. შესაძლოა რომ გადატანილი იქნა სხვა მდებარეობაში"
+" ან სულაც წაიშალა?"
 
 #: ../src/file-manager/fm-error-reporting.c:127
 #, c-format
@@ -4788,7 +4872,9 @@ msgstr "თქვენ არ გაგაჩნიათ საკმარი
 msgid ""
 "The name \"%s\" is not valid because it contains the character \"/\". Please"
 " use a different name."
-msgstr "სახელი \"%s\" მიუღებელია, რადგანაც ის შეიცავს სიმბოლოებს როგორც \"/\". გთხოვთ გამოიყენოთ სხვა სახელი."
+msgstr ""
+"სახელი \"%s\" მიუღებელია, რადგანაც ის შეიცავს სიმბოლოებს როგორც \"/\". "
+"გთხოვთ გამოიყენოთ სხვა სახელი."
 
 #: ../src/file-manager/fm-error-reporting.c:139
 #, c-format
@@ -4853,7 +4939,7 @@ msgstr "პიქტოგრამული ხედი"
 
 #: ../src/file-manager/fm-icon-view.c:128
 msgid "by _Name"
-msgstr "სახ_ელის მიხედვით"
+msgstr "სახელის მიხედვით"
 
 #: ../src/file-manager/fm-icon-view.c:129
 #: ../src/file-manager/fm-icon-view.c:1740
@@ -4862,7 +4948,7 @@ msgstr "ხატულების სახელწოდების მი�
 
 #: ../src/file-manager/fm-icon-view.c:135
 msgid "by _Size"
-msgstr "_ზომის მიხედვით"
+msgstr "ზომის მიხედვით"
 
 #: ../src/file-manager/fm-icon-view.c:136
 #: ../src/file-manager/fm-icon-view.c:1746
@@ -5084,10 +5170,10 @@ msgstr "იტვირთება..."
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: ../src/file-manager/fm-list-view.c:1837
-#: ../src/file-manager/fm-list-view.c:3454
+#: ../src/file-manager/fm-list-view.c:3450
 #: ../src/caja-file-management-properties.ui.h:2
 msgid "List View"
-msgstr "სიისებრი ხედი"
+msgstr "სიის სახით"
 
 #: ../src/file-manager/fm-list-view.c:2531
 #, c-format
@@ -5100,29 +5186,29 @@ msgstr "სიურ ხედში მონაცემთა გამოჩ
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-list-view.c:2608
+#: ../src/file-manager/fm-list-view.c:2604
 msgid "Visible _Columns..."
 msgstr "ხილული _სვეტი..."
 
 #. tooltip
-#: ../src/file-manager/fm-list-view.c:2609
+#: ../src/file-manager/fm-list-view.c:2605
 msgid "Select the columns visible in this folder"
 msgstr "მოცემულ დასტაში, ხილული სვეტების ამორჩევა"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-list-view.c:3456
+#: ../src/file-manager/fm-list-view.c:3452
 msgid "_List"
 msgstr "ს_ია"
 
-#: ../src/file-manager/fm-list-view.c:3457
+#: ../src/file-manager/fm-list-view.c:3453
 msgid "The list view encountered an error."
 msgstr "სიის სახით ჩვენების დროს დაიშვა შეცდომა."
 
-#: ../src/file-manager/fm-list-view.c:3458
+#: ../src/file-manager/fm-list-view.c:3454
 msgid "The list view encountered an error while starting up."
 msgstr "დაიშვა შეცდომა სიის სახით ჩვენების კომპონენტის გაშვების დროს."
 
-#: ../src/file-manager/fm-list-view.c:3459
+#: ../src/file-manager/fm-list-view.c:3455
 msgid "Display this location with the list view."
 msgstr "მოცემული მდებარეობის \"სიის სახით\" დათვალიერება."
 
@@ -5133,7 +5219,9 @@ msgstr "შეუძლებელია ერთზე მეტი პერ
 #: ../src/file-manager/fm-properties-window.c:496
 #: ../src/caja-information-panel.c:528
 msgid "Please drag just one image to set a custom icon."
-msgstr "პერსონალური ხატულას მისათითებლად, შესაძლებელია მხოლოდ ერთი ხატულას გადათრევა."
+msgstr ""
+"პერსონალური ხატულას მისათითებლად, შესაძლებელია მხოლოდ ერთი ხატულას "
+"გადათრევა."
 
 #: ../src/file-manager/fm-properties-window.c:507
 #: ../src/caja-information-panel.c:555
@@ -5144,7 +5232,9 @@ msgstr "თქვენს მიერ გადათრეული ფაი
 #: ../src/file-manager/fm-properties-window.c:514
 #: ../src/caja-information-panel.c:556
 msgid "You can only use local images as custom icons."
-msgstr "თქვენ შეგიძლიათ პერსონალურ ხატულებად მხოლოდ ლოკალური გამოსახულებების გამოყენება."
+msgstr ""
+"თქვენ შეგიძლიათ პერსონალურ ხატულებად მხოლოდ ლოკალური გამოსახულებების "
+"გამოყენება."
 
 #: ../src/file-manager/fm-properties-window.c:513
 #: ../src/caja-information-panel.c:563
@@ -5154,7 +5244,7 @@ msgstr "თქვენს მიერ გადათრეული ფაი
 #: ../src/file-manager/fm-properties-window.c:636
 msgid "_Name:"
 msgid_plural "_Names:"
-msgstr[0] "_სახელწოდება:"
+msgstr[0] ""
 
 #: ../src/file-manager/fm-properties-window.c:992
 #, c-format
@@ -5170,31 +5260,31 @@ msgstr "%s პარამეტრები"
 #, c-format
 msgctxt "MIME type description (MIME type)"
 msgid "%s (%s)"
-msgstr ""
+msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-properties-window.c:1540
+#: ../src/file-manager/fm-properties-window.c:1536
 msgid "Cancel Group Change?"
 msgstr "გნებავთ ჯგუფის ცვლილების გაუქმება?"
 
-#: ../src/file-manager/fm-properties-window.c:1950
+#: ../src/file-manager/fm-properties-window.c:1946
 msgid "Cancel Owner Change?"
 msgstr "გნებავთ მფლობელის ცვლილების გაუქმება?"
 
-#: ../src/file-manager/fm-properties-window.c:2274
+#: ../src/file-manager/fm-properties-window.c:2270
 msgid "nothing"
 msgstr "არაფერი"
 
-#: ../src/file-manager/fm-properties-window.c:2276
+#: ../src/file-manager/fm-properties-window.c:2272
 msgid "unreadable"
 msgstr "წაუკითხვადი"
 
-#: ../src/file-manager/fm-properties-window.c:2295
+#: ../src/file-manager/fm-properties-window.c:2291
 #, c-format
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
 msgstr[0] ""
 
-#: ../src/file-manager/fm-properties-window.c:2305
+#: ../src/file-manager/fm-properties-window.c:2301
 msgid "(some contents unreadable)"
 msgstr "(წაუკითხვადი შინაარსის ფაილები)"
 
@@ -5203,243 +5293,244 @@ msgstr "(წაუკითხვადი შინაარსის ფაი
 #. * "Contents:" title to line up with the first line of the
 #. * 2-line value. Maybe there's a better way to do this, but I
 #. * couldn't think of one.
-#: ../src/file-manager/fm-properties-window.c:2322
+#: ../src/file-manager/fm-properties-window.c:2318
 msgid "Contents:"
 msgstr "შემადგენლობა:"
 
 #. Translators: "used" refers to the capacity of the filesystem
-#: ../src/file-manager/fm-properties-window.c:3098
+#: ../src/file-manager/fm-properties-window.c:3094
 msgid "used"
 msgstr "გამოყეებულია"
 
 #. Translators: "free" refers to the capacity of the filesystem
-#: ../src/file-manager/fm-properties-window.c:3107
+#: ../src/file-manager/fm-properties-window.c:3103
 msgid "free"
 msgstr "თავისუფალია"
 
-#: ../src/file-manager/fm-properties-window.c:3109
+#: ../src/file-manager/fm-properties-window.c:3105
 msgid "Total capacity:"
 msgstr "საერთო მოცულობა:"
 
-#: ../src/file-manager/fm-properties-window.c:3118
+#: ../src/file-manager/fm-properties-window.c:3114
 msgid "Filesystem type:"
 msgstr "ფაილური სისტემის ტიპი:"
 
-#: ../src/file-manager/fm-properties-window.c:3204
+#: ../src/file-manager/fm-properties-window.c:3200
 msgid "Basic"
 msgstr "ძირითადი"
 
-#: ../src/file-manager/fm-properties-window.c:3266
+#: ../src/file-manager/fm-properties-window.c:3262
 msgid "Link target:"
 msgstr "ბმულის წყარო:"
 
-#: ../src/file-manager/fm-properties-window.c:3280
+#: ../src/file-manager/fm-properties-window.c:3276
 msgid "Size on Disk:"
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:3289
+#: ../src/file-manager/fm-properties-window.c:3285
 #: ../src/caja-location-bar.c:57
 msgid "Location:"
-msgstr "მდებარეობა:"
+msgstr "ადგილმდებარეობა:"
 
-#: ../src/file-manager/fm-properties-window.c:3295
+#: ../src/file-manager/fm-properties-window.c:3291
 msgid "Volume:"
 msgstr "მოცულობა:"
 
-#: ../src/file-manager/fm-properties-window.c:3304
+#: ../src/file-manager/fm-properties-window.c:3300
 msgid "Accessed:"
 msgstr "ბოლო ცვლილება:"
 
-#: ../src/file-manager/fm-properties-window.c:3308
+#: ../src/file-manager/fm-properties-window.c:3304
 msgid "Modified:"
 msgstr "შეცვლილი:"
 
-#: ../src/file-manager/fm-properties-window.c:3317
+#: ../src/file-manager/fm-properties-window.c:3313
 msgid "Free space:"
 msgstr "თავისუფალი:"
 
-#: ../src/file-manager/fm-properties-window.c:3431
+#: ../src/file-manager/fm-properties-window.c:3427
 #: ../src/caja-emblem-sidebar.c:1085
 msgid "Emblems"
 msgstr "ემბლემა"
 
-#: ../src/file-manager/fm-properties-window.c:3840
+#: ../src/file-manager/fm-properties-window.c:3836
 msgid "_Read"
 msgstr "_კითხვა"
 
-#: ../src/file-manager/fm-properties-window.c:3842
+#: ../src/file-manager/fm-properties-window.c:3838
 msgid "_Write"
 msgstr "_ჩაწერა"
 
-#: ../src/file-manager/fm-properties-window.c:3844
+#: ../src/file-manager/fm-properties-window.c:3840
 msgid "E_xecute"
 msgstr "გაშვება"
 
 #. translators: this gets concatenated to "no read",
 #. * "no access", etc. (see following strings)
-#: ../src/file-manager/fm-properties-window.c:4112
-#: ../src/file-manager/fm-properties-window.c:4123
-#: ../src/file-manager/fm-properties-window.c:4135
+#: ../src/file-manager/fm-properties-window.c:4108
+#: ../src/file-manager/fm-properties-window.c:4119
+#: ../src/file-manager/fm-properties-window.c:4131
 msgid "no "
 msgstr "არა "
 
-#: ../src/file-manager/fm-properties-window.c:4115
+#: ../src/file-manager/fm-properties-window.c:4111
 msgid "list"
 msgstr "სია"
 
-#: ../src/file-manager/fm-properties-window.c:4117
+#: ../src/file-manager/fm-properties-window.c:4113
 msgid "read"
 msgstr "კითხვა"
 
-#: ../src/file-manager/fm-properties-window.c:4126
+#: ../src/file-manager/fm-properties-window.c:4122
 msgid "create/delete"
 msgstr "შექმნა/წაშლა"
 
-#: ../src/file-manager/fm-properties-window.c:4128
+#: ../src/file-manager/fm-properties-window.c:4124
 msgid "write"
 msgstr "ჩაწერა"
 
-#: ../src/file-manager/fm-properties-window.c:4137
+#: ../src/file-manager/fm-properties-window.c:4133
 msgid "access"
 msgstr "წვდომა"
 
-#: ../src/file-manager/fm-properties-window.c:4185
+#: ../src/file-manager/fm-properties-window.c:4181
 msgid "Access:"
 msgstr "წვდომა:"
 
-#: ../src/file-manager/fm-properties-window.c:4187
+#: ../src/file-manager/fm-properties-window.c:4183
 msgid "Folder access:"
 msgstr "დასტაზე წვდომა:"
 
-#: ../src/file-manager/fm-properties-window.c:4189
+#: ../src/file-manager/fm-properties-window.c:4185
 msgid "File access:"
 msgstr "ფაილზე წვდომა:"
 
 #. Translators: this is referred to the permissions
 #. * the user has in a directory.
 #. Translators: this is referred to captions under icons.
-#: ../src/file-manager/fm-properties-window.c:4204
-#: ../src/file-manager/fm-properties-window.c:4215
-#: ../src/caja-file-management-properties.c:335
+#: ../src/file-manager/fm-properties-window.c:4200
+#: ../src/file-manager/fm-properties-window.c:4211
+#: ../src/caja-file-management-properties.c:329
 msgid "None"
-msgstr "არაფერი"
+msgstr "არა"
 
-#: ../src/file-manager/fm-properties-window.c:4207
+#: ../src/file-manager/fm-properties-window.c:4203
 msgid "List files only"
 msgstr "მხოლოდ ფაილების სია"
 
-#: ../src/file-manager/fm-properties-window.c:4209
+#: ../src/file-manager/fm-properties-window.c:4205
 msgid "Access files"
 msgstr "ფაილებზე წვდომა"
 
-#: ../src/file-manager/fm-properties-window.c:4211
+#: ../src/file-manager/fm-properties-window.c:4207
 msgid "Create and delete files"
 msgstr "ფაილების შექმნა და წაშლა"
 
-#: ../src/file-manager/fm-properties-window.c:4218
+#: ../src/file-manager/fm-properties-window.c:4214
 msgid "Read-only"
 msgstr "მხოლოდ-კითხვადი"
 
-#: ../src/file-manager/fm-properties-window.c:4220
+#: ../src/file-manager/fm-properties-window.c:4216
 msgid "Read and write"
 msgstr "კითხვა და ჩაწერა"
 
-#: ../src/file-manager/fm-properties-window.c:4285
+#: ../src/file-manager/fm-properties-window.c:4281
 msgid "Special flags:"
 msgstr "სპეც ალმები:"
 
-#: ../src/file-manager/fm-properties-window.c:4287
+#: ../src/file-manager/fm-properties-window.c:4283
 msgid "Set _user ID"
 msgstr "მ_ომხმარებლის იდენტიფიკატორი ID დაყენება"
 
-#: ../src/file-manager/fm-properties-window.c:4288
+#: ../src/file-manager/fm-properties-window.c:4284
 msgid "Set gro_up ID"
 msgstr "ჯგ_უფის იდენტიფიკატორი ID"
 
-#: ../src/file-manager/fm-properties-window.c:4289
+#: ../src/file-manager/fm-properties-window.c:4285
 msgid "_Sticky"
 msgstr "_წებოვანი"
 
-#: ../src/file-manager/fm-properties-window.c:4364
-#: ../src/file-manager/fm-properties-window.c:4555
+#: ../src/file-manager/fm-properties-window.c:4360
+#: ../src/file-manager/fm-properties-window.c:4551
 msgid "_Owner:"
 msgstr "მფლ_ობელი:"
 
-#: ../src/file-manager/fm-properties-window.c:4372
-#: ../src/file-manager/fm-properties-window.c:4460
-#: ../src/file-manager/fm-properties-window.c:4564
+#: ../src/file-manager/fm-properties-window.c:4368
+#: ../src/file-manager/fm-properties-window.c:4456
+#: ../src/file-manager/fm-properties-window.c:4560
 msgid "Owner:"
 msgstr "მფლობელი:"
 
-#: ../src/file-manager/fm-properties-window.c:4394
-#: ../src/file-manager/fm-properties-window.c:4577
+#: ../src/file-manager/fm-properties-window.c:4390
+#: ../src/file-manager/fm-properties-window.c:4573
 msgid "_Group:"
 msgstr "ჯ_გუფი:"
 
-#: ../src/file-manager/fm-properties-window.c:4402
-#: ../src/file-manager/fm-properties-window.c:4461
-#: ../src/file-manager/fm-properties-window.c:4585
+#: ../src/file-manager/fm-properties-window.c:4398
+#: ../src/file-manager/fm-properties-window.c:4457
+#: ../src/file-manager/fm-properties-window.c:4581
 msgid "Group:"
 msgstr "ჯგუფი:"
 
-#: ../src/file-manager/fm-properties-window.c:4426
+#: ../src/file-manager/fm-properties-window.c:4422
 msgid "Others"
 msgstr "სხვები"
 
-#: ../src/file-manager/fm-properties-window.c:4441
+#: ../src/file-manager/fm-properties-window.c:4437
 msgid "Execute:"
 msgstr "გაშვება:"
 
-#: ../src/file-manager/fm-properties-window.c:4444
+#: ../src/file-manager/fm-properties-window.c:4440
 msgid "Allow _executing file as program"
 msgstr "ფაილის პროგრამის სახით გაშვ_ების ნების დართვა"
 
-#: ../src/file-manager/fm-properties-window.c:4462
+#: ../src/file-manager/fm-properties-window.c:4458
 msgid "Others:"
 msgstr "სხვები:"
 
-#: ../src/file-manager/fm-properties-window.c:4601
+#: ../src/file-manager/fm-properties-window.c:4597
 msgid "Folder Permissions:"
 msgstr "დასტის უფლებები:"
 
-#: ../src/file-manager/fm-properties-window.c:4608
+#: ../src/file-manager/fm-properties-window.c:4604
 msgid "File Permissions:"
 msgstr "ფაილის უფლებები:"
 
-#: ../src/file-manager/fm-properties-window.c:4617
+#: ../src/file-manager/fm-properties-window.c:4613
 msgid "Text view:"
 msgstr "ტექსტის მიმოხილვა:"
 
-#: ../src/file-manager/fm-properties-window.c:4763
+#: ../src/file-manager/fm-properties-window.c:4759
 msgid "You are not the owner, so you cannot change these permissions."
-msgstr "თქვენ არ ხართ მფლობელი, ამიტომ არ შეგიძლიათ მოცემული უფლებების შეცვლა."
+msgstr ""
+"თქვენ არ ხართ მფლობელი, ამიტომ არ შეგიძლიათ მოცემული უფლებების შეცვლა."
 
-#: ../src/file-manager/fm-properties-window.c:4783
+#: ../src/file-manager/fm-properties-window.c:4779
 msgid "SELinux context:"
 msgstr "SELinux კონტექსტი:"
 
-#: ../src/file-manager/fm-properties-window.c:4788
+#: ../src/file-manager/fm-properties-window.c:4784
 msgid "Last changed:"
 msgstr "ბოლოს შეცვლილი:"
 
-#: ../src/file-manager/fm-properties-window.c:4799
+#: ../src/file-manager/fm-properties-window.c:4795
 msgid "Apply Permissions to Enclosed Files"
 msgstr "დართულ ფაილებზე უფლებების დამტკიცება"
 
-#: ../src/file-manager/fm-properties-window.c:4809
+#: ../src/file-manager/fm-properties-window.c:4805
 #, c-format
 msgid "The permissions of \"%s\" could not be determined."
 msgstr "შეუძლებელია \"%s\"-ის უფლებების დადგენა."
 
-#: ../src/file-manager/fm-properties-window.c:4812
+#: ../src/file-manager/fm-properties-window.c:4808
 msgid "The permissions of the selected file could not be determined."
 msgstr "შეუძლებელია შერჩეულ ფაილებზე უფლებების დადგენა."
 
-#: ../src/file-manager/fm-properties-window.c:5386
+#: ../src/file-manager/fm-properties-window.c:5382
 msgid "Creating Properties window."
 msgstr "იქმნება პარამეტრების ფანჯარა."
 
-#: ../src/file-manager/fm-properties-window.c:5682
+#: ../src/file-manager/fm-properties-window.c:5671
 msgid "Select Custom Icon"
 msgstr "ხსვა პიქტოგრამის ამორჩევა"
 
@@ -5447,18 +5538,20 @@ msgstr "ხსვა პიქტოგრამის ამორჩევა"
 msgid "File System"
 msgstr "ფაილური სისტემა"
 
-#: ../src/file-manager/fm-tree-view.c:1729
+#: ../src/file-manager/fm-tree-view.c:1727
 msgid "Tree"
 msgstr "ხე"
 
-#: ../src/file-manager/fm-tree-view.c:1735
+#: ../src/file-manager/fm-tree-view.c:1733
 msgid "Show Tree"
 msgstr "ხის ჩვენება"
 
 #: ../src/caja-application.c:481
 #, c-format
 msgid "Caja could not create the required folder \"%s\"."
-msgstr "ნაუტილუსმა ვერ დააკმაყოფილა თქვენი მოთხოვნა, შეუძლებელი გახდა \"%s\" დასტის შექმნა."
+msgstr ""
+"ნაუტილუსმა ვერ დააკმაყოფილა თქვენი მოთხოვნა, შეუძლებელი გახდა \"%s\" დასტის "
+"შექმნა."
 
 #: ../src/caja-application.c:483
 msgid ""
@@ -5505,7 +5598,8 @@ msgstr ""
 
 #: ../src/caja-application.c:2018
 msgid "Create the initial window with the given geometry."
-msgstr "თავდაპირველი ფანჯრის შექმნა შეყვანილი გეომეტრიის პარამეტრების მიხედვით."
+msgstr ""
+"თავდაპირველი ფანჯრის შექმნა შეყვანილი გეომეტრიის პარამეტრების მიხედვით."
 
 #: ../src/caja-application.c:2018
 msgid "GEOMETRY"
@@ -5544,7 +5638,10 @@ msgid ""
 "\n"
 "\n"
 "Browse the file system with the file manager"
-msgstr "\n\nფაილური სისტემის ფაილ მენეჯერით დათვალიერება"
+msgstr ""
+"\n"
+"\n"
+"ფაილური სისტემის ფაილ მენეჯერით დათვალიერება"
 
 #: ../src/caja-autorun-software.c:164 ../src/caja-autorun-software.c:167
 #, c-format
@@ -5564,7 +5661,9 @@ msgstr "<big><b>დაიშვა შეცდომა პროგრამ�
 msgid ""
 "<big><b>This medium contains software intended to be automatically started. "
 "Would you like to run it?</b></big>"
-msgstr "<big><b>მოცემული მედია შეიცავს ავტოგაშვებად პროგრამას. გნებავთ ამ პროგრამის გაშვება?</b></big>"
+msgstr ""
+"<big><b>მოცემული მედია შეიცავს ავტოგაშვებად პროგრამას. გნებავთ ამ პროგრამის "
+"გაშვება?</b></big>"
 
 #: ../src/caja-autorun-software.c:219
 #, c-format
@@ -5572,18 +5671,23 @@ msgid ""
 "The software will run directly from the medium \"%s\". You should never run software that you don't trust.\n"
 "\n"
 "If in doubt, press Cancel."
-msgstr "ეს პროგრამა პირდაპირ მედიიდან გაიშვება \"%s\". არასოდეს ჩართოთ არასანდო პროგრამები.\n\nთუ არ იცით როგორ მოიქცეთ დააჭირეთ 'გაუქმება'-ს."
+msgstr ""
+"ეს პროგრამა პირდაპირ მედიიდან გაიშვება \"%s\". არასოდეს ჩართოთ არასანდო პროგრამები.\n"
+"\n"
+"თუ არ იცით როგორ მოიქცეთ დააჭირეთ 'გაუქმება'-ს."
 
-#: ../src/caja-bookmarks-window.c:164
-#: ../src/caja-file-management-properties.c:242
-#: ../src/caja-property-browser.c:1677 ../src/caja-window-menus.c:598
+#: ../src/caja-bookmarks-window.c:158
+#: ../src/caja-file-management-properties.c:236
+#: ../src/caja-property-browser.c:1661 ../src/caja-window-menus.c:590
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
 "%s"
-msgstr "დაიშვა შეცდომა დახმარების გაშვებისას: \n%s"
+msgstr ""
+"დაიშვა შეცდომა დახმარების გაშვებისას: \n"
+"%s"
 
-#: ../src/caja-bookmarks-window.c:200
+#: ../src/caja-bookmarks-window.c:194
 msgid "No bookmarks defined"
 msgstr "არავითარი სანიშნე"
 
@@ -5610,7 +5714,10 @@ msgid ""
 "\n"
 "\n"
 "Add connect to server mount"
-msgstr "\n\nსერვერთან კავშირის დამატება"
+msgstr ""
+"\n"
+"\n"
+"სერვერთან კავშირის დამატება"
 
 #: ../src/caja-connect-server-dialog.c:135
 msgid "SSH"
@@ -5642,7 +5749,7 @@ msgstr ""
 
 #: ../src/caja-connect-server-dialog.c:196
 msgid "Connecting..."
-msgstr ""
+msgstr "დაკავშირება..."
 
 #: ../src/caja-connect-server-dialog.c:220
 msgid ""
@@ -5672,74 +5779,74 @@ msgstr ""
 msgid "Continue"
 msgstr ""
 
-#: ../src/caja-connect-server-dialog.c:742
-#: ../src/caja-connect-server-dialog.c:1171
+#: ../src/caja-connect-server-dialog.c:736
+#: ../src/caja-connect-server-dialog.c:1125
 msgid "C_onnect"
 msgstr "და_კავშირება"
 
 #. set dialog properties
-#: ../src/caja-connect-server-dialog.c:866
+#: ../src/caja-connect-server-dialog.c:860
 msgid "Connect to Server"
 msgstr "სერვერთან დაკავშირება"
 
-#: ../src/caja-connect-server-dialog.c:880
+#: ../src/caja-connect-server-dialog.c:874
 msgid "Server Details"
 msgstr ""
 
 #. first row: server entry + port spinbutton
-#: ../src/caja-connect-server-dialog.c:904
+#: ../src/caja-connect-server-dialog.c:894
 msgid "_Server:"
 msgstr "_სერვერი:"
 
 #. port
-#: ../src/caja-connect-server-dialog.c:926
+#: ../src/caja-connect-server-dialog.c:912
 msgid "_Port:"
 msgstr "_პორტი:"
 
 #. third row: share entry
-#: ../src/caja-connect-server-dialog.c:1025
+#: ../src/caja-connect-server-dialog.c:1003
 msgid "Share:"
 msgstr ""
 
 #. fourth row: folder entry
-#: ../src/caja-connect-server-dialog.c:1041
+#: ../src/caja-connect-server-dialog.c:1015
 msgid "Folder:"
-msgstr ""
+msgstr "დირექტორია:"
 
-#: ../src/caja-connect-server-dialog.c:1058
+#: ../src/caja-connect-server-dialog.c:1028
 msgid "User Details"
 msgstr ""
 
 #. first row: domain entry
-#: ../src/caja-connect-server-dialog.c:1082
+#: ../src/caja-connect-server-dialog.c:1048
 msgid "Domain Name:"
 msgstr ""
 
 #. second row: username entry
-#: ../src/caja-connect-server-dialog.c:1098
+#: ../src/caja-connect-server-dialog.c:1060
 msgid "User Name:"
 msgstr ""
 
 #. third row: password entry
-#: ../src/caja-connect-server-dialog.c:1114
+#: ../src/caja-connect-server-dialog.c:1072
 msgid "Password:"
-msgstr ""
+msgstr "პაროლი:"
 
 #. fourth row: remember checkbox
-#: ../src/caja-connect-server-dialog.c:1131
+#: ../src/caja-connect-server-dialog.c:1085
 msgid "Remember this password"
 msgstr ""
 
-#: ../src/caja-connect-server-dialog.c:1142
+#: ../src/caja-connect-server-dialog.c:1096
 msgid "Add _bookmark"
-msgstr ""
+msgstr "სანიშნის _დამატება"
 
-#: ../src/caja-connect-server-dialog.c:1149
+#: ../src/caja-connect-server-dialog.c:1103
 msgid "Bookmark Name:"
 msgstr ""
 
-#: ../src/caja-desktop-window.c:87 ../src/caja-desktop-window.c:267
-#: ../src/caja-pathbar.c:1403 ../src/caja-places-sidebar.c:519
+#: ../src/caja-desktop-window.c:87 ../src/caja-desktop-window.c:264
+#: ../src/caja-pathbar.c:1399 ../src/caja-places-sidebar.c:519
 msgid "Desktop"
 msgstr "სამუშაო მაგიდა"
 
@@ -5752,7 +5859,8 @@ msgstr "შეუძლებელია '%s' სახელწოდები
 msgid ""
 "This is probably because the emblem is a permanent one, and not one that you"
 " added yourself."
-msgstr "შესაძლოა რომ ემბლემა არ არის თქვენს მიერ დამატებული და სისტემას მიეკუთვნება."
+msgstr ""
+"შესაძლოა რომ ემბლემა არ არის თქვენს მიერ დამატებული და სისტემას მიეკუთვნება."
 
 #: ../src/caja-emblem-sidebar.c:264
 #, c-format
@@ -5769,7 +5877,7 @@ msgstr "ემბლემისთვის ახალი სახელწ�
 
 #: ../src/caja-emblem-sidebar.c:357
 msgid "Rename"
-msgstr "გადარქმევა"
+msgstr "სახელის გადარქმევა"
 
 #: ../src/caja-emblem-sidebar.c:537
 msgid "Add Emblems..."
@@ -5779,13 +5887,19 @@ msgstr "ემბლემების დამატება..."
 msgid ""
 "Enter a descriptive name next to each emblem.  This name will be used in "
 "other places to identify the emblem."
-msgstr "შეიყვანეთ დამატებითი ინფორმაცია ყოველი ემბლემისთვის. მოცემული ინფორმაცია გამოყენებულ იქნება სისტემის სხვადასხვა ადგილებში ემბლემის განსაზღვრის მიზნით."
+msgstr ""
+"შეიყვანეთ დამატებითი ინფორმაცია ყოველი ემბლემისთვის. მოცემული ინფორმაცია "
+"გამოყენებულ იქნება სისტემის სხვადასხვა ადგილებში ემბლემის განსაზღვრის "
+"მიზნით."
 
 #: ../src/caja-emblem-sidebar.c:558
 msgid ""
 "Enter a descriptive name next to the emblem.  This name will be used in "
 "other places to identify the emblem."
-msgstr "შეიყვანეთ დამატებითი ინფორმაცია ემბლემის გასწვრივ. მოცემული ინფორმაცია გამოყენებულ იქნება სისტემის სხვადასხვა ადგილებში ემბლემის განსაზღვრის მიზნით."
+msgstr ""
+"შეიყვანეთ დამატებითი ინფორმაცია ემბლემის გასწვრივ. მოცემული ინფორმაცია "
+"გამოყენებულ იქნება სისტემის სხვადასხვა ადგილებში ემბლემის განსაზღვრის "
+"მიზნით."
 
 #: ../src/caja-emblem-sidebar.c:800
 msgid "Some of the files could not be added as emblems."
@@ -5816,7 +5930,7 @@ msgstr "შეუძლებელია ემბლემის დამა�
 msgid "Show Emblems"
 msgstr "ემბლემების ჩვენება"
 
-#: ../src/caja-file-management-properties.c:638
+#: ../src/caja-file-management-properties.c:632
 msgid "About Extension"
 msgstr ""
 
@@ -5830,7 +5944,7 @@ msgstr ""
 
 #: ../src/caja-file-management-properties.ui.h:6
 msgid "Never"
-msgstr ""
+msgstr "არასოდეს"
 
 #: ../src/caja-file-management-properties.ui.h:7
 msgid "By Name"
@@ -6071,7 +6185,9 @@ msgstr "<b>ხატულების ხედი</b>"
 msgid ""
 "Choose the order of information to appear beneath icon names. More "
 "information will appear when zooming in closer."
-msgstr "ხატულის შესახებ ინფორმაციის გამოჩენის მიმდევრობა. პიქტოგრამის გადიდების შემთხვევაში მის შესახებ ინფორმაცია გაფართოვდება."
+msgstr ""
+"ხატულის შესახებ ინფორმაციის გამოჩენის მიმდევრობა. პიქტოგრამის გადიდების "
+"შემთხვევაში მის შესახებ ინფორმაცია გაფართოვდება."
 
 #: ../src/caja-file-management-properties.ui.h:72
 msgid "<b>Date</b>"
@@ -6091,7 +6207,7 @@ msgstr ""
 
 #: ../src/caja-file-management-properties.ui.h:76
 msgid "Display"
-msgstr "ეკრანი"
+msgstr "დისპლეი"
 
 #: ../src/caja-file-management-properties.ui.h:77
 msgid "<b>List Columns</b>"
@@ -6143,7 +6259,7 @@ msgstr "დასტაში ელემენტთა რიცხვის 
 
 #: ../src/caja-file-management-properties.ui.h:89
 msgid "Preview"
-msgstr "გადახედვა"
+msgstr "ესკიზი"
 
 #: ../src/caja-file-management-properties.ui.h:90
 msgid "<b>Media Handling</b>"
@@ -6180,7 +6296,8 @@ msgstr "<b>სხვა მედია</b>"
 
 #: ../src/caja-file-management-properties.ui.h:98
 msgid "Less common media formats can be configured here"
-msgstr "ამ სექციაში შესაძლებელია ნაკლებად გავრცელებული მედია მოწყობილობების გამართვა"
+msgstr ""
+"ამ სექციაში შესაძლებელია ნაკლებად გავრცელებული მედია მოწყობილობების გამართვა"
 
 #: ../src/caja-file-management-properties.ui.h:99
 msgid "Acti_on:"
@@ -6226,106 +6343,106 @@ msgstr ""
 msgid "Extensions"
 msgstr ""
 
-#: ../src/caja-history-sidebar.c:338
+#: ../src/caja-history-sidebar.c:337
 msgid "History"
 msgstr "ისტორია"
 
-#: ../src/caja-history-sidebar.c:344
+#: ../src/caja-history-sidebar.c:343
 msgid "Show History"
 msgstr "ისტორიის ჩვენება"
 
-#: ../src/caja-image-properties-page.c:280
+#: ../src/caja-image-properties-page.c:276
 msgid "Camera Brand"
 msgstr "კამერის მარკა"
 
-#: ../src/caja-image-properties-page.c:281
+#: ../src/caja-image-properties-page.c:277
 msgid "Camera Model"
 msgstr "კამერის მოდელი"
 
 #. Choose which date to show in order of relevance
-#: ../src/caja-image-properties-page.c:284
+#: ../src/caja-image-properties-page.c:280
 msgid "Date Taken"
 msgstr "სურათის გადაღების თარიღი"
 
-#: ../src/caja-image-properties-page.c:286
+#: ../src/caja-image-properties-page.c:282
 msgid "Date Digitized"
 msgstr "ციფრულ ფორმატში გადაყვანის თარიღი"
 
-#: ../src/caja-image-properties-page.c:292
+#: ../src/caja-image-properties-page.c:288
 msgid "Exposure Time"
 msgstr "ექსპოზიციის დრო"
 
-#: ../src/caja-image-properties-page.c:293
+#: ../src/caja-image-properties-page.c:289
 msgid "Aperture Value"
 msgstr "დიაფრაგმის მნიშვნელობა"
 
-#: ../src/caja-image-properties-page.c:294
+#: ../src/caja-image-properties-page.c:290
 msgid "ISO Speed Rating"
 msgstr "ISO მაჩვენებელი"
 
-#: ../src/caja-image-properties-page.c:295
+#: ../src/caja-image-properties-page.c:291
 msgid "Flash Fired"
 msgstr "ათინათის გამოყენება"
 
-#: ../src/caja-image-properties-page.c:296
+#: ../src/caja-image-properties-page.c:292
 msgid "Metering Mode"
 msgstr "გაზომვის რეჟიმი"
 
-#: ../src/caja-image-properties-page.c:297
+#: ../src/caja-image-properties-page.c:293
 msgid "Exposure Program"
 msgstr "ექსპოზიციის პროგრამა"
 
-#: ../src/caja-image-properties-page.c:298
+#: ../src/caja-image-properties-page.c:294
 msgid "Focal Length"
 msgstr "ფოკალური მანძილი"
 
-#: ../src/caja-image-properties-page.c:299
+#: ../src/caja-image-properties-page.c:295
 msgid "Software"
 msgstr "პროგრამები"
 
-#: ../src/caja-image-properties-page.c:371
+#: ../src/caja-image-properties-page.c:367
 msgid "Keywords"
 msgstr "საკვანძო სიტყვები"
 
-#: ../src/caja-image-properties-page.c:372
+#: ../src/caja-image-properties-page.c:368
 msgid "Creator"
 msgstr "შემქმნელი"
 
-#: ../src/caja-image-properties-page.c:373
+#: ../src/caja-image-properties-page.c:369
 msgid "Copyright"
 msgstr "საავტორო უფლებები"
 
-#: ../src/caja-image-properties-page.c:374
+#: ../src/caja-image-properties-page.c:370
 msgid "Rating"
 msgstr "ხმის მიცემა"
 
-#: ../src/caja-image-properties-page.c:405
+#: ../src/caja-image-properties-page.c:401
 msgid "Image Type:"
 msgstr "სურათის ტიპი:"
 
-#: ../src/caja-image-properties-page.c:408
+#: ../src/caja-image-properties-page.c:404
 #, c-format
 msgid "<b>Width:</b> %d pixel"
 msgid_plural "<b>Width:</b> %d pixels"
 msgstr[0] ""
 
-#: ../src/caja-image-properties-page.c:414
+#: ../src/caja-image-properties-page.c:410
 #, c-format
 msgid "<b>Height:</b> %d pixel"
 msgid_plural "<b>Height:</b> %d pixels"
 msgstr[0] ""
 
-#: ../src/caja-image-properties-page.c:433
+#: ../src/caja-image-properties-page.c:429
 msgid "Failed to load image information"
 msgstr "შეუძლებელია ნახატის ინფორმაციის ჩატვირთვა"
 
-#: ../src/caja-image-properties-page.c:661
+#: ../src/caja-image-properties-page.c:657
 msgid "loading..."
 msgstr "იტვირთება..."
 
-#: ../src/caja-image-properties-page.c:715
+#: ../src/caja-image-properties-page.c:711
 msgid "Image"
-msgstr "სურათი"
+msgstr "გამოსახულება"
 
 #: ../src/caja-information-panel.c:162
 msgid "Information"
@@ -6346,7 +6463,8 @@ msgstr "თქვენ არ შეგიძლიათ ერთდროუ
 
 #: ../src/caja-information-panel.c:564
 msgid "You can only use images as custom icons."
-msgstr "სურათების გამოყენება შესაძლებელია მხოლოდ ინდივიდუალური პიქტოგრამებისთვის."
+msgstr ""
+"სურათების გამოყენება შესაძლებელია მხოლოდ ინდივიდუალური პიქტოგრამებისთვის."
 
 #: ../src/caja-location-bar.c:58
 msgid "Go To:"
@@ -6356,19 +6474,20 @@ msgstr "გადასვლა:"
 #, c-format
 msgid "Do you want to view %d location?"
 msgid_plural "Do you want to view %d locations?"
-msgstr[0] "გნებავთ %d მდებარეობის დათვალიერება?"
+msgstr[0] ""
 
-#: ../src/caja-location-dialog.c:163
+#: ../src/caja-location-dialog.c:157
 msgid "Open Location"
 msgstr "მდებარეობის გახსნა"
 
-#: ../src/caja-location-dialog.c:173
+#: ../src/caja-location-dialog.c:167
 msgid "_Location:"
-msgstr "_მდებარეობა:"
+msgstr "მ_დებარეობა:"
 
 #: ../src/caja-navigation-window-menus.c:131
 msgid "Are you sure you want to clear the list of locations you have visited?"
-msgstr "დარწმუნებული ბრძანდებით რომ გნებავთ მონახული მისამართების სიის გასუფთავება?"
+msgstr ""
+"დარწმუნებული ბრძანდებით რომ გნებავთ მონახული მისამართების სიის გასუფთავება?"
 
 #: ../src/caja-navigation-window-menus.c:408 ../src/caja-window-bookmarks.c:83
 #, c-format
@@ -6382,7 +6501,7 @@ msgstr "ისტორიის მისამართი არ არსე
 #. name, stock id, label
 #: ../src/caja-navigation-window-menus.c:824
 msgid "_Go"
-msgstr "_გადასვლა"
+msgstr "_წინ"
 
 #. name, stock id, label
 #: ../src/caja-navigation-window-menus.c:825
@@ -6446,7 +6565,9 @@ msgstr "ისტო_რიის გასუფთავება"
 
 #: ../src/caja-navigation-window-menus.c:848
 msgid "Clear contents of Go menu and Back/Forward lists"
-msgstr "\"იარ\", \"წინ\" და \"უკან\" სიის შემადგენლობის წაშლა/გაწმენდა ის გადასვლა მენიუ და უკან გადაგზავნა"
+msgstr ""
+"\"იარ\", \"წინ\" და \"უკან\" სიის შემადგენლობის წაშლა/გაწმენდა ის გადასვლა "
+"მენიუ და უკან გადაგზავნა"
 
 #. name, stock id, label
 #: ../src/caja-navigation-window-menus.c:851
@@ -6469,7 +6590,7 @@ msgstr ""
 #. name, stock id, label
 #: ../src/caja-navigation-window-menus.c:859 ../src/caja-spatial-window.c:956
 msgid "_Add Bookmark"
-msgstr "ს_ანიშნის დამატება"
+msgstr "სანიშნეს _დამატება"
 
 #: ../src/caja-navigation-window-menus.c:860 ../src/caja-spatial-window.c:957
 msgid "Add a bookmark for the current location to this menu"
@@ -6486,7 +6607,7 @@ msgstr "ფანჯრის ჩვენება, რომელიც ს�
 
 #: ../src/caja-navigation-window-menus.c:868
 msgid "_Previous Tab"
-msgstr "წ_ინა დაფა"
+msgstr "_წინა ჩანართი"
 
 #: ../src/caja-navigation-window-menus.c:869
 msgid "Activate previous tab"
@@ -6494,7 +6615,7 @@ msgstr "წინა დაფის გააქტიურება"
 
 #: ../src/caja-navigation-window-menus.c:873
 msgid "_Next Tab"
-msgstr "შე_მდეგი დაფა"
+msgstr "_შემდეგი ჩანართი"
 
 #: ../src/caja-navigation-window-menus.c:874
 msgid "Activate next tab"
@@ -6599,7 +6720,7 @@ msgstr "_უკან"
 
 #: ../src/caja-navigation-window-menus.c:958
 msgid "Go to the previous visited location"
-msgstr "წინა მონახულ მდებარეობაზე გადასვლა"
+msgstr "გადადი წინა მონახულებულ პოზიციაზე"
 
 #: ../src/caja-navigation-window-menus.c:959
 msgid "Back history"
@@ -6611,7 +6732,7 @@ msgstr "_წინ"
 
 #: ../src/caja-navigation-window-menus.c:975
 msgid "Go to the next visited location"
-msgstr "შემდეგ მონახულ მდებარეობაზე გადასვლა"
+msgstr "გადადი შემდეგ მონახულებულ პოზიციაზე"
 
 #: ../src/caja-navigation-window-menus.c:976
 msgid "Forward history"
@@ -6627,7 +6748,7 @@ msgstr ""
 
 #: ../src/caja-navigation-window-menus.c:1036
 msgid "_Search"
-msgstr "ძ_ებნა"
+msgstr "_ძებნა"
 
 #: ../src/caja-navigation-window-pane.c:254
 msgid "Toggle between button and text-based location bar"
@@ -6646,15 +6767,15 @@ msgstr "დაფის დ_ახურვა"
 msgid "%s - File Browser"
 msgstr "%s - ფაილ ბრაუზერი"
 
-#: ../src/caja-notebook.c:337
+#: ../src/caja-notebook.c:330
 msgid "Close tab"
 msgstr "დაფის დ_ახურვა"
 
-#: ../src/caja-notes-viewer.c:399 ../src/caja-notes-viewer.c:503
+#: ../src/caja-notes-viewer.c:398 ../src/caja-notes-viewer.c:502
 msgid "Notes"
 msgstr "ჩანაწერები"
 
-#: ../src/caja-notes-viewer.c:405
+#: ../src/caja-notes-viewer.c:404
 msgid "Show Notes"
 msgstr "ჩანაწერების ჩვენება"
 
@@ -6664,11 +6785,11 @@ msgstr ""
 
 #: ../src/caja-places-sidebar.c:317
 msgid "Bookmarks"
-msgstr ""
+msgstr "სანიშნეები"
 
 #: ../src/caja-places-sidebar.c:521
 msgid "Open the contents of your desktop in a folder"
-msgstr ""
+msgstr "სამუშაო მაგიდის დასტისებრი გახსნა"
 
 #: ../src/caja-places-sidebar.c:537
 msgid "Open the contents of the File System"
@@ -6739,11 +6860,11 @@ msgstr "წაშლა"
 msgid "Rename..."
 msgstr "გადარქმევა..."
 
-#: ../src/caja-places-sidebar.c:3382
+#: ../src/caja-places-sidebar.c:3381
 msgid "Places"
 msgstr "მდებარეობა"
 
-#: ../src/caja-places-sidebar.c:3388
+#: ../src/caja-places-sidebar.c:3387
 msgid "Show Places"
 msgstr "მდებარეობების ჩვენება"
 
@@ -6753,159 +6874,161 @@ msgid "Backgrounds and Emblems"
 msgstr "ემბლემები და ფონი"
 
 #. create the "remove" button
-#: ../src/caja-property-browser.c:409
+#: ../src/caja-property-browser.c:407
 msgid "_Remove..."
 msgstr "_წაშლა..."
 
 #. now create the "add new" button
-#: ../src/caja-property-browser.c:423
+#: ../src/caja-property-browser.c:421
 msgid "Add new..."
 msgstr "ახლის დამატება..."
 
-#: ../src/caja-property-browser.c:974
+#: ../src/caja-property-browser.c:972
 #, c-format
 msgid "Sorry, but pattern %s could not be deleted."
 msgstr "უკაცრავად, შეუძლებელია %s შაბლონის წაშლა."
 
-#: ../src/caja-property-browser.c:975
+#: ../src/caja-property-browser.c:973
 msgid "Check that you have permission to delete the pattern."
 msgstr "დარწმუნდით, რომ გაქვთ მისი მოშორების უფლება."
 
-#: ../src/caja-property-browser.c:991
+#: ../src/caja-property-browser.c:989
 #, c-format
 msgid "Sorry, but emblem %s could not be deleted."
 msgstr "უკაცრავად, შეუძლებელია %s ემბლემის წაშლა."
 
-#: ../src/caja-property-browser.c:992
+#: ../src/caja-property-browser.c:990
 msgid "Check that you have permission to delete the emblem."
 msgstr "დარწმუნდით, რომ გაქვთი მისი მოშორების უფლება."
 
-#: ../src/caja-property-browser.c:1064
+#: ../src/caja-property-browser.c:1062
 msgid "Select an Image File for the New Emblem"
 msgstr "ახალი ემბლემისთვის ფაილის ამორჩევა"
 
-#: ../src/caja-property-browser.c:1105
+#: ../src/caja-property-browser.c:1103
 msgid "Create a New Emblem"
 msgstr "ახალი ემბლემის შექმნა"
 
 #. make the keyword label and field
-#: ../src/caja-property-browser.c:1126
+#: ../src/caja-property-browser.c:1124
 msgid "_Keyword:"
 msgstr "სა_კვანძო სიტყვა:"
 
 #. set up a file chooser to pick the image file
-#: ../src/caja-property-browser.c:1149
+#: ../src/caja-property-browser.c:1143
 msgid "_Image:"
 msgstr "_სურათი:"
 
-#: ../src/caja-property-browser.c:1185
+#: ../src/caja-property-browser.c:1175
 msgid "Create a New Color:"
 msgstr "ახალი ფერის შექმნა:"
 
 #. make the name label and field
-#: ../src/caja-property-browser.c:1199
+#: ../src/caja-property-browser.c:1189
 msgid "Color _name:"
 msgstr "ფ_ერის სახელწოდება:"
 
-#: ../src/caja-property-browser.c:1215
+#: ../src/caja-property-browser.c:1205
 msgid "Color _value:"
 msgstr "ფერის მნიშ_ვნელობა:"
 
-#: ../src/caja-property-browser.c:1251
+#: ../src/caja-property-browser.c:1241
 msgid "Sorry, but you cannot replace the reset image."
-msgstr "უკაცრავად, სამწუხაროდ თქვენ არ შეგიძლიათ დაშორებული კომპიუტერიდან პროგრამების გაშვება."
+msgstr ""
+"უკაცრავად, სამწუხაროდ თქვენ არ შეგიძლიათ დაშორებული კომპიუტერიდან "
+"პროგრამების გაშვება."
 
-#: ../src/caja-property-browser.c:1252
+#: ../src/caja-property-browser.c:1242
 msgid "Reset is a special image that cannot be deleted."
 msgstr ""
 
-#: ../src/caja-property-browser.c:1282
+#: ../src/caja-property-browser.c:1272
 #, c-format
 msgid "Sorry, but the pattern %s could not be installed."
 msgstr "უკაცრავად, შეუძლებელია %s შაბლონის დაყენება."
 
-#: ../src/caja-property-browser.c:1313
+#: ../src/caja-property-browser.c:1303
 msgid "Select an Image File to Add as a Pattern"
 msgstr ""
 
-#: ../src/caja-property-browser.c:1392 ../src/caja-property-browser.c:1422
+#: ../src/caja-property-browser.c:1382 ../src/caja-property-browser.c:1412
 msgid "The color cannot be installed."
 msgstr "შეუძლებელია ფერის დაყენება."
 
-#: ../src/caja-property-browser.c:1393
+#: ../src/caja-property-browser.c:1383
 msgid "Sorry, but you must specify an unused color name for the new color."
 msgstr ""
 
-#: ../src/caja-property-browser.c:1423
+#: ../src/caja-property-browser.c:1413
 msgid "Sorry, but you must specify a non-blank name for the new color."
 msgstr "უკაცრავად, შეუძლებელია ფერისთვის ცარიელი სახელწოდების მითითება."
 
-#: ../src/caja-property-browser.c:1483
+#: ../src/caja-property-browser.c:1473
 msgid "Select a Color to Add"
 msgstr "დასამატებელი ფერის ამორჩევაამორჩევა a ფერი -სკენ დამატება"
 
-#: ../src/caja-property-browser.c:1529 ../src/caja-property-browser.c:1547
+#: ../src/caja-property-browser.c:1519 ../src/caja-property-browser.c:1537
 #, c-format
 msgid "Sorry, but \"%s\" is not a usable image file."
 msgstr "უკაცრავად, ფაილი \"%s\" არ წარმოადგენს გამოსადეგ გრაფიკულ ფაილს."
 
-#: ../src/caja-property-browser.c:1530 ../src/caja-property-browser.c:1548
+#: ../src/caja-property-browser.c:1520 ../src/caja-property-browser.c:1538
 msgid "The file is not an image."
 msgstr "მოცემული ფაილი არ წარმოადგენს სურათს.ფაილი არა ნახატი."
 
-#: ../src/caja-property-browser.c:2299
+#: ../src/caja-property-browser.c:2281
 msgid "Select a Category:"
 msgstr "კატეგორიის ამორჩევა:"
 
-#: ../src/caja-property-browser.c:2311
+#: ../src/caja-property-browser.c:2293
 msgid "C_ancel Remove"
 msgstr "წ_აშლის გაუქმება"
 
-#: ../src/caja-property-browser.c:2320
+#: ../src/caja-property-browser.c:2302
 msgid "_Add a New Pattern..."
 msgstr "ახალი ნიმუშის _დამატება..."
 
-#: ../src/caja-property-browser.c:2323
+#: ../src/caja-property-browser.c:2305
 msgid "_Add a New Color..."
 msgstr "ახალი ფერის _დამატება..."
 
-#: ../src/caja-property-browser.c:2326
+#: ../src/caja-property-browser.c:2308
 msgid "_Add a New Emblem..."
 msgstr "ახალი ემბლემის _დამატება..."
 
-#: ../src/caja-property-browser.c:2352
+#: ../src/caja-property-browser.c:2334
 msgid "Click on a pattern to remove it"
 msgstr "წკაპი - ნიმუშის მოსაშორებლად"
 
-#: ../src/caja-property-browser.c:2355
+#: ../src/caja-property-browser.c:2337
 msgid "Click on a color to remove it"
 msgstr "წკაპი - ფერის მოსაშორებლად"
 
-#: ../src/caja-property-browser.c:2358
+#: ../src/caja-property-browser.c:2340
 msgid "Click on an emblem to remove it"
 msgstr "წკაპი - ემბლემის მოსაშორებლად."
 
-#: ../src/caja-property-browser.c:2370
+#: ../src/caja-property-browser.c:2352
 msgid "Patterns:"
 msgstr "ნიმუშები:"
 
-#: ../src/caja-property-browser.c:2373
+#: ../src/caja-property-browser.c:2355
 msgid "Colors:"
 msgstr "ფერები:"
 
-#: ../src/caja-property-browser.c:2376
+#: ../src/caja-property-browser.c:2358
 msgid "Emblems:"
 msgstr "ემბლემა:"
 
-#: ../src/caja-property-browser.c:2398
+#: ../src/caja-property-browser.c:2380
 msgid "_Remove a Pattern..."
 msgstr "ნიმუშის _ამოღება..."
 
-#: ../src/caja-property-browser.c:2401
+#: ../src/caja-property-browser.c:2383
 msgid "_Remove a Color..."
 msgstr "ფერის _მოღება..."
 
-#: ../src/caja-property-browser.c:2404
+#: ../src/caja-property-browser.c:2386
 msgid "_Remove an Emblem..."
 msgstr "ემბლემის _ამოღება..."
 
@@ -6915,7 +7038,7 @@ msgstr "ფაილის ტიპიფაილთა ტიპი"
 
 #: ../src/caja-query-editor.c:149
 msgid "Tags"
-msgstr ""
+msgstr "ჭდეები"
 
 #: ../src/caja-query-editor.c:295
 msgid "Select folder to search in"
@@ -6928,7 +7051,7 @@ msgstr ""
 
 #: ../src/caja-query-editor.c:498
 msgid "Documents"
-msgstr "დოკუმენტი"
+msgstr "დოკუმენტები"
 
 #: ../src/caja-query-editor.c:518
 msgid "Music"
@@ -6966,51 +7089,51 @@ msgstr "ტექსტური ფაილი"
 msgid "Select type"
 msgstr "ტიპის ამორჩევა"
 
-#: ../src/caja-query-editor.c:804
+#: ../src/caja-query-editor.c:802
 msgid "Any"
 msgstr "ნებისმიერი"
 
-#: ../src/caja-query-editor.c:820
+#: ../src/caja-query-editor.c:818
 msgid "Other Type..."
 msgstr "სხვა ტიპი..."
 
-#: ../src/caja-query-editor.c:1124
+#: ../src/caja-query-editor.c:1122
 msgid "Remove this criterion from the search"
 msgstr "ძებნის კრიტერიუმის მოშორებაამოშლა"
 
-#: ../src/caja-query-editor.c:1171
+#: ../src/caja-query-editor.c:1169
 msgid "Search Folder"
 msgstr "საძიებელი დასტა"
 
-#: ../src/caja-query-editor.c:1177
+#: ../src/caja-query-editor.c:1175
 msgid "Edit"
 msgstr "რედაქტირება"
 
-#: ../src/caja-query-editor.c:1185
+#: ../src/caja-query-editor.c:1183
 msgid "Edit the saved search"
 msgstr "დამახსოვრებული ძიების რედაქტირება"
 
-#: ../src/caja-query-editor.c:1217
+#: ../src/caja-query-editor.c:1215
 msgid "Add a new criterion to this search"
 msgstr "ძებნის ახალი კრიტერიუმის დამატება"
 
-#: ../src/caja-query-editor.c:1223
+#: ../src/caja-query-editor.c:1221
 msgid "Go"
 msgstr "გადასვლა"
 
-#: ../src/caja-query-editor.c:1227
+#: ../src/caja-query-editor.c:1225
 msgid "Reload"
 msgstr "გადატვირთვა"
 
-#: ../src/caja-query-editor.c:1232
+#: ../src/caja-query-editor.c:1230
 msgid "Perform or update the search"
 msgstr "ძიების შესრულება ან განახლება"
 
-#: ../src/caja-query-editor.c:1253
+#: ../src/caja-query-editor.c:1251
 msgid "_Search for:"
-msgstr "_მოძებნე:"
+msgstr "_Search for: "
 
-#: ../src/caja-query-editor.c:1282
+#: ../src/caja-query-editor.c:1280
 msgid "Search results"
 msgstr "ძიების შედეგები"
 
@@ -7052,7 +7175,7 @@ msgstr "ყველა დასტის ფანჯრის დ_ახუ�
 
 #: ../src/caja-spatial-window.c:965
 msgid "Locate documents and folders on this computer by name or content"
-msgstr "დოკუმენტებისა და დასტების სახელწოდების ან შიგთავსის მიხედვით ძებნა"
+msgstr "ფაილების და დასტების სახელის ან შინაარსი მიხედვით მოძებნა"
 
 #: ../src/caja-trash-bar.c:211
 msgid "Restore Selected Items"
@@ -7141,7 +7264,9 @@ msgstr ""
 msgid ""
 "Error: %s\n"
 "Please select another viewer and try again."
-msgstr "შეცდომა: %s\nგეთაყვა ამოირჩიეთ სხვა დამთვალიერებელი ან სცადეთ ხელახლა."
+msgstr ""
+"შეცდომა: %s\n"
+"გეთაყვა ამოირჩიეთ სხვა დამთვალიერებელი ან სცადეთ ხელახლა."
 
 #: ../src/caja-window-menus.c:195
 msgid "Go to the location specified by this bookmark"
@@ -7153,7 +7278,11 @@ msgid ""
 "terms of the GNU General Public License as published by the Free Software "
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version."
-msgstr "ნაუტილუსი თავისუფალი/საჯარო პროგრამაა. მისი გავრცელება და/ან შეცვლაშესაძლებელია Free Software Foundation-ის მიერ გამოცემული GNU ზოგადისაჯარო ლიცენზიის (GNU General Public License) ვერსია 2-ის, ან(თქვენი სურვილის შემთხვევაში) ნებისმიერი უფრო ახალი ვერსიის, პირობების შესაბამისად."
+msgstr ""
+"ნაუტილუსი თავისუფალი/საჯარო პროგრამაა. მისი გავრცელება და/ან "
+"შეცვლაშესაძლებელია Free Software Foundation-ის მიერ გამოცემული GNU "
+"ზოგადისაჯარო ლიცენზიის (GNU General Public License) ვერსია 2-ის, ან(თქვენი "
+"სურვილის შემთხვევაში) ნებისმიერი უფრო ახალი ვერსიის, პირობების შესაბამისად."
 
 #: ../src/caja-window-menus.c:521
 msgid ""
@@ -7161,14 +7290,23 @@ msgid ""
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details."
-msgstr "ნაუტილუსი ვრცელდება იმ იმედით, რომ იგი გამოსადეგი იქნება, თუმცა ნებისმიერი სახის გარანტიის გარეშე; ასევე არ იგულისხმება გარანტია პროგრამის კომერციულად მომგებიანობასა თუ მისი ნებისმიერი მიზნით ვარგისიანობაზე. დამატებითი ინფორმაციისათცის იხილეთ GNU ზოგადი საჯარო ლიცენზია (GNU General Public License)."
+msgstr ""
+"ნაუტილუსი ვრცელდება იმ იმედით, რომ იგი გამოსადეგი იქნება, თუმცა ნებისმიერი "
+"სახის გარანტიის გარეშე; ასევე არ იგულისხმება გარანტია პროგრამის კომერციულად "
+"მომგებიანობასა თუ მისი ნებისმიერი მიზნით ვარგისიანობაზე. დამატებითი "
+"ინფორმაციისათცის იხილეთ GNU ზოგადი საჯარო ლიცენზია (GNU General Public "
+"License)."
 
 #: ../src/caja-window-menus.c:525
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301 USA"
-msgstr "ამ პროგრამასთან ერთად თქვენ უნდა მიგეღოთ GNU ზოგადი საჯარო ლიცენზიის(GNU General Public License) ასლი. თუ არ მიგიღიათ, მიწერეთFree Software Foundation, Inc-ს შემდეგ მისამართზე:51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA"
+msgstr ""
+"ამ პროგრამასთან ერთად თქვენ უნდა მიგეღოთ GNU ზოგადი საჯარო ლიცენზიის(GNU "
+"General Public License) ასლი. თუ არ მიგიღიათ, მიწერეთFree Software "
+"Foundation, Inc-ს შემდეგ მისამართზე:51 Franklin Street, Fifth Floor, Boston,"
+" MA 02110-1301, USA"
 
 #: ../src/caja-window-menus.c:537
 msgid ""
@@ -7193,203 +7331,203 @@ msgid "MATE Web Site"
 msgstr ""
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:814
+#: ../src/caja-window-menus.c:806
 msgid "_File"
 msgstr "_ფაილი"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:815
+#: ../src/caja-window-menus.c:807
 msgid "_Edit"
-msgstr "რ_ედაქტირება"
+msgstr "_დამუშავება"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:816
+#: ../src/caja-window-menus.c:808
 msgid "_View"
-msgstr "ჩ_ვენება"
+msgstr "_ხედი"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:817
+#: ../src/caja-window-menus.c:809
 msgid "_Help"
 msgstr "_დახმარება"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:819
+#: ../src/caja-window-menus.c:811
 msgid "_Close"
-msgstr "დ_ახურვა"
+msgstr "_დახურვა"
 
 #. tooltip
-#: ../src/caja-window-menus.c:820
+#: ../src/caja-window-menus.c:812
 msgid "Close this folder"
 msgstr "მოცემული დასტის დახურვა"
 
-#: ../src/caja-window-menus.c:825
+#: ../src/caja-window-menus.c:817
 msgid "_Backgrounds and Emblems..."
 msgstr "ფონი და ემ_ბლემები..."
 
-#: ../src/caja-window-menus.c:826
+#: ../src/caja-window-menus.c:818
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
 msgstr "ანახე ფერები,ფონები,დეკორაციები რომლებიც გაალამაზებენ ფაილთა მენეჯერს"
 
-#: ../src/caja-window-menus.c:831
+#: ../src/caja-window-menus.c:823
 msgid "Prefere_nces"
 msgstr "_პარამეტრები"
 
-#: ../src/caja-window-menus.c:832
+#: ../src/caja-window-menus.c:824
 msgid "Edit Caja preferences"
 msgstr "ნაუტილუსის პარამეტრების შეცვლა"
 
 #. name, stock id, label
-#: ../src/caja-window-menus.c:835
+#: ../src/caja-window-menus.c:827
 msgid "Open _Parent"
 msgstr "_ძირეული დასტის გახსნა"
 
-#: ../src/caja-window-menus.c:836
+#: ../src/caja-window-menus.c:828
 msgid "Open the parent folder"
 msgstr "ძირეულ დასტაში გახსნა"
 
 #. tooltip
-#: ../src/caja-window-menus.c:845
+#: ../src/caja-window-menus.c:837
 msgid "Stop loading the current location"
 msgstr "მიმდინარე მდებარეობის გახსნის შეწყვეტა"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:849
+#: ../src/caja-window-menus.c:841
 msgid "_Reload"
 msgstr "_გადატვირთვა"
 
 #. tooltip
-#: ../src/caja-window-menus.c:850
+#: ../src/caja-window-menus.c:842
 msgid "Reload the current location"
 msgstr "მიმდინარე მდებარეობის გადატვირთვა"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:854
+#: ../src/caja-window-menus.c:846
 msgid "_Contents"
-msgstr "_სარჩევი"
+msgstr "_შინაარსი"
 
 #. tooltip
-#: ../src/caja-window-menus.c:855
+#: ../src/caja-window-menus.c:847
 msgid "Display Caja help"
 msgstr "ნაუტილუსის დახმარების ჩვენება"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:859
+#: ../src/caja-window-menus.c:851
 msgid "_About"
-msgstr "_პროგრამის შესახებ"
+msgstr "_შესახებ"
 
 #. tooltip
-#: ../src/caja-window-menus.c:860
+#: ../src/caja-window-menus.c:852
 msgid "Display credits for the creators of Caja"
 msgstr "ნაუტილუსის შემქმნელთა სიის ჩვენება"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:864
+#: ../src/caja-window-menus.c:856
 msgid "Zoom _In"
 msgstr "მიახლოვება"
 
 #. tooltip
-#: ../src/caja-window-menus.c:865 ../src/caja-zoom-control.c:96
-#: ../src/caja-zoom-control.c:398
+#: ../src/caja-window-menus.c:857 ../src/caja-zoom-control.c:96
+#: ../src/caja-zoom-control.c:371
 msgid "Increase the view size"
 msgstr "ხედის ზომის გაზრდა"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:879
+#: ../src/caja-window-menus.c:871
 msgid "Zoom _Out"
-msgstr "დაშორება"
+msgstr "და_პატარავება"
 
 #. tooltip
-#: ../src/caja-window-menus.c:880 ../src/caja-zoom-control.c:97
-#: ../src/caja-zoom-control.c:335
+#: ../src/caja-window-menus.c:872 ../src/caja-zoom-control.c:97
+#: ../src/caja-zoom-control.c:316
 msgid "Decrease the view size"
 msgstr "ხედის ზომის დაპატარავება"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:889
+#: ../src/caja-window-menus.c:881
 msgid "Normal Si_ze"
 msgstr "ნორმალურ _ზომაში"
 
 #. tooltip
-#: ../src/caja-window-menus.c:890 ../src/caja-zoom-control.c:98
-#: ../src/caja-zoom-control.c:355
+#: ../src/caja-window-menus.c:882 ../src/caja-zoom-control.c:98
+#: ../src/caja-zoom-control.c:332
 msgid "Use the normal view size"
 msgstr "ნორმალური ხედის გამოყენება"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:894
+#: ../src/caja-window-menus.c:886
 msgid "Connect to _Server..."
 msgstr "_სერვერთან დაკავშირება..."
 
 #. tooltip
-#: ../src/caja-window-menus.c:895
+#: ../src/caja-window-menus.c:887
 msgid "Connect to a remote computer or shared disk"
-msgstr "დაშორებულ კომპიუტერთან ან გაზიარებულ დისკთან დაკავშირება"
+msgstr "დაშორებულ სერვერთან ან გაზიარებულ მყარ დისკთან დაკავშირება"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:904
+#: ../src/caja-window-menus.c:896
 msgid "_Computer"
 msgstr "_კომპიუტერი"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:909
+#: ../src/caja-window-menus.c:901
 msgid "_Network"
 msgstr "_ქსელი"
 
 #. tooltip
-#: ../src/caja-window-menus.c:910 ../src/mate-network-scheme.desktop.in.h:2
+#: ../src/caja-window-menus.c:902 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
 msgstr "ლოკალური და ქსელური მისამართების დათვალიერება"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:914
+#: ../src/caja-window-menus.c:906
 msgid "T_emplates"
 msgstr "შ_აბლონები"
 
 #. tooltip
-#: ../src/caja-window-menus.c:915
+#: ../src/caja-window-menus.c:907
 msgid "Open your personal templates folder"
 msgstr "მირად შაბლონთა დასტის გახსნა"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:919
+#: ../src/caja-window-menus.c:911
 msgid "_Trash"
 msgstr "_სანაგვე ყუთი"
 
 #. tooltip
-#: ../src/caja-window-menus.c:920
+#: ../src/caja-window-menus.c:912
 msgid "Open your personal trash folder"
 msgstr "პირადი სანაგვე ყუთის დასტის გახსნა"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:928
+#: ../src/caja-window-menus.c:920
 msgid "Show _Hidden Files"
 msgstr "_ფარული ფაილების ჩვენება"
 
 #. tooltip
-#: ../src/caja-window-menus.c:929
+#: ../src/caja-window-menus.c:921
 msgid "Toggle the display of hidden files in the current window"
 msgstr "მიმდინარე ფანჯარაში ფარული ფაილების ჩვენებაზე გადართვა"
 
-#: ../src/caja-window-menus.c:960
+#: ../src/caja-window-menus.c:952
 msgid "_Up"
 msgstr "ზემ_ოთ"
 
-#: ../src/caja-window-menus.c:963
+#: ../src/caja-window-menus.c:955
 msgid "_Home"
 msgstr "_სახლი"
 
@@ -7441,20 +7579,20 @@ msgstr "მედია ამოცნობილ იქნა როგორ
 
 #: ../src/caja-zoom-control.c:82
 msgid "Zoom In"
-msgstr "მიახლოვება"
+msgstr "გადიდება"
 
 #: ../src/caja-zoom-control.c:83
 msgid "Zoom Out"
-msgstr "დაშორება"
+msgstr "დაპატარავება"
 
 #: ../src/caja-zoom-control.c:84
 msgid "Zoom to Default"
 msgstr "საწყისი მაშტაბი"
 
-#: ../src/caja-zoom-control.c:940
+#: ../src/caja-zoom-control.c:913
 msgid "Zoom"
 msgstr "გადიდება"
 
-#: ../src/caja-zoom-control.c:945
+#: ../src/caja-zoom-control.c:918
 msgid "Set the zoom level of the current view"
 msgstr "მიმდინარე ხედისთვის მაშტაბის შესაბამება"
