@@ -65,11 +65,14 @@ GtkWidget *           eel_gtk_menu_tool_button_get_button             (GtkMenuTo
 void                  eel_gtk_label_make_bold                         (GtkLabel             *label);
 
 /* GtkTreeView */
-void                  eel_gtk_tree_view_set_activate_on_single_click  (GtkTreeView               *tree_view,
-        gboolean                   should_activate);
+void                  eel_gtk_tree_view_set_activate_on_single_click  (GtkTreeView          *tree_view,
+                                                                       gboolean              should_activate);
 
 /* GtkMessageDialog */
-void                  eel_gtk_message_dialog_set_details_label        (GtkMessageDialog          *dialog,
-								       const gchar               *details_text);
+void                  eel_gtk_message_dialog_set_details_label        (GtkMessageDialog     *dialog,
+                                                                       const gchar          *details_text);
+
+GtkWidget *           eel_image_menu_item_new_from_icon               (const gchar          *icon_name,
+                                                                       const gchar          *label_name);
 
 #endif /* EEL_GTK_EXTENSIONS_H */

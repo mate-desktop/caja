@@ -30,6 +30,8 @@
 #include "eel-editable-label.h"
 #include "eel-marshal.h"
 #include "eel-accessibility.h"
+#include "eel-gtk-extensions.h"
+
 #include <libgail-util/gailmisc.h>
 
 #include <glib/gi18n-lib.h>
@@ -3003,30 +3005,6 @@ activate_cb (GtkWidget *menuitem,
     g_signal_emit_by_name (label, signal);
 }
 
-static GtkWidget
-*mate_image_menu_item_new_from_icon (const gchar *icon_name,
-                                     const gchar *label_name)
-{
-    GtkWidget *icon;
-    GtkWidget *box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
-
-    if (icon_name)
-        icon = gtk_image_new_from_icon_name (icon_name, GTK_ICON_SIZE_MENU);
-    else
-        icon = gtk_image_new ();
-
-    GtkWidget *label_menu = gtk_label_new_with_mnemonic (g_strconcat (label_name, "     ", NULL));
-    GtkWidget *menuitem = gtk_menu_item_new ();
- 
-    gtk_container_add (GTK_CONTAINER (box), icon);
-    gtk_container_add (GTK_CONTAINER (box), label_menu);
- 
-    gtk_container_add (GTK_CONTAINER (menuitem), box);
-    gtk_widget_show_all (menuitem);
-
-    return menuitem;
-}
-
 static void
 append_action_signal (EelEditableLabel     *label,
                       GtkWidget    *menu,
@@ -3035,7 +3013,7 @@ append_action_signal (EelEditableLabel     *label,
                       const gchar  *signal,
                       gboolean      sensitive)
 {
-    GtkWidget *menuitem = mate_image_menu_item_new_from_icon (icon_name, label_name);
+    GtkWidget *menuitem = eel_image_menu_item_new_from_icon (icon_name, label_name);
 
     g_object_set_data (G_OBJECT (menuitem), "gtk-signal", (char *)signal);
     g_signal_connect (menuitem, "activate",
@@ -3139,7 +3117,7 @@ popup_targets_received (GtkClipboard     *clipboard,
         append_action_signal (label, label->popup_menu, "edit-paste", _("_Paste"), "paste_clipboard",
                               clipboard_contains_text);
 
-        menuitem = mate_image_menu_item_new_from_icon ("edit-select-all", _("Select All"));
+        menuitem = eel_image_menu_item_new_from_icon ("edit-select-all", _("Select All"));
         g_signal_connect_object (menuitem, "activate",
                                  G_CALLBACK (eel_editable_label_select_all), label,
                                  G_CONNECT_SWAPPED);
@@ -3150,7 +3128,7 @@ popup_targets_received (GtkClipboard     *clipboard,
         gtk_widget_show (menuitem);
         gtk_menu_shell_append (GTK_MENU_SHELL (label->popup_menu), menuitem);
 
-        menuitem = mate_image_menu_item_new_from_icon (NULL, _("Input Methods"));
+        menuitem = eel_image_menu_item_new_from_icon (NULL, _("Input Methods"));
         gtk_widget_show (menuitem);
         submenu = gtk_menu_new ();
         gtk_menu_item_set_submenu (GTK_MENU_ITEM (menuitem), submenu);

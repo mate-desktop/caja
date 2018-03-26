@@ -456,3 +456,27 @@ eel_gtk_message_dialog_set_details_label (GtkMessageDialog *dialog,
 	gtk_widget_show (label);
 	gtk_widget_show (expander);
 }
+
+GtkWidget *
+eel_image_menu_item_new_from_icon (const gchar *icon_name,
+                                   const gchar *label_name)
+{
+    GtkWidget *icon;
+    GtkWidget *box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+
+    if (icon_name)
+        icon = gtk_image_new_from_icon_name (icon_name, GTK_ICON_SIZE_MENU);
+    else
+        icon = gtk_image_new ();
+
+    GtkWidget *label_menu = gtk_label_new_with_mnemonic (g_strconcat (label_name, "     ", NULL));
+    GtkWidget *menuitem = gtk_menu_item_new ();
+ 
+    gtk_container_add (GTK_CONTAINER (box), icon);
+    gtk_container_add (GTK_CONTAINER (box), label_menu);
+ 
+    gtk_container_add (GTK_CONTAINER (menuitem), box);
+    gtk_widget_show_all (menuitem);
+
+    return menuitem;
+}
