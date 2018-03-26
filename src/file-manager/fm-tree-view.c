@@ -1255,18 +1255,15 @@ create_popup_menu (FMTreeView *view)
 
     popup = gtk_menu_new ();
 
+    gtk_menu_set_reserve_toggle_size (GTK_MENU (popup), FALSE);
+
     g_signal_connect (popup, "deactivate",
                       G_CALLBACK (popup_menu_deactivated),
                       view);
 
 
     /* add the "open" menu item */
-    menu_image = gtk_image_new_from_icon_name ("document-open",
-                                               GTK_ICON_SIZE_MENU);
-    gtk_widget_show (menu_image);
-    menu_item = gtk_image_menu_item_new_with_mnemonic (_("_Open"));
-    gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (menu_item),
-                                   menu_image);
+    menu_item = eel_image_menu_item_new_from_icon ("document-open", _("_Open"));
     g_signal_connect (menu_item, "activate",
                       G_CALLBACK (fm_tree_view_open_cb),
                       view);
@@ -1275,7 +1272,7 @@ create_popup_menu (FMTreeView *view)
     view->details->popup_open = menu_item;
 
     /* add the "open in new tab" menu item */
-    menu_item = gtk_menu_item_new_with_mnemonic (_("Open in New _Tab"));
+    menu_item = eel_image_menu_item_new_from_icon (NULL, _("Open in New _Tab"));
     g_signal_connect (menu_item, "activate",
                       G_CALLBACK (fm_tree_view_open_in_new_tab_cb),
                       view);
@@ -1284,7 +1281,7 @@ create_popup_menu (FMTreeView *view)
     view->details->popup_open_in_new_window = menu_item;
 
     /* add the "open in new window" menu item */
-    menu_item = gtk_menu_item_new_with_mnemonic (_("Open in New _Window"));
+    menu_item = eel_image_menu_item_new_from_icon (NULL, _("Open in New _Window"));
     g_signal_connect (menu_item, "activate",
                       G_CALLBACK (fm_tree_view_open_in_new_window_cb),
                       view);
@@ -1295,7 +1292,7 @@ create_popup_menu (FMTreeView *view)
     eel_gtk_menu_append_separator (GTK_MENU (popup));
 
     /* add the "create folder" menu item */
-    menu_item = gtk_image_menu_item_new_with_mnemonic (_("Create _Folder"));
+    menu_item = eel_image_menu_item_new_from_icon (NULL, _("Create _Folder"));
     g_signal_connect (menu_item, "activate",
                       G_CALLBACK (fm_tree_view_create_folder_cb),
                       view);
@@ -1306,7 +1303,7 @@ create_popup_menu (FMTreeView *view)
     eel_gtk_menu_append_separator (GTK_MENU (popup));
 
     /* add the "cut folder" menu item */
-    menu_item = gtk_image_menu_item_new_from_stock ("gtk-cut", NULL);
+    menu_item = eel_image_menu_item_new_from_icon ("edit-cut", _("Cu_t"));
     g_signal_connect (menu_item, "activate",
                       G_CALLBACK (fm_tree_view_cut_cb),
                       view);
@@ -1315,7 +1312,7 @@ create_popup_menu (FMTreeView *view)
     view->details->popup_cut = menu_item;
 
     /* add the "copy folder" menu item */
-    menu_item = gtk_image_menu_item_new_from_stock ("gtk-copy", NULL);
+    menu_item = eel_image_menu_item_new_from_icon ("edit-copy", _("_Copy"));
     g_signal_connect (menu_item, "activate",
                       G_CALLBACK (fm_tree_view_copy_cb),
                       view);
@@ -1324,12 +1321,7 @@ create_popup_menu (FMTreeView *view)
     view->details->popup_copy = menu_item;
 
     /* add the "paste files into folder" menu item */
-    menu_image = gtk_image_new_from_icon_name ("edit-paste",
-                                               GTK_ICON_SIZE_MENU);
-    gtk_widget_show (menu_image);
-    menu_item = gtk_image_menu_item_new_with_mnemonic (_("_Paste Into Folder"));
-    gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (menu_item),
-                                   menu_image);
+    menu_item = eel_image_menu_item_new_from_icon ("edit-paste", _("_Paste Into Folder"));
     g_signal_connect (menu_item, "activate",
                       G_CALLBACK (fm_tree_view_paste_cb),
                       view);
@@ -1340,12 +1332,7 @@ create_popup_menu (FMTreeView *view)
     eel_gtk_menu_append_separator (GTK_MENU (popup));
 
     /* add the "move to trash" menu item */
-    menu_image = gtk_image_new_from_icon_name (CAJA_ICON_TRASH_FULL,
-                 GTK_ICON_SIZE_MENU);
-    gtk_widget_show (menu_image);
-    menu_item = gtk_image_menu_item_new_with_mnemonic (_("Mo_ve to Trash"));
-    gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (menu_item),
-                                   menu_image);
+    menu_item = eel_image_menu_item_new_from_icon (CAJA_ICON_TRASH_FULL, _("Mo_ve to Trash"));
     g_signal_connect (menu_item, "activate",
                       G_CALLBACK (fm_tree_view_trash_cb),
                       view);
@@ -1354,12 +1341,7 @@ create_popup_menu (FMTreeView *view)
     view->details->popup_trash = menu_item;
 
     /* add the "delete" menu item */
-    menu_image = gtk_image_new_from_icon_name (CAJA_ICON_DELETE,
-                 GTK_ICON_SIZE_MENU);
-    gtk_widget_show (menu_image);
-    menu_item = gtk_image_menu_item_new_with_mnemonic (_("_Delete"));
-    gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (menu_item),
-                                   menu_image);
+    menu_item = eel_image_menu_item_new_from_icon (CAJA_ICON_DELETE, _("_Delete"));
     g_signal_connect (menu_item, "activate",
                       G_CALLBACK (fm_tree_view_delete_cb),
                       view);
@@ -1370,7 +1352,7 @@ create_popup_menu (FMTreeView *view)
     eel_gtk_menu_append_separator (GTK_MENU (popup));
 
     /* add the "Unmount" menu item */
-    menu_item = gtk_image_menu_item_new_with_mnemonic (_("_Unmount"));
+    menu_item = eel_image_menu_item_new_from_icon (NULL, _("_Unmount"));
     g_signal_connect (menu_item, "activate",
                       G_CALLBACK (fm_tree_view_unmount_cb),
                       view);
@@ -1379,7 +1361,7 @@ create_popup_menu (FMTreeView *view)
     view->details->popup_unmount = menu_item;
 
     /* add the "Eject" menu item */
-    menu_item = gtk_image_menu_item_new_with_mnemonic (_("_Eject"));
+    menu_item = eel_image_menu_item_new_from_icon (NULL, _("_Eject"));
     g_signal_connect (menu_item, "activate",
                       G_CALLBACK (fm_tree_view_eject_cb),
                       view);
@@ -1392,7 +1374,7 @@ create_popup_menu (FMTreeView *view)
         GTK_WIDGET (eel_gtk_menu_append_separator (GTK_MENU (popup)));
 
     /* add the "properties" menu item */
-    menu_item = gtk_image_menu_item_new_from_stock ("gtk-properties", NULL);
+    menu_item = eel_image_menu_item_new_from_icon ("document-properties", _("_Properties"));
     g_signal_connect (menu_item, "activate",
                       G_CALLBACK (fm_tree_view_properties_cb),
                       view);
