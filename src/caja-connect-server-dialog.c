@@ -1113,14 +1113,16 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
                             G_BINDING_DEFAULT |
                             G_BINDING_SYNC_CREATE);
 
-
-
-    gtk_dialog_add_button (GTK_DIALOG (dialog),
-                           "gtk-help",
+    eel_dialog_add_button (GTK_DIALOG (dialog),
+                           _("_Help"),
+                           "help-browser",
                            GTK_RESPONSE_HELP);
-    gtk_dialog_add_button (GTK_DIALOG (dialog),
-                           "gtk-cancel",
+
+    eel_dialog_add_button (GTK_DIALOG (dialog),
+                           _("_Cancel"),
+                           "process-stop",
                            GTK_RESPONSE_CANCEL);
+
     connect_button = gtk_dialog_add_button (GTK_DIALOG (dialog),
     					_("C_onnect"),
     					RESPONSE_CONNECT);

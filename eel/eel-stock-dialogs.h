@@ -49,6 +49,15 @@ int        eel_run_simple_dialog              (GtkWidget         *parent,
         const char        *primary_text,
         const char        *secondary_text,
         ...);
+GtkWidget* eel_dialog_add_button (GtkDialog   *dialog,
+        const gchar *button_text,
+        const gchar *icon_name,
+              gint   response_id);
+GtkWidget* eel_file_chooser_dialog_new (const gchar *title,
+        GtkWindow            *parent,
+        GtkFileChooserAction  action,
+        const gchar          *first_button_text,
+                              ...);
 
 /* Variations on mate stock dialogs; these do line wrapping, we don't
  * bother with non-parented versions, we allow setting the title,

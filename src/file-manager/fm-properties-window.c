@@ -5168,10 +5168,15 @@ create_properties_window (StartupData *startup_data)
 	/* append pages from available views */
 	append_extension_pages (window);
 
-	gtk_dialog_add_buttons (GTK_DIALOG (window),
-				"gtk-help", GTK_RESPONSE_HELP,
-				"gtk-close", GTK_RESPONSE_CLOSE,
-				NULL);
+        eel_dialog_add_button (GTK_DIALOG (window),
+                               _("_Help"),
+                               "help-browser",
+                               GTK_RESPONSE_HELP);
+
+        eel_dialog_add_button (GTK_DIALOG (window),
+                               _("_Close"),
+                               "window-close",
+                               GTK_RESPONSE_CLOSE);
 
 	/* FIXME - HIGificiation, should be done inside GTK+ */
 	gtk_container_set_border_width (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (window))), 12);
@@ -5668,11 +5673,11 @@ select_image_button_callback (GtkWidget *widget,
 	dialog = window->details->icon_chooser;
 
 	if (dialog == NULL) {
-		dialog = gtk_file_chooser_dialog_new (_("Select Custom Icon"), GTK_WINDOW (window),
+		dialog = eel_file_chooser_dialog_new (_("Select Custom Icon"), GTK_WINDOW (window),
 						      GTK_FILE_CHOOSER_ACTION_OPEN,
-						      "gtk-revert-to-saved", GTK_RESPONSE_NO,
-						      "gtk-cancel", GTK_RESPONSE_CANCEL,
-						      "gtk-open", GTK_RESPONSE_OK,
+						      "document-revert", GTK_RESPONSE_NO,
+						      "process-stop", GTK_RESPONSE_CANCEL,
+						      "document-open", GTK_RESPONSE_OK,
 						      NULL);
 		gtk_file_chooser_add_shortcut_folder (GTK_FILE_CHOOSER (dialog), "/usr/share/icons", NULL);
 		gtk_file_chooser_add_shortcut_folder (GTK_FILE_CHOOSER (dialog), "/usr/share/pixmaps", NULL);

@@ -659,7 +659,7 @@ fm_directory_view_confirm_multiple (GtkWindow *parent_window,
 						   "This will open %'d separate windows.", count), count);
 	}
 	dialog = eel_show_yes_no_dialog (prompt, detail,
-					 "gtk-ok", "gtk-cancel",
+					 "gtk-ok", "process-stop",
 					 parent_window);
 	g_free (detail);
 
@@ -1194,16 +1194,26 @@ select_pattern (FMDirectoryView *view)
 	GtkWidget *entry;
 	char *example_pattern;
 
-	dialog = gtk_dialog_new_with_buttons (_("Select Items Matching"),
-			fm_directory_view_get_containing_window (view),
-			GTK_DIALOG_DESTROY_WITH_PARENT,
-			"gtk-help",
-			GTK_RESPONSE_HELP,
-			"gtk-cancel",
-			GTK_RESPONSE_CANCEL,
-			"gtk-ok",
-			GTK_RESPONSE_OK,
-			NULL);
+	dialog = gtk_dialog_new ();
+	gtk_window_set_title (GTK_WINDOW (dialog), _("Select Items Matching"));
+	gtk_window_set_transient_for (GTK_WINDOW (dialog), fm_directory_view_get_containing_window (view));
+	gtk_window_set_destroy_with_parent (GTK_WINDOW (dialog), TRUE);
+
+	eel_dialog_add_button (GTK_DIALOG (dialog),
+			       _("_Help"),
+			       "help-browser",
+			       GTK_RESPONSE_HELP);
+
+	eel_dialog_add_button (GTK_DIALOG (dialog),
+			       _("_Cancel"),
+			       "process-stop",
+			       GTK_RESPONSE_CANCEL);
+
+	eel_dialog_add_button (GTK_DIALOG (dialog),
+			       _("_OK"),
+			       "gtk-ok",
+			       GTK_RESPONSE_OK);
+
 	gtk_dialog_set_default_response (GTK_DIALOG (dialog),
 					 GTK_RESPONSE_OK);
 	gtk_container_set_border_width (GTK_CONTAINER (dialog), 5);
@@ -1332,13 +1342,18 @@ action_save_search_as_callback (GtkAction *action,
 	    CAJA_IS_SEARCH_DIRECTORY (directory_view->details->model)) {
 		search = CAJA_SEARCH_DIRECTORY (directory_view->details->model);
 
-		dialog = gtk_dialog_new_with_buttons (_("Save Search as"),
-						      fm_directory_view_get_containing_window (directory_view),
-						      0,
-						      "gtk-cancel", GTK_RESPONSE_CANCEL,
-						      NULL);
-		save_button = gtk_dialog_add_button (GTK_DIALOG (dialog),
-						     "gtk-save", GTK_RESPONSE_OK);
+		dialog = gtk_dialog_new ();
+		gtk_window_set_title (GTK_WINDOW (dialog), _("Save Search as"));
+		gtk_window_set_transient_for (GTK_WINDOW (dialog), fm_directory_view_get_containing_window (directory_view));
+
+		eel_dialog_add_button (GTK_DIALOG (dialog),
+				       _("_Cancel"),
+				       "process-stop",
+				       GTK_RESPONSE_CANCEL);
+
+		save_button = eel_dialog_add_button (GTK_DIALOG (dialog), _("_Save"),
+						     "document-save", GTK_RESPONSE_OK);
+
 		gtk_dialog_set_default_response (GTK_DIALOG (dialog),
 						 GTK_RESPONSE_OK);
 		gtk_container_set_border_width (GTK_CONTAINER (dialog), 5);
@@ -6982,12 +6997,19 @@ action_connect_to_server_link_callback (GtkAction *action,
 
 	if (uri != NULL) {
 		title = g_strdup_printf (_("Connect to Server %s"), name);
-		dialog = gtk_dialog_new_with_buttons (title,
-						      fm_directory_view_get_containing_window (view),
-						      0,
-						      "gtk-cancel", GTK_RESPONSE_CANCEL,
-						      _("_Connect"), GTK_RESPONSE_OK,
-						      NULL);
+
+		dialog = gtk_dialog_new ();
+		gtk_window_set_title (GTK_WINDOW (dialog), title);
+		gtk_window_set_transient_for (GTK_WINDOW (dialog), fm_directory_view_get_containing_window (view));
+
+		eel_dialog_add_button (GTK_DIALOG (dialog),
+				       _("_Cancel"),
+				       "process-stop",
+				       GTK_RESPONSE_CANCEL);
+
+		gtk_dialog_add_button (GTK_DIALOG (dialog),
+				       _("_Connect"),
+				       GTK_RESPONSE_OK);
 
 		g_object_set_data_full (G_OBJECT (dialog), "link-uri", g_strdup (uri), g_free);
 		g_object_set_data_full (G_OBJECT (dialog), "link-icon", g_strdup (icon_name), g_free);
@@ -10269,8 +10291,11 @@ ask_link_action (FMDirectoryView *view)
 
 	gtk_dialog_add_button (GTK_DIALOG (dialog),
 			       _("Make a _Link"), 0);
-	gtk_dialog_add_button (GTK_DIALOG (dialog),
-			       "gtk-cancel", 1);
+
+	eel_dialog_add_button (GTK_DIALOG (dialog),
+			       _("_Cancel"),
+			       "process-stop", 1);
+
 	gtk_dialog_add_button (GTK_DIALOG (dialog),
 			       _("_Download"), 2);
 

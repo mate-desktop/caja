@@ -32,6 +32,7 @@
 #include <glib/gi18n.h>
 #include <pango/pango.h>
 #include <eel/eel-vfs-extensions.h>
+#include <eel/eel-stock-dialogs.h>
 
 #include "caja-file.h"
 #include "caja-icon-info.h"
@@ -555,24 +556,6 @@ diff_button_clicked_cb (GtkButton *w,
 }
 
 static void
-mate_dialog_add_button (GtkDialog   *dialog,
-                        const gchar *button_text,
-                        const gchar *icon_name,
-                        gint         response_id)
-{
-    GtkWidget *button;
-
-    button = gtk_button_new_with_mnemonic (button_text);
-    gtk_button_set_image (GTK_BUTTON (button), gtk_image_new_from_icon_name (icon_name, GTK_ICON_SIZE_BUTTON));
-
-    gtk_button_set_use_underline (GTK_BUTTON (button), TRUE);
-    gtk_style_context_add_class (gtk_widget_get_style_context (button), "text-button");
-    gtk_widget_set_can_default (button, TRUE);
-    gtk_widget_show (button);
-    gtk_dialog_add_action_widget (GTK_DIALOG (dialog), button, response_id);
-}
-
-static void
 caja_file_conflict_dialog_init (CajaFileConflictDialog *fcd)
 {
     GtkWidget *hbox, *vbox, *vbox2;
@@ -668,10 +651,10 @@ caja_file_conflict_dialog_init (CajaFileConflictDialog *fcd)
                       G_CALLBACK (checkbox_toggled_cb), dialog);
 
     /* Add buttons */
-    mate_dialog_add_button (dialog,
-                            _("_Cancel"),
-                            "process-stop",
-                            GTK_RESPONSE_CANCEL);
+    eel_dialog_add_button (dialog,
+                           _("_Cancel"),
+                           "process-stop",
+                           GTK_RESPONSE_CANCEL);
 
     gtk_dialog_add_button (dialog,
                            _("_Skip"),

@@ -1062,11 +1062,11 @@ icon_button_clicked_cb (GtkButton *b,
     GtkWidget *preview;
     int res;
 
-    dialog = gtk_file_chooser_dialog_new (_("Select an Image File for the New Emblem"),
+    dialog = eel_file_chooser_dialog_new (_("Select an Image File for the New Emblem"),
                                           GTK_WINDOW (browser),
                                           GTK_FILE_CHOOSER_ACTION_OPEN,
-                                          "gtk-cancel", GTK_RESPONSE_CANCEL,
-                                          "gtk-open", GTK_RESPONSE_ACCEPT,
+                                          "process-stop", GTK_RESPONSE_CANCEL,
+                                          "document-open", GTK_RESPONSE_ACCEPT,
                                           NULL);
     gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (dialog),
                                          DATADIR "/pixmaps");
@@ -1103,11 +1103,19 @@ caja_emblem_dialog_new (CajaPropertyBrowser *property_browser)
     GtkWidget *label;
     GtkWidget *grid = gtk_grid_new ();
 
-    dialog = gtk_dialog_new_with_buttons (_("Create a New Emblem"),
-                                          GTK_WINDOW (property_browser), 0,
-                                          "gtk-cancel", GTK_RESPONSE_CANCEL,
-                                          "gtk-ok", GTK_RESPONSE_OK,
-                                          NULL);
+    dialog = gtk_dialog_new ();
+    gtk_window_set_title (GTK_WINDOW (dialog), _("Create a New Emblem"));
+    gtk_window_set_transient_for (GTK_WINDOW (dialog), GTK_WINDOW (property_browser));
+
+    eel_dialog_add_button (GTK_DIALOG (dialog),
+                           _("_Cancel"),
+                           "process-stop",
+                           GTK_RESPONSE_CANCEL);
+
+    eel_dialog_add_button (GTK_DIALOG (dialog),
+                           _("_OK"),
+                           "gtk-ok",
+                           GTK_RESPONSE_OK);
 
     /* install the grid in the dialog */
     gtk_container_set_border_width (GTK_CONTAINER (grid), 5);
@@ -1175,11 +1183,19 @@ caja_color_selection_dialog_new (CajaPropertyBrowser *property_browser)
 
     GtkWidget *grid = gtk_grid_new ();
 
-    dialog = gtk_dialog_new_with_buttons (_("Create a New Color:"),
-                                          GTK_WINDOW (property_browser), 0,
-                                          "gtk-cancel", GTK_RESPONSE_CANCEL,
-                                          "gtk-ok", GTK_RESPONSE_OK,
-                                          NULL);
+    dialog = gtk_dialog_new ();
+    gtk_window_set_title (GTK_WINDOW (dialog), _("Create a New Color:"));
+    gtk_window_set_transient_for (GTK_WINDOW (dialog), GTK_WINDOW (property_browser));
+
+    eel_dialog_add_button (GTK_DIALOG (dialog),
+                           _("_Cancel"),
+                           "process-stop",
+                           GTK_RESPONSE_CANCEL);
+
+    eel_dialog_add_button (GTK_DIALOG (dialog),
+                           _("_OK"),
+                           "gtk-ok",
+                           GTK_RESPONSE_OK);
 
     /* install the grid in the dialog */
     gtk_widget_show (grid);
@@ -1303,11 +1319,11 @@ add_new_pattern (CajaPropertyBrowser *property_browser)
     else
     {
         property_browser->details->patterns_dialog = dialog =
-                    gtk_file_chooser_dialog_new (_("Select an Image File to Add as a Pattern"),
+                    eel_file_chooser_dialog_new (_("Select an Image File to Add as a Pattern"),
                             GTK_WINDOW (property_browser),
                             GTK_FILE_CHOOSER_ACTION_OPEN,
-                            "gtk-cancel", GTK_RESPONSE_CANCEL,
-                            "gtk-open", GTK_RESPONSE_ACCEPT,
+                            "process-stop", GTK_RESPONSE_CANCEL,
+                            "document-open", GTK_RESPONSE_ACCEPT,
                             NULL);
         gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (dialog),
                                              DATADIR "/caja/patterns/");

@@ -203,7 +203,7 @@ drag_data_received_callback (GtkWidget *widget,
                                   GTK_MESSAGE_QUESTION,
                                   prompt,
                                   detail,
-                                  "gtk-cancel", "gtk-ok",
+                                  "process-stop", "gtk-ok",
                                   NULL) != 0 /* MATE_OK */;
 
         g_free (prompt);

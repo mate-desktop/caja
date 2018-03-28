@@ -191,6 +191,83 @@ trash_dialog_response_callback (GtkDialog *dialog,
     gtk_widget_destroy (GTK_WIDGET (dialog));
 }
 
+GtkWidget*
+eel_dialog_add_button (GtkDialog   *dialog,
+                       const gchar *button_text,
+                       const gchar *icon_name,
+                             gint   response_id)
+{
+    GtkWidget *button;
+
+    button = gtk_button_new_with_mnemonic (button_text);
+    gtk_button_set_image (GTK_BUTTON (button), gtk_image_new_from_icon_name (icon_name, GTK_ICON_SIZE_BUTTON));
+
+    gtk_button_set_use_underline (GTK_BUTTON (button), TRUE);
+    gtk_style_context_add_class (gtk_widget_get_style_context (button), "text-button");
+    gtk_widget_set_can_default (button, TRUE);
+    gtk_widget_show (button);
+    gtk_dialog_add_action_widget (GTK_DIALOG (dialog), button, response_id);
+
+    return button;
+}
+
+static GtkWidget *
+eel_file_chooser_dialog_new_valist (const gchar          *title,
+                                    GtkWindow            *parent,
+                                    GtkFileChooserAction  action,
+                                    const gchar          *first_button_text,
+                                    va_list               varargs)
+{
+    GtkWidget *result;
+    const char *button_text = first_button_text;
+    gint response_id;
+
+    result = g_object_new (GTK_TYPE_FILE_CHOOSER_DIALOG,
+                           "title", title,
+                           "action", action,
+                           NULL);
+
+    if (parent)
+        gtk_window_set_transient_for (GTK_WINDOW (result), parent);
+
+    while (button_text)
+        {
+            response_id = va_arg (varargs, gint);
+
+            if (g_strcmp0 (button_text, "process-stop") == 0)
+                eel_dialog_add_button (GTK_DIALOG (result), _("_Cancel"), button_text, response_id);
+            else if (g_strcmp0 (button_text, "document-open") == 0)
+                eel_dialog_add_button (GTK_DIALOG (result), _("_Open"), button_text, response_id);
+            else if (g_strcmp0 (button_text, "document-revert") == 0)
+                eel_dialog_add_button (GTK_DIALOG (result), _("_Revert"), button_text, response_id);
+            else
+                gtk_dialog_add_button (GTK_DIALOG (result), button_text, response_id);
+
+            button_text = va_arg (varargs, const gchar *);
+        }
+
+    return result;
+}
+
+GtkWidget *
+eel_file_chooser_dialog_new (const gchar          *title,
+                             GtkWindow            *parent,
+                             GtkFileChooserAction  action,
+                             const gchar          *first_button_text,
+                             ...)
+{
+    GtkWidget *result;
+    va_list varargs;
+
+    va_start (varargs, first_button_text);
+    result = eel_file_chooser_dialog_new_valist (title, parent, action,
+                                                 first_button_text,
+                                                 varargs);
+    va_end (varargs);
+
+    return result;
+}
+
 static gboolean
 timed_wait_callback (gpointer callback_data)
 {
@@ -201,7 +278,7 @@ timed_wait_callback (gpointer callback_data)
     wait = callback_data;
 
     /* Put up the timed wait window. */
-    button = wait->cancel_callback != NULL ? "gtk-cancel" : "gtk-ok";
+    button = wait->cancel_callback != NULL ? "process-stop" : "gtk-ok";
 	dialog = GTK_DIALOG (gtk_message_dialog_new (wait->parent_window,
 						     0,
 						     GTK_MESSAGE_INFO,
@@ -213,7 +290,11 @@ timed_wait_callback (gpointer callback_data)
 		      "secondary-text", _("You can stop this operation by clicking cancel."),
 		      NULL);
 
-    gtk_dialog_add_button (GTK_DIALOG (dialog), button, GTK_RESPONSE_OK);
+    if (g_strcmp0 (button, "process-stop") == 0)
+        eel_dialog_add_button (GTK_DIALOG (dialog), _("_Cancel"), button, GTK_RESPONSE_OK);
+    else
+        eel_dialog_add_button (GTK_DIALOG (dialog), _("_OK"), button, GTK_RESPONSE_OK);
+
     gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_OK);
 
     /* The contents are often very small, causing tiny little
@@ -363,7 +444,12 @@ eel_run_simple_dialog (GtkWidget *parent, gboolean ignore_close_box,
         {
             break;
         }
-        gtk_dialog_add_button (GTK_DIALOG (dialog), button_title, response_id);
+
+        if (g_strcmp0 (button_title, "process-stop") == 0)
+            eel_dialog_add_button (GTK_DIALOG (dialog), _("_Cancel"), button_title, response_id);
+        else
+            eel_dialog_add_button (GTK_DIALOG (dialog), _("_OK"), button_title, response_id);
+
         gtk_dialog_set_default_response (GTK_DIALOG (dialog), response_id);
         response_id++;
     }
@@ -559,6 +645,18 @@ eel_create_question_dialog (const char *primary_text,
                                     GTK_MESSAGE_QUESTION,
                                     GTK_BUTTONS_NONE,
                                     parent);
-    gtk_dialog_add_buttons (dialog, answer_1, response_1, answer_2, response_2, NULL);
+
+    if (g_strcmp0 (answer_1, "process-stop") == 0)
+        eel_dialog_add_button (dialog, _("_Cancel"), answer_1, response_1);
+    else
+        gtk_dialog_add_button (dialog, answer_1, response_1);
+
+    if (g_strcmp0 (answer_2, "gtk-ok") == 0)
+        eel_dialog_add_button (dialog, _("_OK"), answer_2, response_2);
+    else if (g_strcmp0 (answer_2, "edit-clear") == 0)
+        eel_dialog_add_button (dialog, _("_Clear"), answer_2, response_2);
+    else
+        gtk_dialog_add_button (dialog, answer_2, response_2);
+
     return dialog;
 }

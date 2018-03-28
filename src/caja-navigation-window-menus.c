@@ -131,8 +131,8 @@ forget_history_if_confirmed (CajaWindow *window)
     dialog = eel_create_question_dialog (_("Are you sure you want to clear the list "
                                            "of locations you have visited?"),
                                          NULL,
-                                         "gtk-cancel", GTK_RESPONSE_CANCEL,
-                                         "gtk-clear", RESPONSE_FORGET,
+                                         "process-stop", GTK_RESPONSE_CANCEL,
+                                         "edit-clear", RESPONSE_FORGET,
                                          GTK_WINDOW (window));
 
     gtk_widget_show (GTK_WIDGET (dialog));

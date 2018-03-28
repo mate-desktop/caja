@@ -183,9 +183,11 @@ typedef struct {
 
 #define IS_IO_ERROR(__error, KIND) (((__error)->domain == G_IO_ERROR && (__error)->code == G_IO_ERROR_ ## KIND))
 
+#define CANCEL _("_Cancel")
 #define SKIP _("_Skip")
 #define SKIP_ALL _("S_kip All")
 #define RETRY _("_Retry")
+#define DELETE _("_Delete")
 #define DELETE_ALL _("Delete _All")
 #define REPLACE _("_Replace")
 #define REPLACE_ALL _("Replace _All")
@@ -1112,7 +1114,13 @@ do_run_simple_dialog (gpointer _data)
 			continue;
 		}
 
-		gtk_dialog_add_button (GTK_DIALOG (dialog), button_title, response_id);
+		if (g_strcmp0 (button_title, CANCEL) == 0)
+			eel_dialog_add_button (GTK_DIALOG (dialog), button_title, "process-stop", response_id);
+		else if (g_strcmp0 (button_title, DELETE) == 0)
+			eel_dialog_add_button (GTK_DIALOG (dialog), button_title, "edit-delete", response_id);
+		else
+			gtk_dialog_add_button (GTK_DIALOG (dialog), button_title, response_id);
+
 		gtk_dialog_set_default_response (GTK_DIALOG (dialog), response_id);
 	}
 
@@ -1367,7 +1375,7 @@ confirm_delete_from_trash (CommonJob *job,
 				f (_("If you delete an item, it will be permanently lost.")),
 				NULL,
 				FALSE,
-				"gtk-cancel", "gtk-delete",
+				CANCEL, DELETE,
 				NULL);
 
 	return (response == 1);
@@ -1391,7 +1399,7 @@ confirm_empty_trash (CommonJob *job)
 				f(_("All items in the Trash will be permanently deleted.")),
 				NULL,
 				FALSE,
-				"gtk-cancel", _("Empty _Trash"),
+				CANCEL, _("Empty _Trash"),
 				NULL);
 
 	return (response == 1);
@@ -1433,7 +1441,7 @@ confirm_delete_directly (CommonJob *job,
 				f (_("If you delete an item, it will be permanently lost.")),
 				NULL,
 				FALSE,
-				"gtk-cancel", "gtk-delete",
+				CANCEL, DELETE,
 				NULL);
 
 	return response == 1;
@@ -1475,7 +1483,7 @@ confirm_trash (CommonJob *job,
 				f (_("Items moved to the trash may be recovered until the trash is emptied.")),
 				NULL,
 				FALSE,
-				"gtk-cancel", _("Move to _Trash"),
+				CANCEL, _("Move to _Trash"),
 				NULL);
 
 	return response == 1;
@@ -1609,7 +1617,7 @@ delete_dir (CommonJob *job, GFile *dir,
 						secondary,
 						details,
 						FALSE,
-						"gtk-cancel", _("_Skip files"),
+						CANCEL, _("_Skip files"),
 						NULL);
 
 			g_error_free (error);
@@ -1642,7 +1650,7 @@ delete_dir (CommonJob *job, GFile *dir,
 					secondary,
 					details,
 					FALSE,
-					"gtk-cancel", SKIP, RETRY,
+					CANCEL, SKIP, RETRY,
 					NULL);
 
 		g_error_free (error);
@@ -1675,7 +1683,7 @@ delete_dir (CommonJob *job, GFile *dir,
 						secondary,
 						details,
 						(source_info->num_files - transfer_info->num_files) > 1,
-						"gtk-cancel", SKIP_ALL, SKIP,
+						CANCEL, SKIP_ALL, SKIP,
 						NULL);
 
 			if (response == 0 || response == GTK_RESPONSE_DELETE_EVENT) {
@@ -1752,7 +1760,7 @@ delete_file (CommonJob *job, GFile *file,
 					secondary,
 					details,
 					(source_info->num_files - transfer_info->num_files) > 1,
-					"gtk-cancel", SKIP_ALL, SKIP,
+					CANCEL, SKIP_ALL, SKIP,
 					NULL);
 
 		if (response == 0 || response == GTK_RESPONSE_DELETE_EVENT) {
@@ -1895,7 +1903,7 @@ trash_files (CommonJob *job, GList *files, int *files_skipped)
 						 secondary,
 						 details,
 						 (total_files - files_trashed) > 1,
-						 "gtk-cancel", SKIP_ALL, SKIP, DELETE_ALL, "gtk-delete",
+						 CANCEL, SKIP_ALL, SKIP, DELETE_ALL, DELETE,
 						 NULL);
 
 			if (response == 0 || response == GTK_RESPONSE_DELETE_EVENT) {
@@ -2314,10 +2322,16 @@ prompt_empty_trash (GtkWindow *parent_window)
 						    "the trash must be emptied. "
 						    "All trashed items on the volume "
 						    "will be permanently lost."));
-	gtk_dialog_add_buttons (GTK_DIALOG (dialog),
-	                        _("Do _not Empty Trash"), GTK_RESPONSE_REJECT,
-	                        "gtk-cancel", GTK_RESPONSE_CANCEL,
-	                        _("Empty _Trash"), GTK_RESPONSE_ACCEPT, NULL);
+
+	gtk_dialog_add_button (GTK_DIALOG (dialog),
+	                       _("Do _not Empty Trash"), GTK_RESPONSE_REJECT);
+
+	eel_dialog_add_button (GTK_DIALOG (dialog),
+	                       CANCEL, "process-stop", GTK_RESPONSE_CANCEL);
+
+	gtk_dialog_add_button (GTK_DIALOG (dialog),
+	                       _("Empty _Trash"), GTK_RESPONSE_ACCEPT);
+
 	gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_ACCEPT);
 	gtk_window_set_title (GTK_WINDOW (dialog), ""); /* as per HIG */
 	gtk_window_set_skip_taskbar_hint (GTK_WINDOW (dialog), TRUE);
@@ -2631,7 +2645,7 @@ scan_dir (GFile *dir,
 						secondary,
 						details,
 						FALSE,
-						"gtk-cancel", RETRY, SKIP,
+						CANCEL, RETRY, SKIP,
 						NULL);
 
 			g_error_free (error);
@@ -2672,7 +2686,7 @@ scan_dir (GFile *dir,
 					secondary,
 					details,
 					TRUE,
-					"gtk-cancel", SKIP_ALL, SKIP, RETRY,
+					CANCEL, SKIP_ALL, SKIP, RETRY,
 					NULL);
 
 		g_error_free (error);
@@ -2750,7 +2764,7 @@ scan_file (GFile *file,
 					secondary,
 					details,
 					TRUE,
-					"gtk-cancel", SKIP_ALL, SKIP, RETRY,
+					CANCEL, SKIP_ALL, SKIP, RETRY,
 					NULL);
 
 		g_error_free (error);
@@ -2854,7 +2868,7 @@ verify_destination (CommonJob *job,
 				      secondary,
 				      details,
 				      FALSE,
-				      "gtk-cancel", RETRY,
+				      CANCEL, RETRY,
 				      NULL);
 
 		g_error_free (error);
@@ -2889,7 +2903,7 @@ verify_destination (CommonJob *job,
 				      secondary,
 				      NULL,
 				      FALSE,
-				      "gtk-cancel",
+				      CANCEL,
 				      NULL);
 
 		abort_job (job);
@@ -2924,7 +2938,7 @@ verify_destination (CommonJob *job,
 						secondary,
 						details,
 						FALSE,
-						"gtk-cancel",
+						CANCEL,
 						COPY_FORCE,
 						RETRY,
 						NULL);
@@ -2952,7 +2966,7 @@ verify_destination (CommonJob *job,
 				      secondary,
 				      NULL,
 				      FALSE,
-				      "gtk-cancel",
+				      CANCEL,
 				      NULL);
 
 		g_error_free (error);
@@ -3472,7 +3486,7 @@ create_dest_dir (CommonJob *job,
 					secondary,
 					details,
 					FALSE,
-					"gtk-cancel", SKIP, RETRY,
+					CANCEL, SKIP, RETRY,
 					NULL);
 
 		g_error_free (error);
@@ -3613,7 +3627,7 @@ copy_move_directory (CopyMoveJob *copy_job,
 						secondary,
 						details,
 						FALSE,
-						"gtk-cancel", _("_Skip files"),
+						CANCEL, _("_Skip files"),
 						NULL);
 
 			g_error_free (error);
@@ -3658,7 +3672,7 @@ copy_move_directory (CopyMoveJob *copy_job,
 					secondary,
 					details,
 					FALSE,
-					"gtk-cancel", SKIP, RETRY,
+					CANCEL, SKIP, RETRY,
 					NULL);
 
 		g_error_free (error);
@@ -3700,7 +3714,7 @@ copy_move_directory (CopyMoveJob *copy_job,
 						secondary,
 						details,
 						(source_info->num_files - transfer_info->num_files) > 1,
-						"gtk-cancel", SKIP_ALL, SKIP,
+						CANCEL, SKIP_ALL, SKIP,
 						NULL);
 
 			if (response == 0 || response == GTK_RESPONSE_DELETE_EVENT) {
@@ -3789,7 +3803,7 @@ remove_target_recursively (CommonJob *job,
 					secondary,
 					details,
 					TRUE,
-					"gtk-cancel", SKIP_ALL, SKIP,
+					CANCEL, SKIP_ALL, SKIP,
 					NULL);
 
 		if (response == 0 || response == GTK_RESPONSE_DELETE_EVENT) {
@@ -3830,7 +3844,7 @@ remove_target_recursively (CommonJob *job,
 					secondary,
 					details,
 					TRUE,
-					"gtk-cancel", SKIP_ALL, SKIP,
+					CANCEL, SKIP_ALL, SKIP,
 					NULL);
 
 		if (response == 0 || response == GTK_RESPONSE_DELETE_EVENT) {
@@ -4147,7 +4161,7 @@ copy_move_file (CopyMoveJob *copy_job,
 					secondary,
 					NULL,
 					(source_info->num_files - transfer_info->num_files) > 1,
-					"gtk-cancel", SKIP_ALL, SKIP,
+					CANCEL, SKIP_ALL, SKIP,
 					NULL);
 
 		if (response == 0 || response == GTK_RESPONSE_DELETE_EVENT) {
@@ -4180,7 +4194,7 @@ copy_move_file (CopyMoveJob *copy_job,
 					secondary,
 					NULL,
 					(source_info->num_files - transfer_info->num_files) > 1,
-					"gtk-cancel", SKIP_ALL, SKIP,
+					CANCEL, SKIP_ALL, SKIP,
 					NULL);
 
 		if (response == 0 || response == GTK_RESPONSE_DELETE_EVENT) {
@@ -4400,7 +4414,7 @@ copy_move_file (CopyMoveJob *copy_job,
 							secondary,
 							details,
 							TRUE,
-							"gtk-cancel", SKIP_ALL, SKIP,
+							CANCEL, SKIP_ALL, SKIP,
 							NULL);
 
 				g_error_free (error);
@@ -4468,7 +4482,7 @@ copy_move_file (CopyMoveJob *copy_job,
 					secondary,
 					details,
 					(source_info->num_files - transfer_info->num_files) > 1,
-					"gtk-cancel", SKIP_ALL, SKIP,
+					CANCEL, SKIP_ALL, SKIP,
 					NULL);
 
 		g_error_free (error);
@@ -4832,7 +4846,7 @@ move_file_prepare (CopyMoveJob *move_job,
 					secondary,
 					NULL,
 					files_left > 1,
-					"gtk-cancel", SKIP_ALL, SKIP,
+					CANCEL, SKIP_ALL, SKIP,
 					NULL);
 
 		if (response == 0 || response == GTK_RESPONSE_DELETE_EVENT) {
@@ -4986,7 +5000,7 @@ move_file_prepare (CopyMoveJob *move_job,
 					secondary,
 					details,
 					files_left > 1,
-					"gtk-cancel", SKIP_ALL, SKIP,
+					CANCEL, SKIP_ALL, SKIP,
 					NULL);
 
 		g_error_free (error);
@@ -5432,7 +5446,7 @@ link_file (CopyMoveJob *job,
 					secondary,
 					details,
 					files_left > 1,
-					"gtk-cancel", SKIP_ALL, SKIP,
+					CANCEL, SKIP_ALL, SKIP,
 					NULL);
 
 		if (error) {
@@ -6190,7 +6204,7 @@ create_job (GIOSchedulerJob *io_job,
 						secondary,
 						details,
 						FALSE,
-						"gtk-cancel", SKIP,
+						CANCEL, SKIP,
 						NULL);
 
 			g_error_free (error);
@@ -6513,7 +6527,7 @@ mark_desktop_file_trusted (CommonJob *common,
 					      error->message,
 					      NULL,
 					      FALSE,
-					      "gtk-cancel", RETRY,
+					      CANCEL, RETRY,
 					      NULL);
 		} else {
 			response = 0;
@@ -6554,7 +6568,7 @@ mark_desktop_file_trusted (CommonJob *common,
 						      error->message,
 						      NULL,
 						      FALSE,
-						      "gtk-cancel", RETRY,
+						      CANCEL, RETRY,
 						      NULL);
 			} else {
 				response = 0;
@@ -6589,7 +6603,7 @@ mark_desktop_file_trusted (CommonJob *common,
 					      error->message,
 					      NULL,
 					      FALSE,
-					      "gtk-cancel", RETRY,
+					      CANCEL, RETRY,
 					      NULL);
 		} else {
 			response = 0;
@@ -6624,7 +6638,7 @@ mark_desktop_file_trusted (CommonJob *common,
 							      error->message,
 							      NULL,
 							      FALSE,
-							      "gtk-cancel", RETRY,
+							      CANCEL, RETRY,
 							      NULL);
 				} else {
 					response = 0;
