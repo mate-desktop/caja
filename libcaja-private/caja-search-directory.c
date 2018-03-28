@@ -525,9 +525,9 @@ search_engine_hits_added (CajaSearchEngine *engine, GList *hits,
             caja_file_monitor_add (file, monitor, monitor->monitor_attributes);
         }
 
-        g_signal_connect (file, "changed", G_CALLBACK (file_changed), search),
+        g_signal_connect (file, "changed", G_CALLBACK (file_changed), search);
 
-                         file_list = g_list_prepend (file_list, file);
+        file_list = g_list_prepend (file_list, file);
     }
 
     search->details->files = g_list_concat (search->details->files, file_list);
