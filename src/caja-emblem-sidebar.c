@@ -37,6 +37,7 @@
 #include <eel/eel-graphic-effects.h>
 #include <eel/eel-gdk-pixbuf-extensions.h>
 #include <eel/eel-stock-dialogs.h>
+#include <eel/eel-gtk-extensions.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
@@ -354,17 +355,14 @@ caja_emblem_sidebar_rename_cb (GtkWidget *menu_item,
 static void
 create_popup_menu (CajaEmblemSidebar *emblem_sidebar)
 {
-    GtkWidget *popup, *menu_item, *menu_image;
+    GtkWidget *popup, *menu_item;
 
     popup = gtk_menu_new ();
 
+    gtk_menu_set_reserve_toggle_size (GTK_MENU (popup), FALSE);
+
     /* add the "rename" menu item */
-    menu_image = gtk_image_new_from_icon_name ("document-properties",
-                                               GTK_ICON_SIZE_MENU);
-    gtk_widget_show (menu_image);
-    menu_item = gtk_image_menu_item_new_with_label (_("Rename"));
-    gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (menu_item),
-                                   menu_image);
+    menu_item = eel_image_menu_item_new_from_icon ("document-properties", _("Rename"));
 
     g_signal_connect (menu_item, "activate",
                       G_CALLBACK (caja_emblem_sidebar_rename_cb),
@@ -374,8 +372,8 @@ create_popup_menu (CajaEmblemSidebar *emblem_sidebar)
     emblem_sidebar->details->popup_rename = menu_item;
 
     /* add "delete" menu item */
-    menu_item = gtk_image_menu_item_new_from_stock ("gtk-delete",
-                                                    NULL);
+    menu_item = eel_image_menu_item_new_from_icon ("edit-delete", _("_Delete"));
+
     g_signal_connect (menu_item, "activate",
                       G_CALLBACK (caja_emblem_sidebar_delete_cb),
                       emblem_sidebar);
