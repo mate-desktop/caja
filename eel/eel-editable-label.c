@@ -1047,6 +1047,7 @@ eel_editable_label_ensure_layout (EelEditableLabel *label,
             else
             {
                 gint wrap_width;
+                gint scale;
 
                 pango_layout_set_width (label->layout, -1);
                 pango_layout_get_extents (label->layout, NULL, &logical_rect);
@@ -1057,9 +1058,10 @@ eel_editable_label_ensure_layout (EelEditableLabel *label,
                 longest_paragraph = width;
 
                 wrap_width = get_label_wrap_width (label);
+                scale = gtk_widget_get_scale_factor (widget);
                 width = MIN (width, wrap_width);
                 width = MIN (width,
-                             PANGO_SCALE * (WidthOfScreen (gdk_x11_screen_get_xscreen (gdk_screen_get_default ())) + 1) / 2);
+                             PANGO_SCALE * (WidthOfScreen (gdk_x11_screen_get_xscreen (gdk_screen_get_default ())) / scale + 1) / 2);
 
                 pango_layout_set_width (label->layout, width);
                 pango_layout_get_extents (label->layout, NULL, &logical_rect);
@@ -3043,6 +3045,7 @@ popup_position_func (GtkMenu   *menu,
     GtkWidget *widget;
     GtkRequisition req;
     GtkAllocation allocation;
+    gint scale;
 
     label = EEL_EDITABLE_LABEL (user_data);
     widget = GTK_WIDGET (label);
@@ -3053,12 +3056,13 @@ popup_position_func (GtkMenu   *menu,
 
     gtk_widget_get_preferred_size (widget, &req, NULL);
     gtk_widget_get_allocation (widget, &allocation);
+    scale = gtk_widget_get_scale_factor (widget);
 
     *x += allocation.width / 2;
     *y += allocation.height;
 
-    *x = CLAMP (*x, 0, MAX (0, WidthOfScreen (gdk_x11_screen_get_xscreen (gdk_screen_get_default ())) - req.width));
-    *y = CLAMP (*y, 0, MAX (0, HeightOfScreen (gdk_x11_screen_get_xscreen (gdk_screen_get_default ())) - req.height));
+    *x = CLAMP (*x, 0, MAX (0, WidthOfScreen (gdk_x11_screen_get_xscreen (gdk_screen_get_default ())) / scale - req.width));
+    *y = CLAMP (*y, 0, MAX (0, HeightOfScreen (gdk_x11_screen_get_xscreen (gdk_screen_get_default ())) / scale - req.height));
 }
 
 static void
