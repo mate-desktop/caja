@@ -392,10 +392,12 @@ realized_callback (GtkWidget *widget, FMDesktopIconView *desktop_icon_view)
     GdkWindow *root_window;
     GdkScreen *screen;
     GtkAllocation allocation;
+    gint scale;
 
     g_return_if_fail (desktop_icon_view->details->root_window == NULL);
 
     screen = gtk_widget_get_screen (widget);
+    scale = gtk_widget_get_scale_factor (widget);
 
     /* Ugly HACK for the problem that the views realize at the
      * wrong size and then get resized. (This is a problem with
@@ -405,8 +407,8 @@ realized_callback (GtkWidget *widget, FMDesktopIconView *desktop_icon_view)
      */
     allocation.x = 0;
     allocation.y = 0;
-    allocation.width = WidthOfScreen (gdk_x11_screen_get_xscreen (screen));
-    allocation.height = HeightOfScreen (gdk_x11_screen_get_xscreen (screen));
+    allocation.width = WidthOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
+    allocation.height = HeightOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
     gtk_widget_size_allocate (GTK_WIDGET(get_icon_container(desktop_icon_view)),
                               &allocation);
 
