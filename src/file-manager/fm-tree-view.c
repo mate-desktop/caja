@@ -1245,7 +1245,7 @@ popup_menu_deactivated (GtkMenuShell *menu_shell, gpointer data)
 static void
 create_popup_menu (FMTreeView *view)
 {
-    GtkWidget *popup, *menu_item, *menu_image;
+    GtkWidget *popup, *menu_item;
 
     if (view->details->popup != NULL)
     {
