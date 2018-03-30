@@ -2649,26 +2649,28 @@ bookmarks_build_popup_menu (CajaPlacesSidebar *sidebar)
     }
 
     sidebar->popup_menu = gtk_menu_new ();
+
+    gtk_menu_set_reserve_toggle_size (GTK_MENU (sidebar->popup_menu), FALSE);
+
     gtk_menu_attach_to_widget (GTK_MENU (sidebar->popup_menu),
                                GTK_WIDGET (sidebar),
                                bookmarks_popup_menu_detach_cb);
 
-    item = gtk_image_menu_item_new_with_mnemonic (_("_Open"));
-    gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (item),
-                                   gtk_image_new_from_icon_name ("document-open", GTK_ICON_SIZE_MENU));
+    item = eel_image_menu_item_new_from_icon ("document-open", _("_Open"));
+
     g_signal_connect (item, "activate",
                       G_CALLBACK (open_shortcut_cb), sidebar);
     gtk_widget_show (item);
     gtk_menu_shell_append (GTK_MENU_SHELL (sidebar->popup_menu), item);
 
-    item = gtk_menu_item_new_with_mnemonic (_("Open in New _Tab"));
+    item = eel_image_menu_item_new_from_icon (NULL, _("Open in New _Tab"));
     sidebar->popup_menu_open_in_new_tab_item = item;
     g_signal_connect (item, "activate",
                       G_CALLBACK (open_shortcut_in_new_tab_cb), sidebar);
     gtk_widget_show (item);
     gtk_menu_shell_append (GTK_MENU_SHELL (sidebar->popup_menu), item);
 
-    item = gtk_menu_item_new_with_mnemonic (_("Open in New _Window"));
+    item = eel_image_menu_item_new_from_icon (NULL, _("Open in New _Window"));
     g_signal_connect (item, "activate",
                       G_CALLBACK (open_shortcut_in_new_window_cb), sidebar);
     gtk_widget_show (item);
@@ -2676,16 +2678,16 @@ bookmarks_build_popup_menu (CajaPlacesSidebar *sidebar)
 
     eel_gtk_menu_append_separator (GTK_MENU (sidebar->popup_menu));
 
-    item = gtk_image_menu_item_new_with_label (_("Remove"));
+    item = eel_image_menu_item_new_from_icon ("list-remove", _("Remove"));
+
     sidebar->popup_menu_remove_item = item;
-    gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (item),
-                                   gtk_image_new_from_icon_name ("list-remove", GTK_ICON_SIZE_MENU));
+
     g_signal_connect (item, "activate",
                       G_CALLBACK (remove_shortcut_cb), sidebar);
     gtk_widget_show (item);
     gtk_menu_shell_append (GTK_MENU_SHELL (sidebar->popup_menu), item);
 
-    item = gtk_menu_item_new_with_label (_("Rename..."));
+    item = eel_image_menu_item_new_from_icon (NULL, _("Rename..."));
     sidebar->popup_menu_rename_item = item;
     g_signal_connect (item, "activate",
                       G_CALLBACK (rename_shortcut_cb), sidebar);
@@ -2697,49 +2699,49 @@ bookmarks_build_popup_menu (CajaPlacesSidebar *sidebar)
     sidebar->popup_menu_separator_item =
         GTK_WIDGET (eel_gtk_menu_append_separator (GTK_MENU (sidebar->popup_menu)));
 
-    item = gtk_menu_item_new_with_mnemonic (_("_Mount"));
+    item = eel_image_menu_item_new_from_icon (NULL, _("_Mount"));
     sidebar->popup_menu_mount_item = item;
     g_signal_connect (item, "activate",
                       G_CALLBACK (mount_shortcut_cb), sidebar);
     gtk_widget_show (item);
     gtk_menu_shell_append (GTK_MENU_SHELL (sidebar->popup_menu), item);
 
-    item = gtk_menu_item_new_with_mnemonic (_("_Unmount"));
+    item = eel_image_menu_item_new_from_icon (NULL, _("_Unmount"));
     sidebar->popup_menu_unmount_item = item;
     g_signal_connect (item, "activate",
                       G_CALLBACK (unmount_shortcut_cb), sidebar);
     gtk_widget_show (item);
     gtk_menu_shell_append (GTK_MENU_SHELL (sidebar->popup_menu), item);
 
-    item = gtk_menu_item_new_with_mnemonic (_("_Eject"));
+    item = eel_image_menu_item_new_from_icon (NULL, _("_Eject"));
     sidebar->popup_menu_eject_item = item;
     g_signal_connect (item, "activate",
                       G_CALLBACK (eject_shortcut_cb), sidebar);
     gtk_widget_show (item);
     gtk_menu_shell_append (GTK_MENU_SHELL (sidebar->popup_menu), item);
 
-    item = gtk_menu_item_new_with_mnemonic (_("_Detect Media"));
+    item = eel_image_menu_item_new_from_icon (NULL, _("_Detect Media"));
     sidebar->popup_menu_rescan_item = item;
     g_signal_connect (item, "activate",
                       G_CALLBACK (rescan_shortcut_cb), sidebar);
     gtk_widget_show (item);
     gtk_menu_shell_append (GTK_MENU_SHELL (sidebar->popup_menu), item);
 
-    item = gtk_menu_item_new_with_mnemonic (_("_Format"));
+    item = eel_image_menu_item_new_from_icon (NULL, _("_Format"));
     sidebar->popup_menu_format_item = item;
     g_signal_connect (item, "activate",
                       G_CALLBACK (format_shortcut_cb), sidebar);
     gtk_widget_show (item);
     gtk_menu_shell_append (GTK_MENU_SHELL (sidebar->popup_menu), item);
 
-    item = gtk_menu_item_new_with_mnemonic (_("_Start"));
+    item = eel_image_menu_item_new_from_icon (NULL, _("_Start"));
     sidebar->popup_menu_start_item = item;
     g_signal_connect (item, "activate",
                       G_CALLBACK (start_shortcut_cb), sidebar);
     gtk_widget_show (item);
     gtk_menu_shell_append (GTK_MENU_SHELL (sidebar->popup_menu), item);
 
-    item = gtk_menu_item_new_with_mnemonic (_("_Stop"));
+    item = eel_image_menu_item_new_from_icon (NULL, _("_Stop"));
     sidebar->popup_menu_stop_item = item;
     g_signal_connect (item, "activate",
                       G_CALLBACK (stop_shortcut_cb), sidebar);
@@ -2748,7 +2750,7 @@ bookmarks_build_popup_menu (CajaPlacesSidebar *sidebar)
 
     /* Empty Trash menu item */
 
-    item = gtk_menu_item_new_with_mnemonic (_("Empty _Trash"));
+    item = eel_image_menu_item_new_from_icon (NULL, _("Empty _Trash"));
     sidebar->popup_menu_empty_trash_item = item;
     g_signal_connect (item, "activate",
                       G_CALLBACK (empty_trash_cb), sidebar);
