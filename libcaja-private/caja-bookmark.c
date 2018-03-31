@@ -604,6 +604,38 @@ create_image_widget_for_bookmark (CajaBookmark *bookmark)
     return widget;
 }
 
+static GtkWidget *
+bookmark_image_menu_item_new_from_pixbuf (GdkPixbuf   *icon_pixbuf,
+                                          const gchar *label_name)
+{
+    GtkWidget *icon;
+    GtkLabel *label;
+
+    GtkWidget *box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+
+    if (icon_pixbuf)
+        icon = gtk_image_new_from_pixbuf (icon_pixbuf);
+    else
+        icon = gtk_image_new ();
+
+    GtkWidget *label_menu = gtk_label_new (g_strconcat (label_name, "     ", NULL));
+
+    label = GTK_LABEL (label_menu);
+    gtk_label_set_use_underline (label, FALSE);
+    gtk_label_set_ellipsize (label, PANGO_ELLIPSIZE_END);
+    gtk_label_set_max_width_chars (label, (ELLIPSISED_MENU_ITEM_MIN_CHARS + 2));
+
+    GtkWidget *menuitem = gtk_menu_item_new ();
+ 
+    gtk_container_add (GTK_CONTAINER (box), icon);
+    gtk_container_add (GTK_CONTAINER (box), label_menu);
+ 
+    gtk_container_add (GTK_CONTAINER (menuitem), box);
+    gtk_widget_show_all (menuitem);
+
+    return menuitem;
+}
+
 /**
  * caja_bookmark_menu_item_new:
  *
@@ -614,23 +646,15 @@ create_image_widget_for_bookmark (CajaBookmark *bookmark)
 GtkWidget *
 caja_bookmark_menu_item_new (CajaBookmark *bookmark)
 {
+    GdkPixbuf *icon;
     GtkWidget *menu_item;
     GtkWidget *image_widget;
-    GtkLabel *label;
-
-    menu_item = gtk_image_menu_item_new_with_label (bookmark->details->name);
-    label = GTK_LABEL (gtk_bin_get_child (GTK_BIN (menu_item)));
-    gtk_label_set_use_underline (label, FALSE);
-    gtk_label_set_ellipsize (label, PANGO_ELLIPSIZE_END);
-    gtk_label_set_max_width_chars (label, ELLIPSISED_MENU_ITEM_MIN_CHARS);
 
     image_widget = create_image_widget_for_bookmark (bookmark);
-    if (image_widget != NULL)
-    {
-        gtk_widget_show (image_widget);
-        gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (menu_item),
-                                       image_widget);
-    }
+
+    icon = gtk_image_get_pixbuf (GTK_IMAGE (image_widget));
+
+    menu_item = bookmark_image_menu_item_new_from_pixbuf (icon, bookmark->details->name);
 
     return menu_item;
 }

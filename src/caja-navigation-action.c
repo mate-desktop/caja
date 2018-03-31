@@ -237,6 +237,9 @@ connect_proxy (GtkAction *action, GtkWidget *proxy)
 
         /* set an empty menu, so the arrow button becomes sensitive */
         menu = gtk_menu_new ();
+
+        gtk_menu_set_reserve_toggle_size (GTK_MENU (menu), FALSE);
+
         gtk_menu_tool_button_set_menu (button, menu);
 
         gtk_menu_tool_button_set_arrow_tooltip_text (button,
