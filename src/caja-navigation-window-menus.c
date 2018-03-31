@@ -484,9 +484,6 @@ refresh_go_menu (CajaNavigationWindow *window)
         menuitem = gtk_ui_manager_get_widget (
                        ui_manager,
                        icon_entries[i]);
-
-        gtk_image_menu_item_set_always_show_image (
-            GTK_IMAGE_MENU_ITEM (menuitem), TRUE);
     }
 
     /* Add in a new set of history items. */
