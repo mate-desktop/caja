@@ -455,7 +455,6 @@ refresh_go_menu (CajaNavigationWindow *window)
 {
     GtkUIManager *ui_manager;
     GList *node;
-    GtkWidget *menuitem;
     int index;
     int i;
 
@@ -478,13 +477,6 @@ refresh_go_menu (CajaNavigationWindow *window)
                                         window->details->go_menu_action_group,
                                         -1);
     g_object_unref (window->details->go_menu_action_group);
-
-    for (i = 0; i < G_N_ELEMENTS (icon_entries); i++)
-    {
-        menuitem = gtk_ui_manager_get_widget (
-                       ui_manager,
-                       icon_entries[i]);
-    }
 
     /* Add in a new set of history items. */
     for (node = caja_get_history_list (), index = 0;
