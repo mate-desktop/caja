@@ -30,6 +30,8 @@
 #include "caja-notebook.h"
 #include "caja-window-slot.h"
 
+#include <eel/eel-gtk-extensions.h>
+
 #include <libcaja-private/caja-global-preferences.h>
 #include <libcaja-private/caja-window-slot-info.h>
 #include <libcaja-private/caja-view-factory.h>
@@ -439,7 +441,6 @@ notebook_popup_menu_show (CajaNavigationWindowPane *pane,
 {
     GtkWidget *popup;
     GtkWidget *item;
-    GtkWidget *image;
     int button, event_time;
     gboolean can_move_left, can_move_right;
     CajaNotebook *notebook;
@@ -451,7 +452,9 @@ notebook_popup_menu_show (CajaNavigationWindowPane *pane,
 
     popup = gtk_menu_new();
 
-    item = gtk_menu_item_new_with_mnemonic (_("_New Tab"));
+    gtk_menu_set_reserve_toggle_size (GTK_MENU (popup), FALSE);
+
+    item = eel_image_menu_item_new_from_icon (NULL, _("_New Tab"));
     g_signal_connect (item, "activate",
     		  G_CALLBACK (notebook_popup_menu_new_tab_cb),
     		  pane);
@@ -461,7 +464,7 @@ notebook_popup_menu_show (CajaNavigationWindowPane *pane,
     gtk_menu_shell_append (GTK_MENU_SHELL (popup),
     		       gtk_separator_menu_item_new ());
 
-    item = gtk_menu_item_new_with_mnemonic (_("Move Tab _Left"));
+    item = eel_image_menu_item_new_from_icon (NULL, _("Move Tab _Left"));
     g_signal_connect (item, "activate",
                       G_CALLBACK (notebook_popup_menu_move_left_cb),
                       pane);
@@ -469,7 +472,7 @@ notebook_popup_menu_show (CajaNavigationWindowPane *pane,
                            item);
     gtk_widget_set_sensitive (item, can_move_left);
 
-    item = gtk_menu_item_new_with_mnemonic (_("Move Tab _Right"));
+    item = eel_image_menu_item_new_from_icon (NULL, _("Move Tab _Right"));
     g_signal_connect (item, "activate",
                       G_CALLBACK (notebook_popup_menu_move_right_cb),
                       pane);
@@ -480,9 +483,8 @@ notebook_popup_menu_show (CajaNavigationWindowPane *pane,
     gtk_menu_shell_append (GTK_MENU_SHELL (popup),
                            gtk_separator_menu_item_new ());
 
-    item = gtk_image_menu_item_new_with_mnemonic (_("_Close Tab"));
-    image = gtk_image_new_from_icon_name ("window-close", GTK_ICON_SIZE_MENU);
-    gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (item), image);
+    item = eel_image_menu_item_new_from_icon ("window-close", _("_Close Tab"));
+
     g_signal_connect (item, "activate",
                       G_CALLBACK (notebook_popup_menu_close_cb), pane);
     gtk_menu_shell_append (GTK_MENU_SHELL (popup),
