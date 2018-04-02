@@ -25,6 +25,7 @@
 #include "caja-side-pane.h"
 
 #include <eel/eel-glib-extensions.h>
+#include <eel/eel-gtk-extensions.h>
 #include <eel/eel-gtk-macros.h>
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
@@ -391,6 +392,9 @@ caja_side_pane_init (GObject *object)
                         TRUE, TRUE, 0);
 
     side_pane->details->menu = gtk_menu_new ();
+
+    gtk_menu_set_reserve_toggle_size (GTK_MENU (side_pane->details->menu), FALSE);
+
     g_signal_connect (side_pane->details->menu,
                       "deactivate",
                       G_CALLBACK (menu_deactivate_callback),
@@ -467,7 +471,8 @@ caja_side_pane_add_panel (CajaSidePane *side_pane,
 
     gtk_widget_show (widget);
 
-    panel->menu_item = gtk_image_menu_item_new_with_label (title);
+    panel->menu_item = eel_image_menu_item_new_from_icon (NULL, title);
+
     gtk_widget_show (panel->menu_item);
     gtk_menu_shell_append (GTK_MENU_SHELL (side_pane->details->menu),
                            panel->menu_item);
@@ -607,9 +612,6 @@ caja_side_pane_set_panel_image (CajaSidePane *side_pane,
     {
         image = NULL;
     }
-
-    gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (panel->menu_item),
-                                   image);
 
     if (panel->shortcut)
     {
