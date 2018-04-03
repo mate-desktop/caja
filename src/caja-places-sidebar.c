@@ -49,6 +49,7 @@
 #include <libcaja-private/caja-window-slot-info.h>
 #include <gio/gio.h>
 #include <libnotify/notify.h>
+#include <cairo-gobject.h>
 
 #include "caja-bookmark-list.h"
 #include "caja-places-sidebar.h"
@@ -228,10 +229,11 @@ G_DEFINE_TYPE_WITH_CODE (CajaPlacesSidebarProvider, caja_places_sidebar_provider
                          G_IMPLEMENT_INTERFACE (CAJA_TYPE_SIDEBAR_PROVIDER,
                                  sidebar_provider_iface_init));
 
-static GdkPixbuf *
+static cairo_surface_t *
 get_eject_icon (gboolean highlighted)
 {
     GdkPixbuf *eject;
+    cairo_surface_t *eject_surface;
     CajaIconInfo *eject_icon_info;
     int icon_size, icon_scale;
 
@@ -248,9 +250,12 @@ get_eject_icon (gboolean highlighted)
         eject = high;
     }
 
-    g_object_unref (eject_icon_info);
+    eject_surface = gdk_cairo_surface_create_from_pixbuf (eject, icon_scale, NULL);
 
-    return eject;
+    g_object_unref (eject_icon_info);
+    g_object_unref (eject);
+
+    return eject_surface;
 }
 
 static gboolean
@@ -338,15 +343,16 @@ add_place (CajaPlacesSidebar *sidebar,
            const int index,
            const char *tooltip)
 {
-    GdkPixbuf      *pixbuf;
-    GtkTreeIter     iter, child_iter;
-    GdkPixbuf      *eject;
-    CajaIconInfo   *icon_info;
-    int             icon_size;
-    int             icon_scale;
-    gboolean        show_eject;
-    gboolean        show_unmount;
-    gboolean        show_eject_button;
+    GdkPixbuf       *pixbuf;
+    cairo_surface_t *surface;
+    GtkTreeIter      iter, child_iter;
+    cairo_surface_t *eject;
+    CajaIconInfo    *icon_info;
+    int              icon_size;
+    int              icon_scale;
+    gboolean         show_eject;
+    gboolean         show_unmount;
+    gboolean         show_eject_button;
 
     check_heading_for_section (sidebar, section_type);
 
@@ -356,6 +362,16 @@ add_place (CajaPlacesSidebar *sidebar,
 
     pixbuf = caja_icon_info_get_pixbuf_at_size (icon_info, icon_size);
     g_object_unref (icon_info);
+
+    if (pixbuf != NULL)
+    {
+       surface = gdk_cairo_surface_create_from_pixbuf (pixbuf, icon_scale, NULL);
+       g_object_unref (pixbuf);
+    }
+    else
+    {
+       surface = NULL;
+    }
 
     check_unmount_and_eject (mount, volume, drive,
                              &show_unmount, &show_eject);
@@ -382,7 +398,7 @@ add_place (CajaPlacesSidebar *sidebar,
 
     gtk_list_store_append (sidebar->store, &iter);
     gtk_list_store_set (sidebar->store, &iter,
-                        PLACES_SIDEBAR_COLUMN_ICON, pixbuf,
+                        PLACES_SIDEBAR_COLUMN_ICON, surface,
                         PLACES_SIDEBAR_COLUMN_NAME, name,
                         PLACES_SIDEBAR_COLUMN_URI, uri,
                         PLACES_SIDEBAR_COLUMN_DRIVE, drive,
@@ -398,9 +414,9 @@ add_place (CajaPlacesSidebar *sidebar,
                         PLACES_SIDEBAR_COLUMN_SECTION_TYPE, section_type,
                         -1);
 
-    if (pixbuf != NULL)
+    if (surface != NULL)
     {
-        g_object_unref (pixbuf);
+       cairo_surface_destroy (surface);
     }
     gtk_tree_model_filter_refilter (GTK_TREE_MODEL_FILTER (sidebar->filter_model));
     gtk_tree_model_filter_convert_child_iter_to_iter (GTK_TREE_MODEL_FILTER (sidebar->filter_model),
@@ -3187,7 +3203,7 @@ caja_places_sidebar_init (CajaPlacesSidebar *sidebar)
     cell = gtk_cell_renderer_pixbuf_new ();
     gtk_tree_view_column_pack_start (col, cell, FALSE);
     gtk_tree_view_column_set_attributes (col, cell,
-                                         "pixbuf", PLACES_SIDEBAR_COLUMN_ICON,
+                                         "surface", PLACES_SIDEBAR_COLUMN_ICON,
                                          NULL);
     gtk_tree_view_column_set_cell_data_func (col, cell,
                                              icon_cell_renderer_func,
@@ -3219,7 +3235,7 @@ caja_places_sidebar_init (CajaPlacesSidebar *sidebar)
     gtk_tree_view_column_pack_start (col, cell, FALSE);
     gtk_tree_view_column_set_attributes (col, cell,
                                          "visible", PLACES_SIDEBAR_COLUMN_EJECT,
-                                         "pixbuf", PLACES_SIDEBAR_COLUMN_EJECT_ICON,
+                                         "surface", PLACES_SIDEBAR_COLUMN_EJECT_ICON,
                                          NULL);
 
     /* normal text renderer */
@@ -3252,13 +3268,13 @@ caja_places_sidebar_init (CajaPlacesSidebar *sidebar)
                                          G_TYPE_VOLUME,
                                          G_TYPE_MOUNT,
                                          G_TYPE_STRING,
-                                         GDK_TYPE_PIXBUF,
+                                         CAIRO_GOBJECT_TYPE_SURFACE,
                                          G_TYPE_INT,
                                          G_TYPE_BOOLEAN,
                                          G_TYPE_BOOLEAN,
                                          G_TYPE_BOOLEAN,
                                          G_TYPE_STRING,
-                                         GDK_TYPE_PIXBUF,
+                                         CAIRO_GOBJECT_TYPE_SURFACE,
                                          G_TYPE_INT,
                                          G_TYPE_STRING);
 

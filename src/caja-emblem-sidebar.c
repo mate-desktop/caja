@@ -394,15 +394,13 @@ create_emblem_widget_with_pixbuf (CajaEmblemSidebar *emblem_sidebar,
 {
     GtkWidget *image, *event_box;
     GdkPixbuf *prelight_pixbuf;
-    gint scale;
 
     image = eel_labeled_image_new (display_name, pixbuf);
-    scale = gtk_widget_get_scale_factor (image);
 
     eel_labeled_image_set_fixed_image_height (EEL_LABELED_IMAGE (image),
-            STANDARD_EMBLEM_HEIGHT * scale);
+            STANDARD_EMBLEM_HEIGHT);
     eel_labeled_image_set_spacing (EEL_LABELED_IMAGE (image),
-                                   EMBLEM_LABEL_SPACING * scale);
+                                   EMBLEM_LABEL_SPACING);
     event_box = gtk_event_box_new ();
     gtk_container_add (GTK_CONTAINER (event_box), image);
 
@@ -458,10 +456,8 @@ create_emblem_widget (CajaEmblemSidebar *emblem_sidebar,
     char *keyword;
     GdkPixbuf *pixbuf;
     CajaIconInfo *info;
-    gint scale;
 
-    scale = gtk_widget_get_scale_factor (GTK_WIDGET (emblem_sidebar->details->emblems_table));
-    info = caja_icon_info_lookup_from_name (name, CAJA_ICON_SIZE_STANDARD, scale);
+    info = caja_icon_info_lookup_from_name (name, CAJA_ICON_SIZE_STANDARD, 1);
 
     pixbuf = caja_icon_info_get_pixbuf_at_size (info, CAJA_ICON_SIZE_STANDARD);
 

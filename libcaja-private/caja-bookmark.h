@@ -93,7 +93,7 @@ char *                caja_bookmark_get_scroll_pos         (CajaBookmark      *b
 
 
 /* Helper functions for displaying bookmarks */
-GdkPixbuf *           caja_bookmark_get_pixbuf             (CajaBookmark      *bookmark,
+cairo_surface_t *     caja_bookmark_get_surface            (CajaBookmark      *bookmark,
         GtkIconSize            icon_size);
 GtkWidget *           caja_bookmark_menu_item_new          (CajaBookmark      *bookmark);
 

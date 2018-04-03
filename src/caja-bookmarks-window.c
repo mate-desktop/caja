@@ -35,6 +35,7 @@
 #include <eel/eel-mate-extensions.h>
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
+#include <cairo-gobject.h>
 
 /* Static variables to keep track of window state. If there were
  * more than one bookmark-editing window, these would be struct or
@@ -176,7 +177,7 @@ static GtkListStore *
 create_bookmark_store (void)
 {
     return gtk_list_store_new (BOOKMARK_LIST_COLUMN_COUNT,
-                               GDK_TYPE_PIXBUF,
+                               CAIRO_GOBJECT_TYPE_SURFACE,
                                G_TYPE_STRING,
                                G_TYPE_OBJECT,
                                PANGO_TYPE_STYLE);
@@ -296,7 +297,7 @@ create_bookmarks_window (CajaBookmarkList *list, CajaWindow *window_source)
     rend = gtk_cell_renderer_pixbuf_new ();
     col = gtk_tree_view_column_new_with_attributes ("Icon",
             rend,
-            "pixbuf",
+            "surface",
             BOOKMARK_LIST_COLUMN_ICON,
             NULL);
     gtk_tree_view_append_column (bookmark_list_widget,
@@ -839,7 +840,7 @@ update_bookmark_from_text (void)
     {
         CajaBookmark *bookmark, *bookmark_in_list;
         char *name;
-        GdkPixbuf *pixbuf;
+        cairo_surface_t *surface;
         guint selected_row;
         GtkTreeIter iter;
         GFile *location;
@@ -885,17 +886,17 @@ update_bookmark_from_text (void)
 
         name = caja_bookmark_get_name (bookmark_in_list);
 
-        pixbuf = caja_bookmark_get_pixbuf (bookmark_in_list, GTK_ICON_SIZE_MENU);
+        surface = caja_bookmark_get_surface (bookmark_in_list, GTK_ICON_SIZE_MENU);
 
         gtk_list_store_set (bookmark_list_store, &iter,
                             BOOKMARK_LIST_COLUMN_BOOKMARK, bookmark_in_list,
                             BOOKMARK_LIST_COLUMN_NAME, name,
-                            BOOKMARK_LIST_COLUMN_ICON, pixbuf,
+                            BOOKMARK_LIST_COLUMN_ICON, surface,
                             -1);
         g_signal_handler_unblock (bookmark_list_store,
                                   row_changed_signal_id);
 
-        g_object_unref (pixbuf);
+        cairo_surface_destroy (surface);
         g_free (name);
     }
 }
@@ -1018,16 +1019,16 @@ repopulate (void)
     {
         CajaBookmark *bookmark;
         char             *bookmark_name;
-        GdkPixbuf        *bookmark_pixbuf;
+        cairo_surface_t  *bookmark_surface;
         GtkTreeIter       iter;
 
         bookmark = caja_bookmark_list_item_at (bookmarks, index);
         bookmark_name = caja_bookmark_get_name (bookmark);
-        bookmark_pixbuf = caja_bookmark_get_pixbuf (bookmark, GTK_ICON_SIZE_MENU);
+        bookmark_surface = caja_bookmark_get_surface (bookmark, GTK_ICON_SIZE_MENU);
 
         gtk_list_store_append (store, &iter);
         gtk_list_store_set (store, &iter,
-                            BOOKMARK_LIST_COLUMN_ICON, bookmark_pixbuf,
+                            BOOKMARK_LIST_COLUMN_ICON, bookmark_surface,
                             BOOKMARK_LIST_COLUMN_NAME, bookmark_name,
                             BOOKMARK_LIST_COLUMN_BOOKMARK, bookmark,
                             BOOKMARK_LIST_COLUMN_STYLE, PANGO_STYLE_NORMAL,
@@ -1044,7 +1045,7 @@ repopulate (void)
         }
 
         g_free (bookmark_name);
-        g_object_unref (bookmark_pixbuf);
+        cairo_surface_destroy (bookmark_surface);
 
     }
     g_signal_handler_unblock (store, row_changed_signal_id);
