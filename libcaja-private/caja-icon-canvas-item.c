@@ -525,7 +525,6 @@ caja_icon_canvas_item_get_drag_surface (CajaIconCanvasItem *item)
     cairo_surface_t *surface;
 
     EelCanvas *canvas;
-    GdkScreen *screen;
     int width, height;
     int pix_width, pix_height;
     int item_offset_x, item_offset_y;
@@ -542,7 +541,6 @@ caja_icon_canvas_item_get_drag_surface (CajaIconCanvasItem *item)
     g_return_val_if_fail (CAJA_IS_ICON_CANVAS_ITEM (item), NULL);
 
     canvas = EEL_CANVAS_ITEM (item)->canvas;
-    screen = gtk_widget_get_screen (GTK_WIDGET (canvas));
     context = gtk_widget_get_style_context (GTK_WIDGET (canvas));
 
     gtk_style_context_save (context);
@@ -2462,7 +2460,7 @@ caja_icon_canvas_item_get_icon_rectangle (const CajaIconCanvasItem *item)
     rectangle.y0 = item->details->y;
 
     pixels_per_unit = EEL_CANVAS_ITEM (item)->canvas->pixels_per_unit;
-    get_scaled_icon_size (EEL_CANVAS_ITEM (item), &width, &height);
+    get_scaled_icon_size (CAJA_ICON_CANVAS_ITEM (item), &width, &height);
     rectangle.x1 = rectangle.x0 + width / pixels_per_unit;
     rectangle.y1 = rectangle.y0 + height / pixels_per_unit;
 

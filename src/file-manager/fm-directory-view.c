@@ -4389,7 +4389,7 @@ add_submenu (GtkUIManager *ui_manager,
 	     const char *parent_path,
 	     const char *uri,
 	     const char *label,
-	     GdkPixbuf *pixbuf,
+	     cairo_surface_t *surface,
 	     gboolean add_action)
 {
 	char *escaped_label;
@@ -4409,10 +4409,10 @@ add_submenu (GtkUIManager *ui_manager,
 						 escaped_label,
 						 NULL,
 						 NULL);
-			if (pixbuf != NULL) {
+			if (surface != NULL) {
 				g_object_set_data_full (G_OBJECT (action), "menu-icon",
-							g_object_ref (pixbuf),
-							g_object_unref);
+							cairo_surface_reference (surface),
+							cairo_surface_destroy);
 			}
 
 			g_object_set (action, "hide-if-empty", FALSE, NULL);
@@ -4887,12 +4887,12 @@ extension_action_callback (GtkAction *action,
 	}
 }
 
-static GdkPixbuf *
+static cairo_surface_t *
 get_menu_icon (const char *icon_name,
 	       GtkWidget  *widget)
 {
 	CajaIconInfo *info;
-	GdkPixbuf *pixbuf;
+	cairo_surface_t *surface;
 	int size, scale;
 
 	size = caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU);
@@ -4903,28 +4903,28 @@ get_menu_icon (const char *icon_name,
 	} else {
 		info = caja_icon_info_lookup_from_name (icon_name, size, scale);
 	}
-	pixbuf = caja_icon_info_get_pixbuf_nodefault_at_size (info, size);
+	surface = caja_icon_info_get_surface_nodefault_at_size (info, size);
 	g_object_unref (info);
 
-	return pixbuf;
+	return surface;
 }
 
-static GdkPixbuf *
+static cairo_surface_t *
 get_menu_icon_for_file (CajaFile  *file,
 			GtkWidget *widget)
 {
 	CajaIconInfo *info;
-	GdkPixbuf *pixbuf;
+	cairo_surface_t *surface;
 	int size, scale;
 
 	size = caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU);
 	scale = gtk_widget_get_scale_factor (widget);
 
 	info = caja_file_get_icon (file, size, scale, 0);
-	pixbuf = caja_icon_info_get_pixbuf_nodefault_at_size (info, size);
+	surface = caja_icon_info_get_surface_nodefault_at_size (info, size);
 	g_object_unref (info);
 
-	return pixbuf;
+	return surface;
 }
 
 static GtkAction *
@@ -4935,7 +4935,7 @@ add_extension_action_for_files (FMDirectoryView *view,
 	char *name, *label, *tip, *icon;
 	gboolean sensitive, priority;
 	GtkAction *action;
-	GdkPixbuf *pixbuf;
+	cairo_surface_t *surface;
 	ExtensionActionCallbackData *data;
 
 	g_object_get (G_OBJECT (item),
@@ -4951,11 +4951,11 @@ add_extension_action_for_files (FMDirectoryView *view,
 				 icon);
 
 	if (icon != NULL) {
-		pixbuf = get_menu_icon (icon, GTK_WIDGET (view));
-		if (pixbuf != NULL) {
+		surface = get_menu_icon (icon, GTK_WIDGET (view));
+		if (surface != NULL) {
 			g_object_set_data_full (G_OBJECT (action), "menu-icon",
-						pixbuf,
-						g_object_unref);
+						surface,
+						cairo_surface_destroy);
 		}
 	}
 
@@ -5400,7 +5400,7 @@ add_script_to_scripts_menus (FMDirectoryView *directory_view,
 	char *uri;
 	char *action_name;
 	char *escaped_label;
-	GdkPixbuf *pixbuf;
+	cairo_surface_t *surface;
 	GtkUIManager *ui_manager;
 	GtkAction *action;
 
@@ -5418,11 +5418,11 @@ add_script_to_scripts_menus (FMDirectoryView *directory_view,
 				 tip,
 				 NULL);
 
-	pixbuf = get_menu_icon_for_file (file, GTK_WIDGET (directory_view));
-	if (pixbuf != NULL) {
+	surface = get_menu_icon_for_file (file, GTK_WIDGET (directory_view));
+	if (surface != NULL) {
 		g_object_set_data_full (G_OBJECT (action), "menu-icon",
-					pixbuf,
-					g_object_unref);
+					surface,
+					cairo_surface_destroy);
 	}
 
 	g_signal_connect_data (action, "activate",
@@ -5475,19 +5475,19 @@ add_submenu_to_directory_menus (FMDirectoryView *directory_view,
 				const char *popup_bg_path)
 {
 	char *name;
-	GdkPixbuf *pixbuf;
+	cairo_surface_t *surface;
 	char *uri;
 	GtkUIManager *ui_manager;
 
 	ui_manager = caja_window_info_get_ui_manager (directory_view->details->window);
 	uri = caja_file_get_uri (file);
 	name = caja_file_get_display_name (file);
-	pixbuf = get_menu_icon_for_file (file, GTK_WIDGET (directory_view));
-	add_submenu (ui_manager, action_group, merge_id, menu_path, uri, name, pixbuf, TRUE);
-	add_submenu (ui_manager, action_group, merge_id, popup_path, uri, name, pixbuf, FALSE);
-	add_submenu (ui_manager, action_group, merge_id, popup_bg_path, uri, name, pixbuf, FALSE);
-	if (pixbuf) {
-		g_object_unref (pixbuf);
+	surface = get_menu_icon_for_file (file, GTK_WIDGET (directory_view));
+	add_submenu (ui_manager, action_group, merge_id, menu_path, uri, name, surface, TRUE);
+	add_submenu (ui_manager, action_group, merge_id, popup_path, uri, name, surface, FALSE);
+	add_submenu (ui_manager, action_group, merge_id, popup_bg_path, uri, name, surface, FALSE);
+	if (surface) {
+		cairo_surface_destroy (surface);
 	}
 	g_free (name);
 	g_free (uri);
@@ -5646,7 +5646,7 @@ add_template_to_templates_menus (FMDirectoryView *directory_view,
 {
 	char *tmp, *tip, *uri, *name;
 	char *escaped_label;
-	GdkPixbuf *pixbuf;
+	cairo_surface_t *surface;
 	char *action_name;
 	CreateTemplateParameters *parameters;
 	GtkUIManager *ui_manager;
@@ -5669,11 +5669,11 @@ add_template_to_templates_menus (FMDirectoryView *directory_view,
 				 tip,
 				 NULL);
 
-	pixbuf = get_menu_icon_for_file (file, GTK_WIDGET (directory_view));
-	if (pixbuf != NULL) {
+	surface = get_menu_icon_for_file (file, GTK_WIDGET (directory_view));
+	if (surface != NULL) {
 		g_object_set_data_full (G_OBJECT (action), "menu-icon",
-					pixbuf,
-					g_object_unref);
+					surface,
+					cairo_surface_destroy);
 	}
 
 	g_signal_connect_data (action, "activate",
@@ -7562,17 +7562,17 @@ connect_proxy (FMDirectoryView *view,
 	       GtkWidget *proxy,
 	       GtkActionGroup *action_group)
 {
-	GdkPixbuf *pixbuf;
+	cairo_surface_t *surface;
 	GtkWidget *image;
 
 	if (strcmp (gtk_action_get_name (action), FM_ACTION_NEW_EMPTY_FILE) == 0 &&
 	    GTK_IS_IMAGE_MENU_ITEM (proxy)) {
-		pixbuf = get_menu_icon ("text-x-generic", GTK_WIDGET (view));
-		if (pixbuf != NULL) {
-			image = gtk_image_new_from_pixbuf (pixbuf);
+		surface = get_menu_icon ("text-x-generic", GTK_WIDGET (view));
+		if (surface != NULL) {
+			image = gtk_image_new_from_surface (surface);
 			gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (proxy), image);
 
-			g_object_unref (pixbuf);
+			cairo_surface_destroy (surface);
 		}
 	}
 }

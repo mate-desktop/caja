@@ -212,16 +212,14 @@ caja_bookmark_get_has_custom_name (CajaBookmark *bookmark)
     return (bookmark->details->has_custom_name);
 }
 
-
-GdkPixbuf *
-caja_bookmark_get_pixbuf (CajaBookmark *bookmark,
-                          GtkIconSize stock_size)
+cairo_surface_t *
+caja_bookmark_get_surface (CajaBookmark *bookmark,
+                           GtkIconSize stock_size)
 {
-    GdkPixbuf *result;
+    cairo_surface_t *result;
     GIcon *icon;
     CajaIconInfo *info;
     int pixel_size, pixel_scale;
-
 
     g_return_val_if_fail (CAJA_IS_BOOKMARK (bookmark), NULL);
 
@@ -234,7 +232,7 @@ caja_bookmark_get_pixbuf (CajaBookmark *bookmark,
     pixel_size = caja_get_icon_size_for_stock_size (stock_size);
     pixel_scale = gdk_window_get_scale_factor (gdk_get_default_root_window ());
     info = caja_icon_info_lookup (icon, pixel_size, pixel_scale);
-    result = caja_icon_info_get_pixbuf_at_size (info, pixel_size);
+    result = caja_icon_info_get_surface_at_size (info, pixel_size);
     g_object_unref (info);
 
     g_object_unref (icon);
@@ -590,18 +588,18 @@ caja_bookmark_new (GFile *location, const char *name, gboolean has_custom_name,
 static GtkWidget *
 create_image_widget_for_bookmark (CajaBookmark *bookmark)
 {
-    GdkPixbuf *pixbuf;
+    cairo_surface_t *surface;
     GtkWidget *widget;
 
-    pixbuf = caja_bookmark_get_pixbuf (bookmark, GTK_ICON_SIZE_MENU);
-    if (pixbuf == NULL)
+    surface = caja_bookmark_get_surface (bookmark, GTK_ICON_SIZE_MENU);
+    if (surface == NULL)
     {
         return NULL;
     }
 
-    widget = gtk_image_new_from_pixbuf (pixbuf);
+    widget = gtk_image_new_from_surface (surface);
 
-    g_object_unref (pixbuf);
+    cairo_surface_destroy (surface);
     return widget;
 }
 

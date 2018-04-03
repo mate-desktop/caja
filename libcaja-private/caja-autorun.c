@@ -31,6 +31,7 @@
 #include <gio/gdesktopappinfo.h>
 #include <X11/XKBlib.h>
 #include <gdk/gdkkeysyms.h>
+#include <cairo-gobject.h>
 
 #include <eel/eel-glib-extensions.h>
 
@@ -54,7 +55,7 @@ enum
 };
 enum
 {
-    COLUMN_AUTORUN_PIXBUF,
+    COLUMN_AUTORUN_SURFACE,
     COLUMN_AUTORUN_NAME,
     COLUMN_AUTORUN_APP_INFO,
     COLUMN_AUTORUN_X_CONTENT_TYPE,
@@ -467,7 +468,7 @@ caja_autorun_prepare_combo_box (GtkWidget *combo_box,
     GAppInfo *default_app_info;
     GtkListStore *list_store;
     GtkTreeIter iter;
-    GdkPixbuf *pixbuf;
+    cairo_surface_t *surface;
     int icon_size, icon_scale;
     int set_active;
     int n;
@@ -495,7 +496,7 @@ caja_autorun_prepare_combo_box (GtkWidget *combo_box,
     num_apps = g_list_length (app_info_list);
 
     list_store = gtk_list_store_new (5,
-                                     GDK_TYPE_PIXBUF,
+                                     CAIRO_GOBJECT_TYPE_SURFACE,
                                      G_TYPE_STRING,
                                      G_TYPE_APP_INFO,
                                      G_TYPE_STRING,
@@ -505,76 +506,84 @@ caja_autorun_prepare_combo_box (GtkWidget *combo_box,
     if (num_apps == 0)
     {
         gtk_list_store_append (list_store, &iter);
-        pixbuf = gtk_icon_theme_load_icon (gtk_icon_theme_get_default (),
-                                           "dialog-error",
-                                           icon_size,
-                                           0,
-                                           NULL);
+        surface = gtk_icon_theme_load_surface (gtk_icon_theme_get_default (),
+                                               "dialog-error",
+                                               icon_size,
+                                               icon_scale,
+                                               NULL,
+                                               0,
+                                               NULL);
 
         /* TODO: integrate with PackageKit-mate to find applications */
 
         gtk_list_store_set (list_store, &iter,
-                            COLUMN_AUTORUN_PIXBUF, pixbuf,
+                            COLUMN_AUTORUN_SURFACE, surface,
                             COLUMN_AUTORUN_NAME, _("No applications found"),
                             COLUMN_AUTORUN_APP_INFO, NULL,
                             COLUMN_AUTORUN_X_CONTENT_TYPE, x_content_type,
                             COLUMN_AUTORUN_ITEM_TYPE, AUTORUN_ASK,
                             -1);
-        g_object_unref (pixbuf);
+        cairo_surface_destroy (surface);
     }
     else
     {
         if (include_ask)
         {
             gtk_list_store_append (list_store, &iter);
-            pixbuf = gtk_icon_theme_load_icon (gtk_icon_theme_get_default (),
-                                               "dialog-question",
-                                               icon_size,
-                                               0,
-                                               NULL);
+            surface = gtk_icon_theme_load_surface (gtk_icon_theme_get_default (),
+                                                   "dialog-question",
+                                                   icon_size,
+                                                   icon_scale,
+                                                   NULL,
+                                                   0,
+                                                   NULL);
             gtk_list_store_set (list_store, &iter,
-                                COLUMN_AUTORUN_PIXBUF, pixbuf,
+                                COLUMN_AUTORUN_SURFACE, surface,
                                 COLUMN_AUTORUN_NAME, _("Ask what to do"),
                                 COLUMN_AUTORUN_APP_INFO, NULL,
                                 COLUMN_AUTORUN_X_CONTENT_TYPE, x_content_type,
                                 COLUMN_AUTORUN_ITEM_TYPE, AUTORUN_ASK,
                                 -1);
-            g_object_unref (pixbuf);
+            cairo_surface_destroy (surface);
         }
 
         gtk_list_store_append (list_store, &iter);
-        pixbuf = gtk_icon_theme_load_icon (gtk_icon_theme_get_default (),
-                                           "window-close",
-                                           icon_size,
-                                           0,
-                                           NULL);
+        surface = gtk_icon_theme_load_surface (gtk_icon_theme_get_default (),
+                                               "window-close",
+                                               icon_size,
+                                               icon_scale,
+                                               NULL,
+                                               0,
+                                               NULL);
         gtk_list_store_set (list_store, &iter,
-                            COLUMN_AUTORUN_PIXBUF, pixbuf,
+                            COLUMN_AUTORUN_SURFACE, surface,
                             COLUMN_AUTORUN_NAME, _("Do Nothing"),
                             COLUMN_AUTORUN_APP_INFO, NULL,
                             COLUMN_AUTORUN_X_CONTENT_TYPE, x_content_type,
                             COLUMN_AUTORUN_ITEM_TYPE, AUTORUN_IGNORE,
                             -1);
-        g_object_unref (pixbuf);
+        cairo_surface_destroy (surface);
 
         gtk_list_store_append (list_store, &iter);
-        pixbuf = gtk_icon_theme_load_icon (gtk_icon_theme_get_default (),
-                                           "folder-open",
-                                           icon_size,
-                                           0,
-                                           NULL);
+        surface = gtk_icon_theme_load_surface (gtk_icon_theme_get_default (),
+                                               "folder-open",
+                                               icon_size,
+                                               icon_scale,
+                                               NULL,
+                                               0,
+                                               NULL);
         gtk_list_store_set (list_store, &iter,
-                            COLUMN_AUTORUN_PIXBUF, pixbuf,
+                            COLUMN_AUTORUN_SURFACE, surface,
                             COLUMN_AUTORUN_NAME, _("Open Folder"),
                             COLUMN_AUTORUN_APP_INFO, NULL,
                             COLUMN_AUTORUN_X_CONTENT_TYPE, x_content_type,
                             COLUMN_AUTORUN_ITEM_TYPE, AUTORUN_OPEN_FOLDER,
                             -1);
-        g_object_unref (pixbuf);
+        cairo_surface_destroy (surface);
 
         gtk_list_store_append (list_store, &iter);
         gtk_list_store_set (list_store, &iter,
-                            COLUMN_AUTORUN_PIXBUF, NULL,
+                            COLUMN_AUTORUN_SURFACE, NULL,
                             COLUMN_AUTORUN_NAME, NULL,
                             COLUMN_AUTORUN_APP_INFO, NULL,
                             COLUMN_AUTORUN_X_CONTENT_TYPE, NULL,
@@ -595,22 +604,22 @@ caja_autorun_prepare_combo_box (GtkWidget *combo_box,
 
             icon = g_app_info_get_icon (app_info);
             icon_info = caja_icon_info_lookup (icon, icon_size, icon_scale);
-            pixbuf = caja_icon_info_get_pixbuf_at_size (icon_info, icon_size);
+            surface = caja_icon_info_get_surface_at_size (icon_info, icon_size);
             g_object_unref (icon_info);
 
             open_string = g_strdup_printf (_("Open %s"), g_app_info_get_display_name (app_info));
 
             gtk_list_store_append (list_store, &iter);
             gtk_list_store_set (list_store, &iter,
-                                COLUMN_AUTORUN_PIXBUF, pixbuf,
+                                COLUMN_AUTORUN_SURFACE, surface,
                                 COLUMN_AUTORUN_NAME, open_string,
                                 COLUMN_AUTORUN_APP_INFO, app_info,
                                 COLUMN_AUTORUN_X_CONTENT_TYPE, x_content_type,
                                 COLUMN_AUTORUN_ITEM_TYPE, AUTORUN_APP,
                                 -1);
-            if (pixbuf != NULL)
+            if (surface != NULL)
             {
-                g_object_unref (pixbuf);
+                cairo_surface_destroy (surface);
             }
             g_free (open_string);
 
@@ -625,7 +634,7 @@ caja_autorun_prepare_combo_box (GtkWidget *combo_box,
     {
         gtk_list_store_append (list_store, &iter);
         gtk_list_store_set (list_store, &iter,
-                            COLUMN_AUTORUN_PIXBUF, NULL,
+                            COLUMN_AUTORUN_SURFACE, NULL,
                             COLUMN_AUTORUN_NAME, NULL,
                             COLUMN_AUTORUN_APP_INFO, NULL,
                             COLUMN_AUTORUN_X_CONTENT_TYPE, NULL,
@@ -633,19 +642,21 @@ caja_autorun_prepare_combo_box (GtkWidget *combo_box,
                             -1);
 
         gtk_list_store_append (list_store, &iter);
-        pixbuf = gtk_icon_theme_load_icon (gtk_icon_theme_get_default (),
-                                           "application-x-executable",
-                                           icon_size,
-                                           0,
-                                           NULL);
+        surface = gtk_icon_theme_load_surface (gtk_icon_theme_get_default (),
+                                               "application-x-executable",
+                                               icon_size,
+                                               icon_scale,
+                                               NULL,
+                                               0,
+                                               NULL);
         gtk_list_store_set (list_store, &iter,
-                            COLUMN_AUTORUN_PIXBUF, pixbuf,
+                            COLUMN_AUTORUN_SURFACE, surface,
                             COLUMN_AUTORUN_NAME, _("Open with other Application..."),
                             COLUMN_AUTORUN_APP_INFO, NULL,
                             COLUMN_AUTORUN_X_CONTENT_TYPE, x_content_type,
                             COLUMN_AUTORUN_ITEM_TYPE, AUTORUN_OTHER_APP,
                             -1);
-        g_object_unref (pixbuf);
+        cairo_surface_destroy (surface);
     }
 
     if (default_app_info != NULL)
@@ -662,7 +673,7 @@ caja_autorun_prepare_combo_box (GtkWidget *combo_box,
     renderer = gtk_cell_renderer_pixbuf_new ();
     gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (combo_box), renderer, FALSE);
     gtk_cell_layout_set_attributes (GTK_CELL_LAYOUT (combo_box), renderer,
-                                    "pixbuf", COLUMN_AUTORUN_PIXBUF,
+                                    "surface", COLUMN_AUTORUN_SURFACE,
                                     NULL);
     renderer = gtk_cell_renderer_text_new ();
     gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (combo_box), renderer, TRUE);
@@ -934,6 +945,7 @@ do_autorun_for_content_type (GMount *mount, const char *x_content_type, CajaAuto
     char *mount_name;
     GIcon *icon;
     GdkPixbuf *pixbuf;
+    cairo_surface_t *surface;
     CajaIconInfo *icon_info;
     int icon_size, icon_scale;
     gboolean user_forced_dialog;
@@ -1002,9 +1014,10 @@ show_dialog:
     icon_scale = gtk_widget_get_scale_factor (dialog);
     icon_info = caja_icon_info_lookup (icon, icon_size, icon_scale);
     pixbuf = caja_icon_info_get_pixbuf_at_size (icon_info, icon_size);
+    surface = caja_icon_info_get_surface_at_size (icon_info, icon_size);
     g_object_unref (icon_info);
     g_object_unref (icon);
-    image = gtk_image_new_from_pixbuf (pixbuf);
+    image = gtk_image_new_from_surface (surface);
     gtk_widget_set_halign (image, GTK_ALIGN_CENTER);
     gtk_widget_set_valign (image, GTK_ALIGN_START);
     gtk_box_pack_start (GTK_BOX (hbox), image, TRUE, TRUE, 0);
@@ -1013,6 +1026,7 @@ show_dialog:
     gtk_window_set_icon (GTK_WINDOW (dialog), pixbuf);
     gtk_window_set_position (GTK_WINDOW (dialog), GTK_WIN_POS_CENTER);
     g_object_unref (pixbuf);
+    cairo_surface_destroy (surface);
 
     vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
     gtk_box_pack_start (GTK_BOX (hbox), vbox, TRUE, TRUE, 0);
@@ -1138,13 +1152,15 @@ show_dialog:
     {
         GtkWidget *eject_image;
         eject_button = gtk_button_new_with_mnemonic (_("_Eject"));
-        pixbuf = gtk_icon_theme_load_icon (gtk_icon_theme_get_default (),
-                                           "media-eject",
-                                           caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_BUTTON),
-                                           0,
-                                           NULL);
-        eject_image = gtk_image_new_from_pixbuf (pixbuf);
-        g_object_unref (pixbuf);
+        surface = gtk_icon_theme_load_surface (gtk_icon_theme_get_default (),
+                                               "media-eject",
+                                               caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_BUTTON),
+                                               icon_scale,
+                                               NULL,
+                                               0,
+                                               NULL);
+        eject_image = gtk_image_new_from_surface (surface);
+        cairo_surface_destroy (surface);
         gtk_button_set_image (GTK_BUTTON (eject_button), eject_image);
         data->should_eject = TRUE;
     }

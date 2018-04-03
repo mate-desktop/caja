@@ -32,6 +32,9 @@
 
 /* return a lightened pixbuf for pre-lighting */
 GdkPixbuf *eel_create_spotlight_pixbuf (GdkPixbuf *source_pixbuf);
+/* return a lightened surface for pre-lighting */
+cairo_surface_t *eel_create_spotlight_surface (cairo_surface_t *source_surface,
+                                               int scale);
 
 /* return a darkened pixbuf for selection hiliting */
 GdkPixbuf *eel_create_darkened_pixbuf  (GdkPixbuf *source_pixbuf,

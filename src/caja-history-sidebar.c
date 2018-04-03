@@ -30,6 +30,7 @@
 #include <eel/eel-gtk-extensions.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
+#include <cairo-gobject.h>
 #include <libcaja-private/caja-bookmark.h>
 #include <libcaja-private/caja-global-preferences.h>
 #include <libcaja-private/caja-sidebar-provider.h>
@@ -89,8 +90,8 @@ update_history (CajaHistorySidebar *sidebar)
 {
     GtkListStore         *store;
     GtkTreeSelection     *selection;
-    CajaBookmark     *bookmark;
-    GdkPixbuf            *pixbuf;
+    CajaBookmark         *bookmark;
+    cairo_surface_t      *surface;
     GtkTreeIter           iter;
     char *name;
     GList *l, *history;
@@ -104,19 +105,19 @@ update_history (CajaHistorySidebar *sidebar)
     {
         bookmark = caja_bookmark_copy (l->data);
 
-        pixbuf = caja_bookmark_get_pixbuf (bookmark, GTK_ICON_SIZE_MENU);
+        surface = caja_bookmark_get_surface (bookmark, GTK_ICON_SIZE_MENU);
         name = caja_bookmark_get_name (bookmark);
         gtk_list_store_append (store, &iter);
         gtk_list_store_set (store, &iter,
-                            HISTORY_SIDEBAR_COLUMN_ICON, pixbuf,
+                            HISTORY_SIDEBAR_COLUMN_ICON, surface,
                             HISTORY_SIDEBAR_COLUMN_NAME, name,
                             HISTORY_SIDEBAR_COLUMN_BOOKMARK, bookmark,
                             -1);
         g_object_unref (bookmark);
 
-        if (pixbuf != NULL)
+        if (surface != NULL)
         {
-            g_object_unref (pixbuf);
+            cairo_surface_destroy (surface);
         }
         g_free (name);
     }
@@ -249,7 +250,7 @@ caja_history_sidebar_init (CajaHistorySidebar *sidebar)
     cell = gtk_cell_renderer_pixbuf_new ();
     gtk_tree_view_column_pack_start (col, cell, FALSE);
     gtk_tree_view_column_set_attributes (col, cell,
-                                         "pixbuf", HISTORY_SIDEBAR_COLUMN_ICON,
+                                         "surface", HISTORY_SIDEBAR_COLUMN_ICON,
                                          NULL);
 
     cell = gtk_cell_renderer_text_new ();
@@ -262,7 +263,7 @@ caja_history_sidebar_init (CajaHistorySidebar *sidebar)
     gtk_tree_view_append_column (tree_view, col);
 
     store = gtk_list_store_new (HISTORY_SIDEBAR_COLUMN_COUNT,
-                                GDK_TYPE_PIXBUF,
+                                CAIRO_GOBJECT_TYPE_SURFACE,
                                 G_TYPE_STRING,
                                 CAJA_TYPE_BOOKMARK);
 

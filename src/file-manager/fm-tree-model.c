@@ -36,6 +36,7 @@
 #include <libcaja-private/caja-file.h>
 #include <gtk/gtk.h>
 #include <string.h>
+#include <cairo-gobject.h>
 
 enum
 {
@@ -64,8 +65,8 @@ struct TreeNode
     char *display_name;
     GIcon *icon;
     GMount *mount;
-    GdkPixbuf *closed_pixbuf;
-    GdkPixbuf *open_pixbuf;
+    cairo_surface_t *closed_surface;
+    cairo_surface_t *open_surface;
 
     FMTreeModelRoot *root;
 
@@ -217,8 +218,11 @@ tree_node_destroy (FMTreeModel *model, TreeNode *node)
     g_object_unref (node->file);
     g_free (node->display_name);
     object_unref_if_not_NULL (node->icon);
-    object_unref_if_not_NULL (node->closed_pixbuf);
-    object_unref_if_not_NULL (node->open_pixbuf);
+
+    if (node->closed_surface != NULL)
+        cairo_surface_destroy (node->closed_surface);
+    if (node->open_surface)
+        cairo_surface_destroy (node->open_surface);
 
     g_assert (node->done_loading_id == 0);
     g_assert (node->files_added_id == 0);
@@ -253,24 +257,24 @@ tree_node_parent (TreeNode *node, TreeNode *parent)
     parent->first_child = node;
 }
 
-static GdkPixbuf *
+static cairo_surface_t *
 get_menu_icon (GIcon *icon)
 {
     CajaIconInfo *info;
-    GdkPixbuf *pixbuf;
+    cairo_surface_t *surface;
     int size, scale;
 
     size = caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU);
     scale = gdk_window_get_scale_factor (gdk_get_default_root_window ());
 
     info = caja_icon_info_lookup (icon, size, scale);
-    pixbuf = caja_icon_info_get_pixbuf_nodefault_at_size (info, size);
+    surface = caja_icon_info_get_surface_nodefault_at_size (info, size);
     g_object_unref (info);
 
-    return pixbuf;
+    return surface;
 }
 
-static GdkPixbuf *
+static cairo_surface_t *
 get_menu_icon_for_file (TreeNode *node,
                         CajaFile *file,
                         CajaFileIconFlags flags)
@@ -278,7 +282,7 @@ get_menu_icon_for_file (TreeNode *node,
     CajaIconInfo *info;
     GIcon *gicon, *emblem_icon, *emblemed_icon;
     GEmblem *emblem;
-    GdkPixbuf *pixbuf, *retval;
+    cairo_surface_t *surface, *retval;
     gboolean highlight;
     int size, scale;
     FMTreeModel *model;
@@ -324,7 +328,7 @@ get_menu_icon_for_file (TreeNode *node,
     g_list_free_full (emblem_icons, g_object_unref);
 
     info = caja_icon_info_lookup (gicon, size, scale);
-    retval = caja_icon_info_get_pixbuf_nodefault_at_size (info, size);
+    retval = caja_icon_info_get_surface_nodefault_at_size (info, size);
     model = node->root->model;
 
     g_object_unref (gicon);
@@ -334,12 +338,12 @@ get_menu_icon_for_file (TreeNode *node,
 
     if (highlight)
     {
-        pixbuf = eel_create_spotlight_pixbuf (retval);
+        surface = eel_create_spotlight_surface (retval, scale);
 
-        if (pixbuf != NULL)
+        if (surface != NULL)
         {
-            g_object_unref (retval);
-            retval = pixbuf;
+            cairo_surface_destroy (retval);
+            retval = surface;
         }
     }
 
@@ -348,9 +352,9 @@ get_menu_icon_for_file (TreeNode *node,
     return retval;
 }
 
-static GdkPixbuf *
-tree_node_get_pixbuf (TreeNode *node,
-                      CajaFileIconFlags flags)
+static cairo_surface_t *
+tree_node_get_surface (TreeNode *node,
+                       CajaFileIconFlags flags)
 {
     if (node->parent == NULL)
     {
@@ -360,37 +364,37 @@ tree_node_get_pixbuf (TreeNode *node,
 }
 
 static gboolean
-tree_node_update_pixbuf (TreeNode *node,
-                         GdkPixbuf **pixbuf_storage,
+tree_node_update_surface (TreeNode *node,
+                         cairo_surface_t **surface_storage,
                          CajaFileIconFlags flags)
 {
-    GdkPixbuf *pixbuf;
+    cairo_surface_t *surface;
 
-    if (*pixbuf_storage == NULL)
+    if (*surface_storage == NULL)
     {
         return FALSE;
     }
-    pixbuf = tree_node_get_pixbuf (node, flags);
-    if (pixbuf == *pixbuf_storage)
+    surface = tree_node_get_surface (node, flags);
+    if (surface == *surface_storage)
     {
-        g_object_unref (pixbuf);
+        cairo_surface_destroy (surface);
         return FALSE;
     }
-    g_object_unref (*pixbuf_storage);
-    *pixbuf_storage = pixbuf;
+    cairo_surface_destroy (*surface_storage);
+    *surface_storage = surface;
     return TRUE;
 }
 
 static gboolean
-tree_node_update_closed_pixbuf (TreeNode *node)
+tree_node_update_closed_surface (TreeNode *node)
 {
-    return tree_node_update_pixbuf (node, &node->closed_pixbuf, 0);
+    return tree_node_update_surface (node, &node->closed_surface, 0);
 }
 
 static gboolean
-tree_node_update_open_pixbuf (TreeNode *node)
+tree_node_update_open_surface (TreeNode *node)
 {
-    return tree_node_update_pixbuf (node, &node->open_pixbuf, CAJA_FILE_ICON_FLAGS_FOR_OPEN_FOLDER);
+    return tree_node_update_surface (node, &node->open_surface, CAJA_FILE_ICON_FLAGS_FOR_OPEN_FOLDER);
 }
 
 static gboolean
@@ -418,24 +422,24 @@ tree_node_update_display_name (TreeNode *node)
     return TRUE;
 }
 
-static GdkPixbuf *
-tree_node_get_closed_pixbuf (TreeNode *node)
+static cairo_surface_t *
+tree_node_get_closed_surface (TreeNode *node)
 {
-    if (node->closed_pixbuf == NULL)
+    if (node->closed_surface == NULL)
     {
-        node->closed_pixbuf = tree_node_get_pixbuf (node, 0);
+        node->closed_surface = tree_node_get_surface (node, 0);
     }
-    return node->closed_pixbuf;
+    return node->closed_surface;
 }
 
-static GdkPixbuf *
-tree_node_get_open_pixbuf (TreeNode *node)
+static cairo_surface_t *
+tree_node_get_open_surface (TreeNode *node)
 {
-    if (node->open_pixbuf == NULL)
+    if (node->open_surface == NULL)
     {
-        node->open_pixbuf = tree_node_get_pixbuf (node, CAJA_FILE_ICON_FLAGS_FOR_OPEN_FOLDER);
+        node->open_surface = tree_node_get_surface (node, CAJA_FILE_ICON_FLAGS_FOR_OPEN_FOLDER);
     }
-    return node->open_pixbuf;
+    return node->open_surface;
 }
 
 static const char *
@@ -882,8 +886,8 @@ update_node_without_reporting (FMTreeModel *model, TreeNode *node)
     }
 
     changed |= tree_node_update_display_name (node);
-    changed |= tree_node_update_closed_pixbuf (node);
-    changed |= tree_node_update_open_pixbuf (node);
+    changed |= tree_node_update_closed_surface (node);
+    changed |= tree_node_update_open_surface (node);
 
     return changed;
 }
@@ -1204,10 +1208,10 @@ fm_tree_model_get_column_type (GtkTreeModel *model, int index)
     {
     case FM_TREE_MODEL_DISPLAY_NAME_COLUMN:
         return G_TYPE_STRING;
-    case FM_TREE_MODEL_CLOSED_PIXBUF_COLUMN:
-        return GDK_TYPE_PIXBUF;
-    case FM_TREE_MODEL_OPEN_PIXBUF_COLUMN:
-        return GDK_TYPE_PIXBUF;
+    case FM_TREE_MODEL_CLOSED_SURFACE_COLUMN:
+        return CAIRO_GOBJECT_TYPE_SURFACE;
+    case FM_TREE_MODEL_OPEN_SURFACE_COLUMN:
+        return CAIRO_GOBJECT_TYPE_SURFACE;
     case FM_TREE_MODEL_FONT_STYLE_COLUMN:
         return PANGO_TYPE_STYLE;
     default:
@@ -1364,13 +1368,13 @@ fm_tree_model_get_value (GtkTreeModel *model, GtkTreeIter *iter, int column, GVa
             g_value_set_string (value, tree_node_get_display_name (node));
         }
         break;
-    case FM_TREE_MODEL_CLOSED_PIXBUF_COLUMN:
-        g_value_init (value, GDK_TYPE_PIXBUF);
-        g_value_set_object (value, node == NULL ? NULL : tree_node_get_closed_pixbuf (node));
+    case FM_TREE_MODEL_CLOSED_SURFACE_COLUMN:
+        g_value_init (value, CAIRO_GOBJECT_TYPE_SURFACE);
+        g_value_set_boxed (value, node == NULL ? NULL : tree_node_get_closed_surface (node));
         break;
-    case FM_TREE_MODEL_OPEN_PIXBUF_COLUMN:
-        g_value_init (value, GDK_TYPE_PIXBUF);
-        g_value_set_object (value, node == NULL ? NULL : tree_node_get_open_pixbuf (node));
+    case FM_TREE_MODEL_OPEN_SURFACE_COLUMN:
+        g_value_init (value, CAIRO_GOBJECT_TYPE_SURFACE);
+        g_value_set_boxed (value, node == NULL ? NULL : tree_node_get_open_surface (node));
         break;
     case FM_TREE_MODEL_FONT_STYLE_COLUMN:
         g_value_init (value, PANGO_TYPE_STYLE);

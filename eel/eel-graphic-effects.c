@@ -108,6 +108,20 @@ eel_create_spotlight_pixbuf (GdkPixbuf* src)
     return dest;
 }
 
+cairo_surface_t *
+eel_create_spotlight_surface (cairo_surface_t* src, int scale)
+{
+    GdkPixbuf *pixbuf;
+    cairo_surface_t *dest;
+
+    pixbuf = gdk_pixbuf_get_from_surface (src, 0, 0,
+                                          cairo_image_surface_get_width (src),
+                                          cairo_image_surface_get_height (src));
+    dest = gdk_cairo_surface_create_from_pixbuf (pixbuf, scale, NULL);
+    g_object_unref (pixbuf);
+
+    return dest;
+}
 
 /* the following routine was stolen from the panel to darken a pixbuf, by manipulating the saturation */
 
