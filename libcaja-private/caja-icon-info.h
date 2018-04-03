@@ -69,10 +69,16 @@ extern "C" {
             int                scale);
     gboolean              caja_icon_info_is_fallback                  (CajaIconInfo  *icon);
     GdkPixbuf *           caja_icon_info_get_pixbuf                   (CajaIconInfo  *icon);
+    cairo_surface_t *     caja_icon_info_get_surface                  (CajaIconInfo  *icon);
     GdkPixbuf *           caja_icon_info_get_pixbuf_nodefault         (CajaIconInfo  *icon);
+    cairo_surface_t *     caja_icon_info_get_surface_nodefault        (CajaIconInfo  *icon);
     GdkPixbuf *           caja_icon_info_get_pixbuf_nodefault_at_size (CajaIconInfo  *icon,
             gsize              forced_size);
+    cairo_surface_t *     caja_icon_info_get_surface_nodefault_at_size(CajaIconInfo  *icon,
+            gsize              forced_size);
     GdkPixbuf *           caja_icon_info_get_pixbuf_at_size           (CajaIconInfo  *icon,
+            gsize              forced_size);
+    cairo_surface_t *     caja_icon_info_get_surface_at_size(CajaIconInfo  *icon,
             gsize              forced_size);
     gboolean              caja_icon_info_get_embedded_rect            (CajaIconInfo  *icon,
             GdkRectangle      *rectangle);

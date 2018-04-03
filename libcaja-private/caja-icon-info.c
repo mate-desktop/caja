@@ -558,6 +558,18 @@ caja_icon_info_get_pixbuf_nodefault (CajaIconInfo  *icon)
     return res;
 }
 
+cairo_surface_t *
+caja_icon_info_get_surface_nodefault (CajaIconInfo *icon)
+{
+    GdkPixbuf *pixbuf;
+    cairo_surface_t *surface;
+
+    pixbuf = caja_icon_info_get_pixbuf_nodefault (icon);
+    surface = gdk_cairo_surface_create_from_pixbuf (pixbuf, icon->orig_scale, NULL);
+    g_object_unref (pixbuf);
+
+    return surface;
+}
 
 GdkPixbuf *
 caja_icon_info_get_pixbuf (CajaIconInfo *icon)
@@ -579,6 +591,19 @@ caja_icon_info_get_pixbuf (CajaIconInfo *icon)
     }
 
     return res;
+}
+
+cairo_surface_t *
+caja_icon_info_get_surface (CajaIconInfo *icon)
+{
+    GdkPixbuf *pixbuf;
+    cairo_surface_t *surface;
+
+    pixbuf = caja_icon_info_get_pixbuf (icon);
+    surface = gdk_cairo_surface_create_from_pixbuf (pixbuf, icon->orig_scale, NULL);
+    g_object_unref (pixbuf);
+
+    return surface;
 }
 
 GdkPixbuf *
@@ -610,6 +635,19 @@ caja_icon_info_get_pixbuf_nodefault_at_size (CajaIconInfo  *icon,
     return scaled_pixbuf;
 }
 
+cairo_surface_t *
+caja_icon_info_get_surface_nodefault_at_size (CajaIconInfo *icon,
+                                              gsize         forced_size)
+{
+    GdkPixbuf *pixbuf;
+    cairo_surface_t *surface;
+
+    pixbuf = caja_icon_info_get_pixbuf_nodefault_at_size (icon, forced_size);
+    surface = gdk_cairo_surface_create_from_pixbuf (pixbuf, icon->orig_scale, NULL);
+    g_object_unref (pixbuf);
+
+    return surface;
+}
 
 GdkPixbuf *
 caja_icon_info_get_pixbuf_at_size (CajaIconInfo  *icon,
@@ -620,6 +658,9 @@ caja_icon_info_get_pixbuf_at_size (CajaIconInfo  *icon,
     double scale;
 
     pixbuf = caja_icon_info_get_pixbuf (icon);
+
+    if (pixbuf == NULL)
+        return NULL;
 
     w = gdk_pixbuf_get_width (pixbuf) / icon->orig_scale;
     h = gdk_pixbuf_get_height (pixbuf) / icon->orig_scale;
@@ -635,6 +676,20 @@ caja_icon_info_get_pixbuf_at_size (CajaIconInfo  *icon,
                     GDK_INTERP_BILINEAR);
     g_object_unref (pixbuf);
     return scaled_pixbuf;
+}
+
+cairo_surface_t *
+caja_icon_info_get_surface_at_size (CajaIconInfo *icon,
+                                    gsize         forced_size)
+{
+    GdkPixbuf *pixbuf;
+    cairo_surface_t *surface;
+
+    pixbuf = caja_icon_info_get_pixbuf_at_size (icon, forced_size);
+    surface = gdk_cairo_surface_create_from_pixbuf (pixbuf, icon->orig_scale, NULL);
+    g_object_unref (pixbuf);
+
+    return surface;
 }
 
 gboolean

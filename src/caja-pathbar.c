@@ -75,7 +75,7 @@ struct _ButtonData
     unsigned int file_changed_signal_id;
 
     /* custom icon */
-    GdkPixbuf *custom_icon;
+    cairo_surface_t *custom_icon;
 
     /* flag to indicate its the base folder in the URI */
     gboolean is_base_dir;
@@ -218,12 +218,12 @@ trash_state_changed_cb (CajaTrashMonitor *monitor,
         {
             GIcon *icon;
             CajaIconInfo *icon_info;
-            GdkPixbuf *pixbuf;
+            cairo_surface_t *surface;
 
             icon = caja_trash_monitor_get_icon ();
             icon_info = caja_icon_info_lookup (icon, CAJA_PATH_BAR_ICON_SIZE, scale);
-            pixbuf = caja_icon_info_get_pixbuf_at_size (icon_info, CAJA_PATH_BAR_ICON_SIZE);
-            gtk_image_set_from_pixbuf (GTK_IMAGE (button_data->image), pixbuf);
+            surface = caja_icon_info_get_surface_at_size (icon_info, CAJA_PATH_BAR_ICON_SIZE);
+            gtk_image_set_from_surface (GTK_IMAGE (button_data->image), surface);
         }
     }
     g_object_unref (file);
@@ -1382,7 +1382,7 @@ button_data_free (ButtonData *button_data)
     g_free (button_data->dir_name);
     if (button_data->custom_icon)
     {
-        g_object_unref (button_data->custom_icon);
+        cairo_surface_destroy (button_data->custom_icon);
     }
     if (button_data->file != NULL)
     {
@@ -1447,7 +1447,7 @@ static void
 caja_path_bar_update_button_appearance (ButtonData *button_data)
 {
     CajaIconInfo *icon_info;
-    GdkPixbuf *pixbuf;
+    cairo_surface_t *surface;
     const gchar *dir_name = get_dir_name (button_data);
 
     if (button_data->label != NULL)
@@ -1474,27 +1474,27 @@ caja_path_bar_update_button_appearance (ButtonData *button_data)
     {
         if (button_data->custom_icon)
         {
-            gtk_image_set_from_pixbuf (GTK_IMAGE (button_data->image), button_data->custom_icon);
+            gtk_image_set_from_surface (GTK_IMAGE (button_data->image), button_data->custom_icon);
             gtk_widget_show (GTK_WIDGET (button_data->image));
         }
         else
         {
             icon_info = get_type_icon_info (button_data);
-            pixbuf = NULL;
+            surface = NULL;
 
             if (icon_info != NULL)
             {
-                pixbuf = caja_icon_info_get_pixbuf_at_size (icon_info, CAJA_PATH_BAR_ICON_SIZE);
+                surface = caja_icon_info_get_surface_at_size (icon_info, CAJA_PATH_BAR_ICON_SIZE);
                 g_object_unref (icon_info);
             }
 
-            if (pixbuf != NULL)
+            if (surface != NULL)
             {
-                gtk_image_set_from_pixbuf (GTK_IMAGE (button_data->image), pixbuf);
+                gtk_image_set_from_surface (GTK_IMAGE (button_data->image), surface);
                 gtk_style_context_add_class (gtk_widget_get_style_context (button_data->button),
                                              "image-button");
                 gtk_widget_show (GTK_WIDGET (button_data->image));
-                g_object_unref (pixbuf);
+                cairo_surface_destroy (surface);
             }
             else
             {
@@ -1567,7 +1567,7 @@ setup_file_path_mounted_mount (GFile *location, ButtonData *button_data)
                 }
                 info = caja_icon_info_lookup (icon, CAJA_PATH_BAR_ICON_SIZE, scale);
                 g_object_unref (icon);
-                button_data->custom_icon = caja_icon_info_get_pixbuf_at_size (info, CAJA_PATH_BAR_ICON_SIZE);
+                button_data->custom_icon = caja_icon_info_get_surface_at_size (info, CAJA_PATH_BAR_ICON_SIZE);
                 g_object_unref (info);
                 button_data->dir_name = g_mount_get_name (mount);
                 button_data->type = MOUNT_BUTTON;
@@ -1591,7 +1591,7 @@ setup_file_path_mounted_mount (GFile *location, ButtonData *button_data)
                 }
                 info = caja_icon_info_lookup (icon, CAJA_PATH_BAR_ICON_SIZE, scale);
                 g_object_unref (icon);
-                button_data->custom_icon = caja_icon_info_get_pixbuf_at_size (info, CAJA_PATH_BAR_ICON_SIZE);
+                button_data->custom_icon = caja_icon_info_get_surface_at_size (info, CAJA_PATH_BAR_ICON_SIZE);
                 g_object_unref (info);
                 button_data->type = DEFAULT_LOCATION_BUTTON;
                 button_data->fake_root = TRUE;

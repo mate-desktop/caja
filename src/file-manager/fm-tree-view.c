@@ -39,6 +39,7 @@
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 #include <gio/gio.h>
+#include <cairo-gobject.h>
 #include <libcaja-private/caja-clipboard.h>
 #include <libcaja-private/caja-clipboard-monitor.h>
 #include <libcaja-private/caja-desktop-icon-file.h>
@@ -1464,9 +1465,7 @@ create_tree (FMTreeView *view)
     cell = gtk_cell_renderer_pixbuf_new ();
     gtk_tree_view_column_pack_start (column, cell, FALSE);
     gtk_tree_view_column_set_attributes (column, cell,
-                                         "pixbuf", FM_TREE_MODEL_CLOSED_PIXBUF_COLUMN,
-                                         "pixbuf_expander_closed", FM_TREE_MODEL_CLOSED_PIXBUF_COLUMN,
-                                         "pixbuf_expander_open", FM_TREE_MODEL_OPEN_PIXBUF_COLUMN,
+                                         "surface", FM_TREE_MODEL_CLOSED_SURFACE_COLUMN,
                                          NULL);
 
     cell = gtk_cell_renderer_text_new ();

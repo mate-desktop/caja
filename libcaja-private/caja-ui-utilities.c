@@ -137,13 +137,13 @@ extension_action_sensitive_callback (CajaMenuItem *item,
     gtk_action_set_sensitive (GTK_ACTION (user_data), value);
 }
 
-static GdkPixbuf *
+static cairo_surface_t *
 get_action_icon (const char *icon_name,
                  int         size,
                  GtkWidget  *parent_widget)
 {
     CajaIconInfo *info;
-    GdkPixbuf *pixbuf;
+    cairo_surface_t *surface;
     int scale;
 
     scale = gtk_widget_get_scale_factor (parent_widget);
@@ -156,10 +156,10 @@ get_action_icon (const char *icon_name,
     {
         info = caja_icon_info_lookup_from_name (icon_name, size, scale);
     }
-    pixbuf = caja_icon_info_get_pixbuf_nodefault_at_size (info, size);
+    surface = caja_icon_info_get_surface_nodefault_at_size (info, size);
     g_object_unref (info);
 
-    return pixbuf;
+    return surface;
 }
 
 GtkAction *
@@ -169,7 +169,7 @@ caja_action_from_menu_item (CajaMenuItem *item,
     char *name, *label, *tip, *icon_name;
     gboolean sensitive, priority;
     GtkAction *action;
-    GdkPixbuf *pixbuf;
+    cairo_surface_t *surface;
 
     g_object_get (G_OBJECT (item),
                   "name", &name, "label", &label,
@@ -185,14 +185,14 @@ caja_action_from_menu_item (CajaMenuItem *item,
 
     if (icon_name != NULL)
     {
-        pixbuf = get_action_icon (icon_name,
-                                  caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU),
-                                  parent_widget);
-        if (pixbuf != NULL)
+        surface = get_action_icon (icon_name,
+                                   caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU),
+                                   parent_widget);
+        if (surface != NULL)
         {
             g_object_set_data_full (G_OBJECT (action), "menu-icon",
-                                    pixbuf,
-                                    g_object_unref);
+                                    surface,
+                                    cairo_surface_destroy);
         }
     }
 
@@ -218,7 +218,7 @@ caja_toolbar_action_from_menu_item (CajaMenuItem *item, GtkWidget *parent_widget
     char *name, *label, *tip, *icon_name;
     gboolean sensitive, priority;
     GtkAction *action;
-    GdkPixbuf *pixbuf;
+    cairo_surface_t *surface;
 
     g_object_get (G_OBJECT (item),
                   "name", &name, "label", &label,
@@ -234,14 +234,14 @@ caja_toolbar_action_from_menu_item (CajaMenuItem *item, GtkWidget *parent_widget
 
     if (icon_name != NULL)
     {
-        pixbuf = get_action_icon (icon_name,
-                                  caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_LARGE_TOOLBAR),
-                                  parent_widget);
-        if (pixbuf != NULL)
+        surface = get_action_icon (icon_name,
+                                   caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_LARGE_TOOLBAR),
+                                   parent_widget);
+        if (surface != NULL)
         {
             g_object_set_data_full (G_OBJECT (action), "toolbar-icon",
-                                    pixbuf,
-                                    g_object_unref);
+                                    surface,
+                                    cairo_surface_destroy);
         }
     }
 

@@ -35,6 +35,7 @@
 #include <glib/gi18n-lib.h>
 #include <gtk/gtk.h>
 #include <gio/gio.h>
+#include <cairo-gobject.h>
 
 #define sure_string(s)                    ((const char *)((s)!=NULL?(s):""))
 #define DESKTOP_ENTRY_GROUP		  "Desktop Entry"
@@ -490,19 +491,29 @@ entry_changed_cb (GtkWidget *entry,
     }
 }
 
-static GdkPixbuf *
-get_pixbuf_for_icon (GIcon *icon)
+#define CAJA_OPEN_WITH_DIALOG_ICON_SIZE 24
+static cairo_surface_t *
+get_surface_for_icon (GIcon *icon)
 {
-    GdkPixbuf  *pixbuf;
+    cairo_surface_t  *surface;
     char *filename;
+    gint icon_scale;
 
-    pixbuf = NULL;
+    surface = NULL;
+    icon_scale = gdk_window_get_scale_factor (gdk_get_default_root_window ());
+
     if (G_IS_FILE_ICON (icon))
     {
         filename = g_file_get_path (g_file_icon_get_file (G_FILE_ICON (icon)));
         if (filename)
         {
-            pixbuf = gdk_pixbuf_new_from_file_at_size (filename, 24, 24, NULL);
+            GdkPixbuf *pixbuf;
+            pixbuf = gdk_pixbuf_new_from_file_at_size (filename,
+                                                       CAJA_OPEN_WITH_DIALOG_ICON_SIZE * icon_scale,
+                                                       CAJA_OPEN_WITH_DIALOG_ICON_SIZE * icon_scale,
+                                                       NULL);
+            surface = gdk_cairo_surface_create_from_pixbuf (pixbuf, icon_scale, NULL);
+            g_object_unref (pixbuf);
         }
         g_free (filename);
     }
@@ -525,22 +536,27 @@ get_pixbuf_for_icon (GIcon *icon)
             {
                 *p = 0;
             }
-            pixbuf = gtk_icon_theme_load_icon (gtk_icon_theme_get_default (),
-                                               icon_no_extension, 24, GTK_ICON_LOOKUP_FORCE_SIZE, NULL);
+            surface = gtk_icon_theme_load_surface (gtk_icon_theme_get_default (),
+                                                   icon_no_extension,
+                                                   CAJA_OPEN_WITH_DIALOG_ICON_SIZE,
+                                                   icon_scale,
+                                                   NULL,
+                                                   GTK_ICON_LOOKUP_FORCE_SIZE,
+                                                   NULL);
             g_free (icon_no_extension);
         }
     }
-    return pixbuf;
+    return surface;
 }
 
 static gboolean
 caja_open_with_dialog_add_icon_idle (CajaOpenWithDialog *dialog)
 {
-    GtkTreeIter   iter;
-    GtkTreePath  *path;
-    GdkPixbuf    *pixbuf;
-    GIcon *icon;
-    gboolean      long_operation;
+    GtkTreeIter      iter;
+    GtkTreePath     *path;
+    cairo_surface_t *surface;
+    GIcon           *icon;
+    gboolean         long_operation;
 
     long_operation = FALSE;
     do
@@ -573,12 +589,12 @@ caja_open_with_dialog_add_icon_idle (CajaOpenWithDialog *dialog)
             continue;
         }
 
-        pixbuf = get_pixbuf_for_icon (icon);
-        if (pixbuf)
+        surface = get_surface_for_icon (icon);
+        if (surface)
         {
             long_operation = TRUE;
-            gtk_list_store_set (dialog->details->program_list_store, &iter, COLUMN_ICON, pixbuf, -1);
-            g_object_unref (pixbuf);
+            gtk_list_store_set (dialog->details->program_list_store, &iter, COLUMN_ICON, surface, -1);
+            cairo_surface_destroy (surface);
         }
 
         /* don't go back into the main loop if this wasn't very hard to do */
@@ -675,7 +691,7 @@ caja_open_with_dialog_add_items_idle (CajaOpenWithDialog *dialog)
     /* create list store */
     dialog->details->program_list_store = gtk_list_store_new (NUM_COLUMNS,
                                           G_TYPE_APP_INFO,
-                                          GDK_TYPE_PIXBUF,
+                                          CAIRO_GOBJECT_TYPE_SURFACE,
                                           G_TYPE_ICON,
                                           G_TYPE_STRING,
                                           G_TYPE_STRING,
@@ -723,7 +739,7 @@ caja_open_with_dialog_add_items_idle (CajaOpenWithDialog *dialog)
     column = gtk_tree_view_column_new ();
     gtk_tree_view_column_pack_start (column, renderer, FALSE);
     gtk_tree_view_column_set_attributes (column, renderer,
-                                         "pixbuf", COLUMN_ICON,
+                                         "surface", COLUMN_ICON,
                                          NULL);
 
     renderer = gtk_cell_renderer_text_new ();

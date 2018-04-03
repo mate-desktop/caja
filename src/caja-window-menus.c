@@ -175,7 +175,7 @@ caja_menus_append_bookmark_to_menu (CajaWindow *window,
     char action_name[128];
     char *name;
     char *path;
-    GdkPixbuf *pixbuf;
+    cairo_surface_t *surface;
     GtkAction *action;
     GtkWidget *menuitem;
 
@@ -185,8 +185,8 @@ caja_menus_append_bookmark_to_menu (CajaWindow *window,
     bookmark_holder = bookmark_holder_new (bookmark, window, refresh_callback, failed_callback);
     name = caja_bookmark_get_name (bookmark);
 
-    /* Create menu item with pixbuf */
-    pixbuf = caja_bookmark_get_pixbuf (bookmark, GTK_ICON_SIZE_MENU);
+    /* Create menu item with surface */
+    surface = caja_bookmark_get_surface (bookmark, GTK_ICON_SIZE_MENU);
 
     g_snprintf (action_name, sizeof (action_name), "%s%d", parent_id, index_in_parent);
 
@@ -196,8 +196,8 @@ caja_menus_append_bookmark_to_menu (CajaWindow *window,
                              NULL);
 
     g_object_set_data_full (G_OBJECT (action), "menu-icon",
-                            g_object_ref (pixbuf),
-                            g_object_unref);
+                            cairo_surface_reference (surface),
+                            cairo_surface_destroy);
 
     g_signal_connect_data (action, "activate",
                            G_CALLBACK (activate_bookmark_in_menu_item),
@@ -223,7 +223,7 @@ caja_menus_append_bookmark_to_menu (CajaWindow *window,
     gtk_image_menu_item_set_always_show_image (GTK_IMAGE_MENU_ITEM (menuitem),
             TRUE);
 
-    g_object_unref (pixbuf);
+    cairo_surface_destroy (surface);
     g_free (path);
     g_free (name);
 }
@@ -724,7 +724,7 @@ connect_proxy_cb (GtkUIManager *manager,
                   GtkWidget *proxy,
                   CajaWindow *window)
 {
-    GdkPixbuf *icon;
+    cairo_surface_t *icon;
     GtkWidget *widget;
 
     if (GTK_IS_MENU_ITEM (proxy))
@@ -735,12 +735,12 @@ connect_proxy_cb (GtkUIManager *manager,
                           G_CALLBACK (menu_item_deselect_cb), window);
 
 
-        /* This is a way to easily get pixbufs into the menu items */
+        /* This is a way to easily get surfaces into the menu items */
         icon = g_object_get_data (G_OBJECT (action), "menu-icon");
         if (icon != NULL)
         {
             gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (proxy),
-                                           gtk_image_new_from_pixbuf (icon));
+                                           gtk_image_new_from_surface (icon));
         }
     }
     if (GTK_IS_TOOL_BUTTON (proxy))
@@ -748,7 +748,7 @@ connect_proxy_cb (GtkUIManager *manager,
         icon = g_object_get_data (G_OBJECT (action), "toolbar-icon");
         if (icon != NULL)
         {
-            widget = gtk_image_new_from_pixbuf (icon);
+            widget = gtk_image_new_from_surface (icon);
             gtk_widget_show (widget);
             gtk_tool_button_set_icon_widget (GTK_TOOL_BUTTON (proxy),
                                              widget);
