@@ -169,6 +169,13 @@ static const SortCriterion sort_criteria[] =
         "Sort by Trash Time",
         N_("by T_rash Time"),
         N_("Keep icons sorted by trash time in rows")
+    },
+    {
+        CAJA_FILE_SORT_BY_EXTENSION,
+        "extension",
+        "Sort by Extension",
+        N_("by E_xtension"),
+        N_("Keep icons sorted by reversed extension segments in rows")
     }
 };
 
@@ -1769,6 +1776,12 @@ static const GtkRadioActionEntry arrange_radio_entries[] =
         N_("By T_rash Time"), NULL,
         N_("Keep icons sorted by trash time in rows"),
         CAJA_FILE_SORT_BY_TRASHED_TIME
+    },
+    {
+        "Sort by Extension", NULL,
+        N_("By E_xtension"), NULL,
+        N_("Keep icons sorted by reverse extension segments in rows"),
+        CAJA_FILE_SORT_BY_EXTENSION
     },
 };
 

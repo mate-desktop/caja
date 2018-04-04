@@ -139,6 +139,13 @@ get_builtin_columns (void)
                                            "description", _("The location of the file."),
                                            NULL));
 
+    columns = g_list_append (columns,
+                             g_object_new (CAJA_TYPE_COLUMN,
+                                           "name", "extension",
+                                           "attribute", "extension",
+                                           "label", _("Extension"),
+                                           "description", _("The extension of the file."),
+                                           NULL));
     return columns;
 }
 

@@ -66,6 +66,7 @@
 #include <libxml/parser.h>
 #include <pwd.h>
 #include <stdlib.h>
+#include <ctype.h>
 #include <sys/time.h>
 #include <time.h>
 #include <unistd.h>
@@ -99,6 +100,9 @@
 
 #define METADATA_ID_IS_LIST_MASK (1<<31)
 
+#define SORT_BY_EXTENSION_FOLLOWING_MAX_LENGTH 3
+#define SORT_BY_EXTENSION_MAX_SEGMENTS 3
+
 typedef enum {
 	SHOW_HIDDEN = 1 << 0,
 } FilterOptions;
@@ -126,6 +130,7 @@ static GQuark attribute_name_q,
 	attribute_accessed_date_q,
 	attribute_date_accessed_q,
 	attribute_emblems_q,
+	attribute_extension_q,
 	attribute_mime_type_q,
 	attribute_size_detail_q,
 	attribute_size_on_disk_detail_q,
@@ -3160,6 +3165,186 @@ compare_by_full_path (CajaFile *file_1, CajaFile *file_2)
 	return compare_by_display_name (file_1, file_2);
 }
 
+/* prev_extension_segment:
+ * @basename The basename of a file
+ * @rem_chars A pointer to the amount of remaining characters
+ *
+ * Finds the next segment delimiter to the left. A starting character of '.' is
+ * set to '\0'.
+ *
+ * Return value: The start of the previous segment (right of the dot) or
+ * basename if there are none remaining.
+ */
+static char *
+prev_extension_segment (char *basename, int *rem_chars)
+{
+	if (*basename == '.') {
+		*basename = 0;
+		basename--;
+		(*rem_chars)--;
+	}
+
+	while (*rem_chars > 0 && *basename != '.') {
+		(*rem_chars)--;
+		basename--;
+	}
+
+	return basename + 1;
+}
+
+/* is_valid_extension_segment:
+ * @segment Part of a modifiable zero-terminated string
+ * @segment_index The index of the current segment
+ *
+ * Uses a heuristic to identify valid file extensions.
+ *
+ * Return value: Whether the segment is part of the file extension.
+ */
+static gboolean
+is_valid_extension_segment (const char *segment, int segment_index)
+{
+	gboolean result;
+	gboolean has_letters;
+	char c;
+	int char_offset;
+	switch (segment_index) {
+		case 0:
+			/* extremely long segments are probably not part of the extension */
+			result = strlen (segment) < 20;
+			break;
+		default:
+			has_letters = FALSE;
+			char_offset = 0;
+			while (TRUE) {
+				c = *(segment + char_offset);
+				if (c == '\0') {
+					result = has_letters;
+					break;
+				}
+				/* allow digits if there are also letters */
+				else if (isalpha (c)) {
+					has_letters = TRUE;
+				}
+				/* fail if it is neither digit nor letter */
+				else if (!isdigit (c)) {
+					result = FALSE;
+					break;
+				}
+
+				if (char_offset >= SORT_BY_EXTENSION_FOLLOWING_MAX_LENGTH) {
+					result = FALSE;
+					break;
+				}
+				char_offset++;
+			}
+	}
+	return result;
+}
+
+static int
+compare_by_extension_segments (CajaFile *file_1, CajaFile *file_2)
+{
+	char *name_1, *name_2;
+	char *segment_1, *segment_2;
+	int compare;
+	int rem_chars_1, rem_chars_2;
+	gboolean done_1, done_2;
+	gboolean is_directory_1, is_directory_2;
+	int segment_index;
+
+
+	/* Directories do not have an extension */
+	is_directory_1 = caja_file_is_directory (file_1);
+	is_directory_2 = caja_file_is_directory (file_2);
+
+	if (is_directory_1 && is_directory_2) {
+		return 0;
+	} else if (is_directory_1) {
+		return -1;
+	} else if (is_directory_2) {
+		return 1;
+	}
+
+	name_1 = caja_file_get_display_name (file_1);
+	name_2 = caja_file_get_display_name (file_2);
+	rem_chars_1 = strlen (name_1);
+	rem_chars_2 = strlen (name_2);
+
+	/* Point to one after the zero character */
+	segment_1 = name_1 + rem_chars_1 + 1;
+	segment_2 = name_2 + rem_chars_2 + 1;
+
+	segment_index = 0;
+	do {
+		segment_1 = prev_extension_segment (segment_1 - 1, &rem_chars_1);
+		segment_2 = prev_extension_segment (segment_2 - 1, &rem_chars_2);
+
+		done_1 = rem_chars_1 <= 0 || !is_valid_extension_segment (segment_1, segment_index);
+		done_2 = rem_chars_2 <= 0 || !is_valid_extension_segment (segment_2, segment_index);
+		if (done_1 && !done_2) {
+			compare = -1;
+			break;
+		}
+		else if (!done_1 && done_2) {
+			compare = 1;
+			break;
+		}
+		else if (done_1 && done_2) {
+			compare = 0;
+			break;
+		}
+
+		segment_index++;
+		if (segment_index > SORT_BY_EXTENSION_MAX_SEGMENTS - 1) {
+			break;
+		}
+		compare = strcmp (segment_1, segment_2);
+	} while (compare == 0);
+
+	g_free (name_1);
+	g_free (name_2);
+
+	return compare;
+}
+
+static gchar *
+caja_file_get_extension_as_string (CajaFile *file)
+{
+	char *name;
+	int rem_chars;
+	int segment_index;
+	char *segment;
+	char *right_segment;
+	char *result;
+	if (!caja_file_is_directory (file)) {
+		name = caja_file_get_display_name (file);
+		rem_chars = strlen (name);
+		segment = prev_extension_segment (name + rem_chars, &rem_chars);
+
+		if (rem_chars > 0 && is_valid_extension_segment (segment, 0)) {
+			segment_index = 1;
+			do {
+				right_segment = segment;
+				segment = prev_extension_segment (segment - 1, &rem_chars);
+				if (rem_chars > 0 && is_valid_extension_segment (segment, segment_index)) {
+					/* remove zero-termination of segment */
+					*(right_segment - 1) = '.';
+				}
+				else {
+					break;
+				}
+
+				segment_index++;
+			} while (segment_index < SORT_BY_EXTENSION_MAX_SEGMENTS + 1);
+			result = g_strdup (right_segment);
+			g_free (name);
+			return result;
+		}
+		g_free (name);
+	}
+	return g_strdup ("");
+}
+
 static int
 caja_file_compare_for_sort_internal (CajaFile *file_1,
 					 CajaFile *file_2,
@@ -3286,6 +3471,12 @@ caja_file_compare_for_sort (CajaFile *file_1,
 				result = compare_by_full_path (file_1, file_2);
 			}
 			break;
+		case CAJA_FILE_SORT_BY_EXTENSION:
+			result = compare_by_extension_segments (file_1, file_2);
+			if (result == 0) {
+				result = compare_by_full_path (file_1, file_2);
+			}
+			break;
 		default:
 			g_return_val_if_reached (0);
 		}
@@ -3352,6 +3543,11 @@ caja_file_compare_for_sort_by_attribute_q   (CajaFile                   *file_1,
 	} else if (attribute == attribute_emblems_q) {
 		return caja_file_compare_for_sort (file_1, file_2,
 						       CAJA_FILE_SORT_BY_EMBLEMS,
+						       directories_first,
+						       reversed);
+	} else if (attribute == attribute_extension_q) {
+		return caja_file_compare_for_sort (file_1, file_2,
+						       CAJA_FILE_SORT_BY_EXTENSION,
 						       directories_first,
 						       reversed);
 	}
@@ -6308,6 +6504,9 @@ caja_file_get_string_attribute_q (CajaFile *file, GQuark attribute_q)
 		return caja_file_get_date_as_string (file,
 							 CAJA_DATE_TYPE_PERMISSIONS_CHANGED);
 	}
+	if (attribute_q == attribute_extension_q) {
+		return caja_file_get_extension_as_string (file);
+	}
 	if (attribute_q == attribute_permissions_q) {
 		return caja_file_get_permissions_as_string (file);
 	}
@@ -8332,6 +8531,7 @@ caja_file_class_init (CajaFileClass *class)
 	attribute_accessed_date_q = g_quark_from_static_string ("accessed_date");
 	attribute_date_accessed_q = g_quark_from_static_string ("date_accessed");
 	attribute_emblems_q = g_quark_from_static_string ("emblems");
+	attribute_extension_q = g_quark_from_static_string ("extension");
 	attribute_mime_type_q = g_quark_from_static_string ("mime_type");
 	attribute_size_detail_q = g_quark_from_static_string ("size_detail");
 	attribute_size_on_disk_detail_q = g_quark_from_static_string ("size_on_disk_detail");
