@@ -94,6 +94,12 @@ static const char * const zoom_values[] =
     NULL
 };
 
+/*
+ * This array corresponds to the object with id "model2" in
+ * caja-file-management-properties.ui. It has to positionally match with it.
+ * The purpose is to map values from a combo box to values of the gsettings
+ * enum.
+ */
 static const char * const sort_order_values[] =
 {
     "name",
@@ -104,6 +110,7 @@ static const char * const sort_order_values[] =
     "mtime",
     "atime",
     "emblems",
+    "extension",
     "trash-time",
     NULL
 };
