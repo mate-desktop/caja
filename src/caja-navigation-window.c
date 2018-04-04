@@ -362,9 +362,12 @@ side_pane_size_allocate_callback (GtkWidget *widget,
                                   gpointer user_data)
 {
     CajaNavigationWindow *window;
+    gint scale;
 
     window = CAJA_NAVIGATION_WINDOW (user_data);
+    scale = gtk_widget_get_scale_factor (widget);
 
+    allocation->width = allocation->width / scale;
     if (allocation->width != window->details->side_pane_width)
     {
         window->details->side_pane_width = allocation->width;
@@ -377,11 +380,14 @@ side_pane_size_allocate_callback (GtkWidget *widget,
 static void
 setup_side_pane_width (CajaNavigationWindow *window)
 {
+    gint scale;
+
     g_return_if_fail (window->sidebar != NULL);
 
+    scale = gtk_widget_get_scale_factor (GTK_WIDGET (window->sidebar));
     window->details->side_pane_width =
         g_settings_get_int (caja_window_state,
-                            CAJA_WINDOW_STATE_SIDEBAR_WIDTH);
+                            CAJA_WINDOW_STATE_SIDEBAR_WIDTH) * scale;
 
     gtk_paned_set_position (GTK_PANED (window->details->content_paned),
                             window->details->side_pane_width);
