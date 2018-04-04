@@ -731,9 +731,11 @@ caja_sidebar_title_size_allocate (GtkWidget *widget,
     CajaSidebarTitle *sidebar_title;
     guint16 old_width;
     guint best_icon_size;
+    gint scale;
     GtkAllocation old_allocation, new_allocation;
 
     sidebar_title = CAJA_SIDEBAR_TITLE (widget);
+    scale = gtk_widget_get_scale_factor (widget);
 
     gtk_widget_get_allocation (widget, &old_allocation);
     old_width = old_allocation.width;
@@ -744,7 +746,7 @@ caja_sidebar_title_size_allocate (GtkWidget *widget,
 
     if (old_width != new_allocation.width)
     {
-        best_icon_size = get_best_icon_size (sidebar_title);
+        best_icon_size = get_best_icon_size (sidebar_title) / scale;
         if (best_icon_size != sidebar_title->details->best_icon_size)
         {
             sidebar_title->details->best_icon_size = best_icon_size;
