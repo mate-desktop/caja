@@ -494,3 +494,27 @@ eel_image_menu_item_new_from_icon (const gchar *icon_name,
 
     return menuitem;
 }
+
+GtkWidget *
+eel_image_menu_item_new_from_pixbuf (GdkPixbuf   *icon_pixbuf,
+                                     const gchar *label_name)
+{
+    GtkWidget *icon;
+    GtkWidget *box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
+
+    if (icon_pixbuf)
+        icon = gtk_image_new_from_pixbuf (icon_pixbuf);
+    else
+        icon = gtk_image_new ();
+
+    GtkWidget *label_menu = gtk_label_new (g_strconcat (label_name, "     ", NULL));
+    GtkWidget *menuitem = gtk_menu_item_new ();
+
+    gtk_container_add (GTK_CONTAINER (box), icon);
+    gtk_container_add (GTK_CONTAINER (box), label_menu);
+
+    gtk_container_add (GTK_CONTAINER (menuitem), box);
+    gtk_widget_show_all (menuitem);
+
+    return menuitem;
+}

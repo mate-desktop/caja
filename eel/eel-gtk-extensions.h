@@ -75,4 +75,7 @@ void                  eel_gtk_message_dialog_set_details_label        (GtkMessag
 GtkWidget *           eel_image_menu_item_new_from_icon               (const gchar          *icon_name,
                                                                        const gchar          *label_name);
 
+GtkWidget *           eel_image_menu_item_new_from_pixbuf               (GdkPixbuf          *icon_pixbuf,
+                                                                         const gchar        *label_name);
+
 #endif /* EEL_GTK_EXTENSIONS_H */
