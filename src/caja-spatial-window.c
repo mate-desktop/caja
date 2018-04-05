@@ -310,6 +310,7 @@ caja_spatial_window_show (GtkWidget *widget)
 {
     CajaWindow *window;
     CajaWindowSlot *slot;
+    GFile *location;
 
     window = CAJA_WINDOW (widget);
     slot = caja_window_get_active_slot (window);
@@ -319,6 +320,28 @@ caja_spatial_window_show (GtkWidget *widget)
     if (slot != NULL && slot->query_editor != NULL)
     {
         caja_query_editor_grab_focus (CAJA_QUERY_EDITOR (slot->query_editor));
+    }
+
+    location = caja_window_slot_get_location (slot);
+    g_return_if_fail (location != NULL);
+
+    while (location != NULL) {
+        CajaFile *file;
+
+        file = caja_file_get (location);
+
+        if  (!caja_file_check_if_ready (file, CAJA_FILE_ATTRIBUTE_INFO)) {
+            caja_file_call_when_ready (file,
+                                       CAJA_FILE_ATTRIBUTE_INFO,
+                                       NULL,
+                                       NULL);
+        }
+
+        location = g_file_get_parent (location);
+    }
+
+    if (location) {
+        g_object_unref (location);
     }
 }
 
@@ -561,49 +584,6 @@ location_menu_item_activated_callback (GtkWidget *menu_item,
 }
 
 static void
-got_file_info_for_location_menu_callback (CajaFile *file,
-        gpointer callback_data)
-{
-    GtkWidget *menu_item = callback_data;
-    GtkWidget *label;
-    GtkWidget *icon;
-    GdkPixbuf *pixbuf;
-    char *name;
-
-    g_return_if_fail (CAJA_IS_FILE (file));
-
-    pixbuf = NULL;
-
-    name = caja_file_get_display_name (file);
-    label = gtk_bin_get_child (GTK_BIN (menu_item));
-    gtk_label_set_label (GTK_LABEL (label), name);
-    g_free (name);
-
-    pixbuf = caja_file_get_icon_pixbuf (file,
-                                        caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU),
-                                        TRUE,
-                                        gtk_widget_get_scale_factor (GTK_WIDGET (menu_item)),
-                                        CAJA_FILE_ICON_FLAGS_IGNORE_VISITING);
-
-    if (pixbuf != NULL)
-    {
-        icon = gtk_image_new_from_pixbuf (pixbuf);
-        g_object_unref (pixbuf);
-    }
-    else
-    {
-        icon = gtk_image_new_from_icon_name ("document-open", GTK_ICON_SIZE_MENU);
-    }
-
-    if (icon)
-    {
-        gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (menu_item), icon);
-    }
-    g_object_unref (file);
-    g_object_unref (menu_item);
-}
-
-static void
 menu_deactivate_callback (GtkWidget *menu,
                           gpointer   data)
 {
@@ -663,11 +643,12 @@ location_button_pressed_callback (GtkWidget      *widget,
 }
 
 static void
-location_button_clicked_callback (GtkWidget             *widget,
+location_button_clicked_callback (GtkWidget         *widget,
                                   CajaSpatialWindow *window)
 {
     CajaWindowSlot *slot;
     GtkWidget *popup, *menu_item, *first_item = NULL;
+    GdkPixbuf *pixbuf;
     GFile *location;
     GFile *child_location;
     GMainLoop *loop;
@@ -675,6 +656,9 @@ location_button_clicked_callback (GtkWidget             *widget,
     slot = caja_window_get_active_slot (CAJA_WINDOW (window));
 
     popup = gtk_menu_new ();
+
+    gtk_menu_set_reserve_toggle_size (GTK_MENU (popup), FALSE);
+
     first_item = NULL;
 
     location = caja_window_slot_get_location (slot);
@@ -688,19 +672,28 @@ location_button_clicked_callback (GtkWidget             *widget,
         file = caja_file_get (location);
 
         name = caja_file_get_display_name (file);
-        menu_item = gtk_image_menu_item_new_with_label (name);
-        gtk_image_menu_item_set_always_show_image (GTK_IMAGE_MENU_ITEM (menu_item), TRUE);
-        g_free (name);
+
+        pixbuf = NULL;
+
+        pixbuf = caja_file_get_icon_pixbuf (file,
+                                            caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU),
+                                            TRUE,
+                                            gtk_widget_get_scale_factor (widget),
+                                            CAJA_FILE_ICON_FLAGS_IGNORE_VISITING);
+
+        if (pixbuf != NULL)
+        {
+            menu_item = eel_image_menu_item_new_from_pixbuf (pixbuf, name);
+            g_object_unref (pixbuf);
+        }
+        else
+        {
+            menu_item = eel_image_menu_item_new_from_icon ("document-open", name);
+        }
 
         if (first_item == NULL) {
             first_item = menu_item;
         }
-
-        g_object_ref (menu_item);
-        caja_file_call_when_ready (file,
-                                   CAJA_FILE_ATTRIBUTE_INFO,
-                                   got_file_info_for_location_menu_callback,
-                                   menu_item);
 
         gtk_widget_show (menu_item);
         g_signal_connect (menu_item, "activate",
@@ -1095,7 +1088,6 @@ caja_spatial_window_init (CajaSpatialWindow *window)
     for (i = 0; i < G_N_ELEMENTS (icon_entries); i++)
     {
         menuitem = gtk_ui_manager_get_widget (ui_manager, icon_entries[i]);
-        gtk_image_menu_item_set_always_show_image (GTK_IMAGE_MENU_ITEM (menuitem), TRUE);
     }
     caja_window_set_active_pane (win, pane);
 }
