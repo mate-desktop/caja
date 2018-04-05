@@ -1,3 +1,19 @@
+### caja 1.20.2
+
+    sidebar: Respect sidebar dimensions on HiDPI
+    HiDPI: Convert Pixbufs to Cairo Surfaces
+    general: use gdk_monitor_get_scale_factor
+    list-view: use the cairo surface as a drag icon
+    Scale screen dimensions
+    icon-info: hash/store icons using scale factor as well as size
+    file: support HiDpi for thumbnails images
+    properties-window: support HiDpi for the properties window icon
+    Support HiDpi icons
+    canvas-container: listen to scale factor to invalidate icons
+    canvas-item: use gtk_render_icon_surface for the DnD surface
+    desktop-canvas-view: scale desktop workarea
+    modify code error: end the statement with a semicolon
+
 ### caja 1.20.1
 
   * tx: update translations
