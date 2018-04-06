@@ -1538,9 +1538,13 @@ setup_file_path_mounted_mount (GFile *location, ButtonData *button_data)
     GFile *root, *default_location;
     gint scale;
 
+    /* Return false if button has not been set up yet or has been destroyed*/
+    if (!button_data->button)
+        return FALSE;
     result = FALSE;
     volume_monitor = g_volume_monitor_get ();
     mounts = g_volume_monitor_get_mounts (volume_monitor);
+
     scale = gtk_widget_get_scale_factor (GTK_WIDGET (button_data->button));
     for (l = mounts; l != NULL; l = l->next)
     {
