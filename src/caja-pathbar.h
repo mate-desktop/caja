@@ -71,15 +71,19 @@ struct _CajaPathBarClass
 
     void (* path_clicked)   (CajaPathBar  *path_bar,
                              GFile             *location);
-    void (* path_set)       (CajaPathBar  *path_bar,
-                             GFile             *location);
+
+    void (* path_event)     (CajaPathBar  *path_bar,
+                             GdkEventButton   *event,
+                             GFile            *location);
 };
 
 GType    caja_path_bar_get_type (void) G_GNUC_CONST;
 
 gboolean caja_path_bar_set_path    (CajaPathBar *path_bar, GFile *file);
+
 GFile *  caja_path_bar_get_path_for_button (CajaPathBar *path_bar,
         GtkWidget       *button);
+
 void     caja_path_bar_clear_buttons (CajaPathBar *path_bar);
 
 GtkWidget * caja_path_bar_get_button_from_button_list_entry (gpointer entry);
