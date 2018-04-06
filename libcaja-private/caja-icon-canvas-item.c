@@ -280,7 +280,7 @@ caja_icon_canvas_item_finalize (GObject *object)
 
     if (details->rendered_surface != NULL)
     {
-        g_object_unref (details->rendered_surface);
+    cairo_surface_destroy (details->rendered_surface);
     }
 
     if (details->editable_text_layout != NULL)

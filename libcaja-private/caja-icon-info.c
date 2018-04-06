@@ -643,6 +643,9 @@ caja_icon_info_get_surface_nodefault_at_size (CajaIconInfo *icon,
     cairo_surface_t *surface;
 
     pixbuf = caja_icon_info_get_pixbuf_nodefault_at_size (icon, forced_size);
+    /*catch the case of caja_icon_info_get_pixbuf_nodefault_at_size returning NULL */
+    if (!pixbuf)
+        return NULL;
     surface = gdk_cairo_surface_create_from_pixbuf (pixbuf, icon->orig_scale, NULL);
     g_object_unref (pixbuf);
 
