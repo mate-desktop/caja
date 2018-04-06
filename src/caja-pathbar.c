@@ -31,14 +31,11 @@
 #include <libcaja-private/caja-dnd.h>
 #include <libcaja-private/caja-icon-dnd.h>
 #include "caja-pathbar.h"
-#include "caja-window.h"
-#include "caja-window-private.h"
-#include "caja-window-slot.h"
 
 enum
 {
     PATH_CLICKED,
-    PATH_SET,
+    PATH_EVENT,
     LAST_SIGNAL
 };
 
@@ -412,15 +409,16 @@ caja_path_bar_class_init (CajaPathBarClass *path_bar_class)
                       g_cclosure_marshal_VOID__OBJECT,
                       G_TYPE_NONE, 1,
                       G_TYPE_FILE);
-    path_bar_signals [PATH_SET] =
-        g_signal_new ("path-set",
+
+    path_bar_signals [PATH_EVENT] =
+       g_signal_new ("path-event",
                       G_OBJECT_CLASS_TYPE (path_bar_class),
-                      G_SIGNAL_RUN_FIRST,
-                      G_STRUCT_OFFSET (CajaPathBarClass, path_set),
-                      NULL, NULL,
-                      g_cclosure_marshal_VOID__OBJECT,
-                      G_TYPE_NONE, 1,
-                      G_TYPE_FILE);
+                      G_SIGNAL_RUN_FIRST | G_SIGNAL_RUN_LAST,
+                      G_STRUCT_OFFSET (CajaPathBarClass, path_event),
+                      NULL, NULL, NULL,
+                      G_TYPE_BOOLEAN, 2,
+                      G_TYPE_FILE,
+                      GDK_TYPE_EVENT);
 
     gtk_container_class_handle_border_width (container_class);
 }
@@ -1338,6 +1336,48 @@ button_clicked_cb (GtkWidget *button,
     g_signal_emit (path_bar, path_bar_signals [PATH_CLICKED], 0, button_data->path);
 }
 
+static gboolean
+button_event_cb (GtkWidget *button,
+		 GdkEventButton *event,
+		 gpointer   data)
+{
+        ButtonData *button_data;
+        CajaPathBar *path_bar;
+        GList *button_list;
+        gboolean retval;
+
+        button_data = BUTTON_DATA (data);
+        path_bar = CAJA_PATH_BAR (gtk_widget_get_parent (button));
+
+	if (event->type == GDK_BUTTON_PRESS) {
+		g_object_set_data (G_OBJECT (button), "handle-button-release",
+				   GINT_TO_POINTER (TRUE));
+	}
+
+	if (event->type == GDK_BUTTON_RELEASE &&
+	    !GPOINTER_TO_UINT (g_object_get_data (G_OBJECT (button),
+						  "handle-button-release"))) {
+		return FALSE;
+	}
+
+        button_list = g_list_find (path_bar->button_list, button_data);
+        g_assert (button_list != NULL);
+
+        g_signal_emit (path_bar, path_bar_signals [PATH_EVENT], 0, button_data->path, event, &retval);
+
+	return retval;
+}
+
+static void
+button_drag_begin_cb (GtkWidget *widget,
+		      GdkDragContext *drag_context,
+		      gpointer user_data)
+{
+	g_object_set_data (G_OBJECT (widget), "handle-button-release",
+			   GINT_TO_POINTER (FALSE));
+}
+
+
 static CajaIconInfo *
 get_type_icon_info (ButtonData *button_data)
 {
@@ -1910,6 +1950,9 @@ make_directory_button (CajaPathBar  *path_bar,
     caja_path_bar_update_button_state (button_data, current_dir);
 
     g_signal_connect (button_data->button, "clicked", G_CALLBACK (button_clicked_cb), button_data);
+    g_signal_connect (button_data->button, "button-press-event", G_CALLBACK (button_event_cb), button_data);
+    g_signal_connect (button_data->button, "button-release-event", G_CALLBACK (button_event_cb), button_data);
+    g_signal_connect (button_data->button, "drag-begin", G_CALLBACK (button_drag_begin_cb), button_data);
     g_object_weak_ref (G_OBJECT (button_data->button), (GWeakNotify) button_data_free, button_data);
 
     setup_button_drag_source (button_data);
@@ -2062,8 +2105,6 @@ caja_path_bar_update_path (CajaPathBar *path_bar,
 
     path_bar->current_path = g_object_ref (file_path);
     path_bar->current_button_data = current_button_data;
-
-    g_signal_emit (path_bar, path_bar_signals [PATH_SET], 0, file_path);
 
     return result;
 }
