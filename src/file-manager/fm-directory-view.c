@@ -8822,7 +8822,7 @@ real_update_menus (FMDirectoryView *view)
 		GTK_IMAGE_MENU_ITEM (menuitem), app_icon != NULL);
 
 	if (app_icon == NULL) {
-		app_icon = g_themed_icon_new ("gtk-open");
+		app_icon = g_themed_icon_new ("document-open");
 	}
 
 	gtk_action_set_gicon (action, app_icon);

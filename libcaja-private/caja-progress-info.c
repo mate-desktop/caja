@@ -809,8 +809,8 @@ progress_widget_new (CajaProgressInfo *info)
 
     hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 10);
 
-    imgcancel = gtk_image_new_from_icon_name ("gtk-cancel",
-                                      GTK_ICON_SIZE_BUTTON);
+    imgcancel = gtk_image_new_from_icon_name ("process-stop",
+                                              GTK_ICON_SIZE_BUTTON);
 
     btcancel = gtk_button_new ();
     gtk_container_add (GTK_CONTAINER (btcancel), imgcancel);

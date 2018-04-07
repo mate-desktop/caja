@@ -414,13 +414,13 @@ caja_location_entry_set_secondary_action (CajaLocationEntry *entry,
     {
     case CAJA_LOCATION_ENTRY_ACTION_CLEAR:
         gtk_entry_set_icon_from_icon_name (GTK_ENTRY (entry),
-                                       GTK_ENTRY_ICON_SECONDARY,
-                                       "gtk-clear");
+                                           GTK_ENTRY_ICON_SECONDARY,
+                                           "edit-clear");
         break;
     case CAJA_LOCATION_ENTRY_ACTION_GOTO:
         gtk_entry_set_icon_from_icon_name (GTK_ENTRY (entry),
-                                       GTK_ENTRY_ICON_SECONDARY,
-                                       "forward");
+                                           GTK_ENTRY_ICON_SECONDARY,
+                                           "forward");
         break;
     default:
         g_assert_not_reached ();
