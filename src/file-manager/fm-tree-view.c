@@ -1362,7 +1362,7 @@ create_popup_menu (FMTreeView *view)
     view->details->popup_unmount = menu_item;
 
     /* add the "Eject" menu item */
-    menu_item = eel_image_menu_item_new_from_icon (NULL, _("_Eject"));
+    menu_item = eel_image_menu_item_new_from_icon ("media-eject", _("_Eject"));
     g_signal_connect (menu_item, "activate",
                       G_CALLBACK (fm_tree_view_eject_cb),
                       view);

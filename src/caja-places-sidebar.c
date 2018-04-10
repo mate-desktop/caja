@@ -2732,7 +2732,7 @@ bookmarks_build_popup_menu (CajaPlacesSidebar *sidebar)
     gtk_widget_show (item);
     gtk_menu_shell_append (GTK_MENU_SHELL (sidebar->popup_menu), item);
 
-    item = eel_image_menu_item_new_from_icon (NULL, _("_Eject"));
+    item = eel_image_menu_item_new_from_icon ("media-eject", _("_Eject"));
     sidebar->popup_menu_eject_item = item;
     g_signal_connect (item, "activate",
                       G_CALLBACK (eject_shortcut_cb), sidebar);
