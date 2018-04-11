@@ -139,7 +139,7 @@ static const SortCriterion sort_criteria[] =
         CAJA_FILE_SORT_BY_SIZE_ON_DISK,
         "size_on_disk",
         "Sort by Size on Disk",
-        N_("by Size on Disk"),
+        N_("by S_ize on Disk"),
         N_("Keep icons sorted by disk usage in rows")
     },
     {
@@ -1752,6 +1752,12 @@ static const GtkRadioActionEntry arrange_radio_entries[] =
         N_("By _Size"), NULL,
         N_("Keep icons sorted by size in rows"),
         CAJA_FILE_SORT_BY_SIZE
+    },
+    {
+        "Sort by Size on Disk", NULL,
+        N_("By S_ize on Disk"), NULL,
+        N_("Keep icons sorted by disk usage in rows"),
+        CAJA_FILE_SORT_BY_SIZE_ON_DISK
     },
     {
         "Sort by Type", NULL,
