@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-10 17:31+0300\n"
+"POT-Creation-Date: 2018-04-13 12:28+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5048,7 +5048,7 @@ msgstr ""
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: ../src/file-manager/fm-icon-container.c:614
-#: ../src/file-manager/fm-icon-view.c:3393
+#: ../src/file-manager/fm-icon-view.c:3399
 #: ../src/caja-file-management-properties.ui.h:1
 msgid "Icon View"
 msgstr ""
@@ -5072,10 +5072,11 @@ msgid "Keep icons sorted by size in rows"
 msgstr ""
 
 #: ../src/file-manager/fm-icon-view.c:142
-msgid "by Size on Disk"
+msgid "by S_ize on Disk"
 msgstr ""
 
 #: ../src/file-manager/fm-icon-view.c:143
+#: ../src/file-manager/fm-icon-view.c:1759
 msgid "Keep icons sorted by disk usage in rows"
 msgstr ""
 
@@ -5084,7 +5085,7 @@ msgid "by _Type"
 msgstr ""
 
 #: ../src/file-manager/fm-icon-view.c:150
-#: ../src/file-manager/fm-icon-view.c:1759
+#: ../src/file-manager/fm-icon-view.c:1765
 msgid "Keep icons sorted by type in rows"
 msgstr ""
 
@@ -5093,7 +5094,7 @@ msgid "by Modification _Date"
 msgstr ""
 
 #: ../src/file-manager/fm-icon-view.c:157
-#: ../src/file-manager/fm-icon-view.c:1765
+#: ../src/file-manager/fm-icon-view.c:1771
 msgid "Keep icons sorted by modification date in rows"
 msgstr ""
 
@@ -5102,7 +5103,7 @@ msgid "by _Emblems"
 msgstr ""
 
 #: ../src/file-manager/fm-icon-view.c:164
-#: ../src/file-manager/fm-icon-view.c:1771
+#: ../src/file-manager/fm-icon-view.c:1777
 msgid "Keep icons sorted by emblems in rows"
 msgstr ""
 
@@ -5111,7 +5112,7 @@ msgid "by T_rash Time"
 msgstr ""
 
 #: ../src/file-manager/fm-icon-view.c:171
-#: ../src/file-manager/fm-icon-view.c:1777
+#: ../src/file-manager/fm-icon-view.c:1783
 msgid "Keep icons sorted by trash time in rows"
 msgstr ""
 
@@ -5146,7 +5147,7 @@ msgstr ""
 #. name, stock id
 #. label, accelerator
 #: ../src/file-manager/fm-icon-view.c:1703
-#: ../src/file-manager/fm-icon-view.c:1910
+#: ../src/file-manager/fm-icon-view.c:1916
 msgid "Restore Icons' Original Si_zes"
 msgstr ""
 
@@ -5216,76 +5217,80 @@ msgid "By _Size"
 msgstr ""
 
 #: ../src/file-manager/fm-icon-view.c:1758
-msgid "By _Type"
+msgid "By S_ize on Disk"
 msgstr ""
 
 #: ../src/file-manager/fm-icon-view.c:1764
-msgid "By Modification _Date"
+msgid "By _Type"
 msgstr ""
 
 #: ../src/file-manager/fm-icon-view.c:1770
-msgid "By _Emblems"
+msgid "By Modification _Date"
 msgstr ""
 
 #: ../src/file-manager/fm-icon-view.c:1776
-msgid "By T_rash Time"
+msgid "By _Emblems"
 msgstr ""
 
 #: ../src/file-manager/fm-icon-view.c:1782
+msgid "By T_rash Time"
+msgstr ""
+
+#: ../src/file-manager/fm-icon-view.c:1788
 msgid "By E_xtension"
 msgstr ""
 
-#: ../src/file-manager/fm-icon-view.c:1783
+#: ../src/file-manager/fm-icon-view.c:1789
 msgid "Keep icons sorted by reverse extension segments in rows"
 msgstr ""
 
-#: ../src/file-manager/fm-icon-view.c:1911
+#: ../src/file-manager/fm-icon-view.c:1917
 msgid "Restore Icon's Original Si_ze"
 msgstr ""
 
-#: ../src/file-manager/fm-icon-view.c:2386
+#: ../src/file-manager/fm-icon-view.c:2392
 #, c-format
 msgid "pointing at \"%s\""
 msgstr ""
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3395
+#: ../src/file-manager/fm-icon-view.c:3401
 msgid "_Icons"
 msgstr ""
 
-#: ../src/file-manager/fm-icon-view.c:3396
+#: ../src/file-manager/fm-icon-view.c:3402
 msgid "The icon view encountered an error."
 msgstr ""
 
-#: ../src/file-manager/fm-icon-view.c:3397
+#: ../src/file-manager/fm-icon-view.c:3403
 msgid "The icon view encountered an error while starting up."
 msgstr ""
 
-#: ../src/file-manager/fm-icon-view.c:3398
+#: ../src/file-manager/fm-icon-view.c:3404
 msgid "Display this location with the icon view."
 msgstr ""
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-icon-view.c:3408
+#: ../src/file-manager/fm-icon-view.c:3414
 #: ../src/caja-file-management-properties.ui.h:3
 msgid "Compact View"
 msgstr ""
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3410
+#: ../src/file-manager/fm-icon-view.c:3416
 msgid "_Compact"
 msgstr ""
 
-#: ../src/file-manager/fm-icon-view.c:3411
+#: ../src/file-manager/fm-icon-view.c:3417
 msgid "The compact view encountered an error."
 msgstr ""
 
-#: ../src/file-manager/fm-icon-view.c:3412
+#: ../src/file-manager/fm-icon-view.c:3418
 msgid "The compact view encountered an error while starting up."
 msgstr ""
 
-#: ../src/file-manager/fm-icon-view.c:3413
+#: ../src/file-manager/fm-icon-view.c:3419
 msgid "Display this location with the compact view."
 msgstr ""
 
@@ -5978,7 +5983,7 @@ msgid "Bookmark Name:"
 msgstr ""
 
 #: ../src/caja-desktop-window.c:87 ../src/caja-desktop-window.c:270
-#: ../src/caja-pathbar.c:1406 ../src/caja-places-sidebar.c:538
+#: ../src/caja-pathbar.c:1446 ../src/caja-places-sidebar.c:538
 msgid "Desktop"
 msgstr ""
 
@@ -6748,7 +6753,7 @@ msgid "Activate next tab"
 msgstr ""
 
 #: ../src/caja-navigation-window-menus.c:867
-#: ../src/caja-navigation-window-pane.c:467
+#: ../src/caja-navigation-window-pane.c:384
 msgid "Move Tab _Left"
 msgstr ""
 
@@ -6757,7 +6762,7 @@ msgid "Move current tab to left"
 msgstr ""
 
 #: ../src/caja-navigation-window-menus.c:872
-#: ../src/caja-navigation-window-pane.c:475
+#: ../src/caja-navigation-window-pane.c:392
 msgid "Move Tab _Right"
 msgstr ""
 
@@ -6880,11 +6885,11 @@ msgstr ""
 msgid "Toggle between button and text-based location bar"
 msgstr ""
 
-#: ../src/caja-navigation-window-pane.c:457
+#: ../src/caja-navigation-window-pane.c:374
 msgid "_New Tab"
 msgstr ""
 
-#: ../src/caja-navigation-window-pane.c:486
+#: ../src/caja-navigation-window-pane.c:403
 msgid "_Close Tab"
 msgstr ""
 
