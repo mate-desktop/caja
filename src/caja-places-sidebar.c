@@ -2725,7 +2725,7 @@ bookmarks_build_popup_menu (CajaPlacesSidebar *sidebar)
     gtk_widget_show (item);
     gtk_menu_shell_append (GTK_MENU_SHELL (sidebar->popup_menu), item);
 
-    item = eel_image_menu_item_new_from_icon (NULL, _("_Unmount"));
+    item = eel_image_menu_item_new_from_icon ("media-eject", _("_Unmount"));
     sidebar->popup_menu_unmount_item = item;
     g_signal_connect (item, "activate",
                       G_CALLBACK (unmount_shortcut_cb), sidebar);
