@@ -379,7 +379,6 @@ caja_icon_canvas_item_set_property (GObject        *object,
         {
             gail_text_util_text_setup (details->text_util,
                                        details->editable_text);
-            g_object_notify (G_OBJECT(accessible), "accessible-name");
         }
 
         caja_icon_canvas_item_invalidate_label_size (item);

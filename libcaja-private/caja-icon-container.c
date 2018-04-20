@@ -9078,6 +9078,7 @@ end_renaming_mode (CajaIconContainer *container, gboolean commit)
 {
     CajaIcon *icon;
     const char *changed_text;
+    AtkObject *accessible_icon;
 
     set_pending_icon_to_rename (container, NULL);
 
@@ -9110,6 +9111,9 @@ end_renaming_mode (CajaIconContainer *container, gboolean commit)
                            signals[ICON_TEXT_CHANGED], 0,
                            icon->data,
                            changed_text);
+
+	    accessible_icon = atk_gobject_accessible_for_object (G_OBJECT(icon->item));
+	    g_object_notify (G_OBJECT(accessible_icon), "accessible-name");
         }
     }
 
