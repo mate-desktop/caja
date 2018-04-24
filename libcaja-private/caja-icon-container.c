@@ -8025,6 +8025,7 @@ caja_icon_container_request_update_all (CajaIconContainer *container)
 
     g_return_if_fail (CAJA_IS_ICON_CONTAINER (container));
 
+    container->details->is_loading = TRUE;
     for (node = container->details->icons; node != NULL; node = node->next)
     {
         icon = node->data;
@@ -8032,6 +8033,7 @@ caja_icon_container_request_update_all (CajaIconContainer *container)
     }
 
     redo_layout (container);
+    container->details->is_loading = FALSE;
 }
 
 /**
@@ -9579,6 +9581,10 @@ caja_icon_container_accessible_icon_added_cb (CajaIconContainer *container,
     AtkObject *atk_parent;
     AtkObject *atk_child;
     int index;
+
+    // We don't want to emit children_changed signals during the initial load.
+    if (container->details->is_loading)
+        return;
 
     icon = g_hash_table_lookup (container->details->icon_set, icon_data);
     if (icon)
