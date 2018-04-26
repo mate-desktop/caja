@@ -271,6 +271,7 @@ struct CajaIconContainerDetails
     GQueue* a11y_item_action_queue;
 
     eel_boolean_bit is_loading : 1;
+    eel_boolean_bit is_populating_container : 1;
 
     eel_boolean_bit store_layout_timestamps : 1;
     eel_boolean_bit store_layout_timestamps_when_finishing_new_icons : 1;
