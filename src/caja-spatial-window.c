@@ -1002,10 +1002,8 @@ caja_spatial_window_init (CajaSpatialWindow *window)
     pane = caja_window_pane_new (win);
     win->details->panes = g_list_prepend (win->details->panes, pane);
 
-    /* FIXME: changing this to gtk_box_new breaks desktop :-/
-     * see https://github.com/mate-desktop/caja/issues/591
-     */
-    vbox = gtk_vbox_new (FALSE, 0);
+    vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+    gtk_box_set_homogeneous (GTK_BOX (vbox), TRUE);
     gtk_widget_set_hexpand (vbox, TRUE);
     gtk_widget_set_vexpand (vbox, TRUE);
     gtk_grid_attach (GTK_GRID (CAJA_WINDOW (window)->details->grid),
