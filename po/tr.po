@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-12 16:49+0100\n"
+"POT-Creation-Date: 2018-04-13 12:28+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Umut Barış GÖKMEN <umtbrsgkmn@gmail.com>, 2018\n"
 "Language-Team: Turkish (https://www.transifex.com/mate/teams/13566/tr/)\n"
@@ -283,8 +283,8 @@ msgid "Drag an emblem to an object to add it to the object"
 msgstr "Nesneye eklemek için amblemi nesneye sürükleyin"
 
 #. translators: this is the name of an emblem
-#: ../data/browser.xml.h:68 ../src/caja-emblem-sidebar.c:982
-#: ../src/caja-property-browser.c:1935
+#: ../data/browser.xml.h:68 ../src/caja-emblem-sidebar.c:995
+#: ../src/caja-property-browser.c:1951
 msgid "Erase"
 msgstr "Sil"
 
@@ -314,7 +314,7 @@ msgstr "Kendiliğinden Çalışma Sorusu"
 #. Set initial window title
 #: ../data/caja-browser.desktop.in.in.h:1 ../data/caja.desktop.in.in.h:1
 #: ../data/caja-folder-handler.desktop.in.in.h:1
-#: ../src/caja-spatial-window.c:373 ../src/caja-window-menus.c:535
+#: ../src/caja-spatial-window.c:397 ../src/caja-window-menus.c:535
 #: ../src/caja-window.c:163
 msgid "Caja"
 msgstr "Caja"
@@ -328,7 +328,7 @@ msgid "Browse the file system with the file manager"
 msgstr "Dosya yöneticisi ile dosya sistemine gözat"
 
 #: ../data/caja-computer.desktop.in.in.h:1
-#: ../libcaja-private/caja-desktop-link.c:113 ../src/caja-places-sidebar.c:490
+#: ../libcaja-private/caja-desktop-link.c:113 ../src/caja-places-sidebar.c:509
 msgid "Computer"
 msgstr "Bilgisayar"
 
@@ -353,16 +353,16 @@ msgid "Change the behaviour and appearance of file manager windows"
 msgstr "Dosya yönetici pencerelerinin işleyişini ve görünümünü değiştirin"
 
 #: ../data/caja-folder-handler.desktop.in.in.h:2
-#: ../libcaja-private/caja-autorun.c:568
+#: ../libcaja-private/caja-autorun.c:578
 msgid "Open Folder"
 msgstr "Dizin Aç"
 
-#: ../data/caja-home.desktop.in.in.h:1 ../src/file-manager/fm-tree-view.c:1434
+#: ../data/caja-home.desktop.in.in.h:1 ../src/file-manager/fm-tree-view.c:1417
 msgid "Home Folder"
 msgstr "Ev Klasörü"
 
 #. tooltip
-#: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:504
+#: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:523
 #: ../src/caja-window-menus.c:892
 msgid "Open your personal folder"
 msgstr "Kişisel klasörünüzü açın"
@@ -379,19 +379,19 @@ msgstr "X"
 msgid "Y"
 msgstr "Y"
 
-#: ../eel/eel-editable-label.c:327
+#: ../eel/eel-editable-label.c:329
 msgid "Text"
 msgstr "Metin"
 
-#: ../eel/eel-editable-label.c:328
+#: ../eel/eel-editable-label.c:330
 msgid "The text of the label."
 msgstr "Etiketin metni."
 
-#: ../eel/eel-editable-label.c:334
+#: ../eel/eel-editable-label.c:336
 msgid "Justification"
 msgstr "Sayfa ayarı"
 
-#: ../eel/eel-editable-label.c:335
+#: ../eel/eel-editable-label.c:337
 msgid ""
 "The alignment of the lines in the text of the label relative to each other. "
 "This does NOT affect the alignment of the label within its allocation. See "
@@ -401,170 +401,200 @@ msgstr ""
 "etiketlerin kendi içindeki hizalamalarını etkilemeyecektir. Bunun için "
 "GtkMisc::xalign'a bakın."
 
-#: ../eel/eel-editable-label.c:343
+#: ../eel/eel-editable-label.c:345
 msgid "Line wrap"
 msgstr "Satır bölme"
 
-#: ../eel/eel-editable-label.c:344
+#: ../eel/eel-editable-label.c:346
 msgid "If set, wrap lines if the text becomes too wide."
 msgstr "Eğer atanmışsa, satırlar çok geniş olduğunda bölünür."
 
-#: ../eel/eel-editable-label.c:351
+#: ../eel/eel-editable-label.c:353
 msgid "Cursor Position"
 msgstr "İmleç Konumu"
 
-#: ../eel/eel-editable-label.c:352
+#: ../eel/eel-editable-label.c:354
 msgid "The current position of the insertion cursor in chars."
 msgstr "Ekleme imlecinin karakterlerdeki mevcut pozisyonu."
 
-#: ../eel/eel-editable-label.c:361
+#: ../eel/eel-editable-label.c:363
 msgid "Selection Bound"
 msgstr "Seçim Kapsamı"
 
-#: ../eel/eel-editable-label.c:362
+#: ../eel/eel-editable-label.c:364
 msgid ""
 "The position of the opposite end of the selection from the cursor in chars."
 msgstr "Seçimin karşı ucunun imlece göre karakter olarak konumu."
 
 #. name, icon name
 #. label, accelerator
-#: ../eel/eel-editable-label.c:3135 ../libcaja-private/caja-clipboard.c:455
-#: ../src/file-manager/fm-directory-view.c:7306
-#: ../src/file-manager/fm-directory-view.c:7473
+#. add the "cut folder" menu item
+#: ../eel/eel-editable-label.c:3117 ../libcaja-private/caja-clipboard.c:455
+#: ../src/file-manager/fm-directory-view.c:7332
+#: ../src/file-manager/fm-directory-view.c:7499
+#: ../src/file-manager/fm-tree-view.c:1307
 msgid "Cu_t"
 msgstr "_Kes"
 
 #. name, icon name
 #. label, accelerator
-#: ../eel/eel-editable-label.c:3137 ../libcaja-private/caja-clipboard.c:460
-#: ../src/file-manager/fm-directory-view.c:7310
-#: ../src/file-manager/fm-directory-view.c:7477
+#. add the "copy folder" menu item
+#: ../eel/eel-editable-label.c:3119 ../libcaja-private/caja-clipboard.c:460
+#: ../src/file-manager/fm-directory-view.c:7336
+#: ../src/file-manager/fm-directory-view.c:7503
+#: ../src/file-manager/fm-tree-view.c:1316
 msgid "_Copy"
 msgstr "_Kopyala"
 
 #. name, icon name
 #. label, accelerator
-#: ../eel/eel-editable-label.c:3139 ../libcaja-private/caja-clipboard.c:465
-#: ../src/file-manager/fm-directory-view.c:7314
+#: ../eel/eel-editable-label.c:3121 ../libcaja-private/caja-clipboard.c:465
+#: ../src/file-manager/fm-directory-view.c:7340
 msgid "_Paste"
 msgstr "Y_apıştır"
 
-#: ../eel/eel-editable-label.c:3142
+#: ../eel/eel-editable-label.c:3124
 msgid "Select All"
 msgstr "Tümünü Seç"
 
-#: ../eel/eel-editable-label.c:3153
+#: ../eel/eel-editable-label.c:3135
 msgid "Input Methods"
 msgstr "Giriş Yöntemleri"
 
-#: ../eel/eel-gtk-extensions.c:445
+#: ../eel/eel-gtk-extensions.c:459
 msgid "Show more _details"
 msgstr "Daha fazla _ayrıntı göster"
 
-#: ../eel/eel-stock-dialogs.c:233
-msgid "You can stop this operation by clicking cancel."
-msgstr "İptal düğmesine tıklayarak bu işlemi durdurabilirsiniz."
-
-#: ../eel/eel-stock-dialogs.c:237 ../eel/eel-stock-dialogs.c:392
-#: ../eel/eel-stock-dialogs.c:593 ../libcaja-private/caja-autorun.c:1131
-#: ../libcaja-private/caja-file-conflict-dialog.c:655
+#: ../eel/eel-stock-dialogs.c:238 ../eel/eel-stock-dialogs.c:294
+#: ../eel/eel-stock-dialogs.c:449 ../eel/eel-stock-dialogs.c:650
+#: ../libcaja-private/caja-autorun.c:1147
+#: ../libcaja-private/caja-file-conflict-dialog.c:659
 #: ../libcaja-private/caja-file-operations.c:186
 #: ../libcaja-private/caja-mime-actions.c:819
 #: ../libcaja-private/caja-mime-actions.c:1726
-#: ../libcaja-private/caja-open-with-dialog.c:944
-#: ../src/file-manager/fm-directory-view.c:10276
-#: ../src/caja-connect-server-dialog.c:1122 ../src/caja-location-dialog.c:194
+#: ../libcaja-private/caja-open-with-dialog.c:960
+#: ../src/file-manager/fm-directory-view.c:1208
+#: ../src/file-manager/fm-directory-view.c:1350
+#: ../src/file-manager/fm-directory-view.c:7012
+#: ../src/file-manager/fm-directory-view.c:10302
+#: ../src/caja-connect-server-dialog.c:1122 ../src/caja-emblem-sidebar.c:290
+#: ../src/caja-emblem-sidebar.c:547 ../src/caja-location-dialog.c:194
+#: ../src/caja-property-browser.c:1111 ../src/caja-property-browser.c:1191
 msgid "_Cancel"
 msgstr "_Vazgeç"
 
-#: ../eel/eel-stock-dialogs.c:239 ../eel/eel-stock-dialogs.c:394
-#: ../eel/eel-stock-dialogs.c:598 ../libcaja-private/caja-autorun.c:1136
-#: ../libcaja-private/caja-mime-actions.c:1370
-msgid "_OK"
-msgstr ""
+#. name, icon name
+#. label, accelerator
+#. add the "open" menu item
+#: ../eel/eel-stock-dialogs.c:240
+#: ../libcaja-private/caja-open-with-dialog.c:976
+#: ../src/file-manager/fm-directory-view.c:7296
+#: ../src/file-manager/fm-directory-view.c:8805
+#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-location-dialog.c:199
+#: ../src/caja-places-sidebar.c:2678
+msgid "_Open"
+msgstr "_Aç"
 
-#: ../eel/eel-stock-dialogs.c:600
+#: ../eel/eel-stock-dialogs.c:242
+msgid "_Revert"
+msgstr "_Geri al"
+
+#: ../eel/eel-stock-dialogs.c:290
+msgid "You can stop this operation by clicking cancel."
+msgstr "İptal düğmesine tıklayarak bu işlemi durdurabilirsiniz."
+
+#: ../eel/eel-stock-dialogs.c:296 ../eel/eel-stock-dialogs.c:451
+#: ../eel/eel-stock-dialogs.c:655 ../libcaja-private/caja-autorun.c:1152
+#: ../libcaja-private/caja-mime-actions.c:1370
+#: ../src/file-manager/fm-directory-view.c:1213
+#: ../src/caja-emblem-sidebar.c:295 ../src/caja-emblem-sidebar.c:552
+#: ../src/caja-property-browser.c:1116 ../src/caja-property-browser.c:1196
+#: ../src/caja-query-editor.c:720
+msgid "_OK"
+msgstr "_Tamam"
+
+#: ../eel/eel-stock-dialogs.c:657
 msgid "_Clear"
-msgstr ""
+msgstr "_Temizle"
 
 #: ../eel/eel-vfs-extensions.c:96
 msgid " (invalid Unicode)"
 msgstr " (geçersiz Unikod)"
 
-#: ../libcaja-private/caja-autorun.c:518
+#: ../libcaja-private/caja-autorun.c:522
 msgid "No applications found"
 msgstr "Hiçbir uygulama bulunamadı"
 
-#: ../libcaja-private/caja-autorun.c:537
+#: ../libcaja-private/caja-autorun.c:543
 msgid "Ask what to do"
 msgstr "Ne yapılacağını sor"
 
-#: ../libcaja-private/caja-autorun.c:553
+#: ../libcaja-private/caja-autorun.c:561
 msgid "Do Nothing"
 msgstr "Hiçbir Şey Yapma"
 
-#: ../libcaja-private/caja-autorun.c:601 ../src/caja-x-content-bar.c:148
+#: ../libcaja-private/caja-autorun.c:611 ../src/caja-x-content-bar.c:149
 #, c-format
 msgid "Open %s"
 msgstr "%s Aç"
 
-#: ../libcaja-private/caja-autorun.c:643
+#: ../libcaja-private/caja-autorun.c:655
 msgid "Open with other Application..."
 msgstr "Başka Bir Uygulama ile Aç..."
 
-#: ../libcaja-private/caja-autorun.c:1025
+#: ../libcaja-private/caja-autorun.c:1041
 msgid "You have just inserted an Audio CD."
 msgstr "Bir ses CD'si taktınız."
 
-#: ../libcaja-private/caja-autorun.c:1029
+#: ../libcaja-private/caja-autorun.c:1045
 msgid "You have just inserted an Audio DVD."
 msgstr "Bir Ses DVD'si taktınız."
 
-#: ../libcaja-private/caja-autorun.c:1033
+#: ../libcaja-private/caja-autorun.c:1049
 msgid "You have just inserted a Video DVD."
 msgstr "Bir Video DVD'si taktınız."
 
-#: ../libcaja-private/caja-autorun.c:1037
+#: ../libcaja-private/caja-autorun.c:1053
 msgid "You have just inserted a Video CD."
 msgstr "Bir Video CD'si taktınız."
 
-#: ../libcaja-private/caja-autorun.c:1041
+#: ../libcaja-private/caja-autorun.c:1057
 msgid "You have just inserted a Super Video CD."
 msgstr "Bir Süper Video CD'si taktınız."
 
-#: ../libcaja-private/caja-autorun.c:1045
+#: ../libcaja-private/caja-autorun.c:1061
 msgid "You have just inserted a blank CD."
 msgstr "Boş bir CD taktınız."
 
-#: ../libcaja-private/caja-autorun.c:1049
+#: ../libcaja-private/caja-autorun.c:1065
 msgid "You have just inserted a blank DVD."
 msgstr "Boş bir DVD taktınız."
 
-#: ../libcaja-private/caja-autorun.c:1053
+#: ../libcaja-private/caja-autorun.c:1069
 msgid "You have just inserted a blank Blu-Ray disc."
 msgstr "Boş bir Blu-Ray diski taktınız."
 
-#: ../libcaja-private/caja-autorun.c:1057
+#: ../libcaja-private/caja-autorun.c:1073
 msgid "You have just inserted a blank HD DVD."
 msgstr "Boş bir HD DVD taktınız."
 
-#: ../libcaja-private/caja-autorun.c:1061
+#: ../libcaja-private/caja-autorun.c:1077
 msgid "You have just inserted a Photo CD."
 msgstr "Bir Fotoğraf CD'si taktınız."
 
-#: ../libcaja-private/caja-autorun.c:1065
+#: ../libcaja-private/caja-autorun.c:1081
 msgid "You have just inserted a Picture CD."
 msgstr "Bir Resim CD'si taktınız."
 
-#: ../libcaja-private/caja-autorun.c:1069
+#: ../libcaja-private/caja-autorun.c:1085
 msgid "You have just inserted a medium with digital photos."
 msgstr "Dijital fotoğraflar içeren bir ortam takıldı."
 
-#: ../libcaja-private/caja-autorun.c:1073
+#: ../libcaja-private/caja-autorun.c:1089
 msgid "You have just inserted a digital audio player."
 msgstr "Bir dijital ses çalıcı taktınız."
 
-#: ../libcaja-private/caja-autorun.c:1077
+#: ../libcaja-private/caja-autorun.c:1093
 msgid ""
 "You have just inserted a medium with software intended to be automatically "
 "started."
@@ -573,15 +603,15 @@ msgstr ""
 "taktınız."
 
 #. fallback to generic greeting
-#: ../libcaja-private/caja-autorun.c:1082
+#: ../libcaja-private/caja-autorun.c:1098
 msgid "You have just inserted a medium."
 msgstr "Bir ortam taktınız."
 
-#: ../libcaja-private/caja-autorun.c:1084
+#: ../libcaja-private/caja-autorun.c:1100
 msgid "Choose what application to launch."
 msgstr "Ne uygulamasının başlatılacağını seçin."
 
-#: ../libcaja-private/caja-autorun.c:1094
+#: ../libcaja-private/caja-autorun.c:1110
 #, c-format
 msgid ""
 "Select how to open \"%s\" and whether to perform this action in the future "
@@ -590,29 +620,29 @@ msgstr ""
 "\"%s\" nasıl açılacağını ve bu eylemin ileride diğer \"%s\" ortam "
 "türündekiler için kullanılmasını seçin."
 
-#: ../libcaja-private/caja-autorun.c:1122
+#: ../libcaja-private/caja-autorun.c:1138
 msgid "_Always perform this action"
 msgstr "_Her zaman bu eylemi uygula"
 
 #. name, icon name
 #. label, accelerator
 #. add the "Eject" menu item
-#: ../libcaja-private/caja-autorun.c:1145
-#: ../src/file-manager/fm-directory-view.c:7397
-#: ../src/file-manager/fm-directory-view.c:7425
-#: ../src/file-manager/fm-directory-view.c:7506
-#: ../src/file-manager/fm-tree-view.c:1382 ../src/caja-places-sidebar.c:2714
+#: ../libcaja-private/caja-autorun.c:1161
+#: ../src/file-manager/fm-directory-view.c:7423
+#: ../src/file-manager/fm-directory-view.c:7451
+#: ../src/file-manager/fm-directory-view.c:7532
+#: ../src/file-manager/fm-tree-view.c:1365 ../src/caja-places-sidebar.c:2735
 msgid "_Eject"
 msgstr "Çı_kart"
 
 #. name, icon name
 #. label, accelerator
 #. add the "Unmount" menu item
-#: ../libcaja-private/caja-autorun.c:1158
-#: ../src/file-manager/fm-directory-view.c:7393
-#: ../src/file-manager/fm-directory-view.c:7421
-#: ../src/file-manager/fm-directory-view.c:7502
-#: ../src/file-manager/fm-tree-view.c:1373 ../src/caja-places-sidebar.c:2707
+#: ../libcaja-private/caja-autorun.c:1176
+#: ../src/file-manager/fm-directory-view.c:7419
+#: ../src/file-manager/fm-directory-view.c:7447
+#: ../src/file-manager/fm-directory-view.c:7528
+#: ../src/file-manager/fm-tree-view.c:1356 ../src/caja-places-sidebar.c:2728
 msgid "_Unmount"
 msgstr "_Bağı Kaldır"
 
@@ -634,7 +664,7 @@ msgstr "Panoda saklanan resmi yapıştır"
 #. name, icon name
 #. label, accelerator
 #: ../libcaja-private/caja-clipboard.c:470
-#: ../src/file-manager/fm-directory-view.c:7326
+#: ../src/file-manager/fm-directory-view.c:7352
 msgid "Select _All"
 msgstr "Tü_münü Seç"
 
@@ -657,7 +687,7 @@ msgstr "Öntanımlı _Kullan"
 
 #: ../libcaja-private/caja-column-utilities.c:44
 #: ../libcaja-private/caja-mime-application-chooser.c:274
-#: ../src/file-manager/fm-list-view.c:1778
+#: ../src/file-manager/fm-list-view.c:1786
 msgid "Name"
 msgstr "İsim"
 
@@ -723,7 +753,7 @@ msgid "The group of the file."
 msgstr "Dosyanın grubu."
 
 #: ../libcaja-private/caja-column-utilities.c:106
-#: ../src/file-manager/fm-properties-window.c:4746
+#: ../src/file-manager/fm-properties-window.c:4750
 msgid "Permissions"
 msgstr "Erişim Hakları"
 
@@ -756,7 +786,7 @@ msgid "The SELinux security context of the file."
 msgstr "Dosyanın SELinux güvenlik içeriği."
 
 #: ../libcaja-private/caja-column-utilities.c:138
-#: ../src/caja-image-properties-page.c:365 ../src/caja-query-editor.c:135
+#: ../src/caja-image-properties-page.c:365 ../src/caja-query-editor.c:136
 msgid "Location"
 msgstr "Konum"
 
@@ -764,26 +794,35 @@ msgstr "Konum"
 msgid "The location of the file."
 msgstr "Dosyanın konumu."
 
-#: ../libcaja-private/caja-column-utilities.c:182
+#: ../libcaja-private/caja-column-utilities.c:146
+#: ../src/caja-file-management-properties.ui.h:110
+msgid "Extension"
+msgstr "Eklenti"
+
+#: ../libcaja-private/caja-column-utilities.c:147
+msgid "The extension of the file."
+msgstr "Dosyanın uzantısı."
+
+#: ../libcaja-private/caja-column-utilities.c:189
 msgid "Trashed On"
 msgstr "Çöpe Atılma Tarihi:"
 
-#: ../libcaja-private/caja-column-utilities.c:183
+#: ../libcaja-private/caja-column-utilities.c:190
 msgid "Date when file was moved to the Trash"
 msgstr "Dosyanın çöpe taşınma tarihi:"
 
-#: ../libcaja-private/caja-column-utilities.c:189
+#: ../libcaja-private/caja-column-utilities.c:196
 msgid "Original Location"
 msgstr "Asıl Konum"
 
-#: ../libcaja-private/caja-column-utilities.c:190
+#: ../libcaja-private/caja-column-utilities.c:197
 msgid "Original location of file before moved to the Trash"
 msgstr "Dosyanın çöpe taşınmadan önceki asıl yeri"
 
 #: ../libcaja-private/caja-customization-data.c:431
-#: ../libcaja-private/caja-file-conflict-dialog.c:624
+#: ../libcaja-private/caja-file-conflict-dialog.c:628
 #: ../libcaja-private/caja-mime-application-chooser.c:442
-#: ../src/caja-property-browser.c:1982
+#: ../src/caja-property-browser.c:1998
 msgid "Reset"
 msgstr "Sıfırla"
 
@@ -809,7 +848,7 @@ msgid "Network Servers"
 msgstr "Ağ Sunucuları"
 
 #: ../libcaja-private/caja-desktop-link.c:119
-#: ../src/file-manager/fm-tree-view.c:1441 ../src/caja-places-sidebar.c:594
+#: ../src/file-manager/fm-tree-view.c:1424 ../src/caja-places-sidebar.c:613
 #: ../src/caja-trash-bar.c:190
 msgid "Trash"
 msgstr "Çöp kutusu"
@@ -883,12 +922,12 @@ msgstr "Üzgünüm, özel amblem kaydedilemedi."
 msgid "Sorry, unable to save custom emblem name."
 msgstr "Üzgünüm, özel amblem ismi kaydedilemedi."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:145
+#: ../libcaja-private/caja-file-conflict-dialog.c:147
 #, c-format
 msgid "Merge folder \"%s\"?"
 msgstr "\"%s\" dizini birleştirilsin mi?"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:149
+#: ../libcaja-private/caja-file-conflict-dialog.c:151
 msgid ""
 "Merging will ask for confirmation before replacing any files in the folder "
 "that conflict with the files being copied."
@@ -896,142 +935,142 @@ msgstr ""
 "Birleştirme işlemi dizinde kopyalanan dosyalarla çakışan dosyaların üzerine "
 "yazılacağı zaman onay için soracak."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:155
+#: ../libcaja-private/caja-file-conflict-dialog.c:157
 #, c-format
 msgid "An older folder with the same name already exists in \"%s\"."
 msgstr "\"%s\" içinde aynı isimde daha eski bir dizin zaten mevcut."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:161
+#: ../libcaja-private/caja-file-conflict-dialog.c:163
 #, c-format
 msgid "A newer folder with the same name already exists in \"%s\"."
 msgstr "\"%s\" içinde aynı isimde daha yeni bir dizin zaten mevcut."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:167
+#: ../libcaja-private/caja-file-conflict-dialog.c:169
 #, c-format
 msgid "Another folder with the same name already exists in \"%s\"."
 msgstr "\"%s\" içinde aynı isimde başka bir dizin zaten mevcut."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:174
+#: ../libcaja-private/caja-file-conflict-dialog.c:176
 msgid "Replacing it will remove all files in the folder."
 msgstr "Yerine koymak dizindeki tüm dosyaların silinmesine sebep olacaktır."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:176
+#: ../libcaja-private/caja-file-conflict-dialog.c:178
 #, c-format
 msgid "Replace folder \"%s\"?"
 msgstr "\"%s\" dizininin yerine konulsun mu?"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:178
+#: ../libcaja-private/caja-file-conflict-dialog.c:180
 #, c-format
 msgid "A folder with the same name already exists in \"%s\"."
 msgstr "Aynı isimde bir dizin \"%s\" içinde zaten mevcut."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:185
+#: ../libcaja-private/caja-file-conflict-dialog.c:187
 #, c-format
 msgid "Replace file \"%s\"?"
 msgstr "\"%s\" dosyası ile değiştirilsin mi?"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:187
+#: ../libcaja-private/caja-file-conflict-dialog.c:189
 msgid "Replacing it will overwrite its content."
 msgstr "Yerine koymak mevcut içeriğin üzerine yazacaktır."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:192
+#: ../libcaja-private/caja-file-conflict-dialog.c:194
 #, c-format
 msgid "An older file with the same name already exists in \"%s\"."
 msgstr "Aynı isimde eski bir dosya zaten \"%s\" içinde mevcut."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:198
+#: ../libcaja-private/caja-file-conflict-dialog.c:200
 #, c-format
 msgid "A newer file with the same name already exists in \"%s\"."
 msgstr "Aynı isimde yeni bir dosya zaten \"%s\" içinde mevcut."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:204
+#: ../libcaja-private/caja-file-conflict-dialog.c:206
 #, c-format
 msgid "Another file with the same name already exists in \"%s\"."
 msgstr "Aynı isimde başka bir dosya zaten \"%s\" içinde mevcut."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:272
+#: ../libcaja-private/caja-file-conflict-dialog.c:276
 msgid "Original folder"
 msgstr "Orjinal dizin"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:273
-#: ../libcaja-private/caja-file-conflict-dialog.c:312
+#: ../libcaja-private/caja-file-conflict-dialog.c:277
+#: ../libcaja-private/caja-file-conflict-dialog.c:316
 msgid "Items:"
 msgstr "Öğeler:"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:276
+#: ../libcaja-private/caja-file-conflict-dialog.c:280
 msgid "Original file"
 msgstr "Özgün dosya"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:277
-#: ../libcaja-private/caja-file-conflict-dialog.c:316
-#: ../src/file-manager/fm-properties-window.c:3272
+#: ../libcaja-private/caja-file-conflict-dialog.c:281
+#: ../libcaja-private/caja-file-conflict-dialog.c:320
+#: ../src/file-manager/fm-properties-window.c:3274
 msgid "Size:"
 msgstr "Boyut:"
 
 #. second row: type combobox
-#: ../libcaja-private/caja-file-conflict-dialog.c:282
-#: ../libcaja-private/caja-file-conflict-dialog.c:321
-#: ../src/file-manager/fm-properties-window.c:3254
+#: ../libcaja-private/caja-file-conflict-dialog.c:286
+#: ../libcaja-private/caja-file-conflict-dialog.c:325
+#: ../src/file-manager/fm-properties-window.c:3256
 #: ../src/caja-connect-server-dialog.c:930
 msgid "Type:"
 msgstr "Tür:"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:285
-#: ../libcaja-private/caja-file-conflict-dialog.c:324
+#: ../libcaja-private/caja-file-conflict-dialog.c:289
+#: ../libcaja-private/caja-file-conflict-dialog.c:328
 msgid "Last modified:"
 msgstr "Son değiştirme:"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:311
+#: ../libcaja-private/caja-file-conflict-dialog.c:315
 msgid "Merge with"
 msgstr "Şununla birleştir"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:311
 #: ../libcaja-private/caja-file-conflict-dialog.c:315
+#: ../libcaja-private/caja-file-conflict-dialog.c:319
 msgid "Replace with"
 msgstr "Yerine şunu koy:"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:347
+#: ../libcaja-private/caja-file-conflict-dialog.c:351
 msgid "Merge"
 msgstr "Birleştir"
 
 #. Setup the expander for the rename action
-#: ../libcaja-private/caja-file-conflict-dialog.c:610
+#: ../libcaja-private/caja-file-conflict-dialog.c:614
 msgid "Select a new name for the _destination"
 msgstr "He_def için yeni isim seçin"
 
 #. Setup the diff button for text files
-#: ../libcaja-private/caja-file-conflict-dialog.c:635
+#: ../libcaja-private/caja-file-conflict-dialog.c:639
 msgid "Differences..."
 msgstr "Farklılıklar..."
 
 #. Setup the checkbox to apply the action to all files
-#: ../libcaja-private/caja-file-conflict-dialog.c:645
+#: ../libcaja-private/caja-file-conflict-dialog.c:649
 msgid "Apply this action to all files and folders"
 msgstr "Bu eylemi tüm dosya ve dizinlere uygula"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:660
+#: ../libcaja-private/caja-file-conflict-dialog.c:664
 #: ../libcaja-private/caja-file-operations.c:187
 msgid "_Skip"
 msgstr "_Atla"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:665
+#: ../libcaja-private/caja-file-conflict-dialog.c:669
 msgid "Re_name"
 msgstr "Yeniden adland_ır"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:671
+#: ../libcaja-private/caja-file-conflict-dialog.c:675
 msgid "Replace"
 msgstr "Yerine Bunu Koy"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:755
+#: ../libcaja-private/caja-file-conflict-dialog.c:759
 msgid "Merge Folder"
 msgstr "Dizin Birleştirme"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:755
-#: ../libcaja-private/caja-file-conflict-dialog.c:760
+#: ../libcaja-private/caja-file-conflict-dialog.c:759
+#: ../libcaja-private/caja-file-conflict-dialog.c:764
 msgid "File and Folder conflict"
 msgstr "Dosya ve Dizin çakışması"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:760
+#: ../libcaja-private/caja-file-conflict-dialog.c:764
 msgid "File conflict"
 msgstr "Dosya çakışması"
 
@@ -1045,11 +1084,13 @@ msgstr "_Yeniden dene"
 
 #. name, icon name
 #. label, accelerator
+#. add the "delete" menu item
+#. add "delete" menu item
 #: ../libcaja-private/caja-file-operations.c:190
-#: ../src/file-manager/fm-directory-view.c:7358
-#: ../src/file-manager/fm-directory-view.c:7490
-#: ../src/file-manager/fm-directory-view.c:8931
-#: ../src/file-manager/fm-tree-view.c:1360
+#: ../src/file-manager/fm-directory-view.c:7384
+#: ../src/file-manager/fm-directory-view.c:7516
+#: ../src/file-manager/fm-directory-view.c:8957
+#: ../src/file-manager/fm-tree-view.c:1345 ../src/caja-emblem-sidebar.c:375
 msgid "_Delete"
 msgstr "_Sil"
 
@@ -1081,38 +1122,38 @@ msgstr "Yinede kopyala"
 #, c-format
 msgid "%'d second"
 msgid_plural "%'d seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d saniye"
+msgstr[1] "%'d saniye"
 
 #: ../libcaja-private/caja-file-operations.c:315
 #: ../libcaja-private/caja-file-operations.c:326
 #, c-format
 msgid "%'d minute"
 msgid_plural "%'d minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d dakika"
+msgstr[1] "%'d dakika"
 
 #: ../libcaja-private/caja-file-operations.c:325
 #, c-format
 msgid "%'d hour"
 msgid_plural "%'d hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d saat"
+msgstr[1] "%'d saat"
 
 #: ../libcaja-private/caja-file-operations.c:333
 #, c-format
 msgid "approximately %'d hour"
 msgid_plural "approximately %'d hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "yaklaşık %'d saat"
+msgstr[1] "yaklaşık %'d saat"
 
 #. appended to new link file
 #. Note to localizers: convert file type string for file
 #. * (e.g. "folder", "plain text") to file type for symbolic link
 #. * to that kind of file (e.g. "link to folder").
 #: ../libcaja-private/caja-file-operations.c:409
-#: ../libcaja-private/caja-file.c:6526
-#: ../src/file-manager/fm-directory-view.c:10520
+#: ../libcaja-private/caja-file.c:6727
+#: ../src/file-manager/fm-directory-view.c:10546
 #, c-format
 msgid "Link to %s"
 msgstr "%s için bağ"
@@ -1259,7 +1300,9 @@ msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items from the "
 "trash?"
 msgstr[0] ""
+"%'d seçili unsuru kalıcı olarak çöpten silmek istediğinizden emin misiniz?"
 msgstr[1] ""
+"%'d seçili unsuru kalıcı olarak çöpten silmek istediğinizden emin misiniz?"
 
 #: ../libcaja-private/caja-file-operations.c:1375
 #: ../libcaja-private/caja-file-operations.c:1441
@@ -1277,7 +1320,7 @@ msgstr "Çöpteki tüm unsurlar daimi olarak silinecektir."
 #. Empty Trash menu item
 #: ../libcaja-private/caja-file-operations.c:1402
 #: ../libcaja-private/caja-file-operations.c:2333
-#: ../src/caja-places-sidebar.c:2751 ../src/caja-trash-bar.c:197
+#: ../src/caja-places-sidebar.c:2772 ../src/caja-trash-bar.c:197
 msgid "Empty _Trash"
 msgstr "Çöpü _Boşalt"
 
@@ -1291,7 +1334,9 @@ msgid "Are you sure you want to permanently delete the %'d selected item?"
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items?"
 msgstr[0] ""
+"%'d seçili unsuru kalıcı olarak silmek istediğinizden emin misiniz?"
 msgstr[1] ""
+"%'d seçili unsuru kalıcı olarak silmek istediğinizden emin misiniz?"
 
 #: ../libcaja-private/caja-file-operations.c:1471
 msgid "Are you sure you want to trash \"%B\"?"
@@ -1301,8 +1346,8 @@ msgstr "\"% B\" öğesini çöp kutusuna atmak istediğinizden emin misiniz?"
 #, c-format
 msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Seçili %'d unsuru çöp kutusuna taşımak istediğinize emin misiniz?"
+msgstr[1] "Seçili %'d unsuru çöp kutusuna taşımak istediğinize emin misiniz?"
 
 #: ../libcaja-private/caja-file-operations.c:1483
 msgid "Items moved to the trash may be recovered until the trash is emptied."
@@ -1317,8 +1362,8 @@ msgstr "_Çöpe Taşı"
 #, c-format
 msgid "%'d file left to delete"
 msgid_plural "%'d files left to delete"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Silinmek üzere %'d dosya kaldı"
+msgstr[1] "Silinmek üzere %'d dosya kaldı"
 
 #: ../libcaja-private/caja-file-operations.c:1523
 msgid "Deleting files"
@@ -1330,8 +1375,8 @@ msgstr "Dosyalar siliniyor"
 #: ../libcaja-private/caja-file-operations.c:1537
 msgid "%T left"
 msgid_plural "%T left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%T kaldı"
+msgstr[1] "%T kaldı"
 
 #: ../libcaja-private/caja-file-operations.c:1604
 #: ../libcaja-private/caja-file-operations.c:1638
@@ -1390,8 +1435,8 @@ msgstr "Dosyalar çöpe taşınıyor"
 #, c-format
 msgid "%'d file left to trash"
 msgid_plural "%'d files left to trash"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Çöpe atılacak %'d dosya kaldı"
+msgstr[1] "Çöpe atılacak %'d dosya kaldı"
 
 #: ../libcaja-private/caja-file-operations.c:1894
 msgid "Cannot move file to trash, do you want to delete immediately?"
@@ -1442,29 +1487,29 @@ msgstr "%s bağlanamadı"
 #, c-format
 msgid "Preparing to copy %'d file (%S)"
 msgid_plural "Preparing to copy %'d files (%S)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d dosya kopyalanmak için hazırlanıyor (%S)"
+msgstr[1] "%'d dosya kopyalanmak için hazırlanıyor (%S)"
 
 #: ../libcaja-private/caja-file-operations.c:2532
 #, c-format
 msgid "Preparing to move %'d file (%S)"
 msgid_plural "Preparing to move %'d files (%S)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d dosya taşınmak için hazırlanıyor (%S)"
+msgstr[1] "%'d dosya taşınmak için hazırlanıyor (%S)"
 
 #: ../libcaja-private/caja-file-operations.c:2538
 #, c-format
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d dosya silinmek için hazırlanıyor (%S)"
+msgstr[1] "%'d dosya silinmek için hazırlanıyor (%S)"
 
 #: ../libcaja-private/caja-file-operations.c:2544
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d dosya çöpe atılmak için hazırlanıyor"
+msgstr[1] "%'d dosya çöpe atılmak için hazırlanıyor"
 
 #: ../libcaja-private/caja-file-operations.c:2575
 #: ../libcaja-private/caja-file-operations.c:3473
@@ -1559,39 +1604,39 @@ msgstr "\"%B\" çoğaltılıyor"
 #: ../libcaja-private/caja-file-operations.c:3035
 msgid "Moving %'d file (in \"%B\") to \"%B\""
 msgid_plural "Moving %'d files (in \"%B\") to \"%B\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d dosya (\"%B\" içerisinde) \"%B\" hedefine taşınıyor"
+msgstr[1] "%'d dosya (\"%B\" içerisinde) \"%B\" hedefine taşınıyor"
 
 #: ../libcaja-private/caja-file-operations.c:3039
 msgid "Copying %'d file (in \"%B\") to \"%B\""
 msgid_plural "Copying %'d files (in \"%B\") to \"%B\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d dosya (\"%B\" içerisinde) \"%B\" hedefine kopyalanıyor"
+msgstr[1] "%'d dosya (\"%B\" içerisinde) \"%B\" hedefine kopyalanıyor"
 
 #: ../libcaja-private/caja-file-operations.c:3047
 msgid "Duplicating %'d file (in \"%B\")"
 msgid_plural "Duplicating %'d files (in \"%B\")"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d dosya (\"%B\" içerisinde) çoğaltılıyor"
+msgstr[1] "%'d dosya (\"%B\" içerisinde) çoğaltılıyor"
 
 #: ../libcaja-private/caja-file-operations.c:3057
 msgid "Moving %'d file to \"%B\""
 msgid_plural "Moving %'d files to \"%B\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d dosya \"%B\" hedefine taşınıyor"
+msgstr[1] "%'d dosya \"%B\" hedefine taşınıyor"
 
 #: ../libcaja-private/caja-file-operations.c:3061
 msgid "Copying %'d file to \"%B\""
 msgid_plural "Copying %'d files to \"%B\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d dosya \"%B\" hedefine kopyalanıyor"
+msgstr[1] "%'d dosya \"%B\" hedefine kopyalanıyor"
 
 #: ../libcaja-private/caja-file-operations.c:3067
 #, c-format
 msgid "Duplicating %'d file"
 msgid_plural "Duplicating %'d files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d dosya çoğaltılıyor"
+msgstr[1] "%'d dosya çoğaltılıyor"
 
 #. To translators: %S will expand to a size like "2 bytes" or "3 MB", so
 #. something like "4 kb of 4 MB"
@@ -1610,8 +1655,8 @@ msgstr "%S / %S"
 #: ../libcaja-private/caja-file-operations.c:3098
 msgid "%S of %S — %T left (%S/sec)"
 msgid_plural "%S of %S — %T left (%S/sec)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%S / %S — %T kaldı (%S/sn)"
+msgstr[1] "%S / %S — %T kaldı (%S/sn)"
 
 #: ../libcaja-private/caja-file-operations.c:3477
 msgid ""
@@ -1719,8 +1764,8 @@ msgstr "\"%B\" içine Taşımak için Hazırlanıyor"
 #, c-format
 msgid "Preparing to move %'d file"
 msgid_plural "Preparing to move %'d files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d dosya taşınmak için hazırlanıyor"
+msgstr[1] "%'d dosya taşınmak için hazırlanıyor"
 
 #: ../libcaja-private/caja-file-operations.c:4995
 #, c-format
@@ -1739,8 +1784,8 @@ msgstr "\"%B\" içerisinde bağlar oluşturuluyor"
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d dosyaya bağ yapılıyor"
+msgstr[1] "%'d dosyaya bağ yapılıyor"
 
 #: ../libcaja-private/caja-file-operations.c:5432
 msgid "Error while creating link to %B."
@@ -1806,47 +1851,47 @@ msgstr "\"%s\" özgün konumu belirlenemedi"
 msgid "The item cannot be restored from trash"
 msgstr "Öğe çöpten geri getirilemedi"
 
-#: ../libcaja-private/caja-file.c:1217 ../libcaja-private/caja-vfs-file.c:439
+#: ../libcaja-private/caja-file.c:1222 ../libcaja-private/caja-vfs-file.c:439
 msgid "This file cannot be mounted"
 msgstr "Bu dosya bağlanamaz"
 
-#: ../libcaja-private/caja-file.c:1262
+#: ../libcaja-private/caja-file.c:1267
 msgid "This file cannot be unmounted"
 msgstr "Bu dosyanın bağı kesilemez"
 
-#: ../libcaja-private/caja-file.c:1296
+#: ../libcaja-private/caja-file.c:1301
 msgid "This file cannot be ejected"
 msgstr "Bu dosya çıkartılamaz"
 
-#: ../libcaja-private/caja-file.c:1329 ../libcaja-private/caja-vfs-file.c:628
+#: ../libcaja-private/caja-file.c:1334 ../libcaja-private/caja-vfs-file.c:628
 msgid "This file cannot be started"
 msgstr "Bu dosya başlatılamaz"
 
-#: ../libcaja-private/caja-file.c:1381 ../libcaja-private/caja-file.c:1412
+#: ../libcaja-private/caja-file.c:1386 ../libcaja-private/caja-file.c:1417
 msgid "This file cannot be stopped"
 msgstr "Bu dosya durdurulamaz"
 
-#: ../libcaja-private/caja-file.c:1820
+#: ../libcaja-private/caja-file.c:1825
 #, c-format
 msgid "Slashes are not allowed in filenames"
 msgstr "Dosya isimlerinde taksim işareti kullanılamaz"
 
-#: ../libcaja-private/caja-file.c:1838
+#: ../libcaja-private/caja-file.c:1843
 #, c-format
 msgid "File not found"
 msgstr "Dosya bulunamadı"
 
-#: ../libcaja-private/caja-file.c:1866
+#: ../libcaja-private/caja-file.c:1871
 #, c-format
 msgid "Toplevel files cannot be renamed"
 msgstr "Üst düzey dosyalar yeniden adlandırılamıyor"
 
-#: ../libcaja-private/caja-file.c:1889
+#: ../libcaja-private/caja-file.c:1894
 #, c-format
 msgid "Unable to rename desktop icon"
 msgstr "Masaüstü simgesi yeniden adlandırılamadı"
 
-#: ../libcaja-private/caja-file.c:1918
+#: ../libcaja-private/caja-file.c:1923
 #, c-format
 msgid "Unable to rename desktop file"
 msgstr "Masaüstü dosyası yeniden adlandırılamadı"
@@ -1865,62 +1910,62 @@ msgstr "Masaüstü dosyası yeniden adlandırılamadı"
 #. * between the "%" and any numeric directive will turn
 #. * off zero padding, and putting a "_" there will use
 #. * space padding instead of zero padding.
-#: ../libcaja-private/caja-file.c:4508
+#: ../libcaja-private/caja-file.c:4706
 msgid "today at 00:00:00 PM"
 msgstr "bugün saat 00:00:00 da"
 
-#: ../libcaja-private/caja-file.c:4509
-#: ../src/caja-file-management-properties.c:521
+#: ../libcaja-private/caja-file.c:4707
+#: ../src/caja-file-management-properties.c:528
 msgid "today at %-I:%M:%S %p"
 msgstr "bugün saat %-H:%M:%S da"
 
-#: ../libcaja-private/caja-file.c:4511
+#: ../libcaja-private/caja-file.c:4709
 msgid "today at 00:00 PM"
 msgstr "bugün saat 00:00"
 
-#: ../libcaja-private/caja-file.c:4512
+#: ../libcaja-private/caja-file.c:4710
 msgid "today at %-I:%M %p"
 msgstr "bugün saat %-H:%M"
 
-#: ../libcaja-private/caja-file.c:4514
+#: ../libcaja-private/caja-file.c:4712
 msgid "today, 00:00 PM"
 msgstr "bugün saat 00:00 da"
 
-#: ../libcaja-private/caja-file.c:4515
+#: ../libcaja-private/caja-file.c:4713
 msgid "today, %-I:%M %p"
 msgstr "bugün saat %-H:%M da"
 
-#: ../libcaja-private/caja-file.c:4517 ../libcaja-private/caja-file.c:4518
+#: ../libcaja-private/caja-file.c:4715 ../libcaja-private/caja-file.c:4716
 msgid "today"
 msgstr "bugün"
 
 #. Yesterday, use special word.
 #. * Note to localizers: Same issues as "today" string.
-#: ../libcaja-private/caja-file.c:4527
+#: ../libcaja-private/caja-file.c:4725
 msgid "yesterday at 00:00:00 PM"
 msgstr "dün saat 00:00:00 da"
 
-#: ../libcaja-private/caja-file.c:4528
+#: ../libcaja-private/caja-file.c:4726
 msgid "yesterday at %-I:%M:%S %p"
 msgstr "dün saat %-H:%M:%S da"
 
-#: ../libcaja-private/caja-file.c:4530
+#: ../libcaja-private/caja-file.c:4728
 msgid "yesterday at 00:00 PM"
 msgstr "dün saat 00:00 da"
 
-#: ../libcaja-private/caja-file.c:4531
+#: ../libcaja-private/caja-file.c:4729
 msgid "yesterday at %-I:%M %p"
 msgstr "dün saat %-H:%M"
 
-#: ../libcaja-private/caja-file.c:4533
+#: ../libcaja-private/caja-file.c:4731
 msgid "yesterday, 00:00 PM"
 msgstr "dün saat 00:00 da"
 
-#: ../libcaja-private/caja-file.c:4534
+#: ../libcaja-private/caja-file.c:4732
 msgid "yesterday, %-I:%M %p"
 msgstr "dün saat %-H:%M da"
 
-#: ../libcaja-private/caja-file.c:4536 ../libcaja-private/caja-file.c:4537
+#: ../libcaja-private/caja-file.c:4734 ../libcaja-private/caja-file.c:4735
 msgid "yesterday"
 msgstr "dün"
 
@@ -1928,158 +1973,158 @@ msgstr "dün"
 #. * Note to localizers: Same issues as "today" string.
 #. * The width measurement templates correspond to
 #. * the day/month name with the most letters.
-#: ../libcaja-private/caja-file.c:4548
+#: ../libcaja-private/caja-file.c:4746
 msgid "Wednesday, September 00 0000 at 00:00:00 PM"
 msgstr "Eylül 00 0000 Çarşamba, saat 00:00:00 da"
 
-#: ../libcaja-private/caja-file.c:4549
+#: ../libcaja-private/caja-file.c:4747
 msgid "%A, %B %-d %Y at %-I:%M:%S %p"
 msgstr "%m/%-d/%y, %-H:%M"
 
-#: ../libcaja-private/caja-file.c:4551
+#: ../libcaja-private/caja-file.c:4749
 msgid "Mon, Oct 00 0000 at 00:00:00 PM"
 msgstr "Eki 00 0000 Pzt, saat 00:00:00 da"
 
-#: ../libcaja-private/caja-file.c:4552
+#: ../libcaja-private/caja-file.c:4750
 msgid "%a, %b %-d %Y at %-I:%M:%S %p"
 msgstr "%-d %b %Y %a, saat %-H:%M:%S da"
 
-#: ../libcaja-private/caja-file.c:4554
+#: ../libcaja-private/caja-file.c:4752
 msgid "Mon, Oct 00 0000 at 00:00 PM"
 msgstr "Eki 00 0000 Pzt, saat 00:00:00 da"
 
-#: ../libcaja-private/caja-file.c:4555
+#: ../libcaja-private/caja-file.c:4753
 msgid "%a, %b %-d %Y at %-I:%M %p"
 msgstr "%-d %b %Y %a, saat %-H:%M da"
 
-#: ../libcaja-private/caja-file.c:4557
+#: ../libcaja-private/caja-file.c:4755
 msgid "Oct 00 0000 at 00:00 PM"
 msgstr "Eki 00 0000, saat 00:00 da"
 
-#: ../libcaja-private/caja-file.c:4558
+#: ../libcaja-private/caja-file.c:4756
 msgid "%b %-d %Y at %-I:%M %p"
 msgstr "%-d %m %Y, saat %-H:%M da"
 
-#: ../libcaja-private/caja-file.c:4560
+#: ../libcaja-private/caja-file.c:4758
 msgid "Oct 00 0000, 00:00 PM"
 msgstr "Eki 00 0000, saat 00:00 da"
 
-#: ../libcaja-private/caja-file.c:4561
+#: ../libcaja-private/caja-file.c:4759
 msgid "%b %-d %Y, %-I:%M %p"
 msgstr "%-d %b %Y, saat %-H:%M da"
 
-#: ../libcaja-private/caja-file.c:4563
+#: ../libcaja-private/caja-file.c:4761
 msgid "00/00/00, 00:00 PM"
 msgstr "00/00/00, saat 00:00 da"
 
-#: ../libcaja-private/caja-file.c:4564
+#: ../libcaja-private/caja-file.c:4762
 msgid "%m/%-d/%y, %-I:%M %p"
 msgstr "%-d/%m/%y, saat %-H:%M da"
 
-#: ../libcaja-private/caja-file.c:4566
+#: ../libcaja-private/caja-file.c:4764
 msgid "00/00/00"
 msgstr "00/00/00"
 
-#: ../libcaja-private/caja-file.c:4567
+#: ../libcaja-private/caja-file.c:4765
 msgid "%m/%d/%y"
 msgstr "%d/%m/%y"
 
-#: ../libcaja-private/caja-file.c:5206
+#: ../libcaja-private/caja-file.c:5404
 #, c-format
 msgid "Not allowed to set permissions"
 msgstr "Yetkilerin İzinlerin atanmasına izin verilmiyor"
 
-#: ../libcaja-private/caja-file.c:5500
+#: ../libcaja-private/caja-file.c:5698
 #, c-format
 msgid "Not allowed to set owner"
 msgstr "Sahibin atanmasına izin verilmiyor"
 
-#: ../libcaja-private/caja-file.c:5518
+#: ../libcaja-private/caja-file.c:5716
 #, c-format
 msgid "Specified owner '%s' doesn't exist"
 msgstr "Belirtilen sahip '%s' mevcut değil"
 
-#: ../libcaja-private/caja-file.c:5778
+#: ../libcaja-private/caja-file.c:5976
 #, c-format
 msgid "Not allowed to set group"
 msgstr "Grup atamasına izin verilemiyor"
 
-#: ../libcaja-private/caja-file.c:5796
+#: ../libcaja-private/caja-file.c:5994
 #, c-format
 msgid "Specified group '%s' doesn't exist"
 msgstr "Belirtilen grup '%s' mevcut değil"
 
-#: ../libcaja-private/caja-file.c:5950
-#: ../src/file-manager/fm-directory-view.c:2357
+#: ../libcaja-private/caja-file.c:6148
+#: ../src/file-manager/fm-directory-view.c:2370
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'u unsur"
+msgstr[1] "%'u unsur"
 
-#: ../libcaja-private/caja-file.c:5951
+#: ../libcaja-private/caja-file.c:6149
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'u klasör"
+msgstr[1] "%'u klasör"
 
-#: ../libcaja-private/caja-file.c:5952
+#: ../libcaja-private/caja-file.c:6150
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'u dosya"
+msgstr[1] "%'u dosya"
 
 #. Do this in a separate stage so that we don't have to put G_GUINT64_FORMAT
 #. in the translated string
-#: ../libcaja-private/caja-file.c:6056
+#: ../libcaja-private/caja-file.c:6254
 msgid "%"
 msgstr "%"
 
-#: ../libcaja-private/caja-file.c:6057
+#: ../libcaja-private/caja-file.c:6255
 #, c-format
 msgid "%s (%s bytes)"
 msgstr "%s (%s bayt)"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6404 ../libcaja-private/caja-file.c:6428
+#: ../libcaja-private/caja-file.c:6605 ../libcaja-private/caja-file.c:6629
 msgid "? items"
 msgstr "? öğe"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6410 ../libcaja-private/caja-file.c:6418
+#: ../libcaja-private/caja-file.c:6611 ../libcaja-private/caja-file.c:6619
 msgid "? bytes"
 msgstr "? bayt"
 
-#: ../libcaja-private/caja-file.c:6433
+#: ../libcaja-private/caja-file.c:6634
 msgid "unknown type"
 msgstr "bilinmeyen tür"
 
-#: ../libcaja-private/caja-file.c:6436
+#: ../libcaja-private/caja-file.c:6637
 msgid "unknown MIME type"
 msgstr "bilinmeyen MIME türü"
 
 #. Fallback, use for both unknown attributes and attributes
 #. * for which we have no more appropriate default.
-#: ../libcaja-private/caja-file.c:6450
-#: ../src/file-manager/fm-properties-window.c:1287
+#: ../libcaja-private/caja-file.c:6651
+#: ../src/file-manager/fm-properties-window.c:1289
 msgid "unknown"
 msgstr "bilinmiyor"
 
-#: ../libcaja-private/caja-file.c:6500
+#: ../libcaja-private/caja-file.c:6701
 msgid "program"
 msgstr "program"
 
-#: ../libcaja-private/caja-file.c:6520
+#: ../libcaja-private/caja-file.c:6721
 msgid "link"
 msgstr "bağlantı"
 
-#: ../libcaja-private/caja-file.c:6542
+#: ../libcaja-private/caja-file.c:6743
 msgid "link (broken)"
 msgstr "bağlantı (kırık)"
 
-#: ../libcaja-private/caja-icon-container.c:2910
+#: ../libcaja-private/caja-icon-container.c:2912
 msgid "The selection rectangle"
 msgstr "Seçim dikdörtgeni"
 
@@ -2104,12 +2149,13 @@ msgstr "Bu bağ kullanılamaz, çünkü \"%s\" hedefi bulunmuyor."
 
 #. name, icon name
 #. label, accelerator
+#. add the "move to trash" menu item
 #: ../libcaja-private/caja-mime-actions.c:744
-#: ../src/file-manager/fm-directory-view.c:7354
-#: ../src/file-manager/fm-directory-view.c:7486
-#: ../src/file-manager/fm-directory-view.c:8585
-#: ../src/file-manager/fm-directory-view.c:8910
-#: ../src/file-manager/fm-tree-view.c:1346
+#: ../src/file-manager/fm-directory-view.c:7380
+#: ../src/file-manager/fm-directory-view.c:7512
+#: ../src/file-manager/fm-directory-view.c:8611
+#: ../src/file-manager/fm-directory-view.c:8936
+#: ../src/file-manager/fm-tree-view.c:1336
 msgid "Mo_ve to Trash"
 msgstr "Çöp'e _Taşı"
 
@@ -2132,7 +2178,7 @@ msgid "_Display"
 msgstr "_Göster"
 
 #: ../libcaja-private/caja-mime-actions.c:823
-#: ../src/caja-autorun-software.c:253
+#: ../src/caja-autorun-software.c:254
 msgid "_Run"
 msgstr "_Çalıştır"
 
@@ -2145,15 +2191,15 @@ msgstr "Tüm dosyaları açmak istediğinize emin misiniz?"
 #, c-format
 msgid "This will open %d separate tab."
 msgid_plural "This will open %d separate tabs."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Bu %d ayrı sekme açar."
+msgstr[1] "Bu %d ayrı sekme açar."
 
 #: ../libcaja-private/caja-mime-actions.c:1183 ../src/caja-location-bar.c:194
 #, c-format
 msgid "This will open %d separate window."
 msgid_plural "This will open %d separate windows."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Bu %d ayrı pencere açar."
+msgstr[1] "Bu %d ayrı pencere açar."
 
 #: ../libcaja-private/caja-mime-actions.c:1261
 #: ../src/caja-window-manage-views.c:2101
@@ -2219,12 +2265,12 @@ msgstr "Güvenilir _Olarak İşaretle"
 
 #: ../libcaja-private/caja-mime-actions.c:2022
 #: ../libcaja-private/caja-mime-actions.c:2328
-#: ../src/file-manager/fm-directory-view.c:6372
+#: ../src/file-manager/fm-directory-view.c:6389
 msgid "Unable to mount location"
 msgstr "Konum bağlanamadı"
 
 #: ../libcaja-private/caja-mime-actions.c:2416
-#: ../src/file-manager/fm-directory-view.c:6546
+#: ../src/file-manager/fm-directory-view.c:6563
 msgid "Unable to start location"
 msgstr "Konum başlatılamıyor"
 
@@ -2237,17 +2283,17 @@ msgstr "\"%s\" açılıyor."
 #, c-format
 msgid "Opening %d item."
 msgid_plural "Opening %d items."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d unsur açılıyor."
+msgstr[1] "%d unsur açılıyor."
 
 #: ../libcaja-private/caja-mime-application-chooser.c:162
-#: ../libcaja-private/caja-open-with-dialog.c:299
+#: ../libcaja-private/caja-open-with-dialog.c:300
 #, c-format
 msgid "Could not set application as the default: %s"
 msgstr "Uygulamalar öntanımlı olarak atanamadı: %s"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:163
-#: ../libcaja-private/caja-open-with-dialog.c:300
+#: ../libcaja-private/caja-open-with-dialog.c:301
 msgid "Could not set as default application"
 msgstr "Öntanımlı uygulama olarak atanamadı"
 
@@ -2264,12 +2310,12 @@ msgid "Could not remove application"
 msgstr "Uygulama silinemedi"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:420
-#: ../libcaja-private/caja-open-with-dialog.c:1116
+#: ../libcaja-private/caja-open-with-dialog.c:1132
 msgid "_Add"
 msgstr "_Ekle"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:430
-#: ../libcaja-private/caja-open-with-dialog.c:935
+#: ../libcaja-private/caja-open-with-dialog.c:951
 #: ../src/caja-bookmarks-window.ui.h:4
 msgid "_Remove"
 msgstr "_Sil"
@@ -2284,7 +2330,7 @@ msgid "%s document"
 msgstr "%s belgesi"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:599
-#: ../libcaja-private/caja-open-with-dialog.c:1075
+#: ../libcaja-private/caja-open-with-dialog.c:1091
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
@@ -2298,104 +2344,94 @@ msgstr "%s ve \"%s\" türünde diğer dosyaları açmak için bir uygulama seçi
 msgid "Open all files of type \"%s\" with:"
 msgstr "\"%s\" türündeki tüm dosyaları birlikte aç:"
 
-#: ../libcaja-private/caja-open-with-dialog.c:151
+#: ../libcaja-private/caja-open-with-dialog.c:152
 msgid "Could not run application"
 msgstr "Uygulama çalıştırılamadı"
 
-#: ../libcaja-private/caja-open-with-dialog.c:164
+#: ../libcaja-private/caja-open-with-dialog.c:165
 #, c-format
 msgid "Could not find '%s'"
 msgstr "'%s' bulunamadı"
 
-#: ../libcaja-private/caja-open-with-dialog.c:167
+#: ../libcaja-private/caja-open-with-dialog.c:168
 msgid "Could not find application"
 msgstr "Uygulama bulunamadı"
 
-#: ../libcaja-private/caja-open-with-dialog.c:251
+#: ../libcaja-private/caja-open-with-dialog.c:252
 #, c-format
 msgid "Could not add application to the application database: %s"
 msgstr "Uygulama uygulama veritabanına eklenemedi: %s"
 
-#: ../libcaja-private/caja-open-with-dialog.c:252
+#: ../libcaja-private/caja-open-with-dialog.c:253
 msgid "Could not add application"
 msgstr "Uygulama eklenemedi"
 
-#: ../libcaja-private/caja-open-with-dialog.c:450
+#: ../libcaja-private/caja-open-with-dialog.c:451
 msgid "Select an Application"
 msgstr "Bir Uygulama Seçin"
 
-#: ../libcaja-private/caja-open-with-dialog.c:840
-#: ../src/file-manager/fm-properties-window.c:5069
+#: ../libcaja-private/caja-open-with-dialog.c:856
+#: ../src/file-manager/fm-properties-window.c:5073
 msgid "Open With"
 msgstr "Birlikte Aç"
 
-#: ../libcaja-private/caja-open-with-dialog.c:878
+#: ../libcaja-private/caja-open-with-dialog.c:894
 msgid "Select an application to view its description."
 msgstr "Açıklamasını görüntülemek için bir uygulama seçin."
 
-#: ../libcaja-private/caja-open-with-dialog.c:904
+#: ../libcaja-private/caja-open-with-dialog.c:920
 msgid "_Use a custom command"
 msgstr "Özel bir _komut kullan"
 
-#: ../libcaja-private/caja-open-with-dialog.c:921
+#: ../libcaja-private/caja-open-with-dialog.c:937
 msgid "_Browse..."
 msgstr "_Gözat..."
 
-#. name, icon name
-#. label, accelerator
-#: ../libcaja-private/caja-open-with-dialog.c:960
-#: ../src/file-manager/fm-directory-view.c:7270
-#: ../src/file-manager/fm-directory-view.c:8779
-#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-location-dialog.c:199
-#: ../src/caja-places-sidebar.c:2656
-msgid "_Open"
-msgstr "_Aç"
-
 #. first %s is a filename and second %s is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1045
+#: ../libcaja-private/caja-open-with-dialog.c:1061
 #, c-format
 msgid "Open %s and other %s document with:"
 msgstr "%s dosyasını ve diğer %s belgelerini şununla aç:"
 
 #. the %s here is a file name
 #. %s is a filename
-#: ../libcaja-private/caja-open-with-dialog.c:1051
-#: ../libcaja-private/caja-open-with-dialog.c:1091
+#: ../libcaja-private/caja-open-with-dialog.c:1067
+#: ../libcaja-private/caja-open-with-dialog.c:1107
 #, c-format
 msgid "Open %s with:"
 msgstr "%s dosyasını şununla aç:"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1052
+#: ../libcaja-private/caja-open-with-dialog.c:1068
 #, c-format
 msgid "_Remember this application for %s documents"
 msgstr "Bu uygulamayı %s belgeleri için hatırla"
 
 #. Only in add mode - the %s here is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1063
+#: ../libcaja-private/caja-open-with-dialog.c:1079
 #, c-format
 msgid "Open all %s documents with:"
 msgstr "Tüm %s belgelerini şununla aç:"
 
 #. First %s is a filename, second is a description
 #. * of the type, eg "plain text document"
-#: ../libcaja-private/caja-open-with-dialog.c:1085
+#: ../libcaja-private/caja-open-with-dialog.c:1101
 #, c-format
 msgid "Open %s and other \"%s\" files with:"
 msgstr "%s ve diğer \"%s\" dosyalarını şununla aç:"
 
 #. %s is a file type description
-#: ../libcaja-private/caja-open-with-dialog.c:1093
+#: ../libcaja-private/caja-open-with-dialog.c:1109
 #, c-format
 msgid "_Remember this application for \"%s\" files"
 msgstr "Bu uygulamayı \"%s\" dosyaları için _hatırla"
 
 #. Only in add mode
-#: ../libcaja-private/caja-open-with-dialog.c:1104
+#: ../libcaja-private/caja-open-with-dialog.c:1120
 #, c-format
 msgid "Open all \"%s\" files with:"
 msgstr "Tüm \"%s\" dosyalarını şununla aç:"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1117
+#: ../libcaja-private/caja-open-with-dialog.c:1133
 msgid "Add Application"
 msgstr "Uygulama Ekle"
 
@@ -2440,25 +2476,25 @@ msgstr ""
 "Bu dosyayı görüntülemek için başka bir faaliyet yoktur. Bilgisayarınıza "
 "kopyalarsanız, belki açabilirsiniz."
 
-#: ../libcaja-private/caja-program-choosing.c:459
+#: ../libcaja-private/caja-program-choosing.c:461
 msgid "Sorry, but you cannot execute commands from a remote site."
 msgstr "Üzgünüm, fakat uzaktaki sitedeki komutları çalıştıramazsınız."
 
-#: ../libcaja-private/caja-program-choosing.c:461
+#: ../libcaja-private/caja-program-choosing.c:463
 msgid "This is disabled due to security considerations."
 msgstr "Bu güvenlik kaygısı nedeniyle kapatılmıştır."
 
-#: ../libcaja-private/caja-program-choosing.c:473
-#: ../libcaja-private/caja-program-choosing.c:541
+#: ../libcaja-private/caja-program-choosing.c:475
+#: ../libcaja-private/caja-program-choosing.c:543
 msgid "There was an error launching the application."
 msgstr "Uygulama başlatılırken bir hata oluştu."
 
-#: ../libcaja-private/caja-program-choosing.c:502
-#: ../libcaja-private/caja-program-choosing.c:515
+#: ../libcaja-private/caja-program-choosing.c:504
+#: ../libcaja-private/caja-program-choosing.c:517
 msgid "This drop target only supports local files."
 msgstr "Bu bırakma hedefi sadece yerel dosyalar için destekleniyor."
 
-#: ../libcaja-private/caja-program-choosing.c:503
+#: ../libcaja-private/caja-program-choosing.c:505
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again."
@@ -2466,7 +2502,7 @@ msgstr ""
 "Yerel olmayan dosyaları açmak için, onları yerel bir dizine kopyalayın daha "
 "sonra tekrar bırakmayı deneyin."
 
-#: ../libcaja-private/caja-program-choosing.c:516
+#: ../libcaja-private/caja-program-choosing.c:518
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again. The local files you dropped have already been opened."
@@ -2474,7 +2510,7 @@ msgstr ""
 "Yerel olmayan dosyaları açmak için bunları önce yerel bir dizine kopyalayın "
 "ve tekrar bırakın. Bıraktığınız yerel dosyalar zaten açıldı."
 
-#: ../libcaja-private/caja-program-choosing.c:539
+#: ../libcaja-private/caja-program-choosing.c:541
 msgid "Details: "
 msgstr "Detaylar: "
 
@@ -2502,8 +2538,8 @@ msgstr "kuyruğa ekleniyor"
 #, c-format
 msgid "%'d file operation active"
 msgid_plural "%'d file operations active"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d dosya işlemi etkin"
+msgstr[1] "%'d dosya işlemi etkin"
 
 #: ../libcaja-private/caja-progress-info.c:975
 #: ../libcaja-private/caja-progress-info.c:996
@@ -2700,29 +2736,29 @@ msgstr "'%s' unsurunun sahibini '%s' olarak tanımla"
 #, c-format
 msgid "_Undo copy of %d item"
 msgid_plural "_Undo copy of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d unsurun kopyalanmasını _geri al"
+msgstr[1] "%d unsurun kopyalanmasını _geri al"
 
 #: ../libcaja-private/caja-undostack-manager.c:1511
 #, c-format
 msgid "_Undo duplicate of %d item"
 msgid_plural "_Undo duplicate of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d unsurun çoğaltılmasını _geri al"
+msgstr[1] "%d unsurun çoğaltılmasını _geri al"
 
 #: ../libcaja-private/caja-undostack-manager.c:1516
 #, c-format
 msgid "_Undo move of %d item"
 msgid_plural "_Undo move of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d unsurun taşınmasını _geri al"
+msgstr[1] "%d unsurun taşınmasını _geri al"
 
 #: ../libcaja-private/caja-undostack-manager.c:1521
 #, c-format
 msgid "_Undo rename of %d item"
 msgid_plural "_Undo rename of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d unsurun yeniden adlandırılmasını _geri al"
+msgstr[1] "%d unsurun yeniden adlandırılmasını _geri al"
 
 #: ../libcaja-private/caja-undostack-manager.c:1525
 #, c-format
@@ -2738,92 +2774,92 @@ msgstr "Şablondan dosya oluşturulmasını _geri al"
 #, c-format
 msgid "_Undo creation of %d folder"
 msgid_plural "_Undo creation of %d folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d klasörün oluşturulmasını _geri al"
+msgstr[1] "%d klasörün oluşturulmasını _geri al"
 
 #: ../libcaja-private/caja-undostack-manager.c:1537
 #, c-format
 msgid "_Undo move to trash of %d item"
 msgid_plural "_Undo move to trash of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d unsurun çöpe taşınmasını _geri al"
+msgstr[1] "%d unsurun çöpe taşınmasını _geri al"
 
 #: ../libcaja-private/caja-undostack-manager.c:1542
 #, c-format
 msgid "_Undo restore from trash of %d item"
 msgid_plural "_Undo restore from trash of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d unsurun çöpten çıkarılmasını _geri al"
+msgstr[1] "%d unsurun çöpten çıkarılmasını _geri al"
 
 #: ../libcaja-private/caja-undostack-manager.c:1547
 #, c-format
 msgid "_Undo create link to %d item"
 msgid_plural "_Undo create link to %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d unsura bağlantı oluşturulmasını _geri al"
+msgstr[1] "%d unsura bağlantı oluşturulmasını _geri al"
 
 #: ../libcaja-private/caja-undostack-manager.c:1552
 #, c-format
 msgid "_Undo delete of %d item"
 msgid_plural "_Undo delete of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d unsurun silinmesini _geri al"
+msgstr[1] "%d unsurun silinmesini _geri al"
 
 #: ../libcaja-private/caja-undostack-manager.c:1557
 #, c-format
 msgid "Undo recursive change permissions of %d item"
 msgid_plural "Undo recursive change permissions of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d unsur için yinelenen izin değiştirilmesini geri al"
+msgstr[1] "%d unsur için yinelenen izin değiştirilmesini geri al"
 
 #: ../libcaja-private/caja-undostack-manager.c:1563
 #, c-format
 msgid "Undo change permissions of %d item"
 msgid_plural "Undo change permissions of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d unsurun izinlerinin değiştirilmesini geri al"
+msgstr[1] "%d unsurun izinlerinin değiştirilmesini geri al"
 
 #: ../libcaja-private/caja-undostack-manager.c:1568
 #, c-format
 msgid "Undo change group of %d item"
 msgid_plural "Undo change group of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d unsurun grubunun değiştirilmesini geri al"
+msgstr[1] "%d unsurun grubunun değiştirilmesini geri al"
 
 #: ../libcaja-private/caja-undostack-manager.c:1573
 #, c-format
 msgid "Undo change owner of %d item"
 msgid_plural "Undo change owner of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d unsurun sahibinin değiştirilmesini geri al"
+msgstr[1] "%d unsurun sahibinin değiştirilmesini geri al"
 
 #: ../libcaja-private/caja-undostack-manager.c:1601
 #, c-format
 msgid "_Redo copy of %d item"
 msgid_plural "_Redo copy of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d unsurun kopyalanmasını _tekrarla"
+msgstr[1] "%d unsurun kopyalanmasını _tekrarla"
 
 #: ../libcaja-private/caja-undostack-manager.c:1606
 #, c-format
 msgid "_Redo duplicate of %d item"
 msgid_plural "_Redo duplicate of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d unsurun çoğaltılmasını _tekrarla"
+msgstr[1] "%d unsurun çoğaltılmasını _tekrarla"
 
 #: ../libcaja-private/caja-undostack-manager.c:1611
 #, c-format
 msgid "_Redo move of %d item"
 msgid_plural "_Redo move of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d unsurun taşınmasını _tekrarla"
+msgstr[1] "%d unsurun taşınmasını _tekrarla"
 
 #: ../libcaja-private/caja-undostack-manager.c:1616
 #, c-format
 msgid "_Redo rename of %d item"
 msgid_plural "_Redo rename of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d unsurun yeniden adlandırılmasını _tekrarla"
+msgstr[1] "%d unsurun yeniden adlandırılmasını _tekrarla"
 
 #: ../libcaja-private/caja-undostack-manager.c:1620
 #, c-format
@@ -2839,64 +2875,64 @@ msgstr "Şablondan boş dosya oluşturulmasını _tekrarla"
 #, c-format
 msgid "_Redo creation of %d folder"
 msgid_plural "_Redo creation of %d folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d klasör oluşturulmasını _tekrarla"
+msgstr[1] "%d klasör oluşturulmasını _tekrarla"
 
 #: ../libcaja-private/caja-undostack-manager.c:1632
 #, c-format
 msgid "_Redo move to trash of %d item"
 msgid_plural "_Redo move to trash of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d unsurun çöpe taşınmasını _tekrarla"
+msgstr[1] "%d unsurun çöpe taşınmasını _tekrarla"
 
 #: ../libcaja-private/caja-undostack-manager.c:1637
 #, c-format
 msgid "_Redo restore from trash of %d item"
 msgid_plural "_Redo restore from trash of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d unsurun çöpten çıkarılmasını _tekrarla"
+msgstr[1] "%d unsurun çöpten çıkarılmasını _tekrarla"
 
 #: ../libcaja-private/caja-undostack-manager.c:1642
 #, c-format
 msgid "_Redo create link to %d item"
 msgid_plural "_Redo create link to %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d unsura bağlantı oluşturulmasını _tekrarla"
+msgstr[1] "%d unsura bağlantı oluşturulmasını _tekrarla"
 
 #: ../libcaja-private/caja-undostack-manager.c:1647
 #, c-format
 msgid "_Redo delete of %d item"
 msgid_plural "_Redo delete of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d unsurun silinmesini _tekrarla"
+msgstr[1] "%d unsurun silinmesini _tekrarla"
 
 #: ../libcaja-private/caja-undostack-manager.c:1652
 #, c-format
 msgid "Redo recursive change permissions of %d item"
 msgid_plural "Redo recursive change permissions of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d unsur için yinelenen izin değiştirilmesini tekrarla"
+msgstr[1] "%d unsur için yinelenen izin değiştirilmesini tekrarla"
 
 #: ../libcaja-private/caja-undostack-manager.c:1658
 #, c-format
 msgid "Redo change permissions of %d item"
 msgid_plural "Redo change permissions of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d unsurun izinlerinin değiştirilmesini tekrarla"
+msgstr[1] "%d unsurun izinlerinin değiştirilmesini tekrarla"
 
 #: ../libcaja-private/caja-undostack-manager.c:1663
 #, c-format
 msgid "Redo change group of %d item"
 msgid_plural "Redo change group of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d unsurun grubunun değiştirilmesini tekrarla"
+msgstr[1] "%d unsurun grubunun değiştirilmesini tekrarla"
 
 #: ../libcaja-private/caja-undostack-manager.c:1668
 #, c-format
 msgid "Redo change owner of %d item"
 msgid_plural "Redo change owner of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d unsurun sahibinin değiştirilmesini tekrarla"
+msgstr[1] "%d unsurun sahibinin değiştirilmesini tekrarla"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:1
 msgid "Where to position newly open tabs in browser windows."
@@ -3828,59 +3864,59 @@ msgstr "Ortam yönetimi seçenekleri:"
 msgid "Show session management options"
 msgstr "Ortam yönetimi seçeneklerini göster"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:667
+#: ../src/file-manager/fm-desktop-icon-view.c:672
 msgid "Background"
 msgstr "Arkaplan"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:744
-#: ../src/file-manager/fm-directory-view.c:7302
-#: ../src/file-manager/fm-directory-view.c:8979
+#: ../src/file-manager/fm-desktop-icon-view.c:749
+#: ../src/file-manager/fm-directory-view.c:7328
+#: ../src/file-manager/fm-directory-view.c:9005
 msgid "E_mpty Trash"
 msgstr "Çöpü _Boşalt"
 
 #. label, accelerator
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:758
-#: ../src/file-manager/fm-directory-view.c:7266
+#: ../src/file-manager/fm-desktop-icon-view.c:763
+#: ../src/file-manager/fm-directory-view.c:7292
 msgid "Create L_auncher..."
 msgstr "_Başlatıcı Oluştur..."
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:760
-#: ../src/file-manager/fm-directory-view.c:7267
+#: ../src/file-manager/fm-desktop-icon-view.c:765
+#: ../src/file-manager/fm-directory-view.c:7293
 msgid "Create a new launcher"
 msgstr "Yeni başlatıcı oluştur"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:767
+#: ../src/file-manager/fm-desktop-icon-view.c:772
 msgid "Change Desktop _Background"
 msgstr "_Masaüstü Arkaplanını Değiştir"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:769
+#: ../src/file-manager/fm-desktop-icon-view.c:774
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr "Masaüstü arkaplanı rengi ya da desenini ayarlayacak pencere aç"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:776
+#: ../src/file-manager/fm-desktop-icon-view.c:781
 msgid "Empty Trash"
 msgstr "Çöpü Boşalt"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:778
-#: ../src/file-manager/fm-directory-view.c:7303 ../src/caja-trash-bar.c:204
+#: ../src/file-manager/fm-desktop-icon-view.c:783
+#: ../src/file-manager/fm-directory-view.c:7329 ../src/caja-trash-bar.c:204
 msgid "Delete all items in the Trash"
 msgstr "Çöpteki tüm öğeleri sil"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:878
+#: ../src/file-manager/fm-desktop-icon-view.c:883
 msgid "The desktop view encountered an error."
 msgstr "Masaüstü görünümü bir hata ile karşılaştı."
 
-#: ../src/file-manager/fm-desktop-icon-view.c:879
+#: ../src/file-manager/fm-desktop-icon-view.c:884
 msgid "The desktop view encountered an error while starting up."
 msgstr "Masaüstü görünümü başlatılırken bir hata ile karşılaşıldı."
 
@@ -3888,113 +3924,126 @@ msgstr "Masaüstü görünümü başlatılırken bir hata ile karşılaşıldı.
 #, c-format
 msgid "This will open %'d separate tab."
 msgid_plural "This will open %'d separate tabs."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Bu %'d ayrı sekme açacak."
+msgstr[1] "Bu %'d ayrı sekme açacak."
 
 #: ../src/file-manager/fm-directory-view.c:658
 #, c-format
 msgid "This will open %'d separate window."
 msgid_plural "This will open %'d separate windows."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Bu %'d ayrı pencere açacak."
+msgstr[1] "Bu %'d ayrı pencere açacak."
 
 #: ../src/file-manager/fm-directory-view.c:1177
-#: ../src/file-manager/fm-properties-window.c:5414
+#: ../src/file-manager/fm-properties-window.c:5418
 #: ../src/caja-connect-server-dialog.c:718 ../src/caja-location-dialog.c:102
 msgid "There was an error displaying help."
 msgstr "Yardım gösterilirken bir hata oluştu."
 
-#: ../src/file-manager/fm-directory-view.c:1197
+#: ../src/file-manager/fm-directory-view.c:1198
 msgid "Select Items Matching"
 msgstr "Eşleşen Öğeleri Seçin"
 
-#: ../src/file-manager/fm-directory-view.c:1212
+#. create the "help" button
+#. name, icon name, label
+#: ../src/file-manager/fm-directory-view.c:1203
+#: ../src/file-manager/fm-properties-window.c:5176
+#: ../src/caja-bookmarks-window.ui.h:2
+#: ../src/caja-connect-server-dialog.c:1117 ../src/caja-emblem-sidebar.c:300
+#: ../src/caja-emblem-sidebar.c:557
+#: ../src/caja-file-management-properties.ui.h:42
+#: ../src/caja-location-dialog.c:189 ../src/caja-property-browser.c:390
+#: ../src/caja-window-menus.c:809
+msgid "_Help"
+msgstr "_Yardım"
+
+#: ../src/file-manager/fm-directory-view.c:1222
 msgid "_Pattern:"
 msgstr "_Desen:"
 
-#: ../src/file-manager/fm-directory-view.c:1219
+#: ../src/file-manager/fm-directory-view.c:1229
 msgid "Examples: "
 msgstr "Örnekler: "
 
-#: ../src/file-manager/fm-directory-view.c:1335
+#: ../src/file-manager/fm-directory-view.c:1346
 msgid "Save Search as"
 msgstr "Aramayı Kaydet"
 
-#: ../src/file-manager/fm-directory-view.c:1341
+#: ../src/file-manager/fm-directory-view.c:1354
 msgid "_Save"
 msgstr "_Kaydet"
 
-#: ../src/file-manager/fm-directory-view.c:1360
+#: ../src/file-manager/fm-directory-view.c:1373
 msgid "Search _name:"
 msgstr "Arama _adı:"
 
-#: ../src/file-manager/fm-directory-view.c:1376
+#: ../src/file-manager/fm-directory-view.c:1389
 msgid "_Folder:"
 msgstr "_Dizin:"
 
-#: ../src/file-manager/fm-directory-view.c:1381
+#: ../src/file-manager/fm-directory-view.c:1394
 msgid "Select Folder to Save Search In"
 msgstr "Aramanın Kaydedileceği Dizini Seçin"
 
-#: ../src/file-manager/fm-directory-view.c:2270
-#: ../src/file-manager/fm-directory-view.c:2307
+#: ../src/file-manager/fm-directory-view.c:2283
+#: ../src/file-manager/fm-directory-view.c:2320
 #, c-format
 msgid "\"%s\" selected"
 msgstr "\"%s\" seçildi"
 
-#: ../src/file-manager/fm-directory-view.c:2272
+#: ../src/file-manager/fm-directory-view.c:2285
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d klasör seçildi"
+msgstr[1] "%'d klasör seçildi"
 
-#: ../src/file-manager/fm-directory-view.c:2282
+#: ../src/file-manager/fm-directory-view.c:2295
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] " (%'d unsur içeriyor)"
+msgstr[1] " (%'d unsur içeriyor)"
 
 #. translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
-#: ../src/file-manager/fm-directory-view.c:2293
+#: ../src/file-manager/fm-directory-view.c:2306
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] " (toplam olarak %'d unsur içeriyor)"
+msgstr[1] " (toplam olarak %'d unsur içeriyor)"
 
-#: ../src/file-manager/fm-directory-view.c:2310
+#: ../src/file-manager/fm-directory-view.c:2323
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d unsur seçildi"
+msgstr[1] "%'d unsur seçildi"
 
 #. Folders selected also, use "other" terminology
-#: ../src/file-manager/fm-directory-view.c:2317
+#: ../src/file-manager/fm-directory-view.c:2330
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d başka unsur seçildi"
+msgstr[1] "%'d başka unsur seçildi"
 
 #. This is marked for translation in case a localiser
 #. * needs to use something other than parentheses. The
 #. * first message gives the number of items selected;
 #. * the message in parentheses the size of those items.
-#: ../src/file-manager/fm-directory-view.c:2336
+#: ../src/file-manager/fm-directory-view.c:2349
 #, c-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-directory-view.c:2349
+#: ../src/file-manager/fm-directory-view.c:2362
 #, c-format
 msgid "Free space: %s"
 msgstr "Boş alan: %s"
 
-#: ../src/file-manager/fm-directory-view.c:2360
+#: ../src/file-manager/fm-directory-view.c:2373
 #, c-format
 msgid "%s, Free space: %s"
 msgstr "%s, Boş alan: %s"
@@ -4003,7 +4052,7 @@ msgstr "%s, Boş alan: %s"
 #. * might want to change "," to something else.
 #. * After the comma the amount of free space will
 #. * be shown.
-#: ../src/file-manager/fm-directory-view.c:2375
+#: ../src/file-manager/fm-directory-view.c:2388
 #, c-format
 msgid "%s, %s"
 msgstr "%s, %s"
@@ -4018,8 +4067,8 @@ msgstr "%s, %s"
 #. * and the number of items in those folders and the
 #. * message about the number of other items and the
 #. * total size of those items.
-#: ../src/file-manager/fm-directory-view.c:2394
-#: ../src/file-manager/fm-directory-view.c:2408
+#: ../src/file-manager/fm-directory-view.c:2407
+#: ../src/file-manager/fm-directory-view.c:2421
 #, c-format
 msgid "%s%s, %s"
 msgstr "%s%s, %s"
@@ -4031,48 +4080,48 @@ msgstr "%s%s, %s"
 #. * message about the number of other items and the
 #. * total size of those items. After the second comma
 #. * the free space is written.
-#: ../src/file-manager/fm-directory-view.c:2421
+#: ../src/file-manager/fm-directory-view.c:2434
 #, c-format
 msgid "%s%s, %s, %s"
 msgstr "%s%s, %s, %s"
 
-#: ../src/file-manager/fm-directory-view.c:4466
+#: ../src/file-manager/fm-directory-view.c:4479
 #: ../src/caja-information-panel.c:905
 #, c-format
 msgid "Open With %s"
 msgstr "%s ile Aç"
 
-#: ../src/file-manager/fm-directory-view.c:4468
+#: ../src/file-manager/fm-directory-view.c:4481
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Seçili unsuru açmak için \"%s\" kullan"
+msgstr[1] "Seçili unsurları açmak için \"%s\" kullan"
 
-#: ../src/file-manager/fm-directory-view.c:4557
+#: ../src/file-manager/fm-directory-view.c:4570
 msgid "Open parent location"
 msgstr "Üst konumu aç"
 
-#: ../src/file-manager/fm-directory-view.c:4558
+#: ../src/file-manager/fm-directory-view.c:4571
 msgid "Open parent location for the selected item"
 msgstr "Seçilen unsur için üst konumu aç"
 
-#: ../src/file-manager/fm-directory-view.c:5407
+#: ../src/file-manager/fm-directory-view.c:5424
 #, c-format
 msgid "Run \"%s\" on any selected items"
 msgstr "Herhangi bir seçili öğe üzerinde \"%s\" çalıştır"
 
-#: ../src/file-manager/fm-directory-view.c:5658
+#: ../src/file-manager/fm-directory-view.c:5675
 #, c-format
 msgid "Create Document from template \"%s\""
 msgstr "\"%s\" şablonundan Belge oluştur"
 
-#: ../src/file-manager/fm-directory-view.c:5908
+#: ../src/file-manager/fm-directory-view.c:5925
 msgid "All executable files in this folder will appear in the Scripts menu."
 msgstr ""
 "Bu dizindeki tüm çalıştırılabilir dosyalar Betikler menüsünde görünecek."
 
-#: ../src/file-manager/fm-directory-view.c:5910
+#: ../src/file-manager/fm-directory-view.c:5927
 msgid ""
 "Choosing a script from the menu will run that script with any selected items"
 " as input."
@@ -4080,7 +4129,7 @@ msgstr ""
 "Menüden bir betik seçmek, bu betiği girdi olarak tüm seçili öğeleri "
 "kullanarak çalıştırır."
 
-#: ../src/file-manager/fm-directory-view.c:5912
+#: ../src/file-manager/fm-directory-view.c:5929
 msgid ""
 "All executable files in this folder will appear in the Scripts menu. Choosing a script from the menu will run that script.\n"
 "\n"
@@ -4122,126 +4171,128 @@ msgstr ""
 "\n"
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: bir bölme gösterim penceresinin aktif olmayan kısmındaki mevcut yerleşim için URI"
 
-#: ../src/file-manager/fm-directory-view.c:5980
-#: ../src/file-manager/fm-tree-view.c:1009
+#: ../src/file-manager/fm-directory-view.c:5997
+#: ../src/file-manager/fm-tree-view.c:1010
 #, c-format
 msgid "\"%s\" will be moved if you select the Paste command"
 msgstr "Yapıştır komutunu seçerseniz \"%s\" taşınacak"
 
-#: ../src/file-manager/fm-directory-view.c:5984
-#: ../src/file-manager/fm-tree-view.c:1015
+#: ../src/file-manager/fm-directory-view.c:6001
+#: ../src/file-manager/fm-tree-view.c:1016
 #, c-format
 msgid "\"%s\" will be copied if you select the Paste command"
 msgstr "Yapıştır komutunu seçerseniz \"%s\" kopyalanacak"
 
-#: ../src/file-manager/fm-directory-view.c:5991
+#: ../src/file-manager/fm-directory-view.c:6008
 #, c-format
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be moved if you select the Paste command"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Eğer Yapıştır komutunu seçerseniz %'d seçili unsur taşınacak"
+msgstr[1] "Eğer Yapıştır komutunu seçerseniz %'d seçili unsur taşınacak"
 
-#: ../src/file-manager/fm-directory-view.c:5998
+#: ../src/file-manager/fm-directory-view.c:6015
 #, c-format
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be copied if you select the Paste command"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Eğer Yapıştır komutunu seçerseniz %'d seçili unsur kopyalanacak"
+msgstr[1] "Eğer Yapıştır komutunu seçerseniz %'d seçili unsur kopyalanacak"
 
-#: ../src/file-manager/fm-directory-view.c:6178
-#: ../src/file-manager/fm-tree-view.c:1055
+#: ../src/file-manager/fm-directory-view.c:6195
+#: ../src/file-manager/fm-tree-view.c:1056
 msgid "There is nothing on the clipboard to paste."
 msgstr "Panoda yapıştırılacak bir şey yok."
 
-#: ../src/file-manager/fm-directory-view.c:6393
+#: ../src/file-manager/fm-directory-view.c:6410
 msgid "Unable to unmount location"
 msgstr "Konum bağı kesilemiyor"
 
-#: ../src/file-manager/fm-directory-view.c:6414
+#: ../src/file-manager/fm-directory-view.c:6431
 msgid "Unable to eject location"
 msgstr "Konum çıkartılamıyor"
 
-#: ../src/file-manager/fm-directory-view.c:6429
+#: ../src/file-manager/fm-directory-view.c:6446
 msgid "Unable to stop drive"
 msgstr "Sürücü durdurulamıyor"
 
-#: ../src/file-manager/fm-directory-view.c:6986
+#: ../src/file-manager/fm-directory-view.c:7005
 #, c-format
 msgid "Connect to Server %s"
 msgstr "%s Sunucusuna Bağlan"
 
-#: ../src/file-manager/fm-directory-view.c:6991
-#: ../src/file-manager/fm-directory-view.c:8198
-#: ../src/file-manager/fm-directory-view.c:8290
-#: ../src/file-manager/fm-directory-view.c:8400
+#: ../src/file-manager/fm-directory-view.c:7017
+#: ../src/file-manager/fm-directory-view.c:8224
+#: ../src/file-manager/fm-directory-view.c:8316
+#: ../src/file-manager/fm-directory-view.c:8426
 msgid "_Connect"
 msgstr "_Bağlan"
 
-#: ../src/file-manager/fm-directory-view.c:7005
+#: ../src/file-manager/fm-directory-view.c:7031
 msgid "Link _name:"
 msgstr "Bağ _adı:"
 
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:7244
+#: ../src/file-manager/fm-directory-view.c:7270
 msgid "Create _Document"
 msgstr "_Belge Oluştur"
 
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:7245
+#: ../src/file-manager/fm-directory-view.c:7271
 msgid "Open Wit_h"
 msgstr "_Birlikte Aç"
 
-#: ../src/file-manager/fm-directory-view.c:7246
+#: ../src/file-manager/fm-directory-view.c:7272
 msgid "Choose a program with which to open the selected item"
 msgstr "Seçili dosyayı açacak uygulamayı seç"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7248
-#: ../src/file-manager/fm-directory-view.c:7527
+#. add the "properties" menu item
+#: ../src/file-manager/fm-directory-view.c:7274
+#: ../src/file-manager/fm-directory-view.c:7553
+#: ../src/file-manager/fm-tree-view.c:1378
 msgid "_Properties"
 msgstr "_Özellikler"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7249
-#: ../src/file-manager/fm-directory-view.c:8966
+#: ../src/file-manager/fm-directory-view.c:7275
+#: ../src/file-manager/fm-directory-view.c:8992
 msgid "View or modify the properties of each selected item"
 msgstr "Seçili her öğenin özelliklerini göster ya da değiştir"
 
 #. name, icon name
 #. label, accelerator
 #. add the "create folder" menu item
-#: ../src/file-manager/fm-directory-view.c:7256
-#: ../src/file-manager/fm-tree-view.c:1298
+#: ../src/file-manager/fm-directory-view.c:7282
+#: ../src/file-manager/fm-tree-view.c:1296
 msgid "Create _Folder"
 msgstr "Dizin _Yarat"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7257
+#: ../src/file-manager/fm-directory-view.c:7283
 msgid "Create a new empty folder inside this folder"
 msgstr "Bu dizin içinde boş bir dizin oluştur"
 
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:7259
+#: ../src/file-manager/fm-directory-view.c:7285
 msgid "No templates installed"
 msgstr "Hiçbir şablon kurulmamış"
 
 #. name, icon name
 #. translators: this is used to indicate that a file doesn't contain anything
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7262
+#: ../src/file-manager/fm-directory-view.c:7288
 msgid "_Empty File"
 msgstr "_Boş Dosya"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7263
+#: ../src/file-manager/fm-directory-view.c:7289
 msgid "Create a new empty file inside this folder"
 msgstr "Bu dizin içinde boş bir dosya oluştur"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7271
+#: ../src/file-manager/fm-directory-view.c:7297
 msgid "Open the selected item in this window"
 msgstr "Seçili dosyayı bu pencerede aç"
 
@@ -4250,85 +4301,85 @@ msgstr "Seçili dosyayı bu pencerede aç"
 #. Location-specific actions
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7278
-#: ../src/file-manager/fm-directory-view.c:7459
+#: ../src/file-manager/fm-directory-view.c:7304
+#: ../src/file-manager/fm-directory-view.c:7485
 msgid "Open in Navigation Window"
 msgstr "Yöneltme Penceresinde Aç"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7279
+#: ../src/file-manager/fm-directory-view.c:7305
 msgid "Open each selected item in a navigation window"
 msgstr "Seçili her dosyayı yöneltme penceresinde aç"
 
 #. name, icon name
 #. label, accelerator
 #. add the "open in new tab" menu item
-#: ../src/file-manager/fm-directory-view.c:7282
-#: ../src/file-manager/fm-directory-view.c:7463
-#: ../src/file-manager/fm-directory-view.c:8530
-#: ../src/file-manager/fm-directory-view.c:8856
-#: ../src/file-manager/fm-tree-view.c:1278 ../src/caja-places-sidebar.c:2664
+#: ../src/file-manager/fm-directory-view.c:7308
+#: ../src/file-manager/fm-directory-view.c:7489
+#: ../src/file-manager/fm-directory-view.c:8556
+#: ../src/file-manager/fm-directory-view.c:8882
+#: ../src/file-manager/fm-tree-view.c:1276 ../src/caja-places-sidebar.c:2685
 msgid "Open in New _Tab"
 msgstr "_Yeni Sekmede Aç"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7283
+#: ../src/file-manager/fm-directory-view.c:7309
 msgid "Open each selected item in a new tab"
 msgstr "Her seçili öğeyi yeni bir sekmede aç"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7286
-#: ../src/file-manager/fm-directory-view.c:7468
+#: ../src/file-manager/fm-directory-view.c:7312
+#: ../src/file-manager/fm-directory-view.c:7494
 msgid "Open in _Folder Window"
 msgstr "_Dizin Penceresinde Aç"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7287
+#: ../src/file-manager/fm-directory-view.c:7313
 msgid "Open each selected item in a folder window"
 msgstr "Her seçili öğeyi bir dizin penceresinde aç"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7290
+#: ../src/file-manager/fm-directory-view.c:7316
 msgid "Other _Application..."
 msgstr "Başka _Uygulama..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7291
-#: ../src/file-manager/fm-directory-view.c:7295
+#: ../src/file-manager/fm-directory-view.c:7317
+#: ../src/file-manager/fm-directory-view.c:7321
 msgid "Choose another application with which to open the selected item"
 msgstr "Seçili dosyayı açacak başka bir uygulamayı seç"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7294
+#: ../src/file-manager/fm-directory-view.c:7320
 msgid "Open With Other _Application..."
 msgstr "Farklı _Uygulama ile Aç...."
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7298
+#: ../src/file-manager/fm-directory-view.c:7324
 msgid "_Open Scripts Folder"
 msgstr "_Betikler Dizinini Aç"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7299
+#: ../src/file-manager/fm-directory-view.c:7325
 msgid "Show the folder containing the scripts that appear in this menu"
 msgstr "Bu menüde görüntülenen betikleri içeren dizini göster"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7307
+#: ../src/file-manager/fm-directory-view.c:7333
 msgid "Prepare the selected files to be moved with a Paste command"
 msgstr "Seçili dosyaları Yapıştır komutuyla taşımaya hazırla"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7311
+#: ../src/file-manager/fm-directory-view.c:7337
 msgid "Prepare the selected files to be copied with a Paste command"
 msgstr "Seçili dosyaları Yapıştır komutuyla kopyalamaya hazırla"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7315
+#: ../src/file-manager/fm-directory-view.c:7341
 msgid "Move or copy files previously selected by a Cut or Copy command"
 msgstr ""
 "Daha önce Kes ya da Kopyala komutu yardımıyla seçilen dosyaları taşı ya da "
@@ -4338,14 +4389,15 @@ msgstr ""
 #. accelerator for paste
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7320
-#: ../src/file-manager/fm-directory-view.c:7481
-#: ../src/file-manager/fm-tree-view.c:1330
+#. add the "paste files into folder" menu item
+#: ../src/file-manager/fm-directory-view.c:7346
+#: ../src/file-manager/fm-directory-view.c:7507
+#: ../src/file-manager/fm-tree-view.c:1325
 msgid "_Paste Into Folder"
 msgstr "_Dizinin İçine Yapıştır"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7321
+#: ../src/file-manager/fm-directory-view.c:7347
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into the "
 "selected folder"
@@ -4354,117 +4406,117 @@ msgstr ""
 "dizine taşı ya da kopyala"
 
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:7323
+#: ../src/file-manager/fm-directory-view.c:7349
 msgid "Cop_y to"
 msgstr "Şuraya Kop_yala:"
 
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:7324
+#: ../src/file-manager/fm-directory-view.c:7350
 msgid "M_ove to"
 msgstr "_Şuraya Taşı:"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7327
+#: ../src/file-manager/fm-directory-view.c:7353
 msgid "Select all items in this window"
 msgstr "Bu penceredeki tüm öğeleri seç"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7330
+#: ../src/file-manager/fm-directory-view.c:7356
 msgid "Select I_tems Matching..."
 msgstr "_Eşleşen Öğeleri Seç..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7331
+#: ../src/file-manager/fm-directory-view.c:7357
 msgid "Select items in this window matching a given pattern"
 msgstr "Bu penceredeki belirtilen desenle eşleşen öğeleri seç"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7334
+#: ../src/file-manager/fm-directory-view.c:7360
 msgid "_Invert Selection"
 msgstr "_Seçimi Tersine Çevir"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7335
+#: ../src/file-manager/fm-directory-view.c:7361
 msgid "Select all and only the items that are not currently selected"
 msgstr "Hepsini ve sadece şu anda seçili olmayan öğeleri seç"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7338
+#: ../src/file-manager/fm-directory-view.c:7364
 msgid "D_uplicate"
 msgstr "İ_kizle"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7339
+#: ../src/file-manager/fm-directory-view.c:7365
 msgid "Duplicate each selected item"
 msgstr "Her seçili öğeyi ikizle"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7342
-#: ../src/file-manager/fm-directory-view.c:8950
+#: ../src/file-manager/fm-directory-view.c:7368
+#: ../src/file-manager/fm-directory-view.c:8976
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "B_ağlantı Oluştur"
+msgstr[1] "B_ağlantı Oluştur"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7343
+#: ../src/file-manager/fm-directory-view.c:7369
 msgid "Create a symbolic link for each selected item"
 msgstr "Seçilen her dosya için sembolik bağlantı oluştur"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7346
+#: ../src/file-manager/fm-directory-view.c:7372
 msgid "_Rename..."
 msgstr "_Yeniden adlandır..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7347
+#: ../src/file-manager/fm-directory-view.c:7373
 msgid "Rename selected item"
 msgstr "Seçili öğeyi yeniden adlandır"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7355
-#: ../src/file-manager/fm-directory-view.c:8911
+#: ../src/file-manager/fm-directory-view.c:7381
+#: ../src/file-manager/fm-directory-view.c:8937
 msgid "Move each selected item to the Trash"
 msgstr "Tüm seçilen öğeleri Çöpe taşı"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7359
+#: ../src/file-manager/fm-directory-view.c:7385
 msgid "Delete each selected item, without moving to the Trash"
 msgstr "Tüm seçilen öğeleri Çöpe göndermeden sil"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7362
-#: ../src/file-manager/fm-directory-view.c:7494
+#: ../src/file-manager/fm-directory-view.c:7388
+#: ../src/file-manager/fm-directory-view.c:7520
 msgid "_Restore"
 msgstr "_Geri Getir"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7366
+#: ../src/file-manager/fm-directory-view.c:7392
 msgid "_Undo"
 msgstr "_Geri"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7367
-#: ../src/file-manager/fm-directory-view.c:11118
+#: ../src/file-manager/fm-directory-view.c:7393
+#: ../src/file-manager/fm-directory-view.c:11144
 msgid "Undo the last action"
 msgstr "Son eylemi geri al"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7370
+#: ../src/file-manager/fm-directory-view.c:7396
 msgid "_Redo"
 msgstr "_Tekrarla"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7371
-#: ../src/file-manager/fm-directory-view.c:11136
+#: ../src/file-manager/fm-directory-view.c:7397
+#: ../src/file-manager/fm-directory-view.c:11162
 msgid "Redo the last undone action"
 msgstr "Son geri alınan faaliyeti tekrarla"
 
@@ -4474,12 +4526,12 @@ msgstr "Son geri alınan faaliyeti tekrarla"
 #. * it is a mixture of both ATM.
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7381
+#: ../src/file-manager/fm-directory-view.c:7407
 msgid "Reset View to _Defaults"
 msgstr "_Görünümleri Öntanımlı Hale Getir"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7382
+#: ../src/file-manager/fm-directory-view.c:7408
 msgid "Reset sorting order and zoom level to match preferences for this view"
 msgstr ""
 "Bu görünüm için tercihlerle uyuşmak için sıralamayı ve yaklaştırma oranını "
@@ -4487,194 +4539,194 @@ msgstr ""
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7385
+#: ../src/file-manager/fm-directory-view.c:7411
 msgid "Connect To This Server"
 msgstr "Bu Sunucuya Bağlan"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7386
+#: ../src/file-manager/fm-directory-view.c:7412
 msgid "Make a permanent connection to this server"
 msgstr "Bu sunucuya kalıcı bir bağlantı oluştur"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7389
-#: ../src/file-manager/fm-directory-view.c:7417
-#: ../src/file-manager/fm-directory-view.c:7498
-#: ../src/caja-places-sidebar.c:2700
+#: ../src/file-manager/fm-directory-view.c:7415
+#: ../src/file-manager/fm-directory-view.c:7443
+#: ../src/file-manager/fm-directory-view.c:7524
+#: ../src/caja-places-sidebar.c:2721
 msgid "_Mount"
 msgstr "_Bağla"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7390
+#: ../src/file-manager/fm-directory-view.c:7416
 msgid "Mount the selected volume"
 msgstr "Seçilen birimi bağla"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7394
+#: ../src/file-manager/fm-directory-view.c:7420
 msgid "Unmount the selected volume"
 msgstr "Seçilen birimi ayır"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7398
+#: ../src/file-manager/fm-directory-view.c:7424
 msgid "Eject the selected volume"
 msgstr "Seçili birimi çıkart"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7401
-#: ../src/file-manager/fm-directory-view.c:7429
-#: ../src/file-manager/fm-directory-view.c:7510
-#: ../src/caja-places-sidebar.c:2728
+#: ../src/file-manager/fm-directory-view.c:7427
+#: ../src/file-manager/fm-directory-view.c:7455
+#: ../src/file-manager/fm-directory-view.c:7536
+#: ../src/caja-places-sidebar.c:2749
 msgid "_Format"
 msgstr "_Biçim"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7402
+#: ../src/file-manager/fm-directory-view.c:7428
 msgid "Format the selected volume"
 msgstr "Seçilen birimi biçimlendir"
 
 #. name, icon name
 #. label, accelerator
 #. Adjust start/stop items to reflect the type of the drive
-#: ../src/file-manager/fm-directory-view.c:7405
-#: ../src/file-manager/fm-directory-view.c:7433
-#: ../src/file-manager/fm-directory-view.c:7514
-#: ../src/file-manager/fm-directory-view.c:8190
-#: ../src/file-manager/fm-directory-view.c:8194
-#: ../src/file-manager/fm-directory-view.c:8282
-#: ../src/file-manager/fm-directory-view.c:8286
-#: ../src/file-manager/fm-directory-view.c:8392
-#: ../src/file-manager/fm-directory-view.c:8396
-#: ../src/caja-places-sidebar.c:1785 ../src/caja-places-sidebar.c:2735
+#: ../src/file-manager/fm-directory-view.c:7431
+#: ../src/file-manager/fm-directory-view.c:7459
+#: ../src/file-manager/fm-directory-view.c:7540
+#: ../src/file-manager/fm-directory-view.c:8216
+#: ../src/file-manager/fm-directory-view.c:8220
+#: ../src/file-manager/fm-directory-view.c:8308
+#: ../src/file-manager/fm-directory-view.c:8312
+#: ../src/file-manager/fm-directory-view.c:8418
+#: ../src/file-manager/fm-directory-view.c:8422
+#: ../src/caja-places-sidebar.c:1804 ../src/caja-places-sidebar.c:2756
 msgid "_Start"
 msgstr "_Başlat"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7406
+#: ../src/file-manager/fm-directory-view.c:7432
 msgid "Start the selected volume"
 msgstr "Seçilen birimi başlat"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7409
-#: ../src/file-manager/fm-directory-view.c:7437
-#: ../src/file-manager/fm-directory-view.c:7518
-#: ../src/file-manager/fm-directory-view.c:8219
-#: ../src/file-manager/fm-directory-view.c:8311
-#: ../src/file-manager/fm-directory-view.c:8421
-#: ../src/caja-places-sidebar.c:1786 ../src/caja-places-sidebar.c:2742
+#: ../src/file-manager/fm-directory-view.c:7435
+#: ../src/file-manager/fm-directory-view.c:7463
+#: ../src/file-manager/fm-directory-view.c:7544
+#: ../src/file-manager/fm-directory-view.c:8245
+#: ../src/file-manager/fm-directory-view.c:8337
+#: ../src/file-manager/fm-directory-view.c:8447
+#: ../src/caja-places-sidebar.c:1805 ../src/caja-places-sidebar.c:2763
 #: ../src/caja-window-menus.c:836
 msgid "_Stop"
 msgstr "_Durdur"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7410
-#: ../src/file-manager/fm-directory-view.c:8422
+#: ../src/file-manager/fm-directory-view.c:7436
+#: ../src/file-manager/fm-directory-view.c:8448
 msgid "Stop the selected volume"
 msgstr "Seçilen birimi durdur"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7413
-#: ../src/file-manager/fm-directory-view.c:7441
-#: ../src/file-manager/fm-directory-view.c:7522
-#: ../src/caja-places-sidebar.c:2721
+#: ../src/file-manager/fm-directory-view.c:7439
+#: ../src/file-manager/fm-directory-view.c:7467
+#: ../src/file-manager/fm-directory-view.c:7548
+#: ../src/caja-places-sidebar.c:2742
 msgid "_Detect Media"
 msgstr "_Ortamı Tanı"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7414
-#: ../src/file-manager/fm-directory-view.c:7442
-#: ../src/file-manager/fm-directory-view.c:7523
+#: ../src/file-manager/fm-directory-view.c:7440
+#: ../src/file-manager/fm-directory-view.c:7468
+#: ../src/file-manager/fm-directory-view.c:7549
 msgid "Detect media in the selected drive"
 msgstr "Seçilen sürücüdeki ortamı tanı"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7418
+#: ../src/file-manager/fm-directory-view.c:7444
 msgid "Mount the volume associated with the open folder"
 msgstr "Açık olan dizin ile ilişkili birimi bağla"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7422
+#: ../src/file-manager/fm-directory-view.c:7448
 msgid "Unmount the volume associated with the open folder"
 msgstr "Açık olan dizin ile ilişkili birimin bağını kaldır"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7426
+#: ../src/file-manager/fm-directory-view.c:7452
 msgid "Eject the volume associated with the open folder"
 msgstr "Açılı dizin ile ilişkili birimi çıkart"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7430
+#: ../src/file-manager/fm-directory-view.c:7456
 msgid "Format the volume associated with the open folder"
 msgstr "Açık dizin ile ilişkili birimi biçimlendir"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7434
+#: ../src/file-manager/fm-directory-view.c:7460
 msgid "Start the volume associated with the open folder"
 msgstr "Açık dizin ile ilişkili birimi başlat"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7438
+#: ../src/file-manager/fm-directory-view.c:7464
 msgid "Stop the volume associated with the open folder"
 msgstr "Açık olan dizin ile ilişkili birimi durdur"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7445
+#: ../src/file-manager/fm-directory-view.c:7471
 msgid "Open File and Close window"
 msgstr "Dosyayı Aç ve Pencereyi Kapat"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7449
+#: ../src/file-manager/fm-directory-view.c:7475
 msgid "Sa_ve Search"
 msgstr "Aramayı _Kaydet"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7450
+#: ../src/file-manager/fm-directory-view.c:7476
 msgid "Save the edited search"
 msgstr "Düzenlenmiş aramayı kaydet"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7453
+#: ../src/file-manager/fm-directory-view.c:7479
 msgid "Sa_ve Search As..."
 msgstr "_Aramayı Farklı Kaydet..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7454
+#: ../src/file-manager/fm-directory-view.c:7480
 msgid "Save the current search as a file"
 msgstr "Mevcut aramayı dosya olarak kaydet"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7460
+#: ../src/file-manager/fm-directory-view.c:7486
 msgid "Open this folder in a navigation window"
 msgstr "Bu dizini bir seyir penceresinde aç"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7464
+#: ../src/file-manager/fm-directory-view.c:7490
 msgid "Open this folder in a new tab"
 msgstr "Bu dizini yeni bir sekmede aç"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7469
+#: ../src/file-manager/fm-directory-view.c:7495
 msgid "Open this folder in a folder window"
 msgstr "Bu dizini bir dizin penceresinde aç"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7474
+#: ../src/file-manager/fm-directory-view.c:7500
 msgid "Prepare this folder to be moved with a Paste command"
 msgstr "Bu dizini Yapıştır konumuyla taşınacak şekilde hazırla"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7478
+#: ../src/file-manager/fm-directory-view.c:7504
 msgid "Prepare this folder to be copied with a Paste command"
 msgstr "Bu dizini Yapıştır konumuyla kopyalanacak şekilde hazırla"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7482
+#: ../src/file-manager/fm-directory-view.c:7508
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into this "
 "folder"
@@ -4683,405 +4735,405 @@ msgstr ""
 "taşı ya da kopyala"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7487
+#: ../src/file-manager/fm-directory-view.c:7513
 msgid "Move this folder to the Trash"
 msgstr "Bu dizini Çöp'e taşı"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7491
+#: ../src/file-manager/fm-directory-view.c:7517
 msgid "Delete this folder, without moving to the Trash"
 msgstr "Bu dizini Çöp'e taşımadan sil"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7499
+#: ../src/file-manager/fm-directory-view.c:7525
 msgid "Mount the volume associated with this folder"
 msgstr "Bu dizinle ilişkili birimi bağla"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7503
+#: ../src/file-manager/fm-directory-view.c:7529
 msgid "Unmount the volume associated with this folder"
 msgstr "Bu dizin ile ilişkili birimin bağını kaldır"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7507
+#: ../src/file-manager/fm-directory-view.c:7533
 msgid "Eject the volume associated with this folder"
 msgstr "Bu dizin ile ilişkili birimi çıkart"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7511
+#: ../src/file-manager/fm-directory-view.c:7537
 msgid "Format the volume associated with this folder"
 msgstr "Bu dizin ile ilişkili birimi biçimlendir"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7515
+#: ../src/file-manager/fm-directory-view.c:7541
 msgid "Start the volume associated with this folder"
 msgstr "Bu dizin ile ilişkili birimi başlat"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7519
+#: ../src/file-manager/fm-directory-view.c:7545
 msgid "Stop the volume associated with this folder"
 msgstr "Bu dizinle ilişkili birimi durdur"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7528
+#: ../src/file-manager/fm-directory-view.c:7554
 msgid "View or modify the properties of this folder"
 msgstr "Bu dizinin özelliklerini görüntüle ya da değiştir"
 
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:7531
-#: ../src/file-manager/fm-directory-view.c:7534
+#: ../src/file-manager/fm-directory-view.c:7557
+#: ../src/file-manager/fm-directory-view.c:7560
 msgid "_Other pane"
 msgstr "_Başka panel"
 
-#: ../src/file-manager/fm-directory-view.c:7532
+#: ../src/file-manager/fm-directory-view.c:7558
 msgid "Copy the current selection to the other pane in the window"
 msgstr "Güncel seçimi penceredeki diğer panele kopyala"
 
-#: ../src/file-manager/fm-directory-view.c:7535
+#: ../src/file-manager/fm-directory-view.c:7561
 msgid "Move the current selection to the other pane in the window"
 msgstr "Güncel seçimi penceredeki diğer panele taşı"
 
 #. name, icon name, label
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7538
-#: ../src/file-manager/fm-directory-view.c:7542 ../src/caja-window-menus.c:891
+#: ../src/file-manager/fm-directory-view.c:7564
+#: ../src/file-manager/fm-directory-view.c:7568 ../src/caja-window-menus.c:891
 msgid "_Home Folder"
 msgstr "_Ev Dizini"
 
-#: ../src/file-manager/fm-directory-view.c:7539
+#: ../src/file-manager/fm-directory-view.c:7565
 msgid "Copy the current selection to the home folder"
 msgstr "Güncel seçimi ev dizinine kopyala"
 
-#: ../src/file-manager/fm-directory-view.c:7543
+#: ../src/file-manager/fm-directory-view.c:7569
 msgid "Move the current selection to the home folder"
 msgstr "Güncel seçimi ev dizinine taşı"
 
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:7546
-#: ../src/file-manager/fm-directory-view.c:7550
+#: ../src/file-manager/fm-directory-view.c:7572
+#: ../src/file-manager/fm-directory-view.c:7576
 msgid "_Desktop"
 msgstr "_Masaüstü"
 
-#: ../src/file-manager/fm-directory-view.c:7547
+#: ../src/file-manager/fm-directory-view.c:7573
 msgid "Copy the current selection to the desktop"
 msgstr "Güncel seçimi masaüstüne kopyala"
 
-#: ../src/file-manager/fm-directory-view.c:7551
+#: ../src/file-manager/fm-directory-view.c:7577
 msgid "Move the current selection to the desktop"
 msgstr "Güncel seçimi masaüstüne taşı"
 
 #. Translators: %s is a directory
-#: ../src/file-manager/fm-directory-view.c:7631
+#: ../src/file-manager/fm-directory-view.c:7657
 #, c-format
 msgid "Run or manage scripts from %s"
 msgstr "Betikleri %s konumundan çalıştır ya da yönet"
 
 #. Create a script action here specially because its tooltip is dynamic
-#: ../src/file-manager/fm-directory-view.c:7633
+#: ../src/file-manager/fm-directory-view.c:7659
 msgid "_Scripts"
 msgstr "_Betikler"
 
-#: ../src/file-manager/fm-directory-view.c:8038
+#: ../src/file-manager/fm-directory-view.c:8064
 #, c-format
 msgid "Move the open folder out of the trash to \"%s\""
 msgstr "Açık olan dizini çöpün dışındaki \"%s\" konumuna taşı"
 
-#: ../src/file-manager/fm-directory-view.c:8041
+#: ../src/file-manager/fm-directory-view.c:8067
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Seçili klasörü çöpün dışındaki \"%s\" konumuna taşı"
+msgstr[1] "Tüm seçili klasörleri çöpün dışındaki \"%s\" konumuna taşı"
 
-#: ../src/file-manager/fm-directory-view.c:8045
+#: ../src/file-manager/fm-directory-view.c:8071
 #, c-format
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Seçili klasörü çöpün dışına taşı"
+msgstr[1] "Tüm seçili klasörleri çöpün dışına taşı"
 
-#: ../src/file-manager/fm-directory-view.c:8051
+#: ../src/file-manager/fm-directory-view.c:8077
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Seçili dosyayı çöpün dışındaki \"%s\" konumuna taşı"
+msgstr[1] "Tüm seçili dosyaları çöpün dışındaki \"%s\" konumuna taşı"
 
-#: ../src/file-manager/fm-directory-view.c:8055
+#: ../src/file-manager/fm-directory-view.c:8081
 #, c-format
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Seçili dosyayı çöpün dışına taşı"
+msgstr[1] "Tüm seçili dosyaları çöpün dışına taşı"
 
-#: ../src/file-manager/fm-directory-view.c:8061
+#: ../src/file-manager/fm-directory-view.c:8087
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Seçili unsuru çöpün dışındaki \"%s\" konumuna taşı"
+msgstr[1] "Tüm seçili unsurları çöpün dışındaki \"%s\" konumuna taşı"
 
-#: ../src/file-manager/fm-directory-view.c:8065
+#: ../src/file-manager/fm-directory-view.c:8091
 #, c-format
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Seçili unsuru çöpün dışına taşı"
+msgstr[1] "Tüm seçili unsurları çöpün dışına taşı"
 
-#: ../src/file-manager/fm-directory-view.c:8191
-#: ../src/file-manager/fm-directory-view.c:8195
-#: ../src/file-manager/fm-directory-view.c:8393
-#: ../src/file-manager/fm-directory-view.c:8397
+#: ../src/file-manager/fm-directory-view.c:8217
+#: ../src/file-manager/fm-directory-view.c:8221
+#: ../src/file-manager/fm-directory-view.c:8419
+#: ../src/file-manager/fm-directory-view.c:8423
 msgid "Start the selected drive"
 msgstr "Seçilen sürücüyü başlat"
 
-#: ../src/file-manager/fm-directory-view.c:8199
-#: ../src/file-manager/fm-directory-view.c:8401
+#: ../src/file-manager/fm-directory-view.c:8225
+#: ../src/file-manager/fm-directory-view.c:8427
 msgid "Connect to the selected drive"
 msgstr "Seçilen sürücüye bağlan"
 
-#: ../src/file-manager/fm-directory-view.c:8202
-#: ../src/file-manager/fm-directory-view.c:8294
-#: ../src/file-manager/fm-directory-view.c:8404
+#: ../src/file-manager/fm-directory-view.c:8228
+#: ../src/file-manager/fm-directory-view.c:8320
+#: ../src/file-manager/fm-directory-view.c:8430
 msgid "_Start Multi-disk Drive"
 msgstr "Çoklu Disk Sürücü _Başlat"
 
-#: ../src/file-manager/fm-directory-view.c:8203
-#: ../src/file-manager/fm-directory-view.c:8405
+#: ../src/file-manager/fm-directory-view.c:8229
+#: ../src/file-manager/fm-directory-view.c:8431
 msgid "Start the selected multi-disk drive"
 msgstr "Seçilen çoklu disk sürücünü başlat"
 
-#: ../src/file-manager/fm-directory-view.c:8206
+#: ../src/file-manager/fm-directory-view.c:8232
 msgid "U_nlock Drive"
 msgstr "_Sürücü Kilidini Kaldır"
 
-#: ../src/file-manager/fm-directory-view.c:8207
-#: ../src/file-manager/fm-directory-view.c:8409
+#: ../src/file-manager/fm-directory-view.c:8233
+#: ../src/file-manager/fm-directory-view.c:8435
 msgid "Unlock the selected drive"
 msgstr "Seçilen sürücünün kilidini kaldır"
 
-#: ../src/file-manager/fm-directory-view.c:8220
+#: ../src/file-manager/fm-directory-view.c:8246
 msgid "Stop the selected drive"
 msgstr "Seçilen sürücüyü durdur"
 
-#: ../src/file-manager/fm-directory-view.c:8223
-#: ../src/file-manager/fm-directory-view.c:8315
-#: ../src/file-manager/fm-directory-view.c:8425
-#: ../src/caja-places-sidebar.c:1794
+#: ../src/file-manager/fm-directory-view.c:8249
+#: ../src/file-manager/fm-directory-view.c:8341
+#: ../src/file-manager/fm-directory-view.c:8451
+#: ../src/caja-places-sidebar.c:1813
 msgid "_Safely Remove Drive"
 msgstr "_Sürücüyü Güvenle Kaldır"
 
-#: ../src/file-manager/fm-directory-view.c:8224
-#: ../src/file-manager/fm-directory-view.c:8426
+#: ../src/file-manager/fm-directory-view.c:8250
+#: ../src/file-manager/fm-directory-view.c:8452
 msgid "Safely remove the selected drive"
 msgstr "Seçilen sürücüyü güvenle kaldır"
 
-#: ../src/file-manager/fm-directory-view.c:8227
-#: ../src/file-manager/fm-directory-view.c:8319
-#: ../src/file-manager/fm-directory-view.c:8429
+#: ../src/file-manager/fm-directory-view.c:8253
+#: ../src/file-manager/fm-directory-view.c:8345
+#: ../src/file-manager/fm-directory-view.c:8455
 msgid "_Disconnect"
 msgstr "_Bağlantıyı Kes"
 
-#: ../src/file-manager/fm-directory-view.c:8228
-#: ../src/file-manager/fm-directory-view.c:8430
+#: ../src/file-manager/fm-directory-view.c:8254
+#: ../src/file-manager/fm-directory-view.c:8456
 msgid "Disconnect the selected drive"
 msgstr "Seçilen sürücünün bağlantısını kes"
 
-#: ../src/file-manager/fm-directory-view.c:8231
-#: ../src/file-manager/fm-directory-view.c:8323
-#: ../src/file-manager/fm-directory-view.c:8433
+#: ../src/file-manager/fm-directory-view.c:8257
+#: ../src/file-manager/fm-directory-view.c:8349
+#: ../src/file-manager/fm-directory-view.c:8459
 msgid "_Stop Multi-disk Drive"
 msgstr "Çoklu Disk _Sürücüyü Durdur"
 
-#: ../src/file-manager/fm-directory-view.c:8232
-#: ../src/file-manager/fm-directory-view.c:8434
+#: ../src/file-manager/fm-directory-view.c:8258
+#: ../src/file-manager/fm-directory-view.c:8460
 msgid "Stop the selected multi-disk drive"
 msgstr "Seçilen çoklu disk sürücüsünü durdur"
 
-#: ../src/file-manager/fm-directory-view.c:8235
-#: ../src/file-manager/fm-directory-view.c:8327
-#: ../src/file-manager/fm-directory-view.c:8437
-#: ../src/caja-places-sidebar.c:1807
+#: ../src/file-manager/fm-directory-view.c:8261
+#: ../src/file-manager/fm-directory-view.c:8353
+#: ../src/file-manager/fm-directory-view.c:8463
+#: ../src/caja-places-sidebar.c:1826
 msgid "_Lock Drive"
 msgstr "_Sürücüyü Kilitle"
 
-#: ../src/file-manager/fm-directory-view.c:8236
-#: ../src/file-manager/fm-directory-view.c:8438
+#: ../src/file-manager/fm-directory-view.c:8262
+#: ../src/file-manager/fm-directory-view.c:8464
 msgid "Lock the selected drive"
 msgstr "Seçilen sürücüyü kilitle"
 
-#: ../src/file-manager/fm-directory-view.c:8283
-#: ../src/file-manager/fm-directory-view.c:8287
+#: ../src/file-manager/fm-directory-view.c:8309
+#: ../src/file-manager/fm-directory-view.c:8313
 msgid "Start the drive associated with the open folder"
 msgstr "Açık dizin ile ilişkili sürücüyü başlat"
 
-#: ../src/file-manager/fm-directory-view.c:8291
+#: ../src/file-manager/fm-directory-view.c:8317
 msgid "Connect to the drive associated with the open folder"
 msgstr "Açık olan dizin ile ilişkili sürücüye bağlan"
 
-#: ../src/file-manager/fm-directory-view.c:8295
+#: ../src/file-manager/fm-directory-view.c:8321
 msgid "Start the multi-disk drive associated with the open folder"
 msgstr "Açık dizin ile ilişkili çoklu disk sürücünü başlat"
 
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
-#: ../src/file-manager/fm-directory-view.c:8298
-#: ../src/file-manager/fm-directory-view.c:8408
-#: ../src/caja-places-sidebar.c:1806
+#: ../src/file-manager/fm-directory-view.c:8324
+#: ../src/file-manager/fm-directory-view.c:8434
+#: ../src/caja-places-sidebar.c:1825
 msgid "_Unlock Drive"
 msgstr "_Sürücü Kilidini Kaldır"
 
-#: ../src/file-manager/fm-directory-view.c:8299
+#: ../src/file-manager/fm-directory-view.c:8325
 msgid "Unlock the drive associated with the open folder"
 msgstr "Açık olan dizin ile ilişkili sürücünün kilidini kaldır"
 
-#: ../src/file-manager/fm-directory-view.c:8312
+#: ../src/file-manager/fm-directory-view.c:8338
 msgid "_Stop the drive associated with the open folder"
 msgstr "Açık olan dizin ile ilişkili sürücüyü _durdur"
 
-#: ../src/file-manager/fm-directory-view.c:8316
+#: ../src/file-manager/fm-directory-view.c:8342
 msgid "Safely remove the drive associated with the open folder"
 msgstr "Açık dizin ile ilişkili sürücüyü güvenle kaldır"
 
-#: ../src/file-manager/fm-directory-view.c:8320
+#: ../src/file-manager/fm-directory-view.c:8346
 msgid "Disconnect the drive associated with the open folder"
 msgstr "Açık olan dizin ile ilişkili sürücünün bağlantısını kes"
 
-#: ../src/file-manager/fm-directory-view.c:8324
+#: ../src/file-manager/fm-directory-view.c:8350
 msgid "Stop the multi-disk drive associated with the open folder"
 msgstr "Açık olan dizin ile ilişkili çoklu disk sürücüsünü durdur"
 
-#: ../src/file-manager/fm-directory-view.c:8328
+#: ../src/file-manager/fm-directory-view.c:8354
 msgid "Lock the drive associated with the open folder"
 msgstr "Açık olan dizin ile ilişkili sürücüyü kilitle"
 
 #. add the "open in new window" menu item
-#: ../src/file-manager/fm-directory-view.c:8507
-#: ../src/file-manager/fm-directory-view.c:8817
-#: ../src/file-manager/fm-tree-view.c:1287 ../src/caja-places-sidebar.c:2671
+#: ../src/file-manager/fm-directory-view.c:8533
+#: ../src/file-manager/fm-directory-view.c:8843
+#: ../src/file-manager/fm-tree-view.c:1285 ../src/caja-places-sidebar.c:2692
 msgid "Open in New _Window"
 msgstr "Yeni _Pencerede Aç"
 
-#: ../src/file-manager/fm-directory-view.c:8509
-#: ../src/file-manager/fm-directory-view.c:8826
+#: ../src/file-manager/fm-directory-view.c:8535
+#: ../src/file-manager/fm-directory-view.c:8852
 msgid "Browse in New _Window"
 msgstr "_Yeni Pencerede Göz At"
 
-#: ../src/file-manager/fm-directory-view.c:8515
-#: ../src/file-manager/fm-directory-view.c:8836
+#: ../src/file-manager/fm-directory-view.c:8541
+#: ../src/file-manager/fm-directory-view.c:8862
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Klasöre _Gözat"
+msgstr[1] "Klasörlere _Gözat"
 
-#: ../src/file-manager/fm-directory-view.c:8532
-#: ../src/file-manager/fm-directory-view.c:8865
+#: ../src/file-manager/fm-directory-view.c:8558
+#: ../src/file-manager/fm-directory-view.c:8891
 msgid "Browse in New _Tab"
 msgstr "Yeni _Sekmede Göz At"
 
-#: ../src/file-manager/fm-directory-view.c:8581
-#: ../src/file-manager/fm-directory-view.c:8906
+#: ../src/file-manager/fm-directory-view.c:8607
+#: ../src/file-manager/fm-directory-view.c:8932
 msgid "_Delete Permanently"
 msgstr "_Kalıcı Olarak Sil"
 
-#: ../src/file-manager/fm-directory-view.c:8582
+#: ../src/file-manager/fm-directory-view.c:8608
 msgid "Delete the open folder permanently"
 msgstr "Açık olan dizini kalıcı olarak sil"
 
-#: ../src/file-manager/fm-directory-view.c:8586
+#: ../src/file-manager/fm-directory-view.c:8612
 msgid "Move the open folder to the Trash"
 msgstr "Açık olan dizini Çöp'e taşı"
 
-#: ../src/file-manager/fm-directory-view.c:8766
+#: ../src/file-manager/fm-directory-view.c:8792
 #, c-format
 msgid "_Open With %s"
 msgstr "%s ile _Aç"
 
-#: ../src/file-manager/fm-directory-view.c:8819
+#: ../src/file-manager/fm-directory-view.c:8845
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d Yeni Pencerede _Aç"
+msgstr[1] "%'d Yeni Pencerede _Aç"
 
-#: ../src/file-manager/fm-directory-view.c:8828
+#: ../src/file-manager/fm-directory-view.c:8854
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d Yeni Pencerede _Göz At"
+msgstr[1] "%'d Yeni Pencerede _Göz At"
 
-#: ../src/file-manager/fm-directory-view.c:8858
+#: ../src/file-manager/fm-directory-view.c:8884
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d Yeni Sekmede _Aç"
+msgstr[1] "%'d Yeni Sekmede _Aç"
 
-#: ../src/file-manager/fm-directory-view.c:8867
+#: ../src/file-manager/fm-directory-view.c:8893
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d Yeni Sekmede _Göz At"
+msgstr[1] "%'d Yeni Sekmede _Göz At"
 
-#: ../src/file-manager/fm-directory-view.c:8907
+#: ../src/file-manager/fm-directory-view.c:8933
 msgid "Delete all selected items permanently"
 msgstr "Seçili öğeleri kalıcı olarak sil"
 
-#: ../src/file-manager/fm-directory-view.c:8964
+#: ../src/file-manager/fm-directory-view.c:8990
 msgid "View or modify the properties of the open folder"
 msgstr "Açık olan dizinin özelliklerini göster ya da değiştir"
 
-#: ../src/file-manager/fm-directory-view.c:10267
+#: ../src/file-manager/fm-directory-view.c:10293
 msgid "Download location?"
 msgstr "Konum indirilsin mi?"
 
-#: ../src/file-manager/fm-directory-view.c:10270
+#: ../src/file-manager/fm-directory-view.c:10296
 msgid "You can download it or make a link to it."
 msgstr "Onu indirebilirsiniz ya ona bir bağ oluşturabilirsiniz."
 
-#: ../src/file-manager/fm-directory-view.c:10273
+#: ../src/file-manager/fm-directory-view.c:10299
 msgid "Make a _Link"
 msgstr "B_ağlantı Oluştur"
 
-#: ../src/file-manager/fm-directory-view.c:10280
+#: ../src/file-manager/fm-directory-view.c:10306
 msgid "_Download"
 msgstr "İ_ndir"
 
-#: ../src/file-manager/fm-directory-view.c:10441
-#: ../src/file-manager/fm-directory-view.c:10500
-#: ../src/file-manager/fm-directory-view.c:10605
+#: ../src/file-manager/fm-directory-view.c:10467
+#: ../src/file-manager/fm-directory-view.c:10526
+#: ../src/file-manager/fm-directory-view.c:10631
 msgid "Drag and drop is not supported."
 msgstr "Sürükle ve bırak desteklenmiyor."
 
-#: ../src/file-manager/fm-directory-view.c:10442
+#: ../src/file-manager/fm-directory-view.c:10468
 msgid "Drag and drop is only supported on local file systems."
 msgstr "Sürükle ve bırak sadece yerel dosya sistemlerinde destekleniyor."
 
-#: ../src/file-manager/fm-directory-view.c:10501
-#: ../src/file-manager/fm-directory-view.c:10606
+#: ../src/file-manager/fm-directory-view.c:10527
+#: ../src/file-manager/fm-directory-view.c:10632
 msgid "An invalid drag type was used."
 msgstr "Geçersiz bir sürükleme türü kullanıldı."
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10683
+#: ../src/file-manager/fm-directory-view.c:10709
 msgid "dropped text.txt"
 msgstr "taşınan metin.txt"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10728
+#: ../src/file-manager/fm-directory-view.c:10754
 msgid "dropped data"
 msgstr "taşınan veri"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11117
+#: ../src/file-manager/fm-directory-view.c:11143
 msgid "Undo"
 msgstr "Geri Al"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11135
+#: ../src/file-manager/fm-directory-view.c:11161
 msgid "Redo"
 msgstr "Tekrarla"
 
@@ -5207,8 +5259,8 @@ msgstr "\"%s\"nin adı \"%s\"ye değiştiriliyor."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-icon-container.c:611
-#: ../src/file-manager/fm-icon-view.c:3380
+#: ../src/file-manager/fm-icon-container.c:614
+#: ../src/file-manager/fm-icon-view.c:3399
 #: ../src/caja-file-management-properties.ui.h:1
 msgid "Icon View"
 msgstr "Simge Görünümü"
@@ -5218,7 +5270,7 @@ msgid "by _Name"
 msgstr "İ_sme Göre"
 
 #: ../src/file-manager/fm-icon-view.c:129
-#: ../src/file-manager/fm-icon-view.c:1740
+#: ../src/file-manager/fm-icon-view.c:1747
 msgid "Keep icons sorted by name in rows"
 msgstr "Simgeleri isimlerine göre sırala"
 
@@ -5227,15 +5279,16 @@ msgid "by _Size"
 msgstr "_Boyuta Göre"
 
 #: ../src/file-manager/fm-icon-view.c:136
-#: ../src/file-manager/fm-icon-view.c:1746
+#: ../src/file-manager/fm-icon-view.c:1753
 msgid "Keep icons sorted by size in rows"
 msgstr "Simgeleri büyüklüklerine göre sırala"
 
 #: ../src/file-manager/fm-icon-view.c:142
-msgid "by Size on Disk"
-msgstr "Disk üzerinde Boyuta göre"
+msgid "by S_ize on Disk"
+msgstr "Disk üzerinde B_oyuta göre"
 
 #: ../src/file-manager/fm-icon-view.c:143
+#: ../src/file-manager/fm-icon-view.c:1759
 msgid "Keep icons sorted by disk usage in rows"
 msgstr "İkonları disk kullanımına göre sırala "
 
@@ -5244,7 +5297,7 @@ msgid "by _Type"
 msgstr "_Türe göre"
 
 #: ../src/file-manager/fm-icon-view.c:150
-#: ../src/file-manager/fm-icon-view.c:1752
+#: ../src/file-manager/fm-icon-view.c:1765
 msgid "Keep icons sorted by type in rows"
 msgstr "Simgeleri türlerine göre sırala"
 
@@ -5253,7 +5306,7 @@ msgid "by Modification _Date"
 msgstr "_Değişim tarihine göre"
 
 #: ../src/file-manager/fm-icon-view.c:157
-#: ../src/file-manager/fm-icon-view.c:1758
+#: ../src/file-manager/fm-icon-view.c:1771
 msgid "Keep icons sorted by modification date in rows"
 msgstr "Simgeleri değişim tarihlerine göre sırala"
 
@@ -5262,7 +5315,7 @@ msgid "by _Emblems"
 msgstr "_Amblemlerine Göre"
 
 #: ../src/file-manager/fm-icon-view.c:164
-#: ../src/file-manager/fm-icon-view.c:1764
+#: ../src/file-manager/fm-icon-view.c:1777
 msgid "Keep icons sorted by emblems in rows"
 msgstr "Simgeleri amblemlerine göre sırala"
 
@@ -5271,50 +5324,58 @@ msgid "by T_rash Time"
 msgstr "Çöpe Gönde_rilme Zamanına göre"
 
 #: ../src/file-manager/fm-icon-view.c:171
-#: ../src/file-manager/fm-icon-view.c:1770
+#: ../src/file-manager/fm-icon-view.c:1783
 msgid "Keep icons sorted by trash time in rows"
 msgstr "Simgeleri satırlarda çöpe gönderilme zamanına göre sıralı tut"
 
-#: ../src/file-manager/fm-icon-view.c:780
+#: ../src/file-manager/fm-icon-view.c:177
+msgid "by E_xtension"
+msgstr "U_zantıya göre"
+
+#: ../src/file-manager/fm-icon-view.c:178
+msgid "Keep icons sorted by reversed extension segments in rows"
+msgstr "İkonları satırlarda ters uzantı parçalarına göre sırala"
+
+#: ../src/file-manager/fm-icon-view.c:787
 msgid "_Organize Desktop by Name"
 msgstr "_Masaüstünü İsme Göre Düzenle"
 
 #. name, stock id, label
-#: ../src/file-manager/fm-icon-view.c:1689
+#: ../src/file-manager/fm-icon-view.c:1696
 msgid "Arran_ge Items"
 msgstr "Öğ_eleri Düzenle"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1691
+#: ../src/file-manager/fm-icon-view.c:1698
 msgid "Resize Icon..."
 msgstr "İkonu Boyutlandır..."
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1692
+#: ../src/file-manager/fm-icon-view.c:1699
 msgid "Make the selected icon resizable"
 msgstr "Seçili simgeyi yeniden boyutlandırılabilir yap"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1696
-#: ../src/file-manager/fm-icon-view.c:1897
+#: ../src/file-manager/fm-icon-view.c:1703
+#: ../src/file-manager/fm-icon-view.c:1916
 msgid "Restore Icons' Original Si_zes"
 msgstr "_Simgeleri Asıl Boyutlarına Getir"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1697
+#: ../src/file-manager/fm-icon-view.c:1704
 msgid "Restore each selected icon to its original size"
 msgstr "Her seçili simgeyi eski konumuna getir"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1701
+#: ../src/file-manager/fm-icon-view.c:1708
 msgid "_Organize by Name"
 msgstr "İsme G_öre Düzenle"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1702
+#: ../src/file-manager/fm-icon-view.c:1709
 msgid "Reposition icons to better fit in the window and avoid overlapping"
 msgstr ""
 "Simgeleri üst üste gelmeyi engelleyecek şekilde pencere içinde daha uygun "
@@ -5322,245 +5383,268 @@ msgstr ""
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1710
+#: ../src/file-manager/fm-icon-view.c:1717
 msgid "Compact _Layout"
 msgstr "Sıkışı_k Düzen"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1711
+#: ../src/file-manager/fm-icon-view.c:1718
 msgid "Toggle using a tighter layout scheme"
 msgstr "Sıkışık düzen şeması kullan veya kullanma"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1716
+#: ../src/file-manager/fm-icon-view.c:1723
 msgid "Re_versed Order"
 msgstr "_Ters Sıra"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1717
+#: ../src/file-manager/fm-icon-view.c:1724
 msgid "Display icons in the opposite order"
 msgstr "Simgeleri ters sıra ile göster"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1722
+#: ../src/file-manager/fm-icon-view.c:1729
 msgid "_Keep Aligned"
 msgstr "_Sıralı Tut"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1723
+#: ../src/file-manager/fm-icon-view.c:1730
 msgid "Keep icons lined up on a grid"
 msgstr "Simgeleri bir ızgara üzerinde hizalı tut"
 
-#: ../src/file-manager/fm-icon-view.c:1733
+#: ../src/file-manager/fm-icon-view.c:1740
 msgid "_Manually"
 msgstr "_Elle"
 
-#: ../src/file-manager/fm-icon-view.c:1734
+#: ../src/file-manager/fm-icon-view.c:1741
 msgid "Leave icons wherever they are dropped"
 msgstr "Simgeler nerede bırakılırsa orada dursun"
 
-#: ../src/file-manager/fm-icon-view.c:1739
+#: ../src/file-manager/fm-icon-view.c:1746
 msgid "By _Name"
 msgstr "İ_sme Göre"
 
-#: ../src/file-manager/fm-icon-view.c:1745
+#: ../src/file-manager/fm-icon-view.c:1752
 msgid "By _Size"
 msgstr "_Büyüklüğe Göre"
 
-#: ../src/file-manager/fm-icon-view.c:1751
+#: ../src/file-manager/fm-icon-view.c:1758
+msgid "By S_ize on Disk"
+msgstr "Disk üzerinde B_oyuta Göre"
+
+#: ../src/file-manager/fm-icon-view.c:1764
 msgid "By _Type"
 msgstr "_Türe Göre"
 
-#: ../src/file-manager/fm-icon-view.c:1757
+#: ../src/file-manager/fm-icon-view.c:1770
 msgid "By Modification _Date"
 msgstr "_Değişim Tarihine Göre"
 
-#: ../src/file-manager/fm-icon-view.c:1763
+#: ../src/file-manager/fm-icon-view.c:1776
 msgid "By _Emblems"
 msgstr "_Amblemlerine Göre"
 
-#: ../src/file-manager/fm-icon-view.c:1769
+#: ../src/file-manager/fm-icon-view.c:1782
 msgid "By T_rash Time"
 msgstr "Çöpe Gönde_rilme Zamanına Göre"
 
-#: ../src/file-manager/fm-icon-view.c:1898
+#: ../src/file-manager/fm-icon-view.c:1788
+msgid "By E_xtension"
+msgstr "U_zantıya Göre"
+
+#: ../src/file-manager/fm-icon-view.c:1789
+msgid "Keep icons sorted by reverse extension segments in rows"
+msgstr "İkonları satırlarda ters uzantı parçalarına göre sırala"
+
+#: ../src/file-manager/fm-icon-view.c:1917
 msgid "Restore Icon's Original Si_ze"
 msgstr "S_imgeyi Asıl Boyutlarına Getir"
 
-#: ../src/file-manager/fm-icon-view.c:2373
+#: ../src/file-manager/fm-icon-view.c:2392
 #, c-format
 msgid "pointing at \"%s\""
 msgstr "\"%s\" gösteriliyor"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3382
+#: ../src/file-manager/fm-icon-view.c:3401
 msgid "_Icons"
 msgstr "_Simgeler"
 
-#: ../src/file-manager/fm-icon-view.c:3383
+#: ../src/file-manager/fm-icon-view.c:3402
 msgid "The icon view encountered an error."
 msgstr "Simge görünümü bir hata ile karşılaştı."
 
-#: ../src/file-manager/fm-icon-view.c:3384
+#: ../src/file-manager/fm-icon-view.c:3403
 msgid "The icon view encountered an error while starting up."
 msgstr "Simge görünümü başlatılırken bir hata ile karşılaşıldı."
 
-#: ../src/file-manager/fm-icon-view.c:3385
+#: ../src/file-manager/fm-icon-view.c:3404
 msgid "Display this location with the icon view."
 msgstr "Bu konumu simge görünümü ile göster."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-icon-view.c:3395
+#: ../src/file-manager/fm-icon-view.c:3414
 #: ../src/caja-file-management-properties.ui.h:3
 msgid "Compact View"
 msgstr "Sıkışık Görünüm"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3397
+#: ../src/file-manager/fm-icon-view.c:3416
 msgid "_Compact"
 msgstr "_Sıkışık"
 
-#: ../src/file-manager/fm-icon-view.c:3398
+#: ../src/file-manager/fm-icon-view.c:3417
 msgid "The compact view encountered an error."
 msgstr "Sıkışık görünüm bir hata ile karşılaştı."
 
-#: ../src/file-manager/fm-icon-view.c:3399
+#: ../src/file-manager/fm-icon-view.c:3418
 msgid "The compact view encountered an error while starting up."
 msgstr "Sıkışık görünüm başlatılırken bir hata ile karşılaşıldı."
 
-#: ../src/file-manager/fm-icon-view.c:3400
+#: ../src/file-manager/fm-icon-view.c:3419
 msgid "Display this location with the compact view."
 msgstr "Bu konumu sıkışık görünüm ile göster."
 
-#: ../src/file-manager/fm-list-model.c:428
-#: ../src/file-manager/fm-tree-model.c:1358
+#: ../src/file-manager/fm-list-model.c:448
+#: ../src/file-manager/fm-tree-model.c:1364
 msgid "(Empty)"
 msgstr "(Boş)"
 
-#: ../src/file-manager/fm-list-model.c:432
-#: ../src/file-manager/fm-tree-model.c:1358 ../src/caja-window-slot.c:207
+#: ../src/file-manager/fm-list-model.c:452
+#: ../src/file-manager/fm-tree-model.c:1364 ../src/caja-window-slot.c:207
 msgid "Loading..."
 msgstr "Yükleniyor..."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-list-view.c:1837
-#: ../src/file-manager/fm-list-view.c:3450
+#: ../src/file-manager/fm-list-view.c:1845
+#: ../src/file-manager/fm-list-view.c:3463
 #: ../src/caja-file-management-properties.ui.h:2
 msgid "List View"
 msgstr "Liste Görünümü"
 
-#: ../src/file-manager/fm-list-view.c:2531
+#: ../src/file-manager/fm-list-view.c:2539
 #, c-format
 msgid "%s Visible Columns"
 msgstr "%s Görünen Sütunları"
 
-#: ../src/file-manager/fm-list-view.c:2550
+#. create the "close" button
+#. name, icon name
+#. label, accelerator
+#: ../src/file-manager/fm-list-view.c:2548
+#: ../src/file-manager/fm-properties-window.c:5181
+#: ../src/caja-bookmarks-window.ui.h:5
+#: ../src/caja-file-management-properties.ui.h:43
+#: ../src/caja-property-browser.c:398 ../src/caja-window-menus.c:811
+msgid "_Close"
+msgstr "_Kapat"
+
+#: ../src/file-manager/fm-list-view.c:2563
 msgid "Choose the order of information to appear in this folder:"
 msgstr "Bu dizinde görünecek bilgi sırasını seçin:"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-list-view.c:2604
+#: ../src/file-manager/fm-list-view.c:2617
 msgid "Visible _Columns..."
 msgstr "Gösterilecek _Sütunlar..."
 
 #. tooltip
-#: ../src/file-manager/fm-list-view.c:2605
+#: ../src/file-manager/fm-list-view.c:2618
 msgid "Select the columns visible in this folder"
 msgstr "Bu dizin için gösterilecek sütunları seçin"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-list-view.c:3452
+#: ../src/file-manager/fm-list-view.c:3465
 msgid "_List"
 msgstr "_Liste"
 
-#: ../src/file-manager/fm-list-view.c:3453
+#: ../src/file-manager/fm-list-view.c:3466
 msgid "The list view encountered an error."
 msgstr "Liste görünümü bir hata ile karşılaştı."
 
-#: ../src/file-manager/fm-list-view.c:3454
+#: ../src/file-manager/fm-list-view.c:3467
 msgid "The list view encountered an error while starting up."
 msgstr "Liste görünümü başlatılırken bir hata ile karşılaşıldı."
 
-#: ../src/file-manager/fm-list-view.c:3455
+#: ../src/file-manager/fm-list-view.c:3468
 msgid "Display this location with the list view."
 msgstr "Bu konumu liste görünümü ile göster."
 
-#: ../src/file-manager/fm-properties-window.c:495
+#: ../src/file-manager/fm-properties-window.c:505
 msgid "You cannot assign more than one custom icon at a time!"
 msgstr "Bir seferde birden daha fazla özel simge atayamazsınız!"
 
-#: ../src/file-manager/fm-properties-window.c:496
+#: ../src/file-manager/fm-properties-window.c:506
 #: ../src/caja-information-panel.c:528
 msgid "Please drag just one image to set a custom icon."
 msgstr "Lütfen özel simge ayarlamak için sadece bir resmi taşıyın."
 
-#: ../src/file-manager/fm-properties-window.c:507
+#: ../src/file-manager/fm-properties-window.c:517
 #: ../src/caja-information-panel.c:555
 msgid "The file that you dropped is not local."
 msgstr "Bıraktığınız dosya yerel değil."
 
-#: ../src/file-manager/fm-properties-window.c:508
-#: ../src/file-manager/fm-properties-window.c:514
+#: ../src/file-manager/fm-properties-window.c:518
+#: ../src/file-manager/fm-properties-window.c:524
 #: ../src/caja-information-panel.c:556
 msgid "You can only use local images as custom icons."
 msgstr "Özel simge olarak sadece yerel resimleri kullanabilirsiniz."
 
-#: ../src/file-manager/fm-properties-window.c:513
+#: ../src/file-manager/fm-properties-window.c:523
 #: ../src/caja-information-panel.c:563
 msgid "The file that you dropped is not an image."
 msgstr "Bıraktığınız dosya resim dosyası değil."
 
-#: ../src/file-manager/fm-properties-window.c:636
+#: ../src/file-manager/fm-properties-window.c:639
 msgid "_Name:"
 msgid_plural "_Names:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_İsim:"
+msgstr[1] "_İsimler:"
 
-#: ../src/file-manager/fm-properties-window.c:992
+#: ../src/file-manager/fm-properties-window.c:995
 #, c-format
 msgid "Properties"
 msgstr "Özellikler"
 
-#: ../src/file-manager/fm-properties-window.c:1000
+#: ../src/file-manager/fm-properties-window.c:1003
 #, c-format
 msgid "%s Properties"
 msgstr "%s Özellikleri"
 
-#: ../src/file-manager/fm-properties-window.c:1328
+#: ../src/file-manager/fm-properties-window.c:1330
 #, c-format
 msgctxt "MIME type description (MIME type)"
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-properties-window.c:1536
+#: ../src/file-manager/fm-properties-window.c:1538
 msgid "Cancel Group Change?"
 msgstr "Grup Değişimi İptal Edilsin mi?"
 
-#: ../src/file-manager/fm-properties-window.c:1946
+#: ../src/file-manager/fm-properties-window.c:1948
 msgid "Cancel Owner Change?"
 msgstr "Sahip Değişimi İptal Edilsin mi?"
 
-#: ../src/file-manager/fm-properties-window.c:2270
+#: ../src/file-manager/fm-properties-window.c:2272
 msgid "nothing"
 msgstr "hiçbir şey"
 
-#: ../src/file-manager/fm-properties-window.c:2272
+#: ../src/file-manager/fm-properties-window.c:2274
 msgid "unreadable"
 msgstr "okunamadı"
 
-#: ../src/file-manager/fm-properties-window.c:2291
+#: ../src/file-manager/fm-properties-window.c:2293
 #, c-format
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d unsur, toplam %s boyutunda (disk üzerinde %s)"
+msgstr[1] "%'d unsur, toplam %s boyutunda (disk üzerinde %s)"
 
-#: ../src/file-manager/fm-properties-window.c:2301
+#: ../src/file-manager/fm-properties-window.c:2303
 msgid "(some contents unreadable)"
 msgstr "(bazı içerikler okunamadı)"
 
@@ -5569,276 +5653,255 @@ msgstr "(bazı içerikler okunamadı)"
 #. * "Contents:" title to line up with the first line of the
 #. * 2-line value. Maybe there's a better way to do this, but I
 #. * couldn't think of one.
-#: ../src/file-manager/fm-properties-window.c:2318
+#: ../src/file-manager/fm-properties-window.c:2320
 msgid "Contents:"
 msgstr "İçerik:"
 
 #. Translators: "used" refers to the capacity of the filesystem
-#: ../src/file-manager/fm-properties-window.c:3094
+#: ../src/file-manager/fm-properties-window.c:3096
 msgid "used"
 msgstr "kullanılan"
 
 #. Translators: "free" refers to the capacity of the filesystem
-#: ../src/file-manager/fm-properties-window.c:3103
+#: ../src/file-manager/fm-properties-window.c:3105
 msgid "free"
 msgstr "boş"
 
-#: ../src/file-manager/fm-properties-window.c:3105
+#: ../src/file-manager/fm-properties-window.c:3107
 msgid "Total capacity:"
 msgstr "Toplam kapasite:"
 
-#: ../src/file-manager/fm-properties-window.c:3114
+#: ../src/file-manager/fm-properties-window.c:3116
 msgid "Filesystem type:"
 msgstr "Dosya Sistemi türü:"
 
-#: ../src/file-manager/fm-properties-window.c:3200
+#: ../src/file-manager/fm-properties-window.c:3202
 msgid "Basic"
 msgstr "Temel"
 
-#: ../src/file-manager/fm-properties-window.c:3262
+#: ../src/file-manager/fm-properties-window.c:3264
 msgid "Link target:"
 msgstr "Bağlantı hedefi:"
 
-#: ../src/file-manager/fm-properties-window.c:3276
+#: ../src/file-manager/fm-properties-window.c:3278
 msgid "Size on Disk:"
 msgstr "Diskteki Boyut:"
 
-#: ../src/file-manager/fm-properties-window.c:3285
+#: ../src/file-manager/fm-properties-window.c:3287
 #: ../src/caja-location-bar.c:57
 msgid "Location:"
 msgstr "Konum:"
 
-#: ../src/file-manager/fm-properties-window.c:3291
+#: ../src/file-manager/fm-properties-window.c:3293
 msgid "Volume:"
 msgstr "Birim:"
 
-#: ../src/file-manager/fm-properties-window.c:3300
+#: ../src/file-manager/fm-properties-window.c:3302
 msgid "Accessed:"
 msgstr "Erişim:"
 
-#: ../src/file-manager/fm-properties-window.c:3304
+#: ../src/file-manager/fm-properties-window.c:3306
 msgid "Modified:"
 msgstr "Değiştirilme:"
 
-#: ../src/file-manager/fm-properties-window.c:3313
+#: ../src/file-manager/fm-properties-window.c:3315
 msgid "Free space:"
 msgstr "Boş alan:"
 
-#: ../src/file-manager/fm-properties-window.c:3427
-#: ../src/caja-emblem-sidebar.c:1085
+#: ../src/file-manager/fm-properties-window.c:3430
+#: ../src/caja-emblem-sidebar.c:1098
 msgid "Emblems"
 msgstr "Amblemler"
 
-#: ../src/file-manager/fm-properties-window.c:3836
+#: ../src/file-manager/fm-properties-window.c:3840
 msgid "_Read"
 msgstr "_Okuma"
 
-#: ../src/file-manager/fm-properties-window.c:3838
+#: ../src/file-manager/fm-properties-window.c:3842
 msgid "_Write"
 msgstr "_Yazma"
 
-#: ../src/file-manager/fm-properties-window.c:3840
+#: ../src/file-manager/fm-properties-window.c:3844
 msgid "E_xecute"
 msgstr "Ç_alıştırma"
 
 #. translators: this gets concatenated to "no read",
 #. * "no access", etc. (see following strings)
-#: ../src/file-manager/fm-properties-window.c:4108
-#: ../src/file-manager/fm-properties-window.c:4119
-#: ../src/file-manager/fm-properties-window.c:4131
+#: ../src/file-manager/fm-properties-window.c:4112
+#: ../src/file-manager/fm-properties-window.c:4123
+#: ../src/file-manager/fm-properties-window.c:4135
 msgid "no "
 msgstr "-"
 
-#: ../src/file-manager/fm-properties-window.c:4111
+#: ../src/file-manager/fm-properties-window.c:4115
 msgid "list"
 msgstr "listeleme"
 
-#: ../src/file-manager/fm-properties-window.c:4113
+#: ../src/file-manager/fm-properties-window.c:4117
 msgid "read"
 msgstr "okuma"
 
-#: ../src/file-manager/fm-properties-window.c:4122
+#: ../src/file-manager/fm-properties-window.c:4126
 msgid "create/delete"
 msgstr "oluşturma/silme"
 
-#: ../src/file-manager/fm-properties-window.c:4124
+#: ../src/file-manager/fm-properties-window.c:4128
 msgid "write"
 msgstr "yazma"
 
-#: ../src/file-manager/fm-properties-window.c:4133
+#: ../src/file-manager/fm-properties-window.c:4137
 msgid "access"
 msgstr "erişim"
 
-#: ../src/file-manager/fm-properties-window.c:4181
+#: ../src/file-manager/fm-properties-window.c:4185
 msgid "Access:"
 msgstr "Erişim:"
 
-#: ../src/file-manager/fm-properties-window.c:4183
+#: ../src/file-manager/fm-properties-window.c:4187
 msgid "Folder access:"
 msgstr "Dizin erişimi:"
 
-#: ../src/file-manager/fm-properties-window.c:4185
+#: ../src/file-manager/fm-properties-window.c:4189
 msgid "File access:"
 msgstr "Dosya erişimi:"
 
 #. Translators: this is referred to the permissions
 #. * the user has in a directory.
 #. Translators: this is referred to captions under icons.
-#: ../src/file-manager/fm-properties-window.c:4200
-#: ../src/file-manager/fm-properties-window.c:4211
-#: ../src/caja-file-management-properties.c:329
+#: ../src/file-manager/fm-properties-window.c:4204
+#: ../src/file-manager/fm-properties-window.c:4215
+#: ../src/caja-file-management-properties.c:336
 msgid "None"
 msgstr "Hiçbiri"
 
-#: ../src/file-manager/fm-properties-window.c:4203
+#: ../src/file-manager/fm-properties-window.c:4207
 msgid "List files only"
 msgstr "Sadece dosyaları listeler"
 
-#: ../src/file-manager/fm-properties-window.c:4205
+#: ../src/file-manager/fm-properties-window.c:4209
 msgid "Access files"
 msgstr "Dosyalara erişim"
 
-#: ../src/file-manager/fm-properties-window.c:4207
+#: ../src/file-manager/fm-properties-window.c:4211
 msgid "Create and delete files"
 msgstr "Dosyaları oluştur ve sil"
 
-#: ../src/file-manager/fm-properties-window.c:4214
+#: ../src/file-manager/fm-properties-window.c:4218
 msgid "Read-only"
 msgstr "Salt-okunur"
 
-#: ../src/file-manager/fm-properties-window.c:4216
+#: ../src/file-manager/fm-properties-window.c:4220
 msgid "Read and write"
 msgstr "Okuma ve yazma"
 
-#: ../src/file-manager/fm-properties-window.c:4281
+#: ../src/file-manager/fm-properties-window.c:4285
 msgid "Special flags:"
 msgstr "Özel bayraklar:"
 
-#: ../src/file-manager/fm-properties-window.c:4283
+#: ../src/file-manager/fm-properties-window.c:4287
 msgid "Set _user ID"
 msgstr "_Kullanıcı nosu ayarla"
 
-#: ../src/file-manager/fm-properties-window.c:4284
+#: ../src/file-manager/fm-properties-window.c:4288
 msgid "Set gro_up ID"
 msgstr "_Grup nosu ayarla"
 
-#: ../src/file-manager/fm-properties-window.c:4285
+#: ../src/file-manager/fm-properties-window.c:4289
 msgid "_Sticky"
 msgstr "_Yapışık"
 
-#: ../src/file-manager/fm-properties-window.c:4360
-#: ../src/file-manager/fm-properties-window.c:4551
+#: ../src/file-manager/fm-properties-window.c:4364
+#: ../src/file-manager/fm-properties-window.c:4555
 msgid "_Owner:"
 msgstr "_Sahibi:"
 
-#: ../src/file-manager/fm-properties-window.c:4368
-#: ../src/file-manager/fm-properties-window.c:4456
-#: ../src/file-manager/fm-properties-window.c:4560
+#: ../src/file-manager/fm-properties-window.c:4372
+#: ../src/file-manager/fm-properties-window.c:4460
+#: ../src/file-manager/fm-properties-window.c:4564
 msgid "Owner:"
 msgstr "Sahibi:"
 
-#: ../src/file-manager/fm-properties-window.c:4390
-#: ../src/file-manager/fm-properties-window.c:4573
+#: ../src/file-manager/fm-properties-window.c:4394
+#: ../src/file-manager/fm-properties-window.c:4577
 msgid "_Group:"
 msgstr "_Grubu:"
 
-#: ../src/file-manager/fm-properties-window.c:4398
-#: ../src/file-manager/fm-properties-window.c:4457
-#: ../src/file-manager/fm-properties-window.c:4581
+#: ../src/file-manager/fm-properties-window.c:4402
+#: ../src/file-manager/fm-properties-window.c:4461
+#: ../src/file-manager/fm-properties-window.c:4585
 msgid "Group:"
 msgstr "Grubu:"
 
-#: ../src/file-manager/fm-properties-window.c:4422
+#: ../src/file-manager/fm-properties-window.c:4426
 msgid "Others"
 msgstr "Diğerleri"
 
-#: ../src/file-manager/fm-properties-window.c:4437
+#: ../src/file-manager/fm-properties-window.c:4441
 msgid "Execute:"
 msgstr "Çalıştır:"
 
-#: ../src/file-manager/fm-properties-window.c:4440
+#: ../src/file-manager/fm-properties-window.c:4444
 msgid "Allow _executing file as program"
 msgstr "Dosyayı bir program gibi ç_alıştırmaya izin ver"
 
-#: ../src/file-manager/fm-properties-window.c:4458
+#: ../src/file-manager/fm-properties-window.c:4462
 msgid "Others:"
 msgstr "Diğerleri:"
 
-#: ../src/file-manager/fm-properties-window.c:4597
+#: ../src/file-manager/fm-properties-window.c:4601
 msgid "Folder Permissions:"
 msgstr "Dizin İzinleri:"
 
-#: ../src/file-manager/fm-properties-window.c:4604
+#: ../src/file-manager/fm-properties-window.c:4608
 msgid "File Permissions:"
 msgstr "Dosya İzinleri:"
 
-#: ../src/file-manager/fm-properties-window.c:4613
+#: ../src/file-manager/fm-properties-window.c:4617
 msgid "Text view:"
 msgstr "Metin görünüm:"
 
-#: ../src/file-manager/fm-properties-window.c:4759
+#: ../src/file-manager/fm-properties-window.c:4763
 msgid "You are not the owner, so you cannot change these permissions."
 msgstr "Sahibi olmadığınız için bu erişim haklarını değiştiremezsiniz."
 
-#: ../src/file-manager/fm-properties-window.c:4779
+#: ../src/file-manager/fm-properties-window.c:4783
 msgid "SELinux context:"
 msgstr "SELinux bağlamı:"
 
-#: ../src/file-manager/fm-properties-window.c:4784
+#: ../src/file-manager/fm-properties-window.c:4788
 msgid "Last changed:"
 msgstr "Son değiştirme:"
 
-#: ../src/file-manager/fm-properties-window.c:4795
+#: ../src/file-manager/fm-properties-window.c:4799
 msgid "Apply Permissions to Enclosed Files"
 msgstr "Çevrelenmiş Dosyalara İzinleri Uygula"
 
-#: ../src/file-manager/fm-properties-window.c:4805
+#: ../src/file-manager/fm-properties-window.c:4809
 #, c-format
 msgid "The permissions of \"%s\" could not be determined."
 msgstr "\"%s\"nin erişim hakları belirlenemedi."
 
-#: ../src/file-manager/fm-properties-window.c:4808
+#: ../src/file-manager/fm-properties-window.c:4812
 msgid "The permissions of the selected file could not be determined."
 msgstr "Seçilen dosyanın erişim hakları belirlenemedi."
 
-#. create the "help" button
-#. name, icon name, label
-#: ../src/file-manager/fm-properties-window.c:5172
-#: ../src/caja-bookmarks-window.ui.h:2
-#: ../src/caja-connect-server-dialog.c:1117
-#: ../src/caja-file-management-properties.ui.h:40
-#: ../src/caja-location-dialog.c:189 ../src/caja-property-browser.c:390
-#: ../src/caja-window-menus.c:809
-msgid "_Help"
-msgstr "_Yardım"
-
-#. create the "close" button
-#. name, icon name
-#. label, accelerator
-#: ../src/file-manager/fm-properties-window.c:5177
-#: ../src/caja-bookmarks-window.ui.h:5
-#: ../src/caja-file-management-properties.ui.h:41
-#: ../src/caja-property-browser.c:398 ../src/caja-window-menus.c:811
-msgid "_Close"
-msgstr "_Kapat"
-
-#: ../src/file-manager/fm-properties-window.c:5387
+#: ../src/file-manager/fm-properties-window.c:5391
 msgid "Creating Properties window."
 msgstr "Özellikler penceresi oluşturuluyor."
 
-#: ../src/file-manager/fm-properties-window.c:5676
+#: ../src/file-manager/fm-properties-window.c:5680
 msgid "Select Custom Icon"
 msgstr "Özel Simge Seç"
 
-#: ../src/file-manager/fm-tree-view.c:1438 ../src/caja-places-sidebar.c:535
+#: ../src/file-manager/fm-tree-view.c:1421 ../src/caja-places-sidebar.c:554
 msgid "File System"
 msgstr "Dosya Sistemi"
 
-#: ../src/file-manager/fm-tree-view.c:1727
+#: ../src/file-manager/fm-tree-view.c:1708
 msgid "Tree"
 msgstr "Ağaç"
 
-#: ../src/file-manager/fm-tree-view.c:1733
+#: ../src/file-manager/fm-tree-view.c:1714
 msgid "Show Tree"
 msgstr "Ağacı Göster"
 
@@ -5868,8 +5931,8 @@ msgstr ""
 "Caja'yı çalıştırmadan önce, lütfen aşağıdaki dizini oluşturun, ya da "
 "Caja'nın oluşturabileceği şekilde erişim haklarını ayarlayın."
 
-#: ../src/caja-application.c:1264 ../src/caja-places-sidebar.c:2191
-#: ../src/caja-places-sidebar.c:2222 ../src/caja-places-sidebar.c:2257
+#: ../src/caja-application.c:1264 ../src/caja-places-sidebar.c:2210
+#: ../src/caja-places-sidebar.c:2241 ../src/caja-places-sidebar.c:2276
 #, c-format
 msgid "Unable to eject %s"
 msgstr "%s çıkartılamadı"
@@ -5975,9 +6038,9 @@ msgstr ""
 "\n"
 "Eğer şüpheliyseniz İptal'e basın."
 
-#: ../src/caja-bookmarks-window.c:158
-#: ../src/caja-file-management-properties.c:236
-#: ../src/caja-property-browser.c:1664 ../src/caja-window-menus.c:590
+#: ../src/caja-bookmarks-window.c:159
+#: ../src/caja-file-management-properties.c:243
+#: ../src/caja-property-browser.c:1680 ../src/caja-window-menus.c:590
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
@@ -5986,7 +6049,7 @@ msgstr ""
 "Yardım görüntülenirken bir hata oluştu: \n"
 "%s"
 
-#: ../src/caja-bookmarks-window.c:194
+#: ../src/caja-bookmarks-window.c:195
 msgid "No bookmarks defined"
 msgstr "Yer imi tanımlanmamış"
 
@@ -5996,7 +6059,7 @@ msgstr "Yer imlerini Düzenle"
 
 #: ../src/caja-bookmarks-window.ui.h:3
 msgid "_Jump to"
-msgstr ""
+msgstr "Şuraya _atla"
 
 #: ../src/caja-bookmarks-window.ui.h:6
 msgid "<b>_Bookmarks</b>"
@@ -6150,17 +6213,17 @@ msgstr "_Yer imi ekle"
 msgid "Bookmark Name:"
 msgstr "Yer imi ismi:"
 
-#: ../src/caja-desktop-window.c:87 ../src/caja-desktop-window.c:264
-#: ../src/caja-pathbar.c:1399 ../src/caja-places-sidebar.c:519
+#: ../src/caja-desktop-window.c:87 ../src/caja-desktop-window.c:270
+#: ../src/caja-pathbar.c:1446 ../src/caja-places-sidebar.c:538
 msgid "Desktop"
 msgstr "Masaüstü"
 
-#: ../src/caja-emblem-sidebar.c:224
+#: ../src/caja-emblem-sidebar.c:225
 #, c-format
 msgid "Could not remove emblem with name '%s'."
 msgstr "'%s' adındaki amblem silinemedi."
 
-#: ../src/caja-emblem-sidebar.c:225 ../src/caja-emblem-sidebar.c:265
+#: ../src/caja-emblem-sidebar.c:226 ../src/caja-emblem-sidebar.c:266
 msgid ""
 "This is probably because the emblem is a permanent one, and not one that you"
 " added yourself."
@@ -6168,28 +6231,29 @@ msgstr ""
 "Bunun nedeni bu amblemi sizin eklememiş olmanız veya kalıcı bir amblem "
 "olması olabilir."
 
-#: ../src/caja-emblem-sidebar.c:264
+#: ../src/caja-emblem-sidebar.c:265
 #, c-format
 msgid "Could not rename emblem with name '%s'."
 msgstr "'%s' adındaki amblem yeniden adlandırılamadı."
 
-#: ../src/caja-emblem-sidebar.c:284
+#: ../src/caja-emblem-sidebar.c:286
 msgid "Rename Emblem"
 msgstr "Amblemi Yeniden Adlandır"
 
-#: ../src/caja-emblem-sidebar.c:303
+#: ../src/caja-emblem-sidebar.c:312
 msgid "Enter a new name for the displayed emblem:"
 msgstr "Gösterilen amblem için yeni bir isim giriniz:"
 
-#: ../src/caja-emblem-sidebar.c:357
+#. add the "rename" menu item
+#: ../src/caja-emblem-sidebar.c:365
 msgid "Rename"
 msgstr "Yeniden adlandır"
 
-#: ../src/caja-emblem-sidebar.c:537
+#: ../src/caja-emblem-sidebar.c:543
 msgid "Add Emblems..."
 msgstr "Amblem Ekle..."
 
-#: ../src/caja-emblem-sidebar.c:554
+#: ../src/caja-emblem-sidebar.c:567
 msgid ""
 "Enter a descriptive name next to each emblem.  This name will be used in "
 "other places to identify the emblem."
@@ -6197,7 +6261,7 @@ msgstr ""
 "Her amblemin yanına bir açıklayıcı bir isim giriniz.  Bu isim başka yerlerde"
 " bu amblemi tanımak için kullanılacaktır."
 
-#: ../src/caja-emblem-sidebar.c:558
+#: ../src/caja-emblem-sidebar.c:571
 msgid ""
 "Enter a descriptive name next to the emblem.  This name will be used in "
 "other places to identify the emblem."
@@ -6205,36 +6269,36 @@ msgstr ""
 "Amblemin yanına bir açıklayıcı bir isim giriniz.  Bu isim başka yerlerde bu "
 "amblemi tanımak için kullanılacaktır."
 
-#: ../src/caja-emblem-sidebar.c:800
+#: ../src/caja-emblem-sidebar.c:813
 msgid "Some of the files could not be added as emblems."
 msgstr "Kimi dosyalar amblem olarak eklenemedi."
 
-#: ../src/caja-emblem-sidebar.c:800 ../src/caja-emblem-sidebar.c:804
+#: ../src/caja-emblem-sidebar.c:813 ../src/caja-emblem-sidebar.c:817
 msgid "The emblems do not appear to be valid images."
 msgstr "Amblemler geçerli resimler gibi görünmüyor."
 
-#: ../src/caja-emblem-sidebar.c:804
+#: ../src/caja-emblem-sidebar.c:817
 msgid "None of the files could be added as emblems."
 msgstr "Dosyaların hiçbiri amblem olarak eklenemedi."
 
-#: ../src/caja-emblem-sidebar.c:847 ../src/caja-emblem-sidebar.c:910
+#: ../src/caja-emblem-sidebar.c:860 ../src/caja-emblem-sidebar.c:923
 #, c-format
 msgid "The file '%s' does not appear to be a valid image."
 msgstr "'%s' dosyası geçerli bir resim gibi görünmüyor."
 
-#: ../src/caja-emblem-sidebar.c:852
+#: ../src/caja-emblem-sidebar.c:865
 msgid "The dragged file does not appear to be a valid image."
 msgstr "Sürüklenen dosya geçerli bir resim gibi görünmüyor."
 
-#: ../src/caja-emblem-sidebar.c:854 ../src/caja-emblem-sidebar.c:911
+#: ../src/caja-emblem-sidebar.c:867 ../src/caja-emblem-sidebar.c:924
 msgid "The emblem cannot be added."
 msgstr "Amblem eklenemedi."
 
-#: ../src/caja-emblem-sidebar.c:1091
+#: ../src/caja-emblem-sidebar.c:1104
 msgid "Show Emblems"
 msgstr "Amblemleri Göster"
 
-#: ../src/caja-file-management-properties.c:632
+#: ../src/caja-file-management-properties.c:639
 msgid "About Extension"
 msgstr "Eklenti Hakkında"
 
@@ -6263,229 +6327,237 @@ msgid "By Size"
 msgstr "Boyuta Göre"
 
 #: ../src/caja-file-management-properties.ui.h:10
+msgid "By Size on Disk"
+msgstr "Diskteki Boyuta Göre"
+
+#: ../src/caja-file-management-properties.ui.h:11
 msgid "By Type"
 msgstr "Türe Göre"
 
-#: ../src/caja-file-management-properties.ui.h:11
+#: ../src/caja-file-management-properties.ui.h:12
 msgid "By Modification Date"
 msgstr "Değişim Tarihine Göre"
 
-#: ../src/caja-file-management-properties.ui.h:12
+#: ../src/caja-file-management-properties.ui.h:13
 msgid "By Access Date"
 msgstr "Erişim Tarihine Göre"
 
-#: ../src/caja-file-management-properties.ui.h:13
+#: ../src/caja-file-management-properties.ui.h:14
 msgid "By Emblems"
 msgstr "Amblemine Göre"
 
-#: ../src/caja-file-management-properties.ui.h:14
+#: ../src/caja-file-management-properties.ui.h:15
+msgid "By Extension"
+msgstr "Uzantıya Göre"
+
+#: ../src/caja-file-management-properties.ui.h:16
 msgid "By Trashed Date"
 msgstr "Çöpe Konulma Tarihine Göre"
 
-#: ../src/caja-file-management-properties.ui.h:16
+#: ../src/caja-file-management-properties.ui.h:18
 #, no-c-format
 msgid "33%"
 msgstr "%33"
 
-#: ../src/caja-file-management-properties.ui.h:18
+#: ../src/caja-file-management-properties.ui.h:20
 #, no-c-format
 msgid "50%"
 msgstr "%50"
 
-#: ../src/caja-file-management-properties.ui.h:20
+#: ../src/caja-file-management-properties.ui.h:22
 #, no-c-format
 msgid "66%"
 msgstr "%66"
 
-#: ../src/caja-file-management-properties.ui.h:22
+#: ../src/caja-file-management-properties.ui.h:24
 #, no-c-format
 msgid "100%"
 msgstr "%100"
 
-#: ../src/caja-file-management-properties.ui.h:24
+#: ../src/caja-file-management-properties.ui.h:26
 #, no-c-format
 msgid "150%"
 msgstr "%150"
 
-#: ../src/caja-file-management-properties.ui.h:26
+#: ../src/caja-file-management-properties.ui.h:28
 #, no-c-format
 msgid "200%"
 msgstr "%200"
 
-#: ../src/caja-file-management-properties.ui.h:28
+#: ../src/caja-file-management-properties.ui.h:30
 #, no-c-format
 msgid "400%"
 msgstr "%400"
 
-#: ../src/caja-file-management-properties.ui.h:29
+#: ../src/caja-file-management-properties.ui.h:31
 msgid "100 KB"
 msgstr "100 KB"
 
-#: ../src/caja-file-management-properties.ui.h:30
+#: ../src/caja-file-management-properties.ui.h:32
 msgid "500 KB"
 msgstr "500 KB"
 
-#: ../src/caja-file-management-properties.ui.h:31
+#: ../src/caja-file-management-properties.ui.h:33
 msgid "1 MB"
 msgstr "1 MB"
 
-#: ../src/caja-file-management-properties.ui.h:32
+#: ../src/caja-file-management-properties.ui.h:34
 msgid "3 MB"
 msgstr "3 MB"
 
-#: ../src/caja-file-management-properties.ui.h:33
+#: ../src/caja-file-management-properties.ui.h:35
 msgid "5 MB"
 msgstr "5 MB"
 
-#: ../src/caja-file-management-properties.ui.h:34
+#: ../src/caja-file-management-properties.ui.h:36
 msgid "10 MB"
 msgstr "10 MB"
 
-#: ../src/caja-file-management-properties.ui.h:35
+#: ../src/caja-file-management-properties.ui.h:37
 msgid "100 MB"
 msgstr "100 MB"
 
-#: ../src/caja-file-management-properties.ui.h:36
+#: ../src/caja-file-management-properties.ui.h:38
 msgid "1 GB"
 msgstr "1 GB"
 
-#: ../src/caja-file-management-properties.ui.h:37
+#: ../src/caja-file-management-properties.ui.h:39
 msgid "2 GB"
 msgstr "2 GB"
 
-#: ../src/caja-file-management-properties.ui.h:38
+#: ../src/caja-file-management-properties.ui.h:40
 msgid "4 GB"
 msgstr "4 GB"
 
-#: ../src/caja-file-management-properties.ui.h:39
+#: ../src/caja-file-management-properties.ui.h:41
 msgid "File Management Preferences"
 msgstr "Dosya Yöneticisi Tercihleri"
 
-#: ../src/caja-file-management-properties.ui.h:42
+#: ../src/caja-file-management-properties.ui.h:44
 msgid "<b>Default View</b>"
 msgstr "<b>Öntanımlı Görünüm</b>"
 
-#: ../src/caja-file-management-properties.ui.h:43
+#: ../src/caja-file-management-properties.ui.h:45
 msgid "View _new folders using:"
 msgstr "_Yeni dizinleri bunu kullanarak görüntüle:"
 
-#: ../src/caja-file-management-properties.ui.h:44
+#: ../src/caja-file-management-properties.ui.h:46
 msgid "_Arrange items:"
 msgstr "Öğ_eleri düzenle:"
 
-#: ../src/caja-file-management-properties.ui.h:45
+#: ../src/caja-file-management-properties.ui.h:47
 msgid "Sort _folders before files"
 msgstr "_Dizinleri dosyalardan önce sırala"
 
-#: ../src/caja-file-management-properties.ui.h:46
+#: ../src/caja-file-management-properties.ui.h:48
 msgid "Show hidden and _backup files"
 msgstr "_Gizli ve yedek dosyaları göster"
 
-#: ../src/caja-file-management-properties.ui.h:47
+#: ../src/caja-file-management-properties.ui.h:49
 msgid "<b>Icon View Defaults</b>"
 msgstr "<b>Öntanımlı Simge Görünümü</b>"
 
-#: ../src/caja-file-management-properties.ui.h:48
+#: ../src/caja-file-management-properties.ui.h:50
 msgid "Default _zoom level:"
 msgstr "Ön_tanımlı yaklaştırma seviyesi:"
 
-#: ../src/caja-file-management-properties.ui.h:49
+#: ../src/caja-file-management-properties.ui.h:51
 msgid "_Use compact layout"
 msgstr "_Sıkışık görünüm kullan"
 
-#: ../src/caja-file-management-properties.ui.h:50
+#: ../src/caja-file-management-properties.ui.h:52
 msgid "_Text beside icons"
 msgstr "_Simgelerin yanında metin"
 
-#: ../src/caja-file-management-properties.ui.h:51
+#: ../src/caja-file-management-properties.ui.h:53
 msgid "<b>Compact View Defaults</b>"
 msgstr "<b>Sıkışık Görünüm Öntanımlıları</b>"
 
-#: ../src/caja-file-management-properties.ui.h:52
+#: ../src/caja-file-management-properties.ui.h:54
 msgid "_Default zoom level:"
 msgstr "Ö_ntanımlı yaklaştırma seviyesi:"
 
-#: ../src/caja-file-management-properties.ui.h:53
+#: ../src/caja-file-management-properties.ui.h:55
 msgid "A_ll columns have the same width"
 msgstr "_Tüm sütunlar aynı genişliğe sahip"
 
-#: ../src/caja-file-management-properties.ui.h:54
+#: ../src/caja-file-management-properties.ui.h:56
 msgid "<b>List View Defaults</b>"
 msgstr "<b>Öntanımlı Liste Görünümü</b>"
 
-#: ../src/caja-file-management-properties.ui.h:55
+#: ../src/caja-file-management-properties.ui.h:57
 msgid "D_efault zoom level:"
 msgstr "Ön_tanımlı yaklaştırma seviyesi:"
 
-#: ../src/caja-file-management-properties.ui.h:56
+#: ../src/caja-file-management-properties.ui.h:58
 msgid "<b>Tree View Defaults</b>"
 msgstr "<b>Öntanımlı Ağaç Görünümü</b>"
 
-#: ../src/caja-file-management-properties.ui.h:57
+#: ../src/caja-file-management-properties.ui.h:59
 msgid "Show _only folders"
 msgstr "_Sadece dizinleri göster"
 
-#: ../src/caja-file-management-properties.ui.h:58
+#: ../src/caja-file-management-properties.ui.h:60
 msgid "Views"
 msgstr "Görünümler"
 
-#: ../src/caja-file-management-properties.ui.h:59
+#: ../src/caja-file-management-properties.ui.h:61
 msgid "<b>Behavior</b>"
 msgstr "<b>İşleyişDavranış</b>"
 
-#: ../src/caja-file-management-properties.ui.h:60
+#: ../src/caja-file-management-properties.ui.h:62
 msgid "_Single click to open items"
 msgstr "Öğeleri _açmak için tek tık"
 
-#: ../src/caja-file-management-properties.ui.h:61
+#: ../src/caja-file-management-properties.ui.h:63
 msgid "_Double click to open items"
 msgstr "Öğ_eleri açmak için çift tıklayın"
 
-#: ../src/caja-file-management-properties.ui.h:62
+#: ../src/caja-file-management-properties.ui.h:64
 msgid "Open each _folder in its own window"
 msgstr "Her _dizini kendi penceresinde aç"
 
-#: ../src/caja-file-management-properties.ui.h:63
+#: ../src/caja-file-management-properties.ui.h:65
 msgid "<b>Executable Text Files</b>"
 msgstr "<b>Çalıştırılabilir Metin Dosyaları</b>"
 
-#: ../src/caja-file-management-properties.ui.h:64
+#: ../src/caja-file-management-properties.ui.h:66
 msgid "_Run executable text files when they are opened"
 msgstr "_Açıldığında çalıştırılabilir metin dosyalarını çalıştır"
 
-#: ../src/caja-file-management-properties.ui.h:65
+#: ../src/caja-file-management-properties.ui.h:67
 msgid "_View executable text files when they are opened"
 msgstr "_Açıldığında çalıştırılabilir metin dosyalarını görüntüle"
 
-#: ../src/caja-file-management-properties.ui.h:66
+#: ../src/caja-file-management-properties.ui.h:68
 msgid "_Ask each time"
 msgstr "_Her zaman sor"
 
-#: ../src/caja-file-management-properties.ui.h:67
+#: ../src/caja-file-management-properties.ui.h:69
 msgid "<b>Trash</b>"
 msgstr "<b>Çöp</b>"
 
-#: ../src/caja-file-management-properties.ui.h:68
+#: ../src/caja-file-management-properties.ui.h:70
 msgid "Ask before _emptying the Trash or deleting files"
 msgstr "Çö_pü boşaltmadan, ya da dosyaları silmeden önce sor"
 
-#: ../src/caja-file-management-properties.ui.h:69
+#: ../src/caja-file-management-properties.ui.h:71
 msgid "Ask before moving files to the _Trash"
 msgstr "Dosyaları çöp kutusuna taşımadan önce sor"
 
-#: ../src/caja-file-management-properties.ui.h:70
+#: ../src/caja-file-management-properties.ui.h:72
 msgid "I_nclude a Delete command that bypasses Trash"
 msgstr "Çö_pü kullanmayacak bir Sil komutu ekle"
 
-#: ../src/caja-file-management-properties.ui.h:71
+#: ../src/caja-file-management-properties.ui.h:73
 msgid "Behavior"
 msgstr "İşleyiş"
 
-#: ../src/caja-file-management-properties.ui.h:72
+#: ../src/caja-file-management-properties.ui.h:74
 msgid "<b>Icon Captions</b>"
 msgstr "<b>Simge Başlıkları</b>"
 
-#: ../src/caja-file-management-properties.ui.h:73
+#: ../src/caja-file-management-properties.ui.h:75
 msgid ""
 "Choose the order of information to appear beneath icon names. More "
 "information will appear when zooming in closer."
@@ -6493,165 +6565,161 @@ msgstr ""
 "Simge adının altında gösterilecek bilgilerin sırasını seçin. Simgelere "
 "yaklaştıkça görüntülenecek bilgi miktarı artacaktır."
 
-#: ../src/caja-file-management-properties.ui.h:74
+#: ../src/caja-file-management-properties.ui.h:76
 msgid "<b>Date</b>"
 msgstr "<b>Tarih</b>"
 
-#: ../src/caja-file-management-properties.ui.h:75
+#: ../src/caja-file-management-properties.ui.h:77
 msgid "_Format:"
 msgstr "_Biçim:"
 
-#: ../src/caja-file-management-properties.ui.h:76
+#: ../src/caja-file-management-properties.ui.h:78
 msgid "<b>Size</b>"
 msgstr "<b>Boyut</b>"
 
-#: ../src/caja-file-management-properties.ui.h:77
+#: ../src/caja-file-management-properties.ui.h:79
 msgid "_Show file sizes with IEC units"
 msgstr "Do_sya boyutlarını IEC birimleri ile göster"
 
-#: ../src/caja-file-management-properties.ui.h:78
+#: ../src/caja-file-management-properties.ui.h:80
 msgid "Display"
 msgstr "Görüntü"
 
-#: ../src/caja-file-management-properties.ui.h:79
+#: ../src/caja-file-management-properties.ui.h:81
 msgid "<b>List Columns</b>"
 msgstr "<b>Liste Sütunları</b>"
 
-#: ../src/caja-file-management-properties.ui.h:80
+#: ../src/caja-file-management-properties.ui.h:82
 msgid "Choose the order of information to appear in the list view."
 msgstr "Liste görünümünde gösterilecek bilgilerin sırasını seçin."
 
-#: ../src/caja-file-management-properties.ui.h:81
+#: ../src/caja-file-management-properties.ui.h:83
 msgid "List Columns"
 msgstr "Liste Sütunları"
 
-#: ../src/caja-file-management-properties.ui.h:82
+#: ../src/caja-file-management-properties.ui.h:84
 msgid "<b>Text Files</b>"
 msgstr "<b>Metin Dosyaları</b>"
 
-#: ../src/caja-file-management-properties.ui.h:83
+#: ../src/caja-file-management-properties.ui.h:85
 msgid "Show te_xt in icons:"
 msgstr "S_imgelerde metni göster:"
 
-#: ../src/caja-file-management-properties.ui.h:84
+#: ../src/caja-file-management-properties.ui.h:86
 msgid "<b>Other Previewable Files</b>"
 msgstr "<b>Diğer Önizlenebilir Dosyalar</b>"
 
-#: ../src/caja-file-management-properties.ui.h:85
+#: ../src/caja-file-management-properties.ui.h:87
 msgid "Show _thumbnails:"
 msgstr "_Örneklendirmeleri göster:"
 
-#: ../src/caja-file-management-properties.ui.h:86
+#: ../src/caja-file-management-properties.ui.h:88
 msgid "_Only for files smaller than:"
 msgstr "_Sadece bundan daha küçük dosyalar:"
 
-#: ../src/caja-file-management-properties.ui.h:87
+#: ../src/caja-file-management-properties.ui.h:89
 msgid "<b>Sound Files</b>"
 msgstr "<b>Ses Dosyaları</b>"
 
-#: ../src/caja-file-management-properties.ui.h:88
+#: ../src/caja-file-management-properties.ui.h:90
 msgid "Preview _sound files:"
 msgstr "_Ses dosyaları önizleme:"
 
-#: ../src/caja-file-management-properties.ui.h:89
+#: ../src/caja-file-management-properties.ui.h:91
 msgid "<b>Folders</b>"
 msgstr "<b>Dizinler</b>"
 
-#: ../src/caja-file-management-properties.ui.h:90
+#: ../src/caja-file-management-properties.ui.h:92
 msgid "Count _number of items:"
 msgstr "_Öğe sayısını hesapla:"
 
-#: ../src/caja-file-management-properties.ui.h:91
+#: ../src/caja-file-management-properties.ui.h:93
 msgid "Preview"
 msgstr "Önizleme"
 
-#: ../src/caja-file-management-properties.ui.h:92
+#: ../src/caja-file-management-properties.ui.h:94
 msgid "<b>Media Handling</b>"
 msgstr "<b>Ortam İşleme</b>"
 
-#: ../src/caja-file-management-properties.ui.h:93
+#: ../src/caja-file-management-properties.ui.h:95
 msgid ""
 "Choose what happens when inserting media or connecting devices to the system"
 msgstr ""
 "Ortam takıldığında ya da sisteme aygıtlar bağlandığında ne olacağını seçin"
 
-#: ../src/caja-file-management-properties.ui.h:94
+#: ../src/caja-file-management-properties.ui.h:96
 msgid "CD _Audio:"
 msgstr "CD _Sesi:"
 
-#: ../src/caja-file-management-properties.ui.h:95
+#: ../src/caja-file-management-properties.ui.h:97
 msgid "_DVD Video:"
 msgstr "_DVD Video:"
 
-#: ../src/caja-file-management-properties.ui.h:96
+#: ../src/caja-file-management-properties.ui.h:98
 msgid "_Music Player:"
 msgstr "_Müzik Çalıcı:"
 
-#: ../src/caja-file-management-properties.ui.h:97
+#: ../src/caja-file-management-properties.ui.h:99
 msgid "_Photos:"
 msgstr "_Fotoğraflar:"
 
-#: ../src/caja-file-management-properties.ui.h:98
+#: ../src/caja-file-management-properties.ui.h:100
 msgid "_Software:"
 msgstr "_Yazılım:"
 
-#: ../src/caja-file-management-properties.ui.h:99
+#: ../src/caja-file-management-properties.ui.h:101
 msgid "<b>Other Media</b>"
 msgstr "<b>Diğer Ortam</b>"
 
-#: ../src/caja-file-management-properties.ui.h:100
+#: ../src/caja-file-management-properties.ui.h:102
 msgid "Less common media formats can be configured here"
 msgstr "Daha az yaygın ortam biçimleri buradan yapılandırılabilir"
 
-#: ../src/caja-file-management-properties.ui.h:101
+#: ../src/caja-file-management-properties.ui.h:103
 msgid "Acti_on:"
 msgstr "_Eylem:"
 
-#: ../src/caja-file-management-properties.ui.h:102
+#: ../src/caja-file-management-properties.ui.h:104
 msgid "_Type:"
 msgstr "_Tür:"
 
-#: ../src/caja-file-management-properties.ui.h:103
+#: ../src/caja-file-management-properties.ui.h:105
 msgid "_Never prompt or start programs on media insertion"
 msgstr "_Ortam takıldığı zaman asla programları başlatmak için sorma"
 
-#: ../src/caja-file-management-properties.ui.h:104
+#: ../src/caja-file-management-properties.ui.h:106
 msgid "B_rowse media when inserted"
 msgstr "Takıldığında _ortama göz at"
 
-#: ../src/caja-file-management-properties.ui.h:105
+#: ../src/caja-file-management-properties.ui.h:107
 msgid "Media"
 msgstr "Ortam"
 
-#: ../src/caja-file-management-properties.ui.h:106
+#: ../src/caja-file-management-properties.ui.h:108
 msgid "<b>Available _Extensions:</b>"
 msgstr "<b>Mevcut _Eklentiler:</b>"
 
-#: ../src/caja-file-management-properties.ui.h:107
+#: ../src/caja-file-management-properties.ui.h:109
 msgid "column"
 msgstr "sütun"
 
-#: ../src/caja-file-management-properties.ui.h:108
-msgid "Extension"
-msgstr "Eklenti"
-
-#: ../src/caja-file-management-properties.ui.h:109
+#: ../src/caja-file-management-properties.ui.h:111
 msgid "_About Extension"
 msgstr "Eklenti _Hakkında"
 
-#: ../src/caja-file-management-properties.ui.h:110
+#: ../src/caja-file-management-properties.ui.h:112
 msgid "C_onfigure Extension"
 msgstr "Eklentiyi Yap_ılandır"
 
-#: ../src/caja-file-management-properties.ui.h:111
+#: ../src/caja-file-management-properties.ui.h:113
 msgid "Extensions"
 msgstr "Eklentiler"
 
-#: ../src/caja-history-sidebar.c:337
+#: ../src/caja-history-sidebar.c:338
 msgid "History"
 msgstr "Geçmiş"
 
-#: ../src/caja-history-sidebar.c:343
+#: ../src/caja-history-sidebar.c:344
 msgid "Show History"
 msgstr "Geçmişi Göster"
 
@@ -6728,15 +6796,15 @@ msgstr "Resim Türü:"
 #, c-format
 msgid "<b>Width:</b> %d pixel"
 msgid_plural "<b>Width:</b> %d pixels"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "<b>Genişlik:</b> %d piksel"
+msgstr[1] "<b>Genişlik:</b> %d piksel"
 
 #: ../src/caja-image-properties-page.c:410
 #, c-format
 msgid "<b>Height:</b> %d pixel"
 msgid_plural "<b>Height:</b> %d pixels"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "<b>Yükseklik:</b> %d piksel"
+msgstr[1] "<b>Yükseklik:</b> %d piksel"
 
 #: ../src/caja-image-properties-page.c:429
 msgid "Failed to load image information"
@@ -6779,8 +6847,8 @@ msgstr "Git:"
 #, c-format
 msgid "Do you want to view %d location?"
 msgid_plural "Do you want to view %d locations?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d konumu görüntülemek istiyor musunuz?"
+msgstr[1] "%d konumu görüntülemek istiyor musunuz?"
 
 #: ../src/caja-location-dialog.c:157
 msgid "Open Location"
@@ -6805,268 +6873,268 @@ msgid "The history location doesn't exist."
 msgstr "Geçmiş konumu mevcut değil."
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:824
+#: ../src/caja-navigation-window-menus.c:813
 msgid "_Go"
 msgstr "_Git"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:825
+#: ../src/caja-navigation-window-menus.c:814
 msgid "_Bookmarks"
 msgstr "_Yer imleri"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:826
+#: ../src/caja-navigation-window-menus.c:815
 msgid "_Tabs"
 msgstr "_Sekmeler"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:827
+#: ../src/caja-navigation-window-menus.c:816
 msgid "New _Window"
 msgstr "Yeni _Pencere"
 
-#: ../src/caja-navigation-window-menus.c:828
+#: ../src/caja-navigation-window-menus.c:817
 msgid "Open another Caja window for the displayed location"
 msgstr "Gösterilen konum için başka bir Caja penceresi aç"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:831
+#: ../src/caja-navigation-window-menus.c:820
 msgid "New _Tab"
 msgstr "Yeni _Sekme"
 
-#: ../src/caja-navigation-window-menus.c:832
+#: ../src/caja-navigation-window-menus.c:821
 msgid "Open another tab for the displayed location"
 msgstr "Gösterilen konum için başka bir sekme aç"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:835
+#: ../src/caja-navigation-window-menus.c:824
 msgid "Open Folder W_indow"
 msgstr "_Pencere Dizini Aç"
 
-#: ../src/caja-navigation-window-menus.c:836
+#: ../src/caja-navigation-window-menus.c:825
 msgid "Open a folder window for the displayed location"
 msgstr "Gösterilen konum için bir dizin penceresi aç"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:839
+#: ../src/caja-navigation-window-menus.c:828
 msgid "Close _All Windows"
 msgstr "_Tüm Pencereleri Kapat"
 
-#: ../src/caja-navigation-window-menus.c:840
+#: ../src/caja-navigation-window-menus.c:829
 msgid "Close all Navigation windows"
 msgstr "Tüm Gezgin pencerelerini kapat"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:843
+#: ../src/caja-navigation-window-menus.c:832
 msgid "_Location..."
 msgstr "_Konum..."
 
-#: ../src/caja-navigation-window-menus.c:844 ../src/caja-spatial-window.c:943
+#: ../src/caja-navigation-window-menus.c:833 ../src/caja-spatial-window.c:940
 msgid "Specify a location to open"
 msgstr "Açmak için bir konum belirtin"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:847
+#: ../src/caja-navigation-window-menus.c:836
 msgid "Clea_r History"
 msgstr "_Geçmiş Bilgilerini Sil"
 
-#: ../src/caja-navigation-window-menus.c:848
+#: ../src/caja-navigation-window-menus.c:837
 msgid "Clear contents of Go menu and Back/Forward lists"
 msgstr "Git menüsünün ve İleri/Geri listesinin içeriğini temizle"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:851
+#: ../src/caja-navigation-window-menus.c:840
 msgid "S_witch to Other Pane"
 msgstr "Diğer Panele Ge_ç"
 
-#: ../src/caja-navigation-window-menus.c:852
+#: ../src/caja-navigation-window-menus.c:841
 msgid "Move focus to the other pane in a split view window"
 msgstr "Odağı, ayrılmış görünümlü penceredeki diğer panele taşı"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:855
+#: ../src/caja-navigation-window-menus.c:844
 msgid "Sa_me Location as Other Pane"
 msgstr "Diğer Panelle Aynı Konu_m"
 
-#: ../src/caja-navigation-window-menus.c:856
+#: ../src/caja-navigation-window-menus.c:845
 msgid "Go to the same location as in the extra pane"
 msgstr "Başka bir sekmede aynı yeri aç ve git"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:859 ../src/caja-spatial-window.c:956
+#: ../src/caja-navigation-window-menus.c:848 ../src/caja-spatial-window.c:953
 msgid "_Add Bookmark"
 msgstr "_Yer İmi Ekle"
 
-#: ../src/caja-navigation-window-menus.c:860 ../src/caja-spatial-window.c:957
+#: ../src/caja-navigation-window-menus.c:849 ../src/caja-spatial-window.c:954
 msgid "Add a bookmark for the current location to this menu"
 msgstr "Mevcut konum için menüye yer imi ekle"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:863 ../src/caja-spatial-window.c:960
+#: ../src/caja-navigation-window-menus.c:852 ../src/caja-spatial-window.c:957
 msgid "_Edit Bookmarks..."
 msgstr "Yer İmlerini _Düzenle..."
 
-#: ../src/caja-navigation-window-menus.c:864 ../src/caja-spatial-window.c:961
+#: ../src/caja-navigation-window-menus.c:853 ../src/caja-spatial-window.c:958
 msgid "Display a window that allows editing the bookmarks in this menu"
 msgstr "Bu menüdeki yer imlerini düzenlemek için pencere göster"
 
-#: ../src/caja-navigation-window-menus.c:868
+#: ../src/caja-navigation-window-menus.c:857
 msgid "_Previous Tab"
 msgstr "Ö_nceki Sekme"
 
-#: ../src/caja-navigation-window-menus.c:869
+#: ../src/caja-navigation-window-menus.c:858
 msgid "Activate previous tab"
 msgstr "Önceki sekmeyi etkinleştir"
 
-#: ../src/caja-navigation-window-menus.c:873
+#: ../src/caja-navigation-window-menus.c:862
 msgid "_Next Tab"
 msgstr "_Sonraki Sekme"
 
-#: ../src/caja-navigation-window-menus.c:874
+#: ../src/caja-navigation-window-menus.c:863
 msgid "Activate next tab"
 msgstr "Sonraki sekmeyi etkinleştir"
 
-#: ../src/caja-navigation-window-menus.c:878
-#: ../src/caja-navigation-window-pane.c:464
+#: ../src/caja-navigation-window-menus.c:867
+#: ../src/caja-navigation-window-pane.c:384
 msgid "Move Tab _Left"
 msgstr "Sekmeyi S_ola Taşı"
 
-#: ../src/caja-navigation-window-menus.c:879
+#: ../src/caja-navigation-window-menus.c:868
 msgid "Move current tab to left"
 msgstr "Mevcut sekmeyi sola taşı"
 
-#: ../src/caja-navigation-window-menus.c:883
-#: ../src/caja-navigation-window-pane.c:472
+#: ../src/caja-navigation-window-menus.c:872
+#: ../src/caja-navigation-window-pane.c:392
 msgid "Move Tab _Right"
 msgstr "Sekmeyi _Sağa Taşı"
 
-#: ../src/caja-navigation-window-menus.c:884
+#: ../src/caja-navigation-window-menus.c:873
 msgid "Move current tab to right"
 msgstr "Mevcut sekmeyi sağa taşı"
 
-#: ../src/caja-navigation-window-menus.c:888
+#: ../src/caja-navigation-window-menus.c:877
 msgid "S_how Search"
 msgstr "Aramayı G_öster"
 
-#: ../src/caja-navigation-window-menus.c:889
+#: ../src/caja-navigation-window-menus.c:878
 msgid "Show search"
 msgstr "Aramayı göster"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-navigation-window-menus.c:897
+#: ../src/caja-navigation-window-menus.c:886
 msgid "_Main Toolbar"
 msgstr "_Ana Araç Çubuğu"
 
 #. tooltip
-#: ../src/caja-navigation-window-menus.c:898
+#: ../src/caja-navigation-window-menus.c:887
 msgid "Change the visibility of this window's main toolbar"
 msgstr "Bu pencerenin ana araç çubuğunun görünürlüğünü değiştir"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-navigation-window-menus.c:903
+#: ../src/caja-navigation-window-menus.c:892
 msgid "_Side Pane"
 msgstr "_Yan Panel"
 
 #. tooltip
-#: ../src/caja-navigation-window-menus.c:904
+#: ../src/caja-navigation-window-menus.c:893
 msgid "Change the visibility of this window's side pane"
 msgstr "Bu pencerenin yan çubuğunun görünürlüğünü değiştir"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-navigation-window-menus.c:909
+#: ../src/caja-navigation-window-menus.c:898
 msgid "Location _Bar"
 msgstr "_Konum Çubuğu"
 
 #. tooltip
-#: ../src/caja-navigation-window-menus.c:910
+#: ../src/caja-navigation-window-menus.c:899
 msgid "Change the visibility of this window's location bar"
 msgstr "Bu pencerenin konum çubuğunun görünürlüğünü değiştir"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-navigation-window-menus.c:915
+#: ../src/caja-navigation-window-menus.c:904
 msgid "St_atusbar"
 msgstr "_Durum Çubuğu"
 
 #. tooltip
-#: ../src/caja-navigation-window-menus.c:916
+#: ../src/caja-navigation-window-menus.c:905
 msgid "Change the visibility of this window's statusbar"
 msgstr "Pencere durum çubuğunun görünürlüğünü değiştir"
 
 #. name, icon name
 #. label, accelerator
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:921 ../src/caja-spatial-window.c:964
+#: ../src/caja-navigation-window-menus.c:910 ../src/caja-spatial-window.c:961
 msgid "_Search for Files..."
 msgstr "_Dosyalar için ara..."
 
 #. Accelerator is in ShowSearch
 #. tooltip
-#: ../src/caja-navigation-window-menus.c:923
+#: ../src/caja-navigation-window-menus.c:912
 msgid "Search documents and folders by name"
 msgstr "Belgeleri ve dizinleri isme göre arayın"
 
 #. label, accelerator
-#: ../src/caja-navigation-window-menus.c:929
+#: ../src/caja-navigation-window-menus.c:918
 msgid "E_xtra Pane"
 msgstr "İlâve Pan_el"
 
 #. tooltip
-#: ../src/caja-navigation-window-menus.c:930
+#: ../src/caja-navigation-window-menus.c:919
 msgid "Open an extra folder view side-by-side"
 msgstr "Yan yana ek bir dizin görünümü aç"
 
-#: ../src/caja-navigation-window-menus.c:956
+#: ../src/caja-navigation-window-menus.c:945
 msgid "_Back"
 msgstr "_Geri"
 
-#: ../src/caja-navigation-window-menus.c:958
+#: ../src/caja-navigation-window-menus.c:947
 msgid "Go to the previous visited location"
 msgstr "Önceki ziyaret edilmiş konuma git"
 
-#: ../src/caja-navigation-window-menus.c:959
+#: ../src/caja-navigation-window-menus.c:948
 msgid "Back history"
 msgstr "Geçmişte geriye"
 
-#: ../src/caja-navigation-window-menus.c:973
+#: ../src/caja-navigation-window-menus.c:962
 msgid "_Forward"
 msgstr "_İleri"
 
-#: ../src/caja-navigation-window-menus.c:975
+#: ../src/caja-navigation-window-menus.c:964
 msgid "Go to the next visited location"
 msgstr "Sonraki ziyaret edilmiş konuma git"
 
-#: ../src/caja-navigation-window-menus.c:976
+#: ../src/caja-navigation-window-menus.c:965
 msgid "Forward history"
 msgstr "Geçmişte ileriye"
 
-#: ../src/caja-navigation-window-menus.c:991
+#: ../src/caja-navigation-window-menus.c:980
 msgid "_Zoom"
 msgstr "_Yakınlaştır"
 
-#: ../src/caja-navigation-window-menus.c:1001
+#: ../src/caja-navigation-window-menus.c:990
 msgid "_View As"
 msgstr "_Şöyle Görüntüle"
 
-#: ../src/caja-navigation-window-menus.c:1036
+#: ../src/caja-navigation-window-menus.c:1025
 msgid "_Search"
 msgstr "_Ara"
 
-#: ../src/caja-navigation-window-pane.c:254
+#: ../src/caja-navigation-window-pane.c:256
 msgid "Toggle between button and text-based location bar"
 msgstr "Konum çubuğu için metin ve düğmeler arasında geçiş yap"
 
-#: ../src/caja-navigation-window-pane.c:454
+#: ../src/caja-navigation-window-pane.c:374
 msgid "_New Tab"
 msgstr "_Yeni Sekme"
 
-#: ../src/caja-navigation-window-pane.c:483
+#: ../src/caja-navigation-window-pane.c:403
 msgid "_Close Tab"
 msgstr "Sekmeyi _Kapat"
 
-#: ../src/caja-navigation-window.c:737
+#: ../src/caja-navigation-window.c:743
 #, c-format
 msgid "%s - File Browser"
 msgstr "%s - Dosya Tarayıcı"
@@ -7075,100 +7143,100 @@ msgstr "%s - Dosya Tarayıcı"
 msgid "Close tab"
 msgstr "Sekmeyi kapat"
 
-#: ../src/caja-notes-viewer.c:398 ../src/caja-notes-viewer.c:502
+#: ../src/caja-notes-viewer.c:400 ../src/caja-notes-viewer.c:504
 msgid "Notes"
 msgstr "Notlar"
 
-#: ../src/caja-notes-viewer.c:404
+#: ../src/caja-notes-viewer.c:406
 msgid "Show Notes"
 msgstr "Notları Göster"
 
-#: ../src/caja-places-sidebar.c:309
+#: ../src/caja-places-sidebar.c:315
 msgid "Devices"
 msgstr "Cihazlar"
 
-#: ../src/caja-places-sidebar.c:317
+#: ../src/caja-places-sidebar.c:323
 msgid "Bookmarks"
 msgstr "Yer imleri"
 
-#: ../src/caja-places-sidebar.c:521
+#: ../src/caja-places-sidebar.c:540
 msgid "Open the contents of your desktop in a folder"
 msgstr "Masaüstünüzün içeriklerini bir dizinde aç"
 
-#: ../src/caja-places-sidebar.c:537
+#: ../src/caja-places-sidebar.c:556
 msgid "Open the contents of the File System"
 msgstr "Dosya Sisteminin içindekileri aç"
 
-#: ../src/caja-places-sidebar.c:596
+#: ../src/caja-places-sidebar.c:615
 msgid "Open the trash"
 msgstr "Çöpü Aç"
 
-#: ../src/caja-places-sidebar.c:651 ../src/caja-places-sidebar.c:679
+#: ../src/caja-places-sidebar.c:670 ../src/caja-places-sidebar.c:698
 #, c-format
 msgid "Mount and open %s"
 msgstr "%s'i bağla ve aç"
 
-#: ../src/caja-places-sidebar.c:832 ../src/mate-network-scheme.desktop.in.h:1
+#: ../src/caja-places-sidebar.c:851 ../src/mate-network-scheme.desktop.in.h:1
 msgid "Network"
 msgstr "Ağ"
 
-#: ../src/caja-places-sidebar.c:864
+#: ../src/caja-places-sidebar.c:883
 msgid "Browse Network"
 msgstr "Şebekeyi Tara"
 
-#: ../src/caja-places-sidebar.c:866
+#: ../src/caja-places-sidebar.c:885
 msgid "Browse the contents of the network"
 msgstr "Ağdaki içeriğe gözat"
 
 #. start() for type G_DRIVE_START_STOP_TYPE_SHUTDOWN is normally not used
-#: ../src/caja-places-sidebar.c:1793
+#: ../src/caja-places-sidebar.c:1812
 msgid "_Power On"
 msgstr "_Güc Açık"
 
-#: ../src/caja-places-sidebar.c:1797
+#: ../src/caja-places-sidebar.c:1816
 msgid "_Connect Drive"
 msgstr "Sürücüyü _Bağla"
 
-#: ../src/caja-places-sidebar.c:1798
+#: ../src/caja-places-sidebar.c:1817
 msgid "_Disconnect Drive"
 msgstr "Sürücünün _Bağlantısını Kes"
 
-#: ../src/caja-places-sidebar.c:1801
+#: ../src/caja-places-sidebar.c:1820
 msgid "_Start Multi-disk Device"
 msgstr "Çoklu-disk Aygıtını _Başlat"
 
-#: ../src/caja-places-sidebar.c:1802
+#: ../src/caja-places-sidebar.c:1821
 msgid "_Stop Multi-disk Device"
 msgstr "Çoklu-disk Aygıtını _Durdur"
 
-#: ../src/caja-places-sidebar.c:1888 ../src/caja-places-sidebar.c:2477
+#: ../src/caja-places-sidebar.c:1907 ../src/caja-places-sidebar.c:2496
 #, c-format
 msgid "Unable to start %s"
 msgstr "%s başlatılamadı"
 
-#: ../src/caja-places-sidebar.c:2421
+#: ../src/caja-places-sidebar.c:2440
 #, c-format
 msgid "Unable to poll %s for media changes"
 msgstr "Ortam değişikliği için %s yoklanamadı"
 
-#: ../src/caja-places-sidebar.c:2537
+#: ../src/caja-places-sidebar.c:2556
 #, c-format
 msgid "Unable to stop %s"
 msgstr "%s durdurulamadı"
 
-#: ../src/caja-places-sidebar.c:2679
+#: ../src/caja-places-sidebar.c:2700
 msgid "Remove"
 msgstr "Kaldır"
 
-#: ../src/caja-places-sidebar.c:2688
+#: ../src/caja-places-sidebar.c:2709
 msgid "Rename..."
 msgstr "Yeniden Adlandır..."
 
-#: ../src/caja-places-sidebar.c:3381
+#: ../src/caja-places-sidebar.c:3402
 msgid "Places"
 msgstr "Yerler"
 
-#: ../src/caja-places-sidebar.c:3387
+#: ../src/caja-places-sidebar.c:3408
 msgid "Show Places"
 msgstr "Yerleri Göster"
 
@@ -7209,237 +7277,237 @@ msgstr "Bu amblemi silmek için erişim haklarınızı kontrol edin."
 msgid "Select an Image File for the New Emblem"
 msgstr "Yeni Amblem için bir Resim Dosyası seç"
 
-#: ../src/caja-property-browser.c:1106
+#: ../src/caja-property-browser.c:1107
 msgid "Create a New Emblem"
 msgstr "Yeni Bir Amblem Oluştur"
 
 #. make the keyword label and field
-#: ../src/caja-property-browser.c:1127
+#: ../src/caja-property-browser.c:1135
 msgid "_Keyword:"
 msgstr "_Anahtar sözcük:"
 
 #. set up a file chooser to pick the image file
-#: ../src/caja-property-browser.c:1146
+#: ../src/caja-property-browser.c:1154
 msgid "_Image:"
 msgstr "_Resim:"
 
-#: ../src/caja-property-browser.c:1178
+#: ../src/caja-property-browser.c:1187
 msgid "Create a New Color:"
 msgstr "Yeni Bir Renk Oluştur:"
 
 #. make the name label and field
-#: ../src/caja-property-browser.c:1192
+#: ../src/caja-property-browser.c:1208
 msgid "Color _name:"
 msgstr "Renk _ismi:"
 
-#: ../src/caja-property-browser.c:1208
+#: ../src/caja-property-browser.c:1224
 msgid "Color _value:"
 msgstr "Renk _değeri:"
 
-#: ../src/caja-property-browser.c:1244
+#: ../src/caja-property-browser.c:1260
 msgid "Sorry, but you cannot replace the reset image."
 msgstr "Üzgünüm, ancak reset resmini değiştiremezsiniz."
 
-#: ../src/caja-property-browser.c:1245
+#: ../src/caja-property-browser.c:1261
 msgid "Reset is a special image that cannot be deleted."
 msgstr "Reset silinemeyen özel bir resimdir."
 
-#: ../src/caja-property-browser.c:1275
+#: ../src/caja-property-browser.c:1291
 #, c-format
 msgid "Sorry, but the pattern %s could not be installed."
 msgstr "Üzgünüm, ancak %s deseni kurulamadı."
 
-#: ../src/caja-property-browser.c:1306
+#: ../src/caja-property-browser.c:1322
 msgid "Select an Image File to Add as a Pattern"
 msgstr "Desen olarak eklemek için bir Resim Dosyası seç"
 
-#: ../src/caja-property-browser.c:1385 ../src/caja-property-browser.c:1415
+#: ../src/caja-property-browser.c:1401 ../src/caja-property-browser.c:1431
 msgid "The color cannot be installed."
 msgstr "Renk kurulamadı."
 
-#: ../src/caja-property-browser.c:1386
+#: ../src/caja-property-browser.c:1402
 msgid "Sorry, but you must specify an unused color name for the new color."
 msgstr ""
 "Üzgünüm, ancak yeni renk için kullanılmamış bir renk ismi belirtmeniz "
 "gerekiyor."
 
-#: ../src/caja-property-browser.c:1416
+#: ../src/caja-property-browser.c:1432
 msgid "Sorry, but you must specify a non-blank name for the new color."
 msgstr "Üzgünüm, ancak renk için boş olmayan bir isim belirtmeniz gerekiyor."
 
-#: ../src/caja-property-browser.c:1476
+#: ../src/caja-property-browser.c:1492
 msgid "Select a Color to Add"
 msgstr "Eklemek İçin Bir Renk Seçin"
 
-#: ../src/caja-property-browser.c:1522 ../src/caja-property-browser.c:1540
+#: ../src/caja-property-browser.c:1538 ../src/caja-property-browser.c:1556
 #, c-format
 msgid "Sorry, but \"%s\" is not a usable image file."
 msgstr "Üzgünüm, ancak \"%s\" kullanılabilir bir resim dosyası değil."
 
-#: ../src/caja-property-browser.c:1523 ../src/caja-property-browser.c:1541
+#: ../src/caja-property-browser.c:1539 ../src/caja-property-browser.c:1557
 msgid "The file is not an image."
 msgstr "Dosya resim değil."
 
-#: ../src/caja-property-browser.c:2284
+#: ../src/caja-property-browser.c:2300
 msgid "Select a Category:"
 msgstr "Bir Sınıf Seçin:"
 
-#: ../src/caja-property-browser.c:2296
+#: ../src/caja-property-browser.c:2312
 msgid "C_ancel Remove"
 msgstr "_Silmeyi İptal Et"
 
-#: ../src/caja-property-browser.c:2305
+#: ../src/caja-property-browser.c:2321
 msgid "_Add a New Pattern..."
 msgstr "Yeni Bir _Desen Ekle..."
 
-#: ../src/caja-property-browser.c:2308
+#: ../src/caja-property-browser.c:2324
 msgid "_Add a New Color..."
 msgstr "Yeni _Bir Renk Ekle..."
 
-#: ../src/caja-property-browser.c:2311
+#: ../src/caja-property-browser.c:2327
 msgid "_Add a New Emblem..."
 msgstr "_Yeni Bir Amblem Ekle..."
 
-#: ../src/caja-property-browser.c:2337
+#: ../src/caja-property-browser.c:2353
 msgid "Click on a pattern to remove it"
 msgstr "Silmek için bir desenin üzerine tıklayın"
 
-#: ../src/caja-property-browser.c:2340
+#: ../src/caja-property-browser.c:2356
 msgid "Click on a color to remove it"
 msgstr "Silmek için bir rengin üzerine tıklayın"
 
-#: ../src/caja-property-browser.c:2343
+#: ../src/caja-property-browser.c:2359
 msgid "Click on an emblem to remove it"
 msgstr "Silmek için bir amblemin üzerine tıklayın"
 
-#: ../src/caja-property-browser.c:2355
+#: ../src/caja-property-browser.c:2371
 msgid "Patterns:"
 msgstr "Desenler:"
 
-#: ../src/caja-property-browser.c:2358
+#: ../src/caja-property-browser.c:2374
 msgid "Colors:"
 msgstr "Renkler:"
 
-#: ../src/caja-property-browser.c:2361
+#: ../src/caja-property-browser.c:2377
 msgid "Emblems:"
 msgstr "Amblemler:"
 
-#: ../src/caja-property-browser.c:2383
+#: ../src/caja-property-browser.c:2399
 msgid "_Remove a Pattern..."
 msgstr "_Bir Deseni Sil..."
 
-#: ../src/caja-property-browser.c:2386
+#: ../src/caja-property-browser.c:2402
 msgid "_Remove a Color..."
 msgstr "B_ir Rengi Sil..."
 
-#: ../src/caja-property-browser.c:2389
+#: ../src/caja-property-browser.c:2405
 msgid "_Remove an Emblem..."
 msgstr "Bir _Amblemi Sil..."
 
-#: ../src/caja-query-editor.c:142
+#: ../src/caja-query-editor.c:143
 msgid "File Type"
 msgstr "Dosya Türü"
 
-#: ../src/caja-query-editor.c:149
+#: ../src/caja-query-editor.c:150
 msgid "Tags"
 msgstr "Etiketler"
 
-#: ../src/caja-query-editor.c:295
+#: ../src/caja-query-editor.c:296
 msgid "Select folder to search in"
 msgstr "Arama yapılacak dizini seçin"
 
-#: ../src/caja-query-editor.c:391 ../src/caja-query-editor.c:395
+#: ../src/caja-query-editor.c:392 ../src/caja-query-editor.c:396
 msgid ""
 "Tags separated by spaces. Matches files that contains ALL specified tags."
 msgstr ""
 "Etiketler boşluklarla ayrılmaktadır. Belirlenmiş TÜM etiketleri içeren "
 "dosyalarla eşleştir."
 
-#: ../src/caja-query-editor.c:498
+#: ../src/caja-query-editor.c:499
 msgid "Documents"
 msgstr "Belgeler"
 
-#: ../src/caja-query-editor.c:518
+#: ../src/caja-query-editor.c:519
 msgid "Music"
 msgstr "Müzik"
 
-#: ../src/caja-query-editor.c:534
+#: ../src/caja-query-editor.c:535
 msgid "Video"
 msgstr "Video"
 
-#: ../src/caja-query-editor.c:552
+#: ../src/caja-query-editor.c:553
 msgid "Picture"
 msgstr "Resim"
 
-#: ../src/caja-query-editor.c:574
+#: ../src/caja-query-editor.c:575
 msgid "Illustration"
 msgstr "Örnekleme"
 
-#: ../src/caja-query-editor.c:590
+#: ../src/caja-query-editor.c:591
 msgid "Spreadsheet"
 msgstr "Çizelge"
 
-#: ../src/caja-query-editor.c:608
+#: ../src/caja-query-editor.c:609
 msgid "Presentation"
 msgstr "Sunum"
 
-#: ../src/caja-query-editor.c:619
+#: ../src/caja-query-editor.c:620
 msgid "Pdf / Postscript"
 msgstr "Pdf / Postscript"
 
-#: ../src/caja-query-editor.c:629
+#: ../src/caja-query-editor.c:630
 msgid "Text File"
 msgstr "Metin Dosyası"
 
-#: ../src/caja-query-editor.c:713
+#: ../src/caja-query-editor.c:716
 msgid "Select type"
 msgstr "Tür seçin"
 
-#: ../src/caja-query-editor.c:802
+#: ../src/caja-query-editor.c:808
 msgid "Any"
 msgstr "Herhangi Biri"
 
-#: ../src/caja-query-editor.c:818
+#: ../src/caja-query-editor.c:824
 msgid "Other Type..."
 msgstr "Başka Tür..."
 
-#: ../src/caja-query-editor.c:1122
+#: ../src/caja-query-editor.c:1128
 msgid "Remove this criterion from the search"
 msgstr "Aramadan bu kıstası kaldır"
 
-#: ../src/caja-query-editor.c:1169
+#: ../src/caja-query-editor.c:1175
 msgid "Search Folder"
 msgstr "Arama Dizini"
 
-#: ../src/caja-query-editor.c:1175
+#: ../src/caja-query-editor.c:1181
 msgid "Edit"
 msgstr "Düzen"
 
-#: ../src/caja-query-editor.c:1183
+#: ../src/caja-query-editor.c:1189
 msgid "Edit the saved search"
 msgstr "Kaydedilmiş aramayı düzenle"
 
-#: ../src/caja-query-editor.c:1215
+#: ../src/caja-query-editor.c:1221
 msgid "Add a new criterion to this search"
 msgstr "Bu aramaya yeni bir kıstas getir"
 
-#: ../src/caja-query-editor.c:1221
+#: ../src/caja-query-editor.c:1227
 msgid "Go"
 msgstr "Git"
 
-#: ../src/caja-query-editor.c:1225
+#: ../src/caja-query-editor.c:1231
 msgid "Reload"
 msgstr "Yeniden Yükle"
 
-#: ../src/caja-query-editor.c:1230
+#: ../src/caja-query-editor.c:1236
 msgid "Perform or update the search"
 msgstr "Aramayı gerçekleştir ya da güncelle"
 
-#: ../src/caja-query-editor.c:1251
+#: ../src/caja-query-editor.c:1257
 msgid "_Search for:"
 msgstr "_Ara: "
 
-#: ../src/caja-query-editor.c:1280
+#: ../src/caja-query-editor.c:1286
 msgid "Search results"
 msgstr "Arama sonuçları"
 
@@ -7447,39 +7515,39 @@ msgstr "Arama sonuçları"
 msgid "Search:"
 msgstr "Ara:"
 
-#: ../src/caja-side-pane.c:405
+#: ../src/caja-side-pane.c:409
 msgid "Close the side pane"
 msgstr "Yan paneli kapat"
 
 #. name, icon name, label
-#: ../src/caja-spatial-window.c:940
+#: ../src/caja-spatial-window.c:937
 msgid "_Places"
 msgstr "_Yerler"
 
 #. name, icon name, label
-#: ../src/caja-spatial-window.c:942
+#: ../src/caja-spatial-window.c:939
 msgid "Open _Location..."
 msgstr "_Adres Aç..."
 
 #. name, icon name, label
-#: ../src/caja-spatial-window.c:947
+#: ../src/caja-spatial-window.c:944
 msgid "Close P_arent Folders"
 msgstr "_Üst Dizinleri Kapat"
 
-#: ../src/caja-spatial-window.c:948
+#: ../src/caja-spatial-window.c:945
 msgid "Close this folder's parents"
 msgstr "Dizinin üst dizinlerini kapat"
 
 #. name, icon name, label
-#: ../src/caja-spatial-window.c:952
+#: ../src/caja-spatial-window.c:949
 msgid "Clos_e All Folders"
 msgstr "_Tüm Dizinleri Kapat"
 
-#: ../src/caja-spatial-window.c:953
+#: ../src/caja-spatial-window.c:950
 msgid "Close all folder windows"
 msgstr "Tüm dizin pencerelerini kapat"
 
-#: ../src/caja-spatial-window.c:965
+#: ../src/caja-spatial-window.c:962
 msgid "Locate documents and folders on this computer by name or content"
 msgstr ""
 "Bu bilgisayardaki belgeleri ve dizinleri ismi ya da içeriği ile "

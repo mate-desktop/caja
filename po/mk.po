@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-12 16:49+0100\n"
+"POT-Creation-Date: 2018-04-13 12:28+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: exoos <mince.lesovski@gmail.com>, 2018\n"
 "Language-Team: Macedonian (https://www.transifex.com/mate/teams/13566/mk/)\n"
@@ -283,8 +283,8 @@ msgid "Drag an emblem to an object to add it to the object"
 msgstr "Влечете го амблемот врз објект за да го додадете"
 
 #. translators: this is the name of an emblem
-#: ../data/browser.xml.h:68 ../src/caja-emblem-sidebar.c:982
-#: ../src/caja-property-browser.c:1935
+#: ../data/browser.xml.h:68 ../src/caja-emblem-sidebar.c:995
+#: ../src/caja-property-browser.c:1951
 msgid "Erase"
 msgstr "Избриши"
 
@@ -309,7 +309,7 @@ msgstr "Автоматско извршување"
 #. Set initial window title
 #: ../data/caja-browser.desktop.in.in.h:1 ../data/caja.desktop.in.in.h:1
 #: ../data/caja-folder-handler.desktop.in.in.h:1
-#: ../src/caja-spatial-window.c:373 ../src/caja-window-menus.c:535
+#: ../src/caja-spatial-window.c:397 ../src/caja-window-menus.c:535
 #: ../src/caja-window.c:163
 msgid "Caja"
 msgstr "Caja"
@@ -323,7 +323,7 @@ msgid "Browse the file system with the file manager"
 msgstr "Разгледајте го датотечниот систем со менаџерот за датотеки"
 
 #: ../data/caja-computer.desktop.in.in.h:1
-#: ../libcaja-private/caja-desktop-link.c:113 ../src/caja-places-sidebar.c:490
+#: ../libcaja-private/caja-desktop-link.c:113 ../src/caja-places-sidebar.c:509
 msgid "Computer"
 msgstr "Компјутер"
 
@@ -349,16 +349,16 @@ msgstr ""
 "Смени го однесувањето и изгледот на прозорците на менаџерот за датотеки"
 
 #: ../data/caja-folder-handler.desktop.in.in.h:2
-#: ../libcaja-private/caja-autorun.c:568
+#: ../libcaja-private/caja-autorun.c:578
 msgid "Open Folder"
 msgstr "Отвори папка"
 
-#: ../data/caja-home.desktop.in.in.h:1 ../src/file-manager/fm-tree-view.c:1434
+#: ../data/caja-home.desktop.in.in.h:1 ../src/file-manager/fm-tree-view.c:1417
 msgid "Home Folder"
 msgstr "Домашна папка"
 
 #. tooltip
-#: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:504
+#: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:523
 #: ../src/caja-window-menus.c:892
 msgid "Open your personal folder"
 msgstr "Отворете ја Вашата лична папка"
@@ -375,19 +375,19 @@ msgstr "X"
 msgid "Y"
 msgstr "Y"
 
-#: ../eel/eel-editable-label.c:327
+#: ../eel/eel-editable-label.c:329
 msgid "Text"
 msgstr "Текст"
 
-#: ../eel/eel-editable-label.c:328
+#: ../eel/eel-editable-label.c:330
 msgid "The text of the label."
 msgstr "Текстот на ознаката"
 
-#: ../eel/eel-editable-label.c:334
+#: ../eel/eel-editable-label.c:336
 msgid "Justification"
 msgstr "Порамнување"
 
-#: ../eel/eel-editable-label.c:335
+#: ../eel/eel-editable-label.c:337
 msgid ""
 "The alignment of the lines in the text of the label relative to each other. "
 "This does NOT affect the alignment of the label within its allocation. See "
@@ -397,89 +397,119 @@ msgstr ""
 " нема влијание врз подредувањето на насловот во неговиоата алокација. "
 "Погледнете го GtkNisc::xaling за тоа."
 
-#: ../eel/eel-editable-label.c:343
+#: ../eel/eel-editable-label.c:345
 msgid "Line wrap"
 msgstr "Пренос на линија"
 
-#: ../eel/eel-editable-label.c:344
+#: ../eel/eel-editable-label.c:346
 msgid "If set, wrap lines if the text becomes too wide."
 msgstr "Доколку е избрано, префрли ги линиите ако текстот е премногу широк."
 
-#: ../eel/eel-editable-label.c:351
+#: ../eel/eel-editable-label.c:353
 msgid "Cursor Position"
 msgstr "Позиција на покажувачот"
 
-#: ../eel/eel-editable-label.c:352
+#: ../eel/eel-editable-label.c:354
 msgid "The current position of the insertion cursor in chars."
 msgstr "Позиција на вметнување. "
 
-#: ../eel/eel-editable-label.c:361
+#: ../eel/eel-editable-label.c:363
 msgid "Selection Bound"
 msgstr "Не не направен избор"
 
-#: ../eel/eel-editable-label.c:362
+#: ../eel/eel-editable-label.c:364
 msgid ""
 "The position of the opposite end of the selection from the cursor in chars."
 msgstr "Позиција од спротивниот крај на изборот."
 
 #. name, icon name
 #. label, accelerator
-#: ../eel/eel-editable-label.c:3135 ../libcaja-private/caja-clipboard.c:455
-#: ../src/file-manager/fm-directory-view.c:7306
-#: ../src/file-manager/fm-directory-view.c:7473
+#. add the "cut folder" menu item
+#: ../eel/eel-editable-label.c:3117 ../libcaja-private/caja-clipboard.c:455
+#: ../src/file-manager/fm-directory-view.c:7332
+#: ../src/file-manager/fm-directory-view.c:7499
+#: ../src/file-manager/fm-tree-view.c:1307
 msgid "Cu_t"
 msgstr "О_тсечи"
 
 #. name, icon name
 #. label, accelerator
-#: ../eel/eel-editable-label.c:3137 ../libcaja-private/caja-clipboard.c:460
-#: ../src/file-manager/fm-directory-view.c:7310
-#: ../src/file-manager/fm-directory-view.c:7477
+#. add the "copy folder" menu item
+#: ../eel/eel-editable-label.c:3119 ../libcaja-private/caja-clipboard.c:460
+#: ../src/file-manager/fm-directory-view.c:7336
+#: ../src/file-manager/fm-directory-view.c:7503
+#: ../src/file-manager/fm-tree-view.c:1316
 msgid "_Copy"
 msgstr "_Копирај"
 
 #. name, icon name
 #. label, accelerator
-#: ../eel/eel-editable-label.c:3139 ../libcaja-private/caja-clipboard.c:465
-#: ../src/file-manager/fm-directory-view.c:7314
+#: ../eel/eel-editable-label.c:3121 ../libcaja-private/caja-clipboard.c:465
+#: ../src/file-manager/fm-directory-view.c:7340
 msgid "_Paste"
 msgstr "_Вметни"
 
-#: ../eel/eel-editable-label.c:3142
+#: ../eel/eel-editable-label.c:3124
 msgid "Select All"
 msgstr "Одбери сѐ"
 
-#: ../eel/eel-editable-label.c:3153
+#: ../eel/eel-editable-label.c:3135
 msgid "Input Methods"
 msgstr "Методи на Внесување"
 
-#: ../eel/eel-gtk-extensions.c:445
+#: ../eel/eel-gtk-extensions.c:459
 msgid "Show more _details"
 msgstr "Покажи повеќе _детали"
 
-#: ../eel/eel-stock-dialogs.c:233
-msgid "You can stop this operation by clicking cancel."
-msgstr "Кликнете „Откажи“ за да ја запрете оваа операција."
-
-#: ../eel/eel-stock-dialogs.c:237 ../eel/eel-stock-dialogs.c:392
-#: ../eel/eel-stock-dialogs.c:593 ../libcaja-private/caja-autorun.c:1131
-#: ../libcaja-private/caja-file-conflict-dialog.c:655
+#: ../eel/eel-stock-dialogs.c:238 ../eel/eel-stock-dialogs.c:294
+#: ../eel/eel-stock-dialogs.c:449 ../eel/eel-stock-dialogs.c:650
+#: ../libcaja-private/caja-autorun.c:1147
+#: ../libcaja-private/caja-file-conflict-dialog.c:659
 #: ../libcaja-private/caja-file-operations.c:186
 #: ../libcaja-private/caja-mime-actions.c:819
 #: ../libcaja-private/caja-mime-actions.c:1726
-#: ../libcaja-private/caja-open-with-dialog.c:944
-#: ../src/file-manager/fm-directory-view.c:10276
-#: ../src/caja-connect-server-dialog.c:1122 ../src/caja-location-dialog.c:194
+#: ../libcaja-private/caja-open-with-dialog.c:960
+#: ../src/file-manager/fm-directory-view.c:1208
+#: ../src/file-manager/fm-directory-view.c:1350
+#: ../src/file-manager/fm-directory-view.c:7012
+#: ../src/file-manager/fm-directory-view.c:10302
+#: ../src/caja-connect-server-dialog.c:1122 ../src/caja-emblem-sidebar.c:290
+#: ../src/caja-emblem-sidebar.c:547 ../src/caja-location-dialog.c:194
+#: ../src/caja-property-browser.c:1111 ../src/caja-property-browser.c:1191
 msgid "_Cancel"
 msgstr "_Откажи"
 
-#: ../eel/eel-stock-dialogs.c:239 ../eel/eel-stock-dialogs.c:394
-#: ../eel/eel-stock-dialogs.c:598 ../libcaja-private/caja-autorun.c:1136
+#. name, icon name
+#. label, accelerator
+#. add the "open" menu item
+#: ../eel/eel-stock-dialogs.c:240
+#: ../libcaja-private/caja-open-with-dialog.c:976
+#: ../src/file-manager/fm-directory-view.c:7296
+#: ../src/file-manager/fm-directory-view.c:8805
+#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-location-dialog.c:199
+#: ../src/caja-places-sidebar.c:2678
+msgid "_Open"
+msgstr "_Отвори"
+
+#: ../eel/eel-stock-dialogs.c:242
+msgid "_Revert"
+msgstr "_Врати"
+
+#: ../eel/eel-stock-dialogs.c:290
+msgid "You can stop this operation by clicking cancel."
+msgstr "Кликнете „Откажи“ за да ја запрете оваа операција."
+
+#: ../eel/eel-stock-dialogs.c:296 ../eel/eel-stock-dialogs.c:451
+#: ../eel/eel-stock-dialogs.c:655 ../libcaja-private/caja-autorun.c:1152
 #: ../libcaja-private/caja-mime-actions.c:1370
+#: ../src/file-manager/fm-directory-view.c:1213
+#: ../src/caja-emblem-sidebar.c:295 ../src/caja-emblem-sidebar.c:552
+#: ../src/caja-property-browser.c:1116 ../src/caja-property-browser.c:1196
+#: ../src/caja-query-editor.c:720
 msgid "_OK"
 msgstr ""
 
-#: ../eel/eel-stock-dialogs.c:600
+#: ../eel/eel-stock-dialogs.c:657
 msgid "_Clear"
 msgstr ""
 
@@ -487,95 +517,95 @@ msgstr ""
 msgid " (invalid Unicode)"
 msgstr " (невалиден јуникод)"
 
-#: ../libcaja-private/caja-autorun.c:518
+#: ../libcaja-private/caja-autorun.c:522
 msgid "No applications found"
 msgstr "Не е пронајдена апликација"
 
-#: ../libcaja-private/caja-autorun.c:537
+#: ../libcaja-private/caja-autorun.c:543
 msgid "Ask what to do"
 msgstr "Прашај што да правиш"
 
-#: ../libcaja-private/caja-autorun.c:553
+#: ../libcaja-private/caja-autorun.c:561
 msgid "Do Nothing"
 msgstr "Не прави ништо"
 
-#: ../libcaja-private/caja-autorun.c:601 ../src/caja-x-content-bar.c:148
+#: ../libcaja-private/caja-autorun.c:611 ../src/caja-x-content-bar.c:149
 #, c-format
 msgid "Open %s"
 msgstr "Отвори %s"
 
-#: ../libcaja-private/caja-autorun.c:643
+#: ../libcaja-private/caja-autorun.c:655
 msgid "Open with other Application..."
 msgstr "Отвори со друга апликација..."
 
-#: ../libcaja-private/caja-autorun.c:1025
+#: ../libcaja-private/caja-autorun.c:1041
 msgid "You have just inserted an Audio CD."
 msgstr "Внесовте аудио CD."
 
-#: ../libcaja-private/caja-autorun.c:1029
+#: ../libcaja-private/caja-autorun.c:1045
 msgid "You have just inserted an Audio DVD."
 msgstr "Внесовте аудио DVD."
 
-#: ../libcaja-private/caja-autorun.c:1033
+#: ../libcaja-private/caja-autorun.c:1049
 msgid "You have just inserted a Video DVD."
 msgstr "Внесовте видео DVD."
 
-#: ../libcaja-private/caja-autorun.c:1037
+#: ../libcaja-private/caja-autorun.c:1053
 msgid "You have just inserted a Video CD."
 msgstr "Внесовте видео CD."
 
-#: ../libcaja-private/caja-autorun.c:1041
+#: ../libcaja-private/caja-autorun.c:1057
 msgid "You have just inserted a Super Video CD."
 msgstr "Внесовте super видео CD."
 
-#: ../libcaja-private/caja-autorun.c:1045
+#: ../libcaja-private/caja-autorun.c:1061
 msgid "You have just inserted a blank CD."
 msgstr "Внесовте празно CD."
 
-#: ../libcaja-private/caja-autorun.c:1049
+#: ../libcaja-private/caja-autorun.c:1065
 msgid "You have just inserted a blank DVD."
 msgstr "Внесовте празно DVD."
 
-#: ../libcaja-private/caja-autorun.c:1053
+#: ../libcaja-private/caja-autorun.c:1069
 msgid "You have just inserted a blank Blu-Ray disc."
 msgstr "Внесовте празен блу-реј диск."
 
-#: ../libcaja-private/caja-autorun.c:1057
+#: ../libcaja-private/caja-autorun.c:1073
 msgid "You have just inserted a blank HD DVD."
 msgstr "Внесовте празно HD DVD."
 
-#: ../libcaja-private/caja-autorun.c:1061
+#: ../libcaja-private/caja-autorun.c:1077
 msgid "You have just inserted a Photo CD."
 msgstr "Внесовте CD со слики."
 
-#: ../libcaja-private/caja-autorun.c:1065
+#: ../libcaja-private/caja-autorun.c:1081
 msgid "You have just inserted a Picture CD."
 msgstr "Внесовте CD со слики."
 
-#: ../libcaja-private/caja-autorun.c:1069
+#: ../libcaja-private/caja-autorun.c:1085
 msgid "You have just inserted a medium with digital photos."
 msgstr "Внесовте медиум со дигитални фотографии."
 
-#: ../libcaja-private/caja-autorun.c:1073
+#: ../libcaja-private/caja-autorun.c:1089
 msgid "You have just inserted a digital audio player."
 msgstr "Внесовте дигитален аудио плеер."
 
-#: ../libcaja-private/caja-autorun.c:1077
+#: ../libcaja-private/caja-autorun.c:1093
 msgid ""
 "You have just inserted a medium with software intended to be automatically "
 "started."
 msgstr "Внесовте медиум со софтвер кој е наменет да се стартува автоматски."
 
 #. fallback to generic greeting
-#: ../libcaja-private/caja-autorun.c:1082
+#: ../libcaja-private/caja-autorun.c:1098
 msgid "You have just inserted a medium."
 msgstr "Внесовте медиум."
 
-#: ../libcaja-private/caja-autorun.c:1084
+#: ../libcaja-private/caja-autorun.c:1100
 msgid "Choose what application to launch."
 msgstr "Изберете која апликација да се подигне."
 
-#: ../libcaja-private/caja-autorun.c:1094
+#: ../libcaja-private/caja-autorun.c:1110
 #, c-format
 msgid ""
 "Select how to open \"%s\" and whether to perform this action in the future "
@@ -584,29 +614,29 @@ msgstr ""
 "Изберете како да отворате %s и дали сакате ова дејство да се извршуваи во "
 "иднина за други медиуми од типот %s."
 
-#: ../libcaja-private/caja-autorun.c:1122
+#: ../libcaja-private/caja-autorun.c:1138
 msgid "_Always perform this action"
 msgstr "_Секогаш прави го ова"
 
 #. name, icon name
 #. label, accelerator
 #. add the "Eject" menu item
-#: ../libcaja-private/caja-autorun.c:1145
-#: ../src/file-manager/fm-directory-view.c:7397
-#: ../src/file-manager/fm-directory-view.c:7425
-#: ../src/file-manager/fm-directory-view.c:7506
-#: ../src/file-manager/fm-tree-view.c:1382 ../src/caja-places-sidebar.c:2714
+#: ../libcaja-private/caja-autorun.c:1161
+#: ../src/file-manager/fm-directory-view.c:7423
+#: ../src/file-manager/fm-directory-view.c:7451
+#: ../src/file-manager/fm-directory-view.c:7532
+#: ../src/file-manager/fm-tree-view.c:1365 ../src/caja-places-sidebar.c:2735
 msgid "_Eject"
 msgstr "_Извади"
 
 #. name, icon name
 #. label, accelerator
 #. add the "Unmount" menu item
-#: ../libcaja-private/caja-autorun.c:1158
-#: ../src/file-manager/fm-directory-view.c:7393
-#: ../src/file-manager/fm-directory-view.c:7421
-#: ../src/file-manager/fm-directory-view.c:7502
-#: ../src/file-manager/fm-tree-view.c:1373 ../src/caja-places-sidebar.c:2707
+#: ../libcaja-private/caja-autorun.c:1176
+#: ../src/file-manager/fm-directory-view.c:7419
+#: ../src/file-manager/fm-directory-view.c:7447
+#: ../src/file-manager/fm-directory-view.c:7528
+#: ../src/file-manager/fm-tree-view.c:1356 ../src/caja-places-sidebar.c:2728
 msgid "_Unmount"
 msgstr "_Демонтирај"
 
@@ -628,7 +658,7 @@ msgstr "Вметни го текстот зачуван на клипбордо�
 #. name, icon name
 #. label, accelerator
 #: ../libcaja-private/caja-clipboard.c:470
-#: ../src/file-manager/fm-directory-view.c:7326
+#: ../src/file-manager/fm-directory-view.c:7352
 msgid "Select _All"
 msgstr "Избери _сѐ"
 
@@ -651,7 +681,7 @@ msgstr "Користи ст_андардно"
 
 #: ../libcaja-private/caja-column-utilities.c:44
 #: ../libcaja-private/caja-mime-application-chooser.c:274
-#: ../src/file-manager/fm-list-view.c:1778
+#: ../src/file-manager/fm-list-view.c:1786
 msgid "Name"
 msgstr "Име"
 
@@ -717,7 +747,7 @@ msgid "The group of the file."
 msgstr "Група-сопственик на датотеката."
 
 #: ../libcaja-private/caja-column-utilities.c:106
-#: ../src/file-manager/fm-properties-window.c:4746
+#: ../src/file-manager/fm-properties-window.c:4750
 msgid "Permissions"
 msgstr "Пермисии"
 
@@ -750,7 +780,7 @@ msgid "The SELinux security context of the file."
 msgstr "SELinux безбедносната содржина на датотеката."
 
 #: ../libcaja-private/caja-column-utilities.c:138
-#: ../src/caja-image-properties-page.c:365 ../src/caja-query-editor.c:135
+#: ../src/caja-image-properties-page.c:365 ../src/caja-query-editor.c:136
 msgid "Location"
 msgstr "Локација"
 
@@ -758,26 +788,35 @@ msgstr "Локација"
 msgid "The location of the file."
 msgstr ""
 
-#: ../libcaja-private/caja-column-utilities.c:182
-msgid "Trashed On"
+#: ../libcaja-private/caja-column-utilities.c:146
+#: ../src/caja-file-management-properties.ui.h:110
+msgid "Extension"
 msgstr ""
 
-#: ../libcaja-private/caja-column-utilities.c:183
-msgid "Date when file was moved to the Trash"
+#: ../libcaja-private/caja-column-utilities.c:147
+msgid "The extension of the file."
 msgstr ""
 
 #: ../libcaja-private/caja-column-utilities.c:189
-msgid "Original Location"
+msgid "Trashed On"
 msgstr ""
 
 #: ../libcaja-private/caja-column-utilities.c:190
+msgid "Date when file was moved to the Trash"
+msgstr ""
+
+#: ../libcaja-private/caja-column-utilities.c:196
+msgid "Original Location"
+msgstr ""
+
+#: ../libcaja-private/caja-column-utilities.c:197
 msgid "Original location of file before moved to the Trash"
 msgstr ""
 
 #: ../libcaja-private/caja-customization-data.c:431
-#: ../libcaja-private/caja-file-conflict-dialog.c:624
+#: ../libcaja-private/caja-file-conflict-dialog.c:628
 #: ../libcaja-private/caja-mime-application-chooser.c:442
-#: ../src/caja-property-browser.c:1982
+#: ../src/caja-property-browser.c:1998
 msgid "Reset"
 msgstr "Ресетирај"
 
@@ -805,7 +844,7 @@ msgid "Network Servers"
 msgstr "Мрежни сервери"
 
 #: ../libcaja-private/caja-desktop-link.c:119
-#: ../src/file-manager/fm-tree-view.c:1441 ../src/caja-places-sidebar.c:594
+#: ../src/file-manager/fm-tree-view.c:1424 ../src/caja-places-sidebar.c:613
 #: ../src/caja-trash-bar.c:190
 msgid "Trash"
 msgstr "Корпа"
@@ -878,153 +917,153 @@ msgstr "Извинете, не можам да го зачувам креира�
 msgid "Sorry, unable to save custom emblem name."
 msgstr "Жалам, не можам да го зачувам името на креираниот амблем"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:145
+#: ../libcaja-private/caja-file-conflict-dialog.c:147
 #, c-format
 msgid "Merge folder \"%s\"?"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:149
+#: ../libcaja-private/caja-file-conflict-dialog.c:151
 msgid ""
 "Merging will ask for confirmation before replacing any files in the folder "
 "that conflict with the files being copied."
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:155
+#: ../libcaja-private/caja-file-conflict-dialog.c:157
 #, c-format
 msgid "An older folder with the same name already exists in \"%s\"."
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:161
+#: ../libcaja-private/caja-file-conflict-dialog.c:163
 #, c-format
 msgid "A newer folder with the same name already exists in \"%s\"."
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:167
+#: ../libcaja-private/caja-file-conflict-dialog.c:169
 #, c-format
 msgid "Another folder with the same name already exists in \"%s\"."
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:174
-msgid "Replacing it will remove all files in the folder."
-msgstr ""
-
 #: ../libcaja-private/caja-file-conflict-dialog.c:176
-#, c-format
-msgid "Replace folder \"%s\"?"
+msgid "Replacing it will remove all files in the folder."
 msgstr ""
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:178
 #, c-format
+msgid "Replace folder \"%s\"?"
+msgstr ""
+
+#: ../libcaja-private/caja-file-conflict-dialog.c:180
+#, c-format
 msgid "A folder with the same name already exists in \"%s\"."
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:185
+#: ../libcaja-private/caja-file-conflict-dialog.c:187
 #, c-format
 msgid "Replace file \"%s\"?"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:187
+#: ../libcaja-private/caja-file-conflict-dialog.c:189
 msgid "Replacing it will overwrite its content."
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:192
+#: ../libcaja-private/caja-file-conflict-dialog.c:194
 #, c-format
 msgid "An older file with the same name already exists in \"%s\"."
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:198
+#: ../libcaja-private/caja-file-conflict-dialog.c:200
 #, c-format
 msgid "A newer file with the same name already exists in \"%s\"."
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:204
+#: ../libcaja-private/caja-file-conflict-dialog.c:206
 #, c-format
 msgid "Another file with the same name already exists in \"%s\"."
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:272
-msgid "Original folder"
-msgstr ""
-
-#: ../libcaja-private/caja-file-conflict-dialog.c:273
-#: ../libcaja-private/caja-file-conflict-dialog.c:312
-msgid "Items:"
-msgstr ""
-
 #: ../libcaja-private/caja-file-conflict-dialog.c:276
-msgid "Original file"
+msgid "Original folder"
 msgstr ""
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:277
 #: ../libcaja-private/caja-file-conflict-dialog.c:316
-#: ../src/file-manager/fm-properties-window.c:3272
+msgid "Items:"
+msgstr ""
+
+#: ../libcaja-private/caja-file-conflict-dialog.c:280
+msgid "Original file"
+msgstr ""
+
+#: ../libcaja-private/caja-file-conflict-dialog.c:281
+#: ../libcaja-private/caja-file-conflict-dialog.c:320
+#: ../src/file-manager/fm-properties-window.c:3274
 msgid "Size:"
 msgstr "Големина:"
 
 #. second row: type combobox
-#: ../libcaja-private/caja-file-conflict-dialog.c:282
-#: ../libcaja-private/caja-file-conflict-dialog.c:321
-#: ../src/file-manager/fm-properties-window.c:3254
+#: ../libcaja-private/caja-file-conflict-dialog.c:286
+#: ../libcaja-private/caja-file-conflict-dialog.c:325
+#: ../src/file-manager/fm-properties-window.c:3256
 #: ../src/caja-connect-server-dialog.c:930
 msgid "Type:"
 msgstr "Тип:"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:285
-#: ../libcaja-private/caja-file-conflict-dialog.c:324
+#: ../libcaja-private/caja-file-conflict-dialog.c:289
+#: ../libcaja-private/caja-file-conflict-dialog.c:328
 msgid "Last modified:"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:311
+#: ../libcaja-private/caja-file-conflict-dialog.c:315
 msgid "Merge with"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:311
 #: ../libcaja-private/caja-file-conflict-dialog.c:315
+#: ../libcaja-private/caja-file-conflict-dialog.c:319
 msgid "Replace with"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:347
+#: ../libcaja-private/caja-file-conflict-dialog.c:351
 msgid "Merge"
 msgstr ""
 
 #. Setup the expander for the rename action
-#: ../libcaja-private/caja-file-conflict-dialog.c:610
+#: ../libcaja-private/caja-file-conflict-dialog.c:614
 msgid "Select a new name for the _destination"
 msgstr ""
 
 #. Setup the diff button for text files
-#: ../libcaja-private/caja-file-conflict-dialog.c:635
+#: ../libcaja-private/caja-file-conflict-dialog.c:639
 msgid "Differences..."
 msgstr ""
 
 #. Setup the checkbox to apply the action to all files
-#: ../libcaja-private/caja-file-conflict-dialog.c:645
+#: ../libcaja-private/caja-file-conflict-dialog.c:649
 msgid "Apply this action to all files and folders"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:660
+#: ../libcaja-private/caja-file-conflict-dialog.c:664
 #: ../libcaja-private/caja-file-operations.c:187
 msgid "_Skip"
 msgstr "_Прескокни"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:665
+#: ../libcaja-private/caja-file-conflict-dialog.c:669
 msgid "Re_name"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:671
+#: ../libcaja-private/caja-file-conflict-dialog.c:675
 msgid "Replace"
 msgstr "Замени"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:755
+#: ../libcaja-private/caja-file-conflict-dialog.c:759
 msgid "Merge Folder"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:755
-#: ../libcaja-private/caja-file-conflict-dialog.c:760
+#: ../libcaja-private/caja-file-conflict-dialog.c:759
+#: ../libcaja-private/caja-file-conflict-dialog.c:764
 msgid "File and Folder conflict"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:760
+#: ../libcaja-private/caja-file-conflict-dialog.c:764
 msgid "File conflict"
 msgstr ""
 
@@ -1038,11 +1077,13 @@ msgstr "_Обиди се повторно"
 
 #. name, icon name
 #. label, accelerator
+#. add the "delete" menu item
+#. add "delete" menu item
 #: ../libcaja-private/caja-file-operations.c:190
-#: ../src/file-manager/fm-directory-view.c:7358
-#: ../src/file-manager/fm-directory-view.c:7490
-#: ../src/file-manager/fm-directory-view.c:8931
-#: ../src/file-manager/fm-tree-view.c:1360
+#: ../src/file-manager/fm-directory-view.c:7384
+#: ../src/file-manager/fm-directory-view.c:7516
+#: ../src/file-manager/fm-directory-view.c:8957
+#: ../src/file-manager/fm-tree-view.c:1345 ../src/caja-emblem-sidebar.c:375
 msgid "_Delete"
 msgstr "_Избриши"
 
@@ -1104,8 +1145,8 @@ msgstr[1] ""
 #. * (e.g. "folder", "plain text") to file type for symbolic link
 #. * to that kind of file (e.g. "link to folder").
 #: ../libcaja-private/caja-file-operations.c:409
-#: ../libcaja-private/caja-file.c:6526
-#: ../src/file-manager/fm-directory-view.c:10520
+#: ../libcaja-private/caja-file.c:6727
+#: ../src/file-manager/fm-directory-view.c:10546
 #, c-format
 msgid "Link to %s"
 msgstr "Врска до %s"
@@ -1270,7 +1311,7 @@ msgstr ""
 #. Empty Trash menu item
 #: ../libcaja-private/caja-file-operations.c:1402
 #: ../libcaja-private/caja-file-operations.c:2333
-#: ../src/caja-places-sidebar.c:2751 ../src/caja-trash-bar.c:197
+#: ../src/caja-places-sidebar.c:2772 ../src/caja-trash-bar.c:197
 msgid "Empty _Trash"
 msgstr "Испразни го _ѓубрето "
 
@@ -1802,47 +1843,47 @@ msgstr "Не можам да ја одредам оригиналната лок
 msgid "The item cannot be restored from trash"
 msgstr "Предметот не може да биде вратен од ѓубрето"
 
-#: ../libcaja-private/caja-file.c:1217 ../libcaja-private/caja-vfs-file.c:439
+#: ../libcaja-private/caja-file.c:1222 ../libcaja-private/caja-vfs-file.c:439
 msgid "This file cannot be mounted"
 msgstr "Оваа датотека не може да биде монтирана"
 
-#: ../libcaja-private/caja-file.c:1262
+#: ../libcaja-private/caja-file.c:1267
 msgid "This file cannot be unmounted"
 msgstr ""
 
-#: ../libcaja-private/caja-file.c:1296
+#: ../libcaja-private/caja-file.c:1301
 msgid "This file cannot be ejected"
 msgstr ""
 
-#: ../libcaja-private/caja-file.c:1329 ../libcaja-private/caja-vfs-file.c:628
+#: ../libcaja-private/caja-file.c:1334 ../libcaja-private/caja-vfs-file.c:628
 msgid "This file cannot be started"
 msgstr ""
 
-#: ../libcaja-private/caja-file.c:1381 ../libcaja-private/caja-file.c:1412
+#: ../libcaja-private/caja-file.c:1386 ../libcaja-private/caja-file.c:1417
 msgid "This file cannot be stopped"
 msgstr ""
 
-#: ../libcaja-private/caja-file.c:1820
+#: ../libcaja-private/caja-file.c:1825
 #, c-format
 msgid "Slashes are not allowed in filenames"
 msgstr "Косите црти не се дозволени во имињата на датотеките"
 
-#: ../libcaja-private/caja-file.c:1838
+#: ../libcaja-private/caja-file.c:1843
 #, c-format
 msgid "File not found"
 msgstr "Датотеката не е најдена"
 
-#: ../libcaja-private/caja-file.c:1866
+#: ../libcaja-private/caja-file.c:1871
 #, c-format
 msgid "Toplevel files cannot be renamed"
 msgstr "Датотеки на последното ниво не можат да бидат преименувани"
 
-#: ../libcaja-private/caja-file.c:1889
+#: ../libcaja-private/caja-file.c:1894
 #, c-format
 msgid "Unable to rename desktop icon"
 msgstr "Не можам да ја преименувам иконата на работната површина"
 
-#: ../libcaja-private/caja-file.c:1918
+#: ../libcaja-private/caja-file.c:1923
 #, c-format
 msgid "Unable to rename desktop file"
 msgstr "Не успеав да ја преименувам датотеката на работната површина"
@@ -1861,62 +1902,62 @@ msgstr "Не успеав да ја преименувам датотеката 
 #. * between the "%" and any numeric directive will turn
 #. * off zero padding, and putting a "_" there will use
 #. * space padding instead of zero padding.
-#: ../libcaja-private/caja-file.c:4508
+#: ../libcaja-private/caja-file.c:4706
 msgid "today at 00:00:00 PM"
 msgstr "денес во 00:00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4509
-#: ../src/caja-file-management-properties.c:521
+#: ../libcaja-private/caja-file.c:4707
+#: ../src/caja-file-management-properties.c:528
 msgid "today at %-I:%M:%S %p"
 msgstr "денес во %-I:%M:%S %p"
 
-#: ../libcaja-private/caja-file.c:4511
+#: ../libcaja-private/caja-file.c:4709
 msgid "today at 00:00 PM"
 msgstr "денес во 00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4512
+#: ../libcaja-private/caja-file.c:4710
 msgid "today at %-I:%M %p"
 msgstr "денес во %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4514
+#: ../libcaja-private/caja-file.c:4712
 msgid "today, 00:00 PM"
 msgstr "денес во 00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4515
+#: ../libcaja-private/caja-file.c:4713
 msgid "today, %-I:%M %p"
 msgstr "денес, %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4517 ../libcaja-private/caja-file.c:4518
+#: ../libcaja-private/caja-file.c:4715 ../libcaja-private/caja-file.c:4716
 msgid "today"
 msgstr "денес"
 
 #. Yesterday, use special word.
 #. * Note to localizers: Same issues as "today" string.
-#: ../libcaja-private/caja-file.c:4527
+#: ../libcaja-private/caja-file.c:4725
 msgid "yesterday at 00:00:00 PM"
 msgstr "вчера во 00:00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4528
+#: ../libcaja-private/caja-file.c:4726
 msgid "yesterday at %-I:%M:%S %p"
 msgstr "вчера во %-I:%M:%S %p"
 
-#: ../libcaja-private/caja-file.c:4530
+#: ../libcaja-private/caja-file.c:4728
 msgid "yesterday at 00:00 PM"
 msgstr "вчера во 00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4531
+#: ../libcaja-private/caja-file.c:4729
 msgid "yesterday at %-I:%M %p"
 msgstr "вчера во %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4533
+#: ../libcaja-private/caja-file.c:4731
 msgid "yesterday, 00:00 PM"
 msgstr "вчера, 00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4534
+#: ../libcaja-private/caja-file.c:4732
 msgid "yesterday, %-I:%M %p"
 msgstr "вчера, %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4536 ../libcaja-private/caja-file.c:4537
+#: ../libcaja-private/caja-file.c:4734 ../libcaja-private/caja-file.c:4735
 msgid "yesterday"
 msgstr "вчера"
 
@@ -1924,103 +1965,103 @@ msgstr "вчера"
 #. * Note to localizers: Same issues as "today" string.
 #. * The width measurement templates correspond to
 #. * the day/month name with the most letters.
-#: ../libcaja-private/caja-file.c:4548
+#: ../libcaja-private/caja-file.c:4746
 msgid "Wednesday, September 00 0000 at 00:00:00 PM"
 msgstr "Среда, септември 00 0000 во 00:00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4549
+#: ../libcaja-private/caja-file.c:4747
 msgid "%A, %B %-d %Y at %-I:%M:%S %p"
 msgstr "%A, %B %-d %Y at %-I:%M:%S %p"
 
-#: ../libcaja-private/caja-file.c:4551
+#: ../libcaja-private/caja-file.c:4749
 msgid "Mon, Oct 00 0000 at 00:00:00 PM"
 msgstr "Пон, Окт 00 0000 во 00:00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4552
+#: ../libcaja-private/caja-file.c:4750
 msgid "%a, %b %-d %Y at %-I:%M:%S %p"
 msgstr "%a, %b %-d %Y at %-I:%M:%S %p"
 
-#: ../libcaja-private/caja-file.c:4554
+#: ../libcaja-private/caja-file.c:4752
 msgid "Mon, Oct 00 0000 at 00:00 PM"
 msgstr "Пон, Окт 00 0000 во 00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4555
+#: ../libcaja-private/caja-file.c:4753
 msgid "%a, %b %-d %Y at %-I:%M %p"
 msgstr "%a, %b %-d %Y во %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4557
+#: ../libcaja-private/caja-file.c:4755
 msgid "Oct 00 0000 at 00:00 PM"
 msgstr "Окт 00 0000 во 00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4558
+#: ../libcaja-private/caja-file.c:4756
 msgid "%b %-d %Y at %-I:%M %p"
 msgstr "%b %-d %Y во %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4560
+#: ../libcaja-private/caja-file.c:4758
 msgid "Oct 00 0000, 00:00 PM"
 msgstr "Окт 00 0000, 00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4561
+#: ../libcaja-private/caja-file.c:4759
 msgid "%b %-d %Y, %-I:%M %p"
 msgstr "%b %-d %Y, %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4563
+#: ../libcaja-private/caja-file.c:4761
 msgid "00/00/00, 00:00 PM"
 msgstr "00/00/00, 00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4564
+#: ../libcaja-private/caja-file.c:4762
 msgid "%m/%-d/%y, %-I:%M %p"
 msgstr "%m/%-d/%y, %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4566
+#: ../libcaja-private/caja-file.c:4764
 msgid "00/00/00"
 msgstr "00/00/00"
 
-#: ../libcaja-private/caja-file.c:4567
+#: ../libcaja-private/caja-file.c:4765
 msgid "%m/%d/%y"
 msgstr "%m/%d/%y"
 
-#: ../libcaja-private/caja-file.c:5206
+#: ../libcaja-private/caja-file.c:5404
 #, c-format
 msgid "Not allowed to set permissions"
 msgstr "Немате дозвола за поставување на пермисии"
 
-#: ../libcaja-private/caja-file.c:5500
+#: ../libcaja-private/caja-file.c:5698
 #, c-format
 msgid "Not allowed to set owner"
 msgstr "Не ви е дозволено да поставите сопственик"
 
-#: ../libcaja-private/caja-file.c:5518
+#: ../libcaja-private/caja-file.c:5716
 #, c-format
 msgid "Specified owner '%s' doesn't exist"
 msgstr "Одредениот '%s' не постои"
 
-#: ../libcaja-private/caja-file.c:5778
+#: ../libcaja-private/caja-file.c:5976
 #, c-format
 msgid "Not allowed to set group"
 msgstr "Не ви е дозволено да поставите група"
 
-#: ../libcaja-private/caja-file.c:5796
+#: ../libcaja-private/caja-file.c:5994
 #, c-format
 msgid "Specified group '%s' doesn't exist"
 msgstr "Одредената група '%s' не постои"
 
-#: ../libcaja-private/caja-file.c:5950
-#: ../src/file-manager/fm-directory-view.c:2357
+#: ../libcaja-private/caja-file.c:6148
+#: ../src/file-manager/fm-directory-view.c:2370
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../libcaja-private/caja-file.c:5951
+#: ../libcaja-private/caja-file.c:6149
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../libcaja-private/caja-file.c:5952
+#: ../libcaja-private/caja-file.c:6150
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
@@ -2029,53 +2070,53 @@ msgstr[1] ""
 
 #. Do this in a separate stage so that we don't have to put G_GUINT64_FORMAT
 #. in the translated string
-#: ../libcaja-private/caja-file.c:6056
+#: ../libcaja-private/caja-file.c:6254
 msgid "%"
 msgstr "%"
 
-#: ../libcaja-private/caja-file.c:6057
+#: ../libcaja-private/caja-file.c:6255
 #, c-format
 msgid "%s (%s bytes)"
 msgstr "%s (%s бајти)"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6404 ../libcaja-private/caja-file.c:6428
+#: ../libcaja-private/caja-file.c:6605 ../libcaja-private/caja-file.c:6629
 msgid "? items"
 msgstr "? предмети"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6410 ../libcaja-private/caja-file.c:6418
+#: ../libcaja-private/caja-file.c:6611 ../libcaja-private/caja-file.c:6619
 msgid "? bytes"
 msgstr "? бајти"
 
-#: ../libcaja-private/caja-file.c:6433
+#: ../libcaja-private/caja-file.c:6634
 msgid "unknown type"
 msgstr "непознат тип"
 
-#: ../libcaja-private/caja-file.c:6436
+#: ../libcaja-private/caja-file.c:6637
 msgid "unknown MIME type"
 msgstr "непознат MIME вид"
 
 #. Fallback, use for both unknown attributes and attributes
 #. * for which we have no more appropriate default.
-#: ../libcaja-private/caja-file.c:6450
-#: ../src/file-manager/fm-properties-window.c:1287
+#: ../libcaja-private/caja-file.c:6651
+#: ../src/file-manager/fm-properties-window.c:1289
 msgid "unknown"
 msgstr "непознато"
 
-#: ../libcaja-private/caja-file.c:6500
+#: ../libcaja-private/caja-file.c:6701
 msgid "program"
 msgstr "програма"
 
-#: ../libcaja-private/caja-file.c:6520
+#: ../libcaja-private/caja-file.c:6721
 msgid "link"
 msgstr "врска"
 
-#: ../libcaja-private/caja-file.c:6542
+#: ../libcaja-private/caja-file.c:6743
 msgid "link (broken)"
 msgstr "врска (скршена)"
 
-#: ../libcaja-private/caja-icon-container.c:2910
+#: ../libcaja-private/caja-icon-container.c:2912
 msgid "The selection rectangle"
 msgstr "Правоаголникот за избирање"
 
@@ -2102,12 +2143,13 @@ msgstr ""
 
 #. name, icon name
 #. label, accelerator
+#. add the "move to trash" menu item
 #: ../libcaja-private/caja-mime-actions.c:744
-#: ../src/file-manager/fm-directory-view.c:7354
-#: ../src/file-manager/fm-directory-view.c:7486
-#: ../src/file-manager/fm-directory-view.c:8585
-#: ../src/file-manager/fm-directory-view.c:8910
-#: ../src/file-manager/fm-tree-view.c:1346
+#: ../src/file-manager/fm-directory-view.c:7380
+#: ../src/file-manager/fm-directory-view.c:7512
+#: ../src/file-manager/fm-directory-view.c:8611
+#: ../src/file-manager/fm-directory-view.c:8936
+#: ../src/file-manager/fm-tree-view.c:1336
 msgid "Mo_ve to Trash"
 msgstr "Премести в_о ѓубре"
 
@@ -2130,7 +2172,7 @@ msgid "_Display"
 msgstr "_Прикажи"
 
 #: ../libcaja-private/caja-mime-actions.c:823
-#: ../src/caja-autorun-software.c:253
+#: ../src/caja-autorun-software.c:254
 msgid "_Run"
 msgstr "_Изврши"
 
@@ -2213,12 +2255,12 @@ msgstr ""
 
 #: ../libcaja-private/caja-mime-actions.c:2022
 #: ../libcaja-private/caja-mime-actions.c:2328
-#: ../src/file-manager/fm-directory-view.c:6372
+#: ../src/file-manager/fm-directory-view.c:6389
 msgid "Unable to mount location"
 msgstr "Не успеав да ја монтирам локацијата"
 
 #: ../libcaja-private/caja-mime-actions.c:2416
-#: ../src/file-manager/fm-directory-view.c:6546
+#: ../src/file-manager/fm-directory-view.c:6563
 msgid "Unable to start location"
 msgstr ""
 
@@ -2235,13 +2277,13 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: ../libcaja-private/caja-mime-application-chooser.c:162
-#: ../libcaja-private/caja-open-with-dialog.c:299
+#: ../libcaja-private/caja-open-with-dialog.c:300
 #, c-format
 msgid "Could not set application as the default: %s"
 msgstr "Не можам да ја поставам апликацијата како стандардна: %s"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:163
-#: ../libcaja-private/caja-open-with-dialog.c:300
+#: ../libcaja-private/caja-open-with-dialog.c:301
 msgid "Could not set as default application"
 msgstr "Не можам да ја поставам стандардната апликација"
 
@@ -2258,12 +2300,12 @@ msgid "Could not remove application"
 msgstr "Не можам да ја отстранам апликацијата"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:420
-#: ../libcaja-private/caja-open-with-dialog.c:1116
+#: ../libcaja-private/caja-open-with-dialog.c:1132
 msgid "_Add"
 msgstr "_Додај"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:430
-#: ../libcaja-private/caja-open-with-dialog.c:935
+#: ../libcaja-private/caja-open-with-dialog.c:951
 #: ../src/caja-bookmarks-window.ui.h:4
 msgid "_Remove"
 msgstr "_Отстрани"
@@ -2278,7 +2320,7 @@ msgid "%s document"
 msgstr "%s документ"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:599
-#: ../libcaja-private/caja-open-with-dialog.c:1075
+#: ../libcaja-private/caja-open-with-dialog.c:1091
 msgid "Unknown"
 msgstr "Непознато"
 
@@ -2292,104 +2334,94 @@ msgstr "Изберете апликација за отворање на %s и �
 msgid "Open all files of type \"%s\" with:"
 msgstr "Отворај ги сите датотеки од типот %s со:"
 
-#: ../libcaja-private/caja-open-with-dialog.c:151
+#: ../libcaja-private/caja-open-with-dialog.c:152
 msgid "Could not run application"
 msgstr "Не можам да ја извршам апликацијата"
 
-#: ../libcaja-private/caja-open-with-dialog.c:164
+#: ../libcaja-private/caja-open-with-dialog.c:165
 #, c-format
 msgid "Could not find '%s'"
 msgstr "Не можам да најдам '%s'"
 
-#: ../libcaja-private/caja-open-with-dialog.c:167
+#: ../libcaja-private/caja-open-with-dialog.c:168
 msgid "Could not find application"
 msgstr "Не можам да ја пронајдам апликацијата"
 
-#: ../libcaja-private/caja-open-with-dialog.c:251
+#: ../libcaja-private/caja-open-with-dialog.c:252
 #, c-format
 msgid "Could not add application to the application database: %s"
 msgstr "Не можам да ја додадам апликацијата во базата на апликации: %s"
 
-#: ../libcaja-private/caja-open-with-dialog.c:252
+#: ../libcaja-private/caja-open-with-dialog.c:253
 msgid "Could not add application"
 msgstr "Не можам да ја додадам апликацијата"
 
-#: ../libcaja-private/caja-open-with-dialog.c:450
+#: ../libcaja-private/caja-open-with-dialog.c:451
 msgid "Select an Application"
 msgstr "Изберете апликација"
 
-#: ../libcaja-private/caja-open-with-dialog.c:840
-#: ../src/file-manager/fm-properties-window.c:5069
+#: ../libcaja-private/caja-open-with-dialog.c:856
+#: ../src/file-manager/fm-properties-window.c:5073
 msgid "Open With"
 msgstr "Отвори со"
 
-#: ../libcaja-private/caja-open-with-dialog.c:878
+#: ../libcaja-private/caja-open-with-dialog.c:894
 msgid "Select an application to view its description."
 msgstr "Изберете апликација за да го видите нејзиниот опис."
 
-#: ../libcaja-private/caja-open-with-dialog.c:904
+#: ../libcaja-private/caja-open-with-dialog.c:920
 msgid "_Use a custom command"
 msgstr "_Користи сопствена команда"
 
-#: ../libcaja-private/caja-open-with-dialog.c:921
+#: ../libcaja-private/caja-open-with-dialog.c:937
 msgid "_Browse..."
 msgstr "_Разгледај..."
 
-#. name, icon name
-#. label, accelerator
-#: ../libcaja-private/caja-open-with-dialog.c:960
-#: ../src/file-manager/fm-directory-view.c:7270
-#: ../src/file-manager/fm-directory-view.c:8779
-#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-location-dialog.c:199
-#: ../src/caja-places-sidebar.c:2656
-msgid "_Open"
-msgstr "_Отвори"
-
 #. first %s is a filename and second %s is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1045
+#: ../libcaja-private/caja-open-with-dialog.c:1061
 #, c-format
 msgid "Open %s and other %s document with:"
 msgstr ""
 
 #. the %s here is a file name
 #. %s is a filename
-#: ../libcaja-private/caja-open-with-dialog.c:1051
-#: ../libcaja-private/caja-open-with-dialog.c:1091
+#: ../libcaja-private/caja-open-with-dialog.c:1067
+#: ../libcaja-private/caja-open-with-dialog.c:1107
 #, c-format
 msgid "Open %s with:"
 msgstr ""
 
-#: ../libcaja-private/caja-open-with-dialog.c:1052
+#: ../libcaja-private/caja-open-with-dialog.c:1068
 #, c-format
 msgid "_Remember this application for %s documents"
 msgstr ""
 
 #. Only in add mode - the %s here is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1063
+#: ../libcaja-private/caja-open-with-dialog.c:1079
 #, c-format
 msgid "Open all %s documents with:"
 msgstr ""
 
 #. First %s is a filename, second is a description
 #. * of the type, eg "plain text document"
-#: ../libcaja-private/caja-open-with-dialog.c:1085
+#: ../libcaja-private/caja-open-with-dialog.c:1101
 #, c-format
 msgid "Open %s and other \"%s\" files with:"
 msgstr ""
 
 #. %s is a file type description
-#: ../libcaja-private/caja-open-with-dialog.c:1093
+#: ../libcaja-private/caja-open-with-dialog.c:1109
 #, c-format
 msgid "_Remember this application for \"%s\" files"
 msgstr ""
 
 #. Only in add mode
-#: ../libcaja-private/caja-open-with-dialog.c:1104
+#: ../libcaja-private/caja-open-with-dialog.c:1120
 #, c-format
 msgid "Open all \"%s\" files with:"
 msgstr ""
 
-#: ../libcaja-private/caja-open-with-dialog.c:1117
+#: ../libcaja-private/caja-open-with-dialog.c:1133
 msgid "Add Application"
 msgstr "Додај апликација"
 
@@ -2431,25 +2463,25 @@ msgid ""
 " your computer, you may be able to open it."
 msgstr ""
 
-#: ../libcaja-private/caja-program-choosing.c:459
+#: ../libcaja-private/caja-program-choosing.c:461
 msgid "Sorry, but you cannot execute commands from a remote site."
 msgstr "Извинете, не можете да извршувате команди од далечен сајт."
 
-#: ../libcaja-private/caja-program-choosing.c:461
+#: ../libcaja-private/caja-program-choosing.c:463
 msgid "This is disabled due to security considerations."
 msgstr "Ова е оневозможено од безбедносни причини."
 
-#: ../libcaja-private/caja-program-choosing.c:473
-#: ../libcaja-private/caja-program-choosing.c:541
+#: ../libcaja-private/caja-program-choosing.c:475
+#: ../libcaja-private/caja-program-choosing.c:543
 msgid "There was an error launching the application."
 msgstr "Имаше грешка при извршувањето на апликацијата."
 
-#: ../libcaja-private/caja-program-choosing.c:502
-#: ../libcaja-private/caja-program-choosing.c:515
+#: ../libcaja-private/caja-program-choosing.c:504
+#: ../libcaja-private/caja-program-choosing.c:517
 msgid "This drop target only supports local files."
 msgstr "Целта за спуштање подржува само локални датотеки."
 
-#: ../libcaja-private/caja-program-choosing.c:503
+#: ../libcaja-private/caja-program-choosing.c:505
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again."
@@ -2457,7 +2489,7 @@ msgstr ""
 "За да отворите не-локални датотеки копирајте ги во локална папка и пуштете "
 "ги повторно."
 
-#: ../libcaja-private/caja-program-choosing.c:516
+#: ../libcaja-private/caja-program-choosing.c:518
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again. The local files you dropped have already been opened."
@@ -2465,7 +2497,7 @@ msgstr ""
 "За да отворите не-локални датотеки копирајте ги во локална папка и обидете "
 "се повторно. Локалните датотеки кои ги спуштивте веќе беа отворени."
 
-#: ../libcaja-private/caja-program-choosing.c:539
+#: ../libcaja-private/caja-program-choosing.c:541
 msgid "Details: "
 msgstr "Детали: "
 
@@ -3764,39 +3796,39 @@ msgstr ""
 msgid "Show session management options"
 msgstr "Покажи ги опции за управување со сесии"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:667
+#: ../src/file-manager/fm-desktop-icon-view.c:672
 msgid "Background"
 msgstr "Позадина"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:744
-#: ../src/file-manager/fm-directory-view.c:7302
-#: ../src/file-manager/fm-directory-view.c:8979
+#: ../src/file-manager/fm-desktop-icon-view.c:749
+#: ../src/file-manager/fm-directory-view.c:7328
+#: ../src/file-manager/fm-directory-view.c:9005
 msgid "E_mpty Trash"
 msgstr "И_спразни го ѓубрето"
 
 #. label, accelerator
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:758
-#: ../src/file-manager/fm-directory-view.c:7266
+#: ../src/file-manager/fm-desktop-icon-view.c:763
+#: ../src/file-manager/fm-directory-view.c:7292
 msgid "Create L_auncher..."
 msgstr "Креирај с_тартувач..."
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:760
-#: ../src/file-manager/fm-directory-view.c:7267
+#: ../src/file-manager/fm-desktop-icon-view.c:765
+#: ../src/file-manager/fm-directory-view.c:7293
 msgid "Create a new launcher"
 msgstr "Креирај нов пуштач на програми"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:767
+#: ../src/file-manager/fm-desktop-icon-view.c:772
 msgid "Change Desktop _Background"
 msgstr "Промени ја _позадината"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:769
+#: ../src/file-manager/fm-desktop-icon-view.c:774
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr ""
@@ -3804,21 +3836,21 @@ msgstr ""
 "околина"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:776
+#: ../src/file-manager/fm-desktop-icon-view.c:781
 msgid "Empty Trash"
 msgstr "Испразни го ѓубрето"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:778
-#: ../src/file-manager/fm-directory-view.c:7303 ../src/caja-trash-bar.c:204
+#: ../src/file-manager/fm-desktop-icon-view.c:783
+#: ../src/file-manager/fm-directory-view.c:7329 ../src/caja-trash-bar.c:204
 msgid "Delete all items in the Trash"
 msgstr "Избриши ги сите предмети во ѓубрето"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:878
+#: ../src/file-manager/fm-desktop-icon-view.c:883
 msgid "The desktop view encountered an error."
 msgstr "Погледот на работната површина наиде на грешка."
 
-#: ../src/file-manager/fm-desktop-icon-view.c:879
+#: ../src/file-manager/fm-desktop-icon-view.c:884
 msgid "The desktop view encountered an error while starting up."
 msgstr "Погледот на работната површина наиде на грешка додека се стартуваше."
 
@@ -3837,57 +3869,70 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: ../src/file-manager/fm-directory-view.c:1177
-#: ../src/file-manager/fm-properties-window.c:5414
+#: ../src/file-manager/fm-properties-window.c:5418
 #: ../src/caja-connect-server-dialog.c:718 ../src/caja-location-dialog.c:102
 msgid "There was an error displaying help."
 msgstr "Се појави грешка при обидот за прикажување на помош."
 
-#: ../src/file-manager/fm-directory-view.c:1197
+#: ../src/file-manager/fm-directory-view.c:1198
 msgid "Select Items Matching"
 msgstr "Избери ги сите предмети кои се совпаѓаат"
 
-#: ../src/file-manager/fm-directory-view.c:1212
+#. create the "help" button
+#. name, icon name, label
+#: ../src/file-manager/fm-directory-view.c:1203
+#: ../src/file-manager/fm-properties-window.c:5176
+#: ../src/caja-bookmarks-window.ui.h:2
+#: ../src/caja-connect-server-dialog.c:1117 ../src/caja-emblem-sidebar.c:300
+#: ../src/caja-emblem-sidebar.c:557
+#: ../src/caja-file-management-properties.ui.h:42
+#: ../src/caja-location-dialog.c:189 ../src/caja-property-browser.c:390
+#: ../src/caja-window-menus.c:809
+msgid "_Help"
+msgstr "_Помош"
+
+#: ../src/file-manager/fm-directory-view.c:1222
 msgid "_Pattern:"
 msgstr "_Шаблон:"
 
-#: ../src/file-manager/fm-directory-view.c:1219
+#: ../src/file-manager/fm-directory-view.c:1229
 msgid "Examples: "
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:1335
+#: ../src/file-manager/fm-directory-view.c:1346
 msgid "Save Search as"
 msgstr "Зачувај пребарување како"
 
-#: ../src/file-manager/fm-directory-view.c:1341
+#: ../src/file-manager/fm-directory-view.c:1354
 msgid "_Save"
 msgstr "_Зачувај:"
 
-#: ../src/file-manager/fm-directory-view.c:1360
+#: ../src/file-manager/fm-directory-view.c:1373
 msgid "Search _name:"
 msgstr "Име за _пребарување:"
 
-#: ../src/file-manager/fm-directory-view.c:1376
+#: ../src/file-manager/fm-directory-view.c:1389
 msgid "_Folder:"
 msgstr "_Папка:"
 
-#: ../src/file-manager/fm-directory-view.c:1381
+#: ../src/file-manager/fm-directory-view.c:1394
 msgid "Select Folder to Save Search In"
 msgstr "Изберете папка за зачувување на пребарувањето"
 
-#: ../src/file-manager/fm-directory-view.c:2270
-#: ../src/file-manager/fm-directory-view.c:2307
+#: ../src/file-manager/fm-directory-view.c:2283
+#: ../src/file-manager/fm-directory-view.c:2320
 #, c-format
 msgid "\"%s\" selected"
 msgstr "%s е означен"
 
-#: ../src/file-manager/fm-directory-view.c:2272
+#: ../src/file-manager/fm-directory-view.c:2285
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:2282
+#: ../src/file-manager/fm-directory-view.c:2295
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
@@ -3896,14 +3941,14 @@ msgstr[1] ""
 
 #. translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
-#: ../src/file-manager/fm-directory-view.c:2293
+#: ../src/file-manager/fm-directory-view.c:2306
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:2310
+#: ../src/file-manager/fm-directory-view.c:2323
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
@@ -3911,7 +3956,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. Folders selected also, use "other" terminology
-#: ../src/file-manager/fm-directory-view.c:2317
+#: ../src/file-manager/fm-directory-view.c:2330
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
@@ -3922,17 +3967,17 @@ msgstr[1] ""
 #. * needs to use something other than parentheses. The
 #. * first message gives the number of items selected;
 #. * the message in parentheses the size of those items.
-#: ../src/file-manager/fm-directory-view.c:2336
+#: ../src/file-manager/fm-directory-view.c:2349
 #, c-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-directory-view.c:2349
+#: ../src/file-manager/fm-directory-view.c:2362
 #, c-format
 msgid "Free space: %s"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:2360
+#: ../src/file-manager/fm-directory-view.c:2373
 #, c-format
 msgid "%s, Free space: %s"
 msgstr "%s, слободен простор: %s"
@@ -3941,7 +3986,7 @@ msgstr "%s, слободен простор: %s"
 #. * might want to change "," to something else.
 #. * After the comma the amount of free space will
 #. * be shown.
-#: ../src/file-manager/fm-directory-view.c:2375
+#: ../src/file-manager/fm-directory-view.c:2388
 #, c-format
 msgid "%s, %s"
 msgstr "%s, %s"
@@ -3956,8 +4001,8 @@ msgstr "%s, %s"
 #. * and the number of items in those folders and the
 #. * message about the number of other items and the
 #. * total size of those items.
-#: ../src/file-manager/fm-directory-view.c:2394
-#: ../src/file-manager/fm-directory-view.c:2408
+#: ../src/file-manager/fm-directory-view.c:2407
+#: ../src/file-manager/fm-directory-view.c:2421
 #, c-format
 msgid "%s%s, %s"
 msgstr "%s%s, %s"
@@ -3969,48 +4014,48 @@ msgstr "%s%s, %s"
 #. * message about the number of other items and the
 #. * total size of those items. After the second comma
 #. * the free space is written.
-#: ../src/file-manager/fm-directory-view.c:2421
+#: ../src/file-manager/fm-directory-view.c:2434
 #, c-format
 msgid "%s%s, %s, %s"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:4466
+#: ../src/file-manager/fm-directory-view.c:4479
 #: ../src/caja-information-panel.c:905
 #, c-format
 msgid "Open With %s"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:4468
+#: ../src/file-manager/fm-directory-view.c:4481
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:4557
+#: ../src/file-manager/fm-directory-view.c:4570
 msgid "Open parent location"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:4558
+#: ../src/file-manager/fm-directory-view.c:4571
 msgid "Open parent location for the selected item"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:5407
+#: ../src/file-manager/fm-directory-view.c:5424
 #, c-format
 msgid "Run \"%s\" on any selected items"
 msgstr "Изврши %s на било кој избран предмет"
 
-#: ../src/file-manager/fm-directory-view.c:5658
+#: ../src/file-manager/fm-directory-view.c:5675
 #, c-format
 msgid "Create Document from template \"%s\""
 msgstr "Направи документ според мострата %s"
 
-#: ../src/file-manager/fm-directory-view.c:5908
+#: ../src/file-manager/fm-directory-view.c:5925
 msgid "All executable files in this folder will appear in the Scripts menu."
 msgstr ""
 "Сите извршливи датотеки во оваа папка ќе се појават во мени за скрипти."
 
-#: ../src/file-manager/fm-directory-view.c:5910
+#: ../src/file-manager/fm-directory-view.c:5927
 msgid ""
 "Choosing a script from the menu will run that script with any selected items"
 " as input."
@@ -4018,7 +4063,7 @@ msgstr ""
 "Со избирањето на скрипта од менито ќе ја извршите истата заедно со сите "
 "избрани предмети."
 
-#: ../src/file-manager/fm-directory-view.c:5912
+#: ../src/file-manager/fm-directory-view.c:5929
 msgid ""
 "All executable files in this folder will appear in the Scripts menu. Choosing a script from the menu will run that script.\n"
 "\n"
@@ -4041,19 +4086,19 @@ msgid ""
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI for current location in the inactive pane of a split-view window"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:5980
-#: ../src/file-manager/fm-tree-view.c:1009
+#: ../src/file-manager/fm-directory-view.c:5997
+#: ../src/file-manager/fm-tree-view.c:1010
 #, c-format
 msgid "\"%s\" will be moved if you select the Paste command"
 msgstr "%s ќе биде преместена ако ја изберете командата „Вменти“"
 
-#: ../src/file-manager/fm-directory-view.c:5984
-#: ../src/file-manager/fm-tree-view.c:1015
+#: ../src/file-manager/fm-directory-view.c:6001
+#: ../src/file-manager/fm-tree-view.c:1016
 #, c-format
 msgid "\"%s\" will be copied if you select the Paste command"
 msgstr "%s ќе биде ископирана ако ја изберете командата „Вметни“"
 
-#: ../src/file-manager/fm-directory-view.c:5991
+#: ../src/file-manager/fm-directory-view.c:6008
 #, c-format
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
@@ -4061,7 +4106,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:5998
+#: ../src/file-manager/fm-directory-view.c:6015
 #, c-format
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
@@ -4069,98 +4114,100 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:6178
-#: ../src/file-manager/fm-tree-view.c:1055
+#: ../src/file-manager/fm-directory-view.c:6195
+#: ../src/file-manager/fm-tree-view.c:1056
 msgid "There is nothing on the clipboard to paste."
 msgstr "Нема ништо за вметнување"
 
-#: ../src/file-manager/fm-directory-view.c:6393
+#: ../src/file-manager/fm-directory-view.c:6410
 msgid "Unable to unmount location"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:6414
+#: ../src/file-manager/fm-directory-view.c:6431
 msgid "Unable to eject location"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:6429
+#: ../src/file-manager/fm-directory-view.c:6446
 msgid "Unable to stop drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:6986
+#: ../src/file-manager/fm-directory-view.c:7005
 #, c-format
 msgid "Connect to Server %s"
 msgstr "Врзи се со серверот %s"
 
-#: ../src/file-manager/fm-directory-view.c:6991
-#: ../src/file-manager/fm-directory-view.c:8198
-#: ../src/file-manager/fm-directory-view.c:8290
-#: ../src/file-manager/fm-directory-view.c:8400
+#: ../src/file-manager/fm-directory-view.c:7017
+#: ../src/file-manager/fm-directory-view.c:8224
+#: ../src/file-manager/fm-directory-view.c:8316
+#: ../src/file-manager/fm-directory-view.c:8426
 msgid "_Connect"
 msgstr "_Врзи се"
 
-#: ../src/file-manager/fm-directory-view.c:7005
+#: ../src/file-manager/fm-directory-view.c:7031
 msgid "Link _name:"
 msgstr "_Има на врската:"
 
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:7244
+#: ../src/file-manager/fm-directory-view.c:7270
 msgid "Create _Document"
 msgstr "Креирај _документ"
 
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:7245
+#: ../src/file-manager/fm-directory-view.c:7271
 msgid "Open Wit_h"
 msgstr "Отвори _со"
 
-#: ../src/file-manager/fm-directory-view.c:7246
+#: ../src/file-manager/fm-directory-view.c:7272
 msgid "Choose a program with which to open the selected item"
 msgstr "Избери програма со која сакаш да го отвориш саканиот предмет"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7248
-#: ../src/file-manager/fm-directory-view.c:7527
+#. add the "properties" menu item
+#: ../src/file-manager/fm-directory-view.c:7274
+#: ../src/file-manager/fm-directory-view.c:7553
+#: ../src/file-manager/fm-tree-view.c:1378
 msgid "_Properties"
 msgstr "_Својства"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7249
-#: ../src/file-manager/fm-directory-view.c:8966
+#: ../src/file-manager/fm-directory-view.c:7275
+#: ../src/file-manager/fm-directory-view.c:8992
 msgid "View or modify the properties of each selected item"
 msgstr "Прегледај ги или промени ги својствата на секој избран предмет"
 
 #. name, icon name
 #. label, accelerator
 #. add the "create folder" menu item
-#: ../src/file-manager/fm-directory-view.c:7256
-#: ../src/file-manager/fm-tree-view.c:1298
+#: ../src/file-manager/fm-directory-view.c:7282
+#: ../src/file-manager/fm-tree-view.c:1296
 msgid "Create _Folder"
 msgstr "Креаирај _папка"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7257
+#: ../src/file-manager/fm-directory-view.c:7283
 msgid "Create a new empty folder inside this folder"
 msgstr "Креирај нова празна папка во оваа папка"
 
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:7259
+#: ../src/file-manager/fm-directory-view.c:7285
 msgid "No templates installed"
 msgstr "Нема инсталирани мостри"
 
 #. name, icon name
 #. translators: this is used to indicate that a file doesn't contain anything
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7262
+#: ../src/file-manager/fm-directory-view.c:7288
 msgid "_Empty File"
 msgstr "_Празна датотека"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7263
+#: ../src/file-manager/fm-directory-view.c:7289
 msgid "Create a new empty file inside this folder"
 msgstr "Креирај празна датотека во оваа папка"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7271
+#: ../src/file-manager/fm-directory-view.c:7297
 msgid "Open the selected item in this window"
 msgstr "Отвори го избраниот предмет во овој прозорец"
 
@@ -4169,88 +4216,88 @@ msgstr "Отвори го избраниот предмет во овој про
 #. Location-specific actions
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7278
-#: ../src/file-manager/fm-directory-view.c:7459
+#: ../src/file-manager/fm-directory-view.c:7304
+#: ../src/file-manager/fm-directory-view.c:7485
 msgid "Open in Navigation Window"
 msgstr "Отвори во прозорец за навигација"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7279
+#: ../src/file-manager/fm-directory-view.c:7305
 msgid "Open each selected item in a navigation window"
 msgstr "Отвори го секој избран предмет во прозорец за навигација"
 
 #. name, icon name
 #. label, accelerator
 #. add the "open in new tab" menu item
-#: ../src/file-manager/fm-directory-view.c:7282
-#: ../src/file-manager/fm-directory-view.c:7463
-#: ../src/file-manager/fm-directory-view.c:8530
-#: ../src/file-manager/fm-directory-view.c:8856
-#: ../src/file-manager/fm-tree-view.c:1278 ../src/caja-places-sidebar.c:2664
+#: ../src/file-manager/fm-directory-view.c:7308
+#: ../src/file-manager/fm-directory-view.c:7489
+#: ../src/file-manager/fm-directory-view.c:8556
+#: ../src/file-manager/fm-directory-view.c:8882
+#: ../src/file-manager/fm-tree-view.c:1276 ../src/caja-places-sidebar.c:2685
 msgid "Open in New _Tab"
 msgstr "Отвори во ново _јазиче"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7283
+#: ../src/file-manager/fm-directory-view.c:7309
 msgid "Open each selected item in a new tab"
 msgstr "Отвори го секој избран предмет во ново јазиче"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7286
-#: ../src/file-manager/fm-directory-view.c:7468
+#: ../src/file-manager/fm-directory-view.c:7312
+#: ../src/file-manager/fm-directory-view.c:7494
 msgid "Open in _Folder Window"
 msgstr "Отвори во прозорец за _папка"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7287
+#: ../src/file-manager/fm-directory-view.c:7313
 msgid "Open each selected item in a folder window"
 msgstr "Отвори го секој избран предмет прозорецот на папката"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7290
+#: ../src/file-manager/fm-directory-view.c:7316
 msgid "Other _Application..."
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7291
-#: ../src/file-manager/fm-directory-view.c:7295
+#: ../src/file-manager/fm-directory-view.c:7317
+#: ../src/file-manager/fm-directory-view.c:7321
 msgid "Choose another application with which to open the selected item"
 msgstr ""
 "Изберете друга апликација со која што сакате да го отворите саканиот предмет"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7294
+#: ../src/file-manager/fm-directory-view.c:7320
 msgid "Open With Other _Application..."
 msgstr ""
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7298
+#: ../src/file-manager/fm-directory-view.c:7324
 msgid "_Open Scripts Folder"
 msgstr "_Отвори ја папката со скрипти"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7299
+#: ../src/file-manager/fm-directory-view.c:7325
 msgid "Show the folder containing the scripts that appear in this menu"
 msgstr "Покажи ја папката што ги содржи скриптите прикажани во ова мени"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7307
+#: ../src/file-manager/fm-directory-view.c:7333
 msgid "Prepare the selected files to be moved with a Paste command"
 msgstr ""
 "Припреми ги избраните датотеки да бидат преместени со командата „Вметни“"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7311
+#: ../src/file-manager/fm-directory-view.c:7337
 msgid "Prepare the selected files to be copied with a Paste command"
 msgstr ""
 "Припреми ги избраните датотеки да бидат копирани со командата „Вметни“"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7315
+#: ../src/file-manager/fm-directory-view.c:7341
 msgid "Move or copy files previously selected by a Cut or Copy command"
 msgstr ""
 "Отсечи или копирај датотеки претходно избрани со командата „Отсечи“ или "
@@ -4260,14 +4307,15 @@ msgstr ""
 #. accelerator for paste
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7320
-#: ../src/file-manager/fm-directory-view.c:7481
-#: ../src/file-manager/fm-tree-view.c:1330
+#. add the "paste files into folder" menu item
+#: ../src/file-manager/fm-directory-view.c:7346
+#: ../src/file-manager/fm-directory-view.c:7507
+#: ../src/file-manager/fm-tree-view.c:1325
 msgid "_Paste Into Folder"
 msgstr "_Вметни во папката"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7321
+#: ../src/file-manager/fm-directory-view.c:7347
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into the "
 "selected folder"
@@ -4276,118 +4324,118 @@ msgstr ""
 "„Копирај“"
 
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:7323
+#: ../src/file-manager/fm-directory-view.c:7349
 msgid "Cop_y to"
 msgstr ""
 
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:7324
+#: ../src/file-manager/fm-directory-view.c:7350
 msgid "M_ove to"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7327
+#: ../src/file-manager/fm-directory-view.c:7353
 msgid "Select all items in this window"
 msgstr "Избери ги сите предмети во овој прозорец"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7330
+#: ../src/file-manager/fm-directory-view.c:7356
 msgid "Select I_tems Matching..."
 msgstr "Избери ги _предметите кои се совпаѓаат со..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7331
+#: ../src/file-manager/fm-directory-view.c:7357
 msgid "Select items in this window matching a given pattern"
 msgstr ""
 "Избери ги сите предмети во овој прозорец што се совпаѓаат со даден шаблон..."
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7334
+#: ../src/file-manager/fm-directory-view.c:7360
 msgid "_Invert Selection"
 msgstr "_Обратен избор"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7335
+#: ../src/file-manager/fm-directory-view.c:7361
 msgid "Select all and only the items that are not currently selected"
 msgstr "Избери сѐ и само предметите кои не се моментално избрани"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7338
+#: ../src/file-manager/fm-directory-view.c:7364
 msgid "D_uplicate"
 msgstr "Д_уплирај"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7339
+#: ../src/file-manager/fm-directory-view.c:7365
 msgid "Duplicate each selected item"
 msgstr "Дуплирај го секој избран предмет"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7342
-#: ../src/file-manager/fm-directory-view.c:8950
+#: ../src/file-manager/fm-directory-view.c:7368
+#: ../src/file-manager/fm-directory-view.c:8976
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
 msgstr[0] ""
 msgstr[1] ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7343
+#: ../src/file-manager/fm-directory-view.c:7369
 msgid "Create a symbolic link for each selected item"
 msgstr "Креирај симболичка врска за секој избран предмет"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7346
+#: ../src/file-manager/fm-directory-view.c:7372
 msgid "_Rename..."
 msgstr "_Преименувај..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7347
+#: ../src/file-manager/fm-directory-view.c:7373
 msgid "Rename selected item"
 msgstr "Преименувај го избраниот предмет"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7355
-#: ../src/file-manager/fm-directory-view.c:8911
+#: ../src/file-manager/fm-directory-view.c:7381
+#: ../src/file-manager/fm-directory-view.c:8937
 msgid "Move each selected item to the Trash"
 msgstr "Премести ги сите избрани предмети во ѓубрето"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7359
+#: ../src/file-manager/fm-directory-view.c:7385
 msgid "Delete each selected item, without moving to the Trash"
 msgstr "Избриши го секој избран предмет без да го преместиш во ѓубрето"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7362
-#: ../src/file-manager/fm-directory-view.c:7494
+#: ../src/file-manager/fm-directory-view.c:7388
+#: ../src/file-manager/fm-directory-view.c:7520
 msgid "_Restore"
 msgstr "_Врати"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7366
+#: ../src/file-manager/fm-directory-view.c:7392
 msgid "_Undo"
 msgstr "_Врати"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7367
-#: ../src/file-manager/fm-directory-view.c:11118
+#: ../src/file-manager/fm-directory-view.c:7393
+#: ../src/file-manager/fm-directory-view.c:11144
 msgid "Undo the last action"
 msgstr "Врати ја последната акција"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7370
+#: ../src/file-manager/fm-directory-view.c:7396
 msgid "_Redo"
 msgstr "_Повтори"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7371
-#: ../src/file-manager/fm-directory-view.c:11136
+#: ../src/file-manager/fm-directory-view.c:7397
+#: ../src/file-manager/fm-directory-view.c:11162
 msgid "Redo the last undone action"
 msgstr "Повтори ја незавршената акција"
 
@@ -4397,12 +4445,12 @@ msgstr "Повтори ја незавршената акција"
 #. * it is a mixture of both ATM.
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7381
+#: ../src/file-manager/fm-directory-view.c:7407
 msgid "Reset View to _Defaults"
 msgstr "Ресетирај го погледот на _стандардно"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7382
+#: ../src/file-manager/fm-directory-view.c:7408
 msgid "Reset sorting order and zoom level to match preferences for this view"
 msgstr ""
 "Ресетирај го редоследот и нивото на зум така што ќе се вколпи во "
@@ -4410,195 +4458,195 @@ msgstr ""
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7385
+#: ../src/file-manager/fm-directory-view.c:7411
 msgid "Connect To This Server"
 msgstr "Врзи се со овој сервер"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7386
+#: ../src/file-manager/fm-directory-view.c:7412
 msgid "Make a permanent connection to this server"
 msgstr "Направи постојана врска до овој сервер"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7389
-#: ../src/file-manager/fm-directory-view.c:7417
-#: ../src/file-manager/fm-directory-view.c:7498
-#: ../src/caja-places-sidebar.c:2700
+#: ../src/file-manager/fm-directory-view.c:7415
+#: ../src/file-manager/fm-directory-view.c:7443
+#: ../src/file-manager/fm-directory-view.c:7524
+#: ../src/caja-places-sidebar.c:2721
 msgid "_Mount"
 msgstr "_Монтирај"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7390
+#: ../src/file-manager/fm-directory-view.c:7416
 msgid "Mount the selected volume"
 msgstr "Монтирај го означениот уред (партиција)"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7394
+#: ../src/file-manager/fm-directory-view.c:7420
 msgid "Unmount the selected volume"
 msgstr "Демонтирај ја избраната јачина"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7398
+#: ../src/file-manager/fm-directory-view.c:7424
 msgid "Eject the selected volume"
 msgstr "Извади го избраниот уред"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7401
-#: ../src/file-manager/fm-directory-view.c:7429
-#: ../src/file-manager/fm-directory-view.c:7510
-#: ../src/caja-places-sidebar.c:2728
+#: ../src/file-manager/fm-directory-view.c:7427
+#: ../src/file-manager/fm-directory-view.c:7455
+#: ../src/file-manager/fm-directory-view.c:7536
+#: ../src/caja-places-sidebar.c:2749
 msgid "_Format"
 msgstr "_Форматирај"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7402
+#: ../src/file-manager/fm-directory-view.c:7428
 msgid "Format the selected volume"
 msgstr "Форматирај го означениот простор"
 
 #. name, icon name
 #. label, accelerator
 #. Adjust start/stop items to reflect the type of the drive
-#: ../src/file-manager/fm-directory-view.c:7405
-#: ../src/file-manager/fm-directory-view.c:7433
-#: ../src/file-manager/fm-directory-view.c:7514
-#: ../src/file-manager/fm-directory-view.c:8190
-#: ../src/file-manager/fm-directory-view.c:8194
-#: ../src/file-manager/fm-directory-view.c:8282
-#: ../src/file-manager/fm-directory-view.c:8286
-#: ../src/file-manager/fm-directory-view.c:8392
-#: ../src/file-manager/fm-directory-view.c:8396
-#: ../src/caja-places-sidebar.c:1785 ../src/caja-places-sidebar.c:2735
+#: ../src/file-manager/fm-directory-view.c:7431
+#: ../src/file-manager/fm-directory-view.c:7459
+#: ../src/file-manager/fm-directory-view.c:7540
+#: ../src/file-manager/fm-directory-view.c:8216
+#: ../src/file-manager/fm-directory-view.c:8220
+#: ../src/file-manager/fm-directory-view.c:8308
+#: ../src/file-manager/fm-directory-view.c:8312
+#: ../src/file-manager/fm-directory-view.c:8418
+#: ../src/file-manager/fm-directory-view.c:8422
+#: ../src/caja-places-sidebar.c:1804 ../src/caja-places-sidebar.c:2756
 msgid "_Start"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7406
+#: ../src/file-manager/fm-directory-view.c:7432
 msgid "Start the selected volume"
 msgstr ""
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7409
-#: ../src/file-manager/fm-directory-view.c:7437
-#: ../src/file-manager/fm-directory-view.c:7518
-#: ../src/file-manager/fm-directory-view.c:8219
-#: ../src/file-manager/fm-directory-view.c:8311
-#: ../src/file-manager/fm-directory-view.c:8421
-#: ../src/caja-places-sidebar.c:1786 ../src/caja-places-sidebar.c:2742
+#: ../src/file-manager/fm-directory-view.c:7435
+#: ../src/file-manager/fm-directory-view.c:7463
+#: ../src/file-manager/fm-directory-view.c:7544
+#: ../src/file-manager/fm-directory-view.c:8245
+#: ../src/file-manager/fm-directory-view.c:8337
+#: ../src/file-manager/fm-directory-view.c:8447
+#: ../src/caja-places-sidebar.c:1805 ../src/caja-places-sidebar.c:2763
 #: ../src/caja-window-menus.c:836
 msgid "_Stop"
 msgstr "_Стоп"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7410
-#: ../src/file-manager/fm-directory-view.c:8422
+#: ../src/file-manager/fm-directory-view.c:7436
+#: ../src/file-manager/fm-directory-view.c:8448
 msgid "Stop the selected volume"
 msgstr ""
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7413
-#: ../src/file-manager/fm-directory-view.c:7441
-#: ../src/file-manager/fm-directory-view.c:7522
-#: ../src/caja-places-sidebar.c:2721
+#: ../src/file-manager/fm-directory-view.c:7439
+#: ../src/file-manager/fm-directory-view.c:7467
+#: ../src/file-manager/fm-directory-view.c:7548
+#: ../src/caja-places-sidebar.c:2742
 msgid "_Detect Media"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7414
-#: ../src/file-manager/fm-directory-view.c:7442
-#: ../src/file-manager/fm-directory-view.c:7523
+#: ../src/file-manager/fm-directory-view.c:7440
+#: ../src/file-manager/fm-directory-view.c:7468
+#: ../src/file-manager/fm-directory-view.c:7549
 msgid "Detect media in the selected drive"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7418
+#: ../src/file-manager/fm-directory-view.c:7444
 msgid "Mount the volume associated with the open folder"
 msgstr "Монтирај го уредот кому му припаѓа отворената папка."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7422
+#: ../src/file-manager/fm-directory-view.c:7448
 msgid "Unmount the volume associated with the open folder"
 msgstr "Одмонтирај го уредот кому му припаѓа отворената папка."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7426
+#: ../src/file-manager/fm-directory-view.c:7452
 msgid "Eject the volume associated with the open folder"
 msgstr "Извадете го уредот кому му припаѓа оваа папка"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7430
+#: ../src/file-manager/fm-directory-view.c:7456
 msgid "Format the volume associated with the open folder"
 msgstr "Форматирај го уредот кому му припаѓа отворената папка"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7434
+#: ../src/file-manager/fm-directory-view.c:7460
 msgid "Start the volume associated with the open folder"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7438
+#: ../src/file-manager/fm-directory-view.c:7464
 msgid "Stop the volume associated with the open folder"
 msgstr ""
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7445
+#: ../src/file-manager/fm-directory-view.c:7471
 msgid "Open File and Close window"
 msgstr "Отвори ја датотеката и затвори го прозорецот"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7449
+#: ../src/file-manager/fm-directory-view.c:7475
 msgid "Sa_ve Search"
 msgstr "Зач_увај пребарување"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7450
+#: ../src/file-manager/fm-directory-view.c:7476
 msgid "Save the edited search"
 msgstr "Зачувај го уреденото пребарување"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7453
+#: ../src/file-manager/fm-directory-view.c:7479
 msgid "Sa_ve Search As..."
 msgstr "За_чувај пребарување како..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7454
+#: ../src/file-manager/fm-directory-view.c:7480
 msgid "Save the current search as a file"
 msgstr "Зачувај го тековното пребарување како датотека"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7460
+#: ../src/file-manager/fm-directory-view.c:7486
 msgid "Open this folder in a navigation window"
 msgstr "Отвори ја оваа папка во прозорец за навигација"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7464
+#: ../src/file-manager/fm-directory-view.c:7490
 msgid "Open this folder in a new tab"
 msgstr "Отвори ја оваа папка во ново јазиче"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7469
+#: ../src/file-manager/fm-directory-view.c:7495
 msgid "Open this folder in a folder window"
 msgstr "Отвори ја оваа папка во прозорец за папка"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7474
+#: ../src/file-manager/fm-directory-view.c:7500
 msgid "Prepare this folder to be moved with a Paste command"
 msgstr "Припреми ја папката за преместување со командата „Вметни“"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7478
+#: ../src/file-manager/fm-directory-view.c:7504
 msgid "Prepare this folder to be copied with a Paste command"
 msgstr ""
 "Припреми ги избраните датотеки да бидат копирани со командата „Вметни“"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7482
+#: ../src/file-manager/fm-directory-view.c:7508
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into this "
 "folder"
@@ -4607,405 +4655,405 @@ msgstr ""
 "„Копирај“ во оваа папка"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7487
+#: ../src/file-manager/fm-directory-view.c:7513
 msgid "Move this folder to the Trash"
 msgstr "Премести ја оваа папка во ѓубрето"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7491
+#: ../src/file-manager/fm-directory-view.c:7517
 msgid "Delete this folder, without moving to the Trash"
 msgstr "Избриши ја папката без да ја преместиш во ѓубрето"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7499
+#: ../src/file-manager/fm-directory-view.c:7525
 msgid "Mount the volume associated with this folder"
 msgstr "Монтирај го уредот кој е поврзан со оваа папка"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7503
+#: ../src/file-manager/fm-directory-view.c:7529
 msgid "Unmount the volume associated with this folder"
 msgstr "Одмонтирај го уредот кој е поврзан со оваа папка"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7507
+#: ../src/file-manager/fm-directory-view.c:7533
 msgid "Eject the volume associated with this folder"
 msgstr "Извади го уредот кој е поврзан со оваа папка"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7511
+#: ../src/file-manager/fm-directory-view.c:7537
 msgid "Format the volume associated with this folder"
 msgstr "Форматирај го уредот кој е поврзан со оваа папка"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7515
+#: ../src/file-manager/fm-directory-view.c:7541
 msgid "Start the volume associated with this folder"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7519
+#: ../src/file-manager/fm-directory-view.c:7545
 msgid "Stop the volume associated with this folder"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7528
+#: ../src/file-manager/fm-directory-view.c:7554
 msgid "View or modify the properties of this folder"
 msgstr "Прегледај или измени ги својствата на оваа папка"
 
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:7531
-#: ../src/file-manager/fm-directory-view.c:7534
+#: ../src/file-manager/fm-directory-view.c:7557
+#: ../src/file-manager/fm-directory-view.c:7560
 msgid "_Other pane"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7532
+#: ../src/file-manager/fm-directory-view.c:7558
 msgid "Copy the current selection to the other pane in the window"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7535
+#: ../src/file-manager/fm-directory-view.c:7561
 msgid "Move the current selection to the other pane in the window"
 msgstr ""
 
 #. name, icon name, label
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7538
-#: ../src/file-manager/fm-directory-view.c:7542 ../src/caja-window-menus.c:891
+#: ../src/file-manager/fm-directory-view.c:7564
+#: ../src/file-manager/fm-directory-view.c:7568 ../src/caja-window-menus.c:891
 msgid "_Home Folder"
 msgstr "_Домашна папка"
 
-#: ../src/file-manager/fm-directory-view.c:7539
+#: ../src/file-manager/fm-directory-view.c:7565
 msgid "Copy the current selection to the home folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7543
+#: ../src/file-manager/fm-directory-view.c:7569
 msgid "Move the current selection to the home folder"
 msgstr ""
 
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:7546
-#: ../src/file-manager/fm-directory-view.c:7550
+#: ../src/file-manager/fm-directory-view.c:7572
+#: ../src/file-manager/fm-directory-view.c:7576
 msgid "_Desktop"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7547
+#: ../src/file-manager/fm-directory-view.c:7573
 msgid "Copy the current selection to the desktop"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7551
+#: ../src/file-manager/fm-directory-view.c:7577
 msgid "Move the current selection to the desktop"
 msgstr ""
 
 #. Translators: %s is a directory
-#: ../src/file-manager/fm-directory-view.c:7631
+#: ../src/file-manager/fm-directory-view.c:7657
 #, c-format
 msgid "Run or manage scripts from %s"
 msgstr "Изврши или справи се со скрипти од %s"
 
 #. Create a script action here specially because its tooltip is dynamic
-#: ../src/file-manager/fm-directory-view.c:7633
+#: ../src/file-manager/fm-directory-view.c:7659
 msgid "_Scripts"
 msgstr "_Скрипти"
 
-#: ../src/file-manager/fm-directory-view.c:8038
+#: ../src/file-manager/fm-directory-view.c:8064
 #, c-format
 msgid "Move the open folder out of the trash to \"%s\""
 msgstr "Премести ја отворената папка од ѓубрето во „%s“"
 
-#: ../src/file-manager/fm-directory-view.c:8041
+#: ../src/file-manager/fm-directory-view.c:8067
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8045
+#: ../src/file-manager/fm-directory-view.c:8071
 #, c-format
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8051
+#: ../src/file-manager/fm-directory-view.c:8077
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8055
+#: ../src/file-manager/fm-directory-view.c:8081
 #, c-format
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8061
+#: ../src/file-manager/fm-directory-view.c:8087
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8065
+#: ../src/file-manager/fm-directory-view.c:8091
 #, c-format
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8191
-#: ../src/file-manager/fm-directory-view.c:8195
-#: ../src/file-manager/fm-directory-view.c:8393
-#: ../src/file-manager/fm-directory-view.c:8397
+#: ../src/file-manager/fm-directory-view.c:8217
+#: ../src/file-manager/fm-directory-view.c:8221
+#: ../src/file-manager/fm-directory-view.c:8419
+#: ../src/file-manager/fm-directory-view.c:8423
 msgid "Start the selected drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8199
-#: ../src/file-manager/fm-directory-view.c:8401
+#: ../src/file-manager/fm-directory-view.c:8225
+#: ../src/file-manager/fm-directory-view.c:8427
 msgid "Connect to the selected drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8202
-#: ../src/file-manager/fm-directory-view.c:8294
-#: ../src/file-manager/fm-directory-view.c:8404
+#: ../src/file-manager/fm-directory-view.c:8228
+#: ../src/file-manager/fm-directory-view.c:8320
+#: ../src/file-manager/fm-directory-view.c:8430
 msgid "_Start Multi-disk Drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8203
-#: ../src/file-manager/fm-directory-view.c:8405
+#: ../src/file-manager/fm-directory-view.c:8229
+#: ../src/file-manager/fm-directory-view.c:8431
 msgid "Start the selected multi-disk drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8206
+#: ../src/file-manager/fm-directory-view.c:8232
 msgid "U_nlock Drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8207
-#: ../src/file-manager/fm-directory-view.c:8409
+#: ../src/file-manager/fm-directory-view.c:8233
+#: ../src/file-manager/fm-directory-view.c:8435
 msgid "Unlock the selected drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8220
+#: ../src/file-manager/fm-directory-view.c:8246
 msgid "Stop the selected drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8223
-#: ../src/file-manager/fm-directory-view.c:8315
-#: ../src/file-manager/fm-directory-view.c:8425
-#: ../src/caja-places-sidebar.c:1794
+#: ../src/file-manager/fm-directory-view.c:8249
+#: ../src/file-manager/fm-directory-view.c:8341
+#: ../src/file-manager/fm-directory-view.c:8451
+#: ../src/caja-places-sidebar.c:1813
 msgid "_Safely Remove Drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8224
-#: ../src/file-manager/fm-directory-view.c:8426
+#: ../src/file-manager/fm-directory-view.c:8250
+#: ../src/file-manager/fm-directory-view.c:8452
 msgid "Safely remove the selected drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8227
-#: ../src/file-manager/fm-directory-view.c:8319
-#: ../src/file-manager/fm-directory-view.c:8429
+#: ../src/file-manager/fm-directory-view.c:8253
+#: ../src/file-manager/fm-directory-view.c:8345
+#: ../src/file-manager/fm-directory-view.c:8455
 msgid "_Disconnect"
 msgstr "_Одврзи се"
 
-#: ../src/file-manager/fm-directory-view.c:8228
-#: ../src/file-manager/fm-directory-view.c:8430
+#: ../src/file-manager/fm-directory-view.c:8254
+#: ../src/file-manager/fm-directory-view.c:8456
 msgid "Disconnect the selected drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8231
-#: ../src/file-manager/fm-directory-view.c:8323
-#: ../src/file-manager/fm-directory-view.c:8433
+#: ../src/file-manager/fm-directory-view.c:8257
+#: ../src/file-manager/fm-directory-view.c:8349
+#: ../src/file-manager/fm-directory-view.c:8459
 msgid "_Stop Multi-disk Drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8232
-#: ../src/file-manager/fm-directory-view.c:8434
+#: ../src/file-manager/fm-directory-view.c:8258
+#: ../src/file-manager/fm-directory-view.c:8460
 msgid "Stop the selected multi-disk drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8235
-#: ../src/file-manager/fm-directory-view.c:8327
-#: ../src/file-manager/fm-directory-view.c:8437
-#: ../src/caja-places-sidebar.c:1807
+#: ../src/file-manager/fm-directory-view.c:8261
+#: ../src/file-manager/fm-directory-view.c:8353
+#: ../src/file-manager/fm-directory-view.c:8463
+#: ../src/caja-places-sidebar.c:1826
 msgid "_Lock Drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8236
-#: ../src/file-manager/fm-directory-view.c:8438
+#: ../src/file-manager/fm-directory-view.c:8262
+#: ../src/file-manager/fm-directory-view.c:8464
 msgid "Lock the selected drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8283
-#: ../src/file-manager/fm-directory-view.c:8287
+#: ../src/file-manager/fm-directory-view.c:8309
+#: ../src/file-manager/fm-directory-view.c:8313
 msgid "Start the drive associated with the open folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8291
+#: ../src/file-manager/fm-directory-view.c:8317
 msgid "Connect to the drive associated with the open folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8295
+#: ../src/file-manager/fm-directory-view.c:8321
 msgid "Start the multi-disk drive associated with the open folder"
 msgstr ""
 
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
-#: ../src/file-manager/fm-directory-view.c:8298
-#: ../src/file-manager/fm-directory-view.c:8408
-#: ../src/caja-places-sidebar.c:1806
+#: ../src/file-manager/fm-directory-view.c:8324
+#: ../src/file-manager/fm-directory-view.c:8434
+#: ../src/caja-places-sidebar.c:1825
 msgid "_Unlock Drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8299
+#: ../src/file-manager/fm-directory-view.c:8325
 msgid "Unlock the drive associated with the open folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8312
+#: ../src/file-manager/fm-directory-view.c:8338
 msgid "_Stop the drive associated with the open folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8316
+#: ../src/file-manager/fm-directory-view.c:8342
 msgid "Safely remove the drive associated with the open folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8320
+#: ../src/file-manager/fm-directory-view.c:8346
 msgid "Disconnect the drive associated with the open folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8324
+#: ../src/file-manager/fm-directory-view.c:8350
 msgid "Stop the multi-disk drive associated with the open folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8328
+#: ../src/file-manager/fm-directory-view.c:8354
 msgid "Lock the drive associated with the open folder"
 msgstr ""
 
 #. add the "open in new window" menu item
-#: ../src/file-manager/fm-directory-view.c:8507
-#: ../src/file-manager/fm-directory-view.c:8817
-#: ../src/file-manager/fm-tree-view.c:1287 ../src/caja-places-sidebar.c:2671
+#: ../src/file-manager/fm-directory-view.c:8533
+#: ../src/file-manager/fm-directory-view.c:8843
+#: ../src/file-manager/fm-tree-view.c:1285 ../src/caja-places-sidebar.c:2692
 msgid "Open in New _Window"
 msgstr "Отвори во нов _прозорец"
 
-#: ../src/file-manager/fm-directory-view.c:8509
-#: ../src/file-manager/fm-directory-view.c:8826
+#: ../src/file-manager/fm-directory-view.c:8535
+#: ../src/file-manager/fm-directory-view.c:8852
 msgid "Browse in New _Window"
 msgstr "Разгледај во нов _прозорец"
 
-#: ../src/file-manager/fm-directory-view.c:8515
-#: ../src/file-manager/fm-directory-view.c:8836
+#: ../src/file-manager/fm-directory-view.c:8541
+#: ../src/file-manager/fm-directory-view.c:8862
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8532
-#: ../src/file-manager/fm-directory-view.c:8865
+#: ../src/file-manager/fm-directory-view.c:8558
+#: ../src/file-manager/fm-directory-view.c:8891
 msgid "Browse in New _Tab"
 msgstr "Разгледај во ново _јазиче"
 
-#: ../src/file-manager/fm-directory-view.c:8581
-#: ../src/file-manager/fm-directory-view.c:8906
+#: ../src/file-manager/fm-directory-view.c:8607
+#: ../src/file-manager/fm-directory-view.c:8932
 msgid "_Delete Permanently"
 msgstr "_Избриши засекогаш"
 
-#: ../src/file-manager/fm-directory-view.c:8582
+#: ../src/file-manager/fm-directory-view.c:8608
 msgid "Delete the open folder permanently"
 msgstr "Избриши ја отворената папка перманентно"
 
-#: ../src/file-manager/fm-directory-view.c:8586
+#: ../src/file-manager/fm-directory-view.c:8612
 msgid "Move the open folder to the Trash"
 msgstr "Премести ја отворената папка во ѓубрето"
 
-#: ../src/file-manager/fm-directory-view.c:8766
+#: ../src/file-manager/fm-directory-view.c:8792
 #, c-format
 msgid "_Open With %s"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8819
+#: ../src/file-manager/fm-directory-view.c:8845
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8828
+#: ../src/file-manager/fm-directory-view.c:8854
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8858
+#: ../src/file-manager/fm-directory-view.c:8884
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8867
+#: ../src/file-manager/fm-directory-view.c:8893
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8907
+#: ../src/file-manager/fm-directory-view.c:8933
 msgid "Delete all selected items permanently"
 msgstr "Избриши ги сите избрани предмети перманентно"
 
-#: ../src/file-manager/fm-directory-view.c:8964
+#: ../src/file-manager/fm-directory-view.c:8990
 msgid "View or modify the properties of the open folder"
 msgstr "Прегледај ги или промени ги својствата на папката"
 
-#: ../src/file-manager/fm-directory-view.c:10267
+#: ../src/file-manager/fm-directory-view.c:10293
 msgid "Download location?"
 msgstr "Локација за преземање?"
 
-#: ../src/file-manager/fm-directory-view.c:10270
+#: ../src/file-manager/fm-directory-view.c:10296
 msgid "You can download it or make a link to it."
 msgstr "Можете да ја преземете или да направите врска до неа."
 
-#: ../src/file-manager/fm-directory-view.c:10273
+#: ../src/file-manager/fm-directory-view.c:10299
 msgid "Make a _Link"
 msgstr "Направи _врска"
 
-#: ../src/file-manager/fm-directory-view.c:10280
+#: ../src/file-manager/fm-directory-view.c:10306
 msgid "_Download"
 msgstr "_Преземи"
 
-#: ../src/file-manager/fm-directory-view.c:10441
-#: ../src/file-manager/fm-directory-view.c:10500
-#: ../src/file-manager/fm-directory-view.c:10605
+#: ../src/file-manager/fm-directory-view.c:10467
+#: ../src/file-manager/fm-directory-view.c:10526
+#: ../src/file-manager/fm-directory-view.c:10631
 msgid "Drag and drop is not supported."
 msgstr "Влечење и пуштање не е подржано."
 
-#: ../src/file-manager/fm-directory-view.c:10442
+#: ../src/file-manager/fm-directory-view.c:10468
 msgid "Drag and drop is only supported on local file systems."
 msgstr "Влечење и пуштање е подржано само на локалниот датотечен систем."
 
-#: ../src/file-manager/fm-directory-view.c:10501
-#: ../src/file-manager/fm-directory-view.c:10606
+#: ../src/file-manager/fm-directory-view.c:10527
+#: ../src/file-manager/fm-directory-view.c:10632
 msgid "An invalid drag type was used."
 msgstr "Користен е невалиден тип на движење."
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10683
+#: ../src/file-manager/fm-directory-view.c:10709
 msgid "dropped text.txt"
 msgstr "испуштен текст.txt"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10728
+#: ../src/file-manager/fm-directory-view.c:10754
 msgid "dropped data"
 msgstr ""
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11117
+#: ../src/file-manager/fm-directory-view.c:11143
 msgid "Undo"
 msgstr "Отповикај"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11135
+#: ../src/file-manager/fm-directory-view.c:11161
 msgid "Redo"
 msgstr ""
 
@@ -5127,8 +5175,8 @@ msgstr "Преименувам %s до %s."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-icon-container.c:611
-#: ../src/file-manager/fm-icon-view.c:3380
+#: ../src/file-manager/fm-icon-container.c:614
+#: ../src/file-manager/fm-icon-view.c:3399
 #: ../src/caja-file-management-properties.ui.h:1
 msgid "Icon View"
 msgstr "Поглед на икони"
@@ -5138,7 +5186,7 @@ msgid "by _Name"
 msgstr "по _име"
 
 #: ../src/file-manager/fm-icon-view.c:129
-#: ../src/file-manager/fm-icon-view.c:1740
+#: ../src/file-manager/fm-icon-view.c:1747
 msgid "Keep icons sorted by name in rows"
 msgstr "Држи ги иконите сортирани по име во редови"
 
@@ -5147,15 +5195,16 @@ msgid "by _Size"
 msgstr "по _големина"
 
 #: ../src/file-manager/fm-icon-view.c:136
-#: ../src/file-manager/fm-icon-view.c:1746
+#: ../src/file-manager/fm-icon-view.c:1753
 msgid "Keep icons sorted by size in rows"
 msgstr "Држи ги иконите сортирани по големина во редови"
 
 #: ../src/file-manager/fm-icon-view.c:142
-msgid "by Size on Disk"
+msgid "by S_ize on Disk"
 msgstr ""
 
 #: ../src/file-manager/fm-icon-view.c:143
+#: ../src/file-manager/fm-icon-view.c:1759
 msgid "Keep icons sorted by disk usage in rows"
 msgstr ""
 
@@ -5164,7 +5213,7 @@ msgid "by _Type"
 msgstr "по _тип"
 
 #: ../src/file-manager/fm-icon-view.c:150
-#: ../src/file-manager/fm-icon-view.c:1752
+#: ../src/file-manager/fm-icon-view.c:1765
 msgid "Keep icons sorted by type in rows"
 msgstr "Држи ги иконите сортирани по типови во редови"
 
@@ -5173,7 +5222,7 @@ msgid "by Modification _Date"
 msgstr "по датум на _промена"
 
 #: ../src/file-manager/fm-icon-view.c:157
-#: ../src/file-manager/fm-icon-view.c:1758
+#: ../src/file-manager/fm-icon-view.c:1771
 msgid "Keep icons sorted by modification date in rows"
 msgstr "Држи ги иконите сортирани по датум на промена во редови"
 
@@ -5182,7 +5231,7 @@ msgid "by _Emblems"
 msgstr "по _амблеми"
 
 #: ../src/file-manager/fm-icon-view.c:164
-#: ../src/file-manager/fm-icon-view.c:1764
+#: ../src/file-manager/fm-icon-view.c:1777
 msgid "Keep icons sorted by emblems in rows"
 msgstr "Држи ги иконите сортирани по амблеми во редови"
 
@@ -5191,50 +5240,58 @@ msgid "by T_rash Time"
 msgstr ""
 
 #: ../src/file-manager/fm-icon-view.c:171
-#: ../src/file-manager/fm-icon-view.c:1770
+#: ../src/file-manager/fm-icon-view.c:1783
 msgid "Keep icons sorted by trash time in rows"
 msgstr ""
 
-#: ../src/file-manager/fm-icon-view.c:780
+#: ../src/file-manager/fm-icon-view.c:177
+msgid "by E_xtension"
+msgstr ""
+
+#: ../src/file-manager/fm-icon-view.c:178
+msgid "Keep icons sorted by reversed extension segments in rows"
+msgstr ""
+
+#: ../src/file-manager/fm-icon-view.c:787
 msgid "_Organize Desktop by Name"
 msgstr ""
 
 #. name, stock id, label
-#: ../src/file-manager/fm-icon-view.c:1689
+#: ../src/file-manager/fm-icon-view.c:1696
 msgid "Arran_ge Items"
 msgstr "Подре_ди ги предметите"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1691
+#: ../src/file-manager/fm-icon-view.c:1698
 msgid "Resize Icon..."
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1692
+#: ../src/file-manager/fm-icon-view.c:1699
 msgid "Make the selected icon resizable"
 msgstr ""
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1696
-#: ../src/file-manager/fm-icon-view.c:1897
+#: ../src/file-manager/fm-icon-view.c:1703
+#: ../src/file-manager/fm-icon-view.c:1916
 msgid "Restore Icons' Original Si_zes"
 msgstr "Поврати ги оригиналните големини на иконите"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1697
+#: ../src/file-manager/fm-icon-view.c:1704
 msgid "Restore each selected icon to its original size"
 msgstr "Поврати ја секоја избрана икона во нејзината оригинална големина"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1701
+#: ../src/file-manager/fm-icon-view.c:1708
 msgid "_Organize by Name"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1702
+#: ../src/file-manager/fm-icon-view.c:1709
 msgid "Reposition icons to better fit in the window and avoid overlapping"
 msgstr ""
 "Распореди ги иконите за да одговараат подобро и за да се одбегне "
@@ -5242,143 +5299,166 @@ msgstr ""
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1710
+#: ../src/file-manager/fm-icon-view.c:1717
 msgid "Compact _Layout"
 msgstr "Компактен _распоред"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1711
+#: ../src/file-manager/fm-icon-view.c:1718
 msgid "Toggle using a tighter layout scheme"
 msgstr "Промени користејќи посредена схема."
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1716
+#: ../src/file-manager/fm-icon-view.c:1723
 msgid "Re_versed Order"
 msgstr "Об_ратен редослед"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1717
+#: ../src/file-manager/fm-icon-view.c:1724
 msgid "Display icons in the opposite order"
 msgstr "Прикажи ги иконите по обратен редослед"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1722
+#: ../src/file-manager/fm-icon-view.c:1729
 msgid "_Keep Aligned"
 msgstr "Одржувај ред"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1723
+#: ../src/file-manager/fm-icon-view.c:1730
 msgid "Keep icons lined up on a grid"
 msgstr "Држи ги иконите наредени по име во редови"
 
-#: ../src/file-manager/fm-icon-view.c:1733
+#: ../src/file-manager/fm-icon-view.c:1740
 msgid "_Manually"
 msgstr "_Рачно"
 
-#: ../src/file-manager/fm-icon-view.c:1734
+#: ../src/file-manager/fm-icon-view.c:1741
 msgid "Leave icons wherever they are dropped"
 msgstr "Остави ги иконите каде што се"
 
-#: ../src/file-manager/fm-icon-view.c:1739
+#: ../src/file-manager/fm-icon-view.c:1746
 msgid "By _Name"
 msgstr "По _име"
 
-#: ../src/file-manager/fm-icon-view.c:1745
+#: ../src/file-manager/fm-icon-view.c:1752
 msgid "By _Size"
 msgstr "По _големина"
 
-#: ../src/file-manager/fm-icon-view.c:1751
+#: ../src/file-manager/fm-icon-view.c:1758
+msgid "By S_ize on Disk"
+msgstr ""
+
+#: ../src/file-manager/fm-icon-view.c:1764
 msgid "By _Type"
 msgstr "По _тип"
 
-#: ../src/file-manager/fm-icon-view.c:1757
+#: ../src/file-manager/fm-icon-view.c:1770
 msgid "By Modification _Date"
 msgstr "По _датум на промена"
 
-#: ../src/file-manager/fm-icon-view.c:1763
+#: ../src/file-manager/fm-icon-view.c:1776
 msgid "By _Emblems"
 msgstr "По _амблеми"
 
-#: ../src/file-manager/fm-icon-view.c:1769
+#: ../src/file-manager/fm-icon-view.c:1782
 msgid "By T_rash Time"
 msgstr ""
 
-#: ../src/file-manager/fm-icon-view.c:1898
+#: ../src/file-manager/fm-icon-view.c:1788
+msgid "By E_xtension"
+msgstr ""
+
+#: ../src/file-manager/fm-icon-view.c:1789
+msgid "Keep icons sorted by reverse extension segments in rows"
+msgstr ""
+
+#: ../src/file-manager/fm-icon-view.c:1917
 msgid "Restore Icon's Original Si_ze"
 msgstr "Врати ја оригиналната го_лемина на иконата"
 
-#: ../src/file-manager/fm-icon-view.c:2373
+#: ../src/file-manager/fm-icon-view.c:2392
 #, c-format
 msgid "pointing at \"%s\""
 msgstr "покажува на %s"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3382
+#: ../src/file-manager/fm-icon-view.c:3401
 msgid "_Icons"
 msgstr "_Икони"
 
-#: ../src/file-manager/fm-icon-view.c:3383
+#: ../src/file-manager/fm-icon-view.c:3402
 msgid "The icon view encountered an error."
 msgstr "Погледот со икони наиде на грешка."
 
-#: ../src/file-manager/fm-icon-view.c:3384
+#: ../src/file-manager/fm-icon-view.c:3403
 msgid "The icon view encountered an error while starting up."
 msgstr "Погледот на икони наиде на грешка додека се стартуваше."
 
-#: ../src/file-manager/fm-icon-view.c:3385
+#: ../src/file-manager/fm-icon-view.c:3404
 msgid "Display this location with the icon view."
 msgstr "Прикажи ја оваа локација со икони."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-icon-view.c:3395
+#: ../src/file-manager/fm-icon-view.c:3414
 #: ../src/caja-file-management-properties.ui.h:3
 msgid "Compact View"
 msgstr "Компактен преглед"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3397
+#: ../src/file-manager/fm-icon-view.c:3416
 msgid "_Compact"
 msgstr "_Компактно"
 
-#: ../src/file-manager/fm-icon-view.c:3398
+#: ../src/file-manager/fm-icon-view.c:3417
 msgid "The compact view encountered an error."
 msgstr "Компактниот преглед имаше грешка."
 
-#: ../src/file-manager/fm-icon-view.c:3399
+#: ../src/file-manager/fm-icon-view.c:3418
 msgid "The compact view encountered an error while starting up."
 msgstr "Компактниот преглед имаше грешка при стартувањето."
 
-#: ../src/file-manager/fm-icon-view.c:3400
+#: ../src/file-manager/fm-icon-view.c:3419
 msgid "Display this location with the compact view."
 msgstr "Прикажи ја оваа локација при користење на компактен преглед."
 
-#: ../src/file-manager/fm-list-model.c:428
-#: ../src/file-manager/fm-tree-model.c:1358
+#: ../src/file-manager/fm-list-model.c:448
+#: ../src/file-manager/fm-tree-model.c:1364
 msgid "(Empty)"
 msgstr "(Празно)"
 
-#: ../src/file-manager/fm-list-model.c:432
-#: ../src/file-manager/fm-tree-model.c:1358 ../src/caja-window-slot.c:207
+#: ../src/file-manager/fm-list-model.c:452
+#: ../src/file-manager/fm-tree-model.c:1364 ../src/caja-window-slot.c:207
 msgid "Loading..."
 msgstr "Се вчитува..."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-list-view.c:1837
-#: ../src/file-manager/fm-list-view.c:3450
+#: ../src/file-manager/fm-list-view.c:1845
+#: ../src/file-manager/fm-list-view.c:3463
 #: ../src/caja-file-management-properties.ui.h:2
 msgid "List View"
 msgstr "Поглед како листа"
 
-#: ../src/file-manager/fm-list-view.c:2531
+#: ../src/file-manager/fm-list-view.c:2539
 #, c-format
 msgid "%s Visible Columns"
 msgstr "%s видливи колони"
 
-#: ../src/file-manager/fm-list-view.c:2550
+#. create the "close" button
+#. name, icon name
+#. label, accelerator
+#: ../src/file-manager/fm-list-view.c:2548
+#: ../src/file-manager/fm-properties-window.c:5181
+#: ../src/caja-bookmarks-window.ui.h:5
+#: ../src/caja-file-management-properties.ui.h:43
+#: ../src/caja-property-browser.c:398 ../src/caja-window-menus.c:811
+msgid "_Close"
+msgstr "_Затвори"
+
+#: ../src/file-manager/fm-list-view.c:2563
 msgid "Choose the order of information to appear in this folder:"
 msgstr ""
 "Изберете го редоследот на информациите што треба да се појавуваат во оваа "
@@ -5386,103 +5466,103 @@ msgstr ""
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-list-view.c:2604
+#: ../src/file-manager/fm-list-view.c:2617
 msgid "Visible _Columns..."
 msgstr "Видливи _колони..."
 
 #. tooltip
-#: ../src/file-manager/fm-list-view.c:2605
+#: ../src/file-manager/fm-list-view.c:2618
 msgid "Select the columns visible in this folder"
 msgstr "Изберете ги колоните видливи за оваа папка"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-list-view.c:3452
+#: ../src/file-manager/fm-list-view.c:3465
 msgid "_List"
 msgstr "_Листа"
 
-#: ../src/file-manager/fm-list-view.c:3453
+#: ../src/file-manager/fm-list-view.c:3466
 msgid "The list view encountered an error."
 msgstr "Погледот наиде на грешка."
 
-#: ../src/file-manager/fm-list-view.c:3454
+#: ../src/file-manager/fm-list-view.c:3467
 msgid "The list view encountered an error while starting up."
 msgstr "Погледот наиде на грешка додека се стартуваше."
 
-#: ../src/file-manager/fm-list-view.c:3455
+#: ../src/file-manager/fm-list-view.c:3468
 msgid "Display this location with the list view."
 msgstr "Прикажи ја оваа локација како листа."
 
-#: ../src/file-manager/fm-properties-window.c:495
+#: ../src/file-manager/fm-properties-window.c:505
 msgid "You cannot assign more than one custom icon at a time!"
 msgstr "Не може да назначите повеќе сопствени икони во исто време!"
 
-#: ../src/file-manager/fm-properties-window.c:496
+#: ../src/file-manager/fm-properties-window.c:506
 #: ../src/caja-information-panel.c:528
 msgid "Please drag just one image to set a custom icon."
 msgstr "Ве молам влечете само една слика за да наместите сопствена икона."
 
-#: ../src/file-manager/fm-properties-window.c:507
+#: ../src/file-manager/fm-properties-window.c:517
 #: ../src/caja-information-panel.c:555
 msgid "The file that you dropped is not local."
 msgstr "Датотеката што ја спуштивте не е локална."
 
-#: ../src/file-manager/fm-properties-window.c:508
-#: ../src/file-manager/fm-properties-window.c:514
+#: ../src/file-manager/fm-properties-window.c:518
+#: ../src/file-manager/fm-properties-window.c:524
 #: ../src/caja-information-panel.c:556
 msgid "You can only use local images as custom icons."
 msgstr "Смеете да користите само локални слики за сопствени икони."
 
-#: ../src/file-manager/fm-properties-window.c:513
+#: ../src/file-manager/fm-properties-window.c:523
 #: ../src/caja-information-panel.c:563
 msgid "The file that you dropped is not an image."
 msgstr "Датотеката што ја спуштивте не е слика."
 
-#: ../src/file-manager/fm-properties-window.c:636
+#: ../src/file-manager/fm-properties-window.c:639
 msgid "_Name:"
 msgid_plural "_Names:"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-properties-window.c:992
+#: ../src/file-manager/fm-properties-window.c:995
 #, c-format
 msgid "Properties"
 msgstr "Својства"
 
-#: ../src/file-manager/fm-properties-window.c:1000
+#: ../src/file-manager/fm-properties-window.c:1003
 #, c-format
 msgid "%s Properties"
 msgstr "%s Својства"
 
-#: ../src/file-manager/fm-properties-window.c:1328
+#: ../src/file-manager/fm-properties-window.c:1330
 #, c-format
 msgctxt "MIME type description (MIME type)"
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-properties-window.c:1536
+#: ../src/file-manager/fm-properties-window.c:1538
 msgid "Cancel Group Change?"
 msgstr "Откажи го менувањето на групата?"
 
-#: ../src/file-manager/fm-properties-window.c:1946
+#: ../src/file-manager/fm-properties-window.c:1948
 msgid "Cancel Owner Change?"
 msgstr "Откажи го менувањето на сопственик на група?"
 
-#: ../src/file-manager/fm-properties-window.c:2270
+#: ../src/file-manager/fm-properties-window.c:2272
 msgid "nothing"
 msgstr "ништо"
 
-#: ../src/file-manager/fm-properties-window.c:2272
+#: ../src/file-manager/fm-properties-window.c:2274
 msgid "unreadable"
 msgstr "нечитливо"
 
-#: ../src/file-manager/fm-properties-window.c:2291
+#: ../src/file-manager/fm-properties-window.c:2293
 #, c-format
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-properties-window.c:2301
+#: ../src/file-manager/fm-properties-window.c:2303
 msgid "(some contents unreadable)"
 msgstr "(нечитлива содржина)"
 
@@ -5491,277 +5571,256 @@ msgstr "(нечитлива содржина)"
 #. * "Contents:" title to line up with the first line of the
 #. * 2-line value. Maybe there's a better way to do this, but I
 #. * couldn't think of one.
-#: ../src/file-manager/fm-properties-window.c:2318
+#: ../src/file-manager/fm-properties-window.c:2320
 msgid "Contents:"
 msgstr "Содржини:"
 
 #. Translators: "used" refers to the capacity of the filesystem
-#: ../src/file-manager/fm-properties-window.c:3094
+#: ../src/file-manager/fm-properties-window.c:3096
 msgid "used"
 msgstr "искористени"
 
 #. Translators: "free" refers to the capacity of the filesystem
-#: ../src/file-manager/fm-properties-window.c:3103
+#: ../src/file-manager/fm-properties-window.c:3105
 msgid "free"
 msgstr "слободни"
 
-#: ../src/file-manager/fm-properties-window.c:3105
+#: ../src/file-manager/fm-properties-window.c:3107
 msgid "Total capacity:"
 msgstr "Вкупен капацитет:"
 
-#: ../src/file-manager/fm-properties-window.c:3114
+#: ../src/file-manager/fm-properties-window.c:3116
 msgid "Filesystem type:"
 msgstr "Тип на датотечен систем:"
 
-#: ../src/file-manager/fm-properties-window.c:3200
+#: ../src/file-manager/fm-properties-window.c:3202
 msgid "Basic"
 msgstr "Основно"
 
-#: ../src/file-manager/fm-properties-window.c:3262
+#: ../src/file-manager/fm-properties-window.c:3264
 msgid "Link target:"
 msgstr "Врзи цел:"
 
-#: ../src/file-manager/fm-properties-window.c:3276
+#: ../src/file-manager/fm-properties-window.c:3278
 msgid "Size on Disk:"
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:3285
+#: ../src/file-manager/fm-properties-window.c:3287
 #: ../src/caja-location-bar.c:57
 msgid "Location:"
 msgstr "Локација:"
 
-#: ../src/file-manager/fm-properties-window.c:3291
+#: ../src/file-manager/fm-properties-window.c:3293
 msgid "Volume:"
 msgstr "Простор:"
 
-#: ../src/file-manager/fm-properties-window.c:3300
+#: ../src/file-manager/fm-properties-window.c:3302
 msgid "Accessed:"
 msgstr "Пристапено:"
 
-#: ../src/file-manager/fm-properties-window.c:3304
+#: ../src/file-manager/fm-properties-window.c:3306
 msgid "Modified:"
 msgstr "Променето:"
 
-#: ../src/file-manager/fm-properties-window.c:3313
+#: ../src/file-manager/fm-properties-window.c:3315
 msgid "Free space:"
 msgstr "Слободен простор:"
 
-#: ../src/file-manager/fm-properties-window.c:3427
-#: ../src/caja-emblem-sidebar.c:1085
+#: ../src/file-manager/fm-properties-window.c:3430
+#: ../src/caja-emblem-sidebar.c:1098
 msgid "Emblems"
 msgstr "Амблеми"
 
-#: ../src/file-manager/fm-properties-window.c:3836
+#: ../src/file-manager/fm-properties-window.c:3840
 msgid "_Read"
 msgstr "_Читај"
 
-#: ../src/file-manager/fm-properties-window.c:3838
+#: ../src/file-manager/fm-properties-window.c:3842
 msgid "_Write"
 msgstr "_Запиши"
 
-#: ../src/file-manager/fm-properties-window.c:3840
+#: ../src/file-manager/fm-properties-window.c:3844
 msgid "E_xecute"
 msgstr "И_зврши"
 
 #. translators: this gets concatenated to "no read",
 #. * "no access", etc. (see following strings)
-#: ../src/file-manager/fm-properties-window.c:4108
-#: ../src/file-manager/fm-properties-window.c:4119
-#: ../src/file-manager/fm-properties-window.c:4131
+#: ../src/file-manager/fm-properties-window.c:4112
+#: ../src/file-manager/fm-properties-window.c:4123
+#: ../src/file-manager/fm-properties-window.c:4135
 msgid "no "
 msgstr "не "
 
-#: ../src/file-manager/fm-properties-window.c:4111
+#: ../src/file-manager/fm-properties-window.c:4115
 msgid "list"
 msgstr "листа"
 
-#: ../src/file-manager/fm-properties-window.c:4113
+#: ../src/file-manager/fm-properties-window.c:4117
 msgid "read"
 msgstr "читај"
 
-#: ../src/file-manager/fm-properties-window.c:4122
+#: ../src/file-manager/fm-properties-window.c:4126
 msgid "create/delete"
 msgstr "креирај/избриши"
 
-#: ../src/file-manager/fm-properties-window.c:4124
+#: ../src/file-manager/fm-properties-window.c:4128
 msgid "write"
 msgstr "запиши"
 
-#: ../src/file-manager/fm-properties-window.c:4133
+#: ../src/file-manager/fm-properties-window.c:4137
 msgid "access"
 msgstr "пристап"
 
-#: ../src/file-manager/fm-properties-window.c:4181
+#: ../src/file-manager/fm-properties-window.c:4185
 msgid "Access:"
 msgstr "Пристап:"
 
-#: ../src/file-manager/fm-properties-window.c:4183
+#: ../src/file-manager/fm-properties-window.c:4187
 msgid "Folder access:"
 msgstr "Пристап до папката:"
 
-#: ../src/file-manager/fm-properties-window.c:4185
+#: ../src/file-manager/fm-properties-window.c:4189
 msgid "File access:"
 msgstr "Пристап до датотеки:"
 
 #. Translators: this is referred to the permissions
 #. * the user has in a directory.
 #. Translators: this is referred to captions under icons.
-#: ../src/file-manager/fm-properties-window.c:4200
-#: ../src/file-manager/fm-properties-window.c:4211
-#: ../src/caja-file-management-properties.c:329
+#: ../src/file-manager/fm-properties-window.c:4204
+#: ../src/file-manager/fm-properties-window.c:4215
+#: ../src/caja-file-management-properties.c:336
 msgid "None"
 msgstr "Ништо"
 
-#: ../src/file-manager/fm-properties-window.c:4203
+#: ../src/file-manager/fm-properties-window.c:4207
 msgid "List files only"
 msgstr "Само листај ги датотеките"
 
-#: ../src/file-manager/fm-properties-window.c:4205
+#: ../src/file-manager/fm-properties-window.c:4209
 msgid "Access files"
 msgstr "Пристап до датотеки"
 
-#: ../src/file-manager/fm-properties-window.c:4207
+#: ../src/file-manager/fm-properties-window.c:4211
 msgid "Create and delete files"
 msgstr "Креирај и бриши датотеки"
 
-#: ../src/file-manager/fm-properties-window.c:4214
+#: ../src/file-manager/fm-properties-window.c:4218
 msgid "Read-only"
 msgstr "Замо за читање"
 
-#: ../src/file-manager/fm-properties-window.c:4216
+#: ../src/file-manager/fm-properties-window.c:4220
 msgid "Read and write"
 msgstr "Читај и запишувај"
 
-#: ../src/file-manager/fm-properties-window.c:4281
+#: ../src/file-manager/fm-properties-window.c:4285
 msgid "Special flags:"
 msgstr "Специјални знамиња:"
 
-#: ../src/file-manager/fm-properties-window.c:4283
+#: ../src/file-manager/fm-properties-window.c:4287
 msgid "Set _user ID"
 msgstr "Постави корисничкa идент. (UID)"
 
-#: ../src/file-manager/fm-properties-window.c:4284
+#: ../src/file-manager/fm-properties-window.c:4288
 msgid "Set gro_up ID"
 msgstr "Постави групнa идент. (GID)"
 
-#: ../src/file-manager/fm-properties-window.c:4285
+#: ../src/file-manager/fm-properties-window.c:4289
 msgid "_Sticky"
 msgstr "_Лепливо"
 
-#: ../src/file-manager/fm-properties-window.c:4360
-#: ../src/file-manager/fm-properties-window.c:4551
+#: ../src/file-manager/fm-properties-window.c:4364
+#: ../src/file-manager/fm-properties-window.c:4555
 msgid "_Owner:"
 msgstr "_Сопственик:"
 
-#: ../src/file-manager/fm-properties-window.c:4368
-#: ../src/file-manager/fm-properties-window.c:4456
-#: ../src/file-manager/fm-properties-window.c:4560
+#: ../src/file-manager/fm-properties-window.c:4372
+#: ../src/file-manager/fm-properties-window.c:4460
+#: ../src/file-manager/fm-properties-window.c:4564
 msgid "Owner:"
 msgstr "Сопственик:"
 
-#: ../src/file-manager/fm-properties-window.c:4390
-#: ../src/file-manager/fm-properties-window.c:4573
+#: ../src/file-manager/fm-properties-window.c:4394
+#: ../src/file-manager/fm-properties-window.c:4577
 msgid "_Group:"
 msgstr "_Група:"
 
-#: ../src/file-manager/fm-properties-window.c:4398
-#: ../src/file-manager/fm-properties-window.c:4457
-#: ../src/file-manager/fm-properties-window.c:4581
+#: ../src/file-manager/fm-properties-window.c:4402
+#: ../src/file-manager/fm-properties-window.c:4461
+#: ../src/file-manager/fm-properties-window.c:4585
 msgid "Group:"
 msgstr "Група:"
 
-#: ../src/file-manager/fm-properties-window.c:4422
+#: ../src/file-manager/fm-properties-window.c:4426
 msgid "Others"
 msgstr "Други"
 
-#: ../src/file-manager/fm-properties-window.c:4437
+#: ../src/file-manager/fm-properties-window.c:4441
 msgid "Execute:"
 msgstr "Изврши:"
 
-#: ../src/file-manager/fm-properties-window.c:4440
+#: ../src/file-manager/fm-properties-window.c:4444
 msgid "Allow _executing file as program"
 msgstr "Дозволи _извршување на датотеката како програма"
 
-#: ../src/file-manager/fm-properties-window.c:4458
+#: ../src/file-manager/fm-properties-window.c:4462
 msgid "Others:"
 msgstr "Други:"
 
-#: ../src/file-manager/fm-properties-window.c:4597
+#: ../src/file-manager/fm-properties-window.c:4601
 msgid "Folder Permissions:"
 msgstr "Пермисии на папката:"
 
-#: ../src/file-manager/fm-properties-window.c:4604
+#: ../src/file-manager/fm-properties-window.c:4608
 msgid "File Permissions:"
 msgstr "Пермисии на папката:"
 
-#: ../src/file-manager/fm-properties-window.c:4613
+#: ../src/file-manager/fm-properties-window.c:4617
 msgid "Text view:"
 msgstr "Поглед на текст:"
 
-#: ../src/file-manager/fm-properties-window.c:4759
+#: ../src/file-manager/fm-properties-window.c:4763
 msgid "You are not the owner, so you cannot change these permissions."
 msgstr ""
 "Вие не сте сопственикот и затоа не можете да ги менувате овие пермисии."
 
-#: ../src/file-manager/fm-properties-window.c:4779
+#: ../src/file-manager/fm-properties-window.c:4783
 msgid "SELinux context:"
 msgstr "SELinux контекст:"
 
-#: ../src/file-manager/fm-properties-window.c:4784
+#: ../src/file-manager/fm-properties-window.c:4788
 msgid "Last changed:"
 msgstr "Последен пат изменето:"
 
-#: ../src/file-manager/fm-properties-window.c:4795
+#: ../src/file-manager/fm-properties-window.c:4799
 msgid "Apply Permissions to Enclosed Files"
 msgstr "Примени ги пермисиите на датотеките внатрe"
 
-#: ../src/file-manager/fm-properties-window.c:4805
+#: ../src/file-manager/fm-properties-window.c:4809
 #, c-format
 msgid "The permissions of \"%s\" could not be determined."
 msgstr "Неможат да се одредат пермисиите на %s ."
 
-#: ../src/file-manager/fm-properties-window.c:4808
+#: ../src/file-manager/fm-properties-window.c:4812
 msgid "The permissions of the selected file could not be determined."
 msgstr "Пермисиите на избраната датотека неможат да бидат одредени."
 
-#. create the "help" button
-#. name, icon name, label
-#: ../src/file-manager/fm-properties-window.c:5172
-#: ../src/caja-bookmarks-window.ui.h:2
-#: ../src/caja-connect-server-dialog.c:1117
-#: ../src/caja-file-management-properties.ui.h:40
-#: ../src/caja-location-dialog.c:189 ../src/caja-property-browser.c:390
-#: ../src/caja-window-menus.c:809
-msgid "_Help"
-msgstr "_Помош"
-
-#. create the "close" button
-#. name, icon name
-#. label, accelerator
-#: ../src/file-manager/fm-properties-window.c:5177
-#: ../src/caja-bookmarks-window.ui.h:5
-#: ../src/caja-file-management-properties.ui.h:41
-#: ../src/caja-property-browser.c:398 ../src/caja-window-menus.c:811
-msgid "_Close"
-msgstr "_Затвори"
-
-#: ../src/file-manager/fm-properties-window.c:5387
+#: ../src/file-manager/fm-properties-window.c:5391
 msgid "Creating Properties window."
 msgstr "Креирам прозорец за својства"
 
-#: ../src/file-manager/fm-properties-window.c:5676
+#: ../src/file-manager/fm-properties-window.c:5680
 msgid "Select Custom Icon"
 msgstr "Изберете друга икона"
 
-#: ../src/file-manager/fm-tree-view.c:1438 ../src/caja-places-sidebar.c:535
+#: ../src/file-manager/fm-tree-view.c:1421 ../src/caja-places-sidebar.c:554
 msgid "File System"
 msgstr "Датотечен систем"
 
-#: ../src/file-manager/fm-tree-view.c:1727
+#: ../src/file-manager/fm-tree-view.c:1708
 msgid "Tree"
 msgstr "Дрво"
 
-#: ../src/file-manager/fm-tree-view.c:1733
+#: ../src/file-manager/fm-tree-view.c:1714
 msgid "Show Tree"
 msgstr "Покажи дрво"
 
@@ -5791,8 +5850,8 @@ msgstr ""
 "Пред да го отворите Caja, Ве молам креирајте ги овие папки или променете ги "
 "пермисиите за да може Caja да ги креира."
 
-#: ../src/caja-application.c:1264 ../src/caja-places-sidebar.c:2191
-#: ../src/caja-places-sidebar.c:2222 ../src/caja-places-sidebar.c:2257
+#: ../src/caja-application.c:1264 ../src/caja-places-sidebar.c:2210
+#: ../src/caja-places-sidebar.c:2241 ../src/caja-places-sidebar.c:2276
 #, c-format
 msgid "Unable to eject %s"
 msgstr "Не успеав да го исфрлам %s"
@@ -5898,9 +5957,9 @@ msgstr ""
 "\n"
 "Ако се сомневате, притиснете „Откажи“."
 
-#: ../src/caja-bookmarks-window.c:158
-#: ../src/caja-file-management-properties.c:236
-#: ../src/caja-property-browser.c:1664 ../src/caja-window-menus.c:590
+#: ../src/caja-bookmarks-window.c:159
+#: ../src/caja-file-management-properties.c:243
+#: ../src/caja-property-browser.c:1680 ../src/caja-window-menus.c:590
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
@@ -5909,7 +5968,7 @@ msgstr ""
 "Се појави грешка при прикажувањето на помош: \n"
 "%s."
 
-#: ../src/caja-bookmarks-window.c:194
+#: ../src/caja-bookmarks-window.c:195
 msgid "No bookmarks defined"
 msgstr "Нема дефинирани обележувачки"
 
@@ -6071,17 +6130,17 @@ msgstr "Додај _обележувач"
 msgid "Bookmark Name:"
 msgstr ""
 
-#: ../src/caja-desktop-window.c:87 ../src/caja-desktop-window.c:264
-#: ../src/caja-pathbar.c:1399 ../src/caja-places-sidebar.c:519
+#: ../src/caja-desktop-window.c:87 ../src/caja-desktop-window.c:270
+#: ../src/caja-pathbar.c:1446 ../src/caja-places-sidebar.c:538
 msgid "Desktop"
 msgstr "Работна површина"
 
-#: ../src/caja-emblem-sidebar.c:224
+#: ../src/caja-emblem-sidebar.c:225
 #, c-format
 msgid "Could not remove emblem with name '%s'."
 msgstr "Не можам да го отстранам амблемот со име „%s“."
 
-#: ../src/caja-emblem-sidebar.c:225 ../src/caja-emblem-sidebar.c:265
+#: ../src/caja-emblem-sidebar.c:226 ../src/caja-emblem-sidebar.c:266
 msgid ""
 "This is probably because the emblem is a permanent one, and not one that you"
 " added yourself."
@@ -6089,28 +6148,29 @@ msgstr ""
 "Ова е најверојатно поради тоа што амблемот е перманентен и не е тој што си "
 "го додал(а)."
 
-#: ../src/caja-emblem-sidebar.c:264
+#: ../src/caja-emblem-sidebar.c:265
 #, c-format
 msgid "Could not rename emblem with name '%s'."
 msgstr "Не можам да го преименувам амблемот '%s'."
 
-#: ../src/caja-emblem-sidebar.c:284
+#: ../src/caja-emblem-sidebar.c:286
 msgid "Rename Emblem"
 msgstr "Преименувај го aмблемот"
 
-#: ../src/caja-emblem-sidebar.c:303
+#: ../src/caja-emblem-sidebar.c:312
 msgid "Enter a new name for the displayed emblem:"
 msgstr "Избери ново име за новиот aмблем:"
 
-#: ../src/caja-emblem-sidebar.c:357
+#. add the "rename" menu item
+#: ../src/caja-emblem-sidebar.c:365
 msgid "Rename"
 msgstr "Преименувај"
 
-#: ../src/caja-emblem-sidebar.c:537
+#: ../src/caja-emblem-sidebar.c:543
 msgid "Add Emblems..."
 msgstr "Додај амблеми..."
 
-#: ../src/caja-emblem-sidebar.c:554
+#: ../src/caja-emblem-sidebar.c:567
 msgid ""
 "Enter a descriptive name next to each emblem.  This name will be used in "
 "other places to identify the emblem."
@@ -6118,7 +6178,7 @@ msgstr ""
 "Внеси описно име за секој амблем. Ова име ќе се користи за идентификација на"
 " амблемот на други места."
 
-#: ../src/caja-emblem-sidebar.c:558
+#: ../src/caja-emblem-sidebar.c:571
 msgid ""
 "Enter a descriptive name next to the emblem.  This name will be used in "
 "other places to identify the emblem."
@@ -6126,36 +6186,36 @@ msgstr ""
 "Внеси описно име за секој амблем. Ова име ќе се користи за идентификација на"
 " амблемот на други места "
 
-#: ../src/caja-emblem-sidebar.c:800
+#: ../src/caja-emblem-sidebar.c:813
 msgid "Some of the files could not be added as emblems."
 msgstr "Некои датотеки не можат да се додадат како амблеми."
 
-#: ../src/caja-emblem-sidebar.c:800 ../src/caja-emblem-sidebar.c:804
+#: ../src/caja-emblem-sidebar.c:813 ../src/caja-emblem-sidebar.c:817
 msgid "The emblems do not appear to be valid images."
 msgstr "Амблемите не се валидни слики."
 
-#: ../src/caja-emblem-sidebar.c:804
+#: ../src/caja-emblem-sidebar.c:817
 msgid "None of the files could be added as emblems."
 msgstr "Ниту една датотека не може да се додаде како амблем."
 
-#: ../src/caja-emblem-sidebar.c:847 ../src/caja-emblem-sidebar.c:910
+#: ../src/caja-emblem-sidebar.c:860 ../src/caja-emblem-sidebar.c:923
 #, c-format
 msgid "The file '%s' does not appear to be a valid image."
 msgstr "датотеката '%s' не е валидна слика"
 
-#: ../src/caja-emblem-sidebar.c:852
+#: ../src/caja-emblem-sidebar.c:865
 msgid "The dragged file does not appear to be a valid image."
 msgstr "Повлечената датотека не е валидна слика"
 
-#: ../src/caja-emblem-sidebar.c:854 ../src/caja-emblem-sidebar.c:911
+#: ../src/caja-emblem-sidebar.c:867 ../src/caja-emblem-sidebar.c:924
 msgid "The emblem cannot be added."
 msgstr "Амблемот не може да се додаде."
 
-#: ../src/caja-emblem-sidebar.c:1091
+#: ../src/caja-emblem-sidebar.c:1104
 msgid "Show Emblems"
 msgstr "Покажи амблеми"
 
-#: ../src/caja-file-management-properties.c:632
+#: ../src/caja-file-management-properties.c:639
 msgid "About Extension"
 msgstr ""
 
@@ -6184,230 +6244,238 @@ msgid "By Size"
 msgstr "По големина"
 
 #: ../src/caja-file-management-properties.ui.h:10
+msgid "By Size on Disk"
+msgstr ""
+
+#: ../src/caja-file-management-properties.ui.h:11
 msgid "By Type"
 msgstr "По вид"
 
-#: ../src/caja-file-management-properties.ui.h:11
+#: ../src/caja-file-management-properties.ui.h:12
 msgid "By Modification Date"
 msgstr "По датум на промена"
 
-#: ../src/caja-file-management-properties.ui.h:12
+#: ../src/caja-file-management-properties.ui.h:13
 msgid "By Access Date"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:13
+#: ../src/caja-file-management-properties.ui.h:14
 msgid "By Emblems"
 msgstr "По амблеми"
 
-#: ../src/caja-file-management-properties.ui.h:14
-msgid "By Trashed Date"
+#: ../src/caja-file-management-properties.ui.h:15
+msgid "By Extension"
 msgstr ""
 
 #: ../src/caja-file-management-properties.ui.h:16
-#, no-c-format
-msgid "33%"
+msgid "By Trashed Date"
 msgstr ""
 
 #: ../src/caja-file-management-properties.ui.h:18
 #, no-c-format
+msgid "33%"
+msgstr ""
+
+#: ../src/caja-file-management-properties.ui.h:20
+#, no-c-format
 msgid "50%"
 msgstr "50%"
 
-#: ../src/caja-file-management-properties.ui.h:20
+#: ../src/caja-file-management-properties.ui.h:22
 #, no-c-format
 msgid "66%"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:22
+#: ../src/caja-file-management-properties.ui.h:24
 #, no-c-format
 msgid "100%"
 msgstr "100%"
 
-#: ../src/caja-file-management-properties.ui.h:24
+#: ../src/caja-file-management-properties.ui.h:26
 #, no-c-format
 msgid "150%"
 msgstr "150%"
 
-#: ../src/caja-file-management-properties.ui.h:26
+#: ../src/caja-file-management-properties.ui.h:28
 #, no-c-format
 msgid "200%"
 msgstr "200%"
 
-#: ../src/caja-file-management-properties.ui.h:28
+#: ../src/caja-file-management-properties.ui.h:30
 #, no-c-format
 msgid "400%"
 msgstr "400%"
 
-#: ../src/caja-file-management-properties.ui.h:29
+#: ../src/caja-file-management-properties.ui.h:31
 msgid "100 KB"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:30
+#: ../src/caja-file-management-properties.ui.h:32
 msgid "500 KB"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:31
+#: ../src/caja-file-management-properties.ui.h:33
 msgid "1 MB"
 msgstr "1 МБ"
 
-#: ../src/caja-file-management-properties.ui.h:32
+#: ../src/caja-file-management-properties.ui.h:34
 msgid "3 MB"
 msgstr "3 МБ"
 
-#: ../src/caja-file-management-properties.ui.h:33
+#: ../src/caja-file-management-properties.ui.h:35
 msgid "5 MB"
 msgstr "5 МБ"
 
-#: ../src/caja-file-management-properties.ui.h:34
+#: ../src/caja-file-management-properties.ui.h:36
 msgid "10 MB"
 msgstr "10 МБ"
 
-#: ../src/caja-file-management-properties.ui.h:35
+#: ../src/caja-file-management-properties.ui.h:37
 msgid "100 MB"
 msgstr "100 МБ"
 
-#: ../src/caja-file-management-properties.ui.h:36
+#: ../src/caja-file-management-properties.ui.h:38
 msgid "1 GB"
 msgstr "1 GB"
 
-#: ../src/caja-file-management-properties.ui.h:37
+#: ../src/caja-file-management-properties.ui.h:39
 msgid "2 GB"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:38
+#: ../src/caja-file-management-properties.ui.h:40
 msgid "4 GB"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:39
+#: ../src/caja-file-management-properties.ui.h:41
 msgid "File Management Preferences"
 msgstr "Преференции за работа со датотеки"
 
-#: ../src/caja-file-management-properties.ui.h:42
+#: ../src/caja-file-management-properties.ui.h:44
 msgid "<b>Default View</b>"
 msgstr "<b>Стандарден поглед</b>"
 
-#: ../src/caja-file-management-properties.ui.h:43
+#: ../src/caja-file-management-properties.ui.h:45
 msgid "View _new folders using:"
 msgstr "Прегледај ги _новите папки со:"
 
-#: ../src/caja-file-management-properties.ui.h:44
+#: ../src/caja-file-management-properties.ui.h:46
 msgid "_Arrange items:"
 msgstr "_Подреди ги предметите:"
 
-#: ../src/caja-file-management-properties.ui.h:45
+#: ../src/caja-file-management-properties.ui.h:47
 msgid "Sort _folders before files"
 msgstr "Нареди _папки пред датотеки"
 
-#: ../src/caja-file-management-properties.ui.h:46
+#: ../src/caja-file-management-properties.ui.h:48
 msgid "Show hidden and _backup files"
 msgstr "Покажи скриени и _резервни датотеки"
 
-#: ../src/caja-file-management-properties.ui.h:47
+#: ../src/caja-file-management-properties.ui.h:49
 msgid "<b>Icon View Defaults</b>"
 msgstr "<b>Стандарден поглед на икони</b>"
 
-#: ../src/caja-file-management-properties.ui.h:48
+#: ../src/caja-file-management-properties.ui.h:50
 msgid "Default _zoom level:"
 msgstr "Стандардно _ниво на зум:"
 
-#: ../src/caja-file-management-properties.ui.h:49
+#: ../src/caja-file-management-properties.ui.h:51
 msgid "_Use compact layout"
 msgstr "_Користи компактен изглед"
 
-#: ../src/caja-file-management-properties.ui.h:50
+#: ../src/caja-file-management-properties.ui.h:52
 msgid "_Text beside icons"
 msgstr "Текст покрај иконите"
 
-#: ../src/caja-file-management-properties.ui.h:51
+#: ../src/caja-file-management-properties.ui.h:53
 msgid "<b>Compact View Defaults</b>"
 msgstr "<b>Стандардни поставувања на компактен преглед</b>"
 
-#: ../src/caja-file-management-properties.ui.h:52
+#: ../src/caja-file-management-properties.ui.h:54
 msgid "_Default zoom level:"
 msgstr "_Стандардно ниво на зум:"
 
-#: ../src/caja-file-management-properties.ui.h:53
+#: ../src/caja-file-management-properties.ui.h:55
 msgid "A_ll columns have the same width"
 msgstr "С_ите колони ја имаат истата ширина"
 
-#: ../src/caja-file-management-properties.ui.h:54
+#: ../src/caja-file-management-properties.ui.h:56
 msgid "<b>List View Defaults</b>"
 msgstr "<b>Стандарден поглед за листи</b>"
 
-#: ../src/caja-file-management-properties.ui.h:55
+#: ../src/caja-file-management-properties.ui.h:57
 msgid "D_efault zoom level:"
 msgstr "Стандардно _ниво на зум:"
 
-#: ../src/caja-file-management-properties.ui.h:56
+#: ../src/caja-file-management-properties.ui.h:58
 msgid "<b>Tree View Defaults</b>"
 msgstr "<b>Стандарден поглед за дрво</b>"
 
-#: ../src/caja-file-management-properties.ui.h:57
+#: ../src/caja-file-management-properties.ui.h:59
 msgid "Show _only folders"
 msgstr "Прикажи лента со алатки"
 
-#: ../src/caja-file-management-properties.ui.h:58
+#: ../src/caja-file-management-properties.ui.h:60
 msgid "Views"
 msgstr "Погледи"
 
-#: ../src/caja-file-management-properties.ui.h:59
+#: ../src/caja-file-management-properties.ui.h:61
 msgid "<b>Behavior</b>"
 msgstr "<b>Однесување</b>"
 
-#: ../src/caja-file-management-properties.ui.h:60
+#: ../src/caja-file-management-properties.ui.h:62
 msgid "_Single click to open items"
 msgstr "_Отворање на предмети со едно кликнување"
 
-#: ../src/caja-file-management-properties.ui.h:61
+#: ../src/caja-file-management-properties.ui.h:63
 msgid "_Double click to open items"
 msgstr "_Двоен клик за отворање на предмети"
 
-#: ../src/caja-file-management-properties.ui.h:62
+#: ../src/caja-file-management-properties.ui.h:64
 msgid "Open each _folder in its own window"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:63
+#: ../src/caja-file-management-properties.ui.h:65
 msgid "<b>Executable Text Files</b>"
 msgstr "<b>Извршливи текстуални датотеки</b>"
 
-#: ../src/caja-file-management-properties.ui.h:64
+#: ../src/caja-file-management-properties.ui.h:66
 msgid "_Run executable text files when they are opened"
 msgstr "_Изврши извршливи текстуални датотеки при отворање"
 
-#: ../src/caja-file-management-properties.ui.h:65
+#: ../src/caja-file-management-properties.ui.h:67
 msgid "_View executable text files when they are opened"
 msgstr "_Изврши извршливи текстуални датотеки при отворање"
 
-#: ../src/caja-file-management-properties.ui.h:66
+#: ../src/caja-file-management-properties.ui.h:68
 msgid "_Ask each time"
 msgstr "_Прашај секој пат"
 
-#: ../src/caja-file-management-properties.ui.h:67
+#: ../src/caja-file-management-properties.ui.h:69
 msgid "<b>Trash</b>"
 msgstr "<b>Ѓубре</b>"
 
-#: ../src/caja-file-management-properties.ui.h:68
+#: ../src/caja-file-management-properties.ui.h:70
 msgid "Ask before _emptying the Trash or deleting files"
 msgstr "_Прашај ме пред да го испразниш ѓубрето"
 
-#: ../src/caja-file-management-properties.ui.h:69
+#: ../src/caja-file-management-properties.ui.h:71
 msgid "Ask before moving files to the _Trash"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:70
+#: ../src/caja-file-management-properties.ui.h:72
 msgid "I_nclude a Delete command that bypasses Trash"
 msgstr ""
 "_Вклучи команда за бришење што не преместува во ѓубрето (трајно бришење)"
 
-#: ../src/caja-file-management-properties.ui.h:71
+#: ../src/caja-file-management-properties.ui.h:73
 msgid "Behavior"
 msgstr "Однесување"
 
-#: ../src/caja-file-management-properties.ui.h:72
+#: ../src/caja-file-management-properties.ui.h:74
 msgid "<b>Icon Captions</b>"
 msgstr "<b>Текст до икони</b>"
 
-#: ../src/caja-file-management-properties.ui.h:73
+#: ../src/caja-file-management-properties.ui.h:75
 msgid ""
 "Choose the order of information to appear beneath icon names. More "
 "information will appear when zooming in closer."
@@ -6415,168 +6483,164 @@ msgstr ""
 "Изберете го редоследот на информацииите што треба да се појавуваат под имињата на иконите.\n"
 "Повеќе информации се појавуваат со зумирање поблиску."
 
-#: ../src/caja-file-management-properties.ui.h:74
+#: ../src/caja-file-management-properties.ui.h:76
 msgid "<b>Date</b>"
 msgstr "<b>Датум</b>"
 
-#: ../src/caja-file-management-properties.ui.h:75
+#: ../src/caja-file-management-properties.ui.h:77
 msgid "_Format:"
 msgstr "_Формат:"
 
-#: ../src/caja-file-management-properties.ui.h:76
+#: ../src/caja-file-management-properties.ui.h:78
 msgid "<b>Size</b>"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:77
+#: ../src/caja-file-management-properties.ui.h:79
 msgid "_Show file sizes with IEC units"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:78
+#: ../src/caja-file-management-properties.ui.h:80
 msgid "Display"
 msgstr "Прикажи"
 
-#: ../src/caja-file-management-properties.ui.h:79
+#: ../src/caja-file-management-properties.ui.h:81
 msgid "<b>List Columns</b>"
 msgstr "<b>Колони за листа</b>"
 
-#: ../src/caja-file-management-properties.ui.h:80
+#: ../src/caja-file-management-properties.ui.h:82
 msgid "Choose the order of information to appear in the list view."
 msgstr ""
 "Изберете го редоследот на информацииите што треба да се појавуваат во "
 "листата."
 
-#: ../src/caja-file-management-properties.ui.h:81
+#: ../src/caja-file-management-properties.ui.h:83
 msgid "List Columns"
 msgstr "Колони за листа"
 
-#: ../src/caja-file-management-properties.ui.h:82
+#: ../src/caja-file-management-properties.ui.h:84
 msgid "<b>Text Files</b>"
 msgstr "<b>Текстуални датотеки</b>"
 
-#: ../src/caja-file-management-properties.ui.h:83
+#: ../src/caja-file-management-properties.ui.h:85
 msgid "Show te_xt in icons:"
 msgstr "Покажи те_кст во икони"
 
-#: ../src/caja-file-management-properties.ui.h:84
+#: ../src/caja-file-management-properties.ui.h:86
 msgid "<b>Other Previewable Files</b>"
 msgstr "<b>Други прегледливи датотеки</b>"
 
-#: ../src/caja-file-management-properties.ui.h:85
+#: ../src/caja-file-management-properties.ui.h:87
 msgid "Show _thumbnails:"
 msgstr "Покажи _мали сликички:"
 
-#: ../src/caja-file-management-properties.ui.h:86
+#: ../src/caja-file-management-properties.ui.h:88
 msgid "_Only for files smaller than:"
 msgstr "_Само за помали од:"
 
-#: ../src/caja-file-management-properties.ui.h:87
+#: ../src/caja-file-management-properties.ui.h:89
 msgid "<b>Sound Files</b>"
 msgstr "<b>Звучни датотеки</b>"
 
-#: ../src/caja-file-management-properties.ui.h:88
+#: ../src/caja-file-management-properties.ui.h:90
 msgid "Preview _sound files:"
 msgstr "Преглед на звучни датотеки"
 
-#: ../src/caja-file-management-properties.ui.h:89
+#: ../src/caja-file-management-properties.ui.h:91
 msgid "<b>Folders</b>"
 msgstr "<b>Папки</b>"
 
-#: ../src/caja-file-management-properties.ui.h:90
+#: ../src/caja-file-management-properties.ui.h:92
 msgid "Count _number of items:"
 msgstr "Реден број на елемент:"
 
-#: ../src/caja-file-management-properties.ui.h:91
+#: ../src/caja-file-management-properties.ui.h:93
 msgid "Preview"
 msgstr "Преглед"
 
-#: ../src/caja-file-management-properties.ui.h:92
+#: ../src/caja-file-management-properties.ui.h:94
 msgid "<b>Media Handling</b>"
 msgstr "<b>Справување со медиуми</b>"
 
-#: ../src/caja-file-management-properties.ui.h:93
+#: ../src/caja-file-management-properties.ui.h:95
 msgid ""
 "Choose what happens when inserting media or connecting devices to the system"
 msgstr ""
 "Одберете што да се случи при внесување на медиуми или уреди на системот"
 
-#: ../src/caja-file-management-properties.ui.h:94
+#: ../src/caja-file-management-properties.ui.h:96
 msgid "CD _Audio:"
 msgstr "CD _аудио:"
 
-#: ../src/caja-file-management-properties.ui.h:95
+#: ../src/caja-file-management-properties.ui.h:97
 msgid "_DVD Video:"
 msgstr "_DVD видео:"
 
-#: ../src/caja-file-management-properties.ui.h:96
+#: ../src/caja-file-management-properties.ui.h:98
 msgid "_Music Player:"
 msgstr "_Пуштач на музка:"
 
-#: ../src/caja-file-management-properties.ui.h:97
+#: ../src/caja-file-management-properties.ui.h:99
 msgid "_Photos:"
 msgstr "_Слики:"
 
-#: ../src/caja-file-management-properties.ui.h:98
+#: ../src/caja-file-management-properties.ui.h:100
 msgid "_Software:"
 msgstr "_Софтвер:"
 
-#: ../src/caja-file-management-properties.ui.h:99
+#: ../src/caja-file-management-properties.ui.h:101
 msgid "<b>Other Media</b>"
 msgstr "<b>Други медиуми</b>"
 
-#: ../src/caja-file-management-properties.ui.h:100
+#: ../src/caja-file-management-properties.ui.h:102
 msgid "Less common media formats can be configured here"
 msgstr ""
 "Тука можат да бидат конфигурирани помалку користени формати на медиуми"
 
-#: ../src/caja-file-management-properties.ui.h:101
+#: ../src/caja-file-management-properties.ui.h:103
 msgid "Acti_on:"
 msgstr "Дејс_тво:"
 
-#: ../src/caja-file-management-properties.ui.h:102
+#: ../src/caja-file-management-properties.ui.h:104
 msgid "_Type:"
 msgstr "_Тип:"
 
-#: ../src/caja-file-management-properties.ui.h:103
+#: ../src/caja-file-management-properties.ui.h:105
 msgid "_Never prompt or start programs on media insertion"
 msgstr "_Никогаш не подигнувај програми при внесување на медиумот"
 
-#: ../src/caja-file-management-properties.ui.h:104
+#: ../src/caja-file-management-properties.ui.h:106
 msgid "B_rowse media when inserted"
 msgstr "Р_азгледај го медиумот кога е внесен"
 
-#: ../src/caja-file-management-properties.ui.h:105
+#: ../src/caja-file-management-properties.ui.h:107
 msgid "Media"
 msgstr "Медиуми"
 
-#: ../src/caja-file-management-properties.ui.h:106
+#: ../src/caja-file-management-properties.ui.h:108
 msgid "<b>Available _Extensions:</b>"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:107
+#: ../src/caja-file-management-properties.ui.h:109
 msgid "column"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:108
-msgid "Extension"
-msgstr ""
-
-#: ../src/caja-file-management-properties.ui.h:109
+#: ../src/caja-file-management-properties.ui.h:111
 msgid "_About Extension"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:110
+#: ../src/caja-file-management-properties.ui.h:112
 msgid "C_onfigure Extension"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:111
+#: ../src/caja-file-management-properties.ui.h:113
 msgid "Extensions"
 msgstr ""
 
-#: ../src/caja-history-sidebar.c:337
+#: ../src/caja-history-sidebar.c:338
 msgid "History"
 msgstr "Историја"
 
-#: ../src/caja-history-sidebar.c:343
+#: ../src/caja-history-sidebar.c:344
 msgid "Show History"
 msgstr "Покажи историја"
 
@@ -6730,268 +6794,268 @@ msgid "The history location doesn't exist."
 msgstr "Локацијата за историјата не постои."
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:824
+#: ../src/caja-navigation-window-menus.c:813
 msgid "_Go"
 msgstr "_Оди"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:825
+#: ../src/caja-navigation-window-menus.c:814
 msgid "_Bookmarks"
 msgstr "О_бележувачи"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:826
+#: ../src/caja-navigation-window-menus.c:815
 msgid "_Tabs"
 msgstr "_Јазичиња"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:827
+#: ../src/caja-navigation-window-menus.c:816
 msgid "New _Window"
 msgstr "Нов _прозорец"
 
-#: ../src/caja-navigation-window-menus.c:828
+#: ../src/caja-navigation-window-menus.c:817
 msgid "Open another Caja window for the displayed location"
 msgstr "Отвори уште еден прозорец за прикажаната локација"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:831
+#: ../src/caja-navigation-window-menus.c:820
 msgid "New _Tab"
 msgstr "Ново _јазиче"
 
-#: ../src/caja-navigation-window-menus.c:832
+#: ../src/caja-navigation-window-menus.c:821
 msgid "Open another tab for the displayed location"
 msgstr "Отвори уште едно јазиче за избраната локација"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:835
+#: ../src/caja-navigation-window-menus.c:824
 msgid "Open Folder W_indow"
 msgstr "Отвори прозорец со п_апка"
 
-#: ../src/caja-navigation-window-menus.c:836
+#: ../src/caja-navigation-window-menus.c:825
 msgid "Open a folder window for the displayed location"
 msgstr "Отвори прозорец за папка со прикажаната локација"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:839
+#: ../src/caja-navigation-window-menus.c:828
 msgid "Close _All Windows"
 msgstr "Затвори ги _сите прозорци"
 
-#: ../src/caja-navigation-window-menus.c:840
+#: ../src/caja-navigation-window-menus.c:829
 msgid "Close all Navigation windows"
 msgstr "Затвори ги сите прозорци за навигација"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:843
+#: ../src/caja-navigation-window-menus.c:832
 msgid "_Location..."
 msgstr "_Локација..."
 
-#: ../src/caja-navigation-window-menus.c:844 ../src/caja-spatial-window.c:943
+#: ../src/caja-navigation-window-menus.c:833 ../src/caja-spatial-window.c:940
 msgid "Specify a location to open"
 msgstr "Одредете локација за отворање"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:847
+#: ../src/caja-navigation-window-menus.c:836
 msgid "Clea_r History"
 msgstr "Исчист_и ја историјата"
 
-#: ../src/caja-navigation-window-menus.c:848
+#: ../src/caja-navigation-window-menus.c:837
 msgid "Clear contents of Go menu and Back/Forward lists"
 msgstr "Исчисти ги содржините од менито „Оди“ и од листите за „Назад/Напред“"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:851
+#: ../src/caja-navigation-window-menus.c:840
 msgid "S_witch to Other Pane"
 msgstr ""
 
-#: ../src/caja-navigation-window-menus.c:852
+#: ../src/caja-navigation-window-menus.c:841
 msgid "Move focus to the other pane in a split view window"
 msgstr ""
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:855
+#: ../src/caja-navigation-window-menus.c:844
 msgid "Sa_me Location as Other Pane"
 msgstr ""
 
-#: ../src/caja-navigation-window-menus.c:856
+#: ../src/caja-navigation-window-menus.c:845
 msgid "Go to the same location as in the extra pane"
 msgstr ""
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:859 ../src/caja-spatial-window.c:956
+#: ../src/caja-navigation-window-menus.c:848 ../src/caja-spatial-window.c:953
 msgid "_Add Bookmark"
 msgstr "Дод_аj обележувач"
 
-#: ../src/caja-navigation-window-menus.c:860 ../src/caja-spatial-window.c:957
+#: ../src/caja-navigation-window-menus.c:849 ../src/caja-spatial-window.c:954
 msgid "Add a bookmark for the current location to this menu"
 msgstr "Додај обележувач на сегашната локација во ова мени"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:863 ../src/caja-spatial-window.c:960
+#: ../src/caja-navigation-window-menus.c:852 ../src/caja-spatial-window.c:957
 msgid "_Edit Bookmarks..."
 msgstr "_Уреди ги обележувачите..."
 
-#: ../src/caja-navigation-window-menus.c:864 ../src/caja-spatial-window.c:961
+#: ../src/caja-navigation-window-menus.c:853 ../src/caja-spatial-window.c:958
 msgid "Display a window that allows editing the bookmarks in this menu"
 msgstr "Прикажи прозорец што дозволува уредување на обележувачи во ова мени"
 
-#: ../src/caja-navigation-window-menus.c:868
+#: ../src/caja-navigation-window-menus.c:857
 msgid "_Previous Tab"
 msgstr "_Претходно јазиче"
 
-#: ../src/caja-navigation-window-menus.c:869
+#: ../src/caja-navigation-window-menus.c:858
 msgid "Activate previous tab"
 msgstr "Активирај го претходното јазиче"
 
-#: ../src/caja-navigation-window-menus.c:873
+#: ../src/caja-navigation-window-menus.c:862
 msgid "_Next Tab"
 msgstr "_Следно јазиче"
 
-#: ../src/caja-navigation-window-menus.c:874
+#: ../src/caja-navigation-window-menus.c:863
 msgid "Activate next tab"
 msgstr "Активирај го следното јазиче"
 
-#: ../src/caja-navigation-window-menus.c:878
-#: ../src/caja-navigation-window-pane.c:464
+#: ../src/caja-navigation-window-menus.c:867
+#: ../src/caja-navigation-window-pane.c:384
 msgid "Move Tab _Left"
 msgstr "Помести го јазичето кон _лево"
 
-#: ../src/caja-navigation-window-menus.c:879
+#: ../src/caja-navigation-window-menus.c:868
 msgid "Move current tab to left"
 msgstr "Помести го тековното јазиче кон лево"
 
-#: ../src/caja-navigation-window-menus.c:883
-#: ../src/caja-navigation-window-pane.c:472
+#: ../src/caja-navigation-window-menus.c:872
+#: ../src/caja-navigation-window-pane.c:392
 msgid "Move Tab _Right"
 msgstr "Помести го јазичето кон _десно"
 
-#: ../src/caja-navigation-window-menus.c:884
+#: ../src/caja-navigation-window-menus.c:873
 msgid "Move current tab to right"
 msgstr "Помести го тековното јазиче кон десно"
 
-#: ../src/caja-navigation-window-menus.c:888
+#: ../src/caja-navigation-window-menus.c:877
 msgid "S_how Search"
 msgstr ""
 
-#: ../src/caja-navigation-window-menus.c:889
+#: ../src/caja-navigation-window-menus.c:878
 msgid "Show search"
 msgstr ""
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-navigation-window-menus.c:897
+#: ../src/caja-navigation-window-menus.c:886
 msgid "_Main Toolbar"
 msgstr "_Главна лента со алатки"
 
 #. tooltip
-#: ../src/caja-navigation-window-menus.c:898
+#: ../src/caja-navigation-window-menus.c:887
 msgid "Change the visibility of this window's main toolbar"
 msgstr "Промени ја видливоста на главната лента со алатки на овој прозорец"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-navigation-window-menus.c:903
+#: ../src/caja-navigation-window-menus.c:892
 msgid "_Side Pane"
 msgstr "_Странична лента"
 
 #. tooltip
-#: ../src/caja-navigation-window-menus.c:904
+#: ../src/caja-navigation-window-menus.c:893
 msgid "Change the visibility of this window's side pane"
 msgstr "Промени ја видливоста на страничната лента на овој прозорец"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-navigation-window-menus.c:909
+#: ../src/caja-navigation-window-menus.c:898
 msgid "Location _Bar"
 msgstr "Локациона _лента"
 
 #. tooltip
-#: ../src/caja-navigation-window-menus.c:910
+#: ../src/caja-navigation-window-menus.c:899
 msgid "Change the visibility of this window's location bar"
 msgstr "Промени ја видливоста на локационата-лента на овој прозорец"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-navigation-window-menus.c:915
+#: ../src/caja-navigation-window-menus.c:904
 msgid "St_atusbar"
 msgstr "Стат_усна лента"
 
 #. tooltip
-#: ../src/caja-navigation-window-menus.c:916
+#: ../src/caja-navigation-window-menus.c:905
 msgid "Change the visibility of this window's statusbar"
 msgstr "Промени ја видливоста на статусната-лента на овој прозорец"
 
 #. name, icon name
 #. label, accelerator
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:921 ../src/caja-spatial-window.c:964
+#: ../src/caja-navigation-window-menus.c:910 ../src/caja-spatial-window.c:961
 msgid "_Search for Files..."
 msgstr "_Барај датотеки..."
 
 #. Accelerator is in ShowSearch
 #. tooltip
-#: ../src/caja-navigation-window-menus.c:923
+#: ../src/caja-navigation-window-menus.c:912
 msgid "Search documents and folders by name"
 msgstr ""
 
 #. label, accelerator
-#: ../src/caja-navigation-window-menus.c:929
+#: ../src/caja-navigation-window-menus.c:918
 msgid "E_xtra Pane"
 msgstr ""
 
 #. tooltip
-#: ../src/caja-navigation-window-menus.c:930
+#: ../src/caja-navigation-window-menus.c:919
 msgid "Open an extra folder view side-by-side"
 msgstr ""
 
-#: ../src/caja-navigation-window-menus.c:956
+#: ../src/caja-navigation-window-menus.c:945
 msgid "_Back"
 msgstr "_Назад"
 
-#: ../src/caja-navigation-window-menus.c:958
+#: ../src/caja-navigation-window-menus.c:947
 msgid "Go to the previous visited location"
 msgstr "Оди на претходно посетената локација"
 
-#: ../src/caja-navigation-window-menus.c:959
+#: ../src/caja-navigation-window-menus.c:948
 msgid "Back history"
 msgstr "Врати историја"
 
-#: ../src/caja-navigation-window-menus.c:973
+#: ../src/caja-navigation-window-menus.c:962
 msgid "_Forward"
 msgstr "_Напред"
 
-#: ../src/caja-navigation-window-menus.c:975
+#: ../src/caja-navigation-window-menus.c:964
 msgid "Go to the next visited location"
 msgstr "Оди до наредната посетена локација"
 
-#: ../src/caja-navigation-window-menus.c:976
+#: ../src/caja-navigation-window-menus.c:965
 msgid "Forward history"
 msgstr "Препрати историја"
 
-#: ../src/caja-navigation-window-menus.c:991
+#: ../src/caja-navigation-window-menus.c:980
 msgid "_Zoom"
 msgstr ""
 
-#: ../src/caja-navigation-window-menus.c:1001
+#: ../src/caja-navigation-window-menus.c:990
 msgid "_View As"
 msgstr ""
 
-#: ../src/caja-navigation-window-menus.c:1036
+#: ../src/caja-navigation-window-menus.c:1025
 msgid "_Search"
 msgstr "Барај"
 
-#: ../src/caja-navigation-window-pane.c:254
+#: ../src/caja-navigation-window-pane.c:256
 msgid "Toggle between button and text-based location bar"
 msgstr ""
 
-#: ../src/caja-navigation-window-pane.c:454
+#: ../src/caja-navigation-window-pane.c:374
 msgid "_New Tab"
 msgstr ""
 
-#: ../src/caja-navigation-window-pane.c:483
+#: ../src/caja-navigation-window-pane.c:403
 msgid "_Close Tab"
 msgstr "_Затвори го јазичето"
 
-#: ../src/caja-navigation-window.c:737
+#: ../src/caja-navigation-window.c:743
 #, c-format
 msgid "%s - File Browser"
 msgstr "%s - Прелистувач на датотеки"
@@ -7000,100 +7064,100 @@ msgstr "%s - Прелистувач на датотеки"
 msgid "Close tab"
 msgstr "Затвори јазиче"
 
-#: ../src/caja-notes-viewer.c:398 ../src/caja-notes-viewer.c:502
+#: ../src/caja-notes-viewer.c:400 ../src/caja-notes-viewer.c:504
 msgid "Notes"
 msgstr "Забелешки"
 
-#: ../src/caja-notes-viewer.c:404
+#: ../src/caja-notes-viewer.c:406
 msgid "Show Notes"
 msgstr "Покажи забелешки"
 
-#: ../src/caja-places-sidebar.c:309
+#: ../src/caja-places-sidebar.c:315
 msgid "Devices"
 msgstr "Уреди"
 
-#: ../src/caja-places-sidebar.c:317
+#: ../src/caja-places-sidebar.c:323
 msgid "Bookmarks"
 msgstr "Обележувачи"
 
-#: ../src/caja-places-sidebar.c:521
+#: ../src/caja-places-sidebar.c:540
 msgid "Open the contents of your desktop in a folder"
 msgstr "Отворете је содржината на Вашата работна површина"
 
-#: ../src/caja-places-sidebar.c:537
+#: ../src/caja-places-sidebar.c:556
 msgid "Open the contents of the File System"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:596
+#: ../src/caja-places-sidebar.c:615
 msgid "Open the trash"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:651 ../src/caja-places-sidebar.c:679
+#: ../src/caja-places-sidebar.c:670 ../src/caja-places-sidebar.c:698
 #, c-format
 msgid "Mount and open %s"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:832 ../src/mate-network-scheme.desktop.in.h:1
+#: ../src/caja-places-sidebar.c:851 ../src/mate-network-scheme.desktop.in.h:1
 msgid "Network"
 msgstr "Мрежа"
 
-#: ../src/caja-places-sidebar.c:864
+#: ../src/caja-places-sidebar.c:883
 msgid "Browse Network"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:866
+#: ../src/caja-places-sidebar.c:885
 msgid "Browse the contents of the network"
 msgstr ""
 
 #. start() for type G_DRIVE_START_STOP_TYPE_SHUTDOWN is normally not used
-#: ../src/caja-places-sidebar.c:1793
+#: ../src/caja-places-sidebar.c:1812
 msgid "_Power On"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:1797
+#: ../src/caja-places-sidebar.c:1816
 msgid "_Connect Drive"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:1798
+#: ../src/caja-places-sidebar.c:1817
 msgid "_Disconnect Drive"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:1801
+#: ../src/caja-places-sidebar.c:1820
 msgid "_Start Multi-disk Device"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:1802
+#: ../src/caja-places-sidebar.c:1821
 msgid "_Stop Multi-disk Device"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:1888 ../src/caja-places-sidebar.c:2477
+#: ../src/caja-places-sidebar.c:1907 ../src/caja-places-sidebar.c:2496
 #, c-format
 msgid "Unable to start %s"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:2421
+#: ../src/caja-places-sidebar.c:2440
 #, c-format
 msgid "Unable to poll %s for media changes"
 msgstr "Не можам да го проверам %s за промени со медиумот"
 
-#: ../src/caja-places-sidebar.c:2537
+#: ../src/caja-places-sidebar.c:2556
 #, c-format
 msgid "Unable to stop %s"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:2679
+#: ../src/caja-places-sidebar.c:2700
 msgid "Remove"
 msgstr "Отстрани"
 
-#: ../src/caja-places-sidebar.c:2688
+#: ../src/caja-places-sidebar.c:2709
 msgid "Rename..."
 msgstr "Преименувај..."
 
-#: ../src/caja-places-sidebar.c:3381
+#: ../src/caja-places-sidebar.c:3402
 msgid "Places"
 msgstr "Места"
 
-#: ../src/caja-places-sidebar.c:3387
+#: ../src/caja-places-sidebar.c:3408
 msgid "Show Places"
 msgstr "Покажи места"
 
@@ -7134,233 +7198,233 @@ msgstr "Проверете дали имате пермисии за брише�
 msgid "Select an Image File for the New Emblem"
 msgstr "Избери датотека слика за новиот амблем"
 
-#: ../src/caja-property-browser.c:1106
+#: ../src/caja-property-browser.c:1107
 msgid "Create a New Emblem"
 msgstr "Креирај нов амблем"
 
 #. make the keyword label and field
-#: ../src/caja-property-browser.c:1127
+#: ../src/caja-property-browser.c:1135
 msgid "_Keyword:"
 msgstr "_Важен збор:"
 
 #. set up a file chooser to pick the image file
-#: ../src/caja-property-browser.c:1146
+#: ../src/caja-property-browser.c:1154
 msgid "_Image:"
 msgstr "_Слика:"
 
-#: ../src/caja-property-browser.c:1178
+#: ../src/caja-property-browser.c:1187
 msgid "Create a New Color:"
 msgstr "Креирај нова боја:"
 
 #. make the name label and field
-#: ../src/caja-property-browser.c:1192
+#: ../src/caja-property-browser.c:1208
 msgid "Color _name:"
 msgstr "Име на бојата:"
 
-#: ../src/caja-property-browser.c:1208
+#: ../src/caja-property-browser.c:1224
 msgid "Color _value:"
 msgstr "Вредност на бојата:"
 
-#: ../src/caja-property-browser.c:1244
+#: ../src/caja-property-browser.c:1260
 msgid "Sorry, but you cannot replace the reset image."
 msgstr "Извинете, но не можете да ја замените ресетираната слика."
 
-#: ../src/caja-property-browser.c:1245
+#: ../src/caja-property-browser.c:1261
 msgid "Reset is a special image that cannot be deleted."
 msgstr "Ресет е специјална слика која не може да биде избришана."
 
-#: ../src/caja-property-browser.c:1275
+#: ../src/caja-property-browser.c:1291
 #, c-format
 msgid "Sorry, but the pattern %s could not be installed."
 msgstr "Извинете, но шарата %s не може да се инсталира."
 
-#: ../src/caja-property-browser.c:1306
+#: ../src/caja-property-browser.c:1322
 msgid "Select an Image File to Add as a Pattern"
 msgstr "Изберете датотека слика за да ја додадеш како шара"
 
-#: ../src/caja-property-browser.c:1385 ../src/caja-property-browser.c:1415
+#: ../src/caja-property-browser.c:1401 ../src/caja-property-browser.c:1431
 msgid "The color cannot be installed."
 msgstr "Бојата не може да биде инсталирана."
 
-#: ../src/caja-property-browser.c:1386
+#: ../src/caja-property-browser.c:1402
 msgid "Sorry, but you must specify an unused color name for the new color."
 msgstr "Извинете, но мора да одредите неискористено име за новата боја."
 
-#: ../src/caja-property-browser.c:1416
+#: ../src/caja-property-browser.c:1432
 msgid "Sorry, but you must specify a non-blank name for the new color."
 msgstr "Извинете, но морате да одредите име за новата боја."
 
-#: ../src/caja-property-browser.c:1476
+#: ../src/caja-property-browser.c:1492
 msgid "Select a Color to Add"
 msgstr "Изберете боја за додавање"
 
-#: ../src/caja-property-browser.c:1522 ../src/caja-property-browser.c:1540
+#: ../src/caja-property-browser.c:1538 ../src/caja-property-browser.c:1556
 #, c-format
 msgid "Sorry, but \"%s\" is not a usable image file."
 msgstr "Извинете, но %s не е употреблива датотека за слика."
 
-#: ../src/caja-property-browser.c:1523 ../src/caja-property-browser.c:1541
+#: ../src/caja-property-browser.c:1539 ../src/caja-property-browser.c:1557
 msgid "The file is not an image."
 msgstr "Датотеката не е слика."
 
-#: ../src/caja-property-browser.c:2284
+#: ../src/caja-property-browser.c:2300
 msgid "Select a Category:"
 msgstr "Избери категорија:"
 
-#: ../src/caja-property-browser.c:2296
+#: ../src/caja-property-browser.c:2312
 msgid "C_ancel Remove"
 msgstr "О_ткажи отстранување"
 
-#: ../src/caja-property-browser.c:2305
+#: ../src/caja-property-browser.c:2321
 msgid "_Add a New Pattern..."
 msgstr "Додај _нова шара..."
 
-#: ../src/caja-property-browser.c:2308
+#: ../src/caja-property-browser.c:2324
 msgid "_Add a New Color..."
 msgstr "Додај нова _боја..."
 
-#: ../src/caja-property-browser.c:2311
+#: ../src/caja-property-browser.c:2327
 msgid "_Add a New Emblem..."
 msgstr "Додај нов _амблем..."
 
-#: ../src/caja-property-browser.c:2337
+#: ../src/caja-property-browser.c:2353
 msgid "Click on a pattern to remove it"
 msgstr "Клкикни на шарата да ја отстраниш"
 
-#: ../src/caja-property-browser.c:2340
+#: ../src/caja-property-browser.c:2356
 msgid "Click on a color to remove it"
 msgstr "Притисни на бојата за да ја отстраниш"
 
-#: ../src/caja-property-browser.c:2343
+#: ../src/caja-property-browser.c:2359
 msgid "Click on an emblem to remove it"
 msgstr "Притиснете на амблем да го отстраните"
 
-#: ../src/caja-property-browser.c:2355
+#: ../src/caja-property-browser.c:2371
 msgid "Patterns:"
 msgstr "Шари:"
 
-#: ../src/caja-property-browser.c:2358
+#: ../src/caja-property-browser.c:2374
 msgid "Colors:"
 msgstr "Бои:"
 
-#: ../src/caja-property-browser.c:2361
+#: ../src/caja-property-browser.c:2377
 msgid "Emblems:"
 msgstr "Амблеми:"
 
-#: ../src/caja-property-browser.c:2383
+#: ../src/caja-property-browser.c:2399
 msgid "_Remove a Pattern..."
 msgstr "_Отстрани шара..."
 
-#: ../src/caja-property-browser.c:2386
+#: ../src/caja-property-browser.c:2402
 msgid "_Remove a Color..."
 msgstr "_Отстрани боја..."
 
-#: ../src/caja-property-browser.c:2389
+#: ../src/caja-property-browser.c:2405
 msgid "_Remove an Emblem..."
 msgstr "_Отстрани амблем..."
 
-#: ../src/caja-query-editor.c:142
+#: ../src/caja-query-editor.c:143
 msgid "File Type"
 msgstr "Тип на датотека"
 
-#: ../src/caja-query-editor.c:149
+#: ../src/caja-query-editor.c:150
 msgid "Tags"
 msgstr "Тагови"
 
-#: ../src/caja-query-editor.c:295
+#: ../src/caja-query-editor.c:296
 msgid "Select folder to search in"
 msgstr "Изберете папка за пребарување"
 
-#: ../src/caja-query-editor.c:391 ../src/caja-query-editor.c:395
+#: ../src/caja-query-editor.c:392 ../src/caja-query-editor.c:396
 msgid ""
 "Tags separated by spaces. Matches files that contains ALL specified tags."
 msgstr ""
 
-#: ../src/caja-query-editor.c:498
+#: ../src/caja-query-editor.c:499
 msgid "Documents"
 msgstr "Документи"
 
-#: ../src/caja-query-editor.c:518
+#: ../src/caja-query-editor.c:519
 msgid "Music"
 msgstr "Музика"
 
-#: ../src/caja-query-editor.c:534
+#: ../src/caja-query-editor.c:535
 msgid "Video"
 msgstr "Видео"
 
-#: ../src/caja-query-editor.c:552
+#: ../src/caja-query-editor.c:553
 msgid "Picture"
 msgstr "Слика"
 
-#: ../src/caja-query-editor.c:574
+#: ../src/caja-query-editor.c:575
 msgid "Illustration"
 msgstr "Илустрација"
 
-#: ../src/caja-query-editor.c:590
+#: ../src/caja-query-editor.c:591
 msgid "Spreadsheet"
 msgstr "Табеларна пресметка"
 
-#: ../src/caja-query-editor.c:608
+#: ../src/caja-query-editor.c:609
 msgid "Presentation"
 msgstr "Презентација"
 
-#: ../src/caja-query-editor.c:619
+#: ../src/caja-query-editor.c:620
 msgid "Pdf / Postscript"
 msgstr "Pdf / Postscript"
 
-#: ../src/caja-query-editor.c:629
+#: ../src/caja-query-editor.c:630
 msgid "Text File"
 msgstr "Текстуална датотека"
 
-#: ../src/caja-query-editor.c:713
+#: ../src/caja-query-editor.c:716
 msgid "Select type"
 msgstr "Изберете тип"
 
-#: ../src/caja-query-editor.c:802
+#: ../src/caja-query-editor.c:808
 msgid "Any"
 msgstr "Било која"
 
-#: ../src/caja-query-editor.c:818
+#: ../src/caja-query-editor.c:824
 msgid "Other Type..."
 msgstr "Друг тип..."
 
-#: ../src/caja-query-editor.c:1122
+#: ../src/caja-query-editor.c:1128
 msgid "Remove this criterion from the search"
 msgstr "Отстрани го овој критериум од пребарувањето"
 
-#: ../src/caja-query-editor.c:1169
+#: ../src/caja-query-editor.c:1175
 msgid "Search Folder"
 msgstr "Папка за пребарување"
 
-#: ../src/caja-query-editor.c:1175
+#: ../src/caja-query-editor.c:1181
 msgid "Edit"
 msgstr "Уреди"
 
-#: ../src/caja-query-editor.c:1183
+#: ../src/caja-query-editor.c:1189
 msgid "Edit the saved search"
 msgstr "Зачувај го зачуваното пребарување"
 
-#: ../src/caja-query-editor.c:1215
+#: ../src/caja-query-editor.c:1221
 msgid "Add a new criterion to this search"
 msgstr "Додајте нов критериум за ова пребарување"
 
-#: ../src/caja-query-editor.c:1221
+#: ../src/caja-query-editor.c:1227
 msgid "Go"
 msgstr "Оди"
 
-#: ../src/caja-query-editor.c:1225
+#: ../src/caja-query-editor.c:1231
 msgid "Reload"
 msgstr "Освежи"
 
-#: ../src/caja-query-editor.c:1230
+#: ../src/caja-query-editor.c:1236
 msgid "Perform or update the search"
 msgstr "Пребарај или ажурирај пребарување"
 
-#: ../src/caja-query-editor.c:1251
+#: ../src/caja-query-editor.c:1257
 msgid "_Search for:"
 msgstr "_Барај:"
 
-#: ../src/caja-query-editor.c:1280
+#: ../src/caja-query-editor.c:1286
 msgid "Search results"
 msgstr "Пронајдени резултати"
 
@@ -7368,39 +7432,39 @@ msgstr "Пронајдени резултати"
 msgid "Search:"
 msgstr "Пребарај:"
 
-#: ../src/caja-side-pane.c:405
+#: ../src/caja-side-pane.c:409
 msgid "Close the side pane"
 msgstr "Затвори ја страничната лента"
 
 #. name, icon name, label
-#: ../src/caja-spatial-window.c:940
+#: ../src/caja-spatial-window.c:937
 msgid "_Places"
 msgstr "_Локации"
 
 #. name, icon name, label
-#: ../src/caja-spatial-window.c:942
+#: ../src/caja-spatial-window.c:939
 msgid "Open _Location..."
 msgstr "Отвори _локација..."
 
 #. name, icon name, label
-#: ../src/caja-spatial-window.c:947
+#: ../src/caja-spatial-window.c:944
 msgid "Close P_arent Folders"
 msgstr "Затвори ги сите _матични прозорци"
 
-#: ../src/caja-spatial-window.c:948
+#: ../src/caja-spatial-window.c:945
 msgid "Close this folder's parents"
 msgstr "Затвори ја матичната папка на оваа"
 
 #. name, icon name, label
-#: ../src/caja-spatial-window.c:952
+#: ../src/caja-spatial-window.c:949
 msgid "Clos_e All Folders"
 msgstr "Затвори ги сите _папки"
 
-#: ../src/caja-spatial-window.c:953
+#: ../src/caja-spatial-window.c:950
 msgid "Close all folder windows"
 msgstr "Затвори ги сите прозорци"
 
-#: ../src/caja-spatial-window.c:965
+#: ../src/caja-spatial-window.c:962
 msgid "Locate documents and folders on this computer by name or content"
 msgstr ""
 "Лоцирај ги документите и папките на овој компјутер по име или содржина"

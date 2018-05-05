@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-12 16:49+0100\n"
+"POT-Creation-Date: 2018-04-13 12:28+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2018\n"
 "Language-Team: Malagasy (https://www.transifex.com/mate/teams/13566/mg/)\n"
@@ -284,8 +284,8 @@ msgid "Drag an emblem to an object to add it to the object"
 msgstr "Ento eo ambonin'ny zavatra iray ny famantarana iray hipetrahany eo"
 
 #. translators: this is the name of an emblem
-#: ../data/browser.xml.h:68 ../src/caja-emblem-sidebar.c:982
-#: ../src/caja-property-browser.c:1935
+#: ../data/browser.xml.h:68 ../src/caja-emblem-sidebar.c:995
+#: ../src/caja-property-browser.c:1951
 msgid "Erase"
 msgstr "Erase"
 
@@ -310,7 +310,7 @@ msgstr ""
 #. Set initial window title
 #: ../data/caja-browser.desktop.in.in.h:1 ../data/caja.desktop.in.in.h:1
 #: ../data/caja-folder-handler.desktop.in.in.h:1
-#: ../src/caja-spatial-window.c:373 ../src/caja-window-menus.c:535
+#: ../src/caja-spatial-window.c:397 ../src/caja-window-menus.c:535
 #: ../src/caja-window.c:163
 msgid "Caja"
 msgstr "Caja"
@@ -324,7 +324,7 @@ msgid "Browse the file system with the file manager"
 msgstr "Zahavo amin'ny alalan'ny mpandrindra rakitra ny rafitry ny rakitra"
 
 #: ../data/caja-computer.desktop.in.in.h:1
-#: ../libcaja-private/caja-desktop-link.c:113 ../src/caja-places-sidebar.c:490
+#: ../libcaja-private/caja-desktop-link.c:113 ../src/caja-places-sidebar.c:509
 msgid "Computer"
 msgstr "solosaina"
 
@@ -347,16 +347,16 @@ msgid "Change the behaviour and appearance of file manager windows"
 msgstr ""
 
 #: ../data/caja-folder-handler.desktop.in.in.h:2
-#: ../libcaja-private/caja-autorun.c:568
+#: ../libcaja-private/caja-autorun.c:578
 msgid "Open Folder"
 msgstr "Sokafy ny lahatahiry"
 
-#: ../data/caja-home.desktop.in.in.h:1 ../src/file-manager/fm-tree-view.c:1434
+#: ../data/caja-home.desktop.in.in.h:1 ../src/file-manager/fm-tree-view.c:1417
 msgid "Home Folder"
 msgstr "Laha-tahirin'ny fandraisana"
 
 #. tooltip
-#: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:504
+#: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:523
 #: ../src/caja-window-menus.c:892
 msgid "Open your personal folder"
 msgstr ""
@@ -373,108 +373,138 @@ msgstr "X"
 msgid "Y"
 msgstr "Y"
 
-#: ../eel/eel-editable-label.c:327
+#: ../eel/eel-editable-label.c:329
 msgid "Text"
 msgstr "Soratra"
 
-#: ../eel/eel-editable-label.c:328
+#: ../eel/eel-editable-label.c:330
 msgid "The text of the label."
 msgstr ""
 
-#: ../eel/eel-editable-label.c:334
+#: ../eel/eel-editable-label.c:336
 msgid "Justification"
 msgstr "Fandaharana"
 
-#: ../eel/eel-editable-label.c:335
+#: ../eel/eel-editable-label.c:337
 msgid ""
 "The alignment of the lines in the text of the label relative to each other. "
 "This does NOT affect the alignment of the label within its allocation. See "
 "GtkMisc::xalign for that."
 msgstr ""
 
-#: ../eel/eel-editable-label.c:343
+#: ../eel/eel-editable-label.c:345
 msgid "Line wrap"
 msgstr ""
 
-#: ../eel/eel-editable-label.c:344
+#: ../eel/eel-editable-label.c:346
 msgid "If set, wrap lines if the text becomes too wide."
 msgstr ""
 
-#: ../eel/eel-editable-label.c:351
+#: ../eel/eel-editable-label.c:353
 msgid "Cursor Position"
 msgstr ""
 
-#: ../eel/eel-editable-label.c:352
+#: ../eel/eel-editable-label.c:354
 msgid "The current position of the insertion cursor in chars."
 msgstr ""
 
-#: ../eel/eel-editable-label.c:361
+#: ../eel/eel-editable-label.c:363
 msgid "Selection Bound"
 msgstr ""
 
-#: ../eel/eel-editable-label.c:362
+#: ../eel/eel-editable-label.c:364
 msgid ""
 "The position of the opposite end of the selection from the cursor in chars."
 msgstr ""
 
 #. name, icon name
 #. label, accelerator
-#: ../eel/eel-editable-label.c:3135 ../libcaja-private/caja-clipboard.c:455
-#: ../src/file-manager/fm-directory-view.c:7306
-#: ../src/file-manager/fm-directory-view.c:7473
+#. add the "cut folder" menu item
+#: ../eel/eel-editable-label.c:3117 ../libcaja-private/caja-clipboard.c:455
+#: ../src/file-manager/fm-directory-view.c:7332
+#: ../src/file-manager/fm-directory-view.c:7499
+#: ../src/file-manager/fm-tree-view.c:1307
 msgid "Cu_t"
 msgstr "_Esory"
 
 #. name, icon name
 #. label, accelerator
-#: ../eel/eel-editable-label.c:3137 ../libcaja-private/caja-clipboard.c:460
-#: ../src/file-manager/fm-directory-view.c:7310
-#: ../src/file-manager/fm-directory-view.c:7477
+#. add the "copy folder" menu item
+#: ../eel/eel-editable-label.c:3119 ../libcaja-private/caja-clipboard.c:460
+#: ../src/file-manager/fm-directory-view.c:7336
+#: ../src/file-manager/fm-directory-view.c:7503
+#: ../src/file-manager/fm-tree-view.c:1316
 msgid "_Copy"
 msgstr "_Adikao"
 
 #. name, icon name
 #. label, accelerator
-#: ../eel/eel-editable-label.c:3139 ../libcaja-private/caja-clipboard.c:465
-#: ../src/file-manager/fm-directory-view.c:7314
+#: ../eel/eel-editable-label.c:3121 ../libcaja-private/caja-clipboard.c:465
+#: ../src/file-manager/fm-directory-view.c:7340
 msgid "_Paste"
 msgstr "_Apetao"
 
-#: ../eel/eel-editable-label.c:3142
+#: ../eel/eel-editable-label.c:3124
 msgid "Select All"
 msgstr ""
 
-#: ../eel/eel-editable-label.c:3153
+#: ../eel/eel-editable-label.c:3135
 msgid "Input Methods"
 msgstr ""
 
-#: ../eel/eel-gtk-extensions.c:445
+#: ../eel/eel-gtk-extensions.c:459
 msgid "Show more _details"
 msgstr "Asehoy amin'ny _antsipiriany"
 
-#: ../eel/eel-stock-dialogs.c:233
-msgid "You can stop this operation by clicking cancel."
-msgstr ""
-
-#: ../eel/eel-stock-dialogs.c:237 ../eel/eel-stock-dialogs.c:392
-#: ../eel/eel-stock-dialogs.c:593 ../libcaja-private/caja-autorun.c:1131
-#: ../libcaja-private/caja-file-conflict-dialog.c:655
+#: ../eel/eel-stock-dialogs.c:238 ../eel/eel-stock-dialogs.c:294
+#: ../eel/eel-stock-dialogs.c:449 ../eel/eel-stock-dialogs.c:650
+#: ../libcaja-private/caja-autorun.c:1147
+#: ../libcaja-private/caja-file-conflict-dialog.c:659
 #: ../libcaja-private/caja-file-operations.c:186
 #: ../libcaja-private/caja-mime-actions.c:819
 #: ../libcaja-private/caja-mime-actions.c:1726
-#: ../libcaja-private/caja-open-with-dialog.c:944
-#: ../src/file-manager/fm-directory-view.c:10276
-#: ../src/caja-connect-server-dialog.c:1122 ../src/caja-location-dialog.c:194
+#: ../libcaja-private/caja-open-with-dialog.c:960
+#: ../src/file-manager/fm-directory-view.c:1208
+#: ../src/file-manager/fm-directory-view.c:1350
+#: ../src/file-manager/fm-directory-view.c:7012
+#: ../src/file-manager/fm-directory-view.c:10302
+#: ../src/caja-connect-server-dialog.c:1122 ../src/caja-emblem-sidebar.c:290
+#: ../src/caja-emblem-sidebar.c:547 ../src/caja-location-dialog.c:194
+#: ../src/caja-property-browser.c:1111 ../src/caja-property-browser.c:1191
 msgid "_Cancel"
 msgstr "_Aoka"
 
-#: ../eel/eel-stock-dialogs.c:239 ../eel/eel-stock-dialogs.c:394
-#: ../eel/eel-stock-dialogs.c:598 ../libcaja-private/caja-autorun.c:1136
+#. name, icon name
+#. label, accelerator
+#. add the "open" menu item
+#: ../eel/eel-stock-dialogs.c:240
+#: ../libcaja-private/caja-open-with-dialog.c:976
+#: ../src/file-manager/fm-directory-view.c:7296
+#: ../src/file-manager/fm-directory-view.c:8805
+#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-location-dialog.c:199
+#: ../src/caja-places-sidebar.c:2678
+msgid "_Open"
+msgstr "_Sokafy"
+
+#: ../eel/eel-stock-dialogs.c:242
+msgid "_Revert"
+msgstr "_Ahemory"
+
+#: ../eel/eel-stock-dialogs.c:290
+msgid "You can stop this operation by clicking cancel."
+msgstr ""
+
+#: ../eel/eel-stock-dialogs.c:296 ../eel/eel-stock-dialogs.c:451
+#: ../eel/eel-stock-dialogs.c:655 ../libcaja-private/caja-autorun.c:1152
 #: ../libcaja-private/caja-mime-actions.c:1370
+#: ../src/file-manager/fm-directory-view.c:1213
+#: ../src/caja-emblem-sidebar.c:295 ../src/caja-emblem-sidebar.c:552
+#: ../src/caja-property-browser.c:1116 ../src/caja-property-browser.c:1196
+#: ../src/caja-query-editor.c:720
 msgid "_OK"
 msgstr ""
 
-#: ../eel/eel-stock-dialogs.c:600
+#: ../eel/eel-stock-dialogs.c:657
 msgid "_Clear"
 msgstr ""
 
@@ -482,124 +512,124 @@ msgstr ""
 msgid " (invalid Unicode)"
 msgstr "(fango diso)"
 
-#: ../libcaja-private/caja-autorun.c:518
+#: ../libcaja-private/caja-autorun.c:522
 msgid "No applications found"
 msgstr ""
 
-#: ../libcaja-private/caja-autorun.c:537
+#: ../libcaja-private/caja-autorun.c:543
 msgid "Ask what to do"
 msgstr ""
 
-#: ../libcaja-private/caja-autorun.c:553
+#: ../libcaja-private/caja-autorun.c:561
 msgid "Do Nothing"
 msgstr ""
 
-#: ../libcaja-private/caja-autorun.c:601 ../src/caja-x-content-bar.c:148
+#: ../libcaja-private/caja-autorun.c:611 ../src/caja-x-content-bar.c:149
 #, c-format
 msgid "Open %s"
 msgstr ""
 
-#: ../libcaja-private/caja-autorun.c:643
+#: ../libcaja-private/caja-autorun.c:655
 msgid "Open with other Application..."
 msgstr ""
 
-#: ../libcaja-private/caja-autorun.c:1025
+#: ../libcaja-private/caja-autorun.c:1041
 msgid "You have just inserted an Audio CD."
 msgstr ""
 
-#: ../libcaja-private/caja-autorun.c:1029
+#: ../libcaja-private/caja-autorun.c:1045
 msgid "You have just inserted an Audio DVD."
 msgstr ""
 
-#: ../libcaja-private/caja-autorun.c:1033
+#: ../libcaja-private/caja-autorun.c:1049
 msgid "You have just inserted a Video DVD."
 msgstr ""
 
-#: ../libcaja-private/caja-autorun.c:1037
+#: ../libcaja-private/caja-autorun.c:1053
 msgid "You have just inserted a Video CD."
 msgstr ""
 
-#: ../libcaja-private/caja-autorun.c:1041
+#: ../libcaja-private/caja-autorun.c:1057
 msgid "You have just inserted a Super Video CD."
 msgstr ""
 
-#: ../libcaja-private/caja-autorun.c:1045
+#: ../libcaja-private/caja-autorun.c:1061
 msgid "You have just inserted a blank CD."
 msgstr ""
 
-#: ../libcaja-private/caja-autorun.c:1049
+#: ../libcaja-private/caja-autorun.c:1065
 msgid "You have just inserted a blank DVD."
 msgstr ""
 
-#: ../libcaja-private/caja-autorun.c:1053
+#: ../libcaja-private/caja-autorun.c:1069
 msgid "You have just inserted a blank Blu-Ray disc."
 msgstr ""
 
-#: ../libcaja-private/caja-autorun.c:1057
+#: ../libcaja-private/caja-autorun.c:1073
 msgid "You have just inserted a blank HD DVD."
 msgstr ""
 
-#: ../libcaja-private/caja-autorun.c:1061
+#: ../libcaja-private/caja-autorun.c:1077
 msgid "You have just inserted a Photo CD."
 msgstr ""
 
-#: ../libcaja-private/caja-autorun.c:1065
+#: ../libcaja-private/caja-autorun.c:1081
 msgid "You have just inserted a Picture CD."
 msgstr ""
 
-#: ../libcaja-private/caja-autorun.c:1069
+#: ../libcaja-private/caja-autorun.c:1085
 msgid "You have just inserted a medium with digital photos."
 msgstr ""
 
-#: ../libcaja-private/caja-autorun.c:1073
+#: ../libcaja-private/caja-autorun.c:1089
 msgid "You have just inserted a digital audio player."
 msgstr ""
 
-#: ../libcaja-private/caja-autorun.c:1077
+#: ../libcaja-private/caja-autorun.c:1093
 msgid ""
 "You have just inserted a medium with software intended to be automatically "
 "started."
 msgstr ""
 
 #. fallback to generic greeting
-#: ../libcaja-private/caja-autorun.c:1082
+#: ../libcaja-private/caja-autorun.c:1098
 msgid "You have just inserted a medium."
 msgstr ""
 
-#: ../libcaja-private/caja-autorun.c:1084
+#: ../libcaja-private/caja-autorun.c:1100
 msgid "Choose what application to launch."
 msgstr ""
 
-#: ../libcaja-private/caja-autorun.c:1094
+#: ../libcaja-private/caja-autorun.c:1110
 #, c-format
 msgid ""
 "Select how to open \"%s\" and whether to perform this action in the future "
 "for other media of type \"%s\"."
 msgstr ""
 
-#: ../libcaja-private/caja-autorun.c:1122
+#: ../libcaja-private/caja-autorun.c:1138
 msgid "_Always perform this action"
 msgstr ""
 
 #. name, icon name
 #. label, accelerator
 #. add the "Eject" menu item
-#: ../libcaja-private/caja-autorun.c:1145
-#: ../src/file-manager/fm-directory-view.c:7397
-#: ../src/file-manager/fm-directory-view.c:7425
-#: ../src/file-manager/fm-directory-view.c:7506
-#: ../src/file-manager/fm-tree-view.c:1382 ../src/caja-places-sidebar.c:2714
+#: ../libcaja-private/caja-autorun.c:1161
+#: ../src/file-manager/fm-directory-view.c:7423
+#: ../src/file-manager/fm-directory-view.c:7451
+#: ../src/file-manager/fm-directory-view.c:7532
+#: ../src/file-manager/fm-tree-view.c:1365 ../src/caja-places-sidebar.c:2735
 msgid "_Eject"
 msgstr "_Tsoahy"
 
 #. name, icon name
 #. label, accelerator
 #. add the "Unmount" menu item
-#: ../libcaja-private/caja-autorun.c:1158
-#: ../src/file-manager/fm-directory-view.c:7393
-#: ../src/file-manager/fm-directory-view.c:7421
-#: ../src/file-manager/fm-directory-view.c:7502
-#: ../src/file-manager/fm-tree-view.c:1373 ../src/caja-places-sidebar.c:2707
+#: ../libcaja-private/caja-autorun.c:1176
+#: ../src/file-manager/fm-directory-view.c:7419
+#: ../src/file-manager/fm-directory-view.c:7447
+#: ../src/file-manager/fm-directory-view.c:7528
+#: ../src/file-manager/fm-tree-view.c:1356 ../src/caja-places-sidebar.c:2728
 msgid "_Unmount"
 msgstr ""
 
@@ -622,7 +652,7 @@ msgstr "Mametaka ilay andian-tsoratra notanana tanatin'ny fanindri-taratasy"
 #. name, icon name
 #. label, accelerator
 #: ../libcaja-private/caja-clipboard.c:470
-#: ../src/file-manager/fm-directory-view.c:7326
+#: ../src/file-manager/fm-directory-view.c:7352
 msgid "Select _All"
 msgstr "Farito izy _rehetra"
 
@@ -645,7 +675,7 @@ msgstr "Ny tso_tra ampiasaina"
 
 #: ../libcaja-private/caja-column-utilities.c:44
 #: ../libcaja-private/caja-mime-application-chooser.c:274
-#: ../src/file-manager/fm-list-view.c:1778
+#: ../src/file-manager/fm-list-view.c:1786
 msgid "Name"
 msgstr "Anarana"
 
@@ -711,7 +741,7 @@ msgid "The group of the file."
 msgstr "Ny vondrona misy ilay rakitra."
 
 #: ../libcaja-private/caja-column-utilities.c:106
-#: ../src/file-manager/fm-properties-window.c:4746
+#: ../src/file-manager/fm-properties-window.c:4750
 msgid "Permissions"
 msgstr "Alalana"
 
@@ -744,7 +774,7 @@ msgid "The SELinux security context of the file."
 msgstr ""
 
 #: ../libcaja-private/caja-column-utilities.c:138
-#: ../src/caja-image-properties-page.c:365 ../src/caja-query-editor.c:135
+#: ../src/caja-image-properties-page.c:365 ../src/caja-query-editor.c:136
 msgid "Location"
 msgstr "Toerana"
 
@@ -752,26 +782,35 @@ msgstr "Toerana"
 msgid "The location of the file."
 msgstr ""
 
-#: ../libcaja-private/caja-column-utilities.c:182
-msgid "Trashed On"
+#: ../libcaja-private/caja-column-utilities.c:146
+#: ../src/caja-file-management-properties.ui.h:110
+msgid "Extension"
 msgstr ""
 
-#: ../libcaja-private/caja-column-utilities.c:183
-msgid "Date when file was moved to the Trash"
+#: ../libcaja-private/caja-column-utilities.c:147
+msgid "The extension of the file."
 msgstr ""
 
 #: ../libcaja-private/caja-column-utilities.c:189
-msgid "Original Location"
+msgid "Trashed On"
 msgstr ""
 
 #: ../libcaja-private/caja-column-utilities.c:190
+msgid "Date when file was moved to the Trash"
+msgstr ""
+
+#: ../libcaja-private/caja-column-utilities.c:196
+msgid "Original Location"
+msgstr ""
+
+#: ../libcaja-private/caja-column-utilities.c:197
 msgid "Original location of file before moved to the Trash"
 msgstr ""
 
 #: ../libcaja-private/caja-customization-data.c:431
-#: ../libcaja-private/caja-file-conflict-dialog.c:624
+#: ../libcaja-private/caja-file-conflict-dialog.c:628
 #: ../libcaja-private/caja-mime-application-chooser.c:442
-#: ../src/caja-property-browser.c:1982
+#: ../src/caja-property-browser.c:1998
 msgid "Reset"
 msgstr "Avereno"
 
@@ -797,7 +836,7 @@ msgid "Network Servers"
 msgstr "Mpizara tambajotra"
 
 #: ../libcaja-private/caja-desktop-link.c:119
-#: ../src/file-manager/fm-tree-view.c:1441 ../src/caja-places-sidebar.c:594
+#: ../src/file-manager/fm-tree-view.c:1424 ../src/caja-places-sidebar.c:613
 #: ../src/caja-trash-bar.c:190
 msgid "Trash"
 msgstr "Daba"
@@ -872,153 +911,153 @@ msgstr "Miala tsiny! Tsy voaraikitra ilay famantarana nosafidiana."
 msgid "Sorry, unable to save custom emblem name."
 msgstr "Miala tsiny! Tsy voaraikitra ilay anaram-pamantarana nosafidiana."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:145
+#: ../libcaja-private/caja-file-conflict-dialog.c:147
 #, c-format
 msgid "Merge folder \"%s\"?"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:149
+#: ../libcaja-private/caja-file-conflict-dialog.c:151
 msgid ""
 "Merging will ask for confirmation before replacing any files in the folder "
 "that conflict with the files being copied."
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:155
+#: ../libcaja-private/caja-file-conflict-dialog.c:157
 #, c-format
 msgid "An older folder with the same name already exists in \"%s\"."
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:161
+#: ../libcaja-private/caja-file-conflict-dialog.c:163
 #, c-format
 msgid "A newer folder with the same name already exists in \"%s\"."
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:167
+#: ../libcaja-private/caja-file-conflict-dialog.c:169
 #, c-format
 msgid "Another folder with the same name already exists in \"%s\"."
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:174
-msgid "Replacing it will remove all files in the folder."
-msgstr ""
-
 #: ../libcaja-private/caja-file-conflict-dialog.c:176
-#, c-format
-msgid "Replace folder \"%s\"?"
+msgid "Replacing it will remove all files in the folder."
 msgstr ""
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:178
 #, c-format
+msgid "Replace folder \"%s\"?"
+msgstr ""
+
+#: ../libcaja-private/caja-file-conflict-dialog.c:180
+#, c-format
 msgid "A folder with the same name already exists in \"%s\"."
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:185
+#: ../libcaja-private/caja-file-conflict-dialog.c:187
 #, c-format
 msgid "Replace file \"%s\"?"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:187
+#: ../libcaja-private/caja-file-conflict-dialog.c:189
 msgid "Replacing it will overwrite its content."
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:192
+#: ../libcaja-private/caja-file-conflict-dialog.c:194
 #, c-format
 msgid "An older file with the same name already exists in \"%s\"."
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:198
+#: ../libcaja-private/caja-file-conflict-dialog.c:200
 #, c-format
 msgid "A newer file with the same name already exists in \"%s\"."
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:204
+#: ../libcaja-private/caja-file-conflict-dialog.c:206
 #, c-format
 msgid "Another file with the same name already exists in \"%s\"."
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:272
-msgid "Original folder"
-msgstr ""
-
-#: ../libcaja-private/caja-file-conflict-dialog.c:273
-#: ../libcaja-private/caja-file-conflict-dialog.c:312
-msgid "Items:"
-msgstr ""
-
 #: ../libcaja-private/caja-file-conflict-dialog.c:276
-msgid "Original file"
+msgid "Original folder"
 msgstr ""
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:277
 #: ../libcaja-private/caja-file-conflict-dialog.c:316
-#: ../src/file-manager/fm-properties-window.c:3272
+msgid "Items:"
+msgstr ""
+
+#: ../libcaja-private/caja-file-conflict-dialog.c:280
+msgid "Original file"
+msgstr ""
+
+#: ../libcaja-private/caja-file-conflict-dialog.c:281
+#: ../libcaja-private/caja-file-conflict-dialog.c:320
+#: ../src/file-manager/fm-properties-window.c:3274
 msgid "Size:"
 msgstr "Habe:"
 
 #. second row: type combobox
-#: ../libcaja-private/caja-file-conflict-dialog.c:282
-#: ../libcaja-private/caja-file-conflict-dialog.c:321
-#: ../src/file-manager/fm-properties-window.c:3254
+#: ../libcaja-private/caja-file-conflict-dialog.c:286
+#: ../libcaja-private/caja-file-conflict-dialog.c:325
+#: ../src/file-manager/fm-properties-window.c:3256
 #: ../src/caja-connect-server-dialog.c:930
 msgid "Type:"
 msgstr "Karazana:"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:285
-#: ../libcaja-private/caja-file-conflict-dialog.c:324
+#: ../libcaja-private/caja-file-conflict-dialog.c:289
+#: ../libcaja-private/caja-file-conflict-dialog.c:328
 msgid "Last modified:"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:311
+#: ../libcaja-private/caja-file-conflict-dialog.c:315
 msgid "Merge with"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:311
 #: ../libcaja-private/caja-file-conflict-dialog.c:315
+#: ../libcaja-private/caja-file-conflict-dialog.c:319
 msgid "Replace with"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:347
+#: ../libcaja-private/caja-file-conflict-dialog.c:351
 msgid "Merge"
 msgstr ""
 
 #. Setup the expander for the rename action
-#: ../libcaja-private/caja-file-conflict-dialog.c:610
+#: ../libcaja-private/caja-file-conflict-dialog.c:614
 msgid "Select a new name for the _destination"
 msgstr ""
 
 #. Setup the diff button for text files
-#: ../libcaja-private/caja-file-conflict-dialog.c:635
+#: ../libcaja-private/caja-file-conflict-dialog.c:639
 msgid "Differences..."
 msgstr ""
 
 #. Setup the checkbox to apply the action to all files
-#: ../libcaja-private/caja-file-conflict-dialog.c:645
+#: ../libcaja-private/caja-file-conflict-dialog.c:649
 msgid "Apply this action to all files and folders"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:660
+#: ../libcaja-private/caja-file-conflict-dialog.c:664
 #: ../libcaja-private/caja-file-operations.c:187
 msgid "_Skip"
 msgstr "_Dingano"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:665
+#: ../libcaja-private/caja-file-conflict-dialog.c:669
 msgid "Re_name"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:671
+#: ../libcaja-private/caja-file-conflict-dialog.c:675
 msgid "Replace"
 msgstr "Soloy"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:755
+#: ../libcaja-private/caja-file-conflict-dialog.c:759
 msgid "Merge Folder"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:755
-#: ../libcaja-private/caja-file-conflict-dialog.c:760
+#: ../libcaja-private/caja-file-conflict-dialog.c:759
+#: ../libcaja-private/caja-file-conflict-dialog.c:764
 msgid "File and Folder conflict"
 msgstr ""
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:760
+#: ../libcaja-private/caja-file-conflict-dialog.c:764
 msgid "File conflict"
 msgstr ""
 
@@ -1032,11 +1071,13 @@ msgstr "_Andramo indray"
 
 #. name, icon name
 #. label, accelerator
+#. add the "delete" menu item
+#. add "delete" menu item
 #: ../libcaja-private/caja-file-operations.c:190
-#: ../src/file-manager/fm-directory-view.c:7358
-#: ../src/file-manager/fm-directory-view.c:7490
-#: ../src/file-manager/fm-directory-view.c:8931
-#: ../src/file-manager/fm-tree-view.c:1360
+#: ../src/file-manager/fm-directory-view.c:7384
+#: ../src/file-manager/fm-directory-view.c:7516
+#: ../src/file-manager/fm-directory-view.c:8957
+#: ../src/file-manager/fm-tree-view.c:1345 ../src/caja-emblem-sidebar.c:375
 msgid "_Delete"
 msgstr "_Fafao"
 
@@ -1098,8 +1139,8 @@ msgstr[1] ""
 #. * (e.g. "folder", "plain text") to file type for symbolic link
 #. * to that kind of file (e.g. "link to folder").
 #: ../libcaja-private/caja-file-operations.c:409
-#: ../libcaja-private/caja-file.c:6526
-#: ../src/file-manager/fm-directory-view.c:10520
+#: ../libcaja-private/caja-file.c:6727
+#: ../src/file-manager/fm-directory-view.c:10546
 #, c-format
 msgid "Link to %s"
 msgstr ""
@@ -1264,7 +1305,7 @@ msgstr ""
 #. Empty Trash menu item
 #: ../libcaja-private/caja-file-operations.c:1402
 #: ../libcaja-private/caja-file-operations.c:2333
-#: ../src/caja-places-sidebar.c:2751 ../src/caja-trash-bar.c:197
+#: ../src/caja-places-sidebar.c:2772 ../src/caja-trash-bar.c:197
 msgid "Empty _Trash"
 msgstr "Daba _foana"
 
@@ -1779,47 +1820,47 @@ msgstr ""
 msgid "The item cannot be restored from trash"
 msgstr ""
 
-#: ../libcaja-private/caja-file.c:1217 ../libcaja-private/caja-vfs-file.c:439
+#: ../libcaja-private/caja-file.c:1222 ../libcaja-private/caja-vfs-file.c:439
 msgid "This file cannot be mounted"
 msgstr ""
 
-#: ../libcaja-private/caja-file.c:1262
+#: ../libcaja-private/caja-file.c:1267
 msgid "This file cannot be unmounted"
 msgstr ""
 
-#: ../libcaja-private/caja-file.c:1296
+#: ../libcaja-private/caja-file.c:1301
 msgid "This file cannot be ejected"
 msgstr ""
 
-#: ../libcaja-private/caja-file.c:1329 ../libcaja-private/caja-vfs-file.c:628
+#: ../libcaja-private/caja-file.c:1334 ../libcaja-private/caja-vfs-file.c:628
 msgid "This file cannot be started"
 msgstr ""
 
-#: ../libcaja-private/caja-file.c:1381 ../libcaja-private/caja-file.c:1412
+#: ../libcaja-private/caja-file.c:1386 ../libcaja-private/caja-file.c:1417
 msgid "This file cannot be stopped"
 msgstr ""
 
-#: ../libcaja-private/caja-file.c:1820
+#: ../libcaja-private/caja-file.c:1825
 #, c-format
 msgid "Slashes are not allowed in filenames"
 msgstr ""
 
-#: ../libcaja-private/caja-file.c:1838
+#: ../libcaja-private/caja-file.c:1843
 #, c-format
 msgid "File not found"
 msgstr "Tsy hita ilay rakitra"
 
-#: ../libcaja-private/caja-file.c:1866
+#: ../libcaja-private/caja-file.c:1871
 #, c-format
 msgid "Toplevel files cannot be renamed"
 msgstr ""
 
-#: ../libcaja-private/caja-file.c:1889
+#: ../libcaja-private/caja-file.c:1894
 #, c-format
 msgid "Unable to rename desktop icon"
 msgstr ""
 
-#: ../libcaja-private/caja-file.c:1918
+#: ../libcaja-private/caja-file.c:1923
 #, c-format
 msgid "Unable to rename desktop file"
 msgstr ""
@@ -1838,62 +1879,62 @@ msgstr ""
 #. * between the "%" and any numeric directive will turn
 #. * off zero padding, and putting a "_" there will use
 #. * space padding instead of zero padding.
-#: ../libcaja-private/caja-file.c:4508
+#: ../libcaja-private/caja-file.c:4706
 msgid "today at 00:00:00 PM"
 msgstr "Androany amin'ny 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4509
-#: ../src/caja-file-management-properties.c:521
+#: ../libcaja-private/caja-file.c:4707
+#: ../src/caja-file-management-properties.c:528
 msgid "today at %-I:%M:%S %p"
 msgstr "androany amin'ny %-I:%M:%S %p"
 
-#: ../libcaja-private/caja-file.c:4511
+#: ../libcaja-private/caja-file.c:4709
 msgid "today at 00:00 PM"
 msgstr "androany amin'ny 00:00"
 
-#: ../libcaja-private/caja-file.c:4512
+#: ../libcaja-private/caja-file.c:4710
 msgid "today at %-I:%M %p"
 msgstr "androany at %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4514
+#: ../libcaja-private/caja-file.c:4712
 msgid "today, 00:00 PM"
 msgstr "androany, 00:00 PM"
 
-#: ../libcaja-private/caja-file.c:4515
+#: ../libcaja-private/caja-file.c:4713
 msgid "today, %-I:%M %p"
 msgstr "androany, %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4517 ../libcaja-private/caja-file.c:4518
+#: ../libcaja-private/caja-file.c:4715 ../libcaja-private/caja-file.c:4716
 msgid "today"
 msgstr "Androany"
 
 #. Yesterday, use special word.
 #. * Note to localizers: Same issues as "today" string.
-#: ../libcaja-private/caja-file.c:4527
+#: ../libcaja-private/caja-file.c:4725
 msgid "yesterday at 00:00:00 PM"
 msgstr "omaly tamin'ny 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4528
+#: ../libcaja-private/caja-file.c:4726
 msgid "yesterday at %-I:%M:%S %p"
 msgstr "omaly tamin'ny %-I:%M:%S %p"
 
-#: ../libcaja-private/caja-file.c:4530
+#: ../libcaja-private/caja-file.c:4728
 msgid "yesterday at 00:00 PM"
 msgstr "omaly tamin'ny 00:00"
 
-#: ../libcaja-private/caja-file.c:4531
+#: ../libcaja-private/caja-file.c:4729
 msgid "yesterday at %-I:%M %p"
 msgstr "omaly at %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4533
+#: ../libcaja-private/caja-file.c:4731
 msgid "yesterday, 00:00 PM"
 msgstr "omaly tamin'ny, 00:00"
 
-#: ../libcaja-private/caja-file.c:4534
+#: ../libcaja-private/caja-file.c:4732
 msgid "yesterday, %-I:%M %p"
 msgstr "omaly, %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4536 ../libcaja-private/caja-file.c:4537
+#: ../libcaja-private/caja-file.c:4734 ../libcaja-private/caja-file.c:4735
 msgid "yesterday"
 msgstr "Omaly"
 
@@ -1901,103 +1942,103 @@ msgstr "Omaly"
 #. * Note to localizers: Same issues as "today" string.
 #. * The width measurement templates correspond to
 #. * the day/month name with the most letters.
-#: ../libcaja-private/caja-file.c:4548
+#: ../libcaja-private/caja-file.c:4746
 msgid "Wednesday, September 00 0000 at 00:00:00 PM"
 msgstr "Alarobia, faha 00 Septambra 0000, amin'ny 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4549
+#: ../libcaja-private/caja-file.c:4747
 msgid "%A, %B %-d %Y at %-I:%M:%S %p"
 msgstr "%A, %B %-d %Y at %-I:%M:%S %p"
 
-#: ../libcaja-private/caja-file.c:4551
+#: ../libcaja-private/caja-file.c:4749
 msgid "Mon, Oct 00 0000 at 00:00:00 PM"
 msgstr "Alat, faha 00 Okt 0000, amin'ny 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4552
+#: ../libcaja-private/caja-file.c:4750
 msgid "%a, %b %-d %Y at %-I:%M:%S %p"
 msgstr "%a, %b %-d %Y at %-I:%M:%S %p"
 
-#: ../libcaja-private/caja-file.c:4554
+#: ../libcaja-private/caja-file.c:4752
 msgid "Mon, Oct 00 0000 at 00:00 PM"
 msgstr "Alat, faha 00 Okt  0000, amin'ny 00:00"
 
-#: ../libcaja-private/caja-file.c:4555
+#: ../libcaja-private/caja-file.c:4753
 msgid "%a, %b %-d %Y at %-I:%M %p"
 msgstr "%a, %b %-d %Y at %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4557
+#: ../libcaja-private/caja-file.c:4755
 msgid "Oct 00 0000 at 00:00 PM"
 msgstr "00 Okt 0000, amin'ny 00:00"
 
-#: ../libcaja-private/caja-file.c:4558
+#: ../libcaja-private/caja-file.c:4756
 msgid "%b %-d %Y at %-I:%M %p"
 msgstr "%b %-d %Y at %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4560
+#: ../libcaja-private/caja-file.c:4758
 msgid "Oct 00 0000, 00:00 PM"
 msgstr "00 Okt 0000, amin'ny 00:00"
 
-#: ../libcaja-private/caja-file.c:4561
+#: ../libcaja-private/caja-file.c:4759
 msgid "%b %-d %Y, %-I:%M %p"
 msgstr "%b %-d %Y, %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4563
+#: ../libcaja-private/caja-file.c:4761
 msgid "00/00/00, 00:00 PM"
 msgstr "00/00/00, 00:00"
 
-#: ../libcaja-private/caja-file.c:4564
+#: ../libcaja-private/caja-file.c:4762
 msgid "%m/%-d/%y, %-I:%M %p"
 msgstr "%m/%-d/%y, %-I:%M %p"
 
-#: ../libcaja-private/caja-file.c:4566
+#: ../libcaja-private/caja-file.c:4764
 msgid "00/00/00"
 msgstr "00/00/00"
 
-#: ../libcaja-private/caja-file.c:4567
+#: ../libcaja-private/caja-file.c:4765
 msgid "%m/%d/%y"
 msgstr "%m/%d/%y"
 
-#: ../libcaja-private/caja-file.c:5206
+#: ../libcaja-private/caja-file.c:5404
 #, c-format
 msgid "Not allowed to set permissions"
 msgstr ""
 
-#: ../libcaja-private/caja-file.c:5500
+#: ../libcaja-private/caja-file.c:5698
 #, c-format
 msgid "Not allowed to set owner"
 msgstr ""
 
-#: ../libcaja-private/caja-file.c:5518
+#: ../libcaja-private/caja-file.c:5716
 #, c-format
 msgid "Specified owner '%s' doesn't exist"
 msgstr ""
 
-#: ../libcaja-private/caja-file.c:5778
+#: ../libcaja-private/caja-file.c:5976
 #, c-format
 msgid "Not allowed to set group"
 msgstr ""
 
-#: ../libcaja-private/caja-file.c:5796
+#: ../libcaja-private/caja-file.c:5994
 #, c-format
 msgid "Specified group '%s' doesn't exist"
 msgstr ""
 
-#: ../libcaja-private/caja-file.c:5950
-#: ../src/file-manager/fm-directory-view.c:2357
+#: ../libcaja-private/caja-file.c:6148
+#: ../src/file-manager/fm-directory-view.c:2370
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../libcaja-private/caja-file.c:5951
+#: ../libcaja-private/caja-file.c:6149
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../libcaja-private/caja-file.c:5952
+#: ../libcaja-private/caja-file.c:6150
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
@@ -2006,53 +2047,53 @@ msgstr[1] ""
 
 #. Do this in a separate stage so that we don't have to put G_GUINT64_FORMAT
 #. in the translated string
-#: ../libcaja-private/caja-file.c:6056
+#: ../libcaja-private/caja-file.c:6254
 msgid "%"
 msgstr ""
 
-#: ../libcaja-private/caja-file.c:6057
+#: ../libcaja-private/caja-file.c:6255
 #, c-format
 msgid "%s (%s bytes)"
 msgstr ""
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6404 ../libcaja-private/caja-file.c:6428
+#: ../libcaja-private/caja-file.c:6605 ../libcaja-private/caja-file.c:6629
 msgid "? items"
 msgstr "zavatra ?"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6410 ../libcaja-private/caja-file.c:6418
+#: ../libcaja-private/caja-file.c:6611 ../libcaja-private/caja-file.c:6619
 msgid "? bytes"
 msgstr "zavatra ?"
 
-#: ../libcaja-private/caja-file.c:6433
+#: ../libcaja-private/caja-file.c:6634
 msgid "unknown type"
 msgstr "karazana tsy fantatra"
 
-#: ../libcaja-private/caja-file.c:6436
+#: ../libcaja-private/caja-file.c:6637
 msgid "unknown MIME type"
 msgstr "karazana MIME tsy fantatra"
 
 #. Fallback, use for both unknown attributes and attributes
 #. * for which we have no more appropriate default.
-#: ../libcaja-private/caja-file.c:6450
-#: ../src/file-manager/fm-properties-window.c:1287
+#: ../libcaja-private/caja-file.c:6651
+#: ../src/file-manager/fm-properties-window.c:1289
 msgid "unknown"
 msgstr "tsy fantatra"
 
-#: ../libcaja-private/caja-file.c:6500
+#: ../libcaja-private/caja-file.c:6701
 msgid "program"
 msgstr "rindran'asa"
 
-#: ../libcaja-private/caja-file.c:6520
+#: ../libcaja-private/caja-file.c:6721
 msgid "link"
 msgstr "rohy"
 
-#: ../libcaja-private/caja-file.c:6542
+#: ../libcaja-private/caja-file.c:6743
 msgid "link (broken)"
 msgstr "rohy (simba)"
 
-#: ../libcaja-private/caja-icon-container.c:2910
+#: ../libcaja-private/caja-icon-container.c:2912
 msgid "The selection rectangle"
 msgstr "Ny mahitsizoron'ny famaritana"
 
@@ -2077,12 +2118,13 @@ msgstr ""
 
 #. name, icon name
 #. label, accelerator
+#. add the "move to trash" menu item
 #: ../libcaja-private/caja-mime-actions.c:744
-#: ../src/file-manager/fm-directory-view.c:7354
-#: ../src/file-manager/fm-directory-view.c:7486
-#: ../src/file-manager/fm-directory-view.c:8585
-#: ../src/file-manager/fm-directory-view.c:8910
-#: ../src/file-manager/fm-tree-view.c:1346
+#: ../src/file-manager/fm-directory-view.c:7380
+#: ../src/file-manager/fm-directory-view.c:7512
+#: ../src/file-manager/fm-directory-view.c:8611
+#: ../src/file-manager/fm-directory-view.c:8936
+#: ../src/file-manager/fm-tree-view.c:1336
 msgid "Mo_ve to Trash"
 msgstr "_Alefaso anaty daba"
 
@@ -2105,7 +2147,7 @@ msgid "_Display"
 msgstr "_Asehoy"
 
 #: ../libcaja-private/caja-mime-actions.c:823
-#: ../src/caja-autorun-software.c:253
+#: ../src/caja-autorun-software.c:254
 msgid "_Run"
 msgstr "_Alefaso"
 
@@ -2188,12 +2230,12 @@ msgstr ""
 
 #: ../libcaja-private/caja-mime-actions.c:2022
 #: ../libcaja-private/caja-mime-actions.c:2328
-#: ../src/file-manager/fm-directory-view.c:6372
+#: ../src/file-manager/fm-directory-view.c:6389
 msgid "Unable to mount location"
 msgstr ""
 
 #: ../libcaja-private/caja-mime-actions.c:2416
-#: ../src/file-manager/fm-directory-view.c:6546
+#: ../src/file-manager/fm-directory-view.c:6563
 msgid "Unable to start location"
 msgstr ""
 
@@ -2210,13 +2252,13 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: ../libcaja-private/caja-mime-application-chooser.c:162
-#: ../libcaja-private/caja-open-with-dialog.c:299
+#: ../libcaja-private/caja-open-with-dialog.c:300
 #, c-format
 msgid "Could not set application as the default: %s"
 msgstr ""
 
 #: ../libcaja-private/caja-mime-application-chooser.c:163
-#: ../libcaja-private/caja-open-with-dialog.c:300
+#: ../libcaja-private/caja-open-with-dialog.c:301
 msgid "Could not set as default application"
 msgstr ""
 
@@ -2233,12 +2275,12 @@ msgid "Could not remove application"
 msgstr ""
 
 #: ../libcaja-private/caja-mime-application-chooser.c:420
-#: ../libcaja-private/caja-open-with-dialog.c:1116
+#: ../libcaja-private/caja-open-with-dialog.c:1132
 msgid "_Add"
 msgstr "_Ampidiro"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:430
-#: ../libcaja-private/caja-open-with-dialog.c:935
+#: ../libcaja-private/caja-open-with-dialog.c:951
 #: ../src/caja-bookmarks-window.ui.h:4
 msgid "_Remove"
 msgstr ""
@@ -2253,7 +2295,7 @@ msgid "%s document"
 msgstr ""
 
 #: ../libcaja-private/caja-mime-application-chooser.c:599
-#: ../libcaja-private/caja-open-with-dialog.c:1075
+#: ../libcaja-private/caja-open-with-dialog.c:1091
 msgid "Unknown"
 msgstr "Tsy fantatra"
 
@@ -2267,104 +2309,94 @@ msgstr ""
 msgid "Open all files of type \"%s\" with:"
 msgstr ""
 
-#: ../libcaja-private/caja-open-with-dialog.c:151
+#: ../libcaja-private/caja-open-with-dialog.c:152
 msgid "Could not run application"
 msgstr ""
 
-#: ../libcaja-private/caja-open-with-dialog.c:164
+#: ../libcaja-private/caja-open-with-dialog.c:165
 #, c-format
 msgid "Could not find '%s'"
 msgstr ""
 
-#: ../libcaja-private/caja-open-with-dialog.c:167
+#: ../libcaja-private/caja-open-with-dialog.c:168
 msgid "Could not find application"
 msgstr ""
 
-#: ../libcaja-private/caja-open-with-dialog.c:251
+#: ../libcaja-private/caja-open-with-dialog.c:252
 #, c-format
 msgid "Could not add application to the application database: %s"
 msgstr ""
 
-#: ../libcaja-private/caja-open-with-dialog.c:252
+#: ../libcaja-private/caja-open-with-dialog.c:253
 msgid "Could not add application"
 msgstr ""
 
-#: ../libcaja-private/caja-open-with-dialog.c:450
+#: ../libcaja-private/caja-open-with-dialog.c:451
 msgid "Select an Application"
 msgstr ""
 
-#: ../libcaja-private/caja-open-with-dialog.c:840
-#: ../src/file-manager/fm-properties-window.c:5069
+#: ../libcaja-private/caja-open-with-dialog.c:856
+#: ../src/file-manager/fm-properties-window.c:5073
 msgid "Open With"
 msgstr "Sokafy amin'ny alalan'ny"
 
-#: ../libcaja-private/caja-open-with-dialog.c:878
+#: ../libcaja-private/caja-open-with-dialog.c:894
 msgid "Select an application to view its description."
 msgstr "Misafidiana rindran'asa iray hijerena ny mombamomba azy."
 
-#: ../libcaja-private/caja-open-with-dialog.c:904
+#: ../libcaja-private/caja-open-with-dialog.c:920
 msgid "_Use a custom command"
 msgstr ""
 
-#: ../libcaja-private/caja-open-with-dialog.c:921
+#: ../libcaja-private/caja-open-with-dialog.c:937
 msgid "_Browse..."
 msgstr "_Zahavo..."
 
-#. name, icon name
-#. label, accelerator
-#: ../libcaja-private/caja-open-with-dialog.c:960
-#: ../src/file-manager/fm-directory-view.c:7270
-#: ../src/file-manager/fm-directory-view.c:8779
-#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-location-dialog.c:199
-#: ../src/caja-places-sidebar.c:2656
-msgid "_Open"
-msgstr "_Sokafy"
-
 #. first %s is a filename and second %s is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1045
+#: ../libcaja-private/caja-open-with-dialog.c:1061
 #, c-format
 msgid "Open %s and other %s document with:"
 msgstr ""
 
 #. the %s here is a file name
 #. %s is a filename
-#: ../libcaja-private/caja-open-with-dialog.c:1051
-#: ../libcaja-private/caja-open-with-dialog.c:1091
+#: ../libcaja-private/caja-open-with-dialog.c:1067
+#: ../libcaja-private/caja-open-with-dialog.c:1107
 #, c-format
 msgid "Open %s with:"
 msgstr ""
 
-#: ../libcaja-private/caja-open-with-dialog.c:1052
+#: ../libcaja-private/caja-open-with-dialog.c:1068
 #, c-format
 msgid "_Remember this application for %s documents"
 msgstr ""
 
 #. Only in add mode - the %s here is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1063
+#: ../libcaja-private/caja-open-with-dialog.c:1079
 #, c-format
 msgid "Open all %s documents with:"
 msgstr ""
 
 #. First %s is a filename, second is a description
 #. * of the type, eg "plain text document"
-#: ../libcaja-private/caja-open-with-dialog.c:1085
+#: ../libcaja-private/caja-open-with-dialog.c:1101
 #, c-format
 msgid "Open %s and other \"%s\" files with:"
 msgstr ""
 
 #. %s is a file type description
-#: ../libcaja-private/caja-open-with-dialog.c:1093
+#: ../libcaja-private/caja-open-with-dialog.c:1109
 #, c-format
 msgid "_Remember this application for \"%s\" files"
 msgstr ""
 
 #. Only in add mode
-#: ../libcaja-private/caja-open-with-dialog.c:1104
+#: ../libcaja-private/caja-open-with-dialog.c:1120
 #, c-format
 msgid "Open all \"%s\" files with:"
 msgstr ""
 
-#: ../libcaja-private/caja-open-with-dialog.c:1117
+#: ../libcaja-private/caja-open-with-dialog.c:1133
 msgid "Add Application"
 msgstr ""
 
@@ -2402,25 +2434,25 @@ msgid ""
 " your computer, you may be able to open it."
 msgstr ""
 
-#: ../libcaja-private/caja-program-choosing.c:459
+#: ../libcaja-private/caja-program-choosing.c:461
 msgid "Sorry, but you cannot execute commands from a remote site."
 msgstr ""
 
-#: ../libcaja-private/caja-program-choosing.c:461
+#: ../libcaja-private/caja-program-choosing.c:463
 msgid "This is disabled due to security considerations."
 msgstr "Natsahatra io noho ny antony ara-piarovana."
 
-#: ../libcaja-private/caja-program-choosing.c:473
-#: ../libcaja-private/caja-program-choosing.c:541
+#: ../libcaja-private/caja-program-choosing.c:475
+#: ../libcaja-private/caja-program-choosing.c:543
 msgid "There was an error launching the application."
 msgstr "Nisy olana teo am-pandefasana ilay rindran'asa."
 
-#: ../libcaja-private/caja-program-choosing.c:502
-#: ../libcaja-private/caja-program-choosing.c:515
+#: ../libcaja-private/caja-program-choosing.c:504
+#: ../libcaja-private/caja-program-choosing.c:517
 msgid "This drop target only supports local files."
 msgstr "Ireo rakitra anatin'ny solosaina ihany no azo alatsaka."
 
-#: ../libcaja-private/caja-program-choosing.c:503
+#: ../libcaja-private/caja-program-choosing.c:505
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again."
@@ -2428,7 +2460,7 @@ msgstr ""
 "Raha hanokatra rakitra ivelany, dia adikao anatin'ny laha-tahiry anatin'ny "
 "solosaina ilay izy ary avereno alatsaka indray."
 
-#: ../libcaja-private/caja-program-choosing.c:516
+#: ../libcaja-private/caja-program-choosing.c:518
 msgid ""
 "To open non-local files copy them to a local folder and then drop them "
 "again. The local files you dropped have already been opened."
@@ -2437,7 +2469,7 @@ msgstr ""
 "solosaina ilay izy ary avereno alatsaka indray. Efa voasokatra ireo rakitra "
 "nalatsakao."
 
-#: ../libcaja-private/caja-program-choosing.c:539
+#: ../libcaja-private/caja-program-choosing.c:541
 msgid "Details: "
 msgstr "Antsipiriany:"
 
@@ -3709,39 +3741,39 @@ msgstr ""
 msgid "Show session management options"
 msgstr "Maneho ny safidin'ny fandrindrana session"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:667
+#: ../src/file-manager/fm-desktop-icon-view.c:672
 msgid "Background"
 msgstr "Afara"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:744
-#: ../src/file-manager/fm-directory-view.c:7302
-#: ../src/file-manager/fm-directory-view.c:8979
+#: ../src/file-manager/fm-desktop-icon-view.c:749
+#: ../src/file-manager/fm-directory-view.c:7328
+#: ../src/file-manager/fm-directory-view.c:9005
 msgid "E_mpty Trash"
 msgstr "Daba _foana"
 
 #. label, accelerator
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:758
-#: ../src/file-manager/fm-directory-view.c:7266
+#: ../src/file-manager/fm-desktop-icon-view.c:763
+#: ../src/file-manager/fm-directory-view.c:7292
 msgid "Create L_auncher..."
 msgstr "Hamorona m_pandefa..."
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:760
-#: ../src/file-manager/fm-directory-view.c:7267
+#: ../src/file-manager/fm-desktop-icon-view.c:765
+#: ../src/file-manager/fm-directory-view.c:7293
 msgid "Create a new launcher"
 msgstr "Hamorona mpampandeha vaovao"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:767
+#: ../src/file-manager/fm-desktop-icon-view.c:772
 msgid "Change Desktop _Background"
 msgstr "Hanova ny _afaran'ny sehatr'asa"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:769
+#: ../src/file-manager/fm-desktop-icon-view.c:774
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr ""
@@ -3749,21 +3781,21 @@ msgstr ""
 "afaran'ny desktop"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:776
+#: ../src/file-manager/fm-desktop-icon-view.c:781
 msgid "Empty Trash"
 msgstr "Daba foana"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:778
-#: ../src/file-manager/fm-directory-view.c:7303 ../src/caja-trash-bar.c:204
+#: ../src/file-manager/fm-desktop-icon-view.c:783
+#: ../src/file-manager/fm-directory-view.c:7329 ../src/caja-trash-bar.c:204
 msgid "Delete all items in the Trash"
 msgstr "Mamafa ny zavatra rehetra ao anatin'ny daba"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:878
+#: ../src/file-manager/fm-desktop-icon-view.c:883
 msgid "The desktop view encountered an error."
 msgstr "Tojo olana ny mpaneho sehatr'asa."
 
-#: ../src/file-manager/fm-desktop-icon-view.c:879
+#: ../src/file-manager/fm-desktop-icon-view.c:884
 msgid "The desktop view encountered an error while starting up."
 msgstr "Tojo olana teo am-piantombohana ny mpaneho sehatr'asa."
 
@@ -3782,57 +3814,70 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: ../src/file-manager/fm-directory-view.c:1177
-#: ../src/file-manager/fm-properties-window.c:5414
+#: ../src/file-manager/fm-properties-window.c:5418
 #: ../src/caja-connect-server-dialog.c:718 ../src/caja-location-dialog.c:102
 msgid "There was an error displaying help."
 msgstr "Nisy olana teo am-panehoana ireo toro-làlana."
 
-#: ../src/file-manager/fm-directory-view.c:1197
+#: ../src/file-manager/fm-directory-view.c:1198
 msgid "Select Items Matching"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:1212
+#. create the "help" button
+#. name, icon name, label
+#: ../src/file-manager/fm-directory-view.c:1203
+#: ../src/file-manager/fm-properties-window.c:5176
+#: ../src/caja-bookmarks-window.ui.h:2
+#: ../src/caja-connect-server-dialog.c:1117 ../src/caja-emblem-sidebar.c:300
+#: ../src/caja-emblem-sidebar.c:557
+#: ../src/caja-file-management-properties.ui.h:42
+#: ../src/caja-location-dialog.c:189 ../src/caja-property-browser.c:390
+#: ../src/caja-window-menus.c:809
+msgid "_Help"
+msgstr "_Toro-làlana"
+
+#: ../src/file-manager/fm-directory-view.c:1222
 msgid "_Pattern:"
 msgstr "_Firafitra:"
 
-#: ../src/file-manager/fm-directory-view.c:1219
+#: ../src/file-manager/fm-directory-view.c:1229
 msgid "Examples: "
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:1335
+#: ../src/file-manager/fm-directory-view.c:1346
 msgid "Save Search as"
 msgstr "Raiketo toy izao ny karoka"
 
-#: ../src/file-manager/fm-directory-view.c:1341
+#: ../src/file-manager/fm-directory-view.c:1354
 msgid "_Save"
 msgstr "_Raiketo"
 
-#: ../src/file-manager/fm-directory-view.c:1360
+#: ../src/file-manager/fm-directory-view.c:1373
 msgid "Search _name:"
 msgstr "_Anaran'ny karoka:"
 
-#: ../src/file-manager/fm-directory-view.c:1376
+#: ../src/file-manager/fm-directory-view.c:1389
 msgid "_Folder:"
 msgstr "_Laha-tahiry:"
 
-#: ../src/file-manager/fm-directory-view.c:1381
+#: ../src/file-manager/fm-directory-view.c:1394
 msgid "Select Folder to Save Search In"
 msgstr "Safidio ny laha-tahiry andraiketana ilay karoka"
 
-#: ../src/file-manager/fm-directory-view.c:2270
-#: ../src/file-manager/fm-directory-view.c:2307
+#: ../src/file-manager/fm-directory-view.c:2283
+#: ../src/file-manager/fm-directory-view.c:2320
 #, c-format
 msgid "\"%s\" selected"
 msgstr "\"%s\" no voafidy"
 
-#: ../src/file-manager/fm-directory-view.c:2272
+#: ../src/file-manager/fm-directory-view.c:2285
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:2282
+#: ../src/file-manager/fm-directory-view.c:2295
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
@@ -3841,14 +3886,14 @@ msgstr[1] ""
 
 #. translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
-#: ../src/file-manager/fm-directory-view.c:2293
+#: ../src/file-manager/fm-directory-view.c:2306
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:2310
+#: ../src/file-manager/fm-directory-view.c:2323
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
@@ -3856,7 +3901,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. Folders selected also, use "other" terminology
-#: ../src/file-manager/fm-directory-view.c:2317
+#: ../src/file-manager/fm-directory-view.c:2330
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
@@ -3867,17 +3912,17 @@ msgstr[1] ""
 #. * needs to use something other than parentheses. The
 #. * first message gives the number of items selected;
 #. * the message in parentheses the size of those items.
-#: ../src/file-manager/fm-directory-view.c:2336
+#: ../src/file-manager/fm-directory-view.c:2349
 #, c-format
 msgid "%s (%s)"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:2349
+#: ../src/file-manager/fm-directory-view.c:2362
 #, c-format
 msgid "Free space: %s"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:2360
+#: ../src/file-manager/fm-directory-view.c:2373
 #, c-format
 msgid "%s, Free space: %s"
 msgstr "%s, toerana malalaka: %s"
@@ -3886,7 +3931,7 @@ msgstr "%s, toerana malalaka: %s"
 #. * might want to change "," to something else.
 #. * After the comma the amount of free space will
 #. * be shown.
-#: ../src/file-manager/fm-directory-view.c:2375
+#: ../src/file-manager/fm-directory-view.c:2388
 #, c-format
 msgid "%s, %s"
 msgstr "%s, %s"
@@ -3901,8 +3946,8 @@ msgstr "%s, %s"
 #. * and the number of items in those folders and the
 #. * message about the number of other items and the
 #. * total size of those items.
-#: ../src/file-manager/fm-directory-view.c:2394
-#: ../src/file-manager/fm-directory-view.c:2408
+#: ../src/file-manager/fm-directory-view.c:2407
+#: ../src/file-manager/fm-directory-view.c:2421
 #, c-format
 msgid "%s%s, %s"
 msgstr "%s%s, %s"
@@ -3914,49 +3959,49 @@ msgstr "%s%s, %s"
 #. * message about the number of other items and the
 #. * total size of those items. After the second comma
 #. * the free space is written.
-#: ../src/file-manager/fm-directory-view.c:2421
+#: ../src/file-manager/fm-directory-view.c:2434
 #, c-format
 msgid "%s%s, %s, %s"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:4466
+#: ../src/file-manager/fm-directory-view.c:4479
 #: ../src/caja-information-panel.c:905
 #, c-format
 msgid "Open With %s"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:4468
+#: ../src/file-manager/fm-directory-view.c:4481
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:4557
+#: ../src/file-manager/fm-directory-view.c:4570
 msgid "Open parent location"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:4558
+#: ../src/file-manager/fm-directory-view.c:4571
 msgid "Open parent location for the selected item"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:5407
+#: ../src/file-manager/fm-directory-view.c:5424
 #, c-format
 msgid "Run \"%s\" on any selected items"
 msgstr "\"%s\" alefa hanokafana izay zavatra voafaritra"
 
-#: ../src/file-manager/fm-directory-view.c:5658
+#: ../src/file-manager/fm-directory-view.c:5675
 #, c-format
 msgid "Create Document from template \"%s\""
 msgstr "Hamorona Tahirin-kevitra avy amin'ny fakantahaka \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:5908
+#: ../src/file-manager/fm-directory-view.c:5925
 msgid "All executable files in this folder will appear in the Scripts menu."
 msgstr ""
 "Ireo rakitra azo alefa rehetra anatin'ity laha-tahiry ity dia hiseho "
 "anatin'ny karazan-tsafidin'ny baiki soratra."
 
-#: ../src/file-manager/fm-directory-view.c:5910
+#: ../src/file-manager/fm-directory-view.c:5927
 msgid ""
 "Choosing a script from the menu will run that script with any selected items"
 " as input."
@@ -3964,7 +4009,7 @@ msgstr ""
 "Ny fisafidianana teny baiko ho an'ny karazan-tsafidy dia handefa izany teny "
 "baiko izany miaraka amin'izay zavatra voafaritra ho toy ny input."
 
-#: ../src/file-manager/fm-directory-view.c:5912
+#: ../src/file-manager/fm-directory-view.c:5929
 msgid ""
 "All executable files in this folder will appear in the Scripts menu. Choosing a script from the menu will run that script.\n"
 "\n"
@@ -3987,19 +4032,19 @@ msgid ""
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI for current location in the inactive pane of a split-view window"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:5980
-#: ../src/file-manager/fm-tree-view.c:1009
+#: ../src/file-manager/fm-directory-view.c:5997
+#: ../src/file-manager/fm-tree-view.c:1010
 #, c-format
 msgid "\"%s\" will be moved if you select the Paste command"
 msgstr "Hifindra toerana ny \"%s\" raha toa ka ekenao ny baiko Apetao"
 
-#: ../src/file-manager/fm-directory-view.c:5984
-#: ../src/file-manager/fm-tree-view.c:1015
+#: ../src/file-manager/fm-directory-view.c:6001
+#: ../src/file-manager/fm-tree-view.c:1016
 #, c-format
 msgid "\"%s\" will be copied if you select the Paste command"
 msgstr "Hadika ny \"%s\" raha toa ka ekenao ny baiko Apetao"
 
-#: ../src/file-manager/fm-directory-view.c:5991
+#: ../src/file-manager/fm-directory-view.c:6008
 #, c-format
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
@@ -4007,7 +4052,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:5998
+#: ../src/file-manager/fm-directory-view.c:6015
 #, c-format
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
@@ -4015,98 +4060,100 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:6178
-#: ../src/file-manager/fm-tree-view.c:1055
+#: ../src/file-manager/fm-directory-view.c:6195
+#: ../src/file-manager/fm-tree-view.c:1056
 msgid "There is nothing on the clipboard to paste."
 msgstr "Tsy misy zavatra hapetaka avy ao anaty fanindri-taratasy."
 
-#: ../src/file-manager/fm-directory-view.c:6393
+#: ../src/file-manager/fm-directory-view.c:6410
 msgid "Unable to unmount location"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:6414
+#: ../src/file-manager/fm-directory-view.c:6431
 msgid "Unable to eject location"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:6429
+#: ../src/file-manager/fm-directory-view.c:6446
 msgid "Unable to stop drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:6986
+#: ../src/file-manager/fm-directory-view.c:7005
 #, c-format
 msgid "Connect to Server %s"
 msgstr "Hifandray amin'ny mpizara %s"
 
-#: ../src/file-manager/fm-directory-view.c:6991
-#: ../src/file-manager/fm-directory-view.c:8198
-#: ../src/file-manager/fm-directory-view.c:8290
-#: ../src/file-manager/fm-directory-view.c:8400
+#: ../src/file-manager/fm-directory-view.c:7017
+#: ../src/file-manager/fm-directory-view.c:8224
+#: ../src/file-manager/fm-directory-view.c:8316
+#: ../src/file-manager/fm-directory-view.c:8426
 msgid "_Connect"
 msgstr "_Atomboy"
 
-#: ../src/file-manager/fm-directory-view.c:7005
+#: ../src/file-manager/fm-directory-view.c:7031
 msgid "Link _name:"
 msgstr "_Anaran'ny rohy:"
 
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:7244
+#: ../src/file-manager/fm-directory-view.c:7270
 msgid "Create _Document"
 msgstr "Hamorona _tahirin-kevitra"
 
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:7245
+#: ../src/file-manager/fm-directory-view.c:7271
 msgid "Open Wit_h"
 msgstr "Sokafy amin'ny A_lalan'ny"
 
-#: ../src/file-manager/fm-directory-view.c:7246
+#: ../src/file-manager/fm-directory-view.c:7272
 msgid "Choose a program with which to open the selected item"
 msgstr "Misafidiana rindran'asa hanokafana ilay zavatra voafaritra"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7248
-#: ../src/file-manager/fm-directory-view.c:7527
+#. add the "properties" menu item
+#: ../src/file-manager/fm-directory-view.c:7274
+#: ../src/file-manager/fm-directory-view.c:7553
+#: ../src/file-manager/fm-tree-view.c:1378
 msgid "_Properties"
 msgstr "_Toetoetra"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7249
-#: ../src/file-manager/fm-directory-view.c:8966
+#: ../src/file-manager/fm-directory-view.c:7275
+#: ../src/file-manager/fm-directory-view.c:8992
 msgid "View or modify the properties of each selected item"
 msgstr "Hijery na hanova ny toetoetry ny zavatra voafaritra tsirairay"
 
 #. name, icon name
 #. label, accelerator
 #. add the "create folder" menu item
-#: ../src/file-manager/fm-directory-view.c:7256
-#: ../src/file-manager/fm-tree-view.c:1298
+#: ../src/file-manager/fm-directory-view.c:7282
+#: ../src/file-manager/fm-tree-view.c:1296
 msgid "Create _Folder"
 msgstr "Hamorona _lahatahiry"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7257
+#: ../src/file-manager/fm-directory-view.c:7283
 msgid "Create a new empty folder inside this folder"
 msgstr "Mamorona laha-tahiry foana vaovao anatin'ity laha-tahiry iray ity"
 
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:7259
+#: ../src/file-manager/fm-directory-view.c:7285
 msgid "No templates installed"
 msgstr ""
 
 #. name, icon name
 #. translators: this is used to indicate that a file doesn't contain anything
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7262
+#: ../src/file-manager/fm-directory-view.c:7288
 msgid "_Empty File"
 msgstr "_Rakitra foana"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7263
+#: ../src/file-manager/fm-directory-view.c:7289
 msgid "Create a new empty file inside this folder"
 msgstr "Mamorona rakitra foana vaovao anatin'ity laha-tahiry"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7271
+#: ../src/file-manager/fm-directory-view.c:7297
 msgid "Open the selected item in this window"
 msgstr "Manokatra ny rakitra voafaritra anatin'ity fiikandrana ity"
 
@@ -4115,89 +4162,89 @@ msgstr "Manokatra ny rakitra voafaritra anatin'ity fiikandrana ity"
 #. Location-specific actions
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7278
-#: ../src/file-manager/fm-directory-view.c:7459
+#: ../src/file-manager/fm-directory-view.c:7304
+#: ../src/file-manager/fm-directory-view.c:7485
 msgid "Open in Navigation Window"
 msgstr "Sokafy anatin'ny fikandrana mpitety"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7279
+#: ../src/file-manager/fm-directory-view.c:7305
 msgid "Open each selected item in a navigation window"
 msgstr "Sokafy anatin'ny fikandrana mpitety ny rakitra voafaritra tsirairay"
 
 #. name, icon name
 #. label, accelerator
 #. add the "open in new tab" menu item
-#: ../src/file-manager/fm-directory-view.c:7282
-#: ../src/file-manager/fm-directory-view.c:7463
-#: ../src/file-manager/fm-directory-view.c:8530
-#: ../src/file-manager/fm-directory-view.c:8856
-#: ../src/file-manager/fm-tree-view.c:1278 ../src/caja-places-sidebar.c:2664
+#: ../src/file-manager/fm-directory-view.c:7308
+#: ../src/file-manager/fm-directory-view.c:7489
+#: ../src/file-manager/fm-directory-view.c:8556
+#: ../src/file-manager/fm-directory-view.c:8882
+#: ../src/file-manager/fm-tree-view.c:1276 ../src/caja-places-sidebar.c:2685
 msgid "Open in New _Tab"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7283
+#: ../src/file-manager/fm-directory-view.c:7309
 msgid "Open each selected item in a new tab"
 msgstr ""
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7286
-#: ../src/file-manager/fm-directory-view.c:7468
+#: ../src/file-manager/fm-directory-view.c:7312
+#: ../src/file-manager/fm-directory-view.c:7494
 msgid "Open in _Folder Window"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7287
+#: ../src/file-manager/fm-directory-view.c:7313
 msgid "Open each selected item in a folder window"
 msgstr ""
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7290
+#: ../src/file-manager/fm-directory-view.c:7316
 msgid "Other _Application..."
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7291
-#: ../src/file-manager/fm-directory-view.c:7295
+#: ../src/file-manager/fm-directory-view.c:7317
+#: ../src/file-manager/fm-directory-view.c:7321
 msgid "Choose another application with which to open the selected item"
 msgstr "Misafidy rindran'asa hafa hanokafana ilay zavatra voafaritra"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7294
+#: ../src/file-manager/fm-directory-view.c:7320
 msgid "Open With Other _Application..."
 msgstr ""
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7298
+#: ../src/file-manager/fm-directory-view.c:7324
 msgid "_Open Scripts Folder"
 msgstr "_Sokafy ny laha-tahirin'ny baiko soratra"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7299
+#: ../src/file-manager/fm-directory-view.c:7325
 msgid "Show the folder containing the scripts that appear in this menu"
 msgstr ""
 "Mampiseho ny laha-tahiry misy ireo baiko soratra hita anatin'ity karazan-"
 "tsafidy ity"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7307
+#: ../src/file-manager/fm-directory-view.c:7333
 msgid "Prepare the selected files to be moved with a Paste command"
 msgstr ""
 "Manomana ireo rakitra voafaritra hafindra amin'ny alalan'ny baiko Apetao"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7311
+#: ../src/file-manager/fm-directory-view.c:7337
 msgid "Prepare the selected files to be copied with a Paste command"
 msgstr ""
 "Manomana ireo rakitra voafaritra hadika amin'ny alalan'ny baiko Apetao"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7315
+#: ../src/file-manager/fm-directory-view.c:7341
 msgid "Move or copy files previously selected by a Cut or Copy command"
 msgstr ""
 "Mamindra na mandika ireo rakitra voafaritra teo aloha amin'ny alalan'ny "
@@ -4207,14 +4254,15 @@ msgstr ""
 #. accelerator for paste
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7320
-#: ../src/file-manager/fm-directory-view.c:7481
-#: ../src/file-manager/fm-tree-view.c:1330
+#. add the "paste files into folder" menu item
+#: ../src/file-manager/fm-directory-view.c:7346
+#: ../src/file-manager/fm-directory-view.c:7507
+#: ../src/file-manager/fm-tree-view.c:1325
 msgid "_Paste Into Folder"
 msgstr "_Apetao ao anatin'ilay laha-tahiry"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7321
+#: ../src/file-manager/fm-directory-view.c:7347
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into the "
 "selected folder"
@@ -4223,28 +4271,28 @@ msgstr ""
 "voafaritra amin'ny alalan'ny baiko Esory na Adikao"
 
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:7323
+#: ../src/file-manager/fm-directory-view.c:7349
 msgid "Cop_y to"
 msgstr ""
 
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:7324
+#: ../src/file-manager/fm-directory-view.c:7350
 msgid "M_ove to"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7327
+#: ../src/file-manager/fm-directory-view.c:7353
 msgid "Select all items in this window"
 msgstr "Farito daholo ireo zavatra anatin'ity fikandrana ity "
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7330
+#: ../src/file-manager/fm-directory-view.c:7356
 msgid "Select I_tems Matching..."
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7331
+#: ../src/file-manager/fm-directory-view.c:7357
 msgid "Select items in this window matching a given pattern"
 msgstr ""
 "Mamaritra ireo zavatra anatin'ity fikandrana ity araka ny rafi-pamaritana "
@@ -4252,90 +4300,90 @@ msgstr ""
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7334
+#: ../src/file-manager/fm-directory-view.c:7360
 msgid "_Invert Selection"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7335
+#: ../src/file-manager/fm-directory-view.c:7361
 msgid "Select all and only the items that are not currently selected"
 msgstr ""
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7338
+#: ../src/file-manager/fm-directory-view.c:7364
 msgid "D_uplicate"
 msgstr "Anaovy _dika mitovy"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7339
+#: ../src/file-manager/fm-directory-view.c:7365
 msgid "Duplicate each selected item"
 msgstr "Manao dika mitovy ny zavatra voafaritra"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7342
-#: ../src/file-manager/fm-directory-view.c:8950
+#: ../src/file-manager/fm-directory-view.c:7368
+#: ../src/file-manager/fm-directory-view.c:8976
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
 msgstr[0] ""
 msgstr[1] ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7343
+#: ../src/file-manager/fm-directory-view.c:7369
 msgid "Create a symbolic link for each selected item"
 msgstr "Mamorona rohy misolotena ho an'ny zavatra voafaritra"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7346
+#: ../src/file-manager/fm-directory-view.c:7372
 msgid "_Rename..."
 msgstr "_Hanova anarana..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7347
+#: ../src/file-manager/fm-directory-view.c:7373
 msgid "Rename selected item"
 msgstr "Manova anarana ny zavatra voafaritra"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7355
-#: ../src/file-manager/fm-directory-view.c:8911
+#: ../src/file-manager/fm-directory-view.c:7381
+#: ../src/file-manager/fm-directory-view.c:8937
 msgid "Move each selected item to the Trash"
 msgstr "Mandefa ny zavatra voafaritra any anaty daba"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7359
+#: ../src/file-manager/fm-directory-view.c:7385
 msgid "Delete each selected item, without moving to the Trash"
 msgstr "Mamafa ny zavatra voafaritra, nefa tsy mandefa izany any anaty daba"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7362
-#: ../src/file-manager/fm-directory-view.c:7494
+#: ../src/file-manager/fm-directory-view.c:7388
+#: ../src/file-manager/fm-directory-view.c:7520
 msgid "_Restore"
 msgstr ""
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7366
+#: ../src/file-manager/fm-directory-view.c:7392
 msgid "_Undo"
 msgstr "_Foano"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7367
-#: ../src/file-manager/fm-directory-view.c:11118
+#: ../src/file-manager/fm-directory-view.c:7393
+#: ../src/file-manager/fm-directory-view.c:11144
 msgid "Undo the last action"
 msgstr "Manafoana ny asa natao farany"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7370
+#: ../src/file-manager/fm-directory-view.c:7396
 msgid "_Redo"
 msgstr "_Avereno"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7371
-#: ../src/file-manager/fm-directory-view.c:11136
+#: ../src/file-manager/fm-directory-view.c:7397
+#: ../src/file-manager/fm-directory-view.c:11162
 msgid "Redo the last undone action"
 msgstr "Mamerina ny asa nofoanana farany"
 
@@ -4345,12 +4393,12 @@ msgstr "Mamerina ny asa nofoanana farany"
 #. * it is a mixture of both ATM.
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7381
+#: ../src/file-manager/fm-directory-view.c:7407
 msgid "Reset View to _Defaults"
 msgstr "Avereno amin'ny endriny _tsotra ny efijery"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7382
+#: ../src/file-manager/fm-directory-view.c:7408
 msgid "Reset sorting order and zoom level to match preferences for this view"
 msgstr ""
 "Avereno amin'ny tokony ho izy ny fomba fandaharana sy ny mariky ny zòma mba "
@@ -4358,600 +4406,600 @@ msgstr ""
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7385
+#: ../src/file-manager/fm-directory-view.c:7411
 msgid "Connect To This Server"
 msgstr "Hifandray amin'ity mpizara ity"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7386
+#: ../src/file-manager/fm-directory-view.c:7412
 msgid "Make a permanent connection to this server"
 msgstr "Mampisy fifandraisana mitoetra amin'io mpizara io"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7389
-#: ../src/file-manager/fm-directory-view.c:7417
-#: ../src/file-manager/fm-directory-view.c:7498
-#: ../src/caja-places-sidebar.c:2700
+#: ../src/file-manager/fm-directory-view.c:7415
+#: ../src/file-manager/fm-directory-view.c:7443
+#: ../src/file-manager/fm-directory-view.c:7524
+#: ../src/caja-places-sidebar.c:2721
 msgid "_Mount"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7390
+#: ../src/file-manager/fm-directory-view.c:7416
 msgid "Mount the selected volume"
 msgstr "Mampakatra ilay kapila voafaritra"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7394
+#: ../src/file-manager/fm-directory-view.c:7420
 msgid "Unmount the selected volume"
 msgstr "Mandatsaka ilay kapila voafaritra"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7398
+#: ../src/file-manager/fm-directory-view.c:7424
 msgid "Eject the selected volume"
 msgstr "Manatsoaka ilay kapila voafaritra"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7401
-#: ../src/file-manager/fm-directory-view.c:7429
-#: ../src/file-manager/fm-directory-view.c:7510
-#: ../src/caja-places-sidebar.c:2728
+#: ../src/file-manager/fm-directory-view.c:7427
+#: ../src/file-manager/fm-directory-view.c:7455
+#: ../src/file-manager/fm-directory-view.c:7536
+#: ../src/caja-places-sidebar.c:2749
 msgid "_Format"
 msgstr "Ampanarao _format"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7402
+#: ../src/file-manager/fm-directory-view.c:7428
 msgid "Format the selected volume"
 msgstr "Mampanaraka format ilay kapila voafaritra"
 
 #. name, icon name
 #. label, accelerator
 #. Adjust start/stop items to reflect the type of the drive
-#: ../src/file-manager/fm-directory-view.c:7405
-#: ../src/file-manager/fm-directory-view.c:7433
-#: ../src/file-manager/fm-directory-view.c:7514
-#: ../src/file-manager/fm-directory-view.c:8190
-#: ../src/file-manager/fm-directory-view.c:8194
-#: ../src/file-manager/fm-directory-view.c:8282
-#: ../src/file-manager/fm-directory-view.c:8286
-#: ../src/file-manager/fm-directory-view.c:8392
-#: ../src/file-manager/fm-directory-view.c:8396
-#: ../src/caja-places-sidebar.c:1785 ../src/caja-places-sidebar.c:2735
+#: ../src/file-manager/fm-directory-view.c:7431
+#: ../src/file-manager/fm-directory-view.c:7459
+#: ../src/file-manager/fm-directory-view.c:7540
+#: ../src/file-manager/fm-directory-view.c:8216
+#: ../src/file-manager/fm-directory-view.c:8220
+#: ../src/file-manager/fm-directory-view.c:8308
+#: ../src/file-manager/fm-directory-view.c:8312
+#: ../src/file-manager/fm-directory-view.c:8418
+#: ../src/file-manager/fm-directory-view.c:8422
+#: ../src/caja-places-sidebar.c:1804 ../src/caja-places-sidebar.c:2756
 msgid "_Start"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7406
+#: ../src/file-manager/fm-directory-view.c:7432
 msgid "Start the selected volume"
 msgstr ""
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7409
-#: ../src/file-manager/fm-directory-view.c:7437
-#: ../src/file-manager/fm-directory-view.c:7518
-#: ../src/file-manager/fm-directory-view.c:8219
-#: ../src/file-manager/fm-directory-view.c:8311
-#: ../src/file-manager/fm-directory-view.c:8421
-#: ../src/caja-places-sidebar.c:1786 ../src/caja-places-sidebar.c:2742
+#: ../src/file-manager/fm-directory-view.c:7435
+#: ../src/file-manager/fm-directory-view.c:7463
+#: ../src/file-manager/fm-directory-view.c:7544
+#: ../src/file-manager/fm-directory-view.c:8245
+#: ../src/file-manager/fm-directory-view.c:8337
+#: ../src/file-manager/fm-directory-view.c:8447
+#: ../src/caja-places-sidebar.c:1805 ../src/caja-places-sidebar.c:2763
 #: ../src/caja-window-menus.c:836
 msgid "_Stop"
 msgstr "_Ajanony"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7410
-#: ../src/file-manager/fm-directory-view.c:8422
+#: ../src/file-manager/fm-directory-view.c:7436
+#: ../src/file-manager/fm-directory-view.c:8448
 msgid "Stop the selected volume"
 msgstr ""
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7413
-#: ../src/file-manager/fm-directory-view.c:7441
-#: ../src/file-manager/fm-directory-view.c:7522
-#: ../src/caja-places-sidebar.c:2721
+#: ../src/file-manager/fm-directory-view.c:7439
+#: ../src/file-manager/fm-directory-view.c:7467
+#: ../src/file-manager/fm-directory-view.c:7548
+#: ../src/caja-places-sidebar.c:2742
 msgid "_Detect Media"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7414
-#: ../src/file-manager/fm-directory-view.c:7442
-#: ../src/file-manager/fm-directory-view.c:7523
+#: ../src/file-manager/fm-directory-view.c:7440
+#: ../src/file-manager/fm-directory-view.c:7468
+#: ../src/file-manager/fm-directory-view.c:7549
 msgid "Detect media in the selected drive"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7418
+#: ../src/file-manager/fm-directory-view.c:7444
 msgid "Mount the volume associated with the open folder"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7422
+#: ../src/file-manager/fm-directory-view.c:7448
 msgid "Unmount the volume associated with the open folder"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7426
+#: ../src/file-manager/fm-directory-view.c:7452
 msgid "Eject the volume associated with the open folder"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7430
+#: ../src/file-manager/fm-directory-view.c:7456
 msgid "Format the volume associated with the open folder"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7434
+#: ../src/file-manager/fm-directory-view.c:7460
 msgid "Start the volume associated with the open folder"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7438
+#: ../src/file-manager/fm-directory-view.c:7464
 msgid "Stop the volume associated with the open folder"
 msgstr ""
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7445
+#: ../src/file-manager/fm-directory-view.c:7471
 msgid "Open File and Close window"
 msgstr "Manokatra ilay rakitra ary hidio ny fikandrana"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7449
+#: ../src/file-manager/fm-directory-view.c:7475
 msgid "Sa_ve Search"
 msgstr "_Raiketo ny karoka"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7450
+#: ../src/file-manager/fm-directory-view.c:7476
 msgid "Save the edited search"
 msgstr "Mandraikitra ilay karoka novaina"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7453
+#: ../src/file-manager/fm-directory-view.c:7479
 msgid "Sa_ve Search As..."
 msgstr "_Raiketo toy izao ilay karoka..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7454
+#: ../src/file-manager/fm-directory-view.c:7480
 msgid "Save the current search as a file"
 msgstr "Mandraikitra io karoka io anaty rakitra"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7460
+#: ../src/file-manager/fm-directory-view.c:7486
 msgid "Open this folder in a navigation window"
 msgstr "Sokafy anaty fikandrana mpizaha ity laha-tahiry ity"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7464
+#: ../src/file-manager/fm-directory-view.c:7490
 msgid "Open this folder in a new tab"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7469
+#: ../src/file-manager/fm-directory-view.c:7495
 msgid "Open this folder in a folder window"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7474
+#: ../src/file-manager/fm-directory-view.c:7500
 msgid "Prepare this folder to be moved with a Paste command"
 msgstr ""
 "Manomana ny famindrana ity laha-tahiry ity amin'ny alalan'ny baiko Apetao"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7478
+#: ../src/file-manager/fm-directory-view.c:7504
 msgid "Prepare this folder to be copied with a Paste command"
 msgstr "Manomana ny fandikana ity laha-tahiry amin'ny alalan'ny baiko Apetao"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7482
+#: ../src/file-manager/fm-directory-view.c:7508
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into this "
 "folder"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7487
+#: ../src/file-manager/fm-directory-view.c:7513
 msgid "Move this folder to the Trash"
 msgstr "Mandefa ity laha-tahiry ity any anaty daba"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7491
+#: ../src/file-manager/fm-directory-view.c:7517
 msgid "Delete this folder, without moving to the Trash"
 msgstr "Mamafa ity laha-tahiry ity, nefa tsy madefa azy any anaty daba"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7499
+#: ../src/file-manager/fm-directory-view.c:7525
 msgid "Mount the volume associated with this folder"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7503
+#: ../src/file-manager/fm-directory-view.c:7529
 msgid "Unmount the volume associated with this folder"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7507
+#: ../src/file-manager/fm-directory-view.c:7533
 msgid "Eject the volume associated with this folder"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7511
+#: ../src/file-manager/fm-directory-view.c:7537
 msgid "Format the volume associated with this folder"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7515
+#: ../src/file-manager/fm-directory-view.c:7541
 msgid "Start the volume associated with this folder"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7519
+#: ../src/file-manager/fm-directory-view.c:7545
 msgid "Stop the volume associated with this folder"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7528
+#: ../src/file-manager/fm-directory-view.c:7554
 msgid "View or modify the properties of this folder"
 msgstr ""
 
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:7531
-#: ../src/file-manager/fm-directory-view.c:7534
+#: ../src/file-manager/fm-directory-view.c:7557
+#: ../src/file-manager/fm-directory-view.c:7560
 msgid "_Other pane"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7532
+#: ../src/file-manager/fm-directory-view.c:7558
 msgid "Copy the current selection to the other pane in the window"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7535
+#: ../src/file-manager/fm-directory-view.c:7561
 msgid "Move the current selection to the other pane in the window"
 msgstr ""
 
 #. name, icon name, label
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7538
-#: ../src/file-manager/fm-directory-view.c:7542 ../src/caja-window-menus.c:891
+#: ../src/file-manager/fm-directory-view.c:7564
+#: ../src/file-manager/fm-directory-view.c:7568 ../src/caja-window-menus.c:891
 msgid "_Home Folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7539
+#: ../src/file-manager/fm-directory-view.c:7565
 msgid "Copy the current selection to the home folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7543
+#: ../src/file-manager/fm-directory-view.c:7569
 msgid "Move the current selection to the home folder"
 msgstr ""
 
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:7546
-#: ../src/file-manager/fm-directory-view.c:7550
+#: ../src/file-manager/fm-directory-view.c:7572
+#: ../src/file-manager/fm-directory-view.c:7576
 msgid "_Desktop"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7547
+#: ../src/file-manager/fm-directory-view.c:7573
 msgid "Copy the current selection to the desktop"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:7551
+#: ../src/file-manager/fm-directory-view.c:7577
 msgid "Move the current selection to the desktop"
 msgstr ""
 
 #. Translators: %s is a directory
-#: ../src/file-manager/fm-directory-view.c:7631
+#: ../src/file-manager/fm-directory-view.c:7657
 #, c-format
 msgid "Run or manage scripts from %s"
 msgstr "Mandefa na mandrindra ireo baiko soratra avy amin'ny %s"
 
 #. Create a script action here specially because its tooltip is dynamic
-#: ../src/file-manager/fm-directory-view.c:7633
+#: ../src/file-manager/fm-directory-view.c:7659
 msgid "_Scripts"
 msgstr "_Baiko soratra"
 
-#: ../src/file-manager/fm-directory-view.c:8038
+#: ../src/file-manager/fm-directory-view.c:8064
 #, c-format
 msgid "Move the open folder out of the trash to \"%s\""
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8041
+#: ../src/file-manager/fm-directory-view.c:8067
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8045
+#: ../src/file-manager/fm-directory-view.c:8071
 #, c-format
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8051
+#: ../src/file-manager/fm-directory-view.c:8077
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8055
+#: ../src/file-manager/fm-directory-view.c:8081
 #, c-format
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8061
+#: ../src/file-manager/fm-directory-view.c:8087
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8065
+#: ../src/file-manager/fm-directory-view.c:8091
 #, c-format
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8191
-#: ../src/file-manager/fm-directory-view.c:8195
-#: ../src/file-manager/fm-directory-view.c:8393
-#: ../src/file-manager/fm-directory-view.c:8397
+#: ../src/file-manager/fm-directory-view.c:8217
+#: ../src/file-manager/fm-directory-view.c:8221
+#: ../src/file-manager/fm-directory-view.c:8419
+#: ../src/file-manager/fm-directory-view.c:8423
 msgid "Start the selected drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8199
-#: ../src/file-manager/fm-directory-view.c:8401
+#: ../src/file-manager/fm-directory-view.c:8225
+#: ../src/file-manager/fm-directory-view.c:8427
 msgid "Connect to the selected drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8202
-#: ../src/file-manager/fm-directory-view.c:8294
-#: ../src/file-manager/fm-directory-view.c:8404
+#: ../src/file-manager/fm-directory-view.c:8228
+#: ../src/file-manager/fm-directory-view.c:8320
+#: ../src/file-manager/fm-directory-view.c:8430
 msgid "_Start Multi-disk Drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8203
-#: ../src/file-manager/fm-directory-view.c:8405
+#: ../src/file-manager/fm-directory-view.c:8229
+#: ../src/file-manager/fm-directory-view.c:8431
 msgid "Start the selected multi-disk drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8206
+#: ../src/file-manager/fm-directory-view.c:8232
 msgid "U_nlock Drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8207
-#: ../src/file-manager/fm-directory-view.c:8409
+#: ../src/file-manager/fm-directory-view.c:8233
+#: ../src/file-manager/fm-directory-view.c:8435
 msgid "Unlock the selected drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8220
+#: ../src/file-manager/fm-directory-view.c:8246
 msgid "Stop the selected drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8223
-#: ../src/file-manager/fm-directory-view.c:8315
-#: ../src/file-manager/fm-directory-view.c:8425
-#: ../src/caja-places-sidebar.c:1794
+#: ../src/file-manager/fm-directory-view.c:8249
+#: ../src/file-manager/fm-directory-view.c:8341
+#: ../src/file-manager/fm-directory-view.c:8451
+#: ../src/caja-places-sidebar.c:1813
 msgid "_Safely Remove Drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8224
-#: ../src/file-manager/fm-directory-view.c:8426
+#: ../src/file-manager/fm-directory-view.c:8250
+#: ../src/file-manager/fm-directory-view.c:8452
 msgid "Safely remove the selected drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8227
-#: ../src/file-manager/fm-directory-view.c:8319
-#: ../src/file-manager/fm-directory-view.c:8429
+#: ../src/file-manager/fm-directory-view.c:8253
+#: ../src/file-manager/fm-directory-view.c:8345
+#: ../src/file-manager/fm-directory-view.c:8455
 msgid "_Disconnect"
 msgstr "_Atsaharo"
 
-#: ../src/file-manager/fm-directory-view.c:8228
-#: ../src/file-manager/fm-directory-view.c:8430
+#: ../src/file-manager/fm-directory-view.c:8254
+#: ../src/file-manager/fm-directory-view.c:8456
 msgid "Disconnect the selected drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8231
-#: ../src/file-manager/fm-directory-view.c:8323
-#: ../src/file-manager/fm-directory-view.c:8433
+#: ../src/file-manager/fm-directory-view.c:8257
+#: ../src/file-manager/fm-directory-view.c:8349
+#: ../src/file-manager/fm-directory-view.c:8459
 msgid "_Stop Multi-disk Drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8232
-#: ../src/file-manager/fm-directory-view.c:8434
+#: ../src/file-manager/fm-directory-view.c:8258
+#: ../src/file-manager/fm-directory-view.c:8460
 msgid "Stop the selected multi-disk drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8235
-#: ../src/file-manager/fm-directory-view.c:8327
-#: ../src/file-manager/fm-directory-view.c:8437
-#: ../src/caja-places-sidebar.c:1807
+#: ../src/file-manager/fm-directory-view.c:8261
+#: ../src/file-manager/fm-directory-view.c:8353
+#: ../src/file-manager/fm-directory-view.c:8463
+#: ../src/caja-places-sidebar.c:1826
 msgid "_Lock Drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8236
-#: ../src/file-manager/fm-directory-view.c:8438
+#: ../src/file-manager/fm-directory-view.c:8262
+#: ../src/file-manager/fm-directory-view.c:8464
 msgid "Lock the selected drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8283
-#: ../src/file-manager/fm-directory-view.c:8287
+#: ../src/file-manager/fm-directory-view.c:8309
+#: ../src/file-manager/fm-directory-view.c:8313
 msgid "Start the drive associated with the open folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8291
+#: ../src/file-manager/fm-directory-view.c:8317
 msgid "Connect to the drive associated with the open folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8295
+#: ../src/file-manager/fm-directory-view.c:8321
 msgid "Start the multi-disk drive associated with the open folder"
 msgstr ""
 
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
-#: ../src/file-manager/fm-directory-view.c:8298
-#: ../src/file-manager/fm-directory-view.c:8408
-#: ../src/caja-places-sidebar.c:1806
+#: ../src/file-manager/fm-directory-view.c:8324
+#: ../src/file-manager/fm-directory-view.c:8434
+#: ../src/caja-places-sidebar.c:1825
 msgid "_Unlock Drive"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8299
+#: ../src/file-manager/fm-directory-view.c:8325
 msgid "Unlock the drive associated with the open folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8312
+#: ../src/file-manager/fm-directory-view.c:8338
 msgid "_Stop the drive associated with the open folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8316
+#: ../src/file-manager/fm-directory-view.c:8342
 msgid "Safely remove the drive associated with the open folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8320
+#: ../src/file-manager/fm-directory-view.c:8346
 msgid "Disconnect the drive associated with the open folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8324
+#: ../src/file-manager/fm-directory-view.c:8350
 msgid "Stop the multi-disk drive associated with the open folder"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8328
+#: ../src/file-manager/fm-directory-view.c:8354
 msgid "Lock the drive associated with the open folder"
 msgstr ""
 
 #. add the "open in new window" menu item
-#: ../src/file-manager/fm-directory-view.c:8507
-#: ../src/file-manager/fm-directory-view.c:8817
-#: ../src/file-manager/fm-tree-view.c:1287 ../src/caja-places-sidebar.c:2671
+#: ../src/file-manager/fm-directory-view.c:8533
+#: ../src/file-manager/fm-directory-view.c:8843
+#: ../src/file-manager/fm-tree-view.c:1285 ../src/caja-places-sidebar.c:2692
 msgid "Open in New _Window"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8509
-#: ../src/file-manager/fm-directory-view.c:8826
+#: ../src/file-manager/fm-directory-view.c:8535
+#: ../src/file-manager/fm-directory-view.c:8852
 msgid "Browse in New _Window"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8515
-#: ../src/file-manager/fm-directory-view.c:8836
+#: ../src/file-manager/fm-directory-view.c:8541
+#: ../src/file-manager/fm-directory-view.c:8862
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8532
-#: ../src/file-manager/fm-directory-view.c:8865
+#: ../src/file-manager/fm-directory-view.c:8558
+#: ../src/file-manager/fm-directory-view.c:8891
 msgid "Browse in New _Tab"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8581
-#: ../src/file-manager/fm-directory-view.c:8906
+#: ../src/file-manager/fm-directory-view.c:8607
+#: ../src/file-manager/fm-directory-view.c:8932
 msgid "_Delete Permanently"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8582
+#: ../src/file-manager/fm-directory-view.c:8608
 msgid "Delete the open folder permanently"
 msgstr "Mamafa tanteraka ilay laha-tahiry misokatra"
 
-#: ../src/file-manager/fm-directory-view.c:8586
+#: ../src/file-manager/fm-directory-view.c:8612
 msgid "Move the open folder to the Trash"
 msgstr "Alefaso any anaty daba ny laha-tahiry misokatra"
 
-#: ../src/file-manager/fm-directory-view.c:8766
+#: ../src/file-manager/fm-directory-view.c:8792
 #, c-format
 msgid "_Open With %s"
 msgstr ""
 
-#: ../src/file-manager/fm-directory-view.c:8819
+#: ../src/file-manager/fm-directory-view.c:8845
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8828
+#: ../src/file-manager/fm-directory-view.c:8854
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8858
+#: ../src/file-manager/fm-directory-view.c:8884
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8867
+#: ../src/file-manager/fm-directory-view.c:8893
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-directory-view.c:8907
+#: ../src/file-manager/fm-directory-view.c:8933
 msgid "Delete all selected items permanently"
 msgstr "Fafao tanteraka ireo zavatra voafaritra rehetra"
 
-#: ../src/file-manager/fm-directory-view.c:8964
+#: ../src/file-manager/fm-directory-view.c:8990
 msgid "View or modify the properties of the open folder"
 msgstr "Hijery na hanova ny toetoetry ny laha-tahiry misokatra"
 
-#: ../src/file-manager/fm-directory-view.c:10267
+#: ../src/file-manager/fm-directory-view.c:10293
 msgid "Download location?"
 msgstr "Aidina io toerana io?"
 
-#: ../src/file-manager/fm-directory-view.c:10270
+#: ../src/file-manager/fm-directory-view.c:10296
 msgid "You can download it or make a link to it."
 msgstr "Azonao aidina io na amoronanao rohy."
 
-#: ../src/file-manager/fm-directory-view.c:10273
+#: ../src/file-manager/fm-directory-view.c:10299
 msgid "Make a _Link"
 msgstr "Hamorona _rohy"
 
-#: ../src/file-manager/fm-directory-view.c:10280
+#: ../src/file-manager/fm-directory-view.c:10306
 msgid "_Download"
 msgstr "_Aidina"
 
-#: ../src/file-manager/fm-directory-view.c:10441
-#: ../src/file-manager/fm-directory-view.c:10500
-#: ../src/file-manager/fm-directory-view.c:10605
+#: ../src/file-manager/fm-directory-view.c:10467
+#: ../src/file-manager/fm-directory-view.c:10526
+#: ../src/file-manager/fm-directory-view.c:10631
 msgid "Drag and drop is not supported."
 msgstr "Tsy mety raisina sy afindra."
 
-#: ../src/file-manager/fm-directory-view.c:10442
+#: ../src/file-manager/fm-directory-view.c:10468
 msgid "Drag and drop is only supported on local file systems."
 msgstr "Ireo rafi-drakitry ny solosaina ihany no azo raisina sy afindra."
 
-#: ../src/file-manager/fm-directory-view.c:10501
-#: ../src/file-manager/fm-directory-view.c:10606
+#: ../src/file-manager/fm-directory-view.c:10527
+#: ../src/file-manager/fm-directory-view.c:10632
 msgid "An invalid drag type was used."
 msgstr "Fomba fandraisana tsy nety no natao."
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10683
+#: ../src/file-manager/fm-directory-view.c:10709
 msgid "dropped text.txt"
 msgstr ""
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10728
+#: ../src/file-manager/fm-directory-view.c:10754
 msgid "dropped data"
 msgstr ""
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11117
+#: ../src/file-manager/fm-directory-view.c:11143
 msgid "Undo"
 msgstr "Foano"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11135
+#: ../src/file-manager/fm-directory-view.c:11161
 msgid "Redo"
 msgstr ""
 
@@ -5083,8 +5131,8 @@ msgstr "Manova ny anaran'ny \"%s\" ho \"%s\"."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-icon-container.c:611
-#: ../src/file-manager/fm-icon-view.c:3380
+#: ../src/file-manager/fm-icon-container.c:614
+#: ../src/file-manager/fm-icon-view.c:3399
 #: ../src/caja-file-management-properties.ui.h:1
 msgid "Icon View"
 msgstr "Fijerin'ny kisary"
@@ -5094,7 +5142,7 @@ msgid "by _Name"
 msgstr "araka ny _anarana"
 
 #: ../src/file-manager/fm-icon-view.c:129
-#: ../src/file-manager/fm-icon-view.c:1740
+#: ../src/file-manager/fm-icon-view.c:1747
 msgid "Keep icons sorted by name in rows"
 msgstr "Mandahatra ny kisary araka ny anarany"
 
@@ -5103,15 +5151,16 @@ msgid "by _Size"
 msgstr "araka ny _habe"
 
 #: ../src/file-manager/fm-icon-view.c:136
-#: ../src/file-manager/fm-icon-view.c:1746
+#: ../src/file-manager/fm-icon-view.c:1753
 msgid "Keep icons sorted by size in rows"
 msgstr "Mandahatra ny kisary araka ny habeny"
 
 #: ../src/file-manager/fm-icon-view.c:142
-msgid "by Size on Disk"
+msgid "by S_ize on Disk"
 msgstr ""
 
 #: ../src/file-manager/fm-icon-view.c:143
+#: ../src/file-manager/fm-icon-view.c:1759
 msgid "Keep icons sorted by disk usage in rows"
 msgstr ""
 
@@ -5120,7 +5169,7 @@ msgid "by _Type"
 msgstr "araka ny _Karazana"
 
 #: ../src/file-manager/fm-icon-view.c:150
-#: ../src/file-manager/fm-icon-view.c:1752
+#: ../src/file-manager/fm-icon-view.c:1765
 msgid "Keep icons sorted by type in rows"
 msgstr "Mandahatra ny kisary araka ny karazany"
 
@@ -5129,7 +5178,7 @@ msgid "by Modification _Date"
 msgstr "araka ny _Daty nanaovana fanovana"
 
 #: ../src/file-manager/fm-icon-view.c:157
-#: ../src/file-manager/fm-icon-view.c:1758
+#: ../src/file-manager/fm-icon-view.c:1771
 msgid "Keep icons sorted by modification date in rows"
 msgstr "Mandahatra ny kisary araka ny daty nanaovana fanovana"
 
@@ -5138,7 +5187,7 @@ msgid "by _Emblems"
 msgstr "araka ny _Famantarana"
 
 #: ../src/file-manager/fm-icon-view.c:164
-#: ../src/file-manager/fm-icon-view.c:1764
+#: ../src/file-manager/fm-icon-view.c:1777
 msgid "Keep icons sorted by emblems in rows"
 msgstr "Mandahatra ny kisary araka ny famantarana"
 
@@ -5147,50 +5196,58 @@ msgid "by T_rash Time"
 msgstr ""
 
 #: ../src/file-manager/fm-icon-view.c:171
-#: ../src/file-manager/fm-icon-view.c:1770
+#: ../src/file-manager/fm-icon-view.c:1783
 msgid "Keep icons sorted by trash time in rows"
 msgstr ""
 
-#: ../src/file-manager/fm-icon-view.c:780
+#: ../src/file-manager/fm-icon-view.c:177
+msgid "by E_xtension"
+msgstr ""
+
+#: ../src/file-manager/fm-icon-view.c:178
+msgid "Keep icons sorted by reversed extension segments in rows"
+msgstr ""
+
+#: ../src/file-manager/fm-icon-view.c:787
 msgid "_Organize Desktop by Name"
 msgstr ""
 
 #. name, stock id, label
-#: ../src/file-manager/fm-icon-view.c:1689
+#: ../src/file-manager/fm-icon-view.c:1696
 msgid "Arran_ge Items"
 msgstr "Han_damina ireo zavatra"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1691
+#: ../src/file-manager/fm-icon-view.c:1698
 msgid "Resize Icon..."
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1692
+#: ../src/file-manager/fm-icon-view.c:1699
 msgid "Make the selected icon resizable"
 msgstr ""
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1696
-#: ../src/file-manager/fm-icon-view.c:1897
+#: ../src/file-manager/fm-icon-view.c:1703
+#: ../src/file-manager/fm-icon-view.c:1916
 msgid "Restore Icons' Original Si_zes"
 msgstr "Avereno amin'ny _habeny teo aloha ny kisary"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1697
+#: ../src/file-manager/fm-icon-view.c:1704
 msgid "Restore each selected icon to its original size"
 msgstr "Mamerina ny kisary voafarina amin'ny habeny teo aloha"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1701
+#: ../src/file-manager/fm-icon-view.c:1708
 msgid "_Organize by Name"
 msgstr ""
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1702
+#: ../src/file-manager/fm-icon-view.c:1709
 msgid "Reposition icons to better fit in the window and avoid overlapping"
 msgstr ""
 "Manamboatra ny toeran'ireo  kisary mba ho tafiditra tsara ao anatin'ny "
@@ -5198,245 +5255,268 @@ msgstr ""
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1710
+#: ../src/file-manager/fm-icon-view.c:1717
 msgid "Compact _Layout"
 msgstr "_Fandaminana mifaneritery"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1711
+#: ../src/file-manager/fm-icon-view.c:1718
 msgid "Toggle using a tighter layout scheme"
 msgstr "Ahafahana manao fandaminana mifaneritery"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1716
+#: ../src/file-manager/fm-icon-view.c:1723
 msgid "Re_versed Order"
 msgstr "Filaharana mi_vadika"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1717
+#: ../src/file-manager/fm-icon-view.c:1724
 msgid "Display icons in the opposite order"
 msgstr "Mampiseho ny kisary manaraka filharana mivadika"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-icon-view.c:1722
+#: ../src/file-manager/fm-icon-view.c:1729
 msgid "_Keep Aligned"
 msgstr "_Ataovy mifanitsy foana"
 
 #. tooltip
-#: ../src/file-manager/fm-icon-view.c:1723
+#: ../src/file-manager/fm-icon-view.c:1730
 msgid "Keep icons lined up on a grid"
 msgstr "Mandahatra ireo kisary mahitsy manaraka efamira-tsoramiafina"
 
-#: ../src/file-manager/fm-icon-view.c:1733
+#: ../src/file-manager/fm-icon-view.c:1740
 msgid "_Manually"
 msgstr "_Ataon-tànana"
 
-#: ../src/file-manager/fm-icon-view.c:1734
+#: ../src/file-manager/fm-icon-view.c:1741
 msgid "Leave icons wherever they are dropped"
 msgstr "Mamela ny kisary amin'ny toerana izay ametrahana azy"
 
-#: ../src/file-manager/fm-icon-view.c:1739
+#: ../src/file-manager/fm-icon-view.c:1746
 msgid "By _Name"
 msgstr "Araka ny _Anarana"
 
-#: ../src/file-manager/fm-icon-view.c:1745
+#: ../src/file-manager/fm-icon-view.c:1752
 msgid "By _Size"
 msgstr "Araka ny _Habe"
 
-#: ../src/file-manager/fm-icon-view.c:1751
+#: ../src/file-manager/fm-icon-view.c:1758
+msgid "By S_ize on Disk"
+msgstr ""
+
+#: ../src/file-manager/fm-icon-view.c:1764
 msgid "By _Type"
 msgstr "Araka ny _Karazana"
 
-#: ../src/file-manager/fm-icon-view.c:1757
+#: ../src/file-manager/fm-icon-view.c:1770
 msgid "By Modification _Date"
 msgstr "Araka ny _Daty nanaovana fanovana"
 
-#: ../src/file-manager/fm-icon-view.c:1763
+#: ../src/file-manager/fm-icon-view.c:1776
 msgid "By _Emblems"
 msgstr "Araka ny _Famantarana"
 
-#: ../src/file-manager/fm-icon-view.c:1769
+#: ../src/file-manager/fm-icon-view.c:1782
 msgid "By T_rash Time"
 msgstr ""
 
-#: ../src/file-manager/fm-icon-view.c:1898
+#: ../src/file-manager/fm-icon-view.c:1788
+msgid "By E_xtension"
+msgstr ""
+
+#: ../src/file-manager/fm-icon-view.c:1789
+msgid "Keep icons sorted by reverse extension segments in rows"
+msgstr ""
+
+#: ../src/file-manager/fm-icon-view.c:1917
 msgid "Restore Icon's Original Si_ze"
 msgstr "Avareno amin'ny _habeny teo aloha ny kisary"
 
-#: ../src/file-manager/fm-icon-view.c:2373
+#: ../src/file-manager/fm-icon-view.c:2392
 #, c-format
 msgid "pointing at \"%s\""
 msgstr "Manondro ny \"%s\""
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3382
+#: ../src/file-manager/fm-icon-view.c:3401
 msgid "_Icons"
 msgstr ""
 
-#: ../src/file-manager/fm-icon-view.c:3383
+#: ../src/file-manager/fm-icon-view.c:3402
 msgid "The icon view encountered an error."
 msgstr "Tojo olana ny mpaneho kisary."
 
-#: ../src/file-manager/fm-icon-view.c:3384
+#: ../src/file-manager/fm-icon-view.c:3403
 msgid "The icon view encountered an error while starting up."
 msgstr "Tojo olana ny mpaneho kisary raha mbola niantomboka."
 
-#: ../src/file-manager/fm-icon-view.c:3385
+#: ../src/file-manager/fm-icon-view.c:3404
 msgid "Display this location with the icon view."
 msgstr "Asehoy miaraka amin'ny mpaneho kisary ity toerana ity."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-icon-view.c:3395
+#: ../src/file-manager/fm-icon-view.c:3414
 #: ../src/caja-file-management-properties.ui.h:3
 msgid "Compact View"
 msgstr ""
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3397
+#: ../src/file-manager/fm-icon-view.c:3416
 msgid "_Compact"
 msgstr ""
 
-#: ../src/file-manager/fm-icon-view.c:3398
+#: ../src/file-manager/fm-icon-view.c:3417
 msgid "The compact view encountered an error."
 msgstr ""
 
-#: ../src/file-manager/fm-icon-view.c:3399
+#: ../src/file-manager/fm-icon-view.c:3418
 msgid "The compact view encountered an error while starting up."
 msgstr ""
 
-#: ../src/file-manager/fm-icon-view.c:3400
+#: ../src/file-manager/fm-icon-view.c:3419
 msgid "Display this location with the compact view."
 msgstr ""
 
-#: ../src/file-manager/fm-list-model.c:428
-#: ../src/file-manager/fm-tree-model.c:1358
+#: ../src/file-manager/fm-list-model.c:448
+#: ../src/file-manager/fm-tree-model.c:1364
 msgid "(Empty)"
 msgstr "(Foana)"
 
-#: ../src/file-manager/fm-list-model.c:432
-#: ../src/file-manager/fm-tree-model.c:1358 ../src/caja-window-slot.c:207
+#: ../src/file-manager/fm-list-model.c:452
+#: ../src/file-manager/fm-tree-model.c:1364 ../src/caja-window-slot.c:207
 msgid "Loading..."
 msgstr "Mangala..."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-list-view.c:1837
-#: ../src/file-manager/fm-list-view.c:3450
+#: ../src/file-manager/fm-list-view.c:1845
+#: ../src/file-manager/fm-list-view.c:3463
 #: ../src/caja-file-management-properties.ui.h:2
 msgid "List View"
 msgstr "Sehon'ny lisitra"
 
-#: ../src/file-manager/fm-list-view.c:2531
+#: ../src/file-manager/fm-list-view.c:2539
 #, c-format
 msgid "%s Visible Columns"
 msgstr "Fariana %s no tazana"
 
-#: ../src/file-manager/fm-list-view.c:2550
+#. create the "close" button
+#. name, icon name
+#. label, accelerator
+#: ../src/file-manager/fm-list-view.c:2548
+#: ../src/file-manager/fm-properties-window.c:5181
+#: ../src/caja-bookmarks-window.ui.h:5
+#: ../src/caja-file-management-properties.ui.h:43
+#: ../src/caja-property-browser.c:398 ../src/caja-window-menus.c:811
+msgid "_Close"
+msgstr "_hidio"
+
+#: ../src/file-manager/fm-list-view.c:2563
 msgid "Choose the order of information to appear in this folder:"
 msgstr ""
 
 #. name, stock id
 #. label, accelerator
-#: ../src/file-manager/fm-list-view.c:2604
+#: ../src/file-manager/fm-list-view.c:2617
 msgid "Visible _Columns..."
 msgstr "_Fariana tazana..."
 
 #. tooltip
-#: ../src/file-manager/fm-list-view.c:2605
+#: ../src/file-manager/fm-list-view.c:2618
 msgid "Select the columns visible in this folder"
 msgstr "Mamaritra ireo fariana hita anatin'ity laha-tahiry ity"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-list-view.c:3452
+#: ../src/file-manager/fm-list-view.c:3465
 msgid "_List"
 msgstr ""
 
-#: ../src/file-manager/fm-list-view.c:3453
+#: ../src/file-manager/fm-list-view.c:3466
 msgid "The list view encountered an error."
 msgstr "Tojo olana ny sehon'ny lisitra."
 
-#: ../src/file-manager/fm-list-view.c:3454
+#: ../src/file-manager/fm-list-view.c:3467
 msgid "The list view encountered an error while starting up."
 msgstr "Tojo olana ity sehon'ny lisitra ity teo am-piantombohana."
 
-#: ../src/file-manager/fm-list-view.c:3455
+#: ../src/file-manager/fm-list-view.c:3468
 msgid "Display this location with the list view."
 msgstr "Asehoy miaraka amin'ny sehon'ny lisitra ity toerana ity."
 
-#: ../src/file-manager/fm-properties-window.c:495
+#: ../src/file-manager/fm-properties-window.c:505
 msgid "You cannot assign more than one custom icon at a time!"
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:496
+#: ../src/file-manager/fm-properties-window.c:506
 #: ../src/caja-information-panel.c:528
 msgid "Please drag just one image to set a custom icon."
 msgstr "Mandraisa sary iray fotsiny hatao kisary safidy."
 
-#: ../src/file-manager/fm-properties-window.c:507
+#: ../src/file-manager/fm-properties-window.c:517
 #: ../src/caja-information-panel.c:555
 msgid "The file that you dropped is not local."
 msgstr "Tsy rakitry ny solosaina ilay rakitra nalatsakao."
 
-#: ../src/file-manager/fm-properties-window.c:508
-#: ../src/file-manager/fm-properties-window.c:514
+#: ../src/file-manager/fm-properties-window.c:518
+#: ../src/file-manager/fm-properties-window.c:524
 #: ../src/caja-information-panel.c:556
 msgid "You can only use local images as custom icons."
 msgstr "Sary anatin'ny solosaina ihany no azonao atao kisary safidy."
 
-#: ../src/file-manager/fm-properties-window.c:513
+#: ../src/file-manager/fm-properties-window.c:523
 #: ../src/caja-information-panel.c:563
 msgid "The file that you dropped is not an image."
 msgstr "Tsy sary ilay rakitra nalatsakao."
 
-#: ../src/file-manager/fm-properties-window.c:636
+#: ../src/file-manager/fm-properties-window.c:639
 msgid "_Name:"
 msgid_plural "_Names:"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-properties-window.c:992
+#: ../src/file-manager/fm-properties-window.c:995
 #, c-format
 msgid "Properties"
 msgstr "Toetoetra"
 
-#: ../src/file-manager/fm-properties-window.c:1000
+#: ../src/file-manager/fm-properties-window.c:1003
 #, c-format
 msgid "%s Properties"
 msgstr "Toetoetran'ny %s"
 
-#: ../src/file-manager/fm-properties-window.c:1328
+#: ../src/file-manager/fm-properties-window.c:1330
 #, c-format
 msgctxt "MIME type description (MIME type)"
 msgid "%s (%s)"
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:1536
+#: ../src/file-manager/fm-properties-window.c:1538
 msgid "Cancel Group Change?"
 msgstr "Foanana ny fanovana vondrona?"
 
-#: ../src/file-manager/fm-properties-window.c:1946
+#: ../src/file-manager/fm-properties-window.c:1948
 msgid "Cancel Owner Change?"
 msgstr "Foanana ny fanovana tompo?"
 
-#: ../src/file-manager/fm-properties-window.c:2270
+#: ../src/file-manager/fm-properties-window.c:2272
 msgid "nothing"
 msgstr "Tsy misy na inona na inona"
 
-#: ../src/file-manager/fm-properties-window.c:2272
+#: ../src/file-manager/fm-properties-window.c:2274
 msgid "unreadable"
 msgstr "tsy hay vakiana"
 
-#: ../src/file-manager/fm-properties-window.c:2291
+#: ../src/file-manager/fm-properties-window.c:2293
 #, c-format
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/file-manager/fm-properties-window.c:2301
+#: ../src/file-manager/fm-properties-window.c:2303
 msgid "(some contents unreadable)"
 msgstr "(tsy hay vakiana ny sasany amin'ny  mpiaty)"
 
@@ -5445,276 +5525,255 @@ msgstr "(tsy hay vakiana ny sasany amin'ny  mpiaty)"
 #. * "Contents:" title to line up with the first line of the
 #. * 2-line value. Maybe there's a better way to do this, but I
 #. * couldn't think of one.
-#: ../src/file-manager/fm-properties-window.c:2318
+#: ../src/file-manager/fm-properties-window.c:2320
 msgid "Contents:"
 msgstr "Mpiaty:"
 
 #. Translators: "used" refers to the capacity of the filesystem
-#: ../src/file-manager/fm-properties-window.c:3094
+#: ../src/file-manager/fm-properties-window.c:3096
 msgid "used"
 msgstr "nampiasaina"
 
 #. Translators: "free" refers to the capacity of the filesystem
-#: ../src/file-manager/fm-properties-window.c:3103
+#: ../src/file-manager/fm-properties-window.c:3105
 msgid "free"
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:3105
+#: ../src/file-manager/fm-properties-window.c:3107
 msgid "Total capacity:"
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:3114
+#: ../src/file-manager/fm-properties-window.c:3116
 msgid "Filesystem type:"
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:3200
+#: ../src/file-manager/fm-properties-window.c:3202
 msgid "Basic"
 msgstr "Fototra"
 
-#: ../src/file-manager/fm-properties-window.c:3262
+#: ../src/file-manager/fm-properties-window.c:3264
 msgid "Link target:"
 msgstr "Tanjon'ny rohy:"
 
-#: ../src/file-manager/fm-properties-window.c:3276
+#: ../src/file-manager/fm-properties-window.c:3278
 msgid "Size on Disk:"
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:3285
+#: ../src/file-manager/fm-properties-window.c:3287
 #: ../src/caja-location-bar.c:57
 msgid "Location:"
 msgstr "Toerana:"
 
-#: ../src/file-manager/fm-properties-window.c:3291
+#: ../src/file-manager/fm-properties-window.c:3293
 msgid "Volume:"
 msgstr "Hadiry:"
 
-#: ../src/file-manager/fm-properties-window.c:3300
+#: ../src/file-manager/fm-properties-window.c:3302
 msgid "Accessed:"
 msgstr "Nosokafana ny:"
 
-#: ../src/file-manager/fm-properties-window.c:3304
+#: ../src/file-manager/fm-properties-window.c:3306
 msgid "Modified:"
 msgstr "Novaina ny:"
 
-#: ../src/file-manager/fm-properties-window.c:3313
+#: ../src/file-manager/fm-properties-window.c:3315
 msgid "Free space:"
 msgstr "Toerana malalaka:"
 
-#: ../src/file-manager/fm-properties-window.c:3427
-#: ../src/caja-emblem-sidebar.c:1085
+#: ../src/file-manager/fm-properties-window.c:3430
+#: ../src/caja-emblem-sidebar.c:1098
 msgid "Emblems"
 msgstr "Famantarana"
 
-#: ../src/file-manager/fm-properties-window.c:3836
+#: ../src/file-manager/fm-properties-window.c:3840
 msgid "_Read"
 msgstr "_Mamaky"
 
-#: ../src/file-manager/fm-properties-window.c:3838
+#: ../src/file-manager/fm-properties-window.c:3842
 msgid "_Write"
 msgstr "_Manoratra"
 
-#: ../src/file-manager/fm-properties-window.c:3840
+#: ../src/file-manager/fm-properties-window.c:3844
 msgid "E_xecute"
 msgstr "Fand_efasana"
 
 #. translators: this gets concatenated to "no read",
 #. * "no access", etc. (see following strings)
-#: ../src/file-manager/fm-properties-window.c:4108
-#: ../src/file-manager/fm-properties-window.c:4119
-#: ../src/file-manager/fm-properties-window.c:4131
+#: ../src/file-manager/fm-properties-window.c:4112
+#: ../src/file-manager/fm-properties-window.c:4123
+#: ../src/file-manager/fm-properties-window.c:4135
 msgid "no "
 msgstr "tsia "
 
-#: ../src/file-manager/fm-properties-window.c:4111
+#: ../src/file-manager/fm-properties-window.c:4115
 msgid "list"
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:4113
+#: ../src/file-manager/fm-properties-window.c:4117
 msgid "read"
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:4122
+#: ../src/file-manager/fm-properties-window.c:4126
 msgid "create/delete"
 msgstr "mamorona/fafao"
 
-#: ../src/file-manager/fm-properties-window.c:4124
+#: ../src/file-manager/fm-properties-window.c:4128
 msgid "write"
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:4133
+#: ../src/file-manager/fm-properties-window.c:4137
 msgid "access"
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:4181
+#: ../src/file-manager/fm-properties-window.c:4185
 msgid "Access:"
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:4183
+#: ../src/file-manager/fm-properties-window.c:4187
 msgid "Folder access:"
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:4185
+#: ../src/file-manager/fm-properties-window.c:4189
 msgid "File access:"
 msgstr ""
 
 #. Translators: this is referred to the permissions
 #. * the user has in a directory.
 #. Translators: this is referred to captions under icons.
-#: ../src/file-manager/fm-properties-window.c:4200
-#: ../src/file-manager/fm-properties-window.c:4211
-#: ../src/caja-file-management-properties.c:329
+#: ../src/file-manager/fm-properties-window.c:4204
+#: ../src/file-manager/fm-properties-window.c:4215
+#: ../src/caja-file-management-properties.c:336
 msgid "None"
 msgstr "Tsy misy"
 
-#: ../src/file-manager/fm-properties-window.c:4203
+#: ../src/file-manager/fm-properties-window.c:4207
 msgid "List files only"
 msgstr "Rakitra ihany no asehoy"
 
-#: ../src/file-manager/fm-properties-window.c:4205
+#: ../src/file-manager/fm-properties-window.c:4209
 msgid "Access files"
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:4207
+#: ../src/file-manager/fm-properties-window.c:4211
 msgid "Create and delete files"
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:4214
+#: ../src/file-manager/fm-properties-window.c:4218
 msgid "Read-only"
 msgstr "Mamaky fotsiny"
 
-#: ../src/file-manager/fm-properties-window.c:4216
+#: ../src/file-manager/fm-properties-window.c:4220
 msgid "Read and write"
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:4281
+#: ../src/file-manager/fm-properties-window.c:4285
 msgid "Special flags:"
 msgstr "Saina manokana:"
 
-#: ../src/file-manager/fm-properties-window.c:4283
+#: ../src/file-manager/fm-properties-window.c:4287
 msgid "Set _user ID"
 msgstr "Farito ny ID'ny _mpampiasa"
 
-#: ../src/file-manager/fm-properties-window.c:4284
+#: ../src/file-manager/fm-properties-window.c:4288
 msgid "Set gro_up ID"
 msgstr "Farito ny ID'ny _vondrona"
 
-#: ../src/file-manager/fm-properties-window.c:4285
+#: ../src/file-manager/fm-properties-window.c:4289
 msgid "_Sticky"
 msgstr "_Mety mipetaka"
 
-#: ../src/file-manager/fm-properties-window.c:4360
-#: ../src/file-manager/fm-properties-window.c:4551
+#: ../src/file-manager/fm-properties-window.c:4364
+#: ../src/file-manager/fm-properties-window.c:4555
 msgid "_Owner:"
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:4368
-#: ../src/file-manager/fm-properties-window.c:4456
-#: ../src/file-manager/fm-properties-window.c:4560
+#: ../src/file-manager/fm-properties-window.c:4372
+#: ../src/file-manager/fm-properties-window.c:4460
+#: ../src/file-manager/fm-properties-window.c:4564
 msgid "Owner:"
 msgstr "Tompony:"
 
-#: ../src/file-manager/fm-properties-window.c:4390
-#: ../src/file-manager/fm-properties-window.c:4573
+#: ../src/file-manager/fm-properties-window.c:4394
+#: ../src/file-manager/fm-properties-window.c:4577
 msgid "_Group:"
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:4398
-#: ../src/file-manager/fm-properties-window.c:4457
-#: ../src/file-manager/fm-properties-window.c:4581
+#: ../src/file-manager/fm-properties-window.c:4402
+#: ../src/file-manager/fm-properties-window.c:4461
+#: ../src/file-manager/fm-properties-window.c:4585
 msgid "Group:"
 msgstr "Vondrony:"
 
-#: ../src/file-manager/fm-properties-window.c:4422
+#: ../src/file-manager/fm-properties-window.c:4426
 msgid "Others"
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:4437
+#: ../src/file-manager/fm-properties-window.c:4441
 msgid "Execute:"
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:4440
+#: ../src/file-manager/fm-properties-window.c:4444
 msgid "Allow _executing file as program"
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:4458
+#: ../src/file-manager/fm-properties-window.c:4462
 msgid "Others:"
 msgstr "Hafa:"
 
-#: ../src/file-manager/fm-properties-window.c:4597
+#: ../src/file-manager/fm-properties-window.c:4601
 msgid "Folder Permissions:"
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:4604
+#: ../src/file-manager/fm-properties-window.c:4608
 msgid "File Permissions:"
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:4613
+#: ../src/file-manager/fm-properties-window.c:4617
 msgid "Text view:"
 msgstr "Sehon'ny soratra:"
 
-#: ../src/file-manager/fm-properties-window.c:4759
+#: ../src/file-manager/fm-properties-window.c:4763
 msgid "You are not the owner, so you cannot change these permissions."
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:4779
+#: ../src/file-manager/fm-properties-window.c:4783
 msgid "SELinux context:"
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:4784
+#: ../src/file-manager/fm-properties-window.c:4788
 msgid "Last changed:"
 msgstr "Novaina farany ny:"
 
-#: ../src/file-manager/fm-properties-window.c:4795
+#: ../src/file-manager/fm-properties-window.c:4799
 msgid "Apply Permissions to Enclosed Files"
 msgstr ""
 
-#: ../src/file-manager/fm-properties-window.c:4805
+#: ../src/file-manager/fm-properties-window.c:4809
 #, c-format
 msgid "The permissions of \"%s\" could not be determined."
 msgstr "Tsy fantatra ny fahazoan-dàlan'ny \"%s\"."
 
-#: ../src/file-manager/fm-properties-window.c:4808
+#: ../src/file-manager/fm-properties-window.c:4812
 msgid "The permissions of the selected file could not be determined."
 msgstr "Tsy fantatra ny fahazoan-dàlan'ny rakitra voafaritra."
 
-#. create the "help" button
-#. name, icon name, label
-#: ../src/file-manager/fm-properties-window.c:5172
-#: ../src/caja-bookmarks-window.ui.h:2
-#: ../src/caja-connect-server-dialog.c:1117
-#: ../src/caja-file-management-properties.ui.h:40
-#: ../src/caja-location-dialog.c:189 ../src/caja-property-browser.c:390
-#: ../src/caja-window-menus.c:809
-msgid "_Help"
-msgstr "_Toro-làlana"
-
-#. create the "close" button
-#. name, icon name
-#. label, accelerator
-#: ../src/file-manager/fm-properties-window.c:5177
-#: ../src/caja-bookmarks-window.ui.h:5
-#: ../src/caja-file-management-properties.ui.h:41
-#: ../src/caja-property-browser.c:398 ../src/caja-window-menus.c:811
-msgid "_Close"
-msgstr "_hidio"
-
-#: ../src/file-manager/fm-properties-window.c:5387
+#: ../src/file-manager/fm-properties-window.c:5391
 msgid "Creating Properties window."
 msgstr "Mamorona fikandran'ny toetoetra."
 
-#: ../src/file-manager/fm-properties-window.c:5676
+#: ../src/file-manager/fm-properties-window.c:5680
 msgid "Select Custom Icon"
 msgstr "Hamaritra kisary safidy"
 
-#: ../src/file-manager/fm-tree-view.c:1438 ../src/caja-places-sidebar.c:535
+#: ../src/file-manager/fm-tree-view.c:1421 ../src/caja-places-sidebar.c:554
 msgid "File System"
 msgstr "Rafi-drakitra"
 
-#: ../src/file-manager/fm-tree-view.c:1727
+#: ../src/file-manager/fm-tree-view.c:1708
 msgid "Tree"
 msgstr "Hazo"
 
-#: ../src/file-manager/fm-tree-view.c:1733
+#: ../src/file-manager/fm-tree-view.c:1714
 msgid "Show Tree"
 msgstr "Asehoy ny hazo"
 
@@ -5744,8 +5803,8 @@ msgstr ""
 "Forony ireo laha-tahiry ireo na amboaro ny fahazoan-dàlana alohan'ny "
 "andefasana ny Caja, amin'izay voaforony izy ireo."
 
-#: ../src/caja-application.c:1264 ../src/caja-places-sidebar.c:2191
-#: ../src/caja-places-sidebar.c:2222 ../src/caja-places-sidebar.c:2257
+#: ../src/caja-application.c:1264 ../src/caja-places-sidebar.c:2210
+#: ../src/caja-places-sidebar.c:2241 ../src/caja-places-sidebar.c:2276
 #, c-format
 msgid "Unable to eject %s"
 msgstr ""
@@ -5843,9 +5902,9 @@ msgid ""
 "If in doubt, press Cancel."
 msgstr ""
 
-#: ../src/caja-bookmarks-window.c:158
-#: ../src/caja-file-management-properties.c:236
-#: ../src/caja-property-browser.c:1664 ../src/caja-window-menus.c:590
+#: ../src/caja-bookmarks-window.c:159
+#: ../src/caja-file-management-properties.c:243
+#: ../src/caja-property-browser.c:1680 ../src/caja-window-menus.c:590
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
@@ -5854,7 +5913,7 @@ msgstr ""
 "Nisy olana teo am-panehoana ny toro-làlana:\n"
 "%s"
 
-#: ../src/caja-bookmarks-window.c:194
+#: ../src/caja-bookmarks-window.c:195
 msgid "No bookmarks defined"
 msgstr "Tsy misy tobin-drohy voafaritra"
 
@@ -6013,45 +6072,46 @@ msgstr ""
 msgid "Bookmark Name:"
 msgstr ""
 
-#: ../src/caja-desktop-window.c:87 ../src/caja-desktop-window.c:264
-#: ../src/caja-pathbar.c:1399 ../src/caja-places-sidebar.c:519
+#: ../src/caja-desktop-window.c:87 ../src/caja-desktop-window.c:270
+#: ../src/caja-pathbar.c:1446 ../src/caja-places-sidebar.c:538
 msgid "Desktop"
 msgstr "Sehatr'asa"
 
-#: ../src/caja-emblem-sidebar.c:224
+#: ../src/caja-emblem-sidebar.c:225
 #, c-format
 msgid "Could not remove emblem with name '%s'."
 msgstr ""
 
-#: ../src/caja-emblem-sidebar.c:225 ../src/caja-emblem-sidebar.c:265
+#: ../src/caja-emblem-sidebar.c:226 ../src/caja-emblem-sidebar.c:266
 msgid ""
 "This is probably because the emblem is a permanent one, and not one that you"
 " added yourself."
 msgstr ""
 "Mety famantarana mitoetra angamba io, ary famantarana izay tsy nofaritanao."
 
-#: ../src/caja-emblem-sidebar.c:264
+#: ../src/caja-emblem-sidebar.c:265
 #, c-format
 msgid "Could not rename emblem with name '%s'."
 msgstr ""
 
-#: ../src/caja-emblem-sidebar.c:284
+#: ../src/caja-emblem-sidebar.c:286
 msgid "Rename Emblem"
 msgstr "Ovay ny anaran'ilay famantarana"
 
-#: ../src/caja-emblem-sidebar.c:303
+#: ../src/caja-emblem-sidebar.c:312
 msgid "Enter a new name for the displayed emblem:"
 msgstr "Manorata anarana vaovao omena ny famantarana miseho:"
 
-#: ../src/caja-emblem-sidebar.c:357
+#. add the "rename" menu item
+#: ../src/caja-emblem-sidebar.c:365
 msgid "Rename"
 msgstr "Ovay anarana"
 
-#: ../src/caja-emblem-sidebar.c:537
+#: ../src/caja-emblem-sidebar.c:543
 msgid "Add Emblems..."
 msgstr "Hanampy famantarana..."
 
-#: ../src/caja-emblem-sidebar.c:554
+#: ../src/caja-emblem-sidebar.c:567
 msgid ""
 "Enter a descriptive name next to each emblem.  This name will be used in "
 "other places to identify the emblem."
@@ -6059,7 +6119,7 @@ msgstr ""
 "Manorata anarana manoritsoritra iray eo akaikin'ny famantarana tsirairay. Io"
 " anarana io dia entina amantarana ilay famantarana any an-toeran-kafa."
 
-#: ../src/caja-emblem-sidebar.c:558
+#: ../src/caja-emblem-sidebar.c:571
 msgid ""
 "Enter a descriptive name next to the emblem.  This name will be used in "
 "other places to identify the emblem."
@@ -6067,36 +6127,36 @@ msgstr ""
 "Manorata anarana manoritsoritra eo akaikin'ilay famantarana. Io anarana io "
 "dia entina amantarana ilay famantarana any an-toeran-kafa."
 
-#: ../src/caja-emblem-sidebar.c:800
+#: ../src/caja-emblem-sidebar.c:813
 msgid "Some of the files could not be added as emblems."
 msgstr "Tsy mety atao famantarana ny sasany amin'ilay rakitra."
 
-#: ../src/caja-emblem-sidebar.c:800 ../src/caja-emblem-sidebar.c:804
+#: ../src/caja-emblem-sidebar.c:813 ../src/caja-emblem-sidebar.c:817
 msgid "The emblems do not appear to be valid images."
 msgstr "Toa tsy azo ampiasaina ny sarin'ireo famantarana ireo."
 
-#: ../src/caja-emblem-sidebar.c:804
+#: ../src/caja-emblem-sidebar.c:817
 msgid "None of the files could be added as emblems."
 msgstr "Tsy nisy nety natao famantarana ireo rakitra ireo."
 
-#: ../src/caja-emblem-sidebar.c:847 ../src/caja-emblem-sidebar.c:910
+#: ../src/caja-emblem-sidebar.c:860 ../src/caja-emblem-sidebar.c:923
 #, c-format
 msgid "The file '%s' does not appear to be a valid image."
 msgstr "Toa tsy sary azo ampiasaina ny rakitra '%s'."
 
-#: ../src/caja-emblem-sidebar.c:852
+#: ../src/caja-emblem-sidebar.c:865
 msgid "The dragged file does not appear to be a valid image."
 msgstr "Toa tsy sary azo ampiasaina io rakitra nafindra io."
 
-#: ../src/caja-emblem-sidebar.c:854 ../src/caja-emblem-sidebar.c:911
+#: ../src/caja-emblem-sidebar.c:867 ../src/caja-emblem-sidebar.c:924
 msgid "The emblem cannot be added."
 msgstr "Tsy vita ilay famantarana."
 
-#: ../src/caja-emblem-sidebar.c:1091
+#: ../src/caja-emblem-sidebar.c:1104
 msgid "Show Emblems"
 msgstr "Asehoy ireo famantarana"
 
-#: ../src/caja-file-management-properties.c:632
+#: ../src/caja-file-management-properties.c:639
 msgid "About Extension"
 msgstr ""
 
@@ -6125,230 +6185,238 @@ msgid "By Size"
 msgstr "Araka ny habe"
 
 #: ../src/caja-file-management-properties.ui.h:10
+msgid "By Size on Disk"
+msgstr ""
+
+#: ../src/caja-file-management-properties.ui.h:11
 msgid "By Type"
 msgstr "Araka ny karazana"
 
-#: ../src/caja-file-management-properties.ui.h:11
+#: ../src/caja-file-management-properties.ui.h:12
 msgid "By Modification Date"
 msgstr "Araka ny daty nanaovana fanovana"
 
-#: ../src/caja-file-management-properties.ui.h:12
+#: ../src/caja-file-management-properties.ui.h:13
 msgid "By Access Date"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:13
+#: ../src/caja-file-management-properties.ui.h:14
 msgid "By Emblems"
 msgstr "Araka ny famantarana"
 
-#: ../src/caja-file-management-properties.ui.h:14
-msgid "By Trashed Date"
+#: ../src/caja-file-management-properties.ui.h:15
+msgid "By Extension"
 msgstr ""
 
 #: ../src/caja-file-management-properties.ui.h:16
-#, no-c-format
-msgid "33%"
+msgid "By Trashed Date"
 msgstr ""
 
 #: ../src/caja-file-management-properties.ui.h:18
 #, no-c-format
+msgid "33%"
+msgstr ""
+
+#: ../src/caja-file-management-properties.ui.h:20
+#, no-c-format
 msgid "50%"
 msgstr "50%"
 
-#: ../src/caja-file-management-properties.ui.h:20
+#: ../src/caja-file-management-properties.ui.h:22
 #, no-c-format
 msgid "66%"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:22
+#: ../src/caja-file-management-properties.ui.h:24
 #, no-c-format
 msgid "100%"
 msgstr "100%"
 
-#: ../src/caja-file-management-properties.ui.h:24
+#: ../src/caja-file-management-properties.ui.h:26
 #, no-c-format
 msgid "150%"
 msgstr "150%"
 
-#: ../src/caja-file-management-properties.ui.h:26
+#: ../src/caja-file-management-properties.ui.h:28
 #, no-c-format
 msgid "200%"
 msgstr "200%"
 
-#: ../src/caja-file-management-properties.ui.h:28
+#: ../src/caja-file-management-properties.ui.h:30
 #, no-c-format
 msgid "400%"
 msgstr "400%"
 
-#: ../src/caja-file-management-properties.ui.h:29
+#: ../src/caja-file-management-properties.ui.h:31
 msgid "100 KB"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:30
+#: ../src/caja-file-management-properties.ui.h:32
 msgid "500 KB"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:31
+#: ../src/caja-file-management-properties.ui.h:33
 msgid "1 MB"
 msgstr "1 MB"
 
-#: ../src/caja-file-management-properties.ui.h:32
+#: ../src/caja-file-management-properties.ui.h:34
 msgid "3 MB"
 msgstr "3 MB"
 
-#: ../src/caja-file-management-properties.ui.h:33
+#: ../src/caja-file-management-properties.ui.h:35
 msgid "5 MB"
 msgstr "5 MB"
 
-#: ../src/caja-file-management-properties.ui.h:34
+#: ../src/caja-file-management-properties.ui.h:36
 msgid "10 MB"
 msgstr "10 MB"
 
-#: ../src/caja-file-management-properties.ui.h:35
+#: ../src/caja-file-management-properties.ui.h:37
 msgid "100 MB"
 msgstr "100 MB"
 
-#: ../src/caja-file-management-properties.ui.h:36
+#: ../src/caja-file-management-properties.ui.h:38
 msgid "1 GB"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:37
+#: ../src/caja-file-management-properties.ui.h:39
 msgid "2 GB"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:38
+#: ../src/caja-file-management-properties.ui.h:40
 msgid "4 GB"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:39
+#: ../src/caja-file-management-properties.ui.h:41
 msgid "File Management Preferences"
 msgstr "Safidy manokan'ny fandrindrana rakitra"
 
-#: ../src/caja-file-management-properties.ui.h:42
+#: ../src/caja-file-management-properties.ui.h:44
 msgid "<b>Default View</b>"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:43
+#: ../src/caja-file-management-properties.ui.h:45
 msgid "View _new folders using:"
 msgstr "Asehoy amin'ny alalan'ity ireo laha-tahiry vaovao:"
 
-#: ../src/caja-file-management-properties.ui.h:44
+#: ../src/caja-file-management-properties.ui.h:46
 msgid "_Arrange items:"
 msgstr "_Alamino ireto zavatra ireto:"
 
-#: ../src/caja-file-management-properties.ui.h:45
+#: ../src/caja-file-management-properties.ui.h:47
 msgid "Sort _folders before files"
 msgstr "Ny _laha-tahiry aloha alahatra vao ny rakitra"
 
-#: ../src/caja-file-management-properties.ui.h:46
+#: ../src/caja-file-management-properties.ui.h:48
 msgid "Show hidden and _backup files"
 msgstr "Asehoy ireo rakitra miafina sy rakitra _tahiry"
 
-#: ../src/caja-file-management-properties.ui.h:47
+#: ../src/caja-file-management-properties.ui.h:49
 msgid "<b>Icon View Defaults</b>"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:48
+#: ../src/caja-file-management-properties.ui.h:50
 msgid "Default _zoom level:"
 msgstr "Mariky ny _zòma tsotra:"
 
-#: ../src/caja-file-management-properties.ui.h:49
+#: ../src/caja-file-management-properties.ui.h:51
 msgid "_Use compact layout"
 msgstr "_Manaova fandaminana mifaneritery"
 
-#: ../src/caja-file-management-properties.ui.h:50
+#: ../src/caja-file-management-properties.ui.h:52
 msgid "_Text beside icons"
 msgstr "_Soratra eo akaikin'ny kisary"
 
-#: ../src/caja-file-management-properties.ui.h:51
+#: ../src/caja-file-management-properties.ui.h:53
 msgid "<b>Compact View Defaults</b>"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:52
+#: ../src/caja-file-management-properties.ui.h:54
 msgid "_Default zoom level:"
 msgstr "Mariky ny zòma _tsotra:"
 
-#: ../src/caja-file-management-properties.ui.h:53
+#: ../src/caja-file-management-properties.ui.h:55
 msgid "A_ll columns have the same width"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:54
+#: ../src/caja-file-management-properties.ui.h:56
 msgid "<b>List View Defaults</b>"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:55
+#: ../src/caja-file-management-properties.ui.h:57
 msgid "D_efault zoom level:"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:56
+#: ../src/caja-file-management-properties.ui.h:58
 msgid "<b>Tree View Defaults</b>"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:57
+#: ../src/caja-file-management-properties.ui.h:59
 msgid "Show _only folders"
 msgstr "Ireo laha-tahiry _fotsiny aseho"
 
-#: ../src/caja-file-management-properties.ui.h:58
+#: ../src/caja-file-management-properties.ui.h:60
 msgid "Views"
 msgstr "Seho"
 
-#: ../src/caja-file-management-properties.ui.h:59
+#: ../src/caja-file-management-properties.ui.h:61
 msgid "<b>Behavior</b>"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:60
+#: ../src/caja-file-management-properties.ui.h:62
 msgid "_Single click to open items"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:61
+#: ../src/caja-file-management-properties.ui.h:63
 msgid "_Double click to open items"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:62
+#: ../src/caja-file-management-properties.ui.h:64
 msgid "Open each _folder in its own window"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:63
+#: ../src/caja-file-management-properties.ui.h:65
 msgid "<b>Executable Text Files</b>"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:64
+#: ../src/caja-file-management-properties.ui.h:66
 msgid "_Run executable text files when they are opened"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:65
+#: ../src/caja-file-management-properties.ui.h:67
 msgid "_View executable text files when they are opened"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:66
+#: ../src/caja-file-management-properties.ui.h:68
 msgid "_Ask each time"
 msgstr "_Manontania foana"
 
-#: ../src/caja-file-management-properties.ui.h:67
+#: ../src/caja-file-management-properties.ui.h:69
 msgid "<b>Trash</b>"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:68
+#: ../src/caja-file-management-properties.ui.h:70
 msgid "Ask before _emptying the Trash or deleting files"
 msgstr ""
 "Manontania alohan'ny hanafoanana ny daba na alohan'ny hamafana rakitra"
 
-#: ../src/caja-file-management-properties.ui.h:69
+#: ../src/caja-file-management-properties.ui.h:71
 msgid "Ask before moving files to the _Trash"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:70
+#: ../src/caja-file-management-properties.ui.h:72
 msgid "I_nclude a Delete command that bypasses Trash"
 msgstr "As_io baiko Fafao izay mihodidina ny daba"
 
-#: ../src/caja-file-management-properties.ui.h:71
+#: ../src/caja-file-management-properties.ui.h:73
 msgid "Behavior"
 msgstr "Fiasa"
 
-#: ../src/caja-file-management-properties.ui.h:72
+#: ../src/caja-file-management-properties.ui.h:74
 msgid "<b>Icon Captions</b>"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:73
+#: ../src/caja-file-management-properties.ui.h:75
 msgid ""
 "Choose the order of information to appear beneath icon names. More "
 "information will appear when zooming in closer."
@@ -6356,164 +6424,160 @@ msgstr ""
 "Safidio ny filaharan'ireo zavatra voalaza eo ambanin'ny anaran'ny kisary. "
 "Hihamaro ny zavatra voalaza hiseho rehefa jerena akaiky ilay kisary."
 
-#: ../src/caja-file-management-properties.ui.h:74
+#: ../src/caja-file-management-properties.ui.h:76
 msgid "<b>Date</b>"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:75
+#: ../src/caja-file-management-properties.ui.h:77
 msgid "_Format:"
 msgstr "_Andrefy:"
 
-#: ../src/caja-file-management-properties.ui.h:76
+#: ../src/caja-file-management-properties.ui.h:78
 msgid "<b>Size</b>"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:77
+#: ../src/caja-file-management-properties.ui.h:79
 msgid "_Show file sizes with IEC units"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:78
+#: ../src/caja-file-management-properties.ui.h:80
 msgid "Display"
 msgstr "Seho"
 
-#: ../src/caja-file-management-properties.ui.h:79
+#: ../src/caja-file-management-properties.ui.h:81
 msgid "<b>List Columns</b>"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:80
+#: ../src/caja-file-management-properties.ui.h:82
 msgid "Choose the order of information to appear in the list view."
 msgstr "Safidio ny filaharan'ny zavatra  voalaza anatin'ny sehon'ny lisitra."
 
-#: ../src/caja-file-management-properties.ui.h:81
+#: ../src/caja-file-management-properties.ui.h:83
 msgid "List Columns"
 msgstr "Farian'ny lisitra"
 
-#: ../src/caja-file-management-properties.ui.h:82
+#: ../src/caja-file-management-properties.ui.h:84
 msgid "<b>Text Files</b>"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:83
+#: ../src/caja-file-management-properties.ui.h:85
 msgid "Show te_xt in icons:"
 msgstr "Asehoy amin'ny kisary ny so_ratra:"
 
-#: ../src/caja-file-management-properties.ui.h:84
+#: ../src/caja-file-management-properties.ui.h:86
 msgid "<b>Other Previewable Files</b>"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:85
+#: ../src/caja-file-management-properties.ui.h:87
 msgid "Show _thumbnails:"
 msgstr "Asehoy ny _sary madinika:"
 
-#: ../src/caja-file-management-properties.ui.h:86
+#: ../src/caja-file-management-properties.ui.h:88
 msgid "_Only for files smaller than:"
 msgstr "Ho an'ny rakitra latsak'ity habe ity _ihany:"
 
-#: ../src/caja-file-management-properties.ui.h:87
+#: ../src/caja-file-management-properties.ui.h:89
 msgid "<b>Sound Files</b>"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:88
+#: ../src/caja-file-management-properties.ui.h:90
 msgid "Preview _sound files:"
 msgstr "Hitopy maso _raki-peo:"
 
-#: ../src/caja-file-management-properties.ui.h:89
+#: ../src/caja-file-management-properties.ui.h:91
 msgid "<b>Folders</b>"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:90
+#: ../src/caja-file-management-properties.ui.h:92
 msgid "Count _number of items:"
 msgstr "_Isan-javatra:"
 
-#: ../src/caja-file-management-properties.ui.h:91
+#: ../src/caja-file-management-properties.ui.h:93
 msgid "Preview"
 msgstr "Topimaso"
 
-#: ../src/caja-file-management-properties.ui.h:92
+#: ../src/caja-file-management-properties.ui.h:94
 msgid "<b>Media Handling</b>"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:93
+#: ../src/caja-file-management-properties.ui.h:95
 msgid ""
 "Choose what happens when inserting media or connecting devices to the system"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:94
+#: ../src/caja-file-management-properties.ui.h:96
 msgid "CD _Audio:"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:95
+#: ../src/caja-file-management-properties.ui.h:97
 msgid "_DVD Video:"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:96
+#: ../src/caja-file-management-properties.ui.h:98
 msgid "_Music Player:"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:97
+#: ../src/caja-file-management-properties.ui.h:99
 msgid "_Photos:"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:98
+#: ../src/caja-file-management-properties.ui.h:100
 msgid "_Software:"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:99
+#: ../src/caja-file-management-properties.ui.h:101
 msgid "<b>Other Media</b>"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:100
+#: ../src/caja-file-management-properties.ui.h:102
 msgid "Less common media formats can be configured here"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:101
+#: ../src/caja-file-management-properties.ui.h:103
 msgid "Acti_on:"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:102
+#: ../src/caja-file-management-properties.ui.h:104
 msgid "_Type:"
 msgstr "_Karazana:"
 
-#: ../src/caja-file-management-properties.ui.h:103
+#: ../src/caja-file-management-properties.ui.h:105
 msgid "_Never prompt or start programs on media insertion"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:104
+#: ../src/caja-file-management-properties.ui.h:106
 msgid "B_rowse media when inserted"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:105
+#: ../src/caja-file-management-properties.ui.h:107
 msgid "Media"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:106
+#: ../src/caja-file-management-properties.ui.h:108
 msgid "<b>Available _Extensions:</b>"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:107
+#: ../src/caja-file-management-properties.ui.h:109
 msgid "column"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:108
-msgid "Extension"
-msgstr ""
-
-#: ../src/caja-file-management-properties.ui.h:109
+#: ../src/caja-file-management-properties.ui.h:111
 msgid "_About Extension"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:110
+#: ../src/caja-file-management-properties.ui.h:112
 msgid "C_onfigure Extension"
 msgstr ""
 
-#: ../src/caja-file-management-properties.ui.h:111
+#: ../src/caja-file-management-properties.ui.h:113
 msgid "Extensions"
 msgstr ""
 
-#: ../src/caja-history-sidebar.c:337
+#: ../src/caja-history-sidebar.c:338
 msgid "History"
 msgstr "Diary"
 
-#: ../src/caja-history-sidebar.c:343
+#: ../src/caja-history-sidebar.c:344
 msgid "Show History"
 msgstr "Asehoy ny diary"
 
@@ -6666,164 +6730,164 @@ msgid "The history location doesn't exist."
 msgstr "Tsy misy ny toeran'ny diary."
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:824
+#: ../src/caja-navigation-window-menus.c:813
 msgid "_Go"
 msgstr "_Alefa"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:825
+#: ../src/caja-navigation-window-menus.c:814
 msgid "_Bookmarks"
 msgstr "_Tobin-drohy"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:826
+#: ../src/caja-navigation-window-menus.c:815
 msgid "_Tabs"
 msgstr ""
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:827
+#: ../src/caja-navigation-window-menus.c:816
 msgid "New _Window"
 msgstr ""
 
-#: ../src/caja-navigation-window-menus.c:828
+#: ../src/caja-navigation-window-menus.c:817
 msgid "Open another Caja window for the displayed location"
 msgstr "Hanokatra fikandrana Caja iray hafa ho an'ny toerana miseho"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:831
+#: ../src/caja-navigation-window-menus.c:820
 msgid "New _Tab"
 msgstr ""
 
-#: ../src/caja-navigation-window-menus.c:832
+#: ../src/caja-navigation-window-menus.c:821
 msgid "Open another tab for the displayed location"
 msgstr ""
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:835
+#: ../src/caja-navigation-window-menus.c:824
 msgid "Open Folder W_indow"
 msgstr ""
 
-#: ../src/caja-navigation-window-menus.c:836
+#: ../src/caja-navigation-window-menus.c:825
 msgid "Open a folder window for the displayed location"
 msgstr ""
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:839
+#: ../src/caja-navigation-window-menus.c:828
 msgid "Close _All Windows"
 msgstr "Hidio ny fikandrana _rehetra"
 
-#: ../src/caja-navigation-window-menus.c:840
+#: ../src/caja-navigation-window-menus.c:829
 msgid "Close all Navigation windows"
 msgstr "Manidy ny fikandrana fizahana rehetra"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:843
+#: ../src/caja-navigation-window-menus.c:832
 msgid "_Location..."
 msgstr "_Toerana..."
 
-#: ../src/caja-navigation-window-menus.c:844 ../src/caja-spatial-window.c:943
+#: ../src/caja-navigation-window-menus.c:833 ../src/caja-spatial-window.c:940
 msgid "Specify a location to open"
 msgstr "Mamaritra toerana ho sokafana iray"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:847
+#: ../src/caja-navigation-window-menus.c:836
 msgid "Clea_r History"
 msgstr "_Fafao ny zavatra anatin'ny diary"
 
-#: ../src/caja-navigation-window-menus.c:848
+#: ../src/caja-navigation-window-menus.c:837
 msgid "Clear contents of Go menu and Back/Forward lists"
 msgstr ""
 "Fafao ny mpiatin'ny karazan-tsafidin'ny Alefa sy ny mpiatin'ny lisitry ny "
 "Miverina/Miroso"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:851
+#: ../src/caja-navigation-window-menus.c:840
 msgid "S_witch to Other Pane"
 msgstr ""
 
-#: ../src/caja-navigation-window-menus.c:852
+#: ../src/caja-navigation-window-menus.c:841
 msgid "Move focus to the other pane in a split view window"
 msgstr ""
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:855
+#: ../src/caja-navigation-window-menus.c:844
 msgid "Sa_me Location as Other Pane"
 msgstr ""
 
-#: ../src/caja-navigation-window-menus.c:856
+#: ../src/caja-navigation-window-menus.c:845
 msgid "Go to the same location as in the extra pane"
 msgstr ""
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:859 ../src/caja-spatial-window.c:956
+#: ../src/caja-navigation-window-menus.c:848 ../src/caja-spatial-window.c:953
 msgid "_Add Bookmark"
 msgstr "_Hampiditra rohy"
 
-#: ../src/caja-navigation-window-menus.c:860 ../src/caja-spatial-window.c:957
+#: ../src/caja-navigation-window-menus.c:849 ../src/caja-spatial-window.c:954
 msgid "Add a bookmark for the current location to this menu"
 msgstr "Manisy rohy ho an'io toerana io anatin'ity karazan-tsafidy ity"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:863 ../src/caja-spatial-window.c:960
+#: ../src/caja-navigation-window-menus.c:852 ../src/caja-spatial-window.c:957
 msgid "_Edit Bookmarks..."
 msgstr ""
 
-#: ../src/caja-navigation-window-menus.c:864 ../src/caja-spatial-window.c:961
+#: ../src/caja-navigation-window-menus.c:853 ../src/caja-spatial-window.c:958
 msgid "Display a window that allows editing the bookmarks in this menu"
 msgstr ""
 "Mampiseho fikandrana iray ahafahana manamboatra ny tobin-drohy anatin'ity "
 "karazan-tsafidy ity"
 
-#: ../src/caja-navigation-window-menus.c:868
+#: ../src/caja-navigation-window-menus.c:857
 msgid "_Previous Tab"
 msgstr "_Vakizoro eo ankavia"
 
-#: ../src/caja-navigation-window-menus.c:869
+#: ../src/caja-navigation-window-menus.c:858
 msgid "Activate previous tab"
 msgstr ""
 
-#: ../src/caja-navigation-window-menus.c:873
+#: ../src/caja-navigation-window-menus.c:862
 msgid "_Next Tab"
 msgstr "_Vakizoro eo ankavanana"
 
-#: ../src/caja-navigation-window-menus.c:874
+#: ../src/caja-navigation-window-menus.c:863
 msgid "Activate next tab"
 msgstr ""
 
-#: ../src/caja-navigation-window-menus.c:878
-#: ../src/caja-navigation-window-pane.c:464
+#: ../src/caja-navigation-window-menus.c:867
+#: ../src/caja-navigation-window-pane.c:384
 msgid "Move Tab _Left"
 msgstr ""
 
-#: ../src/caja-navigation-window-menus.c:879
+#: ../src/caja-navigation-window-menus.c:868
 msgid "Move current tab to left"
 msgstr ""
 
-#: ../src/caja-navigation-window-menus.c:883
-#: ../src/caja-navigation-window-pane.c:472
+#: ../src/caja-navigation-window-menus.c:872
+#: ../src/caja-navigation-window-pane.c:392
 msgid "Move Tab _Right"
 msgstr ""
 
-#: ../src/caja-navigation-window-menus.c:884
+#: ../src/caja-navigation-window-menus.c:873
 msgid "Move current tab to right"
 msgstr ""
 
-#: ../src/caja-navigation-window-menus.c:888
+#: ../src/caja-navigation-window-menus.c:877
 msgid "S_how Search"
 msgstr ""
 
-#: ../src/caja-navigation-window-menus.c:889
+#: ../src/caja-navigation-window-menus.c:878
 msgid "Show search"
 msgstr ""
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-navigation-window-menus.c:897
+#: ../src/caja-navigation-window-menus.c:886
 msgid "_Main Toolbar"
 msgstr "Tsipiky ny fitaovana _fototra"
 
 #. tooltip
-#: ../src/caja-navigation-window-menus.c:898
+#: ../src/caja-navigation-window-menus.c:887
 msgid "Change the visibility of this window's main toolbar"
 msgstr ""
 "Manova ny fahamoram-pahitan'ny tsipiky ny fitaovana fototr'ity fikandrana "
@@ -6831,109 +6895,109 @@ msgstr ""
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-navigation-window-menus.c:903
+#: ../src/caja-navigation-window-menus.c:892
 msgid "_Side Pane"
 msgstr "Takela an-t_sisiny"
 
 #. tooltip
-#: ../src/caja-navigation-window-menus.c:904
+#: ../src/caja-navigation-window-menus.c:893
 msgid "Change the visibility of this window's side pane"
 msgstr ""
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-navigation-window-menus.c:909
+#: ../src/caja-navigation-window-menus.c:898
 msgid "Location _Bar"
 msgstr "_Tsipiky ny toerana"
 
 #. tooltip
-#: ../src/caja-navigation-window-menus.c:910
+#: ../src/caja-navigation-window-menus.c:899
 msgid "Change the visibility of this window's location bar"
 msgstr "Manova ny fahamoram-pahitan'ny tsipiky ny toeran'ity fikandrana ity"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-navigation-window-menus.c:915
+#: ../src/caja-navigation-window-menus.c:904
 msgid "St_atusbar"
 msgstr "_Tsipiky ny fivoarana"
 
 #. tooltip
-#: ../src/caja-navigation-window-menus.c:916
+#: ../src/caja-navigation-window-menus.c:905
 msgid "Change the visibility of this window's statusbar"
 msgstr "Manova ny fahamoram-pahitan'ny tsipiky ny fivoaran'ity fikandrana ity"
 
 #. name, icon name
 #. label, accelerator
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:921 ../src/caja-spatial-window.c:964
+#: ../src/caja-navigation-window-menus.c:910 ../src/caja-spatial-window.c:961
 msgid "_Search for Files..."
 msgstr ""
 
 #. Accelerator is in ShowSearch
 #. tooltip
-#: ../src/caja-navigation-window-menus.c:923
+#: ../src/caja-navigation-window-menus.c:912
 msgid "Search documents and folders by name"
 msgstr ""
 
 #. label, accelerator
-#: ../src/caja-navigation-window-menus.c:929
+#: ../src/caja-navigation-window-menus.c:918
 msgid "E_xtra Pane"
 msgstr ""
 
 #. tooltip
-#: ../src/caja-navigation-window-menus.c:930
+#: ../src/caja-navigation-window-menus.c:919
 msgid "Open an extra folder view side-by-side"
 msgstr ""
 
-#: ../src/caja-navigation-window-menus.c:956
+#: ../src/caja-navigation-window-menus.c:945
 msgid "_Back"
 msgstr "_Mihemotra"
 
-#: ../src/caja-navigation-window-menus.c:958
+#: ../src/caja-navigation-window-menus.c:947
 msgid "Go to the previous visited location"
 msgstr "Ho any amin'ny toerana nozahana taloha"
 
-#: ../src/caja-navigation-window-menus.c:959
+#: ../src/caja-navigation-window-menus.c:948
 msgid "Back history"
 msgstr "Diarin'ny fihemorana"
 
-#: ../src/caja-navigation-window-menus.c:973
+#: ../src/caja-navigation-window-menus.c:962
 msgid "_Forward"
 msgstr "_Miroso"
 
-#: ../src/caja-navigation-window-menus.c:975
+#: ../src/caja-navigation-window-menus.c:964
 msgid "Go to the next visited location"
 msgstr "Miroso mankany amin'ireo toerana efa naleha taty afara"
 
-#: ../src/caja-navigation-window-menus.c:976
+#: ../src/caja-navigation-window-menus.c:965
 msgid "Forward history"
 msgstr "Diarin'ny firosoana"
 
-#: ../src/caja-navigation-window-menus.c:991
+#: ../src/caja-navigation-window-menus.c:980
 msgid "_Zoom"
 msgstr ""
 
-#: ../src/caja-navigation-window-menus.c:1001
+#: ../src/caja-navigation-window-menus.c:990
 msgid "_View As"
 msgstr ""
 
-#: ../src/caja-navigation-window-menus.c:1036
+#: ../src/caja-navigation-window-menus.c:1025
 msgid "_Search"
 msgstr "_Karoy"
 
-#: ../src/caja-navigation-window-pane.c:254
+#: ../src/caja-navigation-window-pane.c:256
 msgid "Toggle between button and text-based location bar"
 msgstr ""
 
-#: ../src/caja-navigation-window-pane.c:454
+#: ../src/caja-navigation-window-pane.c:374
 msgid "_New Tab"
 msgstr ""
 
-#: ../src/caja-navigation-window-pane.c:483
+#: ../src/caja-navigation-window-pane.c:403
 msgid "_Close Tab"
 msgstr ""
 
-#: ../src/caja-navigation-window.c:737
+#: ../src/caja-navigation-window.c:743
 #, c-format
 msgid "%s - File Browser"
 msgstr "%s - Mpizaha rakitra"
@@ -6942,100 +7006,100 @@ msgstr "%s - Mpizaha rakitra"
 msgid "Close tab"
 msgstr "Hidio ny vakizoro"
 
-#: ../src/caja-notes-viewer.c:398 ../src/caja-notes-viewer.c:502
+#: ../src/caja-notes-viewer.c:400 ../src/caja-notes-viewer.c:504
 msgid "Notes"
 msgstr "Sora-pitadidiana"
 
-#: ../src/caja-notes-viewer.c:404
+#: ../src/caja-notes-viewer.c:406
 msgid "Show Notes"
 msgstr "Asehoy ireo sora-pitadidiana"
 
-#: ../src/caja-places-sidebar.c:309
+#: ../src/caja-places-sidebar.c:315
 msgid "Devices"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:317
+#: ../src/caja-places-sidebar.c:323
 msgid "Bookmarks"
 msgstr "Tobin-drohy"
 
-#: ../src/caja-places-sidebar.c:521
+#: ../src/caja-places-sidebar.c:540
 msgid "Open the contents of your desktop in a folder"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:537
+#: ../src/caja-places-sidebar.c:556
 msgid "Open the contents of the File System"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:596
+#: ../src/caja-places-sidebar.c:615
 msgid "Open the trash"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:651 ../src/caja-places-sidebar.c:679
+#: ../src/caja-places-sidebar.c:670 ../src/caja-places-sidebar.c:698
 #, c-format
 msgid "Mount and open %s"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:832 ../src/mate-network-scheme.desktop.in.h:1
+#: ../src/caja-places-sidebar.c:851 ../src/mate-network-scheme.desktop.in.h:1
 msgid "Network"
 msgstr "Rezo"
 
-#: ../src/caja-places-sidebar.c:864
+#: ../src/caja-places-sidebar.c:883
 msgid "Browse Network"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:866
+#: ../src/caja-places-sidebar.c:885
 msgid "Browse the contents of the network"
 msgstr ""
 
 #. start() for type G_DRIVE_START_STOP_TYPE_SHUTDOWN is normally not used
-#: ../src/caja-places-sidebar.c:1793
+#: ../src/caja-places-sidebar.c:1812
 msgid "_Power On"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:1797
+#: ../src/caja-places-sidebar.c:1816
 msgid "_Connect Drive"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:1798
+#: ../src/caja-places-sidebar.c:1817
 msgid "_Disconnect Drive"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:1801
+#: ../src/caja-places-sidebar.c:1820
 msgid "_Start Multi-disk Device"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:1802
+#: ../src/caja-places-sidebar.c:1821
 msgid "_Stop Multi-disk Device"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:1888 ../src/caja-places-sidebar.c:2477
+#: ../src/caja-places-sidebar.c:1907 ../src/caja-places-sidebar.c:2496
 #, c-format
 msgid "Unable to start %s"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:2421
+#: ../src/caja-places-sidebar.c:2440
 #, c-format
 msgid "Unable to poll %s for media changes"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:2537
+#: ../src/caja-places-sidebar.c:2556
 #, c-format
 msgid "Unable to stop %s"
 msgstr ""
 
-#: ../src/caja-places-sidebar.c:2679
+#: ../src/caja-places-sidebar.c:2700
 msgid "Remove"
 msgstr "Esory"
 
-#: ../src/caja-places-sidebar.c:2688
+#: ../src/caja-places-sidebar.c:2709
 msgid "Rename..."
 msgstr "Ovay anarana..."
 
-#: ../src/caja-places-sidebar.c:3381
+#: ../src/caja-places-sidebar.c:3402
 msgid "Places"
 msgstr "Toerana"
 
-#: ../src/caja-places-sidebar.c:3387
+#: ../src/caja-places-sidebar.c:3408
 msgid "Show Places"
 msgstr "Asehoy ireo toerana"
 
@@ -7076,237 +7140,237 @@ msgstr "Jereo raha manana alalana hamafa ilay famantarana ianao."
 msgid "Select an Image File for the New Emblem"
 msgstr "Misafidiana sary iray ho an'ilay famantarana"
 
-#: ../src/caja-property-browser.c:1106
+#: ../src/caja-property-browser.c:1107
 msgid "Create a New Emblem"
 msgstr "Hamorona famantarana vaovao"
 
 #. make the keyword label and field
-#: ../src/caja-property-browser.c:1127
+#: ../src/caja-property-browser.c:1135
 msgid "_Keyword:"
 msgstr "_Teny fahatra:"
 
 #. set up a file chooser to pick the image file
-#: ../src/caja-property-browser.c:1146
+#: ../src/caja-property-browser.c:1154
 msgid "_Image:"
 msgstr "_Sary:"
 
-#: ../src/caja-property-browser.c:1178
+#: ../src/caja-property-browser.c:1187
 msgid "Create a New Color:"
 msgstr "Hamorona loko vaovao:"
 
 #. make the name label and field
-#: ../src/caja-property-browser.c:1192
+#: ../src/caja-property-browser.c:1208
 msgid "Color _name:"
 msgstr "_Anaran'ilay loko:"
 
-#: ../src/caja-property-browser.c:1208
+#: ../src/caja-property-browser.c:1224
 msgid "Color _value:"
 msgstr "_Sandan'ilay loko:"
 
-#: ../src/caja-property-browser.c:1244
+#: ../src/caja-property-browser.c:1260
 msgid "Sorry, but you cannot replace the reset image."
 msgstr ""
 
-#: ../src/caja-property-browser.c:1245
+#: ../src/caja-property-browser.c:1261
 msgid "Reset is a special image that cannot be deleted."
 msgstr "Ny Reset dia sary manokana tsy mety fafàna."
 
-#: ../src/caja-property-browser.c:1275
+#: ../src/caja-property-browser.c:1291
 #, c-format
 msgid "Sorry, but the pattern %s could not be installed."
 msgstr ""
 
-#: ../src/caja-property-browser.c:1306
+#: ../src/caja-property-browser.c:1322
 msgid "Select an Image File to Add as a Pattern"
 msgstr "Misafidiana raki-tsary atao soratra"
 
-#: ../src/caja-property-browser.c:1385 ../src/caja-property-browser.c:1415
+#: ../src/caja-property-browser.c:1401 ../src/caja-property-browser.c:1431
 msgid "The color cannot be installed."
 msgstr "Tsy mety apetraka ilay loko."
 
-#: ../src/caja-property-browser.c:1386
+#: ../src/caja-property-browser.c:1402
 msgid "Sorry, but you must specify an unused color name for the new color."
 msgstr ""
 "Miala tsiny saingy tsy maintsy loko tsy mbola misy mampiasa no faritanao ho "
 "loko vaovao."
 
-#: ../src/caja-property-browser.c:1416
+#: ../src/caja-property-browser.c:1432
 msgid "Sorry, but you must specify a non-blank name for the new color."
 msgstr ""
 "Miala tsiny saingy tsy maintsy manome anarana feno ho an'ilay loko vaovao "
 "ianao."
 
-#: ../src/caja-property-browser.c:1476
+#: ../src/caja-property-browser.c:1492
 msgid "Select a Color to Add"
 msgstr "Misafidiana loko ampiasaina"
 
-#: ../src/caja-property-browser.c:1522 ../src/caja-property-browser.c:1540
+#: ../src/caja-property-browser.c:1538 ../src/caja-property-browser.c:1556
 #, c-format
 msgid "Sorry, but \"%s\" is not a usable image file."
 msgstr "Miala tsiny saingy tsy raki-tsary azo ampiasaina ny \"%s\"."
 
-#: ../src/caja-property-browser.c:1523 ../src/caja-property-browser.c:1541
+#: ../src/caja-property-browser.c:1539 ../src/caja-property-browser.c:1557
 msgid "The file is not an image."
 msgstr "Tsy sary ilay rakitra."
 
-#: ../src/caja-property-browser.c:2284
+#: ../src/caja-property-browser.c:2300
 msgid "Select a Category:"
 msgstr "Misafidiana sokajy iray:"
 
-#: ../src/caja-property-browser.c:2296
+#: ../src/caja-property-browser.c:2312
 msgid "C_ancel Remove"
 msgstr "_Foano ny fanesorana"
 
-#: ../src/caja-property-browser.c:2305
+#: ../src/caja-property-browser.c:2321
 msgid "_Add a New Pattern..."
 msgstr "_Hanampy soratra vaovao..."
 
-#: ../src/caja-property-browser.c:2308
+#: ../src/caja-property-browser.c:2324
 msgid "_Add a New Color..."
 msgstr "_Hanampy loko vaovao..."
 
-#: ../src/caja-property-browser.c:2311
+#: ../src/caja-property-browser.c:2327
 msgid "_Add a New Emblem..."
 msgstr "_Hanampy famantarana vaovao..."
 
-#: ../src/caja-property-browser.c:2337
+#: ../src/caja-property-browser.c:2353
 msgid "Click on a pattern to remove it"
 msgstr "Mikitia soratra iray raha hanesotra azy"
 
-#: ../src/caja-property-browser.c:2340
+#: ../src/caja-property-browser.c:2356
 msgid "Click on a color to remove it"
 msgstr "Mikitia loko iray raha hanesotra azy"
 
-#: ../src/caja-property-browser.c:2343
+#: ../src/caja-property-browser.c:2359
 msgid "Click on an emblem to remove it"
 msgstr "Mikitia famantarana iray raha hanesotra azy"
 
-#: ../src/caja-property-browser.c:2355
+#: ../src/caja-property-browser.c:2371
 msgid "Patterns:"
 msgstr "Soratra:"
 
-#: ../src/caja-property-browser.c:2358
+#: ../src/caja-property-browser.c:2374
 msgid "Colors:"
 msgstr "Loko:"
 
-#: ../src/caja-property-browser.c:2361
+#: ../src/caja-property-browser.c:2377
 msgid "Emblems:"
 msgstr "Famantarana:"
 
-#: ../src/caja-property-browser.c:2383
+#: ../src/caja-property-browser.c:2399
 msgid "_Remove a Pattern..."
 msgstr "_Hanesotra soratra iray..."
 
-#: ../src/caja-property-browser.c:2386
+#: ../src/caja-property-browser.c:2402
 msgid "_Remove a Color..."
 msgstr "_Hanesotra loko iray..."
 
-#: ../src/caja-property-browser.c:2389
+#: ../src/caja-property-browser.c:2405
 msgid "_Remove an Emblem..."
 msgstr "_Hanesotra famantarana iray..."
 
-#: ../src/caja-query-editor.c:142
+#: ../src/caja-query-editor.c:143
 msgid "File Type"
 msgstr "Karazan'ny rakitra"
 
-#: ../src/caja-query-editor.c:149
+#: ../src/caja-query-editor.c:150
 msgid "Tags"
 msgstr "Tag"
 
-#: ../src/caja-query-editor.c:295
+#: ../src/caja-query-editor.c:296
 msgid "Select folder to search in"
 msgstr ""
 
-#: ../src/caja-query-editor.c:391 ../src/caja-query-editor.c:395
+#: ../src/caja-query-editor.c:392 ../src/caja-query-editor.c:396
 msgid ""
 "Tags separated by spaces. Matches files that contains ALL specified tags."
 msgstr ""
 
-#: ../src/caja-query-editor.c:498
+#: ../src/caja-query-editor.c:499
 msgid "Documents"
 msgstr "Tahirin-kevitra"
 
-#: ../src/caja-query-editor.c:518
+#: ../src/caja-query-editor.c:519
 msgid "Music"
 msgstr "Hira"
 
-#: ../src/caja-query-editor.c:534
+#: ../src/caja-query-editor.c:535
 msgid "Video"
 msgstr "Vidéo"
 
-#: ../src/caja-query-editor.c:552
+#: ../src/caja-query-editor.c:553
 msgid "Picture"
 msgstr "Sary"
 
-#: ../src/caja-query-editor.c:574
+#: ../src/caja-query-editor.c:575
 msgid "Illustration"
 msgstr "Sary ravaka"
 
-#: ../src/caja-query-editor.c:590
+#: ../src/caja-query-editor.c:591
 msgid "Spreadsheet"
 msgstr "Takela-kajy"
 
-#: ../src/caja-query-editor.c:608
+#: ../src/caja-query-editor.c:609
 msgid "Presentation"
 msgstr "Fampisehoana"
 
-#: ../src/caja-query-editor.c:619
+#: ../src/caja-query-editor.c:620
 msgid "Pdf / Postscript"
 msgstr "Pdf / Postscript"
 
-#: ../src/caja-query-editor.c:629
+#: ../src/caja-query-editor.c:630
 msgid "Text File"
 msgstr "Raki-tsoratra"
 
-#: ../src/caja-query-editor.c:713
+#: ../src/caja-query-editor.c:716
 msgid "Select type"
 msgstr "Safidio ny karazany"
 
-#: ../src/caja-query-editor.c:802
+#: ../src/caja-query-editor.c:808
 msgid "Any"
 msgstr "Izay misy"
 
-#: ../src/caja-query-editor.c:818
+#: ../src/caja-query-editor.c:824
 msgid "Other Type..."
 msgstr "Karazany hafa..."
 
-#: ../src/caja-query-editor.c:1122
+#: ../src/caja-query-editor.c:1128
 msgid "Remove this criterion from the search"
 msgstr ""
 
-#: ../src/caja-query-editor.c:1169
+#: ../src/caja-query-editor.c:1175
 msgid "Search Folder"
 msgstr ""
 
-#: ../src/caja-query-editor.c:1175
+#: ../src/caja-query-editor.c:1181
 msgid "Edit"
 msgstr "Fanovana"
 
-#: ../src/caja-query-editor.c:1183
+#: ../src/caja-query-editor.c:1189
 msgid "Edit the saved search"
 msgstr "Hanova ilay karoka voatana"
 
-#: ../src/caja-query-editor.c:1215
+#: ../src/caja-query-editor.c:1221
 msgid "Add a new criterion to this search"
 msgstr ""
 
-#: ../src/caja-query-editor.c:1221
+#: ../src/caja-query-editor.c:1227
 msgid "Go"
 msgstr "Alefa"
 
-#: ../src/caja-query-editor.c:1225
+#: ../src/caja-query-editor.c:1231
 msgid "Reload"
 msgstr "Avereno aseho"
 
-#: ../src/caja-query-editor.c:1230
+#: ../src/caja-query-editor.c:1236
 msgid "Perform or update the search"
 msgstr "Hanatanteraka na hanova ilay karoka"
 
-#: ../src/caja-query-editor.c:1251
+#: ../src/caja-query-editor.c:1257
 msgid "_Search for:"
 msgstr "_Karohy:"
 
-#: ../src/caja-query-editor.c:1280
+#: ../src/caja-query-editor.c:1286
 msgid "Search results"
 msgstr "Valin'ny karoka"
 
@@ -7314,39 +7378,39 @@ msgstr "Valin'ny karoka"
 msgid "Search:"
 msgstr ""
 
-#: ../src/caja-side-pane.c:405
+#: ../src/caja-side-pane.c:409
 msgid "Close the side pane"
 msgstr "Hidio ilay takela an-tsisiny"
 
 #. name, icon name, label
-#: ../src/caja-spatial-window.c:940
+#: ../src/caja-spatial-window.c:937
 msgid "_Places"
 msgstr "_Toerana"
 
 #. name, icon name, label
-#: ../src/caja-spatial-window.c:942
+#: ../src/caja-spatial-window.c:939
 msgid "Open _Location..."
 msgstr "Hanokatra _toerana..."
 
 #. name, icon name, label
-#: ../src/caja-spatial-window.c:947
+#: ../src/caja-spatial-window.c:944
 msgid "Close P_arent Folders"
 msgstr "Hidio ireo laha-tahiry _reny"
 
-#: ../src/caja-spatial-window.c:948
+#: ../src/caja-spatial-window.c:945
 msgid "Close this folder's parents"
 msgstr "Manidy ireo laha-tahiry renin'ity laha-tahiry iray ity"
 
 #. name, icon name, label
-#: ../src/caja-spatial-window.c:952
+#: ../src/caja-spatial-window.c:949
 msgid "Clos_e All Folders"
 msgstr "Hidi_o ny laha-tahiry rehetra"
 
-#: ../src/caja-spatial-window.c:953
+#: ../src/caja-spatial-window.c:950
 msgid "Close all folder windows"
 msgstr "Manidy ny fikandran'ny laha-tahiry misokatra rehetra"
 
-#: ../src/caja-spatial-window.c:965
+#: ../src/caja-spatial-window.c:962
 msgid "Locate documents and folders on this computer by name or content"
 msgstr ""
 "Hitady tahirin-kevitra sy laha-tahiry araka ny anarany na ny mpiatiny "
