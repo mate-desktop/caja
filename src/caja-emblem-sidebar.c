@@ -187,10 +187,8 @@ caja_emblem_sidebar_button_press_cb (GtkWidget *widget,
         gtk_widget_set_sensitive (emblem_sidebar->details->popup_rename,
                                   caja_emblem_can_rename_emblem (keyword));
 
-
-        gtk_menu_popup (GTK_MENU (emblem_sidebar->details->popup),
-                        NULL, NULL, NULL, NULL, event->button,
-                        event->time);
+        gtk_menu_popup_at_pointer (GTK_MENU (emblem_sidebar->details->popup),
+                                             (const GdkEvent*) event);
     }
 
     return TRUE;
