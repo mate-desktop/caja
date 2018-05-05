@@ -861,9 +861,8 @@ button_pressed_callback (GtkTreeView *treeview, GdkEventButton *event,
             gtk_widget_hide (view->details->popup_unmount_separator);
         }
 
-        gtk_menu_popup (GTK_MENU (view->details->popup),
-                        NULL, NULL, NULL, NULL,
-                        event->button, event->time);
+        gtk_menu_popup_at_pointer (GTK_MENU (view->details->popup),
+                                   (const GdkEvent*) event);
 
         gtk_tree_view_set_cursor (view->details->tree_widget, cursor_path, NULL, FALSE);
         gtk_tree_path_free (cursor_path);

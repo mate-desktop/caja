@@ -133,83 +133,18 @@ zoom_popup_menu_show (GdkEventButton *event, CajaZoomControl *zoom_control)
 }
 
 static void
-menu_position_under_widget (GtkMenu   *menu,
-                            gint      *x,
-                            gint      *y,
-                            gboolean  *push_in,
-                            gpointer   user_data)
-{
-    GtkWidget *widget;
-    GtkWidget *container;
-    GtkRequisition req;
-    GtkRequisition menu_req;
-    GdkRectangle monitor;
-    GdkMonitor *monitor_num;
-    GdkDisplay *display;
-    GtkAllocation allocation;
-
-    widget = GTK_WIDGET (user_data);
-    g_assert (GTK_IS_WIDGET (widget));
-
-    container = gtk_widget_get_ancestor (widget, GTK_TYPE_CONTAINER);
-    g_assert (container != NULL);
-
-    gtk_widget_get_preferred_size (GTK_WIDGET (menu), &menu_req, NULL);
-    gtk_widget_get_preferred_size (widget, &req, NULL);
-    gtk_widget_get_allocation (widget, &allocation);
-
-    display = gtk_widget_get_display (GTK_WIDGET (menu));
-    monitor_num = gdk_display_get_monitor_at_window (display, gtk_widget_get_window (widget));
-    if (monitor_num == NULL)
-        monitor_num = gdk_display_get_monitor (display, 0);
-    gdk_monitor_get_geometry (monitor_num, &monitor);
-
-    gdk_window_get_origin (gtk_widget_get_window (widget), x, y);
-    if (!gtk_widget_get_has_window (widget))
-    {
-        *x += allocation.x;
-        *y += allocation.y;
-    }
-
-    if (gtk_widget_get_direction (container) == GTK_TEXT_DIR_LTR)
-    {
-        *x += allocation.width - req.width;
-    }
-    else
-    {
-        *x += req.width - menu_req.width;
-    }
-
-    if ((*y + allocation.height + menu_req.height) <= monitor.y + monitor.height)
-    {
-        *y += allocation.height;
-    }
-    else if ((*y - menu_req.height) >= monitor.y)
-    {
-        *y -= menu_req.height;
-    }
-    else if (monitor.y + monitor.height - (*y + allocation.height) > *y)
-    {
-        *y += allocation.height;
-    }
-    else
-    {
-        *y -= menu_req.height;
-    }
-
-    *push_in = FALSE;
-}
-
-
-static void
 zoom_popup_menu (GtkWidget *widget, CajaZoomControl *zoom_control)
 {
     GtkMenu *menu;
+    GdkEvent *event;
 
     menu = create_zoom_menu (zoom_control);
-    gtk_menu_popup (menu, NULL, NULL,
-                    menu_position_under_widget, widget,
-                    0, gtk_get_current_event_time ());
+    gtk_menu_popup_at_widget (menu,
+                              widget,
+                              GDK_GRAVITY_SOUTH_WEST,
+                              GDK_GRAVITY_NORTH_WEST,
+                              (const GdkEvent*) event);
+
     gtk_menu_shell_select_first (GTK_MENU_SHELL (menu), FALSE);
 }
 

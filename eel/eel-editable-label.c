@@ -3048,37 +3048,6 @@ popup_menu_detach (GtkWidget *attach_widget,
 }
 
 static void
-popup_position_func (GtkMenu   *menu,
-                     gint      *x,
-                     gint      *y,
-                     gboolean  *push_in,
-                     gpointer	user_data)
-{
-    EelEditableLabel *label;
-    GtkWidget *widget;
-    GtkRequisition req;
-    GtkAllocation allocation;
-    gint scale;
-
-    label = EEL_EDITABLE_LABEL (user_data);
-    widget = GTK_WIDGET (label);
-
-    g_assert (gtk_widget_get_realized (widget));
-
-    gdk_window_get_origin (gtk_widget_get_window (widget), x, y);
-
-    gtk_widget_get_preferred_size (widget, &req, NULL);
-    gtk_widget_get_allocation (widget, &allocation);
-    scale = gtk_widget_get_scale_factor (widget);
-
-    *x += allocation.width / 2;
-    *y += allocation.height;
-
-    *x = CLAMP (*x, 0, MAX (0, WidthOfScreen (gdk_x11_screen_get_xscreen (gdk_screen_get_default ())) / scale - req.width));
-    *y = CLAMP (*y, 0, MAX (0, HeightOfScreen (gdk_x11_screen_get_xscreen (gdk_screen_get_default ())) / scale - req.height));
-}
-
-static void
 eel_editable_label_toggle_overwrite (EelEditableLabel *label)
 {
     label->overwrite_mode = !label->overwrite_mode;
@@ -3157,14 +3126,10 @@ popup_targets_received (GtkClipboard     *clipboard,
                        label->popup_menu);
 
         if (info->button)
-            gtk_menu_popup (GTK_MENU (label->popup_menu), NULL, NULL,
-                            NULL, NULL,
-                            info->button, info->time);
+            gtk_menu_popup_at_pointer (GTK_MENU (label->popup_menu), NULL);
         else
         {
-            gtk_menu_popup (GTK_MENU (label->popup_menu), NULL, NULL,
-                            popup_position_func, label,
-                            info->button, info->time);
+            gtk_menu_popup_at_pointer (GTK_MENU (label->popup_menu), NULL);
             gtk_menu_shell_select_first (GTK_MENU_SHELL (label->popup_menu), FALSE);
         }
     }
