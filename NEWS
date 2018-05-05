@@ -1,8 +1,47 @@
 ### caja 1.21.1
 
+  * Translations update
+  * caja-spatial-window.c: avoid deprecated 'gtk_vbox_new'
+  * Eliminate accessible children-changed event flood on container repopulation
+  * Eliminate accessible children-changed event flood during update all
+  * Emit accessible-name-change signal for icons only when icons are renamed
+  * libcaja-private/caja-recent.c: gvfs-open is a deprecated tool, switch to "gio open" from libglib2.0-bin.
+  * sidebar popup menu: show "media-eject" icon in the "unmount" items
+  * pathbar: fix random segfaults on opening mounts from Desktop
+  * fm-icon-view: Show size on disk as sort criterion
+  * sidebar popup menu: show "media-eject" icon
+  * Add sort criterion by reversed extension segments
+  * set icon names instead stock ids in some places
+  * caja-spatial-window.c: avoid deprecated GtkImageMenuItem
+  * Fix warnings from HiDPI commits
+  * sidebar: Respect sidebar dimensions on HiDPI
+  * HiDPI: Convert Pixbufs to Cairo Surfaces
+  * general: use gdk_monitor_get_scale_factor
+  * list-view: use the cairo surface as a drag icon
+  * Scale screen dimensions
+  * icon-info: hash/store icons using scale factor as well as size
+  * file: support HiDpi for thumbnails images
+  * properties-window: support HiDpi for the properties window icon
+  * Support HiDpi icons
+  * canvas-container: listen to scale factor to invalidate icons
+  * canvas-item: use gtk_render_icon_surface for the DnD surface
+  * desktop-canvas-view: scale desktop workarea
+  * caja-side-pane.c: avoid deprecated GtkImageMenuItem
+  * caja-navigation-window-pane.c: avoid deprecated GtkImageMenuItem
+  * caja-navigation-window-menus.c: drop unused variable
+  * caja-navigation-window-menus.c: avoid deprecated GtkImageMenuItem
+  * caja-bookmark: avoid deprecated GtkImageMenuItem
+  * caja-places-sidebar.c: avoid deprecated GtkImageMenuItem
+  * caja-emblem-sidebar.c: avoid deprecated GtkImageMenuItem
+  * fm-tree-view.c: drop unused variable
+  * modify code error: end the statement with a semicolon
+  * fm-tree-view.c: avoid deprecated GtkImageMenuItem
+  * rename 'mate_image_menu_item...' to 'eel_image_menu_item_new_from_icon'
+  * eel-editable-label.c: avoid 'append_action_signal' with stock ids
+
 ### caja 1.21.0
 
-  * tx: update translations
+  * Translations update
   * caja-query-editor.c: add #include <eel/eel-stock-dialogs.h>
   * avoid 'gtk_file_chooser_dialog_new' with stock ids
   * avoid gtk_dialog_new_with_buttons with stock ids
@@ -30,7 +69,7 @@
 
 ### caja 1.20.0
 
-  * sync with transifex
+  * Translations update
   * drop CSS for GTK+ 3.14
   * require GTK+ 3.22 and GLib 2.50
   * Fix tasklist icon change when opening new tab
