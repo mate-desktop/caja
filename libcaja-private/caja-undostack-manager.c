@@ -1964,7 +1964,7 @@ get_uri_parent_path (char *uri)
 static GHashTable *
 retrieve_files_to_restore (GHashTable * trashed)
 {
-  if (!(g_hash_table_size (trashed)) > 0) {
+  if ((!(g_hash_table_size (trashed))) > 0) {
     return NULL;
   }
 
