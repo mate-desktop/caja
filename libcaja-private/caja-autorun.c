@@ -753,15 +753,17 @@ static gboolean
 is_shift_pressed (void)
 {
     gboolean ret;
+    GdkDisplay *display;
     XkbStateRec state;
     Bool status;
 
     ret = FALSE;
 
-    gdk_error_trap_push ();
-    status = XkbGetState (GDK_DISPLAY_XDISPLAY (gdk_display_get_default ()),
-    			  XkbUseCoreKbd, &state);
-    gdk_error_trap_pop_ignored ();
+    display = gdk_display_get_default ();
+    gdk_x11_display_error_trap_push (display);
+    status = XkbGetState (GDK_DISPLAY_XDISPLAY (display),
+                          XkbUseCoreKbd, &state);
+    gdk_x11_display_error_trap_pop_ignored (display);
 
     if (status == Success)
     {
