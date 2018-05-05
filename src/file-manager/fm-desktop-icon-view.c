@@ -149,6 +149,7 @@ static void
 net_workarea_changed (FMDesktopIconView *icon_view,
                       GdkWindow         *window)
 {
+    GdkDisplay *display;
     long *nworkareas = NULL;
     long *workareas = NULL;
     GdkAtom type_returned;
@@ -165,7 +166,8 @@ net_workarea_changed (FMDesktopIconView *icon_view,
      * workareas array is going to be (each desktop will have four
      * elements in the workareas array describing
      * x,y,width,height) */
-    gdk_error_trap_push ();
+    display = gtk_widget_get_display (GTK_WIDGET (icon_view));
+    gdk_x11_display_error_trap_push (display);
     if (!gdk_property_get (window,
                            gdk_atom_intern ("_NET_NUMBER_OF_DESKTOPS", FALSE),
                            gdk_x11_xatom_to_atom (XA_CARDINAL),
@@ -177,7 +179,7 @@ net_workarea_changed (FMDesktopIconView *icon_view,
     {
         g_warning("Can not calculate _NET_NUMBER_OF_DESKTOPS");
     }
-    if (gdk_error_trap_pop()
+    if (gdk_x11_display_error_trap_pop (display)
             || nworkareas == NULL
             || type_returned != gdk_x11_xatom_to_atom (XA_CARDINAL)
             || format_returned != 32)
@@ -193,7 +195,7 @@ net_workarea_changed (FMDesktopIconView *icon_view,
      * request does not correspond to the number of bytes you get
      * back, and is the reason for the workaround below.
      */
-    gdk_error_trap_push ();
+    gdk_x11_display_error_trap_push (display);
     if (nworkareas == NULL || (*nworkareas < 1)
             || !gdk_property_get (window,
                                   gdk_atom_intern ("_NET_WORKAREA", FALSE),
@@ -208,7 +210,7 @@ net_workarea_changed (FMDesktopIconView *icon_view,
         workareas = NULL;
     }
 
-    if (gdk_error_trap_pop ()
+    if (gdk_x11_display_error_trap_pop (display)
             || workareas == NULL
             || type_returned != gdk_x11_xatom_to_atom (XA_CARDINAL)
             || ((*nworkareas) * 4 * sizeof(long)) != length_returned
