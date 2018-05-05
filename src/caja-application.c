@@ -816,9 +816,9 @@ caja_application_create_desktop_windows (CajaApplication *application)
 
         /* We realize it immediately so that the CAJA_DESKTOP_WINDOW_ID
            property is set so mate-settings-daemon doesn't try to set the
-           background. And we do a gdk_flush() to be sure X gets it. */
+           background. And we do a gdk_display_flush() to be sure X gets it. */
         gtk_widget_realize (GTK_WIDGET (window));
-        gdk_flush ();
+        gdk_display_flush (display);
 
         caja_application_desktop_windows =
             g_list_prepend (caja_application_desktop_windows, window);
