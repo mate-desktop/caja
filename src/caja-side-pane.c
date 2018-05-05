@@ -228,9 +228,11 @@ select_button_press_callback (GtkWidget *widget,
         gtk_widget_grab_focus (widget);
 
         gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
-        gtk_menu_popup (GTK_MENU (side_pane->details->menu),
-                        NULL, NULL, menu_position_under, widget,
-                        event->button, event->time);
+        gtk_menu_popup_at_widget (GTK_MENU (side_pane->details->menu),
+                                  widget,
+                                  GDK_GRAVITY_SOUTH_WEST,
+                                  GDK_GRAVITY_NORTH_WEST,
+                                  (const GdkEvent*) event);
 
         return TRUE;
     }
@@ -252,9 +254,11 @@ select_button_key_press_callback (GtkWidget *widget,
         event->keyval == GDK_KEY_KP_Enter)
     {
         gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
-        gtk_menu_popup (GTK_MENU (side_pane->details->menu),
-                        NULL, NULL, menu_position_under, widget,
-                        1, event->time);
+        gtk_menu_popup_at_widget (GTK_MENU (side_pane->details->menu),
+                                  widget,
+                                  GDK_GRAVITY_SOUTH_WEST,
+                                  GDK_GRAVITY_NORTH_WEST,
+                                  (const GdkEvent*) event);
         return TRUE;
     }
 
