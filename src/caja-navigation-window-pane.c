@@ -358,7 +358,6 @@ notebook_popup_menu_show (CajaNavigationWindowPane *pane,
 {
     GtkWidget *popup;
     GtkWidget *item;
-    int button, event_time;
     gboolean can_move_left, can_move_right;
     CajaNotebook *notebook;
 
@@ -409,24 +408,13 @@ notebook_popup_menu_show (CajaNavigationWindowPane *pane,
 
     gtk_widget_show_all (popup);
 
-    if (event)
-    {
-        button = event->button;
-        event_time = event->time;
-    }
-    else
-    {
-        button = 0;
-        event_time = gtk_get_current_event_time ();
-    }
-
     /* TODO is this correct? */
     gtk_menu_attach_to_widget (GTK_MENU (popup),
                                pane->notebook,
                                NULL);
 
-    gtk_menu_popup (GTK_MENU (popup), NULL, NULL, NULL, NULL,
-                    button, event_time);
+    gtk_menu_popup_at_pointer (GTK_MENU (popup),
+                               (const GdkEvent*) event);
 }
 
 /* emitted when the user clicks the "close" button of tabs */
