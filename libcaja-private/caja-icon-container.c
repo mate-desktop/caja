@@ -2865,6 +2865,7 @@ start_rubberbanding (CajaIconContainer *container,
 	CajaIconContainerDetails *details;
 	CajaIconRubberbandInfo *band_info;
 	GdkRGBA bg_color, border_color;
+	GdkRGBA *c;
 	GList *p;
 	CajaIcon *icon;
 	GtkStyleContext *context;
@@ -2888,7 +2889,12 @@ start_rubberbanding (CajaIconContainer *container,
 	gtk_style_context_save (context);
 	gtk_style_context_add_class (context, GTK_STYLE_CLASS_RUBBERBAND);
 
-	gtk_style_context_get_background_color (context, GTK_STATE_FLAG_NORMAL, &bg_color);
+	gtk_style_context_get (context, GTK_STATE_FLAG_NORMAL,
+			       GTK_STYLE_PROPERTY_BACKGROUND_COLOR,
+			       &c, NULL);
+	bg_color = *c;
+	gdk_rgba_free (c);
+
 	gtk_style_context_get_border_color (context, GTK_STATE_FLAG_NORMAL, &border_color);
 
 	gtk_style_context_restore (context);

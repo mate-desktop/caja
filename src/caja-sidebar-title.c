@@ -244,6 +244,7 @@ caja_sidebar_title_select_text_color (CajaSidebarTitle *sidebar_title,
     GdkRGBA *light_info_color, *dark_info_color;
     GtkStyleContext *style;
     GdkRGBA color;
+    GdkRGBA *c;
 
     g_assert (CAJA_IS_SIDEBAR_TITLE (sidebar_title));
     g_return_if_fail (gtk_widget_get_realized (GTK_WIDGET (sidebar_title)));
@@ -276,11 +277,19 @@ caja_sidebar_title_select_text_color (CajaSidebarTitle *sidebar_title,
     gtk_style_context_get_color (style, GTK_STATE_FLAG_PRELIGHT, &color);
     setup_gc_with_fg (sidebar_title, LABEL_COLOR_PRELIGHT, &color);
 
-    gtk_style_context_get_background_color (style, GTK_STATE_FLAG_SELECTED, &color);
+    gtk_style_context_get (style, GTK_STATE_FLAG_SELECTED,
+                           GTK_STYLE_PROPERTY_BACKGROUND_COLOR,
+                           &c, NULL);
+    color = *c;
+
     setup_gc_with_fg (sidebar_title, LABEL_INFO_COLOR_HIGHLIGHT,
                       eel_gdk_rgba_is_dark (&color) ? light_info_color : dark_info_color);
 
-    gtk_style_context_get_background_color (style, GTK_STATE_FLAG_ACTIVE, &color);
+    gtk_style_context_get (style, GTK_STATE_FLAG_ACTIVE,
+                           GTK_STYLE_PROPERTY_BACKGROUND_COLOR,
+                           &c, NULL);
+    color = *c;
+
     setup_gc_with_fg (sidebar_title, LABEL_INFO_COLOR_ACTIVE,
                       eel_gdk_rgba_is_dark (&color) ? light_info_color : dark_info_color);
 
@@ -293,7 +302,11 @@ caja_sidebar_title_select_text_color (CajaSidebarTitle *sidebar_title,
         gtk_style_context_get_color (style, GTK_STATE_FLAG_NORMAL, &color);
         setup_gc_with_fg (sidebar_title, LABEL_COLOR, &color);
 
-        gtk_style_context_get_background_color (style, GTK_STATE_FLAG_NORMAL, &color);
+        gtk_style_context_get (style, GTK_STATE_FLAG_NORMAL,
+                               GTK_STYLE_PROPERTY_BACKGROUND_COLOR,
+                               &color, NULL);
+        color = *c;
+
         setup_gc_with_fg (sidebar_title, LABEL_INFO_COLOR,
                           eel_gdk_rgba_is_dark (&color) ?
                           light_info_color : dark_info_color);
@@ -315,6 +328,7 @@ caja_sidebar_title_select_text_color (CajaSidebarTitle *sidebar_title,
         setup_gc_with_fg (sidebar_title, LABEL_INFO_COLOR, dark_info_color);
     }
 
+    gdk_rgba_free (c);
     gdk_rgba_free (dark_info_color);
     gdk_rgba_free (light_info_color);
 }

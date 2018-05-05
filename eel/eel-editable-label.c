@@ -1517,6 +1517,7 @@ eel_editable_label_draw_cursor (EelEditableLabel  *label, cairo_t *cr, gint xoff
             if (!block_at_line_end)
             {
                 GdkRGBA color;
+                GdkRGBA *c;
 
                 clip = gdk_pango_layout_get_clip_region (label->layout,
 							 xoffset, yoffset,
@@ -1525,8 +1526,11 @@ eel_editable_label_draw_cursor (EelEditableLabel  *label, cairo_t *cr, gint xoff
                 gdk_cairo_region (cr, clip);
                 cairo_clip (cr);
 
-                gtk_style_context_get_background_color (context, GTK_STATE_FLAG_FOCUSED,
-                                                        &color);
+                gtk_style_context_get (context, GTK_STATE_FLAG_FOCUSED,
+                                       GTK_STYLE_PROPERTY_BACKGROUND_COLOR,
+                                       &c, NULL);
+                color = *c;
+                gdk_rgba_free (c);
 
                 gdk_cairo_set_source_rgba (cr,
                                            &color);
@@ -1580,6 +1584,7 @@ eel_editable_label_draw (GtkWidget *widget,
             GtkStateType state;
 
             GdkRGBA background_color;
+            GdkRGBA *c;
 
             range[0] = label->selection_anchor;
             range[1] = label->selection_end;
@@ -1612,7 +1617,12 @@ eel_editable_label_draw (GtkWidget *widget,
             state = gtk_widget_get_state_flags (widget);
             state |= GTK_STATE_FLAG_SELECTED;
 
-            gtk_style_context_get_background_color (style, state, &background_color);
+            gtk_style_context_get (style, state,
+                                   GTK_STYLE_PROPERTY_BACKGROUND_COLOR,
+                                   &c, NULL);
+            background_color = *c;
+            gdk_rgba_free (c);
+
             gdk_cairo_set_source_rgba (cr, &background_color);
             cairo_paint (cr);
 

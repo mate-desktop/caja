@@ -605,9 +605,16 @@ caja_location_bar_set_active(CajaLocationBar *location_bar, gboolean is_active)
     {
         GtkStyleContext *style;
         GdkRGBA color;
+        GdkRGBA *c;
 
         style = gtk_widget_get_style_context (GTK_WIDGET (location_bar->details->entry));
-        gtk_style_context_get_background_color (style, GTK_STATE_FLAG_INSENSITIVE, &color);
+
+        gtk_style_context_get (style, GTK_STATE_FLAG_INSENSITIVE,
+                               GTK_STYLE_PROPERTY_BACKGROUND_COLOR,
+                               &c, NULL);
+        color = *c;
+        gdk_rgba_free (c);
+
         gtk_widget_override_background_color (GTK_WIDGET (location_bar->details->entry), GTK_STATE_FLAG_ACTIVE, &color);
     }
 }

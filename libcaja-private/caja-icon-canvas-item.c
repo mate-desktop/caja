@@ -1701,6 +1701,7 @@ real_map_surface (CajaIconCanvasItem *icon_item)
     int emblem_size;
     GtkStyleContext *style;
     GdkRGBA color;
+    GdkRGBA *c;
     cairo_surface_t *surface;
 
     temp_pixbuf = icon_item->details->pixbuf;
@@ -1768,10 +1769,17 @@ real_map_surface (CajaIconCanvasItem *icon_item)
         style = gtk_widget_get_style_context (GTK_WIDGET (canvas));
 
         if (gtk_widget_has_focus (GTK_WIDGET (canvas))) {
-                gtk_style_context_get_background_color (style, GTK_STATE_FLAG_SELECTED, &color);
+                gtk_style_context_get (style, GTK_STATE_FLAG_SELECTED,
+                                       GTK_STYLE_PROPERTY_BACKGROUND_COLOR,
+                                       &c, NULL);
         } else {
-                gtk_style_context_get_background_color (style, GTK_STATE_FLAG_ACTIVE, &color);
+                gtk_style_context_get (style, GTK_STATE_FLAG_ACTIVE,
+                                       GTK_STYLE_PROPERTY_BACKGROUND_COLOR,
+                                       &c, NULL);
         }
+
+        color = *c;
+        gdk_rgba_free (c);
 
         old_pixbuf = temp_pixbuf;
         temp_pixbuf = eel_create_colorized_pixbuf (temp_pixbuf, &color);

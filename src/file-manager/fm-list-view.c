@@ -3276,6 +3276,7 @@ real_set_is_active (FMDirectoryView *view,
     GtkWidget *tree_view;
     GtkStyleContext *style;
     GdkRGBA color;
+    GdkRGBA *c;
 
     tree_view = GTK_WIDGET (fm_list_view_get_tree_view (FM_LIST_VIEW (view)));
 
@@ -3286,7 +3287,13 @@ real_set_is_active (FMDirectoryView *view,
     else
     {
         style = gtk_widget_get_style_context (tree_view);
-        gtk_style_context_get_background_color (style, GTK_STATE_FLAG_INSENSITIVE, &color);
+
+        gtk_style_context_get (style, GTK_STATE_FLAG_INSENSITIVE,
+                               GTK_STYLE_PROPERTY_BACKGROUND_COLOR,
+                               &c, NULL);
+        color = *c;
+        gdk_rgba_free (c);
+
         gtk_widget_override_background_color (tree_view, GTK_STATE_FLAG_NORMAL, &color);
     }
 

@@ -326,6 +326,7 @@ eel_background_ensure_realized (EelBackground *self)
     int width, height;
     GdkWindow *window;
     GtkStyleContext *style;
+    GdkRGBA *c;
 
     /* Set the default color */
     style = gtk_widget_get_style_context (self->details->widget);
@@ -334,9 +335,13 @@ eel_background_ensure_realized (EelBackground *self)
     if (self->details->use_base) {
         gtk_style_context_add_class (style, GTK_STYLE_CLASS_VIEW);
     }
-    gtk_style_context_get_background_color (style,
-                                            gtk_style_context_get_state (style),
-                                            &self->details->default_color);
+
+    gtk_style_context_get (style, gtk_style_context_get_state (style),
+                           GTK_STYLE_PROPERTY_BACKGROUND_COLOR,
+                           &c, NULL);
+    self->details->default_color = *c;
+    gdk_rgba_free (c);
+
     gtk_style_context_restore (style);
 
     /* If the window size is the same as last time, don't update */
@@ -1079,7 +1084,14 @@ eel_background_set_dropped_color (EelBackground *self,
 
         GtkStyleContext *style = gtk_widget_get_style_context (widget);
         GdkRGBA bg;
-        gtk_style_context_get_background_color (style, GTK_STATE_FLAG_NORMAL, &bg);
+        GdkRGBA *c;
+
+        gtk_style_context_get (style, GTK_STATE_FLAG_NORMAL,
+                               GTK_STYLE_PROPERTY_BACKGROUND_COLOR,
+                               &c, NULL);
+        bg = *c;
+        gdk_rgba_free (c);
+
         gradient_spec = gdk_rgba_to_string (&bg);
 
     }
