@@ -124,12 +124,16 @@ zoom_button_clicked (GtkButton *button, CajaZoomControl *zoom_control)
 }
 
 static void
-zoom_popup_menu_show (GdkEventButton *event, CajaZoomControl *zoom_control)
+zoom_popup_menu_show (GtkWidget *widget, GdkEventButton *event, CajaZoomControl *zoom_control)
 {
-    eel_pop_up_context_menu (create_zoom_menu (zoom_control),
-                             EEL_DEFAULT_POPUP_MENU_DISPLACEMENT,
-                             EEL_DEFAULT_POPUP_MENU_DISPLACEMENT,
-                             event);
+    GtkMenu *menu;
+
+    menu = create_zoom_menu (zoom_control);
+    gtk_menu_popup_at_widget (menu,
+                              widget,
+                              GDK_GRAVITY_SOUTH_WEST,
+                              GDK_GRAVITY_NORTH_WEST,
+                              (const GdkEvent*) event);
 }
 
 static void
@@ -162,7 +166,7 @@ caja_zoom_control_button_press_event (GtkWidget *widget,
     /* check for the context menu button and show the menu */
     if (event->button == CONTEXTUAL_MENU_BUTTON)
     {
-        zoom_popup_menu_show (event, zoom_control);
+        zoom_popup_menu_show (widget, event, zoom_control);
         return TRUE;
     }
     /* We don't change our state (to reflect the new zoom) here.
