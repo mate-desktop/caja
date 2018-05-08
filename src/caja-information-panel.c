@@ -694,8 +694,6 @@ caja_information_panel_press_event (GtkWidget *widget, GdkEventButton *event)
     {
         menu = caja_information_panel_create_context_menu (information_panel);
         eel_pop_up_context_menu (GTK_MENU(menu),
-                                 EEL_DEFAULT_POPUP_MENU_DISPLACEMENT,
-                                 EEL_DEFAULT_POPUP_MENU_DISPLACEMENT,
                                  event);
     }
     return TRUE;

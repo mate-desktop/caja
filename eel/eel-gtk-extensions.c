@@ -287,43 +287,12 @@ eel_gtk_window_set_initial_geometry_from_string (GtkWindow *window,
  * @event: The event that invoked this popup menu.
  **/
 void
-eel_pop_up_context_menu (GtkMenu	     *menu,
-                         gint16	      offset_x,
-                         gint16	      offset_y,
+eel_pop_up_context_menu (GtkMenu	*menu,
                          GdkEventButton *event)
 {
-    GdkPoint offset;
-    int button;
-
     g_return_if_fail (GTK_IS_MENU (menu));
 
-    offset.x = offset_x;
-    offset.y = offset_y;
-
-    /* The event button needs to be 0 if we're popping up this menu from
-     * a button release, else a 2nd click outside the menu with any button
-     * other than the one that invoked the menu will be ignored (instead
-     * of dismissing the menu). This is a subtle fragility of the GTK menu code.
-     */
-
-    if (event)
-    {
-        button = event->type == GDK_BUTTON_RELEASE
-                 ? 0
-                 : event->button;
-    }
-    else
-    {
-        button = 0;
-    }
-
-    gtk_menu_popup (menu,					/* menu */
-                    NULL,					/* parent_menu_shell */
-                    NULL,					/* parent_menu_item */
-                    NULL,
-                    &offset,			        /* data */
-                    button,					/* button */
-                    event ? event->time : GDK_CURRENT_TIME); /* activate_time */
+    gtk_menu_popup_at_pointer (menu, NULL);
 
     g_object_ref_sink (menu);
     g_object_unref (menu);
