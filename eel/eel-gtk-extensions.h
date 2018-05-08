@@ -32,8 +32,6 @@
 #include <gtk/gtk.h>
 #include <eel/eel-gdk-extensions.h>
 
-#define EEL_DEFAULT_POPUP_MENU_DISPLACEMENT 	2
-
 /* GtkWindow */
 void                  eel_gtk_window_set_initial_geometry             (GtkWindow            *window,
         EelGdkGeometryFlags   geometry_flags,
@@ -51,8 +49,6 @@ char *                eel_gtk_window_get_geometry_string              (GtkWindow
 
 /* GtkMenu and GtkMenuItem */
 void                  eel_pop_up_context_menu                         (GtkMenu              *menu,
-        gint16                offset_x,
-        gint16                offset_y,
         GdkEventButton       *event);
 GtkMenuItem *         eel_gtk_menu_append_separator                   (GtkMenu              *menu);
 GtkMenuItem *         eel_gtk_menu_insert_separator                   (GtkMenu              *menu,

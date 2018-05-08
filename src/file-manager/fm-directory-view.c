@@ -9136,10 +9136,8 @@ fm_directory_view_pop_up_selection_context_menu  (FMDirectoryView *view,
 	update_context_menu_position_from_event (view, event);
 
 	eel_pop_up_context_menu (create_popup_menu
-				      	(view, FM_DIRECTORY_VIEW_POPUP_PATH_SELECTION),
-				      EEL_DEFAULT_POPUP_MENU_DISPLACEMENT,
-				      EEL_DEFAULT_POPUP_MENU_DISPLACEMENT,
-				      event);
+	                         (view, FM_DIRECTORY_VIEW_POPUP_PATH_SELECTION),
+	                          event);
 }
 
 /**
@@ -9164,12 +9162,9 @@ fm_directory_view_pop_up_background_context_menu (FMDirectoryView *view,
 
 	update_context_menu_position_from_event (view, event);
 
-
 	eel_pop_up_context_menu (create_popup_menu
-				      (view, FM_DIRECTORY_VIEW_POPUP_PATH_BACKGROUND),
-				      EEL_DEFAULT_POPUP_MENU_DISPLACEMENT,
-				      EEL_DEFAULT_POPUP_MENU_DISPLACEMENT,
-				      event);
+	                         (view, FM_DIRECTORY_VIEW_POPUP_PATH_BACKGROUND),
+	                         event);
 }
 
 static void
@@ -9181,10 +9176,8 @@ real_pop_up_location_context_menu (FMDirectoryView *view)
 	update_context_menu_position_from_event (view, view->details->location_popup_event);
 
 	eel_pop_up_context_menu (create_popup_menu
-				      (view, FM_DIRECTORY_VIEW_POPUP_PATH_LOCATION),
-				      EEL_DEFAULT_POPUP_MENU_DISPLACEMENT,
-				      EEL_DEFAULT_POPUP_MENU_DISPLACEMENT,
-				      view->details->location_popup_event);
+	                         (view, FM_DIRECTORY_VIEW_POPUP_PATH_LOCATION),
+	                         view->details->location_popup_event);
 }
 
 static void
