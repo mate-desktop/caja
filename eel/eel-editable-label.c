@@ -1230,17 +1230,6 @@ eel_editable_label_style_updated (GtkWidget *widget)
 
     /* We have to clear the layout, fonts etc. may have changed */
     eel_editable_label_recompute (label);
-
-    /* Set the background, foreground and cursor colors based on
-     * the new theme selected.
-     */
-    if (gtk_widget_get_realized (widget))
-    {
-        GtkStyleContext *style;
-
-        style = gtk_widget_get_style_context (widget);
-        gtk_style_context_set_background (style, gtk_widget_get_window (widget));
-    }
 }
 
 static void
@@ -1667,7 +1656,6 @@ eel_editable_label_realize (GtkWidget *widget)
     gint attributes_mask;
     GtkAllocation allocation;
     GdkWindow *window;
-    GtkStyleContext *style;
 
     gtk_widget_set_realized (widget, TRUE);
     label = EEL_EDITABLE_LABEL (widget);
@@ -1701,9 +1689,6 @@ eel_editable_label_realize (GtkWidget *widget)
     gdk_window_set_user_data (window, widget);
 
     g_object_unref (attributes.cursor);
-
-    style = gtk_widget_get_style_context (widget);
-    gtk_style_context_set_background (style, gtk_widget_get_window (widget));
 
     gtk_im_context_set_client_window (label->im_context, gtk_widget_get_window (widget));
 }
