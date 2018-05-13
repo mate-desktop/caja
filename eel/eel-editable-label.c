@@ -1496,7 +1496,7 @@ eel_editable_label_draw_cursor (EelEditableLabel  *label, cairo_t *cr, gint xoff
             gtk_render_insertion_cursor (context, cr,
                                          xoffset, yoffset,
                                          label->layout, index,
-                                         gdk_keymap_get_direction (gdk_keymap_get_default ()));
+                                         gdk_keymap_get_direction (gdk_keymap_get_for_display (gtk_widget_get_display (widget))));
         }
         else /* Block cursor */
         {
@@ -2248,7 +2248,7 @@ eel_editable_label_focus_in (GtkWidget     *widget,
     label->need_im_reset = TRUE;
     gtk_im_context_focus_in (label->im_context);
 
-    g_signal_connect (gdk_keymap_get_default (),
+    g_signal_connect (gdk_keymap_get_for_display (gtk_widget_get_display (widget)),
                       "direction_changed",
                       G_CALLBACK (eel_editable_label_keymap_direction_changed), label);
 
@@ -2270,7 +2270,7 @@ eel_editable_label_focus_out (GtkWidget     *widget,
 
     eel_editable_label_check_cursor_blink (label);
 
-    g_signal_handlers_disconnect_by_func (gdk_keymap_get_default (),
+    g_signal_handlers_disconnect_by_func (gdk_keymap_get_for_display (gtk_widget_get_display (widget)),
                                           (gpointer) eel_editable_label_keymap_direction_changed,
                                           label);
 
@@ -2474,7 +2474,7 @@ get_better_cursor (EelEditableLabel *label,
                    gint      *y)
 {
     GtkTextDirection keymap_direction =
-        (gdk_keymap_get_direction (gdk_keymap_get_default ()) == PANGO_DIRECTION_LTR) ?
+        (gdk_keymap_get_direction (gdk_keymap_get_for_display (gtk_widget_get_display (GTK_WIDGET (label)))) == PANGO_DIRECTION_LTR) ?
         GTK_TEXT_DIR_LTR : GTK_TEXT_DIR_RTL;
     GtkTextDirection widget_direction = gtk_widget_get_direction (GTK_WIDGET (label));
     gboolean split_cursor;
@@ -2576,7 +2576,7 @@ eel_editable_label_move_visually (EelEditableLabel *label,
         else
         {
             GtkTextDirection keymap_direction =
-                (gdk_keymap_get_direction (gdk_keymap_get_default ()) == PANGO_DIRECTION_LTR) ?
+                (gdk_keymap_get_direction (gdk_keymap_get_for_display (gtk_widget_get_display (GTK_WIDGET (label)))) == PANGO_DIRECTION_LTR) ?
                 GTK_TEXT_DIR_LTR : GTK_TEXT_DIR_RTL;
 
             strong = keymap_direction == gtk_widget_get_direction (GTK_WIDGET (label));
