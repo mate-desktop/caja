@@ -943,6 +943,7 @@ do_autorun_for_content_type (GMount *mount, const char *x_content_type, CajaAuto
     GtkWidget *always_check_button;
     GtkWidget *eject_button;
     GtkWidget *image;
+    GtkWidget *action_area;
     char *markup;
     char *content_description;
     char *mount_name;
@@ -1150,10 +1151,10 @@ show_dialog:
                            "process-stop",
                            GTK_RESPONSE_CANCEL);
 
-    eel_dialog_add_button (GTK_DIALOG (dialog),
-                           _("_OK"),
-                           "gtk-ok",
-                           GTK_RESPONSE_OK);
+    action_area = gtk_widget_get_parent (eel_dialog_add_button (GTK_DIALOG (dialog),
+                                                                _("_OK"),
+                                                                "gtk-ok",
+                                                                GTK_RESPONSE_OK));
 
     gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_OK);
 
@@ -1179,7 +1180,7 @@ show_dialog:
         data->should_eject = FALSE;
     }
     gtk_dialog_add_action_widget (GTK_DIALOG (dialog), eject_button, AUTORUN_DIALOG_RESPONSE_EJECT);
-    gtk_button_box_set_child_secondary (GTK_BUTTON_BOX (gtk_dialog_get_action_area (GTK_DIALOG (dialog))), eject_button, TRUE);
+    gtk_button_box_set_child_secondary (GTK_BUTTON_BOX (action_area), eject_button, TRUE);
 
     /* show the dialog */
     gtk_widget_show_all (dialog);

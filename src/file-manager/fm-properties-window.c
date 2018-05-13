@@ -5079,6 +5079,7 @@ create_properties_window (StartupData *startup_data)
 {
 	FMPropertiesWindow *window;
 	GList *l;
+	GtkWidget *action_area;
 
 	window = FM_PROPERTIES_WINDOW (gtk_widget_new (fm_properties_window_get_type (), NULL));
 
@@ -5177,14 +5178,14 @@ create_properties_window (StartupData *startup_data)
                                "help-browser",
                                GTK_RESPONSE_HELP);
 
-        eel_dialog_add_button (GTK_DIALOG (window),
-                               _("_Close"),
-                               "window-close",
-                               GTK_RESPONSE_CLOSE);
+        action_area = gtk_widget_get_parent (eel_dialog_add_button (GTK_DIALOG (window),
+                                                                    _("_Close"),
+                                                                    "window-close",
+                                                                    GTK_RESPONSE_CLOSE));
 
 	/* FIXME - HIGificiation, should be done inside GTK+ */
 	gtk_container_set_border_width (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (window))), 12);
-	gtk_container_set_border_width (GTK_CONTAINER (gtk_dialog_get_action_area (GTK_DIALOG (window))), 0);
+	gtk_container_set_border_width (GTK_CONTAINER (action_area), 0);
 	gtk_box_set_spacing (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (window))), 12);
 
 	/* Update from initial state */
