@@ -292,7 +292,7 @@ eel_pop_up_context_menu (GtkMenu	*menu,
 {
     g_return_if_fail (GTK_IS_MENU (menu));
 
-    gtk_menu_popup_at_pointer (menu, NULL);
+    gtk_menu_popup_at_pointer (menu, (const GdkEvent*) event);
 
     g_object_ref_sink (menu);
     g_object_unref (menu);
