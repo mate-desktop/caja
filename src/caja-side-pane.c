@@ -178,31 +178,6 @@ panel_item_activate_callback (GtkMenuItem *item,
     select_panel (side_pane, panel);
 }
 
-
-static void
-menu_position_under (GtkMenu *menu,
-                     int *x,
-                     int *y,
-                     gboolean *push_in,
-                     gpointer user_data)
-{
-    GtkWidget *widget;
-    GtkAllocation allocation;
-
-    g_return_if_fail (GTK_IS_BUTTON (user_data));
-    g_return_if_fail (!gtk_widget_get_has_window (GTK_WIDGET (user_data)));
-
-    widget = GTK_WIDGET (user_data);
-
-    gdk_window_get_origin (gtk_widget_get_window (widget), x, y);
-    gtk_widget_get_allocation (widget, &allocation);
-
-    *x += allocation.x;
-    *y += allocation.y + allocation.height;
-
-    *push_in = FALSE;
-}
-
 static gboolean
 select_button_press_callback (GtkWidget *widget,
                               GdkEventButton *event,
