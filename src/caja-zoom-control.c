@@ -140,14 +140,13 @@ static void
 zoom_popup_menu (GtkWidget *widget, CajaZoomControl *zoom_control)
 {
     GtkMenu *menu;
-    GdkEvent *event;
 
     menu = create_zoom_menu (zoom_control);
     gtk_menu_popup_at_widget (menu,
                               widget,
                               GDK_GRAVITY_SOUTH_WEST,
                               GDK_GRAVITY_NORTH_WEST,
-                              (const GdkEvent*) event);
+                              NULL);
 
     gtk_menu_shell_select_first (GTK_MENU_SHELL (menu), FALSE);
 }
