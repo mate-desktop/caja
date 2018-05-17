@@ -2892,10 +2892,15 @@ start_rubberbanding (CajaIconContainer *container,
 	gtk_style_context_get (context, GTK_STATE_FLAG_NORMAL,
 			       GTK_STYLE_PROPERTY_BACKGROUND_COLOR,
 			       &c, NULL);
-	bg_color = *c;
-	gdk_rgba_free (c);
 
-	gtk_style_context_get_border_color (context, GTK_STATE_FLAG_NORMAL, &border_color);
+	bg_color = *c;
+
+	gtk_style_context_get (context, GTK_STATE_FLAG_NORMAL,
+			       GTK_STYLE_PROPERTY_BORDER_COLOR,
+			       &c, NULL);
+
+	border_color = *c;
+	gdk_rgba_free (c);
 
 	gtk_style_context_restore (context);
 
