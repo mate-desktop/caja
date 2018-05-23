@@ -585,8 +585,8 @@ caja_bookmark_new (GFile *location, const char *name, gboolean has_custom_name,
     return new_bookmark;
 }
 
-static GtkWidget *
-create_image_widget_for_bookmark (CajaBookmark *bookmark)
+static cairo_surface_t *
+create_image_cairo_for_bookmark (CajaBookmark *bookmark)
 {
     cairo_surface_t *surface;
     GtkWidget *widget;
@@ -597,23 +597,20 @@ create_image_widget_for_bookmark (CajaBookmark *bookmark)
         return NULL;
     }
 
-    widget = gtk_image_new_from_surface (surface);
-
-    cairo_surface_destroy (surface);
-    return widget;
+    return surface;
 }
 
 static GtkWidget *
-bookmark_image_menu_item_new_from_pixbuf (GdkPixbuf   *icon_pixbuf,
-                                          const gchar *label_name)
+bookmark_image_menu_item_new_from_surface (cairo_surface_t   *icon_surface,
+                                           const gchar       *label_name)
 {
     GtkWidget *icon;
     GtkLabel *label;
 
     GtkWidget *box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
 
-    if (icon_pixbuf)
-        icon = gtk_image_new_from_pixbuf (icon_pixbuf);
+    if (icon_surface)
+        icon = gtk_image_new_from_surface (icon_surface);
     else
         icon = gtk_image_new ();
 
@@ -645,15 +642,12 @@ bookmark_image_menu_item_new_from_pixbuf (GdkPixbuf   *icon_pixbuf,
 GtkWidget *
 caja_bookmark_menu_item_new (CajaBookmark *bookmark)
 {
-    GdkPixbuf *icon;
     GtkWidget *menu_item;
-    GtkWidget *image_widget;
+    cairo_surface_t *image_cairo;
 
-    image_widget = create_image_widget_for_bookmark (bookmark);
+    image_cairo = create_image_cairo_for_bookmark (bookmark);
 
-    icon = gtk_image_get_pixbuf (GTK_IMAGE (image_widget));
-
-    menu_item = bookmark_image_menu_item_new_from_pixbuf (icon, bookmark->details->name);
+    menu_item = bookmark_image_menu_item_new_from_surface (image_cairo, bookmark->details->name);
 
     return menu_item;
 }
