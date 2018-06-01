@@ -478,7 +478,13 @@ update_title_font (CajaSidebarTitle *sidebar_title)
 
     pango_font_description_set_size (title_font, max_fit_font_size * PANGO_SCALE);
     pango_font_description_set_weight (title_font, PANGO_WEIGHT_BOLD);
-    gtk_widget_override_font (sidebar_title->details->title_label, title_font);
+
+    PangoAttrList *attrs = pango_attr_list_new ();
+    PangoAttribute *font_desc_attr = pango_attr_font_desc_new (title_font);
+    pango_attr_list_insert (attrs, font_desc_attr);
+    gtk_label_set_attributes (GTK_LABEL (sidebar_title->details->title_label), attrs);
+    pango_attr_list_unref (attrs);
+
     pango_font_description_free (title_font);
 }
 

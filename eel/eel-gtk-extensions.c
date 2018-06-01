@@ -357,7 +357,11 @@ eel_gtk_label_make_bold (GtkLabel *label)
      * theme or user prefs, since the font desc only has the
      * weight flag turned on.
      */
-    gtk_widget_override_font (GTK_WIDGET (label), font_desc);
+    PangoAttrList *attrs = pango_attr_list_new ();
+    PangoAttribute *font_desc_attr = pango_attr_font_desc_new (font_desc);
+    pango_attr_list_insert (attrs, font_desc_attr);
+    gtk_label_set_attributes (label, attrs);
+    pango_attr_list_unref (attrs);
 
     pango_font_description_free (font_desc);
 }
