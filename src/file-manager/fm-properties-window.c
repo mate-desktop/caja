@@ -5087,7 +5087,6 @@ create_properties_window (StartupData *startup_data)
 
 	window->details->target_files = caja_file_list_copy (startup_data->target_files);
 
-	gtk_window_set_wmclass (GTK_WINDOW (window), "file_properties", "Caja");
 	gtk_window_set_screen (GTK_WINDOW (window),
 			       gtk_widget_get_screen (startup_data->parent_widget));
 

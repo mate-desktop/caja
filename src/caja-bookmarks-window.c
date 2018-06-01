@@ -286,7 +286,6 @@ create_bookmarks_window (CajaBookmarkList *list, CajaWindow *window_source)
 
     set_up_close_accelerator (window);
 
-    gtk_window_set_wmclass (GTK_WINDOW (window), "bookmarks", "Caja");
     caja_bookmarks_window_restore_geometry (window);
 
     g_object_weak_ref (G_OBJECT (window_source), edit_bookmarks_dialog_reset_signals,

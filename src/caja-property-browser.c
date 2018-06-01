@@ -292,7 +292,7 @@ caja_property_browser_init (CajaPropertyBrowser *property_browser)
 
     /* set the title and standard close accelerator */
     gtk_window_set_title (GTK_WINDOW (widget), _("Backgrounds and Emblems"));
-    gtk_window_set_wmclass (GTK_WINDOW (widget), "property_browser", "Caja");
+
     gtk_window_set_type_hint (GTK_WINDOW (widget), GDK_WINDOW_TYPE_HINT_DIALOG);
 
     GtkStyleContext *context;

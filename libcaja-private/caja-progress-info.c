@@ -239,10 +239,10 @@ get_progress_window ()
 
     gtk_window_set_title (GTK_WINDOW (progress_window),
                           _("File Operations"));
-    gtk_window_set_wmclass (GTK_WINDOW (progress_window),
-                            "file_progress", "Caja");
+
     gtk_window_set_position (GTK_WINDOW (progress_window),
                              GTK_WIN_POS_CENTER);
+
     gtk_window_set_icon_name (GTK_WINDOW (progress_window),
                               "system-file-manager");
 
