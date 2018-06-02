@@ -589,7 +589,6 @@ static cairo_surface_t *
 create_image_cairo_for_bookmark (CajaBookmark *bookmark)
 {
     cairo_surface_t *surface;
-    GtkWidget *widget;
 
     surface = caja_bookmark_get_surface (bookmark, GTK_ICON_SIZE_MENU);
     if (surface == NULL)
