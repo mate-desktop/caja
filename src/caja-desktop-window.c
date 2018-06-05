@@ -37,6 +37,41 @@
 #include <gio/gio.h>
 #include <glib/gi18n.h>    
 
+/* Tell screen readers that this is a desktop window */
+
+G_DEFINE_TYPE (CajaDesktopWindowAccessible, caja_desktop_window_accessible,
+               GTK_TYPE_WINDOW_ACCESSIBLE);
+
+static AtkAttributeSet *
+desktop_get_attributes (AtkObject *accessible)
+{
+    AtkAttributeSet *attributes;
+    AtkAttribute *is_desktop;
+
+    attributes = ATK_OBJECT_CLASS (caja_desktop_window_accessible_parent_class)->get_attributes (accessible);
+
+    is_desktop = g_malloc (sizeof (AtkAttribute));
+    is_desktop->name = g_strdup ("is-desktop");
+    is_desktop->value = g_strdup ("true");
+
+    attributes = g_slist_append (attributes, is_desktop);
+
+    return attributes;
+}
+
+static void
+caja_desktop_window_accessible_init (CajaDesktopWindowAccessible *window)
+{
+}
+
+static void
+caja_desktop_window_accessible_class_init (CajaDesktopWindowAccessibleClass *klass)
+{
+    AtkObjectClass *aclass = ATK_OBJECT_CLASS (klass);
+
+    aclass->get_attributes = desktop_get_attributes;
+}
+
 struct CajaDesktopWindowDetails
 {
     gulong size_changed_id;
@@ -285,6 +320,8 @@ caja_desktop_window_class_init (CajaDesktopWindowClass *klass)
     wclass->unrealize = unrealize;
     wclass->map = map;
     wclass->draw = draw;
+
+    gtk_widget_class_set_accessible_type (wclass, CAJA_TYPE_DESKTOP_WINDOW_ACCESSIBLE);
 
     nclass->window_type = CAJA_WINDOW_DESKTOP;
     nclass->get_title = real_get_title;
