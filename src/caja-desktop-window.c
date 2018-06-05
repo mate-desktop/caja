@@ -152,6 +152,19 @@ caja_desktop_window_new (CajaApplication *application,
     /* will cause the desktop window to open at the wrong size in gtk 3.20 */
     gtk_window_set_default_size (GTK_WINDOW (window), -1, -1);
 
+    /* Special sawmill setting*/
+    GdkWindow *gdkwin;
+    gtk_widget_realize (GTK_WIDGET (window));
+    gdkwin = gtk_widget_get_window (GTK_WIDGET (window));
+    if (gdk_window_ensure_native (gdkwin)) {
+        Display *disp = GDK_DISPLAY_XDISPLAY (gdk_window_get_display (gdkwin));
+        XClassHint *xch = XAllocClassHint ();
+        xch->res_name = "desktop_window";
+        xch->res_class = "Caja";
+        XSetClassHint (disp, GDK_WINDOW_XID(gdkwin), xch);
+        XFree(xch);
+    }
+
     g_signal_connect (window, "delete_event", G_CALLBACK (caja_desktop_window_delete_event), NULL);
 
     /* Point window at the desktop folder.
