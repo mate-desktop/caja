@@ -32,6 +32,8 @@
 #include "caja-application.h"
 #include "caja-spatial-window.h"
 
+#include <gtk/gtk-a11y.h>
+
 #define CAJA_TYPE_DESKTOP_WINDOW caja_desktop_window_get_type()
 #define CAJA_DESKTOP_WINDOW(obj) \
   (G_TYPE_CHECK_INSTANCE_CAST ((obj), CAJA_TYPE_DESKTOP_WINDOW, CajaDesktopWindow))
@@ -63,5 +65,17 @@ CajaDesktopWindow *caja_desktop_window_new                 (CajaApplication *app
         GdkScreen           *screen);
 void                   caja_desktop_window_update_directory    (CajaDesktopWindow *window);
 gboolean               caja_desktop_window_loaded              (CajaDesktopWindow *window);
+
+#define CAJA_TYPE_DESKTOP_WINDOW_ACCESSIBLE caja_desktop_window_accessible_get_type()
+
+typedef struct
+{
+  GtkWindowAccessible parent_spot;
+} CajaDesktopWindowAccessible;
+
+typedef struct
+{
+  GtkWindowAccessibleClass parent_spot;
+} CajaDesktopWindowAccessibleClass;
 
 #endif /* CAJA_DESKTOP_WINDOW_H */
