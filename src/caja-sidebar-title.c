@@ -449,6 +449,7 @@ update_title_font (CajaSidebarTitle *sidebar_title)
     }
 
     context = gtk_widget_get_style_context (GTK_WIDGET (sidebar_title));
+    state = gtk_widget_get_state_flags (GTK_WIDGET (sidebar_title));
     gtk_style_context_get (context, state, GTK_STYLE_PROPERTY_FONT, &title_font, NULL);
     max_style_font_size = pango_font_description_get_size (title_font) * 1.8 / PANGO_SCALE;
     if (max_style_font_size < MIN_TITLE_FONT_SIZE + 1)
