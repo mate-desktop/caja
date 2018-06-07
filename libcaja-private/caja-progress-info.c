@@ -595,7 +595,13 @@ update_status_icon_and_window (void)
 {
     char *tooltip;
     gboolean toshow;
-    static gboolean window_shown = TRUE;
+    GIcon *icon;
+    GNotification *notification;
+    static gboolean window_shown = FALSE;
+
+    notification = g_notification_new ("caja");
+    icon = g_themed_icon_new ("system-file-manager");
+    g_notification_set_icon (notification, icon);
 
     tooltip = g_strdup_printf (ngettext ("%'d file operation active",
                                          "%'d file operations active",
@@ -607,17 +613,25 @@ update_status_icon_and_window (void)
 
     toshow = (n_progress_ops > 0);
 
-    if (!toshow && window_shown)
+    if (!toshow)
     {
         gtk_status_icon_set_visible (status_icon, FALSE);
-        gtk_widget_hide (get_progress_window ());
-        window_shown = FALSE;
+
+        if (window_shown)
+        {
+            gtk_widget_hide (get_progress_window ());
+            g_notification_set_body (notification, _("Process completed"));
+            g_application_send_notification (g_application_get_default (), "caja", notification);
+            window_shown = FALSE;
+        }
     }
     else if (toshow && !window_shown)
     {
         gtk_widget_show_all (get_progress_window ());
         gtk_status_icon_set_visible (status_icon, TRUE);
         gtk_window_present (GTK_WINDOW (get_progress_window ()));
+        g_notification_set_body (notification, _("Working..."));
+        g_application_send_notification (g_application_get_default (), "caja", notification);
         window_shown = TRUE;
     }
 }
