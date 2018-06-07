@@ -594,28 +594,31 @@ static void
 update_status_icon_and_window (void)
 {
     char *tooltip;
-    gboolean toshow, window_shown;
+    gboolean toshow;
+    static gboolean window_shown = TRUE;
 
     tooltip = g_strdup_printf (ngettext ("%'d file operation active",
                                          "%'d file operations active",
                                          n_progress_ops),
                                n_progress_ops);
+
     gtk_status_icon_set_tooltip_text (status_icon, tooltip);
     g_free (tooltip);
 
     toshow = (n_progress_ops > 0);
-    window_shown = gtk_status_icon_get_visible (status_icon);
 
     if (!toshow && window_shown)
     {
         gtk_status_icon_set_visible (status_icon, FALSE);
         gtk_widget_hide (get_progress_window ());
+        window_shown = FALSE;
     }
     else if (toshow && !window_shown)
     {
         gtk_widget_show_all (get_progress_window ());
         gtk_status_icon_set_visible (status_icon, TRUE);
         gtk_window_present (GTK_WINDOW (get_progress_window ()));
+        window_shown = TRUE;
     }
 }
 
