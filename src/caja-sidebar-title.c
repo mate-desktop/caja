@@ -422,6 +422,35 @@ update_icon (CajaSidebarTitle *sidebar_title)
 }
 
 static void
+override_title_font (GtkWidget   *widget,
+                     const gchar *font)
+{
+    gchar          *css;
+    GtkCssProvider *provider;
+    gchar          *tempsize;
+
+    provider = gtk_css_provider_new ();
+    tempsize = g_strdup (font);
+
+    g_strreverse (tempsize);
+    g_strcanon (tempsize, "1234567890", '\0');
+    g_strreverse (tempsize);
+
+    gchar tempfont [strlen (font)];
+    strcpy (tempfont, font);
+    tempfont [strlen (font) - strlen (tempsize)] = 0;
+
+    css = g_strdup_printf ("label { font-family: %s; font-size: %spt; }", tempfont, tempsize);
+    gtk_css_provider_load_from_data (provider, css, -1, NULL);
+    g_free (css);
+
+    gtk_style_context_add_provider (gtk_widget_get_style_context (widget),
+                                    GTK_STYLE_PROVIDER (provider),
+                                    GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+    g_object_unref (provider);
+}
+
+static void
 update_title_font (CajaSidebarTitle *sidebar_title)
 {
     int available_width, width;
@@ -480,11 +509,7 @@ update_title_font (CajaSidebarTitle *sidebar_title)
     pango_font_description_set_size (title_font, max_fit_font_size * PANGO_SCALE);
     pango_font_description_set_weight (title_font, PANGO_WEIGHT_BOLD);
 
-    PangoAttrList *attrs = pango_attr_list_new ();
-    PangoAttribute *font_desc_attr = pango_attr_font_desc_new (title_font);
-    pango_attr_list_insert (attrs, font_desc_attr);
-    gtk_label_set_attributes (GTK_LABEL (sidebar_title->details->title_label), attrs);
-    pango_attr_list_unref (attrs);
+    override_title_font (sidebar_title->details->title_label, pango_font_description_to_string (title_font));
 
     pango_font_description_free (title_font);
 }
