@@ -449,21 +449,28 @@ eel_image_menu_item_new_from_icon (const gchar *icon_name,
                                    const gchar *label_name)
 {
     GtkWidget *icon;
+    GSettings *icon_settings;
     GtkWidget *box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
 
-    if (icon_name)
+    icon_settings = g_settings_new ("org.mate.interface");
+    if ((icon_name) && (g_settings_get_boolean (icon_settings, "menus-have-icons")))
+        /*Load the icon if user has icons in menus turned on*/
         icon = gtk_image_new_from_icon_name (icon_name, GTK_ICON_SIZE_MENU);
     else
+        /*Load an empty icon to hold the space*/
         icon = gtk_image_new ();
 
     GtkWidget *label_menu = gtk_label_new_with_mnemonic (g_strconcat (label_name, "     ", NULL));
     GtkWidget *menuitem = gtk_menu_item_new ();
- 
+
     gtk_container_add (GTK_CONTAINER (box), icon);
+
     gtk_container_add (GTK_CONTAINER (box), label_menu);
  
     gtk_container_add (GTK_CONTAINER (menuitem), box);
     gtk_widget_show_all (menuitem);
+
+    g_object_unref(icon_settings);
 
     return menuitem;
 }
