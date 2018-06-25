@@ -592,30 +592,63 @@ caja_location_bar_set_location (CajaLocationBar *bar,
     caja_location_bar_update_label (bar);
 }
 
+static void
+override_background_color (GtkWidget *widget,
+                           GdkRGBA   *rgba)
+{
+    gchar          *css;
+    GtkCssProvider *provider;
+
+    provider = gtk_css_provider_new ();
+
+    css = g_strdup_printf ("entry { background-color: %s;}",
+                           gdk_rgba_to_string (rgba));
+    gtk_css_provider_load_from_data (provider, css, -1, NULL);
+    g_free (css);
+
+    gtk_style_context_add_provider (gtk_widget_get_style_context (widget),
+                                    GTK_STYLE_PROVIDER (provider),
+                                    GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+    g_object_unref (provider);
+}
+
 /* change background color based on activity state */
 void
-caja_location_bar_set_active(CajaLocationBar *location_bar, gboolean is_active)
+caja_location_bar_set_active (CajaLocationBar *location_bar, gboolean is_active)
 {
+    GtkStyleContext *style;
+    GdkRGBA color;
+    GdkRGBA *c;
+    static GdkRGBA bg_active;
+    static GdkRGBA bg_inactive;
+
+    style = gtk_widget_get_style_context (GTK_WIDGET (location_bar->details->entry));
+
     if (is_active)
-    {
-        /* reset style to default */
-        gtk_widget_override_background_color (GTK_WIDGET (location_bar->details->entry), GTK_STATE_FLAG_NORMAL, NULL);
-    }
+        gtk_style_context_get (style, GTK_STATE_FLAG_NORMAL,
+                               GTK_STYLE_PROPERTY_BACKGROUND_COLOR,
+                               &c, NULL);
     else
-    {
-        GtkStyleContext *style;
-        GdkRGBA color;
-        GdkRGBA *c;
-
-        style = gtk_widget_get_style_context (GTK_WIDGET (location_bar->details->entry));
-
         gtk_style_context_get (style, GTK_STATE_FLAG_INSENSITIVE,
                                GTK_STYLE_PROPERTY_BACKGROUND_COLOR,
                                &c, NULL);
-        color = *c;
-        gdk_rgba_free (c);
 
-        gtk_widget_override_background_color (GTK_WIDGET (location_bar->details->entry), GTK_STATE_FLAG_ACTIVE, &color);
+    color = *c;
+    gdk_rgba_free (c);
+
+    if (is_active)
+    {
+        if (gdk_rgba_equal (&bg_active, &bg_inactive))
+            bg_active = color;
+
+        override_background_color (GTK_WIDGET (location_bar->details->entry), &bg_active);
+    }
+    else
+    {
+        if (gdk_rgba_equal (&bg_active, &bg_inactive))
+            bg_inactive = color;
+
+        override_background_color(GTK_WIDGET (location_bar->details->entry), &bg_inactive);
     }
 }
 
