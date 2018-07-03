@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-13 12:28+0300\n"
+"POT-Creation-Date: 2018-06-20 21:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Polihron Alexandru (APoliTech) <ppolihron@gmail.com>, 2018\n"
 "Language-Team: Romanian (https://www.transifex.com/mate/teams/13566/ro/)\n"
@@ -288,7 +288,7 @@ msgstr ""
 "Pentru atașarea unei embleme trageți una dintre acestea deasupra unui obiect"
 
 #. translators: this is the name of an emblem
-#: ../data/browser.xml.h:68 ../src/caja-emblem-sidebar.c:995
+#: ../data/browser.xml.h:68 ../src/caja-emblem-sidebar.c:993
 #: ../src/caja-property-browser.c:1951
 msgid "Erase"
 msgstr "De șters"
@@ -365,7 +365,7 @@ msgstr ""
 msgid "Open Folder"
 msgstr "Deschide dosar"
 
-#: ../data/caja-home.desktop.in.in.h:1 ../src/file-manager/fm-tree-view.c:1417
+#: ../data/caja-home.desktop.in.in.h:1 ../src/file-manager/fm-tree-view.c:1416
 msgid "Home Folder"
 msgstr "Dosar personal"
 
@@ -438,45 +438,41 @@ msgstr "Poziția capătului opusă pentru selecție de la curson, în caractere.
 #. name, icon name
 #. label, accelerator
 #. add the "cut folder" menu item
-#: ../eel/eel-editable-label.c:3117 ../libcaja-private/caja-clipboard.c:455
+#: ../eel/eel-editable-label.c:3081 ../libcaja-private/caja-clipboard.c:455
 #: ../src/file-manager/fm-directory-view.c:7332
 #: ../src/file-manager/fm-directory-view.c:7499
-#: ../src/file-manager/fm-tree-view.c:1307
+#: ../src/file-manager/fm-tree-view.c:1306
 msgid "Cu_t"
 msgstr "_Taie"
 
 #. name, icon name
 #. label, accelerator
 #. add the "copy folder" menu item
-#: ../eel/eel-editable-label.c:3119 ../libcaja-private/caja-clipboard.c:460
+#: ../eel/eel-editable-label.c:3083 ../libcaja-private/caja-clipboard.c:460
 #: ../src/file-manager/fm-directory-view.c:7336
 #: ../src/file-manager/fm-directory-view.c:7503
-#: ../src/file-manager/fm-tree-view.c:1316
+#: ../src/file-manager/fm-tree-view.c:1315
 msgid "_Copy"
 msgstr "_Copiază"
 
 #. name, icon name
 #. label, accelerator
-#: ../eel/eel-editable-label.c:3121 ../libcaja-private/caja-clipboard.c:465
+#: ../eel/eel-editable-label.c:3085 ../libcaja-private/caja-clipboard.c:465
 #: ../src/file-manager/fm-directory-view.c:7340
 msgid "_Paste"
 msgstr "_Lipește"
 
-#: ../eel/eel-editable-label.c:3124
+#: ../eel/eel-editable-label.c:3088
 msgid "Select All"
 msgstr "Selectare tot"
 
-#: ../eel/eel-editable-label.c:3135
-msgid "Input Methods"
-msgstr "Metode intrare"
-
-#: ../eel/eel-gtk-extensions.c:459
+#: ../eel/eel-gtk-extensions.c:432
 msgid "Show more _details"
 msgstr "Arată mai multe _detailii"
 
 #: ../eel/eel-stock-dialogs.c:238 ../eel/eel-stock-dialogs.c:294
 #: ../eel/eel-stock-dialogs.c:449 ../eel/eel-stock-dialogs.c:650
-#: ../libcaja-private/caja-autorun.c:1147
+#: ../libcaja-private/caja-autorun.c:1150
 #: ../libcaja-private/caja-file-conflict-dialog.c:659
 #: ../libcaja-private/caja-file-operations.c:186
 #: ../libcaja-private/caja-mime-actions.c:819
@@ -485,9 +481,9 @@ msgstr "Arată mai multe _detailii"
 #: ../src/file-manager/fm-directory-view.c:1208
 #: ../src/file-manager/fm-directory-view.c:1350
 #: ../src/file-manager/fm-directory-view.c:7012
-#: ../src/file-manager/fm-directory-view.c:10302
-#: ../src/caja-connect-server-dialog.c:1122 ../src/caja-emblem-sidebar.c:290
-#: ../src/caja-emblem-sidebar.c:547 ../src/caja-location-dialog.c:194
+#: ../src/file-manager/fm-directory-view.c:10295
+#: ../src/caja-connect-server-dialog.c:1122 ../src/caja-emblem-sidebar.c:288
+#: ../src/caja-emblem-sidebar.c:545 ../src/caja-location-dialog.c:194
 #: ../src/caja-property-browser.c:1111 ../src/caja-property-browser.c:1191
 msgid "_Cancel"
 msgstr "_Renunță"
@@ -499,7 +495,7 @@ msgstr "_Renunță"
 #: ../libcaja-private/caja-open-with-dialog.c:976
 #: ../src/file-manager/fm-directory-view.c:7296
 #: ../src/file-manager/fm-directory-view.c:8805
-#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-location-dialog.c:199
+#: ../src/file-manager/fm-tree-view.c:1266 ../src/caja-location-dialog.c:199
 #: ../src/caja-places-sidebar.c:2678
 msgid "_Open"
 msgstr "_Deschide"
@@ -513,10 +509,10 @@ msgid "You can stop this operation by clicking cancel."
 msgstr "Puteți opri acestă operație apăsând „Renunță”."
 
 #: ../eel/eel-stock-dialogs.c:296 ../eel/eel-stock-dialogs.c:451
-#: ../eel/eel-stock-dialogs.c:655 ../libcaja-private/caja-autorun.c:1152
+#: ../eel/eel-stock-dialogs.c:655 ../libcaja-private/caja-autorun.c:1155
 #: ../libcaja-private/caja-mime-actions.c:1370
 #: ../src/file-manager/fm-directory-view.c:1213
-#: ../src/caja-emblem-sidebar.c:295 ../src/caja-emblem-sidebar.c:552
+#: ../src/caja-emblem-sidebar.c:293 ../src/caja-emblem-sidebar.c:550
 #: ../src/caja-property-browser.c:1116 ../src/caja-property-browser.c:1196
 #: ../src/caja-query-editor.c:720
 msgid "_OK"
@@ -551,74 +547,74 @@ msgstr "Deschide %s"
 msgid "Open with other Application..."
 msgstr "Deschide cu o altă aplicație..."
 
-#: ../libcaja-private/caja-autorun.c:1041
+#: ../libcaja-private/caja-autorun.c:1044
 msgid "You have just inserted an Audio CD."
 msgstr "Tocmai ați introdus un CD audio."
 
-#: ../libcaja-private/caja-autorun.c:1045
+#: ../libcaja-private/caja-autorun.c:1048
 msgid "You have just inserted an Audio DVD."
 msgstr "Tocmai ați introdus un DVD audio."
 
-#: ../libcaja-private/caja-autorun.c:1049
+#: ../libcaja-private/caja-autorun.c:1052
 msgid "You have just inserted a Video DVD."
 msgstr "Tocmai ați introdus un DVD video."
 
-#: ../libcaja-private/caja-autorun.c:1053
+#: ../libcaja-private/caja-autorun.c:1056
 msgid "You have just inserted a Video CD."
 msgstr "Tocmai ați introdus un CD Video."
 
-#: ../libcaja-private/caja-autorun.c:1057
+#: ../libcaja-private/caja-autorun.c:1060
 msgid "You have just inserted a Super Video CD."
 msgstr "Tocmai ați introdus un CD Super Video."
 
-#: ../libcaja-private/caja-autorun.c:1061
+#: ../libcaja-private/caja-autorun.c:1064
 msgid "You have just inserted a blank CD."
 msgstr "Tocmai ați introdus un CD gol."
 
-#: ../libcaja-private/caja-autorun.c:1065
+#: ../libcaja-private/caja-autorun.c:1068
 msgid "You have just inserted a blank DVD."
 msgstr "Tocmai ați introdus un DVD gol."
 
-#: ../libcaja-private/caja-autorun.c:1069
+#: ../libcaja-private/caja-autorun.c:1072
 msgid "You have just inserted a blank Blu-Ray disc."
 msgstr "Tocmai ați introdus un disc Blu-Ray."
 
-#: ../libcaja-private/caja-autorun.c:1073
+#: ../libcaja-private/caja-autorun.c:1076
 msgid "You have just inserted a blank HD DVD."
 msgstr "Tocmai ați introdus un HD DVD gol."
 
-#: ../libcaja-private/caja-autorun.c:1077
+#: ../libcaja-private/caja-autorun.c:1080
 msgid "You have just inserted a Photo CD."
 msgstr "Tocmai ați introdus un CD Foto."
 
-#: ../libcaja-private/caja-autorun.c:1081
+#: ../libcaja-private/caja-autorun.c:1084
 msgid "You have just inserted a Picture CD."
 msgstr "Tocmai ați introdus un CD cu fotografii."
 
-#: ../libcaja-private/caja-autorun.c:1085
+#: ../libcaja-private/caja-autorun.c:1088
 msgid "You have just inserted a medium with digital photos."
 msgstr "Tocmai ați introdus un mediu cu fotografii digitale."
 
-#: ../libcaja-private/caja-autorun.c:1089
+#: ../libcaja-private/caja-autorun.c:1092
 msgid "You have just inserted a digital audio player."
 msgstr "Tocmai ați introdus un lector audio digital."
 
-#: ../libcaja-private/caja-autorun.c:1093
+#: ../libcaja-private/caja-autorun.c:1096
 msgid ""
 "You have just inserted a medium with software intended to be automatically "
 "started."
 msgstr "Tocmai ați introdus un mediu cu aplicații ce vor fi rulate automat."
 
 #. fallback to generic greeting
-#: ../libcaja-private/caja-autorun.c:1098
+#: ../libcaja-private/caja-autorun.c:1101
 msgid "You have just inserted a medium."
 msgstr "Tocmai ați introdus un mediu."
 
-#: ../libcaja-private/caja-autorun.c:1100
+#: ../libcaja-private/caja-autorun.c:1103
 msgid "Choose what application to launch."
 msgstr "Alegeți ce aplicația să porniți"
 
-#: ../libcaja-private/caja-autorun.c:1110
+#: ../libcaja-private/caja-autorun.c:1113
 #, c-format
 msgid ""
 "Select how to open \"%s\" and whether to perform this action in the future "
@@ -627,29 +623,29 @@ msgstr ""
 "Alegeți cum să fie deschis „%s” și dacă această acțiune să fie efectuată în "
 "viitor pentru medii de stocare de tipul „%s”."
 
-#: ../libcaja-private/caja-autorun.c:1138
+#: ../libcaja-private/caja-autorun.c:1141
 msgid "_Always perform this action"
 msgstr "Efectuează întotdeauna această _acțiune"
 
 #. name, icon name
 #. label, accelerator
 #. add the "Eject" menu item
-#: ../libcaja-private/caja-autorun.c:1161
+#: ../libcaja-private/caja-autorun.c:1164
 #: ../src/file-manager/fm-directory-view.c:7423
 #: ../src/file-manager/fm-directory-view.c:7451
 #: ../src/file-manager/fm-directory-view.c:7532
-#: ../src/file-manager/fm-tree-view.c:1365 ../src/caja-places-sidebar.c:2735
+#: ../src/file-manager/fm-tree-view.c:1364 ../src/caja-places-sidebar.c:2735
 msgid "_Eject"
 msgstr "Scoat_e"
 
 #. name, icon name
 #. label, accelerator
 #. add the "Unmount" menu item
-#: ../libcaja-private/caja-autorun.c:1176
+#: ../libcaja-private/caja-autorun.c:1179
 #: ../src/file-manager/fm-directory-view.c:7419
 #: ../src/file-manager/fm-directory-view.c:7447
 #: ../src/file-manager/fm-directory-view.c:7528
-#: ../src/file-manager/fm-tree-view.c:1356 ../src/caja-places-sidebar.c:2728
+#: ../src/file-manager/fm-tree-view.c:1355 ../src/caja-places-sidebar.c:2728
 msgid "_Unmount"
 msgstr "De_montează"
 
@@ -856,7 +852,7 @@ msgid "Network Servers"
 msgstr "Servitoare rețea"
 
 #: ../libcaja-private/caja-desktop-link.c:119
-#: ../src/file-manager/fm-tree-view.c:1424 ../src/caja-places-sidebar.c:613
+#: ../src/file-manager/fm-tree-view.c:1423 ../src/caja-places-sidebar.c:613
 #: ../src/caja-trash-bar.c:190
 msgid "Trash"
 msgstr "Coș de gunoi"
@@ -877,15 +873,15 @@ msgstr "_Leagă aici"
 msgid "Set as _Background"
 msgstr "Definește ca _fundal"
 
-#: ../libcaja-private/caja-dnd.c:817 ../libcaja-private/caja-dnd.c:871
+#: ../libcaja-private/caja-dnd.c:817 ../libcaja-private/caja-dnd.c:870
 msgid "Cancel"
 msgstr "Renunță"
 
-#: ../libcaja-private/caja-dnd.c:859
+#: ../libcaja-private/caja-dnd.c:858
 msgid "Set as background for _all folders"
 msgstr "Definește ca fundal pentru to_ate dosarele"
 
-#: ../libcaja-private/caja-dnd.c:864
+#: ../libcaja-private/caja-dnd.c:863
 msgid "Set as background for _this folder"
 msgstr "Folosește ca fundal pentru aces_t dosar"
 
@@ -1097,7 +1093,7 @@ msgstr "_Reîncearcă"
 #: ../src/file-manager/fm-directory-view.c:7384
 #: ../src/file-manager/fm-directory-view.c:7516
 #: ../src/file-manager/fm-directory-view.c:8957
-#: ../src/file-manager/fm-tree-view.c:1345 ../src/caja-emblem-sidebar.c:375
+#: ../src/file-manager/fm-tree-view.c:1344 ../src/caja-emblem-sidebar.c:373
 msgid "_Delete"
 msgstr "Șter_ge"
 
@@ -1164,7 +1160,7 @@ msgstr[2] ""
 #. * to that kind of file (e.g. "link to folder").
 #: ../libcaja-private/caja-file-operations.c:409
 #: ../libcaja-private/caja-file.c:6727
-#: ../src/file-manager/fm-directory-view.c:10546
+#: ../src/file-manager/fm-directory-view.c:10539
 #, c-format
 msgid "Link to %s"
 msgstr "Legătură la %s"
@@ -1395,7 +1391,7 @@ msgstr[2] ""
 #: ../libcaja-private/caja-file-operations.c:1638
 #: ../libcaja-private/caja-file-operations.c:1677
 #: ../libcaja-private/caja-file-operations.c:1754
-#: ../libcaja-private/caja-file-operations.c:2579
+#: ../libcaja-private/caja-file-operations.c:2577
 msgid "Error while deleting."
 msgstr "Eroare la ștergere."
 
@@ -1408,8 +1404,8 @@ msgstr ""
 "permisiuni."
 
 #: ../libcaja-private/caja-file-operations.c:1611
-#: ../libcaja-private/caja-file-operations.c:2639
-#: ../libcaja-private/caja-file-operations.c:3621
+#: ../libcaja-private/caja-file-operations.c:2637
+#: ../libcaja-private/caja-file-operations.c:3619
 msgid ""
 "There was an error getting information about the files in the folder \"%B\"."
 msgstr ""
@@ -1417,7 +1413,7 @@ msgstr ""
 "„%B”."
 
 #: ../libcaja-private/caja-file-operations.c:1620
-#: ../libcaja-private/caja-file-operations.c:3630
+#: ../libcaja-private/caja-file-operations.c:3628
 msgid "_Skip files"
 msgstr "_Omite fișiere"
 
@@ -1430,8 +1426,8 @@ msgstr ""
 "pentru citirea lui."
 
 #: ../libcaja-private/caja-file-operations.c:1644
-#: ../libcaja-private/caja-file-operations.c:2678
-#: ../libcaja-private/caja-file-operations.c:3666
+#: ../libcaja-private/caja-file-operations.c:2676
+#: ../libcaja-private/caja-file-operations.c:3664
 msgid "There was an error reading the folder \"%B\"."
 msgstr "S-a produs o eroare la citirea dosarului „%B”."
 
@@ -1496,12 +1492,12 @@ msgstr ""
 msgid "Do _not Empty Trash"
 msgstr "_Nu goli coșul de gunoi"
 
-#: ../libcaja-private/caja-file-operations.c:2448
+#: ../libcaja-private/caja-file-operations.c:2446
 #, c-format
 msgid "Unable to mount %s"
 msgstr "Nu s-a putut monta %s"
 
-#: ../libcaja-private/caja-file-operations.c:2526
+#: ../libcaja-private/caja-file-operations.c:2524
 #, c-format
 msgid "Preparing to copy %'d file (%S)"
 msgid_plural "Preparing to copy %'d files (%S)"
@@ -1509,7 +1505,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: ../libcaja-private/caja-file-operations.c:2532
+#: ../libcaja-private/caja-file-operations.c:2530
 #, c-format
 msgid "Preparing to move %'d file (%S)"
 msgid_plural "Preparing to move %'d files (%S)"
@@ -1517,7 +1513,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: ../libcaja-private/caja-file-operations.c:2538
+#: ../libcaja-private/caja-file-operations.c:2536
 #, c-format
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
@@ -1525,7 +1521,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: ../libcaja-private/caja-file-operations.c:2544
+#: ../libcaja-private/caja-file-operations.c:2542
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
@@ -1533,24 +1529,24 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: ../libcaja-private/caja-file-operations.c:2575
-#: ../libcaja-private/caja-file-operations.c:3473
-#: ../libcaja-private/caja-file-operations.c:3613
-#: ../libcaja-private/caja-file-operations.c:3658
+#: ../libcaja-private/caja-file-operations.c:2573
+#: ../libcaja-private/caja-file-operations.c:3471
+#: ../libcaja-private/caja-file-operations.c:3611
+#: ../libcaja-private/caja-file-operations.c:3656
 msgid "Error while copying."
 msgstr "Eroare la copiere."
 
-#: ../libcaja-private/caja-file-operations.c:2577
-#: ../libcaja-private/caja-file-operations.c:3611
-#: ../libcaja-private/caja-file-operations.c:3656
+#: ../libcaja-private/caja-file-operations.c:2575
+#: ../libcaja-private/caja-file-operations.c:3609
+#: ../libcaja-private/caja-file-operations.c:3654
 msgid "Error while moving."
 msgstr "Eroare la mutare."
 
-#: ../libcaja-private/caja-file-operations.c:2581
+#: ../libcaja-private/caja-file-operations.c:2579
 msgid "Error while moving files to trash."
 msgstr "Eroare la mutarea fișierelor în coșul de gunoi."
 
-#: ../libcaja-private/caja-file-operations.c:2636
+#: ../libcaja-private/caja-file-operations.c:2634
 msgid ""
 "Files in the folder \"%B\" cannot be handled because you do not have "
 "permissions to see them."
@@ -1558,44 +1554,44 @@ msgstr ""
 "Fișiere din dosarul „%B” nu pot fi accesate deoarece nu aveți suficiente "
 "permisiuni."
 
-#: ../libcaja-private/caja-file-operations.c:2675
+#: ../libcaja-private/caja-file-operations.c:2673
 msgid ""
 "The folder \"%B\" cannot be handled because you do not have permissions to "
 "read it."
 msgstr ""
 "Dosarul „%B” nu poate fi accesat deoarece nu aveți permisiuni de citire."
 
-#: ../libcaja-private/caja-file-operations.c:2753
+#: ../libcaja-private/caja-file-operations.c:2751
 msgid ""
 "The file \"%B\" cannot be handled because you do not have permissions to "
 "read it."
 msgstr ""
 "Fișierul „%B” nu poate fi accesat deoarece nu aveți permisiuni de citire."
 
-#: ../libcaja-private/caja-file-operations.c:2756
+#: ../libcaja-private/caja-file-operations.c:2754
 msgid "There was an error getting information about \"%B\"."
 msgstr "S-a produs o eroare la obținerea informațiilor despre „%B”."
 
-#: ../libcaja-private/caja-file-operations.c:2856
-#: ../libcaja-private/caja-file-operations.c:2898
-#: ../libcaja-private/caja-file-operations.c:2931
-#: ../libcaja-private/caja-file-operations.c:2961
+#: ../libcaja-private/caja-file-operations.c:2854
+#: ../libcaja-private/caja-file-operations.c:2896
+#: ../libcaja-private/caja-file-operations.c:2929
+#: ../libcaja-private/caja-file-operations.c:2959
 msgid "Error while copying to \"%B\"."
 msgstr "S-a produs o eroare la copierea în „%B”."
 
-#: ../libcaja-private/caja-file-operations.c:2860
+#: ../libcaja-private/caja-file-operations.c:2858
 msgid "You do not have permissions to access the destination folder."
 msgstr "Nu aveți permisiuni pentru a accesa dosarul destinație."
 
-#: ../libcaja-private/caja-file-operations.c:2862
+#: ../libcaja-private/caja-file-operations.c:2860
 msgid "There was an error getting information about the destination."
 msgstr "S-a produs o eroare la obținerea informațiilor despre destinație."
 
-#: ../libcaja-private/caja-file-operations.c:2899
+#: ../libcaja-private/caja-file-operations.c:2897
 msgid "The destination is not a folder."
 msgstr "Destinația nu este un dosar."
 
-#: ../libcaja-private/caja-file-operations.c:2932
+#: ../libcaja-private/caja-file-operations.c:2930
 msgid ""
 "There is not enough space on the destination. Try to remove files to make "
 "space."
@@ -1603,63 +1599,63 @@ msgstr ""
 "Destinația nu are suficient spațiu liber. Pentru a obține spațiu încercați "
 "să ștergeți fișiere."
 
-#: ../libcaja-private/caja-file-operations.c:2934
+#: ../libcaja-private/caja-file-operations.c:2932
 #, c-format
 msgid "There is %S available, but %S is required."
 msgstr "Există %S disponibili, dar sunt necesari %S."
 
-#: ../libcaja-private/caja-file-operations.c:2962
+#: ../libcaja-private/caja-file-operations.c:2960
 msgid "The destination is read-only."
 msgstr "Destinația este doar pentru citire."
 
-#: ../libcaja-private/caja-file-operations.c:3021
+#: ../libcaja-private/caja-file-operations.c:3019
 msgid "Moving \"%B\" to \"%B\""
 msgstr "Se mută „%B” în „%B”"
 
-#: ../libcaja-private/caja-file-operations.c:3022
+#: ../libcaja-private/caja-file-operations.c:3020
 msgid "Copying \"%B\" to \"%B\""
 msgstr "Se copiază „%B” în „%B”"
 
-#: ../libcaja-private/caja-file-operations.c:3027
+#: ../libcaja-private/caja-file-operations.c:3025
 msgid "Duplicating \"%B\""
 msgstr "Se duplică „%B”"
 
-#: ../libcaja-private/caja-file-operations.c:3035
+#: ../libcaja-private/caja-file-operations.c:3033
 msgid "Moving %'d file (in \"%B\") to \"%B\""
 msgid_plural "Moving %'d files (in \"%B\") to \"%B\""
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: ../libcaja-private/caja-file-operations.c:3039
+#: ../libcaja-private/caja-file-operations.c:3037
 msgid "Copying %'d file (in \"%B\") to \"%B\""
 msgid_plural "Copying %'d files (in \"%B\") to \"%B\""
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: ../libcaja-private/caja-file-operations.c:3047
+#: ../libcaja-private/caja-file-operations.c:3045
 msgid "Duplicating %'d file (in \"%B\")"
 msgid_plural "Duplicating %'d files (in \"%B\")"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: ../libcaja-private/caja-file-operations.c:3057
+#: ../libcaja-private/caja-file-operations.c:3055
 msgid "Moving %'d file to \"%B\""
 msgid_plural "Moving %'d files to \"%B\""
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: ../libcaja-private/caja-file-operations.c:3061
+#: ../libcaja-private/caja-file-operations.c:3059
 msgid "Copying %'d file to \"%B\""
 msgid_plural "Copying %'d files to \"%B\""
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: ../libcaja-private/caja-file-operations.c:3067
+#: ../libcaja-private/caja-file-operations.c:3065
 #, c-format
 msgid "Duplicating %'d file"
 msgid_plural "Duplicating %'d files"
@@ -1669,7 +1665,7 @@ msgstr[2] ""
 
 #. To translators: %S will expand to a size like "2 bytes" or "3 MB", so
 #. something like "4 kb of 4 MB"
-#: ../libcaja-private/caja-file-operations.c:3087
+#: ../libcaja-private/caja-file-operations.c:3085
 #, c-format
 msgid "%S of %S"
 msgstr "%S din %S"
@@ -1681,14 +1677,14 @@ msgstr "%S din %S"
 #. *
 #. * The singular/plural form will be used depending on the remaining time
 #. (i.e. the %T argument).
-#: ../libcaja-private/caja-file-operations.c:3098
+#: ../libcaja-private/caja-file-operations.c:3096
 msgid "%S of %S — %T left (%S/sec)"
 msgid_plural "%S of %S — %T left (%S/sec)"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: ../libcaja-private/caja-file-operations.c:3477
+#: ../libcaja-private/caja-file-operations.c:3475
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "create it in the destination."
@@ -1696,11 +1692,11 @@ msgstr ""
 "Dosarul „%B” nu a putut fi copiat deoarece nu aveți permisiuni de creare în "
 "destinație."
 
-#: ../libcaja-private/caja-file-operations.c:3480
+#: ../libcaja-private/caja-file-operations.c:3478
 msgid "There was an error creating the folder \"%B\"."
 msgstr "S-a produs o eroare la crearea dosarului „%B”."
 
-#: ../libcaja-private/caja-file-operations.c:3618
+#: ../libcaja-private/caja-file-operations.c:3616
 msgid ""
 "Files in the folder \"%B\" cannot be copied because you do not have "
 "permissions to see them."
@@ -1708,88 +1704,88 @@ msgstr ""
 "Fișiere din dosarul „%B” nu pot fi copiate deoarece nu aveți permisiuni de "
 "citire."
 
-#: ../libcaja-private/caja-file-operations.c:3663
+#: ../libcaja-private/caja-file-operations.c:3661
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "read it."
 msgstr ""
 "Dosarul „%B” nu poate fi copiat deoarece nu aveți permisiuni de citire."
 
-#: ../libcaja-private/caja-file-operations.c:3708
-#: ../libcaja-private/caja-file-operations.c:4402
-#: ../libcaja-private/caja-file-operations.c:4994
+#: ../libcaja-private/caja-file-operations.c:3706
+#: ../libcaja-private/caja-file-operations.c:4400
+#: ../libcaja-private/caja-file-operations.c:4992
 msgid "Error while moving \"%B\"."
 msgstr "Eroare la mutarea „%B”."
 
-#: ../libcaja-private/caja-file-operations.c:3709
+#: ../libcaja-private/caja-file-operations.c:3707
 msgid "Could not remove the source folder."
 msgstr "Dosarul sursă nu se poate șterge."
 
-#: ../libcaja-private/caja-file-operations.c:3794
-#: ../libcaja-private/caja-file-operations.c:3835
-#: ../libcaja-private/caja-file-operations.c:4404
-#: ../libcaja-private/caja-file-operations.c:4476
+#: ../libcaja-private/caja-file-operations.c:3792
+#: ../libcaja-private/caja-file-operations.c:3833
+#: ../libcaja-private/caja-file-operations.c:4402
+#: ../libcaja-private/caja-file-operations.c:4474
 msgid "Error while copying \"%B\"."
 msgstr "Eroare la copierea „%B”."
 
-#: ../libcaja-private/caja-file-operations.c:3795
+#: ../libcaja-private/caja-file-operations.c:3793
 #, c-format
 msgid "Could not remove files from the already existing folder %F."
 msgstr "Nu s-au putut șterge fișiere din dosarul existent %F."
 
-#: ../libcaja-private/caja-file-operations.c:3836
+#: ../libcaja-private/caja-file-operations.c:3834
 #, c-format
 msgid "Could not remove the already existing file %F."
 msgstr "Nu s-a putut șterge fișierul existent %F."
 
 #. the run_warning() frees all strings passed in automatically
-#: ../libcaja-private/caja-file-operations.c:4155
-#: ../libcaja-private/caja-file-operations.c:4840
+#: ../libcaja-private/caja-file-operations.c:4153
+#: ../libcaja-private/caja-file-operations.c:4838
 msgid "You cannot move a folder into itself."
 msgstr "Nu puteți muta un dosar în el însuși."
 
-#: ../libcaja-private/caja-file-operations.c:4156
-#: ../libcaja-private/caja-file-operations.c:4841
+#: ../libcaja-private/caja-file-operations.c:4154
+#: ../libcaja-private/caja-file-operations.c:4839
 msgid "You cannot copy a folder into itself."
 msgstr "Nu puteți copia un dosar în el însuși."
 
-#: ../libcaja-private/caja-file-operations.c:4157
-#: ../libcaja-private/caja-file-operations.c:4842
+#: ../libcaja-private/caja-file-operations.c:4155
+#: ../libcaja-private/caja-file-operations.c:4840
 msgid "The destination folder is inside the source folder."
 msgstr "Dosarul destinație este în interiorul dosarului sursă."
 
 #. the run_warning() frees all strings passed in automatically
-#: ../libcaja-private/caja-file-operations.c:4188
+#: ../libcaja-private/caja-file-operations.c:4186
 msgid "You cannot move a file over itself."
 msgstr "Nu puteți muta un fișier peste el însuși."
 
-#: ../libcaja-private/caja-file-operations.c:4189
+#: ../libcaja-private/caja-file-operations.c:4187
 msgid "You cannot copy a file over itself."
 msgstr "Nu puteți copia un fișier în el însuși."
 
-#: ../libcaja-private/caja-file-operations.c:4190
+#: ../libcaja-private/caja-file-operations.c:4188
 msgid "The source file would be overwritten by the destination."
 msgstr "Fișierul sursă ar fi suprascris de destinație."
 
-#: ../libcaja-private/caja-file-operations.c:4406
+#: ../libcaja-private/caja-file-operations.c:4404
 #, c-format
 msgid "Could not remove the already existing file with the same name in %F."
 msgstr "Nu s-a putut șterge fișierul existent cu același nume din %F."
 
-#: ../libcaja-private/caja-file-operations.c:4477
+#: ../libcaja-private/caja-file-operations.c:4475
 #, c-format
 msgid "There was an error copying the file into %F."
 msgstr "S-a produs o eroare la copierea fișierului în %F."
 
-#: ../libcaja-private/caja-file-operations.c:4723
+#: ../libcaja-private/caja-file-operations.c:4721
 msgid "Copying Files"
 msgstr "Se copiază fișiere"
 
-#: ../libcaja-private/caja-file-operations.c:4750
+#: ../libcaja-private/caja-file-operations.c:4748
 msgid "Preparing to Move to \"%B\""
 msgstr "Se pregătește mutarea în „%B”"
 
-#: ../libcaja-private/caja-file-operations.c:4754
+#: ../libcaja-private/caja-file-operations.c:4752
 #, c-format
 msgid "Preparing to move %'d file"
 msgid_plural "Preparing to move %'d files"
@@ -1797,20 +1793,20 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: ../libcaja-private/caja-file-operations.c:4995
+#: ../libcaja-private/caja-file-operations.c:4993
 #, c-format
 msgid "There was an error moving the file into %F."
 msgstr "S-a produs o eroare la mutarea fișierului în %F."
 
-#: ../libcaja-private/caja-file-operations.c:5265
+#: ../libcaja-private/caja-file-operations.c:5263
 msgid "Moving Files"
 msgstr "Se mută fișiere"
 
-#: ../libcaja-private/caja-file-operations.c:5296
+#: ../libcaja-private/caja-file-operations.c:5294
 msgid "Creating links in \"%B\""
 msgstr "Se crează legături în „%B”"
 
-#: ../libcaja-private/caja-file-operations.c:5300
+#: ../libcaja-private/caja-file-operations.c:5298
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
@@ -1818,58 +1814,58 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: ../libcaja-private/caja-file-operations.c:5432
+#: ../libcaja-private/caja-file-operations.c:5430
 msgid "Error while creating link to %B."
 msgstr "Eroare la efectuarea legături către %B."
 
-#: ../libcaja-private/caja-file-operations.c:5434
+#: ../libcaja-private/caja-file-operations.c:5432
 msgid "Symbolic links only supported for local files"
 msgstr "Legăturile simbolice sunt suportate doar pentru fișiere locale"
 
-#: ../libcaja-private/caja-file-operations.c:5437
+#: ../libcaja-private/caja-file-operations.c:5435
 msgid "The target doesn't support symbolic links."
 msgstr "Destinația nu suportă legături simbolice."
 
-#: ../libcaja-private/caja-file-operations.c:5440
+#: ../libcaja-private/caja-file-operations.c:5438
 #, c-format
 msgid "There was an error creating the symlink in %F."
 msgstr "S-a produs o eroare la efectuarea legăturii simbolice în %F."
 
-#: ../libcaja-private/caja-file-operations.c:5756
+#: ../libcaja-private/caja-file-operations.c:5754
 msgid "Setting permissions"
 msgstr "Se definesc permisiuni"
 
 #. localizers: the initial name of a new folder
-#: ../libcaja-private/caja-file-operations.c:6015
+#: ../libcaja-private/caja-file-operations.c:6013
 msgid "untitled folder"
 msgstr "dosar fără nume"
 
 #. localizers: the initial name of a new empty file
-#: ../libcaja-private/caja-file-operations.c:6023
+#: ../libcaja-private/caja-file-operations.c:6021
 msgid "new file"
 msgstr "fișier nou"
 
-#: ../libcaja-private/caja-file-operations.c:6195
+#: ../libcaja-private/caja-file-operations.c:6193
 msgid "Error while creating directory %B."
 msgstr "Eroare la crearea dosarului %B."
 
-#: ../libcaja-private/caja-file-operations.c:6197
+#: ../libcaja-private/caja-file-operations.c:6195
 msgid "Error while creating file %B."
 msgstr "Eroare la crearea fișierului %B."
 
-#: ../libcaja-private/caja-file-operations.c:6199
+#: ../libcaja-private/caja-file-operations.c:6197
 #, c-format
 msgid "There was an error creating the directory in %F."
 msgstr "S-a produs o eroare la crearea dosarului în %F."
 
-#: ../libcaja-private/caja-file-operations.c:6477
+#: ../libcaja-private/caja-file-operations.c:6475
 msgid "Emptying Trash"
 msgstr "Se golește coșul de gunoi"
 
-#: ../libcaja-private/caja-file-operations.c:6526
-#: ../libcaja-private/caja-file-operations.c:6567
-#: ../libcaja-private/caja-file-operations.c:6602
-#: ../libcaja-private/caja-file-operations.c:6637
+#: ../libcaja-private/caja-file-operations.c:6524
+#: ../libcaja-private/caja-file-operations.c:6565
+#: ../libcaja-private/caja-file-operations.c:6600
+#: ../libcaja-private/caja-file-operations.c:6635
 msgid "Unable to mark launcher trusted (executable)"
 msgstr "Nu s-a putut marca lansatorul ca fiind de încredere (executabil)"
 
@@ -2158,7 +2154,7 @@ msgstr "legătură"
 msgid "link (broken)"
 msgstr "legătura (ruptă)"
 
-#: ../libcaja-private/caja-icon-container.c:2912
+#: ../libcaja-private/caja-icon-container.c:2923
 msgid "The selection rectangle"
 msgstr "Dreptunghiul de selecție"
 
@@ -2191,7 +2187,7 @@ msgstr ""
 #: ../src/file-manager/fm-directory-view.c:7512
 #: ../src/file-manager/fm-directory-view.c:8611
 #: ../src/file-manager/fm-directory-view.c:8936
-#: ../src/file-manager/fm-tree-view.c:1336
+#: ../src/file-manager/fm-tree-view.c:1335
 msgid "Mo_ve to Trash"
 msgstr "Mută în coșul de _gunoi"
 
@@ -2579,7 +2575,7 @@ msgstr "adăugat la coadă"
 msgid "queuing"
 msgstr "se adaugă la coadă"
 
-#: ../libcaja-private/caja-progress-info.c:599
+#: ../libcaja-private/caja-progress-info.c:606
 #, c-format
 msgid "%'d file operation active"
 msgid_plural "%'d file operations active"
@@ -2587,8 +2583,16 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: ../libcaja-private/caja-progress-info.c:975
-#: ../libcaja-private/caja-progress-info.c:996
+#: ../libcaja-private/caja-progress-info.c:623
+msgid "Process completed"
+msgstr ""
+
+#: ../libcaja-private/caja-progress-info.c:633
+msgid "Working..."
+msgstr ""
+
+#: ../libcaja-private/caja-progress-info.c:992
+#: ../libcaja-private/caja-progress-info.c:1013
 msgid "Preparing"
 msgstr "Se pregătește"
 
@@ -3973,13 +3977,13 @@ msgstr "Opțiuni administrator de sesiune:"
 msgid "Show session management options"
 msgstr "Afișează opțiunile administratorului de sesiune"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:672
+#: ../src/file-manager/fm-desktop-icon-view.c:676
 msgid "Background"
 msgstr "Fundal"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:749
+#: ../src/file-manager/fm-desktop-icon-view.c:753
 #: ../src/file-manager/fm-directory-view.c:7328
 #: ../src/file-manager/fm-directory-view.c:9005
 msgid "E_mpty Trash"
@@ -3988,44 +3992,44 @@ msgstr "_Golește coșul de gunoi"
 #. label, accelerator
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:763
+#: ../src/file-manager/fm-desktop-icon-view.c:767
 #: ../src/file-manager/fm-directory-view.c:7292
 msgid "Create L_auncher..."
 msgstr "Creează l_ansator..."
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:765
+#: ../src/file-manager/fm-desktop-icon-view.c:769
 #: ../src/file-manager/fm-directory-view.c:7293
 msgid "Create a new launcher"
 msgstr "Creează un nou lansator"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:772
+#: ../src/file-manager/fm-desktop-icon-view.c:776
 msgid "Change Desktop _Background"
 msgstr "Schimbare _fundal desktop"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:774
+#: ../src/file-manager/fm-desktop-icon-view.c:778
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr "Arată o fereastră care vă lasă să stabiliți fundalul desktopului"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:781
+#: ../src/file-manager/fm-desktop-icon-view.c:785
 msgid "Empty Trash"
 msgstr "Golește coșul de gunoi"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:783
+#: ../src/file-manager/fm-desktop-icon-view.c:787
 #: ../src/file-manager/fm-directory-view.c:7329 ../src/caja-trash-bar.c:204
 msgid "Delete all items in the Trash"
 msgstr "Șterge toate elementele din coșul de gunoi"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:883
+#: ../src/file-manager/fm-desktop-icon-view.c:887
 msgid "The desktop view encountered an error."
 msgstr "Vizualizarea desktop a întâmpinat o eroare."
 
-#: ../src/file-manager/fm-desktop-icon-view.c:884
+#: ../src/file-manager/fm-desktop-icon-view.c:888
 msgid "The desktop view encountered an error while starting up."
 msgstr "Vizualizarea desktop a întâmpinat o eroare la pornire."
 
@@ -4060,8 +4064,8 @@ msgstr "Alegeți potrivire elemente după"
 #: ../src/file-manager/fm-directory-view.c:1203
 #: ../src/file-manager/fm-properties-window.c:5176
 #: ../src/caja-bookmarks-window.ui.h:2
-#: ../src/caja-connect-server-dialog.c:1117 ../src/caja-emblem-sidebar.c:300
-#: ../src/caja-emblem-sidebar.c:557
+#: ../src/caja-connect-server-dialog.c:1117 ../src/caja-emblem-sidebar.c:298
+#: ../src/caja-emblem-sidebar.c:555
 #: ../src/caja-file-management-properties.ui.h:42
 #: ../src/caja-location-dialog.c:189 ../src/caja-property-browser.c:390
 #: ../src/caja-window-menus.c:809
@@ -4202,7 +4206,7 @@ msgid "%s%s, %s, %s"
 msgstr "%s%s, %s, %s"
 
 #: ../src/file-manager/fm-directory-view.c:4479
-#: ../src/caja-information-panel.c:905
+#: ../src/caja-information-panel.c:903
 #, c-format
 msgid "Open With %s"
 msgstr "Deschide cu %s"
@@ -4288,13 +4292,13 @@ msgstr ""
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI pentru locația curentă în panoul inactiv într-o vizualizare împărțită a ferestrei"
 
 #: ../src/file-manager/fm-directory-view.c:5997
-#: ../src/file-manager/fm-tree-view.c:1010
+#: ../src/file-manager/fm-tree-view.c:1009
 #, c-format
 msgid "\"%s\" will be moved if you select the Paste command"
 msgstr "„%s” va fi mutat dacă selectați comanda Lipește"
 
 #: ../src/file-manager/fm-directory-view.c:6001
-#: ../src/file-manager/fm-tree-view.c:1016
+#: ../src/file-manager/fm-tree-view.c:1015
 #, c-format
 msgid "\"%s\" will be copied if you select the Paste command"
 msgstr "„%s” va fi copiat dacă selectați comanda Lipește"
@@ -4318,7 +4322,7 @@ msgstr[1] ""
 msgstr[2] ""
 
 #: ../src/file-manager/fm-directory-view.c:6195
-#: ../src/file-manager/fm-tree-view.c:1056
+#: ../src/file-manager/fm-tree-view.c:1055
 msgid "There is nothing on the clipboard to paste."
 msgstr "Nu este nimic în memorie pentru a fi lipit."
 
@@ -4369,7 +4373,7 @@ msgstr "Alegeți un program cu care să deschideți elementul selectat"
 #. add the "properties" menu item
 #: ../src/file-manager/fm-directory-view.c:7274
 #: ../src/file-manager/fm-directory-view.c:7553
-#: ../src/file-manager/fm-tree-view.c:1378
+#: ../src/file-manager/fm-tree-view.c:1377
 msgid "_Properties"
 msgstr "_Proprietăți"
 
@@ -4383,7 +4387,7 @@ msgstr "Vizualizare sau modificare proprietăți ale fiecărui element selectat"
 #. label, accelerator
 #. add the "create folder" menu item
 #: ../src/file-manager/fm-directory-view.c:7282
-#: ../src/file-manager/fm-tree-view.c:1296
+#: ../src/file-manager/fm-tree-view.c:1295
 msgid "Create _Folder"
 msgstr "Creează _dosar"
 
@@ -4436,7 +4440,7 @@ msgstr "Deschide fiecare element selectat într-o fereastră nouă"
 #: ../src/file-manager/fm-directory-view.c:7489
 #: ../src/file-manager/fm-directory-view.c:8556
 #: ../src/file-manager/fm-directory-view.c:8882
-#: ../src/file-manager/fm-tree-view.c:1276 ../src/caja-places-sidebar.c:2685
+#: ../src/file-manager/fm-tree-view.c:1275 ../src/caja-places-sidebar.c:2685
 msgid "Open in New _Tab"
 msgstr "Deschide în _pagină nouă"
 
@@ -4512,7 +4516,7 @@ msgstr ""
 #. add the "paste files into folder" menu item
 #: ../src/file-manager/fm-directory-view.c:7346
 #: ../src/file-manager/fm-directory-view.c:7507
-#: ../src/file-manager/fm-tree-view.c:1325
+#: ../src/file-manager/fm-tree-view.c:1324
 msgid "_Paste Into Folder"
 msgstr "Li_pește în dosar"
 
@@ -4626,7 +4630,7 @@ msgstr "Anulea_ză"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7393
-#: ../src/file-manager/fm-directory-view.c:11144
+#: ../src/file-manager/fm-directory-view.c:11137
 msgid "Undo the last action"
 msgstr "Anulează ultima acțiune"
 
@@ -4638,7 +4642,7 @@ msgstr "_Refă"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7397
-#: ../src/file-manager/fm-directory-view.c:11162
+#: ../src/file-manager/fm-directory-view.c:11155
 msgid "Redo the last undone action"
 msgstr "Refă ultima acțiune anulată"
 
@@ -5138,7 +5142,7 @@ msgstr "Blochează dispozitivul asociat dosarului deschis"
 #. add the "open in new window" menu item
 #: ../src/file-manager/fm-directory-view.c:8533
 #: ../src/file-manager/fm-directory-view.c:8843
-#: ../src/file-manager/fm-tree-view.c:1285 ../src/caja-places-sidebar.c:2692
+#: ../src/file-manager/fm-tree-view.c:1284 ../src/caja-places-sidebar.c:2692
 msgid "Open in New _Window"
 msgstr "Deschide într-o nouă _fereastră"
 
@@ -5218,56 +5222,56 @@ msgstr "Șterge permanent toate elementele selectate"
 msgid "View or modify the properties of the open folder"
 msgstr "Vizualizare sau modificare proprietăți ale dosarului deschis"
 
-#: ../src/file-manager/fm-directory-view.c:10293
+#: ../src/file-manager/fm-directory-view.c:10286
 msgid "Download location?"
 msgstr "Descărcare locație?"
 
-#: ../src/file-manager/fm-directory-view.c:10296
+#: ../src/file-manager/fm-directory-view.c:10289
 msgid "You can download it or make a link to it."
 msgstr "Puteți descărcă sau puteți crea o legătura."
 
-#: ../src/file-manager/fm-directory-view.c:10299
+#: ../src/file-manager/fm-directory-view.c:10292
 msgid "Make a _Link"
 msgstr "Creează o _legătură"
 
-#: ../src/file-manager/fm-directory-view.c:10306
+#: ../src/file-manager/fm-directory-view.c:10299
 msgid "_Download"
 msgstr "_Descarcă"
 
-#: ../src/file-manager/fm-directory-view.c:10467
-#: ../src/file-manager/fm-directory-view.c:10526
-#: ../src/file-manager/fm-directory-view.c:10631
+#: ../src/file-manager/fm-directory-view.c:10460
+#: ../src/file-manager/fm-directory-view.c:10519
+#: ../src/file-manager/fm-directory-view.c:10624
 msgid "Drag and drop is not supported."
 msgstr "Tragerea și plasarea nu este suportată."
 
-#: ../src/file-manager/fm-directory-view.c:10468
+#: ../src/file-manager/fm-directory-view.c:10461
 msgid "Drag and drop is only supported on local file systems."
 msgstr ""
 "Tragerea și plasarea este suportată doar pe sistemele de fișiere locale."
 
-#: ../src/file-manager/fm-directory-view.c:10527
-#: ../src/file-manager/fm-directory-view.c:10632
+#: ../src/file-manager/fm-directory-view.c:10520
+#: ../src/file-manager/fm-directory-view.c:10625
 msgid "An invalid drag type was used."
 msgstr "A fost folosit un tip de tragere invalid."
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10709
+#: ../src/file-manager/fm-directory-view.c:10702
 msgid "dropped text.txt"
 msgstr "text_lăsat.txt"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10754
+#: ../src/file-manager/fm-directory-view.c:10747
 msgid "dropped data"
 msgstr "date lăsate"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11143
+#: ../src/file-manager/fm-directory-view.c:11136
 msgid "Undo"
 msgstr "Anulează ultima acțiune"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11161
+#: ../src/file-manager/fm-directory-view.c:11154
 msgid "Redo"
 msgstr "Refă"
 
@@ -5653,7 +5657,7 @@ msgstr "Se încarcă..."
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: ../src/file-manager/fm-list-view.c:1845
-#: ../src/file-manager/fm-list-view.c:3463
+#: ../src/file-manager/fm-list-view.c:3470
 #: ../src/caja-file-management-properties.ui.h:2
 msgid "List View"
 msgstr "Vizualizare listă"
@@ -5690,19 +5694,19 @@ msgid "Select the columns visible in this folder"
 msgstr "Selectați coloanele vizibile în acest dosar"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-list-view.c:3465
+#: ../src/file-manager/fm-list-view.c:3472
 msgid "_List"
 msgstr "_Listă"
 
-#: ../src/file-manager/fm-list-view.c:3466
+#: ../src/file-manager/fm-list-view.c:3473
 msgid "The list view encountered an error."
 msgstr "Vizualizarea ca listă a avut o eroare la pornire."
 
-#: ../src/file-manager/fm-list-view.c:3467
+#: ../src/file-manager/fm-list-view.c:3474
 msgid "The list view encountered an error while starting up."
 msgstr "Vizualizarea ca listă a avut o eroare la pornire."
 
-#: ../src/file-manager/fm-list-view.c:3468
+#: ../src/file-manager/fm-list-view.c:3475
 msgid "Display this location with the list view."
 msgstr "Afișează această locație cu vizualizare ca listă."
 
@@ -5846,7 +5850,7 @@ msgid "Free space:"
 msgstr "Spațiu liber:"
 
 #: ../src/file-manager/fm-properties-window.c:3430
-#: ../src/caja-emblem-sidebar.c:1098
+#: ../src/caja-emblem-sidebar.c:1096
 msgid "Emblems"
 msgstr "Embleme"
 
@@ -6031,15 +6035,15 @@ msgstr "Creare fereastra cu proprietăți."
 msgid "Select Custom Icon"
 msgstr "Selectează pictogramă personalizată"
 
-#: ../src/file-manager/fm-tree-view.c:1421 ../src/caja-places-sidebar.c:554
+#: ../src/file-manager/fm-tree-view.c:1420 ../src/caja-places-sidebar.c:554
 msgid "File System"
 msgstr "Sistem de fișiere"
 
-#: ../src/file-manager/fm-tree-view.c:1708
+#: ../src/file-manager/fm-tree-view.c:1707
 msgid "Tree"
 msgstr "Arbore"
 
-#: ../src/file-manager/fm-tree-view.c:1714
+#: ../src/file-manager/fm-tree-view.c:1713
 msgid "Show Tree"
 msgstr "Arată arborele"
 
@@ -6351,17 +6355,17 @@ msgstr "Adaugă semn de carte"
 msgid "Bookmark Name:"
 msgstr "Numele Semnului de Carte"
 
-#: ../src/caja-desktop-window.c:87 ../src/caja-desktop-window.c:270
+#: ../src/caja-desktop-window.c:122 ../src/caja-desktop-window.c:315
 #: ../src/caja-pathbar.c:1446 ../src/caja-places-sidebar.c:538
 msgid "Desktop"
 msgstr "Desktop"
 
-#: ../src/caja-emblem-sidebar.c:225
+#: ../src/caja-emblem-sidebar.c:223
 #, c-format
 msgid "Could not remove emblem with name '%s'."
 msgstr "Nu se poate elimina emblema cu numele „%s”."
 
-#: ../src/caja-emblem-sidebar.c:226 ../src/caja-emblem-sidebar.c:266
+#: ../src/caja-emblem-sidebar.c:224 ../src/caja-emblem-sidebar.c:264
 msgid ""
 "This is probably because the emblem is a permanent one, and not one that you"
 " added yourself."
@@ -6369,29 +6373,29 @@ msgstr ""
 "Acest lucru se întâmplă probabil din cauză că emblema este permanentă și nu "
 "a fost adăugată de dumneavoastră."
 
-#: ../src/caja-emblem-sidebar.c:265
+#: ../src/caja-emblem-sidebar.c:263
 #, c-format
 msgid "Could not rename emblem with name '%s'."
 msgstr "Nu se poate redenumi emblema cu numele „%s”."
 
-#: ../src/caja-emblem-sidebar.c:286
+#: ../src/caja-emblem-sidebar.c:284
 msgid "Rename Emblem"
 msgstr "Redenumește emblema"
 
-#: ../src/caja-emblem-sidebar.c:312
+#: ../src/caja-emblem-sidebar.c:310
 msgid "Enter a new name for the displayed emblem:"
 msgstr "Introduceți un nume pentru emblema afișată:"
 
 #. add the "rename" menu item
-#: ../src/caja-emblem-sidebar.c:365
+#: ../src/caja-emblem-sidebar.c:363
 msgid "Rename"
 msgstr "Redenumește"
 
-#: ../src/caja-emblem-sidebar.c:543
+#: ../src/caja-emblem-sidebar.c:541
 msgid "Add Emblems..."
 msgstr "Adaugă embleme..."
 
-#: ../src/caja-emblem-sidebar.c:567
+#: ../src/caja-emblem-sidebar.c:565
 msgid ""
 "Enter a descriptive name next to each emblem.  This name will be used in "
 "other places to identify the emblem."
@@ -6399,7 +6403,7 @@ msgstr ""
 "Introduceți un nume descriptiv lângă fiecare emblemă. Acest nume va fi "
 "folosit în alte locuri pentru a identifica emblema."
 
-#: ../src/caja-emblem-sidebar.c:571
+#: ../src/caja-emblem-sidebar.c:569
 msgid ""
 "Enter a descriptive name next to the emblem.  This name will be used in "
 "other places to identify the emblem."
@@ -6407,32 +6411,32 @@ msgstr ""
 "Introduceți un nume descriptiv lângă emblemă. Acest nume va fi folosit în "
 "alte locuri pentru a identifica emblema."
 
-#: ../src/caja-emblem-sidebar.c:813
+#: ../src/caja-emblem-sidebar.c:811
 msgid "Some of the files could not be added as emblems."
 msgstr "Unele dintre fișiere nu au putut fi adăugate ca embleme."
 
-#: ../src/caja-emblem-sidebar.c:813 ../src/caja-emblem-sidebar.c:817
+#: ../src/caja-emblem-sidebar.c:811 ../src/caja-emblem-sidebar.c:815
 msgid "The emblems do not appear to be valid images."
 msgstr "Emblemele nu par a fi imagini valide."
 
-#: ../src/caja-emblem-sidebar.c:817
+#: ../src/caja-emblem-sidebar.c:815
 msgid "None of the files could be added as emblems."
 msgstr "Niciunul dintre fișiere nu au putut fi adăugate ca embleme."
 
-#: ../src/caja-emblem-sidebar.c:860 ../src/caja-emblem-sidebar.c:923
+#: ../src/caja-emblem-sidebar.c:858 ../src/caja-emblem-sidebar.c:921
 #, c-format
 msgid "The file '%s' does not appear to be a valid image."
 msgstr "Fișierul „%s” nu pare a fi o imagine validă."
 
-#: ../src/caja-emblem-sidebar.c:865
+#: ../src/caja-emblem-sidebar.c:863
 msgid "The dragged file does not appear to be a valid image."
 msgstr "Fișierul tras nu pare a fi o imagine validă."
 
-#: ../src/caja-emblem-sidebar.c:867 ../src/caja-emblem-sidebar.c:924
+#: ../src/caja-emblem-sidebar.c:865 ../src/caja-emblem-sidebar.c:922
 msgid "The emblem cannot be added."
 msgstr "Emblema nu a putut fi adăugată."
 
-#: ../src/caja-emblem-sidebar.c:1104
+#: ../src/caja-emblem-sidebar.c:1102
 msgid "Show Emblems"
 msgstr "Arată embleme"
 
@@ -7139,7 +7143,7 @@ msgid "Activate next tab"
 msgstr "Activează tabul următor"
 
 #: ../src/caja-navigation-window-menus.c:867
-#: ../src/caja-navigation-window-pane.c:384
+#: ../src/caja-navigation-window-pane.c:383
 msgid "Move Tab _Left"
 msgstr "Mută pagina în _stânga"
 
@@ -7148,7 +7152,7 @@ msgid "Move current tab to left"
 msgstr "Mută pagina actuală în stânga"
 
 #: ../src/caja-navigation-window-menus.c:872
-#: ../src/caja-navigation-window-pane.c:392
+#: ../src/caja-navigation-window-pane.c:391
 msgid "Move Tab _Right"
 msgstr "Mută pagina în d_reapta"
 
@@ -7271,11 +7275,11 @@ msgstr "_Caută"
 msgid "Toggle between button and text-based location bar"
 msgstr "Comută bara de locație între butoane și bazată pe text"
 
-#: ../src/caja-navigation-window-pane.c:374
+#: ../src/caja-navigation-window-pane.c:373
 msgid "_New Tab"
 msgstr "Pagină _nouă"
 
-#: ../src/caja-navigation-window-pane.c:403
+#: ../src/caja-navigation-window-pane.c:402
 msgid "_Close Tab"
 msgstr "În_chide pagina"
 
@@ -7377,11 +7381,11 @@ msgstr "Elimină"
 msgid "Rename..."
 msgstr "Redenumire..."
 
-#: ../src/caja-places-sidebar.c:3402
+#: ../src/caja-places-sidebar.c:3400
 msgid "Places"
 msgstr "Locuri"
 
-#: ../src/caja-places-sidebar.c:3408
+#: ../src/caja-places-sidebar.c:3406
 msgid "Show Places"
 msgstr "Arată locurile"
 
@@ -7660,7 +7664,7 @@ msgstr "Rezultate căutare"
 msgid "Search:"
 msgstr "Caută:"
 
-#: ../src/caja-side-pane.c:409
+#: ../src/caja-side-pane.c:388
 msgid "Close the side pane"
 msgstr "Închide panoul lateral"
 
@@ -7945,7 +7949,7 @@ msgstr "_Mărește"
 
 #. tooltip
 #: ../src/caja-window-menus.c:857 ../src/caja-zoom-control.c:96
-#: ../src/caja-zoom-control.c:371
+#: ../src/caja-zoom-control.c:309
 msgid "Increase the view size"
 msgstr "Crește dimensiunea modului de afișare"
 
@@ -7957,7 +7961,7 @@ msgstr "Mi_cșorează"
 
 #. tooltip
 #: ../src/caja-window-menus.c:872 ../src/caja-zoom-control.c:97
-#: ../src/caja-zoom-control.c:316
+#: ../src/caja-zoom-control.c:254
 msgid "Decrease the view size"
 msgstr "Scade dimensiunea modului de afișare"
 
@@ -7969,7 +7973,7 @@ msgstr "Mărime _normală"
 
 #. tooltip
 #: ../src/caja-window-menus.c:882 ../src/caja-zoom-control.c:98
-#: ../src/caja-zoom-control.c:332
+#: ../src/caja-zoom-control.c:270
 msgid "Use the normal view size"
 msgstr "Folosește dimensiunea normală a modului de afișare"
 
@@ -8100,10 +8104,10 @@ msgstr "Depărtează"
 msgid "Zoom to Default"
 msgstr "Scalare la valoarea implicită"
 
-#: ../src/caja-zoom-control.c:913
+#: ../src/caja-zoom-control.c:851
 msgid "Zoom"
 msgstr "Zoom"
 
-#: ../src/caja-zoom-control.c:918
+#: ../src/caja-zoom-control.c:856
 msgid "Set the zoom level of the current view"
 msgstr "Definește nivelul de scalare al vizualizării actuale"

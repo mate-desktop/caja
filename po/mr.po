@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-13 12:28+0300\n"
+"POT-Creation-Date: 2018-06-20 21:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Vaibhav S Dalvi <vaibhav.dlv@gmail.com>, 2018\n"
 "Language-Team: Marathi (https://www.transifex.com/mate/teams/13566/mr/)\n"
@@ -283,7 +283,7 @@ msgid "Drag an emblem to an object to add it to the object"
 msgstr "वस्तुमध्ये जोडण्याकरीता बोधचिन्ह समाविष्ट करा"
 
 #. translators: this is the name of an emblem
-#: ../data/browser.xml.h:68 ../src/caja-emblem-sidebar.c:995
+#: ../data/browser.xml.h:68 ../src/caja-emblem-sidebar.c:993
 #: ../src/caja-property-browser.c:1951
 msgid "Erase"
 msgstr "खोडा"
@@ -352,7 +352,7 @@ msgstr "फाइल व्यवस्थापक चौकटींचे व
 msgid "Open Folder"
 msgstr "संचयीका उघडा"
 
-#: ../data/caja-home.desktop.in.in.h:1 ../src/file-manager/fm-tree-view.c:1417
+#: ../data/caja-home.desktop.in.in.h:1 ../src/file-manager/fm-tree-view.c:1416
 msgid "Home Folder"
 msgstr "होम फोल्डर"
 
@@ -423,45 +423,41 @@ msgstr "अक्षरांतील कर्सरच्या निवड�
 #. name, icon name
 #. label, accelerator
 #. add the "cut folder" menu item
-#: ../eel/eel-editable-label.c:3117 ../libcaja-private/caja-clipboard.c:455
+#: ../eel/eel-editable-label.c:3081 ../libcaja-private/caja-clipboard.c:455
 #: ../src/file-manager/fm-directory-view.c:7332
 #: ../src/file-manager/fm-directory-view.c:7499
-#: ../src/file-manager/fm-tree-view.c:1307
+#: ../src/file-manager/fm-tree-view.c:1306
 msgid "Cu_t"
 msgstr "कापा (_t)"
 
 #. name, icon name
 #. label, accelerator
 #. add the "copy folder" menu item
-#: ../eel/eel-editable-label.c:3119 ../libcaja-private/caja-clipboard.c:460
+#: ../eel/eel-editable-label.c:3083 ../libcaja-private/caja-clipboard.c:460
 #: ../src/file-manager/fm-directory-view.c:7336
 #: ../src/file-manager/fm-directory-view.c:7503
-#: ../src/file-manager/fm-tree-view.c:1316
+#: ../src/file-manager/fm-tree-view.c:1315
 msgid "_Copy"
 msgstr "प्रत बनवा (_C)"
 
 #. name, icon name
 #. label, accelerator
-#: ../eel/eel-editable-label.c:3121 ../libcaja-private/caja-clipboard.c:465
+#: ../eel/eel-editable-label.c:3085 ../libcaja-private/caja-clipboard.c:465
 #: ../src/file-manager/fm-directory-view.c:7340
 msgid "_Paste"
 msgstr "चिकटवा (_P)"
 
-#: ../eel/eel-editable-label.c:3124
+#: ../eel/eel-editable-label.c:3088
 msgid "Select All"
 msgstr "सर्वांची निवड करा"
 
-#: ../eel/eel-editable-label.c:3135
-msgid "Input Methods"
-msgstr "आगत विधी"
-
-#: ../eel/eel-gtk-extensions.c:459
+#: ../eel/eel-gtk-extensions.c:432
 msgid "Show more _details"
 msgstr "सखोल माहिती दाखवा(_D)"
 
 #: ../eel/eel-stock-dialogs.c:238 ../eel/eel-stock-dialogs.c:294
 #: ../eel/eel-stock-dialogs.c:449 ../eel/eel-stock-dialogs.c:650
-#: ../libcaja-private/caja-autorun.c:1147
+#: ../libcaja-private/caja-autorun.c:1150
 #: ../libcaja-private/caja-file-conflict-dialog.c:659
 #: ../libcaja-private/caja-file-operations.c:186
 #: ../libcaja-private/caja-mime-actions.c:819
@@ -470,9 +466,9 @@ msgstr "सखोल माहिती दाखवा(_D)"
 #: ../src/file-manager/fm-directory-view.c:1208
 #: ../src/file-manager/fm-directory-view.c:1350
 #: ../src/file-manager/fm-directory-view.c:7012
-#: ../src/file-manager/fm-directory-view.c:10302
-#: ../src/caja-connect-server-dialog.c:1122 ../src/caja-emblem-sidebar.c:290
-#: ../src/caja-emblem-sidebar.c:547 ../src/caja-location-dialog.c:194
+#: ../src/file-manager/fm-directory-view.c:10295
+#: ../src/caja-connect-server-dialog.c:1122 ../src/caja-emblem-sidebar.c:288
+#: ../src/caja-emblem-sidebar.c:545 ../src/caja-location-dialog.c:194
 #: ../src/caja-property-browser.c:1111 ../src/caja-property-browser.c:1191
 msgid "_Cancel"
 msgstr "रद्द करा(_C)"
@@ -484,7 +480,7 @@ msgstr "रद्द करा(_C)"
 #: ../libcaja-private/caja-open-with-dialog.c:976
 #: ../src/file-manager/fm-directory-view.c:7296
 #: ../src/file-manager/fm-directory-view.c:8805
-#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-location-dialog.c:199
+#: ../src/file-manager/fm-tree-view.c:1266 ../src/caja-location-dialog.c:199
 #: ../src/caja-places-sidebar.c:2678
 msgid "_Open"
 msgstr "उघडा (_O)"
@@ -498,10 +494,10 @@ msgid "You can stop this operation by clicking cancel."
 msgstr "तुम्ही ही क्रिया कॅन्सल क्लिक करून थांबवू शकत नाही."
 
 #: ../eel/eel-stock-dialogs.c:296 ../eel/eel-stock-dialogs.c:451
-#: ../eel/eel-stock-dialogs.c:655 ../libcaja-private/caja-autorun.c:1152
+#: ../eel/eel-stock-dialogs.c:655 ../libcaja-private/caja-autorun.c:1155
 #: ../libcaja-private/caja-mime-actions.c:1370
 #: ../src/file-manager/fm-directory-view.c:1213
-#: ../src/caja-emblem-sidebar.c:295 ../src/caja-emblem-sidebar.c:552
+#: ../src/caja-emblem-sidebar.c:293 ../src/caja-emblem-sidebar.c:550
 #: ../src/caja-property-browser.c:1116 ../src/caja-property-browser.c:1196
 #: ../src/caja-query-editor.c:720
 msgid "_OK"
@@ -536,59 +532,59 @@ msgstr "%s उघडा"
 msgid "Open with other Application..."
 msgstr "इतर अनुप्रयोगासह उघडा..."
 
-#: ../libcaja-private/caja-autorun.c:1041
+#: ../libcaja-private/caja-autorun.c:1044
 msgid "You have just inserted an Audio CD."
 msgstr "थोड्याच वेळपूर्वी ऑडीओ CD अंतर्भूत केली आहे."
 
-#: ../libcaja-private/caja-autorun.c:1045
+#: ../libcaja-private/caja-autorun.c:1048
 msgid "You have just inserted an Audio DVD."
 msgstr "तुम्ही थोड्याच वेळपूर्वी ऑडीओ DVD अंतर्भूत केले."
 
-#: ../libcaja-private/caja-autorun.c:1049
+#: ../libcaja-private/caja-autorun.c:1052
 msgid "You have just inserted a Video DVD."
 msgstr "तुम्ही थोड्याच वेळपूर्वी विडीओ DVD अंतर्भूत केले."
 
-#: ../libcaja-private/caja-autorun.c:1053
+#: ../libcaja-private/caja-autorun.c:1056
 msgid "You have just inserted a Video CD."
 msgstr "तुम्ही थोड्याच वेळपूर्वी रिकामी उच्च विडीओ CD अंतर्भूत केले."
 
-#: ../libcaja-private/caja-autorun.c:1057
+#: ../libcaja-private/caja-autorun.c:1060
 msgid "You have just inserted a Super Video CD."
 msgstr "तुम्ही थोड्याच वेळपूर्वी रिकामी उच्च विडीओ CD अंतर्भूत केले."
 
-#: ../libcaja-private/caja-autorun.c:1061
+#: ../libcaja-private/caja-autorun.c:1064
 msgid "You have just inserted a blank CD."
 msgstr "तुम्ही थोड्याच वेळपूर्वी रिकामी CD अंतर्भूत केले."
 
-#: ../libcaja-private/caja-autorun.c:1065
+#: ../libcaja-private/caja-autorun.c:1068
 msgid "You have just inserted a blank DVD."
 msgstr "तुम्ही थोड्याच वेळपूर्वी रिकामी DVD अंतर्भूत केले."
 
-#: ../libcaja-private/caja-autorun.c:1069
+#: ../libcaja-private/caja-autorun.c:1072
 msgid "You have just inserted a blank Blu-Ray disc."
 msgstr "तुम्ही थोड्याच वेळपूर्वी रिकामी Blu-Ray डीस्क अंतर्भूत केले."
 
-#: ../libcaja-private/caja-autorun.c:1073
+#: ../libcaja-private/caja-autorun.c:1076
 msgid "You have just inserted a blank HD DVD."
 msgstr "तुम्ही थोड्याच वेळपूर्वी रिकामी HD DVD अंतर्भूत केले."
 
-#: ../libcaja-private/caja-autorun.c:1077
+#: ../libcaja-private/caja-autorun.c:1080
 msgid "You have just inserted a Photo CD."
 msgstr "तुम्ही थोड्याच वेळपूर्वी छायाचित्र CD अंतर्भूत केले."
 
-#: ../libcaja-private/caja-autorun.c:1081
+#: ../libcaja-private/caja-autorun.c:1084
 msgid "You have just inserted a Picture CD."
 msgstr "तुम्ही थोड्याच वेळपूर्वी चित्र CD अंतर्भूत केले."
 
-#: ../libcaja-private/caja-autorun.c:1085
+#: ../libcaja-private/caja-autorun.c:1088
 msgid "You have just inserted a medium with digital photos."
 msgstr "तुम्ही थोड्याच वेळपूर्वी डिजीटल छायाचित्र अंतर्भूत केले."
 
-#: ../libcaja-private/caja-autorun.c:1089
+#: ../libcaja-private/caja-autorun.c:1092
 msgid "You have just inserted a digital audio player."
 msgstr "तुम्ही थोड्याच वेळपूर्वी डिजीटल ऑडिओ वादक अंतर्भूत केले."
 
-#: ../libcaja-private/caja-autorun.c:1093
+#: ../libcaja-private/caja-autorun.c:1096
 msgid ""
 "You have just inserted a medium with software intended to be automatically "
 "started."
@@ -597,15 +593,15 @@ msgstr ""
 " अंतर्भूत केले."
 
 #. fallback to generic greeting
-#: ../libcaja-private/caja-autorun.c:1098
+#: ../libcaja-private/caja-autorun.c:1101
 msgid "You have just inserted a medium."
 msgstr "तुम्ही थोड्याच वेळपूर्वी मिडीया अंतर्भूत केले."
 
-#: ../libcaja-private/caja-autorun.c:1100
+#: ../libcaja-private/caja-autorun.c:1103
 msgid "Choose what application to launch."
 msgstr "दाखल करण्याकरीताचे अनुप्रयोग निवडा."
 
-#: ../libcaja-private/caja-autorun.c:1110
+#: ../libcaja-private/caja-autorun.c:1113
 #, c-format
 msgid ""
 "Select how to open \"%s\" and whether to perform this action in the future "
@@ -614,29 +610,29 @@ msgstr ""
 "\"%s\" कसे उघडायचे ते निवडा व ही कृती भविष्यात \"%s\" प्रकारच्या अन्य मिडीया"
 " करीता कराचे का."
 
-#: ../libcaja-private/caja-autorun.c:1138
+#: ../libcaja-private/caja-autorun.c:1141
 msgid "_Always perform this action"
 msgstr "नेहमी ही कृती करा (_A)"
 
 #. name, icon name
 #. label, accelerator
 #. add the "Eject" menu item
-#: ../libcaja-private/caja-autorun.c:1161
+#: ../libcaja-private/caja-autorun.c:1164
 #: ../src/file-manager/fm-directory-view.c:7423
 #: ../src/file-manager/fm-directory-view.c:7451
 #: ../src/file-manager/fm-directory-view.c:7532
-#: ../src/file-manager/fm-tree-view.c:1365 ../src/caja-places-sidebar.c:2735
+#: ../src/file-manager/fm-tree-view.c:1364 ../src/caja-places-sidebar.c:2735
 msgid "_Eject"
 msgstr "बाहेर काढा (_E)"
 
 #. name, icon name
 #. label, accelerator
 #. add the "Unmount" menu item
-#: ../libcaja-private/caja-autorun.c:1176
+#: ../libcaja-private/caja-autorun.c:1179
 #: ../src/file-manager/fm-directory-view.c:7419
 #: ../src/file-manager/fm-directory-view.c:7447
 #: ../src/file-manager/fm-directory-view.c:7528
-#: ../src/file-manager/fm-tree-view.c:1356 ../src/caja-places-sidebar.c:2728
+#: ../src/file-manager/fm-tree-view.c:1355 ../src/caja-places-sidebar.c:2728
 msgid "_Unmount"
 msgstr "अनारोहण (_U)"
 
@@ -842,7 +838,7 @@ msgid "Network Servers"
 msgstr "संजाळ सर्वर"
 
 #: ../libcaja-private/caja-desktop-link.c:119
-#: ../src/file-manager/fm-tree-view.c:1424 ../src/caja-places-sidebar.c:613
+#: ../src/file-manager/fm-tree-view.c:1423 ../src/caja-places-sidebar.c:613
 #: ../src/caja-trash-bar.c:190
 msgid "Trash"
 msgstr "कचरापेटी"
@@ -863,15 +859,15 @@ msgstr "येथे लिंक द्या (_L)"
 msgid "Set as _Background"
 msgstr "पार्श्वभूमी बनवा (_B)"
 
-#: ../libcaja-private/caja-dnd.c:817 ../libcaja-private/caja-dnd.c:871
+#: ../libcaja-private/caja-dnd.c:817 ../libcaja-private/caja-dnd.c:870
 msgid "Cancel"
 msgstr "रद्द करा"
 
-#: ../libcaja-private/caja-dnd.c:859
+#: ../libcaja-private/caja-dnd.c:858
 msgid "Set as background for _all folders"
 msgstr "सर्व संचयीकांसाठी पार्श्वभूमी बनवा (_a)"
 
-#: ../libcaja-private/caja-dnd.c:864
+#: ../libcaja-private/caja-dnd.c:863
 msgid "Set as background for _this folder"
 msgstr "या संचयीकेसाठी पार्श्वभूमी बनवा (_t)"
 
@@ -1081,7 +1077,7 @@ msgstr "पुन्हा प्रयत्न करा (_R)"
 #: ../src/file-manager/fm-directory-view.c:7384
 #: ../src/file-manager/fm-directory-view.c:7516
 #: ../src/file-manager/fm-directory-view.c:8957
-#: ../src/file-manager/fm-tree-view.c:1345 ../src/caja-emblem-sidebar.c:375
+#: ../src/file-manager/fm-tree-view.c:1344 ../src/caja-emblem-sidebar.c:373
 msgid "_Delete"
 msgstr "काढून टाका (_D)"
 
@@ -1144,7 +1140,7 @@ msgstr[1] ""
 #. * to that kind of file (e.g. "link to folder").
 #: ../libcaja-private/caja-file-operations.c:409
 #: ../libcaja-private/caja-file.c:6727
-#: ../src/file-manager/fm-directory-view.c:10546
+#: ../src/file-manager/fm-directory-view.c:10539
 #, c-format
 msgid "Link to %s"
 msgstr "%s करीता लिंक द्या"
@@ -1368,7 +1364,7 @@ msgstr[1] ""
 #: ../libcaja-private/caja-file-operations.c:1638
 #: ../libcaja-private/caja-file-operations.c:1677
 #: ../libcaja-private/caja-file-operations.c:1754
-#: ../libcaja-private/caja-file-operations.c:2579
+#: ../libcaja-private/caja-file-operations.c:2577
 msgid "Error while deleting."
 msgstr "काढुन टाकतेवेळी त्रुटी."
 
@@ -1379,14 +1375,14 @@ msgid ""
 msgstr "तुमच्याकडे वाचाण्याची परवानगी नसल्याने  \"%B\" ची प्रत बनवता येत नाही."
 
 #: ../libcaja-private/caja-file-operations.c:1611
-#: ../libcaja-private/caja-file-operations.c:2639
-#: ../libcaja-private/caja-file-operations.c:3621
+#: ../libcaja-private/caja-file-operations.c:2637
+#: ../libcaja-private/caja-file-operations.c:3619
 msgid ""
 "There was an error getting information about the files in the folder \"%B\"."
 msgstr "संचयीका \"%B\" मधील फाइलविषयी माहिती प्राप्त करतेवेळी त्रुटी."
 
 #: ../libcaja-private/caja-file-operations.c:1620
-#: ../libcaja-private/caja-file-operations.c:3630
+#: ../libcaja-private/caja-file-operations.c:3628
 msgid "_Skip files"
 msgstr "फाइल वगळा (_S)"
 
@@ -1397,8 +1393,8 @@ msgid ""
 msgstr "तुमच्याकडे वाचाण्याची परवानगी नसल्याने \"%B\" ची प्रत बनवता येत नाही."
 
 #: ../libcaja-private/caja-file-operations.c:1644
-#: ../libcaja-private/caja-file-operations.c:2678
-#: ../libcaja-private/caja-file-operations.c:3666
+#: ../libcaja-private/caja-file-operations.c:2676
+#: ../libcaja-private/caja-file-operations.c:3664
 msgid "There was an error reading the folder \"%B\"."
 msgstr "संचयीका \"%B\" वाचतेवेळी त्रुटी आढळली."
 
@@ -1462,57 +1458,57 @@ msgstr ""
 msgid "Do _not Empty Trash"
 msgstr "कचरापेटी रिकामी करू नका (_n)"
 
-#: ../libcaja-private/caja-file-operations.c:2448
+#: ../libcaja-private/caja-file-operations.c:2446
 #, c-format
 msgid "Unable to mount %s"
 msgstr "%s माऊंट करण्यास अपयशी"
 
-#: ../libcaja-private/caja-file-operations.c:2526
+#: ../libcaja-private/caja-file-operations.c:2524
 #, c-format
 msgid "Preparing to copy %'d file (%S)"
 msgid_plural "Preparing to copy %'d files (%S)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../libcaja-private/caja-file-operations.c:2532
+#: ../libcaja-private/caja-file-operations.c:2530
 #, c-format
 msgid "Preparing to move %'d file (%S)"
 msgid_plural "Preparing to move %'d files (%S)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../libcaja-private/caja-file-operations.c:2538
+#: ../libcaja-private/caja-file-operations.c:2536
 #, c-format
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../libcaja-private/caja-file-operations.c:2544
+#: ../libcaja-private/caja-file-operations.c:2542
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../libcaja-private/caja-file-operations.c:2575
-#: ../libcaja-private/caja-file-operations.c:3473
-#: ../libcaja-private/caja-file-operations.c:3613
-#: ../libcaja-private/caja-file-operations.c:3658
+#: ../libcaja-private/caja-file-operations.c:2573
+#: ../libcaja-private/caja-file-operations.c:3471
+#: ../libcaja-private/caja-file-operations.c:3611
+#: ../libcaja-private/caja-file-operations.c:3656
 msgid "Error while copying."
 msgstr "प्रत बनवितेवेळी त्रुटी."
 
-#: ../libcaja-private/caja-file-operations.c:2577
-#: ../libcaja-private/caja-file-operations.c:3611
-#: ../libcaja-private/caja-file-operations.c:3656
+#: ../libcaja-private/caja-file-operations.c:2575
+#: ../libcaja-private/caja-file-operations.c:3609
+#: ../libcaja-private/caja-file-operations.c:3654
 msgid "Error while moving."
 msgstr "स्थानांतरन करतेवेळी त्रुटी."
 
-#: ../libcaja-private/caja-file-operations.c:2581
+#: ../libcaja-private/caja-file-operations.c:2579
 msgid "Error while moving files to trash."
 msgstr "फाइल कचरापेटीकडे हलवितेवेळी त्रुटी."
 
-#: ../libcaja-private/caja-file-operations.c:2636
+#: ../libcaja-private/caja-file-operations.c:2634
 msgid ""
 "Files in the folder \"%B\" cannot be handled because you do not have "
 "permissions to see them."
@@ -1520,99 +1516,99 @@ msgstr ""
 "तुमच्याकडे वाचाण्याची परवानगी नसल्याने संचयीका \"%B\" मधिल फाइल हाताळता येत "
 "नाही."
 
-#: ../libcaja-private/caja-file-operations.c:2675
+#: ../libcaja-private/caja-file-operations.c:2673
 msgid ""
 "The folder \"%B\" cannot be handled because you do not have permissions to "
 "read it."
 msgstr "तुमच्याकडे वाचाण्याची परवानगी नसल्याने संचयीका \"%B\" हाताळता येत नाही."
 
-#: ../libcaja-private/caja-file-operations.c:2753
+#: ../libcaja-private/caja-file-operations.c:2751
 msgid ""
 "The file \"%B\" cannot be handled because you do not have permissions to "
 "read it."
 msgstr "तुमच्याकडे वाचाण्याची परवानगी नसल्याने फाइल \"%B\" हाताळता येत नाही."
 
-#: ../libcaja-private/caja-file-operations.c:2756
+#: ../libcaja-private/caja-file-operations.c:2754
 msgid "There was an error getting information about \"%B\"."
 msgstr "\"%B\" विषयी माहिती प्राप्त करतेवेळी त्रुटी आढळली."
 
-#: ../libcaja-private/caja-file-operations.c:2856
-#: ../libcaja-private/caja-file-operations.c:2898
-#: ../libcaja-private/caja-file-operations.c:2931
-#: ../libcaja-private/caja-file-operations.c:2961
+#: ../libcaja-private/caja-file-operations.c:2854
+#: ../libcaja-private/caja-file-operations.c:2896
+#: ../libcaja-private/caja-file-operations.c:2929
+#: ../libcaja-private/caja-file-operations.c:2959
 msgid "Error while copying to \"%B\"."
 msgstr "\"%B\" ची प्रत बनवितेवेळी त्रुटी आढळली."
 
-#: ../libcaja-private/caja-file-operations.c:2860
+#: ../libcaja-private/caja-file-operations.c:2858
 msgid "You do not have permissions to access the destination folder."
 msgstr "लक्ष्य संचयीकाच्या प्रवेश करीता तुमच्याकडे परवानगी नाही."
 
-#: ../libcaja-private/caja-file-operations.c:2862
+#: ../libcaja-private/caja-file-operations.c:2860
 msgid "There was an error getting information about the destination."
 msgstr "लक्ष्य विषयी माहिती प्राप्त करतेवेळी त्रुटी आढळली."
 
-#: ../libcaja-private/caja-file-operations.c:2899
+#: ../libcaja-private/caja-file-operations.c:2897
 msgid "The destination is not a folder."
 msgstr "लक्ष्य संचयीका नाही आहे."
 
-#: ../libcaja-private/caja-file-operations.c:2932
+#: ../libcaja-private/caja-file-operations.c:2930
 msgid ""
 "There is not enough space on the destination. Try to remove files to make "
 "space."
 msgstr "लक्ष्यवर पुरेशी जागा नाही. जागा बनविण्याकरीता फाइल काढून टाका."
 
-#: ../libcaja-private/caja-file-operations.c:2934
+#: ../libcaja-private/caja-file-operations.c:2932
 #, c-format
 msgid "There is %S available, but %S is required."
 msgstr "%S उपलब्ध आहे, पण %S आवश्यक आहे."
 
-#: ../libcaja-private/caja-file-operations.c:2962
+#: ../libcaja-private/caja-file-operations.c:2960
 msgid "The destination is read-only."
 msgstr "लक्ष्य फ्कत-वाचण्याजोगी आहे."
 
-#: ../libcaja-private/caja-file-operations.c:3021
+#: ../libcaja-private/caja-file-operations.c:3019
 msgid "Moving \"%B\" to \"%B\""
 msgstr "\"%B\" ला \"%B\" पर्यंत हलवित आहे"
 
-#: ../libcaja-private/caja-file-operations.c:3022
+#: ../libcaja-private/caja-file-operations.c:3020
 msgid "Copying \"%B\" to \"%B\""
 msgstr "\"%B\" पासून \"%B\" असे प्रत बनवित आहे"
 
-#: ../libcaja-private/caja-file-operations.c:3027
+#: ../libcaja-private/caja-file-operations.c:3025
 msgid "Duplicating \"%B\""
 msgstr "\"%B\" ची प्रत बनवित आहे"
 
-#: ../libcaja-private/caja-file-operations.c:3035
+#: ../libcaja-private/caja-file-operations.c:3033
 msgid "Moving %'d file (in \"%B\") to \"%B\""
 msgid_plural "Moving %'d files (in \"%B\") to \"%B\""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../libcaja-private/caja-file-operations.c:3039
+#: ../libcaja-private/caja-file-operations.c:3037
 msgid "Copying %'d file (in \"%B\") to \"%B\""
 msgid_plural "Copying %'d files (in \"%B\") to \"%B\""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../libcaja-private/caja-file-operations.c:3047
+#: ../libcaja-private/caja-file-operations.c:3045
 msgid "Duplicating %'d file (in \"%B\")"
 msgid_plural "Duplicating %'d files (in \"%B\")"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../libcaja-private/caja-file-operations.c:3057
+#: ../libcaja-private/caja-file-operations.c:3055
 msgid "Moving %'d file to \"%B\""
 msgid_plural "Moving %'d files to \"%B\""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../libcaja-private/caja-file-operations.c:3061
+#: ../libcaja-private/caja-file-operations.c:3059
 msgid "Copying %'d file to \"%B\""
 msgid_plural "Copying %'d files to \"%B\""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../libcaja-private/caja-file-operations.c:3067
+#: ../libcaja-private/caja-file-operations.c:3065
 #, c-format
 msgid "Duplicating %'d file"
 msgid_plural "Duplicating %'d files"
@@ -1621,7 +1617,7 @@ msgstr[1] ""
 
 #. To translators: %S will expand to a size like "2 bytes" or "3 MB", so
 #. something like "4 kb of 4 MB"
-#: ../libcaja-private/caja-file-operations.c:3087
+#: ../libcaja-private/caja-file-operations.c:3085
 #, c-format
 msgid "%S of %S"
 msgstr "%S पैकी %S"
@@ -1633,23 +1629,23 @@ msgstr "%S पैकी %S"
 #. *
 #. * The singular/plural form will be used depending on the remaining time
 #. (i.e. the %T argument).
-#: ../libcaja-private/caja-file-operations.c:3098
+#: ../libcaja-private/caja-file-operations.c:3096
 msgid "%S of %S — %T left (%S/sec)"
 msgid_plural "%S of %S — %T left (%S/sec)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../libcaja-private/caja-file-operations.c:3477
+#: ../libcaja-private/caja-file-operations.c:3475
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "create it in the destination."
 msgstr "तुमच्याकडे वाचाण्याची परवानगी नसल्याने \"%B\" चे प्रत बनवता येत नाही."
 
-#: ../libcaja-private/caja-file-operations.c:3480
+#: ../libcaja-private/caja-file-operations.c:3478
 msgid "There was an error creating the folder \"%B\"."
 msgstr "संचयीका \"%B\" बनवितेवेळी त्रुटी आढळली."
 
-#: ../libcaja-private/caja-file-operations.c:3618
+#: ../libcaja-private/caja-file-operations.c:3616
 msgid ""
 "Files in the folder \"%B\" cannot be copied because you do not have "
 "permissions to see them."
@@ -1657,7 +1653,7 @@ msgstr ""
 "तुमच्याकडे वाचाण्याची परवानगी नसल्याने \"%B\" मधिल फाइल प्रतिकृत करता येत "
 "नाही."
 
-#: ../libcaja-private/caja-file-operations.c:3663
+#: ../libcaja-private/caja-file-operations.c:3661
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "read it."
@@ -1665,161 +1661,161 @@ msgstr ""
 "तुमच्याकडे वाचाण्याची परवानगी नसल्याने \"%s\" संचयीकाचे प्रत बनविता येत "
 "नाही."
 
-#: ../libcaja-private/caja-file-operations.c:3708
-#: ../libcaja-private/caja-file-operations.c:4402
-#: ../libcaja-private/caja-file-operations.c:4994
+#: ../libcaja-private/caja-file-operations.c:3706
+#: ../libcaja-private/caja-file-operations.c:4400
+#: ../libcaja-private/caja-file-operations.c:4992
 msgid "Error while moving \"%B\"."
 msgstr "\"%B\" ला हलवितेवेळी त्रुटी आढळली."
 
-#: ../libcaja-private/caja-file-operations.c:3709
+#: ../libcaja-private/caja-file-operations.c:3707
 msgid "Could not remove the source folder."
 msgstr "स्त्रोत संचयीका हटवू शकत नाही."
 
-#: ../libcaja-private/caja-file-operations.c:3794
-#: ../libcaja-private/caja-file-operations.c:3835
-#: ../libcaja-private/caja-file-operations.c:4404
-#: ../libcaja-private/caja-file-operations.c:4476
+#: ../libcaja-private/caja-file-operations.c:3792
+#: ../libcaja-private/caja-file-operations.c:3833
+#: ../libcaja-private/caja-file-operations.c:4402
+#: ../libcaja-private/caja-file-operations.c:4474
 msgid "Error while copying \"%B\"."
 msgstr "\"%B\" ची प्रत बनवितेवेळी त्रुटी."
 
-#: ../libcaja-private/caja-file-operations.c:3795
+#: ../libcaja-private/caja-file-operations.c:3793
 #, c-format
 msgid "Could not remove files from the already existing folder %F."
 msgstr "आधिपासूनच अस्तित्वातील संचयीका %F पासून फाइल काढू शकत नाही."
 
-#: ../libcaja-private/caja-file-operations.c:3836
+#: ../libcaja-private/caja-file-operations.c:3834
 #, c-format
 msgid "Could not remove the already existing file %F."
 msgstr "आधिपासूनच अस्तित्वातील फाइल %F काढू शकत नाही."
 
 #. the run_warning() frees all strings passed in automatically
-#: ../libcaja-private/caja-file-operations.c:4155
-#: ../libcaja-private/caja-file-operations.c:4840
+#: ../libcaja-private/caja-file-operations.c:4153
+#: ../libcaja-private/caja-file-operations.c:4838
 msgid "You cannot move a folder into itself."
 msgstr "संचयीका यांस स्वअंतर्गत हलवू शकत नाही."
 
-#: ../libcaja-private/caja-file-operations.c:4156
-#: ../libcaja-private/caja-file-operations.c:4841
+#: ../libcaja-private/caja-file-operations.c:4154
+#: ../libcaja-private/caja-file-operations.c:4839
 msgid "You cannot copy a folder into itself."
 msgstr "संचयीका यांस स्वअंतर्गत प्रतिकृत करू शकत नाही."
 
-#: ../libcaja-private/caja-file-operations.c:4157
-#: ../libcaja-private/caja-file-operations.c:4842
+#: ../libcaja-private/caja-file-operations.c:4155
+#: ../libcaja-private/caja-file-operations.c:4840
 msgid "The destination folder is inside the source folder."
 msgstr "लक्ष्य संचयीका स्त्रोत संचयीकाच्या अंतर्गत स्थायीत आहे."
 
 #. the run_warning() frees all strings passed in automatically
-#: ../libcaja-private/caja-file-operations.c:4188
+#: ../libcaja-private/caja-file-operations.c:4186
 msgid "You cannot move a file over itself."
 msgstr "तुम्ही फाइल स्वयं फाइलवर हलवू शकत नाही."
 
-#: ../libcaja-private/caja-file-operations.c:4189
+#: ../libcaja-private/caja-file-operations.c:4187
 msgid "You cannot copy a file over itself."
 msgstr "तुम्ही फाइल स्वयं फाइलवर प्रतिकृत करू शकत नाही."
 
-#: ../libcaja-private/caja-file-operations.c:4190
+#: ../libcaja-private/caja-file-operations.c:4188
 msgid "The source file would be overwritten by the destination."
 msgstr "स्त्रोत फाइल लक्ष्य द्वारे खोडून पुन्हा लिहीले जाईल."
 
-#: ../libcaja-private/caja-file-operations.c:4406
+#: ../libcaja-private/caja-file-operations.c:4404
 #, c-format
 msgid "Could not remove the already existing file with the same name in %F."
 msgstr ""
 "%F अंतर्गत आधिपासूनस अस्तित्वातील समान नावाचे फाइलला काढून टाकले जाऊ शकत "
 "नाही."
 
-#: ../libcaja-private/caja-file-operations.c:4477
+#: ../libcaja-private/caja-file-operations.c:4475
 #, c-format
 msgid "There was an error copying the file into %F."
 msgstr "फाइल %F येथे प्रतिकृत करतेवेळी त्रुटी आढळली."
 
-#: ../libcaja-private/caja-file-operations.c:4723
+#: ../libcaja-private/caja-file-operations.c:4721
 msgid "Copying Files"
 msgstr "फाइल्स्चे प्रत बनवत आहे"
 
-#: ../libcaja-private/caja-file-operations.c:4750
+#: ../libcaja-private/caja-file-operations.c:4748
 msgid "Preparing to Move to \"%B\""
 msgstr "\"%B\" करीता हलवीत आहे"
 
-#: ../libcaja-private/caja-file-operations.c:4754
+#: ../libcaja-private/caja-file-operations.c:4752
 #, c-format
 msgid "Preparing to move %'d file"
 msgid_plural "Preparing to move %'d files"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../libcaja-private/caja-file-operations.c:4995
+#: ../libcaja-private/caja-file-operations.c:4993
 #, c-format
 msgid "There was an error moving the file into %F."
 msgstr "%F हलवितेवेळी त्रुटी आढळली."
 
-#: ../libcaja-private/caja-file-operations.c:5265
+#: ../libcaja-private/caja-file-operations.c:5263
 msgid "Moving Files"
 msgstr "फाइल्स् हलवत आहे"
 
-#: ../libcaja-private/caja-file-operations.c:5296
+#: ../libcaja-private/caja-file-operations.c:5294
 msgid "Creating links in \"%B\""
 msgstr "\"%B\" करीता लिंक निर्माण करत आहे"
 
-#: ../libcaja-private/caja-file-operations.c:5300
+#: ../libcaja-private/caja-file-operations.c:5298
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../libcaja-private/caja-file-operations.c:5432
+#: ../libcaja-private/caja-file-operations.c:5430
 msgid "Error while creating link to %B."
 msgstr " %B करीता लिंक निर्माण करतेवेळी त्रुटी."
 
-#: ../libcaja-private/caja-file-operations.c:5434
+#: ../libcaja-private/caja-file-operations.c:5432
 msgid "Symbolic links only supported for local files"
 msgstr "स्थानीक फाइल करीता चिन्हाकृत लिंक समर्थित आहे"
 
-#: ../libcaja-private/caja-file-operations.c:5437
+#: ../libcaja-private/caja-file-operations.c:5435
 msgid "The target doesn't support symbolic links."
 msgstr "लक्ष्य चिन्हाकृत लिंक करीता समर्थन देत नाही."
 
-#: ../libcaja-private/caja-file-operations.c:5440
+#: ../libcaja-private/caja-file-operations.c:5438
 #, c-format
 msgid "There was an error creating the symlink in %F."
 msgstr "%F करीता symlink बनवितेवेळी त्रुटी आढळली."
 
-#: ../libcaja-private/caja-file-operations.c:5756
+#: ../libcaja-private/caja-file-operations.c:5754
 msgid "Setting permissions"
 msgstr "संयोजना परवानगी"
 
 #. localizers: the initial name of a new folder
-#: ../libcaja-private/caja-file-operations.c:6015
+#: ../libcaja-private/caja-file-operations.c:6013
 msgid "untitled folder"
 msgstr "बिनशिर्षक संचयीका"
 
 #. localizers: the initial name of a new empty file
-#: ../libcaja-private/caja-file-operations.c:6023
+#: ../libcaja-private/caja-file-operations.c:6021
 msgid "new file"
 msgstr "नविन फाइल"
 
-#: ../libcaja-private/caja-file-operations.c:6195
+#: ../libcaja-private/caja-file-operations.c:6193
 msgid "Error while creating directory %B."
 msgstr "संचयीका %B करीता लिंक निर्माण करतेवेळी त्रुटी."
 
-#: ../libcaja-private/caja-file-operations.c:6197
+#: ../libcaja-private/caja-file-operations.c:6195
 msgid "Error while creating file %B."
 msgstr "%B करीता लिंक निर्माण करतेवेळी त्रुटी."
 
-#: ../libcaja-private/caja-file-operations.c:6199
+#: ../libcaja-private/caja-file-operations.c:6197
 #, c-format
 msgid "There was an error creating the directory in %F."
 msgstr "%F मधिल संचयीका करीता लिंक निर्माण करतेवेळी त्रुटी."
 
-#: ../libcaja-private/caja-file-operations.c:6477
+#: ../libcaja-private/caja-file-operations.c:6475
 msgid "Emptying Trash"
 msgstr "कचरापेटी रिकामी करत आहे"
 
-#: ../libcaja-private/caja-file-operations.c:6526
-#: ../libcaja-private/caja-file-operations.c:6567
-#: ../libcaja-private/caja-file-operations.c:6602
-#: ../libcaja-private/caja-file-operations.c:6637
+#: ../libcaja-private/caja-file-operations.c:6524
+#: ../libcaja-private/caja-file-operations.c:6565
+#: ../libcaja-private/caja-file-operations.c:6600
+#: ../libcaja-private/caja-file-operations.c:6635
 msgid "Unable to mark launcher trusted (executable)"
 msgstr "प्रक्षेपक विश्वासर्ह नुरूप चिन्हाकृत करणे अशक्य (एक्जीक्यूटेबल)"
 
@@ -2105,7 +2101,7 @@ msgstr "लिंक"
 msgid "link (broken)"
 msgstr "जोडणी (अनिश्चित)"
 
-#: ../libcaja-private/caja-icon-container.c:2912
+#: ../libcaja-private/caja-icon-container.c:2923
 msgid "The selection rectangle"
 msgstr "निवडक चौरस"
 
@@ -2136,7 +2132,7 @@ msgstr "लक्ष्य \"%s\" अस्तित्वात नसल्य
 #: ../src/file-manager/fm-directory-view.c:7512
 #: ../src/file-manager/fm-directory-view.c:8611
 #: ../src/file-manager/fm-directory-view.c:8936
-#: ../src/file-manager/fm-tree-view.c:1336
+#: ../src/file-manager/fm-tree-view.c:1335
 msgid "Mo_ve to Trash"
 msgstr "कचरापेटीत हलवा (_v)"
 
@@ -2516,15 +2512,23 @@ msgstr ""
 msgid "queuing"
 msgstr ""
 
-#: ../libcaja-private/caja-progress-info.c:599
+#: ../libcaja-private/caja-progress-info.c:606
 #, c-format
 msgid "%'d file operation active"
 msgid_plural "%'d file operations active"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../libcaja-private/caja-progress-info.c:975
-#: ../libcaja-private/caja-progress-info.c:996
+#: ../libcaja-private/caja-progress-info.c:623
+msgid "Process completed"
+msgstr ""
+
+#: ../libcaja-private/caja-progress-info.c:633
+msgid "Working..."
+msgstr ""
+
+#: ../libcaja-private/caja-progress-info.c:992
+#: ../libcaja-private/caja-progress-info.c:1013
 msgid "Preparing"
 msgstr "तयार करीत आहे"
 
@@ -3828,13 +3832,13 @@ msgstr "सत्र व्यवस्थापन पर्याय:"
 msgid "Show session management options"
 msgstr "सत्र व्यवस्थापन पर्याय दाखवा"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:672
+#: ../src/file-manager/fm-desktop-icon-view.c:676
 msgid "Background"
 msgstr "पार्श्वभूमी"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:749
+#: ../src/file-manager/fm-desktop-icon-view.c:753
 #: ../src/file-manager/fm-directory-view.c:7328
 #: ../src/file-manager/fm-directory-view.c:9005
 msgid "E_mpty Trash"
@@ -3843,45 +3847,45 @@ msgstr "रिकामी कचरापेटी (_m)"
 #. label, accelerator
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:763
+#: ../src/file-manager/fm-desktop-icon-view.c:767
 #: ../src/file-manager/fm-directory-view.c:7292
 msgid "Create L_auncher..."
 msgstr "प्रक्षेपक तयार करा (_a)..."
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:765
+#: ../src/file-manager/fm-desktop-icon-view.c:769
 #: ../src/file-manager/fm-directory-view.c:7293
 msgid "Create a new launcher"
 msgstr "नवीन प्रक्षेपक बनवा"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:772
+#: ../src/file-manager/fm-desktop-icon-view.c:776
 msgid "Change Desktop _Background"
 msgstr "डेस्कटॉप पार्श्वभूमी बदलवा (_B)"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:774
+#: ../src/file-manager/fm-desktop-icon-view.c:778
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr ""
 "डेस्कटॉपची रचना किंवा रंग स्थापन करतायेण्याजोगी करण्याकरीता चौकट दर्शवा"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:781
+#: ../src/file-manager/fm-desktop-icon-view.c:785
 msgid "Empty Trash"
 msgstr "कचरापेटी रिकामी करा"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:783
+#: ../src/file-manager/fm-desktop-icon-view.c:787
 #: ../src/file-manager/fm-directory-view.c:7329 ../src/caja-trash-bar.c:204
 msgid "Delete all items in the Trash"
 msgstr "कचरापेटीतून सर्व घटके काढून टाका"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:883
+#: ../src/file-manager/fm-desktop-icon-view.c:887
 msgid "The desktop view encountered an error."
 msgstr "डेस्कटॉप दर्शकाला त्रुटी आढळली."
 
-#: ../src/file-manager/fm-desktop-icon-view.c:884
+#: ../src/file-manager/fm-desktop-icon-view.c:888
 msgid "The desktop view encountered an error while starting up."
 msgstr "सुरू होताना डेस्कटॉप दर्शकाला त्रुटी आढळली."
 
@@ -3914,8 +3918,8 @@ msgstr "जुळविण्याजोगी घटक निवडा"
 #: ../src/file-manager/fm-directory-view.c:1203
 #: ../src/file-manager/fm-properties-window.c:5176
 #: ../src/caja-bookmarks-window.ui.h:2
-#: ../src/caja-connect-server-dialog.c:1117 ../src/caja-emblem-sidebar.c:300
-#: ../src/caja-emblem-sidebar.c:557
+#: ../src/caja-connect-server-dialog.c:1117 ../src/caja-emblem-sidebar.c:298
+#: ../src/caja-emblem-sidebar.c:555
 #: ../src/caja-file-management-properties.ui.h:42
 #: ../src/caja-location-dialog.c:189 ../src/caja-property-browser.c:390
 #: ../src/caja-window-menus.c:809
@@ -4051,7 +4055,7 @@ msgid "%s%s, %s, %s"
 msgstr "%s%s, %s, %s"
 
 #: ../src/file-manager/fm-directory-view.c:4479
-#: ../src/caja-information-panel.c:905
+#: ../src/caja-information-panel.c:903
 #, c-format
 msgid "Open With %s"
 msgstr "%s च्यासह उघडा"
@@ -4137,13 +4141,13 @@ msgstr ""
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: विभाजीत-दृष्य पटलाच्या निष्क्रीय पट्टीतील सध्याच्या स्थळकरीता URI"
 
 #: ../src/file-manager/fm-directory-view.c:5997
-#: ../src/file-manager/fm-tree-view.c:1010
+#: ../src/file-manager/fm-tree-view.c:1009
 #, c-format
 msgid "\"%s\" will be moved if you select the Paste command"
 msgstr "चिकटवा आदेश निवडल्यास \"%s\" तेथून हलविल्या जाईल"
 
 #: ../src/file-manager/fm-directory-view.c:6001
-#: ../src/file-manager/fm-tree-view.c:1016
+#: ../src/file-manager/fm-tree-view.c:1015
 #, c-format
 msgid "\"%s\" will be copied if you select the Paste command"
 msgstr "तुम्ही चिकटवा हा आदेश निवडल्यास \"%s\" ची प्रतिकृती होईल"
@@ -4165,7 +4169,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: ../src/file-manager/fm-directory-view.c:6195
-#: ../src/file-manager/fm-tree-view.c:1056
+#: ../src/file-manager/fm-tree-view.c:1055
 msgid "There is nothing on the clipboard to paste."
 msgstr "क्लिपबोर्डमध्ये चिकटविण्याकरीता काहीच नाही."
 
@@ -4216,7 +4220,7 @@ msgstr "निवडलेला घटक ज्या अनुप्रयो
 #. add the "properties" menu item
 #: ../src/file-manager/fm-directory-view.c:7274
 #: ../src/file-manager/fm-directory-view.c:7553
-#: ../src/file-manager/fm-tree-view.c:1378
+#: ../src/file-manager/fm-tree-view.c:1377
 msgid "_Properties"
 msgstr "गुणधर्म (_P)"
 
@@ -4230,7 +4234,7 @@ msgstr "प्रत्येक निवडलेल्या घटकाच�
 #. label, accelerator
 #. add the "create folder" menu item
 #: ../src/file-manager/fm-directory-view.c:7282
-#: ../src/file-manager/fm-tree-view.c:1296
+#: ../src/file-manager/fm-tree-view.c:1295
 msgid "Create _Folder"
 msgstr "संचयीका बनवा (_F)"
 
@@ -4283,7 +4287,7 @@ msgstr "प्रत्येक निवडलेले घटक संचा
 #: ../src/file-manager/fm-directory-view.c:7489
 #: ../src/file-manager/fm-directory-view.c:8556
 #: ../src/file-manager/fm-directory-view.c:8882
-#: ../src/file-manager/fm-tree-view.c:1276 ../src/caja-places-sidebar.c:2685
+#: ../src/file-manager/fm-tree-view.c:1275 ../src/caja-places-sidebar.c:2685
 msgid "Open in New _Tab"
 msgstr "नविन टॅब मध्ये उघडा (_T)"
 
@@ -4357,7 +4361,7 @@ msgstr ""
 #. add the "paste files into folder" menu item
 #: ../src/file-manager/fm-directory-view.c:7346
 #: ../src/file-manager/fm-directory-view.c:7507
-#: ../src/file-manager/fm-tree-view.c:1325
+#: ../src/file-manager/fm-tree-view.c:1324
 msgid "_Paste Into Folder"
 msgstr "संचयीकेत चिकटवा (_P)"
 
@@ -4469,7 +4473,7 @@ msgstr "बदल रद्द करा(_U)"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7393
-#: ../src/file-manager/fm-directory-view.c:11144
+#: ../src/file-manager/fm-directory-view.c:11137
 msgid "Undo the last action"
 msgstr "शेवटची कृती रद्द करा"
 
@@ -4481,7 +4485,7 @@ msgstr "पुन्हा करा (_R)"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7397
-#: ../src/file-manager/fm-directory-view.c:11162
+#: ../src/file-manager/fm-directory-view.c:11155
 msgid "Redo the last undone action"
 msgstr "टाळलेली कृती पुन्हा करा"
 
@@ -4975,7 +4979,7 @@ msgstr "खुल्या फोल्डरशी संबंधीत ड्
 #. add the "open in new window" menu item
 #: ../src/file-manager/fm-directory-view.c:8533
 #: ../src/file-manager/fm-directory-view.c:8843
-#: ../src/file-manager/fm-tree-view.c:1285 ../src/caja-places-sidebar.c:2692
+#: ../src/file-manager/fm-tree-view.c:1284 ../src/caja-places-sidebar.c:2692
 msgid "Open in New _Window"
 msgstr "नविन चैकटीत उघडा (_W)"
 
@@ -5050,55 +5054,55 @@ msgstr "सर्व निवडलेले घटकं कायमस्व
 msgid "View or modify the properties of the open folder"
 msgstr "उघड्या संचयीकेचे गुणधर्म पहा किंवा सुधारीत करा"
 
-#: ../src/file-manager/fm-directory-view.c:10293
+#: ../src/file-manager/fm-directory-view.c:10286
 msgid "Download location?"
 msgstr "स्थळ डाउनलोड करायचे?"
 
-#: ../src/file-manager/fm-directory-view.c:10296
+#: ../src/file-manager/fm-directory-view.c:10289
 msgid "You can download it or make a link to it."
 msgstr "तुम्ही ते डाउनलोड करू शकता किंवा त्याकरीता देऊ शकता."
 
-#: ../src/file-manager/fm-directory-view.c:10299
+#: ../src/file-manager/fm-directory-view.c:10292
 msgid "Make a _Link"
 msgstr "लिंक बनवा (_L)"
 
-#: ../src/file-manager/fm-directory-view.c:10306
+#: ../src/file-manager/fm-directory-view.c:10299
 msgid "_Download"
 msgstr "डाऊनलोड करा (_D)"
 
-#: ../src/file-manager/fm-directory-view.c:10467
-#: ../src/file-manager/fm-directory-view.c:10526
-#: ../src/file-manager/fm-directory-view.c:10631
+#: ../src/file-manager/fm-directory-view.c:10460
+#: ../src/file-manager/fm-directory-view.c:10519
+#: ../src/file-manager/fm-directory-view.c:10624
 msgid "Drag and drop is not supported."
 msgstr "ओढा व टाका समर्थित नाही."
 
-#: ../src/file-manager/fm-directory-view.c:10468
+#: ../src/file-manager/fm-directory-view.c:10461
 msgid "Drag and drop is only supported on local file systems."
 msgstr "स्थानीक फाइल प्रणालीकरीताच ओढा व टाका समर्थित आहे."
 
-#: ../src/file-manager/fm-directory-view.c:10527
-#: ../src/file-manager/fm-directory-view.c:10632
+#: ../src/file-manager/fm-directory-view.c:10520
+#: ../src/file-manager/fm-directory-view.c:10625
 msgid "An invalid drag type was used."
 msgstr "अवैध ओढा प्रकार वापरल्या गेले."
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10709
+#: ../src/file-manager/fm-directory-view.c:10702
 msgid "dropped text.txt"
 msgstr "text.txt वगळले"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10754
+#: ../src/file-manager/fm-directory-view.c:10747
 msgid "dropped data"
 msgstr "वगळलेला डाटा"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11143
+#: ../src/file-manager/fm-directory-view.c:11136
 msgid "Undo"
 msgstr "क्रिया मागे घ्या"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11161
+#: ../src/file-manager/fm-directory-view.c:11154
 msgid "Redo"
 msgstr "पुन्हा करा"
 
@@ -5483,7 +5487,7 @@ msgstr "दाखल करत आहे..."
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: ../src/file-manager/fm-list-view.c:1845
-#: ../src/file-manager/fm-list-view.c:3463
+#: ../src/file-manager/fm-list-view.c:3470
 #: ../src/caja-file-management-properties.ui.h:2
 msgid "List View"
 msgstr "यादी दर्शवा"
@@ -5520,19 +5524,19 @@ msgid "Select the columns visible in this folder"
 msgstr "या संचयीकेमधील दृश्यीत स्तंभ निवडा"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-list-view.c:3465
+#: ../src/file-manager/fm-list-view.c:3472
 msgid "_List"
 msgstr "यादी (_L)"
 
-#: ../src/file-manager/fm-list-view.c:3466
+#: ../src/file-manager/fm-list-view.c:3473
 msgid "The list view encountered an error."
 msgstr "यादी दर्शकाने त्रुटी दर्शवली."
 
-#: ../src/file-manager/fm-list-view.c:3467
+#: ../src/file-manager/fm-list-view.c:3474
 msgid "The list view encountered an error while starting up."
 msgstr "सुरू होताना यादी दर्शकाने त्रुटी दर्शवाली."
 
-#: ../src/file-manager/fm-list-view.c:3468
+#: ../src/file-manager/fm-list-view.c:3475
 msgid "Display this location with the list view."
 msgstr "हे ठिकाण यादी दर्शकेबरोबर प्रदर्शित करा."
 
@@ -5671,7 +5675,7 @@ msgid "Free space:"
 msgstr "मोकळी जागा:"
 
 #: ../src/file-manager/fm-properties-window.c:3430
-#: ../src/caja-emblem-sidebar.c:1098
+#: ../src/caja-emblem-sidebar.c:1096
 msgid "Emblems"
 msgstr "बोधचिन्ह"
 
@@ -5855,15 +5859,15 @@ msgstr "गुमधर्म चौकट निर्माण करीत �
 msgid "Select Custom Icon"
 msgstr "इच्छिक चिन्ह निवडा"
 
-#: ../src/file-manager/fm-tree-view.c:1421 ../src/caja-places-sidebar.c:554
+#: ../src/file-manager/fm-tree-view.c:1420 ../src/caja-places-sidebar.c:554
 msgid "File System"
 msgstr "फाइल प्रणाली"
 
-#: ../src/file-manager/fm-tree-view.c:1708
+#: ../src/file-manager/fm-tree-view.c:1707
 msgid "Tree"
 msgstr "वृक्ष"
 
-#: ../src/file-manager/fm-tree-view.c:1714
+#: ../src/file-manager/fm-tree-view.c:1713
 msgid "Show Tree"
 msgstr "वृक्ष दर्शवा"
 
@@ -6175,45 +6179,45 @@ msgstr "ओळखचिन्ह जोडा (_b)"
 msgid "Bookmark Name:"
 msgstr "ओळखचिन्हाचे नाव:"
 
-#: ../src/caja-desktop-window.c:87 ../src/caja-desktop-window.c:270
+#: ../src/caja-desktop-window.c:122 ../src/caja-desktop-window.c:315
 #: ../src/caja-pathbar.c:1446 ../src/caja-places-sidebar.c:538
 msgid "Desktop"
 msgstr "डेस्कटॉप"
 
-#: ../src/caja-emblem-sidebar.c:225
+#: ../src/caja-emblem-sidebar.c:223
 #, c-format
 msgid "Could not remove emblem with name '%s'."
 msgstr "'%s' नामांकीत बोधचिन्ह काढून टाकले जाऊ शकत नाही."
 
-#: ../src/caja-emblem-sidebar.c:226 ../src/caja-emblem-sidebar.c:266
+#: ../src/caja-emblem-sidebar.c:224 ../src/caja-emblem-sidebar.c:264
 msgid ""
 "This is probably because the emblem is a permanent one, and not one that you"
 " added yourself."
 msgstr "याचे कारण बोधचिन्ह कायस्वरूपी आहे, व तुम्ही समाविष्ट केल्यापैकी नाही."
 
-#: ../src/caja-emblem-sidebar.c:265
+#: ../src/caja-emblem-sidebar.c:263
 #, c-format
 msgid "Could not rename emblem with name '%s'."
 msgstr "'%s' नावाने बोधचिन्हाचे पुन्हनामांकन करू शकले नाही."
 
-#: ../src/caja-emblem-sidebar.c:286
+#: ../src/caja-emblem-sidebar.c:284
 msgid "Rename Emblem"
 msgstr "बोधचिन्हाचे पुनःनामांकन करा"
 
-#: ../src/caja-emblem-sidebar.c:312
+#: ../src/caja-emblem-sidebar.c:310
 msgid "Enter a new name for the displayed emblem:"
 msgstr "प्रदर्शित बोधचिल्हाकरीता नविन नाव प्रविष्ट करा:"
 
 #. add the "rename" menu item
-#: ../src/caja-emblem-sidebar.c:365
+#: ../src/caja-emblem-sidebar.c:363
 msgid "Rename"
 msgstr "पुन्हनामांकन"
 
-#: ../src/caja-emblem-sidebar.c:543
+#: ../src/caja-emblem-sidebar.c:541
 msgid "Add Emblems..."
 msgstr "बोधचिन्ह जोडा..."
 
-#: ../src/caja-emblem-sidebar.c:567
+#: ../src/caja-emblem-sidebar.c:565
 msgid ""
 "Enter a descriptive name next to each emblem.  This name will be used in "
 "other places to identify the emblem."
@@ -6221,7 +6225,7 @@ msgstr ""
 "बोधचिन्हकरीता वर्णनीय नाव प्रविष्ट करा.  हे नाव अन्य ठिकाणी बोधचिन्ह "
 "ओळखण्याकरीता वापरले जाईल."
 
-#: ../src/caja-emblem-sidebar.c:571
+#: ../src/caja-emblem-sidebar.c:569
 msgid ""
 "Enter a descriptive name next to the emblem.  This name will be used in "
 "other places to identify the emblem."
@@ -6229,32 +6233,32 @@ msgstr ""
 "बोधचिन्हकरीता वर्णनीय नाव बोधचिन्हाच्या बाजूस प्रविष्ट करा.  हे नाव अन्य "
 "ठिकाणी बोधचिन्ह ओळखण्याकरीता वापरले जाईल."
 
-#: ../src/caja-emblem-sidebar.c:813
+#: ../src/caja-emblem-sidebar.c:811
 msgid "Some of the files could not be added as emblems."
 msgstr "काही फाइल बोधचिन्ह म्हणून मिळवू शकत नाही."
 
-#: ../src/caja-emblem-sidebar.c:813 ../src/caja-emblem-sidebar.c:817
+#: ../src/caja-emblem-sidebar.c:811 ../src/caja-emblem-sidebar.c:815
 msgid "The emblems do not appear to be valid images."
 msgstr "बोधचिन्ह वैध प्रतिमा म्हणून दिसून येत नाही."
 
-#: ../src/caja-emblem-sidebar.c:817
+#: ../src/caja-emblem-sidebar.c:815
 msgid "None of the files could be added as emblems."
 msgstr "कोणतीही फाइल बोधचिन्ह म्हणून जोडू शकले नाही."
 
-#: ../src/caja-emblem-sidebar.c:860 ../src/caja-emblem-sidebar.c:923
+#: ../src/caja-emblem-sidebar.c:858 ../src/caja-emblem-sidebar.c:921
 #, c-format
 msgid "The file '%s' does not appear to be a valid image."
 msgstr "'%s' ही फाइल वैध प्रतिमा म्हणून दिसून येत नाही."
 
-#: ../src/caja-emblem-sidebar.c:865
+#: ../src/caja-emblem-sidebar.c:863
 msgid "The dragged file does not appear to be a valid image."
 msgstr "ओढून घेतलेली फाइल वैध प्रतिमा म्हणून दिसून येत नाही."
 
-#: ../src/caja-emblem-sidebar.c:867 ../src/caja-emblem-sidebar.c:924
+#: ../src/caja-emblem-sidebar.c:865 ../src/caja-emblem-sidebar.c:922
 msgid "The emblem cannot be added."
 msgstr "बोधचिन्ह जोडू शकत नाही."
 
-#: ../src/caja-emblem-sidebar.c:1104
+#: ../src/caja-emblem-sidebar.c:1102
 msgid "Show Emblems"
 msgstr "बोधचिन्ह दर्शवा"
 
@@ -6955,7 +6959,7 @@ msgid "Activate next tab"
 msgstr "पुढील टॅब सक्रीय करा"
 
 #: ../src/caja-navigation-window-menus.c:867
-#: ../src/caja-navigation-window-pane.c:384
+#: ../src/caja-navigation-window-pane.c:383
 msgid "Move Tab _Left"
 msgstr "टॅब डावीकडे हलवा (_L)"
 
@@ -6964,7 +6968,7 @@ msgid "Move current tab to left"
 msgstr "वर्तमान टॅब डावीकडे हलवा"
 
 #: ../src/caja-navigation-window-menus.c:872
-#: ../src/caja-navigation-window-pane.c:392
+#: ../src/caja-navigation-window-pane.c:391
 msgid "Move Tab _Right"
 msgstr "टॅब उजवीकडे हलवा (_R)"
 
@@ -7087,11 +7091,11 @@ msgstr "शोधा (_S)"
 msgid "Toggle between button and text-based location bar"
 msgstr "बटन आधारीत अथवा पाठ्य आधारीत स्थळ-पट्टी निवडा "
 
-#: ../src/caja-navigation-window-pane.c:374
+#: ../src/caja-navigation-window-pane.c:373
 msgid "_New Tab"
 msgstr "नविन टॅब(_N)"
 
-#: ../src/caja-navigation-window-pane.c:403
+#: ../src/caja-navigation-window-pane.c:402
 msgid "_Close Tab"
 msgstr "टॅब बंद करा (_C)"
 
@@ -7193,11 +7197,11 @@ msgstr "काढून टाका"
 msgid "Rename..."
 msgstr "नाव बदला..."
 
-#: ../src/caja-places-sidebar.c:3402
+#: ../src/caja-places-sidebar.c:3400
 msgid "Places"
 msgstr "ठिकाण"
 
-#: ../src/caja-places-sidebar.c:3408
+#: ../src/caja-places-sidebar.c:3406
 msgid "Show Places"
 msgstr "ठिकाण दर्शवा"
 
@@ -7472,7 +7476,7 @@ msgstr "परिणाम शोधा"
 msgid "Search:"
 msgstr "शोधा:"
 
-#: ../src/caja-side-pane.c:409
+#: ../src/caja-side-pane.c:388
 msgid "Close the side pane"
 msgstr "बाजूची पट्टी बंद करा"
 
@@ -7756,7 +7760,7 @@ msgstr "आतील बाजूनी विशालीकरण (_I)"
 
 #. tooltip
 #: ../src/caja-window-menus.c:857 ../src/caja-zoom-control.c:96
-#: ../src/caja-zoom-control.c:371
+#: ../src/caja-zoom-control.c:309
 msgid "Increase the view size"
 msgstr "दृश्याचे आकार वाढवा"
 
@@ -7768,7 +7772,7 @@ msgstr "लहानात लहान करा (_O)"
 
 #. tooltip
 #: ../src/caja-window-menus.c:872 ../src/caja-zoom-control.c:97
-#: ../src/caja-zoom-control.c:316
+#: ../src/caja-zoom-control.c:254
 msgid "Decrease the view size"
 msgstr "दृश्याचे आकार कमी करा"
 
@@ -7780,7 +7784,7 @@ msgstr "सामान्य आकार (_z)"
 
 #. tooltip
 #: ../src/caja-window-menus.c:882 ../src/caja-zoom-control.c:98
-#: ../src/caja-zoom-control.c:332
+#: ../src/caja-zoom-control.c:270
 msgid "Use the normal view size"
 msgstr "सर्वसाधारण दृश्याचे आकार वापरा"
 
@@ -7911,10 +7915,10 @@ msgstr "लहान करा"
 msgid "Zoom to Default"
 msgstr "मूळ स्वरूपात लहान मोठे करा"
 
-#: ../src/caja-zoom-control.c:913
+#: ../src/caja-zoom-control.c:851
 msgid "Zoom"
 msgstr "मोठे/लहान करा"
 
-#: ../src/caja-zoom-control.c:918
+#: ../src/caja-zoom-control.c:856
 msgid "Set the zoom level of the current view"
 msgstr "सद्याचे दृश्यकरीता लहान मोठे स्थर निश्चित करा"

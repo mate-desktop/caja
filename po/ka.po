@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-13 12:28+0300\n"
+"POT-Creation-Date: 2018-06-20 21:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>, 2018\n"
+"Last-Translator: zura davitashvili <rouchage@gmail.com>, 2018\n"
 "Language-Team: Georgian (https://www.transifex.com/mate/teams/13566/ka/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ka\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
 #: ../data/browser.xml.h:1
 msgid "_Patterns"
@@ -283,7 +283,7 @@ msgid "Drag an emblem to an object to add it to the object"
 msgstr "გადაათრიეთ ემბლემა ობიექტზე, მასზე მიმაგრების მიზნით"
 
 #. translators: this is the name of an emblem
-#: ../data/browser.xml.h:68 ../src/caja-emblem-sidebar.c:995
+#: ../data/browser.xml.h:68 ../src/caja-emblem-sidebar.c:993
 #: ../src/caja-property-browser.c:1951
 msgid "Erase"
 msgstr "წაშლა"
@@ -351,7 +351,7 @@ msgstr "ფაილ მენჯერის ფანჯრის ქცევ
 msgid "Open Folder"
 msgstr "გახსენი საქაღალდე"
 
-#: ../data/caja-home.desktop.in.in.h:1 ../src/file-manager/fm-tree-view.c:1417
+#: ../data/caja-home.desktop.in.in.h:1 ../src/file-manager/fm-tree-view.c:1416
 msgid "Home Folder"
 msgstr "სახლის დასტა"
 
@@ -422,45 +422,41 @@ msgstr "ასოებში მონიშნულის უკიდურ�
 #. name, icon name
 #. label, accelerator
 #. add the "cut folder" menu item
-#: ../eel/eel-editable-label.c:3117 ../libcaja-private/caja-clipboard.c:455
+#: ../eel/eel-editable-label.c:3081 ../libcaja-private/caja-clipboard.c:455
 #: ../src/file-manager/fm-directory-view.c:7332
 #: ../src/file-manager/fm-directory-view.c:7499
-#: ../src/file-manager/fm-tree-view.c:1307
+#: ../src/file-manager/fm-tree-view.c:1306
 msgid "Cu_t"
 msgstr "ამოჭ_რა"
 
 #. name, icon name
 #. label, accelerator
 #. add the "copy folder" menu item
-#: ../eel/eel-editable-label.c:3119 ../libcaja-private/caja-clipboard.c:460
+#: ../eel/eel-editable-label.c:3083 ../libcaja-private/caja-clipboard.c:460
 #: ../src/file-manager/fm-directory-view.c:7336
 #: ../src/file-manager/fm-directory-view.c:7503
-#: ../src/file-manager/fm-tree-view.c:1316
+#: ../src/file-manager/fm-tree-view.c:1315
 msgid "_Copy"
 msgstr "_კოპირება"
 
 #. name, icon name
 #. label, accelerator
-#: ../eel/eel-editable-label.c:3121 ../libcaja-private/caja-clipboard.c:465
+#: ../eel/eel-editable-label.c:3085 ../libcaja-private/caja-clipboard.c:465
 #: ../src/file-manager/fm-directory-view.c:7340
 msgid "_Paste"
 msgstr "ჩა_სმა"
 
-#: ../eel/eel-editable-label.c:3124
+#: ../eel/eel-editable-label.c:3088
 msgid "Select All"
 msgstr "ყველას მონიშვნა"
 
-#: ../eel/eel-editable-label.c:3135
-msgid "Input Methods"
-msgstr "შეყვანის მეთოდები"
-
-#: ../eel/eel-gtk-extensions.c:459
+#: ../eel/eel-gtk-extensions.c:432
 msgid "Show more _details"
 msgstr "დამატებითი ინფოს ჩ_ვენება"
 
 #: ../eel/eel-stock-dialogs.c:238 ../eel/eel-stock-dialogs.c:294
 #: ../eel/eel-stock-dialogs.c:449 ../eel/eel-stock-dialogs.c:650
-#: ../libcaja-private/caja-autorun.c:1147
+#: ../libcaja-private/caja-autorun.c:1150
 #: ../libcaja-private/caja-file-conflict-dialog.c:659
 #: ../libcaja-private/caja-file-operations.c:186
 #: ../libcaja-private/caja-mime-actions.c:819
@@ -469,9 +465,9 @@ msgstr "დამატებითი ინფოს ჩ_ვენება"
 #: ../src/file-manager/fm-directory-view.c:1208
 #: ../src/file-manager/fm-directory-view.c:1350
 #: ../src/file-manager/fm-directory-view.c:7012
-#: ../src/file-manager/fm-directory-view.c:10302
-#: ../src/caja-connect-server-dialog.c:1122 ../src/caja-emblem-sidebar.c:290
-#: ../src/caja-emblem-sidebar.c:547 ../src/caja-location-dialog.c:194
+#: ../src/file-manager/fm-directory-view.c:10295
+#: ../src/caja-connect-server-dialog.c:1122 ../src/caja-emblem-sidebar.c:288
+#: ../src/caja-emblem-sidebar.c:545 ../src/caja-location-dialog.c:194
 #: ../src/caja-property-browser.c:1111 ../src/caja-property-browser.c:1191
 msgid "_Cancel"
 msgstr "_გაუქმება"
@@ -483,7 +479,7 @@ msgstr "_გაუქმება"
 #: ../libcaja-private/caja-open-with-dialog.c:976
 #: ../src/file-manager/fm-directory-view.c:7296
 #: ../src/file-manager/fm-directory-view.c:8805
-#: ../src/file-manager/fm-tree-view.c:1267 ../src/caja-location-dialog.c:199
+#: ../src/file-manager/fm-tree-view.c:1266 ../src/caja-location-dialog.c:199
 #: ../src/caja-places-sidebar.c:2678
 msgid "_Open"
 msgstr "_გახსნა"
@@ -497,10 +493,10 @@ msgid "You can stop this operation by clicking cancel."
 msgstr "თქვენ შეგიძლიათ შეწყვიტოთ"
 
 #: ../eel/eel-stock-dialogs.c:296 ../eel/eel-stock-dialogs.c:451
-#: ../eel/eel-stock-dialogs.c:655 ../libcaja-private/caja-autorun.c:1152
+#: ../eel/eel-stock-dialogs.c:655 ../libcaja-private/caja-autorun.c:1155
 #: ../libcaja-private/caja-mime-actions.c:1370
 #: ../src/file-manager/fm-directory-view.c:1213
-#: ../src/caja-emblem-sidebar.c:295 ../src/caja-emblem-sidebar.c:552
+#: ../src/caja-emblem-sidebar.c:293 ../src/caja-emblem-sidebar.c:550
 #: ../src/caja-property-browser.c:1116 ../src/caja-property-browser.c:1196
 #: ../src/caja-query-editor.c:720
 msgid "_OK"
@@ -535,74 +531,74 @@ msgstr "გახსენი %s"
 msgid "Open with other Application..."
 msgstr "სხვა პროგრამით გ_ახსნა..."
 
-#: ../libcaja-private/caja-autorun.c:1041
+#: ../libcaja-private/caja-autorun.c:1044
 msgid "You have just inserted an Audio CD."
 msgstr "შეყვანილია აუდიო CD"
 
-#: ../libcaja-private/caja-autorun.c:1045
+#: ../libcaja-private/caja-autorun.c:1048
 msgid "You have just inserted an Audio DVD."
 msgstr "შეყვანილია აუდიო DVD."
 
-#: ../libcaja-private/caja-autorun.c:1049
+#: ../libcaja-private/caja-autorun.c:1052
 msgid "You have just inserted a Video DVD."
 msgstr "შეყვანილია Video DVD."
 
-#: ../libcaja-private/caja-autorun.c:1053
+#: ../libcaja-private/caja-autorun.c:1056
 msgid "You have just inserted a Video CD."
 msgstr "შეყვანილია Video CD."
 
-#: ../libcaja-private/caja-autorun.c:1057
+#: ../libcaja-private/caja-autorun.c:1060
 msgid "You have just inserted a Super Video CD."
 msgstr "შეყვანილია Super Video CD."
 
-#: ../libcaja-private/caja-autorun.c:1061
+#: ../libcaja-private/caja-autorun.c:1064
 msgid "You have just inserted a blank CD."
 msgstr "შეყვანილია ცარიელი CD."
 
-#: ../libcaja-private/caja-autorun.c:1065
+#: ../libcaja-private/caja-autorun.c:1068
 msgid "You have just inserted a blank DVD."
 msgstr "შეყვანილია ცარიელი DVD."
 
-#: ../libcaja-private/caja-autorun.c:1069
+#: ../libcaja-private/caja-autorun.c:1072
 msgid "You have just inserted a blank Blu-Ray disc."
 msgstr "შეყვანილია ცარიელი Blu-Ray დისკი."
 
-#: ../libcaja-private/caja-autorun.c:1073
+#: ../libcaja-private/caja-autorun.c:1076
 msgid "You have just inserted a blank HD DVD."
 msgstr "შეყვანილია ცარიელი HD DVD."
 
-#: ../libcaja-private/caja-autorun.c:1077
+#: ../libcaja-private/caja-autorun.c:1080
 msgid "You have just inserted a Photo CD."
 msgstr "შეყვანილია ფოტო CD."
 
-#: ../libcaja-private/caja-autorun.c:1081
+#: ../libcaja-private/caja-autorun.c:1084
 msgid "You have just inserted a Picture CD."
 msgstr "შეყვანილია Picture CD ტიპის დისკი."
 
-#: ../libcaja-private/caja-autorun.c:1085
+#: ../libcaja-private/caja-autorun.c:1088
 msgid "You have just inserted a medium with digital photos."
 msgstr "თქვენს მიერ შეყვანილი მედია შეიცავს ციფრულ ფოტოებს."
 
-#: ../libcaja-private/caja-autorun.c:1089
+#: ../libcaja-private/caja-autorun.c:1092
 msgid "You have just inserted a digital audio player."
 msgstr "თქვენს მიერ შეყვანილია ციფრული აუდიო დამკვრელი."
 
-#: ../libcaja-private/caja-autorun.c:1093
+#: ../libcaja-private/caja-autorun.c:1096
 msgid ""
 "You have just inserted a medium with software intended to be automatically "
 "started."
 msgstr "თქვენს მიერ შეყვანილია მედია ავტო-გაშვებადი პროგრამით."
 
 #. fallback to generic greeting
-#: ../libcaja-private/caja-autorun.c:1098
+#: ../libcaja-private/caja-autorun.c:1101
 msgid "You have just inserted a medium."
 msgstr "თქვენს მიერ შეყვანილია მედია."
 
-#: ../libcaja-private/caja-autorun.c:1100
+#: ../libcaja-private/caja-autorun.c:1103
 msgid "Choose what application to launch."
 msgstr "გასაშვები პროგრამის ამორჩევა."
 
-#: ../libcaja-private/caja-autorun.c:1110
+#: ../libcaja-private/caja-autorun.c:1113
 #, c-format
 msgid ""
 "Select how to open \"%s\" and whether to perform this action in the future "
@@ -611,29 +607,29 @@ msgstr ""
 "ამოირჩიეთ თუ როგორ უნდა გაიხსნას \"%s\" და გნებავთ თუ არა ამ მოქმედების "
 "ჩატარება მომავალშიც \"%s\"-ის ტიპის მოწყობილობების გახსნისას."
 
-#: ../libcaja-private/caja-autorun.c:1138
+#: ../libcaja-private/caja-autorun.c:1141
 msgid "_Always perform this action"
 msgstr "ყოველთვის _ამ ქმედების ჩატარება"
 
 #. name, icon name
 #. label, accelerator
 #. add the "Eject" menu item
-#: ../libcaja-private/caja-autorun.c:1161
+#: ../libcaja-private/caja-autorun.c:1164
 #: ../src/file-manager/fm-directory-view.c:7423
 #: ../src/file-manager/fm-directory-view.c:7451
 #: ../src/file-manager/fm-directory-view.c:7532
-#: ../src/file-manager/fm-tree-view.c:1365 ../src/caja-places-sidebar.c:2735
+#: ../src/file-manager/fm-tree-view.c:1364 ../src/caja-places-sidebar.c:2735
 msgid "_Eject"
 msgstr "_გამოღება"
 
 #. name, icon name
 #. label, accelerator
 #. add the "Unmount" menu item
-#: ../libcaja-private/caja-autorun.c:1176
+#: ../libcaja-private/caja-autorun.c:1179
 #: ../src/file-manager/fm-directory-view.c:7419
 #: ../src/file-manager/fm-directory-view.c:7447
 #: ../src/file-manager/fm-directory-view.c:7528
-#: ../src/file-manager/fm-tree-view.c:1356 ../src/caja-places-sidebar.c:2728
+#: ../src/file-manager/fm-tree-view.c:1355 ../src/caja-places-sidebar.c:2728
 msgid "_Unmount"
 msgstr "ტ_ომის მოხსნა"
 
@@ -696,11 +692,11 @@ msgstr "ფაილის ზომა."
 
 #: ../libcaja-private/caja-column-utilities.c:59
 msgid "Size on Disk"
-msgstr ""
+msgstr "ზომა დისკზე"
 
 #: ../libcaja-private/caja-column-utilities.c:60
 msgid "The size of the file on disk."
-msgstr ""
+msgstr "ფაილის ზომა დისკზე."
 
 #: ../libcaja-private/caja-column-utilities.c:67
 msgid "Type"
@@ -783,7 +779,7 @@ msgstr "ადგილმდებარეობა"
 
 #: ../libcaja-private/caja-column-utilities.c:139
 msgid "The location of the file."
-msgstr ""
+msgstr "ფაილის ადგილმდებარეობა"
 
 #: ../libcaja-private/caja-column-utilities.c:146
 #: ../src/caja-file-management-properties.ui.h:110
@@ -800,15 +796,15 @@ msgstr ""
 
 #: ../libcaja-private/caja-column-utilities.c:190
 msgid "Date when file was moved to the Trash"
-msgstr ""
+msgstr "თარიღი, როდესაც ფაილი მოთავსდა სანაგვე ურნაში"
 
 #: ../libcaja-private/caja-column-utilities.c:196
 msgid "Original Location"
-msgstr ""
+msgstr "ორიგინალური ადგილმდებარეობა"
 
 #: ../libcaja-private/caja-column-utilities.c:197
 msgid "Original location of file before moved to the Trash"
-msgstr ""
+msgstr "ფაილის ორიგინალური ადგილმდებარეობა ვიდრე სანაგვე ურნაში მოთავსდებოდა"
 
 #: ../libcaja-private/caja-customization-data.c:431
 #: ../libcaja-private/caja-file-conflict-dialog.c:628
@@ -839,7 +835,7 @@ msgid "Network Servers"
 msgstr "ქსელის სერვერები"
 
 #: ../libcaja-private/caja-desktop-link.c:119
-#: ../src/file-manager/fm-tree-view.c:1424 ../src/caja-places-sidebar.c:613
+#: ../src/file-manager/fm-tree-view.c:1423 ../src/caja-places-sidebar.c:613
 #: ../src/caja-trash-bar.c:190
 msgid "Trash"
 msgstr "სანაგვე ყუთი"
@@ -860,15 +856,15 @@ msgstr "აქ _ბმულის შექმნა"
 msgid "Set as _Background"
 msgstr "ფონად დაყენე_ბა"
 
-#: ../libcaja-private/caja-dnd.c:817 ../libcaja-private/caja-dnd.c:871
+#: ../libcaja-private/caja-dnd.c:817 ../libcaja-private/caja-dnd.c:870
 msgid "Cancel"
 msgstr "გაუქმება"
 
-#: ../libcaja-private/caja-dnd.c:859
+#: ../libcaja-private/caja-dnd.c:858
 msgid "Set as background for _all folders"
 msgstr "ყველ_ა დასტისთვის ფონის სახით გამოყენება"
 
-#: ../libcaja-private/caja-dnd.c:864
+#: ../libcaja-private/caja-dnd.c:863
 msgid "Set as background for _this folder"
 msgstr "მოცემული დას_ტისთვის ფონის სახით გამოყენება"
 
@@ -916,7 +912,7 @@ msgstr ""
 #: ../libcaja-private/caja-file-conflict-dialog.c:147
 #, c-format
 msgid "Merge folder \"%s\"?"
-msgstr ""
+msgstr "გავაერთიანოთ საქაღალდე \"%s\"?"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:151
 msgid ""
@@ -946,7 +942,7 @@ msgstr ""
 #: ../libcaja-private/caja-file-conflict-dialog.c:178
 #, c-format
 msgid "Replace folder \"%s\"?"
-msgstr ""
+msgstr "ჩავანაცვლოთ საქაღალდე \"%s\"?"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:180
 #, c-format
@@ -956,7 +952,7 @@ msgstr ""
 #: ../libcaja-private/caja-file-conflict-dialog.c:187
 #, c-format
 msgid "Replace file \"%s\"?"
-msgstr ""
+msgstr "ჩავანაცვლოთ ფაილი \"%s\"?"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:189
 msgid "Replacing it will overwrite its content."
@@ -979,7 +975,7 @@ msgstr ""
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:276
 msgid "Original folder"
-msgstr ""
+msgstr "ორიგინალი საქაღალდე"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:277
 #: ../libcaja-private/caja-file-conflict-dialog.c:316
@@ -988,7 +984,7 @@ msgstr ""
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:280
 msgid "Original file"
-msgstr ""
+msgstr "ორიგინალი ფაილი"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:281
 #: ../libcaja-private/caja-file-conflict-dialog.c:320
@@ -1007,35 +1003,35 @@ msgstr "ტიპი:"
 #: ../libcaja-private/caja-file-conflict-dialog.c:289
 #: ../libcaja-private/caja-file-conflict-dialog.c:328
 msgid "Last modified:"
-msgstr ""
+msgstr "ბოლოს მოდიფიცირებული"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:315
 msgid "Merge with"
-msgstr ""
+msgstr "გაერთიანება"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:315
 #: ../libcaja-private/caja-file-conflict-dialog.c:319
 msgid "Replace with"
-msgstr ""
+msgstr "ჩანაცვლება"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:351
 msgid "Merge"
-msgstr ""
+msgstr "გაერთიანება"
 
 #. Setup the expander for the rename action
 #: ../libcaja-private/caja-file-conflict-dialog.c:614
 msgid "Select a new name for the _destination"
-msgstr ""
+msgstr "აირჩიეთ ახალი სახელი _დანიშნულების ადგილისათვის"
 
 #. Setup the diff button for text files
 #: ../libcaja-private/caja-file-conflict-dialog.c:639
 msgid "Differences..."
-msgstr ""
+msgstr "განსხვავებები"
 
 #. Setup the checkbox to apply the action to all files
 #: ../libcaja-private/caja-file-conflict-dialog.c:649
 msgid "Apply this action to all files and folders"
-msgstr ""
+msgstr "გაავრცელე ეს მოქმედება ყველა ფაილზე და საქაღალდეზე"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:664
 #: ../libcaja-private/caja-file-operations.c:187
@@ -1044,7 +1040,7 @@ msgstr "_გამოტოვება"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:669
 msgid "Re_name"
-msgstr ""
+msgstr "სახელის გადარქმევა"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:675
 msgid "Replace"
@@ -1052,16 +1048,16 @@ msgstr "შეცვლა"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:759
 msgid "Merge Folder"
-msgstr ""
+msgstr "საქაღალდის გაერთიანება"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:759
 #: ../libcaja-private/caja-file-conflict-dialog.c:764
 msgid "File and Folder conflict"
-msgstr ""
+msgstr "ფაილის და საქაღალდის კონფლიქტი"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:764
 msgid "File conflict"
-msgstr ""
+msgstr "ფაილის კონფლიქტი"
 
 #: ../libcaja-private/caja-file-operations.c:188
 msgid "S_kip All"
@@ -1079,7 +1075,7 @@ msgstr "_სცადე"
 #: ../src/file-manager/fm-directory-view.c:7384
 #: ../src/file-manager/fm-directory-view.c:7516
 #: ../src/file-manager/fm-directory-view.c:8957
-#: ../src/file-manager/fm-tree-view.c:1345 ../src/caja-emblem-sidebar.c:375
+#: ../src/file-manager/fm-tree-view.c:1344 ../src/caja-emblem-sidebar.c:373
 msgid "_Delete"
 msgstr "_წაშლა"
 
@@ -1112,6 +1108,7 @@ msgstr ""
 msgid "%'d second"
 msgid_plural "%'d seconds"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:315
 #: ../libcaja-private/caja-file-operations.c:326
@@ -1119,18 +1116,21 @@ msgstr[0] ""
 msgid "%'d minute"
 msgid_plural "%'d minutes"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:325
 #, c-format
 msgid "%'d hour"
 msgid_plural "%'d hours"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:333
 #, c-format
 msgid "approximately %'d hour"
 msgid_plural "approximately %'d hours"
 msgstr[0] ""
+msgstr[1] ""
 
 #. appended to new link file
 #. Note to localizers: convert file type string for file
@@ -1138,7 +1138,7 @@ msgstr[0] ""
 #. * to that kind of file (e.g. "link to folder").
 #: ../libcaja-private/caja-file-operations.c:409
 #: ../libcaja-private/caja-file.c:6727
-#: ../src/file-manager/fm-directory-view.c:10546
+#: ../src/file-manager/fm-directory-view.c:10539
 #, c-format
 msgid "Link to %s"
 msgstr "ბმული %s -ზე"
@@ -1287,6 +1287,7 @@ msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items from the "
 "trash?"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:1375
 #: ../libcaja-private/caja-file-operations.c:1441
@@ -1295,11 +1296,11 @@ msgstr "რომელიმე ელემენტის წაშლის 
 
 #: ../libcaja-private/caja-file-operations.c:1395
 msgid "Empty all items from Trash?"
-msgstr ""
+msgstr "წავშალო ყველაფერი სანაგვე ურნიდან?"
 
 #: ../libcaja-private/caja-file-operations.c:1399
 msgid "All items in the Trash will be permanently deleted."
-msgstr ""
+msgstr "სანაგვე ურნაში ყველაფერი სამუდამოდ წაიშლება"
 
 #. Empty Trash menu item
 #: ../libcaja-private/caja-file-operations.c:1402
@@ -1318,6 +1319,7 @@ msgid "Are you sure you want to permanently delete the %'d selected item?"
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items?"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:1471
 msgid "Are you sure you want to trash \"%B\"?"
@@ -1328,10 +1330,13 @@ msgstr ""
 msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:1483
 msgid "Items moved to the trash may be recovered until the trash is emptied."
 msgstr ""
+"სანაგვე ურნაში გადაადგილებული ელემენტების აღდგენა შესაძლებელია სანაგვე ურნის"
+" გასუფთავებამდე."
 
 #: ../libcaja-private/caja-file-operations.c:1486
 msgid "Move to _Trash"
@@ -1342,6 +1347,7 @@ msgstr "_გადააგდე"
 msgid "%'d file left to delete"
 msgid_plural "%'d files left to delete"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:1523
 msgid "Deleting files"
@@ -1354,12 +1360,13 @@ msgstr "ფაილების წაშლა"
 msgid "%T left"
 msgid_plural "%T left"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:1604
 #: ../libcaja-private/caja-file-operations.c:1638
 #: ../libcaja-private/caja-file-operations.c:1677
 #: ../libcaja-private/caja-file-operations.c:1754
-#: ../libcaja-private/caja-file-operations.c:2579
+#: ../libcaja-private/caja-file-operations.c:2577
 msgid "Error while deleting."
 msgstr "წაშლისას დაიშვა შეცდომა."
 
@@ -1372,15 +1379,15 @@ msgstr ""
 "მათი დათვალიერების უფლება."
 
 #: ../libcaja-private/caja-file-operations.c:1611
-#: ../libcaja-private/caja-file-operations.c:2639
-#: ../libcaja-private/caja-file-operations.c:3621
+#: ../libcaja-private/caja-file-operations.c:2637
+#: ../libcaja-private/caja-file-operations.c:3619
 msgid ""
 "There was an error getting information about the files in the folder \"%B\"."
 msgstr ""
 "დაიშვა შეცდომა \"%B\" დასტაში მყოფი ფაილების შესახებ ინფორმაციის მიღებისას."
 
 #: ../libcaja-private/caja-file-operations.c:1620
-#: ../libcaja-private/caja-file-operations.c:3630
+#: ../libcaja-private/caja-file-operations.c:3628
 msgid "_Skip files"
 msgstr "ფაილების _გამოტოვება"
 
@@ -1393,8 +1400,8 @@ msgstr ""
 "უფლება."
 
 #: ../libcaja-private/caja-file-operations.c:1644
-#: ../libcaja-private/caja-file-operations.c:2678
-#: ../libcaja-private/caja-file-operations.c:3666
+#: ../libcaja-private/caja-file-operations.c:2676
+#: ../libcaja-private/caja-file-operations.c:3664
 msgid "There was an error reading the folder \"%B\"."
 msgstr "დაიშვა შეცდომა \"%B\" დასტის წაკითხვისას."
 
@@ -1415,6 +1422,7 @@ msgstr "ფაილების სანაგვე ყუთში გად
 msgid "%'d file left to trash"
 msgid_plural "%'d files left to trash"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:1894
 msgid "Cannot move file to trash, do you want to delete immediately?"
@@ -1426,11 +1434,11 @@ msgstr "შეუძლებელი გახდა \"%B\" ფაილის
 
 #: ../libcaja-private/caja-file-operations.c:2079
 msgid "Trashing Files"
-msgstr ""
+msgstr "მიმდინარეობს ფაილების სანაგვე ურნაში გადატანა"
 
 #: ../libcaja-private/caja-file-operations.c:2081
 msgid "Deleting Files"
-msgstr ""
+msgstr "მიმდინარეობს ფაილების წაშლა"
 
 #: ../libcaja-private/caja-file-operations.c:2158
 msgid "Unable to eject %V"
@@ -1456,53 +1464,57 @@ msgstr ""
 msgid "Do _not Empty Trash"
 msgstr "არ _გაასუფთავო სანაგვე ყუთი"
 
-#: ../libcaja-private/caja-file-operations.c:2448
+#: ../libcaja-private/caja-file-operations.c:2446
 #, c-format
 msgid "Unable to mount %s"
 msgstr "შეუძლებელია მონტაჟი %s"
 
-#: ../libcaja-private/caja-file-operations.c:2526
+#: ../libcaja-private/caja-file-operations.c:2524
 #, c-format
 msgid "Preparing to copy %'d file (%S)"
 msgid_plural "Preparing to copy %'d files (%S)"
 msgstr[0] ""
+msgstr[1] ""
 
-#: ../libcaja-private/caja-file-operations.c:2532
+#: ../libcaja-private/caja-file-operations.c:2530
 #, c-format
 msgid "Preparing to move %'d file (%S)"
 msgid_plural "Preparing to move %'d files (%S)"
 msgstr[0] ""
+msgstr[1] ""
 
-#: ../libcaja-private/caja-file-operations.c:2538
+#: ../libcaja-private/caja-file-operations.c:2536
 #, c-format
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
 msgstr[0] ""
+msgstr[1] ""
 
-#: ../libcaja-private/caja-file-operations.c:2544
+#: ../libcaja-private/caja-file-operations.c:2542
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
 msgstr[0] ""
+msgstr[1] ""
 
-#: ../libcaja-private/caja-file-operations.c:2575
-#: ../libcaja-private/caja-file-operations.c:3473
-#: ../libcaja-private/caja-file-operations.c:3613
-#: ../libcaja-private/caja-file-operations.c:3658
+#: ../libcaja-private/caja-file-operations.c:2573
+#: ../libcaja-private/caja-file-operations.c:3471
+#: ../libcaja-private/caja-file-operations.c:3611
+#: ../libcaja-private/caja-file-operations.c:3656
 msgid "Error while copying."
 msgstr "შეცდომა ასლის გადაღებისას."
 
-#: ../libcaja-private/caja-file-operations.c:2577
-#: ../libcaja-private/caja-file-operations.c:3611
-#: ../libcaja-private/caja-file-operations.c:3656
+#: ../libcaja-private/caja-file-operations.c:2575
+#: ../libcaja-private/caja-file-operations.c:3609
+#: ../libcaja-private/caja-file-operations.c:3654
 msgid "Error while moving."
 msgstr "შეცდომა გადატანისას."
 
-#: ../libcaja-private/caja-file-operations.c:2581
+#: ../libcaja-private/caja-file-operations.c:2579
 msgid "Error while moving files to trash."
 msgstr "დაიშვა შეცდომა ფაილების სანაგვე ყუთში გადატანისას."
 
-#: ../libcaja-private/caja-file-operations.c:2636
+#: ../libcaja-private/caja-file-operations.c:2634
 msgid ""
 "Files in the folder \"%B\" cannot be handled because you do not have "
 "permissions to see them."
@@ -1510,7 +1522,7 @@ msgstr ""
 "შეუძლებელია ფაილების დამუშავება \"%B\" დასტაში, რადგანაც თქვენ არ გაქვს მათი"
 " ხილვის უფლებები."
 
-#: ../libcaja-private/caja-file-operations.c:2675
+#: ../libcaja-private/caja-file-operations.c:2673
 msgid ""
 "The folder \"%B\" cannot be handled because you do not have permissions to "
 "read it."
@@ -1518,7 +1530,7 @@ msgstr ""
 "შეუძლებელია \"%B\" დასტის დამუშავება, რადგანაც არ გაგაჩნიათ მისი წაკითხვის "
 "უფლებები."
 
-#: ../libcaja-private/caja-file-operations.c:2753
+#: ../libcaja-private/caja-file-operations.c:2751
 msgid ""
 "The file \"%B\" cannot be handled because you do not have permissions to "
 "read it."
@@ -1526,90 +1538,96 @@ msgstr ""
 "შეუძლებელია \"%B\" ფაილის დამუშავება, რადგანაც არ გაგაჩნიათ მისი წაკითხვის "
 "უფლებები."
 
-#: ../libcaja-private/caja-file-operations.c:2756
+#: ../libcaja-private/caja-file-operations.c:2754
 msgid "There was an error getting information about \"%B\"."
 msgstr "პროგრამის გაშვებისას წარმოიშვა შეცდომა."
 
-#: ../libcaja-private/caja-file-operations.c:2856
-#: ../libcaja-private/caja-file-operations.c:2898
-#: ../libcaja-private/caja-file-operations.c:2931
-#: ../libcaja-private/caja-file-operations.c:2961
+#: ../libcaja-private/caja-file-operations.c:2854
+#: ../libcaja-private/caja-file-operations.c:2896
+#: ../libcaja-private/caja-file-operations.c:2929
+#: ../libcaja-private/caja-file-operations.c:2959
 msgid "Error while copying to \"%B\"."
 msgstr "შეცდომა \"%s\"ზე კოპირებისას."
 
-#: ../libcaja-private/caja-file-operations.c:2860
+#: ../libcaja-private/caja-file-operations.c:2858
 msgid "You do not have permissions to access the destination folder."
 msgstr "გაგაჩნიათ ჩაწერის უფლება ამ დანიშნულების მანძილზე."
 
-#: ../libcaja-private/caja-file-operations.c:2862
+#: ../libcaja-private/caja-file-operations.c:2860
 msgid "There was an error getting information about the destination."
 msgstr "ვერ მოინახა საკმარისი მანძილი დანიშნულების დასტაში."
 
-#: ../libcaja-private/caja-file-operations.c:2899
+#: ../libcaja-private/caja-file-operations.c:2897
 msgid "The destination is not a folder."
 msgstr "დანიშნულება დასტას არ წარმოადგენს."
 
-#: ../libcaja-private/caja-file-operations.c:2932
+#: ../libcaja-private/caja-file-operations.c:2930
 msgid ""
 "There is not enough space on the destination. Try to remove files to make "
 "space."
 msgstr "ვერ მოინახა საკმარისი მანძილი დანიშნულების დასტაში."
 
-#: ../libcaja-private/caja-file-operations.c:2934
+#: ../libcaja-private/caja-file-operations.c:2932
 #, c-format
 msgid "There is %S available, but %S is required."
 msgstr "ხელმისაწვდომელია %S , მაგრამ საჭიროა %S."
 
-#: ../libcaja-private/caja-file-operations.c:2962
+#: ../libcaja-private/caja-file-operations.c:2960
 msgid "The destination is read-only."
 msgstr "დანიშნულება მხოლოდ-კითხვადი ტიპისაა."
 
-#: ../libcaja-private/caja-file-operations.c:3021
+#: ../libcaja-private/caja-file-operations.c:3019
 msgid "Moving \"%B\" to \"%B\""
 msgstr "მიმდინარეობს \"%B\"-ს \"%B\"-ში გადატანა"
 
-#: ../libcaja-private/caja-file-operations.c:3022
+#: ../libcaja-private/caja-file-operations.c:3020
 msgid "Copying \"%B\" to \"%B\""
 msgstr "მიმდინარეობს \"%B\"-ს ასლის გადატანა \"%B\"-ში"
 
-#: ../libcaja-private/caja-file-operations.c:3027
+#: ../libcaja-private/caja-file-operations.c:3025
 msgid "Duplicating \"%B\""
 msgstr "დუბლირდება \"%B\""
 
-#: ../libcaja-private/caja-file-operations.c:3035
+#: ../libcaja-private/caja-file-operations.c:3033
 msgid "Moving %'d file (in \"%B\") to \"%B\""
 msgid_plural "Moving %'d files (in \"%B\") to \"%B\""
 msgstr[0] ""
+msgstr[1] ""
 
-#: ../libcaja-private/caja-file-operations.c:3039
+#: ../libcaja-private/caja-file-operations.c:3037
 msgid "Copying %'d file (in \"%B\") to \"%B\""
 msgid_plural "Copying %'d files (in \"%B\") to \"%B\""
 msgstr[0] ""
+msgstr[1] ""
 
-#: ../libcaja-private/caja-file-operations.c:3047
+#: ../libcaja-private/caja-file-operations.c:3045
 msgid "Duplicating %'d file (in \"%B\")"
 msgid_plural "Duplicating %'d files (in \"%B\")"
 msgstr[0] ""
+msgstr[1] ""
 
-#: ../libcaja-private/caja-file-operations.c:3057
+#: ../libcaja-private/caja-file-operations.c:3055
 msgid "Moving %'d file to \"%B\""
 msgid_plural "Moving %'d files to \"%B\""
 msgstr[0] ""
+msgstr[1] ""
 
-#: ../libcaja-private/caja-file-operations.c:3061
+#: ../libcaja-private/caja-file-operations.c:3059
 msgid "Copying %'d file to \"%B\""
 msgid_plural "Copying %'d files to \"%B\""
 msgstr[0] ""
+msgstr[1] ""
 
-#: ../libcaja-private/caja-file-operations.c:3067
+#: ../libcaja-private/caja-file-operations.c:3065
 #, c-format
 msgid "Duplicating %'d file"
 msgid_plural "Duplicating %'d files"
 msgstr[0] ""
+msgstr[1] ""
 
 #. To translators: %S will expand to a size like "2 bytes" or "3 MB", so
 #. something like "4 kb of 4 MB"
-#: ../libcaja-private/caja-file-operations.c:3087
+#: ../libcaja-private/caja-file-operations.c:3085
 #, c-format
 msgid "%S of %S"
 msgstr "%S - %S -დან"
@@ -1621,12 +1639,13 @@ msgstr "%S - %S -დან"
 #. *
 #. * The singular/plural form will be used depending on the remaining time
 #. (i.e. the %T argument).
-#: ../libcaja-private/caja-file-operations.c:3098
+#: ../libcaja-private/caja-file-operations.c:3096
 msgid "%S of %S — %T left (%S/sec)"
 msgid_plural "%S of %S — %T left (%S/sec)"
 msgstr[0] ""
+msgstr[1] ""
 
-#: ../libcaja-private/caja-file-operations.c:3477
+#: ../libcaja-private/caja-file-operations.c:3475
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "create it in the destination."
@@ -1634,11 +1653,11 @@ msgstr ""
 "შეუძლებელია·\"%s\"-ის·გადაწერა, რადგანაც არ გაგაჩნიათ მისი წაკითხვის "
 "უფლებები."
 
-#: ../libcaja-private/caja-file-operations.c:3480
+#: ../libcaja-private/caja-file-operations.c:3478
 msgid "There was an error creating the folder \"%B\"."
 msgstr "დაიშვა შეცდომა დახმარების ჩვენებისას."
 
-#: ../libcaja-private/caja-file-operations.c:3618
+#: ../libcaja-private/caja-file-operations.c:3616
 msgid ""
 "Files in the folder \"%B\" cannot be copied because you do not have "
 "permissions to see them."
@@ -1646,7 +1665,7 @@ msgstr ""
 "შეუძლებელია·\"%s\"-ის·გადაწერა, რადგანაც არ გაგაჩნიათ მისი წაკითხვის "
 "უფლებები."
 
-#: ../libcaja-private/caja-file-operations.c:3663
+#: ../libcaja-private/caja-file-operations.c:3661
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "read it."
@@ -1654,157 +1673,159 @@ msgstr ""
 "შეუძლებელია·\"%s\"-ის·გადაწერა, რადგანაც არ გაგაჩნიათ მისი წაკითხვის "
 "უფლებები."
 
-#: ../libcaja-private/caja-file-operations.c:3708
-#: ../libcaja-private/caja-file-operations.c:4402
-#: ../libcaja-private/caja-file-operations.c:4994
+#: ../libcaja-private/caja-file-operations.c:3706
+#: ../libcaja-private/caja-file-operations.c:4400
+#: ../libcaja-private/caja-file-operations.c:4992
 msgid "Error while moving \"%B\"."
 msgstr "შეცდომა \"%s\"ში გადატანისას."
 
-#: ../libcaja-private/caja-file-operations.c:3709
+#: ../libcaja-private/caja-file-operations.c:3707
 msgid "Could not remove the source folder."
 msgstr "შეუძლებელია სანაგვე ყუთის დასტის გადაადგილება."
 
-#: ../libcaja-private/caja-file-operations.c:3794
-#: ../libcaja-private/caja-file-operations.c:3835
-#: ../libcaja-private/caja-file-operations.c:4404
-#: ../libcaja-private/caja-file-operations.c:4476
+#: ../libcaja-private/caja-file-operations.c:3792
+#: ../libcaja-private/caja-file-operations.c:3833
+#: ../libcaja-private/caja-file-operations.c:4402
+#: ../libcaja-private/caja-file-operations.c:4474
 msgid "Error while copying \"%B\"."
 msgstr "შეცდომა \"%s\"ზე კოპირებისას."
 
-#: ../libcaja-private/caja-file-operations.c:3795
+#: ../libcaja-private/caja-file-operations.c:3793
 #, c-format
 msgid "Could not remove files from the already existing folder %F."
 msgstr "შეუძლებელია ფაილების მოშორება უკვე %F არსებული დასტიდან."
 
-#: ../libcaja-private/caja-file-operations.c:3836
+#: ../libcaja-private/caja-file-operations.c:3834
 #, c-format
 msgid "Could not remove the already existing file %F."
 msgstr "შეუძლებელია უკვე არსებული %F ფაილის მოშორება."
 
 #. the run_warning() frees all strings passed in automatically
-#: ../libcaja-private/caja-file-operations.c:4155
-#: ../libcaja-private/caja-file-operations.c:4840
+#: ../libcaja-private/caja-file-operations.c:4153
+#: ../libcaja-private/caja-file-operations.c:4838
 msgid "You cannot move a folder into itself."
 msgstr "შეუძლებელია დასტის დასტაშივე გადატანა."
 
-#: ../libcaja-private/caja-file-operations.c:4156
-#: ../libcaja-private/caja-file-operations.c:4841
+#: ../libcaja-private/caja-file-operations.c:4154
+#: ../libcaja-private/caja-file-operations.c:4839
 msgid "You cannot copy a folder into itself."
 msgstr "შეუძლებელია დასტის ასლის დასტაშივე გაკეთება."
 
-#: ../libcaja-private/caja-file-operations.c:4157
-#: ../libcaja-private/caja-file-operations.c:4842
+#: ../libcaja-private/caja-file-operations.c:4155
+#: ../libcaja-private/caja-file-operations.c:4840
 msgid "The destination folder is inside the source folder."
 msgstr "დანიშნულების დასტა წყარო დასტაში მდებარეობს."
 
 #. the run_warning() frees all strings passed in automatically
-#: ../libcaja-private/caja-file-operations.c:4188
+#: ../libcaja-private/caja-file-operations.c:4186
 msgid "You cannot move a file over itself."
-msgstr ""
+msgstr "თქვენ არ შეგიძლიათ ფაილი გადააწეროთ საკუთარ თავს."
 
-#: ../libcaja-private/caja-file-operations.c:4189
+#: ../libcaja-private/caja-file-operations.c:4187
 msgid "You cannot copy a file over itself."
-msgstr ""
+msgstr "თქვენ არ შეგიძლიათ ფაილი დააკოპიროთ საკუტარ თავზე."
 
-#: ../libcaja-private/caja-file-operations.c:4190
+#: ../libcaja-private/caja-file-operations.c:4188
 msgid "The source file would be overwritten by the destination."
 msgstr ""
 
-#: ../libcaja-private/caja-file-operations.c:4406
+#: ../libcaja-private/caja-file-operations.c:4404
 #, c-format
 msgid "Could not remove the already existing file with the same name in %F."
 msgstr ""
 
-#: ../libcaja-private/caja-file-operations.c:4477
+#: ../libcaja-private/caja-file-operations.c:4475
 #, c-format
 msgid "There was an error copying the file into %F."
 msgstr "დაიშვა შეცდომა ფაილის ასლის %F-ში გადატანისას."
 
-#: ../libcaja-private/caja-file-operations.c:4723
+#: ../libcaja-private/caja-file-operations.c:4721
 msgid "Copying Files"
-msgstr ""
+msgstr "მიმდინარეობს ფაილების კოპირება"
 
-#: ../libcaja-private/caja-file-operations.c:4750
+#: ../libcaja-private/caja-file-operations.c:4748
 msgid "Preparing to Move to \"%B\""
 msgstr "ვემზადები \"%B\"-ში გადასატანად"
 
-#: ../libcaja-private/caja-file-operations.c:4754
+#: ../libcaja-private/caja-file-operations.c:4752
 #, c-format
 msgid "Preparing to move %'d file"
 msgid_plural "Preparing to move %'d files"
 msgstr[0] ""
+msgstr[1] ""
 
-#: ../libcaja-private/caja-file-operations.c:4995
+#: ../libcaja-private/caja-file-operations.c:4993
 #, c-format
 msgid "There was an error moving the file into %F."
 msgstr "დაიშვა შეცდომა %F-ში ფაილების გადატანისას."
 
-#: ../libcaja-private/caja-file-operations.c:5265
+#: ../libcaja-private/caja-file-operations.c:5263
 msgid "Moving Files"
-msgstr ""
+msgstr "მიმდინარეობს ფაილების გადაადგილება"
 
-#: ../libcaja-private/caja-file-operations.c:5296
+#: ../libcaja-private/caja-file-operations.c:5294
 msgid "Creating links in \"%B\""
 msgstr "ფაილთა ბმულების შექმნა"
 
-#: ../libcaja-private/caja-file-operations.c:5300
+#: ../libcaja-private/caja-file-operations.c:5298
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
 msgstr[0] ""
+msgstr[1] ""
 
-#: ../libcaja-private/caja-file-operations.c:5432
+#: ../libcaja-private/caja-file-operations.c:5430
 msgid "Error while creating link to %B."
 msgstr "დაიშვა შეცდომა %B ფაილზე ბმულის შექმნისას."
 
-#: ../libcaja-private/caja-file-operations.c:5434
+#: ../libcaja-private/caja-file-operations.c:5432
 msgid "Symbolic links only supported for local files"
 msgstr "სიმბოლური ბმული მხარდაჭერილია მხოლოდ ლოკალურ ფაილურ სისტემებში."
 
-#: ../libcaja-private/caja-file-operations.c:5437
+#: ../libcaja-private/caja-file-operations.c:5435
 msgid "The target doesn't support symbolic links."
 msgstr "დანიშნულების ადგილს არ გააჩნია სიმბოლური ბმების მხარდაჭერა."
 
-#: ../libcaja-private/caja-file-operations.c:5440
+#: ../libcaja-private/caja-file-operations.c:5438
 #, c-format
 msgid "There was an error creating the symlink in %F."
 msgstr "დაიშვა შეცდომა %F -ში სიმბოლური ბმის შექმნისას."
 
-#: ../libcaja-private/caja-file-operations.c:5756
+#: ../libcaja-private/caja-file-operations.c:5754
 msgid "Setting permissions"
 msgstr "უფლებების მომართვა"
 
 #. localizers: the initial name of a new folder
-#: ../libcaja-private/caja-file-operations.c:6015
+#: ../libcaja-private/caja-file-operations.c:6013
 msgid "untitled folder"
 msgstr "ახალი დასტა"
 
 #. localizers: the initial name of a new empty file
-#: ../libcaja-private/caja-file-operations.c:6023
+#: ../libcaja-private/caja-file-operations.c:6021
 msgid "new file"
 msgstr "ახალი ფაილი"
 
-#: ../libcaja-private/caja-file-operations.c:6195
+#: ../libcaja-private/caja-file-operations.c:6193
 msgid "Error while creating directory %B."
 msgstr "შეცდომა \"%s\"ში ლინკის შექმნისას"
 
-#: ../libcaja-private/caja-file-operations.c:6197
+#: ../libcaja-private/caja-file-operations.c:6195
 msgid "Error while creating file %B."
 msgstr "შეცდომა \"%s\"ში ლინკის შექმნისას"
 
-#: ../libcaja-private/caja-file-operations.c:6199
+#: ../libcaja-private/caja-file-operations.c:6197
 #, c-format
 msgid "There was an error creating the directory in %F."
 msgstr "დაიშვა შეცდომა დასტის %F-ში შექმნისას."
 
-#: ../libcaja-private/caja-file-operations.c:6477
+#: ../libcaja-private/caja-file-operations.c:6475
 msgid "Emptying Trash"
-msgstr ""
+msgstr "მიმდინარეობს სანაგვე ურნის დაცლა"
 
-#: ../libcaja-private/caja-file-operations.c:6526
-#: ../libcaja-private/caja-file-operations.c:6567
-#: ../libcaja-private/caja-file-operations.c:6602
-#: ../libcaja-private/caja-file-operations.c:6637
+#: ../libcaja-private/caja-file-operations.c:6524
+#: ../libcaja-private/caja-file-operations.c:6565
+#: ../libcaja-private/caja-file-operations.c:6600
+#: ../libcaja-private/caja-file-operations.c:6635
 msgid "Unable to mark launcher trusted (executable)"
 msgstr ""
 
@@ -1831,11 +1852,11 @@ msgstr ""
 
 #: ../libcaja-private/caja-file.c:1334 ../libcaja-private/caja-vfs-file.c:628
 msgid "This file cannot be started"
-msgstr ""
+msgstr "ფაილის გაშვება შეუძლებელია"
 
 #: ../libcaja-private/caja-file.c:1386 ../libcaja-private/caja-file.c:1417
 msgid "This file cannot be stopped"
-msgstr ""
+msgstr "ფაილის შეჩერება შეუძლებელია"
 
 #: ../libcaja-private/caja-file.c:1825
 #, c-format
@@ -2026,18 +2047,21 @@ msgstr "მითითებული ჯგუფი '%s' არ არსე�
 msgid "%'u item"
 msgid_plural "%'u items"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file.c:6149
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-file.c:6150
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
 msgstr[0] ""
+msgstr[1] ""
 
 #. Do this in a separate stage so that we don't have to put G_GUINT64_FORMAT
 #. in the translated string
@@ -2087,7 +2111,7 @@ msgstr "ბმული"
 msgid "link (broken)"
 msgstr "ბმული (გაწყვეტილი)"
 
-#: ../libcaja-private/caja-icon-container.c:2912
+#: ../libcaja-private/caja-icon-container.c:2923
 msgid "The selection rectangle"
 msgstr "მონიშვნის არე"
 
@@ -2119,7 +2143,7 @@ msgstr ""
 #: ../src/file-manager/fm-directory-view.c:7512
 #: ../src/file-manager/fm-directory-view.c:8611
 #: ../src/file-manager/fm-directory-view.c:8936
-#: ../src/file-manager/fm-tree-view.c:1336
+#: ../src/file-manager/fm-tree-view.c:1335
 msgid "Mo_ve to Trash"
 msgstr "სანაგვე _ურნაში გადატანა"
 
@@ -2156,12 +2180,14 @@ msgstr "ნამდვილად გნებავთ ყველა ფა
 msgid "This will open %d separate tab."
 msgid_plural "This will open %d separate tabs."
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-mime-actions.c:1183 ../src/caja-location-bar.c:194
 #, c-format
 msgid "This will open %d separate window."
 msgid_plural "This will open %d separate windows."
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-mime-actions.c:1261
 #: ../src/caja-window-manage-views.c:2101
@@ -2176,7 +2202,7 @@ msgstr "შეუძლებელია \"%s\"-ის ჩვენება."
 
 #: ../libcaja-private/caja-mime-actions.c:1348
 msgid "The file is of an unknown type"
-msgstr ""
+msgstr "ფაილი ამოუცნობი ტიპისაა"
 
 #: ../libcaja-private/caja-mime-actions.c:1352
 #, c-format
@@ -2189,11 +2215,11 @@ msgstr ""
 
 #: ../libcaja-private/caja-mime-actions.c:1408
 msgid "There was an internal error trying to search for applications:"
-msgstr ""
+msgstr "აპლიკაციებში ძიების მცდელობისას წარმოიშვა შიდა პრობლემა "
 
 #: ../libcaja-private/caja-mime-actions.c:1410
 msgid "Unable to search for application"
-msgstr ""
+msgstr "აპლიკაციის ძიება შეუძლებელია"
 
 #: ../libcaja-private/caja-mime-actions.c:1536
 #, c-format
@@ -2204,7 +2230,7 @@ msgstr ""
 
 #: ../libcaja-private/caja-mime-actions.c:1700
 msgid "Untrusted application launcher"
-msgstr ""
+msgstr "არასანდო აპლიკაციის გამშვები"
 
 #: ../libcaja-private/caja-mime-actions.c:1703
 #, c-format
@@ -2230,7 +2256,7 @@ msgstr "შეუძლებელია მდებარეობის მ�
 #: ../libcaja-private/caja-mime-actions.c:2416
 #: ../src/file-manager/fm-directory-view.c:6563
 msgid "Unable to start location"
-msgstr ""
+msgstr "ადგილმდებარეობის გახსნა შეუძლებელია"
 
 #: ../libcaja-private/caja-mime-actions.c:2509
 #, c-format
@@ -2242,6 +2268,7 @@ msgstr "იხსნება \"%s\"."
 msgid "Opening %d item."
 msgid_plural "Opening %d items."
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-mime-application-chooser.c:162
 #: ../libcaja-private/caja-open-with-dialog.c:300
@@ -2279,7 +2306,7 @@ msgstr ""
 
 #: ../libcaja-private/caja-mime-application-chooser.c:559
 msgid "No applications selected"
-msgstr ""
+msgstr "არცერთი აპლიკაცია არაა არჩეული"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:589
 #, c-format
@@ -2421,12 +2448,16 @@ msgid ""
 "No other applications are available to view this file. If you copy this file"
 " onto your computer, you may be able to open it."
 msgstr ""
+"მოცემული ფაილის გასახსნელად არცერთი აპლიკაცია არაა ხელმისაწვდომი. თუ თქვენ "
+"დააკოპირებთ ამ ფაილს თქვენს კომპიუტერში, შესაძლოა შეძლოთ მისი გახსნა."
 
 #: ../libcaja-private/caja-program-choosing.c:129
 msgid ""
 "No other actions are available to view this file. If you copy this file onto"
 " your computer, you may be able to open it."
 msgstr ""
+"სხვა მოქმედებები არაა ხელმისაწვდომი მოცემული ფაილის სანახავად. თუ თქვენ "
+"დააკოპირებთ ამ ფაილს თქვენს კომპიუტერში, შესაძლოა შეძლოთ მისი გახსნა."
 
 #: ../libcaja-private/caja-program-choosing.c:461
 msgid "Sorry, but you cannot execute commands from a remote site."
@@ -2485,14 +2516,23 @@ msgstr ""
 msgid "queuing"
 msgstr ""
 
-#: ../libcaja-private/caja-progress-info.c:599
+#: ../libcaja-private/caja-progress-info.c:606
 #, c-format
 msgid "%'d file operation active"
 msgid_plural "%'d file operations active"
 msgstr[0] ""
+msgstr[1] ""
 
-#: ../libcaja-private/caja-progress-info.c:975
-#: ../libcaja-private/caja-progress-info.c:996
+#: ../libcaja-private/caja-progress-info.c:623
+msgid "Process completed"
+msgstr ""
+
+#: ../libcaja-private/caja-progress-info.c:633
+msgid "Working..."
+msgstr ""
+
+#: ../libcaja-private/caja-progress-info.c:992
+#: ../libcaja-private/caja-progress-info.c:1013
 msgid "Preparing"
 msgstr "მომზადება"
 
@@ -2687,24 +2727,28 @@ msgstr ""
 msgid "_Undo copy of %d item"
 msgid_plural "_Undo copy of %d items"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1511
 #, c-format
 msgid "_Undo duplicate of %d item"
 msgid_plural "_Undo duplicate of %d items"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1516
 #, c-format
 msgid "_Undo move of %d item"
 msgid_plural "_Undo move of %d items"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1521
 #, c-format
 msgid "_Undo rename of %d item"
 msgid_plural "_Undo rename of %d items"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1525
 #, c-format
@@ -2721,78 +2765,91 @@ msgstr ""
 msgid "_Undo creation of %d folder"
 msgid_plural "_Undo creation of %d folders"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1537
 #, c-format
 msgid "_Undo move to trash of %d item"
 msgid_plural "_Undo move to trash of %d items"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1542
 #, c-format
 msgid "_Undo restore from trash of %d item"
 msgid_plural "_Undo restore from trash of %d items"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1547
 #, c-format
 msgid "_Undo create link to %d item"
 msgid_plural "_Undo create link to %d items"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1552
 #, c-format
 msgid "_Undo delete of %d item"
 msgid_plural "_Undo delete of %d items"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1557
 #, c-format
 msgid "Undo recursive change permissions of %d item"
 msgid_plural "Undo recursive change permissions of %d items"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1563
 #, c-format
 msgid "Undo change permissions of %d item"
 msgid_plural "Undo change permissions of %d items"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1568
 #, c-format
 msgid "Undo change group of %d item"
 msgid_plural "Undo change group of %d items"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1573
 #, c-format
 msgid "Undo change owner of %d item"
 msgid_plural "Undo change owner of %d items"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1601
 #, c-format
 msgid "_Redo copy of %d item"
 msgid_plural "_Redo copy of %d items"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1606
 #, c-format
 msgid "_Redo duplicate of %d item"
 msgid_plural "_Redo duplicate of %d items"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1611
 #, c-format
 msgid "_Redo move of %d item"
 msgid_plural "_Redo move of %d items"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1616
 #, c-format
 msgid "_Redo rename of %d item"
 msgid_plural "_Redo rename of %d items"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1620
 #, c-format
@@ -2809,54 +2866,63 @@ msgstr ""
 msgid "_Redo creation of %d folder"
 msgid_plural "_Redo creation of %d folders"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1632
 #, c-format
 msgid "_Redo move to trash of %d item"
 msgid_plural "_Redo move to trash of %d items"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1637
 #, c-format
 msgid "_Redo restore from trash of %d item"
 msgid_plural "_Redo restore from trash of %d items"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1642
 #, c-format
 msgid "_Redo create link to %d item"
 msgid_plural "_Redo create link to %d items"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1647
 #, c-format
 msgid "_Redo delete of %d item"
 msgid_plural "_Redo delete of %d items"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1652
 #, c-format
 msgid "Redo recursive change permissions of %d item"
 msgid_plural "Redo recursive change permissions of %d items"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1658
 #, c-format
 msgid "Redo change permissions of %d item"
 msgid_plural "Redo change permissions of %d items"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1663
 #, c-format
 msgid "Redo change group of %d item"
 msgid_plural "Redo change group of %d items"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/caja-undostack-manager.c:1668
 #, c-format
 msgid "Redo change owner of %d item"
 msgid_plural "Redo change owner of %d items"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:1
 msgid "Where to position newly open tabs in browser windows."
@@ -2871,7 +2937,7 @@ msgstr ""
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:3
 msgid "Caja will exit when last window destroyed."
-msgstr ""
+msgstr "Caja გაითიშება როდესაც უკანასკნელი ფანჯარა დაიხურება."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:4
 msgid ""
@@ -3677,13 +3743,13 @@ msgstr ""
 msgid "Show session management options"
 msgstr "აჩვენე სეანსის მართვის პარამეტრები"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:672
+#: ../src/file-manager/fm-desktop-icon-view.c:676
 msgid "Background"
 msgstr "ფონი"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:749
+#: ../src/file-manager/fm-desktop-icon-view.c:753
 #: ../src/file-manager/fm-directory-view.c:7328
 #: ../src/file-manager/fm-directory-view.c:9005
 msgid "E_mpty Trash"
@@ -3692,44 +3758,44 @@ msgstr "სანაგვე ყუთის დაცარიელ_ება
 #. label, accelerator
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:763
+#: ../src/file-manager/fm-desktop-icon-view.c:767
 #: ../src/file-manager/fm-directory-view.c:7292
 msgid "Create L_auncher..."
 msgstr "გამშვების შექმნა..."
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:765
+#: ../src/file-manager/fm-desktop-icon-view.c:769
 #: ../src/file-manager/fm-directory-view.c:7293
 msgid "Create a new launcher"
 msgstr "შექმენი ახალი გამშვები"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:772
+#: ../src/file-manager/fm-desktop-icon-view.c:776
 msgid "Change Desktop _Background"
 msgstr "ფ_ონის შეცვლა"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:774
+#: ../src/file-manager/fm-desktop-icon-view.c:778
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr ""
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:781
+#: ../src/file-manager/fm-desktop-icon-view.c:785
 msgid "Empty Trash"
 msgstr "სანაგვე ყუთის დაცარიელება"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:783
+#: ../src/file-manager/fm-desktop-icon-view.c:787
 #: ../src/file-manager/fm-directory-view.c:7329 ../src/caja-trash-bar.c:204
 msgid "Delete all items in the Trash"
 msgstr "სანაგვედან ყველა ელემენტის წაშლა"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:883
+#: ../src/file-manager/fm-desktop-icon-view.c:887
 msgid "The desktop view encountered an error."
 msgstr "სამუშაო მაგიდის დათვალიერებისას დაიშვა შეცდომა."
 
-#: ../src/file-manager/fm-desktop-icon-view.c:884
+#: ../src/file-manager/fm-desktop-icon-view.c:888
 msgid "The desktop view encountered an error while starting up."
 msgstr "სამუშაო მაგიდის ხედის გაშვებისას დაიშვა შეცდომა."
 
@@ -3738,12 +3804,14 @@ msgstr "სამუშაო მაგიდის ხედის გაშვ
 msgid "This will open %'d separate tab."
 msgid_plural "This will open %'d separate tabs."
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/file-manager/fm-directory-view.c:658
 #, c-format
 msgid "This will open %'d separate window."
 msgid_plural "This will open %'d separate windows."
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/file-manager/fm-directory-view.c:1177
 #: ../src/file-manager/fm-properties-window.c:5418
@@ -3760,8 +3828,8 @@ msgstr "მოცემულ ფანჯარაში ყველა ელ
 #: ../src/file-manager/fm-directory-view.c:1203
 #: ../src/file-manager/fm-properties-window.c:5176
 #: ../src/caja-bookmarks-window.ui.h:2
-#: ../src/caja-connect-server-dialog.c:1117 ../src/caja-emblem-sidebar.c:300
-#: ../src/caja-emblem-sidebar.c:557
+#: ../src/caja-connect-server-dialog.c:1117 ../src/caja-emblem-sidebar.c:298
+#: ../src/caja-emblem-sidebar.c:555
 #: ../src/caja-file-management-properties.ui.h:42
 #: ../src/caja-location-dialog.c:189 ../src/caja-property-browser.c:390
 #: ../src/caja-window-menus.c:809
@@ -3774,7 +3842,7 @@ msgstr "_შაბლონი:"
 
 #: ../src/file-manager/fm-directory-view.c:1229
 msgid "Examples: "
-msgstr ""
+msgstr "მაგალითები:"
 
 #: ../src/file-manager/fm-directory-view.c:1346
 msgid "Save Search as"
@@ -3807,12 +3875,14 @@ msgstr "მონიშნულია \"%s\" ელემენტი"
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/file-manager/fm-directory-view.c:2295
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
 msgstr[0] ""
+msgstr[1] ""
 
 #. translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
@@ -3821,12 +3891,14 @@ msgstr[0] ""
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/file-manager/fm-directory-view.c:2323
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
 msgstr[0] ""
+msgstr[1] ""
 
 #. Folders selected also, use "other" terminology
 #: ../src/file-manager/fm-directory-view.c:2330
@@ -3834,6 +3906,7 @@ msgstr[0] ""
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
 msgstr[0] ""
+msgstr[1] ""
 
 #. This is marked for translation in case a localiser
 #. * needs to use something other than parentheses. The
@@ -3892,7 +3965,7 @@ msgid "%s%s, %s, %s"
 msgstr ""
 
 #: ../src/file-manager/fm-directory-view.c:4479
-#: ../src/caja-information-panel.c:905
+#: ../src/caja-information-panel.c:903
 #, c-format
 msgid "Open With %s"
 msgstr ""
@@ -3902,6 +3975,7 @@ msgstr ""
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/file-manager/fm-directory-view.c:4570
 msgid "Open parent location"
@@ -3955,13 +4029,13 @@ msgid ""
 msgstr ""
 
 #: ../src/file-manager/fm-directory-view.c:5997
-#: ../src/file-manager/fm-tree-view.c:1010
+#: ../src/file-manager/fm-tree-view.c:1009
 #, c-format
 msgid "\"%s\" will be moved if you select the Paste command"
 msgstr ""
 
 #: ../src/file-manager/fm-directory-view.c:6001
-#: ../src/file-manager/fm-tree-view.c:1016
+#: ../src/file-manager/fm-tree-view.c:1015
 #, c-format
 msgid "\"%s\" will be copied if you select the Paste command"
 msgstr ""
@@ -3972,6 +4046,7 @@ msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be moved if you select the Paste command"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/file-manager/fm-directory-view.c:6015
 #, c-format
@@ -3979,9 +4054,10 @@ msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be copied if you select the Paste command"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/file-manager/fm-directory-view.c:6195
-#: ../src/file-manager/fm-tree-view.c:1056
+#: ../src/file-manager/fm-tree-view.c:1055
 msgid "There is nothing on the clipboard to paste."
 msgstr "ბუფერში არაფერი ინახება ისეთი რისი ჩასმაც შეიძლება."
 
@@ -4032,7 +4108,7 @@ msgstr "ამოირჩიეთ პროგრამა ამორჩე�
 #. add the "properties" menu item
 #: ../src/file-manager/fm-directory-view.c:7274
 #: ../src/file-manager/fm-directory-view.c:7553
-#: ../src/file-manager/fm-tree-view.c:1378
+#: ../src/file-manager/fm-tree-view.c:1377
 msgid "_Properties"
 msgstr "_პარამეტრები"
 
@@ -4046,7 +4122,7 @@ msgstr "ყოველი ამორჩეული ელემენტი�
 #. label, accelerator
 #. add the "create folder" menu item
 #: ../src/file-manager/fm-directory-view.c:7282
-#: ../src/file-manager/fm-tree-view.c:1296
+#: ../src/file-manager/fm-tree-view.c:1295
 msgid "Create _Folder"
 msgstr "საქაღალდის შექმნა"
 
@@ -4099,7 +4175,7 @@ msgstr "ყოველი ელემენტი ნავიგატორ�
 #: ../src/file-manager/fm-directory-view.c:7489
 #: ../src/file-manager/fm-directory-view.c:8556
 #: ../src/file-manager/fm-directory-view.c:8882
-#: ../src/file-manager/fm-tree-view.c:1276 ../src/caja-places-sidebar.c:2685
+#: ../src/file-manager/fm-tree-view.c:1275 ../src/caja-places-sidebar.c:2685
 msgid "Open in New _Tab"
 msgstr "ახ_ალ დაფაში გახსნა"
 
@@ -4171,7 +4247,7 @@ msgstr ""
 #. add the "paste files into folder" menu item
 #: ../src/file-manager/fm-directory-view.c:7346
 #: ../src/file-manager/fm-directory-view.c:7507
-#: ../src/file-manager/fm-tree-view.c:1325
+#: ../src/file-manager/fm-tree-view.c:1324
 msgid "_Paste Into Folder"
 msgstr "_დასტაში ჩასმა"
 
@@ -4237,6 +4313,7 @@ msgstr "ყოველი მონიშნული ელემენტი�
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
 msgstr[0] ""
+msgstr[1] ""
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7369
@@ -4281,7 +4358,7 @@ msgstr "გა_უქმება"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7393
-#: ../src/file-manager/fm-directory-view.c:11144
+#: ../src/file-manager/fm-directory-view.c:11137
 msgid "Undo the last action"
 msgstr "ბოლო მოქმედების გაუქმება"
 
@@ -4293,7 +4370,7 @@ msgstr "გამეო_რება"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7397
-#: ../src/file-manager/fm-directory-view.c:11162
+#: ../src/file-manager/fm-directory-view.c:11155
 msgid "Redo the last undone action"
 msgstr ""
 
@@ -4617,36 +4694,42 @@ msgstr "ღია დასტის სანაგვე ყუთიდან
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/file-manager/fm-directory-view.c:8071
 #, c-format
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/file-manager/fm-directory-view.c:8077
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/file-manager/fm-directory-view.c:8081
 #, c-format
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/file-manager/fm-directory-view.c:8087
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/file-manager/fm-directory-view.c:8091
 #, c-format
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/file-manager/fm-directory-view.c:8217
 #: ../src/file-manager/fm-directory-view.c:8221
@@ -4777,7 +4860,7 @@ msgstr ""
 #. add the "open in new window" menu item
 #: ../src/file-manager/fm-directory-view.c:8533
 #: ../src/file-manager/fm-directory-view.c:8843
-#: ../src/file-manager/fm-tree-view.c:1285 ../src/caja-places-sidebar.c:2692
+#: ../src/file-manager/fm-tree-view.c:1284 ../src/caja-places-sidebar.c:2692
 msgid "Open in New _Window"
 msgstr "ახალ ფან_ჯარაში გახსნა"
 
@@ -4791,6 +4874,7 @@ msgstr "ახალი ფა_ნჯრის დათვალიერებ
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/file-manager/fm-directory-view.c:8558
 #: ../src/file-manager/fm-directory-view.c:8891
@@ -4820,24 +4904,28 @@ msgstr ""
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/file-manager/fm-directory-view.c:8854
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/file-manager/fm-directory-view.c:8884
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/file-manager/fm-directory-view.c:8893
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/file-manager/fm-directory-view.c:8933
 msgid "Delete all selected items permanently"
@@ -4847,55 +4935,55 @@ msgstr "ყველა მონიშნული ელემენტის 
 msgid "View or modify the properties of the open folder"
 msgstr "გახსნილი დასტის პარამეტრების შეცვლა ან დათვალიერება"
 
-#: ../src/file-manager/fm-directory-view.c:10293
+#: ../src/file-manager/fm-directory-view.c:10286
 msgid "Download location?"
 msgstr "გნებავთ მოცემული მდებარეობის გადმოქაჩვა?"
 
-#: ../src/file-manager/fm-directory-view.c:10296
+#: ../src/file-manager/fm-directory-view.c:10289
 msgid "You can download it or make a link to it."
 msgstr "შეგიძლიათ გადმოქაჩოთ, ან შექმნათ მასზე ბმული."
 
-#: ../src/file-manager/fm-directory-view.c:10299
+#: ../src/file-manager/fm-directory-view.c:10292
 msgid "Make a _Link"
 msgstr "_ბმულის შექმნა"
 
-#: ../src/file-manager/fm-directory-view.c:10306
+#: ../src/file-manager/fm-directory-view.c:10299
 msgid "_Download"
 msgstr "_გადმოქაჩვა"
 
-#: ../src/file-manager/fm-directory-view.c:10467
-#: ../src/file-manager/fm-directory-view.c:10526
-#: ../src/file-manager/fm-directory-view.c:10631
+#: ../src/file-manager/fm-directory-view.c:10460
+#: ../src/file-manager/fm-directory-view.c:10519
+#: ../src/file-manager/fm-directory-view.c:10624
 msgid "Drag and drop is not supported."
 msgstr "გადათრევა არ არის მხარდაჭერილი."
 
-#: ../src/file-manager/fm-directory-view.c:10468
+#: ../src/file-manager/fm-directory-view.c:10461
 msgid "Drag and drop is only supported on local file systems."
 msgstr "გადათრევა მხარდაჭერილია მხოლოდ ლოკალურ ფაილურ სისტემებში."
 
-#: ../src/file-manager/fm-directory-view.c:10527
-#: ../src/file-manager/fm-directory-view.c:10632
+#: ../src/file-manager/fm-directory-view.c:10520
+#: ../src/file-manager/fm-directory-view.c:10625
 msgid "An invalid drag type was used."
 msgstr "გადათრევის მცდარი ტიპი იქნა გამოყენებული."
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10709
+#: ../src/file-manager/fm-directory-view.c:10702
 msgid "dropped text.txt"
 msgstr "მიტოვებული ტექსტი.txt"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10754
+#: ../src/file-manager/fm-directory-view.c:10747
 msgid "dropped data"
 msgstr ""
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11143
+#: ../src/file-manager/fm-directory-view.c:11136
 msgid "Undo"
 msgstr "ბრძანების გაუქმება"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11161
+#: ../src/file-manager/fm-directory-view.c:11154
 msgid "Redo"
 msgstr ""
 
@@ -5281,7 +5369,7 @@ msgstr "იტვირთება..."
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: ../src/file-manager/fm-list-view.c:1845
-#: ../src/file-manager/fm-list-view.c:3463
+#: ../src/file-manager/fm-list-view.c:3470
 #: ../src/caja-file-management-properties.ui.h:2
 msgid "List View"
 msgstr "სიის სახით"
@@ -5318,19 +5406,19 @@ msgid "Select the columns visible in this folder"
 msgstr "მოცემულ დასტაში, ხილული სვეტების ამორჩევა"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-list-view.c:3465
+#: ../src/file-manager/fm-list-view.c:3472
 msgid "_List"
 msgstr "ს_ია"
 
-#: ../src/file-manager/fm-list-view.c:3466
+#: ../src/file-manager/fm-list-view.c:3473
 msgid "The list view encountered an error."
 msgstr "სიის სახით ჩვენების დროს დაიშვა შეცდომა."
 
-#: ../src/file-manager/fm-list-view.c:3467
+#: ../src/file-manager/fm-list-view.c:3474
 msgid "The list view encountered an error while starting up."
 msgstr "დაიშვა შეცდომა სიის სახით ჩვენების კომპონენტის გაშვების დროს."
 
-#: ../src/file-manager/fm-list-view.c:3468
+#: ../src/file-manager/fm-list-view.c:3475
 msgid "Display this location with the list view."
 msgstr "მოცემული მდებარეობის \"სიის სახით\" დათვალიერება."
 
@@ -5367,6 +5455,7 @@ msgstr "თქვენს მიერ გადათრეული ფაი
 msgid "_Name:"
 msgid_plural "_Names:"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/file-manager/fm-properties-window.c:995
 #, c-format
@@ -5405,6 +5494,7 @@ msgstr "წაუკითხვადი"
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/file-manager/fm-properties-window.c:2303
 msgid "(some contents unreadable)"
@@ -5471,7 +5561,7 @@ msgid "Free space:"
 msgstr "თავისუფალი:"
 
 #: ../src/file-manager/fm-properties-window.c:3430
-#: ../src/caja-emblem-sidebar.c:1098
+#: ../src/caja-emblem-sidebar.c:1096
 msgid "Emblems"
 msgstr "ემბლემა"
 
@@ -5656,15 +5746,15 @@ msgstr "იქმნება პარამეტრების ფანჯ�
 msgid "Select Custom Icon"
 msgstr "ხსვა პიქტოგრამის ამორჩევა"
 
-#: ../src/file-manager/fm-tree-view.c:1421 ../src/caja-places-sidebar.c:554
+#: ../src/file-manager/fm-tree-view.c:1420 ../src/caja-places-sidebar.c:554
 msgid "File System"
 msgstr "ფაილური სისტემა"
 
-#: ../src/file-manager/fm-tree-view.c:1708
+#: ../src/file-manager/fm-tree-view.c:1707
 msgid "Tree"
 msgstr "ხე"
 
-#: ../src/file-manager/fm-tree-view.c:1714
+#: ../src/file-manager/fm-tree-view.c:1713
 msgid "Show Tree"
 msgstr "ხის ჩვენება"
 
@@ -5971,46 +6061,46 @@ msgstr "სანიშნის _დამატება"
 msgid "Bookmark Name:"
 msgstr ""
 
-#: ../src/caja-desktop-window.c:87 ../src/caja-desktop-window.c:270
+#: ../src/caja-desktop-window.c:122 ../src/caja-desktop-window.c:315
 #: ../src/caja-pathbar.c:1446 ../src/caja-places-sidebar.c:538
 msgid "Desktop"
 msgstr "სამუშაო მაგიდა"
 
-#: ../src/caja-emblem-sidebar.c:225
+#: ../src/caja-emblem-sidebar.c:223
 #, c-format
 msgid "Could not remove emblem with name '%s'."
 msgstr "შეუძლებელია '%s' სახელწოდების მქონე ემბლემის მოშორება."
 
-#: ../src/caja-emblem-sidebar.c:226 ../src/caja-emblem-sidebar.c:266
+#: ../src/caja-emblem-sidebar.c:224 ../src/caja-emblem-sidebar.c:264
 msgid ""
 "This is probably because the emblem is a permanent one, and not one that you"
 " added yourself."
 msgstr ""
 "შესაძლოა რომ ემბლემა არ არის თქვენს მიერ დამატებული და სისტემას მიეკუთვნება."
 
-#: ../src/caja-emblem-sidebar.c:265
+#: ../src/caja-emblem-sidebar.c:263
 #, c-format
 msgid "Could not rename emblem with name '%s'."
 msgstr "შეუძლებელია '%s' სახელწოდების მქონე ემბლემის გადარქმევა."
 
-#: ../src/caja-emblem-sidebar.c:286
+#: ../src/caja-emblem-sidebar.c:284
 msgid "Rename Emblem"
 msgstr "ემბლემის გადარქმევა"
 
-#: ../src/caja-emblem-sidebar.c:312
+#: ../src/caja-emblem-sidebar.c:310
 msgid "Enter a new name for the displayed emblem:"
 msgstr "ემბლემისთვის ახალი სახელწოდების შეყვანა:"
 
 #. add the "rename" menu item
-#: ../src/caja-emblem-sidebar.c:365
+#: ../src/caja-emblem-sidebar.c:363
 msgid "Rename"
 msgstr "სახელის გადარქმევა"
 
-#: ../src/caja-emblem-sidebar.c:543
+#: ../src/caja-emblem-sidebar.c:541
 msgid "Add Emblems..."
 msgstr "ემბლემების დამატება..."
 
-#: ../src/caja-emblem-sidebar.c:567
+#: ../src/caja-emblem-sidebar.c:565
 msgid ""
 "Enter a descriptive name next to each emblem.  This name will be used in "
 "other places to identify the emblem."
@@ -6019,7 +6109,7 @@ msgstr ""
 "გამოყენებულ იქნება სისტემის სხვადასხვა ადგილებში ემბლემის განსაზღვრის "
 "მიზნით."
 
-#: ../src/caja-emblem-sidebar.c:571
+#: ../src/caja-emblem-sidebar.c:569
 msgid ""
 "Enter a descriptive name next to the emblem.  This name will be used in "
 "other places to identify the emblem."
@@ -6028,32 +6118,32 @@ msgstr ""
 "გამოყენებულ იქნება სისტემის სხვადასხვა ადგილებში ემბლემის განსაზღვრის "
 "მიზნით."
 
-#: ../src/caja-emblem-sidebar.c:813
+#: ../src/caja-emblem-sidebar.c:811
 msgid "Some of the files could not be added as emblems."
 msgstr "შეუძლებელია ზოგიერთი ფაილების ემბლემის სახით დამატება."
 
-#: ../src/caja-emblem-sidebar.c:813 ../src/caja-emblem-sidebar.c:817
+#: ../src/caja-emblem-sidebar.c:811 ../src/caja-emblem-sidebar.c:815
 msgid "The emblems do not appear to be valid images."
 msgstr "არამართებული ფორმატის მქონე ემბლემები."
 
-#: ../src/caja-emblem-sidebar.c:817
+#: ../src/caja-emblem-sidebar.c:815
 msgid "None of the files could be added as emblems."
 msgstr "შეუძლებელია მოცემული ფაილების ემბლემის სახით დამატება."
 
-#: ../src/caja-emblem-sidebar.c:860 ../src/caja-emblem-sidebar.c:923
+#: ../src/caja-emblem-sidebar.c:858 ../src/caja-emblem-sidebar.c:921
 #, c-format
 msgid "The file '%s' does not appear to be a valid image."
 msgstr "როგორც ჩანს '%s' ფაილი არ არის მართებული გამოსახულება."
 
-#: ../src/caja-emblem-sidebar.c:865
+#: ../src/caja-emblem-sidebar.c:863
 msgid "The dragged file does not appear to be a valid image."
 msgstr "როგორც ჩანს გადათრეული ფაილი არ არის მართებული გამოსახულება."
 
-#: ../src/caja-emblem-sidebar.c:867 ../src/caja-emblem-sidebar.c:924
+#: ../src/caja-emblem-sidebar.c:865 ../src/caja-emblem-sidebar.c:922
 msgid "The emblem cannot be added."
 msgstr "შეუძლებელია ემბლემის დამატება."
 
-#: ../src/caja-emblem-sidebar.c:1104
+#: ../src/caja-emblem-sidebar.c:1102
 msgid "Show Emblems"
 msgstr "ემბლემების ჩვენება"
 
@@ -6556,12 +6646,14 @@ msgstr "სურათის ტიპი:"
 msgid "<b>Width:</b> %d pixel"
 msgid_plural "<b>Width:</b> %d pixels"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/caja-image-properties-page.c:410
 #, c-format
 msgid "<b>Height:</b> %d pixel"
 msgid_plural "<b>Height:</b> %d pixels"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/caja-image-properties-page.c:429
 msgid "Failed to load image information"
@@ -6606,6 +6698,7 @@ msgstr "გადასვლა:"
 msgid "Do you want to view %d location?"
 msgid_plural "Do you want to view %d locations?"
 msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/caja-location-dialog.c:157
 msgid "Open Location"
@@ -6753,7 +6846,7 @@ msgid "Activate next tab"
 msgstr "შემდეგი დაფის გააქტიურება"
 
 #: ../src/caja-navigation-window-menus.c:867
-#: ../src/caja-navigation-window-pane.c:384
+#: ../src/caja-navigation-window-pane.c:383
 msgid "Move Tab _Left"
 msgstr "დაფის _მარცხნივ გადატანა"
 
@@ -6762,7 +6855,7 @@ msgid "Move current tab to left"
 msgstr "მიმდინარე დაფის მარცხნივ გადატანა"
 
 #: ../src/caja-navigation-window-menus.c:872
-#: ../src/caja-navigation-window-pane.c:392
+#: ../src/caja-navigation-window-pane.c:391
 msgid "Move Tab _Right"
 msgstr "დაფის მა_რჯვნივ გადატანა"
 
@@ -6885,11 +6978,11 @@ msgstr "_ძებნა"
 msgid "Toggle between button and text-based location bar"
 msgstr ""
 
-#: ../src/caja-navigation-window-pane.c:374
+#: ../src/caja-navigation-window-pane.c:373
 msgid "_New Tab"
 msgstr ""
 
-#: ../src/caja-navigation-window-pane.c:403
+#: ../src/caja-navigation-window-pane.c:402
 msgid "_Close Tab"
 msgstr "დაფის დ_ახურვა"
 
@@ -6991,11 +7084,11 @@ msgstr "წაშლა"
 msgid "Rename..."
 msgstr "გადარქმევა..."
 
-#: ../src/caja-places-sidebar.c:3402
+#: ../src/caja-places-sidebar.c:3400
 msgid "Places"
 msgstr "მდებარეობა"
 
-#: ../src/caja-places-sidebar.c:3408
+#: ../src/caja-places-sidebar.c:3406
 msgid "Show Places"
 msgstr "მდებარეობების ჩვენება"
 
@@ -7272,7 +7365,7 @@ msgstr "ძიების შედეგები"
 msgid "Search:"
 msgstr "მოძებნე:"
 
-#: ../src/caja-side-pane.c:409
+#: ../src/caja-side-pane.c:388
 msgid "Close the side pane"
 msgstr "გვერდითი პანელის დახურვა"
 
@@ -7554,7 +7647,7 @@ msgstr "მიახლოვება"
 
 #. tooltip
 #: ../src/caja-window-menus.c:857 ../src/caja-zoom-control.c:96
-#: ../src/caja-zoom-control.c:371
+#: ../src/caja-zoom-control.c:309
 msgid "Increase the view size"
 msgstr "ხედის ზომის გაზრდა"
 
@@ -7566,7 +7659,7 @@ msgstr "და_პატარავება"
 
 #. tooltip
 #: ../src/caja-window-menus.c:872 ../src/caja-zoom-control.c:97
-#: ../src/caja-zoom-control.c:316
+#: ../src/caja-zoom-control.c:254
 msgid "Decrease the view size"
 msgstr "ხედის ზომის დაპატარავება"
 
@@ -7578,7 +7671,7 @@ msgstr "ნორმალურ _ზომაში"
 
 #. tooltip
 #: ../src/caja-window-menus.c:882 ../src/caja-zoom-control.c:98
-#: ../src/caja-zoom-control.c:332
+#: ../src/caja-zoom-control.c:270
 msgid "Use the normal view size"
 msgstr "ნორმალური ხედის გამოყენება"
 
@@ -7709,10 +7802,10 @@ msgstr "დაპატარავება"
 msgid "Zoom to Default"
 msgstr "საწყისი მაშტაბი"
 
-#: ../src/caja-zoom-control.c:913
+#: ../src/caja-zoom-control.c:851
 msgid "Zoom"
 msgstr "გადიდება"
 
-#: ../src/caja-zoom-control.c:918
+#: ../src/caja-zoom-control.c:856
 msgid "Set the zoom level of the current view"
 msgstr "მიმდინარე ხედისთვის მაშტაბის შესაბამება"
