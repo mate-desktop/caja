@@ -1901,12 +1901,13 @@ make_directory_button (CajaPathBar  *path_bar,
     switch (button_data->type)
     {
     case ROOT_BUTTON:
-        child = button_data->image;
-        button_data->label = NULL;
-        break;
+    /* Fall through */
     case HOME_BUTTON:
+    /* Fall through */
     case DESKTOP_BUTTON:
+    /* Fall through */
     case MOUNT_BUTTON:
+    /* Fall through */
     case DEFAULT_LOCATION_BUTTON:
         button_data->label = gtk_label_new (NULL);
         child = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 2);
