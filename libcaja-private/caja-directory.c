@@ -226,17 +226,6 @@ invalidate_one_count (gpointer key, gpointer value, gpointer user_data)
     caja_directory_invalidate_count_and_mime_list (directory);
 }
 
-static void
-filtering_changed_callback (gpointer callback_data)
-{
-    g_assert (callback_data == NULL);
-
-    /* Preference about which items to show has changed, so we
-     * can't trust any of our precomputed directory counts.
-     */
-    g_hash_table_foreach (directories, invalidate_one_count, NULL);
-}
-
 void
 emit_change_signals_for_all_files (CajaDirectory *directory)
 {
@@ -302,40 +291,7 @@ async_state_changed_one (gpointer key, gpointer value, gpointer user_data)
     emit_change_signals_for_all_files (directory);
 }
 
-static void
-async_data_preference_changed_callback (gpointer callback_data)
-{
-    g_assert (callback_data == NULL);
 
-    /* Preference involving fetched async data has changed, so
-     * we have to kick off refetching all async data, and tell
-     * each file that it (might have) changed.
-     */
-    g_hash_table_foreach (directories, async_state_changed_one, NULL);
-}
-
-static void
-add_preferences_callbacks (void)
-{
-    caja_global_preferences_init ();
-
-    g_signal_connect_swapped (caja_preferences,
-                              "changed::" CAJA_PREFERENCES_SHOW_HIDDEN_FILES,
-                              G_CALLBACK(filtering_changed_callback),
-                              NULL);
-    g_signal_connect_swapped (caja_preferences,
-                              "changed::" CAJA_PREFERENCES_SHOW_TEXT_IN_ICONS,
-                              G_CALLBACK (async_data_preference_changed_callback),
-                              NULL);
-    g_signal_connect_swapped (caja_preferences,
-                              "changed::" CAJA_PREFERENCES_SHOW_DIRECTORY_ITEM_COUNTS,
-                              G_CALLBACK (async_data_preference_changed_callback),
-                              NULL);
-    g_signal_connect_swapped (caja_preferences,
-                              "changed::" CAJA_PREFERENCES_DATE_FORMAT,
-                              G_CALLBACK(async_data_preference_changed_callback),
-                              NULL);
-}
 
 /**
  * caja_directory_get_by_uri:
@@ -354,7 +310,6 @@ caja_directory_get_internal (GFile *location, gboolean create)
     /* Create the hash table first time through. */
     if (directories == NULL) {
         directories = g_hash_table_new (g_file_hash, (GCompareFunc) g_file_equal);
-        add_preferences_callbacks ();
     }
 
     /* If the object is already in the hash table, look it up. */
@@ -1055,7 +1010,6 @@ caja_directory_notify_files_changed (GList *files)
                                      file);
         }
     }
-
     /* Now send out the changed signals. */
     g_hash_table_foreach (changed_lists, call_files_changed_unref_free_list, NULL);
     g_hash_table_destroy (changed_lists);
@@ -1102,7 +1056,6 @@ caja_directory_notify_files_removed (GList *files)
         }
         caja_file_unref (file);
     }
-
     /* Now send out the changed signals. */
     g_hash_table_foreach (changed_lists, call_files_changed_unref_free_list, NULL);
     g_hash_table_destroy (changed_lists);
