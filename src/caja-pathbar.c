@@ -169,13 +169,17 @@ update_button_types (CajaPathBar *path_bar)
         button_data = BUTTON_DATA (list->data);
         if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button_data->button)))
         {
-            path = button_data->path;
+            /*Increase the reference count on path so it does not get cleared
+             *by caja_path_bar_clear_buttons during caja_path_bar_update_path
+             */
+            path = g_object_ref (button_data->path);
             break;
         }
     }
     if (path != NULL)
     {
         caja_path_bar_update_path (path_bar, path, TRUE);
+        g_object_unref (path);
     }
 }
 
@@ -2103,6 +2107,7 @@ caja_path_bar_update_path (CajaPathBar *path_bar,
     }
 
     path_bar->current_path = g_object_ref (file_path);
+
     path_bar->current_button_data = current_button_data;
 
     return result;
