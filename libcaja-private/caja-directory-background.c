@@ -323,12 +323,15 @@ desktop_background_changed_cb (EelBackground *background,
 static gboolean
 desktop_background_prefs_change_event_idle_cb (EelBackground *background)
 {
+    gchar *desktop_color = NULL;
+
     eel_bg_load_from_gsettings (background,
                                 mate_background_preferences);
 
-    eel_background_set_color (background,
-                              eel_bg_get_desktop_color (background));
+    desktop_color = eel_bg_get_desktop_color (background);
+    eel_background_set_color (background, desktop_color);
 
+    g_free(desktop_color);
     g_object_unref (background);
 
     return FALSE;       /* remove from the list of event sources */
