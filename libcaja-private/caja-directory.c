@@ -212,20 +212,6 @@ caja_directory_finalize (GObject *object)
     EEL_CALL_PARENT (G_OBJECT_CLASS, finalize, (object));
 }
 
-static void
-invalidate_one_count (gpointer key, gpointer value, gpointer user_data)
-{
-    CajaDirectory *directory;
-
-    g_assert (key != NULL);
-    g_assert (CAJA_IS_DIRECTORY (value));
-    g_assert (user_data == NULL);
-
-    directory = CAJA_DIRECTORY (value);
-
-    caja_directory_invalidate_count_and_mime_list (directory);
-}
-
 void
 emit_change_signals_for_all_files (CajaDirectory *directory)
 {
@@ -275,23 +261,6 @@ emit_change_signals_for_all_files_in_all_directories (void)
 
     g_list_free (dirs);
 }
-
-static void
-async_state_changed_one (gpointer key, gpointer value, gpointer user_data)
-{
-    CajaDirectory *directory;
-
-    g_assert (key != NULL);
-    g_assert (CAJA_IS_DIRECTORY (value));
-    g_assert (user_data == NULL);
-
-    directory = CAJA_DIRECTORY (value);
-
-    caja_directory_async_state_changed (directory);
-    emit_change_signals_for_all_files (directory);
-}
-
-
 
 /**
  * caja_directory_get_by_uri:
