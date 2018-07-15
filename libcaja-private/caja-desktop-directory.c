@@ -162,6 +162,10 @@ directory_ready_callback (CajaDirectory *directory,
     g_assert (callback_data != NULL);
 
     merged_callback = callback_data;
+    /*Prevent segfaults on the assert with GTK 3.23*/
+    if (merged_callback->non_ready_directories == NULL)
+        return;
+
     g_assert (g_list_find (merged_callback->non_ready_directories, directory) != NULL);
 
     /* Update based on this call. */
