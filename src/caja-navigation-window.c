@@ -520,6 +520,52 @@ caja_navigation_window_key_press_event (GtkWidget *widget,
 
     window = CAJA_NAVIGATION_WINDOW (widget);
 
+    if (event->state & GDK_CONTROL_MASK)
+    {
+        GSettings *settings = g_settings_new ("org.mate.caja.preferences");
+        gboolean handled = FALSE;
+
+        if (g_settings_get_boolean (settings, "ctrl-tab-switch-tabs"))
+        {
+            CajaWindow *cajawin;
+            CajaWindowSlot *slot;
+            CajaNavigationWindowPane *pane;
+            CajaNotebook *cajanotebook;
+            GtkNotebook *notebook;
+            int pages;
+            int page_num;
+
+            cajawin = CAJA_WINDOW (window);
+            slot = caja_window_get_active_slot (cajawin);
+            pane = CAJA_NAVIGATION_WINDOW_PANE (slot->pane);
+            cajanotebook = CAJA_NOTEBOOK (pane->notebook);
+            notebook = GTK_NOTEBOOK (cajanotebook);
+            pages = gtk_notebook_get_n_pages (notebook);
+            page_num = gtk_notebook_get_current_page (notebook);
+
+            if (event->keyval == GDK_KEY_ISO_Left_Tab)
+            {
+                if (page_num != 0)
+                    gtk_notebook_prev_page (notebook);
+                else
+                    gtk_notebook_set_current_page (notebook, (pages - 1));
+                handled = TRUE;
+            }
+            if (event->keyval == GDK_KEY_Tab)
+            {
+                if (page_num != (pages -1))
+                    gtk_notebook_next_page (notebook);
+                else
+                    gtk_notebook_set_current_page (notebook, 0);
+                handled = TRUE;
+            }
+        }
+        g_object_unref (settings);
+
+        if (handled)
+            return TRUE;
+    }
+
     for (i = 0; i < G_N_ELEMENTS (extra_navigation_window_keybindings); i++)
     {
         if (extra_navigation_window_keybindings[i].keyval == event->keyval)
