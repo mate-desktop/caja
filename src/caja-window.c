@@ -1029,6 +1029,11 @@ static gboolean
 caja_window_key_press_event (GtkWidget *widget,
                              GdkEventKey *event)
 {
+    /* Fix for https://github.com/mate-desktop/caja/issues/1024 */
+    if ((event->state & GDK_CONTROL_MASK) &&
+        ((event->keyval == '.') || (event->keyval == ';')))
+        return TRUE;
+
     CajaWindow *window;
     int i;
 
