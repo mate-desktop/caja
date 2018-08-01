@@ -49,6 +49,7 @@
 #include <eel/eel-string.h>
 #include <libxml/parser.h>
 #include <gtk/gtk.h>
+#include <gdk/gdkkeysyms.h>
 #include <glib/gi18n.h>
 #include <libcaja-private/caja-file-utilities.h>
 #include <libcaja-private/caja-global-preferences.h>
@@ -808,6 +809,22 @@ action_tab_change_action_activate_callback (GtkAction *action, gpointer user_dat
     }
 }
 
+static gboolean
+on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data)
+{
+    if (event->keyval == GDK_KEY_ISO_Left_Tab && event->state & GDK_CONTROL_MASK)
+    {
+        action_tabs_previous_callback(NULL, user_data);
+        return TRUE;
+    }
+    if (event->keyval == GDK_KEY_Tab && event->state & GDK_CONTROL_MASK)
+    {
+        action_tabs_next_callback(NULL, user_data);
+        return TRUE;
+    }
+    return FALSE;
+}
+
 static const GtkActionEntry navigation_entries[] =
 {
     /* name, icon name, label */ { "Go", NULL, N_("_Go") },
@@ -1033,6 +1050,8 @@ caja_navigation_window_initialize_actions (CajaNavigationWindow *window)
     g_signal_connect (window, "loading_uri",
                       G_CALLBACK (caja_navigation_window_update_split_view_actions_sensitivity),
                       NULL);
+
+    g_signal_connect (G_OBJECT (window), "key_press_event", G_CALLBACK (on_key_press), window);
 
     caja_navigation_window_update_split_view_actions_sensitivity (window);
 }
