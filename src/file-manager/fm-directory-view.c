@@ -236,6 +236,8 @@ struct FMDirectoryViewDetails
 	gboolean show_foreign_files;
 	gboolean show_hidden_files;
 	gboolean ignore_hidden_file_preferences;
+	
+	gboolean show_backup_files;
 
 	gboolean batching_selection_level;
 	gboolean selection_changed_while_batched;
@@ -290,6 +292,7 @@ static void     load_directory                                 (FMDirectoryView 
 static void     fm_directory_view_merge_menus                  (FMDirectoryView      *view);
 static void     fm_directory_view_unmerge_menus                (FMDirectoryView      *view);
 static void     fm_directory_view_init_show_hidden_files       (FMDirectoryView      *view);
+static void     fm_directory_view_init_show_backup_files       (FMDirectoryView      *view);
 static void     fm_directory_view_load_location                (CajaView         *caja_view,
 								const char           *location);
 static void     fm_directory_view_stop_loading                 (CajaView         *caja_view);
@@ -1278,6 +1281,17 @@ hidden_files_mode_changed (CajaWindow *window,
 	directory_view = FM_DIRECTORY_VIEW (callback_data);
 
 	fm_directory_view_init_show_hidden_files (directory_view);
+}
+
+static void
+backup_files_mode_changed (CajaWindow *window,
+			   gpointer callback_data)
+{
+	FMDirectoryView *directory_view;
+
+	directory_view = FM_DIRECTORY_VIEW (callback_data);
+
+	fm_directory_view_init_show_backup_files (directory_view);
 }
 
 static void
@@ -7253,6 +7267,44 @@ fm_directory_view_init_show_hidden_files (FMDirectoryView *view)
 
 }
 
+static void
+fm_directory_view_init_show_backup_files (FMDirectoryView *view)
+{
+	CajaWindowShowBackupFilesMode mode;
+	gboolean show_backup_changed;
+	gboolean show_backup_default_setting;
+
+	/*
+	if (view->details->ignore_hidden_file_preferences) {
+		return;
+	}
+	*/
+	
+	show_backup_changed = FALSE;
+	mode = caja_window_info_get_backup_files_mode (view->details->window);
+
+	if (mode == CAJA_WINDOW_SHOW_BACKUP_FILES_DEFAULT) {
+		show_backup_default_setting = g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SHOW_BACKUP_FILES);
+		if (show_backup_default_setting != view->details->show_backup_files) {
+			view->details->show_backup_files = show_backup_default_setting;
+			show_backup_changed = TRUE;
+		}
+	} else {
+		if (mode == CAJA_WINDOW_SHOW_BACKUP_FILES_ENABLE) {
+			show_backup_changed = !view->details->show_backup_files;
+			view->details->show_backup_files = TRUE;
+		} else {
+			show_backup_changed = view->details->show_backup_files;
+			view->details->show_backup_files = FALSE;
+		}
+	}
+
+	if (show_backup_changed && (view->details->model != NULL)) {
+		load_directory (view, view->details->model);
+	}
+
+}
+
 static const GtkActionEntry directory_view_entries[] = {
   /* name, stock id, label */  { "New Documents", "document-new", N_("Create _Document") },
   /* name, stock id, label */  { "Open With", NULL, N_("Open Wit_h"),
@@ -9968,8 +10020,9 @@ gboolean
 fm_directory_view_should_show_file (FMDirectoryView *view, CajaFile *file)
 {
 	return caja_file_should_show (file,
-					  view->details->show_hidden_files,
-					  view->details->show_foreign_files);
+				      view->details->show_hidden_files,
+				      view->details->show_foreign_files,
+				      view->details->show_backup_files);
 }
 
 static gboolean
@@ -10792,6 +10845,12 @@ fm_directory_view_set_property (GObject         *object,
 				   "hidden-files-mode-changed", G_CALLBACK (hidden_files_mode_changed),
 				   directory_view, 0);
 	  fm_directory_view_init_show_hidden_files (directory_view);
+
+	  g_signal_connect_object (directory_view->details->window,
+				   "backup-files-mode-changed", G_CALLBACK (backup_files_mode_changed),
+				   directory_view, 0);
+	  fm_directory_view_init_show_backup_files (directory_view);
+
       break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);

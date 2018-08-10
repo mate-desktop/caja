@@ -206,7 +206,7 @@ struct CajaFileDetails
     eel_boolean_bit is_symlink                    : 1;
     eel_boolean_bit is_mountpoint                 : 1;
     eel_boolean_bit is_hidden                     : 1;
-
+    eel_boolean_bit is_backup                     : 1;
     eel_boolean_bit has_permissions               : 1;
 
     eel_boolean_bit can_read                      : 1;

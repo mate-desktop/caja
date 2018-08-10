@@ -914,7 +914,7 @@ static gboolean
 should_skip_file (CajaDirectory *directory, GFileInfo *info)
 {
     static gboolean show_hidden_files_changed_callback_installed = FALSE;
-
+    
     /* Add the callback once for the life of our process */
     if (!show_hidden_files_changed_callback_installed)
     {
@@ -930,7 +930,6 @@ should_skip_file (CajaDirectory *directory, GFileInfo *info)
 
     if (!show_hidden_files &&
             (g_file_info_get_is_hidden (info) ||
-             g_file_info_get_is_backup (info) ||
              (directory != NULL && directory->details->hidden_file_hash != NULL &&
               g_hash_table_lookup (directory->details->hidden_file_hash,
                                    g_file_info_get_name (info)) != NULL)))
@@ -2574,7 +2573,8 @@ monitor_includes_file (const Monitor *monitor,
     }
     return caja_file_should_show (file,
                                   monitor->monitor_hidden_files,
-                                  TRUE);
+                                  TRUE,
+				  FALSE);
 }
 
 static gboolean

@@ -239,8 +239,14 @@
     <key name="show-hidden-files" type="b">
       <default>false</default>
       <summary>Whether to show hidden files</summary>
-      <description>If set to true, then hidden files are shown by default in the file manager.  Hidden files are either dotfiles, listed in the folder's .hidden file or backup files ending with a tilde (~).</description>
+      <description>If set to true, then hidden files are shown by default in the file manager.  Hidden files are either dotfiles or listed in the folder's .hidden file.</description>
     </key>
+    <key name="show-backup-files" type="b">
+      <default>false</default>
+      <summary>Whether to show backup files</summary>
+      <description>If set to true, then backup files are shown by default in the file manager.  Backup files are either backup files ending with a tilde (~).</description>
+    </key>
+
     <key name="use-iec-units" type="b">
       <default>false</default>
       <summary>Whether to show file sizes with IEC units</summary>

@@ -41,6 +41,13 @@ extern "C" {
     }
     CajaWindowShowHiddenFilesMode;
 
+    typedef enum
+    {
+        CAJA_WINDOW_SHOW_BACKUP_FILES_DEFAULT,
+        CAJA_WINDOW_SHOW_BACKUP_FILES_ENABLE,
+        CAJA_WINDOW_SHOW_BACKUP_FILES_DISABLE
+    }
+    CajaWindowShowBackupFilesMode;
 
     typedef enum
     {
@@ -105,6 +112,7 @@ extern "C" {
         void           (* title_changed)            (CajaWindowInfo *window,
                 const char         *title);
         void           (* hidden_files_mode_changed)(CajaWindowInfo *window);
+	void           (* backup_files_mode_changed)(CajaWindowInfo *window);
 
         /* VTable: */
         /* A view calls this once after a load_location, once it starts loading the
@@ -142,7 +150,11 @@ extern "C" {
         (* get_hidden_files_mode) (CajaWindowInfo *window);
         void   (* set_hidden_files_mode) (CajaWindowInfo *window,
                                           CajaWindowShowHiddenFilesMode mode);
-
+        CajaWindowShowBackupFilesMode
+        (* get_backup_files_mode) (CajaWindowInfo *window);
+        void   (* set_backup_files_mode) (CajaWindowInfo *window,
+                                          CajaWindowShowBackupFilesMode mode);
+	    
         CajaWindowSlotInfo * (* get_active_slot) (CajaWindowInfo *window);
         CajaWindowSlotInfo * (* get_extra_slot)  (CajaWindowInfo *window);
 
@@ -180,6 +192,9 @@ extern "C" {
     CajaWindowShowHiddenFilesMode caja_window_info_get_hidden_files_mode    (CajaWindowInfo                *window);
     void                              caja_window_info_set_hidden_files_mode    (CajaWindowInfo                *window,
             CajaWindowShowHiddenFilesMode  mode);
+    void                              caja_window_info_set_backup_files_mode    (CajaWindowInfo                *window,
+            CajaWindowShowBackupFilesMode  mode);
+	
     gboolean                          caja_window_info_get_initiated_unmount    (CajaWindowInfo                *window);
     void                              caja_window_info_set_initiated_unmount    (CajaWindowInfo                *window,
             gboolean initiated_unmount);

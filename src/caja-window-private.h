@@ -60,6 +60,7 @@ struct CajaWindowDetails
     CajaBookmarkList *bookmark_list;
 
     CajaWindowShowHiddenFilesMode show_hidden_files_mode;
+    CajaWindowShowBackupFilesMode show_backup_files_mode;
 
     /* View As menu */
     GList *short_list_viewers;

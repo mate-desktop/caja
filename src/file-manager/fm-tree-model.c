@@ -99,8 +99,9 @@ struct FMTreeModelDetails
     guint monitoring_update_idle_id;
 
     gboolean show_hidden_files;
+    gboolean show_backup_files;
     gboolean show_only_directories;
-
+	
     GList *highlighted_files;
 };
 
@@ -950,7 +951,9 @@ should_show_file (FMTreeModel *model, CajaFile *file)
 
     should = caja_file_should_show (file,
                                     model->details->show_hidden_files,
-                                    TRUE);
+				    /* TODO details->show_backup_files */
+                                    TRUE,
+				    model->details->show_backup_files);
 
     if (should
             && model->details->show_only_directories
