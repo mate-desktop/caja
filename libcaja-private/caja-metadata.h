@@ -58,6 +58,7 @@
 #define CAJA_METADATA_KEY_WINDOW_GEOMETRY			"caja-window-geometry"
 #define CAJA_METADATA_KEY_WINDOW_SCROLL_POSITION		"caja-window-scroll-position"
 #define CAJA_METADATA_KEY_WINDOW_SHOW_HIDDEN_FILES		"caja-window-show-hidden-files"
+#define CAJA_METADATA_KEY_WINDOW_SHOW_BACKUP_FILES		"caja-window-show-backup-files"
 #define CAJA_METADATA_KEY_WINDOW_MAXIMIZED			"caja-window-maximized"
 #define CAJA_METADATA_KEY_WINDOW_STICKY			"caja-window-sticky"
 #define CAJA_METADATA_KEY_WINDOW_KEEP_ABOVE			"caja-window-keep-above"

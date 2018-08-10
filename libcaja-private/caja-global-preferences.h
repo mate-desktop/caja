@@ -64,6 +64,7 @@ G_BEGIN_DECLS
 
 /* Display  */
 #define CAJA_PREFERENCES_SHOW_HIDDEN_FILES  		"show-hidden-files"
+#define CAJA_PREFERENCES_SHOW_BACKUP_FILES  		"show-backup-files"
 #define CAJA_PREFERENCES_SHOW_ADVANCED_PERMISSIONS	"show-advanced-permissions"
 #define CAJA_PREFERENCES_DATE_FORMAT			"date-format"
 #define CAJA_PREFERENCES_USE_IEC_UNITS			"use-iec-units"

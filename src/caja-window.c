@@ -1974,6 +1974,21 @@ caja_window_set_hidden_files_mode (CajaWindowInfo *window,
     g_signal_emit_by_name (window, "hidden_files_mode_changed");
 }
 
+static CajaWindowShowBackupFilesMode
+caja_window_get_backup_files_mode (CajaWindowInfo *window)
+{
+    return window->details->show_backup_files_mode;
+}
+
+static void
+caja_window_set_backup_files_mode (CajaWindowInfo *window,
+                                   CajaWindowShowBackupFilesMode  mode)
+{
+    window->details->show_backup_files_mode = mode;
+
+    g_signal_emit_by_name (window, "backup_files_mode_changed");
+}
+
 static gboolean
 caja_window_get_initiated_unmount (CajaWindowInfo *window)
 {
@@ -2075,6 +2090,10 @@ caja_window_info_iface_init (CajaWindowInfoIface *iface)
     iface->get_selection = caja_window_get_selection;
     iface->get_hidden_files_mode = caja_window_get_hidden_files_mode;
     iface->set_hidden_files_mode = caja_window_set_hidden_files_mode;
+    
+    iface->get_backup_files_mode = caja_window_get_backup_files_mode;
+    iface->set_backup_files_mode = caja_window_set_backup_files_mode;
+
     iface->get_active_slot = caja_window_get_active_slot;
     iface->get_extra_slot = caja_window_get_extra_slot;
     iface->get_initiated_unmount = caja_window_get_initiated_unmount;
