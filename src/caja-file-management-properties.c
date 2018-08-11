@@ -66,6 +66,7 @@
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_TRASH_CONFIRM_TRASH_WIDGET "trash_confirm_trash_checkbutton"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_TRASH_DELETE_WIDGET "trash_delete_checkbutton"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_SHOW_HIDDEN_WIDGET "hidden_files_checkbutton"
+#define CAJA_FILE_MANAGEMENT_PROPERTIES_SHOW_BACKUP_WIDGET "backup_files_checkbutton"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_TREE_VIEW_FOLDERS_WIDGET "treeview_folders_checkbutton"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_MEDIA_AUTOMOUNT_OPEN "media_automount_open_checkbutton"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_MEDIA_AUTORUN_NEVER "media_autorun_never_checkbutton"
@@ -1121,6 +1122,9 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
     bind_builder_bool (builder, caja_preferences,
                        CAJA_FILE_MANAGEMENT_PROPERTIES_SHOW_HIDDEN_WIDGET,
                        CAJA_PREFERENCES_SHOW_HIDDEN_FILES);
+    bind_builder_bool (builder, caja_preferences,
+                       CAJA_FILE_MANAGEMENT_PROPERTIES_SHOW_BACKUP_WIDGET,
+                       CAJA_PREFERENCES_SHOW_BACKUP_FILES);
     bind_builder_bool (builder, caja_tree_sidebar_preferences,
                        CAJA_FILE_MANAGEMENT_PROPERTIES_TREE_VIEW_FOLDERS_WIDGET,
                        CAJA_PREFERENCES_TREE_SHOW_ONLY_DIRECTORIES);

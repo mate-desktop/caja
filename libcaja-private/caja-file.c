@@ -105,6 +105,7 @@
 
 typedef enum {
 	SHOW_HIDDEN = 1 << 0,
+	SHOW_BACKUP = 1 << 1,
 } FilterOptions;
 
 typedef void (* ModifyListFunction) (GList **list, CajaFile *file);
@@ -2094,7 +2095,7 @@ update_info_internal (CajaFile *file,
 {
 	GList *node;
 	gboolean changed;
-	gboolean is_symlink, is_hidden, is_mountpoint;
+	gboolean is_symlink, is_hidden, is_backup, is_mountpoint;
 	gboolean has_permissions;
 	guint32 permissions;
 	gboolean can_read, can_write, can_execute, can_delete, can_trash, can_rename, can_mount, can_unmount, can_eject;
@@ -2185,12 +2186,15 @@ update_info_internal (CajaFile *file,
 	}
 	file->details->is_symlink = is_symlink;
 
-	is_hidden = g_file_info_get_is_hidden (info) || g_file_info_get_is_backup (info);
-	if (file->details->is_hidden != is_hidden) {
+	is_hidden = g_file_info_get_is_hidden (info);
+	is_backup = g_file_info_get_is_backup (info); 
+	if (file->details->is_hidden != is_hidden ||
+	    file->details->is_backup != is_backup) {
 		changed = TRUE;
 	}
 	file->details->is_hidden = is_hidden;
-
+	file->details->is_backup = is_backup; 
+	
 	is_mountpoint = g_file_info_get_attribute_boolean (info, G_FILE_ATTRIBUTE_UNIX_IS_MOUNTPOINT);
 	if (file->details->is_mountpoint != is_mountpoint) {
 		changed = TRUE;
@@ -3627,6 +3631,7 @@ caja_file_is_hidden_file (CajaFile *file)
  * caja_file_should_show:
  * @file: the file to check.
  * @show_hidden: whether we want to show hidden files or not.
+ * @show_backup: whether we want to show backup files or not.
  *
  * Determines if a #CajaFile should be shown. Note that when browsing
  * a trash directory, this function will always return %TRUE.
@@ -3635,14 +3640,16 @@ caja_file_is_hidden_file (CajaFile *file)
  */
 gboolean
 caja_file_should_show (CajaFile *file,
-			   gboolean show_hidden,
-			   gboolean show_foreign)
+		       gboolean show_hidden,
+		       gboolean show_foreign,
+		       gboolean show_backup)
 {
 	/* Never hide any files in trash. */
 	if (caja_file_is_in_trash (file)) {
 		return TRUE;
 	} else {
 		return (show_hidden || !caja_file_is_hidden_file (file)) &&
+			(show_backup || !caja_file_is_backup_file (file)) &&
 			(show_foreign || !(caja_file_is_in_desktop (file) && caja_file_is_foreign_link (file)));
 	}
 }
@@ -3671,6 +3678,12 @@ caja_file_is_in_desktop (CajaFile *file)
 
 }
 
+gboolean
+caja_file_is_backup_file (CajaFile *file)
+{
+	return file->details->is_backup;
+}
+
 static gboolean
 filter_hidden_partition_callback (gpointer data,
 					     gpointer callback_data)
@@ -3682,8 +3695,9 @@ filter_hidden_partition_callback (gpointer data,
 	options = GPOINTER_TO_INT (callback_data);
 
 	return caja_file_should_show (file,
-					  options & SHOW_HIDDEN,
-					  TRUE);
+				      options & SHOW_HIDDEN,
+				      TRUE,
+				      options & SHOW_BACKUP);
 }
 
 GList *

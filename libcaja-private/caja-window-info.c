@@ -31,6 +31,7 @@ enum
     SELECTION_CHANGED,
     TITLE_CHANGED,
     HIDDEN_FILES_MODE_CHANGED,
+    BACKUP_FILES_MODE_CHANGED,
     LAST_SIGNAL
 };
 
@@ -81,6 +82,15 @@ caja_window_info_base_init (gpointer g_class)
                           g_cclosure_marshal_VOID__VOID,
                           G_TYPE_NONE, 0);
 
+        caja_window_info_signals[BACKUP_FILES_MODE_CHANGED] =
+            g_signal_new ("backup_files_mode_changed",
+                          CAJA_TYPE_WINDOW_INFO,
+                          G_SIGNAL_RUN_LAST,
+                          G_STRUCT_OFFSET (CajaWindowInfoIface, backup_files_mode_changed),
+                          NULL, NULL,
+                          g_cclosure_marshal_VOID__VOID,
+                          G_TYPE_NONE, 0);
+	
         initialized = TRUE;
     }
 }
@@ -245,6 +255,24 @@ caja_window_info_set_hidden_files_mode (CajaWindowInfo *window,
     g_return_if_fail (CAJA_IS_WINDOW_INFO (window));
 
     (* CAJA_WINDOW_INFO_GET_IFACE (window)->set_hidden_files_mode) (window,
+            mode);
+}
+
+CajaWindowShowBackupFilesMode
+caja_window_info_get_backup_files_mode (CajaWindowInfo *window)
+{
+    g_return_val_if_fail (CAJA_IS_WINDOW_INFO (window), CAJA_WINDOW_SHOW_BACKUP_FILES_DEFAULT);
+
+    return (* CAJA_WINDOW_INFO_GET_IFACE (window)->get_backup_files_mode) (window);
+}
+
+void
+caja_window_info_set_backup_files_mode (CajaWindowInfo *window,
+                                        CajaWindowShowBackupFilesMode  mode)
+{
+    g_return_if_fail (CAJA_IS_WINDOW_INFO (window));
+
+    (* CAJA_WINDOW_INFO_GET_IFACE (window)->set_backup_files_mode) (window,
             mode);
 }
 
