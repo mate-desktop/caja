@@ -918,9 +918,7 @@ should_skip_file (CajaDirectory *directory, GFileInfo *info)
         show_hidden_files_changed_callback (NULL);
     }
 
-    if (!show_hidden_files &&
-            (g_file_info_get_is_hidden (info) ||
-             g_file_info_get_is_backup (info)))
+    if (!show_hidden_files && g_file_info_get_is_hidden (info))
     {
         return TRUE;
     }
