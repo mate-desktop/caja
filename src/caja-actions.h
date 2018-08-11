@@ -47,6 +47,7 @@
 #define CAJA_ACTION_ZOOM_OUT "Zoom Out"
 #define CAJA_ACTION_ZOOM_NORMAL "Zoom Normal"
 #define CAJA_ACTION_SHOW_HIDDEN_FILES "Show Hidden Files"
+#define CAJA_ACTION_SHOW_BACKUP_FILES "Show Backup Files"
 #define CAJA_ACTION_CLOSE "Close"
 #define CAJA_ACTION_SEARCH "Search"
 #define CAJA_ACTION_FOLDER_WINDOW "Folder Window"

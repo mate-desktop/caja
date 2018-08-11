@@ -429,7 +429,8 @@ int                     caja_file_compare_location                  (CajaFile   
 gboolean                caja_file_is_hidden_file                    (CajaFile                   *file);
 gboolean                caja_file_should_show                       (CajaFile                   *file,
         gboolean                        show_hidden,
-        gboolean                        show_foreign);
+        gboolean                        show_foreign,
+        gboolean                        show_backup);
 GList                  *caja_file_list_filter_hidden                (GList                          *files,
         gboolean                        show_hidden);
 

@@ -405,6 +405,27 @@ action_show_hidden_files_callback (GtkAction *action,
 }
 
 static void
+action_show_backup_files_callback (GtkAction *action,
+                                   gpointer callback_data)
+{
+    CajaWindow *window;
+    CajaWindowShowBackupFilesMode mode;
+
+    window = CAJA_WINDOW (callback_data);
+
+    if (gtk_toggle_action_get_active (GTK_TOGGLE_ACTION (action)))
+    {
+        mode = CAJA_WINDOW_SHOW_BACKUP_FILES_ENABLE;
+    }
+    else
+    {
+        mode = CAJA_WINDOW_SHOW_BACKUP_FILES_DISABLE;
+    }
+
+    caja_window_info_set_backup_files_mode (window, mode);
+}
+
+static void
 show_hidden_files_preference_callback (gpointer callback_data)
 {
     CajaWindow *window;
@@ -426,6 +447,30 @@ show_hidden_files_preference_callback (gpointer callback_data)
         /* inform views */
         caja_window_info_set_hidden_files_mode (window, CAJA_WINDOW_SHOW_HIDDEN_FILES_DEFAULT);
 
+    }
+}
+
+static void
+show_backup_files_preference_callback (gpointer callback_data)
+{
+    CajaWindow *window;
+    GtkAction *action;
+
+    window = CAJA_WINDOW (callback_data);
+
+    if (window->details->show_backup_files_mode == CAJA_WINDOW_SHOW_BACKUP_FILES_DEFAULT)
+    {
+        action = gtk_action_group_get_action (window->details->main_action_group, CAJA_ACTION_SHOW_BACKUP_FILES);
+        g_assert (GTK_IS_ACTION (action));
+
+        /* update button */
+        g_signal_handlers_block_by_func (action, action_show_backup_files_callback, window);
+        gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action),
+                                      g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SHOW_BACKUP_FILES));
+        g_signal_handlers_unblock_by_func (action, action_show_backup_files_callback, window);
+
+        /* inform views */
+        caja_window_info_set_backup_files_mode (window, CAJA_WINDOW_SHOW_BACKUP_FILES_DEFAULT);
     }
 }
 
@@ -922,6 +967,13 @@ static const GtkToggleActionEntry main_toggle_entries[] =
         G_CALLBACK (action_show_hidden_files_callback),
         TRUE
     },
+    /* name, stock id */         { "Show Backup Files", NULL,
+    /* label, accelerator */       N_("Show _Backup Files"), NULL,
+    /* tooltip */                  N_("Toggle the display of backup files in the current window"),
+        G_CALLBACK (action_show_backup_files_callback),
+        TRUE
+    },
+
 };
 
 /**
@@ -959,12 +1011,20 @@ caja_window_initialize_menus (CajaWindow *window)
     gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action),
                                   g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SHOW_HIDDEN_FILES));
     g_signal_handlers_unblock_by_func (action, action_show_hidden_files_callback, window);
-
-
     g_signal_connect_swapped (caja_preferences, "changed::" CAJA_PREFERENCES_SHOW_HIDDEN_FILES,
                               G_CALLBACK(show_hidden_files_preference_callback),
                               window);
 
+    action = gtk_action_group_get_action (action_group, CAJA_ACTION_SHOW_BACKUP_FILES);
+    g_signal_handlers_block_by_func (action, action_show_backup_files_callback, window);
+    gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action),
+                                  g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SHOW_BACKUP_FILES));
+    g_signal_handlers_unblock_by_func (action, action_show_backup_files_callback, window);
+
+    g_signal_connect_swapped (caja_preferences, "changed::" CAJA_PREFERENCES_SHOW_BACKUP_FILES,
+                              G_CALLBACK(show_backup_files_preference_callback),
+                              window);
+    
     window->details->ui_manager = gtk_ui_manager_new ();
     ui_manager = window->details->ui_manager;
     gtk_window_add_accel_group (GTK_WINDOW (window),
@@ -996,6 +1056,9 @@ caja_window_finalize_menus (CajaWindow *window)
 
     g_signal_handlers_disconnect_by_func (caja_preferences,
                                           show_hidden_files_preference_callback, window);
+
+    g_signal_handlers_disconnect_by_func (caja_preferences,
+                                          show_backup_files_preference_callback, window);
 }
 
 static GList *
