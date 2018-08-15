@@ -968,7 +968,7 @@ static const GtkToggleActionEntry main_toggle_entries[] =
         TRUE
     },
     /* name, stock id */         { "Show Backup Files", NULL,
-    /* label, accelerator */       N_("Show _Backup Files"), NULL,
+    /* label, accelerator */       N_("Show Bac_kup Files"), "<control>K",
     /* tooltip */                  N_("Toggle the display of backup files in the current window"),
         G_CALLBACK (action_show_backup_files_callback),
         TRUE
