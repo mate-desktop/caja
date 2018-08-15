@@ -7287,12 +7287,6 @@ fm_directory_view_init_show_backup_files (FMDirectoryView *view)
 	gboolean show_backup_changed;
 	gboolean show_backup_default_setting;
 
-	/*
-	if (view->details->ignore_hidden_file_preferences) {
-		return;
-	}
-	*/
-	
 	show_backup_changed = FALSE;
 	mode = caja_window_info_get_backup_files_mode (view->details->window);
 

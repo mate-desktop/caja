@@ -957,7 +957,6 @@ should_show_file (FMTreeModel *model, CajaFile *file)
 
     should = caja_file_should_show (file,
                                     model->details->show_hidden_files,
-				    /* TODO details->show_backup_files */
                                     TRUE,
 				    model->details->show_backup_files);
 
