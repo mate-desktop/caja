@@ -454,6 +454,7 @@ caja_file_clear_info (CajaFile *file)
 	file->details->is_trusted_link = FALSE;
 	file->details->is_symlink = FALSE;
 	file->details->is_hidden = FALSE;
+	file->details->is_backup = FALSE;
 	file->details->is_mountpoint = FALSE;
 	file->details->uid = -1;
 	file->details->gid = -1;
