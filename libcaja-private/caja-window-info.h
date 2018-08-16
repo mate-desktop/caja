@@ -192,6 +192,7 @@ extern "C" {
     CajaWindowShowHiddenFilesMode caja_window_info_get_hidden_files_mode    (CajaWindowInfo                *window);
     void                              caja_window_info_set_hidden_files_mode    (CajaWindowInfo                *window,
             CajaWindowShowHiddenFilesMode  mode);
+    CajaWindowShowBackupFilesMode     caja_window_info_get_backup_files_mode    (CajaWindowInfo                *window);
     void                              caja_window_info_set_backup_files_mode    (CajaWindowInfo                *window,
             CajaWindowShowBackupFilesMode  mode);
 	
