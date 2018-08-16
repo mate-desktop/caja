@@ -3628,6 +3628,12 @@ caja_file_is_hidden_file (CajaFile *file)
 	return file->details->is_hidden;
 }
 
+gboolean
+caja_file_is_backup_file (CajaFile *file)
+{
+	return file->details->is_backup;
+}
+
 /**
  * caja_file_should_show:
  * @file: the file to check.
@@ -3677,12 +3683,6 @@ caja_file_is_in_desktop (CajaFile *file)
 	}
 	return FALSE;
 
-}
-
-gboolean
-caja_file_is_backup_file (CajaFile *file)
-{
-	return file->details->is_backup;
 }
 
 static gboolean
