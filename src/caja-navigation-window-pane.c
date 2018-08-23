@@ -201,6 +201,9 @@ path_bar_location_changed_callback (GtkWidget *widget,
 
     slot = CAJA_NAVIGATION_WINDOW_SLOT (win_pane->active_slot);
 
+    /* Make sure we are changing the location on the correct pane */
+    caja_window_set_active_pane (CAJA_WINDOW_PANE (pane)->window, CAJA_WINDOW_PANE (pane));
+
     /* check whether we already visited the target location */
     i = bookmark_list_get_uri_index (slot->back_list, location);
     if (i >= 0)
