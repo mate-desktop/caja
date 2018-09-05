@@ -43,6 +43,8 @@
 
 #include <libcaja-private/caja-autorun.h>
 
+#include <libcaja-extension/caja-configurable.h>
+
 /* string enum preferences */
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_DEFAULT_VIEW_WIDGET "default_view_combobox"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_ICON_VIEW_ZOOM_WIDGET "icon_view_zoom_combobox"
@@ -622,6 +624,7 @@ out:
 }
 
 static gulong extension_about_id = 0;
+static gulong extension_configure_id = 0;
 
 static void
 extension_about_clicked (GtkButton *button, Extension *ext)
@@ -642,8 +645,29 @@ extension_about_clicked (GtkButton *button, Extension *ext)
     gtk_widget_destroy (GTK_WIDGET (extension_about_dialog));
 }
 
+static int extension_configure_check (Extension *ext)
+{
+    if (!ext->state) // For now, only allow configuring enabled extensions.
+    {
+        return 0;
+    }
+    if (!CAJA_IS_CONFIGURABLE(ext->module))
+    {
+        return 0;
+    }
+    return 1;
+}
+
 static void
-extension_list_selection_changed (GtkTreeSelection *selection, GtkButton *about_button)
+extension_configure_clicked (GtkButton *button, Extension *ext)
+{
+    if (extension_configure_check(ext)) {
+        caja_configurable_run_config(CAJA_CONFIGURABLE(ext->module));
+    }
+}
+
+static void
+extension_list_selection_changed_about (GtkTreeSelection *selection, GtkButton *about_button)
 {
     GtkTreeModel *model;
     GtkTreeIter iter;
@@ -664,6 +688,34 @@ extension_list_selection_changed (GtkTreeSelection *selection, GtkButton *about_
     if (ext != NULL) {
         gtk_widget_set_sensitive (GTK_WIDGET (about_button), TRUE);
         extension_about_id = g_signal_connect (about_button, "clicked", G_CALLBACK (extension_about_clicked), ext);
+    }
+}
+
+static void
+extension_list_selection_changed_configure (GtkTreeSelection *selection, GtkButton *configure_button)
+{
+    GtkTreeModel *model;
+    GtkTreeIter iter;
+    Extension *ext;
+
+    gtk_widget_set_sensitive (GTK_WIDGET (configure_button), FALSE);
+
+    if (extension_configure_id > 0)
+    {
+        g_signal_handler_disconnect (configure_button, extension_configure_id);
+        extension_configure_id = 0;
+    }
+
+    if (!gtk_tree_selection_get_selected (selection, &model, &iter))
+        return;
+
+    gtk_tree_model_get (model, &iter, EXT_STRUCT_COLUMN, &ext, -1);
+    if (ext != NULL) {
+        // Unconfigurable extensions remain unconfigurable.
+        if (extension_configure_check(ext)) {
+            gtk_widget_set_sensitive (GTK_WIDGET (configure_button), TRUE);
+            extension_configure_id = g_signal_connect (configure_button, "clicked", G_CALLBACK (extension_configure_clicked), ext);
+        }
     }
 }
 
@@ -819,7 +871,7 @@ caja_file_management_properties_dialog_setup_extension_page (GtkBuilder *builder
     GtkTreeIter iter;
     GtkIconTheme *icon_theme;
     GdkPixbuf *ext_pixbuf_icon;
-    GtkButton *about_button;
+    GtkButton *about_button, *configure_button;
     gchar *ext_text_info;
     
     GList *extensions;
@@ -883,11 +935,16 @@ caja_file_management_properties_dialog_setup_extension_page (GtkBuilder *builder
     }
 
     about_button = GTK_BUTTON (gtk_builder_get_object (builder, "about_extension_button"));
+    configure_button = GTK_BUTTON (gtk_builder_get_object (builder, "configure_extension_button"));
+
     selection = gtk_tree_view_get_selection (view);
     gtk_tree_selection_set_mode (selection, GTK_SELECTION_SINGLE);
     g_signal_connect (selection, "changed",
-                      G_CALLBACK (extension_list_selection_changed),
+                      G_CALLBACK (extension_list_selection_changed_about),
                       about_button);
+    g_signal_connect (selection, "changed",
+                      G_CALLBACK (extension_list_selection_changed_configure),
+                      configure_button);
 }
 
 static void
