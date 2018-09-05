@@ -34,6 +34,7 @@ libcaja_extension_include_HEADERS = \
 	caja-property-page-provider.h \
 	caja-property-page.h \
 	caja-menu.h \
+	caja-configurable.h \
 	$(NULL)
 
 libcaja_extension_la_SOURCES = \
@@ -50,6 +51,7 @@ libcaja_extension_la_SOURCES = \
 	caja-property-page-provider.c \
 	caja-property-page.c \
 	caja-menu.c \
+	caja-configurable.c \
 	$(NULL)
 
 pkgconfigdir=$(libdir)/pkgconfig
