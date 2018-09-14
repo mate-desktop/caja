@@ -75,10 +75,10 @@ skeleton_handle_show_items_cb (CajaFreedesktopFileManager1 *object,
         parent = g_file_get_parent (file);
 
         if (parent != NULL) {
-            caja_application_open_location (application, parent, file, startup_id);
+            caja_application_open_location (application, parent, file, startup_id, 0);
             g_object_unref (parent);
         } else {
-            caja_application_open_location (application, file, NULL, startup_id);
+            caja_application_open_location (application, file, NULL, startup_id, 0);
         }
 
         g_object_unref (file);
@@ -105,7 +105,7 @@ skeleton_handle_show_folders_cb (CajaFreedesktopFileManager1 *object,
 
         file = g_file_new_for_uri (uris[i]);
 
-        caja_application_open_location (application, file, NULL, startup_id);
+        caja_application_open_location (application, file, NULL, startup_id, 0);
 
         g_object_unref (file);
     }
