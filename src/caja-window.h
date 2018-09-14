@@ -136,6 +136,8 @@ void             caja_window_disconnect_content_view (CajaWindow    *window,
 
 void             caja_window_go_to                (CajaWindow    *window,
         GFile             *location);
+void             caja_window_go_to_tab                (CajaWindow    *window,
+        GFile             *location);
 void             caja_window_go_to_full           (CajaWindow    *window,
         GFile             *location,
         CajaWindowGoToCallback callback,
