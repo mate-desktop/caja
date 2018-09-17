@@ -235,14 +235,6 @@ caja_window_go_to (CajaWindow *window, GFile *location)
 }
 
 void
-caja_window_go_to_tab (CajaWindow *window, GFile *location)
-{
-    g_return_if_fail (CAJA_IS_WINDOW (window));
-
-    caja_window_slot_go_to (window->details->active_pane->active_slot, location, TRUE);
-}
-
-void
 caja_window_go_to_full (CajaWindow *window,
                         GFile                 *location,
                         CajaWindowGoToCallback callback,
@@ -274,7 +266,7 @@ caja_window_new_tab (CajaWindow *window)
     CajaWindowSlot *current_slot;
     CajaWindowSlot *new_slot;
     CajaWindowOpenFlags flags;
-    GFile *location = NULL;
+    GFile *location;
     int new_slot_position;
     char *scheme;
 

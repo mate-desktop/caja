@@ -100,7 +100,6 @@ void caja_application_close_all_spatial_windows  (void);
 void caja_application_open_location (CajaApplication *application,
         GFile *location,
         GFile *selection,
-        const char *startup_id,
-        const gboolean open_in_tabs);
+        const char *startup_id);
 
 #endif /* CAJA_APPLICATION_H */

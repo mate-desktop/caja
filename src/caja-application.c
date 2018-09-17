@@ -268,89 +268,25 @@ open_window (CajaApplication *application,
 }
 
 static void
-open_tabs (CajaApplication *application,
-         GFile **locations, guint n_files, GdkScreen *screen, const char *geometry, gboolean browser_window)
-{
-    CajaApplication *self = CAJA_APPLICATION (application);
-    CajaWindow *window;
-    gchar *uri = NULL;
-
-    /*monitor the preference to use browser or spatial windows */
-    /*connect before trying to read or this preference won't be read by root or after change*/
-     g_signal_connect_swapped(caja_preferences, "changed::"CAJA_PREFERENCES_ALWAYS_USE_BROWSER,
-                      G_CALLBACK (caja_empty_callback_to_ensure_read),
-                      self);
-
-    if (browser_window ||g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_BROWSER)) {
-        window = caja_application_create_navigation_window (application,
-                 screen);
-    } else {
-        window = caja_application_get_spatial_window (application,
-                 NULL,
-                 NULL,
-                 locations[0],
-                 screen,
-                 NULL);
-    }
-
-    /* open all locations */
-    uri = g_file_get_uri (locations[0]);
-    g_debug("Opening new tab at uri %s\n", uri);
-    caja_window_go_to (window, locations[0]);
-    for (int i = 1; i< n_files;i++){
-        /* open tabs in reverse order because each 
-         * tab is opened before the previous one */
-        guint tab = n_files-i;
-        uri = g_file_get_uri (locations[tab]);
-        g_debug("Opening new tab at uri %s\n", uri);
-        if(i==0){
-            caja_window_go_to (window, locations[tab]);
-        }else{
-            caja_window_go_to_tab (window, locations[tab]);
-        } 
-    }
-
-    if (geometry != NULL && !gtk_widget_get_visible (GTK_WIDGET (window))) {
-        /* never maximize windows opened from shell if a
-         * custom geometry has been requested.
-         */
-        gtk_window_unmaximize (GTK_WINDOW (window));
-        eel_gtk_window_set_initial_geometry_from_string (GTK_WINDOW (window),
-                                 geometry,
-                                 APPLICATION_WINDOW_MIN_WIDTH,
-                                 APPLICATION_WINDOW_MIN_HEIGHT,
-                                 FALSE);
-    }
-
-    g_free (uri);
-}
-
-static void
 open_windows (CajaApplication *application,
           GFile **files,
           GdkScreen *screen,
           const char *geometry,
-          guint n_files,
-          gboolean browser_window,
-          gboolean open_in_tabs)
+          guint len,
+          gboolean browser_window)
 {
     guint i;
 
     if (files == NULL || files[0] == NULL) {
         /* Open a window pointing at the default location. */
-        open_window (application, NULL, screen, geometry, browser_window);
+        open_window (application, NULL, screen, geometry, browser_window );
     } else {
-        if(open_in_tabs){
-            /* Open one window with one tab at each requested location */
-            open_tabs (application, files, n_files, screen, geometry, browser_window);
-        }else{
-            /* Open windows at each requested location. */ 
-            i = 0;
-            while (i < n_files ){ 
-                open_window (application, files[i], screen, geometry, browser_window);
-                i++ ;
-            }
-        }
+        /* Open windows at each requested location. */ 
+        i = 0;
+        while (i < len ){ 
+              open_window (application, files[i], screen, geometry, browser_window);
+               i++ ;
+         }
     }
 }
 
@@ -362,41 +298,40 @@ caja_application_open (GApplication *app,
 {
     CajaApplication *self = CAJA_APPLICATION (app);
     gboolean browser_window = FALSE;
-    gboolean open_in_tabs = FALSE;
     const gchar *geometry = NULL;
     const char splitter = '=';
 
     g_debug ("Open called on the GApplication instance; %d files", n_files);
 
-    /*Check if local command line passed --browser, --geometry or --tabs*/
-    if (strlen(options) > 0){
-        gchar** splitedOptions = g_strsplit (options, &splitter, 3);
-        sscanf(splitedOptions[0], "%d", &browser_window);
-        if(strcmp(splitedOptions[1], "NULL")!=0){
-            geometry = splitedOptions[1];
+    /*Check if local command line passed --browser or --geometry */
+    if (strcmp(options,"") != 0 ){
+        if (g_str_match_string ("browser",
+                    options,
+                    FALSE) == TRUE){
+            browser_window = TRUE;
+            geometry = strchr(options, splitter);
         }
-        sscanf(splitedOptions[2], "%d", &open_in_tabs);
-
+        else {
+        geometry = options;
+        }
         /*Reset this or 3ed and later invocations will use same
 	     *geometry even if the user has resized open window
          */
         self->priv->geometry = NULL;
     }
 
-   open_windows (self, files,
+    open_windows (self, files,
               gdk_screen_get_default (),
               geometry,
               n_files,
-              browser_window,
-              open_in_tabs);
+              browser_window);
 }
 
 void
 caja_application_open_location (CajaApplication *application,
                                 GFile *location,
                                 GFile *selection,
-                                const char *startup_id,
-                                const gboolean open_in_tabs)
+                                const char *startup_id)
 {
     CajaWindow *window;
     GList *sel_list = NULL;
@@ -408,8 +343,7 @@ caja_application_open_location (CajaApplication *application,
     }
 
     caja_window_slot_open_location_full (caja_window_get_active_slot (window), location,
-                                         open_in_tabs, CAJA_WINDOW_OPEN_FLAG_NEW_WINDOW, 
-                                         sel_list, NULL, NULL);
+                                         0, CAJA_WINDOW_OPEN_FLAG_NEW_WINDOW, sel_list, NULL, NULL);
 
     if (sel_list != NULL) {
         caja_file_list_free (sel_list);
@@ -2063,7 +1997,6 @@ caja_application_local_command_line (GApplication *application,
     gboolean perform_self_check = FALSE;
     gboolean version = FALSE;
     gboolean browser_window = FALSE;
-    gboolean open_in_tabs = FALSE;
     gboolean kill_shell = FALSE;
     const gchar *autostart_id;
     gboolean no_default_window = FALSE;
@@ -2089,8 +2022,6 @@ caja_application_local_command_line (GApplication *application,
           N_("Do not manage the desktop (ignore the preference set in the preferences dialog)."), NULL },
         { "force-desktop", '\0', 0, G_OPTION_ARG_NONE, &self->priv->force_desktop,
           N_("Manage the desktop regardless of set preferences or environment (on new startup only)"), NULL },
-        { "tabs", 't', 0, G_OPTION_ARG_NONE, &open_in_tabs, 
-          N_("Open URI in tabs."), NULL },
         { "browser", '\0', 0, G_OPTION_ARG_NONE, &browser_window, 
           N_("Open a browser window."), NULL },
         { "quit", 'q', 0, G_OPTION_ARG_NONE, &kill_shell, 
@@ -2120,7 +2051,7 @@ caja_application_local_command_line (GApplication *application,
     if (autostart_id != NULL && *autostart_id != '\0') {
         no_default_window = TRUE;
         self->priv->autostart = TRUE;
-    }
+        }
 
 
     argv = *arguments;
@@ -2178,6 +2109,7 @@ caja_application_local_command_line (GApplication *application,
         caja_application_load_session (self);
     }
 
+
     GFile **files;
     gint idx, len;
 
@@ -2211,19 +2143,30 @@ caja_application_local_command_line (GApplication *application,
         files[1] = NULL;
     }
 
-    /*Set up --geometry, --browser and --tabs options  */
+    /*Set up geometry and --browser options  */
     /*Invoke "Open" to create new windows */
-    if (len > 0)  {
-        gchar* concatOptions = g_malloc0(64);
-        if(self->priv->geometry==NULL){
-            g_snprintf(concatOptions, 64, "%d=NULL=%d", browser_window, open_in_tabs);
-        }else{
-            g_snprintf(concatOptions, 64, "%d=%s=%d", browser_window,  self->priv->geometry, open_in_tabs);
+
+    if (browser_window == TRUE && self->priv->geometry == NULL){
+
+        if (len > 0)  {
+        g_application_open (application, files, len, "browser");
         }
-        g_application_open (application, files, len, concatOptions);
-        g_free(concatOptions);
-    } else {
-        g_print("non\n");
+    }
+
+    else if (browser_window == FALSE && self->priv->geometry != NULL){
+        if (len > 0)  {
+            g_application_open (application, files, len, self->priv->geometry);
+        }
+    }
+
+    else if (browser_window == TRUE && self->priv->geometry != NULL){
+        if (len > 0)  {
+            g_application_open (application, files, len, (g_strconcat("browser","=",
+                                self->priv->geometry, NULL)));
+        }
+    }
+
+    else {
         if (len > 0)  {
             g_application_open (application, files, len, "");
         }
@@ -2477,11 +2420,11 @@ caja_application_quit_mainloop (GApplication *app)
 static void
 caja_application_class_init (CajaApplicationClass *class)
 {
-    GObjectClass *object_class;
+        GObjectClass *object_class;
     GApplicationClass *application_class;
 
-    object_class = G_OBJECT_CLASS (class);
-    object_class->finalize = caja_application_finalize;
+        object_class = G_OBJECT_CLASS (class);
+        object_class->finalize = caja_application_finalize;
 
     application_class = G_APPLICATION_CLASS (class);
     application_class->startup = caja_application_startup;
