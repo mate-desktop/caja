@@ -381,7 +381,6 @@ caja_application_open (GApplication *app,
 	     *geometry even if the user has resized open window
          */
         self->priv->geometry = NULL;
-        g_strfreev(splitedOptions);
     }
 
    open_windows (self, files,
