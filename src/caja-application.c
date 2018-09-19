@@ -301,17 +301,15 @@ open_tabs (CajaApplication *application,
     uri = g_file_get_uri (locations[0]);
     g_debug ("Opening new tab at uri %s\n", uri);
     caja_window_go_to (window, locations[0]);
+    g_free (uri);
     for (int i = 1; i< n_files;i++) {
         /* open tabs in reverse order because each 
          * tab is opened before the previous one */
         guint tab = n_files-i;
         uri = g_file_get_uri (locations[tab]);
         g_debug ("Opening new tab at uri %s\n", uri);
-        if (i == 0) {
-            caja_window_go_to (window, locations[tab]);
-        } else {
-            caja_window_go_to_tab (window, locations[tab]);
-        } 
+        caja_window_go_to_tab (window, locations[tab]);
+        g_free (uri);
     }
 
     if (geometry != NULL && !gtk_widget_get_visible (GTK_WIDGET (window))) {
@@ -324,8 +322,6 @@ open_tabs (CajaApplication *application,
                                                          APPLICATION_WINDOW_MIN_HEIGHT,
                                                          FALSE);
     }
-
-    g_free (uri);
 }
 
 static void
@@ -2225,10 +2221,6 @@ caja_application_local_command_line (GApplication *application,
         }
         g_application_open (application, files, len, concatOptions);
         g_free (concatOptions);
-    } else {
-        if (len > 0)  {
-            g_application_open (application, files, len, "");
-        }
     }
 
     for (idx = 0; idx < len; idx++) {
