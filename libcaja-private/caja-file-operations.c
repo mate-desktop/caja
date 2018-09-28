@@ -782,24 +782,25 @@ get_duplicate_name (const char *name, int count_increment, int max_length)
 static gboolean
 has_invalid_xml_char (char *str)
 {
-	gunichar c;
+    gunichar c;
 
-	while (*str != 0) {
-		c = g_utf8_get_char (str);
-		/* characters XML permits */
-		if (!(c == 0x9 ||
-		      c == 0xA ||
-		      c == 0xD ||
-		      (c >= 0x20 && c <= 0xD7FF) ||
-		      (c >= 0xE000 && c <= 0xFFFD) ||
-		      (c >= 0x10000 && c <= 0x10FFFF))) {
-			return TRUE;
-		}
-		str = g_utf8_next_char (str);
-	}
-	return FALSE;
+    while (*str != 0)
+    {
+        c = g_utf8_get_char (str);
+        /* characters XML permits */
+        if (!(c == 0x9 ||
+              c == 0xA ||
+              c == 0xD ||
+              (c >= 0x20 && c <= 0xD7FF) ||
+              (c >= 0xE000 && c <= 0xFFFD) ||
+              (c >= 0x10000 && c <= 0x10FFFF)))
+        {
+            return TRUE;
+        }
+        str = g_utf8_next_char (str);
+    }
+    return FALSE;
 }
-
 
 static char *
 custom_full_name_to_string (char *format, va_list va)
@@ -1249,6 +1250,70 @@ run_error (CommonJob *job,
 	va_end (varargs);
 	return res;
 }
+
+
+
+
+static gchar *
+get_basename (GFile *file)
+{
+    GFileInfo *info;
+    gchar *name, *basename, *tmp;
+    GMount *mount;
+
+    if ((mount = caja_get_mounted_mount_for_root (file)) != NULL)
+    {
+        name = g_mount_get_name (mount);
+        g_object_unref (mount);
+    }
+    else
+    {
+        info = g_file_query_info (file,
+                                  G_FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME,
+                                  0,
+                                  g_cancellable_get_current (),
+                                  NULL);
+        name = NULL;
+        if (info)
+        {
+            name = g_strdup (g_file_info_get_display_name (info));
+            g_object_unref (info);
+        }
+    }
+
+    if (name == NULL)
+    {
+        basename = g_file_get_basename (file);
+        if (g_utf8_validate (basename, -1, NULL))
+        {
+            name = basename;
+        }
+        else
+        {
+            name = g_uri_escape_string (basename, G_URI_RESERVED_CHARS_ALLOWED_IN_PATH, TRUE);
+            g_free (basename);
+        }
+    }
+
+    /* Some chars can't be put in the markup we use for the dialogs... */
+    if (has_invalid_xml_char (name))
+    {
+        tmp = name;
+        name = g_uri_escape_string (name, G_URI_RESERVED_CHARS_ALLOWED_IN_PATH, TRUE);
+        g_free (tmp);
+    }
+
+    /* Finally, if the string is too long, truncate it. */
+    if (name != NULL)
+    {
+        tmp = name;
+        name = eel_str_middle_truncate (tmp, MAXIMUM_DISPLAYED_FILE_NAME_LENGTH);
+        g_free (tmp);
+    }
+
+    return name;
+}
+
 
 static int
 run_warning (CommonJob *job,
@@ -2827,152 +2892,208 @@ verify_destination (CommonJob *job,
 	GFileInfo *info, *fsinfo;
 	GError *error;
 	guint64 free_size;
+    	guint64 size_difference;
 	char *primary, *secondary, *details;
 	int response;
 	GFileType file_type;
+	gboolean dest_is_symlink = FALSE;
 
-	if (dest_fs_id) {
-		*dest_fs_id = NULL;
-	}
+	if (dest_fs_id)
+    {
+        *dest_fs_id = NULL;
+    }
 
- retry:
+retry:
 
-	error = NULL;
-	info = g_file_query_info (dest,
-				  G_FILE_ATTRIBUTE_STANDARD_TYPE","
-				  G_FILE_ATTRIBUTE_ID_FILESYSTEM,
-				  0,
-				  job->cancellable,
-				  &error);
+    error = NULL;
+    info = g_file_query_info (dest,
+                              G_FILE_ATTRIBUTE_STANDARD_TYPE ","
+                              G_FILE_ATTRIBUTE_ID_FILESYSTEM,
+                              dest_is_symlink ? G_FILE_QUERY_INFO_NONE : G_FILE_QUERY_INFO_NOFOLLOW_SYMLINKS,
+                              job->cancellable,
+                              &error);
 
-	if (info == NULL) {
-		if (IS_IO_ERROR (error, CANCELLED)) {
-			g_error_free (error);
-			return;
-		}
+    if (info == NULL)
+    {
+        g_autofree gchar *basename = NULL;
 
-		primary = f (_("Error while copying to \"%B\"."), dest);
-		details = NULL;
+        if (IS_IO_ERROR (error, CANCELLED))
+        {
+            g_error_free (error);
+            return;
+        }
 
-		if (IS_IO_ERROR (error, PERMISSION_DENIED)) {
-			secondary = f (_("You do not have permissions to access the destination folder."));
-		} else {
-			secondary = f (_("There was an error getting information about the destination."));
-			details = error->message;
-		}
+        basename = get_basename (dest);
+        primary = g_strdup_printf (_("Error while copying to “%s”."), basename);
+        details = NULL;
 
-		response = run_error (job,
-				      primary,
-				      secondary,
-				      details,
-				      FALSE,
-				      CANCEL, RETRY,
-				      NULL);
+        if (IS_IO_ERROR (error, PERMISSION_DENIED))
+        {
+            secondary = g_strdup (_("You do not have permissions to access the destination folder."));
+        }
+        else
+        {
+            secondary = g_strdup (_("There was an error getting information about the destination."));
+            details = error->message;
+        }
 
-		g_error_free (error);
+        response = run_error (job,
+                              primary,
+                              secondary,
+                              details,
+                              FALSE,
+                              CANCEL, RETRY,
+                              NULL);
 
-		if (response == 0 || response == GTK_RESPONSE_DELETE_EVENT) {
-			abort_job (job);
-		} else if (response == 1) {
-			goto retry;
-		} else {
-			g_assert_not_reached ();
-		}
+        g_error_free (error);
 
-		return;
-	}
+        if (response == 0 || response == GTK_RESPONSE_DELETE_EVENT)
+        {
+            abort_job (job);
+        }
+        else if (response == 1)
+        {
+            goto retry;
+        }
+        else
+        {
+            g_assert_not_reached ();
+        }
 
-	file_type = g_file_info_get_file_type (info);
+        return;
+    }
 
-	if (dest_fs_id) {
-		*dest_fs_id =
-			g_strdup (g_file_info_get_attribute_string (info,
-								    G_FILE_ATTRIBUTE_ID_FILESYSTEM));
-	}
+    file_type = g_file_info_get_file_type (info);
+    if (!dest_is_symlink && file_type == G_FILE_TYPE_SYMBOLIC_LINK)
+    {
+        /* Record that destination is a symlink and do real stat() once again */
+        dest_is_symlink = TRUE;
+        g_object_unref (info);
+        goto retry;
+    }
 
-	g_object_unref (info);
+    if (dest_fs_id)
+    {
+        *dest_fs_id =
+            g_strdup (g_file_info_get_attribute_string (info,
+                                                        G_FILE_ATTRIBUTE_ID_FILESYSTEM));
+    }
 
-	if (file_type != G_FILE_TYPE_DIRECTORY) {
-		primary = f (_("Error while copying to \"%B\"."), dest);
-		secondary = f (_("The destination is not a folder."));
+    g_object_unref (info);
 
-		response = run_error (job,
-				      primary,
-				      secondary,
-				      NULL,
-				      FALSE,
-				      CANCEL,
-				      NULL);
+    if (file_type != G_FILE_TYPE_DIRECTORY)
+    {
+        g_autofree gchar *basename = NULL;
 
-		abort_job (job);
-		return;
-	}
+        basename = get_basename (dest);
+        primary = g_strdup_printf (_("Error while copying to “%s”."), basename);
+        secondary = g_strdup (_("The destination is not a folder."));
 
-	fsinfo = g_file_query_filesystem_info (dest,
-					       G_FILE_ATTRIBUTE_FILESYSTEM_FREE","
-					       G_FILE_ATTRIBUTE_FILESYSTEM_READONLY,
-					       job->cancellable,
-					       NULL);
-	if (fsinfo == NULL) {
-		/* All sorts of things can go wrong getting the fs info (like not supported)
-		 * only check these things if the fs returns them
-		 */
-		return;
-	}
+        run_error (job,
+                   primary,
+                   secondary,
+                   NULL,
+                   FALSE,
+                   CANCEL,
+                   NULL);
 
-	if (required_size > 0 &&
-	    g_file_info_has_attribute (fsinfo, G_FILE_ATTRIBUTE_FILESYSTEM_FREE)) {
-		free_size = g_file_info_get_attribute_uint64 (fsinfo,
-							      G_FILE_ATTRIBUTE_FILESYSTEM_FREE);
+        abort_job (job);
+        return;
+    }
 
-		if (free_size < required_size) {
-			primary = f (_("Error while copying to \"%B\"."), dest);
-			secondary = f(_("There is not enough space on the destination. Try to remove files to make space."));
+    if (dest_is_symlink)
+    {
+        /* We can't reliably statfs() destination if it's a symlink, thus not doing any further checks. */
+        return;
+    }
 
-			details = f (_("There is %S available, but %S is required."), free_size, required_size);
+    fsinfo = g_file_query_filesystem_info (dest,
+                                           G_FILE_ATTRIBUTE_FILESYSTEM_FREE ","
+                                           G_FILE_ATTRIBUTE_FILESYSTEM_READONLY,
+                                           job->cancellable,
+                                           NULL);
+    if (fsinfo == NULL)
+    {
+        /* All sorts of things can go wrong getting the fs info (like not supported)
+         * only check these things if the fs returns them
+         */
+        return;
+    }
 
-			response = run_warning (job,
-						primary,
-						secondary,
-						details,
-						FALSE,
-						CANCEL,
-						COPY_FORCE,
-						RETRY,
-						NULL);
+    if (required_size > 0 &&
+        g_file_info_has_attribute (fsinfo, G_FILE_ATTRIBUTE_FILESYSTEM_FREE))
+    {
+        free_size = g_file_info_get_attribute_uint64 (fsinfo,
+                                                      G_FILE_ATTRIBUTE_FILESYSTEM_FREE);
 
-			if (response == 0 || response == GTK_RESPONSE_DELETE_EVENT) {
-				abort_job (job);
-			} else if (response == 2) {
-				goto retry;
-			} else if (response == 1) {
-				/* We are forced to copy - just fall through ... */
-			} else {
-				g_assert_not_reached ();
-			}
-		}
-	}
+        if (free_size < required_size)
+        {
+            g_autofree gchar *basename = NULL;
+            g_autofree gchar *formatted_size = NULL;
 
-	if (!job_aborted (job) &&
-	    g_file_info_get_attribute_boolean (fsinfo,
-					       G_FILE_ATTRIBUTE_FILESYSTEM_READONLY)) {
-		primary = f (_("Error while copying to \"%B\"."), dest);
-		secondary = f (_("The destination is read-only."));
+            basename = get_basename (dest);
+            size_difference = required_size - free_size;
+            primary = g_strdup_printf (_("Error while copying to “%s”."), basename);
+            secondary = g_strdup (_("There is not enough space on the destination."
+                                    " Try to remove files to make space."));
 
-		response = run_error (job,
-				      primary,
-				      secondary,
-				      NULL,
-				      FALSE,
-				      CANCEL,
-				      NULL);
+            formatted_size = g_format_size (size_difference);
+            details = g_strdup_printf (_("%s more space is required to copy to the destination."),
+                                       formatted_size);
 
-		g_error_free (error);
+            response = run_warning (job,
+                                    primary,
+                                    secondary,
+                                    details,
+                                    FALSE,
+                                    CANCEL,
+                                    COPY_FORCE,
+                                    RETRY,
+                                    NULL);
 
-		abort_job (job);
-	}
+            if (response == 0 || response == GTK_RESPONSE_DELETE_EVENT)
+            {
+                abort_job (job);
+            }
+            else if (response == 2)
+            {
+                goto retry;
+            }
+            else if (response == 1)
+            {
+                /* We are forced to copy - just fall through ... */
+            }
+            else
+            {
+                g_assert_not_reached ();
+            }
+        }
+    }
 
-	g_object_unref (fsinfo);
+    if (!job_aborted (job) &&
+        g_file_info_get_attribute_boolean (fsinfo,
+                                           G_FILE_ATTRIBUTE_FILESYSTEM_READONLY))
+    {
+        g_autofree gchar *basename = NULL;
+
+        basename = get_basename (dest);
+        primary = g_strdup_printf (_("Error while copying to “%s”."), basename);
+        secondary = g_strdup (_("The destination is read-only."));
+
+        run_error (job,
+                   primary,
+                   secondary,
+                   NULL,
+                   FALSE,
+                   CANCEL,
+                   NULL);
+
+        g_error_free (error);
+
+        abort_job (job);
+    }
+
+    g_object_unref (fsinfo);
 }
 
 static void
