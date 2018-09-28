@@ -86,6 +86,7 @@ struct FMListViewDetails
     GtkTreePath *new_selection_path;   /* Path of the new selection after removing a file */
 
     GtkTreePath *hover_path;
+    gboolean hover_hit_test;
 
     guint drag_button;
     int drag_x;
@@ -157,6 +158,11 @@ static void   fm_list_view_rename_callback                 (CajaFile      *file,
         GError            *error,
         gpointer           callback_data);
 
+
+static gboolean cell_event_hit_test (GtkTreeView *tree_view,
+                                     GtkTreePath *path,
+                                     GtkTreeViewColumn *column,
+                                     GdkEvent *event);
 
 G_DEFINE_TYPE_WITH_CODE (FMListView, fm_list_view, FM_TYPE_DIRECTORY_VIEW,
                          G_IMPLEMENT_INTERFACE (CAJA_TYPE_VIEW,
@@ -528,6 +534,10 @@ motion_notify_callback (GtkWidget *widget,
                         gpointer callback_data)
 {
     FMListView *view;
+    GtkTreeViewColumn *column;
+    GtkTreeModel *model;
+    GtkTreeIter hover_iter;
+    gboolean hit_test;
 
     view = FM_LIST_VIEW (callback_data);
 
@@ -540,11 +550,32 @@ motion_notify_callback (GtkWidget *widget,
     {
         GtkTreePath *old_hover_path;
 
+        model = gtk_tree_view_get_model (GTK_TREE_VIEW (widget));
+
         old_hover_path = view->details->hover_path;
         gtk_tree_view_get_path_at_pos (GTK_TREE_VIEW (widget),
                                        event->x, event->y,
                                        &view->details->hover_path,
-                                       NULL, NULL, NULL);
+                                       &column, NULL, NULL);
+
+        hit_test = FALSE;
+        if (column == view->details->file_name_column) {
+            hit_test = cell_event_hit_test (GTK_TREE_VIEW (widget),
+                                            view->details->hover_path,
+                                            column, (GdkEvent *)event);
+        }
+
+        if (hit_test != view->details->hover_hit_test) {
+            /* update underline (cf. filename_cell_data_func()) */
+            view->details->hover_hit_test = hit_test;
+            gtk_tree_model_get_iter (model, &hover_iter, view->details->hover_path);
+            gtk_tree_model_row_changed (model, view->details->hover_path, &hover_iter);
+        }
+
+        if (!hit_test) {
+            gtk_tree_path_free (view->details->hover_path);
+            view->details->hover_path = NULL;
+        }
 
         if ((old_hover_path != NULL) != (view->details->hover_path != NULL))
         {
@@ -652,12 +683,140 @@ do_popup_menu (GtkWidget *widget, FMListView *view, GdkEventButton *event)
     }
 }
 
+
+
+
+/* returns whether a given (mouse) event happened inside the area occupied by
+ * cell renderes in the column/row specified by the GtkTreeColumn/GtkTreePath.
+ * rather than inside inter-row/inter-column space.
+ *
+ * Note that space between cell renderers is treated as part of the cell renderer area.
+ */
+static gboolean
+cell_event_hit_test (GtkTreeView *tree_view,
+                     GtkTreePath *path,
+                     GtkTreeViewColumn *column,
+                     GdkEvent *event) {
+    GtkTreePath *path_copy;
+    GtkTreeIter iter;
+    GList *cell_renderers;
+    GdkRectangle rect, final_rect;
+    GList *l;
+    int event_x, event_y;
+    int x_offset, y_offset, width, height;
+    int xpad, ypad;
+
+    event_x = event_y = 0;
+    switch (event->type) {
+        case GDK_MOTION_NOTIFY:
+            event_x = ((GdkEventMotion *) event)->x;
+            event_y = ((GdkEventMotion *) event)->y;
+            break;
+
+        case GDK_BUTTON_PRESS:
+        case GDK_2BUTTON_PRESS:
+        case GDK_3BUTTON_PRESS:
+        case GDK_BUTTON_RELEASE:
+            event_x = ((GdkEventButton *) event)->x;
+            event_y = ((GdkEventButton *) event)->y;
+            break;
+
+        default:
+            g_assert_not_reached ();
+    }
+
+    path_copy = gtk_tree_path_copy (path);
+    gtk_tree_path_down (path_copy);
+
+    gtk_tree_model_get_iter (gtk_tree_view_get_model (tree_view), &iter, path);
+
+    gtk_tree_view_column_cell_set_cell_data (column,
+                        gtk_tree_view_get_model (tree_view),
+                        &iter,
+                        path_copy != NULL,
+                        gtk_tree_view_row_expanded (tree_view, path));
+
+    cell_renderers = gtk_cell_layout_get_cells (GTK_TREE_VIEW_COLUMN (column));
+
+    /* determine column/row area occupied by cell renderers */
+    for (l = cell_renderers; l != NULL; l = l->next) {
+        gtk_tree_view_get_cell_area (tree_view, path, column, &rect);
+        gtk_tree_view_column_cell_get_position (column, GTK_CELL_RENDERER (l->data),
+                                &x_offset, &width);
+        rect.x += x_offset;
+        rect.width = width;
+
+        gtk_cell_renderer_get_size (GTK_CELL_RENDERER (l->data),
+                        GTK_WIDGET (tree_view), &rect,
+                        &x_offset, &y_offset, &width, &height);
+        rect.x += x_offset;
+        rect.y += y_offset;
+        rect.width = width;
+        rect.height = height;
+
+        g_object_get (G_OBJECT (l->data),
+                  "xpad", &xpad,
+                  "ypad", &ypad,
+                  NULL);
+
+        rect.x += xpad;
+        rect.width -= 2*xpad;
+
+        rect.y += ypad;
+        rect.height -= 2*ypad;
+
+        if (l == cell_renderers) {
+            final_rect = rect;
+        } else {
+            gdk_rectangle_union (&final_rect, &rect, &final_rect);
+        }
+    }
+
+    return ((event_x >= final_rect.x &&
+        event_x <= final_rect.x + final_rect.width) &&
+        (event_y >= final_rect.y &&
+        event_y <= final_rect.y + final_rect.height));
+}
+
+static gboolean
+expander_hit_test (GtkWidget *widget,
+                   GtkTreePath *path,
+                   GdkEventButton *event) {
+    int expander_size, horizontal_separator;
+    gboolean on_expander;
+
+    gtk_widget_style_get (widget,
+                  "expander-size", &expander_size,
+                  "horizontal-separator", &horizontal_separator,
+                  NULL);
+    /* TODO we should not hardcode this extra padding. It is
+     * EXPANDER_EXTRA_PADDING from GtkTreeView.
+     */
+    expander_size += 4;
+    on_expander = (event->x <= horizontal_separator / 2 +
+                   gtk_tree_path_get_depth (path) * expander_size);
+
+    return on_expander;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 static gboolean
 button_press_callback (GtkWidget *widget, GdkEventButton *event, gpointer callback_data)
 {
     FMListView *view;
     GtkTreeView *tree_view;
     GtkTreePath *path;
+    GtkTreeViewColumn *column;
     gboolean call_parent;
     GtkTreeSelection *selection;
     GtkWidgetClass *tree_view_class;
@@ -665,7 +824,6 @@ button_press_callback (GtkWidget *widget, GdkEventButton *event, gpointer callba
     static gint64 last_click_time = 0;
     static int click_count = 0;
     int double_click_time;
-    int expander_size, horizontal_separator;
     gboolean on_expander;
 
     view = FM_LIST_VIEW (callback_data);
@@ -715,20 +873,14 @@ button_press_callback (GtkWidget *widget, GdkEventButton *event, gpointer callba
 
     view->details->ignore_button_release = FALSE;
 
+    path = NULL;
     call_parent = TRUE;
     if (gtk_tree_view_get_path_at_pos (tree_view, event->x, event->y,
-                                       &path, NULL, NULL, NULL))
-    {
-        gtk_widget_style_get (widget,
-                              "expander-size", &expander_size,
-                              "horizontal-separator", &horizontal_separator,
-                              NULL);
-        /* TODO we should not hardcode this extra padding. It is
-         * EXPANDER_EXTRA_PADDING from GtkTreeView.
-         */
-        expander_size += 4;
-        on_expander = (event->x <= horizontal_separator / 2 +
-                       gtk_tree_path_get_depth (path) * expander_size);
+                                       &path, &column, NULL, NULL) &&
+                                       column == view->details->file_name_column &&
+                                       (cell_event_hit_test (tree_view, path, column, (GdkEvent *) event) ||
+                                       expander_hit_test (widget, path, event))) {
+        on_expander = expander_hit_test (widget, path, event);
 
         /* Keep track of path of last click so double clicks only happen
          * on the same item */
@@ -876,8 +1028,12 @@ button_press_callback (GtkWidget *widget, GdkEventButton *event, gpointer callba
     }
     else
     {
-        if ((event->button == 1 || event->button == 2)  &&
-                event->type == GDK_BUTTON_PRESS)
+        if (event->type != GDK_BUTTON_PRESS) 
+        {
+            return TRUE;
+        }
+
+        if (event->button == 1 || event->button == 2) 
         {
             if (view->details->double_click_path[1])
             {
@@ -887,15 +1043,24 @@ button_press_callback (GtkWidget *widget, GdkEventButton *event, gpointer callba
             view->details->double_click_path[0] = NULL;
         }
 
-        /* Deselect if people click outside any row. It's OK to
-           let default code run; it won't reselect anything. */
-        gtk_tree_selection_unselect_all (gtk_tree_view_get_selection (tree_view));
+        if ((event->state & GDK_CONTROL_MASK) == 0 &&
+            (event->state & GDK_SHIFT_MASK) == 0) {
+            /* Deselect if people click outside any row. It's OK to
+               let default code run; it won't reselect anything. */
+            gtk_tree_selection_unselect_all (gtk_tree_view_get_selection (tree_view));
+        }
         tree_view_class->button_press_event (widget, event);
 
         if (event->button == 3)
         {
             do_popup_menu (widget, view, event);
+            return TRUE;
         }
+        if (path != NULL) {
+            gtk_tree_path_free (path);
+        }
+
+        return FALSE;
     }
 
     /* We chained to the default handler in this method, so never
@@ -1653,6 +1818,7 @@ create_and_set_up_tree_view (FMListView *view)
     GList *l;
 
     view->details->tree_view = GTK_TREE_VIEW (gtk_tree_view_new ());
+    gtk_tree_view_set_rubber_banding (view->details->tree_view, TRUE);
     view->details->columns = g_hash_table_new_full (g_str_hash,
                              g_str_equal,
                              (GDestroyNotify)g_free,
