@@ -4517,13 +4517,15 @@ caja_file_get_icon (CajaFile *file,
 		return icon;
 	}
 
-	if (flags & CAJA_FILE_ICON_FLAGS_FORCE_THUMBNAIL_SIZE) {
-		modified_size = size * scale;
-	} else {
-		modified_size = size * scale * cached_thumbnail_size / CAJA_ICON_SIZE_STANDARD;
-	}
 	if (flags & CAJA_FILE_ICON_FLAGS_USE_THUMBNAILS &&
 	    caja_file_should_show_thumbnail (file)) {
+
+		if (flags & CAJA_FILE_ICON_FLAGS_FORCE_THUMBNAIL_SIZE) {
+			modified_size = size * scale;
+			} else {
+			modified_size = size * scale * cached_thumbnail_size / CAJA_ICON_SIZE_STANDARD;
+		}
+
 		if (file->details->thumbnail) {
 			int w, h, s;
 			double thumb_scale;
@@ -4595,10 +4597,6 @@ caja_file_get_icon (CajaFile *file,
 
 	if (gicon) {
 		icon = caja_icon_info_lookup (gicon, size, scale);
-		if (caja_icon_info_is_fallback (icon)) {
-			g_object_unref (icon);
-			icon = caja_icon_info_lookup (get_default_file_icon (flags), size, scale);
-		}
 		g_object_unref (gicon);
 		return icon;
 	} else {
