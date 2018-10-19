@@ -114,10 +114,7 @@ struct _CajaApplicationPriv {
     gchar *geometry;
 };
 
-
-
 GList *
-
 caja_application_get_spatial_window_list (void)
 {
     return caja_application_spatial_window_list;
