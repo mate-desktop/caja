@@ -1979,8 +1979,8 @@ static gboolean
 running_in_mate (void)
 {
     return (g_strcmp0 (g_getenv ("XDG_CURRENT_DESKTOP"), "MATE") == 0)
-        || (g_strcmp0 (g_getenv ("XDG_SESSION_DESKTOP"), "MATE") == 0)
-        || (g_strcmp0 (g_getenv ("DESKTOP_SESSION"), "MATE") == 0);
+        || (g_strcmp0 (g_getenv ("XDG_SESSION_DESKTOP"), "mate") == 0)
+        || (g_strcmp0 (g_getenv ("DESKTOP_SESSION"), "mate") == 0);
 }
 
 static gboolean
