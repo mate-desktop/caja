@@ -154,13 +154,13 @@ caja_monitor_directory (GFile *location)
     if (dir_monitor != NULL) {
         ret->monitor = dir_monitor;
     }
-
+    /*This caused a crash on umounting remote shares
     else if (!g_file_is_native (location)) {
         ret->mount = caja_get_mounted_mount_for_root (location);
         ret->location = g_object_ref (location);
         ret->volume_monitor = g_volume_monitor_get ();
     }
-
+    */
     if (ret->monitor != NULL) {
         g_signal_connect (ret->monitor, "changed",
                   G_CALLBACK (dir_changed), ret);
