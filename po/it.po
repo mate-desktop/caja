@@ -3,14 +3,26 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Marco Giannini <giannini.marco@gmail.com>, 2018
+# lc_ <luca.caroppo@bluewin.ch>, 2018
+# ShadowK98 <amedeo.giuliani.98@gmail.com>, 2018
+# Dario Di Nucci <linkin88mail@gmail.com>, 2018
+# LuKePicci <luca.piccirillo@gmail.com>, 2018
+# Marco Bartolucci <nap.84@live.it>, 2018
+# Marco Z. <minaz666@gmail.com>, 2018
+# Stefano Karapetsas <stefano@karapetsas.com>, 2018
+# l3nn4rt, 2018
+# Giuseppe Pignataro (Fastbyte01) <rogepix@gmail.com>, 2018
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-20 21:30+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: lennart fsm, 2018\n"
+"PO-Revision-Date: 2018-03-11 14:48+0000\n"
+"Last-Translator: Giuseppe Pignataro (Fastbyte01) <rogepix@gmail.com>, 2018\n"
 "Language-Team: Italian (https://www.transifex.com/mate/teams/13566/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1371,8 +1383,8 @@ msgstr "Eliminazione dei file"
 #: ../libcaja-private/caja-file-operations.c:1537
 msgid "%T left"
 msgid_plural "%T left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%T rimanente"
+msgstr[1] "%T rimanenti"
 
 #: ../libcaja-private/caja-file-operations.c:1604
 #: ../libcaja-private/caja-file-operations.c:1638
@@ -2071,15 +2083,15 @@ msgstr[1] ""
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'u cartella"
+msgstr[1] "%'u cartelle"
 
 #: ../libcaja-private/caja-file.c:6150
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'u file"
+msgstr[1] "%'u file"
 
 #. Do this in a separate stage so that we don't have to put G_GUINT64_FORMAT
 #. in the translated string
@@ -2555,11 +2567,11 @@ msgstr[1] ""
 
 #: ../libcaja-private/caja-progress-info.c:623
 msgid "Process completed"
-msgstr ""
+msgstr "Processo completato"
 
 #: ../libcaja-private/caja-progress-info.c:633
 msgid "Working..."
-msgstr ""
+msgstr "In esecuzione..."
 
 #: ../libcaja-private/caja-progress-info.c:992
 #: ../libcaja-private/caja-progress-info.c:1013
@@ -4172,8 +4184,8 @@ msgstr "Apri con %s"
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Usa \"%s\" per aprire l'oggetto selezionato"
+msgstr[1] "Usa \"%s\" per aprire gli oggetti selezionati"
 
 #: ../src/file-manager/fm-directory-view.c:4570
 msgid "Open parent location"
@@ -4542,8 +4554,8 @@ msgstr "Crea una copia di ogni oggetto selezionato"
 #: ../src/file-manager/fm-directory-view.c:8976
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Crea co_llegamento"
+msgstr[1] "Crea co_llegamenti"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7369
@@ -4959,8 +4971,8 @@ msgstr[1] ""
 #, c-format
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Sposta l'oggetto selezionato fuori dal cestino"
+msgstr[1] "Sposta gli oggetti selezionati fuori dal cestino"
 
 #: ../src/file-manager/fm-directory-view.c:8217
 #: ../src/file-manager/fm-directory-view.c:8221
@@ -5104,8 +5116,8 @@ msgstr "Esplora in nuova _finestra"
 #: ../src/file-manager/fm-directory-view.c:8862
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Esplora cartella"
+msgstr[1] "_Esplora cartelle"
 
 #: ../src/file-manager/fm-directory-view.c:8558
 #: ../src/file-manager/fm-directory-view.c:8891
@@ -5362,7 +5374,7 @@ msgstr "Mantiene le icone in righe ordinate per dimensione"
 
 #: ../src/file-manager/fm-icon-view.c:142
 msgid "by S_ize on Disk"
-msgstr ""
+msgstr "per _Dimensione sul Disco"
 
 #: ../src/file-manager/fm-icon-view.c:143
 #: ../src/file-manager/fm-icon-view.c:1759
@@ -5408,11 +5420,11 @@ msgstr ""
 
 #: ../src/file-manager/fm-icon-view.c:177
 msgid "by E_xtension"
-msgstr ""
+msgstr "Per _Estensione"
 
 #: ../src/file-manager/fm-icon-view.c:178
 msgid "Keep icons sorted by reversed extension segments in rows"
-msgstr ""
+msgstr "Mantieni le icone in righe ordinate per estensione al contrario"
 
 #: ../src/file-manager/fm-icon-view.c:787
 msgid "_Organize Desktop by Name"
@@ -5502,39 +5514,39 @@ msgstr "Lascia le icone dove sono state trascinate"
 
 #: ../src/file-manager/fm-icon-view.c:1746
 msgid "By _Name"
-msgstr "Per _nome"
+msgstr "Per _Nome"
 
 #: ../src/file-manager/fm-icon-view.c:1752
 msgid "By _Size"
-msgstr "Per _dimensione"
+msgstr "Per _Dimensione"
 
 #: ../src/file-manager/fm-icon-view.c:1758
 msgid "By S_ize on Disk"
-msgstr ""
+msgstr "per D_imensione sul Disco"
 
 #: ../src/file-manager/fm-icon-view.c:1764
 msgid "By _Type"
-msgstr "Per _tipo"
+msgstr "Per _Tipo"
 
 #: ../src/file-manager/fm-icon-view.c:1770
 msgid "By Modification _Date"
-msgstr "Per d_ata di modifica"
+msgstr "Per Data di _Modifica"
 
 #: ../src/file-manager/fm-icon-view.c:1776
 msgid "By _Emblems"
-msgstr "Per _simbolo"
+msgstr "Per _Simbolo"
 
 #: ../src/file-manager/fm-icon-view.c:1782
 msgid "By T_rash Time"
-msgstr "Per data di _rimozione"
+msgstr "Per Data di _Rimozione"
 
 #: ../src/file-manager/fm-icon-view.c:1788
 msgid "By E_xtension"
-msgstr ""
+msgstr "Per _Estensione"
 
 #: ../src/file-manager/fm-icon-view.c:1789
 msgid "Keep icons sorted by reverse extension segments in rows"
-msgstr ""
+msgstr "Mantieni le icone in righe ordinate per estensione al contrario"
 
 #: ../src/file-manager/fm-icon-view.c:1917
 msgid "Restore Icon's Original Si_ze"
@@ -5681,8 +5693,8 @@ msgstr "Il file che è stato trascinato non è una immagine."
 #: ../src/file-manager/fm-properties-window.c:639
 msgid "_Name:"
 msgid_plural "_Names:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Nome:"
+msgstr[1] "_Nomi:"
 
 #: ../src/file-manager/fm-properties-window.c:995
 #, c-format
@@ -6140,7 +6152,7 @@ msgstr "Modifica segnalibri"
 
 #: ../src/caja-bookmarks-window.ui.h:3
 msgid "_Jump to"
-msgstr ""
+msgstr "_Salta a"
 
 #: ../src/caja-bookmarks-window.ui.h:6
 msgid "<b>_Bookmarks</b>"
@@ -6409,7 +6421,7 @@ msgstr "Per dimensione"
 
 #: ../src/caja-file-management-properties.ui.h:10
 msgid "By Size on Disk"
-msgstr ""
+msgstr "Per dimensione sul disco"
 
 #: ../src/caja-file-management-properties.ui.h:11
 msgid "By Type"
@@ -6880,15 +6892,15 @@ msgstr "Tipo di immagine:"
 #, c-format
 msgid "<b>Width:</b> %d pixel"
 msgid_plural "<b>Width:</b> %d pixels"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "<b>Larghezza:</b> %d pixel"
+msgstr[1] "<b>Larghezza:</b> %d pixel"
 
 #: ../src/caja-image-properties-page.c:410
 #, c-format
 msgid "<b>Height:</b> %d pixel"
 msgid_plural "<b>Height:</b> %d pixels"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "<b>Altezza:</b> %d pixel"
+msgstr[1] "<b>Altezza:</b> %d pixel"
 
 #: ../src/caja-image-properties-page.c:429
 msgid "Failed to load image information"

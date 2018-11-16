@@ -3,14 +3,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# xpander0 <xpander0@gmail.com>, 2018
+# Ivar Smolin <okul@linux.ee>, 2018
+# Rivo Zängov <eraser@eraser.ee>, 2018
+# Stefano Karapetsas <stefano@karapetsas.com>, 2018
+# Mattias Põldaru <mahfiaz@gmail.com>, 2018
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-20 21:30+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Rivo Zängov <eraser@eraser.ee>, 2018\n"
+"PO-Revision-Date: 2018-03-11 14:48+0000\n"
+"Last-Translator: Mattias Põldaru <mahfiaz@gmail.com>, 2018\n"
 "Language-Team: Estonian (https://www.transifex.com/mate/teams/13566/et/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -794,7 +801,7 @@ msgstr "Laiend"
 
 #: ../libcaja-private/caja-column-utilities.c:147
 msgid "The extension of the file."
-msgstr ""
+msgstr "Faililaiend."
 
 #: ../libcaja-private/caja-column-utilities.c:189
 msgid "Trashed On"
@@ -1114,30 +1121,30 @@ msgstr "Ko_peeri ikka"
 #, c-format
 msgid "%'d second"
 msgid_plural "%'d seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d sekund"
+msgstr[1] "%'d sekundit"
 
 #: ../libcaja-private/caja-file-operations.c:315
 #: ../libcaja-private/caja-file-operations.c:326
 #, c-format
 msgid "%'d minute"
 msgid_plural "%'d minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d minut"
+msgstr[1] "%'d minutit"
 
 #: ../libcaja-private/caja-file-operations.c:325
 #, c-format
 msgid "%'d hour"
 msgid_plural "%'d hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d tund"
+msgstr[1] "%'d tundi"
 
 #: ../libcaja-private/caja-file-operations.c:333
 #, c-format
 msgid "approximately %'d hour"
 msgid_plural "approximately %'d hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "umbes %'d tund"
+msgstr[1] "umbes %'d tundi"
 
 #. appended to new link file
 #. Note to localizers: convert file type string for file
@@ -1328,7 +1335,7 @@ msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:1471
 msgid "Are you sure you want to trash \"%B\"?"
-msgstr ""
+msgstr "Kas oled kindel, et soovid visata \"%B\" prügikasti?"
 
 #: ../libcaja-private/caja-file-operations.c:1474
 #, c-format
@@ -1340,6 +1347,7 @@ msgstr[1] ""
 #: ../libcaja-private/caja-file-operations.c:1483
 msgid "Items moved to the trash may be recovered until the trash is emptied."
 msgstr ""
+"Prügikasti visatud asju on võimalik taastada kuni prügikasti tühjendamiseni."
 
 #: ../libcaja-private/caja-file-operations.c:1486
 msgid "Move to _Trash"
@@ -2507,19 +2515,19 @@ msgstr "Failioperatsioonid"
 
 #: ../libcaja-private/caja-progress-info.c:313
 msgid "paused"
-msgstr ""
+msgstr "pausitud"
 
 #: ../libcaja-private/caja-progress-info.c:316
 msgid "pausing"
-msgstr ""
+msgstr "pausimisel"
 
 #: ../libcaja-private/caja-progress-info.c:319
 msgid "queued"
-msgstr ""
+msgstr "järjekorras"
 
 #: ../libcaja-private/caja-progress-info.c:322
 msgid "queuing"
-msgstr ""
+msgstr "lisatakse järjekorda"
 
 #: ../libcaja-private/caja-progress-info.c:606
 #, c-format
@@ -2953,6 +2961,10 @@ msgid ""
 "the default setting. If set to false, it can be started without any window, "
 "so Caja can serve as a daemon to monitor media automount, or similar tasks."
 msgstr ""
+"Kui tõene, lõpetab Caja töö, kui kõik aknad suletakse. See on vaikimisi "
+"säte. Kui väär, saab Cajat käivitada ilma akendeta, nii võib Cajat kasutada "
+"teenusprotsessina, mis monitoorib meediumide isehaakimist või täidab "
+"sarnaseid ülesandeid."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:5
 msgid "Enables the classic Caja behavior, where all windows are browsers"
@@ -2995,13 +3007,14 @@ msgstr ""
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:11
 msgid "Whether to ask for confirmation when moving files to the Trash"
-msgstr ""
+msgstr "Kas failide liigutamisel prügikasti küsitakse kinnitust või mitte"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:12
 msgid ""
 "If set to true, then Caja will ask for confirmation when you attempt to move"
 " files to the Trash."
 msgstr ""
+"Kui märgitud, siis Caja küsib enne failide prügikasti viskamist kinnitust."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:13
 msgid "Whether to enable immediate deletion"
@@ -3082,13 +3095,15 @@ msgstr ""
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:23
 msgid "Show the package installer for unknown MIME types"
-msgstr ""
+msgstr "Tundmatute MIME-liikide jaoks pakipaigaldaja näitamine"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:24
 msgid ""
 "Whether to show the user a package installer dialog in case an unknown MIME "
 "type is opened, in order to search for an application to handle it."
 msgstr ""
+"Kas tundmatute MIME-liikide avamisel tuleb sobiva rakenduse leidmiseks "
+"näidata pakipaigaldaja dialoogi või mitte."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:25
 msgid "Use extra mouse button events in Caja' browser window"
@@ -3358,14 +3373,16 @@ msgid ""
 "If set to true, file sizes are shown using IEC (base 1024) units with "
 "\"KiB\" style suffixes, instead of default with SI units."
 msgstr ""
+"Kui märgitud, näidatakse failisuuruseid SI ühikute asemel IEC ühikutes (alus"
+" 1024, nt KiB)."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:67
 msgid "Whether to show desktop notifications"
-msgstr ""
+msgstr "Kas teavitusi kuvatakse või mitte"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:68
 msgid "If set to true, Caja will show desktop notifications for eject events"
-msgstr ""
+msgstr "Kui märgitud, näitab Caja andmekandjate väljastamisel teavitusi"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:69
 msgid "List of possible captions on icons"
@@ -3432,6 +3449,9 @@ msgid ""
 "\n"
 "Available zoom levels: smallest (33%), smaller (50%), small (66%), standard (100%), large (150%), larger (200%), largest (400%)"
 msgstr ""
+"Selle sõnega määratakse, kuidas liigpikkade failinimede osasid tuleb sõltuvalt suurendusastmest ellipsitega asendada. Iga loetelu kirje on kujul \"Suurendusaste:Täisarv\". Iga nullist suurema arvuga suurendusastme korral ei ületa failinimi määratud arvu ridu. Kui arv on null või väiksem, siis määratud suurendusastmele piiranguid ei rakendata. Lubatud on ka vaikimisi täisarvuline kirje ilma määratud suurendusastmeta, see kirjeldab suurima ridade arvu kõikidele suurendusastmetele. Näited: 0 - liigpikki failinimesid kuvatakse alati; 3 - failinimesid lühendatakse, kui need ületavad kolme rida; smallest:5,smaller:4,0 - failinimesid lühendatakse suurendusastme \"smallest\" korral, kui need ületavad viite rida. Suurendusastme \"smaller\" korral lühendatakse failinimesid, kui need ületavad nelja rida. Ülejäänud suurendusastmete korral failinimesid ei lühendata. \n"
+"\n"
+"Saadaolevad suurendusastmed: väikseim (33%), väiksem (50%), väike (66%), tavaline (100%), suur (150%), suurem (200%), suurim (400%)"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:84
 msgid "Default compact view zoom level"
@@ -5260,7 +5280,7 @@ msgstr ""
 #: ../src/file-manager/fm-icon-view.c:143
 #: ../src/file-manager/fm-icon-view.c:1759
 msgid "Keep icons sorted by disk usage in rows"
-msgstr ""
+msgstr "Ikooniridade sortimine suuruse järgi kettal"
 
 #: ../src/file-manager/fm-icon-view.c:149
 msgid "by _Type"
@@ -5401,7 +5421,7 @@ msgstr "_Suuruse järgi"
 
 #: ../src/file-manager/fm-icon-view.c:1758
 msgid "By S_ize on Disk"
-msgstr ""
+msgstr "Suuruse järgi _kettal"
 
 #: ../src/file-manager/fm-icon-view.c:1764
 msgid "By _Type"
@@ -5421,11 +5441,11 @@ msgstr "_Kustutamise aja järgi"
 
 #: ../src/file-manager/fm-icon-view.c:1788
 msgid "By E_xtension"
-msgstr ""
+msgstr "_Laiendi järgi"
 
 #: ../src/file-manager/fm-icon-view.c:1789
 msgid "Keep icons sorted by reverse extension segments in rows"
-msgstr ""
+msgstr "Ikooniridade sortimine laiendi viimaste segmentide järgi"
 
 #: ../src/file-manager/fm-icon-view.c:1917
 msgid "Restore Icon's Original Si_ze"
@@ -5571,8 +5591,8 @@ msgstr "Fail, mille poetasid, ei ole pilt."
 #: ../src/file-manager/fm-properties-window.c:639
 msgid "_Name:"
 msgid_plural "_Names:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Nimi:"
+msgstr[1] "_Nimed:"
 
 #: ../src/file-manager/fm-properties-window.c:995
 #, c-format
@@ -5909,7 +5929,7 @@ msgstr "%s väljastamine pole võimalik"
 
 #: ../src/caja-application.c:1937
 msgid "--check cannot be used with other options."
-msgstr ""
+msgstr "caja: --check võtit pole võimalik kasutada koos teiste võtmetega."
 
 #: ../src/caja-application.c:1943
 msgid "--quit cannot be used with URIs."
@@ -5950,10 +5970,12 @@ msgid ""
 "Manage the desktop regardless of set preferences or environment (on new "
 "startup only)"
 msgstr ""
+"Töölaua haldamine hoolimata määratud eelistustest või keskkonnast (ainult "
+"esmakäivitusel)"
 
 #: ../src/caja-application.c:2026
 msgid "Open a browser window."
-msgstr ""
+msgstr "Brauseri akna avamine."
 
 #: ../src/caja-application.c:2028
 msgid "Quit Caja."
@@ -6079,7 +6101,7 @@ msgstr "Turvaline WebDAV (HTTPS)"
 
 #: ../src/caja-connect-server-dialog.c:150
 msgid "Apple Filing Protocol (AFP)"
-msgstr ""
+msgstr "Apple failiprotokoll (AFP)"
 
 #: ../src/caja-connect-server-dialog.c:196
 msgid "Connecting..."
@@ -6296,7 +6318,7 @@ msgstr "Suuruse järgi"
 
 #: ../src/caja-file-management-properties.ui.h:10
 msgid "By Size on Disk"
-msgstr ""
+msgstr "Suuruse järgi kettal"
 
 #: ../src/caja-file-management-properties.ui.h:11
 msgid "By Type"
@@ -6591,7 +6613,7 @@ msgstr "<b>Helifailid</b>"
 
 #: ../src/caja-file-management-properties.ui.h:90
 msgid "Preview _sound files:"
-msgstr "_Helifaile eelvaadeltakse:"
+msgstr "_Helifaile eelvaadeldakse:"
 
 #: ../src/caja-file-management-properties.ui.h:91
 msgid "<b>Folders</b>"

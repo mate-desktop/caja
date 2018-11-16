@@ -3,14 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Egoitz Rodriguez Obieta <egoitzro@gmail.com>, 2018
+# Asier Iturralde Sarasola <asier.iturralde@gmail.com>, 2018
+# Stefano Karapetsas <stefano@karapetsas.com>, 2018
+# Alexander Gabilondo <alexgabilondo@gmail.com>, 2018
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-20 21:30+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Egoitz Rodriguez Obieta <egoitzro@gmail.com>, 2018\n"
+"PO-Revision-Date: 2018-03-11 14:48+0000\n"
+"Last-Translator: Alexander Gabilondo <alexgabilondo@gmail.com>, 2018\n"
 "Language-Team: Basque (https://www.transifex.com/mate/teams/13566/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -301,6 +307,12 @@ msgid ""
 "extensible through a plugin system, similar to that of GNOME Nautilus, of "
 "which Caja is a fork. </p>"
 msgstr ""
+"<p> Caja MATE mahaigain inguruneko fitxategi kudeatzailea ofiziala da. Haren"
+" bidez arakatu daitezke direktorioak, fitxategiak aurreikusi eta hauei "
+"asoziatutako aplikazioak abiarazi. Era berean MATE mahaigainaren ikonoen "
+"arduraduna da. Fitxategi lokalak zein urrutikoekin lan egiten du.  </p> <p> "
+"Caja GNOME Nautilusen fork-a da eta haren kasuan bezala bere "
+"funtzionalitateak pluginen bidez hedatu daitezke. </p>"
 
 #: ../data/caja-autorun-software.desktop.in.in.h:1
 msgid "Autorun Prompt"
@@ -921,6 +933,8 @@ msgid ""
 "Merging will ask for confirmation before replacing any files in the folder "
 "that conflict with the files being copied."
 msgstr ""
+"Bateratzaileak berrespena eskatu du kopiatzean konfliktoa eman duen "
+"karpetako edozein fitxategia ordeztu aurretik."
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:157
 #, c-format
@@ -1009,7 +1023,7 @@ msgstr "Aldatze-data:"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:315
 msgid "Merge with"
-msgstr ""
+msgstr "Bateratu honekin"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:315
 #: ../libcaja-private/caja-file-conflict-dialog.c:319
@@ -1050,12 +1064,12 @@ msgstr "Ordezkatu"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:759
 msgid "Merge Folder"
-msgstr ""
+msgstr "Bateratu karpeta"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:759
 #: ../libcaja-private/caja-file-conflict-dialog.c:764
 msgid "File and Folder conflict"
-msgstr ""
+msgstr "Fitxategi eta karpeten gatazka"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:764
 msgid "File conflict"
@@ -2946,6 +2960,10 @@ msgid ""
 "the default setting. If set to false, it can be started without any window, "
 "so Caja can serve as a daemon to monitor media automount, or similar tasks."
 msgstr ""
+"True (egia) gisa ezartzen bada, Caja irten egingo da leiho guztiak "
+"apurtzean. Hau ezarpen lehenetsia da. False (faltsua) gisa ezartzen bada, "
+"leihorik gabe has daiteke, honela Caja multimediako muntatze automatikoak "
+"(edo antzeko atazak) monitorizatzeko daemon gisa erabil daiteke."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:5
 msgid "Enables the classic Caja behavior, where all windows are browsers"
@@ -2958,6 +2976,9 @@ msgid ""
 "Nautilus used to behave before version 2.6, and some people prefer this "
 "behavior."
 msgstr ""
+"Egia ezartzen bada, Caja-ko leiho guztiak leiho-arakatzaileak izango dira. "
+"Hau Caja-ren 2.6 bertsioa baino lehenagoko portaera izan da, eta "
+"erabiltzaile batzuk portaera hau atseginagoa dute."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:7
 msgid "Always use the location entry, instead of the pathbar"
@@ -2987,13 +3008,15 @@ msgstr ""
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:11
 msgid "Whether to ask for confirmation when moving files to the Trash"
-msgstr ""
+msgstr "Fitxategiak zakarrontzira mugitzen diren berrespena eskatu ala ez"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:12
 msgid ""
 "If set to true, then Caja will ask for confirmation when you attempt to move"
 " files to the Trash."
 msgstr ""
+"Egia ezartzen bada, Caja-k berrespena eskatuko du fitxategiak zakarrontzira "
+"mugitu nahi dituzunean."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:13
 msgid "Whether to enable immediate deletion"
@@ -3076,13 +3099,15 @@ msgstr ""
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:23
 msgid "Show the package installer for unknown MIME types"
-msgstr ""
+msgstr "Erakutsi pakete instalatzailea MIME mota ezezagunentzat"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:24
 msgid ""
 "Whether to show the user a package installer dialog in case an unknown MIME "
 "type is opened, in order to search for an application to handle it."
 msgstr ""
+"Mota ezezaguneko MIME bat irekitzean ea erabiltzaileari bera kudeatzeko "
+"aplikazio bat bilatzeko elkarrizketa koadroa ireki behar ote zaion."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:25
 msgid "Use extra mouse button events in Caja' browser window"
@@ -3347,20 +3372,26 @@ msgid ""
 "Hidden files are either dotfiles, listed in the folder's .hidden file or "
 "backup files ending with a tilde (~)."
 msgstr ""
+"Egia ezartzen bada, fitxategi ezkutuak fitxategi-kudeatzailean agertuko "
+"dira. Fitxategi ezkutuak puntua ('.') karakterearekin hasten diren "
+"fitxategiak dira edo direktorioaren .hidden fitxategien zerrendan daude."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:65
 msgid "Whether to show file sizes with IEC units"
-msgstr ""
+msgstr "Fitxategien tamaina IEC unitateekin erakutsiko diren ala ez"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:66
 msgid ""
 "If set to true, file sizes are shown using IEC (base 1024) units with "
 "\"KiB\" style suffixes, instead of default with SI units."
 msgstr ""
+"Egia ezartzen bada, fitxategien tamaina IEC (1024 oinarria) unitateen bidez "
+"bistaratuko dira \"KiB\" estiloko atzizkiekin, lehenetsitako SI unitateen "
+"ordez."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:67
 msgid "Whether to show desktop notifications"
-msgstr ""
+msgstr "Mahaigaineko jakinarazpenak"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:68
 msgid "If set to true, Caja will show desktop notifications for eject events"
@@ -3431,6 +3462,8 @@ msgid ""
 "\n"
 "Available zoom levels: smallest (33%), smaller (50%), small (66%), standard (100%), large (150%), larger (200%), largest (400%)"
 msgstr ""
+"Fitxategi-izen luzeegien zatiak, zoom mailaren arabera, elipsiekin nola ordezkatu zehazten duen katea. Zerrendako sarrera bakoitza \"Zoom Maila:Osokoa\" formakoa da. Zehaztutako zoom maila bakoitzean, dagokion zenbaki osoa 0 baino handiagoa bada, fitxategi-izenak ez ditu emandako lerroak baino gehiago izango. Zenbakia 0 edo txikiagoa bada, ez zaio mugarik jarriko bistaratutako lerro kopuruari zoom maila horretan. Zoom mailarik zehazten ez duen \"Osokoa\" formako sarrera lehenetsia ere onartzen da. Honek zoom maila guztientzako gehienezko lerro kopurua zehazten du. Adibidez: 0 - beti bistaratu fitxategi-izen luzeak; 3 - laburtu hiru lerro baino luzeagoak diren fitxategi-izenak; smallest:5,smaller:4,0 - laburtu 5 lerro baino luzeagoak diren fitxategi-izenak \"smallest\", txikiena, zoom mailan eta 4 lerro baino luzeagoak \"smaller\", txikiagoa, zoom mailan. Beste zoom mailetan fitxategi-izenak ez dira laburtuko.\n"
+"Zoomaren maila erabilgarriak: smallest, txikiena (% 33), smaller, txikiagoa (% 50), small, txikia (% 66), standard, estandarra (% 100), large, handia (% 150), larger, handiagoa (% 200), largest, handiena (% 400)"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:84
 msgid "Default compact view zoom level"
@@ -3691,11 +3724,11 @@ msgstr "Leiho ireki berrietan erakusteko albo-panelaren ikuspegia."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:133
 msgid "List of extensions in disabled state."
-msgstr ""
+msgstr "Desgaituta dauden gehigarrien zerrenda"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:134
 msgid "This list contains the extensions that are currently de-activated."
-msgstr ""
+msgstr "Une honetan desgaituta dauden hedapenen zerrenda."
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:1
 msgid "Whether to automatically mount media"
@@ -5933,15 +5966,15 @@ msgstr "Ezin da %s egotzi"
 
 #: ../src/caja-application.c:1937
 msgid "--check cannot be used with other options."
-msgstr ""
+msgstr " --check ezin da beste aukerekin erabili."
 
 #: ../src/caja-application.c:1943
 msgid "--quit cannot be used with URIs."
-msgstr ""
+msgstr "--quit ezin da erabili URIekin."
 
 #: ../src/caja-application.c:1950
 msgid "--geometry cannot be used with more than one URI."
-msgstr ""
+msgstr "--geometry ezin da URI bat baino gehiagorekin erabili."
 
 #: ../src/caja-application.c:2013
 msgid "Perform a quick set of self-check tests."
@@ -5976,10 +6009,12 @@ msgid ""
 "Manage the desktop regardless of set preferences or environment (on new "
 "startup only)"
 msgstr ""
+"Kudeatu mahaigaina ezarritako hobespenak edo ingurunea kontuan hartu gabe "
+"(berrabiaraztean soilik)"
 
 #: ../src/caja-application.c:2026
 msgid "Open a browser window."
-msgstr ""
+msgstr "Ireki nabigatzailearen leihoa."
 
 #: ../src/caja-application.c:2028
 msgid "Quit Caja."
@@ -6116,16 +6151,18 @@ msgid ""
 "Can't load the supported server method list.\n"
 "Please check your GVfs installation."
 msgstr ""
+"Ezin da kargatu onartutako zerbitzariaren metodoen zerrenda. Egiaztatu zure "
+"GVfs instalazioa."
 
 #: ../src/caja-connect-server-dialog.c:298
 #, c-format
 msgid "The folder \"%s\" cannot be opened on \"%s\"."
-msgstr ""
+msgstr " \"%s\" karpeta ezin da \"%s\"-(e)an ireki.."
 
 #: ../src/caja-connect-server-dialog.c:308
 #, c-format
 msgid "The server at \"%s\" cannot be found."
-msgstr ""
+msgstr " \"%s\"-(e)ko zerbitzaria ezin da aurkitu."
 
 #: ../src/caja-connect-server-dialog.c:343
 msgid "Try Again"
@@ -6133,7 +6170,7 @@ msgstr "Saiatu berriz"
 
 #: ../src/caja-connect-server-dialog.c:409
 msgid "Please verify your user details."
-msgstr ""
+msgstr "Berretsi zure erabiltzailearen xehetasunak."
 
 #: ../src/caja-connect-server-dialog.c:439
 msgid "Continue"
@@ -6290,7 +6327,7 @@ msgstr "Erakutsi ikurrak"
 
 #: ../src/caja-file-management-properties.c:639
 msgid "About Extension"
-msgstr ""
+msgstr "Hedapenari buruz"
 
 #: ../src/caja-file-management-properties.ui.h:4
 msgid "Always"
@@ -6533,7 +6570,7 @@ msgstr "Galdetu zakarrontzia _hustu edo fitxategiak ezabatu aurretik"
 
 #: ../src/caja-file-management-properties.ui.h:71
 msgid "Ask before moving files to the _Trash"
-msgstr ""
+msgstr "Galdetu fitxategiak zakarrontzira mugitu aurretik"
 
 #: ../src/caja-file-management-properties.ui.h:72
 msgid "I_nclude a Delete command that bypasses Trash"
@@ -6565,7 +6602,7 @@ msgstr "_Formatua:"
 
 #: ../src/caja-file-management-properties.ui.h:78
 msgid "<b>Size</b>"
-msgstr ""
+msgstr "<b>Tamaina</b>"
 
 #: ../src/caja-file-management-properties.ui.h:79
 msgid "_Show file sizes with IEC units"
@@ -6688,11 +6725,11 @@ msgstr "Euskarria"
 
 #: ../src/caja-file-management-properties.ui.h:108
 msgid "<b>Available _Extensions:</b>"
-msgstr ""
+msgstr "<b>Hedapen_aktiboak:</b>"
 
 #: ../src/caja-file-management-properties.ui.h:109
 msgid "column"
-msgstr ""
+msgstr "zutabea"
 
 #: ../src/caja-file-management-properties.ui.h:111
 msgid "_About Extension"
