@@ -279,6 +279,7 @@ caja_directory_get_internal (GFile *location, gboolean create)
     /* Create the hash table first time through. */
     if (directories == NULL) {
         directories = g_hash_table_new (g_file_hash, (GCompareFunc) g_file_equal);
+        caja_global_preferences_init ();
     }
 
     /* If the object is already in the hash table, look it up. */
