@@ -3039,6 +3039,7 @@ create_pie_widget (FMPropertiesWindow *window)
 	gchar 			*free;
 	const char		*fs_type;
 	gchar			*uri;
+	gchar			*concat;
 	GFile *location;
 	GFileInfo *info;
 
@@ -3093,7 +3094,9 @@ create_pie_widget (FMPropertiesWindow *window)
 
 	gtk_widget_set_size_request (used_canvas, 20, 20);
 	/* Translators: "used" refers to the capacity of the filesystem */
-	used_label = gtk_label_new (g_strconcat (used, " ", _("used"), NULL));
+	concat = g_strconcat (used, " ", _("used"), NULL);
+	used_label = gtk_label_new (concat);
+	g_free (concat);
 
 	free_canvas = gtk_drawing_area_new ();
 
@@ -3102,9 +3105,13 @@ create_pie_widget (FMPropertiesWindow *window)
 
 	gtk_widget_set_size_request (free_canvas, 20, 20);
 	/* Translators: "free" refers to the capacity of the filesystem */
-	free_label = gtk_label_new (g_strconcat (free, " ", _("free"), NULL));
+	concat = g_strconcat (free, " ", _("free"), NULL);
+	free_label = gtk_label_new (concat);
+	g_free (concat);
 
-	capacity_label = gtk_label_new (g_strconcat (_("Total capacity:"), " ", capacity, NULL));
+	concat = g_strconcat (_("Total capacity:"), " ", capacity, NULL);
+	capacity_label = gtk_label_new (concat);
+	g_free (concat);
 	fstype_label = gtk_label_new (NULL);
 
 	location = g_file_new_for_uri (uri);
@@ -3113,9 +3120,9 @@ create_pie_widget (FMPropertiesWindow *window)
 	if (info) {
 		fs_type = g_file_info_get_attribute_string (info, G_FILE_ATTRIBUTE_FILESYSTEM_TYPE);
 		if (fs_type != NULL) {
-			gchar *fstype_text = g_strconcat (_("Filesystem type:"), " ", fs_type, NULL);
-			gtk_label_set_text (GTK_LABEL (fstype_label), fstype_text);
-			g_free (fstype_text);
+			concat = g_strconcat (_("Filesystem type:"), " ", fs_type, NULL);
+			gtk_label_set_text (GTK_LABEL (fstype_label), concat);
+			g_free (concat);
 		}
 
 		g_object_unref (info);
