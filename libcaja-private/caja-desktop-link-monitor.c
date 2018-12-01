@@ -339,11 +339,11 @@ desktop_volumes_visible_changed (gpointer callback_data)
 static void
 create_link_and_add_preference (CajaDesktopLink   **link_ref,
                                 CajaDesktopLinkType link_type,
-                                const char             *preference_key,
-                                GCallback               callback,
-                                gpointer                callback_data)
+                                const char         *preference_key,
+                                GCallback           callback,
+                                gpointer            callback_data)
 {
-    char *detailed_signal;
+    gchar *detailed_signal;
 
     if (g_settings_get_boolean (caja_desktop_preferences, preference_key))
     {
@@ -354,6 +354,7 @@ create_link_and_add_preference (CajaDesktopLink   **link_ref,
     g_signal_connect_swapped (caja_desktop_preferences,
                               detailed_signal,
                               callback, callback_data);
+    g_free (detailed_signal);
 }
 
 static void
