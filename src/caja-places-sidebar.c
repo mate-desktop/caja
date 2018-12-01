@@ -1899,7 +1899,7 @@ drive_start_from_bookmark_cb (GObject      *source_object,
     char *name;
 
     error = NULL;
-    if (!g_drive_poll_for_media_finish (G_DRIVE (source_object), res, &error))
+    if (!g_drive_start_finish (G_DRIVE (source_object), res, &error))
     {
         if (error->code != G_IO_ERROR_FAILED_HANDLED)
         {
@@ -2488,7 +2488,7 @@ drive_start_cb (GObject      *source_object,
     char *name;
 
     error = NULL;
-    if (!g_drive_poll_for_media_finish (G_DRIVE (source_object), res, &error))
+    if (!g_drive_start_finish (G_DRIVE (source_object), res, &error))
     {
         if (error->code != G_IO_ERROR_FAILED_HANDLED)
         {
