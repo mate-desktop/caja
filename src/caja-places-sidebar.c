@@ -2548,7 +2548,7 @@ drive_stop_cb (GObject *source_object,
     g_object_unref (window);
 
     error = NULL;
-    if (!g_drive_poll_for_media_finish (G_DRIVE (source_object), res, &error))
+    if (!g_drive_stop_finish(G_DRIVE (source_object), res, &error))
     {
         if (error->code != G_IO_ERROR_FAILED_HANDLED)
         {
