@@ -448,6 +448,7 @@ GtkWidget *
 eel_image_menu_item_new_from_icon (const gchar *icon_name,
                                    const gchar *label_name)
 {
+    gchar *concat;
     GtkWidget *icon;
     GSettings *icon_settings;
     GtkWidget *box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
@@ -460,7 +461,8 @@ eel_image_menu_item_new_from_icon (const gchar *icon_name,
         /*Load an empty icon to hold the space*/
         icon = gtk_image_new ();
 
-    GtkWidget *label_menu = gtk_label_new_with_mnemonic (g_strconcat (label_name, "     ", NULL));
+    concat = g_strconcat (label_name, "     ", NULL);
+    GtkWidget *label_menu = gtk_label_new_with_mnemonic (concat);
     GtkWidget *menuitem = gtk_menu_item_new ();
 
     gtk_container_add (GTK_CONTAINER (box), icon);
@@ -471,6 +473,7 @@ eel_image_menu_item_new_from_icon (const gchar *icon_name,
     gtk_widget_show_all (menuitem);
 
     g_object_unref(icon_settings);
+    g_free (concat);
 
     return menuitem;
 }
@@ -479,6 +482,7 @@ GtkWidget *
 eel_image_menu_item_new_from_pixbuf (GdkPixbuf   *icon_pixbuf,
                                      const gchar *label_name)
 {
+    gchar *concat;
     GtkWidget *icon;
     GtkWidget *box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
 
@@ -487,7 +491,8 @@ eel_image_menu_item_new_from_pixbuf (GdkPixbuf   *icon_pixbuf,
     else
         icon = gtk_image_new ();
 
-    GtkWidget *label_menu = gtk_label_new (g_strconcat (label_name, "     ", NULL));
+    concat = g_strconcat (label_name, "     ", NULL);
+    GtkWidget *label_menu = gtk_label_new (concat);
     GtkWidget *menuitem = gtk_menu_item_new ();
 
     gtk_container_add (GTK_CONTAINER (box), icon);
@@ -495,6 +500,8 @@ eel_image_menu_item_new_from_pixbuf (GdkPixbuf   *icon_pixbuf,
 
     gtk_container_add (GTK_CONTAINER (menuitem), box);
     gtk_widget_show_all (menuitem);
+
+    g_free (concat);
 
     return menuitem;
 }
