@@ -605,6 +605,7 @@ bookmark_image_menu_item_new_from_surface (cairo_surface_t   *icon_surface,
 {
     GtkWidget *icon;
     GtkLabel *label;
+    gchar *concat;
 
     GtkWidget *box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
 
@@ -613,7 +614,9 @@ bookmark_image_menu_item_new_from_surface (cairo_surface_t   *icon_surface,
     else
         icon = gtk_image_new ();
 
-    GtkWidget *label_menu = gtk_label_new (g_strconcat (label_name, "     ", NULL));
+    concat = g_strconcat (label_name, "     ", NULL);
+    GtkWidget *label_menu = gtk_label_new (concat);
+    g_free (concat);
 
     label = GTK_LABEL (label_menu);
     gtk_label_set_use_underline (label, FALSE);
