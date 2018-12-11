@@ -29,7 +29,11 @@ DISTCLEANFILES = \
 	intltool-merge \
 	intltool-update
 
-DISTCHECK_CONFIGURE_FLAGS = --disable-update-mimedb --disable-icon-update --enable-gtk-doc
+DISTCHECK_CONFIGURE_FLAGS = \
+	--disable-update-mimedb \
+	--disable-icon-update \
+	--enable-gtk-doc \
+	CFLAGS='-Wno-deprecated-declarations'
 
 ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
