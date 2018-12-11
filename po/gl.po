@@ -3,14 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Martin Wimpress <code@flexion.org>, 2018
+# André Rivero Castillo <hab130@gmail.com>, 2018
+# Stefano Karapetsas <stefano@karapetsas.com>, 2018
+# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2018
+# 
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-12 17:01+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: André Rivero Castillo <hab130@gmail.com>, 2018\n"
+"PO-Revision-Date: 2018-03-11 14:46+0000\n"
+"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2018\n"
 "Language-Team: Galician (https://www.transifex.com/mate/teams/13566/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -306,7 +312,7 @@ msgstr ""
 "iniciar as aplicacións asociadas a eles. Tamén é responsábel de manexar as "
 "iconas do escritorio MATE. Funciona en sistemas de ficheiros locais e "
 "remotos. </p> <p> Caja é extensíbel a través dun sistema de engadidos "
-"semellante ao de Nautilus para GNOME do cal Caja é un derivado. </p>"
+"semellante ao de Nautilus para GNOME do cal Caja é unha bifurcación. </p>"
 
 #: ../data/caja-autorun-software.desktop.in.in.h:1
 msgid "Autorun Prompt"
@@ -2113,15 +2119,15 @@ msgstr "Está seguro de que quere abrir todos os ficheiros?"
 #, c-format
 msgid "This will open %d separate tab."
 msgid_plural "This will open %d separate tabs."
-msgstr[0] "Isto abrirá %d lapela."
-msgstr[1] "Isto abrirá %d lapelas."
+msgstr[0] "Isto abrirá %d lapela independente."
+msgstr[1] "Isto abrirá %d lapelas independentes."
 
 #: ../libcaja-private/caja-mime-actions.c:1178 ../src/caja-location-bar.c:194
 #, c-format
 msgid "This will open %d separate window."
 msgid_plural "This will open %d separate windows."
-msgstr[0] "Isto abrirá %d xanela separada."
-msgstr[1] "Isto abrirá %d xanelas separadas."
+msgstr[0] "Isto abrirá %d xanela independente."
+msgstr[1] "Isto abrirá %d xanelas independentes."
 
 #: ../libcaja-private/caja-mime-actions.c:1256
 #: ../src/caja-window-manage-views.c:2101
@@ -2862,8 +2868,7 @@ msgstr[1] "Refacer o cambio de propietario de %d elementos"
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:1
 msgid "Where to position newly open tabs in browser windows."
 msgstr ""
-"Onde se posicionan os separadores abertos recentemente nas xanelas de "
-"navegador."
+"Onde se posicionan as lapelas abertas recentemente nas xanelas do navegador."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:2
 msgid ""
@@ -4809,14 +4814,14 @@ msgstr "Mover o cartafol aberto fóra do lixo a «%s»"
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
 msgstr[0] "Move o cartafol seleccionado desde o lixo cara «%s»"
-msgstr[1] "Move os cartafois seleccionados desde o lixo cara «%s»"
+msgstr[1] "Move os cartafoles seleccionados desde o lixo cara «%s»"
 
 #: ../src/file-manager/fm-directory-view.c:8043
 #, c-format
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
 msgstr[0] "Move o cartafol seleccionado fóra do lixo"
-msgstr[1] "Move os cartafois seleccionados fóra do lixo"
+msgstr[1] "Move os cartafoles seleccionados fóra do lixo"
 
 #: ../src/file-manager/fm-directory-view.c:8049
 #, c-format
@@ -4982,19 +4987,19 @@ msgstr "Abrir nunha _xanela nova"
 #: ../src/file-manager/fm-directory-view.c:8507
 #: ../src/file-manager/fm-directory-view.c:8824
 msgid "Browse in New _Window"
-msgstr "Explorar nunha nova _xanela"
+msgstr "Examinar nunha nova _xanela"
 
 #: ../src/file-manager/fm-directory-view.c:8513
 #: ../src/file-manager/fm-directory-view.c:8834
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
-msgstr[0] "_Navegar o cartafol"
-msgstr[1] "_Navegar os cartafoles"
+msgstr[0] "_Examinar o cartafol"
+msgstr[1] "_Examinar os cartafoles"
 
 #: ../src/file-manager/fm-directory-view.c:8530
 #: ../src/file-manager/fm-directory-view.c:8863
 msgid "Browse in New _Tab"
-msgstr "Examinrar nunha nova _lapela"
+msgstr "Examinar nunha nova _lapela"
 
 #: ../src/file-manager/fm-directory-view.c:8579
 #: ../src/file-manager/fm-directory-view.c:8904
@@ -5025,8 +5030,8 @@ msgstr[1] "Abrir en %'d novas _xanelas"
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
-msgstr[0] "Navegar %'d nova _xanela"
-msgstr[1] "Navegar %'d novas _xanelas"
+msgstr[0] "Examinar en %'d nova _xanela"
+msgstr[1] "Examinar en %'d novas _xanelas"
 
 #: ../src/file-manager/fm-directory-view.c:8856
 #, c-format
@@ -5039,8 +5044,8 @@ msgstr[1] "Abrir en %'d novas _lapelas"
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
-msgstr[0] "Navegar %'d nova _lapela"
-msgstr[1] "Navegar %'d novas _lapelas"
+msgstr[0] "Examinar en %'d nova _lapela"
+msgstr[1] "Examinar en %'d novas _lapelas"
 
 #: ../src/file-manager/fm-directory-view.c:8905
 msgid "Delete all selected items permanently"
@@ -6825,7 +6830,7 @@ msgstr "Abrir outra xanela de Caja para a localización amosada"
 #. name, stock id, label
 #: ../src/caja-navigation-window-menus.c:831
 msgid "New _Tab"
-msgstr "Novo _separador"
+msgstr "Nova _lapela"
 
 #: ../src/caja-navigation-window-menus.c:832
 msgid "Open another tab for the displayed location"
@@ -7631,7 +7636,7 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 "Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
-"Proxecto Trasno <proxecto@trasno.net>"
+"Proxecto Trasno <proxecto@trasno.gal>"
 
 #: ../src/caja-window-menus.c:553
 msgid "MATE Web Site"
