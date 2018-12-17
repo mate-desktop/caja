@@ -623,14 +623,14 @@ update_status_icon_and_window (void)
 
         if (window_shown)
         {
-            gtk_widget_hide (get_progress_window ());
-
-            if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SHOW_NOTIFICATIONS))
+            if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SHOW_NOTIFICATIONS) &&
+                !gtk_window_is_active (GTK_WINDOW (get_progress_window ())))
             {
                 g_notification_set_body (notification, _("Process completed"));
                 g_application_send_notification (g_application_get_default (), "caja", notification);
             }
 
+            gtk_widget_hide (get_progress_window ());
             window_shown = FALSE;
         }
     }
@@ -639,13 +639,6 @@ update_status_icon_and_window (void)
         gtk_widget_show_all (get_progress_window ());
         gtk_status_icon_set_visible (status_icon, TRUE);
         gtk_window_present (GTK_WINDOW (get_progress_window ()));
-
-        if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SHOW_NOTIFICATIONS))
-        {
-            g_notification_set_body (notification, _("Working..."));
-            g_application_send_notification (g_application_get_default (), "caja", notification);
-        }
-
         window_shown = TRUE;
     }
 }
