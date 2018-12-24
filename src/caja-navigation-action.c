@@ -139,6 +139,7 @@ fill_menu (CajaNavigationWindow *window,
     GtkWidget *menu_item;
     int index;
     GList *list;
+    gboolean list_void;
 
     g_assert (CAJA_IS_NAVIGATION_WINDOW (window));
 
@@ -146,20 +147,43 @@ fill_menu (CajaNavigationWindow *window,
 
     list = back ? slot->back_list : slot->forward_list;
     index = 0;
+    list_void = TRUE;
+
     while (list != NULL)
     {
         menu_item = caja_bookmark_menu_item_new (CAJA_BOOKMARK (list->data));
-        g_object_set_data (G_OBJECT (menu_item), "user_data", GINT_TO_POINTER (index));
-        gtk_widget_show (GTK_WIDGET (menu_item));
-        g_signal_connect_object (menu_item, "activate",
-                                 back
-                                 ? G_CALLBACK (activate_back_menu_item_callback)
-                                 : G_CALLBACK (activate_forward_menu_item_callback),
-                                 window, 0);
 
-        gtk_menu_shell_append (GTK_MENU_SHELL (menu), menu_item);
+        if (menu_item) {
+            list_void = FALSE;
+            g_object_set_data (G_OBJECT (menu_item), "user_data", GINT_TO_POINTER (index));
+            gtk_widget_show (GTK_WIDGET (menu_item));
+            g_signal_connect_object (menu_item, "activate",
+                                     back
+                                     ? G_CALLBACK (activate_back_menu_item_callback)
+                                     : G_CALLBACK (activate_forward_menu_item_callback),
+                                     window, 0);
+
+            gtk_menu_shell_append (GTK_MENU_SHELL (menu), menu_item);
+        }
+
         list = g_list_next (list);
         ++index;
+    }
+
+    if (list_void)
+    {
+        gtk_menu_shell_append (GTK_MENU_SHELL (menu),
+                               eel_image_menu_item_new_from_icon ("dialog-error", _("folder removed")));
+        if (back)
+        {
+            caja_navigation_window_slot_clear_back_list (slot);
+            caja_navigation_window_allow_back (window, FALSE);
+        }
+        else
+        {
+            caja_navigation_window_slot_clear_forward_list (slot);
+            caja_navigation_window_allow_forward (window, FALSE);
+        }
     }
 }
 

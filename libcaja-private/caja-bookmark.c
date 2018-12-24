@@ -649,9 +649,14 @@ caja_bookmark_menu_item_new (CajaBookmark *bookmark)
 
     image_cairo = create_image_cairo_for_bookmark (bookmark);
 
-    menu_item = bookmark_image_menu_item_new_from_surface (image_cairo, bookmark->details->name);
+    if (strlen (bookmark->details->name) > 0)
+    {
+        menu_item = bookmark_image_menu_item_new_from_surface (image_cairo, bookmark->details->name);
 
-    return menu_item;
+        return menu_item;
+    }
+    else
+        return NULL;
 }
 
 gboolean
