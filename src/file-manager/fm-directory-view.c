@@ -8813,6 +8813,13 @@ real_update_menus (FMDirectoryView *view)
 
 		file = CAJA_FILE (l->data);
 
+		/* Double-check if the files' MIME types have changed before we
+		   commit to a choice of applications for them. This can happen
+		   if, for instance, a file was originally created with 0 bytes
+		   and then content was added to it later-- it will change from
+		   plaintext to something else. */
+		caja_file_refresh_info (file);
+
 		if (!caja_mime_file_opens_in_external_app (file)) {
 			show_app = FALSE;
 		}

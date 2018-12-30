@@ -144,6 +144,12 @@ void                    caja_file_monitor_add                       (CajaFile   
 void                    caja_file_monitor_remove                    (CajaFile                   *file,
         gconstpointer                   client);
 
+/* Synchronously refreshes file info from disk.
+ * This can call caja_file_changed, so don't call this function from any
+ * of the callbacks for that event.
+ */
+void                     caja_file_refresh_info                     (CajaFile                   *file);
+
 /* Waiting for data that's read asynchronously.
  * This interface currently works only for metadata, but could be expanded
  * to other attributes as well.

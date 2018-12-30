@@ -997,6 +997,12 @@ make_activation_parameters (GList *uris,
         uri = l->data;
         file = caja_file_get_by_uri (uri);
 
+        /* Double-check if a file's MIME type has changed before we commit to a
+           choice of application for it. This can happen if, for instance, file
+           was originally created with 0 bytes and then content was added to it
+           later-- it will change from plaintext to something else. */
+        caja_file_refresh_info (file);
+
         app = caja_mime_get_default_application_for_file (file);
         if (app != NULL)
         {
