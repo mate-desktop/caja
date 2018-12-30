@@ -2555,6 +2555,24 @@ caja_file_update_info (CajaFile *file,
 	return update_info_internal (file, info, FALSE);
 }
 
+void
+caja_file_refresh_info (CajaFile *file)
+{
+	GFile *gfile;
+	GFileInfo *new_info;
+
+	gfile = caja_file_get_location (file);
+	new_info = g_file_query_info (gfile, CAJA_FILE_DEFAULT_ATTRIBUTES,
+	                              G_FILE_QUERY_INFO_NONE, NULL, NULL);
+	if (new_info != NULL) {
+		if (caja_file_update_info (file, new_info)) {
+			caja_file_changed (file);
+		}
+		g_object_unref (new_info);
+	}
+	g_object_unref (gfile);
+}
+
 static gboolean
 update_name_internal (CajaFile *file,
 		      const char *name,
