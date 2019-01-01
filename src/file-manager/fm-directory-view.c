@@ -8811,7 +8811,7 @@ real_update_menus (FMDirectoryView *view)
 	for (l = selection; l != NULL; l = l->next) {
 		CajaFile *file;
 
-		file = CAJA_FILE (selection->data);
+		file = CAJA_FILE (l->data);
 
 		if (!caja_mime_file_opens_in_external_app (file)) {
 			show_app = FALSE;
