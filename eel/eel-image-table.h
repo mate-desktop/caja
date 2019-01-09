@@ -45,7 +45,7 @@ extern "C" {
 
     typedef struct EelImageTable		EelImageTable;
     typedef struct EelImageTableClass	EelImageTableClass;
-    typedef struct EelImageTableDetails	EelImageTableDetails;
+    typedef struct EelImageTablePrivate	EelImageTablePrivate;
 
     typedef struct
     {
@@ -62,7 +62,7 @@ extern "C" {
         EelWrapTable wrap_table;
 
         /* Private things */
-        EelImageTableDetails *details;
+        EelImageTablePrivate *details;
     };
 
     struct EelImageTableClass

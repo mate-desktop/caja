@@ -66,7 +66,7 @@ enum
 };
 
 /* Detail member struct */
-struct EelLabeledImageDetails
+struct EelLabeledImagePrivate
 {
     GtkWidget *image;
     GtkWidget *label;
@@ -104,16 +104,15 @@ static gboolean      labeled_image_show_image             (const EelLabeledImage
 
 static guint labeled_image_signals[LAST_SIGNAL] = { 0 };
 
-G_DEFINE_TYPE (EelLabeledImage, eel_labeled_image, GTK_TYPE_CONTAINER)
+G_DEFINE_TYPE_WITH_CODE (EelLabeledImage, eel_labeled_image, GTK_TYPE_CONTAINER,
+                         G_ADD_PRIVATE (EelLabeledImage))
 
 static void
 eel_labeled_image_init (EelLabeledImage *labeled_image)
 {
     gtk_widget_set_has_window (GTK_WIDGET (labeled_image), FALSE);
 
-    labeled_image->details = G_TYPE_INSTANCE_GET_PRIVATE (labeled_image,
-    							  EEL_TYPE_LABELED_IMAGE,
-    							  EelLabeledImageDetails);
+    labeled_image->details = eel_labeled_image_get_instance_private (labeled_image);
     labeled_image->details->show_label = TRUE;
     labeled_image->details->show_image = TRUE;
     labeled_image->details->label_position = GTK_POS_BOTTOM;
@@ -668,7 +667,6 @@ eel_labeled_image_class_init (EelLabeledImageClass *labeled_image_class)
                               FALSE,
                               G_PARAM_READWRITE));
 
-    g_type_class_add_private (labeled_image_class, sizeof (EelLabeledImageDetails));
 }
 
 /* Private EelLabeledImage methods */

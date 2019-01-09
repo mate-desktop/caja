@@ -68,7 +68,7 @@ extern "C" {
 
     typedef struct EelLabeledImage		  EelLabeledImage;
     typedef struct EelLabeledImageClass	  EelLabeledImageClass;
-    typedef struct EelLabeledImageDetails	  EelLabeledImageDetails;
+    typedef struct EelLabeledImagePrivate	  EelLabeledImagePrivate;
 
     struct EelLabeledImage
     {
@@ -76,7 +76,7 @@ extern "C" {
         GtkContainer container;
 
         /* Private things */
-        EelLabeledImageDetails *details;
+        EelLabeledImagePrivate *details;
     };
 
     struct EelLabeledImageClass

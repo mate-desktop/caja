@@ -42,7 +42,7 @@ enum
 };
 
 /* Detail member struct */
-struct EelWrapTableDetails
+struct EelWrapTablePrivate
 {
     guint x_spacing;
     guint y_spacing;
@@ -70,16 +70,15 @@ static gboolean      wrap_table_child_focus_in           (GtkWidget           *w
 static void          wrap_table_layout                   (EelWrapTable        *wrap_table);
 
 
-G_DEFINE_TYPE (EelWrapTable, eel_wrap_table, GTK_TYPE_CONTAINER)
+G_DEFINE_TYPE_WITH_CODE (EelWrapTable, eel_wrap_table, GTK_TYPE_CONTAINER,
+                         G_ADD_PRIVATE (EelWrapTable))
 
 static void
 eel_wrap_table_init (EelWrapTable *wrap_table)
 {
     gtk_widget_set_has_window (GTK_WIDGET (wrap_table), FALSE);
 
-    wrap_table->details = G_TYPE_INSTANCE_GET_PRIVATE (wrap_table,
-    						       EEL_TYPE_WRAP_TABLE,
-    						       EelWrapTableDetails);
+    wrap_table->details = eel_wrap_table_get_instance_private (wrap_table);
     wrap_table->details->x_justification = EEL_JUSTIFICATION_BEGINNING;
     wrap_table->details->y_justification = EEL_JUSTIFICATION_END;
     wrap_table->details->cols = 1;
@@ -485,7 +484,6 @@ eel_wrap_table_class_init (EelWrapTableClass *wrap_table_class)
      g_param_spec_boolean ("homogeneous", NULL, NULL,
                            FALSE, G_PARAM_READWRITE));
 
-    g_type_class_add_private (wrap_table_class, sizeof (EelWrapTableDetails));
 }
 
 /* Private EelWrapTable methods */
