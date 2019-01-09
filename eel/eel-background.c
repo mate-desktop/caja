@@ -38,8 +38,6 @@
 #include <stdio.h>
 #include <libcaja-private/caja-global-preferences.h>
 
-G_DEFINE_TYPE (EelBackground, eel_background, G_TYPE_OBJECT);
-
 enum
 {
     APPEARANCE_CHANGED,
@@ -50,7 +48,7 @@ enum
 
 static guint signals[LAST_SIGNAL] = { 0 };
 
-struct EelBackgroundDetails
+struct EelBackgroundPrivate
 {
     GtkWidget *widget;
     GtkWidget *front_widget;
@@ -81,6 +79,9 @@ struct EelBackgroundDetails
 };
 
 static GList *desktop_bg_objects = NULL;
+
+G_DEFINE_TYPE_WITH_CODE (EelBackground, eel_background, G_TYPE_OBJECT,
+                         G_ADD_PRIVATE (EelBackground))
 
 static void
 free_fade (EelBackground *self)
@@ -794,17 +795,12 @@ eel_background_class_init (EelBackgroundClass *klass)
                       NULL, NULL, g_cclosure_marshal_VOID__VOID, G_TYPE_NONE, 0);
 
     object_class->finalize = eel_background_finalize;
-
-    g_type_class_add_private (klass, sizeof (EelBackgroundDetails));
 }
 
 static void
 eel_background_init (EelBackground *self)
 {
-    self->details =
-          G_TYPE_INSTANCE_GET_PRIVATE (self,
-        			       EEL_TYPE_BACKGROUND,
-        			       EelBackgroundDetails);
+    self->details = eel_background_get_instance_private(self);
 
     self->details->bg = mate_bg_new ();
     self->details->default_color.red = 1.0;

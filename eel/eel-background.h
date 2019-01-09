@@ -126,12 +126,12 @@ void			    eel_bg_load_from_system_gsettings    (EelBackground   *self,
 void                        eel_background_set_active            (EelBackground   *self,
         							  gboolean         is_active);
 
-typedef struct EelBackgroundDetails EelBackgroundDetails;
+typedef struct EelBackgroundPrivate EelBackgroundPrivate;
 
 struct EelBackground
 {
     GObject object;
-    EelBackgroundDetails *details;
+    EelBackgroundPrivate *details;
 };
 
 struct EelBackgroundClass

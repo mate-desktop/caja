@@ -40,7 +40,7 @@ enum
 };
 
 /* Detail member struct */
-struct EelImageTableDetails
+struct EelImageTablePrivate
 {
     GtkWidget *child_under_pointer;
     GtkWidget *child_being_pressed;
@@ -85,16 +85,15 @@ static int     ancestor_button_release_event        (GtkWidget          *widget,
         GdkEventButton     *event,
         gpointer            event_data);
 
-G_DEFINE_TYPE (EelImageTable, eel_image_table, EEL_TYPE_WRAP_TABLE)
+G_DEFINE_TYPE_WITH_CODE (EelImageTable, eel_image_table, EEL_TYPE_WRAP_TABLE,
+                         G_ADD_PRIVATE (EelImageTable))
 
 static void
 eel_image_table_init (EelImageTable *image_table)
 {
     gtk_widget_set_has_window (GTK_WIDGET (image_table), FALSE);
 
-    image_table->details = G_TYPE_INSTANCE_GET_PRIVATE (image_table,
-    							EEL_TYPE_IMAGE_TABLE,
-    							EelImageTableDetails);
+    image_table->details = eel_image_table_get_instance_private (image_table);
 }
 
 /* GObjectClass methods */
@@ -292,7 +291,6 @@ eel_image_table_class_init (EelImageTableClass *image_table_class)
                                          GTK_TYPE_WIDGET,
                                          G_TYPE_POINTER);
 
-    g_type_class_add_private (image_table_class, sizeof (EelImageTableDetails));
 }
 
 static void

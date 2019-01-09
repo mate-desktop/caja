@@ -46,7 +46,7 @@ extern "C" {
 
     typedef struct EelWrapTable	       EelWrapTable;
     typedef struct EelWrapTableClass       EelWrapTableClass;
-    typedef struct EelWrapTableDetails     EelWrapTableDetails;
+    typedef struct EelWrapTablePrivate     EelWrapTablePrivate;
 
     struct EelWrapTable
     {
@@ -54,7 +54,7 @@ extern "C" {
         GtkContainer container;
 
         /* Private things */
-        EelWrapTableDetails *details;
+        EelWrapTablePrivate *details;
     };
 
     struct EelWrapTableClass
