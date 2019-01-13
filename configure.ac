@@ -54,7 +54,11 @@ AC_PROG_LN_S
 AC_PROG_MAKE_SET
 AM_DISABLE_STATIC
 AM_PROG_LIBTOOL
-AC_PATH_PROG(PKG_CONFIG, pkg-config, no)
+PKG_PROG_PKG_CONFIG
+dnl Give error and exit if we dont have pkgconfig
+if test "x$PKG_CONFIG" = "x"; then
+  AC_MSG_ERROR([you need to have pkgconfig installed!])
+fi
 
 AC_CHECK_LIB(m, floor)
 
