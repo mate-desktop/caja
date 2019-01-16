@@ -1741,10 +1741,10 @@ caja_application_load_session (CajaApplication *application)
     GKeyFile *state_file;
     char *data;
     caja_application_smclient_initialize (application);
-   if (!egg_sm_client_is_resumed (application->smclient))
+    if (!egg_sm_client_is_resumed (application->smclient))
     {
         return;
-  } 
+    }
 
     state_file = egg_sm_client_get_state_file (application->smclient);
     if (!state_file)
@@ -2170,7 +2170,7 @@ caja_application_local_command_line (GApplication *application,
     /* Initialize  and load session info if available */
     /* Load session if and only if autostarted        */
     /* This avoids errors on command line invocation  */
-    if (autostart_id != NULL ) {
+    if (autostart_id != NULL && self->smclient != NULL ) {
         caja_application_load_session (self);
     }
 
