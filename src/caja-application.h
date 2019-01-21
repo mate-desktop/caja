@@ -59,12 +59,12 @@ typedef struct CajaWindow CajaWindow;
 typedef struct _CajaSpatialWindow CajaSpatialWindow;
 #endif
 
-typedef struct _CajaApplicationPriv CajaApplicationPriv;
+typedef struct _CajaApplicationPrivate CajaApplicationPrivate;
 
 typedef struct
 {
     GtkApplication parent;
-    CajaApplicationPriv *priv;
+    CajaApplicationPrivate *priv;
 
     EggSMClient* smclient;
     GVolumeMonitor* volume_monitor;
