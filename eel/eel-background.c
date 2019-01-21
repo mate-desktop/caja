@@ -80,8 +80,7 @@ struct EelBackgroundPrivate
 
 static GList *desktop_bg_objects = NULL;
 
-G_DEFINE_TYPE_WITH_CODE (EelBackground, eel_background, G_TYPE_OBJECT,
-                         G_ADD_PRIVATE (EelBackground))
+G_DEFINE_TYPE_WITH_PRIVATE (EelBackground, eel_background, G_TYPE_OBJECT)
 
 static void
 free_fade (EelBackground *self)

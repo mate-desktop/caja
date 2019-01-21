@@ -85,8 +85,7 @@ static int     ancestor_button_release_event        (GtkWidget          *widget,
         GdkEventButton     *event,
         gpointer            event_data);
 
-G_DEFINE_TYPE_WITH_CODE (EelImageTable, eel_image_table, EEL_TYPE_WRAP_TABLE,
-                         G_ADD_PRIVATE (EelImageTable))
+G_DEFINE_TYPE_WITH_PRIVATE (EelImageTable, eel_image_table, EEL_TYPE_WRAP_TABLE)
 
 static void
 eel_image_table_init (EelImageTable *image_table)

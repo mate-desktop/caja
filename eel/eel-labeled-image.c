@@ -104,8 +104,7 @@ static gboolean      labeled_image_show_image             (const EelLabeledImage
 
 static guint labeled_image_signals[LAST_SIGNAL] = { 0 };
 
-G_DEFINE_TYPE_WITH_CODE (EelLabeledImage, eel_labeled_image, GTK_TYPE_CONTAINER,
-                         G_ADD_PRIVATE (EelLabeledImage))
+G_DEFINE_TYPE_WITH_PRIVATE (EelLabeledImage, eel_labeled_image, GTK_TYPE_CONTAINER)
 
 static void
 eel_labeled_image_init (EelLabeledImage *labeled_image)

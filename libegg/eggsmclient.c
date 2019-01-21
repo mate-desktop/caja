@@ -46,10 +46,7 @@ struct _EggSMClientPrivate
     GKeyFile *state_file;
 };
 
-#define EGG_SM_CLIENT_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), EGG_TYPE_SM_CLIENT, EggSMClientPrivate))
-
-G_DEFINE_TYPE_WITH_CODE (EggSMClient, egg_sm_client, G_TYPE_OBJECT,
-                         G_ADD_PRIVATE (EggSMClient))
+G_DEFINE_TYPE_WITH_PRIVATE (EggSMClient, egg_sm_client, G_TYPE_OBJECT)
 
 static EggSMClient *global_client;
 static EggSMClientMode global_client_mode = EGG_SM_CLIENT_MODE_NORMAL;

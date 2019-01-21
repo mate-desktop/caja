@@ -70,8 +70,7 @@ static gboolean      wrap_table_child_focus_in           (GtkWidget           *w
 static void          wrap_table_layout                   (EelWrapTable        *wrap_table);
 
 
-G_DEFINE_TYPE_WITH_CODE (EelWrapTable, eel_wrap_table, GTK_TYPE_CONTAINER,
-                         G_ADD_PRIVATE (EelWrapTable))
+G_DEFINE_TYPE_WITH_PRIVATE (EelWrapTable, eel_wrap_table, GTK_TYPE_CONTAINER)
 
 static void
 eel_wrap_table_init (EelWrapTable *wrap_table)
