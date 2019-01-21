@@ -105,14 +105,15 @@ static CajaFreedesktopDBus *fdb_manager = NULL;
 static char *   caja_application_get_session_data (CajaApplication *self);
 void caja_application_quit (CajaApplication *self);
 
-G_DEFINE_TYPE (CajaApplication, caja_application, GTK_TYPE_APPLICATION);
-struct _CajaApplicationPriv {
+struct _CajaApplicationPrivate {
 	GVolumeMonitor *volume_monitor;
     gboolean no_desktop;
     gboolean force_desktop;
     gboolean autostart;
     gchar *geometry;
 };
+
+G_DEFINE_TYPE_WITH_PRIVATE (CajaApplication, caja_application, GTK_TYPE_APPLICATION);
 
 GList *
 caja_application_get_spatial_window_list (void)
@@ -428,9 +429,7 @@ static void
 caja_application_init (CajaApplication *application)
 {
     GSimpleAction *action;
-    application->priv =
-        G_TYPE_INSTANCE_GET_PRIVATE (application, CAJA_TYPE_APPLICATION,
-                         CajaApplicationPriv);
+    application->priv = caja_application_get_instance_private (application);
     action = g_simple_action_new ("quit", NULL);
 
     g_action_map_add_action (G_ACTION_MAP (application), G_ACTION (action));
@@ -2479,7 +2478,6 @@ caja_application_class_init (CajaApplicationClass *class)
     application_class->open = caja_application_open;
     application_class->local_command_line = caja_application_local_command_line;
 
-    g_type_class_add_private (class, sizeof (CajaApplicationPriv));
 }
 
 CajaApplication *
