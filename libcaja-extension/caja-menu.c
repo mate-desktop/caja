@@ -38,12 +38,12 @@
  * #CajaMenuItem objects, using caja_menu_item_set_submenu().
  */
 
-#define CAJA_MENU_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), CAJA_TYPE_MENU, CajaMenuPrivate))
-G_DEFINE_TYPE (CajaMenu, caja_menu, G_TYPE_OBJECT);
 
 struct _CajaMenuPrivate {
     GList *item_list;
 };
+
+G_DEFINE_TYPE_WITH_PRIVATE (CajaMenu, caja_menu, G_TYPE_OBJECT);
 
 void
 caja_menu_append_item (CajaMenu *menu, CajaMenuItem *item)
@@ -104,7 +104,7 @@ caja_menu_finalize (GObject *object)
 static void
 caja_menu_init (CajaMenu *menu)
 {
-    menu->priv = CAJA_MENU_GET_PRIVATE (menu);
+    menu->priv = caja_menu_get_instance_private (menu);
 
     menu->priv->item_list = NULL;
 }
@@ -113,8 +113,6 @@ static void
 caja_menu_class_init (CajaMenuClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
-
-    g_type_class_add_private (klass, sizeof (CajaMenuPrivate));
 
     object_class->finalize = caja_menu_finalize;
 }
