@@ -62,7 +62,7 @@
 /* Timeout to check the desktop directory for updates */
 #define RESCAN_TIMEOUT 4
 
-struct FMDesktopIconViewDetails
+struct _FMDesktopIconViewPrivate
 {
     GdkWindow *root_window;
     GtkActionGroup *desktop_action_group;
@@ -86,7 +86,7 @@ static gboolean real_supports_zooming                             (FMDirectoryVi
 static void     fm_desktop_icon_view_update_icon_container_fonts  (FMDesktopIconView      *view);
 static void     font_changed_callback                             (gpointer                callback_data);
 
-G_DEFINE_TYPE (FMDesktopIconView, fm_desktop_icon_view, FM_TYPE_ICON_VIEW)
+G_DEFINE_TYPE_WITH_PRIVATE (FMDesktopIconView, fm_desktop_icon_view, FM_TYPE_ICON_VIEW)
 
 static char *desktop_directory;
 static time_t desktop_dir_modify_time;
@@ -267,18 +267,18 @@ fm_desktop_icon_view_dispose (GObject *object)
     icon_view = FM_DESKTOP_ICON_VIEW (object);
 
     /* Remove desktop rescan timeout. */
-    if (icon_view->details->reload_desktop_timeout != 0)
+    if (icon_view->priv->reload_desktop_timeout != 0)
     {
-        g_source_remove (icon_view->details->reload_desktop_timeout);
-        icon_view->details->reload_desktop_timeout = 0;
+        g_source_remove (icon_view->priv->reload_desktop_timeout);
+        icon_view->priv->reload_desktop_timeout = 0;
     }
 
     ui_manager = fm_directory_view_get_ui_manager (FM_DIRECTORY_VIEW (icon_view));
     if (ui_manager != NULL)
     {
         caja_ui_unmerge_ui (ui_manager,
-                            &icon_view->details->desktop_merge_id,
-                            &icon_view->details->desktop_action_group);
+                            &icon_view->priv->desktop_merge_id,
+                            &icon_view->priv->desktop_action_group);
     }
 
     g_signal_handlers_disconnect_by_func (caja_icon_view_preferences,
@@ -311,8 +311,6 @@ fm_desktop_icon_view_class_init (FMDesktopIconViewClass *class)
     FM_ICON_VIEW_CLASS (class)->supports_scaling = real_supports_scaling;
     FM_ICON_VIEW_CLASS (class)->supports_keep_aligned = real_supports_keep_aligned;
     FM_ICON_VIEW_CLASS (class)->supports_labels_beside_icons = real_supports_labels_beside_icons;
-
-    g_type_class_add_private (class, sizeof (FMDesktopIconViewDetails));
 }
 
 static void
@@ -381,13 +379,13 @@ fm_desktop_icon_view_handle_middle_click (CajaIconContainer *icon_container,
 static void
 unrealized_callback (GtkWidget *widget, FMDesktopIconView *desktop_icon_view)
 {
-    g_return_if_fail (desktop_icon_view->details->root_window != NULL);
+    g_return_if_fail (desktop_icon_view->priv->root_window != NULL);
 
     /* Remove the property filter */
-    gdk_window_remove_filter (desktop_icon_view->details->root_window,
+    gdk_window_remove_filter (desktop_icon_view->priv->root_window,
                               desktop_icon_view_property_filter,
                               desktop_icon_view);
-    desktop_icon_view->details->root_window = NULL;
+    desktop_icon_view->priv->root_window = NULL;
 }
 
 static void
@@ -398,7 +396,7 @@ realized_callback (GtkWidget *widget, FMDesktopIconView *desktop_icon_view)
     GtkAllocation allocation;
     gint scale;
 
-    g_return_if_fail (desktop_icon_view->details->root_window == NULL);
+    g_return_if_fail (desktop_icon_view->priv->root_window == NULL);
 
     screen = gtk_widget_get_screen (widget);
     scale = gtk_widget_get_scale_factor (widget);
@@ -418,7 +416,7 @@ realized_callback (GtkWidget *widget, FMDesktopIconView *desktop_icon_view)
 
     root_window = gdk_screen_get_root_window (screen);
 
-    desktop_icon_view->details->root_window = root_window;
+    desktop_icon_view->priv->root_window = root_window;
 
     /* Read out the workarea geometry and update the icon container accordingly */
     net_workarea_changed (desktop_icon_view, root_window);
@@ -468,7 +466,7 @@ do_desktop_rescan (gpointer data)
     struct stat buf;
 
     desktop_icon_view = FM_DESKTOP_ICON_VIEW (data);
-    if (desktop_icon_view->details->pending_rescan)
+    if (desktop_icon_view->priv->pending_rescan)
     {
         return TRUE;
     }
@@ -483,7 +481,7 @@ do_desktop_rescan (gpointer data)
         return TRUE;
     }
 
-    desktop_icon_view->details->pending_rescan = TRUE;
+    desktop_icon_view->priv->pending_rescan = TRUE;
 
     caja_directory_force_reload (
         fm_directory_view_get_model (
@@ -497,7 +495,7 @@ done_loading (CajaDirectory *model,
 {
     struct stat buf;
 
-    desktop_icon_view->details->pending_rescan = FALSE;
+    desktop_icon_view->priv->pending_rescan = FALSE;
     if (stat (desktop_directory, &buf) == -1)
     {
         return;
@@ -519,13 +517,13 @@ delayed_init (FMDesktopIconView *desktop_icon_view)
                              G_CALLBACK (done_loading), desktop_icon_view, 0);
 
     /* Monitor desktop directory. */
-    desktop_icon_view->details->reload_desktop_timeout =
+    desktop_icon_view->priv->reload_desktop_timeout =
         g_timeout_add_seconds (RESCAN_TIMEOUT, do_desktop_rescan, desktop_icon_view);
 
     g_signal_handler_disconnect (desktop_icon_view,
-                                 desktop_icon_view->details->delayed_init_signal);
+                                 desktop_icon_view->priv->delayed_init_signal);
 
-    desktop_icon_view->details->delayed_init_signal = 0;
+    desktop_icon_view->priv->delayed_init_signal = 0;
 }
 
 static void
@@ -559,9 +557,7 @@ fm_desktop_icon_view_init (FMDesktopIconView *desktop_icon_view)
     GtkAllocation allocation;
     GtkAdjustment *hadj, *vadj;
 
-    desktop_icon_view->details = G_TYPE_INSTANCE_GET_PRIVATE (desktop_icon_view,
-    							      FM_TYPE_DESKTOP_ICON_VIEW,
-    							      FMDesktopIconViewDetails);
+    desktop_icon_view->priv = fm_desktop_icon_view_get_instance_private (desktop_icon_view);
 
     if (desktop_directory == NULL)
     {
@@ -581,7 +577,7 @@ fm_desktop_icon_view_init (FMDesktopIconView *desktop_icon_view)
      */
     if (!caja_monitor_active ())
     {
-        desktop_icon_view->details->delayed_init_signal = g_signal_connect_object
+        desktop_icon_view->priv->delayed_init_signal = g_signal_connect_object
                 (desktop_icon_view, "begin_loading",
                  G_CALLBACK (delayed_init), desktop_icon_view, 0);
     }
@@ -737,14 +733,14 @@ real_update_menus (FMDirectoryView *view)
 
     /* New Launcher */
     disable_command_line = g_settings_get_boolean (mate_lockdown_preferences, CAJA_PREFERENCES_LOCKDOWN_COMMAND_LINE);
-    action = gtk_action_group_get_action (desktop_view->details->desktop_action_group,
+    action = gtk_action_group_get_action (desktop_view->priv->desktop_action_group,
                                           FM_ACTION_NEW_LAUNCHER_DESKTOP);
     gtk_action_set_visible (action,
                             !disable_command_line);
 
     /* Empty Trash */
     include_empty_trash = trash_link_is_selection (view);
-    action = gtk_action_group_get_action (desktop_view->details->desktop_action_group,
+    action = gtk_action_group_get_action (desktop_view->priv->desktop_action_group,
                                           FM_ACTION_EMPTY_TRASH_CONDITIONAL);
     gtk_action_set_visible (action,
                             include_empty_trash);
@@ -805,7 +801,7 @@ real_merge_menus (FMDirectoryView *view)
 
     action_group = gtk_action_group_new ("DesktopViewActions");
     gtk_action_group_set_translation_domain (action_group, GETTEXT_PACKAGE);
-    desktop_view->details->desktop_action_group = action_group;
+    desktop_view->priv->desktop_action_group = action_group;
     gtk_action_group_add_actions (action_group,
                                   desktop_view_entries, G_N_ELEMENTS (desktop_view_entries),
                                   view);
@@ -814,7 +810,7 @@ real_merge_menus (FMDirectoryView *view)
     g_object_unref (action_group); /* owned by ui manager */
 
     ui = caja_ui_string_get ("caja-desktop-icon-view-ui.xml");
-    desktop_view->details->desktop_merge_id =
+    desktop_view->priv->desktop_merge_id =
         gtk_ui_manager_add_ui_from_string (ui_manager, ui, -1, NULL);
 }
 

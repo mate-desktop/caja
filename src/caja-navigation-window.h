@@ -53,14 +53,14 @@
 
 typedef struct _CajaNavigationWindow        CajaNavigationWindow;
 typedef struct _CajaNavigationWindowClass   CajaNavigationWindowClass;
-typedef struct _CajaNavigationWindowDetails CajaNavigationWindowDetails;
+typedef struct _CajaNavigationWindowPrivate CajaNavigationWindowPrivate;
 
 
 struct _CajaNavigationWindow
 {
     CajaWindow parent_object;
 
-    CajaNavigationWindowDetails *details;
+    CajaNavigationWindowPrivate *details;
 
     /** UI stuff **/
     CajaSidePane *sidebar;

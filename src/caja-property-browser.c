@@ -66,7 +66,7 @@ typedef enum
     CAJA_PROPERTY_EMBLEM
 } CajaPropertyType;
 
-struct CajaPropertyBrowserDetails
+struct _CajaPropertyBrowserPrivate
 {
     GtkWidget *container;
 
@@ -194,7 +194,7 @@ static GtkTargetEntry drag_types[] =
 };
 
 
-G_DEFINE_TYPE (CajaPropertyBrowser, caja_property_browser, GTK_TYPE_WINDOW)
+G_DEFINE_TYPE_WITH_PRIVATE (CajaPropertyBrowser, caja_property_browser, GTK_TYPE_WINDOW)
 
 
 /* Destroy the three dialogs for adding patterns/colors/emblems if any of them
@@ -253,8 +253,6 @@ caja_property_browser_class_init (CajaPropertyBrowserClass *klass)
     widget_class->drag_begin = caja_property_browser_drag_begin;
     widget_class->drag_data_get  = caja_property_browser_drag_data_get;
     widget_class->drag_end  = caja_property_browser_drag_end;
-
-    g_type_class_add_private (klass, sizeof (CajaPropertyBrowserDetails));
 }
 
 /* initialize the instance's fields, create the necessary subviews, etc. */
@@ -270,9 +268,7 @@ caja_property_browser_init (CajaPropertyBrowser *property_browser)
 
     widget = GTK_WIDGET (property_browser);
 
-    property_browser->details = G_TYPE_INSTANCE_GET_PRIVATE (property_browser,
-    							     CAJA_TYPE_PROPERTY_BROWSER,
-    							     CajaPropertyBrowserDetails);
+    property_browser->details = caja_property_browser_get_instance_private (property_browser);
 
     property_browser->details->category = g_strdup ("patterns");
     property_browser->details->category_type = CAJA_PROPERTY_PATTERN;

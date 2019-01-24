@@ -100,6 +100,7 @@ static void action_view_as_callback         (GtkAction               *action,
 static GList *history_list;
 
 G_DEFINE_TYPE_WITH_CODE (CajaWindow, caja_window, GTK_TYPE_WINDOW,
+                         G_ADD_PRIVATE (CajaWindow)
                          G_IMPLEMENT_INTERFACE (CAJA_TYPE_WINDOW_INFO,
                                  caja_window_info_iface_init));
 
@@ -152,7 +153,7 @@ caja_window_init (CajaWindow *window)
     }
 
     g_object_unref (provider);
-    window->details = G_TYPE_INSTANCE_GET_PRIVATE (window, CAJA_TYPE_WINDOW, CajaWindowDetails);
+    window->details = caja_window_get_instance_private (window);
 
     window->details->panes = NULL;
     window->details->active_pane = NULL;
@@ -2186,8 +2187,4 @@ caja_window_class_init (CajaWindowClass *class)
 
     class->reload = caja_window_reload;
     class->go_up = caja_window_go_up_signal;
-
-
-
-    g_type_class_add_private (G_OBJECT_CLASS (class), sizeof (CajaWindowDetails));
 }

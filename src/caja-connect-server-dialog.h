@@ -42,12 +42,12 @@
 
 typedef struct _CajaConnectServerDialog CajaConnectServerDialog;
 typedef struct _CajaConnectServerDialogClass CajaConnectServerDialogClass;
-typedef struct _CajaConnectServerDialogDetails CajaConnectServerDialogDetails;
+typedef struct _CajaConnectServerDialogPrivate CajaConnectServerDialogPrivate;
 
 struct _CajaConnectServerDialog
 {
     GtkDialog parent;
-    CajaConnectServerDialogDetails *details;
+    CajaConnectServerDialogPrivate *details;
 };
 
 struct _CajaConnectServerDialogClass

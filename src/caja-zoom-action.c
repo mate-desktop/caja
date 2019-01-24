@@ -33,16 +33,12 @@
 #include <gtk/gtk.h>
 #include <eel/eel-gtk-extensions.h>
 
-G_DEFINE_TYPE (CajaZoomAction, caja_zoom_action, GTK_TYPE_ACTION)
-
 static void caja_zoom_action_init       (CajaZoomAction *action);
 static void caja_zoom_action_class_init (CajaZoomActionClass *class);
 
 static GObjectClass *parent_class = NULL;
 
-#define CAJA_ZOOM_ACTION_GET_PRIVATE(object)(G_TYPE_INSTANCE_GET_PRIVATE ((object), CAJA_TYPE_ZOOM_ACTION, CajaZoomActionPrivate))
-
-struct CajaZoomActionPrivate
+struct _CajaZoomActionPrivate
 {
     CajaNavigationWindow *window;
 };
@@ -52,6 +48,8 @@ enum
     PROP_0,
     PROP_WINDOW
 };
+
+G_DEFINE_TYPE_WITH_PRIVATE (CajaZoomAction, caja_zoom_action, GTK_TYPE_ACTION)
 
 static void
 zoom_changed_callback (CajaWindow *window,
@@ -199,12 +197,10 @@ caja_zoom_action_class_init (CajaZoomActionClass *class)
                                              "The navigation window",
                                              G_TYPE_OBJECT,
                                              G_PARAM_READWRITE));
-
-    g_type_class_add_private (object_class, sizeof(CajaZoomActionPrivate));
 }
 
 static void
 caja_zoom_action_init (CajaZoomAction *action)
 {
-    action->priv = CAJA_ZOOM_ACTION_GET_PRIVATE (action);
+    action->priv = caja_zoom_action_get_instance_private (action);
 }

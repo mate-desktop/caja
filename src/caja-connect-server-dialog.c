@@ -45,7 +45,7 @@
  * - NetworkManager integration
  */
 
-struct _CajaConnectServerDialogDetails
+struct _CajaConnectServerDialogPrivate
 {
     CajaApplication *application;
 
@@ -79,7 +79,7 @@ struct _CajaConnectServerDialogDetails
     gboolean should_destroy;
 };
 
-G_DEFINE_TYPE (CajaConnectServerDialog, caja_connect_server_dialog,
+G_DEFINE_TYPE_WITH_PRIVATE (CajaConnectServerDialog, caja_connect_server_dialog,
 	       GTK_TYPE_DIALOG)
 
 static void sensitive_entry_changed_callback (GtkEditable *editable,
@@ -851,8 +851,7 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
     gchar *str;
     int i;
 
-    dialog->details = G_TYPE_INSTANCE_GET_PRIVATE (dialog, CAJA_TYPE_CONNECT_SERVER_DIALOG,
-						   CajaConnectServerDialogDetails);
+    dialog->details = caja_connect_server_dialog_get_instance_private (dialog);
 
     content_area = gtk_dialog_get_content_area (GTK_DIALOG (dialog));
 
@@ -1167,8 +1166,6 @@ caja_connect_server_dialog_class_init (CajaConnectServerDialogClass *class)
 
 	oclass = G_OBJECT_CLASS (class);
 	oclass->finalize = caja_connect_server_dialog_finalize;
-
-	g_type_class_add_private (class, sizeof (CajaConnectServerDialogDetails));
 }
 
 GtkWidget *

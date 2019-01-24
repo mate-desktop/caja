@@ -43,12 +43,12 @@ typedef struct FMPropertiesWindow FMPropertiesWindow;
 #define FM_PROPERTIES_WINDOW_GET_CLASS(obj) \
   (G_TYPE_INSTANCE_GET_CLASS ((obj), FM_TYPE_PROPERTIES_WINDOW, FMPropertiesWindowClass))
 
-typedef struct FMPropertiesWindowDetails FMPropertiesWindowDetails;
+typedef struct _FMPropertiesWindowPrivate FMPropertiesWindowPrivate;
 
 struct FMPropertiesWindow
 {
     GtkDialog window;
-    FMPropertiesWindowDetails *details;
+    FMPropertiesWindowPrivate *details;
 };
 
 struct FMPropertiesWindowClass

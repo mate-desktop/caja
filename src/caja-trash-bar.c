@@ -42,7 +42,7 @@ enum
     NUM_PROPERTIES
 };
 
-struct CajaTrashBarPrivate
+struct _CajaTrashBarPrivate
 {
     GtkWidget *empty_button;
     GtkWidget *restore_button;
@@ -51,7 +51,7 @@ struct CajaTrashBarPrivate
     gulong selection_handler_id;
 };
 
-G_DEFINE_TYPE (CajaTrashBar, caja_trash_bar, GTK_TYPE_BOX);
+G_DEFINE_TYPE_WITH_PRIVATE (CajaTrashBar, caja_trash_bar, GTK_TYPE_BOX);
 
 static void
 restore_button_clicked_cb (GtkWidget *button,
@@ -163,8 +163,6 @@ caja_trash_bar_class_init (CajaTrashBarClass *klass)
                                              G_PARAM_WRITABLE |
                                              G_PARAM_CONSTRUCT_ONLY |
                                              G_PARAM_STATIC_STRINGS));
-
-    g_type_class_add_private (klass, sizeof (CajaTrashBarPrivate));
 }
 
 static void
@@ -183,7 +181,7 @@ caja_trash_bar_init (CajaTrashBar *bar)
     GtkWidget *label;
     GtkWidget *hbox;
 
-    bar->priv = CAJA_TRASH_BAR_GET_PRIVATE (bar);
+    bar->priv = caja_trash_bar_get_instance_private (bar);
 
     hbox = GTK_WIDGET (bar);
 

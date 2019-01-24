@@ -80,7 +80,7 @@ enum
     LAST_LABEL_COLOR
 };
 
-struct CajaSidebarTitleDetails
+struct _CajaSidebarTitlePrivate
 {
     CajaFile		*file;
     guint		 file_changed_connection;
@@ -97,7 +97,7 @@ struct CajaSidebarTitleDetails
     gboolean		 determined_icon;
 };
 
-G_DEFINE_TYPE (CajaSidebarTitle, caja_sidebar_title, GTK_TYPE_BOX)
+G_DEFINE_TYPE_WITH_PRIVATE (CajaSidebarTitle, caja_sidebar_title, GTK_TYPE_BOX)
 
 static void
 style_updated (GtkWidget *widget)
@@ -116,9 +116,7 @@ style_updated (GtkWidget *widget)
 static void
 caja_sidebar_title_init (CajaSidebarTitle *sidebar_title)
 {
-    sidebar_title->details = G_TYPE_INSTANCE_GET_PRIVATE (sidebar_title,
-    							  CAJA_TYPE_SIDEBAR_TITLE,
-    							  CajaSidebarTitleDetails);
+    sidebar_title->details = caja_sidebar_title_get_instance_private (sidebar_title);
 
     gtk_orientable_set_orientation (GTK_ORIENTABLE (sidebar_title), GTK_ORIENTATION_VERTICAL);
 
@@ -220,8 +218,6 @@ caja_sidebar_title_class_init (CajaSidebarTitleClass *klass)
                                 "Color used for information text against a light background",
                                 GDK_TYPE_RGBA,
                                 G_PARAM_READABLE));
-
-    g_type_class_add_private (klass, sizeof (CajaSidebarTitleDetails));
 }
 
 /* return a new index title object */
