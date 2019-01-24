@@ -40,6 +40,8 @@ typedef enum
     CAJA_QUERY_EDITOR_ROW_LOCATION,
     CAJA_QUERY_EDITOR_ROW_TYPE,
     CAJA_QUERY_EDITOR_ROW_TAGS,
+    CAJA_QUERY_EDITOR_ROW_TIME_MODIFIED,
+    CAJA_QUERY_EDITOR_ROW_SIZE,
 
     CAJA_QUERY_EDITOR_ROW_LAST
 } CajaQueryEditorRowType;
@@ -127,8 +129,18 @@ static void       type_row_add_to_query        (CajaQueryEditorRow *row,
 static void       type_row_free_data           (CajaQueryEditorRow *row);
 static void       type_add_rows_from_query     (CajaQueryEditor    *editor,
         CajaQuery          *query);
-
-
+static GtkWidget   *modtime_row_create_widgets(CajaQueryEditorRow *row);
+static void         modtime_row_add_to_query(CajaQueryEditorRow *row,
+                                             CajaQuery *query);
+static void         modtime_row_free_data(CajaQueryEditorRow *row);
+static void         modtime_add_rows_from_query(CajaQueryEditor *editor,
+                                                CajaQuery *query);
+static GtkWidget   *size_row_create_widgets(CajaQueryEditorRow *row);
+static void         size_row_add_to_query(CajaQueryEditorRow *row,
+                                          CajaQuery *query);
+static void         size_row_free_data(CajaQueryEditorRow *row);
+static void         size_add_rows_from_query(CajaQueryEditor *editor,
+                                             CajaQuery *query);
 
 static CajaQueryEditorRowOps row_type[] =
 {
@@ -152,6 +164,20 @@ static CajaQueryEditorRowOps row_type[] =
         tags_row_add_to_query,
         tags_row_free_data,
         tags_add_rows_from_query
+    },
+    {
+        N_("Modification Time"),
+        modtime_row_create_widgets,
+        modtime_row_add_to_query,
+        modtime_row_free_data,
+        modtime_add_rows_from_query
+    },
+    {
+        N_("Size"),
+        size_row_create_widgets,
+        size_row_add_to_query,
+        size_row_free_data,
+        size_add_rows_from_query
     }
 };
 
@@ -998,6 +1024,231 @@ type_add_rows_from_query (CajaQueryEditor    *editor,
 }
 
 /* End of row types */
+
+
+static GtkWidget *modtime_row_create_widgets(CajaQueryEditorRow *row)
+{
+    GtkWidget *hbox = NULL;
+    GtkWidget *combo = NULL;
+    GtkWidget *duration_combo = NULL;
+    GtkCellRenderer *cell = NULL;
+    GtkListStore *store = NULL;
+    GtkListStore *duration_store = NULL;
+    GtkTreeIter iter;
+
+    hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 7);
+
+    store = gtk_list_store_new(2, G_TYPE_BOOLEAN, G_TYPE_STRING);
+    combo = gtk_combo_box_new_with_model(GTK_TREE_MODEL(store));
+    g_object_unref(store);
+
+    cell = gtk_cell_renderer_text_new();
+    gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(combo), cell, TRUE);
+    gtk_cell_layout_set_attributes(GTK_CELL_LAYOUT(combo), cell, "text", 1,
+                                   NULL);
+
+    gtk_list_store_append(store, &iter);
+    gtk_list_store_set(store, &iter, 0, FALSE, 1, _("Less than or equal to"), -1);
+    gtk_list_store_append(store, &iter);
+    gtk_list_store_set(store, &iter, 0, TRUE, 1, _("Greater or equal to"), -1);
+
+    gtk_combo_box_set_active(GTK_COMBO_BOX(combo), 0);
+
+    duration_store = gtk_list_store_new(2, G_TYPE_LONG, G_TYPE_STRING);
+    duration_combo = gtk_combo_box_new_with_model(GTK_TREE_MODEL(duration_store));
+    g_object_unref(duration_store);
+
+    gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(duration_combo), cell, TRUE);
+    gtk_cell_layout_set_attributes(GTK_CELL_LAYOUT(duration_combo), cell,
+                                   "text", 1, NULL);
+
+    gtk_list_store_append(duration_store, &iter);
+    gtk_list_store_set(duration_store, &iter, 0, 3600, 1, _("1 Hour"), -1);
+    gtk_list_store_append(duration_store, &iter);
+    gtk_list_store_set(duration_store, &iter, 0, 86400, 1, _("1 Day"), -1);
+    gtk_list_store_append(duration_store, &iter);
+    gtk_list_store_set(duration_store, &iter, 0, 604800, 1, _("1 Week"), -1);
+    gtk_list_store_append(duration_store, &iter);
+    gtk_list_store_set(duration_store, &iter, 0, 2419200, 1, _("1 Month"), -1);
+    gtk_list_store_append(duration_store, &iter);
+    gtk_list_store_set(duration_store, &iter, 0, 14515200, 1, _("6 Months"), -1);
+    gtk_list_store_append(duration_store, &iter);
+    gtk_list_store_set(duration_store, &iter, 0, 29030400, 1, _("1 Year"), -1);
+
+    gtk_combo_box_set_active(GTK_COMBO_BOX(duration_combo), 0);
+
+    gtk_box_pack_start(GTK_BOX(hbox), combo, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(hbox), duration_combo, FALSE, FALSE, 0);
+    gtk_widget_show_all(hbox);
+
+    gtk_box_pack_start(GTK_BOX(row->hbox), hbox, FALSE, FALSE, 0);
+
+    return hbox;
+}
+
+static void modtime_row_add_to_query(CajaQueryEditorRow *row, CajaQuery *query)
+{
+    GList *children = NULL;
+    GtkWidget *combo = NULL;
+    GtkWidget *duration_combo = NULL;
+    GtkTreeModel *model = NULL;
+    GtkTreeModel *duration_model = NULL;
+    GtkTreeIter iter;
+    GtkTreeIter duration_iter;
+    gboolean is_greater = FALSE;
+    gint64 duration;
+
+    if (!GTK_IS_CONTAINER(row->type_widget))
+        return;
+
+    children = gtk_container_get_children(GTK_CONTAINER(row->type_widget));
+    if (g_list_length(children) != 2)
+        return;
+
+    combo = GTK_WIDGET(g_list_nth(children, 0)->data);
+    duration_combo = GTK_WIDGET(g_list_nth(children, 1)->data);
+    if (!combo || !duration_combo)
+        return;
+
+    if (!gtk_combo_box_get_active_iter(GTK_COMBO_BOX(combo), &iter) ||
+        !gtk_combo_box_get_active_iter(GTK_COMBO_BOX(duration_combo), &duration_iter)) {
+        return;
+    }
+
+    model = gtk_combo_box_get_model(GTK_COMBO_BOX(combo));
+    gtk_tree_model_get(model, &iter, 0, &is_greater, -1);
+
+    duration_model = gtk_combo_box_get_model(GTK_COMBO_BOX(duration_combo));
+    gtk_tree_model_get(duration_model, &duration_iter, 0, &duration, -1);
+
+    caja_query_set_duration(query, is_greater ? duration : -duration);
+}
+
+static void modtime_row_free_data(CajaQueryEditorRow *row)
+{
+}
+
+static void modtime_add_rows_from_query(CajaQueryEditor *editor, CajaQuery *query)
+{
+}
+
+
+static GtkWidget *size_row_create_widgets(CajaQueryEditorRow *row)
+{
+    GtkWidget *hbox = NULL;
+    GtkWidget *combo = NULL;
+    GtkWidget *size_combo = NULL;
+    GtkCellRenderer *cell = NULL;
+    GtkListStore *store = NULL;
+    GtkListStore *size_store = NULL;
+    GtkTreeIter iter;
+
+    hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 7);
+
+    store = gtk_list_store_new(2, G_TYPE_BOOLEAN, G_TYPE_STRING);
+    combo = gtk_combo_box_new_with_model(GTK_TREE_MODEL(store));
+    g_object_unref(store);
+
+    cell = gtk_cell_renderer_text_new();
+    gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(combo), cell, TRUE);
+    gtk_cell_layout_set_attributes(GTK_CELL_LAYOUT(combo), cell, "text", 1,
+                                   NULL);
+
+    gtk_list_store_append(store, &iter);
+    gtk_list_store_set(store, &iter, 0, FALSE, 1, _("Less than or equal to"), -1);
+    gtk_list_store_append(store, &iter);
+    gtk_list_store_set(store, &iter, 0, TRUE, 1, _("Greater or equal to"), -1);
+
+    gtk_combo_box_set_active(GTK_COMBO_BOX(combo), 0);
+
+    size_store = gtk_list_store_new(2, G_TYPE_INT64, G_TYPE_STRING);
+    size_combo = gtk_combo_box_new_with_model(GTK_TREE_MODEL(size_store));
+    g_object_unref(size_store);
+
+    gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(size_combo), cell, TRUE);
+    gtk_cell_layout_set_attributes(GTK_CELL_LAYOUT(size_combo), cell, "text",
+                                   1, NULL);
+
+    gtk_list_store_append(size_store, &iter);
+    gtk_list_store_set(size_store, &iter, 0, 10240, 1, _("10 KB"), -1);
+    gtk_list_store_append(size_store, &iter);
+    gtk_list_store_set(size_store, &iter, 0, 102400, 1, _("100 KB"), -1);
+    gtk_list_store_append(size_store, &iter);
+    gtk_list_store_set(size_store, &iter, 0, 512000, 1, _("500 KB"), -1);
+    gtk_list_store_append(size_store, &iter);
+    gtk_list_store_set(size_store, &iter, 0, 1048576, 1, _("1 MB"), -1);
+    gtk_list_store_append(size_store, &iter);
+    gtk_list_store_set(size_store, &iter, 0, 5242880, 1, _("5 MB"), -1);
+    gtk_list_store_append(size_store, &iter);
+    gtk_list_store_set(size_store, &iter, 0, 10485760, 1, _("10 MB"), -1);
+    gtk_list_store_append(size_store, &iter);
+    gtk_list_store_set(size_store, &iter, 0, 104857600, 1, _("100 MB"), -1);
+    gtk_list_store_append(size_store, &iter);
+    gtk_list_store_set(size_store, &iter, 0, 524288000, 1, _("500 MB"), -1);
+    gtk_list_store_append(size_store, &iter);
+    gtk_list_store_set(size_store, &iter, 0, 1073741824, 1, _("1 GB"), -1);
+    gtk_list_store_append(size_store, &iter);
+    gtk_list_store_set(size_store, &iter, 0, 2147483648, 1, _("2 GB"), -1);
+    gtk_list_store_append(size_store, &iter);
+    gtk_list_store_set(size_store, &iter, 0, 4294967296, 1, _("4 GB"), -1);
+
+    gtk_combo_box_set_active(GTK_COMBO_BOX(size_combo), 0);
+
+    gtk_box_pack_start(GTK_BOX(hbox), combo, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(hbox), size_combo, FALSE, FALSE, 0);
+    gtk_widget_show_all(hbox);
+
+    gtk_box_pack_start(GTK_BOX(row->hbox), hbox, FALSE, FALSE, 0);
+
+    return hbox;
+}
+
+static void size_row_add_to_query(CajaQueryEditorRow *row, CajaQuery *query)
+{
+    GList *children = NULL;
+    GtkWidget *combo = NULL;
+    GtkWidget *size_combo = NULL;
+    GtkTreeModel *model = NULL;
+    GtkTreeModel *size_model = NULL;
+    GtkTreeIter iter;
+    GtkTreeIter size_iter;
+    gboolean is_greater = FALSE;
+    gint64 size;
+
+    if (!GTK_IS_CONTAINER(row->type_widget))
+        return;
+
+    children = gtk_container_get_children(GTK_CONTAINER(row->type_widget));
+    if (g_list_length(children) != 2)
+        return;
+
+    combo = GTK_WIDGET(g_list_nth(children, 0)->data);
+    size_combo = GTK_WIDGET(g_list_nth(children, 1)->data);
+    if (!combo || !size_combo)
+        return;
+
+    if (!gtk_combo_box_get_active_iter(GTK_COMBO_BOX(combo), &iter) ||
+        !gtk_combo_box_get_active_iter(GTK_COMBO_BOX(size_combo), &size_iter)) {
+        return;
+    }
+
+    model = gtk_combo_box_get_model(GTK_COMBO_BOX(combo));
+    gtk_tree_model_get(model, &iter, 0, &is_greater, -1);
+
+    size_model = gtk_combo_box_get_model(GTK_COMBO_BOX(size_combo));
+    gtk_tree_model_get(size_model, &size_iter, 0, &size, -1);
+
+    caja_query_set_size(query, is_greater ? size : -size);
+}
+
+static void size_row_free_data(CajaQueryEditorRow *row)
+{
+}
+
+static void size_add_rows_from_query(CajaQueryEditor *editor, CajaQuery *query)
+{
+}
+
 
 static CajaQueryEditorRowType
 get_next_free_type (CajaQueryEditor *editor)
