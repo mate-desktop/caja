@@ -48,6 +48,8 @@ typedef struct
 
     gint n_processed_files;
     GList *uri_hits;
+    gint64 duration;
+    gint64 size;
 } SearchThreadData;
 
 
@@ -124,6 +126,8 @@ search_thread_data_new (CajaSearchEngineSimple *engine,
 
     data->tags = caja_query_get_tags (query);
     data->mime_types = caja_query_get_mime_types (query);
+    data->duration = caja_query_get_duration (query);
+    data->size = caja_query_get_size (query);
 
     data->cancellable = g_cancellable_new ();
 
@@ -350,33 +354,37 @@ visit_directory (GFile *dir, SearchThreadData *data)
     GList *l;
     const char *id;
     gboolean visited;
+    GTimeVal result;
+    time_t timestamp;
+    gchar *attributes;
+    GString *attr_string;
 
-    const char *attributes;
+    attr_string = g_string_new (STD_ATTRIBUTES);
     if (data->mime_types != NULL) {
-        if (data->tags != NULL) {
-            attributes = STD_ATTRIBUTES ","
-                         G_FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE ","
-                         G_FILE_ATTRIBUTE_XATTR_XDG_TAGS;
-        } else {
-            attributes = STD_ATTRIBUTES ","
-                         G_FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE;
-        }
-    } else {
-        if (data->tags != NULL) {
-            attributes = STD_ATTRIBUTES ","
-                         G_FILE_ATTRIBUTE_XATTR_XDG_TAGS;
-        } else {
-            attributes = STD_ATTRIBUTES;
-        }
+        g_string_append (attr_string, "," G_FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE);
+    }
+    if (data->tags != NULL) {
+        g_string_append (attr_string, "," G_FILE_ATTRIBUTE_XATTR_XDG_TAGS);
+    }
+    if (data->duration != 0) {
+        g_string_append (attr_string, "," G_FILE_ATTRIBUTE_TIME_MODIFIED ","
+                         G_FILE_ATTRIBUTE_TIME_MODIFIED_USEC);
+    }
+    if (data->size != 0) {
+        g_string_append (attr_string, "," G_FILE_ATTRIBUTE_STANDARD_SIZE);
     }
 
-    enumerator = g_file_enumerate_children (dir, attributes, 0,
+    attributes = g_string_free (attr_string, FALSE);
+    enumerator = g_file_enumerate_children (dir, (const char*)attributes, 0,
                                             data->cancellable, NULL);
 
+    g_free (attributes);
     if (enumerator == NULL)
     {
         return;
     }
+
+    timestamp = time(NULL);
 
     while ((info = g_file_enumerator_next_file (enumerator, data->cancellable, NULL)) != NULL)
     {
@@ -424,6 +432,28 @@ visit_directory (GFile *dir, SearchThreadData *data)
         if (hit && data->tags)
         {
             hit = file_has_all_tags (info, data->tags);
+        }
+
+        if (hit && data->duration != 0) {
+            g_file_info_get_modification_time (info, &result);
+            if (data->duration > 0) {
+                if (timestamp - result.tv_sec < data->duration)
+                    hit = FALSE;
+            } else {
+                if (timestamp - result.tv_sec > ABS(data->duration))
+                    hit = FALSE;
+            }
+        }
+
+        if (hit && data->size != 0) {
+            gint64 file_size = g_file_info_get_size (info);
+            if (data->size > 0) {
+                if (file_size < data->size)
+                    hit = FALSE;
+            } else {
+                if (ABS(data->size) < file_size)
+                    hit = FALSE;
+            }
         }
 
         child = g_file_get_child (dir, g_file_info_get_name (info));
