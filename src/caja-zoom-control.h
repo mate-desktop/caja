@@ -45,12 +45,12 @@
 
 typedef struct CajaZoomControl CajaZoomControl;
 typedef struct CajaZoomControlClass CajaZoomControlClass;
-typedef struct CajaZoomControlDetails CajaZoomControlDetails;
+typedef struct _CajaZoomControlPrivate CajaZoomControlPrivate;
 
 struct CajaZoomControl
 {
     GtkBox parent;
-    CajaZoomControlDetails *details;
+    CajaZoomControlPrivate *details;
 };
 
 struct CajaZoomControlClass

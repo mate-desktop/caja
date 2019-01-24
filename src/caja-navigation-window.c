@@ -88,7 +88,7 @@ static void use_extra_mouse_buttons_changed          (gpointer                  
 static CajaWindowSlot *create_extra_pane         (CajaNavigationWindow *window);
 
 
-G_DEFINE_TYPE (CajaNavigationWindow, caja_navigation_window, CAJA_TYPE_WINDOW)
+G_DEFINE_TYPE_WITH_PRIVATE (CajaNavigationWindow, caja_navigation_window, CAJA_TYPE_WINDOW)
 #define parent_class caja_navigation_window_parent_class
 
 static const struct
@@ -115,7 +115,7 @@ caja_navigation_window_init (CajaNavigationWindow *window)
 
     win = CAJA_WINDOW (window);
 
-    window->details = G_TYPE_INSTANCE_GET_PRIVATE (window, CAJA_TYPE_NAVIGATION_WINDOW, CajaNavigationWindowDetails);
+    window->details = caja_navigation_window_get_instance_private (window);
 
     GtkStyleContext *context;
 
@@ -1285,8 +1285,6 @@ caja_navigation_window_class_init (CajaNavigationWindowClass *class)
 
     CAJA_WINDOW_CLASS (class)->open_slot = real_open_slot;
     CAJA_WINDOW_CLASS (class)->close_slot = real_close_slot;
-
-    g_type_class_add_private (G_OBJECT_CLASS (class), sizeof (CajaNavigationWindowDetails));
 
     g_signal_connect_swapped (caja_preferences,
                               "changed::" CAJA_PREFERENCES_MOUSE_BACK_BUTTON,

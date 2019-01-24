@@ -41,11 +41,11 @@
 
 #define FM_DESKTOP_ICON_VIEW_ID "OAFIID:Caja_File_Manager_Desktop_Icon_View"
 
-typedef struct FMDesktopIconViewDetails FMDesktopIconViewDetails;
+typedef struct _FMDesktopIconViewPrivate FMDesktopIconViewPrivate;
 typedef struct
 {
     FMIconView parent;
-    FMDesktopIconViewDetails *details;
+    FMDesktopIconViewPrivate *priv;
 } FMDesktopIconView;
 
 typedef struct

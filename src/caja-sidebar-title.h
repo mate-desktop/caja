@@ -45,12 +45,12 @@
 #define CAJA_SIDEBAR_TITLE_GET_CLASS(obj) \
   (G_TYPE_INSTANCE_GET_CLASS ((obj), CAJA_TYPE_SIDEBAR_TITLE, CajaSidebarTitleClass))
 
-typedef struct CajaSidebarTitleDetails CajaSidebarTitleDetails;
+typedef struct _CajaSidebarTitlePrivate CajaSidebarTitlePrivate;
 
 typedef struct
 {
     GtkBox box;
-    CajaSidebarTitleDetails *details;
+    CajaSidebarTitlePrivate *details;
 } CajaSidebarTitle;
 
 typedef struct

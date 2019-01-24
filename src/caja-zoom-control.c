@@ -55,7 +55,7 @@ enum
     LAST_SIGNAL
 };
 
-struct CajaZoomControlDetails
+struct _CajaZoomControlPrivate
 {
     GtkWidget *zoom_in;
     GtkWidget *zoom_out;
@@ -107,7 +107,7 @@ static GType caja_zoom_control_accessible_get_type (void);
 
 #define NUM_ACTIONS ((int)G_N_ELEMENTS (caja_zoom_control_accessible_action_names))
 
-G_DEFINE_TYPE (CajaZoomControl, caja_zoom_control, GTK_TYPE_BOX);
+G_DEFINE_TYPE_WITH_PRIVATE (CajaZoomControl, caja_zoom_control, GTK_TYPE_BOX);
 
 static void
 caja_zoom_control_finalize (GObject *object)
@@ -230,7 +230,7 @@ caja_zoom_control_init (CajaZoomControl *zoom_control)
     GtkWidget *image;
     int i;
 
-    zoom_control->details = G_TYPE_INSTANCE_GET_PRIVATE (zoom_control, CAJA_TYPE_ZOOM_CONTROL, CajaZoomControlDetails);
+    zoom_control->details = caja_zoom_control_get_instance_private (zoom_control);
 
     zoom_control->details->zoom_level = CAJA_ZOOM_LEVEL_STANDARD;
     zoom_control->details->min_zoom_level = CAJA_ZOOM_LEVEL_SMALLEST;
@@ -677,8 +677,6 @@ caja_zoom_control_class_init (CajaZoomControlClass *class)
                                   "change_value",
                                   1, GTK_TYPE_SCROLL_TYPE,
                                   GTK_SCROLL_STEP_UP);
-
-    g_type_class_add_private (G_OBJECT_CLASS (class), sizeof (CajaZoomControlDetails));
 }
 
 static gboolean

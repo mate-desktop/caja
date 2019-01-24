@@ -83,7 +83,7 @@
 static GHashTable *windows;
 static GHashTable *pending_lists;
 
-struct FMPropertiesWindowDetails {
+struct _FMPropertiesWindowPrivate {
 	GList *original_files;
 	GList *target_files;
 
@@ -231,7 +231,7 @@ static GtkLabel *attach_ellipsizing_value_label   (GtkGrid *grid,
 
 static GtkWidget* create_pie_widget 		  (FMPropertiesWindow *window);
 
-G_DEFINE_TYPE (FMPropertiesWindow, fm_properties_window, GTK_TYPE_DIALOG);
+G_DEFINE_TYPE_WITH_PRIVATE (FMPropertiesWindow, fm_properties_window, GTK_TYPE_DIALOG);
 
 static gboolean
 is_multi_file_window (FMPropertiesWindow *window)
@@ -5762,14 +5762,10 @@ fm_properties_window_class_init (FMPropertiesWindowClass *class)
 	binding_set = gtk_binding_set_by_class (class);
 	gtk_binding_entry_add_signal (binding_set, GDK_KEY_Escape, 0,
 				      "close", 0);
-
-	g_type_class_add_private (class, sizeof (FMPropertiesWindowDetails));
 }
 
 static void
 fm_properties_window_init (FMPropertiesWindow *window)
 {
-	window->details = G_TYPE_INSTANCE_GET_PRIVATE (window, FM_TYPE_PROPERTIES_WINDOW,
-						       FMPropertiesWindowDetails);
-
+	window->details = fm_properties_window_get_instance_private (window);
 }

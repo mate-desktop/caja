@@ -37,7 +37,7 @@
 
 typedef struct _CajaZoomAction       CajaZoomAction;
 typedef struct _CajaZoomActionClass  CajaZoomActionClass;
-typedef struct CajaZoomActionPrivate CajaZoomActionPrivate;
+typedef struct _CajaZoomActionPrivate CajaZoomActionPrivate;
 
 struct _CajaZoomAction
 {

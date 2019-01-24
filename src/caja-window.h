@@ -79,7 +79,7 @@ enum CajaWindowOpenSlotFlags
     CAJA_WINDOW_OPEN_SLOT_APPEND = 1
 };
 
-typedef struct CajaWindowDetails CajaWindowDetails;
+typedef struct _CajaWindowPrivate CajaWindowPrivate;
 
 typedef struct
 {
@@ -120,7 +120,7 @@ struct CajaWindow
 {
     GtkWindow parent_object;
 
-    CajaWindowDetails *details;
+    CajaWindowPrivate *details;
 
     CajaApplication *application;
 };

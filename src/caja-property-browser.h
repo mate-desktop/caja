@@ -49,12 +49,12 @@ typedef struct CajaPropertyBrowserClass  CajaPropertyBrowserClass;
 #define CAJA_PROPERTY_BROWSER_GET_CLASS(obj) \
   (G_TYPE_INSTANCE_GET_CLASS ((obj), CAJA_TYPE_PROPERTY_BROWSER, CajaPropertyBrowserClass))
 
-typedef struct CajaPropertyBrowserDetails CajaPropertyBrowserDetails;
+typedef struct _CajaPropertyBrowserPrivate CajaPropertyBrowserPrivate;
 
 struct CajaPropertyBrowser
 {
     GtkWindow window;
-    CajaPropertyBrowserDetails *details;
+    CajaPropertyBrowserPrivate *details;
 };
 
 struct CajaPropertyBrowserClass

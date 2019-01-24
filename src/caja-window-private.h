@@ -40,7 +40,7 @@
 struct _CajaNavigationWindowPane;
 
 /* FIXME bugzilla.gnome.org 42575: Migrate more fields into here. */
-struct CajaWindowDetails
+struct _CajaWindowPrivate
 {
     GtkWidget *grid;
 
@@ -91,7 +91,7 @@ struct CajaWindowDetails
     gboolean initiated_unmount;
 };
 
-struct _CajaNavigationWindowDetails
+struct _CajaNavigationWindowPrivate
 {
     GtkWidget *content_paned;
     GtkWidget *content_box;
