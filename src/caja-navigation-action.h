@@ -42,7 +42,7 @@
 
 typedef struct _CajaNavigationAction       CajaNavigationAction;
 typedef struct _CajaNavigationActionClass  CajaNavigationActionClass;
-typedef struct CajaNavigationActionPrivate CajaNavigationActionPrivate;
+typedef struct _CajaNavigationActionPrivate CajaNavigationActionPrivate;
 
 typedef enum
 {

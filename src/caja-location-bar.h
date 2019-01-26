@@ -47,12 +47,12 @@
 #define CAJA_LOCATION_BAR_GET_CLASS(obj) \
   (G_TYPE_INSTANCE_GET_CLASS ((obj), CAJA_TYPE_LOCATION_BAR, CajaLocationBarClass))
 
-typedef struct CajaLocationBarDetails CajaLocationBarDetails;
+typedef struct _CajaLocationBarPrivate CajaLocationBarPrivate;
 
 typedef struct CajaLocationBar
 {
     GtkHBox parent;
-    CajaLocationBarDetails *details;
+    CajaLocationBarPrivate *details;
 } CajaLocationBar;
 
 typedef struct
