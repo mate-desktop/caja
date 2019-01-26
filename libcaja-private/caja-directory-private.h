@@ -68,7 +68,7 @@ typedef gint32 RequestCounter[REQUEST_TYPE_LAST];
 #define REQUEST_WANTS_TYPE(request, type) ((request) & (1<<(type)))
 #define REQUEST_SET_TYPE(request, type) (request) |= (1<<(type))
 
-struct CajaDirectoryDetails
+struct _CajaDirectoryPrivate
 {
     /* The location. */
     GFile *location;

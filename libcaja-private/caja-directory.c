@@ -54,8 +54,7 @@ static guint signals[LAST_SIGNAL] = { 0 };
 static GHashTable *directories;
 
 static void               caja_directory_finalize         (GObject                *object);
-static void               caja_directory_init             (gpointer                object,
-        gpointer                klass);
+static void               caja_directory_init             (CajaDirectory *directory);
 static void               caja_directory_class_init (CajaDirectoryClass *klass);
 static CajaDirectory *caja_directory_new              (GFile                  *location);
 static char *             real_get_name_for_self_as_new_file  (CajaDirectory      *directory);
@@ -64,9 +63,7 @@ static gboolean		  real_is_editable                    (CajaDirectory      *dire
 static void               set_directory_location              (CajaDirectory      *directory,
         GFile                  *location);
 
-EEL_CLASS_BOILERPLATE (CajaDirectory,
-                       caja_directory,
-                       G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (CajaDirectory, caja_directory, G_TYPE_OBJECT)
 
 static void
 caja_directory_class_init (CajaDirectoryClass *klass)
@@ -113,18 +110,12 @@ caja_directory_class_init (CajaDirectoryClass *klass)
     klass->get_name_for_self_as_new_file = real_get_name_for_self_as_new_file;
     klass->get_file_list = real_get_file_list;
     klass->is_editable = real_is_editable;
-
-    g_type_class_add_private (klass, sizeof (CajaDirectoryDetails));
 }
 
 static void
-caja_directory_init (gpointer object, gpointer klass)
+caja_directory_init (CajaDirectory *directory)
 {
-    CajaDirectory *directory;
-
-    directory = CAJA_DIRECTORY(object);
-
-    directory->details = G_TYPE_INSTANCE_GET_PRIVATE ((directory), CAJA_TYPE_DIRECTORY, CajaDirectoryDetails);
+    directory->details = caja_directory_get_instance_private (directory);
     directory->details->file_hash = g_hash_table_new (g_str_hash, g_str_equal);
     directory->details->high_priority_queue = caja_file_queue_new ();
     directory->details->low_priority_queue = caja_file_queue_new ();
@@ -209,7 +200,7 @@ caja_directory_finalize (GObject *object)
     g_assert (directory->details->dequeue_pending_idle_id == 0);
     g_list_free_full (directory->details->pending_file_info, g_object_unref);
 
-    EEL_CALL_PARENT (G_OBJECT_CLASS, finalize, (object));
+    G_OBJECT_CLASS (caja_directory_parent_class)->finalize (object);
 }
 
 void
@@ -415,9 +406,10 @@ caja_directory_get_name_for_self_as_new_file (CajaDirectory *directory)
 {
     g_return_val_if_fail (CAJA_IS_DIRECTORY (directory), NULL);
 
-    return EEL_CALL_METHOD_WITH_RETURN_VALUE
-           (CAJA_DIRECTORY_CLASS, directory,
-            get_name_for_self_as_new_file, (directory));
+    if (CAJA_DIRECTORY_GET_CLASS(directory)->get_name_for_self_as_new_file == NULL)
+            return NULL;
+    else
+            return CAJA_DIRECTORY_GET_CLASS(directory)->get_name_for_self_as_new_file (directory);
 }
 
 static char *
@@ -522,9 +514,12 @@ caja_directory_are_all_files_seen (CajaDirectory *directory)
 {
     g_return_val_if_fail (CAJA_IS_DIRECTORY (directory), FALSE);
 
-    return EEL_CALL_METHOD_WITH_RETURN_VALUE
-           (CAJA_DIRECTORY_CLASS, directory,
-            are_all_files_seen, (directory));
+    if (CAJA_DIRECTORY_GET_CLASS(directory)->are_all_files_seen == NULL)
+    {
+        return FALSE;
+    } else {
+        return CAJA_DIRECTORY_GET_CLASS(directory)->are_all_files_seen (directory);
+    }
 }
 
 static void
@@ -1394,9 +1389,10 @@ caja_directory_contains_file (CajaDirectory *directory,
         return FALSE;
     }
 
-    return EEL_CALL_METHOD_WITH_RETURN_VALUE
-           (CAJA_DIRECTORY_CLASS, directory,
-            contains_file, (directory, file));
+    if (CAJA_DIRECTORY_GET_CLASS(directory)->contains_file == NULL)
+        return FALSE;
+    else
+        return CAJA_DIRECTORY_GET_CLASS(directory)->contains_file (directory, file);
 }
 
 void
@@ -1409,10 +1405,14 @@ caja_directory_call_when_ready (CajaDirectory *directory,
     g_return_if_fail (CAJA_IS_DIRECTORY (directory));
     g_return_if_fail (callback != NULL);
 
-    EEL_CALL_METHOD
-    (CAJA_DIRECTORY_CLASS, directory,
-     call_when_ready, (directory, file_attributes, wait_for_all_files,
-                       callback, callback_data));
+    if (CAJA_DIRECTORY_GET_CLASS(directory)->call_when_ready != NULL)
+    {
+        CAJA_DIRECTORY_GET_CLASS(directory)->call_when_ready (directory,
+                                                              file_attributes,
+                                                              wait_for_all_files,
+                                                              callback,
+                                                              callback_data);
+    }
 }
 
 void
@@ -1423,9 +1423,10 @@ caja_directory_cancel_callback (CajaDirectory *directory,
     g_return_if_fail (CAJA_IS_DIRECTORY (directory));
     g_return_if_fail (callback != NULL);
 
-    EEL_CALL_METHOD
-    (CAJA_DIRECTORY_CLASS, directory,
-     cancel_callback, (directory, callback, callback_data));
+    if (CAJA_DIRECTORY_GET_CLASS(directory)->cancel_callback != NULL)
+    {
+        CAJA_DIRECTORY_GET_CLASS(directory)->cancel_callback (directory, callback, callback_data);
+    }
 }
 
 void
@@ -1439,12 +1440,14 @@ caja_directory_file_monitor_add (CajaDirectory *directory,
     g_return_if_fail (CAJA_IS_DIRECTORY (directory));
     g_return_if_fail (client != NULL);
 
-    EEL_CALL_METHOD
-    (CAJA_DIRECTORY_CLASS, directory,
-     file_monitor_add, (directory, client,
-                        monitor_hidden_files,
-                        file_attributes,
-                        callback, callback_data));
+    if (CAJA_DIRECTORY_GET_CLASS(directory)->file_monitor_add != NULL)
+    {
+        CAJA_DIRECTORY_GET_CLASS(directory)->file_monitor_add (directory,
+                                                               client,
+                                                               monitor_hidden_files,
+                                                               file_attributes,
+                                                               callback, callback_data);
+    }
 }
 
 void
@@ -1454,9 +1457,10 @@ caja_directory_file_monitor_remove (CajaDirectory *directory,
     g_return_if_fail (CAJA_IS_DIRECTORY (directory));
     g_return_if_fail (client != NULL);
 
-    EEL_CALL_METHOD
-    (CAJA_DIRECTORY_CLASS, directory,
-     file_monitor_remove, (directory, client));
+    if (CAJA_DIRECTORY_GET_CLASS(directory)->file_monitor_remove != NULL)
+    {
+        CAJA_DIRECTORY_GET_CLASS(directory)->file_monitor_remove (directory, client);
+    }
 }
 
 void
@@ -1464,9 +1468,10 @@ caja_directory_force_reload (CajaDirectory *directory)
 {
     g_return_if_fail (CAJA_IS_DIRECTORY (directory));
 
-    EEL_CALL_METHOD
-    (CAJA_DIRECTORY_CLASS, directory,
-     force_reload, (directory));
+    if (CAJA_DIRECTORY_GET_CLASS(directory)->force_reload != NULL)
+    {
+        CAJA_DIRECTORY_GET_CLASS(directory)->force_reload (directory);
+    }
 }
 
 gboolean
@@ -1474,9 +1479,12 @@ caja_directory_is_not_empty (CajaDirectory *directory)
 {
     g_return_val_if_fail (CAJA_IS_DIRECTORY (directory), FALSE);
 
-    return EEL_CALL_METHOD_WITH_RETURN_VALUE
-           (CAJA_DIRECTORY_CLASS, directory,
-            is_not_empty, (directory));
+    if (CAJA_DIRECTORY_GET_CLASS(directory)->is_not_empty == NULL)
+    {
+        return FALSE;
+    } else {
+        return CAJA_DIRECTORY_GET_CLASS(directory)->is_not_empty (directory);
+    }
 }
 
 static gboolean
@@ -1497,9 +1505,12 @@ is_tentative (gpointer data, gpointer callback_data)
 GList *
 caja_directory_get_file_list (CajaDirectory *directory)
 {
-    return EEL_CALL_METHOD_WITH_RETURN_VALUE
-           (CAJA_DIRECTORY_CLASS, directory,
-            get_file_list, (directory));
+    if (CAJA_DIRECTORY_GET_CLASS(directory)->get_file_list == NULL)
+    {
+        return NULL;
+    } else {
+        return CAJA_DIRECTORY_GET_CLASS(directory)->get_file_list (directory);
+    }
 }
 
 static GList *
@@ -1525,9 +1536,12 @@ real_is_editable (CajaDirectory *directory)
 gboolean
 caja_directory_is_editable (CajaDirectory *directory)
 {
-    return EEL_CALL_METHOD_WITH_RETURN_VALUE
-           (CAJA_DIRECTORY_CLASS, directory,
-            is_editable, (directory));
+    if (CAJA_DIRECTORY_GET_CLASS(directory)->is_editable == NULL)
+    {
+        return FALSE;
+    } else {
+        return CAJA_DIRECTORY_GET_CLASS(directory)->is_editable (directory);
+    }
 }
 
 GList *
