@@ -72,14 +72,14 @@ caja_desktop_window_accessible_class_init (CajaDesktopWindowAccessibleClass *kla
     aclass->get_attributes = desktop_get_attributes;
 }
 
-struct CajaDesktopWindowDetails
+struct _CajaDesktopWindowPrivate
 {
     gulong size_changed_id;
 
     gboolean loaded;
 };
 
-G_DEFINE_TYPE (CajaDesktopWindow, caja_desktop_window,
+G_DEFINE_TYPE_WITH_PRIVATE (CajaDesktopWindow, caja_desktop_window,
                CAJA_TYPE_SPATIAL_WINDOW);
 
 static void
@@ -88,8 +88,7 @@ caja_desktop_window_init (CajaDesktopWindow *window)
     GtkAction *action;
     AtkObject *accessible;
 
-    window->details = G_TYPE_INSTANCE_GET_PRIVATE (window, CAJA_TYPE_DESKTOP_WINDOW,
-                                                   CajaDesktopWindowDetails);
+    window->details = caja_desktop_window_get_instance_private (window);
 
     GtkStyleContext *context;
 
@@ -222,7 +221,7 @@ static void
 unrealize (GtkWidget *widget)
 {
     CajaDesktopWindow *window;
-    CajaDesktopWindowDetails *details;
+    CajaDesktopWindowPrivate *details;
     GdkWindow *root_window;
 
     window = CAJA_DESKTOP_WINDOW (widget);
@@ -280,7 +279,7 @@ static void
 realize (GtkWidget *widget)
 {
     CajaDesktopWindow *window;
-    CajaDesktopWindowDetails *details;
+    CajaDesktopWindowPrivate *details;
     window = CAJA_DESKTOP_WINDOW (widget);
     details = window->details;
 
@@ -339,8 +338,6 @@ caja_desktop_window_class_init (CajaDesktopWindowClass *klass)
     nclass->window_type = CAJA_WINDOW_DESKTOP;
     nclass->get_title = real_get_title;
     nclass->get_icon = real_get_icon;
-
-    g_type_class_add_private (klass, sizeof (CajaDesktopWindowDetails));
 }
 
 gboolean

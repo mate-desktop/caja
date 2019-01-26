@@ -42,12 +42,12 @@
 #define CAJA_IS_CONNECT_SERVER_OPERATION(obj)\
   (G_TYPE_INSTANCE_CHECK_TYPE ((obj), CAJA_TYPE_CONNECT_SERVER_OPERATION)
 
-typedef struct _CajaConnectServerOperationDetails
-  CajaConnectServerOperationDetails;
+typedef struct _CajaConnectServerOperationPrivate
+  CajaConnectServerOperationPrivate;
 
 typedef struct {
 	GtkMountOperation parent;
-	CajaConnectServerOperationDetails *details;
+	CajaConnectServerOperationPrivate *details;
 } CajaConnectServerOperation;
 
 typedef struct {
