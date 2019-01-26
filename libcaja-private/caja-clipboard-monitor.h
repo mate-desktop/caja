@@ -39,14 +39,14 @@
 #define CAJA_CLIPBOARD_MONITOR_GET_CLASS(obj) \
   (G_TYPE_INSTANCE_GET_CLASS ((obj), CAJA_TYPE_CLIPBOARD_MONITOR, CajaClipboardMonitorClass))
 
-typedef struct CajaClipboardMonitorDetails CajaClipboardMonitorDetails;
+typedef struct _CajaClipboardMonitorPrivate CajaClipboardMonitorPrivate;
 typedef struct CajaClipboardInfo CajaClipboardInfo;
 
 typedef struct
 {
     GObject parent_slot;
 
-    CajaClipboardMonitorDetails *details;
+    CajaClipboardMonitorPrivate *details;
 } CajaClipboardMonitor;
 
 typedef struct

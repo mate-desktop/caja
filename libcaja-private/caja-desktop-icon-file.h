@@ -41,12 +41,12 @@
 #define CAJA_DESKTOP_ICON_FILE_GET_CLASS(obj) \
   (G_TYPE_INSTANCE_GET_CLASS ((obj), CAJA_TYPE_DESKTOP_ICON_FILE, CajaDesktopIconFileClass))
 
-typedef struct CajaDesktopIconFileDetails CajaDesktopIconFileDetails;
+typedef struct _CajaDesktopIconFilePrivate CajaDesktopIconFilePrivate;
 
 typedef struct
 {
     CajaFile parent_slot;
-    CajaDesktopIconFileDetails *details;
+    CajaDesktopIconFilePrivate *details;
 } CajaDesktopIconFile;
 
 typedef struct

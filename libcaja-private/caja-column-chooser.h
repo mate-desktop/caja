@@ -40,13 +40,13 @@
 #define CAJA_COLUMN_CHOOSER_GET_CLASS(obj) \
   (G_TYPE_INSTANCE_GET_CLASS ((obj), CAJA_TYPE_COLUMN_CHOOSER, CajaColumnChooserClass))
 
-typedef struct _CajaColumnChooserDetails CajaColumnChooserDetails;
+typedef struct _CajaColumnChooserPrivate CajaColumnChooserPrivate;
 
 typedef struct
 {
     GtkBox parent;
 
-    CajaColumnChooserDetails *details;
+    CajaColumnChooserPrivate *details;
 } CajaColumnChooser;
 
 typedef struct
