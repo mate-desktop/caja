@@ -35,6 +35,17 @@
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
 
+enum
+{
+        DURATION_INVALID,
+        DURATION_ONE_HOUR,
+        DURATION_ONE_DAY,
+        DURATION_ONE_WEEK,
+        DURATION_ONE_MONTH,
+        DURATION_SIX_MONTHS,
+        DURATION_ONE_YEAR,
+};
+
 typedef enum
 {
     CAJA_QUERY_EDITOR_ROW_LOCATION,
@@ -1054,7 +1065,7 @@ static GtkWidget *modtime_row_create_widgets(CajaQueryEditorRow *row)
 
     gtk_combo_box_set_active(GTK_COMBO_BOX(combo), 0);
 
-    duration_store = gtk_list_store_new(2, G_TYPE_LONG, G_TYPE_STRING);
+    duration_store = gtk_list_store_new(2, G_TYPE_INT, G_TYPE_STRING);
     duration_combo = gtk_combo_box_new_with_model(GTK_TREE_MODEL(duration_store));
     g_object_unref(duration_store);
 
@@ -1063,17 +1074,17 @@ static GtkWidget *modtime_row_create_widgets(CajaQueryEditorRow *row)
                                    "text", 1, NULL);
 
     gtk_list_store_append(duration_store, &iter);
-    gtk_list_store_set(duration_store, &iter, 0, 3600, 1, _("1 Hour"), -1);
+    gtk_list_store_set(duration_store, &iter, 0, DURATION_ONE_HOUR, 1, _("1 Hour"), -1);
     gtk_list_store_append(duration_store, &iter);
-    gtk_list_store_set(duration_store, &iter, 0, 86400, 1, _("1 Day"), -1);
+    gtk_list_store_set(duration_store, &iter, 0, DURATION_ONE_DAY, 1, _("1 Day"), -1);
     gtk_list_store_append(duration_store, &iter);
-    gtk_list_store_set(duration_store, &iter, 0, 604800, 1, _("1 Week"), -1);
+    gtk_list_store_set(duration_store, &iter, 0, DURATION_ONE_WEEK, 1, _("1 Week"), -1);
     gtk_list_store_append(duration_store, &iter);
-    gtk_list_store_set(duration_store, &iter, 0, 2419200, 1, _("1 Month"), -1);
+    gtk_list_store_set(duration_store, &iter, 0, DURATION_ONE_MONTH, 1, _("1 Month"), -1);
     gtk_list_store_append(duration_store, &iter);
-    gtk_list_store_set(duration_store, &iter, 0, 14515200, 1, _("6 Months"), -1);
+    gtk_list_store_set(duration_store, &iter, 0, DURATION_SIX_MONTHS, 1, _("6 Months"), -1);
     gtk_list_store_append(duration_store, &iter);
-    gtk_list_store_set(duration_store, &iter, 0, 29030400, 1, _("1 Year"), -1);
+    gtk_list_store_set(duration_store, &iter, 0, DURATION_ONE_YEAR, 1, _("1 Year"), -1);
 
     gtk_combo_box_set_active(GTK_COMBO_BOX(duration_combo), 0);
 
@@ -1096,7 +1107,9 @@ static void modtime_row_add_to_query(CajaQueryEditorRow *row, CajaQuery *query)
     GtkTreeIter iter;
     GtkTreeIter duration_iter;
     gboolean is_greater = FALSE;
-    gint64 duration;
+    GDateTime *now, *datetime;
+    gint duration;
+    gint64 timestamp;
 
     if (!GTK_IS_CONTAINER(row->type_widget))
         return;
@@ -1121,7 +1134,34 @@ static void modtime_row_add_to_query(CajaQueryEditorRow *row, CajaQuery *query)
     duration_model = gtk_combo_box_get_model(GTK_COMBO_BOX(duration_combo));
     gtk_tree_model_get(duration_model, &duration_iter, 0, &duration, -1);
 
-    caja_query_set_duration(query, is_greater ? duration : -duration);
+    now = g_date_time_new_now_local ();
+    switch (duration)
+    {
+            case DURATION_ONE_HOUR:
+                    datetime = g_date_time_add_hours (now, -1);
+                    break;
+            case DURATION_ONE_DAY:
+                    datetime = g_date_time_add_days (now, -1);
+                    break;
+            case DURATION_ONE_WEEK:
+                    datetime = g_date_time_add_weeks (now, -1);
+                    break;
+            case DURATION_ONE_MONTH:
+                    datetime = g_date_time_add_months (now, -1);
+                    break;
+            case DURATION_SIX_MONTHS:
+                    datetime = g_date_time_add_months (now, -6);
+                    break;
+            case DURATION_ONE_YEAR:
+                    datetime = g_date_time_add_years (now, -1);
+                    break;
+    }
+
+    g_date_time_unref (now);
+    timestamp = g_date_time_to_unix (datetime);
+    g_date_time_unref (datetime);
+
+    caja_query_set_timestamp(query, is_greater ? timestamp: -timestamp);
 }
 
 static void modtime_row_free_data(CajaQueryEditorRow *row)

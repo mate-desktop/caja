@@ -69,8 +69,8 @@ char *         caja_query_to_readable_string (CajaQuery *query);
 CajaQuery *    caja_query_load               (char *file);
 gboolean       caja_query_save               (CajaQuery *query, char *file);
 
-gint64         caja_query_get_duration       (CajaQuery *query);
-void           caja_query_set_duration       (CajaQuery *query, gint64 sec);
+gint64         caja_query_get_timestamp      (CajaQuery *query);
+void           caja_query_set_timestamp      (CajaQuery *query, gint64 sec);
 
 gint64         caja_query_get_size           (CajaQuery *query);
 void           caja_query_set_size           (CajaQuery *query, gint64 size);

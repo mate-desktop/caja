@@ -48,7 +48,7 @@ typedef struct
 
     gint n_processed_files;
     GList *uri_hits;
-    gint64 duration;
+    gint64 timestamp;
     gint64 size;
 } SearchThreadData;
 
@@ -126,7 +126,7 @@ search_thread_data_new (CajaSearchEngineSimple *engine,
 
     data->tags = caja_query_get_tags (query);
     data->mime_types = caja_query_get_mime_types (query);
-    data->duration = caja_query_get_duration (query);
+    data->timestamp = caja_query_get_timestamp (query);
     data->size = caja_query_get_size (query);
 
     data->cancellable = g_cancellable_new ();
@@ -355,7 +355,6 @@ visit_directory (GFile *dir, SearchThreadData *data)
     const char *id;
     gboolean visited;
     GTimeVal result;
-    time_t timestamp;
     gchar *attributes;
     GString *attr_string;
 
@@ -366,7 +365,7 @@ visit_directory (GFile *dir, SearchThreadData *data)
     if (data->tags != NULL) {
         g_string_append (attr_string, "," G_FILE_ATTRIBUTE_XATTR_XDG_TAGS);
     }
-    if (data->duration != 0) {
+    if (data->timestamp != 0) {
         g_string_append (attr_string, "," G_FILE_ATTRIBUTE_TIME_MODIFIED ","
                          G_FILE_ATTRIBUTE_TIME_MODIFIED_USEC);
     }
@@ -383,8 +382,6 @@ visit_directory (GFile *dir, SearchThreadData *data)
     {
         return;
     }
-
-    timestamp = time(NULL);
 
     while ((info = g_file_enumerator_next_file (enumerator, data->cancellable, NULL)) != NULL)
     {
@@ -434,13 +431,13 @@ visit_directory (GFile *dir, SearchThreadData *data)
             hit = file_has_all_tags (info, data->tags);
         }
 
-        if (hit && data->duration != 0) {
+        if (hit && data->timestamp != 0) {
             g_file_info_get_modification_time (info, &result);
-            if (data->duration > 0) {
-                if (timestamp - result.tv_sec < data->duration)
+            if (data->timestamp > 0) {
+                if (data->timestamp < result.tv_sec)
                     hit = FALSE;
             } else {
-                if (timestamp - result.tv_sec > ABS(data->duration))
+                if (result.tv_sec < ABS(data->timestamp))
                     hit = FALSE;
             }
         }
