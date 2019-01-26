@@ -34,6 +34,7 @@
 #include <eel/eel-stock-dialogs.h>
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
+#include <libcaja-private/caja-global-preferences.h>
 
 enum
 {
@@ -1209,28 +1210,54 @@ static GtkWidget *size_row_create_widgets(CajaQueryEditorRow *row)
     gtk_cell_layout_set_attributes(GTK_CELL_LAYOUT(size_combo), cell, "text",
                                    1, NULL);
 
-    gtk_list_store_append(size_store, &iter);
-    gtk_list_store_set(size_store, &iter, 0, 10240, 1, _("10 KB"), -1);
-    gtk_list_store_append(size_store, &iter);
-    gtk_list_store_set(size_store, &iter, 0, 102400, 1, _("100 KB"), -1);
-    gtk_list_store_append(size_store, &iter);
-    gtk_list_store_set(size_store, &iter, 0, 512000, 1, _("500 KB"), -1);
-    gtk_list_store_append(size_store, &iter);
-    gtk_list_store_set(size_store, &iter, 0, 1048576, 1, _("1 MB"), -1);
-    gtk_list_store_append(size_store, &iter);
-    gtk_list_store_set(size_store, &iter, 0, 5242880, 1, _("5 MB"), -1);
-    gtk_list_store_append(size_store, &iter);
-    gtk_list_store_set(size_store, &iter, 0, 10485760, 1, _("10 MB"), -1);
-    gtk_list_store_append(size_store, &iter);
-    gtk_list_store_set(size_store, &iter, 0, 104857600, 1, _("100 MB"), -1);
-    gtk_list_store_append(size_store, &iter);
-    gtk_list_store_set(size_store, &iter, 0, 524288000, 1, _("500 MB"), -1);
-    gtk_list_store_append(size_store, &iter);
-    gtk_list_store_set(size_store, &iter, 0, 1073741824, 1, _("1 GB"), -1);
-    gtk_list_store_append(size_store, &iter);
-    gtk_list_store_set(size_store, &iter, 0, 2147483648, 1, _("2 GB"), -1);
-    gtk_list_store_append(size_store, &iter);
-    gtk_list_store_set(size_store, &iter, 0, 4294967296, 1, _("4 GB"), -1);
+    if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_USE_IEC_UNITS))
+    {
+        gtk_list_store_append(size_store, &iter);
+        gtk_list_store_set(size_store, &iter, 0, 10240, 1, _("10 KiB"), -1);
+        gtk_list_store_append(size_store, &iter);
+        gtk_list_store_set(size_store, &iter, 0, 102400, 1, _("100 KiB"), -1);
+        gtk_list_store_append(size_store, &iter);
+        gtk_list_store_set(size_store, &iter, 0, 512000, 1, _("500 KiB"), -1);
+        gtk_list_store_append(size_store, &iter);
+        gtk_list_store_set(size_store, &iter, 0, 1048576, 1, _("1 MiB"), -1);
+        gtk_list_store_append(size_store, &iter);
+        gtk_list_store_set(size_store, &iter, 0, 5242880, 1, _("5 MiB"), -1);
+        gtk_list_store_append(size_store, &iter);
+        gtk_list_store_set(size_store, &iter, 0, 10485760, 1, _("10 MiB"), -1);
+        gtk_list_store_append(size_store, &iter);
+        gtk_list_store_set(size_store, &iter, 0, 104857600, 1, _("100 MiB"), -1);
+        gtk_list_store_append(size_store, &iter);
+        gtk_list_store_set(size_store, &iter, 0, 524288000, 1, _("500 MiB"), -1);
+        gtk_list_store_append(size_store, &iter);
+        gtk_list_store_set(size_store, &iter, 0, 1073741824, 1, _("1 GiB"), -1);
+        gtk_list_store_append(size_store, &iter);
+        gtk_list_store_set(size_store, &iter, 0, 2147483648, 1, _("2 GiB"), -1);
+        gtk_list_store_append(size_store, &iter);
+        gtk_list_store_set(size_store, &iter, 0, 4294967296, 1, _("4 GiB"), -1);
+    } else {
+        gtk_list_store_append(size_store, &iter);
+        gtk_list_store_set(size_store, &iter, 0, 10000, 1, _("10 KB"), -1);
+        gtk_list_store_append(size_store, &iter);
+        gtk_list_store_set(size_store, &iter, 0, 100000, 1, _("100 KB"), -1);
+        gtk_list_store_append(size_store, &iter);
+        gtk_list_store_set(size_store, &iter, 0, 500000, 1, _("500 KB"), -1);
+        gtk_list_store_append(size_store, &iter);
+        gtk_list_store_set(size_store, &iter, 0, 1000000, 1, _("1 MB"), -1);
+        gtk_list_store_append(size_store, &iter);
+        gtk_list_store_set(size_store, &iter, 0, 5000000, 1, _("5 MB"), -1);
+        gtk_list_store_append(size_store, &iter);
+        gtk_list_store_set(size_store, &iter, 0, 10000000, 1, _("10 MB"), -1);
+        gtk_list_store_append(size_store, &iter);
+        gtk_list_store_set(size_store, &iter, 0, 100000000, 1, _("100 MB"), -1);
+        gtk_list_store_append(size_store, &iter);
+        gtk_list_store_set(size_store, &iter, 0, 500000000, 1, _("500 MB"), -1);
+        gtk_list_store_append(size_store, &iter);
+        gtk_list_store_set(size_store, &iter, 0, 1000000000, 1, _("1 GB"), -1);
+        gtk_list_store_append(size_store, &iter);
+        gtk_list_store_set(size_store, &iter, 0, 2000000000, 1, _("2 GB"), -1);
+        gtk_list_store_append(size_store, &iter);
+        gtk_list_store_set(size_store, &iter, 0, 4000000000, 1, _("4 GB"), -1);
+    }
 
     gtk_combo_box_set_active(GTK_COMBO_BOX(size_combo), 0);
 
