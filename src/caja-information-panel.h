@@ -42,14 +42,14 @@
 #define CAJA_INFORMATION_PANEL_GET_CLASS(obj) \
   (G_TYPE_INSTANCE_GET_CLASS ((obj), CAJA_TYPE_INFORMATION_PANEL, CajaInformationPanelClass))
 
-typedef struct CajaInformationPanelDetails CajaInformationPanelDetails;
+typedef struct _CajaInformationPanelPrivate CajaInformationPanelPrivate;
 
 #define CAJA_INFORMATION_PANEL_ID "information"
 
 typedef struct
 {
     EelBackgroundBox parent_slot;
-    CajaInformationPanelDetails *details;
+    CajaInformationPanelPrivate *details;
 } CajaInformationPanel;
 
 typedef struct

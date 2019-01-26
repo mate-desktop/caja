@@ -49,7 +49,7 @@
 #include <libcaja-private/caja-sidebar-provider.h>
 #include <libcaja-private/caja-module.h>
 
-struct CajaInformationPanelDetails
+struct _CajaInformationPanelPrivate
 {
     GtkWidget *container;
     CajaWindowInfo *window;
@@ -142,6 +142,7 @@ typedef struct
 
 
 G_DEFINE_TYPE_WITH_CODE (CajaInformationPanel, caja_information_panel, EEL_TYPE_BACKGROUND_BOX,
+                         G_ADD_PRIVATE (CajaInformationPanel)
                          G_IMPLEMENT_INTERFACE (CAJA_TYPE_SIDEBAR,
                                  caja_information_panel_iface_init));
 
@@ -217,8 +218,6 @@ caja_information_panel_class_init (CajaInformationPanelClass *klass)
                                  NULL, NULL,
                                  g_cclosure_marshal_VOID__STRING,
                                  G_TYPE_NONE, 1, G_TYPE_STRING);
-
-    g_type_class_add_private (klass, sizeof (CajaInformationPanelDetails));
 }
 
 /* utility routine to allocate the box the holds the command buttons */
@@ -244,9 +243,7 @@ make_button_box (CajaInformationPanel *information_panel)
 static void
 caja_information_panel_init (CajaInformationPanel *information_panel)
 {
-    information_panel->details = G_TYPE_INSTANCE_GET_PRIVATE (information_panel,
-    							      CAJA_TYPE_INFORMATION_PANEL,
-    							      CajaInformationPanelDetails);
+    information_panel->details = caja_information_panel_get_instance_private (information_panel);
 
     /* load the default background */
     caja_information_panel_read_defaults (information_panel);

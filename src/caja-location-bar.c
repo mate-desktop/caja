@@ -59,7 +59,7 @@ static const char untranslated_go_to_label[] = N_("Go To:");
 #define LOCATION_LABEL _(untranslated_location_label)
 #define GO_TO_LABEL _(untranslated_go_to_label)
 
-struct CajaLocationBarDetails
+struct _CajaLocationBarPrivate
 {
     GtkLabel *label;
     CajaEntry *entry;
@@ -97,7 +97,7 @@ static const GtkTargetEntry drop_types [] =
     { CAJA_DND_TEXT_PLAIN_TYPE, 0, CAJA_DND_TEXT_PLAIN },
 };
 
-G_DEFINE_TYPE (CajaLocationBar, caja_location_bar, GTK_TYPE_BOX);
+G_DEFINE_TYPE_WITH_PRIVATE (CajaLocationBar, caja_location_bar, GTK_TYPE_BOX);
 
 static CajaNavigationWindow *
 caja_location_bar_get_window (GtkWidget *bar)
@@ -468,8 +468,6 @@ caja_location_bar_class_init (CajaLocationBarClass *klass)
 
     binding_set = gtk_binding_set_by_class (klass);
     gtk_binding_entry_add_signal (binding_set, GDK_KEY_Escape, 0, "cancel", 0);
-
-    g_type_class_add_private (klass, sizeof (CajaLocationBarDetails));
 }
 
 static void
@@ -479,8 +477,7 @@ caja_location_bar_init (CajaLocationBar *bar)
     GtkWidget *entry;
     GtkWidget *event_box;
 
-    bar->details = G_TYPE_INSTANCE_GET_PRIVATE (bar, CAJA_TYPE_LOCATION_BAR,
-                                                CajaLocationBarDetails);
+    bar->details = caja_location_bar_get_instance_private (bar);
 
     gtk_orientable_set_orientation (GTK_ORIENTABLE (bar),
                                     GTK_ORIENTATION_HORIZONTAL);

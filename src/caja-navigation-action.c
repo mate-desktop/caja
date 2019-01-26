@@ -39,11 +39,7 @@
 static void caja_navigation_action_init       (CajaNavigationAction *action);
 static void caja_navigation_action_class_init (CajaNavigationActionClass *class);
 
-static GObjectClass *parent_class = NULL;
-
-#define CAJA_NAVIGATION_ACTION_GET_PRIVATE(object)(G_TYPE_INSTANCE_GET_PRIVATE ((object), CAJA_TYPE_NAVIGATION_ACTION, CajaNavigationActionPrivate))
-
-struct CajaNavigationActionPrivate
+struct _CajaNavigationActionPrivate
 {
     CajaNavigationWindow *window;
     CajaNavigationDirection direction;
@@ -58,33 +54,7 @@ enum
     PROP_WINDOW
 };
 
-GType
-caja_navigation_action_get_type (void)
-{
-    static GType type = 0;
-
-    if (type == 0)
-    {
-        const GTypeInfo type_info =
-        {
-            sizeof (CajaNavigationActionClass),
-            (GBaseInitFunc) NULL,
-            (GBaseFinalizeFunc) NULL,
-            (GClassInitFunc) caja_navigation_action_class_init,
-            (GClassFinalizeFunc) NULL,
-            NULL,
-            sizeof (CajaNavigationAction),
-            0, /* n_preallocs */
-            (GInstanceInitFunc) caja_navigation_action_init,
-        };
-
-        type = g_type_register_static (GTK_TYPE_ACTION,
-                                       "CajaNavigationAction",
-                                       &type_info, 0);
-    }
-
-    return type;
-}
+G_DEFINE_TYPE_WITH_PRIVATE (CajaNavigationAction, caja_navigation_action, GTK_TYPE_ACTION)
 
 static gboolean
 should_open_in_new_tab (void)
@@ -279,7 +249,7 @@ connect_proxy (GtkAction *action, GtkWidget *proxy)
         g_signal_connect (child, "button-release-event", G_CALLBACK (proxy_button_release_event_cb), NULL);
     }
 
-    (* GTK_ACTION_CLASS (parent_class)->connect_proxy) (action, proxy);
+    (* GTK_ACTION_CLASS (caja_navigation_action_parent_class)->connect_proxy) (action, proxy);
 }
 
 static void
@@ -296,7 +266,7 @@ disconnect_proxy (GtkAction *action, GtkWidget *proxy)
         g_signal_handlers_disconnect_by_func (child, G_CALLBACK (proxy_button_release_event_cb), NULL);
     }
 
-    (* GTK_ACTION_CLASS (parent_class)->disconnect_proxy) (action, proxy);
+    (* GTK_ACTION_CLASS (caja_navigation_action_parent_class)->disconnect_proxy) (action, proxy);
 }
 
 static void
@@ -306,7 +276,7 @@ caja_navigation_action_finalize (GObject *object)
 
     g_free (action->priv->arrow_tooltip);
 
-    (* G_OBJECT_CLASS (parent_class)->finalize) (object);
+    (* G_OBJECT_CLASS (caja_navigation_action_parent_class)->finalize) (object);
 }
 
 static void
@@ -368,8 +338,6 @@ caja_navigation_action_class_init (CajaNavigationActionClass *class)
     object_class->set_property = caja_navigation_action_set_property;
     object_class->get_property = caja_navigation_action_get_property;
 
-    parent_class = g_type_class_peek_parent (class);
-
     action_class->toolbar_item_type = GTK_TYPE_MENU_TOOL_BUTTON;
     action_class->connect_proxy = connect_proxy;
     action_class->disconnect_proxy = disconnect_proxy;
@@ -397,12 +365,10 @@ caja_navigation_action_class_init (CajaNavigationActionClass *class)
                                              "The navigation window",
                                              G_TYPE_OBJECT,
                                              G_PARAM_READWRITE));
-
-    g_type_class_add_private (object_class, sizeof(CajaNavigationActionPrivate));
 }
 
 static void
 caja_navigation_action_init (CajaNavigationAction *action)
 {
-    action->priv = CAJA_NAVIGATION_ACTION_GET_PRIVATE (action);
+    action->priv = caja_navigation_action_get_instance_private (action);
 }
