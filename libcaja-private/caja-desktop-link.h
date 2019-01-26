@@ -40,12 +40,12 @@
 #define CAJA_DESKTOP_LINK_GET_CLASS(obj) \
   (G_TYPE_INSTANCE_GET_CLASS ((obj), CAJA_TYPE_DESKTOP_LINK, CajaDesktopLinkClass))
 
-typedef struct CajaDesktopLinkDetails CajaDesktopLinkDetails;
+typedef struct _CajaDesktopLinkPrivate CajaDesktopLinkPrivate;
 
 typedef struct
 {
     GObject parent_slot;
-    CajaDesktopLinkDetails *details;
+    CajaDesktopLinkPrivate *details;
 } CajaDesktopLink;
 
 typedef struct

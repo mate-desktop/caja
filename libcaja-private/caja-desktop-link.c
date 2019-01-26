@@ -36,7 +36,7 @@
 #include <libcaja-private/caja-global-preferences.h>
 #include <string.h>
 
-struct CajaDesktopLinkDetails
+struct _CajaDesktopLinkPrivate
 {
     CajaDesktopLinkType type;
     char *filename;
@@ -53,7 +53,7 @@ struct CajaDesktopLinkDetails
     GMount *mount;
 };
 
-G_DEFINE_TYPE(CajaDesktopLink, caja_desktop_link, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (CajaDesktopLink, caja_desktop_link, G_TYPE_OBJECT)
 
 static void
 create_icon_file (CajaDesktopLink *link)
@@ -446,9 +446,7 @@ caja_desktop_link_rename (CajaDesktopLink     *link,
 static void
 caja_desktop_link_init (CajaDesktopLink *link)
 {
-    link->details = G_TYPE_INSTANCE_GET_PRIVATE (link,
-                    CAJA_TYPE_DESKTOP_LINK,
-                    CajaDesktopLinkDetails);
+    link->details = caja_desktop_link_get_instance_private (link);
 }
 
 static void
@@ -529,6 +527,4 @@ caja_desktop_link_class_init (CajaDesktopLinkClass *klass)
     object_class = G_OBJECT_CLASS (klass);
 
     object_class->finalize = desktop_link_finalize;
-
-    g_type_class_add_private (object_class, sizeof(CajaDesktopLinkDetails));
 }

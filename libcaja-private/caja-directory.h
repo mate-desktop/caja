@@ -29,6 +29,8 @@
 #include <gio/gio.h>
 #include <libcaja-private/caja-file-attributes.h>
 
+G_BEGIN_DECLS
+
 /* CajaDirectory is a class that manages the model for a directory,
    real or virtual, for Caja, mainly the file-manager component. The directory is
    responsible for managing both real data and cached metadata. On top of
@@ -59,12 +61,12 @@
 typedef struct CajaFile CajaFile;
 #endif
 
-typedef struct CajaDirectoryDetails CajaDirectoryDetails;
+typedef struct _CajaDirectoryPrivate CajaDirectoryPrivate;
 
 typedef struct
 {
     GObject object;
-    CajaDirectoryDetails *details;
+    CajaDirectoryPrivate *details;
 } CajaDirectory;
 
 typedef void (*CajaDirectoryCallback) (CajaDirectory *directory,
@@ -233,5 +235,6 @@ gboolean           caja_directory_is_desktop_directory     (CajaDirectory       
 
 gboolean           caja_directory_is_editable              (CajaDirectory         *directory);
 
+G_END_DECLS
 
 #endif /* CAJA_DIRECTORY_H */
