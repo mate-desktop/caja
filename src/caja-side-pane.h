@@ -26,9 +26,7 @@
 
 #include <gtk/gtk.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+G_BEGIN_DECLS
 
 #define CAJA_TYPE_SIDE_PANE caja_side_pane_get_type()
 #define CAJA_SIDE_PANE(obj) \
@@ -42,12 +40,12 @@ extern "C" {
 #define CAJA_SIDE_PANE_GET_CLASS(obj) \
   (G_TYPE_INSTANCE_GET_CLASS ((obj), CAJA_TYPE_SIDE_PANE, CajaSidePaneClass))
 
-    typedef struct _CajaSidePaneDetails CajaSidePaneDetails;
+    typedef struct _CajaSidePanePrivate CajaSidePanePrivate;
 
     typedef struct
     {
         GtkBox parent;
-        CajaSidePaneDetails *details;
+        CajaSidePanePrivate *details;
     } CajaSidePane;
 
     typedef struct
@@ -75,8 +73,6 @@ extern "C" {
     GtkWidget             *caja_side_pane_get_current_panel (CajaSidePane *side_pane);
     GtkWidget             *caja_side_pane_get_title        (CajaSidePane *side_pane);
 
-#ifdef __cplusplus
-}
-#endif
+G_END_DECLS
 
 #endif /* CAJA_SIDE_PANE_H */

@@ -33,19 +33,17 @@
 #include <eel/eel-gtk-extensions.h>
 #include <libcaja-private/caja-view-factory.h>
 
-G_DEFINE_TYPE (CajaViewAsAction, caja_view_as_action, GTK_TYPE_ACTION)
-
 static void caja_view_as_action_init       (CajaViewAsAction *action);
 static void caja_view_as_action_class_init (CajaViewAsActionClass *class);
 
 static GObjectClass *parent_class = NULL;
 
-#define CAJA_VIEW_AS_ACTION_GET_PRIVATE(object)(G_TYPE_INSTANCE_GET_PRIVATE ((object), CAJA_TYPE_VIEW_AS_ACTION, CajaViewAsActionPrivate))
-
-struct CajaViewAsActionPrivate
+struct _CajaViewAsActionPrivate
 {
     CajaNavigationWindow *window;
 };
+
+G_DEFINE_TYPE_WITH_PRIVATE (CajaViewAsAction, caja_view_as_action, GTK_TYPE_ACTION)
 
 enum
 {
@@ -276,12 +274,10 @@ caja_view_as_action_class_init (CajaViewAsActionClass *class)
                                              "The navigation window",
                                              G_TYPE_OBJECT,
                                              G_PARAM_READWRITE));
-
-    g_type_class_add_private (object_class, sizeof(CajaViewAsActionPrivate));
 }
 
 static void
 caja_view_as_action_init (CajaViewAsAction *action)
 {
-    action->priv = CAJA_VIEW_AS_ACTION_GET_PRIVATE (action);
+    action->priv = caja_view_as_action_get_instance_private (action);
 }

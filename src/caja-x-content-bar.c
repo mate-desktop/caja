@@ -32,9 +32,7 @@
 #include <libcaja-private/caja-autorun.h>
 #include <libcaja-private/caja-icon-info.h>
 
-#define CAJA_X_CONTENT_BAR_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), CAJA_TYPE_X_CONTENT_BAR, CajaXContentBarPrivate))
-
-struct CajaXContentBarPrivate
+struct _CajaXContentBarPrivate
 {
     GtkWidget *label;
     GtkWidget *button;
@@ -50,7 +48,7 @@ enum
     PROP_X_CONTENT_TYPE,
 };
 
-G_DEFINE_TYPE (CajaXContentBar, caja_x_content_bar, GTK_TYPE_BOX)
+G_DEFINE_TYPE_WITH_PRIVATE (CajaXContentBar, caja_x_content_bar, GTK_TYPE_BOX)
 
 void
 caja_x_content_bar_set_x_content_type (CajaXContentBar *bar, const char *x_content_type)
@@ -256,8 +254,6 @@ caja_x_content_bar_class_init (CajaXContentBarClass *klass)
     object_class->set_property = caja_x_content_bar_set_property;
     object_class->finalize = caja_x_content_bar_finalize;
 
-    g_type_class_add_private (klass, sizeof (CajaXContentBarPrivate));
-
     g_object_class_install_property (object_class,
                                      PROP_MOUNT,
                                      g_param_spec_object (
@@ -299,7 +295,7 @@ caja_x_content_bar_init (CajaXContentBar *bar)
 {
     GtkWidget *hbox;
 
-    bar->priv = CAJA_X_CONTENT_BAR_GET_PRIVATE (bar);
+    bar->priv = caja_x_content_bar_get_instance_private (bar);
 
     hbox = GTK_WIDGET (bar);
 

@@ -28,9 +28,7 @@
 #include <gtk/gtk.h>
 #include <gio/gio.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+G_BEGIN_DECLS
 
 #define CAJA_TYPE_X_CONTENT_BAR         (caja_x_content_bar_get_type ())
 #define CAJA_X_CONTENT_BAR(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), CAJA_TYPE_X_CONTENT_BAR, CajaXContentBar))
@@ -39,7 +37,7 @@ extern "C" {
 #define CAJA_IS_X_CONTENT_BAR_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), CAJA_TYPE_X_CONTENT_BAR))
 #define CAJA_X_CONTENT_BAR_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), CAJA_TYPE_X_CONTENT_BAR, CajaXContentBarClass))
 
-    typedef struct CajaXContentBarPrivate CajaXContentBarPrivate;
+    typedef struct _CajaXContentBarPrivate CajaXContentBarPrivate;
 
     typedef struct
     {
@@ -64,8 +62,6 @@ extern "C" {
             GMount              *mount);
     GMount          *caja_x_content_bar_get_mount          (CajaXContentBar *bar);
 
-#ifdef __cplusplus
-}
-#endif
+G_END_DECLS
 
 #endif /* __CAJA_X_CONTENT_BAR_H */
