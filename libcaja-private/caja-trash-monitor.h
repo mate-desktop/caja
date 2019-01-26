@@ -31,7 +31,7 @@
 
 typedef struct CajaTrashMonitor CajaTrashMonitor;
 typedef struct CajaTrashMonitorClass CajaTrashMonitorClass;
-typedef struct CajaTrashMonitorDetails CajaTrashMonitorDetails;
+typedef struct _CajaTrashMonitorPrivate CajaTrashMonitorPrivate;
 
 #define CAJA_TYPE_TRASH_MONITOR caja_trash_monitor_get_type()
 #define CAJA_TRASH_MONITOR(obj) \
@@ -48,7 +48,7 @@ typedef struct CajaTrashMonitorDetails CajaTrashMonitorDetails;
 struct CajaTrashMonitor
 {
     GObject object;
-    CajaTrashMonitorDetails *details;
+    CajaTrashMonitorPrivate *details;
 };
 
 struct CajaTrashMonitorClass
