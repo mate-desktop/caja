@@ -36,7 +36,7 @@ struct CajaQueryDetails
     char *location_uri;
     GList *mime_types;
     GList *tags;
-    gint64 duration;
+    gint64 timestamp;
     gint64 size;
 };
 
@@ -77,7 +77,7 @@ static void
 caja_query_init (CajaQuery *query)
 {
     query->details = g_new0 (CajaQueryDetails, 1);
-    query->details->duration = 0;
+    query->details->timestamp = 0;
     query->details->size = 0;
 }
 
@@ -383,7 +383,7 @@ caja_query_to_xml (CajaQuery *query)
     char *mimetype;
     char *tag;
     GList *l;
-    gint64 duration;
+    gint64 timestamp;
     gint64 size;
 
     xml = g_string_new ("");
@@ -426,10 +426,10 @@ caja_query_to_xml (CajaQuery *query)
         g_string_append (xml, "   </tags>\n");
     }
 
-    if (query->details->duration != 0)
+    if (query->details->timestamp != 0)
     {
         g_string_append_printf(xml, "   <duration>%ld</duration>",
-                               query->details->duration);
+                               query->details->timestamp);
     }
 
     if (query->details->size != 0)
@@ -463,14 +463,14 @@ caja_query_save (CajaQuery *query, char *file)
     return res;
 }
 
-void caja_query_set_duration(CajaQuery *query, gint64 sec)
+void caja_query_set_timestamp(CajaQuery *query, gint64 sec)
 {
-    query->details->duration = sec;
+    query->details->timestamp = sec;
 }
 
-gint64 caja_query_get_duration(CajaQuery *query)
+gint64 caja_query_get_timestamp(CajaQuery *query)
 {
-    return query->details->duration;
+    return query->details->timestamp;
 }
 
 void caja_query_set_size(CajaQuery *query, gint64 size)
