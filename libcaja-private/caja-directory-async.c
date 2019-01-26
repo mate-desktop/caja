@@ -3502,7 +3502,7 @@ top_left_read_callback (GObject *source_object,
 {
     TopLeftTextReadState *state;
     CajaDirectory *directory;
-    CajaFileDetails *file_details;
+    CajaFilePrivate *file_details;
     gsize file_size;
     char *file_contents;
 

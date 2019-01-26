@@ -30,6 +30,8 @@
 #include <libcaja-private/caja-file-attributes.h>
 #include <libcaja-private/caja-icon-info.h>
 
+G_BEGIN_DECLS
+
 /* CajaFile is an object used to represent a single element of a
  * CajaDirectory. It's lightweight and relies on CajaDirectory
  * to do most of the work.
@@ -494,12 +496,12 @@ void                    caja_file_list_cancel_call_when_ready       (CajaFileLis
 /* Debugging */
 void                    caja_file_dump                              (CajaFile                   *file);
 
-typedef struct CajaFileDetails CajaFileDetails;
+typedef struct _CajaFilePrivate CajaFilePrivate;
 
 struct CajaFile
 {
     GObject parent_slot;
-    CajaFileDetails *details;
+    CajaFilePrivate *details;
 };
 
 /* This is actually a "protected" type, but it must be here so we can
@@ -595,5 +597,7 @@ typedef struct
 
     void                 (* poll_for_media)          (CajaFile                   *file);
 } CajaFileClass;
+
+G_END_DECLS
 
 #endif /* CAJA_FILE_H */
