@@ -58,7 +58,7 @@ typedef struct
     char emblem_keywords[1];
 } CajaFileSortByEmblemCache;
 
-struct CajaFileDetails
+struct _CajaFilePrivate
 {
     CajaDirectory *directory;
 

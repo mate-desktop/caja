@@ -167,13 +167,14 @@ static void file_mount_unmounted (GMount *mount,  gpointer data);
 static void metadata_hash_free (GHashTable *hash);
 
 G_DEFINE_TYPE_WITH_CODE (CajaFile, caja_file, G_TYPE_OBJECT,
+                         G_ADD_PRIVATE (CajaFile)
 			 G_IMPLEMENT_INTERFACE (CAJA_TYPE_FILE_INFO,
 						caja_file_info_iface_init));
 
 static void
 caja_file_init (CajaFile *file)
 {
-	file->details = G_TYPE_INSTANCE_GET_PRIVATE ((file), CAJA_TYPE_FILE, CajaFileDetails);
+	file->details = caja_file_get_instance_private (file);
 
 	caja_file_clear_info (file);
 	caja_file_invalidate_extension_info_internal (file);
@@ -8606,8 +8607,6 @@ caja_file_class_init (CajaFileClass *class)
 		              NULL, NULL,
 			      g_cclosure_marshal_VOID__VOID,
 		              G_TYPE_NONE, 0);
-
-	g_type_class_add_private (class, sizeof (CajaFileDetails));
 
 	eel_g_settings_add_auto_enum (caja_preferences,
 				                  CAJA_PREFERENCES_DATE_FORMAT,

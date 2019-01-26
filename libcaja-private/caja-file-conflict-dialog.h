@@ -48,12 +48,12 @@
 
 typedef struct _CajaFileConflictDialog        CajaFileConflictDialog;
 typedef struct _CajaFileConflictDialogClass   CajaFileConflictDialogClass;
-typedef struct _CajaFileConflictDialogDetails CajaFileConflictDialogDetails;
+typedef struct _CajaFileConflictDialogPrivate CajaFileConflictDialogPrivate;
 
 struct _CajaFileConflictDialog
 {
     GtkDialog parent;
-    CajaFileConflictDialogDetails *details;
+    CajaFileConflictDialogPrivate *details;
 };
 
 struct _CajaFileConflictDialogClass

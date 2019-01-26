@@ -37,7 +37,7 @@
 #include "caja-file.h"
 #include "caja-icon-info.h"
 
-struct _CajaFileConflictDialogDetails
+struct _CajaFileConflictDialogPrivate
 {
     /* conflicting objects */
     CajaFile *source;
@@ -63,13 +63,9 @@ struct _CajaFileConflictDialogDetails
     GtkWidget *src_image;
 };
 
-G_DEFINE_TYPE (CajaFileConflictDialog,
-               caja_file_conflict_dialog,
-               GTK_TYPE_DIALOG);
-
-#define CAJA_FILE_CONFLICT_DIALOG_GET_PRIVATE(object)		\
-	(G_TYPE_INSTANCE_GET_PRIVATE ((object), CAJA_TYPE_FILE_CONFLICT_DIALOG, \
-				      CajaFileConflictDialogDetails))
+G_DEFINE_TYPE_WITH_PRIVATE (CajaFileConflictDialog,
+                            caja_file_conflict_dialog,
+                            GTK_TYPE_DIALOG);
 
 static void
 file_icons_changed (CajaFile *file,
@@ -104,7 +100,7 @@ file_list_ready_cb (GList *files,
     CajaFile *src, *dest, *dest_dir;
     time_t src_mtime, dest_mtime;
     gboolean source_is_dir,	dest_is_dir, should_show_type;
-    CajaFileConflictDialogDetails *details;
+    CajaFileConflictDialogPrivate *details;
     char *primary_text, *message, *secondary_text;
     const gchar *message_extra;
     char *dest_name, *dest_dir_name, *edit_name;
@@ -384,7 +380,7 @@ static void
 build_dialog_appearance (CajaFileConflictDialog *fcd)
 {
     GList *files = NULL;
-    CajaFileConflictDialogDetails *details = fcd->details;
+    CajaFileConflictDialogPrivate *details = fcd->details;
 
     files = g_list_prepend (files, details->source);
     files = g_list_prepend (files, details->destination);
@@ -403,7 +399,7 @@ set_source_and_destination (GtkWidget *w,
                             GFile *dest_dir)
 {
     CajaFileConflictDialog *dialog;
-    CajaFileConflictDialogDetails *details;
+    CajaFileConflictDialogPrivate *details;
 
     dialog = CAJA_FILE_CONFLICT_DIALOG (w);
     details = dialog->details;
@@ -419,7 +415,7 @@ static void
 entry_text_changed_cb (GtkEditable *entry,
                        CajaFileConflictDialog *dialog)
 {
-    CajaFileConflictDialogDetails *details;
+    CajaFileConflictDialogPrivate *details;
 
     details = dialog->details;
 
@@ -453,7 +449,7 @@ static void
 expander_activated_cb (GtkExpander *w,
                        CajaFileConflictDialog *dialog)
 {
-    CajaFileConflictDialogDetails *details;
+    CajaFileConflictDialogPrivate *details;
     int start_pos, end_pos;
 
     details = dialog->details;
@@ -477,7 +473,7 @@ static void
 checkbox_toggled_cb (GtkToggleButton *t,
                      CajaFileConflictDialog *dialog)
 {
-    CajaFileConflictDialogDetails *details;
+    CajaFileConflictDialogPrivate *details;
 
     details = dialog->details;
 
@@ -506,7 +502,7 @@ static void
 reset_button_clicked_cb (GtkButton *w,
                          CajaFileConflictDialog *dialog)
 {
-    CajaFileConflictDialogDetails *details;
+    CajaFileConflictDialogPrivate *details;
     int start_pos, end_pos;
 
     details = dialog->details;
@@ -525,7 +521,7 @@ static void
 diff_button_clicked_cb (GtkButton *w,
                         CajaFileConflictDialog *dialog)
 {
-    CajaFileConflictDialogDetails *details;
+    CajaFileConflictDialogPrivate *details;
     details = dialog->details;
     
     GError *error;
@@ -564,11 +560,11 @@ caja_file_conflict_dialog_init (CajaFileConflictDialog *fcd)
 {
     GtkWidget *hbox, *vbox, *vbox2;
     GtkWidget *widget, *dialog_area;
-    CajaFileConflictDialogDetails *details;
+    CajaFileConflictDialogPrivate *details;
     GtkDialog *dialog;
     gboolean source_is_dir;
 
-    details = fcd->details = CAJA_FILE_CONFLICT_DIALOG_GET_PRIVATE (fcd);
+    details = fcd->details = caja_file_conflict_dialog_get_instance_private (fcd);
     dialog = GTK_DIALOG (fcd);
 
     source_is_dir = caja_file_is_directory (details->source);
@@ -687,7 +683,7 @@ caja_file_conflict_dialog_init (CajaFileConflictDialog *fcd)
 static void
 do_finalize (GObject *self)
 {
-    CajaFileConflictDialogDetails *details =
+    CajaFileConflictDialogPrivate *details =
         CAJA_FILE_CONFLICT_DIALOG (self)->details;
 
     g_free (details->conflict_name);
@@ -720,8 +716,6 @@ static void
 caja_file_conflict_dialog_class_init (CajaFileConflictDialogClass *klass)
 {
     G_OBJECT_CLASS (klass)->finalize = do_finalize;
-
-    g_type_class_add_private (klass, sizeof (CajaFileConflictDialogDetails));
 }
 
 char *
