@@ -28,17 +28,17 @@
 
 #include "caja-connect-server-dialog.h"
 
-G_DEFINE_TYPE (CajaConnectServerOperation,
-	       caja_connect_server_operation, GTK_TYPE_MOUNT_OPERATION);
-
 enum {
 	PROP_DIALOG = 1,
 	NUM_PROPERTIES
 };
 
-struct _CajaConnectServerOperationDetails {
+struct _CajaConnectServerOperationPrivate {
 	CajaConnectServerDialog *dialog;
 };
+
+G_DEFINE_TYPE_WITH_PRIVATE (CajaConnectServerOperation,
+	       caja_connect_server_operation, GTK_TYPE_MOUNT_OPERATION);
 
 static void
 fill_details_async_cb (GObject *source,
@@ -119,16 +119,12 @@ caja_connect_server_operation_class_init (CajaConnectServerOperationClass *klass
 				     CAJA_TYPE_CONNECT_SERVER_DIALOG,
 				     G_PARAM_CONSTRUCT_ONLY | G_PARAM_WRITABLE | G_PARAM_STATIC_STRINGS);
 	g_object_class_install_property (object_class, PROP_DIALOG, pspec);
-
-	g_type_class_add_private (klass, sizeof (CajaConnectServerOperationDetails));
 }
 
 static void
 caja_connect_server_operation_init (CajaConnectServerOperation *self)
 {
-	self->details = G_TYPE_INSTANCE_GET_PRIVATE (self,
-						     CAJA_TYPE_CONNECT_SERVER_OPERATION,
-						     CajaConnectServerOperationDetails);
+	self->details = caja_connect_server_operation_get_instance_private (self);
 }
 
 GMountOperation *

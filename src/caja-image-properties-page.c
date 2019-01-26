@@ -46,7 +46,7 @@
 
 #define LOAD_BUFFER_SIZE 8192
 
-struct CajaImagePropertiesPageDetails
+struct _CajaImagePropertiesPagePrivate
 {
     GCancellable *cancellable;
     GtkWidget *vbox;
@@ -93,7 +93,7 @@ typedef struct
 static GType caja_image_properties_page_provider_get_type (void);
 static void  property_page_provider_iface_init                (CajaPropertyPageProviderIface *iface);
 
-G_DEFINE_TYPE (CajaImagePropertiesPage, caja_image_properties_page, GTK_TYPE_BOX);
+G_DEFINE_TYPE_WITH_PRIVATE (CajaImagePropertiesPage, caja_image_properties_page, GTK_TYPE_BOX);
 
 G_DEFINE_TYPE_WITH_CODE (CajaImagePropertiesPageProvider, caja_image_properties_page_provider, G_TYPE_OBJECT,
                          G_IMPLEMENT_INTERFACE (CAJA_TYPE_PROPERTY_PAGE_PROVIDER,
@@ -635,16 +635,12 @@ caja_image_properties_page_class_init (CajaImagePropertiesPageClass *class)
     object_class = G_OBJECT_CLASS (class);
 
     object_class->finalize = caja_image_properties_page_finalize;
-
-    g_type_class_add_private (object_class, sizeof(CajaImagePropertiesPageDetails));
 }
 
 static void
 caja_image_properties_page_init (CajaImagePropertiesPage *page)
 {
-    page->details = G_TYPE_INSTANCE_GET_PRIVATE (page,
-                    CAJA_TYPE_IMAGE_PROPERTIES_PAGE,
-                    CajaImagePropertiesPageDetails);
+    page->details = caja_image_properties_page_get_instance_private (page);
 
     gtk_orientable_set_orientation (GTK_ORIENTABLE (page), GTK_ORIENTATION_VERTICAL);
 

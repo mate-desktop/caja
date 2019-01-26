@@ -46,12 +46,12 @@
 #define CAJA_DESKTOP_WINDOW_GET_CLASS(obj) \
   (G_TYPE_INSTANCE_GET_CLASS ((obj), CAJA_TYPE_DESKTOP_WINDOW, CajaDesktopWindowClass))
 
-typedef struct CajaDesktopWindowDetails CajaDesktopWindowDetails;
+typedef struct _CajaDesktopWindowPrivate CajaDesktopWindowPrivate;
 
 typedef struct
 {
     CajaSpatialWindow parent_spot;
-    CajaDesktopWindowDetails *details;
+    CajaDesktopWindowPrivate *details;
     gboolean affect_desktop_on_next_location_change;
 } CajaDesktopWindow;
 
