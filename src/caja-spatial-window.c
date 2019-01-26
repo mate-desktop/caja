@@ -69,7 +69,7 @@
 #define SPATIAL_ACTION_CLOSE_ALL_FOLDERS    "Close All Folders"
 #define MENU_PATH_SPATIAL_BOOKMARKS_PLACEHOLDER	"/MenuBar/Other Menus/Places/Bookmarks Placeholder"
 
-struct _CajaSpatialWindowDetails
+struct _CajaSpatialWindowPrivate
 {
     GtkActionGroup *spatial_action_group; /* owned by ui_manager */
     char *last_geometry;
@@ -88,8 +88,7 @@ static const GtkTargetEntry location_button_drag_types[] =
     { CAJA_ICON_DND_URI_LIST_TYPE, 0, CAJA_ICON_DND_URI_LIST },
 };
 
-G_DEFINE_TYPE(CajaSpatialWindow, caja_spatial_window, CAJA_TYPE_WINDOW)
-#define parent_class caja_spatial_window_parent_class
+G_DEFINE_TYPE_WITH_PRIVATE (CajaSpatialWindow, caja_spatial_window, CAJA_TYPE_WINDOW)
 
 static void caja_spatial_window_save_geometry (CajaSpatialWindow *window,
 						   CajaFile *viewed_file);
@@ -987,9 +986,7 @@ caja_spatial_window_init (CajaSpatialWindow *window)
     CajaWindow *win;
     CajaWindowPane *pane;
 
-    window->details = G_TYPE_INSTANCE_GET_PRIVATE (window,
-                      CAJA_TYPE_SPATIAL_WINDOW,
-                      CajaSpatialWindowDetails);
+    window->details = caja_spatial_window_get_instance_private (window);
 
     win = CAJA_WINDOW (window);
 
@@ -1124,6 +1121,4 @@ caja_spatial_window_class_init (CajaSpatialWindowClass *klass)
 	gtk_binding_entry_add_signal (binding_set, GDK_KEY_Up, GDK_SHIFT_MASK | GDK_MOD1_MASK,
                                   "go_up", 1,
                                   G_TYPE_BOOLEAN, TRUE);
-
-	g_type_class_add_private (klass, sizeof(CajaSpatialWindowDetails));
 }

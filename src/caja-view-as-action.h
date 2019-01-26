@@ -37,7 +37,7 @@
 
 typedef struct _CajaViewAsAction       CajaViewAsAction;
 typedef struct _CajaViewAsActionClass  CajaViewAsActionClass;
-typedef struct CajaViewAsActionPrivate CajaViewAsActionPrivate;
+typedef struct _CajaViewAsActionPrivate CajaViewAsActionPrivate;
 
 struct _CajaViewAsAction
 {

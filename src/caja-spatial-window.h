@@ -47,13 +47,13 @@
 typedef struct _CajaSpatialWindow        CajaSpatialWindow;
 #endif
 typedef struct _CajaSpatialWindowClass   CajaSpatialWindowClass;
-typedef struct _CajaSpatialWindowDetails CajaSpatialWindowDetails;
+typedef struct _CajaSpatialWindowPrivate CajaSpatialWindowPrivate;
 
 struct _CajaSpatialWindow
 {
     CajaWindow parent_object;
 
-    CajaSpatialWindowDetails *details;
+    CajaSpatialWindowPrivate *details;
 };
 
 struct _CajaSpatialWindowClass

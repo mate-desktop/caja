@@ -40,7 +40,7 @@ typedef struct
     GtkWidget *shortcut;
 } SidePanel;
 
-struct _CajaSidePaneDetails
+struct _CajaSidePanePrivate
 {
     GtkWidget *notebook;
     GtkWidget *menu;
@@ -52,7 +52,7 @@ struct _CajaSidePaneDetails
 };
 
 static void caja_side_pane_class_init (CajaSidePaneClass *klass);
-static void caja_side_pane_init       (GObject *object);
+static void caja_side_pane_init       (CajaSidePane *side_pane);
 static void caja_side_pane_dispose    (GObject *object);
 static void caja_side_pane_finalize   (GObject *object);
 
@@ -65,7 +65,7 @@ enum
 
 static guint signals[LAST_SIGNAL] = { 0 };
 
-EEL_CLASS_BOILERPLATE (CajaSidePane, caja_side_pane, GTK_TYPE_BOX)
+G_DEFINE_TYPE_WITH_PRIVATE (CajaSidePane, caja_side_pane, GTK_TYPE_BOX)
 
 static SidePanel *
 panel_for_widget (CajaSidePane *side_pane, GtkWidget *widget)
@@ -160,8 +160,6 @@ caja_side_pane_class_init (CajaSidePaneClass *klass)
                             NULL, NULL,
                             g_cclosure_marshal_VOID__OBJECT,
                             G_TYPE_NONE, 1, GTK_TYPE_WIDGET);
-
-    g_type_class_add_private (gobject_class, sizeof (CajaSidePaneDetails));
 }
 
 static void
@@ -274,9 +272,8 @@ menu_detach_callback (GtkWidget *widget,
 }
 
 static void
-caja_side_pane_init (GObject *object)
+caja_side_pane_init (CajaSidePane *side_pane)
 {
-    CajaSidePane *side_pane;
     GtkWidget *hbox;
     GtkWidget *close_button;
     GtkWidget *select_button;
@@ -284,20 +281,18 @@ caja_side_pane_init (GObject *object)
     GtkWidget *arrow;
     GtkWidget *image;
 
-    side_pane = CAJA_SIDE_PANE (object);
-
-    side_pane->details = G_TYPE_INSTANCE_GET_PRIVATE (object, CAJA_TYPE_SIDE_PANE, CajaSidePaneDetails);
+    side_pane->details = caja_side_pane_get_instance_private (side_pane);
 
     GtkStyleContext *context;
 
-    context = gtk_widget_get_style_context (GTK_WIDGET (object));
+    context = gtk_widget_get_style_context (GTK_WIDGET (side_pane));
     gtk_style_context_add_class (context, "caja-side-pane");
 
     hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_container_set_border_width (GTK_CONTAINER (hbox), 4);
     side_pane->details->title_hbox = hbox;
     gtk_widget_show (hbox);
-    gtk_orientable_set_orientation (GTK_ORIENTABLE (object), GTK_ORIENTATION_VERTICAL);
+    gtk_orientable_set_orientation (GTK_ORIENTABLE (side_pane), GTK_ORIENTATION_VERTICAL);
     gtk_box_pack_start (GTK_BOX (side_pane), hbox, FALSE, FALSE, 0);
 
     select_button = gtk_toggle_button_new ();
@@ -401,7 +396,7 @@ caja_side_pane_dispose (GObject *object)
         side_pane->details->menu = NULL;
     }
 
-    EEL_CALL_PARENT (G_OBJECT_CLASS, dispose, (object));
+    G_OBJECT_CLASS (caja_side_pane_parent_class)->dispose (object);
 }
 
 static void
@@ -419,7 +414,7 @@ caja_side_pane_finalize (GObject *object)
 
     g_list_free (side_pane->details->panels);
 
-    EEL_CALL_PARENT (G_OBJECT_CLASS, finalize, (object));
+    G_OBJECT_CLASS (caja_side_pane_parent_class)->finalize (object);
 }
 
 CajaSidePane *
