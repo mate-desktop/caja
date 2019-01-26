@@ -34,7 +34,7 @@
 #include <gio/gio.h>
 #include <string.h>
 
-struct CajaTrashMonitorDetails
+struct _CajaTrashMonitorPrivate
 {
     gboolean empty;
     GIcon *icon;
@@ -50,7 +50,7 @@ enum
 static guint signals[LAST_SIGNAL] = { 0 };
 static CajaTrashMonitor *caja_trash_monitor = NULL;
 
-G_DEFINE_TYPE(CajaTrashMonitor, caja_trash_monitor, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (CajaTrashMonitor, caja_trash_monitor, G_TYPE_OBJECT)
 
 static void
 caja_trash_monitor_finalize (GObject *object)
@@ -89,8 +89,6 @@ caja_trash_monitor_class_init (CajaTrashMonitorClass *klass)
                                     g_cclosure_marshal_VOID__BOOLEAN,
                                     G_TYPE_NONE, 1,
                                     G_TYPE_BOOLEAN);
-
-    g_type_class_add_private (object_class, sizeof(CajaTrashMonitorDetails));
 }
 
 static void
@@ -181,9 +179,7 @@ caja_trash_monitor_init (CajaTrashMonitor *trash_monitor)
 {
     GFile *location;
 
-    trash_monitor->details = G_TYPE_INSTANCE_GET_PRIVATE (trash_monitor,
-                             CAJA_TYPE_TRASH_MONITOR,
-                             CajaTrashMonitorDetails);
+    trash_monitor->details = caja_trash_monitor_get_instance_private (trash_monitor);
 
     trash_monitor->details->empty = TRUE;
     trash_monitor->details->icon = g_themed_icon_new (CAJA_ICON_TRASH);

@@ -104,9 +104,6 @@ struct _CajaUndoStackManagerPrivate
   gboolean confirm_delete;
 };
 
-#define CAJA_UNDOSTACK_MANAGER_GET_PRIVATE(o)  \
-   (G_TYPE_INSTANCE_GET_PRIVATE ((o), TYPE_CAJA_UNDOSTACK_MANAGER, CajaUndoStackManagerPrivate))
-
 /* *****************************************************************
  Properties management prototypes
  ***************************************************************** */
@@ -131,7 +128,7 @@ static void caja_undostack_manager_dispose (GObject * object);
 /* *****************************************************************
  Type definition
  ***************************************************************** */
-G_DEFINE_TYPE (CajaUndoStackManager, caja_undostack_manager,
+G_DEFINE_TYPE_WITH_PRIVATE (CajaUndoStackManager, caja_undostack_manager,
     G_TYPE_OBJECT);
 
 /* *****************************************************************
@@ -218,9 +215,6 @@ caja_undostack_manager_class_init (CajaUndoStackManagerClass * klass)
   GParamSpec *confirm_delete;
   GObjectClass *g_object_class;
 
-  /* Add private structure */
-  g_type_class_add_private (klass, sizeof (CajaUndoStackManagerPrivate));
-
   /* Create properties */
   undo_levels = g_param_spec_uint ("undo-levels", "undo levels",
       "Number of undo levels to be stored",
@@ -261,7 +255,7 @@ caja_undostack_manager_init (CajaUndoStackManager * self)
 {
   CajaUndoStackManagerPrivate *priv;
 
-  priv = CAJA_UNDOSTACK_MANAGER_GET_PRIVATE (self);
+  priv = caja_undostack_manager_get_instance_private (self);
 
   self->priv = priv;
 

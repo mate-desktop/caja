@@ -78,7 +78,7 @@
  */
 
 /* Private part of the CajaIconCanvasItem structure. */
-struct CajaIconCanvasItemDetails
+struct _CajaIconCanvasItemPrivate
 {
     /* The image, text, font. */
     double x, y;
@@ -191,6 +191,7 @@ static void caja_icon_canvas_item_text_interface_init (EelAccessibleTextIface *i
 static GType caja_icon_canvas_item_accessible_factory_get_type (void);
 
 G_DEFINE_TYPE_WITH_CODE (CajaIconCanvasItem, caja_icon_canvas_item, EEL_TYPE_CANVAS_ITEM,
+                         G_ADD_PRIVATE (CajaIconCanvasItem)
                          G_IMPLEMENT_INTERFACE (EEL_TYPE_ACCESSIBLE_TEXT,
                                  caja_icon_canvas_item_text_interface_init));
 
@@ -244,14 +245,14 @@ caja_icon_canvas_item_init (CajaIconCanvasItem *icon_item)
         setup_auto_enums = TRUE;
     }
 
-    icon_item->details = G_TYPE_INSTANCE_GET_PRIVATE ((icon_item), CAJA_TYPE_ICON_CANVAS_ITEM, CajaIconCanvasItemDetails);
+    icon_item->details = caja_icon_canvas_item_get_instance_private (icon_item);
     caja_icon_canvas_item_invalidate_label_size (icon_item);
 }
 
 static void
 caja_icon_canvas_item_finalize (GObject *object)
 {
-    CajaIconCanvasItemDetails *details;
+    CajaIconCanvasItemPrivate *details;
 
     g_assert (CAJA_IS_ICON_CANVAS_ITEM (object));
 
@@ -356,7 +357,7 @@ caja_icon_canvas_item_set_property (GObject        *object,
                                     GParamSpec     *pspec)
 {
     CajaIconCanvasItem *item;
-    CajaIconCanvasItemDetails *details;
+    CajaIconCanvasItemPrivate *details;
     AtkObject *accessible;
 
     item = CAJA_ICON_CANVAS_ITEM (object);
@@ -460,7 +461,7 @@ caja_icon_canvas_item_get_property (GObject        *object,
                                     GValue         *value,
                                     GParamSpec     *pspec)
 {
-    CajaIconCanvasItemDetails *details;
+    CajaIconCanvasItemPrivate *details;
 
     details = CAJA_ICON_CANVAS_ITEM (object)->details;
 
@@ -608,7 +609,7 @@ void
 caja_icon_canvas_item_set_image (CajaIconCanvasItem *item,
                                  GdkPixbuf *image)
 {
-    CajaIconCanvasItemDetails *details;
+    CajaIconCanvasItemPrivate *details;
 
     g_return_if_fail (CAJA_IS_ICON_CANVAS_ITEM (item));
     g_return_if_fail (image == NULL || pixbuf_is_acceptable (image));
@@ -1058,7 +1059,7 @@ static void
 prepare_pango_layout_for_draw (CajaIconCanvasItem *item,
                                PangoLayout *layout)
 {
-    CajaIconCanvasItemDetails *details;
+    CajaIconCanvasItemPrivate *details;
     CajaIconContainer *container;
     gboolean needs_highlight;
 
@@ -1095,7 +1096,7 @@ prepare_pango_layout_for_draw (CajaIconCanvasItem *item,
 static void
 measure_label_text (CajaIconCanvasItem *item)
 {
-    CajaIconCanvasItemDetails *details;
+    CajaIconCanvasItemPrivate *details;
     CajaIconContainer *container;
     gint editable_height, editable_height_for_layout, editable_height_for_entire_text, editable_width, editable_dx;
     gint additional_height, additional_width, additional_dx;
@@ -1236,7 +1237,7 @@ draw_label_text (CajaIconCanvasItem *item,
                  gboolean create_mask,
                  EelIRect icon_rect)
 {
-    CajaIconCanvasItemDetails *details;
+    CajaIconCanvasItemPrivate *details;
     CajaIconContainer *container;
     PangoLayout *editable_layout;
     PangoLayout *additional_layout;
@@ -1894,7 +1895,7 @@ caja_icon_canvas_item_draw (EelCanvasItem *item,
 {
     CajaIconContainer *container;
     CajaIconCanvasItem *icon_item;
-    CajaIconCanvasItemDetails *details;
+    CajaIconCanvasItemPrivate *details;
     EelIRect icon_rect, emblem_rect;
     EmblemLayout emblem_layout;
     GdkPixbuf *emblem_pixbuf;
@@ -2203,7 +2204,7 @@ hit_test_pixbuf (GdkPixbuf *pixbuf, EelIRect pixbuf_location, EelIRect probe_rec
 static gboolean
 hit_test (CajaIconCanvasItem *icon_item, EelIRect canvas_rect)
 {
-    CajaIconCanvasItemDetails *details;
+    CajaIconCanvasItemPrivate *details;
     EelIRect emblem_rect;
     EmblemLayout emblem_layout;
     GdkPixbuf *emblem_pixbuf;
@@ -2282,7 +2283,7 @@ static void
 caja_icon_canvas_item_translate (EelCanvasItem *item, double dx, double dy)
 {
     CajaIconCanvasItem *icon_item;
-    CajaIconCanvasItemDetails *details;
+    CajaIconCanvasItemPrivate *details;
 
     icon_item = CAJA_ICON_CANVAS_ITEM (item);
     details = icon_item->details;
@@ -2295,7 +2296,7 @@ void
 caja_icon_canvas_item_get_bounds_for_layout (CajaIconCanvasItem *icon_item,
         double *x1, double *y1, double *x2, double *y2)
 {
-    CajaIconCanvasItemDetails *details;
+    CajaIconCanvasItemPrivate *details;
     EelIRect *total_rect;
 
     details = icon_item->details;
@@ -2328,7 +2329,7 @@ void
 caja_icon_canvas_item_get_bounds_for_entire_item (CajaIconCanvasItem *icon_item,
         double *x1, double *y1, double *x2, double *y2)
 {
-    CajaIconCanvasItemDetails *details;
+    CajaIconCanvasItemPrivate *details;
     EelIRect *total_rect;
 
     details = icon_item->details;
@@ -2363,7 +2364,7 @@ caja_icon_canvas_item_bounds (EelCanvasItem *item,
                               double *x1, double *y1, double *x2, double *y2)
 {
     CajaIconCanvasItem *icon_item;
-    CajaIconCanvasItemDetails *details;
+    CajaIconCanvasItemPrivate *details;
     EelIRect *total_rect;
 
     icon_item = CAJA_ICON_CANVAS_ITEM (item);
@@ -2389,7 +2390,7 @@ caja_icon_canvas_item_bounds (EelCanvasItem *item,
 static void
 caja_icon_canvas_item_ensure_bounds_up_to_date (CajaIconCanvasItem *icon_item)
 {
-    CajaIconCanvasItemDetails *details;
+    CajaIconCanvasItemPrivate *details;
     EelIRect icon_rect, emblem_rect, icon_rect_raw;
     EelIRect text_rect, text_rect_for_layout, text_rect_for_entire_text;
     EelIRect total_rect, total_rect_for_layout, total_rect_for_entire_text;
@@ -2799,8 +2800,6 @@ caja_icon_canvas_item_class_init (CajaIconCanvasItemClass *class)
 	atk_registry_set_factory_type (atk_get_default_registry (),
 				       CAJA_TYPE_ICON_CANVAS_ITEM,
 				       caja_icon_canvas_item_accessible_factory_get_type ());
-
-	g_type_class_add_private (class, sizeof (CajaIconCanvasItemDetails));
 }
 
 static GailTextUtil *
@@ -3469,6 +3468,7 @@ typedef struct {
 G_DEFINE_TYPE_WITH_CODE (CajaIconCanvasItemAccessible,
 			 caja_icon_canvas_item_accessible,
 			 eel_canvas_item_accessible_get_type (),
+                         G_ADD_PRIVATE (CajaIconCanvasItemAccessible)
 			 G_IMPLEMENT_INTERFACE (ATK_TYPE_IMAGE,
 						caja_icon_canvas_item_accessible_image_interface_init)
 			 G_IMPLEMENT_INTERFACE (ATK_TYPE_TEXT,
@@ -3566,8 +3566,6 @@ caja_icon_canvas_item_accessible_class_init (CajaIconCanvasItemAccessibleClass *
 	aclass->get_parent = caja_icon_canvas_item_accessible_get_parent;
 	aclass->get_index_in_parent = caja_icon_canvas_item_accessible_get_index_in_parent;
 	aclass->ref_state_set = caja_icon_canvas_item_accessible_ref_state_set;
-
-	g_type_class_add_private (klass, sizeof (CajaIconCanvasItemAccessiblePrivate));
 }
 
 static void

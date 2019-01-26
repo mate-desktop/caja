@@ -28,9 +28,7 @@
 #include <eel/eel-canvas.h>
 #include <eel/eel-art-extensions.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+G_BEGIN_DECLS
 
 #define CAJA_TYPE_ICON_CANVAS_ITEM caja_icon_canvas_item_get_type()
 #define CAJA_ICON_CANVAS_ITEM(obj) \
@@ -46,12 +44,12 @@ extern "C" {
 
     typedef struct CajaIconCanvasItem CajaIconCanvasItem;
     typedef struct CajaIconCanvasItemClass CajaIconCanvasItemClass;
-    typedef struct CajaIconCanvasItemDetails CajaIconCanvasItemDetails;
+    typedef struct _CajaIconCanvasItemPrivate CajaIconCanvasItemPrivate;
 
     struct CajaIconCanvasItem
     {
         EelCanvasItem item;
-        CajaIconCanvasItemDetails *details;
+        CajaIconCanvasItemPrivate *details;
         gpointer user_data;
     };
 
@@ -116,8 +114,6 @@ extern "C" {
     void        caja_icon_canvas_item_set_entire_text          (CajaIconCanvasItem       *icon_item,
             gboolean                      entire_text);
 
-#ifdef __cplusplus
-}
-#endif
+G_END_DECLS
 
 #endif /* CAJA_ICON_CANVAS_ITEM_H */
