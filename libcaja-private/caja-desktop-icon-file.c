@@ -40,12 +40,12 @@
 #include <string.h>
 #include <gio/gio.h>
 
-struct CajaDesktopIconFileDetails
+struct _CajaDesktopIconFilePrivate
 {
     CajaDesktopLink *link;
 };
 
-G_DEFINE_TYPE(CajaDesktopIconFile, caja_desktop_icon_file, CAJA_TYPE_FILE)
+G_DEFINE_TYPE_WITH_PRIVATE (CajaDesktopIconFile, caja_desktop_icon_file, CAJA_TYPE_FILE)
 
 
 static void
@@ -166,9 +166,7 @@ desktop_icon_file_get_where_string (CajaFile *file)
 static void
 caja_desktop_icon_file_init (CajaDesktopIconFile *desktop_file)
 {
-    desktop_file->details =	G_TYPE_INSTANCE_GET_PRIVATE (desktop_file,
-                            CAJA_TYPE_DESKTOP_ICON_FILE,
-                            CajaDesktopIconFileDetails);
+    desktop_file->details =	caja_desktop_icon_file_get_instance_private (desktop_file);
 }
 
 static void
@@ -384,10 +382,8 @@ caja_desktop_icon_file_set_metadata_as_list (CajaFile           *file,
 static void
 caja_desktop_icon_file_class_init (CajaDesktopIconFileClass *klass)
 {
-    GObjectClass *object_class;
     CajaFileClass *file_class;
 
-    object_class = G_OBJECT_CLASS (klass);
     file_class = CAJA_FILE_CLASS (klass);
 
     file_class->default_file_type = G_FILE_TYPE_DIRECTORY;
@@ -405,6 +401,4 @@ caja_desktop_icon_file_class_init (CajaDesktopIconFileClass *klass)
     file_class->set_metadata_as_list = caja_desktop_icon_file_set_metadata_as_list;
     file_class->unmount = caja_desktop_icon_file_unmount;
     file_class->eject = caja_desktop_icon_file_eject;
-
-    g_type_class_add_private (object_class, sizeof(CajaDesktopIconFileDetails));
 }

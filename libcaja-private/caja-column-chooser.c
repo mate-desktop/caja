@@ -31,7 +31,7 @@
 
 #include "caja-column-utilities.h"
 
-struct _CajaColumnChooserDetails
+struct _CajaColumnChooserPrivate
 {
     GtkTreeView *view;
     GtkListStore *store;
@@ -65,7 +65,7 @@ enum
 };
 static guint signals[LAST_SIGNAL] = { 0 };
 
-G_DEFINE_TYPE(CajaColumnChooser, caja_column_chooser, GTK_TYPE_BOX);
+G_DEFINE_TYPE_WITH_PRIVATE (CajaColumnChooser, caja_column_chooser, GTK_TYPE_BOX);
 
 static void caja_column_chooser_constructed (GObject *object);
 
@@ -128,8 +128,6 @@ caja_column_chooser_class_init (CajaColumnChooserClass *chooser_class)
                                              CAJA_TYPE_FILE,
                                              G_PARAM_CONSTRUCT_ONLY |
                                              G_PARAM_WRITABLE));
-
-    g_type_class_add_private (chooser_class, sizeof (CajaColumnChooserDetails));
 }
 
 static void
@@ -463,7 +461,7 @@ caja_column_chooser_constructed (GObject *object)
 static void
 caja_column_chooser_init (CajaColumnChooser *chooser)
 {
-    chooser->details = G_TYPE_INSTANCE_GET_PRIVATE ((chooser), CAJA_TYPE_COLUMN_CHOOSER, CajaColumnChooserDetails);
+    chooser->details = caja_column_chooser_get_instance_private (chooser);
 
     g_object_set (G_OBJECT (chooser),
                   "homogeneous", FALSE,

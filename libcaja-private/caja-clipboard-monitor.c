@@ -53,7 +53,7 @@ enum
     LAST_SIGNAL
 };
 
-struct CajaClipboardMonitorDetails
+struct _CajaClipboardMonitorPrivate
 {
     CajaClipboardInfo *info;
 };
@@ -61,7 +61,7 @@ struct CajaClipboardMonitorDetails
 static guint signals[LAST_SIGNAL] = { 0 };
 static GdkAtom copied_files_atom;
 
-G_DEFINE_TYPE (CajaClipboardMonitor, caja_clipboard_monitor, G_TYPE_OBJECT);
+G_DEFINE_TYPE_WITH_PRIVATE (CajaClipboardMonitor, caja_clipboard_monitor, G_TYPE_OBJECT);
 
 static CajaClipboardMonitor *clipboard_monitor = NULL;
 
@@ -141,9 +141,7 @@ caja_clipboard_info_free (CajaClipboardInfo *info)
 static void
 caja_clipboard_monitor_init (CajaClipboardMonitor *monitor)
 {
-    monitor->details =
-        G_TYPE_INSTANCE_GET_PRIVATE (monitor, CAJA_TYPE_CLIPBOARD_MONITOR,
-                                     CajaClipboardMonitorDetails);
+    monitor->details = caja_clipboard_monitor_get_instance_private (monitor);
 }
 
 static void
@@ -189,8 +187,6 @@ caja_clipboard_monitor_class_init (CajaClipboardMonitorClass *klass)
                       g_cclosure_marshal_VOID__POINTER,
                       G_TYPE_NONE,
                       1, G_TYPE_POINTER);
-
-    g_type_class_add_private (klass, sizeof (CajaClipboardMonitorDetails));
 }
 
 void
