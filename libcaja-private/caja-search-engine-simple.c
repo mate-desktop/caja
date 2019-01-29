@@ -347,7 +347,7 @@ visit_directory (GFile *dir, SearchThreadData *data)
     GFileEnumerator *enumerator;
     GFileInfo *info;
     GFile *child;
-    const char *tag, *mime_type, *display_name;
+    const char *mime_type, *display_name;
     char *lower_name, *normalized;
     gboolean hit;
     int i;
