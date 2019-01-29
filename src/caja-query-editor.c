@@ -1136,26 +1136,29 @@ static void modtime_row_add_to_query(CajaQueryEditorRow *row, CajaQuery *query)
     gtk_tree_model_get(duration_model, &duration_iter, 0, &duration, -1);
 
     now = g_date_time_new_now_local ();
+    datetime = now;
     switch (duration)
     {
-            case DURATION_ONE_HOUR:
-                    datetime = g_date_time_add_hours (now, -1);
-                    break;
-            case DURATION_ONE_DAY:
-                    datetime = g_date_time_add_days (now, -1);
-                    break;
-            case DURATION_ONE_WEEK:
-                    datetime = g_date_time_add_weeks (now, -1);
-                    break;
-            case DURATION_ONE_MONTH:
-                    datetime = g_date_time_add_months (now, -1);
-                    break;
-            case DURATION_SIX_MONTHS:
-                    datetime = g_date_time_add_months (now, -6);
-                    break;
-            case DURATION_ONE_YEAR:
-                    datetime = g_date_time_add_years (now, -1);
-                    break;
+        case DURATION_ONE_HOUR:
+            datetime = g_date_time_add_hours (now, -1);
+            break;
+        case DURATION_ONE_DAY:
+            datetime = g_date_time_add_days (now, -1);
+            break;
+        case DURATION_ONE_WEEK:
+            datetime = g_date_time_add_weeks (now, -1);
+            break;
+        case DURATION_ONE_MONTH:
+            datetime = g_date_time_add_months (now, -1);
+            break;
+        case DURATION_SIX_MONTHS:
+            datetime = g_date_time_add_months (now, -6);
+            break;
+        case DURATION_ONE_YEAR:
+            datetime = g_date_time_add_years (now, -1);
+            break;
+        default:
+            g_assert_not_reached ();
     }
 
     g_date_time_unref (now);

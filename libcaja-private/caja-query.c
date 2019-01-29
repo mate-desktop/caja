@@ -383,8 +383,6 @@ caja_query_to_xml (CajaQuery *query)
     char *mimetype;
     char *tag;
     GList *l;
-    gint64 timestamp;
-    gint64 size;
 
     xml = g_string_new ("");
     g_string_append (xml,
