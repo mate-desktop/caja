@@ -4441,7 +4441,7 @@ add_submenu (GtkUIManager *ui_manager,
 			if (surface != NULL) {
 				g_object_set_data_full (G_OBJECT (action), "menu-icon",
 							cairo_surface_reference (surface),
-							cairo_surface_destroy);
+							(GDestroyNotify)cairo_surface_destroy);
 			}
 
 			g_object_set (action, "hide-if-empty", FALSE, NULL);
@@ -4984,7 +4984,7 @@ add_extension_action_for_files (FMDirectoryView *view,
 		if (surface != NULL) {
 			g_object_set_data_full (G_OBJECT (action), "menu-icon",
 						surface,
-						cairo_surface_destroy);
+						(GDestroyNotify)cairo_surface_destroy);
 		}
 	}
 
@@ -5451,7 +5451,7 @@ add_script_to_scripts_menus (FMDirectoryView *directory_view,
 	if (surface != NULL) {
 		g_object_set_data_full (G_OBJECT (action), "menu-icon",
 					surface,
-					cairo_surface_destroy);
+					(GDestroyNotify)cairo_surface_destroy);
 	}
 
 	g_signal_connect_data (action, "activate",
@@ -5702,7 +5702,7 @@ add_template_to_templates_menus (FMDirectoryView *directory_view,
 	if (surface != NULL) {
 		g_object_set_data_full (G_OBJECT (action), "menu-icon",
 					surface,
-					cairo_surface_destroy);
+					(GDestroyNotify)cairo_surface_destroy);
 	}
 
 	g_signal_connect_data (action, "activate",

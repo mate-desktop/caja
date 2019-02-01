@@ -192,7 +192,7 @@ caja_action_from_menu_item (CajaMenuItem *item,
         {
             g_object_set_data_full (G_OBJECT (action), "menu-icon",
                                     surface,
-                                    cairo_surface_destroy);
+                                    (GDestroyNotify)cairo_surface_destroy);
         }
     }
 
@@ -241,7 +241,7 @@ caja_toolbar_action_from_menu_item (CajaMenuItem *item, GtkWidget *parent_widget
         {
             g_object_set_data_full (G_OBJECT (action), "toolbar-icon",
                                     surface,
-                                    cairo_surface_destroy);
+                                    (GDestroyNotify)cairo_surface_destroy);
         }
     }
 

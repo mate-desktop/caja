@@ -212,7 +212,7 @@ do_constructor (GType type,
 
     if (singleton != NULL)
     {
-        return g_object_ref (singleton);
+        return g_object_ref (G_OBJECT (singleton));
     }
 
     retval = G_OBJECT_CLASS (caja_bookmark_list_parent_class)->constructor
