@@ -197,7 +197,7 @@ caja_menus_append_bookmark_to_menu (CajaWindow *window,
 
     g_object_set_data_full (G_OBJECT (action), "menu-icon",
                             cairo_surface_reference (surface),
-                            cairo_surface_destroy);
+                            (GDestroyNotify)cairo_surface_destroy);
 
     g_signal_connect_data (action, "activate",
                            G_CALLBACK (activate_bookmark_in_menu_item),
