@@ -1,3 +1,46 @@
+### caja 1.21.4
+
+  * update translations
+  * Avoid deprecated g_type_class_add_private under src
+  * Fix incompatible pointer types
+  * Avoid deprecated g_type_class_add_private under src
+  * Avoid deprecated g_type_class_add_private under libcaja-private
+  * Enable Travis CI
+  * Fix compile warning
+  * Let file size units follow the users preference
+  * Fixed the value of 6 month and 1 year.
+  * Support querying files by modification time and size
+  * Avoid deprecated g_type_class_add_private
+  * Update copyright to 2019
+  * CajaApplication: avoid deprecated 'g_type_class_add_private'
+  * caja-menu: avoid deprecated 'g_type_class_add_private'
+  * [eel][libegg] Use G_DEFINE_TYPE_WITH_PRIVATE macro
+  * configure.ac: Add check for PKG_CONFIG being set.
+  * caja-application: Check for smclient before trying to load session
+  * [eel] Avoid deprecated g_type_class_add_private
+  * [libegg] Avoid deprecated g_type_class_add_private
+  * [libcaja-private] Re-check file MIME type before picking an application.
+  * [file-manager] Fix apparent bug in context menu updating code.
+  * Revert "fm-directory-view.c:  Decrease minimum update interval."
+  * Fix: weird item in bookmarks if the folder was removed
+  * Minor code-quality enhancements
+  * Forgot to initialize is_backup field
+  * Change show/hide backup files shortcut
+  * Remove useless comments, correct description string
+  * Skip hidden files only, not backups
+  * Add independent show/hide backup files
+  * deleting unused nautilus icon
+  * caja-progress-info: new behavior with notifications:
+  * caja-progress-info: show notifications with the gsettings key:
+  * move appdata to metainfo directory
+  * disable deprecation warnings for distcheck
+  * caja-places-sidebar: replace two other uses of g_drive_poll_for_media_finish
+  * Fix segfault on stopping USB hard drives
+  * caja-bookmark: Fix memory leak
+  * fm-properties-window: Fix memory leaks
+  * caja-desktop-link-monitor: Fix memory leak
+  * eel-gtk-extensions: Fix memory leaks
+
 ### caja 1.21.3
 
   * GSettings should init beforce use it
