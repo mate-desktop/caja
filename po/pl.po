@@ -23,19 +23,19 @@
 # Marcin Kralka <marcink96@gmail.com>, 2018
 # Kajetan Rosiak <roskaj@gmail.com>, 2018
 # Marcin GTriderXC <gtriderxc@yahoo.com>, 2018
-# Stefano Karapetsas <stefano@karapetsas.com>, 2018
-# Dominik Adrian Grzywak, 2018
 # Piotr Drąg <piotrdrag@gmail.com>, 2018
 # pietrasagh <pietrasagh@gmail.com>, 2018
+# Stefano Karapetsas <stefano@karapetsas.com>, 2019
+# Dominik Adrian Grzywak, 2019
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-20 21:30+0200\n"
+"POT-Creation-Date: 2019-01-21 10:58+0100\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: pietrasagh <pietrasagh@gmail.com>, 2018\n"
+"Last-Translator: Dominik Adrian Grzywak, 2019\n"
 "Language-Team: Polish (https://www.transifex.com/mate/teams/13566/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -340,7 +340,7 @@ msgstr "Pytanie o automatyczne uruchamianie"
 #. Set initial window title
 #: ../data/caja-browser.desktop.in.in.h:1 ../data/caja.desktop.in.in.h:1
 #: ../data/caja-folder-handler.desktop.in.in.h:1
-#: ../src/caja-spatial-window.c:397 ../src/caja-window-menus.c:535
+#: ../src/caja-spatial-window.c:397 ../src/caja-window-menus.c:580
 #: ../src/caja-window.c:163
 msgid "Caja"
 msgstr "Caja"
@@ -359,7 +359,7 @@ msgid "Computer"
 msgstr "Komputer"
 
 #. tooltip
-#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:897
+#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:942
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
 msgstr ""
@@ -389,7 +389,7 @@ msgstr "Folder domowy"
 
 #. tooltip
 #: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:523
-#: ../src/caja-window-menus.c:892
+#: ../src/caja-window-menus.c:937
 msgid "Open your personal folder"
 msgstr "Otwórz katalog prywatny użytkownika"
 
@@ -458,8 +458,8 @@ msgstr ""
 #. label, accelerator
 #. add the "cut folder" menu item
 #: ../eel/eel-editable-label.c:3081 ../libcaja-private/caja-clipboard.c:455
-#: ../src/file-manager/fm-directory-view.c:7332
-#: ../src/file-manager/fm-directory-view.c:7499
+#: ../src/file-manager/fm-directory-view.c:7378
+#: ../src/file-manager/fm-directory-view.c:7545
 #: ../src/file-manager/fm-tree-view.c:1306
 msgid "Cu_t"
 msgstr "_Wytnij"
@@ -468,8 +468,8 @@ msgstr "_Wytnij"
 #. label, accelerator
 #. add the "copy folder" menu item
 #: ../eel/eel-editable-label.c:3083 ../libcaja-private/caja-clipboard.c:460
-#: ../src/file-manager/fm-directory-view.c:7336
-#: ../src/file-manager/fm-directory-view.c:7503
+#: ../src/file-manager/fm-directory-view.c:7382
+#: ../src/file-manager/fm-directory-view.c:7549
 #: ../src/file-manager/fm-tree-view.c:1315
 msgid "_Copy"
 msgstr "S_kopiuj"
@@ -477,7 +477,7 @@ msgstr "S_kopiuj"
 #. name, icon name
 #. label, accelerator
 #: ../eel/eel-editable-label.c:3085 ../libcaja-private/caja-clipboard.c:465
-#: ../src/file-manager/fm-directory-view.c:7340
+#: ../src/file-manager/fm-directory-view.c:7386
 msgid "_Paste"
 msgstr "Wk_lej"
 
@@ -495,12 +495,12 @@ msgstr "Wyświetl więcej _szczegółów"
 #: ../libcaja-private/caja-file-conflict-dialog.c:659
 #: ../libcaja-private/caja-file-operations.c:186
 #: ../libcaja-private/caja-mime-actions.c:819
-#: ../libcaja-private/caja-mime-actions.c:1726
+#: ../libcaja-private/caja-mime-actions.c:1732
 #: ../libcaja-private/caja-open-with-dialog.c:960
-#: ../src/file-manager/fm-directory-view.c:1208
-#: ../src/file-manager/fm-directory-view.c:1350
-#: ../src/file-manager/fm-directory-view.c:7012
-#: ../src/file-manager/fm-directory-view.c:10295
+#: ../src/file-manager/fm-directory-view.c:1211
+#: ../src/file-manager/fm-directory-view.c:1364
+#: ../src/file-manager/fm-directory-view.c:7026
+#: ../src/file-manager/fm-directory-view.c:10349
 #: ../src/caja-connect-server-dialog.c:1122 ../src/caja-emblem-sidebar.c:288
 #: ../src/caja-emblem-sidebar.c:545 ../src/caja-location-dialog.c:194
 #: ../src/caja-property-browser.c:1111 ../src/caja-property-browser.c:1191
@@ -512,8 +512,8 @@ msgstr "_Anuluj"
 #. add the "open" menu item
 #: ../eel/eel-stock-dialogs.c:240
 #: ../libcaja-private/caja-open-with-dialog.c:976
-#: ../src/file-manager/fm-directory-view.c:7296
-#: ../src/file-manager/fm-directory-view.c:8805
+#: ../src/file-manager/fm-directory-view.c:7342
+#: ../src/file-manager/fm-directory-view.c:8858
 #: ../src/file-manager/fm-tree-view.c:1266 ../src/caja-location-dialog.c:199
 #: ../src/caja-places-sidebar.c:2678
 msgid "_Open"
@@ -529,8 +529,8 @@ msgstr "Można zatrzymać te działanie poprzez kliknięcie przycisku Anuluj."
 
 #: ../eel/eel-stock-dialogs.c:296 ../eel/eel-stock-dialogs.c:451
 #: ../eel/eel-stock-dialogs.c:655 ../libcaja-private/caja-autorun.c:1155
-#: ../libcaja-private/caja-mime-actions.c:1370
-#: ../src/file-manager/fm-directory-view.c:1213
+#: ../libcaja-private/caja-mime-actions.c:1376
+#: ../src/file-manager/fm-directory-view.c:1216
 #: ../src/caja-emblem-sidebar.c:293 ../src/caja-emblem-sidebar.c:550
 #: ../src/caja-property-browser.c:1116 ../src/caja-property-browser.c:1196
 #: ../src/caja-query-editor.c:720
@@ -651,9 +651,9 @@ msgstr "_Wykonywanie tego działania bez pytania"
 #. label, accelerator
 #. add the "Eject" menu item
 #: ../libcaja-private/caja-autorun.c:1164
-#: ../src/file-manager/fm-directory-view.c:7423
-#: ../src/file-manager/fm-directory-view.c:7451
-#: ../src/file-manager/fm-directory-view.c:7532
+#: ../src/file-manager/fm-directory-view.c:7469
+#: ../src/file-manager/fm-directory-view.c:7497
+#: ../src/file-manager/fm-directory-view.c:7578
 #: ../src/file-manager/fm-tree-view.c:1364 ../src/caja-places-sidebar.c:2735
 msgid "_Eject"
 msgstr "Wy_suń"
@@ -662,9 +662,9 @@ msgstr "Wy_suń"
 #. label, accelerator
 #. add the "Unmount" menu item
 #: ../libcaja-private/caja-autorun.c:1179
-#: ../src/file-manager/fm-directory-view.c:7419
-#: ../src/file-manager/fm-directory-view.c:7447
-#: ../src/file-manager/fm-directory-view.c:7528
+#: ../src/file-manager/fm-directory-view.c:7465
+#: ../src/file-manager/fm-directory-view.c:7493
+#: ../src/file-manager/fm-directory-view.c:7574
 #: ../src/file-manager/fm-tree-view.c:1355 ../src/caja-places-sidebar.c:2728
 msgid "_Unmount"
 msgstr "O_dmontuj"
@@ -687,7 +687,7 @@ msgstr "Wkleja tekst zapisany w schowku"
 #. name, icon name
 #. label, accelerator
 #: ../libcaja-private/caja-clipboard.c:470
-#: ../src/file-manager/fm-directory-view.c:7352
+#: ../src/file-manager/fm-directory-view.c:7398
 msgid "Select _All"
 msgstr "Z_aznacz wszystko"
 
@@ -776,7 +776,7 @@ msgid "The group of the file."
 msgstr "Grupa pliku."
 
 #: ../libcaja-private/caja-column-utilities.c:106
-#: ../src/file-manager/fm-properties-window.c:4750
+#: ../src/file-manager/fm-properties-window.c:4757
 msgid "Permissions"
 msgstr "Uprawnienia"
 
@@ -818,7 +818,7 @@ msgid "The location of the file."
 msgstr "Lokalizacja pliku"
 
 #: ../libcaja-private/caja-column-utilities.c:146
-#: ../src/caja-file-management-properties.ui.h:110
+#: ../src/caja-file-management-properties.ui.h:111
 msgid "Extension"
 msgstr "Rozszerzenie"
 
@@ -1023,14 +1023,14 @@ msgstr "Pierwotny plik"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:281
 #: ../libcaja-private/caja-file-conflict-dialog.c:320
-#: ../src/file-manager/fm-properties-window.c:3274
+#: ../src/file-manager/fm-properties-window.c:3281
 msgid "Size:"
 msgstr "Rozmiar:"
 
 #. second row: type combobox
 #: ../libcaja-private/caja-file-conflict-dialog.c:286
 #: ../libcaja-private/caja-file-conflict-dialog.c:325
-#: ../src/file-manager/fm-properties-window.c:3256
+#: ../src/file-manager/fm-properties-window.c:3263
 #: ../src/caja-connect-server-dialog.c:930
 msgid "Type:"
 msgstr "Rodzaj:"
@@ -1107,9 +1107,9 @@ msgstr "_Ponów"
 #. add the "delete" menu item
 #. add "delete" menu item
 #: ../libcaja-private/caja-file-operations.c:190
-#: ../src/file-manager/fm-directory-view.c:7384
-#: ../src/file-manager/fm-directory-view.c:7516
-#: ../src/file-manager/fm-directory-view.c:8957
+#: ../src/file-manager/fm-directory-view.c:7430
+#: ../src/file-manager/fm-directory-view.c:7562
+#: ../src/file-manager/fm-directory-view.c:9010
 #: ../src/file-manager/fm-tree-view.c:1344 ../src/caja-emblem-sidebar.c:373
 msgid "_Delete"
 msgstr "_Usuń"
@@ -1180,8 +1180,8 @@ msgstr[3] "około %'d godzin"
 #. * (e.g. "folder", "plain text") to file type for symbolic link
 #. * to that kind of file (e.g. "link to folder").
 #: ../libcaja-private/caja-file-operations.c:409
-#: ../libcaja-private/caja-file.c:6727
-#: ../src/file-manager/fm-directory-view.c:10539
+#: ../libcaja-private/caja-file.c:6758
+#: ../src/file-manager/fm-directory-view.c:10593
 #, c-format
 msgid "Link to %s"
 msgstr "Dowiązanie do %s"
@@ -1315,11 +1315,11 @@ msgstr " ("
 msgid " (%'d"
 msgstr " (%'d"
 
-#: ../libcaja-private/caja-file-operations.c:1362
+#: ../libcaja-private/caja-file-operations.c:1363
 msgid "Are you sure you want to permanently delete \"%B\" from the trash?"
 msgstr "Na pewno trwale usunąć element \"%B\" z kosza?"
 
-#: ../libcaja-private/caja-file-operations.c:1365
+#: ../libcaja-private/caja-file-operations.c:1366
 #, c-format
 msgid ""
 "Are you sure you want to permanently delete the %'d selected item from the "
@@ -1332,31 +1332,31 @@ msgstr[1] "Na pewno trwale usunąć %'d zaznaczone elementy z kosza?"
 msgstr[2] "Na pewno trwale usunąć %'d zaznaczonych elementów z kosza?"
 msgstr[3] "Na pewno trwale usunąć %'d zaznaczonych elementów z kosza?"
 
-#: ../libcaja-private/caja-file-operations.c:1375
-#: ../libcaja-private/caja-file-operations.c:1441
+#: ../libcaja-private/caja-file-operations.c:1376
+#: ../libcaja-private/caja-file-operations.c:1442
 msgid "If you delete an item, it will be permanently lost."
 msgstr "Usunięcie elementu spowoduje jego bezpowrotne utracenie."
 
-#: ../libcaja-private/caja-file-operations.c:1395
+#: ../libcaja-private/caja-file-operations.c:1396
 msgid "Empty all items from Trash?"
 msgstr "Opróżnić kosz ze wszystkich elementów?"
 
-#: ../libcaja-private/caja-file-operations.c:1399
+#: ../libcaja-private/caja-file-operations.c:1400
 msgid "All items in the Trash will be permanently deleted."
 msgstr "Wszystkie elementy w koszu zostaną bezpowrotne usunięte."
 
 #. Empty Trash menu item
-#: ../libcaja-private/caja-file-operations.c:1402
-#: ../libcaja-private/caja-file-operations.c:2333
+#: ../libcaja-private/caja-file-operations.c:1403
+#: ../libcaja-private/caja-file-operations.c:2334
 #: ../src/caja-places-sidebar.c:2772 ../src/caja-trash-bar.c:197
 msgid "Empty _Trash"
 msgstr "Op_różnij kosz"
 
-#: ../libcaja-private/caja-file-operations.c:1429
+#: ../libcaja-private/caja-file-operations.c:1430
 msgid "Are you sure you want to permanently delete \"%B\"?"
 msgstr "Na pewno trwale usunąć element \"%B\"?"
 
-#: ../libcaja-private/caja-file-operations.c:1432
+#: ../libcaja-private/caja-file-operations.c:1433
 #, c-format
 msgid "Are you sure you want to permanently delete the %'d selected item?"
 msgid_plural ""
@@ -1366,11 +1366,11 @@ msgstr[1] "Na pewno trwale usunąć %'d zaznaczone elementy?"
 msgstr[2] "Na pewno trwale usunąć %'d zaznaczonych elementów?"
 msgstr[3] "Na pewno trwale usunąć %'d zaznaczonych elementów?"
 
-#: ../libcaja-private/caja-file-operations.c:1471
+#: ../libcaja-private/caja-file-operations.c:1472
 msgid "Are you sure you want to trash \"%B\"?"
 msgstr "Czy na pewno chcesz przenieść do kosza \"%B\"?"
 
-#: ../libcaja-private/caja-file-operations.c:1474
+#: ../libcaja-private/caja-file-operations.c:1475
 #, c-format
 msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
@@ -1379,17 +1379,17 @@ msgstr[1] "Na pewno przenieść do kosza %'d zaznaczone elementy?"
 msgstr[2] "Na pewno przenieść do kosza %'d zaznaczonych elementów?"
 msgstr[3] "Na pewno przenieść do kosza %'d zaznaczonych elementów?"
 
-#: ../libcaja-private/caja-file-operations.c:1483
+#: ../libcaja-private/caja-file-operations.c:1484
 msgid "Items moved to the trash may be recovered until the trash is emptied."
 msgstr ""
 "Elementy przeniesione do kosza mogą zostać przywrócone przed opróżnieniem "
 "kosza."
 
-#: ../libcaja-private/caja-file-operations.c:1486
+#: ../libcaja-private/caja-file-operations.c:1487
 msgid "Move to _Trash"
 msgstr "Przenieś do _kosza"
 
-#: ../libcaja-private/caja-file-operations.c:1517
+#: ../libcaja-private/caja-file-operations.c:1518
 #, c-format
 msgid "%'d file left to delete"
 msgid_plural "%'d files left to delete"
@@ -1398,14 +1398,14 @@ msgstr[1] "pozostały %'d pliki do usunięcia"
 msgstr[2] "pozostało %'d plików do usunięcia"
 msgstr[3] "pozostało %'d plików do usunięcia"
 
-#: ../libcaja-private/caja-file-operations.c:1523
+#: ../libcaja-private/caja-file-operations.c:1524
 msgid "Deleting files"
 msgstr "Usuwanie plików"
 
 #. To translators: %T will expand to a time like "2 minutes".
 #. * The singular/plural form will be used depending on the remaining time
 #. (i.e. the %T argument).
-#: ../libcaja-private/caja-file-operations.c:1537
+#: ../libcaja-private/caja-file-operations.c:1538
 msgid "%T left"
 msgid_plural "%T left"
 msgstr[0] "pozostała %T"
@@ -1413,15 +1413,15 @@ msgstr[1] "pozostały %T"
 msgstr[2] "pozostało %T"
 msgstr[3] "pozostało %T"
 
-#: ../libcaja-private/caja-file-operations.c:1604
-#: ../libcaja-private/caja-file-operations.c:1638
-#: ../libcaja-private/caja-file-operations.c:1677
-#: ../libcaja-private/caja-file-operations.c:1754
-#: ../libcaja-private/caja-file-operations.c:2577
+#: ../libcaja-private/caja-file-operations.c:1605
+#: ../libcaja-private/caja-file-operations.c:1639
+#: ../libcaja-private/caja-file-operations.c:1678
+#: ../libcaja-private/caja-file-operations.c:1755
+#: ../libcaja-private/caja-file-operations.c:2578
 msgid "Error while deleting."
 msgstr "Błąd podczas usuwania."
 
-#: ../libcaja-private/caja-file-operations.c:1608
+#: ../libcaja-private/caja-file-operations.c:1609
 msgid ""
 "Files in the folder \"%B\" cannot be deleted because you do not have "
 "permissions to see them."
@@ -1429,43 +1429,43 @@ msgstr ""
 "Nie można usunąć plików z katalogu \"%B\": brak uprawnień do ich "
 "wyświetlenia."
 
-#: ../libcaja-private/caja-file-operations.c:1611
-#: ../libcaja-private/caja-file-operations.c:2637
-#: ../libcaja-private/caja-file-operations.c:3619
+#: ../libcaja-private/caja-file-operations.c:1612
+#: ../libcaja-private/caja-file-operations.c:2638
+#: ../libcaja-private/caja-file-operations.c:3620
 msgid ""
 "There was an error getting information about the files in the folder \"%B\"."
 msgstr "Wystąpił błąd podczas pobierania informacji o plikach w katalogu \"%B\"."
 
-#: ../libcaja-private/caja-file-operations.c:1620
-#: ../libcaja-private/caja-file-operations.c:3628
+#: ../libcaja-private/caja-file-operations.c:1621
+#: ../libcaja-private/caja-file-operations.c:3629
 msgid "_Skip files"
 msgstr "_Pomiń pliki"
 
-#: ../libcaja-private/caja-file-operations.c:1641
+#: ../libcaja-private/caja-file-operations.c:1642
 msgid ""
 "The folder \"%B\" cannot be deleted because you do not have permissions to "
 "read it."
 msgstr "Nie można usunąć plików z katalogu \"%B\": brak uprawnień do odczytu."
 
-#: ../libcaja-private/caja-file-operations.c:1644
-#: ../libcaja-private/caja-file-operations.c:2676
-#: ../libcaja-private/caja-file-operations.c:3664
+#: ../libcaja-private/caja-file-operations.c:1645
+#: ../libcaja-private/caja-file-operations.c:2677
+#: ../libcaja-private/caja-file-operations.c:3665
 msgid "There was an error reading the folder \"%B\"."
 msgstr "Wystąpił błąd podczas odczytywania katalogu \"%B\"."
 
-#: ../libcaja-private/caja-file-operations.c:1678
+#: ../libcaja-private/caja-file-operations.c:1679
 msgid "Could not remove the folder %B."
 msgstr "Nie można usunąć katalogu %B."
 
-#: ../libcaja-private/caja-file-operations.c:1755
+#: ../libcaja-private/caja-file-operations.c:1756
 msgid "There was an error deleting %B."
 msgstr "Wystąpił błąd podczas usuwania %B."
 
-#: ../libcaja-private/caja-file-operations.c:1835
+#: ../libcaja-private/caja-file-operations.c:1836
 msgid "Moving files to trash"
 msgstr "Przenoszenie plików do kosza"
 
-#: ../libcaja-private/caja-file-operations.c:1837
+#: ../libcaja-private/caja-file-operations.c:1838
 #, c-format
 msgid "%'d file left to trash"
 msgid_plural "%'d files left to trash"
@@ -1474,35 +1474,35 @@ msgstr[1] "Pozostały %'d pliki do przeniesienia do kosza"
 msgstr[2] "Pozostało %'d plików do przeniesienia do kosza"
 msgstr[3] "Pozostało %'d plików do przeniesienia do kosza"
 
-#: ../libcaja-private/caja-file-operations.c:1894
+#: ../libcaja-private/caja-file-operations.c:1895
 msgid "Cannot move file to trash, do you want to delete immediately?"
 msgstr "Nie można przenieść pliku do kosza. Usunąć go natychmiast?"
 
-#: ../libcaja-private/caja-file-operations.c:1895
+#: ../libcaja-private/caja-file-operations.c:1896
 msgid "The file \"%B\" cannot be moved to the trash."
 msgstr "Nie można przenieść pliku \"%B\" do kosza."
 
-#: ../libcaja-private/caja-file-operations.c:2079
+#: ../libcaja-private/caja-file-operations.c:2080
 msgid "Trashing Files"
 msgstr "Przenoszenie plików do kosza"
 
-#: ../libcaja-private/caja-file-operations.c:2081
+#: ../libcaja-private/caja-file-operations.c:2082
 msgid "Deleting Files"
 msgstr "Usuwanie plików"
 
-#: ../libcaja-private/caja-file-operations.c:2158
+#: ../libcaja-private/caja-file-operations.c:2159
 msgid "Unable to eject %V"
 msgstr "Nie można wysunąć %V"
 
-#: ../libcaja-private/caja-file-operations.c:2160
+#: ../libcaja-private/caja-file-operations.c:2161
 msgid "Unable to unmount %V"
 msgstr "Nie można odmontować %V"
 
-#: ../libcaja-private/caja-file-operations.c:2318
+#: ../libcaja-private/caja-file-operations.c:2319
 msgid "Do you want to empty the trash before you unmount?"
 msgstr "Opróżnić kosz przed odmontowaniem?"
 
-#: ../libcaja-private/caja-file-operations.c:2320
+#: ../libcaja-private/caja-file-operations.c:2321
 msgid ""
 "In order to regain the free space on this volume the trash must be emptied. "
 "All trashed items on the volume will be permanently lost."
@@ -1510,16 +1510,16 @@ msgstr ""
 "Kosz musi zostać opróżniony, aby odzyskać wolne miejsce na tym urządzeniu. "
 "Wszystkie elementy w koszu zostaną bezpowrotnie utracone."
 
-#: ../libcaja-private/caja-file-operations.c:2327
+#: ../libcaja-private/caja-file-operations.c:2328
 msgid "Do _not Empty Trash"
 msgstr "_Nie opróżniaj kosza"
 
-#: ../libcaja-private/caja-file-operations.c:2446
+#: ../libcaja-private/caja-file-operations.c:2447
 #, c-format
 msgid "Unable to mount %s"
 msgstr "Nie można zamontować %s"
 
-#: ../libcaja-private/caja-file-operations.c:2524
+#: ../libcaja-private/caja-file-operations.c:2525
 #, c-format
 msgid "Preparing to copy %'d file (%S)"
 msgid_plural "Preparing to copy %'d files (%S)"
@@ -1528,7 +1528,7 @@ msgstr[1] "Przygotowywanie do skopiowania %'d plików (%S)"
 msgstr[2] "Przygotowywanie do skopiowania %'d plików (%S)"
 msgstr[3] "Przygotowywanie do skopiowania %'d plików (%S)"
 
-#: ../libcaja-private/caja-file-operations.c:2530
+#: ../libcaja-private/caja-file-operations.c:2531
 #, c-format
 msgid "Preparing to move %'d file (%S)"
 msgid_plural "Preparing to move %'d files (%S)"
@@ -1537,7 +1537,7 @@ msgstr[1] "Przygotowywanie do przeniesienia %'d plików (%S)"
 msgstr[2] "Przygotowywanie do przeniesienia %'d plików (%S)"
 msgstr[3] "Przygotowywanie do przeniesienia %'d plików (%S)"
 
-#: ../libcaja-private/caja-file-operations.c:2536
+#: ../libcaja-private/caja-file-operations.c:2537
 #, c-format
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
@@ -1546,7 +1546,7 @@ msgstr[1] "Przygotowywanie do usunięcia %'d plików (%S)"
 msgstr[2] "Przygotowywanie do usunięcia %'d plików (%S)"
 msgstr[3] "Przygotowywanie do usunięcia %'d plików (%S)"
 
-#: ../libcaja-private/caja-file-operations.c:2542
+#: ../libcaja-private/caja-file-operations.c:2543
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
@@ -1555,24 +1555,24 @@ msgstr[1] "Przygotowywanie do przeniesienia %'d plików do kosza"
 msgstr[2] "Przygotowywanie do przeniesienia %'d plików do kosza"
 msgstr[3] "Przygotowywanie do przeniesienia %'d plików do kosza"
 
-#: ../libcaja-private/caja-file-operations.c:2573
-#: ../libcaja-private/caja-file-operations.c:3471
-#: ../libcaja-private/caja-file-operations.c:3611
-#: ../libcaja-private/caja-file-operations.c:3656
+#: ../libcaja-private/caja-file-operations.c:2574
+#: ../libcaja-private/caja-file-operations.c:3472
+#: ../libcaja-private/caja-file-operations.c:3612
+#: ../libcaja-private/caja-file-operations.c:3657
 msgid "Error while copying."
 msgstr "Błąd podczas kopiowania."
 
-#: ../libcaja-private/caja-file-operations.c:2575
-#: ../libcaja-private/caja-file-operations.c:3609
-#: ../libcaja-private/caja-file-operations.c:3654
+#: ../libcaja-private/caja-file-operations.c:2576
+#: ../libcaja-private/caja-file-operations.c:3610
+#: ../libcaja-private/caja-file-operations.c:3655
 msgid "Error while moving."
 msgstr "Błąd podczas przenoszenia."
 
-#: ../libcaja-private/caja-file-operations.c:2579
+#: ../libcaja-private/caja-file-operations.c:2580
 msgid "Error while moving files to trash."
 msgstr "Błąd podczas przenoszenia plików do kosza."
 
-#: ../libcaja-private/caja-file-operations.c:2634
+#: ../libcaja-private/caja-file-operations.c:2635
 msgid ""
 "Files in the folder \"%B\" cannot be handled because you do not have "
 "permissions to see them."
@@ -1580,42 +1580,42 @@ msgstr ""
 "Pliki w katalogu \"%B\" nie mogą być obsłużone: brak uprawnień do ich "
 "wyświetlenia."
 
-#: ../libcaja-private/caja-file-operations.c:2673
+#: ../libcaja-private/caja-file-operations.c:2674
 msgid ""
 "The folder \"%B\" cannot be handled because you do not have permissions to "
 "read it."
 msgstr "Katalog \"%B\" nie może być obsłużony: brak uprawnień do jego odczytu."
 
-#: ../libcaja-private/caja-file-operations.c:2751
+#: ../libcaja-private/caja-file-operations.c:2752
 msgid ""
 "The file \"%B\" cannot be handled because you do not have permissions to "
 "read it."
 msgstr "Plik \"%B\" nie może być obsłużony: brak uprawnień do jego odczytu."
 
-#: ../libcaja-private/caja-file-operations.c:2754
+#: ../libcaja-private/caja-file-operations.c:2755
 msgid "There was an error getting information about \"%B\"."
 msgstr "Wystąpił błąd podczas pobierania informacji o \"%B\"."
 
-#: ../libcaja-private/caja-file-operations.c:2854
-#: ../libcaja-private/caja-file-operations.c:2896
-#: ../libcaja-private/caja-file-operations.c:2929
-#: ../libcaja-private/caja-file-operations.c:2959
+#: ../libcaja-private/caja-file-operations.c:2855
+#: ../libcaja-private/caja-file-operations.c:2897
+#: ../libcaja-private/caja-file-operations.c:2930
+#: ../libcaja-private/caja-file-operations.c:2960
 msgid "Error while copying to \"%B\"."
 msgstr "Błąd podczas kopiowania do \"%B\"."
 
-#: ../libcaja-private/caja-file-operations.c:2858
+#: ../libcaja-private/caja-file-operations.c:2859
 msgid "You do not have permissions to access the destination folder."
 msgstr "Brak uprawnień do dostępu do katalogu docelowego."
 
-#: ../libcaja-private/caja-file-operations.c:2860
+#: ../libcaja-private/caja-file-operations.c:2861
 msgid "There was an error getting information about the destination."
 msgstr "Wystąpił błąd podczas pobierania informacji o miejscu docelowym."
 
-#: ../libcaja-private/caja-file-operations.c:2897
+#: ../libcaja-private/caja-file-operations.c:2898
 msgid "The destination is not a folder."
 msgstr "Miejsce docelowe nie jest katalogiem."
 
-#: ../libcaja-private/caja-file-operations.c:2930
+#: ../libcaja-private/caja-file-operations.c:2931
 msgid ""
 "There is not enough space on the destination. Try to remove files to make "
 "space."
@@ -1623,28 +1623,28 @@ msgstr ""
 "Brak wystarczającej ilości miejsca w miejscu docelowym. Proszę spróbować "
 "usunąć pliki, aby zwolnić więcej miejsca."
 
-#: ../libcaja-private/caja-file-operations.c:2932
+#: ../libcaja-private/caja-file-operations.c:2933
 #, c-format
 msgid "There is %S available, but %S is required."
 msgstr "Dostępne %S, wymagane %S."
 
-#: ../libcaja-private/caja-file-operations.c:2960
+#: ../libcaja-private/caja-file-operations.c:2961
 msgid "The destination is read-only."
 msgstr "Miejsce docelowe jest tylko do odczytu."
 
-#: ../libcaja-private/caja-file-operations.c:3019
+#: ../libcaja-private/caja-file-operations.c:3020
 msgid "Moving \"%B\" to \"%B\""
 msgstr "Przenoszenie \"%B\" do \"%B\""
 
-#: ../libcaja-private/caja-file-operations.c:3020
+#: ../libcaja-private/caja-file-operations.c:3021
 msgid "Copying \"%B\" to \"%B\""
 msgstr "Kopiowanie \"%B\" do \"%B\""
 
-#: ../libcaja-private/caja-file-operations.c:3025
+#: ../libcaja-private/caja-file-operations.c:3026
 msgid "Duplicating \"%B\""
 msgstr "Powielanie \"%B\""
 
-#: ../libcaja-private/caja-file-operations.c:3033
+#: ../libcaja-private/caja-file-operations.c:3034
 msgid "Moving %'d file (in \"%B\") to \"%B\""
 msgid_plural "Moving %'d files (in \"%B\") to \"%B\""
 msgstr[0] "Przenoszenie %'d pliku (w \"%B\") do \"%B\""
@@ -1652,7 +1652,7 @@ msgstr[1] "Przenoszenie %'d plików (w \"%B\") do \"%B\""
 msgstr[2] "Przenoszenie %'d plików (w \"%B\") do \"%B\""
 msgstr[3] "Przenoszenie %'d plików (w \"%B\") do \"%B\""
 
-#: ../libcaja-private/caja-file-operations.c:3037
+#: ../libcaja-private/caja-file-operations.c:3038
 msgid "Copying %'d file (in \"%B\") to \"%B\""
 msgid_plural "Copying %'d files (in \"%B\") to \"%B\""
 msgstr[0] "Kopiowanie %'d pliku (w \"%B\") do \"%B\""
@@ -1660,7 +1660,7 @@ msgstr[1] "Kopiowanie %'d plików (w \"%B\") do \"%B\""
 msgstr[2] "Kopiowanie %'d plików (w \"%B\") do \"%B\""
 msgstr[3] "Kopiowanie %'d plików (w \"%B\") do \"%B\""
 
-#: ../libcaja-private/caja-file-operations.c:3045
+#: ../libcaja-private/caja-file-operations.c:3046
 msgid "Duplicating %'d file (in \"%B\")"
 msgid_plural "Duplicating %'d files (in \"%B\")"
 msgstr[0] "Powielanie %'d pliku (w \"%B\")"
@@ -1668,7 +1668,7 @@ msgstr[1] "Powielanie %'d plików (w \"%B\")"
 msgstr[2] "Powielanie %'d plików (w \"%B\")"
 msgstr[3] "Powielanie %'d plików (w \"%B\")"
 
-#: ../libcaja-private/caja-file-operations.c:3055
+#: ../libcaja-private/caja-file-operations.c:3056
 msgid "Moving %'d file to \"%B\""
 msgid_plural "Moving %'d files to \"%B\""
 msgstr[0] "Przenoszenie %'d pliku do \"%B\""
@@ -1676,7 +1676,7 @@ msgstr[1] "Przenoszenie %'d plików do \"%B\""
 msgstr[2] "Przenoszenie %'d plików do \"%B\""
 msgstr[3] "Przenoszenie %'d plików do \"%B\""
 
-#: ../libcaja-private/caja-file-operations.c:3059
+#: ../libcaja-private/caja-file-operations.c:3060
 msgid "Copying %'d file to \"%B\""
 msgid_plural "Copying %'d files to \"%B\""
 msgstr[0] "Kopiowanie %'d pliku do \"%B\""
@@ -1684,7 +1684,7 @@ msgstr[1] "Kopiowanie %'d plików do \"%B\""
 msgstr[2] "Kopiowanie %'d plików do \"%B\""
 msgstr[3] "Kopiowanie %'d plików do \"%B\""
 
-#: ../libcaja-private/caja-file-operations.c:3065
+#: ../libcaja-private/caja-file-operations.c:3066
 #, c-format
 msgid "Duplicating %'d file"
 msgid_plural "Duplicating %'d files"
@@ -1695,7 +1695,7 @@ msgstr[3] "Powielanie %'d plików"
 
 #. To translators: %S will expand to a size like "2 bytes" or "3 MB", so
 #. something like "4 kb of 4 MB"
-#: ../libcaja-private/caja-file-operations.c:3085
+#: ../libcaja-private/caja-file-operations.c:3086
 #, c-format
 msgid "%S of %S"
 msgstr "%S z %S"
@@ -1707,7 +1707,7 @@ msgstr "%S z %S"
 #. *
 #. * The singular/plural form will be used depending on the remaining time
 #. (i.e. the %T argument).
-#: ../libcaja-private/caja-file-operations.c:3096
+#: ../libcaja-private/caja-file-operations.c:3097
 msgid "%S of %S — %T left (%S/sec)"
 msgid_plural "%S of %S — %T left (%S/sec)"
 msgstr[0] "%S z %S — pozostała %T (%S/s)"
@@ -1715,7 +1715,7 @@ msgstr[1] "%S z %S — pozostały %T (%S/s)"
 msgstr[2] "%S z %S — pozostało %T (%S/s)"
 msgstr[3] "%S z %S — pozostało %T (%S/s)"
 
-#: ../libcaja-private/caja-file-operations.c:3475
+#: ../libcaja-private/caja-file-operations.c:3476
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "create it in the destination."
@@ -1723,11 +1723,11 @@ msgstr ""
 "Katalog \"%B\" nie może zostać skopiowany: brak uprawnień do jego utworzenia"
 " w miejscu docelowym."
 
-#: ../libcaja-private/caja-file-operations.c:3478
+#: ../libcaja-private/caja-file-operations.c:3479
 msgid "There was an error creating the folder \"%B\"."
 msgstr "Wystąpił błąd podczas tworzenia katalogu \"%B\"."
 
-#: ../libcaja-private/caja-file-operations.c:3616
+#: ../libcaja-private/caja-file-operations.c:3617
 msgid ""
 "Files in the folder \"%B\" cannot be copied because you do not have "
 "permissions to see them."
@@ -1735,88 +1735,88 @@ msgstr ""
 "Pliki w katalogu \"%B\" nie mogą zostać skopiowane: brak uprawnień do ich "
 "wyświetlenia."
 
-#: ../libcaja-private/caja-file-operations.c:3661
+#: ../libcaja-private/caja-file-operations.c:3662
 msgid ""
 "The folder \"%B\" cannot be copied because you do not have permissions to "
 "read it."
 msgstr ""
 "Katalog \"%B\" nie może zostać skopiowany: brak uprawnień do jego odczytu."
 
-#: ../libcaja-private/caja-file-operations.c:3706
-#: ../libcaja-private/caja-file-operations.c:4400
-#: ../libcaja-private/caja-file-operations.c:4992
+#: ../libcaja-private/caja-file-operations.c:3707
+#: ../libcaja-private/caja-file-operations.c:4401
+#: ../libcaja-private/caja-file-operations.c:4993
 msgid "Error while moving \"%B\"."
 msgstr "Błąd podczas przenoszenia \"%B\"."
 
-#: ../libcaja-private/caja-file-operations.c:3707
+#: ../libcaja-private/caja-file-operations.c:3708
 msgid "Could not remove the source folder."
 msgstr "Nie można usunąć katalogu źródłowego."
 
-#: ../libcaja-private/caja-file-operations.c:3792
-#: ../libcaja-private/caja-file-operations.c:3833
-#: ../libcaja-private/caja-file-operations.c:4402
-#: ../libcaja-private/caja-file-operations.c:4474
+#: ../libcaja-private/caja-file-operations.c:3793
+#: ../libcaja-private/caja-file-operations.c:3834
+#: ../libcaja-private/caja-file-operations.c:4403
+#: ../libcaja-private/caja-file-operations.c:4475
 msgid "Error while copying \"%B\"."
 msgstr "Błąd podczas kopiowania \"%B\"."
 
-#: ../libcaja-private/caja-file-operations.c:3793
+#: ../libcaja-private/caja-file-operations.c:3794
 #, c-format
 msgid "Could not remove files from the already existing folder %F."
 msgstr "Nie można usunąć plików z istniejącego już katalogu %F."
 
-#: ../libcaja-private/caja-file-operations.c:3834
+#: ../libcaja-private/caja-file-operations.c:3835
 #, c-format
 msgid "Could not remove the already existing file %F."
 msgstr "Nie można usunąć istniejącego już pliku %F."
 
 #. the run_warning() frees all strings passed in automatically
-#: ../libcaja-private/caja-file-operations.c:4153
-#: ../libcaja-private/caja-file-operations.c:4838
+#: ../libcaja-private/caja-file-operations.c:4154
+#: ../libcaja-private/caja-file-operations.c:4839
 msgid "You cannot move a folder into itself."
 msgstr "Nie można przenieść katalogu do niego samego."
 
-#: ../libcaja-private/caja-file-operations.c:4154
-#: ../libcaja-private/caja-file-operations.c:4839
+#: ../libcaja-private/caja-file-operations.c:4155
+#: ../libcaja-private/caja-file-operations.c:4840
 msgid "You cannot copy a folder into itself."
 msgstr "Nie można skopiować katalogu do niego samego."
 
-#: ../libcaja-private/caja-file-operations.c:4155
-#: ../libcaja-private/caja-file-operations.c:4840
+#: ../libcaja-private/caja-file-operations.c:4156
+#: ../libcaja-private/caja-file-operations.c:4841
 msgid "The destination folder is inside the source folder."
 msgstr "Katalog docelowy znajduje się wewnątrz katalogu źródłowego."
 
 #. the run_warning() frees all strings passed in automatically
-#: ../libcaja-private/caja-file-operations.c:4186
+#: ../libcaja-private/caja-file-operations.c:4187
 msgid "You cannot move a file over itself."
 msgstr "Nie można przenieść pliku na niego samego."
 
-#: ../libcaja-private/caja-file-operations.c:4187
+#: ../libcaja-private/caja-file-operations.c:4188
 msgid "You cannot copy a file over itself."
 msgstr "Nie można skopiować pliku na niego samego."
 
-#: ../libcaja-private/caja-file-operations.c:4188
+#: ../libcaja-private/caja-file-operations.c:4189
 msgid "The source file would be overwritten by the destination."
 msgstr "Plik źródłowy zostałby nadpisany przez docelowy."
 
-#: ../libcaja-private/caja-file-operations.c:4404
+#: ../libcaja-private/caja-file-operations.c:4405
 #, c-format
 msgid "Could not remove the already existing file with the same name in %F."
 msgstr "Nie można usunąć istniejącego już pliku o tej samej nazwie w %F."
 
-#: ../libcaja-private/caja-file-operations.c:4475
+#: ../libcaja-private/caja-file-operations.c:4476
 #, c-format
 msgid "There was an error copying the file into %F."
 msgstr "Wystąpił błąd podczas kopiowania pliku do %F."
 
-#: ../libcaja-private/caja-file-operations.c:4721
+#: ../libcaja-private/caja-file-operations.c:4722
 msgid "Copying Files"
 msgstr "Kopiowanie plików"
 
-#: ../libcaja-private/caja-file-operations.c:4748
+#: ../libcaja-private/caja-file-operations.c:4749
 msgid "Preparing to Move to \"%B\""
 msgstr "Przygotowywanie do przeniesienia do \"%B\""
 
-#: ../libcaja-private/caja-file-operations.c:4752
+#: ../libcaja-private/caja-file-operations.c:4753
 #, c-format
 msgid "Preparing to move %'d file"
 msgid_plural "Preparing to move %'d files"
@@ -1825,20 +1825,20 @@ msgstr[1] "Przygotowywanie do przeniesienia %'d plików"
 msgstr[2] "Przygotowywanie do przeniesienia %'d plików"
 msgstr[3] "Przygotowywanie do przeniesienia %'d plików"
 
-#: ../libcaja-private/caja-file-operations.c:4993
+#: ../libcaja-private/caja-file-operations.c:4994
 #, c-format
 msgid "There was an error moving the file into %F."
 msgstr "Wystąpił błąd podczas przenoszenia plików do %F."
 
-#: ../libcaja-private/caja-file-operations.c:5263
+#: ../libcaja-private/caja-file-operations.c:5264
 msgid "Moving Files"
 msgstr "Przenoszenie plików"
 
-#: ../libcaja-private/caja-file-operations.c:5294
+#: ../libcaja-private/caja-file-operations.c:5295
 msgid "Creating links in \"%B\""
 msgstr "Tworzenie dowiązań w \"%B\""
 
-#: ../libcaja-private/caja-file-operations.c:5298
+#: ../libcaja-private/caja-file-operations.c:5299
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
@@ -1847,111 +1847,111 @@ msgstr[1] "Tworzenie dowiązań do %'d plików"
 msgstr[2] "Tworzenie dowiązań do %'d plików"
 msgstr[3] "Tworzenie dowiązań do %'d plików"
 
-#: ../libcaja-private/caja-file-operations.c:5430
+#: ../libcaja-private/caja-file-operations.c:5431
 msgid "Error while creating link to %B."
 msgstr "Błąd podczas tworzenia dowiązania do %B."
 
-#: ../libcaja-private/caja-file-operations.c:5432
+#: ../libcaja-private/caja-file-operations.c:5433
 msgid "Symbolic links only supported for local files"
 msgstr "Dowiązania symboliczne są obsługiwane tylko dla plików lokalnych"
 
-#: ../libcaja-private/caja-file-operations.c:5435
+#: ../libcaja-private/caja-file-operations.c:5436
 msgid "The target doesn't support symbolic links."
 msgstr "Element docelowy nie obsługuje dowiązań symbolicznych."
 
-#: ../libcaja-private/caja-file-operations.c:5438
+#: ../libcaja-private/caja-file-operations.c:5439
 #, c-format
 msgid "There was an error creating the symlink in %F."
 msgstr "Wystąpił błąd podczas tworzenia dowiązania symbolicznego w %F."
 
-#: ../libcaja-private/caja-file-operations.c:5754
+#: ../libcaja-private/caja-file-operations.c:5755
 msgid "Setting permissions"
 msgstr "Ustawianie uprawnień"
 
 #. localizers: the initial name of a new folder
-#: ../libcaja-private/caja-file-operations.c:6013
+#: ../libcaja-private/caja-file-operations.c:6014
 msgid "untitled folder"
 msgstr "nowy katalog"
 
 #. localizers: the initial name of a new empty file
-#: ../libcaja-private/caja-file-operations.c:6021
+#: ../libcaja-private/caja-file-operations.c:6022
 msgid "new file"
 msgstr "nowy plik"
 
-#: ../libcaja-private/caja-file-operations.c:6193
+#: ../libcaja-private/caja-file-operations.c:6194
 msgid "Error while creating directory %B."
 msgstr "Błąd podczas tworzenia katalogu %B."
 
-#: ../libcaja-private/caja-file-operations.c:6195
+#: ../libcaja-private/caja-file-operations.c:6196
 msgid "Error while creating file %B."
 msgstr "Błąd podczas tworzenia pliku %B."
 
-#: ../libcaja-private/caja-file-operations.c:6197
+#: ../libcaja-private/caja-file-operations.c:6198
 #, c-format
 msgid "There was an error creating the directory in %F."
 msgstr "Wystąpił błąd podczas tworzenia katalogu w %F."
 
-#: ../libcaja-private/caja-file-operations.c:6475
+#: ../libcaja-private/caja-file-operations.c:6476
 msgid "Emptying Trash"
 msgstr "Opróżnianie kosza"
 
-#: ../libcaja-private/caja-file-operations.c:6524
-#: ../libcaja-private/caja-file-operations.c:6565
-#: ../libcaja-private/caja-file-operations.c:6600
-#: ../libcaja-private/caja-file-operations.c:6635
+#: ../libcaja-private/caja-file-operations.c:6525
+#: ../libcaja-private/caja-file-operations.c:6566
+#: ../libcaja-private/caja-file-operations.c:6601
+#: ../libcaja-private/caja-file-operations.c:6636
 msgid "Unable to mark launcher trusted (executable)"
 msgstr "Nie można oznaczyć aktywatora jako zaufanego (wykonywalny)"
 
-#: ../libcaja-private/caja-file-utilities.c:1183
+#: ../libcaja-private/caja-file-utilities.c:1225
 #, c-format
 msgid "Could not determine original location of \"%s\" "
 msgstr "Nie można określić pierwotnego położenia \"%s\" "
 
-#: ../libcaja-private/caja-file-utilities.c:1187
+#: ../libcaja-private/caja-file-utilities.c:1229
 msgid "The item cannot be restored from trash"
 msgstr "Nie można przywrócić elementu z kosza"
 
-#: ../libcaja-private/caja-file.c:1222 ../libcaja-private/caja-vfs-file.c:439
+#: ../libcaja-private/caja-file.c:1224 ../libcaja-private/caja-vfs-file.c:439
 msgid "This file cannot be mounted"
 msgstr "Tego pliku nie można zamontować"
 
-#: ../libcaja-private/caja-file.c:1267
+#: ../libcaja-private/caja-file.c:1269
 msgid "This file cannot be unmounted"
 msgstr "Tego pliku nie można odmontować"
 
-#: ../libcaja-private/caja-file.c:1301
+#: ../libcaja-private/caja-file.c:1303
 msgid "This file cannot be ejected"
 msgstr "Tego pliku nie można wysunąć"
 
-#: ../libcaja-private/caja-file.c:1334 ../libcaja-private/caja-vfs-file.c:628
+#: ../libcaja-private/caja-file.c:1336 ../libcaja-private/caja-vfs-file.c:628
 msgid "This file cannot be started"
 msgstr "Tego pliku nie można uruchomić"
 
-#: ../libcaja-private/caja-file.c:1386 ../libcaja-private/caja-file.c:1417
+#: ../libcaja-private/caja-file.c:1388 ../libcaja-private/caja-file.c:1419
 msgid "This file cannot be stopped"
 msgstr "Tego pliku nie można zatrzymać"
 
-#: ../libcaja-private/caja-file.c:1825
+#: ../libcaja-private/caja-file.c:1827
 #, c-format
 msgid "Slashes are not allowed in filenames"
 msgstr "Ukośniki w nazwach plików nie są dozwolone"
 
-#: ../libcaja-private/caja-file.c:1843
+#: ../libcaja-private/caja-file.c:1845
 #, c-format
 msgid "File not found"
 msgstr "Nie odnaleziono pliku"
 
-#: ../libcaja-private/caja-file.c:1871
+#: ../libcaja-private/caja-file.c:1873
 #, c-format
 msgid "Toplevel files cannot be renamed"
 msgstr "Nie można zmieniać nazw plików najwyższego poziomu"
 
-#: ../libcaja-private/caja-file.c:1894
+#: ../libcaja-private/caja-file.c:1896
 #, c-format
 msgid "Unable to rename desktop icon"
 msgstr "Nie można zmienić nazwy ikony pulpitu"
 
-#: ../libcaja-private/caja-file.c:1923
+#: ../libcaja-private/caja-file.c:1925
 #, c-format
 msgid "Unable to rename desktop file"
 msgstr "Nie można zmienić nazwy pliku pulpitu"
@@ -1970,62 +1970,62 @@ msgstr "Nie można zmienić nazwy pliku pulpitu"
 #. * between the "%" and any numeric directive will turn
 #. * off zero padding, and putting a "_" there will use
 #. * space padding instead of zero padding.
-#: ../libcaja-private/caja-file.c:4706
+#: ../libcaja-private/caja-file.c:4737
 msgid "today at 00:00:00 PM"
 msgstr "dzisiaj o 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4707
-#: ../src/caja-file-management-properties.c:528
+#: ../libcaja-private/caja-file.c:4738
+#: ../src/caja-file-management-properties.c:531
 msgid "today at %-I:%M:%S %p"
 msgstr "dzisiaj o %H:%M:%S"
 
-#: ../libcaja-private/caja-file.c:4709
+#: ../libcaja-private/caja-file.c:4740
 msgid "today at 00:00 PM"
 msgstr "dzisiaj o 00:00"
 
-#: ../libcaja-private/caja-file.c:4710
+#: ../libcaja-private/caja-file.c:4741
 msgid "today at %-I:%M %p"
 msgstr "dzisiaj o %H:%M"
 
-#: ../libcaja-private/caja-file.c:4712
+#: ../libcaja-private/caja-file.c:4743
 msgid "today, 00:00 PM"
 msgstr "dzisiaj, 00:00"
 
-#: ../libcaja-private/caja-file.c:4713
+#: ../libcaja-private/caja-file.c:4744
 msgid "today, %-I:%M %p"
 msgstr "dzisiaj, %H:%M"
 
-#: ../libcaja-private/caja-file.c:4715 ../libcaja-private/caja-file.c:4716
+#: ../libcaja-private/caja-file.c:4746 ../libcaja-private/caja-file.c:4747
 msgid "today"
 msgstr "dzisiaj"
 
 #. Yesterday, use special word.
 #. * Note to localizers: Same issues as "today" string.
-#: ../libcaja-private/caja-file.c:4725
+#: ../libcaja-private/caja-file.c:4756
 msgid "yesterday at 00:00:00 PM"
 msgstr "wczoraj o 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4726
+#: ../libcaja-private/caja-file.c:4757
 msgid "yesterday at %-I:%M:%S %p"
 msgstr "wczoraj o %H:%M:%S"
 
-#: ../libcaja-private/caja-file.c:4728
+#: ../libcaja-private/caja-file.c:4759
 msgid "yesterday at 00:00 PM"
 msgstr "wczoraj o 00:00"
 
-#: ../libcaja-private/caja-file.c:4729
+#: ../libcaja-private/caja-file.c:4760
 msgid "yesterday at %-I:%M %p"
 msgstr "wczoraj o %H:%M"
 
-#: ../libcaja-private/caja-file.c:4731
+#: ../libcaja-private/caja-file.c:4762
 msgid "yesterday, 00:00 PM"
 msgstr "wczoraj, 00:00"
 
-#: ../libcaja-private/caja-file.c:4732
+#: ../libcaja-private/caja-file.c:4763
 msgid "yesterday, %-I:%M %p"
 msgstr "wczoraj, %H:%M"
 
-#: ../libcaja-private/caja-file.c:4734 ../libcaja-private/caja-file.c:4735
+#: ../libcaja-private/caja-file.c:4765 ../libcaja-private/caja-file.c:4766
 msgid "yesterday"
 msgstr "wczoraj"
 
@@ -2033,89 +2033,89 @@ msgstr "wczoraj"
 #. * Note to localizers: Same issues as "today" string.
 #. * The width measurement templates correspond to
 #. * the day/month name with the most letters.
-#: ../libcaja-private/caja-file.c:4746
+#: ../libcaja-private/caja-file.c:4777
 msgid "Wednesday, September 00 0000 at 00:00:00 PM"
 msgstr "Poniedziałek, 00 października 0000 o 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4747
+#: ../libcaja-private/caja-file.c:4778
 msgid "%A, %B %-d %Y at %-I:%M:%S %p"
 msgstr "%A, %-d %B %Y o %H:%M:%S"
 
-#: ../libcaja-private/caja-file.c:4749
+#: ../libcaja-private/caja-file.c:4780
 msgid "Mon, Oct 00 0000 at 00:00:00 PM"
 msgstr "Pon, 00 paź 0000 o 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4750
+#: ../libcaja-private/caja-file.c:4781
 msgid "%a, %b %-d %Y at %-I:%M:%S %p"
 msgstr "%a, %-d %b %Y o %H:%M:%S"
 
-#: ../libcaja-private/caja-file.c:4752
+#: ../libcaja-private/caja-file.c:4783
 msgid "Mon, Oct 00 0000 at 00:00 PM"
 msgstr "Pon, 00 paź 0000 o 00:00"
 
-#: ../libcaja-private/caja-file.c:4753
+#: ../libcaja-private/caja-file.c:4784
 msgid "%a, %b %-d %Y at %-I:%M %p"
 msgstr "%a, %-d %b %Y o %H:%M"
 
-#: ../libcaja-private/caja-file.c:4755
+#: ../libcaja-private/caja-file.c:4786
 msgid "Oct 00 0000 at 00:00 PM"
 msgstr "00 paź 0000 o 00:00"
 
-#: ../libcaja-private/caja-file.c:4756
+#: ../libcaja-private/caja-file.c:4787
 msgid "%b %-d %Y at %-I:%M %p"
 msgstr "%-d %b %Y o %H:%M"
 
-#: ../libcaja-private/caja-file.c:4758
+#: ../libcaja-private/caja-file.c:4789
 msgid "Oct 00 0000, 00:00 PM"
 msgstr "00 paź 0000, 00:00"
 
-#: ../libcaja-private/caja-file.c:4759
+#: ../libcaja-private/caja-file.c:4790
 msgid "%b %-d %Y, %-I:%M %p"
 msgstr "%-d %b %Y o %H:%M"
 
-#: ../libcaja-private/caja-file.c:4761
+#: ../libcaja-private/caja-file.c:4792
 msgid "00/00/00, 00:00 PM"
 msgstr "00.00.00, 00:00"
 
-#: ../libcaja-private/caja-file.c:4762
+#: ../libcaja-private/caja-file.c:4793
 msgid "%m/%-d/%y, %-I:%M %p"
 msgstr "%-d.%m.%y, %H:%M"
 
-#: ../libcaja-private/caja-file.c:4764
+#: ../libcaja-private/caja-file.c:4795
 msgid "00/00/00"
 msgstr "00.00.00"
 
-#: ../libcaja-private/caja-file.c:4765
+#: ../libcaja-private/caja-file.c:4796
 msgid "%m/%d/%y"
 msgstr "%d.%m.%y"
 
-#: ../libcaja-private/caja-file.c:5404
+#: ../libcaja-private/caja-file.c:5435
 #, c-format
 msgid "Not allowed to set permissions"
 msgstr "Zmiana uprawnień niedozwolona"
 
-#: ../libcaja-private/caja-file.c:5698
+#: ../libcaja-private/caja-file.c:5729
 #, c-format
 msgid "Not allowed to set owner"
 msgstr "Zmiana właściciela niedozwolona"
 
-#: ../libcaja-private/caja-file.c:5716
+#: ../libcaja-private/caja-file.c:5747
 #, c-format
 msgid "Specified owner '%s' doesn't exist"
 msgstr "Podany właściciel \"%s\" nie istnieje"
 
-#: ../libcaja-private/caja-file.c:5976
+#: ../libcaja-private/caja-file.c:6007
 #, c-format
 msgid "Not allowed to set group"
 msgstr "Zmiana grupy niedozwolona"
 
-#: ../libcaja-private/caja-file.c:5994
+#: ../libcaja-private/caja-file.c:6025
 #, c-format
 msgid "Specified group '%s' doesn't exist"
 msgstr "Podana grupa \"%s\" nie istnieje"
 
-#: ../libcaja-private/caja-file.c:6148
-#: ../src/file-manager/fm-directory-view.c:2370
+#: ../libcaja-private/caja-file.c:6179
+#: ../src/file-manager/fm-directory-view.c:2384
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
@@ -2124,7 +2124,7 @@ msgstr[1] "%'u elementów"
 msgstr[2] "%'u elementów"
 msgstr[3] "%'u elementów"
 
-#: ../libcaja-private/caja-file.c:6149
+#: ../libcaja-private/caja-file.c:6180
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
@@ -2133,7 +2133,7 @@ msgstr[1] "%'u katalogów"
 msgstr[2] "%'u katalogów"
 msgstr[3] "%'u katalogów"
 
-#: ../libcaja-private/caja-file.c:6150
+#: ../libcaja-private/caja-file.c:6181
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
@@ -2144,49 +2144,49 @@ msgstr[3] "%'u plików"
 
 #. Do this in a separate stage so that we don't have to put G_GUINT64_FORMAT
 #. in the translated string
-#: ../libcaja-private/caja-file.c:6254
+#: ../libcaja-private/caja-file.c:6285
 msgid "%"
 msgstr "%"
 
-#: ../libcaja-private/caja-file.c:6255
+#: ../libcaja-private/caja-file.c:6286
 #, c-format
 msgid "%s (%s bytes)"
 msgstr "%s (%s bajtów)"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6605 ../libcaja-private/caja-file.c:6629
+#: ../libcaja-private/caja-file.c:6636 ../libcaja-private/caja-file.c:6660
 msgid "? items"
 msgstr "? elementów"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6611 ../libcaja-private/caja-file.c:6619
+#: ../libcaja-private/caja-file.c:6642 ../libcaja-private/caja-file.c:6650
 msgid "? bytes"
 msgstr "? bajtów"
 
-#: ../libcaja-private/caja-file.c:6634
+#: ../libcaja-private/caja-file.c:6665
 msgid "unknown type"
 msgstr "nieznany typ"
 
-#: ../libcaja-private/caja-file.c:6637
+#: ../libcaja-private/caja-file.c:6668
 msgid "unknown MIME type"
 msgstr "nieznany typ MIME"
 
 #. Fallback, use for both unknown attributes and attributes
 #. * for which we have no more appropriate default.
-#: ../libcaja-private/caja-file.c:6651
+#: ../libcaja-private/caja-file.c:6682
 #: ../src/file-manager/fm-properties-window.c:1289
 msgid "unknown"
 msgstr "nieznany"
 
-#: ../libcaja-private/caja-file.c:6701
+#: ../libcaja-private/caja-file.c:6732
 msgid "program"
 msgstr "program"
 
-#: ../libcaja-private/caja-file.c:6721
+#: ../libcaja-private/caja-file.c:6752
 msgid "link"
 msgstr "dowiązanie"
 
-#: ../libcaja-private/caja-file.c:6743
+#: ../libcaja-private/caja-file.c:6774
 msgid "link (broken)"
 msgstr "dowiązanie (uszkodzone)"
 
@@ -2219,10 +2219,10 @@ msgstr ""
 #. label, accelerator
 #. add the "move to trash" menu item
 #: ../libcaja-private/caja-mime-actions.c:744
-#: ../src/file-manager/fm-directory-view.c:7380
-#: ../src/file-manager/fm-directory-view.c:7512
-#: ../src/file-manager/fm-directory-view.c:8611
-#: ../src/file-manager/fm-directory-view.c:8936
+#: ../src/file-manager/fm-directory-view.c:7426
+#: ../src/file-manager/fm-directory-view.c:7558
+#: ../src/file-manager/fm-directory-view.c:8657
+#: ../src/file-manager/fm-directory-view.c:8989
 #: ../src/file-manager/fm-tree-view.c:1335
 msgid "Mo_ve to Trash"
 msgstr "Przenieś do k_osza"
@@ -2250,12 +2250,12 @@ msgstr "_Wyświetl"
 msgid "_Run"
 msgstr "U_ruchom"
 
-#: ../libcaja-private/caja-mime-actions.c:1175
-#: ../src/file-manager/fm-directory-view.c:653
+#: ../libcaja-private/caja-mime-actions.c:1181
+#: ../src/file-manager/fm-directory-view.c:656
 msgid "Are you sure you want to open all files?"
 msgstr "Na pewno otworzyć wszystkie pliki?"
 
-#: ../libcaja-private/caja-mime-actions.c:1178
+#: ../libcaja-private/caja-mime-actions.c:1184
 #, c-format
 msgid "This will open %d separate tab."
 msgid_plural "This will open %d separate tabs."
@@ -2264,7 +2264,7 @@ msgstr[1] "Spowoduje to otwarcie %d oddzielnych kart."
 msgstr[2] "Spowoduje to otwarcie %d oddzielnych kart."
 msgstr[3] "Spowoduje to otwarcie %d oddzielnych kart."
 
-#: ../libcaja-private/caja-mime-actions.c:1183 ../src/caja-location-bar.c:194
+#: ../libcaja-private/caja-mime-actions.c:1189 ../src/caja-location-bar.c:194
 #, c-format
 msgid "This will open %d separate window."
 msgid_plural "This will open %d separate windows."
@@ -2273,7 +2273,7 @@ msgstr[1] "Spowoduje to otwarcie %d oddzielnych okien."
 msgstr[2] "Spowoduje to otwarcie %d oddzielnych okien."
 msgstr[3] "Spowoduje to otwarcie %d oddzielnych okien."
 
-#: ../libcaja-private/caja-mime-actions.c:1261
+#: ../libcaja-private/caja-mime-actions.c:1267
 #: ../src/caja-window-manage-views.c:2101
 #: ../src/caja-window-manage-views.c:2109
 #: ../src/caja-window-manage-views.c:2129
@@ -2284,28 +2284,28 @@ msgstr[3] "Spowoduje to otwarcie %d oddzielnych okien."
 msgid "Could not display \"%s\"."
 msgstr "Nie można wyświetlić \"%s\"."
 
-#: ../libcaja-private/caja-mime-actions.c:1348
+#: ../libcaja-private/caja-mime-actions.c:1354
 msgid "The file is of an unknown type"
 msgstr "Nieznany typ pliku"
 
-#: ../libcaja-private/caja-mime-actions.c:1352
+#: ../libcaja-private/caja-mime-actions.c:1358
 #, c-format
 msgid "There is no application installed for %s files"
 msgstr "Brak zainstalowanego programu obsługującego pliki %s"
 
-#: ../libcaja-private/caja-mime-actions.c:1367
+#: ../libcaja-private/caja-mime-actions.c:1373
 msgid "_Select Application"
 msgstr "_Wybór programu"
 
-#: ../libcaja-private/caja-mime-actions.c:1408
+#: ../libcaja-private/caja-mime-actions.c:1414
 msgid "There was an internal error trying to search for applications:"
 msgstr "Wystąpił wewnętrzny błąd podczas próby wyszukania programów:"
 
-#: ../libcaja-private/caja-mime-actions.c:1410
+#: ../libcaja-private/caja-mime-actions.c:1416
 msgid "Unable to search for application"
 msgstr "Nie można wyszukać programu"
 
-#: ../libcaja-private/caja-mime-actions.c:1536
+#: ../libcaja-private/caja-mime-actions.c:1542
 #, c-format
 msgid ""
 "There is no application installed for %s files.\n"
@@ -2314,11 +2314,11 @@ msgstr ""
 "Brak zainstalowanego programu obsługującego pliki %s.\n"
 "Czy wyszukać program, który może otworzyć ten plik?"
 
-#: ../libcaja-private/caja-mime-actions.c:1700
+#: ../libcaja-private/caja-mime-actions.c:1706
 msgid "Untrusted application launcher"
 msgstr "Niezaufany aktywator programu"
 
-#: ../libcaja-private/caja-mime-actions.c:1703
+#: ../libcaja-private/caja-mime-actions.c:1709
 #, c-format
 msgid ""
 "The application launcher \"%s\" has not been marked as trusted. If you do "
@@ -2327,31 +2327,31 @@ msgstr ""
 "Aktywator programu \"%s\" nie został oznaczony jako zaufany. Uruchamianie go"
 " może być niebezpieczne, jeśli nie jest znane jego pochodzenie."
 
-#: ../libcaja-private/caja-mime-actions.c:1718
+#: ../libcaja-private/caja-mime-actions.c:1724
 msgid "_Launch Anyway"
 msgstr "_Uruchom mimo to"
 
-#: ../libcaja-private/caja-mime-actions.c:1722
+#: ../libcaja-private/caja-mime-actions.c:1728
 msgid "Mark as _Trusted"
 msgstr "_Oznacz jako zaufany"
 
-#: ../libcaja-private/caja-mime-actions.c:2022
-#: ../libcaja-private/caja-mime-actions.c:2328
-#: ../src/file-manager/fm-directory-view.c:6389
+#: ../libcaja-private/caja-mime-actions.c:2028
+#: ../libcaja-private/caja-mime-actions.c:2334
+#: ../src/file-manager/fm-directory-view.c:6403
 msgid "Unable to mount location"
 msgstr "Zamontowanie położenia nie jest możliwe"
 
-#: ../libcaja-private/caja-mime-actions.c:2416
-#: ../src/file-manager/fm-directory-view.c:6563
+#: ../libcaja-private/caja-mime-actions.c:2422
+#: ../src/file-manager/fm-directory-view.c:6577
 msgid "Unable to start location"
 msgstr "Nie można uruchomić położenia"
 
-#: ../libcaja-private/caja-mime-actions.c:2509
+#: ../libcaja-private/caja-mime-actions.c:2515
 #, c-format
 msgid "Opening \"%s\"."
 msgstr "Otwieranie \"%s\"."
 
-#: ../libcaja-private/caja-mime-actions.c:2514
+#: ../libcaja-private/caja-mime-actions.c:2520
 #, c-format
 msgid "Opening %d item."
 msgid_plural "Opening %d items."
@@ -2445,7 +2445,7 @@ msgid "Select an Application"
 msgstr "Wybór programu"
 
 #: ../libcaja-private/caja-open-with-dialog.c:856
-#: ../src/file-manager/fm-properties-window.c:5073
+#: ../src/file-manager/fm-properties-window.c:5080
 msgid "Open With"
 msgstr "Otwieranie"
 
@@ -2590,27 +2590,27 @@ msgstr ""
 msgid "Details: "
 msgstr "Szczegóły: "
 
-#: ../libcaja-private/caja-progress-info.c:241
+#: ../libcaja-private/caja-progress-info.c:242
 msgid "File Operations"
 msgstr "Działania na plikach"
 
-#: ../libcaja-private/caja-progress-info.c:313
+#: ../libcaja-private/caja-progress-info.c:314
 msgid "paused"
 msgstr "wstrzymany"
 
-#: ../libcaja-private/caja-progress-info.c:316
+#: ../libcaja-private/caja-progress-info.c:317
 msgid "pausing"
 msgstr "wstrzymywanie"
 
-#: ../libcaja-private/caja-progress-info.c:319
+#: ../libcaja-private/caja-progress-info.c:320
 msgid "queued"
 msgstr "skolejkowany"
 
-#: ../libcaja-private/caja-progress-info.c:322
+#: ../libcaja-private/caja-progress-info.c:323
 msgid "queuing"
 msgstr "kolejkowanie"
 
-#: ../libcaja-private/caja-progress-info.c:606
+#: ../libcaja-private/caja-progress-info.c:610
 #, c-format
 msgid "%'d file operation active"
 msgid_plural "%'d file operations active"
@@ -2619,16 +2619,12 @@ msgstr[1] "%'d aktywne działania na plikach"
 msgstr[2] "%'d aktywnych działań na plikach"
 msgstr[3] "%'d aktywnych działań na plikach"
 
-#: ../libcaja-private/caja-progress-info.c:623
+#: ../libcaja-private/caja-progress-info.c:629
 msgid "Process completed"
 msgstr "Proces zakończony"
 
-#: ../libcaja-private/caja-progress-info.c:633
-msgid "Working..."
-msgstr "Pracuje..."
-
-#: ../libcaja-private/caja-progress-info.c:992
-#: ../libcaja-private/caja-progress-info.c:1013
+#: ../libcaja-private/caja-progress-info.c:999
+#: ../libcaja-private/caja-progress-info.c:1020
 msgid "Preparing"
 msgstr "Przygotowanie"
 
@@ -3088,11 +3084,23 @@ msgstr ""
 "zostaną umieszczone na końcu listy kart."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:3
+msgid "Switch tabs with [ctrl] + [tab]"
+msgstr "Przełączaj zakładki przy pomocy [ctrl] + [tab]"
+
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:4
+msgid ""
+"If true, it enables the ability to switch tabs using [ctrl + tab] and [ctrl "
+"+ shift + tab]."
+msgstr ""
+"Jeżeli prawdziwe, włącza możliwość przełączania pomiędzy zakładkami używając"
+" [ctrl + tab] i [ctrl + shift + tab]."
+
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:5
 msgid "Caja will exit when last window destroyed."
 msgstr ""
 "Program Caja kończy działanie, kiedy ostatnie okno zostanie zakończone."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:4
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:6
 msgid ""
 "If set to true, then Caja will exit when all windows are destroyed. This is "
 "the default setting. If set to false, it can be started without any window, "
@@ -3103,12 +3111,12 @@ msgstr ""
 "zostanie wartość fałsz, może być otwarta bez żadnych okien, więc Caja będzie"
 " usługą do monitorowania zamontowanych urządzeń lub podobnych zadań."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:5
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:7
 msgid "Enables the classic Caja behavior, where all windows are browsers"
 msgstr ""
 "Włącza klasyczne zachowanie programu, gdzie wszystkie okna są przeglądarkami"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:6
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:8
 msgid ""
 "If set to true, then all Caja windows will be browser windows. This is how "
 "Nautilus used to behave before version 2.6, and some people prefer this "
@@ -3118,11 +3126,11 @@ msgstr ""
 "zachowanie programu Caja sprzed wersji 2.6; część osób woli ten właśnie "
 "styl."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:7
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:9
 msgid "Always use the location entry, instead of the pathbar"
 msgstr "Używanie wpisu położenia zamiast paska ścieżki"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:8
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:10
 msgid ""
 "If set to true, then Caja browser windows will always use a textual input "
 "entry for the location toolbar, instead of the pathbar."
@@ -3130,13 +3138,13 @@ msgstr ""
 "Określa, czy okna programu Caja będą zawsze używały tekstowego pola paska "
 "położenia zamiast paska ścieżki."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:9
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:11
 msgid "Whether to ask for confirmation when deleting files, or emptying Trash"
 msgstr ""
 "Określa, czy żądać potwierdzenia podczas usuwania plików lub opróżniania "
 "kosza"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:10
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:12
 msgid ""
 "If set to true, then Caja will ask for confirmation when you attempt to "
 "delete files, or empty the Trash."
@@ -3144,13 +3152,13 @@ msgstr ""
 "Określa, czy podczas próby usunięcia plików lub opróżnienia kosza będzie "
 "wymagane potwierdzenie."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:11
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:13
 msgid "Whether to ask for confirmation when moving files to the Trash"
 msgstr ""
 "Określa, czy będzie wymagane potwierdzenie przed przeniesieniem plików do "
 "kosza"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:12
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:14
 msgid ""
 "If set to true, then Caja will ask for confirmation when you attempt to move"
 " files to the Trash."
@@ -3158,11 +3166,11 @@ msgstr ""
 "Jeśli zaznaczone, Caja zapyta o potwierdzenie przy próbie przeniesienia "
 "plików do kosza."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:13
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:15
 msgid "Whether to enable immediate deletion"
 msgstr "Określa, czy włączyć natychmiastowe usuwanie"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:14
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:16
 msgid ""
 "If set to true, then Caja will have a feature allowing you to delete a file "
 "immediately and in-place, instead of moving it to the trash. This feature "
@@ -3172,11 +3180,11 @@ msgstr ""
 "natychmiastowego usunięcia pliku. Funkcja ta może być niebezpieczna, należy "
 "jej używać z rozwagą."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:15
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:17
 msgid "When to show preview text in icons"
 msgstr "Kiedy wyświetlać podgląd tekstu w ikonach"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:16
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:18
 msgid ""
 "Speed tradeoff for when to show a preview of text file contents in the "
 "file's icon. If set to \"always\" then always show previews, even if the "
@@ -3191,11 +3199,11 @@ msgstr ""
 " lokalnych systemach plików. Jeżeli ustawiono \"never\" (nigdy), nie są "
 "odczytywane żadne dane do podglądu."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:17
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:19
 msgid "When to show number of items in a folder"
 msgstr "Kiedy wyświetlać liczbę elementów w katalogu"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:18
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:20
 msgid ""
 "Speed tradeoff for when to show the number of items in a folder. If set to "
 "\"always\" then always show item counts, even if the folder is on a remote "
@@ -3209,11 +3217,11 @@ msgstr ""
 "systemów plików. Jeżeli ustawiono \"never\" (nigdy), elementy nie są "
 "liczone."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:19
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:21
 msgid "Type of click used to launch/open files"
 msgstr "Typ kliknięcia używany do uruchamiania/otwierania plików"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:20
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:22
 msgid ""
 "Possible values are \"single\" to launch files on a single click, or "
 "\"double\" to launch them on a double click."
@@ -3222,11 +3230,11 @@ msgstr ""
 "pomocą pojedynczego kliknięcia lub \"double\" (podwójnie), aby uruchamiać "
 "pliki za pomocą podwójnego kliknięcia."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:21
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:23
 msgid "What to do with executable text files when activated"
 msgstr "Czynność po aktywacji wykonywalnych plików tekstowych"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:22
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:24
 msgid ""
 "What to do with executable text files when they are activated (single or "
 "double clicked). Possible values are \"launch\" to launch them as programs, "
@@ -3238,11 +3246,11 @@ msgstr ""
 " uruchomienie jako program, \"ask\" - pytanie co zrobić poprzez okno "
 "dialogowe, \"display\" - wyświetlanie jako plików tekstowych."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:23
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:25
 msgid "Show the package installer for unknown MIME types"
 msgstr "Wyświetl instalator pakietów dla nieznanych typów MIME"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:24
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:26
 msgid ""
 "Whether to show the user a package installer dialog in case an unknown MIME "
 "type is opened, in order to search for an application to handle it."
@@ -3250,13 +3258,13 @@ msgstr ""
 "Czy pokazać okno instalatora pakietów użytkownika w celu wyszukania "
 "aplikacji do otwarcia nieznanego typu MIME."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:25
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:27
 msgid "Use extra mouse button events in Caja' browser window"
 msgstr ""
 "Określa, czy używać dodatkowych zdarzeń przycisków myszy w oknach "
 "przeglądania programu Caja"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:26
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:28
 msgid ""
 "For users with mice that have \"Forward\" and \"Back\" buttons, this key "
 "will determine if any action is taken inside of Caja when either is pressed."
@@ -3265,11 +3273,11 @@ msgstr ""
 "ten klucz określa, czy jakaś czynność jest podejmowana przez program Caja, "
 "jeśli zostanie naciśnięty przycisk."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:27
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:29
 msgid "Mouse button to activate the \"Forward\" command in browser window"
 msgstr "Przycisk myszy do aktywowania polecenia \"Dalej\" w oknie przeglądarki"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:28
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:30
 msgid ""
 "For users with mice that have buttons for \"Forward\" and \"Back\", this key"
 " will set which button activates the \"Forward\" command in a browser "
@@ -3279,11 +3287,11 @@ msgstr ""
 "ten klucz ustawia, który przycisk włącza polecenie \"Dalej\" w oknie "
 "przeglądarki. Możliwe wartości mieszczą się w zakresie między 6 a 14."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:29
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:31
 msgid "Mouse button to activate the \"Back\" command in browser window"
 msgstr "Przycisk myszy do aktywowania polecenia \"Wstecz\" w oknie przeglądarki"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:30
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:32
 msgid ""
 "For users with mice that have buttons for \"Forward\" and \"Back\", this key"
 " will set which button activates the \"Back\" command in a browser window. "
@@ -3293,11 +3301,11 @@ msgstr ""
 "ten klucz ustawia, który przycisk włącza polecenie \"Wstecz\" w oknie "
 "przeglądarki. Możliwe wartości mieszczą się w zakresie między 6 a 14."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:31
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:33
 msgid "When to show thumbnails of image files"
 msgstr "Kiedy wyświetlać miniaturki plików graficznych"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:32
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:34
 msgid ""
 "Speed tradeoff for when to show an image file as a thumbnail. If set to "
 "\"always\" then always thumbnail, even if the folder is on a remote server. "
@@ -3312,11 +3320,11 @@ msgstr ""
 "systemach plików. Jeżeli ustawiono \"never\" (nigdy), zamiast miniaturek "
 "wyświetlane są standardowe ikony."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:33
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:35
 msgid "Maximum image size for thumbnailing"
 msgstr "Maksymalny rozmiar obrazu do utworzenia miniaturki"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:34
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:36
 msgid ""
 "Images over this size (in bytes) won't be thumbnailed. The purpose of this "
 "setting is to avoid thumbnailing large images that may take a long time to "
@@ -3326,13 +3334,13 @@ msgstr ""
 "Ustawienie to zapobiega tworzeniu miniaturek dla bardzo dużych plików, co "
 "może zabierać dużo czasu i pamięci."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:35
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:37
 msgid "Whether to preview sounds when mousing over an icon"
 msgstr ""
 "Określa, czy odtwarzać dźwięki podczas przesuwania kursora myszy nad ikonami"
 " plików dźwiękowych"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:36
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:38
 msgid ""
 "Speed tradeoff for when to preview a sound file when mousing over a files "
 "icon. If set to \"always\" then always plays the sound, even if the file is "
@@ -3346,11 +3354,11 @@ msgstr ""
 "dźwięk na lokalnych systemach plików. Jeżeli ustawiono \"never\" (nigdy), "
 "dźwięk nigdy nie jest odtwarzany."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:37
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:39
 msgid "Show advanced permissions in the file property dialog"
 msgstr "Zaawansowane uprawnienia w oknie właściwości pliku"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:38
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:40
 msgid ""
 "If set to true, then Caja lets you edit and display file permissions in a "
 "more unix-like way, accessing some more esoteric options."
@@ -3358,11 +3366,11 @@ msgstr ""
 "Określa, czy można zmieniać prawa dostępu do plików w formie bardziej "
 "uniksowej, z dostępem do bardziej złożonych opcji."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:39
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:41
 msgid "Show folders first in windows"
 msgstr "Katalogi na początku listy w oknie"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:40
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:42
 msgid ""
 "If set to true, then Caja shows folders prior to showing files in the icon "
 "and list views."
@@ -3370,11 +3378,11 @@ msgstr ""
 "Określa, czy w widokach ikon i listy wyświetlane będą najpierw katalogi, a "
 "potem pliki."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:41
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:43
 msgid "Default sort order"
 msgstr "Domyślny porządek sortowania"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:42
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:44
 msgid ""
 "The default sort-order for items in the icon view. Possible values are "
 "\"name\", \"size\", \"type\", \"mtime\", and \"emblems\"."
@@ -3382,11 +3390,11 @@ msgstr ""
 "Domyślna kolejność sortowania dla elementów w widoku ikon. Możliwe wartości "
 "to \"name\", \"size\", \"type\", \"mtime\", oraz \"emblems\""
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:43
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:45
 msgid "Reverse sort order in new windows"
 msgstr "Odwrócona kolejność porządkowania w nowych oknach"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:44
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:46
 msgid ""
 "If true, files in new windows will be sorted in reverse order. ie, if sorted"
 " by name, then instead of sorting the files from \"a\" to \"z\", they will "
@@ -3399,11 +3407,11 @@ msgstr ""
 "Jeżeli pliki są sortowane według rozmiaru, wtedy zamiast rosnąco będą "
 "sortowane malejąco."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:45
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:47
 msgid "Caja uses the users home folder as the desktop"
 msgstr "Użycie katalogu domowego użytkownika jako pulpitu"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:46
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:48
 msgid ""
 "If set to true, then Caja will use the user's home folder as the desktop. If"
 " it is false, then it will use ~/Desktop as the desktop."
@@ -3411,19 +3419,19 @@ msgstr ""
 "Określa, czy katalog domowy użytkownika ma być użyty jako pulpit. Jeżeli "
 "nie, wówczas jako pulpit użyty zostanie katalog ~/Desktop."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:47
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:49
 msgid "Custom Background"
 msgstr "Własne tło"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:48
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:50
 msgid "Whether a custom default folder background has been set."
 msgstr "Określa, czy zostało ustawione inne domyślne tło katalogu."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:49
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:51
 msgid "Default Background Color"
 msgstr "Domyślny kolor tła"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:50
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:52
 msgid ""
 "Color for the default folder background. Only used if background_set is "
 "true."
@@ -3431,30 +3439,30 @@ msgstr ""
 "Kolor dla domyślnego tła katalogu. Opcja używana tylko, gdy zmienna "
 "background_set jest ustawiona na \"true\"."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:51
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:53
 msgid "Default Background Filename"
 msgstr "Domyślna nazwa pliku tła"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:52
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:54
 msgid ""
 "Uri of the default folder background. Only used if background_set is true."
 msgstr ""
 "URI domyślnego tła katalogu. Używane tylko, jeśli background_set ma wartość "
 "Prawda."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:53
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:55
 msgid "Custom Side Pane Background Set"
 msgstr "Własny zestaw teł panelu bocznego"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:54
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:56
 msgid "Whether a custom default side pane background has been set."
 msgstr "Określa, czy zostało ustawione inne domyślne tło panelu bocznego."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:55
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:57
 msgid "Default Side Pane Background Color"
 msgstr "Domyślny kolor tła panelu bocznego"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:56
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:58
 msgid ""
 "Filename for the default side pane background. Only used if "
 "side_pane_background_set is true."
@@ -3462,11 +3470,11 @@ msgstr ""
 "Nazwa pliku dla domyślnego tła panelu bocznego. Opcja używana tylko, gdy "
 "zmienna side_pane_background_set ma wartość \"true\"."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:57
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:59
 msgid "Default Side Pane Background Filename"
 msgstr "Domyślna nazwa pliku tła panelu bocznego"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:58
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:60
 msgid ""
 "Uri of the default side pane background. Only used if "
 "side_pane_background_set is true."
@@ -3474,11 +3482,11 @@ msgstr ""
 "URI domyślnego tła bocznego panelu. Używane tylko jeśli "
 "side_pane_background_set ma wartość Prawda."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:59
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:61
 msgid "Default folder viewer"
 msgstr "Domyślna przeglądarka katalogów"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:60
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:62
 msgid ""
 "When a folder is visited this viewer is used unless you have selected "
 "another view for that particular folder. Possible values are \"list-view\", "
@@ -3488,36 +3496,41 @@ msgstr ""
 "widoku dla danego katalogu. Dopuszczalne wartości to \"list_view\" (Widok "
 "listy), \"icon_view\" (Widok ikon) oraz \"compact_view\" (Widok zwarty)."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:61
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:63
 msgid "Date Format"
 msgstr "Format daty"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:62
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:64
 msgid ""
 "The format of file dates. Possible values are \"locale\", \"iso\", and "
 "\"informal\"."
 msgstr "Format dat plików. Dopuszczalne wartości to \"locale\", \"iso\" i \"informal\"."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:63
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:65
 msgid "Whether to show hidden files"
 msgstr "Określa, czy wyświetlać pliki ukryte"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:64
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:66
 msgid ""
 "If set to true, then hidden files are shown by default in the file manager. "
-"Hidden files are either dotfiles, listed in the folder's .hidden file or "
-"backup files ending with a tilde (~)."
+"Hidden files are either dotfiles or listed in the folder's .hidden file."
 msgstr ""
-"Jeżeli ustawione jako prawda, to ukryte pliki będą domyślnie pokazywane "
-"przez menadżer plików. Ukrytymi plikami są zarówno pliki z kropką (.) na "
-"początku nazwy, jak i wymieniony w katalogu plik .hidden lub plik kopii "
-"zapasowej kończący się tyldą (~)."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:65
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:67
+msgid "Whether to show backup files"
+msgstr "Określa, czy wyświetlać pliki kopii zapasowych"
+
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:68
+msgid ""
+"If set to true, then backup files are shown by default in the file manager. "
+"Backup files are backup files ending with a tilde (~)."
+msgstr ""
+
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:69
 msgid "Whether to show file sizes with IEC units"
 msgstr "Określa czy pokazać rozmiary pliku w jednostkach IEC"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:66
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:70
 msgid ""
 "If set to true, file sizes are shown using IEC (base 1024) units with "
 "\"KiB\" style suffixes, instead of default with SI units."
@@ -3525,21 +3538,19 @@ msgstr ""
 "Jeżeli włączone, rozmiary pliku będą pokazywane używając jednostek IEC (baza"
 " 1024) z przyrostkami stylu \"KiB\", zamiast domyślnych jednostek SI."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:67
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:71
 msgid "Whether to show desktop notifications"
 msgstr "Czy wyświetlać powiadomienia na pulpicie"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:68
-msgid "If set to true, Caja will show desktop notifications for eject events"
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:72
+msgid "If set to true, Caja will show desktop notifications."
 msgstr ""
-"Jeśli ustawiona zostanie wartość prawda, Caja pokaże powiadomienia pulpitu "
-"przy montowaniu"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:69
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:73
 msgid "List of possible captions on icons"
 msgstr "Lista możliwych podpisów na ikonach"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:70
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:74
 msgid ""
 "A list of captions below an icon in the icon view and the desktop. The "
 "actual number of captions shown depends on the zoom level. Some possible "
@@ -3553,47 +3564,47 @@ msgstr ""
 "\"owner\", \"group\", \"permissions\", \"octal_permissions\" i "
 "\"mime_type\"."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:71
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:75
 msgid "Use tighter layout in new windows"
 msgstr "Użycie ciaśniejszego ułożenia w nowych oknach"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:72
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:76
 msgid "If true, icons will be laid out tighter by default in new windows."
 msgstr ""
 "Określa, czy ikony w nowych oknach mają być domyślnie ciaśniej "
 "rozmieszczone."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:73
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:77
 msgid "Put labels beside icons"
 msgstr "Etykiety obok ikon"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:74
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:78
 msgid ""
 "If true, labels will be placed beside icons rather than underneath them."
 msgstr ""
 "Określa, czy etykiety mają być wyświetlane obok ikon, zamiast pod nimi."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:75
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:79
 msgid "Default icon zoom level"
 msgstr "Domyślne powiększenie ikon"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:76
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:80
 msgid "Default zoom level used by the icon view."
 msgstr "Domyślne powiększenie używane przez widok ikon."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:77
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:81
 msgid "Default Thumbnail Icon Size"
 msgstr "Domyślny rozmiar ikon miniatur"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:78
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:82
 msgid "The default size of an icon for a thumbnail in the icon view."
 msgstr "Domyślny rozmiar ikon miniaturek w widoku ikon."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:79
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:83
 msgid "Text Ellipsis Limit"
 msgstr "Ograniczenie skracania nazw"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:81
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:85
 #, no-c-format
 msgid ""
 "A string specifying how parts of overlong file names should be replaced by ellipses, depending on the zoom level. Each of the list entries is of the form \"Zoom Level:Integer\". For each specified zoom level, if the given integer is larger than 0, the file name will not exceed the given number of lines. If the integer is 0 or smaller, no limit is imposed on the specified zoom level. A default entry of the form \"Integer\" without any specified zoom level is also allowed. It defines the maximum number of lines for all other zoom levels. Examples: 0 - always display overlong file names; 3 - shorten file names if they exceed three lines; smallest:5,smaller:4,0 - shorten file names if they exceed five lines for zoom level \"smallest\". Shorten file names if they exceed four lines for zoom level \"smaller\". Do not shorten file names for other zoom levels.\n"
@@ -3604,19 +3615,19 @@ msgstr ""
 "\n"
 "Dostępne poziomy powiększenia: smallest - najmniejszy (33%), smaller - mniejszy (50%), small - mały (66%), standardowy (100%), large - duży (150%), larger - większy (200%), largest -największy (400%)"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:84
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:88
 msgid "Default compact view zoom level"
 msgstr "Domyślne powiększenie widoku zwartego"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:85
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:89
 msgid "Default zoom level used by the compact view."
 msgstr "Domyślne powiększenie używane przez widok zwarty."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:86
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:90
 msgid "All columns have same width"
 msgstr "Wszystkie kolumny mają tę samą szerokość"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:87
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:91
 msgid ""
 "If this preference is set, all columns in the compact view have the same "
 "width. Otherwise, the width of each column is determined seperately."
@@ -3625,35 +3636,35 @@ msgstr ""
 "miały tę samą szerokość. W przeciwnym wypadku szerokość każdej kolumny "
 "określana będzie osobno."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:88
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:92
 msgid "Default list zoom level"
 msgstr "Domyślne powiększenie listy"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:89
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:93
 msgid "Default zoom level used by the list view."
 msgstr "Domyślne powiększenie używane przez widok listy."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:90
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:94
 msgid "Default list of columns visible in the list view"
 msgstr "Domyślna lista kolumn widocznych w widoku listy"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:91
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:95
 msgid "Default list of columns visible in the list view."
 msgstr "Domyślna lista kolumn widocznych w widoku listy."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:92
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:96
 msgid "Default column order in the list view"
 msgstr "Domyślny porządek kolumn w widoku listy"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:93
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:97
 msgid "Default column order in the list view."
 msgstr "Domyślny porządek kolumn w widoku listy."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:94
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:98
 msgid "Only show folders in the tree side pane"
 msgstr "Tylko katalog w panelu bocznym drzewa"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:95
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:99
 msgid ""
 "If set to true, Caja will only show folders in the tree side pane. Otherwise"
 " it will show both folders and files."
@@ -3661,19 +3672,19 @@ msgstr ""
 "Określa, czy program Caja ma wyświetlać same katalogi w drzewie panelu "
 "bocznego, czy też katalogi i pliki."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:96
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:100
 msgid "Desktop font"
 msgstr "Czcionka pulpitu"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:97
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:101
 msgid "The font description used for the icons on the desktop."
 msgstr "Opis fontu używanego dla ikon pulpitu."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:98
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:102
 msgid "Home icon visible on desktop"
 msgstr "Ikona katalogu domowego widoczna na pulpicie"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:99
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:103
 msgid ""
 "If this is set to true, an icon linking to the home folder will be put on "
 "the desktop."
@@ -3681,11 +3692,11 @@ msgstr ""
 "Określa, czy na pulpicie będzie umieszczana ikona skrótu do katalogu "
 "domowego."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:100
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:104
 msgid "Computer icon visible on desktop"
 msgstr "Ikona komputera widoczna na pulpicie"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:101
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:105
 msgid ""
 "If this is set to true, an icon linking to the computer location will be put"
 " on the desktop."
@@ -3693,21 +3704,21 @@ msgstr ""
 "Określa, czy ikona odnosząca się do położenia komputera będzie widoczna na "
 "pulpicie."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:102
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:106
 msgid "Trash icon visible on desktop"
 msgstr "Ikona kosza widoczna na pulpicie"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:103
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:107
 msgid ""
 "If this is set to true, an icon linking to the trash will be put on the "
 "desktop."
 msgstr "Określa, czy na pulpicie będzie umieszczona ikona kosza."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:104
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:108
 msgid "Show mounted volumes on the desktop"
 msgstr "Ikony zamontowanych woluminów na pulpicie"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:105
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:109
 msgid ""
 "If this is set to true, icons linking to mounted volumes will be put on the "
 "desktop."
@@ -3715,11 +3726,11 @@ msgstr ""
 "Określa, czy na pulpicie mają być umieszczane ikony dowiązań do "
 "zamontowanych woluminów."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:106
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:110
 msgid "Network Servers icon visible on the desktop"
 msgstr "Ikona serwerów sieciowych widoczna na pulpicie"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:107
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:111
 msgid ""
 "If this is set to true, an icon linking to the Network Servers view will be "
 "put on the desktop."
@@ -3727,11 +3738,11 @@ msgstr ""
 "Określa, czy na pulpicie będzie umieszczona ikona skrótu do widoku serwerów "
 "sieciowych."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:108
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:112
 msgid "Desktop computer icon name"
 msgstr "Nazwa ikony komputera na pulpicie"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:109
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:113
 msgid ""
 "This name can be set if you want a custom name for the computer icon on the "
 "desktop."
@@ -3739,11 +3750,11 @@ msgstr ""
 "Tę nazwę można ustawić, jeżeli potrzebna jest inna nazwa ikony komputera na "
 "pulpicie."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:110
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:114
 msgid "Desktop home icon name"
 msgstr "Nazwa ikony katalogu domowego"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:111
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:115
 msgid ""
 "This name can be set if you want a custom name for the home icon on the "
 "desktop."
@@ -3751,11 +3762,11 @@ msgstr ""
 "Tę nazwę można ustawić, jeżeli potrzebna jest inna nazwa ikony katalogu "
 "domowego na pulpicie."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:112
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:116
 msgid "Desktop trash icon name"
 msgstr "Nazwa ikony kosza na pulpicie"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:113
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:117
 msgid ""
 "This name can be set if you want a custom name for the trash icon on the "
 "desktop."
@@ -3763,11 +3774,11 @@ msgstr ""
 "Tę nazwę można ustawić, jeżeli potrzebna jest inna nazwa ikony kosza na "
 "pulpicie."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:114
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:118
 msgid "Network servers icon name"
 msgstr "Nazwa ikony serwerów sieciowych"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:115
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:119
 msgid ""
 "This name can be set if you want a custom name for the network servers icon "
 "on the desktop."
@@ -3775,7 +3786,7 @@ msgstr ""
 "Tę nazwę można ustawić, jeżeli potrzebna jest inna nazwa ikony serwerów "
 "sieciowych na pulpicie."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:116
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:120
 msgid ""
 "An integer specifying how parts of overlong file names should be replaced by"
 " ellipses on the desktop. If the number is larger than 0, the file name will"
@@ -3787,11 +3798,11 @@ msgstr ""
 "przekroczy zadanej liczby wierszy. Wartość 0 lub mniejsza oznacza brak "
 "ograniczenia ilości wyświetlanych wierszy."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:117
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:121
 msgid "The geometry string for a navigation window."
 msgstr "Ciąg geometrii dla okna nawigacji."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:118
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:122
 msgid ""
 "A string containing the saved geometry and coordinates string for navigation"
 " windows."
@@ -3799,68 +3810,68 @@ msgstr ""
 "Ciąg zawierający zapisaną geometrię i ciąg współrzędnych dla okien "
 "nawigacji."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:119
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:123
 msgid "Whether the navigation window should be maximized."
 msgstr "Określa, czy okno nawigacji powinno być zmaksymalizowane."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:120
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:124
 msgid "Whether the navigation window should be maximized by default."
 msgstr "Określa, czy okno nawigacji powinno być domyślnie zmaksymalizowane."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:121
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:125
 msgid "Width of the side pane"
 msgstr "Szerokość panelu bocznego"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:122
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:126
 msgid "The default width of the side pane in new windows."
 msgstr "Domyślna szerokość paska bocznego w nowych oknach."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:123
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:127
 msgid "Show toolbar in new windows"
 msgstr "Pasek narzędziowy w nowych oknach"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:124
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:128
 msgid "If set to true, newly opened windows will have toolbars visible."
 msgstr "Określa, czy nowo otwarte okna będą miały widoczny pasek narzędziowy."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:125
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:129
 msgid "Show location bar in new windows"
 msgstr "Pasek położenia w nowych oknach"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:126
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:130
 msgid ""
 "If set to true, newly opened windows will have the location bar visible."
 msgstr "Określa, czy nowo otwarte okna będą miały widoczny pasek położenia."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:127
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:131
 msgid "Show status bar in new windows"
 msgstr "Pasek stanu w nowych oknach"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:128
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:132
 msgid "If set to true, newly opened windows will have the status bar visible."
 msgstr "Określa, czy nowo otwarte okna będą miały widoczny pasek stanu."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:129
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:133
 msgid "Show side pane in new windows"
 msgstr "Panel boczny w nowych oknach"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:130
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:134
 msgid "If set to true, newly opened windows will have the side pane visible."
 msgstr "Określa, czy nowo otwarte okna będą miały widoczny panel boczny."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:131
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:135
 msgid "Side pane view"
 msgstr "Widok panelu bocznego"
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:132
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:136
 msgid "The side pane view to show in newly opened windows."
 msgstr "Widok paska bocznego wyświetlanego w nowo otwartych oknach."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:133
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:137
 msgid "List of extensions in disabled state."
 msgstr "Lista rozszerzeń o statusie wyłączone."
 
-#: ../libcaja-private/org.mate.caja.gschema.xml.h:134
+#: ../libcaja-private/org.mate.caja.gschema.xml.h:138
 msgid "This list contains the extensions that are currently de-activated."
 msgstr "Ta lista zawiera rozszerzenia które aktualnie są wyłączone."
 
@@ -3988,31 +3999,31 @@ msgstr ""
 msgid "Not a launchable item"
 msgstr "Nie można uruchomić elementu"
 
-#: ../libegg/eggsmclient.c:237
+#: ../libegg/eggsmclient.c:236
 msgid "Disable connection to session manager"
 msgstr "Rozłącza połączenie z menedżerem sesji"
 
-#: ../libegg/eggsmclient.c:242
+#: ../libegg/eggsmclient.c:241
 msgid "Specify file containing saved configuration"
 msgstr "Określa plik zawierający zapisaną konfigurację"
 
-#: ../libegg/eggsmclient.c:242
+#: ../libegg/eggsmclient.c:241
 msgid "FILE"
 msgstr "PLIK"
 
-#: ../libegg/eggsmclient.c:247
+#: ../libegg/eggsmclient.c:246
 msgid "Specify session management ID"
 msgstr "Określa identyfikator zarządzania sesją"
 
-#: ../libegg/eggsmclient.c:247
+#: ../libegg/eggsmclient.c:246
 msgid "ID"
 msgstr "ID"
 
-#: ../libegg/eggsmclient.c:273
+#: ../libegg/eggsmclient.c:272
 msgid "Session management options:"
 msgstr "Opcje zarządzania sesją:"
 
-#: ../libegg/eggsmclient.c:274
+#: ../libegg/eggsmclient.c:273
 msgid "Show session management options"
 msgstr "Wyświetla opcje zarządzania sesją"
 
@@ -4023,8 +4034,8 @@ msgstr "Tło"
 #. name, icon name
 #. label, accelerator
 #: ../src/file-manager/fm-desktop-icon-view.c:753
-#: ../src/file-manager/fm-directory-view.c:7328
-#: ../src/file-manager/fm-directory-view.c:9005
+#: ../src/file-manager/fm-directory-view.c:7374
+#: ../src/file-manager/fm-directory-view.c:9058
 msgid "E_mpty Trash"
 msgstr "Op_różnij kosz"
 
@@ -4032,13 +4043,13 @@ msgstr "Op_różnij kosz"
 #. name, icon name
 #. label, accelerator
 #: ../src/file-manager/fm-desktop-icon-view.c:767
-#: ../src/file-manager/fm-directory-view.c:7292
+#: ../src/file-manager/fm-directory-view.c:7338
 msgid "Create L_auncher..."
 msgstr "Utwórz _aktywator..."
 
 #. tooltip
 #: ../src/file-manager/fm-desktop-icon-view.c:769
-#: ../src/file-manager/fm-directory-view.c:7293
+#: ../src/file-manager/fm-directory-view.c:7339
 msgid "Create a new launcher"
 msgstr "Tworzy nowy aktywator"
 
@@ -4061,7 +4072,7 @@ msgstr "Opróżnianie kosza"
 
 #. tooltip
 #: ../src/file-manager/fm-desktop-icon-view.c:787
-#: ../src/file-manager/fm-directory-view.c:7329 ../src/caja-trash-bar.c:204
+#: ../src/file-manager/fm-directory-view.c:7375 ../src/caja-trash-bar.c:204
 msgid "Delete all items in the Trash"
 msgstr "Usuwa wszystkie elementy z kosza"
 
@@ -4073,7 +4084,7 @@ msgstr "Wystąpił błąd w widoku pulpitu."
 msgid "The desktop view encountered an error while starting up."
 msgstr "Wystąpił błąd podczas uruchamiania widoku pulpitu."
 
-#: ../src/file-manager/fm-directory-view.c:655
+#: ../src/file-manager/fm-directory-view.c:658
 #, c-format
 msgid "This will open %'d separate tab."
 msgid_plural "This will open %'d separate tabs."
@@ -4082,7 +4093,7 @@ msgstr[1] "Spowoduje to otwarcie %'d oddzielnych kart."
 msgstr[2] "Spowoduje to otwarcie %'d oddzielnych kart."
 msgstr[3] "Spowoduje to otwarcie %'d oddzielnych kart."
 
-#: ../src/file-manager/fm-directory-view.c:658
+#: ../src/file-manager/fm-directory-view.c:661
 #, c-format
 msgid "This will open %'d separate window."
 msgid_plural "This will open %'d separate windows."
@@ -4091,64 +4102,64 @@ msgstr[1] "Spowoduje to otwarcie %'d oddzielnych okien."
 msgstr[2] "Spowoduje to otwarcie %'d oddzielnych okien."
 msgstr[3] "Spowoduje to otwarcie %'d oddzielnych okien."
 
-#: ../src/file-manager/fm-directory-view.c:1177
-#: ../src/file-manager/fm-properties-window.c:5418
+#: ../src/file-manager/fm-directory-view.c:1180
+#: ../src/file-manager/fm-properties-window.c:5425
 #: ../src/caja-connect-server-dialog.c:718 ../src/caja-location-dialog.c:102
 msgid "There was an error displaying help."
 msgstr "Wystąpił błąd podczas wyświetlania pomocy."
 
-#: ../src/file-manager/fm-directory-view.c:1198
+#: ../src/file-manager/fm-directory-view.c:1201
 msgid "Select Items Matching"
 msgstr "Zaznaczenie pasujących elementów"
 
 #. create the "help" button
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:1203
-#: ../src/file-manager/fm-properties-window.c:5176
+#: ../src/file-manager/fm-directory-view.c:1206
+#: ../src/file-manager/fm-properties-window.c:5183
 #: ../src/caja-bookmarks-window.ui.h:2
 #: ../src/caja-connect-server-dialog.c:1117 ../src/caja-emblem-sidebar.c:298
 #: ../src/caja-emblem-sidebar.c:555
 #: ../src/caja-file-management-properties.ui.h:42
 #: ../src/caja-location-dialog.c:189 ../src/caja-property-browser.c:390
-#: ../src/caja-window-menus.c:809
+#: ../src/caja-window-menus.c:854
 msgid "_Help"
 msgstr "P_omoc"
 
-#: ../src/file-manager/fm-directory-view.c:1222
+#: ../src/file-manager/fm-directory-view.c:1225
 msgid "_Pattern:"
 msgstr "_Wzór:"
 
-#: ../src/file-manager/fm-directory-view.c:1229
+#: ../src/file-manager/fm-directory-view.c:1232
 msgid "Examples: "
 msgstr "Przykłady: "
 
-#: ../src/file-manager/fm-directory-view.c:1346
+#: ../src/file-manager/fm-directory-view.c:1360
 msgid "Save Search as"
 msgstr "Zapisanie wyszukiwania jako"
 
-#: ../src/file-manager/fm-directory-view.c:1354
+#: ../src/file-manager/fm-directory-view.c:1368
 msgid "_Save"
 msgstr "_Zapisz"
 
-#: ../src/file-manager/fm-directory-view.c:1373
+#: ../src/file-manager/fm-directory-view.c:1387
 msgid "Search _name:"
 msgstr "Nazwa _wyszukiwania:"
 
-#: ../src/file-manager/fm-directory-view.c:1389
+#: ../src/file-manager/fm-directory-view.c:1403
 msgid "_Folder:"
 msgstr "_Katalog:"
 
-#: ../src/file-manager/fm-directory-view.c:1394
+#: ../src/file-manager/fm-directory-view.c:1408
 msgid "Select Folder to Save Search In"
 msgstr "Proszę wybrać katalog do zapisu wyszukiwania"
 
-#: ../src/file-manager/fm-directory-view.c:2283
-#: ../src/file-manager/fm-directory-view.c:2320
+#: ../src/file-manager/fm-directory-view.c:2297
+#: ../src/file-manager/fm-directory-view.c:2334
 #, c-format
 msgid "\"%s\" selected"
 msgstr "Zaznaczono \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:2285
+#: ../src/file-manager/fm-directory-view.c:2299
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
@@ -4157,7 +4168,7 @@ msgstr[1] "Zaznaczono %'d katalogi"
 msgstr[2] "Zaznaczono %'d katalogów"
 msgstr[3] "Zaznaczono %'d katalogów"
 
-#: ../src/file-manager/fm-directory-view.c:2295
+#: ../src/file-manager/fm-directory-view.c:2309
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
@@ -4168,7 +4179,7 @@ msgstr[3] " (zawiera %'d elementów)"
 
 #. translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
-#: ../src/file-manager/fm-directory-view.c:2306
+#: ../src/file-manager/fm-directory-view.c:2320
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
@@ -4177,7 +4188,7 @@ msgstr[1] " (zawierających razem %'d elementów)"
 msgstr[2] " (zawierających razem %'d elementów)"
 msgstr[3] " (zawierających razem %'d elementów)"
 
-#: ../src/file-manager/fm-directory-view.c:2323
+#: ../src/file-manager/fm-directory-view.c:2337
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
@@ -4187,7 +4198,7 @@ msgstr[2] "Zaznaczono %'d elementów"
 msgstr[3] "Zaznaczono %'d elementów"
 
 #. Folders selected also, use "other" terminology
-#: ../src/file-manager/fm-directory-view.c:2330
+#: ../src/file-manager/fm-directory-view.c:2344
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
@@ -4200,17 +4211,17 @@ msgstr[3] "Zaznaczono %'d innych elementów"
 #. * needs to use something other than parentheses. The
 #. * first message gives the number of items selected;
 #. * the message in parentheses the size of those items.
-#: ../src/file-manager/fm-directory-view.c:2349
+#: ../src/file-manager/fm-directory-view.c:2363
 #, c-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: ../src/file-manager/fm-directory-view.c:2362
+#: ../src/file-manager/fm-directory-view.c:2376
 #, c-format
 msgid "Free space: %s"
 msgstr "Wolne miejsce: %s"
 
-#: ../src/file-manager/fm-directory-view.c:2373
+#: ../src/file-manager/fm-directory-view.c:2387
 #, c-format
 msgid "%s, Free space: %s"
 msgstr "%s, wolne miejsce: %s"
@@ -4219,7 +4230,7 @@ msgstr "%s, wolne miejsce: %s"
 #. * might want to change "," to something else.
 #. * After the comma the amount of free space will
 #. * be shown.
-#: ../src/file-manager/fm-directory-view.c:2388
+#: ../src/file-manager/fm-directory-view.c:2402
 #, c-format
 msgid "%s, %s"
 msgstr "%s - %s"
@@ -4234,8 +4245,8 @@ msgstr "%s - %s"
 #. * and the number of items in those folders and the
 #. * message about the number of other items and the
 #. * total size of those items.
-#: ../src/file-manager/fm-directory-view.c:2407
 #: ../src/file-manager/fm-directory-view.c:2421
+#: ../src/file-manager/fm-directory-view.c:2435
 #, c-format
 msgid "%s%s, %s"
 msgstr "%s%s, %s"
@@ -4247,18 +4258,18 @@ msgstr "%s%s, %s"
 #. * message about the number of other items and the
 #. * total size of those items. After the second comma
 #. * the free space is written.
-#: ../src/file-manager/fm-directory-view.c:2434
+#: ../src/file-manager/fm-directory-view.c:2448
 #, c-format
 msgid "%s%s, %s, %s"
 msgstr "%s%s, %s, %s"
 
-#: ../src/file-manager/fm-directory-view.c:4479
+#: ../src/file-manager/fm-directory-view.c:4493
 #: ../src/caja-information-panel.c:903
 #, c-format
 msgid "Open With %s"
 msgstr "Otwórz za pomocą %s"
 
-#: ../src/file-manager/fm-directory-view.c:4481
+#: ../src/file-manager/fm-directory-view.c:4495
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
@@ -4267,31 +4278,31 @@ msgstr[1] "Używa programu \"%s\" do otwarcia zaznaczonych elementów"
 msgstr[2] "Używa programu \"%s\" do otwarcia zaznaczonych elementów"
 msgstr[3] "Używa programu \"%s\" do otwarcia zaznaczonych elementów"
 
-#: ../src/file-manager/fm-directory-view.c:4570
+#: ../src/file-manager/fm-directory-view.c:4584
 msgid "Open parent location"
 msgstr "Otwórz lokalizację nadrzędną"
 
-#: ../src/file-manager/fm-directory-view.c:4571
+#: ../src/file-manager/fm-directory-view.c:4585
 msgid "Open parent location for the selected item"
 msgstr "Otwórz lokalizację nadrzędną dla wybranego elementu"
 
-#: ../src/file-manager/fm-directory-view.c:5424
+#: ../src/file-manager/fm-directory-view.c:5438
 #, c-format
 msgid "Run \"%s\" on any selected items"
 msgstr "Wykonuje skrypt \"%s\" na zaznaczonych elementach"
 
-#: ../src/file-manager/fm-directory-view.c:5675
+#: ../src/file-manager/fm-directory-view.c:5689
 #, c-format
 msgid "Create Document from template \"%s\""
 msgstr "Tworzy dokument z szablonu \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:5925
+#: ../src/file-manager/fm-directory-view.c:5939
 msgid "All executable files in this folder will appear in the Scripts menu."
 msgstr ""
 "Wszystkie pliki wykonywalne umieszczone w tym katalogu pojawią się w menu "
 "Skrypty."
 
-#: ../src/file-manager/fm-directory-view.c:5927
+#: ../src/file-manager/fm-directory-view.c:5941
 msgid ""
 "Choosing a script from the menu will run that script with any selected items"
 " as input."
@@ -4299,7 +4310,7 @@ msgstr ""
 "Wybranie skryptu z menu spowoduje uruchomienie go, wraz z przekazaniem na "
 "wejście zaznaczonych elementów."
 
-#: ../src/file-manager/fm-directory-view.c:5929
+#: ../src/file-manager/fm-directory-view.c:5943
 msgid ""
 "All executable files in this folder will appear in the Scripts menu. Choosing a script from the menu will run that script.\n"
 "\n"
@@ -4340,19 +4351,19 @@ msgstr ""
 "\n"
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: adres URI bieżącego położenia w nieaktywnym panelu okna rozdzielonego widoku"
 
-#: ../src/file-manager/fm-directory-view.c:5997
+#: ../src/file-manager/fm-directory-view.c:6011
 #: ../src/file-manager/fm-tree-view.c:1009
 #, c-format
 msgid "\"%s\" will be moved if you select the Paste command"
 msgstr "\"%s\" zostanie przeniesiony po wybraniu polecenia Wklej"
 
-#: ../src/file-manager/fm-directory-view.c:6001
+#: ../src/file-manager/fm-directory-view.c:6015
 #: ../src/file-manager/fm-tree-view.c:1015
 #, c-format
 msgid "\"%s\" will be copied if you select the Paste command"
 msgstr "\"%s\" zostanie skopiowany po wybraniu polecenia Wklej"
 
-#: ../src/file-manager/fm-directory-view.c:6008
+#: ../src/file-manager/fm-directory-view.c:6022
 #, c-format
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
@@ -4369,7 +4380,7 @@ msgstr[3] ""
 "%'d zaznaczonych elementów zostanie przeniesionych po wybraniu polecenia "
 "Wklej"
 
-#: ../src/file-manager/fm-directory-view.c:6015
+#: ../src/file-manager/fm-directory-view.c:6029
 #, c-format
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
@@ -4383,50 +4394,50 @@ msgstr[2] ""
 msgstr[3] ""
 "%'d zaznaczonych elementów zostanie skopiowanych po wybraniu polecenia Wklej"
 
-#: ../src/file-manager/fm-directory-view.c:6195
+#: ../src/file-manager/fm-directory-view.c:6209
 #: ../src/file-manager/fm-tree-view.c:1055
 msgid "There is nothing on the clipboard to paste."
 msgstr "Schowek nie zawiera niczego do wklejenia."
 
-#: ../src/file-manager/fm-directory-view.c:6410
+#: ../src/file-manager/fm-directory-view.c:6424
 msgid "Unable to unmount location"
 msgstr "Nie można odmontować położenia"
 
-#: ../src/file-manager/fm-directory-view.c:6431
+#: ../src/file-manager/fm-directory-view.c:6445
 msgid "Unable to eject location"
 msgstr "Nie można wysunąć położenia"
 
-#: ../src/file-manager/fm-directory-view.c:6446
+#: ../src/file-manager/fm-directory-view.c:6460
 msgid "Unable to stop drive"
 msgstr "Nie można zatrzymać napędu"
 
-#: ../src/file-manager/fm-directory-view.c:7005
+#: ../src/file-manager/fm-directory-view.c:7019
 #, c-format
 msgid "Connect to Server %s"
 msgstr "Połączenie z serwerem %s"
 
-#: ../src/file-manager/fm-directory-view.c:7017
-#: ../src/file-manager/fm-directory-view.c:8224
-#: ../src/file-manager/fm-directory-view.c:8316
-#: ../src/file-manager/fm-directory-view.c:8426
+#: ../src/file-manager/fm-directory-view.c:7031
+#: ../src/file-manager/fm-directory-view.c:8270
+#: ../src/file-manager/fm-directory-view.c:8362
+#: ../src/file-manager/fm-directory-view.c:8472
 msgid "_Connect"
 msgstr "_Połącz"
 
-#: ../src/file-manager/fm-directory-view.c:7031
+#: ../src/file-manager/fm-directory-view.c:7045
 msgid "Link _name:"
 msgstr "_Nazwa dowiązania:"
 
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:7270
+#: ../src/file-manager/fm-directory-view.c:7316
 msgid "Create _Document"
 msgstr "Utwórz _dokument"
 
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:7271
+#: ../src/file-manager/fm-directory-view.c:7317
 msgid "Open Wit_h"
 msgstr "Otwórz za pomo_cą"
 
-#: ../src/file-manager/fm-directory-view.c:7272
+#: ../src/file-manager/fm-directory-view.c:7318
 msgid "Choose a program with which to open the selected item"
 msgstr ""
 "Proszę wybrać program, za pomocą którego ma zostać otwarty zaznaczony "
@@ -4435,50 +4446,50 @@ msgstr ""
 #. name, icon name
 #. label, accelerator
 #. add the "properties" menu item
-#: ../src/file-manager/fm-directory-view.c:7274
-#: ../src/file-manager/fm-directory-view.c:7553
+#: ../src/file-manager/fm-directory-view.c:7320
+#: ../src/file-manager/fm-directory-view.c:7599
 #: ../src/file-manager/fm-tree-view.c:1377
 msgid "_Properties"
 msgstr "_Właściwości"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7275
-#: ../src/file-manager/fm-directory-view.c:8992
+#: ../src/file-manager/fm-directory-view.c:7321
+#: ../src/file-manager/fm-directory-view.c:9045
 msgid "View or modify the properties of each selected item"
 msgstr "Wyświetla lub modyfikuje właściwości każdego z zaznaczonych elementów"
 
 #. name, icon name
 #. label, accelerator
 #. add the "create folder" menu item
-#: ../src/file-manager/fm-directory-view.c:7282
+#: ../src/file-manager/fm-directory-view.c:7328
 #: ../src/file-manager/fm-tree-view.c:1295
 msgid "Create _Folder"
 msgstr "U_twórz katalog"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7283
+#: ../src/file-manager/fm-directory-view.c:7329
 msgid "Create a new empty folder inside this folder"
 msgstr "Tworzy nowy pusty katalog w tym katalogu"
 
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:7285
+#: ../src/file-manager/fm-directory-view.c:7331
 msgid "No templates installed"
 msgstr "Brak zainstalowanych szablonów"
 
 #. name, icon name
 #. translators: this is used to indicate that a file doesn't contain anything
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7288
+#: ../src/file-manager/fm-directory-view.c:7334
 msgid "_Empty File"
 msgstr "P_usty plik"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7289
+#: ../src/file-manager/fm-directory-view.c:7335
 msgid "Create a new empty file inside this folder"
 msgstr "Tworzy nowy pusty plik w tym katalogu"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7297
+#: ../src/file-manager/fm-directory-view.c:7343
 msgid "Open the selected item in this window"
 msgstr "Otwiera zaznaczony element w bieżącym oknie"
 
@@ -4487,88 +4498,88 @@ msgstr "Otwiera zaznaczony element w bieżącym oknie"
 #. Location-specific actions
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7304
-#: ../src/file-manager/fm-directory-view.c:7485
+#: ../src/file-manager/fm-directory-view.c:7350
+#: ../src/file-manager/fm-directory-view.c:7531
 msgid "Open in Navigation Window"
 msgstr "Otwórz w oknie nawigacji"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7305
+#: ../src/file-manager/fm-directory-view.c:7351
 msgid "Open each selected item in a navigation window"
 msgstr "Otwiera każdy z zaznaczonych elementów w oknie nawigacji"
 
 #. name, icon name
 #. label, accelerator
 #. add the "open in new tab" menu item
-#: ../src/file-manager/fm-directory-view.c:7308
-#: ../src/file-manager/fm-directory-view.c:7489
-#: ../src/file-manager/fm-directory-view.c:8556
-#: ../src/file-manager/fm-directory-view.c:8882
+#: ../src/file-manager/fm-directory-view.c:7354
+#: ../src/file-manager/fm-directory-view.c:7535
+#: ../src/file-manager/fm-directory-view.c:8602
+#: ../src/file-manager/fm-directory-view.c:8935
 #: ../src/file-manager/fm-tree-view.c:1275 ../src/caja-places-sidebar.c:2685
 msgid "Open in New _Tab"
 msgstr "O_twórz w nowej karcie"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7309
+#: ../src/file-manager/fm-directory-view.c:7355
 msgid "Open each selected item in a new tab"
 msgstr "Otwiera każdy z zaznaczonych elementów w nowej karcie"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7312
-#: ../src/file-manager/fm-directory-view.c:7494
+#: ../src/file-manager/fm-directory-view.c:7358
+#: ../src/file-manager/fm-directory-view.c:7540
 msgid "Open in _Folder Window"
 msgstr "Otwórz w oknie _katalogu"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7313
+#: ../src/file-manager/fm-directory-view.c:7359
 msgid "Open each selected item in a folder window"
 msgstr "Otwiera każdy z zaznaczonych elementów w oknie katalogu"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7316
+#: ../src/file-manager/fm-directory-view.c:7362
 msgid "Other _Application..."
 msgstr "Inny progra_m..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7317
-#: ../src/file-manager/fm-directory-view.c:7321
+#: ../src/file-manager/fm-directory-view.c:7363
+#: ../src/file-manager/fm-directory-view.c:7367
 msgid "Choose another application with which to open the selected item"
 msgstr ""
 "Wybór innego programu, za pomocą którego można otworzyć zaznaczony element"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7320
+#: ../src/file-manager/fm-directory-view.c:7366
 msgid "Open With Other _Application..."
 msgstr "Otwórz _za pomocą innego programu..."
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7324
+#: ../src/file-manager/fm-directory-view.c:7370
 msgid "_Open Scripts Folder"
 msgstr "_Otwórz katalog skryptów"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7325
+#: ../src/file-manager/fm-directory-view.c:7371
 msgid "Show the folder containing the scripts that appear in this menu"
 msgstr "Wyświetla katalog zawierający skrypty pojawiające się w tym menu"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7333
+#: ../src/file-manager/fm-directory-view.c:7379
 msgid "Prepare the selected files to be moved with a Paste command"
 msgstr ""
 "Przygotowuje zaznaczone pliki do przeniesienia za pomocą polecenia Wklej"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7337
+#: ../src/file-manager/fm-directory-view.c:7383
 msgid "Prepare the selected files to be copied with a Paste command"
 msgstr ""
 "Przygotowuje zaznaczone pliki do skopiowania za pomocą polecenia Wklej"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7341
+#: ../src/file-manager/fm-directory-view.c:7387
 msgid "Move or copy files previously selected by a Cut or Copy command"
 msgstr ""
 "Przenieś lub kopiuje pliki poprzednio zaznaczone za pomocą polecenia Skopiuj"
@@ -4579,14 +4590,14 @@ msgstr ""
 #. name, icon name
 #. label, accelerator
 #. add the "paste files into folder" menu item
-#: ../src/file-manager/fm-directory-view.c:7346
-#: ../src/file-manager/fm-directory-view.c:7507
+#: ../src/file-manager/fm-directory-view.c:7392
+#: ../src/file-manager/fm-directory-view.c:7553
 #: ../src/file-manager/fm-tree-view.c:1324
 msgid "_Paste Into Folder"
 msgstr "Wklej do katalog_u"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7347
+#: ../src/file-manager/fm-directory-view.c:7393
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into the "
 "selected folder"
@@ -4595,57 +4606,57 @@ msgstr ""
 " lub Wytnij do wybranego katalogu"
 
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:7349
+#: ../src/file-manager/fm-directory-view.c:7395
 msgid "Cop_y to"
 msgstr "_Skopiuj do"
 
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:7350
+#: ../src/file-manager/fm-directory-view.c:7396
 msgid "M_ove to"
 msgstr "_Przenieś do"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7353
+#: ../src/file-manager/fm-directory-view.c:7399
 msgid "Select all items in this window"
 msgstr "Zaznacza wszystkie elementy w bieżącym oknie"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7356
+#: ../src/file-manager/fm-directory-view.c:7402
 msgid "Select I_tems Matching..."
 msgstr "Zaznacz elementy pa_sujące..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7357
+#: ../src/file-manager/fm-directory-view.c:7403
 msgid "Select items in this window matching a given pattern"
 msgstr "Zaznacza elementy w bieżącym oknie pasujące do podanego wzorca"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7360
+#: ../src/file-manager/fm-directory-view.c:7406
 msgid "_Invert Selection"
 msgstr "_Odwróć zaznaczenie"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7361
+#: ../src/file-manager/fm-directory-view.c:7407
 msgid "Select all and only the items that are not currently selected"
 msgstr "Zaznacza wszystkie i aktualnie nie zaznaczone elementy"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7364
+#: ../src/file-manager/fm-directory-view.c:7410
 msgid "D_uplicate"
 msgstr "Powie_l"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7365
+#: ../src/file-manager/fm-directory-view.c:7411
 msgid "Duplicate each selected item"
 msgstr "Powiela każdy z zaznaczonych elementów"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7368
-#: ../src/file-manager/fm-directory-view.c:8976
+#: ../src/file-manager/fm-directory-view.c:7414
+#: ../src/file-manager/fm-directory-view.c:9029
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
 msgstr[0] "Utwórz _dowiązanie"
@@ -4654,60 +4665,60 @@ msgstr[2] "Utwórz _dowiązania"
 msgstr[3] "Utwórz _dowiązania"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7369
+#: ../src/file-manager/fm-directory-view.c:7415
 msgid "Create a symbolic link for each selected item"
 msgstr "Tworzy dowiązanie symboliczne do każdego z zaznaczonych elementów"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7372
+#: ../src/file-manager/fm-directory-view.c:7418
 msgid "_Rename..."
 msgstr "Z_mień nazwę..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7373
+#: ../src/file-manager/fm-directory-view.c:7419
 msgid "Rename selected item"
 msgstr "Zmienia nazwę zaznaczonego elementu"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7381
-#: ../src/file-manager/fm-directory-view.c:8937
+#: ../src/file-manager/fm-directory-view.c:7427
+#: ../src/file-manager/fm-directory-view.c:8990
 msgid "Move each selected item to the Trash"
 msgstr "Przenieś każdy z zaznaczonych elementów do kosza"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7385
+#: ../src/file-manager/fm-directory-view.c:7431
 msgid "Delete each selected item, without moving to the Trash"
 msgstr "Usuwa każdy z zaznaczonych elementów, bez przenoszenia ich do kosza"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7388
-#: ../src/file-manager/fm-directory-view.c:7520
+#: ../src/file-manager/fm-directory-view.c:7434
+#: ../src/file-manager/fm-directory-view.c:7566
 msgid "_Restore"
 msgstr "_Przywróć"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7392
+#: ../src/file-manager/fm-directory-view.c:7438
 msgid "_Undo"
 msgstr "_Cofnij"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7393
-#: ../src/file-manager/fm-directory-view.c:11137
+#: ../src/file-manager/fm-directory-view.c:7439
+#: ../src/file-manager/fm-directory-view.c:11197
 msgid "Undo the last action"
 msgstr "Cofnij ostatnie działanie"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7396
+#: ../src/file-manager/fm-directory-view.c:7442
 msgid "_Redo"
 msgstr "_Ponów"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7397
-#: ../src/file-manager/fm-directory-view.c:11155
+#: ../src/file-manager/fm-directory-view.c:7443
+#: ../src/file-manager/fm-directory-view.c:11215
 msgid "Redo the last undone action"
 msgstr "Ponów ostatnie cofnięte działanie"
 
@@ -4717,12 +4728,12 @@ msgstr "Ponów ostatnie cofnięte działanie"
 #. * it is a mixture of both ATM.
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7407
+#: ../src/file-manager/fm-directory-view.c:7453
 msgid "Reset View to _Defaults"
 msgstr "Przywróć _domyślne ustawienia widoku"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7408
+#: ../src/file-manager/fm-directory-view.c:7454
 msgid "Reset sorting order and zoom level to match preferences for this view"
 msgstr ""
 "Przywraca porządek sortowania i powiększenie zgodne z preferencjami "
@@ -4730,194 +4741,194 @@ msgstr ""
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7411
+#: ../src/file-manager/fm-directory-view.c:7457
 msgid "Connect To This Server"
 msgstr "Połączenie z serwerem"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7412
+#: ../src/file-manager/fm-directory-view.c:7458
 msgid "Make a permanent connection to this server"
 msgstr "Tworzy stałe połączenie z tym serwerem"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7415
-#: ../src/file-manager/fm-directory-view.c:7443
-#: ../src/file-manager/fm-directory-view.c:7524
+#: ../src/file-manager/fm-directory-view.c:7461
+#: ../src/file-manager/fm-directory-view.c:7489
+#: ../src/file-manager/fm-directory-view.c:7570
 #: ../src/caja-places-sidebar.c:2721
 msgid "_Mount"
 msgstr "Za_montuj"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7416
+#: ../src/file-manager/fm-directory-view.c:7462
 msgid "Mount the selected volume"
 msgstr "Montuje wybrany wolumin"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7420
+#: ../src/file-manager/fm-directory-view.c:7466
 msgid "Unmount the selected volume"
 msgstr "Odmontowuje wybrany wolumin"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7424
+#: ../src/file-manager/fm-directory-view.c:7470
 msgid "Eject the selected volume"
 msgstr "Wysuwa wybrany wolumin"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7427
-#: ../src/file-manager/fm-directory-view.c:7455
-#: ../src/file-manager/fm-directory-view.c:7536
+#: ../src/file-manager/fm-directory-view.c:7473
+#: ../src/file-manager/fm-directory-view.c:7501
+#: ../src/file-manager/fm-directory-view.c:7582
 #: ../src/caja-places-sidebar.c:2749
 msgid "_Format"
 msgstr "_Sformatuj"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7428
+#: ../src/file-manager/fm-directory-view.c:7474
 msgid "Format the selected volume"
 msgstr "Formatuje wybrany wolumin"
 
 #. name, icon name
 #. label, accelerator
 #. Adjust start/stop items to reflect the type of the drive
-#: ../src/file-manager/fm-directory-view.c:7431
-#: ../src/file-manager/fm-directory-view.c:7459
-#: ../src/file-manager/fm-directory-view.c:7540
-#: ../src/file-manager/fm-directory-view.c:8216
-#: ../src/file-manager/fm-directory-view.c:8220
-#: ../src/file-manager/fm-directory-view.c:8308
-#: ../src/file-manager/fm-directory-view.c:8312
-#: ../src/file-manager/fm-directory-view.c:8418
-#: ../src/file-manager/fm-directory-view.c:8422
+#: ../src/file-manager/fm-directory-view.c:7477
+#: ../src/file-manager/fm-directory-view.c:7505
+#: ../src/file-manager/fm-directory-view.c:7586
+#: ../src/file-manager/fm-directory-view.c:8262
+#: ../src/file-manager/fm-directory-view.c:8266
+#: ../src/file-manager/fm-directory-view.c:8354
+#: ../src/file-manager/fm-directory-view.c:8358
+#: ../src/file-manager/fm-directory-view.c:8464
+#: ../src/file-manager/fm-directory-view.c:8468
 #: ../src/caja-places-sidebar.c:1804 ../src/caja-places-sidebar.c:2756
 msgid "_Start"
 msgstr "_Uruchom"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7432
+#: ../src/file-manager/fm-directory-view.c:7478
 msgid "Start the selected volume"
 msgstr "Uruchamia wybrany wolumin"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7435
-#: ../src/file-manager/fm-directory-view.c:7463
-#: ../src/file-manager/fm-directory-view.c:7544
-#: ../src/file-manager/fm-directory-view.c:8245
-#: ../src/file-manager/fm-directory-view.c:8337
-#: ../src/file-manager/fm-directory-view.c:8447
+#: ../src/file-manager/fm-directory-view.c:7481
+#: ../src/file-manager/fm-directory-view.c:7509
+#: ../src/file-manager/fm-directory-view.c:7590
+#: ../src/file-manager/fm-directory-view.c:8291
+#: ../src/file-manager/fm-directory-view.c:8383
+#: ../src/file-manager/fm-directory-view.c:8493
 #: ../src/caja-places-sidebar.c:1805 ../src/caja-places-sidebar.c:2763
-#: ../src/caja-window-menus.c:836
+#: ../src/caja-window-menus.c:881
 msgid "_Stop"
 msgstr "_Stop"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7436
-#: ../src/file-manager/fm-directory-view.c:8448
+#: ../src/file-manager/fm-directory-view.c:7482
+#: ../src/file-manager/fm-directory-view.c:8494
 msgid "Stop the selected volume"
 msgstr "Zatrzymuje wybrany wolumin"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7439
-#: ../src/file-manager/fm-directory-view.c:7467
-#: ../src/file-manager/fm-directory-view.c:7548
+#: ../src/file-manager/fm-directory-view.c:7485
+#: ../src/file-manager/fm-directory-view.c:7513
+#: ../src/file-manager/fm-directory-view.c:7594
 #: ../src/caja-places-sidebar.c:2742
 msgid "_Detect Media"
 msgstr "Wy_kryj nośnik"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7440
-#: ../src/file-manager/fm-directory-view.c:7468
-#: ../src/file-manager/fm-directory-view.c:7549
+#: ../src/file-manager/fm-directory-view.c:7486
+#: ../src/file-manager/fm-directory-view.c:7514
+#: ../src/file-manager/fm-directory-view.c:7595
 msgid "Detect media in the selected drive"
 msgstr "Wykrywa nośnik w wybranym napędzie"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7444
+#: ../src/file-manager/fm-directory-view.c:7490
 msgid "Mount the volume associated with the open folder"
 msgstr "Montuje wolumin związany z otwartym katalogiem"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7448
+#: ../src/file-manager/fm-directory-view.c:7494
 msgid "Unmount the volume associated with the open folder"
 msgstr "Odmontowuje wolumin związany z otwartym katalogiem"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7452
+#: ../src/file-manager/fm-directory-view.c:7498
 msgid "Eject the volume associated with the open folder"
 msgstr "Wysuwa wolumin związany z otwartym katalogiem"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7456
+#: ../src/file-manager/fm-directory-view.c:7502
 msgid "Format the volume associated with the open folder"
 msgstr "Formatuje wolumin związany z otwartym katalogiem"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7460
+#: ../src/file-manager/fm-directory-view.c:7506
 msgid "Start the volume associated with the open folder"
 msgstr "Uruchamia wolumin związany z otwartym katalogiem"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7464
+#: ../src/file-manager/fm-directory-view.c:7510
 msgid "Stop the volume associated with the open folder"
 msgstr "Zatrzymuje wolumin związany z otwartym katalogiem"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7471
+#: ../src/file-manager/fm-directory-view.c:7517
 msgid "Open File and Close window"
 msgstr "Otwórz plik i zamknij okno"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7475
+#: ../src/file-manager/fm-directory-view.c:7521
 msgid "Sa_ve Search"
 msgstr "_Zapisz wyszukiwanie"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7476
+#: ../src/file-manager/fm-directory-view.c:7522
 msgid "Save the edited search"
 msgstr "Zapisuje zmodyfikowane wyszukiwanie"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7479
+#: ../src/file-manager/fm-directory-view.c:7525
 msgid "Sa_ve Search As..."
 msgstr "Z_apisz wyszukiwanie jako..."
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7480
+#: ../src/file-manager/fm-directory-view.c:7526
 msgid "Save the current search as a file"
 msgstr "Zapisuje bieżące wyszukiwanie jako plik"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7486
+#: ../src/file-manager/fm-directory-view.c:7532
 msgid "Open this folder in a navigation window"
 msgstr "Otwiera ten katalog w oknie nawigacji"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7490
+#: ../src/file-manager/fm-directory-view.c:7536
 msgid "Open this folder in a new tab"
 msgstr "Otwiera ten katalog w nowej karcie"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7495
+#: ../src/file-manager/fm-directory-view.c:7541
 msgid "Open this folder in a folder window"
 msgstr "Otwiera ten katalog w oknie"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7500
+#: ../src/file-manager/fm-directory-view.c:7546
 msgid "Prepare this folder to be moved with a Paste command"
 msgstr "Przygotowuje ten katalog do przeniesienia za pomocą polecenia Wklej"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7504
+#: ../src/file-manager/fm-directory-view.c:7550
 msgid "Prepare this folder to be copied with a Paste command"
 msgstr "Przygotowuje ten katalog do skopiowania za pomocą polecenia Wklej"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7508
+#: ../src/file-manager/fm-directory-view.c:7554
 msgid ""
 "Move or copy files previously selected by a Cut or Copy command into this "
 "folder"
@@ -4926,111 +4937,111 @@ msgstr ""
 "lub Skopiuj do tego katalogu"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7513
+#: ../src/file-manager/fm-directory-view.c:7559
 msgid "Move this folder to the Trash"
 msgstr "Przenieś ten katalog do kosza"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7517
+#: ../src/file-manager/fm-directory-view.c:7563
 msgid "Delete this folder, without moving to the Trash"
 msgstr "Usuwa ten katalog bez przenoszenia go do kosza"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7525
+#: ../src/file-manager/fm-directory-view.c:7571
 msgid "Mount the volume associated with this folder"
 msgstr "Montuje wolumin związany z tym katalogiem"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7529
+#: ../src/file-manager/fm-directory-view.c:7575
 msgid "Unmount the volume associated with this folder"
 msgstr "Odmontowuje wolumin związany z tym katalogiem"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7533
+#: ../src/file-manager/fm-directory-view.c:7579
 msgid "Eject the volume associated with this folder"
 msgstr "Wysuwa wolumin związany z tym katalogiem"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7537
+#: ../src/file-manager/fm-directory-view.c:7583
 msgid "Format the volume associated with this folder"
 msgstr "Formatuje wolumin związany z tym katalogiem"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7541
+#: ../src/file-manager/fm-directory-view.c:7587
 msgid "Start the volume associated with this folder"
 msgstr "Uruchamia wolumin związany z tym katalogiem"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7545
+#: ../src/file-manager/fm-directory-view.c:7591
 msgid "Stop the volume associated with this folder"
 msgstr "Zatrzymuje wolumin związany z tym katalogiem"
 
 #. tooltip
-#: ../src/file-manager/fm-directory-view.c:7554
+#: ../src/file-manager/fm-directory-view.c:7600
 msgid "View or modify the properties of this folder"
 msgstr "Wyświetla lub modyfikuje właściwości tego katalogu"
 
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:7557
-#: ../src/file-manager/fm-directory-view.c:7560
+#: ../src/file-manager/fm-directory-view.c:7603
+#: ../src/file-manager/fm-directory-view.c:7606
 msgid "_Other pane"
 msgstr "_Drugi panel"
 
-#: ../src/file-manager/fm-directory-view.c:7558
+#: ../src/file-manager/fm-directory-view.c:7604
 msgid "Copy the current selection to the other pane in the window"
 msgstr "Kopiuje zaznaczony element do drugiego panelu w bieżącym oknie"
 
-#: ../src/file-manager/fm-directory-view.c:7561
+#: ../src/file-manager/fm-directory-view.c:7607
 msgid "Move the current selection to the other pane in the window"
 msgstr "Przenieś zaznaczony element do drugiego panelu w bieżącym oknie"
 
 #. name, icon name, label
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-directory-view.c:7564
-#: ../src/file-manager/fm-directory-view.c:7568 ../src/caja-window-menus.c:891
+#: ../src/file-manager/fm-directory-view.c:7610
+#: ../src/file-manager/fm-directory-view.c:7614 ../src/caja-window-menus.c:936
 msgid "_Home Folder"
 msgstr "Katalog _domowy"
 
-#: ../src/file-manager/fm-directory-view.c:7565
+#: ../src/file-manager/fm-directory-view.c:7611
 msgid "Copy the current selection to the home folder"
 msgstr "Kopiuje zaznaczony element do katalogu domowego"
 
-#: ../src/file-manager/fm-directory-view.c:7569
+#: ../src/file-manager/fm-directory-view.c:7615
 msgid "Move the current selection to the home folder"
 msgstr "Przenieś zaznaczony element do katalogu domowego"
 
 #. name, icon name, label
-#: ../src/file-manager/fm-directory-view.c:7572
-#: ../src/file-manager/fm-directory-view.c:7576
+#: ../src/file-manager/fm-directory-view.c:7618
+#: ../src/file-manager/fm-directory-view.c:7622
 msgid "_Desktop"
 msgstr "_Pulpit"
 
-#: ../src/file-manager/fm-directory-view.c:7573
+#: ../src/file-manager/fm-directory-view.c:7619
 msgid "Copy the current selection to the desktop"
 msgstr "Kopiuje zaznaczony element na pulpit"
 
-#: ../src/file-manager/fm-directory-view.c:7577
+#: ../src/file-manager/fm-directory-view.c:7623
 msgid "Move the current selection to the desktop"
 msgstr "Przenieś zaznaczony element na pulpit"
 
 #. Translators: %s is a directory
-#: ../src/file-manager/fm-directory-view.c:7657
+#: ../src/file-manager/fm-directory-view.c:7703
 #, c-format
 msgid "Run or manage scripts from %s"
 msgstr "Uruchamia lub zarządza skryptami z %s"
 
 #. Create a script action here specially because its tooltip is dynamic
-#: ../src/file-manager/fm-directory-view.c:7659
+#: ../src/file-manager/fm-directory-view.c:7705
 msgid "_Scripts"
 msgstr "_Skrypty"
 
-#: ../src/file-manager/fm-directory-view.c:8064
+#: ../src/file-manager/fm-directory-view.c:8110
 #, c-format
 msgid "Move the open folder out of the trash to \"%s\""
 msgstr "Przenieś otwarty katalog z kosza do \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:8067
+#: ../src/file-manager/fm-directory-view.c:8113
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
@@ -5039,7 +5050,7 @@ msgstr[1] "Przenieś zaznaczone katalogi z kosza do \"%s\""
 msgstr[2] "Przenieś zaznaczone katalogi z kosza do \"%s\""
 msgstr[3] "Przenieś zaznaczone katalogi z kosza do \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:8071
+#: ../src/file-manager/fm-directory-view.c:8117
 #, c-format
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
@@ -5048,7 +5059,7 @@ msgstr[1] "Przenieś zaznaczone katalogi z kosza"
 msgstr[2] "Przenieś zaznaczone katalogi z kosza"
 msgstr[3] "Przenieś zaznaczone katalogi z kosza"
 
-#: ../src/file-manager/fm-directory-view.c:8077
+#: ../src/file-manager/fm-directory-view.c:8123
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
@@ -5057,7 +5068,7 @@ msgstr[1] "Przenieś zaznaczone pliki z kosza do \"%s\""
 msgstr[2] "Przenieś zaznaczone pliki z kosza do \"%s\""
 msgstr[3] "Przenieś zaznaczone pliki z kosza do \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:8081
+#: ../src/file-manager/fm-directory-view.c:8127
 #, c-format
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
@@ -5066,7 +5077,7 @@ msgstr[1] "Przenieś zaznaczone pliki z kosza"
 msgstr[2] "Przenieś zaznaczone pliki z kosza"
 msgstr[3] "Przenieś zaznaczone pliki z kosza"
 
-#: ../src/file-manager/fm-directory-view.c:8087
+#: ../src/file-manager/fm-directory-view.c:8133
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
@@ -5075,7 +5086,7 @@ msgstr[1] "Przenieś zaznaczone elementy z kosza do \"%s\""
 msgstr[2] "Przenieś zaznaczone elementy z kosza do \"%s\""
 msgstr[3] "Przenieś zaznaczone elementy z kosza do \"%s\""
 
-#: ../src/file-manager/fm-directory-view.c:8091
+#: ../src/file-manager/fm-directory-view.c:8137
 #, c-format
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
@@ -5084,146 +5095,146 @@ msgstr[1] "Przenieś zaznaczone elementy z kosza"
 msgstr[2] "Przenieś zaznaczone elementy z kosza"
 msgstr[3] "Przenieś zaznaczone elementy z kosza"
 
-#: ../src/file-manager/fm-directory-view.c:8217
-#: ../src/file-manager/fm-directory-view.c:8221
-#: ../src/file-manager/fm-directory-view.c:8419
-#: ../src/file-manager/fm-directory-view.c:8423
+#: ../src/file-manager/fm-directory-view.c:8263
+#: ../src/file-manager/fm-directory-view.c:8267
+#: ../src/file-manager/fm-directory-view.c:8465
+#: ../src/file-manager/fm-directory-view.c:8469
 msgid "Start the selected drive"
 msgstr "Uruchamia wybrany napęd"
 
-#: ../src/file-manager/fm-directory-view.c:8225
-#: ../src/file-manager/fm-directory-view.c:8427
+#: ../src/file-manager/fm-directory-view.c:8271
+#: ../src/file-manager/fm-directory-view.c:8473
 msgid "Connect to the selected drive"
 msgstr "Łączy z wybranym napędem"
 
-#: ../src/file-manager/fm-directory-view.c:8228
-#: ../src/file-manager/fm-directory-view.c:8320
-#: ../src/file-manager/fm-directory-view.c:8430
+#: ../src/file-manager/fm-directory-view.c:8274
+#: ../src/file-manager/fm-directory-view.c:8366
+#: ../src/file-manager/fm-directory-view.c:8476
 msgid "_Start Multi-disk Drive"
 msgstr "Uruchom napęd wielody_skowy"
 
-#: ../src/file-manager/fm-directory-view.c:8229
-#: ../src/file-manager/fm-directory-view.c:8431
+#: ../src/file-manager/fm-directory-view.c:8275
+#: ../src/file-manager/fm-directory-view.c:8477
 msgid "Start the selected multi-disk drive"
 msgstr "Uruchamia wybrany napęd wielodyskowy"
 
-#: ../src/file-manager/fm-directory-view.c:8232
+#: ../src/file-manager/fm-directory-view.c:8278
 msgid "U_nlock Drive"
 msgstr "Odblokuj _napęd"
 
-#: ../src/file-manager/fm-directory-view.c:8233
-#: ../src/file-manager/fm-directory-view.c:8435
+#: ../src/file-manager/fm-directory-view.c:8279
+#: ../src/file-manager/fm-directory-view.c:8481
 msgid "Unlock the selected drive"
 msgstr "Odblokowuje wybrany napęd"
 
-#: ../src/file-manager/fm-directory-view.c:8246
+#: ../src/file-manager/fm-directory-view.c:8292
 msgid "Stop the selected drive"
 msgstr "Zatrzymuje wybrany napęd"
 
-#: ../src/file-manager/fm-directory-view.c:8249
-#: ../src/file-manager/fm-directory-view.c:8341
-#: ../src/file-manager/fm-directory-view.c:8451
+#: ../src/file-manager/fm-directory-view.c:8295
+#: ../src/file-manager/fm-directory-view.c:8387
+#: ../src/file-manager/fm-directory-view.c:8497
 #: ../src/caja-places-sidebar.c:1813
 msgid "_Safely Remove Drive"
 msgstr "Bezpiecznie u_suń napęd"
 
-#: ../src/file-manager/fm-directory-view.c:8250
-#: ../src/file-manager/fm-directory-view.c:8452
+#: ../src/file-manager/fm-directory-view.c:8296
+#: ../src/file-manager/fm-directory-view.c:8498
 msgid "Safely remove the selected drive"
 msgstr "Bezpiecznie usuwa wybrany napęd"
 
-#: ../src/file-manager/fm-directory-view.c:8253
-#: ../src/file-manager/fm-directory-view.c:8345
-#: ../src/file-manager/fm-directory-view.c:8455
+#: ../src/file-manager/fm-directory-view.c:8299
+#: ../src/file-manager/fm-directory-view.c:8391
+#: ../src/file-manager/fm-directory-view.c:8501
 msgid "_Disconnect"
 msgstr "_Rozłącz"
 
-#: ../src/file-manager/fm-directory-view.c:8254
-#: ../src/file-manager/fm-directory-view.c:8456
+#: ../src/file-manager/fm-directory-view.c:8300
+#: ../src/file-manager/fm-directory-view.c:8502
 msgid "Disconnect the selected drive"
 msgstr "Odłącza wybrany napęd"
 
-#: ../src/file-manager/fm-directory-view.c:8257
-#: ../src/file-manager/fm-directory-view.c:8349
-#: ../src/file-manager/fm-directory-view.c:8459
+#: ../src/file-manager/fm-directory-view.c:8303
+#: ../src/file-manager/fm-directory-view.c:8395
+#: ../src/file-manager/fm-directory-view.c:8505
 msgid "_Stop Multi-disk Drive"
 msgstr "Zatrzymaj napęd wielody_skowy"
 
-#: ../src/file-manager/fm-directory-view.c:8258
-#: ../src/file-manager/fm-directory-view.c:8460
+#: ../src/file-manager/fm-directory-view.c:8304
+#: ../src/file-manager/fm-directory-view.c:8506
 msgid "Stop the selected multi-disk drive"
 msgstr "Zatrzymuje wybrany napęd wielodyskowy"
 
-#: ../src/file-manager/fm-directory-view.c:8261
-#: ../src/file-manager/fm-directory-view.c:8353
-#: ../src/file-manager/fm-directory-view.c:8463
+#: ../src/file-manager/fm-directory-view.c:8307
+#: ../src/file-manager/fm-directory-view.c:8399
+#: ../src/file-manager/fm-directory-view.c:8509
 #: ../src/caja-places-sidebar.c:1826
 msgid "_Lock Drive"
 msgstr "_Zablokuj napęd"
 
-#: ../src/file-manager/fm-directory-view.c:8262
-#: ../src/file-manager/fm-directory-view.c:8464
+#: ../src/file-manager/fm-directory-view.c:8308
+#: ../src/file-manager/fm-directory-view.c:8510
 msgid "Lock the selected drive"
 msgstr "Blokuje wybrany napęd"
 
-#: ../src/file-manager/fm-directory-view.c:8309
-#: ../src/file-manager/fm-directory-view.c:8313
+#: ../src/file-manager/fm-directory-view.c:8355
+#: ../src/file-manager/fm-directory-view.c:8359
 msgid "Start the drive associated with the open folder"
 msgstr "Uruchamia napęd związany z otwartym katalogiem"
 
-#: ../src/file-manager/fm-directory-view.c:8317
+#: ../src/file-manager/fm-directory-view.c:8363
 msgid "Connect to the drive associated with the open folder"
 msgstr "Łączy z napędem związanym z otwartym katalogiem"
 
-#: ../src/file-manager/fm-directory-view.c:8321
+#: ../src/file-manager/fm-directory-view.c:8367
 msgid "Start the multi-disk drive associated with the open folder"
 msgstr "Uruchamia napęd wielodyskowy związany z otwartym katalogiem"
 
 #. stop() for type G_DRIVE_START_STOP_TYPE_PASSWORD is normally not used
-#: ../src/file-manager/fm-directory-view.c:8324
-#: ../src/file-manager/fm-directory-view.c:8434
+#: ../src/file-manager/fm-directory-view.c:8370
+#: ../src/file-manager/fm-directory-view.c:8480
 #: ../src/caja-places-sidebar.c:1825
 msgid "_Unlock Drive"
 msgstr "Odblok_uj napęd"
 
-#: ../src/file-manager/fm-directory-view.c:8325
+#: ../src/file-manager/fm-directory-view.c:8371
 msgid "Unlock the drive associated with the open folder"
 msgstr "Odblokowuje napęd związany z otwartym katalogiem"
 
-#: ../src/file-manager/fm-directory-view.c:8338
+#: ../src/file-manager/fm-directory-view.c:8384
 msgid "_Stop the drive associated with the open folder"
 msgstr "_Zatrzymaj napęd związany z otwartym katalogiem"
 
-#: ../src/file-manager/fm-directory-view.c:8342
+#: ../src/file-manager/fm-directory-view.c:8388
 msgid "Safely remove the drive associated with the open folder"
 msgstr "Bezpiecznie usuwa napęd związany z otwartym katalogiem"
 
-#: ../src/file-manager/fm-directory-view.c:8346
+#: ../src/file-manager/fm-directory-view.c:8392
 msgid "Disconnect the drive associated with the open folder"
 msgstr "Odłącza napęd związany z otwartym katalogiem"
 
-#: ../src/file-manager/fm-directory-view.c:8350
+#: ../src/file-manager/fm-directory-view.c:8396
 msgid "Stop the multi-disk drive associated with the open folder"
 msgstr "Zatrzymuje napęd wielodyskowy związany z otwartym katalogiem"
 
-#: ../src/file-manager/fm-directory-view.c:8354
+#: ../src/file-manager/fm-directory-view.c:8400
 msgid "Lock the drive associated with the open folder"
 msgstr "Blokuje napęd związany z otwartym katalogiem"
 
 #. add the "open in new window" menu item
-#: ../src/file-manager/fm-directory-view.c:8533
-#: ../src/file-manager/fm-directory-view.c:8843
+#: ../src/file-manager/fm-directory-view.c:8579
+#: ../src/file-manager/fm-directory-view.c:8896
 #: ../src/file-manager/fm-tree-view.c:1284 ../src/caja-places-sidebar.c:2692
 msgid "Open in New _Window"
 msgstr "Ot_wórz w nowym oknie"
 
-#: ../src/file-manager/fm-directory-view.c:8535
-#: ../src/file-manager/fm-directory-view.c:8852
+#: ../src/file-manager/fm-directory-view.c:8581
+#: ../src/file-manager/fm-directory-view.c:8905
 msgid "Browse in New _Window"
 msgstr "Przeglądaj w nowym _oknie"
 
-#: ../src/file-manager/fm-directory-view.c:8541
-#: ../src/file-manager/fm-directory-view.c:8862
+#: ../src/file-manager/fm-directory-view.c:8587
+#: ../src/file-manager/fm-directory-view.c:8915
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
 msgstr[0] "_Przeglądaj katalog"
@@ -5231,30 +5242,30 @@ msgstr[1] "_Przeglądaj katalogi"
 msgstr[2] "_Przeglądaj katalogi"
 msgstr[3] "_Przeglądaj katalogi"
 
-#: ../src/file-manager/fm-directory-view.c:8558
-#: ../src/file-manager/fm-directory-view.c:8891
+#: ../src/file-manager/fm-directory-view.c:8604
+#: ../src/file-manager/fm-directory-view.c:8944
 msgid "Browse in New _Tab"
 msgstr "Przeglądaj w nowej _karcie"
 
-#: ../src/file-manager/fm-directory-view.c:8607
-#: ../src/file-manager/fm-directory-view.c:8932
+#: ../src/file-manager/fm-directory-view.c:8653
+#: ../src/file-manager/fm-directory-view.c:8985
 msgid "_Delete Permanently"
 msgstr "_Usuń trwale"
 
-#: ../src/file-manager/fm-directory-view.c:8608
+#: ../src/file-manager/fm-directory-view.c:8654
 msgid "Delete the open folder permanently"
 msgstr "Usuwa trwale otwarty katalog"
 
-#: ../src/file-manager/fm-directory-view.c:8612
+#: ../src/file-manager/fm-directory-view.c:8658
 msgid "Move the open folder to the Trash"
 msgstr "Przenieś otwarty katalog do kosza"
 
-#: ../src/file-manager/fm-directory-view.c:8792
+#: ../src/file-manager/fm-directory-view.c:8845
 #, c-format
 msgid "_Open With %s"
 msgstr "_Otwórz za pomocą %s"
 
-#: ../src/file-manager/fm-directory-view.c:8845
+#: ../src/file-manager/fm-directory-view.c:8898
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
@@ -5263,7 +5274,7 @@ msgstr[1] "Otwórz w %'d nowych _oknach"
 msgstr[2] "Otwórz w %'d nowych _oknach"
 msgstr[3] "Otwórz w %'d nowych _oknach"
 
-#: ../src/file-manager/fm-directory-view.c:8854
+#: ../src/file-manager/fm-directory-view.c:8907
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
@@ -5272,7 +5283,7 @@ msgstr[1] "Przeglądaj w %'d nowych _oknach"
 msgstr[2] "Przeglądaj w %'d nowych _oknach"
 msgstr[3] "Przeglądaj w %'d nowych _oknach"
 
-#: ../src/file-manager/fm-directory-view.c:8884
+#: ../src/file-manager/fm-directory-view.c:8937
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
@@ -5281,7 +5292,7 @@ msgstr[1] "Otwórz w %'d nowych _kartach"
 msgstr[2] "Otwórz w %'d nowych _kartach"
 msgstr[3] "Otwórz w %'d nowych _kartach"
 
-#: ../src/file-manager/fm-directory-view.c:8893
+#: ../src/file-manager/fm-directory-view.c:8946
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
@@ -5290,65 +5301,65 @@ msgstr[1] "Przeglądaj w %'d nowych _kartach"
 msgstr[2] "Przeglądaj w %'d nowych _kartach"
 msgstr[3] "Przeglądaj w %'d nowych _kartach"
 
-#: ../src/file-manager/fm-directory-view.c:8933
+#: ../src/file-manager/fm-directory-view.c:8986
 msgid "Delete all selected items permanently"
 msgstr "Trwałe usunięcie wszystkich zaznaczonych elementów"
 
-#: ../src/file-manager/fm-directory-view.c:8990
+#: ../src/file-manager/fm-directory-view.c:9043
 msgid "View or modify the properties of the open folder"
 msgstr "Wyświetla lub modyfikuje właściwości otwartego katalogu"
 
-#: ../src/file-manager/fm-directory-view.c:10286
+#: ../src/file-manager/fm-directory-view.c:10340
 msgid "Download location?"
 msgstr "Pobrać położenie?"
 
-#: ../src/file-manager/fm-directory-view.c:10289
+#: ../src/file-manager/fm-directory-view.c:10343
 msgid "You can download it or make a link to it."
 msgstr "Można je pobrać lub utworzyć dowiązanie do niego."
 
-#: ../src/file-manager/fm-directory-view.c:10292
+#: ../src/file-manager/fm-directory-view.c:10346
 msgid "Make a _Link"
 msgstr "Utwórz _dowiązanie"
 
-#: ../src/file-manager/fm-directory-view.c:10299
+#: ../src/file-manager/fm-directory-view.c:10353
 msgid "_Download"
 msgstr "_Pobierz"
 
-#: ../src/file-manager/fm-directory-view.c:10460
-#: ../src/file-manager/fm-directory-view.c:10519
-#: ../src/file-manager/fm-directory-view.c:10624
+#: ../src/file-manager/fm-directory-view.c:10514
+#: ../src/file-manager/fm-directory-view.c:10573
+#: ../src/file-manager/fm-directory-view.c:10678
 msgid "Drag and drop is not supported."
 msgstr "Przeciąganie i upuszczanie obiektów nie jest obsługiwane."
 
-#: ../src/file-manager/fm-directory-view.c:10461
+#: ../src/file-manager/fm-directory-view.c:10515
 msgid "Drag and drop is only supported on local file systems."
 msgstr ""
 "Przeciąganie i upuszczanie obiektów jest obsługiwane tylko w lokalnym "
 "systemie plików."
 
-#: ../src/file-manager/fm-directory-view.c:10520
-#: ../src/file-manager/fm-directory-view.c:10625
+#: ../src/file-manager/fm-directory-view.c:10574
+#: ../src/file-manager/fm-directory-view.c:10679
 msgid "An invalid drag type was used."
 msgstr "Użyto nieprawidłowego typu przeciąganych danych."
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10702
+#: ../src/file-manager/fm-directory-view.c:10756
 msgid "dropped text.txt"
 msgstr "upuszczony tekst.txt"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10747
+#: ../src/file-manager/fm-directory-view.c:10801
 msgid "dropped data"
 msgstr "upuszczone dane"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11136
+#: ../src/file-manager/fm-directory-view.c:11196
 msgid "Undo"
 msgstr "Cofnij"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11154
+#: ../src/file-manager/fm-directory-view.c:11214
 msgid "Redo"
 msgstr "Ponów"
 
@@ -5727,12 +5738,12 @@ msgid "Display this location with the compact view."
 msgstr "Wyświetla położenie za pomocą widoku zwartego."
 
 #: ../src/file-manager/fm-list-model.c:448
-#: ../src/file-manager/fm-tree-model.c:1364
+#: ../src/file-manager/fm-tree-model.c:1366
 msgid "(Empty)"
 msgstr "(Pusty)"
 
 #: ../src/file-manager/fm-list-model.c:452
-#: ../src/file-manager/fm-tree-model.c:1364 ../src/caja-window-slot.c:207
+#: ../src/file-manager/fm-tree-model.c:1366 ../src/caja-window-slot.c:207
 msgid "Loading..."
 msgstr "Wczytywanie..."
 
@@ -5753,10 +5764,10 @@ msgstr "Widoczne kolumny: %s"
 #. name, icon name
 #. label, accelerator
 #: ../src/file-manager/fm-list-view.c:2548
-#: ../src/file-manager/fm-properties-window.c:5181
+#: ../src/file-manager/fm-properties-window.c:5188
 #: ../src/caja-bookmarks-window.ui.h:5
 #: ../src/caja-file-management-properties.ui.h:43
-#: ../src/caja-property-browser.c:398 ../src/caja-window-menus.c:811
+#: ../src/caja-property-browser.c:398 ../src/caja-window-menus.c:856
 msgid "_Close"
 msgstr "_Zamknij"
 
@@ -5880,238 +5891,238 @@ msgid "Contents:"
 msgstr "Zawartość:"
 
 #. Translators: "used" refers to the capacity of the filesystem
-#: ../src/file-manager/fm-properties-window.c:3096
+#: ../src/file-manager/fm-properties-window.c:3097
 msgid "used"
 msgstr "użytych"
 
 #. Translators: "free" refers to the capacity of the filesystem
-#: ../src/file-manager/fm-properties-window.c:3105
+#: ../src/file-manager/fm-properties-window.c:3108
 msgid "free"
 msgstr "wolnych"
 
-#: ../src/file-manager/fm-properties-window.c:3107
+#: ../src/file-manager/fm-properties-window.c:3112
 msgid "Total capacity:"
 msgstr "Całkowita pojemność:"
 
-#: ../src/file-manager/fm-properties-window.c:3116
+#: ../src/file-manager/fm-properties-window.c:3123
 msgid "Filesystem type:"
 msgstr "Typ systemu plików:"
 
-#: ../src/file-manager/fm-properties-window.c:3202
+#: ../src/file-manager/fm-properties-window.c:3209
 msgid "Basic"
 msgstr "Podstawowe"
 
-#: ../src/file-manager/fm-properties-window.c:3264
+#: ../src/file-manager/fm-properties-window.c:3271
 msgid "Link target:"
 msgstr "Cel dowiązania:"
 
-#: ../src/file-manager/fm-properties-window.c:3278
+#: ../src/file-manager/fm-properties-window.c:3285
 msgid "Size on Disk:"
 msgstr "Rozmiar na dysku:"
 
-#: ../src/file-manager/fm-properties-window.c:3287
+#: ../src/file-manager/fm-properties-window.c:3294
 #: ../src/caja-location-bar.c:57
 msgid "Location:"
 msgstr "Położenie:"
 
-#: ../src/file-manager/fm-properties-window.c:3293
+#: ../src/file-manager/fm-properties-window.c:3300
 msgid "Volume:"
 msgstr "Wolumin:"
 
-#: ../src/file-manager/fm-properties-window.c:3302
+#: ../src/file-manager/fm-properties-window.c:3309
 msgid "Accessed:"
 msgstr "Dostęp:"
 
-#: ../src/file-manager/fm-properties-window.c:3306
+#: ../src/file-manager/fm-properties-window.c:3313
 msgid "Modified:"
 msgstr "Zmodyfikowano:"
 
-#: ../src/file-manager/fm-properties-window.c:3315
+#: ../src/file-manager/fm-properties-window.c:3322
 msgid "Free space:"
 msgstr "Wolne miejsce:"
 
-#: ../src/file-manager/fm-properties-window.c:3430
+#: ../src/file-manager/fm-properties-window.c:3437
 #: ../src/caja-emblem-sidebar.c:1096
 msgid "Emblems"
 msgstr "Symbole"
 
-#: ../src/file-manager/fm-properties-window.c:3840
+#: ../src/file-manager/fm-properties-window.c:3847
 msgid "_Read"
 msgstr "_Odczyt"
 
-#: ../src/file-manager/fm-properties-window.c:3842
+#: ../src/file-manager/fm-properties-window.c:3849
 msgid "_Write"
 msgstr "_Zapis"
 
-#: ../src/file-manager/fm-properties-window.c:3844
+#: ../src/file-manager/fm-properties-window.c:3851
 msgid "E_xecute"
 msgstr "_Wykonanie"
 
 #. translators: this gets concatenated to "no read",
 #. * "no access", etc. (see following strings)
-#: ../src/file-manager/fm-properties-window.c:4112
-#: ../src/file-manager/fm-properties-window.c:4123
-#: ../src/file-manager/fm-properties-window.c:4135
+#: ../src/file-manager/fm-properties-window.c:4119
+#: ../src/file-manager/fm-properties-window.c:4130
+#: ../src/file-manager/fm-properties-window.c:4142
 msgid "no "
 msgstr "bez "
 
-#: ../src/file-manager/fm-properties-window.c:4115
+#: ../src/file-manager/fm-properties-window.c:4122
 msgid "list"
 msgstr "wyświetlania zawartości"
 
-#: ../src/file-manager/fm-properties-window.c:4117
+#: ../src/file-manager/fm-properties-window.c:4124
 msgid "read"
 msgstr "odczytu"
 
-#: ../src/file-manager/fm-properties-window.c:4126
+#: ../src/file-manager/fm-properties-window.c:4133
 msgid "create/delete"
 msgstr "tworzenia/usuwania"
 
-#: ../src/file-manager/fm-properties-window.c:4128
+#: ../src/file-manager/fm-properties-window.c:4135
 msgid "write"
 msgstr "zapisu"
 
-#: ../src/file-manager/fm-properties-window.c:4137
+#: ../src/file-manager/fm-properties-window.c:4144
 msgid "access"
 msgstr "dostępu"
 
-#: ../src/file-manager/fm-properties-window.c:4185
+#: ../src/file-manager/fm-properties-window.c:4192
 msgid "Access:"
 msgstr "Dostęp:"
 
-#: ../src/file-manager/fm-properties-window.c:4187
+#: ../src/file-manager/fm-properties-window.c:4194
 msgid "Folder access:"
 msgstr "Dostęp do katalogu:"
 
-#: ../src/file-manager/fm-properties-window.c:4189
+#: ../src/file-manager/fm-properties-window.c:4196
 msgid "File access:"
 msgstr "Dostęp do pliku:"
 
 #. Translators: this is referred to the permissions
 #. * the user has in a directory.
 #. Translators: this is referred to captions under icons.
-#: ../src/file-manager/fm-properties-window.c:4204
-#: ../src/file-manager/fm-properties-window.c:4215
-#: ../src/caja-file-management-properties.c:336
+#: ../src/file-manager/fm-properties-window.c:4211
+#: ../src/file-manager/fm-properties-window.c:4222
+#: ../src/caja-file-management-properties.c:339
 msgid "None"
 msgstr "Brak"
 
-#: ../src/file-manager/fm-properties-window.c:4207
+#: ../src/file-manager/fm-properties-window.c:4214
 msgid "List files only"
 msgstr "Tylko wyświetlanie plików"
 
-#: ../src/file-manager/fm-properties-window.c:4209
+#: ../src/file-manager/fm-properties-window.c:4216
 msgid "Access files"
 msgstr "Dostęp do plików"
 
-#: ../src/file-manager/fm-properties-window.c:4211
+#: ../src/file-manager/fm-properties-window.c:4218
 msgid "Create and delete files"
 msgstr "Tworzenie i usuwanie plików"
 
-#: ../src/file-manager/fm-properties-window.c:4218
+#: ../src/file-manager/fm-properties-window.c:4225
 msgid "Read-only"
 msgstr "Tylko do odczytu"
 
-#: ../src/file-manager/fm-properties-window.c:4220
+#: ../src/file-manager/fm-properties-window.c:4227
 msgid "Read and write"
 msgstr "Odczyt i zapis"
 
-#: ../src/file-manager/fm-properties-window.c:4285
+#: ../src/file-manager/fm-properties-window.c:4292
 msgid "Special flags:"
 msgstr "Znaczniki specjalne:"
 
-#: ../src/file-manager/fm-properties-window.c:4287
+#: ../src/file-manager/fm-properties-window.c:4294
 msgid "Set _user ID"
 msgstr "Ustawianie identyfikatora _użytkownika"
 
-#: ../src/file-manager/fm-properties-window.c:4288
+#: ../src/file-manager/fm-properties-window.c:4295
 msgid "Set gro_up ID"
 msgstr "Ustawianie identyfikatora g_rupy"
 
-#: ../src/file-manager/fm-properties-window.c:4289
+#: ../src/file-manager/fm-properties-window.c:4296
 msgid "_Sticky"
 msgstr "_Lepki"
 
-#: ../src/file-manager/fm-properties-window.c:4364
-#: ../src/file-manager/fm-properties-window.c:4555
+#: ../src/file-manager/fm-properties-window.c:4371
+#: ../src/file-manager/fm-properties-window.c:4562
 msgid "_Owner:"
 msgstr "_Właściciel:"
 
-#: ../src/file-manager/fm-properties-window.c:4372
-#: ../src/file-manager/fm-properties-window.c:4460
-#: ../src/file-manager/fm-properties-window.c:4564
+#: ../src/file-manager/fm-properties-window.c:4379
+#: ../src/file-manager/fm-properties-window.c:4467
+#: ../src/file-manager/fm-properties-window.c:4571
 msgid "Owner:"
 msgstr "Właściciel:"
 
-#: ../src/file-manager/fm-properties-window.c:4394
-#: ../src/file-manager/fm-properties-window.c:4577
+#: ../src/file-manager/fm-properties-window.c:4401
+#: ../src/file-manager/fm-properties-window.c:4584
 msgid "_Group:"
 msgstr "_Grupa:"
 
-#: ../src/file-manager/fm-properties-window.c:4402
-#: ../src/file-manager/fm-properties-window.c:4461
-#: ../src/file-manager/fm-properties-window.c:4585
+#: ../src/file-manager/fm-properties-window.c:4409
+#: ../src/file-manager/fm-properties-window.c:4468
+#: ../src/file-manager/fm-properties-window.c:4592
 msgid "Group:"
 msgstr "Grupa:"
 
-#: ../src/file-manager/fm-properties-window.c:4426
+#: ../src/file-manager/fm-properties-window.c:4433
 msgid "Others"
 msgstr "Inni"
 
-#: ../src/file-manager/fm-properties-window.c:4441
+#: ../src/file-manager/fm-properties-window.c:4448
 msgid "Execute:"
 msgstr "Wykonaj:"
 
-#: ../src/file-manager/fm-properties-window.c:4444
+#: ../src/file-manager/fm-properties-window.c:4451
 msgid "Allow _executing file as program"
 msgstr "Zezwolenie na _wykonanie pliku jako programu"
 
-#: ../src/file-manager/fm-properties-window.c:4462
+#: ../src/file-manager/fm-properties-window.c:4469
 msgid "Others:"
 msgstr "Inni:"
 
-#: ../src/file-manager/fm-properties-window.c:4601
+#: ../src/file-manager/fm-properties-window.c:4608
 msgid "Folder Permissions:"
 msgstr "Uprawnienia do katalogu:"
 
-#: ../src/file-manager/fm-properties-window.c:4608
+#: ../src/file-manager/fm-properties-window.c:4615
 msgid "File Permissions:"
 msgstr "Uprawnienia do pliku:"
 
-#: ../src/file-manager/fm-properties-window.c:4617
+#: ../src/file-manager/fm-properties-window.c:4624
 msgid "Text view:"
 msgstr "Widok tekstowy:"
 
-#: ../src/file-manager/fm-properties-window.c:4763
+#: ../src/file-manager/fm-properties-window.c:4770
 msgid "You are not the owner, so you cannot change these permissions."
 msgstr "Nie można zmienić tych uprawnień nie będąc właścicielem."
 
-#: ../src/file-manager/fm-properties-window.c:4783
+#: ../src/file-manager/fm-properties-window.c:4790
 msgid "SELinux context:"
 msgstr "Kontekst SELinux:"
 
-#: ../src/file-manager/fm-properties-window.c:4788
+#: ../src/file-manager/fm-properties-window.c:4795
 msgid "Last changed:"
 msgstr "Ostatnia zmiana:"
 
-#: ../src/file-manager/fm-properties-window.c:4799
+#: ../src/file-manager/fm-properties-window.c:4806
 msgid "Apply Permissions to Enclosed Files"
 msgstr "Zastosowanie uprawnień do zawartych plików"
 
-#: ../src/file-manager/fm-properties-window.c:4809
+#: ../src/file-manager/fm-properties-window.c:4816
 #, c-format
 msgid "The permissions of \"%s\" could not be determined."
 msgstr "Nie można określić uprawnień \"%s\"."
 
-#: ../src/file-manager/fm-properties-window.c:4812
+#: ../src/file-manager/fm-properties-window.c:4819
 msgid "The permissions of the selected file could not be determined."
 msgstr "Nie można określić uprawnień do wybranego pliku."
 
-#: ../src/file-manager/fm-properties-window.c:5391
+#: ../src/file-manager/fm-properties-window.c:5398
 msgid "Creating Properties window."
 msgstr "Tworzenie okna właściwości."
 
-#: ../src/file-manager/fm-properties-window.c:5680
+#: ../src/file-manager/fm-properties-window.c:5687
 msgid "Select Custom Icon"
 msgstr "Wybór własnej ikony"
 
@@ -6127,12 +6138,12 @@ msgstr "Drzewo"
 msgid "Show Tree"
 msgstr "Wyświetla drzewo"
 
-#: ../src/caja-application.c:481
+#: ../src/caja-application.c:543
 #, c-format
 msgid "Caja could not create the required folder \"%s\"."
 msgstr "Nie można utworzyć wymaganego katalogu \"%s\"."
 
-#: ../src/caja-application.c:483
+#: ../src/caja-application.c:545
 msgid ""
 "Before running Caja, please create the following folder, or set permissions "
 "such that Caja can create it."
@@ -6140,12 +6151,12 @@ msgstr ""
 "Przed uruchomieniem programu Caja należy utworzyć następujący katalog lub "
 "tak ustalić uprawnienia, aby możliwe było jego utworzenie."
 
-#: ../src/caja-application.c:488
+#: ../src/caja-application.c:550
 #, c-format
 msgid "Caja could not create the following required folders: %s."
 msgstr "Nie można utworzyć następujących wymaganych katalogów: %s."
 
-#: ../src/caja-application.c:490
+#: ../src/caja-application.c:552
 msgid ""
 "Before running Caja, please create these folders, or set permissions such "
 "that Caja can create them."
@@ -6153,51 +6164,51 @@ msgstr ""
 "Przed uruchomieniem programu Caja należy utworzyć te katalogi lub tak "
 "ustalić uprawnienia, aby możliwe było ich utworzenie."
 
-#: ../src/caja-application.c:1264 ../src/caja-places-sidebar.c:2210
+#: ../src/caja-application.c:1326 ../src/caja-places-sidebar.c:2210
 #: ../src/caja-places-sidebar.c:2241 ../src/caja-places-sidebar.c:2276
 #, c-format
 msgid "Unable to eject %s"
 msgstr "Nie można wysunąć %s"
 
-#: ../src/caja-application.c:1937
+#: ../src/caja-application.c:1999
 msgid "--check cannot be used with other options."
 msgstr "--check nie może być stosowane z innymi opcjami."
 
-#: ../src/caja-application.c:1943
+#: ../src/caja-application.c:2005
 msgid "--quit cannot be used with URIs."
 msgstr "--quit nie może być używane z URI."
 
-#: ../src/caja-application.c:1950
+#: ../src/caja-application.c:2012
 msgid "--geometry cannot be used with more than one URI."
 msgstr "--geometry nie może być używane z więcej niż jednym URI."
 
-#: ../src/caja-application.c:2013
+#: ../src/caja-application.c:2076
 msgid "Perform a quick set of self-check tests."
 msgstr "Przeprowadza krótkie automatyczne testy sprawdzające."
 
-#: ../src/caja-application.c:2016
+#: ../src/caja-application.c:2079
 msgid "Show the version of the program."
 msgstr "Wyświetla wersję programu."
 
-#: ../src/caja-application.c:2018
+#: ../src/caja-application.c:2081
 msgid "Create the initial window with the given geometry."
 msgstr "Tworzy początkowe okno z podaną geometrią."
 
-#: ../src/caja-application.c:2018
+#: ../src/caja-application.c:2081
 msgid "GEOMETRY"
 msgstr "WYMIARY"
 
-#: ../src/caja-application.c:2020
+#: ../src/caja-application.c:2083
 msgid "Only create windows for explicitly specified URIs."
 msgstr "Tworzy okna tylko dla jawnie podanych adresów URI."
 
-#: ../src/caja-application.c:2022
+#: ../src/caja-application.c:2085
 msgid ""
 "Do not manage the desktop (ignore the preference set in the preferences "
 "dialog)."
 msgstr "Bez zarządzania pulpitem (ignorowanie ustawień w oknie preferencji)."
 
-#: ../src/caja-application.c:2024
+#: ../src/caja-application.c:2087
 msgid ""
 "Manage the desktop regardless of set preferences or environment (on new "
 "startup only)"
@@ -6205,19 +6216,23 @@ msgstr ""
 "Zarządzaj pulpitem niezależnie od ustawionych preferencji lub środowiska "
 "(tylko przy nowym starcie)"
 
-#: ../src/caja-application.c:2026
+#: ../src/caja-application.c:2089
+msgid "Open URIs in tabs."
+msgstr ""
+
+#: ../src/caja-application.c:2091
 msgid "Open a browser window."
 msgstr "Otwórz okno przeglądarki."
 
-#: ../src/caja-application.c:2028
+#: ../src/caja-application.c:2093
 msgid "Quit Caja."
 msgstr "Kończy działanie programu Caja."
 
-#: ../src/caja-application.c:2029
+#: ../src/caja-application.c:2094
 msgid "[URI...]"
 msgstr "[URI...]"
 
-#: ../src/caja-application.c:2040
+#: ../src/caja-application.c:2105
 msgid ""
 "\n"
 "\n"
@@ -6262,8 +6277,8 @@ msgstr ""
 "W razie wątpliwości proszę nacisnąć przycisk Anuluj."
 
 #: ../src/caja-bookmarks-window.c:159
-#: ../src/caja-file-management-properties.c:243
-#: ../src/caja-property-browser.c:1680 ../src/caja-window-menus.c:590
+#: ../src/caja-file-management-properties.c:246
+#: ../src/caja-property-browser.c:1680 ../src/caja-window-menus.c:635
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
@@ -6437,7 +6452,7 @@ msgid "Bookmark Name:"
 msgstr "Nazwa zakładki:"
 
 #: ../src/caja-desktop-window.c:122 ../src/caja-desktop-window.c:315
-#: ../src/caja-pathbar.c:1446 ../src/caja-places-sidebar.c:538
+#: ../src/caja-pathbar.c:1449 ../src/caja-places-sidebar.c:538
 msgid "Desktop"
 msgstr "Pulpit"
 
@@ -6521,7 +6536,7 @@ msgstr "Nie można dodać tego symbolu."
 msgid "Show Emblems"
 msgstr "Wyświetla symbole"
 
-#: ../src/caja-file-management-properties.c:639
+#: ../src/caja-file-management-properties.c:643
 msgid "About Extension"
 msgstr "O rozszerzeniu"
 
@@ -6673,114 +6688,118 @@ msgid "Sort _folders before files"
 msgstr "_Katalogi przed plikami"
 
 #: ../src/caja-file-management-properties.ui.h:48
-msgid "Show hidden and _backup files"
-msgstr "Wyświetlanie plików _ukrytych i zapasowych"
+msgid "Show hidden files"
+msgstr ""
 
 #: ../src/caja-file-management-properties.ui.h:49
+msgid "Show backup files"
+msgstr ""
+
+#: ../src/caja-file-management-properties.ui.h:50
 msgid "<b>Icon View Defaults</b>"
 msgstr "<b>Domyślne ustawienia widoku ikon</b>"
 
-#: ../src/caja-file-management-properties.ui.h:50
+#: ../src/caja-file-management-properties.ui.h:51
 msgid "Default _zoom level:"
 msgstr "Domyślne powięks_zenie:"
 
-#: ../src/caja-file-management-properties.ui.h:51
+#: ../src/caja-file-management-properties.ui.h:52
 msgid "_Use compact layout"
 msgstr "_Układ zwarty"
 
-#: ../src/caja-file-management-properties.ui.h:52
+#: ../src/caja-file-management-properties.ui.h:53
 msgid "_Text beside icons"
 msgstr "_Napisy obok ikon"
 
-#: ../src/caja-file-management-properties.ui.h:53
+#: ../src/caja-file-management-properties.ui.h:54
 msgid "<b>Compact View Defaults</b>"
 msgstr "<b>Domyślne ustawienia widoku zwartego</b>"
 
-#: ../src/caja-file-management-properties.ui.h:54
+#: ../src/caja-file-management-properties.ui.h:55
 msgid "_Default zoom level:"
 msgstr "D_omyślne powiększenie:"
 
-#: ../src/caja-file-management-properties.ui.h:55
+#: ../src/caja-file-management-properties.ui.h:56
 msgid "A_ll columns have the same width"
 msgstr "W_szystkie kolumny jednakowej szerokości"
 
-#: ../src/caja-file-management-properties.ui.h:56
+#: ../src/caja-file-management-properties.ui.h:57
 msgid "<b>List View Defaults</b>"
 msgstr "<b>Domyślne ustawienia widoku listy</b>"
 
-#: ../src/caja-file-management-properties.ui.h:57
+#: ../src/caja-file-management-properties.ui.h:58
 msgid "D_efault zoom level:"
 msgstr "_Domyślne powiększenie:"
 
-#: ../src/caja-file-management-properties.ui.h:58
+#: ../src/caja-file-management-properties.ui.h:59
 msgid "<b>Tree View Defaults</b>"
 msgstr "<b>Domyślne ustawienia widoku drzewa</b>"
 
-#: ../src/caja-file-management-properties.ui.h:59
+#: ../src/caja-file-management-properties.ui.h:60
 msgid "Show _only folders"
 msgstr "_Tylko katalogi"
 
-#: ../src/caja-file-management-properties.ui.h:60
+#: ../src/caja-file-management-properties.ui.h:61
 msgid "Views"
 msgstr "Widoki"
 
-#: ../src/caja-file-management-properties.ui.h:61
+#: ../src/caja-file-management-properties.ui.h:62
 msgid "<b>Behavior</b>"
 msgstr "<b>Zachowanie</b>"
 
-#: ../src/caja-file-management-properties.ui.h:62
+#: ../src/caja-file-management-properties.ui.h:63
 msgid "_Single click to open items"
 msgstr "_Otwieranie elementów przez pojedyncze kliknięcie"
 
-#: ../src/caja-file-management-properties.ui.h:63
+#: ../src/caja-file-management-properties.ui.h:64
 msgid "_Double click to open items"
 msgstr "Ot_wieranie elementów przez podwójne kliknięcie"
 
-#: ../src/caja-file-management-properties.ui.h:64
+#: ../src/caja-file-management-properties.ui.h:65
 msgid "Open each _folder in its own window"
 msgstr "Otwi_eranie każdego katalogu w oddzielnym oknie"
 
-#: ../src/caja-file-management-properties.ui.h:65
+#: ../src/caja-file-management-properties.ui.h:66
 msgid "<b>Executable Text Files</b>"
 msgstr "<b>Wykonywalne pliki tekstowe</b>"
 
-#: ../src/caja-file-management-properties.ui.h:66
+#: ../src/caja-file-management-properties.ui.h:67
 msgid "_Run executable text files when they are opened"
 msgstr "Wy_konywanie plików tekstowych po kliknięciu"
 
-#: ../src/caja-file-management-properties.ui.h:67
+#: ../src/caja-file-management-properties.ui.h:68
 msgid "_View executable text files when they are opened"
 msgstr "Wyświetl_anie plików tekstowych po kliknięciu"
 
-#: ../src/caja-file-management-properties.ui.h:68
+#: ../src/caja-file-management-properties.ui.h:69
 msgid "_Ask each time"
 msgstr "_Pytanie za każdym razem"
 
-#: ../src/caja-file-management-properties.ui.h:69
+#: ../src/caja-file-management-properties.ui.h:70
 msgid "<b>Trash</b>"
 msgstr "<b>Kosz</b>"
 
-#: ../src/caja-file-management-properties.ui.h:70
+#: ../src/caja-file-management-properties.ui.h:71
 msgid "Ask before _emptying the Trash or deleting files"
 msgstr "Pytanie pr_zed opróżnieniem kosza lub usunięciem plików"
 
-#: ../src/caja-file-management-properties.ui.h:71
+#: ../src/caja-file-management-properties.ui.h:72
 msgid "Ask before moving files to the _Trash"
 msgstr "Pytaj przed przeniesieniem plików do _kosza"
 
-#: ../src/caja-file-management-properties.ui.h:72
+#: ../src/caja-file-management-properties.ui.h:73
 msgid "I_nclude a Delete command that bypasses Trash"
 msgstr "_Dodatkowe polecenie \"Usuń\" pomijające Kosz"
 
-#: ../src/caja-file-management-properties.ui.h:73
+#: ../src/caja-file-management-properties.ui.h:74
 msgid "Behavior"
 msgstr "Zachowanie"
 
-#: ../src/caja-file-management-properties.ui.h:74
+#: ../src/caja-file-management-properties.ui.h:75
 msgid "<b>Icon Captions</b>"
 msgstr "<b>Podpisy ikon</b>"
 
-#: ../src/caja-file-management-properties.ui.h:75
+#: ../src/caja-file-management-properties.ui.h:76
 msgid ""
 "Choose the order of information to appear beneath icon names. More "
 "information will appear when zooming in closer."
@@ -6788,156 +6807,156 @@ msgstr ""
 "Kolejność, w jakiej wyświetlane będą informacje pod nazwami ikon. Wraz ze "
 "wzrostem powiększenia pojawiać się będą kolejne informacje."
 
-#: ../src/caja-file-management-properties.ui.h:76
+#: ../src/caja-file-management-properties.ui.h:77
 msgid "<b>Date</b>"
 msgstr "<b>Data</b>"
 
-#: ../src/caja-file-management-properties.ui.h:77
+#: ../src/caja-file-management-properties.ui.h:78
 msgid "_Format:"
 msgstr "_Format:"
 
-#: ../src/caja-file-management-properties.ui.h:78
+#: ../src/caja-file-management-properties.ui.h:79
 msgid "<b>Size</b>"
 msgstr "<b>Rozmiar</b>"
 
-#: ../src/caja-file-management-properties.ui.h:79
+#: ../src/caja-file-management-properties.ui.h:80
 msgid "_Show file sizes with IEC units"
 msgstr "_Wyświetl rozmiary plików w jednostkach IEC"
 
-#: ../src/caja-file-management-properties.ui.h:80
+#: ../src/caja-file-management-properties.ui.h:81
 msgid "Display"
 msgstr "Wyświetl"
 
-#: ../src/caja-file-management-properties.ui.h:81
+#: ../src/caja-file-management-properties.ui.h:82
 msgid "<b>List Columns</b>"
 msgstr "<b>Kolumny listy</b>"
 
-#: ../src/caja-file-management-properties.ui.h:82
+#: ../src/caja-file-management-properties.ui.h:83
 msgid "Choose the order of information to appear in the list view."
 msgstr ""
 "Proszę określić kolejność, w jakiej powinny się pojawiać informacje w widoku"
 " listy."
 
-#: ../src/caja-file-management-properties.ui.h:83
+#: ../src/caja-file-management-properties.ui.h:84
 msgid "List Columns"
 msgstr "Lista kolumn"
 
-#: ../src/caja-file-management-properties.ui.h:84
+#: ../src/caja-file-management-properties.ui.h:85
 msgid "<b>Text Files</b>"
 msgstr "<b>Pliki tekstowe</b>"
 
-#: ../src/caja-file-management-properties.ui.h:85
+#: ../src/caja-file-management-properties.ui.h:86
 msgid "Show te_xt in icons:"
 msgstr "_Wyświetlanie tekstu wewnątrz ikon:"
 
-#: ../src/caja-file-management-properties.ui.h:86
+#: ../src/caja-file-management-properties.ui.h:87
 msgid "<b>Other Previewable Files</b>"
 msgstr "<b>Inne pliki z możliwością podglądu</b>"
 
-#: ../src/caja-file-management-properties.ui.h:87
+#: ../src/caja-file-management-properties.ui.h:88
 msgid "Show _thumbnails:"
 msgstr "Wyświetlanie _miniaturek:"
 
-#: ../src/caja-file-management-properties.ui.h:88
+#: ../src/caja-file-management-properties.ui.h:89
 msgid "_Only for files smaller than:"
 msgstr "_Tylko dla plików nie większych niż:"
 
-#: ../src/caja-file-management-properties.ui.h:89
+#: ../src/caja-file-management-properties.ui.h:90
 msgid "<b>Sound Files</b>"
 msgstr "<b>Pliki dźwiękowe</b>"
 
-#: ../src/caja-file-management-properties.ui.h:90
+#: ../src/caja-file-management-properties.ui.h:91
 msgid "Preview _sound files:"
 msgstr "_Odsłuchiwanie plików dźwiękowych:"
 
-#: ../src/caja-file-management-properties.ui.h:91
+#: ../src/caja-file-management-properties.ui.h:92
 msgid "<b>Folders</b>"
 msgstr "<b>Katalogi</b>"
 
-#: ../src/caja-file-management-properties.ui.h:92
+#: ../src/caja-file-management-properties.ui.h:93
 msgid "Count _number of items:"
 msgstr "O_kreślanie liczby elementów:"
 
-#: ../src/caja-file-management-properties.ui.h:93
+#: ../src/caja-file-management-properties.ui.h:94
 msgid "Preview"
 msgstr "Podgląd"
 
-#: ../src/caja-file-management-properties.ui.h:94
+#: ../src/caja-file-management-properties.ui.h:95
 msgid "<b>Media Handling</b>"
 msgstr "<b>Obsługa nośników</b>"
 
-#: ../src/caja-file-management-properties.ui.h:95
+#: ../src/caja-file-management-properties.ui.h:96
 msgid ""
 "Choose what happens when inserting media or connecting devices to the system"
 msgstr ""
 "Proszę wybrać działanie, jakie ma podjąć system po wsunięciu nośnika lub "
 "podłączeniu urządzenia"
 
-#: ../src/caja-file-management-properties.ui.h:96
+#: ../src/caja-file-management-properties.ui.h:97
 msgid "CD _Audio:"
 msgstr "Płyt_a dźwiękowa CD:"
 
-#: ../src/caja-file-management-properties.ui.h:97
+#: ../src/caja-file-management-properties.ui.h:98
 msgid "_DVD Video:"
 msgstr "Film _DVD:"
 
-#: ../src/caja-file-management-properties.ui.h:98
+#: ../src/caja-file-management-properties.ui.h:99
 msgid "_Music Player:"
 msgstr "Odtwarzacz _muzyki:"
 
-#: ../src/caja-file-management-properties.ui.h:99
+#: ../src/caja-file-management-properties.ui.h:100
 msgid "_Photos:"
 msgstr "_Zdjęcia:"
 
-#: ../src/caja-file-management-properties.ui.h:100
+#: ../src/caja-file-management-properties.ui.h:101
 msgid "_Software:"
 msgstr "_Oprogramowanie:"
 
-#: ../src/caja-file-management-properties.ui.h:101
+#: ../src/caja-file-management-properties.ui.h:102
 msgid "<b>Other Media</b>"
 msgstr "<b>Inne nośniki</b>"
 
-#: ../src/caja-file-management-properties.ui.h:102
+#: ../src/caja-file-management-properties.ui.h:103
 msgid "Less common media formats can be configured here"
 msgstr "Konfiguracja mniej popularnych formatów nośników"
 
-#: ../src/caja-file-management-properties.ui.h:103
+#: ../src/caja-file-management-properties.ui.h:104
 msgid "Acti_on:"
 msgstr "Działa_nie:"
 
-#: ../src/caja-file-management-properties.ui.h:104
+#: ../src/caja-file-management-properties.ui.h:105
 msgid "_Type:"
 msgstr "_Typ:"
 
-#: ../src/caja-file-management-properties.ui.h:105
+#: ../src/caja-file-management-properties.ui.h:106
 msgid "_Never prompt or start programs on media insertion"
 msgstr "_Bez pytań i uruchamiania programów po wsunięciu nośnika"
 
-#: ../src/caja-file-management-properties.ui.h:106
+#: ../src/caja-file-management-properties.ui.h:107
 msgid "B_rowse media when inserted"
 msgstr "_Przeglądanie nośników po wsunięciu"
 
-#: ../src/caja-file-management-properties.ui.h:107
+#: ../src/caja-file-management-properties.ui.h:108
 msgid "Media"
 msgstr "Nośniki"
 
-#: ../src/caja-file-management-properties.ui.h:108
+#: ../src/caja-file-management-properties.ui.h:109
 msgid "<b>Available _Extensions:</b>"
 msgstr "<b>Dostępne _rozszerzenia:</b>"
 
-#: ../src/caja-file-management-properties.ui.h:109
+#: ../src/caja-file-management-properties.ui.h:110
 msgid "column"
 msgstr "kolumna"
 
-#: ../src/caja-file-management-properties.ui.h:111
+#: ../src/caja-file-management-properties.ui.h:112
 msgid "_About Extension"
 msgstr "_O rozszerzeniu"
 
-#: ../src/caja-file-management-properties.ui.h:112
+#: ../src/caja-file-management-properties.ui.h:113
 msgid "C_onfigure Extension"
 msgstr "K_onfiguruj rozszerzenie"
 
-#: ../src/caja-file-management-properties.ui.h:113
+#: ../src/caja-file-management-properties.ui.h:114
 msgid "Extensions"
 msgstr "Rozszerzenia"
 
@@ -7090,6 +7109,10 @@ msgstr "Otwarcie położenia"
 msgid "_Location:"
 msgstr "_Położenie:"
 
+#: ../src/caja-navigation-action.c:176
+msgid "folder removed"
+msgstr ""
+
 #: ../src/caja-navigation-window-menus.c:131
 msgid "Are you sure you want to clear the list of locations you have visited?"
 msgstr "Na pewno wyczyścić listę odwiedzonych miejsc?"
@@ -7225,7 +7248,7 @@ msgid "Activate next tab"
 msgstr "Aktywuje następną kartę"
 
 #: ../src/caja-navigation-window-menus.c:867
-#: ../src/caja-navigation-window-pane.c:383
+#: ../src/caja-navigation-window-pane.c:386
 msgid "Move Tab _Left"
 msgstr "Przesuń kartę w _lewo"
 
@@ -7234,7 +7257,7 @@ msgid "Move current tab to left"
 msgstr "Przesuwa bieżącą kartę w lewo"
 
 #: ../src/caja-navigation-window-menus.c:872
-#: ../src/caja-navigation-window-pane.c:391
+#: ../src/caja-navigation-window-pane.c:394
 msgid "Move Tab _Right"
 msgstr "Pr_zesuń kartę w prawo"
 
@@ -7353,19 +7376,19 @@ msgstr "Wyświ_etl jako"
 msgid "_Search"
 msgstr "_Szukaj"
 
-#: ../src/caja-navigation-window-pane.c:256
+#: ../src/caja-navigation-window-pane.c:259
 msgid "Toggle between button and text-based location bar"
 msgstr "Przełącz pomiędzy przyciskiem a tekstowym paskiem adresu"
 
-#: ../src/caja-navigation-window-pane.c:373
+#: ../src/caja-navigation-window-pane.c:376
 msgid "_New Tab"
 msgstr "_Nowa karta"
 
-#: ../src/caja-navigation-window-pane.c:402
+#: ../src/caja-navigation-window-pane.c:405
 msgid "_Close Tab"
 msgstr "Za_mknij kartę"
 
-#: ../src/caja-navigation-window.c:743
+#: ../src/caja-navigation-window.c:789
 #, c-format
 msgid "%s - File Browser"
 msgstr "%s - Przeglądarka plików"
@@ -7881,7 +7904,7 @@ msgstr ""
 msgid "Go to the location specified by this bookmark"
 msgstr "Przechodzi do położenia opisywanego przez tę pozycję zakładek"
 
-#: ../src/caja-window-menus.c:517
+#: ../src/caja-window-menus.c:562
 msgid ""
 "Caja is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -7893,7 +7916,7 @@ msgstr ""
 "Fundację Wolnego Oprogramowania - według wersji drugiej tej Licencji lub "
 "którejś z późniejszych wersji. "
 
-#: ../src/caja-window-menus.c:521
+#: ../src/caja-window-menus.c:566
 msgid ""
 "Caja is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -7906,7 +7929,7 @@ msgstr ""
 "bliższych informacji należy zapoznać się z Powszechną Licencją Publiczną "
 "GNU. "
 
-#: ../src/caja-window-menus.c:525
+#: ../src/caja-window-menus.c:570
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin "
@@ -7917,13 +7940,13 @@ msgstr ""
 "napisać do Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, "
 "Boston, MA 02110-1301 USA"
 
-#: ../src/caja-window-menus.c:537
+#: ../src/caja-window-menus.c:582
 msgid ""
 "Caja lets you organize files and folders, both on your computer and online."
 msgstr ""
 "Program Caja umożliwia pracę z plikami i katalogami w komputerze i w sieci."
 
-#: ../src/caja-window-menus.c:540
+#: ../src/caja-window-menus.c:585
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2018 The Caja authors"
@@ -7934,7 +7957,7 @@ msgstr ""
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
 #. * box to give credit to the translator(s).
-#: ../src/caja-window-menus.c:550
+#: ../src/caja-window-menus.c:595
 msgid "translator-credits"
 msgstr ""
 "Tłumacze środowiska MATE, 2014-2018\n"
@@ -7947,35 +7970,35 @@ msgstr ""
 "Piotr Drąg, 2010\n"
 "Aviary.pl, 2007-2010"
 
-#: ../src/caja-window-menus.c:553
+#: ../src/caja-window-menus.c:598
 msgid "MATE Web Site"
 msgstr "Strona środowiska MATE"
 
 #. name, icon name, label
-#: ../src/caja-window-menus.c:806
+#: ../src/caja-window-menus.c:851
 msgid "_File"
 msgstr "_Plik"
 
 #. name, icon name, label
-#: ../src/caja-window-menus.c:807
+#: ../src/caja-window-menus.c:852
 msgid "_Edit"
 msgstr "_Edycja"
 
 #. name, icon name, label
-#: ../src/caja-window-menus.c:808
+#: ../src/caja-window-menus.c:853
 msgid "_View"
 msgstr "_Widok"
 
 #. tooltip
-#: ../src/caja-window-menus.c:812
+#: ../src/caja-window-menus.c:857
 msgid "Close this folder"
 msgstr "Zamyka ten katalog"
 
-#: ../src/caja-window-menus.c:817
+#: ../src/caja-window-menus.c:862
 msgid "_Backgrounds and Emblems..."
 msgstr "_Tła i symbole..."
 
-#: ../src/caja-window-menus.c:818
+#: ../src/caja-window-menus.c:863
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
@@ -7983,163 +8006,174 @@ msgstr ""
 "Wyświetla desenie, kolory i symbole, które mogą być wykorzystane do "
 "dopasowania wyglądu"
 
-#: ../src/caja-window-menus.c:823
+#: ../src/caja-window-menus.c:868
 msgid "Prefere_nces"
 msgstr "P_referencje"
 
-#: ../src/caja-window-menus.c:824
+#: ../src/caja-window-menus.c:869
 msgid "Edit Caja preferences"
 msgstr "Modyfikuje preferencje programu Caja"
 
 #. name, icon name, label
-#: ../src/caja-window-menus.c:827
+#: ../src/caja-window-menus.c:872
 msgid "Open _Parent"
 msgstr "N_adrzędny"
 
-#: ../src/caja-window-menus.c:828
+#: ../src/caja-window-menus.c:873
 msgid "Open the parent folder"
 msgstr "Otwórz katalog nadrzędny"
 
 #. tooltip
-#: ../src/caja-window-menus.c:837
+#: ../src/caja-window-menus.c:882
 msgid "Stop loading the current location"
 msgstr "Zatrzymuje wczytywanie bieżącego położenia"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:841
+#: ../src/caja-window-menus.c:886
 msgid "_Reload"
 msgstr "Wczy_taj ponownie"
 
 #. tooltip
-#: ../src/caja-window-menus.c:842
+#: ../src/caja-window-menus.c:887
 msgid "Reload the current location"
 msgstr "Wczytuje ponownie bieżące położenie"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:846
+#: ../src/caja-window-menus.c:891
 msgid "_Contents"
 msgstr "_Spis treści"
 
 #. tooltip
-#: ../src/caja-window-menus.c:847
+#: ../src/caja-window-menus.c:892
 msgid "Display Caja help"
 msgstr "Wyświetla pomoc programu Caja"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:851
+#: ../src/caja-window-menus.c:896
 msgid "_About"
 msgstr "_O programie"
 
 #. tooltip
-#: ../src/caja-window-menus.c:852
+#: ../src/caja-window-menus.c:897
 msgid "Display credits for the creators of Caja"
 msgstr "Wyświetla listę twórców programu Caja"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:856
+#: ../src/caja-window-menus.c:901
 msgid "Zoom _In"
 msgstr "Po_większ"
 
 #. tooltip
-#: ../src/caja-window-menus.c:857 ../src/caja-zoom-control.c:96
+#: ../src/caja-window-menus.c:902 ../src/caja-zoom-control.c:96
 #: ../src/caja-zoom-control.c:309
 msgid "Increase the view size"
 msgstr "Zwiększa rozmiar widoku"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:871
+#: ../src/caja-window-menus.c:916
 msgid "Zoom _Out"
 msgstr "Po_mniejsz"
 
 #. tooltip
-#: ../src/caja-window-menus.c:872 ../src/caja-zoom-control.c:97
+#: ../src/caja-window-menus.c:917 ../src/caja-zoom-control.c:97
 #: ../src/caja-zoom-control.c:254
 msgid "Decrease the view size"
 msgstr "Zmniejsza rozmiar widoku"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:881
+#: ../src/caja-window-menus.c:926
 msgid "Normal Si_ze"
 msgstr "Zwykły _rozmiar"
 
 #. tooltip
-#: ../src/caja-window-menus.c:882 ../src/caja-zoom-control.c:98
+#: ../src/caja-window-menus.c:927 ../src/caja-zoom-control.c:98
 #: ../src/caja-zoom-control.c:270
 msgid "Use the normal view size"
 msgstr "Ustawia normalny rozmiar widoku"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:886
+#: ../src/caja-window-menus.c:931
 msgid "Connect to _Server..."
 msgstr "Połącz z _serwerem..."
 
 #. tooltip
-#: ../src/caja-window-menus.c:887
+#: ../src/caja-window-menus.c:932
 msgid "Connect to a remote computer or shared disk"
 msgstr "Łączy ze zdalnym serwerem lub udostępnionym dyskiem"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:896
+#: ../src/caja-window-menus.c:941
 msgid "_Computer"
 msgstr "_Komputer"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:901
+#: ../src/caja-window-menus.c:946
 msgid "_Network"
 msgstr "_Sieć"
 
 #. tooltip
-#: ../src/caja-window-menus.c:902 ../src/mate-network-scheme.desktop.in.h:2
+#: ../src/caja-window-menus.c:947 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
 msgstr "Przeglądaj zakładki i położenia w sieci lokalnej"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:906
+#: ../src/caja-window-menus.c:951
 msgid "T_emplates"
 msgstr "Sza_blony"
 
 #. tooltip
-#: ../src/caja-window-menus.c:907
+#: ../src/caja-window-menus.c:952
 msgid "Open your personal templates folder"
 msgstr "Otwiera osobisty katalog szablonów"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:911
+#: ../src/caja-window-menus.c:956
 msgid "_Trash"
 msgstr "K_osz"
 
 #. tooltip
-#: ../src/caja-window-menus.c:912
+#: ../src/caja-window-menus.c:957
 msgid "Open your personal trash folder"
 msgstr "Otwiera osobisty katalog kosza"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:920
+#: ../src/caja-window-menus.c:965
 msgid "Show _Hidden Files"
 msgstr "Wyświetlanie ukrytyc_h plików"
 
 #. tooltip
-#: ../src/caja-window-menus.c:921
+#: ../src/caja-window-menus.c:966
 msgid "Toggle the display of hidden files in the current window"
 msgstr "Przełącza wyświetlanie ukrytych plików w bieżącym oknie"
 
-#: ../src/caja-window-menus.c:952
+#. name, stock id
+#. label, accelerator
+#: ../src/caja-window-menus.c:971
+msgid "Show Bac_kup Files"
+msgstr ""
+
+#. tooltip
+#: ../src/caja-window-menus.c:972
+msgid "Toggle the display of backup files in the current window"
+msgstr ""
+
+#: ../src/caja-window-menus.c:1004
 msgid "_Up"
 msgstr "_Góra"
 
-#: ../src/caja-window-menus.c:955
+#: ../src/caja-window-menus.c:1007
 msgid "_Home"
 msgstr "Katalog do_mowy"
 
