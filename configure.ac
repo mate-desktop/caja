@@ -192,7 +192,7 @@ AM_CONDITIONAL(ENABLE_EMPTY_VIEW, test "x$ENABLE_EMPTY_VIEW" = "x1")
 
 dnl ==========  EEL/CAJA OMIT SELF CHECK  ====================================
 AC_ARG_ENABLE(self-check,
-    AC_HELP_STRING([--disable-self-check], [build with self check]))
+    AC_HELP_STRING([--disable-self-check], [build without self check]))
 msg_self_check=yes
 if test "x$enable_self_check" == "xno"; then
     msg_self_check=no
