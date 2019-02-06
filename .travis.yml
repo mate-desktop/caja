@@ -118,4 +118,3 @@ variables:
 
 after_scripts:
   - make distcheck
-  - 'if [ $? -ne 0 ];then RED="\033[0;31m"; ENDC="\033[0m"; printf "${RED}!!! ERROR: Run make distcheck failed.${ENDC}\n"; fi'
