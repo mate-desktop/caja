@@ -10033,6 +10033,7 @@ caja_self_check_icon_container (void)
     EEL_CHECK_STRING_RESULT (check_compute_stretch (0, 0, 16, 16, 16, 17, 16), "0,0:16");
     EEL_CHECK_STRING_RESULT (check_compute_stretch (100, 100, 64, 105, 105, 40, 40), "35,35:129");
 }
+#endif /* ! CAJA_OMIT_SELF_CHECK */
 
 gboolean
 caja_icon_container_is_layout_rtl (CajaIconContainer *container)
@@ -10132,7 +10133,6 @@ store_layout_timestamps_now (CajaIconContainer *container)
     }
 }
 
-
 void
 caja_icon_container_end_loading (CajaIconContainer *container,
                                  gboolean               all_icons_added)
@@ -10157,13 +10157,9 @@ caja_icon_container_get_store_layout_timestamps (CajaIconContainer *container)
     return container->details->store_layout_timestamps;
 }
 
-
 void
 caja_icon_container_set_store_layout_timestamps (CajaIconContainer *container,
         gboolean               store_layout_timestamps)
 {
     container->details->store_layout_timestamps = store_layout_timestamps;
 }
-
-
-#endif /* ! CAJA_OMIT_SELF_CHECK */
