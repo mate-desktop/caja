@@ -5,11 +5,6 @@ language: bash
 services:
   - docker
 
-# The branch just for test.
-#branches:
-#  only:
-#  - travis
-
 before_install:
   - curl -L -o docker-build https://github.com/mate-desktop/mate-dev-scripts/raw/master/travis/docker-build
   - chmod +x docker-build
@@ -21,7 +16,8 @@ script:
   - ./docker-build --name ${DISTRO} --verbose --config .travis.yml --build autotools
 
 env:
-  - DISTRO="debian:buster"
+  - DISTRO="base/archlinux"
+  - DISTRO="debian:sid"
   - DISTRO="fedora:29"
   - DISTRO="ubuntu:18.10"
 
@@ -29,6 +25,22 @@ env:
 # THE FOLLOWING LINES IS USED BY docker-build
 ##########################################################
 requires:
+  archlinux:
+    # Useful URL: https://git.archlinux.org/svntogit/community.git/tree/caja
+    - gcc
+    - git
+    - make
+    # Append new requires below
+    - exempi
+    - gobject-introspection
+    - gvfs
+    - intltool
+    - libexif
+    - libnotify
+    - libsm
+    - mate-common
+    - mate-desktop
+
   debian:
     # Useful URL: https://github.com/mate-desktop/debian-packages
     # Useful URL: https://salsa.debian.org/debian-mate-team/caja
@@ -101,9 +113,8 @@ requires:
     - shared-mime-info
 
 # Uncomment the following lines to get more compile warnings
-#variables:
-#  - CFLAGS="-Wall"
+variables:
+  - CFLAGS="-Wall -Werror=format-security"
 
-# NOTE: `make distcheck` will fail in an environment without X display
-#after_scripts:
-#  - if [ `systemd-detect-virt` != "kvm" -a "$BUILD_TYPE" == "autotools" ]; then make distcheck;fi
+after_scripts:
+  - make distcheck
