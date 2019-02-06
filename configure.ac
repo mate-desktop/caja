@@ -327,13 +327,6 @@ libegg/Makefile
 data/Makefile
 data/icons/Makefile
 data/patterns/Makefile
-data/caja-computer.desktop.in
-data/caja-file-management-properties.desktop.in
-data/caja-home.desktop.in
-data/caja.desktop.in
-data/caja-folder-handler.desktop.in
-data/caja-browser.desktop.in
-data/caja-autorun-software.desktop.in
 docs/Makefile
 docs/reference/Makefile
 docs/reference/libcaja-extension/Makefile
