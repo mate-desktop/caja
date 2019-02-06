@@ -190,6 +190,17 @@ AC_ARG_ENABLE(empty_view,
 AC_SUBST(ENABLE_EMPTY_VIEW)
 AM_CONDITIONAL(ENABLE_EMPTY_VIEW, test "x$ENABLE_EMPTY_VIEW" = "x1")
 
+dnl ==========  EEL/CAJA OMIT SELF CHECK  ====================================
+AC_ARG_ENABLE(self-check,
+    AC_HELP_STRING([--disable-self-check], [build with self check]))
+msg_self_check=yes
+if test "x$enable_self_check" == "xno"; then
+    msg_self_check=no
+    AC_DEFINE(EEL_OMIT_SELF_CHECK, 1, [define to disable eel self check])
+    AC_DEFINE(CAJA_OMIT_SELF_CHECK, 1, [define to disable caja self check])
+fi
+AM_CONDITIONAL(ENABLE_SELF_CHECK, test "x$msg_self_check" = "xyes")
+
 dnl ==========================================================================
 
 AC_ARG_ENABLE(packagekit,
@@ -366,6 +377,7 @@ caja-$VERSION:
     compiler:                     ${CC}
     xmp support:                  $msg_xmp
     PackageKit support:           $msg_packagekit
+    Self check:                   $msg_self_check
 
     caja-extension documentation: ${enable_gtk_doc}
     caja-extension introspection: ${found_introspection}
