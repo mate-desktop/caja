@@ -33,6 +33,7 @@ DISTCHECK_CONFIGURE_FLAGS = \
 	--disable-update-mimedb \
 	--disable-icon-update \
 	--enable-gtk-doc \
+	--disable-self-check \
 	CFLAGS='-Wno-deprecated-declarations'
 
 ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}

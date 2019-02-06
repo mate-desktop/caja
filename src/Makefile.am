@@ -197,7 +197,9 @@ caja_connect_server_SOURCES = \
 	$(NULL)
 
 
+if ENABLE_SELF_CHECK
 TESTS=check-caja
+endif
 
 @INTLTOOL_SERVER_RULE@
 
