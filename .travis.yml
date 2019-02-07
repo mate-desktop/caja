@@ -16,7 +16,7 @@ script:
   - ./docker-build --name ${DISTRO} --verbose --config .travis.yml --build autotools
 
 env:
-  - DISTRO="base/archlinux"
+  - DISTRO="archlinux/base"
   - DISTRO="debian:sid"
   - DISTRO="fedora:29"
   - DISTRO="ubuntu:18.10"
@@ -40,6 +40,7 @@ requires:
     - libsm
     - mate-common
     - mate-desktop
+    - which
 
   debian:
     # Useful URL: https://github.com/mate-desktop/debian-packages
