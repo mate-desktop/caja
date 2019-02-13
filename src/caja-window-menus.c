@@ -553,8 +553,9 @@ action_about_caja_callback (GtkAction *action,
     };
     const gchar *documenters[] =
     {
+        "MATE Documentation Team",
         "GNOME Documentation Team",
-        "Sun Microsystem",
+        "Sun Microsystems",
         NULL
     };
     const gchar *license[] =
