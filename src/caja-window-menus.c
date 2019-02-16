@@ -634,6 +634,7 @@ action_about_caja_callback (GtkAction *action,
 
     gtk_show_about_dialog (GTK_WINDOW (user_data),
                            "program-name", _("Caja"),
+                           "title", _("About Caja"),
                            "version", VERSION,
                            "comments", _("Caja lets you organize "
                                          "files and folders, both on "
