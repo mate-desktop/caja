@@ -506,113 +506,13 @@ action_backgrounds_and_emblems_callback (GtkAction *action,
     caja_property_browser_show (gtk_window_get_screen (window));
 }
 
+#define ABOUT_GROUP "About"
+#define EMAILIFY(string) (g_strdelimit ((string), "%", '@'))
+
 static void
 action_about_caja_callback (GtkAction *action,
                             gpointer user_data)
 {
-    const gchar *authors[] =
-    {
-        "Adam Erdman <hekel@archlinux.info>",
-        "Alexander Larsson",
-        "Alexander van der Meij <alexandervdm@gliese.me>",
-        "Alexandru Pandelea <alexandru.pandelea@gmail.com>",
-        "Alexei Sorokin <sor.alexei@meowr.ru>",
-        "Ali Abdin",
-        "Anders Carlsson",
-        "Andrea Azzarone <azzaronea@gmail.com>",
-        "Andy Hertzfeld",
-        "Arlo Rose",
-        "Balló György <ballogyor@gmail.com>",
-        "Benjamin Valentin <benpicco@zedat.fu-berlin.de>",
-        "Boris Egorov <egorov@linux.com>",
-        "Brent Hull <bhull2010@live.com>",
-        "Chen Donghai <chen.donghai@zte.com.cn>",
-        "Clement Lefebvre <clement.lefebvre@linuxmint.com>",
-        "Clément Masci",
-        "Colomban Wendling <cwendling@hypra.fr>",
-        "Cosimo Cecchi <cosimoc@gnome.org>",
-        "Dan Bravender <dan.bravender@gmail.com>",
-        "Darin Adler",
-        "David Camp",
-        "E.S. Quinn <onetruequinn@hotmail.com>",
-        "Elan Ruusamäe <glen@delfi.ee>",
-        "Eli Goldberg",
-        "Elias Aebi <user142@hotmail.com>",
-        "Elliot Lee",
-        "Eskil Heyn Olsen",
-        "Ettore Perazzoli",
-        "Felipe Barriga Richards <spam@felipebarriga.cl>",
-        "Franco Tortoriello <torto9@users.noreply.github.com>",
-        "Galik <galik.bool@gmail.com>",
-        "Gene Z. Ragan",
-        "George Lebl",
-        "Ian McKellar",
-        "Ikey Doherty <ikey@solus-project.com>",
-        "J Shane Culpepper",
-        "James Willcox",
-        "Jan Arne Petersen",
-        "Jan Niklas Hasse <jhasse@bixense.com>",
-        "Jasmine Hassan <jasmine.aura@gmail.com>",
-        "Joanmarie Diggs <jdiggs@igalia.com>",
-        "John Harper",
-        "John Sullivan",
-        "Josh Barrow",
-        "Jury Verrigni <jury.verrigni@gmail.com>",
-        "Lars R. Damerow <lars@pixar.com>",
-        "Laszlo Boros <iamsemmu@gmail.com>",
-        "Lionel Landwerlin <lionel.g.landwerlin@intel.com>",
-        "Luke Yelavich <themuso@ubuntu.com>",
-        "Maciej Stachowiak",
-        "Marcel Dijkstra <marcel.dykstra@gmail.com>",
-        "Mark McLoughlin",
-        "Martin Matuska <martin@matuska.org>",
-        "Martin Pieuchot <mpi@grenadille.net>",
-        "Martin Wimpress <martin@mate-desktop.org>",
-        "Mathieu Lacage",
-        "Max Eliaser <max@meliaserlow.dyndns.tv>",
-        "Michael Catanzaro <mcatanzaro@gnome.org>",
-        "Mike Engber",
-        "Mike Fleming",
-        "Mike Gabriel <mike.gabriel@das-netzwerkteam.de>",
-        "Moritz Bruder <muesli4@gmail.com>",
-        "Nelson Marques <nmo.marques@gmail.com>",
-        "Obata Akio <obache@users.noreply.github.com>",
-        "Pablo Barciela <scow@riseup.net>",
-        "Pavel Cisler",
-        "Perberos <perberos@gmail.com>",
-        "Phillip Susi <psusi@ubuntu.com>",
-        "Piotr Drąg <piotrdrag@gmail.com>",
-        "Ramiro Estrugo",
-        "Raph Levien",
-        "Rebecca Schulman",
-        "Robey Pointer",
-        "Robin * Slomkowski",
-        "Samuel Thibault <samuel.thibault@ens-lyon.org>",
-        "Sander Sweers <infirit@gmail.com>",
-        "Sargastic <sargastic@gmail.com>",
-        "Scott Balneaves <sbalneav@mate-desktop.org>",
-        "Seth Nickell",
-        "Stefano Karapetsas <stefano@karapetsas.com>",
-        "Steve Zesch <stevezesch2@gmail.com>",
-        "Susan Kare",
-        "Tomas Bzatek <tbzatek@redhat.com>",
-        "Victor Kareh <vkareh@redhat.com>",
-        "Vlad Orlov <monsta@inbox.ru>",
-        "Wolfgang Ulbrich <mate@raveit.de>",
-        "Wu Xiaotian <yetist@gmail.com>",
-        "Yaakov Selkowitz <yselkowitz@users.sourceforge.net>",
-        "Zhang Xianwei <zhang.xianwei8@zte.com.cn>",
-        "张雯 <zhang.wen2@zte.com.cn>",
-        "高群凯 <lenky0401@gmail.com>",
-        NULL
-    };
-    const gchar *documenters[] =
-    {
-        "MATE Documentation Team",
-        "GNOME Documentation Team",
-        "Sun Microsystems",
-        NULL
-    };
     const gchar *license[] =
     {
         N_("Caja is free software; you can redistribute it and/or modify "
@@ -628,9 +528,30 @@ action_about_caja_callback (GtkAction *action,
         "51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA")
     };
     gchar *license_trans;
+    GKeyFile *key_file;
+    GError *error = NULL;
+    char **authors, **documenters;
+    gsize n_authors = 0, n_documenters = 0 , i;
 
-    license_trans = g_strjoin ("\n\n", _(license[0]), _(license[1]),
-                               _(license[2]), NULL);
+    key_file = g_key_file_new ();
+    if (!g_key_file_load_from_file (key_file, CAJA_DATADIR G_DIR_SEPARATOR_S "caja.about", 0, &error))
+    {
+        g_warning ("Couldn't load about data: %s\n", error->message);
+        g_error_free (error);
+        g_key_file_free (key_file);
+        return;
+    }
+
+    authors = g_key_file_get_string_list (key_file, ABOUT_GROUP, "Authors", &n_authors, NULL);
+    documenters = g_key_file_get_string_list (key_file, ABOUT_GROUP, "Documenters", &n_documenters, NULL);
+    g_key_file_free (key_file);
+
+    for (i = 0; i < n_authors; ++i)
+        authors[i] = EMAILIFY (authors[i]);
+    for (i = 0; i < n_documenters; ++i)
+        documenters[i] = EMAILIFY (documenters[i]);
+
+    license_trans = g_strjoin ("\n\n", _(license[0]), _(license[1]), _(license[2]), NULL);
 
     gtk_show_about_dialog (GTK_WINDOW (user_data),
                            "program-name", _("Caja"),
@@ -645,16 +566,14 @@ action_about_caja_callback (GtkAction *action,
                            "wrap-license", TRUE,
                            "authors", authors,
                            "documenters", documenters,
-                           /* Translators should localize the following string
-                            * which will be displayed at the bottom of the about
-                            * box to give credit to the translator(s).
-                            */
                            "translator-credits", _("translator-credits"),
                            "logo-icon-name", "system-file-manager",
                            "website", "http://www.mate-desktop.org",
                            "website-label", _("MATE Web Site"),
                            NULL);
 
+    g_strfreev (authors);
+    g_strfreev (documenters);
     g_free (license_trans);
 
 }
