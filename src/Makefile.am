@@ -197,6 +197,11 @@ caja_connect_server_SOURCES = \
 	$(NULL)
 
 
+aboutdir = $(datadir)/caja
+about_DATA = \
+	caja.about \
+        $(NULL)
+
 if ENABLE_SELF_CHECK
 TESTS=check-caja
 endif
@@ -224,6 +229,7 @@ EXTRA_DIST = \
 	$(server_in_files) \
 	$(ui_DATA) \
 	check-caja \
+	$(about_DATA) \
 	$(desktop_in_files) \
 	$(NULL)
 
