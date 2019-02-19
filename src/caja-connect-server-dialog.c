@@ -842,7 +842,6 @@ static void
 caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
 {
     GtkWidget *label;
-    GtkWidget *alignment;
     GtkWidget *content_area;
     GtkWidget *combo, *grid;
     GtkWidget *vbox, *hbox, *connect_button, *checkbox;

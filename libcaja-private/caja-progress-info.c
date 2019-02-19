@@ -940,8 +940,6 @@ delayed_window_showup (CajaProgressInfo *info)
 static void
 new_op_started (CajaProgressInfo *info)
 {
-    GtkWidget * container;
-
     g_signal_handlers_disconnect_by_func (info, (GCallback)new_op_started, NULL);
 
     if (!caja_progress_info_get_is_finished (info)) {

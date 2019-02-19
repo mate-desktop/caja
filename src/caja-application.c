@@ -2350,7 +2350,6 @@ static void
 caja_application_startup (GApplication *app)
 {
     GList *drives;
-    CajaApplication *application;
     CajaApplication *self = CAJA_APPLICATION (app);
     GApplication *instance;
     gboolean exit_with_last_window;

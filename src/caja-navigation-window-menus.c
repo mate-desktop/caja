@@ -456,7 +456,6 @@ refresh_go_menu (CajaNavigationWindow *window)
     GtkUIManager *ui_manager;
     GList *node;
     int index;
-    int i;
 
     g_assert (CAJA_IS_NAVIGATION_WINDOW (window));
 

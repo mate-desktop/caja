@@ -66,7 +66,6 @@ void
 caja_global_preferences_init (void)
 {
     static gboolean initialized = FALSE;
-    int i;
 
     if (initialized)
     {

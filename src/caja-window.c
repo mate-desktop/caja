@@ -380,7 +380,6 @@ static void
 update_cursor (CajaWindow *window)
 {
     CajaWindowSlot *slot;
-    GdkCursor *cursor;
 
     slot = window->details->active_pane->active_slot;
 
