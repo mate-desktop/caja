@@ -4689,7 +4689,6 @@ static void
 reset_open_with_menu (FMDirectoryView *view, GList *selection)
 {
 	GList *applications, *node;
-	CajaFile *file;
 	gboolean submenu_visible, filter_default;
 	int num_applications;
 	int index;

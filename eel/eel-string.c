@@ -934,8 +934,6 @@ verify_custom (const char *orig, const char *format, ...)
 void
 eel_self_check_string (void)
 {
-    int integer;
-
     EEL_CHECK_INTEGER_RESULT (eel_strlen (NULL), 0);
     EEL_CHECK_INTEGER_RESULT (eel_strlen (""), 0);
     EEL_CHECK_INTEGER_RESULT (eel_strlen ("abc"), 3);

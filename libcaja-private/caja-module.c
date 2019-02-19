@@ -257,7 +257,6 @@ void
 caja_module_setup (void)
 {
     static gboolean initialized = FALSE;
-    GList *res;
 
     if (!initialized)
     {
