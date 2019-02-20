@@ -856,7 +856,6 @@ caja_emblem_sidebar_drag_received_cb (GtkWidget *widget,
             if (uri_utf8)
             {
                 error = g_strdup_printf (_("The file '%s' does not appear to be a valid image."), uri_utf8);
-                g_free (uri_utf8);
             }
             else
             {
