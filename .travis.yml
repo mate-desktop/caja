@@ -5,10 +5,15 @@ language: bash
 services:
   - docker
 
+branches:
+  except:
+  - gh-pages
+
 before_install:
-  - curl -L -o docker-build https://github.com/mate-desktop/mate-dev-scripts/raw/master/travis/docker-build
-  - chmod +x docker-build
- 
+  - curl -Ls -o docker-build https://github.com/mate-desktop/mate-dev-scripts/raw/travis/travis/docker-build
+  - curl -Ls -o gen-index https://github.com/mate-desktop/mate-dev-scripts/raw/travis/travis/gen-index.sh
+  - chmod +x docker-build gen-index
+
 install:
   - sudo apt-get install -y python3-pip python3-setuptools
   - sudo pip3 install --upgrade pip
@@ -16,7 +21,25 @@ install:
   - ./docker-build --name ${DISTRO} --config .travis.yml --install
 
 script:
-  - ./docker-build --name ${DISTRO} --verbose --config .travis.yml --build autotools
+  - ./docker-build --name ${DISTRO} --verbose --config .travis.yml --build scripts
+
+deploy:
+  provider: pages
+  github-token: $GITHUB_TOKEN
+  #keep-history: true
+  skip_cleanup: true
+  committer-from-gh: true
+  target-branch: gh-pages
+  local-dir: html-report
+  on:
+    all_branches: true
+    condition: ${DISTRO} =~ ^fedora.*$
+
+after_success:
+  - 'if [[ "$TRAVIS_SECURE_ENV_VARS" == "true" && "$TRAVIS_PULL_REQUEST" != "false" && ${DISTRO} =~ ^fedora.*$ ]]; then
+        COMMENT="[Notification]: Clang Analyzer results of $TRAVIS_COMMIT at https://mate-desktop.github.io/${TRAVIS_REPO_SLUG#*/}/";
+        curl -H "Authorization: token $GITHUB_TOKEN" -X POST -d "{\"body\": \"$COMMENT\"}" "https://api.github.com/repos/${TRAVIS_REPO_SLUG}/issues/${TRAVIS_PULL_REQUEST}/comments" >/dev/null;
+    fi'
 
 env:
   - DISTRO="archlinux/base"
@@ -30,10 +53,10 @@ env:
 requires:
   archlinux:
     # Useful URL: https://git.archlinux.org/svntogit/community.git/tree/caja
+    - clang
     - gcc
     - git
     - make
-    # Append new requires below
     - exempi
     - gobject-introspection
     - gvfs
@@ -48,7 +71,9 @@ requires:
   debian:
     # Useful URL: https://github.com/mate-desktop/debian-packages
     # Useful URL: https://salsa.debian.org/debian-mate-team/caja
-    - git # Required to generate the ChangeLog file
+    - clang
+    - clang-tools
+    - git
     - gobject-introspection
     - gtk-doc-tools
     - intltool
@@ -72,11 +97,12 @@ requires:
 
   fedora:
     # Useful URL: https://src.fedoraproject.org/cgit/rpms/caja.git/
-    - git # Required to generate the ChangeLog file
+    - clang-analyzer
+    - clang
+    - git
     - gcc
     - make
     - redhat-rpm-config
-    # The above packages is installed by 'dnf groupinstall build'
     - dbus-glib-devel
     - desktop-file-utils
     - exempi-devel
@@ -93,8 +119,9 @@ requires:
     - libnotify-devel
 
   ubuntu:
-    # Same as debian
-    - git # Required to generate the ChangeLog file
+    - clang
+    - clang-tools
+    - git
     - gobject-introspection
     - gtk-doc-tools
     - intltool
@@ -116,9 +143,35 @@ requires:
     - quilt
     - shared-mime-info
 
-# Uncomment the following lines to get more compile warnings
 variables:
   - CFLAGS="-Wall -Werror=format-security"
+  - 'CHECKERS="
+    -enable-checker deadcode.DeadStores
+    -enable-checker alpha.core.CastSize
+    -enable-checker alpha.core.CastToStruct
+    -enable-checker alpha.core.IdenticalExpr
+    -enable-checker alpha.core.SizeofPtr
+    -enable-checker alpha.security.ArrayBoundV2
+    -enable-checker alpha.security.MallocOverflow
+    -enable-checker alpha.security.ReturnPtrRange
+    -enable-checker alpha.unix.SimpleStream
+    -enable-checker alpha.unix.cstring.BufferOverlap
+    -enable-checker alpha.unix.cstring.NotNullTerminated
+    -enable-checker alpha.unix.cstring.OutOfBounds
+    -enable-checker alpha.core.FixedAddr
+    -enable-checker security.insecureAPI.strcpy"'
+
+build_scripts:
+  - if [ ${DISTRO_NAME} == "fedora" ];then
+  -     curl -Ls -o fedora.sh https://github.com/mate-desktop/mate-dev-scripts/raw/travis/travis/fedora.sh
+  -     bash ./fedora.sh
+  - fi
+  - ./autogen.sh
+  - scan-build $CHECKERS ./configure
+  - scan-build $CHECKERS --keep-cc -o html-report make
 
 after_scripts:
+  - if [ ${DISTRO_NAME} == "fedora" ];then
+  -   ./gen-index -i https://github.com/${OWNER_NAME}/mate-icon-theme/raw/master/mate/16x16/apps/system-file-manager.png
+  - fi
   - make distcheck
