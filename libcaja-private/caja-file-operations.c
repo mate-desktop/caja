@@ -6545,10 +6545,10 @@ mark_desktop_file_trusted (CommonJob *common,
 	}
 
 	if (!g_str_has_prefix (contents, "#!")) {
-		new_length = length + strlen (TRUSTED_SHEBANG);
-		new_contents = g_malloc (new_length);
+		new_length = length + strlen (TRUSTED_SHEBANG) + 1;
+		new_contents = g_malloc0 (new_length);
 
-		strcpy (new_contents, TRUSTED_SHEBANG);
+		g_strlcpy (new_contents, TRUSTED_SHEBANG, new_length);
 		memcpy (new_contents + strlen (TRUSTED_SHEBANG),
 			contents, length);
 
