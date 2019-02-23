@@ -246,8 +246,8 @@ eel_str_middle_truncate (const char *string,
     truncated = g_new (char, strlen (string) + 1);
 
     g_utf8_strncpy (truncated, string, num_left_chars);
-    strcat (truncated, delimter);
-    strcat (truncated, g_utf8_offset_to_pointer  (string, length - num_right_chars));
+    g_strlcat (truncated, delimter, (truncate_length + 1));
+    g_strlcat (truncated, g_utf8_offset_to_pointer  (string, length - num_right_chars), (truncate_length + 1));
 
     return truncated;
 }
