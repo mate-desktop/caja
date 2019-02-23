@@ -433,7 +433,7 @@ override_title_font (GtkWidget   *widget,
     g_strreverse (tempsize);
 
     gchar tempfont [strlen (font)];
-    strcpy (tempfont, font);
+    g_strlcpy (tempfont, font, sizeof (tempfont));
     tempfont [strlen (font) - strlen (tempsize)] = 0;
 
     css = g_strdup_printf ("label { font-family: %s; font-size: %spt; }", tempfont, tempsize);
