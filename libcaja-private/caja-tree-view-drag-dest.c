@@ -1034,6 +1034,7 @@ set_direct_save_uri (CajaTreeViewDragDest *dest,
 
             g_object_unref (base);
             g_object_unref (child);
+            g_free (filename);
 
             /* Change the property */
             gdk_property_change (gdk_drag_context_get_source_window (context),
