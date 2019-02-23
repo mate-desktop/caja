@@ -945,6 +945,9 @@ add_buttons_from_metadata (CajaInformationPanel *information_panel, const char *
             *temp_str = '\0';
             if (!g_ascii_strcasecmp (current_term, "button"))
             {
+                if (button_name)
+                    g_free (button_name);
+
                 button_name = g_strdup (temp_str + 1);
             }
             else if (!g_ascii_strcasecmp (current_term, "script"))
@@ -958,7 +961,6 @@ add_buttons_from_metadata (CajaInformationPanel *information_panel, const char *
                                         0);
                     information_panel->details->has_buttons = TRUE;
                     command_string = g_strdup (temp_str + 1);
-                    g_free (button_name);
 
                     g_signal_connect_data (temp_button,
                                            "clicked",
@@ -975,6 +977,7 @@ add_buttons_from_metadata (CajaInformationPanel *information_panel, const char *
         }
         g_free(current_term);
     }
+    g_free (button_name);
     g_strfreev (terms);
 }
 
