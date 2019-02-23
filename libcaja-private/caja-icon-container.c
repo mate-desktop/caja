@@ -7946,10 +7946,10 @@ caja_icon_container_remove (CajaIconContainer *container,
         return FALSE;
     }
 
+    g_signal_emit (container, signals[ICON_REMOVED], 0, icon);
+
     icon_destroy (container, icon);
     schedule_redo_layout (container);
-
-    g_signal_emit (container, signals[ICON_REMOVED], 0, icon);
 
     return TRUE;
 }
