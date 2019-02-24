@@ -779,9 +779,13 @@ stop_monitoring_directory (FMTreeModel *model, TreeNode *node)
 static void
 destroy_children_without_reporting (FMTreeModel *model, TreeNode *parent)
 {
-    while (parent->first_child != NULL)
+    TreeNode *current_child = parent->first_child;
+    TreeNode *next_child;
+    while (current_child != NULL)
     {
-        destroy_node_without_reporting (model, parent->first_child);
+        next_child = current_child->next;
+        destroy_node_without_reporting (model, current_child);
+        current_child = next_child;
     }
 }
 
