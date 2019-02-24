@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-21 10:58+0100\n"
+"POT-Creation-Date: 2019-02-16 22:36+0100\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>, 2019\n"
 "Language-Team: Danish (https://www.transifex.com/mate/teams/13566/da/)\n"
@@ -291,7 +291,7 @@ msgstr "Træk et emblem til et objekt for at tilføje det til objektet"
 
 #. translators: this is the name of an emblem
 #: ../data/browser.xml.h:68 ../src/caja-emblem-sidebar.c:993
-#: ../src/caja-property-browser.c:1951
+#: ../src/caja-property-browser.c:1947
 msgid "Erase"
 msgstr "Slet"
 
@@ -315,63 +315,62 @@ msgstr ""
 "filsystemer. Udfoldelsesmuligheder tilsvarende udvidelsesmoduler for GNOME "
 "Nautilus, som Caja er en forgrening af. </p>"
 
-#: ../data/caja-autorun-software.desktop.in.in.h:1
+#: ../data/caja-autorun-software.desktop.in.h:1
 msgid "Autorun Prompt"
 msgstr "Autokørselsforespørgsel"
 
 #. Set initial window title
-#: ../data/caja-browser.desktop.in.in.h:1 ../data/caja.desktop.in.in.h:1
-#: ../data/caja-folder-handler.desktop.in.in.h:1
-#: ../src/caja-spatial-window.c:397 ../src/caja-window-menus.c:580
-#: ../src/caja-window.c:163
+#: ../data/caja-browser.desktop.in.h:1 ../data/caja.desktop.in.h:1
+#: ../data/caja-folder-handler.desktop.in.h:1 ../src/caja-spatial-window.c:396
+#: ../src/caja-window-menus.c:636 ../src/caja-window.c:164
 msgid "Caja"
 msgstr "Caja"
 
-#: ../data/caja-browser.desktop.in.in.h:2
+#: ../data/caja-browser.desktop.in.h:2
 msgid "File Browser"
 msgstr "Filbrowser"
 
-#: ../data/caja-browser.desktop.in.in.h:3
+#: ../data/caja-browser.desktop.in.h:3
 msgid "Browse the file system with the file manager"
 msgstr "Naviger filsystemet med filhåndteringen"
 
-#: ../data/caja-computer.desktop.in.in.h:1
+#: ../data/caja-computer.desktop.in.h:1
 #: ../libcaja-private/caja-desktop-link.c:113 ../src/caja-places-sidebar.c:509
 msgid "Computer"
 msgstr "Computer"
 
 #. tooltip
-#: ../data/caja-computer.desktop.in.in.h:2 ../src/caja-window-menus.c:942
+#: ../data/caja-computer.desktop.in.h:2 ../src/caja-window-menus.c:999
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
 msgstr ""
 "Gennemse alle lokale og eksterne diske og mapper der kan tilgås fra denne "
 "computer"
 
-#: ../data/caja.desktop.in.in.h:2
+#: ../data/caja.desktop.in.h:2
 msgid "File Manager"
 msgstr "Filhåndtering"
 
-#: ../data/caja-file-management-properties.desktop.in.in.h:1
+#: ../data/caja-file-management-properties.desktop.in.h:1
 msgid "File Management"
 msgstr "Filhåndtering"
 
-#: ../data/caja-file-management-properties.desktop.in.in.h:2
+#: ../data/caja-file-management-properties.desktop.in.h:2
 msgid "Change the behaviour and appearance of file manager windows"
 msgstr "Ændr opførslen og udseendet af filhåndteringsvinduer"
 
-#: ../data/caja-folder-handler.desktop.in.in.h:2
+#: ../data/caja-folder-handler.desktop.in.h:2
 #: ../libcaja-private/caja-autorun.c:578
 msgid "Open Folder"
 msgstr "Åbn mappe"
 
-#: ../data/caja-home.desktop.in.in.h:1 ../src/file-manager/fm-tree-view.c:1416
+#: ../data/caja-home.desktop.in.h:1 ../src/file-manager/fm-tree-view.c:1416
 msgid "Home Folder"
 msgstr "Hjemmemappe"
 
 #. tooltip
-#: ../data/caja-home.desktop.in.in.h:2 ../src/caja-places-sidebar.c:523
-#: ../src/caja-window-menus.c:937
+#: ../data/caja-home.desktop.in.h:2 ../src/caja-places-sidebar.c:523
+#: ../src/caja-window-menus.c:994
 msgid "Open your personal folder"
 msgstr "Åbn din personlige mappe"
 
@@ -473,7 +472,7 @@ msgstr "Vis flere _detaljer"
 #: ../eel/eel-stock-dialogs.c:238 ../eel/eel-stock-dialogs.c:294
 #: ../eel/eel-stock-dialogs.c:449 ../eel/eel-stock-dialogs.c:650
 #: ../libcaja-private/caja-autorun.c:1150
-#: ../libcaja-private/caja-file-conflict-dialog.c:659
+#: ../libcaja-private/caja-file-conflict-dialog.c:655
 #: ../libcaja-private/caja-file-operations.c:186
 #: ../libcaja-private/caja-mime-actions.c:819
 #: ../libcaja-private/caja-mime-actions.c:1732
@@ -482,9 +481,9 @@ msgstr "Vis flere _detaljer"
 #: ../src/file-manager/fm-directory-view.c:1364
 #: ../src/file-manager/fm-directory-view.c:7026
 #: ../src/file-manager/fm-directory-view.c:10349
-#: ../src/caja-connect-server-dialog.c:1122 ../src/caja-emblem-sidebar.c:288
+#: ../src/caja-connect-server-dialog.c:1121 ../src/caja-emblem-sidebar.c:288
 #: ../src/caja-emblem-sidebar.c:545 ../src/caja-location-dialog.c:194
-#: ../src/caja-property-browser.c:1111 ../src/caja-property-browser.c:1191
+#: ../src/caja-property-browser.c:1107 ../src/caja-property-browser.c:1187
 msgid "_Cancel"
 msgstr "_Afbryd"
 
@@ -513,8 +512,8 @@ msgstr "Du kan standse denne operation ved at klikke på annuller."
 #: ../libcaja-private/caja-mime-actions.c:1376
 #: ../src/file-manager/fm-directory-view.c:1216
 #: ../src/caja-emblem-sidebar.c:293 ../src/caja-emblem-sidebar.c:550
-#: ../src/caja-property-browser.c:1116 ../src/caja-property-browser.c:1196
-#: ../src/caja-query-editor.c:720
+#: ../src/caja-property-browser.c:1112 ../src/caja-property-browser.c:1192
+#: ../src/caja-query-editor.c:758
 msgid "_OK"
 msgstr "_O.k."
 
@@ -538,7 +537,7 @@ msgstr "Spørg om handling"
 msgid "Do Nothing"
 msgstr "Gør intet"
 
-#: ../libcaja-private/caja-autorun.c:611 ../src/caja-x-content-bar.c:149
+#: ../libcaja-private/caja-autorun.c:611 ../src/caja-x-content-bar.c:147
 #, c-format
 msgid "Open %s"
 msgstr "Åbn %s"
@@ -678,15 +677,15 @@ msgstr "Marker _alt"
 msgid "Select all the text in a text field"
 msgstr "Vælg hele teksten i et tekstfelt"
 
-#: ../libcaja-private/caja-column-chooser.c:380
+#: ../libcaja-private/caja-column-chooser.c:378
 msgid "Move _Up"
 msgstr "Flyt _op"
 
-#: ../libcaja-private/caja-column-chooser.c:390
+#: ../libcaja-private/caja-column-chooser.c:388
 msgid "Move Dow_n"
 msgstr "Flyt _ned"
 
-#: ../libcaja-private/caja-column-chooser.c:403
+#: ../libcaja-private/caja-column-chooser.c:401
 msgid "Use De_fault"
 msgstr "_Benyt standard"
 
@@ -701,6 +700,7 @@ msgid "The name and icon of the file."
 msgstr "Navnet og ikonet for filen."
 
 #: ../libcaja-private/caja-column-utilities.c:51
+#: ../src/caja-query-editor.c:188
 msgid "Size"
 msgstr "Størrelse"
 
@@ -791,7 +791,7 @@ msgid "The SELinux security context of the file."
 msgstr "SELinux-sikkerhedskonteksten for filen."
 
 #: ../libcaja-private/caja-column-utilities.c:138
-#: ../src/caja-image-properties-page.c:365 ../src/caja-query-editor.c:136
+#: ../src/caja-image-properties-page.c:365 ../src/caja-query-editor.c:160
 msgid "Location"
 msgstr "Placering"
 
@@ -825,9 +825,9 @@ msgid "Original location of file before moved to the Trash"
 msgstr "Oprindelig placering af filen før den blev flyttet til Papirkurven"
 
 #: ../libcaja-private/caja-customization-data.c:431
-#: ../libcaja-private/caja-file-conflict-dialog.c:628
+#: ../libcaja-private/caja-file-conflict-dialog.c:624
 #: ../libcaja-private/caja-mime-application-chooser.c:442
-#: ../src/caja-property-browser.c:1998
+#: ../src/caja-property-browser.c:1994
 msgid "Reset"
 msgstr "Nulstil"
 
@@ -854,7 +854,7 @@ msgstr "Netværksservere"
 
 #: ../libcaja-private/caja-desktop-link.c:119
 #: ../src/file-manager/fm-tree-view.c:1423 ../src/caja-places-sidebar.c:613
-#: ../src/caja-trash-bar.c:190
+#: ../src/caja-trash-bar.c:188
 msgid "Trash"
 msgstr "Papirkurv"
 
@@ -926,12 +926,12 @@ msgstr "Desværre, kunne ikke gemme brugerdefineret emblem."
 msgid "Sorry, unable to save custom emblem name."
 msgstr "Desværre, kunne ikke gemme brugerdefineret emblemnavn."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:147
+#: ../libcaja-private/caja-file-conflict-dialog.c:143
 #, c-format
 msgid "Merge folder \"%s\"?"
 msgstr "Flet mappen »%s«?"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:151
+#: ../libcaja-private/caja-file-conflict-dialog.c:147
 msgid ""
 "Merging will ask for confirmation before replacing any files in the folder "
 "that conflict with the files being copied."
@@ -939,142 +939,142 @@ msgstr ""
 "Ved sammenføjning vil der blive bedt om bekræftelse før der overskrives "
 "filer i mappen, som er i konflikt med dem, der flyttes."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:157
+#: ../libcaja-private/caja-file-conflict-dialog.c:153
 #, c-format
 msgid "An older folder with the same name already exists in \"%s\"."
 msgstr "En ældre mappe med det samme navn findes allerede i »%s«."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:163
+#: ../libcaja-private/caja-file-conflict-dialog.c:159
 #, c-format
 msgid "A newer folder with the same name already exists in \"%s\"."
 msgstr "En nyere mappe med det samme navn findes allerede i »%s«."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:169
+#: ../libcaja-private/caja-file-conflict-dialog.c:165
 #, c-format
 msgid "Another folder with the same name already exists in \"%s\"."
 msgstr "En anden mappe med det samme navn findes allerede i »%s«."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:176
+#: ../libcaja-private/caja-file-conflict-dialog.c:172
 msgid "Replacing it will remove all files in the folder."
 msgstr "Ved erstatning vil alle filer i mappen blive fjernet."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:178
+#: ../libcaja-private/caja-file-conflict-dialog.c:174
 #, c-format
 msgid "Replace folder \"%s\"?"
 msgstr "Erstat mappen »%s«?"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:180
+#: ../libcaja-private/caja-file-conflict-dialog.c:176
 #, c-format
 msgid "A folder with the same name already exists in \"%s\"."
 msgstr "En mappe med det samme navn findes allerede i »%s«."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:187
+#: ../libcaja-private/caja-file-conflict-dialog.c:183
 #, c-format
 msgid "Replace file \"%s\"?"
 msgstr "Erstat filen »%s«?"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:189
+#: ../libcaja-private/caja-file-conflict-dialog.c:185
 msgid "Replacing it will overwrite its content."
 msgstr "Ved erstatning vil dens indhold blive overskrevet."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:194
+#: ../libcaja-private/caja-file-conflict-dialog.c:190
 #, c-format
 msgid "An older file with the same name already exists in \"%s\"."
 msgstr "En ældre fil med det samme navn findes allerede i »%s«."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:200
+#: ../libcaja-private/caja-file-conflict-dialog.c:196
 #, c-format
 msgid "A newer file with the same name already exists in \"%s\"."
 msgstr "En nyere fil med det samme navn findes allerede i »%s«."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:206
+#: ../libcaja-private/caja-file-conflict-dialog.c:202
 #, c-format
 msgid "Another file with the same name already exists in \"%s\"."
 msgstr "En anden fil med det samme navn findes allerede i »%s«."
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:276
+#: ../libcaja-private/caja-file-conflict-dialog.c:272
 msgid "Original folder"
 msgstr "Oprindelig mappe"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:277
-#: ../libcaja-private/caja-file-conflict-dialog.c:316
+#: ../libcaja-private/caja-file-conflict-dialog.c:273
+#: ../libcaja-private/caja-file-conflict-dialog.c:312
 msgid "Items:"
 msgstr "Punkter:"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:280
+#: ../libcaja-private/caja-file-conflict-dialog.c:276
 msgid "Original file"
 msgstr "Oprindelig fil"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:281
-#: ../libcaja-private/caja-file-conflict-dialog.c:320
+#: ../libcaja-private/caja-file-conflict-dialog.c:277
+#: ../libcaja-private/caja-file-conflict-dialog.c:316
 #: ../src/file-manager/fm-properties-window.c:3281
 msgid "Size:"
 msgstr "Størrelse:"
 
 #. second row: type combobox
-#: ../libcaja-private/caja-file-conflict-dialog.c:286
-#: ../libcaja-private/caja-file-conflict-dialog.c:325
+#: ../libcaja-private/caja-file-conflict-dialog.c:282
+#: ../libcaja-private/caja-file-conflict-dialog.c:321
 #: ../src/file-manager/fm-properties-window.c:3263
-#: ../src/caja-connect-server-dialog.c:930
+#: ../src/caja-connect-server-dialog.c:929
 msgid "Type:"
 msgstr "Type:"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:289
-#: ../libcaja-private/caja-file-conflict-dialog.c:328
+#: ../libcaja-private/caja-file-conflict-dialog.c:285
+#: ../libcaja-private/caja-file-conflict-dialog.c:324
 msgid "Last modified:"
 msgstr "Sidst ændret:"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:315
+#: ../libcaja-private/caja-file-conflict-dialog.c:311
 msgid "Merge with"
 msgstr "Sammenflet med"
 
+#: ../libcaja-private/caja-file-conflict-dialog.c:311
 #: ../libcaja-private/caja-file-conflict-dialog.c:315
-#: ../libcaja-private/caja-file-conflict-dialog.c:319
 msgid "Replace with"
 msgstr "Erstat med"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:351
+#: ../libcaja-private/caja-file-conflict-dialog.c:347
 msgid "Merge"
 msgstr "Sammenflet"
 
 #. Setup the expander for the rename action
-#: ../libcaja-private/caja-file-conflict-dialog.c:614
+#: ../libcaja-private/caja-file-conflict-dialog.c:610
 msgid "Select a new name for the _destination"
 msgstr "Vælg et nyt navn for _destinationen"
 
 #. Setup the diff button for text files
-#: ../libcaja-private/caja-file-conflict-dialog.c:639
+#: ../libcaja-private/caja-file-conflict-dialog.c:635
 msgid "Differences..."
 msgstr "Forskelle …"
 
 #. Setup the checkbox to apply the action to all files
-#: ../libcaja-private/caja-file-conflict-dialog.c:649
+#: ../libcaja-private/caja-file-conflict-dialog.c:645
 msgid "Apply this action to all files and folders"
 msgstr "Udfør denne handling på alle filer og mapper"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:664
+#: ../libcaja-private/caja-file-conflict-dialog.c:660
 #: ../libcaja-private/caja-file-operations.c:187
 msgid "_Skip"
 msgstr "_Spring over"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:669
+#: ../libcaja-private/caja-file-conflict-dialog.c:665
 msgid "Re_name"
 msgstr "Om_døb"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:675
+#: ../libcaja-private/caja-file-conflict-dialog.c:671
 msgid "Replace"
 msgstr "Erstat"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:759
+#: ../libcaja-private/caja-file-conflict-dialog.c:753
 msgid "Merge Folder"
 msgstr "Sammenflet mappe"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:759
-#: ../libcaja-private/caja-file-conflict-dialog.c:764
+#: ../libcaja-private/caja-file-conflict-dialog.c:753
+#: ../libcaja-private/caja-file-conflict-dialog.c:758
 msgid "File and Folder conflict"
 msgstr "Fil- og mappekonflikt"
 
-#: ../libcaja-private/caja-file-conflict-dialog.c:764
+#: ../libcaja-private/caja-file-conflict-dialog.c:758
 msgid "File conflict"
 msgstr "Filkonflikt"
 
@@ -1156,7 +1156,7 @@ msgstr[1] "omtrent %'d timer"
 #. * (e.g. "folder", "plain text") to file type for symbolic link
 #. * to that kind of file (e.g. "link to folder").
 #: ../libcaja-private/caja-file-operations.c:409
-#: ../libcaja-private/caja-file.c:6758
+#: ../libcaja-private/caja-file.c:6759
 #: ../src/file-manager/fm-directory-view.c:10593
 #, c-format
 msgid "Link to %s"
@@ -1326,7 +1326,7 @@ msgstr "Alle elementer i papirkurven vil blive slettet permanent."
 #. Empty Trash menu item
 #: ../libcaja-private/caja-file-operations.c:1403
 #: ../libcaja-private/caja-file-operations.c:2334
-#: ../src/caja-places-sidebar.c:2772 ../src/caja-trash-bar.c:197
+#: ../src/caja-places-sidebar.c:2772 ../src/caja-trash-bar.c:195
 msgid "Empty _Trash"
 msgstr "_Tøm papirkurv"
 
@@ -1863,47 +1863,47 @@ msgstr "Kunne ikke bestemme den originale placering af »%s« "
 msgid "The item cannot be restored from trash"
 msgstr "Objektet kan ikke genskabes fra papirkurven"
 
-#: ../libcaja-private/caja-file.c:1224 ../libcaja-private/caja-vfs-file.c:439
+#: ../libcaja-private/caja-file.c:1225 ../libcaja-private/caja-vfs-file.c:439
 msgid "This file cannot be mounted"
 msgstr "Denne fil kan ikke monteres"
 
-#: ../libcaja-private/caja-file.c:1269
+#: ../libcaja-private/caja-file.c:1270
 msgid "This file cannot be unmounted"
 msgstr "Denne fil kan ikke afmonteres"
 
-#: ../libcaja-private/caja-file.c:1303
+#: ../libcaja-private/caja-file.c:1304
 msgid "This file cannot be ejected"
 msgstr "Denne fil kan ikke skubbes ud"
 
-#: ../libcaja-private/caja-file.c:1336 ../libcaja-private/caja-vfs-file.c:628
+#: ../libcaja-private/caja-file.c:1337 ../libcaja-private/caja-vfs-file.c:628
 msgid "This file cannot be started"
 msgstr "Denne fil kan ikke startes"
 
-#: ../libcaja-private/caja-file.c:1388 ../libcaja-private/caja-file.c:1419
+#: ../libcaja-private/caja-file.c:1389 ../libcaja-private/caja-file.c:1420
 msgid "This file cannot be stopped"
 msgstr "Denne fil kan ikke stoppes"
 
-#: ../libcaja-private/caja-file.c:1827
+#: ../libcaja-private/caja-file.c:1828
 #, c-format
 msgid "Slashes are not allowed in filenames"
 msgstr "Skråstreger tillades ikke i filnavne"
 
-#: ../libcaja-private/caja-file.c:1845
+#: ../libcaja-private/caja-file.c:1846
 #, c-format
 msgid "File not found"
 msgstr "Filen ikke fundet"
 
-#: ../libcaja-private/caja-file.c:1873
+#: ../libcaja-private/caja-file.c:1874
 #, c-format
 msgid "Toplevel files cannot be renamed"
 msgstr "Topniveau-filer kan ikke omdøbes"
 
-#: ../libcaja-private/caja-file.c:1896
+#: ../libcaja-private/caja-file.c:1897
 #, c-format
 msgid "Unable to rename desktop icon"
 msgstr "Kan ikke omdøbe skrivebordsikon"
 
-#: ../libcaja-private/caja-file.c:1925
+#: ../libcaja-private/caja-file.c:1926
 #, c-format
 msgid "Unable to rename desktop file"
 msgstr "Kan ikke omdøbe skrivebordsfil"
@@ -1922,62 +1922,62 @@ msgstr "Kan ikke omdøbe skrivebordsfil"
 #. * between the "%" and any numeric directive will turn
 #. * off zero padding, and putting a "_" there will use
 #. * space padding instead of zero padding.
-#: ../libcaja-private/caja-file.c:4737
+#: ../libcaja-private/caja-file.c:4738
 msgid "today at 00:00:00 PM"
 msgstr "i dag kl. 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4738
+#: ../libcaja-private/caja-file.c:4739
 #: ../src/caja-file-management-properties.c:531
 msgid "today at %-I:%M:%S %p"
 msgstr "i dag kl. %-H:%M:%S"
 
-#: ../libcaja-private/caja-file.c:4740
+#: ../libcaja-private/caja-file.c:4741
 msgid "today at 00:00 PM"
 msgstr "i dag kl. 00:00"
 
-#: ../libcaja-private/caja-file.c:4741
+#: ../libcaja-private/caja-file.c:4742
 msgid "today at %-I:%M %p"
 msgstr "i dag kl. %-H:%M"
 
-#: ../libcaja-private/caja-file.c:4743
+#: ../libcaja-private/caja-file.c:4744
 msgid "today, 00:00 PM"
 msgstr "i dag, kl. 00:00"
 
-#: ../libcaja-private/caja-file.c:4744
+#: ../libcaja-private/caja-file.c:4745
 msgid "today, %-I:%M %p"
 msgstr "i dag, kl. %-H:%M"
 
-#: ../libcaja-private/caja-file.c:4746 ../libcaja-private/caja-file.c:4747
+#: ../libcaja-private/caja-file.c:4747 ../libcaja-private/caja-file.c:4748
 msgid "today"
 msgstr "i dag"
 
 #. Yesterday, use special word.
 #. * Note to localizers: Same issues as "today" string.
-#: ../libcaja-private/caja-file.c:4756
+#: ../libcaja-private/caja-file.c:4757
 msgid "yesterday at 00:00:00 PM"
 msgstr "i går kl. 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4757
+#: ../libcaja-private/caja-file.c:4758
 msgid "yesterday at %-I:%M:%S %p"
 msgstr "i går kl. %-H:%M:%S"
 
-#: ../libcaja-private/caja-file.c:4759
+#: ../libcaja-private/caja-file.c:4760
 msgid "yesterday at 00:00 PM"
 msgstr "i går kl. 00:00"
 
-#: ../libcaja-private/caja-file.c:4760
+#: ../libcaja-private/caja-file.c:4761
 msgid "yesterday at %-I:%M %p"
 msgstr "i går kl. %-H:%M"
 
-#: ../libcaja-private/caja-file.c:4762
+#: ../libcaja-private/caja-file.c:4763
 msgid "yesterday, 00:00 PM"
 msgstr "i går, kl. 00:00"
 
-#: ../libcaja-private/caja-file.c:4763
+#: ../libcaja-private/caja-file.c:4764
 msgid "yesterday, %-I:%M %p"
 msgstr "i går, kl. %-H:%M"
 
-#: ../libcaja-private/caja-file.c:4765 ../libcaja-private/caja-file.c:4766
+#: ../libcaja-private/caja-file.c:4766 ../libcaja-private/caja-file.c:4767
 msgid "yesterday"
 msgstr "i går"
 
@@ -1985,88 +1985,88 @@ msgstr "i går"
 #. * Note to localizers: Same issues as "today" string.
 #. * The width measurement templates correspond to
 #. * the day/month name with the most letters.
-#: ../libcaja-private/caja-file.c:4777
+#: ../libcaja-private/caja-file.c:4778
 msgid "Wednesday, September 00 0000 at 00:00:00 PM"
 msgstr "onsdag d. 0. september 0000 kl. 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4778
+#: ../libcaja-private/caja-file.c:4779
 msgid "%A, %B %-d %Y at %-I:%M:%S %p"
 msgstr "%A, %-d %B %Y kl. %-H:%M:%S"
 
-#: ../libcaja-private/caja-file.c:4780
+#: ../libcaja-private/caja-file.c:4781
 msgid "Mon, Oct 00 0000 at 00:00:00 PM"
 msgstr "man. d. 0. okt. 0000 kl. 00:00:00"
 
-#: ../libcaja-private/caja-file.c:4781
+#: ../libcaja-private/caja-file.c:4782
 msgid "%a, %b %-d %Y at %-I:%M:%S %p"
 msgstr "%a d. %-d. %b. %Y kl. %-H:%M:%S"
 
-#: ../libcaja-private/caja-file.c:4783
+#: ../libcaja-private/caja-file.c:4784
 msgid "Mon, Oct 00 0000 at 00:00 PM"
 msgstr "ons. d. 0. okt. 0000 kl. 00:00"
 
-#: ../libcaja-private/caja-file.c:4784
+#: ../libcaja-private/caja-file.c:4785
 msgid "%a, %b %-d %Y at %-I:%M %p"
 msgstr "%a d. %-d. %b. %Y kl. %-H:%M"
 
-#: ../libcaja-private/caja-file.c:4786
+#: ../libcaja-private/caja-file.c:4787
 msgid "Oct 00 0000 at 00:00 PM"
 msgstr "0. okt 0000 kl. 00:00"
 
-#: ../libcaja-private/caja-file.c:4787
+#: ../libcaja-private/caja-file.c:4788
 msgid "%b %-d %Y at %-I:%M %p"
 msgstr "%-d/%-m-%Y kl. %H:%M"
 
-#: ../libcaja-private/caja-file.c:4789
+#: ../libcaja-private/caja-file.c:4790
 msgid "Oct 00 0000, 00:00 PM"
 msgstr "0. okt 0000, 01:00"
 
-#: ../libcaja-private/caja-file.c:4790
+#: ../libcaja-private/caja-file.c:4791
 msgid "%b %-d %Y, %-I:%M %p"
 msgstr "%-d/%-m-%Y, %H:%M"
 
-#: ../libcaja-private/caja-file.c:4792
+#: ../libcaja-private/caja-file.c:4793
 msgid "00/00/00, 00:00 PM"
 msgstr "00/00-00, 01:00"
 
-#: ../libcaja-private/caja-file.c:4793
+#: ../libcaja-private/caja-file.c:4794
 msgid "%m/%-d/%y, %-I:%M %p"
 msgstr "%-d/%-m-%Y, %H:%M"
 
-#: ../libcaja-private/caja-file.c:4795
+#: ../libcaja-private/caja-file.c:4796
 msgid "00/00/00"
 msgstr "00/00-00"
 
-#: ../libcaja-private/caja-file.c:4796
+#: ../libcaja-private/caja-file.c:4797
 msgid "%m/%d/%y"
 msgstr "%-d/%-m-%y"
 
-#: ../libcaja-private/caja-file.c:5435
+#: ../libcaja-private/caja-file.c:5436
 #, c-format
 msgid "Not allowed to set permissions"
 msgstr "Har ikke tilladelse til at ændre rettigheder"
 
-#: ../libcaja-private/caja-file.c:5729
+#: ../libcaja-private/caja-file.c:5730
 #, c-format
 msgid "Not allowed to set owner"
 msgstr "Har ikke tilladelse til at ændre ejer"
 
-#: ../libcaja-private/caja-file.c:5747
+#: ../libcaja-private/caja-file.c:5748
 #, c-format
 msgid "Specified owner '%s' doesn't exist"
 msgstr "Den angivne ejer »%s« findes ikke"
 
-#: ../libcaja-private/caja-file.c:6007
+#: ../libcaja-private/caja-file.c:6008
 #, c-format
 msgid "Not allowed to set group"
 msgstr "Har ikke tilladelse til at ændre gruppe"
 
-#: ../libcaja-private/caja-file.c:6025
+#: ../libcaja-private/caja-file.c:6026
 #, c-format
 msgid "Specified group '%s' doesn't exist"
 msgstr "Angivne gruppe »%s« findes ikke"
 
-#: ../libcaja-private/caja-file.c:6179
+#: ../libcaja-private/caja-file.c:6180
 #: ../src/file-manager/fm-directory-view.c:2384
 #, c-format
 msgid "%'u item"
@@ -2074,14 +2074,14 @@ msgid_plural "%'u items"
 msgstr[0] "%'u objekt"
 msgstr[1] "%'u objekter"
 
-#: ../libcaja-private/caja-file.c:6180
+#: ../libcaja-private/caja-file.c:6181
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
 msgstr[0] "%'u mappe"
 msgstr[1] "%'u mapper"
 
-#: ../libcaja-private/caja-file.c:6181
+#: ../libcaja-private/caja-file.c:6182
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
@@ -2090,49 +2090,49 @@ msgstr[1] "%'u filer"
 
 #. Do this in a separate stage so that we don't have to put G_GUINT64_FORMAT
 #. in the translated string
-#: ../libcaja-private/caja-file.c:6285
+#: ../libcaja-private/caja-file.c:6286
 msgid "%"
 msgstr "%"
 
-#: ../libcaja-private/caja-file.c:6286
+#: ../libcaja-private/caja-file.c:6287
 #, c-format
 msgid "%s (%s bytes)"
 msgstr "%s (%s bytes)"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6636 ../libcaja-private/caja-file.c:6660
+#: ../libcaja-private/caja-file.c:6637 ../libcaja-private/caja-file.c:6661
 msgid "? items"
 msgstr "? objekter"
 
 #. This means no contents at all were readable
-#: ../libcaja-private/caja-file.c:6642 ../libcaja-private/caja-file.c:6650
+#: ../libcaja-private/caja-file.c:6643 ../libcaja-private/caja-file.c:6651
 msgid "? bytes"
 msgstr "? byte"
 
-#: ../libcaja-private/caja-file.c:6665
+#: ../libcaja-private/caja-file.c:6666
 msgid "unknown type"
 msgstr "ukendt type"
 
-#: ../libcaja-private/caja-file.c:6668
+#: ../libcaja-private/caja-file.c:6669
 msgid "unknown MIME type"
 msgstr "ukendt MIME-type"
 
 #. Fallback, use for both unknown attributes and attributes
 #. * for which we have no more appropriate default.
-#: ../libcaja-private/caja-file.c:6682
+#: ../libcaja-private/caja-file.c:6683
 #: ../src/file-manager/fm-properties-window.c:1289
 msgid "unknown"
 msgstr "Ukendt"
 
-#: ../libcaja-private/caja-file.c:6732
+#: ../libcaja-private/caja-file.c:6733
 msgid "program"
 msgstr "program"
 
-#: ../libcaja-private/caja-file.c:6752
+#: ../libcaja-private/caja-file.c:6753
 msgid "link"
 msgstr "henvisning"
 
-#: ../libcaja-private/caja-file.c:6774
+#: ../libcaja-private/caja-file.c:6775
 msgid "link (broken)"
 msgstr "henvisning (ødelagt)"
 
@@ -2565,388 +2565,388 @@ msgstr "Proces fuldført"
 msgid "Preparing"
 msgstr "Forbereder"
 
-#: ../libcaja-private/caja-query.c:161
+#: ../libcaja-private/caja-query.c:165
 #: ../libcaja-private/caja-search-directory-file.c:176
 #: ../libcaja-private/caja-search-directory-file.c:205
 #: ../libcaja-private/caja-search-directory-file.c:238
 msgid "Search"
 msgstr "Søg"
 
-#: ../libcaja-private/caja-query.c:164
+#: ../libcaja-private/caja-query.c:168
 #, c-format
 msgid "Search for \"%s\""
 msgstr "Søg efter »%s«"
 
-#: ../libcaja-private/caja-undostack-manager.c:1175
+#: ../libcaja-private/caja-undostack-manager.c:1169
 #, c-format
 msgid "Delete %d copied items"
 msgstr "Slet %d kopierede filer"
 
-#: ../libcaja-private/caja-undostack-manager.c:1178
-#: ../libcaja-private/caja-undostack-manager.c:1188
-#: ../libcaja-private/caja-undostack-manager.c:1219
+#: ../libcaja-private/caja-undostack-manager.c:1172
+#: ../libcaja-private/caja-undostack-manager.c:1182
+#: ../libcaja-private/caja-undostack-manager.c:1213
 #, c-format
 msgid "Delete '%s'"
 msgstr "Slet »%s«"
 
-#: ../libcaja-private/caja-undostack-manager.c:1185
+#: ../libcaja-private/caja-undostack-manager.c:1179
 #, c-format
 msgid "Delete %d duplicated items"
 msgstr "Slet %d duplikerede filer"
 
-#: ../libcaja-private/caja-undostack-manager.c:1196
+#: ../libcaja-private/caja-undostack-manager.c:1190
 #, c-format
 msgid "Move %d items back to '%s'"
 msgstr "Flyt %d filer tilbage til »%s«"
 
-#: ../libcaja-private/caja-undostack-manager.c:1200
+#: ../libcaja-private/caja-undostack-manager.c:1194
 #, c-format
 msgid "Move '%s' back to '%s'"
 msgstr "Flyt »%s« tilbage til »%s«"
 
-#: ../libcaja-private/caja-undostack-manager.c:1209
-#: ../libcaja-private/caja-undostack-manager.c:1376
+#: ../libcaja-private/caja-undostack-manager.c:1203
+#: ../libcaja-private/caja-undostack-manager.c:1370
 #, c-format
 msgid "Rename '%s' as '%s'"
 msgstr "Omdøb »%s« til »%s«"
 
-#: ../libcaja-private/caja-undostack-manager.c:1228
-#: ../libcaja-private/caja-undostack-manager.c:1423
+#: ../libcaja-private/caja-undostack-manager.c:1222
+#: ../libcaja-private/caja-undostack-manager.c:1417
 #, c-format
 msgid "Restore %d items from trash"
 msgstr "Gendan %d filer fra papirkurv"
 
-#: ../libcaja-private/caja-undostack-manager.c:1236
+#: ../libcaja-private/caja-undostack-manager.c:1230
 #, c-format
 msgid "Restore '%s' to '%s'"
 msgstr "Gendan »%s« til »%s«"
 
-#: ../libcaja-private/caja-undostack-manager.c:1247
+#: ../libcaja-private/caja-undostack-manager.c:1241
 #, c-format
 msgid "Move %d items back to trash"
 msgstr "Flyt %d filer tilbage til papirkurven"
 
-#: ../libcaja-private/caja-undostack-manager.c:1250
+#: ../libcaja-private/caja-undostack-manager.c:1244
 #, c-format
 msgid "Move '%s' back to trash"
 msgstr "Flyt »%s« tilbage til papirkurven"
 
-#: ../libcaja-private/caja-undostack-manager.c:1259
+#: ../libcaja-private/caja-undostack-manager.c:1253
 #, c-format
 msgid "Delete links to %d items"
 msgstr "Slet henvisninger til %d filer"
 
-#: ../libcaja-private/caja-undostack-manager.c:1262
+#: ../libcaja-private/caja-undostack-manager.c:1256
 #, c-format
 msgid "Delete link to '%s'"
 msgstr "Slet henvisning til »%s«"
 
-#: ../libcaja-private/caja-undostack-manager.c:1272
+#: ../libcaja-private/caja-undostack-manager.c:1266
 #, c-format
 msgid "Restore original permissions of items enclosed in '%s'"
 msgstr "Gendan originale rettigheder for filer indeholdt i »%s«"
 
-#: ../libcaja-private/caja-undostack-manager.c:1280
+#: ../libcaja-private/caja-undostack-manager.c:1274
 #, c-format
 msgid "Restore original permissions of '%s'"
 msgstr "Gendan originale rettigheder for »%s«"
 
-#: ../libcaja-private/caja-undostack-manager.c:1289
+#: ../libcaja-private/caja-undostack-manager.c:1283
 #, c-format
 msgid "Restore group of '%s' to '%s'"
 msgstr "Gendan gruppe af »%s« til »%s«"
 
-#: ../libcaja-private/caja-undostack-manager.c:1299
+#: ../libcaja-private/caja-undostack-manager.c:1293
 #, c-format
 msgid "Restore owner of '%s' to '%s'"
 msgstr "Gendan ejer for »%s« til »%s«"
 
-#: ../libcaja-private/caja-undostack-manager.c:1338
+#: ../libcaja-private/caja-undostack-manager.c:1332
 #, c-format
 msgid "Copy %d items to '%s'"
 msgstr "Kopier %d filer til »%s«"
 
-#: ../libcaja-private/caja-undostack-manager.c:1342
+#: ../libcaja-private/caja-undostack-manager.c:1336
 #, c-format
 msgid "Copy '%s' to '%s'"
 msgstr "Kopier »%s« til »%s«"
 
-#: ../libcaja-private/caja-undostack-manager.c:1350
+#: ../libcaja-private/caja-undostack-manager.c:1344
 #, c-format
 msgid "Duplicate of %d items in '%s'"
 msgstr "Duplikering af %d filer i »%s«"
 
-#: ../libcaja-private/caja-undostack-manager.c:1355
+#: ../libcaja-private/caja-undostack-manager.c:1349
 #, c-format
 msgid "Duplicate '%s' in '%s'"
 msgstr "Dupliker »%s« i »%s«"
 
-#: ../libcaja-private/caja-undostack-manager.c:1363
+#: ../libcaja-private/caja-undostack-manager.c:1357
 #, c-format
 msgid "Move %d items to '%s'"
 msgstr "Flyt %d filer til »%s«"
 
-#: ../libcaja-private/caja-undostack-manager.c:1367
+#: ../libcaja-private/caja-undostack-manager.c:1361
 #, c-format
 msgid "Move '%s' to '%s'"
 msgstr "Flyt »%s« til »%s«"
 
-#: ../libcaja-private/caja-undostack-manager.c:1385
+#: ../libcaja-private/caja-undostack-manager.c:1379
 #, c-format
 msgid "Create new file '%s' from template "
 msgstr "Opret ny fil »%s« fra skabelon"
 
-#: ../libcaja-private/caja-undostack-manager.c:1392
+#: ../libcaja-private/caja-undostack-manager.c:1386
 #, c-format
 msgid "Create an empty file '%s'"
 msgstr "Opret en tom fil »%s«"
 
-#: ../libcaja-private/caja-undostack-manager.c:1399
+#: ../libcaja-private/caja-undostack-manager.c:1393
 #, c-format
 msgid "Create a new folder '%s'"
 msgstr "Opret en ny  mappe »%s«"
 
-#: ../libcaja-private/caja-undostack-manager.c:1407
+#: ../libcaja-private/caja-undostack-manager.c:1401
 #, c-format
 msgid "Move %d items to trash"
 msgstr "Flyt %d filer til papirkurven"
 
-#: ../libcaja-private/caja-undostack-manager.c:1413
+#: ../libcaja-private/caja-undostack-manager.c:1407
 #, c-format
 msgid "Move '%s' to trash"
 msgstr "Flyt »%s« til papirkurven"
 
-#: ../libcaja-private/caja-undostack-manager.c:1426
+#: ../libcaja-private/caja-undostack-manager.c:1420
 #, c-format
 msgid "Restore '%s' from trash"
 msgstr "Gendan »%s« fra papirkurven"
 
-#: ../libcaja-private/caja-undostack-manager.c:1435
+#: ../libcaja-private/caja-undostack-manager.c:1429
 #, c-format
 msgid "Create links to %d items"
 msgstr "Opret henvisninger til %d filer"
 
-#: ../libcaja-private/caja-undostack-manager.c:1438
+#: ../libcaja-private/caja-undostack-manager.c:1432
 #, c-format
 msgid "Create link to '%s'"
 msgstr "Opret henvisning til »%s«"
 
-#: ../libcaja-private/caja-undostack-manager.c:1447
+#: ../libcaja-private/caja-undostack-manager.c:1441
 #, c-format
 msgid "Set permissions of items enclosed in '%s'"
 msgstr "Angiv rettigheder for filer indeholdt i »%s«"
 
-#: ../libcaja-private/caja-undostack-manager.c:1455
+#: ../libcaja-private/caja-undostack-manager.c:1449
 #, c-format
 msgid "Set permissions of '%s'"
 msgstr "Angiv rettigheder for »%s«"
 
-#: ../libcaja-private/caja-undostack-manager.c:1464
+#: ../libcaja-private/caja-undostack-manager.c:1458
 #, c-format
 msgid "Set group of '%s' to '%s'"
 msgstr "Angiv gruppe for »%s« til »%s«"
 
-#: ../libcaja-private/caja-undostack-manager.c:1474
+#: ../libcaja-private/caja-undostack-manager.c:1468
 #, c-format
 msgid "Set owner of '%s' to '%s'"
 msgstr "Angiv ejer for »%s« til »%s«"
 
-#: ../libcaja-private/caja-undostack-manager.c:1506
+#: ../libcaja-private/caja-undostack-manager.c:1500
 #, c-format
 msgid "_Undo copy of %d item"
 msgid_plural "_Undo copy of %d items"
 msgstr[0] "_Fortryd kopiering af %d fil"
 msgstr[1] "_Fortryd kopiering af %d filer"
 
-#: ../libcaja-private/caja-undostack-manager.c:1511
+#: ../libcaja-private/caja-undostack-manager.c:1505
 #, c-format
 msgid "_Undo duplicate of %d item"
 msgid_plural "_Undo duplicate of %d items"
 msgstr[0] "_Fortryd duplikering af %d fil"
 msgstr[1] "_Fortryd duplikering af %d filer"
 
-#: ../libcaja-private/caja-undostack-manager.c:1516
+#: ../libcaja-private/caja-undostack-manager.c:1510
 #, c-format
 msgid "_Undo move of %d item"
 msgid_plural "_Undo move of %d items"
 msgstr[0] "_Fortryd flytning af %d fil"
 msgstr[1] "_Fortryd flytning af %d filer"
 
-#: ../libcaja-private/caja-undostack-manager.c:1521
+#: ../libcaja-private/caja-undostack-manager.c:1515
 #, c-format
 msgid "_Undo rename of %d item"
 msgid_plural "_Undo rename of %d items"
 msgstr[0] "_Fortryd omdøb af %d fil"
 msgstr[1] "_Fortryd omdøb af %d filer"
 
-#: ../libcaja-private/caja-undostack-manager.c:1525
+#: ../libcaja-private/caja-undostack-manager.c:1519
 #, c-format
 msgid "_Undo creation of an empty file"
 msgstr "_Fortryd oprettelse af en tom fil"
 
-#: ../libcaja-private/caja-undostack-manager.c:1528
+#: ../libcaja-private/caja-undostack-manager.c:1522
 #, c-format
 msgid "_Undo creation of a file from template"
 msgstr "_Fortryd oprettelse af en fil fra skabelon"
 
-#: ../libcaja-private/caja-undostack-manager.c:1532
+#: ../libcaja-private/caja-undostack-manager.c:1526
 #, c-format
 msgid "_Undo creation of %d folder"
 msgid_plural "_Undo creation of %d folders"
 msgstr[0] "_Fortryd oprettelse af %d mappe"
 msgstr[1] "_Fortryd oprettelse af %d mapper"
 
-#: ../libcaja-private/caja-undostack-manager.c:1537
+#: ../libcaja-private/caja-undostack-manager.c:1531
 #, c-format
 msgid "_Undo move to trash of %d item"
 msgid_plural "_Undo move to trash of %d items"
 msgstr[0] "_Fortryd flytning til papirkurven af %d fil"
 msgstr[1] "_Fortryd flytning til papirkurven af %d filer"
 
-#: ../libcaja-private/caja-undostack-manager.c:1542
+#: ../libcaja-private/caja-undostack-manager.c:1536
 #, c-format
 msgid "_Undo restore from trash of %d item"
 msgid_plural "_Undo restore from trash of %d items"
 msgstr[0] "_Fortryd gendan fra papirkurv for %d fil"
 msgstr[1] "_Fortryd gendan fra papirkurv for %d filer"
 
-#: ../libcaja-private/caja-undostack-manager.c:1547
+#: ../libcaja-private/caja-undostack-manager.c:1541
 #, c-format
 msgid "_Undo create link to %d item"
 msgid_plural "_Undo create link to %d items"
 msgstr[0] "_Fortryd opret henvisning til %d fil"
 msgstr[1] "_Fortryd opret henvisning til %d filer"
 
-#: ../libcaja-private/caja-undostack-manager.c:1552
+#: ../libcaja-private/caja-undostack-manager.c:1546
 #, c-format
 msgid "_Undo delete of %d item"
 msgid_plural "_Undo delete of %d items"
 msgstr[0] "_Fortryd slet af %d fil"
 msgstr[1] "_Fortryd slet af %d filer"
 
-#: ../libcaja-private/caja-undostack-manager.c:1557
+#: ../libcaja-private/caja-undostack-manager.c:1551
 #, c-format
 msgid "Undo recursive change permissions of %d item"
 msgid_plural "Undo recursive change permissions of %d items"
 msgstr[0] "Fortryd rekursive ændringsrettigheder for %d fil"
 msgstr[1] "Fortryd rekursive ændringsrettigheder for %d filer"
 
-#: ../libcaja-private/caja-undostack-manager.c:1563
+#: ../libcaja-private/caja-undostack-manager.c:1557
 #, c-format
 msgid "Undo change permissions of %d item"
 msgid_plural "Undo change permissions of %d items"
 msgstr[0] "Fortryd ændring af rettigheder for %d fil"
 msgstr[1] "Fortryd ændring af rettigheder for %d filer"
 
-#: ../libcaja-private/caja-undostack-manager.c:1568
+#: ../libcaja-private/caja-undostack-manager.c:1562
 #, c-format
 msgid "Undo change group of %d item"
 msgid_plural "Undo change group of %d items"
 msgstr[0] "Fortryd ændring af gruppe for %d fil"
 msgstr[1] "Fortryd ændring af gruppe for %d filer"
 
-#: ../libcaja-private/caja-undostack-manager.c:1573
+#: ../libcaja-private/caja-undostack-manager.c:1567
 #, c-format
 msgid "Undo change owner of %d item"
 msgid_plural "Undo change owner of %d items"
 msgstr[0] "Fortryd ændring af ejer for %d fil"
 msgstr[1] "Fortryd ændring af ejer for %d filer"
 
-#: ../libcaja-private/caja-undostack-manager.c:1601
+#: ../libcaja-private/caja-undostack-manager.c:1595
 #, c-format
 msgid "_Redo copy of %d item"
 msgid_plural "_Redo copy of %d items"
 msgstr[0] "_Gendan kopi af %d fil"
 msgstr[1] "_Gendan kopi af %d filer"
 
-#: ../libcaja-private/caja-undostack-manager.c:1606
+#: ../libcaja-private/caja-undostack-manager.c:1600
 #, c-format
 msgid "_Redo duplicate of %d item"
 msgid_plural "_Redo duplicate of %d items"
 msgstr[0] "_Gendan duplikat af %d fil"
 msgstr[1] "_Gendan duplikat af %d filer"
 
-#: ../libcaja-private/caja-undostack-manager.c:1611
+#: ../libcaja-private/caja-undostack-manager.c:1605
 #, c-format
 msgid "_Redo move of %d item"
 msgid_plural "_Redo move of %d items"
 msgstr[0] "_Gendan flytning af %d fil"
 msgstr[1] "_Gendan flytning af %d filer"
 
-#: ../libcaja-private/caja-undostack-manager.c:1616
+#: ../libcaja-private/caja-undostack-manager.c:1610
 #, c-format
 msgid "_Redo rename of %d item"
 msgid_plural "_Redo rename of %d items"
 msgstr[0] "_Gendan omdøb af %d fil"
 msgstr[1] "_Gendan omdøb af %d filer"
 
-#: ../libcaja-private/caja-undostack-manager.c:1620
+#: ../libcaja-private/caja-undostack-manager.c:1614
 #, c-format
 msgid "_Redo creation of an empty file"
 msgstr "_Gendan oprettelse af en tom fil"
 
-#: ../libcaja-private/caja-undostack-manager.c:1623
+#: ../libcaja-private/caja-undostack-manager.c:1617
 #, c-format
 msgid "_Redo creation of a file from template"
 msgstr "_Gendan oprettelse af en fil fra skabelon"
 
-#: ../libcaja-private/caja-undostack-manager.c:1627
+#: ../libcaja-private/caja-undostack-manager.c:1621
 #, c-format
 msgid "_Redo creation of %d folder"
 msgid_plural "_Redo creation of %d folders"
 msgstr[0] "_Gendan oprettelse af %d mappe"
 msgstr[1] "_Gendan oprettelse af %d mapper"
 
-#: ../libcaja-private/caja-undostack-manager.c:1632
+#: ../libcaja-private/caja-undostack-manager.c:1626
 #, c-format
 msgid "_Redo move to trash of %d item"
 msgid_plural "_Redo move to trash of %d items"
 msgstr[0] "_Gendan flytning til papirkurv for %d fil"
 msgstr[1] "_Gendan flytning til papirkurv for %d filer"
 
-#: ../libcaja-private/caja-undostack-manager.c:1637
+#: ../libcaja-private/caja-undostack-manager.c:1631
 #, c-format
 msgid "_Redo restore from trash of %d item"
 msgid_plural "_Redo restore from trash of %d items"
 msgstr[0] "_Gendan gendan fra papirkurv for %d fil"
 msgstr[1] "_Gendan gendan fra papirkurv for %d filer"
 
-#: ../libcaja-private/caja-undostack-manager.c:1642
+#: ../libcaja-private/caja-undostack-manager.c:1636
 #, c-format
 msgid "_Redo create link to %d item"
 msgid_plural "_Redo create link to %d items"
 msgstr[0] "_Gendan opret henvisning for %d fil"
 msgstr[1] "_Gendan opret henvisning for %d filer"
 
-#: ../libcaja-private/caja-undostack-manager.c:1647
+#: ../libcaja-private/caja-undostack-manager.c:1641
 #, c-format
 msgid "_Redo delete of %d item"
 msgid_plural "_Redo delete of %d items"
 msgstr[0] "_Gendan slet for %d fil"
 msgstr[1] "_Gendan slet for %d filer"
 
-#: ../libcaja-private/caja-undostack-manager.c:1652
+#: ../libcaja-private/caja-undostack-manager.c:1646
 #, c-format
 msgid "Redo recursive change permissions of %d item"
 msgid_plural "Redo recursive change permissions of %d items"
 msgstr[0] "Gendan rekursiv ændring af rettigheder for %d fil"
 msgstr[1] "Gendan rekursiv ændring af rettigheder for %d filer"
 
-#: ../libcaja-private/caja-undostack-manager.c:1658
+#: ../libcaja-private/caja-undostack-manager.c:1652
 #, c-format
 msgid "Redo change permissions of %d item"
 msgid_plural "Redo change permissions of %d items"
 msgstr[0] "Gendan ændring af rettigheder for %d fil"
 msgstr[1] "Gendan ændring af rettigheder for %d filer"
 
-#: ../libcaja-private/caja-undostack-manager.c:1663
+#: ../libcaja-private/caja-undostack-manager.c:1657
 #, c-format
 msgid "Redo change group of %d item"
 msgid_plural "Redo change group of %d items"
 msgstr[0] "Gendan ændring af gruppe for %d fil"
 msgstr[1] "Gendan ændring af gruppe for %d filer"
 
-#: ../libcaja-private/caja-undostack-manager.c:1668
+#: ../libcaja-private/caja-undostack-manager.c:1662
 #, c-format
 msgid "Redo change owner of %d item"
 msgid_plural "Redo change owner of %d items"
@@ -3872,41 +3872,41 @@ msgstr "Kan ikke give dokument-URI'er til et »Type=Link«-skrivebordselement"
 msgid "Not a launchable item"
 msgstr "Ikke et kørbart element"
 
-#: ../libegg/eggsmclient.c:236
+#: ../libegg/eggsmclient.c:233
 msgid "Disable connection to session manager"
 msgstr "Deaktiver forbindelse til sessionshåndtering"
 
-#: ../libegg/eggsmclient.c:241
+#: ../libegg/eggsmclient.c:238
 msgid "Specify file containing saved configuration"
 msgstr "Specificer fil som indeholder gemt konfiguration"
 
-#: ../libegg/eggsmclient.c:241
+#: ../libegg/eggsmclient.c:238
 msgid "FILE"
 msgstr "FIL"
 
-#: ../libegg/eggsmclient.c:246
+#: ../libegg/eggsmclient.c:243
 msgid "Specify session management ID"
 msgstr "Specificer sessionshåndterings-ID"
 
-#: ../libegg/eggsmclient.c:246
+#: ../libegg/eggsmclient.c:243
 msgid "ID"
 msgstr "Id"
 
-#: ../libegg/eggsmclient.c:272
+#: ../libegg/eggsmclient.c:269
 msgid "Session management options:"
 msgstr "Sessionhåndteringsindstillinger:"
 
-#: ../libegg/eggsmclient.c:273
+#: ../libegg/eggsmclient.c:270
 msgid "Show session management options"
 msgstr "Vis sessionhåndteringsindstillinger"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:676
+#: ../src/file-manager/fm-desktop-icon-view.c:672
 msgid "Background"
 msgstr "Baggrund"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:753
+#: ../src/file-manager/fm-desktop-icon-view.c:749
 #: ../src/file-manager/fm-directory-view.c:7374
 #: ../src/file-manager/fm-directory-view.c:9058
 msgid "E_mpty Trash"
@@ -3915,44 +3915,44 @@ msgstr "_Tøm papirkurv"
 #. label, accelerator
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:767
+#: ../src/file-manager/fm-desktop-icon-view.c:763
 #: ../src/file-manager/fm-directory-view.c:7338
 msgid "Create L_auncher..."
 msgstr "Opret _genvej …"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:769
+#: ../src/file-manager/fm-desktop-icon-view.c:765
 #: ../src/file-manager/fm-directory-view.c:7339
 msgid "Create a new launcher"
 msgstr "Opret genvej"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:776
+#: ../src/file-manager/fm-desktop-icon-view.c:772
 msgid "Change Desktop _Background"
 msgstr "Skift _baggrund"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:778
+#: ../src/file-manager/fm-desktop-icon-view.c:774
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr "Vælg mønstret eller farven på din skrivebordsbaggrund"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:785
+#: ../src/file-manager/fm-desktop-icon-view.c:781
 msgid "Empty Trash"
 msgstr "Tøm papirkurv"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:787
-#: ../src/file-manager/fm-directory-view.c:7375 ../src/caja-trash-bar.c:204
+#: ../src/file-manager/fm-desktop-icon-view.c:783
+#: ../src/file-manager/fm-directory-view.c:7375 ../src/caja-trash-bar.c:202
 msgid "Delete all items in the Trash"
 msgstr "Slet alle elementer i papirkurven"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:887
+#: ../src/file-manager/fm-desktop-icon-view.c:883
 msgid "The desktop view encountered an error."
 msgstr "Skrivebordsvisningen stødte på en fejl."
 
-#: ../src/file-manager/fm-desktop-icon-view.c:888
+#: ../src/file-manager/fm-desktop-icon-view.c:884
 msgid "The desktop view encountered an error while starting up."
 msgstr "Skrivebordsvisningen stødte på en fejl ved start."
 
@@ -3985,11 +3985,11 @@ msgstr "Vælg objekter der matcher"
 #: ../src/file-manager/fm-directory-view.c:1206
 #: ../src/file-manager/fm-properties-window.c:5183
 #: ../src/caja-bookmarks-window.ui.h:2
-#: ../src/caja-connect-server-dialog.c:1117 ../src/caja-emblem-sidebar.c:298
+#: ../src/caja-connect-server-dialog.c:1116 ../src/caja-emblem-sidebar.c:298
 #: ../src/caja-emblem-sidebar.c:555
 #: ../src/caja-file-management-properties.ui.h:42
-#: ../src/caja-location-dialog.c:189 ../src/caja-property-browser.c:390
-#: ../src/caja-window-menus.c:854
+#: ../src/caja-location-dialog.c:189 ../src/caja-property-browser.c:386
+#: ../src/caja-window-menus.c:911
 msgid "_Help"
 msgstr "_Hjælp"
 
@@ -4122,7 +4122,7 @@ msgid "%s%s, %s, %s"
 msgstr "%s%s, %s, %s"
 
 #: ../src/file-manager/fm-directory-view.c:4493
-#: ../src/caja-information-panel.c:903
+#: ../src/caja-information-panel.c:900
 #, c-format
 msgid "Open With %s"
 msgstr "Åbn med %s"
@@ -4656,7 +4656,7 @@ msgstr "Start den valgte diskenhed"
 #: ../src/file-manager/fm-directory-view.c:8383
 #: ../src/file-manager/fm-directory-view.c:8493
 #: ../src/caja-places-sidebar.c:1805 ../src/caja-places-sidebar.c:2763
-#: ../src/caja-window-menus.c:881
+#: ../src/caja-window-menus.c:938
 msgid "_Stop"
 msgstr "_Stop"
 
@@ -4837,7 +4837,7 @@ msgstr "Flyt den nuværende markering til den anden rude i vinduet"
 #. name, icon name
 #. label, accelerator
 #: ../src/file-manager/fm-directory-view.c:7610
-#: ../src/file-manager/fm-directory-view.c:7614 ../src/caja-window-menus.c:936
+#: ../src/file-manager/fm-directory-view.c:7614 ../src/caja-window-menus.c:993
 msgid "_Home Folder"
 msgstr "_Hjemmemappe"
 
@@ -5576,7 +5576,7 @@ msgstr "%s synlige kolonner"
 #: ../src/file-manager/fm-properties-window.c:5188
 #: ../src/caja-bookmarks-window.ui.h:5
 #: ../src/caja-file-management-properties.ui.h:43
-#: ../src/caja-property-browser.c:398 ../src/caja-window-menus.c:856
+#: ../src/caja-property-browser.c:394 ../src/caja-window-menus.c:913
 msgid "_Close"
 msgstr "_Luk"
 
@@ -5617,23 +5617,23 @@ msgid "You cannot assign more than one custom icon at a time!"
 msgstr "Du kan ikke tildele mere end et brugerdefineret ikon ad gangen!"
 
 #: ../src/file-manager/fm-properties-window.c:506
-#: ../src/caja-information-panel.c:528
+#: ../src/caja-information-panel.c:525
 msgid "Please drag just one image to set a custom icon."
 msgstr "Træk venligst kun et billede for at vælge et brugerdefineret ikon."
 
 #: ../src/file-manager/fm-properties-window.c:517
-#: ../src/caja-information-panel.c:555
+#: ../src/caja-information-panel.c:552
 msgid "The file that you dropped is not local."
 msgstr "Filen du slap, er ikke lokal."
 
 #: ../src/file-manager/fm-properties-window.c:518
 #: ../src/file-manager/fm-properties-window.c:524
-#: ../src/caja-information-panel.c:556
+#: ../src/caja-information-panel.c:553
 msgid "You can only use local images as custom icons."
 msgstr "Du kan kun bruge lokale billeder som brugerdefinerede ikoner."
 
 #: ../src/file-manager/fm-properties-window.c:523
-#: ../src/caja-information-panel.c:563
+#: ../src/caja-information-panel.c:560
 msgid "The file that you dropped is not an image."
 msgstr "Filen du slap, er ikke et billede."
 
@@ -5943,12 +5943,12 @@ msgstr "Træ"
 msgid "Show Tree"
 msgstr "Vis træ"
 
-#: ../src/caja-application.c:543
+#: ../src/caja-application.c:542
 #, c-format
 msgid "Caja could not create the required folder \"%s\"."
 msgstr "Kunne ikke oprette den påkrævede mappe »%s«."
 
-#: ../src/caja-application.c:545
+#: ../src/caja-application.c:544
 msgid ""
 "Before running Caja, please create the following folder, or set permissions "
 "such that Caja can create it."
@@ -5956,12 +5956,12 @@ msgstr ""
 "Opret denne mappe eller ændr rettighederne sådan at Caja kan oprette den, "
 "før du kører programmet igen."
 
-#: ../src/caja-application.c:550
+#: ../src/caja-application.c:549
 #, c-format
 msgid "Caja could not create the following required folders: %s."
 msgstr "Caja kunne ikke oprette de følgende påkrævede mapper: %s."
 
-#: ../src/caja-application.c:552
+#: ../src/caja-application.c:551
 msgid ""
 "Before running Caja, please create these folders, or set permissions such "
 "that Caja can create them."
@@ -5969,52 +5969,52 @@ msgstr ""
 "Opret disse mapper eller ændr rettighederne sådan at Caja kan oprette dem, "
 "før du kører programmet igen."
 
-#: ../src/caja-application.c:1326 ../src/caja-places-sidebar.c:2210
+#: ../src/caja-application.c:1325 ../src/caja-places-sidebar.c:2210
 #: ../src/caja-places-sidebar.c:2241 ../src/caja-places-sidebar.c:2276
 #, c-format
 msgid "Unable to eject %s"
 msgstr "Kan ikke skubbe %s ud"
 
-#: ../src/caja-application.c:1999
+#: ../src/caja-application.c:1998
 msgid "--check cannot be used with other options."
 msgstr "--check kan ikke bruges med andre tilvalg."
 
-#: ../src/caja-application.c:2005
+#: ../src/caja-application.c:2004
 msgid "--quit cannot be used with URIs."
 msgstr "--quit kan ikke bruges med URI'er."
 
-#: ../src/caja-application.c:2012
+#: ../src/caja-application.c:2011
 msgid "--geometry cannot be used with more than one URI."
 msgstr "--geometry kan ikke bruges med mere end en URI."
 
-#: ../src/caja-application.c:2076
+#: ../src/caja-application.c:2075
 msgid "Perform a quick set of self-check tests."
 msgstr "Udfør et hurtigt sæt af selvtjek-kontroller."
 
-#: ../src/caja-application.c:2079
+#: ../src/caja-application.c:2078
 msgid "Show the version of the program."
 msgstr "Vis programmets version."
 
-#: ../src/caja-application.c:2081
+#: ../src/caja-application.c:2080
 msgid "Create the initial window with the given geometry."
 msgstr "Opret det første vindue med den angivne geometri."
 
-#: ../src/caja-application.c:2081
+#: ../src/caja-application.c:2080
 msgid "GEOMETRY"
 msgstr "GEOMETRI"
 
-#: ../src/caja-application.c:2083
+#: ../src/caja-application.c:2082
 msgid "Only create windows for explicitly specified URIs."
 msgstr "Opret kun vinduer til eksplicit angivne URI'er."
 
-#: ../src/caja-application.c:2085
+#: ../src/caja-application.c:2084
 msgid ""
 "Do not manage the desktop (ignore the preference set in the preferences "
 "dialog)."
 msgstr ""
 "Håndter ikke skrivebordet (ignorer indstillingen i indstillingsvinduet)."
 
-#: ../src/caja-application.c:2087
+#: ../src/caja-application.c:2086
 msgid ""
 "Manage the desktop regardless of set preferences or environment (on new "
 "startup only)"
@@ -6022,23 +6022,23 @@ msgstr ""
 "Håndter skrivebordet uanset af satte præferencer eller miljø (kun ved ny "
 "opstart)"
 
-#: ../src/caja-application.c:2089
+#: ../src/caja-application.c:2088
 msgid "Open URIs in tabs."
 msgstr "Åbn URI'er i faneblade."
 
-#: ../src/caja-application.c:2091
+#: ../src/caja-application.c:2090
 msgid "Open a browser window."
 msgstr "Åbn et browservindue."
 
-#: ../src/caja-application.c:2093
+#: ../src/caja-application.c:2092
 msgid "Quit Caja."
 msgstr "Afslut Caja."
 
-#: ../src/caja-application.c:2094
+#: ../src/caja-application.c:2093
 msgid "[URI...]"
 msgstr "[URI …]"
 
-#: ../src/caja-application.c:2105
+#: ../src/caja-application.c:2104
 msgid ""
 "\n"
 "\n"
@@ -6083,7 +6083,7 @@ msgstr ""
 
 #: ../src/caja-bookmarks-window.c:159
 #: ../src/caja-file-management-properties.c:246
-#: ../src/caja-property-browser.c:1680 ../src/caja-window-menus.c:635
+#: ../src/caja-property-browser.c:1676 ../src/caja-window-menus.c:692
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
@@ -6191,72 +6191,72 @@ msgid "Continue"
 msgstr "Fortsæt"
 
 #: ../src/caja-connect-server-dialog.c:736
-#: ../src/caja-connect-server-dialog.c:1127
+#: ../src/caja-connect-server-dialog.c:1126
 msgid "C_onnect"
 msgstr "_Tilslut"
 
 #. set dialog properties
-#: ../src/caja-connect-server-dialog.c:860
+#: ../src/caja-connect-server-dialog.c:859
 msgid "Connect to Server"
 msgstr "Forbind til server"
 
-#: ../src/caja-connect-server-dialog.c:874
+#: ../src/caja-connect-server-dialog.c:873
 msgid "Server Details"
 msgstr "Serverdetaljer"
 
 #. first row: server entry + port spinbutton
-#: ../src/caja-connect-server-dialog.c:894
+#: ../src/caja-connect-server-dialog.c:893
 msgid "_Server:"
 msgstr "_Server:"
 
 #. port
-#: ../src/caja-connect-server-dialog.c:912
+#: ../src/caja-connect-server-dialog.c:911
 msgid "_Port:"
 msgstr "_Port:"
 
 #. third row: share entry
-#: ../src/caja-connect-server-dialog.c:1003
+#: ../src/caja-connect-server-dialog.c:1002
 msgid "Share:"
 msgstr "Delt mappe:"
 
 #. fourth row: folder entry
-#: ../src/caja-connect-server-dialog.c:1015
+#: ../src/caja-connect-server-dialog.c:1014
 msgid "Folder:"
 msgstr "Mappe:"
 
-#: ../src/caja-connect-server-dialog.c:1028
+#: ../src/caja-connect-server-dialog.c:1027
 msgid "User Details"
 msgstr "Brugerdetaljer"
 
 #. first row: domain entry
-#: ../src/caja-connect-server-dialog.c:1048
+#: ../src/caja-connect-server-dialog.c:1047
 msgid "Domain Name:"
 msgstr "Domænenavn:"
 
 #. second row: username entry
-#: ../src/caja-connect-server-dialog.c:1060
+#: ../src/caja-connect-server-dialog.c:1059
 msgid "User Name:"
 msgstr "Brugernavn:"
 
 #. third row: password entry
-#: ../src/caja-connect-server-dialog.c:1072
+#: ../src/caja-connect-server-dialog.c:1071
 msgid "Password:"
 msgstr "Adgangskode:"
 
 #. fourth row: remember checkbox
-#: ../src/caja-connect-server-dialog.c:1085
+#: ../src/caja-connect-server-dialog.c:1084
 msgid "Remember this password"
 msgstr "Husk denne adgangskode"
 
-#: ../src/caja-connect-server-dialog.c:1096
+#: ../src/caja-connect-server-dialog.c:1095
 msgid "Add _bookmark"
 msgstr "Tilføj _bogmærke"
 
-#: ../src/caja-connect-server-dialog.c:1103
+#: ../src/caja-connect-server-dialog.c:1102
 msgid "Bookmark Name:"
 msgstr "Bogmærkenavn:"
 
-#: ../src/caja-desktop-window.c:122 ../src/caja-desktop-window.c:315
+#: ../src/caja-desktop-window.c:121 ../src/caja-desktop-window.c:314
 #: ../src/caja-pathbar.c:1449 ../src/caja-places-sidebar.c:538
 msgid "Desktop"
 msgstr "Skrivebord"
@@ -6433,14 +6433,17 @@ msgid "400%"
 msgstr "400%"
 
 #: ../src/caja-file-management-properties.ui.h:31
+#: ../src/caja-query-editor.c:1244
 msgid "100 KB"
 msgstr "100 kb"
 
 #: ../src/caja-file-management-properties.ui.h:32
+#: ../src/caja-query-editor.c:1246
 msgid "500 KB"
 msgstr "500 kb"
 
 #: ../src/caja-file-management-properties.ui.h:33
+#: ../src/caja-query-editor.c:1248
 msgid "1 MB"
 msgstr "1 MB"
 
@@ -6449,26 +6452,32 @@ msgid "3 MB"
 msgstr "3 MB"
 
 #: ../src/caja-file-management-properties.ui.h:35
+#: ../src/caja-query-editor.c:1250
 msgid "5 MB"
 msgstr "5 MB"
 
 #: ../src/caja-file-management-properties.ui.h:36
+#: ../src/caja-query-editor.c:1252
 msgid "10 MB"
 msgstr "10 MB"
 
 #: ../src/caja-file-management-properties.ui.h:37
+#: ../src/caja-query-editor.c:1254
 msgid "100 MB"
 msgstr "100 MB"
 
 #: ../src/caja-file-management-properties.ui.h:38
+#: ../src/caja-query-editor.c:1258
 msgid "1 GB"
 msgstr "1 Gb"
 
 #: ../src/caja-file-management-properties.ui.h:39
+#: ../src/caja-query-editor.c:1260
 msgid "2 GB"
 msgstr "2 GB"
 
 #: ../src/caja-file-management-properties.ui.h:40
+#: ../src/caja-query-editor.c:1262
 msgid "4 GB"
 msgstr "4 GB"
 
@@ -6858,32 +6867,32 @@ msgstr[1] "<b>Højde:</b> %d punkter"
 msgid "Failed to load image information"
 msgstr "Kunne ikke indlæse billedinformation"
 
-#: ../src/caja-image-properties-page.c:657
+#: ../src/caja-image-properties-page.c:653
 msgid "loading..."
 msgstr "indlæser …"
 
-#: ../src/caja-image-properties-page.c:711
+#: ../src/caja-image-properties-page.c:707
 msgid "Image"
 msgstr "Billede"
 
-#: ../src/caja-information-panel.c:162
+#: ../src/caja-information-panel.c:163
 msgid "Information"
 msgstr "Information"
 
-#: ../src/caja-information-panel.c:168
+#: ../src/caja-information-panel.c:169
 msgid "Show Information"
 msgstr "Vis information"
 
 #. add the reset background item, possibly disabled
-#: ../src/caja-information-panel.c:362
+#: ../src/caja-information-panel.c:359
 msgid "Use _Default Background"
 msgstr "Nulstil _baggrund"
 
-#: ../src/caja-information-panel.c:527
+#: ../src/caja-information-panel.c:524
 msgid "You cannot assign more than one custom icon at a time."
 msgstr "Du kan ikke tildele mere end et brugerdefineret ikon ad gangen."
 
-#: ../src/caja-information-panel.c:564
+#: ../src/caja-information-panel.c:561
 msgid "You can only use images as custom icons."
 msgstr "Du kan kun bruge billeder som brugerdefinerede ikoner."
 
@@ -6906,7 +6915,7 @@ msgstr "Åbn placering"
 msgid "_Location:"
 msgstr "_Placering:"
 
-#: ../src/caja-navigation-action.c:176
+#: ../src/caja-navigation-action.c:146
 msgid "folder removed"
 msgstr "mappe fjernet"
 
@@ -6980,7 +6989,7 @@ msgstr "Luk alle navigationsvinduer"
 msgid "_Location..."
 msgstr "_Sted …"
 
-#: ../src/caja-navigation-window-menus.c:833 ../src/caja-spatial-window.c:940
+#: ../src/caja-navigation-window-menus.c:833 ../src/caja-spatial-window.c:939
 msgid "Specify a location to open"
 msgstr "Angiv et sted at åbne"
 
@@ -7012,20 +7021,20 @@ msgid "Go to the same location as in the extra pane"
 msgstr "Gå til samme sted som i den ekstra rude"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:848 ../src/caja-spatial-window.c:953
+#: ../src/caja-navigation-window-menus.c:848 ../src/caja-spatial-window.c:952
 msgid "_Add Bookmark"
 msgstr "_Tilføj bogmærke"
 
-#: ../src/caja-navigation-window-menus.c:849 ../src/caja-spatial-window.c:954
+#: ../src/caja-navigation-window-menus.c:849 ../src/caja-spatial-window.c:953
 msgid "Add a bookmark for the current location to this menu"
 msgstr "Tilføj et bogmærke for det nuværende sted til denne menu"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:852 ../src/caja-spatial-window.c:957
+#: ../src/caja-navigation-window-menus.c:852 ../src/caja-spatial-window.c:956
 msgid "_Edit Bookmarks..."
 msgstr "_Rediger bogmærker …"
 
-#: ../src/caja-navigation-window-menus.c:853 ../src/caja-spatial-window.c:958
+#: ../src/caja-navigation-window-menus.c:853 ../src/caja-spatial-window.c:957
 msgid "Display a window that allows editing the bookmarks in this menu"
 msgstr "Vis et vindue der tillader redigering af bogmærker i denne menu"
 
@@ -7118,7 +7127,7 @@ msgstr "Skift mellem om dette vindues statuslinje er vist"
 #. name, icon name
 #. label, accelerator
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:910 ../src/caja-spatial-window.c:961
+#: ../src/caja-navigation-window-menus.c:910 ../src/caja-spatial-window.c:960
 msgid "_Search for Files..."
 msgstr "_Søg efter filer …"
 
@@ -7293,271 +7302,359 @@ msgid "Show Places"
 msgstr "Vis steder"
 
 #. set the title and standard close accelerator
-#: ../src/caja-property-browser.c:294
+#: ../src/caja-property-browser.c:290
 msgid "Backgrounds and Emblems"
 msgstr "Baggrunde og emblemer"
 
 #. create the "remove" button
-#: ../src/caja-property-browser.c:410
+#: ../src/caja-property-browser.c:406
 msgid "_Remove..."
 msgstr "_Fjern …"
 
 #. now create the "add new" button
-#: ../src/caja-property-browser.c:424
+#: ../src/caja-property-browser.c:420
 msgid "Add new..."
 msgstr "Tilføj ny …"
 
-#: ../src/caja-property-browser.c:975
+#: ../src/caja-property-browser.c:971
 #, c-format
 msgid "Sorry, but pattern %s could not be deleted."
 msgstr "Desværre, mønsteret %s kunne ikke slettes."
 
-#: ../src/caja-property-browser.c:976
+#: ../src/caja-property-browser.c:972
 msgid "Check that you have permission to delete the pattern."
 msgstr "Tjek at du har rettighed til at slette mønsteret."
 
-#: ../src/caja-property-browser.c:992
+#: ../src/caja-property-browser.c:988
 #, c-format
 msgid "Sorry, but emblem %s could not be deleted."
 msgstr "Desværre, emblemet %s kunne ikke slettes."
 
-#: ../src/caja-property-browser.c:993
+#: ../src/caja-property-browser.c:989
 msgid "Check that you have permission to delete the emblem."
 msgstr "Tjek at du har rettighed til at slette emblemet."
 
-#: ../src/caja-property-browser.c:1065
+#: ../src/caja-property-browser.c:1061
 msgid "Select an Image File for the New Emblem"
 msgstr "Vælg en billedfil for det nye emblem"
 
-#: ../src/caja-property-browser.c:1107
+#: ../src/caja-property-browser.c:1103
 msgid "Create a New Emblem"
 msgstr "Opret et nyt emblem"
 
 #. make the keyword label and field
-#: ../src/caja-property-browser.c:1135
+#: ../src/caja-property-browser.c:1131
 msgid "_Keyword:"
 msgstr "_Nøgleord:"
 
 #. set up a file chooser to pick the image file
-#: ../src/caja-property-browser.c:1154
+#: ../src/caja-property-browser.c:1150
 msgid "_Image:"
 msgstr "_Billede:"
 
-#: ../src/caja-property-browser.c:1187
+#: ../src/caja-property-browser.c:1183
 msgid "Create a New Color:"
 msgstr "Opret en ny farve:"
 
 #. make the name label and field
-#: ../src/caja-property-browser.c:1208
+#: ../src/caja-property-browser.c:1204
 msgid "Color _name:"
 msgstr "_Navn på farve:"
 
-#: ../src/caja-property-browser.c:1224
+#: ../src/caja-property-browser.c:1220
 msgid "Color _value:"
 msgstr "Farve_værdi:"
 
-#: ../src/caja-property-browser.c:1260
+#: ../src/caja-property-browser.c:1256
 msgid "Sorry, but you cannot replace the reset image."
 msgstr "Desværre, du kan ikke erstatte nulstillingsbilledet."
 
-#: ../src/caja-property-browser.c:1261
+#: ../src/caja-property-browser.c:1257
 msgid "Reset is a special image that cannot be deleted."
 msgstr "Nulstil er et specielt billede som ikke kan slettes."
 
-#: ../src/caja-property-browser.c:1291
+#: ../src/caja-property-browser.c:1287
 #, c-format
 msgid "Sorry, but the pattern %s could not be installed."
 msgstr "Desværre, mønsteret %s kunne ikke installeres."
 
-#: ../src/caja-property-browser.c:1322
+#: ../src/caja-property-browser.c:1318
 msgid "Select an Image File to Add as a Pattern"
 msgstr "Vælg en billedfil som skal tilføjes som et mønster"
 
-#: ../src/caja-property-browser.c:1401 ../src/caja-property-browser.c:1431
+#: ../src/caja-property-browser.c:1397 ../src/caja-property-browser.c:1427
 msgid "The color cannot be installed."
 msgstr "Farven kan ikke installeres."
 
-#: ../src/caja-property-browser.c:1402
+#: ../src/caja-property-browser.c:1398
 msgid "Sorry, but you must specify an unused color name for the new color."
 msgstr "Desværre, du skal angive et ubenyttet farvenavn for den nye farve."
 
-#: ../src/caja-property-browser.c:1432
+#: ../src/caja-property-browser.c:1428
 msgid "Sorry, but you must specify a non-blank name for the new color."
 msgstr "Desværre, du skal angive et ikke-tomt navn for den nye farve."
 
-#: ../src/caja-property-browser.c:1492
+#: ../src/caja-property-browser.c:1488
 msgid "Select a Color to Add"
 msgstr "Vælg en farve der skal tilføjes"
 
-#: ../src/caja-property-browser.c:1538 ../src/caja-property-browser.c:1556
+#: ../src/caja-property-browser.c:1534 ../src/caja-property-browser.c:1552
 #, c-format
 msgid "Sorry, but \"%s\" is not a usable image file."
 msgstr "Desværre, »%s« er ikke en brugbar billedfil."
 
-#: ../src/caja-property-browser.c:1539 ../src/caja-property-browser.c:1557
+#: ../src/caja-property-browser.c:1535 ../src/caja-property-browser.c:1553
 msgid "The file is not an image."
 msgstr "Filen er ikke et billede."
 
-#: ../src/caja-property-browser.c:2300
+#: ../src/caja-property-browser.c:2296
 msgid "Select a Category:"
 msgstr "Vælg en kategori:"
 
-#: ../src/caja-property-browser.c:2312
+#: ../src/caja-property-browser.c:2308
 msgid "C_ancel Remove"
 msgstr "_Annuller fjernelse"
 
-#: ../src/caja-property-browser.c:2321
+#: ../src/caja-property-browser.c:2317
 msgid "_Add a New Pattern..."
 msgstr "_Tilføj et nyt mønster …"
 
-#: ../src/caja-property-browser.c:2324
+#: ../src/caja-property-browser.c:2320
 msgid "_Add a New Color..."
 msgstr "_Tilføj en ny farve …"
 
-#: ../src/caja-property-browser.c:2327
+#: ../src/caja-property-browser.c:2323
 msgid "_Add a New Emblem..."
 msgstr "_Tilføj et nyt emblem …"
 
-#: ../src/caja-property-browser.c:2353
+#: ../src/caja-property-browser.c:2349
 msgid "Click on a pattern to remove it"
 msgstr "Klik på et mønster for at fjerne det"
 
-#: ../src/caja-property-browser.c:2356
+#: ../src/caja-property-browser.c:2352
 msgid "Click on a color to remove it"
 msgstr "Klik på en farve for at fjerne den"
 
-#: ../src/caja-property-browser.c:2359
+#: ../src/caja-property-browser.c:2355
 msgid "Click on an emblem to remove it"
 msgstr "Klik på et emblem for at fjerne det"
 
-#: ../src/caja-property-browser.c:2371
+#: ../src/caja-property-browser.c:2367
 msgid "Patterns:"
 msgstr "Mønstre:"
 
-#: ../src/caja-property-browser.c:2374
+#: ../src/caja-property-browser.c:2370
 msgid "Colors:"
 msgstr "Farver:"
 
-#: ../src/caja-property-browser.c:2377
+#: ../src/caja-property-browser.c:2373
 msgid "Emblems:"
 msgstr "Emblemer:"
 
-#: ../src/caja-property-browser.c:2399
+#: ../src/caja-property-browser.c:2395
 msgid "_Remove a Pattern..."
 msgstr "_Fjern et mønster …"
 
-#: ../src/caja-property-browser.c:2402
+#: ../src/caja-property-browser.c:2398
 msgid "_Remove a Color..."
 msgstr "_Fjern en farve …"
 
-#: ../src/caja-property-browser.c:2405
+#: ../src/caja-property-browser.c:2401
 msgid "_Remove an Emblem..."
 msgstr "_Fjern et emblem …"
 
-#: ../src/caja-query-editor.c:143
+#: ../src/caja-query-editor.c:167
 msgid "File Type"
 msgstr "Filtype"
 
-#: ../src/caja-query-editor.c:150
+#: ../src/caja-query-editor.c:174
 msgid "Tags"
 msgstr "Mærker"
 
-#: ../src/caja-query-editor.c:296
+#: ../src/caja-query-editor.c:181
+msgid "Modification Time"
+msgstr "Ændringstidspunkt"
+
+#: ../src/caja-query-editor.c:334
 msgid "Select folder to search in"
 msgstr "Vælg mappe at søge i"
 
-#: ../src/caja-query-editor.c:392 ../src/caja-query-editor.c:396
+#: ../src/caja-query-editor.c:430 ../src/caja-query-editor.c:434
 msgid ""
 "Tags separated by spaces. Matches files that contains ALL specified tags."
 msgstr ""
 "Mærker adskilt af mellemrum. Matcher filer som indeholder ALLE de angivne "
 "mærker."
 
-#: ../src/caja-query-editor.c:499
+#: ../src/caja-query-editor.c:537
 msgid "Documents"
 msgstr "Dokumenter"
 
-#: ../src/caja-query-editor.c:519
+#: ../src/caja-query-editor.c:557
 msgid "Music"
 msgstr "Musik"
 
-#: ../src/caja-query-editor.c:535
+#: ../src/caja-query-editor.c:573
 msgid "Video"
 msgstr "Video"
 
-#: ../src/caja-query-editor.c:553
+#: ../src/caja-query-editor.c:591
 msgid "Picture"
 msgstr "Billede"
 
-#: ../src/caja-query-editor.c:575
+#: ../src/caja-query-editor.c:613
 msgid "Illustration"
 msgstr "Illustration"
 
-#: ../src/caja-query-editor.c:591
+#: ../src/caja-query-editor.c:629
 msgid "Spreadsheet"
 msgstr "Regneark"
 
-#: ../src/caja-query-editor.c:609
+#: ../src/caja-query-editor.c:647
 msgid "Presentation"
 msgstr "Præsentation"
 
-#: ../src/caja-query-editor.c:620
+#: ../src/caja-query-editor.c:658
 msgid "Pdf / Postscript"
 msgstr "PDF/Postscript"
 
-#: ../src/caja-query-editor.c:630
+#: ../src/caja-query-editor.c:668
 msgid "Text File"
 msgstr "Tekstfil"
 
-#: ../src/caja-query-editor.c:716
+#: ../src/caja-query-editor.c:754
 msgid "Select type"
 msgstr "Vælg type"
 
-#: ../src/caja-query-editor.c:808
+#: ../src/caja-query-editor.c:846
 msgid "Any"
 msgstr "Enhver"
 
-#: ../src/caja-query-editor.c:824
+#: ../src/caja-query-editor.c:862
 msgid "Other Type..."
 msgstr "Anden type …"
 
-#: ../src/caja-query-editor.c:1128
+#: ../src/caja-query-editor.c:1063 ../src/caja-query-editor.c:1202
+msgid "Less than or equal to"
+msgstr "Mindre end eller lig med"
+
+#: ../src/caja-query-editor.c:1065 ../src/caja-query-editor.c:1204
+msgid "Greater or equal to"
+msgstr "Større end eller lig med"
+
+#: ../src/caja-query-editor.c:1078
+msgid "1 Hour"
+msgstr "1 time"
+
+#: ../src/caja-query-editor.c:1080
+msgid "1 Day"
+msgstr "1 dag"
+
+#: ../src/caja-query-editor.c:1082
+msgid "1 Week"
+msgstr "1 uge"
+
+#: ../src/caja-query-editor.c:1084
+msgid "1 Month"
+msgstr "1 måned"
+
+#: ../src/caja-query-editor.c:1086
+msgid "6 Months"
+msgstr "6 måneder"
+
+#: ../src/caja-query-editor.c:1088
+msgid "1 Year"
+msgstr "1 år"
+
+#: ../src/caja-query-editor.c:1219
+msgid "10 KiB"
+msgstr "10 KiB"
+
+#: ../src/caja-query-editor.c:1221
+msgid "100 KiB"
+msgstr "100 KiB"
+
+#: ../src/caja-query-editor.c:1223
+msgid "500 KiB"
+msgstr "500 KiB"
+
+#: ../src/caja-query-editor.c:1225
+msgid "1 MiB"
+msgstr "1 MiB"
+
+#: ../src/caja-query-editor.c:1227
+msgid "5 MiB"
+msgstr "5 MiB"
+
+#: ../src/caja-query-editor.c:1229
+msgid "10 MiB"
+msgstr "10 MiB"
+
+#: ../src/caja-query-editor.c:1231
+msgid "100 MiB"
+msgstr "100 MiB"
+
+#: ../src/caja-query-editor.c:1233
+msgid "500 MiB"
+msgstr "500 MiB"
+
+#: ../src/caja-query-editor.c:1235
+msgid "1 GiB"
+msgstr "1 GiB"
+
+#: ../src/caja-query-editor.c:1237
+msgid "2 GiB"
+msgstr "2 GiB"
+
+#: ../src/caja-query-editor.c:1239
+msgid "4 GiB"
+msgstr "4 GiB"
+
+#: ../src/caja-query-editor.c:1242
+msgid "10 KB"
+msgstr "10 KB"
+
+#: ../src/caja-query-editor.c:1256
+msgid "500 MB"
+msgstr "500 MB"
+
+#: ../src/caja-query-editor.c:1449
 msgid "Remove this criterion from the search"
 msgstr "Fjern dette kriterium fra søgningen"
 
-#: ../src/caja-query-editor.c:1175
+#: ../src/caja-query-editor.c:1496
 msgid "Search Folder"
 msgstr "Søg mappe"
 
-#: ../src/caja-query-editor.c:1181
+#: ../src/caja-query-editor.c:1502
 msgid "Edit"
 msgstr "Rediger"
 
-#: ../src/caja-query-editor.c:1189
+#: ../src/caja-query-editor.c:1510
 msgid "Edit the saved search"
 msgstr "Rediger den gemte søgning"
 
-#: ../src/caja-query-editor.c:1221
+#: ../src/caja-query-editor.c:1542
 msgid "Add a new criterion to this search"
 msgstr "Tilføj et nyt kriterium til denne søgning"
 
-#: ../src/caja-query-editor.c:1227
+#: ../src/caja-query-editor.c:1548
 msgid "Go"
 msgstr "Søg"
 
-#: ../src/caja-query-editor.c:1231
+#: ../src/caja-query-editor.c:1552
 msgid "Reload"
 msgstr "Genindlæs"
 
-#: ../src/caja-query-editor.c:1236
+#: ../src/caja-query-editor.c:1557
 msgid "Perform or update the search"
 msgstr "Udfør eller opdater søgningen"
 
-#: ../src/caja-query-editor.c:1257
+#: ../src/caja-query-editor.c:1578
 msgid "_Search for:"
 msgstr "_Søg efter:"
 
-#: ../src/caja-query-editor.c:1286
+#: ../src/caja-query-editor.c:1607
 msgid "Search results"
 msgstr "Søgeresultater"
 
@@ -7565,47 +7662,47 @@ msgstr "Søgeresultater"
 msgid "Search:"
 msgstr "Søg:"
 
-#: ../src/caja-side-pane.c:388
+#: ../src/caja-side-pane.c:383
 msgid "Close the side pane"
 msgstr "Luk sidepanelet"
 
 #. name, icon name, label
-#: ../src/caja-spatial-window.c:937
+#: ../src/caja-spatial-window.c:936
 msgid "_Places"
 msgstr "_Steder"
 
 #. name, icon name, label
-#: ../src/caja-spatial-window.c:939
+#: ../src/caja-spatial-window.c:938
 msgid "Open _Location..."
 msgstr "Åbn _placering …"
 
 #. name, icon name, label
-#: ../src/caja-spatial-window.c:944
+#: ../src/caja-spatial-window.c:943
 msgid "Close P_arent Folders"
 msgstr "Luk _ophavsmapper"
 
-#: ../src/caja-spatial-window.c:945
+#: ../src/caja-spatial-window.c:944
 msgid "Close this folder's parents"
 msgstr "Luk denne mappes overliggende mapper"
 
 #. name, icon name, label
-#: ../src/caja-spatial-window.c:949
+#: ../src/caja-spatial-window.c:948
 msgid "Clos_e All Folders"
 msgstr "Luk _alle mapper"
 
-#: ../src/caja-spatial-window.c:950
+#: ../src/caja-spatial-window.c:949
 msgid "Close all folder windows"
 msgstr "Luk alle mappevinduer"
 
-#: ../src/caja-spatial-window.c:962
+#: ../src/caja-spatial-window.c:961
 msgid "Locate documents and folders on this computer by name or content"
 msgstr "Find dokumenter og mapper på denne computer ved navn eller indhold"
 
-#: ../src/caja-trash-bar.c:211
+#: ../src/caja-trash-bar.c:209
 msgid "Restore Selected Items"
 msgstr "Genopret valgte objekter"
 
-#: ../src/caja-trash-bar.c:217
+#: ../src/caja-trash-bar.c:215
 msgid "Restore selected items to their original position"
 msgstr "Genopret hvert markeret objekt i dets oprindelige placering"
 
@@ -7698,7 +7795,7 @@ msgstr ""
 msgid "Go to the location specified by this bookmark"
 msgstr "Gå til stedet givet ved dette bogmærke"
 
-#: ../src/caja-window-menus.c:562
+#: ../src/caja-window-menus.c:618
 msgid ""
 "Caja is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -7710,7 +7807,7 @@ msgstr ""
 "Foundation; enten version 2 af licensen, eller (hvis du ønsker det) enhver "
 "senere version."
 
-#: ../src/caja-window-menus.c:566
+#: ../src/caja-window-menus.c:622
 msgid ""
 "Caja is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -7721,7 +7818,7 @@ msgstr ""
 " ikke engang underforstået garanti om at det er SALGBART eller PASSER TIL ET"
 " BESTEMT FORMÅL. Se GNU General Public License for detaljer."
 
-#: ../src/caja-window-menus.c:570
+#: ../src/caja-window-menus.c:626
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin "
@@ -7731,25 +7828,29 @@ msgstr ""
 "Hvis du ikke har det, kan du skrive til Free Software Foundation, Inc. 51 "
 "Franklin Street, 5. sal, Boston, MA 02110-1301 USA"
 
-#: ../src/caja-window-menus.c:582
+#: ../src/caja-window-menus.c:637
+msgid "About Caja"
+msgstr "Om Caja"
+
+#: ../src/caja-window-menus.c:639
 msgid ""
 "Caja lets you organize files and folders, both on your computer and online."
 msgstr ""
 "Caja lader dig organisere filer og mapper, både på din computer og på "
 "nettet."
 
-#: ../src/caja-window-menus.c:585
+#: ../src/caja-window-menus.c:642
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
-"Copyright © 2011-2018 The Caja authors"
+"Copyright © 2011-2019 The Caja authors"
 msgstr ""
 "Ophavsret 1999-2009 Nautilusforfatterne\n"
-"Ophavsret 2011-2018 Cajaforfatterne"
+"Ophavsret 2011-2019 Cajaforfatterne"
 
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
 #. * box to give credit to the translator(s).
-#: ../src/caja-window-menus.c:595
+#: ../src/caja-window-menus.c:652
 msgid "translator-credits"
 msgstr ""
 "\"Joe Hansen, 2012, 2013, 2014, 2015, 2016, 2017, 2018.\\n\"\n"
@@ -7757,255 +7858,255 @@ msgstr ""
 "\"Dansk-gruppen <dansk@dansk-gruppen.dk>\\n\"\n"
 "\"Mere info: http://www.dansk-gruppen.dk\""
 
-#: ../src/caja-window-menus.c:598
+#: ../src/caja-window-menus.c:655
 msgid "MATE Web Site"
 msgstr "MATE-hjemmeside"
 
 #. name, icon name, label
-#: ../src/caja-window-menus.c:851
+#: ../src/caja-window-menus.c:908
 msgid "_File"
 msgstr "_Fil"
 
 #. name, icon name, label
-#: ../src/caja-window-menus.c:852
+#: ../src/caja-window-menus.c:909
 msgid "_Edit"
 msgstr "_Rediger"
 
 #. name, icon name, label
-#: ../src/caja-window-menus.c:853
+#: ../src/caja-window-menus.c:910
 msgid "_View"
 msgstr "_Vis"
 
 #. tooltip
-#: ../src/caja-window-menus.c:857
+#: ../src/caja-window-menus.c:914
 msgid "Close this folder"
 msgstr "Luk denne mappe"
 
-#: ../src/caja-window-menus.c:862
+#: ../src/caja-window-menus.c:919
 msgid "_Backgrounds and Emblems..."
 msgstr "_Baggrunde og emblemer …"
 
-#: ../src/caja-window-menus.c:863
+#: ../src/caja-window-menus.c:920
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
 msgstr ""
 "Vis mønstre, farver og emblemer som kan bruges til at tilpasse udseendet"
 
-#: ../src/caja-window-menus.c:868
+#: ../src/caja-window-menus.c:925
 msgid "Prefere_nces"
 msgstr "_Indstillinger"
 
-#: ../src/caja-window-menus.c:869
+#: ../src/caja-window-menus.c:926
 msgid "Edit Caja preferences"
 msgstr "Konfigurer indstillingerne for Caja"
 
 #. name, icon name, label
-#: ../src/caja-window-menus.c:872
+#: ../src/caja-window-menus.c:929
 msgid "Open _Parent"
 msgstr "Åbn _ophav"
 
-#: ../src/caja-window-menus.c:873
+#: ../src/caja-window-menus.c:930
 msgid "Open the parent folder"
 msgstr "Åbn den underliggende mappe"
 
 #. tooltip
-#: ../src/caja-window-menus.c:882
+#: ../src/caja-window-menus.c:939
 msgid "Stop loading the current location"
 msgstr "Afbryd indlæsning af denne placering"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:886
+#: ../src/caja-window-menus.c:943
 msgid "_Reload"
 msgstr "_Genindlæs"
 
 #. tooltip
-#: ../src/caja-window-menus.c:887
+#: ../src/caja-window-menus.c:944
 msgid "Reload the current location"
 msgstr "Genindlæs den aktuelle placering"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:891
+#: ../src/caja-window-menus.c:948
 msgid "_Contents"
 msgstr "_Indhold"
 
 #. tooltip
-#: ../src/caja-window-menus.c:892
+#: ../src/caja-window-menus.c:949
 msgid "Display Caja help"
 msgstr "Vis hjælp til Caja"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:896
+#: ../src/caja-window-menus.c:953
 msgid "_About"
 msgstr "_Om"
 
 #. tooltip
-#: ../src/caja-window-menus.c:897
+#: ../src/caja-window-menus.c:954
 msgid "Display credits for the creators of Caja"
 msgstr "Vis information om udviklerne bag Caja"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:901
+#: ../src/caja-window-menus.c:958
 msgid "Zoom _In"
 msgstr "Zoom _ind"
 
 #. tooltip
-#: ../src/caja-window-menus.c:902 ../src/caja-zoom-control.c:96
+#: ../src/caja-window-menus.c:959 ../src/caja-zoom-control.c:96
 #: ../src/caja-zoom-control.c:309
 msgid "Increase the view size"
 msgstr "Forøg fremvisningsstørrelsen"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:916
+#: ../src/caja-window-menus.c:973
 msgid "Zoom _Out"
 msgstr "Zoom _ud"
 
 #. tooltip
-#: ../src/caja-window-menus.c:917 ../src/caja-zoom-control.c:97
+#: ../src/caja-window-menus.c:974 ../src/caja-zoom-control.c:97
 #: ../src/caja-zoom-control.c:254
 msgid "Decrease the view size"
 msgstr "Formindsk fremvisningsstørrelsen"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:926
+#: ../src/caja-window-menus.c:983
 msgid "Normal Si_ze"
 msgstr "Normal st_ørrelse"
 
 #. tooltip
-#: ../src/caja-window-menus.c:927 ../src/caja-zoom-control.c:98
+#: ../src/caja-window-menus.c:984 ../src/caja-zoom-control.c:98
 #: ../src/caja-zoom-control.c:270
 msgid "Use the normal view size"
 msgstr "Brug den normale fremvisningsstørrelse"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:931
+#: ../src/caja-window-menus.c:988
 msgid "Connect to _Server..."
 msgstr "Tilslut til _server …"
 
 #. tooltip
-#: ../src/caja-window-menus.c:932
+#: ../src/caja-window-menus.c:989
 msgid "Connect to a remote computer or shared disk"
 msgstr "Forbind til en fjern computer eller delt disk"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:941
+#: ../src/caja-window-menus.c:998
 msgid "_Computer"
 msgstr "_Computer"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:946
+#: ../src/caja-window-menus.c:1003
 msgid "_Network"
 msgstr "_Netværk"
 
 #. tooltip
-#: ../src/caja-window-menus.c:947 ../src/mate-network-scheme.desktop.in.h:2
+#: ../src/caja-window-menus.c:1004 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
 msgstr "Gennemse bogmærkede og lokale netværkssteder"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:951
+#: ../src/caja-window-menus.c:1008
 msgid "T_emplates"
 msgstr "_Skabeloner"
 
 #. tooltip
-#: ../src/caja-window-menus.c:952
+#: ../src/caja-window-menus.c:1009
 msgid "Open your personal templates folder"
 msgstr "Åbn din personlige skabelonmappe"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:956
+#: ../src/caja-window-menus.c:1013
 msgid "_Trash"
 msgstr "_Papirkurv"
 
 #. tooltip
-#: ../src/caja-window-menus.c:957
+#: ../src/caja-window-menus.c:1014
 msgid "Open your personal trash folder"
 msgstr "Åbn din personlige papirkurvmappe"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:965
+#: ../src/caja-window-menus.c:1022
 msgid "Show _Hidden Files"
 msgstr "Vis sk_julte filer"
 
 #. tooltip
-#: ../src/caja-window-menus.c:966
+#: ../src/caja-window-menus.c:1023
 msgid "Toggle the display of hidden files in the current window"
 msgstr "Skift mellem om skjulte filer vises i det aktuelle vindue"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:971
+#: ../src/caja-window-menus.c:1028
 msgid "Show Bac_kup Files"
 msgstr "Vis _sikkerhedskopier"
 
 #. tooltip
-#: ../src/caja-window-menus.c:972
+#: ../src/caja-window-menus.c:1029
 msgid "Toggle the display of backup files in the current window"
 msgstr ""
 "Aktiverer/deaktiverer visningen af sikkerhedskopier i det nuværende vindue."
 
-#: ../src/caja-window-menus.c:1004
+#: ../src/caja-window-menus.c:1061
 msgid "_Up"
 msgstr "_Op"
 
-#: ../src/caja-window-menus.c:1007
+#: ../src/caja-window-menus.c:1064
 msgid "_Home"
 msgstr "_Hjem"
 
-#: ../src/caja-x-content-bar.c:70
+#: ../src/caja-x-content-bar.c:68
 msgid "These files are on an Audio CD."
 msgstr "Disse filer ligger på en lyd-cd."
 
-#: ../src/caja-x-content-bar.c:74
+#: ../src/caja-x-content-bar.c:72
 msgid "These files are on an Audio DVD."
 msgstr "Disse filer ligger på en lyd-dvd."
 
-#: ../src/caja-x-content-bar.c:78
+#: ../src/caja-x-content-bar.c:76
 msgid "These files are on a Video DVD."
 msgstr "Disse filer ligger på en video-dvd."
 
-#: ../src/caja-x-content-bar.c:82
+#: ../src/caja-x-content-bar.c:80
 msgid "These files are on a Video CD."
 msgstr "Disse filer ligger på en video-cd."
 
-#: ../src/caja-x-content-bar.c:86
+#: ../src/caja-x-content-bar.c:84
 msgid "These files are on a Super Video CD."
 msgstr "Disse filer ligger på en Super video-cd."
 
-#: ../src/caja-x-content-bar.c:90
+#: ../src/caja-x-content-bar.c:88
 msgid "These files are on a Photo CD."
 msgstr "Disse filer ligger på en foto-cd."
 
-#: ../src/caja-x-content-bar.c:94
+#: ../src/caja-x-content-bar.c:92
 msgid "These files are on a Picture CD."
 msgstr "Disse filer ligger på en Kodak billed-cd."
 
-#: ../src/caja-x-content-bar.c:98
+#: ../src/caja-x-content-bar.c:96
 msgid "The media contains digital photos."
 msgstr "Dette medie indeholder digitale billeder."
 
-#: ../src/caja-x-content-bar.c:102
+#: ../src/caja-x-content-bar.c:100
 msgid "These files are on a digital audio player."
 msgstr "Disse filer ligger på en digital lydafspiller."
 
-#: ../src/caja-x-content-bar.c:106
+#: ../src/caja-x-content-bar.c:104
 msgid "The media contains software."
 msgstr "Mediet indeholder software."
 
 #. fallback to generic greeting
-#: ../src/caja-x-content-bar.c:111
+#: ../src/caja-x-content-bar.c:109
 #, c-format
 msgid "The media has been detected as \"%s\"."
 msgstr "Mediet er identificeret som »%s«."
@@ -8022,10 +8123,10 @@ msgstr "Zoom ud"
 msgid "Zoom to Default"
 msgstr "Zoom til standardzoom"
 
-#: ../src/caja-zoom-control.c:851
+#: ../src/caja-zoom-control.c:849
 msgid "Zoom"
 msgstr "Zoom"
 
-#: ../src/caja-zoom-control.c:856
+#: ../src/caja-zoom-control.c:854
 msgid "Set the zoom level of the current view"
 msgstr "Angiv zoomniveauet for den aktuelle visning"
