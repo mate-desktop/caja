@@ -8299,10 +8299,10 @@ file_list_file_ready_callback (CajaFile *file,
 
 void
 caja_file_list_call_when_ready (GList *file_list,
-				    CajaFileAttributes attributes,
-				    CajaFileListHandle **handle,
-				    CajaFileListCallback callback,
-				    gpointer callback_data)
+                                CajaFileAttributes attributes,
+                                CajaFileListHandle **handle,
+                                CajaFileListCallback callback,
+                                gpointer callback_data)
 {
 	GList *l;
 	FileListReadyData *data;
@@ -8323,11 +8323,17 @@ caja_file_list_call_when_ready (GList *file_list,
 		file = CAJA_FILE (l->data);
 		/* Need to do this here, as the list can be modified by this call */
 		l = l->next;
+
 		caja_file_call_when_ready (file,
-					       attributes,
-					       file_list_file_ready_callback,
-					       data);
+                                           attributes,
+                                           file_list_file_ready_callback,
+                                           data);
+
+		data = file_list_ready_data_new
+			(file_list, callback, callback_data);
 	}
+
+	file_list_ready_data_free (data);
 }
 
 void
