@@ -540,7 +540,8 @@ caja_window_set_initial_window_geometry (CajaWindow *window)
     GdkScreen *screen;
     guint max_width_for_screen, max_height_for_screen;
 
-    guint default_width, default_height;
+    guint default_width = 0;
+    guint default_height = 0;
 
     screen = gtk_window_get_screen (GTK_WINDOW (window));
 
