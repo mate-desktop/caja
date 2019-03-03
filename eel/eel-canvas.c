@@ -3413,7 +3413,7 @@ eel_canvas_update_now (EelCanvas *canvas)
 EelCanvasItem *
 eel_canvas_get_item_at (EelCanvas *canvas, double x, double y)
 {
-    EelCanvasItem *item;
+    EelCanvasItem *item = NULL;
     double dist;
     int cx, cy;
 
