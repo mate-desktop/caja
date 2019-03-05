@@ -376,22 +376,6 @@ eel_g_str_list_index (GList *str_list,
 }
 
 /**
- * eel_g_list_free_deep_custom
- *
- * Frees the elements of a list and then the list, using a custom free function.
- *
- * @list: List of elements that can be freed with the provided free function.
- * @element_free_func: function to call with the data pointer and user_data to free it.
- * @user_data: User data to pass to element_free_func
- **/
-void
-eel_g_list_free_deep_custom (GList *list, GFunc element_free_func, gpointer user_data)
-{
-	g_list_foreach (list, element_free_func, user_data);
-	g_list_free (list);
-}
-
-/**
  * eel_g_list_free_deep
  *
  * Frees the elements of a list and then the list.
@@ -400,7 +384,7 @@ eel_g_list_free_deep_custom (GList *list, GFunc element_free_func, gpointer user
 void
 eel_g_list_free_deep (GList *list)
 {
-	eel_g_list_free_deep_custom (list, (GFunc) g_free, NULL);
+	g_list_free_full (list, (GDestroyNotify) g_free);
 }
 
 /**
