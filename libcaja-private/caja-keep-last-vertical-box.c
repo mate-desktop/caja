@@ -89,7 +89,6 @@ static void
 caja_keep_last_vertical_box_size_allocate (GtkWidget *widget,
         GtkAllocation *allocation)
 {
-    GtkBox *box;
     GtkWidget *last_child, *child;
     GList *children, *l;
     GtkAllocation last_child_allocation, child_allocation, tiny_allocation;
@@ -99,7 +98,6 @@ caja_keep_last_vertical_box_size_allocate (GtkWidget *widget,
 
     GTK_WIDGET_CLASS (caja_keep_last_vertical_box_parent_class)->size_allocate (widget, allocation);
 
-    box = GTK_BOX (widget);
     children = gtk_container_get_children (GTK_CONTAINER (widget));
     l = g_list_last (children);
 

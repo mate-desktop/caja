@@ -1075,9 +1075,6 @@ caja_emblem_sidebar_class_init (CajaEmblemSidebarClass *object_klass)
 {
     GObjectClass *gobject_class;
 
-    CajaEmblemSidebarClass *klass;
-
-    klass = CAJA_EMBLEM_SIDEBAR_CLASS (object_klass);
     gobject_class = G_OBJECT_CLASS (object_klass);
 
     gobject_class->finalize = caja_emblem_sidebar_finalize;

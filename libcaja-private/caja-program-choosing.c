@@ -209,13 +209,12 @@ caja_launch_application_by_uri (GAppInfo *application,
     GdkDisplay *display;
     GdkAppLaunchContext *launch_context;
     CajaIconInfo *icon;
-    int count, total;
+    int count;
 
     g_assert (uris != NULL);
 
     /* count the number of uris with local paths */
     count = 0;
-    total = g_list_length (uris);
     locations = NULL;
     for (l = uris; l != NULL; l = l->next)
     {

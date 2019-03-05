@@ -463,7 +463,7 @@ widget_reposition_as_paused (GtkWidget * widget)
     ProgressWidgetData *data;
     GList *children, *child;
     gboolean abort = FALSE;
-    int i, mypos = -1;
+    int i;
     GtkWidget * container = get_widgets_container();
 
     children = gtk_container_get_children (GTK_CONTAINER(container));
@@ -472,9 +472,6 @@ widget_reposition_as_paused (GtkWidget * widget)
     for (child = children; child && !abort; child = child->next) {
         data = (ProgressWidgetData*) g_object_get_data (
             G_OBJECT(child->data), "data");
-
-        if (child->data == widget)
-            mypos = i;
 
         if (child->data != widget && is_op_paused(data->state)) {
             abort = TRUE;

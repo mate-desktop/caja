@@ -388,14 +388,13 @@ connect_dialog_request_additional_details (CajaConnectServerDialog *self,
 					   const gchar *default_user,
 					   const gchar *default_domain)
 {
-	GtkWidget *content_area, *label, *entry, *hbox, *icon;
+	GtkWidget *content_area, *label, *hbox, *icon;
 
 	self->details->fill_details_flags = flags;
 
 	connect_dialog_restore_info_bar (self, GTK_MESSAGE_WARNING);
 
 	content_area = gtk_info_bar_get_content_area (GTK_INFO_BAR (self->details->info_bar));
-	entry = NULL;
 
 	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
 	gtk_box_pack_start (GTK_BOX (content_area), hbox, FALSE, FALSE, 6);

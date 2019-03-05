@@ -562,12 +562,9 @@ caja_file_conflict_dialog_init (CajaFileConflictDialog *fcd)
     GtkWidget *widget, *dialog_area;
     CajaFileConflictDialogPrivate *details;
     GtkDialog *dialog;
-    gboolean source_is_dir;
 
     details = fcd->details = caja_file_conflict_dialog_get_instance_private (fcd);
     dialog = GTK_DIALOG (fcd);
-
-    source_is_dir = caja_file_is_directory (details->source);
 
     /* Setup the main hbox */
     hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
