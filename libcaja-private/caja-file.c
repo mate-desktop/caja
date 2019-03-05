@@ -235,29 +235,29 @@ caja_file_set_display_name (CajaFile *file,
 
 	changed = FALSE;
 
-	if (eel_strcmp (eel_ref_str_peek (file->details->display_name), display_name) != 0) {
+	if (eel_strcmp (file->details->display_name, display_name) != 0) {
 		changed = TRUE;
 
-		eel_ref_str_unref (file->details->display_name);
+		g_clear_pointer (&file->details->display_name, g_ref_string_release);
 
-		if (eel_strcmp (eel_ref_str_peek (file->details->name), display_name) == 0) {
-			file->details->display_name = eel_ref_str_ref (file->details->name);
+		if (eel_strcmp (file->details->name, display_name) == 0) {
+			file->details->display_name = g_ref_string_acquire (file->details->name);
 		} else {
-			file->details->display_name = eel_ref_str_new (display_name);
+			file->details->display_name = g_ref_string_new (display_name);
 		}
 
 		g_free (file->details->display_name_collation_key);
 		file->details->display_name_collation_key = g_utf8_collate_key_for_filename (display_name, -1);
 	}
 
-	if (eel_strcmp (eel_ref_str_peek (file->details->edit_name), edit_name) != 0) {
+	if (eel_strcmp (file->details->edit_name, edit_name) != 0) {
 		changed = TRUE;
 
-		eel_ref_str_unref (file->details->edit_name);
-		if (eel_strcmp (eel_ref_str_peek (file->details->display_name), edit_name) == 0) {
-			file->details->edit_name = eel_ref_str_ref (file->details->display_name);
+		g_clear_pointer (&file->details->edit_name, g_ref_string_release);
+		if (eel_strcmp (file->details->display_name, edit_name) == 0) {
+			file->details->edit_name = g_ref_string_acquire (file->details->display_name);
 		} else {
-			file->details->edit_name = eel_ref_str_new (edit_name);
+			file->details->edit_name = g_ref_string_new (edit_name);
 		}
 	}
 
@@ -268,11 +268,11 @@ caja_file_set_display_name (CajaFile *file,
 static void
 caja_file_clear_display_name (CajaFile *file)
 {
-	eel_ref_str_unref (file->details->display_name);
+	g_clear_pointer (&file->details->display_name, g_ref_string_release);
 	file->details->display_name = NULL;
 	g_free (file->details->display_name_collation_key);
 	file->details->display_name_collation_key = NULL;
-	eel_ref_str_unref (file->details->edit_name);
+	g_clear_pointer (&file->details->edit_name, g_ref_string_release);
 	file->details->edit_name = NULL;
 }
 
@@ -485,20 +485,20 @@ caja_file_clear_info (CajaFile *file)
 	file->details->trash_time = 0;
 	g_free (file->details->symlink_name);
 	file->details->symlink_name = NULL;
-	eel_ref_str_unref (file->details->mime_type);
+	g_clear_pointer (&file->details->mime_type, g_ref_string_release);
 	file->details->mime_type = NULL;
 	g_free (file->details->selinux_context);
 	file->details->selinux_context = NULL;
 	g_free (file->details->description);
 	file->details->description = NULL;
-	eel_ref_str_unref (file->details->owner);
+	g_clear_pointer (&file->details->owner, g_ref_string_release);
 	file->details->owner = NULL;
-	eel_ref_str_unref (file->details->owner_real);
+	g_clear_pointer (&file->details->owner_real, g_ref_string_release);
 	file->details->owner_real = NULL;
-	eel_ref_str_unref (file->details->group);
+	g_clear_pointer (&file->details->group, g_ref_string_release);
 	file->details->group = NULL;
 
-	eel_ref_str_unref (file->details->filesystem_id);
+	g_clear_pointer (&file->details->filesystem_id, g_ref_string_release);
 	file->details->filesystem_id = NULL;
 
 	clear_metadata (file);
@@ -539,7 +539,7 @@ caja_file_new_from_filename (CajaDirectory *directory,
 
 	file->details->directory = caja_directory_ref (directory);
 
-	file->details->name = eel_ref_str_new (filename);
+	file->details->name = g_ref_string_new (filename);
 
 #ifdef CAJA_FILE_DEBUG_REF
 	DEBUG_REF_PRINTF("%10p ref'd", file);
@@ -798,19 +798,19 @@ finalize (GObject *object)
 	}
 
 	caja_directory_unref (directory);
-	eel_ref_str_unref (file->details->name);
-	eel_ref_str_unref (file->details->display_name);
+	g_clear_pointer (&file->details->name, g_ref_string_release);
+	g_clear_pointer (&file->details->display_name, g_ref_string_release);
 	g_free (file->details->display_name_collation_key);
-	eel_ref_str_unref (file->details->edit_name);
+	g_clear_pointer (&file->details->edit_name, g_ref_string_release);
 	if (file->details->icon) {
 		g_object_unref (file->details->icon);
 	}
 	g_free (file->details->thumbnail_path);
 	g_free (file->details->symlink_name);
-	eel_ref_str_unref (file->details->mime_type);
-	eel_ref_str_unref (file->details->owner);
-	eel_ref_str_unref (file->details->owner_real);
-	eel_ref_str_unref (file->details->group);
+	g_clear_pointer (&file->details->mime_type, g_ref_string_release);
+	g_clear_pointer (&file->details->owner, g_ref_string_release);
+	g_clear_pointer (&file->details->owner_real, g_ref_string_release);
+	g_clear_pointer (&file->details->group, g_ref_string_release);
 	g_free (file->details->selinux_context);
 	g_free (file->details->description);
 	g_free (file->details->top_left_text);
@@ -826,7 +826,7 @@ finalize (GObject *object)
 		g_object_unref (file->details->mount);
 	}
 
-	eel_ref_str_unref (file->details->filesystem_id);
+	g_clear_pointer (&file->details->filesystem_id, g_ref_string_release);
 
 	g_list_free_full (file->details->mime_list, g_free);
 	g_list_free_full (file->details->pending_extension_emblems, g_free);
@@ -1469,7 +1469,7 @@ caja_file_is_desktop_directory (CajaFile *file)
 		return FALSE;
 	}
 
-	return caja_is_desktop_directory_file (dir, eel_ref_str_peek (file->details->name));
+	return caja_is_desktop_directory_file (dir, file->details->name);
 }
 
 static gboolean
@@ -1594,7 +1594,7 @@ caja_file_get_location (CajaFile *file)
 		return g_object_ref (dir);
 	}
 
-	return g_file_get_child (dir, eel_ref_str_peek (file->details->name));
+	return g_file_get_child (dir, file->details->name);
 }
 
 /* Return the actual uri associated with the passed-in file. */
@@ -1731,7 +1731,7 @@ rename_get_info_callback (GObject *source_object,
 		}
 
 		old_uri = caja_file_get_uri (op->file);
-		old_name = g_strdup (eel_ref_str_peek (op->file->details->name));
+		old_name = g_strdup (op->file->details->name);
 
 		update_info_and_name (op->file, new_info);
 
@@ -1795,7 +1795,7 @@ static gboolean
 name_is (CajaFile *file, const char *new_name)
 {
 	const char *old_name;
-	old_name = eel_ref_str_peek (file->details->name);
+	old_name = file->details->name;
 	return strcmp (new_name, old_name) == 0;
 }
 
@@ -2351,22 +2351,22 @@ update_info_internal (CajaFile *file,
 	file->details->uid = uid;
 	file->details->gid = gid;
 
-	if (eel_strcmp (eel_ref_str_peek (file->details->owner), owner) != 0) {
+	if (eel_strcmp (file->details->owner, owner) != 0) {
 		changed = TRUE;
-		eel_ref_str_unref (file->details->owner);
-		file->details->owner = eel_ref_str_get_unique (owner);
+		g_clear_pointer (&file->details->owner, g_ref_string_release);
+		file->details->owner = g_ref_string_new_intern (owner);
 	}
 
-	if (eel_strcmp (eel_ref_str_peek (file->details->owner_real), owner_real) != 0) {
+	if (eel_strcmp (file->details->owner_real, owner_real) != 0) {
 		changed = TRUE;
-		eel_ref_str_unref (file->details->owner_real);
-		file->details->owner_real = eel_ref_str_get_unique (owner_real);
+		g_clear_pointer (&file->details->owner_real, g_ref_string_release);
+		file->details->owner_real = g_ref_string_new_intern (owner_real);
 	}
 
-	if (eel_strcmp (eel_ref_str_peek (file->details->group), group) != 0) {
+	if (eel_strcmp (file->details->group, group) != 0) {
 		changed = TRUE;
-		eel_ref_str_unref (file->details->group);
-		file->details->group = eel_ref_str_get_unique (group);
+		g_clear_pointer (&file->details->group, g_ref_string_release);
+		file->details->group = g_ref_string_new_intern (group);
 	}
 
 	if (free_owner) {
@@ -2454,10 +2454,10 @@ update_info_internal (CajaFile *file,
 	}
 
 	mime_type = g_file_info_get_content_type (info);
-	if (eel_strcmp (eel_ref_str_peek (file->details->mime_type), mime_type) != 0) {
+	if (eel_strcmp (file->details->mime_type, mime_type) != 0) {
 		changed = TRUE;
-		eel_ref_str_unref (file->details->mime_type);
-		file->details->mime_type = eel_ref_str_get_unique (mime_type);
+		g_clear_pointer (&file->details->mime_type, g_ref_string_release);
+		file->details->mime_type = g_ref_string_new_intern (mime_type);
 	}
 
 	selinux_context = g_file_info_get_attribute_string (info, G_FILE_ATTRIBUTE_SELINUX_CONTEXT);
@@ -2475,10 +2475,10 @@ update_info_internal (CajaFile *file,
 	}
 
 	filesystem_id = g_file_info_get_attribute_string (info, G_FILE_ATTRIBUTE_ID_FILESYSTEM);
-	if (eel_strcmp (eel_ref_str_peek (file->details->filesystem_id), filesystem_id) != 0) {
+	if (eel_strcmp (file->details->filesystem_id, filesystem_id) != 0) {
 		changed = TRUE;
-		eel_ref_str_unref (file->details->filesystem_id);
-		file->details->filesystem_id = eel_ref_str_get_unique (filesystem_id);
+		g_clear_pointer (&file->details->filesystem_id, g_ref_string_release);
+		file->details->filesystem_id = g_ref_string_new_intern (filesystem_id);
 	}
 
 	trash_time = 0;
@@ -2505,18 +2505,17 @@ update_info_internal (CajaFile *file,
 	if (update_name) {
 		name = g_file_info_get_name (info);
 		if (file->details->name == NULL ||
-		    strcmp (eel_ref_str_peek (file->details->name), name) != 0) {
+		    strcmp (file->details->name, name) != 0) {
 			changed = TRUE;
 
 			node = caja_directory_begin_file_name_change
 				(file->details->directory, file);
 
-			eel_ref_str_unref (file->details->name);
-			if (eel_strcmp (eel_ref_str_peek (file->details->display_name),
-					name) == 0) {
-				file->details->name = eel_ref_str_ref (file->details->display_name);
+			g_clear_pointer (&file->details->name, g_ref_string_release);
+			if (eel_strcmp (file->details->display_name, name) == 0) {
+				file->details->name = g_ref_string_acquire (file->details->display_name);
 			} else {
-				file->details->name = eel_ref_str_new (name);
+				file->details->name = g_ref_string_new (name);
 			}
 
 			if (!file->details->got_custom_display_name &&
@@ -2597,8 +2596,8 @@ update_name_internal (CajaFile *file,
 			(file->details->directory, file);
 	}
 
-	eel_ref_str_unref (file->details->name);
-	file->details->name = eel_ref_str_new (name);
+	g_clear_pointer (&file->details->name, g_ref_string_release);
+	file->details->name = g_ref_string_new (name);
 
 	if (!file->details->got_custom_display_name) {
 		caja_file_clear_display_name (file);
@@ -3118,8 +3117,8 @@ compare_by_type (CajaFile *file_1, CajaFile *file_2)
 
 	if (file_1->details->mime_type != NULL &&
 	    file_2->details->mime_type != NULL &&
-	    strcmp (eel_ref_str_peek (file_1->details->mime_type),
-		    eel_ref_str_peek (file_2->details->mime_type)) == 0) {
+	    strcmp (file_1->details->mime_type,
+                    file_2->details->mime_type) == 0) {
 		return 0;
 	}
 
@@ -3690,8 +3689,7 @@ caja_file_is_home (CajaFile *file)
 		return FALSE;
 	}
 
-	return caja_is_home_directory_file (dir,
-						eel_ref_str_peek (file->details->name));
+	return caja_is_home_directory_file (dir, file->details->name);
 }
 
 gboolean
@@ -4050,7 +4048,7 @@ caja_file_peek_display_name (CajaFile *file)
 	/* Default to display name based on filename if its not set yet */
 
 	if (file->details->display_name == NULL) {
-		name = eel_ref_str_peek (file->details->name);
+		name = file->details->name;
 		if (g_utf8_validate (name, -1, NULL)) {
 			caja_file_set_display_name (file,
 							name,
@@ -4066,7 +4064,7 @@ caja_file_peek_display_name (CajaFile *file)
 		}
 	}
 
-	return eel_ref_str_peek (file->details->display_name);
+	return file->details->display_name;
 }
 
 char *
@@ -4080,7 +4078,7 @@ caja_file_get_edit_name (CajaFile *file)
 {
 	const char *res;
 
-	res = eel_ref_str_peek (file->details->edit_name);
+	res = file->details->edit_name;
 	if (res == NULL)
 		res = "";
 
@@ -4090,7 +4088,7 @@ caja_file_get_edit_name (CajaFile *file)
 char *
 caja_file_get_name (CajaFile *file)
 {
-	return g_strdup (eel_ref_str_peek (file->details->name));
+	return g_strdup (file->details->name);
 }
 
 /**
@@ -4329,7 +4327,7 @@ caja_file_should_show_thumbnail (CajaFile *file)
 
 	use_preview = caja_file_get_filesystem_use_preview (file);
 
-	mime_type = eel_ref_str_peek (file->details->mime_type);
+	mime_type = file->details->mime_type;
 	if (mime_type == NULL) {
 		mime_type = "application/octet-stream";
 	}
@@ -4590,7 +4588,7 @@ caja_file_get_icon (CajaFile *file,
 			/* Render frames only for thumbnails of non-image files 
 			   and for images with no alpha channel. */ 
 			gboolean is_image = file->details->mime_type &&
-				(strncmp(eel_ref_str_peek (file->details->mime_type), "image/", 6) == 0);
+				(strncmp (file->details->mime_type, "image/", 6) == 0);
 				if (!is_image ||
 					is_image && !gdk_pixbuf_get_has_alpha (raw_pixbuf)) {
 					caja_ui_frame_image (&scaled_pixbuf);
@@ -5030,7 +5028,7 @@ caja_file_should_show_directory_item_count (CajaFile *file)
 	g_return_val_if_fail (CAJA_IS_FILE (file), FALSE);
 
 	if (file->details->mime_type &&
-	    strcmp (eel_ref_str_peek (file->details->mime_type), "x-directory/smb-share") == 0) {
+	    strcmp (file->details->mime_type, "x-directory/smb-share") == 0) {
 		return FALSE;
 	}
 
@@ -5843,7 +5841,7 @@ caja_file_can_get_group (CajaFile *file)
 char *
 caja_file_get_group_name (CajaFile *file)
 {
-	return g_strdup (eel_ref_str_peek (file->details->group));
+	return g_strdup (file->details->group);
 }
 
 /**
@@ -6153,16 +6151,16 @@ caja_file_get_owner_as_string (CajaFile *file, gboolean include_real_name)
 	}
 
 	if (file->details->owner_real == NULL) {
-		user_name = g_strdup (eel_ref_str_peek (file->details->owner));
+		user_name = g_strdup (file->details->owner);
 	} else if (file->details->owner == NULL) {
-		user_name = g_strdup (eel_ref_str_peek (file->details->owner_real));
+		user_name = g_strdup (file->details->owner_real);
 	} else if (include_real_name &&
-		   strcmp (eel_ref_str_peek (file->details->owner), eel_ref_str_peek (file->details->owner_real)) != 0) {
+		   strcmp (file->details->owner, file->details->owner_real) != 0) {
 		user_name = g_strdup_printf ("%s - %s",
-					     eel_ref_str_peek (file->details->owner),
-					     eel_ref_str_peek (file->details->owner_real));
+					     file->details->owner,
+					     file->details->owner_real);
 	} else {
-		user_name = g_strdup (eel_ref_str_peek (file->details->owner));
+		user_name = g_strdup (file->details->owner);
 	}
 
 	return user_name;
@@ -6723,7 +6721,7 @@ get_description (CajaFile *file)
 
 	g_assert (CAJA_IS_FILE (file));
 
-	mime_type = eel_ref_str_peek (file->details->mime_type);
+	mime_type = file->details->mime_type;
 	if (eel_str_is_empty (mime_type)) {
 		return NULL;
 	}
@@ -6812,7 +6810,7 @@ caja_file_get_mime_type (CajaFile *file)
 	if (file != NULL) {
 		g_return_val_if_fail (CAJA_IS_FILE (file), NULL);
 		if (file->details->mime_type != NULL) {
-			return g_strdup (eel_ref_str_peek (file->details->mime_type));
+			return g_strdup (file->details->mime_type);
 		}
 	}
 	return g_strdup ("application/octet-stream");
@@ -6839,7 +6837,7 @@ caja_file_is_mime_type (CajaFile *file, const char *mime_type)
 	if (file->details->mime_type == NULL) {
 		return FALSE;
 	}
-	return g_content_type_is_a (eel_ref_str_peek (file->details->mime_type),
+	return g_content_type_is_a (file->details->mime_type,
 				    mime_type);
 }
 
@@ -6851,7 +6849,7 @@ caja_file_is_launchable (CajaFile *file)
 	type_can_be_executable = FALSE;
 	if (file->details->mime_type != NULL) {
 		type_can_be_executable =
-			g_content_type_can_be_executable (eel_ref_str_peek (file->details->mime_type));
+			g_content_type_can_be_executable (file->details->mime_type);
 	}
 
 	return type_can_be_executable &&
@@ -7315,12 +7313,12 @@ caja_file_get_symbolic_link_target_uri (CajaFile *file)
 gboolean
 caja_file_is_caja_link (CajaFile *file)
 {
-    if (file->details->mime_type == NULL) {
+    if (file->details->mime_type == NULL)
+    {
         return FALSE;
-        }
-    return g_content_type_equals (eel_ref_str_peek (file->details->mime_type),
-                                                   "application/x-desktop");
-	
+    }
+    return g_content_type_equals (file->details->mime_type,
+                                  "application/x-desktop");
 }
 
 /**
@@ -7594,7 +7592,7 @@ caja_file_get_top_left_text (CajaFile *file)
 char *
 caja_file_get_filesystem_id (CajaFile *file)
 {
-	return g_strdup (eel_ref_str_peek (file->details->filesystem_id));
+	return g_strdup (file->details->filesystem_id);
 }
 
 CajaFile *
