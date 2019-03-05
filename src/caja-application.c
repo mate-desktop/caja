@@ -1367,10 +1367,8 @@ autorun_show_window (GMount *mount, gpointer user_data)
     GFile *location;
     CajaApplication *application = user_data;
     CajaWindow *window;
-    gboolean existing;
 
     location = g_mount_get_root (mount);
-    existing = FALSE;
 
     /* There should probably be an easier way to do this */
     if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_BROWSER)) {
@@ -2349,7 +2347,6 @@ init_gtk_accels (void)
 static void
 caja_application_startup (GApplication *app)
 {
-    GList *drives;
     CajaApplication *self = CAJA_APPLICATION (app);
     GApplication *instance;
     gboolean exit_with_last_window;
@@ -2422,7 +2419,6 @@ caja_application_startup (GApplication *app)
                              G_CALLBACK (drive_connected_callback), self, 0);
 
     /* listen for eject button presses */
-    drives = g_volume_monitor_get_connected_drives ( self->priv->volume_monitor);
     self->automount_idle_id =
     g_idle_add_full (G_PRIORITY_LOW,
                      automount_all_volumes_idle_cb,

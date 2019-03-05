@@ -546,10 +546,6 @@ fm_icon_view_clear (FMDirectoryView *view)
 static gboolean
 should_show_file_on_screen (FMDirectoryView *view, CajaFile *file)
 {
-    FMIconView *icon_view;
-
-    icon_view = FM_ICON_VIEW (view);
-
     if (!fm_directory_view_should_show_file (view, file))
     {
         return FALSE;

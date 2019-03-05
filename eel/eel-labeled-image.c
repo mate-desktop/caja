@@ -363,7 +363,6 @@ eel_labeled_image_draw (GtkWidget *widget,
     EelLabeledImage *labeled_image;
     EelIRect label_bounds;
     GtkStyleContext *context;
-    GdkWindow *window;
 
     g_assert (EEL_IS_LABELED_IMAGE (widget));
     g_assert (gtk_widget_get_realized (widget));
@@ -373,7 +372,6 @@ eel_labeled_image_draw (GtkWidget *widget,
     context = gtk_widget_get_style_context (widget);
     gtk_style_context_save (context);
 
-    window = gtk_widget_get_window (widget);
     if (gtk_widget_get_state_flags (widget) == GTK_STATE_FLAG_SELECTED ||
             gtk_widget_get_state_flags (widget) == GTK_STATE_FLAG_ACTIVE)
     {

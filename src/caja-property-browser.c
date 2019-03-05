@@ -1709,9 +1709,7 @@ element_clicked_callback (GtkWidget *image_table,
 {
     CajaPropertyBrowser *property_browser;
     GtkTargetList *target_list;
-    GdkDragContext *context;
     const char *element_name;
-    GdkDragAction action;
 
     g_return_if_fail (EEL_IS_IMAGE_TABLE (image_table));
     g_return_if_fail (EEL_IS_LABELED_IMAGE (child));
@@ -1743,15 +1741,15 @@ element_clicked_callback (GtkWidget *image_table,
 
     target_list = gtk_target_list_new (drag_types, G_N_ELEMENTS (drag_types));
     caja_property_browser_set_dragged_file(property_browser, element_name);
-    action = event->button == 3 ? GDK_ACTION_ASK : GDK_ACTION_MOVE | GDK_ACTION_COPY;
 
     g_object_set_data (G_OBJECT (property_browser), "dragged-image", child);
 
-    context = gtk_drag_begin (GTK_WIDGET (property_browser),
-                              target_list,
-                              GDK_ACTION_ASK | GDK_ACTION_MOVE | GDK_ACTION_COPY,
-                              event->button,
-                              event->event);
+    gtk_drag_begin (GTK_WIDGET (property_browser),
+                    target_list,
+                    GDK_ACTION_ASK | GDK_ACTION_MOVE | GDK_ACTION_COPY,
+                    event->button,
+                    event->event);
+
     gtk_target_list_unref (target_list);
 
     /* optionally (if the shift key is down) hide the property browser - it will later be destroyed when the drag ends */

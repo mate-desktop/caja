@@ -134,10 +134,8 @@ static void
 caja_side_pane_class_init (CajaSidePaneClass *klass)
 {
     GObjectClass *gobject_class;
-    GtkWidgetClass *widget_class;
 
     gobject_class = G_OBJECT_CLASS (klass);
-    widget_class = GTK_WIDGET_CLASS (klass);
 
     gobject_class->finalize = caja_side_pane_finalize;
     gobject_class->dispose = caja_side_pane_dispose;

@@ -1697,7 +1697,6 @@ real_map_surface (CajaIconCanvasItem *icon_item)
 {
     EelCanvas *canvas;
     char *audio_filename;
-    CajaIconContainer *container;
     GdkPixbuf *temp_pixbuf, *old_pixbuf, *audio_pixbuf;
     int emblem_size;
     GtkStyleContext *style;
@@ -1707,7 +1706,6 @@ real_map_surface (CajaIconCanvasItem *icon_item)
 
     temp_pixbuf = icon_item->details->pixbuf;
     canvas = EEL_CANVAS_ITEM(icon_item)->canvas;
-    container = CAJA_ICON_CONTAINER (canvas);
 
     g_object_ref (temp_pixbuf);
 

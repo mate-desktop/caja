@@ -99,10 +99,6 @@ eel_image_table_init (EelImageTable *image_table)
 static void
 eel_image_table_finalize (GObject *object)
 {
-    EelImageTable *image_table;
-
-    image_table = EEL_IMAGE_TABLE (object);
-
     G_OBJECT_CLASS (eel_image_table_parent_class)->finalize (object);
 }
 

@@ -963,15 +963,6 @@ static const GtkActionEntry spatial_entries[] =
     },
 };
 
-static const char* icon_entries[] =
-{
-    "/MenuBar/Other Menus/Places/Home",
-    "/MenuBar/Other Menus/Places/Go to Computer",
-    "/MenuBar/Other Menus/Places/Go to Templates",
-    "/MenuBar/Other Menus/Places/Go to Trash",
-    "/MenuBar/Other Menus/Places/Go to Network"
-};
-
 static void
 caja_spatial_window_init (CajaSpatialWindow *window)
 {
@@ -982,7 +973,6 @@ caja_spatial_window_init (CajaSpatialWindow *window)
     GtkTargetList *targets;
     const char *ui;
     int i;
-    GtkWidget *menuitem;
     CajaWindow *win;
     CajaWindowPane *pane;
 
@@ -1080,10 +1070,6 @@ caja_spatial_window_init (CajaSpatialWindow *window)
     ui = caja_ui_string_get ("caja-spatial-window-ui.xml");
     gtk_ui_manager_add_ui_from_string (ui_manager, ui, -1, NULL);
 
-    for (i = 0; i < G_N_ELEMENTS (icon_entries); i++)
-    {
-        menuitem = gtk_ui_manager_get_widget (ui_manager, icon_entries[i]);
-    }
     caja_window_set_active_pane (win, pane);
 }
 
