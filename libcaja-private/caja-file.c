@@ -7022,8 +7022,8 @@ caja_file_get_keywords (CajaFile *file)
 	keywords = caja_file_get_metadata_list
 		(file, CAJA_METADATA_KEY_EMBLEMS);
 
-	keywords = g_list_concat (keywords, eel_g_str_list_copy (file->details->extension_emblems));
-	keywords = g_list_concat (keywords, eel_g_str_list_copy (file->details->pending_extension_emblems));
+	keywords = g_list_concat (keywords, g_list_copy_deep (file->details->extension_emblems, (GCopyFunc) g_strdup, NULL));
+	keywords = g_list_concat (keywords, g_list_copy_deep (file->details->pending_extension_emblems, (GCopyFunc) g_strdup, NULL));
 
 	return sort_keyword_list_and_remove_duplicates (keywords);
 }
