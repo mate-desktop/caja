@@ -66,7 +66,6 @@ int         eel_g_str_list_index                        (GList                 *
 
 /* List functions for lists of objects */
 GList *     eel_g_object_list_ref                       (GList                 *list);
-GList *     eel_g_object_list_copy                      (GList                 *list);
 
 /* GHashTable functions */
 GHashTable *eel_g_hash_table_new_free_at_exit           (GHashFunc              hash_function,

@@ -1964,7 +1964,7 @@ fm_directory_view_set_selection_locations (CajaView *caja_view,
 		 */
 		g_list_free_full (view->details->pending_locations_selected, g_object_unref);
 		view->details->pending_locations_selected =
-			eel_g_object_list_copy (selection_locations);
+			g_list_copy_deep (selection_locations, (GCopyFunc) g_object_ref, NULL);
 	}
 }
 
