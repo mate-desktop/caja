@@ -5018,6 +5018,12 @@ static void
 show_text_in_icons_changed_callback (gpointer callback_data)
 {
 	show_text_in_icons = g_settings_get_enum (caja_preferences, CAJA_PREFERENCES_SHOW_TEXT_IN_ICONS);
+
+	/* Tell the world that icons might have changed. We could invent a narrower-scope
+	 * signal to mean only "thumbnails might have changed" if this ends up being slow
+	 * for some reason.
+	 */
+	emit_change_signals_for_all_files_in_all_directories ();
 }
 
 static void
@@ -5108,21 +5114,7 @@ caja_file_should_show_type (CajaFile *file)
 gboolean
 caja_file_should_get_top_left_text (CajaFile *file)
 {
-	static gboolean show_text_in_icons_callback_added = FALSE;
-
 	g_return_val_if_fail (CAJA_IS_FILE (file), FALSE);
-
-	/* Add the callback once for the life of our process */
-	if (!show_text_in_icons_callback_added) {
-		g_signal_connect_swapped (caja_preferences,
-								  "changed::" CAJA_PREFERENCES_SHOW_TEXT_IN_ICONS,
-								  G_CALLBACK (show_text_in_icons_changed_callback),
-								  NULL);
-		show_text_in_icons_callback_added = TRUE;
-
-		/* Peek for the first time */
-		show_text_in_icons_changed_callback (NULL);
-	}
 
 	if (show_text_in_icons == CAJA_SPEED_TRADEOFF_ALWAYS) {
 		return TRUE;
@@ -7605,7 +7597,7 @@ caja_file_peek_top_left_text (CajaFile *file,
 	if (!file->details->got_top_left_text) {
 
 		if (caja_file_contains_text (file)) {
-			return " ...";
+			return "Lorem ipsum sit dolor amet...";
 		}
 		return NULL;
 	}
@@ -8661,6 +8653,11 @@ caja_file_class_init (CajaFileClass *class)
 	g_signal_connect_swapped (caja_preferences,
 							  "changed::" CAJA_PREFERENCES_SHOW_IMAGE_FILE_THUMBNAILS,
 							  G_CALLBACK (show_thumbnails_changed_callback),
+							  NULL);
+	show_text_in_icons_changed_callback (NULL);
+	g_signal_connect_swapped (caja_preferences,
+							  "changed::" CAJA_PREFERENCES_SHOW_TEXT_IN_ICONS,
+							  G_CALLBACK (show_text_in_icons_changed_callback),
 							  NULL);
 
 	icon_theme = gtk_icon_theme_get_default ();

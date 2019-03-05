@@ -7673,6 +7673,8 @@ caja_icon_container_update_icon (CajaIconContainer *container,
     }
 
     eel_canvas_item_set (EEL_CANVAS_ITEM (icon->item),
+                         /* "editable_text", g_strdup_printf("%d %d %d %d", attach_points[0], attach_points[1], attach_points[2], attach_points[3]), */
+                         /* "editable_text", g_strdup_printf("%d %d %d %d", embedded_text_rect.x, embedded_text_rect.y, embedded_text_rect.width, embedded_text_rect.height), */
                          "editable_text", editable_text,
                          "additional_text", additional_text,
                          "highlighted_for_drop", icon == details->drop_target,

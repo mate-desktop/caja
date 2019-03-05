@@ -140,6 +140,149 @@ caja_icon_info_new_for_pixbuf (GdkPixbuf *pixbuf,
     return icon;
 }
 
+/* Scale coordinates from the icon data prior to returning
+ * them to the user.
+ */
+static void
+caja_icon_info_scale_point (gint  x,
+                            gint  y,
+                            gint *x_out,
+                            gint *y_out,
+                            gint  scale)
+{
+    *x_out = x * scale;
+    *y_out = y * scale;
+}
+
+/**
+ * Gets the coordinates of a rectangle within the icon
+ * that can be used for display of information such
+ * as a preview of the contents of a text file.
+ **/
+static gboolean
+caja_icon_info_set_embedded_rect (CajaIconInfo  *icon,
+                                  GdkRectangle *rectangle)
+{
+    g_return_val_if_fail (icon != NULL, FALSE);
+
+    GdkPixbuf *pixbuf;
+    gint x0, y0;
+    gint x1, y1;
+    gint scaled_x0, scaled_y0;
+    gint scaled_x1, scaled_y1;
+    gboolean has_embedded_rect = FALSE;
+
+    pixbuf = caja_icon_info_get_pixbuf (icon);
+    if (pixbuf != NULL)
+    {
+        gint width, height;
+
+        has_embedded_rect = TRUE;
+
+        width = gdk_pixbuf_get_width (pixbuf);
+        height = gdk_pixbuf_get_height (pixbuf);
+
+        x0 = width / 24;
+        y0 = height / 32;
+        x1 = width / 4 - x0;
+        y1 = height / 4 - y0;
+
+        if (rectangle)
+        {
+            caja_icon_info_scale_point (x0, y0,
+                                        &scaled_x0, &scaled_y0,
+                                        icon->orig_scale);
+            caja_icon_info_scale_point (x1, y1,
+                                        &scaled_x1, &scaled_y1,
+                                        icon->orig_scale);
+
+            rectangle->x = scaled_x0;
+            rectangle->y = scaled_y0;
+            rectangle->width = scaled_x1 - rectangle->x;
+            rectangle->height = scaled_y1 - rectangle->y;
+        }
+
+        g_object_unref (pixbuf);
+    }
+
+    return has_embedded_rect;
+}
+
+
+/**
+ * Fetches the set of attach points for an icon. An attach point
+ * is a location in the icon that can be used as anchor points for attaching
+ * emblems or overlays to the icon.
+ **/
+static gboolean
+caja_icon_info_set_attach_points (CajaIconInfo *icon,
+                                  GdkPoint    **points,
+                                  gint         *n_points)
+{
+    g_return_val_if_fail (icon != NULL, FALSE);
+
+    gint n_attach_points;
+    GdkPoint *attach_points;
+    int i;
+
+    n_attach_points = 4;
+    attach_points = g_new (GdkPoint, n_attach_points);
+
+    i = 0;
+    while (i < n_attach_points)
+    {
+        attach_points[i].x = 32;
+        attach_points[i].y = 32;
+        i++;
+    }
+
+    if (n_attach_points && points)
+    {
+        *points = g_new (GdkPoint, n_attach_points);
+        for (i = 0; i < n_attach_points; i++)
+            caja_icon_info_scale_point (attach_points[i].x,
+                                        attach_points[i].y,
+                                        &(*points)[i].x,
+                                        &(*points)[i].y,
+                                        icon->orig_scale);
+    }
+
+    if (n_points)
+        *n_points = n_attach_points;
+
+    return TRUE;
+}
+
+static char *
+caja_icon_info_set_display_name (GtkIconInfo *icon_info)
+{
+    g_return_val_if_fail (icon_info != NULL, FALSE);
+
+    GKeyFile *icon_file;
+    GError *error = NULL;
+    const char *path;
+    char *display_name;
+
+    icon_file = g_key_file_new ();
+    path = gtk_icon_info_get_filename (icon_info);
+
+    g_key_file_set_list_separator (icon_file, ',');
+    g_key_file_load_from_file (icon_file, path, 0, &error);
+    if (error)
+    {
+        g_error_free (error);
+        g_key_file_free (icon_file);
+        return FALSE;
+    }
+
+    display_name = g_key_file_get_locale_string (icon_file,
+                                                 "Icon Data", "DisplayName",
+                                                 NULL, NULL);
+    g_key_file_free (icon_file);
+
+    return display_name;
+}
+
 static CajaIconInfo *
 caja_icon_info_new_for_icon_info (GtkIconInfo *icon_info,
                                   gint         scale)
@@ -152,18 +295,19 @@ caja_icon_info_new_for_icon_info (GtkIconInfo *icon_info,
 
     icon = g_object_new (CAJA_TYPE_ICON_INFO, NULL);
 
+    icon->orig_scale = scale;
+
     icon->pixbuf = gtk_icon_info_load_icon (icon_info, NULL);
 
-    icon->got_embedded_rect = gtk_icon_info_get_embedded_rect (icon_info,
-                              &icon->embedded_rect);
+    icon->got_embedded_rect = caja_icon_info_set_embedded_rect (icon, &icon->embedded_rect);
 
-    if (gtk_icon_info_get_attach_points (icon_info, &points, &n_points))
+    if (caja_icon_info_set_attach_points (icon, &points, &n_points))
     {
         icon->n_attach_points = n_points;
         icon->attach_points = points;
     }
 
-    icon->display_name = g_strdup (gtk_icon_info_get_display_name (icon_info));
+    /* icon->display_name = g_strdup (caja_icon_info_set_display_name (icon_info)); */
 
     filename = gtk_icon_info_get_filename (icon_info);
     if (filename != NULL)
@@ -178,8 +322,6 @@ caja_icon_info_new_for_icon_info (GtkIconInfo *icon_info,
         }
         icon->icon_name = basename;
     }
-
-    icon->orig_scale = scale;
 
     return icon;
 }
