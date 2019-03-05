@@ -106,7 +106,7 @@ caja_get_all_progress_info (void)
 
     G_LOCK (progress_info);
 
-    l = eel_g_object_list_copy (active_progress_infos);
+    l = g_list_copy_deep (active_progress_infos, (GCopyFunc) g_object_ref, NULL);
 
     G_UNLOCK (progress_info);
 

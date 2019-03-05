@@ -2070,7 +2070,7 @@ trash_or_delete_internal (GList                  *files,
 	/* TODO: special case desktop icon link files ... */
 
 	job = op_job_new (DeleteJob, parent_window, TRUE, FALSE);
-	job->files = eel_g_object_list_copy (files);
+	job->files = g_list_copy_deep (files, (GCopyFunc) g_object_ref, NULL);
 	job->try_trash = try_trash;
 	job->user_cancel = FALSE;
 	job->done_callback = done_callback;
@@ -4708,7 +4708,7 @@ caja_file_operations_copy (GList *files,
 	job->desktop_location = caja_get_desktop_location ();
 	job->done_callback = done_callback;
 	job->done_callback_data = done_callback_data;
-	job->files = eel_g_object_list_copy (files);
+	job->files = g_list_copy_deep (files, (GCopyFunc) g_object_ref, NULL);
 	job->destination = g_object_ref (target_dir);
 	if (relative_item_points != NULL &&
 	    relative_item_points->len > 0) {
@@ -5250,7 +5250,7 @@ caja_file_operations_move (GList *files,
 	job->is_move = TRUE;
 	job->done_callback = done_callback;
 	job->done_callback_data = done_callback_data;
-	job->files = eel_g_object_list_copy (files);
+	job->files = g_list_copy_deep (files, (GCopyFunc) g_object_ref, NULL);
 	job->destination = g_object_ref (target_dir);
 	if (relative_item_points != NULL &&
 	    relative_item_points->len > 0) {
@@ -5569,7 +5569,7 @@ caja_file_operations_link (GList *files,
 	job = op_job_new (CopyMoveJob, parent_window, TRUE, FALSE);
 	job->done_callback = done_callback;
 	job->done_callback_data = done_callback_data;
-	job->files = eel_g_object_list_copy (files);
+	job->files = g_list_copy_deep (files, (GCopyFunc) g_object_ref, NULL);
 	job->destination = g_object_ref (target_dir);
 	if (relative_item_points != NULL &&
 	    relative_item_points->len > 0) {
@@ -5610,7 +5610,7 @@ caja_file_operations_duplicate (GList *files,
 	job = op_job_new (CopyMoveJob, parent_window, FALSE, contains_multiple_items (files));
 	job->done_callback = done_callback;
 	job->done_callback_data = done_callback_data;
-	job->files = eel_g_object_list_copy (files);
+	job->files = g_list_copy_deep (files, (GCopyFunc) g_object_ref, NULL);
 	job->destination = NULL;
 	if (relative_item_points != NULL &&
 	    relative_item_points->len > 0) {

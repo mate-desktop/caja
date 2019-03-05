@@ -733,18 +733,6 @@ eel_g_object_list_ref (GList *list)
 }
 
 /**
- * eel_g_object_list_copy
- *
- * Copy the list of objects, ref'ing each one.
- * @list: GList of objects.
- **/
-GList *
-eel_g_object_list_copy (GList *list)
-{
-    return g_list_copy (eel_g_object_list_ref (list));
-}
-
-/**
  * eel_add_weak_pointer
  *
  * Nulls out a saved reference to an object when the object gets destroyed.

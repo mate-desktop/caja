@@ -940,7 +940,7 @@ begin_location_change (CajaWindowSlot *slot,
     slot->location_change_type = type;
     slot->location_change_distance = distance;
     slot->tried_mount = FALSE;
-    slot->pending_selection = eel_g_object_list_copy (new_selection);
+    slot->pending_selection = g_list_copy_deep (new_selection, (GCopyFunc) g_object_ref, NULL);
 
     slot->pending_scroll_to = g_strdup (scroll_pos);
 
@@ -1466,7 +1466,7 @@ load_new_location (CajaWindowSlot *slot,
     window = slot->pane->window;
     g_assert (CAJA_IS_WINDOW (window));
 
-    selection_copy = eel_g_object_list_copy (selection);
+    selection_copy = g_list_copy_deep (selection, (GCopyFunc) g_object_ref, NULL);
 
     view = NULL;
 

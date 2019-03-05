@@ -1915,7 +1915,7 @@ caja_get_history_list (void)
 static GList *
 caja_window_get_history (CajaWindow *window)
 {
-    return eel_g_object_list_copy (history_list);
+    return g_list_copy_deep (history_list, (GCopyFunc) g_object_ref, NULL);
 }
 
 
