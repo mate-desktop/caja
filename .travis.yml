@@ -173,7 +173,11 @@ build_scripts:
   - fi
   - ./autogen.sh
   - scan-build $CHECKERS ./configure
-  - scan-build $CHECKERS --keep-cc -o html-report make
+  - if [ $CPU_COUNT -gt 1 ]; then
+  -     scan-build $CHECKERS --keep-cc -o html-report make -j $CPU_COUNT
+  - else
+  -     scan-build $CHECKERS --keep-cc -o html-report make
+  - fi
 
 after_scripts:
   - if [ ${DISTRO_NAME} == "fedora" ];then
