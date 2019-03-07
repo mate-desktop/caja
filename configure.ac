@@ -194,7 +194,7 @@ dnl ==========  EEL/CAJA OMIT SELF CHECK  ====================================
 AC_ARG_ENABLE(self-check,
     AC_HELP_STRING([--disable-self-check], [build without self check]))
 msg_self_check=yes
-if test "x$enable_self_check" == "xno"; then
+if test "x$enable_self_check" = "xno"; then
     msg_self_check=no
     AC_DEFINE(EEL_OMIT_SELF_CHECK, 1, [define to disable eel self check])
     AC_DEFINE(CAJA_OMIT_SELF_CHECK, 1, [define to disable caja self check])
