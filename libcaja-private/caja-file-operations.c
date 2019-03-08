@@ -955,6 +955,14 @@ init_common (gsize job_size,
 	CommonJob *common;
 	GdkScreen *screen;
 
+	/* expected warning with Clang static analyzer:                                *
+	 * "Cast a region whose size is not a multiple of the destination type size"   *
+	 *                                                                             *
+	 * It is expected for job_size to be larger than sizeof(CommonJob) no matter   *
+	 * what Clang analyzer reports: we're allocating the whole structure for a job *
+	 * (e.g. a TrashJob), but only initializing the common part of it (CommonJob)  *
+	 * which is a subset of all "real" job structures, structures that all start   *
+	 * with a CommonJob, and that thus can be used as such.                        */
 	common = g_malloc0 (job_size);
 
 	if (parent_window) {
