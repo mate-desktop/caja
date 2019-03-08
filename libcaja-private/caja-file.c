@@ -4855,8 +4855,6 @@ caja_file_fit_date_as_string (CajaFile *file,
 		formats = TODAY_TIME_FORMATS;
 	} else if (file_date_age == 1) {
 		formats = YESTERDAY_TIME_FORMATS;
-	} else if (file_date_age < 7) {
-		formats = CURRENT_WEEK_TIME_FORMATS;
 	} else {
 		formats = CURRENT_WEEK_TIME_FORMATS;
 	}
