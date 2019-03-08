@@ -10,8 +10,8 @@ branches:
   - gh-pages
 
 before_install:
-  - curl -Ls -o docker-build https://github.com/mate-desktop/mate-dev-scripts/raw/travis/travis/docker-build
-  - curl -Ls -o gen-index https://github.com/mate-desktop/mate-dev-scripts/raw/travis/travis/gen-index.sh
+  - curl -Ls -o docker-build https://github.com/mate-desktop/mate-dev-scripts/raw/master/travis/docker-build
+  - curl -Ls -o gen-index https://github.com/mate-desktop/mate-dev-scripts/raw/master/travis/gen-index.sh
   - chmod +x docker-build gen-index
 
 install:
@@ -168,7 +168,7 @@ variables:
 
 build_scripts:
   - if [ ${DISTRO_NAME} == "fedora" ];then
-  -     curl -Ls -o fedora.sh https://github.com/mate-desktop/mate-dev-scripts/raw/travis/travis/fedora.sh
+  -     curl -Ls -o fedora.sh https://github.com/mate-desktop/mate-dev-scripts/raw/master/travis/fedora.sh
   -     bash ./fedora.sh
   - fi
   - ./autogen.sh
