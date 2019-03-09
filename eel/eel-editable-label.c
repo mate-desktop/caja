@@ -2595,10 +2595,10 @@ eel_editable_label_move_line (EelEditableLabel *label,
                               gint      start,
                               gint      count)
 {
-    int n_lines, i;
-    int x;
     PangoLayoutLine *line;
     int index;
+    int n_lines, i;
+    int x = 0;
 
     eel_editable_label_ensure_layout (label, FALSE);
 
