@@ -434,16 +434,6 @@ connect_proxy_cb (GtkActionGroup *action_group,
     gtk_label_set_max_width_chars (label, MENU_ITEM_MAX_WIDTH_CHARS);
 }
 
-static const char* icon_entries[] =
-{
-    "/MenuBar/Other Menus/Go/Home",
-    "/MenuBar/Other Menus/Go/Computer",
-    "/MenuBar/Other Menus/Go/Go to Templates",
-    "/MenuBar/Other Menus/Go/Go to Trash",
-    "/MenuBar/Other Menus/Go/Go to Network",
-    "/MenuBar/Other Menus/Go/Go to Location"
-};
-
 /**
  * refresh_go_menu:
  *

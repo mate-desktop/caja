@@ -216,20 +216,6 @@ setup_debug_log (void)
     setup_debug_log_glog ();
 }
 
-static gboolean
-running_in_mate (void)
-{
-    return (g_strcmp0 (g_getenv ("XDG_CURRENT_DESKTOP"), "MATE") == 0)
-        || (g_strcmp0 (g_getenv ("XDG_SESSION_DESKTOP"), "mate") == 0)
-        || (g_strcmp0 (g_getenv ("DESKTOP_SESSION"), "mate") == 0);
-}
-
-static gboolean
-running_as_root (void)
-{
-    return geteuid () == 0;
-}
-
 int
 main (int argc, char *argv[])
 {

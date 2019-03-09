@@ -981,46 +981,6 @@ caja_window_slot_close (CajaWindowSlot *slot)
 }
 
 static void
-caja_window_size_request (GtkWidget		*widget,
-                          GtkRequisition	*requisition)
-{
-    GdkScreen *screen;
-    guint max_width;
-    guint max_height;
-
-    g_assert (CAJA_IS_WINDOW (widget));
-    g_assert (requisition != NULL);
-
-    screen = gtk_window_get_screen (GTK_WINDOW (widget));
-
-    /* Limit the requisition to be within 90% of the available screen
-     * real state.
-     *
-     * This way the user will have a fighting chance of getting
-     * control of their window back if for whatever reason one of the
-     * window's descendants decide they want to be 4000 pixels wide.
-     *
-     * Note that the user can still make the window really huge by hand.
-     *
-     * Bugs in components or other widgets that cause such huge geometries
-     * to be requested, should still be fixed.  This code is here only to
-     * prevent the extremely frustrating consequence of such bugs.
-     */
-    max_width = get_max_forced_width (screen);
-    max_height = get_max_forced_height (screen);
-
-    if (requisition->width > (int) max_width)
-    {
-        requisition->width = max_width;
-    }
-
-    if (requisition->height > (int) max_height)
-    {
-        requisition->height = max_height;
-    }
-}
-
-static void
 caja_window_realize (GtkWidget *widget)
 {
     GTK_WIDGET_CLASS (caja_window_parent_class)->realize (widget);
