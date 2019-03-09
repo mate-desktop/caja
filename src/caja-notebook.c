@@ -51,12 +51,6 @@ static int  caja_notebook_insert_page	 (GtkNotebook *notebook,
 static void caja_notebook_remove	 (GtkContainer *container,
                                       GtkWidget *tab_widget);
 
-static const GtkTargetEntry url_drag_types[] =
-{
-    { CAJA_ICON_DND_MATE_ICON_LIST_TYPE, 0, CAJA_ICON_DND_MATE_ICON_LIST },
-    { CAJA_ICON_DND_URI_LIST_TYPE, 0, CAJA_ICON_DND_URI_LIST },
-};
-
 enum
 {
     TAB_CLOSE_REQUEST,
@@ -183,19 +177,6 @@ caja_notebook_init (CajaNotebook *notebook)
 
     g_signal_connect (notebook, "button-press-event",
                       (GCallback)button_press_cb, NULL);
-
-    /* Set up drag-and-drop target */
-    /* TODO this would be used for opening a new tab.
-     * It will only work properly as soon as GtkNotebook
-     * supports to find out whether a particular point
-     * is on a tab button or not.
-     */
-#if 0
-    gtk_drag_dest_set (GTK_WIDGET (notebook), 0,
-                       url_drag_types, G_N_ELEMENTS (url_drag_types),
-                       GDK_ACTION_LINK);
-    gtk_drag_dest_set_track_motion (GTK_WIDGET (notebook), TRUE);
-#endif
 }
 
 void
