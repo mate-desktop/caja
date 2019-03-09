@@ -168,15 +168,6 @@ caja_launch_application (GAppInfo *application,
     g_list_free_full (uris, g_free);
 }
 
-/*
- * Set the DISPLAY variable, to be use by g_spawn_async.
- */
-static void
-set_environment (gpointer display)
-{
-    g_setenv("DISPLAY", display, TRUE);
-}
-
 static void
 dummy_child_watch (GPid     pid,
                    gint     status,

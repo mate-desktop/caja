@@ -201,45 +201,6 @@ eel_canvas_re_init (EelCanvasRE *re)
     re->width = 0.0;
 }
 
-static void get_bounds (EelCanvasRE *re, double *px1, double *py1, double *px2, double *py2)
-{
-    EelCanvasItem *item;
-    double x1, y1, x2, y2;
-    int cx1, cy1, cx2, cy2;
-    double hwidth;
-
-#ifdef VERBOSE
-    g_print ("re get_bounds\n");
-#endif
-    item = EEL_CANVAS_ITEM (re);
-
-    if (re->width_pixels)
-        hwidth = (re->width / item->canvas->pixels_per_unit) / 2.0;
-    else
-        hwidth = re->width / 2.0;
-
-    x1 = re->x1;
-    y1 = re->y1;
-    x2 = re->x2;
-    y2 = re->y2;
-
-    eel_canvas_item_i2w (item, &x1, &y1);
-    eel_canvas_item_i2w (item, &x2, &y2);
-    eel_canvas_w2c (item->canvas, x1 - hwidth, y1 - hwidth, &cx1, &cy1);
-    eel_canvas_w2c (item->canvas, x2 + hwidth, y2 + hwidth, &cx2, &cy2);
-    *px1 = cx1;
-    *py1 = cy1;
-    *px2 = cx2;
-    *py2 = cy2;
-
-    /* Some safety fudging */
-
-    *px1 -= 2;
-    *py1 -= 2;
-    *px2 += 2;
-    *py2 += 2;
-}
-
 static void
 eel_canvas_re_set_fill (EelCanvasRE *re, gboolean fill_set)
 {
