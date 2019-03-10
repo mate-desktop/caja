@@ -308,7 +308,8 @@ eel_str_replace_substring (const char *string,
         {
             break;
         }
-        result_length += replacement_length - substring_length;
+        if (replacement_length > substring_length)
+            result_length += replacement_length - substring_length;
     }
 
     result = g_malloc (result_length + 1);
@@ -329,7 +330,7 @@ eel_str_replace_substring (const char *string,
         memcpy (result_position, replacement, replacement_length);
         result_position += replacement_length;
     }
-    g_assert (result_position - result == result_length);
+
     result_position[0] = '\0';
 
     return result;
