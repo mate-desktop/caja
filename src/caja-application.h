@@ -103,4 +103,10 @@ void caja_application_open_location (CajaApplication *application,
         const char *startup_id,
         const gboolean open_in_tabs);
 
+void caja_application_open_location_and_force_raise (CajaApplication *application,
+        GFile *location,
+        GFile *selection,
+        const char *startup_id,
+        const gboolean open_in_tabs);
+
 #endif /* CAJA_APPLICATION_H */

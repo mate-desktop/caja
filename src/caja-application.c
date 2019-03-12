@@ -414,6 +414,37 @@ caja_application_open_location (CajaApplication *application,
 }
 
 void
+caja_application_open_location_and_force_raise (CajaApplication *application,
+                                GFile *location,
+                                GFile *selection,
+                                const char *startup_id,
+                                const gboolean open_in_tabs)
+{
+    CajaWindow *window;
+    GList *sel_list = NULL;
+
+    window = caja_application_create_navigation_window (application, gdk_screen_get_default ());
+
+    if (selection != NULL) {
+        sel_list = g_list_prepend (NULL, g_object_ref (selection));
+    }
+
+    caja_window_slot_open_location_full (caja_window_get_active_slot (window), location,
+                                         0, CAJA_WINDOW_OPEN_FLAG_NEW_WINDOW, sel_list, NULL, NULL);
+
+    //use x11 to force show caja window at toplevel.
+    gtk_window_set_position (GTK_WINDOW (window), GTK_WIN_POS_CENTER_ALWAYS);
+    GdkWindow *gdk_window = gtk_widget_get_window (GTK_WINDOW (window));
+    Window window_xid = gdk_x11_window_get_xid (gdk_window);
+    Display *display;
+    XRaiseWindow (display, window_xid);
+
+    if (sel_list != NULL) {
+        caja_file_list_free (sel_list);
+    }
+}
+
+void
 caja_application_quit (CajaApplication *self)
 {
     GApplication *app = G_APPLICATION (self);
