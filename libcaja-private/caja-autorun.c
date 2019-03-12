@@ -136,7 +136,10 @@ add_elem_to_str_array (char **v, const char *s)
 
     len = v != NULL ? g_strv_length (v) : 0;
     r = g_new0 (char *, len + 2);
-    memcpy (r, v, len * sizeof (char *));
+
+    if (v)
+        memcpy (r, v, len * sizeof (char *));
+
     r[len] = g_strdup (s);
     r[len+1] = NULL;
     g_free (v);
