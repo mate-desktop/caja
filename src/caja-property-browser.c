@@ -1235,7 +1235,7 @@ caja_color_selection_dialog_new (CajaPropertyBrowser *property_browser)
 
 /* add the newly selected file to the browser images */
 static void
-add_pattern_to_browser (GtkDialog *dialog, gint response_id, gpointer *data)
+add_pattern_to_browser (GtkDialog *dialog, gint response_id, gpointer data)
 {
     char *directory_path, *destination_name;
     char *basename;
@@ -1408,7 +1408,7 @@ add_color_to_file (CajaPropertyBrowser *property_browser, const char *color_spec
 
 /* handle the OK button being pushed on the color selection dialog */
 static void
-add_color_to_browser (GtkWidget *widget, gint which_button, gpointer *data)
+add_color_to_browser (GtkWidget *widget, gint which_button, gpointer data)
 {
     char * color_spec;
     const char *color_name;
@@ -1447,10 +1447,10 @@ add_color_to_browser (GtkWidget *widget, gint which_button, gpointer *data)
 
 /* create the color selection dialog, pre-set with the color that was just selected */
 static void
-show_color_selection_window (GtkWidget *widget, gpointer *data)
+show_color_selection_window (GtkWidget *widget, gpointer data)
 {
     GdkColor color;
-    CajaPropertyBrowser *property_browser = CAJA_PROPERTY_BROWSER(data);
+    CajaPropertyBrowser *property_browser = CAJA_PROPERTY_BROWSER (data);
 
     gtk_color_selection_get_current_color (GTK_COLOR_SELECTION
                                            (gtk_color_selection_dialog_get_color_selection (GTK_COLOR_SELECTION_DIALOG (property_browser->details->colors_dialog))),
