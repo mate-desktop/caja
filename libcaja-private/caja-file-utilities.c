@@ -280,7 +280,7 @@ parse_xdg_dirs (const char *config_file)
 
     g_free (config_file_free);
 
-    return (XdgDirEntry *)g_array_free (array, FALSE);
+    return (XdgDirEntry *) (gpointer) g_array_free (array, FALSE);
 }
 
 static XdgDirEntry *cached_xdg_dirs = NULL;
