@@ -8322,16 +8322,12 @@ caja_file_list_call_when_ready (GList *file_list,
 		/* Need to do this here, as the list can be modified by this call */
 		l = l->next;
 
-		caja_file_call_when_ready (file,
-                                           attributes,
-                                           file_list_file_ready_callback,
-                                           data);
-
-		data = file_list_ready_data_new
-			(file_list, callback, callback_data);
+		if (file)
+			caja_file_call_when_ready (file,
+						   attributes,
+						   file_list_file_ready_callback,
+						   data);
 	}
-
-	file_list_ready_data_free (data);
 }
 
 void
