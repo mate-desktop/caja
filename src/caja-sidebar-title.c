@@ -260,7 +260,7 @@ caja_sidebar_title_select_text_color (CajaSidebarTitle *sidebar_title,
 
     if (!dark_info_color)
     {
-        light_info_color = g_malloc (sizeof (GdkRGBA));
+        dark_info_color = g_malloc (sizeof (GdkRGBA));
         gdk_rgba_parse (dark_info_color, DEFAULT_DARK_INFO_COLOR);
     }
 
