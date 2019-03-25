@@ -595,9 +595,10 @@ update_status_icon_and_window (void)
     gboolean toshow;
     GIcon *icon;
     GNotification *notification;
+    gboolean show_notifications = g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SHOW_NOTIFICATIONS);
     static gboolean window_shown = FALSE;
 
-    if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SHOW_NOTIFICATIONS))
+    if (show_notifications)
     {
         notification = g_notification_new ("caja");
         icon = g_themed_icon_new ("system-file-manager");
@@ -620,8 +621,7 @@ update_status_icon_and_window (void)
 
         if (window_shown)
         {
-            if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SHOW_NOTIFICATIONS) &&
-                !gtk_window_is_active (GTK_WINDOW (get_progress_window ())))
+            if (show_notifications && !gtk_window_is_active (GTK_WINDOW (get_progress_window ())))
             {
                 g_notification_set_body (notification, _("Process completed"));
                 g_application_send_notification (g_application_get_default (), "caja", notification);
