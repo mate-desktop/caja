@@ -2162,7 +2162,7 @@ unmount_mount_callback (GObject *source_object,
 	}
 
 	if (! unmounted) {
-		if (error->code != G_IO_ERROR_FAILED_HANDLED) {
+		if (error && error->code != G_IO_ERROR_FAILED_HANDLED) {
 			if (data->eject) {
 				primary = f (_("Unable to eject %V"), source_object);
 			} else {
@@ -5445,7 +5445,7 @@ link_file (CopyMoveJob *job,
 			details = NULL;
 		} else {
 			secondary = f (_("There was an error creating the symlink in %F."), dest_dir);
-			details = error->message;
+			details = error ? error->message : NULL;
 		}
 
 		response = run_warning (common,
