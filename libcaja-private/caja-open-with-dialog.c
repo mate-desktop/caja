@@ -249,12 +249,15 @@ add_or_find_application (CajaOpenWithDialog *dialog)
 
     if (app == NULL)
     {
-        message = g_strdup_printf (_("Could not add application to the application database: %s"), error->message);
+        message = g_strdup_printf (_("Could not add application to the application database: %s"), error ? error->message : _("Unknown error"));
         eel_show_error_dialog (_("Could not add application"),
                                message,
                                GTK_WINDOW (dialog));
         g_free (message);
-        g_error_free (error);
+
+        if (error)
+            g_error_free (error);
+
         return NULL;
     }
 
