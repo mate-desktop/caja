@@ -2226,9 +2226,10 @@ caja_application_local_command_line (GApplication *application,
         g_free (concatOptions);
     }
 
-    for (idx = 0; idx < len; idx++) {
-        g_object_unref (files[idx]);
-    }
+    if (files)
+        for (idx = 0; idx < len; idx++) {
+            g_object_unref (files[idx]);
+        }
     g_free (files);
 
  out:
