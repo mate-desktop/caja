@@ -678,7 +678,7 @@ eel_strdup_vprintf_with_custom (EelPrintfHandler *custom,
         {
             char *val;
 
-            G_VA_COPY(va, va_orig);
+            va_copy (va, va_orig);
             skip_to_arg (&va, args, custom, conversions[i].precision_pos);
             val = g_strdup_vprintf ("%d", va);
             va_end (va);
@@ -694,7 +694,7 @@ eel_strdup_vprintf_with_custom (EelPrintfHandler *custom,
         {
             char *val;
 
-            G_VA_COPY(va, va_orig);
+            va_copy (va, va_orig);
             skip_to_arg (&va, args, custom, conversions[i].width_pos);
             val = g_strdup_vprintf ("%d", va);
             va_end (va);
@@ -706,7 +706,7 @@ eel_strdup_vprintf_with_custom (EelPrintfHandler *custom,
             g_free (val);
         }
 
-        G_VA_COPY(va, va_orig);
+        va_copy (va, va_orig);
         skip_to_arg (&va, args, custom, conversions[i].arg_pos);
         type = args[conversions[i].arg_pos];
         if (type < 0)
