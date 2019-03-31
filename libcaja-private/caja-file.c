@@ -98,7 +98,7 @@
 /* Name of Caja trash directories */
 #define TRASH_DIRECTORY_NAME ".Trash"
 
-#define METADATA_ID_IS_LIST_MASK (1<<31)
+#define METADATA_ID_IS_LIST_MASK (1U<<31)
 
 #define SORT_BY_EXTENSION_FOLLOWING_MAX_LENGTH 3
 #define SORT_BY_EXTENSION_MAX_SEGMENTS 3
