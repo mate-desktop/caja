@@ -505,7 +505,7 @@ get_scaled_icon_size (CajaIconCanvasItem *item,
 {
     EelCanvas *canvas;
     GdkPixbuf *pixbuf = NULL;
-    gint scale;
+    gint scale = 1;
 
     if (item != NULL) {
         canvas = EEL_CANVAS_ITEM (item)->canvas;
