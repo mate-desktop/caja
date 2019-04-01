@@ -65,6 +65,7 @@ requires:
   archlinux:
     # Useful URL: https://git.archlinux.org/svntogit/community.git/tree/caja
     - clang
+    - cppcheck
     - gcc
     - git
     - make
@@ -84,6 +85,7 @@ requires:
     # Useful URL: https://salsa.debian.org/debian-mate-team/caja
     - clang
     - clang-tools
+    - cppcheck
     - git
     - gobject-introspection
     - gtk-doc-tools
@@ -110,6 +112,7 @@ requires:
     # Useful URL: https://src.fedoraproject.org/cgit/rpms/caja.git/
     - clang-analyzer
     - clang
+    - cppcheck
     - git
     - gcc
     - make
@@ -132,6 +135,7 @@ requires:
   ubuntu:
     - clang
     - clang-tools
+    - cppcheck
     - git
     - gobject-introspection
     - gtk-doc-tools
@@ -184,6 +188,7 @@ build_scripts:
   - else
   -     scan-build $CHECKERS --keep-cc -o html-report make
   - fi
+  - cppcheck --enable=warning,style,performance,portability,information,missingInclude .
 
 after_scripts:
   - if [ ${DISTRO_NAME} == "fedora" ];then
