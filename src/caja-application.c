@@ -374,18 +374,25 @@ caja_application_open (GApplication *app,
         }
         sscanf (splitedOptions[2], "%d", &open_in_tabs);
 
+        open_windows (self, files,
+                      gdk_screen_get_default (),
+                      geometry,
+                      n_files,
+                      browser_window,
+                      open_in_tabs);
+
         /* Reset this or 3ed and later invocations will use same
          * geometry even if the user has resized open window */
         self->priv->geometry = NULL;
         g_strfreev (splitedOptions);
     }
-
-    open_windows (self, files,
-                  gdk_screen_get_default (),
-                  geometry,
-                  n_files,
-                  browser_window,
-                  open_in_tabs);
+    else
+        open_windows (self, files,
+                      gdk_screen_get_default (),
+                      geometry,
+                      n_files,
+                      browser_window,
+                      open_in_tabs);
 }
 
 void
