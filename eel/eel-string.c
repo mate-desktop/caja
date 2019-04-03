@@ -321,13 +321,13 @@ eel_str_replace_substring (const char *string,
         if (substring_position == NULL)
         {
             remaining_length = strlen (p);
-            memcpy (result_position, p, remaining_length);
+            memmove (result_position, p, remaining_length);
             result_position += remaining_length;
             break;
         }
-        memcpy (result_position, p, substring_position - p);
+        memmove (result_position, p, substring_position - p);
         result_position += substring_position - p;
-        memcpy (result_position, replacement, replacement_length);
+        memmove (result_position, replacement, replacement_length);
         result_position += replacement_length;
     }
 
