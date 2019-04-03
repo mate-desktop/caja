@@ -2556,8 +2556,12 @@ icon_container_context_click_background_callback (CajaIconContainer *container,
     g_assert (CAJA_IS_ICON_CONTAINER (container));
     g_assert (FM_IS_ICON_VIEW (icon_view));
 
+    /* FIXME: passing event from here won't work
+     * for gtk_menu_popup_at_pointer (in eel_pop_up_context_menu() )
+     * if the menu is being triggered from here by the menu key
+     */
     fm_directory_view_pop_up_background_context_menu
-    (FM_DIRECTORY_VIEW (icon_view), event);
+    (FM_DIRECTORY_VIEW (icon_view), NULL);
 }
 
 static gboolean
