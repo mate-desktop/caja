@@ -64,9 +64,6 @@ GList *     eel_g_str_list_alphabetize                  (GList                 *
 int         eel_g_str_list_index                        (GList                 *str_list,
         const char            *str);
 
-/* List functions for lists of objects */
-GList *     eel_g_object_list_ref                       (GList                 *list);
-
 /* GHashTable functions */
 GHashTable *eel_g_hash_table_new_free_at_exit           (GHashFunc              hash_function,
         GCompareFunc           key_compare_function,

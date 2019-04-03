@@ -684,19 +684,6 @@ eel_round (double d)
 }
 
 /**
- * eel_g_object_list_ref
- *
- * Ref all the objects in a list.
- * @list: GList of objects.
- **/
-GList *
-eel_g_object_list_ref (GList *list)
-{
-    g_list_foreach (list, (GFunc) g_object_ref, NULL);
-    return list;
-}
-
-/**
  * eel_add_weak_pointer
  *
  * Nulls out a saved reference to an object when the object gets destroyed.
