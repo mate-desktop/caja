@@ -9187,9 +9187,13 @@ fm_directory_view_pop_up_selection_context_menu  (FMDirectoryView *view,
 
 	update_context_menu_position_from_event (view, event);
 
+	/* FIXME: passing event from here won't work
+	 * for gtk_menu_popup_at_pointer (in eel_pop_up_context_menu() )
+	 * if the menu is being triggered from here by the menu key
+	 */
 	eel_pop_up_context_menu (create_popup_menu
 	                         (view, FM_DIRECTORY_VIEW_POPUP_PATH_SELECTION),
-	                          event);
+	                          NULL);
 }
 
 /**
