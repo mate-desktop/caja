@@ -665,7 +665,7 @@ caja_icon_canvas_item_set_emblems (CajaIconCanvasItem *item,
     }
 
     /* Take in the new list of emblems. */
-    eel_g_object_list_ref (emblem_pixbufs);
+    g_list_foreach (emblem_pixbufs, (GFunc) g_object_ref, NULL);
     g_list_free_full (item->details->emblem_pixbufs, g_object_unref);
     item->details->emblem_pixbufs = g_list_copy (emblem_pixbufs);
 
