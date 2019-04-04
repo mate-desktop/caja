@@ -2320,7 +2320,7 @@ eel_editable_label_insert_text (EelEditableLabel *label,
     g_object_freeze_notify (G_OBJECT (label));
 
     memmove (label->text + *index + new_text_length, label->text + *index, label->n_bytes - *index);
-    memcpy (label->text + *index, new_text, new_text_length);
+    memmove (label->text + *index, new_text, new_text_length);
 
     label->n_bytes += new_text_length;
 
