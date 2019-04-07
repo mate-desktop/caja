@@ -24,7 +24,7 @@
 #ifndef CAJA_SEARCH_ENGINE_BEAGLE_H
 #define CAJA_SEARCH_ENGINE_BEAGLE_H
 
-#include <libcaja-private/caja-search-engine.h>
+#include "caja-search-engine.h"
 
 #define CAJA_TYPE_SEARCH_ENGINE_BEAGLE		(caja_search_engine_beagle_get_type ())
 #define CAJA_SEARCH_ENGINE_BEAGLE(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), CAJA_TYPE_SEARCH_ENGINE_BEAGLE, CajaSearchEngineBeagle))

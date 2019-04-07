@@ -1,9 +1,8 @@
-#include "test.h"
-
-#include <eel/eel-gdk-pixbuf-extensions.h>
-
 #include <sys/time.h>
 
+#include "../eel/eel-gdk-pixbuf-extensions.h"
+
+#include "test.h"
 
 #define N_SCALES 100
 

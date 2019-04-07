@@ -37,8 +37,8 @@
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
 
-#include <eel/eel-gdk-pixbuf-extensions.h>
-#include <eel/eel-stock-dialogs.h>
+#include "../eel/eel-gdk-pixbuf-extensions.h"
+#include "../eel/eel-stock-dialogs.h"
 
 #include "caja-file.h"
 #include "caja-emblem-utils.h"

@@ -22,13 +22,14 @@
  */
 
 #include <config.h>
-#include "caja-search-engine-simple.h"
-
 #include <string.h>
 #include <glib.h>
 
-#include <eel/eel-gtk-macros.h>
 #include <gio/gio.h>
+
+#include "../eel/eel-gtk-macros.h"
+
+#include "caja-search-engine-simple.h"
 
 #define BATCH_SIZE 500
 

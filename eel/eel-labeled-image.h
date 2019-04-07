@@ -48,7 +48,7 @@
 
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gtk/gtk.h>
-#include <eel/eel-art-extensions.h>
+#include "eel-art-extensions.h"
 
 #ifdef __cplusplus
 extern "C" {

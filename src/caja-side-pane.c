@@ -22,14 +22,16 @@
  */
 
 #include <config.h>
-#include "caja-side-pane.h"
 
-#include <eel/eel-glib-extensions.h>
-#include <eel/eel-gtk-extensions.h>
-#include <eel/eel-gtk-macros.h>
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
+
+#include "../eel/eel-glib-extensions.h"
+#include "../eel/eel-gtk-extensions.h"
+#include "../eel/eel-gtk-macros.h"
+
+#include "caja-side-pane.h"
 
 typedef struct
 {

@@ -26,8 +26,32 @@
 /* caja-window.c: Implementation of the main window object */
 
 #include <config.h>
-#include "caja-window-private.h"
 
+#include <gdk-pixbuf/gdk-pixbuf.h>
+#include <gdk/gdkx.h>
+#include <gdk/gdkkeysyms.h>
+#include <gtk/gtk.h>
+#include <glib/gi18n.h>
+#ifdef HAVE_X11_XF86KEYSYM_H
+#include <X11/XF86keysym.h>
+#endif
+
+#include "../eel/eel-debug.h"
+#include "../eel/eel-gtk-macros.h"
+#include "../eel/eel-string.h"
+
+#include "../libcaja-private/caja-file-utilities.h"
+#include "../libcaja-private/caja-file-attributes.h"
+#include "../libcaja-private/caja-global-preferences.h"
+#include "../libcaja-private/caja-metadata.h"
+#include "../libcaja-private/caja-mime-actions.h"
+#include "../libcaja-private/caja-program-choosing.h"
+#include "../libcaja-private/caja-view-factory.h"
+#include "../libcaja-private/caja-clipboard.h"
+#include "../libcaja-private/caja-search-directory.h"
+#include "../libcaja-private/caja-signaller.h"
+
+#include "caja-window-private.h"
 #include "caja-actions.h"
 #include "caja-application.h"
 #include "caja-bookmarks-window.h"
@@ -39,27 +63,6 @@
 #include "caja-search-bar.h"
 #include "caja-navigation-window-pane.h"
 #include "caja-src-marshal.h"
-#include <eel/eel-debug.h>
-#include <eel/eel-gtk-macros.h>
-#include <eel/eel-string.h>
-#include <gdk-pixbuf/gdk-pixbuf.h>
-#include <gdk/gdkx.h>
-#include <gdk/gdkkeysyms.h>
-#include <gtk/gtk.h>
-#include <glib/gi18n.h>
-#ifdef HAVE_X11_XF86KEYSYM_H
-#include <X11/XF86keysym.h>
-#endif
-#include <libcaja-private/caja-file-utilities.h>
-#include <libcaja-private/caja-file-attributes.h>
-#include <libcaja-private/caja-global-preferences.h>
-#include <libcaja-private/caja-metadata.h>
-#include <libcaja-private/caja-mime-actions.h>
-#include <libcaja-private/caja-program-choosing.h>
-#include <libcaja-private/caja-view-factory.h>
-#include <libcaja-private/caja-clipboard.h>
-#include <libcaja-private/caja-search-directory.h>
-#include <libcaja-private/caja-signaller.h>
 
 #define MAX_HISTORY_ITEMS 50
 

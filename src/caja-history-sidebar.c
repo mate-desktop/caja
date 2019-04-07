@@ -27,17 +27,19 @@
 
 #include <config.h>
 
-#include <eel/eel-gtk-extensions.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 #include <cairo-gobject.h>
-#include <libcaja-private/caja-bookmark.h>
-#include <libcaja-private/caja-global-preferences.h>
-#include <libcaja-private/caja-sidebar-provider.h>
-#include <libcaja-private/caja-module.h>
-#include <libcaja-private/caja-signaller.h>
-#include <libcaja-private/caja-window-info.h>
-#include <libcaja-private/caja-window-slot-info.h>
+
+#include "../eel/eel-gtk-extensions.h"
+
+#include "../libcaja-private/caja-bookmark.h"
+#include "../libcaja-private/caja-global-preferences.h"
+#include "../libcaja-private/caja-sidebar-provider.h"
+#include "../libcaja-private/caja-module.h"
+#include "../libcaja-private/caja-signaller.h"
+#include "../libcaja-private/caja-window-info.h"
+#include "../libcaja-private/caja-window-slot-info.h"
 
 #include "caja-history-sidebar.h"
 

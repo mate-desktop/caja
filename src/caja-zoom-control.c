@@ -28,22 +28,25 @@
  */
 
 #include <config.h>
-#include "caja-zoom-control.h"
-
-#include <atk/atkaction.h>
-#include <glib/gi18n.h>
-#include <eel/eel-accessibility.h>
-#include <eel/eel-glib-extensions.h>
-#include <eel/eel-graphic-effects.h>
-#include <eel/eel-gtk-extensions.h>
-#include <gtk/gtk.h>
-#include <gtk/gtk-a11y.h>
-#include <gdk/gdkkeysyms.h>
-#include <libcaja-private/caja-file-utilities.h>
-#include <libcaja-private/caja-global-preferences.h>
 #include <math.h>
 #include <stdlib.h>
 #include <string.h>
+
+#include <atk/atkaction.h>
+#include <glib/gi18n.h>
+#include <gtk/gtk.h>
+#include <gtk/gtk-a11y.h>
+#include <gdk/gdkkeysyms.h>
+
+#include "../eel/eel-accessibility.h"
+#include "../eel/eel-glib-extensions.h"
+#include "../eel/eel-graphic-effects.h"
+#include "../eel/eel-gtk-extensions.h"
+
+#include "../libcaja-private/caja-file-utilities.h"
+#include "../libcaja-private/caja-global-preferences.h"
+
+#include "caja-zoom-control.h"
 
 enum
 {

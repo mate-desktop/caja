@@ -25,12 +25,13 @@
 #ifndef CAJA_FILE_PRIVATE_H
 #define CAJA_FILE_PRIVATE_H
 
-#include <libcaja-private/caja-directory.h>
-#include <libcaja-private/caja-file.h>
-#include <libcaja-private/caja-monitor.h>
-#include <eel/eel-glib-extensions.h>
-#include <eel/eel-string.h>
-#include <libcaja-private/caja-undostack-manager.h>
+#include "../eel/eel-glib-extensions.h"
+#include "../eel/eel-string.h"
+
+#include "caja-directory.h"
+#include "caja-file.h"
+#include "caja-monitor.h"
+#include "caja-undostack-manager.h"
 
 #define CAJA_FILE_LARGE_TOP_LEFT_TEXT_MAXIMUM_CHARACTERS_PER_LINE 80
 #define CAJA_FILE_LARGE_TOP_LEFT_TEXT_MAXIMUM_LINES               24

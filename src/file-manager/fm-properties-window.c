@@ -23,41 +23,45 @@
 */
 
 #include <config.h>
-#include "fm-properties-window.h"
-#include "fm-ditem-page.h"
+#include <string.h>
+#include <cairo.h>
 
-#define MATE_DESKTOP_USE_UNSTABLE_API
-
-#include "fm-error-reporting.h"
-#include "libcaja-private/caja-mime-application-chooser.h"
-#include <eel/eel-accessibility.h>
-#include <eel/eel-gdk-pixbuf-extensions.h>
-#include <eel/eel-glib-extensions.h>
-#include <eel/eel-mate-extensions.h>
-#include <eel/eel-gtk-extensions.h>
-#include <eel/eel-labeled-image.h>
-#include <eel/eel-stock-dialogs.h>
-#include <eel/eel-vfs-extensions.h>
-#include <eel/eel-wrap-table.h>
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 #include <glib/gi18n.h>
-#include <libmate-desktop/mate-desktop-thumbnail.h>
-#include <libcaja-extension/caja-property-page-provider.h>
-#include <libcaja-private/caja-entry.h>
-#include <libcaja-private/caja-extensions.h>
-#include <libcaja-private/caja-file-attributes.h>
-#include <libcaja-private/caja-file-operations.h>
-#include <libcaja-private/caja-desktop-icon-file.h>
-#include <libcaja-private/caja-global-preferences.h>
-#include <libcaja-private/caja-emblem-utils.h>
-#include <libcaja-private/caja-link.h>
-#include <libcaja-private/caja-metadata.h>
-#include <libcaja-private/caja-module.h>
-#include <libcaja-private/caja-mime-actions.h>
-#include <string.h>
 #include <sys/stat.h>
-#include <cairo.h>
+
+#define MATE_DESKTOP_USE_UNSTABLE_API
+#include <libmate-desktop/mate-desktop-thumbnail.h>
+
+#include "../../eel/eel-accessibility.h"
+#include "../../eel/eel-gdk-pixbuf-extensions.h"
+#include "../../eel/eel-glib-extensions.h"
+#include "../../eel/eel-mate-extensions.h"
+#include "../../eel/eel-gtk-extensions.h"
+#include "../../eel/eel-labeled-image.h"
+#include "../../eel/eel-stock-dialogs.h"
+#include "../../eel/eel-vfs-extensions.h"
+#include "../../eel/eel-wrap-table.h"
+
+#include "../../libcaja-extension/caja-property-page-provider.h"
+
+#include "../../libcaja-private/caja-mime-application-chooser.h"
+#include "../../libcaja-private/caja-entry.h"
+#include "../../libcaja-private/caja-extensions.h"
+#include "../../libcaja-private/caja-file-attributes.h"
+#include "../../libcaja-private/caja-file-operations.h"
+#include "../../libcaja-private/caja-desktop-icon-file.h"
+#include "../../libcaja-private/caja-global-preferences.h"
+#include "../../libcaja-private/caja-emblem-utils.h"
+#include "../../libcaja-private/caja-link.h"
+#include "../../libcaja-private/caja-metadata.h"
+#include "../../libcaja-private/caja-module.h"
+#include "../../libcaja-private/caja-mime-actions.h"
+
+#include "fm-properties-window.h"
+#include "fm-ditem-page.h"
+#include "fm-error-reporting.h"
 
 #if HAVE_SYS_VFS_H
 #include <sys/vfs.h>

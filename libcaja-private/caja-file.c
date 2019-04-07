@@ -23,8 +23,33 @@
 */
 
 #include <config.h>
-#include "caja-file.h"
+#include <grp.h>
+#include <gtk/gtk.h>
+#include <glib/gi18n.h>
+#include <glib/gstdio.h>
+#include <gio/gio.h>
+#include <glib.h>
+#include <libxml/parser.h>
+#include <pwd.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <sys/time.h>
+#include <time.h>
+#include <unistd.h>
+#include <sys/stat.h>
 
+#include "../eel/eel-debug.h"
+#include "../eel/eel-glib-extensions.h"
+#include "../eel/eel-gtk-extensions.h"
+#include "../eel/eel-vfs-extensions.h"
+#include "../eel/eel-gtk-macros.h"
+#include "../eel/eel-string.h"
+
+#include "../libcaja-extension/caja-file-info.h"
+#include "../libcaja-extension/caja-extension-private.h"
+#include "../libcaja-private/caja-extensions.h"
+
+#include "caja-file.h"
 #include "caja-directory-notify.h"
 #include "caja-directory-private.h"
 #include "caja-signaller.h"
@@ -46,31 +71,6 @@
 #include "caja-ui-utilities.h"
 #include "caja-vfs-file.h"
 #include "caja-saved-search-file.h"
-#include <eel/eel-debug.h>
-#include <eel/eel-glib-extensions.h>
-#include <eel/eel-gtk-extensions.h>
-#include <eel/eel-vfs-extensions.h>
-#include <eel/eel-gtk-macros.h>
-#include <eel/eel-string.h>
-#include <grp.h>
-#include <gtk/gtk.h>
-#include <glib/gi18n.h>
-#include <glib/gstdio.h>
-#include <gio/gio.h>
-#include <glib.h>
-
-#include <libcaja-extension/caja-file-info.h>
-#include <libcaja-extension/caja-extension-private.h>
-#include <libcaja-private/caja-extensions.h>
-
-#include <libxml/parser.h>
-#include <pwd.h>
-#include <stdlib.h>
-#include <ctype.h>
-#include <sys/time.h>
-#include <time.h>
-#include <unistd.h>
-#include <sys/stat.h>
 
 #ifdef HAVE_SELINUX
 #include <selinux/selinux.h>

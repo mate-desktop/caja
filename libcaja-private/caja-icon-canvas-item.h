@@ -25,8 +25,8 @@
 #ifndef CAJA_ICON_CANVAS_ITEM_H
 #define CAJA_ICON_CANVAS_ITEM_H
 
-#include <eel/eel-canvas.h>
-#include <eel/eel-art-extensions.h>
+#include "../eel/eel-canvas.h"
+#include "../eel/eel-art-extensions.h"
 
 G_BEGIN_DECLS
 

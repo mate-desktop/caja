@@ -1,7 +1,8 @@
 /* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*- */
 
-#include <eel/eel-background.h>
 #include <gtk/gtk.h>
+
+#include "../eel/eel-background.h"
 
 #define PATTERNS_DIR "/mate-source/eel/data/patterns"
 

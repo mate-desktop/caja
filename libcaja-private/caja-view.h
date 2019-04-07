@@ -29,7 +29,7 @@
 #include <gtk/gtk.h>
 
 /* For CajaZoomLevel */
-#include <libcaja-private/caja-icon-info.h>
+#include "caja-icon-info.h"
 
 #ifdef __cplusplus
 extern "C" {

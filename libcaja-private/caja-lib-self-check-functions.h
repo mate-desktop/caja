@@ -23,7 +23,7 @@
    Author: Darin Adler <darin@bentspoon.com>
 */
 
-#include <eel/eel-self-checks.h>
+#include "../eel/eel-self-checks.h"
 
 void caja_run_lib_self_checks (void);
 

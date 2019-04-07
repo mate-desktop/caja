@@ -28,7 +28,8 @@
 
 #include <gtk/gtk.h>
 #include <gio/gio.h>
-#include <libcaja-private/caja-file.h>
+
+#include "caja-file.h"
 
 typedef void (*CajaApplicationChoiceCallback) (GAppInfo                      *application,
         gpointer			  callback_data);

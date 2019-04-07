@@ -22,11 +22,12 @@
    Author: Holger Berndt <berndth@gmx.de>
 */
 
+#include "../eel/eel-gtk-macros.h"
+
 #include "caja-window-pane.h"
 #include "caja-window-private.h"
 #include "caja-navigation-window-pane.h"
 #include "caja-window-manage-views.h"
-#include <eel/eel-gtk-macros.h>
 
 static void caja_window_pane_init       (CajaWindowPane *pane);
 static void caja_window_pane_class_init (CajaWindowPaneClass *class);

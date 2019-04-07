@@ -27,7 +27,7 @@
 #ifndef CAJA_DESKTOP_DIRECTORY_H
 #define CAJA_DESKTOP_DIRECTORY_H
 
-#include <libcaja-private/caja-directory.h>
+#include "caja-directory.h"
 
 #define CAJA_TYPE_DESKTOP_DIRECTORY caja_desktop_directory_get_type()
 #define CAJA_DESKTOP_DIRECTORY(obj) \

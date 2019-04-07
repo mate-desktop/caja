@@ -25,16 +25,17 @@
 */
 
 #include <config.h>
-#include "caja-desktop-directory.h"
+#include <gtk/gtk.h>
 
+#include "../eel/eel-glib-extensions.h"
+#include "../eel/eel-gtk-macros.h"
+
+#include "caja-desktop-directory.h"
 #include "caja-directory-private.h"
 #include "caja-file.h"
 #include "caja-file-private.h"
 #include "caja-file-utilities.h"
 #include "caja-global-preferences.h"
-#include <eel/eel-glib-extensions.h>
-#include <eel/eel-gtk-macros.h>
-#include <gtk/gtk.h>
 
 struct CajaDesktopDirectoryDetails
 {

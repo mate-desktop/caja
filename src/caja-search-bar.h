@@ -25,7 +25,9 @@
 #define CAJA_SEARCH_BAR_H
 
 #include <gtk/gtk.h>
-#include <libcaja-private/caja-query.h>
+
+#include "../libcaja-private/caja-query.h"
+
 #include "caja-window.h"
 
 #define CAJA_TYPE_SEARCH_BAR caja_search_bar_get_type()

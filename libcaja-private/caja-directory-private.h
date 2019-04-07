@@ -23,13 +23,15 @@
 */
 
 #include <gio/gio.h>
-#include <eel/eel-vfs-extensions.h>
-#include <libcaja-private/caja-directory.h>
-#include <libcaja-private/caja-file-queue.h>
-#include <libcaja-private/caja-file.h>
-#include <libcaja-private/caja-monitor.h>
-#include <libcaja-extension/caja-info-provider.h>
 #include <libxml/tree.h>
+
+#include "../eel/eel-vfs-extensions.h"
+#include "../libcaja-extension/caja-info-provider.h"
+
+#include "caja-directory.h"
+#include "caja-file-queue.h"
+#include "caja-file.h"
+#include "caja-monitor.h"
 
 typedef struct LinkInfoReadState LinkInfoReadState;
 typedef struct TopLeftTextReadState TopLeftTextReadState;

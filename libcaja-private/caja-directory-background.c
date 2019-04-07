@@ -27,17 +27,18 @@
 */
 
 #include <config.h>
-#include "caja-directory-background.h"
+#include <gtk/gtk.h>
+#include <string.h>
 
-#include <eel/eel-gdk-extensions.h>
-#include <eel/eel-gtk-extensions.h>
-#include <eel/eel-background.h>
+#include "../eel/eel-gdk-extensions.h"
+#include "../eel/eel-gtk-extensions.h"
+#include "../eel/eel-background.h"
+
+#include "caja-directory-background.h"
 #include "caja-dnd.h"
 #include "caja-global-preferences.h"
 #include "caja-metadata.h"
 #include "caja-file-attributes.h"
-#include <gtk/gtk.h>
-#include <string.h>
 
 static void caja_background_changed_cb (EelBackground *background,
                                         GdkDragAction  action,

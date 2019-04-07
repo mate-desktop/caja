@@ -27,9 +27,10 @@
  */
 
 #include <config.h>
-#include "caja-signaller.h"
 
-#include <eel/eel-debug.h>
+#include "../eel/eel-debug.h"
+
+#include "caja-signaller.h"
 
 typedef GObject CajaSignaller;
 typedef GObjectClass CajaSignallerClass;

@@ -4,7 +4,7 @@
 
 #include <gtk/gtk.h>
 
-#include <eel/eel-editable-label.h>
+#include "../eel/eel-editable-label.h"
 
 static void
 quit (GtkWidget *widget, gpointer data)

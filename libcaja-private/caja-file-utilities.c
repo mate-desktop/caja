@@ -23,8 +23,18 @@
 */
 
 #include <config.h>
-#include "caja-file-utilities.h"
+#include <glib.h>
+#include <glib/gi18n.h>
+#include <glib/gstdio.h>
+#include <gio/gio.h>
+#include <stdlib.h>
 
+#include "../eel/eel-glib-extensions.h"
+#include "../eel/eel-stock-dialogs.h"
+#include "../eel/eel-string.h"
+#include "../eel/eel-debug.h"
+
+#include "caja-file-utilities.h"
 #include "caja-global-preferences.h"
 #include "caja-lib-self-check-functions.h"
 #include "caja-metadata.h"
@@ -32,15 +42,6 @@
 #include "caja-file-operations.h"
 #include "caja-search-directory.h"
 #include "caja-signaller.h"
-#include <eel/eel-glib-extensions.h>
-#include <eel/eel-stock-dialogs.h>
-#include <eel/eel-string.h>
-#include <eel/eel-debug.h>
-#include <glib.h>
-#include <glib/gi18n.h>
-#include <glib/gstdio.h>
-#include <gio/gio.h>
-#include <stdlib.h>
 
 #define DEFAULT_CAJA_DIRECTORY_MODE (0755)
 

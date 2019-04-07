@@ -25,7 +25,8 @@
 #ifndef FM_ICON_CONTAINER_H
 #define FM_ICON_CONTAINER_H
 
-#include <libcaja-private/caja-icon-container.h>
+#include "../../libcaja-private/caja-icon-container.h"
+
 #include "fm-icon-view.h"
 
 typedef struct FMIconContainer FMIconContainer;

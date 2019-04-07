@@ -22,15 +22,18 @@
  */
 
 #include <config.h>
-#include "caja-location-dialog.h"
 
-#include <eel/eel-gtk-macros.h>
-#include <eel/eel-stock-dialogs.h>
 #include <gtk/gtk.h>
-#include <libcaja-private/caja-file-utilities.h>
+#include <glib/gi18n.h>
+
+#include "../eel/eel-gtk-macros.h"
+#include "../eel/eel-stock-dialogs.h"
+
+#include "../libcaja-private/caja-file-utilities.h"
+
+#include "caja-location-dialog.h"
 #include "caja-location-entry.h"
 #include "caja-desktop-window.h"
-#include <glib/gi18n.h>
 
 struct _CajaLocationDialogDetails
 {

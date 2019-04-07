@@ -23,12 +23,13 @@
 
 #include <config.h>
 #include <string.h>
+#include <glib/gi18n.h>
+
+#include "../eel/eel-gtk-macros.h"
+#include "../eel/eel-glib-extensions.h"
 
 #include "caja-query.h"
-#include <eel/eel-gtk-macros.h>
-#include <eel/eel-glib-extensions.h>
-#include <glib/gi18n.h>
-#include <libcaja-private/caja-file-utilities.h>
+#include "caja-file-utilities.h"
 
 struct CajaQueryDetails
 {

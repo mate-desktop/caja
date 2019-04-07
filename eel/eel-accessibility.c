@@ -25,7 +25,8 @@
 #include <config.h>
 #include <gtk/gtk.h>
 #include <atk/atkrelationset.h>
-#include <eel/eel-accessibility.h>
+
+#include "eel-accessibility.h"
 
 void
 eel_accessibility_set_up_label_widget_relation (GtkWidget *label, GtkWidget *widget)
