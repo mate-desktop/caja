@@ -23,16 +23,17 @@
 */
 
 #include <config.h>
-#include "caja-mime-actions.h"
+#include <string.h>
 
-#include <eel/eel-glib-extensions.h>
-#include <eel/eel-stock-dialogs.h>
-#include <eel/eel-string.h>
 #include <glib/gi18n.h>
 #include <glib/gstdio.h>
-#include <string.h>
 #include <gdk/gdkx.h>
 
+#include "../eel/eel-glib-extensions.h"
+#include "../eel/eel-stock-dialogs.h"
+#include "../eel/eel-string.h"
+
+#include "caja-mime-actions.h"
 #include "caja-file-attributes.h"
 #include "caja-file.h"
 #include "caja-autorun.h"

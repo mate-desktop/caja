@@ -22,10 +22,11 @@
  */
 
 #include <config.h>
-#include "caja-search-engine-beagle.h"
-
-#include <eel/eel-gtk-macros.h>
 #include <gmodule.h>
+
+#include "../eel/eel-gtk-macros.h"
+
+#include "caja-search-engine-beagle.h"
 
 typedef struct _BeagleHit BeagleHit;
 typedef struct _BeagleQuery BeagleQuery;

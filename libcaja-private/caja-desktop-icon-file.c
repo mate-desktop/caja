@@ -24,8 +24,13 @@
 */
 
 #include <config.h>
-#include "caja-desktop-icon-file.h"
+#include <glib/gi18n.h>
+#include <string.h>
+#include <gio/gio.h>
 
+#include "../eel/eel-glib-extensions.h"
+
+#include "caja-desktop-icon-file.h"
 #include "caja-desktop-metadata.h"
 #include "caja-desktop-directory-file.h"
 #include "caja-directory-notify.h"
@@ -34,11 +39,7 @@
 #include "caja-file-private.h"
 #include "caja-file-utilities.h"
 #include "caja-file-operations.h"
-#include <eel/eel-glib-extensions.h>
 #include "caja-desktop-directory.h"
-#include <glib/gi18n.h>
-#include <string.h>
-#include <gio/gio.h>
 
 struct _CajaDesktopIconFilePrivate
 {

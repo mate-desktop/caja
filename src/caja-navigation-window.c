@@ -29,8 +29,38 @@
 /* caja-window.c: Implementation of the main window object */
 
 #include <config.h>
-#include "caja-window-private.h"
+#include <math.h>
 
+#include <gdk-pixbuf/gdk-pixbuf.h>
+#include <gdk/gdkx.h>
+#include <gtk/gtk.h>
+#include <glib/gi18n.h>
+#ifdef HAVE_X11_XF86KEYSYM_H
+#include <X11/XF86keysym.h>
+#endif
+#include <sys/time.h>
+
+#include "../eel/eel-gtk-extensions.h"
+#include "../eel/eel-gtk-macros.h"
+#include "../eel/eel-string.h"
+
+#include "../libcaja-private/caja-file-utilities.h"
+#include "../libcaja-private/caja-file-attributes.h"
+#include "../libcaja-private/caja-global-preferences.h"
+#include "../libcaja-private/caja-icon-info.h"
+#include "../libcaja-private/caja-metadata.h"
+#include "../libcaja-private/caja-mime-actions.h"
+#include "../libcaja-private/caja-program-choosing.h"
+#include "../libcaja-private/caja-sidebar.h"
+#include "../libcaja-private/caja-view-factory.h"
+#include "../libcaja-private/caja-clipboard.h"
+#include "../libcaja-private/caja-module.h"
+#include "../libcaja-private/caja-sidebar-provider.h"
+#include "../libcaja-private/caja-search-directory.h"
+#include "../libcaja-private/caja-signaller.h"
+
+#include "caja-navigation-window.h"
+#include "caja-window-private.h"
 #include "caja-actions.h"
 #include "caja-application.h"
 #include "caja-bookmarks-window.h"
@@ -41,32 +71,6 @@
 #include "caja-notebook.h"
 #include "caja-window-manage-views.h"
 #include "caja-navigation-window-pane.h"
-#include <eel/eel-gtk-extensions.h>
-#include <eel/eel-gtk-macros.h>
-#include <eel/eel-string.h>
-#include <gdk-pixbuf/gdk-pixbuf.h>
-#include <gdk/gdkx.h>
-#include <gtk/gtk.h>
-#include <glib/gi18n.h>
-#ifdef HAVE_X11_XF86KEYSYM_H
-#include <X11/XF86keysym.h>
-#endif
-#include <libcaja-private/caja-file-utilities.h>
-#include <libcaja-private/caja-file-attributes.h>
-#include <libcaja-private/caja-global-preferences.h>
-#include <libcaja-private/caja-icon-info.h>
-#include <libcaja-private/caja-metadata.h>
-#include <libcaja-private/caja-mime-actions.h>
-#include <libcaja-private/caja-program-choosing.h>
-#include <libcaja-private/caja-sidebar.h>
-#include <libcaja-private/caja-view-factory.h>
-#include <libcaja-private/caja-clipboard.h>
-#include <libcaja-private/caja-module.h>
-#include <libcaja-private/caja-sidebar-provider.h>
-#include <libcaja-private/caja-search-directory.h>
-#include <libcaja-private/caja-signaller.h>
-#include <math.h>
-#include <sys/time.h>
 
 #define MAX_TITLE_LENGTH 180
 

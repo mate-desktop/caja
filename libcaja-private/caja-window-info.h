@@ -26,8 +26,10 @@
 #define CAJA_WINDOW_INFO_H
 
 #include <glib-object.h>
-#include <libcaja-private/caja-view.h>
+
 #include <gtk/gtk.h>
+
+#include "caja-view.h"
 
 #ifdef __cplusplus
 extern "C" {

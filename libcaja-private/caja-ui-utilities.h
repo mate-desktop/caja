@@ -25,7 +25,8 @@
 #define CAJA_UI_UTILITIES_H
 
 #include <gtk/gtk.h>
-#include <libcaja-extension/caja-menu-item.h>
+
+#include "../libcaja-extension/caja-menu-item.h"
 
 char *      caja_get_ui_directory              (void);
 char *      caja_ui_file                       (const char        *partial_path);

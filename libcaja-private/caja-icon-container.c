@@ -27,31 +27,32 @@
 
 #include <config.h>
 #include <math.h>
-#include "caja-icon-container.h"
-
-#include "caja-debug-log.h"
-#include "caja-global-preferences.h"
-#include "caja-icon-private.h"
-#include "caja-lib-self-check-functions.h"
-#include "caja-marshal.h"
 #include <atk/atkaction.h>
-#include <eel/eel-accessibility.h>
-#include <eel/eel-background.h>
-#include <eel/eel-vfs-extensions.h>
-#include <eel/eel-gdk-pixbuf-extensions.h>
-#include <eel/eel-mate-extensions.h>
-#include <eel/eel-gtk-extensions.h>
-#include <eel/eel-art-extensions.h>
-#include <eel/eel-editable-label.h>
-#include <eel/eel-string.h>
-#include <eel/eel-canvas.h>
-#include <eel/eel-canvas-rect-ellipse.h>
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
 #include <gdk/gdkx.h>
 #include <glib/gi18n.h>
 #include <stdio.h>
 #include <string.h>
+
+#include "../eel/eel-accessibility.h"
+#include "../eel/eel-background.h"
+#include "../eel/eel-vfs-extensions.h"
+#include "../eel/eel-gdk-pixbuf-extensions.h"
+#include "../eel/eel-mate-extensions.h"
+#include "../eel/eel-gtk-extensions.h"
+#include "../eel/eel-art-extensions.h"
+#include "../eel/eel-editable-label.h"
+#include "../eel/eel-string.h"
+#include "../eel/eel-canvas.h"
+#include "../eel/eel-canvas-rect-ellipse.h"
+
+#include "caja-icon-container.h"
+#include "caja-debug-log.h"
+#include "caja-global-preferences.h"
+#include "caja-icon-private.h"
+#include "caja-lib-self-check-functions.h"
+#include "caja-marshal.h"
 
 #define TAB_NAVIGATION_DISABLED
 

@@ -29,7 +29,7 @@
 
 #include <glib.h>
 
-#include <libcaja-private/caja-file.h>
+#include "caja-file.h"
 
 void caja_desktop_set_metadata_string (CajaFile *file,
                                        const gchar *name,

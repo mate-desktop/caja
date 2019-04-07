@@ -22,9 +22,12 @@
  */
 
 #include <config.h>
+
 #include <gio/gio.h>
+
+#include "../libcaja-private/caja-global-preferences.h"
+
 #include "caja-connect-server-dialog.h"
-#include <libcaja-private/caja-global-preferences.h>
 
 /* This file contains the glue for the calls from the connect to server dialog
  * to the main caja binary. A different version of this glue is in

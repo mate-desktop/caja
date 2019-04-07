@@ -24,23 +24,24 @@
 */
 
 #include <config.h>
-#include "caja-program-choosing.h"
+#include <stdlib.h>
 
+#include <gtk/gtk.h>
+#include <glib/gi18n.h>
+#include <gio/gio.h>
+#include <gio/gdesktopappinfo.h>
+#include <gdk/gdk.h>
+#include <gdk/gdkx.h>
+
+#include "../eel/eel-mate-extensions.h"
+#include "../eel/eel-stock-dialogs.h"
+
+#include "caja-program-choosing.h"
 #include "caja-mime-actions.h"
 #include "caja-global-preferences.h"
 #include "caja-icon-info.h"
 #include "caja-recent.h"
 #include "caja-desktop-icon-file.h"
-#include <eel/eel-mate-extensions.h>
-#include <eel/eel-stock-dialogs.h>
-#include <gtk/gtk.h>
-#include <glib/gi18n.h>
-#include <gio/gio.h>
-#include <gio/gdesktopappinfo.h>
-#include <stdlib.h>
-
-#include <gdk/gdk.h>
-#include <gdk/gdkx.h>
 
 /**
  * application_cannot_open_location

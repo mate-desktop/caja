@@ -24,15 +24,17 @@
 */
 
 #include <config.h>
-#include "caja-trash-monitor.h"
 
+#include <gio/gio.h>
+#include <string.h>
+
+#include "../eel/eel-debug.h"
+
+#include "caja-trash-monitor.h"
 #include "caja-directory-notify.h"
 #include "caja-directory.h"
 #include "caja-file-attributes.h"
 #include "caja-icon-names.h"
-#include <eel/eel-debug.h>
-#include <gio/gio.h>
-#include <string.h>
 
 struct _CajaTrashMonitorPrivate
 {

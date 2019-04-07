@@ -24,16 +24,11 @@
  */
 
 #include <config.h>
-#include "caja-image-properties-page.h"
+#include <string.h>
 
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 #include <gio/gio.h>
-#include <eel/eel-vfs-extensions.h>
-#include <libcaja-extension/caja-property-page-provider.h>
-#include <libcaja-private/caja-module.h>
-#include <string.h>
-
 #ifdef HAVE_EXIF
 #include <libexif/exif-data.h>
 #include <libexif/exif-ifd.h>
@@ -43,6 +38,13 @@
 #include <exempi/xmp.h>
 #include <exempi/xmpconsts.h>
 #endif /*HAVE_EXEMPI*/
+
+#include "../eel/eel-vfs-extensions.h"
+
+#include "../libcaja-extension/caja-property-page-provider.h"
+#include "../libcaja-private/caja-module.h"
+
+#include "caja-image-properties-page.h"
 
 #define LOAD_BUFFER_SIZE 8192
 

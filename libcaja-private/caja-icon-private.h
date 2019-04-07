@@ -25,10 +25,11 @@
 #ifndef CAJA_ICON_CONTAINER_PRIVATE_H
 #define CAJA_ICON_CONTAINER_PRIVATE_H
 
-#include <eel/eel-glib-extensions.h>
-#include <libcaja-private/caja-icon-canvas-item.h>
-#include <libcaja-private/caja-icon-container.h>
-#include <libcaja-private/caja-icon-dnd.h>
+#include "../eel/eel-glib-extensions.h"
+
+#include "caja-icon-canvas-item.h"
+#include "caja-icon-container.h"
+#include "caja-icon-dnd.h"
 
 /* An Icon. */
 

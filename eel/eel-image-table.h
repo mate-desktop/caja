@@ -25,7 +25,7 @@
 #ifndef EEL_IMAGE_TABLE_H
 #define EEL_IMAGE_TABLE_H
 
-#include <eel/eel-wrap-table.h>
+#include "eel-wrap-table.h"
 
 #ifdef __cplusplus
 extern "C" {

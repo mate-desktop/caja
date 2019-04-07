@@ -30,31 +30,34 @@
 
 #include <config.h>
 #include <math.h>
-#include "caja-property-browser.h"
 
-#include <eel/eel-gdk-extensions.h>
-#include <eel/eel-gdk-pixbuf-extensions.h>
-#include <eel/eel-glib-extensions.h>
-#include <eel/eel-gtk-extensions.h>
-#include <eel/eel-image-table.h>
-#include <eel/eel-labeled-image.h>
-#include <eel/eel-stock-dialogs.h>
-#include <eel/eel-vfs-extensions.h>
-#include <eel/eel-xml-extensions.h>
 #include <libxml/parser.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 #include <glib/gstdio.h>
 #include <gio/gio.h>
-#include <libcaja-private/caja-customization-data.h>
-#include <libcaja-private/caja-directory.h>
-#include <libcaja-private/caja-emblem-utils.h>
-#include <libcaja-private/caja-file-utilities.h>
-#include <libcaja-private/caja-file.h>
-#include <libcaja-private/caja-global-preferences.h>
-#include <libcaja-private/caja-metadata.h>
-#include <libcaja-private/caja-signaller.h>
 #include <atk/atkrelationset.h>
+
+#include "../eel/eel-gdk-extensions.h"
+#include "../eel/eel-gdk-pixbuf-extensions.h"
+#include "../eel/eel-glib-extensions.h"
+#include "../eel/eel-gtk-extensions.h"
+#include "../eel/eel-image-table.h"
+#include "../eel/eel-labeled-image.h"
+#include "../eel/eel-stock-dialogs.h"
+#include "../eel/eel-vfs-extensions.h"
+#include "../eel/eel-xml-extensions.h"
+
+#include "../libcaja-private/caja-customization-data.h"
+#include "../libcaja-private/caja-directory.h"
+#include "../libcaja-private/caja-emblem-utils.h"
+#include "../libcaja-private/caja-file-utilities.h"
+#include "../libcaja-private/caja-file.h"
+#include "../libcaja-private/caja-global-preferences.h"
+#include "../libcaja-private/caja-metadata.h"
+#include "../libcaja-private/caja-signaller.h"
+
+#include "caja-property-browser.h"
 
 /* property types */
 

@@ -24,30 +24,32 @@
  */
 
 #include <config.h>
-#include "caja-information-panel.h"
 
-#include "caja-sidebar-title.h"
-
-#include <eel/eel-background.h>
-#include <eel/eel-glib-extensions.h>
-#include <eel/eel-gtk-extensions.h>
-#include <eel/eel-stock-dialogs.h>
-#include <eel/eel-string.h>
-#include <eel/eel-vfs-extensions.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
-#include <libcaja-private/caja-dnd.h>
-#include <libcaja-private/caja-directory.h>
-#include <libcaja-private/caja-file-dnd.h>
-#include <libcaja-private/caja-file.h>
-#include <libcaja-private/caja-global-preferences.h>
-#include <libcaja-private/caja-keep-last-vertical-box.h>
-#include <libcaja-private/caja-metadata.h>
-#include <libcaja-private/caja-mime-actions.h>
-#include <libcaja-private/caja-program-choosing.h>
-#include <libcaja-private/caja-sidebar-provider.h>
-#include <libcaja-private/caja-module.h>
+
+#include "../eel/eel-background.h"
+#include "../eel/eel-glib-extensions.h"
+#include "../eel/eel-gtk-extensions.h"
+#include "../eel/eel-stock-dialogs.h"
+#include "../eel/eel-string.h"
+#include "../eel/eel-vfs-extensions.h"
+
+#include "../libcaja-private/caja-dnd.h"
+#include "../libcaja-private/caja-directory.h"
+#include "../libcaja-private/caja-file-dnd.h"
+#include "../libcaja-private/caja-file.h"
+#include "../libcaja-private/caja-global-preferences.h"
+#include "../libcaja-private/caja-keep-last-vertical-box.h"
+#include "../libcaja-private/caja-metadata.h"
+#include "../libcaja-private/caja-mime-actions.h"
+#include "../libcaja-private/caja-program-choosing.h"
+#include "../libcaja-private/caja-sidebar-provider.h"
+#include "../libcaja-private/caja-module.h"
+
+#include "caja-information-panel.h"
+#include "caja-sidebar-title.h"
 
 struct _CajaInformationPanelPrivate
 {

@@ -23,15 +23,17 @@
 */
 
 #include <config.h>
-#include "caja-ui-utilities.h"
-#include "caja-file-utilities.h"
-#include "caja-icon-info.h"
-#include <gio/gio.h>
 
 #include <gtk/gtk.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
-#include <eel/eel-debug.h>
-#include <eel/eel-graphic-effects.h>
+#include <gio/gio.h>
+
+#include "../eel/eel-debug.h"
+#include "../eel/eel-graphic-effects.h"
+
+#include "caja-ui-utilities.h"
+#include "caja-file-utilities.h"
+#include "caja-icon-info.h"
 
 void
 caja_ui_unmerge_ui (GtkUIManager *ui_manager,

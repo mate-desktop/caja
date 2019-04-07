@@ -33,32 +33,34 @@
 
 #include <config.h>
 #include <math.h>
-#include "caja-icon-dnd.h"
+#include <stdio.h>
+#include <string.h>
 
+#include <gdk/gdkkeysyms.h>
+#include <gdk/gdkx.h>
+#include <gtk/gtk.h>
+#include <glib/gi18n.h>
+
+#include "../eel/eel-background.h"
+#include "../eel/eel-gdk-pixbuf-extensions.h"
+#include "../eel/eel-glib-extensions.h"
+#include "../eel/eel-mate-extensions.h"
+#include "../eel/eel-graphic-effects.h"
+#include "../eel/eel-gtk-extensions.h"
+#include "../eel/eel-gtk-macros.h"
+#include "../eel/eel-stock-dialogs.h"
+#include "../eel/eel-string.h"
+#include "../eel/eel-vfs-extensions.h"
+#include "../eel/eel-canvas-rect-ellipse.h"
+
+#include "caja-icon-dnd.h"
 #include "caja-debug-log.h"
 #include "caja-file-dnd.h"
 #include "caja-icon-private.h"
 #include "caja-link.h"
 #include "caja-metadata.h"
-#include <eel/eel-background.h>
-#include <eel/eel-gdk-pixbuf-extensions.h>
-#include <eel/eel-glib-extensions.h>
-#include <eel/eel-mate-extensions.h>
-#include <eel/eel-graphic-effects.h>
-#include <eel/eel-gtk-extensions.h>
-#include <eel/eel-gtk-macros.h>
-#include <eel/eel-stock-dialogs.h>
-#include <eel/eel-string.h>
-#include <eel/eel-vfs-extensions.h>
-#include <gdk/gdkkeysyms.h>
-#include <gdk/gdkx.h>
-#include <gtk/gtk.h>
-#include <glib/gi18n.h>
-#include <eel/eel-canvas-rect-ellipse.h>
-#include <libcaja-private/caja-file-utilities.h>
-#include <libcaja-private/caja-file-changes-queue.h>
-#include <stdio.h>
-#include <string.h>
+#include "caja-file-utilities.h"
+#include "caja-file-changes-queue.h"
 
 static const GtkTargetEntry drag_types [] =
 {

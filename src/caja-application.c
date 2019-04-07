@@ -27,15 +27,48 @@
  */
 
 #include <config.h>
-#include "caja-application.h"
+#include <fcntl.h>
+#include <string.h>
+#include <unistd.h>
+#include <fcntl.h>
 
+#include <libxml/xmlsave.h>
+#include <glib/gstdio.h>
+#include <glib/gi18n.h>
+#include <gio/gio.h>
+#include <gdk/gdkx.h>
+#include <gtk/gtk.h>
+#include <libnotify/notify.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#define MATE_DESKTOP_USE_UNSTABLE_API
+#include <libmate-desktop/mate-bg.h>
+
+#include "../eel/eel-gtk-extensions.h"
+#include "../eel/eel-gtk-macros.h"
+#include "../eel/eel-stock-dialogs.h"
+
+#include "../libcaja-private/caja-debug-log.h"
+#include "../libcaja-private/caja-file-utilities.h"
+#include "../libcaja-private/caja-global-preferences.h"
+#include "../libcaja-private/caja-lib-self-check-functions.h"
+#include "../libcaja-private/caja-extensions.h"
+#include "../libcaja-private/caja-module.h"
+#include "../libcaja-private/caja-desktop-link-monitor.h"
+#include "../libcaja-private/caja-directory-private.h"
+#include "../libcaja-private/caja-signaller.h"
+#include "../libcaja-extension/caja-menu-provider.h"
+#include "../libcaja-private/caja-autorun.h"
+
+#if ENABLE_EMPTY_VIEW
+#include "file-manager/fm-empty-view.h"
+#endif /* ENABLE_EMPTY_VIEW */
 #include "file-manager/fm-desktop-icon-view.h"
 #include "file-manager/fm-icon-view.h"
 #include "file-manager/fm-list-view.h"
 #include "file-manager/fm-tree-view.h"
-#if ENABLE_EMPTY_VIEW
-#include "file-manager/fm-empty-view.h"
-#endif /* ENABLE_EMPTY_VIEW */
+
+#include "caja-application.h"
 #include "caja-information-panel.h"
 #include "caja-history-sidebar.h"
 #include "caja-places-sidebar.h"
@@ -43,9 +76,6 @@
 #include "caja-notes-viewer.h"
 #include "caja-emblem-sidebar.h"
 #include "caja-image-properties-page.h"
-#include <fcntl.h>
-#include <string.h>
-#include <unistd.h>
 #include "caja-desktop-window.h"
 #include "caja-spatial-window.h"
 #include "caja-navigation-window.h"
@@ -56,33 +86,6 @@
 #include "caja-window-private.h"
 #include "caja-window-manage-views.h"
 #include "caja-freedesktop-dbus.h"
-#include <libxml/xmlsave.h>
-#include <glib/gstdio.h>
-#include <glib/gi18n.h>
-#include <gio/gio.h>
-#include <eel/eel-gtk-extensions.h>
-#include <eel/eel-gtk-macros.h>
-#include <eel/eel-stock-dialogs.h>
-#include <gdk/gdkx.h>
-#include <gtk/gtk.h>
-#include <libnotify/notify.h>
-#include <libcaja-private/caja-debug-log.h>
-#include <libcaja-private/caja-file-utilities.h>
-#include <libcaja-private/caja-global-preferences.h>
-#include <libcaja-private/caja-lib-self-check-functions.h>
-#include <libcaja-private/caja-extensions.h>
-#include <libcaja-private/caja-module.h>
-#include <libcaja-private/caja-desktop-link-monitor.h>
-#include <libcaja-private/caja-directory-private.h>
-#include <libcaja-private/caja-signaller.h>
-#include <libcaja-extension/caja-menu-provider.h>
-#include <libcaja-private/caja-autorun.h>
-#define MATE_DESKTOP_USE_UNSTABLE_API
-#include <libmate-desktop/mate-bg.h>
-
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
 
 /* Keep window from shrinking down ridiculously small; numbers are somewhat arbitrary */
 #define APPLICATION_WINDOW_MIN_WIDTH	300

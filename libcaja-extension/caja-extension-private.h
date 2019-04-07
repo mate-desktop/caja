@@ -24,7 +24,7 @@
 #ifndef CAJA_EXTENSION_PRIVATE_H
 #define CAJA_EXTENSION_PRIVATE_H
 
-#include <libcaja-extension/caja-file-info.h>
+#include "caja-file-info.h"
 
 #ifdef __cplusplus
 extern "C" {

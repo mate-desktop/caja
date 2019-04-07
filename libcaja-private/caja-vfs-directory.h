@@ -26,7 +26,7 @@
 #ifndef CAJA_VFS_DIRECTORY_H
 #define CAJA_VFS_DIRECTORY_H
 
-#include <libcaja-private/caja-directory.h>
+#include "caja-directory.h"
 
 #define CAJA_TYPE_VFS_DIRECTORY caja_vfs_directory_get_type()
 #define CAJA_VFS_DIRECTORY(obj) \

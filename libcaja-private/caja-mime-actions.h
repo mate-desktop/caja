@@ -27,9 +27,9 @@
 
 #include <gio/gio.h>
 
-#include <libcaja-private/caja-file.h>
-#include <libcaja-private/caja-window-info.h>
-#include <libcaja-private/caja-window-slot-info.h>
+#include "caja-file.h"
+#include "caja-window-info.h"
+#include "caja-window-slot-info.h"
 
 CajaFileAttributes caja_mime_actions_get_required_file_attributes (void);
 

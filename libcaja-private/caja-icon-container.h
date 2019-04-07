@@ -26,8 +26,9 @@
 #ifndef CAJA_ICON_CONTAINER_H
 #define CAJA_ICON_CONTAINER_H
 
-#include <eel/eel-canvas.h>
-#include <libcaja-private/caja-icon-info.h>
+#include "../eel/eel-canvas.h"
+
+#include "caja-icon-info.h"
 
 #define CAJA_TYPE_ICON_CONTAINER caja_icon_container_get_type()
 #define CAJA_ICON_CONTAINER(obj) \

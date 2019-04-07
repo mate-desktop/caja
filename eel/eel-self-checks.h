@@ -27,7 +27,7 @@
 
 #include <glib.h>
 
-#include <eel/eel-art-extensions.h>
+#include "eel-art-extensions.h"
 
 #define EEL_CHECK_RESULT(type, expression, expected_value) \
 G_STMT_START { \

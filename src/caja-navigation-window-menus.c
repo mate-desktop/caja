@@ -26,8 +26,22 @@
  *                           split into separate file just for convenience.
  */
 #include <config.h>
-
 #include <locale.h>
+
+#include <libxml/parser.h>
+#include <gtk/gtk.h>
+#include <glib/gi18n.h>
+
+#include "../eel/eel-glib-extensions.h"
+#include "../eel/eel-mate-extensions.h"
+#include "../eel/eel-stock-dialogs.h"
+#include "../eel/eel-string.h"
+
+#include "../libcaja-private/caja-file-utilities.h"
+#include "../libcaja-private/caja-global-preferences.h"
+#include "../libcaja-private/caja-ui-utilities.h"
+#include "../libcaja-private/caja-search-engine.h"
+#include "../libcaja-private/caja-signaller.h"
 
 #include "caja-actions.h"
 #include "caja-notebook.h"
@@ -43,18 +57,6 @@
 #include "caja-window-private.h"
 #include "caja-window-bookmarks.h"
 #include "caja-navigation-window-pane.h"
-#include <eel/eel-glib-extensions.h>
-#include <eel/eel-mate-extensions.h>
-#include <eel/eel-stock-dialogs.h>
-#include <eel/eel-string.h>
-#include <libxml/parser.h>
-#include <gtk/gtk.h>
-#include <glib/gi18n.h>
-#include <libcaja-private/caja-file-utilities.h>
-#include <libcaja-private/caja-global-preferences.h>
-#include <libcaja-private/caja-ui-utilities.h>
-#include <libcaja-private/caja-search-engine.h>
-#include <libcaja-private/caja-signaller.h>
 
 #define MENU_PATH_HISTORY_PLACEHOLDER			"/MenuBar/Other Menus/Go/History Placeholder"
 

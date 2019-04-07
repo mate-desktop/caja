@@ -22,12 +22,13 @@
  */
 
 #include <config.h>
-#include "caja-module.h"
-
-#include <eel/eel-gtk-macros.h>
-#include <eel/eel-debug.h>
 #include <gmodule.h>
-#include <libcaja-private/caja-extensions.h>
+
+#include "../eel/eel-gtk-macros.h"
+#include "../eel/eel-debug.h"
+
+#include "caja-module.h"
+#include "caja-extensions.h"
 
 #define CAJA_TYPE_MODULE    	(caja_module_get_type ())
 #define CAJA_MODULE(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), CAJA_TYPE_MODULE, CajaModule))

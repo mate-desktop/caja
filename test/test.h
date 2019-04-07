@@ -2,11 +2,12 @@
 #define TEST_H
 
 #include <config.h>
+
 #include <gtk/gtk.h>
 
-#include <eel/eel-debug.h>
-#include <eel/eel.h>
-#include <libcaja-private/caja-file-utilities.h>
+#include "../eel/eel-debug.h"
+#include "../eel/eel.h"
+#include "../libcaja-private/caja-file-utilities.h"
 
 void       test_init                            (int                         *argc,
 						 char                      ***argv);

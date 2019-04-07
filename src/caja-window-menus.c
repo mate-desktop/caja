@@ -26,8 +26,26 @@
  *                           split into separate file just for convenience.
  */
 #include <config.h>
-
 #include <locale.h>
+#include <string.h>
+
+#include <gtk/gtk.h>
+#include <gio/gio.h>
+#include <glib/gi18n.h>
+
+#include "../eel/eel-gtk-extensions.h"
+
+#include "../libcaja-extension/caja-menu-provider.h"
+#include "../libcaja-private/caja-extensions.h"
+#include "../libcaja-private/caja-file-utilities.h"
+#include "../libcaja-private/caja-global-preferences.h"
+#include "../libcaja-private/caja-icon-names.h"
+#include "../libcaja-private/caja-ui-utilities.h"
+#include "../libcaja-private/caja-module.h"
+#include "../libcaja-private/caja-search-directory.h"
+#include "../libcaja-private/caja-search-engine.h"
+#include "../libcaja-private/caja-signaller.h"
+#include "../libcaja-private/caja-trash-monitor.h"
 
 #include "caja-actions.h"
 #include "caja-application.h"
@@ -39,22 +57,6 @@
 #include "caja-window-private.h"
 #include "caja-desktop-window.h"
 #include "caja-search-bar.h"
-#include <gtk/gtk.h>
-#include <gio/gio.h>
-#include <glib/gi18n.h>
-#include <eel/eel-gtk-extensions.h>
-#include <libcaja-extension/caja-menu-provider.h>
-#include <libcaja-private/caja-extensions.h>
-#include <libcaja-private/caja-file-utilities.h>
-#include <libcaja-private/caja-global-preferences.h>
-#include <libcaja-private/caja-icon-names.h>
-#include <libcaja-private/caja-ui-utilities.h>
-#include <libcaja-private/caja-module.h>
-#include <libcaja-private/caja-search-directory.h>
-#include <libcaja-private/caja-search-engine.h>
-#include <libcaja-private/caja-signaller.h>
-#include <libcaja-private/caja-trash-monitor.h>
-#include <string.h>
 
 #define MENU_PATH_EXTENSION_ACTIONS                     "/MenuBar/File/Extension Actions"
 #define POPUP_PATH_EXTENSION_ACTIONS                     "/background/Before Zoom Items/Extension Actions"
