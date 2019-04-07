@@ -26,8 +26,8 @@
 #ifndef CAJA_DESKTOP_ICON_FILE_H
 #define CAJA_DESKTOP_ICON_FILE_H
 
-#include <libcaja-private/caja-file.h>
-#include <libcaja-private/caja-desktop-link.h>
+#include "caja-file.h"
+#include "caja-desktop-link.h"
 
 #define CAJA_TYPE_DESKTOP_ICON_FILE caja_desktop_icon_file_get_type()
 #define CAJA_DESKTOP_ICON_FILE(obj) \

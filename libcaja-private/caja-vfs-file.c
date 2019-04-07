@@ -24,14 +24,16 @@
 */
 
 #include <config.h>
-#include "caja-vfs-file.h"
 
+#include <glib/gi18n.h>
+
+#include "../eel/eel-gtk-macros.h"
+
+#include "caja-vfs-file.h"
 #include "caja-directory-notify.h"
 #include "caja-directory-private.h"
 #include "caja-file-private.h"
 #include "caja-autorun.h"
-#include <eel/eel-gtk-macros.h>
-#include <glib/gi18n.h>
 
 static void caja_vfs_file_init       (gpointer   object,
                                       gpointer   klass);

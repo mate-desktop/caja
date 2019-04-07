@@ -28,14 +28,14 @@
 #ifndef CAJA_WINDOW_PRIVATE_H
 #define CAJA_WINDOW_PRIVATE_H
 
+#include "../libcaja-private/caja-directory.h"
+
 #include "caja-window.h"
 #include "caja-window-slot.h"
 #include "caja-window-pane.h"
 #include "caja-spatial-window.h"
 #include "caja-navigation-window.h"
 #include "caja-bookmark-list.h"
-
-#include <libcaja-private/caja-directory.h>
 
 struct _CajaNavigationWindowPane;
 

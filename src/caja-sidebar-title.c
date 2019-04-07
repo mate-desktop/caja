@@ -26,24 +26,26 @@
 
 #include <config.h>
 #include <math.h>
-#include "caja-sidebar-title.h"
+#include <string.h>
+#include <stdlib.h>
 
-#include "caja-window.h"
-
-#include <eel/eel-background.h>
-#include <eel/eel-gdk-extensions.h>
-#include <eel/eel-gdk-pixbuf-extensions.h>
-#include <eel/eel-glib-extensions.h>
-#include <eel/eel-gtk-extensions.h>
 #include <gtk/gtk.h>
 #include <pango/pango.h>
 #include <glib/gi18n.h>
-#include <libcaja-private/caja-file-attributes.h>
-#include <libcaja-private/caja-global-preferences.h>
-#include <libcaja-private/caja-metadata.h>
-#include <libcaja-private/caja-sidebar.h>
-#include <string.h>
-#include <stdlib.h>
+
+#include "../eel/eel-background.h"
+#include "../eel/eel-gdk-extensions.h"
+#include "../eel/eel-gdk-pixbuf-extensions.h"
+#include "../eel/eel-glib-extensions.h"
+#include "../eel/eel-gtk-extensions.h"
+
+#include "../libcaja-private/caja-file-attributes.h"
+#include "../libcaja-private/caja-global-preferences.h"
+#include "../libcaja-private/caja-metadata.h"
+#include "../libcaja-private/caja-sidebar.h"
+
+#include "caja-sidebar-title.h"
+#include "caja-window.h"
 
 /* maximum allowable size to be displayed as the title */
 #define MAX_TITLE_SIZE 		256

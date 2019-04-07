@@ -23,6 +23,12 @@
 */
 
 #include <config.h>
+#include <gtk/gtk.h>
+#include <libxml/parser.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "../eel/eel-glib-extensions.h"
 
 #include "caja-directory-notify.h"
 #include "caja-directory-private.h"
@@ -33,11 +39,6 @@
 #include "caja-global-preferences.h"
 #include "caja-link.h"
 #include "caja-marshal.h"
-#include <eel/eel-glib-extensions.h>
-#include <gtk/gtk.h>
-#include <libxml/parser.h>
-#include <stdio.h>
-#include <stdlib.h>
 
 /* turn this on to see messages about each load_directory call: */
 #if 0

@@ -27,7 +27,8 @@
 
 #include <gtk/gtk.h>
 #include <gio/gio.h>
-#include <libcaja-private/caja-file-attributes.h>
+
+#include "caja-file-attributes.h"
 
 G_BEGIN_DECLS
 

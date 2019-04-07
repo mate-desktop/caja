@@ -22,15 +22,17 @@
    Author: Michael Meeks <michael@ximian.com>
 */
 #include <config.h>
-
 #include <string.h>
+
 #include <glib/gi18n.h>
 #include <gio/gio.h>
-#include <eel/eel-glib-extensions.h>
-#include <libcaja-private/caja-global-preferences.h>
-#include <libcaja-private/caja-file-attributes.h>
-#include <libcaja-private/caja-thumbnails.h>
-#include <libcaja-private/caja-desktop-icon-file.h>
+
+#include "../../eel/eel-glib-extensions.h"
+
+#include "../../libcaja-private/caja-global-preferences.h"
+#include "../../libcaja-private/caja-file-attributes.h"
+#include "../../libcaja-private/caja-thumbnails.h"
+#include "../../libcaja-private/caja-desktop-icon-file.h"
 
 #include "fm-icon-container.h"
 

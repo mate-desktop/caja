@@ -24,10 +24,11 @@
 */
 
 #include <config.h>
-#include "caja-vfs-directory.h"
 
+#include "../eel/eel-gtk-macros.h"
+
+#include "caja-vfs-directory.h"
 #include "caja-directory-private.h"
-#include <eel/eel-gtk-macros.h>
 #include "caja-file-private.h"
 
 static void caja_vfs_directory_init       (gpointer   object,

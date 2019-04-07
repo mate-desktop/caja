@@ -23,46 +23,48 @@
 */
 
 #include <config.h>
-#include "fm-icon-view.h"
+#include <stdlib.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <locale.h>
+#include <signal.h>
+#include <stdio.h>
+#include <unistd.h>
 
+#include <gtk/gtk.h>
+#include <glib/gi18n.h>
+#include <gio/gio.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
+#include "../../eel/eel-background.h"
+#include "../../eel/eel-glib-extensions.h"
+#include "../../eel/eel-gtk-extensions.h"
+#include "../../eel/eel-gtk-macros.h"
+#include "../../eel/eel-stock-dialogs.h"
+#include "../../eel/eel-string.h"
+#include "../../eel/eel-vfs-extensions.h"
+
+#include "../../libcaja-private/caja-clipboard-monitor.h"
+#include "../../libcaja-private/caja-directory-background.h"
+#include "../../libcaja-private/caja-directory.h"
+#include "../../libcaja-private/caja-dnd.h"
+#include "../../libcaja-private/caja-file-utilities.h"
+#include "../../libcaja-private/caja-ui-utilities.h"
+#include "../../libcaja-private/caja-global-preferences.h"
+#include "../../libcaja-private/caja-icon-container.h"
+#include "../../libcaja-private/caja-icon-dnd.h"
+#include "../../libcaja-private/caja-link.h"
+#include "../../libcaja-private/caja-metadata.h"
+#include "../../libcaja-private/caja-view-factory.h"
+#include "../../libcaja-private/caja-clipboard.h"
+#include "../../libcaja-private/caja-desktop-icon-file.h"
+
+#include "fm-icon-view.h"
 #include "fm-actions.h"
 #include "fm-icon-container.h"
 #include "fm-desktop-icon-view.h"
 #include "fm-error-reporting.h"
-#include <stdlib.h>
-#include <eel/eel-background.h>
-#include <eel/eel-glib-extensions.h>
-#include <eel/eel-gtk-extensions.h>
-#include <eel/eel-gtk-macros.h>
-#include <eel/eel-stock-dialogs.h>
-#include <eel/eel-string.h>
-#include <eel/eel-vfs-extensions.h>
-#include <errno.h>
-#include <fcntl.h>
-#include <gtk/gtk.h>
-#include <glib/gi18n.h>
-#include <gio/gio.h>
-#include <libcaja-private/caja-clipboard-monitor.h>
-#include <libcaja-private/caja-directory-background.h>
-#include <libcaja-private/caja-directory.h>
-#include <libcaja-private/caja-dnd.h>
-#include <libcaja-private/caja-file-utilities.h>
-#include <libcaja-private/caja-ui-utilities.h>
-#include <libcaja-private/caja-global-preferences.h>
-#include <libcaja-private/caja-icon-container.h>
-#include <libcaja-private/caja-icon-dnd.h>
-#include <libcaja-private/caja-link.h>
-#include <libcaja-private/caja-metadata.h>
-#include <libcaja-private/caja-view-factory.h>
-#include <libcaja-private/caja-clipboard.h>
-#include <libcaja-private/caja-desktop-icon-file.h>
-#include <locale.h>
-#include <signal.h>
-#include <stdio.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <unistd.h>
-
 #include "caja-audio-mime-types.h"
 
 #define POPUP_PATH_ICON_APPEARANCE		"/selection/Icon Appearance Items"

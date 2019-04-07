@@ -24,15 +24,16 @@
 */
 
 #include <config.h>
-#include "caja-global-preferences.h"
+#include <glib/gi18n.h>
 
+#include "../eel/eel-glib-extensions.h"
+#include "../eel/eel-gtk-extensions.h"
+#include "../eel/eel-stock-dialogs.h"
+#include "../eel/eel-string.h"
+
+#include "caja-global-preferences.h"
 #include "caja-file-utilities.h"
 #include "caja-file.h"
-#include <eel/eel-glib-extensions.h>
-#include <eel/eel-gtk-extensions.h>
-#include <eel/eel-stock-dialogs.h>
-#include <eel/eel-string.h>
-#include <glib/gi18n.h>
 
 /*
  * Public functions

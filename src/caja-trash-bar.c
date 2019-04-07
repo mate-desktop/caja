@@ -20,18 +20,18 @@
  *
  */
 
-#include "config.h"
+#include <config.h>
 
 #include <glib/gi18n-lib.h>
 #include <gtk/gtk.h>
 
-#include "caja-trash-bar.h"
+#include "../libcaja-private/caja-file-operations.h"
+#include "../libcaja-private/caja-file-utilities.h"
+#include "../libcaja-private/caja-file.h"
+#include "../libcaja-private/caja-trash-monitor.h"
 
+#include "caja-trash-bar.h"
 #include "caja-window.h"
-#include <libcaja-private/caja-file-operations.h>
-#include <libcaja-private/caja-file-utilities.h>
-#include <libcaja-private/caja-file.h>
-#include <libcaja-private/caja-trash-monitor.h>
 
 #define CAJA_TRASH_BAR_GET_PRIVATE(o)\
 	(G_TYPE_INSTANCE_GET_PRIVATE ((o), CAJA_TYPE_TRASH_BAR, CajaTrashBarPrivate))

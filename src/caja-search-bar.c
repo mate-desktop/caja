@@ -22,13 +22,16 @@
  */
 
 #include <config.h>
-#include "caja-search-bar.h"
 
 #include <glib/gi18n.h>
-#include <eel/eel-gtk-macros.h>
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
-#include <libcaja-private/caja-clipboard.h>
+
+#include "../eel/eel-gtk-macros.h"
+
+#include "../libcaja-private/caja-clipboard.h"
+
+#include "caja-search-bar.h"
 
 struct CajaSearchBarDetails
 {
