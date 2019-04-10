@@ -1,9 +1,8 @@
 #include <gtk/gtk.h>
+#include <libcaja-private/caja-directory.h>
+#include <libcaja-private/caja-search-directory.h>
+#include <libcaja-private/caja-file.h>
 #include <unistd.h>
-
-#include "../libcaja-private/caja-directory.h"
-#include "../libcaja-private/caja-search-directory.h"
-#include "../libcaja-private/caja-file.h"
 
 void *client1, *client2;
 

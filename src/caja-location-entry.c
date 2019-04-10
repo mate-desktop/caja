@@ -31,27 +31,24 @@
  */
 
 #include <config.h>
-#include <stdio.h>
-#include <string.h>
+#include "caja-location-entry.h"
 
+#include "caja-window-private.h"
+#include "caja-window.h"
+#include <eel/eel-glib-extensions.h>
+#include <eel/eel-gtk-macros.h>
+#include <eel/eel-stock-dialogs.h>
+#include <eel/eel-string.h>
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 #include <glib/gi18n.h>
 #include <gio/gio.h>
-
-#include "../eel/eel-glib-extensions.h"
-#include "../eel/eel-gtk-macros.h"
-#include "../eel/eel-stock-dialogs.h"
-#include "../eel/eel-string.h"
-
-#include "../libcaja-private/caja-file-utilities.h"
-#include "../libcaja-private/caja-entry.h"
-#include "../libcaja-private/caja-icon-dnd.h"
-#include "../libcaja-private/caja-clipboard.h"
-
-#include "caja-location-entry.h"
-#include "caja-window-private.h"
-#include "caja-window.h"
+#include <libcaja-private/caja-file-utilities.h>
+#include <libcaja-private/caja-entry.h>
+#include <libcaja-private/caja-icon-dnd.h>
+#include <libcaja-private/caja-clipboard.h>
+#include <stdio.h>
+#include <string.h>
 
 struct CajaLocationEntryDetails
 {

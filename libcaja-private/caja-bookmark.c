@@ -23,17 +23,17 @@
 */
 
 #include <config.h>
+#include "caja-bookmark.h"
+
+#include "caja-file.h"
+#include <eel/eel-gdk-pixbuf-extensions.h>
+#include <eel/eel-gtk-extensions.h>
+#include <eel/eel-gtk-macros.h>
+#include <eel/eel-vfs-extensions.h>
 #include <gtk/gtk.h>
 #include <gio/gio.h>
-
-#include "../eel/eel-gdk-pixbuf-extensions.h"
-#include "../eel/eel-gtk-extensions.h"
-#include "../eel/eel-gtk-macros.h"
-#include "../eel/eel-vfs-extensions.h"
-
-#include "caja-bookmark.h"
-#include "caja-file.h"
-#include "caja-icon-names.h"
+#include <libcaja-private/caja-file.h>
+#include <libcaja-private/caja-icon-names.h>
 
 enum
 {

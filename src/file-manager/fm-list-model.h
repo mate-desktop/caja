@@ -24,11 +24,9 @@
 
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
-
-#include "../../libcaja-private/caja-file.h"
-#include "../../libcaja-private/caja-directory.h"
-
-#include "../../libcaja-extension/caja-column.h"
+#include <libcaja-private/caja-file.h>
+#include <libcaja-private/caja-directory.h>
+#include <libcaja-extension/caja-column.h>
 
 #ifndef FM_LIST_MODEL_H
 #define FM_LIST_MODEL_H

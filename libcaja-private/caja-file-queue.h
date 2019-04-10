@@ -23,7 +23,7 @@
 #ifndef CAJA_FILE_QUEUE_H
 #define CAJA_FILE_QUEUE_H
 
-#include "caja-file.h"
+#include <libcaja-private/caja-file.h>
 
 typedef struct CajaFileQueue CajaFileQueue;
 

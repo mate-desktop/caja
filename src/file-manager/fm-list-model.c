@@ -25,20 +25,16 @@
 */
 
 #include <config.h>
-#include <glib.h>
-#include <string.h>
-#include <cairo-gobject.h>
+#include "fm-list-model.h"
+#include <libegg/eggtreemultidnd.h>
 
+#include <string.h>
+#include <eel/eel-graphic-effects.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
-
-#include "../../libegg/eggtreemultidnd.h"
-
-#include "../../eel/eel-graphic-effects.h"
-
-#include "../../libcaja-private/caja-dnd.h"
-
-#include "fm-list-model.h"
+#include <libcaja-private/caja-dnd.h>
+#include <glib.h>
+#include <cairo-gobject.h>
 
 enum
 {

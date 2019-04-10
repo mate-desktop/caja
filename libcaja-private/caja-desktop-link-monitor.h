@@ -26,8 +26,7 @@
 #define CAJA_DESKTOP_LINK_MONITOR_H
 
 #include <gtk/gtk.h>
-
-#include "caja-desktop-link.h"
+#include <libcaja-private/caja-desktop-link.h>
 
 #define CAJA_TYPE_DESKTOP_LINK_MONITOR caja_desktop_link_monitor_get_type()
 #define CAJA_DESKTOP_LINK_MONITOR(obj) \

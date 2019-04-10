@@ -26,15 +26,14 @@
  */
 
 #include <config.h>
-#include <string.h>
+#include "caja-bookmark-list.h"
+
+#include <libcaja-private/caja-file-utilities.h>
+#include <libcaja-private/caja-file.h>
+#include <libcaja-private/caja-icon-names.h>
 
 #include <gio/gio.h>
-
-#include "../libcaja-private/caja-file-utilities.h"
-#include "../libcaja-private/caja-file.h"
-#include "../libcaja-private/caja-icon-names.h"
-
-#include "caja-bookmark-list.h"
+#include <string.h>
 
 #define LOAD_JOB 1
 #define SAVE_JOB 2

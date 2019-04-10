@@ -22,13 +22,12 @@
  */
 
 #include <config.h>
-
-#include "../eel/eel-gtk-macros.h"
-
 #include "caja-search-engine.h"
 #include "caja-search-engine-beagle.h"
 #include "caja-search-engine-simple.h"
 #include "caja-search-engine-tracker.h"
+
+#include <eel/eel-gtk-macros.h>
 
 struct CajaSearchEngineDetails
 {

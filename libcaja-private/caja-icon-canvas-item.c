@@ -24,7 +24,21 @@
 
 #include <config.h>
 #include <math.h>
+#include "caja-icon-canvas-item.h"
+
 #include <glib/gi18n.h>
+
+#include "caja-file-utilities.h"
+#include "caja-global-preferences.h"
+#include "caja-icon-private.h"
+#include <eel/eel-art-extensions.h>
+#include <eel/eel-gdk-extensions.h>
+#include <eel/eel-gdk-pixbuf-extensions.h>
+#include <eel/eel-glib-extensions.h>
+#include <eel/eel-graphic-effects.h>
+#include <eel/eel-gtk-macros.h>
+#include <eel/eel-string.h>
+#include <eel/eel-accessibility.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
@@ -34,20 +48,6 @@
 #include <atk/atknoopobject.h>
 #include <stdio.h>
 #include <string.h>
-
-#include "../eel/eel-art-extensions.h"
-#include "../eel/eel-gdk-extensions.h"
-#include "../eel/eel-gdk-pixbuf-extensions.h"
-#include "../eel/eel-glib-extensions.h"
-#include "../eel/eel-graphic-effects.h"
-#include "../eel/eel-gtk-macros.h"
-#include "../eel/eel-string.h"
-#include "../eel/eel-accessibility.h"
-
-#include "caja-icon-canvas-item.h"
-#include "caja-file-utilities.h"
-#include "caja-global-preferences.h"
-#include "caja-icon-private.h"
 
 #define EMBLEM_SPACING 2
 

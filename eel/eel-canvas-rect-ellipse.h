@@ -35,7 +35,7 @@
 #define EEL_CANVAS_RECT_ELLIPSE_H
 
 
-#include "eel-canvas.h"
+#include <eel/eel-canvas.h>
 
 #ifdef __cplusplus
 extern "C" {

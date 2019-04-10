@@ -25,24 +25,24 @@
 #ifndef EEL_H
 #define EEL_H
 
-#include "eel-art-extensions.h"
-#include "eel-art-gtk-extensions.h"
-#include "eel-background.h"
-#include "eel-gdk-extensions.h"
-#include "eel-gdk-pixbuf-extensions.h"
-#include "eel-glib-extensions.h"
-#include "eel-mate-extensions.h"
-#include "eel-graphic-effects.h"
-#include "eel-gtk-container.h"
-#include "eel-gtk-extensions.h"
-#include "eel-gtk-macros.h"
-#include "eel-image-table.h"
-#include "eel-labeled-image.h"
-#include "eel-self-checks.h"
-#include "eel-stock-dialogs.h"
-#include "eel-string.h"
-#include "eel-vfs-extensions.h"
-#include "eel-wrap-table.h"
-#include "eel-xml-extensions.h"
+#include <eel/eel-art-extensions.h>
+#include <eel/eel-art-gtk-extensions.h>
+#include <eel/eel-background.h>
+#include <eel/eel-gdk-extensions.h>
+#include <eel/eel-gdk-pixbuf-extensions.h>
+#include <eel/eel-glib-extensions.h>
+#include <eel/eel-mate-extensions.h>
+#include <eel/eel-graphic-effects.h>
+#include <eel/eel-gtk-container.h>
+#include <eel/eel-gtk-extensions.h>
+#include <eel/eel-gtk-macros.h>
+#include <eel/eel-image-table.h>
+#include <eel/eel-labeled-image.h>
+#include <eel/eel-self-checks.h>
+#include <eel/eel-stock-dialogs.h>
+#include <eel/eel-string.h>
+#include <eel/eel-vfs-extensions.h>
+#include <eel/eel-wrap-table.h>
+#include <eel/eel-xml-extensions.h>
 
 #endif /* EEL_H */

@@ -27,28 +27,25 @@
  */
 
 #include <config.h>
+
 #include <unistd.h>
-
-#include <gtk/gtk.h>
-#include <gdk/gdkkeysyms.h>
-#include <glib/gi18n.h>
-
-#include "../eel/eel-mate-extensions.h"
-#include "../eel/eel-gtk-extensions.h"
-#include "../eel/eel-string.h"
-
-#include "../libcaja-extension/caja-menu-provider.h"
-#include "../libcaja-private/caja-bookmark.h"
-#include "../libcaja-private/caja-extensions.h"
-#include "../libcaja-private/caja-file-utilities.h"
-#include "../libcaja-private/caja-ui-utilities.h"
-#include "../libcaja-private/caja-global-preferences.h"
-#include "../libcaja-private/caja-module.h"
-
 #include "caja-application.h"
 #include "caja-window-manage-views.h"
 #include "caja-window-private.h"
 #include "caja-window.h"
+#include <eel/eel-mate-extensions.h>
+#include <eel/eel-gtk-extensions.h>
+#include <eel/eel-string.h>
+#include <gtk/gtk.h>
+#include <gdk/gdkkeysyms.h>
+#include <glib/gi18n.h>
+#include <libcaja-extension/caja-menu-provider.h>
+#include <libcaja-private/caja-bookmark.h>
+#include <libcaja-private/caja-extensions.h>
+#include <libcaja-private/caja-file-utilities.h>
+#include <libcaja-private/caja-ui-utilities.h>
+#include <libcaja-private/caja-global-preferences.h>
+#include <libcaja-private/caja-module.h>
 
 /* FIXME bugzilla.gnome.org 41243:
  * We should use inheritance instead of these special cases

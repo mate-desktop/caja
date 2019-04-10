@@ -29,65 +29,63 @@
 
 #include <config.h>
 #include <math.h>
+#include "fm-directory-view.h"
+#include "fm-list-view.h"
+#include "fm-desktop-icon-view.h"
 
+#include "fm-actions.h"
+#include "fm-error-reporting.h"
+#include "fm-marshal.h"
+#include "fm-properties-window.h"
+#include "libcaja-private/caja-open-with-dialog.h"
+
+#include <eel/eel-background.h>
+#include <eel/eel-glib-extensions.h>
+#include <eel/eel-mate-extensions.h>
+#include <eel/eel-gtk-extensions.h>
+#include <eel/eel-gtk-macros.h>
+#include <eel/eel-stock-dialogs.h>
+#include <eel/eel-string.h>
+#include <eel/eel-vfs-extensions.h>
 #include <gdk/gdkkeysyms.h>
 #include <gdk/gdkx.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 #include <glib/gstdio.h>
 #include <gio/gio.h>
+#include <libcaja-private/caja-recent.h>
+#include <libcaja-extension/caja-menu-provider.h>
+#include <libcaja-private/caja-clipboard.h>
+#include <libcaja-private/caja-clipboard-monitor.h>
+#include <libcaja-private/caja-debug-log.h>
+#include <libcaja-private/caja-desktop-icon-file.h>
+#include <libcaja-private/caja-desktop-directory.h>
+#include <libcaja-private/caja-extensions.h>
+#include <libcaja-private/caja-search-directory.h>
+#include <libcaja-private/caja-directory-background.h>
+#include <libcaja-private/caja-directory.h>
+#include <libcaja-private/caja-dnd.h>
+#include <libcaja-private/caja-file-attributes.h>
+#include <libcaja-private/caja-file-changes-queue.h>
+#include <libcaja-private/caja-file-dnd.h>
+#include <libcaja-private/caja-file-operations.h>
+#include <libcaja-private/caja-file-utilities.h>
+#include <libcaja-private/caja-file-private.h> /* for caja_file_get_existing_by_uri */
+#include <libcaja-private/caja-global-preferences.h>
+#include <libcaja-private/caja-link.h>
+#include <libcaja-private/caja-metadata.h>
+#include <libcaja-private/caja-mime-actions.h>
+#include <libcaja-private/caja-module.h>
+#include <libcaja-private/caja-program-choosing.h>
+#include <libcaja-private/caja-trash-monitor.h>
+#include <libcaja-private/caja-ui-utilities.h>
+#include <libcaja-private/caja-signaller.h>
+#include <libcaja-private/caja-autorun.h>
+#include <libcaja-private/caja-icon-names.h>
+#include <libcaja-private/caja-undostack-manager.h>
 
 #define MATE_DESKTOP_USE_UNSTABLE_API
 #include <libmate-desktop/mate-desktop-utils.h>
-
-#include "../../eel/eel-background.h"
-#include "../../eel/eel-glib-extensions.h"
-#include "../../eel/eel-mate-extensions.h"
-#include "../../eel/eel-gtk-extensions.h"
-#include "../../eel/eel-gtk-macros.h"
-#include "../../eel/eel-stock-dialogs.h"
-#include "../../eel/eel-string.h"
-#include "../../eel/eel-vfs-extensions.h"
-
-#include "../../libcaja-private/caja-recent.h"
-#include "../../libcaja-extension/caja-menu-provider.h"
-#include "../../libcaja-private/caja-clipboard.h"
-#include "../../libcaja-private/caja-clipboard-monitor.h"
-#include "../../libcaja-private/caja-debug-log.h"
-#include "../../libcaja-private/caja-desktop-icon-file.h"
-#include "../../libcaja-private/caja-desktop-directory.h"
-#include "../../libcaja-private/caja-extensions.h"
-#include "../../libcaja-private/caja-search-directory.h"
-#include "../../libcaja-private/caja-directory-background.h"
-#include "../../libcaja-private/caja-directory.h"
-#include "../../libcaja-private/caja-dnd.h"
-#include "../../libcaja-private/caja-file-attributes.h"
-#include "../../libcaja-private/caja-file-changes-queue.h"
-#include "../../libcaja-private/caja-file-dnd.h"
-#include "../../libcaja-private/caja-file-operations.h"
-#include "../../libcaja-private/caja-file-utilities.h"
-#include "../../libcaja-private/caja-file-private.h" /* for caja_file_get_existing_by_uri */
-#include "../../libcaja-private/caja-global-preferences.h"
-#include "../../libcaja-private/caja-link.h"
-#include "../../libcaja-private/caja-metadata.h"
-#include "../../libcaja-private/caja-mime-actions.h"
-#include "../../libcaja-private/caja-module.h"
-#include "../../libcaja-private/caja-program-choosing.h"
-#include "../../libcaja-private/caja-trash-monitor.h"
-#include "../../libcaja-private/caja-ui-utilities.h"
-#include "../../libcaja-private/caja-signaller.h"
-#include "../../libcaja-private/caja-autorun.h"
-#include "../../libcaja-private/caja-icon-names.h"
-#include "../../libcaja-private/caja-undostack-manager.h"
-
-#include "fm-directory-view.h"
-#include "fm-list-view.h"
-#include "fm-desktop-icon-view.h"
-#include "fm-actions.h"
-#include "fm-error-reporting.h"
-#include "fm-marshal.h"
-#include "fm-properties-window.h"
-#include "libcaja-private/caja-open-with-dialog.h"
 
 /* Minimum starting update inverval */
 #define UPDATE_INTERVAL_MIN 100

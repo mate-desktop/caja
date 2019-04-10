@@ -23,40 +23,37 @@
  */
 
 #include <config.h>
-#include <cairo-gobject.h>
 
+#include <eel/eel-debug.h>
+#include <eel/eel-gtk-extensions.h>
+#include <eel/eel-glib-extensions.h>
+#include <eel/eel-graphic-effects.h>
+#include <eel/eel-string.h>
+#include <eel/eel-stock-dialogs.h>
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
+#include <libcaja-private/caja-debug-log.h>
+#include <libcaja-private/caja-dnd.h>
+#include <libcaja-private/caja-bookmark.h>
+#include <libcaja-private/caja-global-preferences.h>
+#include <libcaja-private/caja-sidebar-provider.h>
+#include <libcaja-private/caja-module.h>
+#include <libcaja-private/caja-file.h>
+#include <libcaja-private/caja-file-utilities.h>
+#include <libcaja-private/caja-file-operations.h>
+#include <libcaja-private/caja-trash-monitor.h>
+#include <libcaja-private/caja-icon-names.h>
+#include <libcaja-private/caja-autorun.h>
+#include <libcaja-private/caja-window-info.h>
+#include <libcaja-private/caja-window-slot-info.h>
 #include <gio/gio.h>
 #include <libnotify/notify.h>
-
-#include "../eel/eel-debug.h"
-#include "../eel/eel-gtk-extensions.h"
-#include "../eel/eel-glib-extensions.h"
-#include "../eel/eel-graphic-effects.h"
-#include "../eel/eel-string.h"
-#include "../eel/eel-stock-dialogs.h"
-
-#include "../libcaja-private/caja-debug-log.h"
-#include "../libcaja-private/caja-dnd.h"
-#include "../libcaja-private/caja-bookmark.h"
-#include "../libcaja-private/caja-global-preferences.h"
-#include "../libcaja-private/caja-sidebar-provider.h"
-#include "../libcaja-private/caja-module.h"
-#include "../libcaja-private/caja-file.h"
-#include "../libcaja-private/caja-file-utilities.h"
-#include "../libcaja-private/caja-file-operations.h"
-#include "../libcaja-private/caja-trash-monitor.h"
-#include "../libcaja-private/caja-icon-names.h"
-#include "../libcaja-private/caja-autorun.h"
-#include "../libcaja-private/caja-window-info.h"
-#include "../libcaja-private/caja-window-slot-info.h"
+#include <cairo-gobject.h>
 
 #include "caja-bookmark-list.h"
 #include "caja-places-sidebar.h"
 #include "caja-window.h"
-
 #define EJECT_BUTTON_XPAD 6
 #define ICON_CELL_XPAD 6
 

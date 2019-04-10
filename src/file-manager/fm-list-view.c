@@ -26,44 +26,41 @@
 */
 
 #include <config.h>
-#include <string.h>
+#include "fm-list-view.h"
 
+#include <string.h>
+#include "fm-error-reporting.h"
+#include "fm-list-model.h"
+#include <string.h>
+#include <eel/eel-vfs-extensions.h>
+#include <eel/eel-gdk-extensions.h>
+#include <eel/eel-glib-extensions.h>
+#include <eel/eel-gtk-macros.h>
+#include <eel/eel-stock-dialogs.h>
 #include <gdk/gdk.h>
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
+#include <libegg/eggtreemultidnd.h>
 #include <glib/gi18n.h>
 #include <glib-object.h>
-
-#include "../../eel/eel-vfs-extensions.h"
-#include "../../eel/eel-gdk-extensions.h"
-#include "../../eel/eel-glib-extensions.h"
-#include "../../eel/eel-gtk-macros.h"
-#include "../../eel/eel-stock-dialogs.h"
-
-#include "../../libegg/eggtreemultidnd.h"
-
-#include "../../libcaja-extension/caja-column-provider.h"
-#include "../../libcaja-private/caja-clipboard-monitor.h"
-#include "../../libcaja-private/caja-column-chooser.h"
-#include "../../libcaja-private/caja-column-utilities.h"
-#include "../../libcaja-private/caja-debug-log.h"
-#include "../../libcaja-private/caja-directory-background.h"
-#include "../../libcaja-private/caja-dnd.h"
-#include "../../libcaja-private/caja-file-dnd.h"
-#include "../../libcaja-private/caja-file-utilities.h"
-#include "../../libcaja-private/caja-ui-utilities.h"
-#include "../../libcaja-private/caja-global-preferences.h"
-#include "../../libcaja-private/caja-icon-dnd.h"
-#include "../../libcaja-private/caja-metadata.h"
-#include "../../libcaja-private/caja-module.h"
-#include "../../libcaja-private/caja-tree-view-drag-dest.h"
-#include "../../libcaja-private/caja-view-factory.h"
-#include "../../libcaja-private/caja-clipboard.h"
-#include "../../libcaja-private/caja-cell-renderer-text-ellipsized.h"
-
-#include "fm-list-view.h"
-#include "fm-error-reporting.h"
-#include "fm-list-model.h"
+#include <libcaja-extension/caja-column-provider.h>
+#include <libcaja-private/caja-clipboard-monitor.h>
+#include <libcaja-private/caja-column-chooser.h>
+#include <libcaja-private/caja-column-utilities.h>
+#include <libcaja-private/caja-debug-log.h>
+#include <libcaja-private/caja-directory-background.h>
+#include <libcaja-private/caja-dnd.h>
+#include <libcaja-private/caja-file-dnd.h>
+#include <libcaja-private/caja-file-utilities.h>
+#include <libcaja-private/caja-ui-utilities.h>
+#include <libcaja-private/caja-global-preferences.h>
+#include <libcaja-private/caja-icon-dnd.h>
+#include <libcaja-private/caja-metadata.h>
+#include <libcaja-private/caja-module.h>
+#include <libcaja-private/caja-tree-view-drag-dest.h>
+#include <libcaja-private/caja-view-factory.h>
+#include <libcaja-private/caja-clipboard.h>
+#include <libcaja-private/caja-cell-renderer-text-ellipsized.h>
 
 struct FMListViewDetails
 {

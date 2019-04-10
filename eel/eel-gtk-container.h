@@ -27,7 +27,7 @@
 #define EEL_GTK_CONTAINER_H
 
 #include <gtk/gtk.h>
-#include "eel-art-extensions.h"
+#include <eel/eel-art-extensions.h>
 
 void eel_gtk_container_child_expose_event (GtkContainer   *container,
         GtkWidget      *child,

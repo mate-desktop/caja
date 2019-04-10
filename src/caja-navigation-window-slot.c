@@ -22,16 +22,14 @@
    Author: Christian Neumair <cneumair@gnome.org>
 */
 
-#include "../eel/eel-gtk-macros.h"
-
-#include "../libcaja-private/caja-window-slot-info.h"
-#include "../libcaja-private/caja-file.h"
-
 #include "caja-window-slot.h"
 #include "caja-navigation-window-slot.h"
 #include "caja-window-private.h"
 #include "caja-search-bar.h"
 #include "caja-navigation-window-pane.h"
+#include <libcaja-private/caja-window-slot-info.h>
+#include <libcaja-private/caja-file.h>
+#include <eel/eel-gtk-macros.h>
 
 static void caja_navigation_window_slot_init       (CajaNavigationWindowSlot *slot);
 static void caja_navigation_window_slot_class_init (CajaNavigationWindowSlotClass *class);

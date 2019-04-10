@@ -28,38 +28,35 @@
 /* caja-main.c: Implementation of the routines that drive program lifecycle and main window creation/destruction. */
 
 #include <config.h>
+#include "caja-window.h"
 #include <dlfcn.h>
 #include <signal.h>
+#include <eel/eel-debug.h>
+#include <eel/eel-glib-extensions.h>
+#include <eel/eel-self-checks.h>
+#include <libegg/eggdesktopfile.h>
+#include <gdk/gdkx.h>
+#include <gtk/gtk.h>
+#include <glib/gi18n.h>
+#include <gio/gdesktopappinfo.h>
+#include <libcaja-private/caja-debug-log.h>
+#include <libcaja-private/caja-global-preferences.h>
+#include <libcaja-private/caja-icon-names.h>
+#include <libxml/parser.h>
 #ifdef HAVE_LOCALE_H
-#include <locale.h>
+	#include <locale.h>
 #endif
 #ifdef HAVE_MALLOC_H
-#include <malloc.h>
+	#include <malloc.h>
 #endif
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 
-#include <gdk/gdkx.h>
-#include <gtk/gtk.h>
-#include <glib/gi18n.h>
-#include <gio/gdesktopappinfo.h>
-#include <libxml/parser.h>
 #ifdef HAVE_EXEMPI
-#include <exempi/xmp.h>
+	#include <exempi/xmp.h>
 #endif
 
-#include "../eel/eel-debug.h"
-#include "../eel/eel-glib-extensions.h"
-#include "../eel/eel-self-checks.h"
-
-#include "../libcaja-private/caja-debug-log.h"
-#include "../libcaja-private/caja-global-preferences.h"
-#include "../libcaja-private/caja-icon-names.h"
-
-#include "../libegg/eggdesktopfile.h"
-
-#include "caja-window.h"
 
 static void dump_debug_log (void)
 {

@@ -24,10 +24,9 @@
 #ifndef _CAJA_PLACES_SIDEBAR_H
 #define _CAJA_PLACES_SIDEBAR_H
 
+#include <libcaja-private/caja-view.h>
+#include <libcaja-private/caja-window-info.h>
 #include <gtk/gtk.h>
-
-#include "../libcaja-private/caja-view.h"
-#include "../libcaja-private/caja-window-info.h"
 
 #define CAJA_PLACES_SIDEBAR_ID    "places"
 

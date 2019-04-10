@@ -25,20 +25,19 @@
  */
 
 #include <config.h>
+
 #include <locale.h>
-
-#include <glib/gi18n.h>
-
-#include "../eel/eel-debug.h"
-#include "../eel/eel-stock-dialogs.h"
-#include "../eel/eel-vfs-extensions.h"
-#include "../eel/eel-gtk-extensions.h"
 
 #include "caja-actions.h"
 #include "caja-bookmark-list.h"
 #include "caja-bookmarks-window.h"
 #include "caja-window-bookmarks.h"
 #include "caja-window-private.h"
+#include <eel/eel-debug.h>
+#include <eel/eel-stock-dialogs.h>
+#include <eel/eel-vfs-extensions.h>
+#include <eel/eel-gtk-extensions.h>
+#include <glib/gi18n.h>
 
 #define MENU_ITEM_MAX_WIDTH_CHARS 32
 

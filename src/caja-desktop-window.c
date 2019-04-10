@@ -23,22 +23,19 @@
  */
 
 #include <config.h>
+#include "caja-desktop-window.h"
+#include "caja-window-private.h"
+#include "caja-actions.h"
 
 #include <X11/Xatom.h>
 #include <gdk/gdkx.h>
 #include <gtk/gtk.h>
+#include <eel/eel-background.h>
+#include <eel/eel-vfs-extensions.h>
+#include <libcaja-private/caja-file-utilities.h>
+#include <libcaja-private/caja-icon-names.h>
 #include <gio/gio.h>
-#include <glib/gi18n.h>
-
-#include "../eel/eel-background.h"
-#include "../eel/eel-vfs-extensions.h"
-
-#include "../libcaja-private/caja-file-utilities.h"
-#include "../libcaja-private/caja-icon-names.h"
-
-#include "caja-desktop-window.h"
-#include "caja-window-private.h"
-#include "caja-actions.h"
+#include <glib/gi18n.h>    
 
 /* Tell screen readers that this is a desktop window */
 

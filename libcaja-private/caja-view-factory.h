@@ -27,10 +27,9 @@
 
 #include <string.h>
 
+#include <libcaja-private/caja-view.h>
+#include <libcaja-private/caja-window-slot-info.h>
 #include <gio/gio.h>
-
-#include "caja-view.h"
-#include "caja-window-slot-info.h"
 
 #ifdef __cplusplus
 extern "C" {

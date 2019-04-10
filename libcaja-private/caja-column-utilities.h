@@ -25,9 +25,8 @@
 #ifndef CAJA_COLUMN_UTILITIES_H
 #define CAJA_COLUMN_UTILITIES_H
 
-#include "../libcaja-extension/caja-column.h"
-
-#include "caja-file.h"
+#include <libcaja-extension/caja-column.h>
+#include <libcaja-private/caja-file.h>
 
 GList *caja_get_all_columns       (void);
 GList *caja_get_common_columns    (void);

@@ -22,13 +22,6 @@
    Author: Holger Berndt <berndth@gmx.de>
 */
 
-#include "../eel/eel-gtk-extensions.h"
-
-#include "../libcaja-private/caja-global-preferences.h"
-#include "../libcaja-private/caja-window-slot-info.h"
-#include "../libcaja-private/caja-view-factory.h"
-#include "../libcaja-private/caja-entry.h"
-
 #include "caja-navigation-window-pane.h"
 #include "caja-window-private.h"
 #include "caja-window-manage-views.h"
@@ -36,6 +29,14 @@
 #include "caja-location-bar.h"
 #include "caja-notebook.h"
 #include "caja-window-slot.h"
+
+#include <eel/eel-gtk-extensions.h>
+
+#include <libcaja-private/caja-global-preferences.h>
+#include <libcaja-private/caja-window-slot-info.h>
+#include <libcaja-private/caja-view-factory.h>
+#include <libcaja-private/caja-entry.h>
+
 
 static void caja_navigation_window_pane_init       (CajaNavigationWindowPane *pane);
 static void caja_navigation_window_pane_class_init (CajaNavigationWindowPaneClass *class);

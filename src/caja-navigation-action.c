@@ -29,14 +29,12 @@
 
 #include <config.h>
 
-#include <gtk/gtk.h>
-
-#include "../eel/eel-gtk-extensions.h"
-
 #include "caja-navigation-action.h"
 #include "caja-navigation-window.h"
 #include "caja-window-private.h"
 #include "caja-navigation-window-slot.h"
+#include <gtk/gtk.h>
+#include <eel/eel-gtk-extensions.h>
 
 static void caja_navigation_action_init       (CajaNavigationAction *action);
 static void caja_navigation_action_class_init (CajaNavigationActionClass *class);

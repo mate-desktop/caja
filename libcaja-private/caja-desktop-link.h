@@ -25,9 +25,8 @@
 #ifndef CAJA_DESKTOP_LINK_H
 #define CAJA_DESKTOP_LINK_H
 
+#include <libcaja-private/caja-file.h>
 #include <gio/gio.h>
-
-#include "caja-file.h"
 
 #define CAJA_TYPE_DESKTOP_LINK caja_desktop_link_get_type()
 #define CAJA_DESKTOP_LINK(obj) \

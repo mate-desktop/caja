@@ -31,28 +31,25 @@
  */
 
 #include <config.h>
-#include <stdio.h>
-#include <string.h>
-
-#include <gdk/gdkkeysyms.h>
-#include <gtk/gtk.h>
-#include <glib/gi18n.h>
-
-#include "../eel/eel-accessibility.h"
-#include "../eel/eel-glib-extensions.h"
-#include "../eel/eel-gtk-macros.h"
-#include "../eel/eel-stock-dialogs.h"
-#include "../eel/eel-string.h"
-#include "../eel/eel-vfs-extensions.h"
-
-#include "../libcaja-private/caja-icon-dnd.h"
-#include "../libcaja-private/caja-clipboard.h"
-
 #include "caja-location-bar.h"
+
 #include "caja-location-entry.h"
 #include "caja-window-private.h"
 #include "caja-window.h"
 #include "caja-navigation-window-pane.h"
+#include <eel/eel-accessibility.h>
+#include <eel/eel-glib-extensions.h>
+#include <eel/eel-gtk-macros.h>
+#include <eel/eel-stock-dialogs.h>
+#include <eel/eel-string.h>
+#include <eel/eel-vfs-extensions.h>
+#include <gdk/gdkkeysyms.h>
+#include <gtk/gtk.h>
+#include <glib/gi18n.h>
+#include <libcaja-private/caja-icon-dnd.h>
+#include <libcaja-private/caja-clipboard.h>
+#include <stdio.h>
+#include <string.h>
 
 #define CAJA_DND_URI_LIST_TYPE 	  "text/uri-list"
 #define CAJA_DND_TEXT_PLAIN_TYPE 	  "text/plain"

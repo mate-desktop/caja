@@ -26,7 +26,7 @@
 #ifndef CAJA_SEARCH_DIRECTORY_FILE_H
 #define CAJA_SEARCH_DIRECTORY_FILE_H
 
-#include "caja-file.h"
+#include <libcaja-private/caja-file.h>
 
 #define CAJA_TYPE_SEARCH_DIRECTORY_FILE caja_search_directory_file_get_type()
 #define CAJA_SEARCH_DIRECTORY_FILE(obj) \

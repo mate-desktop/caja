@@ -23,25 +23,27 @@
 */
 
 #include <config.h>
-#include <string.h>
-#include <time.h>
-
-#include <gtk/gtk.h>
-#include <gio/gio.h>
-#include <glib/gi18n.h>
-
-#include "../eel/eel-glib-extensions.h"
-
-#include "../libcaja-private/caja-column-chooser.h"
-#include "../libcaja-private/caja-column-utilities.h"
-#include "../libcaja-private/caja-extensions.h"
-#include "../libcaja-private/caja-global-preferences.h"
-#include "../libcaja-private/caja-module.h"
-#include "../libcaja-private/caja-autorun.h"
-
-#include "../libcaja-extension/caja-configurable.h"
 
 #include "caja-file-management-properties.h"
+
+#include <string.h>
+#include <time.h>
+#include <gtk/gtk.h>
+#include <gio/gio.h>
+
+#include <glib/gi18n.h>
+
+#include <eel/eel-glib-extensions.h>
+
+#include <libcaja-private/caja-column-chooser.h>
+#include <libcaja-private/caja-column-utilities.h>
+#include <libcaja-private/caja-extensions.h>
+#include <libcaja-private/caja-global-preferences.h>
+#include <libcaja-private/caja-module.h>
+
+#include <libcaja-private/caja-autorun.h>
+
+#include <libcaja-extension/caja-configurable.h>
 
 /* string enum preferences */
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_DEFAULT_VIEW_WIDGET "default_view_combobox"

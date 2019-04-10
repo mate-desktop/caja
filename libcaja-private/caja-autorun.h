@@ -41,10 +41,8 @@
 #define CAJA_AUTORUN_H
 
 #include <gtk/gtk.h>
-
-#include "../eel/eel-background.h"
-
-#include "caja-file.h"
+#include <eel/eel-background.h>
+#include <libcaja-private/caja-file.h>
 
 typedef void (*CajaAutorunComboBoxChanged) (gboolean selected_ask,
         gboolean selected_ignore,

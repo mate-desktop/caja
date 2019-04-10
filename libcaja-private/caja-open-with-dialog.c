@@ -26,17 +26,16 @@
 */
 
 #include <config.h>
-#include <string.h>
-#include <cairo-gobject.h>
+#include "caja-open-with-dialog.h"
+#include "caja-signaller.h"
 
+#include <eel/eel-stock-dialogs.h>
+
+#include <string.h>
 #include <glib/gi18n-lib.h>
 #include <gtk/gtk.h>
 #include <gio/gio.h>
-
-#include "../eel/eel-stock-dialogs.h"
-
-#include "caja-open-with-dialog.h"
-#include "caja-signaller.h"
+#include <cairo-gobject.h>
 
 #define sure_string(s)                    ((const char *)((s)!=NULL?(s):""))
 #define DESKTOP_ENTRY_GROUP		  "Desktop Entry"

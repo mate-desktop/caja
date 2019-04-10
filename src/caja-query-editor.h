@@ -24,12 +24,11 @@
 #ifndef CAJA_QUERY_EDITOR_H
 #define CAJA_QUERY_EDITOR_H
 
-#include <gtk/gtk.h>
-
-#include "../libcaja-private/caja-query.h"
-#include "../libcaja-private/caja-window-info.h"
-
 #include "caja-search-bar.h"
+
+#include <gtk/gtk.h>
+#include <libcaja-private/caja-query.h>
+#include <libcaja-private/caja-window-info.h>
 
 #define CAJA_TYPE_QUERY_EDITOR caja_query_editor_get_type()
 #define CAJA_QUERY_EDITOR(obj) \

@@ -24,13 +24,7 @@
  *
  */
 
-#include <config.h>
-
-#include <glib/gi18n.h>
-#include <gio/gio.h>
-#include <gtk/gtk.h>
-
-#include "../libcaja-private/caja-dnd.h"
+#include "config.h"
 
 #include "caja-notebook.h"
 #include "caja-navigation-window.h"
@@ -38,6 +32,11 @@
 #include "caja-window-private.h"
 #include "caja-window-slot.h"
 #include "caja-navigation-window-pane.h"
+#include <libcaja-private/caja-dnd.h>
+
+#include <glib/gi18n.h>
+#include <gio/gio.h>
+#include <gtk/gtk.h>
 
 #define AFTER_ALL_TABS -1
 

@@ -28,8 +28,7 @@
 #define CAJA_DND_H
 
 #include <gtk/gtk.h>
-
-#include "caja-window-slot-info.h"
+#include <libcaja-private/caja-window-slot-info.h>
 
 /* Drag & Drop target names. */
 #define CAJA_ICON_DND_MATE_ICON_LIST_TYPE	"x-special/mate-icon-list"

@@ -24,7 +24,7 @@
 #ifndef CAJA_SEARCH_ENGINE_SIMPLE_H
 #define CAJA_SEARCH_ENGINE_SIMPLE_H
 
-#include "caja-search-engine.h"
+#include <libcaja-private/caja-search-engine.h>
 
 #define CAJA_TYPE_SEARCH_ENGINE_SIMPLE		(caja_search_engine_simple_get_type ())
 #define CAJA_SEARCH_ENGINE_SIMPLE(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), CAJA_TYPE_SEARCH_ENGINE_SIMPLE, CajaSearchEngineSimple))

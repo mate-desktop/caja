@@ -23,15 +23,15 @@
 
 #include <config.h>
 
-#include <gio/gio.h>
-
-#include "../libcaja-private/caja-debug-log.h"
-
-#include "file-manager/fm-properties-window.h"
-
 #include "caja-application.h"
 #include "caja-freedesktop-dbus.h"
 #include "caja-freedesktop-generated.h"
+
+#include <libcaja-private/caja-debug-log.h>
+
+#include "file-manager/fm-properties-window.h"
+
+#include <gio/gio.h>
 
 struct _CajaFreedesktopDBus {
     GObject parent;

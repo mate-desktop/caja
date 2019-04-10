@@ -23,19 +23,18 @@
 */
 
 #include <config.h>
-#include <glib/gi18n.h>
-#include <gio/gio.h>
-#include <string.h>
-
 #include "caja-desktop-link.h"
 #include "caja-desktop-link-monitor.h"
 #include "caja-desktop-icon-file.h"
 #include "caja-directory-private.h"
 #include "caja-desktop-directory.h"
 #include "caja-icon-names.h"
-#include "caja-file-utilities.h"
-#include "caja-trash-monitor.h"
-#include "caja-global-preferences.h"
+#include <glib/gi18n.h>
+#include <gio/gio.h>
+#include <libcaja-private/caja-file-utilities.h>
+#include <libcaja-private/caja-trash-monitor.h>
+#include <libcaja-private/caja-global-preferences.h>
+#include <string.h>
 
 struct _CajaDesktopLinkPrivate
 {

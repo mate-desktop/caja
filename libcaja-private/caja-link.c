@@ -24,21 +24,19 @@
 */
 
 #include <config.h>
-#include <stdlib.h>
-#include <string.h>
-
-#include <glib/gi18n.h>
-#include <gio/gio.h>
-
-#include "../eel/eel-vfs-extensions.h"
-
 #include "caja-link.h"
+
 #include "caja-directory-notify.h"
 #include "caja-directory.h"
 #include "caja-file-utilities.h"
 #include "caja-file.h"
 #include "caja-program-choosing.h"
 #include "caja-icon-names.h"
+#include <eel/eel-vfs-extensions.h>
+#include <glib/gi18n.h>
+#include <gio/gio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define MAIN_GROUP "Desktop Entry"
 

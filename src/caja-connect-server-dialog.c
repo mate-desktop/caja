@@ -23,22 +23,22 @@
  */
 
 #include <config.h>
-#include <string.h>
 
+#include "caja-connect-server-dialog.h"
+
+#include <string.h>
+#include <eel/eel-stock-dialogs.h>
 #include <glib/gi18n.h>
 #include <gio/gio.h>
 #include <gtk/gtk.h>
 
-#include "../eel/eel-stock-dialogs.h"
-
-#include "../libcaja-private/caja-global-preferences.h"
-#include "../libcaja-private/caja-icon-names.h"
-
-#include "caja-connect-server-dialog.h"
 #include "caja-application.h"
 #include "caja-bookmark-list.h"
 #include "caja-connect-server-operation.h"
 #include "caja-window.h"
+
+#include <libcaja-private/caja-global-preferences.h>
+#include <libcaja-private/caja-icon-names.h>
 
 /* TODO:
  * - name entry + pre-fill

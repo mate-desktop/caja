@@ -27,23 +27,22 @@
 /* FIXME: This should really be back in Caja, not here in Eel. */
 
 #include <config.h>
-#include <gtk/gtk.h>
-#include <glib/gi18n.h>
-#include <stdio.h>
-#include <string.h>
-
-#include "../eel/eel-glib-extensions.h"
-#include "../eel/eel-gtk-extensions.h"
-#include "../eel/eel-string.h"
-#include "../eel/eel-vfs-extensions.h"
-
 #include "caja-dnd.h"
+
 #include "caja-program-choosing.h"
 #include "caja-link.h"
 #include "caja-window-slot-info.h"
 #include "caja-window-info.h"
 #include "caja-view.h"
-#include "caja-file-utilities.h"
+#include <eel/eel-glib-extensions.h>
+#include <eel/eel-gtk-extensions.h>
+#include <eel/eel-string.h>
+#include <eel/eel-vfs-extensions.h>
+#include <gtk/gtk.h>
+#include <glib/gi18n.h>
+#include <libcaja-private/caja-file-utilities.h>
+#include <stdio.h>
+#include <string.h>
 
 /* a set of defines stolen from the eel-icon-dnd.c file.
  * These are in microseconds.

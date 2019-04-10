@@ -25,20 +25,18 @@
 */
 
 #include <config.h>
+#include "eel-background.h"
+#include "eel-gdk-extensions.h"
+#include "eel-glib-extensions.h"
+#include "eel-lib-self-check-functions.h"
 #include <gtk/gtk.h>
+#include <eel/eel-canvas.h>
 #include <cairo-xlib.h>
 #include <gdk/gdkx.h>
 #include <gio/gio.h>
 #include <math.h>
 #include <stdio.h>
-
-#include "eel-background.h"
-#include "eel-gdk-extensions.h"
-#include "eel-glib-extensions.h"
-#include "eel-lib-self-check-functions.h"
-#include "eel-canvas.h"
-
-#include "../libcaja-private/caja-global-preferences.h"
+#include <libcaja-private/caja-global-preferences.h>
 
 enum
 {

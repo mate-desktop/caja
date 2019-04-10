@@ -22,16 +22,15 @@
  *
  */
 
-#include <config.h>
-#include <string.h>
+#include "config.h"
 
 #include <glib/gi18n-lib.h>
 #include <gtk/gtk.h>
-
-#include "../libcaja-private/caja-autorun.h"
-#include "../libcaja-private/caja-icon-info.h"
+#include <string.h>
 
 #include "caja-x-content-bar.h"
+#include <libcaja-private/caja-autorun.h>
+#include <libcaja-private/caja-icon-info.h>
 
 struct _CajaXContentBarPrivate
 {

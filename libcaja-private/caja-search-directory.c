@@ -21,21 +21,19 @@
 */
 
 #include <config.h>
-#include <string.h>
-
-#include <gtk/gtk.h>
-#include <gio/gio.h>
-#include <sys/time.h>
-
-#include "../eel/eel-glib-extensions.h"
-
 #include "caja-search-directory.h"
 #include "caja-search-directory-file.h"
+
 #include "caja-directory-private.h"
 #include "caja-file.h"
 #include "caja-file-private.h"
 #include "caja-file-utilities.h"
 #include "caja-search-engine.h"
+#include <eel/eel-glib-extensions.h>
+#include <gtk/gtk.h>
+#include <gio/gio.h>
+#include <string.h>
+#include <sys/time.h>
 
 struct CajaSearchDirectoryDetails
 {

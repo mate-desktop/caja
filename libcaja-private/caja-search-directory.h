@@ -25,8 +25,8 @@
 #ifndef CAJA_SEARCH_DIRECTORY_H
 #define CAJA_SEARCH_DIRECTORY_H
 
-#include "caja-directory.h"
-#include "caja-query.h"
+#include <libcaja-private/caja-directory.h>
+#include <libcaja-private/caja-query.h>
 
 #define CAJA_TYPE_SEARCH_DIRECTORY caja_search_directory_get_type()
 #define CAJA_SEARCH_DIRECTORY(obj) \

@@ -26,16 +26,18 @@
  */
 
 #include <config.h>
-#include <stdlib.h>
 
 #include <glib/gi18n.h>
+
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
 
-#include "../eel/eel-stock-dialogs.h"
+#include <stdlib.h>
 
-#include "../libcaja-private/caja-icon-names.h"
-#include "../libcaja-private/caja-global-preferences.h"
+#include <eel/eel-stock-dialogs.h>
+
+#include <libcaja-private/caja-icon-names.h>
+#include <libcaja-private/caja-global-preferences.h>
 
 #include "caja-connect-server-dialog.h"
 

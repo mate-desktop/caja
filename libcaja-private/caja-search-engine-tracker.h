@@ -24,7 +24,7 @@
 #ifndef CAJA_SEARCH_ENGINE_TRACKER_H
 #define CAJA_SEARCH_ENGINE_TRACKER_H
 
-#include "caja-search-engine.h"
+#include <libcaja-private/caja-search-engine.h>
 
 #define CAJA_TYPE_SEARCH_ENGINE_TRACKER		(caja_search_engine_tracker_get_type ())
 #define CAJA_SEARCH_ENGINE_TRACKER(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), CAJA_TYPE_SEARCH_ENGINE_TRACKER, CajaSearchEngineTracker))

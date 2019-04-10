@@ -25,8 +25,8 @@
 #ifndef CAJA_FILE_DND_H
 #define CAJA_FILE_DND_H
 
-#include "caja-dnd.h"
-#include "caja-file.h"
+#include <libcaja-private/caja-dnd.h>
+#include <libcaja-private/caja-file.h>
 
 #define CAJA_FILE_DND_ERASE_KEYWORD "erase"
 

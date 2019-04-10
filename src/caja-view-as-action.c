@@ -25,16 +25,13 @@
 
 #include <config.h>
 
-#include <gtk/gtk.h>
-
-#include "../eel/eel-gtk-extensions.h"
-
-#include "../libcaja-private/caja-view-factory.h"
-
 #include "caja-view-as-action.h"
 #include "caja-navigation-window.h"
 #include "caja-window-private.h"
 #include "caja-navigation-window-slot.h"
+#include <gtk/gtk.h>
+#include <eel/eel-gtk-extensions.h>
+#include <libcaja-private/caja-view-factory.h>
 
 static void caja_view_as_action_init       (CajaViewAsAction *action);
 static void caja_view_as_action_class_init (CajaViewAsActionClass *class);

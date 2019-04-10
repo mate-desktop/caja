@@ -35,8 +35,8 @@
 #ifndef EEL_ART_GTK_EXTENSIONS_H
 #define EEL_ART_GTK_EXTENSIONS_H
 
-#include "eel-gtk-extensions.h"
-#include "eel-art-extensions.h"
+#include <eel/eel-gtk-extensions.h>
+#include <eel/eel-art-extensions.h>
 
 #ifdef __cplusplus
 extern "C" {

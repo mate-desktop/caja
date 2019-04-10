@@ -24,17 +24,14 @@
 */
 
 #include <config.h>
-#include <string.h>
-
-#include <glib/gi18n.h>
-
-#include "../../eel/eel-string.h"
-#include "../../eel/eel-stock-dialogs.h"
-
-#include "../../libcaja-private/caja-debug-log.h"
-#include "../../libcaja-private/caja-file.h"
-
 #include "fm-error-reporting.h"
+
+#include <string.h>
+#include <glib/gi18n.h>
+#include <libcaja-private/caja-debug-log.h>
+#include <libcaja-private/caja-file.h>
+#include <eel/eel-string.h>
+#include <eel/eel-stock-dialogs.h>
 
 #define NEW_NAME_TAG "Caja: new name"
 #define MAXIMUM_DISPLAYED_FILE_NAME_LENGTH	50

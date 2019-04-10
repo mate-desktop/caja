@@ -24,16 +24,16 @@
 */
 
 #include <config.h>
+#include "caja-file-conflict-dialog.h"
+
 #include <string.h>
 #include <glib-object.h>
 #include <gio/gio.h>
 #include <glib/gi18n.h>
 #include <pango/pango.h>
+#include <eel/eel-vfs-extensions.h>
+#include <eel/eel-stock-dialogs.h>
 
-#include "../eel/eel-vfs-extensions.h"
-#include "../eel/eel-stock-dialogs.h"
-
-#include "caja-file-conflict-dialog.h"
 #include "caja-file.h"
 #include "caja-icon-info.h"
 

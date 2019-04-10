@@ -26,8 +26,7 @@
 #define CAJA_THUMBNAILS_H
 
 #include <gdk-pixbuf/gdk-pixbuf.h>
-
-#include "caja-file.h"
+#include <libcaja-private/caja-file.h>
 
 /* Returns NULL if there's no thumbnail yet. */
 void       caja_create_thumbnail                (CajaFile *file);

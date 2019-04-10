@@ -23,13 +23,8 @@
 */
 
 #include <config.h>
-#include <gtk/gtk.h>
-#include <string.h>
-
-#include "../eel/eel-glib-extensions.h"
-#include "../eel/eel-gtk-macros.h"
-
 #include "caja-directory-private.h"
+
 #include "caja-directory-notify.h"
 #include "caja-file-attributes.h"
 #include "caja-file-private.h"
@@ -40,6 +35,10 @@
 #include "caja-metadata.h"
 #include "caja-desktop-directory.h"
 #include "caja-vfs-directory.h"
+#include <eel/eel-glib-extensions.h>
+#include <eel/eel-gtk-macros.h>
+#include <gtk/gtk.h>
+#include <string.h>
 
 enum
 {

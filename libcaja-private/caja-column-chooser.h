@@ -26,8 +26,7 @@
 #define CAJA_COLUMN_CHOOSER_H
 
 #include <gtk/gtk.h>
-
-#include "caja-file.h"
+#include <libcaja-private/caja-file.h>
 
 #define CAJA_TYPE_COLUMN_CHOOSER caja_column_chooser_get_type()
 #define CAJA_COLUMN_CHOOSER(obj) \

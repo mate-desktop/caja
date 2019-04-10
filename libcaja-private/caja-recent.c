@@ -18,9 +18,9 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "../eel/eel-vfs-extensions.h"
-
 #include "caja-recent.h"
+
+#include <eel/eel-vfs-extensions.h>
 
 #define DEFAULT_APP_EXEC "gio open %u"
 

@@ -22,19 +22,17 @@
  */
 
 #include <config.h>
+#include "fm-ditem-page.h"
+
 #include <string.h>
 
+#include <eel/eel-glib-extensions.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
-
-#include "../../eel/eel-glib-extensions.h"
-
-#include "../../libcaja-extension/caja-extension-types.h"
-#include "../../libcaja-extension/caja-file-info.h"
-#include "../../libcaja-private/caja-file.h"
-#include "../../libcaja-private/caja-file-attributes.h"
-
-#include "fm-ditem-page.h"
+#include <libcaja-extension/caja-extension-types.h>
+#include <libcaja-extension/caja-file-info.h>
+#include <libcaja-private/caja-file.h>
+#include <libcaja-private/caja-file-attributes.h>
 
 #define MAIN_GROUP "Desktop Entry"
 

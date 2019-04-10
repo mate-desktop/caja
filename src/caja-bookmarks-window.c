@@ -26,20 +26,16 @@
  */
 
 #include <config.h>
-#include <cairo-gobject.h>
-
-#include <gtk/gtk.h>
-#include <gdk/gdkkeysyms.h>
-
-#include "../eel/eel-gtk-extensions.h"
-#include "../eel/eel-mate-extensions.h"
-
-#include "../libcaja-private/caja-global-preferences.h"
-
 #include "caja-bookmarks-window.h"
 #include "caja-window.h"
 #include "caja-navigation-window.h"
 #include "caja-spatial-window.h"
+#include <libcaja-private/caja-global-preferences.h>
+#include <eel/eel-gtk-extensions.h>
+#include <eel/eel-mate-extensions.h>
+#include <gtk/gtk.h>
+#include <gdk/gdkkeysyms.h>
+#include <cairo-gobject.h>
 
 /* Static variables to keep track of window state. If there were
  * more than one bookmark-editing window, these would be struct or

@@ -23,24 +23,23 @@
 */
 
 #include <config.h>
-#include <gtk/gtk.h>
-#include <glib/gi18n.h>
-#include <gio/gio.h>
-#include <string.h>
-
-#include "../eel/eel-debug.h"
-#include "../eel/eel-gtk-macros.h"
-#include "../eel/eel-glib-extensions.h"
-#include "../eel/eel-vfs-extensions.h"
-#include "../eel/eel-stock-dialogs.h"
-
 #include "caja-desktop-link-monitor.h"
 #include "caja-desktop-link.h"
 #include "caja-desktop-icon-file.h"
 #include "caja-directory.h"
 #include "caja-desktop-directory.h"
 #include "caja-global-preferences.h"
-#include "caja-trash-monitor.h"
+
+#include <eel/eel-debug.h>
+#include <eel/eel-gtk-macros.h>
+#include <eel/eel-glib-extensions.h>
+#include <eel/eel-vfs-extensions.h>
+#include <eel/eel-stock-dialogs.h>
+#include <gtk/gtk.h>
+#include <glib/gi18n.h>
+#include <gio/gio.h>
+#include <libcaja-private/caja-trash-monitor.h>
+#include <string.h>
 
 struct CajaDesktopLinkMonitorDetails
 {

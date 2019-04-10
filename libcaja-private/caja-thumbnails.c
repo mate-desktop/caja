@@ -24,29 +24,28 @@
 */
 
 #include <config.h>
-#include <math.h>
-#include <errno.h>
-#include <stdio.h>
-#include <string.h>
-#include <unistd.h>
-#include <signal.h>
-
-#include <gtk/gtk.h>
-#include <sys/wait.h>
+#include "caja-thumbnails.h"
 
 #define MATE_DESKTOP_USE_UNSTABLE_API
-#include <libmate-desktop/mate-desktop-thumbnail.h>
 
-#include "../eel/eel-gdk-pixbuf-extensions.h"
-#include "../eel/eel-graphic-effects.h"
-#include "../eel/eel-string.h"
-#include "../eel/eel-debug.h"
-#include "../eel/eel-vfs-extensions.h"
-
-#include "caja-thumbnails.h"
 #include "caja-directory-notify.h"
 #include "caja-global-preferences.h"
 #include "caja-file-utilities.h"
+#include <math.h>
+#include <eel/eel-gdk-pixbuf-extensions.h>
+#include <eel/eel-graphic-effects.h>
+#include <eel/eel-string.h>
+#include <eel/eel-debug.h>
+#include <eel/eel-vfs-extensions.h>
+#include <gtk/gtk.h>
+#include <errno.h>
+#include <stdio.h>
+#include <string.h>
+#include <sys/wait.h>
+#include <unistd.h>
+#include <signal.h>
+#include <libmate-desktop/mate-desktop-thumbnail.h>
+
 #include "caja-file-private.h"
 
 /* turn this on to see messages about thumbnail creation */

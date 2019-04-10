@@ -25,8 +25,7 @@
 #define CAJA_SEARCH_ENGINE_H
 
 #include <glib-object.h>
-
-#include "caja-query.h"
+#include <libcaja-private/caja-query.h>
 
 #define CAJA_TYPE_SEARCH_ENGINE		(caja_search_engine_get_type ())
 #define CAJA_SEARCH_ENGINE(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), CAJA_TYPE_SEARCH_ENGINE, CajaSearchEngine))

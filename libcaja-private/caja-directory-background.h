@@ -26,10 +26,9 @@
             Jasmine Hassan <jasmine.aura@gmail.com>
 */
 
-#include "../eel/eel-background.h"
-
-#include "caja-file.h"
-#include "caja-icon-container.h"
+#include <eel/eel-background.h>
+#include <libcaja-private/caja-file.h>
+#include <libcaja-private/caja-icon-container.h>
 
 void     caja_connect_background_to_file_metadata    (GtkWidget         *widget,
                                                       CajaFile          *file,

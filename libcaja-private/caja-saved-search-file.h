@@ -26,7 +26,7 @@
 #ifndef CAJA_SAVED_SEARCH_FILE_H
 #define CAJA_SAVED_SEARCH_FILE_H
 
-#include "caja-vfs-file.h"
+#include <libcaja-private/caja-vfs-file.h>
 
 #define CAJA_TYPE_SAVED_SEARCH_FILE caja_saved_search_file_get_type()
 #define CAJA_SAVED_SEARCH_FILE(obj) \

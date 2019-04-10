@@ -30,12 +30,10 @@
 #ifndef CAJA_LOCATION_BAR_H
 #define CAJA_LOCATION_BAR_H
 
-#include <gtk/gtk.h>
-
-#include "../libcaja-private/caja-entry.h"
-
 #include "caja-navigation-window.h"
 #include "caja-navigation-window-pane.h"
+#include <libcaja-private/caja-entry.h>
+#include <gtk/gtk.h>
 
 #define CAJA_TYPE_LOCATION_BAR caja_location_bar_get_type()
 #define CAJA_LOCATION_BAR(obj) \

@@ -28,9 +28,8 @@
 #ifndef CAJA_BOOKMARK_LIST_H
 #define CAJA_BOOKMARK_LIST_H
 
+#include <libcaja-private/caja-bookmark.h>
 #include <gio/gio.h>
-
-#include "../libcaja-private/caja-bookmark.h"
 
 typedef struct CajaBookmarkList CajaBookmarkList;
 typedef struct CajaBookmarkListClass CajaBookmarkListClass;

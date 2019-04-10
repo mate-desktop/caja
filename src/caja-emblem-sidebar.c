@@ -29,27 +29,24 @@
  */
 
 #include <config.h>
-#include <stdio.h>
+#include "caja-emblem-sidebar.h"
 
+#include <stdio.h>
+#include <eel/eel-wrap-table.h>
+#include <eel/eel-labeled-image.h>
+#include <eel/eel-graphic-effects.h>
+#include <eel/eel-gdk-pixbuf-extensions.h>
+#include <eel/eel-stock-dialogs.h>
+#include <eel/eel-gtk-extensions.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
-
-#include "../eel/eel-wrap-table.h"
-#include "../eel/eel-labeled-image.h"
-#include "../eel/eel-graphic-effects.h"
-#include "../eel/eel-gdk-pixbuf-extensions.h"
-#include "../eel/eel-stock-dialogs.h"
-#include "../eel/eel-gtk-extensions.h"
-
-#include "../libcaja-private/caja-icon-dnd.h"
-#include "../libcaja-private/caja-emblem-utils.h"
-#include "../libcaja-private/caja-file-utilities.h"
-#include "../libcaja-private/caja-sidebar-provider.h"
-#include "../libcaja-private/caja-module.h"
-#include "../libcaja-private/caja-signaller.h"
-
-#include "caja-emblem-sidebar.h"
+#include <libcaja-private/caja-icon-dnd.h>
+#include <libcaja-private/caja-emblem-utils.h>
+#include <libcaja-private/caja-file-utilities.h>
+#include <libcaja-private/caja-sidebar-provider.h>
+#include <libcaja-private/caja-module.h>
+#include <libcaja-private/caja-signaller.h>
 
 struct CajaEmblemSidebarDetails
 {

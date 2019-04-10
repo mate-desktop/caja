@@ -28,8 +28,8 @@
 #ifndef CAJA_ICON_DND_H
 #define CAJA_ICON_DND_H
 
-#include "caja-icon-container.h"
-#include "caja-dnd.h"
+#include <libcaja-private/caja-icon-container.h>
+#include <libcaja-private/caja-dnd.h>
 
 /* DnD-related information. */
 typedef struct

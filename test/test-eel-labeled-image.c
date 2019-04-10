@@ -1,6 +1,6 @@
-#include "../eel/eel-labeled-image.h"
-
 #include "test.h"
+
+#include <eel/eel-labeled-image.h>
 
 static const char pixbuf_name[] = "/usr/share/pixmaps/mate-globe.png";
 

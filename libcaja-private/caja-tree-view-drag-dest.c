@@ -29,20 +29,18 @@
  */
 
 #include <config.h>
-#include <stdio.h>
-#include <string.h>
-
-#include <gtk/gtk.h>
-
-#include "../eel/eel-gtk-macros.h"
-
 #include "caja-tree-view-drag-dest.h"
+
+#include <eel/eel-gtk-macros.h>
+#include <gtk/gtk.h>
 #include "caja-file-dnd.h"
 #include "caja-file-changes-queue.h"
 #include "caja-icon-dnd.h"
 #include "caja-link.h"
 #include "caja-marshal.h"
 #include "caja-debug-log.h"
+#include <stdio.h>
+#include <string.h>
 
 #define AUTO_SCROLL_MARGIN 20
 

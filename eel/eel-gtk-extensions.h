@@ -30,7 +30,7 @@
 
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gtk/gtk.h>
-#include "eel-gdk-extensions.h"
+#include <eel/eel-gdk-extensions.h>
 
 /* GtkWindow */
 void                  eel_gtk_window_set_initial_geometry             (GtkWindow            *window,

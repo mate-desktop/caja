@@ -26,7 +26,7 @@
 #ifndef CAJA_VFS_FILE_H
 #define CAJA_VFS_FILE_H
 
-#include "caja-file.h"
+#include <libcaja-private/caja-file.h>
 
 #define CAJA_TYPE_VFS_FILE caja_vfs_file_get_type()
 #define CAJA_VFS_FILE(obj) \

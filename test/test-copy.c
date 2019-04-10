@@ -1,7 +1,7 @@
-#include "../libcaja-private/caja-file-operations.h"
-#include "../libcaja-private/caja-progress-info.h"
-
 #include "test.h"
+
+#include <libcaja-private/caja-file-operations.h>
+#include <libcaja-private/caja-progress-info.h>
 
 static void
 copy_done (GHashTable *debuting_uris, gpointer data)

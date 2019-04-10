@@ -25,8 +25,8 @@
 #ifndef CAJA_SIDEBAR_PROVIDER_H
 #define CAJA_SIDEBAR_PROVIDER_H
 
-#include "caja-sidebar.h"
-#include "caja-window-info.h"
+#include <libcaja-private/caja-sidebar.h>
+#include <libcaja-private/caja-window-info.h>
 
 #ifdef __cplusplus
 extern "C" {

@@ -24,20 +24,18 @@
 */
 
 #include <config.h>
-#include <string.h>
-
-#include <gtk/gtk.h>
-#include <glib/gi18n.h>
-
-#include "../eel/eel-glib-extensions.h"
-
 #include "caja-search-directory-file.h"
+
 #include "caja-directory-notify.h"
 #include "caja-directory-private.h"
 #include "caja-file-attributes.h"
 #include "caja-file-private.h"
 #include "caja-file-utilities.h"
+#include <eel/eel-glib-extensions.h>
 #include "caja-search-directory.h"
+#include <gtk/gtk.h>
+#include <glib/gi18n.h>
+#include <string.h>
 
 struct CajaSearchDirectoryFileDetails
 {

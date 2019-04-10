@@ -31,12 +31,9 @@
 #define CAJA_NAVIGATION_WINDOW_H
 
 #include <gtk/gtk.h>
-
-#include "../eel/eel-glib-extensions.h"
-
-#include "../libcaja-private/caja-bookmark.h"
-#include "../libcaja-private/caja-sidebar.h"
-
+#include <eel/eel-glib-extensions.h>
+#include <libcaja-private/caja-bookmark.h>
+#include <libcaja-private/caja-sidebar.h>
 #include "caja-application.h"
 #include "caja-information-panel.h"
 #include "caja-side-pane.h"

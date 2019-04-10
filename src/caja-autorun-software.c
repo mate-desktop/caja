@@ -24,17 +24,18 @@
 
 
 #include <config.h>
+
 #include <unistd.h>
 #include <string.h>
 #include <time.h>
 #include <errno.h>
-
 #include <gtk/gtk.h>
 #include <gio/gio.h>
+
 #include <glib/gi18n.h>
 
-#include "../libcaja-private/caja-module.h"
-#include "../libcaja-private/caja-icon-info.h"
+#include <libcaja-private/caja-module.h>
+#include <libcaja-private/caja-icon-info.h>
 
 typedef struct
 {

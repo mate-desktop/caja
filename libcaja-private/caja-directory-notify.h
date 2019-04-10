@@ -23,8 +23,7 @@
 */
 
 #include <gdk/gdk.h>
-
-#include "caja-file.h"
+#include <libcaja-private/caja-file.h>
 
 typedef struct
 {

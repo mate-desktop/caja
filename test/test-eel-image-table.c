@@ -1,9 +1,8 @@
-#include <stdlib.h>
-#include <gtk/gtk.h>
-
-#include "../eel/eel-image-table.h"
-
 #include "test.h"
+
+#include <eel/eel-image-table.h>
+#include <gtk/gtk.h>
+#include <stdlib.h>
 
 static const char pixbuf_name[] = "/usr/share/pixmaps/mate-about-logo.png";
 
