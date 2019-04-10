@@ -830,21 +830,20 @@ compute_text_rectangle (const CajaIconCanvasItem *item,
         text_rectangle.y0 = icon_rectangle.y1;
         text_rectangle.x1 = text_rectangle.x0 + text_width;
 
-        if (usage == BOUNDS_USAGE_FOR_LAYOUT)
+        switch (usage)
         {
-            real_text_height = text_height_for_layout;
-        }
-        else if (usage == BOUNDS_USAGE_FOR_ENTIRE_ITEM)
-        {
-            real_text_height = text_height_for_entire_text;
-        }
-        else if (usage == BOUNDS_USAGE_FOR_DISPLAY)
-        {
-            real_text_height = text_height;
-        }
-        else
-        {
-            g_assert_not_reached ();
+            case BOUNDS_USAGE_FOR_LAYOUT:
+                real_text_height = text_height_for_layout;
+                break;
+            case BOUNDS_USAGE_FOR_ENTIRE_ITEM:
+                real_text_height = text_height_for_entire_text;
+                break;
+            case BOUNDS_USAGE_FOR_DISPLAY:
+                real_text_height = text_height;
+                break;
+            default:
+                g_assert_not_reached ();
+                break;
         }
 
         text_rectangle.y1 = text_rectangle.y0 + real_text_height + LABEL_OFFSET / pixels_per_unit;
