@@ -28,8 +28,8 @@
 
 #include <gtk/gtk.h>
 
-#include "../libcaja-private/caja-view.h"
-#include "../libcaja-private/caja-window-info.h"
+#include <libcaja-private/caja-view.h>
+#include <libcaja-private/caja-window-info.h>
 
 #define CAJA_NOTES_SIDEBAR_ID    "notes"
 

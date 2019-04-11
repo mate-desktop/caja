@@ -25,8 +25,8 @@
 #ifndef CAJA_FILE_PRIVATE_H
 #define CAJA_FILE_PRIVATE_H
 
-#include "../eel/eel-glib-extensions.h"
-#include "../eel/eel-string.h"
+#include <eel/eel-glib-extensions.h>
+#include <eel/eel-string.h>
 
 #include "caja-directory.h"
 #include "caja-file.h"

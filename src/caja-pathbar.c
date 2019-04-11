@@ -25,13 +25,13 @@
 #include <glib/gi18n.h>
 #include <gio/gio.h>
 
-#include "../libcaja-private/caja-file.h"
-#include "../libcaja-private/caja-file-utilities.h"
-#include "../libcaja-private/caja-global-preferences.h"
-#include "../libcaja-private/caja-icon-names.h"
-#include "../libcaja-private/caja-trash-monitor.h"
-#include "../libcaja-private/caja-dnd.h"
-#include "../libcaja-private/caja-icon-dnd.h"
+#include <libcaja-private/caja-file.h>
+#include <libcaja-private/caja-file-utilities.h>
+#include <libcaja-private/caja-global-preferences.h>
+#include <libcaja-private/caja-icon-names.h>
+#include <libcaja-private/caja-trash-monitor.h>
+#include <libcaja-private/caja-dnd.h>
+#include <libcaja-private/caja-icon-dnd.h>
 
 #include "caja-pathbar.h"
 

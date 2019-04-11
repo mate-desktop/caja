@@ -22,12 +22,12 @@
    Author: Holger Berndt <berndth@gmx.de>
 */
 
-#include "../eel/eel-gtk-extensions.h"
+#include <eel/eel-gtk-extensions.h>
 
-#include "../libcaja-private/caja-global-preferences.h"
-#include "../libcaja-private/caja-window-slot-info.h"
-#include "../libcaja-private/caja-view-factory.h"
-#include "../libcaja-private/caja-entry.h"
+#include <libcaja-private/caja-global-preferences.h>
+#include <libcaja-private/caja-window-slot-info.h>
+#include <libcaja-private/caja-view-factory.h>
+#include <libcaja-private/caja-entry.h>
 
 #include "caja-navigation-window-pane.h"
 #include "caja-window-private.h"

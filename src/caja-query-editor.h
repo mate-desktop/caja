@@ -26,8 +26,8 @@
 
 #include <gtk/gtk.h>
 
-#include "../libcaja-private/caja-query.h"
-#include "../libcaja-private/caja-window-info.h"
+#include <libcaja-private/caja-query.h>
+#include <libcaja-private/caja-window-info.h>
 
 #include "caja-search-bar.h"
 

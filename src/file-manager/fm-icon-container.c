@@ -27,12 +27,12 @@
 #include <glib/gi18n.h>
 #include <gio/gio.h>
 
-#include "../../eel/eel-glib-extensions.h"
+#include <eel/eel-glib-extensions.h>
 
-#include "../../libcaja-private/caja-global-preferences.h"
-#include "../../libcaja-private/caja-file-attributes.h"
-#include "../../libcaja-private/caja-thumbnails.h"
-#include "../../libcaja-private/caja-desktop-icon-file.h"
+#include <libcaja-private/caja-global-preferences.h>
+#include <libcaja-private/caja-file-attributes.h>
+#include <libcaja-private/caja-thumbnails.h>
+#include <libcaja-private/caja-desktop-icon-file.h>
 
 #include "fm-icon-container.h"
 

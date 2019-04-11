@@ -27,9 +27,9 @@
 
 #include <gtk/gtk.h>
 
-#include "../eel/eel-gtk-extensions.h"
+#include <eel/eel-gtk-extensions.h>
 
-#include "../libcaja-private/caja-view-factory.h"
+#include <libcaja-private/caja-view-factory.h>
 
 #include "caja-view-as-action.h"
 #include "caja-navigation-window.h"

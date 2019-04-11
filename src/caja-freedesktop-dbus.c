@@ -25,7 +25,7 @@
 
 #include <gio/gio.h>
 
-#include "../libcaja-private/caja-debug-log.h"
+#include <libcaja-private/caja-debug-log.h>
 
 #include "file-manager/fm-properties-window.h"
 

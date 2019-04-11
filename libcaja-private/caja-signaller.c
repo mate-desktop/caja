@@ -28,7 +28,7 @@
 
 #include <config.h>
 
-#include "../eel/eel-debug.h"
+#include <eel/eel-debug.h>
 
 #include "caja-signaller.h"
 

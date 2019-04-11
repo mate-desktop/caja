@@ -30,8 +30,8 @@
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 
-#include "../eel/eel-gdk-extensions.h"
-#include "../eel/eel-gtk-macros.h"
+#include <eel/eel-gdk-extensions.h>
+#include <eel/eel-gtk-macros.h>
 
 #include "caja-entry.h"
 #include "caja-global-preferences.h"

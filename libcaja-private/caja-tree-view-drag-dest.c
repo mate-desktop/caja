@@ -34,7 +34,7 @@
 
 #include <gtk/gtk.h>
 
-#include "../eel/eel-gtk-macros.h"
+#include <eel/eel-gtk-macros.h>
 
 #include "caja-tree-view-drag-dest.h"
 #include "caja-file-dnd.h"

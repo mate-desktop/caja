@@ -28,7 +28,7 @@
 #include <string.h>
 #include <gio/gio.h>
 
-#include "../eel/eel-glib-extensions.h"
+#include <eel/eel-glib-extensions.h>
 
 #include "caja-desktop-icon-file.h"
 #include "caja-desktop-metadata.h"

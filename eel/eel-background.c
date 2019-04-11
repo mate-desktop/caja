@@ -32,13 +32,13 @@
 #include <math.h>
 #include <stdio.h>
 
+#include <libcaja-private/caja-global-preferences.h>
+
 #include "eel-background.h"
 #include "eel-gdk-extensions.h"
 #include "eel-glib-extensions.h"
 #include "eel-lib-self-check-functions.h"
 #include "eel-canvas.h"
-
-#include "../libcaja-private/caja-global-preferences.h"
 
 enum
 {

@@ -39,24 +39,24 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
-#include "../../eel/eel-glib-extensions.h"
-#include "../../eel/eel-gtk-extensions.h"
-#include "../../eel/eel-vfs-extensions.h"
+#include <eel/eel-glib-extensions.h>
+#include <eel/eel-gtk-extensions.h>
+#include <eel/eel-vfs-extensions.h>
 
-#include "../../libcaja-private/caja-desktop-icon-file.h"
-#include "../../libcaja-private/caja-directory-background.h"
-#include "../../libcaja-private/caja-directory-notify.h"
-#include "../../libcaja-private/caja-file-changes-queue.h"
-#include "../../libcaja-private/caja-file-operations.h"
-#include "../../libcaja-private/caja-file-utilities.h"
-#include "../../libcaja-private/caja-ui-utilities.h"
-#include "../../libcaja-private/caja-global-preferences.h"
-#include "../../libcaja-private/caja-view-factory.h"
-#include "../../libcaja-private/caja-link.h"
-#include "../../libcaja-private/caja-metadata.h"
-#include "../../libcaja-private/caja-monitor.h"
-#include "../../libcaja-private/caja-program-choosing.h"
-#include "../../libcaja-private/caja-trash-monitor.h"
+#include <libcaja-private/caja-desktop-icon-file.h>
+#include <libcaja-private/caja-directory-background.h>
+#include <libcaja-private/caja-directory-notify.h>
+#include <libcaja-private/caja-file-changes-queue.h>
+#include <libcaja-private/caja-file-operations.h>
+#include <libcaja-private/caja-file-utilities.h>
+#include <libcaja-private/caja-ui-utilities.h>
+#include <libcaja-private/caja-global-preferences.h>
+#include <libcaja-private/caja-view-factory.h>
+#include <libcaja-private/caja-link.h>
+#include <libcaja-private/caja-metadata.h>
+#include <libcaja-private/caja-monitor.h>
+#include <libcaja-private/caja-program-choosing.h>
+#include <libcaja-private/caja-trash-monitor.h>
 
 #include "fm-icon-container.h"
 #include "fm-desktop-icon-view.h"

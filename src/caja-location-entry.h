@@ -27,7 +27,7 @@
 #ifndef CAJA_LOCATION_ENTRY_H
 #define CAJA_LOCATION_ENTRY_H
 
-#include "../libcaja-private/caja-entry.h"
+#include <libcaja-private/caja-entry.h>
 
 #define CAJA_TYPE_LOCATION_ENTRY caja_location_entry_get_type()
 #define CAJA_LOCATION_ENTRY(obj) \

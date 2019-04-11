@@ -28,8 +28,8 @@
 #include <glib/gi18n.h>
 #include <string.h>
 
-#include "../eel/eel-glib-extensions.h"
-#include "../eel/eel-gtk-macros.h"
+#include <eel/eel-glib-extensions.h>
+#include <eel/eel-gtk-macros.h>
 
 #include "caja-desktop-directory-file.h"
 #include "caja-desktop-metadata.h"

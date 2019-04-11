@@ -33,19 +33,19 @@
 #include <gio/gio.h>
 #include <glib/gi18n.h>
 
-#include "../eel/eel-gtk-extensions.h"
+#include <eel/eel-gtk-extensions.h>
 
-#include "../libcaja-extension/caja-menu-provider.h"
-#include "../libcaja-private/caja-extensions.h"
-#include "../libcaja-private/caja-file-utilities.h"
-#include "../libcaja-private/caja-global-preferences.h"
-#include "../libcaja-private/caja-icon-names.h"
-#include "../libcaja-private/caja-ui-utilities.h"
-#include "../libcaja-private/caja-module.h"
-#include "../libcaja-private/caja-search-directory.h"
-#include "../libcaja-private/caja-search-engine.h"
-#include "../libcaja-private/caja-signaller.h"
-#include "../libcaja-private/caja-trash-monitor.h"
+#include <libcaja-extension/caja-menu-provider.h>
+#include <libcaja-private/caja-extensions.h>
+#include <libcaja-private/caja-file-utilities.h>
+#include <libcaja-private/caja-global-preferences.h>
+#include <libcaja-private/caja-icon-names.h>
+#include <libcaja-private/caja-ui-utilities.h>
+#include <libcaja-private/caja-module.h>
+#include <libcaja-private/caja-search-directory.h>
+#include <libcaja-private/caja-search-engine.h>
+#include <libcaja-private/caja-signaller.h>
+#include <libcaja-private/caja-trash-monitor.h>
 
 #include "caja-actions.h"
 #include "caja-application.h"

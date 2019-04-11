@@ -30,20 +30,20 @@
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 
-#include "../eel/eel-debug.h"
-#include "../eel/eel-gtk-extensions.h"
+#include <eel/eel-debug.h>
+#include <eel/eel-gtk-extensions.h>
 
-#include "../libcaja-private/caja-file-attributes.h"
-#include "../libcaja-private/caja-file.h"
-#include "../libcaja-private/caja-file-utilities.h"
-#include "../libcaja-private/caja-global-preferences.h"
-#include "../libcaja-private/caja-metadata.h"
-#include "../libcaja-private/caja-clipboard.h"
-#include "../libcaja-private/caja-module.h"
-#include "../libcaja-private/caja-sidebar-provider.h"
-#include "../libcaja-private/caja-window-info.h"
-#include "../libcaja-private/caja-window-slot-info.h"
-#include "../libcaja-extension/caja-property-page-provider.h"
+#include <libcaja-private/caja-file-attributes.h>
+#include <libcaja-private/caja-file.h>
+#include <libcaja-private/caja-file-utilities.h>
+#include <libcaja-private/caja-global-preferences.h>
+#include <libcaja-private/caja-metadata.h>
+#include <libcaja-private/caja-clipboard.h>
+#include <libcaja-private/caja-module.h>
+#include <libcaja-private/caja-sidebar-provider.h>
+#include <libcaja-private/caja-window-info.h>
+#include <libcaja-private/caja-window-slot-info.h>
+#include <libcaja-extension/caja-property-page-provider.h>
 
 #include "caja-notes-viewer.h"
 

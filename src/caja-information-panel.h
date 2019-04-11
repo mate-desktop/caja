@@ -28,7 +28,7 @@
 #ifndef CAJA_INFORMATION_PANEL_H
 #define CAJA_INFORMATION_PANEL_H
 
-#include "../eel/eel-background-box.h"
+#include <eel/eel-background-box.h>
 
 #define CAJA_TYPE_INFORMATION_PANEL caja_information_panel_get_type()
 #define CAJA_INFORMATION_PANEL(obj) \

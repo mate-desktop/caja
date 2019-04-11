@@ -33,8 +33,8 @@
 #include <gdk/gdk.h>
 #include <gdk/gdkx.h>
 
-#include "../eel/eel-mate-extensions.h"
-#include "../eel/eel-stock-dialogs.h"
+#include <eel/eel-mate-extensions.h>
+#include <eel/eel-stock-dialogs.h>
 
 #include "caja-program-choosing.h"
 #include "caja-mime-actions.h"

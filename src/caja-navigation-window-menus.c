@@ -32,16 +32,16 @@
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 
-#include "../eel/eel-glib-extensions.h"
-#include "../eel/eel-mate-extensions.h"
-#include "../eel/eel-stock-dialogs.h"
-#include "../eel/eel-string.h"
+#include <eel/eel-glib-extensions.h>
+#include <eel/eel-mate-extensions.h>
+#include <eel/eel-stock-dialogs.h>
+#include <eel/eel-string.h>
 
-#include "../libcaja-private/caja-file-utilities.h"
-#include "../libcaja-private/caja-global-preferences.h"
-#include "../libcaja-private/caja-ui-utilities.h"
-#include "../libcaja-private/caja-search-engine.h"
-#include "../libcaja-private/caja-signaller.h"
+#include <libcaja-private/caja-file-utilities.h>
+#include <libcaja-private/caja-global-preferences.h>
+#include <libcaja-private/caja-ui-utilities.h>
+#include <libcaja-private/caja-search-engine.h>
+#include <libcaja-private/caja-signaller.h>
 
 #include "caja-actions.h"
 #include "caja-notebook.h"

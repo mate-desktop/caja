@@ -24,8 +24,8 @@
 #include <config.h>
 #include <gmodule.h>
 
-#include "../eel/eel-gtk-macros.h"
-#include "../eel/eel-debug.h"
+#include <eel/eel-gtk-macros.h>
+#include <eel/eel-debug.h>
 
 #include "caja-module.h"
 #include "caja-extensions.h"

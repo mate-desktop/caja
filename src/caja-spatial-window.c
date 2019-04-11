@@ -35,21 +35,21 @@
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 
-#include "../eel/eel-gtk-extensions.h"
-#include "../eel/eel-gtk-macros.h"
-#include "../eel/eel-string.h"
+#include <eel/eel-gtk-extensions.h>
+#include <eel/eel-gtk-macros.h>
+#include <eel/eel-string.h>
 
-#include "../libcaja-private/caja-dnd.h"
-#include "../libcaja-private/caja-file-utilities.h"
-#include "../libcaja-private/caja-ui-utilities.h"
-#include "../libcaja-private/caja-file-attributes.h"
-#include "../libcaja-private/caja-global-preferences.h"
-#include "../libcaja-private/caja-metadata.h"
-#include "../libcaja-private/caja-mime-actions.h"
-#include "../libcaja-private/caja-program-choosing.h"
-#include "../libcaja-private/caja-search-directory.h"
-#include "../libcaja-private/caja-search-engine.h"
-#include "../libcaja-private/caja-signaller.h"
+#include <libcaja-private/caja-dnd.h>
+#include <libcaja-private/caja-file-utilities.h>
+#include <libcaja-private/caja-ui-utilities.h>
+#include <libcaja-private/caja-file-attributes.h>
+#include <libcaja-private/caja-global-preferences.h>
+#include <libcaja-private/caja-metadata.h>
+#include <libcaja-private/caja-mime-actions.h>
+#include <libcaja-private/caja-program-choosing.h>
+#include <libcaja-private/caja-search-directory.h>
+#include <libcaja-private/caja-search-engine.h>
+#include <libcaja-private/caja-signaller.h>
 
 #include "caja-spatial-window.h"
 #include "caja-window-private.h"

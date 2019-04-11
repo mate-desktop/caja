@@ -29,7 +29,7 @@
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 
-#include "../eel/eel-glib-extensions.h"
+#include <eel/eel-glib-extensions.h>
 
 #include "caja-search-directory-file.h"
 #include "caja-directory-notify.h"

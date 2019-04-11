@@ -30,9 +30,9 @@
 #include <gtk/gtk.h>
 #include <string.h>
 
-#include "../eel/eel-gdk-extensions.h"
-#include "../eel/eel-gtk-extensions.h"
-#include "../eel/eel-background.h"
+#include <eel/eel-gdk-extensions.h>
+#include <eel/eel-gtk-extensions.h>
+#include <eel/eel-background.h>
 
 #include "caja-directory-background.h"
 #include "caja-dnd.h"

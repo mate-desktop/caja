@@ -31,10 +31,10 @@
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 
-#include "../eel/eel-gtk-extensions.h"
-#include "../eel/eel-mate-extensions.h"
+#include <eel/eel-gtk-extensions.h>
+#include <eel/eel-mate-extensions.h>
 
-#include "../libcaja-private/caja-global-preferences.h"
+#include <libcaja-private/caja-global-preferences.h>
 
 #include "caja-bookmarks-window.h"
 #include "caja-window.h"

@@ -30,7 +30,7 @@
 #include <glib/gi18n.h>
 #include <gio/gio.h>
 
-#include "../eel/eel-vfs-extensions.h"
+#include <eel/eel-vfs-extensions.h>
 
 #include "caja-link.h"
 #include "caja-directory-notify.h"

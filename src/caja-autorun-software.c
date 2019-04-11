@@ -33,8 +33,8 @@
 #include <gio/gio.h>
 #include <glib/gi18n.h>
 
-#include "../libcaja-private/caja-module.h"
-#include "../libcaja-private/caja-icon-info.h"
+#include <libcaja-private/caja-module.h>
+#include <libcaja-private/caja-icon-info.h>
 
 typedef struct
 {

@@ -30,9 +30,9 @@
 
 #include <gio/gio.h>
 
-#include "../libcaja-private/caja-file-utilities.h"
-#include "../libcaja-private/caja-file.h"
-#include "../libcaja-private/caja-icon-names.h"
+#include <libcaja-private/caja-file-utilities.h>
+#include <libcaja-private/caja-file.h>
+#include <libcaja-private/caja-icon-names.h>
 
 #include "caja-bookmark-list.h"
 

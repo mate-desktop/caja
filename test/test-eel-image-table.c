@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <gtk/gtk.h>
 
-#include "../eel/eel-image-table.h"
+#include <eel/eel-image-table.h>
 
 #include "test.h"
 

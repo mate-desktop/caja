@@ -44,21 +44,21 @@
 #define MATE_DESKTOP_USE_UNSTABLE_API
 #include <libmate-desktop/mate-bg.h>
 
-#include "../eel/eel-gtk-extensions.h"
-#include "../eel/eel-gtk-macros.h"
-#include "../eel/eel-stock-dialogs.h"
+#include <eel/eel-gtk-extensions.h>
+#include <eel/eel-gtk-macros.h>
+#include <eel/eel-stock-dialogs.h>
 
-#include "../libcaja-private/caja-debug-log.h"
-#include "../libcaja-private/caja-file-utilities.h"
-#include "../libcaja-private/caja-global-preferences.h"
-#include "../libcaja-private/caja-lib-self-check-functions.h"
-#include "../libcaja-private/caja-extensions.h"
-#include "../libcaja-private/caja-module.h"
-#include "../libcaja-private/caja-desktop-link-monitor.h"
-#include "../libcaja-private/caja-directory-private.h"
-#include "../libcaja-private/caja-signaller.h"
-#include "../libcaja-extension/caja-menu-provider.h"
-#include "../libcaja-private/caja-autorun.h"
+#include <libcaja-private/caja-debug-log.h>
+#include <libcaja-private/caja-file-utilities.h>
+#include <libcaja-private/caja-global-preferences.h>
+#include <libcaja-private/caja-lib-self-check-functions.h>
+#include <libcaja-private/caja-extensions.h>
+#include <libcaja-private/caja-module.h>
+#include <libcaja-private/caja-desktop-link-monitor.h>
+#include <libcaja-private/caja-directory-private.h>
+#include <libcaja-private/caja-signaller.h>
+#include <libcaja-extension/caja-menu-provider.h>
+#include <libcaja-private/caja-autorun.h>
 
 #if ENABLE_EMPTY_VIEW
 #include "file-manager/fm-empty-view.h"

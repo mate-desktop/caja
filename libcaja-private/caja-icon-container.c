@@ -35,17 +35,17 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "../eel/eel-accessibility.h"
-#include "../eel/eel-background.h"
-#include "../eel/eel-vfs-extensions.h"
-#include "../eel/eel-gdk-pixbuf-extensions.h"
-#include "../eel/eel-mate-extensions.h"
-#include "../eel/eel-gtk-extensions.h"
-#include "../eel/eel-art-extensions.h"
-#include "../eel/eel-editable-label.h"
-#include "../eel/eel-string.h"
-#include "../eel/eel-canvas.h"
-#include "../eel/eel-canvas-rect-ellipse.h"
+#include <eel/eel-accessibility.h>
+#include <eel/eel-background.h>
+#include <eel/eel-vfs-extensions.h>
+#include <eel/eel-gdk-pixbuf-extensions.h>
+#include <eel/eel-mate-extensions.h>
+#include <eel/eel-gtk-extensions.h>
+#include <eel/eel-art-extensions.h>
+#include <eel/eel-editable-label.h>
+#include <eel/eel-string.h>
+#include <eel/eel-canvas.h>
+#include <eel/eel-canvas-rect-ellipse.h>
 
 #include "caja-icon-container.h"
 #include "caja-debug-log.h"

@@ -30,11 +30,11 @@
 #include <gio/gio.h>
 #include <glib/gi18n.h>
 
-#include "../eel/eel-background.h"
-#include "../eel/eel-vfs-extensions.h"
+#include <eel/eel-background.h>
+#include <eel/eel-vfs-extensions.h>
 
-#include "../libcaja-private/caja-file-utilities.h"
-#include "../libcaja-private/caja-icon-names.h"
+#include <libcaja-private/caja-file-utilities.h>
+#include <libcaja-private/caja-icon-names.h>
 
 #include "caja-desktop-window.h"
 #include "caja-window-private.h"

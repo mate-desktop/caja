@@ -27,8 +27,8 @@
 #include <config.h>
 #include <gtk/gtk.h>
 
-#include "../eel/eel-glib-extensions.h"
-#include "../eel/eel-gtk-macros.h"
+#include <eel/eel-glib-extensions.h>
+#include <eel/eel-gtk-macros.h>
 
 #include "caja-desktop-directory.h"
 #include "caja-directory-private.h"

@@ -30,8 +30,8 @@
 #include <glib/gi18n.h>
 #include <pango/pango.h>
 
-#include "../eel/eel-vfs-extensions.h"
-#include "../eel/eel-stock-dialogs.h"
+#include <eel/eel-vfs-extensions.h>
+#include <eel/eel-stock-dialogs.h>
 
 #include "caja-file-conflict-dialog.h"
 #include "caja-file.h"

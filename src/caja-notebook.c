@@ -30,7 +30,7 @@
 #include <gio/gio.h>
 #include <gtk/gtk.h>
 
-#include "../libcaja-private/caja-dnd.h"
+#include <libcaja-private/caja-dnd.h>
 
 #include "caja-notebook.h"
 #include "caja-navigation-window.h"

@@ -25,7 +25,7 @@
 
 #include <gio/gio.h>
 
-#include "../libcaja-private/caja-global-preferences.h"
+#include <libcaja-private/caja-global-preferences.h>
 
 #include "caja-connect-server-dialog.h"
 

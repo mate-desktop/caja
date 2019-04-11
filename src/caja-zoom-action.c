@@ -27,7 +27,7 @@
 
 #include <gtk/gtk.h>
 
-#include "../eel/eel-gtk-extensions.h"
+#include <eel/eel-gtk-extensions.h>
 
 #include "caja-zoom-action.h"
 #include "caja-zoom-control.h"

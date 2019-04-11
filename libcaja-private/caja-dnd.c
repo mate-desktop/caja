@@ -32,10 +32,10 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "../eel/eel-glib-extensions.h"
-#include "../eel/eel-gtk-extensions.h"
-#include "../eel/eel-string.h"
-#include "../eel/eel-vfs-extensions.h"
+#include <eel/eel-glib-extensions.h>
+#include <eel/eel-gtk-extensions.h>
+#include <eel/eel-string.h>
+#include <eel/eel-vfs-extensions.h>
 
 #include "caja-dnd.h"
 #include "caja-program-choosing.h"

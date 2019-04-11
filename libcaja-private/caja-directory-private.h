@@ -25,8 +25,9 @@
 #include <gio/gio.h>
 #include <libxml/tree.h>
 
-#include "../eel/eel-vfs-extensions.h"
-#include "../libcaja-extension/caja-info-provider.h"
+#include <eel/eel-vfs-extensions.h>
+
+#include <libcaja-extension/caja-info-provider.h>
 
 #include "caja-directory.h"
 #include "caja-file-queue.h"

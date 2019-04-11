@@ -1,6 +1,6 @@
 #include <gtk/gtk.h>
 
-#include "../libcaja-private/caja-search-engine.h"
+#include <libcaja-private/caja-search-engine.h>
 
 static void
 hits_added_cb (CajaSearchEngine *engine, GSList *hits)

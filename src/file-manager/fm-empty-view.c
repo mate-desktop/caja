@@ -25,13 +25,13 @@
 #include <config.h>
 #include <string.h>
 
-#include "../../eel/eel-glib-extensions.h"
-#include "../../eel/eel-gtk-macros.h"
-#include "../../eel/eel-vfs-extensions.h"
+#include <eel/eel-glib-extensions.h>
+#include <eel/eel-gtk-macros.h>
+#include <eel/eel-vfs-extensions.h>
 
-#include "../../libcaja-private/caja-file-utilities.h"
-#include "../../libcaja-private/caja-view.h"
-#include "../../libcaja-private/caja-view-factory.h"
+#include <libcaja-private/caja-file-utilities.h>
+#include <libcaja-private/caja-view.h>
+#include <libcaja-private/caja-view-factory.h>
 
 #include "fm-empty-view.h"
 

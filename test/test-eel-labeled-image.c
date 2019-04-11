@@ -1,4 +1,4 @@
-#include "../eel/eel-labeled-image.h"
+#include <eel/eel-labeled-image.h>
 
 #include "test.h"
 

@@ -42,7 +42,7 @@
 
 #include <gtk/gtk.h>
 
-#include "../eel/eel-background.h"
+#include <eel/eel-background.h>
 
 #include "caja-file.h"
 

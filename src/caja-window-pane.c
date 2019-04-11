@@ -22,7 +22,7 @@
    Author: Holger Berndt <berndth@gmx.de>
 */
 
-#include "../eel/eel-gtk-macros.h"
+#include <eel/eel-gtk-macros.h>
 
 #include "caja-window-pane.h"
 #include "caja-window-private.h"
