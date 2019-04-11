@@ -33,8 +33,8 @@
 #include <gdk/gdkkeysyms.h>
 #include <cairo-gobject.h>
 
-#include "../eel/eel-glib-extensions.h"
-#include "../eel/eel-stock-dialogs.h"
+#include <eel/eel-glib-extensions.h>
+#include <eel/eel-stock-dialogs.h>
 
 #include "caja-icon-info.h"
 #include "caja-global-preferences.h"

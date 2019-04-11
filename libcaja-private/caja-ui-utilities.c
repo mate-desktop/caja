@@ -28,8 +28,8 @@
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gio/gio.h>
 
-#include "../eel/eel-debug.h"
-#include "../eel/eel-graphic-effects.h"
+#include <eel/eel-debug.h>
+#include <eel/eel-graphic-effects.h>
 
 #include "caja-ui-utilities.h"
 #include "caja-file-utilities.h"

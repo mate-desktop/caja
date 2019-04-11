@@ -31,7 +31,7 @@
 
 #include <gtk/gtk.h>
 
-#include "../eel/eel-gtk-extensions.h"
+#include <eel/eel-gtk-extensions.h>
 
 #include "caja-navigation-action.h"
 #include "caja-navigation-window.h"

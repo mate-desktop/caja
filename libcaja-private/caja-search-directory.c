@@ -27,7 +27,7 @@
 #include <gio/gio.h>
 #include <sys/time.h>
 
-#include "../eel/eel-glib-extensions.h"
+#include <eel/eel-glib-extensions.h>
 
 #include "caja-search-directory.h"
 #include "caja-search-directory-file.h"

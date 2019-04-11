@@ -22,12 +22,12 @@
    Author: Christian Neumair <cneumair@gnome.org>
 */
 
-#include "../eel/eel-gtk-macros.h"
-#include "../eel/eel-string.h"
+#include <eel/eel-gtk-macros.h>
+#include <eel/eel-string.h>
 
-#include "../libcaja-private/caja-file.h"
-#include "../libcaja-private/caja-file-utilities.h"
-#include "../libcaja-private/caja-window-slot-info.h"
+#include <libcaja-private/caja-file.h>
+#include <libcaja-private/caja-file-utilities.h>
+#include <libcaja-private/caja-window-slot-info.h>
 
 #include "caja-window-slot.h"
 #include "caja-navigation-window-slot.h"

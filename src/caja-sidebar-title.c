@@ -33,16 +33,16 @@
 #include <pango/pango.h>
 #include <glib/gi18n.h>
 
-#include "../eel/eel-background.h"
-#include "../eel/eel-gdk-extensions.h"
-#include "../eel/eel-gdk-pixbuf-extensions.h"
-#include "../eel/eel-glib-extensions.h"
-#include "../eel/eel-gtk-extensions.h"
+#include <eel/eel-background.h>
+#include <eel/eel-gdk-extensions.h>
+#include <eel/eel-gdk-pixbuf-extensions.h>
+#include <eel/eel-glib-extensions.h>
+#include <eel/eel-gtk-extensions.h>
 
-#include "../libcaja-private/caja-file-attributes.h"
-#include "../libcaja-private/caja-global-preferences.h"
-#include "../libcaja-private/caja-metadata.h"
-#include "../libcaja-private/caja-sidebar.h"
+#include <libcaja-private/caja-file-attributes.h>
+#include <libcaja-private/caja-global-preferences.h>
+#include <libcaja-private/caja-metadata.h>
+#include <libcaja-private/caja-sidebar.h>
 
 #include "caja-sidebar-title.h"
 #include "caja-window.h"

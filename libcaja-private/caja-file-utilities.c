@@ -29,10 +29,10 @@
 #include <gio/gio.h>
 #include <stdlib.h>
 
-#include "../eel/eel-glib-extensions.h"
-#include "../eel/eel-stock-dialogs.h"
-#include "../eel/eel-string.h"
-#include "../eel/eel-debug.h"
+#include <eel/eel-glib-extensions.h>
+#include <eel/eel-stock-dialogs.h>
+#include <eel/eel-string.h>
+#include <eel/eel-debug.h>
 
 #include "caja-file-utilities.h"
 #include "caja-global-preferences.h"

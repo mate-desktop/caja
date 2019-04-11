@@ -28,7 +28,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../eel/eel-glib-extensions.h"
+#include <eel/eel-glib-extensions.h>
 
 #include "caja-directory-notify.h"
 #include "caja-directory-private.h"

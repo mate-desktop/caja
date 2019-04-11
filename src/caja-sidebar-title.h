@@ -31,9 +31,9 @@
 
 #include <gtk/gtk.h>
 
-#include "../eel/eel-background.h"
+#include <eel/eel-background.h>
 
-#include "../libcaja-private/caja-file.h"
+#include <libcaja-private/caja-file.h>
 
 #define CAJA_TYPE_SIDEBAR_TITLE caja_sidebar_title_get_type()
 #define CAJA_SIDEBAR_TITLE(obj) \

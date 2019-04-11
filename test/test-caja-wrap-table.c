@@ -1,8 +1,8 @@
-#include "../eel/eel-wrap-table.h"
-#include "../eel/eel-labeled-image.h"
-#include "../eel/eel-vfs-extensions.h"
-#include "../libcaja-private/caja-customization-data.h"
-#include "../libcaja-private/caja-icon-info.h"
+#include <eel/eel-wrap-table.h>
+#include <eel/eel-labeled-image.h>
+#include <eel/eel-vfs-extensions.h>
+#include <libcaja-private/caja-customization-data.h>
+#include <libcaja-private/caja-icon-info.h>
 
 #include "test.h"
 

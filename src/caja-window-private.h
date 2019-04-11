@@ -28,7 +28,7 @@
 #ifndef CAJA_WINDOW_PRIVATE_H
 #define CAJA_WINDOW_PRIVATE_H
 
-#include "../libcaja-private/caja-directory.h"
+#include <libcaja-private/caja-directory.h>
 
 #include "caja-window.h"
 #include "caja-window-slot.h"

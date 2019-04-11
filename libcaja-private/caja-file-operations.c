@@ -44,10 +44,10 @@
 #include <glib.h>
 #include <libnotify/notify.h>
 
-#include "../eel/eel-glib-extensions.h"
-#include "../eel/eel-gtk-extensions.h"
-#include "../eel/eel-stock-dialogs.h"
-#include "../eel/eel-vfs-extensions.h"
+#include <eel/eel-glib-extensions.h>
+#include <eel/eel-gtk-extensions.h>
+#include <eel/eel-stock-dialogs.h>
+#include <eel/eel-vfs-extensions.h>
 
 #include "caja-file-operations.h"
 #include "caja-debug-log.h"

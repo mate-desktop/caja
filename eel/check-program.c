@@ -28,10 +28,10 @@
 #include <libxml/parser.h>
 #include <stdlib.h>
 
-#include "eel-debug.h"
-#include "eel-glib-extensions.h"
-#include "eel-lib-self-check-functions.h"
-#include "eel-self-checks.h"
+#include <eel/eel-debug.h>
+#include <eel/eel-glib-extensions.h>
+#include <eel/eel-lib-self-check-functions.h>
+#include <eel/eel-self-checks.h>
 
 int
 main (int argc, char *argv[])

@@ -26,10 +26,10 @@
 #include <gtk/gtk.h>
 #include <gio/gio.h>
 
-#include "../eel/eel-gdk-pixbuf-extensions.h"
-#include "../eel/eel-gtk-extensions.h"
-#include "../eel/eel-gtk-macros.h"
-#include "../eel/eel-vfs-extensions.h"
+#include <eel/eel-gdk-pixbuf-extensions.h>
+#include <eel/eel-gtk-extensions.h>
+#include <eel/eel-gtk-macros.h>
+#include <eel/eel-vfs-extensions.h>
 
 #include "caja-bookmark.h"
 #include "caja-file.h"

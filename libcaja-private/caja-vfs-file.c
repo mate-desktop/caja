@@ -27,7 +27,7 @@
 
 #include <glib/gi18n.h>
 
-#include "../eel/eel-gtk-macros.h"
+#include <eel/eel-gtk-macros.h>
 
 #include "caja-vfs-file.h"
 #include "caja-directory-notify.h"

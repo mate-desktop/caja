@@ -36,20 +36,20 @@
 #include <X11/XF86keysym.h>
 #endif
 
-#include "../eel/eel-debug.h"
-#include "../eel/eel-gtk-macros.h"
-#include "../eel/eel-string.h"
+#include <eel/eel-debug.h>
+#include <eel/eel-gtk-macros.h>
+#include <eel/eel-string.h>
 
-#include "../libcaja-private/caja-file-utilities.h"
-#include "../libcaja-private/caja-file-attributes.h"
-#include "../libcaja-private/caja-global-preferences.h"
-#include "../libcaja-private/caja-metadata.h"
-#include "../libcaja-private/caja-mime-actions.h"
-#include "../libcaja-private/caja-program-choosing.h"
-#include "../libcaja-private/caja-view-factory.h"
-#include "../libcaja-private/caja-clipboard.h"
-#include "../libcaja-private/caja-search-directory.h"
-#include "../libcaja-private/caja-signaller.h"
+#include <libcaja-private/caja-file-utilities.h>
+#include <libcaja-private/caja-file-attributes.h>
+#include <libcaja-private/caja-global-preferences.h>
+#include <libcaja-private/caja-metadata.h>
+#include <libcaja-private/caja-mime-actions.h>
+#include <libcaja-private/caja-program-choosing.h>
+#include <libcaja-private/caja-view-factory.h>
+#include <libcaja-private/caja-clipboard.h>
+#include <libcaja-private/caja-search-directory.h>
+#include <libcaja-private/caja-signaller.h>
 
 #include "caja-window-private.h"
 #include "caja-actions.h"

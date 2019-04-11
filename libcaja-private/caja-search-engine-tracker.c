@@ -25,7 +25,7 @@
 #include <gmodule.h>
 #include <string.h>
 
-#include "../eel/eel-gtk-macros.h"
+#include <eel/eel-gtk-macros.h>
 
 #include "caja-search-engine-tracker.h"
 

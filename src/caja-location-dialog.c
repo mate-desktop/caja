@@ -26,10 +26,10 @@
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 
-#include "../eel/eel-gtk-macros.h"
-#include "../eel/eel-stock-dialogs.h"
+#include <eel/eel-gtk-macros.h>
+#include <eel/eel-stock-dialogs.h>
 
-#include "../libcaja-private/caja-file-utilities.h"
+#include <libcaja-private/caja-file-utilities.h>
 
 #include "caja-location-dialog.h"
 #include "caja-location-entry.h"

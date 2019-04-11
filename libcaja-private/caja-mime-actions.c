@@ -29,9 +29,9 @@
 #include <glib/gstdio.h>
 #include <gdk/gdkx.h>
 
-#include "../eel/eel-glib-extensions.h"
-#include "../eel/eel-stock-dialogs.h"
-#include "../eel/eel-string.h"
+#include <eel/eel-glib-extensions.h>
+#include <eel/eel-stock-dialogs.h>
+#include <eel/eel-string.h>
 
 #include "caja-mime-actions.h"
 #include "caja-file-attributes.h"

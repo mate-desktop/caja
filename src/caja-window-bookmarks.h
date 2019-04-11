@@ -25,7 +25,7 @@
 #ifndef CAJA_WINDOW_BOOKMARKS_H
 #define CAJA_WINDOW_BOOKMARKS_H
 
-#include "../libcaja-private/caja-bookmark.h"
+#include <libcaja-private/caja-bookmark.h>
 
 #include "caja-bookmark-list.h"
 #include "caja-window.h"

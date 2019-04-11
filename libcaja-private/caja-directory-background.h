@@ -26,7 +26,7 @@
             Jasmine Hassan <jasmine.aura@gmail.com>
 */
 
-#include "../eel/eel-background.h"
+#include <eel/eel-background.h>
 
 #include "caja-file.h"
 #include "caja-icon-container.h"

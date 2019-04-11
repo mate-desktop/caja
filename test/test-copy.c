@@ -1,5 +1,5 @@
-#include "../libcaja-private/caja-file-operations.h"
-#include "../libcaja-private/caja-progress-info.h"
+#include <libcaja-private/caja-file-operations.h>
+#include <libcaja-private/caja-progress-info.h>
 
 #include "test.h"
 

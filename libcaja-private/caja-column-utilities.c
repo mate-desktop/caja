@@ -26,8 +26,9 @@
 #include <string.h>
 #include <glib/gi18n.h>
 
-#include "../eel/eel-glib-extensions.h"
-#include "../libcaja-extension/caja-column-provider.h"
+#include <eel/eel-glib-extensions.h>
+
+#include <libcaja-extension/caja-column-provider.h>
 
 #include "caja-column-utilities.h"
 #include "caja-extensions.h"

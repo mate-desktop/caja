@@ -29,11 +29,11 @@
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
 
-#include "../eel/eel-gtk-macros.h"
-#include "../eel/eel-glib-extensions.h"
-#include "../eel/eel-stock-dialogs.h"
+#include <eel/eel-gtk-macros.h>
+#include <eel/eel-glib-extensions.h>
+#include <eel/eel-stock-dialogs.h>
 
-#include "../libcaja-private/caja-global-preferences.h"
+#include <libcaja-private/caja-global-preferences.h>
 
 #include "caja-query-editor.h"
 #include "caja-src-marshal.h"

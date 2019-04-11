@@ -32,11 +32,11 @@
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 
-#include "../../libegg/eggtreemultidnd.h"
+#include <libegg/eggtreemultidnd.h>
 
-#include "../../eel/eel-graphic-effects.h"
+#include <eel/eel-graphic-effects.h>
 
-#include "../../libcaja-private/caja-dnd.h"
+#include <libcaja-private/caja-dnd.h>
 
 #include "fm-list-model.h"
 

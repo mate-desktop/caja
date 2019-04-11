@@ -25,10 +25,10 @@
 #include <glib/gi18n-lib.h>
 #include <gtk/gtk.h>
 
-#include "../libcaja-private/caja-file-operations.h"
-#include "../libcaja-private/caja-file-utilities.h"
-#include "../libcaja-private/caja-file.h"
-#include "../libcaja-private/caja-trash-monitor.h"
+#include <libcaja-private/caja-file-operations.h>
+#include <libcaja-private/caja-file-utilities.h>
+#include <libcaja-private/caja-file.h>
+#include <libcaja-private/caja-trash-monitor.h>
 
 #include "caja-trash-bar.h"
 #include "caja-window.h"

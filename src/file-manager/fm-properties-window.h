@@ -28,7 +28,7 @@
 
 #include <gtk/gtk.h>
 
-#include "../../libcaja-private/caja-file.h"
+#include <libcaja-private/caja-file.h>
 
 typedef struct FMPropertiesWindow FMPropertiesWindow;
 

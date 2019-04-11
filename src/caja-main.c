@@ -49,15 +49,15 @@
 #include <exempi/xmp.h>
 #endif
 
-#include "../eel/eel-debug.h"
-#include "../eel/eel-glib-extensions.h"
-#include "../eel/eel-self-checks.h"
+#include <eel/eel-debug.h>
+#include <eel/eel-glib-extensions.h>
+#include <eel/eel-self-checks.h>
 
-#include "../libcaja-private/caja-debug-log.h"
-#include "../libcaja-private/caja-global-preferences.h"
-#include "../libcaja-private/caja-icon-names.h"
+#include <libcaja-private/caja-debug-log.h>
+#include <libcaja-private/caja-global-preferences.h>
+#include <libcaja-private/caja-icon-names.h>
 
-#include "../libegg/eggdesktopfile.h"
+#include <libegg/eggdesktopfile.h>
 
 #include "caja-window.h"
 

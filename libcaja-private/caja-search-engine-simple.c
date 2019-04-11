@@ -27,7 +27,7 @@
 
 #include <gio/gio.h>
 
-#include "../eel/eel-gtk-macros.h"
+#include <eel/eel-gtk-macros.h>
 
 #include "caja-search-engine-simple.h"
 

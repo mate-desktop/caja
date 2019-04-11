@@ -25,7 +25,7 @@
 #ifndef CAJA_COLUMN_UTILITIES_H
 #define CAJA_COLUMN_UTILITIES_H
 
-#include "../libcaja-extension/caja-column.h"
+#include <libcaja-extension/caja-column.h>
 
 #include "caja-file.h"
 

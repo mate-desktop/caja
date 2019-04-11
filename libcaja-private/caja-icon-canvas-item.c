@@ -35,14 +35,14 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "../eel/eel-art-extensions.h"
-#include "../eel/eel-gdk-extensions.h"
-#include "../eel/eel-gdk-pixbuf-extensions.h"
-#include "../eel/eel-glib-extensions.h"
-#include "../eel/eel-graphic-effects.h"
-#include "../eel/eel-gtk-macros.h"
-#include "../eel/eel-string.h"
-#include "../eel/eel-accessibility.h"
+#include <eel/eel-art-extensions.h>
+#include <eel/eel-gdk-extensions.h>
+#include <eel/eel-gdk-pixbuf-extensions.h>
+#include <eel/eel-glib-extensions.h>
+#include <eel/eel-graphic-effects.h>
+#include <eel/eel-gtk-macros.h>
+#include <eel/eel-string.h>
+#include <eel/eel-accessibility.h>
 
 #include "caja-icon-canvas-item.h"
 #include "caja-file-utilities.h"

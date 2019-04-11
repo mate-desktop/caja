@@ -28,7 +28,7 @@
 #include <gio/gio.h>
 #include <string.h>
 
-#include "../eel/eel-debug.h"
+#include <eel/eel-debug.h>
 
 #include "caja-trash-monitor.h"
 #include "caja-directory-notify.h"

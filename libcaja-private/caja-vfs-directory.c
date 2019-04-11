@@ -25,7 +25,7 @@
 
 #include <config.h>
 
-#include "../eel/eel-gtk-macros.h"
+#include <eel/eel-gtk-macros.h>
 
 #include "caja-vfs-directory.h"
 #include "caja-directory-private.h"

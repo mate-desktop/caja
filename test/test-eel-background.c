@@ -2,7 +2,7 @@
 
 #include <gtk/gtk.h>
 
-#include "../eel/eel-background.h"
+#include <eel/eel-background.h>
 
 #define PATTERNS_DIR "/mate-source/eel/data/patterns"
 

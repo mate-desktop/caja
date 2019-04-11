@@ -33,11 +33,11 @@
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
 
-#include "../../eel/eel-graphic-effects.h"
+#include <eel/eel-graphic-effects.h>
 
-#include "../../libcaja-private/caja-directory.h"
-#include "../../libcaja-private/caja-file-attributes.h"
-#include "../../libcaja-private/caja-file.h"
+#include <libcaja-private/caja-directory.h>
+#include <libcaja-private/caja-file-attributes.h>
+#include <libcaja-private/caja-file.h>
 
 #include "fm-tree-model.h"
 

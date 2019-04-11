@@ -38,16 +38,16 @@
 #include <unistd.h>
 #include <sys/stat.h>
 
-#include "../eel/eel-debug.h"
-#include "../eel/eel-glib-extensions.h"
-#include "../eel/eel-gtk-extensions.h"
-#include "../eel/eel-vfs-extensions.h"
-#include "../eel/eel-gtk-macros.h"
-#include "../eel/eel-string.h"
+#include <eel/eel-debug.h>
+#include <eel/eel-glib-extensions.h>
+#include <eel/eel-gtk-extensions.h>
+#include <eel/eel-vfs-extensions.h>
+#include <eel/eel-gtk-macros.h>
+#include <eel/eel-string.h>
 
-#include "../libcaja-extension/caja-file-info.h"
-#include "../libcaja-extension/caja-extension-private.h"
-#include "../libcaja-private/caja-extensions.h"
+#include <libcaja-extension/caja-file-info.h>
+#include <libcaja-extension/caja-extension-private.h>
+#include <libcaja-private/caja-extensions.h>
 
 #include "caja-file.h"
 #include "caja-directory-notify.h"

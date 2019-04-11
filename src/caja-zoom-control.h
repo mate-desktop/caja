@@ -30,7 +30,7 @@
 
 #include <gtk/gtk.h>
 
-#include "../libcaja-private/caja-icon-info.h" /* For CajaZoomLevel */
+#include <libcaja-private/caja-icon-info.h> /* For CajaZoomLevel */
 
 #define CAJA_TYPE_ZOOM_CONTROL caja_zoom_control_get_type()
 #define CAJA_ZOOM_CONTROL(obj) \

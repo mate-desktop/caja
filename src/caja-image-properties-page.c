@@ -39,10 +39,10 @@
 #include <exempi/xmpconsts.h>
 #endif /*HAVE_EXEMPI*/
 
-#include "../eel/eel-vfs-extensions.h"
+#include <eel/eel-vfs-extensions.h>
 
-#include "../libcaja-extension/caja-property-page-provider.h"
-#include "../libcaja-private/caja-module.h"
+#include <libcaja-extension/caja-property-page-provider.h>
+#include <libcaja-private/caja-module.h>
 
 #include "caja-image-properties-page.h"
 

@@ -23,7 +23,7 @@
 
 #include <config.h>
 
-#include "../eel/eel-gtk-macros.h"
+#include <eel/eel-gtk-macros.h>
 
 #include "caja-search-engine.h"
 #include "caja-search-engine-beagle.h"

@@ -30,7 +30,7 @@
 
 #include <gio/gio.h>
 
-#include "../libcaja-private/caja-bookmark.h"
+#include <libcaja-private/caja-bookmark.h>
 
 typedef struct CajaBookmarkList CajaBookmarkList;
 typedef struct CajaBookmarkListClass CajaBookmarkListClass;

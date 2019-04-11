@@ -31,15 +31,15 @@
 #include <gtk/gtk.h>
 #include <gio/gio.h>
 
-#include "../../eel/eel-background.h"
+#include <eel/eel-background.h>
 
-#include "../../libcaja-private/caja-directory.h"
-#include "../../libcaja-private/caja-file.h"
-#include "../../libcaja-private/caja-icon-container.h"
-#include "../../libcaja-private/caja-link.h"
-#include "../../libcaja-private/caja-view.h"
-#include "../../libcaja-private/caja-window-info.h"
-#include "../../libcaja-private/caja-window-slot-info.h"
+#include <libcaja-private/caja-directory.h>
+#include <libcaja-private/caja-file.h>
+#include <libcaja-private/caja-icon-container.h>
+#include <libcaja-private/caja-link.h>
+#include <libcaja-private/caja-view.h>
+#include <libcaja-private/caja-window-info.h>
+#include <libcaja-private/caja-window-slot-info.h>
 
 typedef struct FMDirectoryView FMDirectoryView;
 typedef struct FMDirectoryViewClass FMDirectoryViewClass;

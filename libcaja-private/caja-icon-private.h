@@ -25,7 +25,7 @@
 #ifndef CAJA_ICON_CONTAINER_PRIVATE_H
 #define CAJA_ICON_CONTAINER_PRIVATE_H
 
-#include "../eel/eel-glib-extensions.h"
+#include <eel/eel-glib-extensions.h>
 
 #include "caja-icon-canvas-item.h"
 #include "caja-icon-container.h"

@@ -29,7 +29,7 @@
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
 
-#include "../eel/eel-glib-extensions.h"
+#include <eel/eel-glib-extensions.h>
 
 #include "caja-progress-info.h"
 #include "caja-global-preferences.h"

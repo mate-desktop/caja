@@ -32,7 +32,7 @@
 
 #include <gtk/gtk.h>
 
-#include "../libcaja-private/caja-entry.h"
+#include <libcaja-private/caja-entry.h>
 
 #include "caja-navigation-window.h"
 #include "caja-navigation-window-pane.h"

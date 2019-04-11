@@ -25,9 +25,9 @@
 #include <config.h>
 #include <gtk/gtk.h>
 
-#include "../eel/eel-debug.h"
-#include "../eel/eel-gtk-macros.h"
-#include "../eel/eel-glib-extensions.h"
+#include <eel/eel-debug.h>
+#include <eel/eel-gtk-macros.h>
+#include <eel/eel-glib-extensions.h>
 
 #include "caja-clipboard-monitor.h"
 #include "caja-file.h"

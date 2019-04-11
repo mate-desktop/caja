@@ -32,7 +32,7 @@
 #include <gtk/gtk.h>
 #include <gio/gio.h>
 
-#include "../../libcaja-private/caja-file.h"
+#include <libcaja-private/caja-file.h>
 
 #define FM_TYPE_TREE_MODEL fm_tree_model_get_type()
 #define FM_TREE_MODEL(obj) \

@@ -33,7 +33,7 @@
 #include <gtk/gtk.h>
 #include <gio/gio.h>
 
-#include "../eel/eel-stock-dialogs.h"
+#include <eel/eel-stock-dialogs.h>
 
 #include "caja-mime-application-chooser.h"
 #include "caja-open-with-dialog.h"
