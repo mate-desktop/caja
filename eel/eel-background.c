@@ -160,9 +160,9 @@ static void
 make_color_inactive (EelBackground *self,
                      GdkRGBA       *color)
 {
-    double intensity, saturation;
-
     if (!self->details->is_active) {
+        double intensity, saturation;
+
         saturation = 0.7;
         intensity = color->red * 0.30 + color->green * 0.59 + color->blue * 0.11;
         color->red = SATURATE (color->red);
@@ -193,7 +193,7 @@ eel_bg_get_desktop_color (EelBackground *self)
 {
     MateBGColorType type;
     GdkRGBA    primary, secondary;
-    char      *start_color, *end_color, *color_spec;
+    char      *start_color, *color_spec;
     gboolean   use_gradient = TRUE;
     gboolean   is_horizontal = FALSE;
 
@@ -216,6 +216,8 @@ eel_bg_get_desktop_color (EelBackground *self)
 
     if (use_gradient)
     {
+        char *end_color;
+
         end_color  = eel_gdk_rgb_to_color_spec (eel_gdk_rgba_to_rgb (&secondary));
         color_spec = eel_gradient_new (start_color, end_color, is_horizontal);
         g_free (end_color);

@@ -70,7 +70,7 @@ try_terminal_command_argv (int argc,
 {
     GString *string;
     int i;
-    char *quoted, *result;
+    char *result;
 
     if (argc == 0)
     {
@@ -85,6 +85,8 @@ try_terminal_command_argv (int argc,
     string = g_string_new (argv[1]);
     for (i = 2; i < argc; i++)
     {
+        char *quoted;
+
         quoted = g_shell_quote (argv[i]);
         g_string_append_c (string, ' ');
         g_string_append (string, quoted);

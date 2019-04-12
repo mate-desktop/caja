@@ -77,7 +77,7 @@ eel_make_warnings_and_criticals_stop_in_debugger (void)
 void
 eel_debug_shut_down (void)
 {
-    ShutdownFunction *f;
+    ShutdownFunction *f = NULL;
 
     while (shutdown_functions != NULL)
     {

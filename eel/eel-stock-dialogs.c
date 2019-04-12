@@ -406,7 +406,6 @@ eel_run_simple_dialog (GtkWidget *parent, gboolean ignore_close_box,
                        const char *secondary_text, ...)
 {
     va_list button_title_args;
-    const char *button_title;
     GtkWidget *dialog;
     GtkWidget *top_widget, *chosen_parent;
     int result;
@@ -439,6 +438,8 @@ eel_run_simple_dialog (GtkWidget *parent, gboolean ignore_close_box,
     response_id = 0;
     while (1)
     {
+        const char *button_title;
+
         button_title = va_arg (button_title_args, const char *);
         if (button_title == NULL)
         {
