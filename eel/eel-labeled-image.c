@@ -1048,11 +1048,11 @@ labeled_image_update_alignments (EelLabeledImage *labeled_image)
 
     if (labeled_image->details->label != NULL)
     {
-        float x_alignment;
-        float y_alignment;
-
         if (labeled_image->details->fill)
         {
+            float x_alignment;
+            float y_alignment;
+
             x_alignment = gtk_label_get_xalign (GTK_LABEL (labeled_image->details->label));
             y_alignment = gtk_label_get_yalign (GTK_LABEL (labeled_image->details->label));
 
@@ -1097,11 +1097,11 @@ labeled_image_update_alignments (EelLabeledImage *labeled_image)
 
     if (labeled_image->details->image != NULL)
     {
-        float x_alignment;
-        float y_alignment;
-
         if (labeled_image->details->fill)
         {
+            float x_alignment;
+            float y_alignment;
+
             x_alignment = gtk_widget_get_halign (labeled_image->details->image);
             y_alignment = gtk_widget_get_valign (labeled_image->details->image);
 

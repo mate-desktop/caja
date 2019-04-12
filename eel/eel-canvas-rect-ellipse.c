@@ -597,7 +597,6 @@ eel_canvas_rect_point (EelCanvasItem *item, double x, double y, int cx, int cy, 
     double x1, y1, x2, y2;
     double hwidth;
     double dx, dy;
-    double tmp;
 
 #ifdef VERBOSE
     g_print ("eel_canvas_rect_point\n");
@@ -632,6 +631,8 @@ eel_canvas_rect_point (EelCanvasItem *item, double x, double y, int cx, int cy, 
 
     if ((x >= x1) && (y >= y1) && (x <= x2) && (y <= y2))
     {
+        double tmp;
+
         if (re->fill_set || !re->outline_set)
             return 0.0;
 
@@ -702,8 +703,6 @@ eel_canvas_rect_update (EelCanvasItem *item, double i2w_dx, double i2w_dy, gint 
     double x1, y1, x2, y2;
     int cx1, cy1, cx2, cy2;
     int repaint_rects_count, i;
-    int width_pixels;
-    int width_lt, width_rb;
     Rect update_rect, repaint_rects[4];
     EelCanvasRectPrivate *priv;
 
@@ -734,6 +733,9 @@ eel_canvas_rect_update (EelCanvasItem *item, double i2w_dx, double i2w_dy, gint 
 
     if (re->outline_set)
     {
+        int width_pixels;
+        int width_lt, width_rb;
+
         /* Outline and bounding box */
         if (re->width_pixels)
             width_pixels = (int) re->width;

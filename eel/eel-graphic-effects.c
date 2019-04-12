@@ -71,7 +71,6 @@ eel_create_spotlight_pixbuf (GdkPixbuf* src)
     int i, j;
     int width, height, has_alpha, src_row_stride, dst_row_stride;
     guchar *target_pixels, *original_pixels;
-    guchar *pixsrc, *pixdest;
 
     g_return_val_if_fail (gdk_pixbuf_get_colorspace (src) == GDK_COLORSPACE_RGB, NULL);
     g_return_val_if_fail ((!gdk_pixbuf_get_has_alpha (src)
@@ -92,6 +91,8 @@ eel_create_spotlight_pixbuf (GdkPixbuf* src)
 
     for (i = 0; i < height; i++)
     {
+        guchar *pixsrc, *pixdest;
+
         pixdest = target_pixels + i * dst_row_stride;
         pixsrc = original_pixels + i * src_row_stride;
         for (j = 0; j < width; j++)
@@ -134,7 +135,6 @@ eel_create_darkened_pixbuf (GdkPixbuf *src, int saturation, int darken)
     gint width, height, src_row_stride, dest_row_stride;
     gboolean has_alpha;
     guchar *target_pixels, *original_pixels;
-    guchar *pixsrc, *pixdest;
     guchar intensity;
     guchar alpha;
     guchar negalpha;
@@ -160,6 +160,8 @@ eel_create_darkened_pixbuf (GdkPixbuf *src, int saturation, int darken)
 
     for (i = 0; i < height; i++)
     {
+        guchar *pixsrc, *pixdest;
+
         pixdest = target_pixels + i * dest_row_stride;
         pixsrc = original_pixels + i * src_row_stride;
         for (j = 0; j < width; j++)
@@ -192,8 +194,6 @@ eel_create_colorized_pixbuf (GdkPixbuf *src,
     int width, height, has_alpha, src_row_stride, dst_row_stride;
     guchar *target_pixels;
     guchar *original_pixels;
-    guchar *pixsrc;
-    guchar *pixdest;
     GdkPixbuf *dest;
 
     gint red_value, green_value, blue_value;
@@ -221,6 +221,9 @@ eel_create_colorized_pixbuf (GdkPixbuf *src,
 
     for (i = 0; i < height; i++)
     {
+        guchar *pixdest;
+        guchar *pixsrc;
+
         pixdest = target_pixels + i*dst_row_stride;
         pixsrc = original_pixels + i*src_row_stride;
         for (j = 0; j < width; j++)
@@ -242,12 +245,14 @@ eel_create_colorized_pixbuf (GdkPixbuf *src,
 static void
 draw_frame_row (GdkPixbuf *frame_image, int target_width, int source_width, int source_v_position, int dest_v_position, GdkPixbuf *result_pixbuf, int left_offset, int height)
 {
-    int remaining_width, h_offset, slab_width;
+    int remaining_width, h_offset;
 
     remaining_width = target_width;
     h_offset = 0;
     while (remaining_width > 0)
     {
+        int slab_width;
+
         slab_width = remaining_width > source_width ? source_width : remaining_width;
         gdk_pixbuf_copy_area (frame_image, left_offset, source_v_position, slab_width, height, result_pixbuf, left_offset + h_offset, dest_v_position);
         remaining_width -= slab_width;
@@ -259,12 +264,15 @@ draw_frame_row (GdkPixbuf *frame_image, int target_width, int source_width, int 
 static void
 draw_frame_column (GdkPixbuf *frame_image, int target_height, int source_height, int source_h_position, int dest_h_position, GdkPixbuf *result_pixbuf, int top_offset, int width)
 {
-    int remaining_height, v_offset, slab_height;
+    int remaining_height, v_offset;
 
     remaining_height = target_height;
     v_offset = 0;
+
     while (remaining_height > 0)
     {
+        int slab_height;
+
         slab_height = remaining_height > source_height ? source_height : remaining_height;
         gdk_pixbuf_copy_area (frame_image, source_h_position, top_offset, width, slab_height, result_pixbuf, dest_h_position, top_offset + v_offset);
         remaining_height -= slab_height;
@@ -279,7 +287,7 @@ eel_stretch_frame_image (GdkPixbuf *frame_image, int left_offset, int top_offset
     GdkPixbuf *result_pixbuf;
     guchar *pixels_ptr;
     int frame_width, frame_height;
-    int y, row_stride;
+    int row_stride;
     int target_width, target_frame_width;
     int target_height, target_frame_height;
 
@@ -300,6 +308,8 @@ eel_stretch_frame_image (GdkPixbuf *frame_image, int left_offset, int top_offset
     /* clear the new pixbuf */
     if (!fill_flag)
     {
+        int y;
+
         for (y = 0; y < dest_height; y++)
         {
             memset (pixels_ptr, 255, row_stride);

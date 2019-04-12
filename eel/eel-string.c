@@ -412,13 +412,14 @@ get_arg_type_from_format (EelPrintfHandler *custom_handlers,
                           const char *format,
                           int len)
 {
-    int i;
     char c;
 
     c = format[len-1];
 
     if (custom_handlers != NULL)
     {
+        int i;
+
         for (i = 0; custom_handlers[i].character != 0; i++)
         {
             if (custom_handlers[i].character == c)
@@ -539,7 +540,6 @@ eel_strdup_vprintf_with_custom (EelPrintfHandler *custom,
     const char *p;
     int num_args, i, j;
     ArgType *args;
-    ArgType type;
     ConversionInfo *conversions;
     GString *f, *str;
     const char *flags, *width, *prec, *mod, *pos;
@@ -676,6 +676,8 @@ eel_strdup_vprintf_with_custom (EelPrintfHandler *custom,
     p = format;
     for (i = 0; i < num_args; i++)
     {
+        ArgType type;
+
         g_string_append_len (str, p, conversions[i].start - p);
         p = conversions[i].end;
 

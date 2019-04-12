@@ -82,13 +82,14 @@ pixbuf_loader_size_prepared (GdkPixbufLoader *loader,
                              gpointer         desired_size_ptr)
 {
     int size, desired_size;
-    float scale;
 
     size = MAX (width, height);
     desired_size = GPOINTER_TO_INT (desired_size_ptr);
 
     if (size != desired_size)
     {
+        float scale;
+
         scale = (float) desired_size / size;
         gdk_pixbuf_loader_set_size (loader,
                                     floor (scale * width + 0.5),
@@ -280,8 +281,8 @@ eel_gdk_pixbuf_scale_down (GdkPixbuf *pixbuf,
                            int dest_height)
 {
     int source_width, source_height;
-    int s_x1, s_y1, s_x2, s_y2;
-    int s_xfrac, s_yfrac;
+    int s_y1, s_x2;
+    int s_yfrac;
     int dx, dx_frac, dy, dy_frac;
     div_t ddx, ddy;
     int x, y;
@@ -327,6 +328,9 @@ eel_gdk_pixbuf_scale_down (GdkPixbuf *pixbuf,
     s_yfrac = -dest_height/2;
     while (s_y1 < source_height)
     {
+        int s_x1, s_y2;
+        int s_xfrac;
+
         s_y2 = s_y1 + dy;
         s_yfrac += dy_frac;
         if (s_yfrac > 0)

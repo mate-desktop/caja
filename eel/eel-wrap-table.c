@@ -763,7 +763,6 @@ wrap_table_child_focus_in (GtkWidget *widget,
 {
     gint x, y;
     GtkWidget *container, *viewport = NULL;
-    GtkAdjustment *hadj, *vadj;
 
     container = gtk_widget_get_parent (widget);
     if (container)
@@ -776,6 +775,8 @@ wrap_table_child_focus_in (GtkWidget *widget,
 
     if (!wrap_table_child_visible_in (widget, viewport))
     {
+        GtkAdjustment *hadj, *vadj;
+
         hadj = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (viewport));
         vadj = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (viewport));
 

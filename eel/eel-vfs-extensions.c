@@ -62,7 +62,7 @@ eel_make_valid_utf8 (const char *name)
 {
     GString *string;
     const char *remainder, *invalid;
-    int remaining_bytes, valid_bytes;
+    int remaining_bytes;
 
     string = NULL;
     remainder = name;
@@ -70,6 +70,8 @@ eel_make_valid_utf8 (const char *name)
 
     while (remaining_bytes != 0)
     {
+        int valid_bytes;
+
         if (g_utf8_validate (remainder, remaining_bytes, &invalid))
         {
             break;

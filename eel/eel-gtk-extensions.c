@@ -162,10 +162,7 @@ eel_gtk_window_set_initial_geometry (GtkWindow *window,
                                      guint width,
                                      guint height)
 {
-    GdkScreen *screen;
     int real_left, real_top;
-    int screen_width, screen_height;
-    int scale;
 
     g_return_if_fail (GTK_IS_WINDOW (window));
 
@@ -177,6 +174,10 @@ eel_gtk_window_set_initial_geometry (GtkWindow *window,
 
     if ((geometry_flags & EEL_GDK_X_VALUE) && (geometry_flags & EEL_GDK_Y_VALUE))
     {
+        GdkScreen *screen;
+        int screen_width, screen_height;
+        int scale;
+
         real_left = left;
         real_top = top;
 
