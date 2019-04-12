@@ -436,7 +436,6 @@ eel_g_lists_sort_and_check_for_intersection (GList **list_1,
 
 {
     GList *node_1, *node_2;
-    int compare_result;
 
     *list_1 = g_list_sort (*list_1, compare_pointers);
     *list_2 = g_list_sort (*list_2, compare_pointers);
@@ -446,6 +445,8 @@ eel_g_lists_sort_and_check_for_intersection (GList **list_1,
 
     while (node_1 != NULL && node_2 != NULL)
     {
+        int compare_result;
+
         compare_result = compare_pointers (node_1->data, node_2->data);
         if (compare_result == 0)
         {
@@ -558,8 +559,8 @@ static void
 free_hash_tables_at_exit (void)
 {
     GList *p;
-    HashTableToFree *hash_table_to_free;
     guint size;
+    HashTableToFree *hash_table_to_free = NULL;
 
     for (p = hash_tables_to_free_at_exit; p != NULL; p = p->next)
     {

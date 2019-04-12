@@ -1417,8 +1417,8 @@ static void
 eel_canvas_group_destroy (EelCanvasItem *object)
 {
     EelCanvasGroup *group;
-    EelCanvasItem *child;
     GList *list;
+    EelCanvasItem *child = NULL;
 
     g_return_if_fail (EEL_IS_CANVAS_GROUP (object));
 
@@ -1490,7 +1490,7 @@ eel_canvas_group_unrealize (EelCanvasItem *item)
 {
     EelCanvasGroup *group;
     GList *list;
-    EelCanvasItem *i;
+    EelCanvasItem *i = NULL;
 
     group = EEL_CANVAS_GROUP (item);
 
@@ -1515,7 +1515,7 @@ eel_canvas_group_map (EelCanvasItem *item)
 {
     EelCanvasGroup *group;
     GList *list;
-    EelCanvasItem *i;
+    EelCanvasItem *i = NULL;
 
     group = EEL_CANVAS_GROUP (item);
 
@@ -1542,7 +1542,7 @@ eel_canvas_group_unmap (EelCanvasItem *item)
 {
     EelCanvasGroup *group;
     GList *list;
-    EelCanvasItem *i;
+    EelCanvasItem *i = NULL;
 
     group = EEL_CANVAS_GROUP (item);
 
@@ -1594,13 +1594,14 @@ static double
 eel_canvas_group_point (EelCanvasItem *item, double x, double y, int cx, int cy,
                         EelCanvasItem **actual_item)
 {
-    EelCanvasGroup *group;
-    GList *list;
-    EelCanvasItem *child, *point_item;
     int x1, y1, x2, y2;
     double gx, gy;
     double dist, best;
     int has_point;
+    EelCanvasGroup *group;
+    GList *list;
+    EelCanvasItem *point_item;
+    EelCanvasItem *child = NULL;
 
     group = EEL_CANVAS_GROUP (item);
 
@@ -2595,7 +2596,6 @@ pick_current_item (EelCanvas *canvas, GdkEvent *event)
 {
     int button_down;
     double x, y;
-    int cx, cy;
     int retval;
 
     retval = FALSE;
@@ -2674,6 +2674,7 @@ pick_current_item (EelCanvas *canvas, GdkEvent *event)
         }
 
         /* canvas pixel coords */
+        int cx, cy;
 
         cx = (int) (x + 0.5);
         cy = (int) (y + 0.5);

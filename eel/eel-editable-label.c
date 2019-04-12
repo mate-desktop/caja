@@ -1490,7 +1490,6 @@ eel_editable_label_draw_cursor (EelEditableLabel  *label, cairo_t *cr, gint xoff
         else /* Block cursor */
         {
             GdkRGBA fg_color;
-            cairo_region_t *clip;
 
             gtk_style_context_get_color (context, GTK_STATE_FLAG_NORMAL, &fg_color);
 
@@ -1507,6 +1506,7 @@ eel_editable_label_draw_cursor (EelEditableLabel  *label, cairo_t *cr, gint xoff
             {
                 GdkRGBA color;
                 GdkRGBA *c;
+                cairo_region_t *clip;
 
                 clip = gdk_pango_layout_get_clip_region (label->layout,
 							 xoffset, yoffset,
@@ -1568,7 +1568,6 @@ eel_editable_label_draw (GtkWidget *widget,
         if (label->selection_anchor != label->selection_end)
         {
             gint range[2];
-            const char *text;
             cairo_region_t *clip;
             GtkStateType state;
 
@@ -1582,6 +1581,8 @@ eel_editable_label_draw (GtkWidget *widget,
             if (label->preedit_length > 0 &&
                 range[1] > label->selection_anchor)
             {
+                const char *text;
+
                 text = pango_layout_get_text (label->layout) + label->selection_anchor;
                 range[1] += g_utf8_offset_to_pointer (text, label->preedit_length) - text;
             }
@@ -2267,8 +2268,6 @@ eel_editable_label_delete_text (EelEditableLabel *label,
                                 int start_pos,
                                 int end_pos)
 {
-    int anchor, end;
-
     if (start_pos < 0)
         start_pos = 0;
     if (end_pos < 0 || end_pos > label->n_bytes)
@@ -2276,6 +2275,8 @@ eel_editable_label_delete_text (EelEditableLabel *label,
 
     if (start_pos < end_pos)
     {
+        int anchor, end;
+
         memmove (label->text + start_pos, label->text + end_pos, label->n_bytes + 1 - end_pos);
         label->n_bytes -= (end_pos - start_pos);
 
@@ -3051,7 +3052,6 @@ popup_targets_received (GtkClipboard     *clipboard,
                         GtkSelectionData *data,
                         gpointer          user_data)
 {
-    GtkWidget *menuitem;
     gboolean have_selection;
     gboolean clipboard_contains_text;
     PopupInfo *info;
@@ -3062,6 +3062,8 @@ popup_targets_received (GtkClipboard     *clipboard,
 
     if (gtk_widget_get_realized (GTK_WIDGET (label)))
     {
+        GtkWidget *menuitem;
+
         if (label->popup_menu)
             gtk_widget_destroy (label->popup_menu);
 
@@ -3397,7 +3399,6 @@ eel_editable_label_accessible_get_character_at_offset (AtkText *text,
     GtkWidget *widget;
     EelEditableLabelAccessiblePrivate *priv;
     gchar *string;
-    gchar *index;
     gunichar unichar;
 
     widget = gtk_accessible_get_widget (GTK_ACCESSIBLE (text));
@@ -3413,6 +3414,8 @@ eel_editable_label_accessible_get_character_at_offset (AtkText *text,
     }
     else
     {
+        gchar *index;
+
         index = g_utf8_offset_to_pointer (string, offset);
 
         unichar = g_utf8_get_char(index);
