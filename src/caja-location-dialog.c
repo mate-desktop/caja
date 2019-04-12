@@ -217,11 +217,9 @@ caja_location_dialog_init (CajaLocationDialog *dialog)
 GtkWidget *
 caja_location_dialog_new (CajaWindow *window)
 {
-    CajaWindowSlot *slot;
     CajaLocationDialog *loc_dialog;
     GtkWidget *dialog;
     GFile *location;
-    char *formatted_location;
 
     dialog = gtk_widget_new (CAJA_TYPE_LOCATION_DIALOG, NULL);
     loc_dialog = CAJA_LOCATION_DIALOG (dialog);
@@ -232,13 +230,15 @@ caja_location_dialog_new (CajaWindow *window)
         gtk_window_set_screen (GTK_WINDOW (dialog),
                                gtk_window_get_screen (GTK_WINDOW (window)));
         loc_dialog->details->window = window;
+        location = window->details->active_pane->active_slot->location;
     }
+    else
+        location = NULL;
 
-    slot = window->details->active_pane->active_slot;
-
-    location = slot->location;
     if (location != NULL)
     {
+        char *formatted_location;
+
         if (CAJA_IS_DESKTOP_WINDOW (window))
         {
             formatted_location = g_strdup_printf ("%s/", g_get_home_dir ());
