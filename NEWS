@@ -1,5 +1,55 @@
 ### caja 1.23.0
 
+  * update translations
+  * caja-property-browser: Fix cast from non-struct type to struct type
+  * eggsmclient-xsmp: Fix cast from non-struct type to struct type
+  * caja-file-utilities: Fix cast from non-struct type to struct type
+  * local #include files who are libraries inside <> instead ""
+  * eel-string: Use 'va_copy' instead of 'G_VA_COPY'
+  * eel-editable-label: Use 'memmove' instead of 'memcpy'
+  * eel: remove eel_g_object_list_ref
+  * drop functions defined but not used
+  * local #include files inside "" instead <>
+  * caja-icon-canvas-item: avoid 'cppcheck' warning
+  * caja-file: avoid shifting signed 32-bit value by 31 bits
+  * Fix invocation with --geometry from the command line
+  * caja-icon-canvas-item: initialize variable 'scale'
+  * Pass "NULL" for keyboard event
+  * caja-application: avoid NULL inside 'g_object_unref'
+  * fm-desktop-icon-view: remove dead code
+  * caja-file-operations: make sure 'error' isn't NULL
+  * caja-open-with-dialog: make sure there is error before showing it
+  * eel-string: Fix: 'memcpy' overflows destination buffer
+  * eel-string: avoid 'memcpy' with NULL argument
+  * caja-progress-info: make sure argument is initialized
+  * eel: replace eel_ref_str with GRefString
+  * eel: remove g_object_list_copy
+  * caja-sidebar-title: avoid 'NULL' inside 'setup_gc_with_fg'
+  * caja-file: Fix incomplete file replacement dialog
+  * caja-autorun: avoid NULL in 'memcpy'
+  * eel-editable-label: call argument with initialized value
+  * caja-file: Fix: true and false branches are identical
+  * caja-file-operations: add comment with false positive warning:
+  * [ci] use clang analyzer
+  * configure.ac: fix portability issue with test
+  * eel: remove g_str_list_copy
+  * Remove USE_MATE2_MACROS from autogen.sh (legacy)
+  * eel: remove g_list_free_deep_custom
+  * avoid variables set but not used
+  * eel-canvas: Fix warning: Undefined or garbage value returned to caller
+  * caja-window: Fix garbage value
+  * eel-gdk-pixbuf-extensions: Fix division by zero
+  * caja-file: Fix use of memory after it is freed
+  * caja-icon-container: Fix use of memory after it is freed
+  * Fix attempt to free released memory
+  * fm-tree-model: Fix use of memory after it is freed
+  * caja-information-panel: Fix use of memory after it is freed
+  * fm-directory-view: Fix use of memory after it is freed
+  * caja-tree-view-drag-dest: Fix memory leak
+  * [Security] eel-string: Use 'g_strlcat' instead of 'strcat'
+  * [Security] Use 'g_strlcpy' instead of 'strcpy'
+  * drop unused variables
+
 ### caja 1.22.0
 
   * update translations
