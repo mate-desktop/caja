@@ -3327,6 +3327,9 @@ msgid ""
 "If set to true, then hidden files are shown by default in the file manager. "
 "Hidden files are either dotfiles or listed in the folder's .hidden file."
 msgstr ""
+"Jika ditetapkan kepada benar, maka fail tersembunyi dipapar secara lalai "
+"dalam pengurus fail. Fail tersembunyi sama ada fail bernama dengan awalan "
+"titik, tersenarai dalam fail .hidden folder atau fail .hidden folder."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:67
 msgid "Whether to show backup files"
@@ -3337,6 +3340,9 @@ msgid ""
 "If set to true, then backup files are shown by default in the file manager. "
 "Backup files are backup files ending with a tilde (~)."
 msgstr ""
+"Jika ditetapkan kepada benar, maka fail tersembunyi dipapar secara lalai "
+"dalam pengurus fail. Fail sandar yang namanya berakhir dengan tanda tilde "
+"(~)."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:69
 msgid "Whether to show file sizes with IEC units"
@@ -3356,7 +3362,7 @@ msgstr "Sama ada hendak tunjukkan pemberitahuan"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:72
 msgid "If set to true, Caja will show desktop notifications."
-msgstr ""
+msgstr "Jika ditetapkan benar, Caja akan tunjukkan pemberitahuan desktop."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:73
 msgid "List of possible captions on icons"
@@ -5942,7 +5948,7 @@ msgstr ""
 
 #: ../src/caja-application.c:2088
 msgid "Open URIs in tabs."
-msgstr ""
+msgstr "Buka URI dalam tab."
 
 #: ../src/caja-application.c:2090
 msgid "Open a browser window."
@@ -6421,11 +6427,11 @@ msgstr "Isih _folder sebelum fail"
 
 #: ../src/caja-file-management-properties.ui.h:48
 msgid "Show hidden files"
-msgstr ""
+msgstr "Tunjuk fail tersembunyi"
 
 #: ../src/caja-file-management-properties.ui.h:49
 msgid "Show backup files"
-msgstr ""
+msgstr "Tunjuk fail sandar"
 
 #: ../src/caja-file-management-properties.ui.h:50
 msgid "<b>Icon View Defaults</b>"
@@ -6832,7 +6838,7 @@ msgstr "_Lokasi:"
 
 #: ../src/caja-navigation-action.c:146
 msgid "folder removed"
-msgstr ""
+msgstr "folder dibuang"
 
 #: ../src/caja-navigation-window-menus.c:131
 msgid "Are you sure you want to clear the list of locations you have visited?"
@@ -7388,7 +7394,7 @@ msgstr "Tag"
 
 #: ../src/caja-query-editor.c:181
 msgid "Modification Time"
-msgstr ""
+msgstr "Masa Diubahsuai"
 
 #: ../src/caja-query-editor.c:334
 msgid "Select folder to search in"
@@ -7451,27 +7457,27 @@ msgstr "Jenis Lain..."
 
 #: ../src/caja-query-editor.c:1063 ../src/caja-query-editor.c:1202
 msgid "Less than or equal to"
-msgstr ""
+msgstr "Kurang dari atau sama dengan"
 
 #: ../src/caja-query-editor.c:1065 ../src/caja-query-editor.c:1204
 msgid "Greater or equal to"
-msgstr ""
+msgstr "Lebih besar atau sama dengan"
 
 #: ../src/caja-query-editor.c:1078
 msgid "1 Hour"
-msgstr ""
+msgstr "1 Jam"
 
 #: ../src/caja-query-editor.c:1080
 msgid "1 Day"
-msgstr ""
+msgstr "1 Hari"
 
 #: ../src/caja-query-editor.c:1082
 msgid "1 Week"
-msgstr ""
+msgstr "1 Minggu"
 
 #: ../src/caja-query-editor.c:1084
 msgid "1 Month"
-msgstr ""
+msgstr "1 Bulan"
 
 #: ../src/caja-query-editor.c:1086
 msgid "6 Months"
@@ -7483,55 +7489,55 @@ msgstr "1 tahun"
 
 #: ../src/caja-query-editor.c:1219
 msgid "10 KiB"
-msgstr ""
+msgstr "10 KiB"
 
 #: ../src/caja-query-editor.c:1221
 msgid "100 KiB"
-msgstr ""
+msgstr "100 KiB"
 
 #: ../src/caja-query-editor.c:1223
 msgid "500 KiB"
-msgstr ""
+msgstr "500 KiB"
 
 #: ../src/caja-query-editor.c:1225
 msgid "1 MiB"
-msgstr ""
+msgstr "1 MiB"
 
 #: ../src/caja-query-editor.c:1227
 msgid "5 MiB"
-msgstr ""
+msgstr "5 MiB"
 
 #: ../src/caja-query-editor.c:1229
 msgid "10 MiB"
-msgstr ""
+msgstr "10 MiB"
 
 #: ../src/caja-query-editor.c:1231
 msgid "100 MiB"
-msgstr ""
+msgstr "100 MiB"
 
 #: ../src/caja-query-editor.c:1233
 msgid "500 MiB"
-msgstr ""
+msgstr "500 MiB"
 
 #: ../src/caja-query-editor.c:1235
 msgid "1 GiB"
-msgstr ""
+msgstr "1 GiB"
 
 #: ../src/caja-query-editor.c:1237
 msgid "2 GiB"
-msgstr ""
+msgstr "2 GiB"
 
 #: ../src/caja-query-editor.c:1239
 msgid "4 GiB"
-msgstr ""
+msgstr "4 GiB"
 
 #: ../src/caja-query-editor.c:1242
 msgid "10 KB"
-msgstr ""
+msgstr "10 KB"
 
 #: ../src/caja-query-editor.c:1256
 msgid "500 MB"
-msgstr ""
+msgstr "500 MB"
 
 #: ../src/caja-query-editor.c:1449
 msgid "Remove this criterion from the search"
@@ -7747,7 +7753,7 @@ msgstr ""
 
 #: ../src/caja-window-menus.c:637
 msgid "About Caja"
-msgstr ""
+msgstr "Perihal Caja"
 
 #: ../src/caja-window-menus.c:639
 msgid ""
@@ -7761,6 +7767,8 @@ msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2019 The Caja authors"
 msgstr ""
+"Hakcipta © 1999-2009 Pengarang Nautilus\n"
+"Hakcipta © 2011-2019 Pengarang Caja"
 
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
@@ -7960,12 +7968,12 @@ msgstr "Togol paparan bagi fail tersembunyi pada tetingkap semasa"
 #. label, accelerator
 #: ../src/caja-window-menus.c:1028
 msgid "Show Bac_kup Files"
-msgstr ""
+msgstr "Tunjuk Fail Sa_ndar"
 
 #. tooltip
 #: ../src/caja-window-menus.c:1029
 msgid "Toggle the display of backup files in the current window"
-msgstr ""
+msgstr "Togol paparan fail sandar dalam tetingkap semasa"
 
 #: ../src/caja-window-menus.c:1061
 msgid "_Up"

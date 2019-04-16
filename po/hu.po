@@ -11,9 +11,9 @@
 # Rezső Páder <rezso@rezso.net>, 2018
 # István Szőllősi <szollosi.istv4n@gmail.com>, 2018
 # Falu <info@falu.me>, 2018
-# Balázs Meskó <meskobalazs@gmail.com>, 2018
 # KAMI KAMI <kami911@gmail.com>, 2019
 # Stefano Karapetsas <stefano@karapetsas.com>, 2019
+# Balázs Meskó <meskobalazs@gmail.com>, 2019
 # 
 #, fuzzy
 msgid ""
@@ -22,7 +22,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-16 22:36+0100\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2019\n"
+"Last-Translator: Balázs Meskó <meskobalazs@gmail.com>, 2019\n"
 "Language-Team: Hungarian (https://www.transifex.com/mate/teams/13566/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3371,6 +3371,9 @@ msgid ""
 "If set to true, then hidden files are shown by default in the file manager. "
 "Hidden files are either dotfiles or listed in the folder's .hidden file."
 msgstr ""
+"Ha ez igazra van állítva, akkor a rejtett fájlok alapértelmezetten "
+"megjelennek a fájlkezelőben. Rejtett fájlok a ponttal kezdődő nevű fájlok, "
+"vagy azok, amelyek a mappa .hidden fájljában vannak felsorolva."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:67
 msgid "Whether to show backup files"
@@ -3381,6 +3384,9 @@ msgid ""
 "If set to true, then backup files are shown by default in the file manager. "
 "Backup files are backup files ending with a tilde (~)."
 msgstr ""
+"Ha ez igazra van állítva, akkor a biztonsági mentések alapértelmezetten "
+"megjelennek a fájlkezelőben. A biztonsági mentések a hullámvonallal (~) "
+"végződő fájlok."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:69
 msgid "Whether to show file sizes with IEC units"
@@ -3401,6 +3407,7 @@ msgstr "Megjelenjenek-e asztali értesítések"
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:72
 msgid "If set to true, Caja will show desktop notifications."
 msgstr ""
+"Ha ez igazra van állítva, akkor a Caja asztali értesítéseket jelenít meg."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:73
 msgid "List of possible captions on icons"
@@ -6042,7 +6049,7 @@ msgstr ""
 
 #: ../src/caja-application.c:2088
 msgid "Open URIs in tabs."
-msgstr ""
+msgstr "URI-k megnyitása lapokon."
 
 #: ../src/caja-application.c:2090
 msgid "Open a browser window."
@@ -6520,11 +6527,11 @@ msgstr "_Mappák mindig a fájlok előtt"
 
 #: ../src/caja-file-management-properties.ui.h:48
 msgid "Show hidden files"
-msgstr ""
+msgstr "Rejtett fájlok megjelenítése"
 
 #: ../src/caja-file-management-properties.ui.h:49
 msgid "Show backup files"
-msgstr ""
+msgstr "Biztonsági mentések megjelenítése"
 
 #: ../src/caja-file-management-properties.ui.h:50
 msgid "<b>Icon View Defaults</b>"
@@ -6936,7 +6943,7 @@ msgstr "_Hely:"
 
 #: ../src/caja-navigation-action.c:146
 msgid "folder removed"
-msgstr ""
+msgstr "mappa eltávolítva"
 
 #: ../src/caja-navigation-window-menus.c:131
 msgid "Are you sure you want to clear the list of locations you have visited?"
@@ -7494,7 +7501,7 @@ msgstr "Címkék"
 
 #: ../src/caja-query-editor.c:181
 msgid "Modification Time"
-msgstr ""
+msgstr "Módosítás ideje"
 
 #: ../src/caja-query-editor.c:334
 msgid "Select folder to search in"
@@ -7557,27 +7564,27 @@ msgstr "Más típus…"
 
 #: ../src/caja-query-editor.c:1063 ../src/caja-query-editor.c:1202
 msgid "Less than or equal to"
-msgstr ""
+msgstr "Kisebb vagy egyenlő, mint"
 
 #: ../src/caja-query-editor.c:1065 ../src/caja-query-editor.c:1204
 msgid "Greater or equal to"
-msgstr ""
+msgstr "Nagyobb vagy egyenlő, mint"
 
 #: ../src/caja-query-editor.c:1078
 msgid "1 Hour"
-msgstr ""
+msgstr "1 óra"
 
 #: ../src/caja-query-editor.c:1080
 msgid "1 Day"
-msgstr ""
+msgstr "1 nap"
 
 #: ../src/caja-query-editor.c:1082
 msgid "1 Week"
-msgstr ""
+msgstr "1 hét"
 
 #: ../src/caja-query-editor.c:1084
 msgid "1 Month"
-msgstr ""
+msgstr "1 hónap"
 
 #: ../src/caja-query-editor.c:1086
 msgid "6 Months"
@@ -7589,55 +7596,55 @@ msgstr "1 év"
 
 #: ../src/caja-query-editor.c:1219
 msgid "10 KiB"
-msgstr ""
+msgstr "10 KiB"
 
 #: ../src/caja-query-editor.c:1221
 msgid "100 KiB"
-msgstr ""
+msgstr "100 KiB"
 
 #: ../src/caja-query-editor.c:1223
 msgid "500 KiB"
-msgstr ""
+msgstr "500 KiB"
 
 #: ../src/caja-query-editor.c:1225
 msgid "1 MiB"
-msgstr ""
+msgstr "1 MiB"
 
 #: ../src/caja-query-editor.c:1227
 msgid "5 MiB"
-msgstr ""
+msgstr "5 MiB"
 
 #: ../src/caja-query-editor.c:1229
 msgid "10 MiB"
-msgstr ""
+msgstr "10 MiB"
 
 #: ../src/caja-query-editor.c:1231
 msgid "100 MiB"
-msgstr ""
+msgstr "100 MiB"
 
 #: ../src/caja-query-editor.c:1233
 msgid "500 MiB"
-msgstr ""
+msgstr "500 MiB"
 
 #: ../src/caja-query-editor.c:1235
 msgid "1 GiB"
-msgstr ""
+msgstr "1 GiB"
 
 #: ../src/caja-query-editor.c:1237
 msgid "2 GiB"
-msgstr ""
+msgstr "2 GiB"
 
 #: ../src/caja-query-editor.c:1239
 msgid "4 GiB"
-msgstr ""
+msgstr "4 GiB"
 
 #: ../src/caja-query-editor.c:1242
 msgid "10 KB"
-msgstr ""
+msgstr "10 KB"
 
 #: ../src/caja-query-editor.c:1256
 msgid "500 MB"
-msgstr ""
+msgstr "500 MB"
 
 #: ../src/caja-query-editor.c:1449
 msgid "Remove this criterion from the search"
@@ -7854,7 +7861,7 @@ msgstr ""
 
 #: ../src/caja-window-menus.c:637
 msgid "About Caja"
-msgstr ""
+msgstr "A Caja névjegye"
 
 #: ../src/caja-window-menus.c:639
 msgid ""
@@ -7868,6 +7875,8 @@ msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2019 The Caja authors"
 msgstr ""
+"Copyright © 1999-2009 A Nautilus szerzői\n"
+"Copyright © 2011-2019 A Caja szerzői"
 
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
@@ -8075,12 +8084,12 @@ msgstr "A rejtett fájlok megjelenítésének átváltása a jelenlegi ablakban"
 #. label, accelerator
 #: ../src/caja-window-menus.c:1028
 msgid "Show Bac_kup Files"
-msgstr ""
+msgstr "_Biztonsági mentések megjelenítése"
 
 #. tooltip
 #: ../src/caja-window-menus.c:1029
 msgid "Toggle the display of backup files in the current window"
-msgstr ""
+msgstr "A biztonsági mentések megjelenítésének átváltása a jelenlegi ablakban"
 
 #: ../src/caja-window-menus.c:1061
 msgid "_Up"

@@ -17,8 +17,8 @@
 # Michal <sinope@seznam.cz>, 2018
 # Roman Horník <roman.hornik@debian-linux.cz>, 2018
 # ToMáš Marný, 2018
-# Lucas Lommer <drom@kdyne.net>, 2019
 # Stefano Karapetsas <stefano@karapetsas.com>, 2019
+# Lucas Lommer <drom@kdyne.net>, 2019
 # 
 #, fuzzy
 msgid ""
@@ -27,7 +27,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-16 22:36+0100\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2019\n"
+"Last-Translator: Lucas Lommer <drom@kdyne.net>, 2019\n"
 "Language-Team: Czech (https://www.transifex.com/mate/teams/13566/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3483,6 +3483,9 @@ msgid ""
 "If set to true, then hidden files are shown by default in the file manager. "
 "Hidden files are either dotfiles or listed in the folder's .hidden file."
 msgstr ""
+"Je-li nastaveno na pravda (true), jsou ve správci souborů zobrazovány skryté"
+" soubory. Skryté soubory jsou soubory s názvem začínajícím tečkou, nebo "
+"soubory obsažené v souboru .hidden v dané složce."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:67
 msgid "Whether to show backup files"
@@ -3493,6 +3496,9 @@ msgid ""
 "If set to true, then backup files are shown by default in the file manager. "
 "Backup files are backup files ending with a tilde (~)."
 msgstr ""
+"Je-li nastaveno na pravda (true), jsou ve správci souborů zobrazovány "
+"záložní kopie souborů. Takovéto soubory mají název zakončen znakem vlnovky "
+"(~)."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:69
 msgid "Whether to show file sizes with IEC units"
@@ -3513,6 +3519,8 @@ msgstr "Kdy zobrazovat upozornění na ploše"
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:72
 msgid "If set to true, Caja will show desktop notifications."
 msgstr ""
+"Je-li nastaveno na pravda (true), bude Caja zobrazovat oznámení pracovní "
+"plochy."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:73
 msgid "List of possible captions on icons"
@@ -6165,7 +6173,7 @@ msgstr ""
 
 #: ../src/caja-application.c:2088
 msgid "Open URIs in tabs."
-msgstr ""
+msgstr "Otevřít adresy URI v karách."
 
 #: ../src/caja-application.c:2090
 msgid "Open a browser window."
@@ -6642,11 +6650,11 @@ msgstr "Řadit _složky před soubory"
 
 #: ../src/caja-file-management-properties.ui.h:48
 msgid "Show hidden files"
-msgstr ""
+msgstr "Zobrazit skryté soubory"
 
 #: ../src/caja-file-management-properties.ui.h:49
 msgid "Show backup files"
-msgstr ""
+msgstr "Zobrazit zálohy souborů"
 
 #: ../src/caja-file-management-properties.ui.h:50
 msgid "<b>Icon View Defaults</b>"
@@ -7062,7 +7070,7 @@ msgstr "_Umístění:"
 
 #: ../src/caja-navigation-action.c:146
 msgid "folder removed"
-msgstr ""
+msgstr "složka odstraněna"
 
 #: ../src/caja-navigation-window-menus.c:131
 msgid "Are you sure you want to clear the list of locations you have visited?"
@@ -7617,7 +7625,7 @@ msgstr "Štítky"
 
 #: ../src/caja-query-editor.c:181
 msgid "Modification Time"
-msgstr ""
+msgstr "Čas úpravy"
 
 #: ../src/caja-query-editor.c:334
 msgid "Select folder to search in"
@@ -7680,27 +7688,27 @@ msgstr "Jiný typ…"
 
 #: ../src/caja-query-editor.c:1063 ../src/caja-query-editor.c:1202
 msgid "Less than or equal to"
-msgstr ""
+msgstr "Menší nebo rovno"
 
 #: ../src/caja-query-editor.c:1065 ../src/caja-query-editor.c:1204
 msgid "Greater or equal to"
-msgstr ""
+msgstr "Větší nebo rovno"
 
 #: ../src/caja-query-editor.c:1078
 msgid "1 Hour"
-msgstr ""
+msgstr "1 hodina"
 
 #: ../src/caja-query-editor.c:1080
 msgid "1 Day"
-msgstr ""
+msgstr "1 den"
 
 #: ../src/caja-query-editor.c:1082
 msgid "1 Week"
-msgstr ""
+msgstr "1 týden"
 
 #: ../src/caja-query-editor.c:1084
 msgid "1 Month"
-msgstr ""
+msgstr "1 měsíc"
 
 #: ../src/caja-query-editor.c:1086
 msgid "6 Months"
@@ -7712,55 +7720,55 @@ msgstr "1 rok"
 
 #: ../src/caja-query-editor.c:1219
 msgid "10 KiB"
-msgstr ""
+msgstr "10 KiB"
 
 #: ../src/caja-query-editor.c:1221
 msgid "100 KiB"
-msgstr ""
+msgstr "100 KiB"
 
 #: ../src/caja-query-editor.c:1223
 msgid "500 KiB"
-msgstr ""
+msgstr "500 KiB"
 
 #: ../src/caja-query-editor.c:1225
 msgid "1 MiB"
-msgstr ""
+msgstr "1 MiB"
 
 #: ../src/caja-query-editor.c:1227
 msgid "5 MiB"
-msgstr ""
+msgstr "5 MiB"
 
 #: ../src/caja-query-editor.c:1229
 msgid "10 MiB"
-msgstr ""
+msgstr "10 MiB"
 
 #: ../src/caja-query-editor.c:1231
 msgid "100 MiB"
-msgstr ""
+msgstr "100 MiB"
 
 #: ../src/caja-query-editor.c:1233
 msgid "500 MiB"
-msgstr ""
+msgstr "500 MiB"
 
 #: ../src/caja-query-editor.c:1235
 msgid "1 GiB"
-msgstr ""
+msgstr "1 GiB"
 
 #: ../src/caja-query-editor.c:1237
 msgid "2 GiB"
-msgstr ""
+msgstr "2 GiB"
 
 #: ../src/caja-query-editor.c:1239
 msgid "4 GiB"
-msgstr ""
+msgstr "4 GiB"
 
 #: ../src/caja-query-editor.c:1242
 msgid "10 KB"
-msgstr ""
+msgstr "10 kB"
 
 #: ../src/caja-query-editor.c:1256
 msgid "500 MB"
-msgstr ""
+msgstr "500 MB"
 
 #: ../src/caja-query-editor.c:1449
 msgid "Remove this criterion from the search"
@@ -7973,7 +7981,7 @@ msgstr ""
 
 #: ../src/caja-window-menus.c:637
 msgid "About Caja"
-msgstr ""
+msgstr "O aplikaci Caja"
 
 #: ../src/caja-window-menus.c:639
 msgid ""
@@ -7987,6 +7995,8 @@ msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2019 The Caja authors"
 msgstr ""
+"Copyright © 1999-2009 autoři aplikace Nautilus\n"
+"Copyright © 2011-2019 autoři aplikace Caja"
 
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
@@ -8199,12 +8209,12 @@ msgstr "Přepnout zobrazování skrytých souborů v aktuálním okně"
 #. label, accelerator
 #: ../src/caja-window-menus.c:1028
 msgid "Show Bac_kup Files"
-msgstr ""
+msgstr "Zobrazovat zá_lohy souborů"
 
 #. tooltip
 #: ../src/caja-window-menus.c:1029
 msgid "Toggle the display of backup files in the current window"
-msgstr ""
+msgstr "Přepnout zobrazování skrytých souborů v aktuálním okně"
 
 #: ../src/caja-window-menus.c:1061
 msgid "_Up"
