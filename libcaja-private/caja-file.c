@@ -3847,7 +3847,7 @@ caja_file_set_metadata_list (CajaFile *file,
 		(CAJA_FILE_CLASS, file,
 		 set_metadata_as_list, (file, key, val));
 
-	g_free (val);
+	g_strfreev (val);
 }
 
 
