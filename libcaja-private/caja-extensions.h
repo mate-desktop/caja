@@ -21,8 +21,7 @@
  *  Author: Alexander van der Meij <alexandervdm@gliese.me>
  */
 
-#ifndef CAJA_EXTENSIONS_H
-#define CAJA_EXTENSIONS_H
+#pragma once
 
 #include <glib.h>
 #include <glib-object.h>
@@ -48,6 +47,3 @@ GList *caja_extensions_get_list (void);
 GList *caja_extensions_get_for_type (GType type);
 
 gboolean caja_extension_set_state (Extension *ext, gboolean new_state);
-
-#endif // CAJA_EXTENSIONS_H
-

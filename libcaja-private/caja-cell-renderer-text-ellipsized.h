@@ -24,8 +24,7 @@
    Author: Martin Wehner <martin.wehner@gmail.com>
 */
 
-#ifndef CAJA_CELL_RENDERER_TEXT_ELLIPSIZED_H
-#define CAJA_CELL_RENDERER_TEXT_ELLIPSIZED_H
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -57,5 +56,3 @@ struct _CajaCellRendererTextEllipsizedClass
 
 GType		 caja_cell_renderer_text_ellipsized_get_type (void);
 GtkCellRenderer *caja_cell_renderer_text_ellipsized_new      (void);
-
-#endif /* CAJA_CELL_RENDERER_TEXT_ELLIPSIZED_H */

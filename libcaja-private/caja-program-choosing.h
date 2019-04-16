@@ -23,8 +23,7 @@
    Author: John Sullivan <sullivan@eazel.com>
 */
 
-#ifndef CAJA_PROGRAM_CHOOSING_H
-#define CAJA_PROGRAM_CHOOSING_H
+#pragma once
 
 #include <gtk/gtk.h>
 #include <gio/gio.h>
@@ -54,5 +53,3 @@ void caja_launch_desktop_file		 (GdkScreen                         *screen,
                                       const char                        *desktop_file_uri,
                                       const GList                       *parameter_uris,
                                       GtkWindow                         *parent_window);
-
-#endif /* CAJA_PROGRAM_CHOOSING_H */

@@ -22,8 +22,7 @@
    Authors: John Sullivan <sullivan@eazel.com>
 */
 
-#ifndef CAJA_BOOKMARK_H
-#define CAJA_BOOKMARK_H
+#pragma once
 
 #include <gtk/gtk.h>
 #include <gio/gio.h>
@@ -96,5 +95,3 @@ char *                caja_bookmark_get_scroll_pos         (CajaBookmark      *b
 cairo_surface_t *     caja_bookmark_get_surface            (CajaBookmark      *bookmark,
         GtkIconSize            icon_size);
 GtkWidget *           caja_bookmark_menu_item_new          (CajaBookmark      *bookmark);
-
-#endif /* CAJA_BOOKMARK_H */

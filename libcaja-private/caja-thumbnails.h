@@ -22,8 +22,7 @@
    Author: Andy Hertzfeld <andy@eazel.com>
 */
 
-#ifndef CAJA_THUMBNAILS_H
-#define CAJA_THUMBNAILS_H
+#pragma once
 
 #include <gdk-pixbuf/gdk-pixbuf.h>
 
@@ -39,6 +38,3 @@ gboolean   caja_thumbnail_is_mimetype_limited_by_size
 /* Queue handling: */
 void       caja_thumbnail_remove_from_queue     (const char   *file_uri);
 void       caja_thumbnail_prioritize            (const char   *file_uri);
-
-
-#endif /* CAJA_THUMBNAILS_H */

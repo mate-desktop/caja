@@ -22,8 +22,7 @@
    Author: Alexander Larsson <alexl@redhat.com>
 */
 
-#ifndef CAJA_DESKTOP_LINK_MONITOR_H
-#define CAJA_DESKTOP_LINK_MONITOR_H
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -61,5 +60,3 @@ CajaDesktopLinkMonitor *   caja_desktop_link_monitor_get (void);
 /* Used by caja-desktop-link.c */
 char * caja_desktop_link_monitor_make_filename_unique (CajaDesktopLinkMonitor *monitor,
         const char *filename);
-
-#endif /* CAJA_DESKTOP_LINK_MONITOR_H */

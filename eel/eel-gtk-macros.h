@@ -23,8 +23,7 @@
             Ramiro Estrugo <ramiro@eazel.com>
 */
 
-#ifndef EEL_GTK_MACROS_H
-#define EEL_GTK_MACROS_H
+#pragma once
 
 #ifndef EEL_DISABLE_DEPRECATED
 
@@ -174,5 +173,3 @@ g_assert (EEL_ACCESS_METHOD (class_cast_macro, object, method) != NULL)
 #define EEL_INVOKE_METHOD_IF(class_cast_macro, object, method, parameters)    \
 (EEL_ACCESS_METHOD (class_cast_macro, object, method) ? 0 :                   \
 	EEL_INVOKE_METHOD (class_cast_macro, object, method, parameters))
-
-#endif /* EEL_GTK_MACROS_H */

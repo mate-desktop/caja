@@ -22,8 +22,7 @@
    Author: Alexander Larsson <alexl@redhat.com>
 */
 
-#ifndef CAJA_DESKTOP_LINK_H
-#define CAJA_DESKTOP_LINK_H
+#pragma once
 
 #include <gio/gio.h>
 
@@ -80,6 +79,3 @@ GMount *                caja_desktop_link_get_mount               (CajaDesktopLi
 gboolean                caja_desktop_link_can_rename              (CajaDesktopLink     *link);
 gboolean                caja_desktop_link_rename                  (CajaDesktopLink     *link,
         const char              *name);
-
-
-#endif /* CAJA_DESKTOP_LINK_H */

@@ -22,8 +22,7 @@
  */
 
 
-#ifndef __CAJA_FREEDESKTOP_DBUS_H__
-#define __CAJA_FREEDESKTOP_DBUS_H__
+#pragma once
 
 #include <glib-object.h>
 
@@ -38,5 +37,3 @@ typedef struct _CajaFreedesktopDBusClass CajaFreedesktopDBusClass;
 
 GType caja_freedesktop_dbus_get_type (void);
 CajaFreedesktopDBus * caja_freedesktop_dbus_new (CajaApplication *application);
-
-#endif /* __CAJA_FREEDESKTOP_DBUS_H__ */

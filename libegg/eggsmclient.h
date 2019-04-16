@@ -17,8 +17,7 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef __EGG_SM_CLIENT_H__
-#define __EGG_SM_CLIENT_H__
+#pragma once
 
 #include <glib-object.h>
 
@@ -113,5 +112,3 @@ gboolean         egg_sm_client_end_session         (EggSMClientEndStyle  style,
                                                     gboolean             request_confirmation);
 
 G_END_DECLS
-
-#endif /* __EGG_SM_CLIENT_H__ */

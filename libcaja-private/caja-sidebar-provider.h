@@ -22,8 +22,7 @@
    Author: Alexander Larsson <alexl@redhat.com>
 */
 
-#ifndef CAJA_SIDEBAR_PROVIDER_H
-#define CAJA_SIDEBAR_PROVIDER_H
+#pragma once
 
 #include "caja-sidebar.h"
 #include "caja-window-info.h"
@@ -57,5 +56,3 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-
-#endif /* CAJA_SIDEBAR_PROVIDER_H */

@@ -21,8 +21,7 @@
  *
  */
 
-#ifndef CAJA_QUERY_H
-#define CAJA_QUERY_H
+#pragma once
 
 #include <glib-object.h>
 
@@ -74,5 +73,3 @@ void           caja_query_set_timestamp      (CajaQuery *query, gint64 sec);
 
 gint64         caja_query_get_size           (CajaQuery *query);
 void           caja_query_set_size           (CajaQuery *query, gint64 size);
-
-#endif /* CAJA_QUERY_H */

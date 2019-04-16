@@ -27,8 +27,7 @@
  * Caja constructs the context menu for a file.  They are passed a
  * list of CajaFileInfo objects which holds the current selection */
 
-#ifndef CAJA_MENU_PROVIDER_H
-#define CAJA_MENU_PROVIDER_H
+#pragma once
 
 #include <glib-object.h>
 #include <gtk/gtk.h>
@@ -89,5 +88,3 @@ GList *caja_menu_provider_get_toolbar_items    (CajaMenuProvider *provider,
 void   caja_menu_provider_emit_items_updated_signal (CajaMenuProvider *provider);
 
 G_END_DECLS
-
-#endif

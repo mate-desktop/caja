@@ -22,8 +22,7 @@
    Authors: Christian Neumair <chris@mate-de.org>
 */
 
-#ifndef FM_EMPTY_VIEW_H
-#define FM_EMPTY_VIEW_H
+#pragma once
 
 #include "fm-directory-view.h"
 
@@ -56,5 +55,3 @@ typedef struct
 
 GType fm_empty_view_get_type (void);
 void  fm_empty_view_register (void);
-
-#endif /* FM_EMPTY_VIEW_H */

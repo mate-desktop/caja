@@ -24,8 +24,8 @@
  *           Darin Adler <darin@bentspoon.com>
  *
  */
-#ifndef _CAJA_HISTORY_SIDEBAR_H
-#define _CAJA_HISTORY_SIDEBAR_H
+
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -47,5 +47,3 @@ typedef struct
 
 GType caja_history_sidebar_get_type (void);
 void caja_history_sidebar_register (void);
-
-#endif

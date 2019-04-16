@@ -23,8 +23,7 @@
             Ramiro Estrugo <ramiro@eazel.com>
 */
 
-#ifndef EEL_GDK_EXTENSIONS_H
-#define EEL_GDK_EXTENSIONS_H
+#pragma once
 
 #include <gdk/gdk.h>
 
@@ -118,5 +117,3 @@ EelGdkGeometryFlags eel_gdk_parse_geometry                 (const char          
         int                 *y_return,
         guint               *width_return,
         guint               *height_return);
-
-#endif /* EEL_GDK_EXTENSIONS_H */

@@ -28,8 +28,7 @@
  *
  */
 
-#ifndef CAJA_NAVIGATION_ACTION_H
-#define CAJA_NAVIGATION_ACTION_H
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -64,5 +63,3 @@ struct _CajaNavigationActionClass
 };
 
 GType    caja_navigation_action_get_type   (void);
-
-#endif

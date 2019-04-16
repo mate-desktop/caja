@@ -23,8 +23,7 @@
    Authors: Ramiro Estrugo <ramiro@eazel.com>
 */
 
-#ifndef CAJA_GLOBAL_PREFERENCES_H
-#define CAJA_GLOBAL_PREFERENCES_H
+#pragma once
 
 #include <gio/gio.h>
 
@@ -225,5 +224,3 @@ GSettings *mate_background_preferences;
 GSettings *mate_lockdown_preferences;
 
 G_END_DECLS
-
-#endif /* CAJA_GLOBAL_PREFERENCES_H */

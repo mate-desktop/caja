@@ -24,8 +24,7 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef CAJA_UNDOSTACK_MANAGER_H
-#define CAJA_UNDOSTACK_MANAGER_H
+#pragma once
 
 #include <glib.h>
 #include <glib-object.h>
@@ -179,6 +178,4 @@ caja_undostack_manager_data_set_owner_change_information(
     
 void
 caja_undostack_manager_data_set_group_change_information(
-    CajaUndoStackActionData* data, char* uri, const char* current_group, const char* new_group);    
-
-#endif /* CAJA_UNDOSTACK_MANAGER_H */
+    CajaUndoStackActionData* data, char* uri, const char* current_group, const char* new_group);

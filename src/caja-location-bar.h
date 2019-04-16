@@ -27,8 +27,7 @@
 /* caja-location-bar.h - Location bar for Caja
  */
 
-#ifndef CAJA_LOCATION_BAR_H
-#define CAJA_LOCATION_BAR_H
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -74,5 +73,3 @@ CajaEntry * caja_location_bar_get_entry (CajaLocationBar *location_bar);
 void    caja_location_bar_activate         (CajaLocationBar *bar);
 void    caja_location_bar_set_location     (CajaLocationBar *bar,
                                             const char      *location);
-
-#endif /* CAJA_LOCATION_BAR_H */

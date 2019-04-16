@@ -24,8 +24,7 @@
  */
 /* caja-window.h: Interface of the main window object */
 
-#ifndef CAJA_SPATIAL_WINDOW_H
-#define CAJA_SPATIAL_WINDOW_H
+#pragma once
 
 #include "caja-window.h"
 #include "caja-window-private.h"
@@ -65,5 +64,3 @@ struct _CajaSpatialWindowClass
 GType            caja_spatial_window_get_type			(void);
 void             caja_spatial_window_set_location_button		(CajaSpatialWindow *window,
         GFile                 *location);
-
-#endif

@@ -23,8 +23,7 @@
    Authors: Dave Camp <dave@novell.com>
 */
 
-#ifndef CAJA_MIME_APPLICATION_CHOOSER_H
-#define CAJA_MIME_APPLICATION_CHOOSER_H
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -53,5 +52,3 @@ GtkWidget* caja_mime_application_chooser_new      (const char *uri,
         const char *mime_type);
 GtkWidget* caja_mime_application_chooser_new_for_multiple_files (GList *uris,
         const char *mime_type);
-
-#endif /* CAJA_MIME_APPLICATION_CHOOSER_H */

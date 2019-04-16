@@ -22,8 +22,7 @@
    Author: Darin Adler <darin@bentspoon.com>
 */
 
-#ifndef CAJA_FILE_H
-#define CAJA_FILE_H
+#pragma once
 
 #include <gtk/gtk.h>
 #include <gio/gio.h>
@@ -600,5 +599,3 @@ typedef struct
 } CajaFileClass;
 
 G_END_DECLS
-
-#endif /* CAJA_FILE_H */

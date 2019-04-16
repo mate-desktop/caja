@@ -24,8 +24,7 @@
  *  in a vertical panel and hosts the meta-sidebars.
  */
 
-#ifndef CAJA_EMBLEM_SIDEBAR_H
-#define CAJA_EMBLEM_SIDEBAR_H
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -58,5 +57,3 @@ typedef struct
 
 GType	caja_emblem_sidebar_get_type     (void);
 void    caja_emblem_sidebar_register     (void);
-
-#endif /* CAJA_EMBLEM_SIDEBAR_H */

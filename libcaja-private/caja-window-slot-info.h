@@ -22,8 +22,7 @@
    Author: Christian Neumair <cneumair@gnome.org>
 */
 
-#ifndef CAJA_WINDOW_SLOT_INFO_H
-#define CAJA_WINDOW_SLOT_INFO_H
+#pragma once
 
 #include "caja-window-info.h"
 #include "caja-view.h"
@@ -102,5 +101,3 @@ CajaView *                    caja_window_slot_info_get_current_view     (CajaWi
 int                               caja_window_slot_info_get_selection_count  (CajaWindowSlotInfo           *slot);
 GList *                           caja_window_slot_info_get_selection        (CajaWindowSlotInfo           *slot);
 char *                            caja_window_slot_info_get_title            (CajaWindowSlotInfo           *slot);
-
-#endif /* CAJA_WINDOW_SLOT_INFO_H */

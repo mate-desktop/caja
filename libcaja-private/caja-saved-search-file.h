@@ -23,8 +23,7 @@
    Author: Alexander Larsson
 */
 
-#ifndef CAJA_SAVED_SEARCH_FILE_H
-#define CAJA_SAVED_SEARCH_FILE_H
+#pragma once
 
 #include "caja-vfs-file.h"
 
@@ -54,5 +53,3 @@ typedef struct
 } CajaSavedSearchFileClass;
 
 GType   caja_saved_search_file_get_type (void);
-
-#endif /* CAJA_SAVED_SEARCH_FILE_H */

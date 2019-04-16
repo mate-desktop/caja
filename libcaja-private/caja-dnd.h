@@ -24,8 +24,7 @@
 	    Ettore Perazzoli <ettore@gnu.org>
 */
 
-#ifndef CAJA_DND_H
-#define CAJA_DND_H
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -194,5 +193,3 @@ gboolean		    caja_drag_selection_includes_special_link (GList			      *selectio
 
 void                        caja_drag_slot_proxy_init               (GtkWidget *widget,
         CajaDragSlotProxyInfo *drag_info);
-
-#endif

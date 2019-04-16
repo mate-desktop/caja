@@ -21,8 +21,7 @@
  * Author: Alexander Larsson <alexl@redhat.com>
  */
 
-#ifndef CAJA_IMAGE_PROPERTIES_PAGE_H
-#define CAJA_IMAGE_PROPERTIES_PAGE_H
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -57,5 +56,3 @@ GType caja_image_properties_page_get_type (void);
 void  caja_image_properties_page_register (void);
 
 G_END_DECLS
-
-#endif /* CAJA_IMAGE_PROPERTIES_PAGE_H */

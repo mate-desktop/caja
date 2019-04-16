@@ -23,8 +23,7 @@
    Author: Alexander Larsson <alexl@redhat.com>
 */
 
-#ifndef CAJA_SEARCH_DIRECTORY_FILE_H
-#define CAJA_SEARCH_DIRECTORY_FILE_H
+#pragma once
 
 #include "caja-file.h"
 
@@ -55,5 +54,3 @@ typedef struct
 
 GType   caja_search_directory_file_get_type (void);
 void    caja_search_directory_file_update_display_name (CajaSearchDirectoryFile *search_file);
-
-#endif /* CAJA_SEARCH_DIRECTORY_FILE_H */

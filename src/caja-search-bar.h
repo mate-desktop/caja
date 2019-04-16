@@ -21,8 +21,7 @@
  *
  */
 
-#ifndef CAJA_SEARCH_BAR_H
-#define CAJA_SEARCH_BAR_H
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -67,5 +66,3 @@ void           caja_search_bar_return_entry  (CajaSearchBar *bar);
 void           caja_search_bar_grab_focus    (CajaSearchBar *bar);
 CajaQuery *caja_search_bar_get_query     (CajaSearchBar *bar);
 void           caja_search_bar_clear         (CajaSearchBar *bar);
-
-#endif /* CAJA_SEARCH_BAR_H */

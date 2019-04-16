@@ -23,8 +23,7 @@
    Authors: John Sullivan <sullivan@eazel.com>
 */
 
-#ifndef FM_ERROR_REPORTING_H
-#define FM_ERROR_REPORTING_H
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -52,5 +51,3 @@ void fm_rename_file                      (CajaFile   *file,
         const char     *new_name,
         CajaFileOperationCallback callback,
         gpointer callback_data);
-
-#endif /* FM_ERROR_REPORTING_H */

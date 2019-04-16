@@ -22,8 +22,7 @@
    Author: Federico Mena-Quintero <federico@novell.com>
 */
 
-#ifndef CAJA_DEBUG_LOG_H
-#define CAJA_DEBUG_LOG_H
+#pragma once
 
 #include <glib.h>
 
@@ -54,5 +53,3 @@ int caja_debug_log_get_max_lines (void);
 
 /* For testing only */
 void caja_debug_log_clear (void);
-
-#endif /* CAJA_DEBUG_LOG_H */

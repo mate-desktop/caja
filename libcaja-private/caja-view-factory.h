@@ -22,8 +22,7 @@
    Author: Alexander Larsson <alexl@redhat.com>
 */
 
-#ifndef CAJA_VIEW_FACTORY_H
-#define CAJA_VIEW_FACTORY_H
+#pragma once
 
 #include <string.h>
 
@@ -72,5 +71,3 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-
-#endif /* CAJA_VIEW_FACTORY_H */

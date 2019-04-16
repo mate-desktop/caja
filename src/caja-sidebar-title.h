@@ -26,8 +26,7 @@
  * This is the header file for the sidebar title, which is part of the sidebar.
  */
 
-#ifndef CAJA_SIDEBAR_TITLE_H
-#define CAJA_SIDEBAR_TITLE_H
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -73,5 +72,3 @@ gboolean   caja_sidebar_title_hit_test_icon     (CajaSidebarTitle *sidebar_title
         int                   y);
 void       caja_sidebar_title_select_text_color (CajaSidebarTitle *sidebar_title,
         					 EelBackground        *background);
-
-#endif /* CAJA_SIDEBAR_TITLE_H */

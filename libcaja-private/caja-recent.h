@@ -1,7 +1,4 @@
-
-
-#ifndef __CAJA_RECENT_H__
-#define __CAJA_RECENT_H__
+#pragma once
 
 #include <gtk/gtk.h>
 #include <gio/gio.h>
@@ -10,5 +7,3 @@
 
 void caja_recent_add_file (CajaFile *file,
                            GAppInfo *application);
-
-#endif

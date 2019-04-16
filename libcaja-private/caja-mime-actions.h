@@ -22,8 +22,7 @@
    Authors: Maciej Stachowiak <mjs@eazel.com>
 */
 
-#ifndef CAJA_MIME_ACTIONS_H
-#define CAJA_MIME_ACTIONS_H
+#pragma once
 
 #include <gio/gio.h>
 
@@ -56,6 +55,3 @@ void                   caja_mime_activate_file                        (GtkWindow
         const char              *launch_directory,
         CajaWindowOpenMode   mode,
         CajaWindowOpenFlags  flags);
-
-
-#endif /* CAJA_MIME_ACTIONS_H */

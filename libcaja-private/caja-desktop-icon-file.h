@@ -23,8 +23,7 @@
    Author: Alexander Larsson <alexl@redhat.com>
 */
 
-#ifndef CAJA_DESKTOP_ICON_FILE_H
-#define CAJA_DESKTOP_ICON_FILE_H
+#pragma once
 
 #include "caja-file.h"
 #include "caja-desktop-link.h"
@@ -60,5 +59,3 @@ CajaDesktopIconFile *caja_desktop_icon_file_new      (CajaDesktopLink     *link)
 void                     caja_desktop_icon_file_update   (CajaDesktopIconFile *icon_file);
 void                     caja_desktop_icon_file_remove   (CajaDesktopIconFile *icon_file);
 CajaDesktopLink     *caja_desktop_icon_file_get_link (CajaDesktopIconFile *icon_file);
-
-#endif /* CAJA_DESKTOP_ICON_FILE_H */

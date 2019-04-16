@@ -1,3 +1,5 @@
+#pragma once
+
 /* generated with mime-types-include.sh in the totem module, don't edit or
    commit in the caja module without filing a bug against totem */
 static const char* audio_mime_types[] =

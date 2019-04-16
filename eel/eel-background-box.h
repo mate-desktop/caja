@@ -22,8 +22,7 @@
    Author: Dave Camp <dave@ximian.com>
 */
 
-#ifndef EEL_BACKGROUND_BOX_H
-#define EEL_BACKGROUND_BOX_H
+#pragma once
 
 #include <glib.h>
 #include <gtk/gtk.h>
@@ -65,7 +64,3 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-
-#endif /* EEL_BACKGROUND_TABLE_H */
-
-

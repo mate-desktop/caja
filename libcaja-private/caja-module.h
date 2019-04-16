@@ -21,8 +21,7 @@
  *
  */
 
-#ifndef CAJA_MODULE_H
-#define CAJA_MODULE_H
+#pragma once
 
 #include <glib-object.h>
 
@@ -41,6 +40,4 @@ extern "C" {
 
 #ifdef __cplusplus
 }
-#endif
-
 #endif

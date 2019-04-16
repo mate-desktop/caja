@@ -22,8 +22,7 @@
    Author: Darin Adler <darin@eazel.com>
 */
 
-#ifndef EEL_SELF_CHECKS_H
-#define EEL_SELF_CHECKS_H
+#pragma once
 
 #include <glib.h>
 
@@ -97,5 +96,3 @@ void eel_check_string_result        (char          *result,
 	eel_before_check_function (#function); \
 	function (); \
 	eel_after_check_function ();
-
-#endif /* EEL_SELF_CHECKS_H */

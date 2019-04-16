@@ -1,5 +1,4 @@
-#ifndef CAJA_ICON_NAMES_H
-#define CAJA_ICON_NAMES_H
+#pragma once
 
 /* Icons for places */
 #define CAJA_ICON_COMPUTER		"computer"
@@ -26,6 +25,3 @@
 
 /* Other icons */
 #define CAJA_ICON_TEMPLATE		"text-x-generic-template"
-
-#endif /* CAJA_ICON_NAMES_H */
-

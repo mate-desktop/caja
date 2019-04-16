@@ -21,8 +21,7 @@
  *  Author: Dave Camp <dave@ximian.com>
  */
 
-#ifndef CAJA_SIDE_PANE_H
-#define CAJA_SIDE_PANE_H
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -74,5 +73,3 @@ G_BEGIN_DECLS
     GtkWidget             *caja_side_pane_get_title        (CajaSidePane *side_pane);
 
 G_END_DECLS
-
-#endif /* CAJA_SIDE_PANE_H */

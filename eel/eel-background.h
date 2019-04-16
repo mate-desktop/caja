@@ -24,9 +24,6 @@
             Jasmine Hassan <jasmine.aura@gmail.com>
 */
 
-#ifndef EEL_BACKGROUND_H
-#define EEL_BACKGROUND_H
-
 /* Windows for Eel can contain backgrounds that are either tiled
    with an image, a solid color, or a color gradient. This class manages
    the process of loading the image if necessary and parsing the string
@@ -41,6 +38,8 @@
    returned background directly, unlike a style, which must be copied,
    modified and then set.
 */
+
+#pragma once
 
 #include <gdk/gdk.h>
 #include <gtk/gtk.h>
@@ -160,5 +159,3 @@ struct EelBackgroundClass
     void (* reset) (EelBackground *);
 
 };
-
-#endif /* EEL_BACKGROUND_H */

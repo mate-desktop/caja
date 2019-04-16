@@ -22,8 +22,7 @@
    Authors: Jonathan Blandford <jrb@redhat.com>
 */
 
-#ifndef CAJA_LINK_H
-#define CAJA_LINK_H
+#pragma once
 
 #include <gdk/gdk.h>
 
@@ -50,5 +49,3 @@ void             caja_link_get_link_info_given_file_contents (const char        
         char             **icon,
         gboolean          *is_launcher,
         gboolean          *is_foreign);
-
-#endif /* CAJA_LINK_H */

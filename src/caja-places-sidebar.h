@@ -21,8 +21,8 @@
  *  Author : Mr Jamie McCracken (jamiemcc at blueyonder dot co dot uk)
  *
  */
-#ifndef _CAJA_PLACES_SIDEBAR_H
-#define _CAJA_PLACES_SIDEBAR_H
+
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -46,5 +46,3 @@
 
 GType caja_places_sidebar_get_type (void);
 void caja_places_sidebar_register (void);
-
-#endif

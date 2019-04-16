@@ -1,5 +1,4 @@
-#ifndef CAJA_EXTENSION_I18N_H
-#define CAJA_EXTENSION_I18N_H
+#pragma once
 
 #include "config.h"
 
@@ -19,6 +18,4 @@
 #define dgettext(Domain,String) (String)
 #define dcgettext(Domain,String,Type) (String)
 #define bindtextdomain(Domain,Directory) (Domain)
-#endif
-
 #endif

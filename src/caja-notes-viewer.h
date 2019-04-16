@@ -23,8 +23,8 @@
  *  Authors: Andy Hertzfeld <andy@eazel.com>
  *           Alexander Larsson <alexl@redhat.com>
  */
-#ifndef _CAJA_NOTES_VIEWER_H
-#define _CAJA_NOTES_VIEWER_H
+
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -47,5 +47,3 @@ typedef struct
 
 GType caja_notes_viewer_get_type (void);
 void caja_notes_viewer_register (void);
-
-#endif

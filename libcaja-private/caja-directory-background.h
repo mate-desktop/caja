@@ -26,6 +26,8 @@
             Jasmine Hassan <jasmine.aura@gmail.com>
 */
 
+#pragma once
+
 #include <eel/eel-background.h>
 
 #include "caja-file.h"

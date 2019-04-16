@@ -22,8 +22,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CAJA_SEARCH_DIRECTORY_H
-#define CAJA_SEARCH_DIRECTORY_H
+#pragma once
 
 #include "caja-directory.h"
 #include "caja-query.h"
@@ -69,5 +68,3 @@ void           caja_search_directory_save_to_file    (CajaSearchDirectory *searc
 CajaQuery *caja_search_directory_get_query       (CajaSearchDirectory *search);
 void           caja_search_directory_set_query       (CajaSearchDirectory *search,
         CajaQuery           *query);
-
-#endif /* CAJA_SEARCH_DIRECTORY_H */

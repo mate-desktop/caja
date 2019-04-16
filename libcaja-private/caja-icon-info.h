@@ -1,5 +1,4 @@
-#ifndef CAJA_ICON_INFO_H
-#define CAJA_ICON_INFO_H
+#pragma once
 
 #include <glib-object.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
@@ -108,6 +107,3 @@ GIcon * caja_user_special_directory_get_gicon (GUserDirectory directory);
 #ifdef __cplusplus
 }
 #endif
-
-#endif /* CAJA_ICON_INFO_H */
-

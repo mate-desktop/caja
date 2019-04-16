@@ -20,8 +20,7 @@
    Author: Pavel Cisler <pavel@eazel.com>
 */
 
-#ifndef CAJA_FILE_CHANGES_QUEUE_H
-#define CAJA_FILE_CHANGES_QUEUE_H
+#pragma once
 
 #include <gdk/gdk.h>
 #include <gio/gio.h>
@@ -37,6 +36,3 @@ void caja_file_changes_queue_schedule_position_set           (GFile      *locati
 void caja_file_changes_queue_schedule_position_remove        (GFile      *location);
 
 void caja_file_changes_consume_changes                       (gboolean    consume_all);
-
-
-#endif /* CAJA_FILE_CHANGES_QUEUE_H */

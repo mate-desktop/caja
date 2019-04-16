@@ -22,8 +22,7 @@
    Author: John Sullivan <sullivan@eazel.com>
 */
 
-#ifndef CAJA_METADATA_H
-#define CAJA_METADATA_H
+#pragma once
 
 /* Keys for getting/setting Caja metadata. All metadata used in Caja
  * should define its key here, so we can keep track of the whole set easily.
@@ -76,5 +75,3 @@
 #define CAJA_METADATA_KEY_EMBLEMS				"emblems"
 
 guint caja_metadata_get_id (const char *metadata);
-
-#endif /* CAJA_METADATA_H */

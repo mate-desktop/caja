@@ -24,8 +24,7 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef CAJA_ENTRY_H
-#define CAJA_ENTRY_H
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -73,5 +72,3 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-
-#endif /* CAJA_ENTRY_H */

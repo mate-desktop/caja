@@ -31,9 +31,7 @@
  * Author: Federico Mena <federico@nuclecu.unam.mx>
  */
 
-#ifndef EEL_CANVAS_RECT_ELLIPSE_H
-#define EEL_CANVAS_RECT_ELLIPSE_H
-
+#pragma once
 
 #include "eel-canvas.h"
 
@@ -140,6 +138,4 @@ extern "C" {
 
 #ifdef __cplusplus
 }
-#endif
-
 #endif

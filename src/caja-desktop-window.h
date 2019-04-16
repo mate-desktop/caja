@@ -25,8 +25,7 @@
 /* caja-desktop-window.h
  */
 
-#ifndef CAJA_DESKTOP_WINDOW_H
-#define CAJA_DESKTOP_WINDOW_H
+#pragma once
 
 #include "caja-window.h"
 #include "caja-application.h"
@@ -77,5 +76,3 @@ typedef struct
 {
   GtkWindowAccessibleClass parent_spot;
 } CajaDesktopWindowAccessibleClass;
-
-#endif /* CAJA_DESKTOP_WINDOW_H */

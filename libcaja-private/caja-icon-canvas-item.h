@@ -22,8 +22,7 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef CAJA_ICON_CANVAS_ITEM_H
-#define CAJA_ICON_CANVAS_ITEM_H
+#pragma once
 
 #include <eel/eel-canvas.h>
 #include <eel/eel-art-extensions.h>
@@ -115,5 +114,3 @@ G_BEGIN_DECLS
             gboolean                      entire_text);
 
 G_END_DECLS
-
-#endif /* CAJA_ICON_CANVAS_ITEM_H */

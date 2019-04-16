@@ -28,8 +28,7 @@
  * customize them
  */
 
-#ifndef CAJA_PROPERTY_BROWSER_H
-#define CAJA_PROPERTY_BROWSER_H
+#pragma once
 
 #include <gdk/gdk.h>
 #include <gtk/gtk.h>
@@ -67,5 +66,3 @@ CajaPropertyBrowser *caja_property_browser_new      (GdkScreen               *sc
 void                     caja_property_browser_show     (GdkScreen               *screen);
 void                     caja_property_browser_set_path (CajaPropertyBrowser *panel,
         const char              *new_path);
-
-#endif /* CAJA_PROPERTY_BROWSER_H */

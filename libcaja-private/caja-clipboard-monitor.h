@@ -22,8 +22,7 @@
    Author: Alexander Larsson <alexl@redhat.com>
 */
 
-#ifndef CAJA_CLIPBOARD_MONITOR_H
-#define CAJA_CLIPBOARD_MONITOR_H
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -78,8 +77,3 @@ void caja_get_clipboard_callback   (GtkClipboard     *clipboard,
                                     GtkSelectionData *selection_data,
                                     guint             info,
                                     gpointer          user_data);
-
-
-
-#endif /* CAJA_CLIPBOARD_MONITOR_H */
-

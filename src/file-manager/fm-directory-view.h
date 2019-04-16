@@ -25,8 +25,7 @@
  *          Pavel Cisler <pavel@eazel.com>
  */
 
-#ifndef FM_DIRECTORY_VIEW_H
-#define FM_DIRECTORY_VIEW_H
+#pragma once
 
 #include <gtk/gtk.h>
 #include <gio/gio.h>
@@ -484,5 +483,3 @@ void		    fm_directory_view_set_initiated_unmount	      (FMDirectoryView *view,
 
 /* operations affecting two directory views */
 void                fm_directory_view_move_copy_items_between_views   (FMDirectoryView *source, FMDirectoryView *target, gboolean copy);
-
-#endif /* FM_DIRECTORY_VIEW_H */

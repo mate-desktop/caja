@@ -25,8 +25,7 @@
 /* caja-bookmarks-window.h - interface for bookmark-editing window.
  */
 
-#ifndef CAJA_BOOKMARKS_WINDOW_H
-#define CAJA_BOOKMARKS_WINDOW_H
+#pragma once
 
 #include <gtk/gtk.h>
 #include "caja-bookmark-list.h"
@@ -36,5 +35,3 @@ GtkWindow *create_bookmarks_window                 (CajaBookmarkList *bookmarks,
                                                     CajaWindow       *window_source);
 void       caja_bookmarks_window_save_geometry     (GtkWindow        *window);
 void	   edit_bookmarks_dialog_set_signals	   (CajaWindow       *window);
-
-#endif /* CAJA_BOOKMARKS_WINDOW_H */

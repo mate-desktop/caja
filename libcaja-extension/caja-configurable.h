@@ -26,8 +26,7 @@
  * have configuration screens (this is particularly important for open-terminal)
  */
 
-#ifndef CAJA_CONFIGURABLE_H
-#define CAJA_CONFIGURABLE_H
+#pragma once
 
 #include <glib-object.h>
 #include <gtk/gtk.h>
@@ -64,5 +63,3 @@ GType caja_configurable_get_type   (void);
 void  caja_configurable_run_config (CajaConfigurable *provider);
 
 G_END_DECLS
-
-#endif

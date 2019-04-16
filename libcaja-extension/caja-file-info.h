@@ -23,8 +23,7 @@
  * provides access to the asynchronous data in the CajaFile.
  * Extensions are passed objects of this type for operations. */
 
-#ifndef CAJA_FILE_INFO_H
-#define CAJA_FILE_INFO_H
+#pragma once
 
 #include <glib-object.h>
 #include <gio/gio.h>
@@ -174,5 +173,3 @@ CajaFileInfo *caja_file_info_lookup_for_uri        (const char  *uri);
 CajaFileInfo *caja_file_info_create_for_uri        (const char  *uri);
 
 G_END_DECLS
-
-#endif

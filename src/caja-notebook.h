@@ -24,8 +24,7 @@
  *  $Id: caja-notebook.h 8210 2008-04-11 20:05:25Z chpe $
  */
 
-#ifndef CAJA_NOTEBOOK_H
-#define CAJA_NOTEBOOK_H
+#pragma once
 
 #include <glib.h>
 
@@ -94,6 +93,3 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-
-#endif /* CAJA_NOTEBOOK_H */
-

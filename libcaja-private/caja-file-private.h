@@ -22,8 +22,7 @@
    Author: Darin Adler <darin@bentspoon.com>
 */
 
-#ifndef CAJA_FILE_PRIVATE_H
-#define CAJA_FILE_PRIVATE_H
+#pragma once
 
 #include <eel/eel-glib-extensions.h>
 #include <eel/eel-string.h>
@@ -316,5 +315,3 @@ void                   caja_file_operation_complete (CajaFileOperation         *
         GFile                         *result_location,
         GError                        *error);
 void                   caja_file_operation_cancel   (CajaFileOperation         *op);
-
-#endif

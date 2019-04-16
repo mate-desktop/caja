@@ -22,8 +22,7 @@
  *
  */
 
-#ifndef CAJA_PROPERTY_PAGE_H
-#define CAJA_PROPERTY_PAGE_H
+#pragma once
 
 #include <glib-object.h>
 #include <gtk/gtk.h>
@@ -64,5 +63,3 @@ CajaPropertyPage *caja_property_page_new       (const char *name,
  */
 
 G_END_DECLS
-
-#endif

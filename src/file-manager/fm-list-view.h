@@ -24,8 +24,7 @@
             Anders Carlsson <andersca@gnu.org>
 */
 
-#ifndef FM_LIST_VIEW_H
-#define FM_LIST_VIEW_H
+#pragma once
 
 #include "fm-directory-view.h"
 
@@ -59,5 +58,3 @@ typedef struct
 GType fm_list_view_get_type (void);
 void  fm_list_view_register (void);
 GtkTreeView* fm_list_view_get_tree_view (FMListView *list_view);
-
-#endif /* FM_LIST_VIEW_H */

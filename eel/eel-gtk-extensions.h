@@ -25,8 +25,7 @@
             Ramiro Estrugo <ramiro@eazel.com>
 */
 
-#ifndef EEL_GTK_EXTENSIONS_H
-#define EEL_GTK_EXTENSIONS_H
+#pragma once
 
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gtk/gtk.h>
@@ -73,5 +72,3 @@ GtkWidget *           eel_image_menu_item_new_from_icon               (const gch
 
 GtkWidget *           eel_image_menu_item_new_from_pixbuf               (GdkPixbuf          *icon_pixbuf,
                                                                          const gchar        *label_name);
-
-#endif /* EEL_GTK_EXTENSIONS_H */

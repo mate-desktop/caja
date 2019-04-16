@@ -23,8 +23,7 @@
  * Author: Rebecca Schulman <rebecka@eazel.com>
  */
 
-#ifndef CAJA_CLIPBOARD_H
-#define CAJA_CLIPBOARD_H
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -50,5 +49,3 @@ GList* caja_clipboard_get_uri_list_from_selection_data
 (GtkSelectionData   *selection_data,
  gboolean           *cut,
  GdkAtom             copied_files_atom);
-
-#endif /* CAJA_CLIPBOARD_H */

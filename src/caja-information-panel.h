@@ -25,8 +25,7 @@
  *  in a vertical panel and hosts the meta-views.
  */
 
-#ifndef CAJA_INFORMATION_PANEL_H
-#define CAJA_INFORMATION_PANEL_H
+#pragma once
 
 #include <eel/eel-background-box.h>
 
@@ -62,5 +61,3 @@ typedef struct
 
 GType            caja_information_panel_get_type     (void);
 void             caja_information_panel_register     (void);
-
-#endif /* CAJA_INFORMATION_PANEL_H */

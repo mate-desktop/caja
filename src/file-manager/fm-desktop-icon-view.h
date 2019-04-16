@@ -22,8 +22,7 @@
    Authors: Mike Engber <engber@eazel.com>
 */
 
-#ifndef FM_DESKTOP_ICON_VIEW_H
-#define FM_DESKTOP_ICON_VIEW_H
+#pragma once
 
 #include "fm-icon-view.h"
 
@@ -56,5 +55,3 @@ typedef struct
 /* GObject support */
 GType   fm_desktop_icon_view_get_type (void);
 void fm_desktop_icon_view_register (void);
-
-#endif /* FM_DESKTOP_ICON_VIEW_H */

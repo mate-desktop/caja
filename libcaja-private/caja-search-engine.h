@@ -21,8 +21,7 @@
  *
  */
 
-#ifndef CAJA_SEARCH_ENGINE_H
-#define CAJA_SEARCH_ENGINE_H
+#pragma once
 
 #include <glib-object.h>
 
@@ -74,5 +73,3 @@ void	       caja_search_engine_hits_added (CajaSearchEngine *engine, GList *hits
 void	       caja_search_engine_hits_subtracted (CajaSearchEngine *engine, GList *hits);
 void	       caja_search_engine_finished (CajaSearchEngine *engine);
 void	       caja_search_engine_error (CajaSearchEngine *engine, const char *error_message);
-
-#endif /* CAJA_SEARCH_ENGINE_H */

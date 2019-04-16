@@ -22,8 +22,7 @@
  *
  */
 
-#ifndef CAJA_COLUMN_H
-#define CAJA_COLUMN_H
+#pragma once
 
 #include <glib-object.h>
 #include "caja-extension-types.h"
@@ -67,5 +66,3 @@ CajaColumn *caja_column_new       (const char *name,
  */
 
 G_END_DECLS
-
-#endif

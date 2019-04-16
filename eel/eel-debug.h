@@ -22,8 +22,7 @@
    Author: Darin Adler <darin@eazel.com>
 */
 
-#ifndef EEL_DEBUG_H
-#define EEL_DEBUG_H
+#pragma once
 
 #include <glib.h>
 
@@ -47,5 +46,3 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-
-#endif /* EEL_DEBUG_H */

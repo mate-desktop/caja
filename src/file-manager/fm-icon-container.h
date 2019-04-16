@@ -22,8 +22,7 @@
    Author: Michael Meeks <michael@ximian.com>
 */
 
-#ifndef FM_ICON_CONTAINER_H
-#define FM_ICON_CONTAINER_H
+#pragma once
 
 #include <libcaja-private/caja-icon-container.h>
 
@@ -65,5 +64,3 @@ CajaIconContainer *fm_icon_container_construct        (FMIconContainer *icon_con
 CajaIconContainer *fm_icon_container_new              (FMIconView      *view);
 void                   fm_icon_container_set_sort_desktop (FMIconContainer *container,
         gboolean         desktop);
-
-#endif /* FM_ICON_CONTAINER_H */

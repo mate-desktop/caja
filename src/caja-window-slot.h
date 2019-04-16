@@ -22,8 +22,7 @@
    Author: Christian Neumair <cneumair@gnome.org>
 */
 
-#ifndef CAJA_WINDOW_SLOT_H
-#define CAJA_WINDOW_SLOT_H
+#pragma once
 
 #include "caja-window-pane.h"
 #include "caja-query-editor.h"
@@ -191,5 +190,3 @@ void    caja_window_slot_remove_extra_location_widgets (CajaWindowSlot *slot);
 void    caja_window_slot_add_current_location_to_history_list (CajaWindowSlot *slot);
 
 void    caja_window_slot_is_in_active_pane (CajaWindowSlot *slot, gboolean is_active);
-
-#endif /* CAJA_WINDOW_SLOT_H */

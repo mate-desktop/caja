@@ -22,8 +22,7 @@
  * Author: Cosimo Cecchi <cosimoc@gnome.org>
  */
 
-#ifndef __CAJA_CONNECT_SERVER_OPERATION_H__
-#define __CAJA_CONNECT_SERVER_OPERATION_H__
+#pragma once
 
 #include <gio/gio.h>
 #include <gtk/gtk.h>
@@ -58,6 +57,3 @@ GType caja_connect_server_operation_get_type (void);
 
 GMountOperation *
 caja_connect_server_operation_new (CajaConnectServerDialog *dialog);
-
-
-#endif /* __CAJA_CONNECT_SERVER_OPERATION_H__ */

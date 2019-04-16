@@ -23,8 +23,7 @@
    Author: Darin Adler <darin@bentspoon.com>
 */
 
-#ifndef CAJA_VFS_DIRECTORY_H
-#define CAJA_VFS_DIRECTORY_H
+#pragma once
 
 #include "caja-directory.h"
 
@@ -53,5 +52,3 @@ typedef struct
 } CajaVFSDirectoryClass;
 
 GType   caja_vfs_directory_get_type (void);
-
-#endif /* CAJA_VFS_DIRECTORY_H */

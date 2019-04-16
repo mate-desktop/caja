@@ -27,8 +27,7 @@
  */
 /* caja-navigation-window.h: Interface of the navigation window object */
 
-#ifndef CAJA_NAVIGATION_WINDOW_H
-#define CAJA_NAVIGATION_WINDOW_H
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -118,5 +117,3 @@ gboolean caja_navigation_window_is_in_temporary_navigation_bar (GtkWidget *widge
         CajaNavigationWindow *window);
 gboolean caja_navigation_window_is_in_temporary_search_bar (GtkWidget *widget,
         CajaNavigationWindow *window);
-
-#endif

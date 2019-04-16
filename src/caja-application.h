@@ -24,8 +24,7 @@
 /* caja-application.h
  */
 
-#ifndef CAJA_APPLICATION_H
-#define CAJA_APPLICATION_H
+#pragma once
 
 #include <config.h>
 #include <gdk/gdk.h>
@@ -102,5 +101,3 @@ void caja_application_open_location (CajaApplication *application,
         GFile *selection,
         const char *startup_id,
         const gboolean open_in_tabs);
-
-#endif /* CAJA_APPLICATION_H */

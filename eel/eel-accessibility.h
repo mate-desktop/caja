@@ -21,8 +21,7 @@
    Authors: Anders Carlsson <andersca@gnu.org>
 */
 
-#ifndef EEL_ACCESSIBILITY_H
-#define EEL_ACCESSIBILITY_H
+#pragma once
 
 #include <glib-object.h>
 #include <atk/atkobject.h>
@@ -139,6 +138,3 @@ type_as_function ## _factory_get_type (void)					\
 	atk_registry_set_factory_type (atk_get_default_registry (),		\
 				       object_type,				\
 				       type_as_function ## _factory_get_type ())
-
-
-#endif /* EEL_ACCESSIBILITY_H */

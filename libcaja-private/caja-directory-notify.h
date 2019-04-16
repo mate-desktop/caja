@@ -22,6 +22,8 @@
    Author: Darin Adler <darin@bentspoon.com>
 */
 
+#pragma once
+
 #include <gdk/gdk.h>
 
 #include "caja-file.h"

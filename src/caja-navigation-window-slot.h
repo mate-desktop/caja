@@ -22,8 +22,7 @@
    Author: Christian Neumair <cneumair@gnome.org>
 */
 
-#ifndef CAJA_NAVIGATION_WINDOW_SLOT_H
-#define CAJA_NAVIGATION_WINDOW_SLOT_H
+#pragma once
 
 #include "caja-window-slot.h"
 
@@ -74,5 +73,3 @@ gboolean caja_navigation_window_slot_should_close_with_mount (CajaNavigationWind
 
 void caja_navigation_window_slot_clear_forward_list (CajaNavigationWindowSlot *slot);
 void caja_navigation_window_slot_clear_back_list    (CajaNavigationWindowSlot *slot);
-
-#endif /* CAJA_NAVIGATION_WINDOW_SLOT_H */

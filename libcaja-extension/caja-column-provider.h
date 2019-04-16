@@ -28,8 +28,7 @@
  * returned column refers to a string attribute which can be filled in
  * by CajaInfoProvider */
 
-#ifndef CAJA_COLUMN_PROVIDER_H
-#define CAJA_COLUMN_PROVIDER_H
+#pragma once
 
 #include <glib-object.h>
 #include "caja-extension-types.h"
@@ -65,5 +64,3 @@ GType  caja_column_provider_get_type    (void);
 GList *caja_column_provider_get_columns (CajaColumnProvider *provider);
 
 G_END_DECLS
-
-#endif

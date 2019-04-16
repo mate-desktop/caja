@@ -22,6 +22,8 @@
    Author: Alexander Larsson <alexl@redhat.com>
 */
 
+#pragma once
+
 #include <glib.h>
 #include <gio/gio.h>
 #include <gtk/gtk.h>
@@ -50,4 +52,3 @@ gboolean   caja_emblem_can_remove_emblem          (const char *keyword);
 gboolean   caja_emblem_can_rename_emblem          (const char *keyword);
 
 char *     caja_emblem_create_unique_keyword      (const char *base);
-

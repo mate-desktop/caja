@@ -1,5 +1,4 @@
-#ifndef TEST_H
-#define TEST_H
+#pragma once
 
 #include <config.h>
 
@@ -35,5 +34,3 @@ void       test_pixbuf_draw_rectangle_tiled     (GdkPixbuf                   *pi
 						 int                          opacity);
 void       test_window_set_title_with_pid       (GtkWindow                   *window,
 						 const char                  *title);
-
-#endif /* TEST_H */

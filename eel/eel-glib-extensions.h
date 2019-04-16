@@ -24,8 +24,7 @@
    Authors: John Sullivan <sullivan@eazel.com>
 */
 
-#ifndef EEL_GLIB_EXTENSIONS_H
-#define EEL_GLIB_EXTENSIONS_H
+#pragma once
 
 #include <glib.h>
 #include <gio/gio.h>
@@ -103,5 +102,3 @@ void        eel_g_settings_add_auto_strv                (GSettings *settings,
 void        eel_g_settings_add_auto_strv_as_quarks      (GSettings *settings,
                                                          const char *key,
                                                          GQuark **storage);
-
-#endif /* EEL_GLIB_EXTENSIONS_H */

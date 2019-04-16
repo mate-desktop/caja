@@ -21,8 +21,7 @@
  *
  */
 
-#ifndef FM_DITEM_PAGE_H
-#define FM_DITEM_PAGE_H
+#pragma once
 
 #include <glib.h>
 #include <glib-object.h>
@@ -46,6 +45,4 @@ extern "C" {
 
 #ifdef __cplusplus
 }
-#endif
-
 #endif

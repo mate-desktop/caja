@@ -22,8 +22,7 @@
    Authors: Maciej Stachowiak <mjs@eazel.com>
 */
 
-#ifndef EEL_H
-#define EEL_H
+#pragma once
 
 #include "eel-art-extensions.h"
 #include "eel-art-gtk-extensions.h"
@@ -44,5 +43,3 @@
 #include "eel-vfs-extensions.h"
 #include "eel-wrap-table.h"
 #include "eel-xml-extensions.h"
-
-#endif /* EEL_H */

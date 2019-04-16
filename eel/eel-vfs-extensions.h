@@ -26,8 +26,7 @@
             John Sullivan <sullivan@eazel.com>
 */
 
-#ifndef EEL_VFS_EXTENSIONS_H
-#define EEL_VFS_EXTENSIONS_H
+#pragma once
 
 #include <glib.h>
 
@@ -54,5 +53,3 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-
-#endif /* EEL_VFS_EXTENSIONS_H */

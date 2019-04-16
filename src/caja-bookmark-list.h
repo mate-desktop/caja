@@ -25,8 +25,7 @@
 /* caja-bookmark-list.h - interface for centralized list of bookmarks.
  */
 
-#ifndef CAJA_BOOKMARK_LIST_H
-#define CAJA_BOOKMARK_LIST_H
+#pragma once
 
 #include <gio/gio.h>
 
@@ -84,5 +83,3 @@ void                    caja_bookmark_list_move_item           (CajaBookmarkList
 void                    caja_bookmark_list_set_window_geometry (CajaBookmarkList   *bookmarks,
         const char             *geometry);
 const char *            caja_bookmark_list_get_window_geometry (CajaBookmarkList   *bookmarks);
-
-#endif /* CAJA_BOOKMARK_LIST_H */

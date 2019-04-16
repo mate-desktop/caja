@@ -37,8 +37,7 @@
  *
  */
 
-#ifndef CAJA_AUTORUN_H
-#define CAJA_AUTORUN_H
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -79,5 +78,3 @@ void caja_autorun_launch_for_mount (GMount *mount, GAppInfo *app_info);
 
 void caja_allow_autorun_for_volume (GVolume *volume);
 void caja_allow_autorun_for_volume_finish (GVolume *volume);
-
-#endif /* CAJA_AUTORUN_H */

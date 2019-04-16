@@ -25,8 +25,7 @@
  *
  */
 
-#ifndef CAJA_WINDOW_PRIVATE_H
-#define CAJA_WINDOW_PRIVATE_H
+#pragma once
 
 #include <libcaja-private/caja-directory.h>
 
@@ -246,5 +245,3 @@ void               caja_navigation_window_go_back                               
 void               caja_navigation_window_go_forward                            (CajaNavigationWindow    *window);
 void               caja_window_close_pane                                       (CajaWindowPane *pane);
 void               caja_navigation_window_update_split_view_actions_sensitivity (CajaNavigationWindow    *window);
-
-#endif /* CAJA_WINDOW_PRIVATE_H */

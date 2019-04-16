@@ -22,8 +22,7 @@
    Authors: Andy Hertzfeld <andy@eazel.com>
  */
 
-#ifndef EEL_GRAPHIC_EFFECTS_H
-#define EEL_GRAPHIC_EFFECTS_H
+#pragma once
 
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gtk/gtk.h>
@@ -62,5 +61,3 @@ GdkPixbuf *eel_embed_image_in_frame    (GdkPixbuf *source_image,
                                         int        top_offset,
                                         int        right_offset,
                                         int        bottom_offset);
-
-#endif /* EEL_GRAPHIC_EFFECTS_H */

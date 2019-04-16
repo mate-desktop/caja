@@ -25,8 +25,7 @@
  *
  */
 
-#ifndef CAJA_ZOOM_CONTROL_H
-#define CAJA_ZOOM_CONTROL_H
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -88,5 +87,3 @@ gboolean          caja_zoom_control_can_zoom_in        (CajaZoomControl *zoom_co
 gboolean          caja_zoom_control_can_zoom_out       (CajaZoomControl *zoom_control);
 
 void              caja_zoom_control_set_active_appearance (CajaZoomControl *zoom_control, gboolean is_active);
-
-#endif /* CAJA_ZOOM_CONTROL_H */

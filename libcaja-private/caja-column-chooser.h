@@ -22,8 +22,7 @@
    Authors: Dave Camp <dave@ximian.com>
 */
 
-#ifndef CAJA_COLUMN_CHOOSER_H
-#define CAJA_COLUMN_CHOOSER_H
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -66,5 +65,3 @@ void       caja_column_chooser_set_settings    (CajaColumnChooser   *chooser,
 void       caja_column_chooser_get_settings    (CajaColumnChooser *chooser,
         char                  ***visible_columns,
         char                  ***column_order);
-
-#endif /* CAJA_COLUMN_CHOOSER_H */

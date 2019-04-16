@@ -22,8 +22,7 @@
    Author: Darin Adler <darin@bentspoon.com>
 */
 
-#ifndef CAJA_DIRECTORY_H
-#define CAJA_DIRECTORY_H
+#pragma once
 
 #include <gtk/gtk.h>
 #include <gio/gio.h>
@@ -237,5 +236,3 @@ gboolean           caja_directory_is_desktop_directory     (CajaDirectory       
 gboolean           caja_directory_is_editable              (CajaDirectory         *directory);
 
 G_END_DECLS
-
-#endif /* CAJA_DIRECTORY_H */

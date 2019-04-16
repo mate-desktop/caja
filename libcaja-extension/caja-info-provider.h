@@ -27,8 +27,7 @@
  * needs information about a file.  They are passed a CajaFileInfo
  * object which should be filled with relevant information */
 
-#ifndef CAJA_INFO_PROVIDER_H
-#define CAJA_INFO_PROVIDER_H
+#pragma once
 
 #include <glib-object.h>
 #include "caja-extension-types.h"
@@ -89,5 +88,3 @@ void                caja_info_provider_update_complete_invoke (GClosure         
                                                                CajaOperationResult   result);
 
 G_END_DECLS
-
-#endif

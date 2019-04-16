@@ -17,8 +17,7 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef __EGG_DESKTOP_FILE_H__
-#define __EGG_DESKTOP_FILE_H__
+#pragma once
 
 #include <glib.h>
 
@@ -162,5 +161,3 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-
-#endif /* __EGG_DESKTOP_FILE_H__ */

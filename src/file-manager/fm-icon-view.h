@@ -22,8 +22,7 @@
    Authors: John Sullivan <sullivan@eazel.com>
 */
 
-#ifndef FM_ICON_VIEW_H
-#define FM_ICON_VIEW_H
+#pragma once
 
 #include "fm-directory-view.h"
 
@@ -131,5 +130,3 @@ gboolean fm_icon_view_is_compact   (FMIconView *icon_view);
 
 void    fm_icon_view_register       (void);
 void    fm_compact_view_register    (void);
-
-#endif /* FM_ICON_VIEW_H */

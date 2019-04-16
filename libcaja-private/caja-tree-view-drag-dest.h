@@ -27,8 +27,7 @@
  *                                 contain a hierarchy of files
  */
 
-#ifndef CAJA_TREE_VIEW_DRAG_DEST_H
-#define CAJA_TREE_VIEW_DRAG_DEST_H
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -101,6 +100,4 @@ extern "C" {
 
 #ifdef __cplusplus
 }
-#endif
-
 #endif

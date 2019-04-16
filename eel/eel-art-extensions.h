@@ -23,8 +23,7 @@
             Ramiro Estrugo <ramiro@eazel.com>
 */
 
-#ifndef EEL_ART_EXTENSIONS_H
-#define EEL_ART_EXTENSIONS_H
+#pragma once
 
 #include <glib.h>
 
@@ -116,5 +115,3 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-
-#endif /* EEL_ART_EXTENSIONS_H */

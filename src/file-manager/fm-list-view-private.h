@@ -24,6 +24,8 @@
 
 */
 
+#pragma once
+
 struct FMListViewColumn
 {
     const char *attribute;

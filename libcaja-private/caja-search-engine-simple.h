@@ -21,8 +21,7 @@
  *
  */
 
-#ifndef CAJA_SEARCH_ENGINE_SIMPLE_H
-#define CAJA_SEARCH_ENGINE_SIMPLE_H
+#pragma once
 
 #include "caja-search-engine.h"
 
@@ -49,5 +48,3 @@ typedef struct
 GType          caja_search_engine_simple_get_type  (void);
 
 CajaSearchEngine* caja_search_engine_simple_new       (void);
-
-#endif /* CAJA_SEARCH_ENGINE_SIMPLE_H */

@@ -23,8 +23,7 @@
  *
  */
 
-#ifndef CAJA_ZOOM_ACTION_H
-#define CAJA_ZOOM_ACTION_H
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -53,5 +52,3 @@ struct _CajaZoomActionClass
 };
 
 GType    caja_zoom_action_get_type   (void);
-
-#endif

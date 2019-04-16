@@ -24,8 +24,7 @@
  */
 /* caja-window.h: Interface of the main window object */
 
-#ifndef CAJA_WINDOW_H
-#define CAJA_WINDOW_H
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -166,5 +165,3 @@ void             caja_window_allow_up             (CajaWindow    *window,
 void             caja_window_allow_stop           (CajaWindow    *window,
         gboolean           allow);
 GtkUIManager *   caja_window_get_ui_manager       (CajaWindow    *window);
-
-#endif

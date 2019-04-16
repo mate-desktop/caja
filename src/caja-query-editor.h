@@ -21,8 +21,7 @@
  *
  */
 
-#ifndef CAJA_QUERY_EDITOR_H
-#define CAJA_QUERY_EDITOR_H
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -79,5 +78,3 @@ void           caja_query_editor_set_query   (CajaQueryEditor *editor,
         CajaQuery       *query);
 void           caja_query_editor_set_visible (CajaQueryEditor *editor,
         gboolean             visible);
-
-#endif /* CAJA_QUERY_EDITOR_H */

@@ -22,8 +22,7 @@
  * Author:  Alexander Larsson <alexl@redhat.com>
  */
 
-#ifndef CAJA_WINDOW_BOOKMARKS_H
-#define CAJA_WINDOW_BOOKMARKS_H
+#pragma once
 
 #include <libcaja-private/caja-bookmark.h>
 
@@ -34,5 +33,3 @@ void                  caja_bookmarks_exiting                        (void);
 void                  caja_window_add_bookmark_for_current_location (CajaWindow *window);
 void                  caja_window_edit_bookmarks                    (CajaWindow *window);
 void                  caja_window_initialize_bookmarks_menu         (CajaWindow *window);
-
-#endif

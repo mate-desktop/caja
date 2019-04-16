@@ -23,8 +23,7 @@
    Authors: Ettore Perazzoli <ettore@gnu.org>, Darin Adler <darin@bentspoon.com>
 */
 
-#ifndef CAJA_ICON_CONTAINER_H
-#define CAJA_ICON_CONTAINER_H
+#pragma once
 
 #include <eel/eel-canvas.h>
 
@@ -368,5 +367,3 @@ void              caja_icon_container_widget_to_file_operation_position (CajaIco
 			 - container->details->top_margin \
 			 - container->details->bottom_margin) \
 			 / EEL_CANVAS (container)->pixels_per_unit)
-
-#endif /* CAJA_ICON_CONTAINER_H */

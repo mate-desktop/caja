@@ -21,8 +21,7 @@
  *
  */
 
-#ifndef CAJA_EXTENSION_PRIVATE_H
-#define CAJA_EXTENSION_PRIVATE_H
+#pragma once
 
 #include "caja-file-info.h"
 
@@ -34,6 +33,4 @@ extern "C" {
 
 #ifdef __cplusplus
 }
-#endif
-
 #endif

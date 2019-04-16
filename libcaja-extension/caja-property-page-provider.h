@@ -28,8 +28,7 @@
  * list of CajaFileInfo objects for which information should
  * be displayed  */
 
-#ifndef CAJA_PROPERTY_PAGE_PROVIDER_H
-#define CAJA_PROPERTY_PAGE_PROVIDER_H
+#pragma once
 
 #include <glib-object.h>
 #include "caja-extension-types.h"
@@ -68,5 +67,3 @@ GList *caja_property_page_provider_get_pages (CajaPropertyPageProvider *provider
                                               GList                    *files);
 
 G_END_DECLS
-
-#endif

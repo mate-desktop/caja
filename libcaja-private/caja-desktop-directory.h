@@ -24,8 +24,7 @@
    Author: Alexander Larsson <alexl@redhat.com>
 */
 
-#ifndef CAJA_DESKTOP_DIRECTORY_H
-#define CAJA_DESKTOP_DIRECTORY_H
+#pragma once
 
 #include "caja-directory.h"
 
@@ -57,5 +56,3 @@ typedef struct
 
 GType   caja_desktop_directory_get_type             (void);
 CajaDirectory * caja_desktop_directory_get_real_directory   (CajaDesktopDirectory *desktop_directory);
-
-#endif /* CAJA_DESKTOP_DIRECTORY_H */

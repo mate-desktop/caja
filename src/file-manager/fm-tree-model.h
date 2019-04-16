@@ -24,8 +24,7 @@
 
 /* fm-tree-model.h - Model for the tree view */
 
-#ifndef FM_TREE_MODEL_H
-#define FM_TREE_MODEL_H
+#pragma once
 
 #include <glib-object.h>
 
@@ -101,5 +100,3 @@ GMount *         fm_tree_model_get_mount_for_root_node_file
  CajaFile *file);
 void             fm_tree_model_set_highlight_for_files    (FMTreeModel *model,
         GList *files);
-
-#endif /* FM_TREE_MODEL_H */

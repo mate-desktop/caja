@@ -17,8 +17,7 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef __EGG_SM_CLIENT_PRIVATE_H__
-#define __EGG_SM_CLIENT_PRIVATE_H__
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -43,5 +42,3 @@ void      egg_sm_client_quit           (EggSMClient *client);
 #endif
 
 G_END_DECLS
-
-#endif /* __EGG_SM_CLIENT_PRIVATE_H__ */

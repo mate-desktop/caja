@@ -17,8 +17,7 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef __EGG_TREE_MULTI_DND_H__
-#define __EGG_TREE_MULTI_DND_H__
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -74,5 +73,3 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-
-#endif /* __EGG_TREE_MULTI_DND_H__ */

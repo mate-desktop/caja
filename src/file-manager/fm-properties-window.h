@@ -23,8 +23,7 @@
    Authors: Darin Adler <darin@bentspoon.com>
 */
 
-#ifndef FM_PROPERTIES_WINDOW_H
-#define FM_PROPERTIES_WINDOW_H
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -66,5 +65,3 @@ GType   fm_properties_window_get_type   (void);
 
 void 	fm_properties_window_present 	(GList *files,
         GtkWidget *parent_widget);
-
-#endif /* FM_PROPERTIES_WINDOW_H */

@@ -22,8 +22,7 @@
    Authors: Pavel Cisler <pavel@eazel.com>,
 */
 
-#ifndef CAJA_FILE_DND_H
-#define CAJA_FILE_DND_H
+#pragma once
 
 #include "caja-dnd.h"
 #include "caja-file.h"
@@ -39,6 +38,3 @@ gboolean caja_drag_can_accept_info              (CajaFile *drop_target_item,
         const GList *items);
 void     caja_drag_file_receive_dropped_keyword (CajaFile *file,
         const char   *keyword);
-
-#endif /* CAJA_FILE_DND_H */
-

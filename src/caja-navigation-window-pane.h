@@ -22,8 +22,7 @@
    Author: Holger Berndt <berndth@gmx.de>
 */
 
-#ifndef CAJA_NAVIGATION_WINDOW_PANE_H
-#define CAJA_NAVIGATION_WINDOW_PANE_H
+#pragma once
 
 #include "caja-window-pane.h"
 #include "caja-navigation-window-slot.h"
@@ -89,5 +88,3 @@ gboolean caja_navigation_window_pane_hide_temporary_bars (CajaNavigationWindowPa
 /* notebook */
 void     caja_navigation_window_pane_add_slot_in_tab (CajaNavigationWindowPane *pane, CajaWindowSlot *slot, CajaWindowOpenSlotFlags flags);
 void     caja_navigation_window_pane_remove_page (CajaNavigationWindowPane *pane, int page_num);
-
-#endif /* CAJA_NAVIGATION_WINDOW_PANE_H */

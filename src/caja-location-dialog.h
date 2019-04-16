@@ -21,8 +21,7 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef CAJA_LOCATION_DIALOG_H
-#define CAJA_LOCATION_DIALOG_H
+#pragma once
 
 #include <gtk/gtk.h>
 #include "caja-window.h"
@@ -51,5 +50,3 @@ GType      caja_location_dialog_get_type     (void);
 GtkWidget* caja_location_dialog_new          (CajaWindow         *window);
 void       caja_location_dialog_set_location (CajaLocationDialog *dialog,
         const char             *location);
-
-#endif /* CAJA_LOCATION_DIALOG_H */

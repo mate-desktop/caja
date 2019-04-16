@@ -22,8 +22,7 @@
    Authors: Jan Arne Petersen <jpetersen@uni-bonn.de>
 */
 
-#ifndef CAJA_FILE_MANAGEMENT_PROPERTIES_H
-#define CAJA_FILE_MANAGEMENT_PROPERTIES_H
+#pragma once
 
 #include <glib-object.h>
 #include <gtk/gtk.h>
@@ -37,5 +36,3 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-
-#endif /* CAJA_FILE_MANAGEMENT_PROPERTIES_H */

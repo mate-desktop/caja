@@ -22,9 +22,6 @@
  *
  */
 
-#ifndef CAJA_MENU_ITEM_H
-#define CAJA_MENU_ITEM_H
+#pragma once
 
 #include "caja-menu.h"
-
-#endif

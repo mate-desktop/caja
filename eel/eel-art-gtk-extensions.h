@@ -32,8 +32,7 @@
  * to do operations on ArtIRects (such as intersection)
  */
 
-#ifndef EEL_ART_GTK_EXTENSIONS_H
-#define EEL_ART_GTK_EXTENSIONS_H
+#pragma once
 
 #include "eel-gtk-extensions.h"
 #include "eel-art-extensions.h"
@@ -49,5 +48,3 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-
-#endif /* EEL_ART_GTK_EXTENSIONS_H */

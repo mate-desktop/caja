@@ -22,8 +22,7 @@
    Authors: Ramiro Estrugo <ramiro@eazel.com>
 */
 
-#ifndef EEL_IMAGE_TABLE_H
-#define EEL_IMAGE_TABLE_H
+#pragma once
 
 #include "eel-wrap-table.h"
 
@@ -95,5 +94,3 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-
-#endif /* EEL_IMAGE_TABLE_H */

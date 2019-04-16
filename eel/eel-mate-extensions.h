@@ -24,8 +24,7 @@
    Authors: Darin Adler <darin@eazel.com>
 */
 
-#ifndef EEL_MATE_EXTENSIONS_H
-#define EEL_MATE_EXTENSIONS_H
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -35,5 +34,3 @@ char *        eel_mate_make_terminal_command                         (const char
 /* Open up a new terminal, optionally passing in a command to execute */
 void          eel_mate_open_terminal_on_screen                       (const char               *command,
         GdkScreen                *screen);
-
-#endif /* EEL_MATE_EXTENSIONS_H */

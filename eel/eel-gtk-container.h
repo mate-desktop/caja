@@ -23,8 +23,7 @@
    Authors: Ramiro Estrugo <ramiro@eazel.com>
 */
 
-#ifndef EEL_GTK_CONTAINER_H
-#define EEL_GTK_CONTAINER_H
+#pragma once
 
 #include <gtk/gtk.h>
 #include "eel-art-extensions.h"
@@ -44,5 +43,3 @@ void eel_gtk_container_child_remove       (GtkContainer   *container,
 void eel_gtk_container_child_size_allocate (GtkContainer *container,
         GtkWidget *child,
         EelIRect child_geometry);
-
-#endif /* EEL_GTK_CONTAINER_H */

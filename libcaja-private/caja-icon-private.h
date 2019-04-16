@@ -22,8 +22,7 @@
    Author: Ettore Perazzoli <ettore@gnu.org>
 */
 
-#ifndef CAJA_ICON_CONTAINER_PRIVATE_H
-#define CAJA_ICON_CONTAINER_PRIVATE_H
+#pragma once
 
 #include <eel/eel-glib-extensions.h>
 
@@ -315,7 +314,3 @@ gboolean      caja_icon_container_scroll                      (CajaIconContainer
         int                    delta_x,
         int                    delta_y);
 void          caja_icon_container_update_scroll_region        (CajaIconContainer *container);
-
-
-
-#endif /* CAJA_ICON_CONTAINER_PRIVATE_H */

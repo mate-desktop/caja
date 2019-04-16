@@ -24,8 +24,7 @@
  *         Ettore Perazzoli <ettore@gnu.org>
  */
 
-#ifndef CAJA_LOCATION_ENTRY_H
-#define CAJA_LOCATION_ENTRY_H
+#pragma once
 
 #include <libcaja-private/caja-entry.h>
 
@@ -68,5 +67,3 @@ void       caja_location_entry_set_secondary_action (CajaLocationEntry *entry,
         CajaLocationEntryAction secondary_action);
 void       caja_location_entry_update_current_location (CajaLocationEntry *entry,
         const char *path);
-
-#endif /* CAJA_LOCATION_ENTRY_H */

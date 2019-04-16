@@ -26,6 +26,7 @@
  * check functions in Caja proper.
  */
 
+#pragma once
 
 void caja_run_self_checks (void);
 

@@ -22,8 +22,7 @@
    Authors: John Sullivan <sullivan@eazel.com>
 */
 
-#ifndef CAJA_FILE_UTILITIES_H
-#define CAJA_FILE_UTILITIES_H
+#pragma once
 
 #include <gio/gio.h>
 #include <gtk/gtk.h>
@@ -93,5 +92,3 @@ GHashTable * caja_trashed_files_get_original_directories (GList *files,
         GList **unhandled_files);
 void caja_restore_files_from_trash (GList *files,
                                     GtkWindow *parent_window);
-
-#endif /* CAJA_FILE_UTILITIES_H */

@@ -21,8 +21,8 @@
 
    Authors: Alexander Larsson <alexl@redhat.com>
 */
-#ifndef CAJA_UI_UTILITIES_H
-#define CAJA_UI_UTILITIES_H
+
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -41,5 +41,3 @@ GtkAction * caja_action_from_menu_item         (CajaMenuItem  *item, GtkWidget *
 GtkAction * caja_toolbar_action_from_menu_item (CajaMenuItem  *item, GtkWidget *parent_widget);
 const char *caja_ui_string_get                 (const char        *filename);
 void   caja_ui_frame_image                     (GdkPixbuf        **pixbuf);
-
-#endif /* CAJA_UI_UTILITIES_H */

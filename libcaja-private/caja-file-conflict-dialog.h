@@ -23,8 +23,7 @@
    Authors: Cosimo Cecchi <cosimoc@gnome.org>
 */
 
-#ifndef CAJA_FILE_CONFLICT_DIALOG_H
-#define CAJA_FILE_CONFLICT_DIALOG_H
+#pragma once
 
 #include <glib-object.h>
 #include <gio/gio.h>
@@ -76,5 +75,3 @@ GtkWidget* caja_file_conflict_dialog_new              (GtkWindow *parent,
         GFile *dest_dir);
 char*      caja_file_conflict_dialog_get_new_name     (CajaFileConflictDialog *dialog);
 gboolean   caja_file_conflict_dialog_get_apply_to_all (CajaFileConflictDialog *dialog);
-
-#endif /* CAJA_FILE_CONFLICT_DIALOG_H */

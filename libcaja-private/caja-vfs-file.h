@@ -23,8 +23,7 @@
    Author: Darin Adler <darin@bentspoon.com>
 */
 
-#ifndef CAJA_VFS_FILE_H
-#define CAJA_VFS_FILE_H
+#pragma once
 
 #include "caja-file.h"
 
@@ -53,5 +52,3 @@ typedef struct
 } CajaVFSFileClass;
 
 GType   caja_vfs_file_get_type (void);
-
-#endif /* CAJA_VFS_FILE_H */

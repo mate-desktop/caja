@@ -22,8 +22,7 @@
    Authors: Dave Camp <dave@ximian.com>
 */
 
-#ifndef CAJA_COLUMN_UTILITIES_H
-#define CAJA_COLUMN_UTILITIES_H
+#pragma once
 
 #include <libcaja-extension/caja-column.h>
 
@@ -37,6 +36,3 @@ void   caja_column_list_free      (GList       *columns);
 
 GList *caja_sort_columns          (GList       *columns,
                                    char       **column_order);
-
-
-#endif /* CAJA_COLUMN_UTILITIES_H */

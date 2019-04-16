@@ -22,8 +22,7 @@
  *
  */
 
-#ifndef __CAJA_X_CONTENT_BAR_H
-#define __CAJA_X_CONTENT_BAR_H
+#pragma once
 
 #include <gtk/gtk.h>
 #include <gio/gio.h>
@@ -63,5 +62,3 @@ G_BEGIN_DECLS
     GMount          *caja_x_content_bar_get_mount          (CajaXContentBar *bar);
 
 G_END_DECLS
-
-#endif /* __CAJA_X_CONTENT_BAR_H */

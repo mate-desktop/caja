@@ -24,8 +24,7 @@
             Pavel Cisler <pavel@eazel.com>
 */
 
-#ifndef CAJA_FILE_OPERATIONS_H
-#define CAJA_FILE_OPERATIONS_H
+#pragma once
 
 #include <gtk/gtk.h>
 #include <gio/gio.h>
@@ -139,5 +138,3 @@ void caja_file_mark_desktop_file_trusted (GFile           *file,
         gpointer          done_callback_data);
 
 void caja_application_notify_unmount_show (const gchar *message);
-
-#endif /* CAJA_FILE_OPERATIONS_H */

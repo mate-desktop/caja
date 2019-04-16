@@ -23,9 +23,7 @@
  * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
-#ifndef __EEL_EDITABLE_LABEL_H__
-#define __EEL_EDITABLE_LABEL_H__
-
+#pragma once
 
 #include <gdk/gdk.h>
 #include <gtk/gtk.h>
@@ -138,6 +136,3 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */
-
-
-#endif /* __EEL_EDITABLE_LABEL_H__ */

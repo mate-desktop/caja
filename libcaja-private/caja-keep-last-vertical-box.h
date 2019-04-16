@@ -23,8 +23,7 @@
    Author: John Sullivan <sullivan@eazel.com>,
  */
 
-#ifndef CAJA_KEEP_LAST_VERTICAL_BOX_H
-#define CAJA_KEEP_LAST_VERTICAL_BOX_H
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -55,5 +54,3 @@ struct CajaKeepLastVerticalBoxClass
 
 GType      caja_keep_last_vertical_box_get_type  (void);
 GtkWidget *caja_keep_last_vertical_box_new       (gint spacing);
-
-#endif /* CAJA_KEEP_LAST_VERTICAL_BOX_H */

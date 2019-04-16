@@ -23,6 +23,8 @@
    Author: Darin Adler <darin@bentspoon.com>
 */
 
+#pragma once
+
 #include <eel/eel-self-checks.h>
 
 void caja_run_lib_self_checks (void);

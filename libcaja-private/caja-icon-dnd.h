@@ -25,8 +25,7 @@
 	    Andy Hertzfeld <andy@eazel.com>
 */
 
-#ifndef CAJA_ICON_DND_H
-#define CAJA_ICON_DND_H
+#pragma once
 
 #include "caja-icon-container.h"
 #include "caja-dnd.h"
@@ -53,5 +52,3 @@ void   caja_icon_dnd_begin_drag            (CajaIconContainer *container,
         int                    start_x,
         int                    start_y);
 void   caja_icon_dnd_end_drag              (CajaIconContainer *container);
-
-#endif /* CAJA_ICON_DND_H */

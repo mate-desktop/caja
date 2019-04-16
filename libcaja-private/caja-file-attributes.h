@@ -22,8 +22,7 @@
    Author: Darin Adler <darin@bentspoon.com>
 */
 
-#ifndef CAJA_FILE_ATTRIBUTES_H
-#define CAJA_FILE_ATTRIBUTES_H
+#pragma once
 
 /* Names for CajaFile attributes. These are used when registering
  * interest in changes to the attributes or when waiting for them.
@@ -43,5 +42,3 @@ typedef enum
     CAJA_FILE_ATTRIBUTE_MOUNT = 1 << 9,
     CAJA_FILE_ATTRIBUTE_FILESYSTEM_INFO = 1 << 10,
 } CajaFileAttributes;
-
-#endif /* CAJA_FILE_ATTRIBUTES_H */

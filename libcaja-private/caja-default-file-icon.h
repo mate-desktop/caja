@@ -22,11 +22,8 @@
    Author: Darin Adler <darin@bentspoon.com>
 */
 
-#ifndef CAJA_DEFAULT_FILE_ICON_H
-#define CAJA_DEFAULT_FILE_ICON_H
+#pragma once
 
 extern const int caja_default_file_icon_width;
 extern const int caja_default_file_icon_height;
 extern const unsigned char caja_default_file_icon[];
-
-#endif /* CAJA_DEFAULT_FILE_ICON_H */

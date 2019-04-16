@@ -29,8 +29,7 @@
  * Extensions are called when Caja displays a location.
  */
 
-#ifndef CAJA_LOCATION_WIDGET_PROVIDER_H
-#define CAJA_LOCATION_WIDGET_PROVIDER_H
+#pragma once
 
 #include <glib-object.h>
 #include <gtk/gtk.h>
@@ -68,5 +67,3 @@ GtkWidget *caja_location_widget_provider_get_widget (CajaLocationWidgetProvider 
                                                      const char                 *uri,
                                                      GtkWidget                  *window);
 G_END_DECLS
-
-#endif

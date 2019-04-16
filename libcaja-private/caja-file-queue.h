@@ -20,8 +20,7 @@
    Author: Maciej Stachowiak <mjs@noisehavoc.org>
 */
 
-#ifndef CAJA_FILE_QUEUE_H
-#define CAJA_FILE_QUEUE_H
+#pragma once
 
 #include "caja-file.h"
 
@@ -48,5 +47,3 @@ void               caja_file_queue_remove   (CajaFileQueue *queue,
 CajaFile *     caja_file_queue_head     (CajaFileQueue *queue);
 
 gboolean           caja_file_queue_is_empty (CajaFileQueue *queue);
-
-#endif /* CAJA_FILE_CHANGES_QUEUE_H */

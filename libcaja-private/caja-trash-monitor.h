@@ -23,8 +23,7 @@
    Author: Pavel Cisler <pavel@eazel.com>
 */
 
-#ifndef CAJA_TRASH_MONITOR_H
-#define CAJA_TRASH_MONITOR_H
+#pragma once
 
 #include <gtk/gtk.h>
 #include <gio/gio.h>
@@ -64,5 +63,3 @@ GType			caja_trash_monitor_get_type				(void);
 CajaTrashMonitor   *caja_trash_monitor_get 				(void);
 gboolean		caja_trash_monitor_is_empty 			(void);
 GIcon                  *caja_trash_monitor_get_icon                         (void);
-
-#endif

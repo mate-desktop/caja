@@ -22,6 +22,8 @@
    Authors: Anders Carlsson <andersca@gnu.org>
 */
 
+#pragma once
+
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
 
@@ -29,9 +31,6 @@
 #include <libcaja-private/caja-directory.h>
 
 #include <libcaja-extension/caja-column.h>
-
-#ifndef FM_LIST_MODEL_H
-#define FM_LIST_MODEL_H
 
 #define FM_TYPE_LIST_MODEL fm_list_model_get_type()
 #define FM_LIST_MODEL(obj) \
@@ -135,5 +134,3 @@ void              fm_list_model_subdirectory_done_loading (FMListModel       *mo
 
 void              fm_list_model_set_highlight_for_files (FMListModel *model,
         GList *files);
-
-#endif /* FM_LIST_MODEL_H */

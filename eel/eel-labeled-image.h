@@ -43,8 +43,7 @@
  * Note that the alignments are ignored if the fill attribute is TRUE.
  */
 
-#ifndef EEL_LABELED_IMAGE_H
-#define EEL_LABELED_IMAGE_H
+#pragma once
 
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gtk/gtk.h>
@@ -160,7 +159,3 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-
-#endif /* EEL_LABELED_IMAGE_H */
-
-

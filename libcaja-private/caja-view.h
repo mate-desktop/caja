@@ -22,8 +22,7 @@
    Author: Alexander Larsson <alexl@redhat.com>
 */
 
-#ifndef CAJA_VIEW_H
-#define CAJA_VIEW_H
+#pragma once
 
 #include <glib-object.h>
 #include <gtk/gtk.h>
@@ -189,5 +188,3 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-
-#endif /* CAJA_VIEW_H */

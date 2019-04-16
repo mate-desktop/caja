@@ -23,8 +23,7 @@
    Authors: Dave Camp <dave@novell.com>
 */
 
-#ifndef CAJA_OPEN_WITH_DIALOG_H
-#define CAJA_OPEN_WITH_DIALOG_H
+#pragma once
 
 #include <gtk/gtk.h>
 #include <gio/gio.h>
@@ -60,7 +59,3 @@ GtkWidget* caja_add_application_dialog_new (const char *uri,
         const char *mime_type);
 GtkWidget* caja_add_application_dialog_new_for_multiple_files (const char *extension,
         const char *mime_type);
-
-
-
-#endif /* CAJA_OPEN_WITH_DIALOG_H */

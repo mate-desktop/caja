@@ -22,8 +22,7 @@
    Author: Alexander Larsson <alexl@redhat.com>
 */
 
-#ifndef CAJA_PROGRESS_INFO_H
-#define CAJA_PROGRESS_INFO_H
+#pragma once
 
 #include <glib-object.h>
 #include <gio/gio.h>
@@ -81,6 +80,3 @@ void          caja_progress_info_set_progress    (CajaProgressInfo *info,
         double                current,
         double                total);
 void          caja_progress_info_pulse_progress  (CajaProgressInfo *info);
-
-
-#endif /* CAJA_PROGRESS_INFO_H */

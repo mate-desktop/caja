@@ -25,9 +25,7 @@
 
 /* fm-tree-view.h - tree view. */
 
-
-#ifndef FM_TREE_VIEW_H
-#define FM_TREE_VIEW_H
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -61,5 +59,3 @@ typedef struct
 
 GType fm_tree_view_get_type (void);
 void fm_tree_view_register (void);
-
-#endif /* FM_TREE_VIEW_H */

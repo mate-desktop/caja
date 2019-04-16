@@ -22,8 +22,7 @@
  * Authors: Alexander Larsson < alexl@redhat.com>
  */
 
-#ifndef FM_ACTIONS_H
-#define FM_ACTIONS_H
+#pragma once
 
 #define FM_ACTION_OPEN "Open"
 #define FM_ACTION_OPEN_ALTERNATE "OpenAlternate"
@@ -108,5 +107,3 @@
 #define FM_ACTION_UNDO "Undo"
 #define FM_ACTION_REDO "Redo"
 #define FM_ACTION_SORT_TRASH_TIME "Sort by Trash Time"
-
-#endif /* FM_ACTIONS_H */

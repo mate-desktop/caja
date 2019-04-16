@@ -26,8 +26,7 @@
  * needs information about a file.  They are passed a CajaFileInfo
  * object which should be filled with relevant information */
 
-#ifndef CAJA_EXTENSION_TYPES_H
-#define CAJA_EXTENSION_TYPES_H
+#pragma once
 
 #include <glib-object.h>
 
@@ -86,5 +85,3 @@ void caja_module_list_types  (const GType **types,
 void caja_module_list_pyfiles (GList      **pyfiles);
 
 G_END_DECLS
-
-#endif

@@ -23,8 +23,7 @@
  *
  */
 
-#ifndef CAJA_MENU_H
-#define CAJA_MENU_H
+#pragma once
 
 #include <glib-object.h>
 #include "caja-extension-types.h"
@@ -110,5 +109,3 @@ void          caja_menu_item_set_submenu (CajaMenuItem *item,
  */
 
 G_END_DECLS
-
-#endif /* CAJA_MENU_H */

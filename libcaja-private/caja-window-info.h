@@ -22,8 +22,7 @@
    Author: Alexander Larsson <alexl@redhat.com>
 */
 
-#ifndef CAJA_WINDOW_INFO_H
-#define CAJA_WINDOW_INFO_H
+#pragma once
 
 #include <glib-object.h>
 
@@ -206,5 +205,3 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-
-#endif /* CAJA_WINDOW_INFO_H */

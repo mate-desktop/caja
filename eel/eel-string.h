@@ -22,8 +22,7 @@
    Authors: Darin Adler <darin@eazel.com>
 */
 
-#ifndef EEL_STRING_H
-#define EEL_STRING_H
+#pragma once
 
 #include <glib.h>
 
@@ -92,5 +91,3 @@ char *eel_strdup_printf_with_custom (EelPrintfHandler *handlers,
 char *eel_strdup_vprintf_with_custom (EelPrintfHandler *custom,
                                       const char *format,
                                       va_list va);
-
-#endif /* EEL_STRING_H */

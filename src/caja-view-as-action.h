@@ -23,8 +23,7 @@
  *
  */
 
-#ifndef CAJA_VIEW_AS_ACTION_H
-#define CAJA_VIEW_AS_ACTION_H
+#pragma once
 
 #include <gtk/gtk.h>
 
@@ -53,5 +52,3 @@ struct _CajaViewAsActionClass
 };
 
 GType    caja_view_as_action_get_type   (void);
-
-#endif

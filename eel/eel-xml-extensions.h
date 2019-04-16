@@ -22,8 +22,7 @@
    Authors: Darin Adler <darin@eazel.com>
 */
 
-#ifndef EEL_XML_EXTENSIONS_H
-#define EEL_XML_EXTENSIONS_H
+#pragma once
 
 #include <libxml/tree.h>
 #include <glib.h>
@@ -39,5 +38,3 @@ xmlNodePtr eel_xml_get_root_child_by_name_and_property (xmlDocPtr   document,
         const char *property_value);
 xmlChar   *eel_xml_get_property_translated             (xmlNodePtr  parent,
         const char *property_name);
-
-#endif /* EEL_XML_EXTENSIONS_H */

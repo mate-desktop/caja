@@ -26,9 +26,7 @@
    names and imges */
 
 
-
-#ifndef CAJA_CUSTOMIZATION_DATA_H
-#define CAJA_CUSTOMIZATION_DATA_H
+#pragma once
 
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gtk/gtk.h>
@@ -64,5 +62,3 @@ GdkPixbuf*                 caja_customization_make_pattern_chit                 
         GdkPixbuf *frame,
         gboolean dragging,
         gboolean is_reset);
-
-#endif /* CAJA_CUSTOMIZATION_DATA_H */

@@ -22,8 +22,7 @@
    Authors: Ramiro Estrugo <ramiro@eazel.com>
 */
 
-#ifndef EEL_WRAP_TABLE_H
-#define EEL_WRAP_TABLE_H
+#pragma once
 
 #include <glib.h>
 #include <gtk/gtk.h>
@@ -102,7 +101,3 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-
-#endif /* EEL_WRAP_TABLE_H */
-
-

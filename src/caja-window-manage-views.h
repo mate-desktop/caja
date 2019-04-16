@@ -24,8 +24,7 @@
  *
  */
 
-#ifndef CAJA_WINDOW_MANAGE_VIEWS_H
-#define CAJA_WINDOW_MANAGE_VIEWS_H
+#pragma once
 
 #include "caja-window.h"
 #include "caja-window-pane.h"
@@ -45,5 +44,3 @@ void caja_window_report_load_complete     (CajaWindow     *window,
         CajaView       *view);
 void caja_window_report_location_change   (CajaWindow     *window);
 void caja_window_update_up_button         (CajaWindow     *window);
-
-#endif /* CAJA_WINDOW_MANAGE_VIEWS_H */

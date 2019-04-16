@@ -23,8 +23,7 @@
  *
  */
 
-#ifndef CAJA_ACTIONS_H
-#define CAJA_ACTIONS_H
+#pragma once
 
 #define CAJA_ACTION_STOP "Stop"
 #define CAJA_ACTION_RELOAD "Reload"
@@ -52,5 +51,3 @@
 #define CAJA_ACTION_SEARCH "Search"
 #define CAJA_ACTION_FOLDER_WINDOW "Folder Window"
 #define CAJA_ACTION_NEW_TAB "New Tab"
-
-#endif /* CAJA_ACTIONS_H */

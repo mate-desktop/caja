@@ -21,8 +21,7 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef CAJA_CONNECT_SERVER_DIALOG_H
-#define CAJA_CONNECT_SERVER_DIALOG_H
+#pragma once
 
 #include <gio/gio.h>
 #include <gtk/gtk.h>
@@ -77,5 +76,3 @@ void caja_connect_server_dialog_fill_details_async (CajaConnectServerDialog *sel
 							gpointer user_data);
 gboolean caja_connect_server_dialog_fill_details_finish (CajaConnectServerDialog *self,
 							     GAsyncResult *result);
-
-#endif /* CAJA_CONNECT_SERVER_DIALOG_H */

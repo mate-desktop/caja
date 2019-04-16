@@ -23,8 +23,7 @@
             Ramiro Estrugo <ramiro@eazel.com>
 */
 
-#ifndef EEL_GDK_PIXBUF_EXTENSIONS_H
-#define EEL_GDK_PIXBUF_EXTENSIONS_H
+#pragma once
 
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gdk/gdk.h>
@@ -71,5 +70,3 @@ void                 eel_gdk_pixbuf_unref_if_not_null         (GdkPixbuf        
 GdkPixbuf *          eel_gdk_pixbuf_scale_down                (GdkPixbuf *pixbuf,
         int dest_width,
         int dest_height);
-
-#endif /* EEL_GDK_PIXBUF_EXTENSIONS_H */
