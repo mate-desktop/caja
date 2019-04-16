@@ -184,6 +184,9 @@ build_scripts:
   - else
   -     scan-build $CHECKERS --keep-cc -o html-report make
   - fi
+  - if [ ${DISTRO_NAME} == "debian" ];then
+  -     cppcheck --enable=warning,style,performance,portability,information,missingInclude .
+  - fi
 
 after_scripts:
   - if [ ${DISTRO_NAME} == "fedora" ];then
