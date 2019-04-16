@@ -23,10 +23,10 @@
 # Kajetan Rosiak <roskaj@gmail.com>, 2018
 # Marcin GTriderXC <gtriderxc@yahoo.com>, 2018
 # Piotr Drąg <piotrdrag@gmail.com>, 2018
-# pietrasagh <pietrasagh@gmail.com>, 2018
-# Dominik Adrian Grzywak, 2019
+# Piotr Kowalik <pietrasagh@gmail.com>, 2018
 # Stefano Karapetsas <stefano@karapetsas.com>, 2019
 # Przemek P <ppjg@dami.pl>, 2019
+# Dominik Adrian Grzywak, 2019
 # 
 #, fuzzy
 msgid ""
@@ -35,7 +35,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-16 22:36+0100\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Przemek P <ppjg@dami.pl>, 2019\n"
+"Last-Translator: Dominik Adrian Grzywak, 2019\n"
 "Language-Team: Polish (https://www.transifex.com/mate/teams/13566/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3515,6 +3515,9 @@ msgid ""
 "If set to true, then hidden files are shown by default in the file manager. "
 "Hidden files are either dotfiles or listed in the folder's .hidden file."
 msgstr ""
+"Jeżeli ustawione jako prawda, to ukryte pliki będą domyślnie pokazywane "
+"przez menadżer plików. Plikami ukrytymi są zarówno pliki z kropką na "
+"początku nazwy, jak i wymienione w pliku .hidden."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:67
 msgid "Whether to show backup files"
@@ -3525,6 +3528,9 @@ msgid ""
 "If set to true, then backup files are shown by default in the file manager. "
 "Backup files are backup files ending with a tilde (~)."
 msgstr ""
+"Jeżeli ustawione jako prawda, to pliki kopii zapasowej będą domyślnie "
+"pokazywane przez menadżer plików. Plikami kopii zapasowej są pliki kończące "
+"się tyldą (~)."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:69
 msgid "Whether to show file sizes with IEC units"
@@ -3544,7 +3550,7 @@ msgstr "Czy wyświetlać powiadomienia na pulpicie"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:72
 msgid "If set to true, Caja will show desktop notifications."
-msgstr ""
+msgstr "Jeśli ustawione jako prawda, Caja pokaże powiadomienia pulpitu."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:73
 msgid "List of possible captions on icons"
@@ -6218,7 +6224,7 @@ msgstr ""
 
 #: ../src/caja-application.c:2088
 msgid "Open URIs in tabs."
-msgstr ""
+msgstr "Otwieranie Zakładek w kartach"
 
 #: ../src/caja-application.c:2090
 msgid "Open a browser window."
@@ -6698,11 +6704,11 @@ msgstr "_Katalogi przed plikami"
 
 #: ../src/caja-file-management-properties.ui.h:48
 msgid "Show hidden files"
-msgstr ""
+msgstr "Wyświetlanie ukrytych plików"
 
 #: ../src/caja-file-management-properties.ui.h:49
 msgid "Show backup files"
-msgstr ""
+msgstr "Wyświetlanie plików kopii zapasowych"
 
 #: ../src/caja-file-management-properties.ui.h:50
 msgid "<b>Icon View Defaults</b>"
@@ -7120,7 +7126,7 @@ msgstr "_Położenie:"
 
 #: ../src/caja-navigation-action.c:146
 msgid "folder removed"
-msgstr ""
+msgstr "folder usunięty"
 
 #: ../src/caja-navigation-window-menus.c:131
 msgid "Are you sure you want to clear the list of locations you have visited?"
@@ -7678,7 +7684,7 @@ msgstr "Tagi"
 
 #: ../src/caja-query-editor.c:181
 msgid "Modification Time"
-msgstr ""
+msgstr "Czas Modyfikacji"
 
 #: ../src/caja-query-editor.c:334
 msgid "Select folder to search in"
@@ -7741,27 +7747,27 @@ msgstr "Inny typ..."
 
 #: ../src/caja-query-editor.c:1063 ../src/caja-query-editor.c:1202
 msgid "Less than or equal to"
-msgstr ""
+msgstr "Mniejsze lub równe"
 
 #: ../src/caja-query-editor.c:1065 ../src/caja-query-editor.c:1204
 msgid "Greater or equal to"
-msgstr ""
+msgstr "Większe lub równe"
 
 #: ../src/caja-query-editor.c:1078
 msgid "1 Hour"
-msgstr ""
+msgstr "1 Godzina"
 
 #: ../src/caja-query-editor.c:1080
 msgid "1 Day"
-msgstr ""
+msgstr "1 Dzień"
 
 #: ../src/caja-query-editor.c:1082
 msgid "1 Week"
-msgstr ""
+msgstr "1 Tydzień"
 
 #: ../src/caja-query-editor.c:1084
 msgid "1 Month"
-msgstr ""
+msgstr "1 Miesiąc"
 
 #: ../src/caja-query-editor.c:1086
 msgid "6 Months"
@@ -7773,55 +7779,55 @@ msgstr "1 rok"
 
 #: ../src/caja-query-editor.c:1219
 msgid "10 KiB"
-msgstr ""
+msgstr "10 KiB"
 
 #: ../src/caja-query-editor.c:1221
 msgid "100 KiB"
-msgstr ""
+msgstr "100 KiB"
 
 #: ../src/caja-query-editor.c:1223
 msgid "500 KiB"
-msgstr ""
+msgstr "500 KiB"
 
 #: ../src/caja-query-editor.c:1225
 msgid "1 MiB"
-msgstr ""
+msgstr "1 MiB"
 
 #: ../src/caja-query-editor.c:1227
 msgid "5 MiB"
-msgstr ""
+msgstr "5 MiB"
 
 #: ../src/caja-query-editor.c:1229
 msgid "10 MiB"
-msgstr ""
+msgstr "10 MiB"
 
 #: ../src/caja-query-editor.c:1231
 msgid "100 MiB"
-msgstr ""
+msgstr "100 MiB"
 
 #: ../src/caja-query-editor.c:1233
 msgid "500 MiB"
-msgstr ""
+msgstr "500 MiB"
 
 #: ../src/caja-query-editor.c:1235
 msgid "1 GiB"
-msgstr ""
+msgstr "1 GiB"
 
 #: ../src/caja-query-editor.c:1237
 msgid "2 GiB"
-msgstr ""
+msgstr "2 GiB"
 
 #: ../src/caja-query-editor.c:1239
 msgid "4 GiB"
-msgstr ""
+msgstr "4 GiB"
 
 #: ../src/caja-query-editor.c:1242
 msgid "10 KB"
-msgstr ""
+msgstr "10 KB"
 
 #: ../src/caja-query-editor.c:1256
 msgid "500 MB"
-msgstr ""
+msgstr "500 MB"
 
 #: ../src/caja-query-editor.c:1449
 msgid "Remove this criterion from the search"
@@ -8039,7 +8045,7 @@ msgstr ""
 
 #: ../src/caja-window-menus.c:637
 msgid "About Caja"
-msgstr ""
+msgstr "O programie Caja"
 
 #: ../src/caja-window-menus.c:639
 msgid ""
@@ -8263,12 +8269,12 @@ msgstr "Przełącza wyświetlanie ukrytych plików w bieżącym oknie"
 #. label, accelerator
 #: ../src/caja-window-menus.c:1028
 msgid "Show Bac_kup Files"
-msgstr ""
+msgstr "Wyświetlanie Plików _Kopii Zapasowych"
 
 #. tooltip
 #: ../src/caja-window-menus.c:1029
 msgid "Toggle the display of backup files in the current window"
-msgstr ""
+msgstr "Przełącza wyświetlanie plików kopii zapasowych w bieżącym oknie"
 
 #: ../src/caja-window-menus.c:1061
 msgid "_Up"

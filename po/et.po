@@ -7,8 +7,8 @@
 # xpander0 <xpander0@gmail.com>, 2018
 # Ivar Smolin <okul@linux.ee>, 2018
 # Rivo Zängov <eraser@eraser.ee>, 2018
-# Mattias Põldaru <mahfiaz@gmail.com>, 2018
 # Stefano Karapetsas <stefano@karapetsas.com>, 2019
+# Mattias Põldaru <mahfiaz@gmail.com>, 2019
 # 
 #, fuzzy
 msgid ""
@@ -17,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-16 22:36+0100\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2019\n"
+"Last-Translator: Mattias Põldaru <mahfiaz@gmail.com>, 2019\n"
 "Language-Team: Estonian (https://www.transifex.com/mate/teams/13566/et/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1357,8 +1357,8 @@ msgstr "_Viska prügikasti"
 #, c-format
 msgid "%'d file left to delete"
 msgid_plural "%'d files left to delete"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d fail on jäänud kustutada"
+msgstr[1] "%'d faili on jäänud kustutada"
 
 #: ../libcaja-private/caja-file-operations.c:1524
 msgid "Deleting files"
@@ -1370,8 +1370,8 @@ msgstr "Failide kustutamine"
 #: ../libcaja-private/caja-file-operations.c:1538
 msgid "%T left"
 msgid_plural "%T left"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%T jäänud"
+msgstr[1] "%T jäänud"
 
 #: ../libcaja-private/caja-file-operations.c:1605
 #: ../libcaja-private/caja-file-operations.c:1639
@@ -1431,8 +1431,8 @@ msgstr "Failide prügikasti viskamine"
 #, c-format
 msgid "%'d file left to trash"
 msgid_plural "%'d files left to trash"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d fail on jäänud prügikasti visata"
+msgstr[1] "%'d faili on jäänud prügikasti visata"
 
 #: ../libcaja-private/caja-file-operations.c:1895
 msgid "Cannot move file to trash, do you want to delete immediately?"
@@ -2054,22 +2054,22 @@ msgstr "Määratud gruppi '%s' pole olemas"
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'u kirje"
+msgstr[1] "%'u kirjet"
 
 #: ../libcaja-private/caja-file.c:6181
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'u kaust"
+msgstr[1] "%'u kausta"
 
 #: ../libcaja-private/caja-file.c:6182
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'u fail"
+msgstr[1] "%'u faili"
 
 #. Do this in a separate stage so that we don't have to put G_GUINT64_FORMAT
 #. in the translated string
@@ -2187,15 +2187,15 @@ msgstr "Kas oled kindel, et soovid avada kõik failid?"
 #, c-format
 msgid "This will open %d separate tab."
 msgid_plural "This will open %d separate tabs."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "See avab %d eraldi kaardil."
+msgstr[1] "See avab %d eraldi kaartidel."
 
 #: ../libcaja-private/caja-mime-actions.c:1189 ../src/caja-location-bar.c:194
 #, c-format
 msgid "This will open %d separate window."
 msgid_plural "This will open %d separate windows."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "See avab %d eraldi aknas."
+msgstr[1] "See avab %d eraldi akendes."
 
 #: ../libcaja-private/caja-mime-actions.c:1267
 #: ../src/caja-window-manage-views.c:2101
@@ -6542,7 +6542,7 @@ msgstr "<b>Käivitatavad tekstifailid</b>"
 
 #: ../src/caja-file-management-properties.ui.h:67
 msgid "_Run executable text files when they are opened"
-msgstr "Käivitatavade teksti_failide avamisel need käivitatakse"
+msgstr "Käivitatavate teksti_failide avamisel need käivitatakse"
 
 #: ../src/caja-file-management-properties.ui.h:68
 msgid "_View executable text files when they are opened"
@@ -6580,9 +6580,7 @@ msgstr "<b>Ikoonide pealdised</b>"
 msgid ""
 "Choose the order of information to appear beneath icon names. More "
 "information will appear when zooming in closer."
-msgstr ""
-"Vali ikooni all olevate andmete järjekord. Täpsemad andmed ilmuvad ikoonide "
-"suurendamisel."
+msgstr "Ikooni all olevate andmete järjekord. Suurendamisel lisandub andmeid."
 
 #: ../src/caja-file-management-properties.ui.h:77
 msgid "<b>Date</b>"
@@ -7507,19 +7505,19 @@ msgstr ""
 
 #: ../src/caja-query-editor.c:1078
 msgid "1 Hour"
-msgstr ""
+msgstr "1 tund"
 
 #: ../src/caja-query-editor.c:1080
 msgid "1 Day"
-msgstr ""
+msgstr "1 päev"
 
 #: ../src/caja-query-editor.c:1082
 msgid "1 Week"
-msgstr ""
+msgstr "1 nädal"
 
 #: ../src/caja-query-editor.c:1084
 msgid "1 Month"
-msgstr ""
+msgstr "1 kuu"
 
 #: ../src/caja-query-editor.c:1086
 msgid "6 Months"
@@ -7531,55 +7529,55 @@ msgstr "1 aasta"
 
 #: ../src/caja-query-editor.c:1219
 msgid "10 KiB"
-msgstr ""
+msgstr "10 KiB"
 
 #: ../src/caja-query-editor.c:1221
 msgid "100 KiB"
-msgstr ""
+msgstr "100 KiB"
 
 #: ../src/caja-query-editor.c:1223
 msgid "500 KiB"
-msgstr ""
+msgstr "500 KiB"
 
 #: ../src/caja-query-editor.c:1225
 msgid "1 MiB"
-msgstr ""
+msgstr "1 MiB"
 
 #: ../src/caja-query-editor.c:1227
 msgid "5 MiB"
-msgstr ""
+msgstr "5 MiB"
 
 #: ../src/caja-query-editor.c:1229
 msgid "10 MiB"
-msgstr ""
+msgstr "10 MiB"
 
 #: ../src/caja-query-editor.c:1231
 msgid "100 MiB"
-msgstr ""
+msgstr "100 MiB"
 
 #: ../src/caja-query-editor.c:1233
 msgid "500 MiB"
-msgstr ""
+msgstr "500 MiB"
 
 #: ../src/caja-query-editor.c:1235
 msgid "1 GiB"
-msgstr ""
+msgstr "1 GiB"
 
 #: ../src/caja-query-editor.c:1237
 msgid "2 GiB"
-msgstr ""
+msgstr "2 GiB"
 
 #: ../src/caja-query-editor.c:1239
 msgid "4 GiB"
-msgstr ""
+msgstr "4 GiB"
 
 #: ../src/caja-query-editor.c:1242
 msgid "10 KB"
-msgstr ""
+msgstr "10 KB"
 
 #: ../src/caja-query-editor.c:1256
 msgid "500 MB"
-msgstr ""
+msgstr "500 MB"
 
 #: ../src/caja-query-editor.c:1449
 msgid "Remove this criterion from the search"
@@ -7796,7 +7794,7 @@ msgstr ""
 
 #: ../src/caja-window-menus.c:637
 msgid "About Caja"
-msgstr ""
+msgstr "Cajast lähemalt"
 
 #: ../src/caja-window-menus.c:639
 msgid ""
@@ -7810,6 +7808,8 @@ msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2019 The Caja authors"
 msgstr ""
+"Autoriõigus © 1999-2009 Nautiluse autorid\n"
+"Autoriõigus © 2011-2019 Caja autorid"
 
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
