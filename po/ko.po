@@ -4,12 +4,13 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Youngbin Han <sukso96100@gmail.com>, 2018
-# jaekwon.park <jaekwon.park@rockplace.co.kr>, 2018
-# Seong-ho Cho <darkcircle.0426@gmail.com>, 2018
-# Alan Lee <bkrhlim@aol.com>, 2018
-# 박정규(Jung-Kyu Park) <bagjunggyu@gmail.com>, 2019
+# Youngbin Han <sukso96100@gmail.com>, 2019
+# Wolfgang Ulbrich <mate@raveit.de>, 2019
+# Seong-ho Cho <darkcircle.0426@gmail.com>, 2019
 # Stefano Karapetsas <stefano@karapetsas.com>, 2019
+# Alan Lee <bkrhlim@aol.com>, 2019
+# jaekwon.park <jaekwon.park@rockplace.co.kr>, 2019
+# 박정규(Jung-Kyu Park) <bagjunggyu@gmail.com>, 2019
 # 
 #, fuzzy
 msgid ""
@@ -17,8 +18,8 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-16 22:36+0100\n"
-"PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2019\n"
+"PO-Revision-Date: 2019-03-11 12:13+0000\n"
+"Last-Translator: 박정규(Jung-Kyu Park) <bagjunggyu@gmail.com>, 2019\n"
 "Language-Team: Korean (https://www.transifex.com/mate/teams/13566/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -708,7 +709,7 @@ msgstr "디스크에 있는 파일의 크기입니다."
 
 #: ../libcaja-private/caja-column-utilities.c:67
 msgid "Type"
-msgstr "형식"
+msgstr "종류"
 
 #: ../libcaja-private/caja-column-utilities.c:68
 msgid "The type of the file."
@@ -766,7 +767,7 @@ msgstr "파일의 권한입니다(8진수 표기)."
 
 #: ../libcaja-private/caja-column-utilities.c:122
 msgid "MIME Type"
-msgstr "MIME 형식"
+msgstr "MIME 종류"
 
 #: ../libcaja-private/caja-column-utilities.c:123
 msgid "The mime type of the file."
@@ -1408,7 +1409,7 @@ msgstr "파일을 휴지통으로 보내는 중"
 #, c-format
 msgid "%'d file left to trash"
 msgid_plural "%'d files left to trash"
-msgstr[0] "휴지통에 파일 %'d개 남음"
+msgstr[0] "휴지통에 버릴 파일 %'d개 남음"
 
 #: ../libcaja-private/caja-file-operations.c:1895
 msgid "Cannot move file to trash, do you want to delete immediately?"
@@ -1457,19 +1458,19 @@ msgstr "%s 장치를 마운트할 수 없습니다"
 #, c-format
 msgid "Preparing to copy %'d file (%S)"
 msgid_plural "Preparing to copy %'d files (%S)"
-msgstr[0] "파일 %'d개 복사 준비 중(%S)"
+msgstr[0] "파일 %'d개 복사 준비 중 (%S)"
 
 #: ../libcaja-private/caja-file-operations.c:2531
 #, c-format
 msgid "Preparing to move %'d file (%S)"
 msgid_plural "Preparing to move %'d files (%S)"
-msgstr[0] "파일 %'d개 옮길 준비 중(%S)"
+msgstr[0] "파일 %'d개 옮길 준비 중 (%S)"
 
 #: ../libcaja-private/caja-file-operations.c:2537
 #, c-format
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
-msgstr[0] "파일 %'d개 삭제 준비 중(%S)"
+msgstr[0] "파일 %'d개 삭제 준비 중 (%S)"
 
 #: ../libcaja-private/caja-file-operations.c:2543
 #, c-format
@@ -1610,7 +1611,7 @@ msgstr "%S / %S"
 #: ../libcaja-private/caja-file-operations.c:3097
 msgid "%S of %S — %T left (%S/sec)"
 msgid_plural "%S of %S — %T left (%S/sec)"
-msgstr[0] "%S / %S — %T 남음 (%S/초)"
+msgstr[0] "%2$S중 %1$S — %3$T 남음(초당 %4$S)"
 
 #: ../libcaja-private/caja-file-operations.c:3476
 msgid ""
@@ -2005,19 +2006,19 @@ msgstr "지정한 그룹 '%s'이(가) 존재하지 않습니다"
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
-msgstr[0] "항목 %'u개"
+msgstr[0] "%'u개 항목"
 
 #: ../libcaja-private/caja-file.c:6181
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
-msgstr[0] "폴더 %'u개"
+msgstr[0] "%'u개 폴더"
 
 #: ../libcaja-private/caja-file.c:6182
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
-msgstr[0] "파일 %'u개"
+msgstr[0] "%'u개 파일"
 
 #. Do this in a separate stage so that we don't have to put G_GUINT64_FORMAT
 #. in the translated string
@@ -2700,25 +2701,25 @@ msgstr "양식으로 파일 만들기 취소(_U)"
 #, c-format
 msgid "_Undo creation of %d folder"
 msgid_plural "_Undo creation of %d folders"
-msgstr[0] "폴더 %d개 만들기 취소(_U)"
+msgstr[0] "폴더 %d개 만들기 되돌리기(_U)"
 
 #: ../libcaja-private/caja-undostack-manager.c:1531
 #, c-format
 msgid "_Undo move to trash of %d item"
 msgid_plural "_Undo move to trash of %d items"
-msgstr[0] "항목 %d개 휴지통에 버리기 취소(_U)"
+msgstr[0] "항목 %d개 휴지통에 버리기 되돌리기(_U)"
 
 #: ../libcaja-private/caja-undostack-manager.c:1536
 #, c-format
 msgid "_Undo restore from trash of %d item"
 msgid_plural "_Undo restore from trash of %d items"
-msgstr[0] "항목 %d개 휴지통에서 복원 취소(_U)"
+msgstr[0] "항목 %d개 휴지통에서 복원 되돌리기(_U)"
 
 #: ../libcaja-private/caja-undostack-manager.c:1541
 #, c-format
 msgid "_Undo create link to %d item"
 msgid_plural "_Undo create link to %d items"
-msgstr[0] "항목 %d개 링크 생성 되돌리기(_U)"
+msgstr[0] "항목 %d개 링크 만들기 되돌리기(_U)"
 
 #: ../libcaja-private/caja-undostack-manager.c:1546
 #, c-format
@@ -2754,25 +2755,25 @@ msgstr[0] "항목 %d개 소유자 변경 되돌리기"
 #, c-format
 msgid "_Redo copy of %d item"
 msgid_plural "_Redo copy of %d items"
-msgstr[0] "항목 %d개 복사 재실행(_R)"
+msgstr[0] "항목 %d개 복사 다시 실행(_R)"
 
 #: ../libcaja-private/caja-undostack-manager.c:1600
 #, c-format
 msgid "_Redo duplicate of %d item"
 msgid_plural "_Redo duplicate of %d items"
-msgstr[0] "항목 %d개 복제 재실행(_R)"
+msgstr[0] "항목 %d개 복제 다시 실행(_R)"
 
 #: ../libcaja-private/caja-undostack-manager.c:1605
 #, c-format
 msgid "_Redo move of %d item"
 msgid_plural "_Redo move of %d items"
-msgstr[0] "항목 %d개 이동 재실행(_R)"
+msgstr[0] "항목 %d개 이동 다시 실행(_R)"
 
 #: ../libcaja-private/caja-undostack-manager.c:1610
 #, c-format
 msgid "_Redo rename of %d item"
 msgid_plural "_Redo rename of %d items"
-msgstr[0] "항목 %d개의 이름 바꾸기 재실행(_R)"
+msgstr[0] "항목 %d개의 이름 바꾸기 다시 실행(_R)"
 
 #: ../libcaja-private/caja-undostack-manager.c:1614
 #, c-format
@@ -2788,55 +2789,55 @@ msgstr "양식으로 파일 만들기 재실행(_R)"
 #, c-format
 msgid "_Redo creation of %d folder"
 msgid_plural "_Redo creation of %d folders"
-msgstr[0] "폴더 %d개 만들기 재실행(_R)"
+msgstr[0] "폴더 %d개 만들기 다시 실행(_R)"
 
 #: ../libcaja-private/caja-undostack-manager.c:1626
 #, c-format
 msgid "_Redo move to trash of %d item"
 msgid_plural "_Redo move to trash of %d items"
-msgstr[0] "항목 %d개 휴지통으로 옮기기 재실행(_R)"
+msgstr[0] "항목 %d개 휴지통으로 옮기기 다시 실행(_R)"
 
 #: ../libcaja-private/caja-undostack-manager.c:1631
 #, c-format
 msgid "_Redo restore from trash of %d item"
 msgid_plural "_Redo restore from trash of %d items"
-msgstr[0] "항목 %d개 휴지통으로부터 복원 재실행(_R)"
+msgstr[0] "항목 %d개 휴지통에서 복원하기 다시 실행(_R)"
 
 #: ../libcaja-private/caja-undostack-manager.c:1636
 #, c-format
 msgid "_Redo create link to %d item"
 msgid_plural "_Redo create link to %d items"
-msgstr[0] "항목 %d개 링크 생성 재실행(_R)"
+msgstr[0] "항목 %d개 링크 만들기 다시 실행(_R)"
 
 #: ../libcaja-private/caja-undostack-manager.c:1641
 #, c-format
 msgid "_Redo delete of %d item"
 msgid_plural "_Redo delete of %d items"
-msgstr[0] "항목 %d개 지우기 재실행(_R)"
+msgstr[0] "항목 %d개 지우기 다시 실행(_R)"
 
 #: ../libcaja-private/caja-undostack-manager.c:1646
 #, c-format
 msgid "Redo recursive change permissions of %d item"
 msgid_plural "Redo recursive change permissions of %d items"
-msgstr[0] "항목 %d개 재귀적 권한 변경 재실행"
+msgstr[0] "항목 %d개 재귀적 권한 변경 다시 실행"
 
 #: ../libcaja-private/caja-undostack-manager.c:1652
 #, c-format
 msgid "Redo change permissions of %d item"
 msgid_plural "Redo change permissions of %d items"
-msgstr[0] "항목 %d개 권한 변경 재실행"
+msgstr[0] "항목 %d개 권한 변경 다시 실행"
 
 #: ../libcaja-private/caja-undostack-manager.c:1657
 #, c-format
 msgid "Redo change group of %d item"
 msgid_plural "Redo change group of %d items"
-msgstr[0] "항목 %d개 그룹 변경 재실행"
+msgstr[0] "항목 %d개 그룹 변경 다시 실행"
 
 #: ../libcaja-private/caja-undostack-manager.c:1662
 #, c-format
 msgid "Redo change owner of %d item"
 msgid_plural "Redo change owner of %d items"
-msgstr[0] "항목 %d개 소유자 변경 재실행"
+msgstr[0] "항목 %d개 소유자 변경 다시 실행"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:1
 msgid "Where to position newly open tabs in browser windows."
@@ -3217,6 +3218,8 @@ msgid ""
 "If set to true, then hidden files are shown by default in the file manager. "
 "Hidden files are either dotfiles or listed in the folder's .hidden file."
 msgstr ""
+"참으로 설정하면, 파일 관리자에서 숨겨진 파일이 기본으로 보입니다. 숨겨진 파일은 dotfile이거나 폴더에 .hidden 파일로 "
+"나옵니다."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:67
 msgid "Whether to show backup files"
@@ -3226,7 +3229,7 @@ msgstr "백업 파일을 보여 줄 것인지 여부"
 msgid ""
 "If set to true, then backup files are shown by default in the file manager. "
 "Backup files are backup files ending with a tilde (~)."
-msgstr ""
+msgstr "참으로 설정하면, 파일 관리자에서 백업 파일이 기본으로 보입니다. 백업 파일은 백업 파일용 물결 표시(~)로 끝납니다."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:69
 msgid "Whether to show file sizes with IEC units"
@@ -3244,7 +3247,7 @@ msgstr "바탕화면 알림 표시 여부"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:72
 msgid "If set to true, Caja will show desktop notifications."
-msgstr ""
+msgstr "참으로 설정하면, 카하가 바탕화면에 알림을 표시할 겁니다."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:73
 msgid "List of possible captions on icons"
@@ -3817,7 +3820,7 @@ msgstr "\"%s\" 선택했습니다"
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
-msgstr[0] "%'d개 폴더 선택함"
+msgstr[0] "폴더 %'d개를 선택했습니다"
 
 #: ../src/file-manager/fm-directory-view.c:2309
 #, c-format
@@ -3837,14 +3840,14 @@ msgstr[0] "(전체 %'d개 항목 포함)"
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
-msgstr[0] "%'d개 항목 선택함"
+msgstr[0] "항목 %'d개를 선택했습니다"
 
 #. Folders selected also, use "other" terminology
 #: ../src/file-manager/fm-directory-view.c:2344
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
-msgstr[0] "%'d개 기타 항목 선택함"
+msgstr[0] "기타 항목 %'d개를 선택했습니다"
 
 #. This is marked for translation in case a localiser
 #. * needs to use something other than parentheses. The
@@ -4001,14 +4004,14 @@ msgstr "\"%s\"은(는) 붙여넣기 명령을 이용하면 복사합니다."
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be moved if you select the Paste command"
-msgstr[0] "붙여넣기 명령을 선택하면 선택한 항목 %'d개를 옮깁니다"
+msgstr[0] "붙여 넣기 명령을 선택하면 선택한 항목 %'d개를 옮깁니다"
 
 #: ../src/file-manager/fm-directory-view.c:6029
 #, c-format
 msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be copied if you select the Paste command"
-msgstr[0] "붙여넣기 명령을 선택하면 선택한 항목 %'d개를 복사합니다"
+msgstr[0] "붙여 넣기 명령을 선택하면 선택한 항목 %'d개를 복사합니다"
 
 #: ../src/file-manager/fm-directory-view.c:6209
 #: ../src/file-manager/fm-tree-view.c:1055
@@ -5423,7 +5426,7 @@ msgstr "읽을 수 없음"
 #, c-format
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
-msgstr[0] "항목 %'d개, 합계 %s(디스크에 %s 있음)"
+msgstr[0] "항목 %'d개, 합계 %s (디스크에 있는 %s)"
 
 #: ../src/file-manager/fm-properties-window.c:2303
 msgid "(some contents unreadable)"
@@ -5615,7 +5618,7 @@ msgstr "그룹:"
 
 #: ../src/file-manager/fm-properties-window.c:4433
 msgid "Others"
-msgstr "기타"
+msgstr "다른 사람"
 
 #: ../src/file-manager/fm-properties-window.c:4448
 msgid "Execute:"
@@ -5760,7 +5763,7 @@ msgstr "환경이나 환경 설정에 상관없이 바탕 화면 관리 (새로�
 
 #: ../src/caja-application.c:2088
 msgid "Open URIs in tabs."
-msgstr ""
+msgstr "탭에서 URI 열기."
 
 #: ../src/caja-application.c:2090
 msgid "Open a browser window."
@@ -5993,7 +5996,7 @@ msgstr "책갈피 이름:"
 #: ../src/caja-desktop-window.c:121 ../src/caja-desktop-window.c:314
 #: ../src/caja-pathbar.c:1449 ../src/caja-places-sidebar.c:538
 msgid "Desktop"
-msgstr "바탕화면"
+msgstr "바탕 화면"
 
 #: ../src/caja-emblem-sidebar.c:223
 #, c-format
@@ -6231,11 +6234,11 @@ msgstr "폴더를 파일보다 먼저 나열(_F)"
 
 #: ../src/caja-file-management-properties.ui.h:48
 msgid "Show hidden files"
-msgstr ""
+msgstr "숨긴 파일 보이기"
 
 #: ../src/caja-file-management-properties.ui.h:49
 msgid "Show backup files"
-msgstr ""
+msgstr "백업 파일 보이기"
 
 #: ../src/caja-file-management-properties.ui.h:50
 msgid "<b>Icon View Defaults</b>"
@@ -6638,7 +6641,7 @@ msgstr "위치(_L):"
 
 #: ../src/caja-navigation-action.c:146
 msgid "folder removed"
-msgstr ""
+msgstr "폴더가 삭제되었습니다"
 
 #: ../src/caja-navigation-window-menus.c:131
 msgid "Are you sure you want to clear the list of locations you have visited?"
@@ -7193,7 +7196,7 @@ msgstr "태그"
 
 #: ../src/caja-query-editor.c:181
 msgid "Modification Time"
-msgstr ""
+msgstr "시간 수정"
 
 #: ../src/caja-query-editor.c:334
 msgid "Select folder to search in"
@@ -7254,27 +7257,27 @@ msgstr "기타 형식..."
 
 #: ../src/caja-query-editor.c:1063 ../src/caja-query-editor.c:1202
 msgid "Less than or equal to"
-msgstr ""
+msgstr "작거나 같음"
 
 #: ../src/caja-query-editor.c:1065 ../src/caja-query-editor.c:1204
 msgid "Greater or equal to"
-msgstr ""
+msgstr "크거나 같음"
 
 #: ../src/caja-query-editor.c:1078
 msgid "1 Hour"
-msgstr ""
+msgstr "1 시간"
 
 #: ../src/caja-query-editor.c:1080
 msgid "1 Day"
-msgstr ""
+msgstr "1 일"
 
 #: ../src/caja-query-editor.c:1082
 msgid "1 Week"
-msgstr ""
+msgstr "1 주"
 
 #: ../src/caja-query-editor.c:1084
 msgid "1 Month"
-msgstr ""
+msgstr "1 개월"
 
 #: ../src/caja-query-editor.c:1086
 msgid "6 Months"
@@ -7286,55 +7289,55 @@ msgstr "1년"
 
 #: ../src/caja-query-editor.c:1219
 msgid "10 KiB"
-msgstr ""
+msgstr "10 KiB"
 
 #: ../src/caja-query-editor.c:1221
 msgid "100 KiB"
-msgstr ""
+msgstr "100 KiB"
 
 #: ../src/caja-query-editor.c:1223
 msgid "500 KiB"
-msgstr ""
+msgstr "500 KiB"
 
 #: ../src/caja-query-editor.c:1225
 msgid "1 MiB"
-msgstr ""
+msgstr "1 MiB"
 
 #: ../src/caja-query-editor.c:1227
 msgid "5 MiB"
-msgstr ""
+msgstr "5 MiB"
 
 #: ../src/caja-query-editor.c:1229
 msgid "10 MiB"
-msgstr ""
+msgstr "10 MiB"
 
 #: ../src/caja-query-editor.c:1231
 msgid "100 MiB"
-msgstr ""
+msgstr "100 MiB"
 
 #: ../src/caja-query-editor.c:1233
 msgid "500 MiB"
-msgstr ""
+msgstr "500 MiB"
 
 #: ../src/caja-query-editor.c:1235
 msgid "1 GiB"
-msgstr ""
+msgstr "1 GiB"
 
 #: ../src/caja-query-editor.c:1237
 msgid "2 GiB"
-msgstr ""
+msgstr "2 GiB"
 
 #: ../src/caja-query-editor.c:1239
 msgid "4 GiB"
-msgstr ""
+msgstr "4 GiB"
 
 #: ../src/caja-query-editor.c:1242
 msgid "10 KB"
-msgstr ""
+msgstr "10 KB"
 
 #: ../src/caja-query-editor.c:1256
 msgid "500 MB"
-msgstr ""
+msgstr "500 MB"
 
 #: ../src/caja-query-editor.c:1449
 msgid "Remove this criterion from the search"
@@ -7543,7 +7546,7 @@ msgstr ""
 
 #: ../src/caja-window-menus.c:637
 msgid "About Caja"
-msgstr ""
+msgstr "카하 소개"
 
 #: ../src/caja-window-menus.c:639
 msgid ""
@@ -7555,6 +7558,8 @@ msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2019 The Caja authors"
 msgstr ""
+"Copyright © 1999-2009 The Nautilus authors\n"
+"Copyright © 2011-2019 The Caja authors"
 
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
@@ -7759,12 +7764,12 @@ msgstr "현재 창의 숨긴 파일의 표시 여부를 토글합니다"
 #. label, accelerator
 #: ../src/caja-window-menus.c:1028
 msgid "Show Bac_kup Files"
-msgstr ""
+msgstr "백업 파일 보이기(_K)"
 
 #. tooltip
 #: ../src/caja-window-menus.c:1029
 msgid "Toggle the display of backup files in the current window"
-msgstr ""
+msgstr "현재 창에 백업 파일 표시 여부를 토글합니다"
 
 #: ../src/caja-window-menus.c:1061
 msgid "_Up"

@@ -4,10 +4,10 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Aputsiak Niels Janussen (Skjalden) <aj@isit.gl>, 2018
-# Louis Tim Larsen <louis@louis.dk>, 2018
-# Allan Nordhøy <epost@anotheragency.no>, 2018
+# Aputsiak Niels Janussen (Skjalden) <aj@isit.gl>, 2019
+# Louis Tim Larsen <louis@louis.dk>, 2019
 # Stefano Karapetsas <stefano@karapetsas.com>, 2019
+# Allan Nordhøy <epost@anotheragency.no>, 2019
 # Joe Hansen <joedalton2@yahoo.dk>, 2019
 # 
 #, fuzzy
@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-16 22:36+0100\n"
-"PO-Revision-Date: 2018-03-11 14:48+0000\n"
+"PO-Revision-Date: 2019-03-11 12:13+0000\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>, 2019\n"
 "Language-Team: Danish (https://www.transifex.com/mate/teams/13566/da/)\n"
 "MIME-Version: 1.0\n"
@@ -580,7 +580,7 @@ msgstr "Du har netop indsat en tom Blu-Ray-disk."
 
 #: ../libcaja-private/caja-autorun.c:1076
 msgid "You have just inserted a blank HD DVD."
-msgstr "Du har netop indsat en tom HD DVD."
+msgstr "Du har netop indsat en tom HD-dvd."
 
 #: ../libcaja-private/caja-autorun.c:1080
 msgid "You have just inserted a Photo CD."
@@ -1148,8 +1148,8 @@ msgstr[1] "%'d timer"
 #, c-format
 msgid "approximately %'d hour"
 msgid_plural "approximately %'d hours"
-msgstr[0] "omtrent %'d time"
-msgstr[1] "omtrent %'d timer"
+msgstr[0] "cirka %'d time"
+msgstr[1] "cirka %'d timer"
 
 #. appended to new link file
 #. Note to localizers: convert file type string for file
@@ -1340,10 +1340,11 @@ msgid "Are you sure you want to permanently delete the %'d selected item?"
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items?"
 msgstr[0] ""
-"Er du sikker på, at du en gang for alle ønsker at slette %'d valgt objekt?"
+"Er du sikker på, at du vil slette det %'d valgte objekt fra papirkurven "
+"permanent?"
 msgstr[1] ""
-"Er du sikker på, at du en gang for alle ønsker at slette de %'d valgte "
-"objekter?"
+"Er du sikker på, at du vil slette de %'d valgte objekter fra papirkurven "
+"permanent?"
 
 #: ../libcaja-private/caja-file-operations.c:1472
 msgid "Are you sure you want to trash \"%B\"?"
@@ -1353,8 +1354,8 @@ msgstr "Er du sikker på, at du ønsker at slette »%B«?"
 #, c-format
 msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
-msgstr[0] "Er du sikker på, at du ønsker at slette %'d valgt element?"
-msgstr[1] "Er du sikker på, at du ønsker at slette de %'d valgte elementer?"
+msgstr[0] "Er du sikker på, at du ønsker at slette det %'d valgte element?"
+msgstr[1] "Er du sikker på, at du ønsker at kassere de %'d valgte elementer?"
 
 #: ../libcaja-private/caja-file-operations.c:1484
 msgid "Items moved to the trash may be recovered until the trash is emptied."
@@ -1369,7 +1370,7 @@ msgstr "Flyt til _papirkurv"
 #, c-format
 msgid "%'d file left to delete"
 msgid_plural "%'d files left to delete"
-msgstr[0] "%'d resterende fil at slette"
+msgstr[0] "%'d resterende file at slette"
 msgstr[1] "%'d resterende filer at slette"
 
 #: ../libcaja-private/caja-file-operations.c:1524
@@ -1496,14 +1497,14 @@ msgstr "Kan ikke montere %s"
 #, c-format
 msgid "Preparing to copy %'d file (%S)"
 msgid_plural "Preparing to copy %'d files (%S)"
-msgstr[0] "Forbereder kopiering af %'d fil (%S)"
+msgstr[0] "Forbereder at kopiere %'d fil (%S)"
 msgstr[1] "Forbereder kopiering af %'d filer (%S)"
 
 #: ../libcaja-private/caja-file-operations.c:2531
 #, c-format
 msgid "Preparing to move %'d file (%S)"
 msgid_plural "Preparing to move %'d files (%S)"
-msgstr[0] "Forbereder flytning af %'d fil (%S)"
+msgstr[0] "Forbereder at flytte %'d fil (%S)"
 msgstr[1] "Forbereder flytning af %'d filer (%S)"
 
 #: ../libcaja-private/caja-file-operations.c:2537
@@ -2085,7 +2086,7 @@ msgstr[1] "%'u mapper"
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
-msgstr[0] "%'u file"
+msgstr[0] "%'u fil"
 msgstr[1] "%'u filer"
 
 #. Do this in a separate stage so that we don't have to put G_GUINT64_FORMAT
@@ -2553,7 +2554,7 @@ msgstr "I kø"
 #, c-format
 msgid "%'d file operation active"
 msgid_plural "%'d file operations active"
-msgstr[0] "%'d filoperationer aktiv"
+msgstr[0] "%'d filoperation aktiv"
 msgstr[1] "%'d filoperationer aktive"
 
 #: ../libcaja-private/caja-progress-info.c:629
@@ -4038,8 +4039,8 @@ msgstr[1] "%'d mapper valgt"
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
-msgstr[0] " (med %'d objekt)"
-msgstr[1] " (med %'d objekter)"
+msgstr[0] " (med %'d fil)"
+msgstr[1] " (med %'d filer)"
 
 #. translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
@@ -4047,8 +4048,8 @@ msgstr[1] " (med %'d objekter)"
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
-msgstr[0] " (med tilsammen %'d objekt)"
-msgstr[1] " (med tilsammen %'d objekter)"
+msgstr[0] " (med tilsammen %'d fil)"
+msgstr[1] " (med tilsammen %'d filer)"
 
 #: ../src/file-manager/fm-directory-view.c:2337
 #, c-format
@@ -4062,7 +4063,7 @@ msgstr[1] "%'d objekter valgt"
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
-msgstr[0] "%'d andet objekt valgt"
+msgstr[0] "%'d andre objekt valgt"
 msgstr[1] "%'d andre objekter valgt"
 
 #. This is marked for translation in case a localiser
@@ -4234,9 +4235,9 @@ msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be copied if you select the Paste command"
 msgstr[0] ""
-"Det %'d valgte objekt vil blive kopieret, hvis du vælger kommandoen Indsæt"
+"Det %'d valgte objekt vil blive kopieret hvis du vælger kommandoen Indsæt"
 msgstr[1] ""
-"De %'d valgte objekter vil blive kopieret, hvis du vælger kommandoen Indsæt"
+"De %'d valgte objekter vil blive kopieret hvis du vælger kommandoen Indsæt"
 
 #: ../src/file-manager/fm-directory-view.c:6209
 #: ../src/file-manager/fm-tree-view.c:1055
@@ -5679,7 +5680,7 @@ msgstr "ulæseligt"
 #, c-format
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
-msgstr[0] "%'d element, i alt %s (%s på disk)"
+msgstr[0] "%'d element, med størrelsen %s (%s på disk)"
 msgstr[1] "%'d elementer, i alt %s (%s på disk)"
 
 #: ../src/file-manager/fm-properties-window.c:2303
@@ -7853,7 +7854,7 @@ msgstr ""
 #: ../src/caja-window-menus.c:652
 msgid "translator-credits"
 msgstr ""
-"\"Joe Hansen, 2012, 2013, 2014, 2015, 2016, 2017, 2018.\\n\"\n"
+"\"Joe Hansen, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019.\\n\"\n"
 "\"\\n\"\n"
 "\"Dansk-gruppen <dansk@dansk-gruppen.dk>\\n\"\n"
 "\"Mere info: http://www.dansk-gruppen.dk\""
