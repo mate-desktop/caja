@@ -975,7 +975,6 @@ caja_spatial_window_init (CajaSpatialWindow *window)
     GtkUIManager *ui_manager;
     GtkTargetList *targets;
     const char *ui;
-    int i;
     CajaWindow *win;
     CajaWindowPane *pane;
 
