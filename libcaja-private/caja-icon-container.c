@@ -4797,7 +4797,7 @@ caja_icon_container_did_not_drag (CajaIconContainer *container,
         g_object_get (G_OBJECT (gtk_widget_get_settings (GTK_WIDGET (container))),
                       "gtk-double-click-time", &double_click_time,
                       NULL);
-        current_time = eel_get_system_time ();
+        current_time = g_get_monotonic_time ();
         if (current_time - last_click_time < double_click_time * 1000)
         {
             click_count++;
@@ -4852,7 +4852,7 @@ clicked_within_double_click_interval (CajaIconContainer *container)
     g_object_get (G_OBJECT (gtk_widget_get_settings (GTK_WIDGET (container))),
                   "gtk-double-click-time", &double_click_time,
                   NULL);
-    current_time = eel_get_system_time ();
+    current_time = g_get_monotonic_time ();
     if (current_time - last_click_time < double_click_time * 1000)
     {
         click_count++;

@@ -1006,7 +1006,7 @@ caja_drag_autoscroll_start (CajaDragInfo *drag_info,
         if (drag_info->auto_scroll_timeout_id == 0)
         {
             drag_info->waiting_to_autoscroll = TRUE;
-            drag_info->start_auto_scroll_in = eel_get_system_time()
+            drag_info->start_auto_scroll_in = g_get_monotonic_time()
                                               + AUTOSCROLL_INITIAL_DELAY;
 
             drag_info->auto_scroll_timeout_id = g_timeout_add

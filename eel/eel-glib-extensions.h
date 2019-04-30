@@ -37,11 +37,6 @@ typedef guint eel_boolean_bit;
 typedef gboolean (* EelPredicateFunction) (gpointer data,
         gpointer callback_data);
 
-/* Date & time functions. */
-GDate *     eel_g_date_new_tm                           (struct tm             *time_pieces);
-char *      eel_strdup_strftime                         (const char            *format,
-        struct tm             *time_pieces);
-
 /* GList functions. */
 gboolean    eel_g_list_exactly_one_item                 (GList                 *list);
 gboolean    eel_g_list_more_than_one_item               (GList                 *list);
@@ -77,9 +72,6 @@ int         eel_g_strv_find                             (char                 **
         const char            *find_me);
 gboolean    eel_g_strv_equal                            (char                 **a,
         char                 **b);
-
-/* return the time in microseconds since the machine was started */
-gint64      eel_get_system_time                         (void);
 
 /* math */
 int         eel_round                                   (double                 d);
