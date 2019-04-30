@@ -855,7 +855,7 @@ auto_scroll_timeout_callback (gpointer data)
     container = CAJA_ICON_CONTAINER (widget);
 
     if (container->details->dnd_info->drag_info.waiting_to_autoscroll
-            && container->details->dnd_info->drag_info.start_auto_scroll_in > eel_get_system_time())
+            && container->details->dnd_info->drag_info.start_auto_scroll_in > g_get_monotonic_time())
     {
         /* not yet */
         return TRUE;

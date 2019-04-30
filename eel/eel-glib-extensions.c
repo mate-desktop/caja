@@ -33,17 +33,6 @@
 #include <glib-object.h>
 #include <math.h>
 #include <stdlib.h>
-#include <sys/time.h>
-#include <sys/utsname.h>
-#include <time.h>
-#include <locale.h>
-
-/* Legal conversion specifiers, as specified in the C standard. */
-#define C_STANDARD_STRFTIME_CHARACTERS "aAbBcdHIjmMpSUwWxXyYZ"
-#define C_STANDARD_NUMERIC_STRFTIME_CHARACTERS "dHIjmMSUwWyY"
-#define SUS_EXTENDED_STRFTIME_MODIFIERS "EO"
-
-#define SAFE_SHELL_CHARACTERS "-_0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
 typedef struct
 {
@@ -53,200 +42,6 @@ typedef struct
 } HashTableToFree;
 
 static GList *hash_tables_to_free_at_exit;
-
-/**
- * eel_g_date_new_tm:
- *
- * Get a new GDate * for the date represented by a tm struct.
- * The caller is responsible for g_free-ing the result.
- * @time_pieces: Pointer to a tm struct representing the date to be converted.
- *
- * Returns: Newly allocated date.
- *
- **/
-GDate *
-eel_g_date_new_tm (struct tm *time_pieces)
-{
-    /* tm uses 0-based months; GDate uses 1-based months.
-     * tm_year needs 1900 added to get the full year.
-     */
-    return g_date_new_dmy (time_pieces->tm_mday,
-                           time_pieces->tm_mon + 1,
-                           time_pieces->tm_year + 1900);
-}
-
-/**
- * eel_strdup_strftime:
- *
- * Cover for standard date-and-time-formatting routine strftime that returns
- * a newly-allocated string of the correct size. The caller is responsible
- * for g_free-ing the returned string.
- *
- * Besides the buffer management, there are two differences between this
- * and the library strftime:
- *
- *   1) The modifiers "-" and "_" between a "%" and a numeric directive
- *      are defined as for the GNU version of strftime. "-" means "do not
- *      pad the field" and "_" means "pad with spaces instead of zeroes".
- *   2) Non-ANSI extensions to strftime are flagged at runtime with a
- *      warning, so it's easy to notice use of the extensions without
- *      testing with multiple versions of the library.
- *
- * @format: format string to pass to strftime. See strftime documentation
- * for details.
- * @time_pieces: date/time, in struct format.
- *
- * Return value: Newly allocated string containing the formatted time.
- **/
-char *
-eel_strdup_strftime (const char *format, struct tm *time_pieces)
-{
-    GString *string;
-    const char *remainder, *percent;
-    char code[4], buffer[512];
-    char *piece, *result, *converted;
-    size_t string_length;
-    gboolean strip_leading_zeros, turn_leading_zeros_to_spaces;
-    char modifier;
-    int i;
-
-    /* Format could be translated, and contain UTF-8 chars,
-     * so convert to locale encoding which strftime uses */
-    converted = g_locale_from_utf8 (format, -1, NULL, NULL, NULL);
-    g_return_val_if_fail (converted != NULL, NULL);
-
-    string = g_string_new ("");
-    remainder = converted;
-
-    /* Walk from % character to % character. */
-    for (;;)
-    {
-        percent = strchr (remainder, '%');
-        if (percent == NULL)
-        {
-            g_string_append (string, remainder);
-            break;
-        }
-        g_string_append_len (string, remainder,
-                             percent - remainder);
-
-        /* Handle the "%" character. */
-        remainder = percent + 1;
-        switch (*remainder)
-        {
-        case '-':
-            strip_leading_zeros = TRUE;
-            turn_leading_zeros_to_spaces = FALSE;
-            remainder++;
-            break;
-        case '_':
-            strip_leading_zeros = FALSE;
-            turn_leading_zeros_to_spaces = TRUE;
-            remainder++;
-            break;
-        case '%':
-            g_string_append_c (string, '%');
-            remainder++;
-            continue;
-        case '\0':
-            g_warning ("Trailing %% passed to eel_strdup_strftime");
-            g_string_append_c (string, '%');
-            continue;
-        default:
-            strip_leading_zeros = FALSE;
-            turn_leading_zeros_to_spaces = FALSE;
-            break;
-        }
-
-        modifier = 0;
-        if (strchr (SUS_EXTENDED_STRFTIME_MODIFIERS, *remainder) != NULL)
-        {
-            modifier = *remainder;
-            remainder++;
-
-            if (*remainder == 0)
-            {
-                g_warning ("Unfinished %%%c modifier passed to eel_strdup_strftime", modifier);
-                break;
-            }
-        }
-
-        if (strchr (C_STANDARD_STRFTIME_CHARACTERS, *remainder) == NULL)
-        {
-            g_warning ("eel_strdup_strftime does not support "
-                       "non-standard escape code %%%c",
-                       *remainder);
-        }
-
-        /* Convert code to strftime format. We have a fixed
-         * limit here that each code can expand to a maximum
-         * of 512 bytes, which is probably OK. There's no
-         * limit on the total size of the result string.
-         */
-        i = 0;
-        code[i++] = '%';
-        if (modifier != 0)
-        {
-#ifdef HAVE_STRFTIME_EXTENSION
-            code[i++] = modifier;
-#endif
-        }
-        code[i++] = *remainder;
-        code[i++] = '\0';
-        string_length = strftime (buffer, sizeof (buffer),
-                                  code, time_pieces);
-        if (string_length == 0)
-        {
-            /* We could put a warning here, but there's no
-             * way to tell a successful conversion to
-             * empty string from a failure.
-             */
-            buffer[0] = '\0';
-        }
-
-        /* Strip leading zeros if requested. */
-        piece = buffer;
-        if (strip_leading_zeros || turn_leading_zeros_to_spaces)
-        {
-            if (strchr (C_STANDARD_NUMERIC_STRFTIME_CHARACTERS, *remainder) == NULL)
-            {
-                g_warning ("eel_strdup_strftime does not support "
-                           "modifier for non-numeric escape code %%%c%c",
-                           remainder[-1],
-                           *remainder);
-            }
-            if (*piece == '0')
-            {
-                do
-                {
-                    piece++;
-                }
-                while (*piece == '0');
-                if (!g_ascii_isdigit (*piece))
-                {
-                    piece--;
-                }
-            }
-            if (turn_leading_zeros_to_spaces)
-            {
-                memset (buffer, ' ', piece - buffer);
-                piece = buffer;
-            }
-        }
-        remainder++;
-
-        /* Add this piece. */
-        g_string_append (string, piece);
-    }
-
-    /* Convert the string back into utf-8. */
-    result = g_locale_to_utf8 (string->str, -1, NULL, NULL, NULL);
-
-    g_string_free (string, TRUE);
-    g_free (converted);
-
-    return result;
-}
 
 /**
  * eel_g_list_exactly_one_item
@@ -531,20 +326,6 @@ eel_g_list_partition (GList *list,
 
     *failed = predicate_false;
     return predicate_true;
-}
-
-/**
- * eel_get_system_time
- *
- * Return value: number of microseconds since the machine was turned on
- */
-gint64
-eel_get_system_time (void)
-{
-    struct timeval tmp;
-
-    gettimeofday (&tmp, NULL);
-    return (gint64)tmp.tv_usec + (gint64)tmp.tv_sec * G_GINT64_CONSTANT (1000000);
 }
 
 static void
@@ -890,56 +671,11 @@ eel_g_settings_add_auto_strv_as_quarks (GSettings *settings,
 
 #if !defined (EEL_OMIT_SELF_CHECK)
 
-static void
-check_tm_to_g_date (time_t time)
-{
-    struct tm *before_conversion;
-    struct tm after_conversion;
-    GDate *date;
-
-    before_conversion = localtime (&time);
-    date = eel_g_date_new_tm (before_conversion);
-
-    g_date_to_struct_tm (date, &after_conversion);
-
-    g_date_free (date);
-
-    EEL_CHECK_INTEGER_RESULT (after_conversion.tm_mday,
-                              before_conversion->tm_mday);
-    EEL_CHECK_INTEGER_RESULT (after_conversion.tm_mon,
-                              before_conversion->tm_mon);
-    EEL_CHECK_INTEGER_RESULT (after_conversion.tm_year,
-                              before_conversion->tm_year);
-}
-
 static gboolean
 eel_test_predicate (gpointer data,
                     gpointer callback_data)
 {
     return g_ascii_strcasecmp (data, callback_data) <= 0;
-}
-
-static char *
-test_strftime (const char *format,
-               int year,
-               int month,
-               int day,
-               int hour,
-               int minute,
-               int second)
-{
-    struct tm time_pieces;
-
-    time_pieces.tm_sec = second;
-    time_pieces.tm_min = minute;
-    time_pieces.tm_hour = hour;
-    time_pieces.tm_mday = day;
-    time_pieces.tm_mon = month - 1;
-    time_pieces.tm_year = year - 1900;
-    time_pieces.tm_isdst = -1;
-    mktime (&time_pieces);
-
-    return eel_strdup_strftime (format, &time_pieces);
 }
 
 void
@@ -951,17 +687,11 @@ eel_self_check_glib_extensions (void)
     GList *compare_list_3;
     GList *compare_list_4;
     GList *compare_list_5;
-    gint64 time1, time2;
     GList *list_to_partition;
     GList *expected_passed;
     GList *expected_failed;
     GList *actual_passed;
     GList *actual_failed;
-    char *huge_string;
-
-    check_tm_to_g_date (0);			/* lower limit */
-    check_tm_to_g_date ((time_t) -1);	/* upper limit */
-    check_tm_to_g_date (time (NULL));	/* current time */
 
     strv = g_strsplit ("zero|one|two|three|four", "|", 0);
     EEL_CHECK_INTEGER_RESULT (eel_g_strv_find (strv, "zero"), 0);
@@ -971,12 +701,6 @@ eel_self_check_glib_extensions (void)
     EEL_CHECK_INTEGER_RESULT (eel_g_strv_find (strv, ""), -1);
     EEL_CHECK_INTEGER_RESULT (eel_g_strv_find (strv, "o"), -1);
     g_strfreev (strv);
-
-    /* eel_get_system_time */
-    time1 = eel_get_system_time ();
-    time2 = eel_get_system_time ();
-    EEL_CHECK_BOOLEAN_RESULT (time1 - time2 > -1000, TRUE);
-    EEL_CHECK_BOOLEAN_RESULT (time1 - time2 <= 0, TRUE);
 
     /* eel_g_str_list_equal */
 
@@ -1050,25 +774,6 @@ eel_self_check_glib_extensions (void)
     g_list_free (actual_passed);
     g_list_free (expected_failed);
     g_list_free (actual_failed);
-
-    /* eel_strdup_strftime */
-    huge_string = g_new (char, 10000+1);
-    memset (huge_string, 'a', 10000);
-    huge_string[10000] = '\0';
-
-    setlocale (LC_TIME, "C");
-
-    EEL_CHECK_STRING_RESULT (test_strftime ("", 2000, 1, 1, 0, 0, 0), "");
-    EEL_CHECK_STRING_RESULT (test_strftime (huge_string, 2000, 1, 1, 0, 0, 0), huge_string);
-    EEL_CHECK_STRING_RESULT (test_strftime ("%%", 2000, 1, 1, 1, 0, 0), "%");
-    EEL_CHECK_STRING_RESULT (test_strftime ("%%%%", 2000, 1, 1, 1, 0, 0), "%%");
-    EEL_CHECK_STRING_RESULT (test_strftime ("%m/%d/%y, %I:%M %p", 2000, 1, 1, 1, 0, 0), "01/01/00, 01:00 AM");
-    EEL_CHECK_STRING_RESULT (test_strftime ("%-m/%-d/%y, %-I:%M %p", 2000, 1, 1, 1, 0, 0), "1/1/00, 1:00 AM");
-    EEL_CHECK_STRING_RESULT (test_strftime ("%_m/%_d/%y, %_I:%M %p", 2000, 1, 1, 1, 0, 0), " 1/ 1/00,  1:00 AM");
-
-    setlocale (LC_TIME, "");
-
-    g_free (huge_string);
 }
 
 #endif /* !EEL_OMIT_SELF_CHECK */
