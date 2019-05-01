@@ -235,8 +235,7 @@ caja_desktop_update_metadata_from_keyfile (CajaFile *file,
 {
     gchar **keys, **values;
     const gchar *actual_values[2];
-    const gchar *key, *value;
-    gchar *gio_key;
+    const gchar *value;
     gsize length, values_length;
     GKeyFile *keyfile;
     GFileInfo *info;
@@ -257,6 +256,9 @@ caja_desktop_update_metadata_from_keyfile (CajaFile *file,
     info = g_file_info_new ();
 
     for (idx = 0; idx < length; idx++) {
+        const gchar *key;
+        gchar *gio_key;
+
         key = keys[idx];
         values = g_key_file_get_string_list (keyfile,
                              name,

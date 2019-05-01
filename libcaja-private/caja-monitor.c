@@ -45,10 +45,11 @@ caja_monitor_active (void)
     static gboolean tried_monitor = FALSE;
     static gboolean monitor_success;
     GFileMonitor *dir_monitor;
-    GFile *file;
 
     if (tried_monitor == FALSE)
     {
+        GFile *file;
+
         file = g_file_new_for_path (g_get_home_dir ());
         dir_monitor = g_file_monitor_directory (file, G_FILE_MONITOR_NONE, NULL, NULL);
         g_object_unref (file);

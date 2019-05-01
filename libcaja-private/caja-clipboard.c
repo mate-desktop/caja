@@ -162,7 +162,6 @@ received_clipboard_contents (GtkClipboard     *clipboard,
 static void
 set_paste_sensitive_if_clipboard_contains_data (GtkActionGroup *action_group)
 {
-    GtkAction *action;
     if (gdk_display_supports_selection_notification (gdk_display_get_default ()))
     {
         gtk_clipboard_request_contents (gtk_clipboard_get (GDK_SELECTION_CLIPBOARD),
@@ -172,6 +171,8 @@ set_paste_sensitive_if_clipboard_contains_data (GtkActionGroup *action_group)
     }
     else
     {
+        GtkAction *action;
+
         /* If selection notification isn't supported, always activate Paste */
         action = gtk_action_group_get_action (action_group,
                                               "Paste");
@@ -614,7 +615,6 @@ caja_clipboard_get_uri_list_from_selection_data (GtkSelectionData *selection_dat
         GdkAtom copied_files_atom)
 {
     GList *items;
-    char **lines;
 
     if (gtk_selection_data_get_data_type (selection_data) != copied_files_atom
             || gtk_selection_data_get_length (selection_data) <= 0)
@@ -623,6 +623,7 @@ caja_clipboard_get_uri_list_from_selection_data (GtkSelectionData *selection_dat
     }
     else
     {
+        char **lines;
         guchar *data;
         /* Not sure why it's legal to assume there's an extra byte
          * past the end of the selection data that it's safe to write

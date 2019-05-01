@@ -396,8 +396,6 @@ caja_debug_log_enable_domains (const char **domains, int n_domains)
 void
 caja_debug_log_disable_domains (const char **domains, int n_domains)
 {
-    int i;
-
     g_assert (domains != NULL);
     g_assert (n_domains >= 0);
 
@@ -405,6 +403,8 @@ caja_debug_log_disable_domains (const char **domains, int n_domains)
 
     if (domains_hash)
     {
+        int i;
+
         for (i = 0; i < n_domains; i++)
         {
             char *domain;
@@ -464,7 +464,6 @@ make_key_file_from_configuration (void)
 {
     GKeyFile *key_file;
     struct domains_dump_closure closure;
-    int num_domains;
 
     key_file = g_key_file_new ();
 
@@ -472,6 +471,8 @@ make_key_file_from_configuration (void)
 
     if (domains_hash)
     {
+        int num_domains;
+
         num_domains = g_hash_table_size (domains_hash);
         if (num_domains != 0)
         {

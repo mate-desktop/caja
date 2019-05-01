@@ -237,7 +237,7 @@ void
 emit_change_signals_for_all_files_in_all_directories (void)
 {
     GList *dirs, *l;
-    CajaDirectory *directory;
+    CajaDirectory *directory = NULL;
 
     dirs = NULL;
     g_hash_table_foreach (directories,
@@ -361,11 +361,12 @@ CajaFile *
 caja_directory_get_corresponding_file (CajaDirectory *directory)
 {
     CajaFile *file;
-    char *uri;
 
     file = caja_directory_get_existing_corresponding_file (directory);
     if (file == NULL)
     {
+        char *uri;
+
         uri = caja_directory_get_uri (directory);
         file = caja_file_get_by_uri (uri);
         g_free (uri);
@@ -719,12 +720,13 @@ caja_directory_emit_load_error (CajaDirectory *directory,
 static CajaDirectory *
 get_parent_directory (GFile *location)
 {
-    CajaDirectory *directory;
     GFile *parent;
 
     parent = g_file_get_parent (location);
     if (parent)
     {
+        CajaDirectory *directory;
+
         directory = caja_directory_get_internal (parent, TRUE);
         g_object_unref (parent);
         return directory;
@@ -738,12 +740,13 @@ get_parent_directory (GFile *location)
 static CajaDirectory *
 get_parent_directory_if_exists (GFile *location)
 {
-    CajaDirectory *directory;
     GFile *parent;
 
     parent = g_file_get_parent (location);
     if (parent)
     {
+        CajaDirectory *directory;
+
         directory = caja_directory_get_internal (parent, FALSE);
         g_object_unref (parent);
         return directory;
@@ -778,7 +781,7 @@ static void
 call_files_changed_common (CajaDirectory *directory, GList *file_list)
 {
     GList *node;
-    CajaFile *file;
+    CajaFile *file = NULL;
 
     for (node = file_list; node != NULL; node = node->next)
     {
@@ -859,10 +862,11 @@ caja_directory_notify_files_added (GList *files)
 {
     GHashTable *added_lists;
     GList *p;
-    CajaDirectory *directory;
     GHashTable *parent_directories;
     CajaFile *file;
-    GFile *location, *parent;
+    GFile *parent;
+    CajaDirectory *directory = NULL;
+    GFile *location = NULL;
 
     /* Make a list of added files in each directory. */
     added_lists = g_hash_table_new (NULL, NULL);
@@ -948,8 +952,8 @@ caja_directory_notify_files_changed (GList *files)
 {
     GHashTable *changed_lists;
     GList *node;
-    GFile *location;
-    CajaFile *file;
+    GFile *location = NULL;
+    CajaFile *file = NULL;
 
     /* Make a list of changed files in each directory. */
     changed_lists = g_hash_table_new (NULL, NULL);
@@ -986,10 +990,10 @@ caja_directory_notify_files_removed (GList *files)
 {
     GHashTable *changed_lists;
     GList *p;
-    CajaDirectory *directory;
     GHashTable *parent_directories;
-    CajaFile *file;
-    GFile *location;
+    CajaDirectory *directory = NULL;
+    CajaFile *file = NULL;
+    GFile *location = NULL;
 
     /* Make a list of changed files in each directory. */
     changed_lists = g_hash_table_new (NULL, NULL);
@@ -1095,10 +1099,10 @@ caja_directory_moved_internal (GFile *old_location,
                                GFile *new_location)
 {
     CollectData collection;
-    CajaDirectory *directory;
     GList *node, *affected_files;
-    GFile *new_directory_location;
     char *relative_path;
+    CajaDirectory *directory = NULL;
+    GFile *new_directory_location = NULL;
 
     collection.container = old_location;
     collection.directories = NULL;
@@ -1161,9 +1165,9 @@ caja_directory_moved (const char *old_uri,
 {
     GList *list, *node;
     GHashTable *hash;
-    CajaFile *file;
     GFile *old_location;
     GFile *new_location;
+    CajaFile *file = NULL;
 
     hash = g_hash_table_new (NULL, NULL);
 
@@ -1199,7 +1203,8 @@ caja_directory_notify_files_moved (GList *file_pairs)
     GHashTable *added_lists, *changed_lists;
     char *name;
     CajaFileAttributes cancel_attributes;
-    GFile *to_location, *from_location;
+    GFile *to_location = NULL;
+    GFile *from_location = NULL;
 
     /* Make a list of added and changed files in each directory. */
     new_files_list = NULL;
@@ -1318,10 +1323,10 @@ void
 caja_directory_schedule_position_set (GList *position_setting_list)
 {
     GList *p;
-    const CajaFileChangesQueuePosition *item;
-    CajaFile *file;
     char str[64];
     time_t now;
+    const CajaFileChangesQueuePosition *item = NULL;
+    CajaFile *file = NULL;
 
     time (&now);
 
