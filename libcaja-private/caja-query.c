@@ -198,7 +198,6 @@ encode_home_uri (const char *uri)
 static char *
 decode_home_uri (const char *uri)
 {
-    char *home_uri;
     char *decoded_uri;
 
     if (g_str_has_prefix (uri, "file:"))
@@ -207,6 +206,8 @@ decode_home_uri (const char *uri)
     }
     else
     {
+        char *home_uri;
+
         home_uri = caja_get_home_directory_uri ();
 
         decoded_uri = g_strconcat (home_uri, "/", uri, NULL);
@@ -380,9 +381,6 @@ caja_query_to_xml (CajaQuery *query)
 {
     GString *xml;
     char *text;
-    char *uri;
-    char *mimetype;
-    char *tag;
     GList *l;
 
     xml = g_string_new ("");
@@ -396,6 +394,8 @@ caja_query_to_xml (CajaQuery *query)
 
     if (query->details->location_uri)
     {
+        char *uri;
+
         uri = encode_home_uri (query->details->location_uri);
         g_string_append_printf (xml, "   <location>%s</location>\n", uri);
         g_free (uri);
@@ -406,6 +406,8 @@ caja_query_to_xml (CajaQuery *query)
         g_string_append (xml, "   <mimetypes>\n");
         for (l = query->details->mime_types; l != NULL; l = l->next)
         {
+            char *mimetype;
+
             mimetype = g_markup_escape_text (l->data, -1);
             g_string_append_printf (xml, "      <mimetype>%s</mimetype>\n", mimetype);
             g_free (mimetype);
@@ -418,7 +420,9 @@ caja_query_to_xml (CajaQuery *query)
         g_string_append (xml, "   <tags>\n");
         for (l = query->details->tags; l != NULL; l = l->next)
         {
-          tag = g_markup_escape_text (l->data, -1);
+            char *tag;
+
+            tag = g_markup_escape_text (l->data, -1);
             g_string_append_printf (xml, "      <tag>%s</tag>\n", tag);
             g_free (tag);
         }

@@ -125,9 +125,9 @@ caja_drag_destroy_selection_list (GList *list)
 GList *
 caja_drag_uri_list_from_selection_list (const GList *selection_list)
 {
-    CajaDragSelectionItem *selection_item;
     GList *uri_list;
     const GList *l;
+    CajaDragSelectionItem *selection_item = NULL;
 
     uri_list = NULL;
     for (l = selection_list; l != NULL; l = l->next)
@@ -369,13 +369,14 @@ static gboolean
 check_same_fs (CajaFile *file1,
                CajaFile *file2)
 {
-    char *id1, *id2;
     gboolean result;
 
     result = FALSE;
 
     if (file1 != NULL && file2 != NULL)
     {
+        char *id1, *id2;
+
         id1 = caja_file_get_filesystem_id (file1);
         id2 = caja_file_get_filesystem_id (file2);
 
@@ -637,7 +638,6 @@ static void
 add_one_compatible_uri (const char *uri, int x, int y, int w, int h, gpointer data)
 {
     GString *result;
-    char *local_path;
 
     result = (GString *) data;
 
@@ -654,6 +654,8 @@ add_one_compatible_uri (const char *uri, int x, int y, int w, int h, gpointer da
     }
     else
     {
+        char *local_path;
+
         local_path = g_filename_from_uri (uri, NULL, NULL);
 
         /* Check for characters that confuse the old
@@ -1039,10 +1041,11 @@ gboolean
 caja_drag_selection_includes_special_link (GList *selection_list)
 {
     GList *node;
-    char *uri;
 
     for (node = selection_list; node != NULL; node = node->next)
     {
+        char *uri;
+
         uri = ((CajaDragSelectionItem *) node->data)->uri;
 
         if (eel_uri_is_desktop (uri))
@@ -1226,7 +1229,6 @@ slot_proxy_handle_drop (GtkWidget                *widget,
     CajaWindowSlotInfo *target_slot;
     CajaView *target_view;
     char *target_uri;
-    GList *uri_list;
 
     if (!drag_info->have_data ||
             !drag_info->have_valid_data)
@@ -1268,6 +1270,8 @@ slot_proxy_handle_drop (GtkWidget                *widget,
     {
         if (drag_info->info == CAJA_ICON_DND_MATE_ICON_LIST)
         {
+            GList *uri_list;
+
             uri_list = caja_drag_uri_list_from_selection_list (drag_info->data.selection_list);
             g_assert (uri_list != NULL);
 

@@ -197,12 +197,12 @@ search_thread_add_hits_idle (gpointer user_data)
 static void
 send_batch (SearchThreadData *data)
 {
-    SearchHits *hits;
-
     data->n_processed_files = 0;
 
     if (data->uri_hits)
     {
+        SearchHits *hits;
+
         hits = g_new (SearchHits, 1);
         hits->uris = data->uri_hits;
         hits->thread_data = data;
@@ -505,7 +505,6 @@ search_thread_func (gpointer user_data)
     SearchThreadData *data;
     GFile *dir;
     GFileInfo *info;
-    const char *id;
 
     data = user_data;
 
@@ -514,6 +513,8 @@ search_thread_func (gpointer user_data)
     info = g_file_query_info (dir, G_FILE_ATTRIBUTE_ID_FILE, 0, data->cancellable, NULL);
     if (info)
     {
+        const char *id;
+
         id = g_file_info_get_attribute_string (info, G_FILE_ATTRIBUTE_ID_FILE);
         if (id)
         {

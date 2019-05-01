@@ -214,7 +214,6 @@ beagle_hits_added (BeagleQuery *query,
 {
     GSList *hits, *list;
     GList *hit_uris;
-    const char *uri;
 
     hit_uris = NULL;
 
@@ -222,6 +221,8 @@ beagle_hits_added (BeagleQuery *query,
 
     for (list = hits; list != NULL; list = list->next)
     {
+        const char *uri;
+
         BeagleHit *hit = BEAGLE_HIT (list->data);
 
         uri = beagle_hit_get_uri (hit);
@@ -290,7 +291,7 @@ caja_search_engine_beagle_start (CajaSearchEngine *engine)
     CajaSearchEngineBeagle *beagle;
     GError *error;
     GList *mimetypes, *l;
-    char *text, *mimetype;
+    char *text;
 
     error = NULL;
     beagle = CAJA_SEARCH_ENGINE_BEAGLE (engine);
@@ -325,6 +326,8 @@ caja_search_engine_beagle_start (CajaSearchEngine *engine)
     for (l = mimetypes; l != NULL; l = l->next)
     {
         char* temp;
+        char *mimetype;
+
         mimetype = l->data;
         temp = g_strconcat (" mimetype:", mimetype, NULL);
         beagle_query_add_text (beagle->details->current_query,temp);

@@ -221,12 +221,9 @@ static GAppInfo *
 add_or_find_application (CajaOpenWithDialog *dialog)
 {
     GAppInfo *app;
-    char *app_name;
-    const char *commandline;
     GError *error;
     gboolean success, should_set_default;
     char *message;
-    GList *applications;
 
     error = NULL;
     app = NULL;
@@ -236,6 +233,9 @@ add_or_find_application (CajaOpenWithDialog *dialog)
     }
     else
     {
+        char *app_name;
+        const char *commandline;
+
         commandline = gtk_entry_get_text (GTK_ENTRY (dialog->details->entry));
         app_name = get_app_name (commandline, &error);
         if (app_name != NULL)
@@ -284,6 +284,8 @@ add_or_find_application (CajaOpenWithDialog *dialog)
     }
     else
     {
+        GList *applications;
+
         applications = g_app_info_get_all_for_type (dialog->details->content_type);
         if (dialog->details->content_type && applications != NULL)
         {
@@ -327,13 +329,13 @@ response_cb (CajaOpenWithDialog *dialog,
              int response_id,
              gpointer data)
 {
-    GAppInfo *application;
-
     switch (response_id)
     {
     case RESPONSE_OPEN:
         if (check_application (dialog))
         {
+            GAppInfo *application;
+
             application = add_or_find_application (dialog);
 
             if (application)
@@ -500,7 +502,6 @@ static cairo_surface_t *
 get_surface_for_icon (GIcon *icon)
 {
     cairo_surface_t  *surface;
-    char *filename;
     gint icon_scale;
 
     surface = NULL;
@@ -508,6 +509,8 @@ get_surface_for_icon (GIcon *icon)
 
     if (G_IS_FILE_ICON (icon))
     {
+        char *filename;
+
         filename = g_file_get_path (g_file_icon_get_file (G_FILE_ICON (icon)));
         if (filename)
         {
@@ -524,13 +527,14 @@ get_surface_for_icon (GIcon *icon)
     else if (G_IS_THEMED_ICON (icon))
     {
         const char * const *names;
-        char *icon_no_extension;
-        char *p;
 
         names = g_themed_icon_get_names (G_THEMED_ICON (icon));
 
         if (names != NULL && names[0] != NULL)
         {
+            char *icon_no_extension;
+            char *p;
+
             icon_no_extension = g_strdup (names[0]);
             p = strrchr (icon_no_extension, '.');
             if (p &&
@@ -556,11 +560,11 @@ get_surface_for_icon (GIcon *icon)
 static gboolean
 caja_open_with_dialog_add_icon_idle (CajaOpenWithDialog *dialog)
 {
-    GtkTreeIter      iter;
-    GtkTreePath     *path;
     cairo_surface_t *surface;
     GIcon           *icon;
     gboolean         long_operation;
+    GtkTreeIter      iter;
+    GtkTreePath     *path = NULL;
 
     long_operation = FALSE;
     do
@@ -616,14 +620,14 @@ caja_open_with_search_equal_func (GtkTreeModel *model,
                                   GtkTreeIter *iter,
                                   gpointer user_data)
 {
-    char *normalized_key;
-    char *name, *normalized_name;
-    char *path, *normalized_path;
-    char *basename, *normalized_basename;
+    char *name;
+    char *path;
     gboolean ret;
 
     if (key != NULL)
     {
+        char *normalized_key;
+
         normalized_key = g_utf8_casefold (key, -1);
         g_assert (normalized_key != NULL);
 
@@ -636,6 +640,8 @@ caja_open_with_search_equal_func (GtkTreeModel *model,
 
         if (name != NULL)
         {
+            char *normalized_name;
+
             normalized_name = g_utf8_casefold (name, -1);
             g_assert (normalized_name != NULL);
 
@@ -649,6 +655,9 @@ caja_open_with_search_equal_func (GtkTreeModel *model,
 
         if (ret && path != NULL)
         {
+            char *normalized_path;
+            char *basename, *normalized_basename;
+
             normalized_path = g_utf8_casefold (path, -1);
             g_assert (normalized_path != NULL);
 
@@ -1028,7 +1037,6 @@ set_uri_and_type (CajaOpenWithDialog *dialog,
     char *label;
     char *emname;
     char *name, *extension;
-    char *description;
     char *checkbox_text;
 
     name = NULL;
@@ -1087,6 +1095,8 @@ set_uri_and_type (CajaOpenWithDialog *dialog,
     }
     else
     {
+        char *description;
+
         dialog->details->content_type = g_strdup (mime_type);
         description = g_content_type_get_description (mime_type);
 

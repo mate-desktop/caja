@@ -66,10 +66,11 @@ guint
 caja_metadata_get_id (const char *metadata)
 {
     static GHashTable *hash;
-    int i;
 
     if (hash == NULL)
     {
+        int i;
+
         hash = g_hash_table_new (g_str_hash, g_str_equal);
         for (i = 0; used_metadata_names[i] != NULL; i++)
             g_hash_table_insert (hash,

@@ -112,8 +112,8 @@ static void
 reset_file_list (CajaSearchDirectory *search)
 {
     GList *list, *monitor_list;
-    CajaFile *file;
     SearchMonitor *monitor;
+    CajaFile *file = NULL;
 
     /* Remove file connections */
     for (list = search->details->files; list != NULL; list = list->next)
@@ -189,7 +189,7 @@ search_monitor_add (CajaDirectory *directory,
     GList *list;
     SearchMonitor *monitor;
     CajaSearchDirectory *search;
-    CajaFile *file;
+    CajaFile *file = NULL;
 
     search = CAJA_SEARCH_DIRECTORY (directory);
 
@@ -220,7 +220,7 @@ static void
 search_monitor_remove_file_monitors (SearchMonitor *monitor, CajaSearchDirectory *search)
 {
     GList *list;
-    CajaFile *file;
+    CajaFile *file = NULL;
 
     for (list = search->details->files; list != NULL; list = list->next)
     {
@@ -243,8 +243,8 @@ search_monitor_remove (CajaDirectory *directory,
                        gconstpointer client)
 {
     CajaSearchDirectory *search;
-    SearchMonitor *monitor;
     GList *list;
+    SearchMonitor *monitor = NULL;
 
     search = CAJA_SEARCH_DIRECTORY (directory);
 
@@ -322,7 +322,7 @@ static void
 search_callback_add_file_callbacks (SearchCallback *callback)
 {
     GList *file_list_copy, *list;
-    CajaFile *file;
+    CajaFile *file = NULL;
 
     file_list_copy = g_list_copy (callback->file_list);
 
@@ -341,8 +341,8 @@ search_callback_add_file_callbacks (SearchCallback *callback)
 static SearchCallback *
 search_callback_find (CajaSearchDirectory *search, CajaDirectoryCallback callback, gpointer callback_data)
 {
-    SearchCallback *search_callback;
     GList *list;
+    SearchCallback *search_callback = NULL;
 
     for (list = search->details->callback_list; list != NULL; list = list->next)
     {
@@ -361,8 +361,8 @@ search_callback_find (CajaSearchDirectory *search, CajaDirectoryCallback callbac
 static SearchCallback *
 search_callback_find_pending (CajaSearchDirectory *search, CajaDirectoryCallback callback, gpointer callback_data)
 {
-    SearchCallback *search_callback;
     GList *list;
+    SearchCallback *search_callback = NULL;
 
     for (list = search->details->pending_callback_list; list != NULL; list = list->next)
     {
@@ -501,7 +501,6 @@ search_engine_hits_added (CajaSearchEngine *engine, GList *hits,
     GList *hit_list;
     GList *file_list;
     CajaFile *file;
-    char *uri;
     SearchMonitor *monitor;
     GList *monitor_list;
 
@@ -509,6 +508,8 @@ search_engine_hits_added (CajaSearchEngine *engine, GList *hits,
 
     for (hit_list = hits; hit_list != NULL; hit_list = hit_list->next)
     {
+        char *uri;
+
         uri = hit_list->data;
 
         if (g_str_has_suffix (uri, CAJA_SAVED_SEARCH_EXTENSION))
@@ -549,13 +550,14 @@ search_engine_hits_subtracted (CajaSearchEngine *engine, GList *hits,
     GList *monitor_list;
     SearchMonitor *monitor;
     GList *file_list;
-    char *uri;
     CajaFile *file;
 
     file_list = NULL;
 
     for (hit_list = hits; hit_list != NULL; hit_list = hit_list->next)
     {
+        char *uri;
+
         uri = hit_list->data;
         file = caja_file_get_by_uri (uri);
 
@@ -852,7 +854,6 @@ CajaSearchDirectory *
 caja_search_directory_new_from_saved_search (const char *uri)
 {
     CajaSearchDirectory *search;
-    CajaQuery *query;
     char *file;
 
     search = CAJA_SEARCH_DIRECTORY (g_object_new (CAJA_TYPE_SEARCH_DIRECTORY, NULL));
@@ -862,6 +863,8 @@ caja_search_directory_new_from_saved_search (const char *uri)
     file = g_filename_from_uri (uri, NULL, NULL);
     if (file != NULL)
     {
+        CajaQuery *query;
+
         query = caja_query_load (file);
         if (query != NULL)
         {

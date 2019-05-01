@@ -64,17 +64,17 @@ application_cannot_open_location (GAppInfo *application,
                                   GtkWindow *parent_window)
 {
 #ifdef NEW_MIME_COMPLETE
-    GtkDialog *message_dialog;
-    LaunchParameters *launch_parameters;
     char *prompt;
     char *message;
     char *file_name;
-    int response;
 
     file_name = caja_file_get_display_name (file);
 
     if (caja_mime_has_any_applications_for_file (file))
     {
+        GtkDialog *message_dialog;
+        int response;
+
         if (application != NULL)
         {
             prompt = _("Open Failed, would you like to choose another application?");
@@ -102,6 +102,8 @@ application_cannot_open_location (GAppInfo *application,
 
         if (response == GTK_RESPONSE_YES)
         {
+            LaunchParameters *launch_parameters;
+
             launch_parameters = launch_parameters_new (file, parent_window);
             caja_choose_application_for_file
             (file,
@@ -192,16 +194,15 @@ caja_launch_application_by_uri (GAppInfo *application,
                                 GList *uris,
                                 GtkWindow *parent_window)
 {
-    char            *uri, *uri_scheme;
-    GList           *locations, *l;
-    GFile *location;
-    CajaFile    *file;
-    gboolean        result;
+    CajaFile *file;
+    gboolean result;
     GError *error;
     GdkDisplay *display;
     GdkAppLaunchContext *launch_context;
     CajaIconInfo *icon;
     int count;
+    GList *locations, *l;
+    GFile *location = NULL;
 
     g_assert (uris != NULL);
 
@@ -210,6 +211,8 @@ caja_launch_application_by_uri (GAppInfo *application,
     locations = NULL;
     for (l = uris; l != NULL; l = l->next)
     {
+        char *uri;
+
         uri = l->data;
 
         location = g_file_new_for_uri (uri);
@@ -263,6 +266,8 @@ caja_launch_application_by_uri (GAppInfo *application,
         if (error->domain == G_IO_ERROR &&
                 error->code == G_IO_ERROR_NOT_SUPPORTED)
         {
+            char *uri_scheme;
+
             uri_scheme = g_uri_parse_scheme (uris->data);
             application_cannot_open_location (application,
                                               file,
@@ -312,7 +317,6 @@ caja_launch_application_from_command (GdkScreen  *screen,
                                       ...)
 {
     char *full_command, *tmp;
-    char *quoted_parameter;
     char *parameter;
     va_list ap;
 
@@ -322,6 +326,8 @@ caja_launch_application_from_command (GdkScreen  *screen,
 
     while ((parameter = va_arg (ap, char *)) != NULL)
     {
+        char *quoted_parameter;
+
         quoted_parameter = g_shell_quote (parameter);
         tmp = g_strconcat (full_command, " ", quoted_parameter, NULL);
         g_free (quoted_parameter);
@@ -339,8 +345,6 @@ caja_launch_application_from_command (GdkScreen  *screen,
     }
     else
     {
-        GdkAppLaunchContext *launch_context;
-        GdkDisplay *display;
         GAppInfo *app_info = NULL;
         app_info = g_app_info_create_from_commandline (full_command,
                                                        NULL,
@@ -348,6 +352,9 @@ caja_launch_application_from_command (GdkScreen  *screen,
                                                        NULL);
         if (app_info != NULL)
         {
+            GdkAppLaunchContext *launch_context;
+            GdkDisplay *display;
+
             display = gdk_screen_get_display (screen);
             launch_context = gdk_display_get_app_launch_context (display);
             gdk_app_launch_context_set_screen (launch_context, screen);
@@ -378,15 +385,17 @@ caja_launch_application_from_command_array (GdkScreen  *screen,
         const char * const * parameters)
 {
     char *full_command, *tmp;
-    char *quoted_parameter;
-    const char * const *p;
 
     full_command = g_strdup (command_string);
 
     if (parameters != NULL)
     {
+        const char * const *p;
+
         for (p = parameters; *p != NULL; p++)
         {
+            char *quoted_parameter;
+
             quoted_parameter = g_shell_quote (*p);
             tmp = g_strconcat (full_command, " ", quoted_parameter, NULL);
             g_free (quoted_parameter);
@@ -402,8 +411,6 @@ caja_launch_application_from_command_array (GdkScreen  *screen,
     }
     else
     {
-        GdkAppLaunchContext *launch_context;
-        GdkDisplay *display;
         GAppInfo *app_info = NULL;
         app_info = g_app_info_create_from_commandline (full_command,
                                                        NULL,
@@ -411,6 +418,9 @@ caja_launch_application_from_command_array (GdkScreen  *screen,
                                                        NULL);
         if (app_info != NULL)
         {
+            GdkAppLaunchContext *launch_context;
+            GdkDisplay *display;
+
             display = gdk_screen_get_display (screen);
             launch_context = gdk_display_get_app_launch_context (display);
             gdk_app_launch_context_set_screen (launch_context, screen);
@@ -430,13 +440,14 @@ caja_launch_desktop_file (GdkScreen   *screen,
                           GtkWindow   *parent_window)
 {
     GError *error;
-    char *message, *desktop_file_path;
+    char *desktop_file_path;
     const GList *p;
     GList *files;
     int total, count;
-    GFile *file, *desktop_file;
     GDesktopAppInfo *app_info;
     GdkAppLaunchContext *context;
+    GFile *desktop_file;
+    GFile *file = NULL;
 
     /* Don't allow command execution from remote locations
      * to partially mitigate the security
@@ -529,6 +540,8 @@ caja_launch_desktop_file (GdkScreen   *screen,
                                                &error);
     if (error != NULL)
     {
+        char *message;
+
         message = g_strconcat (_("Details: "), error->message, NULL);
         eel_show_error_dialog
         (_("There was an error launching the application."),

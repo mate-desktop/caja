@@ -220,7 +220,7 @@ static void
 pairs_list_free (GList *pairs)
 {
     GList *p;
-    GFilePair *pair;
+    GFilePair *pair = NULL;
 
     /* deep delete the list of pairs */
 
@@ -240,7 +240,7 @@ static void
 position_set_list_free (GList *list)
 {
     GList *p;
-    CajaFileChangesQueuePosition *item;
+    CajaFileChangesQueuePosition *item = NULL;
 
     for (p = list; p != NULL; p = p->next)
     {

@@ -246,8 +246,6 @@ static void
 search_callback (gpointer results, GError *error, gpointer user_data)
 {
     CajaSearchEngineTracker *tracker;
-    char **results_p;
-    GPtrArray *OUT_result;
     GList *hit_uris;
     gint i;
     char *uri;
@@ -271,6 +269,8 @@ search_callback (gpointer results, GError *error, gpointer user_data)
 
     if (tracker->details->version == TRACKER_0_8)
     {
+        GPtrArray *OUT_result;
+
         /* new tracker 0.8 API */
         OUT_result = (GPtrArray*) results;
 
@@ -289,6 +289,8 @@ search_callback (gpointer results, GError *error, gpointer user_data)
     }
     else
     {
+        char **results_p;
+
         /* old tracker 0.6 API */
         for (results_p = results; *results_p; results_p++)
         {

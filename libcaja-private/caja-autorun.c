@@ -475,7 +475,6 @@ caja_autorun_prepare_combo_box (GtkWidget *combo_box,
     cairo_surface_t *surface;
     int icon_size, icon_scale;
     int set_active;
-    int n;
     int num_apps;
     gboolean pref_ask;
     gboolean pref_start_app;
@@ -593,6 +592,8 @@ caja_autorun_prepare_combo_box (GtkWidget *combo_box,
                             COLUMN_AUTORUN_X_CONTENT_TYPE, NULL,
                             COLUMN_AUTORUN_ITEM_TYPE, AUTORUN_SEP,
                             -1);
+
+        int n;
 
         for (l = app_info_list, n = include_ask ? 4 : 3; l != NULL; l = l->next, n++)
         {

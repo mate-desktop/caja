@@ -100,10 +100,7 @@ update_info_cb (GObject *source_object,
 {
     CajaTrashMonitor *trash_monitor;
     GFileInfo *info;
-    GIcon *icon;
-    const char * const *names;
     gboolean empty;
-    int i;
 
     trash_monitor = CAJA_TRASH_MONITOR (user_data);
 
@@ -112,6 +109,8 @@ update_info_cb (GObject *source_object,
 
     if (info != NULL)
     {
+        GIcon *icon;
+
         icon = g_file_info_get_icon (info);
 
         if (icon)
@@ -121,6 +120,9 @@ update_info_cb (GObject *source_object,
             empty = TRUE;
             if (G_IS_THEMED_ICON (icon))
             {
+                const char * const *names;
+                int i;
+
                 names = g_themed_icon_get_names (G_THEMED_ICON (icon));
                 for (i = 0; names[i] != NULL; i++)
                 {

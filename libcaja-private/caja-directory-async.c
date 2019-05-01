@@ -623,10 +623,11 @@ static void
 new_files_cancel (CajaDirectory *directory)
 {
     GList *l;
-    NewFilesState *state;
 
     if (directory->details->new_files_in_progress != NULL)
     {
+        NewFilesState *state = NULL;
+
         for (l = directory->details->new_files_in_progress; l != NULL; l = l->next)
         {
             state = l->data;
@@ -688,10 +689,10 @@ static void
 remove_monitor_link (CajaDirectory *directory,
                      GList *link)
 {
-    Monitor *monitor;
-
     if (link != NULL)
     {
+        Monitor *monitor;
+
         monitor = link->data;
         request_counter_remove_request (directory->details->monitor_counters,
                                         monitor->request);
@@ -804,7 +805,6 @@ caja_directory_monitor_add_internal (CajaDirectory *directory,
                                      gpointer callback_data)
 {
     Monitor *monitor;
-    GList *file_list;
 
     g_assert (CAJA_IS_DIRECTORY (directory));
 
@@ -829,6 +829,8 @@ caja_directory_monitor_add_internal (CajaDirectory *directory,
 
     if (callback != NULL)
     {
+        GList *file_list;
+
         file_list = caja_directory_get_file_list (directory);
         (* callback) (directory, file_list, callback_data);
         caja_file_list_free (file_list);
@@ -1128,12 +1130,13 @@ directory_load_one (CajaDirectory *directory,
 static void
 directory_load_cancel (CajaDirectory *directory)
 {
-    CajaFile *file;
     DirectoryLoadState *state;
 
     state = directory->details->directory_load_in_progress;
     if (state != NULL)
     {
+        CajaFile *file;
+
         file = state->load_directory_file;
         file->details->loading_directory = FALSE;
         if (file->details->directory != directory)
@@ -1230,7 +1233,7 @@ caja_directory_remove_file_monitors (CajaDirectory *directory,
                                      CajaFile *file)
 {
     GList *result, **list, *node, *next;
-    Monitor *monitor;
+    Monitor *monitor = NULL;
 
     g_assert (CAJA_IS_DIRECTORY (directory));
     g_assert (CAJA_IS_FILE (file));
@@ -1267,7 +1270,7 @@ caja_directory_add_file_monitors (CajaDirectory *directory,
 {
     GList **list;
     GList *l;
-    Monitor *monitor;
+    Monitor *monitor = NULL;
 
     g_assert (CAJA_IS_DIRECTORY (directory));
     g_assert (CAJA_IS_FILE (file));
@@ -1618,8 +1621,8 @@ caja_directory_get_info_for_new_files (CajaDirectory *directory,
                                        GList *location_list)
 {
     NewFilesState *state;
-    GFile *location;
     GList *l;
+    GFile *location = NULL;
 
     if (location_list == NULL)
     {
@@ -1656,8 +1659,8 @@ caja_async_destroying_file (CajaFile *file)
     CajaDirectory *directory;
     gboolean changed;
     GList *node, *next;
-    ReadyCallback *callback;
-    Monitor *monitor;
+    ReadyCallback *callback = NULL;
+    Monitor *monitor = NULL;
 
     directory = file->details->directory;
     changed = FALSE;
@@ -2064,7 +2067,7 @@ call_ready_callbacks (CajaDirectory *directory)
 {
     gboolean found_any;
     GList *node, *next;
-    ReadyCallback *callback;
+    ReadyCallback *callback = NULL;
 
     found_any = FALSE;
 
@@ -2095,8 +2098,8 @@ caja_directory_has_active_request_for_file (CajaDirectory *directory,
         CajaFile *file)
 {
     GList *node;
-    ReadyCallback *callback;
-    Monitor *monitor;
+    ReadyCallback *callback = NULL;
+    Monitor *monitor = NULL;
 
     for (node = directory->details->call_when_ready_list;
             node != NULL; node = node->next)
@@ -2152,7 +2155,7 @@ static void
 mark_all_files_unconfirmed (CajaDirectory *directory)
 {
     GList *node;
-    CajaFile *file;
+    CajaFile *file = NULL;
 
     for (node = directory->details->file_list; node != NULL; node = node->next)
     {
@@ -2192,7 +2195,7 @@ more_files_callback (GObject *source_object,
     CajaDirectory *directory;
     GError *error;
     GList *files, *l;
-    GFileInfo *info;
+    GFileInfo *info = NULL;
 
     state = user_data;
 
@@ -2467,8 +2470,6 @@ is_needy (CajaFile *file,
 {
     CajaDirectory *directory;
     GList *node;
-    ReadyCallback *callback;
-    Monitor *monitor;
 
     if (!(* check_missing) (file))
     {
@@ -2478,6 +2479,8 @@ is_needy (CajaFile *file,
     directory = file->details->directory;
     if (directory->details->call_when_ready_counters[request_type_wanted] > 0)
     {
+        ReadyCallback *callback = NULL;
+
         for (node = directory->details->call_when_ready_list;
                 node != NULL; node = node->next)
         {
@@ -2500,6 +2503,8 @@ is_needy (CajaFile *file,
 
     if (directory->details->monitor_counters[request_type_wanted] > 0)
     {
+        Monitor *monitor = NULL;
+
         for (node = directory->details->monitor_list;
                 node != NULL; node = node->next)
         {
@@ -2519,10 +2524,10 @@ is_needy (CajaFile *file,
 static void
 directory_count_stop (CajaDirectory *directory)
 {
-    CajaFile *file;
-
     if (directory->details->count_in_progress != NULL)
     {
+        CajaFile *file;
+
         file = directory->details->count_in_progress->count_file;
         if (file != NULL)
         {
@@ -2546,7 +2551,7 @@ count_non_skipped_files (GList *list)
 {
     guint count;
     GList *node;
-    GFileInfo *info;
+    GFileInfo *info = NULL;
 
     count = 0;
     for (node = list; node != NULL; node = node->next)
@@ -2678,13 +2683,14 @@ count_children_callback (GObject *source_object,
 {
     DirectoryCountState *state;
     GFileEnumerator *enumerator;
-    CajaDirectory *directory;
     GError *error;
 
     state = user_data;
 
     if (g_cancellable_is_cancelled (state->cancellable))
     {
+        CajaDirectory *directory;
+
         /* Operation was cancelled. Bail out */
         directory = state->directory;
         directory->details->count_in_progress = NULL;
@@ -2831,9 +2837,7 @@ deep_count_one (DeepCountState *state,
                 GFileInfo *info)
 {
     CajaFile *file;
-    GFile *subdir;
     gboolean is_seen_inode;
-    const char *fs_id;
 
     if (should_skip_file (NULL, info))
     {
@@ -2850,6 +2854,8 @@ deep_count_one (DeepCountState *state,
 
     if (g_file_info_get_file_type (info) == G_FILE_TYPE_DIRECTORY)
     {
+        const char *fs_id;
+
         /* Count the directory. */
         file->details->deep_directory_count += 1;
 
@@ -2858,6 +2864,8 @@ deep_count_one (DeepCountState *state,
         fs_id = g_file_info_get_attribute_string (info, G_FILE_ATTRIBUTE_ID_FILESYSTEM);
         if (g_strcmp0 (fs_id, state->fs_id) == 0)
         {
+            GFile *subdir;
+
             /* only if it is on the same filesystem */
             subdir = g_file_get_child (state->deep_count_location, g_file_info_get_name (info));
             state->deep_count_subdirectories = g_list_prepend (state->deep_count_subdirectories, subdir);
@@ -2908,7 +2916,6 @@ deep_count_state_free (DeepCountState *state)
 static void
 deep_count_next_dir (DeepCountState *state)
 {
-    GFile *location;
     CajaFile *file;
     CajaDirectory *directory;
     gboolean done;
@@ -2923,6 +2930,8 @@ deep_count_next_dir (DeepCountState *state)
 
     if (state->deep_count_subdirectories != NULL)
     {
+        GFile *location;
+
         /* Work on a new directory. */
         location = state->deep_count_subdirectories->data;
         state->deep_count_subdirectories = g_list_remove
@@ -2957,7 +2966,7 @@ deep_count_more_files_callback (GObject *source_object,
     DeepCountState *state;
     CajaDirectory *directory;
     GList *files, *l;
-    GFileInfo *info;
+    GFileInfo *info = NULL;
 
     state = user_data;
 
@@ -3074,10 +3083,10 @@ deep_count_load (DeepCountState *state, GFile *location)
 static void
 deep_count_stop (CajaDirectory *directory)
 {
-    CajaFile *file;
-
     if (directory->details->deep_count_in_progress != NULL)
     {
+        CajaFile *file;
+
         file = directory->details->deep_count_file;
         if (file != NULL)
         {
@@ -3102,13 +3111,14 @@ deep_count_got_info (GObject *source_object,
                      gpointer user_data)
 {
      GFileInfo *info;
-     const char *id;
      GFile *file = (GFile *)source_object;
      DeepCountState *state = (DeepCountState *)user_data;
 
      info = g_file_query_info_finish (file, res, NULL);
      if (info != NULL)
      {
+         const char *id;
+
          id = g_file_info_get_attribute_string (info, G_FILE_ATTRIBUTE_ID_FILESYSTEM);
          state->fs_id = g_strdup (id);
          g_object_unref (info);
@@ -3182,10 +3192,10 @@ deep_count_start (CajaDirectory *directory,
 static void
 mime_list_stop (CajaDirectory *directory)
 {
-    CajaFile *file;
-
     if (directory->details->mime_list_in_progress != NULL)
     {
+        CajaFile *file;
+
         file = directory->details->mime_list_in_progress->mime_list_file;
         if (file != NULL)
         {
@@ -3287,7 +3297,7 @@ mime_list_callback (GObject *source_object,
     CajaDirectory *directory;
     GError *error;
     GList *files, *l;
-    GFileInfo *info;
+    GFileInfo *info = NULL;
 
     state = user_data;
     directory = state->directory;
@@ -3349,13 +3359,14 @@ list_mime_enum_callback (GObject *source_object,
 {
     MimeListState *state;
     GFileEnumerator *enumerator;
-    CajaDirectory *directory;
     GError *error;
 
     state = user_data;
 
     if (g_cancellable_is_cancelled (state->cancellable))
     {
+        CajaDirectory *directory;
+
         /* Operation was cancelled. Bail out */
         directory = state->directory;
         directory->details->mime_list_in_progress = NULL;
@@ -3464,10 +3475,10 @@ mime_list_start (CajaDirectory *directory,
 static void
 top_left_stop (CajaDirectory *directory)
 {
-    CajaFile *file;
-
     if (directory->details->top_left_read_state != NULL)
     {
+        CajaFile *file;
+
         file = directory->details->top_left_read_state->file;
         if (file != NULL)
         {
@@ -3732,10 +3743,10 @@ query_info_callback (GObject *source_object,
 static void
 file_info_stop (CajaDirectory *directory)
 {
-    CajaFile *file;
-
     if (directory->details->get_info_in_progress != NULL)
     {
+        CajaFile *file;
+
         file = directory->details->get_info_file;
         if (file != NULL)
         {
@@ -3843,7 +3854,6 @@ static gboolean
 is_link_trusted (CajaFile *file,
                  gboolean is_launcher)
 {
-    GFile *location;
     gboolean res;
 
     if (!is_launcher)
@@ -3860,6 +3870,8 @@ is_link_trusted (CajaFile *file,
 
     if (caja_file_is_local (file))
     {
+        GFile *location;
+
         location = caja_file_get_location (file);
         res = caja_is_in_system_dir (location);
 
@@ -3931,10 +3943,10 @@ should_read_link_info_sync (CajaFile *file)
 static void
 link_info_stop (CajaDirectory *directory)
 {
-    CajaFile *file;
-
     if (directory->details->link_info_read_state != NULL)
     {
+        CajaFile *file;
+
         file = directory->details->link_info_read_state->file;
 
         if (file != NULL)
@@ -3961,7 +3973,7 @@ link_info_got_data (CajaDirectory *directory,
                     goffset bytes_read,
                     char *file_contents)
 {
-    char *link_uri, *uri, *name, *icon;
+    char *uri, *name, *icon;
     gboolean is_launcher;
     gboolean is_foreign;
 
@@ -3976,6 +3988,8 @@ link_info_got_data (CajaDirectory *directory,
     /* Handle the case where we read the Caja link. */
     if (result)
     {
+        char *link_uri;
+
         link_uri = caja_file_get_uri (file);
         caja_link_get_link_info_given_file_contents (file_contents, bytes_read, link_uri,
                 &uri, &name, &icon, &is_launcher, &is_foreign);
@@ -4117,9 +4131,6 @@ thumbnail_done (CajaDirectory *directory,
                 GdkPixbuf *pixbuf,
                 gboolean tried_original)
 {
-    const char *thumb_mtime_str;
-    time_t thumb_mtime = 0;
-
     file->details->thumbnail_is_up_to_date = TRUE;
     file->details->thumbnail_tried_original  = tried_original;
     if (file->details->thumbnail)
@@ -4129,12 +4140,16 @@ thumbnail_done (CajaDirectory *directory,
     }
     if (pixbuf)
     {
+        time_t thumb_mtime = 0;
+
         if (tried_original)
         {
             thumb_mtime = file->details->mtime;
         }
         else
         {
+            const char *thumb_mtime_str;
+
             thumb_mtime_str = gdk_pixbuf_get_option (pixbuf, "tEXt::Thumb::MTime");
             if (thumb_mtime_str)
             {
@@ -4161,10 +4176,10 @@ thumbnail_done (CajaDirectory *directory,
 static void
 thumbnail_stop (CajaDirectory *directory)
 {
-    CajaFile *file;
-
     if (directory->details->thumbnail_state != NULL)
     {
+        CajaFile *file;
+
         file = directory->details->thumbnail_state->file;
 
         if (file != NULL)
@@ -4300,7 +4315,6 @@ thumbnail_read_callback (GObject *source_object,
     gboolean result;
     CajaDirectory *directory;
     GdkPixbuf *pixbuf;
-    GFile *location;
 
     state = user_data;
 
@@ -4327,6 +4341,8 @@ thumbnail_read_callback (GObject *source_object,
 
     if (pixbuf == NULL && state->trying_original)
     {
+        GFile *location;
+
         state->trying_original = FALSE;
 
         location = g_file_new_for_path (state->file->details->thumbnail_path);
@@ -4404,10 +4420,10 @@ thumbnail_start (CajaDirectory *directory,
 static void
 mount_stop (CajaDirectory *directory)
 {
-    CajaFile *file;
-
     if (directory->details->mount_state != NULL)
     {
+        CajaFile *file;
+
         file = directory->details->mount_state->file;
 
         if (file != NULL)
@@ -4468,7 +4484,6 @@ find_enclosing_mount_callback (GObject *source_object,
 {
     GMount *mount;
     MountState *state;
-    GFile *location, *root;
 
     state = user_data;
     if (state->directory == NULL)
@@ -4483,6 +4498,8 @@ find_enclosing_mount_callback (GObject *source_object,
 
     if (mount)
     {
+        GFile *location, *root;
+
         root = g_mount_get_root (mount);
         location = caja_file_get_location (state->file);
         if (!g_file_equal (location, root))
@@ -4621,10 +4638,10 @@ filesystem_info_cancel (CajaDirectory *directory)
 static void
 filesystem_info_stop (CajaDirectory *directory)
 {
-    CajaFile *file;
-
     if (directory->details->filesystem_info_state != NULL)
     {
+        CajaFile *file;
+
         file = directory->details->filesystem_info_state->file;
 
         if (file != NULL)
@@ -5294,10 +5311,11 @@ static void
 add_all_files_to_work_queue (CajaDirectory *directory)
 {
     GList *node;
-    CajaFile *file;
 
     for (node = directory->details->file_list; node != NULL; node = node->next)
     {
+        CajaFile *file;
+
         file = CAJA_FILE (node->data);
 
         caja_directory_add_file_to_work_queue (directory, file);

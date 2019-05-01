@@ -282,7 +282,7 @@ caja_icon_container_each_selected_icon (CajaIconContainer *container,
                                         gboolean (*each_function) (CajaIcon *, gpointer), gpointer data)
 {
     GList *p;
-    CajaIcon *icon;
+    CajaIcon *icon = NULL;
 
     for (p = container->details->icons; p != NULL; p = p->next)
     {
@@ -424,7 +424,6 @@ get_direct_save_filename (GdkDragContext *context)
 static void
 set_direct_save_uri (GtkWidget *widget, GdkDragContext *context, CajaDragInfo *drag_info, int x, int y)
 {
-    GFile *base, *child;
     char *filename, *drop_target;
     gchar *uri;
 
@@ -445,6 +444,8 @@ set_direct_save_uri (GtkWidget *widget, GdkDragContext *context, CajaDragInfo *d
 
     if (filename != NULL && drop_target != NULL)
     {
+        GFile *base, *child;
+
         /* Resolve relative path */
         base = g_file_new_for_uri (drop_target);
         child = g_file_get_child (base, filename);
@@ -949,12 +950,12 @@ handle_local_move (CajaIconContainer *container,
                    double world_x, double world_y)
 {
     GList *moved_icons, *p;
-    CajaDragSelectionItem *item;
-    CajaIcon *icon;
     CajaFile *file;
     char screen_string[32];
     GdkScreen *screen;
     time_t now;
+    CajaDragSelectionItem *item = NULL;
+    CajaIcon *icon = NULL;
 
     if (container->details->auto_layout)
     {
@@ -1022,7 +1023,6 @@ handle_nonlocal_move (CajaIconContainer *container,
     GList *source_uris, *p;
     GArray *source_item_locations;
     gboolean free_target_uri, is_rtl;
-    int index, item_x;
     GtkAllocation allocation;
 
     if (container->details->dnd_info->drag_info.selection_list == NULL)
@@ -1043,6 +1043,8 @@ handle_nonlocal_move (CajaIconContainer *container,
     source_item_locations = g_array_new (FALSE, TRUE, sizeof (GdkPoint));
     if (!icon_hit)
     {
+        int index;
+
         /* Drop onto a container. Pass along the item points to allow placing
          * the items in their same relative positions in the new container.
          */
@@ -1052,6 +1054,8 @@ handle_nonlocal_move (CajaIconContainer *container,
         for (index = 0, p = container->details->dnd_info->drag_info.selection_list;
                 p != NULL; index++, p = p->next)
         {
+            int item_x;
+
             item_x = ((CajaDragSelectionItem *)p->data)->icon_x;
             if (is_rtl)
                 item_x = -item_x - ((CajaDragSelectionItem *)p->data)->icon_width;
@@ -1101,9 +1105,6 @@ caja_icon_container_find_drop_target (CajaIconContainer *container,
 {
     CajaIcon *drop_target_icon;
     double world_x, world_y;
-    CajaFile *file;
-    char *icon_uri;
-    char *container_uri;
 
     if (icon_hit)
     {
@@ -1127,9 +1128,13 @@ caja_icon_container_find_drop_target (CajaIconContainer *container,
     drop_target_icon = caja_icon_container_item_at (container, world_x, world_y);
     if (drop_target_icon != NULL)
     {
+        char *icon_uri;
+
         icon_uri = caja_icon_container_get_icon_uri (container, drop_target_icon);
         if (icon_uri != NULL)
         {
+            CajaFile *file;
+
             file = caja_file_get_by_uri (icon_uri);
 
             if (!caja_drag_can_accept_info (file,
@@ -1149,6 +1154,8 @@ caja_icon_container_find_drop_target (CajaIconContainer *container,
 
     if (drop_target_icon == NULL)
     {
+        char *container_uri;
+
         if (icon_hit)
         {
             *icon_hit = FALSE;
@@ -1225,7 +1232,6 @@ caja_icon_container_receive_dropped_icons (CajaIconContainer *container,
     double world_x, world_y;
     gboolean icon_hit;
     GdkDragAction action, real_action;
-    CajaDragSelectionItem *selected_item;
 
     drop_target = NULL;
 
@@ -1259,6 +1265,8 @@ caja_icon_container_receive_dropped_icons (CajaIconContainer *container,
 
     if (real_action == (GdkDragAction) CAJA_DND_ACTION_SET_AS_BACKGROUND)
     {
+        CajaDragSelectionItem *selected_item;
+
         selected_item = container->details->dnd_info->drag_info.selection_list->data;
         eel_background_set_dropped_image (eel_get_widget_background (GTK_WIDGET (container)),
                                           real_action, selected_item->uri);
@@ -1406,9 +1414,7 @@ caja_icon_dnd_update_drop_target (CajaIconContainer *container,
                                   int x, int y)
 {
     CajaIcon *icon;
-    CajaFile *file;
     double world_x, world_y;
-    char *uri;
 
     g_assert (CAJA_IS_ICON_CONTAINER (container));
 
@@ -1426,6 +1432,9 @@ caja_icon_dnd_update_drop_target (CajaIconContainer *container,
     /* Find if target icon accepts our drop. */
     if (icon != NULL && (container->details->dnd_info->drag_info.data_type != CAJA_ICON_DND_KEYWORD))
     {
+        CajaFile *file;
+        char *uri;
+
         uri = caja_icon_container_get_icon_uri (container, icon);
         file = caja_file_get_by_uri (uri);
         g_free (uri);
@@ -1751,10 +1760,6 @@ drag_data_received_callback (GtkWidget *widget,
                              gpointer user_data)
 {
     CajaDragInfo *drag_info;
-    EelBackground *background;
-    char *tmp;
-    const char *tmp_raw;
-    int length;
     gboolean success;
 
     drag_info = &(CAJA_ICON_CONTAINER (widget)->details->dnd_info->drag_info);
@@ -1801,6 +1806,10 @@ drag_data_received_callback (GtkWidget *widget,
      */
     if (drag_info->drop_occured)
     {
+        EelBackground *background;
+        char *tmp;
+        const char *tmp_raw;
+        int length;
 
         success = FALSE;
         switch (info)

@@ -55,7 +55,6 @@ static void desktop_dir_changed (void);
 char *
 caja_compute_title_for_location (GFile *location)
 {
-    CajaFile *file;
     char *title;
 
     /* TODO-gio: This doesn't really work all that great if the
@@ -64,6 +63,8 @@ caja_compute_title_for_location (GFile *location)
     title = NULL;
     if (location)
     {
+        CajaFile *file;
+
         file = caja_file_get (location);
         title = caja_file_get_description (file);
         if (title == NULL)
@@ -195,10 +196,8 @@ parse_xdg_dirs (const char *config_file)
     XdgDirEntry dir;
     char *data;
     char **lines;
-    char *p, *d;
-    int i;
-    char *type_start, *type_end;
-    char *value, *unescaped;
+    char *p;
+    char *unescaped;
     gboolean relative;
 
     array = g_array_new (TRUE, TRUE, sizeof (XdgDirEntry));
@@ -212,10 +211,16 @@ parse_xdg_dirs (const char *config_file)
 
     if (g_file_get_contents (config_file, &data, NULL, NULL))
     {
+        int i;
+
         lines = g_strsplit (data, "\n", 0);
         g_free (data);
         for (i = 0; lines[i] != NULL; i++)
         {
+            char *d;
+            char *type_start, *type_end;
+            char *value;
+
             p = lines[i];
             while (g_ascii_isspace (*p))
                 p++;
@@ -383,10 +388,10 @@ unschedule_user_dirs_changed (void)
 static void
 free_xdg_dir_cache (void)
 {
-    int i;
-
     if (cached_xdg_dirs != NULL)
     {
+        int i;
+
         for (i = 0; cached_xdg_dirs[i].type != NULL; i++)
         {
             if (cached_xdg_dirs[i].file != NULL)
@@ -422,8 +427,7 @@ destroy_xdg_dir_cache (void)
 static void
 update_xdg_dir_cache (void)
 {
-    GFile *file;
-    char *config_file, *uri;
+    char *uri;
     int i;
 
     free_xdg_dir_cache ();
@@ -451,6 +455,9 @@ update_xdg_dir_cache (void)
 
     if (cached_xdg_dirs_monitor == NULL)
     {
+        GFile *file;
+        char *config_file;
+
         config_file = g_build_filename (g_get_user_config_dir (),
                                         "user-dirs.dirs", NULL);
         file = g_file_new_for_path (config_file);
@@ -672,12 +679,13 @@ gboolean
 caja_is_home_directory_file (GFile *dir,
                              const char *filename)
 {
-    char *dirname;
     static GFile *home_dir_dir = NULL;
     static char *home_dir_filename = NULL;
 
     if (home_dir_dir == NULL)
     {
+        char *dirname;
+
         dirname = g_path_get_dirname (g_get_home_dir ());
         home_dir_dir = g_file_new_for_path (dirname);
         g_free (dirname);
@@ -763,7 +771,7 @@ caja_get_mounted_mount_for_root (GFile *location)
 	GVolumeMonitor *volume_monitor;
 	GList *mounts;
 	GList *l;
-	GMount *mount;
+	GMount *mount = NULL;
 	GMount *result = NULL;
 	GFile *root = NULL;
 	GFile *default_location = NULL;
@@ -917,8 +925,8 @@ caja_ensure_unique_file_name (const char *directory_uri,
 GFile *
 caja_find_existing_uri_in_hierarchy (GFile *location)
 {
-    GFileInfo *info;
-    GFile *tmp;
+    GFileInfo *info = NULL;
+    GFile *tmp = NULL;
 
     g_assert (location != NULL);
 
@@ -1131,8 +1139,10 @@ caja_trashed_files_get_original_directories (GList *files,
         GList **unhandled_files)
 {
     GHashTable *directories;
-    CajaFile *file, *original_file, *original_dir;
     GList *l, *m;
+    CajaFile *file = NULL;
+    CajaFile *original_file = NULL;
+    CajaFile *original_dir = NULL;
 
     directories = NULL;
 
@@ -1192,8 +1202,8 @@ caja_trashed_files_get_original_directories (GList *files,
 static GList *
 locations_from_file_list (GList *file_list)
 {
-    CajaFile *file;
     GList *l, *ret;
+    CajaFile *file = NULL;
 
     ret = NULL;
 
@@ -1210,17 +1220,17 @@ void
 caja_restore_files_from_trash (GList *files,
                                GtkWindow *parent_window)
 {
-    CajaFile *file, *original_dir;
     GHashTable *original_dirs_hash;
     GList *original_dirs, *unhandled_files;
-    GFile *original_dir_location;
-    GList *locations, *l;
-    char *message, *file_name;
+    GList *l;
+    CajaFile *file = NULL;
 
     original_dirs_hash = caja_trashed_files_get_original_directories (files, &unhandled_files);
 
     for (l = unhandled_files; l != NULL; l = l->next)
     {
+        char *message, *file_name;
+
         file = CAJA_FILE (l->data);
         file_name = caja_file_get_display_name (file);
         message = g_strdup_printf (_("Could not determine original location of \"%s\" "), file_name);
@@ -1234,6 +1244,10 @@ caja_restore_files_from_trash (GList *files,
 
     if (original_dirs_hash != NULL)
     {
+        CajaFile *original_dir = NULL;
+        GFile *original_dir_location = NULL;
+        GList *locations = NULL;
+
         original_dirs = g_hash_table_get_keys (original_dirs_hash);
         for (l = original_dirs; l != NULL; l = l->next)
         {

@@ -296,7 +296,6 @@ format_time (int seconds)
 {
 	int minutes;
 	int hours;
-	char *res;
 
 	if (seconds < 0) {
 		/* Just to make sure... */
@@ -316,6 +315,7 @@ format_time (int seconds)
 
 	if (seconds < 60*60*4) {
 		char *h, *m;
+		char *res;
 
 		minutes = (seconds - hours * 60 * 60) / 60;
 
@@ -950,7 +950,6 @@ init_common (gsize job_size,
 	     gboolean should_start, gboolean can_pause)
 {
 	CommonJob *common;
-	GdkScreen *screen;
 
 	/* expected warning with Clang static analyzer:                                *
 	 * "Cast a region whose size is not a multiple of the destination type size"   *
@@ -972,6 +971,8 @@ init_common (gsize job_size,
 	common->inhibit_cookie = -1;
 	common->screen_num = 0;
 	if (parent_window) {
+		GdkScreen *screen;
+
 		screen = gtk_widget_get_screen (GTK_WIDGET (parent_window));
 		common->screen_num = gdk_x11_screen_get_screen_number (screen);
 	}
@@ -1095,7 +1096,6 @@ static gboolean
 do_run_simple_dialog (gpointer _data)
 {
 	RunSimpleDialogData *data = _data;
-	const char *button_title;
         GtkWidget *dialog;
 	int result;
 	int response_id;
@@ -1115,6 +1115,8 @@ do_run_simple_dialog (gpointer _data)
 	for (response_id = 0;
 	     data->button_titles[response_id] != NULL;
 	     response_id++) {
+		const char *button_title;
+
 		button_title = data->button_titles[response_id];
 		if (!data->show_all && is_all_button_text (button_title)) {
 			continue;
@@ -1501,8 +1503,7 @@ report_delete_progress (CommonJob *job,
 			TransferInfo *transfer_info)
 {
 	int files_left;
-	double elapsed, transfer_rate;
-	int remaining_time;
+	double elapsed;
 	gint64 now;
 	char *files_left_s;
 
@@ -1534,6 +1535,9 @@ report_delete_progress (CommonJob *job,
 		caja_progress_info_set_details (job->progress, files_left_s);
 	} else {
 		char *details, *time_left_s;
+		int remaining_time;
+		double transfer_rate;
+
 		transfer_rate = transfer_info->num_files / elapsed;
 		remaining_time = files_left / transfer_rate;
 
@@ -1789,10 +1793,10 @@ static void
 delete_files (CommonJob *job, GList *files, int *files_skipped)
 {
 	GList *l;
-	GFile *file;
 	SourceInfo source_info;
 	TransferInfo transfer_info;
 	gboolean skipped_file;
+	GFile *file = NULL;
 
 	if (job_aborted (job)) {
 		return;
@@ -1953,13 +1957,14 @@ static gboolean
 delete_job_done (gpointer user_data)
 {
 	DeleteJob *job;
-	GHashTable *debuting_uris;
 
 	job = user_data;
 
     	g_list_free_full (job->files, g_object_unref);
 
 	if (job->done_callback) {
+		GHashTable *debuting_uris;
+
 		debuting_uris = g_hash_table_new_full (g_file_hash, (GEqualFunc)g_file_equal, g_object_unref, NULL);
 		job->done_callback (debuting_uris, job->user_cancel, job->done_callback_data);
 		g_hash_table_unref (debuting_uris);
@@ -1981,13 +1986,13 @@ delete_job (GIOSchedulerJob *io_job,
 	GList *to_trash_files;
 	GList *to_delete_files;
 	GList *l;
-	GFile *file;
 	gboolean confirmed;
 	CommonJob *common;
 	gboolean must_confirm_delete_in_trash;
 	gboolean must_confirm_delete;
 	gboolean must_confirm_trash;
 	int files_skipped;
+	GFile *file = NULL;
 
 	common = (CommonJob *)job;
 	common->io_job = io_job;
@@ -2142,7 +2147,6 @@ unmount_mount_callback (GObject *source_object,
 {
 	UnmountData *data = user_data;
 	GError *error;
-	char *primary;
 	gboolean unmounted;
 
 	error = NULL;
@@ -2160,6 +2164,8 @@ unmount_mount_callback (GObject *source_object,
 
 	if (! unmounted) {
 		if (error && error->code != G_IO_ERROR_FAILED_HANDLED) {
+			char *primary;
+
 			if (data->eject) {
 				primary = f (_("Unable to eject %V"), source_object);
 			} else {
@@ -2217,7 +2223,6 @@ dir_has_files (GFile *dir)
 {
 	GFileEnumerator *enumerator;
 	gboolean res;
-	GFileInfo *file_info;
 
 	res = FALSE;
 
@@ -2226,6 +2231,8 @@ dir_has_files (GFile *dir)
 						0,
 						NULL, NULL);
 	if (enumerator) {
+		GFileInfo *file_info;
+
 		file_info = g_file_enumerator_next_file (enumerator, NULL, NULL);
 		if (file_info != NULL) {
 			res = TRUE;
@@ -2244,8 +2251,6 @@ static GList *
 get_trash_dirs_for_mount (GMount *mount)
 {
 	GFile *root;
-	GFile *trash;
-	char *relpath;
 	GList *list;
 
 	root = g_mount_get_root (mount);
@@ -2256,6 +2261,9 @@ get_trash_dirs_for_mount (GMount *mount)
 	list = NULL;
 
 	if (g_file_is_native (root)) {
+		GFile *trash;
+		char *relpath;
+
 		relpath = g_strdup_printf (".Trash/%d", getuid ());
 		trash = g_file_resolve_relative_path (root, relpath);
 		g_free (relpath);
@@ -2283,9 +2291,9 @@ get_trash_dirs_for_mount (GMount *mount)
 static gboolean
 has_trash_files (GMount *mount)
 {
-	GList *dirs, *l;
-	GFile *dir;
 	gboolean res;
+	GList *dirs, *l;
+	GFile *dir = NULL;
 
 	dirs = get_trash_dirs_for_mount (mount);
 
@@ -2367,7 +2375,6 @@ caja_file_operations_unmount_mount_full (GtkWindow                      *parent_
 					     gpointer                        callback_data)
 {
 	UnmountData *data;
-	int response;
 
 	data = g_new0 (UnmountData, 1);
 	data->callback = callback;
@@ -2381,6 +2388,8 @@ caja_file_operations_unmount_mount_full (GtkWindow                      *parent_
 	data->mount = g_object_ref (mount);
 
 	if (check_trash && has_trash_files (mount)) {
+		int response;
+
 		response = prompt_empty_trash (parent_window);
 
 		if (response == GTK_RESPONSE_ACCEPT) {
@@ -2441,13 +2450,14 @@ volume_mount_cb (GObject *source_object,
 	GObject *mount_callback_data_object;
 	GMountOperation *mount_op = user_data;
 	GError *error;
-	char *primary;
-	char *name;
 
 	error = NULL;
 	caja_allow_autorun_for_volume_finish (G_VOLUME (source_object));
 	if (!g_volume_mount_finish (G_VOLUME (source_object), res, &error)) {
 		if (error->code != G_IO_ERROR_FAILED_HANDLED) {
+			char *name;
+			char *primary;
+
 			name = g_volume_get_name (G_VOLUME (source_object));
 			primary = g_strdup_printf (_("Unable to mount %s"), name);
 			g_free (name);
@@ -2805,7 +2815,7 @@ scan_sources (GList *files,
 	      OpKind kind)
 {
 	GList *l;
-	GFile *file;
+	GFile *file = NULL;
 
 	memset (source_info, 0, sizeof (SourceInfo));
 	source_info->op = kind;
@@ -2989,7 +2999,6 @@ report_copy_progress (CopyMoveJob *copy_job,
 	int files_left;
 	goffset total_size;
 	double elapsed, transfer_rate;
-	int remaining_time;
 	guint64 now;
 	CommonJob *job;
 	gboolean is_move;
@@ -3091,7 +3100,9 @@ report_copy_progress (CopyMoveJob *copy_job,
 		s = f (_("%S of %S"), transfer_info->num_bytes, total_size);
 		caja_progress_info_take_details (job->progress, s);
 	} else {
+		int remaining_time;
 		char *s;
+
 		remaining_time = (total_size - transfer_info->num_bytes) / transfer_rate;
 
 		/* To translators: %S will expand to a size like "2 bytes" or "3 MB", %T to a time duration like
@@ -3208,8 +3219,7 @@ get_unique_target_file (GFile *src,
 			const char *dest_fs_type,
 			int count)
 {
-	const char *editname, *end;
-	char *basename, *new_name;
+	char *new_name;
 	GFileInfo *info;
 	GFile *dest;
 	int max_length;
@@ -3221,6 +3231,8 @@ get_unique_target_file (GFile *src,
 				  G_FILE_ATTRIBUTE_STANDARD_EDIT_NAME,
 				  0, NULL, NULL);
 	if (info != NULL) {
+		const char *editname;
+
 		editname = g_file_info_get_attribute_string (info, G_FILE_ATTRIBUTE_STANDARD_EDIT_NAME);
 
 		if (editname != NULL) {
@@ -3234,6 +3246,8 @@ get_unique_target_file (GFile *src,
 	}
 
 	if (dest == NULL) {
+		char *basename;
+
 		basename = g_file_get_basename (src);
 
 		if (g_utf8_validate (basename, -1, NULL)) {
@@ -3244,6 +3258,8 @@ get_unique_target_file (GFile *src,
 		}
 
 		if (dest == NULL) {
+			const char *end;
+
 			end = strrchr (basename, '.');
 			if (end != NULL) {
 				count += atoi (end + 1);
@@ -3266,8 +3282,7 @@ get_target_file_for_link (GFile *src,
 			  const char *dest_fs_type,
 			  int count)
 {
-	const char *editname;
-	char *basename, *new_name;
+	char *new_name;
 	GFileInfo *info;
 	GFile *dest;
 	int max_length;
@@ -3279,6 +3294,8 @@ get_target_file_for_link (GFile *src,
 				  G_FILE_ATTRIBUTE_STANDARD_EDIT_NAME,
 				  0, NULL, NULL);
 	if (info != NULL) {
+		const char *editname;
+
 		editname = g_file_info_get_attribute_string (info, G_FILE_ATTRIBUTE_STANDARD_EDIT_NAME);
 
 		if (editname != NULL) {
@@ -3292,6 +3309,8 @@ get_target_file_for_link (GFile *src,
 	}
 
 	if (dest == NULL) {
+		char *basename;
+
 		basename = g_file_get_basename (src);
 		make_file_name_valid_for_dest_fs (basename, dest_fs_type);
 
@@ -3325,18 +3344,19 @@ get_target_file (GFile *src,
 		 const char *dest_fs_type,
 		 gboolean same_fs)
 {
-	char *basename;
 	GFile *dest;
-	GFileInfo *info;
-	char *copyname;
 
 	dest = NULL;
 	if (!same_fs) {
+		GFileInfo *info;
+
 		info = g_file_query_info (src,
 					  G_FILE_ATTRIBUTE_STANDARD_COPY_NAME,
 					  0, NULL, NULL);
 
 		if (info) {
+			char *copyname;
+
 			copyname = g_strdup (g_file_info_get_attribute_string (info, G_FILE_ATTRIBUTE_STANDARD_COPY_NAME));
 
 			if (copyname) {
@@ -3350,6 +3370,8 @@ get_target_file (GFile *src,
 	}
 
 	if (dest == NULL) {
+		char *basename;
+
 		basename = g_file_get_basename (src);
 		make_file_name_valid_for_dest_fs (basename, dest_fs_type);
 		dest = g_file_get_child (dest_dir, basename);
@@ -3362,7 +3384,6 @@ get_target_file (GFile *src,
 static gboolean
 has_fs_id (GFile *file, const char *fs_id)
 {
-	const char *id;
 	GFileInfo *info;
 	gboolean res;
 
@@ -3373,6 +3394,8 @@ has_fs_id (GFile *file, const char *fs_id)
 				  NULL, NULL);
 
 	if (info) {
+		const char *id;
+
 		id = g_file_info_get_attribute_string (info, G_FILE_ATTRIBUTE_ID_FILESYSTEM);
 
 		if (id && strcmp (id, fs_id) == 0) {
@@ -4514,7 +4537,6 @@ copy_files (CopyMoveJob *job,
 {
 	CommonJob *common;
 	GList *l;
-	GFile *src;
 	gboolean same_fs;
 	int i;
 	GdkPoint *point;
@@ -4523,8 +4545,8 @@ copy_files (CopyMoveJob *job,
 	GFile *dest;
 	GFile *source_dir;
 	char *dest_fs_type;
-	GFileInfo *inf;
 	gboolean readonly_source_fs;
+	GFile *src = NULL;
 
 	dest_fs_type = NULL;
 	readonly_source_fs = FALSE;
@@ -4536,6 +4558,8 @@ copy_files (CopyMoveJob *job,
 	/* Query the source dir, not the file because if its a symlink we'll follow it */
 	source_dir = g_file_get_parent ((GFile *) job->files->data);
 	if (source_dir) {
+		GFileInfo *inf;
+
 		inf = g_file_query_filesystem_info (source_dir, "filesystem::readonly", NULL, NULL);
 		if (inf != NULL) {
 			readonly_source_fs = g_file_info_get_attribute_boolean (inf, "filesystem::readonly");
@@ -4792,8 +4816,8 @@ move_copy_file_callback_new (GFile *file,
 static GList *
 get_files_from_fallbacks (GList *fallbacks)
 {
-	MoveFileCopyFallback *fallback;
 	GList *res, *l;
+	MoveFileCopyFallback *fallback = NULL;
 
 	res = NULL;
 	for (l = fallbacks; l != NULL; l = l->next) {
@@ -5032,12 +5056,12 @@ move_files_prepare (CopyMoveJob *job,
 {
 	CommonJob *common;
 	GList *l;
-	GFile *src;
 	gboolean same_fs;
 	gboolean last_item;
 	int i;
 	GdkPoint *point;
 	int total, left;
+	GFile *src = NULL;
 
 	common = &job->common;
 
@@ -5094,13 +5118,14 @@ move_files (CopyMoveJob *job,
 {
 	CommonJob *common;
 	GList *l;
-	GFile *src;
 	gboolean same_fs;
 	int i;
 	GdkPoint *point;
 	gboolean skipped_file;
 	MoveFileCopyFallback *fallback;
-common = &job->common;
+	GFile *src = NULL;
+
+	common = &job->common;
 
 	report_copy_progress (job, source_info, transfer_info);
 
@@ -5108,7 +5133,7 @@ common = &job->common;
 	for (l = fallbacks;
 	     l != NULL && !job_aborted (common);
 	     l = l->next) {
-        caja_progress_info_get_ready (common->progress);
+		caja_progress_info_get_ready (common->progress);
 
 		fallback = l->data;
 		src = fallback->file;
@@ -5666,19 +5691,16 @@ set_permissions_file (SetPermissionsJob *job,
 		      GFileInfo *info)
 {
 	CommonJob *common;
-	GFileInfo *child_info;
 	gboolean free_info;
 	guint32 current;
 	guint32 value;
 	guint32 mask;
-	GFileEnumerator *enumerator;
-	GFile *child;
 
 	common = (CommonJob *)job;
 
 	caja_progress_info_pulse_progress (common->progress);
 
-    caja_progress_info_get_ready (common->progress);
+	caja_progress_info_get_ready (common->progress);
 
 	free_info = FALSE;
 	if (info == NULL) {
@@ -5717,8 +5739,9 @@ set_permissions_file (SetPermissionsJob *job,
 					     common->cancellable, NULL);
 	}
 
-	if (!job_aborted (common) &&
-	    g_file_info_get_file_type (info) == G_FILE_TYPE_DIRECTORY) {
+	if (!job_aborted (common) && g_file_info_get_file_type (info) == G_FILE_TYPE_DIRECTORY) {
+		GFileEnumerator *enumerator;
+
 		enumerator = g_file_enumerate_children (file,
 							G_FILE_ATTRIBUTE_STANDARD_NAME","
 							G_FILE_ATTRIBUTE_STANDARD_TYPE","
@@ -5727,6 +5750,9 @@ set_permissions_file (SetPermissionsJob *job,
 							common->cancellable,
 							NULL);
 		if (enumerator) {
+			GFile *child = NULL;
+			GFileInfo *child_info = NULL;
+
 			while (!job_aborted (common) &&
 			       (child_info = g_file_enumerator_next_file (enumerator, common->cancellable, NULL)) != NULL) {
 				child = g_file_get_child (file,
@@ -5814,7 +5840,7 @@ location_list_from_uri_list (const GList *uris)
 {
 	const GList *l;
 	GList *files;
-	GFile *f;
+	GFile *f = NULL;
 
 	files = NULL;
 	for (l = uris; l != NULL; l = l->next) {
@@ -5851,7 +5877,7 @@ caja_file_operations_copy_move (const GList *item_uris,
 {
 	GList *locations;
 	GList *p;
-	GFile *dest, *src_dir;
+	GFile *dest;
 	GtkWindow *parent_window;
 	gboolean target_is_mapping;
 	gboolean have_nonmapping_source;
@@ -5888,6 +5914,8 @@ caja_file_operations_copy_move (const GList *item_uris,
 	}
 
 	if (copy_action == GDK_ACTION_COPY) {
+		GFile *src_dir;
+
 		src_dir = g_file_get_parent (locations->data);
 		if (target_dir == NULL ||
 		    (src_dir != NULL &&
@@ -6370,17 +6398,15 @@ delete_trash_file (CommonJob *job,
 		   gboolean del_file,
 		   gboolean del_children)
 {
-	GFileInfo *info;
-	GFile *child;
-	GFileEnumerator *enumerator;
-
-    caja_progress_info_get_ready (job->progress);
+	caja_progress_info_get_ready (job->progress);
 
 	if (job_aborted (job)) {
 		return;
 	}
 
 	if (del_children) {
+		GFileEnumerator *enumerator;
+
 		enumerator = g_file_enumerate_children (file,
 							G_FILE_ATTRIBUTE_STANDARD_NAME ","
 							G_FILE_ATTRIBUTE_STANDARD_TYPE,
@@ -6388,6 +6414,9 @@ delete_trash_file (CommonJob *job,
 							job->cancellable,
 							NULL);
 		if (enumerator) {
+			GFileInfo *info = NULL;
+			GFile *child = NULL;
+
 			while (!job_aborted (job) &&
 			       (info = g_file_enumerator_next_file (enumerator, job->cancellable, NULL)) != NULL) {
 				child = g_file_get_child (file,

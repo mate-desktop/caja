@@ -78,10 +78,10 @@ destroy_clipboard_monitor (void)
 CajaClipboardMonitor *
 caja_clipboard_monitor_get (void)
 {
-    GtkClipboard *clipboard;
-
     if (clipboard_monitor == NULL)
     {
+        GtkClipboard *clipboard;
+
         clipboard_monitor = CAJA_CLIPBOARD_MONITOR (g_object_new (CAJA_TYPE_CLIPBOARD_MONITOR, NULL));
         eel_debug_call_at_shutdown (destroy_clipboard_monitor);
 
@@ -227,7 +227,7 @@ convert_file_list_to_string (CajaClipboardInfo *info,
                              gsize *len)
 {
     GString *uris;
-    char *uri, *tmp;
+    char *tmp;
     GFile *f;
     guint i;
     GList *l;
@@ -243,6 +243,8 @@ convert_file_list_to_string (CajaClipboardInfo *info,
 
     for (i = 0, l = info->files; l != NULL; l = l->next, i++)
     {
+        char *uri;
+
         uri = caja_file_get_uri (l->data);
 
         if (format_for_text)
@@ -286,9 +288,7 @@ caja_get_clipboard_callback (GtkClipboard     *clipboard,
                              guint             info,
                              gpointer          user_data)
 {
-    char **uris;
     GList *l;
-    int i;
     CajaClipboardInfo *clipboard_info;
     GdkAtom target;
 
@@ -299,6 +299,9 @@ caja_get_clipboard_callback (GtkClipboard     *clipboard,
 
     if (gtk_targets_include_uri (&target, 1))
     {
+        char **uris;
+        int i;
+
         uris = g_malloc ((g_list_length (clipboard_info->files) + 1) * sizeof (char *));
         i = 0;
 

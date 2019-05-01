@@ -335,7 +335,6 @@ static CajaFile *
 file_for_path (CajaTreeViewDragDest *dest, GtkTreePath *path)
 {
     CajaFile *file;
-    char *uri;
 
     if (path)
     {
@@ -343,6 +342,8 @@ file_for_path (CajaTreeViewDragDest *dest, GtkTreePath *path)
     }
     else
     {
+        char *uri;
+
         uri = get_root_uri (dest);
 
         file = NULL;
@@ -506,7 +507,6 @@ drag_motion_callback (GtkWidget *widget,
     CajaTreeViewDragDest *dest;
     GtkTreePath *path;
     GtkTreePath *drop_path, *old_drop_path;
-    GtkTreeModel *model;
     GtkTreeIter drop_iter;
     GtkTreeViewDropPosition pos;
     GdkWindow *bin_window;
@@ -549,6 +549,8 @@ drag_motion_callback (GtkWidget *widget,
 
     if (action)
     {
+        GtkTreeModel *model;
+
         set_drag_dest_row (dest, drop_path);
         model = gtk_tree_view_get_model (GTK_TREE_VIEW (widget));
         if (drop_path == NULL || (old_drop_path != NULL &&
@@ -907,8 +909,6 @@ drag_data_received_callback (GtkWidget *widget,
                              gpointer data)
 {
     CajaTreeViewDragDest *dest;
-    const char *tmp;
-    int length;
     gboolean success, finished;
 
     dest = CAJA_TREE_VIEW_DRAG_DEST (data);
@@ -949,11 +949,16 @@ drag_data_received_callback (GtkWidget *widget,
             success = TRUE;
             break;
         case CAJA_ICON_DND_RAW:
+        {
+            const char *tmp;
+            int length;
+
             length = gtk_selection_data_get_length (selection_data);
             tmp = gtk_selection_data_get_data (selection_data);
             receive_dropped_raw (dest, tmp, length, context, x, y);
             success = TRUE;
             break;
+        }
         case CAJA_ICON_DND_KEYWORD:
             receive_dropped_keyword (dest, context, x, y);
             success = TRUE;
@@ -1015,9 +1020,8 @@ set_direct_save_uri (CajaTreeViewDragDest *dest,
                      GdkDragContext *context,
                      int x, int y)
 {
-    GFile *base, *child;
     char *drop_uri;
-    char *filename, *uri;
+    char *uri;
 
     g_assert (dest->details->direct_save_uri == NULL);
 
@@ -1026,9 +1030,13 @@ set_direct_save_uri (CajaTreeViewDragDest *dest,
     drop_uri = get_drop_target_uri_at_pos (dest, x, y);
     if (drop_uri != NULL)
     {
+        char *filename;
+
         filename = get_direct_save_filename (context);
         if (filename != NULL)
         {
+            GFile *base, *child;
+
             /* Resolve relative path */
             base = g_file_new_for_uri (drop_uri);
             child = g_file_get_child (base, filename);
