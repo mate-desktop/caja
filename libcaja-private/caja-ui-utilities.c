@@ -93,7 +93,6 @@ caja_ui_string_get (const char *filename)
 {
     static GHashTable *ui_cache = NULL;
     char *ui;
-    char *path;
 
     if (ui_cache == NULL)
     {
@@ -104,6 +103,8 @@ caja_ui_string_get (const char *filename)
     ui = g_hash_table_lookup (ui_cache, filename);
     if (ui == NULL)
     {
+        char *path;
+
         path = caja_ui_file (filename);
         if (path == NULL || !g_file_get_contents (path, &ui, NULL, NULL))
         {
@@ -171,7 +172,6 @@ caja_action_from_menu_item (CajaMenuItem *item,
     char *name, *label, *tip, *icon_name;
     gboolean sensitive, priority;
     GtkAction *action;
-    cairo_surface_t *surface;
 
     g_object_get (G_OBJECT (item),
                   "name", &name, "label", &label,
@@ -187,6 +187,8 @@ caja_action_from_menu_item (CajaMenuItem *item,
 
     if (icon_name != NULL)
     {
+        cairo_surface_t *surface;
+
         surface = get_action_icon (icon_name,
                                    caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU),
                                    parent_widget);
@@ -220,7 +222,6 @@ caja_toolbar_action_from_menu_item (CajaMenuItem *item, GtkWidget *parent_widget
     char *name, *label, *tip, *icon_name;
     gboolean sensitive, priority;
     GtkAction *action;
-    cairo_surface_t *surface;
 
     g_object_get (G_OBJECT (item),
                   "name", &name, "label", &label,
@@ -236,6 +237,8 @@ caja_toolbar_action_from_menu_item (CajaMenuItem *item, GtkWidget *parent_widget
 
     if (icon_name != NULL)
     {
+        cairo_surface_t *surface;
+
         surface = get_action_icon (icon_name,
                                    caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_LARGE_TOOLBAR),
                                    parent_widget);
@@ -271,11 +274,12 @@ caja_toolbar_action_from_menu_item (CajaMenuItem *item, GtkWidget *parent_widget
 static GdkPixbuf *
 caja_get_thumbnail_frame (void)
 {
-    char *image_path;
     static GdkPixbuf *thumbnail_frame = NULL;
 
     if (thumbnail_frame == NULL)
     {
+        char *image_path;
+
         image_path = caja_pixmap_file ("thumbnail_frame.png");
         if (image_path != NULL)
         {

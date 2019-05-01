@@ -467,8 +467,7 @@ bookmark_file_changed_callback (CajaFile *file, CajaBookmark *bookmark)
 static void
 caja_bookmark_set_icon_to_default (CajaBookmark *bookmark)
 {
-    GIcon *icon, *emblemed_icon, *folder;
-    GEmblem *emblem;
+    GIcon *emblemed_icon, *folder;
 
     if (bookmark->details->icon)
     {
@@ -479,6 +478,9 @@ caja_bookmark_set_icon_to_default (CajaBookmark *bookmark)
 
     if (caja_bookmark_uri_known_not_to_exist (bookmark))
     {
+        GIcon *icon;
+        GEmblem *emblem;
+
         icon = g_themed_icon_new ("dialog-warning");
         emblem = g_emblem_new (icon);
 
@@ -644,13 +646,14 @@ bookmark_image_menu_item_new_from_surface (cairo_surface_t   *icon_surface,
 GtkWidget *
 caja_bookmark_menu_item_new (CajaBookmark *bookmark)
 {
-    GtkWidget *menu_item;
     cairo_surface_t *image_cairo;
 
     image_cairo = create_image_cairo_for_bookmark (bookmark);
 
     if (strlen (bookmark->details->name) > 0)
     {
+        GtkWidget *menu_item;
+
         menu_item = bookmark_image_menu_item_new_from_surface (image_cairo, bookmark->details->name);
 
         return menu_item;

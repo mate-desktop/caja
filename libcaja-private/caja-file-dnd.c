@@ -35,10 +35,9 @@
 static gboolean
 caja_drag_can_accept_files (CajaFile *drop_target_item)
 {
-    CajaDirectory *directory;
-
     if (caja_file_is_directory (drop_target_item))
     {
+        CajaDirectory *directory;
         gboolean res;
 
         /* target is a directory, accept if editable */
@@ -154,7 +153,7 @@ void
 caja_drag_file_receive_dropped_keyword (CajaFile *file,
                                         const char *keyword)
 {
-    GList *keywords, *word;
+    GList *keywords;
 
     g_return_if_fail (CAJA_IS_FILE (file));
     g_return_if_fail (keyword != NULL);
@@ -166,6 +165,8 @@ caja_drag_file_receive_dropped_keyword (CajaFile *file,
     }
     else
     {
+        GList *word;
+
         keywords = caja_file_get_keywords (file);
         word = g_list_find_custom (keywords, keyword, (GCompareFunc) strcmp);
         if (word == NULL)

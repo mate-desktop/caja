@@ -503,11 +503,12 @@ get_scaled_icon_size (CajaIconCanvasItem *item,
 		      gint *width,
 		      gint *height)
 {
-    EelCanvas *canvas;
     GdkPixbuf *pixbuf = NULL;
     gint scale = 1;
 
     if (item != NULL) {
+        EelCanvas *canvas;
+
         canvas = EEL_CANVAS_ITEM (item)->canvas;
         scale = gtk_widget_get_scale_factor (GTK_WIDGET (canvas));
         pixbuf = item->details->pixbuf;
@@ -980,9 +981,7 @@ layout_get_size_for_layout (PangoLayout *layout,
                             int          height_for_entire_text,
                             int         *height_for_layout)
 {
-    PangoLayoutIter *iter;
     PangoRectangle logical_rect;
-    int i;
 
     /* only use the first max_layout_line_count lines for the gridded auto layout */
     if (pango_layout_get_line_count (layout) <= max_layout_line_count)
@@ -991,6 +990,9 @@ layout_get_size_for_layout (PangoLayout *layout,
     }
     else
     {
+        PangoLayoutIter *iter;
+        int i;
+
         *height_for_layout = 0;
         iter = pango_layout_get_iter (layout);
         /* VOODOO-TODO, determine number of lines based on the icon size for text besides icon.
@@ -1457,13 +1459,14 @@ static GdkPixbuf *
 get_knob_pixbuf (void)
 {
     GdkPixbuf *knob_pixbuf;
-    char *knob_filename;
 
     knob_pixbuf = gtk_icon_theme_load_icon (gtk_icon_theme_get_default (),
                                             "stock-caja-knob",
                                             8, 0, NULL);
     if (!knob_pixbuf)
     {
+        char *knob_filename;
+
         knob_filename = caja_pixmap_file ("knob.png");
         knob_pixbuf = gdk_pixbuf_new_from_file (knob_filename, NULL);
         g_free (knob_filename);
@@ -1695,10 +1698,7 @@ static cairo_surface_t *
 real_map_surface (CajaIconCanvasItem *icon_item)
 {
     EelCanvas *canvas;
-    char *audio_filename;
-    GdkPixbuf *temp_pixbuf, *old_pixbuf, *audio_pixbuf;
-    int emblem_size;
-    GtkStyleContext *style;
+    GdkPixbuf *temp_pixbuf, *old_pixbuf;
     GdkRGBA color;
     GdkRGBA *c;
     cairo_surface_t *surface;
@@ -1726,6 +1726,10 @@ real_map_surface (CajaIconCanvasItem *icon_item)
         /* audio is the only kind of previewing right now, so this code isn't as general as it could be */
         if (icon_item->details->is_active)
         {
+            char *audio_filename;
+            GdkPixbuf *audio_pixbuf;
+            int emblem_size;
+
             emblem_size = caja_icon_get_emblem_size_for_icon_size (gdk_pixbuf_get_width (temp_pixbuf));
             /* Load the audio symbol. */
             audio_filename = caja_pixmap_file ("audio.svg");
@@ -1764,6 +1768,8 @@ real_map_surface (CajaIconCanvasItem *icon_item)
     if (icon_item->details->is_highlighted_for_selection
             || icon_item->details->is_highlighted_for_drop)
     {
+        GtkStyleContext *style;
+
         style = gtk_widget_get_style_context (GTK_WIDGET (canvas));
 
         if (gtk_widget_has_focus (GTK_WIDGET (canvas))) {
@@ -1828,8 +1834,6 @@ draw_embedded_text (CajaIconCanvasItem *item,
                     int x, int y)
 {
     PangoLayout *layout;
-    PangoContext *context;
-    PangoFontDescription *desc;
     GtkWidget *widget;
     GtkStyleContext *style_context;
 
@@ -1848,6 +1852,9 @@ draw_embedded_text (CajaIconCanvasItem *item,
     }
     else
     {
+        PangoContext *context;
+        PangoFontDescription *desc;
+
         context = gtk_widget_get_pango_context (widget);
         layout = pango_layout_new (context);
         pango_layout_set_text (layout, item->details->embedded_text, -1);
@@ -1961,9 +1968,7 @@ create_label_layout (CajaIconCanvasItem *item,
     PangoFontDescription *desc;
     CajaIconContainer *container;
     EelCanvasItem *canvas_item;
-    GString *str;
     char *zeroified_text;
-    const char *p;
 
     canvas_item = EEL_CANVAS_ITEM (item);
 
@@ -1975,6 +1980,9 @@ create_label_layout (CajaIconCanvasItem *item,
 
     if (text != NULL)
     {
+        GString *str;
+        const char *p;
+
         str = g_string_new (NULL);
 
         for (p = text; *p != '\0'; p++)
@@ -2063,7 +2071,6 @@ static int
 caja_icon_canvas_item_event (EelCanvasItem *item, GdkEvent *event)
 {
     CajaIconCanvasItem *icon_item;
-    GdkCursor *cursor;
     GdkWindow *cursor_window;
 
     icon_item = CAJA_ICON_CANVAS_ITEM (item);
@@ -2083,6 +2090,8 @@ caja_icon_canvas_item_event (EelCanvasItem *item, GdkEvent *event)
             /* show a hand cursor */
             if (in_single_click_mode ())
             {
+                GdkCursor *cursor;
+
                 cursor = gdk_cursor_new_for_display (gdk_display_get_default(),
                                                      GDK_HAND2);
                 gdk_window_set_cursor (cursor_window, cursor);
@@ -2392,7 +2401,6 @@ caja_icon_canvas_item_ensure_bounds_up_to_date (CajaIconCanvasItem *icon_item)
     EelIRect text_rect, text_rect_for_layout, text_rect_for_entire_text;
     EelIRect total_rect, total_rect_for_layout, total_rect_for_entire_text;
     EelCanvasItem *item;
-    double pixels_per_unit;
     gint width, height;
     EmblemLayout emblem_layout;
     GdkPixbuf *emblem_pixbuf;
@@ -2403,6 +2411,8 @@ caja_icon_canvas_item_ensure_bounds_up_to_date (CajaIconCanvasItem *icon_item)
 
     if (!details->bounds_cached)
     {
+        double pixels_per_unit;
+
         measure_label_text (icon_item);
 
         pixels_per_unit = EEL_CANVAS_ITEM (item)->canvas->pixels_per_unit;
@@ -3064,8 +3074,8 @@ caja_icon_canvas_item_accessible_get_index_in_parent (AtkObject *accessible)
     CajaIconCanvasItem *item;
     CajaIconContainer *container;
     GList *l;
-    CajaIcon *icon;
     int i;
+    CajaIcon *icon = NULL;
 
     item = CAJA_ICON_CANVAS_ITEM (atk_gobject_accessible_get_object (ATK_GOBJECT_ACCESSIBLE (accessible)));
     if (!item)
@@ -3098,8 +3108,6 @@ static const gchar* caja_icon_canvas_item_accessible_get_image_description(AtkIm
 {
     CajaIconCanvasItemAccessiblePrivate* priv;
     CajaIconCanvasItem* item;
-    CajaIcon* icon;
-    CajaIconContainer* container;
     char* description;
 
     priv = GET_PRIV (image);
@@ -3110,6 +3118,9 @@ static const gchar* caja_icon_canvas_item_accessible_get_image_description(AtkIm
     }
     else
     {
+        CajaIcon* icon;
+        CajaIconContainer* container;
+
         item = CAJA_ICON_CANVAS_ITEM (atk_gobject_accessible_get_object (ATK_GOBJECT_ACCESSIBLE (image)));
 
         if (item == NULL)

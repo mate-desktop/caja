@@ -95,11 +95,12 @@ volume_file_name_used (CajaDesktopLinkMonitor *monitor,
                        const char *name)
 {
     GList *l;
-    char *other_name;
     gboolean same;
 
     for (l = monitor->details->mount_links; l != NULL; l = l->next)
     {
+        char *other_name;
+
         other_name = caja_desktop_link_get_file_name (l->data);
         same = strcmp (name, other_name) == 0;
         g_free (other_name);
@@ -135,8 +136,8 @@ has_mount (CajaDesktopLinkMonitor *monitor,
            GMount                     *mount)
 {
     gboolean ret;
-    GMount *other_mount;
     GList *l;
+    GMount *other_mount = NULL;
 
     ret = FALSE;
 
@@ -159,14 +160,14 @@ static void
 create_mount_link (CajaDesktopLinkMonitor *monitor,
                    GMount *mount)
 {
-    CajaDesktopLink *link;
-
     if (has_mount (monitor, mount))
         return;
 
     if ((!g_mount_is_shadowed (mount)) &&
             g_settings_get_boolean (caja_desktop_preferences, CAJA_PREFERENCES_DESKTOP_VOLUMES_VISIBLE))
     {
+        CajaDesktopLink *link;
+
         link = caja_desktop_link_new_from_mount (mount);
         monitor->details->mount_links = g_list_prepend (monitor->details->mount_links, link);
     }
@@ -178,7 +179,7 @@ remove_mount_link (CajaDesktopLinkMonitor *monitor,
 {
     GList *l;
     CajaDesktopLink *link;
-    GMount *other_mount;
+    GMount *other_mount = NULL;
 
     link = NULL;
     for (l = monitor->details->mount_links; l != NULL; l = l->next)
@@ -363,7 +364,7 @@ caja_desktop_link_monitor_init (gpointer object, gpointer klass)
 {
     CajaDesktopLinkMonitor *monitor;
     GList *l, *mounts;
-    GMount *mount;
+    GMount *mount = NULL;
 
     monitor = CAJA_DESKTOP_LINK_MONITOR (object);
 

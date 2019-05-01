@@ -307,7 +307,7 @@ progress_widget_data_free (ProgressWidgetData *data)
 static void
 update_data (ProgressWidgetData *data)
 {
-    char *status, *details, *curstat, *t;
+    char *status, *details, *curstat;
     char *markup;
 
     status = caja_progress_info_get_status (data->info);
@@ -330,6 +330,8 @@ update_data (ProgressWidgetData *data)
     }
 
     if (curstat != NULL) {
+        char *t;
+
         t = status;
         status = g_strconcat (status, " \xE2\x80\x94 ", curstat, NULL);
         g_free (t);
@@ -376,9 +378,9 @@ get_running_operations ()
 static void
 foreach_get_queued_widget (GtkWidget * widget, GtkWidget ** out)
 {
-    ProgressWidgetData *data;
-
     if (*out == NULL) {
+        ProgressWidgetData *data;
+
         data = (ProgressWidgetData*) g_object_get_data (
                 G_OBJECT(widget), "data");
 
@@ -463,10 +465,10 @@ widget_reposition_as_queued (GtkWidget * widget)
 static void
 widget_reposition_as_paused (GtkWidget * widget)
 {
-    ProgressWidgetData *data;
-    GList *children, *child;
-    gboolean abort = FALSE;
     int i;
+    GList *children, *child;
+    ProgressWidgetData *data = NULL;
+    gboolean abort = FALSE;
     GtkWidget * container = get_widgets_container();
 
     children = gtk_container_get_children (GTK_CONTAINER(container));
@@ -495,8 +497,8 @@ widget_reposition_as_paused (GtkWidget * widget)
 static void
 widget_reposition_as_running (GtkWidget * widget)
 {
-    ProgressWidgetData *data;
     GList *children, *child;
+    ProgressWidgetData *data = NULL;
     gboolean abort = FALSE;
     int i, mypos = -1;
     GtkWidget * container = get_widgets_container();
@@ -561,13 +563,14 @@ widget_state_transit_to (ProgressWidgetData *data,
 static void
 update_queue ()
 {
-    GtkWidget *next;
-    ProgressWidgetData *data;
-
     if (get_running_operations () == 0) {
+        GtkWidget *next;
+
         next = get_first_queued_widget ();
 
         if (next != NULL) {
+            ProgressWidgetData *data;
+
             data = (ProgressWidgetData*) g_object_get_data (
                     G_OBJECT(next), "data");
             widget_state_transit_to (data, STATE_RUNNING);
@@ -596,13 +599,14 @@ update_status_icon_and_window (void)
 {
     char *tooltip;
     gboolean toshow;
-    GIcon *icon;
     GNotification *notification;
     gboolean show_notifications = g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SHOW_NOTIFICATIONS);
     static gboolean window_shown = FALSE;
 
     if (show_notifications)
     {
+        GIcon *icon;
+
         notification = g_notification_new ("caja");
         icon = g_themed_icon_new ("system-file-manager");
         g_notification_set_icon (notification, icon);

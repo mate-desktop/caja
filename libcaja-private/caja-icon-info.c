@@ -148,7 +148,7 @@ caja_icon_info_new_for_icon_info (GtkIconInfo *icon_info,
     GdkPoint *points;
     gint n_points;
     const char *filename;
-    char *basename, *p;
+    char *basename;
 
     icon = g_object_new (CAJA_TYPE_ICON_INFO, NULL);
 
@@ -168,6 +168,8 @@ caja_icon_info_new_for_icon_info (GtkIconInfo *icon_info,
     filename = gtk_icon_info_get_filename (icon_info);
     if (filename != NULL)
     {
+        char *p;
+
         basename = g_path_get_basename (filename);
         p = strrchr (basename, '.');
         if (p)

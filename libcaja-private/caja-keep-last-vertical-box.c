@@ -89,7 +89,6 @@ static void
 caja_keep_last_vertical_box_size_allocate (GtkWidget *widget,
         GtkAllocation *allocation)
 {
-    GtkWidget *last_child, *child;
     GList *children, *l;
     GtkAllocation last_child_allocation, child_allocation, tiny_allocation;
 
@@ -103,6 +102,8 @@ caja_keep_last_vertical_box_size_allocate (GtkWidget *widget,
 
     if (l != NULL)
     {
+        GtkWidget *last_child;
+
         last_child = l->data;
         l = l->prev;
 
@@ -114,6 +115,7 @@ caja_keep_last_vertical_box_size_allocate (GtkWidget *widget,
         if (last_child_allocation.y + last_child_allocation.height >
                 allocation->y + allocation->height)
         {
+            GtkWidget *child = NULL;
 
             while (l != NULL)
             {

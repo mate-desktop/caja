@@ -526,11 +526,12 @@ diff_button_clicked_cb (GtkButton *w,
     
     GError *error;
     char *command;
-    char **argv;
 
     command = g_find_program_in_path ("meld");
     if (command)
     {
+        char **argv;
+
         argv = g_new (char *, 4);
         argv[0] = command;
         argv[1] = g_file_get_path (caja_file_get_location (details->source));

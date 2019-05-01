@@ -124,8 +124,7 @@ caja_customization_data_new (const char *customization_name,
                              int maximum_icon_width)
 {
     CajaCustomizationData *data;
-    char *public_directory_path, *private_directory_path;
-    char *temp_str;
+    char *private_directory_path;
     gboolean public_result, private_result;
 
     data = g_new0 (CajaCustomizationData, 1);
@@ -134,6 +133,8 @@ caja_customization_data_new (const char *customization_name,
 
     if (show_public_customizations)
     {
+        char *public_directory_path;
+
         public_directory_path = get_global_customization_path (customization_name);
 
         public_result  = read_all_children (public_directory_path,
@@ -171,6 +172,8 @@ caja_customization_data_new (const char *customization_name,
     /* load the frame if necessary */
     if (strcmp (customization_name, "patterns") == 0)
     {
+        char *temp_str;
+
         temp_str = caja_pixmap_file ("chit_frame.png");
         if (temp_str != NULL)
         {
@@ -425,7 +428,7 @@ caja_customization_make_pattern_chit (GdkPixbuf *pattern_tile, GdkPixbuf *frame,
 static char*
 format_name_for_display (CajaCustomizationData *data, const char* name)
 {
-    char *formatted_str, *mapped_name;
+    char *formatted_str;
 
     if (!g_strcmp0(name, RESET_IMAGE_NAME))
     {
@@ -437,6 +440,8 @@ format_name_for_display (CajaCustomizationData *data, const char* name)
     formatted_str = eel_filename_strip_extension (name);
     if (data->name_map_hash != NULL)
     {
+        char *mapped_name;
+
         mapped_name = g_hash_table_lookup (data->name_map_hash, formatted_str);
         if (mapped_name)
         {
@@ -455,7 +460,6 @@ static void
 load_name_map_hash_table (CajaCustomizationData *data)
 {
     char *xml_path;
-    char *filename, *display_name;
 
     xmlDocPtr browser_data;
     xmlNodePtr category_node, current_node;
@@ -479,6 +483,8 @@ load_name_map_hash_table (CajaCustomizationData *data)
             /* loop through the entries, adding a mapping to the hash table */
             while (current_node != NULL)
             {
+                char *filename, *display_name;
+
                 display_name = eel_xml_get_property_translated (current_node, "display_name");
                 filename = xmlGetProp (current_node, "filename");
                 if (display_name && filename)

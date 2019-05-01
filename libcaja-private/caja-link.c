@@ -200,7 +200,7 @@ caja_link_local_create (const char     *directory_uri,
                         gboolean        unique_filename)
 {
     char *real_directory_uri;
-    char *uri, *contents;
+    char *contents;
     GFile *file;
     GList dummy_list;
     CajaFileChangesQueuePosition item;
@@ -227,6 +227,8 @@ caja_link_local_create (const char     *directory_uri,
 
     if (unique_filename)
     {
+        char *uri;
+
         uri = caja_ensure_unique_file_name (real_directory_uri,
                                             base_name, ".desktop");
         if (uri == NULL)
@@ -481,7 +483,7 @@ caja_link_get_link_name_from_desktop (GKeyFile *key_file)
 static char *
 caja_link_get_link_icon_from_desktop (GKeyFile *key_file)
 {
-    char *icon_uri, *icon, *p, *type;
+    char *icon_uri, *icon, *type;
 
     icon_uri = g_key_file_get_string (key_file, MAIN_GROUP, "X-Caja-Icon", NULL);
     if (icon_uri != NULL)
@@ -494,6 +496,8 @@ caja_link_get_link_icon_from_desktop (GKeyFile *key_file)
     {
         if (!g_path_is_absolute (icon))
         {
+            char *p;
+
             /* Strip out any extension on non-filename icons. Old desktop files may have this */
             p = strchr (icon, '.');
             /* Only strip known icon extensions */

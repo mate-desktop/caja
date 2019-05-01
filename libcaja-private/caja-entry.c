@@ -96,7 +96,6 @@ caja_entry_key_press (GtkWidget *widget, GdkEventKey *event)
 {
     CajaEntry *entry;
     GtkEditable *editable;
-    int position;
     gboolean old_has, new_has;
     gboolean result;
 
@@ -119,6 +118,8 @@ caja_entry_key_press (GtkWidget *widget, GdkEventKey *event)
          */
         if (entry->details->special_tab_handling && gtk_editable_get_selection_bounds (editable, NULL, NULL))
         {
+            int position;
+
             position = strlen (gtk_entry_get_text (GTK_ENTRY (editable)));
             gtk_editable_select_region (editable, position, position);
             return TRUE;

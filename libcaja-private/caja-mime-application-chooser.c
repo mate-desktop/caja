@@ -134,7 +134,6 @@ default_toggled_cb (GtkCellRendererToggle *renderer,
         gboolean is_default;
         gboolean success;
         GAppInfo *info;
-        char *message;
 
         gtk_tree_model_get (GTK_TREE_MODEL (chooser->details->model),
                             &iter,
@@ -160,6 +159,8 @@ default_toggled_cb (GtkCellRendererToggle *renderer,
 
             if (!success)
             {
+                char *message;
+
                 message = g_strdup_printf (_("Could not set application as the default: %s"), error->message);
                 eel_show_error_dialog (_("Could not set as default application"),
                                        message,

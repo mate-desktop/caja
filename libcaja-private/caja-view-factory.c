@@ -40,7 +40,7 @@ const CajaViewInfo *
 caja_view_factory_lookup (const char *id)
 {
     GList *l;
-    CajaViewInfo *view_info;
+    CajaViewInfo *view_info = NULL;
 
     g_return_val_if_fail (id != NULL, NULL);
 
@@ -106,7 +106,7 @@ caja_view_factory_get_views_for_uri (const char *uri,
                                      const char *mime_type)
 {
     GList *l, *res;
-    const CajaViewInfo *view_info;
+    const CajaViewInfo *view_info = NULL;
 
     res = NULL;
 

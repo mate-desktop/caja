@@ -134,7 +134,7 @@ static GList *
 get_file_list_for_launch_locations (GList *locations)
 {
     GList *files, *l;
-    LaunchLocation *location;
+    LaunchLocation *location = NULL;
 
     files = NULL;
     for (l = locations; l != NULL; l = l->next)
@@ -183,8 +183,8 @@ static LaunchLocation *
 find_launch_location_for_file (GList *list,
                                CajaFile *file)
 {
-    LaunchLocation *location;
     GList *l;
+    LaunchLocation *location = NULL;
 
     for (l = list; l != NULL; l = l->next)
     {
@@ -240,12 +240,13 @@ static GList*
 filter_caja_handler (GList *apps)
 {
     GList *l, *next;
-    GAppInfo *application;
-    const char *id;
+    GAppInfo *application = NULL;
 
     l = apps;
     while (l != NULL)
     {
+        const char *id;
+
         application = (GAppInfo *) l->data;
         next = l->next;
 
@@ -268,7 +269,7 @@ static GList*
 filter_non_uri_apps (GList *apps)
 {
     GList *l, *next;
-    GAppInfo *app;
+    GAppInfo *app = NULL;
 
     for (l = apps; l != NULL; l = next)
     {
@@ -337,7 +338,6 @@ caja_mime_get_default_application_for_file (CajaFile *file)
 {
     GAppInfo *app;
     char *mime_type;
-    char *uri_scheme;
 
     if (!caja_mime_actions_check_if_required_attributes_ready (file))
     {
@@ -350,6 +350,8 @@ caja_mime_get_default_application_for_file (CajaFile *file)
 
     if (app == NULL)
     {
+        char *uri_scheme;
+
         uri_scheme = caja_file_get_uri_scheme (file);
         if (uri_scheme != NULL)
         {
@@ -447,7 +449,6 @@ caja_mime_get_applications_for_file (CajaFile *file)
     char *mime_type;
     char *uri_scheme;
     GList *result;
-    GAppInfo *uri_handler;
 
     if (!caja_mime_actions_check_if_required_attributes_ready (file))
     {
@@ -459,6 +460,8 @@ caja_mime_get_applications_for_file (CajaFile *file)
     uri_scheme = caja_file_get_uri_scheme (file);
     if (uri_scheme != NULL)
     {
+        GAppInfo *uri_handler;
+
         uri_handler = g_app_info_get_default_for_uri_scheme (uri_scheme);
         if (uri_handler)
         {
@@ -486,7 +489,6 @@ caja_mime_has_any_applications_for_file (CajaFile *file)
     char *mime_type;
     gboolean result;
     char *uri_scheme;
-    GAppInfo *uri_handler;
 
     mime_type = caja_file_get_mime_type (file);
 
@@ -495,6 +497,8 @@ caja_mime_has_any_applications_for_file (CajaFile *file)
     uri_scheme = caja_file_get_uri_scheme (file);
     if (uri_scheme != NULL)
     {
+        GAppInfo *uri_handler;
+
         uri_handler = g_app_info_get_default_for_uri_scheme (uri_scheme);
         if (uri_handler)
         {
@@ -529,8 +533,8 @@ GAppInfo *
 caja_mime_get_default_application_for_files (GList *files)
 {
     GList *l, *sorted_files;
-    CajaFile *file;
     GAppInfo *app, *one_app;
+    CajaFile *file = NULL;
 
     g_assert (files != NULL);
 
@@ -588,8 +592,8 @@ intersect_application_lists (GList *a,
 {
     GList *l, *m;
     GList *ret;
-    GAppInfo *a_app, *b_app;
-    int cmp;
+    GAppInfo *a_app = NULL;
+    GAppInfo *b_app = NULL;
 
     ret = NULL;
 
@@ -598,6 +602,8 @@ intersect_application_lists (GList *a,
 
     while (l != NULL && m != NULL)
     {
+        int cmp;
+
         a_app = (GAppInfo *) l->data;
         b_app = (GAppInfo *) m->data;
 
@@ -634,8 +640,8 @@ GList *
 caja_mime_get_applications_for_files (GList *files)
 {
     GList *l, *sorted_files;
-    CajaFile *file;
     GList *one_ret, *ret;
+    CajaFile *file = NULL;
 
     g_assert (files != NULL);
 
@@ -979,10 +985,10 @@ make_activation_parameters (GList *uris,
                             GList **unhandled_uris)
 {
     GList *ret, *l, *app_uris;
-    CajaFile *file;
-    GAppInfo *app, *old_app;
     GHashTable *app_table;
-    char *uri;
+    GAppInfo *old_app;
+    GAppInfo *app = NULL;
+    CajaFile *file = NULL;
 
     ret = NULL;
     *unhandled_uris = NULL;
@@ -995,6 +1001,8 @@ make_activation_parameters (GList *uris,
 
     for (l = uris; l != NULL; l = l->next)
     {
+        char *uri;
+
         uri = l->data;
         file = caja_file_get_by_uri (uri);
 
@@ -1246,11 +1254,12 @@ get_application_no_mime_type_handler_message (CajaFile *file, char *uri)
     char *uri_for_display;
     char *nice_uri;
     char *error_message;
-    GFile *location;
 
     /* For local files, we want to use filename if possible */
     if (caja_file_is_local (file))
     {
+        GFile *location;
+
         location = caja_file_get_location (file);
         nice_uri = g_file_get_parse_name (location);
         g_object_unref (location);
@@ -1478,13 +1487,13 @@ application_unhandled_file_install (GtkDialog *dialog,
                                     gint response_id,
                                     ActivateParametersInstall *parameters_install)
 {
-    char *mime_type;
-
     gtk_widget_destroy (GTK_WIDGET (dialog));
     parameters_install->dialog = NULL;
 
     if (response_id == GTK_RESPONSE_YES)
     {
+        char *mime_type;
+
         mime_type = caja_file_get_mime_type (parameters_install->file);
         search_for_application_mime_type (parameters_install, mime_type);
         g_free (mime_type);
@@ -1686,8 +1695,6 @@ activate_desktop_file (ActivateParameters *parameters,
                        CajaFile *file)
 {
     ActivateParametersDesktop *parameters_desktop;
-    char *primary, *secondary, *display_name;
-    GtkWidget *dialog;
     GdkScreen *screen;
     char *uri;
 
@@ -1695,6 +1702,9 @@ activate_desktop_file (ActivateParameters *parameters,
 
     if (!caja_file_is_trusted_link (file))
     {
+        char *primary, *secondary, *display_name;
+        GtkWidget *dialog;
+
         /* copy the parts of parameters we are interested in as the orignal will be freed */
         parameters_desktop = g_new0 (ActivateParametersDesktop, 1);
         if (parameters->parent_window)
@@ -1767,7 +1777,6 @@ activate_files (ActivateParameters *parameters)
     GList *open_in_app_uris;
     GList *open_in_app_parameters;
     GList *unhandled_open_in_app_uris;
-    ApplicationLaunchParameters *one_parameters;
     GList *open_in_view_files;
     GList *l;
     int count;
@@ -1777,6 +1786,7 @@ activate_files (ActivateParameters *parameters)
     ActivationAction action;
     GdkScreen *screen;
     LaunchLocation *location;
+    ApplicationLaunchParameters *one_parameters = NULL;
 
     screen = gtk_widget_get_screen (GTK_WIDGET (parameters->parent_window));
 
@@ -2014,7 +2024,6 @@ activation_mount_not_mounted_callback (GObject *source_object,
     ActivateParameters *parameters = user_data;
     GError *error;
     CajaFile *file;
-    LaunchLocation *loc;
 
     file = parameters->not_mounted->data;
 
@@ -2033,6 +2042,8 @@ activation_mount_not_mounted_callback (GObject *source_object,
         if (error->domain != G_IO_ERROR ||
                 error->code != G_IO_ERROR_ALREADY_MOUNTED)
         {
+            LaunchLocation *loc;
+
             loc = find_launch_location_for_file (parameters->locations,
                                                  file);
             if (loc)
@@ -2056,14 +2067,15 @@ activation_mount_not_mounted_callback (GObject *source_object,
 static void
 activation_mount_not_mounted (ActivateParameters *parameters)
 {
-    CajaFile *file;
-    GFile *location;
-    LaunchLocation *loc;
-    GMountOperation *mount_op;
+    LaunchLocation *loc = NULL;
     GList *l, *next, *files;
 
     if (parameters->not_mounted != NULL)
     {
+        CajaFile *file;
+        GFile *location;
+        GMountOperation *mount_op;
+
         file = parameters->not_mounted->data;
         mount_op = gtk_mount_operation_new (parameters->parent_window);
         g_mount_operation_set_password_save (mount_op, G_PASSWORD_SAVE_FOR_SESSION);
@@ -2110,8 +2122,8 @@ activate_callback (GList *files, gpointer callback_data)
 {
     ActivateParameters *parameters = callback_data;
     GList *l, *next;
-    CajaFile *file;
     LaunchLocation *location;
+    CajaFile *file = NULL;
 
     parameters->files_handle = NULL;
 
@@ -2161,8 +2173,8 @@ activate_activation_uris_ready_callback (GList *files_ignore,
 {
     ActivateParameters *parameters = callback_data;
     GList *l, *next, *files;
-    CajaFile *file;
     LaunchLocation *location;
+    CajaFile *file = NULL;
 
     parameters->files_handle = NULL;
 
@@ -2239,8 +2251,8 @@ static void
 activation_get_activation_uris (ActivateParameters *parameters)
 {
     GList *l, *files;
-    CajaFile *file;
     LaunchLocation *location;
+    CajaFile *file = NULL;
 
     /* link target info might be stale, re-read it */
     for (l = parameters->locations; l != NULL; l = l->next)
@@ -2287,7 +2299,6 @@ activation_mountable_mounted (CajaFile  *file,
                               gpointer       callback_data)
 {
     ActivateParameters *parameters = callback_data;
-    CajaFile *target_file;
     LaunchLocation *location;
 
     /* Remove from list of files that have to be mounted */
@@ -2297,6 +2308,8 @@ activation_mountable_mounted (CajaFile  *file,
 
     if (error == NULL)
     {
+        CajaFile *target_file;
+
         /* Replace file with the result of the mount */
         target_file = caja_file_get (result_location);
 
@@ -2351,11 +2364,11 @@ activation_mountable_mounted (CajaFile  *file,
 static void
 activation_mount_mountables (ActivateParameters *parameters)
 {
-    CajaFile *file;
-    GMountOperation *mount_op;
-
     if (parameters->mountables != NULL)
     {
+        CajaFile *file;
+        GMountOperation *mount_op;
+
         file = parameters->mountables->data;
         mount_op = gtk_mount_operation_new (parameters->parent_window);
         g_mount_operation_set_password_save (mount_op, G_PASSWORD_SAVE_FOR_SESSION);
@@ -2438,11 +2451,11 @@ activation_mountable_started (CajaFile  *file,
 static void
 activation_start_mountables (ActivateParameters *parameters)
 {
-    CajaFile *file;
-    GMountOperation *start_op;
-
     if (parameters->start_mountables != NULL)
     {
+        CajaFile *file;
+        GMountOperation *start_op;
+
         file = parameters->start_mountables->data;
         start_op = gtk_mount_operation_new (parameters->parent_window);
         g_signal_connect (start_op, "notify::is-showing",
@@ -2479,11 +2492,10 @@ caja_mime_activate_files (GtkWindow *parent_window,
                           gboolean user_confirmation)
 {
     ActivateParameters *parameters;
-    char *file_name;
     int file_count;
     GList *l, *next;
-    CajaFile *file;
     LaunchLocation *location;
+    CajaFile *file = NULL;
 
     if (files == NULL)
     {
@@ -2512,6 +2524,8 @@ caja_mime_activate_files (GtkWindow *parent_window,
     file_count = g_list_length (files);
     if (file_count == 1)
     {
+        char *file_name;
+
         file_name = caja_file_get_display_name (files->data);
         parameters->timed_wait_prompt = g_strdup_printf (_("Opening \"%s\"."), file_name);
         g_free (file_name);

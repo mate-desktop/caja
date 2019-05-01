@@ -190,8 +190,6 @@ thumbnail_thread_starter_cb (gpointer data)
 void
 caja_thumbnail_remove_from_queue (const char *file_uri)
 {
-    GList *node;
-
 #ifdef DEBUG_THUMBNAILS
     g_message ("(Remove from queue) Locking mutex\n");
 #endif
@@ -203,6 +201,8 @@ caja_thumbnail_remove_from_queue (const char *file_uri)
 
     if (thumbnails_to_make_hash)
     {
+        GList *node;
+
         node = g_hash_table_lookup (thumbnails_to_make_hash, file_uri);
 
         if (node && node->data != currently_thumbnailing)
@@ -226,8 +226,6 @@ caja_thumbnail_remove_from_queue (const char *file_uri)
 void
 caja_thumbnail_prioritize (const char *file_uri)
 {
-    GList *node;
-
 #ifdef DEBUG_THUMBNAILS
     g_message ("(Prioritize) Locking mutex\n");
 #endif
@@ -239,6 +237,8 @@ caja_thumbnail_prioritize (const char *file_uri)
 
     if (thumbnails_to_make_hash)
     {
+        GList *node;
+
         node = g_hash_table_lookup (thumbnails_to_make_hash, file_uri);
 
         if (node && node->data != currently_thumbnailing)
@@ -296,8 +296,6 @@ get_types_table (void)
 {
     static GHashTable *image_mime_types = NULL;
     GSList *format_list, *l;
-    char **types;
-    int i;
 
     if (image_mime_types == NULL)
     {
@@ -308,6 +306,9 @@ get_types_table (void)
         format_list = gdk_pixbuf_get_formats ();
         for (l = format_list; l; l = l->next)
         {
+            char **types;
+            int i;
+
             types = gdk_pixbuf_format_get_mime_types (l->data);
 
             for (i = 0; types[i] != NULL; i++)
@@ -387,8 +388,7 @@ caja_create_thumbnail (CajaFile *file)
 {
     time_t file_mtime = 0;
     CajaThumbnailInfo *info;
-    CajaThumbnailInfo *existing_info;
-    GList *existing, *node;
+    GList *existing;
 
     caja_file_set_is_thumbnailing (file, TRUE);
 
@@ -431,6 +431,8 @@ caja_create_thumbnail (CajaFile *file)
     existing = g_hash_table_lookup (thumbnails_to_make_hash, info->image_uri);
     if (existing == NULL)
     {
+        GList *node;
+
         /* Add the thumbnail to the list. */
 #ifdef DEBUG_THUMBNAILS
         g_message ("(Main Thread) Adding thumbnail: %s\n",
@@ -453,6 +455,8 @@ caja_create_thumbnail (CajaFile *file)
     }
     else
     {
+        CajaThumbnailInfo *existing_info;
+
 #ifdef DEBUG_THUMBNAILS
         g_message ("(Main Thread) Updating non-current mtime: %s\n",
                    info->image_uri);

@@ -329,11 +329,12 @@ caja_desktop_icon_file_unmount (CajaFile                   *file,
                                 gpointer                        callback_data)
 {
     CajaDesktopIconFile *desktop_file;
-    GMount *mount;
 
     desktop_file = CAJA_DESKTOP_ICON_FILE (file);
     if (desktop_file)
     {
+        GMount *mount;
+
         mount = caja_desktop_link_get_mount (desktop_file->details->link);
         if (mount != NULL)
         {
@@ -351,11 +352,12 @@ caja_desktop_icon_file_eject (CajaFile                   *file,
                               gpointer                        callback_data)
 {
     CajaDesktopIconFile *desktop_file;
-    GMount *mount;
 
     desktop_file = CAJA_DESKTOP_ICON_FILE (file);
     if (desktop_file)
     {
+        GMount *mount;
+
         mount = caja_desktop_link_get_mount (desktop_file->details->link);
         if (mount != NULL)
         {

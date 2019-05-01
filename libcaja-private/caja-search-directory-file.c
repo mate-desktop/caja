@@ -100,10 +100,10 @@ search_directory_file_get_item_count (CajaFile *file,
                                       guint *count,
                                       gboolean *count_unreadable)
 {
-    GList *file_list;
-
     if (count)
     {
+        GList *file_list;
+
         file_list = caja_directory_get_file_list (file->details->directory);
 
         *count = g_list_length (file_list);
@@ -122,10 +122,10 @@ search_directory_file_get_deep_counts (CajaFile *file,
                                        goffset *total_size,
                                        goffset *total_size_on_disk)
 {
-    CajaFile *dir_file;
     GList *file_list, *l;
     guint dirs, files;
     GFileType type;
+    CajaFile *dir_file = NULL;
 
     file_list = caja_directory_get_file_list (file->details->directory);
 
@@ -182,8 +182,6 @@ void
 caja_search_directory_file_update_display_name (CajaSearchDirectoryFile *search_file)
 {
     CajaFile *file;
-    CajaSearchDirectory *search_dir;
-    CajaQuery *query;
     char *display_name;
     gboolean changed;
 
@@ -192,6 +190,9 @@ caja_search_directory_file_update_display_name (CajaSearchDirectoryFile *search_
     file = CAJA_FILE (search_file);
     if (file->details->directory)
     {
+        CajaSearchDirectory *search_dir;
+        CajaQuery *query;
+
         search_dir = CAJA_SEARCH_DIRECTORY (file->details->directory);
         query = caja_search_directory_get_query (search_dir);
 
