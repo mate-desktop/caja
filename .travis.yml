@@ -110,6 +110,7 @@ requires:
     # Useful URL: https://src.fedoraproject.org/cgit/rpms/caja.git/
     - clang-analyzer
     - clang
+    - cppcheck-htmlreport
     - git
     - gcc
     - make
@@ -190,7 +191,9 @@ build_scripts:
 
 after_scripts:
   - if [ ${DISTRO_NAME} == "fedora" ];then
-  -   ./gen-index -i https://github.com/${OWNER_NAME}/mate-icon-theme/raw/master/mate/16x16/apps/system-file-manager.png
+  -   cppcheck --xml --output-file=cppcheck.xml --enable=warning,style,performance,portability,information,missingInclude .
+  -   cppcheck-htmlreport --title=${REPO_NAME} --file=cppcheck.xml --report-dir=cppcheck-htmlreport
+  -   ./gen-index -l 20 -i https://github.com/${OWNER_NAME}/mate-icon-theme/raw/master/mate/16x16/apps/system-file-manager.png
   - fi
   - make distcheck
 
