@@ -480,10 +480,7 @@ gboolean
 egg_desktop_file_can_launch (EggDesktopFile *desktop_file,
                              const char     *desktop_environment)
 {
-    char *try_exec, *found_program;
-    char **only_show_in, **not_show_in;
     gboolean found;
-    int i;
 
     if (desktop_file->type != EGG_DESKTOP_FILE_TYPE_APPLICATION &&
             desktop_file->type != EGG_DESKTOP_FILE_TYPE_LINK)
@@ -491,12 +488,16 @@ egg_desktop_file_can_launch (EggDesktopFile *desktop_file,
 
     if (desktop_environment)
     {
+        char **only_show_in, **not_show_in;
+
         only_show_in = g_key_file_get_string_list (desktop_file->key_file,
                        EGG_DESKTOP_FILE_GROUP,
                        EGG_DESKTOP_FILE_KEY_ONLY_SHOW_IN,
                        NULL, NULL);
         if (only_show_in)
         {
+            int i;
+
             for (i = 0, found = FALSE; only_show_in[i] && !found; i++)
             {
                 if (!strcmp (only_show_in[i], desktop_environment))
@@ -515,6 +516,8 @@ egg_desktop_file_can_launch (EggDesktopFile *desktop_file,
                       NULL, NULL);
         if (not_show_in)
         {
+            int i;
+
             for (i = 0, found = FALSE; not_show_in[i] && !found; i++)
             {
                 if (!strcmp (not_show_in[i], desktop_environment))
@@ -530,12 +533,16 @@ egg_desktop_file_can_launch (EggDesktopFile *desktop_file,
 
     if (desktop_file->type == EGG_DESKTOP_FILE_TYPE_APPLICATION)
     {
+        char *try_exec;
+
         try_exec = g_key_file_get_string (desktop_file->key_file,
                                           EGG_DESKTOP_FILE_GROUP,
                                           EGG_DESKTOP_FILE_KEY_TRY_EXEC,
                                           NULL);
         if (try_exec)
         {
+            char *found_program;
+
             found_program = g_find_program_in_path (try_exec);
             g_free (try_exec);
 
@@ -605,8 +612,6 @@ append_quoted_word (GString    *str,
                     gboolean    in_single_quotes,
                     gboolean    in_double_quotes)
 {
-    const char *p;
-
     if (!in_single_quotes && !in_double_quotes)
         g_string_append_c (str, '\'');
     else if (!in_single_quotes && in_double_quotes)
@@ -616,6 +621,8 @@ append_quoted_word (GString    *str,
         g_string_append (str, s);
     else
     {
+        const char *p;
+
         for (p = s; *p != '\0'; p++)
         {
             if (*p == '\'')
