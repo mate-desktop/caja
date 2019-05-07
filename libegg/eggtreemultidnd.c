@@ -302,7 +302,6 @@ egg_tree_multi_drag_motion_event (GtkWidget      *widget,
         GList *path_list = NULL;
         GtkTreeSelection *selection;
         GtkTreeModel *model;
-        GdkDragContext *context;
         TreeViewDragInfo *di;
 
         di = get_info (GTK_TREE_VIEW (widget));
@@ -317,6 +316,7 @@ egg_tree_multi_drag_motion_event (GtkWidget      *widget,
         model = gtk_tree_view_get_model (GTK_TREE_VIEW (widget));
         if (egg_tree_multi_drag_source_row_draggable (EGG_TREE_MULTI_DRAG_SOURCE (model), path_list))
         {
+            GdkDragContext *context;
 
             context = gtk_drag_begin_with_coordinates (widget,
                                                        gtk_drag_source_get_target_list (widget),

@@ -224,7 +224,7 @@ sm_client_xsmp_set_initial_properties (gpointer user_data)
     if (desktop_file)
     {
         GError *err = NULL;
-        char *cmdline, **argv;
+        char **argv;
         int argc;
 
         if (xsmp->restart_style == SmRestartIfRunning)
@@ -236,6 +236,8 @@ sm_client_xsmp_set_initial_properties (gpointer user_data)
 
         if (!xsmp->set_restart_command)
         {
+            char *cmdline;
+
             cmdline = egg_desktop_file_parse_exec (desktop_file, NULL, &err);
             if (cmdline && g_shell_parse_argv (cmdline, &argc, &argv, &err))
             {
@@ -770,7 +772,7 @@ save_state (EggSMClientXSMP *xsmp)
     char *state_file_path, *data;
     EggDesktopFile *desktop_file;
     GPtrArray *restart;
-    int offset, fd;
+    int offset;
 
     /* We set xsmp->state before emitting save_state, but our caller is
      * responsible for setting it back afterward.
@@ -805,11 +807,13 @@ save_state (EggSMClientXSMP *xsmp)
                                            G_KEY_FILE_KEEP_TRANSLATIONS, NULL))
         {
             guint g, k, i;
-            char **groups, **keys, *value, *exec;
+            char **groups, *value, *exec;
 
             groups = g_key_file_get_groups (state_file, NULL);
             for (g = 0; groups[g]; g++)
             {
+                char **keys;
+
                 keys = g_key_file_get_keys (state_file, groups[g], NULL, NULL);
                 for (k = 0; keys[k]; k++)
                 {
@@ -861,6 +865,8 @@ save_state (EggSMClientXSMP *xsmp)
     offset = 0;
     while (1)
     {
+        int fd;
+
         state_file_path = g_strdup_printf ("%s%csession-state%c%s-%ld.%s",
                                            g_get_user_config_dir (),
                                            G_DIR_SEPARATOR, G_DIR_SEPARATOR,
