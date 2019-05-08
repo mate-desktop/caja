@@ -61,8 +61,10 @@ caja_ui_prepare_merge_ui (GtkUIManager *ui_manager,
                           GtkActionGroup **action_group)
 {
     *merge_id = gtk_ui_manager_new_merge_id (ui_manager);
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS
     *action_group = gtk_action_group_new (name);
     gtk_action_group_set_translation_domain (*action_group, GETTEXT_PACKAGE);
+    G_GNUC_END_IGNORE_DEPRECATIONS
     gtk_ui_manager_insert_action_group (ui_manager, *action_group, 0);
     g_object_unref (*action_group); /* owned by ui manager */
 }
@@ -137,7 +139,9 @@ extension_action_sensitive_callback (CajaMenuItem *item,
                   "sensitive", &value,
                   NULL);
 
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS
     gtk_action_set_sensitive (GTK_ACTION (user_data), value);
+    G_GNUC_END_IGNORE_DEPRECATIONS
 }
 
 static cairo_surface_t *
@@ -180,10 +184,12 @@ caja_action_from_menu_item (CajaMenuItem *item,
                   "priority", &priority,
                   NULL);
 
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS
     action = gtk_action_new (name,
                              label,
                              tip,
                              icon_name);
+    G_GNUC_END_IGNORE_DEPRECATIONS
 
     if (icon_name != NULL)
     {
@@ -200,7 +206,9 @@ caja_action_from_menu_item (CajaMenuItem *item,
         }
     }
 
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS
     gtk_action_set_sensitive (action, sensitive);
+    G_GNUC_END_IGNORE_DEPRECATIONS
     g_object_set (action, "is-important", priority, NULL);
 
     g_signal_connect_data (action, "activate",
@@ -230,10 +238,12 @@ caja_toolbar_action_from_menu_item (CajaMenuItem *item, GtkWidget *parent_widget
                   "priority", &priority,
                   NULL);
 
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS
     action = gtk_action_new (name,
                              label,
                              tip,
                              icon_name);
+    G_GNUC_END_IGNORE_DEPRECATIONS
 
     if (icon_name != NULL)
     {
@@ -250,7 +260,9 @@ caja_toolbar_action_from_menu_item (CajaMenuItem *item, GtkWidget *parent_widget
         }
     }
 
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS
     gtk_action_set_sensitive (action, sensitive);
+    G_GNUC_END_IGNORE_DEPRECATIONS
     g_object_set (action, "is-important", priority, NULL);
 
     g_signal_connect_data (action, "activate",
