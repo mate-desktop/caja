@@ -19,6 +19,7 @@ AM_CPPFLAGS = \
 	-DDATADIR=\""$(datadir)"\" \
 	-DLIBDIR=\""$(libdir)"\" \
 	-DCAJA_DATADIR=\""$(datadir)/caja"\" \
+	-DMATELOCALEDIR=\""$(datadir)/locale"\" \
 	-DUIDIR=\""$(datadir)/caja/ui"\" \
 	-DCAJA_PIXMAPDIR=\""$(datadir)/pixmaps/caja"\" \
 	-DPREFIX=\""$(prefix)"\" \
@@ -50,11 +51,12 @@ $(dbus_freedesktop_built_sources) : Makefile.am $(top_srcdir)/data/freedesktop-d
 		$(top_srcdir)/data/freedesktop-dbus-interfaces.xml			\
 		$(NULL)
 
-@INTLTOOL_DESKTOP_RULE@
-
 desktop_in_files=mate-network-scheme.desktop.in
 desktop_files=$(desktop_in_files:.desktop.in=.desktop)
 desktopdir = $(datadir)/mate/network/
+
+$(desktop_files): $(desktop_in_files)
+	$(AM_V_GEN) GETTEXTDATADIR=$(top_srcdir) $(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
 
 schemedir = $(datadir)/applications
 scheme_DATA = mate-network-scheme.desktop
@@ -205,8 +207,6 @@ about_DATA = \
 if ENABLE_SELF_CHECK
 TESTS=check-caja
 endif
-
-@INTLTOOL_SERVER_RULE@
 
 uidir = $(datadir)/caja/ui
 ui_DATA = \

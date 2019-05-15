@@ -2,7 +2,8 @@ NULL =
 
 xml_in_files = caja.xml.in
 xml_files = $(xml_in_files:.xml.in=.xml)
-@INTLTOOL_XML_RULE@
+$(xml_files): $(xml_in_files)
+	$(AM_V_GEN) GETTEXTDATADIR=$(top_srcdir) $(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
 
 desktopdir = $(datadir)/applications
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
@@ -14,7 +15,8 @@ desktop_in_files = \
 	caja-file-management-properties.desktop.in  \
 	caja-browser.desktop.in                     \
 	caja-autorun-software.desktop.in
-@INTLTOOL_DESKTOP_RULE@
+%.desktop: %.desktop.in
+	$(AM_V_GEN) GETTEXTDATADIR=$(top_srcdir) $(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
 
 mimedir = $(datadir)/mime/packages
 mime_DATA = $(xml_files)
@@ -41,6 +43,8 @@ cajadata_DATA = \
 appdatadir = $(datadir)/metainfo
 appdata_in_files = caja.appdata.xml.in
 appdata_DATA = $(appdata_in_files:.xml.in=.xml)
+$(appdata_DATA): $(appdata_in_files)
+	$(AM_V_GEN) $(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
 
 EXTRA_DIST = $(cajadata_DATA) \
 	caja.desktop \
