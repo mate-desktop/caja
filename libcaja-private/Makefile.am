@@ -212,8 +212,6 @@ caja-marshal.list: $(libcaja_private_la_SOURCES) Makefile.am
 
 gsettings_SCHEMAS = org.mate.caja.gschema.xml org.mate.media-handling.gschema.xml
 
-@INTLTOOL_XML_NOMERGE_RULE@
-
 @GSETTINGS_RULES@
 
 EXTRA_DIST = \

@@ -1,33 +1,26 @@
 include $(top_srcdir)/Makefile.shared
 
 SUBDIRS = \
+	po \
 	eel \
 	libcaja-extension \
 	libegg \
 	libcaja-private \
 	src \
 	test \
-	po \
 	data \
 	icons \
 	docs \
 	$(NULL)
 
 EXTRA_DIST = \
+	its \
 	autogen.sh \
 	COPYING.LIB \
 	COPYING.EXTENSIONS \
 	HACKING \
-	intltool-extract.in \
-	intltool-merge.in \
-	intltool-update.in \
 	Makefile.shared \
 	$(NULL)
-
-DISTCLEANFILES = \
-	intltool-extract \
-	intltool-merge \
-	intltool-update
 
 DISTCHECK_CONFIGURE_FLAGS = \
 	--disable-update-mimedb \
