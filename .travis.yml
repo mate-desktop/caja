@@ -10,6 +10,9 @@ before_install:
   - chmod +x docker-build
  
 install:
+  - sudo apt-get install -y python3-pip python3-setuptools
+  - sudo pip3 install --upgrade pip
+  - sudo pip install PyGithub
   - ./docker-build --name ${DISTRO} --config .travis.yml --install
 
 script:
