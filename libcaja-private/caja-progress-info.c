@@ -412,11 +412,13 @@ start_button_update_view (ProgressWidgetData *data)
         toapply = g_object_get_data (G_OBJECT(button),
                                     STARTBT_DATA_IMAGE_PAUSE);
         atk_object_set_name (gtk_widget_get_accessible (button), _("Pause"));
+        gtk_widget_set_tooltip_text (button, _("Pause"));
         as_pause = TRUE;
     } else {
         toapply = g_object_get_data (G_OBJECT(button),
                                     STARTBT_DATA_IMAGE_RESUME);
         atk_object_set_name (gtk_widget_get_accessible (button), _("Resume"));
+        gtk_widget_set_tooltip_text (button, _("Resume"));
         as_pause = FALSE;
     }
 
@@ -804,6 +806,7 @@ queue_button_init (ProgressWidgetData *data)
 
     gtk_container_add (GTK_CONTAINER (button), image);
     atk_object_set_name (gtk_widget_get_accessible (button), _("Queue"));
+    gtk_widget_set_tooltip_text (button, _("Queue"));
 
     g_signal_connect (button, "clicked", (GCallback)queue_clicked, data);
 }
@@ -846,6 +849,7 @@ progress_widget_new (CajaProgressInfo *info)
     btcancel = gtk_button_new ();
     gtk_container_add (GTK_CONTAINER (btcancel), imgcancel);
     atk_object_set_name (gtk_widget_get_accessible (btcancel), _("Cancel"));
+    gtk_widget_set_tooltip_text (btcancel, _("Cancel"));
     g_signal_connect (btcancel, "clicked", (GCallback)cancel_clicked, data);
 
     progress_bar = gtk_progress_bar_new ();
