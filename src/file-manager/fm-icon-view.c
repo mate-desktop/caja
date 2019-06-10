@@ -75,6 +75,7 @@ enum
     PROP_COMPACT
 };
 
+/*
 typedef struct
 {
     const CajaFileSortType sort_type;
@@ -83,6 +84,7 @@ typedef struct
     const char *menu_label;
     const char *menu_hint;
 } SortCriterion;
+*/
 
 typedef enum
 {
@@ -184,9 +186,10 @@ static const SortCriterion sort_criteria[] =
 static gboolean default_sort_in_reverse_order = FALSE;
 static int preview_sound_auto_value;
 
-static void                 fm_icon_view_set_directory_sort_by        (FMIconView           *icon_view,
-        CajaFile         *file,
-        const char           *sort_by);
+//static void                 fm_icon_view_set_directory_sort_by        (FMIconView           *icon_view,
+//        CajaFile         *file,
+//        const char           *sort_by);
+
 static void                 fm_icon_view_set_zoom_level               (FMIconView           *view,
         CajaZoomLevel     new_level,
         gboolean              always_emit);
@@ -198,10 +201,10 @@ static gboolean             fm_icon_view_supports_manual_layout       (FMIconVie
 static gboolean             fm_icon_view_supports_scaling	      (FMIconView           *icon_view);
 static void                 fm_icon_view_reveal_selection             (FMDirectoryView      *view);
 static const SortCriterion *get_sort_criterion_by_sort_type           (CajaFileSortType  sort_type);
-static void                 set_sort_criterion_by_sort_type           (FMIconView           *icon_view,
-        CajaFileSortType  sort_type);
-static gboolean             set_sort_reversed                         (FMIconView           *icon_view,
-        gboolean              new_value);
+//static void                 set_sort_criterion_by_sort_type           (FMIconView           *icon_view,
+//        CajaFileSortType  sort_type);
+//static gboolean             set_sort_reversed                         (FMIconView           *icon_view,
+//        gboolean              new_value);
 static void                 switch_to_manual_layout                   (FMIconView           *view);
 static void                 preview_audio                             (FMIconView           *icon_view,
         CajaFile         *file,
@@ -347,7 +350,7 @@ get_stored_icon_position_callback (CajaIconContainer *container,
     return position_good;
 }
 
-static void
+void
 real_set_sort_criterion (FMIconView *icon_view,
                          const SortCriterion *sort,
                          gboolean clear)
@@ -545,7 +548,7 @@ fm_icon_view_clear (FMDirectoryView *view)
 }
 
 
-static gboolean
+gboolean
 should_show_file_on_screen (FMDirectoryView *view, CajaFile *file)
 {
     if (!fm_directory_view_should_show_file (view, file))
@@ -795,7 +798,7 @@ update_layout_menus (FMIconView *view)
 }
 
 
-static char *
+char *
 fm_icon_view_get_directory_sort_by (FMIconView *icon_view,
                                     CajaFile *file)
 {
@@ -858,7 +861,7 @@ fm_icon_view_real_get_directory_sort_by (FMIconView *icon_view,
             default_sort_criterion->metadata_text);
 }
 
-static void
+void
 fm_icon_view_set_directory_sort_by (FMIconView *icon_view,
                                     CajaFile *file,
                                     const char *sort_by)
@@ -1148,7 +1151,7 @@ real_supports_labels_beside_icons (FMIconView *view)
     return TRUE;
 }
 
-static gboolean
+gboolean
 set_sort_reversed (FMIconView *icon_view, gboolean new_value)
 {
     if (icon_view->details->sort_reversed == new_value)
@@ -1565,7 +1568,7 @@ fm_icon_view_get_item_count (FMDirectoryView *view)
     return count;
 }
 
-static void
+void
 set_sort_criterion_by_sort_type (FMIconView *icon_view,
                                  CajaFileSortType  sort_type)
 {

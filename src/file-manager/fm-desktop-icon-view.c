@@ -65,6 +65,53 @@
 /* Timeout to check the desktop directory for updates */
 #define RESCAN_TIMEOUT 4
 
+static const SortCriterion sort_criteria[] =
+{
+    {
+        CAJA_FILE_SORT_BY_DISPLAY_NAME,
+        "name",
+        "Sort by Name",
+        N_("by _Name"),
+        N_("Keep icons sorted by name in rows")
+    },
+    {
+        CAJA_FILE_SORT_BY_SIZE,
+        "size",
+        "Sort by Size",
+        N_("by _Size"),
+        N_("Keep icons sorted by size in rows")
+    },
+    {
+        CAJA_FILE_SORT_BY_TYPE,
+        "type",
+        "Sort by Type",
+        N_("by _Type"),
+        N_("Keep icons sorted by type in rows")
+    },
+    {
+        CAJA_FILE_SORT_BY_MTIME,
+        "modification date",
+        "Sort by Modification Date",
+        N_("by Modification _Date"),
+        N_("Keep icons sorted by modification date in rows")
+    },
+    {
+        CAJA_FILE_SORT_BY_EMBLEMS,
+        "emblems",
+        "Sort by Emblems",
+        N_("by _Emblems"),
+        N_("Keep icons sorted by emblems in rows")
+    },
+    {
+        CAJA_FILE_SORT_BY_TRASHED_TIME,
+        "trashed",
+        "Sort by Trash Time",
+        N_("by T_rash Time"),
+        N_("Keep icons sorted by trash time in rows")
+    }
+};
+
+
 struct _FMDesktopIconViewPrivate
 {
     GdkWindow *root_window;
@@ -669,6 +716,111 @@ action_change_background_callback (GtkAction *action,
 }
 
 static void
+clear_orphan_states (FMDesktopIconView  *view)
+{
+    GList *icons;
+
+    for (icons = view->details->icons; icons != NULL; icons = icons->next) {
+        CajaFile *file;
+        CajaIcon  *icon;
+
+        icon = icons->data;
+
+        file = CAJA_FILE (icon->data);
+    }
+}
+
+static void
+set_sort_type (FMDesktopIconView *view,
+               GtkAction               *action,
+               CajaFileSortType         type)
+{
+    CajaFile *file;
+    gint i;
+    gchar *old_sort_name;
+
+      
+    view = (FMIconView  *)view;
+    
+    file = fm_directory_view_get_directory_as_file(CAJA_VIEW (view));
+
+    old_sort_name = fm_icon_view_get_directory_sort_by(FM_ICON_VIEW(view), file);
+
+        for (i = 0; i < G_N_ELEMENTS (sort_criteria); i++) {
+            if (sort_criteria[i].sort_type == type) {
+                
+                GList *selection;
+
+                set_sort_reversed(FM_ICON_VIEW(view),TRUE);
+
+                caja_icon_container_sort (get_icon_container (view));
+
+                selection = caja_view_get_selection (view);
+
+                if (selection != NULL) {
+                    caja_icon_container_reveal (get_icon_container (FM_ICON_VIEW (view)), selection->data);
+                }
+
+                caja_file_list_free (selection);
+
+                caja_view_update_menus (CAJA_VIEW (view));
+
+                caja_icon_container_request_update_all (get_icon_container (FM_ICON_VIEW (view))); 
+
+                return;
+            }
+        }
+
+    g_free (old_sort_name);
+
+
+    set_sort_reversed (FM_ICON_VIEW (view), FALSE);
+    
+    set_sort_criterion_by_sort_type (FM_ICON_VIEW (view), type);
+
+    caja_view_update_menus (CAJA_VIEW (view));
+
+}
+
+
+static void
+action_sort_name (GtkAction               *action,
+                  FMDesktopIconView *view)
+{
+    g_assert (CAJA_IS_VIEW (view));
+
+    set_sort_type (view, action, CAJA_FILE_SORT_BY_DISPLAY_NAME);
+}
+
+static void
+action_sort_size (GtkAction               *action,
+                  FMDesktopIconView *view)
+{
+    g_assert (CAJA_IS_VIEW (view));
+
+    set_sort_type (view, action, CAJA_FILE_SORT_BY_SIZE);
+  
+}
+
+static void
+action_sort_type (GtkAction               *action,
+                  FMDesktopIconView *view)
+{
+    g_assert (CAJA_IS_VIEW (view));
+
+    set_sort_type (view, action, CAJA_FILE_SORT_BY_TYPE);
+}
+
+static void
+action_sort_date (GtkAction               *action,
+                  FMDesktopIconView *view)
+{
+    g_assert (CAJA_IS_VIEW (view));
+
+    set_sort_type (view, action, CAJA_FILE_SORT_BY_MTIME);
+}
+
+static void
 action_empty_trash_conditional_callback (GtkAction *action,
         gpointer data)
 {
@@ -717,6 +869,43 @@ real_update_menus (FMDirectoryView *view)
     gboolean disable_command_line;
     gboolean include_empty_trash;
     GtkAction *action;
+
+    gboolean is_auto_layout;
+    const char *action_name;
+    CajaFile *file;
+
+    is_auto_layout = fm_desktop_icon_view_using_auto_layout (view);
+    file = fm_directory_view_get_directory_as_file (FM_DIRECTORY_VIEW (view));
+
+    if (fm_desktop_icon_view_supports_auto_layout (view))
+    {
+        /* Mark sort criterion. */
+        action_name = is_auto_layout ? view->details->sort->action : FM_ACTION_MANUAL_LAYOUT;
+        action = gtk_action_group_get_action (view->details->icon_action_group,
+                                              action_name);
+        gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), TRUE);
+
+        action = gtk_action_group_get_action (view->details->icon_action_group,
+                                              FM_ACTION_TIGHTER_LAYOUT);
+        gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action),
+                                      fm_desktop_icon_view_using_tighter_layout (view));
+       // gtk_action_set_sensitive (action, fm_desktop_icon_view_supports_tighter_layout (view));
+       // gtk_action_set_visible (action, fm_desktop_icon_view_supports_tighter_layout (view));
+
+        gtk_action_set_sensitive (action, FALSE);
+        gtk_action_set_visible (action, FALSE);
+
+        action = gtk_action_group_get_action (view->details->icon_action_group,
+                                              FM_ACTION_REVERSED_ORDER);
+        gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action),
+                                      view->details->sort_reversed);
+        gtk_action_set_sensitive (action, is_auto_layout);
+
+        action = gtk_action_group_get_action (view->details->icon_action_group,
+                                              FM_ACTION_SORT_TRASH_TIME);
+
+       }
+
 
     g_assert (FM_IS_DESKTOP_ICON_VIEW (view));
 
@@ -776,6 +965,24 @@ static const GtkActionEntry desktop_view_entries[] =
         N_("Delete all items in the Trash"),
         G_CALLBACK (action_empty_trash_conditional_callback)
     },
+   
+     { "Desktop Sort by Name", NULL,
+      N_("By _Name"), NULL,
+      N_("Keep icons sorted by name in rows"),
+      G_CALLBACK (action_sort_name) },
+    { "Desktop Sort by Size", NULL,
+      N_("By _Size"), NULL,
+      N_("Keep icons sorted by size in rows"),
+      G_CALLBACK (action_sort_size) },
+    { "Desktop Sort by Type", NULL,
+      N_("By _Detailed Type"), NULL,
+      N_("Keep icons sorted by detailed type in rows"),
+      G_CALLBACK (action_sort_type) },
+    { "Desktop Sort by Date", NULL,
+      N_("By Modification _Date"), NULL,
+      N_("Keep icons sorted by modification date in rows"),
+      G_CALLBACK (action_sort_date) }, 
+    
 };
 
 static void
@@ -814,7 +1021,7 @@ real_supports_auto_layout (FMIconView *view)
      * would cause all sorts of complications involving the
      * fixed-size window.
      */
-    return FALSE;
+    return TRUE;
 }
 
 static gboolean

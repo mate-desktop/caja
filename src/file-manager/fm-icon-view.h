@@ -121,6 +121,37 @@ struct FMIconViewClass
     gboolean (* supports_labels_beside_icons)	 (FMIconView *view);
 };
 
+typedef struct
+{
+    const CajaFileSortType sort_type;
+    const char *metadata_text;
+    const char *action;
+    const char *menu_label;
+    const char *menu_hint;
+} SortCriterion;
+
+
+char *
+fm_icon_view_get_directory_sort_by (FMIconView *icon_view,
+                                    CajaFile *file);
+
+void                 fm_icon_view_set_directory_sort_by        (FMIconView           *icon_view,
+        CajaFile         *file,
+        const char           *sort_by);
+
+gboolean
+set_sort_reversed (FMIconView *icon_view, gboolean new_value);
+
+void
+set_sort_criterion (FMIconView *icon_view, const SortCriterion *sort);
+
+void                 set_sort_criterion_by_sort_type           (FMIconView           *icon_view,
+        CajaFileSortType  sort_type);
+
+gboolean
+should_show_file_on_screen (FMDirectoryView *view, CajaFile *file);
+
+
 /* GObject support */
 GType   fm_icon_view_get_type      (void);
 int     fm_icon_view_compare_files (FMIconView   *icon_view,
