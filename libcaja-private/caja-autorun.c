@@ -428,7 +428,7 @@ caja_autorun_rebuild_combo_box (GtkWidget *combo_box)
  *
  * We need the API outlined in
  *
- *  http://bugzilla.gnome.org/show_bug.cgi?id=545350
+ *  https://bugzilla.gnome.org/show_bug.cgi?id=545350
  *
  * to do this.
  *

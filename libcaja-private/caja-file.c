@@ -602,7 +602,7 @@ add_to_link_hash_table_list (GList **list, CajaFile *file)
 {
 	if (g_list_find (*list, file) != NULL) {
 		g_warning ("Adding file to symlink_table multiple times. "
-			   "Please add feedback of what you were doing at http://bugzilla.gnome.org/show_bug.cgi?id=358172\n");
+			   "Please add feedback of what you were doing at https://bugzilla.gnome.org/show_bug.cgi?id=358172\n");
 		return;
 	}
 	g_object_weak_ref (G_OBJECT (file), symbolic_link_weak_notify, list);

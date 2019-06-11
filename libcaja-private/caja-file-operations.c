@@ -2093,7 +2093,7 @@ trash_or_delete_internal (GList                  *files,
 	}
 	// Start UNDO-REDO
 	// FIXME: Disabled, because of missing mechanism to restore a file from trash in a clean way
-	// see http://www.mail-archive.com/nautilus-list@gnome.org/msg04664.html
+	// see https://www.mail-archive.com/nautilus-list@gnome.org/msg04664.html
 	if (try_trash && !caja_undostack_manager_is_undo_redo(caja_undostack_manager_instance())) {
 		job->common.undo_redo_data = caja_undostack_manager_data_new (CAJA_UNDOSTACK_MOVETOTRASH, g_list_length(files));
 		GFile* src_dir = g_file_get_parent (files->data);
