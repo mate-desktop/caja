@@ -110,7 +110,7 @@ autorun (GMount *mount)
 
     /* Careful here, according to
      *
-     *  http://standards.freedesktop.org/autostart-spec/autostart-spec-latest.html
+     *  https://standards.freedesktop.org/autostart-spec/autostart-spec-latest.html
      *
      * the ordering does matter.
      */

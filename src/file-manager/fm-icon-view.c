@@ -576,7 +576,7 @@ fm_icon_view_remove_file (FMDirectoryView *view, CajaFile *file, CajaDirectory *
         model_uri = caja_directory_get_uri (fm_directory_view_get_model (view));
         g_warning ("fm_icon_view_remove_file() - directory not icon view model, shouldn't happen.\n"
                    "file: %p:%s, dir: %p:%s, model: %p:%s, view loading: %d\n"
-                   "If you see this, please add this info to http://bugzilla.gnome.org/show_bug.cgi?id=368178",
+                   "If you see this, please add this info to https://bugzilla.gnome.org/show_bug.cgi?id=368178",
                    file, file_uri, directory, dir_uri, fm_directory_view_get_model (view), model_uri, fm_directory_view_get_loading (view));
         g_free (file_uri);
         g_free (dir_uri);
