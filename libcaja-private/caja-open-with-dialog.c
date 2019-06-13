@@ -263,8 +263,7 @@ add_or_find_application (CajaOpenWithDialog *dialog)
     }
 
     should_set_default = (dialog->details->add_mode) ||
-                         (!dialog->details->add_mode &&
-                          gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (dialog->details->checkbox)));
+                          gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (dialog->details->checkbox));
     success = TRUE;
 
     if (should_set_default)
