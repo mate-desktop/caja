@@ -378,9 +378,6 @@ append_xmpdata_string (XmpPtr xmp, CajaImagePropertiesPage *page)
 static void
 load_finished (CajaImagePropertiesPage *page)
 {
-    GdkPixbufFormat *format;
-    char *name, *desc;
-
     gtk_widget_destroy (page->details->loading_label);
 
     if (page->details->loader != NULL) {
@@ -389,6 +386,8 @@ load_finished (CajaImagePropertiesPage *page)
 
     if (page->details->got_size)
     {
+        GdkPixbufFormat *format;
+        char *name, *desc;
 #ifdef HAVE_EXIF
         ExifData *exif_data;
 #endif /*HAVE_EXIF*/
@@ -461,7 +460,6 @@ file_read_callback (GObject      *object,
     GInputStream *stream;
     gssize count_read;
     GError *error;
-    int exif_still_loading;
     gboolean done_reading;
 
     page = CAJA_IMAGE_PROPERTIES_PAGE (data);
@@ -473,6 +471,7 @@ file_read_callback (GObject      *object,
 
     if (count_read > 0)
     {
+        int exif_still_loading;
 
         g_assert (count_read <= sizeof(page->details->buffer));
 

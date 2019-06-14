@@ -129,9 +129,7 @@ caja_window_report_selection_changed (CajaWindowInfo *window)
 static void
 set_displayed_location (CajaWindowSlot *slot, GFile *location)
 {
-    GFile *bookmark_location;
     gboolean recreate;
-    char *name;
 
     if (slot->current_location_bookmark == NULL || location == NULL)
     {
@@ -139,6 +137,8 @@ set_displayed_location (CajaWindowSlot *slot, GFile *location)
     }
     else
     {
+        GFile *bookmark_location;
+
         bookmark_location = caja_bookmark_get_location (slot->current_location_bookmark);
         recreate = !g_file_equal (bookmark_location, location);
         g_object_unref (bookmark_location);
@@ -146,6 +146,8 @@ set_displayed_location (CajaWindowSlot *slot, GFile *location)
 
     if (recreate)
     {
+        char *name;
+
         /* We've changed locations, must recreate bookmark for current location. */
         if (slot->last_location_bookmark != NULL)
         {
@@ -163,11 +165,12 @@ static void
 check_bookmark_location_matches (CajaBookmark *bookmark, GFile *location)
 {
     GFile *bookmark_location;
-    char *bookmark_uri, *uri;
 
     bookmark_location = caja_bookmark_get_location (bookmark);
     if (!g_file_equal (location, bookmark_location))
     {
+        char *bookmark_uri, *uri;
+
         bookmark_uri = g_file_get_uri (bookmark_location);
         uri = g_file_get_uri (location);
         g_warning ("bookmark uri is %s, but expected %s", bookmark_uri, uri);
@@ -195,7 +198,7 @@ handle_go_back (CajaNavigationWindowSlot *navigation_slot,
     CajaWindowSlot *slot;
     guint i;
     GList *link;
-    CajaBookmark *bookmark;
+    CajaBookmark *bookmark = NULL;
 
     slot = CAJA_WINDOW_SLOT (navigation_slot);
 
@@ -239,7 +242,7 @@ handle_go_forward (CajaNavigationWindowSlot *navigation_slot,
     CajaWindowSlot *slot;
     guint i;
     GList *link;
-    CajaBookmark *bookmark;
+    CajaBookmark *bookmark = NULL;
 
     slot = CAJA_WINDOW_SLOT (navigation_slot);
 
@@ -278,10 +281,10 @@ handle_go_forward (CajaNavigationWindowSlot *navigation_slot,
 static void
 handle_go_elsewhere (CajaWindowSlot *slot, GFile *location)
 {
-    CajaNavigationWindowSlot *navigation_slot;
-
     if (CAJA_IS_NAVIGATION_WINDOW_SLOT (slot))
     {
+        CajaNavigationWindowSlot *navigation_slot;
+
         navigation_slot = CAJA_NAVIGATION_WINDOW_SLOT (slot);
 
         /* Clobber the entire forward list, and move displayed location to back list */
@@ -525,7 +528,6 @@ caja_window_slot_open_location_full (CajaWindowSlot *slot,
     gboolean existing = FALSE;
     GFile *old_location;
     char *old_uri, *new_uri;
-    int new_slot_position;
     GList *l;
     gboolean target_navigation = FALSE;
     gboolean target_same = FALSE;
@@ -639,6 +641,8 @@ caja_window_slot_open_location_full (CajaWindowSlot *slot,
             CAJA_IS_NAVIGATION_WINDOW (window))
     {
         g_assert (target_window == window);
+
+        int new_slot_position;
 
         slot_flags = 0;
 
@@ -897,10 +901,7 @@ begin_location_change (CajaWindowSlot *slot,
 {
     CajaWindow *window;
     CajaDirectory *directory;
-    CajaFile *file;
     gboolean force_reload;
-    char *current_pos;
-    GFile *from_folder;
     GFile *parent;
 
     g_assert (slot != NULL);
@@ -914,6 +915,8 @@ begin_location_change (CajaWindowSlot *slot,
      * select the folder the previous location was in */
     if (new_selection == NULL && previous_location != NULL &&
         g_file_has_prefix (previous_location, location)) {
+        GFile *from_folder;
+
         from_folder = g_object_ref (previous_location);
         parent = g_file_get_parent (from_folder);
         while (parent != NULL && !g_file_equal (parent, location)) {
@@ -972,6 +975,8 @@ begin_location_change (CajaWindowSlot *slot,
 
     if (force_reload)
     {
+        CajaFile *file;
+
         caja_directory_force_reload (directory);
         file = caja_directory_get_corresponding_file (directory);
         caja_file_invalidate_all_attributes (file);
@@ -984,6 +989,8 @@ begin_location_change (CajaWindowSlot *slot,
     if (slot->current_location_bookmark != NULL &&
             slot->content_view != NULL)
     {
+        char *current_pos;
+
         current_pos = caja_view_get_first_visible_file (slot->content_view);
         caja_bookmark_set_scroll_pos (slot->current_location_bookmark, current_pos);
         g_free (current_pos);
@@ -1011,22 +1018,24 @@ static void
 setup_new_spatial_window (CajaWindowSlot *slot, CajaFile *file)
 {
     CajaWindow *window;
-    char *show_hidden_file_setting;
-    char *geometry_string;
     char *scroll_string;
     gboolean maximized, sticky, above;
-    GtkAction *action;
 
     window = slot->pane->window;
 
     if (CAJA_IS_SPATIAL_WINDOW (window) && !CAJA_IS_DESKTOP_WINDOW (window))
     {
+        char *show_hidden_file_setting;
+        char *geometry_string;
+
         /* load show hidden state */
         show_hidden_file_setting = caja_file_get_metadata
                                    (file, CAJA_METADATA_KEY_WINDOW_SHOW_HIDDEN_FILES,
                                     NULL);
         if (show_hidden_file_setting != NULL)
         {
+            GtkAction *action;
+
             if (strcmp (show_hidden_file_setting, "1") == 0)
             {
                 window->details->show_hidden_files_mode = CAJA_WINDOW_SHOW_HIDDEN_FILES_ENABLE;
@@ -1176,14 +1185,10 @@ got_file_info_for_view_selection_callback (CajaFile *file,
 {
     GError *error;
     char *view_id;
-    char *mimetype;
     CajaWindow *window;
     CajaWindowSlot *slot;
-    CajaFile *viewed_file;
     GFile *location;
-    GMountOperation *mount_op;
     MountNotMountedData *data;
-    CajaApplication *app;
     slot = callback_data;
     g_assert (CAJA_IS_WINDOW_SLOT (slot));
     g_assert (slot->determine_view_file == file);
@@ -1205,6 +1210,8 @@ got_file_info_for_view_selection_callback (CajaFile *file,
     if (error && error->domain == G_IO_ERROR && error->code == G_IO_ERROR_NOT_MOUNTED &&
             !slot->tried_mount)
     {
+        GMountOperation *mount_op;
+
         slot->tried_mount = TRUE;
 
         mount_op = gtk_mount_operation_new (GTK_WINDOW (window));
@@ -1231,6 +1238,8 @@ got_file_info_for_view_selection_callback (CajaFile *file,
     if (error == NULL ||
             (error->domain == G_IO_ERROR && error->code == G_IO_ERROR_NOT_SUPPORTED))
     {
+        char *mimetype;
+
         /* We got the information we need, now pick what view to use: */
 
         mimetype = caja_file_get_mime_type (file);
@@ -1292,6 +1301,8 @@ got_file_info_for_view_selection_callback (CajaFile *file,
 
         if (!gtk_widget_get_visible (GTK_WIDGET (window)))
         {
+            CajaApplication *app;
+
             /* Destroy never-had-a-chance-to-be-seen window. This case
              * happens when a new window cannot display its initial URI.
              */
@@ -1348,6 +1359,8 @@ got_file_info_for_view_selection_callback (CajaFile *file,
             }
             else
             {
+                CajaFile *viewed_file;
+
                 /* We disconnected this, so we need to re-connect it */
                 viewed_file = caja_file_get (slot->location);
                 caja_window_slot_set_viewed_file (slot, viewed_file);
@@ -1581,13 +1594,14 @@ static void
 location_has_really_changed (CajaWindowSlot *slot)
 {
     CajaWindow *window;
-    GtkWidget *widget;
     GFile *location_copy;
 
     window = slot->pane->window;
 
     if (slot->new_content_view != NULL)
     {
+        GtkWidget *widget;
+
         widget = caja_view_get_widget (slot->new_content_view);
         /* Switch to the new content view. */
         if (gtk_widget_get_parent (widget) == NULL)
@@ -1631,8 +1645,8 @@ static void
 slot_add_extension_extra_widgets (CajaWindowSlot *slot)
 {
     GList *providers, *l;
-    GtkWidget *widget;
     char *uri;
+    GtkWidget *widget = NULL;
 
     providers = caja_extensions_get_for_type (CAJA_TYPE_LOCATION_WIDGET_PROVIDER);
 
@@ -1773,7 +1787,6 @@ update_for_new_location (CajaWindowSlot *slot)
     CajaWindow *window;
     GFile *new_location;
     CajaFile *file;
-    CajaDirectory *directory;
     gboolean location_really_changed;
     FindMountData *data;
 
@@ -1826,6 +1839,8 @@ update_for_new_location (CajaWindowSlot *slot)
 
     if (location_really_changed)
     {
+        CajaDirectory *directory;
+
         caja_window_slot_remove_extra_location_widgets (slot);
 
         directory = caja_directory_get (slot->location);
@@ -1989,12 +2004,11 @@ free_location_change (CajaWindowSlot *slot)
 static void
 cancel_location_change (CajaWindowSlot *slot)
 {
-    GList *selection;
-
     if (slot->pending_location != NULL
             && slot->location != NULL
             && slot->content_view != NULL)
     {
+        GList *selection;
 
         /* No need to tell the new view - either it is the
          * same as the old view, in which case it will already
@@ -2277,7 +2291,6 @@ caja_navigation_window_back_or_forward (CajaNavigationWindow *window,
     CajaNavigationWindowSlot *navigation_slot;
     GList *list;
     GFile *location;
-    GFile *old_location;
     guint len;
     CajaBookmark *bookmark;
 
@@ -2308,6 +2321,7 @@ caja_navigation_window_back_or_forward (CajaNavigationWindow *window,
     }
     else
     {
+        GFile *old_location;
         char *scroll_pos;
 
         old_location = caja_window_slot_get_location (slot);

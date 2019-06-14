@@ -122,7 +122,6 @@ skeleton_handle_show_item_properties_cb (CajaFreedesktopFileManager1 *object,
                      CajaFreedesktopDBus *fdb)
 {
     CajaApplication *application;
-    CajaWindow *window;
     GList *files;
     int i;
 
@@ -137,6 +136,8 @@ skeleton_handle_show_item_properties_cb (CajaFreedesktopFileManager1 *object,
 
     if (uris[0] != NULL) {
         GFile *file;
+        CajaWindow *window;
+
         file = g_file_new_for_uri (uris[i]);
         window = caja_application_get_spatial_window (application,
                                                       NULL,

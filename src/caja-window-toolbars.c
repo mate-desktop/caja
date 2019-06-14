@@ -147,13 +147,13 @@ get_extension_toolbar_items (CajaNavigationWindow *window)
 void
 caja_navigation_window_load_extension_toolbar_items (CajaNavigationWindow *window)
 {
-    GtkActionGroup *action_group;
-    GtkAction *action;
     GtkUIManager *ui_manager;
     GList *items;
     GList *l;
-    CajaMenuItem *item;
     guint merge_id;
+    GtkActionGroup *action_group;
+    GtkAction *action = NULL;
+    CajaMenuItem *item = NULL;
 
     ui_manager = caja_window_get_ui_manager (CAJA_WINDOW (window));
     if (window->details->extensions_toolbar_merge_id != 0)

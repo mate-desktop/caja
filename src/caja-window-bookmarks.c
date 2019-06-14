@@ -49,7 +49,6 @@ static void refresh_bookmarks_menu (CajaWindow *window);
 static void
 remove_bookmarks_for_uri_if_yes (GtkDialog *dialog, int response, gpointer callback_data)
 {
-    const char *uri;
     CajaWindow *window;
 
     g_assert (GTK_IS_DIALOG (dialog));
@@ -59,6 +58,8 @@ remove_bookmarks_for_uri_if_yes (GtkDialog *dialog, int response, gpointer callb
 
     if (response == GTK_RESPONSE_YES)
     {
+        const char *uri;
+
         uri = g_object_get_data (G_OBJECT (dialog), "uri");
         caja_bookmark_list_delete_items_with_uri (window->details->bookmark_list, uri);
     }
@@ -209,11 +210,11 @@ connect_proxy_cb (GtkActionGroup *action_group,
 static void
 update_bookmarks (CajaWindow *window)
 {
-    CajaBookmarkList *bookmarks;
-    CajaBookmark *bookmark;
     guint bookmark_count;
     guint index;
     GtkUIManager *ui_manager;
+    CajaBookmarkList *bookmarks;
+    CajaBookmark *bookmark = NULL;
 
     g_assert (CAJA_IS_WINDOW (window));
     g_assert (window->details->bookmarks_merge_id == 0);

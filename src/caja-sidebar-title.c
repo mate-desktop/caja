@@ -365,7 +365,6 @@ static void
 update_icon (CajaSidebarTitle *sidebar_title)
 {
     GdkPixbuf *pixbuf;
-    CajaIconInfo *info;
     char *icon_name;
     gboolean leave_pixbuf_unchanged;
     gint icon_scale;
@@ -377,8 +376,11 @@ update_icon (CajaSidebarTitle *sidebar_title)
     icon_scale = gtk_widget_get_scale_factor (GTK_WIDGET (sidebar_title));
 
     pixbuf = NULL;
+
     if (icon_name != NULL && icon_name[0] != '\0')
     {
+        CajaIconInfo *info;
+
         info = caja_icon_info_lookup_from_name (icon_name, CAJA_ICON_SIZE_LARGE, icon_scale);
         pixbuf = caja_icon_info_get_pixbuf_at_size (info,  CAJA_ICON_SIZE_LARGE);
         g_object_unref (info);
@@ -561,10 +563,7 @@ update_more_info (CajaSidebarTitle *sidebar_title)
 {
     CajaFile *file;
     GString *info_string;
-    char *type_string, *component_info;
-    char *date_modified_str;
-    int sidebar_width;
-    PangoLayout *layout;
+    char *component_info;
     GtkAllocation allocation;
 
     file = sidebar_title->details->file;
@@ -578,9 +577,13 @@ update_more_info (CajaSidebarTitle *sidebar_title)
     }
     else
     {
+        char *type_string;
+        int sidebar_width;
+
         info_string = g_string_new (NULL);
 
         type_string = NULL;
+
         if (file != NULL && caja_file_should_show_type (file))
         {
             type_string = caja_file_get_string_attribute (file, "type");
@@ -602,6 +605,9 @@ update_more_info (CajaSidebarTitle *sidebar_title)
         sidebar_width = allocation.width - 2 * SIDEBAR_INFO_MARGIN;
         if (sidebar_width > MINIMUM_INFO_WIDTH)
         {
+            char *date_modified_str;
+            PangoLayout *layout;
+
             layout = pango_layout_copy (gtk_label_get_layout (GTK_LABEL (sidebar_title->details->more_info_label)));
             pango_layout_set_width (layout, -1);
             date_modified_str = caja_file_fit_modified_date_as_string
@@ -631,7 +637,7 @@ static void
 update_emblems (CajaSidebarTitle *sidebar_title)
 {
     GList *pixbufs, *p;
-    GdkPixbuf *pixbuf;
+    GdkPixbuf *pixbuf = NULL;
 
     /* exit if we don't have the file yet */
     if (sidebar_title->details->file == NULL)

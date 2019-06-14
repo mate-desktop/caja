@@ -489,6 +489,7 @@ update_places (CajaPlacesSidebar *sidebar)
     model = NULL;
     last_uri = NULL;
     select_path = NULL;
+    bookmark = NULL;
 
     selection = gtk_tree_view_get_selection (sidebar->tree_view);
     if (gtk_tree_selection_get_selected (selection, &model, &last_iter))
@@ -1068,13 +1069,14 @@ loading_uri_callback (CajaWindowInfo *window,
                       char *location,
                       CajaPlacesSidebar *sidebar)
 {
-    GtkTreeSelection *selection;
     GtkTreeIter       iter;
     gboolean          valid;
     char             *uri;
 
     if (strcmp (sidebar->uri, location) != 0)
     {
+        GtkTreeSelection *selection;
+
         g_free (sidebar->uri);
         sidebar->uri = g_strdup (location);
 
@@ -1221,14 +1223,15 @@ static gboolean
 can_accept_items_as_bookmarks (const GList *items)
 {
     int max;
-    char *uri;
-    CajaFile *file;
+    CajaFile *file = NULL;
 
     /* Iterate through selection checking if item will get accepted as a bookmark.
      * If more than 100 items selected, return an over-optimistic result.
      */
     for (max = 100; items != NULL && max >= 0; items = items->next, max--)
     {
+        char *uri;
+
         uri = ((CajaDragSelectionItem *)items->data)->uri;
         file = caja_file_get_by_uri (uri);
         if (!can_accept_file_as_bookmark (file))
@@ -1351,12 +1354,12 @@ bookmarks_drop_uris (CajaPlacesSidebar *sidebar,
                      int                    position)
 {
     CajaBookmark *bookmark;
-    CajaFile *file;
-    char *uri, *name;
+    char *name;
     char **uris;
     int i;
     GFile *location;
     GIcon *icon;
+    CajaFile *file = NULL;
 
     uris = gtk_selection_data_get_uris (selection_data);
     if (!uris)
@@ -1364,6 +1367,8 @@ bookmarks_drop_uris (CajaPlacesSidebar *sidebar,
 
     for (i = 0; uris[i]; i++)
     {
+        char *uri;
+
         uri = uris[i];
         file = caja_file_get_by_uri (uri);
 
@@ -1399,9 +1404,9 @@ bookmarks_drop_uris (CajaPlacesSidebar *sidebar,
 static GList *
 uri_list_from_selection (GList *selection)
 {
-    CajaDragSelectionItem *item;
     GList *ret;
     GList *l;
+    CajaDragSelectionItem *item = NULL;
 
     ret = NULL;
     for (l = selection; l != NULL; l = l->next)
@@ -1416,17 +1421,18 @@ uri_list_from_selection (GList *selection)
 static GList*
 build_selection_list (const char *data)
 {
-    CajaDragSelectionItem *item;
     GList *result;
     char **uris;
-    char *uri;
     int i;
+    CajaDragSelectionItem *item = NULL;
 
     uris = g_uri_list_extract_uris (data);
 
     result = NULL;
     for (i = 0; uris[i]; i++)
     {
+        char *uri;
+
         uri = uris[i];
         item = caja_drag_selection_item_new ();
         item->uri = g_strdup (uri);
@@ -1854,7 +1860,6 @@ volume_mounted_cb (GVolume *volume,
 {
     GMount *mount;
     CajaPlacesSidebar *sidebar;
-    GFile *location;
 
     sidebar = CAJA_PLACES_SIDEBAR (user_data);
 
@@ -1863,6 +1868,8 @@ volume_mounted_cb (GVolume *volume,
     mount = g_volume_get_mount (volume);
     if (mount != NULL)
     {
+        GFile *location;
+
         location = g_mount_get_default_location (mount);
 
         if (sidebar->go_to_after_mount_slot != NULL)
@@ -1898,14 +1905,15 @@ drive_start_from_bookmark_cb (GObject      *source_object,
                               gpointer      user_data)
 {
     GError *error;
-    char *primary;
-    char *name;
 
     error = NULL;
     if (!g_drive_start_finish (G_DRIVE (source_object), res, &error))
     {
         if (error->code != G_IO_ERROR_FAILED_HANDLED)
         {
+            char *primary;
+            char *name;
+
             name = g_drive_get_name (G_DRIVE (source_object));
             primary = g_strdup_printf (_("Unable to start %s"), name);
             g_free (name);
@@ -1926,7 +1934,6 @@ open_selected_bookmark (CajaPlacesSidebar   *sidebar,
 {
     CajaWindowSlotInfo *slot;
     GtkTreeIter iter;
-    GFile *location;
     char *uri;
 
     if (!path)
@@ -1943,6 +1950,8 @@ open_selected_bookmark (CajaPlacesSidebar   *sidebar,
 
     if (uri != NULL)
     {
+        GFile *location;
+
         caja_debug_log (FALSE, CAJA_DEBUG_LOG_DOMAIN_USER,
                         "activate from places sidebar window=%p: %s",
                         sidebar->window, uri);
@@ -1972,7 +1981,6 @@ open_selected_bookmark (CajaPlacesSidebar   *sidebar,
     {
         GDrive *drive;
         GVolume *volume;
-        CajaWindowSlot *slot;
 
         gtk_tree_model_get (model, &iter,
                             PLACES_SIDEBAR_COLUMN_DRIVE, &drive,
@@ -2053,13 +2061,14 @@ static void
 rename_selected_bookmark (CajaPlacesSidebar *sidebar)
 {
     GtkTreeIter iter;
-    GtkTreePath *path;
-    GtkTreeViewColumn *column;
-    GtkCellRenderer *cell;
-    GList *renderers;
 
     if (get_selected_iter (sidebar, &iter))
     {
+        GtkTreePath *path;
+        GtkTreeViewColumn *column;
+        GtkCellRenderer *cell;
+        GList *renderers;
+
         path = gtk_tree_model_get_path (GTK_TREE_MODEL (sidebar->filter_model), &iter);
         column = gtk_tree_view_get_column (GTK_TREE_VIEW (sidebar->tree_view), 0);
         renderers = gtk_cell_layout_get_cells (GTK_CELL_LAYOUT (column));
@@ -2197,8 +2206,6 @@ drive_eject_cb (GObject *source_object,
 {
     CajaWindow *window;
     GError *error;
-    char *primary;
-    char *name;
 
     window = user_data;
     caja_window_info_set_initiated_unmount (window, FALSE);
@@ -2209,6 +2216,9 @@ drive_eject_cb (GObject *source_object,
     {
         if (error->code != G_IO_ERROR_FAILED_HANDLED)
         {
+            char *primary;
+            char *name;
+
             name = g_drive_get_name (G_DRIVE (source_object));
             primary = g_strdup_printf (_("Unable to eject %s"), name);
             g_free (name);
@@ -2228,8 +2238,6 @@ volume_eject_cb (GObject *source_object,
 {
     CajaWindow *window;
     GError *error;
-    char *primary;
-    char *name;
 
     window = user_data;
     caja_window_info_set_initiated_unmount (window, FALSE);
@@ -2240,6 +2248,9 @@ volume_eject_cb (GObject *source_object,
     {
         if (error->code != G_IO_ERROR_FAILED_HANDLED)
         {
+            char *primary;
+            char *name;
+
             name = g_volume_get_name (G_VOLUME (source_object));
             primary = g_strdup_printf (_("Unable to eject %s"), name);
             g_free (name);
@@ -2263,8 +2274,6 @@ mount_eject_cb (GObject *source_object,
 {
     CajaWindow *window;
     GError *error;
-    char *primary;
-    char *name;
 
     window = user_data;
     caja_window_info_set_initiated_unmount (window, FALSE);
@@ -2275,6 +2284,9 @@ mount_eject_cb (GObject *source_object,
     {
         if (error->code != G_IO_ERROR_FAILED_HANDLED)
         {
+            char *primary;
+            char *name;
+
             name = g_mount_get_name (G_MOUNT (source_object));
             primary = g_strdup_printf (_("Unable to eject %s"), name);
             g_free (name);
@@ -2431,14 +2443,15 @@ drive_poll_for_media_cb (GObject *source_object,
                          gpointer user_data)
 {
     GError *error;
-    char *primary;
-    char *name;
 
     error = NULL;
     if (!g_drive_poll_for_media_finish (G_DRIVE (source_object), res, &error))
     {
         if (error->code != G_IO_ERROR_FAILED_HANDLED)
         {
+            char *primary;
+            char *name;
+
             name = g_drive_get_name (G_DRIVE (source_object));
             primary = g_strdup_printf (_("Unable to poll %s for media changes"), name);
             g_free (name);
@@ -2487,14 +2500,15 @@ drive_start_cb (GObject      *source_object,
                 gpointer      user_data)
 {
     GError *error;
-    char *primary;
-    char *name;
 
     error = NULL;
     if (!g_drive_start_finish (G_DRIVE (source_object), res, &error))
     {
         if (error->code != G_IO_ERROR_FAILED_HANDLED)
         {
+            char *primary;
+            char *name;
+
             name = g_drive_get_name (G_DRIVE (source_object));
             primary = g_strdup_printf (_("Unable to start %s"), name);
             g_free (name);
@@ -2543,8 +2557,6 @@ drive_stop_cb (GObject *source_object,
 {
     CajaWindow *window;
     GError *error;
-    char *primary;
-    char *name;
 
     window = user_data;
     caja_window_info_set_initiated_unmount (window, FALSE);
@@ -2555,6 +2567,9 @@ drive_stop_cb (GObject *source_object,
     {
         if (error->code != G_IO_ERROR_FAILED_HANDLED)
         {
+            char *primary;
+            char *name;
+
             name = g_drive_get_name (G_DRIVE (source_object));
             primary = g_strdup_printf (_("Unable to stop %s"), name);
             g_free (name);
@@ -2610,7 +2625,6 @@ bookmarks_key_press_event_cb (GtkWidget             *widget,
                               CajaPlacesSidebar *sidebar)
 {
     guint modifiers;
-    GtkTreeModel *model;
     GtkTreePath *path;
     CajaWindowOpenFlags flags = 0;
 
@@ -2621,6 +2635,8 @@ bookmarks_key_press_event_cb (GtkWidget             *widget,
         event->keyval == GDK_KEY_ISO_Enter ||
         event->keyval == GDK_KEY_space)
     {
+        GtkTreeModel *model;
+
         if ((event->state & modifiers) == GDK_SHIFT_MASK)
             flags = CAJA_WINDOW_OPEN_FLAG_NEW_TAB;
         else if ((event->state & modifiers) == GDK_CONTROL_MASK)

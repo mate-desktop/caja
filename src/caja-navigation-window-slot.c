@@ -132,7 +132,6 @@ caja_navigation_window_slot_update_query_editor (CajaWindowSlot *slot)
 {
     CajaDirectory *directory;
     CajaSearchDirectory *search_directory;
-    CajaQuery *query;
     GtkWidget *query_editor;
 
     g_assert (slot->pane->window != NULL);
@@ -163,6 +162,8 @@ caja_navigation_window_slot_update_query_editor (CajaWindowSlot *slot)
 
     if (query_editor != NULL)
     {
+        CajaQuery *query;
+
         g_signal_connect_object (query_editor, "changed",
                                  G_CALLBACK (query_editor_changed_callback), slot, 0);
 

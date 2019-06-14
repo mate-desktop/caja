@@ -79,10 +79,10 @@ navigation_bar_focus_in_callback (GtkWidget *widget, GdkEventFocus *event, gpoin
 static int
 bookmark_list_get_uri_index (GList *list, GFile *location)
 {
-    CajaBookmark *bookmark;
     GList *l;
-    GFile *tmp;
     int i;
+    CajaBookmark *bookmark = NULL;
+    GFile *tmp = NULL;
 
     g_return_val_if_fail (location != NULL, -1);
 
@@ -114,7 +114,7 @@ static void
 search_bar_activate_callback (CajaSearchBar *bar,
                               CajaNavigationWindowPane *pane)
 {
-    char *uri, *current_uri;
+    char *uri;
     CajaDirectory *directory;
     CajaSearchDirectory *search_directory;
     CajaQuery *query;
@@ -136,6 +136,8 @@ search_bar_activate_callback (CajaSearchBar *bar,
         CajaWindowSlot *slot = CAJA_WINDOW_PANE (pane)->active_slot;
         if (!caja_search_directory_is_indexed (search_directory))
         {
+            char *current_uri;
+
             current_uri = caja_window_slot_get_location_uri (slot);
             caja_query_set_location (query, current_uri);
             g_free (current_uri);
@@ -271,11 +273,10 @@ path_bar_path_event_callback (CajaPathBar *path_bar,
 {
     CajaWindowSlot *slot;
     CajaWindowOpenFlags flags;
-    int mask;
-    CajaView *view;
-    char *uri;
 
     if (event->type == GDK_BUTTON_RELEASE) {
+        int mask;
+
         mask = event->state & gtk_accelerator_get_default_mod_mask ();
         flags = 0;
 
@@ -300,9 +301,14 @@ path_bar_path_event_callback (CajaPathBar *path_bar,
     }
 
     if (event->button == 3) {
+        CajaView *view;
+
         slot = caja_window_get_active_slot (pane->window);
         view = slot->content_view;
+
         if (view != NULL) {
+            char *uri;
+
             uri = g_file_get_uri (location);
             caja_view_pop_up_location_context_menu (view, event, uri);
             g_free (uri);
@@ -528,7 +534,6 @@ caja_navigation_window_pane_add_slot_in_tab (CajaNavigationWindowPane *pane, Caj
 static void
 real_sync_location_widgets (CajaWindowPane *pane)
 {
-    CajaNavigationWindowSlot *navigation_slot;
     CajaNavigationWindowPane *navigation_pane;
     CajaWindowSlot *slot;
 
@@ -550,6 +555,8 @@ real_sync_location_widgets (CajaWindowPane *pane)
     /* Update window global UI if this is the active pane */
     if (pane == pane->window->details->active_pane)
     {
+        CajaNavigationWindowSlot *navigation_slot;
+
         caja_window_update_up_button (pane->window);
 
         /* Check if the back and forward buttons need enabling or disabling. */
@@ -565,7 +572,6 @@ gboolean
 caja_navigation_window_pane_hide_temporary_bars (CajaNavigationWindowPane *pane)
 {
     CajaWindowSlot *slot;
-    CajaDirectory *directory;
     gboolean success;
 
     g_assert (CAJA_IS_NAVIGATION_WINDOW_PANE (pane));
@@ -584,6 +590,8 @@ caja_navigation_window_pane_hide_temporary_bars (CajaNavigationWindowPane *pane)
     }
     if (pane->temporary_navigation_bar)
     {
+        CajaDirectory *directory;
+
         directory = caja_directory_get (slot->location);
 
         if (CAJA_IS_SEARCH_DIRECTORY (directory))

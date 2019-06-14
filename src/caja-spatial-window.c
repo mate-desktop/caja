@@ -285,7 +285,6 @@ static void
 caja_spatial_window_save_show_hidden_files_mode (CajaSpatialWindow *window,
 						 CajaFile *viewed_file)
 {
-    char *show_hidden_file_setting;
     CajaWindowShowHiddenFilesMode mode;
 
     if (viewed_file == NULL) {
@@ -295,6 +294,8 @@ caja_spatial_window_save_show_hidden_files_mode (CajaSpatialWindow *window,
     mode = CAJA_WINDOW (window)->details->show_hidden_files_mode;
 
     if (mode != CAJA_WINDOW_SHOW_HIDDEN_FILES_DEFAULT) {
+        char *show_hidden_file_setting;
+
         if (mode == CAJA_WINDOW_SHOW_HIDDEN_FILES_ENABLE) {
             show_hidden_file_setting = "1";
         } else {
@@ -650,7 +651,7 @@ location_button_clicked_callback (GtkWidget         *widget,
 {
     CajaWindowSlot *slot;
     GtkWidget *popup, *menu_item, *first_item = NULL;
-    GdkPixbuf *pixbuf;
+    GdkPixbuf *pixbuf = NULL;
     GFile *location;
     GFile *child_location;
     GMainLoop *loop;

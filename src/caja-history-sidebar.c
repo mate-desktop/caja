@@ -92,11 +92,10 @@ update_history (CajaHistorySidebar *sidebar)
 {
     GtkListStore         *store;
     GtkTreeSelection     *selection;
-    CajaBookmark         *bookmark;
-    cairo_surface_t      *surface;
     GtkTreeIter           iter;
-    char *name;
     GList *l, *history;
+    CajaBookmark         *bookmark = NULL;
+    cairo_surface_t      *surface = NULL;
 
     store = GTK_LIST_STORE (gtk_tree_view_get_model (sidebar->tree_view));
 
@@ -105,6 +104,8 @@ update_history (CajaHistorySidebar *sidebar)
     history = caja_window_info_get_history (sidebar->window);
     for (l = history; l != NULL; l = l->next)
     {
+        char *name;
+
         bookmark = caja_bookmark_copy (l->data);
 
         surface = caja_bookmark_get_surface (bookmark, GTK_ICON_SIZE_MENU);

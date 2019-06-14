@@ -136,12 +136,13 @@ static void
 automount_all_volumes (CajaApplication *application)
 {
     GList *volumes, *l;
-    GMount *mount;
-    GVolume *volume;
 
     if (g_settings_get_boolean (caja_media_preferences, CAJA_PREFERENCES_MEDIA_AUTOMOUNT))
     {
         /* automount all mountable volumes at start-up */
+
+        GVolume *volume = NULL;
+        GMount *mount = NULL;
 
         volumes = g_volume_monitor_get_volumes (application->priv->volume_monitor);
 
@@ -690,7 +691,6 @@ static void
 caja_application_create_desktop_windows (CajaApplication *application)
 {
     GdkDisplay *display;
-    CajaDesktopWindow *window;
     GtkWidget *selection_widget;
 
     g_return_if_fail (caja_application_desktop_windows == NULL);
@@ -698,8 +698,11 @@ caja_application_create_desktop_windows (CajaApplication *application)
     display = gdk_display_get_default ();
 
     selection_widget = get_desktop_manager_selection (display);
+
     if (selection_widget != NULL)
     {
+        CajaDesktopWindow *window;
+
         window = caja_desktop_window_new (application, gdk_display_get_default_screen (display));
 
         g_signal_connect (selection_widget, "selection_clear_event",
@@ -777,7 +780,7 @@ caja_application_get_existing_spatial_window (GFile *location)
 {
     GList *l;
     CajaWindowSlot *slot;
-    GFile *window_location;
+    GFile *window_location = NULL;
 
     for (l = caja_application_get_spatial_window_list ();
             l != NULL; l = l->next) {
@@ -1147,13 +1150,15 @@ drive_eject_cb (GObject *source_object,
                 gpointer user_data)
 {
     GError *error;
-    char *primary;
-    char *name;
     error = NULL;
+
     if (!g_drive_eject_with_operation_finish (G_DRIVE (source_object), res, &error))
     {
         if (error->code != G_IO_ERROR_FAILED_HANDLED)
         {
+            char *primary;
+            char *name;
+
             name = g_drive_get_name (G_DRIVE (source_object));
             primary = g_strdup_printf (_("Unable to eject %s"), name);
             g_free (name);
@@ -1429,9 +1434,10 @@ caja_application_get_session_data (CajaApplication *self)
     for (l = window_list; l != NULL; l = l->next) {
         xmlNodePtr win_node, slot_node;
         CajaWindow *window;
-        CajaWindowSlot *slot, *active_slot;
         GList *slots, *m;
         char *tmp;
+        CajaWindowSlot *active_slot;
+        CajaWindowSlot *slot = NULL;
 
         window = l->data;
 
@@ -1621,10 +1627,9 @@ caja_application_load_session (CajaApplication *application)
 
             {
                 CajaWindow *window;
-                xmlChar *type, *location_uri, *slot_uri;
+                xmlChar *type, *location_uri;
                 xmlNodePtr slot_node;
                 GFile *location;
-                int i;
 
                 type = xmlGetProp (node, "type");
                 if (type == NULL)
@@ -1646,6 +1651,8 @@ caja_application_load_session (CajaApplication *application)
                 if (g_strcmp0 (type, "navigation") == 0)
                 {
                     xmlChar *geometry;
+                    int i;
+
                     window = caja_application_create_navigation_window (application, gdk_screen_get_default ());
                     geometry = xmlGetProp (node, "geometry");
                     if (geometry != NULL)
@@ -1690,6 +1697,8 @@ caja_application_load_session (CajaApplication *application)
                     {
                         if (g_strcmp0 (slot_node->name, "slot") == 0)
                         {
+                            xmlChar *slot_uri;
+
                             slot_uri = xmlGetProp (slot_node, "location");
                             if (slot_uri != NULL)
                             {
@@ -1965,8 +1974,8 @@ caja_application_local_command_line (GApplication *application,
 
     /* Convert args to GFiles */
     if (remaining != NULL) {
-        GFile *file;
         GPtrArray *file_array;
+        GFile *file = NULL;
 
         file_array = g_ptr_array_new ();
 
@@ -2135,7 +2144,6 @@ static void
 caja_application_startup (GApplication *app)
 {
     CajaApplication *self = CAJA_APPLICATION (app);
-    GApplication *instance;
     gboolean exit_with_last_window;
     exit_with_last_window = TRUE;
 
@@ -2224,6 +2232,8 @@ caja_application_startup (GApplication *app)
 
     if (running_in_mate () && !running_as_root())
     {
+        GApplication *instance;
+
         exit_with_last_window = g_settings_get_boolean (caja_preferences,   
                                 CAJA_PREFERENCES_EXIT_WITH_LAST_WINDOW);
         /*Keep this inside the running as mate/not as root block */

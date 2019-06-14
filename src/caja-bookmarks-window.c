@@ -684,7 +684,7 @@ on_row_changed (GtkListStore *store,
                 GtkTreeIter *iter,
                 gpointer user_data)
 {
-    CajaBookmark *bookmark = NULL, *bookmark_in_list;
+    CajaBookmark *bookmark = NULL;
     gint *indices, row;
     gboolean insert_bookmark = TRUE;
 
@@ -700,8 +700,11 @@ on_row_changed (GtkListStore *store,
        have been dragged here, so we insert it into the list. */
     if (row < (gint) caja_bookmark_list_length (bookmarks))
     {
+        CajaBookmark *bookmark_in_list;
+
         bookmark_in_list = caja_bookmark_list_item_at (bookmarks,
                            row);
+
         if (bookmark_in_list == bookmark)
             insert_bookmark = FALSE;
     }
@@ -796,7 +799,6 @@ on_selection_changed (GtkTreeSelection *treeselection,
 {
     CajaBookmark *selected;
     char *name = NULL, *entry_text = NULL;
-    GFile *location;
 
     g_assert (GTK_IS_ENTRY (name_field));
     g_assert (GTK_IS_ENTRY (uri_field));
@@ -805,6 +807,8 @@ on_selection_changed (GtkTreeSelection *treeselection,
 
     if (selected)
     {
+        GFile *location;
+
         name = caja_bookmark_get_name (selected);
         location = caja_bookmark_get_location (selected);
         entry_text = g_file_get_parse_name (location);
@@ -978,9 +982,9 @@ repopulate (void)
 {
     CajaBookmark *selected;
     GtkListStore *store;
-    GtkTreePath *path;
     GtkTreeRowReference *reference;
     guint index;
+    GtkTreePath *path = NULL;
 
     g_assert (GTK_IS_TREE_VIEW (bookmark_list_widget));
     g_assert (CAJA_IS_BOOKMARK_LIST (bookmarks));

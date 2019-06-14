@@ -157,15 +157,9 @@ drag_data_received_callback (GtkWidget *widget,
                              gpointer callback_data)
 {
     char **names;
-    CajaApplication *application;
     int name_count;
-    CajaWindow *new_window;
     CajaNavigationWindow *window;
-    GdkScreen      *screen;
     gboolean new_windows_for_extras;
-    char *prompt;
-    char *detail;
-    GFile *location;
     CajaLocationBar *self = CAJA_LOCATION_BAR (widget);
 
     g_assert (data != NULL);
@@ -190,6 +184,9 @@ drag_data_received_callback (GtkWidget *widget,
     name_count = g_strv_length (names);
     if (name_count > 1)
     {
+        char *prompt;
+        char *detail;
+
         prompt = g_strdup_printf (ngettext("Do you want to view %d location?",
                                            "Do you want to view %d locations?",
                                            name_count),
@@ -225,7 +222,11 @@ drag_data_received_callback (GtkWidget *widget,
 
     if (new_windows_for_extras)
     {
+        CajaApplication *application;
+        GdkScreen *screen;
         int i;
+        CajaWindow *new_window = NULL;
+        GFile *location = NULL;
 
         application = CAJA_WINDOW (window)->application;
         screen = gtk_window_get_screen (GTK_WINDOW (window));
@@ -558,9 +559,6 @@ void
 caja_location_bar_set_location (CajaLocationBar *bar,
                                 const char *location)
 {
-    char *formatted_location;
-    GFile *file;
-
     g_assert (location != NULL);
 
     /* Note: This is called in reaction to external changes, and
@@ -573,6 +571,9 @@ caja_location_bar_set_location (CajaLocationBar *bar,
     }
     else
     {
+        char *formatted_location;
+        GFile *file;
+
         file = g_file_new_for_uri (location);
         formatted_location = g_file_get_parse_name (file);
         g_object_unref (file);

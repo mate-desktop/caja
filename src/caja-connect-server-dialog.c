@@ -944,7 +944,6 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
     {
         GtkTreeIter iter;
         const gchar * const *supported;
-        int j;
 
 		/* skip methods that don't have corresponding gvfs uri schemes */
         supported = g_vfs_get_supported_uri_schemes (g_vfs_get_default ());
@@ -952,6 +951,7 @@ caja_connect_server_dialog_init (CajaConnectServerDialog *dialog)
         if (methods[i].scheme != NULL)
         {
             gboolean found;
+            int j;
 
             found = FALSE;
             for (j = 0; supported[j] != NULL; j++)

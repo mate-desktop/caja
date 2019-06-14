@@ -222,7 +222,6 @@ caja_notebook_sync_tab_label (CajaNotebook *notebook,
                               CajaWindowSlot *slot)
 {
     GtkWidget *hbox, *label;
-    char *location_name;
 
     g_return_if_fail (CAJA_IS_NOTEBOOK (notebook));
     g_return_if_fail (CAJA_IS_WINDOW_SLOT (slot));
@@ -238,6 +237,8 @@ caja_notebook_sync_tab_label (CajaNotebook *notebook,
 
     if (slot->location != NULL)
     {
+        char *location_name;
+
         /* Set the tooltip on the label's parent (the tab label hbox),
          * so it covers all of the tab label.
          */

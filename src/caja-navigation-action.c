@@ -108,10 +108,10 @@ fill_menu (CajaNavigationWindow *window,
            gboolean back)
 {
     CajaNavigationWindowSlot *slot;
-    GtkWidget *menu_item;
     int index;
     GList *list;
     gboolean list_void;
+    GtkWidget *menu_item = NULL;
 
     g_assert (CAJA_IS_NAVIGATION_WINDOW (window));
 

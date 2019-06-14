@@ -60,9 +60,7 @@ static CajaBookmark *
 new_bookmark_from_uri (const char *uri, const char *label)
 {
     CajaBookmark *new_bookmark;
-    CajaFile *file;
     char *name;
-    GIcon *icon;
     gboolean has_label;
     GFile *location;
     gboolean native;
@@ -88,10 +86,14 @@ new_bookmark_from_uri (const char *uri, const char *label)
 
     if (uri)
     {
+        CajaFile *file;
+        GIcon *icon;
+
         native = g_file_is_native (location);
         file = caja_file_get (location);
 
         icon = NULL;
+
         if (caja_file_check_if_ready (file,
                                       CAJA_FILE_ATTRIBUTES_FOR_ICON))
         {
@@ -417,7 +419,6 @@ caja_bookmark_list_delete_items_with_uri (CajaBookmarkList *bookmarks,
 {
     GList *node, *next;
     gboolean list_changed;
-    char *bookmark_uri;
 
     g_return_if_fail (CAJA_IS_BOOKMARK_LIST (bookmarks));
     g_return_if_fail (uri != NULL);
@@ -425,6 +426,8 @@ caja_bookmark_list_delete_items_with_uri (CajaBookmarkList *bookmarks,
     list_changed = FALSE;
     for (node = bookmarks->list; node != NULL;  node = next)
     {
+        char *bookmark_uri;
+
         next = node->next;
 
         bookmark_uri = caja_bookmark_get_uri (CAJA_BOOKMARK (node->data));
