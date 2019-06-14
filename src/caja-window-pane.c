@@ -43,7 +43,7 @@ static inline CajaWindowSlot *
 get_first_inactive_slot (CajaWindowPane *pane)
 {
     GList *l;
-    CajaWindowSlot *slot;
+    CajaWindowSlot *slot = NULL;
 
     for (l = pane->slots; l != NULL; l = l->next)
     {
@@ -133,8 +133,6 @@ caja_window_pane_zoom_to_default (CajaWindowPane *pane)
 void
 caja_window_pane_slot_close (CajaWindowPane *pane, CajaWindowSlot *slot)
 {
-    CajaWindowSlot *next_slot;
-
     if (pane->window)
     {
         CajaWindow *window;
@@ -143,6 +141,8 @@ caja_window_pane_slot_close (CajaWindowPane *pane, CajaWindowSlot *slot)
         {
             g_assert (pane->active_slots != NULL);
             g_assert (pane->active_slots->data == slot);
+
+            CajaWindowSlot *next_slot;
 
             next_slot = NULL;
             if (pane->active_slots->next != NULL)
@@ -290,8 +290,8 @@ CajaWindowSlot *
 caja_window_pane_get_slot_for_content_box (CajaWindowPane *pane,
         GtkWidget *content_box)
 {
-    CajaWindowSlot *slot;
     GList *l;
+    CajaWindowSlot *slot = NULL;
 
     for (l = pane->slots; l != NULL; l = l->next)
     {
