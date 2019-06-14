@@ -276,16 +276,17 @@ void
 caja_window_new_tab (CajaWindow *window)
 {
     CajaWindowSlot *current_slot;
-    CajaWindowSlot *new_slot;
     CajaWindowOpenFlags flags;
     GFile *location = NULL;
-    int new_slot_position;
-    char *scheme;
 
     current_slot = window->details->active_pane->active_slot;
     location = caja_window_slot_get_location (current_slot);
 
     if (location != NULL) {
+        CajaWindowSlot *new_slot;
+        int new_slot_position;
+        char *scheme;
+
     	flags = 0;
 
     	new_slot_position = g_settings_get_enum (caja_preferences, CAJA_PREFERENCES_NEW_TAB_POSITION);
@@ -1055,12 +1056,13 @@ action_view_as_callback (GtkAction *action,
                          ActivateViewData *data)
 {
     CajaWindow *window;
-    CajaWindowSlot *slot;
 
     window = data->window;
 
     if (gtk_toggle_action_get_active (GTK_TOGGLE_ACTION (action)))
     {
+        CajaWindowSlot *slot;
+
         slot = window->details->active_pane->active_slot;
         caja_window_slot_set_content_view (slot,
                                            data->id);
@@ -1079,10 +1081,6 @@ add_view_as_menu_item (CajaWindow *window,
     char action_name[32];
     ActivateViewData *data;
 
-    char accel[32];
-    char accel_path[48];
-    unsigned int accel_keyval;
-
     info = caja_view_factory_lookup (identifier);
 
     g_snprintf (action_name, sizeof (action_name), "view_as_%d", index);
@@ -1094,6 +1092,10 @@ add_view_as_menu_item (CajaWindow *window,
 
     if (index >= 1 && index <= 9)
     {
+        char accel[32];
+        char accel_path[48];
+        unsigned int accel_keyval;
+
         g_snprintf (accel, sizeof (accel), "%d", index);
         g_snprintf (accel_path, sizeof (accel_path), "<Caja-Window>/%s", action_name);
 
@@ -1425,10 +1427,10 @@ static void
 real_sync_title (CajaWindow *window,
                  CajaWindowSlot *slot)
 {
-    char *copy;
-
     if (slot == window->details->active_pane->active_slot)
     {
+        char *copy;
+
         copy = g_strdup (slot->title);
         g_signal_emit_by_name (window, "title_changed",
                                slot->title);
@@ -1618,7 +1620,6 @@ void
 caja_window_slot_set_viewed_file (CajaWindowSlot *slot,
                                   CajaFile *file)
 {
-    CajaWindow *window;
     CajaFileAttributes attributes;
 
     if (slot->viewed_file == file)
@@ -1632,6 +1633,8 @@ caja_window_slot_set_viewed_file (CajaWindowSlot *slot,
 
     if (slot->viewed_file != NULL)
     {
+        CajaWindow *window;
+
         window = slot->pane->window;
 
         if (CAJA_IS_SPATIAL_WINDOW (window))
@@ -1702,7 +1705,6 @@ caja_add_bookmark_to_history_list (CajaBookmark *bookmark)
      * this is not a CajaNavigationWindow function. Perhaps it belongs
      * in its own file.
      */
-    int i;
     GList *l, *next;
     static gboolean free_history_list_is_set_up;
 
@@ -1721,6 +1723,8 @@ caja_add_bookmark_to_history_list (CajaBookmark *bookmark)
     if (!history_list ||
             caja_bookmark_compare_uris (history_list->data, bookmark))
     {
+        int i;
+
         g_object_ref (bookmark);
         remove_from_history_list (bookmark);
         history_list = g_list_prepend (history_list, bookmark);

@@ -709,11 +709,12 @@ action_show_hide_search_callback (GtkAction *action,
         else
         {
             CajaQuery *query;
-            char *uri;
 
             query = caja_query_editor_get_query (slot->query_editor);
             if (query != NULL)
             {
+                char *uri;
+
                 uri = caja_query_get_location (query);
                 if (uri != NULL)
                 {

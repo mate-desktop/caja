@@ -215,14 +215,14 @@ static void
 caja_emblem_sidebar_delete_cb (GtkWidget *menu_item,
                                CajaEmblemSidebar *emblem_sidebar)
 {
-    char *error;
-
     if (caja_emblem_remove_emblem (emblem_sidebar->details->popup_emblem_keyword))
     {
         send_emblems_changed ();
     }
     else
     {
+        char *error;
+
         error = g_strdup_printf (_("Could not remove emblem with name '%s'."), emblem_sidebar->details->popup_emblem_display_name);
         eel_show_error_dialog (error, _("This is probably because the emblem is a permanent one, and not one that you added yourself."),
                                NULL);
@@ -235,7 +235,7 @@ rename_dialog_response_cb (GtkWidget *dialog, int response,
                            CajaEmblemSidebar *emblem_sidebar)
 {
     GtkWidget *entry;
-    char *keyword, *name, *error;
+    char *keyword, *name;
 
     keyword = g_object_get_data (G_OBJECT (dialog), "emblem-keyword");
 
@@ -263,6 +263,8 @@ rename_dialog_response_cb (GtkWidget *dialog, int response,
     }
     else
     {
+        char *error;
+
         error = g_strdup_printf (_("Could not rename emblem with name '%s'."), name);
         eel_show_error_dialog (error, _("This is probably because the emblem is a permanent one, and not one that you added yourself."),
                                NULL);
@@ -532,11 +534,13 @@ static GtkWidget *
 create_add_emblems_dialog (CajaEmblemSidebar *emblem_sidebar,
                            GSList *emblems)
 {
-    GtkWidget *dialog, *label, *table, *image;
-    GtkWidget *first_entry, *entry, *scroller, *hbox;
-    Emblem *emblem;
+    GtkWidget *dialog, *label, *table;
+    GtkWidget *first_entry, *entry, *scroller;
     GSList *list;
     int num_emblems;
+    GtkWidget *image = NULL;
+    GtkWidget *hbox = NULL;
+    Emblem *emblem = NULL;
 
     first_entry = NULL;
 
@@ -750,7 +754,7 @@ caja_emblem_sidebar_drag_received_cb (GtkWidget *widget,
     GSList *emblems;
     Emblem *emblem;
     GdkPixbuf *pixbuf;
-    char *uri, *error, *uri_utf8;
+    char *uri, *error;
     char **uris;
     GFile *f;
     int i;
@@ -854,6 +858,8 @@ caja_emblem_sidebar_drag_received_cb (GtkWidget *widget,
         }
         else
         {
+            char *uri_utf8;
+
             uri_utf8 = g_file_get_parse_name (f);
 
             if (uri_utf8)
@@ -975,7 +981,6 @@ caja_emblem_sidebar_populate (CajaEmblemSidebar *emblem_sidebar)
 {
     GList *icons, *l, *widgets;
     GtkWidget *emblem_widget;
-    char *name;
     char *path;
     GdkPixbuf *erase_pixbuf;
 
@@ -1006,6 +1011,8 @@ caja_emblem_sidebar_populate (CajaEmblemSidebar *emblem_sidebar)
     widgets = NULL;
     while (l != NULL)
     {
+        char *name;
+
         name = (char *)l->data;
         l = l->next;
 

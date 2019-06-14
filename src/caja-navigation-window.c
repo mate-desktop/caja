@@ -477,7 +477,7 @@ static void
 caja_navigation_window_tear_down_sidebar (CajaNavigationWindow *window)
 {
     GList *node, *next;
-    CajaSidebar *sidebar_panel;
+    CajaSidebar *sidebar_panel = NULL;
 
     g_signal_handlers_disconnect_by_func (window->sidebar,
                                           side_pane_switch_page_callback,
@@ -777,19 +777,21 @@ real_sync_title (CajaWindow *window,
 {
     CajaNavigationWindowPane *pane;
     CajaNotebook *notebook;
-    char *full_title;
-    char *window_title;
 
     EEL_CALL_PARENT (CAJA_WINDOW_CLASS,
                      sync_title, (window, slot));
 
     if (slot == window->details->active_pane->active_slot)
     {
+        char *window_title;
+
         /* if spatial mode is default, we keep "File Browser" in the window title
          * to recognize browser windows. Otherwise, we default to the directory name.
          */
         if (!g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_ALWAYS_USE_BROWSER))
         {
+            char *full_title;
+
             full_title = g_strdup_printf (_("%s - File Browser"), slot->title);
             window_title = eel_str_middle_truncate (full_title, MAX_TITLE_LENGTH);
             g_free (full_title);
@@ -933,7 +935,7 @@ add_sidebar_panels (CajaNavigationWindow *window)
     GtkWidget *current;
     GList *providers;
     GList *p;
-    CajaSidebar *sidebar_panel;
+    CajaSidebar *sidebar_panel = NULL;
 
     g_assert (CAJA_IS_NAVIGATION_WINDOW (window));
 
@@ -1170,13 +1172,14 @@ caja_navigation_window_show (GtkWidget *widget)
 static void
 caja_navigation_window_save_geometry (CajaNavigationWindow *window)
 {
-    char *geometry_string;
     gboolean is_maximized;
 
     g_assert (CAJA_IS_WINDOW (window));
 
     if (gtk_widget_get_window (GTK_WIDGET (window)))
     {
+        char *geometry_string;
+
         geometry_string = eel_gtk_window_get_geometry_string (GTK_WINDOW (window));
         is_maximized = gdk_window_get_state (gtk_widget_get_window (GTK_WIDGET (window)))
                        & GDK_WINDOW_STATE_MAXIMIZED;
@@ -1392,8 +1395,9 @@ void
 caja_navigation_window_split_view_off (CajaNavigationWindow *window)
 {
     CajaWindow *win;
-    CajaWindowPane *pane, *active_pane;
     GList *l, *next;
+    CajaWindowPane *active_pane;
+    CajaWindowPane *pane = NULL;
 
     win = CAJA_WINDOW (window);
 

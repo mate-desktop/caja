@@ -141,9 +141,7 @@ should_open_in_new_tab (void)
 static void
 activate_bookmark_in_menu_item (GtkAction *action, gpointer user_data)
 {
-    CajaWindowSlot *slot;
     BookmarkHolder *holder;
-    GFile *location;
 
     holder = (BookmarkHolder *)user_data;
 
@@ -153,6 +151,9 @@ activate_bookmark_in_menu_item (GtkAction *action, gpointer user_data)
     }
     else
     {
+        CajaWindowSlot *slot;
+        GFile *location;
+
         location = caja_bookmark_get_location (holder->bookmark);
         slot = caja_window_get_active_slot (holder->window);
         caja_window_slot_go_to (slot,
@@ -431,12 +432,13 @@ static void
 show_hidden_files_preference_callback (gpointer callback_data)
 {
     CajaWindow *window;
-    GtkAction *action;
 
     window = CAJA_WINDOW (callback_data);
 
     if (window->details->show_hidden_files_mode == CAJA_WINDOW_SHOW_HIDDEN_FILES_DEFAULT)
     {
+        GtkAction *action;
+
         action = gtk_action_group_get_action (window->details->main_action_group, CAJA_ACTION_SHOW_HIDDEN_FILES);
         g_assert (GTK_IS_ACTION (action));
 
@@ -456,12 +458,13 @@ static void
 show_backup_files_preference_callback (gpointer callback_data)
 {
     CajaWindow *window;
-    GtkAction *action;
 
     window = CAJA_WINDOW (callback_data);
 
     if (window->details->show_backup_files_mode == CAJA_WINDOW_SHOW_BACKUP_FILES_DEFAULT)
     {
+        GtkAction *action;
+
         action = gtk_action_group_get_action (window->details->main_action_group, CAJA_ACTION_SHOW_BACKUP_FILES);
         g_assert (GTK_IS_ACTION (action));
 
@@ -593,7 +596,6 @@ action_caja_manual_callback (GtkAction *action,
 {
     CajaWindow *window;
     GError *error;
-    GtkWidget *dialog;
 
     error = NULL;
     window = CAJA_WINDOW (user_data);
@@ -606,6 +608,8 @@ action_caja_manual_callback (GtkAction *action,
 
     if (error)
     {
+        GtkWidget *dialog;
+
         dialog = gtk_message_dialog_new (GTK_WINDOW (window),
                                          GTK_DIALOG_MODAL,
                                          GTK_MESSAGE_ERROR,

@@ -536,7 +536,6 @@ caja_property_browser_drag_begin (GtkWidget *widget,
     CajaPropertyBrowser *property_browser;
     GtkWidget *child;
     GdkPixbuf *pixbuf;
-    int x_delta, y_delta;
     char *element_name;
 
     property_browser = CAJA_PROPERTY_BROWSER (widget);
@@ -568,6 +567,8 @@ caja_property_browser_drag_begin (GtkWidget *widget,
     /* set the pixmap and mask for dragging */
     if (pixbuf != NULL)
     {
+        int x_delta, y_delta;
+
         x_delta = gdk_pixbuf_get_width (pixbuf) / 2;
         y_delta = gdk_pixbuf_get_height (pixbuf) / 2;
 
@@ -721,9 +722,7 @@ make_drag_image (CajaPropertyBrowser *property_browser, const char* file_name)
 {
     GdkPixbuf *pixbuf, *orig_pixbuf;
     char *image_file_name;
-    char *icon_name;
     gboolean is_reset;
-    CajaIconInfo *info;
 
     if (property_browser->details->category_type == CAJA_PROPERTY_EMBLEM)
     {
@@ -740,6 +739,9 @@ make_drag_image (CajaPropertyBrowser *property_browser, const char* file_name)
         }
         else
         {
+            char *icon_name;
+            CajaIconInfo *info;
+
             icon_name = caja_emblem_get_icon_name_from_keyword (file_name);
             info = caja_icon_info_lookup_from_name (icon_name, CAJA_ICON_SIZE_STANDARD, 1);
             pixbuf = caja_icon_info_get_pixbuf_at_size (info, CAJA_ICON_SIZE_STANDARD);
@@ -807,7 +809,7 @@ make_color_drag_image (CajaPropertyBrowser *property_browser, const char *color_
     GdkPixbuf *color_square;
     GdkPixbuf *ret;
     int row, col, stride;
-    char *pixels, *row_pixels;
+    char *pixels;
     GdkColor color;
 
     color_square = gdk_pixbuf_new (GDK_COLORSPACE_RGB, TRUE, 8, COLOR_SQUARE_SIZE, COLOR_SQUARE_SIZE);
@@ -823,7 +825,10 @@ make_color_drag_image (CajaPropertyBrowser *property_browser, const char *color_
     /* loop through and set each pixel */
     for (row = 0; row < COLOR_SQUARE_SIZE; row++)
     {
+        char *row_pixels;
+
         row_pixels =  (pixels + (row * stride));
+
         for (col = 0; col < COLOR_SQUARE_SIZE; col++)
         {
             *row_pixels++ = color.red;
@@ -1033,11 +1038,13 @@ update_preview_cb (GtkFileChooser *fc,
                    GtkImage *preview)
 {
     char *filename;
-    GdkPixbuf *pixbuf;
 
     filename = gtk_file_chooser_get_preview_filename (fc);
+
     if (filename)
     {
+        GdkPixbuf *pixbuf;
+
         pixbuf = gdk_pixbuf_new_from_file (filename, NULL);
 
         gtk_file_chooser_set_preview_widget_active (fc, pixbuf != NULL);
@@ -1308,8 +1315,6 @@ static void
 add_new_pattern (CajaPropertyBrowser *property_browser)
 {
     GtkWidget *dialog;
-    GtkFileFilter *filter;
-    GtkWidget *preview;
 
     if (property_browser->details->patterns_dialog)
     {
@@ -1317,6 +1322,9 @@ add_new_pattern (CajaPropertyBrowser *property_browser)
     }
     else
     {
+        GtkFileFilter *filter;
+        GtkWidget *preview;
+
         property_browser->details->patterns_dialog = dialog =
                     eel_file_chooser_dialog_new (_("Select an Image File to Add as a Pattern"),
                             GTK_WINDOW (property_browser),
@@ -1356,7 +1364,6 @@ add_color_to_file (CajaPropertyBrowser *property_browser, const char *color_spec
 {
     xmlNodePtr cur_node, new_color_node, children_node;
     xmlDocPtr document;
-    xmlChar *child_color_name;
     gboolean color_name_exists = FALSE;
 
     document = read_browser_xml (property_browser);
@@ -1373,6 +1380,8 @@ add_color_to_file (CajaPropertyBrowser *property_browser, const char *color_spec
         children_node = cur_node->xmlChildrenNode;
         while (children_node != NULL)
         {
+            xmlChar *child_color_name;
+
             child_color_name = xmlGetProp (children_node, "name");
             if (xmlStrcmp (color_name, child_color_name) == 0)
             {
@@ -1410,14 +1419,13 @@ add_color_to_file (CajaPropertyBrowser *property_browser, const char *color_spec
 static void
 add_color_to_browser (GtkWidget *widget, gint which_button, gpointer data)
 {
-    char * color_spec;
-    const char *color_name;
-    char *stripped_color_name;
-
     CajaPropertyBrowser *property_browser = CAJA_PROPERTY_BROWSER (data);
 
     if (which_button == GTK_RESPONSE_OK)
     {
+        char * color_spec;
+        const char *color_name;
+        char *stripped_color_name;
         GdkColor color;
 
         gtk_color_button_get_color (GTK_COLOR_BUTTON (property_browser->details->color_picker), &color);
@@ -1512,14 +1520,14 @@ add_new_color (CajaPropertyBrowser *property_browser)
 static void
 emblem_dialog_clicked (GtkWidget *dialog, int which_button, CajaPropertyBrowser *property_browser)
 {
-    const char *new_keyword;
-    char *stripped_keyword;
     char *emblem_path;
-    GFile *emblem_file;
-    GdkPixbuf *pixbuf;
 
     if (which_button == GTK_RESPONSE_OK)
     {
+        const char *new_keyword;
+        char *stripped_keyword;
+        GFile *emblem_file;
+        GdkPixbuf *pixbuf;
 
         /* update the image path from the file entry */
         if (property_browser->details->filename)
@@ -1664,7 +1672,6 @@ static void
 help_button_callback (GtkWidget *widget, GtkWidget *property_browser)
 {
     GError *error = NULL;
-    GtkWidget *dialog;
 
     gtk_show_uri_on_window (GTK_WINDOW (property_browser),
                             "help:mate-user-guide/goscaja-50",
@@ -1672,6 +1679,8 @@ help_button_callback (GtkWidget *widget, GtkWidget *property_browser)
 
     if (error)
     {
+        GtkWidget *dialog;
+
         dialog = gtk_message_dialog_new (GTK_WINDOW (property_browser),
                                          GTK_DIALOG_DESTROY_WITH_PARENT,
                                          GTK_MESSAGE_ERROR,
@@ -1797,20 +1806,14 @@ labeled_image_new (const char *text,
 static void
 make_properties_from_directories (CajaPropertyBrowser *property_browser)
 {
-    CajaCustomizationData *customization_data;
     char *object_name;
     char *object_label;
     GdkPixbuf *object_pixbuf;
     EelImageTable *image_table;
     GtkWidget *reset_object = NULL;
     GList *icons, *l;
-    char *icon_name;
-    char *keyword;
     GtkWidget *property_image;
-    GtkWidget *blank;
     guint num_images;
-    char *path;
-    CajaIconInfo *info;
 
     g_return_if_fail (CAJA_IS_PROPERTY_BROWSER (property_browser));
     g_return_if_fail (EEL_IS_IMAGE_TABLE (property_browser->details->content_table));
@@ -1819,6 +1822,8 @@ make_properties_from_directories (CajaPropertyBrowser *property_browser)
 
     if (property_browser->details->category_type == CAJA_PROPERTY_EMBLEM)
     {
+        CajaIconInfo *info = NULL;
+
         g_list_free_full (property_browser->details->keywords, g_free);
         property_browser->details->keywords = NULL;
 
@@ -1828,6 +1833,9 @@ make_properties_from_directories (CajaPropertyBrowser *property_browser)
         l = icons;
         while (l != NULL)
         {
+            char *icon_name;
+            char *keyword;
+
             icon_name = (char *)l->data;
             l = l->next;
 
@@ -1877,6 +1885,8 @@ make_properties_from_directories (CajaPropertyBrowser *property_browser)
     }
     else
     {
+        CajaCustomizationData *customization_data;
+
         customization_data = caja_customization_data_new (property_browser->details->category,
                              !property_browser->details->remove_mode,
                              MAX_ICON_WIDTH,
@@ -1925,6 +1935,9 @@ make_properties_from_directories (CajaPropertyBrowser *property_browser)
      */
     if (property_browser->details->category_type == CAJA_PROPERTY_EMBLEM)
     {
+        GtkWidget *blank;
+        char *path;
+
         blank = eel_image_table_add_empty_image (image_table);
         labeled_image_configure (EEL_LABELED_IMAGE (blank));
 
@@ -2181,7 +2194,6 @@ caja_property_browser_update_contents (CajaPropertyBrowser *property_browser)
     GtkRadioButton *group;
     gboolean got_categories;
     char *name, *image, *type, *description, *display_name, *path, *mode;
-    const char *text;
 
     /* load the xml document corresponding to the path and selection */
     document = read_browser_xml (property_browser);
@@ -2301,8 +2313,10 @@ caja_property_browser_update_contents (CajaPropertyBrowser *property_browser)
     }
     else
     {
+        const char *text;
         char *label_text;
         char *icon_name;
+
         if (property_browser->details->remove_mode)
         {
             icon_name = "process-stop";

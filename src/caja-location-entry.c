@@ -84,7 +84,7 @@ try_to_expand_path (gpointer callback_data)
 {
     CajaLocationEntry *entry;
     GtkEditable *editable;
-    char *suffix, *user_location, *absolute_location, *uri_scheme;
+    char *suffix, *user_location, *uri_scheme;
     int user_location_length, pos;
 
     entry = CAJA_LOCATION_ENTRY (callback_data);
@@ -97,6 +97,8 @@ try_to_expand_path (gpointer callback_data)
 
     if (!g_path_is_absolute (user_location) && uri_scheme == NULL && user_location[0] != '~')
     {
+        char *absolute_location;
+
         absolute_location = g_build_filename (entry->details->current_directory, user_location, NULL);
         suffix = g_filename_completer_get_completion_suffix (entry->details->completer,
                  absolute_location);
@@ -359,7 +361,7 @@ caja_location_entry_activate (GtkEntry *entry)
 {
     CajaLocationEntry *loc_entry;
     const gchar *entry_text;
-    gchar *full_path, *uri_scheme = NULL;
+    gchar *uri_scheme = NULL;
 
     loc_entry = CAJA_LOCATION_ENTRY (entry);
     entry_text = gtk_entry_get_text (entry);
@@ -370,6 +372,8 @@ caja_location_entry_activate (GtkEntry *entry)
 
         if (!g_path_is_absolute (entry_text) && uri_scheme == NULL && entry_text[0] != '~')
         {
+            gchar *full_path;
+
             /* Fix non absolute paths */
             full_path = g_build_filename (loc_entry->details->current_directory, entry_text, NULL);
             gtk_entry_set_text (entry, full_path);

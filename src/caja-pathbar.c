@@ -266,13 +266,14 @@ caja_path_bar_slider_drag_motion (GtkWidget      *widget,
                                   gpointer        user_data)
 {
     CajaPathBar *path_bar;
-    GtkSettings *settings;
     unsigned int timeout;
 
     path_bar = CAJA_PATH_BAR (user_data);
 
     if (path_bar->drag_slider_timeout == 0)
     {
+        GtkSettings *settings;
+
         settings = gtk_widget_get_settings (widget);
 
         g_object_get (settings, "gtk-timeout-expand", &timeout, NULL);
@@ -507,13 +508,13 @@ caja_path_bar_get_preferred_width (GtkWidget *widget,
     			       gint      *minimum,
     			       gint      *natural)
 {
-    ButtonData *button_data;
     CajaPathBar *path_bar;
     GList *list;
     gint child_height;
     gint height;
     gint child_min, child_nat;
     gint slider_width;
+    ButtonData *button_data = NULL;
 
     path_bar = CAJA_PATH_BAR (widget);
 
@@ -561,10 +562,10 @@ caja_path_bar_get_preferred_height (GtkWidget *widget,
     				gint      *minimum,
     				gint      *natural)
 {
-    ButtonData *button_data;
     CajaPathBar *path_bar;
     GList *list;
     gint child_min, child_nat;
+    ButtonData *button_data = NULL;
 
     path_bar = CAJA_PATH_BAR (widget);
 
@@ -1492,8 +1493,6 @@ set_label_padding_size (ButtonData *button_data)
 static void
 caja_path_bar_update_button_appearance (ButtonData *button_data)
 {
-    CajaIconInfo *icon_info;
-    cairo_surface_t *surface;
     const gchar *dir_name = get_dir_name (button_data);
 
     if (button_data->label != NULL)
@@ -1525,6 +1524,9 @@ caja_path_bar_update_button_appearance (ButtonData *button_data)
         }
         else
         {
+            CajaIconInfo *icon_info;
+            cairo_surface_t *surface;
+
             icon_info = get_type_icon_info (button_data);
             surface = NULL;
 
@@ -1577,12 +1579,12 @@ setup_file_path_mounted_mount (GFile *location, ButtonData *button_data)
 {
     GVolumeMonitor *volume_monitor;
     GList *mounts, *l;
-    GMount *mount;
     gboolean result;
     GIcon *icon;
     CajaIconInfo *info;
     GFile *root, *default_location;
     gint scale;
+    GMount *mount = NULL;
 
     /* Return false if button has not been set up yet or has been destroyed*/
     if (!button_data->button)
@@ -1702,7 +1704,6 @@ button_drag_data_get_cb (GtkWidget          *widget,
 {
     ButtonData *button_data;
     char *uri_list[2];
-    char *tmp;
 
     button_data = user_data;
 
@@ -1711,6 +1712,8 @@ button_drag_data_get_cb (GtkWidget          *widget,
 
     if (info == CAJA_ICON_DND_MATE_ICON_LIST)
     {
+        char *tmp;
+
         tmp = g_strdup_printf ("%s\r\n", uri_list[0]);
         gtk_selection_data_set (selection_data, gtk_selection_data_get_target (selection_data),
                                 8, tmp, strlen (tmp));
@@ -1756,9 +1759,8 @@ static void
 button_data_file_changed (CajaFile *file,
                           ButtonData *button_data)
 {
-    GFile *location, *current_location, *parent, *button_parent;
+    GFile *location, *current_location;
     ButtonData *current_button_data;
-    char *display_name;
     CajaPathBar *path_bar;
     gboolean renamed, child;
 
@@ -1777,6 +1779,8 @@ button_data_file_changed (CajaFile *file,
     location = caja_file_get_location (file);
     if (!g_file_equal (button_data->path, location))
     {
+        GFile *parent, *button_parent;
+
         parent = g_file_get_parent (location);
         button_parent = g_file_get_parent (button_data->path);
 
@@ -1861,6 +1865,8 @@ button_data_file_changed (CajaFile *file,
     /* MOUNTs use the GMount as the name, so don't update for those */
     if (button_data->type != MOUNT_BUTTON)
     {
+        char *display_name;
+
         display_name = caja_file_get_display_name (file);
         if (g_strcmp0 (display_name, button_data->dir_name) != 0)
         {

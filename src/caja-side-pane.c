@@ -73,7 +73,7 @@ static SidePanel *
 panel_for_widget (CajaSidePane *side_pane, GtkWidget *widget)
 {
     GList *l;
-    SidePanel *panel;
+    SidePanel *panel = NULL;
 
     for (l = side_pane->details->panels; l != NULL; l = l->next)
     {
@@ -470,7 +470,6 @@ caja_side_pane_remove_panel (CajaSidePane *side_pane,
                              GtkWidget *widget)
 {
     SidePanel *panel;
-    int page_num;
 
     g_return_if_fail (side_pane != NULL);
     g_return_if_fail (CAJA_IS_SIDE_PANE (side_pane));
@@ -483,6 +482,8 @@ caja_side_pane_remove_panel (CajaSidePane *side_pane,
 
     if (panel)
     {
+        int page_num;
+
         page_num = gtk_notebook_page_num (GTK_NOTEBOOK (side_pane->details->notebook),
                                           widget);
         gtk_notebook_remove_page (GTK_NOTEBOOK (side_pane->details->notebook),

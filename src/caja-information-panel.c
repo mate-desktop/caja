@@ -485,7 +485,6 @@ receive_dropped_uri_list (CajaInformationPanel *information_panel,
     char **uris;
     gboolean exactly_one;
     GtkWindow *window;
-    EelBackground *background;
 
     uris = g_uri_list_extract_uris ((gchar *) gtk_selection_data_get_data (selection_data));
     exactly_one = uris[0] != NULL && (uris[1] == NULL || uris[1][0] == '\0');
@@ -508,6 +507,8 @@ receive_dropped_uri_list (CajaInformationPanel *information_panel,
 
             if (action > 0)
             {
+                EelBackground *background;
+
                 background = eel_get_widget_background (GTK_WIDGET (information_panel));
                 eel_background_set_dropped_image (background, action, uris[0]);
             }
@@ -579,7 +580,6 @@ receive_dropped_color (CajaInformationPanel *information_panel,
 {
     guint16 *channels;
     char color_spec[8];
-    EelBackground *background;
 
     if (gtk_selection_data_get_length (selection_data) != 8 ||
             gtk_selection_data_get_format (selection_data) != 16)
@@ -607,6 +607,8 @@ receive_dropped_color (CajaInformationPanel *information_panel,
 
         if (action > 0)
         {
+            EelBackground *background;
+
             background = eel_get_widget_background (GTK_WIDGET (information_panel));
             eel_background_set_dropped_color (background, GTK_WIDGET (information_panel),
                                               action, x, y, selection_data);
@@ -679,7 +681,6 @@ static gboolean
 caja_information_panel_press_event (GtkWidget *widget, GdkEventButton *event)
 {
     CajaInformationPanel *information_panel;
-    GtkWidget *menu;
 
     if (gtk_widget_get_window (widget) != event->window)
     {
@@ -691,6 +692,8 @@ caja_information_panel_press_event (GtkWidget *widget, GdkEventButton *event)
     /* handle the context menu */
     if (event->button == CONTEXTUAL_MENU_BUTTON)
     {
+        GtkWidget *menu;
+
         menu = caja_information_panel_create_context_menu (information_panel);
         eel_pop_up_context_menu (GTK_MENU(menu),
                                  event);
@@ -771,7 +774,6 @@ static void
 add_buttons_from_metadata (CajaInformationPanel *information_panel, const char *button_data)
 {
     char **terms;
-    char *current_term, *temp_str;
     char *button_name, *command_string;
     const char *term;
     int index;
@@ -784,6 +786,8 @@ add_buttons_from_metadata (CajaInformationPanel *information_panel, const char *
     /* for each term, either create a button or attach a property to one */
     for (index = 0; (term = terms[index]) != NULL; index++)
     {
+        char *current_term, *temp_str;
+
         current_term = g_strdup (term);
         temp_str = strchr (current_term, '=');
         if (temp_str)
@@ -836,7 +840,6 @@ static void
 caja_information_panel_update_buttons (CajaInformationPanel *information_panel)
 {
     char *button_data;
-    GAppInfo *default_app;
 
     /* dispose of any existing buttons */
     if (information_panel->details->has_buttons)
@@ -860,6 +863,8 @@ caja_information_panel_update_buttons (CajaInformationPanel *information_panel)
     if (caja_mime_has_any_applications_for_file (information_panel->details->file) &&
             !caja_file_is_directory (information_panel->details->file))
     {
+        GAppInfo *default_app;
+
         default_app =
             caja_mime_get_default_application_for_file (information_panel->details->file);
         add_command_button (information_panel, default_app);
@@ -986,8 +991,6 @@ selection_changed_callback (CajaWindowInfo *window,
 {
     int selection_count;
     GList *selection;
-    GFile *selected;
-    CajaFile *file;
     char *uri, *name;
 
     selection = caja_window_info_get_selection (window);
@@ -995,6 +998,9 @@ selection_changed_callback (CajaWindowInfo *window,
 
     if (selection_count == 1)
     {
+        GFile *selected;
+        CajaFile *file;
+
         selection = caja_window_info_get_selection (window);
         selected = selection->data;
 

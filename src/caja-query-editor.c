@@ -983,7 +983,6 @@ type_add_rows_from_query (CajaQueryEditor    *editor,
 {
     GList *mime_types;
     char *mime_type;
-    const char *desc;
     CajaQueryEditorRow *row;
     GtkTreeIter iter;
     int i;
@@ -1018,6 +1017,8 @@ type_add_rows_from_query (CajaQueryEditor    *editor,
 
     for (l = mime_types; l != NULL; l = l->next)
     {
+        const char *desc;
+
         mime_type = l->data;
 
         desc = g_content_type_get_description (mime_type);
@@ -1651,8 +1652,6 @@ query_is_valid (CajaQueryEditor *editor)
 static void
 caja_query_editor_changed_force (CajaQueryEditor *editor, gboolean force_reload)
 {
-    CajaQuery *query;
-
     if (editor->details->change_frozen)
     {
         return;
@@ -1660,6 +1659,8 @@ caja_query_editor_changed_force (CajaQueryEditor *editor, gboolean force_reload)
 
     if (query_is_valid (editor))
     {
+        CajaQuery *query;
+
         query = caja_query_editor_get_query (editor);
         g_signal_emit (editor, signals[CHANGED], 0,
                        query, editor->details->is_indexed || force_reload);
@@ -1688,7 +1689,7 @@ caja_query_editor_get_query (CajaQueryEditor *editor)
     const char *query_text;
     CajaQuery *query;
     GList *l;
-    CajaQueryEditorRow *row;
+    CajaQueryEditorRow *row = NULL;
 
     if (editor == NULL || editor->details == NULL || editor->details->entry == NULL)
     {

@@ -72,15 +72,16 @@ query_editor_changed_callback (CajaSearchBar *bar,
 static void
 real_update_query_editor (CajaWindowSlot *slot)
 {
-    GtkWidget *query_editor;
-    CajaQuery *query;
     CajaDirectory *directory;
-    CajaSearchDirectory *search_directory;
 
     directory = caja_directory_get (slot->location);
 
     if (CAJA_IS_SEARCH_DIRECTORY (directory))
     {
+        GtkWidget *query_editor;
+        CajaQuery *query;
+        CajaSearchDirectory *search_directory;
+
         search_directory = CAJA_SEARCH_DIRECTORY (directory);
 
         query_editor = caja_query_editor_new (caja_search_directory_is_saved_search (search_directory),
@@ -370,7 +371,6 @@ caja_window_slot_update_icon (CajaWindowSlot *slot)
     CajaWindow *window;
     CajaIconInfo *info;
     const char *icon_name;
-    GdkPixbuf *pixbuf;
 
     window = slot->pane->window;
 
@@ -399,6 +399,8 @@ caja_window_slot_update_icon (CajaWindowSlot *slot)
         }
         else
         {
+            GdkPixbuf *pixbuf;
+
             pixbuf = caja_icon_info_get_pixbuf_nodefault (info);
 
             if (pixbuf)

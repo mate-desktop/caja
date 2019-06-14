@@ -201,13 +201,14 @@ caja_file_management_properties_size_group_create (GtkBuilder *builder,
 {
     GtkSizeGroup *size_group;
     int i;
-    char *item_name;
-    GtkWidget *widget;
+    GtkWidget *widget = NULL;
 
     size_group = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL);
 
     for (i = 0; i < items; i++)
     {
+        char *item_name;
+
         item_name = g_strdup_printf ("%s_%d", prefix, i);
         widget = GTK_WIDGET (gtk_builder_get_object (builder, item_name));
         gtk_size_group_add_widget (size_group, widget);
@@ -222,7 +223,6 @@ preferences_show_help (GtkWindow *parent,
                        char const *sect_id)
 {
     GError *error = NULL;
-    GtkWidget *dialog;
     char *help_string;
 
     g_assert (helpfile != NULL);
@@ -237,6 +237,8 @@ preferences_show_help (GtkWindow *parent,
 
     if (error)
     {
+        GtkWidget *dialog;
+
         dialog = gtk_message_dialog_new (GTK_WINDOW (parent),
                                          GTK_DIALOG_DESTROY_WITH_PARENT,
                                          GTK_MESSAGE_ERROR,
@@ -259,10 +261,10 @@ caja_file_management_properties_dialog_response_cb (GtkDialog *parent,
         int response_id,
         GtkBuilder *builder)
 {
-    char *section;
-
     if (response_id == GTK_RESPONSE_HELP)
     {
+        char *section;
+
         switch (gtk_notebook_get_current_page (GTK_NOTEBOOK (gtk_builder_get_object (builder, "notebook1"))))
         {
         default:
@@ -1109,8 +1111,8 @@ bind_builder_radio (GtkBuilder *builder,
             const char *prefs,
             const char **values)
 {
-    GtkWidget *button;
     int i;
+    GtkWidget *button = NULL;
 
     for (i = 0; widget_names[i] != NULL; i++) {
         button = GTK_WIDGET (gtk_builder_get_object (builder, widget_names[i]));
