@@ -1308,7 +1308,7 @@ got_file_info_for_view_selection_callback (CajaFile *file,
              */
             /* if this is the only window, we don't want to quit, so we redirect it to home */
             app = CAJA_APPLICATION (g_application_get_default ());
-			
+
             if (g_list_length (gtk_application_get_windows (GTK_APPLICATION (app))) == 1) {
 
                 /* the user could have typed in a home directory that doesn't exist,

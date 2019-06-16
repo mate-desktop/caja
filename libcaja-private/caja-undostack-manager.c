@@ -795,22 +795,22 @@ get_all_trashed_items (GQueue *stack)
 
   while ((action = (CajaUndoStackActionData *) g_queue_pop_tail (tmp_stack)) != NULL)
     if (action->trashed)
-        for (l = g_hash_table_get_keys (action->trashed); l != NULL; l=l->next) { 
+        for (l = g_hash_table_get_keys (action->trashed); l != NULL; l=l->next) {
                 trash = g_list_append(trash, l->data);
         }
-  
+
   g_queue_free (tmp_stack);
   return (trash);
 }
 
-static gboolean 
+static gboolean
 is_destination_uri_action_partof_trashed(GList *trash, GList *g)
 {
     GList *l;
     char *uri;
 
-    for (l = trash; l != NULL; l=l->next) { 
-        for (; g != NULL; g=g->next) { 
+    for (l = trash; l != NULL; l=l->next) {
+        for (; g != NULL; g=g->next) {
             //printf ("destinations: %s\n", g_file_get_uri(l->data));
             uri = g_file_get_uri(g->data);
             if (!strcmp (uri, l->data)) {

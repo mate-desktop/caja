@@ -156,7 +156,7 @@ extern "C" {
         (* get_backup_files_mode) (CajaWindowInfo *window);
         void   (* set_backup_files_mode) (CajaWindowInfo *window,
                                           CajaWindowShowBackupFilesMode mode);
-	    
+
         CajaWindowSlotInfo * (* get_active_slot) (CajaWindowInfo *window);
         CajaWindowSlotInfo * (* get_extra_slot)  (CajaWindowInfo *window);
 
@@ -197,7 +197,7 @@ extern "C" {
     CajaWindowShowBackupFilesMode     caja_window_info_get_backup_files_mode    (CajaWindowInfo                *window);
     void                              caja_window_info_set_backup_files_mode    (CajaWindowInfo                *window,
             CajaWindowShowBackupFilesMode  mode);
-	
+
     gboolean                          caja_window_info_get_initiated_unmount    (CajaWindowInfo                *window);
     void                              caja_window_info_set_initiated_unmount    (CajaWindowInfo                *window,
             gboolean initiated_unmount);

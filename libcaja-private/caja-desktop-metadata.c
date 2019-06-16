@@ -49,7 +49,7 @@ get_keyfile_path (void)
     retval = g_build_filename (xdg_dir, "desktop-metadata", NULL);
 
     g_free (xdg_dir);
-    
+
     return retval;
 }
 
@@ -176,7 +176,7 @@ caja_desktop_set_metadata_string (CajaFile *file,
 
     if (caja_desktop_update_metadata_from_keyfile (file, name)) {
         caja_file_changed (file);
-    }    
+    }
 }
 
 #define STRV_TERMINATOR "@x-caja-desktop-metadata-term@"

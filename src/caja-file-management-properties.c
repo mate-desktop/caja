@@ -728,22 +728,22 @@ extension_state_toggled (GtkCellRendererToggle *cell, gchar *path_str, gpointer 
 	GtkTreeModel *model;
     gboolean new_state;
     Extension *ext;
-    
+
 	path = gtk_tree_path_new_from_string (path_str);
 	model = gtk_tree_view_get_model (GTK_TREE_VIEW (data));
-    
+
     g_object_get (G_OBJECT (cell), "active", &new_state, NULL);
     gtk_tree_model_get_iter_from_string (model, &iter, path_str);
-    
+
     new_state ^= 1;
 
 	if (&iter != NULL)
     {
         gtk_tree_model_get (model, &iter, EXT_STRUCT_COLUMN, &ext, -1);
-        
+
         if (caja_extension_set_state (ext, new_state))
         {
-            gtk_list_store_set (GTK_LIST_STORE (model), &iter, 
+            gtk_list_store_set (GTK_LIST_STORE (model), &iter,
                                 EXT_STATE_COLUMN, new_state, -1);
         }
     }
@@ -874,7 +874,7 @@ caja_file_management_properties_dialog_setup_extension_page (GtkBuilder *builder
     GdkPixbuf *ext_pixbuf_icon;
     GtkButton *about_button, *configure_button;
     gchar *ext_text_info;
-    
+
     GList *extensions;
     int i;
 
@@ -884,16 +884,16 @@ caja_file_management_properties_dialog_setup_extension_page (GtkBuilder *builder
                     gtk_builder_get_object (builder, "extension_view"));
     store = GTK_LIST_STORE (
                     gtk_builder_get_object (builder, "extension_store"));
-                    
+
     toggle = GTK_CELL_RENDERER_TOGGLE (
                     gtk_builder_get_object (builder, "extension_toggle"));
     g_object_set (toggle, "xpad", 6, NULL);
-                    
+
     g_signal_connect (toggle, "toggled",
                       G_CALLBACK (extension_state_toggled), view);
-    
+
     icon_theme = gtk_icon_theme_get_default();
-    
+
     for (i = 0; i < g_list_length (extensions); i++)
     {
         Extension* ext = EXTENSION (g_list_nth_data (extensions, i));
@@ -926,7 +926,7 @@ caja_file_management_properties_dialog_setup_extension_page (GtkBuilder *builder
         gtk_list_store_append (store, &iter);
         gtk_list_store_set (store, &iter,
                             EXT_STATE_COLUMN, ext->state,
-                            EXT_ICON_COLUMN, ext_pixbuf_icon, 
+                            EXT_ICON_COLUMN, ext_pixbuf_icon,
                             EXT_INFO_COLUMN, ext_text_info,
                             EXT_STRUCT_COLUMN, ext, -1);
 

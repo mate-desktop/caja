@@ -469,7 +469,7 @@ eel_image_menu_item_new_from_icon (const gchar *icon_name,
     gtk_container_add (GTK_CONTAINER (box), icon);
 
     gtk_container_add (GTK_CONTAINER (box), label_menu);
- 
+
     gtk_container_add (GTK_CONTAINER (menuitem), box);
     gtk_widget_show_all (menuitem);
 

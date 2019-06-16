@@ -10,7 +10,7 @@ button_callback (GtkWidget *button,
 {
 	const char *info = callback_data;
 	g_return_if_fail (GTK_IS_BUTTON (button));
-	
+
 	g_print ("%s(%p)\n", info, button);
 }
 
@@ -51,11 +51,11 @@ labeled_image_button_window_new (const char *title,
 	}
 
 	gtk_widget_show_all (vbox);
-	
+
 	return window;
 }
 
-int 
+int
 main (int argc, char* argv[])
 {
 	GtkWidget *labeled_image_window = NULL;
@@ -71,7 +71,7 @@ main (int argc, char* argv[])
 
 	if (labeled_image_window) gtk_widget_show (labeled_image_window);
 	if (labeled_image_button_window) gtk_widget_show (labeled_image_button_window);
-	
+
 	gtk_main ();
 
 	return test_quit (EXIT_SUCCESS);

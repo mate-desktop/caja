@@ -293,7 +293,7 @@ add_heading (CajaPlacesSidebar *sidebar,
     gtk_list_store_append (sidebar->store, &iter);
     gtk_list_store_set (sidebar->store, &iter,
                 PLACES_SIDEBAR_COLUMN_ROW_TYPE, PLACES_HEADING,
-                PLACES_SIDEBAR_COLUMN_SECTION_TYPE, section_type,    
+                PLACES_SIDEBAR_COLUMN_SECTION_TYPE, section_type,
                 PLACES_SIDEBAR_COLUMN_HEADING_TEXT, title,
                 PLACES_SIDEBAR_COLUMN_EJECT, FALSE,
                 PLACES_SIDEBAR_COLUMN_NO_EJECT, TRUE,
@@ -563,7 +563,7 @@ update_places (CajaPlacesSidebar *sidebar)
                            location, mount_uri, last_uri,
                            &last_iter, &select_path);
 
-    
+
     /* XDG directories */
     xdg_dirs = NULL;
     for (index = 0; index < G_USER_N_DIRECTORIES; index++) {
@@ -891,7 +891,7 @@ update_places (CajaPlacesSidebar *sidebar)
     compare_for_selection (sidebar,
                            location, mount_uri, last_uri,
                            &last_iter, &select_path);
-    
+
     g_free (location);
 
     if (select_path != NULL) {
@@ -2259,7 +2259,7 @@ volume_eject_cb (GObject *source_object,
                                    NULL);
             g_free (primary);
         }
-        g_error_free (error); 
+        g_error_free (error);
     }
 
     else {

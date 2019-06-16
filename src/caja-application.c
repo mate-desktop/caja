@@ -179,7 +179,7 @@ smclient_save_state_cb (EggSMClient   *client,
     char *data;
     data = caja_application_get_session_data (application);
 
-    if (data != NULL) 
+    if (data != NULL)
     {
         g_key_file_set_string (state_file,
                                "Caja",
@@ -223,9 +223,9 @@ caja_empty_callback_to_ensure_read() {
 
 static void
 open_window (CajaApplication *application,
-             GFile *location, 
-             GdkScreen *screen, 
-             const char *geometry, 
+             GFile *location,
+             GdkScreen *screen,
+             const char *geometry,
              gboolean browser_window)
 {
     CajaApplication *self = CAJA_APPLICATION (application);
@@ -271,10 +271,10 @@ open_window (CajaApplication *application,
 
 static void
 open_tabs (CajaApplication *application,
-           GFile **locations, 
-           guint n_files, 
-           GdkScreen *screen, 
-           const char *geometry, 
+           GFile **locations,
+           guint n_files,
+           GdkScreen *screen,
+           const char *geometry,
            gboolean browser_window)
 {
     CajaApplication *self = CAJA_APPLICATION (application);
@@ -283,7 +283,7 @@ open_tabs (CajaApplication *application,
 
     /* monitor the preference to use browser or spatial windows */
     /* connect before trying to read or this preference won't be read by root or after change */
-    g_signal_connect_swapped (caja_preferences, 
+    g_signal_connect_swapped (caja_preferences,
                               "changed::"CAJA_PREFERENCES_ALWAYS_USE_BROWSER,
                               G_CALLBACK (caja_empty_callback_to_ensure_read),
                               self);
@@ -305,7 +305,7 @@ open_tabs (CajaApplication *application,
     caja_window_go_to (window, locations[0]);
     g_free (uri);
     for (int i = 1; i< n_files;i++) {
-        /* open tabs in reverse order because each 
+        /* open tabs in reverse order because each
          * tab is opened before the previous one */
         guint tab = n_files-i;
         uri = g_file_get_uri (locations[tab]);
@@ -345,9 +345,9 @@ open_windows (CajaApplication *application,
             /* Open one window with one tab at each requested location */
             open_tabs (application, files, n_files, screen, geometry, browser_window);
         } else {
-            /* Open windows at each requested location. */ 
+            /* Open windows at each requested location. */
             i = 0;
-            while (i < n_files) { 
+            while (i < n_files) {
                 open_window (application, files[i], screen, geometry, browser_window);
                 i++ ;
             }
@@ -416,7 +416,7 @@ caja_application_open_location (CajaApplication *application,
     }
 
     caja_window_slot_open_location_full (caja_window_get_active_slot (window), location,
-                                         open_in_tabs, CAJA_WINDOW_OPEN_FLAG_NEW_WINDOW, 
+                                         open_in_tabs, CAJA_WINDOW_OPEN_FLAG_NEW_WINDOW,
                                          sel_list, NULL, NULL);
 
     if (sel_list != NULL) {
@@ -472,7 +472,7 @@ caja_application_finalize (GObject *object)
 	{
 		g_bus_unwatch_name (application->ss_watch_id);
 	}
-	
+
 	if (application->volume_queue != NULL)
 	{
 		g_list_free_full (application->volume_queue, g_object_unref);
@@ -1108,7 +1108,7 @@ check_screen_lock_and_mount (CajaApplication *application,
         } else {
                 /* mount it immediately */
 		caja_file_operations_mount_volume (NULL, volume, TRUE);
-        }       
+        }
 }
 
 static void
@@ -1236,13 +1236,13 @@ mount_added_callback (GVolumeMonitor *monitor,
     CajaDirectory *directory;
     GFile *root;
     gchar *uri;
-        
+
     root = g_mount_get_root (mount);
     uri = g_file_get_uri (root);
 
     g_debug ("Added mount at uri %s", uri);
     g_free (uri);
-    
+
     directory = caja_directory_get_existing (root);
     g_object_unref (root);
     if (directory != NULL) {
@@ -1455,10 +1455,10 @@ caja_application_get_session_data (CajaApplication *self)
         }
 
         win_node = xmlNewChild (root_node, NULL, "window", NULL);
-        
+
         xmlNewProp (win_node, "location", tmp);
         g_free (tmp);
-        
+
         xmlNewProp (win_node, "type", CAJA_IS_NAVIGATION_WINDOW (window) ? "navigation" : "spatial");
 
         if (CAJA_IS_NAVIGATION_WINDOW (window)) { /* spatial windows store their state as file metadata */
@@ -1510,7 +1510,7 @@ caja_application_get_session_data (CajaApplication *self)
         xmlSaveFlush (ctx) < 0) {
         g_message ("failed to save session");
     }
-    
+
     xmlSaveClose(ctx);
     data = g_strndup (buffer->content, buffer->use);
     xmlBufferFree (buffer);
@@ -1551,7 +1551,7 @@ caja_application_load_session (CajaApplication *application)
     }
 
     bail = TRUE;
-    
+
     doc = xmlReadMemory (data, strlen (data), NULL, "UTF-8", 0);
     if (doc != NULL && (root_node = xmlDocGetRootElement (doc)) != NULL)
     {
@@ -1738,7 +1738,7 @@ caja_application_load_session (CajaApplication *application)
                 else if (g_strcmp0 (type, "spatial") == 0)
                 {
                     location = g_file_new_for_uri (location_uri);
-                    window = caja_application_get_spatial_window (application, NULL, NULL, 
+                    window = caja_application_get_spatial_window (application, NULL, NULL,
                     											  location, gdk_screen_get_default (),
                     											  NULL);
 
@@ -1864,7 +1864,7 @@ caja_application_local_command_line (GApplication *application,
 
     const GOptionEntry options[] = {
 #ifndef CAJA_OMIT_SELF_CHECK
-        { "check", 'c', 0, G_OPTION_ARG_NONE, &perform_self_check, 
+        { "check", 'c', 0, G_OPTION_ARG_NONE, &perform_self_check,
           N_("Perform a quick set of self-check tests."), NULL },
 #endif
         { "version", '\0', 0, G_OPTION_ARG_NONE, &version,
@@ -1877,11 +1877,11 @@ caja_application_local_command_line (GApplication *application,
           N_("Do not manage the desktop (ignore the preference set in the preferences dialog)."), NULL },
         { "force-desktop", '\0', 0, G_OPTION_ARG_NONE, &self->priv->force_desktop,
           N_("Manage the desktop regardless of set preferences or environment (on new startup only)"), NULL },
-        { "tabs", 't', 0, G_OPTION_ARG_NONE, &open_in_tabs, 
+        { "tabs", 't', 0, G_OPTION_ARG_NONE, &open_in_tabs,
           N_("Open URIs in tabs."), NULL },
-        { "browser", '\0', 0, G_OPTION_ARG_NONE, &browser_window, 
+        { "browser", '\0', 0, G_OPTION_ARG_NONE, &browser_window,
           N_("Open a browser window."), NULL },
-        { "quit", 'q', 0, G_OPTION_ARG_NONE, &kill_shell, 
+        { "quit", 'q', 0, G_OPTION_ARG_NONE, &kill_shell,
           N_("Quit Caja."), NULL },
         { G_OPTION_REMAINING, 0, 0, G_OPTION_ARG_STRING_ARRAY, &remaining, NULL,  N_("[URI...]") },
 
@@ -2021,7 +2021,7 @@ caja_application_local_command_line (GApplication *application,
  out:
     g_option_context_free (context);
 
-    return TRUE;    
+    return TRUE;
 }
 
 
@@ -2095,7 +2095,7 @@ init_desktop (CajaApplication *self)
                   self);
 }
 
-static gboolean 
+static gboolean
 caja_application_save_accel_map (gpointer data)
 {
     if (save_of_accel_map_requested) {
@@ -2111,14 +2111,14 @@ caja_application_save_accel_map (gpointer data)
     return FALSE;
 }
 
-static void 
+static void
 queue_accel_map_save_callback (GtkAccelMap *object, gchar *accel_path,
         guint accel_key, GdkModifierType accel_mods,
         gpointer user_data)
 {
     if (!save_of_accel_map_requested) {
         save_of_accel_map_requested = TRUE;
-        g_timeout_add_seconds (CAJA_ACCEL_MAP_SAVE_DELAY, 
+        g_timeout_add_seconds (CAJA_ACCEL_MAP_SAVE_DELAY,
                 caja_application_save_accel_map, NULL);
     }
 }
@@ -2187,15 +2187,15 @@ caja_application_startup (GApplication *app)
     /* initialize theming */
     init_icons_and_styles ();
     init_gtk_accels ();
-    
+
     /* initialize caja modules */
     caja_module_setup ();
 
     /* attach menu-provider module callback */
     menu_provider_init_callback ();
-    
+
     /* Initialize notifications for eject operations */
-    notify_init (GETTEXT_PACKAGE);  
+    notify_init (GETTEXT_PACKAGE);
 
     /* Watch for unmounts so we can close open windows */
     /* TODO-gio: This should be using the UNMOUNTED feature of GFileMonitor instead */
@@ -2226,7 +2226,7 @@ caja_application_startup (GApplication *app)
     init_desktop (self);
 
     /* exit_with_last_window is already set to TRUE, and we need to keep that value
-     * on other desktops, running from the command line,  or when running caja as root. 
+     * on other desktops, running from the command line,  or when running caja as root.
      * Otherwise, we read the value from the configuration.
      */
 
@@ -2234,7 +2234,7 @@ caja_application_startup (GApplication *app)
     {
         GApplication *instance;
 
-        exit_with_last_window = g_settings_get_boolean (caja_preferences,   
+        exit_with_last_window = g_settings_get_boolean (caja_preferences,
                                 CAJA_PREFERENCES_EXIT_WITH_LAST_WINDOW);
         /*Keep this inside the running as mate/not as root block */
         /*So other desktop don't get unkillable caja instances holding open */

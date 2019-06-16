@@ -2194,14 +2194,14 @@ update_info_internal (CajaFile *file,
 	file->details->is_symlink = is_symlink;
 
 	is_hidden = g_file_info_get_is_hidden (info);
-	is_backup = g_file_info_get_is_backup (info); 
+	is_backup = g_file_info_get_is_backup (info);
 	if (file->details->is_hidden != is_hidden ||
 	    file->details->is_backup != is_backup) {
 		changed = TRUE;
 	}
 	file->details->is_hidden = is_hidden;
-	file->details->is_backup = is_backup; 
-	
+	file->details->is_backup = is_backup;
+
 	is_mountpoint = g_file_info_get_attribute_boolean (info, G_FILE_ATTRIBUTE_UNIX_IS_MOUNTPOINT);
 	if (file->details->is_mountpoint != is_mountpoint) {
 		changed = TRUE;
@@ -4607,8 +4607,8 @@ caja_file_get_icon (CajaFile *file,
 								 MAX (h * thumb_scale, 1),
 								 GDK_INTERP_BILINEAR);
 
-			/* Render frames only for thumbnails of non-image files 
-			   and for images with no alpha channel. */ 
+			/* Render frames only for thumbnails of non-image files
+			   and for images with no alpha channel. */
 			gboolean is_image = file->details->mime_type &&
 				(strncmp (file->details->mime_type, "image/", 6) == 0);
 				if (!is_image ||
@@ -7498,22 +7498,22 @@ caja_file_is_binary (CajaFile *file)
 	{
 		return FALSE;
 	}
-	
+
 	gboolean is_binary = FALSE;
 	int i = 0;
 	FILE *fp;
-	
+
 	/* Check the first 4096 bytes of the files. If these contains a 0,
 	 * we can assume the file is binary.
 	 * This idea is taken from python code of meld.
 	 */
-	
+
 	fp = g_fopen (g_file_get_path (caja_file_get_location (file)), "r");
 	if (fp == NULL)
 	{
 		return FALSE;
 	}
-	
+
 	while (!feof (fp)) {
 		int c;
 
@@ -7528,7 +7528,7 @@ caja_file_is_binary (CajaFile *file)
 		i++;
 	}
 	fclose(fp);
-	
+
 	return is_binary;
 }
 
