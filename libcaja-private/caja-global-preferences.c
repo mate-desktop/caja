@@ -74,7 +74,7 @@ caja_global_preferences_init (void)
     }
 
     initialized = TRUE;
-    
+
     caja_preferences = g_settings_new("org.mate.caja.preferences");
     caja_media_preferences = g_settings_new("org.mate.media-handling");
     caja_window_state = g_settings_new("org.mate.caja.window-state");

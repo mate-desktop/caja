@@ -4,7 +4,7 @@
 
 static void
 hits_added_cb (CajaSearchEngine *engine, GSList *hits)
-{      
+{
 	g_print ("hits added\n");
 	while (hits) {
 		g_print (" - %s\n", (char *)hits->data);
@@ -29,7 +29,7 @@ finished_cb (CajaSearchEngine *engine)
 //	gtk_main_quit ();
 }
 
-int 
+int
 main (int argc, char* argv[])
 {
 	CajaSearchEngine *engine;
@@ -38,11 +38,11 @@ main (int argc, char* argv[])
 	gtk_init (&argc, &argv);
 
 	engine = caja_search_engine_new ();
-	g_signal_connect (engine, "hits-added", 
+	g_signal_connect (engine, "hits-added",
 			  G_CALLBACK (hits_added_cb), NULL);
-	g_signal_connect (engine, "hits-subtracted", 
+	g_signal_connect (engine, "hits-subtracted",
 			  G_CALLBACK (hits_subtracted_cb), NULL);
-	g_signal_connect (engine, "finished", 
+	g_signal_connect (engine, "finished",
 			  G_CALLBACK (finished_cb), NULL);
 
 	query = caja_query_new ();
@@ -51,7 +51,7 @@ main (int argc, char* argv[])
 	g_object_unref (query);
 
 	caja_search_engine_start (engine);
-       
+
 	gtk_main ();
 	return 0;
 }

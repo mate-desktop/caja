@@ -176,7 +176,7 @@ connect_dialog_set_connecting (CajaConnectServerDialog *dialog)
 	gint width, height;
 
 	connect_dialog_restore_info_bar (dialog, GTK_MESSAGE_INFO);
-	gtk_widget_show (dialog->details->info_bar);	
+	gtk_widget_show (dialog->details->info_bar);
 
 	content_area = gtk_info_bar_get_content_area (GTK_INFO_BAR (dialog->details->info_bar));
 
@@ -216,7 +216,7 @@ connect_dialog_gvfs_error (CajaConnectServerDialog *dialog)
 	image = gtk_image_new_from_icon_name ("dialog-error", GTK_ICON_SIZE_SMALL_TOOLBAR);
 	gtk_box_pack_start (GTK_BOX (hbox), image, FALSE, FALSE, 6);
 	gtk_widget_show (image);
-	
+
 	label = gtk_label_new (_("Can't load the supported server method list.\n"
 				 "Please check your GVfs installation."));
 	gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 6);
@@ -244,7 +244,7 @@ iconized_entry_restore (gpointer data,
 
 	g_signal_handlers_disconnect_by_func (entry,
 					      iconized_entry_changed_cb,
-					      dialog);	
+					      dialog);
 }
 
 static void
@@ -311,7 +311,7 @@ connect_dialog_set_info_bar_error (CajaConnectServerDialog *dialog,
 
 		g_free (str);
 
-		break;		
+		break;
 	case G_IO_ERROR_FAILED:
 	default:
 		label = gtk_label_new (error->message);
@@ -1222,7 +1222,7 @@ caja_connect_server_dialog_fill_details_async (CajaConnectServerDialog *self,
 			g_mount_operation_set_password (G_MOUNT_OPERATION (operation),
 							str);
 			set_flags ^= G_ASK_PASSWORD_NEED_PASSWORD;
-			
+
 			if (flags & G_ASK_PASSWORD_SAVING_SUPPORTED &&
 			    gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (self->details->remember_checkbox))) {
 				g_mount_operation_set_password_save (G_MOUNT_OPERATION (operation),

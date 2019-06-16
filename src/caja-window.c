@@ -2059,7 +2059,7 @@ caja_window_info_iface_init (CajaWindowInfoIface *iface)
     iface->get_selection = caja_window_get_selection;
     iface->get_hidden_files_mode = caja_window_get_hidden_files_mode;
     iface->set_hidden_files_mode = caja_window_set_hidden_files_mode;
-    
+
     iface->get_backup_files_mode = caja_window_get_backup_files_mode;
     iface->set_backup_files_mode = caja_window_set_backup_files_mode;
 

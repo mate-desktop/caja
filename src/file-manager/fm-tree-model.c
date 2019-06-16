@@ -105,7 +105,7 @@ struct FMTreeModelDetails
     gboolean show_hidden_files;
     gboolean show_backup_files;
     gboolean show_only_directories;
-	
+
     GList *highlighted_files;
 };
 

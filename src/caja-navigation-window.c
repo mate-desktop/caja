@@ -144,7 +144,7 @@ caja_navigation_window_init (CajaNavigationWindow *window)
     gtk_paned_pack2 (GTK_PANED (window->details->content_paned), vbox,
     		     TRUE, FALSE);
     gtk_widget_show (vbox);
-   
+
     hpaned = gtk_paned_new (GTK_ORIENTATION_HORIZONTAL);
     gtk_box_pack_start (GTK_BOX (vbox), hpaned, TRUE, TRUE, 0);
     gtk_widget_show (hpaned);

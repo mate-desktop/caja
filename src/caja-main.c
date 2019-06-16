@@ -242,7 +242,7 @@ main (int argc, char *argv[])
 	if (g_getenv ("CAJA_DEBUG") != NULL) {
 		eel_make_warnings_and_criticals_stop_in_debugger ();
 	}
-	
+
 	/* Initialize gettext support */
 	bindtextdomain (GETTEXT_PACKAGE, MATELOCALEDIR);
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
@@ -255,7 +255,7 @@ main (int argc, char *argv[])
 	if (g_file_test (DATADIR "/applications/caja.desktop", G_FILE_TEST_EXISTS)) {
 		egg_set_desktop_file (DATADIR "/applications/caja.desktop");
 	}
-	
+
 #ifdef HAVE_EXEMPI
 	xmp_init();
 #endif

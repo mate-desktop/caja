@@ -239,7 +239,7 @@ struct FMDirectoryViewDetails
 	gboolean show_foreign_files;
 	gboolean show_hidden_files;
 	gboolean ignore_hidden_file_preferences;
-	
+
 	gboolean show_backup_files;
 
 	gboolean batching_selection_level;

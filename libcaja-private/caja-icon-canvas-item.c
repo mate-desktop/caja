@@ -2770,7 +2770,7 @@ caja_icon_canvas_item_class_init (CajaIconCanvasItemClass *class)
 		g_param_spec_boolean ("highlighted_for_selection",
 				      "highlighted for selection",
 				      "whether we are highlighted for a selection",
-				      FALSE, G_PARAM_READWRITE)); 
+				      FALSE, G_PARAM_READWRITE));
 
         g_object_class_install_property (
 		object_class,
@@ -2778,7 +2778,7 @@ caja_icon_canvas_item_class_init (CajaIconCanvasItemClass *class)
 		g_param_spec_boolean ("highlighted_as_keyboard_focus",
 				      "highlighted as keyboard focus",
 				      "whether we are highlighted to render keyboard focus",
-				      FALSE, G_PARAM_READWRITE)); 
+				      FALSE, G_PARAM_READWRITE));
 
 
         g_object_class_install_property (
@@ -3510,7 +3510,7 @@ caja_icon_canvas_item_accessible_ref_state_set (AtkObject *accessible)
 		l = container->details->icons;
 		while (l) {
 			icon = l->data;
-		
+
 			if (icon->item == item) {
 				if (icon->is_selected) {
 					one_item_selected = TRUE;

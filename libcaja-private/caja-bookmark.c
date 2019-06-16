@@ -626,10 +626,10 @@ bookmark_image_menu_item_new_from_surface (cairo_surface_t   *icon_surface,
     gtk_label_set_max_width_chars (label, (ELLIPSISED_MENU_ITEM_MIN_CHARS + 2));
 
     GtkWidget *menuitem = gtk_menu_item_new ();
- 
+
     gtk_container_add (GTK_CONTAINER (box), icon);
     gtk_container_add (GTK_CONTAINER (box), label_menu);
- 
+
     gtk_container_add (GTK_CONTAINER (menuitem), box);
     gtk_widget_show_all (menuitem);
 

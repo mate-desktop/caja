@@ -1469,7 +1469,7 @@ set_label_padding_size (ButtonData *button_data)
     gint width, height, bold_width, bold_height;
     gint pad_left, pad_right;
     gchar *markup;
-    
+
     layout = gtk_widget_create_pango_layout (button_data->label, dir_name);
     pango_layout_get_pixel_size (layout, &width, &height);
 
@@ -1839,7 +1839,7 @@ button_data_file_changed (CajaFile *file,
          * will get the event too and call us back.
          */
         current_location = caja_file_get_location (current_button_data->file);
-        
+
         if (g_file_has_prefix (location, current_location))
         {
             /* remove this and the following buttons */
