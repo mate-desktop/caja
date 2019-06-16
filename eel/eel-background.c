@@ -665,7 +665,7 @@ widget_realize_cb (GtkWidget *widget,
 
     widget_realized_setup (widget, self);
 
-    eel_background_set_up_widget (self);    
+    eel_background_set_up_widget (self);
 }
 
 static void

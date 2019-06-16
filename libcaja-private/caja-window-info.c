@@ -90,7 +90,7 @@ caja_window_info_base_init (gpointer g_class)
                           NULL, NULL,
                           g_cclosure_marshal_VOID__VOID,
                           G_TYPE_NONE, 0);
-	
+
         initialized = TRUE;
     }
 }

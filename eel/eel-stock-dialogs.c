@@ -423,7 +423,7 @@ eel_run_simple_dialog (GtkWidget *parent, gboolean ignore_close_box,
     }
 
     /* Create the dialog. */
-	dialog = gtk_message_dialog_new (GTK_WINDOW (chosen_parent), 
+	dialog = gtk_message_dialog_new (GTK_WINDOW (chosen_parent),
 					 0,
 					 message_type,
 					 GTK_BUTTONS_NONE,

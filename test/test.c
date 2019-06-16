@@ -35,16 +35,16 @@ test_window_new (const char *title, guint border_width)
 	GtkWidget *window;
 
 	window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-	
+
 	if (title != NULL) {
 		gtk_window_set_title (GTK_WINDOW (window), title);
 	}
 
 	g_signal_connect (window, "delete_event",
                           G_CALLBACK (test_delete_event), NULL);
-	
+
 	gtk_container_set_border_width (GTK_CONTAINER (window), border_width);
-	
+
 	return window;
 }
 
@@ -59,7 +59,7 @@ test_gtk_widget_set_background_image (GtkWidget *widget,
 	g_return_if_fail (image_name != NULL);
 
 	background = eel_get_widget_background (widget);
-	
+
 	uri = g_strdup_printf ("file://%s/%s", CAJA_DATADIR, image_name);
 
 	eel_background_set_image_uri (background, uri);
@@ -77,7 +77,7 @@ test_gtk_widget_set_background_color (GtkWidget *widget,
 	g_return_if_fail (color_spec != NULL);
 
 	background = eel_get_widget_background (widget);
-	
+
 	eel_background_set_color (background, color_spec);
 }
 
@@ -101,7 +101,7 @@ test_pixbuf_new_named (const char *name, float scale)
 	g_free (path);
 
 	g_return_val_if_fail (pixbuf != NULL, NULL);
-	
+
 	if (scale != 1.0) {
 		GdkPixbuf *scaled;
 		float width = gdk_pixbuf_get_width (pixbuf) * scale;
@@ -129,18 +129,18 @@ test_label_new (const char *text,
 	if (text == NULL) {
 		text = "Foo";
 	}
-	
+
 	label = gtk_label_new (text);
 
 	return label;
 }
 
-void 
+void
 test_window_set_title_with_pid (GtkWindow *window,
 				const char *title)
 {
 	char *tmp;
-	
+
 	g_return_if_fail (GTK_IS_WINDOW (window));
 
 	tmp = g_strdup_printf ("%lu: %s", (gulong) getpid (), title);

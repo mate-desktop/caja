@@ -15,7 +15,7 @@
  *
  *  You should have received a copy of the GNU Library General Public
  *  License along with this library; if not, write to the Free
- *  Software Foundation, Inc., 51 Franklin St, Fifth Floor, 
+ *  Software Foundation, Inc., 51 Franklin St, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  *
  *  Author: Alexander van der Meij <alexandervdm@gliese.me>
@@ -82,8 +82,8 @@ gsettings_key_has_value (const gchar *value)
 {
     gchar **list;
     gint i;
-    
-    list = g_settings_get_strv (caja_extension_preferences, 
+
+    list = g_settings_get_strv (caja_extension_preferences,
                                 CAJA_PREFERENCES_DISABLED_EXTENSIONS);
 
     if (list != NULL)
@@ -108,21 +108,21 @@ gsettings_append_to_list (const char *value)
     gchar **new;
     gint size;
     gboolean retval;
-    
-    current = g_settings_get_strv (caja_extension_preferences, 
+
+    current = g_settings_get_strv (caja_extension_preferences,
                                    CAJA_PREFERENCES_DISABLED_EXTENSIONS);
-    
+
     for (size = 0; current[size] != NULL; size++);
 
     size += 1;
     size += 1;
-    
+
     new = g_realloc_n (current, size, sizeof (gchar *));
 
     new[size - 2] = g_strdup (value);
     new[size - 1] = NULL;
-    
-    retval = g_settings_set_strv (caja_extension_preferences, 
+
+    retval = g_settings_set_strv (caja_extension_preferences,
                                   CAJA_PREFERENCES_DISABLED_EXTENSIONS,
                                  (const gchar **) new);
 
@@ -137,19 +137,19 @@ gsettings_remove_from_list (const char *value)
     GArray *array;
     gint i;
     gboolean retval;
-    
-    current = g_settings_get_strv (caja_extension_preferences, 
+
+    current = g_settings_get_strv (caja_extension_preferences,
                                    CAJA_PREFERENCES_DISABLED_EXTENSIONS);
-                                   
+
     array = g_array_new (TRUE, TRUE, sizeof (gchar *));
-    
-    for (i = 0; current[i] != NULL; i++) 
+
+    for (i = 0; current[i] != NULL; i++)
     {
         if (g_strcmp0 (current[i], value) != 0)
             array = g_array_append_val (array, current[i]);
     }
-    
-    retval = g_settings_set_strv (caja_extension_preferences, 
+
+    retval = g_settings_set_strv (caja_extension_preferences,
                                   CAJA_PREFERENCES_DISABLED_EXTENSIONS,
                                  (const gchar **) array->data);
 
@@ -221,7 +221,7 @@ caja_extension_set_state (Extension *ext, gboolean new_state)
         g_return_val_if_fail (ext->state != new_state, FALSE);
         ext->state = new_state;
     }
-   
+
     gboolean retval;
     if (new_state) {
         retval = gsettings_remove_from_list (ext->filename);
@@ -229,7 +229,7 @@ caja_extension_set_state (Extension *ext, gboolean new_state)
     else {
         retval = gsettings_append_to_list (ext->filename);
     }
-    
+
     g_return_val_if_fail (retval == TRUE, FALSE);
     return TRUE;
 }

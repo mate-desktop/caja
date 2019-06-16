@@ -24,13 +24,13 @@ If you are a destination:
 
 if you are a source, you have to start a drag trough gtk_drag_begin.
 This will call drag_begin signal in the source.
-Then, when the destination calls gtk_drag_finish, drag_end will be 
+Then, when the destination calls gtk_drag_finish, drag_end will be
 called in the source.
 
-drag_get_data will be called in the source when the destination 
+drag_get_data will be called in the source when the destination
 calls gtk_drag_get_data
 
-So, the source is very easy to write: it just needs to implement 
+So, the source is very easy to write: it just needs to implement
 those 3 signals and it should not have any memory management issue.
 
 
@@ -38,14 +38,14 @@ those 3 signals and it should not have any memory management issue.
    --------------
 
 Things get a little bit complicated.
-when the dragging cursor gets in your window, you will get drag_motion 
+when the dragging cursor gets in your window, you will get drag_motion
 events. In caja, we do many things in this function:
 	- we start auto-scrolling if it is necessary.
 	- we call caja_*_ensure_data
 	- we prelight what is under the cursor if it can accept the drag.
 	- we try to expand what is under you if it can accept the drop (tree view)
 
-caja_*_ensure_data is vital. It calls gtk_drag_get_data to get the 
+caja_*_ensure_data is vital. It calls gtk_drag_get_data to get the
 data from the source. this allows the destination to store it in advance and use it
 to know if what is under the cursor can accept the drag.
 
@@ -57,7 +57,7 @@ Also, just before the drag_drop event, a drag_leave event is triggered.
 
 If no drop occurs, a drag_leave occurs.
 
-So, drag_data_received does 2 things: it is called to get the data when we are 
+So, drag_data_received does 2 things: it is called to get the data when we are
 in motion and store it. It is also called to do the actual drop operation when
 a drop happened.
 
@@ -73,12 +73,12 @@ This schema involves careful memory management:
 To solve 1), we should use ONE destroy function which cleans up the drag data.
 To solve 2), we have to be very careful where we call this fution from.
 
-This function has to clean up: 
+This function has to clean up:
      - the list of expanded nodes (tree view).
      - the autoscroll code.
      - the prelighting code.
      It also has to set drag_info->need_to_destroy to TRUE
-     so that during the next drag in this widget, the 
+     so that during the next drag in this widget, the
      rest of the drag data is destroyed before begening the actual
      new drag.
 

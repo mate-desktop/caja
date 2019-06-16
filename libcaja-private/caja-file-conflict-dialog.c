@@ -346,7 +346,7 @@ file_list_ready_cb (GList *files,
         gtk_button_set_label (GTK_BUTTON (details->replace_button),
                               _("Merge"));
     }
-    
+
     /* If meld is installed, and source and destination arent binary
      * files, show the diff button
      */
@@ -358,10 +358,10 @@ file_list_ready_cb (GList *files,
             g_free (meld_found);
             gboolean src_is_binary;
             gboolean dest_is_binary;
-            
+
             src_is_binary = caja_file_is_binary (details->source);
             dest_is_binary = caja_file_is_binary (details->destination);
-            
+
             if (!src_is_binary && !dest_is_binary)
                 gtk_widget_show (details->diff_button);
         }
@@ -523,7 +523,7 @@ diff_button_clicked_cb (GtkButton *w,
 {
     CajaFileConflictDialogPrivate *details;
     details = dialog->details;
-    
+
     GError *error;
     char *command;
 
@@ -537,7 +537,7 @@ diff_button_clicked_cb (GtkButton *w,
         argv[1] = g_file_get_path (caja_file_get_location (details->source));
         argv[2] = g_file_get_path (caja_file_get_location (details->destination));
         argv[3] = NULL;
-        
+
         error = NULL;
         if (!g_spawn_async_with_pipes (NULL,
                                        argv,

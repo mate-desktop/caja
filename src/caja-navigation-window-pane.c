@@ -62,7 +62,7 @@ real_set_active (CajaWindowPane *pane, gboolean is_active)
 
     /* navigation bar (manual entry) */
     caja_location_bar_set_active (CAJA_LOCATION_BAR (nav_pane->navigation_bar), is_active);
-    
+
     /* location button */
     gtk_widget_set_sensitive (gtk_bin_get_child (GTK_BIN (nav_pane->location_button)), is_active);
 }
@@ -490,7 +490,7 @@ notebook_switch_page_cb (GtkNotebook *notebook,
     g_assert (slot != NULL);
 
     caja_window_set_active_slot (slot->pane->window, slot);
-    
+
     caja_window_slot_update_icon (slot);
 
     return FALSE;
@@ -642,7 +642,7 @@ caja_navigation_window_pane_always_use_location_entry (CajaNavigationWindowPane 
     {
         caja_navigation_window_pane_set_bar_mode (pane, CAJA_BAR_PATH);
     }
-    
+
     g_signal_handlers_block_by_func (pane->location_button,
                                      G_CALLBACK (location_button_toggled_cb),
                                      pane);
@@ -808,7 +808,7 @@ caja_navigation_window_pane_set_bar_mode (CajaNavigationWindowPane *pane,
         gtk_widget_hide (pane->navigation_bar);
         break;
     }
-    
+
     if (mode == CAJA_BAR_NAVIGATION || mode == CAJA_BAR_PATH) {
         use_entry = (mode == CAJA_BAR_NAVIGATION);
 

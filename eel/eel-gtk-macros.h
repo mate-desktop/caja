@@ -119,7 +119,7 @@ G_STMT_START {                                                                \
 	? 0                                                                   \
 	: ((* class_cast_macro (G_OBJECT_GET_CLASS (object))->signal)         \
            parameters)                                                        \
- 
+
 #ifndef G_DISABLE_ASSERT
 
 /* Define a signal that is not implemented by this class but must be

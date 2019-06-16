@@ -1006,7 +1006,7 @@ caja_window_initialize_menus (CajaWindow *window)
     g_signal_connect_swapped (caja_preferences, "changed::" CAJA_PREFERENCES_SHOW_BACKUP_FILES,
                               G_CALLBACK(show_backup_files_preference_callback),
                               window);
-    
+
     window->details->ui_manager = gtk_ui_manager_new ();
     ui_manager = window->details->ui_manager;
     gtk_window_add_accel_group (GTK_WINDOW (window),
