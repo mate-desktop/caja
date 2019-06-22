@@ -71,6 +71,7 @@
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_MEDIA_AUTOMOUNT_OPEN "media_automount_open_checkbutton"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_MEDIA_AUTORUN_NEVER "media_autorun_never_checkbutton"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_USE_IEC_UNITS_WIDGET "use_iec_units"
+#define CAJA_FILE_MANAGEMENT_PROPERTIES_TABS_ENABLE_WIDGET "tabs_enable_checkbutton"
 
 /* int enums */
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_THUMBNAIL_LIMIT_WIDGET "preview_image_size_combobox"
@@ -194,6 +195,66 @@ enum
 
 static void caja_file_management_properties_dialog_update_media_sensitivity (GtkBuilder *builder);
 
+static gboolean
+dialog_page_scroll_event_cb (GtkWidget *widget, GdkEventScroll *event, GtkWindow *window)
+{
+    GtkNotebook *notebook = GTK_NOTEBOOK (widget);
+    GtkWidget *child, *event_widget, *action_widget;
+
+    child = gtk_notebook_get_nth_page (notebook, gtk_notebook_get_current_page (notebook));
+    if (child == NULL)
+        return FALSE;
+
+    event_widget = gtk_get_event_widget ((GdkEvent *) event);
+
+    /* Ignore scroll events from the content of the page */
+    if (event_widget == NULL ||
+        event_widget == child ||
+        gtk_widget_is_ancestor (event_widget, child))
+        return FALSE;
+
+    /* And also from the action widgets */
+    action_widget = gtk_notebook_get_action_widget (notebook, GTK_PACK_START);
+    if (event_widget == action_widget ||
+        (action_widget != NULL && gtk_widget_is_ancestor (event_widget, action_widget)))
+        return FALSE;
+    action_widget = gtk_notebook_get_action_widget (notebook, GTK_PACK_END);
+    if (event_widget == action_widget ||
+        (action_widget != NULL && gtk_widget_is_ancestor (event_widget, action_widget)))
+        return FALSE;
+
+    switch (event->direction) {
+    case GDK_SCROLL_RIGHT:
+    case GDK_SCROLL_DOWN:
+        gtk_notebook_next_page (notebook);
+        break;
+    case GDK_SCROLL_LEFT:
+    case GDK_SCROLL_UP:
+        gtk_notebook_prev_page (notebook);
+        break;
+    case GDK_SCROLL_SMOOTH:
+        switch (gtk_notebook_get_tab_pos (notebook)) {
+            case GTK_POS_LEFT:
+            case GTK_POS_RIGHT:
+                if (event->delta_y > 0)
+                    gtk_notebook_next_page (notebook);
+                else if (event->delta_y < 0)
+                    gtk_notebook_prev_page (notebook);
+                break;
+            case GTK_POS_TOP:
+            case GTK_POS_BOTTOM:
+                if (event->delta_x > 0)
+                    gtk_notebook_next_page (notebook);
+                else if (event->delta_x < 0)
+                    gtk_notebook_prev_page (notebook);
+                break;
+            }
+        break;
+    }
+
+    return TRUE;
+}
+
 static void
 caja_file_management_properties_size_group_create (GtkBuilder *builder,
         char *prefix,
@@ -201,14 +262,13 @@ caja_file_management_properties_size_group_create (GtkBuilder *builder,
 {
     GtkSizeGroup *size_group;
     int i;
-    GtkWidget *widget = NULL;
+    char *item_name;
+    GtkWidget *widget;
 
     size_group = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL);
 
     for (i = 0; i < items; i++)
     {
-        char *item_name;
-
         item_name = g_strdup_printf ("%s_%d", prefix, i);
         widget = GTK_WIDGET (gtk_builder_get_object (builder, item_name));
         gtk_size_group_add_widget (size_group, widget);
@@ -223,6 +283,7 @@ preferences_show_help (GtkWindow *parent,
                        char const *sect_id)
 {
     GError *error = NULL;
+    GtkWidget *dialog;
     char *help_string;
 
     g_assert (helpfile != NULL);
@@ -237,8 +298,6 @@ preferences_show_help (GtkWindow *parent,
 
     if (error)
     {
-        GtkWidget *dialog;
-
         dialog = gtk_message_dialog_new (GTK_WINDOW (parent),
                                          GTK_DIALOG_DESTROY_WITH_PARENT,
                                          GTK_MESSAGE_ERROR,
@@ -261,10 +320,10 @@ caja_file_management_properties_dialog_response_cb (GtkDialog *parent,
         int response_id,
         GtkBuilder *builder)
 {
+    char *section;
+
     if (response_id == GTK_RESPONSE_HELP)
     {
-        char *section;
-
         switch (gtk_notebook_get_current_page (GTK_NOTEBOOK (gtk_builder_get_object (builder, "notebook1"))))
         {
         default:
@@ -728,22 +787,22 @@ extension_state_toggled (GtkCellRendererToggle *cell, gchar *path_str, gpointer 
 	GtkTreeModel *model;
     gboolean new_state;
     Extension *ext;
-
+    
 	path = gtk_tree_path_new_from_string (path_str);
 	model = gtk_tree_view_get_model (GTK_TREE_VIEW (data));
-
+    
     g_object_get (G_OBJECT (cell), "active", &new_state, NULL);
     gtk_tree_model_get_iter_from_string (model, &iter, path_str);
-
+    
     new_state ^= 1;
 
 	if (&iter != NULL)
     {
         gtk_tree_model_get (model, &iter, EXT_STRUCT_COLUMN, &ext, -1);
-
+        
         if (caja_extension_set_state (ext, new_state))
         {
-            gtk_list_store_set (GTK_LIST_STORE (model), &iter,
+            gtk_list_store_set (GTK_LIST_STORE (model), &iter, 
                                 EXT_STATE_COLUMN, new_state, -1);
         }
     }
@@ -874,7 +933,7 @@ caja_file_management_properties_dialog_setup_extension_page (GtkBuilder *builder
     GdkPixbuf *ext_pixbuf_icon;
     GtkButton *about_button, *configure_button;
     gchar *ext_text_info;
-
+    
     GList *extensions;
     int i;
 
@@ -884,16 +943,16 @@ caja_file_management_properties_dialog_setup_extension_page (GtkBuilder *builder
                     gtk_builder_get_object (builder, "extension_view"));
     store = GTK_LIST_STORE (
                     gtk_builder_get_object (builder, "extension_store"));
-
+                    
     toggle = GTK_CELL_RENDERER_TOGGLE (
                     gtk_builder_get_object (builder, "extension_toggle"));
     g_object_set (toggle, "xpad", 6, NULL);
-
+                    
     g_signal_connect (toggle, "toggled",
                       G_CALLBACK (extension_state_toggled), view);
-
+    
     icon_theme = gtk_icon_theme_get_default();
-
+    
     for (i = 0; i < g_list_length (extensions); i++)
     {
         Extension* ext = EXTENSION (g_list_nth_data (extensions, i));
@@ -926,7 +985,7 @@ caja_file_management_properties_dialog_setup_extension_page (GtkBuilder *builder
         gtk_list_store_append (store, &iter);
         gtk_list_store_set (store, &iter,
                             EXT_STATE_COLUMN, ext->state,
-                            EXT_ICON_COLUMN, ext_pixbuf_icon,
+                            EXT_ICON_COLUMN, ext_pixbuf_icon, 
                             EXT_INFO_COLUMN, ext_text_info,
                             EXT_STRUCT_COLUMN, ext, -1);
 
@@ -1111,8 +1170,8 @@ bind_builder_radio (GtkBuilder *builder,
             const char *prefs,
             const char **values)
 {
+    GtkWidget *button;
     int i;
-    GtkWidget *button = NULL;
 
     for (i = 0; widget_names[i] != NULL; i++) {
         button = GTK_WIDGET (gtk_builder_get_object (builder, widget_names[i]));
@@ -1169,6 +1228,11 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
     bind_builder_bool (builder, caja_preferences,
                        CAJA_FILE_MANAGEMENT_PROPERTIES_TRASH_CONFIRM_WIDGET,
                        CAJA_PREFERENCES_CONFIRM_TRASH);
+
+    bind_builder_bool (builder, caja_preferences,
+                       CAJA_FILE_MANAGEMENT_PROPERTIES_TABS_ENABLE_WIDGET,
+                       CAJA_PREFERENCES_ENABLE_SWITCH_TABS);
+
     bind_builder_bool (builder, caja_preferences,
                        CAJA_FILE_MANAGEMENT_PROPERTIES_TRASH_CONFIRM_TRASH_WIDGET,
                        CAJA_PREFERENCES_CONFIRM_MOVE_TO_TRASH);
@@ -1271,6 +1335,12 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
     {
         gtk_window_set_screen (GTK_WINDOW (dialog), gtk_window_get_screen(window));
     }
+
+    GtkWidget *notebook = GTK_WIDGET (gtk_builder_get_object (builder, "notebook1"));
+    gtk_widget_add_events (GTK_WIDGET (notebook), GDK_SCROLL_MASK);
+    g_signal_connect (GTK_WIDGET (notebook), "scroll-event",
+                      G_CALLBACK (dialog_page_scroll_event_cb),
+                      window);
 
     gtk_widget_show (dialog);
 }
