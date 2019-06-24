@@ -4,25 +4,24 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Francisco B.G. <inactive+franchulo@transifex.com>, 2018
 # Naresu Tenshi <naresutenshi@gmail.com>, 2018
 # Alberto Vicente Sánchez <odintdh@gmail.com>, 2018
 # Arcenio Cid <gusty.miliki@gmail.com>, 2018
 # Mario Verdin <jmvl1303@gmail.com>, 2018
 # ebray187 <ebray187@gmail.com>, 2018
-# Artopal <artopal+transifex@fastmail.fm>, 2018
-# Andres Sanchez <blackatze93@gmail.com>, 2018
 # Benjamin Perez Carrillo <benperezc@gmail.com>, 2018
+# Artopal <artopal+transifex@fastmail.fm>, 2018
+# Lluís Tusquellas <lutusq@gmail.com>, 2018
+# Andres Sanchez <blackatze93@gmail.com>, 2018
 # difusion, 2018
 # Emiliano Fascetti, 2018
-# Luis Armando Medina <lamedina@gmail.com>, 2018
 # seacat <seacat.linux@gmail.com>, 2018
 # Fito JB, 2018
-# Lluís Tusquellas <lutusq@gmail.com>, 2018
 # Miguel de Dios Matias <tres.14159@gmail.com>, 2018
 # David García-Abad <dgarciabad@gmail.com>, 2018
-# Joel Barrios <darkshram@gmail.com>, 2019
+# Joel Barrios <darkshram@gmail.com>, 2018
 # Stefano Karapetsas <stefano@karapetsas.com>, 2019
+# Toni Estévez <toni.estevez@gmail.com>, 2019
 # 
 #, fuzzy
 msgid ""
@@ -31,7 +30,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-16 22:36+0100\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2019\n"
+"Last-Translator: Toni Estévez <toni.estevez@gmail.com>, 2019\n"
 "Language-Team: Spanish (https://www.transifex.com/mate/teams/13566/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,7 +44,7 @@ msgstr "_Patrones"
 
 #: ../data/browser.xml.h:2
 msgid "Drag a pattern tile to an object to change it"
-msgstr "Arrastre un patrón de baldosas sobre un objeto para cambiarlo"
+msgstr "Arrastre un patrón sobre un objeto para cambiarlo"
 
 #: ../data/browser.xml.h:3
 msgid "Blue Ridge"
@@ -61,7 +60,7 @@ msgstr "Letras azules"
 
 #: ../data/browser.xml.h:6
 msgid "Brushed Metal"
-msgstr "Metal pintado"
+msgstr "Metal bruñido"
 
 #: ../data/browser.xml.h:7
 msgid "Burlap"
@@ -81,7 +80,7 @@ msgstr "Corcho"
 
 #: ../data/browser.xml.h:11
 msgid "Countertop"
-msgstr "Abstracto"
+msgstr "Encimera"
 
 #: ../data/browser.xml.h:12
 msgid "Dark MATE"
@@ -225,7 +224,7 @@ msgstr "Hoja"
 
 #: ../data/browser.xml.h:47
 msgid "Deep Teal"
-msgstr "Verde musgo"
+msgstr "Verde azulado"
 
 #: ../data/browser.xml.h:48
 msgid "Dark Cork"
@@ -285,7 +284,7 @@ msgstr "Eclipse"
 
 #: ../data/browser.xml.h:62
 msgid "Charcoal"
-msgstr "Tizón"
+msgstr "Carbón"
 
 #: ../data/browser.xml.h:63
 msgid "Onyx"
@@ -323,11 +322,11 @@ msgid ""
 "which Caja is a fork. </p>"
 msgstr ""
 "<p> Caja es el gestor de archivos oficial para el escritorio MATE. Permite "
-"la exploración de directorios, así como previsualizar archivos y ejecutar "
-"aplicaciones asociadas con ellos. También es responsable de manejar los "
-"iconos en el escritorio MATE. Funciona en sistemas de archivos locales y "
-"remotos. </p> <p> Caja es ampliable mediante un sistema de complementos, "
-"similar al de GNOME Nautilus, del cual Caja es una bifurcación. </p>"
+"navegar por las carpetas, así como previsualizar los archivos y ejecutar las"
+" aplicaciones asociadas. También es el responsable de gestionar los iconos "
+"en el escritorio MATE. Funciona en sistemas de archivos locales y remotos. "
+"</p> <p> Caja es ampliable mediante un sistema de complementos, similar al "
+"de Nautilus de GNOME, del cual Caja es una bifurcación. </p>"
 
 #: ../data/caja-autorun-software.desktop.in.h:1
 msgid "Autorun Prompt"
@@ -358,8 +357,8 @@ msgstr "Equipo"
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
 msgstr ""
-"Examinar los discos locales y remotos y las carpetas accesibles desde este "
-"equipo"
+"Navegar por los discos locales y remotos y las carpetas accesibles desde "
+"este equipo"
 
 #: ../data/caja.desktop.in.h:2
 msgid "File Manager"
@@ -372,7 +371,8 @@ msgstr "Gestión de archivos"
 #: ../data/caja-file-management-properties.desktop.in.h:2
 msgid "Change the behaviour and appearance of file manager windows"
 msgstr ""
-"Cambie el comportamiento y apariencia de las ventanas del gestor de archivos"
+"Cambie el comportamiento y la apariencia de las ventanas del gestor de "
+"archivos"
 
 #: ../data/caja-folder-handler.desktop.in.h:2
 #: ../libcaja-private/caja-autorun.c:578
@@ -419,8 +419,8 @@ msgid ""
 "This does NOT affect the alignment of the label within its allocation. See "
 "GtkMisc::xalign for that."
 msgstr ""
-"La alineación de las líneas en el texto de la etiqueta relativa a cada otra."
-" Esto NO afecta a la alineación de la etiqueta dentro de su asignación. Vea "
+"La alineación de las líneas en el texto de la etiqueta respecto a las demás."
+" Esto NO afecta a la alineación de la etiqueta en su asignación. Consulte "
 "GtkMisc::xalign para hacer eso."
 
 #: ../eel/eel-editable-label.c:345
@@ -430,7 +430,7 @@ msgstr "Ajuste de línea"
 #: ../eel/eel-editable-label.c:346
 msgid "If set, wrap lines if the text becomes too wide."
 msgstr ""
-"Si está activado ajusta la líneas si el texto se vuelve demasiado ancho."
+"Si se activa, se ajustan las líneas si el texto se vuelve demasiado ancho."
 
 #: ../eel/eel-editable-label.c:353
 msgid "Cursor Position"
@@ -522,7 +522,7 @@ msgstr "_Revertir"
 
 #: ../eel/eel-stock-dialogs.c:290
 msgid "You can stop this operation by clicking cancel."
-msgstr "Puede parar esta operación pulsando cancelar."
+msgstr "Puede parar esta operación haciendo clic en cancelar."
 
 #: ../eel/eel-stock-dialogs.c:296 ../eel/eel-stock-dialogs.c:451
 #: ../eel/eel-stock-dialogs.c:655 ../libcaja-private/caja-autorun.c:1155
@@ -536,7 +536,7 @@ msgstr "_Aceptar"
 
 #: ../eel/eel-stock-dialogs.c:657
 msgid "_Clear"
-msgstr ""
+msgstr "_Borrar"
 
 #: ../eel/eel-vfs-extensions.c:96
 msgid " (invalid Unicode)"
@@ -544,7 +544,7 @@ msgstr " (Unicode no válido)"
 
 #: ../libcaja-private/caja-autorun.c:522
 msgid "No applications found"
-msgstr "No se encontró ninguna aplicación"
+msgstr "No se ha encontrado ninguna aplicación"
 
 #: ../libcaja-private/caja-autorun.c:543
 msgid "Ask what to do"
@@ -565,68 +565,68 @@ msgstr "Abrir con otra aplicación…"
 
 #: ../libcaja-private/caja-autorun.c:1044
 msgid "You have just inserted an Audio CD."
-msgstr "Ha insertado un CD de sonido."
+msgstr "Acaba de insertar un CD de audio."
 
 #: ../libcaja-private/caja-autorun.c:1048
 msgid "You have just inserted an Audio DVD."
-msgstr "Ha insertado un DVD de sonido."
+msgstr "Acaba de insertar un DVD de audio."
 
 #: ../libcaja-private/caja-autorun.c:1052
 msgid "You have just inserted a Video DVD."
-msgstr "Ha insertado un DVD de vídeo."
+msgstr "Acaba de insertar un DVD de vídeo."
 
 #: ../libcaja-private/caja-autorun.c:1056
 msgid "You have just inserted a Video CD."
-msgstr "Ha insertado un CD de vídeo."
+msgstr "Acaba de insertar un CD de vídeo."
 
 #: ../libcaja-private/caja-autorun.c:1060
 msgid "You have just inserted a Super Video CD."
-msgstr "Ha insertado un CD de Super Video."
+msgstr "Acaba de insertar un CD de supervídeo."
 
 #: ../libcaja-private/caja-autorun.c:1064
 msgid "You have just inserted a blank CD."
-msgstr "Ha insertado un CD virgen."
+msgstr "Acaba de insertar un CD virgen."
 
 #: ../libcaja-private/caja-autorun.c:1068
 msgid "You have just inserted a blank DVD."
-msgstr "Ha insertado un DVD virgen."
+msgstr "Acaba de insertar un DVD virgen."
 
 #: ../libcaja-private/caja-autorun.c:1072
 msgid "You have just inserted a blank Blu-Ray disc."
-msgstr "Ha insertado un disco Blu-Ray virgen."
+msgstr "Acaba de insertar un disco Blu-Ray virgen."
 
 #: ../libcaja-private/caja-autorun.c:1076
 msgid "You have just inserted a blank HD DVD."
-msgstr "Ha insertado un HD DVD virgen."
+msgstr "Acaba de insertar un HD DVD virgen."
 
 #: ../libcaja-private/caja-autorun.c:1080
 msgid "You have just inserted a Photo CD."
-msgstr "Ha insertado un disco de fotos Photo CD."
+msgstr "Acaba de insertar un  Photo CD."
 
 #: ../libcaja-private/caja-autorun.c:1084
 msgid "You have just inserted a Picture CD."
-msgstr "Ha insertado un disco de fotos Picture CD."
+msgstr "Acaba de insertar un Picture CD."
 
 #: ../libcaja-private/caja-autorun.c:1088
 msgid "You have just inserted a medium with digital photos."
-msgstr "Ha insertado un soporte con fotos digitales."
+msgstr "Acaba de insertar un soporte con fotos digitales."
 
 #: ../libcaja-private/caja-autorun.c:1092
 msgid "You have just inserted a digital audio player."
-msgstr "Ha insertado un reproductor de sonido digital."
+msgstr "Acaba de insertar un reproductor de sonido digital."
 
 #: ../libcaja-private/caja-autorun.c:1096
 msgid ""
 "You have just inserted a medium with software intended to be automatically "
 "started."
 msgstr ""
-"Ha insertado un soporte con software previsto para que se ejecute "
+"Acaba de insertar un soporte con software previsto para que se ejecute "
 "automáticamente."
 
 #. fallback to generic greeting
 #: ../libcaja-private/caja-autorun.c:1101
 msgid "You have just inserted a medium."
-msgstr "Ha insertado un soporte."
+msgstr "Acaba de insertar un soporte."
 
 #: ../libcaja-private/caja-autorun.c:1103
 msgid "Choose what application to launch."
@@ -654,7 +654,7 @@ msgstr "_Siempre realizar esta acción"
 #: ../src/file-manager/fm-directory-view.c:7578
 #: ../src/file-manager/fm-tree-view.c:1364 ../src/caja-places-sidebar.c:2735
 msgid "_Eject"
-msgstr "E_xpulsar"
+msgstr "_Expulsar"
 
 #. name, icon name
 #. label, accelerator
@@ -810,7 +810,7 @@ msgstr "El contexto SELinux de seguridad del archivo."
 #: ../libcaja-private/caja-column-utilities.c:138
 #: ../src/caja-image-properties-page.c:365 ../src/caja-query-editor.c:160
 msgid "Location"
-msgstr "Ubicación"
+msgstr "Ubicación"
 
 #: ../libcaja-private/caja-column-utilities.c:139
 msgid "The location of the file."
@@ -831,7 +831,7 @@ msgstr "Movido a la papelera en"
 
 #: ../libcaja-private/caja-column-utilities.c:190
 msgid "Date when file was moved to the Trash"
-msgstr "La fecha en la que el archivo se movió a la papelera"
+msgstr "La fecha en la que el archivo se ha movido a la papelera"
 
 #: ../libcaja-private/caja-column-utilities.c:196
 msgid "Original Location"
@@ -846,7 +846,7 @@ msgstr "Ubicación original del archivo antes de moverlo a la papelera"
 #: ../libcaja-private/caja-mime-application-chooser.c:442
 #: ../src/caja-property-browser.c:1994
 msgid "Reset"
-msgstr "Reiniciar"
+msgstr "Restablecer"
 
 #: ../libcaja-private/caja-desktop-directory-file.c:457
 #: ../libcaja-private/caja-desktop-icon-file.c:163
@@ -937,11 +937,11 @@ msgstr "Elija un nombre diferente para el emblema."
 #: ../libcaja-private/caja-emblem-utils.c:284
 #: ../libcaja-private/caja-emblem-utils.c:299
 msgid "Sorry, unable to save custom emblem."
-msgstr "No se pudo guardar el emblema personalizado."
+msgstr "No se puede guardar el emblema personalizado."
 
 #: ../libcaja-private/caja-emblem-utils.c:323
 msgid "Sorry, unable to save custom emblem name."
-msgstr "No se pudo guardar el nombre del emblema personalizado."
+msgstr "No se puede guardar el nombre del emblema personalizado."
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:143
 #, c-format
@@ -973,7 +973,7 @@ msgstr "Ya existe una carpeta con el mismo nombre en «%s»."
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:172
 msgid "Replacing it will remove all files in the folder."
-msgstr "Reemplazarla eliminará todos los archivos en la carpeta."
+msgstr "Cuando se reemplace, se eliminarán todos los archivos de la carpeta."
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:174
 #, c-format
@@ -1067,7 +1067,7 @@ msgstr "Diferencias..."
 #. Setup the checkbox to apply the action to all files
 #: ../libcaja-private/caja-file-conflict-dialog.c:645
 msgid "Apply this action to all files and folders"
-msgstr "Aplicar esta acción a todos los archivos y carpetas"
+msgstr "Aplicar esta acción a todos los archivos y todas las carpetas"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:660
 #: ../libcaja-private/caja-file-operations.c:187
@@ -1089,7 +1089,7 @@ msgstr "Combinar carpeta"
 #: ../libcaja-private/caja-file-conflict-dialog.c:753
 #: ../libcaja-private/caja-file-conflict-dialog.c:758
 msgid "File and Folder conflict"
-msgstr "Conflicto entre archivo y carpeta"
+msgstr "Conflicto entre archivos y carpetas"
 
 #: ../libcaja-private/caja-file-conflict-dialog.c:758
 msgid "File conflict"
@@ -1310,7 +1310,7 @@ msgstr " (%'d"
 
 #: ../libcaja-private/caja-file-operations.c:1363
 msgid "Are you sure you want to permanently delete \"%B\" from the trash?"
-msgstr "¿Confirma que quiere eliminar permanentemente a «%B» de la papelera?"
+msgstr "¿Seguro que quiere eliminar permanentemente a «%B» de la papelera?"
 
 #: ../libcaja-private/caja-file-operations.c:1366
 #, c-format
@@ -1321,7 +1321,11 @@ msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items from the "
 "trash?"
 msgstr[0] ""
+"¿Seguro que quiere eliminar permanentemente el elemento seleccionado de la "
+"papelera?"
 msgstr[1] ""
+"¿Seguro que quiere eliminar permanentemente los %'d elementos seleccionados "
+"de la papelera?"
 
 #: ../libcaja-private/caja-file-operations.c:1376
 #: ../libcaja-private/caja-file-operations.c:1442
@@ -1345,7 +1349,7 @@ msgstr "Vaciar la _papelera"
 
 #: ../libcaja-private/caja-file-operations.c:1430
 msgid "Are you sure you want to permanently delete \"%B\"?"
-msgstr "¿Confirma que quiere eliminar permanentemente «%B»?"
+msgstr "¿Seguro que quiere eliminar permanentemente «%B»?"
 
 #: ../libcaja-private/caja-file-operations.c:1433
 #, c-format
@@ -1353,18 +1357,21 @@ msgid "Are you sure you want to permanently delete the %'d selected item?"
 msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items?"
 msgstr[0] ""
+"¿Seguro que quiere eliminar permanentemente el elemento seleccionado?"
 msgstr[1] ""
+"¿Seguro que quiere eliminar permanentemente los %'d elementos seleccionados?"
 
 #: ../libcaja-private/caja-file-operations.c:1472
 msgid "Are you sure you want to trash \"%B\"?"
-msgstr "¿Confirma que quiere enviar «%B» a la papelera?"
+msgstr "¿Seguro que quiere enviar «%B» a la papelera?"
 
 #: ../libcaja-private/caja-file-operations.c:1475
 #, c-format
 msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
-msgstr[0] ""
+msgstr[0] "¿Seguro que quiere enviar el elemento seleccionado a la papelera?"
 msgstr[1] ""
+"¿Seguro que quiere enviar los %'d elementos seleccionados a la papelera?"
 
 #: ../libcaja-private/caja-file-operations.c:1484
 msgid "Items moved to the trash may be recovered until the trash is emptied."
@@ -1380,8 +1387,8 @@ msgstr "Enviar a la _papelera"
 #, c-format
 msgid "%'d file left to delete"
 msgid_plural "%'d files left to delete"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d archivo por eliminar"
+msgstr[1] "%'d archivos por eliminar"
 
 #: ../libcaja-private/caja-file-operations.c:1524
 msgid "Deleting files"
@@ -1393,7 +1400,7 @@ msgstr "Eliminando archivos"
 #: ../libcaja-private/caja-file-operations.c:1538
 msgid "%T left"
 msgid_plural "%T left"
-msgstr[0] "Queda %T"
+msgstr[0] "Queda %T "
 msgstr[1] "Quedan %T"
 
 #: ../libcaja-private/caja-file-operations.c:1605
@@ -1402,15 +1409,15 @@ msgstr[1] "Quedan %T"
 #: ../libcaja-private/caja-file-operations.c:1755
 #: ../libcaja-private/caja-file-operations.c:2578
 msgid "Error while deleting."
-msgstr "Error al eliminar."
+msgstr "Se ha producido un error al eliminar."
 
 #: ../libcaja-private/caja-file-operations.c:1609
 msgid ""
 "Files in the folder \"%B\" cannot be deleted because you do not have "
 "permissions to see them."
 msgstr ""
-"Los archivos en la carpeta «%B» no se pueden eliminar porque no tiene "
-"permisos para verlos."
+"Los archivos en la carpeta «%B» no se pueden eliminar porque no tiene los "
+"permisos de lectura necesarios."
 
 #: ../libcaja-private/caja-file-operations.c:1612
 #: ../libcaja-private/caja-file-operations.c:2638
@@ -1418,8 +1425,8 @@ msgstr ""
 msgid ""
 "There was an error getting information about the files in the folder \"%B\"."
 msgstr ""
-"Hubo un error al obtener la información acerca de los archivos en la carpeta"
-" «%B»."
+"Se ha producido un error al obtener información sobre los archivos de la "
+"carpeta «%B»."
 
 #: ../libcaja-private/caja-file-operations.c:1621
 #: ../libcaja-private/caja-file-operations.c:3629
@@ -1437,15 +1444,15 @@ msgstr ""
 #: ../libcaja-private/caja-file-operations.c:2677
 #: ../libcaja-private/caja-file-operations.c:3665
 msgid "There was an error reading the folder \"%B\"."
-msgstr "Hubo un error al leer la carpeta «%B»."
+msgstr "Se ha producido un error al leer la carpeta «%B»."
 
 #: ../libcaja-private/caja-file-operations.c:1679
 msgid "Could not remove the folder %B."
-msgstr "No se pudo eliminar la carpeta %B."
+msgstr "No se ha podido eliminar la carpeta %B."
 
 #: ../libcaja-private/caja-file-operations.c:1756
 msgid "There was an error deleting %B."
-msgstr "Hubo un error al eliminar %B."
+msgstr "Se ha producido un error al eliminar %B."
 
 #: ../libcaja-private/caja-file-operations.c:1836
 msgid "Moving files to trash"
@@ -1455,8 +1462,8 @@ msgstr "Moviendo archivos a la papelera"
 #, c-format
 msgid "%'d file left to trash"
 msgid_plural "%'d files left to trash"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Queda %'d archivo por mover a la papelera"
+msgstr[1] "quedan %'d archivos por mover a la papelera"
 
 #: ../libcaja-private/caja-file-operations.c:1895
 msgid "Cannot move file to trash, do you want to delete immediately?"
@@ -1477,11 +1484,11 @@ msgstr "Borrando archivos"
 
 #: ../libcaja-private/caja-file-operations.c:2159
 msgid "Unable to eject %V"
-msgstr "No se pudo expulsar %V"
+msgstr "No se puede expulsar %V"
 
 #: ../libcaja-private/caja-file-operations.c:2161
 msgid "Unable to unmount %V"
-msgstr "No se pudo montar %V"
+msgstr "No se puede montar %V"
 
 #: ../libcaja-private/caja-file-operations.c:2319
 msgid "Do you want to empty the trash before you unmount?"
@@ -1502,60 +1509,60 @@ msgstr "_No vaciar la papelera"
 #: ../libcaja-private/caja-file-operations.c:2447
 #, c-format
 msgid "Unable to mount %s"
-msgstr "No se pudo montar %s"
+msgstr "No se puede montar %s"
 
 #: ../libcaja-private/caja-file-operations.c:2525
 #, c-format
 msgid "Preparing to copy %'d file (%S)"
 msgid_plural "Preparing to copy %'d files (%S)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Preparándose para copiar %'d archivo (%S)"
+msgstr[1] "Preparándose para copiar %'d archivos (%S)"
 
 #: ../libcaja-private/caja-file-operations.c:2531
 #, c-format
 msgid "Preparing to move %'d file (%S)"
 msgid_plural "Preparing to move %'d files (%S)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Preparándose para mover %'d archivo (%S)"
+msgstr[1] "Preparándose para mover %'d archivos (%S)"
 
 #: ../libcaja-private/caja-file-operations.c:2537
 #, c-format
 msgid "Preparing to delete %'d file (%S)"
 msgid_plural "Preparing to delete %'d files (%S)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Preparándose para eliminar %'d archivo (%S)"
+msgstr[1] "Preparándose para eliminar %'d archivos (%S)"
 
 #: ../libcaja-private/caja-file-operations.c:2543
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Preparándose para mover a la papelera %'d archivo"
+msgstr[1] "Preparándose para mover a la papelera %'d archivos"
 
 #: ../libcaja-private/caja-file-operations.c:2574
 #: ../libcaja-private/caja-file-operations.c:3472
 #: ../libcaja-private/caja-file-operations.c:3612
 #: ../libcaja-private/caja-file-operations.c:3657
 msgid "Error while copying."
-msgstr "Error al copiar."
+msgstr "Se ha producido un error al copiar."
 
 #: ../libcaja-private/caja-file-operations.c:2576
 #: ../libcaja-private/caja-file-operations.c:3610
 #: ../libcaja-private/caja-file-operations.c:3655
 msgid "Error while moving."
-msgstr "Error al mover."
+msgstr "Se ha producido un error al mover."
 
 #: ../libcaja-private/caja-file-operations.c:2580
 msgid "Error while moving files to trash."
-msgstr "Error al mover los archivos a la papelera."
+msgstr "Se ha producido un error al mover los archivos a la papelera."
 
 #: ../libcaja-private/caja-file-operations.c:2635
 msgid ""
 "Files in the folder \"%B\" cannot be handled because you do not have "
 "permissions to see them."
 msgstr ""
-"Los archivos en la carpeta «%B» no se pueden gestionar porque no tiene "
-"permisos para verlos."
+"Los archivos en la carpeta «%B» no se pueden gestionar porque no tiene los "
+"permisos de lectura necesarios."
 
 #: ../libcaja-private/caja-file-operations.c:2674
 msgid ""
@@ -1569,19 +1576,18 @@ msgid ""
 "The file \"%B\" cannot be handled because you do not have permissions to "
 "read it."
 msgstr ""
-"El archivo «%B» no se puede gestionar porque usted no tiene permisos para "
-"leerlo."
+"El archivo «%B» no se puede gestionar porque no tiene permisos para leerlo."
 
 #: ../libcaja-private/caja-file-operations.c:2755
 msgid "There was an error getting information about \"%B\"."
-msgstr "Hubo un error al obtener la información acerca de «%B»."
+msgstr "Se ha producido un error al obtener información sobre de «%B»."
 
 #: ../libcaja-private/caja-file-operations.c:2855
 #: ../libcaja-private/caja-file-operations.c:2897
 #: ../libcaja-private/caja-file-operations.c:2930
 #: ../libcaja-private/caja-file-operations.c:2960
 msgid "Error while copying to \"%B\"."
-msgstr "Error al copiar a «%B»."
+msgstr "Se ha producido un error al copiar a «%B»."
 
 #: ../libcaja-private/caja-file-operations.c:2859
 msgid "You do not have permissions to access the destination folder."
@@ -1589,7 +1595,7 @@ msgstr "No tiene permiso para acceder a la carpeta de destino."
 
 #: ../libcaja-private/caja-file-operations.c:2861
 msgid "There was an error getting information about the destination."
-msgstr "Hubo un error al obtener la información acerca del destino."
+msgstr "Se ha producido un error al obtener información sobre el destino."
 
 #: ../libcaja-private/caja-file-operations.c:2898
 msgid "The destination is not a folder."
@@ -1600,8 +1606,8 @@ msgid ""
 "There is not enough space on the destination. Try to remove files to make "
 "space."
 msgstr ""
-"No hay suficiente espacio en el destino. Pruebe a eliminar archivos para "
-"hacer espacio."
+"No hay suficiente espacio en el destino. Intente eliminar archivos para "
+"ganar espacio."
 
 #: ../libcaja-private/caja-file-operations.c:2933
 #, c-format
@@ -1627,32 +1633,32 @@ msgstr "Duplicando «%B»"
 #: ../libcaja-private/caja-file-operations.c:3034
 msgid "Moving %'d file (in \"%B\") to \"%B\""
 msgid_plural "Moving %'d files (in \"%B\") to \"%B\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Moviendo %'d archivo (en «%B») a «%B»"
+msgstr[1] "Moviendo %'d archivos (en «%B») a «%B»"
 
 #: ../libcaja-private/caja-file-operations.c:3038
 msgid "Copying %'d file (in \"%B\") to \"%B\""
 msgid_plural "Copying %'d files (in \"%B\") to \"%B\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Copiando %'d archivo (en «%B») a «%B»"
+msgstr[1] "Copiando %'d archivos (en «%B») a «%B»"
 
 #: ../libcaja-private/caja-file-operations.c:3046
 msgid "Duplicating %'d file (in \"%B\")"
 msgid_plural "Duplicating %'d files (in \"%B\")"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Duplicando %'d archivo (en «%B»)"
+msgstr[1] "Duplicando %'d archivos (en «%B»)"
 
 #: ../libcaja-private/caja-file-operations.c:3056
 msgid "Moving %'d file to \"%B\""
 msgid_plural "Moving %'d files to \"%B\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Moviendo %'d archivo a «%B»"
+msgstr[1] "Moviendo %'d archivos a «%B»"
 
 #: ../libcaja-private/caja-file-operations.c:3060
 msgid "Copying %'d file to \"%B\""
 msgid_plural "Copying %'d files to \"%B\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Copiando %'d archivo a «%B»"
+msgstr[1] "Copiando %'d archivos a «%B»"
 
 #: ../libcaja-private/caja-file-operations.c:3066
 #, c-format
@@ -1678,8 +1684,8 @@ msgstr "%S de %S"
 #: ../libcaja-private/caja-file-operations.c:3097
 msgid "%S of %S — %T left (%S/sec)"
 msgid_plural "%S of %S — %T left (%S/sec)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%S de %S; queda %T (%S/s)"
+msgstr[1] "%S de %S; quedan %T (%S/s)"
 
 #: ../libcaja-private/caja-file-operations.c:3476
 msgid ""
@@ -1691,15 +1697,15 @@ msgstr ""
 
 #: ../libcaja-private/caja-file-operations.c:3479
 msgid "There was an error creating the folder \"%B\"."
-msgstr "Hubo un error al crear la carpeta «%B»."
+msgstr "Se ha producido un error al crear la carpeta «%B»."
 
 #: ../libcaja-private/caja-file-operations.c:3617
 msgid ""
 "Files in the folder \"%B\" cannot be copied because you do not have "
 "permissions to see them."
 msgstr ""
-"Los archivos en la carpeta «%B» no se pueden copiar porque no tiene permisos"
-" para verlos."
+"Los archivos en la carpeta «%B» no se pueden copiar porque no tiene los "
+"permisos de lectura necesarios."
 
 #: ../libcaja-private/caja-file-operations.c:3662
 msgid ""
@@ -1712,44 +1718,44 @@ msgstr ""
 #: ../libcaja-private/caja-file-operations.c:4401
 #: ../libcaja-private/caja-file-operations.c:4993
 msgid "Error while moving \"%B\"."
-msgstr "Error al mover «%B»."
+msgstr "Se ha producido un error al mover «%B»."
 
 #: ../libcaja-private/caja-file-operations.c:3708
 msgid "Could not remove the source folder."
-msgstr "No se pudo eliminar la carpeta origen."
+msgstr "No se ha podido eliminar la carpeta origen."
 
 #: ../libcaja-private/caja-file-operations.c:3793
 #: ../libcaja-private/caja-file-operations.c:3834
 #: ../libcaja-private/caja-file-operations.c:4403
 #: ../libcaja-private/caja-file-operations.c:4475
 msgid "Error while copying \"%B\"."
-msgstr "Error al copiar «%B»."
+msgstr "Se ha producido un error al copiar «%B»."
 
 #: ../libcaja-private/caja-file-operations.c:3794
 #, c-format
 msgid "Could not remove files from the already existing folder %F."
-msgstr "No se pudieron eliminar los archivos de la carpeta ya existente %F."
+msgstr "No se han podido eliminar los archivos de la carpeta ya existente %F."
 
 #: ../libcaja-private/caja-file-operations.c:3835
 #, c-format
 msgid "Could not remove the already existing file %F."
-msgstr "No se pudo eliminar el archivo ya existente %F."
+msgstr "No se ha podido eliminar el archivo ya existente %F."
 
 #. the run_warning() frees all strings passed in automatically
 #: ../libcaja-private/caja-file-operations.c:4154
 #: ../libcaja-private/caja-file-operations.c:4839
 msgid "You cannot move a folder into itself."
-msgstr "No puede mover una carpeta dentro de ella misma."
+msgstr "No puede mover una carpeta en sí misma."
 
 #: ../libcaja-private/caja-file-operations.c:4155
 #: ../libcaja-private/caja-file-operations.c:4840
 msgid "You cannot copy a folder into itself."
-msgstr "No puede copiar una carpeta dentro de ella misma."
+msgstr "No puede copiar una carpeta en sí misma."
 
 #: ../libcaja-private/caja-file-operations.c:4156
 #: ../libcaja-private/caja-file-operations.c:4841
 msgid "The destination folder is inside the source folder."
-msgstr "La carpeta de destino está dentro de la carpeta de origen."
+msgstr "La carpeta de destino está en la carpeta de origen."
 
 #. the run_warning() frees all strings passed in automatically
 #: ../libcaja-private/caja-file-operations.c:4187
@@ -1768,12 +1774,12 @@ msgstr "El archivo de origen se sobrescribirá por el de destino."
 #, c-format
 msgid "Could not remove the already existing file with the same name in %F."
 msgstr ""
-"No se pudo eliminar el archivo ya existente con el mismo nombre en %F."
+"No se ha podido eliminar el archivo ya existente con el mismo nombre en %F."
 
 #: ../libcaja-private/caja-file-operations.c:4476
 #, c-format
 msgid "There was an error copying the file into %F."
-msgstr "Hubo un error al copiar el archivo en %F."
+msgstr "Se ha producido un error al copiar el archivo en %F."
 
 #: ../libcaja-private/caja-file-operations.c:4722
 msgid "Copying Files"
@@ -1787,13 +1793,13 @@ msgstr "Preparándose para mover a «%B»"
 #, c-format
 msgid "Preparing to move %'d file"
 msgid_plural "Preparing to move %'d files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Preparándose para mover %'d archivo"
+msgstr[1] "Preparándose para mover %'d archivos"
 
 #: ../libcaja-private/caja-file-operations.c:4994
 #, c-format
 msgid "There was an error moving the file into %F."
-msgstr "Hubo un error al mover el archivo a %F."
+msgstr "Se ha producido un error al mover el archivo a %F."
 
 #: ../libcaja-private/caja-file-operations.c:5264
 msgid "Moving Files"
@@ -1807,12 +1813,12 @@ msgstr "Creando enlaces en «%B»"
 #, c-format
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Creando enlace hacia %'d archivo"
+msgstr[1] "Creando enlaces hacia %'d archivos"
 
 #: ../libcaja-private/caja-file-operations.c:5431
 msgid "Error while creating link to %B."
-msgstr "Error al crear el enlace hacia %B."
+msgstr "Se ha producido un error al crear el enlace hacia %B."
 
 #: ../libcaja-private/caja-file-operations.c:5433
 msgid "Symbolic links only supported for local files"
@@ -1820,16 +1826,16 @@ msgstr "Solo se admiten los enlaces simbólicos para los archivos locales"
 
 #: ../libcaja-private/caja-file-operations.c:5436
 msgid "The target doesn't support symbolic links."
-msgstr "El destino no soporta enlaces simbólicos."
+msgstr "El destino no admite enlaces simbólicos."
 
 #: ../libcaja-private/caja-file-operations.c:5439
 #, c-format
 msgid "There was an error creating the symlink in %F."
-msgstr "Hubo un error al crear el enlace simbólico en %F."
+msgstr "Se ha producido un error al crear el enlace simbólico en %F."
 
 #: ../libcaja-private/caja-file-operations.c:5755
 msgid "Setting permissions"
-msgstr "Establecido permisos"
+msgstr "Configurar permisos"
 
 #. localizers: the initial name of a new folder
 #: ../libcaja-private/caja-file-operations.c:6014
@@ -1843,16 +1849,16 @@ msgstr "archivo nuevo"
 
 #: ../libcaja-private/caja-file-operations.c:6194
 msgid "Error while creating directory %B."
-msgstr "Error al crear el directorio %B."
+msgstr "Se ha producido un error al crear la carpeta %B."
 
 #: ../libcaja-private/caja-file-operations.c:6196
 msgid "Error while creating file %B."
-msgstr "Error al crear el archivo %B."
+msgstr "Se ha producido un error al crear el archivo %B."
 
 #: ../libcaja-private/caja-file-operations.c:6198
 #, c-format
 msgid "There was an error creating the directory in %F."
-msgstr "Hubo un error al crear el directorio en %F."
+msgstr "Se ha producido un error al crear la carpeta en %F."
 
 #: ../libcaja-private/caja-file-operations.c:6476
 msgid "Emptying Trash"
@@ -1868,7 +1874,7 @@ msgstr "No se puede marcar el lanzador confiado (ejecutable)"
 #: ../libcaja-private/caja-file-utilities.c:1225
 #, c-format
 msgid "Could not determine original location of \"%s\" "
-msgstr "No se pudo determinar la ubicación original de «%s» "
+msgstr "No se ha podido determinar la ubicación original de «%s» "
 
 #: ../libcaja-private/caja-file-utilities.c:1229
 msgid "The item cannot be restored from trash"
@@ -1912,12 +1918,12 @@ msgstr "Los archivos de nivel superior no se pueden renombrar"
 #: ../libcaja-private/caja-file.c:1897
 #, c-format
 msgid "Unable to rename desktop icon"
-msgstr "No se pudo renombrar el icono del escritorio"
+msgstr "No se puede renombrar el icono del escritorio"
 
 #: ../libcaja-private/caja-file.c:1926
 #, c-format
 msgid "Unable to rename desktop file"
-msgstr "No se pudo renombrar el archivo del escritorio"
+msgstr "No se puede renombrar el archivo del escritorio"
 
 #. Today, use special word.
 #. * strftime patterns preceeded with the widest
@@ -2208,21 +2214,21 @@ msgstr "_Ejecutar"
 #: ../libcaja-private/caja-mime-actions.c:1181
 #: ../src/file-manager/fm-directory-view.c:656
 msgid "Are you sure you want to open all files?"
-msgstr "¿Seguro que desea abrir todos los archivos?"
+msgstr "¿Seguro que quiere abrir todos los archivos?"
 
 #: ../libcaja-private/caja-mime-actions.c:1184
 #, c-format
 msgid "This will open %d separate tab."
 msgid_plural "This will open %d separate tabs."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Esto abrirá %d pestaña separada."
+msgstr[1] "Esto abrirá %d pestañas separadas."
 
 #: ../libcaja-private/caja-mime-actions.c:1189 ../src/caja-location-bar.c:194
 #, c-format
 msgid "This will open %d separate window."
 msgid_plural "This will open %d separate windows."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Esto abrirá %d ventana separada."
+msgstr[1] "Esto abrirá %d ventanas separadas."
 
 #: ../libcaja-private/caja-mime-actions.c:1267
 #: ../src/caja-window-manage-views.c:2101
@@ -2233,7 +2239,7 @@ msgstr[1] ""
 #: ../src/caja-window-manage-views.c:2176
 #, c-format
 msgid "Could not display \"%s\"."
-msgstr "No se pudo mostrar «%s»."
+msgstr "No se ha podido mostrar «%s»."
 
 #: ../libcaja-private/caja-mime-actions.c:1354
 msgid "The file is of an unknown type"
@@ -2250,11 +2256,11 @@ msgstr "_Seleccionar aplicación"
 
 #: ../libcaja-private/caja-mime-actions.c:1414
 msgid "There was an internal error trying to search for applications:"
-msgstr "Hubo un error interno al intentar buscar aplicaciones:"
+msgstr "Se ha producido un error interno al intentar buscar aplicaciones:"
 
 #: ../libcaja-private/caja-mime-actions.c:1416
 msgid "Unable to search for application"
-msgstr "No se pudo buscar una aplicación"
+msgstr "No se puede buscar una aplicación"
 
 #: ../libcaja-private/caja-mime-actions.c:1542
 #, c-format
@@ -2290,12 +2296,12 @@ msgstr "Marcar como de con_fianza"
 #: ../libcaja-private/caja-mime-actions.c:2334
 #: ../src/file-manager/fm-directory-view.c:6403
 msgid "Unable to mount location"
-msgstr "No se pudo montar el lugar"
+msgstr "No se puede montar la ubicación"
 
 #: ../libcaja-private/caja-mime-actions.c:2422
 #: ../src/file-manager/fm-directory-view.c:6577
 msgid "Unable to start location"
-msgstr "No se pudo iniciar el lugar"
+msgstr "No se puede iniciar la ubicación"
 
 #: ../libcaja-private/caja-mime-actions.c:2515
 #, c-format
@@ -2306,19 +2312,19 @@ msgstr "Abriendo «%s»."
 #, c-format
 msgid "Opening %d item."
 msgid_plural "Opening %d items."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Abriendo %d elemento."
+msgstr[1] "Abriendo %d elementos."
 
 #: ../libcaja-private/caja-mime-application-chooser.c:162
 #: ../libcaja-private/caja-open-with-dialog.c:300
 #, c-format
 msgid "Could not set application as the default: %s"
-msgstr "No se pudo establecer la aplicación como predeterminada: %s"
+msgstr "No se ha podido establecer la aplicación como predeterminada: %s"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:163
 #: ../libcaja-private/caja-open-with-dialog.c:301
 msgid "Could not set as default application"
-msgstr "No se pudo establecer como aplicación predeterminada"
+msgstr "No se ha podido establecer como aplicación predeterminada"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:256
 msgid "Default"
@@ -2330,7 +2336,7 @@ msgstr "Icono"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:332
 msgid "Could not remove application"
-msgstr "No se pudo quitar la aplicación"
+msgstr "No se ha podido eliminar la aplicación"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:420
 #: ../libcaja-private/caja-open-with-dialog.c:1132
@@ -2341,7 +2347,7 @@ msgstr "_Añadir"
 #: ../libcaja-private/caja-open-with-dialog.c:951
 #: ../src/caja-bookmarks-window.ui.h:4
 msgid "_Remove"
-msgstr "_Quitar"
+msgstr "_Eliminar"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:559
 msgid "No applications selected"
@@ -2370,26 +2376,26 @@ msgstr "Abrir todos los archivos del tipo «%s» con:"
 
 #: ../libcaja-private/caja-open-with-dialog.c:152
 msgid "Could not run application"
-msgstr "No se pudo ejecutar la aplicación"
+msgstr "No se ha podido ejecutar la aplicación"
 
 #: ../libcaja-private/caja-open-with-dialog.c:165
 #, c-format
 msgid "Could not find '%s'"
-msgstr "No se pudo encontrar «%s»"
+msgstr "No se ha podido encontrar «%s»"
 
 #: ../libcaja-private/caja-open-with-dialog.c:168
 msgid "Could not find application"
-msgstr "No se pudo encontrar la aplicación"
+msgstr "No se ha podido encontrar la aplicación"
 
 #: ../libcaja-private/caja-open-with-dialog.c:252
 #, c-format
 msgid "Could not add application to the application database: %s"
 msgstr ""
-"No se pudo añadir la aplicación a la base de datos de aplicaciones: %s"
+"No se ha podido añadir la aplicación a la base de datos de aplicaciones: %s"
 
 #: ../libcaja-private/caja-open-with-dialog.c:253
 msgid "Could not add application"
-msgstr "No se pudo añadir la aplicación"
+msgstr "No se ha podido añadir la aplicación"
 
 #: ../libcaja-private/caja-open-with-dialog.c:451
 msgid "Select an Application"
@@ -2469,8 +2475,8 @@ msgstr "La apertura ha fallado, ¿quiere seleccionar otra aplicación?"
 #, c-format
 msgid "\"%s\" cannot open \"%s\" because \"%s\" cannot access files at \"%s\" locations."
 msgstr ""
-"«%s» no puede abrir «%s» porque «%s» no puede acceder a los archivos en los "
-"lugares «%s»."
+"«%s» no puede abrir «%s» porque «%s» no puede acceder a los archivos de las "
+"ubicaciones «%s»."
 
 #: ../libcaja-private/caja-program-choosing.c:87
 msgid "Open Failed, would you like to choose another action?"
@@ -2484,7 +2490,7 @@ msgid ""
 "\"%s\" locations."
 msgstr ""
 "La acción predeterminada no puede abrir «%s» porque no puede acceder a los "
-"archivos en los lugares «%s»."
+"archivos de las ubicaciones «%s»."
 
 #: ../libcaja-private/caja-program-choosing.c:121
 msgid ""
@@ -2508,7 +2514,7 @@ msgstr "No puede ejecutar órdenes desde un sitio remoto."
 
 #: ../libcaja-private/caja-program-choosing.c:463
 msgid "This is disabled due to security considerations."
-msgstr "Esto está desactivado debido a consideraciones de seguridad."
+msgstr "Se ha desactivado debido a consideraciones de seguridad."
 
 #: ../libcaja-private/caja-program-choosing.c:475
 #: ../libcaja-private/caja-program-choosing.c:543
@@ -2518,7 +2524,7 @@ msgstr "Se ha producido un error al lanzar la aplicación."
 #: ../libcaja-private/caja-program-choosing.c:504
 #: ../libcaja-private/caja-program-choosing.c:517
 msgid "This drop target only supports local files."
-msgstr "Este destino donde soltar sólo soporta archivos locales."
+msgstr "Este destino donde soltar solo admite archivos locales."
 
 #: ../libcaja-private/caja-program-choosing.c:505
 msgid ""
@@ -2565,12 +2571,12 @@ msgstr "poniendo en cola"
 #, c-format
 msgid "%'d file operation active"
 msgid_plural "%'d file operations active"
-msgstr[0] "%'d operación de archivo activa"
-msgstr[1] "%'d operaciones de archivo activas"
+msgstr[0] "%'d operación sobre archivos activa"
+msgstr[1] "%'d operaciones sobre archivos activas"
 
 #: ../libcaja-private/caja-progress-info.c:629
 msgid "Process completed"
-msgstr ""
+msgstr "Proceso completado"
 
 #: ../libcaja-private/caja-progress-info.c:999
 #: ../libcaja-private/caja-progress-info.c:1020
@@ -2609,7 +2615,7 @@ msgstr "Eliminar %d elementos duplicados"
 #: ../libcaja-private/caja-undostack-manager.c:1190
 #, c-format
 msgid "Move %d items back to '%s'"
-msgstr "Mover elemento %d a '%s'"
+msgstr "Mover elemento %d a «%s»"
 
 #: ../libcaja-private/caja-undostack-manager.c:1194
 #, c-format
@@ -2626,7 +2632,7 @@ msgstr "Cambiar nombre de «%s» a «%s»"
 #: ../libcaja-private/caja-undostack-manager.c:1417
 #, c-format
 msgid "Restore %d items from trash"
-msgstr "Recuperar elemento %d de la papelera"
+msgstr "Restaurar %d elementos de la papelera"
 
 #: ../libcaja-private/caja-undostack-manager.c:1230
 #, c-format
@@ -2656,27 +2662,27 @@ msgstr "Eliminar enlace a «%s»"
 #: ../libcaja-private/caja-undostack-manager.c:1266
 #, c-format
 msgid "Restore original permissions of items enclosed in '%s'"
-msgstr "Recuperar permisos originales de los elementos guardados en '%s'"
+msgstr "Restaurar los permisos originales de los elementos guardados en «%s»"
 
 #: ../libcaja-private/caja-undostack-manager.c:1274
 #, c-format
 msgid "Restore original permissions of '%s'"
-msgstr "Recuperar permisos originales de '%s'"
+msgstr "Restaurar los permisos originales de «%s»"
 
 #: ../libcaja-private/caja-undostack-manager.c:1283
 #, c-format
 msgid "Restore group of '%s' to '%s'"
-msgstr "Restaurar grupo de '%s' a '%s'"
+msgstr "Restaurar grupo de «%s» a «%s»"
 
 #: ../libcaja-private/caja-undostack-manager.c:1293
 #, c-format
 msgid "Restore owner of '%s' to '%s'"
-msgstr "Restaurar propietario de '%s' a '%s'"
+msgstr "Restaurar propietario de «%s» a «%s»"
 
 #: ../libcaja-private/caja-undostack-manager.c:1332
 #, c-format
 msgid "Copy %d items to '%s'"
-msgstr "Copiar elementos %d a '%s'"
+msgstr "Copiar elementos %d a «%s»"
 
 #: ../libcaja-private/caja-undostack-manager.c:1336
 #, c-format
@@ -2686,37 +2692,37 @@ msgstr "Copiar «%s» a «%s»"
 #: ../libcaja-private/caja-undostack-manager.c:1344
 #, c-format
 msgid "Duplicate of %d items in '%s'"
-msgstr "Duplicar los elementos %d en '%s'"
+msgstr "Duplicar los elementos %d en «%s»"
 
 #: ../libcaja-private/caja-undostack-manager.c:1349
 #, c-format
 msgid "Duplicate '%s' in '%s'"
-msgstr "Duplicar '%s' en '%s'"
+msgstr "Duplicar «%s» en «%s»"
 
 #: ../libcaja-private/caja-undostack-manager.c:1357
 #, c-format
 msgid "Move %d items to '%s'"
-msgstr "Mover los elementos %d a '%s'"
+msgstr "Mover los elementos %d a «%s»"
 
 #: ../libcaja-private/caja-undostack-manager.c:1361
 #, c-format
 msgid "Move '%s' to '%s'"
-msgstr "Mover '%s' a '%s'"
+msgstr "Mover «%s» a «%s»"
 
 #: ../libcaja-private/caja-undostack-manager.c:1379
 #, c-format
 msgid "Create new file '%s' from template "
-msgstr "Crear un fichero nuevo '%s' a partir de una plantilla"
+msgstr "Crear un archivo nuevo «%s» a partir de una plantilla"
 
 #: ../libcaja-private/caja-undostack-manager.c:1386
 #, c-format
 msgid "Create an empty file '%s'"
-msgstr "Crear un fichero vacío '%s'"
+msgstr "Crear un archivo vacío «%s»"
 
 #: ../libcaja-private/caja-undostack-manager.c:1393
 #, c-format
 msgid "Create a new folder '%s'"
-msgstr "Crear una carpeta nueva '%s'"
+msgstr "Crear una carpeta nueva «%s»"
 
 #: ../libcaja-private/caja-undostack-manager.c:1401
 #, c-format
@@ -2726,12 +2732,12 @@ msgstr "Mover los elementos %d a la papelera"
 #: ../libcaja-private/caja-undostack-manager.c:1407
 #, c-format
 msgid "Move '%s' to trash"
-msgstr "Mover '%s' a la papelera"
+msgstr "Mover «%s» a la papelera"
 
 #: ../libcaja-private/caja-undostack-manager.c:1420
 #, c-format
 msgid "Restore '%s' from trash"
-msgstr "Recuperar '%s' de la papelera"
+msgstr "Restaurar «%s» de la papelera"
 
 #: ../libcaja-private/caja-undostack-manager.c:1429
 #, c-format
@@ -2741,235 +2747,234 @@ msgstr "Crear enlaces al elemento %d "
 #: ../libcaja-private/caja-undostack-manager.c:1432
 #, c-format
 msgid "Create link to '%s'"
-msgstr "Crear enlace a '%s'"
+msgstr "Crear enlace a «%s»"
 
 #: ../libcaja-private/caja-undostack-manager.c:1441
 #, c-format
 msgid "Set permissions of items enclosed in '%s'"
-msgstr "Establecer permisos de los elementos guardados en '%s'"
+msgstr "Establecer permisos de los elementos guardados en «%s»"
 
 #: ../libcaja-private/caja-undostack-manager.c:1449
 #, c-format
 msgid "Set permissions of '%s'"
-msgstr "Establecer los permisos de '%s'"
+msgstr "Establecer los permisos de «%s»"
 
 #: ../libcaja-private/caja-undostack-manager.c:1458
 #, c-format
 msgid "Set group of '%s' to '%s'"
-msgstr "Establecer grupo de '%s' a '%s'"
+msgstr "Establecer grupo de «%s» a «%s»"
 
 #: ../libcaja-private/caja-undostack-manager.c:1468
 #, c-format
 msgid "Set owner of '%s' to '%s'"
-msgstr "Establecer propietario de '%s' para '%s'"
+msgstr "Establecer propietario de «%s» para «%s»"
 
 #: ../libcaja-private/caja-undostack-manager.c:1500
 #, c-format
 msgid "_Undo copy of %d item"
 msgid_plural "_Undo copy of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Deshacer la copia de %d elemento"
+msgstr[1] "_Deshacer la copia de %d elementos"
 
 #: ../libcaja-private/caja-undostack-manager.c:1505
 #, c-format
 msgid "_Undo duplicate of %d item"
 msgid_plural "_Undo duplicate of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Rehacer el duplicado de  %d elemento"
+msgstr[1] "_Deshacer el duplicado de  %d elementos"
 
 #: ../libcaja-private/caja-undostack-manager.c:1510
 #, c-format
 msgid "_Undo move of %d item"
 msgid_plural "_Undo move of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Deshacer el movimiento de %d elemento"
+msgstr[1] "_Deshacer el movimiento de %d elementos"
 
 #: ../libcaja-private/caja-undostack-manager.c:1515
 #, c-format
 msgid "_Undo rename of %d item"
 msgid_plural "_Undo rename of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Deshacer el renombrado de %d elemento"
+msgstr[1] "_Deshacer el renombrado de %d elementos"
 
 #: ../libcaja-private/caja-undostack-manager.c:1519
 #, c-format
 msgid "_Undo creation of an empty file"
-msgstr "_Deshacer la creación de un fichero vacío "
+msgstr "_Deshacer la creación de un archivo vacío "
 
 #: ../libcaja-private/caja-undostack-manager.c:1522
 #, c-format
 msgid "_Undo creation of a file from template"
-msgstr "_Deshacer la creación de un fichero vacío a partir de una plantilla "
+msgstr "_Deshacer la creación de un archivo vacío a partir de una plantilla "
 
 #: ../libcaja-private/caja-undostack-manager.c:1526
 #, c-format
 msgid "_Undo creation of %d folder"
 msgid_plural "_Undo creation of %d folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Deshacer la creación de %d carpeta"
+msgstr[1] "_Deshacer la creación de %d carpetas "
 
 #: ../libcaja-private/caja-undostack-manager.c:1531
 #, c-format
 msgid "_Undo move to trash of %d item"
 msgid_plural "_Undo move to trash of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Deshacer mover a la basura el elemento %d"
+msgstr[1] "_Deshacer mover a la basura los elementos%d"
 
 #: ../libcaja-private/caja-undostack-manager.c:1536
 #, c-format
 msgid "_Undo restore from trash of %d item"
 msgid_plural "_Undo restore from trash of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Deshacer restaurar de la basura el elemento %d"
+msgstr[1] "_Deshacer restaurar de la basura los elementos %d"
 
 #: ../libcaja-private/caja-undostack-manager.c:1541
 #, c-format
 msgid "_Undo create link to %d item"
 msgid_plural "_Undo create link to %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Deshacer crear enlace al elemento %d"
+msgstr[1] "_Deshacer crear enlace a los elementos %d"
 
 #: ../libcaja-private/caja-undostack-manager.c:1546
 #, c-format
 msgid "_Undo delete of %d item"
 msgid_plural "_Undo delete of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Deshacer eliminar el elemento %d"
+msgstr[1] "_Deshacer eliminar los elementos %d"
 
 #: ../libcaja-private/caja-undostack-manager.c:1551
 #, c-format
 msgid "Undo recursive change permissions of %d item"
 msgid_plural "Undo recursive change permissions of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Deshacer cambio recursivo del elemento %d"
+msgstr[1] "Deshacer cambios recursivos de los elementos %d"
 
 #: ../libcaja-private/caja-undostack-manager.c:1557
 #, c-format
 msgid "Undo change permissions of %d item"
 msgid_plural "Undo change permissions of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Deshacer cambio de permisos del elemento %d "
+msgstr[1] "Deshacer cambio de permisos de los elementos %d"
 
 #: ../libcaja-private/caja-undostack-manager.c:1562
 #, c-format
 msgid "Undo change group of %d item"
 msgid_plural "Undo change group of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Deshacer el cambio de grupo de %d elemento"
+msgstr[1] "Deshacer el cambio de grupo de %d elementos"
 
 #: ../libcaja-private/caja-undostack-manager.c:1567
 #, c-format
 msgid "Undo change owner of %d item"
 msgid_plural "Undo change owner of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Deshacer el cambio de propietario de %d elemento"
+msgstr[1] "Deshacer el cambio de propietario de %d elementos"
 
 #: ../libcaja-private/caja-undostack-manager.c:1595
 #, c-format
 msgid "_Redo copy of %d item"
 msgid_plural "_Redo copy of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Rehacer la copia de %d elemento"
+msgstr[1] "_Rehacer la copia de %d elementos"
 
 #: ../libcaja-private/caja-undostack-manager.c:1600
 #, c-format
 msgid "_Redo duplicate of %d item"
 msgid_plural "_Redo duplicate of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Rehacer el duplicado de %d elemento"
+msgstr[1] "_Rehacer el duplicado de%d elementos"
 
 #: ../libcaja-private/caja-undostack-manager.c:1605
 #, c-format
 msgid "_Redo move of %d item"
 msgid_plural "_Redo move of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Rehacer el movimiento de %d elemento"
+msgstr[1] "_Rehacer el movimiento de %d elementos"
 
 #: ../libcaja-private/caja-undostack-manager.c:1610
 #, c-format
 msgid "_Redo rename of %d item"
 msgid_plural "_Redo rename of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Rehacer el renombrado de %d elemento"
+msgstr[1] "_Rehacer el renombrado de %d elementos"
 
 #: ../libcaja-private/caja-undostack-manager.c:1614
 #, c-format
 msgid "_Redo creation of an empty file"
-msgstr "_Rehacer la creación de un fichero vacío"
+msgstr "_Rehacer la creación de un archivo vacío"
 
 #: ../libcaja-private/caja-undostack-manager.c:1617
 #, c-format
 msgid "_Redo creation of a file from template"
-msgstr "_Rehacer la creación de un fichero vacío a partir de una plantilla"
+msgstr "_Rehacer la creación de un archivo vacío a partir de una plantilla"
 
 #: ../libcaja-private/caja-undostack-manager.c:1621
 #, c-format
 msgid "_Redo creation of %d folder"
 msgid_plural "_Redo creation of %d folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Rehacer la creación de %d carpeta"
+msgstr[1] "_Rehacer la creación de %d carpetas"
 
 #: ../libcaja-private/caja-undostack-manager.c:1626
 #, c-format
 msgid "_Redo move to trash of %d item"
 msgid_plural "_Redo move to trash of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Rehacer el movimiento de %d elemento a la papelera"
+msgstr[1] "_Rehacer el movimiento de %d elementos a la papelera"
 
 #: ../libcaja-private/caja-undostack-manager.c:1631
 #, c-format
 msgid "_Redo restore from trash of %d item"
 msgid_plural "_Redo restore from trash of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Rehacer la restauración de %d elemento de la papelera"
+msgstr[1] "_Rehacer la restauración de %d elementos de la papelera"
 
 #: ../libcaja-private/caja-undostack-manager.c:1636
 #, c-format
 msgid "_Redo create link to %d item"
 msgid_plural "_Redo create link to %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Rehacer la creación de un enlace a %d elemento"
+msgstr[1] "_Rehacer la creación de enlaces a %d elementos"
 
 #: ../libcaja-private/caja-undostack-manager.c:1641
 #, c-format
 msgid "_Redo delete of %d item"
 msgid_plural "_Redo delete of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Rehacer la eliminación de %d elemento"
+msgstr[1] "_Rehacer la eliminación de %d elementos"
 
 #: ../libcaja-private/caja-undostack-manager.c:1646
 #, c-format
 msgid "Redo recursive change permissions of %d item"
 msgid_plural "Redo recursive change permissions of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Rehacer el cambio recursivo de permisos de %d elemento"
+msgstr[1] "Rehacer el cambio recursivo de permisos de %d elementos"
 
 #: ../libcaja-private/caja-undostack-manager.c:1652
 #, c-format
 msgid "Redo change permissions of %d item"
 msgid_plural "Redo change permissions of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Rehacer el cambio de permisos de %d elemento"
+msgstr[1] "Rehacer el cambio de permisos de %d elementos"
 
 #: ../libcaja-private/caja-undostack-manager.c:1657
 #, c-format
 msgid "Redo change group of %d item"
 msgid_plural "Redo change group of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Rehacer el cambio de grupo de %d elemento"
+msgstr[1] "Rehacer el cambio de grupo de %d elementos"
 
 #: ../libcaja-private/caja-undostack-manager.c:1662
 #, c-format
 msgid "Redo change owner of %d item"
 msgid_plural "Redo change owner of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Rehacer el cambio de propietario de %d elemento"
+msgstr[1] "Rehacer el cambio de propietario de %d elementos"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:1
 msgid "Where to position newly open tabs in browser windows."
 msgstr ""
-"Dónde posicionar las nuevas pestañas abiertas en las ventanas del "
-"examinador."
+"Dónde posicionar las nuevas pestañas abiertas en las ventanas del navegador."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:2
 msgid ""
@@ -2977,21 +2982,21 @@ msgid ""
 "current tab. If set to \"end\", then new tabs are appended to the end of the"
 " tab list."
 msgstr ""
-"Si se establece en \"después-de-actual-tab\"  las nuevas pestañas se "
-"insertan después de la actual. Si se establece en \"fin\", entonces las "
-"nuevas pestañas se añaden al final de la lista de pestañas."
+"Si se le asigna el valor «after_current_tab»,  las pestañas nuevas se "
+"insertan después de la pestaña actual. Si se le asigna el valor «end», las "
+"pestañas nuevas se añaden al final de la lista de pestañas."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:3
 msgid "Switch tabs with [ctrl] + [tab]"
-msgstr "Intercambiar pestañas con [ctrl] + [tab]"
+msgstr "Cambiar de pestaña con [Ctrl] + [Tab]"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:4
 msgid ""
 "If true, it enables the ability to switch tabs using [ctrl + tab] and [ctrl "
 "+ shift + tab]."
 msgstr ""
-"Si se establece «true», habilita la función de intercambiar pestañas "
-"utilizando [ctrl + tab] y [ctrl + shift + tab]."
+"Si se activa, permite cambiar de pestaña con [Ctrl + Tab] y [Ctrl + Mayús + "
+"Tab]."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:5
 msgid "Caja will exit when last window destroyed."
@@ -3003,16 +3008,16 @@ msgid ""
 "the default setting. If set to false, it can be started without any window, "
 "so Caja can serve as a daemon to monitor media automount, or similar tasks."
 msgstr ""
-"Si se establece a verdadero, entonces Caja saldrá cuando todas las ventanas "
-"se destruyan. Esta es la configuración por defecto. Si se establece a falso,"
-" se puede iniciar sin ninguna ventana, por lo que Caja puede servir como un "
-"dominio para monitorear el montaje automático de medios, o tareas similares."
+"Si se activa, Caja se cerrará cuando todas las ventanas se eliminen. Este es"
+" el ajuste predeterminado. Si se desactiva, Caja se puede iniciar sin "
+"ventanas, por lo que puede funcionar como un servicio para monitorear el "
+"montaje automático de soportes o tareas similares."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:7
 msgid "Enables the classic Caja behavior, where all windows are browsers"
 msgstr ""
-"Activa el comportamiento clásico de Caja, donde todas las ventanas funcionan"
-" como un navegador"
+"Activa el comportamiento clásico de Caja, en el que todas las ventanas son "
+"navegadores"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:8
 msgid ""
@@ -3020,22 +3025,21 @@ msgid ""
 "Nautilus used to behave before version 2.6, and some people prefer this "
 "behavior."
 msgstr ""
-"Si se establece en verdadero (true), todas las ventanas de  Caja serán las "
-"ventanas del navegador. Esto es lo que Nautilus hacía antes de la versión "
-"2.6, y algunas personas prefieren este comportamiento."
+"Si se activa, todas las ventanas de  Caja se comportarán como ventanas de "
+"navegación. Así es como Nautilus se comportaba antes de la versión 2.6 y "
+"algunas personas prefieren este comportamiento."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:9
 msgid "Always use the location entry, instead of the pathbar"
-msgstr "Usar siempre la entrada de lugar, en vez de la barra de ruta"
+msgstr "Usar siempre la entrada de la ubicación, en vez de la barra de ruta"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:10
 msgid ""
 "If set to true, then Caja browser windows will always use a textual input "
 "entry for the location toolbar, instead of the pathbar."
 msgstr ""
-"Si se establece a cierto, entonces las ventanas del explorador Caja usarán "
-"siempre una entrada textual para la barra de lugar, en vez de la barra de "
-"rutas."
+"Si se activa, las ventanas del navegador Caja usarán siempre una entrada "
+"textual para la barra de ubicación, en vez de la barra de ruta."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:11
 msgid "Whether to ask for confirmation when deleting files, or emptying Trash"
@@ -3048,20 +3052,20 @@ msgid ""
 "If set to true, then Caja will ask for confirmation when you attempt to "
 "delete files, or empty the Trash."
 msgstr ""
-"Si se establece a cierto, entonces Caja solicitará una confirmación cuando "
-"intente eliminar archivos o vaciar la papelera."
+"Si se activa, Caja solicitará una confirmación cuando intente eliminar "
+"archivos o vaciar la papelera."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:13
 msgid "Whether to ask for confirmation when moving files to the Trash"
-msgstr "Si desea solicitar confirmación al mover archivos a la papelera"
+msgstr "Si quiere solicitar confirmación al mover archivos a la papelera"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:14
 msgid ""
 "If set to true, then Caja will ask for confirmation when you attempt to move"
 " files to the Trash."
 msgstr ""
-"Si se establece a verdadero, Caja solicitará confirmación cuando intente "
-"mover archivos a la papelera."
+"Si se activa, Caja solicitará confirmación cuando intente mover archivos a "
+"la papelera."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:15
 msgid "Whether to enable immediate deletion"
@@ -3073,13 +3077,13 @@ msgid ""
 "immediately and in-place, instead of moving it to the trash. This feature "
 "can be dangerous, so use caution."
 msgstr ""
-"Si se establece a cierto, entonces Caja tendrá una opción que le permitirá "
-"eliminar un archivo inmediatamente en lugar de moverlo a la papelera. Esta "
-"característica puede ser peligrosa, así que úsela con cuidado."
+"Si se activa, Caja tendrá una opción que le permitirá eliminar un archivo "
+"inmediatamente en vez de moverlo a la papelera. Esta característica puede "
+"ser peligrosa, así que úsela con cuidado."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:17
 msgid "When to show preview text in icons"
-msgstr "Cuándo mostrar la una vista previa del texto en los iconos"
+msgstr "Cuándo mostrar la vista previa del texto en los iconos"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:18
 msgid ""
@@ -3089,12 +3093,12 @@ msgid ""
 "previews for local file systems. If set to \"never\" then never bother to "
 "read preview data."
 msgstr ""
-"compensación de velocidad cuándo se muestra una vista previa del contenido "
-"del archivo de texto en el icono del archivo. Si se establece a «siempre» "
-"entonces siempre se muestran vistas previas, incluso si la carpeta está en "
-"un servidor remoto. Si se establece en \"sólo local\", entonces sólo "
-"mostrará vistas previas de los sistemas de archivos locales. Si se establece"
-" en \"no\" entonces nunca se leerán los datos de vista previa."
+"Cuándo mostrar una vista previa del contenido de los archivos de texto en el"
+" icono del archivo. Si se establece a «always»,  siempre se muestran las "
+"vistas previas, incluso si la carpeta está en un servidor remoto. Si se "
+"establece en «local_only»,  solo se mostrarán las vistas previas de los "
+"archivos locales. Si se establece en «never»,  nunca se leerán los datos de "
+"previsualización."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:19
 msgid "When to show number of items in a folder"
@@ -3108,23 +3112,22 @@ msgid ""
 "systems. If set to \"never\" then never bother to compute item counts."
 msgstr ""
 "Compensación de velocidad cuando se muestran el número de elementos en una "
-"carpeta. Si se establece a «siempre» entonces siempre muestra el recuento de"
-" elementos, incluso si la carpeta está en un servidor remoto. Si se "
-"establece en \"sólo local\", entonces sólo muestra el número de sistemas de "
-"archivos locales. Si se establece en \"no\" entonces nunca se contará el "
-"número de elementos."
+"carpeta. Si se establece a «siempre»,  siempre muestra el recuento de "
+"elementos, incluso si la carpeta está en un servidor remoto. Si se establece"
+" en \"solo local\",  solo muestra el número de sistemas de archivos locales."
+" Si se establece en \"no\",  nunca se contará el número de elementos."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:21
 msgid "Type of click used to launch/open files"
-msgstr "El tipo de pulsación utilizado para ejecutar/abrir los archivos"
+msgstr "El tipo de clic usado para ejecutar/abrir los archivos"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:22
 msgid ""
 "Possible values are \"single\" to launch files on a single click, or "
 "\"double\" to launch them on a double click."
 msgstr ""
-"Los valores posibles son «single» para lanzar archivos con una sola "
-"pulsación, o «double» para lanzarlos con una pulsación doble."
+"Los valores posibles son «single» para lanzar archivos con un solo clic o "
+"«double» para lanzarlos con una doble clic."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:23
 msgid "What to do with executable text files when activated"
@@ -3137,8 +3140,8 @@ msgid ""
 "\"ask\" to ask what to do via a dialog, and \"display\" to display them as "
 "text files."
 msgstr ""
-"Qué hacer con los archivos de texto ejecutables cuando se activan (con una o"
-" dos pulsaciones). Los valores posibles son «launch» para lanzarlos como "
+"Qué hacer con los archivos de texto ejecutables cuando se activan (con uno o"
+" dos clics). Los valores posibles son «launch» para lanzarlos como "
 "programas, «ask» para solicitar una confirmación por medio de un diálogo y "
 "«display» para mostrarlos como archivos de texto."
 
@@ -3153,12 +3156,12 @@ msgid ""
 msgstr ""
 "Si se muestra al usuario un diálogo del instalador de paquetes en caso de "
 "que se abra un tipo MIME desconocido, para buscar una aplicación para "
-"manejarla."
+"gestionarla."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:27
 msgid "Use extra mouse button events in Caja' browser window"
 msgstr ""
-"Usar eventos de botones del ratón adiciones en la ventana del examinador de "
+"Usar eventos de botones del ratón adiciones en la ventana del navegador de "
 "Caja"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:28
@@ -3167,14 +3170,13 @@ msgid ""
 "will determine if any action is taken inside of Caja when either is pressed."
 msgstr ""
 "Para usuarios con ratones que tienen botones «Adelante» y «Atrás», esta "
-"tecla determinará si cualquier acción se realiza dentro de Caja cuando se "
-"pulse cualquiera de los botones."
+"clave determinará si se realiza una acción en Caja cuando se pulse "
+"cualquiera de los botones."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:29
 msgid "Mouse button to activate the \"Forward\" command in browser window"
 msgstr ""
-"Botón del ratón para activar la orden «Adelante» en la ventana del "
-"explorador"
+"Botón del ratón para activar la orden «Adelante» en la ventana del navegador"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:30
 msgid ""
@@ -3184,12 +3186,12 @@ msgid ""
 msgstr ""
 "Para usuarios con ratones que tienen botones «Adelante» y «Atrás», esta "
 "tecla establecerá qué botón activa la orden «Adelante» en una ventana del "
-"explorador. El intervalo de valores posibles es de 6 a 14."
+"navegador. El intervalo de valores posibles es de 6 a 14."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:31
 msgid "Mouse button to activate the \"Back\" command in browser window"
 msgstr ""
-"Botón del ratón para activar la orden «Atrás» en la ventana del explorador"
+"Botón del ratón para activar la orden «Atrás» en la ventana del navegador"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:32
 msgid ""
@@ -3199,7 +3201,7 @@ msgid ""
 msgstr ""
 "Para usuarios con ratones que tienen botones «Adelante» y «Atrás», esta "
 "tecla establecerá qué botón activa la orden «Atrás» en una ventana del "
-"explorador. El intervalo de valores posibles es de 6 a 14."
+"navegador. El intervalo de valores posibles es de 6 a 14."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:33
 msgid "When to show thumbnails of image files"
@@ -3214,15 +3216,15 @@ msgid ""
 "generic icon."
 msgstr ""
 "Compensación de velocidad cuándo se muestraa un archivo de imagen como una "
-"miniatura. Si se define como \"siempre\", entonces siempre en miniatura, "
-"incluso si la carpeta está en un servidor remoto. Si se establece en \"sólo "
-"local\", entonces sólo muestra imágenes en miniatura para sistemas de "
-"archivos locales. Si se establece a «nunca» entonces nunca mostrará imágenes"
-" en miniatura, sólo un icono genérico."
+"miniatura. Si se define como \"siempre\",  siempre en miniatura, incluso si "
+"la carpeta está en un servidor remoto. Si se establece en \"solo local\",  "
+"solo muestra imágenes en miniatura para sistemas de archivos locales. Si se "
+"establece a «nunca»,  nunca mostrará imágenes en miniatura, solo un icono "
+"genérico."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:35
 msgid "Maximum image size for thumbnailing"
-msgstr "Tamaño máximo para miniaturizar una imagen"
+msgstr "Tamaño máximo de las imágenes para la creación de miniaturas"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:36
 msgid ""
@@ -3230,14 +3232,15 @@ msgid ""
 "setting is to avoid thumbnailing large images that may take a long time to "
 "load or use lots of memory."
 msgstr ""
-"La imágenes por encima de este tamaño (en bytes) no se miniaturizarán. El "
-"propósito de esta configuración es evitar miniaturizar imágenes grandes que "
-"podrían llevar un largo tiempo en cargarse o utilizar un montón de memoria."
+"No se crearán  miniaturas de las imágenes de un tamaño (en bytes) superior a"
+" este. El propósito de este ajuste es evitar la creación de miniaturas de "
+"imágenes de gran tamaño que pueden tardar mucho tiempo en cargarse o usar "
+"mucha memoria."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:37
 msgid "Whether to preview sounds when mousing over an icon"
 msgstr ""
-"Indica si se deben escuchar previamente los sonidos al colocar el puntero "
+"Indica si se deben previsualizar los archivos de sonido al pasar el puntero "
 "sobre un icono"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:38
@@ -3247,13 +3250,11 @@ msgid ""
 "on a remote server. If set to \"local-only\" then only plays previews on "
 "local file systems. If set to \"never\" then it never previews sound."
 msgstr ""
-"Compensación de velocidad para cuando se hace una reproducción previa de un "
-"archivo de sonido al colocar el ratón sobre los iconos de los archivos. Si "
-"está definido como \"siempre\" entonces se reproducirá el sonido, aún si el "
-"archivo se encuentra en un servidor remoto. Si se establece a \"sólo local\""
-" entonces la reproducción previa sólo se realizará sobre archivos locales. "
-"Si se establece en \"nunca\" entonces nunca de reproducirá previamente el "
-"sonido."
+"Cuándo previsualizar los archivos de sonido al pasar el puntero sobre un "
+"icono. Si se define como «always»,  el sonido se reproducirá siempre, "
+"incluso si el archivo se encuentra en un servidor remoto. Si se define como "
+"«local_only»,  solo se reproducirá el sonido de los archivos locales. Si se "
+"define como «never»,  nunca se reproducirá el sonido."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:39
 msgid "Show advanced permissions in the file property dialog"
@@ -3264,21 +3265,21 @@ msgid ""
 "If set to true, then Caja lets you edit and display file permissions in a "
 "more unix-like way, accessing some more esoteric options."
 msgstr ""
-"Si se establece a cierto, entonces Caja le permitirá editar y mostrar "
-"algunos de los permisos de archivos en una forma más similar a UNIX, "
-"accediendo a algunas opciones esotéricas más."
+"Si se activa, Caja le permitirá editar y mostrar algunos de los permisos de "
+"archivos en una forma más similar a UNIX, accediendo a algunas opciones "
+"esotéricas más."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:41
 msgid "Show folders first in windows"
-msgstr "Mostrar las carpetas en primer lugar en las ventanas"
+msgstr "Mostrar primero las carpetas en las ventanas"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:42
 msgid ""
 "If set to true, then Caja shows folders prior to showing files in the icon "
 "and list views."
 msgstr ""
-"Si se establece a cierto, entonces Caja mostrará las carpetas por delante de"
-" los archivos en las vistas de iconos y lista."
+"Si se activa, Caja mostrará las carpetas por delante de los archivos en las "
+"vistas de iconos y lista."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:43
 msgid "Default sort order"
@@ -3303,11 +3304,11 @@ msgid ""
 "be sorted from \"z\" to \"a\"; if sorted by size, instead of being "
 "incrementally they will be sorted decrementally."
 msgstr ""
-"Si se establece a cierto, los archivos en las ventanas nuevas se colocarán "
-"en sentido inverso. Ej: si se ordenados por nombre entonces en vez de "
-"colocarse de la «a» a la «z» se colocarán de la «z» a la «a» ; si se colocan"
-" por tamaño; en lugar de ordenarse incrementalmente se ordenarán "
-"decrementalmente."
+"Si se activa, los archivos en las ventanas nuevas se colocarán en orden "
+"inverso. Es decir, si los archivos se ordenan por nombre, en vez de "
+"ordenarse de la «a» a la «z», se ordenarán de la «z» a la «a» ; si se "
+"ordenan por tamaño, en vez de hacerlo por orden creciente, se ordenarán por "
+"orden decreciente."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:47
 msgid "Caja uses the users home folder as the desktop"
@@ -3318,9 +3319,8 @@ msgid ""
 "If set to true, then Caja will use the user's home folder as the desktop. If"
 " it is false, then it will use ~/Desktop as the desktop."
 msgstr ""
-"Si se establece a cierto, entonces Caja usará la carpeta personal del "
-"usuario como escritorio. Si se establece a «false» entonces utilizará "
-"~/Desktop como el escritorio."
+"Si se activa, Caja usará la carpeta personal del usuario como escritorio. Si"
+" se desactiva, usará ~/Desktop como escritorio."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:49
 msgid "Custom Background"
@@ -3328,7 +3328,7 @@ msgstr "Fondo personalizado"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:50
 msgid "Whether a custom default folder background has been set."
-msgstr "Indica si se ha establecido un fondo predeterminado de carpeta."
+msgstr "Indica si se ha establecido un fondo de carpeta predeterminado."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:51
 msgid "Default Background Color"
@@ -3339,8 +3339,8 @@ msgid ""
 "Color for the default folder background. Only used if background_set is "
 "true."
 msgstr ""
-"El color para el fondo predeterminado de la carpeta. Solo se usa si "
-"«background_set» es «true»."
+"El color para el fondo de carpeta predeterminado. Solo se usa si se ha "
+"activado «background_set»."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:53
 msgid "Default Background Filename"
@@ -3350,8 +3350,8 @@ msgstr "Nombre del archivo de fondo predeterminado"
 msgid ""
 "Uri of the default folder background. Only used if background_set is true."
 msgstr ""
-"El URI del fondo predeterminado de carpeta. Solo se utiliza si "
-"«background_set» está establecido en «true»."
+"El URI del fondo de carpeta predeterminado. Solo se usa si se ha activado "
+"«background_set»."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:55
 msgid "Custom Side Pane Background Set"
@@ -3360,7 +3360,7 @@ msgstr "Configuración del fondo personalizado del panel lateral"
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:56
 msgid "Whether a custom default side pane background has been set."
 msgstr ""
-"Indica si se ha establecido un fondo predeterminado en el panel lateral."
+"Indica si se ha establecido un fondo predetermindo para el panel lateral."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:57
 msgid "Default Side Pane Background Color"
@@ -3372,7 +3372,7 @@ msgid ""
 "side_pane_background_set is true."
 msgstr ""
 "El nombre del archivo para el fondo predeterminado del panel lateral. Solo "
-"se utiliza si «side_pane_background_set» es «true»."
+"se usa si se ha activado «side_pane_background_set»."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:59
 msgid "Default Side Pane Background Filename"
@@ -3383,12 +3383,12 @@ msgid ""
 "Uri of the default side pane background. Only used if "
 "side_pane_background_set is true."
 msgstr ""
-"El URI del fondo predeterminado del panel lateral. Solo se utiliza si "
-"«side_pane_background_set» está establecido en «true»."
+"El URI del fondo predeterminado del panel lateral. Solo se usa si se ha "
+"activado «side_pane_background_set»."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:61
 msgid "Default folder viewer"
-msgstr "Visor predeterminado de la carpeta"
+msgstr "Visor de carpetas predeterminado"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:62
 msgid ""
@@ -3421,16 +3421,22 @@ msgid ""
 "If set to true, then hidden files are shown by default in the file manager. "
 "Hidden files are either dotfiles or listed in the folder's .hidden file."
 msgstr ""
+"Si se activa, los archivos ocultos se muestran por defecto en el gestor de "
+"archivos. Los archivos ocultos comienzan con un punto o se listan en el "
+"archivo .hidden de la carpeta."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:67
 msgid "Whether to show backup files"
-msgstr "Indica si se deben mostrar los archivos de respaldo"
+msgstr "Indica si se deben mostrar los archivos de copia de seguridad"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:68
 msgid ""
 "If set to true, then backup files are shown by default in the file manager. "
 "Backup files are backup files ending with a tilde (~)."
 msgstr ""
+"Si se activa, los archivos de copia de seguridad se muestran por defecto en "
+"el gestor de archivos. Los archivos de copia de seguridad terminan con una "
+"tilde (~)."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:69
 msgid "Whether to show file sizes with IEC units"
@@ -3441,17 +3447,16 @@ msgid ""
 "If set to true, file sizes are shown using IEC (base 1024) units with "
 "\"KiB\" style suffixes, instead of default with SI units."
 msgstr ""
-"Si se establece en \"verdadero\", los tamaños de archivos se mostrarán en "
-"unidades IEC (base 1024) con sufijos \"KiB\", en lugar de hacerlo por "
-"defecto con sufijos SI"
+"Si se activa, los tamaños de los archivos se mostrarán en unidades de la IEC"
+" (base 1024) del estilo «KiB» en vez de hacerlo con unidades del SI."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:71
 msgid "Whether to show desktop notifications"
-msgstr "Si desea mostrar notificaciones en el escritorio"
+msgstr "Si quiere mostrar notificaciones en el escritorio"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:72
 msgid "If set to true, Caja will show desktop notifications."
-msgstr ""
+msgstr "Si se activa, Caja mostrará notificaciones de escritorio."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:73
 msgid "List of possible captions on icons"
@@ -3478,7 +3483,7 @@ msgstr "Usar una organización más apretada en las ventanas nuevas"
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:76
 msgid "If true, icons will be laid out tighter by default in new windows."
 msgstr ""
-"Si es cierto, los iconos se distribuirán más juntos por omisión en las "
+"Si se activa, los iconos se colocarán más apretados por defecto en las "
 "ventanas nuevas."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:77
@@ -3489,8 +3494,8 @@ msgstr "Colocar las etiquetas al lado de los iconos"
 msgid ""
 "If true, labels will be placed beside icons rather than underneath them."
 msgstr ""
-"Si es cierto, las etiquetas se colocarán a los lados de los iconos en lugar "
-"de por debajo de éstos."
+"Si se activa, las etiquetas se colocarán a los lados de los iconos y no "
+"debajo."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:79
 msgid "Default icon zoom level"
@@ -3498,7 +3503,7 @@ msgstr "Nivel de ampliación predeterminado del icono"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:80
 msgid "Default zoom level used by the icon view."
-msgstr "Nivel de ampliación predeterminado usado por la vista de iconos."
+msgstr "Nivel de ampliación predeterminado usado en la vista de iconos."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:81
 msgid "Default Thumbnail Icon Size"
@@ -3507,8 +3512,7 @@ msgstr "Tamaño predeterminado de las miniaturas"
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:82
 msgid "The default size of an icon for a thumbnail in the icon view."
 msgstr ""
-"El tamaño predeterminado para la miniatura de un icono en la vista como "
-"iconos."
+"El tamaño predeterminado de la miniatura de un icono en la vista de iconos."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:83
 msgid "Text Ellipsis Limit"
@@ -3521,7 +3525,7 @@ msgid ""
 "\n"
 "Available zoom levels: smallest (33%), smaller (50%), small (66%), standard (100%), large (150%), larger (200%), largest (400%)"
 msgstr ""
-"Una cadena que especifica cómo se deberían reemplazar las partes de los nombres de archivos largos por elipsis dependiendo del nivel de ampliación.  Cada una de las entradas de la lista es de la forma «Zoom Level:Integer» (Nivel de ampliación:Entero). Para cada nivel de ampliación especificado, si el entero es mayor que 0, el nombre del archivo no superará el número de líneas dado. Si el número es 0 o menor no se impone límite en el número de líneas mostradas en el nivel de ampliación especificado. También se permite una entrada predeterminada para la forma «Integer» (Entero) sin especificar el nivel de ampliación. Define el máximo numero de líneas para el resto de niveles de ampliación. Ejemplos: 0 - siempre mostrar los nombres de archivo largos; 3 - acortar nombres de archivo si superan las tres líneas; smallest:5, smaller:4 - acorta los nombres de archivo si superan las cinco líneas en el nivel de ampliación «smallest» (más pequeño) y si superan las cuatro líneas para el nivel de ampliación «smaller» (pequeño). No acorta los nombres de archivo para otros niveles de ampliación. \n"
+"Una cadena que especifica cómo se deben reemplazar las partes de los nombres de archivos largos por elipsis dependiendo del nivel de ampliación.  Cada una de las entradas de la lista es de la forma «Zoom Level:Integer» (Nivel de ampliación:Entero). Para cada nivel de ampliación especificado, si el entero es mayor que 0, el nombre del archivo no superará el número de líneas dado. Si el número es 0 o menor no se impone límite en el número de líneas mostradas en el nivel de ampliación especificado. También se permite una entrada predeterminada con la forma «Integer» (Entero) sin especificar el nivel de ampliación. Dicha entrada define el máximo numero de líneas para el resto de niveles de ampliación. Ejemplos: 0 - siempre mostrar los nombres de archivo largos; 3 - acortar los nombres de archivo si superan las tres líneas; smallest:5, smaller:4 - acortar los nombres de archivo si superan las cinco líneas en el nivel de ampliación «smallest» (más pequeño) y si superan las cuatro líneas para el nivel de ampliación «smaller» (pequeño). No acortar los nombres de archivo para otros niveles de ampliación. \n"
 "\n"
 "Niveles de ampliación disponibles: «smallest» (33%), «smaller» (50%), «small» (66%), «standard» (100%), «large» (150%), «larger» (200%), «largest» (400%)."
 
@@ -3531,7 +3535,7 @@ msgstr "Nivel de ampliación predeterminado de la vista compacta"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:89
 msgid "Default zoom level used by the compact view."
-msgstr "Nivel de ampliación predeterminado usado por la vista compacta."
+msgstr "Nivel de ampliación predeterminado usado en la vista compacta."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:90
 msgid "All columns have same width"
@@ -3542,9 +3546,9 @@ msgid ""
 "If this preference is set, all columns in the compact view have the same "
 "width. Otherwise, the width of each column is determined seperately."
 msgstr ""
-"Si esta preferencia está activada, todas las columnas en la vista compacta "
-"tienen la misma anchura. De otra forma, la anchura de cada columna se "
-"determina separadamente."
+"Si se configura esta preferencia, todas las columnas en la vista compacta "
+"tendrán la misma anchura. En caso contrario, la anchura de cada columna se "
+"determina por separado."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:92
 msgid "Default list zoom level"
@@ -3552,7 +3556,7 @@ msgstr "Nivel de ampliación predeterminado de la lista"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:93
 msgid "Default zoom level used by the list view."
-msgstr "Nivel de ampliación predeterminado usado por la vista de lista."
+msgstr "Nivel de ampliación predeterminado usado en la vista de lista."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:94
 msgid "Default list of columns visible in the list view"
@@ -3564,23 +3568,23 @@ msgstr "Lista predeterminada de columnas visibles en la vista de lista."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:96
 msgid "Default column order in the list view"
-msgstr "Orden predeterminado de la columna en la vista de lista"
+msgstr "Orden predeterminado de las columnas en la vista de lista"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:97
 msgid "Default column order in the list view."
-msgstr "Orden predeterminado de la columna en la vista de lista."
+msgstr "Orden predeterminado de las columnas en la vista de lista."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:98
 msgid "Only show folders in the tree side pane"
-msgstr "Mostrar las carpetas sólo en el árbol del panel lateral"
+msgstr "Mostrar las carpetas solo en el árbol del panel lateral"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:99
 msgid ""
 "If set to true, Caja will only show folders in the tree side pane. Otherwise"
 " it will show both folders and files."
 msgstr ""
-"Si se establece a cierto, Caja mostrará solo las carpetas en el árbol del "
-"panel lateral. De otro modo mostrará tanto las carpetas como los archivos."
+"Si se activa, Caja mostrará solo las carpetas en el árbol del panel lateral."
+" De otro modo mostrará tanto las carpetas como los archivos."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:100
 msgid "Desktop font"
@@ -3600,8 +3604,8 @@ msgid ""
 "If this is set to true, an icon linking to the home folder will be put on "
 "the desktop."
 msgstr ""
-"Si se establece a cierto, se colocará en el escritorio un icono enlazando "
-"con la carpeta personal."
+"Si se ha activado esta clave, se colocará en el escritorio un icono que "
+"enlaza con la carpeta personal."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:104
 msgid "Computer icon visible on desktop"
@@ -3612,8 +3616,8 @@ msgid ""
 "If this is set to true, an icon linking to the computer location will be put"
 " on the desktop."
 msgstr ""
-"Si se establece a cierto, se colocará en el escritorio un icono enlazado con"
-" el lugar del equipo."
+"Si se ha activado esta clave, se colocará en el escritorio un icono que "
+"enlaza con la ubicación del equipo."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:106
 msgid "Trash icon visible on desktop"
@@ -3624,8 +3628,8 @@ msgid ""
 "If this is set to true, an icon linking to the trash will be put on the "
 "desktop."
 msgstr ""
-"Si se establece a cierto, se colocará un icono en el escritorio enlazando "
-"con la papelera."
+"Si se ha activado esta clave, se colocará en el escritorio un icono que "
+"enlaza con la papelera."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:108
 msgid "Show mounted volumes on the desktop"
@@ -3636,8 +3640,8 @@ msgid ""
 "If this is set to true, icons linking to mounted volumes will be put on the "
 "desktop."
 msgstr ""
-"Si se establece a cierto, se colocarán en el escritorio iconos enlazando con"
-" los volúmenes montados."
+"Si se ha activado esta clave, se colocarán en el escritorio iconos que "
+"enlazan con los volúmenes montados."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:110
 msgid "Network Servers icon visible on the desktop"
@@ -3648,8 +3652,8 @@ msgid ""
 "If this is set to true, an icon linking to the Network Servers view will be "
 "put on the desktop."
 msgstr ""
-"Si se establece a cierto, se colocará en el escritorio un icono enlazado a "
-"la vista de «Servidores de red»."
+"Si se ha activado esta clave, se colocará en el escritorio un icono que "
+"enlaza con la vista de los servidores de red."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:112
 msgid "Desktop computer icon name"
@@ -3706,7 +3710,7 @@ msgid ""
 " not exceed the given number of lines. If the number is 0 or smaller, no "
 "limit is imposed on the number of displayed lines."
 msgstr ""
-"Un entero que especifica cómo se deberían reemplazar en el escritorio las "
+"Un entero que especifica cómo se deben reemplazar en el escritorio las "
 "partes de los nombres de archivos largos por elipsis. Si el número es mayor "
 "que 0 el nombre del archivo no superará el número de líneas dado. Si el "
 "número es 0 o menor no se impone límite en el número de líneas mostradas."
@@ -3725,13 +3729,11 @@ msgstr ""
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:123
 msgid "Whether the navigation window should be maximized."
-msgstr "Indica si la ventana de navegación debería maximizarse."
+msgstr "Indica si la ventana de navegación se debe maximizar."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:124
 msgid "Whether the navigation window should be maximized by default."
-msgstr ""
-"Indica si la ventana de navegación debería maximizarse de forma "
-"predeterminada."
+msgstr "Indica si la ventana de navegación se debe maximizar por defecto."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:125
 msgid "Width of the side pane"
@@ -3749,19 +3751,19 @@ msgstr "Mostrar la barra de herramientas en las ventanas nuevas"
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:128
 msgid "If set to true, newly opened windows will have toolbars visible."
 msgstr ""
-"Si se establece a cierto, las ventanas nuevas abiertas tendrán la barra de "
-"herramientas visible."
+"Si se activa, las ventanas nuevas abiertas tendrán la barra de herramientas "
+"visible."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:129
 msgid "Show location bar in new windows"
-msgstr "Mostrar la barra de lugares en las ventanas nuevas"
+msgstr "Mostrar la barra de ubicación en las ventanas nuevas"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:130
 msgid ""
 "If set to true, newly opened windows will have the location bar visible."
 msgstr ""
-"Si se establece a cierto, las ventanas nuevas abiertas tendrán la barra de "
-"lugar visible."
+"Si se activa, las ventanas nuevas abiertas tendrán la barra de ubicación "
+"visible."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:131
 msgid "Show status bar in new windows"
@@ -3770,8 +3772,7 @@ msgstr "Mostrar la barra de estado en las ventanas nuevas"
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:132
 msgid "If set to true, newly opened windows will have the status bar visible."
 msgstr ""
-"Si se establece a cierto, las ventas nuevas abiertas tendrán la barra de "
-"estado visible."
+"Si se activa, las ventas nuevas abiertas tendrán la barra de estado visible."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:133
 msgid "Show side pane in new windows"
@@ -3780,8 +3781,7 @@ msgstr "Mostrar el panel lateral en las ventanas nuevas"
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:134
 msgid "If set to true, newly opened windows will have the side pane visible."
 msgstr ""
-"Si se establece a cierto, la ventas nuevas abiertas tendrán el panel lateral"
-" visible."
+"Si se activa, la ventas nuevas abiertas tendrán el panel lateral visible."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:135
 msgid "Side pane view"
@@ -3810,9 +3810,8 @@ msgid ""
 "If set to true, then Caja will automatically mount media such as user-"
 "visible hard disks and removable media on start-up and media insertion."
 msgstr ""
-"Si se establece a cierto, entonces Caja montará automáticamente los soportes"
-" tales como los discos duros visibles por el usuario y los dispositivos "
-"extraíbles cuando se introduzcan."
+"Si se activa, Caja montará automáticamente soportes como los discos duros "
+"visibles por el usuario y los dispositivos extraíbles."
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:3
 msgid "Whether to automatically open a folder for automounted media"
@@ -3827,25 +3826,25 @@ msgid ""
 "detected; for media where a known x-content type is detected, the user "
 "configurable action will be taken instead."
 msgstr ""
-"Si se establece a cierto, entonces Caja abrirá automáticamente una carpeta "
-"cuando el soporte está automontado. Esto sólo se aplica a los soportes donde"
-" no se detectó el tipo de contenido (x-content/*); para soportes en los que "
-"sí se detectó el tipo de contenido, se llevará a acabo la acción "
-"configurable por el usuario."
+"Si se activa, Caja abrirá automáticamente una carpeta cuando el soporte se "
+"monte automáticamente. Esto solo se aplica a los soportes en los que no se "
+"ha detectado el tipo de contenido (x-content/*); en el caso de soportes en "
+"los que sí se ha detectado el tipo de contenido, se llevará a acabo la "
+"acción configurada por el usuario."
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:5
 msgid "Never prompt or autorun/autostart programs when media are inserted"
 msgstr ""
-"Nunca preguntar si se deben ejecutar programas automáticos cuando se "
-"introduce un soporte"
+"No preguntar ni ejecutar automáticamente programas cuando se insertan "
+"soportes"
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:6
 msgid ""
 "If set to true, then Caja will never prompt nor autorun/autostart programs "
 "when a medium is inserted."
 msgstr ""
-"Si se establece a cierto, entonces Caja nunca preguntará ni ejecutará "
-"automáticamente programas cuando se introduzca un soporte."
+"Si se activa, Caja nunca preguntará ni ejecutará automáticamente programas "
+"cuando se inserte un soporte."
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:7
 msgid ""
@@ -3868,7 +3867,7 @@ msgstr ""
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:9
 msgid "List of x-content/* types set to \"Do Nothing\""
 msgstr ""
-"Lista de tipos de contenido (x-content/*) establecida a «No hacer nada»"
+"Lista de los tipos de contenido (x-content/*) asignados a «No hacer nada»"
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:10
 msgid ""
@@ -3878,13 +3877,13 @@ msgid ""
 msgstr ""
 "Lista de los tipos de contenido (x-content/*) para los cuales el usuario ha "
 "elegido «No hacer nada» en la miniaplicación de preferencias. No se "
-"preguntará ni se iniciará ninguna aplicación que coincida al insertar este "
-"tipo de soportes."
+"preguntará ni se iniciará ninguna aplicación al insertar los soportes que "
+"coincidan con estos tipos."
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:11
 msgid "List of x-content/* types set to \"Open Folder\""
 msgstr ""
-"Lista de tipos de contenido (x-content/*) establecida a «Abrir carpeta»"
+"Lista de los tipos de contenido (x-content/*) asignados a «Abrir carpeta»"
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:12
 msgid ""
@@ -3893,9 +3892,8 @@ msgid ""
 "media matching these types."
 msgstr ""
 "Lista de los tipos de contenido (x-content/*) para los cuales el usuario ha "
-"seleccionado «Abrir carpeta» en la miniaplicación de preferencias. Se barirá"
-" una ventana de carpeta al introducir un soporte que coincida con estos "
-"tipos."
+"seleccionado «Abrir carpeta» en la miniaplicación de preferencias. Se abrirá"
+" una ventana de carpeta al insertar un soporte que coincida con estos tipos."
 
 #: ../libegg/eggdesktopfile.c:166
 #, c-format
@@ -3915,7 +3913,7 @@ msgstr "Iniciando %s"
 #: ../libegg/eggdesktopfile.c:1100
 #, c-format
 msgid "Application does not accept documents on command line"
-msgstr "La aplicación no acepta documentos en la consola"
+msgstr "La aplicación no acepta documentos en la línea de órdenes"
 
 #: ../libegg/eggdesktopfile.c:1168
 #, c-format
@@ -3926,7 +3924,7 @@ msgstr "Opción de apertura no reconocida: %d"
 #, c-format
 msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
 msgstr ""
-"No se pueden pasar URI de documentos a una entrada .desktop «Type=Link»"
+"No se pueden pasar los URI de documentos a una entrada .desktop «Type=Link»"
 
 #: ../libegg/eggdesktopfile.c:1385
 #, c-format
@@ -3955,11 +3953,11 @@ msgstr "Id."
 
 #: ../libegg/eggsmclient.c:269
 msgid "Session management options:"
-msgstr "Opciones de gestión de la sesión:"
+msgstr "Opciones de gestión de sesiones:"
 
 #: ../libegg/eggsmclient.c:270
 msgid "Show session management options"
-msgstr "Mostrar las opciones de gestión de la sesión"
+msgstr "Mostrar las opciones de gestión de sesiones"
 
 #: ../src/file-manager/fm-desktop-icon-view.c:672
 msgid "Background"
@@ -4009,7 +4007,7 @@ msgstr "Vacía la papelera"
 #: ../src/file-manager/fm-desktop-icon-view.c:783
 #: ../src/file-manager/fm-directory-view.c:7375 ../src/caja-trash-bar.c:202
 msgid "Delete all items in the Trash"
-msgstr "Borra todos los elementos en la papelera"
+msgstr "Elimina todos los elementos en la papelera"
 
 #: ../src/file-manager/fm-desktop-icon-view.c:883
 msgid "The desktop view encountered an error."
@@ -4023,21 +4021,21 @@ msgstr "La vista de escritorio ha encontrado un error mientras se iniciaba."
 #, c-format
 msgid "This will open %'d separate tab."
 msgid_plural "This will open %'d separate tabs."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Esto abrirá %'d pestaña separada."
+msgstr[1] "Esto abrirá %'d pestañas separadas."
 
 #: ../src/file-manager/fm-directory-view.c:661
 #, c-format
 msgid "This will open %'d separate window."
 msgid_plural "This will open %'d separate windows."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Esto abrirá %'d ventana separada."
+msgstr[1] "Esto abrirá %'d ventanas separadas."
 
 #: ../src/file-manager/fm-directory-view.c:1180
 #: ../src/file-manager/fm-properties-window.c:5425
 #: ../src/caja-connect-server-dialog.c:718 ../src/caja-location-dialog.c:102
 msgid "There was an error displaying help."
-msgstr "Hubo un error al mostrar la ayuda."
+msgstr "Se ha producido un error al mostrar la ayuda."
 
 #: ../src/file-manager/fm-directory-view.c:1201
 msgid "Select Items Matching"
@@ -4101,8 +4099,8 @@ msgstr[1] "%'d carpetas seleccionadas"
 #, c-format
 msgid " (containing %'d item)"
 msgid_plural " (containing %'d items)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] " (contiene %'d elemento)"
+msgstr[1] " (contiene %'d elementos)"
 
 #. translators: this is preceded with a string of form 'N folders' (N more
 #. than 1)
@@ -4110,8 +4108,8 @@ msgstr[1] ""
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] " (contiene un total de %'d elemento)"
+msgstr[1] " (contiene un total de %'d elementos)"
 
 #: ../src/file-manager/fm-directory-view.c:2337
 #, c-format
@@ -4125,8 +4123,8 @@ msgstr[1] "%'d elementos seleccionados"
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "otro elemento seleccionado"
+msgstr[1] "otros %'d elementos seleccionados"
 
 #. This is marked for translation in case a localiser
 #. * needs to use something other than parentheses. The
@@ -4194,16 +4192,16 @@ msgstr "Abrir con %s"
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
-msgstr[0] "Use \"%s\" para abrir el elemento seleccionado"
-msgstr[1] "Use \"%s\" para abrir los elementos seleccionados"
+msgstr[0] "Usar «%s» para abrir el elemento seleccionado"
+msgstr[1] "Usar «%s» para abrir los elementos seleccionados"
 
 #: ../src/file-manager/fm-directory-view.c:4584
 msgid "Open parent location"
-msgstr "Abrir el lugar contenedor"
+msgstr "Abrir la ubicación superior"
 
 #: ../src/file-manager/fm-directory-view.c:4585
 msgid "Open parent location for the selected item"
-msgstr "Abrir el lugar contenedor para el elemento seleccionado"
+msgstr "Abrir la ubicación superior del elemento seleccionado"
 
 #: ../src/file-manager/fm-directory-view.c:5438
 #, c-format
@@ -4226,8 +4224,8 @@ msgid ""
 "Choosing a script from the menu will run that script with any selected items"
 " as input."
 msgstr ""
-"Seleccionando un script desde el menú ejecutará ese script usando cualquier "
-"elemento seleccionado como argumento de entrada."
+"Si elige un script desde el menú, se ejecutará con  cualquier elemento "
+"seleccionado como argumento de entrada."
 
 #: ../src/file-manager/fm-directory-view.c:5943
 msgid ""
@@ -4255,19 +4253,19 @@ msgstr ""
 "\n"
 "Cuando se ejecutan desde el equipo local, los scripts obtendrán como argumentos de entrada los nombres de los archivos seleccionados. Cuando se ejecuten desde un equipo remoto (ej. una carpeta mostrando contenido web o ftp), los scripts se ejecutarán sin ningún argumento de entrada.\n"
 "\n"
-"En todos los casos, Caja establecerá las siguientes variables de entorno, las cuales se podrán utilizar desde los scripts:\n"
+"En todos los casos, Caja establecerá las variables de entorno siguientes, las cuales se podrán usar desde los scripts:\n"
 "\n"
-"CAJA_SCRIPT_SELECTED_FILE_PATHS: rutas delimitadas para los archivos seleccionados (sólo si es local)\n"
+"CAJA_SCRIPT_SELECTED_FILE_PATHS: rutas delimitadas para los archivos seleccionados (solo si es local)\n"
 "\n"
-"CAJA_SCRIPT_SELECTED_URIS: URIs delimitadas por saltos de línea para los archivos seleccionados.\n"
+"CAJA_SCRIPT_SELECTED_URIS: URI delimitadas por saltos de línea para los archivos seleccionados.\n"
 "\n"
-"CAJA_SCRIPT_CURRENT_URI: La URI del lugar actual\n"
+"CAJA_SCRIPT_CURRENT_URI: El URI  de la ubicación actual\n"
 "\n"
 "CAJA_SCRIPT_WINDOW_GEOMETRY: posición y tamaño de la ventana actual\n"
 "\n"
-"CAJA_SCRIPT_NEXT_PANE_SELECTED_FILE_PATHS: rutas nuevas delimitadas por líneas nuevas para los archivos seleccionados en el panel inactivo de una vista separada de una ventana (sólo si es local)\n"
+"CAJA_SCRIPT_NEXT_PANE_SELECTED_FILE_PATHS: rutas nuevas delimitadas por líneas nuevas para los archivos seleccionados en el panel inactivo de una vista separada de una ventana (solo si es local)\n"
 "\n"
-"CAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: URI delimitadas por líneas nuevas para los archivos seleccionados en el panel inactivo de una vista separada de una ventana\n"
+"CAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: URI delimitados por líneas nuevas para los archivos seleccionados en el panel inactivo de una vista separada de una ventana\n"
 "\n"
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI para la ubicación actual en el panel inactivo de una vista separada de una ventana"
 
@@ -4288,8 +4286,9 @@ msgstr "«%s» se copiará si selecciona la orden «Pegar»"
 msgid "The %'d selected item will be moved if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be moved if you select the Paste command"
-msgstr[0] ""
+msgstr[0] "El elemento seleccionado se moverá si selecciona la orden «Pegar»"
 msgstr[1] ""
+"Los %'d elementos seleccionados se moverán si selecciona la orden «Pegar»"
 
 #: ../src/file-manager/fm-directory-view.c:6029
 #, c-format
@@ -4297,7 +4296,9 @@ msgid "The %'d selected item will be copied if you select the Paste command"
 msgid_plural ""
 "The %'d selected items will be copied if you select the Paste command"
 msgstr[0] ""
+"El elemento seleccionado se copiarán si selecciona la orden «Pegar»"
 msgstr[1] ""
+"Los %'d elementos seleccionados se copiarán si selecciona la orden «Pegar»"
 
 #: ../src/file-manager/fm-directory-view.c:6209
 #: ../src/file-manager/fm-tree-view.c:1055
@@ -4306,15 +4307,15 @@ msgstr "No hay nada en el portapapeles para pegar."
 
 #: ../src/file-manager/fm-directory-view.c:6424
 msgid "Unable to unmount location"
-msgstr "No se pudo desmontar el lugar"
+msgstr "No se puede desmontar la ubicación"
 
 #: ../src/file-manager/fm-directory-view.c:6445
 msgid "Unable to eject location"
-msgstr "No se pudo expulsar el lugar"
+msgstr "No se puede expulsar la ubicación"
 
 #: ../src/file-manager/fm-directory-view.c:6460
 msgid "Unable to stop drive"
-msgstr "No se pudo parar la unidad"
+msgstr "No se puede parar la unidad"
 
 #: ../src/file-manager/fm-directory-view.c:7019
 #, c-format
@@ -4374,7 +4375,7 @@ msgstr "Crear _carpeta"
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7329
 msgid "Create a new empty folder inside this folder"
-msgstr "Crea una carpeta nueva vacía dentro de esta carpeta"
+msgstr "Crea una carpeta nueva vacía en esta carpeta"
 
 #. name, icon name, label
 #: ../src/file-manager/fm-directory-view.c:7331
@@ -4391,7 +4392,7 @@ msgstr "Archivo _vacío"
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7335
 msgid "Create a new empty file inside this folder"
-msgstr "Crea un documento nuevo vacío dentro de esta carpeta"
+msgstr "Crea un archivo nuevo vacío en esta carpeta"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7343
@@ -4563,8 +4564,8 @@ msgstr "Duplica cada elemento seleccionado"
 #: ../src/file-manager/fm-directory-view.c:9029
 msgid "Ma_ke Link"
 msgid_plural "Ma_ke Links"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Crear _enlace"
+msgstr[1] "Crear _enlaces"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7415
@@ -4591,7 +4592,7 @@ msgstr "Mover cada elemento seleccionado a la papelera"
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7431
 msgid "Delete each selected item, without moving to the Trash"
-msgstr "Borra cada elemento seleccionado, sin moverlo a la papelera"
+msgstr "Elimina cada elemento seleccionado, sin moverlo a la papelera"
 
 #. name, icon name
 #. label, accelerator
@@ -4632,14 +4633,14 @@ msgstr "Rehacer la última acción no efectuada"
 #. label, accelerator
 #: ../src/file-manager/fm-directory-view.c:7453
 msgid "Reset View to _Defaults"
-msgstr "Restaurar a _vista predeterminada"
+msgstr "Restablecer la _vista predeterminada"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7454
 msgid "Reset sorting order and zoom level to match preferences for this view"
 msgstr ""
-"Restablecer el orden de colocación y el nivel de ampliación para ajustarse a"
-" las preferencias de esta vista"
+"Restablecer la forma de ordenación y el nivel de ampliación para que "
+"coincidan con las preferencias de esta vista"
 
 #. name, icon name
 #. label, accelerator
@@ -4737,14 +4738,14 @@ msgstr "Parar el volumen seleccionado"
 #: ../src/file-manager/fm-directory-view.c:7594
 #: ../src/caja-places-sidebar.c:2742
 msgid "_Detect Media"
-msgstr "_Detectar soporte"
+msgstr "_Detectar soportes"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7486
 #: ../src/file-manager/fm-directory-view.c:7514
 #: ../src/file-manager/fm-directory-view.c:7595
 msgid "Detect media in the selected drive"
-msgstr "Detectar soporte en la unidad seleccionada"
+msgstr "Detectar soportes en la unidad seleccionada"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7490
@@ -4797,7 +4798,7 @@ msgstr "Guardar la búsqueda editada"
 #. label, accelerator
 #: ../src/file-manager/fm-directory-view.c:7525
 msgid "Sa_ve Search As..."
-msgstr "Guardar búsqueda _como…"
+msgstr "Guardar la búsqueda _como…"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7526
@@ -4931,7 +4932,7 @@ msgstr "Mover la selección actual al escritorio"
 #: ../src/file-manager/fm-directory-view.c:7703
 #, c-format
 msgid "Run or manage scripts from %s"
-msgstr "Ejecutar o administrar los scripts de %s"
+msgstr "Ejecutar o gestionar los scripts de %s"
 
 #. Create a script action here specially because its tooltip is dynamic
 #: ../src/file-manager/fm-directory-view.c:7705
@@ -4947,43 +4948,43 @@ msgstr "Mover la carpeta abierta de la papelera a «%s»"
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Mover la carpeta seleccionada de la papelera a «%s»"
+msgstr[1] "Mover las carpetas seleccionadas de la papelera a «%s»"
 
 #: ../src/file-manager/fm-directory-view.c:8117
 #, c-format
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Mover la carpeta seleccionada fuera de la papelera"
+msgstr[1] "Mover las carpetas seleccionadas fuera de la papelera"
 
 #: ../src/file-manager/fm-directory-view.c:8123
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Mover el archivo seleccionado de la papelera a «%s»"
+msgstr[1] "Mover los archivos seleccionados de la papelera a «%s»"
 
 #: ../src/file-manager/fm-directory-view.c:8127
 #, c-format
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Mover el archivo seleccionado fuera de la papelera"
+msgstr[1] "Mover los archivos seleccionados fuera de la papelera"
 
 #: ../src/file-manager/fm-directory-view.c:8133
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Mover el elemento seleccionado de la papelera a «%s»"
+msgstr[1] "Mover los elementos seleccionados de la papelera a «%s»"
 
 #: ../src/file-manager/fm-directory-view.c:8137
 #, c-format
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Mover el elemento seleccionado fuera de la papelera"
+msgstr[1] "Mover los elementos seleccionados fuera de la papelera"
 
 #: ../src/file-manager/fm-directory-view.c:8263
 #: ../src/file-manager/fm-directory-view.c:8267
@@ -4995,7 +4996,7 @@ msgstr "Iniciar la unidad seleccionada"
 #: ../src/file-manager/fm-directory-view.c:8271
 #: ../src/file-manager/fm-directory-view.c:8473
 msgid "Connect to the selected drive"
-msgstr "Conectar con la unidad seleccionada"
+msgstr "Conectarse a la unidad seleccionada"
 
 #: ../src/file-manager/fm-directory-view.c:8274
 #: ../src/file-manager/fm-directory-view.c:8366
@@ -5026,12 +5027,12 @@ msgstr "Parar la unidad seleccionada"
 #: ../src/file-manager/fm-directory-view.c:8497
 #: ../src/caja-places-sidebar.c:1813
 msgid "_Safely Remove Drive"
-msgstr "Expulsar unidad de forma _segura"
+msgstr "Extraer de forma _segura la unidad"
 
 #: ../src/file-manager/fm-directory-view.c:8296
 #: ../src/file-manager/fm-directory-view.c:8498
 msgid "Safely remove the selected drive"
-msgstr "Expulsar la unidad de forma segura"
+msgstr "Extraer de forma segura la unidad seleccionada"
 
 #: ../src/file-manager/fm-directory-view.c:8299
 #: ../src/file-manager/fm-directory-view.c:8391
@@ -5074,7 +5075,7 @@ msgstr "Iniciar la unidad asociada con la carpeta abierta"
 
 #: ../src/file-manager/fm-directory-view.c:8363
 msgid "Connect to the drive associated with the open folder"
-msgstr "Conectar con la unidad asociada con la carpeta abierta"
+msgstr "Conectarse a la unidad asociada con la carpeta abierta"
 
 #: ../src/file-manager/fm-directory-view.c:8367
 msgid "Start the multi-disk drive associated with the open folder"
@@ -5097,7 +5098,7 @@ msgstr "_Parar la unidad asociada con la carpeta abierta"
 
 #: ../src/file-manager/fm-directory-view.c:8388
 msgid "Safely remove the drive associated with the open folder"
-msgstr "Expulsar de forma segura la unidad asociada con la carpeta abierta"
+msgstr "Extraer de forma segura la unidad asociada con la carpeta abierta"
 
 #: ../src/file-manager/fm-directory-view.c:8392
 msgid "Disconnect the drive associated with the open folder"
@@ -5121,19 +5122,19 @@ msgstr "Abrir en una _ventana nueva"
 #: ../src/file-manager/fm-directory-view.c:8581
 #: ../src/file-manager/fm-directory-view.c:8905
 msgid "Browse in New _Window"
-msgstr "Examinar en una _ventana nueva"
+msgstr "Navegar en una _ventana nueva"
 
 #: ../src/file-manager/fm-directory-view.c:8587
 #: ../src/file-manager/fm-directory-view.c:8915
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Examinar la carpeta"
+msgstr[1] "_Navegar por las carpetas"
 
 #: ../src/file-manager/fm-directory-view.c:8604
 #: ../src/file-manager/fm-directory-view.c:8944
 msgid "Browse in New _Tab"
-msgstr "Examinar en una pesta_ña nueva"
+msgstr "Navegar en una pesta_ña nueva"
 
 #: ../src/file-manager/fm-directory-view.c:8653
 #: ../src/file-manager/fm-directory-view.c:8985
@@ -5142,7 +5143,7 @@ msgstr "_Eliminar permanentemente"
 
 #: ../src/file-manager/fm-directory-view.c:8654
 msgid "Delete the open folder permanently"
-msgstr "Borra la carpeta abierta permanentemente"
+msgstr "Elimina la carpeta abierta permanentemente"
 
 #: ../src/file-manager/fm-directory-view.c:8658
 msgid "Move the open folder to the Trash"
@@ -5157,33 +5158,33 @@ msgstr "_Abrir con %s"
 #, c-format
 msgid "Open in %'d New _Window"
 msgid_plural "Open in %'d New _Windows"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Abrir en %'d _ventana nueva"
+msgstr[1] "Abrir en %'d _ventanas nuevas"
 
 #: ../src/file-manager/fm-directory-view.c:8907
 #, c-format
 msgid "Browse in %'d New _Window"
 msgid_plural "Browse in %'d New _Windows"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Navegar en %'d _ventana nueva"
+msgstr[1] "Navegar en %'d _ventanas nuevas"
 
 #: ../src/file-manager/fm-directory-view.c:8937
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Abrir en %'d pesta_ñ nueva"
+msgstr[1] "Abrir en %'d pesta_ñas nuevas"
 
 #: ../src/file-manager/fm-directory-view.c:8946
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Navegar en %'d pesta_ña nueva"
+msgstr[1] "Navegar en %'d pesta_ñas nuevas"
 
 #: ../src/file-manager/fm-directory-view.c:8986
 msgid "Delete all selected items permanently"
-msgstr "Borra permanentemente todos los elementos seleccionados"
+msgstr "Elimina permanentemente todos los elementos seleccionados"
 
 #: ../src/file-manager/fm-directory-view.c:9043
 msgid "View or modify the properties of the open folder"
@@ -5191,7 +5192,7 @@ msgstr "Vea o modifique las propiedades de la carpeta abierta"
 
 #: ../src/file-manager/fm-directory-view.c:10340
 msgid "Download location?"
-msgstr "¿Dónde quiere descargar?"
+msgstr "¿Quiere descargar la ubicación?"
 
 #: ../src/file-manager/fm-directory-view.c:10343
 msgid "You can download it or make a link to it."
@@ -5209,28 +5210,28 @@ msgstr "_Descargar"
 #: ../src/file-manager/fm-directory-view.c:10573
 #: ../src/file-manager/fm-directory-view.c:10678
 msgid "Drag and drop is not supported."
-msgstr "Arrastrar y soltar no está soportado."
+msgstr "Arrastrar y soltar no es compatible."
 
 #: ../src/file-manager/fm-directory-view.c:10515
 msgid "Drag and drop is only supported on local file systems."
 msgstr ""
-"Arrastrar y soltar sólo está soportado en los sistemas de archivos locales."
+"Arrastrar y soltar solo es compatible con sistemas de archivos locales."
 
 #: ../src/file-manager/fm-directory-view.c:10574
 #: ../src/file-manager/fm-directory-view.c:10679
 msgid "An invalid drag type was used."
-msgstr "Se ha utilizado un tipo de arrastre inválido."
+msgstr "Se ha usado un tipo de arrastre no válido."
 
 #. Translator: This is the filename used for when you dnd text to a directory
 #: ../src/file-manager/fm-directory-view.c:10756
 msgid "dropped text.txt"
-msgstr "se soltó texto.txt"
+msgstr "texto arrastrado.txt"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
 #: ../src/file-manager/fm-directory-view.c:10801
 msgid "dropped data"
-msgstr "se soltaron los datos"
+msgstr "datos arrastrados"
 
 #. Reset to default info
 #: ../src/file-manager/fm-directory-view.c:11196
@@ -5259,7 +5260,7 @@ msgstr "Descripción"
 
 #: ../src/file-manager/fm-ditem-page.c:448
 msgid "Command"
-msgstr "Comando"
+msgstr "Orden"
 
 #: ../src/file-manager/fm-error-reporting.c:69
 #, c-format
@@ -5269,16 +5270,16 @@ msgstr "No tiene los permisos suficientes para ver el contenido de «%s»."
 #: ../src/file-manager/fm-error-reporting.c:73
 #, c-format
 msgid "\"%s\" could not be found. Perhaps it has recently been deleted."
-msgstr "No se pudo encontrar «%s». Quizás se haya borrado recientemente."
+msgstr "No se ha podido encontrar «%s». Quizás se ha eliminado recientemente."
 
 #: ../src/file-manager/fm-error-reporting.c:77
 #, c-format
 msgid "Sorry, could not display all the contents of \"%s\": %s"
-msgstr "No se pudo mostrar todo el contenido de «%s»: %s"
+msgstr "No se ha podido mostrar todo el contenido de «%s»: %s"
 
 #: ../src/file-manager/fm-error-reporting.c:86
 msgid "The folder contents could not be displayed."
-msgstr "El contenido de la carpeta no se pudo mostrar."
+msgstr "No se ha podido mostrar el contenido de la carpeta."
 
 #: ../src/file-manager/fm-error-reporting.c:117
 #, c-format
@@ -5321,7 +5322,7 @@ msgstr "No se ha podido renombrar «%s» a «%s»: %s"
 
 #: ../src/file-manager/fm-error-reporting.c:163
 msgid "The item could not be renamed."
-msgstr "El elemento no se pudo renombrar."
+msgstr "No se ha podido renombrar el elemento."
 
 #: ../src/file-manager/fm-error-reporting.c:188
 #, c-format
@@ -5332,29 +5333,29 @@ msgstr "No tiene los permisos suficientes para cambiar el grupo de «%s»."
 #: ../src/file-manager/fm-error-reporting.c:202
 #, c-format
 msgid "Sorry, could not change the group of \"%s\": %s"
-msgstr "No se pudo cambiar el grupo de «%s»: %s"
+msgstr "No se ha podido cambiar el grupo de «%s»: %s"
 
 #: ../src/file-manager/fm-error-reporting.c:207
 msgid "The group could not be changed."
-msgstr "El grupo no pudo cambiarse."
+msgstr "El grupo no ha podido cambiarse."
 
 #: ../src/file-manager/fm-error-reporting.c:228
 #, c-format
 msgid "Sorry, could not change the owner of \"%s\": %s"
-msgstr "No se pudo cambiar el propietario de «%s»: %s"
+msgstr "No se ha podido cambiar el propietario de «%s»: %s"
 
 #: ../src/file-manager/fm-error-reporting.c:230
 msgid "The owner could not be changed."
-msgstr "No se pudo cambiar el propietario."
+msgstr "No se ha podido cambiar el propietario."
 
 #: ../src/file-manager/fm-error-reporting.c:251
 #, c-format
 msgid "Sorry, could not change the permissions of \"%s\": %s"
-msgstr "No se pudieron cambiar los permisos de «%s»: %s"
+msgstr "No se han podido cambiar los permisos de «%s»: %s"
 
 #: ../src/file-manager/fm-error-reporting.c:253
 msgid "The permissions could not be changed."
-msgstr "Los permisos no pudieron cambiarse."
+msgstr "Los permisos no han podido cambiarse."
 
 #: ../src/file-manager/fm-error-reporting.c:363
 #, c-format
@@ -5389,7 +5390,7 @@ msgstr "Mantiene los iconos ordenados por tamaño en filas"
 
 #: ../src/file-manager/fm-icon-view.c:142
 msgid "by S_ize on Disk"
-msgstr ""
+msgstr "por tamaño en disco"
 
 #: ../src/file-manager/fm-icon-view.c:143
 #: ../src/file-manager/fm-icon-view.c:1759
@@ -5431,8 +5432,8 @@ msgstr "por h_ora movido a la papelera"
 #: ../src/file-manager/fm-icon-view.c:1783
 msgid "Keep icons sorted by trash time in rows"
 msgstr ""
-"Mantener los iconos ordenados en filas por hora en la que se movieron a la "
-"papelera"
+"Mantener los iconos ordenados en filas por hora en la que se han movido a la"
+" papelera"
 
 #: ../src/file-manager/fm-icon-view.c:177
 msgid "by E_xtension"
@@ -5441,6 +5442,7 @@ msgstr "por E_xtensión"
 #: ../src/file-manager/fm-icon-view.c:178
 msgid "Keep icons sorted by reversed extension segments in rows"
 msgstr ""
+"Mantener los iconos ordenados por segmentos de extensión inversa en filas"
 
 #: ../src/file-manager/fm-icon-view.c:787
 msgid "_Organize Desktop by Name"
@@ -5455,7 +5457,7 @@ msgstr "Organi_zar los elementos"
 #. label, accelerator
 #: ../src/file-manager/fm-icon-view.c:1698
 msgid "Resize Icon..."
-msgstr "Redimensionar icono…"
+msgstr "Redimensionar el icono…"
 
 #. tooltip
 #: ../src/file-manager/fm-icon-view.c:1699
@@ -5485,18 +5487,18 @@ msgstr "_Organizar por nombre"
 msgid "Reposition icons to better fit in the window and avoid overlapping"
 msgstr ""
 "Reposiciona los iconos para que quepan mejor en la ventana y evitar el "
-"solapamiento"
+"superposición"
 
 #. name, stock id
 #. label, accelerator
 #: ../src/file-manager/fm-icon-view.c:1717
 msgid "Compact _Layout"
-msgstr "_Organización compacta"
+msgstr "Distribución co_mpacta"
 
 #. tooltip
 #: ../src/file-manager/fm-icon-view.c:1718
 msgid "Toggle using a tighter layout scheme"
-msgstr "Cambiar a un esquema de organización más apretado"
+msgstr "Usar o no un esquema de distribución más apretado"
 
 #. name, stock id
 #. label, accelerator
@@ -5526,7 +5528,7 @@ msgstr "_Manualmente"
 
 #: ../src/file-manager/fm-icon-view.c:1741
 msgid "Leave icons wherever they are dropped"
-msgstr "Deja los iconos en donde se suelten"
+msgstr "Deja los iconos donde se suelten"
 
 #: ../src/file-manager/fm-icon-view.c:1746
 msgid "By _Name"
@@ -5538,7 +5540,7 @@ msgstr "Por tama_ño"
 
 #: ../src/file-manager/fm-icon-view.c:1758
 msgid "By S_ize on Disk"
-msgstr ""
+msgstr "Por tamaño en disco"
 
 #: ../src/file-manager/fm-icon-view.c:1764
 msgid "By _Type"
@@ -5558,15 +5560,16 @@ msgstr "Por _hora movido a la papelera"
 
 #: ../src/file-manager/fm-icon-view.c:1788
 msgid "By E_xtension"
-msgstr "Por E_xtensión"
+msgstr "Por e_xtensión"
 
 #: ../src/file-manager/fm-icon-view.c:1789
 msgid "Keep icons sorted by reverse extension segments in rows"
 msgstr ""
+"Mantener los iconos ordenados por segmentos de extensión inversa en filas"
 
 #: ../src/file-manager/fm-icon-view.c:1917
 msgid "Restore Icon's Original Si_ze"
-msgstr "Restablecer el tama_ño original del icono"
+msgstr "Restaurar el tama_ño original del icono"
 
 #: ../src/file-manager/fm-icon-view.c:2392
 #, c-format
@@ -5588,7 +5591,7 @@ msgstr "La vista de iconos ha encontrado un error mientras se iniciaba."
 
 #: ../src/file-manager/fm-icon-view.c:3404
 msgid "Display this location with the icon view."
-msgstr "Muestra este lugar con la vista de iconos."
+msgstr "Muestra esta ubicación con la vista de iconos."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
@@ -5612,7 +5615,7 @@ msgstr "La vista compacta ha encontrado un error mientras se iniciaba."
 
 #: ../src/file-manager/fm-icon-view.c:3419
 msgid "Display this location with the compact view."
-msgstr "Muestra este lugar con la vista compacta."
+msgstr "Muestra esta ubicación con la vista compacta."
 
 #: ../src/file-manager/fm-list-model.c:448
 #: ../src/file-manager/fm-tree-model.c:1366
@@ -5678,7 +5681,7 @@ msgstr "La vista de lista ha encontrado un error mientras se iniciaba."
 
 #: ../src/file-manager/fm-list-view.c:3475
 msgid "Display this location with the list view."
-msgstr "Muestra este lugar con la vista de lista."
+msgstr "Muestra esta ubicación con la vista de lista."
 
 #: ../src/file-manager/fm-properties-window.c:505
 msgid "You cannot assign more than one custom icon at a time!"
@@ -5747,8 +5750,8 @@ msgstr "ilegible"
 #, c-format
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d elemento, %s de tamaño (%s en el disco)"
+msgstr[1] "%'d elementos, %s en total (%s en el disco)"
 
 #: ../src/file-manager/fm-properties-window.c:2303
 msgid "(some contents unreadable)"
@@ -5849,7 +5852,7 @@ msgstr "lectura"
 
 #: ../src/file-manager/fm-properties-window.c:4133
 msgid "create/delete"
-msgstr "creación/borrado"
+msgstr "crear/eliminar"
 
 #: ../src/file-manager/fm-properties-window.c:4135
 msgid "write"
@@ -5968,7 +5971,7 @@ msgstr "Vista textual:"
 
 #: ../src/file-manager/fm-properties-window.c:4770
 msgid "You are not the owner, so you cannot change these permissions."
-msgstr "Usted no es el propietario, por eso no puede cambiar estos permisos."
+msgstr "No es el propietario, por eso no puede cambiar estos permisos."
 
 #: ../src/file-manager/fm-properties-window.c:4790
 msgid "SELinux context:"
@@ -6014,34 +6017,34 @@ msgstr "Mostrar árbol"
 #: ../src/caja-application.c:542
 #, c-format
 msgid "Caja could not create the required folder \"%s\"."
-msgstr "Caja no pudo crear la carpeta requerida «%s»."
+msgstr "Caja no ha podido crear la carpeta requerida «%s»."
 
 #: ../src/caja-application.c:544
 msgid ""
 "Before running Caja, please create the following folder, or set permissions "
 "such that Caja can create it."
 msgstr ""
-"Antes de ejecutar Caja, debe crear la siguiente carpeta o establecer "
+"Antes de ejecutar Caja, debe crear la carpeta siguiente o establecer "
 "permisos para que Caja la pueda crear."
 
 #: ../src/caja-application.c:549
 #, c-format
 msgid "Caja could not create the following required folders: %s."
-msgstr "Caja no pudo crear las siguientes carpetas requeridas: %s."
+msgstr "Caja no ha podido crear las carpetas requeridas siguientes: %s."
 
 #: ../src/caja-application.c:551
 msgid ""
 "Before running Caja, please create these folders, or set permissions such "
 "that Caja can create them."
 msgstr ""
-"Antes de ejecutar Caja, cree estas carpetas, o establezca permisos para que "
-"Caja pueda crearlas."
+"Antes de ejecutar Caja, cree estas carpetas o configure los permisos para "
+"que Caja pueda crearlas."
 
 #: ../src/caja-application.c:1325 ../src/caja-places-sidebar.c:2210
 #: ../src/caja-places-sidebar.c:2241 ../src/caja-places-sidebar.c:2276
 #, c-format
 msgid "Unable to eject %s"
-msgstr "No se pudo expulsar %s"
+msgstr "No se puede expulsar %s"
 
 #: ../src/caja-application.c:1998
 msgid "--check cannot be used with other options."
@@ -6049,11 +6052,11 @@ msgstr "--check no se puede usar con otras opciones."
 
 #: ../src/caja-application.c:2004
 msgid "--quit cannot be used with URIs."
-msgstr "--quit no se puede usar con URIs."
+msgstr "--quit no se puede usar con los URI."
 
 #: ../src/caja-application.c:2011
 msgid "--geometry cannot be used with more than one URI."
-msgstr "--geometry no se puede usar con más de una URI."
+msgstr "--geometry no se puede usar con más de un URI."
 
 #: ../src/caja-application.c:2075
 msgid "Perform a quick set of self-check tests."
@@ -6088,16 +6091,16 @@ msgid ""
 "Manage the desktop regardless of set preferences or environment (on new "
 "startup only)"
 msgstr ""
-"Administrar el escritorio independientemente de las preferencias o del "
-"entorno (solo en un nuevo inicio)"
+"Gestionar el escritorio sin tener en cuenta las preferencias o la "
+"configuración del entorno (solo en un inicio nuevo)"
 
 #: ../src/caja-application.c:2088
 msgid "Open URIs in tabs."
-msgstr ""
+msgstr "Abrir los URI en pestañas."
 
 #: ../src/caja-application.c:2090
 msgid "Open a browser window."
-msgstr "Abrir una ventana del explorador"
+msgstr "Abrir una ventana del navegador"
 
 #: ../src/caja-application.c:2092
 msgid "Quit Caja."
@@ -6115,12 +6118,13 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"Navegue por el sistema de archivos con el administrador de archivos"
+"Navegue por el sistema de archivos con el gestor de archivos"
 
 #: ../src/caja-autorun-software.c:164 ../src/caja-autorun-software.c:167
 #, c-format
 msgid "Error starting autorun program: %s"
-msgstr "Error al iniciar el programa de ejecución automática: %s"
+msgstr ""
+"Se ha producido un error al iniciar el programa de ejecución automática: %s"
 
 #: ../src/caja-autorun-software.c:170
 #, c-format
@@ -6129,7 +6133,8 @@ msgstr "No se puede encontrar el programa de autoejecución"
 
 #: ../src/caja-autorun-software.c:191
 msgid "<big><b>Error autorunning software</b></big>"
-msgstr "<big><b>Error al autoejecutar el software</b></big>"
+msgstr ""
+"<big><b>Se ha producido un error al autoejecutar el software</b></big>"
 
 #: ../src/caja-autorun-software.c:217
 msgid ""
@@ -6158,7 +6163,7 @@ msgid ""
 "There was an error displaying help: \n"
 "%s"
 msgstr ""
-"Hubo un error al mostrar la ayuda: \n"
+"Se ha producido un error al mostrar la ayuda: \n"
 "%s"
 
 #: ../src/caja-bookmarks-window.c:195
@@ -6171,7 +6176,7 @@ msgstr "Editar marcadores"
 
 #: ../src/caja-bookmarks-window.ui.h:3
 msgid "_Jump to"
-msgstr ""
+msgstr "_Ir a"
 
 #: ../src/caja-bookmarks-window.ui.h:6
 msgid "<b>_Bookmarks</b>"
@@ -6183,7 +6188,7 @@ msgstr "<b>_Nombre</b>"
 
 #: ../src/caja-bookmarks-window.ui.h:8
 msgid "<b>_Location</b>"
-msgstr "<b>_Lugar</b>"
+msgstr "<b>_Ubicación</b>"
 
 #. Translators: This is the --help description for the connect to server app,
 #. the initial newlines are between the command line arg and the description
@@ -6195,7 +6200,7 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"Añadir conexión a montaje de servidor"
+"Añadir la opción de conectar al montaje del servidor"
 
 #: ../src/caja-connect-server-dialog.c:135
 msgid "SSH"
@@ -6207,7 +6212,7 @@ msgstr "FTP público"
 
 #: ../src/caja-connect-server-dialog.c:140
 msgid "FTP (with login)"
-msgstr "FTP (con entrada)"
+msgstr "FTP (con inicio de sesión)"
 
 #: ../src/caja-connect-server-dialog.c:143
 msgid "Windows share"
@@ -6245,7 +6250,7 @@ msgstr "No se puede abrir la carpeta «%s» en «%s»."
 #: ../src/caja-connect-server-dialog.c:308
 #, c-format
 msgid "The server at \"%s\" cannot be found."
-msgstr "No se encontró el servidor en «%s»."
+msgstr "No se ha encontrado el servidor en «%s»."
 
 #: ../src/caja-connect-server-dialog.c:343
 msgid "Try Again"
@@ -6267,7 +6272,7 @@ msgstr "C_onectar"
 #. set dialog properties
 #: ../src/caja-connect-server-dialog.c:859
 msgid "Connect to Server"
-msgstr "Conectar con el servidor"
+msgstr "Conectarse al servidor"
 
 #: ../src/caja-connect-server-dialog.c:873
 msgid "Server Details"
@@ -6333,20 +6338,20 @@ msgstr "Escritorio"
 #: ../src/caja-emblem-sidebar.c:223
 #, c-format
 msgid "Could not remove emblem with name '%s'."
-msgstr "No se pudo quitar el emblema con nombre «%s»."
+msgstr "No se ha podido eliminar el emblema con nombre «%s»."
 
 #: ../src/caja-emblem-sidebar.c:224 ../src/caja-emblem-sidebar.c:264
 msgid ""
 "This is probably because the emblem is a permanent one, and not one that you"
 " added yourself."
 msgstr ""
-"Probablemente esto se deba a que es un emblema permanente, y no uno que haya"
-" sido añadido por usted."
+"Probablemente esto se deba a que es un emblema permanente y no uno que haya "
+"añadido."
 
 #: ../src/caja-emblem-sidebar.c:263
 #, c-format
 msgid "Could not rename emblem with name '%s'."
-msgstr "No se pudo renombrar el emblema con el nombre «%s»."
+msgstr "No se ha podido renombrar el emblema con el nombre «%s»."
 
 #: ../src/caja-emblem-sidebar.c:284
 msgid "Rename Emblem"
@@ -6391,7 +6396,7 @@ msgstr "Los emblemas no parecen ser imágenes válidas."
 
 #: ../src/caja-emblem-sidebar.c:815
 msgid "None of the files could be added as emblems."
-msgstr "Ninguno de los archivos pudo añadirse como emblemas."
+msgstr "Ninguno de los archivos ha podido añadirse como emblemas."
 
 #: ../src/caja-emblem-sidebar.c:858 ../src/caja-emblem-sidebar.c:921
 #, c-format
@@ -6404,7 +6409,7 @@ msgstr "El archivo arrastrado parece que no es una imagen válida."
 
 #: ../src/caja-emblem-sidebar.c:865 ../src/caja-emblem-sidebar.c:922
 msgid "The emblem cannot be added."
-msgstr "El emblema no pudo añadirse."
+msgstr "El emblema no ha podido añadirse."
 
 #: ../src/caja-emblem-sidebar.c:1102
 msgid "Show Emblems"
@@ -6552,7 +6557,7 @@ msgstr "4 GiB"
 
 #: ../src/caja-file-management-properties.ui.h:41
 msgid "File Management Preferences"
-msgstr "Preferencias de administración de archivos"
+msgstr "Preferencias de la gestión de archivos"
 
 #: ../src/caja-file-management-properties.ui.h:44
 msgid "<b>Default View</b>"
@@ -6572,15 +6577,15 @@ msgstr "Colocar las carpetas _antes que los archivos"
 
 #: ../src/caja-file-management-properties.ui.h:48
 msgid "Show hidden files"
-msgstr ""
+msgstr "Mostrar los archivos ocultos"
 
 #: ../src/caja-file-management-properties.ui.h:49
 msgid "Show backup files"
-msgstr ""
+msgstr "Mostrar los archivos de copia de seguridad"
 
 #: ../src/caja-file-management-properties.ui.h:50
 msgid "<b>Icon View Defaults</b>"
-msgstr "<b>Valores predeterminados para la vista de iconos</b>"
+msgstr "<b>Valores predeterminados de la vista de iconos</b>"
 
 #: ../src/caja-file-management-properties.ui.h:51
 msgid "Default _zoom level:"
@@ -6588,7 +6593,7 @@ msgstr "_Nivel de ampliación predeterminado:"
 
 #: ../src/caja-file-management-properties.ui.h:52
 msgid "_Use compact layout"
-msgstr "Usar distribución co_mpacta"
+msgstr "Usar una distribución co_mpacta"
 
 #: ../src/caja-file-management-properties.ui.h:53
 msgid "_Text beside icons"
@@ -6596,7 +6601,7 @@ msgstr "_Texto al lado de los iconos"
 
 #: ../src/caja-file-management-properties.ui.h:54
 msgid "<b>Compact View Defaults</b>"
-msgstr "<b>Valores predeterminados para la vista compacta</b>"
+msgstr "<b>Valores predeterminados de la vista compacta</b>"
 
 #: ../src/caja-file-management-properties.ui.h:55
 msgid "_Default zoom level:"
@@ -6608,7 +6613,7 @@ msgstr "Toda_s las columnas tienen la misma anchura"
 
 #: ../src/caja-file-management-properties.ui.h:57
 msgid "<b>List View Defaults</b>"
-msgstr "<b>Valores predeterminados para la vista de lista</b>"
+msgstr "<b>Valores predeterminados de la vista de lista</b>"
 
 #: ../src/caja-file-management-properties.ui.h:58
 msgid "D_efault zoom level:"
@@ -6616,7 +6621,7 @@ msgstr "Niv_el de ampliación predeterminado:"
 
 #: ../src/caja-file-management-properties.ui.h:59
 msgid "<b>Tree View Defaults</b>"
-msgstr "<b>Valores predeterminados para la vista de árbol</b>"
+msgstr "<b>Valores predeterminados de la vista de árbol</b>"
 
 #: ../src/caja-file-management-properties.ui.h:60
 msgid "Show _only folders"
@@ -6632,11 +6637,11 @@ msgstr "<b>Comportamiento</b>"
 
 #: ../src/caja-file-management-properties.ui.h:63
 msgid "_Single click to open items"
-msgstr "Un_a sola pulsación para abrir los elementos"
+msgstr "Un solo clic para _abrir los elementos"
 
 #: ../src/caja-file-management-properties.ui.h:64
 msgid "_Double click to open items"
-msgstr "_Doble pulsación para abrir los elementos"
+msgstr "_Doble clic para abrir los elementos"
 
 #: ../src/caja-file-management-properties.ui.h:65
 msgid "Open each _folder in its own window"
@@ -6733,7 +6738,7 @@ msgstr "Mostrar _texto en los iconos:"
 
 #: ../src/caja-file-management-properties.ui.h:87
 msgid "<b>Other Previewable Files</b>"
-msgstr "<b>Otros archivos previsualizables</b>"
+msgstr "<b>Otras vistas previas de archivos</b>"
 
 #: ../src/caja-file-management-properties.ui.h:88
 msgid "Show _thumbnails:"
@@ -6749,7 +6754,7 @@ msgstr "<b>Archivos de sonido</b>"
 
 #: ../src/caja-file-management-properties.ui.h:91
 msgid "Preview _sound files:"
-msgstr "_Escucha previa de archivos de sonido:"
+msgstr "Previsualizar archivos de _sonido:"
 
 #: ../src/caja-file-management-properties.ui.h:92
 msgid "<b>Folders</b>"
@@ -6761,7 +6766,7 @@ msgstr "Contar el _número de elementos:"
 
 #: ../src/caja-file-management-properties.ui.h:94
 msgid "Preview"
-msgstr "Vista preliminar"
+msgstr "Vista previa"
 
 #: ../src/caja-file-management-properties.ui.h:95
 msgid "<b>Media Handling</b>"
@@ -6771,12 +6776,11 @@ msgstr "<b>Gestión de soportes</b>"
 msgid ""
 "Choose what happens when inserting media or connecting devices to the system"
 msgstr ""
-"Elija qué quiere que pase al introducir un soporte o conectar dispositivos "
-"en el sistema"
+"Elija qué sucede al insertar soportes o conectar dispositivos al sistema"
 
 #: ../src/caja-file-management-properties.ui.h:97
 msgid "CD _Audio:"
-msgstr "CD de _sonido:"
+msgstr "CD de _audio:"
 
 #: ../src/caja-file-management-properties.ui.h:98
 msgid "_DVD Video:"
@@ -6800,7 +6804,7 @@ msgstr "<b>Otros soportes</b>"
 
 #: ../src/caja-file-management-properties.ui.h:103
 msgid "Less common media formats can be configured here"
-msgstr "Los soportes multimedia menos comunes se pueden configurar aquí"
+msgstr "Los formatos de soporte menos comunes se pueden configurar aquí"
 
 #: ../src/caja-file-management-properties.ui.h:104
 msgid "Acti_on:"
@@ -6812,7 +6816,7 @@ msgstr "_Tipo:"
 
 #: ../src/caja-file-management-properties.ui.h:106
 msgid "_Never prompt or start programs on media insertion"
-msgstr "_Nunca preguntar ni iniciar programas al introducir soportes"
+msgstr "_Nunca preguntar ni iniciar programas al insertar soportes"
 
 #: ../src/caja-file-management-properties.ui.h:107
 msgid "B_rowse media when inserted"
@@ -6820,7 +6824,7 @@ msgstr "E_xaminar los soportes al introducirlos"
 
 #: ../src/caja-file-management-properties.ui.h:108
 msgid "Media"
-msgstr "Soporte"
+msgstr "Soportes"
 
 #: ../src/caja-file-management-properties.ui.h:109
 msgid "<b>Available _Extensions:</b>"
@@ -6844,11 +6848,11 @@ msgstr "Extensiones"
 
 #: ../src/caja-history-sidebar.c:338
 msgid "History"
-msgstr "Histórico"
+msgstr "Historial"
 
 #: ../src/caja-history-sidebar.c:344
 msgid "Show History"
-msgstr "Mostrar histórico"
+msgstr "Mostrar el historial"
 
 #: ../src/caja-image-properties-page.c:276
 msgid "Camera Brand"
@@ -6861,7 +6865,7 @@ msgstr "Modelo de la cámara"
 #. Choose which date to show in order of relevance
 #: ../src/caja-image-properties-page.c:280
 msgid "Date Taken"
-msgstr "Fecha en que se tomó"
+msgstr "Fecha de la captura"
 
 #: ../src/caja-image-properties-page.c:282
 msgid "Date Digitized"
@@ -6923,19 +6927,19 @@ msgstr "Tipo de imagen:"
 #, c-format
 msgid "<b>Width:</b> %d pixel"
 msgid_plural "<b>Width:</b> %d pixels"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "<b>Anchura:</b> %d pixel"
+msgstr[1] "<b>Anchura:</b> %d pixeles"
 
 #: ../src/caja-image-properties-page.c:410
 #, c-format
 msgid "<b>Height:</b> %d pixel"
 msgid_plural "<b>Height:</b> %d pixels"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "<b>Altura:</b> %d píxel"
+msgstr[1] "<b>Altura:</b> %d píxeles"
 
 #: ../src/caja-image-properties-page.c:429
 msgid "Failed to load image information"
-msgstr "Falló al cargar la información de la imagen"
+msgstr "No se ha podido cargar la información de la imagen"
 
 #: ../src/caja-image-properties-page.c:653
 msgid "loading..."
@@ -6974,33 +6978,33 @@ msgstr "Ir a:"
 #, c-format
 msgid "Do you want to view %d location?"
 msgid_plural "Do you want to view %d locations?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "¿Quiere ver %d ubicación?"
+msgstr[1] "¿Quiere ver las %d ubicaciones?"
 
 #: ../src/caja-location-dialog.c:157
 msgid "Open Location"
-msgstr "Abrir lugar"
+msgstr "Abrir una ubicación"
 
 #: ../src/caja-location-dialog.c:167
 msgid "_Location:"
-msgstr "_Lugar:"
+msgstr "_Ubicación:"
 
 #: ../src/caja-navigation-action.c:146
 msgid "folder removed"
-msgstr ""
+msgstr "carpeta eliminada"
 
 #: ../src/caja-navigation-window-menus.c:131
 msgid "Are you sure you want to clear the list of locations you have visited?"
-msgstr "¿Está seguro de querer limpiar la lista de lugares que ha visitado?"
+msgstr "¿Seguro que quiere borrar la lista de ubicaciones que ha visitado?"
 
 #: ../src/caja-navigation-window-menus.c:408 ../src/caja-window-bookmarks.c:83
 #, c-format
 msgid "The location \"%s\" does not exist."
-msgstr "El lugar «%s» no existe."
+msgstr "La ubicación «%s» no existe."
 
 #: ../src/caja-navigation-window-menus.c:410
 msgid "The history location doesn't exist."
-msgstr "El lugar del histórico no existe."
+msgstr "No existe la ubicación del historial."
 
 #. name, icon name, label
 #: ../src/caja-navigation-window-menus.c:813
@@ -7024,7 +7028,7 @@ msgstr "_Ventana nueva"
 
 #: ../src/caja-navigation-window-menus.c:817
 msgid "Open another Caja window for the displayed location"
-msgstr "Abrir otra ventana de Caja para el lugar mostrado"
+msgstr "Abrir otra ventana de Caja para la ubicación mostrada"
 
 #. name, icon name, label
 #: ../src/caja-navigation-window-menus.c:820
@@ -7033,7 +7037,7 @@ msgstr "_Pestaña nueva"
 
 #: ../src/caja-navigation-window-menus.c:821
 msgid "Open another tab for the displayed location"
-msgstr "Abrir otra pestaña para el lugar mostrado"
+msgstr "Abrir otra pestaña para la ubicación mostrada"
 
 #. name, icon name, label
 #: ../src/caja-navigation-window-menus.c:824
@@ -7042,7 +7046,7 @@ msgstr "Abrir una v_entana de carpeta"
 
 #: ../src/caja-navigation-window-menus.c:825
 msgid "Open a folder window for the displayed location"
-msgstr "Abrir una ventana de carpeta para el lugar mostrado"
+msgstr "Abrir una ventana de carpeta para la ubicación mostrada"
 
 #. name, icon name, label
 #: ../src/caja-navigation-window-menus.c:828
@@ -7056,21 +7060,20 @@ msgstr "Cierra todas las ventanas de navegación"
 #. name, icon name, label
 #: ../src/caja-navigation-window-menus.c:832
 msgid "_Location..."
-msgstr "_Lugar…"
+msgstr "_Ubicación:"
 
 #: ../src/caja-navigation-window-menus.c:833 ../src/caja-spatial-window.c:939
 msgid "Specify a location to open"
-msgstr "Especifique un lugar para abrir"
+msgstr "Especifique una ubicación para abrir"
 
 #. name, icon name, label
 #: ../src/caja-navigation-window-menus.c:836
 msgid "Clea_r History"
-msgstr "L_impiar el histórico"
+msgstr "L_impiar el historial"
 
 #: ../src/caja-navigation-window-menus.c:837
 msgid "Clear contents of Go menu and Back/Forward lists"
-msgstr ""
-"Limpia el contenido del menú «Ir» y las listas de «Atrás» y «Adelante»"
+msgstr "Borra el contenido del menú Ir y las listas Atrás y Adelante"
 
 #. name, icon name, label
 #: ../src/caja-navigation-window-menus.c:840
@@ -7097,7 +7100,7 @@ msgstr "_Añadir marcador"
 
 #: ../src/caja-navigation-window-menus.c:849 ../src/caja-spatial-window.c:953
 msgid "Add a bookmark for the current location to this menu"
-msgstr "Añade un marcador con el lugar actual a este menú"
+msgstr "Añade un marcador para la ubicación actual a este menú"
 
 #. name, icon name, label
 #: ../src/caja-navigation-window-menus.c:852 ../src/caja-spatial-window.c:956
@@ -7119,11 +7122,11 @@ msgstr "Activar la pestaña anterior"
 
 #: ../src/caja-navigation-window-menus.c:862
 msgid "_Next Tab"
-msgstr "_Siguiente pestaña"
+msgstr "Pestaña _siguiente"
 
 #: ../src/caja-navigation-window-menus.c:863
 msgid "Activate next tab"
-msgstr "Activar la siguiente pestaña"
+msgstr "Activar la pestaña siguiente"
 
 #: ../src/caja-navigation-window-menus.c:867
 #: ../src/caja-navigation-window-pane.c:386
@@ -7179,12 +7182,12 @@ msgstr "Cambia la visibilidad del panel lateral de esta ventana"
 #. label, accelerator
 #: ../src/caja-navigation-window-menus.c:898
 msgid "Location _Bar"
-msgstr "Barra de _lugar"
+msgstr "Barra de _ubicación"
 
 #. tooltip
 #: ../src/caja-navigation-window-menus.c:899
 msgid "Change the visibility of this window's location bar"
-msgstr "Cambia la visibilidad de la barra de lugar de esta ventana"
+msgstr "Cambia la visibilidad de la barra de ubicación de esta ventana"
 
 #. name, icon name
 #. label, accelerator
@@ -7226,11 +7229,11 @@ msgstr "A_trás"
 
 #: ../src/caja-navigation-window-menus.c:947
 msgid "Go to the previous visited location"
-msgstr "Ir al anterior lugar visitado"
+msgstr "Ir a la ubicación visitada anterior"
 
 #: ../src/caja-navigation-window-menus.c:948
 msgid "Back history"
-msgstr "Retroceder histórico"
+msgstr "Retroceder en el historial"
 
 #: ../src/caja-navigation-window-menus.c:962
 msgid "_Forward"
@@ -7238,11 +7241,11 @@ msgstr "A_delante"
 
 #: ../src/caja-navigation-window-menus.c:964
 msgid "Go to the next visited location"
-msgstr "Ir al siguiente lugar visitado"
+msgstr "Ir a la ubicación visitada siguiente"
 
 #: ../src/caja-navigation-window-menus.c:965
 msgid "Forward history"
-msgstr "Adelantar histórico"
+msgstr "Avanzar en el historial"
 
 #: ../src/caja-navigation-window-menus.c:980
 msgid "_Zoom"
@@ -7258,7 +7261,7 @@ msgstr "_Buscar"
 
 #: ../src/caja-navigation-window-pane.c:259
 msgid "Toggle between button and text-based location bar"
-msgstr "Cambiar entre botón y barra de posición basada en texto"
+msgstr "Muestra una barra de ubicación basada en texto o en botones"
 
 #: ../src/caja-navigation-window-pane.c:376
 msgid "_New Tab"
@@ -7320,7 +7323,7 @@ msgstr "Navega la red"
 
 #: ../src/caja-places-sidebar.c:885
 msgid "Browse the contents of the network"
-msgstr "Examinar el contenido de la red"
+msgstr "Navegar por el contenido de la red"
 
 #. start() for type G_DRIVE_START_STOP_TYPE_SHUTDOWN is normally not used
 #: ../src/caja-places-sidebar.c:1812
@@ -7346,21 +7349,21 @@ msgstr "_Parar unidad multidisco"
 #: ../src/caja-places-sidebar.c:1907 ../src/caja-places-sidebar.c:2496
 #, c-format
 msgid "Unable to start %s"
-msgstr "No se pudo iniciar %s"
+msgstr "No se puede iniciar %s"
 
 #: ../src/caja-places-sidebar.c:2440
 #, c-format
 msgid "Unable to poll %s for media changes"
-msgstr "No se pudo sondear %s para cambios en los soportes"
+msgstr "No se puede sondear %s por cambios en los soportes"
 
 #: ../src/caja-places-sidebar.c:2556
 #, c-format
 msgid "Unable to stop %s"
-msgstr "No se pudo parar %s"
+msgstr "No se puede parar %s"
 
 #: ../src/caja-places-sidebar.c:2700
 msgid "Remove"
-msgstr "Quitar"
+msgstr "Eliminar"
 
 #: ../src/caja-places-sidebar.c:2709
 msgid "Rename..."
@@ -7372,7 +7375,7 @@ msgstr "Lugares"
 
 #: ../src/caja-places-sidebar.c:3406
 msgid "Show Places"
-msgstr "Mostrar Lugares"
+msgstr "Mostrar los lugares"
 
 #. set the title and standard close accelerator
 #: ../src/caja-property-browser.c:290
@@ -7440,11 +7443,12 @@ msgstr "_Valor del color:"
 
 #: ../src/caja-property-browser.c:1256
 msgid "Sorry, but you cannot replace the reset image."
-msgstr "No puede reemplazar la imagen de reinicio."
+msgstr "No se puede reemplazar la imagen de reinicio."
 
 #: ../src/caja-property-browser.c:1257
 msgid "Reset is a special image that cannot be deleted."
-msgstr "«Reiniciar» es una imagen especial que no se puede eliminar."
+msgstr ""
+"La imagen de reinicio es una imagen especial que no se puede eliminar."
 
 #: ../src/caja-property-browser.c:1287
 #, c-format
@@ -7478,7 +7482,7 @@ msgstr "Seleccione un color para añadir"
 #: ../src/caja-property-browser.c:1534 ../src/caja-property-browser.c:1552
 #, c-format
 msgid "Sorry, but \"%s\" is not a usable image file."
-msgstr "«%s» no es un archivo de imagen que se pueda utilizar."
+msgstr "«%s» no es un archivo de imagen que se pueda usar."
 
 #: ../src/caja-property-browser.c:1535 ../src/caja-property-browser.c:1553
 msgid "The file is not an image."
@@ -7490,7 +7494,7 @@ msgstr "Seleccione una categoría:"
 
 #: ../src/caja-property-browser.c:2308
 msgid "C_ancel Remove"
-msgstr "C_ancelar eliminación"
+msgstr "C_ancelar la eliminación"
 
 #: ../src/caja-property-browser.c:2317
 msgid "_Add a New Pattern..."
@@ -7506,15 +7510,15 @@ msgstr "_Añadir un emblema nuevo…"
 
 #: ../src/caja-property-browser.c:2349
 msgid "Click on a pattern to remove it"
-msgstr "Pulse sobre un patrón para quitarlo"
+msgstr "Haga clic en un patrón para eliminarlo"
 
 #: ../src/caja-property-browser.c:2352
 msgid "Click on a color to remove it"
-msgstr "Pulse en un color para quitarlo"
+msgstr "Haga clic en un color para eliminarlo"
 
 #: ../src/caja-property-browser.c:2355
 msgid "Click on an emblem to remove it"
-msgstr "Pulse en un emblema para quitarlo"
+msgstr "Haga clic en un emblema para eliminarlo"
 
 #: ../src/caja-property-browser.c:2367
 msgid "Patterns:"
@@ -7530,15 +7534,15 @@ msgstr "Emblemas:"
 
 #: ../src/caja-property-browser.c:2395
 msgid "_Remove a Pattern..."
-msgstr "_Quitar un patrón…"
+msgstr "_Eliminar un patrón…"
 
 #: ../src/caja-property-browser.c:2398
 msgid "_Remove a Color..."
-msgstr "_Quitar un color…"
+msgstr "_Eliminar un color…"
 
 #: ../src/caja-property-browser.c:2401
 msgid "_Remove an Emblem..."
-msgstr "_Quitar un emblema…"
+msgstr "_Eliminar un emblema…"
 
 #: ../src/caja-query-editor.c:167
 msgid "File Type"
@@ -7550,7 +7554,7 @@ msgstr "Etiquetas"
 
 #: ../src/caja-query-editor.c:181
 msgid "Modification Time"
-msgstr ""
+msgstr "Hora de modificación"
 
 #: ../src/caja-query-editor.c:334
 msgid "Select folder to search in"
@@ -7613,27 +7617,27 @@ msgstr "Otro tipo…"
 
 #: ../src/caja-query-editor.c:1063 ../src/caja-query-editor.c:1202
 msgid "Less than or equal to"
-msgstr ""
+msgstr "Menor o igual que"
 
 #: ../src/caja-query-editor.c:1065 ../src/caja-query-editor.c:1204
 msgid "Greater or equal to"
-msgstr ""
+msgstr "Mayor o igual que"
 
 #: ../src/caja-query-editor.c:1078
 msgid "1 Hour"
-msgstr ""
+msgstr "1 hora"
 
 #: ../src/caja-query-editor.c:1080
 msgid "1 Day"
-msgstr ""
+msgstr "1 día"
 
 #: ../src/caja-query-editor.c:1082
 msgid "1 Week"
-msgstr ""
+msgstr "1 semana"
 
 #: ../src/caja-query-editor.c:1084
 msgid "1 Month"
-msgstr ""
+msgstr "1 mes"
 
 #: ../src/caja-query-editor.c:1086
 msgid "6 Months"
@@ -7645,59 +7649,59 @@ msgstr "1 año"
 
 #: ../src/caja-query-editor.c:1219
 msgid "10 KiB"
-msgstr ""
+msgstr "10 KiB"
 
 #: ../src/caja-query-editor.c:1221
 msgid "100 KiB"
-msgstr ""
+msgstr "100 KiB"
 
 #: ../src/caja-query-editor.c:1223
 msgid "500 KiB"
-msgstr ""
+msgstr "500 KiB"
 
 #: ../src/caja-query-editor.c:1225
 msgid "1 MiB"
-msgstr ""
+msgstr "1 MiB"
 
 #: ../src/caja-query-editor.c:1227
 msgid "5 MiB"
-msgstr ""
+msgstr "5 MiB"
 
 #: ../src/caja-query-editor.c:1229
 msgid "10 MiB"
-msgstr ""
+msgstr "10 MiB"
 
 #: ../src/caja-query-editor.c:1231
 msgid "100 MiB"
-msgstr ""
+msgstr "100 MiB"
 
 #: ../src/caja-query-editor.c:1233
 msgid "500 MiB"
-msgstr ""
+msgstr "500 MiB"
 
 #: ../src/caja-query-editor.c:1235
 msgid "1 GiB"
-msgstr ""
+msgstr "1 GiB"
 
 #: ../src/caja-query-editor.c:1237
 msgid "2 GiB"
-msgstr ""
+msgstr "2 GiB"
 
 #: ../src/caja-query-editor.c:1239
 msgid "4 GiB"
-msgstr ""
+msgstr "4 GiB"
 
 #: ../src/caja-query-editor.c:1242
 msgid "10 KB"
-msgstr ""
+msgstr "10 KB"
 
 #: ../src/caja-query-editor.c:1256
 msgid "500 MB"
-msgstr ""
+msgstr "500 MB"
 
 #: ../src/caja-query-editor.c:1449
 msgid "Remove this criterion from the search"
-msgstr "Quitar este criterio de la búsqueda"
+msgstr "Eliminar este criterio de la búsqueda"
 
 #: ../src/caja-query-editor.c:1496
 msgid "Search Folder"
@@ -7751,7 +7755,7 @@ msgstr "_Lugares"
 #. name, icon name, label
 #: ../src/caja-spatial-window.c:938
 msgid "Open _Location..."
-msgstr "Abrir _lugar…"
+msgstr "Abrir la _ubicación…"
 
 #. name, icon name, label
 #: ../src/caja-spatial-window.c:943
@@ -7760,7 +7764,7 @@ msgstr "Cerrar las carpetas co_ntenedoras"
 
 #: ../src/caja-spatial-window.c:944
 msgid "Close this folder's parents"
-msgstr "Cierra las carpetas contenedoras de esta carpeta"
+msgstr "Cierra las carpetas superiores de esta carpeta"
 
 #. name, icon name, label
 #: ../src/caja-spatial-window.c:948
@@ -7788,20 +7792,19 @@ msgstr "Restaurar los elementos seleccionados a su ubicación original"
 msgid ""
 "Do you want to remove any bookmarks with the non-existing location from your"
 " list?"
-msgstr ""
-"¿Quiere quitar de su lista los marcadores que tengan un lugar no existente?"
+msgstr "¿Quiere eliminar los marcadores con una ubicación que no existe?"
 
 #: ../src/caja-window-bookmarks.c:86
 msgid "Bookmark for Nonexistent Location"
-msgstr "Marcador para un lugar inexistente"
+msgstr "Marcador para una ubicación inexistente"
 
 #: ../src/caja-window-manage-views.c:804
 msgid "You can choose another view or go to a different location."
-msgstr "Puede seleccionar otra vista o ir a un lugar diferente."
+msgstr "Puede seleccionar otra vista o una ubicación diferente."
 
 #: ../src/caja-window-manage-views.c:823
 msgid "The location cannot be displayed with this viewer."
-msgstr "El lugar no puede mostrarse con este visor."
+msgstr "La ubicación no puede mostrarse con este visor."
 
 #: ../src/caja-window-manage-views.c:1412
 msgid "Content View"
@@ -7817,12 +7820,12 @@ msgstr "Caja no tiene un visor instalado capaz de mostrar la carpeta."
 
 #: ../src/caja-window-manage-views.c:2112
 msgid "The location is not a folder."
-msgstr "El lugar no es una carpeta."
+msgstr "La ubicación no es una carpeta."
 
 #: ../src/caja-window-manage-views.c:2121
 #, c-format
 msgid "Could not find \"%s\"."
-msgstr "No se pudo encontrar «%s»."
+msgstr "No se ha podido encontrar «%s»."
 
 #: ../src/caja-window-manage-views.c:2124
 msgid "Please check the spelling and try again."
@@ -7831,15 +7834,15 @@ msgstr "Compruebe lo que ha escrito e intente otra vez."
 #: ../src/caja-window-manage-views.c:2133
 #, c-format
 msgid "Caja cannot handle \"%s\" locations."
-msgstr "Caja no puede manejar lugares «%s»."
+msgstr "Caja no puede gestionar las ubicaciones «%s»."
 
 #: ../src/caja-window-manage-views.c:2138
 msgid "Caja cannot handle this kind of location."
-msgstr "Caja no puede manejar este tipo de lugar."
+msgstr "Caja no puede gestionar este tipo de ubicación."
 
 #: ../src/caja-window-manage-views.c:2145
 msgid "Unable to mount the location."
-msgstr "No se pudo montar el lugar."
+msgstr "No se puede montar la ubicación."
 
 #: ../src/caja-window-manage-views.c:2151
 msgid "Access was denied."
@@ -7852,14 +7855,15 @@ msgstr "Acceso denegado."
 #: ../src/caja-window-manage-views.c:2160
 #, c-format
 msgid "Could not display \"%s\", because the host could not be found."
-msgstr "No se pudo mostrar «%s» porque no se pudo encontrar el equipo."
+msgstr ""
+"No se ha podido mostrar «%s» porque no se ha podido encontrar el equipo."
 
 #: ../src/caja-window-manage-views.c:2162
 msgid ""
 "Check that the spelling is correct and that your proxy settings are correct."
 msgstr ""
-"Compruebe que lo que escribió sea correcto y que su configuración del proxy "
-"sea correcta."
+"Compruebe que lo que ha escrito sea correcto y que los ajustes del proxy "
+"sean correctos."
 
 #: ../src/caja-window-manage-views.c:2178
 #, c-format
@@ -7872,7 +7876,7 @@ msgstr ""
 
 #: ../src/caja-window-menus.c:195
 msgid "Go to the location specified by this bookmark"
-msgstr "Ir al lugar especificado por este marcador"
+msgstr "Ir a la ubicación especificada por este marcador"
 
 #: ../src/caja-window-menus.c:618
 msgid ""
@@ -7881,10 +7885,10 @@ msgid ""
 "Foundation; either version 2 of the License, or (at your option) any later "
 "version."
 msgstr ""
-"Caja es software libre; puede redistribuirlo y/o modificarlo bajo los "
-"términos de la Licencia Pública General de GNU tal como la publica la Free "
-"Software Foundation; tanto en la versión 2 de la Licencia como (a su "
-"elección) cualquier versión posterior."
+"Caja es software libre: puede redistribuirlo y/o modificarlo bajo los "
+"términos de la Licencia Pública General de GNU publicada por la Free "
+"Software Foundation, ya sea la versión 2 de la Licencia como (a su elección)"
+" cualquier versión posterior."
 
 #: ../src/caja-window-menus.c:622
 msgid ""
@@ -7893,10 +7897,10 @@ msgid ""
 "FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more "
 "details."
 msgstr ""
-"Caja se distribuye con la esperanza de que será útil,pero SIN NINGUNA "
-"GARANTÍA; incluso, sin la garantía implícita de COMERCIALIZACIÓN o "
-"ADECUACIÓN PARA UN PROPÓSITO PARTICULAR. Vea la Licencia Pública General de "
-"GNU para más detalles."
+"Caja se distribuye con la esperanza de que será útil, pero SIN NINGUNA "
+"GARANTÍA; ni siquiera la garantía implícita de COMERCIALIZACIÓN o IDONEIDAD "
+"PARA UN PROPÓSITO PARTICULAR. Consulte la Licencia Pública General de GNU "
+"para más detalles."
 
 #: ../src/caja-window-menus.c:626
 msgid ""
@@ -7904,26 +7908,28 @@ msgid ""
 " Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin "
 "Street, Fifth Floor, Boston, MA 02110-1301 USA"
 msgstr ""
-"Debería haber recibido una copia de la Licencia pública General de GNU junto"
-" con Caja; si no, escriba a la Free Software Foundation, Inc,51 Franklin "
-"Street, Fifth Floor, Boston, MA 02110-1301, EE. UU."
+"Debería haber recibido una copia de la Licencia Pública General de GNU junto"
+" con Caja; si no es así, escriba a la Free Software Foundation, Inc., 51 "
+"Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA."
 
 #: ../src/caja-window-menus.c:637
 msgid "About Caja"
-msgstr ""
+msgstr "Acerca de Caja"
 
 #: ../src/caja-window-menus.c:639
 msgid ""
 "Caja lets you organize files and folders, both on your computer and online."
 msgstr ""
-"Caja le permite organizar sus archivos y carpetas, tanto en su equipo como "
-"en línea."
+"Caja le permite organizar los archivos y las carpetas, tanto en su equipo "
+"como en línea."
 
 #: ../src/caja-window-menus.c:642
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2019 The Caja authors"
 msgstr ""
+"Copyright © 1999-2009 Los autores de Nautilus\n"
+"Copyright © 2011-2019 Los autores de Caja"
 
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
@@ -7968,8 +7974,8 @@ msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
 msgstr ""
-"Muestra patrones, colores y emblemas, que pueden usarse para personalizar la"
-" apariencia"
+"Muestra patrones, colores y emblemas que pueden usarse para personalizar la "
+"apariencia"
 
 #: ../src/caja-window-menus.c:925
 msgid "Prefere_nces"
@@ -7982,16 +7988,16 @@ msgstr "Editar las preferencias de Caja"
 #. name, icon name, label
 #: ../src/caja-window-menus.c:929
 msgid "Open _Parent"
-msgstr "Abrir carpeta cont_enedora"
+msgstr "Abrir la carpeta sup_erior"
 
 #: ../src/caja-window-menus.c:930
 msgid "Open the parent folder"
-msgstr "Abrir la carpeta contenedora"
+msgstr "Abrir la carpeta superior"
 
 #. tooltip
 #: ../src/caja-window-menus.c:939
 msgid "Stop loading the current location"
-msgstr "Dejar de cargar el lugar actual"
+msgstr "Dejar de cargar la ubicación actual"
 
 #. name, icon name
 #. label, accelerator
@@ -8002,7 +8008,7 @@ msgstr "Re_cargar"
 #. tooltip
 #: ../src/caja-window-menus.c:944
 msgid "Reload the current location"
-msgstr "Recargar el lugar actual"
+msgstr "Recargar la ubicación actual"
 
 #. name, icon name
 #. label, accelerator
@@ -8066,12 +8072,12 @@ msgstr "Usar el tamaño de vista normal"
 #. label, accelerator
 #: ../src/caja-window-menus.c:988
 msgid "Connect to _Server..."
-msgstr "Conectar con el s_ervidor…"
+msgstr "Conectarse al s_ervidor…"
 
 #. tooltip
 #: ../src/caja-window-menus.c:989
 msgid "Connect to a remote computer or shared disk"
-msgstr "Conectar con un equipo remoto o un disco compartido"
+msgstr "Conectarse a un equipo remoto o a un disco compartido"
 
 #. name, icon name
 #. label, accelerator
@@ -8088,7 +8094,7 @@ msgstr "_Red"
 #. tooltip
 #: ../src/caja-window-menus.c:1004 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
-msgstr "Examinar ubicaciones en marcadores y en redes locales"
+msgstr "Navegar por los marcadores y las ubicaciones de la red local"
 
 #. name, icon name
 #. label, accelerator
@@ -8121,18 +8127,19 @@ msgstr "Mostrar los archivos _ocultos"
 #. tooltip
 #: ../src/caja-window-menus.c:1023
 msgid "Toggle the display of hidden files in the current window"
-msgstr "Indica si se muestran o no los archivos ocultos en la ventana actual"
+msgstr "Mostrar o no los archivos ocultos en la ventana actual"
 
 #. name, stock id
 #. label, accelerator
 #: ../src/caja-window-menus.c:1028
 msgid "Show Bac_kup Files"
-msgstr ""
+msgstr "Mostrar los archivos de _respaldo"
 
 #. tooltip
 #: ../src/caja-window-menus.c:1029
 msgid "Toggle the display of backup files in the current window"
 msgstr ""
+"Mostrar u ocultar los archivos de copia de seguridad en la ventana actual"
 
 #: ../src/caja-window-menus.c:1061
 msgid "_Up"
@@ -8144,11 +8151,11 @@ msgstr "_Carpeta personal"
 
 #: ../src/caja-x-content-bar.c:68
 msgid "These files are on an Audio CD."
-msgstr "Estos archivos están en un CD de sonido."
+msgstr "Estos archivos están en un CD de audio."
 
 #: ../src/caja-x-content-bar.c:72
 msgid "These files are on an Audio DVD."
-msgstr "Estos archivos están en un DVD de sonido."
+msgstr "Estos archivos están en un DVD de audio."
 
 #: ../src/caja-x-content-bar.c:76
 msgid "These files are on a Video DVD."
@@ -8156,19 +8163,19 @@ msgstr "Estos archivos están en un DVD de vídeo."
 
 #: ../src/caja-x-content-bar.c:80
 msgid "These files are on a Video CD."
-msgstr "Estos archivos están en un Video CD."
+msgstr "Estos archivos están en un CD de vídeo."
 
 #: ../src/caja-x-content-bar.c:84
 msgid "These files are on a Super Video CD."
-msgstr "Estos archivos están en un CD de Super Video."
+msgstr "Estos archivos están en un CD de supervídeo."
 
 #: ../src/caja-x-content-bar.c:88
 msgid "These files are on a Photo CD."
-msgstr "Estos archivos están en un disco de fotos Photo CD."
+msgstr "Estos archivos están en un Photo CD."
 
 #: ../src/caja-x-content-bar.c:92
 msgid "These files are on a Picture CD."
-msgstr "Estos archivos están en un disco de fotos Picture CD."
+msgstr "Estos archivos están en un Picture CD."
 
 #: ../src/caja-x-content-bar.c:96
 msgid "The media contains digital photos."
@@ -8186,7 +8193,7 @@ msgstr "El soporte contiene software."
 #: ../src/caja-x-content-bar.c:109
 #, c-format
 msgid "The media has been detected as \"%s\"."
-msgstr "El soporte se ha reconocido como «%s»."
+msgstr "El soporte se ha identificado como «%s»."
 
 #: ../src/caja-zoom-control.c:82
 msgid "Zoom In"
@@ -8198,7 +8205,7 @@ msgstr "Reducir"
 
 #: ../src/caja-zoom-control.c:84
 msgid "Zoom to Default"
-msgstr "Ampliar hasta lo predeterminado"
+msgstr "Ampliar hasta el valor predeterminado"
 
 #: ../src/caja-zoom-control.c:849
 msgid "Zoom"
@@ -8206,4 +8213,4 @@ msgstr "Ampliación"
 
 #: ../src/caja-zoom-control.c:854
 msgid "Set the zoom level of the current view"
-msgstr "Establece el nivel de ampliación de la vista actual"
+msgstr "Configura el nivel de ampliación de la vista actual"
