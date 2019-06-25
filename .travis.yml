@@ -174,6 +174,12 @@ variables:
     -enable-checker alpha.core.FixedAddr
     -enable-checker security.insecureAPI.strcpy"'
 
+before_scripts:
+  - if [ ${DISTRO_NAME} == "debian" ];then
+  -     egrep -lRZ 'G_GNUC_BEGIN_IGNORE_DEPRECATIONS' . | xargs -0 -l sed -i -e 's/G_GNUC_BEGIN_IGNORE_DEPRECATIONS/ /g'
+  -     egrep -lRZ 'G_GNUC_END_IGNORE_DEPRECATIONS' . | xargs -0 -l sed -i -e 's/G_GNUC_END_IGNORE_DEPRECATIONS/ /g'
+  - fi
+
 build_scripts:
 # build failed with f30 und using clang patch, fixed in f30?
 #  - if [ ${DISTRO_NAME} == "fedora" ];then
