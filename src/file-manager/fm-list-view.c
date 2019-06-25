@@ -2637,12 +2637,14 @@ fm_list_view_merge_menus (FMDirectoryView *view)
 
     ui_manager = fm_directory_view_get_ui_manager (view);
 
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     action_group = gtk_action_group_new ("ListViewActions");
     gtk_action_group_set_translation_domain (action_group, GETTEXT_PACKAGE);
     list_view->details->list_action_group = action_group;
     gtk_action_group_add_actions (action_group,
                                   list_view_entries, G_N_ELEMENTS (list_view_entries),
                                   list_view);
+    G_GNUC_END_IGNORE_DEPRECATIONS;
 
     gtk_ui_manager_insert_action_group (ui_manager, action_group, 0);
     g_object_unref (action_group); /* owned by ui manager */
