@@ -184,6 +184,8 @@ libcaja_private_la_SOURCES = \
 	caja-window-slot-info.h \
 	caja-undostack-manager.c \
 	caja-undostack-manager.h \
+	caja-dialog-notebook.c \
+	caja-dialog-notebook.h \
 	$(NULL)
 
 nodist_libcaja_private_la_SOURCES =\
