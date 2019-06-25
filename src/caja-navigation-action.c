@@ -56,7 +56,9 @@ enum
     PROP_WINDOW
 };
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
 G_DEFINE_TYPE_WITH_PRIVATE (CajaNavigationAction, caja_navigation_action, GTK_TYPE_ACTION)
+G_GNUC_END_IGNORE_DEPRECATIONS;
 
 static gboolean
 should_open_in_new_tab (void)
@@ -251,7 +253,9 @@ connect_proxy (GtkAction *action, GtkWidget *proxy)
         g_signal_connect (child, "button-release-event", G_CALLBACK (proxy_button_release_event_cb), NULL);
     }
 
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     (* GTK_ACTION_CLASS (caja_navigation_action_parent_class)->connect_proxy) (action, proxy);
+    G_GNUC_END_IGNORE_DEPRECATIONS;
 }
 
 static void
@@ -268,7 +272,9 @@ disconnect_proxy (GtkAction *action, GtkWidget *proxy)
         g_signal_handlers_disconnect_by_func (child, G_CALLBACK (proxy_button_release_event_cb), NULL);
     }
 
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     (* GTK_ACTION_CLASS (caja_navigation_action_parent_class)->disconnect_proxy) (action, proxy);
+    G_GNUC_END_IGNORE_DEPRECATIONS;
 }
 
 static void
@@ -334,7 +340,9 @@ static void
 caja_navigation_action_class_init (CajaNavigationActionClass *class)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (class);
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     GtkActionClass *action_class = GTK_ACTION_CLASS (class);
+    G_GNUC_END_IGNORE_DEPRECATIONS;
 
     object_class->finalize = caja_navigation_action_finalize;
     object_class->set_property = caja_navigation_action_set_property;
