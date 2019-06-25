@@ -1289,23 +1289,27 @@ draw_label_text (CajaIconCanvasItem *item,
                           "activate_prelight_icon_label", &prelight_label,
                           NULL);
 
-    /* if the icon is highlighted, do some set-up */
-    if (needs_highlight &&
-        !details->is_renaming) {
-            state |= GTK_STATE_FLAG_SELECTED;
-
-            frame_x = is_rtl_label_beside ? text_rect.x0 + item->details->text_dx : text_rect.x0;
-            frame_y = text_rect.y0;
-            frame_w = is_rtl_label_beside ? text_rect.x1 - text_rect.x0 - item->details->text_dx : text_rect.x1 - text_rect.x0;
-            frame_h = text_rect.y1 - text_rect.y0;
-    } else if (!needs_highlight && have_editable &&
-               details->text_width > 0 && details->text_height > 0 &&
-               prelight_label && item->details->is_prelit) {
+    /* if the icon needs a background, do some set-up */
+    if (!needs_highlight && have_editable &&
+        details->text_width > 0 && details->text_height > 0 &&
+        prelight_label && item->details->is_prelit) {
             state |= GTK_STATE_FLAG_PRELIGHT;
 
             frame_x = text_rect.x0;
             frame_y = text_rect.y0;
             frame_w = text_rect.x1 - text_rect.x0;
+            frame_h = text_rect.y1 - text_rect.y0;
+    } else if (!details->is_renaming) {
+            /* always draw a background but when renaming where the editing
+             * area is on top already. The default background will be transparent,
+             * but drawing it already allows the theme to change that. */
+
+            if (needs_highlight)
+                state |= GTK_STATE_FLAG_SELECTED;
+
+            frame_x = is_rtl_label_beside ? text_rect.x0 + item->details->text_dx : text_rect.x0;
+            frame_y = text_rect.y0;
+            frame_w = is_rtl_label_beside ? text_rect.x1 - text_rect.x0 - item->details->text_dx : text_rect.x1 - text_rect.x0;
             frame_h = text_rect.y1 - text_rect.y0;
     } else {
             draw_frame = FALSE;
