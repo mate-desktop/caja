@@ -1,6 +1,6 @@
 /* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*- */
 
-/* caja-dialog-notebook.h - GTKNotebook management for dialog windows
+/* caja-dialog-notebook.c - GTKNotebook management for dialog windows
 
    The Mate Library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public License as
