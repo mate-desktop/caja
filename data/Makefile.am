@@ -39,6 +39,8 @@ cajadata_DATA = \
 	caja.css \
 	caja-desktop.css \
 	a11y-caja-desktop-base.css \
+	caja-desktop-ContrastHigh.css \
+	caja-desktop-ContrastHighInverse.css \
 	caja-desktop-HighContrast.css \
 	caja-desktop-HighContrastInverse.css \
 	$(NULL)
