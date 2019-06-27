@@ -38,6 +38,9 @@ cajadata_DATA = \
 	caja-suggested.placeholder \
 	caja.css \
 	caja-desktop.css \
+	a11y-caja-desktop-base.css \
+	caja-desktop-HighContrast.css \
+	caja-desktop-HighContrastInverse.css \
 	$(NULL)
 
 # app data file
