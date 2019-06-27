@@ -2024,43 +2024,38 @@ caja_application_local_command_line (GApplication *application,
     return TRUE;
 }
 
+static void
+load_custom_css (const gchar *filename,
+                 guint priority)
+{
+    GtkCssProvider *provider;
+    GError *error = NULL;
+    gchar *path = g_build_filename (CAJA_DATADIR, filename, NULL);
+
+    provider = gtk_css_provider_new ();
+    gtk_css_provider_load_from_path (provider, path, &error);
+
+    if (error != NULL) {
+        g_warning ("Can't parse Caja' CSS custom description '%s': %s\n",
+                   filename, error->message);
+        g_error_free (error);
+    } else {
+        gtk_style_context_add_provider_for_screen (gdk_screen_get_default (),
+                                                   GTK_STYLE_PROVIDER (provider),
+                                                   priority);
+    }
+
+    g_object_unref (provider);
+    g_free (path);
+}
 
 static void
 init_icons_and_styles (void)
 {
-    GtkCssProvider *provider;
-    GError *error = NULL;
-
     /* add our custom CSS provider */
-    provider = gtk_css_provider_new ();
-    gtk_css_provider_load_from_path (provider,
-				CAJA_DATADIR G_DIR_SEPARATOR_S "caja.css", &error);
-
-    if (error != NULL) {
-        g_warning ("Can't parse Caja' CSS custom description: %s\n", error->message);
-        g_error_free (error);
-    } else {
-        gtk_style_context_add_provider_for_screen (gdk_screen_get_default (),
-                               GTK_STYLE_PROVIDER (provider),
-                               GTK_STYLE_PROVIDER_PRIORITY_THEME);
-    }
-
-/* add our desktop CSS provider,  ensures the desktop background does not get covered */
-    provider = gtk_css_provider_new ();
-
-    gtk_css_provider_load_from_path (provider, CAJA_DATADIR G_DIR_SEPARATOR_S "caja-desktop.css", &error);
-
-    if (error != NULL) {
-        g_warning ("Can't parse Caja' CSS custom description: %s\n", error->message);
-        g_error_free (error);
-    } else {
-        gtk_style_context_add_provider_for_screen (gdk_screen_get_default (),
-                               GTK_STYLE_PROVIDER (provider),
-                               GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-    }
-
-
-    g_object_unref (provider);
+    load_custom_css ("caja.css", GTK_STYLE_PROVIDER_PRIORITY_THEME);
+    /* add our desktop CSS provider,  ensures the desktop background does not get covered */
+    load_custom_css ("caja-desktop.css", GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 
     /* initialize search path for custom icons */
     gtk_icon_theme_append_search_path (gtk_icon_theme_get_default (),
