@@ -460,9 +460,11 @@ real_set_allow_up (CajaWindow *window, gboolean allow)
 
     spatial = CAJA_SPATIAL_WINDOW (window);
 
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     action = gtk_action_group_get_action (spatial->details->spatial_action_group,
                                           SPATIAL_ACTION_CLOSE_PARENT_FOLDERS);
     gtk_action_set_sensitive (action, allow);
+    G_GNUC_END_IGNORE_DEPRECATIONS;
 
     CAJA_WINDOW_CLASS (caja_spatial_window_parent_class)->set_allow_up (window, allow);
 }
@@ -1059,12 +1061,14 @@ caja_spatial_window_init (CajaSpatialWindow *window)
     gtk_box_reorder_child (GTK_BOX (CAJA_WINDOW (window)->details->statusbar),
                            window->details->location_button, 0);
 
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     action_group = gtk_action_group_new ("SpatialActions");
     gtk_action_group_set_translation_domain (action_group, GETTEXT_PACKAGE);
     window->details->spatial_action_group = action_group;
     gtk_action_group_add_actions (action_group,
                                   spatial_entries, G_N_ELEMENTS (spatial_entries),
                                   window);
+    G_GNUC_END_IGNORE_DEPRECATIONS;
 
     ui_manager = caja_window_get_ui_manager (CAJA_WINDOW (window));
     gtk_ui_manager_insert_action_group (ui_manager, action_group, 0);
