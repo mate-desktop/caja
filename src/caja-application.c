@@ -2025,14 +2025,18 @@ caja_application_local_command_line (GApplication *application,
 }
 
 static void
-load_custom_css (const gchar *filename,
+load_custom_css (GtkCssProvider *provider,
+                 const gchar *filename,
                  guint priority)
 {
-    GtkCssProvider *provider;
     GError *error = NULL;
     gchar *path = g_build_filename (CAJA_DATADIR, filename, NULL);
 
-    provider = gtk_css_provider_new ();
+    if (provider)
+        g_object_ref (provider);
+    else
+        provider = gtk_css_provider_new ();
+
     gtk_css_provider_load_from_path (provider, path, &error);
 
     if (error != NULL) {
@@ -2050,12 +2054,43 @@ load_custom_css (const gchar *filename,
 }
 
 static void
+reload_theme_css (GtkSettings    *settings,
+                  GParamSpec     *unused G_GNUC_UNUSED,
+                  GtkCssProvider *provider)
+{
+    gchar *theme_name;
+    gchar *css_theme_name;
+    gchar *path;
+
+    g_object_get (settings, "gtk-theme-name", &theme_name, NULL);
+    css_theme_name = g_strconcat ("caja-desktop-", theme_name, ".css", NULL);
+    path = g_build_filename (CAJA_DATADIR, css_theme_name, NULL);
+
+    if (g_file_test (path, G_FILE_TEST_EXISTS))
+        load_custom_css (provider, css_theme_name, GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+    else /* just empty the provider */
+        gtk_css_provider_load_from_data (provider, "", 0, NULL);
+
+    g_free (path);
+    g_free (css_theme_name);
+    g_free (theme_name);
+}
+
+static void
 init_icons_and_styles (void)
 {
+    GtkSettings *settings = gtk_settings_get_default ();
+    GtkCssProvider *provider;
+
     /* add our custom CSS provider */
-    load_custom_css ("caja.css", GTK_STYLE_PROVIDER_PRIORITY_THEME);
+    load_custom_css (NULL, "caja.css", GTK_STYLE_PROVIDER_PRIORITY_THEME);
     /* add our desktop CSS provider,  ensures the desktop background does not get covered */
-    load_custom_css ("caja-desktop.css", GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+    load_custom_css (NULL, "caja-desktop.css", GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+    /* add theme-specific desktop CSS */
+    provider = gtk_css_provider_new ();
+    reload_theme_css (settings, NULL, provider);
+    g_signal_connect_data (settings, "notify::gtk-theme-name", G_CALLBACK (reload_theme_css),
+                           provider, (GClosureNotify) g_object_unref, 0);
 
     /* initialize search path for custom icons */
     gtk_icon_theme_append_search_path (gtk_icon_theme_get_default (),
