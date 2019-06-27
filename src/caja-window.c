@@ -363,12 +363,14 @@ real_set_allow_up (CajaWindow *window,
 
     g_assert (CAJA_IS_WINDOW (window));
 
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     action = gtk_action_group_get_action (window->details->main_action_group,
                                           CAJA_ACTION_UP);
     gtk_action_set_sensitive (action, allow);
     action = gtk_action_group_get_action (window->details->main_action_group,
                                           CAJA_ACTION_UP_ACCEL);
     gtk_action_set_sensitive (action, allow);
+    G_GNUC_END_IGNORE_DEPRECATIONS;
 }
 
 void
@@ -412,16 +414,20 @@ caja_window_sync_allow_stop (CajaWindow *window,
 
     g_assert (CAJA_IS_WINDOW (window));
 
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     action = gtk_action_group_get_action (window->details->main_action_group,
                                           CAJA_ACTION_STOP);
     allow_stop = gtk_action_get_sensitive (action);
+    G_GNUC_END_IGNORE_DEPRECATIONS;
 
     if (slot != window->details->active_pane->active_slot ||
             allow_stop != slot->allow_stop)
     {
         if (slot == window->details->active_pane->active_slot)
         {
+            G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
             gtk_action_set_sensitive (action, slot->allow_stop);
+            G_GNUC_END_IGNORE_DEPRECATIONS;
         }
 
         if (gtk_widget_get_realized (GTK_WIDGET (window)))
@@ -441,9 +447,11 @@ caja_window_allow_reload (CajaWindow *window, gboolean allow)
 
     g_return_if_fail (CAJA_IS_WINDOW (window));
 
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     action = gtk_action_group_get_action (window->details->main_action_group,
                                           CAJA_ACTION_RELOAD);
     gtk_action_set_sensitive (action, allow);
+    G_GNUC_END_IGNORE_DEPRECATIONS;
 }
 
 void
@@ -1015,6 +1023,7 @@ caja_window_key_press_event (GtkWidget *widget,
             action = NULL;
 
             action_groups = gtk_ui_manager_get_action_groups (window->details->ui_manager);
+            G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
             while (action_groups != NULL && action == NULL)
             {
                 action = gtk_action_group_get_action (action_groups->data, extra_window_keybindings[i].action);
@@ -1027,6 +1036,7 @@ caja_window_key_press_event (GtkWidget *widget,
                 gtk_action_activate (action);
                 return TRUE;
             }
+            G_GNUC_END_IGNORE_DEPRECATIONS;
 
             break;
         }
@@ -1059,6 +1069,7 @@ action_view_as_callback (GtkAction *action,
 
     window = data->window;
 
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     if (gtk_toggle_action_get_active (GTK_TOGGLE_ACTION (action)))
     {
         CajaWindowSlot *slot;
@@ -1067,6 +1078,7 @@ action_view_as_callback (GtkAction *action,
         caja_window_slot_set_content_view (slot,
                                            data->id);
     }
+    G_GNUC_END_IGNORE_DEPRECATIONS;
 }
 
 static GtkRadioAction *
@@ -1084,11 +1096,13 @@ add_view_as_menu_item (CajaWindow *window,
     info = caja_view_factory_lookup (identifier);
 
     g_snprintf (action_name, sizeof (action_name), "view_as_%d", index);
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     action = gtk_radio_action_new (action_name,
                                    _(info->view_menu_label_with_mnemonic),
                                    _(info->display_location_label),
                                    NULL,
                                    0);
+    G_GNUC_END_IGNORE_DEPRECATIONS;
 
     if (index >= 1 && index <= 9)
     {
@@ -1103,13 +1117,17 @@ add_view_as_menu_item (CajaWindow *window,
 		g_assert (accel_keyval != GDK_KEY_VoidSymbol);
 
         gtk_accel_map_add_entry (accel_path, accel_keyval, GDK_CONTROL_MASK);
+        G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
         gtk_action_set_accel_path (GTK_ACTION (action), accel_path);
+        G_GNUC_END_IGNORE_DEPRECATIONS;
     }
 
     if (window->details->view_as_radio_action != NULL)
     {
+        G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
         gtk_radio_action_set_group (action,
                                     gtk_radio_action_get_group (window->details->view_as_radio_action));
+        G_GNUC_END_IGNORE_DEPRECATIONS;
     }
     else if (index != 0)
     {
@@ -1125,9 +1143,11 @@ add_view_as_menu_item (CajaWindow *window,
                            G_CALLBACK (action_view_as_callback),
                            data, (GClosureNotify) free_activate_view_data, 0);
 
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     gtk_action_group_add_action (window->details->view_as_action_group,
                                  GTK_ACTION (action));
     g_object_unref (action);
+    G_GNUC_END_IGNORE_DEPRECATIONS;
 
     gtk_ui_manager_add_ui (window->details->ui_manager,
                            merge_id,
@@ -1177,12 +1197,14 @@ update_extra_viewer_in_view_as_menus (CajaWindow *window,
         window->details->extra_viewer_merge_id = 0;
     }
 
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     if (window->details->extra_viewer_radio_action != NULL)
     {
         gtk_action_group_remove_action (window->details->view_as_action_group,
                                         GTK_ACTION (window->details->extra_viewer_radio_action));
         window->details->extra_viewer_radio_action = NULL;
     }
+    G_GNUC_END_IGNORE_DEPRECATIONS;
 
     if (id != NULL)
     {
@@ -1260,8 +1282,10 @@ caja_window_synch_view_as_menus (CajaWindow *window)
     }
 
     g_snprintf (action_name, sizeof (action_name), "view_as_%d", index);
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     action = gtk_action_group_get_action (window->details->view_as_action_group,
                                           action_name);
+    G_GNUC_END_IGNORE_DEPRECATIONS;
 
     /* Don't trigger the action callback when we're synchronizing */
     g_signal_handlers_block_matched (action,
@@ -1270,7 +1294,9 @@ caja_window_synch_view_as_menus (CajaWindow *window)
                                      NULL,
                                      action_view_as_callback,
                                      NULL);
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), TRUE);
+    G_GNUC_END_IGNORE_DEPRECATIONS;
     g_signal_handlers_unblock_matched (action,
                                        G_SIGNAL_MATCH_FUNC,
                                        0, 0,
@@ -1332,8 +1358,10 @@ load_view_as_menu (CajaWindow *window)
 
     merge_id = gtk_ui_manager_new_merge_id (window->details->ui_manager);
     window->details->short_list_merge_id = merge_id;
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     window->details->view_as_action_group = gtk_action_group_new ("ViewAsGroup");
     gtk_action_group_set_translation_domain (window->details->view_as_action_group, GETTEXT_PACKAGE);
+    G_GNUC_END_IGNORE_DEPRECATIONS;
     window->details->view_as_radio_action = NULL;
 
     /* Add a menu item for each view in the preferred list for this location. */
@@ -1478,6 +1506,7 @@ caja_window_sync_zoom_widgets (CajaWindow *window)
         can_zoom_out = FALSE;
     }
 
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     action = gtk_action_group_get_action (window->details->main_action_group,
                                           CAJA_ACTION_ZOOM_IN);
     gtk_action_set_visible (action, supports_zooming);
@@ -1492,6 +1521,7 @@ caja_window_sync_zoom_widgets (CajaWindow *window)
                                           CAJA_ACTION_ZOOM_NORMAL);
     gtk_action_set_visible (action, supports_zooming);
     gtk_action_set_sensitive (action, can_zoom);
+    G_GNUC_END_IGNORE_DEPRECATIONS;
 
     g_signal_emit (window, signals[ZOOM_CHANGED], 0,
                    zoom_level, supports_zooming, can_zoom,
