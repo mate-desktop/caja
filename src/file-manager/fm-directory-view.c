@@ -5087,6 +5087,7 @@ add_extension_menu_items (FMDirectoryView *view,
 				       action_name,
 				       (menu != NULL) ? GTK_UI_MANAGER_MENU : GTK_UI_MANAGER_MENUITEM,
 				       FALSE);
+		g_free (action_name);
 		g_free (path);
 
 		/* recursively fill the menu */
@@ -7693,6 +7694,7 @@ connect_proxy (FMDirectoryView *view,
 			cairo_surface_destroy (surface);
 		}
 	}
+	g_free (action_name);
 }
 
 static void
