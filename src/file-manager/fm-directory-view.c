@@ -5056,6 +5056,7 @@ add_extension_menu_items (FMDirectoryView *view,
 		CajaMenuItem *item;
 		CajaMenu *menu;
 		GtkAction *action;
+		const gchar *action_name;
 		char *path;
 
 		item = CAJA_MENU_ITEM (l->data);
@@ -5066,11 +5067,14 @@ add_extension_menu_items (FMDirectoryView *view,
 
 		path = g_build_path ("/", FM_DIRECTORY_VIEW_POPUP_PATH_EXTENSION_ACTIONS, subdirectory, NULL);
 		G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+		action_name = gtk_action_get_name (action);
+		G_GNUC_END_IGNORE_DEPRECATIONS
+
 		gtk_ui_manager_add_ui (ui_manager,
 				       view->details->extensions_menu_merge_id,
 				       path,
-				       gtk_action_get_name (action),
-				       gtk_action_get_name (action),
+				       action_name,
+				       action_name,
 				       (menu != NULL) ? GTK_UI_MANAGER_MENU : GTK_UI_MANAGER_MENUITEM,
 				       FALSE);
 		g_free (path);
@@ -5079,11 +5083,10 @@ add_extension_menu_items (FMDirectoryView *view,
 		gtk_ui_manager_add_ui (ui_manager,
 				       view->details->extensions_menu_merge_id,
 				       path,
-				       gtk_action_get_name (action),
-				       gtk_action_get_name (action),
+				       action_name,
+				       action_name,
 				       (menu != NULL) ? GTK_UI_MANAGER_MENU : GTK_UI_MANAGER_MENUITEM,
 				       FALSE);
-		G_GNUC_END_IGNORE_DEPRECATIONS
 		g_free (path);
 
 		/* recursively fill the menu */
@@ -7673,14 +7676,16 @@ connect_proxy (FMDirectoryView *view,
 	       GtkWidget *proxy,
 	       GtkActionGroup *action_group)
 {
+	const gchar *action_name;
 	cairo_surface_t *surface;
 	GtkWidget *image;
 
 	G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-	if (strcmp (gtk_action_get_name (action), FM_ACTION_NEW_EMPTY_FILE) == 0 &&
+	action_name = gtk_action_get_name (action);
+	G_GNUC_END_IGNORE_DEPRECATIONS
+	if (strcmp (action_name, FM_ACTION_NEW_EMPTY_FILE) == 0 &&
 	    GTK_IS_IMAGE_MENU_ITEM (proxy)) {
 		surface = get_menu_icon ("text-x-generic", GTK_WIDGET (view));
-	G_GNUC_END_IGNORE_DEPRECATIONS
 		if (surface != NULL) {
 			image = gtk_image_new_from_surface (surface);
 			gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (proxy), image);
@@ -9102,10 +9107,8 @@ real_update_menus (FMDirectoryView *view)
 
 	action = gtk_action_group_get_action (view->details->dir_action_group,
 					      FM_ACTION_RESTORE_FROM_TRASH);
-	G_GNUC_END_IGNORE_DEPRECATIONS
 	update_restore_from_trash_action (action, selection, FALSE);
 
-	G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 	action = gtk_action_group_get_action (view->details->dir_action_group,
 					      FM_ACTION_DUPLICATE);
 	gtk_action_set_sensitive (action, can_duplicate_files);
