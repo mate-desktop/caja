@@ -410,14 +410,14 @@ caja_icon_info_lookup (GIcon *icon,
                                                                  icon,
                                                                  size,
                                                                  scale,
-                                                                 0);
+                                                                 GTK_ICON_LOOKUP_FORCE_SIZE);
 
         if (!gtkicon_info) {
             gtkicon_info = gtk_icon_theme_lookup_icon_for_scale (icon_theme,
                                                                  "text-x-generic",
                                                                  size,
                                                                  scale,
-                                                                 0);
+                                                                 GTK_ICON_LOOKUP_FORCE_SIZE);
         }
 
         icon_info = caja_icon_info_new_for_icon_info (gtkicon_info, scale);
