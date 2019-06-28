@@ -147,7 +147,7 @@ received_clipboard_contents (GtkClipboard     *clipboard,
 
     action_group = data;
 
-    G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     action = gtk_action_group_get_action (action_group,
                                           "Paste");
     if (action != NULL)
@@ -155,7 +155,7 @@ received_clipboard_contents (GtkClipboard     *clipboard,
         gtk_action_set_sensitive (action,
                                   gtk_selection_data_targets_include_text (selection_data));
     }
-    G_GNUC_END_IGNORE_DEPRECATIONS
+    G_GNUC_END_IGNORE_DEPRECATIONS;
 
     g_object_unref (action_group);
 }
@@ -176,11 +176,11 @@ set_paste_sensitive_if_clipboard_contains_data (GtkActionGroup *action_group)
         GtkAction *action;
 
         /* If selection notification isn't supported, always activate Paste */
-        G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+        G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
         action = gtk_action_group_get_action (action_group,
                                               "Paste");
         gtk_action_set_sensitive (action, TRUE);
-        G_GNUC_END_IGNORE_DEPRECATIONS
+        G_GNUC_END_IGNORE_DEPRECATIONS;
     }
 }
 
@@ -189,14 +189,14 @@ set_clipboard_menu_items_sensitive (GtkActionGroup *action_group)
 {
     GtkAction *action;
 
-    G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     action = gtk_action_group_get_action (action_group,
                                           "Cut");
     gtk_action_set_sensitive (action, TRUE);
     action = gtk_action_group_get_action (action_group,
                                           "Copy");
     gtk_action_set_sensitive (action, TRUE);
-    G_GNUC_END_IGNORE_DEPRECATIONS
+    G_GNUC_END_IGNORE_DEPRECATIONS;
 }
 
 static void
@@ -204,14 +204,14 @@ set_clipboard_menu_items_insensitive (GtkActionGroup *action_group)
 {
     GtkAction *action;
 
-    G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     action = gtk_action_group_get_action (action_group,
                                           "Cut");
     gtk_action_set_sensitive (action, FALSE);
     action = gtk_action_group_get_action (action_group,
                                           "Copy");
     gtk_action_set_sensitive (action, FALSE);
-    G_GNUC_END_IGNORE_DEPRECATIONS
+    G_GNUC_END_IGNORE_DEPRECATIONS;
 }
 
 static gboolean
@@ -493,13 +493,13 @@ initialize_clipboard_component_with_callback_data (GtkEditable *target,
     GtkActionGroup *action_group;
     TargetCallbackData *target_data;
 
-    G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     action_group = gtk_action_group_new ("ClipboardActions");
     gtk_action_group_set_translation_domain (action_group, GETTEXT_PACKAGE);
     gtk_action_group_add_actions (action_group,
                                   clipboard_entries, G_N_ELEMENTS (clipboard_entries),
                                   target);
-    G_GNUC_END_IGNORE_DEPRECATIONS
+    G_GNUC_END_IGNORE_DEPRECATIONS;
 
     /* Do the actual connection of the UI to the container at
      * focus time, and disconnect at both focus and destroy
