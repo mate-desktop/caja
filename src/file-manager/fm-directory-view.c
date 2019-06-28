@@ -1004,8 +1004,8 @@ real_trash (FMDirectoryView *view)
 	    gtk_action_get_visible (action)) {
 		trash_or_delete_selected_files (view);
 		return TRUE;
-	G_GNUC_END_IGNORE_DEPRECATIONS;
 	}
+	G_GNUC_END_IGNORE_DEPRECATIONS;
 	return FALSE;
 }
 
@@ -1077,8 +1077,8 @@ real_delete (FMDirectoryView *view)
 	    gtk_action_get_visible (action)) {
 		delete_selected_files (view);
 		return TRUE;
-	G_GNUC_END_IGNORE_DEPRECATIONS;
 	}
+	G_GNUC_END_IGNORE_DEPRECATIONS;
 	return FALSE;
 }
 
