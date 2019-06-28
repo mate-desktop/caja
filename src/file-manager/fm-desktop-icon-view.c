@@ -726,29 +726,29 @@ real_update_menus (FMDirectoryView *view)
 
     /* New Launcher */
     disable_command_line = g_settings_get_boolean (mate_lockdown_preferences, CAJA_PREFERENCES_LOCKDOWN_COMMAND_LINE);
-    G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     action = gtk_action_group_get_action (desktop_view->priv->desktop_action_group,
                                           FM_ACTION_NEW_LAUNCHER_DESKTOP);
     gtk_action_set_visible (action,
                             !disable_command_line);
-    G_GNUC_END_IGNORE_DEPRECATIONS
+    G_GNUC_END_IGNORE_DEPRECATIONS;
 
     /* Empty Trash */
     include_empty_trash = trash_link_is_selection (view);
-    G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     action = gtk_action_group_get_action (desktop_view->priv->desktop_action_group,
                                           FM_ACTION_EMPTY_TRASH_CONDITIONAL);
     gtk_action_set_visible (action,
                             include_empty_trash);
-    G_GNUC_END_IGNORE_DEPRECATIONS
+    G_GNUC_END_IGNORE_DEPRECATIONS;
     if (include_empty_trash)
     {
         label = g_strdup (_("E_mpty Trash"));
         g_object_set (action , "label", label, NULL);
-        G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+        G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
         gtk_action_set_sensitive (action,
                                   !caja_trash_monitor_is_empty ());
-        G_GNUC_END_IGNORE_DEPRECATIONS
+        G_GNUC_END_IGNORE_DEPRECATIONS;
         g_free (label);
     }
 }
@@ -798,14 +798,14 @@ real_merge_menus (FMDirectoryView *view)
 
     ui_manager = fm_directory_view_get_ui_manager (view);
 
-    G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+    G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     action_group = gtk_action_group_new ("DesktopViewActions");
     gtk_action_group_set_translation_domain (action_group, GETTEXT_PACKAGE);
     desktop_view->priv->desktop_action_group = action_group;
     gtk_action_group_add_actions (action_group,
                                   desktop_view_entries, G_N_ELEMENTS (desktop_view_entries),
                                   view);
-    G_GNUC_END_IGNORE_DEPRECATIONS
+    G_GNUC_END_IGNORE_DEPRECATIONS;
 
 
     gtk_ui_manager_insert_action_group (ui_manager, action_group, 0);
