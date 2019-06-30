@@ -62,7 +62,6 @@ fm_icon_container_get_icon_images (CajaIconContainer *container,
                                    gboolean              *has_window_open)
 {
     FMIconView *icon_view;
-    char **emblems_to_ignore;
     CajaFile *file;
     gboolean use_embedding;
     CajaFileIconFlags flags;
@@ -90,6 +89,8 @@ fm_icon_container_get_icon_images (CajaIconContainer *container,
 
         if (emblem_size > 0)
         {
+            char **emblems_to_ignore;
+
             emblems_to_ignore = fm_directory_view_get_emblem_names_to_exclude
                                 (FM_DIRECTORY_VIEW (icon_view));
             *emblem_pixbufs = caja_file_get_emblem_pixbufs (file,
@@ -189,7 +190,6 @@ fm_icon_container_prioritize_thumbnailing (CajaIconContainer *container,
         CajaIconData      *data)
 {
     CajaFile *file;
-    char *uri;
 
     file = (CajaFile *) data;
 
@@ -197,6 +197,8 @@ fm_icon_container_prioritize_thumbnailing (CajaIconContainer *container,
 
     if (caja_file_is_thumbnailing (file))
     {
+        char *uri;
+
         uri = caja_file_get_uri (file);
         caja_thumbnail_prioritize (uri);
         g_free (uri);
@@ -306,8 +308,6 @@ fm_icon_container_get_icon_text (CajaIconContainer *container,
                                  char                 **additional_text,
                                  gboolean               include_invisible)
 {
-    char *actual_uri;
-    gchar *description;
     GQuark *attributes;
     char *text_array[4];
     int i, j, num_attributes;
@@ -362,10 +362,15 @@ fm_icon_container_get_icon_text (CajaIconContainer *container,
         *additional_text = NULL;
         if (caja_file_is_local (file))
         {
+            char *actual_uri;
+            gchar *description;
+
             actual_uri = caja_file_get_uri (file);
             description = caja_link_local_get_additional_text (actual_uri);
+
             if (description)
                 *additional_text = g_strdup_printf (" \n%s\n ", description);
+
             g_free (description);
             g_free (actual_uri);
         }
@@ -434,14 +439,16 @@ typedef enum
 static SortCategory
 get_sort_category (CajaFile *file)
 {
-    CajaDesktopLink *link;
     SortCategory category;
 
     category = SORT_OTHER;
 
     if (CAJA_IS_DESKTOP_ICON_FILE (file))
     {
+        CajaDesktopLink *link;
+
         link = caja_desktop_icon_file_get_link (CAJA_DESKTOP_ICON_FILE (file));
+
         if (link != NULL)
         {
             switch (caja_desktop_link_get_link_type (link))

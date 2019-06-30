@@ -290,17 +290,19 @@ static CajaFile *
 get_target_file_for_original_file (CajaFile *file)
 {
 	CajaFile *target_file;
-	GFile *location;
-	char *uri_to_display;
-	CajaDesktopLink *link;
 
 	target_file = NULL;
 	if (CAJA_IS_DESKTOP_ICON_FILE (file)) {
+		CajaDesktopLink *link;
+
 		link = caja_desktop_icon_file_get_link (CAJA_DESKTOP_ICON_FILE (file));
 
 		if (link != NULL) {
+			GFile *location;
+
 			/* map to linked URI for these types of links */
 			location = caja_desktop_link_get_activation_location (link);
+
 			if (location) {
 				target_file = caja_file_get (location);
 				g_object_unref (location);
@@ -309,7 +311,10 @@ get_target_file_for_original_file (CajaFile *file)
 			g_object_unref (link);
 		}
         } else {
+		char *uri_to_display;
+
 		uri_to_display = caja_file_get_activation_uri (file);
+
 		if (uri_to_display != NULL) {
 			target_file = caja_file_get_by_uri (uri_to_display);
 			g_free (uri_to_display);
@@ -761,7 +766,6 @@ name_field_done_editing (CajaEntry *name_field, FMPropertiesWindow *window)
 {
 	CajaFile *file;
 	char *new_name;
-	const char *original_name;
 
 	g_return_if_fail (CAJA_IS_ENTRY (name_field));
 
@@ -785,6 +789,8 @@ name_field_done_editing (CajaEntry *name_field, FMPropertiesWindow *window)
 	if (strlen (new_name) == 0) {
 		name_field_restore_original_name (CAJA_ENTRY (name_field));
 	} else {
+		const char *original_name;
+
 		original_name = (const char *) g_object_get_data (G_OBJECT (window->details->name_field),
 								  "original_name");
 		/* Don't rename if not changed since we read the display name.
@@ -991,17 +997,20 @@ emblem_button_update (FMPropertiesWindow *window,
 static void
 update_properties_window_title (FMPropertiesWindow *window)
 {
-	char *name, *title;
-	CajaFile *file;
+	char *title;
 
 	g_return_if_fail (GTK_IS_WINDOW (window));
 
 	title = g_strdup_printf (_("Properties"));
 
 	if (!is_multi_file_window (window)) {
+		CajaFile *file;
+
 		file = get_original_file (window);
 
 		if (file != NULL) {
+			char *name;
+
 			g_free (title);
 			name = caja_file_get_display_name (file);
 			title = g_strdup_printf (_("%s Properties"), name);
@@ -1019,7 +1028,7 @@ clear_extension_pages (FMPropertiesWindow *window)
 {
 	int i;
 	int num_pages;
-	GtkWidget *page;
+	GtkWidget *page = NULL;
 
 	num_pages = gtk_notebook_get_n_pages
 				(GTK_NOTEBOOK (window->details->notebook));
@@ -1127,7 +1136,7 @@ properties_window_update (FMPropertiesWindow *window,
 	GList *l;
 	GList *mime_list;
 	GList *tmp;
-	CajaFile *changed_file;
+	CajaFile *changed_file = NULL;
 	gboolean dirty_original = FALSE;
 	gboolean dirty_target = FALSE;
 
@@ -1316,7 +1325,6 @@ value_field_update_internal (GtkLabel *label,
 	const char *attribute_name;
 	char *attribute_value;
 	char *inconsistent_string;
-	char *mime_type, *tmp;
 
 	g_assert (GTK_IS_LABEL (label));
 
@@ -1326,10 +1334,14 @@ value_field_update_internal (GtkLabel *label,
 							  attribute_name,
 							  inconsistent_string);
 	if (!strcmp (attribute_name, "type") && strcmp (attribute_value, inconsistent_string)) {
+		char *mime_type;
+
 		mime_type = file_list_get_string_attribute (file_list,
 							    "mime_type",
 							    inconsistent_string);
 		if (strcmp (mime_type, inconsistent_string)) {
+			char *tmp;
+
 			tmp = attribute_value;
 			attribute_value = g_strdup_printf (C_("MIME type description (MIME type)", "%s (%s)"), attribute_value, mime_type);
 			g_free (tmp);
@@ -1610,7 +1622,6 @@ unschedule_or_cancel_group_change (FMPropertiesWindow *window)
 static void
 changed_group_callback (GtkComboBox *combo_box, CajaFile *file)
 {
-	FMPropertiesWindow *window;
 	char *group;
 	char *cur_group;
 
@@ -1621,6 +1632,8 @@ changed_group_callback (GtkComboBox *combo_box, CajaFile *file)
 	cur_group = caja_file_get_group_name (file);
 
 	if (group != NULL && strcmp (group, cur_group) != 0) {
+		FMPropertiesWindow *window;
+
 		/* Try to change file group. If this fails, complain to user. */
 		window = FM_PROPERTIES_WINDOW (gtk_widget_get_ancestor (GTK_WIDGET (combo_box), GTK_TYPE_WINDOW));
 
@@ -1679,13 +1692,14 @@ static char *
 combo_box_get_active_entry (GtkComboBox *combo_box,
 			    unsigned int column)
 {
-	GtkTreeModel *model;
 	GtkTreeIter iter;
 	char *val;
 
 	g_assert (GTK_IS_COMBO_BOX (combo_box));
 
 	if (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (combo_box), &iter)) {
+		GtkTreeModel *model;
+
 		model = gtk_combo_box_get_model (combo_box);
 		g_assert (GTK_IS_TREE_MODEL (model));
 
@@ -1708,7 +1722,6 @@ tree_model_get_entry_index (GtkTreeModel *model,
 			    const char   *entry)
 {
 	GtkTreeIter iter;
-	int index;
 	gboolean empty_model;
 
 	g_assert (GTK_IS_TREE_MODEL (model));
@@ -1716,6 +1729,8 @@ tree_model_get_entry_index (GtkTreeModel *model,
 
 	empty_model = !gtk_tree_model_get_iter_first (model, &iter);
 	if (!empty_model && entry != NULL) {
+		int index;
+
 		index = 0;
 
 		do {
@@ -1745,9 +1760,7 @@ synch_groups_combo_box (GtkComboBox *combo_box, CajaFile *file)
 	GList *node;
 	GtkTreeModel *model;
 	GtkListStore *store;
-	const char *group_name;
 	char *current_group_name;
-	int group_index;
 	int current_group_index;
 
 	g_assert (GTK_IS_COMBO_BOX (combo_box));
@@ -1764,6 +1777,8 @@ synch_groups_combo_box (GtkComboBox *combo_box, CajaFile *file)
 	g_assert (GTK_IS_LIST_STORE (model));
 
 	if (!tree_model_entries_equal (model, 0, groups)) {
+		int group_index;
+
 		/* Clear the contents of ComboBox in a wacky way because there
 		 * is no function to clear all items and also no function to obtain
 		 * the number of items in a combobox.
@@ -1771,6 +1786,8 @@ synch_groups_combo_box (GtkComboBox *combo_box, CajaFile *file)
 		gtk_list_store_clear (store);
 
 		for (node = groups, group_index = 0; node != NULL; node = node->next, ++group_index) {
+			const char *group_name;
+
 			group_name = (const char *)node->data;
 			gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (combo_box), group_name);
 		}
@@ -2020,7 +2037,6 @@ unschedule_or_cancel_owner_change (FMPropertiesWindow *window)
 static void
 changed_owner_callback (GtkComboBox *combo_box, CajaFile* file)
 {
-	FMPropertiesWindow *window;
 	char *owner_text;
 	char **name_array;
 	char *new_owner;
@@ -2038,6 +2054,8 @@ changed_owner_callback (GtkComboBox *combo_box, CajaFile* file)
 	cur_owner = caja_file_get_owner_name (file);
 
 	if (strcmp (new_owner, cur_owner) != 0) {
+		FMPropertiesWindow *window;
+
 		/* Try to change file owner. If this fails, complain to user. */
 		window = FM_PROPERTIES_WINDOW (gtk_widget_get_ancestor (GTK_WIDGET (combo_box), GTK_TYPE_WINDOW));
 
@@ -2058,10 +2076,8 @@ synch_user_menu (GtkComboBox *combo_box, CajaFile *file)
 	GtkTreeIter iter;
 	char *user_name;
 	char *owner_name;
-	int user_index;
 	int owner_index;
 	char **name_array;
-	char *combo_text;
 
 	g_assert (GTK_IS_COMBO_BOX (combo_box));
 	g_assert (CAJA_IS_FILE (file));
@@ -2077,6 +2093,8 @@ synch_user_menu (GtkComboBox *combo_box, CajaFile *file)
 	g_assert (GTK_IS_LIST_STORE (model));
 
 	if (!tree_model_entries_equal (model, 1, users)) {
+		int user_index;
+
 		/* Clear the contents of ComboBox in a wacky way because there
 		 * is no function to clear all items and also no function to obtain
 		 * the number of items in a combobox.
@@ -2084,6 +2102,8 @@ synch_user_menu (GtkComboBox *combo_box, CajaFile *file)
 		gtk_list_store_clear (store);
 
 		for (node = users, user_index = 0; node != NULL; node = node->next, ++user_index) {
+			char *combo_text;
+
 			user_name = (char *)node->data;
 
 			name_array = g_strsplit (user_name, "\n", 2);
@@ -2208,11 +2228,11 @@ directory_contents_value_field_update (FMPropertiesWindow *window)
 	goffset total_size;
 	goffset total_size_on_disk;
 	gboolean used_two_lines;
-	CajaFile *file;
 	GList *l;
 	guint file_unreadable;
 	goffset file_size;
 	goffset file_size_on_disk;
+	CajaFile *file = NULL;
 
 	g_assert (FM_IS_PROPERTIES_WINDOW (window));
 
@@ -2369,7 +2389,7 @@ attach_directory_contents_value_field (FMPropertiesWindow *window,
 {
 	GtkLabel *value_field;
 	GList *l;
-	CajaFile *file;
+	CajaFile *file = NULL;
 
 	value_field = attach_value_label (grid, sibling, "");
 
@@ -3041,7 +3061,6 @@ create_pie_widget (FMPropertiesWindow *window)
 	gchar			*capacity;
 	gchar 			*used;
 	gchar 			*free;
-	const char		*fs_type;
 	gchar			*uri;
 	gchar			*concat;
 	GFile *location;
@@ -3122,7 +3141,10 @@ create_pie_widget (FMPropertiesWindow *window)
 	info = g_file_query_filesystem_info (location, G_FILE_ATTRIBUTE_FILESYSTEM_TYPE,
 					     NULL, NULL);
 	if (info) {
+		const char *fs_type;
+
 		fs_type = g_file_info_get_attribute_string (info, G_FILE_ATTRIBUTE_FILESYSTEM_TYPE);
+
 		if (fs_type != NULL) {
 			concat = g_strconcat (_("Filesystem type:"), " ", fs_type, NULL);
 			gtk_label_set_text (GTK_LABEL (fstype_label), concat);
@@ -3207,7 +3229,6 @@ create_basic_page (FMPropertiesWindow *window)
 {
 	GtkGrid *grid;
 	GtkWidget *icon_pixmap_widget;
-	GtkWidget *volume_usage;
 	GtkWidget *hbox, *vbox;
 
 	hbox = create_page_with_hbox (window->details->notebook, _("Basic"));
@@ -3330,6 +3351,8 @@ create_basic_page (FMPropertiesWindow *window)
 	}
 
 	if (should_show_volume_usage (window)) {
+		GtkWidget *volume_usage;
+
 		volume_usage = create_volume_usage_widget (window);
 		gtk_container_add_with_properties (GTK_CONTAINER (grid), volume_usage,
 						   "width", 2,
@@ -3420,7 +3443,6 @@ static void
 create_emblems_page (FMPropertiesWindow *window)
 {
 	GtkWidget *emblems_table, *button, *scroller;
-	char *emblem_name;
 	GdkPixbuf *pixbuf;
 	char *label;
 	GList *icons, *l;
@@ -3447,6 +3469,8 @@ create_emblems_page (FMPropertiesWindow *window)
 
 	l = icons;
 	while (l != NULL) {
+		char *emblem_name;
+
 		emblem_name = l->data;
 		l = l->next;
 
@@ -4365,13 +4389,13 @@ create_simple_permissions (FMPropertiesWindow *window, GtkGrid *page_grid)
 	GtkLabel *owner_label;
 	GtkLabel *execute_label;
 	GtkWidget *value;
-	GtkComboBox *group_combo_box;
-	GtkComboBox *owner_combo_box;
 
 	has_file = files_has_file (window);
 	has_directory = files_has_directory (window);
 
 	if (!is_multi_file_window (window) && caja_file_can_set_owner (get_target_file (window))) {
+		GtkComboBox *owner_combo_box;
+
 		owner_label = attach_title_field (page_grid, _("_Owner:"));
 		/* Combo box in this case. */
 		owner_combo_box = attach_owner_combo_box (page_grid,
@@ -4402,6 +4426,8 @@ create_simple_permissions (FMPropertiesWindow *window, GtkGrid *page_grid)
 	append_blank_slim_row (page_grid);
 
 	if (!is_multi_file_window (window) && caja_file_can_set_group (get_target_file (window))) {
+		GtkComboBox *group_combo_box;
+
 		group_label = attach_title_field (page_grid, _("_Group:"));
 
 		/* Combo box in this case. */
@@ -4557,11 +4583,10 @@ create_advanced_permissions (FMPropertiesWindow *window, GtkGrid *page_grid)
 {
 	GtkLabel *group_label;
 	GtkLabel *owner_label;
-	GtkComboBox *group_combo_box;
-	GtkComboBox *owner_combo_box;
 	gboolean has_directory, has_file;
 
 	if (!is_multi_file_window (window) && caja_file_can_set_owner (get_target_file (window))) {
+		GtkComboBox *owner_combo_box;
 
 		owner_label  = attach_title_field (page_grid, _("_Owner:"));
 		/* Combo box in this case. */
@@ -4585,6 +4610,8 @@ create_advanced_permissions (FMPropertiesWindow *window, GtkGrid *page_grid)
 	}
 
 	if (!is_multi_file_window (window) && caja_file_can_set_group (get_target_file (window))) {
+		GtkComboBox *group_combo_box;
+
 		group_label = attach_title_field (page_grid, _("_Group:"));
 
 		/* Combo box in this case. */
@@ -4649,13 +4676,14 @@ apply_recursive_clicked (GtkWidget *recursive_button,
 	guint32 file_permission, file_permission_mask;
 	guint32 dir_permission, dir_permission_mask;
 	guint32 vfs_mask, vfs_new_perm, p;
-	GtkWidget *button, *combo;
 	gboolean active, is_folder, is_special, use_original;
 	GList *l;
 	GtkTreeModel *model;
 	GtkTreeIter iter;
 	PermissionType type;
 	int new_perm, mask;
+	GtkWidget *button = NULL;
+	GtkWidget *combo = NULL;
 
 	file_permission = 0;
 	file_permission_mask = 0;
@@ -4728,12 +4756,13 @@ apply_recursive_clicked (GtkWidget *recursive_button,
 
 	for (l = window->details->target_files; l != NULL; l = l->next) {
 		CajaFile *file;
-		char *uri;
 
 		file = CAJA_FILE (l->data);
 
 		if (caja_file_is_directory (file) &&
 		    caja_file_can_set_permissions (file)) {
+			char *uri;
+
 			uri = caja_file_get_uri (file);
 			start_long_operation (window);
 			g_object_ref (window);
@@ -4752,9 +4781,7 @@ apply_recursive_clicked (GtkWidget *recursive_button,
 static void
 create_permissions_page (FMPropertiesWindow *window)
 {
-	GtkWidget *vbox, *button, *hbox;
-	GtkGrid *page_grid;
-	char *file_name, *prompt_text;
+	GtkWidget *vbox;
 	GList *file_list;
 
 	vbox = create_page_with_vbox (window->details->notebook,
@@ -4765,6 +4792,8 @@ create_permissions_page (FMPropertiesWindow *window)
 	window->details->initial_permissions = NULL;
 
 	if (all_can_get_permissions (file_list) && all_can_get_permissions (window->details->target_files)) {
+		GtkGrid *page_grid;
+
 		window->details->initial_permissions = get_initial_permissions (window->details->target_files);
 		window->details->has_recursive_apply = files_has_changable_permissions_directory (window);
 
@@ -4801,6 +4830,8 @@ create_permissions_page (FMPropertiesWindow *window)
 			 FALSE);
 
 		if (window->details->has_recursive_apply) {
+			GtkWidget *button, *hbox;
+
 			hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
 			gtk_widget_show (hbox);
 			gtk_container_add_with_properties (GTK_CONTAINER (page_grid), hbox,
@@ -4815,7 +4846,11 @@ create_permissions_page (FMPropertiesWindow *window)
 					  window);
 		}
 	} else {
+		char *prompt_text;
+
 		if (!is_multi_file_window (window)) {
+			char *file_name;
+
 			file_name = caja_file_get_display_name (get_target_file (window));
 			prompt_text = g_strdup_printf (_("The permissions of \"%s\" could not be determined."), file_name);
 			g_free (file_name);
@@ -5055,15 +5090,18 @@ create_open_with_page (FMPropertiesWindow *window)
 {
 	GtkWidget *vbox;
 	char *mime_type;
-	char *uri;
 
 	mime_type = caja_file_get_mime_type (get_target_file (window));
 
 	if (!is_multi_file_window (window)) {
+		char *uri;
+
 		uri = caja_file_get_uri (get_target_file (window));
+
 		if (uri == NULL) {
 			return;
 		}
+
 		vbox = caja_mime_application_chooser_new (uri, mime_type);
 
 		g_free (uri);
@@ -5559,10 +5597,7 @@ make_relative_uri_from_full (const char *uri,
 static void
 set_icon (const char* icon_uri, FMPropertiesWindow *properties_window)
 {
-	CajaFile *file;
-	char *file_uri;
 	char *icon_path;
-	char *real_icon_uri;
 
 	g_assert (icon_uri != NULL);
 	g_assert (FM_IS_PROPERTIES_WINDOW (properties_window));
@@ -5571,8 +5606,11 @@ set_icon (const char* icon_uri, FMPropertiesWindow *properties_window)
 	/* we don't allow remote URIs */
 	if (icon_path != NULL) {
 		GList *l;
+		CajaFile *file = NULL;
 
 		for (l = properties_window->details->original_files; l != NULL; l = l->next) {
+			char *file_uri;
+
 			file = CAJA_FILE (l->data);
 
 			file_uri = caja_file_get_uri (file);
@@ -5584,7 +5622,10 @@ set_icon (const char* icon_uri, FMPropertiesWindow *properties_window)
 									     CAJA_FILE_ATTRIBUTE_LINK_INFO);
 				}
 			} else {
+				char *real_icon_uri;
+
 				real_icon_uri = make_relative_uri_from_full (icon_uri, file_uri);
+
 				if (real_icon_uri == NULL) {
 					real_icon_uri = g_strdup (icon_uri);
 				}
@@ -5606,10 +5647,8 @@ static void
 update_preview_callback (GtkFileChooser *icon_chooser,
 			 FMPropertiesWindow *window)
 {
-	GtkWidget *preview_widget;
 	GdkPixbuf *pixbuf, *scaled_pixbuf;
 	char *filename;
-	double scale;
 
 	pixbuf = NULL;
 
@@ -5619,10 +5658,14 @@ update_preview_callback (GtkFileChooser *icon_chooser,
 	}
 
 	if (pixbuf != NULL) {
+		GtkWidget *preview_widget;
+
 		preview_widget = gtk_file_chooser_get_preview_widget (icon_chooser);
 		gtk_file_chooser_set_preview_widget_active (icon_chooser, TRUE);
 
 		if (gdk_pixbuf_get_width (pixbuf) > PREVIEW_IMAGE_WIDTH) {
+			double scale;
+
 			scale = (double)gdk_pixbuf_get_height (pixbuf) /
 				gdk_pixbuf_get_width (pixbuf);
 
@@ -5675,11 +5718,9 @@ static void
 select_image_button_callback (GtkWidget *widget,
 			      FMPropertiesWindow *window)
 {
-	GtkWidget *dialog, *preview;
-	GtkFileFilter *filter;
+	GtkWidget *dialog;
 	GList *l;
 	CajaFile *file;
-	char *uri;
 	char *image_path;
 	gboolean revert_is_sensitive;
 
@@ -5688,6 +5729,9 @@ select_image_button_callback (GtkWidget *widget,
 	dialog = window->details->icon_chooser;
 
 	if (dialog == NULL) {
+		GtkWidget *preview;
+		GtkFileFilter *filter;
+
 		dialog = eel_file_chooser_dialog_new (_("Select Custom Icon"), GTK_WINDOW (window),
 						      GTK_FILE_CHOOSER_ACTION_OPEN,
 						      "document-revert", GTK_RESPONSE_NO,
@@ -5722,6 +5766,8 @@ select_image_button_callback (GtkWidget *widget,
 		file = CAJA_FILE (window->details->original_files->data);
 
 		if (caja_file_is_directory (file)) {
+			char *uri;
+
 			uri = caja_file_get_uri (file);
 
 			image_path = g_filename_from_uri (uri, NULL, NULL);

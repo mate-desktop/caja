@@ -301,7 +301,7 @@ get_stored_icon_position_callback (CajaIconContainer *container,
                                    CajaIconPosition *position,
                                    FMIconView *icon_view)
 {
-    char *position_string, *scale_string;
+    char *position_string;
     gboolean position_good;
     char c;
 
@@ -328,10 +328,13 @@ get_stored_icon_position_callback (CajaIconContainer *container,
     /* Disable scaling if not on the desktop */
     if (fm_icon_view_supports_scaling (icon_view))
     {
+        char *scale_string;
+
         /* Get the scale of the icon from the metadata. */
         scale_string = caja_file_get_metadata
                        (file, CAJA_METADATA_KEY_ICON_SCALE, "1");
         position->scale = g_ascii_strtod (scale_string, NULL);
+
         if (errno != 0)
         {
             position->scale = 1.0;
@@ -729,7 +732,6 @@ update_layout_menus (FMIconView *view)
 {
     gboolean is_auto_layout;
     GtkAction *action;
-    const char *action_name;
     CajaFile *file;
 
     if (view->details->icon_action_group == NULL)
@@ -743,6 +745,8 @@ update_layout_menus (FMIconView *view)
     G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
     if (fm_icon_view_supports_auto_layout (view))
     {
+        const char *action_name;
+
         /* Mark sort criterion. */
         action_name = is_auto_layout ? view->details->sort->action : FM_ACTION_MANUAL_LAYOUT;
         action = gtk_action_group_get_action (view->details->icon_action_group,
@@ -1271,7 +1275,6 @@ fm_icon_view_begin_loading (FMDirectoryView *view)
     FMIconView *icon_view;
     GtkWidget *icon_container;
     CajaFile *file;
-    int level;
     char *sort_name;
 
     g_return_if_fail (FM_IS_ICON_VIEW (view));
@@ -1313,6 +1316,8 @@ fm_icon_view_begin_loading (FMDirectoryView *view)
     /* Set up the zoom level from the metadata. */
     if (fm_directory_view_supports_zooming (FM_DIRECTORY_VIEW (icon_view)))
     {
+        int level;
+
         if (icon_view->details->compact)
         {
             level = caja_file_get_integer_metadata
@@ -1805,7 +1810,6 @@ fm_icon_view_merge_menus (FMDirectoryView *view)
     FMIconView *icon_view;
     GtkUIManager *ui_manager;
     GtkActionGroup *action_group;
-    GtkAction *action;
     const char *ui;
 
     g_assert (FM_IS_ICON_VIEW (view));
@@ -1846,6 +1850,8 @@ fm_icon_view_merge_menus (FMDirectoryView *view)
      */
     if (!fm_icon_view_supports_auto_layout (icon_view))
     {
+        GtkAction *action;
+
         G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
         action = gtk_action_group_get_action (action_group,
                                               FM_ACTION_ARRANGE_ITEMS);
@@ -2063,9 +2069,6 @@ icon_container_activate_alternate_callback (CajaIconContainer *container,
         GList *file_list,
         FMIconView *icon_view)
 {
-    GdkEvent *event;
-    GdkEventButton *button_event;
-    GdkEventKey *key_event;
     gboolean open_in_tab;
     CajaWindowInfo *window_info;
     CajaWindowOpenFlags flags;
@@ -2079,18 +2082,25 @@ icon_container_activate_alternate_callback (CajaIconContainer *container,
 
     if (caja_window_info_get_window_type (window_info) == CAJA_WINDOW_NAVIGATION)
     {
+        GdkEvent *event;
+
         event = gtk_get_current_event ();
+
         if (event->type == GDK_BUTTON_PRESS ||
                 event->type == GDK_BUTTON_RELEASE ||
                 event->type == GDK_2BUTTON_PRESS ||
                 event->type == GDK_3BUTTON_PRESS)
         {
+            GdkEventButton *button_event;
+
             button_event = (GdkEventButton *) event;
             open_in_tab = (button_event->state & GDK_SHIFT_MASK) == 0;
         }
         else if (event->type == GDK_KEY_PRESS ||
                  event->type == GDK_KEY_RELEASE)
         {
+            GdkEventKey *key_event;
+
             key_event = (GdkEventKey *) event;
             open_in_tab = !((key_event->state & GDK_SHIFT_MASK) != 0 &&
                             (key_event->state & GDK_CONTROL_MASK) != 0);
@@ -2145,9 +2155,9 @@ get_preview_argv (char *uri)
 {
     char *command;
     char **argv;
-    int i;
 
     command = g_find_program_in_path ("totem-audio-preview");
+
     if (command)
     {
         argv = g_new (char *, 3);
@@ -2167,6 +2177,8 @@ get_preview_argv (char *uri)
 
     if (command)
     {
+        int i;
+
         argv = g_new (char *, 10);
         i = 0;
         argv[i++] = command;
@@ -2380,7 +2392,6 @@ icon_container_preview_callback (CajaIconContainer *container,
                                  FMIconView *icon_view)
 {
     int result;
-    char *file_name, *message;
 
     result = 0;
 
@@ -2402,6 +2413,8 @@ icon_container_preview_callback (CajaIconContainer *container,
     {
         if (start_flag)
         {
+            char *file_name, *message;
+
             file_name = caja_file_get_display_name (file);
             message = g_strdup_printf (_("pointing at \"%s\""), file_name);
             g_free (file_name);
@@ -2467,9 +2480,6 @@ fm_icon_view_screen_changed (GtkWidget *widget,
 {
     FMDirectoryView *view;
     GList *files, *l;
-    CajaFile *file;
-    CajaDirectory *directory;
-    CajaIconContainer *icon_container;
 
     if (GTK_WIDGET_CLASS (fm_icon_view_parent_class)->screen_changed)
     {
@@ -2479,6 +2489,10 @@ fm_icon_view_screen_changed (GtkWidget *widget,
     view = FM_DIRECTORY_VIEW (widget);
     if (FM_ICON_VIEW (view)->details->filter_by_screen)
     {
+        CajaDirectory *directory;
+        CajaIconContainer *icon_container;
+        CajaFile *file = NULL;
+
         icon_container = get_icon_container (FM_ICON_VIEW (view));
 
         directory = fm_directory_view_get_model (view);
@@ -2603,7 +2617,6 @@ icon_position_changed_callback (CajaIconContainer *container,
                                 const CajaIconPosition *position,
                                 FMIconView *icon_view)
 {
-    char *position_string;
     char scale_string[G_ASCII_DTOSTR_BUF_SIZE];
 
     g_assert (FM_IS_ICON_VIEW (icon_view));
@@ -2628,6 +2641,8 @@ icon_position_changed_callback (CajaIconContainer *container,
     /* Store the new position of the icon in the metadata. */
     if (!fm_icon_view_using_auto_layout (icon_view))
     {
+        char *position_string;
+
         position_string = g_strdup_printf
                           ("%d,%d", position->x, position->y);
         caja_file_set_metadata
@@ -2795,8 +2810,6 @@ static void
 default_zoom_level_changed_callback (gpointer callback_data)
 {
     FMIconView *icon_view;
-    CajaFile *file;
-    int level;
 
     g_return_if_fail (FM_IS_ICON_VIEW (callback_data));
 
@@ -2804,6 +2817,9 @@ default_zoom_level_changed_callback (gpointer callback_data)
 
     if (fm_directory_view_supports_zooming (FM_DIRECTORY_VIEW (icon_view)))
     {
+        CajaFile *file;
+        int level;
+
         file = fm_directory_view_get_directory_as_file (FM_DIRECTORY_VIEW (icon_view));
 
         if (fm_icon_view_is_compact (icon_view))
@@ -2914,12 +2930,13 @@ get_stored_layout_timestamp (CajaIconContainer *container,
                              time_t *timestamp,
                              FMIconView *view)
 {
-    CajaFile *file;
-    CajaDirectory *directory;
-
     if (icon_data == NULL)
     {
+        CajaFile *file;
+        CajaDirectory *directory;
+
         directory = fm_directory_view_get_model (FM_DIRECTORY_VIEW (view));
+
         if (directory == NULL)
         {
             return FALSE;
@@ -2945,12 +2962,13 @@ store_layout_timestamp (CajaIconContainer *container,
                         const time_t *timestamp,
                         FMIconView *view)
 {
-    CajaFile *file;
-    CajaDirectory *directory;
-
     if (icon_data == NULL)
     {
+        CajaFile *file;
+        CajaDirectory *directory;
+
         directory = fm_directory_view_get_model (FM_DIRECTORY_VIEW (view));
+
         if (directory == NULL)
         {
             return FALSE;
@@ -3114,13 +3132,14 @@ static void
 icon_view_scroll_to_file (CajaView *view,
                           const char *uri)
 {
-    CajaFile *file;
     FMIconView *icon_view;
 
     icon_view = FM_ICON_VIEW (view);
 
     if (uri != NULL)
     {
+        CajaFile *file;
+
         /* Only if existing, since we don't want to add the file to
            the directory if it has been removed since then */
         file = caja_file_get_existing_by_uri (uri);

@@ -159,7 +159,6 @@ net_workarea_changed (FMDesktopIconView *icon_view,
     int format_returned;
     int length_returned;
     CajaIconContainer *icon_container;
-    GdkScreen *screen;
 
     g_return_if_fail (FM_IS_DESKTOP_ICON_VIEW (icon_view));
 
@@ -225,6 +224,8 @@ net_workarea_changed (FMDesktopIconView *icon_view,
     }
     else
     {
+        GdkScreen *screen;
+
         screen = gdk_window_get_screen (window);
 
         icon_container_set_workarea (
@@ -681,7 +682,6 @@ static gboolean
 trash_link_is_selection (FMDirectoryView *view)
 {
     GList *selection;
-    CajaDesktopLink *link;
     gboolean result;
 
     result = FALSE;
@@ -691,6 +691,8 @@ trash_link_is_selection (FMDirectoryView *view)
     if (eel_g_list_exactly_one_item (selection) &&
             CAJA_IS_DESKTOP_ICON_FILE (selection->data))
     {
+        CajaDesktopLink *link;
+
         link = caja_desktop_icon_file_get_link (CAJA_DESKTOP_ICON_FILE (selection->data));
         /* link may be NULL if the link was recently removed (unmounted) */
         if (link != NULL &&
@@ -713,7 +715,6 @@ static void
 real_update_menus (FMDirectoryView *view)
 {
     FMDesktopIconView *desktop_view;
-    char *label;
     gboolean disable_command_line;
     gboolean include_empty_trash;
     GtkAction *action;
@@ -743,6 +744,8 @@ real_update_menus (FMDirectoryView *view)
     G_GNUC_END_IGNORE_DEPRECATIONS;
     if (include_empty_trash)
     {
+        char *label;
+
         label = g_strdup (_("E_mpty Trash"));
         g_object_set (action , "label", label, NULL);
         G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
