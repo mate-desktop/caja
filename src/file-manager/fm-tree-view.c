@@ -236,7 +236,7 @@ static gboolean
 show_selection_idle_callback (gpointer callback_data)
 {
     FMTreeView *view;
-    CajaFile *file, *old_file;
+    CajaFile *file;
     GtkTreeIter iter;
     GtkTreePath *path, *sort_path;
 
@@ -252,6 +252,8 @@ show_selection_idle_callback (gpointer callback_data)
 
     if (!caja_file_is_directory (file))
     {
+        CajaFile *old_file;
+
         old_file = file;
         file = caja_file_get_parent (file);
         caja_file_unref (old_file);

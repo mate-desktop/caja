@@ -207,8 +207,7 @@ fm_ditem_page_exec_drag_data_received (GtkWidget *widget, GdkDragContext *contex
     char **uris;
     gboolean exactly_one;
     CajaFile *file;
-    GKeyFile *key_file;
-    char *uri, *type, *exec;
+    char *uri, *exec;
 
     uris = g_strsplit (gtk_selection_data_get_data (selection_data), "\r\n", 0);
     exactly_one = uris[0] != NULL && (uris[1] == NULL || uris[1][0] == '\0');
@@ -227,9 +226,14 @@ fm_ditem_page_exec_drag_data_received (GtkWidget *widget, GdkDragContext *contex
     uri = caja_file_get_uri (file);
     if (caja_file_is_mime_type (file, "application/x-desktop"))
     {
+        GKeyFile *key_file;
+
         key_file = _g_key_file_new_from_uri (uri, G_KEY_FILE_NONE, NULL);
+
         if (key_file != NULL)
         {
+            char *type;
+
             type = g_key_file_get_string (key_file, MAIN_GROUP, "Type", NULL);
             if (type != NULL && strcmp (type, "Application") == 0)
             {
@@ -259,7 +263,6 @@ save_entry (GtkEntry *entry, GKeyFile *key_file, const char *uri)
     GError *error;
     ItemEntry *item_entry;
     const char *val;
-    gchar **languages;
 
     item_entry = g_object_get_data (G_OBJECT (entry), "item_entry");
     val = gtk_entry_get_text (entry);
@@ -274,6 +277,8 @@ save_entry (GtkEntry *entry, GKeyFile *key_file, const char *uri)
 
     if (item_entry->localized)
     {
+        gchar **languages;
+
         languages = (gchar **) g_get_language_names ();
         g_key_file_set_locale_string (key_file, MAIN_GROUP, item_entry->field, languages[0], val);
     }
@@ -323,16 +328,16 @@ build_grid (GtkWidget *container,
              GtkSizeGroup *label_size_group,
              GList *entries)
 {
-	GtkWidget *grid;
-    GtkWidget *label;
-    GtkWidget *entry;
     GList *l;
     char *val;
+    GtkWidget *grid;
+    GtkWidget *label;
+    GtkWidget *entry = NULL;
 
-   grid = gtk_grid_new ();
-   gtk_orientable_set_orientation (GTK_ORIENTABLE (grid), GTK_ORIENTATION_VERTICAL);
-   gtk_grid_set_row_spacing (GTK_GRID (grid), 6);
-   gtk_grid_set_column_spacing (GTK_GRID (grid), 12);
+    grid = gtk_grid_new ();
+    gtk_orientable_set_orientation (GTK_ORIENTABLE (grid), GTK_ORIENTATION_VERTICAL);
+    gtk_grid_set_row_spacing (GTK_GRID (grid), 6);
+    gtk_grid_set_column_spacing (GTK_GRID (grid), 12);
 
     for (l = entries; l; l = l->next)
     {
@@ -478,7 +483,6 @@ ditem_read_cb (GObject *source_object,
                GAsyncResult *res,
                gpointer user_data)
 {
-    GKeyFile *key_file;
     GtkWidget *box;
     gsize file_size;
     char *file_contents;
@@ -490,6 +494,8 @@ ditem_read_cb (GObject *source_object,
                                      &file_contents, &file_size,
                                      NULL, NULL))
     {
+        GKeyFile *key_file;
+
         key_file = g_key_file_new ();
         g_object_set_data_full (G_OBJECT (box), "keyfile", key_file, (GDestroyNotify)g_key_file_free);
         if (g_key_file_load_from_data (key_file, file_contents, file_size, 0, NULL))
