@@ -74,4 +74,7 @@ GtkWidget *           eel_image_menu_item_new_from_icon               (const gch
 GtkWidget *           eel_image_menu_item_new_from_pixbuf               (GdkPixbuf          *icon_pixbuf,
                                                                          const gchar        *label_name);
 
+gboolean              eel_dialog_page_scroll_event_callback           (GtkWidget            *widget,
+                                                                       GdkEventScroll       *event,
+                                                                       GtkWindow            *window);
 #endif /* EEL_GTK_EXTENSIONS_H */
