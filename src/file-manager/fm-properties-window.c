@@ -5160,6 +5160,14 @@ create_properties_window (StartupData *startup_data)
 
 	/* Create the notebook tabs. */
 	window->details->notebook = GTK_NOTEBOOK (gtk_notebook_new ());
+
+        gtk_notebook_set_scrollable (GTK_NOTEBOOK (window->details->notebook), TRUE);
+        gtk_widget_add_events (GTK_WIDGET (window->details->notebook), GDK_SCROLL_MASK);
+        g_signal_connect (window->details->notebook,
+                          "scroll-event",
+                          G_CALLBACK (eel_dialog_page_scroll_event_callback),
+                          window);
+
 	gtk_widget_show (GTK_WIDGET (window->details->notebook));
 	gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (window))),
 			    GTK_WIDGET (window->details->notebook),

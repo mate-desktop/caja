@@ -31,6 +31,7 @@
 #include <glib/gi18n.h>
 
 #include "../eel/eel-glib-extensions.h"
+#include "../eel/eel-gtk-extensions.h"
 
 #include "../libcaja-private/caja-column-chooser.h"
 #include "../libcaja-private/caja-column-utilities.h"
@@ -1271,6 +1272,12 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
     {
         gtk_window_set_screen (GTK_WINDOW (dialog), gtk_window_get_screen(window));
     }
+
+    GtkWidget *notebook = GTK_WIDGET (gtk_builder_get_object (builder, "notebook1"));
+    gtk_widget_add_events (GTK_WIDGET (notebook), GDK_SCROLL_MASK);
+    g_signal_connect (GTK_WIDGET (notebook), "scroll-event",
+                      G_CALLBACK (eel_dialog_page_scroll_event_callback),
+                      window);
 
     gtk_widget_show (dialog);
 }
