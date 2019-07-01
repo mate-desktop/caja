@@ -59,6 +59,7 @@ dnl Give error and exit if we dont have pkgconfig
 if test "x$PKG_CONFIG" = "x"; then
   AC_MSG_ERROR([you need to have pkgconfig installed!])
 fi
+AC_PATH_PROG([GLA11Y], [gla11y], [true])
 
 AC_CHECK_LIB(m, floor)
 
