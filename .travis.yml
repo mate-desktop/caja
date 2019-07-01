@@ -69,6 +69,7 @@ requires:
     - git
     - make
     - exempi
+    - file
     - gobject-introspection
     - gvfs
     - intltool
@@ -105,6 +106,7 @@ requires:
     - libx11-dev
     - libxml2-dev
     - mate-common
+    - python3-lxml
     - quilt
     - shared-mime-info
 
@@ -129,6 +131,7 @@ requires:
     - mate-common
     - mate-desktop-devel
     - pangox-compat-devel
+    - python3-lxml
     - startup-notification-devel
     - libnotify-devel
 
@@ -155,6 +158,7 @@ requires:
     - libx11-dev
     - libxml2-dev
     - mate-common
+    - python3-lxml
     - quilt
     - shared-mime-info
 
@@ -181,6 +185,8 @@ before_scripts:
   -     egrep -lRZ 'G_GNUC_BEGIN_IGNORE_DEPRECATIONS' . | xargs -0 -l sed -i -e 's/G_GNUC_BEGIN_IGNORE_DEPRECATIONS/ /g'
   -     egrep -lRZ 'G_GNUC_END_IGNORE_DEPRECATIONS' . | xargs -0 -l sed -i -e 's/G_GNUC_END_IGNORE_DEPRECATIONS/ /g'
   - fi
+  - curl -Ls -o /usr/bin/gla11y https://github.com/hypra/gla11y/raw/v0.2/gla11y
+  - chmod +x /usr/bin/gla11y
 
 build_scripts:
 # build failed with f30 und using clang patch, fixed in f30?

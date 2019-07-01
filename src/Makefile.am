@@ -209,12 +209,19 @@ TESTS=check-caja
 endif
 
 uidir = $(datadir)/caja/ui
+
+ui_files = \
+	caja-file-management-properties.ui \
+	caja-bookmarks-window.ui \
+	$(NULL)
+
+include $(top_srcdir)/gla11y.mk
+
 ui_DATA = \
 	caja-shell-ui.xml \
 	caja-navigation-window-ui.xml \
 	caja-spatial-window-ui.xml \
-	caja-file-management-properties.ui \
-	caja-bookmarks-window.ui \
+	$(ui_files) \
 	$(NULL)
 
 CLEANFILES = \
@@ -231,6 +238,7 @@ EXTRA_DIST = \
 	check-caja \
 	$(about_DATA) \
 	$(desktop_in_files) \
+	ui-a11y.suppr \
 	$(NULL)
 
 dist-hook:
