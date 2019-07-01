@@ -76,4 +76,4 @@ PO_DEPENDS_ON_POT = yes
 # "no".  Set this to no if the POT file and PO files are maintained
 # externally.
 DIST_DEPENDS_ON_UPDATE_PO = yes
-$(DOMAIN).pot-update: export GETTEXTDATADIR = $(top_srcdir)
+$(DOMAIN).pot-update: export GETTEXTDATADIRS = $(top_srcdir)
