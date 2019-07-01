@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<its:rules xmlns:its="http://www.w3.org/2005/11/its"
+           xmlns:gt="https://www.gnu.org/s/gettext/ns/its/extensions/1.0"
+           version="2.0">
+	<its:translateRule selector="/categories" translate="no"/>
+	<its:translateRule selector="//category/@display_name" translate="yes"/>
+	<its:translateRule selector="//category/@description" translate="yes"/>
+	<its:translateRule selector="//category/pattern/@display_name" translate="yes"/>
+	<its:translateRule selector="//category/color/@name" translate="yes"/>
+	<its:translateRule selector="//category/emblem/@display_name" translate="yes"/>
+</its:rules>
