@@ -2,7 +2,8 @@ NULL =
 
 xml_in_files = caja.xml.in
 xml_files = $(xml_in_files:.xml.in=.xml)
-$(xml_files): $(xml_in_files)
+
+%.xml: %.xml.in
 	$(AM_V_GEN) GETTEXTDATADIR=$(top_srcdir) $(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
 
 desktopdir = $(datadir)/applications
@@ -30,13 +31,13 @@ org.mate.freedesktop.FileManager1.service: org.mate.freedesktop.FileManager1.ser
 	$(AM_V_GEN) sed -e "s|\@bindir\@|$(bindir)|" $< > $@
 
 cajadatadir = $(datadir)/caja
-
+cajadata_in_files = browser.xml.in
 cajadata_DATA = \
 	browser.xml \
 	caja-extras.placeholder  \
 	caja-suggested.placeholder \
 	caja.css \
-    caja-desktop.css \
+	caja-desktop.css \
 	$(NULL)
 
 # app data file
@@ -52,6 +53,7 @@ EXTRA_DIST = $(cajadata_DATA) \
 	caja.css \
 	freedesktop-dbus-interfaces.xml \
 	$(xml_in_files) \
+	$(cajadata_in_files) \
 	$(desktop_in_files) \
 	$(service_in_files) \
 	$(appdata_in_files) \
