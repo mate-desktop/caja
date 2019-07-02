@@ -2,7 +2,10 @@
 /* This is loaded with GTK_STYLE_PROVIDER_PRIORITY_APPLICATION and overrides themes */
 
 .caja-desktop-window,
-.caja-desktop:not(:selected):not(:active):not(.rubberband){
+.caja-desktop:not(:selected):not(:active):not(.rubberband),
+/* unfortunately we also have to apply this to all views normal states for the
+ * split view items not to have background */
+.caja-canvas-item:not(:selected):not(:active):not(.rubberband){
 	background-color: transparent;
 	border: none;
 }
