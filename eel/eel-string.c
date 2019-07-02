@@ -292,9 +292,10 @@ eel_str_replace_substring (const char *string,
     {
         return NULL;
     }
-    else if (replacement == NULL)
+
+    if (replacement == NULL)
     {
-        return (char *) string;
+        replacement = "";
     }
 
     substring_length = strlen (substring);
