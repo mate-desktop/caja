@@ -71,25 +71,25 @@ static void
 file_icons_changed (CajaFile *file,
                     CajaFileConflictDialog *fcd)
 {
-    GdkPixbuf *pixbuf;
+    cairo_surface_t *surface;
 
-    pixbuf = caja_file_get_icon_pixbuf (fcd->details->destination,
-                                        CAJA_ICON_SIZE_LARGE,
-                                        TRUE,
-                                        1, /*Don't double-scale icons*/
-                                        CAJA_FILE_ICON_FLAGS_USE_THUMBNAILS);
+    surface = caja_file_get_icon_surface (fcd->details->destination,
+                                          CAJA_ICON_SIZE_LARGE,
+                                          FALSE,
+                                          gtk_widget_get_scale_factor (fcd->details->dest_image),
+                                          CAJA_FILE_ICON_FLAGS_USE_THUMBNAILS);
 
-    gtk_image_set_from_pixbuf (GTK_IMAGE (fcd->details->dest_image), pixbuf);
-    g_object_unref (pixbuf);
+    gtk_image_set_from_surface (GTK_IMAGE (fcd->details->dest_image), surface);
+    cairo_surface_destroy (surface);
 
-    pixbuf = caja_file_get_icon_pixbuf (fcd->details->source,
-                                        CAJA_ICON_SIZE_LARGE,
-                                        TRUE,
-                                        1, /*Don't double-scale icons*/
-                                        CAJA_FILE_ICON_FLAGS_USE_THUMBNAILS);
+    surface = caja_file_get_icon_surface (fcd->details->source,
+                                          CAJA_ICON_SIZE_LARGE,
+                                          FALSE,
+                                          gtk_widget_get_scale_factor (fcd->details->src_image),
+                                          CAJA_FILE_ICON_FLAGS_USE_THUMBNAILS);
 
-    gtk_image_set_from_pixbuf (GTK_IMAGE (fcd->details->src_image), pixbuf);
-    g_object_unref (pixbuf);
+    gtk_image_set_from_surface (GTK_IMAGE (fcd->details->src_image), surface);
+    cairo_surface_destroy (surface);
 }
 
 static void
@@ -106,7 +106,7 @@ file_list_ready_cb (GList *files,
     char *dest_name, *dest_dir_name, *edit_name;
     char *label_text;
     char *size, *date, *type = NULL;
-    GdkPixbuf *pixbuf;
+    cairo_surface_t *surface;
     GtkWidget *label;
     GString *str;
     PangoAttrList *attr_list;
@@ -234,27 +234,27 @@ file_list_ready_cb (GList *files,
     g_free (secondary_text);
 
     /* Set up file icons */
-    pixbuf = caja_file_get_icon_pixbuf (dest,
-                                        CAJA_ICON_SIZE_LARGE,
-                                        TRUE,
-                                        1, /*Don't double-scale icons*/
-                                        CAJA_FILE_ICON_FLAGS_USE_THUMBNAILS);
-    details->dest_image = gtk_image_new_from_pixbuf (pixbuf);
+    surface = caja_file_get_icon_surface (dest,
+                                          CAJA_ICON_SIZE_LARGE,
+                                          TRUE,
+                                          gtk_widget_get_scale_factor (fcd->details->titles_vbox),
+                                          CAJA_FILE_ICON_FLAGS_USE_THUMBNAILS);
+    details->dest_image = gtk_image_new_from_surface (surface);
     gtk_box_pack_start (GTK_BOX (details->first_hbox),
                         details->dest_image, FALSE, FALSE, 0);
     gtk_widget_show (details->dest_image);
-    g_object_unref (pixbuf);
+    cairo_surface_destroy (surface);
 
-    pixbuf = caja_file_get_icon_pixbuf (src,
-                                        CAJA_ICON_SIZE_LARGE,
-                                        TRUE,
-                                        1, /*Don't double-scale icons*/
-                                        CAJA_FILE_ICON_FLAGS_USE_THUMBNAILS);
-    details->src_image = gtk_image_new_from_pixbuf (pixbuf);
+    surface = caja_file_get_icon_surface (src,
+                                          CAJA_ICON_SIZE_LARGE,
+                                          TRUE,
+                                          gtk_widget_get_scale_factor (fcd->details->titles_vbox),
+                                          CAJA_FILE_ICON_FLAGS_USE_THUMBNAILS);
+    details->src_image = gtk_image_new_from_surface (surface);
     gtk_box_pack_start (GTK_BOX (details->second_hbox),
                         details->src_image, FALSE, FALSE, 0);
     gtk_widget_show (details->src_image);
-    g_object_unref (pixbuf);
+    cairo_surface_destroy (surface);
 
     /* Set up labels */
     label = gtk_label_new (NULL);
