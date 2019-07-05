@@ -4681,6 +4681,27 @@ caja_file_get_icon_pixbuf (CajaFile *file,
 	return pixbuf;
 }
 
+cairo_surface_t *
+caja_file_get_icon_surface (CajaFile *file,
+                            int size,
+                            gboolean force_size,
+                            int scale,
+                            CajaFileIconFlags flags)
+{
+	CajaIconInfo *info;
+	cairo_surface_t *surface;
+
+	info = caja_file_get_icon (file, size, scale, flags);
+	if (force_size) {
+		surface =  caja_icon_info_get_surface_at_size (info, size);
+	} else {
+		surface = caja_icon_info_get_surface (info);
+	}
+	g_object_unref (info);
+
+	return surface;
+}
+
 char *
 caja_file_get_custom_icon (CajaFile *file)
 {

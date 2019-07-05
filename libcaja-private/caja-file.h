@@ -460,17 +460,22 @@ char *                  caja_file_get_drop_target_uri               (CajaFile   
 char *                  caja_file_get_custom_icon                   (CajaFile                   *file);
 
 
-GIcon *                 caja_file_get_gicon                         (CajaFile                   *file,
-        CajaFileIconFlags           flags);
-CajaIconInfo *      caja_file_get_icon                          (CajaFile                   *file,
-        int                             size,
-        int                             scale,
-        CajaFileIconFlags           flags);
-GdkPixbuf *             caja_file_get_icon_pixbuf                   (CajaFile                   *file,
-        int                             size,
-        gboolean                        force_size,
-        int                             scale,
-        CajaFileIconFlags           flags);
+GIcon           *caja_file_get_gicon        (CajaFile         *file,
+                                             CajaFileIconFlags flags);
+CajaIconInfo    *caja_file_get_icon         (CajaFile         *file,
+                                             int               size,
+                                             int               scale,
+                                             CajaFileIconFlags flags);
+GdkPixbuf       *caja_file_get_icon_pixbuf  (CajaFile         *file,
+                                             int               size,
+                                             gboolean          force_size,
+                                             int               scale,
+                                             CajaFileIconFlags flags);
+cairo_surface_t *caja_file_get_icon_surface (CajaFile         *file,
+                                             int               size,
+                                             gboolean          force_size,
+                                             int               scale,
+                                             CajaFileIconFlags flags);
 
 gboolean                caja_file_has_open_window                   (CajaFile                   *file);
 void                    caja_file_set_has_open_window               (CajaFile                   *file,
