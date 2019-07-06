@@ -362,35 +362,36 @@ get_best_icon_size (CajaSidebarTitle *sidebar_title)
 static void
 update_icon (CajaSidebarTitle *sidebar_title)
 {
-    GdkPixbuf *pixbuf;
+    cairo_surface_t *surface;
     CajaIconInfo *info;
     char *icon_name;
-    gboolean leave_pixbuf_unchanged;
+    gboolean leave_surface_unchanged;
     gint icon_scale;
 
-    leave_pixbuf_unchanged = FALSE;
+    leave_surface_unchanged = FALSE;
 
     /* see if the current content view is specifying an icon */
     icon_name = get_property_from_component (sidebar_title, "icon_name");
     icon_scale = gtk_widget_get_scale_factor (GTK_WIDGET (sidebar_title));
 
-    pixbuf = NULL;
+    surface = NULL;
+
     if (icon_name != NULL && icon_name[0] != '\0')
     {
         info = caja_icon_info_lookup_from_name (icon_name, CAJA_ICON_SIZE_LARGE, icon_scale);
-        pixbuf = caja_icon_info_get_pixbuf_at_size (info,  CAJA_ICON_SIZE_LARGE);
+        surface = caja_icon_info_get_surface_at_size (info, CAJA_ICON_SIZE_LARGE);
         g_object_unref (info);
     }
     else if (sidebar_title->details->file != NULL &&
              caja_file_check_if_ready (sidebar_title->details->file,
                                        CAJA_FILE_ATTRIBUTES_FOR_ICON))
     {
-        pixbuf = caja_file_get_icon_pixbuf (sidebar_title->details->file,
-                                            sidebar_title->details->best_icon_size,
-                                            TRUE,
-                                            icon_scale,
-                                            CAJA_FILE_ICON_FLAGS_USE_THUMBNAILS |
-                                            CAJA_FILE_ICON_FLAGS_USE_MOUNT_ICON_AS_EMBLEM);
+        surface = caja_file_get_icon_surface (sidebar_title->details->file,
+                                              sidebar_title->details->best_icon_size * icon_scale,
+                                              TRUE,
+                                              icon_scale,
+                                              CAJA_FILE_ICON_FLAGS_USE_THUMBNAILS |
+                                              CAJA_FILE_ICON_FLAGS_USE_MOUNT_ICON_AS_EMBLEM);
     }
     else if (sidebar_title->details->determined_icon)
     {
@@ -400,20 +401,20 @@ update_icon (CajaSidebarTitle *sidebar_title)
          * wrong (in fact, in practice it usually doesn't mean that). Keep showing
          * the one we last determined for now.
          */
-        leave_pixbuf_unchanged = TRUE;
+        leave_surface_unchanged = TRUE;
     }
 
     g_free (icon_name);
 
-    if (!leave_pixbuf_unchanged)
+    if (!leave_surface_unchanged)
     {
-        gtk_image_set_from_pixbuf (GTK_IMAGE (sidebar_title->details->icon), pixbuf);
+        gtk_image_set_from_surface (GTK_IMAGE (sidebar_title->details->icon), surface);
     }
 
-    if (pixbuf != NULL)
+    if (surface != NULL)
     {
         sidebar_title->details->determined_icon = TRUE;
-        g_object_unref (pixbuf);
+        cairo_surface_destroy (surface);
     }
 }
 
