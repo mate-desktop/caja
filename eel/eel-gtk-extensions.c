@@ -479,15 +479,15 @@ eel_image_menu_item_new_from_icon (const gchar *icon_name,
 }
 
 GtkWidget *
-eel_image_menu_item_new_from_pixbuf (GdkPixbuf   *icon_pixbuf,
-                                     const gchar *label_name)
+eel_image_menu_item_new_from_surface (cairo_surface_t *icon_surface,
+                                      const gchar     *label_name)
 {
     gchar *concat;
     GtkWidget *icon;
     GtkWidget *box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
 
-    if (icon_pixbuf)
-        icon = gtk_image_new_from_pixbuf (icon_pixbuf);
+    if (icon_surface)
+        icon = gtk_image_new_from_surface (icon_surface);
     else
         icon = gtk_image_new ();
 

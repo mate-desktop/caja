@@ -57,17 +57,17 @@ fm_empty_view_add_file (FMDirectoryView *view, CajaFile *file, CajaDirectory *di
     static GTimer *timer = NULL;
     static gdouble cumu = 0, elaps;
     FM_EMPTY_VIEW (view)->details->number_of_files++;
-    GdkPixbuf *icon;
+    cairo_surface_t *icon;
 
     if (!timer) timer = g_timer_new ();
 
     g_timer_start (timer);
-    icon = caja_file_get_icon_pixbuf (file, caja_get_icon_size_for_zoom_level (CAJA_ZOOM_LEVEL_STANDARD), TRUE, 0);
+    icon = caja_file_get_icon_surface (file, caja_get_icon_size_for_zoom_level (CAJA_ZOOM_LEVEL_STANDARD), TRUE, 0);
 
     elaps = g_timer_elapsed (timer, NULL);
     g_timer_stop (timer);
 
-    g_object_unref (icon);
+    cairo_surface_destroy (icon);
 
     cumu += elaps;
     g_message ("entire loading: %.3f, cumulative %.3f", elaps, cumu);
