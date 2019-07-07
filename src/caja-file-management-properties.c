@@ -189,9 +189,9 @@ static const char * const icon_captions_components[] =
 enum
 {
 	EXT_STATE_COLUMN,
-    EXT_ICON_COLUMN,
+	EXT_ICON_COLUMN,
 	EXT_INFO_COLUMN,
-    EXT_STRUCT_COLUMN
+	EXT_STRUCT_COLUMN
 };
 
 static void caja_file_management_properties_dialog_update_media_sensitivity (GtkBuilder *builder);
@@ -873,7 +873,7 @@ caja_file_management_properties_dialog_setup_extension_page (GtkBuilder *builder
     GtkTreeSelection *selection;
     GtkTreeIter iter;
     GtkIconTheme *icon_theme;
-    GdkPixbuf *ext_pixbuf_icon;
+    cairo_surface_t *ext_surface_icon;
     GtkButton *about_button, *configure_button;
     gchar *ext_text_info;
 
@@ -902,15 +902,15 @@ caja_file_management_properties_dialog_setup_extension_page (GtkBuilder *builder
 
         if (ext->icon != NULL)
         {
-            ext_pixbuf_icon = gtk_icon_theme_load_icon (icon_theme, ext->icon,
-                                                        24,
-                                                        GTK_ICON_LOOKUP_USE_BUILTIN, NULL);
+            ext_surface_icon = gtk_icon_theme_load_surface (icon_theme, ext->icon,
+                                                            24, gtk_widget_get_scale_factor (GTK_WIDGET (view)),
+                                                            NULL, GTK_ICON_LOOKUP_USE_BUILTIN, NULL);
         }
         else
         {
-            ext_pixbuf_icon = gtk_icon_theme_load_icon (icon_theme, "system-run",
-                                                        24,
-                                                        GTK_ICON_LOOKUP_USE_BUILTIN, NULL);
+            ext_surface_icon = gtk_icon_theme_load_surface (icon_theme, "system-run",
+                                                            24, gtk_widget_get_scale_factor (GTK_WIDGET (view)),
+                                                            NULL, GTK_ICON_LOOKUP_USE_BUILTIN, NULL);
         }
 
         if (ext->description != NULL)
@@ -928,13 +928,13 @@ caja_file_management_properties_dialog_setup_extension_page (GtkBuilder *builder
         gtk_list_store_append (store, &iter);
         gtk_list_store_set (store, &iter,
                             EXT_STATE_COLUMN, ext->state,
-                            EXT_ICON_COLUMN, ext_pixbuf_icon,
+                            EXT_ICON_COLUMN, ext_surface_icon,
                             EXT_INFO_COLUMN, ext_text_info,
                             EXT_STRUCT_COLUMN, ext, -1);
 
         g_free (ext_text_info);
-        if (ext_pixbuf_icon)
-            g_object_unref (ext_pixbuf_icon);
+        if (ext_surface_icon)
+            cairo_surface_destroy (ext_surface_icon);
     }
 
     about_button = GTK_BUTTON (gtk_builder_get_object (builder, "about_extension_button"));
