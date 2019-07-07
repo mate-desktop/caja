@@ -7,7 +7,7 @@
       <!-- column-name ext-state -->
       <column type="gboolean"/>
       <!-- column-name ext-icon -->
-      <column type="GdkPixbuf"/>
+      <column type="CairoSurface"/>
       <!-- column-name ext-info -->
       <column type="gchararray"/>
       <!-- column-name ext-struct -->
@@ -2537,7 +2537,7 @@
                             <child>
                               <object class="GtkCellRendererPixbuf" id="cellrendererpixbuf1"/>
                               <attributes>
-                                <attribute name="pixbuf">1</attribute>
+                                <attribute name="surface">1</attribute>
                               </attributes>
                             </child>
                           </object>
