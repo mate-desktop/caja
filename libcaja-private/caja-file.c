@@ -4658,27 +4658,6 @@ caja_file_get_icon (CajaFile *file,
 	}
 }
 
-GdkPixbuf *
-caja_file_get_icon_pixbuf (CajaFile *file,
-			       int size,
-			       gboolean force_size,
-			       int scale,
-			       CajaFileIconFlags flags)
-{
-	CajaIconInfo *info;
-	GdkPixbuf *pixbuf;
-
-	info = caja_file_get_icon (file, size, scale, flags);
-	if (force_size) {
-		pixbuf =  caja_icon_info_get_pixbuf_at_size (info, size);
-	} else {
-		pixbuf = caja_icon_info_get_pixbuf (info);
-	}
-	g_object_unref (info);
-
-	return pixbuf;
-}
-
 cairo_surface_t *
 caja_file_get_icon_surface (CajaFile *file,
                             int size,
