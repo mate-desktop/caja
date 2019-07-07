@@ -466,11 +466,6 @@ CajaIconInfo    *caja_file_get_icon         (CajaFile         *file,
                                              int               size,
                                              int               scale,
                                              CajaFileIconFlags flags);
-GdkPixbuf       *caja_file_get_icon_pixbuf  (CajaFile         *file,
-                                             int               size,
-                                             gboolean          force_size,
-                                             int               scale,
-                                             CajaFileIconFlags flags);
 cairo_surface_t *caja_file_get_icon_surface (CajaFile         *file,
                                              int               size,
                                              gboolean          force_size,
