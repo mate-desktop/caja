@@ -29,6 +29,7 @@
 #include <gtk/gtk.h>
 #include <gio/gio.h>
 #include <glib/gi18n.h>
+#include <cairo-gobject.h>
 
 #include "../eel/eel-glib-extensions.h"
 #include "../eel/eel-gtk-extensions.h"
@@ -779,7 +780,7 @@ caja_file_management_properties_dialog_setup_media_page (GtkBuilder *builder)
     other_type_combo_box = GTK_WIDGET (gtk_builder_get_object (builder, "media_other_type_combobox"));
 
     other_type_list_store = gtk_list_store_new (3,
-                            GDK_TYPE_PIXBUF,
+                            CAIRO_GOBJECT_TYPE_SURFACE,
                             G_TYPE_STRING,
                             G_TYPE_STRING);
 
@@ -795,7 +796,7 @@ caja_file_management_properties_dialog_setup_media_page (GtkBuilder *builder)
         char *description;
         GIcon *icon;
         CajaIconInfo *icon_info;
-        GdkPixbuf *pixbuf;
+        cairo_surface_t *surface;
         int icon_size, icon_scale;
 
         if (!g_str_has_prefix (content_type, "x-content/"))
@@ -818,21 +819,21 @@ caja_file_management_properties_dialog_setup_media_page (GtkBuilder *builder)
         {
             icon_info = caja_icon_info_lookup (icon, icon_size, icon_scale);
             g_object_unref (icon);
-            pixbuf = caja_icon_info_get_pixbuf_nodefault_at_size (icon_info, icon_size);
+            surface = caja_icon_info_get_surface_nodefault_at_size (icon_info, icon_size);
             g_object_unref (icon_info);
         }
         else
         {
-            pixbuf = NULL;
+            surface = NULL;
         }
 
         gtk_list_store_set (other_type_list_store, &iter,
-                            0, pixbuf,
+                            0, surface,
                             1, description,
                             2, content_type,
                             -1);
-        if (pixbuf != NULL)
-            g_object_unref (pixbuf);
+        if (surface != NULL)
+            cairo_surface_destroy (surface);
         g_free (description);
 skip:
         ;
@@ -845,7 +846,7 @@ skip:
     renderer = gtk_cell_renderer_pixbuf_new ();
     gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (other_type_combo_box), renderer, FALSE);
     gtk_cell_layout_set_attributes (GTK_CELL_LAYOUT (other_type_combo_box), renderer,
-                                    "pixbuf", 0,
+                                    "surface", 0,
                                     NULL);
     renderer = gtk_cell_renderer_text_new ();
     gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (other_type_combo_box), renderer, TRUE);
