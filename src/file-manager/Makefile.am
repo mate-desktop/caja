@@ -22,6 +22,8 @@ libcaja_file_manager_la_SOURCES = \
 	fm-desktop-icon-view.h \
 	fm-directory-view.c \
 	fm-directory-view.h \
+	fm-widget-view.c \
+	fm-widget-view.h \
 	fm-ditem-page.c \
 	fm-ditem-page.h \
 	fm-error-reporting.c \
