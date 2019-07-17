@@ -37,3 +37,5 @@ back_DATA = \
 	$(NULL)
 
 EXTRA_DIST = $(back_DATA)
+
+-include $(top_srcdir)/git.mk
