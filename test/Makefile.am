@@ -42,3 +42,5 @@ test_eel_pixbuf_scale_SOURCES = test-eel-pixbuf-scale.c test.c test.h
 EXTRA_DIST = \
 	test.h \
 	$(NULL)
+
+-include $(top_srcdir)/git.mk

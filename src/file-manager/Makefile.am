@@ -91,3 +91,5 @@ CLEANFILES = \
 	fm-marshal.list \
 	$(NULL)
 
+
+-include $(top_srcdir)/git.mk
