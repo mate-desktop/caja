@@ -30,6 +30,7 @@
 
 #include <gtk/gtk.h>
 #include <gio/gio.h>
+#include <glib.h>
 
 #include <eel/eel-background.h>
 
@@ -341,6 +342,10 @@ struct FMDirectoryViewClass
 
 /* GObject support */
 GType               fm_directory_view_get_type                         (void);
+
+#if GLIB_CHECK_VERSION(2, 44, 0)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (FMDirectoryView, g_object_unref);
+#endif
 
 /* Functions callable from the user interface and elsewhere. */
 CajaWindowInfo *fm_directory_view_get_caja_window              (FMDirectoryView  *view);
