@@ -1371,6 +1371,7 @@ load_view_as_menu (CajaWindow *window)
             node = node->next, ++index)
     {
         /* Menu item in View menu. */
+        /* TODO */
         add_view_as_menu_item (window,
                                CAJA_MENU_PATH_SHORT_LIST_PLACEHOLDER,
                                node->data,
