@@ -64,7 +64,8 @@ fm_empty_view_add_file (FMDirectoryView *view, CajaFile *file, CajaDirectory *di
     if (!timer) timer = g_timer_new ();
 
     g_timer_start (timer);
-    icon = caja_file_get_icon_surface (file, caja_get_icon_size_for_zoom_level (CAJA_ZOOM_LEVEL_STANDARD), TRUE, 0);
+    icon = caja_file_get_icon_surface (file, caja_get_icon_size_for_zoom_level (CAJA_ZOOM_LEVEL_STANDARD),
+                                       TRUE, gtk_widget_get_scale_factor (GTK_WIDGET(view)), 0);
 
     elaps = g_timer_elapsed (timer, NULL);
     g_timer_stop (timer);
