@@ -67,6 +67,7 @@
 #include "file-manager/fm-icon-view.h"
 #include "file-manager/fm-list-view.h"
 #include "file-manager/fm-tree-view.h"
+#include "file-manager/fm-widget-view.h"
 
 #include "caja-application.h"
 #include "caja-information-panel.h"
@@ -2199,6 +2200,7 @@ caja_application_startup (GApplication *app)
     fm_desktop_icon_view_register ();
     fm_list_view_register ();
     fm_compact_view_register ();
+    fm_widget_view_register ();
 #if ENABLE_EMPTY_VIEW
     fm_empty_view_register ();
 #endif /* ENABLE_EMPTY_VIEW */
