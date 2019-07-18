@@ -39,6 +39,7 @@ struct CajaQueryDetails
     GList *tags;
     gint64 timestamp;
     gint64 size;
+    char *contained_text;
 };
 
 static void  caja_query_class_init       (CajaQueryClass *class);
@@ -484,4 +485,15 @@ void caja_query_set_size(CajaQuery *query, gint64 size)
 gint64 caja_query_get_size(CajaQuery *query)
 {
     return query->details->size;
+}
+
+void caja_query_set_contained_text (CajaQuery *query, const char *text)
+{
+    g_free (query->details->contained_text);
+    query->details->contained_text = g_strdup (text);
+}
+
+char *caja_query_get_contained_text (CajaQuery *query)
+{
+    return g_strdup (query->details->contained_text);
 }

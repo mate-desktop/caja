@@ -57,6 +57,7 @@ typedef enum
     CAJA_QUERY_EDITOR_ROW_TAGS,
     CAJA_QUERY_EDITOR_ROW_TIME_MODIFIED,
     CAJA_QUERY_EDITOR_ROW_SIZE,
+    CAJA_QUERY_EDITOR_ROW_CONTAINED_TEXT,
 
     CAJA_QUERY_EDITOR_ROW_LAST
 } CajaQueryEditorRowType;
@@ -157,6 +158,13 @@ static void         size_row_free_data(CajaQueryEditorRow *row);
 static void         size_add_rows_from_query(CajaQueryEditor *editor,
                                              CajaQuery *query);
 
+static GtkWidget   *contained_text_row_create_widgets(CajaQueryEditorRow *row);
+static void         contained_text_row_add_to_query(CajaQueryEditorRow *row,
+                                             CajaQuery *query);
+static void         contained_text_row_free_data(CajaQueryEditorRow *row);
+static void         contained_text_add_rows_from_query(CajaQueryEditor *editor,
+                                                CajaQuery *query);
+
 static CajaQueryEditorRowOps row_type[] =
 {
     {
@@ -193,6 +201,13 @@ static CajaQueryEditorRowOps row_type[] =
         size_row_add_to_query,
         size_row_free_data,
         size_add_rows_from_query
+    },
+    {
+        N_("Contained text"),
+        contained_text_row_create_widgets,
+        contained_text_row_add_to_query,
+        contained_text_row_free_data,
+        contained_text_add_rows_from_query
     }
 };
 
@@ -1323,6 +1338,41 @@ static void size_add_rows_from_query(CajaQueryEditor *editor, CajaQuery *query)
 {
 }
 
+static GtkWidget *
+contained_text_row_create_widgets (CajaQueryEditorRow *row)
+{
+    GtkWidget *entry = gtk_entry_new();
+    gtk_widget_set_tooltip_text (entry,
+        _("Matches files that contains specified text."));
+
+    gtk_entry_set_placeholder_text (GTK_ENTRY (entry),
+        _("Matches files that contains specified text."));
+
+    gtk_widget_show (entry);
+    gtk_box_pack_start (GTK_BOX (row->hbox), entry, TRUE, TRUE, 0);
+    g_signal_connect (entry, "activate", G_CALLBACK (go_search_cb), row->editor);
+
+    return entry;
+}
+
+static void
+contained_text_row_add_to_query (CajaQueryEditorRow *row, CajaQuery *query)
+{
+    GtkEntry *entry = GTK_ENTRY (row->type_widget);
+    const gchar *text = gtk_entry_get_text (entry);
+
+    caja_query_set_contained_text (query, text);
+}
+
+static void
+contained_text_row_free_data (CajaQueryEditorRow *row)
+{
+}
+
+static void
+contained_text_add_rows_from_query (CajaQueryEditor *editor, CajaQuery *query)
+{
+}
 
 static CajaQueryEditorRowType
 get_next_free_type (CajaQueryEditor *editor)
