@@ -75,4 +75,7 @@ void           caja_query_set_timestamp      (CajaQuery *query, gint64 sec);
 gint64         caja_query_get_size           (CajaQuery *query);
 void           caja_query_set_size           (CajaQuery *query, gint64 size);
 
+char *         caja_query_get_contained_text (CajaQuery *query);
+void           caja_query_set_contained_text (CajaQuery *query, const char *text);
+
 #endif /* CAJA_QUERY_H */
