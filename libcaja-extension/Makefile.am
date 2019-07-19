@@ -26,6 +26,7 @@ libcaja_extension_include_HEADERS = \
 	caja-column-provider.h \
 	caja-column.h \
 	caja-extension-types.h \
+	caja-widget-view-provider.h \
 	caja-file-info.h \
 	caja-info-provider.h \
 	caja-location-widget-provider.h \
@@ -40,6 +41,7 @@ libcaja_extension_include_HEADERS = \
 libcaja_extension_la_SOURCES = \
 	caja-column-provider.c \
 	caja-column.c \
+	caja-widget-view-provider.c \
 	caja-extension-i18n.h \
 	caja-extension-types.c \
 	caja-extension-private.h \
