@@ -32,6 +32,9 @@
 #include <libcaja-private/caja-file-utilities.h>
 #include <libcaja-private/caja-view.h>
 #include <libcaja-private/caja-view-factory.h>
+#include <libcaja-private/caja-extensions.h>
+#include <libcaja-private/caja-module.h>
+#include <libcaja-extension/caja-widget-view-provider.h>
 
 #include "fm-widget-view.h"
 
@@ -344,13 +347,14 @@ fm_widget_view_iface_init (CajaViewIface *iface)
 static void
 fm_widget_view_init (FMWidgetView *widget_view)
 {
+    GtkWindow *window;
+    window = fm_directory_view_get_containing_window (FM_DIRECTORY_VIEW(widget_view));
 }
 
 static CajaView *
 fm_widget_view_create (CajaWindowSlotInfo *slot)
 {
     FMWidgetView *view;
-
     g_assert (CAJA_IS_WINDOW_SLOT_INFO (slot));
 
     view = g_object_new (FM_TYPE_WIDGET_VIEW,
@@ -365,11 +369,22 @@ fm_widget_view_supports_uri (const char *uri,
                             GFileType file_type,
                             const char *mime_type)
 {
-    if (g_str_has_prefix (uri, "computer://"))
+    GList *providers, *l;
+    gboolean result = FALSE;
+
+    providers = caja_extensions_get_for_type (CAJA_TYPE_WIDGET_VIEW_PROVIDER);
+
+    for (l = providers; l != NULL; l = l->next)
     {
-            return TRUE;
+        CajaWidgetViewProvider *provider;
+
+        provider = CAJA_WIDGET_VIEW_PROVIDER (l->data);
+        if (caja_widget_view_supports_uri (provider, uri, file_type, mime_type)) {
+            result = TRUE;
+        }
     }
-    return FALSE;
+    caja_module_extension_list_free (providers);
+    return result;
 }
 
 static CajaViewInfo fm_widget_view =
