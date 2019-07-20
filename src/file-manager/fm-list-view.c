@@ -3492,17 +3492,17 @@ fm_list_view_supports_uri (const char *uri,
 
 static CajaViewInfo fm_list_view =
 {
-    FM_LIST_VIEW_ID,
+    .id = FM_LIST_VIEW_ID,
     /* Translators: this is used in the view selection dropdown
      * of navigation windows and in the preferences dialog */
-    N_("List View"),
+    .view_combo_label = N_("List View"),
     /* Translators: this is used in the view menu */
-    N_("_List"),
-    N_("The list view encountered an error."),
-    N_("The list view encountered an error while starting up."),
-    N_("Display this location with the list view."),
-    fm_list_view_create,
-    fm_list_view_supports_uri
+    .view_menu_label_with_mnemonic = N_("_List"),
+    .error_label = N_("The list view encountered an error."),
+    .startup_error_label = N_("The list view encountered an error while starting up."),
+    .display_location_label = N_("Display this location with the list view."),
+    .create = fm_list_view_create,
+    .supports_uri = fm_list_view_supports_uri
 };
 
 void

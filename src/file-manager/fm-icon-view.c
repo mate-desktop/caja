@@ -3430,32 +3430,32 @@ fm_icon_view_supports_uri (const char *uri,
 
 static CajaViewInfo fm_icon_view =
 {
-    FM_ICON_VIEW_ID,
+    .id = FM_ICON_VIEW_ID,
     /* Translators: this is used in the view selection dropdown
      * of navigation windows and in the preferences dialog */
-    N_("Icon View"),
+    .view_combo_label = N_("Icon View"),
     /* Translators: this is used in the view menu */
-    N_("_Icons"),
-    N_("The icon view encountered an error."),
-    N_("The icon view encountered an error while starting up."),
-    N_("Display this location with the icon view."),
-    fm_icon_view_create,
-    fm_icon_view_supports_uri
+    .view_menu_label_with_mnemonic = N_("_Icons"),
+    .error_label = N_("The icon view encountered an error."),
+    .startup_error_label = N_("The icon view encountered an error while starting up."),
+    .display_location_label = N_("Display this location with the icon view."),
+    .create = fm_icon_view_create,
+    .supports_uri = fm_icon_view_supports_uri
 };
 
 static CajaViewInfo fm_compact_view =
 {
-    FM_COMPACT_VIEW_ID,
+    .id = FM_COMPACT_VIEW_ID,
     /* Translators: this is used in the view selection dropdown
      * of navigation windows and in the preferences dialog */
-    N_("Compact View"),
+    .view_combo_label = N_("Compact View"),
     /* Translators: this is used in the view menu */
-    N_("_Compact"),
-    N_("The compact view encountered an error."),
-    N_("The compact view encountered an error while starting up."),
-    N_("Display this location with the compact view."),
-    fm_compact_view_create,
-    fm_icon_view_supports_uri
+    .view_menu_label_with_mnemonic = N_("_Compact"),
+    .error_label = N_("The compact view encountered an error."),
+    .startup_error_label = N_("The compact view encountered an error while starting up."),
+    .display_location_label = N_("Display this location with the compact view."),
+    .create = fm_compact_view_create,
+    .supports_uri = fm_icon_view_supports_uri
 };
 
 gboolean

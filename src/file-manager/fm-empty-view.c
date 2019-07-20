@@ -392,14 +392,14 @@ fm_empty_view_supports_uri (const char *uri,
 
 static CajaViewInfo fm_empty_view =
 {
-    FM_EMPTY_VIEW_ID,
-    "Empty",
-    "Empty View",
-    "_Empty View",
-    "The empty view encountered an error.",
-    "Display this location with the empty view.",
-    fm_empty_view_create,
-    fm_empty_view_supports_uri
+    .id = FM_EMPTY_VIEW_ID,
+    .view_combo_label = "Empty",
+    .view_menu_label_with_mnemonic = "Empty View",
+    .error_label = "_Empty View",
+    .startup_error_label = "The empty view encountered an error.",
+    .display_location_label = "Display this location with the empty view.",
+    .create = fm_empty_view_create,
+    .supports_uri =fm_empty_view_supports_uri
 };
 
 void

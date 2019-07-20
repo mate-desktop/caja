@@ -46,6 +46,7 @@ extern "C" {
         char *error_label;                 /* The foo view encountered an error. */
         char *startup_error_label;         /* The foo view encountered an error while starting up. */
         char *display_location_label;      /* Display this location with the foo view. */
+        gboolean single_view;
         CajaView * (*create) (CajaWindowSlotInfo *slot);
         /* MATECOMPONENTTODO: More args here */
         gboolean (*supports_uri) (const char *uri,
