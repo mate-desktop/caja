@@ -1756,11 +1756,13 @@ element_clicked_callback (GtkWidget *image_table,
 
     g_object_set_data (G_OBJECT (property_browser), "dragged-image", child);
 
-    gtk_drag_begin (GTK_WIDGET (property_browser),
-                    target_list,
-                    GDK_ACTION_ASK | GDK_ACTION_MOVE | GDK_ACTION_COPY,
-                    event->button,
-                    event->event);
+    gtk_drag_begin_with_coordinates (GTK_WIDGET (property_browser),
+                                     target_list,
+                                     GDK_ACTION_ASK | GDK_ACTION_MOVE | GDK_ACTION_COPY,
+                                     event->button,
+                                     event->event,
+                                     event->x,
+                                     event->y);
 
     gtk_target_list_unref (target_list);
 
