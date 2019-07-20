@@ -145,6 +145,12 @@ view_as_changed_callback (CajaWindow *window,
         }
     }
     g_object_set_data (G_OBJECT (combo_box), "num viewers", GINT_TO_POINTER (index));
+
+    if (g_list_length (window->details->short_list_viewers) == 1)
+    {
+        selected_index = 0;
+    }
+
     if (selected_index == -1)
     {
         const char *id;
@@ -156,7 +162,6 @@ view_as_changed_callback (CajaWindow *window,
                                         _(info->view_combo_label));
         selected_index = index;
     }
-
     gtk_combo_box_set_active (combo_box, selected_index);
     if (g_list_length (window->details->short_list_viewers) == 1) {
         gtk_widget_hide(GTK_WIDGET(combo_box));
