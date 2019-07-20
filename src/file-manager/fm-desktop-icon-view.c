@@ -882,14 +882,14 @@ fm_desktop_icon_view_supports_uri (const char *uri,
 
 static CajaViewInfo fm_desktop_icon_view =
 {
-    FM_DESKTOP_ICON_VIEW_ID,
-    "Desktop View",
-    "_Desktop",
-    N_("The desktop view encountered an error."),
-    N_("The desktop view encountered an error while starting up."),
-    "Display this location with the desktop view.",
-    fm_desktop_icon_view_create,
-    fm_desktop_icon_view_supports_uri
+    .id = FM_DESKTOP_ICON_VIEW_ID,
+    .view_combo_label = "Desktop View",
+    .view_menu_label_with_mnemonic = "_Desktop",
+    .error_label = N_("The desktop view encountered an error."),
+    .startup_error_label = N_("The desktop view encountered an error while starting up."),
+    .display_location_label = "Display this location with the desktop view.",
+    .create = fm_desktop_icon_view_create,
+    .supports_uri = fm_desktop_icon_view_supports_uri
 };
 
 void
