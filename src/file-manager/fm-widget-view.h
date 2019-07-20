@@ -27,7 +27,7 @@
 
 G_BEGIN_DECLS
 
-#define FM_WIDGET_VIEW_ID "OAFIID:Caja_File_Manager_Widget_View"
+#define FM_WIDGET_VIEW_ID                "OAFIID:Caja_File_Manager_Widget_View"
 #define FM_TYPE_WIDGET_VIEW              (fm_widget_view_get_type ())
 G_DECLARE_FINAL_TYPE (FMWidgetView, fm_widget_view, FM, WIDGET_VIEW, FMDirectoryView)
 

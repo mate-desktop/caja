@@ -1,4 +1,4 @@
-/* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 8; tab-width: 8 -*-
+/* -*- Mode: C; indent-tabs-mode: nil; c-basic-offset: 4; tab-width: 4 -*-
 
    caja-view-factory.c: register and create CajaViews
 
@@ -116,7 +116,14 @@ caja_view_factory_get_views_for_uri (const char *uri,
 
         if (view_info->supports_uri (uri, file_type, mime_type))
         {
-            res = g_list_prepend (res, g_strdup (view_info->id));
+            if (view_info->single_view)
+            {
+                g_list_free_full (res, g_free);
+                res = g_list_prepend (NULL, g_strdup (view_info->id));
+                break;
+            } else {
+                res = g_list_prepend (res, g_strdup (view_info->id));
+            }
         }
     }
 

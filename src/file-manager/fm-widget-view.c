@@ -374,15 +374,15 @@ fm_widget_view_supports_uri (const char *uri,
 
 static CajaViewInfo fm_widget_view =
 {
-    FM_WIDGET_VIEW_ID,
-    N_("Widget View"),
+    .id = FM_WIDGET_VIEW_ID,
+    .view_combo_label = N_("Widget View"),
     /* translators: this is used in the view menu */
-    N_("_Widget View"),
-    N_("The widget view encountered an error."),
-    N_("The widget view encountered an error while starting up."),
-    N_("Display this location with the widget view."),
-    fm_widget_view_create,
-    fm_widget_view_supports_uri
+    .view_menu_label_with_mnemonic = N_("_Widget View"),
+    .error_label = N_("The widget view encountered an error."),
+    .startup_error_label = N_("The widget view encountered an error while starting up."),
+    .display_location_label = N_("Display this location with the widget view."),
+    .create = fm_widget_view_create,
+    .supports_uri = fm_widget_view_supports_uri
 };
 
 void
@@ -394,6 +394,7 @@ fm_widget_view_register (void)
     fm_widget_view.error_label = _(fm_widget_view.error_label);
     fm_widget_view.startup_error_label = _(fm_widget_view.startup_error_label);
     fm_widget_view.display_location_label = _(fm_widget_view.display_location_label);
+    fm_widget_view.single_view = TRUE;
 
     caja_view_factory_register (&fm_widget_view);
 }
