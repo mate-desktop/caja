@@ -601,32 +601,6 @@ menu_deactivate_callback (GtkWidget *menu,
     }
 }
 
-static void
-menu_popup_pos (GtkMenu   *menu,
-                gint      *x,
-                gint      *y,
-                gboolean  *push_in,
-                gpointer	user_data)
-{
-    GtkWidget *widget;
-    GtkRequisition menu_requisition, button_requisition;
-    GtkAllocation allocation;
-
-    widget = user_data;
-
-    gtk_widget_get_preferred_size (GTK_WIDGET (menu), &menu_requisition, NULL);
-    gtk_widget_get_preferred_size (widget, &button_requisition, NULL);
-    gtk_widget_get_allocation (widget, &allocation);
-
-    gdk_window_get_origin (gtk_widget_get_window (widget), x, y);
-    *x += allocation.x;
-    *y += allocation.y;
-
-    *y -= menu_requisition.height - button_requisition.height;
-
-    *push_in = TRUE;
-}
-
 static gboolean
 location_button_pressed_callback (GtkWidget      *widget,
                                   GdkEventButton *event,
@@ -741,7 +715,12 @@ location_button_clicked_callback (GtkWidget         *widget,
                       loop);
 
     gtk_grab_add (popup);
-    gtk_menu_popup (GTK_MENU (popup), NULL, NULL, menu_popup_pos, widget, 1, GDK_CURRENT_TIME);
+    gtk_menu_popup_at_widget (GTK_MENU (popup),
+                              widget,
+                              GDK_GRAVITY_SOUTH_WEST,
+                              GDK_GRAVITY_NORTH_WEST,
+                              NULL);
+
     gtk_menu_shell_select_item (GTK_MENU_SHELL (popup), first_item);
     g_main_loop_run (loop);
     gtk_grab_remove (popup);
