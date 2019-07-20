@@ -1330,7 +1330,6 @@ static void
 load_view_as_menu (CajaWindow *window)
 {
     GList *node;
-    int index;
     guint merge_id;
 
     if (window->details->short_list_merge_id != 0)
@@ -1364,19 +1363,21 @@ load_view_as_menu (CajaWindow *window)
     G_GNUC_END_IGNORE_DEPRECATIONS;
     window->details->view_as_radio_action = NULL;
 
-    /* Add a menu item for each view in the preferred list for this location. */
-    /* Start on 1, because extra_viewer gets index 0 */
-    for (node = window->details->short_list_viewers, index = 1;
-            node != NULL;
-            node = node->next, ++index)
-    {
-        /* Menu item in View menu. */
-        /* TODO */
-        add_view_as_menu_item (window,
-                               CAJA_MENU_PATH_SHORT_LIST_PLACEHOLDER,
-                               node->data,
-                               index,
-                               merge_id);
+    if (g_list_length (window->details->short_list_viewers) > 1) {
+        int index;
+        /* Add a menu item for each view in the preferred list for this location. */
+        /* Start on 1, because extra_viewer gets index 0 */
+        for (node = window->details->short_list_viewers, index = 1;
+                node != NULL;
+                node = node->next, ++index)
+        {
+            /* Menu item in View menu. */
+            add_view_as_menu_item (window,
+                    CAJA_MENU_PATH_SHORT_LIST_PLACEHOLDER,
+                    node->data,
+                    index,
+                    merge_id);
+        }
     }
     gtk_ui_manager_insert_action_group (window->details->ui_manager,
                                         window->details->view_as_action_group,
