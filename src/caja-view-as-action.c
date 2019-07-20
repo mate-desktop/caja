@@ -158,6 +158,11 @@ view_as_changed_callback (CajaWindow *window,
     }
 
     gtk_combo_box_set_active (combo_box, selected_index);
+    if (g_list_length (window->details->short_list_viewers) == 1) {
+        gtk_widget_hide(GTK_WIDGET(combo_box));
+    } else {
+        gtk_widget_show(GTK_WIDGET(combo_box));
+    }
 }
 
 
