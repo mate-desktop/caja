@@ -1,4 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8 -*- */
+/* -*- Mode: C; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 
 /*
  *  Caja
@@ -1309,9 +1309,9 @@ got_file_info_for_view_selection_callback (CajaFile *file,
     }
     else
     {
-    	if (!report_callback (slot, error)) {
-        	display_view_selection_failure (window, file,
-                	                        location, error);
+        if (!report_callback (slot, error)) {
+            display_view_selection_failure (window, file,
+                                            location, error);
         }
 
         if (!gtk_widget_get_visible (GTK_WIDGET (window)))
