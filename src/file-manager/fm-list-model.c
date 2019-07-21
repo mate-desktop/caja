@@ -334,6 +334,7 @@ fm_list_model_get_value (GtkTreeModel *tree_model, GtkTreeIter *iter, int column
             char *emblems_to_ignore[3];
             int i;
             cairo_surface_t *surface;
+            const char *icon_name;
 
             zoom_level = fm_list_model_get_zoom_level_from_column_id (column);
             icon_size = caja_get_icon_size_for_zoom_level (zoom_level);
@@ -407,7 +408,13 @@ fm_list_model_get_value (GtkTreeModel *tree_model, GtkTreeIter *iter, int column
             	gicon = emblemed_icon;
             }
 
-            icon_info = caja_icon_info_lookup (gicon, icon_size, icon_scale);
+            icon_info = caja_file_get_icon (file, icon_size, icon_scale, flags);
+            icon_name = caja_icon_info_get_used_name (icon_info);
+
+            if (icon_name != NULL) {
+                g_object_unref (icon_info);
+                icon_info = caja_icon_info_lookup (gicon, icon_size, icon_scale);
+            }
             icon = caja_icon_info_get_pixbuf_at_size (icon_info, icon_size);
 
             g_object_unref (icon_info);
