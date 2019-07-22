@@ -4,17 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Nagy Gábor <jackson.gabor@gmail.com>, 2019
-# Takler Tamás <taklertamas@gmail.com>, 2019
-# Wolfgang Ulbrich <mate@raveit.de>, 2019
-# Zoltán Rápolthy <real_zolee@hotmail.com>, 2019
-# Márton Fazekas <zseliakiraly@gmail.com>, 2019
+# Nagy Gábor <jackson.gabor@gmail.com>, 2018
+# Takler Tamás <taklertamas@gmail.com>, 2018
+# Zoltán Rápolthy <real_zolee@hotmail.com>, 2018
+# Márton Fazekas <zseliakiraly@gmail.com>, 2018
+# Rezső Páder <rezso@rezso.net>, 2018
+# István Szőllősi <szollosi.istv4n@gmail.com>, 2018
+# Falu <info@falu.me>, 2018
+# Balázs Meskó <meskobalazs@gmail.com>, 2018
 # KAMI KAMI <kami911@gmail.com>, 2019
-# Rezső Páder <rezso@rezso.net>, 2019
 # Stefano Karapetsas <stefano@karapetsas.com>, 2019
-# István Szőllősi <szollosi.istv4n@gmail.com>, 2019
-# Falu <info@falu.me>, 2019
-# Balázs Meskó <meskobalazs@gmail.com>, 2019
 # 
 #, fuzzy
 msgid ""
@@ -22,8 +21,8 @@ msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-16 22:36+0100\n"
-"PO-Revision-Date: 2019-03-11 12:13+0000\n"
-"Last-Translator: Balázs Meskó <meskobalazs@gmail.com>, 2019\n"
+"PO-Revision-Date: 2018-03-11 14:48+0000\n"
+"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2019\n"
 "Language-Team: Hungarian (https://www.transifex.com/mate/teams/13566/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1604,14 +1603,14 @@ msgstr "„%B” kettőzése"
 #: ../libcaja-private/caja-file-operations.c:3034
 msgid "Moving %'d file (in \"%B\") to \"%B\""
 msgid_plural "Moving %'d files (in \"%B\") to \"%B\""
-msgstr[0] "%'d fájl áthelyezése (ebben: „%B”) a következőbe: „%B”"
-msgstr[1] "%'d fájl áthelyezése (ebben: „%B”) a következőbe: „%B”"
+msgstr[0] "%'d fájl áthelyezése (innen: „%B”) ide: „%B”"
+msgstr[1] "%'d fájl áthelyezése (innen: „%B”) ide: „%B”"
 
 #: ../libcaja-private/caja-file-operations.c:3038
 msgid "Copying %'d file (in \"%B\") to \"%B\""
 msgid_plural "Copying %'d files (in \"%B\") to \"%B\""
-msgstr[0] "%'d fájl másolása (ebben: „%B”) a következőbe: „%B”"
-msgstr[1] "%'d fájl másolása (ebben: „%B”) a következőbe: „%B”"
+msgstr[0] "%'d fájl másolása (innen: „%B”) ide: „%B”"
+msgstr[1] "%'d fájl másolása (innen: „%B”) ide: „%B”"
 
 #: ../libcaja-private/caja-file-operations.c:3046
 msgid "Duplicating %'d file (in \"%B\")"
@@ -1782,7 +1781,7 @@ msgstr "Linkek létrehozása itt: „%B”"
 msgid "Making link to %'d file"
 msgid_plural "Making links to %'d files"
 msgstr[0] "Link készítése %'d fájlhoz"
-msgstr[1] "Link készítése %'d fájlhoz"
+msgstr[1] "Linkek készítése %'d fájlhoz"
 
 #: ../libcaja-private/caja-file-operations.c:5431
 msgid "Error while creating link to %B."
@@ -2115,7 +2114,7 @@ msgstr "program"
 
 #: ../libcaja-private/caja-file.c:6753
 msgid "link"
-msgstr "hivatkozással"
+msgstr "link"
 
 #: ../libcaja-private/caja-file.c:6775
 msgid "link (broken)"
@@ -2188,15 +2187,15 @@ msgstr "Biztosan meg akarja nyitni az összes fájlt?"
 #, c-format
 msgid "This will open %d separate tab."
 msgid_plural "This will open %d separate tabs."
-msgstr[0] "Ez %d új lapot fog megnyitni."
-msgstr[1] "Ez %d új lapot fog megnyitni."
+msgstr[0] "Ez %d különálló lapot fog megnyitni."
+msgstr[1] "Ez %d különálló lapot fog megnyitni."
 
 #: ../libcaja-private/caja-mime-actions.c:1189 ../src/caja-location-bar.c:194
 #, c-format
 msgid "This will open %d separate window."
 msgid_plural "This will open %d separate windows."
-msgstr[0] "Ez %d új ablakot fog megnyitni."
-msgstr[1] "Ez %d új ablakot fog megnyitni."
+msgstr[0] "Ez %d különálló ablakot fog megnyitni."
+msgstr[1] "Ez %d különálló ablakot fog megnyitni."
 
 #: ../libcaja-private/caja-mime-actions.c:1267
 #: ../src/caja-window-manage-views.c:2101
@@ -2746,8 +2745,8 @@ msgstr[1] "%d elem másolásának _visszavonása"
 #, c-format
 msgid "_Undo duplicate of %d item"
 msgid_plural "_Undo duplicate of %d items"
-msgstr[0] "%d fájl _kettőzésének visszavonása"
-msgstr[1] "%d fájl _kettőzésének visszavonása"
+msgstr[0] "%d elem kettőzésének _visszavonása"
+msgstr[1] "%d elem kettőzésének _visszavonása"
 
 #: ../libcaja-private/caja-undostack-manager.c:1510
 #, c-format
@@ -2760,8 +2759,8 @@ msgstr[1] "%d elem áthelyezésének _visszavonása"
 #, c-format
 msgid "_Undo rename of %d item"
 msgid_plural "_Undo rename of %d items"
-msgstr[0] "Átnevezés _visszavonása %d elemre"
-msgstr[1] "Átnevezés _visszavonása %d elemre"
+msgstr[0] "%d elem átnevezésének _visszavonása"
+msgstr[1] "%d elem átnevezésének _visszavonása"
 
 #: ../libcaja-private/caja-undostack-manager.c:1519
 #, c-format
@@ -2777,22 +2776,22 @@ msgstr "Fájl létrehozás sablonból _visszavonása "
 #, c-format
 msgid "_Undo creation of %d folder"
 msgid_plural "_Undo creation of %d folders"
-msgstr[0] "%d könyvtár készítésének _visszavonása"
-msgstr[1] "%d könyvtár készítésének _visszavonása"
+msgstr[0] "%d mappa létrehozásának _visszavonása"
+msgstr[1] "%d mappa létrehozásának _visszavonása"
 
 #: ../libcaja-private/caja-undostack-manager.c:1531
 #, c-format
 msgid "_Undo move to trash of %d item"
 msgid_plural "_Undo move to trash of %d items"
-msgstr[0] "%d elem kukába helyezésének _visszavonása"
-msgstr[1] "%d elem kukába helyezésének _visszavonása"
+msgstr[0] "%d elem Kukába helyezésének _visszavonása"
+msgstr[1] "%d elem Kukába helyezésének _visszavonása"
 
 #: ../libcaja-private/caja-undostack-manager.c:1536
 #, c-format
 msgid "_Undo restore from trash of %d item"
 msgid_plural "_Undo restore from trash of %d items"
-msgstr[0] "%d elem kukából visszaállításának _visszavonása"
-msgstr[1] "%d elem kukából visszaállításának _visszavonása"
+msgstr[0] "%d elem Kukából helyreállításának _visszavonása"
+msgstr[1] "%d elem Kukából helyreállításának _visszavonása"
 
 #: ../libcaja-private/caja-undostack-manager.c:1541
 #, c-format
@@ -2826,15 +2825,15 @@ msgstr[1] "%d elem jogosultságának módosításának visszavonása"
 #, c-format
 msgid "Undo change group of %d item"
 msgid_plural "Undo change group of %d items"
-msgstr[0] "Csoport váltás visszavonása %d elemre"
-msgstr[1] "Csoport váltás visszavonása %d elemre"
+msgstr[0] "%d elem csoportjának módosításának visszavonása"
+msgstr[1] "%d elem csoportjának módosításának visszavonása"
 
 #: ../libcaja-private/caja-undostack-manager.c:1567
 #, c-format
 msgid "Undo change owner of %d item"
 msgid_plural "Undo change owner of %d items"
-msgstr[0] "Tulajdonos váltás visszavonása %d elemre"
-msgstr[1] "Tulajdonos váltás visszavonása %d elemre"
+msgstr[0] "%d elem tulajdonosának módosításának visszavonása"
+msgstr[1] "%d elem tulajdonosának módosításának visszavonása"
 
 #: ../libcaja-private/caja-undostack-manager.c:1595
 #, c-format
@@ -2847,8 +2846,8 @@ msgstr[1] "%d elem másolása új_ra"
 #, c-format
 msgid "_Redo duplicate of %d item"
 msgid_plural "_Redo duplicate of %d items"
-msgstr[0] "%d elem _kettőzése mégis"
-msgstr[1] "%d elem _kettőzése mégis"
+msgstr[0] "%d elem kettőzése új_ra"
+msgstr[1] "%d elem kettőzése új_ra"
 
 #: ../libcaja-private/caja-undostack-manager.c:1605
 #, c-format
@@ -2885,8 +2884,8 @@ msgstr[1] "%d mappa létrehozása új_ra"
 #, c-format
 msgid "_Redo move to trash of %d item"
 msgid_plural "_Redo move to trash of %d items"
-msgstr[0] "%d elem kukába helyezésének _visszavonása"
-msgstr[1] "%d elem kukába helyezésének _visszavonása"
+msgstr[0] "%d elem Kukába helyezése új_ra"
+msgstr[1] "%d elem Kukába helyezése új_ra"
 
 #: ../libcaja-private/caja-undostack-manager.c:1631
 #, c-format
@@ -2899,8 +2898,8 @@ msgstr[1] "%d elem kukából visszaállítása új_ra"
 #, c-format
 msgid "_Redo create link to %d item"
 msgid_plural "_Redo create link to %d items"
-msgstr[0] "Linkek létrehozása új_ra %d elemre"
-msgstr[1] "Linkek létrehozása új_ra %d elemre"
+msgstr[0] "Linkek lérehozása új_ra %d elemre"
+msgstr[1] "Linkek lérehozása új_ra %d elemre"
 
 #: ../libcaja-private/caja-undostack-manager.c:1641
 #, c-format
@@ -3372,9 +3371,6 @@ msgid ""
 "If set to true, then hidden files are shown by default in the file manager. "
 "Hidden files are either dotfiles or listed in the folder's .hidden file."
 msgstr ""
-"Ha ez igazra van állítva, akkor a rejtett fájlok alapértelmezetten "
-"megjelennek a fájlkezelőben. Rejtett fájlok a ponttal kezdődő nevű fájlok, "
-"vagy azok, amelyek a mappa .hidden fájljában vannak felsorolva."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:67
 msgid "Whether to show backup files"
@@ -3385,9 +3381,6 @@ msgid ""
 "If set to true, then backup files are shown by default in the file manager. "
 "Backup files are backup files ending with a tilde (~)."
 msgstr ""
-"Ha ez igazra van állítva, akkor a biztonságimásolat-fájlok alapértelmezetten"
-" megjelennek a fájlkezelőben. A biztonságimásolat-fájlok a hullámvonallal "
-"(~) végződő fájlok."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:69
 msgid "Whether to show file sizes with IEC units"
@@ -3408,7 +3401,6 @@ msgstr "Megjelenjenek-e asztali értesítések"
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:72
 msgid "If set to true, Caja will show desktop notifications."
 msgstr ""
-"Ha ez igazra van állítva, akkor a Caja asztali értesítéseket jelenít meg."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:73
 msgid "List of possible captions on icons"
@@ -4151,7 +4143,7 @@ msgstr "Megnyitás ezzel: %s"
 #, c-format
 msgid "Use \"%s\" to open the selected item"
 msgid_plural "Use \"%s\" to open the selected items"
-msgstr[0] "„%s” használata a kijelölt eleme megnyitásához"
+msgstr[0] "„%s” használata a kijelölt elem megnyitásához"
 msgstr[1] "„%s” használata a kijelölt elemek megnyitásához"
 
 #: ../src/file-manager/fm-directory-view.c:4584
@@ -4946,7 +4938,7 @@ msgstr[1] "A kijelölt elemek áthelyezése a Kukából ide: „%s”"
 #, c-format
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
-msgstr[0] "A kijelölt eleme kivétele a Kukából"
+msgstr[0] "A kijelölt elem kivétele a Kukából"
 msgstr[1] "A kijelölt elemek kivétele a Kukából"
 
 #: ../src/file-manager/fm-directory-view.c:8263
@@ -6050,7 +6042,7 @@ msgstr ""
 
 #: ../src/caja-application.c:2088
 msgid "Open URIs in tabs."
-msgstr "URI-k megnyitása lapokon."
+msgstr ""
 
 #: ../src/caja-application.c:2090
 msgid "Open a browser window."
@@ -6528,11 +6520,11 @@ msgstr "_Mappák mindig a fájlok előtt"
 
 #: ../src/caja-file-management-properties.ui.h:48
 msgid "Show hidden files"
-msgstr "Rejtett fájlok megjelenítése"
+msgstr ""
 
 #: ../src/caja-file-management-properties.ui.h:49
 msgid "Show backup files"
-msgstr "Biztonsági mentések megjelenítése"
+msgstr ""
 
 #: ../src/caja-file-management-properties.ui.h:50
 msgid "<b>Icon View Defaults</b>"
@@ -6904,7 +6896,7 @@ msgstr "Kép"
 
 #: ../src/caja-information-panel.c:163
 msgid "Information"
-msgstr "Információk"
+msgstr "Információ"
 
 #: ../src/caja-information-panel.c:169
 msgid "Show Information"
@@ -6944,7 +6936,7 @@ msgstr "_Hely:"
 
 #: ../src/caja-navigation-action.c:146
 msgid "folder removed"
-msgstr "mappa eltávolítva"
+msgstr ""
 
 #: ../src/caja-navigation-window-menus.c:131
 msgid "Are you sure you want to clear the list of locations you have visited?"
@@ -7502,7 +7494,7 @@ msgstr "Címkék"
 
 #: ../src/caja-query-editor.c:181
 msgid "Modification Time"
-msgstr "Módosítás ideje"
+msgstr ""
 
 #: ../src/caja-query-editor.c:334
 msgid "Select folder to search in"
@@ -7565,27 +7557,27 @@ msgstr "Más típus…"
 
 #: ../src/caja-query-editor.c:1063 ../src/caja-query-editor.c:1202
 msgid "Less than or equal to"
-msgstr "Kisebb vagy egyenlő, mint"
+msgstr ""
 
 #: ../src/caja-query-editor.c:1065 ../src/caja-query-editor.c:1204
 msgid "Greater or equal to"
-msgstr "Nagyobb vagy egyenlő, mint"
+msgstr ""
 
 #: ../src/caja-query-editor.c:1078
 msgid "1 Hour"
-msgstr "1 óra"
+msgstr ""
 
 #: ../src/caja-query-editor.c:1080
 msgid "1 Day"
-msgstr "1 nap"
+msgstr ""
 
 #: ../src/caja-query-editor.c:1082
 msgid "1 Week"
-msgstr "1 hét"
+msgstr ""
 
 #: ../src/caja-query-editor.c:1084
 msgid "1 Month"
-msgstr "1 hónap"
+msgstr ""
 
 #: ../src/caja-query-editor.c:1086
 msgid "6 Months"
@@ -7597,55 +7589,55 @@ msgstr "1 év"
 
 #: ../src/caja-query-editor.c:1219
 msgid "10 KiB"
-msgstr "10 KiB"
+msgstr ""
 
 #: ../src/caja-query-editor.c:1221
 msgid "100 KiB"
-msgstr "100 KiB"
+msgstr ""
 
 #: ../src/caja-query-editor.c:1223
 msgid "500 KiB"
-msgstr "500 KiB"
+msgstr ""
 
 #: ../src/caja-query-editor.c:1225
 msgid "1 MiB"
-msgstr "1 MiB"
+msgstr ""
 
 #: ../src/caja-query-editor.c:1227
 msgid "5 MiB"
-msgstr "5 MiB"
+msgstr ""
 
 #: ../src/caja-query-editor.c:1229
 msgid "10 MiB"
-msgstr "10 MiB"
+msgstr ""
 
 #: ../src/caja-query-editor.c:1231
 msgid "100 MiB"
-msgstr "100 MiB"
+msgstr ""
 
 #: ../src/caja-query-editor.c:1233
 msgid "500 MiB"
-msgstr "500 MiB"
+msgstr ""
 
 #: ../src/caja-query-editor.c:1235
 msgid "1 GiB"
-msgstr "1 GiB"
+msgstr ""
 
 #: ../src/caja-query-editor.c:1237
 msgid "2 GiB"
-msgstr "2 GiB"
+msgstr ""
 
 #: ../src/caja-query-editor.c:1239
 msgid "4 GiB"
-msgstr "4 GiB"
+msgstr ""
 
 #: ../src/caja-query-editor.c:1242
 msgid "10 KB"
-msgstr "10 KB"
+msgstr ""
 
 #: ../src/caja-query-editor.c:1256
 msgid "500 MB"
-msgstr "500 MB"
+msgstr ""
 
 #: ../src/caja-query-editor.c:1449
 msgid "Remove this criterion from the search"
@@ -7862,7 +7854,7 @@ msgstr ""
 
 #: ../src/caja-window-menus.c:637
 msgid "About Caja"
-msgstr "A Caja névjegye"
+msgstr ""
 
 #: ../src/caja-window-menus.c:639
 msgid ""
@@ -7876,8 +7868,6 @@ msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2019 The Caja authors"
 msgstr ""
-"Copyright © 1999-2009 A Nautilus szerzői\n"
-"Copyright © 2011-2019 A Caja szerzői"
 
 #. Translators should localize the following string
 #. * which will be displayed at the bottom of the about
@@ -7887,12 +7877,12 @@ msgid "translator-credits"
 msgstr ""
 "Dvornik László<dvornik at mate dot hu>\n"
 "Kelemen Gábor<kelemeng at mate dot hu>\n"
-"Tímár András<timar at mate dot hu>\n"
 "Kalman „KAMI” Szalai<kami911 at gmail dot com>\n"
 "Falu<info at falu dot me>\n"
 "Rezső Páder<rezso at rezso dot net>\n"
 "Zoltán Rápolthy<real_zolee at hotmail dot com>\n"
-"Meskó Balázs <mesko dot balazs at fsf dot hu>"
+"Meskó Balázs <mesko dot balazs at fsf dot hu>\n"
+"Tímár András<timar at mate dot hu>"
 
 #: ../src/caja-window-menus.c:655
 msgid "MATE Web Site"
@@ -8085,12 +8075,12 @@ msgstr "A rejtett fájlok megjelenítésének átváltása a jelenlegi ablakban"
 #. label, accelerator
 #: ../src/caja-window-menus.c:1028
 msgid "Show Bac_kup Files"
-msgstr "_Biztonsági mentések megjelenítése"
+msgstr ""
 
 #. tooltip
 #: ../src/caja-window-menus.c:1029
 msgid "Toggle the display of backup files in the current window"
-msgstr "A biztonsági mentések megjelenítésének átváltása a jelenlegi ablakban"
+msgstr ""
 
 #: ../src/caja-window-menus.c:1061
 msgid "_Up"
