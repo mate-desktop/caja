@@ -185,7 +185,7 @@ before_scripts:
   -     egrep -lRZ 'G_GNUC_BEGIN_IGNORE_DEPRECATIONS' . | xargs -0 -l sed -i -e 's/G_GNUC_BEGIN_IGNORE_DEPRECATIONS/ /g'
   -     egrep -lRZ 'G_GNUC_END_IGNORE_DEPRECATIONS' . | xargs -0 -l sed -i -e 's/G_GNUC_END_IGNORE_DEPRECATIONS/ /g'
   - fi
-  - curl -Ls -o /usr/bin/gla11y https://github.com/hypra/gla11y/raw/v0.2/gla11y
+  - curl -Ls -o /usr/bin/gla11y https://github.com/hypra/gla11y/raw/v0.3/gla11y
   - chmod +x /usr/bin/gla11y
 
 build_scripts:
