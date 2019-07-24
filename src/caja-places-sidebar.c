@@ -2788,7 +2788,7 @@ bookmarks_build_popup_menu (CajaPlacesSidebar *sidebar)
 
     /* Empty Trash menu item */
 
-    item = eel_image_menu_item_new_from_icon (NULL, _("Empty _Trash"));
+    item = eel_image_menu_item_new_from_icon (CAJA_ICON_TRASH, _("Empty _Trash"));
     sidebar->popup_menu_empty_trash_item = item;
     g_signal_connect (item, "activate",
                       G_CALLBACK (empty_trash_cb), sidebar);
