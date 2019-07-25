@@ -73,6 +73,7 @@
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_MEDIA_AUTOMOUNT_OPEN "media_automount_open_checkbutton"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_MEDIA_AUTORUN_NEVER "media_autorun_never_checkbutton"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_USE_IEC_UNITS_WIDGET "use_iec_units"
+#define CAJA_FILE_MANAGEMENT_PROPERTIES_HIDE_ICON_IN_LIST_VIEW "hide_icons_in_list_view"
 
 /* int enums */
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_THUMBNAIL_LIMIT_WIDGET "preview_image_size_combobox"
@@ -1191,6 +1192,10 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
     bind_builder_bool (builder, caja_preferences,
                        CAJA_FILE_MANAGEMENT_PROPERTIES_USE_IEC_UNITS_WIDGET,
                        CAJA_PREFERENCES_USE_IEC_UNITS);
+
+    bind_builder_bool (builder, caja_preferences,
+                       CAJA_FILE_MANAGEMENT_PROPERTIES_HIDE_ICON_IN_LIST_VIEW,
+                       CAJA_PREFERENCES_HIDE_ICON_IN_LIST_VIEW);
 
     bind_builder_enum (builder, caja_preferences,
                        CAJA_FILE_MANAGEMENT_PROPERTIES_DEFAULT_VIEW_WIDGET,

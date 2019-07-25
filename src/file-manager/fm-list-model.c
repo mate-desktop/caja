@@ -37,6 +37,7 @@
 #include <eel/eel-graphic-effects.h>
 
 #include <libcaja-private/caja-dnd.h>
+#include <libcaja-private/caja-global-preferences.h>
 
 #include "fm-list-model.h"
 
@@ -321,6 +322,19 @@ fm_list_model_get_value (GtkTreeModel *tree_model, GtkTreeIter *iter, int column
     case FM_LIST_MODEL_LARGE_ICON_COLUMN:
     case FM_LIST_MODEL_LARGER_ICON_COLUMN:
     case FM_LIST_MODEL_LARGEST_ICON_COLUMN:
+        if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_HIDE_ICON_IN_LIST_VIEW)) {
+            cairo_surface_t *surface;
+            int icon_size;
+
+            g_value_init (value, CAIRO_GOBJECT_TYPE_SURFACE);
+
+            zoom_level = fm_list_model_get_zoom_level_from_column_id (column);
+            icon_size = caja_get_icon_size_for_zoom_level (zoom_level);
+
+            surface = cairo_image_surface_create (CAIRO_FORMAT_ARGB32, icon_size, icon_size);
+            g_value_take_boxed (value, surface);
+            break;
+        }
         g_value_init (value, CAIRO_GOBJECT_TYPE_SURFACE);
 
         if (file != NULL)
