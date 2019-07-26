@@ -7443,7 +7443,7 @@ static const GtkActionEntry directory_view_entries[] = {
   /* label, accelerator */       N_("_Open Scripts Folder"), NULL,
    /* tooltip */                 N_("Show the folder containing the scripts that appear in this menu"),
                                  G_CALLBACK (action_open_scripts_folder_callback) },
-  /* name, icon name */        { "Empty Trash", NULL,
+  /* name, icon name */        { "Empty Trash", CAJA_ICON_TRASH,
   /* label, accelerator */       N_("E_mpty Trash"), NULL,
   /* tooltip */                  N_("Delete all items in the Trash"),
                                  G_CALLBACK (action_empty_trash_callback) },
