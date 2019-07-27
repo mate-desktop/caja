@@ -68,7 +68,7 @@ G_BEGIN_DECLS
 #define CAJA_PREFERENCES_SHOW_ADVANCED_PERMISSIONS	"show-advanced-permissions"
 #define CAJA_PREFERENCES_DATE_FORMAT			"date-format"
 #define CAJA_PREFERENCES_USE_IEC_UNITS			"use-iec-units"
-#define CAJA_PREFERENCES_HIDE_ICON_IN_LIST_VIEW	"hide-icons-in-list-view"
+#define CAJA_PREFERENCES_SHOW_ICONS_IN_LIST_VIEW	"show-icons-in-list-view"
 
 /* Mouse */
 #define CAJA_PREFERENCES_MOUSE_USE_EXTRA_BUTTONS 	"mouse-use-extra-buttons"

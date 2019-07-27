@@ -322,7 +322,7 @@ fm_list_model_get_value (GtkTreeModel *tree_model, GtkTreeIter *iter, int column
     case FM_LIST_MODEL_LARGE_ICON_COLUMN:
     case FM_LIST_MODEL_LARGER_ICON_COLUMN:
     case FM_LIST_MODEL_LARGEST_ICON_COLUMN:
-        if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_HIDE_ICON_IN_LIST_VIEW)) {
+        if (!g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SHOW_ICONS_IN_LIST_VIEW)) {
             cairo_surface_t *surface;
             int icon_size;
 
