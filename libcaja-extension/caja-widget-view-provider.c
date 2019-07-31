@@ -1,9 +1,8 @@
 /* vi: set sw=4 ts=4 wrap ai: */
 /*
- * caja-widget-view-provider.c: This file is part of ____
+ * caja-widget-view-provider.c: This file is part of caja.
  *
- * Copyright (C) 2019 yetist <yetist@yetipc>
- *
+ * Copyright (C) 2019 Wu Xiaotian <yetist@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -86,8 +85,8 @@ caja_widget_view_provider_get_widget (CajaWidgetViewProvider *provider)
 /**
  * caja_widget_view_provider_add_file:
  * @provider: a #CajaWidgetViewProvider
- * @file: 
- * @directory: 
+ * @file:
+ * @directory:
  *
  *
  **/
@@ -129,6 +128,29 @@ void caja_widget_view_provider_set_window (CajaWidgetViewProvider *provider, Gtk
     CAJA_WIDGET_VIEW_PROVIDER_GET_IFACE (provider)->set_window (provider, window);
 }
 
+guint caja_widget_view_provider_get_item_count (CajaWidgetViewProvider *provider)
+{
+    g_return_val_if_fail (CAJA_IS_WIDGET_VIEW_PROVIDER (provider), 0);
+    g_return_val_if_fail (CAJA_WIDGET_VIEW_PROVIDER_GET_IFACE (provider)->get_item_count != NULL, 0);
+
+    return CAJA_WIDGET_VIEW_PROVIDER_GET_IFACE (provider)->get_item_count (provider);
+}
+
+gchar* caja_widget_view_provider_get_first_visible_file (CajaWidgetViewProvider *provider)
+{
+    g_return_val_if_fail (CAJA_IS_WIDGET_VIEW_PROVIDER (provider), NULL);
+    g_return_val_if_fail (CAJA_WIDGET_VIEW_PROVIDER_GET_IFACE (provider)->get_first_visible_file != NULL, NULL);
+
+    return CAJA_WIDGET_VIEW_PROVIDER_GET_IFACE (provider)->get_first_visible_file (provider);
+}
+
+void caja_widget_view_provider_clear (CajaWidgetViewProvider *provider)
+{
+    g_return_if_fail (CAJA_IS_WIDGET_VIEW_PROVIDER (provider));
+    g_return_if_fail (CAJA_WIDGET_VIEW_PROVIDER_GET_IFACE (provider)->clear != NULL);
+
+    CAJA_WIDGET_VIEW_PROVIDER_GET_IFACE (provider)->clear (provider);
+}
 
 /**
  * caja_widget_view_provider_supports_uri:

@@ -1,9 +1,8 @@
 /* vi: set sw=4 ts=4 wrap ai: */
 /*
- * caja-widget-view-provider.h: This file is part of ____
+ * caja-widget-view-provider.h: This file is part of caja.
  *
- * Copyright (C) 2019 yetist <yetist@yetipc>
- *
+ * Copyright (C) 2019 Wu Xiaotian <yetist@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -49,31 +48,37 @@ typedef struct _CajaWidgetViewProviderIface  CajaWidgetViewProviderIface;
 struct _CajaWidgetViewProviderIface {
     GTypeInterface g_iface;
 
-    gboolean  (*supports_uri) (CajaWidgetViewProvider *provider,
-                               const char *uri,
-                               GFileType file_type,
-                               const char *mime_type);
-    GtkWidget* (*get_widget)   (CajaWidgetViewProvider *provider);
-    void       (*add_file)     (CajaWidgetViewProvider *provider, CajaFile *file, CajaFile *directory);
-    void       (*set_location) (CajaWidgetViewProvider *provider, const char *location);
-    void       (*set_window)   (CajaWidgetViewProvider *provider, GtkWindow *window);
+    gboolean  (*supports_uri)   (CajaWidgetViewProvider *provider,
+                                 const char *uri,
+                                 GFileType file_type,
+                                 const char *mime_type);
+    GtkWidget* (*get_widget)     (CajaWidgetViewProvider *provider);
+    void       (*add_file)       (CajaWidgetViewProvider *provider, CajaFile *file, CajaFile *directory);
+    void       (*set_location)   (CajaWidgetViewProvider *provider, const char *location);
+    void       (*set_window)     (CajaWidgetViewProvider *provider, GtkWindow *window);
+    guint      (*get_item_count) (CajaWidgetViewProvider *provider);
+    gchar*     (*get_first_visible_file) (CajaWidgetViewProvider *provider);
+    void       (*clear)          (CajaWidgetViewProvider *provider);
 };
 
 /* Interface Functions */
-GType      caja_widget_view_provider_get_type     (void);
+GType      caja_widget_view_provider_get_type       (void);
 
-GtkWidget *caja_widget_view_provider_get_widget   (CajaWidgetViewProvider *provider);
-void       caja_widget_view_provider_add_file     (CajaWidgetViewProvider *provider,
-                                                   CajaFile *file,
-                                                   CajaFile *directory);
-void       caja_widget_view_provider_set_location (CajaWidgetViewProvider *provider,
-                                                   const char *location);
-void       caja_widget_view_provider_set_window   (CajaWidgetViewProvider *provider,
-                                                   GtkWindow *window);
-gboolean   caja_widget_view_provider_supports_uri (CajaWidgetViewProvider *provider,
-                                                   const char *uri,
-                                                   GFileType file_type,
-                                                   const char *mime_type);
+GtkWidget *caja_widget_view_provider_get_widget     (CajaWidgetViewProvider *provider);
+void       caja_widget_view_provider_add_file       (CajaWidgetViewProvider *provider,
+                                                     CajaFile *file,
+                                                     CajaFile *directory);
+void       caja_widget_view_provider_set_location   (CajaWidgetViewProvider *provider,
+                                                     const char *location);
+void       caja_widget_view_provider_set_window     (CajaWidgetViewProvider *provider,
+                                                     GtkWindow *window);
+guint      caja_widget_view_provider_get_item_count (CajaWidgetViewProvider *provider);
+gchar*     caja_widget_view_provider_get_first_visible_file (CajaWidgetViewProvider *provider);
+void       caja_widget_view_provider_clear          (CajaWidgetViewProvider *provider);
+gboolean   caja_widget_view_provider_supports_uri   (CajaWidgetViewProvider *provider,
+                                                     const char *uri,
+                                                     GFileType file_type,
+                                                     const char *mime_type);
 G_END_DECLS
 
 #endif /* __CAJA_WIDGET_VIEW_PROVIDER_H__ */
