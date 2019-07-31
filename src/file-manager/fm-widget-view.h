@@ -1,9 +1,8 @@
 /* vi: set sw=4 ts=4 wrap ai: */
 /*
- * fm-widget-view.h: This file is part of ____
+ * fm-widget-view.h: This file is part of caja.
  *
- * Copyright (C) 2019 yetist <yetist@yetibook>
- *
+ * Copyright (C) 2019 Wu Xiaotian <yetist@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -30,7 +29,6 @@ G_BEGIN_DECLS
 #define FM_WIDGET_VIEW_ID                "OAFIID:Caja_File_Manager_Widget_View"
 #define FM_TYPE_WIDGET_VIEW              (fm_widget_view_get_type ())
 G_DECLARE_FINAL_TYPE (FMWidgetView, fm_widget_view, FM, WIDGET_VIEW, FMDirectoryView)
-
 
 FMWidgetView* fm_widget_view_new      (void);
 void          fm_widget_view_register (void);
