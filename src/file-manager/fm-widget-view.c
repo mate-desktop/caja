@@ -1,8 +1,8 @@
 /* vi: set sw=4 ts=4 wrap ai: */
 /*
- * fm-widget-view.c: This file is part of ____
+ * fm-widget-view.c: This file is part of caja.
  *
- * Copyright (C) 2019 yetist <yetist@yetibook>
+ * Copyright (C) 2019 Wu Xiaotian <yetist@gmail.com>
  *
  *
  * This program is free software; you can redistribute it and/or modify
@@ -41,9 +41,8 @@
 
 struct _FMWidgetView
 {
-  FMDirectoryView         object;
-  int                     number_of_files;
-  CajaWidgetViewProvider *provider;
+    FMDirectoryView         object;
+    CajaWidgetViewProvider *provider;
 };
 
 static GList *fm_widget_view_get_selection                   (FMDirectoryView   *view);
@@ -57,33 +56,17 @@ G_DEFINE_TYPE_WITH_CODE (FMWidgetView, fm_widget_view, FM_TYPE_DIRECTORY_VIEW,
 static void
 fm_widget_view_add_file (FMDirectoryView *view, CajaFile *file, CajaDirectory *directory)
 {
-    CajaFile *file_dir;
-    static GTimer *timer = NULL;
-    static gdouble cumu = 0, elaps;
-    FM_WIDGET_VIEW (view)->number_of_files++;
-    cairo_surface_t *icon;
-
-    if (!timer) timer = g_timer_new ();
-
-    g_timer_start (timer);
-    icon = caja_file_get_icon_surface (file, caja_get_icon_size_for_zoom_level (CAJA_ZOOM_LEVEL_STANDARD),
-                                       TRUE, gtk_widget_get_scale_factor (GTK_WIDGET(view)), 0);
-
-    elaps = g_timer_elapsed (timer, NULL);
-    g_timer_stop (timer);
-
-    g_object_unref (icon);
-
-    cumu += elaps;
-    g_message ("entire loading: %.3f, cumulative %.3f", elaps, cumu);
-
     FMWidgetView *widget_view;
+    CajaFile *file_dir;
 
     widget_view = FM_WIDGET_VIEW (view);
+    g_return_if_fail (FM_IS_WIDGET_VIEW(view));
+    g_return_if_fail (CAJA_IS_WIDGET_VIEW_PROVIDER (widget_view->provider));
+
     file_dir = caja_directory_get_corresponding_file (directory);
     caja_widget_view_provider_add_file (widget_view->provider, file, file_dir);
+    caja_file_unref (file_dir);
 }
-
 
 static void
 fm_widget_view_begin_loading (FMDirectoryView *view)
@@ -115,31 +98,36 @@ fm_widget_view_begin_loading (FMDirectoryView *view)
             break;
         }
     }
-
+    caja_file_unref (file);
+    g_free (mimetype);
     caja_module_extension_list_free (providers);
 
     if (widget_view->provider == NULL) {
+        g_free (uri);
         return;
     }
 
     caja_widget_view_provider_set_location (widget_view->provider, uri);
+    g_free (uri);
 
     widget = caja_widget_view_provider_get_widget (widget_view->provider);
     gtk_container_add (GTK_CONTAINER(widget_view), widget);
 
     window = fm_directory_view_get_containing_window (view);
     caja_widget_view_provider_set_window (widget_view->provider, window);
-
-    g_print("uri in widget_view = %s, window=%p\n", uri, window);
-
-    g_free (mimetype);
 }
 
 static void
 fm_widget_view_clear (FMDirectoryView *view)
 {
-}
+    FMWidgetView *widget_view;
 
+    widget_view = FM_WIDGET_VIEW (view);
+    g_return_if_fail (FM_IS_WIDGET_VIEW(view));
+    g_return_if_fail (CAJA_IS_WIDGET_VIEW_PROVIDER (widget_view->provider));
+
+    caja_widget_view_provider_clear (widget_view->provider);
+}
 
 static void
 fm_widget_view_file_changed (FMDirectoryView *view, CajaFile *file, CajaDirectory *directory)
@@ -158,7 +146,6 @@ fm_widget_view_get_selection (FMDirectoryView *view)
     return NULL;
 }
 
-
 static GList *
 fm_widget_view_get_selection_for_file_transfer (FMDirectoryView *view)
 {
@@ -168,13 +155,25 @@ fm_widget_view_get_selection_for_file_transfer (FMDirectoryView *view)
 static guint
 fm_widget_view_get_item_count (FMDirectoryView *view)
 {
-    return FM_WIDGET_VIEW (view)->number_of_files;
+    FMWidgetView *widget_view;
+
+    widget_view = FM_WIDGET_VIEW (view);
+    g_return_val_if_fail (FM_IS_WIDGET_VIEW(view), 0);
+    g_return_val_if_fail (CAJA_IS_WIDGET_VIEW_PROVIDER (widget_view->provider), 0);
+
+    return caja_widget_view_provider_get_item_count (widget_view->provider);
 }
 
 static gboolean
 fm_widget_view_is_empty (FMDirectoryView *view)
 {
-    return FM_WIDGET_VIEW (view)->number_of_files == 0;
+    FMWidgetView *widget_view;
+
+    widget_view = FM_WIDGET_VIEW (view);
+    g_return_val_if_fail (FM_IS_WIDGET_VIEW(view), TRUE);
+    g_return_val_if_fail (CAJA_IS_WIDGET_VIEW_PROVIDER (widget_view->provider), TRUE);
+
+    return caja_widget_view_provider_get_item_count (widget_view->provider) == 0;
 }
 
 static void
@@ -185,8 +184,6 @@ fm_widget_view_end_file_changes (FMDirectoryView *view)
 static void
 fm_widget_view_remove_file (FMDirectoryView *view, CajaFile *file, CajaDirectory *directory)
 {
-    FM_WIDGET_VIEW (view)->number_of_files--;
-    g_assert (FM_WIDGET_VIEW (view)->number_of_files >= 0);
 }
 
 static void
@@ -208,7 +205,6 @@ fm_widget_view_reveal_selection (FMDirectoryView *view)
 static void
 fm_widget_view_merge_menus (FMDirectoryView *view)
 {
-    //EEL_CALL_PARENT (FM_DIRECTORY_VIEW_CLASS, merge_menus, (view));
     FM_DIRECTORY_VIEW_CLASS (fm_widget_view_parent_class)->merge_menus(view);
 }
 
@@ -270,7 +266,6 @@ fm_widget_view_click_policy_changed (FMDirectoryView *directory_view)
 {
 }
 
-
 static int
 fm_widget_view_compare_files (FMDirectoryView *view, CajaFile *file1, CajaFile *file2)
 {
@@ -302,10 +297,6 @@ fm_widget_view_end_loading (FMDirectoryView *view,
 static void
 fm_widget_view_finalize (GObject *object)
 {
-    FMWidgetView *widget_view;
-
-    widget_view = FM_WIDGET_VIEW (object);
-
     G_OBJECT_CLASS (fm_widget_view_parent_class)->finalize (object);
 }
 
@@ -317,14 +308,17 @@ fm_widget_view_emblems_changed (FMDirectoryView *directory_view)
 static char *
 fm_widget_view_get_first_visible_file (CajaView *view)
 {
-    //FIXME: return string to tell caja we are ready.
-    return g_strdup("file:///tmp/a.txt");
-    return NULL;
+    FMWidgetView *widget_view;
+
+    widget_view = FM_WIDGET_VIEW (view);
+    g_return_val_if_fail (FM_IS_WIDGET_VIEW(view), NULL);
+    g_return_val_if_fail (CAJA_IS_WIDGET_VIEW_PROVIDER (widget_view->provider), NULL);
+
+    return caja_widget_view_provider_get_first_visible_file (widget_view->provider);
 }
 
 static void
-fm_widget_view_scroll_to_file (CajaView *view,
-                              const char *uri)
+fm_widget_view_scroll_to_file (CajaView *view, const char *uri)
 {
 }
 
@@ -403,14 +397,6 @@ fm_widget_view_iface_init (CajaViewIface *iface)
 static void
 fm_widget_view_init (FMWidgetView *widget_view)
 {
-    //GtkWidget *widget;
-
-    //widget = gtk_app_chooser_widget_new ("text/plain");
-    //gtk_app_chooser_widget_set_show_all (GTK_APP_CHOOSER_WIDGET(widget), TRUE);
-
-    //gtk_container_add (GTK_CONTAINER(widget_view), widget);
-    //gtk_widget_show(widget);
-
     widget_view->provider = NULL;
 }
 
@@ -443,10 +429,6 @@ fm_widget_view_supports_uri (const char *uri,
 
         provider = CAJA_WIDGET_VIEW_PROVIDER (l->data);
         if (caja_widget_view_provider_supports_uri (provider, uri, file_type, mime_type)) {
-            //CajaFile *file;
-            //file = caja_file_get_by_uri (uri);
-            //caja_file_set_metadata (file, CAJA_METADATA_KEY_DEFAULT_VIEW, NULL, FM_WIDGET_VIEW_ID);
-            //caja_file_unref (file);
             result = TRUE;
         }
     }
@@ -470,7 +452,6 @@ static CajaViewInfo fm_widget_view =
 void
 fm_widget_view_register (void)
 {
-    fm_widget_view.id = fm_widget_view.id;
     fm_widget_view.view_combo_label = _(fm_widget_view.view_combo_label);
     fm_widget_view.view_menu_label_with_mnemonic = _(fm_widget_view.view_menu_label_with_mnemonic);
     fm_widget_view.error_label = _(fm_widget_view.error_label);
