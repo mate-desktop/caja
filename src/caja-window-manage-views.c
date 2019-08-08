@@ -1266,7 +1266,20 @@ got_file_info_for_view_selection_callback (CajaFile *file,
         /* Otherwise, use default */
         if (view_id == NULL)
         {
-            view_id = caja_global_preferences_get_default_folder_viewer_preference_as_iid ();
+            char *uri;
+            uri = caja_file_get_uri (file);
+
+            /* Use same view settings for search results as the current folder */
+            if (eel_uri_is_search (uri))
+            {
+                view_id = g_strdup (caja_view_get_view_id (slot->content_view));
+            }
+            else
+            {
+                view_id = caja_global_preferences_get_default_folder_viewer_preference_as_iid ();
+            }
+
+            g_free (uri);
 
             if (view_id != NULL &&
                     !caja_view_factory_view_supports_uri (view_id,
