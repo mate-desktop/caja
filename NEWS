@@ -1,3 +1,41 @@
+### caja 1.23.2
+
+  * update translations
+  * caja-progress-info: use NotifyNotification instead of GNotification
+  * Copy file and keep timestamps of original file including remotes
+  * Fix Caja crashes on file move in Korean
+  * Support querying files by contained text
+  * use show icons option in views tab
+  * Add preference option to hide icons in list view.
+  * fm-directory-view: add icon to "empty trash" into "File" menu
+  * gla11y: use version 0.3 which already defaults to using python3
+  * caja-places-sidebar: add icon to "empty trash"
+  * spatial-window: replace geprecated gtk_menu_popup
+  * property-browser: replace deprecated gtk_drag_begin
+  * fm-list-view: replace deprecated gtk_drag_begin
+  * Show thumbnails in list view
+  * file-manager: reduce the scope of some variables
+  * preferences: Render extension icons as cairo_surfaces
+  * preferences: Render media icons as cairo_surface
+  * Replace gdkpixbuf with cairo_surfaces in a few more places
+  * sidebar: Render info icon as vector
+  * desktop: Add specific CSS for ContrastHigh and ContrastHighInverse
+  * desktop: Add specific CSS for HighContrast and HighContrastInverse
+  * Add support for loading theme-specific caja-desktop CSS
+  * Refactor custom CSS loading into a separate function
+  * Add support for checking .ui accessibility with gla11y
+  * Render file-conflict icons as cairo_surface vectors
+  * file-conflict-dialog: don't scale icons twice on hidpi monitors
+  * eel-string: Fix 'make check'
+  * Restore transparent background on icon view labels
+  * desktop icon view: disconnect callback from correct GSettings instance
+  * Add scroll tabs with mouse wheel for File's properties and caja's preferences windows
+  * hidpi: ensure all icons are properly scaled
+  * use GETTEXTDATADIRS replace GETTEXTDATADIR
+  * create msgstr for data/browser.xml
+  * add gettext its
+  * migrate intltool to gettext
+
 ### caja 1.23.1
 
   * desktop: Force no borders on desktop items by default
