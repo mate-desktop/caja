@@ -51,16 +51,6 @@ $(dbus_freedesktop_built_sources) : Makefile.am $(top_srcdir)/data/freedesktop-d
 		$(top_srcdir)/data/freedesktop-dbus-interfaces.xml			\
 		$(NULL)
 
-desktop_in_files=mate-network-scheme.desktop.in
-desktop_files=$(desktop_in_files:.desktop.in=.desktop)
-desktopdir = $(datadir)/mate/network/
-
-$(desktop_files): $(desktop_in_files)
-	$(AM_V_GEN) GETTEXTDATADIR=$(top_srcdir) $(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
-
-schemedir = $(datadir)/applications
-scheme_DATA = mate-network-scheme.desktop
-
 BUILT_SOURCES = \
 	caja-src-marshal.c \
 	caja-src-marshal.h \
@@ -220,7 +210,6 @@ ui_DATA = \
 CLEANFILES = \
 	caja-src-marshal.list \
 	$(BUILT_SOURCES) \
-	$(desktop_files) \
 	$(server_DATA) \
 	$(NULL)
 
@@ -230,7 +219,6 @@ EXTRA_DIST = \
 	$(ui_DATA) \
 	check-caja \
 	$(about_DATA) \
-	$(desktop_in_files) \
 	$(NULL)
 
 dist-hook:

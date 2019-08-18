@@ -2,8 +2,8 @@
 Name=Caja
 GenericName=File Browser
 Comment=Browse the file system with the file manager
-TryExec=caja
-Exec=caja --no-desktop --browser %U
+TryExec=@bindir@/caja
+Exec=@bindir@/caja --no-desktop --browser %U
 Icon=system-file-manager
 Terminal=false
 StartupNotify=false

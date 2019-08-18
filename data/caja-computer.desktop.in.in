@@ -1,8 +1,8 @@
 [Desktop Entry]
 Name=Computer
 Comment=Browse all local and remote disks and folders accessible from this computer
-TryExec=caja
-Exec=caja --no-desktop computer:
+TryExec=@bindir@/caja
+Exec=@bindir@/caja --no-desktop computer:
 Icon=computer
 Terminal=false
 StartupNotify=true
