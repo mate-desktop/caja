@@ -7,6 +7,7 @@
 # Martin Wimpress <code@flexion.org>, 2018
 # Andi Chandler <andi@gowling.com>, 2018
 # Stefano Karapetsas <stefano@karapetsas.com>, 2019
+# Steven Maddox <s.maddox@lantizia.me.uk>, 2019
 # 
 #, fuzzy
 msgid ""
@@ -15,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-16 22:36+0100\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2019\n"
+"Last-Translator: Steven Maddox <s.maddox@lantizia.me.uk>, 2019\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/mate/teams/13566/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -807,11 +808,11 @@ msgstr ""
 
 #: ../libcaja-private/caja-column-utilities.c:189
 msgid "Trashed On"
-msgstr "Moved to wastebasket on"
+msgstr "Binned On"
 
 #: ../libcaja-private/caja-column-utilities.c:190
 msgid "Date when file was moved to the Trash"
-msgstr "Date when file was moved to the Wastebasket"
+msgstr "Date when file was moved to the Bin"
 
 #: ../libcaja-private/caja-column-utilities.c:196
 msgid "Original Location"
@@ -819,7 +820,7 @@ msgstr "Original Location"
 
 #: ../libcaja-private/caja-column-utilities.c:197
 msgid "Original location of file before moved to the Trash"
-msgstr "Original location of file before moved to the Wastebasket"
+msgstr "Original location of file before moved to the Bin"
 
 #: ../libcaja-private/caja-customization-data.c:431
 #: ../libcaja-private/caja-file-conflict-dialog.c:624
@@ -853,7 +854,7 @@ msgstr "Network Servers"
 #: ../src/file-manager/fm-tree-view.c:1423 ../src/caja-places-sidebar.c:613
 #: ../src/caja-trash-bar.c:188
 msgid "Trash"
-msgstr "Trash"
+msgstr "Bin"
 
 #: ../libcaja-private/caja-dnd.c:795
 msgid "_Move Here"
@@ -1289,7 +1290,7 @@ msgstr " (%'d"
 
 #: ../libcaja-private/caja-file-operations.c:1363
 msgid "Are you sure you want to permanently delete \"%B\" from the trash?"
-msgstr "Are you sure you want to permanently delete \"%B\" from the wastebasket?"
+msgstr "Are you sure you want to permanently delete \"%B\" from the bin?"
 
 #: ../libcaja-private/caja-file-operations.c:1366
 #, c-format
@@ -1300,7 +1301,11 @@ msgid_plural ""
 "Are you sure you want to permanently delete the %'d selected items from the "
 "trash?"
 msgstr[0] ""
+"Are you sure you want to permanently delete the %'d selected item from the "
+"bin?"
 msgstr[1] ""
+"Are you sure you want to permanently delete the %'d selected items from the "
+"bin?"
 
 #: ../libcaja-private/caja-file-operations.c:1376
 #: ../libcaja-private/caja-file-operations.c:1442
@@ -1309,18 +1314,18 @@ msgstr "If you delete an item, it will be permanently lost."
 
 #: ../libcaja-private/caja-file-operations.c:1396
 msgid "Empty all items from Trash?"
-msgstr "Empty all items from Wastebasket?"
+msgstr "Empty all items from the Bin?"
 
 #: ../libcaja-private/caja-file-operations.c:1400
 msgid "All items in the Trash will be permanently deleted."
-msgstr "All items in the Wastebasket will be permanently deleted."
+msgstr "All items in the Bin will be permanently deleted."
 
 #. Empty Trash menu item
 #: ../libcaja-private/caja-file-operations.c:1403
 #: ../libcaja-private/caja-file-operations.c:2334
 #: ../src/caja-places-sidebar.c:2772 ../src/caja-trash-bar.c:195
 msgid "Empty _Trash"
-msgstr "Empty _Wastebasket"
+msgstr "Empty _Bin"
 
 #: ../libcaja-private/caja-file-operations.c:1430
 msgid "Are you sure you want to permanently delete \"%B\"?"
@@ -1336,22 +1341,22 @@ msgstr[1] ""
 
 #: ../libcaja-private/caja-file-operations.c:1472
 msgid "Are you sure you want to trash \"%B\"?"
-msgstr "Are you sure you want to delete \"%B\"?"
+msgstr "Are you sure you want to bin \"%B\"?"
 
 #: ../libcaja-private/caja-file-operations.c:1475
 #, c-format
 msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Are you sure you want to bin the %'d selected item?"
+msgstr[1] "Are you sure you want to bin the %'d selected items?"
 
 #: ../libcaja-private/caja-file-operations.c:1484
 msgid "Items moved to the trash may be recovered until the trash is emptied."
-msgstr "Items moved to the Rubbish Bin may be recovered until it is emptied."
+msgstr "Items moved to the bin may be recovered until the bin is emptied."
 
 #: ../libcaja-private/caja-file-operations.c:1487
 msgid "Move to _Trash"
-msgstr "Move to _The Rubbish Bin"
+msgstr "Move to _Bin"
 
 #: ../libcaja-private/caja-file-operations.c:1518
 #, c-format
@@ -1426,27 +1431,26 @@ msgstr "There was an error deleting %B."
 
 #: ../libcaja-private/caja-file-operations.c:1836
 msgid "Moving files to trash"
-msgstr "Moving files to the wastebasket"
+msgstr "Moving files to the bin"
 
 #: ../libcaja-private/caja-file-operations.c:1838
 #, c-format
 msgid "%'d file left to trash"
 msgid_plural "%'d files left to trash"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d file left to bin"
+msgstr[1] "%'d files left to bin"
 
 #: ../libcaja-private/caja-file-operations.c:1895
 msgid "Cannot move file to trash, do you want to delete immediately?"
-msgstr ""
-"Cannot move file to the wastebasket, do you want to delete immediately?"
+msgstr "Cannot move file to the bin, do you want to delete immediately?"
 
 #: ../libcaja-private/caja-file-operations.c:1896
 msgid "The file \"%B\" cannot be moved to the trash."
-msgstr "The file \"%B\" cannot be moved to the wastebasket."
+msgstr "The file \"%B\" cannot be moved to the bin."
 
 #: ../libcaja-private/caja-file-operations.c:2080
 msgid "Trashing Files"
-msgstr "Moving Files to Wastebasket"
+msgstr "Binning Files"
 
 #: ../libcaja-private/caja-file-operations.c:2082
 msgid "Deleting Files"
@@ -1462,19 +1466,19 @@ msgstr "Unable to unmount %V"
 
 #: ../libcaja-private/caja-file-operations.c:2319
 msgid "Do you want to empty the trash before you unmount?"
-msgstr "Do you want to empty the wastebasket before you unmount?"
+msgstr "Do you want to empty the bin before you unmount?"
 
 #: ../libcaja-private/caja-file-operations.c:2321
 msgid ""
 "In order to regain the free space on this volume the trash must be emptied. "
 "All trashed items on the volume will be permanently lost."
 msgstr ""
-"In order to regain the free space on this volume the wastebasket must be "
-"emptied. All deleted items on the volume will be permanently lost."
+"In order to regain the free space on this volume the bin must be emptied. "
+"All binned items on the volume will be permanently lost."
 
 #: ../libcaja-private/caja-file-operations.c:2328
 msgid "Do _not Empty Trash"
-msgstr "Do _not Empty Wastebasket"
+msgstr "Do _not Empty Bin"
 
 #: ../libcaja-private/caja-file-operations.c:2447
 #, c-format
@@ -1506,8 +1510,8 @@ msgstr[1] ""
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Preparing to bin %'d file"
+msgstr[1] "Preparing to bin %'d files"
 
 #: ../libcaja-private/caja-file-operations.c:2574
 #: ../libcaja-private/caja-file-operations.c:3472
@@ -1524,7 +1528,7 @@ msgstr "Error while moving."
 
 #: ../libcaja-private/caja-file-operations.c:2580
 msgid "Error while moving files to trash."
-msgstr "Error while moving files to the wastebasket."
+msgstr "Error while moving files to the bin."
 
 #: ../libcaja-private/caja-file-operations.c:2635
 msgid ""
@@ -1834,7 +1838,7 @@ msgstr "There was an error creating the directory in %F."
 
 #: ../libcaja-private/caja-file-operations.c:6476
 msgid "Emptying Trash"
-msgstr "Emptying Wastebasket"
+msgstr "Emptying Bin"
 
 #: ../libcaja-private/caja-file-operations.c:6525
 #: ../libcaja-private/caja-file-operations.c:6566
@@ -1850,7 +1854,7 @@ msgstr "Could not determine original location of \"%s\" "
 
 #: ../libcaja-private/caja-file-utilities.c:1229
 msgid "The item cannot be restored from trash"
-msgstr "The item cannot be restored from the wastebasket"
+msgstr "The item cannot be restored from the bin"
 
 #: ../libcaja-private/caja-file.c:1225 ../libcaja-private/caja-vfs-file.c:439
 msgid "This file cannot be mounted"
@@ -2137,7 +2141,7 @@ msgstr "The Link \"%s\" is Broken."
 #: ../libcaja-private/caja-mime-actions.c:722
 #, c-format
 msgid "The Link \"%s\" is Broken. Move it to Trash?"
-msgstr "The Link \"%s\" is Broken. Move it to Wastebasket?"
+msgstr "The Link \"%s\" is Broken. Move it to the Bin?"
 
 #: ../libcaja-private/caja-mime-actions.c:729
 msgid "This link cannot be used, because it has no target."
@@ -2158,7 +2162,7 @@ msgstr "This link cannot be used, because its target \"%s\" doesn't exist."
 #: ../src/file-manager/fm-directory-view.c:8989
 #: ../src/file-manager/fm-tree-view.c:1335
 msgid "Mo_ve to Trash"
-msgstr "Mo_ve to Wastebasket"
+msgstr "Mo_ve to Bin"
 
 #: ../libcaja-private/caja-mime-actions.c:806
 #, c-format
@@ -2599,7 +2603,7 @@ msgstr "Rename '%s' as '%s'"
 #: ../libcaja-private/caja-undostack-manager.c:1417
 #, c-format
 msgid "Restore %d items from trash"
-msgstr "Restore %d items from the wastebasket"
+msgstr "Restore %d items from the bin"
 
 #: ../libcaja-private/caja-undostack-manager.c:1230
 #, c-format
@@ -2609,12 +2613,12 @@ msgstr "Restore '%s' to '%s'"
 #: ../libcaja-private/caja-undostack-manager.c:1241
 #, c-format
 msgid "Move %d items back to trash"
-msgstr "Move %d items back to the rubbish bin"
+msgstr "Move %d items back to the bin"
 
 #: ../libcaja-private/caja-undostack-manager.c:1244
 #, c-format
 msgid "Move '%s' back to trash"
-msgstr "Move '%s' back to trash"
+msgstr "Move '%s' back to the bin"
 
 #: ../libcaja-private/caja-undostack-manager.c:1253
 #, c-format
@@ -2694,17 +2698,17 @@ msgstr "Create a new folder '%s'"
 #: ../libcaja-private/caja-undostack-manager.c:1401
 #, c-format
 msgid "Move %d items to trash"
-msgstr "Move %d items to trash"
+msgstr "Move %d items to the bin"
 
 #: ../libcaja-private/caja-undostack-manager.c:1407
 #, c-format
 msgid "Move '%s' to trash"
-msgstr "Move '%s' to trash"
+msgstr "Move '%s' to the bin"
 
 #: ../libcaja-private/caja-undostack-manager.c:1420
 #, c-format
 msgid "Restore '%s' from trash"
-msgstr "Restore '%s' from trash"
+msgstr "Restore '%s' from the bin"
 
 #: ../libcaja-private/caja-undostack-manager.c:1429
 #, c-format
@@ -2785,15 +2789,15 @@ msgstr[1] ""
 #, c-format
 msgid "_Undo move to trash of %d item"
 msgid_plural "_Undo move to trash of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Undo move to the bin of %d item"
+msgstr[1] "_Undo move to the bin of %d items"
 
 #: ../libcaja-private/caja-undostack-manager.c:1536
 #, c-format
 msgid "_Undo restore from trash of %d item"
 msgid_plural "_Undo restore from trash of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Undo restore from the bin of %d item"
+msgstr[1] "_Undo restore from the bin of %d items"
 
 #: ../libcaja-private/caja-undostack-manager.c:1541
 #, c-format
@@ -2886,15 +2890,15 @@ msgstr[1] ""
 #, c-format
 msgid "_Redo move to trash of %d item"
 msgid_plural "_Redo move to trash of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Redo move to the bin of %d item"
+msgstr[1] "_Redo move to the bin of %d items"
 
 #: ../libcaja-private/caja-undostack-manager.c:1631
 #, c-format
 msgid "_Redo restore from trash of %d item"
 msgid_plural "_Redo restore from trash of %d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Redo restore from the bin of %d item"
+msgstr[1] "_Redo restore from the bin of %d items"
 
 #: ../libcaja-private/caja-undostack-manager.c:1636
 #, c-format
@@ -3004,9 +3008,7 @@ msgstr ""
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:11
 msgid "Whether to ask for confirmation when deleting files, or emptying Trash"
-msgstr ""
-"Whether to ask for confirmation when deleting files, or emptying the "
-"Wastebasket"
+msgstr "Whether to ask for confirmation when deleting files, or emptying Bin"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:12
 msgid ""
@@ -3014,11 +3016,11 @@ msgid ""
 "delete files, or empty the Trash."
 msgstr ""
 "If set to true, then Caja will ask for confirmation when you attempt to "
-"delete files, or empty the Wastebasket."
+"delete files, or empty the Bin."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:13
 msgid "Whether to ask for confirmation when moving files to the Trash"
-msgstr "Whether to ask for confirmation when moving files to the Rubbish Bin"
+msgstr "Whether to ask for confirmation when moving files to the Bin"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:14
 msgid ""
@@ -3026,7 +3028,7 @@ msgid ""
 " files to the Trash."
 msgstr ""
 "If set to true, then Caja will ask for confirmation when you attempt to move"
-" files to the Rubbish Bin."
+" files to the Bin."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:15
 msgid "Whether to enable immediate deletion"
@@ -3039,8 +3041,8 @@ msgid ""
 "can be dangerous, so use caution."
 msgstr ""
 "If set to true, then Caja will have a feature allowing you to delete a file "
-"immediately and in-place, instead of moving it to the wastebasket. This "
-"feature can be dangerous, so use caution."
+"immediately and in-place, instead of moving it to the bin. This feature can "
+"be dangerous, so use caution."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:17
 msgid "When to show preview text in icons"
@@ -3553,15 +3555,15 @@ msgstr ""
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:106
 msgid "Trash icon visible on desktop"
-msgstr "Wastebasket icon visible on desktop"
+msgstr "Bin icon visible on desktop"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:107
 msgid ""
 "If this is set to true, an icon linking to the trash will be put on the "
 "desktop."
 msgstr ""
-"If this is set to true, an icon linking to the wastebasket will be put on "
-"the desktop."
+"If this is set to true, an icon linking to the bin will be put on the "
+"desktop."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:108
 msgid "Show mounted volumes on the desktop"
@@ -3613,15 +3615,15 @@ msgstr ""
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:116
 msgid "Desktop trash icon name"
-msgstr "Desktop wastebasket icon name"
+msgstr "Desktop bin icon name"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:117
 msgid ""
 "This name can be set if you want a custom name for the trash icon on the "
 "desktop."
 msgstr ""
-"This name can be set if you want a custom name for the wastebasket icon on "
-"the desktop."
+"This name can be set if you want a custom name for the bin icon on the "
+"desktop."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:118
 msgid "Network servers icon name"
@@ -3883,7 +3885,7 @@ msgstr "Background"
 #: ../src/file-manager/fm-directory-view.c:7374
 #: ../src/file-manager/fm-directory-view.c:9058
 msgid "E_mpty Trash"
-msgstr "E_mpty Wastebasket"
+msgstr "E_mpty Bin"
 
 #. label, accelerator
 #. name, icon name
@@ -3914,13 +3916,13 @@ msgstr ""
 #. label, accelerator
 #: ../src/file-manager/fm-desktop-icon-view.c:781
 msgid "Empty Trash"
-msgstr "Empty Wastebasket"
+msgstr "Empty Bin"
 
 #. tooltip
 #: ../src/file-manager/fm-desktop-icon-view.c:783
 #: ../src/file-manager/fm-directory-view.c:7375 ../src/caja-trash-bar.c:202
 msgid "Delete all items in the Trash"
-msgstr "Delete all items in the Wastebasket"
+msgstr "Delete all items in the Bin"
 
 #: ../src/file-manager/fm-desktop-icon-view.c:883
 msgid "The desktop view encountered an error."
@@ -4489,12 +4491,12 @@ msgstr "Rename selected item"
 #: ../src/file-manager/fm-directory-view.c:7427
 #: ../src/file-manager/fm-directory-view.c:8990
 msgid "Move each selected item to the Trash"
-msgstr "Move each selected item to the Wastebasket"
+msgstr "Move each selected item to the Bin"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7431
 msgid "Delete each selected item, without moving to the Trash"
-msgstr "Delete each selected item, without moving to the Wastebasket"
+msgstr "Delete each selected item, without moving to the Bin"
 
 #. name, icon name
 #. label, accelerator
@@ -4742,12 +4744,12 @@ msgstr ""
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7559
 msgid "Move this folder to the Trash"
-msgstr "Move this folder to the Wastebasket"
+msgstr "Move this folder to the Bin"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7563
 msgid "Delete this folder, without moving to the Trash"
-msgstr "Delete this folder, without moving to the Wastebasket"
+msgstr "Delete this folder, without moving to the Bin"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7571
@@ -4842,49 +4844,49 @@ msgstr "_Scripts"
 #: ../src/file-manager/fm-directory-view.c:8110
 #, c-format
 msgid "Move the open folder out of the trash to \"%s\""
-msgstr "Move the open folder out of the wastebasket to \"%s\""
+msgstr "Move the open folder out of the bin to \"%s\""
 
 #: ../src/file-manager/fm-directory-view.c:8113
 #, c-format
 msgid "Move the selected folder out of the trash to \"%s\""
 msgid_plural "Move the selected folders out of the trash to \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Move the selected folder out of the bin to \"%s\""
+msgstr[1] "Move the selected folders out of the bin to \"%s\""
 
 #: ../src/file-manager/fm-directory-view.c:8117
 #, c-format
 msgid "Move the selected folder out of the trash"
 msgid_plural "Move the selected folders out of the trash"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Move the selected folder out of the bin"
+msgstr[1] "Move the selected folders out of the bin"
 
 #: ../src/file-manager/fm-directory-view.c:8123
 #, c-format
 msgid "Move the selected file out of the trash to \"%s\""
 msgid_plural "Move the selected files out of the trash to \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Move the selected file out of the bin to \"%s\""
+msgstr[1] "Move the selected files out of the bin to \"%s\""
 
 #: ../src/file-manager/fm-directory-view.c:8127
 #, c-format
 msgid "Move the selected file out of the trash"
 msgid_plural "Move the selected files out of the trash"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Move the selected file out of the bin"
+msgstr[1] "Move the selected files out of the bin"
 
 #: ../src/file-manager/fm-directory-view.c:8133
 #, c-format
 msgid "Move the selected item out of the trash to \"%s\""
 msgid_plural "Move the selected items out of the trash to \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Move the selected item out of the bin to \"%s\""
+msgstr[1] "Move the selected items out of the bin to \"%s\""
 
 #: ../src/file-manager/fm-directory-view.c:8137
 #, c-format
 msgid "Move the selected item out of the trash"
 msgid_plural "Move the selected items out of the trash"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Move the selected item out of the bin"
+msgstr[1] "Move the selected items out of the bin"
 
 #: ../src/file-manager/fm-directory-view.c:8263
 #: ../src/file-manager/fm-directory-view.c:8267
@@ -5047,7 +5049,7 @@ msgstr "Delete the open folder permanently"
 
 #: ../src/file-manager/fm-directory-view.c:8658
 msgid "Move the open folder to the Trash"
-msgstr "Move the open folder to the Wastebasket"
+msgstr "Move the open folder to the Bin"
 
 #: ../src/file-manager/fm-directory-view.c:8845
 #, c-format
@@ -5328,7 +5330,7 @@ msgstr "by _Wastebasket Time"
 #: ../src/file-manager/fm-icon-view.c:171
 #: ../src/file-manager/fm-icon-view.c:1783
 msgid "Keep icons sorted by trash time in rows"
-msgstr "Keep icons sorted by wastebasket time in rows"
+msgstr "Keep icons sorted by binned time in rows"
 
 #: ../src/file-manager/fm-icon-view.c:177
 msgid "by E_xtension"
@@ -6358,7 +6360,7 @@ msgstr "By Extension"
 
 #: ../src/caja-file-management-properties.ui.h:16
 msgid "By Trashed Date"
-msgstr "By Trashed Date"
+msgstr "By Binned Date"
 
 #: ../src/caja-file-management-properties.ui.h:18
 #, no-c-format
@@ -6554,19 +6556,19 @@ msgstr "_Ask each time"
 
 #: ../src/caja-file-management-properties.ui.h:70
 msgid "<b>Trash</b>"
-msgstr "<b>Wastebasket</b>"
+msgstr "<b>Bin</b>"
 
 #: ../src/caja-file-management-properties.ui.h:71
 msgid "Ask before _emptying the Trash or deleting files"
-msgstr "Ask before _emptying the Wastebasket or deleting files"
+msgstr "Ask before _emptying the Bin or deleting files"
 
 #: ../src/caja-file-management-properties.ui.h:72
 msgid "Ask before moving files to the _Trash"
-msgstr "Ask before moving files to the _The Rubbish Bin"
+msgstr "Ask before moving files to the _Bin"
 
 #: ../src/caja-file-management-properties.ui.h:73
 msgid "I_nclude a Delete command that bypasses Trash"
-msgstr "I_nclude a Delete command that bypasses the Wastebasket"
+msgstr "I_nclude a Delete command that bypasses the Bin"
 
 #: ../src/caja-file-management-properties.ui.h:74
 msgid "Behavior"
@@ -7192,7 +7194,7 @@ msgstr "Open the contents of the File System"
 
 #: ../src/caja-places-sidebar.c:615
 msgid "Open the trash"
-msgstr "Open the wastebasket"
+msgstr "Open the bin"
 
 #: ../src/caja-places-sidebar.c:670 ../src/caja-places-sidebar.c:698
 #, c-format
@@ -7984,12 +7986,12 @@ msgstr "Open your personal templates folder"
 #. label, accelerator
 #: ../src/caja-window-menus.c:1013
 msgid "_Trash"
-msgstr "_Wastebasket"
+msgstr "_Bin"
 
 #. tooltip
 #: ../src/caja-window-menus.c:1014
 msgid "Open your personal trash folder"
-msgstr "Open your personal wastebasket folder"
+msgstr "Open your personal bin folder"
 
 #. name, icon name
 #. label, accelerator
