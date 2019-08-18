@@ -322,9 +322,9 @@ msgid ""
 "which Caja is a fork. </p>"
 msgstr ""
 "<p> Caja es el gestor de archivos oficial para el escritorio MATE. Permite "
-"navegar por las carpetas, así como previsualizar los archivos y ejecutar las"
-" aplicaciones asociadas. También es el responsable de gestionar los iconos "
-"en el escritorio MATE. Funciona en sistemas de archivos locales y remotos. "
+"navegar por las carpetas, así como previsualizar los archivos y iniciar las "
+"aplicaciones asociadas. También es el responsable de gestionar los iconos en"
+" el escritorio MATE. Funciona en sistemas de archivos locales y remotos. "
 "</p> <p> Caja es ampliable mediante un sistema de complementos, similar al "
 "de Nautilus de GNOME, del cual Caja es una bifurcación. </p>"
 
@@ -630,7 +630,7 @@ msgstr "Acaba de insertar un soporte."
 
 #: ../libcaja-private/caja-autorun.c:1103
 msgid "Choose what application to launch."
-msgstr "Elija cuál aplicación iniciar."
+msgstr "Elija qué aplicación se iniciará."
 
 #: ../libcaja-private/caja-autorun.c:1113
 #, c-format
@@ -1869,7 +1869,7 @@ msgstr "Vaciando la papelera"
 #: ../libcaja-private/caja-file-operations.c:6601
 #: ../libcaja-private/caja-file-operations.c:6636
 msgid "Unable to mark launcher trusted (executable)"
-msgstr "No se puede marcar el lanzador confiado (ejecutable)"
+msgstr "No se puede marcar el lanzador como confiable (ejecutable)"
 
 #: ../libcaja-private/caja-file-utilities.c:1225
 #, c-format
@@ -2273,7 +2273,7 @@ msgstr ""
 
 #: ../libcaja-private/caja-mime-actions.c:1706
 msgid "Untrusted application launcher"
-msgstr "Lanzador de aplicación sin confianza"
+msgstr "Lanzador de aplicación no confiable"
 
 #: ../libcaja-private/caja-mime-actions.c:1709
 #, c-format
@@ -2281,12 +2281,12 @@ msgid ""
 "The application launcher \"%s\" has not been marked as trusted. If you do "
 "not know the source of this file, launching it may be unsafe."
 msgstr ""
-"El lanzador de la aplicación «%s» no se ha marcado como confiado. Si no "
-"conoce el origen de este archivo, lanzarlo puede no ser seguro."
+"El lanzador de la aplicación «%s» no se ha marcado como confiable. Si no "
+"conoce el origen de este archivo, es posible que iniciarlo no sea seguro."
 
 #: ../libcaja-private/caja-mime-actions.c:1724
 msgid "_Launch Anyway"
-msgstr "_Lanzar de todas formas"
+msgstr "_Iniciar de todas formas"
 
 #: ../libcaja-private/caja-mime-actions.c:1728
 msgid "Mark as _Trusted"
@@ -2519,7 +2519,7 @@ msgstr "Se ha desactivado debido a consideraciones de seguridad."
 #: ../libcaja-private/caja-program-choosing.c:475
 #: ../libcaja-private/caja-program-choosing.c:543
 msgid "There was an error launching the application."
-msgstr "Se ha producido un error al lanzar la aplicación."
+msgstr "Se ha producido un error al iniciar la aplicación."
 
 #: ../libcaja-private/caja-program-choosing.c:504
 #: ../libcaja-private/caja-program-choosing.c:517
@@ -3119,15 +3119,15 @@ msgstr ""
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:21
 msgid "Type of click used to launch/open files"
-msgstr "El tipo de clic usado para ejecutar/abrir los archivos"
+msgstr "El tipo de clic usado para iniciar/abrir archivos"
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:22
 msgid ""
 "Possible values are \"single\" to launch files on a single click, or "
 "\"double\" to launch them on a double click."
 msgstr ""
-"Los valores posibles son «single» para lanzar archivos con un solo clic o "
-"«double» para lanzarlos con una doble clic."
+"Los valores posibles son «single» para iniciar archivos con un solo clic o "
+"«double» para iniciarlos con una doble clic."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:23
 msgid "What to do with executable text files when activated"
@@ -3141,8 +3141,8 @@ msgid ""
 "text files."
 msgstr ""
 "Qué hacer con los archivos de texto ejecutables cuando se activan (con uno o"
-" dos clics). Los valores posibles son «launch» para lanzarlos como "
-"programas, «ask» para solicitar una confirmación por medio de un diálogo y "
+" dos clics). Los valores posibles son «launch» para iniciarlos como "
+"programas, «ask» para para preguntar qué hacer mediante un diálogo y "
 "«display» para mostrarlos como archivos de texto."
 
 #: ../libcaja-private/org.mate.caja.gschema.xml.h:25
@@ -3850,8 +3850,8 @@ msgstr ""
 msgid ""
 "List of x-content/* types where the preferred application will be launched"
 msgstr ""
-"Lista de tipos de contenido (x-content/*) en la que se lanzará la aplicación"
-" preferida"
+"Lista de tipos de contenido (x-content/*) en la que se iniciará la "
+"aplicación preferida"
 
 #: ../libcaja-private/org.mate.media-handling.gschema.xml.h:8
 msgid ""
@@ -3918,7 +3918,7 @@ msgstr "La aplicación no acepta documentos en la línea de órdenes"
 #: ../libegg/eggdesktopfile.c:1168
 #, c-format
 msgid "Unrecognized launch option: %d"
-msgstr "Opción de apertura no reconocida: %d"
+msgstr "Opción de inicio no reconocida: %d"
 
 #: ../libegg/eggdesktopfile.c:1366
 #, c-format
