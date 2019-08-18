@@ -26,6 +26,7 @@
 #include <math.h>
 #include <string.h>
 
+#include <libnotify/notify.h>
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
 
@@ -603,18 +604,7 @@ update_status_icon_and_window (void)
 {
     char *tooltip;
     gboolean toshow;
-    GNotification *notification;
-    gboolean show_notifications = g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SHOW_NOTIFICATIONS);
     static gboolean window_shown = FALSE;
-
-    if (show_notifications)
-    {
-        GIcon *icon;
-
-        notification = g_notification_new ("caja");
-        icon = g_themed_icon_new ("system-file-manager");
-        g_notification_set_icon (notification, icon);
-    }
 
     tooltip = g_strdup_printf (ngettext ("%'d file operation active",
                                          "%'d file operations active",
@@ -632,10 +622,18 @@ update_status_icon_and_window (void)
 
         if (window_shown)
         {
-            if (show_notifications && !gtk_window_is_active (GTK_WINDOW (get_progress_window ())))
+            if (g_settings_get_boolean (caja_preferences, CAJA_PREFERENCES_SHOW_NOTIFICATIONS) &&
+                !gtk_window_is_active (GTK_WINDOW (get_progress_window ())))
             {
-                g_notification_set_body (notification, _("Process completed"));
-                g_application_send_notification (g_application_get_default (), "caja", notification);
+                NotifyNotification *notification;
+
+                notification = notify_notification_new ("caja",
+                                                        _("Process completed"),
+                                                        "system-file-manager");
+
+                notify_notification_show (notification, NULL);
+
+                g_object_unref (notification);
             }
 
             gtk_widget_hide (get_progress_window ());
