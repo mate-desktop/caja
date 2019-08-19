@@ -39,11 +39,17 @@ typedef struct _CajaWidgetViewProviderIface  CajaWidgetViewProviderIface;
 
 /**
  * CajaWidgetViewProviderIface:
- * @g_iface: The parent interface.
+ * @supports_uri: Whether this extension works for this uri
  * @get_widget: Returns a #GtkWidget.
- * See caja_widget_view_provider_get_widget() for details.
+ *   See caja_widget_view_provider_get_widget() for details.
+ * @add_file: Adds a file to this widget view.
+ * @set_location: Set location to this widget view.
+ * @set_window: Set the main window to this widget view.
+ * @get_item_count: Return the item count of this widget view.
+ * @get_first_visible_file: Return the first visible file from this widget view.
+ * @clear: Clear items in this widget view.
  *
- * Interface for extensions to provide widgets view.
+ * Interface for extensions to provide widgets view for content.
  */
 struct _CajaWidgetViewProviderIface {
     GTypeInterface g_iface;

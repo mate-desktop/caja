@@ -70,8 +70,9 @@ caja_widget_view_provider_get_type (void)
  * caja_widget_view_provider_get_widget:
  * @provider: a #CajaWidgetViewProvider
  *
+ * Return a #GtkWidget to show the current location content.
  *
- * Returns:
+ * Returns: The #GtkWidget used to show the contents.
  **/
 GtkWidget *
 caja_widget_view_provider_get_widget (CajaWidgetViewProvider *provider)
@@ -85,10 +86,10 @@ caja_widget_view_provider_get_widget (CajaWidgetViewProvider *provider)
 /**
  * caja_widget_view_provider_add_file:
  * @provider: a #CajaWidgetViewProvider
- * @file:
- * @directory:
+ * @file: add a #CajaFile into the widget view.
+ * @directory: the directory of the file.
  *
- *
+ * Add a file of this location into the widget view.
  **/
 void caja_widget_view_provider_add_file (CajaWidgetViewProvider *provider, CajaFile *file, CajaFile *directory)
 {
@@ -103,7 +104,7 @@ void caja_widget_view_provider_add_file (CajaWidgetViewProvider *provider, CajaF
  * @provider: a #CajaWidgetViewProvider
  * @uri: the URI of the location
  *
- *
+ * Set the location of this #CajaWidgetViewProvider.
  **/
 void caja_widget_view_provider_set_location (CajaWidgetViewProvider *provider, const char *location)
 {
@@ -118,7 +119,7 @@ void caja_widget_view_provider_set_location (CajaWidgetViewProvider *provider, c
  * @provider: a #CajaWidgetViewProvider
  * @window: parent #GtkWindow
  *
- *
+ * Set parent #GtkWindow of this #CajaWidgetViewProvider.
  **/
 void caja_widget_view_provider_set_window (CajaWidgetViewProvider *provider, GtkWindow *window)
 {
@@ -128,6 +129,12 @@ void caja_widget_view_provider_set_window (CajaWidgetViewProvider *provider, Gtk
     CAJA_WIDGET_VIEW_PROVIDER_GET_IFACE (provider)->set_window (provider, window);
 }
 
+/**
+ * caja_widget_view_provider_get_item_count:
+ * @provider: a #CajaWidgetViewProvider
+ *
+ * Return value: The item count of this #CajaWidgetViewProvider
+ **/
 guint caja_widget_view_provider_get_item_count (CajaWidgetViewProvider *provider)
 {
     g_return_val_if_fail (CAJA_IS_WIDGET_VIEW_PROVIDER (provider), 0);
@@ -136,6 +143,15 @@ guint caja_widget_view_provider_get_item_count (CajaWidgetViewProvider *provider
     return CAJA_WIDGET_VIEW_PROVIDER_GET_IFACE (provider)->get_item_count (provider);
 }
 
+/**
+ * caja_widget_view_provider_get_first_visible_file:
+ * @provider: a #CajaWidgetViewProvider
+ *
+ * Return the first visible file. When use start visit the location, the caja's status is waiting, until
+ * get the first visible file.
+ *
+ * Return value: the first visible file.
+ **/
 gchar* caja_widget_view_provider_get_first_visible_file (CajaWidgetViewProvider *provider)
 {
     g_return_val_if_fail (CAJA_IS_WIDGET_VIEW_PROVIDER (provider), NULL);
@@ -144,6 +160,12 @@ gchar* caja_widget_view_provider_get_first_visible_file (CajaWidgetViewProvider 
     return CAJA_WIDGET_VIEW_PROVIDER_GET_IFACE (provider)->get_first_visible_file (provider);
 }
 
+/**
+ * caja_widget_view_provider_clear:
+ * @provider: a #CajaWidgetViewProvider
+ *
+ * Clear the content of this widget view.
+ **/
 void caja_widget_view_provider_clear (CajaWidgetViewProvider *provider)
 {
     g_return_if_fail (CAJA_IS_WIDGET_VIEW_PROVIDER (provider));
@@ -155,13 +177,13 @@ void caja_widget_view_provider_clear (CajaWidgetViewProvider *provider)
 /**
  * caja_widget_view_provider_supports_uri:
  * @provider: a #CajaWidgetViewProvider
- * @uri:
- * @file_type:
- * @mime_type:
+ * @uri: the location to visit.
+ * @file_type: The #GFileType for the uri
+ * @mime_type: The mimetype for the uri
  *
+ * Whether this widget view works for the uri.
  *
- *
- * Return value:
+ * Return value: True to use custom widget view, False to ignore, and caja use normal view.
  **/
 gboolean caja_widget_view_provider_supports_uri (CajaWidgetViewProvider *provider,
                                                  const char *uri,
