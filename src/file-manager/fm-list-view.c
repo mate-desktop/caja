@@ -3493,10 +3493,10 @@ fm_list_view_supports_uri (const char *uri,
 static CajaViewInfo fm_list_view =
 {
     FM_LIST_VIEW_ID,
-    /* translators: this is used in the view selection dropdown
+    /* Translators: this is used in the view selection dropdown
      * of navigation windows and in the preferences dialog */
     N_("List View"),
-    /* translators: this is used in the view menu */
+    /* Translators: this is used in the view menu */
     N_("_List"),
     N_("The list view encountered an error."),
     N_("The list view encountered an error while starting up."),

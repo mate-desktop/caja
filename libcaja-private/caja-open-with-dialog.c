@@ -1068,13 +1068,13 @@ set_uri_and_type (CajaOpenWithDialog *dialog,
             emname = g_strdup_printf ("<i>%s</i>", name);
             if (add_mode)
             {
-                /* first %s is a filename and second %s is a file extension */
+                /* Translators: first %s is a filename and second %s is a file extension */
                 label = g_strdup_printf (_("Open %s and other %s document with:"),
                                          emname, dialog->details->extension);
             }
             else
             {
-                /* the %s here is a file name */
+                /* Translators: the %s here is a file name */
                 label = g_strdup_printf (_("Open %s with:"), emname);
                 checkbox_text = g_strdup_printf (_("_Remember this application for %s documents"),
                                                  dialog->details->extension);
@@ -1109,16 +1109,16 @@ set_uri_and_type (CajaOpenWithDialog *dialog,
             emname = g_strdup_printf ("<i>%s</i>", name);
             if (add_mode)
             {
-                /* First %s is a filename, second is a description
+                /* Translators: First %s is a filename, second is a description
                  * of the type, eg "plain text document" */
                 label = g_strdup_printf (_("Open %s and other \"%s\" files with:"),
                                          emname, description);
             }
             else
             {
-                /* %s is a filename */
+                /* Translators: %s is a filename */
                 label = g_strdup_printf (_("Open %s with:"), emname);
-                /* %s is a file type description */
+                /* Translators: %s is a file type description */
                 checkbox_text = g_strdup_printf (_("_Remember this application for \"%s\" files"),
                                                  description);
 

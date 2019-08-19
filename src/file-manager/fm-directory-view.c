@@ -2329,7 +2329,7 @@ fm_directory_view_display_selection_info (FMDirectoryView *view)
 			if (!folder_item_count_known) {
 				folder_item_count_str = g_strdup ("");
 			} else {
-				/* translators: this is preceded with a string of form 'N folders' (N more than 1) */
+				/* Translators: this is preceded with a string of form 'N folders' (N more than 1) */
 				folder_item_count_str = g_strdup_printf (ngettext(" (containing a total of %'d item)",
 										  " (containing a total of %'d items)",
 										  folder_item_count),
@@ -2368,7 +2368,7 @@ fm_directory_view_display_selection_info (FMDirectoryView *view)
 			else
 				size_string = g_format_size(non_folder_size);
 
-			/* This is marked for translation in case a localiser
+			/* Translators: This is marked for translation in case a localiser
 			 * needs to use something other than parentheses. The
 			 * first message gives the number of items selected;
 			 * the message in parentheses the size of those items.
@@ -7403,7 +7403,7 @@ static const GtkActionEntry directory_view_entries[] = {
                                  G_CALLBACK (action_new_folder_callback) },
   /* name, icon name, label */ { "No Templates", NULL, N_("No templates installed") },
   /* name, icon name */        { "New Empty File", NULL,
-    /* translators: this is used to indicate that a file doesn't contain anything */
+  /* Translators: this is used to indicate that a file doesn't contain anything */
   /* label, accelerator */       N_("_Empty File"), NULL,
   /* tooltip */                  N_("Create a new empty file inside this folder"),
                                  G_CALLBACK (action_new_empty_file_callback) },
@@ -7441,7 +7441,7 @@ static const GtkActionEntry directory_view_entries[] = {
                                  G_CALLBACK (action_other_application_callback) },
   /* name, icon name */        { "Open Scripts Folder", NULL,
   /* label, accelerator */       N_("_Open Scripts Folder"), NULL,
-   /* tooltip */                 N_("Show the folder containing the scripts that appear in this menu"),
+  /* tooltip */                  N_("Show the folder containing the scripts that appear in this menu"),
                                  G_CALLBACK (action_open_scripts_folder_callback) },
   /* name, icon name */        { "Empty Trash", CAJA_ICON_TRASH,
   /* label, accelerator */       N_("E_mpty Trash"), NULL,
@@ -10897,7 +10897,7 @@ fm_directory_view_handle_text_drop (FMDirectoryView  *view,
 
 	fm_directory_view_new_file_with_initial_contents (
 		view, target_uri != NULL ? target_uri : container_uri,
-		/* Translator: This is the filename used for when you dnd text to a directory */
+		/* Translators: This is the filename used for when you dnd text to a directory */
 		_("dropped text.txt"),
 		text, length, &pos);
 
@@ -10941,7 +10941,7 @@ fm_directory_view_handle_raw_drop (FMDirectoryView  *view,
 		filename = g_file_get_basename (direct_save_full);
 	}
 	if (filename == NULL) {
-		/* Translator: This is the filename used for when you dnd raw
+		/* Translators: This is the filename used for when you dnd raw
 		 * data to a directory, if the source didn't supply a name.
 		 */
 		filename = _("dropped data");

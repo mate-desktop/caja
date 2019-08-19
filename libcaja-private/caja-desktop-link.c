@@ -100,7 +100,7 @@ caja_desktop_link_ensure_display_name (CajaDesktopLink *link)
         switch (link->details->type)
         {
         case CAJA_DESKTOP_LINK_HOME:
-            /* Note to translators: If it's hard to compose a good home
+            /* Translators: If it's hard to compose a good home
              * icon name from the user name, you can use a string without
              * an "%s" here, in which case the home icon name will not
              * include the user's name, which should be fine. To avoid a
