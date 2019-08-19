@@ -3431,10 +3431,10 @@ fm_icon_view_supports_uri (const char *uri,
 static CajaViewInfo fm_icon_view =
 {
     FM_ICON_VIEW_ID,
-    /* translators: this is used in the view selection dropdown
+    /* Translators: this is used in the view selection dropdown
      * of navigation windows and in the preferences dialog */
     N_("Icon View"),
-    /* translators: this is used in the view menu */
+    /* Translators: this is used in the view menu */
     N_("_Icons"),
     N_("The icon view encountered an error."),
     N_("The icon view encountered an error while starting up."),
@@ -3446,10 +3446,10 @@ static CajaViewInfo fm_icon_view =
 static CajaViewInfo fm_compact_view =
 {
     FM_COMPACT_VIEW_ID,
-    /* translators: this is used in the view selection dropdown
+    /* Translators: this is used in the view selection dropdown
      * of navigation windows and in the preferences dialog */
     N_("Compact View"),
-    /* translators: this is used in the view menu */
+    /* Translators: this is used in the view menu */
     N_("_Compact"),
     N_("The compact view encountered an error."),
     N_("The compact view encountered an error while starting up."),
