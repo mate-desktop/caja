@@ -4141,7 +4141,7 @@ permission_combo_update (FMPropertiesWindow *window,
 			str = g_string_new ("");
 
 			if (!(all_perm & PERMISSION_READ)) {
-				/* translators: this gets concatenated to "no read",
+				/* Translators: this gets concatenated to "no read",
 				 * "no access", etc. (see following strings)
 				 */
 				g_string_append (str, _("no "));
