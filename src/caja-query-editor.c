@@ -1081,7 +1081,7 @@ static GtkWidget *modtime_row_create_widgets(CajaQueryEditorRow *row)
     gtk_list_store_append(store, &iter);
     gtk_list_store_set(store, &iter, 0, FALSE, 1, _("Less than or equal to"), -1);
     gtk_list_store_append(store, &iter);
-    gtk_list_store_set(store, &iter, 0, TRUE, 1, _("Greater or equal to"), -1);
+    gtk_list_store_set(store, &iter, 0, TRUE, 1, _("Greater than or equal to"), -1);
 
     gtk_combo_box_set_active(GTK_COMBO_BOX(combo), 0);
 
@@ -1220,7 +1220,7 @@ static GtkWidget *size_row_create_widgets(CajaQueryEditorRow *row)
     gtk_list_store_append(store, &iter);
     gtk_list_store_set(store, &iter, 0, FALSE, 1, _("Less than or equal to"), -1);
     gtk_list_store_append(store, &iter);
-    gtk_list_store_set(store, &iter, 0, TRUE, 1, _("Greater or equal to"), -1);
+    gtk_list_store_set(store, &iter, 0, TRUE, 1, _("Greater than or equal to"), -1);
 
     gtk_combo_box_set_active(GTK_COMBO_BOX(combo), 0);
 
