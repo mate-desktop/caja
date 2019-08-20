@@ -19,7 +19,9 @@ desktop_DATA = \
 desktop_in_files = $(desktop_DATA:.desktop=.desktop.in)
 desktop_in_in_files = $(desktop_DATA:.desktop=.desktop.in.in)
 %.desktop.in: %.desktop.in.in
-	$(AM_V_GEN) GETTEXTDATADIR=$(top_srcdir) $(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
+	$(AM_V_GEN) GETTEXTDATADIR=$(top_srcdir) $(MSGFMT) --desktop \
+		--keyword --keyword=Name --keyword=GenericName --keyword=Comment --keyword=Keywords \
+		--template $< -d $(top_srcdir)/po -o $@
 %.desktop: %.desktop.in
 	$(AM_V_GEN) sed -e 's|@bindir[@]|$(bindir)|g' $< > $@
 
