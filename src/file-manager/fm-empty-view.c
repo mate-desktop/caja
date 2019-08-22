@@ -24,6 +24,7 @@
 
 #include <config.h>
 #include <string.h>
+#include <glib/gi18n.h>
 
 #include <eel/eel-glib-extensions.h>
 #include <eel/eel-gtk-macros.h>
@@ -393,11 +394,11 @@ fm_empty_view_supports_uri (const char *uri,
 static CajaViewInfo fm_empty_view =
 {
     .id = FM_EMPTY_VIEW_ID,
-    .view_combo_label = "Empty",
-    .view_menu_label_with_mnemonic = "Empty View",
-    .error_label = "_Empty View",
-    .startup_error_label = "The empty view encountered an error.",
-    .display_location_label = "Display this location with the empty view.",
+    .view_combo_label = N_("Empty View"),
+    .view_menu_label_with_mnemonic = N_("_Empty"),
+    .error_label = N_("Empty View"),
+    .startup_error_label = N_("The empty view encountered an error."),
+    .display_location_label = N_("Display this location with the empty view."),
     .create = fm_empty_view_create,
     .supports_uri =fm_empty_view_supports_uri
 };
