@@ -394,7 +394,10 @@ caja_window_slot_update_icon (CajaWindowSlot *slot)
              */
             if (g_strcmp0 (icon_name, gtk_window_get_icon_name (GTK_WINDOW (window))) != 0)
             {
-                gtk_window_set_icon_name (GTK_WINDOW (window), icon_name);
+                if (g_strcmp0 (icon_name, "text-x-generic") == 0)
+                    gtk_window_set_icon_name (GTK_WINDOW (window), "folder-saved-search");
+                else
+                    gtk_window_set_icon_name (GTK_WINDOW (window), icon_name);
             }
         }
         else
