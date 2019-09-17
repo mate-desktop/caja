@@ -1,19 +1,50 @@
+### caja 1.22.2
+
+  * update translations
+  * caja-progress-info: use NotifyNotification instead of GNotification
+  * Update Korean translation which prevents a segfault on file move
+  * Use the same view settings for search results as the folder being searched
+  * fix build error about fm-empty-view
+  * preferences: Render extension icons as cairo_surfaces
+  * preferences: Render media icons as cairo_surface
+  * Replace gdkpixbuf with cairo_surfaces in a few more places
+  * sidebar: Render info icon as vector
+  * caja-location-dialog: Fix 'cppcheck' and 'clang' warnings
+  * eel-editable-label: Use 'memmove' instead of 'memcpy'
+  * caja-file: avoid shifting signed 32-bit value by 31 bits
+  * caja-icon-canvas-item: initialize variable 'scale'
+  * caja-application: avoid NULL inside 'g_object_unref'
+  * fm-desktop-icon-view: remove dead code
+  * caja-file-operations: make sure 'error' isn't NULL
+  * caja-open-with-dialog: make sure there is error before showing it
+  * caja-sidebar-title: avoid 'NULL' inside 'setup_gc_with_fg'
+  * caja-autorun: avoid NULL in 'memcpy'
+  * eel-editable-label: call argument with initialized value
+  * configure.ac: fix portability issue with test
+  * eel-canvas: Fix warning: Undefined or garbage value returned to caller
+  * caja-window: Fix garbage value
+  * Fix attempt to free released memory
+  * Render file-conflict icons as cairo_surface vectors
+  * file-conflict-dialog: don't scale icons twice on hidpi monitors
+  * desktop icon view: disconnect callback from correct GSettings instance
+  * hidpi: ensure all icons are properly scaled
+
 ### caja 1.22.1
 
-    tx: sync with transifex
-    caja-progress-info: make sure argument is initialized
-    Fix invocation with --geometry from the command line
-    Pass "NULL" for keyboard event
-    caja-file: Fix incomplete file replacement dialog
-    eel-gdk-pixbuf-extensions: Fix division by zero
-    caja-file: Fix use of memory after it is freed
-    caja-icon-container: Fix use of memory after it is freed
-    fm-tree-model: Fix use of memory after it is freed
-    caja-information-panel: Fix use of memory after it is freed
-    fm-directory-view: Fix use of memory after it is freed
-    caja-tree-view-drag-dest: Fix memory leak
-    [Security] eel-string: Use 'g_strlcat' instead of 'strcat'
-    [Security] Use 'g_strlcpy' instead of 'strcpy'
+  * update translations
+  * caja-progress-info: make sure argument is initialized
+  * Fix invocation with --geometry from the command line
+  * Pass "NULL" for keyboard event
+  * caja-file: Fix incomplete file replacement dialog
+  * eel-gdk-pixbuf-extensions: Fix division by zero
+  * caja-file: Fix use of memory after it is freed
+  * caja-icon-container: Fix use of memory after it is freed
+  * fm-tree-model: Fix use of memory after it is freed
+  * caja-information-panel: Fix use of memory after it is freed
+  * fm-directory-view: Fix use of memory after it is freed
+  * caja-tree-view-drag-dest: Fix memory leak
+  * [Security] eel-string: Use 'g_strlcat' instead of 'strcat'
+  * [Security] Use 'g_strlcpy' instead of 'strcpy'
 
 ### caja 1.22.0
 
