@@ -4,9 +4,10 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Daniel <danicases@gmail.com>, 2018
-# Pere O. <gotrunks@gmail.com>, 2018
+# Daniel <danicases@gmail.com>, 2019
 # Stefano Karapetsas <stefano@karapetsas.com>, 2019
+# Pere O. <gotrunks@gmail.com>, 2019
+# clefebvre <clement.lefebvre@linuxmint.com>, 2019
 # Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2019
 # 
 #, fuzzy
@@ -14,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-16 22:36+0100\n"
-"PO-Revision-Date: 2018-03-11 14:48+0000\n"
+"POT-Creation-Date: 2019-04-22 22:09+0200\n"
+"PO-Revision-Date: 2019-03-11 12:13+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2019\n"
 "Language-Team: Catalan (https://www.transifex.com/mate/teams/13566/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -322,7 +323,7 @@ msgstr "Pregunta d'execució automàtica"
 #. Set initial window title
 #: ../data/caja-browser.desktop.in.h:1 ../data/caja.desktop.in.h:1
 #: ../data/caja-folder-handler.desktop.in.h:1 ../src/caja-spatial-window.c:396
-#: ../src/caja-window-menus.c:636 ../src/caja-window.c:164
+#: ../src/caja-window-menus.c:557 ../src/caja-window.c:164
 msgid "Caja"
 msgstr "Caja"
 
@@ -340,7 +341,7 @@ msgid "Computer"
 msgstr "Ordinador"
 
 #. tooltip
-#: ../data/caja-computer.desktop.in.h:2 ../src/caja-window-menus.c:999
+#: ../data/caja-computer.desktop.in.h:2 ../src/caja-window-menus.c:918
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
 msgstr ""
@@ -371,7 +372,7 @@ msgstr "Carpeta de l'usuari"
 
 #. tooltip
 #: ../data/caja-home.desktop.in.h:2 ../src/caja-places-sidebar.c:523
-#: ../src/caja-window-menus.c:994
+#: ../src/caja-window-menus.c:913
 msgid "Open your personal folder"
 msgstr "Obriu la vostra carpeta personal"
 
@@ -480,7 +481,7 @@ msgstr "Mostra més _detalls"
 #: ../src/file-manager/fm-directory-view.c:1211
 #: ../src/file-manager/fm-directory-view.c:1364
 #: ../src/file-manager/fm-directory-view.c:7026
-#: ../src/file-manager/fm-directory-view.c:10349
+#: ../src/file-manager/fm-directory-view.c:10353
 #: ../src/caja-connect-server-dialog.c:1121 ../src/caja-emblem-sidebar.c:288
 #: ../src/caja-emblem-sidebar.c:545 ../src/caja-location-dialog.c:194
 #: ../src/caja-property-browser.c:1107 ../src/caja-property-browser.c:1187
@@ -1157,7 +1158,7 @@ msgstr[1] "aproximadament %'d hores"
 #. * to that kind of file (e.g. "link to folder").
 #: ../libcaja-private/caja-file-operations.c:409
 #: ../libcaja-private/caja-file.c:6759
-#: ../src/file-manager/fm-directory-view.c:10593
+#: ../src/file-manager/fm-directory-view.c:10597
 #, c-format
 msgid "Link to %s"
 msgstr "enllaç a %s"
@@ -1668,7 +1669,7 @@ msgstr "%S de %S"
 #: ../libcaja-private/caja-file-operations.c:3097
 msgid "%S of %S — %T left (%S/sec)"
 msgid_plural "%S of %S — %T left (%S/sec)"
-msgstr[0] "%S de %S — queden %T (%S/s)"
+msgstr[0] "%S de %S — queda %T (%S/s)"
 msgstr[1] "%S de %S — queden %T (%S/s)"
 
 #: ../libcaja-private/caja-file-operations.c:3476
@@ -1845,7 +1846,7 @@ msgstr "S'ha produït un error en crear el directori a %F."
 
 #: ../libcaja-private/caja-file-operations.c:6476
 msgid "Emptying Trash"
-msgstr "S'està buidant la paperera"
+msgstr "Buidar la paperera"
 
 #: ../libcaja-private/caja-file-operations.c:6525
 #: ../libcaja-private/caja-file-operations.c:6566
@@ -2550,12 +2551,12 @@ msgstr "a la cua"
 msgid "queuing"
 msgstr "s'està posant a la cua"
 
-#: ../libcaja-private/caja-progress-info.c:610
+#: ../libcaja-private/caja-progress-info.c:611
 #, c-format
 msgid "%'d file operation active"
 msgid_plural "%'d file operations active"
-msgstr[0] "%'d operació activa de fitxers"
-msgstr[1] "%'d operacions actives de fitxers"
+msgstr[0] "%'d operació sobre fitxers activa"
+msgstr[1] "%'d operacions sobre fitxers actives"
 
 #: ../libcaja-private/caja-progress-info.c:629
 msgid "Process completed"
@@ -4046,7 +4047,7 @@ msgstr "Selecciona els elements que coincideixin"
 #: ../src/caja-emblem-sidebar.c:555
 #: ../src/caja-file-management-properties.ui.h:42
 #: ../src/caja-location-dialog.c:189 ../src/caja-property-browser.c:386
-#: ../src/caja-window-menus.c:911
+#: ../src/caja-window-menus.c:830
 msgid "_Help"
 msgstr "_Ajuda"
 
@@ -4600,7 +4601,7 @@ msgstr "_Desfés"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7439
-#: ../src/file-manager/fm-directory-view.c:11197
+#: ../src/file-manager/fm-directory-view.c:11201
 msgid "Undo the last action"
 msgstr "Desfés l'última acció"
 
@@ -4612,7 +4613,7 @@ msgstr "_Refés"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7443
-#: ../src/file-manager/fm-directory-view.c:11215
+#: ../src/file-manager/fm-directory-view.c:11219
 msgid "Redo the last undone action"
 msgstr "Refés l'última acció desfeta"
 
@@ -4712,7 +4713,7 @@ msgstr "Inicia el volum seleccionat"
 #: ../src/file-manager/fm-directory-view.c:8383
 #: ../src/file-manager/fm-directory-view.c:8493
 #: ../src/caja-places-sidebar.c:1805 ../src/caja-places-sidebar.c:2763
-#: ../src/caja-window-menus.c:938
+#: ../src/caja-window-menus.c:857
 msgid "_Stop"
 msgstr "At_ura"
 
@@ -4893,7 +4894,7 @@ msgstr "Mou la selecció actual a l'altre plafó de la finestra"
 #. name, icon name
 #. label, accelerator
 #: ../src/file-manager/fm-directory-view.c:7610
-#: ../src/file-manager/fm-directory-view.c:7614 ../src/caja-window-menus.c:993
+#: ../src/file-manager/fm-directory-view.c:7614 ../src/caja-window-menus.c:912
 msgid "_Home Folder"
 msgstr "_Carpeta de l'usuari"
 
@@ -5181,57 +5182,57 @@ msgstr "Suprimeix definitivament tots els elements seleccionats"
 msgid "View or modify the properties of the open folder"
 msgstr "Visualitza o modifica les propietats de la carpeta oberta"
 
-#: ../src/file-manager/fm-directory-view.c:10340
+#: ../src/file-manager/fm-directory-view.c:10344
 msgid "Download location?"
 msgstr "Ubicació de baixada?"
 
-#: ../src/file-manager/fm-directory-view.c:10343
+#: ../src/file-manager/fm-directory-view.c:10347
 msgid "You can download it or make a link to it."
 msgstr "Podeu baixar-ho o crear-hi un enllaç."
 
-#: ../src/file-manager/fm-directory-view.c:10346
+#: ../src/file-manager/fm-directory-view.c:10350
 msgid "Make a _Link"
 msgstr "Crea un _enllaç"
 
-#: ../src/file-manager/fm-directory-view.c:10353
+#: ../src/file-manager/fm-directory-view.c:10357
 msgid "_Download"
 msgstr "_Baixa"
 
-#: ../src/file-manager/fm-directory-view.c:10514
-#: ../src/file-manager/fm-directory-view.c:10573
-#: ../src/file-manager/fm-directory-view.c:10678
+#: ../src/file-manager/fm-directory-view.c:10518
+#: ../src/file-manager/fm-directory-view.c:10577
+#: ../src/file-manager/fm-directory-view.c:10682
 msgid "Drag and drop is not supported."
 msgstr "No es permet arrossegar i deixar anar."
 
-#: ../src/file-manager/fm-directory-view.c:10515
+#: ../src/file-manager/fm-directory-view.c:10519
 msgid "Drag and drop is only supported on local file systems."
 msgstr ""
 "El fet d'arrossegar i deixar anar només es permet als sistemes de fitxers "
 "locals."
 
-#: ../src/file-manager/fm-directory-view.c:10574
-#: ../src/file-manager/fm-directory-view.c:10679
+#: ../src/file-manager/fm-directory-view.c:10578
+#: ../src/file-manager/fm-directory-view.c:10683
 msgid "An invalid drag type was used."
 msgstr "S'ha utilitzat un tipus d'arrossegament no vàlid."
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10756
+#: ../src/file-manager/fm-directory-view.c:10760
 msgid "dropped text.txt"
 msgstr "text arrossegat.txt"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10801
+#: ../src/file-manager/fm-directory-view.c:10805
 msgid "dropped data"
 msgstr "dades arrossegades"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11196
+#: ../src/file-manager/fm-directory-view.c:11200
 msgid "Undo"
 msgstr "Desfés"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11214
+#: ../src/file-manager/fm-directory-view.c:11218
 msgid "Redo"
 msgstr "Refés"
 
@@ -5355,7 +5356,7 @@ msgstr "S'està reanomenant «%s» a «%s»."
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: ../src/file-manager/fm-icon-container.c:614
-#: ../src/file-manager/fm-icon-view.c:3399
+#: ../src/file-manager/fm-icon-view.c:3403
 #: ../src/caja-file-management-properties.ui.h:1
 msgid "Icon View"
 msgstr "Vista d'icones"
@@ -5567,53 +5568,53 @@ msgid "pointing at \"%s\""
 msgstr "apuntant a «%s»"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3401
+#: ../src/file-manager/fm-icon-view.c:3405
 msgid "_Icons"
 msgstr "_Icones"
 
-#: ../src/file-manager/fm-icon-view.c:3402
+#: ../src/file-manager/fm-icon-view.c:3406
 msgid "The icon view encountered an error."
 msgstr "S'ha produït un error amb la vista d'icones."
 
-#: ../src/file-manager/fm-icon-view.c:3403
+#: ../src/file-manager/fm-icon-view.c:3407
 msgid "The icon view encountered an error while starting up."
 msgstr "S'ha produït un error en la vista d'icones mentre s'estava iniciant."
 
-#: ../src/file-manager/fm-icon-view.c:3404
+#: ../src/file-manager/fm-icon-view.c:3408
 msgid "Display this location with the icon view."
 msgstr "Mostra aquesta ubicació amb la vista d'icones."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-icon-view.c:3414
+#: ../src/file-manager/fm-icon-view.c:3418
 #: ../src/caja-file-management-properties.ui.h:3
 msgid "Compact View"
 msgstr "Vista compacta"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3416
+#: ../src/file-manager/fm-icon-view.c:3420
 msgid "_Compact"
 msgstr "_Compacta"
 
-#: ../src/file-manager/fm-icon-view.c:3417
+#: ../src/file-manager/fm-icon-view.c:3421
 msgid "The compact view encountered an error."
 msgstr "S'ha produït un error en la vista compacta."
 
-#: ../src/file-manager/fm-icon-view.c:3418
+#: ../src/file-manager/fm-icon-view.c:3422
 msgid "The compact view encountered an error while starting up."
 msgstr "S'ha produït un error en la vista compacta mentre s'estava iniciant."
 
-#: ../src/file-manager/fm-icon-view.c:3419
+#: ../src/file-manager/fm-icon-view.c:3423
 msgid "Display this location with the compact view."
 msgstr "Mostra aquesta ubicació amb la vista compacta."
 
 #: ../src/file-manager/fm-list-model.c:448
-#: ../src/file-manager/fm-tree-model.c:1366
+#: ../src/file-manager/fm-tree-model.c:1370
 msgid "(Empty)"
 msgstr "(Buit)"
 
 #: ../src/file-manager/fm-list-model.c:452
-#: ../src/file-manager/fm-tree-model.c:1366 ../src/caja-window-slot.c:207
+#: ../src/file-manager/fm-tree-model.c:1370 ../src/caja-window-slot.c:207
 msgid "Loading..."
 msgstr "S'està carregant..."
 
@@ -5637,7 +5638,7 @@ msgstr "%s columnes visibles"
 #: ../src/file-manager/fm-properties-window.c:5188
 #: ../src/caja-bookmarks-window.ui.h:5
 #: ../src/caja-file-management-properties.ui.h:43
-#: ../src/caja-property-browser.c:394 ../src/caja-window-menus.c:913
+#: ../src/caja-property-browser.c:394 ../src/caja-window-menus.c:832
 msgid "_Close"
 msgstr "Tan_ca"
 
@@ -6004,12 +6005,12 @@ msgstr "Arbre"
 msgid "Show Tree"
 msgstr "Mostra l'arbre"
 
-#: ../src/caja-application.c:542
+#: ../src/caja-application.c:549
 #, c-format
 msgid "Caja could not create the required folder \"%s\"."
 msgstr "Caja no ha pogut crear la carpeta necessària «%s»."
 
-#: ../src/caja-application.c:544
+#: ../src/caja-application.c:551
 msgid ""
 "Before running Caja, please create the following folder, or set permissions "
 "such that Caja can create it."
@@ -6017,12 +6018,12 @@ msgstr ""
 "Abans d'executar Caja creeu la carpeta següent o definiu els permisos "
 "necessaris perquè Caja la pugui crear."
 
-#: ../src/caja-application.c:549
+#: ../src/caja-application.c:556
 #, c-format
 msgid "Caja could not create the following required folders: %s."
 msgstr "Caja no ha pogut crear les carpetes necessàries següents: %s."
 
-#: ../src/caja-application.c:551
+#: ../src/caja-application.c:558
 msgid ""
 "Before running Caja, please create these folders, or set permissions such "
 "that Caja can create them."
@@ -6030,45 +6031,45 @@ msgstr ""
 "Abans d'executar Caja creeu aquestes carpetes o establiu els permisos "
 "necessaris perquè Caja les pugui crear."
 
-#: ../src/caja-application.c:1325 ../src/caja-places-sidebar.c:2210
+#: ../src/caja-application.c:1332 ../src/caja-places-sidebar.c:2210
 #: ../src/caja-places-sidebar.c:2241 ../src/caja-places-sidebar.c:2276
 #, c-format
 msgid "Unable to eject %s"
 msgstr "No es pot expulsar %s"
 
-#: ../src/caja-application.c:1998
+#: ../src/caja-application.c:2005
 msgid "--check cannot be used with other options."
 msgstr " --check no es pot utilitzar amb altres opcions."
 
-#: ../src/caja-application.c:2004
+#: ../src/caja-application.c:2011
 msgid "--quit cannot be used with URIs."
 msgstr "--quit no es pot utilitzar amb els URI."
 
-#: ../src/caja-application.c:2011
+#: ../src/caja-application.c:2018
 msgid "--geometry cannot be used with more than one URI."
 msgstr "--geometry no es pot utilitzar amb més d'un URI."
 
-#: ../src/caja-application.c:2075
+#: ../src/caja-application.c:2082
 msgid "Perform a quick set of self-check tests."
 msgstr "Realitza un conjunt de proves ràpides d'autocomprovació."
 
-#: ../src/caja-application.c:2078
+#: ../src/caja-application.c:2085
 msgid "Show the version of the program."
 msgstr "Mostra la versió del programa."
 
-#: ../src/caja-application.c:2080
+#: ../src/caja-application.c:2087
 msgid "Create the initial window with the given geometry."
 msgstr "Crea una finestra inicial amb la geometria indicada."
 
-#: ../src/caja-application.c:2080
+#: ../src/caja-application.c:2087
 msgid "GEOMETRY"
 msgstr "GEOMETRIA"
 
-#: ../src/caja-application.c:2082
+#: ../src/caja-application.c:2089
 msgid "Only create windows for explicitly specified URIs."
 msgstr "Només crea finestres per als URI indicats explícitament."
 
-#: ../src/caja-application.c:2084
+#: ../src/caja-application.c:2091
 msgid ""
 "Do not manage the desktop (ignore the preference set in the preferences "
 "dialog)."
@@ -6076,7 +6077,7 @@ msgstr ""
 "No gestionis l'escriptori (ignora les preferències establertes al diàleg de "
 "preferències)."
 
-#: ../src/caja-application.c:2086
+#: ../src/caja-application.c:2093
 msgid ""
 "Manage the desktop regardless of set preferences or environment (on new "
 "startup only)"
@@ -6084,23 +6085,23 @@ msgstr ""
 "Gestiona l'escriptori sense tenir en compte el conjunt de preferències o "
 "l'entorn (només amb un inici nou)"
 
-#: ../src/caja-application.c:2088
+#: ../src/caja-application.c:2095
 msgid "Open URIs in tabs."
 msgstr "Obre els URI en pestanyes."
 
-#: ../src/caja-application.c:2090
+#: ../src/caja-application.c:2097
 msgid "Open a browser window."
 msgstr "Obre una finestra del navegador."
 
-#: ../src/caja-application.c:2092
+#: ../src/caja-application.c:2099
 msgid "Quit Caja."
 msgstr "Surt de Caja."
 
-#: ../src/caja-application.c:2093
+#: ../src/caja-application.c:2100
 msgid "[URI...]"
 msgstr "[URI...]"
 
-#: ../src/caja-application.c:2104
+#: ../src/caja-application.c:2111
 msgid ""
 "\n"
 "\n"
@@ -6148,7 +6149,7 @@ msgstr ""
 
 #: ../src/caja-bookmarks-window.c:159
 #: ../src/caja-file-management-properties.c:246
-#: ../src/caja-property-browser.c:1676 ../src/caja-window-menus.c:692
+#: ../src/caja-property-browser.c:1676 ../src/caja-window-menus.c:611
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
@@ -6974,7 +6975,7 @@ msgstr[1] "Voleu visualitzar %d ubicacions?"
 
 #: ../src/caja-location-dialog.c:157
 msgid "Open Location"
-msgstr "Obre una ubicació"
+msgstr "Obrir una ubicació"
 
 #: ../src/caja-location-dialog.c:167
 msgid "_Location:"
@@ -7536,7 +7537,7 @@ msgstr "Tipus de fitxer"
 
 #: ../src/caja-query-editor.c:174
 msgid "Tags"
-msgstr "Etiquetes"
+msgstr "Marcadors"
 
 #: ../src/caja-query-editor.c:181
 msgid "Modification Time"
@@ -7864,7 +7865,7 @@ msgstr ""
 msgid "Go to the location specified by this bookmark"
 msgstr "Vés a la ubicació que indica aquest marcador"
 
-#: ../src/caja-window-menus.c:618
+#: ../src/caja-window-menus.c:518
 msgid ""
 "Caja is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -7876,7 +7877,7 @@ msgstr ""
 " la Free Software Foundation, ja sigui la versió 2 de la Llicència o bé (si "
 "ho preferiu) qualsevol versió posterior."
 
-#: ../src/caja-window-menus.c:622
+#: ../src/caja-window-menus.c:522
 msgid ""
 "Caja is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -7888,7 +7889,7 @@ msgstr ""
 " FINALITAT DETERMINADA. Per obtenir més informació, consulteu la Llicència "
 "Pública General de GNU."
 
-#: ../src/caja-window-menus.c:626
+#: ../src/caja-window-menus.c:526
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin "
@@ -7898,18 +7899,18 @@ msgstr ""
 "GNU; si no és així, escriviu a la Free Software Foundation, Inc., 51 "
 "Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA"
 
-#: ../src/caja-window-menus.c:637
+#: ../src/caja-window-menus.c:558
 msgid "About Caja"
 msgstr "Quant a Caja"
 
-#: ../src/caja-window-menus.c:639
+#: ../src/caja-window-menus.c:560
 msgid ""
 "Caja lets you organize files and folders, both on your computer and online."
 msgstr ""
 "Caja us permet organitzar els fitxers i les carpetes, tant en l'ordinador "
 "com en línia."
 
-#: ../src/caja-window-menus.c:642
+#: ../src/caja-window-menus.c:563
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2019 The Caja authors"
@@ -7917,45 +7918,42 @@ msgstr ""
 "Drets d'autor © 1999-2009 Els autors de Nautilus\n"
 "Drets d'autor © 2011-2019 Els autors de Caja"
 
-#. Translators should localize the following string
-#. * which will be displayed at the bottom of the about
-#. * box to give credit to the translator(s).
-#: ../src/caja-window-menus.c:652
+#: ../src/caja-window-menus.c:569
 msgid "translator-credits"
 msgstr ""
 "Daniel <danicases@gmail.com>\n"
 "Pere O. <gotrunks@gmail.com>\n"
 "Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>"
 
-#: ../src/caja-window-menus.c:655
+#: ../src/caja-window-menus.c:572
 msgid "MATE Web Site"
 msgstr "Pàgina web de MATE"
 
 #. name, icon name, label
-#: ../src/caja-window-menus.c:908
+#: ../src/caja-window-menus.c:827
 msgid "_File"
 msgstr "_Fitxer"
 
 #. name, icon name, label
-#: ../src/caja-window-menus.c:909
+#: ../src/caja-window-menus.c:828
 msgid "_Edit"
 msgstr "_Edita"
 
 #. name, icon name, label
-#: ../src/caja-window-menus.c:910
+#: ../src/caja-window-menus.c:829
 msgid "_View"
 msgstr "_Vista"
 
 #. tooltip
-#: ../src/caja-window-menus.c:914
+#: ../src/caja-window-menus.c:833
 msgid "Close this folder"
 msgstr "Tanca aquesta carpeta"
 
-#: ../src/caja-window-menus.c:919
+#: ../src/caja-window-menus.c:838
 msgid "_Backgrounds and Emblems..."
 msgstr "_Fons i emblemes..."
 
-#: ../src/caja-window-menus.c:920
+#: ../src/caja-window-menus.c:839
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
@@ -7963,176 +7961,176 @@ msgstr ""
 "Mostra els patrons, els colors i els emblemes que es poden utilitzar per "
 "personalitzar l'aparença"
 
-#: ../src/caja-window-menus.c:925
+#: ../src/caja-window-menus.c:844
 msgid "Prefere_nces"
 msgstr "Preferè_ncies"
 
-#: ../src/caja-window-menus.c:926
+#: ../src/caja-window-menus.c:845
 msgid "Edit Caja preferences"
 msgstr "Edita les preferències de Caja"
 
 #. name, icon name, label
-#: ../src/caja-window-menus.c:929
+#: ../src/caja-window-menus.c:848
 msgid "Open _Parent"
 msgstr "Obre la carpeta su_perior"
 
-#: ../src/caja-window-menus.c:930
+#: ../src/caja-window-menus.c:849
 msgid "Open the parent folder"
 msgstr "Obre la carpeta superior"
 
 #. tooltip
-#: ../src/caja-window-menus.c:939
+#: ../src/caja-window-menus.c:858
 msgid "Stop loading the current location"
 msgstr "Atura la càrrega de la ubicació actual"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:943
+#: ../src/caja-window-menus.c:862
 msgid "_Reload"
 msgstr "To_rna a carregar"
 
 #. tooltip
-#: ../src/caja-window-menus.c:944
+#: ../src/caja-window-menus.c:863
 msgid "Reload the current location"
 msgstr "Torna a carregar la ubicació actual"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:948
+#: ../src/caja-window-menus.c:867
 msgid "_Contents"
 msgstr "_Contingut"
 
 #. tooltip
-#: ../src/caja-window-menus.c:949
+#: ../src/caja-window-menus.c:868
 msgid "Display Caja help"
 msgstr "Mostra l'ajuda de Caja"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:953
+#: ../src/caja-window-menus.c:872
 msgid "_About"
 msgstr "_Quant a"
 
 #. tooltip
-#: ../src/caja-window-menus.c:954
+#: ../src/caja-window-menus.c:873
 msgid "Display credits for the creators of Caja"
 msgstr "Mostra els crèdits dels creadors de Caja"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:958
+#: ../src/caja-window-menus.c:877
 msgid "Zoom _In"
 msgstr "A_ugmenta el zoom"
 
 #. tooltip
-#: ../src/caja-window-menus.c:959 ../src/caja-zoom-control.c:96
+#: ../src/caja-window-menus.c:878 ../src/caja-zoom-control.c:96
 #: ../src/caja-zoom-control.c:309
 msgid "Increase the view size"
 msgstr "Augmenta la mida de la vista"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:973
+#: ../src/caja-window-menus.c:892
 msgid "Zoom _Out"
 msgstr "Disminueix el z_oom"
 
 #. tooltip
-#: ../src/caja-window-menus.c:974 ../src/caja-zoom-control.c:97
+#: ../src/caja-window-menus.c:893 ../src/caja-zoom-control.c:97
 #: ../src/caja-zoom-control.c:254
 msgid "Decrease the view size"
 msgstr "Redueix la mida de la vista"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:983
+#: ../src/caja-window-menus.c:902
 msgid "Normal Si_ze"
 msgstr "_Mida normal"
 
 #. tooltip
-#: ../src/caja-window-menus.c:984 ../src/caja-zoom-control.c:98
+#: ../src/caja-window-menus.c:903 ../src/caja-zoom-control.c:98
 #: ../src/caja-zoom-control.c:270
 msgid "Use the normal view size"
 msgstr "Utilitza la mida normal de la vista"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:988
+#: ../src/caja-window-menus.c:907
 msgid "Connect to _Server..."
 msgstr "Connecta't al _servidor..."
 
 #. tooltip
-#: ../src/caja-window-menus.c:989
+#: ../src/caja-window-menus.c:908
 msgid "Connect to a remote computer or shared disk"
 msgstr "Connecteu-vos a un servidor remot o a un disc compartit"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:998
+#: ../src/caja-window-menus.c:917
 msgid "_Computer"
 msgstr "_Ordinador"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:1003
+#: ../src/caja-window-menus.c:922
 msgid "_Network"
 msgstr "_Xarxa"
 
 #. tooltip
-#: ../src/caja-window-menus.c:1004 ../src/mate-network-scheme.desktop.in.h:2
+#: ../src/caja-window-menus.c:923 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
 msgstr "Navegueu pels marcadors i les ubicacions de la xarxa local"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:1008
+#: ../src/caja-window-menus.c:927
 msgid "T_emplates"
 msgstr "Plan_tilles"
 
 #. tooltip
-#: ../src/caja-window-menus.c:1009
+#: ../src/caja-window-menus.c:928
 msgid "Open your personal templates folder"
 msgstr "Obriu la vostra carpeta personal de plantilles"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:1013
+#: ../src/caja-window-menus.c:932
 msgid "_Trash"
 msgstr "_Paperera"
 
 #. tooltip
-#: ../src/caja-window-menus.c:1014
+#: ../src/caja-window-menus.c:933
 msgid "Open your personal trash folder"
 msgstr "Obriu la carpeta de la paperera"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:1022
+#: ../src/caja-window-menus.c:941
 msgid "Show _Hidden Files"
 msgstr "Mostra els fitxers _ocults"
 
 #. tooltip
-#: ../src/caja-window-menus.c:1023
+#: ../src/caja-window-menus.c:942
 msgid "Toggle the display of hidden files in the current window"
 msgstr "Commuta la visualització de fitxers ocults en la finestra actual"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:1028
+#: ../src/caja-window-menus.c:947
 msgid "Show Bac_kup Files"
 msgstr "Mostra els fitxers de còpia de _seguretat"
 
 #. tooltip
-#: ../src/caja-window-menus.c:1029
+#: ../src/caja-window-menus.c:948
 msgid "Toggle the display of backup files in the current window"
 msgstr ""
 "Commuta la visualització de fitxers de còpia de seguretat en la finestra "
 "actual"
 
-#: ../src/caja-window-menus.c:1061
+#: ../src/caja-window-menus.c:980
 msgid "_Up"
 msgstr "_Amunt"
 
-#: ../src/caja-window-menus.c:1064
+#: ../src/caja-window-menus.c:983
 msgid "_Home"
 msgstr "_Personal"
 

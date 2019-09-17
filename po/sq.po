@@ -4,21 +4,22 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# oltjano <apple.doctor92@yahoo.com>, 2018
-# Martin Wimpress <code@flexion.org>, 2018
-# Alban <nofbname@gmail.com>, 2018
-# Indrit Bashkimi <indrit.bashkimi@gmail.com>, 2018
+# oltjano <apple.doctor92@yahoo.com>, 2019
+# Martin Wimpress <code@flexion.org>, 2019
+# Alban <nofbname@gmail.com>, 2019
 # Stefano Karapetsas <stefano@karapetsas.com>, 2019
+# Indrit Bashkimi <indrit.bashkimi@gmail.com>, 2019
 # Ardit Dani <ardit.dani@gmail.com>, 2019
+# clefebvre <clement.lefebvre@linuxmint.com>, 2019
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-16 22:36+0100\n"
-"PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Ardit Dani <ardit.dani@gmail.com>, 2019\n"
+"POT-Creation-Date: 2019-04-22 22:09+0200\n"
+"PO-Revision-Date: 2019-03-11 12:13+0000\n"
+"Last-Translator: clefebvre <clement.lefebvre@linuxmint.com>, 2019\n"
 "Language-Team: Albanian (https://www.transifex.com/mate/teams/13566/sq/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -317,7 +318,7 @@ msgstr "Konfermo ekzekutimin automatik"
 #. Set initial window title
 #: ../data/caja-browser.desktop.in.h:1 ../data/caja.desktop.in.h:1
 #: ../data/caja-folder-handler.desktop.in.h:1 ../src/caja-spatial-window.c:396
-#: ../src/caja-window-menus.c:636 ../src/caja-window.c:164
+#: ../src/caja-window-menus.c:557 ../src/caja-window.c:164
 msgid "Caja"
 msgstr "Caja"
 
@@ -335,7 +336,7 @@ msgid "Computer"
 msgstr "Kompjuteri"
 
 #. tooltip
-#: ../data/caja-computer.desktop.in.h:2 ../src/caja-window-menus.c:999
+#: ../data/caja-computer.desktop.in.h:2 ../src/caja-window-menus.c:918
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
 msgstr ""
@@ -366,7 +367,7 @@ msgstr "Kartela personale"
 
 #. tooltip
 #: ../data/caja-home.desktop.in.h:2 ../src/caja-places-sidebar.c:523
-#: ../src/caja-window-menus.c:994
+#: ../src/caja-window-menus.c:913
 msgid "Open your personal folder"
 msgstr "Hap kartelën personale"
 
@@ -477,12 +478,12 @@ msgstr "Shfaq më shumë _detaje"
 #: ../src/file-manager/fm-directory-view.c:1211
 #: ../src/file-manager/fm-directory-view.c:1364
 #: ../src/file-manager/fm-directory-view.c:7026
-#: ../src/file-manager/fm-directory-view.c:10349
+#: ../src/file-manager/fm-directory-view.c:10353
 #: ../src/caja-connect-server-dialog.c:1121 ../src/caja-emblem-sidebar.c:288
 #: ../src/caja-emblem-sidebar.c:545 ../src/caja-location-dialog.c:194
 #: ../src/caja-property-browser.c:1107 ../src/caja-property-browser.c:1187
 msgid "_Cancel"
-msgstr ""
+msgstr "_Anulo"
 
 #. name, icon name
 #. label, accelerator
@@ -1150,7 +1151,7 @@ msgstr[1] ""
 #. * to that kind of file (e.g. "link to folder").
 #: ../libcaja-private/caja-file-operations.c:409
 #: ../libcaja-private/caja-file.c:6759
-#: ../src/file-manager/fm-directory-view.c:10593
+#: ../src/file-manager/fm-directory-view.c:10597
 #, c-format
 msgid "Link to %s"
 msgstr "Lidhje me %s"
@@ -2530,7 +2531,7 @@ msgstr ""
 msgid "queuing"
 msgstr ""
 
-#: ../libcaja-private/caja-progress-info.c:610
+#: ../libcaja-private/caja-progress-info.c:611
 #, c-format
 msgid "%'d file operation active"
 msgid_plural "%'d file operations active"
@@ -3931,7 +3932,7 @@ msgstr "Zgjedhja e ekorrespondencës së elementëve"
 #: ../src/caja-emblem-sidebar.c:555
 #: ../src/caja-file-management-properties.ui.h:42
 #: ../src/caja-location-dialog.c:189 ../src/caja-property-browser.c:386
-#: ../src/caja-window-menus.c:911
+#: ../src/caja-window-menus.c:830
 msgid "_Help"
 msgstr "_Ndihmë"
 
@@ -4468,7 +4469,7 @@ msgstr "_Anullo"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7439
-#: ../src/file-manager/fm-directory-view.c:11197
+#: ../src/file-manager/fm-directory-view.c:11201
 msgid "Undo the last action"
 msgstr "Anullo veprimin e fundit"
 
@@ -4480,7 +4481,7 @@ msgstr "_Përsërit"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7443
-#: ../src/file-manager/fm-directory-view.c:11215
+#: ../src/file-manager/fm-directory-view.c:11219
 msgid "Redo the last undone action"
 msgstr "Rikthe veprimin e fundit të anulluar"
 
@@ -4580,7 +4581,7 @@ msgstr ""
 #: ../src/file-manager/fm-directory-view.c:8383
 #: ../src/file-manager/fm-directory-view.c:8493
 #: ../src/caja-places-sidebar.c:1805 ../src/caja-places-sidebar.c:2763
-#: ../src/caja-window-menus.c:938
+#: ../src/caja-window-menus.c:857
 msgid "_Stop"
 msgstr "_Ndalo"
 
@@ -4761,7 +4762,7 @@ msgstr ""
 #. name, icon name
 #. label, accelerator
 #: ../src/file-manager/fm-directory-view.c:7610
-#: ../src/file-manager/fm-directory-view.c:7614 ../src/caja-window-menus.c:993
+#: ../src/file-manager/fm-directory-view.c:7614 ../src/caja-window-menus.c:912
 msgid "_Home Folder"
 msgstr "Kartela _personale"
 
@@ -4987,8 +4988,8 @@ msgstr "Shfleto në _dritare të re"
 #: ../src/file-manager/fm-directory-view.c:8915
 msgid "_Browse Folder"
 msgid_plural "_Browse Folders"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "_Shfleto Dosje"
+msgstr[1] "_Shfleto Dosjet"
 
 #: ../src/file-manager/fm-directory-view.c:8604
 #: ../src/file-manager/fm-directory-view.c:8944
@@ -5049,57 +5050,57 @@ msgstr "Eleminon përgjithmonë të gjithë elementët e zgjedhur"
 msgid "View or modify the properties of the open folder"
 msgstr "Shfaq ose ndryshon pronësitë e kartelës së hapur"
 
-#: ../src/file-manager/fm-directory-view.c:10340
+#: ../src/file-manager/fm-directory-view.c:10344
 msgid "Download location?"
 msgstr "Shkarkon pozicionin?"
 
-#: ../src/file-manager/fm-directory-view.c:10343
+#: ../src/file-manager/fm-directory-view.c:10347
 msgid "You can download it or make a link to it."
 msgstr "Është i mundur shkarkimi i pozicionit ose krijimi i një lidhje me të."
 
-#: ../src/file-manager/fm-directory-view.c:10346
+#: ../src/file-manager/fm-directory-view.c:10350
 msgid "Make a _Link"
 msgstr "Krijo _lidhje"
 
-#: ../src/file-manager/fm-directory-view.c:10353
+#: ../src/file-manager/fm-directory-view.c:10357
 msgid "_Download"
 msgstr "_Shkarko"
 
-#: ../src/file-manager/fm-directory-view.c:10514
-#: ../src/file-manager/fm-directory-view.c:10573
-#: ../src/file-manager/fm-directory-view.c:10678
+#: ../src/file-manager/fm-directory-view.c:10518
+#: ../src/file-manager/fm-directory-view.c:10577
+#: ../src/file-manager/fm-directory-view.c:10682
 msgid "Drag and drop is not supported."
 msgstr "Zvarritja nuk suportohet."
 
-#: ../src/file-manager/fm-directory-view.c:10515
+#: ../src/file-manager/fm-directory-view.c:10519
 msgid "Drag and drop is only supported on local file systems."
 msgstr "\"Kap e Zvarrit\" suportohet vetëm në file lokalë të sistemit."
 
-#: ../src/file-manager/fm-directory-view.c:10574
-#: ../src/file-manager/fm-directory-view.c:10679
+#: ../src/file-manager/fm-directory-view.c:10578
+#: ../src/file-manager/fm-directory-view.c:10683
 msgid "An invalid drag type was used."
 msgstr "Është përdorur një lloj kapjeje e pavlefshme."
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10756
+#: ../src/file-manager/fm-directory-view.c:10760
 msgid "dropped text.txt"
 msgstr "teksti zvarritur.txt"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10801
+#: ../src/file-manager/fm-directory-view.c:10805
 msgid "dropped data"
 msgstr ""
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11196
+#: ../src/file-manager/fm-directory-view.c:11200
 msgid "Undo"
 msgstr "Anullo"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11214
+#: ../src/file-manager/fm-directory-view.c:11218
 msgid "Redo"
-msgstr ""
+msgstr "Ribëj"
 
 #: ../src/file-manager/fm-ditem-page.c:433
 #: ../src/file-manager/fm-ditem-page.c:445
@@ -5222,7 +5223,7 @@ msgstr "Ndryshimi i emrit të \"%s\" në \"%s\"."
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: ../src/file-manager/fm-icon-container.c:614
-#: ../src/file-manager/fm-icon-view.c:3399
+#: ../src/file-manager/fm-icon-view.c:3403
 #: ../src/caja-file-management-properties.ui.h:1
 msgid "Icon View"
 msgstr "Paraqitje me ikona"
@@ -5334,7 +5335,7 @@ msgstr "Rikthen çdo ikonë të zgjedhur në madhësinë origjinale"
 #. label, accelerator
 #: ../src/file-manager/fm-icon-view.c:1708
 msgid "_Organize by Name"
-msgstr ""
+msgstr "_Organizuar me Emër"
 
 #. tooltip
 #: ../src/file-manager/fm-icon-view.c:1709
@@ -5430,53 +5431,53 @@ msgid "pointing at \"%s\""
 msgstr "ka si objektiv «%s»"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3401
+#: ../src/file-manager/fm-icon-view.c:3405
 msgid "_Icons"
 msgstr "_Ikona"
 
-#: ../src/file-manager/fm-icon-view.c:3402
+#: ../src/file-manager/fm-icon-view.c:3406
 msgid "The icon view encountered an error."
 msgstr "Paraqitja në formë ikonash ndeshi një gabim gjatë nisjes."
 
-#: ../src/file-manager/fm-icon-view.c:3403
+#: ../src/file-manager/fm-icon-view.c:3407
 msgid "The icon view encountered an error while starting up."
 msgstr "Paraqitja në formë ikonash ndeshi një gabim gjatë nisjes."
 
-#: ../src/file-manager/fm-icon-view.c:3404
+#: ../src/file-manager/fm-icon-view.c:3408
 msgid "Display this location with the icon view."
 msgstr "Shfaq këtë pozicion me paraqitjen me anë të ikonave."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-icon-view.c:3414
+#: ../src/file-manager/fm-icon-view.c:3418
 #: ../src/caja-file-management-properties.ui.h:3
 msgid "Compact View"
 msgstr "Paraqitje kompakte"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3416
+#: ../src/file-manager/fm-icon-view.c:3420
 msgid "_Compact"
 msgstr "_Kompakte"
 
-#: ../src/file-manager/fm-icon-view.c:3417
+#: ../src/file-manager/fm-icon-view.c:3421
 msgid "The compact view encountered an error."
 msgstr "Paraqitja kompakte ndeshi një gabim."
 
-#: ../src/file-manager/fm-icon-view.c:3418
+#: ../src/file-manager/fm-icon-view.c:3422
 msgid "The compact view encountered an error while starting up."
 msgstr "Paraqitja kompakte ndeshi një gabim gjatë nisjes."
 
-#: ../src/file-manager/fm-icon-view.c:3419
+#: ../src/file-manager/fm-icon-view.c:3423
 msgid "Display this location with the compact view."
 msgstr "Shfaq këtë pozicion me paraqitjen kompakte."
 
 #: ../src/file-manager/fm-list-model.c:448
-#: ../src/file-manager/fm-tree-model.c:1366
+#: ../src/file-manager/fm-tree-model.c:1370
 msgid "(Empty)"
 msgstr "(Bosh)"
 
 #: ../src/file-manager/fm-list-model.c:452
-#: ../src/file-manager/fm-tree-model.c:1366 ../src/caja-window-slot.c:207
+#: ../src/file-manager/fm-tree-model.c:1370 ../src/caja-window-slot.c:207
 msgid "Loading..."
 msgstr "Ngarkimi..."
 
@@ -5500,7 +5501,7 @@ msgstr "Kollonat e dukshme të «%s»"
 #: ../src/file-manager/fm-properties-window.c:5188
 #: ../src/caja-bookmarks-window.ui.h:5
 #: ../src/caja-file-management-properties.ui.h:43
-#: ../src/caja-property-browser.c:394 ../src/caja-window-menus.c:913
+#: ../src/caja-property-browser.c:394 ../src/caja-window-menus.c:832
 msgid "_Close"
 msgstr "_Mbyll"
 
@@ -5869,12 +5870,12 @@ msgstr "Degëzimi"
 msgid "Show Tree"
 msgstr "Shfaq degëzimin"
 
-#: ../src/caja-application.c:542
+#: ../src/caja-application.c:549
 #, c-format
 msgid "Caja could not create the required folder \"%s\"."
 msgstr "Caja nuk mund të krijojë kartelën e duhur «%s»."
 
-#: ../src/caja-application.c:544
+#: ../src/caja-application.c:551
 msgid ""
 "Before running Caja, please create the following folder, or set permissions "
 "such that Caja can create it."
@@ -5882,12 +5883,12 @@ msgstr ""
 "Përpara se të ekzekutohet Caja, krijoni kartelën në vazhdim, ose përcaktoni "
 "të drejtat në menyrë që ta krijojë Caja."
 
-#: ../src/caja-application.c:549
+#: ../src/caja-application.c:556
 #, c-format
 msgid "Caja could not create the following required folders: %s."
 msgstr "Caja nuk mund të krijojë kartelat e duhura në vijim: %s."
 
-#: ../src/caja-application.c:551
+#: ../src/caja-application.c:558
 msgid ""
 "Before running Caja, please create these folders, or set permissions such "
 "that Caja can create them."
@@ -5895,45 +5896,45 @@ msgstr ""
 "Përpara se të ekzekutohet Caja, krijoni këto kartela, ose përcaktoni të "
 "drejtat në menyrë që t'i krijojë Caja."
 
-#: ../src/caja-application.c:1325 ../src/caja-places-sidebar.c:2210
+#: ../src/caja-application.c:1332 ../src/caja-places-sidebar.c:2210
 #: ../src/caja-places-sidebar.c:2241 ../src/caja-places-sidebar.c:2276
 #, c-format
 msgid "Unable to eject %s"
 msgstr "E pamundur nxjerrja jashtë e %s"
 
-#: ../src/caja-application.c:1998
+#: ../src/caja-application.c:2005
 msgid "--check cannot be used with other options."
 msgstr ""
 
-#: ../src/caja-application.c:2004
+#: ../src/caja-application.c:2011
 msgid "--quit cannot be used with URIs."
 msgstr ""
 
-#: ../src/caja-application.c:2011
+#: ../src/caja-application.c:2018
 msgid "--geometry cannot be used with more than one URI."
 msgstr ""
 
-#: ../src/caja-application.c:2075
+#: ../src/caja-application.c:2082
 msgid "Perform a quick set of self-check tests."
 msgstr "Kryen një bashkësi me prova të shpejta auto-kontrolli."
 
-#: ../src/caja-application.c:2078
+#: ../src/caja-application.c:2085
 msgid "Show the version of the program."
 msgstr "Shfaq versionin e programit."
 
-#: ../src/caja-application.c:2080
+#: ../src/caja-application.c:2087
 msgid "Create the initial window with the given geometry."
 msgstr "Krijon dritaren kryesore me gjeometrinë e dhënë."
 
-#: ../src/caja-application.c:2080
+#: ../src/caja-application.c:2087
 msgid "GEOMETRY"
 msgstr "GJEOMETRIA"
 
-#: ../src/caja-application.c:2082
+#: ../src/caja-application.c:2089
 msgid "Only create windows for explicitly specified URIs."
 msgstr "Krijon vetëm dritaret për URL e specifikuara qartë."
 
-#: ../src/caja-application.c:2084
+#: ../src/caja-application.c:2091
 msgid ""
 "Do not manage the desktop (ignore the preference set in the preferences "
 "dialog)."
@@ -5941,29 +5942,29 @@ msgstr ""
 "Nuk menzhon hapësirën e punës (duke shpërfillur preferimet tek dialogu i "
 "rregullimeve)."
 
-#: ../src/caja-application.c:2086
+#: ../src/caja-application.c:2093
 msgid ""
 "Manage the desktop regardless of set preferences or environment (on new "
 "startup only)"
 msgstr ""
 
-#: ../src/caja-application.c:2088
+#: ../src/caja-application.c:2095
 msgid "Open URIs in tabs."
 msgstr ""
 
-#: ../src/caja-application.c:2090
+#: ../src/caja-application.c:2097
 msgid "Open a browser window."
 msgstr ""
 
-#: ../src/caja-application.c:2092
+#: ../src/caja-application.c:2099
 msgid "Quit Caja."
 msgstr "Mbyll Caja."
 
-#: ../src/caja-application.c:2093
+#: ../src/caja-application.c:2100
 msgid "[URI...]"
 msgstr "[URI...]"
 
-#: ../src/caja-application.c:2104
+#: ../src/caja-application.c:2111
 msgid ""
 "\n"
 "\n"
@@ -6008,7 +6009,7 @@ msgstr ""
 
 #: ../src/caja-bookmarks-window.c:159
 #: ../src/caja-file-management-properties.c:246
-#: ../src/caja-property-browser.c:1676 ../src/caja-window-menus.c:692
+#: ../src/caja-property-browser.c:1676 ../src/caja-window-menus.c:611
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
@@ -7460,27 +7461,27 @@ msgstr "Tjetër lloj...."
 
 #: ../src/caja-query-editor.c:1063 ../src/caja-query-editor.c:1202
 msgid "Less than or equal to"
-msgstr ""
+msgstr "Më pak ose e barabartë me"
 
 #: ../src/caja-query-editor.c:1065 ../src/caja-query-editor.c:1204
 msgid "Greater or equal to"
-msgstr ""
+msgstr "Më i madh ose i barabartë me"
 
 #: ../src/caja-query-editor.c:1078
 msgid "1 Hour"
-msgstr ""
+msgstr "1 Orë"
 
 #: ../src/caja-query-editor.c:1080
 msgid "1 Day"
-msgstr ""
+msgstr "1 Ditë"
 
 #: ../src/caja-query-editor.c:1082
 msgid "1 Week"
-msgstr ""
+msgstr "1 Javë"
 
 #: ../src/caja-query-editor.c:1084
 msgid "1 Month"
-msgstr ""
+msgstr "1 Muaj"
 
 #: ../src/caja-query-editor.c:1086
 msgid "6 Months"
@@ -7492,55 +7493,55 @@ msgstr "1 Vit"
 
 #: ../src/caja-query-editor.c:1219
 msgid "10 KiB"
-msgstr ""
+msgstr "10 KiB"
 
 #: ../src/caja-query-editor.c:1221
 msgid "100 KiB"
-msgstr ""
+msgstr "100 KiB"
 
 #: ../src/caja-query-editor.c:1223
 msgid "500 KiB"
-msgstr ""
+msgstr "500 KiB"
 
 #: ../src/caja-query-editor.c:1225
 msgid "1 MiB"
-msgstr ""
+msgstr "1 MiB"
 
 #: ../src/caja-query-editor.c:1227
 msgid "5 MiB"
-msgstr ""
+msgstr "5 MiB"
 
 #: ../src/caja-query-editor.c:1229
 msgid "10 MiB"
-msgstr ""
+msgstr "10 MiB"
 
 #: ../src/caja-query-editor.c:1231
 msgid "100 MiB"
-msgstr ""
+msgstr "100 MiB"
 
 #: ../src/caja-query-editor.c:1233
 msgid "500 MiB"
-msgstr ""
+msgstr "500 MiB"
 
 #: ../src/caja-query-editor.c:1235
 msgid "1 GiB"
-msgstr ""
+msgstr "1 GiB"
 
 #: ../src/caja-query-editor.c:1237
 msgid "2 GiB"
-msgstr ""
+msgstr "2 GiB"
 
 #: ../src/caja-query-editor.c:1239
 msgid "4 GiB"
-msgstr ""
+msgstr "4 GiB"
 
 #: ../src/caja-query-editor.c:1242
 msgid "10 KB"
-msgstr ""
+msgstr "10 KB"
 
 #: ../src/caja-query-editor.c:1256
 msgid "500 MB"
-msgstr ""
+msgstr "500 MB"
 
 #: ../src/caja-query-editor.c:1449
 msgid "Remove this criterion from the search"
@@ -7625,11 +7626,11 @@ msgstr ""
 
 #: ../src/caja-trash-bar.c:209
 msgid "Restore Selected Items"
-msgstr ""
+msgstr "Rivendosni Artikujt Zgjedhur"
 
 #: ../src/caja-trash-bar.c:215
 msgid "Restore selected items to their original position"
-msgstr ""
+msgstr "Rivendosni artikujt e zgjedhur në pozicionin e tyre origjinal"
 
 #: ../src/caja-window-bookmarks.c:81
 msgid ""
@@ -7683,7 +7684,7 @@ msgstr "Caja nuk mund të trajtojë pozicionet «%s»."
 
 #: ../src/caja-window-manage-views.c:2138
 msgid "Caja cannot handle this kind of location."
-msgstr ""
+msgstr "Caja nuk mund të trajtojë këtë lloj vendndodhje."
 
 #: ../src/caja-window-manage-views.c:2145
 msgid "Unable to mount the location."
@@ -7722,7 +7723,7 @@ msgstr ""
 msgid "Go to the location specified by this bookmark"
 msgstr "Shko tek pozicioni i specifikuar nga ky libërshënues"
 
-#: ../src/caja-window-menus.c:618
+#: ../src/caja-window-menus.c:518
 msgid ""
 "Caja is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -7734,7 +7735,7 @@ msgstr ""
 " Free Software Foundation; sipas versionit 2 të Liçencës, ose(sipas "
 "opinionit tuaj) çdo versioni të mëvonshëm."
 
-#: ../src/caja-window-menus.c:622
+#: ../src/caja-window-menus.c:522
 msgid ""
 "Caja is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -7745,7 +7746,7 @@ msgstr ""
 " GARANCIE; pa garancinë preçize të SHITJES apo PËRDORIMIT PËR NJË QËLLIM "
 "PREÇIZ. Shiko Liçencën Publike të Përgjithshme GNU për hollësi të tjera."
 
-#: ../src/caja-window-menus.c:626
+#: ../src/caja-window-menus.c:526
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin "
@@ -7755,60 +7756,61 @@ msgstr ""
 "Përgjithshme GNU; Nëse jo, shkruani tek Free Software Foundation, Inc., 51 "
 "Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA."
 
-#: ../src/caja-window-menus.c:637
+#: ../src/caja-window-menus.c:558
 msgid "About Caja"
-msgstr ""
+msgstr "Rreth Caja"
 
-#: ../src/caja-window-menus.c:639
+#: ../src/caja-window-menus.c:560
 msgid ""
 "Caja lets you organize files and folders, both on your computer and online."
 msgstr ""
+"Caja ju lejon të organizoni skedarë dhe dosje, si në kompjuterin tuaj ashtu "
+"edhe në internet."
 
-#: ../src/caja-window-menus.c:642
+#: ../src/caja-window-menus.c:563
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2019 The Caja authors"
 msgstr ""
+"Copyright © 1999-2009 Autorët e Nautilus\n"
+"Copyright © 2011-2019 Autorët e Caja"
 
-#. Translators should localize the following string
-#. * which will be displayed at the bottom of the about
-#. * box to give credit to the translator(s).
-#: ../src/caja-window-menus.c:652
+#: ../src/caja-window-menus.c:569
 msgid "translator-credits"
 msgstr ""
 "Elian Myftiu <elian@alblinux.net>\n"
 "Indrit Bashkimi <indrit.bashkimi@gmail.com>\n"
 "Laurent Dhima <laurenti@alblinux.net>"
 
-#: ../src/caja-window-menus.c:655
+#: ../src/caja-window-menus.c:572
 msgid "MATE Web Site"
-msgstr ""
+msgstr "MATE Faqja Internetit"
 
 #. name, icon name, label
-#: ../src/caja-window-menus.c:908
+#: ../src/caja-window-menus.c:827
 msgid "_File"
 msgstr "_Skedari"
 
 #. name, icon name, label
-#: ../src/caja-window-menus.c:909
+#: ../src/caja-window-menus.c:828
 msgid "_Edit"
 msgstr "_Ndrysho"
 
 #. name, icon name, label
-#: ../src/caja-window-menus.c:910
+#: ../src/caja-window-menus.c:829
 msgid "_View"
 msgstr "_Shfaq"
 
 #. tooltip
-#: ../src/caja-window-menus.c:914
+#: ../src/caja-window-menus.c:833
 msgid "Close this folder"
 msgstr "Mbyll këtë kartelë"
 
-#: ../src/caja-window-menus.c:919
+#: ../src/caja-window-menus.c:838
 msgid "_Backgrounds and Emblems..."
 msgstr "_Sfondet dhe simbolet..."
 
-#: ../src/caja-window-menus.c:920
+#: ../src/caja-window-menus.c:839
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
@@ -7816,174 +7818,174 @@ msgstr ""
 "Shfaq motivet, ngjyrat dhe simbolet që mund të përdoren për të personalizuar"
 " paraqitjen"
 
-#: ../src/caja-window-menus.c:925
+#: ../src/caja-window-menus.c:844
 msgid "Prefere_nces"
 msgstr "Preferi_met"
 
-#: ../src/caja-window-menus.c:926
+#: ../src/caja-window-menus.c:845
 msgid "Edit Caja preferences"
 msgstr "Ndrysho preferimet e Caja"
 
 #. name, icon name, label
-#: ../src/caja-window-menus.c:929
+#: ../src/caja-window-menus.c:848
 msgid "Open _Parent"
 msgstr "Hap _prindin"
 
-#: ../src/caja-window-menus.c:930
+#: ../src/caja-window-menus.c:849
 msgid "Open the parent folder"
 msgstr "Hap kartelën e nivelit superior"
 
 #. tooltip
-#: ../src/caja-window-menus.c:939
+#: ../src/caja-window-menus.c:858
 msgid "Stop loading the current location"
 msgstr "Ndalon ngarkimin e pozicionit të tanishëm"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:943
+#: ../src/caja-window-menus.c:862
 msgid "_Reload"
 msgstr "_Ringarko"
 
 #. tooltip
-#: ../src/caja-window-menus.c:944
+#: ../src/caja-window-menus.c:863
 msgid "Reload the current location"
 msgstr "Ringarkon pozicionin e tanishëm"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:948
+#: ../src/caja-window-menus.c:867
 msgid "_Contents"
 msgstr "_Përmbajtja"
 
 #. tooltip
-#: ../src/caja-window-menus.c:949
+#: ../src/caja-window-menus.c:868
 msgid "Display Caja help"
 msgstr "Hap ndihmën e Caja"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:953
+#: ../src/caja-window-menus.c:872
 msgid "_About"
 msgstr "_Rreth"
 
 #. tooltip
-#: ../src/caja-window-menus.c:954
+#: ../src/caja-window-menus.c:873
 msgid "Display credits for the creators of Caja"
 msgstr "Shfaq kreditet e krijuesve të Caja"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:958
+#: ../src/caja-window-menus.c:877
 msgid "Zoom _In"
 msgstr "Z_madho"
 
 #. tooltip
-#: ../src/caja-window-menus.c:959 ../src/caja-zoom-control.c:96
+#: ../src/caja-window-menus.c:878 ../src/caja-zoom-control.c:96
 #: ../src/caja-zoom-control.c:309
 msgid "Increase the view size"
 msgstr "Rrit madhësinë e shfaqjes"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:973
+#: ../src/caja-window-menus.c:892
 msgid "Zoom _Out"
 msgstr "Z_vogëlo"
 
 #. tooltip
-#: ../src/caja-window-menus.c:974 ../src/caja-zoom-control.c:97
+#: ../src/caja-window-menus.c:893 ../src/caja-zoom-control.c:97
 #: ../src/caja-zoom-control.c:254
 msgid "Decrease the view size"
 msgstr "Zvogëlon madhësinë e shfaqjes"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:983
+#: ../src/caja-window-menus.c:902
 msgid "Normal Si_ze"
 msgstr "Madhë_si normale"
 
 #. tooltip
-#: ../src/caja-window-menus.c:984 ../src/caja-zoom-control.c:98
+#: ../src/caja-window-menus.c:903 ../src/caja-zoom-control.c:98
 #: ../src/caja-zoom-control.c:270
 msgid "Use the normal view size"
 msgstr "Përdor madhësinë normale të shfaqjes"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:988
+#: ../src/caja-window-menus.c:907
 msgid "Connect to _Server..."
 msgstr "Lidhu me _serverin..."
 
 #. tooltip
-#: ../src/caja-window-menus.c:989
+#: ../src/caja-window-menus.c:908
 msgid "Connect to a remote computer or shared disk"
 msgstr "Lidhu me një kompjuter në distancë ose një disk të ndarë"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:998
+#: ../src/caja-window-menus.c:917
 msgid "_Computer"
 msgstr "_Kompjuteri"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:1003
+#: ../src/caja-window-menus.c:922
 msgid "_Network"
 msgstr "_Rrjeti"
 
 #. tooltip
-#: ../src/caja-window-menus.c:1004 ../src/mate-network-scheme.desktop.in.h:2
+#: ../src/caja-window-menus.c:923 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
 msgstr "Shfleton pozicionet e rrjetit lokal dhe në libërshënues"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:1008
+#: ../src/caja-window-menus.c:927
 msgid "T_emplates"
 msgstr "Model_e"
 
 #. tooltip
-#: ../src/caja-window-menus.c:1009
+#: ../src/caja-window-menus.c:928
 msgid "Open your personal templates folder"
 msgstr "Hap kartelën personale të modeleve"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:1013
+#: ../src/caja-window-menus.c:932
 msgid "_Trash"
 msgstr "_Koshi"
 
 #. tooltip
-#: ../src/caja-window-menus.c:1014
+#: ../src/caja-window-menus.c:933
 msgid "Open your personal trash folder"
 msgstr "Hap kartelën personale të koshit"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:1022
+#: ../src/caja-window-menus.c:941
 msgid "Show _Hidden Files"
 msgstr "Shfaq file e paduks_hëm"
 
 #. tooltip
-#: ../src/caja-window-menus.c:1023
+#: ../src/caja-window-menus.c:942
 msgid "Toggle the display of hidden files in the current window"
 msgstr "Shkëmben shfaqjen e file të padukshëm në dritaren aktuale"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:1028
+#: ../src/caja-window-menus.c:947
 msgid "Show Bac_kup Files"
 msgstr ""
 
 #. tooltip
-#: ../src/caja-window-menus.c:1029
+#: ../src/caja-window-menus.c:948
 msgid "Toggle the display of backup files in the current window"
 msgstr ""
 
-#: ../src/caja-window-menus.c:1061
+#: ../src/caja-window-menus.c:980
 msgid "_Up"
 msgstr "_Sipër"
 
-#: ../src/caja-window-menus.c:1064
+#: ../src/caja-window-menus.c:983
 msgid "_Home"
 msgstr "_Shtëpia"
 

@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-16 22:36+0100\n"
-"PO-Revision-Date: 2018-03-11 14:48+0000\n"
+"POT-Creation-Date: 2019-04-22 22:09+0200\n"
+"PO-Revision-Date: 2019-03-11 12:13+0000\n"
 "Last-Translator: Mihail Varantsou <meequz@gmail.com>, 2019\n"
 "Language-Team: Belarusian (https://www.transifex.com/mate/teams/13566/be/)\n"
 "MIME-Version: 1.0\n"
@@ -319,7 +319,7 @@ msgstr "Запыт аўтазапуску"
 #. Set initial window title
 #: ../data/caja-browser.desktop.in.h:1 ../data/caja.desktop.in.h:1
 #: ../data/caja-folder-handler.desktop.in.h:1 ../src/caja-spatial-window.c:396
-#: ../src/caja-window-menus.c:636 ../src/caja-window.c:164
+#: ../src/caja-window-menus.c:557 ../src/caja-window.c:164
 msgid "Caja"
 msgstr "Caja"
 
@@ -337,7 +337,7 @@ msgid "Computer"
 msgstr "Камп'ютар"
 
 #. tooltip
-#: ../data/caja-computer.desktop.in.h:2 ../src/caja-window-menus.c:999
+#: ../data/caja-computer.desktop.in.h:2 ../src/caja-window-menus.c:918
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
 msgstr "Аглядаць усе лакальныя і адлеглыя дыскі і каталогі"
@@ -365,7 +365,7 @@ msgstr "Хатні каталог"
 
 #. tooltip
 #: ../data/caja-home.desktop.in.h:2 ../src/caja-places-sidebar.c:523
-#: ../src/caja-window-menus.c:994
+#: ../src/caja-window-menus.c:913
 msgid "Open your personal folder"
 msgstr "Адкрыць ваш асабісты каталог"
 
@@ -473,7 +473,7 @@ msgstr "Паказаць больш _падрабязнасцяў"
 #: ../src/file-manager/fm-directory-view.c:1211
 #: ../src/file-manager/fm-directory-view.c:1364
 #: ../src/file-manager/fm-directory-view.c:7026
-#: ../src/file-manager/fm-directory-view.c:10349
+#: ../src/file-manager/fm-directory-view.c:10353
 #: ../src/caja-connect-server-dialog.c:1121 ../src/caja-emblem-sidebar.c:288
 #: ../src/caja-emblem-sidebar.c:545 ../src/caja-location-dialog.c:194
 #: ../src/caja-property-browser.c:1107 ../src/caja-property-browser.c:1187
@@ -1159,7 +1159,7 @@ msgstr[3] ""
 #. * to that kind of file (e.g. "link to folder").
 #: ../libcaja-private/caja-file-operations.c:409
 #: ../libcaja-private/caja-file.c:6759
-#: ../src/file-manager/fm-directory-view.c:10593
+#: ../src/file-manager/fm-directory-view.c:10597
 #, c-format
 msgid "Link to %s"
 msgstr "Спасылка на %s"
@@ -2584,7 +2584,7 @@ msgstr ""
 msgid "queuing"
 msgstr ""
 
-#: ../libcaja-private/caja-progress-info.c:610
+#: ../libcaja-private/caja-progress-info.c:611
 #, c-format
 msgid "%'d file operation active"
 msgid_plural "%'d file operations active"
@@ -3997,7 +3997,7 @@ msgstr "Вылучэнне паводле ўзору"
 #: ../src/caja-emblem-sidebar.c:555
 #: ../src/caja-file-management-properties.ui.h:42
 #: ../src/caja-location-dialog.c:189 ../src/caja-property-browser.c:386
-#: ../src/caja-window-menus.c:911
+#: ../src/caja-window-menus.c:830
 msgid "_Help"
 msgstr "_Даведка"
 
@@ -4547,7 +4547,7 @@ msgstr "_Адрабіць"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7439
-#: ../src/file-manager/fm-directory-view.c:11197
+#: ../src/file-manager/fm-directory-view.c:11201
 msgid "Undo the last action"
 msgstr "Скасаваць апошняе дзеянне"
 
@@ -4559,7 +4559,7 @@ msgstr "_Вярнуць"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7443
-#: ../src/file-manager/fm-directory-view.c:11215
+#: ../src/file-manager/fm-directory-view.c:11219
 msgid "Redo the last undone action"
 msgstr "Вярнуць апошнія змены"
 
@@ -4659,7 +4659,7 @@ msgstr "Запусціць вылучаны том"
 #: ../src/file-manager/fm-directory-view.c:8383
 #: ../src/file-manager/fm-directory-view.c:8493
 #: ../src/caja-places-sidebar.c:1805 ../src/caja-places-sidebar.c:2763
-#: ../src/caja-window-menus.c:938
+#: ../src/caja-window-menus.c:857
 msgid "_Stop"
 msgstr "_Спыніць"
 
@@ -4840,7 +4840,7 @@ msgstr "Перанесці дзейнае вылучэнне ў іншую па�
 #. name, icon name
 #. label, accelerator
 #: ../src/file-manager/fm-directory-view.c:7610
-#: ../src/file-manager/fm-directory-view.c:7614 ../src/caja-window-menus.c:993
+#: ../src/file-manager/fm-directory-view.c:7614 ../src/caja-window-menus.c:912
 msgid "_Home Folder"
 msgstr "_Хатні каталог"
 
@@ -5150,55 +5150,55 @@ msgstr "Выдаліць усе вылучаныя аб'екты назаўсё�
 msgid "View or modify the properties of the open folder"
 msgstr "Паглядзець ці змяніць уласцівасці адкрытага каталогу"
 
-#: ../src/file-manager/fm-directory-view.c:10340
+#: ../src/file-manager/fm-directory-view.c:10344
 msgid "Download location?"
 msgstr "Сцягнуць размяшчэнне?"
 
-#: ../src/file-manager/fm-directory-view.c:10343
+#: ../src/file-manager/fm-directory-view.c:10347
 msgid "You can download it or make a link to it."
 msgstr "Вы можаце сцягнуць яго ці стварыць спасылку на яго."
 
-#: ../src/file-manager/fm-directory-view.c:10346
+#: ../src/file-manager/fm-directory-view.c:10350
 msgid "Make a _Link"
 msgstr "Стварыць _спасылку"
 
-#: ../src/file-manager/fm-directory-view.c:10353
+#: ../src/file-manager/fm-directory-view.c:10357
 msgid "_Download"
 msgstr "_Сцягнуць"
 
-#: ../src/file-manager/fm-directory-view.c:10514
-#: ../src/file-manager/fm-directory-view.c:10573
-#: ../src/file-manager/fm-directory-view.c:10678
+#: ../src/file-manager/fm-directory-view.c:10518
+#: ../src/file-manager/fm-directory-view.c:10577
+#: ../src/file-manager/fm-directory-view.c:10682
 msgid "Drag and drop is not supported."
 msgstr "Перацягванне не падтрымліваецца."
 
-#: ../src/file-manager/fm-directory-view.c:10515
+#: ../src/file-manager/fm-directory-view.c:10519
 msgid "Drag and drop is only supported on local file systems."
 msgstr "Перацягванне падтрымліваецца толькі на лакальных файлавых сістэмах."
 
-#: ../src/file-manager/fm-directory-view.c:10574
-#: ../src/file-manager/fm-directory-view.c:10679
+#: ../src/file-manager/fm-directory-view.c:10578
+#: ../src/file-manager/fm-directory-view.c:10683
 msgid "An invalid drag type was used."
 msgstr "Недапушчальны тып захопу."
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10756
+#: ../src/file-manager/fm-directory-view.c:10760
 msgid "dropped text.txt"
 msgstr "закінуты тэкст.txt"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10801
+#: ../src/file-manager/fm-directory-view.c:10805
 msgid "dropped data"
 msgstr "закінутыя даныя"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11196
+#: ../src/file-manager/fm-directory-view.c:11200
 msgid "Undo"
 msgstr "Адрабіць"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11214
+#: ../src/file-manager/fm-directory-view.c:11218
 msgid "Redo"
 msgstr "Вярнуць"
 
@@ -5323,7 +5323,7 @@ msgstr "Змяняецца назва з \"%s\" на \"%s\"."
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: ../src/file-manager/fm-icon-container.c:614
-#: ../src/file-manager/fm-icon-view.c:3399
+#: ../src/file-manager/fm-icon-view.c:3403
 #: ../src/caja-file-management-properties.ui.h:1
 msgid "Icon View"
 msgstr "Рэжым значкоў"
@@ -5531,53 +5531,53 @@ msgid "pointing at \"%s\""
 msgstr "указвае на \"%s\""
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3401
+#: ../src/file-manager/fm-icon-view.c:3405
 msgid "_Icons"
 msgstr "_Значкі"
 
-#: ../src/file-manager/fm-icon-view.c:3402
+#: ../src/file-manager/fm-icon-view.c:3406
 msgid "The icon view encountered an error."
 msgstr "Памылка рэжыму значкоў."
 
-#: ../src/file-manager/fm-icon-view.c:3403
+#: ../src/file-manager/fm-icon-view.c:3407
 msgid "The icon view encountered an error while starting up."
 msgstr "Памылка рэжыму значкоў падчас запуску."
 
-#: ../src/file-manager/fm-icon-view.c:3404
+#: ../src/file-manager/fm-icon-view.c:3408
 msgid "Display this location with the icon view."
 msgstr "Паказваць гэтае размяшчэнне ў рэжыме значкоў."
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-icon-view.c:3414
+#: ../src/file-manager/fm-icon-view.c:3418
 #: ../src/caja-file-management-properties.ui.h:3
 msgid "Compact View"
 msgstr "Кампактны рэжым"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3416
+#: ../src/file-manager/fm-icon-view.c:3420
 msgid "_Compact"
 msgstr "_Кампактны"
 
-#: ../src/file-manager/fm-icon-view.c:3417
+#: ../src/file-manager/fm-icon-view.c:3421
 msgid "The compact view encountered an error."
 msgstr "Кампактны рэжым сутыкнуўся з памылкай."
 
-#: ../src/file-manager/fm-icon-view.c:3418
+#: ../src/file-manager/fm-icon-view.c:3422
 msgid "The compact view encountered an error while starting up."
 msgstr "Кампактны рэжым сутыкнуўся з памылкай падчас запуску."
 
-#: ../src/file-manager/fm-icon-view.c:3419
+#: ../src/file-manager/fm-icon-view.c:3423
 msgid "Display this location with the compact view."
 msgstr "Паказваць гэтае размяшчэнне ў кампактным рэжыме."
 
 #: ../src/file-manager/fm-list-model.c:448
-#: ../src/file-manager/fm-tree-model.c:1366
+#: ../src/file-manager/fm-tree-model.c:1370
 msgid "(Empty)"
 msgstr "(Пуста)"
 
 #: ../src/file-manager/fm-list-model.c:452
-#: ../src/file-manager/fm-tree-model.c:1366 ../src/caja-window-slot.c:207
+#: ../src/file-manager/fm-tree-model.c:1370 ../src/caja-window-slot.c:207
 msgid "Loading..."
 msgstr "Загрузка..."
 
@@ -5601,7 +5601,7 @@ msgstr "%s бачных слупкоў"
 #: ../src/file-manager/fm-properties-window.c:5188
 #: ../src/caja-bookmarks-window.ui.h:5
 #: ../src/caja-file-management-properties.ui.h:43
-#: ../src/caja-property-browser.c:394 ../src/caja-window-menus.c:913
+#: ../src/caja-property-browser.c:394 ../src/caja-window-menus.c:832
 msgid "_Close"
 msgstr "_Закрыць"
 
@@ -5974,12 +5974,12 @@ msgstr "Дрэва"
 msgid "Show Tree"
 msgstr "Паказаць дрэва"
 
-#: ../src/caja-application.c:542
+#: ../src/caja-application.c:549
 #, c-format
 msgid "Caja could not create the required folder \"%s\"."
 msgstr "Caja не можа стварыць неабходны каталог \"%s\"."
 
-#: ../src/caja-application.c:544
+#: ../src/caja-application.c:551
 msgid ""
 "Before running Caja, please create the following folder, or set permissions "
 "such that Caja can create it."
@@ -5987,12 +5987,12 @@ msgstr ""
 "Парад пускам Caja, калі ласка, стварыце наступны каталог ці задайце дазволы "
 "так, каб Caja здолела стварыць яго."
 
-#: ../src/caja-application.c:549
+#: ../src/caja-application.c:556
 #, c-format
 msgid "Caja could not create the following required folders: %s."
 msgstr "Caja не можа стварыць наступныя неабходныя каталогі: %s."
 
-#: ../src/caja-application.c:551
+#: ../src/caja-application.c:558
 msgid ""
 "Before running Caja, please create these folders, or set permissions such "
 "that Caja can create them."
@@ -6000,73 +6000,73 @@ msgstr ""
 "Перад пускам Caja, калі ласка, стварыце гэтыя каталогі ці задайце дазволы "
 "так, каб Caja здолела стварыць іх."
 
-#: ../src/caja-application.c:1325 ../src/caja-places-sidebar.c:2210
+#: ../src/caja-application.c:1332 ../src/caja-places-sidebar.c:2210
 #: ../src/caja-places-sidebar.c:2241 ../src/caja-places-sidebar.c:2276
 #, c-format
 msgid "Unable to eject %s"
 msgstr "Немагчыма вызваліць %s"
 
-#: ../src/caja-application.c:1998
+#: ../src/caja-application.c:2005
 msgid "--check cannot be used with other options."
 msgstr ""
 
-#: ../src/caja-application.c:2004
+#: ../src/caja-application.c:2011
 msgid "--quit cannot be used with URIs."
 msgstr ""
 
-#: ../src/caja-application.c:2011
+#: ../src/caja-application.c:2018
 msgid "--geometry cannot be used with more than one URI."
 msgstr ""
 
-#: ../src/caja-application.c:2075
+#: ../src/caja-application.c:2082
 msgid "Perform a quick set of self-check tests."
 msgstr "Выканаць хуткую самаправерку."
 
-#: ../src/caja-application.c:2078
+#: ../src/caja-application.c:2085
 msgid "Show the version of the program."
 msgstr "Паказаць версію праграмы."
 
-#: ../src/caja-application.c:2080
+#: ../src/caja-application.c:2087
 msgid "Create the initial window with the given geometry."
 msgstr "Стварыць пачатковае акно з вызначанай геаметрыяй."
 
-#: ../src/caja-application.c:2080
+#: ../src/caja-application.c:2087
 msgid "GEOMETRY"
 msgstr "ГЕАМЕТРЫЯ"
 
-#: ../src/caja-application.c:2082
+#: ../src/caja-application.c:2089
 msgid "Only create windows for explicitly specified URIs."
 msgstr "Толькі ствараць вокны для дакладна вызначаных ідэнтыфікатараў URI."
 
-#: ../src/caja-application.c:2084
+#: ../src/caja-application.c:2091
 msgid ""
 "Do not manage the desktop (ignore the preference set in the preferences "
 "dialog)."
 msgstr "Не кіраваць сталом (ігнараваць параметры ў акенцы настáўленняў)"
 
-#: ../src/caja-application.c:2086
+#: ../src/caja-application.c:2093
 msgid ""
 "Manage the desktop regardless of set preferences or environment (on new "
 "startup only)"
 msgstr ""
 
-#: ../src/caja-application.c:2088
+#: ../src/caja-application.c:2095
 msgid "Open URIs in tabs."
 msgstr ""
 
-#: ../src/caja-application.c:2090
+#: ../src/caja-application.c:2097
 msgid "Open a browser window."
 msgstr ""
 
-#: ../src/caja-application.c:2092
+#: ../src/caja-application.c:2099
 msgid "Quit Caja."
 msgstr "Выйсці з Caja."
 
-#: ../src/caja-application.c:2093
+#: ../src/caja-application.c:2100
 msgid "[URI...]"
 msgstr "[URI...]"
 
-#: ../src/caja-application.c:2104
+#: ../src/caja-application.c:2111
 msgid ""
 "\n"
 "\n"
@@ -6111,7 +6111,7 @@ msgstr ""
 
 #: ../src/caja-bookmarks-window.c:159
 #: ../src/caja-file-management-properties.c:246
-#: ../src/caja-property-browser.c:1676 ../src/caja-window-menus.c:692
+#: ../src/caja-property-browser.c:1676 ../src/caja-window-menus.c:611
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
@@ -7830,7 +7830,7 @@ msgstr ""
 msgid "Go to the location specified by this bookmark"
 msgstr "Перайсці да размяшчэння, на якое спасылаецца закладка"
 
-#: ../src/caja-window-menus.c:618
+#: ../src/caja-window-menus.c:518
 msgid ""
 "Caja is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -7841,7 +7841,7 @@ msgstr ""
 "ўмоваў GNU General Public License версіі 2 ці пазнейшай (на ваш выбар), "
 "апублікаванай Free Software Foundation."
 
-#: ../src/caja-window-menus.c:622
+#: ../src/caja-window-menus.c:522
 msgid ""
 "Caja is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -7853,7 +7853,7 @@ msgstr ""
 "ПРОДАЖУ ці ПЭЎНАЙ МЭТЫ. Па падрабязнасці звяртайцеся да GNU General Public "
 "License."
 
-#: ../src/caja-window-menus.c:626
+#: ../src/caja-window-menus.c:526
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin "
@@ -7863,61 +7863,58 @@ msgstr ""
 "атрымалі, лістуйце да Free Software Foundation, Inc., 51 Franklin Street, "
 "Fifth Floor, Boston, MA 02110-1301 USA"
 
-#: ../src/caja-window-menus.c:637
+#: ../src/caja-window-menus.c:558
 msgid "About Caja"
 msgstr ""
 
-#: ../src/caja-window-menus.c:639
+#: ../src/caja-window-menus.c:560
 msgid ""
 "Caja lets you organize files and folders, both on your computer and online."
 msgstr ""
 "Caja дазваляе кіраваць файламі і каталогамі як на лакальным камп'ютары, так "
 "і адлегла."
 
-#: ../src/caja-window-menus.c:642
+#: ../src/caja-window-menus.c:563
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2019 The Caja authors"
 msgstr ""
 
-#. Translators should localize the following string
-#. * which will be displayed at the bottom of the about
-#. * box to give credit to the translator(s).
-#: ../src/caja-window-menus.c:652
+#: ../src/caja-window-menus.c:569
 msgid "translator-credits"
 msgstr ""
 "Belarusian Language Linux Team <i18n@mova.org>\n"
 "Mikhas Varantsou <meequz@gmail.com> 2014-2016"
 
-#: ../src/caja-window-menus.c:655
+#: ../src/caja-window-menus.c:572
 msgid "MATE Web Site"
 msgstr "Вэбсайт MATE"
 
 #. name, icon name, label
-#: ../src/caja-window-menus.c:908
+#: ../src/caja-window-menus.c:827
 msgid "_File"
 msgstr "_Файл"
 
 #. name, icon name, label
-#: ../src/caja-window-menus.c:909
+#: ../src/caja-window-menus.c:828
 msgid "_Edit"
 msgstr "_Змяніць"
 
 #. name, icon name, label
-#: ../src/caja-window-menus.c:910
+#: ../src/caja-window-menus.c:829
 msgid "_View"
 msgstr "_Выгляд"
 
 #. tooltip
-#: ../src/caja-window-menus.c:914
+#: ../src/caja-window-menus.c:833
 msgid "Close this folder"
 msgstr "Закрыць гэты каталог"
 
-#: ../src/caja-window-menus.c:919
+#: ../src/caja-window-menus.c:838
 msgid "_Backgrounds and Emblems..."
 msgstr "Ф_оны і эмблемы..."
 
-#: ../src/caja-window-menus.c:920
+#: ../src/caja-window-menus.c:839
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
@@ -7925,174 +7922,174 @@ msgstr ""
 "Паказаць шпалеры, колеры і эмблемы, якія можна выкарыстаць для змянення "
 "вонкавага выгляду."
 
-#: ../src/caja-window-menus.c:925
+#: ../src/caja-window-menus.c:844
 msgid "Prefere_nces"
 msgstr "_Настáўленні"
 
-#: ../src/caja-window-menus.c:926
+#: ../src/caja-window-menus.c:845
 msgid "Edit Caja preferences"
 msgstr "Змяніць настáўленні Caja"
 
 #. name, icon name, label
-#: ../src/caja-window-menus.c:929
+#: ../src/caja-window-menus.c:848
 msgid "Open _Parent"
 msgstr "Адкрыць _бацькоўскі каталог"
 
-#: ../src/caja-window-menus.c:930
+#: ../src/caja-window-menus.c:849
 msgid "Open the parent folder"
 msgstr "Адкрыць бацькоўскі каталог"
 
 #. tooltip
-#: ../src/caja-window-menus.c:939
+#: ../src/caja-window-menus.c:858
 msgid "Stop loading the current location"
 msgstr "Спыніць чытанне дзейнага размяшчэння"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:943
+#: ../src/caja-window-menus.c:862
 msgid "_Reload"
 msgstr "_Перачытаць"
 
 #. tooltip
-#: ../src/caja-window-menus.c:944
+#: ../src/caja-window-menus.c:863
 msgid "Reload the current location"
 msgstr "Перачытаць змесціва дзейнага каталогу"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:948
+#: ../src/caja-window-menus.c:867
 msgid "_Contents"
 msgstr "_Змесціва"
 
 #. tooltip
-#: ../src/caja-window-menus.c:949
+#: ../src/caja-window-menus.c:868
 msgid "Display Caja help"
 msgstr "Паказаць даведку Caja"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:953
+#: ../src/caja-window-menus.c:872
 msgid "_About"
 msgstr "_Пра аплет"
 
 #. tooltip
-#: ../src/caja-window-menus.c:954
+#: ../src/caja-window-menus.c:873
 msgid "Display credits for the creators of Caja"
 msgstr "Паказаць звесткі пра стваральнікаў Caja"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:958
+#: ../src/caja-window-menus.c:877
 msgid "Zoom _In"
 msgstr "Па_вялічыць маштаб"
 
 #. tooltip
-#: ../src/caja-window-menus.c:959 ../src/caja-zoom-control.c:96
+#: ../src/caja-window-menus.c:878 ../src/caja-zoom-control.c:96
 #: ../src/caja-zoom-control.c:309
 msgid "Increase the view size"
 msgstr "Павялічыць памер аб'ектаў"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:973
+#: ../src/caja-window-menus.c:892
 msgid "Zoom _Out"
 msgstr "З_меншыць маштаб"
 
 #. tooltip
-#: ../src/caja-window-menus.c:974 ../src/caja-zoom-control.c:97
+#: ../src/caja-window-menus.c:893 ../src/caja-zoom-control.c:97
 #: ../src/caja-zoom-control.c:254
 msgid "Decrease the view size"
 msgstr "Зменшыць памер аб'ектаў"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:983
+#: ../src/caja-window-menus.c:902
 msgid "Normal Si_ze"
 msgstr "Звычайны па_мер"
 
 #. tooltip
-#: ../src/caja-window-menus.c:984 ../src/caja-zoom-control.c:98
+#: ../src/caja-window-menus.c:903 ../src/caja-zoom-control.c:98
 #: ../src/caja-zoom-control.c:270
 msgid "Use the normal view size"
 msgstr "Ужыць нармальны памер аб'ектаў"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:988
+#: ../src/caja-window-menus.c:907
 msgid "Connect to _Server..."
 msgstr "Злучэнне з _серверам..."
 
 #. tooltip
-#: ../src/caja-window-menus.c:989
+#: ../src/caja-window-menus.c:908
 msgid "Connect to a remote computer or shared disk"
 msgstr "Злучыцца з адлеглым камп'ютарам ці супольным дыскам"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:998
+#: ../src/caja-window-menus.c:917
 msgid "_Computer"
 msgstr "_Камп'ютар"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:1003
+#: ../src/caja-window-menus.c:922
 msgid "_Network"
 msgstr "_Сетка"
 
 #. tooltip
-#: ../src/caja-window-menus.c:1004 ../src/mate-network-scheme.desktop.in.h:2
+#: ../src/caja-window-menus.c:923 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
 msgstr "Аглядаць закладкі і сеткавыя каталогі"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:1008
+#: ../src/caja-window-menus.c:927
 msgid "T_emplates"
 msgstr "_Шаблоны"
 
 #. tooltip
-#: ../src/caja-window-menus.c:1009
+#: ../src/caja-window-menus.c:928
 msgid "Open your personal templates folder"
 msgstr "Адкрыць свой каталог шаблонаў"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:1013
+#: ../src/caja-window-menus.c:932
 msgid "_Trash"
 msgstr "_Сметніца"
 
 #. tooltip
-#: ../src/caja-window-menus.c:1014
+#: ../src/caja-window-menus.c:933
 msgid "Open your personal trash folder"
 msgstr "Адкрыць сваю сметніцу"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:1022
+#: ../src/caja-window-menus.c:941
 msgid "Show _Hidden Files"
 msgstr "Паказаць _схаваныя файлы"
 
 #. tooltip
-#: ../src/caja-window-menus.c:1023
+#: ../src/caja-window-menus.c:942
 msgid "Toggle the display of hidden files in the current window"
 msgstr "Пераключыць рэжым паказу схаваных файлаў у гэтым акне"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:1028
+#: ../src/caja-window-menus.c:947
 msgid "Show Bac_kup Files"
 msgstr ""
 
 #. tooltip
-#: ../src/caja-window-menus.c:1029
+#: ../src/caja-window-menus.c:948
 msgid "Toggle the display of backup files in the current window"
 msgstr ""
 
-#: ../src/caja-window-menus.c:1061
+#: ../src/caja-window-menus.c:980
 msgid "_Up"
 msgstr "_Вышэй"
 
-#: ../src/caja-window-menus.c:1064
+#: ../src/caja-window-menus.c:983
 msgid "_Home"
 msgstr "_Хатні каталог"
 

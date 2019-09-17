@@ -4,25 +4,27 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# qazwsxedc <qazwsxedc@gmx.net>, 2018
-# Almin <GermannenMarkus@googlemail.com>, 2018
-# kæde, 2018
-# Beppo, 2018
-# crazyd <lebendig2002@yahoo.de>, 2018
-# guyfawkes <a.dawtjan@gmx.de>, 2018
-# Moritz Bruder <muesli4@gmail.com>, 2018
-# Xpistian <xpistianbecker2@web.de>, 2018
-# Julian Rüger <jr98@gmx.net>, 2018
-# Tim Schulz <timschulz19980312@gmail.com>, 2018
-# Franco Della-Monica <franco.della.monica@gmail.com>, 2018
-# benpicco <benpicco@zedat.fu-berlin.de>, 2018
-# otazl <oliver.tazl@gmail.com>, 2018
-# Wolfgang Ulbrich <mate@raveit.de>, 2018
-# nautilusx, 2018
-# Vinzenz Vietzke <vinz@vinzv.de>, 2018
-# lh39 <lh39dev@gmail.com>, 2018
-# Tobias Bannert <tobannert@gmail.com>, 2019
+# lh39 <lh39dev@gmail.com>, 2019
+# qazwsxedc <qazwsxedc@gmx.net>, 2019
+# Almin <GermannenMarkus@googlemail.com>, 2019
+# kæde, 2019
+# crazyd <lebendig2002@yahoo.de>, 2019
+# guyfawkes <a.dawtjan@gmx.de>, 2019
+# Beppo, 2019
+# Julian Rüger <jr98@gmx.net>, 2019
+# Tim Schulz <timschulz19980312@gmail.com>, 2019
+# Franco Della-Monica <franco.della.monica@gmail.com>, 2019
+# Vinzenz Vietzke <vinz@vinzv.de>, 2019
 # Stefano Karapetsas <stefano@karapetsas.com>, 2019
+# benpicco <benpicco@zedat.fu-berlin.de>, 2019
+# otazl <oliver.tazl@gmail.com>, 2019
+# Moritz Bruder <muesli4@gmail.com>, 2019
+# Tobias Bannert <tobannert@gmail.com>, 2019
+# Wolfgang Ulbrich <mate@raveit.de>, 2019
+# Xpistian <xpistianbecker2@web.de>, 2019
+# Stefan Kadow <git17@ska67.de>, 2019
+# nautilusx, 2019
+# clefebvre <clement.lefebvre@linuxmint.com>, 2019
 # Ettore Atalan <atalanttore@googlemail.com>, 2019
 # 
 #, fuzzy
@@ -30,8 +32,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MATE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-16 22:36+0100\n"
-"PO-Revision-Date: 2018-03-11 14:48+0000\n"
+"POT-Creation-Date: 2019-04-22 22:09+0200\n"
+"PO-Revision-Date: 2019-03-11 12:13+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>, 2019\n"
 "Language-Team: German (https://www.transifex.com/mate/teams/13566/de/)\n"
 "MIME-Version: 1.0\n"
@@ -338,7 +340,7 @@ msgstr "Autostartnachfrage"
 #. Set initial window title
 #: ../data/caja-browser.desktop.in.h:1 ../data/caja.desktop.in.h:1
 #: ../data/caja-folder-handler.desktop.in.h:1 ../src/caja-spatial-window.c:396
-#: ../src/caja-window-menus.c:636 ../src/caja-window.c:164
+#: ../src/caja-window-menus.c:557 ../src/caja-window.c:164
 msgid "Caja"
 msgstr "Caja"
 
@@ -356,7 +358,7 @@ msgid "Computer"
 msgstr "Rechner"
 
 #. tooltip
-#: ../data/caja-computer.desktop.in.h:2 ../src/caja-window-menus.c:999
+#: ../data/caja-computer.desktop.in.h:2 ../src/caja-window-menus.c:918
 msgid ""
 "Browse all local and remote disks and folders accessible from this computer"
 msgstr ""
@@ -386,7 +388,7 @@ msgstr "Persönlicher Ordner"
 
 #. tooltip
 #: ../data/caja-home.desktop.in.h:2 ../src/caja-places-sidebar.c:523
-#: ../src/caja-window-menus.c:994
+#: ../src/caja-window-menus.c:913
 msgid "Open your personal folder"
 msgstr "Ihren persönlichen Ordner öffnen"
 
@@ -497,7 +499,7 @@ msgstr "_Mehr Details anzeigen"
 #: ../src/file-manager/fm-directory-view.c:1211
 #: ../src/file-manager/fm-directory-view.c:1364
 #: ../src/file-manager/fm-directory-view.c:7026
-#: ../src/file-manager/fm-directory-view.c:10349
+#: ../src/file-manager/fm-directory-view.c:10353
 #: ../src/caja-connect-server-dialog.c:1121 ../src/caja-emblem-sidebar.c:288
 #: ../src/caja-emblem-sidebar.c:545 ../src/caja-location-dialog.c:194
 #: ../src/caja-property-browser.c:1107 ../src/caja-property-browser.c:1187
@@ -1177,7 +1179,7 @@ msgstr[1] "ungefähr %'d Stunden"
 #. * to that kind of file (e.g. "link to folder").
 #: ../libcaja-private/caja-file-operations.c:409
 #: ../libcaja-private/caja-file.c:6759
-#: ../src/file-manager/fm-directory-view.c:10593
+#: ../src/file-manager/fm-directory-view.c:10597
 #, c-format
 msgid "Link to %s"
 msgstr "Verknüpfung mit %s"
@@ -2600,7 +2602,7 @@ msgstr "eingeplant"
 msgid "queuing"
 msgstr "einplanen"
 
-#: ../libcaja-private/caja-progress-info.c:610
+#: ../libcaja-private/caja-progress-info.c:611
 #, c-format
 msgid "%'d file operation active"
 msgid_plural "%'d file operations active"
@@ -4090,7 +4092,7 @@ msgstr "Nach Muster auswählen"
 #: ../src/caja-emblem-sidebar.c:555
 #: ../src/caja-file-management-properties.ui.h:42
 #: ../src/caja-location-dialog.c:189 ../src/caja-property-browser.c:386
-#: ../src/caja-window-menus.c:911
+#: ../src/caja-window-menus.c:830
 msgid "_Help"
 msgstr "_Hilfe"
 
@@ -4148,8 +4150,8 @@ msgstr[1] " (enthält %'d Elemente)"
 #, c-format
 msgid " (containing a total of %'d item)"
 msgid_plural " (containing a total of %'d items)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] " (enthalten insgesamt %'d Objekt)"
+msgstr[1] " (enthalten insgesamt %'d Objekte)"
 
 #: ../src/file-manager/fm-directory-view.c:2337
 #, c-format
@@ -4163,8 +4165,8 @@ msgstr[1] "%'d Elemente ausgewählt"
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%'d weiteres Objekt ausgewählt"
+msgstr[1] "%'d weitere Objekte ausgewählt"
 
 #. This is marked for translation in case a localiser
 #. * needs to use something other than parentheses. The
@@ -4647,7 +4649,7 @@ msgstr "_Rückgängig"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7439
-#: ../src/file-manager/fm-directory-view.c:11197
+#: ../src/file-manager/fm-directory-view.c:11201
 msgid "Undo the last action"
 msgstr "Die letzte Aktion rückgängig machen"
 
@@ -4659,7 +4661,7 @@ msgstr "_Wiederherstellen"
 
 #. tooltip
 #: ../src/file-manager/fm-directory-view.c:7443
-#: ../src/file-manager/fm-directory-view.c:11215
+#: ../src/file-manager/fm-directory-view.c:11219
 msgid "Redo the last undone action"
 msgstr "Den rückgängig gemachten Vorgang wiederholen"
 
@@ -4759,7 +4761,7 @@ msgstr "Den gewählten Datenträger starten"
 #: ../src/file-manager/fm-directory-view.c:8383
 #: ../src/file-manager/fm-directory-view.c:8493
 #: ../src/caja-places-sidebar.c:1805 ../src/caja-places-sidebar.c:2763
-#: ../src/caja-window-menus.c:938
+#: ../src/caja-window-menus.c:857
 msgid "_Stop"
 msgstr "_Anhalten"
 
@@ -4940,7 +4942,7 @@ msgstr "Die aktuelle Auswahl in die andere Leiste dieses Fensters verschieben"
 #. name, icon name
 #. label, accelerator
 #: ../src/file-manager/fm-directory-view.c:7610
-#: ../src/file-manager/fm-directory-view.c:7614 ../src/caja-window-menus.c:993
+#: ../src/file-manager/fm-directory-view.c:7614 ../src/caja-window-menus.c:912
 msgid "_Home Folder"
 msgstr "_Persönlicher Ordner"
 
@@ -5228,57 +5230,57 @@ msgstr "Alle gewählten Objekte dauerhaft löschen"
 msgid "View or modify the properties of the open folder"
 msgstr "Die Eigenschaften des aktuellen Ordners anzeigen/ändern"
 
-#: ../src/file-manager/fm-directory-view.c:10340
+#: ../src/file-manager/fm-directory-view.c:10344
 msgid "Download location?"
 msgstr "Ort herunterladen?"
 
-#: ../src/file-manager/fm-directory-view.c:10343
+#: ../src/file-manager/fm-directory-view.c:10347
 msgid "You can download it or make a link to it."
 msgstr "Sie können ihn herunterladen oder eine Verknüpfung zu ihm erstellen."
 
-#: ../src/file-manager/fm-directory-view.c:10346
+#: ../src/file-manager/fm-directory-view.c:10350
 msgid "Make a _Link"
 msgstr "_Verknüpfung anlegen"
 
-#: ../src/file-manager/fm-directory-view.c:10353
+#: ../src/file-manager/fm-directory-view.c:10357
 msgid "_Download"
 msgstr "_Herunterladen"
 
-#: ../src/file-manager/fm-directory-view.c:10514
-#: ../src/file-manager/fm-directory-view.c:10573
-#: ../src/file-manager/fm-directory-view.c:10678
+#: ../src/file-manager/fm-directory-view.c:10518
+#: ../src/file-manager/fm-directory-view.c:10577
+#: ../src/file-manager/fm-directory-view.c:10682
 msgid "Drag and drop is not supported."
 msgstr "Ziehen und Ablegen wird nicht unterstützt."
 
-#: ../src/file-manager/fm-directory-view.c:10515
+#: ../src/file-manager/fm-directory-view.c:10519
 msgid "Drag and drop is only supported on local file systems."
 msgstr ""
 "Ziehen und Ablegen wird ausschließlich auf lokalen Dateisystemen "
 "unterstützt."
 
-#: ../src/file-manager/fm-directory-view.c:10574
-#: ../src/file-manager/fm-directory-view.c:10679
+#: ../src/file-manager/fm-directory-view.c:10578
+#: ../src/file-manager/fm-directory-view.c:10683
 msgid "An invalid drag type was used."
 msgstr "Es wurde ein ungültiger Zieh-Typ verwendet."
 
 #. Translator: This is the filename used for when you dnd text to a directory
-#: ../src/file-manager/fm-directory-view.c:10756
+#: ../src/file-manager/fm-directory-view.c:10760
 msgid "dropped text.txt"
 msgstr "kopierter Text.txt"
 
 #. Translator: This is the filename used for when you dnd raw
 #. * data to a directory, if the source didn't supply a name.
-#: ../src/file-manager/fm-directory-view.c:10801
+#: ../src/file-manager/fm-directory-view.c:10805
 msgid "dropped data"
 msgstr "abgelegte Daten"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11196
+#: ../src/file-manager/fm-directory-view.c:11200
 msgid "Undo"
 msgstr "Rückgängig"
 
 #. Reset to default info
-#: ../src/file-manager/fm-directory-view.c:11214
+#: ../src/file-manager/fm-directory-view.c:11218
 msgid "Redo"
 msgstr "Wiederholen"
 
@@ -5411,7 +5413,7 @@ msgstr "»%s« wird in »%s« umbenannt."
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
 #: ../src/file-manager/fm-icon-container.c:614
-#: ../src/file-manager/fm-icon-view.c:3399
+#: ../src/file-manager/fm-icon-view.c:3403
 #: ../src/caja-file-management-properties.ui.h:1
 msgid "Icon View"
 msgstr "Symbolansicht"
@@ -5436,7 +5438,7 @@ msgstr "Symbole nach Größe in Zeilen sortieren"
 
 #: ../src/file-manager/fm-icon-view.c:142
 msgid "by S_ize on Disk"
-msgstr ""
+msgstr "nach _Größe auf Festplatte"
 
 #: ../src/file-manager/fm-icon-view.c:143
 #: ../src/file-manager/fm-icon-view.c:1759
@@ -5481,7 +5483,7 @@ msgstr "Symbole nach Löschdatum in Zeilen sortieren"
 
 #: ../src/file-manager/fm-icon-view.c:177
 msgid "by E_xtension"
-msgstr ""
+msgstr "nach E_ndung"
 
 #: ../src/file-manager/fm-icon-view.c:178
 msgid "Keep icons sorted by reversed extension segments in rows"
@@ -5583,7 +5585,7 @@ msgstr "Nach _Größe"
 
 #: ../src/file-manager/fm-icon-view.c:1758
 msgid "By S_ize on Disk"
-msgstr ""
+msgstr "Nach _Größe auf Festplatte"
 
 #: ../src/file-manager/fm-icon-view.c:1764
 msgid "By _Type"
@@ -5603,7 +5605,7 @@ msgstr "Nach L_öschdatum"
 
 #: ../src/file-manager/fm-icon-view.c:1788
 msgid "By E_xtension"
-msgstr ""
+msgstr "Nach E_ndung"
 
 #: ../src/file-manager/fm-icon-view.c:1789
 msgid "Keep icons sorted by reverse extension segments in rows"
@@ -5619,53 +5621,53 @@ msgid "pointing at \"%s\""
 msgstr "zeigt auf »%s«"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3401
+#: ../src/file-manager/fm-icon-view.c:3405
 msgid "_Icons"
 msgstr "_Symbole"
 
-#: ../src/file-manager/fm-icon-view.c:3402
+#: ../src/file-manager/fm-icon-view.c:3406
 msgid "The icon view encountered an error."
 msgstr "Die Symbol-Ansicht stieß beim Starten auf einen Fehler."
 
-#: ../src/file-manager/fm-icon-view.c:3403
+#: ../src/file-manager/fm-icon-view.c:3407
 msgid "The icon view encountered an error while starting up."
 msgstr "Die Symbol-Ansicht stieß beim Starten auf einen Fehler."
 
-#: ../src/file-manager/fm-icon-view.c:3404
+#: ../src/file-manager/fm-icon-view.c:3408
 msgid "Display this location with the icon view."
 msgstr "Diesen Ort mit der Symbolansicht anzeigen"
 
 #. translators: this is used in the view selection dropdown
 #. * of navigation windows and in the preferences dialog
-#: ../src/file-manager/fm-icon-view.c:3414
+#: ../src/file-manager/fm-icon-view.c:3418
 #: ../src/caja-file-management-properties.ui.h:3
 msgid "Compact View"
 msgstr "Kompaktansicht"
 
 #. translators: this is used in the view menu
-#: ../src/file-manager/fm-icon-view.c:3416
+#: ../src/file-manager/fm-icon-view.c:3420
 msgid "_Compact"
 msgstr "_Kompakt"
 
-#: ../src/file-manager/fm-icon-view.c:3417
+#: ../src/file-manager/fm-icon-view.c:3421
 msgid "The compact view encountered an error."
 msgstr "Die Kompaktansicht stieß auf einen Fehler."
 
-#: ../src/file-manager/fm-icon-view.c:3418
+#: ../src/file-manager/fm-icon-view.c:3422
 msgid "The compact view encountered an error while starting up."
 msgstr "Die Kompaktansicht stieß beim Starten auf einen Fehler."
 
-#: ../src/file-manager/fm-icon-view.c:3419
+#: ../src/file-manager/fm-icon-view.c:3423
 msgid "Display this location with the compact view."
 msgstr "Diesen Ort mit der Kompaktansicht anzeigen."
 
 #: ../src/file-manager/fm-list-model.c:448
-#: ../src/file-manager/fm-tree-model.c:1366
+#: ../src/file-manager/fm-tree-model.c:1370
 msgid "(Empty)"
 msgstr "(Leer)"
 
 #: ../src/file-manager/fm-list-model.c:452
-#: ../src/file-manager/fm-tree-model.c:1366 ../src/caja-window-slot.c:207
+#: ../src/file-manager/fm-tree-model.c:1370 ../src/caja-window-slot.c:207
 msgid "Loading..."
 msgstr "Ladevorgang …"
 
@@ -5689,7 +5691,7 @@ msgstr "%s anzuzeigende Spalten"
 #: ../src/file-manager/fm-properties-window.c:5188
 #: ../src/caja-bookmarks-window.ui.h:5
 #: ../src/caja-file-management-properties.ui.h:43
-#: ../src/caja-property-browser.c:394 ../src/caja-window-menus.c:913
+#: ../src/caja-property-browser.c:394 ../src/caja-window-menus.c:832
 msgid "_Close"
 msgstr "S_chließen"
 
@@ -6067,12 +6069,12 @@ msgstr "Baum"
 msgid "Show Tree"
 msgstr "Baum anzeigen"
 
-#: ../src/caja-application.c:542
+#: ../src/caja-application.c:549
 #, c-format
 msgid "Caja could not create the required folder \"%s\"."
 msgstr "Caja konnte den erforderlichen Ordner »%s« nicht anlegen."
 
-#: ../src/caja-application.c:544
+#: ../src/caja-application.c:551
 msgid ""
 "Before running Caja, please create the following folder, or set permissions "
 "such that Caja can create it."
@@ -6080,12 +6082,12 @@ msgstr ""
 "Bitte legen Sie folgenden Ordner vor dem Starten von Caja an oder ändern Sie"
 " die Zugriffsrechte so, dass Caja ihn anlegen kann."
 
-#: ../src/caja-application.c:549
+#: ../src/caja-application.c:556
 #, c-format
 msgid "Caja could not create the following required folders: %s."
 msgstr "Caja konnte folgende, erforderliche Ordner nicht anlegen: %s."
 
-#: ../src/caja-application.c:551
+#: ../src/caja-application.c:558
 msgid ""
 "Before running Caja, please create these folders, or set permissions such "
 "that Caja can create them."
@@ -6093,45 +6095,45 @@ msgstr ""
 "Bitte legen Sie folgende Ordner vor dem Starten von Caja an oder ändern Sie "
 "die Zugriffsrechte so, dass Caja sie anlegen kann."
 
-#: ../src/caja-application.c:1325 ../src/caja-places-sidebar.c:2210
+#: ../src/caja-application.c:1332 ../src/caja-places-sidebar.c:2210
 #: ../src/caja-places-sidebar.c:2241 ../src/caja-places-sidebar.c:2276
 #, c-format
 msgid "Unable to eject %s"
 msgstr "Auswerfen von %s nicht möglich"
 
-#: ../src/caja-application.c:1998
+#: ../src/caja-application.c:2005
 msgid "--check cannot be used with other options."
 msgstr "--check kann nicht mit anderen Optionen verwendet werden."
 
-#: ../src/caja-application.c:2004
+#: ../src/caja-application.c:2011
 msgid "--quit cannot be used with URIs."
 msgstr "--quit kann nicht mit Adressen verwendet werden."
 
-#: ../src/caja-application.c:2011
+#: ../src/caja-application.c:2018
 msgid "--geometry cannot be used with more than one URI."
 msgstr "--geometry kann nur mit einer Adresse verwendet werden."
 
-#: ../src/caja-application.c:2075
+#: ../src/caja-application.c:2082
 msgid "Perform a quick set of self-check tests."
 msgstr "Einen Satz schnelle Selbsttests durchführen."
 
-#: ../src/caja-application.c:2078
+#: ../src/caja-application.c:2085
 msgid "Show the version of the program."
 msgstr "Die Versionsnummer des Programms anzeigen."
 
-#: ../src/caja-application.c:2080
+#: ../src/caja-application.c:2087
 msgid "Create the initial window with the given geometry."
 msgstr "Das erste Fenster mit der angegebenen Geometrie öffnen."
 
-#: ../src/caja-application.c:2080
+#: ../src/caja-application.c:2087
 msgid "GEOMETRY"
 msgstr "GEOMETRIE"
 
-#: ../src/caja-application.c:2082
+#: ../src/caja-application.c:2089
 msgid "Only create windows for explicitly specified URIs."
 msgstr "Nur für ausdrücklich angegebene Adressen Fenster erstellen."
 
-#: ../src/caja-application.c:2084
+#: ../src/caja-application.c:2091
 msgid ""
 "Do not manage the desktop (ignore the preference set in the preferences "
 "dialog)."
@@ -6139,7 +6141,7 @@ msgstr ""
 "Den Schreibtisch nicht verwalten (die Einstellungen im Einstellungsdialog "
 "ignorieren)."
 
-#: ../src/caja-application.c:2086
+#: ../src/caja-application.c:2093
 msgid ""
 "Manage the desktop regardless of set preferences or environment (on new "
 "startup only)"
@@ -6147,23 +6149,23 @@ msgstr ""
 "Den Schreibtisch ungeachtet bereits festgelegter Einstellungen oder "
 "Umgebungsvariablen verwalten (nur bei Neustart)"
 
-#: ../src/caja-application.c:2088
+#: ../src/caja-application.c:2095
 msgid "Open URIs in tabs."
 msgstr ""
 
-#: ../src/caja-application.c:2090
+#: ../src/caja-application.c:2097
 msgid "Open a browser window."
 msgstr "Ein Browserfenster öffnen."
 
-#: ../src/caja-application.c:2092
+#: ../src/caja-application.c:2099
 msgid "Quit Caja."
 msgstr "Caja beenden."
 
-#: ../src/caja-application.c:2093
+#: ../src/caja-application.c:2100
 msgid "[URI...]"
 msgstr "[Adresse …]"
 
-#: ../src/caja-application.c:2104
+#: ../src/caja-application.c:2111
 msgid ""
 "\n"
 "\n"
@@ -6208,7 +6210,7 @@ msgstr ""
 
 #: ../src/caja-bookmarks-window.c:159
 #: ../src/caja-file-management-properties.c:246
-#: ../src/caja-property-browser.c:1676 ../src/caja-window-menus.c:692
+#: ../src/caja-property-browser.c:1676 ../src/caja-window-menus.c:611
 #, c-format
 msgid ""
 "There was an error displaying help: \n"
@@ -6497,7 +6499,7 @@ msgstr "Nach Größe"
 
 #: ../src/caja-file-management-properties.ui.h:10
 msgid "By Size on Disk"
-msgstr ""
+msgstr "Nach Größe auf Festplatte"
 
 #: ../src/caja-file-management-properties.ui.h:11
 msgid "By Type"
@@ -6629,11 +6631,11 @@ msgstr "_Ordner vor Dateien anzeigen"
 
 #: ../src/caja-file-management-properties.ui.h:48
 msgid "Show hidden files"
-msgstr ""
+msgstr "Verborgene Dateien anzeigen"
 
 #: ../src/caja-file-management-properties.ui.h:49
 msgid "Show backup files"
-msgstr ""
+msgstr "Sicherungsdateien anzeigen"
 
 #: ../src/caja-file-management-properties.ui.h:50
 msgid "<b>Icon View Defaults</b>"
@@ -7051,7 +7053,7 @@ msgstr "_Ort:"
 
 #: ../src/caja-navigation-action.c:146
 msgid "folder removed"
-msgstr ""
+msgstr "Ordner entfernt"
 
 #: ../src/caja-navigation-window-menus.c:131
 msgid "Are you sure you want to clear the list of locations you have visited?"
@@ -7618,7 +7620,7 @@ msgstr "Schlagwörter"
 
 #: ../src/caja-query-editor.c:181
 msgid "Modification Time"
-msgstr ""
+msgstr "Änderungszeit"
 
 #: ../src/caja-query-editor.c:334
 msgid "Select folder to search in"
@@ -7681,27 +7683,27 @@ msgstr "Anderer Typ …"
 
 #: ../src/caja-query-editor.c:1063 ../src/caja-query-editor.c:1202
 msgid "Less than or equal to"
-msgstr ""
+msgstr "Weniger als oder gleich"
 
 #: ../src/caja-query-editor.c:1065 ../src/caja-query-editor.c:1204
 msgid "Greater or equal to"
-msgstr ""
+msgstr "Größer oder gleich"
 
 #: ../src/caja-query-editor.c:1078
 msgid "1 Hour"
-msgstr ""
+msgstr "1 Stunde"
 
 #: ../src/caja-query-editor.c:1080
 msgid "1 Day"
-msgstr ""
+msgstr "1 Tag"
 
 #: ../src/caja-query-editor.c:1082
 msgid "1 Week"
-msgstr ""
+msgstr "1 Woche"
 
 #: ../src/caja-query-editor.c:1084
 msgid "1 Month"
-msgstr ""
+msgstr "1 Monat"
 
 #: ../src/caja-query-editor.c:1086
 msgid "6 Months"
@@ -7713,55 +7715,55 @@ msgstr "1 Jahr"
 
 #: ../src/caja-query-editor.c:1219
 msgid "10 KiB"
-msgstr ""
+msgstr "10 KiB"
 
 #: ../src/caja-query-editor.c:1221
 msgid "100 KiB"
-msgstr ""
+msgstr "100 KiB"
 
 #: ../src/caja-query-editor.c:1223
 msgid "500 KiB"
-msgstr ""
+msgstr "500 KiB"
 
 #: ../src/caja-query-editor.c:1225
 msgid "1 MiB"
-msgstr ""
+msgstr "1 MiB"
 
 #: ../src/caja-query-editor.c:1227
 msgid "5 MiB"
-msgstr ""
+msgstr "5 MiB"
 
 #: ../src/caja-query-editor.c:1229
 msgid "10 MiB"
-msgstr ""
+msgstr "10 MiB"
 
 #: ../src/caja-query-editor.c:1231
 msgid "100 MiB"
-msgstr ""
+msgstr "100 MiB"
 
 #: ../src/caja-query-editor.c:1233
 msgid "500 MiB"
-msgstr ""
+msgstr "500 MiB"
 
 #: ../src/caja-query-editor.c:1235
 msgid "1 GiB"
-msgstr ""
+msgstr "1 GiB"
 
 #: ../src/caja-query-editor.c:1237
 msgid "2 GiB"
-msgstr ""
+msgstr "2 GiB"
 
 #: ../src/caja-query-editor.c:1239
 msgid "4 GiB"
-msgstr ""
+msgstr "4 GiB"
 
 #: ../src/caja-query-editor.c:1242
 msgid "10 KB"
-msgstr ""
+msgstr "10 KB"
 
 #: ../src/caja-query-editor.c:1256
 msgid "500 MB"
-msgstr ""
+msgstr "500 MB"
 
 #: ../src/caja-query-editor.c:1449
 msgid "Remove this criterion from the search"
@@ -7946,7 +7948,7 @@ msgstr ""
 msgid "Go to the location specified by this bookmark"
 msgstr "Zum Ort gehen, den dieses Lesezeichen angibt"
 
-#: ../src/caja-window-menus.c:618
+#: ../src/caja-window-menus.c:518
 msgid ""
 "Caja is free software; you can redistribute it and/or modify it under the "
 "terms of the GNU General Public License as published by the Free Software "
@@ -7958,7 +7960,7 @@ msgstr ""
 " weitergeben und/oder modifizieren, entweder gemäß Version 2 der Lizenz oder"
 " (nach Ihrer Wahl) jeder neueren Version."
 
-#: ../src/caja-window-menus.c:622
+#: ../src/caja-window-menus.c:522
 msgid ""
 "Caja is distributed in the hope that it will be useful, but WITHOUT ANY "
 "WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS "
@@ -7970,7 +7972,7 @@ msgstr ""
 "MARKTREIFE oder der VERWENDBARKEIT FÜR EINEN BESTIMMTEN ZWECK. Details "
 "finden Sie in der GNU General Public License."
 
-#: ../src/caja-window-menus.c:626
+#: ../src/caja-window-menus.c:526
 msgid ""
 "You should have received a copy of the GNU General Public License along with"
 " Caja; if not, write to the Free Software Foundation, Inc., 51 Franklin "
@@ -7980,27 +7982,26 @@ msgstr ""
 "erhalten haben. Falls nicht, schreiben Sie an die Free Software Foundation, "
 "Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02111-1307 USA."
 
-#: ../src/caja-window-menus.c:637
+#: ../src/caja-window-menus.c:558
 msgid "About Caja"
-msgstr ""
+msgstr "Über Caja"
 
-#: ../src/caja-window-menus.c:639
+#: ../src/caja-window-menus.c:560
 msgid ""
 "Caja lets you organize files and folders, both on your computer and online."
 msgstr ""
 "Caja hilft Ihnen beim Organisieren Ihrer Dateien und Ordner, egal ob diese "
 "lokal gespeichert oder online sind."
 
-#: ../src/caja-window-menus.c:642
+#: ../src/caja-window-menus.c:563
 msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2019 The Caja authors"
 msgstr ""
+"Urheberrecht © 1999-2009 Die Nautilus-Autoren\n"
+"Urheberrecht © 2011-2019 Die Caja-Autoren"
 
-#. Translators should localize the following string
-#. * which will be displayed at the bottom of the about
-#. * box to give credit to the translator(s).
-#: ../src/caja-window-menus.c:652
+#: ../src/caja-window-menus.c:569
 msgid "translator-credits"
 msgstr ""
 "Christian Meyer\n"
@@ -8011,35 +8012,35 @@ msgstr ""
 "Wolfgang Stoeggl\n"
 "Tobias Bannert"
 
-#: ../src/caja-window-menus.c:655
+#: ../src/caja-window-menus.c:572
 msgid "MATE Web Site"
 msgstr "MATE-Internetseite"
 
 #. name, icon name, label
-#: ../src/caja-window-menus.c:908
+#: ../src/caja-window-menus.c:827
 msgid "_File"
 msgstr "_Datei"
 
 #. name, icon name, label
-#: ../src/caja-window-menus.c:909
+#: ../src/caja-window-menus.c:828
 msgid "_Edit"
 msgstr "_Bearbeiten"
 
 #. name, icon name, label
-#: ../src/caja-window-menus.c:910
+#: ../src/caja-window-menus.c:829
 msgid "_View"
 msgstr "_Darstellung"
 
 #. tooltip
-#: ../src/caja-window-menus.c:914
+#: ../src/caja-window-menus.c:833
 msgid "Close this folder"
 msgstr "Diesen Ordner schließen"
 
-#: ../src/caja-window-menus.c:919
+#: ../src/caja-window-menus.c:838
 msgid "_Backgrounds and Emblems..."
 msgstr "_Hintergründe und Embleme …"
 
-#: ../src/caja-window-menus.c:920
+#: ../src/caja-window-menus.c:839
 msgid ""
 "Display patterns, colors, and emblems that can be used to customize "
 "appearance"
@@ -8047,174 +8048,174 @@ msgstr ""
 "Muster, Farben und Embleme anzeigen, mit denen das Erscheinungsbild "
 "angepasst werden kann"
 
-#: ../src/caja-window-menus.c:925
+#: ../src/caja-window-menus.c:844
 msgid "Prefere_nces"
 msgstr "_Einstellungen"
 
-#: ../src/caja-window-menus.c:926
+#: ../src/caja-window-menus.c:845
 msgid "Edit Caja preferences"
 msgstr "Die Caja-Einstellungen bearbeiten"
 
 #. name, icon name, label
-#: ../src/caja-window-menus.c:929
+#: ../src/caja-window-menus.c:848
 msgid "Open _Parent"
 msgstr "_Elternordner öffnen"
 
-#: ../src/caja-window-menus.c:930
+#: ../src/caja-window-menus.c:849
 msgid "Open the parent folder"
 msgstr "Den Elternordner öffnen"
 
 #. tooltip
-#: ../src/caja-window-menus.c:939
+#: ../src/caja-window-menus.c:858
 msgid "Stop loading the current location"
 msgstr "Das Laden des aktuellen Ortes abbrechen"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:943
+#: ../src/caja-window-menus.c:862
 msgid "_Reload"
 msgstr "Ak_tualisieren"
 
 #. tooltip
-#: ../src/caja-window-menus.c:944
+#: ../src/caja-window-menus.c:863
 msgid "Reload the current location"
 msgstr "Den aktuellen Ort neu laden"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:948
+#: ../src/caja-window-menus.c:867
 msgid "_Contents"
 msgstr "_Inhalt"
 
 #. tooltip
-#: ../src/caja-window-menus.c:949
+#: ../src/caja-window-menus.c:868
 msgid "Display Caja help"
 msgstr "Hilfe zu Caja anzeigen"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:953
+#: ../src/caja-window-menus.c:872
 msgid "_About"
 msgstr "_Über"
 
 #. tooltip
-#: ../src/caja-window-menus.c:954
+#: ../src/caja-window-menus.c:873
 msgid "Display credits for the creators of Caja"
 msgstr "Danksagung an die Schöpfer von Caja anzeigen"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:958
+#: ../src/caja-window-menus.c:877
 msgid "Zoom _In"
 msgstr "Ver_größern"
 
 #. tooltip
-#: ../src/caja-window-menus.c:959 ../src/caja-zoom-control.c:96
+#: ../src/caja-window-menus.c:878 ../src/caja-zoom-control.c:96
 #: ../src/caja-zoom-control.c:309
 msgid "Increase the view size"
 msgstr "Ansicht vergrößern"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:973
+#: ../src/caja-window-menus.c:892
 msgid "Zoom _Out"
 msgstr "Ver_kleinern"
 
 #. tooltip
-#: ../src/caja-window-menus.c:974 ../src/caja-zoom-control.c:97
+#: ../src/caja-window-menus.c:893 ../src/caja-zoom-control.c:97
 #: ../src/caja-zoom-control.c:254
 msgid "Decrease the view size"
 msgstr "Ansicht verkleinern"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:983
+#: ../src/caja-window-menus.c:902
 msgid "Normal Si_ze"
 msgstr "_Normale Größe"
 
 #. tooltip
-#: ../src/caja-window-menus.c:984 ../src/caja-zoom-control.c:98
+#: ../src/caja-window-menus.c:903 ../src/caja-zoom-control.c:98
 #: ../src/caja-zoom-control.c:270
 msgid "Use the normal view size"
 msgstr "Die normale Ansichtsgröße verwenden"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:988
+#: ../src/caja-window-menus.c:907
 msgid "Connect to _Server..."
 msgstr "Mit _Server verbinden …"
 
 #. tooltip
-#: ../src/caja-window-menus.c:989
+#: ../src/caja-window-menus.c:908
 msgid "Connect to a remote computer or shared disk"
 msgstr "Verbindung zu einem entfernten Rechner oder Datenträger"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:998
+#: ../src/caja-window-menus.c:917
 msgid "_Computer"
 msgstr "_Rechner"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:1003
+#: ../src/caja-window-menus.c:922
 msgid "_Network"
 msgstr "_Netzwerk"
 
 #. tooltip
-#: ../src/caja-window-menus.c:1004 ../src/mate-network-scheme.desktop.in.h:2
+#: ../src/caja-window-menus.c:923 ../src/mate-network-scheme.desktop.in.h:2
 msgid "Browse bookmarked and local network locations"
 msgstr "Lesezeichen und lokale Netzwerke durchsuchen"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:1008
+#: ../src/caja-window-menus.c:927
 msgid "T_emplates"
 msgstr "_Vorlagen"
 
 #. tooltip
-#: ../src/caja-window-menus.c:1009
+#: ../src/caja-window-menus.c:928
 msgid "Open your personal templates folder"
 msgstr "Zum Vorlagenordner gehen"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:1013
+#: ../src/caja-window-menus.c:932
 msgid "_Trash"
 msgstr "_Papierkorb"
 
 #. tooltip
-#: ../src/caja-window-menus.c:1014
+#: ../src/caja-window-menus.c:933
 msgid "Open your personal trash folder"
 msgstr "Zum Papierkorb gehen"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/caja-window-menus.c:1022
+#: ../src/caja-window-menus.c:941
 msgid "Show _Hidden Files"
 msgstr "_Verborgene Dateien anzeigen"
 
 #. tooltip
-#: ../src/caja-window-menus.c:1023
+#: ../src/caja-window-menus.c:942
 msgid "Toggle the display of hidden files in the current window"
 msgstr "Verborgene Dateien im momentan geöffneten Fenster anzeigen/verbergen"
 
 #. name, stock id
 #. label, accelerator
-#: ../src/caja-window-menus.c:1028
+#: ../src/caja-window-menus.c:947
 msgid "Show Bac_kup Files"
-msgstr ""
+msgstr "Sich_erungsdateien anzeigen"
 
 #. tooltip
-#: ../src/caja-window-menus.c:1029
+#: ../src/caja-window-menus.c:948
 msgid "Toggle the display of backup files in the current window"
 msgstr ""
 
-#: ../src/caja-window-menus.c:1061
+#: ../src/caja-window-menus.c:980
 msgid "_Up"
 msgstr "Hin_auf"
 
-#: ../src/caja-window-menus.c:1064
+#: ../src/caja-window-menus.c:983
 msgid "_Home"
 msgstr "_Persönlicher Ordner"
 
