@@ -25,6 +25,7 @@
 
 #include "caja-global-preferences.h"
 #include "caja-module.h"
+#include "caja-debug-log.h"
 
 #include <string.h>
 
@@ -36,6 +37,7 @@ static GList *caja_extensions = NULL;
 static Extension *
 extension_new (gchar *filename, gboolean state, gboolean python, GObject *module)
 {
+    GError *error = NULL;
     Extension *ext;
     GKeyFile *extension_file;
     gchar *extension_filename;
@@ -53,17 +55,22 @@ extension_new (gchar *filename, gboolean state, gboolean python, GObject *module
 
     extension_file = g_key_file_new ();
     extension_filename = g_strdup_printf(CAJA_DATADIR "/extensions/%s.caja-extension", filename);
-    if (g_key_file_load_from_file (extension_file, extension_filename, G_KEY_FILE_NONE, NULL))
+    if (g_key_file_load_from_file (extension_file, extension_filename, G_KEY_FILE_NONE, &error))
     {
         ext->name = g_key_file_get_locale_string (extension_file, CAJA_EXTENSION_GROUP, "Name", NULL, NULL);
         ext->description = g_key_file_get_locale_string (extension_file, CAJA_EXTENSION_GROUP, "Description", NULL, NULL);
         ext->icon = g_key_file_get_string (extension_file, CAJA_EXTENSION_GROUP, "Icon", NULL);
         ext->author = g_key_file_get_string_list (extension_file, CAJA_EXTENSION_GROUP, "Author", NULL, NULL);
-        ext->copyright = g_key_file_get_string (extension_file, CAJA_EXTENSION_GROUP, "Copyright", NULL);
+        ext->copyright = g_key_file_get_locale_string (extension_file, CAJA_EXTENSION_GROUP, "Copyright", NULL, NULL);
         ext->version = g_key_file_get_string (extension_file, CAJA_EXTENSION_GROUP, "Version", NULL);
         ext->website = g_key_file_get_string (extension_file, CAJA_EXTENSION_GROUP, "Website", NULL);
+        g_key_file_free (extension_file);
     }
-    g_key_file_free (extension_file);
+    else
+    {
+        caja_debug_log (FALSE, CAJA_DEBUG_LOG_DOMAIN_USER, "Error loading keys from file: %s\n", error->message);
+        g_error_free (error);
+    }
     g_free (extension_filename);
 
     if (python)
