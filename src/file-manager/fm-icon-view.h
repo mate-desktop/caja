@@ -88,6 +88,7 @@ struct FMIconViewClass
 
     /* Override "clean_up" if your subclass has its own notion of where icons should be positioned */
     void	 (* clean_up)			 (FMIconView *icon_view);
+	void    (* clean_up_by_time)            (FMIconView *icon_view);
 
     /* supports_auto_layout is a function pointer that subclasses may
      * override to control whether or not the automatic layout options

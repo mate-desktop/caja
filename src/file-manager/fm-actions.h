@@ -100,6 +100,7 @@
 #define FM_ACTION_TIGHTER_LAYOUT "Tighter Layout"
 #define FM_ACTION_REVERSED_ORDER "Reversed Order"
 #define FM_ACTION_CLEAN_UP "Clean Up"
+#define FM_ACTION_CLEAN_UP_BY_TIME "Clean Up By Time"
 #define FM_ACTION_KEEP_ALIGNED "Keep Aligned"
 #define FM_ACTION_ARRANGE_ITEMS "Arrange Items"
 #define FM_ACTION_STRETCH "Stretch"

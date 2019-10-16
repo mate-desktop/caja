@@ -430,28 +430,35 @@ fm_icon_view_clean_up (FMIconView *icon_view)
 static void
 fm_icon_view_real_clean_up (FMIconView *icon_view)
 {
-    CajaIconContainer *icon_container;
-    gboolean saved_sort_reversed;
-
-    icon_container = get_icon_container (icon_view);
-
-    /* Hardwire Clean Up to always be by name, in forward order */
-    saved_sort_reversed = icon_view->details->sort_reversed;
-
-    set_sort_reversed (icon_view, FALSE);
-    set_sort_criterion (icon_view, &sort_criteria[0]);
-
-    caja_icon_container_sort (icon_container);
-    caja_icon_container_freeze_icon_positions (icon_container);
-
-    set_sort_reversed (icon_view, saved_sort_reversed);
+	set_sort_criterion_by_sort_type (icon_view, CAJA_FILE_SORT_BY_DISPLAY_NAME);
 }
+
+static void
+fm_icon_view_real_clean_up_by_time (FMIconView *icon_view)
+{
+    set_sort_criterion_by_sort_type (icon_view, CAJA_FILE_SORT_BY_MTIME);
+}
+
+
+static void
+fm_icon_view_clean_up_by_time (FMIconView *icon_view)
+{
+    EEL_CALL_METHOD (FM_ICON_VIEW_CLASS, icon_view, clean_up_by_time, (icon_view));
+}
+
 
 static void
 action_clean_up_callback (GtkAction *action, gpointer callback_data)
 {
     fm_icon_view_clean_up (FM_ICON_VIEW (callback_data));
 }
+
+static void
+action_clean_up_by_time_callback (GtkAction *action, gpointer callback_data)
+{
+    fm_icon_view_clean_up_by_time (FM_ICON_VIEW (callback_data));
+}
+
 
 static void
 set_tighter_layout (FMIconView *icon_view, gboolean new_value)
@@ -793,6 +800,16 @@ update_layout_menus (FMIconView *view)
     {
         gtk_action_set_label (action, _("_Organize Desktop by Name"));
     }
+
+	action = gtk_action_group_get_action (view->details->icon_action_group,
+                                          FM_ACTION_CLEAN_UP_BY_TIME);
+    gtk_action_set_sensitive (action, !is_auto_layout);
+
+    if (FM_IS_DESKTOP_ICON_VIEW (view))
+    {
+        gtk_action_set_label (action, _("Organize Desktop by Create Time"));
+    }
+
 
     action = gtk_action_group_get_action (view->details->icon_action_group,
                                           FM_ACTION_KEEP_ALIGNED);
@@ -1722,6 +1739,12 @@ static const GtkActionEntry icon_view_entries[] =
         /* tooltip */                  N_("Reposition icons to better fit in the window and avoid overlapping"),
         G_CALLBACK (action_clean_up_callback)
     },
+	/* name, stock id */         { "Clean Up By Time", NULL,
+    /* label, accelerator */       N_("Organize by Create Time"), NULL,
+    /* tooltip */                  N_("Reposition icons to better fit in the window and avoid overlapping"),
+       G_CALLBACK (action_clean_up_by_time_callback)
+    },
+
 };
 
 static const GtkToggleActionEntry icon_view_toggle_entries[] =
@@ -3239,6 +3262,7 @@ fm_icon_view_class_init (FMIconViewClass *klass)
     fm_directory_view_class->widget_to_file_operation_position = fm_icon_view_widget_to_file_operation_position;
 
     klass->clean_up = fm_icon_view_real_clean_up;
+	klass->clean_up_by_time = fm_icon_view_real_clean_up_by_time;
     klass->supports_auto_layout = real_supports_auto_layout;
     klass->supports_scaling = real_supports_scaling;
     klass->supports_manual_layout = real_supports_manual_layout;
