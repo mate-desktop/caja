@@ -187,10 +187,6 @@ struct CajaSearchEngineTrackerDetails
     TrackerVersion	version;
 };
 
-
-static void  caja_search_engine_tracker_class_init       (CajaSearchEngineTrackerClass *class);
-static void  caja_search_engine_tracker_init             (CajaSearchEngineTracker      *engine);
-
 G_DEFINE_TYPE (CajaSearchEngineTracker,
                caja_search_engine_tracker,
                CAJA_TYPE_SEARCH_ENGINE);

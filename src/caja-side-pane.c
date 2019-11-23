@@ -53,8 +53,6 @@ struct _CajaSidePanePrivate
     GList *panels;
 };
 
-static void caja_side_pane_class_init (CajaSidePaneClass *klass);
-static void caja_side_pane_init       (CajaSidePane *side_pane);
 static void caja_side_pane_dispose    (GObject *object);
 static void caja_side_pane_finalize   (GObject *object);
 

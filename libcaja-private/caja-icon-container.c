@@ -9990,6 +9990,14 @@ caja_icon_container_accessible_finalize (GObject *object)
     G_OBJECT_CLASS (accessible_parent_class)->finalize (object);
 }
 
+G_DEFINE_TYPE_WITH_CODE (CajaIconContainerAccessible,
+                         caja_icon_container_accessible,
+                         eel_canvas_accessible_get_type (),
+                         G_IMPLEMENT_INTERFACE (ATK_TYPE_ACTION,
+                                                caja_icon_container_accessible_action_interface_init)
+                         G_IMPLEMENT_INTERFACE (ATK_TYPE_SELECTION,
+                                                caja_icon_container_accessible_selection_interface_init));
+
 static void
 caja_icon_container_accessible_init (CajaIconContainerAccessible *accessible)
 {
@@ -10011,14 +10019,6 @@ caja_icon_container_accessible_class_init (CajaIconContainerAccessibleClass *kla
 
     accessible_private_data_quark = g_quark_from_static_string ("icon-container-accessible-private-data");
 }
-
-G_DEFINE_TYPE_WITH_CODE (CajaIconContainerAccessible,
-                         caja_icon_container_accessible,
-                         eel_canvas_accessible_get_type (),
-                         G_IMPLEMENT_INTERFACE (ATK_TYPE_ACTION,
-                                                caja_icon_container_accessible_action_interface_init)
-                         G_IMPLEMENT_INTERFACE (ATK_TYPE_SELECTION,
-                                                caja_icon_container_accessible_selection_interface_init));
 
 #if ! defined (CAJA_OMIT_SELF_CHECK)
 

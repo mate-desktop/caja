@@ -78,13 +78,11 @@ enum
     LAST_SIGNAL
 };
 
-static void caja_tree_view_drag_dest_init (CajaTreeViewDragDest      *dest);
-static void caja_tree_view_drag_dest_class_init    (CajaTreeViewDragDestClass *class);
-
 static guint signals[LAST_SIGNAL] = { 0 };
 
 G_DEFINE_TYPE (CajaTreeViewDragDest, caja_tree_view_drag_dest,
                G_TYPE_OBJECT);
+
 #define parent_class caja_tree_view_drag_dest_parent_class
 
 static const GtkTargetEntry drag_types [] =

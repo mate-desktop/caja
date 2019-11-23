@@ -67,8 +67,6 @@ typedef struct _CajaWindowPane      CajaWindowPane;
 typedef struct CajaWindowSlotClass CajaWindowSlotClass;
 typedef enum CajaWindowOpenSlotFlags CajaWindowOpenSlotFlags;
 
-GType          caja_window_slot_get_type (void);
-
 typedef enum
 {
     CAJA_WINDOW_NOT_SHOWN,

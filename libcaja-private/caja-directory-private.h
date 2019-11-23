@@ -221,8 +221,6 @@ FileMonitors *     caja_directory_remove_file_monitors            (CajaDirectory
 void               caja_directory_add_file_monitors               (CajaDirectory         *directory,
         CajaFile              *file,
         FileMonitors              *monitors);
-void               caja_directory_add_file                        (CajaDirectory         *directory,
-        CajaFile              *file);
 GList *            caja_directory_begin_file_name_change          (CajaDirectory         *directory,
         CajaFile              *file);
 void               caja_directory_end_file_name_change            (CajaDirectory         *directory,

@@ -29,8 +29,6 @@
 #include "caja-navigation-window-pane.h"
 #include "caja-window-manage-views.h"
 
-static void caja_window_pane_init       (CajaWindowPane *pane);
-static void caja_window_pane_class_init (CajaWindowPaneClass *class);
 static void caja_window_pane_dispose    (GObject *object);
 
 G_DEFINE_TYPE (CajaWindowPane,

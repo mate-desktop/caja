@@ -55,8 +55,6 @@ static guint signals[LAST_SIGNAL] = { 0 };
 static GHashTable *directories;
 
 static void               caja_directory_finalize         (GObject                *object);
-static void               caja_directory_init             (CajaDirectory *directory);
-static void               caja_directory_class_init (CajaDirectoryClass *klass);
 static CajaDirectory *caja_directory_new              (GFile                  *location);
 static char *             real_get_name_for_self_as_new_file  (CajaDirectory      *directory);
 static GList *            real_get_file_list                  (CajaDirectory      *directory);

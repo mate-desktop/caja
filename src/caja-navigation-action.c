@@ -38,9 +38,6 @@
 #include "caja-window-private.h"
 #include "caja-navigation-window-slot.h"
 
-static void caja_navigation_action_init       (CajaNavigationAction *action);
-static void caja_navigation_action_class_init (CajaNavigationActionClass *class);
-
 struct _CajaNavigationActionPrivate
 {
     CajaNavigationWindow *window;

@@ -64,10 +64,6 @@ struct CajaSearchEngineSimpleDetails
     gboolean query_finished;
 };
 
-
-static void  caja_search_engine_simple_class_init       (CajaSearchEngineSimpleClass *class);
-static void  caja_search_engine_simple_init             (CajaSearchEngineSimple      *engine);
-
 G_DEFINE_TYPE (CajaSearchEngineSimple,
                caja_search_engine_simple,
                CAJA_TYPE_SEARCH_ENGINE);
