@@ -46,9 +46,6 @@ enum
 
 static guint signals[LAST_SIGNAL] = { 0 };
 
-static void  caja_search_engine_class_init       (CajaSearchEngineClass *class);
-static void  caja_search_engine_init             (CajaSearchEngine      *engine);
-
 G_DEFINE_ABSTRACT_TYPE (CajaSearchEngine,
                         caja_search_engine,
                         G_TYPE_OBJECT);

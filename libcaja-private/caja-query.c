@@ -42,9 +42,6 @@ struct CajaQueryDetails
     char *contained_text;
 };
 
-static void  caja_query_class_init       (CajaQueryClass *class);
-static void  caja_query_init             (CajaQuery      *query);
-
 G_DEFINE_TYPE (CajaQuery,
                caja_query,
                G_TYPE_OBJECT);

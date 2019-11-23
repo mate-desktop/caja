@@ -67,8 +67,6 @@ enum
 static guint signals[LAST_SIGNAL] = { 0 };
 
 static void     eel_editable_label_editable_init           (GtkEditableInterface  *iface);
-static void     eel_editable_label_class_init              (EelEditableLabelClass *klass);
-static void     eel_editable_label_init                    (EelEditableLabel      *label);
 static void     eel_editable_label_set_property            (GObject               *object,
         guint                  prop_id,
         const GValue          *value,
@@ -4229,6 +4227,14 @@ eel_editable_label_accessible_finalize (GObject *object)
     G_OBJECT_CLASS (a11y_parent_class)->finalize (object);
 }
 
+G_DEFINE_TYPE_WITH_CODE (EelEditableLabelAccessible,
+                         eel_editable_label_accessible,
+                         GTK_TYPE_WIDGET_ACCESSIBLE,
+                         G_IMPLEMENT_INTERFACE (ATK_TYPE_EDITABLE_TEXT,
+                                                atk_editable_text_interface_init)
+                         G_IMPLEMENT_INTERFACE (ATK_TYPE_TEXT,
+                                                atk_text_interface_init));
+
 static void
 eel_editable_label_accessible_class_init (EelEditableLabelAccessibleClass *klass)
 {
@@ -4247,12 +4253,3 @@ static void
 eel_editable_label_accessible_init (EelEditableLabelAccessible *accessible)
 {
 }
-
-G_DEFINE_TYPE_WITH_CODE (EelEditableLabelAccessible,
-                         eel_editable_label_accessible,
-                         GTK_TYPE_WIDGET_ACCESSIBLE,
-                         G_IMPLEMENT_INTERFACE (ATK_TYPE_EDITABLE_TEXT,
-                                                atk_editable_text_interface_init)
-                         G_IMPLEMENT_INTERFACE (ATK_TYPE_TEXT,
-                                                atk_text_interface_init));
-

@@ -3977,19 +3977,19 @@ eel_canvas_item_accessible_factory_create_accessible (GObject *obj)
     return accessible;
 }
 
-static void
-eel_canvas_item_accessible_factory_class_init (AtkObjectFactoryClass *klass)
-{
-    klass->create_accessible = eel_canvas_item_accessible_factory_create_accessible;
-    klass->get_accessible_type = eel_canvas_item_accessible_factory_get_accessible_type;
-}
-
 static GType eel_canvas_item_accessible_factory_get_type (void);
 
 typedef AtkObjectFactory EelCanvasItemAccessibleFactory;
 typedef AtkObjectFactoryClass EelCanvasItemAccessibleFactoryClass;
 G_DEFINE_TYPE (EelCanvasItemAccessibleFactory, eel_canvas_item_accessible_factory,
                ATK_TYPE_OBJECT_FACTORY)
+
+static void
+eel_canvas_item_accessible_factory_class_init (AtkObjectFactoryClass *klass)
+{
+    klass->create_accessible = eel_canvas_item_accessible_factory_create_accessible;
+    klass->get_accessible_type = eel_canvas_item_accessible_factory_get_accessible_type;
+}
 
 static void
 eel_canvas_item_accessible_factory_init (EelCanvasItemAccessibleFactory *accessible)

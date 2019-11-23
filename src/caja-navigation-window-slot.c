@@ -33,10 +33,8 @@
 #include "caja-search-bar.h"
 #include "caja-navigation-window-pane.h"
 
-static void caja_navigation_window_slot_init       (CajaNavigationWindowSlot *slot);
-static void caja_navigation_window_slot_class_init (CajaNavigationWindowSlotClass *class);
-
 G_DEFINE_TYPE (CajaNavigationWindowSlot, caja_navigation_window_slot, CAJA_TYPE_WINDOW_SLOT)
+
 #define parent_class caja_navigation_window_slot_parent_class
 
 gboolean
