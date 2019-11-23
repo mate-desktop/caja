@@ -37,8 +37,6 @@
 #include "caja-notebook.h"
 #include "caja-window-slot.h"
 
-static void caja_navigation_window_pane_init       (CajaNavigationWindowPane *pane);
-static void caja_navigation_window_pane_class_init (CajaNavigationWindowPaneClass *class);
 static void caja_navigation_window_pane_dispose    (GObject *object);
 
 G_DEFINE_TYPE (CajaNavigationWindowPane,

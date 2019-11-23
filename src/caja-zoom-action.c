@@ -35,9 +35,6 @@
 #include "caja-window-private.h"
 #include "caja-navigation-window-slot.h"
 
-static void caja_zoom_action_init       (CajaZoomAction *action);
-static void caja_zoom_action_class_init (CajaZoomActionClass *class);
-
 static GObjectClass *parent_class = NULL;
 
 struct _CajaZoomActionPrivate

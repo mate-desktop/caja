@@ -26,8 +26,6 @@
 #include <config.h>
 #include "caja-keep-last-vertical-box.h"
 
-static void     caja_keep_last_vertical_box_class_init  (CajaKeepLastVerticalBoxClass *class);
-static void     caja_keep_last_vertical_box_init        (CajaKeepLastVerticalBox      *box);
 static void	caja_keep_last_vertical_box_size_allocate 	  (GtkWidget 			    *widget,
         GtkAllocation 		    *allocation);
 

@@ -36,9 +36,6 @@
 #include "caja-window-private.h"
 #include "caja-navigation-window-slot.h"
 
-static void caja_view_as_action_init       (CajaViewAsAction *action);
-static void caja_view_as_action_class_init (CajaViewAsActionClass *class);
-
 static GObjectClass *parent_class = NULL;
 
 struct _CajaViewAsActionPrivate

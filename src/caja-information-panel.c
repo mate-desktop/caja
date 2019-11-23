@@ -91,7 +91,6 @@ static void     caja_information_panel_update_appearance     (CajaInformationPan
 static void     caja_information_panel_update_buttons        (CajaInformationPanel     *information_panel);
 static void     background_metadata_changed_callback             (CajaInformationPanel     *information_panel);
 static void     caja_information_panel_iface_init            (CajaSidebarIface         *iface);
-static void     caja_information_panel_iface_init            (CajaSidebarIface         *iface);
 static void     sidebar_provider_iface_init                      (CajaSidebarProviderIface *iface);
 static GType    caja_information_panel_provider_get_type     (void);
 
