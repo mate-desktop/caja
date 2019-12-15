@@ -4611,10 +4611,9 @@ caja_file_get_icon (CajaFile *file,
 			   and for images with no alpha channel. */
 			gboolean is_image = file->details->mime_type &&
 				(strncmp (file->details->mime_type, "image/", 6) == 0);
-				if (!is_image ||
-					is_image && !gdk_pixbuf_get_has_alpha (raw_pixbuf)) {
-					caja_ui_frame_image (&scaled_pixbuf);
-				}
+			if (!is_image || !gdk_pixbuf_get_has_alpha (raw_pixbuf)) {
+				caja_ui_frame_image (&scaled_pixbuf);
+			}
 
 			g_object_unref (raw_pixbuf);
 
