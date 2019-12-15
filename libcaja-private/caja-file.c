@@ -4612,11 +4612,10 @@ caja_file_get_icon (CajaFile *file,
 			/* Render frames only for thumbnails of non-image files
 			   and for images with no alpha channel. */
 			gboolean is_image = file->details->mime_type &&
-				(strncmp(eel_ref_str_peek (file->details->mime_type), "image/", 6) == 0);
-				if (!is_image ||
-					is_image && !gdk_pixbuf_get_has_alpha (raw_pixbuf)) {
-					caja_ui_frame_image (&scaled_pixbuf);
-				}
+			    (strncmp(eel_ref_str_peek (file->details->mime_type), "image/", 6) == 0);
+			if (!is_image || !gdk_pixbuf_get_has_alpha (raw_pixbuf)) {
+			    caja_ui_frame_image (&scaled_pixbuf);
+			}
 
 			g_object_unref (raw_pixbuf);
 
