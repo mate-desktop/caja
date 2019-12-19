@@ -9,21 +9,21 @@
 # Zoltán Rápolthy <real_zolee@hotmail.com>, 2019
 # Márton Fazekas <zseliakiraly@gmail.com>, 2019
 # KAMI KAMI <kami911@gmail.com>, 2019
-# Rezső Páder <rezso@rezso.net>, 2019
 # Stefano Karapetsas <stefano@karapetsas.com>, 2019
 # István Szőllősi <szollosi.istv4n@gmail.com>, 2019
-# Zoltán Faludi <info@falu.me>, 2019
+# Falu <info@falu.me>, 2019
 # Balázs Meskó <meskobalazs@gmail.com>, 2019
 # clefebvre <clement.lefebvre@linuxmint.com>, 2019
+# Rezső Páder <rezso@rezso.net>, 2019
 # 
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: MATE Desktop Environment\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-22 22:09+0200\n"
+"POT-Creation-Date: 2019-09-17 17:38+0200\n"
 "PO-Revision-Date: 2019-03-11 12:13+0000\n"
-"Last-Translator: clefebvre <clement.lefebvre@linuxmint.com>, 2019\n"
+"Last-Translator: Rezső Páder <rezso@rezso.net>, 2019\n"
 "Language-Team: Hungarian (https://www.transifex.com/mate/teams/13566/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -296,7 +296,7 @@ msgid "Drag an emblem to an object to add it to the object"
 msgstr "Húzzon egy matricát valamelyik objektumra, ezzel megjelölheti"
 
 #. translators: this is the name of an emblem
-#: ../data/browser.xml.h:68 ../src/caja-emblem-sidebar.c:993
+#: ../data/browser.xml.h:68 ../src/caja-emblem-sidebar.c:992
 #: ../src/caja-property-browser.c:1947
 msgid "Erase"
 msgstr "Törlés"
@@ -327,7 +327,7 @@ msgstr "Automatikus futtatás"
 
 #. Set initial window title
 #: ../data/caja-browser.desktop.in.h:1 ../data/caja.desktop.in.h:1
-#: ../data/caja-folder-handler.desktop.in.h:1 ../src/caja-spatial-window.c:396
+#: ../data/caja-folder-handler.desktop.in.h:1 ../src/caja-spatial-window.c:395
 #: ../src/caja-window-menus.c:557 ../src/caja-window.c:164
 msgid "Caja"
 msgstr "Caja"
@@ -365,7 +365,7 @@ msgid "Change the behaviour and appearance of file manager windows"
 msgstr "A fájlkezelő ablakok viselkedésének és megjelenésének módosítása"
 
 #: ../data/caja-folder-handler.desktop.in.h:2
-#: ../libcaja-private/caja-autorun.c:578
+#: ../libcaja-private/caja-autorun.c:581
 msgid "Open Folder"
 msgstr "Mappa megnyitása"
 
@@ -474,12 +474,12 @@ msgstr "Több _részlet megjelenítése"
 
 #: ../eel/eel-stock-dialogs.c:238 ../eel/eel-stock-dialogs.c:294
 #: ../eel/eel-stock-dialogs.c:449 ../eel/eel-stock-dialogs.c:650
-#: ../libcaja-private/caja-autorun.c:1150
+#: ../libcaja-private/caja-autorun.c:1153
 #: ../libcaja-private/caja-file-conflict-dialog.c:655
 #: ../libcaja-private/caja-file-operations.c:186
 #: ../libcaja-private/caja-mime-actions.c:819
 #: ../libcaja-private/caja-mime-actions.c:1732
-#: ../libcaja-private/caja-open-with-dialog.c:960
+#: ../libcaja-private/caja-open-with-dialog.c:963
 #: ../src/file-manager/fm-directory-view.c:1211
 #: ../src/file-manager/fm-directory-view.c:1364
 #: ../src/file-manager/fm-directory-view.c:7026
@@ -494,7 +494,7 @@ msgstr "Mé_gse"
 #. label, accelerator
 #. add the "open" menu item
 #: ../eel/eel-stock-dialogs.c:240
-#: ../libcaja-private/caja-open-with-dialog.c:976
+#: ../libcaja-private/caja-open-with-dialog.c:979
 #: ../src/file-manager/fm-directory-view.c:7342
 #: ../src/file-manager/fm-directory-view.c:8858
 #: ../src/file-manager/fm-tree-view.c:1266 ../src/caja-location-dialog.c:199
@@ -511,7 +511,7 @@ msgid "You can stop this operation by clicking cancel."
 msgstr "A művelet megszakítható a Mégse gomb megnyomásával."
 
 #: ../eel/eel-stock-dialogs.c:296 ../eel/eel-stock-dialogs.c:451
-#: ../eel/eel-stock-dialogs.c:655 ../libcaja-private/caja-autorun.c:1155
+#: ../eel/eel-stock-dialogs.c:655 ../libcaja-private/caja-autorun.c:1158
 #: ../libcaja-private/caja-mime-actions.c:1376
 #: ../src/file-manager/fm-directory-view.c:1216
 #: ../src/caja-emblem-sidebar.c:293 ../src/caja-emblem-sidebar.c:550
@@ -528,80 +528,80 @@ msgstr "_Törlés"
 msgid " (invalid Unicode)"
 msgstr " (érvénytelen Unicode)"
 
-#: ../libcaja-private/caja-autorun.c:522
+#: ../libcaja-private/caja-autorun.c:525
 msgid "No applications found"
 msgstr "Nem találhatók alkalmazások"
 
-#: ../libcaja-private/caja-autorun.c:543
+#: ../libcaja-private/caja-autorun.c:546
 msgid "Ask what to do"
 msgstr "Kérdezze meg, mi a teendő"
 
-#: ../libcaja-private/caja-autorun.c:561
+#: ../libcaja-private/caja-autorun.c:564
 msgid "Do Nothing"
 msgstr "Ne tegyen semmit"
 
-#: ../libcaja-private/caja-autorun.c:611 ../src/caja-x-content-bar.c:147
+#: ../libcaja-private/caja-autorun.c:614 ../src/caja-x-content-bar.c:147
 #, c-format
 msgid "Open %s"
 msgstr "%s megnyitása"
 
-#: ../libcaja-private/caja-autorun.c:655
+#: ../libcaja-private/caja-autorun.c:658
 msgid "Open with other Application..."
 msgstr "Megnyitás más alkalmazással…"
 
-#: ../libcaja-private/caja-autorun.c:1044
+#: ../libcaja-private/caja-autorun.c:1047
 msgid "You have just inserted an Audio CD."
 msgstr "Hang CD-t helyezett be."
 
-#: ../libcaja-private/caja-autorun.c:1048
+#: ../libcaja-private/caja-autorun.c:1051
 msgid "You have just inserted an Audio DVD."
 msgstr "Hang DVD-t helyezett be."
 
-#: ../libcaja-private/caja-autorun.c:1052
+#: ../libcaja-private/caja-autorun.c:1055
 msgid "You have just inserted a Video DVD."
 msgstr "Videó DVD-t helyezett be."
 
-#: ../libcaja-private/caja-autorun.c:1056
+#: ../libcaja-private/caja-autorun.c:1059
 msgid "You have just inserted a Video CD."
 msgstr "Videó CD-t helyezett be."
 
-#: ../libcaja-private/caja-autorun.c:1060
+#: ../libcaja-private/caja-autorun.c:1063
 msgid "You have just inserted a Super Video CD."
 msgstr "SVCD-t helyezett be."
 
-#: ../libcaja-private/caja-autorun.c:1064
+#: ../libcaja-private/caja-autorun.c:1067
 msgid "You have just inserted a blank CD."
 msgstr "Üres CD-t helyezett be."
 
-#: ../libcaja-private/caja-autorun.c:1068
+#: ../libcaja-private/caja-autorun.c:1071
 msgid "You have just inserted a blank DVD."
 msgstr "Videó DVD-t helyezett be."
 
-#: ../libcaja-private/caja-autorun.c:1072
+#: ../libcaja-private/caja-autorun.c:1075
 msgid "You have just inserted a blank Blu-Ray disc."
 msgstr "Üres Blu-ray lemezt helyezett be."
 
-#: ../libcaja-private/caja-autorun.c:1076
+#: ../libcaja-private/caja-autorun.c:1079
 msgid "You have just inserted a blank HD DVD."
 msgstr "Üres HD DVD-t helyezett be."
 
-#: ../libcaja-private/caja-autorun.c:1080
+#: ../libcaja-private/caja-autorun.c:1083
 msgid "You have just inserted a Photo CD."
 msgstr "Fotó CD-t helyezett be."
 
-#: ../libcaja-private/caja-autorun.c:1084
+#: ../libcaja-private/caja-autorun.c:1087
 msgid "You have just inserted a Picture CD."
 msgstr "Kép CD-t helyezett be."
 
-#: ../libcaja-private/caja-autorun.c:1088
+#: ../libcaja-private/caja-autorun.c:1091
 msgid "You have just inserted a medium with digital photos."
 msgstr "Digitális fényképeket tartalmazó adathordozót csatlakoztatott."
 
-#: ../libcaja-private/caja-autorun.c:1092
+#: ../libcaja-private/caja-autorun.c:1095
 msgid "You have just inserted a digital audio player."
 msgstr "Digitális zenelejátszót csatlakoztatott."
 
-#: ../libcaja-private/caja-autorun.c:1096
+#: ../libcaja-private/caja-autorun.c:1099
 msgid ""
 "You have just inserted a medium with software intended to be automatically "
 "started."
@@ -610,15 +610,15 @@ msgstr ""
 " be."
 
 #. fallback to generic greeting
-#: ../libcaja-private/caja-autorun.c:1101
+#: ../libcaja-private/caja-autorun.c:1104
 msgid "You have just inserted a medium."
 msgstr "Adathordozót helyezett be."
 
-#: ../libcaja-private/caja-autorun.c:1103
+#: ../libcaja-private/caja-autorun.c:1106
 msgid "Choose what application to launch."
 msgstr "Válassza ki az elindítandó alkalmazást."
 
-#: ../libcaja-private/caja-autorun.c:1113
+#: ../libcaja-private/caja-autorun.c:1116
 #, c-format
 msgid ""
 "Select how to open \"%s\" and whether to perform this action in the future "
@@ -627,14 +627,14 @@ msgstr ""
 "Válassza ki „%s” megnyitási módját és hogy végre kívánja-e hajtani ezt a "
 "műveletet a jövőben más „%s” típusú adathordozókon."
 
-#: ../libcaja-private/caja-autorun.c:1141
+#: ../libcaja-private/caja-autorun.c:1144
 msgid "_Always perform this action"
 msgstr "Mindig ezen művelet végreh_ajtása"
 
 #. name, icon name
 #. label, accelerator
 #. add the "Eject" menu item
-#: ../libcaja-private/caja-autorun.c:1164
+#: ../libcaja-private/caja-autorun.c:1167
 #: ../src/file-manager/fm-directory-view.c:7469
 #: ../src/file-manager/fm-directory-view.c:7497
 #: ../src/file-manager/fm-directory-view.c:7578
@@ -645,7 +645,7 @@ msgstr "_Kiadás"
 #. name, icon name
 #. label, accelerator
 #. add the "Unmount" menu item
-#: ../libcaja-private/caja-autorun.c:1179
+#: ../libcaja-private/caja-autorun.c:1182
 #: ../src/file-manager/fm-directory-view.c:7465
 #: ../src/file-manager/fm-directory-view.c:7493
 #: ../src/file-manager/fm-directory-view.c:7574
@@ -1912,7 +1912,7 @@ msgid "today at 00:00:00 PM"
 msgstr "ma, 00.00.00"
 
 #: ../libcaja-private/caja-file.c:4739
-#: ../src/caja-file-management-properties.c:531
+#: ../src/caja-file-management-properties.c:532
 msgid "today at %-I:%M:%S %p"
 msgstr "ma, %H.%M.%S"
 
@@ -2199,12 +2199,12 @@ msgstr[0] "Ez %d különálló ablakot fog megnyitni."
 msgstr[1] "Ez %d különálló ablakot fog megnyitni."
 
 #: ../libcaja-private/caja-mime-actions.c:1267
-#: ../src/caja-window-manage-views.c:2101
-#: ../src/caja-window-manage-views.c:2109
-#: ../src/caja-window-manage-views.c:2129
-#: ../src/caja-window-manage-views.c:2143
-#: ../src/caja-window-manage-views.c:2149
-#: ../src/caja-window-manage-views.c:2176
+#: ../src/caja-window-manage-views.c:2114
+#: ../src/caja-window-manage-views.c:2122
+#: ../src/caja-window-manage-views.c:2142
+#: ../src/caja-window-manage-views.c:2156
+#: ../src/caja-window-manage-views.c:2162
+#: ../src/caja-window-manage-views.c:2189
 #, c-format
 msgid "Could not display \"%s\"."
 msgstr "„%s” nem jeleníthető meg."
@@ -2284,13 +2284,13 @@ msgstr[0] "%d elem megnyitása."
 msgstr[1] "%d elem megnyitása."
 
 #: ../libcaja-private/caja-mime-application-chooser.c:162
-#: ../libcaja-private/caja-open-with-dialog.c:300
+#: ../libcaja-private/caja-open-with-dialog.c:303
 #, c-format
 msgid "Could not set application as the default: %s"
 msgstr "Az alkalmazás nem állítható be alapértelmezettként: %s"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:163
-#: ../libcaja-private/caja-open-with-dialog.c:301
+#: ../libcaja-private/caja-open-with-dialog.c:304
 msgid "Could not set as default application"
 msgstr "Nem állítható be alapértelmezett alkalmazásként"
 
@@ -2307,12 +2307,12 @@ msgid "Could not remove application"
 msgstr "Az alkalmazás nem távolítható el"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:420
-#: ../libcaja-private/caja-open-with-dialog.c:1132
+#: ../libcaja-private/caja-open-with-dialog.c:1135
 msgid "_Add"
 msgstr "Hozzá_adás"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:430
-#: ../libcaja-private/caja-open-with-dialog.c:951
+#: ../libcaja-private/caja-open-with-dialog.c:954
 #: ../src/caja-bookmarks-window.ui.h:4
 msgid "_Remove"
 msgstr "_Eltávolítás"
@@ -2327,7 +2327,7 @@ msgid "%s document"
 msgstr "%s dokumentum"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:599
-#: ../libcaja-private/caja-open-with-dialog.c:1091
+#: ../libcaja-private/caja-open-with-dialog.c:1094
 msgid "Unknown"
 msgstr "Ismeretlen"
 
@@ -2359,76 +2359,80 @@ msgstr "Az alkalmazás nem található"
 msgid "Could not add application to the application database: %s"
 msgstr "Az alkalmazás nem adható az alkalmazás-adatbázishoz: %s"
 
+#: ../libcaja-private/caja-open-with-dialog.c:252
+msgid "Unknown error"
+msgstr "Ismeretlen hiba"
+
 #: ../libcaja-private/caja-open-with-dialog.c:253
 msgid "Could not add application"
 msgstr "Az alkalmazás nem adható hozzá"
 
-#: ../libcaja-private/caja-open-with-dialog.c:451
+#: ../libcaja-private/caja-open-with-dialog.c:454
 msgid "Select an Application"
 msgstr "Válasszon egy alkalmazást"
 
-#: ../libcaja-private/caja-open-with-dialog.c:856
+#: ../libcaja-private/caja-open-with-dialog.c:859
 #: ../src/file-manager/fm-properties-window.c:5080
 msgid "Open With"
 msgstr "Megnyitás ezzel"
 
-#: ../libcaja-private/caja-open-with-dialog.c:894
+#: ../libcaja-private/caja-open-with-dialog.c:897
 msgid "Select an application to view its description."
 msgstr "Válasszon ki egy alkalmazást a leírásának megtekintéséhez."
 
-#: ../libcaja-private/caja-open-with-dialog.c:920
+#: ../libcaja-private/caja-open-with-dialog.c:923
 msgid "_Use a custom command"
 msgstr "Eg_yéni parancs használata"
 
-#: ../libcaja-private/caja-open-with-dialog.c:937
+#: ../libcaja-private/caja-open-with-dialog.c:940
 msgid "_Browse..."
 msgstr "_Tallózás…"
 
 #. first %s is a filename and second %s is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1061
+#: ../libcaja-private/caja-open-with-dialog.c:1064
 #, c-format
 msgid "Open %s and other %s document with:"
 msgstr "%s, és más %s dokumentumok megnyitása ezzel:"
 
 #. the %s here is a file name
 #. %s is a filename
-#: ../libcaja-private/caja-open-with-dialog.c:1067
-#: ../libcaja-private/caja-open-with-dialog.c:1107
+#: ../libcaja-private/caja-open-with-dialog.c:1070
+#: ../libcaja-private/caja-open-with-dialog.c:1110
 #, c-format
 msgid "Open %s with:"
 msgstr "%s megnyitása ezzel:"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1068
+#: ../libcaja-private/caja-open-with-dialog.c:1071
 #, c-format
 msgid "_Remember this application for %s documents"
 msgstr "_Ezen alkalmazás megjegyzése a(z) %s dokumentumokhoz"
 
 #. Only in add mode - the %s here is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1079
+#: ../libcaja-private/caja-open-with-dialog.c:1082
 #, c-format
 msgid "Open all %s documents with:"
 msgstr "Minden %s dokumentum megnyitása ezzel:"
 
 #. First %s is a filename, second is a description
 #. * of the type, eg "plain text document"
-#: ../libcaja-private/caja-open-with-dialog.c:1101
+#: ../libcaja-private/caja-open-with-dialog.c:1104
 #, c-format
 msgid "Open %s and other \"%s\" files with:"
 msgstr "%s, és más „%s” fájlok megnyitása ezzel:"
 
 #. %s is a file type description
-#: ../libcaja-private/caja-open-with-dialog.c:1109
+#: ../libcaja-private/caja-open-with-dialog.c:1112
 #, c-format
 msgid "_Remember this application for \"%s\" files"
 msgstr "_Ezen alkalmazás megjegyzése a(z) „%s” fájlokhoz"
 
 #. Only in add mode
-#: ../libcaja-private/caja-open-with-dialog.c:1120
+#: ../libcaja-private/caja-open-with-dialog.c:1123
 #, c-format
 msgid "Open all \"%s\" files with:"
 msgstr "Minden „%s” fájl megnyitása ezzel:"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1133
+#: ../libcaja-private/caja-open-with-dialog.c:1136
 msgid "Add Application"
 msgstr "Alkalmazás hozzáadása"
 
@@ -2512,34 +2516,34 @@ msgstr ""
 msgid "Details: "
 msgstr "Részletek: "
 
-#: ../libcaja-private/caja-progress-info.c:242
+#: ../libcaja-private/caja-progress-info.c:244
 msgid "File Operations"
 msgstr "Fájlműveletek"
 
-#: ../libcaja-private/caja-progress-info.c:314
+#: ../libcaja-private/caja-progress-info.c:316
 msgid "paused"
 msgstr "szüneteltetve"
 
-#: ../libcaja-private/caja-progress-info.c:317
+#: ../libcaja-private/caja-progress-info.c:319
 msgid "pausing"
 msgstr "szünetel"
 
-#: ../libcaja-private/caja-progress-info.c:320
+#: ../libcaja-private/caja-progress-info.c:322
 msgid "queued"
 msgstr "sorba állítva"
 
-#: ../libcaja-private/caja-progress-info.c:323
+#: ../libcaja-private/caja-progress-info.c:325
 msgid "queuing"
 msgstr "sorban áll"
 
-#: ../libcaja-private/caja-progress-info.c:611
+#: ../libcaja-private/caja-progress-info.c:603
 #, c-format
 msgid "%'d file operation active"
 msgid_plural "%'d file operations active"
 msgstr[0] "%'d fájlművelet aktív"
 msgstr[1] "%'d fájlművelet aktív"
 
-#: ../libcaja-private/caja-progress-info.c:629
+#: ../libcaja-private/caja-progress-info.c:625
 msgid "Process completed"
 msgstr "Folyamat befejezve"
 
@@ -3918,13 +3922,13 @@ msgstr "Munkamenet-kezelés kapcsolói:"
 msgid "Show session management options"
 msgstr "Munkamenet-kezelési kapcsolók megjelenítése"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:672
+#: ../src/file-manager/fm-desktop-icon-view.c:662
 msgid "Background"
 msgstr "Háttér"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:749
+#: ../src/file-manager/fm-desktop-icon-view.c:739
 #: ../src/file-manager/fm-directory-view.c:7374
 #: ../src/file-manager/fm-directory-view.c:9058
 msgid "E_mpty Trash"
@@ -3933,24 +3937,24 @@ msgstr "_Kuka ürítése"
 #. label, accelerator
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:763
+#: ../src/file-manager/fm-desktop-icon-view.c:753
 #: ../src/file-manager/fm-directory-view.c:7338
 msgid "Create L_auncher..."
 msgstr "In_dítóikon létrehozása…"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:765
+#: ../src/file-manager/fm-desktop-icon-view.c:755
 #: ../src/file-manager/fm-directory-view.c:7339
 msgid "Create a new launcher"
 msgstr "Új indítóikon létrehozása"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:772
+#: ../src/file-manager/fm-desktop-icon-view.c:762
 msgid "Change Desktop _Background"
 msgstr "Asztal _hátterének megváltoztatása"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:774
+#: ../src/file-manager/fm-desktop-icon-view.c:764
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr ""
@@ -3958,21 +3962,21 @@ msgstr ""
 "színét"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:781
+#: ../src/file-manager/fm-desktop-icon-view.c:771
 msgid "Empty Trash"
 msgstr "Kuka ürítése"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:783
+#: ../src/file-manager/fm-desktop-icon-view.c:773
 #: ../src/file-manager/fm-directory-view.c:7375 ../src/caja-trash-bar.c:202
 msgid "Delete all items in the Trash"
 msgstr "Minden elem törlése a Kukából"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:883
+#: ../src/file-manager/fm-desktop-icon-view.c:873
 msgid "The desktop view encountered an error."
 msgstr "Az asztalnézet hibát észlelt."
 
-#: ../src/file-manager/fm-desktop-icon-view.c:884
+#: ../src/file-manager/fm-desktop-icon-view.c:874
 msgid "The desktop view encountered an error while starting up."
 msgstr "Az asztalnézet hibát észlelt induláskor."
 
@@ -5772,7 +5776,7 @@ msgid "Free space:"
 msgstr "Szabad hely:"
 
 #: ../src/file-manager/fm-properties-window.c:3437
-#: ../src/caja-emblem-sidebar.c:1096
+#: ../src/caja-emblem-sidebar.c:1095
 msgid "Emblems"
 msgstr "Matricák"
 
@@ -5833,7 +5837,7 @@ msgstr "Fájl elérése:"
 #. Translators: this is referred to captions under icons.
 #: ../src/file-manager/fm-properties-window.c:4211
 #: ../src/file-manager/fm-properties-window.c:4222
-#: ../src/caja-file-management-properties.c:339
+#: ../src/caja-file-management-properties.c:340
 msgid "None"
 msgstr "Nincs"
 
@@ -6108,7 +6112,7 @@ msgstr ""
 "Ha bizonytalan, válassza a Mégse gombot."
 
 #: ../src/caja-bookmarks-window.c:159
-#: ../src/caja-file-management-properties.c:246
+#: ../src/caja-file-management-properties.c:247
 #: ../src/caja-property-browser.c:1676 ../src/caja-window-menus.c:611
 #, c-format
 msgid ""
@@ -6349,24 +6353,24 @@ msgstr "A matricák nem tűnnek érvényes képeknek."
 msgid "None of the files could be added as emblems."
 msgstr "Egyik fájl sem adható hozzá matricaként."
 
-#: ../src/caja-emblem-sidebar.c:858 ../src/caja-emblem-sidebar.c:921
+#: ../src/caja-emblem-sidebar.c:858 ../src/caja-emblem-sidebar.c:920
 #, c-format
 msgid "The file '%s' does not appear to be a valid image."
 msgstr "A(z) „%s” fájl nem tűnik érvényes képnek."
 
-#: ../src/caja-emblem-sidebar.c:863
+#: ../src/caja-emblem-sidebar.c:862
 msgid "The dragged file does not appear to be a valid image."
 msgstr "Az áthúzott fájl nem tűnik érvényes képnek."
 
-#: ../src/caja-emblem-sidebar.c:865 ../src/caja-emblem-sidebar.c:922
+#: ../src/caja-emblem-sidebar.c:864 ../src/caja-emblem-sidebar.c:921
 msgid "The emblem cannot be added."
 msgstr "A matrica nem adható hozzá."
 
-#: ../src/caja-emblem-sidebar.c:1102
+#: ../src/caja-emblem-sidebar.c:1101
 msgid "Show Emblems"
 msgstr "Matricák megjelenítése"
 
-#: ../src/caja-file-management-properties.c:643
+#: ../src/caja-file-management-properties.c:644
 msgid "About Extension"
 msgstr "Bővítmény névjegye"
 
@@ -7015,7 +7019,7 @@ msgstr "Minden navigációs ablak bezárása"
 msgid "_Location..."
 msgstr "He_ly…"
 
-#: ../src/caja-navigation-window-menus.c:833 ../src/caja-spatial-window.c:939
+#: ../src/caja-navigation-window-menus.c:833 ../src/caja-spatial-window.c:938
 msgid "Specify a location to open"
 msgstr "Adja meg a megnyitandó helyet"
 
@@ -7048,20 +7052,20 @@ msgid "Go to the same location as in the extra pane"
 msgstr "Ugrás ugyanarra a helyre, mint ami az extra ablaktáblán van"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:848 ../src/caja-spatial-window.c:952
+#: ../src/caja-navigation-window-menus.c:848 ../src/caja-spatial-window.c:951
 msgid "_Add Bookmark"
 msgstr "Könyvjelző hozzá_adása"
 
-#: ../src/caja-navigation-window-menus.c:849 ../src/caja-spatial-window.c:953
+#: ../src/caja-navigation-window-menus.c:849 ../src/caja-spatial-window.c:952
 msgid "Add a bookmark for the current location to this menu"
 msgstr "Könyvjelző hozzáadása a jelenlegi helyhez, ebbe a menübe"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:852 ../src/caja-spatial-window.c:956
+#: ../src/caja-navigation-window-menus.c:852 ../src/caja-spatial-window.c:955
 msgid "_Edit Bookmarks..."
 msgstr "Köny_vjelzők szerkesztése…"
 
-#: ../src/caja-navigation-window-menus.c:853 ../src/caja-spatial-window.c:957
+#: ../src/caja-navigation-window-menus.c:853 ../src/caja-spatial-window.c:956
 msgid "Display a window that allows editing the bookmarks in this menu"
 msgstr ""
 "Megjelenít egy ablakot, amelyből szerkesztheti a menühöz tartozó "
@@ -7156,7 +7160,7 @@ msgstr "Megváltoztatja ezen ablak állapotsorának láthatóságát"
 #. name, icon name
 #. label, accelerator
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:910 ../src/caja-spatial-window.c:960
+#: ../src/caja-navigation-window-menus.c:910 ../src/caja-spatial-window.c:959
 msgid "_Search for Files..."
 msgstr "_Fájlok keresése…"
 
@@ -7568,8 +7572,8 @@ msgid "Less than or equal to"
 msgstr "Kisebb vagy egyenlő, mint"
 
 #: ../src/caja-query-editor.c:1065 ../src/caja-query-editor.c:1204
-msgid "Greater or equal to"
-msgstr "Nagyobb vagy egyenlő, mint"
+msgid "Greater than or equal to"
+msgstr ""
 
 #: ../src/caja-query-editor.c:1078
 msgid "1 Hour"
@@ -7696,34 +7700,34 @@ msgid "Close the side pane"
 msgstr "Oldalsáv bezárása"
 
 #. name, icon name, label
-#: ../src/caja-spatial-window.c:936
+#: ../src/caja-spatial-window.c:935
 msgid "_Places"
 msgstr "_Helyek"
 
 #. name, icon name, label
-#: ../src/caja-spatial-window.c:938
+#: ../src/caja-spatial-window.c:937
 msgid "Open _Location..."
 msgstr "He_ly megnyitása…"
 
 #. name, icon name, label
-#: ../src/caja-spatial-window.c:943
+#: ../src/caja-spatial-window.c:942
 msgid "Close P_arent Folders"
 msgstr "Szülőkö_nyvtárak bezárása"
 
-#: ../src/caja-spatial-window.c:944
+#: ../src/caja-spatial-window.c:943
 msgid "Close this folder's parents"
 msgstr "A mappa szülőkönyvtárainak bezárása"
 
 #. name, icon name, label
-#: ../src/caja-spatial-window.c:948
+#: ../src/caja-spatial-window.c:947
 msgid "Clos_e All Folders"
 msgstr "Mind_en mappa bezárása"
 
-#: ../src/caja-spatial-window.c:949
+#: ../src/caja-spatial-window.c:948
 msgid "Close all folder windows"
 msgstr "Minden mappaablak bezárása"
 
-#: ../src/caja-spatial-window.c:961
+#: ../src/caja-spatial-window.c:960
 msgid "Locate documents and folders on this computer by name or content"
 msgstr ""
 "Dokumentumok és mappák keresése név vagy tartalom szerint a számítógépen"
@@ -7754,47 +7758,47 @@ msgstr "Választhat másik nézetet vagy megnézhet egy másik helyet."
 msgid "The location cannot be displayed with this viewer."
 msgstr "A hely nem jeleníthető meg ezzel a megjelenítővel."
 
-#: ../src/caja-window-manage-views.c:1412
+#: ../src/caja-window-manage-views.c:1425
 msgid "Content View"
 msgstr "Tartalomnézet"
 
-#: ../src/caja-window-manage-views.c:1413
+#: ../src/caja-window-manage-views.c:1426
 msgid "View of the current folder"
 msgstr "A jelenlegi mappa nézete"
 
-#: ../src/caja-window-manage-views.c:2104
+#: ../src/caja-window-manage-views.c:2117
 msgid "Caja has no installed viewer capable of displaying the folder."
 msgstr ""
 "A Cajanak nincs olyan telepített megjelenítője, amellyel meg tudná "
 "jeleníteni a mappát."
 
-#: ../src/caja-window-manage-views.c:2112
+#: ../src/caja-window-manage-views.c:2125
 msgid "The location is not a folder."
 msgstr "A hely nem egy mappa."
 
-#: ../src/caja-window-manage-views.c:2121
+#: ../src/caja-window-manage-views.c:2134
 #, c-format
 msgid "Could not find \"%s\"."
 msgstr "„%s” nem található."
 
-#: ../src/caja-window-manage-views.c:2124
+#: ../src/caja-window-manage-views.c:2137
 msgid "Please check the spelling and try again."
 msgstr "Ellenőrizze, hogy mindent jól írt-e be és próbálja meg újra."
 
-#: ../src/caja-window-manage-views.c:2133
+#: ../src/caja-window-manage-views.c:2146
 #, c-format
 msgid "Caja cannot handle \"%s\" locations."
 msgstr "A Caja nem tudja kezelni a(z) %s helyeket."
 
-#: ../src/caja-window-manage-views.c:2138
+#: ../src/caja-window-manage-views.c:2151
 msgid "Caja cannot handle this kind of location."
 msgstr "A Caja nem tudja kezelni ezt a helytípust."
 
-#: ../src/caja-window-manage-views.c:2145
+#: ../src/caja-window-manage-views.c:2158
 msgid "Unable to mount the location."
 msgstr "A hely nem csatolható."
 
-#: ../src/caja-window-manage-views.c:2151
+#: ../src/caja-window-manage-views.c:2164
 msgid "Access was denied."
 msgstr "Hozzáférés megtagadva."
 
@@ -7802,19 +7806,19 @@ msgstr "Hozzáférés megtagadva."
 #. * the code that guesses web addresses when there's no initial "/".
 #. * But this case is also hit for legitimate web addresses when
 #. * the proxy is set up wrong.
-#: ../src/caja-window-manage-views.c:2160
+#: ../src/caja-window-manage-views.c:2173
 #, c-format
 msgid "Could not display \"%s\", because the host could not be found."
 msgstr "„%s” nem jeleníthető meg, mivel a gép nem található."
 
-#: ../src/caja-window-manage-views.c:2162
+#: ../src/caja-window-manage-views.c:2175
 msgid ""
 "Check that the spelling is correct and that your proxy settings are correct."
 msgstr ""
 "Ellenőrizze, hogy nem gépelt-e el valamit és hogy helyesek-e a proxy "
 "beállításai."
 
-#: ../src/caja-window-manage-views.c:2178
+#: ../src/caja-window-manage-views.c:2191
 #, c-format
 msgid ""
 "Error: %s\n"

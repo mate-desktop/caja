@@ -6,21 +6,21 @@
 # Translators:
 # Youngbin Han <sukso96100@gmail.com>, 2019
 # Seong-ho Cho <darkcircle.0426@gmail.com>, 2019
-# Stefano Karapetsas <stefano@karapetsas.com>, 2019
 # Alan Lee <bkrhlim@aol.com>, 2019
 # jaekwon.park <jaekwon.park@rockplace.co.kr>, 2019
 # 박정규(Jung-Kyu Park) <bagjunggyu@gmail.com>, 2019
 # clefebvre <clement.lefebvre@linuxmint.com>, 2019
 # Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2019
+# Stefano Karapetsas <stefano@karapetsas.com>, 2019
 # 
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: MATE Desktop Environment\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-22 22:09+0200\n"
+"POT-Creation-Date: 2019-09-17 17:38+0200\n"
 "PO-Revision-Date: 2019-03-11 12:13+0000\n"
-"Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2019\n"
+"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2019\n"
 "Language-Team: Korean (https://www.transifex.com/mate/teams/13566/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -293,7 +293,7 @@ msgid "Drag an emblem to an object to add it to the object"
 msgstr "개체에 추가할 꼬리표를 끌어 놓으십시오"
 
 #. translators: this is the name of an emblem
-#: ../data/browser.xml.h:68 ../src/caja-emblem-sidebar.c:993
+#: ../data/browser.xml.h:68 ../src/caja-emblem-sidebar.c:992
 #: ../src/caja-property-browser.c:1947
 msgid "Erase"
 msgstr "지우기"
@@ -321,7 +321,7 @@ msgstr "자동시작 확인"
 
 #. Set initial window title
 #: ../data/caja-browser.desktop.in.h:1 ../data/caja.desktop.in.h:1
-#: ../data/caja-folder-handler.desktop.in.h:1 ../src/caja-spatial-window.c:396
+#: ../data/caja-folder-handler.desktop.in.h:1 ../src/caja-spatial-window.c:395
 #: ../src/caja-window-menus.c:557 ../src/caja-window.c:164
 msgid "Caja"
 msgstr "카하"
@@ -358,7 +358,7 @@ msgid "Change the behaviour and appearance of file manager windows"
 msgstr "파일 관리자 창의 특성과 모양새를 바꿉니다"
 
 #: ../data/caja-folder-handler.desktop.in.h:2
-#: ../libcaja-private/caja-autorun.c:578
+#: ../libcaja-private/caja-autorun.c:581
 msgid "Open Folder"
 msgstr "폴더 열기"
 
@@ -467,12 +467,12 @@ msgstr "자세한 정보 표시(_D)"
 
 #: ../eel/eel-stock-dialogs.c:238 ../eel/eel-stock-dialogs.c:294
 #: ../eel/eel-stock-dialogs.c:449 ../eel/eel-stock-dialogs.c:650
-#: ../libcaja-private/caja-autorun.c:1150
+#: ../libcaja-private/caja-autorun.c:1153
 #: ../libcaja-private/caja-file-conflict-dialog.c:655
 #: ../libcaja-private/caja-file-operations.c:186
 #: ../libcaja-private/caja-mime-actions.c:819
 #: ../libcaja-private/caja-mime-actions.c:1732
-#: ../libcaja-private/caja-open-with-dialog.c:960
+#: ../libcaja-private/caja-open-with-dialog.c:963
 #: ../src/file-manager/fm-directory-view.c:1211
 #: ../src/file-manager/fm-directory-view.c:1364
 #: ../src/file-manager/fm-directory-view.c:7026
@@ -487,7 +487,7 @@ msgstr "취소(_C)"
 #. label, accelerator
 #. add the "open" menu item
 #: ../eel/eel-stock-dialogs.c:240
-#: ../libcaja-private/caja-open-with-dialog.c:976
+#: ../libcaja-private/caja-open-with-dialog.c:979
 #: ../src/file-manager/fm-directory-view.c:7342
 #: ../src/file-manager/fm-directory-view.c:8858
 #: ../src/file-manager/fm-tree-view.c:1266 ../src/caja-location-dialog.c:199
@@ -504,7 +504,7 @@ msgid "You can stop this operation by clicking cancel."
 msgstr "취소를 눌러 이 작업을 중단할 수 있습니다."
 
 #: ../eel/eel-stock-dialogs.c:296 ../eel/eel-stock-dialogs.c:451
-#: ../eel/eel-stock-dialogs.c:655 ../libcaja-private/caja-autorun.c:1155
+#: ../eel/eel-stock-dialogs.c:655 ../libcaja-private/caja-autorun.c:1158
 #: ../libcaja-private/caja-mime-actions.c:1376
 #: ../src/file-manager/fm-directory-view.c:1216
 #: ../src/caja-emblem-sidebar.c:293 ../src/caja-emblem-sidebar.c:550
@@ -521,109 +521,109 @@ msgstr "지우기(_C)"
 msgid " (invalid Unicode)"
 msgstr " (잘못된 유니코드)"
 
-#: ../libcaja-private/caja-autorun.c:522
+#: ../libcaja-private/caja-autorun.c:525
 msgid "No applications found"
 msgstr "프로그램을 선택하지 않았습니다"
 
-#: ../libcaja-private/caja-autorun.c:543
+#: ../libcaja-private/caja-autorun.c:546
 msgid "Ask what to do"
 msgstr "무엇을 할지 물어보기"
 
-#: ../libcaja-private/caja-autorun.c:561
+#: ../libcaja-private/caja-autorun.c:564
 msgid "Do Nothing"
 msgstr "아무것도 하지 않기"
 
-#: ../libcaja-private/caja-autorun.c:611 ../src/caja-x-content-bar.c:147
+#: ../libcaja-private/caja-autorun.c:614 ../src/caja-x-content-bar.c:147
 #, c-format
 msgid "Open %s"
 msgstr "%s 열기"
 
-#: ../libcaja-private/caja-autorun.c:655
+#: ../libcaja-private/caja-autorun.c:658
 msgid "Open with other Application..."
 msgstr "다른 프로그램으로 열기..."
 
-#: ../libcaja-private/caja-autorun.c:1044
+#: ../libcaja-private/caja-autorun.c:1047
 msgid "You have just inserted an Audio CD."
 msgstr "지금 오디오 CD를 넣었습니다."
 
-#: ../libcaja-private/caja-autorun.c:1048
+#: ../libcaja-private/caja-autorun.c:1051
 msgid "You have just inserted an Audio DVD."
 msgstr "지금 오디오 DVD를 넣었습니다."
 
-#: ../libcaja-private/caja-autorun.c:1052
+#: ../libcaja-private/caja-autorun.c:1055
 msgid "You have just inserted a Video DVD."
 msgstr "지금 비디오 DVD를 넣었습니다."
 
-#: ../libcaja-private/caja-autorun.c:1056
+#: ../libcaja-private/caja-autorun.c:1059
 msgid "You have just inserted a Video CD."
 msgstr "지금 비디오 CD를 넣었습니다."
 
-#: ../libcaja-private/caja-autorun.c:1060
+#: ../libcaja-private/caja-autorun.c:1063
 msgid "You have just inserted a Super Video CD."
 msgstr "지금 수퍼 비디오 CD를 넣었습니다."
 
-#: ../libcaja-private/caja-autorun.c:1064
+#: ../libcaja-private/caja-autorun.c:1067
 msgid "You have just inserted a blank CD."
 msgstr "지금 빈 CD를 넣었습니다."
 
-#: ../libcaja-private/caja-autorun.c:1068
+#: ../libcaja-private/caja-autorun.c:1071
 msgid "You have just inserted a blank DVD."
 msgstr "지금 빈 DVD를 넣었습니다."
 
-#: ../libcaja-private/caja-autorun.c:1072
+#: ../libcaja-private/caja-autorun.c:1075
 msgid "You have just inserted a blank Blu-Ray disc."
 msgstr "지금 빈 블루레이 디스크를 넣었습니다."
 
-#: ../libcaja-private/caja-autorun.c:1076
+#: ../libcaja-private/caja-autorun.c:1079
 msgid "You have just inserted a blank HD DVD."
 msgstr "지금 빈 HD DVD를 넣었습니다."
 
-#: ../libcaja-private/caja-autorun.c:1080
+#: ../libcaja-private/caja-autorun.c:1083
 msgid "You have just inserted a Photo CD."
 msgstr "지금 사진 CD를 넣었습니다."
 
-#: ../libcaja-private/caja-autorun.c:1084
+#: ../libcaja-private/caja-autorun.c:1087
 msgid "You have just inserted a Picture CD."
 msgstr "지금 픽처 CD를 넣었습니다."
 
-#: ../libcaja-private/caja-autorun.c:1088
+#: ../libcaja-private/caja-autorun.c:1091
 msgid "You have just inserted a medium with digital photos."
 msgstr "지금 디지털 사진이 들어 있는 미디어를 연결했습니다."
 
-#: ../libcaja-private/caja-autorun.c:1092
+#: ../libcaja-private/caja-autorun.c:1095
 msgid "You have just inserted a digital audio player."
 msgstr "지금 디지털 오디오 플레이어를 연결했습니다."
 
-#: ../libcaja-private/caja-autorun.c:1096
+#: ../libcaja-private/caja-autorun.c:1099
 msgid ""
 "You have just inserted a medium with software intended to be automatically "
 "started."
 msgstr "지금 자동 시작 소프트웨어가 들어 있는 미디어를 연결했습니다."
 
 #. fallback to generic greeting
-#: ../libcaja-private/caja-autorun.c:1101
+#: ../libcaja-private/caja-autorun.c:1104
 msgid "You have just inserted a medium."
 msgstr "지금 미디어를 연결했습니다."
 
-#: ../libcaja-private/caja-autorun.c:1103
+#: ../libcaja-private/caja-autorun.c:1106
 msgid "Choose what application to launch."
 msgstr "어떤 프로그램을 실행할지 선택하십시오."
 
-#: ../libcaja-private/caja-autorun.c:1113
+#: ../libcaja-private/caja-autorun.c:1116
 #, c-format
 msgid ""
 "Select how to open \"%s\" and whether to perform this action in the future "
 "for other media of type \"%s\"."
 msgstr "\"%s\"을(를) 여는 방법을 선택하고, 앞으로 \"%s\" 종류의 미디어에 대해 그 방법을 실행할지 여부를 선택하십시오."
 
-#: ../libcaja-private/caja-autorun.c:1141
+#: ../libcaja-private/caja-autorun.c:1144
 msgid "_Always perform this action"
 msgstr "항상 이 동작 실행(_A)"
 
 #. name, icon name
 #. label, accelerator
 #. add the "Eject" menu item
-#: ../libcaja-private/caja-autorun.c:1164
+#: ../libcaja-private/caja-autorun.c:1167
 #: ../src/file-manager/fm-directory-view.c:7469
 #: ../src/file-manager/fm-directory-view.c:7497
 #: ../src/file-manager/fm-directory-view.c:7578
@@ -634,7 +634,7 @@ msgstr "꺼내기(_E)"
 #. name, icon name
 #. label, accelerator
 #. add the "Unmount" menu item
-#: ../libcaja-private/caja-autorun.c:1179
+#: ../libcaja-private/caja-autorun.c:1182
 #: ../src/file-manager/fm-directory-view.c:7465
 #: ../src/file-manager/fm-directory-view.c:7493
 #: ../src/file-manager/fm-directory-view.c:7574
@@ -1863,7 +1863,7 @@ msgid "today at 00:00:00 PM"
 msgstr "오늘 오후 00:00:00"
 
 #: ../libcaja-private/caja-file.c:4739
-#: ../src/caja-file-management-properties.c:531
+#: ../src/caja-file-management-properties.c:532
 msgid "today at %-I:%M:%S %p"
 msgstr "오늘 %p %-I:%M:%S"
 
@@ -2145,12 +2145,12 @@ msgid_plural "This will open %d separate windows."
 msgstr[0] "창 %d개를 각각 엽니다."
 
 #: ../libcaja-private/caja-mime-actions.c:1267
-#: ../src/caja-window-manage-views.c:2101
-#: ../src/caja-window-manage-views.c:2109
-#: ../src/caja-window-manage-views.c:2129
-#: ../src/caja-window-manage-views.c:2143
-#: ../src/caja-window-manage-views.c:2149
-#: ../src/caja-window-manage-views.c:2176
+#: ../src/caja-window-manage-views.c:2114
+#: ../src/caja-window-manage-views.c:2122
+#: ../src/caja-window-manage-views.c:2142
+#: ../src/caja-window-manage-views.c:2156
+#: ../src/caja-window-manage-views.c:2162
+#: ../src/caja-window-manage-views.c:2189
 #, c-format
 msgid "Could not display \"%s\"."
 msgstr "\"%s\"을(를) 표시할 수 없습니다."
@@ -2227,13 +2227,13 @@ msgid_plural "Opening %d items."
 msgstr[0] "항목 %d개를 열고 있습니다."
 
 #: ../libcaja-private/caja-mime-application-chooser.c:162
-#: ../libcaja-private/caja-open-with-dialog.c:300
+#: ../libcaja-private/caja-open-with-dialog.c:303
 #, c-format
 msgid "Could not set application as the default: %s"
 msgstr "기본 프로그램으로 설정할 수 없습니다: %s"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:163
-#: ../libcaja-private/caja-open-with-dialog.c:301
+#: ../libcaja-private/caja-open-with-dialog.c:304
 msgid "Could not set as default application"
 msgstr "기본 프로그램을 설정할 수 없습니다"
 
@@ -2250,12 +2250,12 @@ msgid "Could not remove application"
 msgstr "프로그램을 지울 수 없습니다"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:420
-#: ../libcaja-private/caja-open-with-dialog.c:1132
+#: ../libcaja-private/caja-open-with-dialog.c:1135
 msgid "_Add"
 msgstr "추가(_A)"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:430
-#: ../libcaja-private/caja-open-with-dialog.c:951
+#: ../libcaja-private/caja-open-with-dialog.c:954
 #: ../src/caja-bookmarks-window.ui.h:4
 msgid "_Remove"
 msgstr "제거(_R)"
@@ -2270,7 +2270,7 @@ msgid "%s document"
 msgstr "%s 문서"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:599
-#: ../libcaja-private/caja-open-with-dialog.c:1091
+#: ../libcaja-private/caja-open-with-dialog.c:1094
 msgid "Unknown"
 msgstr "알 수 없음"
 
@@ -2302,76 +2302,80 @@ msgstr "프로그램을 찾을 수 없습니다"
 msgid "Could not add application to the application database: %s"
 msgstr "프로그램 데이터베이스에 프로그램을 추가할 수 없습니다: %s"
 
+#: ../libcaja-private/caja-open-with-dialog.c:252
+msgid "Unknown error"
+msgstr "알 수 없는 오류"
+
 #: ../libcaja-private/caja-open-with-dialog.c:253
 msgid "Could not add application"
 msgstr "프로그램을 추가할 수 없습니다"
 
-#: ../libcaja-private/caja-open-with-dialog.c:451
+#: ../libcaja-private/caja-open-with-dialog.c:454
 msgid "Select an Application"
 msgstr "프로그램 선택"
 
-#: ../libcaja-private/caja-open-with-dialog.c:856
+#: ../libcaja-private/caja-open-with-dialog.c:859
 #: ../src/file-manager/fm-properties-window.c:5080
 msgid "Open With"
 msgstr "다른 프로그램으로 열기"
 
-#: ../libcaja-private/caja-open-with-dialog.c:894
+#: ../libcaja-private/caja-open-with-dialog.c:897
 msgid "Select an application to view its description."
 msgstr "설명을 볼 프로그램을 선택하십시오."
 
-#: ../libcaja-private/caja-open-with-dialog.c:920
+#: ../libcaja-private/caja-open-with-dialog.c:923
 msgid "_Use a custom command"
 msgstr "사용자 설정 명령어 사용(_U)"
 
-#: ../libcaja-private/caja-open-with-dialog.c:937
+#: ../libcaja-private/caja-open-with-dialog.c:940
 msgid "_Browse..."
 msgstr "찾아보기(_B)..."
 
 #. first %s is a filename and second %s is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1061
+#: ../libcaja-private/caja-open-with-dialog.c:1064
 #, c-format
 msgid "Open %s and other %s document with:"
 msgstr "%s 및 다른 %s 문서를 열 프로그램:"
 
 #. the %s here is a file name
 #. %s is a filename
-#: ../libcaja-private/caja-open-with-dialog.c:1067
-#: ../libcaja-private/caja-open-with-dialog.c:1107
+#: ../libcaja-private/caja-open-with-dialog.c:1070
+#: ../libcaja-private/caja-open-with-dialog.c:1110
 #, c-format
 msgid "Open %s with:"
 msgstr "%s 파일을 열 프로그램:"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1068
+#: ../libcaja-private/caja-open-with-dialog.c:1071
 #, c-format
 msgid "_Remember this application for %s documents"
 msgstr "%s 문서에 이 프로그램 기억(_R)"
 
 #. Only in add mode - the %s here is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1079
+#: ../libcaja-private/caja-open-with-dialog.c:1082
 #, c-format
 msgid "Open all %s documents with:"
 msgstr "모든 %s 문서를 열 프로그램:"
 
 #. First %s is a filename, second is a description
 #. * of the type, eg "plain text document"
-#: ../libcaja-private/caja-open-with-dialog.c:1101
+#: ../libcaja-private/caja-open-with-dialog.c:1104
 #, c-format
 msgid "Open %s and other \"%s\" files with:"
 msgstr "%s 및 다른 \"%s\" 파일을 열 프로그램:"
 
 #. %s is a file type description
-#: ../libcaja-private/caja-open-with-dialog.c:1109
+#: ../libcaja-private/caja-open-with-dialog.c:1112
 #, c-format
 msgid "_Remember this application for \"%s\" files"
 msgstr "%s 문서에 이 프로그램 기억(_R)"
 
 #. Only in add mode
-#: ../libcaja-private/caja-open-with-dialog.c:1120
+#: ../libcaja-private/caja-open-with-dialog.c:1123
 #, c-format
 msgid "Open all \"%s\" files with:"
 msgstr "모든 \"%s\" 파일을 열 프로그램:"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1133
+#: ../libcaja-private/caja-open-with-dialog.c:1136
 msgid "Add Application"
 msgstr "프로그램 추가"
 
@@ -2443,33 +2447,33 @@ msgstr "로컬 파일이 아닌 파일은 로컬 폴더에 복사한 후 다시 
 msgid "Details: "
 msgstr "자세히: "
 
-#: ../libcaja-private/caja-progress-info.c:242
+#: ../libcaja-private/caja-progress-info.c:244
 msgid "File Operations"
 msgstr "파일 동작"
 
-#: ../libcaja-private/caja-progress-info.c:314
+#: ../libcaja-private/caja-progress-info.c:316
 msgid "paused"
 msgstr "일시 정지"
 
-#: ../libcaja-private/caja-progress-info.c:317
+#: ../libcaja-private/caja-progress-info.c:319
 msgid "pausing"
 msgstr "일시 정지"
 
-#: ../libcaja-private/caja-progress-info.c:320
+#: ../libcaja-private/caja-progress-info.c:322
 msgid "queued"
 msgstr "대기 중"
 
-#: ../libcaja-private/caja-progress-info.c:323
+#: ../libcaja-private/caja-progress-info.c:325
 msgid "queuing"
 msgstr "대기 중"
 
-#: ../libcaja-private/caja-progress-info.c:611
+#: ../libcaja-private/caja-progress-info.c:603
 #, c-format
 msgid "%'d file operation active"
 msgid_plural "%'d file operations active"
 msgstr[0] "파일 %'d개 동작 활성화"
 
-#: ../libcaja-private/caja-progress-info.c:629
+#: ../libcaja-private/caja-progress-info.c:625
 msgid "Process completed"
 msgstr "작업을 마쳤습니다"
 
@@ -3692,13 +3696,13 @@ msgstr "세션 관리 옵션:"
 msgid "Show session management options"
 msgstr "세션 관리 옵션을 표시합니다"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:672
+#: ../src/file-manager/fm-desktop-icon-view.c:662
 msgid "Background"
 msgstr "배경"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:749
+#: ../src/file-manager/fm-desktop-icon-view.c:739
 #: ../src/file-manager/fm-directory-view.c:7374
 #: ../src/file-manager/fm-directory-view.c:9058
 msgid "E_mpty Trash"
@@ -3707,44 +3711,44 @@ msgstr "휴지통 비우기(_M)"
 #. label, accelerator
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:763
+#: ../src/file-manager/fm-desktop-icon-view.c:753
 #: ../src/file-manager/fm-directory-view.c:7338
 msgid "Create L_auncher..."
 msgstr "실행 아이콘 만들기(_A)..."
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:765
+#: ../src/file-manager/fm-desktop-icon-view.c:755
 #: ../src/file-manager/fm-directory-view.c:7339
 msgid "Create a new launcher"
 msgstr "새 실행 아이콘 만들기"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:772
+#: ../src/file-manager/fm-desktop-icon-view.c:762
 msgid "Change Desktop _Background"
 msgstr "바탕 화면 배경 바꾸기(_B)"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:774
+#: ../src/file-manager/fm-desktop-icon-view.c:764
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr "바탕 화면 배경의 무늬나 색을 설정할 수 있는 창을 보입니다"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:781
+#: ../src/file-manager/fm-desktop-icon-view.c:771
 msgid "Empty Trash"
 msgstr "휴지통 비우기"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:783
+#: ../src/file-manager/fm-desktop-icon-view.c:773
 #: ../src/file-manager/fm-directory-view.c:7375 ../src/caja-trash-bar.c:202
 msgid "Delete all items in the Trash"
 msgstr "휴지통에 있는 모든 항목을 지웁니다"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:883
+#: ../src/file-manager/fm-desktop-icon-view.c:873
 msgid "The desktop view encountered an error."
 msgstr "바탕 화면으로 보기가 시작할 때 오류가 발생하였습니다."
 
-#: ../src/file-manager/fm-desktop-icon-view.c:884
+#: ../src/file-manager/fm-desktop-icon-view.c:874
 msgid "The desktop view encountered an error while starting up."
 msgstr "바탕 화면 보기가 시작할 때 오류가 발생하였습니다."
 
@@ -5494,7 +5498,7 @@ msgid "Free space:"
 msgstr "사용 가능한 공간:"
 
 #: ../src/file-manager/fm-properties-window.c:3437
-#: ../src/caja-emblem-sidebar.c:1096
+#: ../src/caja-emblem-sidebar.c:1095
 msgid "Emblems"
 msgstr "꼬리표"
 
@@ -5555,7 +5559,7 @@ msgstr "파일 접근:"
 #. Translators: this is referred to captions under icons.
 #: ../src/file-manager/fm-properties-window.c:4211
 #: ../src/file-manager/fm-properties-window.c:4222
-#: ../src/caja-file-management-properties.c:339
+#: ../src/caja-file-management-properties.c:340
 msgid "None"
 msgstr "없음"
 
@@ -5820,7 +5824,7 @@ msgstr ""
 "의심되면 취소를 누르십시오."
 
 #: ../src/caja-bookmarks-window.c:159
-#: ../src/caja-file-management-properties.c:246
+#: ../src/caja-file-management-properties.c:247
 #: ../src/caja-property-browser.c:1676 ../src/caja-window-menus.c:611
 #, c-format
 msgid ""
@@ -6056,24 +6060,24 @@ msgstr "올바른 그림파일이 아니여서 꼬리표로 쓸 수 없습니다
 msgid "None of the files could be added as emblems."
 msgstr "파일에 꼬리표를 붙여 넣을 수 업습니다."
 
-#: ../src/caja-emblem-sidebar.c:858 ../src/caja-emblem-sidebar.c:921
+#: ../src/caja-emblem-sidebar.c:858 ../src/caja-emblem-sidebar.c:920
 #, c-format
 msgid "The file '%s' does not appear to be a valid image."
 msgstr "파일 '%s'(이)가  올바른 그림파일이 아닌것 같습니다."
 
-#: ../src/caja-emblem-sidebar.c:863
+#: ../src/caja-emblem-sidebar.c:862
 msgid "The dragged file does not appear to be a valid image."
 msgstr "끌어 놓은 파일이 올바른 그림파일이 아닌것 같습니다."
 
-#: ../src/caja-emblem-sidebar.c:865 ../src/caja-emblem-sidebar.c:922
+#: ../src/caja-emblem-sidebar.c:864 ../src/caja-emblem-sidebar.c:921
 msgid "The emblem cannot be added."
 msgstr "꼬리표를 붙여 넣을 수 없습니다."
 
-#: ../src/caja-emblem-sidebar.c:1102
+#: ../src/caja-emblem-sidebar.c:1101
 msgid "Show Emblems"
 msgstr "꼬리표 보이기"
 
-#: ../src/caja-file-management-properties.c:643
+#: ../src/caja-file-management-properties.c:644
 msgid "About Extension"
 msgstr "확장 정보"
 
@@ -6713,7 +6717,7 @@ msgstr "모든 찾아보기 창을 닫습니다"
 msgid "_Location..."
 msgstr "위치(_L)..."
 
-#: ../src/caja-navigation-window-menus.c:833 ../src/caja-spatial-window.c:939
+#: ../src/caja-navigation-window-menus.c:833 ../src/caja-spatial-window.c:938
 msgid "Specify a location to open"
 msgstr "열 위치를 지정합니다"
 
@@ -6745,20 +6749,20 @@ msgid "Go to the same location as in the extra pane"
 msgstr "추가 창 영역의 같은 위치로 이동합니다"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:848 ../src/caja-spatial-window.c:952
+#: ../src/caja-navigation-window-menus.c:848 ../src/caja-spatial-window.c:951
 msgid "_Add Bookmark"
 msgstr "책갈피 추가(_A)"
 
-#: ../src/caja-navigation-window-menus.c:849 ../src/caja-spatial-window.c:953
+#: ../src/caja-navigation-window-menus.c:849 ../src/caja-spatial-window.c:952
 msgid "Add a bookmark for the current location to this menu"
 msgstr "현재 위치를 책갈피에 추가합니다"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:852 ../src/caja-spatial-window.c:956
+#: ../src/caja-navigation-window-menus.c:852 ../src/caja-spatial-window.c:955
 msgid "_Edit Bookmarks..."
 msgstr "책갈피 편집(_E)..."
 
-#: ../src/caja-navigation-window-menus.c:853 ../src/caja-spatial-window.c:957
+#: ../src/caja-navigation-window-menus.c:853 ../src/caja-spatial-window.c:956
 msgid "Display a window that allows editing the bookmarks in this menu"
 msgstr "책갈피를 고칠 수 있는 창을 표시합니다"
 
@@ -6851,7 +6855,7 @@ msgstr "창의 상태 표시줄의 보기 여부를 바꿉니다"
 #. name, icon name
 #. label, accelerator
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:910 ../src/caja-spatial-window.c:960
+#: ../src/caja-navigation-window-menus.c:910 ../src/caja-spatial-window.c:959
 msgid "_Search for Files..."
 msgstr "파일 검색(_S)..."
 
@@ -7261,8 +7265,8 @@ msgid "Less than or equal to"
 msgstr "작거나 같음"
 
 #: ../src/caja-query-editor.c:1065 ../src/caja-query-editor.c:1204
-msgid "Greater or equal to"
-msgstr "크거나 같음"
+msgid "Greater than or equal to"
+msgstr ""
 
 #: ../src/caja-query-editor.c:1078
 msgid "1 Hour"
@@ -7389,34 +7393,34 @@ msgid "Close the side pane"
 msgstr "가장자리 창 닫기"
 
 #. name, icon name, label
-#: ../src/caja-spatial-window.c:936
+#: ../src/caja-spatial-window.c:935
 msgid "_Places"
 msgstr "위치(_P)"
 
 #. name, icon name, label
-#: ../src/caja-spatial-window.c:938
+#: ../src/caja-spatial-window.c:937
 msgid "Open _Location..."
 msgstr "위치 열기(_L)..."
 
 #. name, icon name, label
-#: ../src/caja-spatial-window.c:943
+#: ../src/caja-spatial-window.c:942
 msgid "Close P_arent Folders"
 msgstr "위 폴더 닫기(_A)"
 
-#: ../src/caja-spatial-window.c:944
+#: ../src/caja-spatial-window.c:943
 msgid "Close this folder's parents"
 msgstr "이 폴더의 위 폴더를 닫습니다"
 
 #. name, icon name, label
-#: ../src/caja-spatial-window.c:948
+#: ../src/caja-spatial-window.c:947
 msgid "Clos_e All Folders"
 msgstr "모든 폴더 닫기(_E)"
 
-#: ../src/caja-spatial-window.c:949
+#: ../src/caja-spatial-window.c:948
 msgid "Close all folder windows"
 msgstr "모든 폴더 창을 닫습니다"
 
-#: ../src/caja-spatial-window.c:961
+#: ../src/caja-spatial-window.c:960
 msgid "Locate documents and folders on this computer by name or content"
 msgstr "이 컴퓨터의 문서나 폴더를 이름이나 내용으로 찾습니다"
 
@@ -7446,45 +7450,45 @@ msgstr "다른 보기를 선택하거나 다른 위치로 갈 수 있습니다."
 msgid "The location cannot be displayed with this viewer."
 msgstr "이 보기 프로그램에서 위치를 표시할 수 없습니다."
 
-#: ../src/caja-window-manage-views.c:1412
+#: ../src/caja-window-manage-views.c:1425
 msgid "Content View"
 msgstr "내용 보기 프로그램"
 
-#: ../src/caja-window-manage-views.c:1413
+#: ../src/caja-window-manage-views.c:1426
 msgid "View of the current folder"
 msgstr "현재 폴더 보기"
 
-#: ../src/caja-window-manage-views.c:2104
+#: ../src/caja-window-manage-views.c:2117
 msgid "Caja has no installed viewer capable of displaying the folder."
 msgstr "카하에 이 폴더를 표시할 수 있는 보기 프로그램을 설치하지 않았습니다."
 
-#: ../src/caja-window-manage-views.c:2112
+#: ../src/caja-window-manage-views.c:2125
 msgid "The location is not a folder."
 msgstr "위치가 폴더가 아닙니다."
 
-#: ../src/caja-window-manage-views.c:2121
+#: ../src/caja-window-manage-views.c:2134
 #, c-format
 msgid "Could not find \"%s\"."
 msgstr "\"%s\"(을)를 찾을 수 없습니다."
 
-#: ../src/caja-window-manage-views.c:2124
+#: ../src/caja-window-manage-views.c:2137
 msgid "Please check the spelling and try again."
 msgstr "정확히 입력하였는지 확인하시고 다시 시도해 보십시오."
 
-#: ../src/caja-window-manage-views.c:2133
+#: ../src/caja-window-manage-views.c:2146
 #, c-format
 msgid "Caja cannot handle \"%s\" locations."
 msgstr "카하에서 \"%s\" 위치를 처리할 수 없습니다."
 
-#: ../src/caja-window-manage-views.c:2138
+#: ../src/caja-window-manage-views.c:2151
 msgid "Caja cannot handle this kind of location."
 msgstr "카하에서 이러한 형식의 위치를 처리할 수 없습니다."
 
-#: ../src/caja-window-manage-views.c:2145
+#: ../src/caja-window-manage-views.c:2158
 msgid "Unable to mount the location."
 msgstr "위치를 마운트할 수 없습니다."
 
-#: ../src/caja-window-manage-views.c:2151
+#: ../src/caja-window-manage-views.c:2164
 msgid "Access was denied."
 msgstr "접근이 거부되었습니다."
 
@@ -7492,17 +7496,17 @@ msgstr "접근이 거부되었습니다."
 #. * the code that guesses web addresses when there's no initial "/".
 #. * But this case is also hit for legitimate web addresses when
 #. * the proxy is set up wrong.
-#: ../src/caja-window-manage-views.c:2160
+#: ../src/caja-window-manage-views.c:2173
 #, c-format
 msgid "Could not display \"%s\", because the host could not be found."
 msgstr "호스트를 찾을 수 없어서 \"%s\"(을)를 표시할 수 없습니다."
 
-#: ../src/caja-window-manage-views.c:2162
+#: ../src/caja-window-manage-views.c:2175
 msgid ""
 "Check that the spelling is correct and that your proxy settings are correct."
 msgstr "맞춤법이 올바르고 프록시 설정이 올바른지 확인하십시오."
 
-#: ../src/caja-window-manage-views.c:2178
+#: ../src/caja-window-manage-views.c:2191
 #, c-format
 msgid ""
 "Error: %s\n"

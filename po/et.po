@@ -6,19 +6,19 @@
 # Translators:
 # Ivar Smolin <okul@linux.ee>, 2019
 # Rivo Zängov <eraser@eraser.ee>, 2019
-# Stefano Karapetsas <stefano@karapetsas.com>, 2019
 # xpander0 <xpander0@gmail.com>, 2019
 # Mattias Põldaru <mahfiaz@gmail.com>, 2019
 # clefebvre <clement.lefebvre@linuxmint.com>, 2019
+# Stefano Karapetsas <stefano@karapetsas.com>, 2019
 # 
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: MATE Desktop Environment\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-22 22:09+0200\n"
+"POT-Creation-Date: 2019-09-17 17:38+0200\n"
 "PO-Revision-Date: 2019-03-11 12:13+0000\n"
-"Last-Translator: clefebvre <clement.lefebvre@linuxmint.com>, 2019\n"
+"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2019\n"
 "Language-Team: Estonian (https://www.transifex.com/mate/teams/13566/et/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -291,7 +291,7 @@ msgid "Drag an emblem to an object to add it to the object"
 msgstr "Objektile embleemi lisamiseks lohista see objektile"
 
 #. translators: this is the name of an emblem
-#: ../data/browser.xml.h:68 ../src/caja-emblem-sidebar.c:993
+#: ../data/browser.xml.h:68 ../src/caja-emblem-sidebar.c:992
 #: ../src/caja-property-browser.c:1947
 msgid "Erase"
 msgstr "Kustutada"
@@ -321,7 +321,7 @@ msgstr "Automaatkäivituse küsimus"
 
 #. Set initial window title
 #: ../data/caja-browser.desktop.in.h:1 ../data/caja.desktop.in.h:1
-#: ../data/caja-folder-handler.desktop.in.h:1 ../src/caja-spatial-window.c:396
+#: ../data/caja-folder-handler.desktop.in.h:1 ../src/caja-spatial-window.c:395
 #: ../src/caja-window-menus.c:557 ../src/caja-window.c:164
 msgid "Caja"
 msgstr "Caja"
@@ -358,7 +358,7 @@ msgid "Change the behaviour and appearance of file manager windows"
 msgstr "Failihalduri akende käitumise ja välimuse muutmine"
 
 #: ../data/caja-folder-handler.desktop.in.h:2
-#: ../libcaja-private/caja-autorun.c:578
+#: ../libcaja-private/caja-autorun.c:581
 msgid "Open Folder"
 msgstr "Avatakse kaust"
 
@@ -467,12 +467,12 @@ msgstr "_Näita üksikasjalisemalt"
 
 #: ../eel/eel-stock-dialogs.c:238 ../eel/eel-stock-dialogs.c:294
 #: ../eel/eel-stock-dialogs.c:449 ../eel/eel-stock-dialogs.c:650
-#: ../libcaja-private/caja-autorun.c:1150
+#: ../libcaja-private/caja-autorun.c:1153
 #: ../libcaja-private/caja-file-conflict-dialog.c:655
 #: ../libcaja-private/caja-file-operations.c:186
 #: ../libcaja-private/caja-mime-actions.c:819
 #: ../libcaja-private/caja-mime-actions.c:1732
-#: ../libcaja-private/caja-open-with-dialog.c:960
+#: ../libcaja-private/caja-open-with-dialog.c:963
 #: ../src/file-manager/fm-directory-view.c:1211
 #: ../src/file-manager/fm-directory-view.c:1364
 #: ../src/file-manager/fm-directory-view.c:7026
@@ -487,7 +487,7 @@ msgstr "_Tühista"
 #. label, accelerator
 #. add the "open" menu item
 #: ../eel/eel-stock-dialogs.c:240
-#: ../libcaja-private/caja-open-with-dialog.c:976
+#: ../libcaja-private/caja-open-with-dialog.c:979
 #: ../src/file-manager/fm-directory-view.c:7342
 #: ../src/file-manager/fm-directory-view.c:8858
 #: ../src/file-manager/fm-tree-view.c:1266 ../src/caja-location-dialog.c:199
@@ -504,7 +504,7 @@ msgid "You can stop this operation by clicking cancel."
 msgstr "Seda tegevust saab peatada vajutades nupule \"Loobu\"."
 
 #: ../eel/eel-stock-dialogs.c:296 ../eel/eel-stock-dialogs.c:451
-#: ../eel/eel-stock-dialogs.c:655 ../libcaja-private/caja-autorun.c:1155
+#: ../eel/eel-stock-dialogs.c:655 ../libcaja-private/caja-autorun.c:1158
 #: ../libcaja-private/caja-mime-actions.c:1376
 #: ../src/file-manager/fm-directory-view.c:1216
 #: ../src/caja-emblem-sidebar.c:293 ../src/caja-emblem-sidebar.c:550
@@ -521,80 +521,80 @@ msgstr "_Tühjenda"
 msgid " (invalid Unicode)"
 msgstr " (vigane Unicode)"
 
-#: ../libcaja-private/caja-autorun.c:522
+#: ../libcaja-private/caja-autorun.c:525
 msgid "No applications found"
 msgstr "Ühtegi rakendust ei leitud"
 
-#: ../libcaja-private/caja-autorun.c:543
+#: ../libcaja-private/caja-autorun.c:546
 msgid "Ask what to do"
 msgstr "Küsitakse, mida teha"
 
-#: ../libcaja-private/caja-autorun.c:561
+#: ../libcaja-private/caja-autorun.c:564
 msgid "Do Nothing"
 msgstr "Ei tehta midagi"
 
-#: ../libcaja-private/caja-autorun.c:611 ../src/caja-x-content-bar.c:147
+#: ../libcaja-private/caja-autorun.c:614 ../src/caja-x-content-bar.c:147
 #, c-format
 msgid "Open %s"
 msgstr "Avatakse: %s"
 
-#: ../libcaja-private/caja-autorun.c:655
+#: ../libcaja-private/caja-autorun.c:658
 msgid "Open with other Application..."
 msgstr "Avatakse mõne muu rakendusega..."
 
-#: ../libcaja-private/caja-autorun.c:1044
+#: ../libcaja-private/caja-autorun.c:1047
 msgid "You have just inserted an Audio CD."
 msgstr "Sa sisestasid audio-CD."
 
-#: ../libcaja-private/caja-autorun.c:1048
+#: ../libcaja-private/caja-autorun.c:1051
 msgid "You have just inserted an Audio DVD."
 msgstr "Sa sisestasid audio-DVD."
 
-#: ../libcaja-private/caja-autorun.c:1052
+#: ../libcaja-private/caja-autorun.c:1055
 msgid "You have just inserted a Video DVD."
 msgstr "Sa sisestasid video-DVD."
 
-#: ../libcaja-private/caja-autorun.c:1056
+#: ../libcaja-private/caja-autorun.c:1059
 msgid "You have just inserted a Video CD."
 msgstr "Sa sisestasid video-CD."
 
-#: ../libcaja-private/caja-autorun.c:1060
+#: ../libcaja-private/caja-autorun.c:1063
 msgid "You have just inserted a Super Video CD."
 msgstr "Sa sisestasid Super Video CD."
 
-#: ../libcaja-private/caja-autorun.c:1064
+#: ../libcaja-private/caja-autorun.c:1067
 msgid "You have just inserted a blank CD."
 msgstr "Sa sisestasid tühja CD."
 
-#: ../libcaja-private/caja-autorun.c:1068
+#: ../libcaja-private/caja-autorun.c:1071
 msgid "You have just inserted a blank DVD."
 msgstr "Sa sisestasid tühja DVD."
 
-#: ../libcaja-private/caja-autorun.c:1072
+#: ../libcaja-private/caja-autorun.c:1075
 msgid "You have just inserted a blank Blu-Ray disc."
 msgstr "Sa sisestasid tühja Blu-Ray plaadi."
 
-#: ../libcaja-private/caja-autorun.c:1076
+#: ../libcaja-private/caja-autorun.c:1079
 msgid "You have just inserted a blank HD DVD."
 msgstr "Sa sisestasid tühja HD DVD-plaadi."
 
-#: ../libcaja-private/caja-autorun.c:1080
+#: ../libcaja-private/caja-autorun.c:1083
 msgid "You have just inserted a Photo CD."
 msgstr "Sa sisestasid tühja foto-CD."
 
-#: ../libcaja-private/caja-autorun.c:1084
+#: ../libcaja-private/caja-autorun.c:1087
 msgid "You have just inserted a Picture CD."
 msgstr "Sa sisestasid tühja pildi-CD."
 
-#: ../libcaja-private/caja-autorun.c:1088
+#: ../libcaja-private/caja-autorun.c:1091
 msgid "You have just inserted a medium with digital photos."
 msgstr "Sa sisestasid digifotosid sisaldava meediumi."
 
-#: ../libcaja-private/caja-autorun.c:1092
+#: ../libcaja-private/caja-autorun.c:1095
 msgid "You have just inserted a digital audio player."
 msgstr "Sa sisestasid digitaalse audioesitaja."
 
-#: ../libcaja-private/caja-autorun.c:1096
+#: ../libcaja-private/caja-autorun.c:1099
 msgid ""
 "You have just inserted a medium with software intended to be automatically "
 "started."
@@ -603,15 +603,15 @@ msgstr ""
 "käivitamiseks."
 
 #. fallback to generic greeting
-#: ../libcaja-private/caja-autorun.c:1101
+#: ../libcaja-private/caja-autorun.c:1104
 msgid "You have just inserted a medium."
 msgstr "Sa sisestasid meediumi."
 
-#: ../libcaja-private/caja-autorun.c:1103
+#: ../libcaja-private/caja-autorun.c:1106
 msgid "Choose what application to launch."
 msgstr "Vali käivitatav rakendus."
 
-#: ../libcaja-private/caja-autorun.c:1113
+#: ../libcaja-private/caja-autorun.c:1116
 #, c-format
 msgid ""
 "Select how to open \"%s\" and whether to perform this action in the future "
@@ -620,14 +620,14 @@ msgstr ""
 "Vali, mismoodi tuleb \"%s\" avada ning kas ka tulevikus tuleb \"%s\" liigiga"
 " meediumi korral sedasama teha."
 
-#: ../libcaja-private/caja-autorun.c:1141
+#: ../libcaja-private/caja-autorun.c:1144
 msgid "_Always perform this action"
 msgstr "_Tulevikus tehakse seda ilma küsimata"
 
 #. name, icon name
 #. label, accelerator
 #. add the "Eject" menu item
-#: ../libcaja-private/caja-autorun.c:1164
+#: ../libcaja-private/caja-autorun.c:1167
 #: ../src/file-manager/fm-directory-view.c:7469
 #: ../src/file-manager/fm-directory-view.c:7497
 #: ../src/file-manager/fm-directory-view.c:7578
@@ -638,7 +638,7 @@ msgstr "_Väljasta"
 #. name, icon name
 #. label, accelerator
 #. add the "Unmount" menu item
-#: ../libcaja-private/caja-autorun.c:1179
+#: ../libcaja-private/caja-autorun.c:1182
 #: ../src/file-manager/fm-directory-view.c:7465
 #: ../src/file-manager/fm-directory-view.c:7493
 #: ../src/file-manager/fm-directory-view.c:7574
@@ -1915,7 +1915,7 @@ msgid "today at 00:00:00 PM"
 msgstr "täna kell 00:00:00"
 
 #: ../libcaja-private/caja-file.c:4739
-#: ../src/caja-file-management-properties.c:531
+#: ../src/caja-file-management-properties.c:532
 msgid "today at %-I:%M:%S %p"
 msgstr "täna kell %-H:%M:%S"
 
@@ -2203,12 +2203,12 @@ msgstr[0] "See avab %d eraldi akna."
 msgstr[1] "See avab %d eraldi akent."
 
 #: ../libcaja-private/caja-mime-actions.c:1267
-#: ../src/caja-window-manage-views.c:2101
-#: ../src/caja-window-manage-views.c:2109
-#: ../src/caja-window-manage-views.c:2129
-#: ../src/caja-window-manage-views.c:2143
-#: ../src/caja-window-manage-views.c:2149
-#: ../src/caja-window-manage-views.c:2176
+#: ../src/caja-window-manage-views.c:2114
+#: ../src/caja-window-manage-views.c:2122
+#: ../src/caja-window-manage-views.c:2142
+#: ../src/caja-window-manage-views.c:2156
+#: ../src/caja-window-manage-views.c:2162
+#: ../src/caja-window-manage-views.c:2189
 #, c-format
 msgid "Could not display \"%s\"."
 msgstr "\"%s\" ei ole kuvatav."
@@ -2288,13 +2288,13 @@ msgstr[0] "%d kirje avamine."
 msgstr[1] "%d kirje avamine."
 
 #: ../libcaja-private/caja-mime-application-chooser.c:162
-#: ../libcaja-private/caja-open-with-dialog.c:300
+#: ../libcaja-private/caja-open-with-dialog.c:303
 #, c-format
 msgid "Could not set application as the default: %s"
 msgstr "Rakendust pole võimalik vaikimisi rakenduseks määrata: %s"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:163
-#: ../libcaja-private/caja-open-with-dialog.c:301
+#: ../libcaja-private/caja-open-with-dialog.c:304
 msgid "Could not set as default application"
 msgstr "Pole võimalik vaikimisi rakenduseks määrata"
 
@@ -2311,12 +2311,12 @@ msgid "Could not remove application"
 msgstr "Rakendust pole võimalik eemaldada"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:420
-#: ../libcaja-private/caja-open-with-dialog.c:1132
+#: ../libcaja-private/caja-open-with-dialog.c:1135
 msgid "_Add"
 msgstr "_Lisa"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:430
-#: ../libcaja-private/caja-open-with-dialog.c:951
+#: ../libcaja-private/caja-open-with-dialog.c:954
 #: ../src/caja-bookmarks-window.ui.h:4
 msgid "_Remove"
 msgstr "_Eemalda"
@@ -2331,7 +2331,7 @@ msgid "%s document"
 msgstr "%s dokument"
 
 #: ../libcaja-private/caja-mime-application-chooser.c:599
-#: ../libcaja-private/caja-open-with-dialog.c:1091
+#: ../libcaja-private/caja-open-with-dialog.c:1094
 msgid "Unknown"
 msgstr "Tundmatu"
 
@@ -2363,76 +2363,80 @@ msgstr "Rakendust pole võimalik leida"
 msgid "Could not add application to the application database: %s"
 msgstr "Rakendust pole rakenduste andmebaasi võimalik lisadsa: %s"
 
+#: ../libcaja-private/caja-open-with-dialog.c:252
+msgid "Unknown error"
+msgstr "Tundmatu viga"
+
 #: ../libcaja-private/caja-open-with-dialog.c:253
 msgid "Could not add application"
 msgstr "Rakendust pole võimalik lisada"
 
-#: ../libcaja-private/caja-open-with-dialog.c:451
+#: ../libcaja-private/caja-open-with-dialog.c:454
 msgid "Select an Application"
 msgstr "Rakenduse valimine"
 
-#: ../libcaja-private/caja-open-with-dialog.c:856
+#: ../libcaja-private/caja-open-with-dialog.c:859
 #: ../src/file-manager/fm-properties-window.c:5080
 msgid "Open With"
 msgstr "Avamine rakendusega"
 
-#: ../libcaja-private/caja-open-with-dialog.c:894
+#: ../libcaja-private/caja-open-with-dialog.c:897
 msgid "Select an application to view its description."
 msgstr "Rakenduse kirjelduse kuvamiseks vali rakendus."
 
-#: ../libcaja-private/caja-open-with-dialog.c:920
+#: ../libcaja-private/caja-open-with-dialog.c:923
 msgid "_Use a custom command"
 msgstr "_Kasutatakse kohandatud käsku"
 
-#: ../libcaja-private/caja-open-with-dialog.c:937
+#: ../libcaja-private/caja-open-with-dialog.c:940
 msgid "_Browse..."
 msgstr "_Vali..."
 
 #. first %s is a filename and second %s is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1061
+#: ../libcaja-private/caja-open-with-dialog.c:1064
 #, c-format
 msgid "Open %s and other %s document with:"
 msgstr "Faili %s ja teisi \"%s\" dokumente tuleb avada rakendusega:"
 
 #. the %s here is a file name
 #. %s is a filename
-#: ../libcaja-private/caja-open-with-dialog.c:1067
-#: ../libcaja-private/caja-open-with-dialog.c:1107
+#: ../libcaja-private/caja-open-with-dialog.c:1070
+#: ../libcaja-private/caja-open-with-dialog.c:1110
 #, c-format
 msgid "Open %s with:"
 msgstr "Faili %s avamine rakendusega:"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1068
+#: ../libcaja-private/caja-open-with-dialog.c:1071
 #, c-format
 msgid "_Remember this application for %s documents"
 msgstr "_Pea meeles seda rakendust %s dokumentide jaoks"
 
 #. Only in add mode - the %s here is a file extension
-#: ../libcaja-private/caja-open-with-dialog.c:1079
+#: ../libcaja-private/caja-open-with-dialog.c:1082
 #, c-format
 msgid "Open all %s documents with:"
 msgstr "Kõiki %s-dokumente avatakse rakendusega:"
 
 #. First %s is a filename, second is a description
 #. * of the type, eg "plain text document"
-#: ../libcaja-private/caja-open-with-dialog.c:1101
+#: ../libcaja-private/caja-open-with-dialog.c:1104
 #, c-format
 msgid "Open %s and other \"%s\" files with:"
 msgstr "Faili %s ja teisi \"%s\" faile tuleb avada rakendusega:"
 
 #. %s is a file type description
-#: ../libcaja-private/caja-open-with-dialog.c:1109
+#: ../libcaja-private/caja-open-with-dialog.c:1112
 #, c-format
 msgid "_Remember this application for \"%s\" files"
 msgstr "_Pea meeles seda rakendust \"%s\" failide jaoks"
 
 #. Only in add mode
-#: ../libcaja-private/caja-open-with-dialog.c:1120
+#: ../libcaja-private/caja-open-with-dialog.c:1123
 #, c-format
 msgid "Open all \"%s\" files with:"
 msgstr "Kõik \"%s\" failid avatakse rakendusega:"
 
-#: ../libcaja-private/caja-open-with-dialog.c:1133
+#: ../libcaja-private/caja-open-with-dialog.c:1136
 msgid "Add Application"
 msgstr "Rakenduse lisamine"
 
@@ -2514,34 +2518,34 @@ msgstr ""
 msgid "Details: "
 msgstr "Üksikasjad: "
 
-#: ../libcaja-private/caja-progress-info.c:242
+#: ../libcaja-private/caja-progress-info.c:244
 msgid "File Operations"
 msgstr "Failioperatsioonid"
 
-#: ../libcaja-private/caja-progress-info.c:314
+#: ../libcaja-private/caja-progress-info.c:316
 msgid "paused"
 msgstr "pausitud"
 
-#: ../libcaja-private/caja-progress-info.c:317
+#: ../libcaja-private/caja-progress-info.c:319
 msgid "pausing"
 msgstr "pausimisel"
 
-#: ../libcaja-private/caja-progress-info.c:320
+#: ../libcaja-private/caja-progress-info.c:322
 msgid "queued"
 msgstr "järjekorras"
 
-#: ../libcaja-private/caja-progress-info.c:323
+#: ../libcaja-private/caja-progress-info.c:325
 msgid "queuing"
 msgstr "lisatakse järjekorda"
 
-#: ../libcaja-private/caja-progress-info.c:611
+#: ../libcaja-private/caja-progress-info.c:603
 #, c-format
 msgid "%'d file operation active"
 msgid_plural "%'d file operations active"
 msgstr[0] "%'d aktiivne failioperatsioon"
 msgstr[1] "%'d aktiivset failioperatsiooni"
 
-#: ../libcaja-private/caja-progress-info.c:629
+#: ../libcaja-private/caja-progress-info.c:625
 msgid "Process completed"
 msgstr "Tegevus lõpetatud"
 
@@ -3880,13 +3884,13 @@ msgstr "Seansihalduse valikud:"
 msgid "Show session management options"
 msgstr "Seansihalduse valikute näitamine"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:672
+#: ../src/file-manager/fm-desktop-icon-view.c:662
 msgid "Background"
 msgstr "Taust"
 
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:749
+#: ../src/file-manager/fm-desktop-icon-view.c:739
 #: ../src/file-manager/fm-directory-view.c:7374
 #: ../src/file-manager/fm-directory-view.c:9058
 msgid "E_mpty Trash"
@@ -3895,44 +3899,44 @@ msgstr "_Tühjenda prügikast"
 #. label, accelerator
 #. name, icon name
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:763
+#: ../src/file-manager/fm-desktop-icon-view.c:753
 #: ../src/file-manager/fm-directory-view.c:7338
 msgid "Create L_auncher..."
 msgstr "Loo kä_ivitaja..."
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:765
+#: ../src/file-manager/fm-desktop-icon-view.c:755
 #: ../src/file-manager/fm-directory-view.c:7339
 msgid "Create a new launcher"
 msgstr "Uue käivitaja loomine"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:772
+#: ../src/file-manager/fm-desktop-icon-view.c:762
 msgid "Change Desktop _Background"
 msgstr "Vaheta töölaua _taust"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:774
+#: ../src/file-manager/fm-desktop-icon-view.c:764
 msgid ""
 "Show a window that lets you set your desktop background's pattern or color"
 msgstr "Töölaua taustamustri või -värvi valimise akna näitamine"
 
 #. label, accelerator
-#: ../src/file-manager/fm-desktop-icon-view.c:781
+#: ../src/file-manager/fm-desktop-icon-view.c:771
 msgid "Empty Trash"
 msgstr "Tühjenda prügikast"
 
 #. tooltip
-#: ../src/file-manager/fm-desktop-icon-view.c:783
+#: ../src/file-manager/fm-desktop-icon-view.c:773
 #: ../src/file-manager/fm-directory-view.c:7375 ../src/caja-trash-bar.c:202
 msgid "Delete all items in the Trash"
 msgstr "Kogu prügikasti sisu kustutamine"
 
-#: ../src/file-manager/fm-desktop-icon-view.c:883
+#: ../src/file-manager/fm-desktop-icon-view.c:873
 msgid "The desktop view encountered an error."
 msgstr "Töölauavaade sattus veale."
 
-#: ../src/file-manager/fm-desktop-icon-view.c:884
+#: ../src/file-manager/fm-desktop-icon-view.c:874
 msgid "The desktop view encountered an error while starting up."
 msgstr "Töölauavaade sattus käivitamise ajal veale."
 
@@ -5721,7 +5725,7 @@ msgid "Free space:"
 msgstr "Vaba ruum:"
 
 #: ../src/file-manager/fm-properties-window.c:3437
-#: ../src/caja-emblem-sidebar.c:1096
+#: ../src/caja-emblem-sidebar.c:1095
 msgid "Emblems"
 msgstr "Embleemid"
 
@@ -5782,7 +5786,7 @@ msgstr "Faili pääsuõigused:"
 #. Translators: this is referred to captions under icons.
 #: ../src/file-manager/fm-properties-window.c:4211
 #: ../src/file-manager/fm-properties-window.c:4222
-#: ../src/caja-file-management-properties.c:339
+#: ../src/caja-file-management-properties.c:340
 msgid "None"
 msgstr "Puudub"
 
@@ -6056,7 +6060,7 @@ msgstr ""
 "Kui kahtled, siis vajuta \"Loobu\"."
 
 #: ../src/caja-bookmarks-window.c:159
-#: ../src/caja-file-management-properties.c:246
+#: ../src/caja-file-management-properties.c:247
 #: ../src/caja-property-browser.c:1676 ../src/caja-window-menus.c:611
 #, c-format
 msgid ""
@@ -6298,24 +6302,24 @@ msgstr "Embleemid ei paista olevat korrektsed pildifailid."
 msgid "None of the files could be added as emblems."
 msgstr "Ühtegi faili pole võimalik embleemina lisada."
 
-#: ../src/caja-emblem-sidebar.c:858 ../src/caja-emblem-sidebar.c:921
+#: ../src/caja-emblem-sidebar.c:858 ../src/caja-emblem-sidebar.c:920
 #, c-format
 msgid "The file '%s' does not appear to be a valid image."
 msgstr "Fail '%s' ei ole korrektne pildifail."
 
-#: ../src/caja-emblem-sidebar.c:863
+#: ../src/caja-emblem-sidebar.c:862
 msgid "The dragged file does not appear to be a valid image."
 msgstr "Lohistatud fail ei ole sobilik pildi fail."
 
-#: ../src/caja-emblem-sidebar.c:865 ../src/caja-emblem-sidebar.c:922
+#: ../src/caja-emblem-sidebar.c:864 ../src/caja-emblem-sidebar.c:921
 msgid "The emblem cannot be added."
 msgstr "Embleemi pole võimalik lisada"
 
-#: ../src/caja-emblem-sidebar.c:1102
+#: ../src/caja-emblem-sidebar.c:1101
 msgid "Show Emblems"
 msgstr "Näita embleeme"
 
-#: ../src/caja-file-management-properties.c:643
+#: ../src/caja-file-management-properties.c:644
 msgid "About Extension"
 msgstr "Laiendist lähemalt"
 
@@ -6962,7 +6966,7 @@ msgstr "Kõigi navigatsiooniakende sulgemine"
 msgid "_Location..."
 msgstr "_Asukohale..."
 
-#: ../src/caja-navigation-window-menus.c:833 ../src/caja-spatial-window.c:939
+#: ../src/caja-navigation-window-menus.c:833 ../src/caja-spatial-window.c:938
 msgid "Specify a location to open"
 msgstr "Avatava asukoha määramine"
 
@@ -6994,20 +6998,20 @@ msgid "Go to the same location as in the extra pane"
 msgstr "Liikumine samasse asukohta nagu lisapaanil"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:848 ../src/caja-spatial-window.c:952
+#: ../src/caja-navigation-window-menus.c:848 ../src/caja-spatial-window.c:951
 msgid "_Add Bookmark"
 msgstr "_Lisa järjehoidja"
 
-#: ../src/caja-navigation-window-menus.c:849 ../src/caja-spatial-window.c:953
+#: ../src/caja-navigation-window-menus.c:849 ../src/caja-spatial-window.c:952
 msgid "Add a bookmark for the current location to this menu"
 msgstr "Praeguse asukoha jaoks järjehoida lisamine siia menüüsse"
 
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:852 ../src/caja-spatial-window.c:956
+#: ../src/caja-navigation-window-menus.c:852 ../src/caja-spatial-window.c:955
 msgid "_Edit Bookmarks..."
 msgstr "_Redigeeri järjehoidjaid..."
 
-#: ../src/caja-navigation-window-menus.c:853 ../src/caja-spatial-window.c:957
+#: ../src/caja-navigation-window-menus.c:853 ../src/caja-spatial-window.c:956
 msgid "Display a window that allows editing the bookmarks in this menu"
 msgstr "Selles menüüs olevate järjehoidjate redigeerimisakna kuvamine"
 
@@ -7100,7 +7104,7 @@ msgstr "Selle akna olekuriba näitamine või peitmine"
 #. name, icon name
 #. label, accelerator
 #. name, icon name, label
-#: ../src/caja-navigation-window-menus.c:910 ../src/caja-spatial-window.c:960
+#: ../src/caja-navigation-window-menus.c:910 ../src/caja-spatial-window.c:959
 msgid "_Search for Files..."
 msgstr "_Failide otsing..."
 
@@ -7513,8 +7517,8 @@ msgid "Less than or equal to"
 msgstr "Väiksem või võrdne"
 
 #: ../src/caja-query-editor.c:1065 ../src/caja-query-editor.c:1204
-msgid "Greater or equal to"
-msgstr "Suurem või võrdne"
+msgid "Greater than or equal to"
+msgstr ""
 
 #: ../src/caja-query-editor.c:1078
 msgid "1 Hour"
@@ -7641,34 +7645,34 @@ msgid "Close the side pane"
 msgstr "Sulge külgpaan"
 
 #. name, icon name, label
-#: ../src/caja-spatial-window.c:936
+#: ../src/caja-spatial-window.c:935
 msgid "_Places"
 msgstr "_Asukohad"
 
 #. name, icon name, label
-#: ../src/caja-spatial-window.c:938
+#: ../src/caja-spatial-window.c:937
 msgid "Open _Location..."
 msgstr "_Ava asukoht..."
 
 #. name, icon name, label
-#: ../src/caja-spatial-window.c:943
+#: ../src/caja-spatial-window.c:942
 msgid "Close P_arent Folders"
 msgstr "Su_lge ülemised kaustad"
 
-#: ../src/caja-spatial-window.c:944
+#: ../src/caja-spatial-window.c:943
 msgid "Close this folder's parents"
 msgstr "Selle kausta ülemiste kaustade sulgemine"
 
 #. name, icon name, label
-#: ../src/caja-spatial-window.c:948
+#: ../src/caja-spatial-window.c:947
 msgid "Clos_e All Folders"
 msgstr "_Sulge kõik kaustad"
 
-#: ../src/caja-spatial-window.c:949
+#: ../src/caja-spatial-window.c:948
 msgid "Close all folder windows"
 msgstr "Kõigi kaustaakende sulgemine"
 
-#: ../src/caja-spatial-window.c:961
+#: ../src/caja-spatial-window.c:960
 msgid "Locate documents and folders on this computer by name or content"
 msgstr "Arvutis asuvate dokumentide ja kaustade otsimine nime või sisu järgi"
 
@@ -7700,47 +7704,47 @@ msgstr "Valida võib uue vaate või liikuda teise asukohta."
 msgid "The location cannot be displayed with this viewer."
 msgstr "Asukohta ei ole võimalik selle vaatajaga kuvada."
 
-#: ../src/caja-window-manage-views.c:1412
+#: ../src/caja-window-manage-views.c:1425
 msgid "Content View"
 msgstr "Sisuvaade"
 
-#: ../src/caja-window-manage-views.c:1413
+#: ../src/caja-window-manage-views.c:1426
 msgid "View of the current folder"
 msgstr "Käesoleva kausta vaade"
 
-#: ../src/caja-window-manage-views.c:2104
+#: ../src/caja-window-manage-views.c:2117
 msgid "Caja has no installed viewer capable of displaying the folder."
 msgstr ""
 "Cajale ei ole paigaldatud sellist näitamisprogrammi, mis selle kaustaga "
 "hakkama saaks."
 
-#: ../src/caja-window-manage-views.c:2112
+#: ../src/caja-window-manage-views.c:2125
 msgid "The location is not a folder."
 msgstr "Asukoht ei ole kaust."
 
-#: ../src/caja-window-manage-views.c:2121
+#: ../src/caja-window-manage-views.c:2134
 #, c-format
 msgid "Could not find \"%s\"."
 msgstr "\"%s\" pole võimalik leida."
 
-#: ../src/caja-window-manage-views.c:2124
+#: ../src/caja-window-manage-views.c:2137
 msgid "Please check the spelling and try again."
 msgstr "Palun kontrolli õigekirja ja proovi uuesti."
 
-#: ../src/caja-window-manage-views.c:2133
+#: ../src/caja-window-manage-views.c:2146
 #, c-format
 msgid "Caja cannot handle \"%s\" locations."
 msgstr "Cajal pole võimalik \"%s\" asukohti käsitleda."
 
-#: ../src/caja-window-manage-views.c:2138
+#: ../src/caja-window-manage-views.c:2151
 msgid "Caja cannot handle this kind of location."
 msgstr "Cajal pole võimalik seda liiki asukohta käsitleda."
 
-#: ../src/caja-window-manage-views.c:2145
+#: ../src/caja-window-manage-views.c:2158
 msgid "Unable to mount the location."
 msgstr "Asukohta pole võimalik külge haakida."
 
-#: ../src/caja-window-manage-views.c:2151
+#: ../src/caja-window-manage-views.c:2164
 msgid "Access was denied."
 msgstr "Ligipääs oli keelatud."
 
@@ -7748,17 +7752,17 @@ msgstr "Ligipääs oli keelatud."
 #. * the code that guesses web addresses when there's no initial "/".
 #. * But this case is also hit for legitimate web addresses when
 #. * the proxy is set up wrong.
-#: ../src/caja-window-manage-views.c:2160
+#: ../src/caja-window-manage-views.c:2173
 #, c-format
 msgid "Could not display \"%s\", because the host could not be found."
 msgstr "Aadressi \"%s\" pole võimalik kuvada, kuna hosti pole võimalik leida."
 
-#: ../src/caja-window-manage-views.c:2162
+#: ../src/caja-window-manage-views.c:2175
 msgid ""
 "Check that the spelling is correct and that your proxy settings are correct."
 msgstr "Kontrolli, kas õigekiri ja proksi seaded on täpsed."
 
-#: ../src/caja-window-manage-views.c:2178
+#: ../src/caja-window-manage-views.c:2191
 #, c-format
 msgid ""
 "Error: %s\n"
