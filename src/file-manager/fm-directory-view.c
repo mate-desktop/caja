@@ -488,7 +488,7 @@ static GList *
 file_and_directory_list_to_files (GList *fad_list)
 {
 	GList *res, *l;
-	FileAndDirectory *fad;
+	FileAndDirectory *fad = NULL;
 
 	res = NULL;
 	for (l = fad_list; l != NULL; l = l->next) {
@@ -503,7 +503,7 @@ static GList *
 file_and_directory_list_from_files (CajaDirectory *directory, GList *files)
 {
 	GList *res, *l;
-	FileAndDirectory *fad;
+	FileAndDirectory *fad = NULL;
 
 	res = NULL;
 	for (l = files; l != NULL; l = l->next) {
@@ -976,13 +976,13 @@ action_other_application_callback (GtkAction *action,
 static void
 trash_or_delete_selected_files (FMDirectoryView *view)
 {
-        GList *selection;
-
 	/* This might be rapidly called multiple times for the same selection
 	 * when using keybindings. So we remember if the current selection
 	 * was already removed (but the view doesn't know about it yet).
 	 */
 	if (!view->details->selection_was_removed) {
+	        GList *selection;
+
 		selection = fm_directory_view_get_selection_for_file_transfer (view);
 		trash_or_delete_files (fm_directory_view_get_containing_window (view),
 				       selection, TRUE,
@@ -1088,11 +1088,12 @@ action_duplicate_callback (GtkAction *action,
 {
         FMDirectoryView *view;
         GList *selection;
-        GArray *selected_item_locations;
 
         view = FM_DIRECTORY_VIEW (callback_data);
 	selection = fm_directory_view_get_selection_for_file_transfer (view);
 	if (selection_not_empty_in_menu_callback (view, selection)) {
+	        GArray *selected_item_locations;
+
 		/* FIXME bugzilla.gnome.org 45061:
 		 * should change things here so that we use a get_icon_locations (view, selection).
 		 * Not a problem in this case but in other places the selection may change by
@@ -1113,13 +1114,14 @@ action_create_link_callback (GtkAction *action,
 {
         FMDirectoryView *view;
         GList *selection;
-        GArray *selected_item_locations;
 
         g_assert (FM_IS_DIRECTORY_VIEW (callback_data));
 
         view = FM_DIRECTORY_VIEW (callback_data);
 	selection = fm_directory_view_get_selection (view);
 	if (selection_not_empty_in_menu_callback (view, selection)) {
+	        GArray *selected_item_locations;
+
 		selected_item_locations = fm_directory_view_get_selected_icon_locations (view);
 	        fm_directory_view_create_links_for_files (view, selection, selected_item_locations);
 	        g_array_free (selected_item_locations, TRUE);
@@ -1315,13 +1317,14 @@ static void
 action_save_search_callback (GtkAction *action,
 			     gpointer callback_data)
 {
-	CajaSearchDirectory *search;
 	FMDirectoryView	*directory_view;
 
         directory_view = FM_DIRECTORY_VIEW (callback_data);
 
 	if (directory_view->details->model &&
 	    CAJA_IS_SEARCH_DIRECTORY (directory_view->details->model)) {
+		CajaSearchDirectory *search;
+
 		search = CAJA_SEARCH_DIRECTORY (directory_view->details->model);
 		caja_search_directory_save_search (search);
 
@@ -1349,17 +1352,14 @@ action_save_search_as_callback (GtkAction *action,
 				gpointer callback_data)
 {
 	FMDirectoryView	*directory_view;
-	CajaSearchDirectory *search;
-	GtkWidget *dialog, *grid, *label, *entry, *chooser, *save_button;
-
-	const char *entry_text;
-	char *filename, *filename_utf8, *dirname, *path, *uri;
-	GFile *location;
 
         directory_view = FM_DIRECTORY_VIEW (callback_data);
 
 	if (directory_view->details->model &&
 	    CAJA_IS_SEARCH_DIRECTORY (directory_view->details->model)) {
+		CajaSearchDirectory *search;
+		GtkWidget *dialog, *grid, *label, *entry, *chooser, *save_button;
+
 		search = CAJA_SEARCH_DIRECTORY (directory_view->details->model);
 
 		dialog = gtk_dialog_new ();
@@ -1425,6 +1425,10 @@ action_save_search_as_callback (GtkAction *action,
 						     g_get_home_dir ());
 
 		if (gtk_dialog_run (GTK_DIALOG (dialog)) == GTK_RESPONSE_OK) {
+			const char *entry_text;
+			char *filename, *filename_utf8, *dirname, *path, *uri;
+			GFile *location;
+
 			entry_text = gtk_entry_get_text (GTK_ENTRY (entry));
 			if (g_str_has_suffix (entry_text, CAJA_SAVED_SEARCH_EXTENSION)) {
 				filename_utf8 = g_strdup (entry_text);
@@ -1516,7 +1520,6 @@ action_properties_callback (GtkAction *action,
 {
         FMDirectoryView *view;
         GList *selection;
-	GList *files;
 
         g_assert (FM_IS_DIRECTORY_VIEW (callback_data));
 
@@ -1524,6 +1527,8 @@ action_properties_callback (GtkAction *action,
 	selection = fm_directory_view_get_selection (view);
 	if (g_list_length (selection) == 0) {
 		if (view->details->directory_as_file != NULL) {
+			GList *files;
+
 			files = g_list_append (NULL, caja_file_ref (view->details->directory_as_file));
 
 			fm_properties_window_present (files, GTK_WIDGET (view));
@@ -1916,8 +1921,8 @@ fm_directory_view_get_selection_locations (CajaView *view)
 {
 	GList *files;
 	GList *locations;
-	GFile *location;
 	GList *l;
+	GFile *location = NULL;
 
 	files = fm_directory_view_get_selection (FM_DIRECTORY_VIEW (view));
 	locations = NULL;
@@ -1949,12 +1954,13 @@ static void
 fm_directory_view_set_selection_locations (CajaView *caja_view,
 					   GList *selection_locations)
 {
-	GList *selection;
 	FMDirectoryView *view;
 
 	view = FM_DIRECTORY_VIEW (caja_view);
 
 	if (!view->details->loading) {
+		GList *selection;
+
 		/* If we aren't still loading, set the selection right now,
 		 * and reveal the new selection.
 		 */
@@ -2007,8 +2013,6 @@ static void
 fm_directory_view_init (FMDirectoryView *view)
 {
 	CajaDirectory *scripts_directory;
-	CajaDirectory *templates_directory;
-	char *templates_uri;
 
 	view->details = g_new0 (FMDirectoryViewDetails, 1);
 
@@ -2035,6 +2039,9 @@ fm_directory_view_init (FMDirectoryView *view)
 	caja_directory_unref (scripts_directory);
 
 	if (caja_should_use_templates_directory ()) {
+		CajaDirectory *templates_directory;
+		char *templates_uri;
+
 		templates_uri = caja_get_templates_directory_uri ();
 		templates_directory = caja_directory_get_by_uri (templates_uri);
 		g_free (templates_uri);
@@ -2251,7 +2258,7 @@ fm_directory_view_display_selection_info (FMDirectoryView *view)
 	char *status_string;
 	char *free_space_str;
 	char *obj_selected_free_space_str;
-	CajaFile *file;
+	CajaFile *file = NULL;
 
 	g_return_if_fail (FM_IS_DIRECTORY_VIEW (view));
 
@@ -2322,7 +2329,7 @@ fm_directory_view_display_selection_info (FMDirectoryView *view)
 			if (!folder_item_count_known) {
 				folder_item_count_str = g_strdup ("");
 			} else {
-				/* translators: this is preceded with a string of form 'N folders' (N more than 1) */
+				/* Translators: this is preceded with a string of form 'N folders' (N more than 1) */
 				folder_item_count_str = g_strdup_printf (ngettext(" (containing a total of %'d item)",
 										  " (containing a total of %'d items)",
 										  folder_item_count),
@@ -2361,7 +2368,7 @@ fm_directory_view_display_selection_info (FMDirectoryView *view)
 			else
 				size_string = g_format_size(non_folder_size);
 
-			/* This is marked for translation in case a localiser
+			/* Translators: This is marked for translation in case a localiser
 			 * needs to use something other than parentheses. The
 			 * first message gives the number of items selected;
 			 * the message in parentheses the size of those items.
@@ -2528,8 +2535,6 @@ static void
 done_loading (FMDirectoryView *view,
 	      gboolean all_files_seen)
 {
-	GList *locations_selected, *selection;
-
 	if (!view->details->loading) {
 		return;
 	}
@@ -2538,6 +2543,8 @@ done_loading (FMDirectoryView *view,
 	 * is no CajaWindowInfo any more.
 	 */
 	if (view->details->window != NULL) {
+		GList *locations_selected;
+
 		if (all_files_seen) {
 			caja_window_info_report_load_complete (view->details->window, CAJA_VIEW (view));
 		}
@@ -2547,7 +2554,10 @@ done_loading (FMDirectoryView *view,
 		reset_update_interval (view);
 
 		locations_selected = view->details->pending_locations_selected;
+
 		if (locations_selected != NULL && all_files_seen) {
+			GList *selection;
+
 			view->details->pending_locations_selected = NULL;
 
 			selection = file_list_from_location_list (locations_selected);
@@ -2929,7 +2939,6 @@ static void
 process_old_files (FMDirectoryView *view)
 {
 	GList *files_added, *files_changed, *node;
-	FileAndDirectory *pending;
 	GList *selection, *files;
 	gboolean send_selection_change;
 
@@ -2939,6 +2948,8 @@ process_old_files (FMDirectoryView *view)
 	send_selection_change = FALSE;
 
 	if (files_added != NULL || files_changed != NULL) {
+		FileAndDirectory *pending = NULL;
+
 		g_signal_emit (view, signals[BEGIN_FILE_CHANGES], 0);
 
 		for (node = files_added; node != NULL; node = node->next) {
@@ -3863,7 +3874,7 @@ special_link_in_selection (FMDirectoryView *view)
 {
 	gboolean saw_link;
 	GList *selection, *node;
-	CajaFile *file;
+	CajaFile *file = NULL;
 
 	g_return_val_if_fail (FM_IS_DIRECTORY_VIEW (view), FALSE);
 
@@ -3896,7 +3907,7 @@ desktop_or_home_dir_in_selection (FMDirectoryView *view)
 {
 	gboolean saw_desktop_or_home_dir;
 	GList *selection, *node;
-	CajaFile *file;
+	CajaFile *file = NULL;
 
 	g_return_val_if_fail (FM_IS_DIRECTORY_VIEW (view), FALSE);
 
@@ -4006,8 +4017,6 @@ delayed_rename_file_hack_removed (RenameData *data)
 static void
 rename_file (FMDirectoryView *view, CajaFile *new_file)
 {
-	RenameData *data;
-
 	/* HACK!!!!
 	   This is a work around bug in listview. After the rename is
 	   enabled we will get file changes due to info about the new
@@ -4019,6 +4028,8 @@ rename_file (FMDirectoryView *view, CajaFile *new_file)
 	   file_changed. So, before we delay we select the row.
 	*/
 	if (FM_IS_LIST_VIEW (view)) {
+		RenameData *data;
+
 		fm_directory_view_select_file (view, new_file);
 
 		data = g_new (RenameData, 1);
@@ -4427,19 +4438,20 @@ add_submenu (GtkUIManager *ui_manager,
 	     cairo_surface_t *surface,
 	     gboolean add_action)
 {
-	char *escaped_label;
-	char *action_name;
-	char *submenu_name;
-	char *escaped_submenu_name;
-	GtkAction *action;
-
 	if (parent_path != NULL) {
+		char *escaped_label;
+		char *action_name;
+		char *submenu_name;
+		char *escaped_submenu_name;
+
 		action_name = escape_action_name (uri, "submenu_");
 		submenu_name = g_path_get_basename (uri);
 		escaped_submenu_name = escape_action_path (submenu_name);
 		escaped_label = eel_str_double_underscores (label);
 
 		if (add_action) {
+			GtkAction *action;
+
 			G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
 			action = gtk_action_new (action_name,
 						 escaped_label,
@@ -4674,7 +4686,6 @@ add_x_content_apps (FMDirectoryView *view, CajaFile *file, GList **applications)
 {
 	GMount *mount;
 	char **x_content_types;
-	unsigned int n;
 
 	g_return_if_fail (applications != NULL);
 
@@ -4686,6 +4697,8 @@ add_x_content_apps (FMDirectoryView *view, CajaFile *file, GList **applications)
 
 	x_content_types = caja_autorun_get_cached_x_content_types_for_mount (mount);
 	if (x_content_types != NULL) {
+		unsigned int n;
+
 		for (n = 0; x_content_types[n] != NULL; n++) {
 			char *x_content_type = x_content_types[n];
 			GList *app_info_for_x_content_type;
@@ -4985,7 +4998,6 @@ add_extension_action_for_files (FMDirectoryView *view,
 	char *name, *label, *tip, *icon;
 	gboolean sensitive, priority;
 	GtkAction *action;
-	cairo_surface_t *surface;
 	ExtensionActionCallbackData *data;
 
 	g_object_get (G_OBJECT (item),
@@ -5003,7 +5015,10 @@ add_extension_action_for_files (FMDirectoryView *view,
 	G_GNUC_END_IGNORE_DEPRECATIONS;
 
 	if (icon != NULL) {
+		cairo_surface_t *surface;
+
 		surface = get_menu_icon (icon, GTK_WIDGET (view));
+
 		if (surface != NULL) {
 			g_object_set_data_full (G_OBJECT (action), "menu-icon",
 						surface,
@@ -5161,12 +5176,12 @@ static char **
 get_file_names_as_parameter_array (GList *selection,
 				   CajaDirectory *model)
 {
-	CajaFile *file;
 	char **parameters;
 	GList *node;
-	GFile *file_location;
 	GFile *model_location;
 	int i;
+	CajaFile *file = NULL;
+	GFile *file_location = NULL;
 
 	if (model == NULL) {
 		return NULL;
@@ -5203,7 +5218,6 @@ static char *
 get_file_paths_or_uris_as_newline_delimited_string (GList *selection, gboolean get_paths)
 {
 	char *path;
-	char *uri;
 	char *result;
 	CajaDesktopLink *link;
 	GString *expanding_string;
@@ -5212,7 +5226,10 @@ get_file_paths_or_uris_as_newline_delimited_string (GList *selection, gboolean g
 
 	expanding_string = g_string_new ("");
 	for (node = selection; node != NULL; node = node->next) {
+		char *uri;
+
 		uri = NULL;
+
 		if (CAJA_IS_DESKTOP_ICON_FILE (node->data)) {
 			link = caja_desktop_icon_file_get_link (CAJA_DESKTOP_ICON_FILE (node->data));
 			if (link != NULL) {
@@ -5293,10 +5310,11 @@ static FMDirectoryView *
 get_directory_view_of_extra_pane (FMDirectoryView *view)
 {
 	CajaWindowSlotInfo *slot;
-	CajaView *next_view;
 
 	slot = caja_window_info_get_extra_slot (fm_directory_view_get_caja_window (view));
 	if (slot != NULL) {
+		CajaView *next_view;
+
 		next_view = caja_window_slot_info_get_current_view (slot);
 
 		if (FM_IS_DIRECTORY_VIEW (next_view)) {
@@ -5590,10 +5608,10 @@ update_directory_in_scripts_menu (FMDirectoryView *view, CajaDirectory *director
 	char *menu_path, *popup_path, *popup_bg_path;
 	GList *file_list, *filtered, *node;
 	gboolean any_scripts;
-	CajaFile *file;
 	CajaDirectory *dir;
 	char *uri;
 	char *escaped_path;
+	CajaFile *file = NULL;
 
 	uri = caja_directory_get_uri (directory);
 	escaped_path = escape_action_path (uri + scripts_directory_uri_length);
@@ -5654,10 +5672,9 @@ update_scripts_menu (FMDirectoryView *view)
 {
 	gboolean any_scripts;
 	GList *sorted_copy, *node;
-	CajaDirectory *directory;
-	char *uri;
 	GtkUIManager *ui_manager;
 	GtkAction *action;
+	CajaDirectory *directory = NULL;
 
 	/* There is a race condition here.  If we don't mark the scripts menu as
 	   valid before we begin our task then we can lose script menu updates that
@@ -5679,6 +5696,8 @@ update_scripts_menu (FMDirectoryView *view)
 	sorted_copy = caja_directory_list_sort_by_uri
 		(caja_directory_list_copy (view->details->scripts_directory_list));
 	for (node = sorted_copy; node != NULL; node = node->next) {
+		char *uri;
+
 		directory = node->data;
 
 		uri = caja_directory_get_uri (directory);
@@ -5786,9 +5805,7 @@ add_template_to_templates_menus (FMDirectoryView *directory_view,
 static void
 update_templates_directory (FMDirectoryView *view)
 {
-	CajaDirectory *templates_directory;
 	GList *node, *next;
-	char *templates_uri;
 
 	for (node = view->details->templates_directory_list; node != NULL; node = next) {
 		next = node->next;
@@ -5796,6 +5813,9 @@ update_templates_directory (FMDirectoryView *view)
 	}
 
 	if (caja_should_use_templates_directory ()) {
+		CajaDirectory *templates_directory;
+		char *templates_uri;
+
 		templates_uri = caja_get_templates_directory_uri ();
 		templates_directory = caja_directory_get_by_uri (templates_uri);
 		g_free (templates_uri);
@@ -5849,11 +5869,11 @@ update_directory_in_templates_menu (FMDirectoryView *view,
 	char *menu_path, *popup_bg_path;
 	GList *file_list, *filtered, *node;
 	gboolean any_templates;
-	CajaFile *file;
 	CajaDirectory *dir;
 	char *escaped_path;
 	char *uri;
 	int num;
+	CajaFile *file = NULL;
 
 	/* We know this directory belongs to the template dir, so it must exist */
 	g_assert (templates_directory_uri);
@@ -5916,11 +5936,10 @@ update_templates_menu (FMDirectoryView *view)
 {
 	gboolean any_templates;
 	GList *sorted_copy, *node;
-	CajaDirectory *directory;
 	GtkUIManager *ui_manager;
-	char *uri;
 	GtkAction *action;
 	char *templates_directory_uri;
+	CajaDirectory *directory = NULL;
 
 	if (caja_should_use_templates_directory ()) {
 		templates_directory_uri = caja_get_templates_directory_uri ();
@@ -5948,6 +5967,8 @@ update_templates_menu (FMDirectoryView *view)
 	sorted_copy = caja_directory_list_sort_by_uri
 		(caja_directory_list_copy (view->details->templates_directory_list));
 	for (node = sorted_copy; node != NULL; node = node->next) {
+		char *uri;
+
 		directory = node->data;
 
 		uri = caja_directory_get_uri (directory);
@@ -6025,7 +6046,7 @@ copy_or_cut_files (FMDirectoryView *view,
 		   gboolean         cut)
 {
 	int count;
-	char *status_string, *name;
+	char *status_string;
 	CajaClipboardInfo info;
         GtkTargetList *target_list;
         GtkTargetEntry *targets;
@@ -6052,6 +6073,8 @@ copy_or_cut_files (FMDirectoryView *view,
 
 	count = g_list_length (clipboard_contents);
 	if (count == 1) {
+		char *name;
+
 		name = caja_file_get_display_name (clipboard_contents->data);
 		if (cut) {
 			status_string = g_strdup_printf (_("\"%s\" will be moved "
@@ -6301,13 +6324,14 @@ paste_into_clipboard_received_callback (GtkClipboard     *clipboard,
 {
 	PasteIntoData *data;
 	FMDirectoryView *view;
-	char *directory_uri;
 
 	data = (PasteIntoData *) callback_data;
 
 	view = FM_DIRECTORY_VIEW (data->view);
 
 	if (view->details->window != NULL) {
+		char *directory_uri;
+
 		directory_uri = caja_file_get_activation_uri (data->target);
 
 		paste_clipboard_data (view, selection_data, directory_uri);
@@ -6401,7 +6425,6 @@ static void
 real_action_rename (FMDirectoryView *view,
 		    gboolean select_all)
 {
-	CajaFile *file;
 	GList *selection;
 
 	g_assert (FM_IS_DIRECTORY_VIEW (view));
@@ -6409,7 +6432,10 @@ real_action_rename (FMDirectoryView *view,
 	selection = fm_directory_view_get_selection (view);
 
 	if (selection_not_empty_in_menu_callback (view, selection)) {
+		CajaFile *file;
+
 		file = CAJA_FILE (selection->data);
+
 		if (!select_all) {
 			/* directories don't have a file extension, so
 			 * they are always pre-selected as a whole */
@@ -6512,10 +6538,10 @@ static void
 action_mount_volume_callback (GtkAction *action,
 			      gpointer data)
 {
-	CajaFile *file;
 	GList *selection, *l;
 	FMDirectoryView *view;
 	GMountOperation *mount_op;
+	CajaFile *file = NULL;
 
         view = FM_DIRECTORY_VIEW (data);
 
@@ -6538,9 +6564,9 @@ static void
 action_unmount_volume_callback (GtkAction *action,
 				gpointer data)
 {
-	CajaFile *file;
 	GList *selection, *l;
 	FMDirectoryView *view;
+	CajaFile *file = NULL;
 
         view = FM_DIRECTORY_VIEW (data);
 
@@ -6565,9 +6591,9 @@ action_format_volume_callback (GtkAction *action,
 			       gpointer   data)
 {
 #ifdef TODO_GIO
-	CajaFile *file;
 	GList *selection, *l;
 	FMDirectoryView *view;
+	CajaFile *file = NULL;
 
         view = FM_DIRECTORY_VIEW (data);
 
@@ -6587,9 +6613,9 @@ static void
 action_eject_volume_callback (GtkAction *action,
 			      gpointer data)
 {
-	CajaFile *file;
 	GList *selection, *l;
 	FMDirectoryView *view;
+	CajaFile *file = NULL;
 
         view = FM_DIRECTORY_VIEW (data);
 
@@ -6629,10 +6655,10 @@ static void
 action_start_volume_callback (GtkAction *action,
 			      gpointer   data)
 {
-	CajaFile *file;
 	GList *selection, *l;
 	FMDirectoryView *view;
 	GMountOperation *mount_op;
+	CajaFile *file = NULL;
 
         view = FM_DIRECTORY_VIEW (data);
 
@@ -6654,9 +6680,9 @@ static void
 action_stop_volume_callback (GtkAction *action,
 			     gpointer   data)
 {
-	CajaFile *file;
 	GList *selection, *l;
 	FMDirectoryView *view;
+	CajaFile *file = NULL;
 
         view = FM_DIRECTORY_VIEW (data);
 
@@ -6679,9 +6705,9 @@ static void
 action_detect_media_callback (GtkAction *action,
 			      gpointer   data)
 {
-	CajaFile *file;
 	GList *selection, *l;
 	FMDirectoryView *view;
+	CajaFile *file = NULL;
 
         view = FM_DIRECTORY_VIEW (data);
 
@@ -7037,11 +7063,6 @@ action_connect_to_server_link_callback (GtkAction *action,
 	CajaIconInfo *icon;
 	const char *icon_name;
 	char *name;
-	GtkWidget *dialog;
-	GtkWidget *label;
-	GtkWidget *entry;
-	GtkWidget *box;
-	char *title;
 	gint scale;
 
         view = FM_DIRECTORY_VIEW (data);
@@ -7062,6 +7083,12 @@ action_connect_to_server_link_callback (GtkAction *action,
 	name = caja_file_get_display_name (file);
 
 	if (uri != NULL) {
+		GtkWidget *dialog;
+		GtkWidget *label;
+		GtkWidget *entry;
+		GtkWidget *box;
+		char *title;
+
 		title = g_strdup_printf (_("Connect to Server %s"), name);
 
 		dialog = gtk_dialog_new ();
@@ -7376,7 +7403,7 @@ static const GtkActionEntry directory_view_entries[] = {
                                  G_CALLBACK (action_new_folder_callback) },
   /* name, icon name, label */ { "No Templates", NULL, N_("No templates installed") },
   /* name, icon name */        { "New Empty File", NULL,
-    /* translators: this is used to indicate that a file doesn't contain anything */
+  /* Translators: this is used to indicate that a file doesn't contain anything */
   /* label, accelerator */       N_("_Empty File"), NULL,
   /* tooltip */                  N_("Create a new empty file inside this folder"),
                                  G_CALLBACK (action_new_empty_file_callback) },
@@ -7414,9 +7441,9 @@ static const GtkActionEntry directory_view_entries[] = {
                                  G_CALLBACK (action_other_application_callback) },
   /* name, icon name */        { "Open Scripts Folder", NULL,
   /* label, accelerator */       N_("_Open Scripts Folder"), NULL,
-   /* tooltip */                 N_("Show the folder containing the scripts that appear in this menu"),
+  /* tooltip */                  N_("Show the folder containing the scripts that appear in this menu"),
                                  G_CALLBACK (action_open_scripts_folder_callback) },
-  /* name, icon name */        { "Empty Trash", NULL,
+  /* name, icon name */        { "Empty Trash", CAJA_ICON_TRASH,
   /* label, accelerator */       N_("E_mpty Trash"), NULL,
   /* tooltip */                  N_("Delete all items in the Trash"),
                                  G_CALLBACK (action_empty_trash_callback) },
@@ -7677,16 +7704,20 @@ connect_proxy (FMDirectoryView *view,
 	       GtkActionGroup *action_group)
 {
 	const gchar *action_name;
-	cairo_surface_t *surface;
-	GtkWidget *image;
 
 	G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
 	action_name = gtk_action_get_name (action);
 	G_GNUC_END_IGNORE_DEPRECATIONS;
+
 	if (strcmp (action_name, FM_ACTION_NEW_EMPTY_FILE) == 0 &&
 	    GTK_IS_IMAGE_MENU_ITEM (proxy)) {
+		cairo_surface_t *surface;
+
 		surface = get_menu_icon ("text-x-generic", GTK_WIDGET (view));
+
 		if (surface != NULL) {
+			GtkWidget *image;
+
 			image = gtk_image_new_from_surface (surface);
 			gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (proxy), image);
 
@@ -7824,7 +7855,6 @@ clipboard_targets_received (GtkClipboard     *clipboard,
 {
 	FMDirectoryView *view;
 	gboolean can_paste;
-	int i;
 	GList *selection;
 	int count;
 	GtkAction *action;
@@ -7840,6 +7870,8 @@ clipboard_targets_received (GtkClipboard     *clipboard,
 	}
 
 	if (targets) {
+		int i;
+
 		for (i=0; i < n_targets; i++) {
 			if (targets[i] == copied_files_atom) {
 				can_paste = TRUE;
@@ -7904,9 +7936,10 @@ static gboolean
 file_list_all_are_folders (GList *file_list)
 {
 	GList *l;
-	CajaFile *file, *linked_file;
 	char *activation_uri;
 	gboolean is_dir;
+	CajaFile *linked_file;
+	CajaFile *file = NULL;
 
 	for (l = file_list; l != NULL; l = l->next) {
 		file = CAJA_FILE (l->data);
@@ -7963,8 +7996,6 @@ file_should_show_foreach (CajaFile        *file,
 			  gboolean            *show_poll,
 			  GDriveStartStopType *start_stop_type)
 {
-	char *uri;
-
 	*show_mount = FALSE;
 	*show_unmount = FALSE;
 	*show_eject = FALSE;
@@ -8010,6 +8041,8 @@ file_should_show_foreach (CajaFile        *file,
 	*start_stop_type = caja_file_get_start_stop_type (file);
 
 	if (caja_file_is_caja_link (file)) {
+		char *uri;
+
 		uri = caja_file_get_activation_uri (file);
 		if (uri != NULL &&
 		    (eel_istr_has_prefix (uri, "ftp:") ||
@@ -8085,9 +8118,9 @@ file_should_show_self (CajaFile        *file,
 static gboolean
 files_are_all_directories (GList *files)
 {
-	CajaFile *file;
 	GList *l;
 	gboolean all_directories;
+	CajaFile *file = NULL;
 
 	all_directories = TRUE;
 
@@ -8102,9 +8135,9 @@ files_are_all_directories (GList *files)
 static gboolean
 files_is_none_directory (GList *files)
 {
-	CajaFile *file;
 	GList *l;
 	gboolean no_directory;
+	CajaFile *file = NULL;
 
 	no_directory = TRUE;
 
@@ -8126,7 +8159,7 @@ update_restore_from_trash_action (GtkAction *action,
 	GHashTable *original_dirs_hash;
 	GList *original_dirs;
 	GFile *original_location;
-	char *tooltip, *original_name;
+	char *original_name;
 
 	original_file = NULL;
 	original_dir = NULL;
@@ -8150,6 +8183,8 @@ update_restore_from_trash_action (GtkAction *action,
 	}
 
 	if (original_file != NULL || original_dirs != NULL) {
+		char *tooltip;
+
 		G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
 		gtk_action_set_visible (action, TRUE);
 		G_GNUC_END_IGNORE_DEPRECATIONS;
@@ -8797,8 +8832,8 @@ clipboard_changed_callback (CajaClipboardMonitor *monitor, FMDirectoryView *view
 static gboolean
 can_delete_all (GList *files)
 {
-	CajaFile *file;
 	GList *l;
+	CajaFile *file = NULL;
 
 	for (l = files; l != NULL; l = l->next) {
 		file = l->data;
@@ -9549,12 +9584,12 @@ schedule_update_status (FMDirectoryView *view)
 void
 fm_directory_view_notify_selection_changed (FMDirectoryView *view)
 {
-	GList *selection;
-	GtkWindow *window;
-
 	g_return_if_fail (FM_IS_DIRECTORY_VIEW (view));
 
 	if (caja_debug_log_is_domain_enabled (CAJA_DEBUG_LOG_DOMAIN_USER)) {
+		GList *selection;
+		GtkWindow *window;
+
 		selection = fm_directory_view_get_selection (view);
 
 		window = fm_directory_view_get_containing_window (view);
@@ -10595,12 +10630,8 @@ fm_directory_view_handle_netscape_url_drop (FMDirectoryView  *view,
 					    int               y)
 {
 	GdkPoint point;
-	GdkScreen *screen;
-	int screen_num;
 	char *url, *title;
-	char *link_name, *link_display_name;
 	char *container_uri;
-	GArray *points;
 	char **bits;
 	GList *uri_list = NULL;
 	GFile *f;
@@ -10685,6 +10716,8 @@ fm_directory_view_handle_netscape_url_drop (FMDirectoryView  *view,
 	}
 
 	if (action == GDK_ACTION_LINK) {
+		char *link_name;
+
 		if (eel_str_is_empty (title)) {
 			GFile *f;
 
@@ -10696,6 +10729,10 @@ fm_directory_view_handle_netscape_url_drop (FMDirectoryView  *view,
 		}
 
 		if (!eel_str_is_empty (link_name)) {
+			GdkScreen *screen;
+			int screen_num;
+			char *link_display_name;
+
 			link_display_name = g_strdup_printf (_("Link to %s"), link_name);
 
 			/* The filename can't contain slashes, strip em.
@@ -10721,6 +10758,8 @@ fm_directory_view_handle_netscape_url_drop (FMDirectoryView  *view,
 		}
 		g_free (link_name);
 	} else {
+		GArray *points;
+
 		GdkPoint tmp_point = { 0, 0 };
 
 		/* pass in a 1-item array of icon positions, relative to x, y */
@@ -10858,7 +10897,7 @@ fm_directory_view_handle_text_drop (FMDirectoryView  *view,
 
 	fm_directory_view_new_file_with_initial_contents (
 		view, target_uri != NULL ? target_uri : container_uri,
-		/* Translator: This is the filename used for when you dnd text to a directory */
+		/* Translators: This is the filename used for when you dnd text to a directory */
 		_("dropped text.txt"),
 		text, length, &pos);
 
@@ -10876,7 +10915,6 @@ fm_directory_view_handle_raw_drop (FMDirectoryView  *view,
 				    int               y)
 {
 	char *container_uri, *filename;
-	GFile *direct_save_full;
 	GdkPoint pos;
 
 	if (raw_data == NULL) {
@@ -10897,11 +10935,13 @@ fm_directory_view_handle_raw_drop (FMDirectoryView  *view,
 
 	filename = NULL;
 	if (direct_save_uri != NULL) {
+		GFile *direct_save_full;
+
 		direct_save_full = g_file_new_for_uri (direct_save_uri);
 		filename = g_file_get_basename (direct_save_full);
 	}
 	if (filename == NULL) {
-		/* Translator: This is the filename used for when you dnd raw
+		/* Translators: This is the filename used for when you dnd raw
 		 * data to a directory, if the source didn't supply a name.
 		 */
 		filename = _("dropped data");

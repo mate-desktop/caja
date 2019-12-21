@@ -284,7 +284,6 @@ get_menu_icon_for_file (TreeNode *node,
                         CajaFileIconFlags flags)
 {
     CajaIconInfo *info;
-    GIcon *gicon, *emblem_icon, *emblemed_icon;
     GEmblem *emblem;
     cairo_surface_t *surface, *retval;
     gboolean highlight;
@@ -293,6 +292,8 @@ get_menu_icon_for_file (TreeNode *node,
     GList *emblem_icons, *l;
     char *emblems_to_ignore[3];
     int i;
+    GIcon *gicon, *emblemed_icon;
+    GIcon *emblem_icon = NULL;
 
     size = caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU);
     scale = gdk_window_get_scale_factor (gdk_get_default_root_window ());
@@ -685,10 +686,11 @@ static void
 report_dummy_row_deleted (FMTreeModel *model, TreeNode *parent)
 {
     GtkTreeIter iter;
-    GtkTreePath *path;
 
     if (parent->inserted)
     {
+        GtkTreePath *path;
+
         make_iter_for_node (parent, &iter, model->details->stamp);
         path = gtk_tree_model_get_path (GTK_TREE_MODEL (model), &iter);
         gtk_tree_path_append_index (path, 0);
@@ -1309,7 +1311,6 @@ fm_tree_model_get_path (GtkTreeModel *model, GtkTreeIter *iter)
     TreeNode *node, *parent, *cnode;
     GtkTreePath *path;
     GtkTreeIter parent_iter;
-    int i;
 
     g_return_val_if_fail (FM_IS_TREE_MODEL (model), NULL);
     tree_model = FM_TREE_MODEL (model);
@@ -1319,6 +1320,7 @@ fm_tree_model_get_path (GtkTreeModel *model, GtkTreeIter *iter)
     if (node == NULL)
     {
         parent = iter->user_data2;
+
         if (parent == NULL)
         {
             return gtk_tree_path_new ();
@@ -1327,8 +1329,11 @@ fm_tree_model_get_path (GtkTreeModel *model, GtkTreeIter *iter)
     else
     {
         parent = node->parent;
+
         if (parent == NULL)
         {
+            int i;
+
             i = 0;
             for (cnode = tree_model->details->root_node; cnode != node; cnode = cnode->next)
             {
@@ -1355,7 +1360,7 @@ fm_tree_model_get_path (GtkTreeModel *model, GtkTreeIter *iter)
 static void
 fm_tree_model_get_value (GtkTreeModel *model, GtkTreeIter *iter, int column, GValue *value)
 {
-    TreeNode *node, *parent;
+    TreeNode *node;
 
     g_return_if_fail (FM_IS_TREE_MODEL (model));
     g_return_if_fail (iter_is_valid (FM_TREE_MODEL (model), iter));
@@ -1368,6 +1373,8 @@ fm_tree_model_get_value (GtkTreeModel *model, GtkTreeIter *iter, int column, GVa
         g_value_init (value, G_TYPE_STRING);
         if (node == NULL)
         {
+            TreeNode *parent;
+
             parent = iter->user_data2;
             g_value_set_static_string (value, parent->done_loading
                                        ? _("(Empty)") : _("Loading..."));
@@ -1631,9 +1638,6 @@ static void
 fm_tree_model_ref_node (GtkTreeModel *model, GtkTreeIter *iter)
 {
     TreeNode *node, *parent;
-#ifdef LOG_REF_COUNTS
-    char *uri;
-#endif
 
     g_return_if_fail (FM_IS_TREE_MODEL (model));
     g_return_if_fail (iter_is_valid (FM_TREE_MODEL (model), iter));
@@ -1664,6 +1668,8 @@ fm_tree_model_ref_node (GtkTreeModel *model, GtkTreeIter *iter)
             schedule_monitoring_update (FM_TREE_MODEL (model));
         }
 #ifdef LOG_REF_COUNTS
+        char *uri;
+
         uri = get_node_uri (iter);
         g_message ("ref of %s, count is now %d",
                    uri, parent->all_children_ref_count);
@@ -1676,9 +1682,6 @@ static void
 fm_tree_model_unref_node (GtkTreeModel *model, GtkTreeIter *iter)
 {
     TreeNode *node, *parent;
-#ifdef LOG_REF_COUNTS
-    char *uri;
-#endif
 
     g_return_if_fail (FM_IS_TREE_MODEL (model));
     g_return_if_fail (iter_is_valid (FM_TREE_MODEL (model), iter));
@@ -1701,6 +1704,8 @@ fm_tree_model_unref_node (GtkTreeModel *model, GtkTreeIter *iter)
     {
         g_assert (parent->all_children_ref_count > 0);
 #ifdef LOG_REF_COUNTS
+        char *uri;
+
         uri = get_node_uri (iter);
         g_message ("unref of %s, count is now %d",
                    uri, parent->all_children_ref_count - 1);
@@ -1775,8 +1780,6 @@ void
 fm_tree_model_remove_root_uri (FMTreeModel *model, const char *uri)
 {
     TreeNode *node;
-    GtkTreePath *path;
-    FMTreeModelRoot *root;
     CajaFile *file;
 
     file = caja_file_get_by_uri (uri);
@@ -1791,6 +1794,9 @@ fm_tree_model_remove_root_uri (FMTreeModel *model, const char *uri)
 
     if (node)
     {
+        GtkTreePath *path;
+        FMTreeModelRoot *root;
+
         /* remove the node */
 
         if (node->mount)
@@ -2006,10 +2012,10 @@ void
 fm_tree_model_set_highlight_for_files (FMTreeModel *model,
                                        GList *files)
 {
-    GList *old_files;
-
     if (model->details->highlighted_files != NULL)
     {
+        GList *old_files;
+
         old_files = model->details->highlighted_files;
         model->details->highlighted_files = NULL;
 
@@ -2045,7 +2051,7 @@ fm_tree_model_finalize (GObject *object)
 {
     FMTreeModel *model;
     TreeNode *root_node, *next_root;
-    FMTreeModelRoot *root;
+    FMTreeModelRoot *root = NULL;
 
     model = FM_TREE_MODEL (object);
 

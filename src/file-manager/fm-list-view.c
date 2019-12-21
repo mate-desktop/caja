@@ -466,7 +466,6 @@ stop_drag_check (FMListView *view)
 static cairo_surface_t *
 get_drag_surface (FMListView *view)
 {
-    GtkTreeModel *model;
     GtkTreePath *path;
     GtkTreeIter iter;
     cairo_surface_t *ret;
@@ -479,6 +478,8 @@ get_drag_surface (FMListView *view)
                                        view->details->drag_y,
                                        &path, NULL, NULL, NULL))
     {
+        GtkTreeModel *model;
+
         model = gtk_tree_view_get_model (view->details->tree_view);
         gtk_tree_model_get_iter (model, &iter, path);
         gtk_tree_model_get (model, &iter,
@@ -580,12 +581,13 @@ motion_notify_callback (GtkWidget *widget,
                                       event->x,
                                       event->y))
         {
-            gtk_drag_begin
-                      (widget,
-                       source_target_list,
-                       GDK_ACTION_MOVE | GDK_ACTION_COPY | GDK_ACTION_LINK | GDK_ACTION_ASK,
-                       view->details->drag_button,
-                       (GdkEvent*)event);
+            gtk_drag_begin_with_coordinates (widget,
+                                             source_target_list,
+                                             GDK_ACTION_MOVE | GDK_ACTION_COPY | GDK_ACTION_LINK | GDK_ACTION_ASK,
+                                             view->details->drag_button,
+                                             (GdkEvent*)event,
+                                             event->x,
+                                             event->y);
         }
         return TRUE;
     }
@@ -994,18 +996,22 @@ unload_file_timeout (gpointer data)
 {
     struct UnloadDelayData *unload_data = data;
     GtkTreeIter iter;
-    FMListModel *model;
-    GtkTreePath *path;
 
     if (unload_data->view != NULL)
     {
+        FMListModel *model;
+
         model = unload_data->view->details->model;
+
         if (fm_list_model_get_tree_iter_from_file (model,
                 unload_data->file,
                 unload_data->directory,
                 &iter))
         {
+            GtkTreePath *path;
+
             path = gtk_tree_model_get_path (GTK_TREE_MODEL (model), &iter);
+
             if (!gtk_tree_view_row_expanded (unload_data->view->details->tree_view,
                                              path))
             {
@@ -1220,12 +1226,14 @@ fm_list_view_reveal_selection (FMDirectoryView *view)
         FMListView *list_view;
         CajaFile *file;
         GtkTreeIter iter;
-        GtkTreePath *path;
 
         list_view = FM_LIST_VIEW (view);
         file = selection->data;
+
         if (fm_list_model_get_first_iter_for_file (list_view->details->model, file, &iter))
         {
+            GtkTreePath *path;
+
             path = gtk_tree_model_get_path (GTK_TREE_MODEL (list_view->details->model), &iter);
 
             gtk_tree_view_scroll_to_cell (list_view->details->tree_view, path, NULL, FALSE, 0.0, 0.0);
@@ -1241,17 +1249,19 @@ static gboolean
 sort_criterion_changes_due_to_user (GtkTreeView *tree_view)
 {
     GList *columns, *p;
-    GtkTreeViewColumn *column;
-    GSignalInvocationHint *ihint;
     gboolean ret;
+    GtkTreeViewColumn *column = NULL;
+    GSignalInvocationHint *ihint = NULL;
 
     ret = FALSE;
 
     columns = gtk_tree_view_get_columns (tree_view);
+
     for (p = columns; p != NULL; p = p->next)
     {
         column = p->data;
         ihint = g_signal_get_invocation_hint (column);
+
         if (ihint != NULL)
         {
             ret = TRUE;
@@ -1590,7 +1600,6 @@ filename_cell_data_func (GtkTreeViewColumn *column,
                          FMListView        *view)
 {
     char *text;
-    GtkTreePath *path;
     PangoUnderline underline;
 
     gtk_tree_model_get (model, iter,
@@ -1599,6 +1608,8 @@ filename_cell_data_func (GtkTreeViewColumn *column,
 
     if (click_policy_auto_value == CAJA_CLICK_POLICY_SINGLE)
     {
+        GtkTreePath *path;
+
         path = gtk_tree_model_get_path (model, iter);
 
         if (view->details->hover_path == NULL ||
@@ -1744,7 +1755,7 @@ create_and_set_up_tree_view (FMListView *view)
     for (l = caja_columns; l != NULL; l = l->next)
     {
         CajaColumn *caja_column;
-        int column_num, font_size;
+        int column_num;
         char *name;
         char *label;
         float xalign;
@@ -1763,6 +1774,8 @@ create_and_set_up_tree_view (FMListView *view)
          * has the icon in it.*/
         if (!strcmp (name, "name"))
         {
+            int font_size;
+
             /* Create the file name column */
             cell = gtk_cell_renderer_pixbuf_new ();
             view->details->pixbuf_cell = (GtkCellRendererPixbuf *)cell;
@@ -2018,11 +2031,11 @@ get_default_zoom_level (void)
 static void
 set_zoom_level_from_metadata_and_preferences (FMListView *list_view)
 {
-    CajaFile *file;
-    int level;
-
     if (fm_directory_view_supports_zooming (FM_DIRECTORY_VIEW (list_view)))
     {
+        CajaFile *file;
+        int level;
+
         file = fm_directory_view_get_directory_as_file (FM_DIRECTORY_VIEW (list_view));
         level = caja_file_get_integer_metadata (file,
                                                 CAJA_METADATA_KEY_LIST_VIEW_ZOOM_LEVEL,
@@ -2112,7 +2125,6 @@ fm_list_view_file_changed (FMDirectoryView *view, CajaFile *file, CajaDirectory 
 {
     FMListView *listview;
     GtkTreeIter iter;
-    GtkTreePath *file_path;
 
     listview = FM_LIST_VIEW (view);
 
@@ -2128,6 +2140,8 @@ fm_list_view_file_changed (FMDirectoryView *view, CajaFile *file, CajaDirectory 
          */
         if (fm_list_model_get_tree_iter_from_file (listview->details->model, file, directory, &iter))
         {
+            GtkTreePath *file_path;
+
             file_path = gtk_tree_model_get_path (GTK_TREE_MODEL (listview->details->model), &iter);
             gtk_tree_view_scroll_to_cell (listview->details->tree_view,
                                           file_path, NULL,
@@ -2265,13 +2279,11 @@ static void
 fm_list_view_remove_file (FMDirectoryView *view, CajaFile *file, CajaDirectory *directory)
 {
     GtkTreePath *path;
-    GtkTreePath *file_path;
     GtkTreeIter iter;
     GtkTreeIter temp_iter;
     GtkTreeRowReference* row_reference;
     FMListView *list_view;
     GtkTreeModel* tree_model;
-    GtkTreeSelection *selection;
 
     path = NULL;
     row_reference = NULL;
@@ -2280,6 +2292,9 @@ fm_list_view_remove_file (FMDirectoryView *view, CajaFile *file, CajaDirectory *
 
     if (fm_list_model_get_tree_iter_from_file (list_view->details->model, file, directory, &iter))
     {
+        GtkTreePath *file_path;
+        GtkTreeSelection *selection;
+
         selection = gtk_tree_view_get_selection (list_view->details->tree_view);
         file_path = gtk_tree_model_get_path (tree_model, &iter);
 
@@ -2336,7 +2351,7 @@ fm_list_view_set_selection (FMDirectoryView *view, GList *selection)
     GtkTreeSelection *tree_selection;
     GList *node;
     GList *iters, *l;
-    CajaFile *file;
+    CajaFile *file = NULL;
 
     list_view = FM_LIST_VIEW (view);
     tree_selection = gtk_tree_view_get_selection (list_view->details->tree_view);
@@ -2344,6 +2359,7 @@ fm_list_view_set_selection (FMDirectoryView *view, GList *selection)
     g_signal_handlers_block_by_func (tree_selection, list_selection_changed_callback, view);
 
     gtk_tree_selection_unselect_all (tree_selection);
+
     for (node = selection; node != NULL; node = node->next)
     {
         file = node->data;
@@ -2368,7 +2384,7 @@ fm_list_view_invert_selection (FMDirectoryView *view)
     GtkTreeSelection *tree_selection;
     GList *node;
     GList *iters, *l;
-    CajaFile *file;
+    CajaFile *file = NULL;
     GList *selection = NULL;
 
     list_view = FM_LIST_VIEW (view);
@@ -2725,17 +2741,19 @@ fm_list_view_scale_font_size (FMListView *view,
     GList *l;
     static gboolean first_time = TRUE;
     static double pango_scale[7];
-    int medium;
-    int i;
 
     g_return_if_fail (new_level >= CAJA_ZOOM_LEVEL_SMALLEST &&
                       new_level <= CAJA_ZOOM_LEVEL_LARGEST);
 
     if (first_time)
     {
+        int medium;
+        int i;
+
         first_time = FALSE;
         medium = CAJA_ZOOM_LEVEL_SMALLER;
         pango_scale[medium] = PANGO_SCALE_MEDIUM;
+
         for (i = medium; i > CAJA_ZOOM_LEVEL_SMALLEST; i--)
         {
             pango_scale[i - 1] = (1 / 1.2) * pango_scale[i];
@@ -2943,11 +2961,9 @@ fm_list_view_start_renaming_file (FMDirectoryView *view,
 static void
 fm_list_view_click_policy_changed (FMDirectoryView *directory_view)
 {
-    GdkWindow *win;
     GdkDisplay *display;
     FMListView *view;
     GtkTreeIter iter;
-    GtkTreeView *tree;
 
     view = FM_LIST_VIEW (directory_view);
     display = gtk_widget_get_display (GTK_WIDGET (view));
@@ -2955,6 +2971,8 @@ fm_list_view_click_policy_changed (FMDirectoryView *directory_view)
     /* ensure that we unset the hand cursor and refresh underlined rows */
     if (click_policy_auto_value == CAJA_CLICK_POLICY_DOUBLE)
     {
+        GtkTreeView *tree;
+
         if (view->details->hover_path != NULL)
         {
             if (gtk_tree_model_get_iter (GTK_TREE_MODEL (view->details->model),
@@ -2969,8 +2987,11 @@ fm_list_view_click_policy_changed (FMDirectoryView *directory_view)
         }
 
         tree = view->details->tree_view;
+
         if (gtk_widget_get_realized (GTK_WIDGET (tree)))
         {
+            GdkWindow *win;
+
             win = gtk_widget_get_window (GTK_WIDGET (tree));
             gdk_window_set_cursor (win, NULL);
 
@@ -3223,13 +3244,14 @@ static void
 list_view_scroll_to_file (CajaView *view,
                           const char *uri)
 {
-    CajaFile *file;
-
     if (uri != NULL)
     {
+        CajaFile *file;
+
         /* Only if existing, since we don't want to add the file to
            the directory if it has been removed since then */
         file = caja_file_get_existing_by_uri (uri);
+
         if (file != NULL)
         {
             fm_list_view_scroll_to_file (FM_LIST_VIEW (view), file);
@@ -3279,7 +3301,6 @@ real_set_is_active (FMDirectoryView *view,
                     gboolean is_active)
 {
     GtkWidget *tree_view;
-    GtkStyleContext *style;
     GdkRGBA color;
     GdkRGBA *c;
 
@@ -3291,6 +3312,8 @@ real_set_is_active (FMDirectoryView *view,
     }
     else
     {
+        GtkStyleContext *style;
+
         style = gtk_widget_get_style_context (tree_view);
 
         gtk_style_context_get (style, GTK_STATE_FLAG_INSENSITIVE,
@@ -3469,17 +3492,17 @@ fm_list_view_supports_uri (const char *uri,
 
 static CajaViewInfo fm_list_view =
 {
-    FM_LIST_VIEW_ID,
-    /* translators: this is used in the view selection dropdown
+    .id = FM_LIST_VIEW_ID,
+    /* Translators: this is used in the view selection dropdown
      * of navigation windows and in the preferences dialog */
-    N_("List View"),
-    /* translators: this is used in the view menu */
-    N_("_List"),
-    N_("The list view encountered an error."),
-    N_("The list view encountered an error while starting up."),
-    N_("Display this location with the list view."),
-    fm_list_view_create,
-    fm_list_view_supports_uri
+    .view_combo_label = N_("List View"),
+    /* Translators: this is used in the view menu */
+    .view_menu_label_with_mnemonic = N_("_List"),
+    .error_label = N_("The list view encountered an error."),
+    .startup_error_label = N_("The list view encountered an error while starting up."),
+    .display_location_label = N_("Display this location with the list view."),
+    .create = fm_list_view_create,
+    .supports_uri = fm_list_view_supports_uri
 };
 
 void

@@ -51,16 +51,6 @@ $(dbus_freedesktop_built_sources) : Makefile.am $(top_srcdir)/data/freedesktop-d
 		$(top_srcdir)/data/freedesktop-dbus-interfaces.xml			\
 		$(NULL)
 
-desktop_in_files=mate-network-scheme.desktop.in
-desktop_files=$(desktop_in_files:.desktop.in=.desktop)
-desktopdir = $(datadir)/mate/network/
-
-$(desktop_files): $(desktop_in_files)
-	$(AM_V_GEN) GETTEXTDATADIR=$(top_srcdir) $(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
-
-schemedir = $(datadir)/applications
-scheme_DATA = mate-network-scheme.desktop
-
 BUILT_SOURCES = \
 	caja-src-marshal.c \
 	caja-src-marshal.h \
@@ -209,18 +199,24 @@ TESTS=check-caja
 endif
 
 uidir = $(datadir)/caja/ui
+
+ui_files = \
+	caja-file-management-properties.ui \
+	caja-bookmarks-window.ui \
+	$(NULL)
+
+include $(top_srcdir)/gla11y.mk
+
 ui_DATA = \
 	caja-shell-ui.xml \
 	caja-navigation-window-ui.xml \
 	caja-spatial-window-ui.xml \
-	caja-file-management-properties.ui \
-	caja-bookmarks-window.ui \
+	$(ui_files) \
 	$(NULL)
 
 CLEANFILES = \
 	caja-src-marshal.list \
 	$(BUILT_SOURCES) \
-	$(desktop_files) \
 	$(server_DATA) \
 	$(NULL)
 
@@ -230,8 +226,10 @@ EXTRA_DIST = \
 	$(ui_DATA) \
 	check-caja \
 	$(about_DATA) \
-	$(desktop_in_files) \
+	ui-a11y.suppr \
 	$(NULL)
 
 dist-hook:
 	cd $(distdir); rm -f $(CLEANFILES)
+
+-include $(top_srcdir)/git.mk

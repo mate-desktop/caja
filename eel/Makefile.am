@@ -129,3 +129,5 @@ CLEANFILES = \
 	eel-marshal.list \
 	$(BUILT_SOURCES) \
 	$(NULL)
+
+-include $(top_srcdir)/git.mk

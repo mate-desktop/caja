@@ -54,8 +54,8 @@ after_success:
 
 env:
   - DISTRO="archlinux/base"
-  - DISTRO="debian:sid"
-  - DISTRO="fedora:30"
+  - DISTRO="debian:testing"
+  - DISTRO="fedora:latest"
   - DISTRO="ubuntu:19.10"
 
 ##########################################################
@@ -69,6 +69,7 @@ requires:
     - git
     - make
     - exempi
+    - file
     - gobject-introspection
     - gvfs
     - intltool
@@ -105,6 +106,7 @@ requires:
     - libx11-dev
     - libxml2-dev
     - mate-common
+    - python3-lxml
     - quilt
     - shared-mime-info
 
@@ -129,6 +131,7 @@ requires:
     - mate-common
     - mate-desktop-devel
     - pangox-compat-devel
+    - python3-lxml
     - startup-notification-devel
     - libnotify-devel
 
@@ -155,13 +158,15 @@ requires:
     - libx11-dev
     - libxml2-dev
     - mate-common
+    - python3-lxml
     - quilt
     - shared-mime-info
 
 variables:
-  - CFLAGS="-Wall -Werror=format-security"
+  - CFLAGS="-Wall -Werror=format-security -Wredundant-decls"
   - 'CHECKERS="
     -enable-checker deadcode.DeadStores
+    -enable-checker alpha.deadcode.UnreachableCode
     -enable-checker alpha.core.CastSize
     -enable-checker alpha.core.CastToStruct
     -enable-checker alpha.core.IdenticalExpr
@@ -181,6 +186,8 @@ before_scripts:
   -     egrep -lRZ 'G_GNUC_BEGIN_IGNORE_DEPRECATIONS' . | xargs -0 -l sed -i -e 's/G_GNUC_BEGIN_IGNORE_DEPRECATIONS/ /g'
   -     egrep -lRZ 'G_GNUC_END_IGNORE_DEPRECATIONS' . | xargs -0 -l sed -i -e 's/G_GNUC_END_IGNORE_DEPRECATIONS/ /g'
   - fi
+  - curl -Ls -o /usr/bin/gla11y https://github.com/hypra/gla11y/raw/v0.3/gla11y
+  - chmod +x /usr/bin/gla11y
 
 build_scripts:
 # build failed with f30 und using clang patch, fixed in f30?
@@ -188,8 +195,8 @@ build_scripts:
 #  -     curl -Ls -o fedora.sh https://github.com/mate-desktop/mate-dev-scripts/raw/master/travis/fedora.sh
 #  -     bash ./fedora.sh
 #  - fi
-  - ./autogen.sh
-  - scan-build $CHECKERS ./configure
+  - ./autogen.sh --enable-empty-view
+  - scan-build $CHECKERS ./configure --enable-empty-view
   - if [ $CPU_COUNT -gt 1 ]; then
   -     scan-build $CHECKERS --keep-cc -o html-report make -j $(( CPU_COUNT + 1 ))
   - else
@@ -217,3 +224,5 @@ releases:
     tags: true
     overwrite: true
     base_version: 1.20.0
+    notify_servers:
+      - https://release.mate-desktop.org/release

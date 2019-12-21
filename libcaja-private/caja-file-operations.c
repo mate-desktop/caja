@@ -419,7 +419,7 @@ get_link_name (const char *name, int count, int max_length)
 		 */
 		switch (count % 10) {
 		case 1:
-			/* Localizers: Feel free to leave out the "st" suffix
+			/* Translators: Feel free to leave out the "st" suffix
 			 * if there's no way to do that nicely for a
 			 * particular language.
 			 */
@@ -468,31 +468,31 @@ get_link_name (const char *name, int count, int max_length)
 }
 
 
-/* Localizers:
+/* Translators:
  * Feel free to leave out the st, nd, rd and th suffix or
  * make some or all of them match.
  */
 
-/* localizers: tag used to detect the first copy of a file */
+/* Translators: tag used to detect the first copy of a file */
 static const char untranslated_copy_duplicate_tag[] = N_(" (copy)");
-/* localizers: tag used to detect the second copy of a file */
+/* Translators: tag used to detect the second copy of a file */
 static const char untranslated_another_copy_duplicate_tag[] = N_(" (another copy)");
 
-/* localizers: tag used to detect the x11th copy of a file */
+/* Translators: tag used to detect the x11th copy of a file */
 static const char untranslated_x11th_copy_duplicate_tag[] = N_("th copy)");
-/* localizers: tag used to detect the x12th copy of a file */
+/* Translators: tag used to detect the x12th copy of a file */
 static const char untranslated_x12th_copy_duplicate_tag[] = N_("th copy)");
-/* localizers: tag used to detect the x13th copy of a file */
+/* Translators: tag used to detect the x13th copy of a file */
 static const char untranslated_x13th_copy_duplicate_tag[] = N_("th copy)");
 
-/* localizers: tag used to detect the x1st copy of a file */
+/* Translators: tag used to detect the x1st copy of a file */
 static const char untranslated_st_copy_duplicate_tag[] = N_("st copy)");
-/* localizers: tag used to detect the x2nd copy of a file */
+/* Translators: tag used to detect the x2nd copy of a file */
 static const char untranslated_nd_copy_duplicate_tag[] = N_("nd copy)");
-/* localizers: tag used to detect the x3rd copy of a file */
+/* Translators: tag used to detect the x3rd copy of a file */
 static const char untranslated_rd_copy_duplicate_tag[] = N_("rd copy)");
 
-/* localizers: tag used to detect the xxth copy of a file */
+/* Translators: tag used to detect the xxth copy of a file */
 static const char untranslated_th_copy_duplicate_tag[] = N_("th copy)");
 
 #define COPY_DUPLICATE_TAG _(untranslated_copy_duplicate_tag)
@@ -506,30 +506,30 @@ static const char untranslated_th_copy_duplicate_tag[] = N_("th copy)");
 #define RD_COPY_DUPLICATE_TAG _(untranslated_rd_copy_duplicate_tag)
 #define TH_COPY_DUPLICATE_TAG _(untranslated_th_copy_duplicate_tag)
 
-/* localizers: appended to first file copy */
+/* Translators: appended to first file copy */
 static const char untranslated_first_copy_duplicate_format[] = N_("%s (copy)%s");
-/* localizers: appended to second file copy */
+/* Translators: appended to second file copy */
 static const char untranslated_second_copy_duplicate_format[] = N_("%s (another copy)%s");
 
-/* localizers: appended to x11th file copy */
+/* Translators: appended to x11th file copy */
 static const char untranslated_x11th_copy_duplicate_format[] = N_("%s (%'dth copy)%s");
-/* localizers: appended to x12th file copy */
+/* Translators: appended to x12th file copy */
 static const char untranslated_x12th_copy_duplicate_format[] = N_("%s (%'dth copy)%s");
-/* localizers: appended to x13th file copy */
+/* Translators: appended to x13th file copy */
 static const char untranslated_x13th_copy_duplicate_format[] = N_("%s (%'dth copy)%s");
 
-/* localizers: if in your language there's no difference between 1st, 2nd, 3rd and nth
+/* Translators: if in your language there's no difference between 1st, 2nd, 3rd and nth
  * plurals, you can leave the st, nd, rd suffixes out and just make all the translated
  * strings look like "%s (copy %'d)%s".
  */
 
-/* localizers: appended to x1st file copy */
+/* Translators: appended to x1st file copy */
 static const char untranslated_st_copy_duplicate_format[] = N_("%s (%'dst copy)%s");
-/* localizers: appended to x2nd file copy */
+/* Translators: appended to x2nd file copy */
 static const char untranslated_nd_copy_duplicate_format[] = N_("%s (%'dnd copy)%s");
-/* localizers: appended to x3rd file copy */
+/* Translators: appended to x3rd file copy */
 static const char untranslated_rd_copy_duplicate_format[] = N_("%s (%'drd copy)%s");
-/* localizers: appended to xxth file copy */
+/* Translators: appended to xxth file copy */
 static const char untranslated_th_copy_duplicate_format[] = N_("%s (%'dth copy)%s");
 
 #define FIRST_COPY_DUPLICATE_FORMAT _(untranslated_first_copy_duplicate_format)
@@ -627,7 +627,7 @@ parse_previous_duplicate_name (const char *name,
 
 	/* If we got one of st, nd, rd, th, fish out the duplicate number. */
 	if (tag != NULL) {
-		/* localizers: opening parentheses to match the "th copy)" string */
+		/* Translators: opening parentheses to match the "th copy)" string */
 		tag = strstr (name, _(" ("));
 		if (tag != NULL) {
 			if (tag > *suffix) {
@@ -635,7 +635,7 @@ parse_previous_duplicate_name (const char *name,
 				*suffix = "";
 			}
 			*name_base = extract_string_until (name, tag);
-			/* localizers: opening parentheses of the "th copy)" string */
+			/* Translators: opening parentheses of the "th copy)" string */
 			if (sscanf (tag, _(" (%'d"), count) == 1) {
 				if (*count < 1 || *count > 1000000) {
 					/* keep the count within a reasonable range */
@@ -1541,7 +1541,7 @@ report_delete_progress (CommonJob *job,
 		transfer_rate = transfer_info->num_files / elapsed;
 		remaining_time = files_left / transfer_rate;
 
-		/* To translators: %T will expand to a time like "2 minutes".
+		/* Translators: %T will expand to a time like "2 minutes".
  		 * The singular/plural form will be used depending on the remaining time (i.e. the %T argument).
  		 */
 		time_left_s = f (ngettext ("%T left",
@@ -3096,7 +3096,7 @@ report_copy_progress (CopyMoveJob *copy_job,
 	if (elapsed < SECONDS_NEEDED_FOR_RELIABLE_TRANSFER_RATE &&
 	    transfer_rate > 0) {
 		char *s;
-		/* To translators: %S will expand to a size like "2 bytes" or "3 MB", so something like "4 kb of 4 MB" */
+		/* Translators: %S will expand to a size like "2 bytes" or "3 MB", so something like "4 kb of 4 MB" */
 		s = f (_("%S of %S"), transfer_info->num_bytes, total_size);
 		caja_progress_info_take_details (job->progress, s);
 	} else {
@@ -3105,7 +3105,7 @@ report_copy_progress (CopyMoveJob *copy_job,
 
 		remaining_time = (total_size - transfer_info->num_bytes) / transfer_rate;
 
-		/* To translators: %S will expand to a size like "2 bytes" or "3 MB", %T to a time duration like
+		/* Translators: %S will expand to a size like "2 bytes" or "3 MB", %T to a time duration like
 		 * "2 minutes". So the whole thing will be something like "2 kb of 4 MB -- 2 hours left (4kb/sec)"
 		 *
 		 * The singular/plural form will be used depending on the remaining time (i.e. the %T argument).
@@ -3718,7 +3718,7 @@ copy_move_directory (CopyMoveJob *copy_job,
 
 	if (create_dest) {
 		flags = (readonly_source_fs) ? G_FILE_COPY_NOFOLLOW_SYMLINKS | G_FILE_COPY_TARGET_DEFAULT_PERMS
-					     : G_FILE_COPY_NOFOLLOW_SYMLINKS;
+					     : G_FILE_COPY_NOFOLLOW_SYMLINKS | G_FILE_COPY_ALL_METADATA;
 		/* Ignore errors here. Failure to copy metadata is not a hard error */
 		g_file_copy_attributes (src, *dest,
 					flags,
@@ -4274,6 +4274,13 @@ copy_move_file (CopyMoveJob *copy_job,
 	}
 
 	if (res) {
+		if (!copy_job->is_move) {
+			/* Ignore errors here. Failure to copy metadata is not a hard error */
+			g_file_copy_attributes (src, dest,
+			                        flags | G_FILE_COPY_ALL_METADATA,
+			                        job->cancellable, NULL);
+		}
+
 		transfer_info->num_files ++;
 		report_copy_progress (copy_job, source_info, transfer_info);
 
@@ -6043,7 +6050,7 @@ create_job (GIOSchedulerJob *io_job,
 	}
 	if (filename == NULL) {
 		if (job->make_dir) {
-			/* localizers: the initial name of a new folder  */
+			/* Translators: the initial name of a new folder  */
 			filename = g_strdup (_("untitled folder"));
 			filename_is_utf8 = TRUE; /* Pass in utf8 */
 		} else {
@@ -6051,7 +6058,7 @@ create_job (GIOSchedulerJob *io_job,
 				filename = g_file_get_basename (job->src);
 			}
 			if (filename == NULL) {
-				/* localizers: the initial name of a new empty file */
+				/* Translators: the initial name of a new empty file */
 				filename = g_strdup (_("new file"));
 				filename_is_utf8 = TRUE; /* Pass in utf8 */
 			}

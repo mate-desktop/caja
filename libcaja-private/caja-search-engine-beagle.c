@@ -166,9 +166,6 @@ beagle_client_new (const char *client_name)
     return NULL;
 }
 
-static void  caja_search_engine_beagle_class_init       (CajaSearchEngineBeagleClass *class);
-static void  caja_search_engine_beagle_init             (CajaSearchEngineBeagle      *engine);
-
 G_DEFINE_TYPE (CajaSearchEngineBeagle,
                caja_search_engine_beagle,
                CAJA_TYPE_SEARCH_ENGINE);

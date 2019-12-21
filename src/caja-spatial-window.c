@@ -29,7 +29,6 @@
 
 #include <config.h>
 
-#include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gdk/gdkkeysyms.h>
 #include <gdk/gdkx.h>
 #include <gtk/gtk.h>
@@ -602,32 +601,6 @@ menu_deactivate_callback (GtkWidget *menu,
     }
 }
 
-static void
-menu_popup_pos (GtkMenu   *menu,
-                gint      *x,
-                gint      *y,
-                gboolean  *push_in,
-                gpointer	user_data)
-{
-    GtkWidget *widget;
-    GtkRequisition menu_requisition, button_requisition;
-    GtkAllocation allocation;
-
-    widget = user_data;
-
-    gtk_widget_get_preferred_size (GTK_WIDGET (menu), &menu_requisition, NULL);
-    gtk_widget_get_preferred_size (widget, &button_requisition, NULL);
-    gtk_widget_get_allocation (widget, &allocation);
-
-    gdk_window_get_origin (gtk_widget_get_window (widget), x, y);
-    *x += allocation.x;
-    *y += allocation.y;
-
-    *y -= menu_requisition.height - button_requisition.height;
-
-    *push_in = TRUE;
-}
-
 static gboolean
 location_button_pressed_callback (GtkWidget      *widget,
                                   GdkEventButton *event,
@@ -653,7 +626,7 @@ location_button_clicked_callback (GtkWidget         *widget,
 {
     CajaWindowSlot *slot;
     GtkWidget *popup, *menu_item, *first_item = NULL;
-    GdkPixbuf *pixbuf = NULL;
+    cairo_surface_t *surface = NULL;
     GFile *location;
     GFile *child_location;
     GMainLoop *loop;
@@ -678,18 +651,18 @@ location_button_clicked_callback (GtkWidget         *widget,
 
         name = caja_file_get_display_name (file);
 
-        pixbuf = NULL;
+        surface = NULL;
 
-        pixbuf = caja_file_get_icon_pixbuf (file,
-                                            caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU),
-                                            TRUE,
-                                            gtk_widget_get_scale_factor (widget),
-                                            CAJA_FILE_ICON_FLAGS_IGNORE_VISITING);
+        surface = caja_file_get_icon_surface (file,
+                                              caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU),
+                                              TRUE,
+                                              gtk_widget_get_scale_factor (widget),
+                                              CAJA_FILE_ICON_FLAGS_IGNORE_VISITING);
 
-        if (pixbuf != NULL)
+        if (surface != NULL)
         {
-            menu_item = eel_image_menu_item_new_from_pixbuf (pixbuf, name);
-            g_object_unref (pixbuf);
+            menu_item = eel_image_menu_item_new_from_surface (surface, name);
+            cairo_surface_destroy (surface);
         }
         else
         {
@@ -742,7 +715,12 @@ location_button_clicked_callback (GtkWidget         *widget,
                       loop);
 
     gtk_grab_add (popup);
-    gtk_menu_popup (GTK_MENU (popup), NULL, NULL, menu_popup_pos, widget, 1, GDK_CURRENT_TIME);
+    gtk_menu_popup_at_widget (GTK_MENU (popup),
+                              widget,
+                              GDK_GRAVITY_SOUTH_WEST,
+                              GDK_GRAVITY_NORTH_WEST,
+                              NULL);
+
     gtk_menu_shell_select_item (GTK_MENU_SHELL (popup), first_item);
     g_main_loop_run (loop);
     gtk_grab_remove (popup);
@@ -778,19 +756,19 @@ location_button_drag_begin_callback (GtkWidget             *widget,
                                      CajaSpatialWindow *window)
 {
     CajaWindowSlot *slot;
-    GdkPixbuf *pixbuf;
+    cairo_surface_t *surface;
 
     slot = CAJA_WINDOW (window)->details->active_pane->active_slot;
 
-    pixbuf = caja_file_get_icon_pixbuf (slot->viewed_file,
-                                        get_dnd_icon_size (window),
-                                        FALSE,
-                                        gtk_widget_get_scale_factor (widget),
-                                        CAJA_FILE_ICON_FLAGS_IGNORE_VISITING | CAJA_FILE_ICON_FLAGS_FOR_DRAG_ACCEPT);
+    surface = caja_file_get_icon_surface (slot->viewed_file,
+                                          get_dnd_icon_size (window),
+                                          FALSE,
+                                          gtk_widget_get_scale_factor (widget),
+                                          CAJA_FILE_ICON_FLAGS_IGNORE_VISITING | CAJA_FILE_ICON_FLAGS_FOR_DRAG_ACCEPT);
 
-    gtk_drag_set_icon_pixbuf (context, pixbuf, 0, 0);
+    gtk_drag_set_icon_surface (context, surface);
 
-    g_object_unref (pixbuf);
+    cairo_surface_destroy (surface);
 }
 
 /* build MATE icon list, which only contains the window's URI.
@@ -858,18 +836,18 @@ caja_spatial_window_set_location_button  (CajaSpatialWindow *window,
         error = caja_file_get_file_info_error (file);
         if (error == NULL)
         {
-            GdkPixbuf *pixbuf;
+            cairo_surface_t *surface;
 
-            pixbuf = caja_file_get_icon_pixbuf (file,
-                                                caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU),
-                                                TRUE,
-                                                gtk_widget_get_scale_factor (window->details->location_button),
-                                                CAJA_FILE_ICON_FLAGS_IGNORE_VISITING);
+            surface = caja_file_get_icon_surface (file,
+                                                  caja_get_icon_size_for_stock_size (GTK_ICON_SIZE_MENU),
+                                                  TRUE,
+                                                  gtk_widget_get_scale_factor (window->details->location_button),
+                                                  CAJA_FILE_ICON_FLAGS_IGNORE_VISITING);
 
-            if (pixbuf != NULL)
+            if (surface != NULL)
             {
-                gtk_image_set_from_pixbuf (GTK_IMAGE (window->details->location_icon),  pixbuf);
-                g_object_unref (pixbuf);
+                gtk_image_set_from_surface (GTK_IMAGE (window->details->location_icon), surface);
+                cairo_surface_destroy (surface);
             }
             else
             {

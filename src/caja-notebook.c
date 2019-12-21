@@ -41,8 +41,6 @@
 
 #define AFTER_ALL_TABS -1
 
-static void caja_notebook_init		 (CajaNotebook *notebook);
-static void caja_notebook_class_init	 (CajaNotebookClass *klass);
 static int  caja_notebook_insert_page	 (GtkNotebook *notebook,
         GtkWidget *child,
         GtkWidget *tab_label,

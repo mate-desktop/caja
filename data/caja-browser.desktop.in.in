@@ -1,0 +1,15 @@
+[Desktop Entry]
+Name=Caja
+GenericName=File Browser
+Comment=Browse the file system with the file manager
+TryExec=@bindir@/caja
+Exec=@bindir@/caja --no-desktop --browser %U
+# Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+Icon=system-file-manager
+Terminal=false
+StartupNotify=false
+Type=Application
+Categories=GTK;System;Utility;Core;
+# Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+Keywords=files;browser;manager;MATE;
+OnlyShowIn=MATE;

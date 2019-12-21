@@ -67,6 +67,7 @@
 #include "file-manager/fm-icon-view.h"
 #include "file-manager/fm-list-view.h"
 #include "file-manager/fm-tree-view.h"
+#include "file-manager/fm-widget-view.h"
 
 #include "caja-application.h"
 #include "caja-information-panel.h"
@@ -2024,43 +2025,73 @@ caja_application_local_command_line (GApplication *application,
     return TRUE;
 }
 
+static void
+load_custom_css (GtkCssProvider *provider,
+                 const gchar *filename,
+                 guint priority)
+{
+    GError *error = NULL;
+    gchar *path = g_build_filename (CAJA_DATADIR, filename, NULL);
+
+    if (provider)
+        g_object_ref (provider);
+    else
+        provider = gtk_css_provider_new ();
+
+    gtk_css_provider_load_from_path (provider, path, &error);
+
+    if (error != NULL) {
+        g_warning ("Can't parse Caja' CSS custom description '%s': %s\n",
+                   filename, error->message);
+        g_error_free (error);
+    } else {
+        gtk_style_context_add_provider_for_screen (gdk_screen_get_default (),
+                                                   GTK_STYLE_PROVIDER (provider),
+                                                   priority);
+    }
+
+    g_object_unref (provider);
+    g_free (path);
+}
+
+static void
+reload_theme_css (GtkSettings    *settings,
+                  GParamSpec     *unused G_GNUC_UNUSED,
+                  GtkCssProvider *provider)
+{
+    gchar *theme_name;
+    gchar *css_theme_name;
+    gchar *path;
+
+    g_object_get (settings, "gtk-theme-name", &theme_name, NULL);
+    css_theme_name = g_strconcat ("caja-desktop-", theme_name, ".css", NULL);
+    path = g_build_filename (CAJA_DATADIR, css_theme_name, NULL);
+
+    if (g_file_test (path, G_FILE_TEST_EXISTS))
+        load_custom_css (provider, css_theme_name, GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+    else /* just empty the provider */
+        gtk_css_provider_load_from_data (provider, "", 0, NULL);
+
+    g_free (path);
+    g_free (css_theme_name);
+    g_free (theme_name);
+}
 
 static void
 init_icons_and_styles (void)
 {
+    GtkSettings *settings = gtk_settings_get_default ();
     GtkCssProvider *provider;
-    GError *error = NULL;
 
     /* add our custom CSS provider */
+    load_custom_css (NULL, "caja.css", GTK_STYLE_PROVIDER_PRIORITY_THEME);
+    /* add our desktop CSS provider,  ensures the desktop background does not get covered */
+    load_custom_css (NULL, "caja-desktop.css", GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+    /* add theme-specific desktop CSS */
     provider = gtk_css_provider_new ();
-    gtk_css_provider_load_from_path (provider,
-				CAJA_DATADIR G_DIR_SEPARATOR_S "caja.css", &error);
-
-    if (error != NULL) {
-        g_warning ("Can't parse Caja' CSS custom description: %s\n", error->message);
-        g_error_free (error);
-    } else {
-        gtk_style_context_add_provider_for_screen (gdk_screen_get_default (),
-                               GTK_STYLE_PROVIDER (provider),
-                               GTK_STYLE_PROVIDER_PRIORITY_THEME);
-    }
-
-/* add our desktop CSS provider,  ensures the desktop background does not get covered */
-    provider = gtk_css_provider_new ();
-
-    gtk_css_provider_load_from_path (provider, CAJA_DATADIR G_DIR_SEPARATOR_S "caja-desktop.css", &error);
-
-    if (error != NULL) {
-        g_warning ("Can't parse Caja' CSS custom description: %s\n", error->message);
-        g_error_free (error);
-    } else {
-        gtk_style_context_add_provider_for_screen (gdk_screen_get_default (),
-                               GTK_STYLE_PROVIDER (provider),
-                               GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-    }
-
-
-    g_object_unref (provider);
+    reload_theme_css (settings, NULL, provider);
+    g_signal_connect_data (settings, "notify::gtk-theme-name", G_CALLBACK (reload_theme_css),
+                           provider, (GClosureNotify) g_object_unref, 0);
 
     /* initialize search path for custom icons */
     gtk_icon_theme_append_search_path (gtk_icon_theme_get_default (),
@@ -2169,6 +2200,7 @@ caja_application_startup (GApplication *app)
     fm_desktop_icon_view_register ();
     fm_list_view_register ();
     fm_compact_view_register ();
+    fm_widget_view_register ();
 #if ENABLE_EMPTY_VIEW
     fm_empty_view_register ();
 #endif /* ENABLE_EMPTY_VIEW */

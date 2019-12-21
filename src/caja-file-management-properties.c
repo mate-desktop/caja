@@ -29,6 +29,7 @@
 #include <gtk/gtk.h>
 #include <gio/gio.h>
 #include <glib/gi18n.h>
+#include <cairo-gobject.h>
 
 #include <eel/eel-glib-extensions.h>
 #include <eel/eel-gtk-extensions.h>
@@ -72,6 +73,7 @@
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_MEDIA_AUTOMOUNT_OPEN "media_automount_open_checkbutton"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_MEDIA_AUTORUN_NEVER "media_autorun_never_checkbutton"
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_USE_IEC_UNITS_WIDGET "use_iec_units"
+#define CAJA_FILE_MANAGEMENT_PROPERTIES_SHOW_ICONS_IN_LIST_VIEW "show_icons_in_list_view"
 
 /* int enums */
 #define CAJA_FILE_MANAGEMENT_PROPERTIES_THUMBNAIL_LIMIT_WIDGET "preview_image_size_combobox"
@@ -188,9 +190,9 @@ static const char * const icon_captions_components[] =
 enum
 {
 	EXT_STATE_COLUMN,
-    EXT_ICON_COLUMN,
+	EXT_ICON_COLUMN,
 	EXT_INFO_COLUMN,
-    EXT_STRUCT_COLUMN
+	EXT_STRUCT_COLUMN
 };
 
 static void caja_file_management_properties_dialog_update_media_sensitivity (GtkBuilder *builder);
@@ -779,7 +781,7 @@ caja_file_management_properties_dialog_setup_media_page (GtkBuilder *builder)
     other_type_combo_box = GTK_WIDGET (gtk_builder_get_object (builder, "media_other_type_combobox"));
 
     other_type_list_store = gtk_list_store_new (3,
-                            GDK_TYPE_PIXBUF,
+                            CAIRO_GOBJECT_TYPE_SURFACE,
                             G_TYPE_STRING,
                             G_TYPE_STRING);
 
@@ -795,7 +797,7 @@ caja_file_management_properties_dialog_setup_media_page (GtkBuilder *builder)
         char *description;
         GIcon *icon;
         CajaIconInfo *icon_info;
-        GdkPixbuf *pixbuf;
+        cairo_surface_t *surface;
         int icon_size, icon_scale;
 
         if (!g_str_has_prefix (content_type, "x-content/"))
@@ -818,21 +820,21 @@ caja_file_management_properties_dialog_setup_media_page (GtkBuilder *builder)
         {
             icon_info = caja_icon_info_lookup (icon, icon_size, icon_scale);
             g_object_unref (icon);
-            pixbuf = caja_icon_info_get_pixbuf_nodefault_at_size (icon_info, icon_size);
+            surface = caja_icon_info_get_surface_nodefault_at_size (icon_info, icon_size);
             g_object_unref (icon_info);
         }
         else
         {
-            pixbuf = NULL;
+            surface = NULL;
         }
 
         gtk_list_store_set (other_type_list_store, &iter,
-                            0, pixbuf,
+                            0, surface,
                             1, description,
                             2, content_type,
                             -1);
-        if (pixbuf != NULL)
-            g_object_unref (pixbuf);
+        if (surface != NULL)
+            cairo_surface_destroy (surface);
         g_free (description);
 skip:
         ;
@@ -845,7 +847,7 @@ skip:
     renderer = gtk_cell_renderer_pixbuf_new ();
     gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (other_type_combo_box), renderer, FALSE);
     gtk_cell_layout_set_attributes (GTK_CELL_LAYOUT (other_type_combo_box), renderer,
-                                    "pixbuf", 0,
+                                    "surface", 0,
                                     NULL);
     renderer = gtk_cell_renderer_text_new ();
     gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (other_type_combo_box), renderer, TRUE);
@@ -872,7 +874,7 @@ caja_file_management_properties_dialog_setup_extension_page (GtkBuilder *builder
     GtkTreeSelection *selection;
     GtkTreeIter iter;
     GtkIconTheme *icon_theme;
-    GdkPixbuf *ext_pixbuf_icon;
+    cairo_surface_t *ext_surface_icon;
     GtkButton *about_button, *configure_button;
     gchar *ext_text_info;
 
@@ -901,15 +903,15 @@ caja_file_management_properties_dialog_setup_extension_page (GtkBuilder *builder
 
         if (ext->icon != NULL)
         {
-            ext_pixbuf_icon = gtk_icon_theme_load_icon (icon_theme, ext->icon,
-                                                        24,
-                                                        GTK_ICON_LOOKUP_USE_BUILTIN, NULL);
+            ext_surface_icon = gtk_icon_theme_load_surface (icon_theme, ext->icon,
+                                                            24, gtk_widget_get_scale_factor (GTK_WIDGET (view)),
+                                                            NULL, GTK_ICON_LOOKUP_USE_BUILTIN, NULL);
         }
         else
         {
-            ext_pixbuf_icon = gtk_icon_theme_load_icon (icon_theme, "system-run",
-                                                        24,
-                                                        GTK_ICON_LOOKUP_USE_BUILTIN, NULL);
+            ext_surface_icon = gtk_icon_theme_load_surface (icon_theme, "system-run",
+                                                            24, gtk_widget_get_scale_factor (GTK_WIDGET (view)),
+                                                            NULL, GTK_ICON_LOOKUP_USE_BUILTIN, NULL);
         }
 
         if (ext->description != NULL)
@@ -927,13 +929,13 @@ caja_file_management_properties_dialog_setup_extension_page (GtkBuilder *builder
         gtk_list_store_append (store, &iter);
         gtk_list_store_set (store, &iter,
                             EXT_STATE_COLUMN, ext->state,
-                            EXT_ICON_COLUMN, ext_pixbuf_icon,
+                            EXT_ICON_COLUMN, ext_surface_icon,
                             EXT_INFO_COLUMN, ext_text_info,
                             EXT_STRUCT_COLUMN, ext, -1);
 
         g_free (ext_text_info);
-        if (ext_pixbuf_icon)
-            g_object_unref (ext_pixbuf_icon);
+        if (ext_surface_icon)
+            cairo_surface_destroy (ext_surface_icon);
     }
 
     about_button = GTK_BUTTON (gtk_builder_get_object (builder, "about_extension_button"));
@@ -1190,6 +1192,10 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
     bind_builder_bool (builder, caja_preferences,
                        CAJA_FILE_MANAGEMENT_PROPERTIES_USE_IEC_UNITS_WIDGET,
                        CAJA_PREFERENCES_USE_IEC_UNITS);
+
+    bind_builder_bool (builder, caja_preferences,
+                       CAJA_FILE_MANAGEMENT_PROPERTIES_SHOW_ICONS_IN_LIST_VIEW,
+                       CAJA_PREFERENCES_SHOW_ICONS_IN_LIST_VIEW);
 
     bind_builder_enum (builder, caja_preferences,
                        CAJA_FILE_MANAGEMENT_PROPERTIES_DEFAULT_VIEW_WIDGET,

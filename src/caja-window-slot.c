@@ -35,8 +35,6 @@
 #include "caja-window-private.h"
 #include "caja-window-manage-views.h"
 
-static void caja_window_slot_init       (CajaWindowSlot *slot);
-static void caja_window_slot_class_init (CajaWindowSlotClass *class);
 static void caja_window_slot_dispose    (GObject *object);
 
 static void caja_window_slot_info_iface_init (CajaWindowSlotInfoIface *iface);
@@ -46,6 +44,7 @@ G_DEFINE_TYPE_WITH_CODE (CajaWindowSlot,
                          G_TYPE_OBJECT,
                          G_IMPLEMENT_INTERFACE (CAJA_TYPE_WINDOW_SLOT_INFO,
                                  caja_window_slot_info_iface_init))
+
 #define parent_class caja_window_slot_parent_class
 
 static void
@@ -394,7 +393,10 @@ caja_window_slot_update_icon (CajaWindowSlot *slot)
              */
             if (g_strcmp0 (icon_name, gtk_window_get_icon_name (GTK_WINDOW (window))) != 0)
             {
-                gtk_window_set_icon_name (GTK_WINDOW (window), icon_name);
+                if (g_strcmp0 (icon_name, "text-x-generic") == 0)
+                    gtk_window_set_icon_name (GTK_WINDOW (window), "folder-saved-search");
+                else
+                    gtk_window_set_icon_name (GTK_WINDOW (window), icon_name);
             }
         }
         else

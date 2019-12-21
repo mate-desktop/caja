@@ -28,7 +28,6 @@
 #ifndef EEL_GTK_EXTENSIONS_H
 #define EEL_GTK_EXTENSIONS_H
 
-#include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gtk/gtk.h>
 #include "eel-gdk-extensions.h"
 
@@ -71,7 +70,7 @@ void                  eel_gtk_message_dialog_set_details_label        (GtkMessag
 GtkWidget *           eel_image_menu_item_new_from_icon               (const gchar          *icon_name,
                                                                        const gchar          *label_name);
 
-GtkWidget *           eel_image_menu_item_new_from_pixbuf               (GdkPixbuf          *icon_pixbuf,
+GtkWidget *           eel_image_menu_item_new_from_surface              (cairo_surface_t    *icon_surface,
                                                                          const gchar        *label_name);
 
 gboolean              eel_dialog_page_scroll_event_callback           (GtkWidget            *widget,

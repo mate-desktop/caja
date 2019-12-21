@@ -20,7 +20,7 @@ dnl Interface break is not allowed.
 m4_define(caja_extension_current,  5)
 m4_define(caja_extension_revision, 0)
 
-AC_INIT([caja], [1.23.1], [https://mate-desktop.org])
+AC_INIT([caja], [1.23.2], [https://mate-desktop.org])
 
 dnl ---------------------------------------------------------------------------
 
@@ -59,6 +59,7 @@ dnl Give error and exit if we dont have pkgconfig
 if test "x$PKG_CONFIG" = "x"; then
   AC_MSG_ERROR([you need to have pkgconfig installed!])
 fi
+AC_PATH_PROG([GLA11Y], [gla11y], [true])
 
 AC_CHECK_LIB(m, floor)
 

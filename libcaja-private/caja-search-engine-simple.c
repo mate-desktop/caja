@@ -38,6 +38,7 @@ typedef struct
     CajaSearchEngineSimple *engine;
     GCancellable *cancellable;
 
+    char *contained_text;
     GList *mime_types;
     GList *tags;
     char **words;
@@ -62,10 +63,6 @@ struct CajaSearchEngineSimpleDetails
 
     gboolean query_finished;
 };
-
-
-static void  caja_search_engine_simple_class_init       (CajaSearchEngineSimpleClass *class);
-static void  caja_search_engine_simple_init             (CajaSearchEngineSimple      *engine);
 
 G_DEFINE_TYPE (CajaSearchEngineSimple,
                caja_search_engine_simple,
@@ -129,6 +126,7 @@ search_thread_data_new (CajaSearchEngineSimple *engine,
     data->mime_types = caja_query_get_mime_types (query);
     data->timestamp = caja_query_get_timestamp (query);
     data->size = caja_query_get_size (query);
+    data->contained_text = caja_query_get_contained_text (query);
 
     data->cancellable = g_cancellable_new ();
 
@@ -147,6 +145,7 @@ search_thread_data_free (SearchThreadData *data)
     g_list_free_full (data->tags, g_free);
     g_list_free_full (data->mime_types, g_free);
     g_list_free_full (data->uri_hits, g_free);
+    g_free (data->contained_text);
     g_free (data);
 }
 
@@ -342,6 +341,102 @@ file_has_all_tags (GFileInfo *info, GList *tags)
     return TRUE;
 }
 
+static inline gboolean
+check_odt2txt () {
+    gboolean rc = TRUE;
+    int exit = 0;
+    gchar *output = NULL;
+
+    gboolean cmd_rc = g_spawn_command_line_sync ("odt2txt --version", &output, NULL, &exit, NULL);
+
+    if (!cmd_rc || exit != 0 ||
+        !output || !g_str_has_prefix (output, "odt2txt"))
+    {
+        rc = FALSE;
+    }
+
+    g_free (output);
+    return rc;
+}
+
+static inline gchar *
+read_odt (const char *filepath) {
+    gchar *command = g_strdup_printf ("odt2txt \"%s\"", filepath);
+    gchar *output  = NULL;
+    int exit = 0;
+
+    gboolean rc = g_spawn_command_line_sync (command, &output, NULL, &exit, NULL);
+    if (!rc || exit != 0) {
+        g_free (output);
+        g_free (command);
+        return NULL;
+    }
+
+    g_free (command);
+    return output;
+}
+
+static inline gchar *
+utf8_normalize_strdown (const char *str) {
+    gchar* lower = NULL;
+    gchar *normalized = g_utf8_normalize (str, -1, G_NORMALIZE_DEFAULT);
+
+    if (normalized)
+        lower = g_utf8_strdown (normalized, -1);
+
+    g_free (normalized);
+
+    return lower;
+}
+
+static inline gboolean
+is_file_has_str (
+    const char *filepath,
+    const char *str,
+    const char *mime_type,
+    gboolean odt2txt_available)
+{
+    gboolean rc = TRUE;
+    gchar *contents = NULL;
+    gchar *lower_contents = NULL;
+    gchar *lower_str = NULL;
+
+    if (str[0] == '\0') {
+        return TRUE;
+    }
+
+    if (g_content_type_is_mime_type (mime_type, "text/plain")) {
+        rc = g_file_get_contents (filepath, &contents, NULL, NULL);
+    }
+    else {
+        if (!odt2txt_available) {
+            g_warning ("Can't search in file '%s'. odt2txt not found.", filepath);
+            rc = FALSE;
+        }
+        else {
+            contents = read_odt (filepath);
+            if (!contents)
+                rc = FALSE;
+        }
+    }
+
+    if (rc) {
+        lower_str = utf8_normalize_strdown (str);
+        lower_contents = utf8_normalize_strdown (contents);
+
+        if (lower_str && lower_contents && strstr (lower_contents, lower_str))
+            rc = TRUE;
+        else
+            rc = FALSE;
+    }
+
+    g_free (contents);
+    g_free (lower_str);
+    g_free (lower_contents);
+
+    return rc;
+}
+
 static void
 visit_directory (GFile *dir, SearchThreadData *data)
 {
@@ -358,9 +453,11 @@ visit_directory (GFile *dir, SearchThreadData *data)
     GTimeVal result;
     gchar *attributes;
     GString *attr_string;
+    gchar *filepath = NULL;
+    gboolean odt2txt_available = FALSE;
 
     attr_string = g_string_new (STD_ATTRIBUTES);
-    if (data->mime_types != NULL) {
+    if (data->mime_types != NULL || data->contained_text != NULL) {
         g_string_append (attr_string, "," G_FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE);
     }
     if (data->tags != NULL) {
@@ -372,6 +469,10 @@ visit_directory (GFile *dir, SearchThreadData *data)
     }
     if (data->size != 0) {
         g_string_append (attr_string, "," G_FILE_ATTRIBUTE_STANDARD_SIZE);
+    }
+
+    if (data->contained_text != NULL) {
+        odt2txt_available = check_odt2txt();
     }
 
     attributes = g_string_free (attr_string, FALSE);
@@ -456,6 +557,26 @@ visit_directory (GFile *dir, SearchThreadData *data)
 
         child = g_file_get_child (dir, g_file_info_get_name (info));
 
+        if (hit && data->contained_text) {
+            mime_type = g_file_info_get_content_type (info);
+
+            if (g_content_type_is_mime_type (mime_type, "text/plain") ||
+                g_content_type_equals (mime_type, "application/vnd.oasis.opendocument.text") ||
+                g_content_type_equals (mime_type, "application/vnd.oasis.opendocument.text-template") ||
+                g_content_type_equals (mime_type, "application/vnd.oasis.opendocument.spreadsheet") ||
+                g_content_type_equals (mime_type, "application/vnd.oasis.opendocument.spreadsheet-template") ||
+                g_content_type_equals (mime_type, "application/vnd.oasis.opendocument.presentation") ||
+                g_content_type_equals (mime_type, "application/vnd.oasis.opendocument.presentation-template")
+            ) {
+                g_free (filepath);
+                filepath = g_file_get_path (child);
+                hit = is_file_has_str (filepath, data->contained_text, mime_type, odt2txt_available);
+            }
+            else {
+                hit = FALSE;
+            }
+        }
+
         if (hit)
         {
             data->uri_hits = g_list_prepend (data->uri_hits, g_file_get_uri (child));
@@ -495,6 +616,7 @@ next:
         g_object_unref (info);
     }
 
+    g_free (filepath);
     g_object_unref (enumerator);
 }
 

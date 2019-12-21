@@ -24,6 +24,7 @@
 
 #include <config.h>
 #include <string.h>
+#include <glib/gi18n.h>
 
 #include <eel/eel-glib-extensions.h>
 #include <eel/eel-gtk-macros.h>
@@ -59,17 +60,18 @@ fm_empty_view_add_file (FMDirectoryView *view, CajaFile *file, CajaDirectory *di
     static GTimer *timer = NULL;
     static gdouble cumu = 0, elaps;
     FM_EMPTY_VIEW (view)->details->number_of_files++;
-    GdkPixbuf *icon;
+    cairo_surface_t *icon;
 
     if (!timer) timer = g_timer_new ();
 
     g_timer_start (timer);
-    icon = caja_file_get_icon_pixbuf (file, caja_get_icon_size_for_zoom_level (CAJA_ZOOM_LEVEL_STANDARD), TRUE, 0);
+    icon = caja_file_get_icon_surface (file, caja_get_icon_size_for_zoom_level (CAJA_ZOOM_LEVEL_STANDARD),
+                                       TRUE, gtk_widget_get_scale_factor (GTK_WIDGET(view)), 0);
 
     elaps = g_timer_elapsed (timer, NULL);
     g_timer_stop (timer);
 
-    g_object_unref (icon);
+    cairo_surface_destroy (icon);
 
     cumu += elaps;
     g_message ("entire loading: %.3f, cumulative %.3f", elaps, cumu);
@@ -391,14 +393,14 @@ fm_empty_view_supports_uri (const char *uri,
 
 static CajaViewInfo fm_empty_view =
 {
-    FM_EMPTY_VIEW_ID,
-    "Empty",
-    "Empty View",
-    "_Empty View",
-    "The empty view encountered an error.",
-    "Display this location with the empty view.",
-    fm_empty_view_create,
-    fm_empty_view_supports_uri
+    .id = FM_EMPTY_VIEW_ID,
+    .view_combo_label = N_("Empty View"),
+    .view_menu_label_with_mnemonic = N_("_Empty"),
+    .error_label = N_("Empty View"),
+    .startup_error_label = N_("The empty view encountered an error."),
+    .display_location_label = N_("Display this location with the empty view."),
+    .create = fm_empty_view_create,
+    .supports_uri =fm_empty_view_supports_uri
 };
 
 void

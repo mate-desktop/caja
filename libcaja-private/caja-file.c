@@ -4611,10 +4611,9 @@ caja_file_get_icon (CajaFile *file,
 			   and for images with no alpha channel. */
 			gboolean is_image = file->details->mime_type &&
 				(strncmp (file->details->mime_type, "image/", 6) == 0);
-				if (!is_image ||
-					is_image && !gdk_pixbuf_get_has_alpha (raw_pixbuf)) {
-					caja_ui_frame_image (&scaled_pixbuf);
-				}
+			if (!is_image || !gdk_pixbuf_get_has_alpha (raw_pixbuf)) {
+				caja_ui_frame_image (&scaled_pixbuf);
+			}
 
 			g_object_unref (raw_pixbuf);
 
@@ -4656,27 +4655,6 @@ caja_file_get_icon (CajaFile *file,
 	} else {
 		return caja_icon_info_lookup (get_default_file_icon (flags), size, scale);
 	}
-}
-
-GdkPixbuf *
-caja_file_get_icon_pixbuf (CajaFile *file,
-			       int size,
-			       gboolean force_size,
-			       int scale,
-			       CajaFileIconFlags flags)
-{
-	CajaIconInfo *info;
-	GdkPixbuf *pixbuf;
-
-	info = caja_file_get_icon (file, size, scale, flags);
-	if (force_size) {
-		pixbuf =  caja_icon_info_get_pixbuf_at_size (info, size);
-	} else {
-		pixbuf = caja_icon_info_get_pixbuf (info);
-	}
-	g_object_unref (info);
-
-	return pixbuf;
 }
 
 cairo_surface_t *
