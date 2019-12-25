@@ -607,14 +607,11 @@ action_new_window_callback (GtkAction *action,
                             gpointer user_data)
 {
     CajaWindow *current_window;
-    CajaWindow *new_window;
 
-    current_window = CAJA_WINDOW (user_data);
-    new_window = caja_application_create_navigation_window (
-                     current_window->application,
-                     gtk_window_get_screen (GTK_WINDOW (current_window)));
-    caja_window_go_home (new_window);
+    current_window = CAJA_WINDOW (user_data);   
+    caja_window_new_window (current_window);
 }
+
 
 static void
 action_new_tab_callback (GtkAction *action,
