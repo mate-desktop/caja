@@ -308,6 +308,42 @@ caja_window_new_tab (CajaWindow *window)
     }
 }
 
+/*Opens a new window when called from an existing window and goes to the same location that's in the existing window.*/
+void
+caja_window_new_window (CajaWindow *window)
+{
+    CajaWindowSlot *current_slot;
+    GFile *location = NULL;
+    g_return_if_fail (CAJA_IS_WINDOW (window));
+
+    /*Get and set the directory location of current window (slot).*/
+    current_slot = window->details->active_pane->active_slot;
+    location = caja_window_slot_get_location (current_slot);
+
+    if (location != NULL) 
+    {
+        CajaWindow *new_window;
+        CajaWindowSlot *new_slot;
+        CajaWindowOpenFlags flags;
+        flags = FALSE;
+
+        /*Create a new window*/
+        new_window = caja_application_create_navigation_window (
+                     window->application,
+        gtk_window_get_screen (GTK_WINDOW (window)));
+
+        /*Create a slot in the new window.*/
+        new_slot = new_window->details->active_pane->active_slot;
+        g_return_if_fail (CAJA_IS_WINDOW_SLOT (new_slot));
+
+        /*Open a directory at the set location in the new window (slot).*/
+        caja_window_slot_open_location_full (new_slot, location,
+                                             CAJA_WINDOW_OPEN_ACCORDING_TO_MODE,
+                                             flags, NULL, NULL, NULL);
+        g_object_unref (location);
+    }
+}
+
 void
 caja_window_go_up (CajaWindow *window, gboolean close_behind, gboolean new_tab)
 {
