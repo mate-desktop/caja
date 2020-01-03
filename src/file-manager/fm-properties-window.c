@@ -31,9 +31,6 @@
 #include <glib/gi18n.h>
 #include <sys/stat.h>
 
-#define MATE_DESKTOP_USE_UNSTABLE_API
-#include <libmate-desktop/mate-desktop-thumbnail.h>
-
 #include "../../eel/eel-accessibility.h"
 #include "../../eel/eel-gdk-pixbuf-extensions.h"
 #include "../../eel/eel-glib-extensions.h"
@@ -5677,10 +5674,11 @@ update_preview_callback (GtkFileChooser *icon_chooser,
 			scale = (double)gdk_pixbuf_get_height (pixbuf) /
 				gdk_pixbuf_get_width (pixbuf);
 
-			scaled_pixbuf = mate_desktop_thumbnail_scale_down_pixbuf
+			scaled_pixbuf = gdk_pixbuf_scale_simple
 				(pixbuf,
 				 PREVIEW_IMAGE_WIDTH,
-				 scale * PREVIEW_IMAGE_WIDTH);
+				 scale * PREVIEW_IMAGE_WIDTH,
+				 GDK_INTERP_HYPER);
 			g_object_unref (pixbuf);
 			pixbuf = scaled_pixbuf;
 		}
