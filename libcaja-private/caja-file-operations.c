@@ -2145,7 +2145,7 @@ unmount_mount_callback (GObject *source_object,
 		unmounted = g_mount_eject_with_operation_finish (G_MOUNT (source_object),
 								 res, &error);
 		if ((!error) || (unmounted == TRUE)){
-			caja_application_notify_unmount_show ("It is now safe to remove the drive");
+			caja_application_notify_unmount_show (_("It is now safe to remove the drive"));
 		}
 
 	} else {
@@ -2194,7 +2194,7 @@ do_unmount (UnmountData *data)
 					      unmount_mount_callback,
 					      data);
 
-		caja_application_notify_unmount_show ("writing data to the drive-do not unplug");
+		caja_application_notify_unmount_show (_("Writing data to the drive -- do not unplug"));
 
 	} else {
 		g_mount_unmount_with_operation (data->mount,
