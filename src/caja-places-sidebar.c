@@ -2263,7 +2263,7 @@ volume_eject_cb (GObject *source_object,
     }
 
     else {
-        caja_application_notify_unmount_show ("It is now safe to remove the drive");
+        caja_application_notify_unmount_show (_("It is now safe to remove the drive"));
     }
 }
 
@@ -2299,7 +2299,7 @@ mount_eject_cb (GObject *source_object,
     }
 
     else {
-        caja_application_notify_unmount_show ("It is now safe to remove the drive");
+        caja_application_notify_unmount_show (_("It is now safe to remove the drive"));
     }
 }
 
@@ -2333,7 +2333,7 @@ do_eject (GMount *mount,
                                       g_object_ref (sidebar->window));
     }
 
-    caja_application_notify_unmount_show ("writing data to the drive-do not unplug");
+    caja_application_notify_unmount_show (_("Writing data to the drive -- do not unplug"));
     g_object_unref (mount_op);
 }
 
