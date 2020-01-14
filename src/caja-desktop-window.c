@@ -204,6 +204,8 @@ caja_desktop_window_new (CajaApplication *application,
         XFree(xch);
     }
 
+    gdk_window_set_title (gdkwin, _("Desktop"));
+
     g_signal_connect (window, "delete_event", G_CALLBACK (caja_desktop_window_delete_event), NULL);
 
     /* Point window at the desktop folder.
@@ -313,12 +315,6 @@ draw (GtkWidget *widget,
     return GTK_WIDGET_CLASS (caja_desktop_window_parent_class)->draw (widget, cr);
 }
 
-static char *
-real_get_title (CajaWindow *window)
-{
-    return g_strdup (_("Desktop"));
-}
-
 static CajaIconInfo *
 real_get_icon (CajaWindow *window,
                CajaWindowSlot *slot)
@@ -341,7 +337,6 @@ caja_desktop_window_class_init (CajaDesktopWindowClass *klass)
     gtk_widget_class_set_accessible_type (wclass, CAJA_TYPE_DESKTOP_WINDOW_ACCESSIBLE);
 
     nclass->window_type = CAJA_WINDOW_DESKTOP;
-    nclass->get_title = real_get_title;
     nclass->get_icon = real_get_icon;
 }
 

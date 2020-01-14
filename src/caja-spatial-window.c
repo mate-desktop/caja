@@ -394,6 +394,10 @@ sync_window_title (CajaWindow *window)
 
     slot = caja_window_get_active_slot (window);
 
+    /* Don't change desktop's title, it would override the one already defined */
+    if (CAJA_IS_DESKTOP_WINDOW (window))
+        return;
+
     if (slot->title == NULL || slot->title[0] == '\0')
     {
         gtk_window_set_title (GTK_WINDOW (window), _("Caja"));
