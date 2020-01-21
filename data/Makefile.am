@@ -59,8 +59,6 @@ $(appdata_DATA): $(appdata_in_files)
 	$(AM_V_GEN) $(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
 
 EXTRA_DIST = $(cajadata_DATA) \
-	caja.desktop \
-	caja.desktop.in \
 	caja.css \
 	freedesktop-dbus-interfaces.xml \
 	$(xml_in_files) \
