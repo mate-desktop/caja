@@ -32,8 +32,6 @@
 #include <math.h>
 #include <stdio.h>
 
-#include <libcaja-private/caja-global-preferences.h>
-
 #include "eel-background.h"
 #include "eel-gdk-extensions.h"
 #include "eel-glib-extensions.h"
@@ -431,6 +429,7 @@ set_root_surface (EelBackground *self,
 static void
 init_fade (EelBackground *self)
 {
+    GSettings *mate_background_preferences;
     GtkWidget *widget = self->details->widget;
     gboolean do_fade;
 
@@ -438,8 +437,11 @@ init_fade (EelBackground *self)
         return;
     }
 
+    mate_background_preferences = g_settings_new ("org.mate.background");
     do_fade = g_settings_get_boolean (mate_background_preferences,
                                       MATE_BG_KEY_BACKGROUND_FADE);
+    g_object_unref (mate_background_preferences);
+
     if (!do_fade) {
     	return;
     }
