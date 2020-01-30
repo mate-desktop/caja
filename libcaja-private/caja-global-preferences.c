@@ -35,6 +35,19 @@
 #include "caja-file-utilities.h"
 #include "caja-file.h"
 
+GSettings *caja_preferences;
+GSettings *caja_media_preferences;
+GSettings *caja_window_state;
+GSettings *caja_icon_view_preferences;
+GSettings *caja_desktop_preferences;
+GSettings *caja_tree_sidebar_preferences;
+GSettings *caja_compact_view_preferences;
+GSettings *caja_list_view_preferences;
+GSettings *caja_extension_preferences;
+
+GSettings *mate_background_preferences;
+GSettings *mate_lockdown_preferences;
+
 /*
  * Public functions
  */
