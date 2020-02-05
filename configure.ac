@@ -349,6 +349,8 @@ caja-$VERSION:
     prefix:                       ${prefix}
     source code location:         ${srcdir}
     compiler:                     ${CC}
+    compiler flags:               ${CFLAGS}
+    warning flags:                ${WARNING_CFLAGS}
     xmp support:                  $msg_xmp
     PackageKit support:           $msg_packagekit
     Self check:                   $msg_self_check
