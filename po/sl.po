@@ -9,9 +9,9 @@
 # jetomit <timotej.lazar@araneo.si>, 2018
 # Marko Šterman <marko.chamillionaire@gmail.com>, 2018
 # Damir Jerovšek <jierro@windowslive.com>, 2018
-# Helena S <ele@tutamail.com>, 2018
 # Stefano Karapetsas <stefano@karapetsas.com>, 2019
 # Arnold Marko <arnold.marko@gmail.com>, 2020
+# Helena S <ele@tutamail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -19,7 +19,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
 "POT-Creation-Date: 2020-01-10 11:11+0100\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Arnold Marko <arnold.marko@gmail.com>, 2020\n"
+"Last-Translator: Helena S <ele@tutamail.com>, 2020\n"
 "Language-Team: Slovenian (https://www.transifex.com/mate/teams/13566/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -857,7 +857,7 @@ msgstr "Razširitev"
 
 #: libcaja-private/caja-column-utilities.c:149
 msgid "The extension of the file."
-msgstr ""
+msgstr "Pripona datoteke."
 
 #: libcaja-private/caja-column-utilities.c:191
 msgid "Trashed On"
@@ -1751,7 +1751,7 @@ msgstr "Brisanje datotek"
 #: libcaja-private/caja-file-operations.c:2157 src/caja-places-sidebar.c:2266
 #: src/caja-places-sidebar.c:2302
 msgid "It is now safe to remove the drive"
-msgstr ""
+msgstr "Zdaj lahko varno odstranite napravo"
 
 #: libcaja-private/caja-file-operations.c:2170
 msgid "Unable to eject %V"
@@ -1763,7 +1763,7 @@ msgstr "%V ni mogoče odklopiti"
 
 #: libcaja-private/caja-file-operations.c:2208 src/caja-places-sidebar.c:2336
 msgid "Writing data to the drive -- do not unplug"
-msgstr ""
+msgstr "Poteka pisanje podatkov na disk -- ne izključite ga"
 
 #: libcaja-private/caja-file-operations.c:2332
 msgid "Do you want to empty the trash before you unmount?"
@@ -2576,11 +2576,11 @@ msgstr "zaustavljen"
 
 #: libcaja-private/caja-progress-info.c:324
 msgid "queued"
-msgstr ""
+msgstr "v vrsti"
 
 #: libcaja-private/caja-progress-info.c:327
 msgid "queuing"
-msgstr ""
+msgstr "vrsta"
 
 #: libcaja-private/caja-progress-info.c:415
 #: libcaja-private/caja-progress-info.c:416
@@ -2603,7 +2603,7 @@ msgstr[3] ""
 
 #: libcaja-private/caja-progress-info.c:631
 msgid "Process completed"
-msgstr ""
+msgstr "Opravilo končano"
 
 #: libcaja-private/caja-progress-info.c:806
 #: libcaja-private/caja-progress-info.c:807
@@ -3067,13 +3067,15 @@ msgstr ""
 
 #: libcaja-private/org.mate.caja.gschema.xml:81
 msgid "Switch tabs with [ctrl] + [tab]"
-msgstr ""
+msgstr "Preklopi med zavihki z [ctrl] + [tab]"
 
 #: libcaja-private/org.mate.caja.gschema.xml:82
 msgid ""
 "If true, it enables the ability to switch tabs using [ctrl + tab] and [ctrl "
 "+ shift + tab]."
 msgstr ""
+"Izbrana možnost omogoči preklope med zavihki z uporabo [ctrl+tab] in "
+"[ctrl+shift+tab]."
 
 #: libcaja-private/org.mate.caja.gschema.xml:86
 msgid "Caja will exit when last window destroyed."
@@ -3085,6 +3087,10 @@ msgid ""
 "the default setting. If set to false, it can be started without any window, "
 "so Caja can serve as a daemon to monitor media automount, or similar tasks."
 msgstr ""
+"Izbrana možnost določa, da se program Caja ugasne, ko je zaprto zadnje okno."
+" To je privzeta možnost. Neizbrana možnost pa omogoča, da je program mogoče "
+"zagnati brez odprtih oken in tako deluje kot ozadnji program za nadzor "
+"samodejnega zaganjanja programov oziroma drugih opravil."
 
 #: libcaja-private/org.mate.caja.gschema.xml:91
 msgid "Enables the classic Caja behavior, where all windows are browsers"
@@ -3526,7 +3532,7 @@ msgstr "Ali naj se prikažejo namizna obvestila"
 
 #: libcaja-private/org.mate.caja.gschema.xml:270
 msgid "If set to true, Caja will show desktop notifications."
-msgstr ""
+msgstr "Če je omogočeno, bo program Caja prikazoval namizna obvestila."
 
 #: libcaja-private/org.mate.caja.gschema.xml:277
 msgid "List of possible captions on icons"
@@ -4106,7 +4112,7 @@ msgstr ""
 
 #: src/caja-application.c:1882
 msgid "Open URIs in tabs."
-msgstr ""
+msgstr "Odpri URI v zavihkih. "
 
 #: src/caja-application.c:1884
 msgid "Open a browser window."
@@ -4505,7 +4511,7 @@ msgstr "po velikosti"
 
 #: src/caja-file-management-properties.ui:87
 msgid "By Size on Disk"
-msgstr ""
+msgstr "Glede na velikost diska"
 
 #: src/caja-file-management-properties.ui:90
 msgid "By Type"
@@ -4635,11 +4641,11 @@ msgstr "Razvrsti _mape pred datotekami"
 
 #: src/caja-file-management-properties.ui:493
 msgid "Show hidden files"
-msgstr ""
+msgstr "Pokaži skrite datoteke"
 
 #: src/caja-file-management-properties.ui:508
 msgid "Show backup files"
-msgstr ""
+msgstr "Pokaži varnostne kopije"
 
 #: src/caja-file-management-properties.ui:547
 msgid "<b>Icon View Defaults</b>"
@@ -5680,7 +5686,7 @@ msgstr "Oznake"
 
 #: src/caja-query-editor.c:192
 msgid "Modification Time"
-msgstr ""
+msgstr "Sprememba časa"
 
 #: src/caja-query-editor.c:206
 msgid "Contained text"
@@ -6041,7 +6047,7 @@ msgstr ""
 
 #: src/caja-window-menus.c:575
 msgid "About Caja"
-msgstr ""
+msgstr "O programu Caja"
 
 #: src/caja-window-menus.c:577
 msgid ""
@@ -7470,11 +7476,11 @@ msgstr "Ikone naj bodo razvrščene po velikosti v vrsticah"
 
 #: src/file-manager/fm-icon-view.c:144
 msgid "by S_ize on Disk"
-msgstr ""
+msgstr "glede na v_elikost na disku"
 
 #: src/file-manager/fm-icon-view.c:145 src/file-manager/fm-icon-view.c:1772
 msgid "Keep icons sorted by disk usage in rows"
-msgstr ""
+msgstr "Ikone naj bodo razvrščene po porabi diska v vrsticah"
 
 #: src/file-manager/fm-icon-view.c:151
 msgid "by _Type"
@@ -7510,11 +7516,11 @@ msgstr "Ikone naj bodo urejene po datumu premikanja v smeti v vrsticah"
 
 #: src/file-manager/fm-icon-view.c:179
 msgid "by E_xtension"
-msgstr ""
+msgstr "Po p_riponi"
 
 #: src/file-manager/fm-icon-view.c:180
 msgid "Keep icons sorted by reversed extension segments in rows"
-msgstr ""
+msgstr "Ikone naj bodo razvrščene po obrnjenih odsekih razširitev v vrsticah"
 
 #: src/file-manager/fm-icon-view.c:794
 msgid "_Organize Desktop by Name"
@@ -7786,7 +7792,7 @@ msgstr "Cilj povezave:"
 
 #: src/file-manager/fm-properties-window.c:3310
 msgid "Size on Disk:"
-msgstr ""
+msgstr "Velikost diska:"
 
 #: src/file-manager/fm-properties-window.c:3325
 msgid "Volume:"
