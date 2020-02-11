@@ -261,7 +261,19 @@ caja_module_setup (void)
 
     if (!initialized)
     {
+        const gchar *caja_extension_dirs = g_getenv ("CAJA_EXTENSION_DIRS");
+
         initialized = TRUE;
+
+        if (caja_extension_dirs)
+        {
+            gchar **dir_vector = g_strsplit (caja_extension_dirs, G_SEARCHPATH_SEPARATOR_S, 0);
+
+            for (gchar **dir = dir_vector; *dir != NULL; ++ dir)
+                load_module_dir (*dir);
+
+            g_strfreev(dir_vector);
+        }
 
         load_module_dir (CAJA_EXTENSIONDIR);
 
