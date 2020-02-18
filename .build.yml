@@ -1,0 +1,111 @@
+##########################################################
+# THE FOLLOWING LINES IS USED BY docker-build
+##########################################################
+requires:
+  archlinux:
+    # Useful URL: https://git.archlinux.org/svntogit/community.git/tree/caja
+    - gcc
+    - git
+    - make
+    # Append new requires below
+    - exempi
+    - gobject-introspection
+    - gvfs
+    - intltool
+    - libexif
+    - libnotify
+    - libsm
+    - mate-common
+    - mate-desktop
+    - which
+
+  debian:
+    # Useful URL: https://github.com/mate-desktop/debian-packages
+    # Useful URL: https://salsa.debian.org/debian-mate-team/caja
+    - git # Required to generate the ChangeLog file
+    - gobject-introspection
+    - gtk-doc-tools
+    - intltool
+    - libdconf-dev
+    - libexempi-dev
+    - libexif-dev
+    - libgail-3-dev
+    - libgirepository1.0-dev
+    - libglib2.0-dev
+    - libgtk-3-dev
+    - libmate-desktop-dev
+    - libnotify-dev
+    - libpango1.0-dev
+    - libselinux1-dev
+    - libstartup-notification0-dev
+    - libx11-dev
+    - libxml2-dev
+    - mate-common
+    - quilt
+    - shared-mime-info
+
+  fedora:
+    # Useful URL: https://src.fedoraproject.org/cgit/rpms/caja.git/
+    - git # Required to generate the ChangeLog file
+    - gcc
+    - make
+    - redhat-rpm-config
+    # The above packages is installed by 'dnf groupinstall build'
+    - dbus-glib-devel
+    - desktop-file-utils
+    - exempi-devel
+    - gobject-introspection-devel
+    - cairo-gobject-devel
+    - libexif-devel
+    - libselinux-devel
+    - libSM-devel
+    - libxml2-devel
+    - mate-common
+    - mate-desktop-devel
+    - pangox-compat-devel
+    - startup-notification-devel
+    - libnotify-devel
+
+  ubuntu:
+    # Same as debian
+    - git # Required to generate the ChangeLog file
+    - gobject-introspection
+    - gtk-doc-tools
+    - intltool
+    - libdconf-dev
+    - libexempi-dev
+    - libexif-dev
+    - libgail-3-dev
+    - libgirepository1.0-dev
+    - libglib2.0-dev
+    - libgtk-3-dev
+    - libmate-desktop-dev
+    - libnotify-dev
+    - libpango1.0-dev
+    - libselinux1-dev
+    - libstartup-notification0-dev
+    - libx11-dev
+    - libxml2-dev
+    - mate-common
+    - quilt
+    - shared-mime-info
+
+# Uncomment the following lines to get more compile warnings
+variables:
+  - CFLAGS="-Wall -Werror=format-security"
+
+after_scripts:
+  - make distcheck
+
+releases:
+  draft: false
+  prerelease: false
+  checksum: true
+  file_glob: true
+  files: caja-*.tar.xz
+  github_release:
+    tags: true
+    overwrite: true
+    base_version: 1.20.0
+    notify_servers:
+      - https://release.mate-desktop.org/release
