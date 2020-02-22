@@ -265,7 +265,6 @@ caja_undostack_manager_init (CajaUndoStackManager * self)
   priv->index = 0;
   priv->dispose_has_run = FALSE;
   priv->undo_redo_flag = FALSE;
-  priv->confirm_delete = FALSE;
 }
 
 static void
@@ -319,9 +318,6 @@ caja_undostack_manager_set_property (GObject * object, guint prop_id,
         g_mutex_unlock (&priv->mutex);
         do_menu_update (manager);
       }
-      break;
-    case PROP_CONFIRM_DELETE:
-      priv->confirm_delete = g_value_get_boolean (value);
       break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -423,7 +419,7 @@ caja_undostack_manager_redo (CajaUndoStackManager * manager,
         uris = construct_gfile_list (action->sources, action->src_dir);
         caja_file_operations_copy (uris, NULL,
             action->dest_dir, NULL, undo_redo_done_transfer_callback, action);
-    	g_list_free_full (uris, g_object_unref);
+        g_list_free_full (uris, g_object_unref);
         break;
       }
       case CAJA_UNDOSTACK_CREATEFILEFROMTEMPLATE:
@@ -614,25 +610,11 @@ caja_undostack_manager_undo (CajaUndoStackManager * manager,
           uris = construct_gfile_list (action->destinations, action->dest_dir);
           uris = g_list_reverse (uris); // Deleting must be done in reverse
         }
-        if (priv->confirm_delete) {
-          caja_file_operations_delete (uris, NULL,
-              undo_redo_done_delete_callback, action);
-    	  g_list_free_full (uris, g_object_unref);
-        } else {
-          /* We skip the confirmation message
-           */
-          GList *f;
-          for (f = uris; f != NULL; f = f->next) {
-            char *name;
-            name = g_file_get_uri (f->data);
-            g_free (name);
-            g_file_delete (f->data, NULL, NULL);
-            g_object_unref (f->data);
-          }
-          g_list_free (uris);
-          /* Here we must do what's necessary for the callback */
-          undo_redo_done_transfer_callback (NULL, action);
-        }
+
+        caja_file_operations_delete (uris, NULL,
+            undo_redo_done_delete_callback, action);
+    	g_list_free_full (uris, g_object_unref);
+ 
         break;
       case CAJA_UNDOSTACK_RESTOREFROMTRASH:
         uris = construct_gfile_list (action->destinations, action->dest_dir);
