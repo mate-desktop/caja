@@ -48,6 +48,7 @@ requires:
     # Useful URL: https://src.fedoraproject.org/cgit/rpms/caja.git/
     - git # Required to generate the ChangeLog file
     - gcc
+    - iso-codes-devel
     - make
     - redhat-rpm-config
     # The above packages is installed by 'dnf groupinstall build'
@@ -93,6 +94,20 @@ requires:
 # Uncomment the following lines to get more compile warnings
 variables:
   - CFLAGS="-Wall -Werror=format-security"
+
+before_scripts:
+  # Install mate-desktop from 1.22 branch
+  - cd ${START_DIR}
+  - git clone --depth 1  https://github.com/mate-desktop/mate-desktop.git -b 1.22 mate-desktop-1.22
+  - cd mate-desktop-1.22
+  - ./autogen.sh
+  - if [ ${DISTRO_NAME} == "debian" -o ${DISTRO_NAME} == "ubuntu" ];then
+  -     ./configure --prefix=/usr --libdir=/usr/lib/x86_64-linux-gnu --libexecdir=/usr/lib/x86_64-linux-gnu
+  - else
+  -     ./configure --prefix=/usr
+  - fi
+  - make
+  - make install
 
 after_scripts:
   - make distcheck
