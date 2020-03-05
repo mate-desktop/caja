@@ -109,7 +109,7 @@ struct _CajaUndoStackManagerPrivate
  ***************************************************************** */
 enum
 {
-  PROP_UNDOSTACK_MANAGER_0, PROP_UNDO_LEVELS, PROP_CONFIRM_DELETE
+  PROP_UNDOSTACK_MANAGER_0, PROP_UNDO_LEVELS
 };
 
 static void caja_undostack_manager_set_property (GObject * object,
@@ -212,18 +212,12 @@ static void
 caja_undostack_manager_class_init (CajaUndoStackManagerClass * klass)
 {
   GParamSpec *undo_levels;
-  GParamSpec *confirm_delete;
   GObjectClass *g_object_class;
 
   /* Create properties */
   undo_levels = g_param_spec_uint ("undo-levels", "undo levels",
       "Number of undo levels to be stored",
       1, UINT_MAX, 30, G_PARAM_READWRITE | G_PARAM_CONSTRUCT);
-
-  confirm_delete =
-      g_param_spec_boolean ("confirm-delete", "confirm delete",
-      "Always confirm file deletion", FALSE,
-      G_PARAM_READWRITE | G_PARAM_CONSTRUCT);
 
   /* Set properties get/set methods */
   g_object_class = G_OBJECT_CLASS (klass);
@@ -234,9 +228,6 @@ caja_undostack_manager_class_init (CajaUndoStackManagerClass * klass)
   /* Install properties */
   g_object_class_install_property (g_object_class, PROP_UNDO_LEVELS,
       undo_levels);
-
-  g_object_class_install_property (g_object_class, PROP_CONFIRM_DELETE,
-      confirm_delete);
 
   /* The UI menu needs to update its status */
   g_signal_new ("request-menu-update",
