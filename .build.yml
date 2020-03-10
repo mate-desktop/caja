@@ -55,7 +55,6 @@ requires:
     # Useful URL: https://src.fedoraproject.org/cgit/rpms/caja.git/
     - clang-analyzer
     - clang
-    - cppcheck-htmlreport
     - git
     - gcc
     - make
@@ -131,11 +130,6 @@ before_scripts:
   - chmod +x /usr/bin/gla11y
 
 build_scripts:
-# build failed with f30 und using clang patch, fixed in f30?
-#  - if [ ${DISTRO_NAME} == "fedora" ];then
-#  -     curl -Ls -o fedora.sh https://github.com/mate-desktop/mate-dev-scripts/raw/master/travis/fedora.sh
-#  -     bash ./fedora.sh
-#  - fi
   - ./autogen.sh --enable-empty-view
   - scan-build $CHECKERS ./configure --enable-empty-view
   - if [ $CPU_COUNT -gt 1 ]; then
@@ -148,11 +142,6 @@ build_scripts:
   - fi
 
 after_scripts:
-  - if [ ${DISTRO_NAME} == "fedora" ];then
-  -   cppcheck --xml --output-file=cppcheck.xml --enable=warning,style,performance,portability,information,missingInclude .
-  -   cppcheck-htmlreport --title=${REPO_NAME} --file=cppcheck.xml --report-dir=cppcheck-htmlreport
-  -   ./gen-index -l 20 -i https://github.com/${OWNER_NAME}/mate-icon-theme/raw/master/mate/16x16/apps/system-file-manager.png
-  - fi
   - make distcheck
 
 releases:
