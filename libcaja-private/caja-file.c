@@ -2113,7 +2113,6 @@ update_info_internal (CajaFile *file,
 	int sort_order;
 	time_t atime, mtime, ctime;
 	time_t trash_time;
-	GTimeVal g_trash_time;
 	const char * time_string;
 	const char *symlink_name, *mime_type, *selinux_context, *thumbnail_path;
 	GFileType file_type;
@@ -2489,8 +2488,21 @@ update_info_internal (CajaFile *file,
 	trash_time = 0;
 	time_string = g_file_info_get_attribute_string (info, G_FILE_ATTRIBUTE_TRASH_DELETION_DATE);
 	if (time_string != NULL) {
+#if GLIB_CHECK_VERSION(2,61,2)
+		GDateTime *dt;
+		GTimeZone *tz;
+		tz = g_time_zone_new_local ();
+		dt = g_date_time_new_from_iso8601 (time_string, tz);
+		if (dt) {
+			trash_time = (time_t) g_date_time_to_unix (dt);
+			g_date_time_unref (dt);
+		}
+		g_time_zone_unref (tz);
+#else
+		GTimeVal g_trash_time;
 		g_time_val_from_iso8601 (time_string, &g_trash_time);
 		trash_time = g_trash_time.tv_sec;
+#endif
 	}
 	if (file->details->trash_time != trash_time) {
 		changed = TRUE;
