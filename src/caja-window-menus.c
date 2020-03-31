@@ -574,9 +574,11 @@ action_about_caja_callback (GtkAction *action,
                            "program-name", _("Caja"),
                            "title", _("About Caja"),
                            "version", VERSION,
-                           "comments", _("Caja lets you organize "
-                                         "files and folders, both on "
-                                         "your computer and online."),
+                           "comments", _("Caja is the official file manager for the MATE Desktop Environment. "
+                                         "It allows for browsing directories, as well as previewing files and "
+                                         "launching applications associated with them. It is also responsible "
+                                         "for handling the icons on the MATE desktop. It works on local and "
+                                         "remote filesystems. Caja is a fork of Nautilus."),
                            "copyright", _("Copyright \xC2\xA9 1999-2009 The Nautilus authors\n"
                                           "Copyright \xC2\xA9 2011-2020 The Caja authors"),
                            "license", license_trans,
