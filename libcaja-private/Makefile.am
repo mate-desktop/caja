@@ -6,7 +6,7 @@ AM_CPPFLAGS = \
 	-I$(top_srcdir) \
 	-I$(top_builddir) \
 	$(CORE_CFLAGS) \
-	$(WARNING_CFLAGS) \
+	$(WARN_CFLAGS) \
 	$(DISABLE_DEPRECATED_CFLAGS) \
 	$(TRACKER_CFLAGS) \
 	$(BEAGLE_CFLAGS) \

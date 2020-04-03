@@ -29,6 +29,8 @@ AC_CONFIG_SRCDIR(src)
 AC_CONFIG_HEADERS(config.h)
 AC_CONFIG_MACRO_DIR([m4])
 
+MATE_COMPILE_WARNINGS
+
 AM_INIT_AUTOMAKE([1.9 tar-ustar dist-xz no-dist-gzip check-news])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 AM_MAINTAINER_MODE
@@ -211,53 +213,6 @@ if test "x$enable_packagekit" != "xno"; then
     AC_DEFINE(ENABLE_PACKAGEKIT, 1, [define to enable PackageKit mimetype installer])
 fi
 
-# ==========================================================================
-# Turn on the additional warnings last, so -Werror doesn't affect other tests.
-
-WARNING_CFLAGS=""
-
-AC_ARG_ENABLE(more-warnings,
-AC_HELP_STRING([--enable-more-warnings], [Maximum compiler warnings]),
-set_more_warnings="$enableval",[
-if test -f $srcdir/CVSVERSION; then
-    is_cvs_version=true
-    set_more_warnings=yes
-else
-    set_more_warnings=no
-fi
-])
-AC_MSG_CHECKING(for more warnings, including -Werror)
-if test "$GCC" = "yes" -a "$set_more_warnings" != "no"; then
-    AC_MSG_RESULT(yes)
-    WARNING_CFLAGS="\
-    -Wall \
-    -Wmissing-declarations -Wmissing-prototypes \
-    -Wnested-externs -Wpointer-arith \
-    -Wcast-align \
-    -Werror"
-
-    for option in -Wstrict-aliasing=0 -Wno-pointer-sign; do
-        SAVE_CFLAGS="$CFLAGS"
-        CFLAGS="$CFLAGS $option"
-        AC_MSG_CHECKING([whether gcc understands $option])
-        AC_TRY_COMPILE([], [],
-            has_option=yes,
-            has_option=no,)
-        if test $has_option = yes; then
-            WARNING_CFLAGS="$WARNING_CFLAGS $option"
-        fi
-        AC_MSG_RESULT($has_option)
-        CFLAGS="$SAVE_CFLAGS"
-        unset has_option
-        unset SAVE_CFLAGS
-    done
-    unset option
-else
-    AC_MSG_RESULT(no)
-fi
-
-AC_SUBST(WARNING_CFLAGS)
-
 dnl ==========================================================================
 
 dnl libegg
@@ -348,6 +303,8 @@ caja-$VERSION:
     prefix:                       ${prefix}
     source code location:         ${srcdir}
     compiler:                     ${CC}
+    compiler flags:               ${CFLAGS}
+    warning flags:                ${WARN_CFLAGS}
     xmp support:                  $msg_xmp
     PackageKit support:           $msg_packagekit
     Self check:                   $msg_self_check

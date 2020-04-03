@@ -5,7 +5,7 @@ noinst_LTLIBRARIES=libcaja-file-manager.la
 AM_CPPFLAGS = \
 	-I$(top_srcdir) \
 	$(CORE_CFLAGS) \
-	$(WARNING_CFLAGS) \
+	$(WARN_CFLAGS) \
 	-DCAJA_DATADIR=\""$(datadir)/caja"\" \
 	-DDATADIR=\""$(datadir)"\" \
 	$(DISABLE_DEPRECATED_CFLAGS) \
