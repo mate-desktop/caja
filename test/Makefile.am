@@ -3,7 +3,7 @@ NULL=
 AM_CPPFLAGS =\
 	-I$(top_srcdir) \
 	$(CORE_CFLAGS) \
-	$(WARNING_CFLAGS) \
+	$(WARN_CFLAGS) \
 	-DVERSION="\"$(VERSION)\"" \
 	-DCAJA_DATADIR=\""$(datadir)/caja"\" \
 	-DMATELOCALEDIR=\""$(prefix)/${DATADIRNAME}/locale"\" \

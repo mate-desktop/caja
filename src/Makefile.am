@@ -13,7 +13,7 @@ AM_CPPFLAGS = \
 	-I$(top_srcdir) \
 	-I$(top_builddir)/libcaja-private \
 	$(CORE_CFLAGS) \
-	$(WARNING_CFLAGS) \
+	$(WARN_CFLAGS) \
 	$(EXIF_CFLAGS) \
 	$(EXEMPI_CFLAGS) \
 	-DDATADIR=\""$(datadir)"\" \
