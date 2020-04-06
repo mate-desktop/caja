@@ -1784,6 +1784,7 @@ do_cmdline_sanity_checks (CajaApplication *self,
               gboolean perform_self_check,
               gboolean version,
               gboolean kill_shell,
+              gboolean select_uris,
               gchar **remaining)
 {
     gboolean retval = FALSE;
@@ -1804,6 +1805,12 @@ do_cmdline_sanity_checks (CajaApplication *self,
         remaining != NULL && remaining[0] != NULL && remaining[1] != NULL) {
         g_printerr ("%s\n",
                 _("--geometry cannot be used with more than one URI."));
+        goto out;
+    }
+
+    if (select_uris && remaining == NULL) {
+        g_printerr ("%s\n",
+                _("--select must be used with at least an URI."));
         goto out;
     }
 
@@ -1829,6 +1836,55 @@ do_perform_self_checks (gint *exit_status)
 #endif
 
     *exit_status = EXIT_SUCCESS;
+}
+
+static void
+select_items_ready_cb (GObject *source,
+                       GAsyncResult *res,
+                       gpointer user_data)
+{
+    GDBusConnection *connection = G_DBUS_CONNECTION (source);
+    CajaApplication *self = user_data;
+    GError *error = NULL;
+
+    g_dbus_connection_call_finish (connection, res, &error);
+
+    if (error != NULL) {
+        g_warning ("Unable to select specified URIs %s\n", error->message);
+        g_error_free (error);
+
+        /* open default location instead */
+        g_application_open (G_APPLICATION (self), NULL, 0, "");
+    }
+}
+
+static void
+caja_application_select (CajaApplication *self,
+                         GFile **files,
+                         gint len)
+{
+    GDBusConnection *connection = g_application_get_dbus_connection (G_APPLICATION (self));
+    GVariantBuilder builder;
+    gint idx;
+    gchar *uri;
+
+    g_variant_builder_init (&builder, G_VARIANT_TYPE ("as"));
+    for (idx = 0; idx < len; idx++) {
+        uri = g_file_get_uri (files[idx]);
+        g_variant_builder_add (&builder, "s", uri);
+        g_free (uri);
+    }
+
+    g_dbus_connection_call (connection,
+                            CAJA_FDO_DBUS_NAME,
+                            CAJA_FDO_DBUS_PATH,
+                            CAJA_FDO_DBUS_IFACE,
+                            "ShowItems",
+                            g_variant_new ("(ass)", &builder, ""), NULL,
+                            G_DBUS_CALL_FLAGS_NONE, G_MAXINT, NULL,
+                            select_items_ready_cb, self);
+
+    g_variant_builder_clear (&builder);
 }
 
 static gboolean
@@ -1857,6 +1913,7 @@ caja_application_local_command_line (GApplication *application,
     gboolean kill_shell = FALSE;
     const gchar *autostart_id;
     gboolean no_default_window = FALSE;
+    gboolean select_uris = FALSE;
     gchar **remaining = NULL;
     CajaApplication *self = CAJA_APPLICATION (application);
 
@@ -1885,6 +1942,8 @@ caja_application_local_command_line (GApplication *application,
           N_("Open a browser window."), NULL },
         { "quit", 'q', 0, G_OPTION_ARG_NONE, &kill_shell,
           N_("Quit Caja."), NULL },
+        { "select", 's', 0, G_OPTION_ARG_NONE, &select_uris,
+          N_("Select specified URI in parent folder."), NULL },
         { G_OPTION_REMAINING, 0, 0, G_OPTION_ARG_STRING_ARRAY, &remaining, NULL,  N_("[URI...]") },
 
         { NULL }
@@ -1930,7 +1989,7 @@ caja_application_local_command_line (GApplication *application,
     }
 
     if (!do_cmdline_sanity_checks (self, perform_self_check,
-                       version, kill_shell, remaining)) {
+                                   version, kill_shell, select_uris, remaining)) {
         *exit_status = EXIT_FAILURE;
         goto out;
     }
@@ -1993,7 +2052,7 @@ caja_application_local_command_line (GApplication *application,
         g_strfreev (remaining);
     }
 
-    if (files == NULL && !no_default_window) {
+    if (files == NULL && !no_default_window && !select_uris) {
         files = g_malloc0 (2 * sizeof (GFile *));
         len = 1;
 
@@ -2001,9 +2060,15 @@ caja_application_local_command_line (GApplication *application,
         files[1] = NULL;
     }
 
-    /*Set up --geometry, --browser and --tabs options  */
-    /*Invoke "Open" to create new windows */
-    if (len > 0)  {
+    if (len == 0) {
+        goto out;
+    }
+
+    if (select_uris) {
+        caja_application_select (self, files, len);
+    } else {
+        /*Set up --geometry, --browser and --tabs options  */
+        /*Invoke "Open" to create new windows */
         gchar* concatOptions = g_malloc0(64);
         if (self->priv->geometry == NULL) {
             g_snprintf (concatOptions, 64, "%d=NULL=%d", browser_window, open_in_tabs);
