@@ -218,8 +218,9 @@ caja_application_smclient_startup (CajaApplication *self)
 }
 
 static void
-caja_empty_callback_to_ensure_read() {
+caja_empty_callback_to_ensure_read (CajaApplication *self) {
 /*do nothing, just exist to suppress runtime error*/
+    (void) self;
 }
 
 static void
