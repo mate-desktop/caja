@@ -229,7 +229,7 @@ status_icon_activate_cb (GtkStatusIcon *icon,
 
 /* Creates a Singleton progress_window */
 static GtkWidget *
-get_progress_window ()
+get_progress_window (void)
 {
     static GtkWidget *progress_window = NULL;
     GtkWidget *vbox;
@@ -350,7 +350,7 @@ update_data (ProgressWidgetData *data)
 
 /* You should always check return value */
 static GtkWidget *
-get_widgets_container ()
+get_widgets_container (void)
 {
     GtkWidget * window = get_progress_window ();
     return gtk_bin_get_child (GTK_BIN (window));
@@ -366,7 +366,7 @@ foreach_get_running_operations (GtkWidget * widget, int * n)
 }
 
 static int
-get_running_operations ()
+get_running_operations (void)
 {
     GtkWidget * container = get_widgets_container();
     int n = 0;
@@ -391,7 +391,7 @@ foreach_get_queued_widget (GtkWidget * widget, GtkWidget ** out)
 }
 
 static GtkWidget *
-get_first_queued_widget ()
+get_first_queued_widget (void)
 {
     GtkWidget * container = get_widgets_container();
     GtkWidget * out = NULL;
@@ -534,7 +534,7 @@ widget_reposition_as_running (GtkWidget * widget)
     }
 }
 
-static void update_queue ();
+static void update_queue (void);
 
 static void
 widget_state_transit_to (ProgressWidgetData *data,
@@ -566,7 +566,7 @@ widget_state_transit_to (ProgressWidgetData *data,
 }
 
 static void
-update_queue ()
+update_queue (void)
 {
     if (get_running_operations () == 0) {
         GtkWidget *next;
