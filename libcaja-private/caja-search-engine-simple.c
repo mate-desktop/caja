@@ -342,7 +342,7 @@ file_has_all_tags (GFileInfo *info, GList *tags)
 }
 
 static inline gboolean
-check_odt2txt () {
+check_odt2txt (void) {
     gboolean rc = TRUE;
     int exit = 0;
     gchar *output = NULL;
