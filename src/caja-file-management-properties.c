@@ -726,21 +726,19 @@ extension_list_selection_changed_configure (GtkTreeSelection *selection, GtkButt
 static void
 extension_state_toggled (GtkCellRendererToggle *cell, gchar *path_str, gpointer data)
 {
-	GtkTreeIter iter;
-	GtkTreePath *path;
-	GtkTreeModel *model;
+    GtkTreeIter iter;
+    GtkTreePath *path;
+    GtkTreeModel *model;
     gboolean new_state;
     Extension *ext;
 
-	path = gtk_tree_path_new_from_string (path_str);
-	model = gtk_tree_view_get_model (GTK_TREE_VIEW (data));
+    path = gtk_tree_path_new_from_string (path_str);
+    model = gtk_tree_view_get_model (GTK_TREE_VIEW (data));
 
     g_object_get (G_OBJECT (cell), "active", &new_state, NULL);
-    gtk_tree_model_get_iter_from_string (model, &iter, path_str);
-
     new_state ^= 1;
 
-	if (&iter != NULL)
+    if (gtk_tree_model_get_iter_from_string (model, &iter, path_str))
     {
         gtk_tree_model_get (model, &iter, EXT_STRUCT_COLUMN, &ext, -1);
 
