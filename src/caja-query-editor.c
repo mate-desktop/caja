@@ -485,7 +485,7 @@ tags_row_free_data (CajaQueryEditorRow *row)
 {
 }
 
-gchar *
+static gchar *
 xattr_tags_list_to_str (const GList *tags)
 {
     gchar *result = NULL;

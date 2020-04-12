@@ -119,7 +119,7 @@ struct _CajaApplicationPrivate {
 
 G_DEFINE_TYPE_WITH_PRIVATE (CajaApplication, caja_application, GTK_TYPE_APPLICATION);
 
-GList *
+static GList *
 caja_application_get_spatial_window_list (void)
 {
     return caja_application_spatial_window_list;
@@ -210,7 +210,7 @@ caja_application_smclient_initialize (CajaApplication *self)
     /* TODO: Should connect to quit_requested and block logout on active transfer? */
 }
 
-void
+static void
 caja_application_smclient_startup (CajaApplication *self)
 {
     g_assert (self->smclient == NULL);
@@ -726,7 +726,7 @@ caja_application_create_desktop_windows (CajaApplication *application)
     }
 }
 
-void
+static void
 caja_application_open_desktop (CajaApplication *application)
 {
     if (caja_application_desktop_windows == NULL)

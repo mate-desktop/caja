@@ -3661,7 +3661,7 @@ caja_file_is_hidden_file (CajaFile *file)
 	return file->details->is_hidden;
 }
 
-gboolean
+static gboolean
 caja_file_is_backup_file (CajaFile *file)
 {
 	return file->details->is_backup;
