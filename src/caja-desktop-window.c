@@ -42,6 +42,8 @@
 
 /* Tell screen readers that this is a desktop window */
 
+static GType caja_desktop_window_accessible_get_type (void);
+
 G_DEFINE_TYPE (CajaDesktopWindowAccessible, caja_desktop_window_accessible,
                GTK_TYPE_WINDOW_ACCESSIBLE);
 
