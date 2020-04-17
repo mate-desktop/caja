@@ -19,8 +19,8 @@ requires:
     - libsm
     - mate-common
     - mate-desktop
-    - xorgproto
     - which
+    - xorgproto
 
   debian:
     # Useful URL: https://github.com/mate-desktop/debian-packages
@@ -47,10 +47,12 @@ requires:
     - libstartup-notification0-dev
     - libx11-dev
     - libxml2-dev
+    - mate-desktop
     - mate-common
     - python3-lxml
     - quilt
     - shared-mime-info
+    - xvfb
 
   fedora:
     # Useful URL: https://src.fedoraproject.org/cgit/rpms/caja.git/
@@ -169,6 +171,10 @@ after_scripts:
   -   cppcheck --xml --output-file=cppcheck.xml --enable=warning,style,performance,portability,information,missingInclude .
   -   cppcheck-htmlreport --title=${REPO_NAME} --file=cppcheck.xml --report-dir=cppcheck-htmlreport
   -   ./gen-index -l 20 -i https://github.com/${OWNER_NAME}/mate-icon-theme/raw/master/mate/16x16/apps/system-file-manager.png
+  - fi
+  - if [ ${DISTRO_NAME} == "debian" ];then
+  -     make install
+  -     if xvfb-run make check; then :; else cat eel/test-suite.log; cat src/test-suite.log; false; fi
   - fi
   - make distcheck
 
