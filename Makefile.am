@@ -27,6 +27,7 @@ DISTCHECK_CONFIGURE_FLAGS = \
 	--disable-icon-update \
 	--enable-gtk-doc \
 	--disable-self-check \
+	--enable-compile-warnings=no \
 	CFLAGS='-Wno-deprecated-declarations'
 
 ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
