@@ -4294,7 +4294,8 @@ copy_move_file (CopyMoveJob *copy_job,
 			g_hash_table_replace (debuting_files, g_object_ref (dest), GINT_TO_POINTER (TRUE));
 		}
 		if (copy_job->is_move) {
-			caja_file_changes_queue_file_moved (src, dest);
+			caja_file_changes_queue_file_removed (src);
+			caja_file_changes_queue_file_added (dest);
 		} else {
 			caja_file_changes_queue_file_added (dest);
 		}
@@ -4917,7 +4918,8 @@ move_file_prepare (CopyMoveJob *move_job,
 			g_hash_table_replace (debuting_files, g_object_ref (dest), GINT_TO_POINTER (TRUE));
 		}
 
-		caja_file_changes_queue_file_moved (src, dest);
+		caja_file_changes_queue_file_removed (src);
+		caja_file_changes_queue_file_added (dest);
 
 		if (position) {
 			caja_file_changes_queue_schedule_position_set (dest, *position, job->screen_num);
