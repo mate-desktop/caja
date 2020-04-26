@@ -12,6 +12,7 @@ bin_PROGRAMS = \
 AM_CPPFLAGS = \
 	-I$(top_srcdir) \
 	-I$(top_builddir)/libcaja-private \
+	-I$(top_srcdir)/mate-submodules \
 	$(CORE_CFLAGS) \
 	$(WARN_CFLAGS) \
 	$(EXIF_CFLAGS) \

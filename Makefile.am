@@ -4,7 +4,7 @@ SUBDIRS = \
 	po \
 	eel \
 	libcaja-extension \
-	libegg \
+	mate-submodules \
 	libcaja-private \
 	src \
 	test \
