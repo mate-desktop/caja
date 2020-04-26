@@ -22,7 +22,7 @@ BUILT_SOURCES = \
 	$(NULL)
 
 dependency_static_libs = \
-	$(top_builddir)/libegg/libegg.la \
+	$(top_builddir)/mate-submodules/libegg/libegg.la \
 	$(NULL)
 
 libcaja_private_la_LDFLAGS = \

@@ -4,6 +4,7 @@ noinst_LTLIBRARIES=libcaja-file-manager.la
 
 AM_CPPFLAGS = \
 	-I$(top_srcdir) \
+	-I$(top_srcdir)/mate-submodules \
 	$(CORE_CFLAGS) \
 	$(WARN_CFLAGS) \
 	-DCAJA_DATADIR=\""$(datadir)/caja"\" \

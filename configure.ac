@@ -274,7 +274,8 @@ AM_CONDITIONAL([ICON_UPDATE], [test -n "$UPDATE_ICON_CACHE"])
 
 AC_CONFIG_FILES([
 Makefile
-libegg/Makefile
+mate-submodules/Makefile
+mate-submodules/libegg/Makefile
 data/Makefile
 data/icons/Makefile
 data/patterns/Makefile
