@@ -1530,7 +1530,7 @@ void
 eel_labeled_image_set_selected (EelLabeledImage *labeled_image,
                                 gboolean selected)
 {
-    GtkStateType state;
+    GtkStateFlags state;
     g_return_if_fail (EEL_IS_LABELED_IMAGE (labeled_image));
 
     state = selected ? GTK_STATE_FLAG_SELECTED : GTK_STATE_FLAG_NORMAL;

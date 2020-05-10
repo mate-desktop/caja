@@ -94,8 +94,8 @@ static void     eel_editable_label_get_preferred_height    (GtkWidget           
 
 static void     eel_editable_label_size_allocate           (GtkWidget             *widget,
         GtkAllocation         *allocation);
-static void     eel_editable_label_state_changed           (GtkWidget             *widget,
-        GtkStateType           state);
+static void     eel_editable_label_state_flags_changed     (GtkWidget             *widget,
+        GtkStateFlags          state);
 
 static void     eel_editable_label_style_updated           (GtkWidget             *widget);
 
@@ -239,7 +239,7 @@ eel_editable_label_class_init (EelEditableLabelClass *class)
     widget_class->get_preferred_width = eel_editable_label_get_preferred_width;
     widget_class->get_preferred_height = eel_editable_label_get_preferred_height;
     widget_class->size_allocate = eel_editable_label_size_allocate;
-    widget_class->state_changed = eel_editable_label_state_changed;
+    widget_class->state_flags_changed = eel_editable_label_state_flags_changed;
     widget_class->style_updated = eel_editable_label_style_updated;
     widget_class->direction_changed = eel_editable_label_direction_changed;
     widget_class->draw = eel_editable_label_draw;
@@ -1211,8 +1211,8 @@ eel_editable_label_size_allocate (GtkWidget     *widget,
 }
 
 static void
-eel_editable_label_state_changed (GtkWidget   *widget,
-                                  GtkStateType prev_state)
+eel_editable_label_state_flags_changed (GtkWidget    *widget,
+                                        GtkStateFlags prev_state)
 {
     EelEditableLabel *label;
 
@@ -1222,8 +1222,8 @@ eel_editable_label_state_changed (GtkWidget   *widget,
     if (!gtk_widget_is_sensitive (widget))
         eel_editable_label_select_region (label, 0, 0);
 
-    if (GTK_WIDGET_CLASS (eel_editable_label_parent_class)->state_changed)
-        GTK_WIDGET_CLASS (eel_editable_label_parent_class)->state_changed (widget, prev_state);
+    if (GTK_WIDGET_CLASS (eel_editable_label_parent_class)->state_flags_changed)
+        GTK_WIDGET_CLASS (eel_editable_label_parent_class)->state_flags_changed (widget, prev_state);
 }
 
 static void
@@ -1578,7 +1578,7 @@ eel_editable_label_draw (GtkWidget *widget,
         {
             gint range[2];
             cairo_region_t *clip;
-            GtkStateType state;
+            GtkStateFlags state;
 
             GdkRGBA background_color;
             GdkRGBA *c;
