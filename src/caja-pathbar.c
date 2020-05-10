@@ -127,8 +127,8 @@ static gboolean caja_path_bar_slider_button_release    (GtkWidget       *widget,
         CajaPathBar *path_bar);
 static void     caja_path_bar_grab_notify              (GtkWidget       *widget,
         gboolean         was_grabbed);
-static void     caja_path_bar_state_changed            (GtkWidget       *widget,
-        GtkStateType     previous_state);
+static void     caja_path_bar_state_flags_changed      (GtkWidget       *widget,
+        GtkStateFlags    previous_state);
 
 static void     caja_path_bar_style_updated            (GtkWidget       *widget);
 
@@ -401,7 +401,7 @@ caja_path_bar_class_init (CajaPathBarClass *path_bar_class)
 
     widget_class->screen_changed = caja_path_bar_screen_changed;
     widget_class->grab_notify = caja_path_bar_grab_notify;
-    widget_class->state_changed = caja_path_bar_state_changed;
+    widget_class->state_flags_changed = caja_path_bar_state_flags_changed;
     widget_class->scroll_event = caja_path_bar_scroll;
 
     container_class->add = caja_path_bar_add;
@@ -1238,8 +1238,8 @@ caja_path_bar_grab_notify (GtkWidget *widget,
 }
 
 static void
-caja_path_bar_state_changed (GtkWidget    *widget,
-                             GtkStateType  previous_state)
+caja_path_bar_state_flags_changed (GtkWidget     *widget,
+                                   GtkStateFlags  previous_state)
 {
     if (!gtk_widget_get_sensitive (widget))
     {
