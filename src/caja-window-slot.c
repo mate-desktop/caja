@@ -384,34 +384,40 @@ caja_window_slot_update_icon (CajaWindowSlot *slot)
     icon_name = NULL;
     if (info)
     {
+        GtkWindow *gtk_window = GTK_WINDOW (window);
+
         icon_name = caja_icon_info_get_used_name (info);
         if (icon_name != NULL)
         {
+            /* frees the icon if it was previously set by using a pixbuf */
+            if (gtk_window_get_icon (gtk_window))
+                gtk_window_set_icon_list (gtk_window, NULL);
+
             /* Gtk+ doesn't short circuit this (yet), so avoid lots of work
              * if we're setting to the same icon. This happens a lot e.g. when
              * the trash directory changes due to the file count changing.
              */
-            if (g_strcmp0 (icon_name, gtk_window_get_icon_name (GTK_WINDOW (window))) != 0)
+            const gchar *current_icon_name;
+
+            current_icon_name = gtk_window_get_icon_name (gtk_window);
+            if ((current_icon_name == NULL) || (strcmp (icon_name, current_icon_name) != 0))
             {
-                if (g_strcmp0 (icon_name, "text-x-generic") == 0)
-                    gtk_window_set_icon_name (GTK_WINDOW (window), "folder-saved-search");
+                if (strcmp (icon_name, "text-x-generic") == 0)
+                    gtk_window_set_icon_name (gtk_window, "folder-saved-search");
                 else
-                    gtk_window_set_icon_name (GTK_WINDOW (window), icon_name);
+                    gtk_window_set_icon_name (gtk_window, icon_name);
             }
         }
         else
         {
-            GdkPixbuf *pixbuf;
-
-            pixbuf = caja_icon_info_get_pixbuf_nodefault (info);
+            GdkPixbuf *pixbuf = caja_icon_info_get_pixbuf_nodefault (info);
 
             if (pixbuf)
             {
-                gtk_window_set_icon (GTK_WINDOW (window), pixbuf);
+                gtk_window_set_icon (gtk_window, pixbuf);
                 g_object_unref (pixbuf);
             }
         }
-
         g_object_unref (info);
     }
 }
