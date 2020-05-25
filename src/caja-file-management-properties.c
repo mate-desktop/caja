@@ -198,29 +198,6 @@ enum
 static void caja_file_management_properties_dialog_update_media_sensitivity (GtkBuilder *builder);
 
 static void
-caja_file_management_properties_size_group_create (GtkBuilder *builder,
-        char *prefix,
-        int items)
-{
-    GtkSizeGroup *size_group;
-    int i;
-    GtkWidget *widget = NULL;
-
-    size_group = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL);
-
-    for (i = 0; i < items; i++)
-    {
-        char *item_name;
-
-        item_name = g_strdup_printf ("%s_%d", prefix, i);
-        widget = GTK_WIDGET (gtk_builder_get_object (builder, item_name));
-        gtk_size_group_add_widget (size_group, widget);
-        g_free (item_name);
-    }
-    g_object_unref (G_OBJECT (size_group));
-}
-
-static void
 preferences_show_help (GtkWindow *parent,
                        char const *helpfile,
                        char const *sect_id)
@@ -1132,15 +1109,6 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
     GtkWidget *dialog;
 
     /* setup UI */
-    caja_file_management_properties_size_group_create (builder,
-            "views_label",
-            5);
-    caja_file_management_properties_size_group_create (builder,
-            "captions_label",
-            3);
-    caja_file_management_properties_size_group_create (builder,
-            "preview_label",
-            5);
     create_date_format_menu (builder);
 
     /* setup preferences */
