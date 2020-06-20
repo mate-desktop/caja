@@ -4196,6 +4196,10 @@ copy_move_file (CopyMoveJob *copy_job,
 		goto out;
 	}
 
+	/* Timer was already running from g_timer_new()...
+	 * Restart now that we are actually moving or copying
+	 */
+	g_timer_start( job->time );
 
  retry:
 	error = NULL;
