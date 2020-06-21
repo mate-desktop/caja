@@ -339,7 +339,7 @@ msgstr ""
 
 #: data/caja-autorun-software.desktop.in.in:3
 msgid "Autorun Prompt"
-msgstr "Pregunta de autoejecución"
+msgstr "Diálogo de ejecución automática"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon
 #. file name)!
@@ -1576,7 +1576,7 @@ msgstr " (%'d"
 
 #: libcaja-private/caja-file-operations.c:1370
 msgid "Are you sure you want to permanently delete \"%B\" from the trash?"
-msgstr "¿Seguro que quiere eliminar permanentemente a «%B» de la papelera?"
+msgstr "¿Seguro que quiere eliminar permanentemente «%B» de la papelera?"
 
 #: libcaja-private/caja-file-operations.c:1373
 #, c-format
@@ -1600,11 +1600,11 @@ msgstr "Si elimina un elemento, se perderá para siempre."
 
 #: libcaja-private/caja-file-operations.c:1403
 msgid "Empty all items from Trash?"
-msgstr "¿Eliminar todos los elementos en la papelera?"
+msgstr "¿Eliminar todos los elementos de la papelera?"
 
 #: libcaja-private/caja-file-operations.c:1407
 msgid "All items in the Trash will be permanently deleted."
-msgstr "Se eliminarán permanentemente todos los elementos en la papelera."
+msgstr "Se eliminarán permanentemente todos los elementos de la papelera."
 
 #: libcaja-private/caja-file-operations.c:1410
 #: libcaja-private/caja-file-operations.c:2347 src/caja-places-sidebar.c:2791
@@ -1628,7 +1628,7 @@ msgstr[1] ""
 
 #: libcaja-private/caja-file-operations.c:1479
 msgid "Are you sure you want to trash \"%B\"?"
-msgstr "¿Seguro que quiere enviar «%B» a la papelera?"
+msgstr "¿Seguro que quiere mover «%B» a la papelera?"
 
 #: libcaja-private/caja-file-operations.c:1482
 #, c-format
@@ -1636,17 +1636,17 @@ msgid "Are you sure you want to trash the %'d selected item?"
 msgid_plural "Are you sure you want to trash the %'d selected items?"
 msgstr[0] "¿Seguro que quiere enviar el elemento seleccionado a la papelera?"
 msgstr[1] ""
-"¿Seguro que quiere enviar los %'d elementos seleccionados a la papelera?"
+"¿Seguro que quiere mover los %'d elementos seleccionados a la papelera?"
 
 #: libcaja-private/caja-file-operations.c:1491
 msgid "Items moved to the trash may be recovered until the trash is emptied."
 msgstr ""
-"Los elementos enviados a la papelera pueden recuperarse hasta que se vacíe "
-"esta."
+"Los elementos movidos a la papelera pueden recuperarse hasta que se vacíe la"
+" papelera."
 
 #: libcaja-private/caja-file-operations.c:1494
 msgid "Move to _Trash"
-msgstr "Enviar a la _papelera"
+msgstr "Mover a la _papelera"
 
 #: libcaja-private/caja-file-operations.c:1524
 #, c-format
@@ -1733,7 +1733,7 @@ msgstr[1] "quedan %'d archivos por mover a la papelera"
 #: libcaja-private/caja-file-operations.c:1904
 msgid "Cannot move file to trash, do you want to delete immediately?"
 msgstr ""
-"No puede mover el archivo a la papelera. ¿Quiere eliminarlo inmediatamente?"
+"No puede mover el archivo a la papelera. ¿Quiere eliminarlo permanentemente?"
 
 #: libcaja-private/caja-file-operations.c:1905
 msgid "The file \"%B\" cannot be moved to the trash."
@@ -1773,8 +1773,8 @@ msgid ""
 "In order to regain the free space on this volume the trash must be emptied. "
 "All trashed items on the volume will be permanently lost."
 msgstr ""
-"Con el fin de recuperar el espacio libre en este volumen la papelera debe "
-"vaciarse. Todos los elementos de la papelera se perderán permanentemente."
+"Para recuperar el espacio libre en este volumen, hay que vaciar la papelera."
+" Todos los elementos de la papelera del volumen se perderán permanentemente."
 
 #: libcaja-private/caja-file-operations.c:2341
 msgid "Do _not Empty Trash"
@@ -2090,7 +2090,7 @@ msgstr[1] "Creando enlaces hacia %'d archivos"
 
 #: libcaja-private/caja-file-operations.c:5468
 msgid "Error while creating link to %B."
-msgstr "Se ha producido un error al crear el enlace hacia %B."
+msgstr "Se ha producido un error al crear el enlace a %B."
 
 #: libcaja-private/caja-file-operations.c:5470
 msgid "Symbolic links only supported for local files"
@@ -2150,7 +2150,7 @@ msgstr "No se ha podido determinar la ubicación original de «%s» "
 
 #: libcaja-private/caja-file-utilities.c:1240
 msgid "The item cannot be restored from trash"
-msgstr "No se puede restaurar el elemento desde la papelera"
+msgstr "No se puede restaurar el elemento de la papelera"
 
 #: libcaja-private/caja-icon-container.c:2933
 msgid "The selection rectangle"
@@ -2347,7 +2347,7 @@ msgstr "No hay ninguna aplicación seleccionada"
 #: libcaja-private/caja-mime-application-chooser.c:591
 #, c-format
 msgid "%s document"
-msgstr "documento %s"
+msgstr "Documento %s"
 
 #: libcaja-private/caja-mime-application-chooser.c:601
 #: libcaja-private/caja-open-with-dialog.c:1104
@@ -2512,7 +2512,7 @@ msgstr "Se ha desactivado debido a consideraciones de seguridad."
 #: libcaja-private/caja-program-choosing.c:477
 #: libcaja-private/caja-program-choosing.c:547
 msgid "There was an error launching the application."
-msgstr "Se ha producido un error al iniciar la aplicación."
+msgstr "Se ha producido un error al iniciarse la aplicación."
 
 #: libcaja-private/caja-program-choosing.c:506
 #: libcaja-private/caja-program-choosing.c:519
@@ -2623,12 +2623,12 @@ msgstr "Eliminar %d elementos duplicados"
 #: libcaja-private/caja-undostack-manager.c:1260
 #, c-format
 msgid "Move %d items back to '%s'"
-msgstr "Mover elemento %d a «%s»"
+msgstr "Mover %d elementos de vuelta a «%s»"
 
 #: libcaja-private/caja-undostack-manager.c:1264
 #, c-format
 msgid "Move '%s' back to '%s'"
-msgstr "Devolver «%s» a «%s»"
+msgstr "Mover «%s» de vuelta a «%s»"
 
 #: libcaja-private/caja-undostack-manager.c:1273
 #: libcaja-private/caja-undostack-manager.c:1440
@@ -2650,12 +2650,12 @@ msgstr "Restaurar «%s» a «%s»"
 #: libcaja-private/caja-undostack-manager.c:1311
 #, c-format
 msgid "Move %d items back to trash"
-msgstr "Devolver %d elementos a la papelera"
+msgstr "Mover %d elementos de vuelta a la papelera"
 
 #: libcaja-private/caja-undostack-manager.c:1314
 #, c-format
 msgid "Move '%s' back to trash"
-msgstr "Enviar «%s» a la papelera"
+msgstr "Mover «%s» de vuelta a la papelera"
 
 #: libcaja-private/caja-undostack-manager.c:1323
 #, c-format
@@ -3048,16 +3048,15 @@ msgstr ""
 #: libcaja-private/org.mate.caja.gschema.xml:101
 msgid "Whether to ask for confirmation when deleting files, or emptying Trash"
 msgstr ""
-"Si se debe solicitar una confirmación al eliminar archivos o vaciar la "
-"papelera"
+"Si se debe solicitar confirmación al eliminar archivos o vaciar la papelera"
 
 #: libcaja-private/org.mate.caja.gschema.xml:102
 msgid ""
 "If set to true, then Caja will ask for confirmation when you attempt to "
 "delete files, or empty the Trash."
 msgstr ""
-"Si se activa, Caja solicitará una confirmación cuando intente eliminar "
-"archivos o vaciar la papelera."
+"Si se activa, Caja solicitará confirmación cuando intente eliminar archivos "
+"o vaciar la papelera."
 
 #: libcaja-private/org.mate.caja.gschema.xml:106
 msgid "Whether to ask for confirmation when moving files to the Trash"
@@ -3081,9 +3080,9 @@ msgid ""
 "immediately and in-place, instead of moving it to the trash. This feature "
 "can be dangerous, so use caution."
 msgstr ""
-"Si se activa, Caja tendrá una opción que le permitirá eliminar un archivo "
-"inmediatamente en vez de moverlo a la papelera. Esta característica puede "
-"ser peligrosa, así que úsela con cuidado."
+"Si se activa, Caja tendrá le permitirá eliminar un archivo permanentemente "
+"en vez de moverlo a la papelera. Esta característica puede ser peligrosa, "
+"así que úsela con cuidado."
 
 #: libcaja-private/org.mate.caja.gschema.xml:117
 msgid "When to show preview text in icons"
@@ -3663,8 +3662,8 @@ msgid ""
 "If this is set to true, an icon linking to the trash will be put on the "
 "desktop."
 msgstr ""
-"Si se ha activado esta clave, se colocará en el escritorio un icono que "
-"enlaza con la papelera."
+"Si se activa esta clave, se colocará en el escritorio un icono que enlaza "
+"con la papelera."
 
 #: libcaja-private/org.mate.caja.gschema.xml:395
 msgid "Show mounted volumes on the desktop"
@@ -3870,7 +3869,7 @@ msgstr ""
 #: libcaja-private/org.mate.media-handling.gschema.xml:15
 msgid "Never prompt or autorun/autostart programs when media are inserted"
 msgstr ""
-"No preguntar ni ejecutar automáticamente programas cuando se insertan "
+"No solicitar ni ejecutar automáticamente programas cuando se insertan "
 "soportes"
 
 #: libcaja-private/org.mate.media-handling.gschema.xml:16
@@ -3878,7 +3877,7 @@ msgid ""
 "If set to true, then Caja will never prompt nor autorun/autostart programs "
 "when a medium is inserted."
 msgstr ""
-"Si se activa, Caja nunca preguntará ni ejecutará automáticamente programas "
+"Si se activa, Caja nunca solicitará ni ejecutará automáticamente programas "
 "cuando se inserte un soporte."
 
 #: libcaja-private/org.mate.media-handling.gschema.xml:20
@@ -3912,7 +3911,7 @@ msgid ""
 msgstr ""
 "Lista de los tipos de contenido (x-content/*) para los cuales el usuario ha "
 "elegido «No hacer nada» en la miniaplicación de preferencias. No se "
-"preguntará ni se iniciará ninguna aplicación al insertar los soportes que "
+"solicitará ni se iniciará ninguna aplicación al insertar los soportes que "
 "coincidan con estos tipos."
 
 #: libcaja-private/org.mate.media-handling.gschema.xml:30
@@ -4104,7 +4103,7 @@ msgstr ""
 
 #: src/caja-autorun-software.c:169
 msgid "Cannot find the autorun program"
-msgstr "No se puede encontrar el programa de autoejecución"
+msgstr "No se puede encontrar el programa de ejecución automática"
 
 #: src/caja-autorun-software.c:190
 msgid "<big><b>Error autorunning software</b></big>"
@@ -4368,7 +4367,7 @@ msgid ""
 "Enter a descriptive name next to the emblem.  This name will be used in "
 "other places to identify the emblem."
 msgstr ""
-"Introduzca un nombre descriptivo junto al emblema. Este nombre se usará en "
+"Escriba un nombre descriptivo junto al emblema. Este nombre se usará en "
 "otros lugares para identificar al emblema."
 
 #: src/caja-emblem-sidebar.c:818
@@ -4708,7 +4707,7 @@ msgstr "Pregun_tar antes de mover archivos a la papelera"
 
 #: src/caja-file-management-properties.ui:1204
 msgid "I_nclude a Delete command that bypasses Trash"
-msgstr "_Incluir una orden «Eliminar» que no utilice la papelera"
+msgstr "_Incluir una orden «Eliminar» que no use la papelera"
 
 #: src/caja-file-management-properties.ui:1242
 msgid "Behavior"
@@ -4724,7 +4723,7 @@ msgid ""
 "information will appear when zooming in closer."
 msgstr ""
 "Seleccione el orden en que la información aparecerá debajo de los nombres de"
-" los iconos. Aparecerá más información cuando aumente la ampliación."
+" los iconos. Aparecerá más información al aumentar la ampliación."
 
 #: src/caja-file-management-properties.ui:1427
 msgid "<b>Date</b>"
@@ -4847,7 +4846,7 @@ msgstr "_Tipo:"
 
 #: src/caja-file-management-properties.ui:2452
 msgid "_Never prompt or start programs on media insertion"
-msgstr "_Nunca preguntar ni iniciar programas al insertar soportes"
+msgstr "_Nunca solicitar ni iniciar programas al insertar soportes"
 
 #: src/caja-file-management-properties.ui:2467
 msgid "B_rowse media when inserted"
@@ -5885,7 +5884,7 @@ msgstr ""
 #: src/caja-trash-bar.c:202 src/file-manager/fm-desktop-icon-view.c:785
 #: src/file-manager/fm-directory-view.c:7448
 msgid "Delete all items in the Trash"
-msgstr "Elimina todos los elementos en la papelera"
+msgstr "Eliminar todos los elementos de la papelera"
 
 #: src/caja-trash-bar.c:209
 msgid "Restore Selected Items"
@@ -6180,7 +6179,7 @@ msgstr "_Papelera"
 
 #: src/caja-window-menus.c:955
 msgid "Open your personal trash folder"
-msgstr "Abrir su carpeta de papelera personal"
+msgstr "Abrir la papelera de la carpeta personal"
 
 #: src/caja-window-menus.c:963
 msgid "Show _Hidden Files"
@@ -6328,7 +6327,7 @@ msgstr "La vista de escritorio ha encontrado un error."
 
 #: src/file-manager/fm-desktop-icon-view.c:889
 msgid "The desktop view encountered an error while starting up."
-msgstr "Se ha detectado un error al iniciarse la vista de escritorio."
+msgstr "Se ha producido un error al iniciarse la vista de escritorio."
 
 #: src/file-manager/fm-desktop-icon-view.c:890
 msgid "Display this location with the desktop view."
@@ -6790,7 +6789,7 @@ msgstr "Mover cada elemento seleccionado a la papelera"
 
 #: src/file-manager/fm-directory-view.c:7504
 msgid "Delete each selected item, without moving to the Trash"
-msgstr "Elimina cada elemento seleccionado, sin moverlo a la papelera"
+msgstr "Eliminar cada elemento seleccionado, sin moverlo a la papelera"
 
 #: src/file-manager/fm-directory-view.c:7507
 #: src/file-manager/fm-directory-view.c:7639
@@ -7184,7 +7183,7 @@ msgstr "_Eliminar permanentemente"
 
 #: src/file-manager/fm-directory-view.c:8767
 msgid "Delete the open folder permanently"
-msgstr "Elimina la carpeta abierta permanentemente"
+msgstr "Eliminar permanentemente la carpeta abierta"
 
 #: src/file-manager/fm-directory-view.c:8771
 msgid "Move the open folder to the Trash"
@@ -7225,7 +7224,7 @@ msgstr[1] "Navegar en %'d pesta_ñas nuevas"
 
 #: src/file-manager/fm-directory-view.c:9111
 msgid "Delete all selected items permanently"
-msgstr "Elimina permanentemente todos los elementos seleccionados"
+msgstr "Eliminar permanentemente todos los elementos seleccionados"
 
 #: src/file-manager/fm-directory-view.c:9171
 msgid "View or modify the properties of the open folder"
@@ -7598,7 +7597,7 @@ msgstr "La vista de iconos ha encontrado un error."
 
 #: src/file-manager/fm-icon-view.c:3440
 msgid "The icon view encountered an error while starting up."
-msgstr "Se ha detectado un error al iniciarse la vista de iconos."
+msgstr "Se ha producido un error al iniciarse la vista de iconos."
 
 #: src/file-manager/fm-icon-view.c:3441
 msgid "Display this location with the icon view."
@@ -7611,11 +7610,11 @@ msgstr "Co_mpacta"
 
 #: src/file-manager/fm-icon-view.c:3454
 msgid "The compact view encountered an error."
-msgstr "La vista compacta ha encontrado un error."
+msgstr "Se ha producido un error en la vista compacta."
 
 #: src/file-manager/fm-icon-view.c:3455
 msgid "The compact view encountered an error while starting up."
-msgstr "Se ha detectado un error al iniciarse la vista compacta."
+msgstr "Se ha producido un error al iniciarse la vista compacta."
 
 #: src/file-manager/fm-icon-view.c:3456
 msgid "Display this location with the compact view."
@@ -7649,11 +7648,11 @@ msgstr "_Lista"
 
 #: src/file-manager/fm-list-view.c:3501
 msgid "The list view encountered an error."
-msgstr "La vista de lista ha encontrado un error."
+msgstr "Se ha producido un error en la vista de lista."
 
 #: src/file-manager/fm-list-view.c:3502
 msgid "The list view encountered an error while starting up."
-msgstr "Se ha detectado un error al iniciarse la vista de lista."
+msgstr "Se ha producido un error al iniciarse la vista de lista."
 
 #: src/file-manager/fm-list-view.c:3503
 msgid "Display this location with the list view."
@@ -7954,7 +7953,7 @@ msgstr "Se ha producido un error en la vista de componentes."
 
 #: src/file-manager/fm-widget-view.c:446
 msgid "The widget view encountered an error while starting up."
-msgstr "Se ha detectado un error al iniciarse la vista de componentes."
+msgstr "Se ha producido un error al iniciarse la vista de componentes."
 
 #: src/file-manager/fm-widget-view.c:447
 msgid "Display this location with the widget view."

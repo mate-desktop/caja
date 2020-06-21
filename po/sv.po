@@ -7,8 +7,8 @@
 # Marcus Larborg, 2018
 # Elmer Blanksvärd <elmer.granlund@gmail.com>, 2018
 # 8385e6e60a22e18cd347a1f6e4685fb9, 2018
-# Kristoffer Grundström <hamnisdude@gmail.com>, 2018
-# Jonatan Nyberg, 2018
+# Kristoffer Grundström <lovaren@gmail.com>, 2018
+# Jonatan Nyberg <jonatan.nyberg.karl@gmail.com>, 2018
 # Hilding Kåstad <hilding.kastad@gmail.com>, 2018
 # Henrik Mattsson-Mårn <h@reglage.net>, 2018
 # cb445fb3dfd1fe3c2b9f58ac5638f478, 2018
@@ -16,8 +16,9 @@
 # 6a42dd6e7ca9a813693714b0d9aa1ad8, 2018
 # Patrik Nilsson <asavartzeth@gmail.com>, 2018
 # Tobias Lekare <lekare@linux.com>, 2018
-# Philip Andersen <renegadevi@codeofmagi.net>, 2019
 # Stefano Karapetsas <stefano@karapetsas.com>, 2019
+# Luna Jernberg <bittin@cafe8bitar.se>, 2020
+# Philip Andersen <renegadevi@codeofmagi.net>, 2020
 # 
 msgid ""
 msgstr ""
@@ -25,7 +26,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
 "POT-Creation-Date: 2020-01-10 11:11+0100\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2019\n"
+"Last-Translator: Philip Andersen <renegadevi@codeofmagi.net>, 2020\n"
 "Language-Team: Swedish (https://www.transifex.com/mate/teams/13566/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1734,7 +1735,7 @@ msgstr "Tar bort filer"
 #: libcaja-private/caja-file-operations.c:2157 src/caja-places-sidebar.c:2266
 #: src/caja-places-sidebar.c:2302
 msgid "It is now safe to remove the drive"
-msgstr ""
+msgstr "Det är nu säkert att ta bort enheten"
 
 #: libcaja-private/caja-file-operations.c:2170
 msgid "Unable to eject %V"
@@ -1746,7 +1747,7 @@ msgstr "Kunde inte avmontera %V"
 
 #: libcaja-private/caja-file-operations.c:2208 src/caja-places-sidebar.c:2336
 msgid "Writing data to the drive -- do not unplug"
-msgstr ""
+msgstr "Skriver data till enhet --- koppla inte ut"
 
 #: libcaja-private/caja-file-operations.c:2332
 msgid "Do you want to empty the trash before you unmount?"
@@ -3392,6 +3393,9 @@ msgid ""
 "If set to true, then hidden files are shown by default in the file manager. "
 "Hidden files are either dotfiles or listed in the folder's .hidden file."
 msgstr ""
+"Om inställd till sant kommer dolda filer att visas som standard i "
+"filhanteraren. Dolda filer är antingen punktfiler eller listade i mappens "
+".hidden-fil."
 
 #: libcaja-private/org.mate.caja.gschema.xml:253
 msgid "Whether to show backup files"
@@ -3402,6 +3406,8 @@ msgid ""
 "If set to true, then backup files are shown by default in the file manager. "
 "Backup files are backup files ending with a tilde (~)."
 msgstr ""
+"Om inställd till sant kommer backupfiler visas som standard i filhanteraren."
+" Backupfiler är filer som avslutas med tilde (~)."
 
 #: libcaja-private/org.mate.caja.gschema.xml:259
 msgid "Whether to show file sizes with IEC units"
@@ -3429,7 +3435,7 @@ msgstr "Huruvida skrivbordsnotifieringar ska visas"
 
 #: libcaja-private/org.mate.caja.gschema.xml:270
 msgid "If set to true, Caja will show desktop notifications."
-msgstr ""
+msgstr "Om inställt till sant kommer Caja visa skrivbordsnotifikationer. "
 
 #: libcaja-private/org.mate.caja.gschema.xml:277
 msgid "List of possible captions on icons"
@@ -4015,7 +4021,7 @@ msgstr ""
 
 #: src/caja-application.c:1882
 msgid "Open URIs in tabs."
-msgstr ""
+msgstr "Öppna URI i flikar."
 
 #: src/caja-application.c:1884
 msgid "Open a browser window."
@@ -4545,11 +4551,11 @@ msgstr "Sortera _mappar före filer"
 
 #: src/caja-file-management-properties.ui:493
 msgid "Show hidden files"
-msgstr ""
+msgstr "Visa dolda filer"
 
 #: src/caja-file-management-properties.ui:508
 msgid "Show backup files"
-msgstr ""
+msgstr "Visa backup filer "
 
 #: src/caja-file-management-properties.ui:547
 msgid "<b>Icon View Defaults</b>"
@@ -4589,7 +4595,7 @@ msgstr "Standardzoomniv_å:"
 
 #: src/caja-file-management-properties.ui:844
 msgid "_Show icons"
-msgstr ""
+msgstr "_Visa ikoner"
 
 #: src/caja-file-management-properties.ui:883
 msgid "<b>Tree View Defaults</b>"
@@ -4997,7 +5003,7 @@ msgstr "_Plats:"
 
 #: src/caja-navigation-action.c:147
 msgid "folder removed"
-msgstr ""
+msgstr "mapp raderad"
 
 #: src/caja-navigation-window.c:801
 #, c-format
@@ -5587,7 +5593,7 @@ msgstr "Taggar"
 
 #: src/caja-query-editor.c:192
 msgid "Modification Time"
-msgstr ""
+msgstr "Ändringsdatum"
 
 #: src/caja-query-editor.c:206
 msgid "Contained text"
@@ -5654,27 +5660,27 @@ msgstr "Annan typ..."
 
 #: src/caja-query-editor.c:1082 src/caja-query-editor.c:1221
 msgid "Less than or equal to"
-msgstr ""
+msgstr "Mindre än eller lika med"
 
 #: src/caja-query-editor.c:1084 src/caja-query-editor.c:1223
 msgid "Greater than or equal to"
-msgstr ""
+msgstr "Större än eller lika med"
 
 #: src/caja-query-editor.c:1097
 msgid "1 Hour"
-msgstr ""
+msgstr "1 timme "
 
 #: src/caja-query-editor.c:1099
 msgid "1 Day"
-msgstr ""
+msgstr "1 dag"
 
 #: src/caja-query-editor.c:1101
 msgid "1 Week"
-msgstr ""
+msgstr "1 vecka "
 
 #: src/caja-query-editor.c:1103
 msgid "1 Month"
-msgstr ""
+msgstr "1 månad "
 
 #: src/caja-query-editor.c:1105
 msgid "6 Months"
@@ -5686,55 +5692,55 @@ msgstr "1 år"
 
 #: src/caja-query-editor.c:1238
 msgid "10 KiB"
-msgstr ""
+msgstr "10 KiB"
 
 #: src/caja-query-editor.c:1240
 msgid "100 KiB"
-msgstr ""
+msgstr "100 KiB"
 
 #: src/caja-query-editor.c:1242
 msgid "500 KiB"
-msgstr ""
+msgstr "500 KiB"
 
 #: src/caja-query-editor.c:1244
 msgid "1 MiB"
-msgstr ""
+msgstr "1 MiB"
 
 #: src/caja-query-editor.c:1246
 msgid "5 MiB"
-msgstr ""
+msgstr "5 MiB"
 
 #: src/caja-query-editor.c:1248
 msgid "10 MiB"
-msgstr ""
+msgstr "10 MiB"
 
 #: src/caja-query-editor.c:1250
 msgid "100 MiB"
-msgstr ""
+msgstr "100 MiB"
 
 #: src/caja-query-editor.c:1252
 msgid "500 MiB"
-msgstr ""
+msgstr "500 MiB"
 
 #: src/caja-query-editor.c:1254
 msgid "1 GiB"
-msgstr ""
+msgstr "1 GiB"
 
 #: src/caja-query-editor.c:1256
 msgid "2 GiB"
-msgstr ""
+msgstr "2 GiB"
 
 #: src/caja-query-editor.c:1258
 msgid "4 GiB"
-msgstr ""
+msgstr "4 GiB"
 
 #: src/caja-query-editor.c:1261
 msgid "10 KB"
-msgstr ""
+msgstr "10 KB"
 
 #: src/caja-query-editor.c:1275
 msgid "500 MB"
-msgstr ""
+msgstr "500 MB"
 
 #: src/caja-query-editor.c:1346 src/caja-query-editor.c:1349
 msgid "Matches files that contains specified text."
@@ -5949,7 +5955,7 @@ msgstr ""
 
 #: src/caja-window-menus.c:575
 msgid "About Caja"
-msgstr ""
+msgstr "Om Caja"
 
 #: src/caja-window-menus.c:577
 msgid ""
@@ -6116,11 +6122,11 @@ msgstr "Växla visningen av dolda filer i det aktuella fönstret"
 
 #: src/caja-window-menus.c:969
 msgid "Show Bac_kup Files"
-msgstr ""
+msgstr "Visa _Backup filer"
 
 #: src/caja-window-menus.c:970
 msgid "Toggle the display of backup files in the current window"
-msgstr ""
+msgstr "Växla visning av backupfiler i det aktuella fönstret"
 
 #: src/caja-window-menus.c:1003
 msgid "_Up"
@@ -7223,7 +7229,7 @@ msgstr ""
 
 #: src/file-manager/fm-empty-view.c:398
 msgid "_Empty"
-msgstr ""
+msgstr "_Tom"
 
 #: src/file-manager/fm-empty-view.c:400
 msgid "The empty view encountered an error."
