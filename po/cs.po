@@ -10,14 +10,14 @@
 # Michal Procházka <mich.procha@seznam.cz>, 2018
 # huskyviking <husky.viking@seznam.cz>, 2018
 # LiberteCzech <liberte.czech@gmail.com>, 2018
-# Stanislav Kučera <inactive+kacernator@transifex.com>, 2018
+# 6e833d5535e2fe0dd9dfa7fe5bf473f2_d78f422 <64c38a0ff10419c64e8e03d54c72b3bd_352524>, 2018
 # Honza K. <honza889@gmail.com>, 2018
 # Lukáš Kvídera <lukas.kvidera@seznam.cz>, 2018
 # Michal <sinope@seznam.cz>, 2018
-# Roman Horník <roman.hornik@debian-linux.cz>, 2018
-# Lucas Lommer <drom@kdyne.net>, 2019
 # Stefano Karapetsas <stefano@karapetsas.com>, 2019
+# Lucas Lommer <drom@kdyne.net>, 2020
 # ToMáš Marný, 2020
+# Roman Horník <roman.hornik@debian-linux.cz>, 2020
 # 
 msgid ""
 msgstr ""
@@ -25,7 +25,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
 "POT-Creation-Date: 2020-01-10 11:11+0100\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: ToMáš Marný, 2020\n"
+"Last-Translator: Roman Horník <roman.hornik@debian-linux.cz>, 2020\n"
 "Language-Team: Czech (https://www.transifex.com/mate/teams/13566/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1819,10 +1819,10 @@ msgstr[3] "Připravuje se smazání %'d souborů (%S)"
 #, c-format
 msgid "Preparing to trash %'d file"
 msgid_plural "Preparing to trash %'d files"
-msgstr[0] "Připravuje se odstranění %'d souboru do koše"
-msgstr[1] "Připravuje se odstranění %'d souborů do koše"
-msgstr[2] "Připravuje se odstranění %'d souborů do koše"
-msgstr[3] "Připravuje se odstranění %'d souborů do koše"
+msgstr[0] "Připravuje se přesunutí %'d souboru do koše"
+msgstr[1] "Připravuje se přesunutí %'d souborů do koše"
+msgstr[2] "Připravuje se přesunutí %'d souborů do koše"
+msgstr[3] "Připravuje se přesunutí %'d souborů do koše"
 
 #: libcaja-private/caja-file-operations.c:2589
 #: libcaja-private/caja-file-operations.c:3500
@@ -6051,7 +6051,7 @@ msgid ""
 msgstr ""
 "Kopii GNU General Public License jste měl(a) obdržet spolu s tímto "
 "programem; pokud se tak nestalo, napište o ni Free Software Foundation, "
-"Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA."
+"Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA"
 
 #: src/caja-window-menus.c:575
 msgid "About Caja"
@@ -6359,7 +6359,7 @@ msgstr "Vyprázdnit koš"
 
 #: src/file-manager/fm-desktop-icon-view.c:886
 msgid "Desktop View"
-msgstr ""
+msgstr "Pohled pracovní plochy"
 
 #: src/file-manager/fm-desktop-icon-view.c:887
 #: src/file-manager/fm-directory-view.c:7691
@@ -6377,7 +6377,7 @@ msgstr "Při zobrazení pracovní plochy došlo k chybě během startu."
 
 #: src/file-manager/fm-desktop-icon-view.c:890
 msgid "Display this location with the desktop view."
-msgstr ""
+msgstr "Prohlížet toto umístění pomocí Pohledu pracovní plochy."
 
 #: src/file-manager/fm-directory-view.c:660
 #, c-format
@@ -6439,7 +6439,7 @@ msgstr "„%s“ vybrán"
 #, c-format
 msgid "%'d folder selected"
 msgid_plural "%'d folders selected"
-msgstr[0] "Vybraná %'d složka"
+msgstr[0] "Vybrána %'d složka"
 msgstr[1] "Vybrány %'d složky"
 msgstr[2] "Vybráno %'d složek"
 msgstr[3] "Vybráno %'d složek"
@@ -6468,7 +6468,7 @@ msgstr[3] " (obsahující celkem %'d položek)"
 #, c-format
 msgid "%'d item selected"
 msgid_plural "%'d items selected"
-msgstr[0] "Vybraná %'d položka"
+msgstr[0] "Vybrána %'d položka"
 msgstr[1] "Vybrány %'d položky"
 msgstr[2] "Vybráno %'d položek"
 msgstr[3] "Vybráno %'d položek"
@@ -6477,7 +6477,7 @@ msgstr[3] "Vybráno %'d položek"
 #, c-format
 msgid "%'d other item selected"
 msgid_plural "%'d other items selected"
-msgstr[0] "Vybraná %'d další položka"
+msgstr[0] "Vybrána %'d další položka"
 msgstr[1] "Vybrány %'d další položky"
 msgstr[2] "Vybráno %'d dalších položek"
 msgstr[3] "Vybráno %'d dalších položek"
@@ -7290,19 +7290,19 @@ msgstr[3] "Procházet v %'d nových _oknech"
 #, c-format
 msgid "Open in %'d New _Tab"
 msgid_plural "Open in %'d New _Tabs"
-msgstr[0] "Otevřít v %'d nové kar_tě"
-msgstr[1] "Otevřít ve %'d nových kar_tách"
-msgstr[2] "Otevřít v %'d nových kar_tách"
-msgstr[3] "Otevřít v %'d nových kar_tách"
+msgstr[0] "Otevřít v %'d nové _kartě"
+msgstr[1] "Otevřít ve %'d nových _kartách"
+msgstr[2] "Otevřít v %'d nových _kartách"
+msgstr[3] "Otevřít v %'d nových _kartách"
 
 #: src/file-manager/fm-directory-view.c:9067
 #, c-format
 msgid "Browse in %'d New _Tab"
 msgid_plural "Browse in %'d New _Tabs"
-msgstr[0] "Procházet v %'d nové kar_tě"
-msgstr[1] "Procházet ve %'d nových kar_tách"
-msgstr[2] "Procházet v %'d nových kar_tách"
-msgstr[3] "Procházet v %'d nových kar_tách"
+msgstr[0] "Procházet v %'d nové _kartě"
+msgstr[1] "Procházet ve %'d nových _kartách"
+msgstr[2] "Procházet v %'d nových _kartách"
+msgstr[3] "Procházet v %'d nových _kartách"
 
 #: src/file-manager/fm-directory-view.c:9111
 msgid "Delete all selected items permanently"
@@ -7376,7 +7376,7 @@ msgstr "Příkaz"
 
 #: src/file-manager/fm-empty-view.c:397 src/file-manager/fm-empty-view.c:399
 msgid "Empty View"
-msgstr ""
+msgstr "Prázdné zobrazení"
 
 #: src/file-manager/fm-empty-view.c:398
 msgid "_Empty"
@@ -7384,11 +7384,11 @@ msgstr "V_yprázdnit"
 
 #: src/file-manager/fm-empty-view.c:400
 msgid "The empty view encountered an error."
-msgstr ""
+msgstr "V Prázdném zobrazení došlo k chybě."
 
 #: src/file-manager/fm-empty-view.c:401
 msgid "Display this location with the empty view."
-msgstr ""
+msgstr "Prohlížet toto umístění pomocí Prázdného zobrazení."
 
 #: src/file-manager/fm-error-reporting.c:72
 #, c-format
@@ -7547,7 +7547,7 @@ msgstr "dle _přípony souboru"
 
 #: src/file-manager/fm-icon-view.c:180
 msgid "Keep icons sorted by reversed extension segments in rows"
-msgstr ""
+msgstr "Udržovat ikony seřazené v řádcích opačně podle přípony"
 
 #: src/file-manager/fm-icon-view.c:794
 msgid "_Organize Desktop by Name"
@@ -7647,7 +7647,7 @@ msgstr "Dle _přípony souboru"
 
 #: src/file-manager/fm-icon-view.c:1802
 msgid "Keep icons sorted by reverse extension segments in rows"
-msgstr ""
+msgstr "Udržovat ikony seřazené v řádcích opačně podle přípony"
 
 #: src/file-manager/fm-icon-view.c:1936
 msgid "Restore Icon's Original Si_ze"
@@ -8017,20 +8017,20 @@ msgstr "Zobrazit strom"
 
 #: src/file-manager/fm-widget-view.c:443
 msgid "Widget View"
-msgstr ""
+msgstr "Zobrazení elementů"
 
 #: src/file-manager/fm-widget-view.c:444
 msgid "_Widget View"
-msgstr ""
+msgstr "_Zobrazení elementů"
 
 #: src/file-manager/fm-widget-view.c:445
 msgid "The widget view encountered an error."
-msgstr ""
+msgstr "V Zobrazení elementů došlo k chybě."
 
 #: src/file-manager/fm-widget-view.c:446
 msgid "The widget view encountered an error while starting up."
-msgstr ""
+msgstr "V Zobrazení elementů došlo k chybě během startu."
 
 #: src/file-manager/fm-widget-view.c:447
 msgid "Display this location with the widget view."
-msgstr ""
+msgstr "Prohlížet toto umístění pomocí Zobrazení elementů."

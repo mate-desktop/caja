@@ -11,7 +11,7 @@
 # Stef Pletinck <stef.plet@gmail.com>, 2018
 # Volluta <volluta@tutanota.com>, 2018
 # Erik Bent <hj.bent.60@gmail.com>, 2018
-# infirit <inactive+infirit@transifex.com>, 2018
+# 8c3c560621f92e66455793da7b85eff0_8989672 <0e181aafae430e5c919398b6a7bba462_109266>, 2018
 # dragnadh, 2018
 # Stefano Karapetsas <stefano@karapetsas.com>, 2019
 # Pjotr <pjotrvertaalt@gmail.com>, 2020
@@ -317,7 +317,7 @@ msgid ""
 " associated with them. It is also responsible for handling the icons on the "
 "MATE desktop. It works on local and remote file systems."
 msgstr ""
-"Caja is de officiële bestandbeheerder van de MATE-werkomgeving. U kunt er "
+"Caja is de officiële bestandsbeheerder van de MATE-werkomgeving. U kunt er "
 "mappen mee verkennen, voorbeeldweergave van bestanden tonen en toepassingen "
 "starten die met die bestanden zijn geassocieerd. Hij is ook verantwoordelijk"
 " voor het afhandelen van de pictogrammen op het MATE-bureaublad. Hij werkt "
@@ -347,7 +347,7 @@ msgstr "Bestandsbeheerder"
 
 #: data/caja-browser.desktop.in.in:5
 msgid "Browse the file system with the file manager"
-msgstr "Bestandssysteem doorbladeren met het bestandsbeheer"
+msgstr "Verken het bestandssysteem met de bestandsbeheerder"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon
 #. file name)!
@@ -360,7 +360,7 @@ msgstr "system-file-manager"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-browser.desktop.in.in:15
 msgid "files;browser;manager;MATE;"
-msgstr "bestanden;verkenner;bestandbeheer;MATE;"
+msgstr "bestanden;verkenner;bestandsbeheerder;MATE;"
 
 #: data/caja-computer.desktop.in.in:3 libcaja-private/caja-desktop-link.c:114
 #: src/caja-places-sidebar.c:513
@@ -508,7 +508,7 @@ msgstr "De huidige positie van de invoegaanwijzer in tekens."
 
 #: eel/eel-editable-label.c:369
 msgid "Selection Bound"
-msgstr "Selectieband"
+msgstr "Selectiebegrenzing"
 
 #: eel/eel-editable-label.c:370
 msgid ""
@@ -727,7 +727,7 @@ msgstr "Plak de tekst die op het klembord is opgeslagen"
 #: libcaja-private/caja-clipboard.c:479
 #: src/file-manager/fm-directory-view.c:7471
 msgid "Select _All"
-msgstr "_Alles selecteren"
+msgstr "_Alles kiezen"
 
 #: libcaja-private/caja-clipboard.c:480
 msgid "Select all the text in a text field"
@@ -794,7 +794,7 @@ msgstr "Datum benaderd"
 
 #: libcaja-private/caja-column-utilities.c:85
 msgid "The date the file was accessed."
-msgstr "De datum waarop het bestand benaderd is."
+msgstr "De datum waarop het bestand voor het laatst benaderd is."
 
 #: libcaja-private/caja-column-utilities.c:92
 msgid "Owner"
@@ -1434,14 +1434,14 @@ msgstr[1] "%'d minuten"
 msgid "%'d hour"
 msgid_plural "%'d hours"
 msgstr[0] "%'d uur"
-msgstr[1] "%'d uur"
+msgstr[1] "%'d uren"
 
 #: libcaja-private/caja-file-operations.c:330
 #, c-format
 msgid "approximately %'d hour"
 msgid_plural "approximately %'d hours"
 msgstr[0] "ongeveer %'d uur"
-msgstr[1] "ongeveer %'d uur"
+msgstr[1] "ongeveer %'d uren"
 
 #: libcaja-private/caja-file-operations.c:410
 #, c-format
@@ -1770,8 +1770,8 @@ msgid ""
 "In order to regain the free space on this volume the trash must be emptied. "
 "All trashed items on the volume will be permanently lost."
 msgstr ""
-"Om vrije ruimte op dit apparaat terug te winnen, dient de prullenbak "
-"geledigd te worden. De prullenbakinhoud op het medium zal definitief "
+"Om vrije ruimte op dit opslagmedium terug te winnen, dient de prullenbak "
+"geledigd te worden. De prullenbakinhoud op het opslagmedium zal definitief "
 "verloren gaan."
 
 #: libcaja-private/caja-file-operations.c:2341
@@ -2417,7 +2417,7 @@ msgstr "_Gebruik een aangepaste opdracht"
 
 #: libcaja-private/caja-open-with-dialog.c:949
 msgid "_Browse..."
-msgstr "_Bladeren..."
+msgstr "_Verkennen..."
 
 #. Translators: first %s is a filename and second %s is a file extension
 #: libcaja-private/caja-open-with-dialog.c:1072
@@ -2985,7 +2985,7 @@ msgstr[1] "Eigenaarwijziging van %d elementen opnieuw uitvoeren"
 
 #: libcaja-private/org.mate.caja.gschema.xml:76
 msgid "Where to position newly open tabs in browser windows."
-msgstr "Waar nieuwe tabbladen geplaatst moeten worden in bladervensters."
+msgstr "Waar nieuwe tabbladen geplaatst moeten worden in verkennersvensters."
 
 #: libcaja-private/org.mate.caja.gschema.xml:77
 msgid ""
@@ -3028,7 +3028,7 @@ msgstr ""
 msgid "Enables the classic Caja behavior, where all windows are browsers"
 msgstr ""
 "Schakelt het traditionele Caja-gedrag in, waarbij alle vensters "
-"bladervensters zijn"
+"verkennersvensters zijn"
 
 #: libcaja-private/org.mate.caja.gschema.xml:92
 msgid ""
@@ -3036,7 +3036,7 @@ msgid ""
 "Nautilus used to behave before version 2.6, and some people prefer this "
 "behavior."
 msgstr ""
-"Als dit aan staat zijn alle vensters van Caja bladervensters. Dit is de "
+"Als dit aan staat zijn alle vensters van Caja verkennersvensters. Dit is de "
 "manier waarop Nautilus zich gedroeg voor versie 2.6, en sommigen geven de "
 "voorkeur hieraan."
 
@@ -3049,8 +3049,8 @@ msgid ""
 "If set to true, then Caja browser windows will always use a textual input "
 "entry for the location toolbar, instead of the pathbar."
 msgstr ""
-"Indien ingeschakeld gebruiken Cajavensters altijd een tekstueel invoerveld "
-"voor de locatiewerkbalk, in plaats van de padbalk."
+"Indien ingeschakeld gebruiken Caja-verkennersvensters altijd een tekstueel "
+"invoerveld voor de locatiewerkbalk, in plaats van de padbalk."
 
 #: libcaja-private/org.mate.caja.gschema.xml:101
 msgid "Whether to ask for confirmation when deleting files, or emptying Trash"
@@ -3082,7 +3082,7 @@ msgstr ""
 
 #: libcaja-private/org.mate.caja.gschema.xml:111
 msgid "Whether to enable immediate deletion"
-msgstr "Al dan niet inschakelen van onmiddellijk verwijderen"
+msgstr "Al dan niet inschakelen van onmiddellijke verwijdering"
 
 #: libcaja-private/org.mate.caja.gschema.xml:112
 msgid ""
@@ -3174,7 +3174,8 @@ msgstr ""
 
 #: libcaja-private/org.mate.caja.gschema.xml:143
 msgid "Use extra mouse button events in Caja' browser window"
-msgstr "Extra muisknopgebeurtenissen inschakelen in bladervenster van Caja"
+msgstr ""
+"Extra muisknopgebeurtenissen inschakelen in verkennersvenster van Caja"
 
 #: libcaja-private/org.mate.caja.gschema.xml:144
 msgid ""
@@ -3186,7 +3187,7 @@ msgstr ""
 
 #: libcaja-private/org.mate.caja.gschema.xml:148
 msgid "Mouse button to activate the \"Forward\" command in browser window"
-msgstr "Muisknop die de opdracht ʻVerderʼ activeert in het bladervenster"
+msgstr "Muisknop die de opdracht ʻVerderʼ activeert in het verkennersvenster"
 
 #: libcaja-private/org.mate.caja.gschema.xml:149
 msgid ""
@@ -3195,12 +3196,12 @@ msgid ""
 "window. Possible values range between 6 and 14."
 msgstr ""
 "Voor gebruikers met een muis met een knop voor ‘Terug’ en ‘Verder’ geeft "
-"deze sleutel aan welke knop de ‘Verder’-actie in een bladervenster "
+"deze sleutel aan welke knop de ‘Verder’-actie in een verkennersvenster "
 "activeert. Mogelijke waarden liggen tussen 6 en 14."
 
 #: libcaja-private/org.mate.caja.gschema.xml:153
 msgid "Mouse button to activate the \"Back\" command in browser window"
-msgstr "Muisknop die de opdracht ʻTerugʼ activeert in het bladervenster"
+msgstr "Muisknop die de opdracht ʻTerugʼ activeert in het verkennersvenster"
 
 #: libcaja-private/org.mate.caja.gschema.xml:154
 msgid ""
@@ -3209,8 +3210,8 @@ msgid ""
 "Possible values range between 6 and 14."
 msgstr ""
 "Voor gebruikers met een muis met een knop voor ‘Terug’ en ‘Verder’ geeft "
-"deze sleutel aan welke knop de ‘Terug’-actie in een bladervenster activeert."
-" Mogelijke waarden liggen tussen 6 en 14."
+"deze sleutel aan welke knop de ‘Terug’-actie in een verkennersvenster "
+"activeert. Mogelijke waarden liggen tussen 6 en 14."
 
 #: libcaja-private/org.mate.caja.gschema.xml:159
 msgid "When to show thumbnails of image files"
@@ -3408,8 +3409,8 @@ msgid ""
 "\"icon-view\" and \"compact-view\"."
 msgstr ""
 "Wanneer een map bezocht wordt is dit de weergave die wordt gebruikt, tenzij "
-"u een andere weergave voor die ene map heeft geselecteerd. Mogelijke waarden"
-" zijn ‘list_view’, ‘icon_view’ en ‘compact_view’."
+"u een andere weergave voor die ene map heeft gekozen. Mogelijke waarden zijn"
+" ‘list_view’, ‘icon_view’ en ‘compact_view’."
 
 #: libcaja-private/org.mate.caja.gschema.xml:243
 msgid "Date Format"
@@ -3678,15 +3679,15 @@ msgstr ""
 
 #: libcaja-private/org.mate.caja.gschema.xml:395
 msgid "Show mounted volumes on the desktop"
-msgstr "Gekoppelde media tonen op het bureaublad"
+msgstr "Aangekoppelde opslagmedia tonen op het bureaublad"
 
 #: libcaja-private/org.mate.caja.gschema.xml:396
 msgid ""
 "If this is set to true, icons linking to mounted volumes will be put on the "
 "desktop."
 msgstr ""
-"Indien ingeschakeld worden pictogrammen die koppelen naar aangekoppelde "
-"media op het bureaublad gezet."
+"Indien ingeschakeld worden er pictogrammen die koppelen naar aangekoppelde "
+"opslagmedia op het bureaublad gezet."
 
 #: libcaja-private/org.mate.caja.gschema.xml:400
 msgid "Network Servers icon visible on the desktop"
@@ -4081,7 +4082,7 @@ msgstr "URI's in tabbladen openen."
 
 #: src/caja-application.c:1884
 msgid "Open a browser window."
-msgstr "Open een bladervenster."
+msgstr "Open een verkennersvenster."
 
 #: src/caja-application.c:1886
 msgid "Quit Caja."
@@ -4099,7 +4100,7 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"Bestandssysteem doorbladeren met het bestandsbeheer"
+"Verken het bestandssysteem met de bestandsbeheerder"
 
 #: src/caja-autorun-software.c:163 src/caja-autorun-software.c:166
 #, c-format
@@ -5067,7 +5068,7 @@ msgstr "map verwijderd"
 #: src/caja-navigation-window.c:801
 #, c-format
 msgid "%s - File Browser"
-msgstr "%s - Bestandsbeheer"
+msgstr "%s - Bestandsbeheerder"
 
 #: src/caja-navigation-window-menus.c:133
 msgid "Are you sure you want to clear the list of locations you have visited?"
@@ -5362,7 +5363,7 @@ msgstr "Netwerk verkennen"
 
 #: src/caja-places-sidebar.c:889
 msgid "Browse the contents of the network"
-msgstr "Het netwerk doorbladeren"
+msgstr "De inhoud van het netwerk verkennen"
 
 #: src/caja-places-sidebar.c:1813 src/caja-places-sidebar.c:2775
 #: src/file-manager/fm-directory-view.c:7550
@@ -5485,7 +5486,7 @@ msgstr "Locaties"
 
 #: src/caja-places-sidebar.c:3420
 msgid "Show Places"
-msgstr "Toon locaties"
+msgstr "Locaties tonen"
 
 #: src/caja-property-browser.c:293
 msgid "Backgrounds and Emblems"
@@ -5578,7 +5579,7 @@ msgstr "U moet een niet-blanco naam voor de nieuwe kleur opgeven."
 
 #: src/caja-property-browser.c:1499
 msgid "Select a Color to Add"
-msgstr "Selecteer een toe te voegen kleur"
+msgstr "Kies een toe te voegen kleur"
 
 #: src/caja-property-browser.c:1545 src/caja-property-browser.c:1563
 #, c-format
@@ -5591,7 +5592,7 @@ msgstr "Het bestand is geen afbeelding."
 
 #: src/caja-property-browser.c:2311
 msgid "Select a Category:"
-msgstr "Selecteer een categorie:"
+msgstr "Kies een categorie:"
 
 #: src/caja-property-browser.c:2325
 msgid "C_ancel Remove"
@@ -5891,11 +5892,11 @@ msgstr "Verwijder alle elementen in de prullenbak"
 
 #: src/caja-trash-bar.c:209
 msgid "Restore Selected Items"
-msgstr "Geselecteerde elementen terugzetten"
+msgstr "Gekozen elementen terugzetten"
 
 #: src/caja-trash-bar.c:215
 msgid "Restore selected items to their original position"
-msgstr "Zet geselecteerde elementen terug op hun oorspronkelijke plaats"
+msgstr "Zet gekozen elementen terug op hun oorspronkelijke plaats"
 
 #: src/caja-window-bookmarks.c:83
 msgid ""
@@ -6356,7 +6357,7 @@ msgstr[1] "Dit zal %'d afzonderlijke vensters openen."
 
 #: src/file-manager/fm-directory-view.c:1209
 msgid "Select Items Matching"
-msgstr "Selecteer elementen overeenkomend met"
+msgstr "Kies elementen overeenkomend met"
 
 #: src/file-manager/fm-directory-view.c:1233
 msgid "_Pattern:"
@@ -6384,13 +6385,13 @@ msgstr "_Map:"
 
 #: src/file-manager/fm-directory-view.c:1414
 msgid "Select Folder to Save Search In"
-msgstr "Selecteer de map waarin de zoekopdracht moet worden opgeslagen"
+msgstr "Kies de map waarin de zoekopdracht moet worden opgeslagen"
 
 #: src/file-manager/fm-directory-view.c:2310
 #: src/file-manager/fm-directory-view.c:2347
 #, c-format
 msgid "\"%s\" selected"
-msgstr "‘%s’ geselecteerd"
+msgstr "‘%s’ gekozen"
 
 #: src/file-manager/fm-directory-view.c:2312
 #, c-format
@@ -6477,12 +6478,12 @@ msgstr "Bovenliggende locatie openen"
 
 #: src/file-manager/fm-directory-view.c:4613
 msgid "Open parent location for the selected item"
-msgstr "Open bovenliggende locatie van het geselecteerde element"
+msgstr "Open bovenliggende locatie van het gekozen element"
 
 #: src/file-manager/fm-directory-view.c:5490
 #, c-format
 msgid "Run \"%s\" on any selected items"
-msgstr "Voer ‘%s’ uit op ieder geselecteerd element"
+msgstr "Voer ‘%s’ uit op ieder gekozen element"
 
 #: src/file-manager/fm-directory-view.c:5748
 #, c-format
@@ -6501,7 +6502,7 @@ msgid ""
 " as input."
 msgstr ""
 "Door een script te kiezen in het menu wordt dat script uitgevoerd met de "
-"geselecteerde elementen als invoer."
+"gekozen elementen als invoer."
 
 #: src/file-manager/fm-directory-view.c:6010
 msgid ""
@@ -6531,17 +6532,17 @@ msgstr ""
 "\n"
 "In alle gevallen worden de volgende omgevingsvariabelen ingesteld door Caja, die gebruikt kunnen worden door de scripts:\n"
 "\n"
-"CAJA_SCRIPT_SELECTED_FILE_PATHS: paden van geselecteerde bestanden, gescheiden door regeleinden (alleen indien lokaal)\n"
+"CAJA_SCRIPT_SELECTED_FILE_PATHS: paden van de gekozen bestanden, gescheiden door regeleinden (alleen indien lokaal)\n"
 "\n"
-"CAJA_SCRIPT_SELECTED_URIS: URI's van de geselecteerde bestanden, gescheiden door regeleinden\n"
+"CAJA_SCRIPT_SELECTED_URIS: URI's van de gekozen bestanden, gescheiden door regeleinden\n"
 "\n"
 "CAJA_SCRIPT_CURRENT_URI: URI van de huidige locatie\n"
 "\n"
 "CAJA_SCRIPT_WINDOW_GEOMETRY: positie en afmetingen van het huidige venster\n"
 "\n"
-"CAJA_SCRIPT_NEXT_PANE_SELECTED_FILE_PATHS: paden van geselecteerde bestanden in het inactieve paneel van een gesplitst venster, gescheiden door regeleinden (alleen indien lokaal)\n"
+"CAJA_SCRIPT_NEXT_PANE_SELECTED_FILE_PATHS: paden van de gekozen bestanden in het inactieve paneel van een gesplitst venster, gescheiden door regeleinden (alleen indien lokaal)\n"
 "\n"
-"CAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: URI's van de geselecteerde bestanden in het inactieve paneel van een gesplitst venster, gescheiden door regeleinden\n"
+"CAJA_SCRIPT_NEXT_PANE_SELECTED_URIS: URI's van de gekozen bestanden in het inactieve paneel van een gesplitst venster, gescheiden door regeleinden\n"
 "\n"
 "CAJA_SCRIPT_NEXT_PANE_CURRENT_URI: URI van de huidige locatie in het inactieve paneel van een gesplitst venster"
 
@@ -6549,13 +6550,13 @@ msgstr ""
 #: src/file-manager/fm-tree-view.c:1014
 #, c-format
 msgid "\"%s\" will be moved if you select the Paste command"
-msgstr "‘%s’ wordt verplaatst als u de opdracht 'Plakken' geeft"
+msgstr "‘%s’ wordt verplaatst als u de opdracht 'Plakken' kiest"
 
 #: src/file-manager/fm-directory-view.c:6084
 #: src/file-manager/fm-tree-view.c:1020
 #, c-format
 msgid "\"%s\" will be copied if you select the Paste command"
-msgstr "‘%s’ wordt gekopieerd als u de opdracht 'Plakken' geeft"
+msgstr "‘%s’ wordt gekopieerd als u de opdracht 'Plakken' kiest"
 
 #: src/file-manager/fm-directory-view.c:6091
 #, c-format
@@ -6635,7 +6636,7 @@ msgstr "_Eigenschappen"
 #: src/file-manager/fm-directory-view.c:7394
 #: src/file-manager/fm-directory-view.c:9173
 msgid "View or modify the properties of each selected item"
-msgstr "Bekijk of wijzig de eigenschappen van elk geselecteerd element"
+msgstr "Bekijk of wijzig de eigenschappen van elk gekozen element"
 
 #: src/file-manager/fm-directory-view.c:7401
 #: src/file-manager/fm-tree-view.c:1300
@@ -6662,7 +6663,7 @@ msgstr "Maak een nieuw leeg bestand aan in deze map"
 
 #: src/file-manager/fm-directory-view.c:7416
 msgid "Open the selected item in this window"
-msgstr "Open het geselecteerde element in dit venster"
+msgstr "Open het gekozen element in dit venster"
 
 #: src/file-manager/fm-directory-view.c:7423
 #: src/file-manager/fm-directory-view.c:7604
@@ -6671,11 +6672,11 @@ msgstr "Openen in navigatievenster"
 
 #: src/file-manager/fm-directory-view.c:7424
 msgid "Open each selected item in a navigation window"
-msgstr "Open elk geselecteerd element in een navigatievenster"
+msgstr "Open elk gekozen element in een navigatievenster"
 
 #: src/file-manager/fm-directory-view.c:7428
 msgid "Open each selected item in a new tab"
-msgstr "Open elk geselecteerd element in een nieuw tabblad"
+msgstr "Open elk gekozen element in een nieuw tabblad"
 
 #: src/file-manager/fm-directory-view.c:7431
 #: src/file-manager/fm-directory-view.c:7613
@@ -6684,7 +6685,7 @@ msgstr "Openen in _mapvenster"
 
 #: src/file-manager/fm-directory-view.c:7432
 msgid "Open each selected item in a folder window"
-msgstr "Open elk geselecteerd element in een mapvenster"
+msgstr "Open elk gekozen element in een mapvenster"
 
 #: src/file-manager/fm-directory-view.c:7435
 msgid "Other _Application..."
@@ -6693,7 +6694,7 @@ msgstr "Andere _toepassing…"
 #: src/file-manager/fm-directory-view.c:7436
 #: src/file-manager/fm-directory-view.c:7440
 msgid "Choose another application with which to open the selected item"
-msgstr "Kies een andere toepassing om het geselecteerde element mee te openen"
+msgstr "Kies een andere toepassing om het gekozen element mee te openen"
 
 #: src/file-manager/fm-directory-view.c:7439
 msgid "Open With Other _Application..."
@@ -6710,20 +6711,20 @@ msgstr "Toon de map met scripts die in dit menu staan"
 #: src/file-manager/fm-directory-view.c:7452
 msgid "Prepare the selected files to be moved with a Paste command"
 msgstr ""
-"Maak de geselecteerde bestanden klaar om verplaatst te worden met de "
-"Plakken-opdracht"
+"Maak de gekozen bestanden klaar om verplaatst te worden met de Plakken-"
+"opdracht"
 
 #: src/file-manager/fm-directory-view.c:7456
 msgid "Prepare the selected files to be copied with a Paste command"
 msgstr ""
-"Maak de geselecteerde bestanden klaar om gekopieerd te worden met de "
-"Plakken-opdracht"
+"Maak de gekozen bestanden klaar om gekopieerd te worden met de Plakken-"
+"opdracht"
 
 #: src/file-manager/fm-directory-view.c:7460
 msgid "Move or copy files previously selected by a Cut or Copy command"
 msgstr ""
 "Verplaats of kopieer bestanden die eerder bij een Knippen- of Kopiëren-"
-"opdracht zijn geselecteerd"
+"opdracht zijn gekozen"
 
 #: src/file-manager/fm-directory-view.c:7465
 #: src/file-manager/fm-directory-view.c:7626
@@ -6737,7 +6738,7 @@ msgid ""
 "selected folder"
 msgstr ""
 "Verplaats of kopieer bestanden die eerder door een Knippen- of Kopiëren-"
-"opdracht zijn geselecteerd, naar de geselecteerde map"
+"opdracht zijn gekozen, naar de geselecteerde map"
 
 #: src/file-manager/fm-directory-view.c:7468
 msgid "Cop_y to"
@@ -6749,15 +6750,15 @@ msgstr "_Verplaatsen naar"
 
 #: src/file-manager/fm-directory-view.c:7472
 msgid "Select all items in this window"
-msgstr "Selecteer alle elementen in dit venster"
+msgstr "Kies alle elementen in dit venster"
 
 #: src/file-manager/fm-directory-view.c:7475
 msgid "Select I_tems Matching..."
-msgstr "Selecteer elemen_ten die overeenkomen met…"
+msgstr "Kies elemen_ten die overeenkomen met…"
 
 #: src/file-manager/fm-directory-view.c:7476
 msgid "Select items in this window matching a given pattern"
-msgstr "Selecteer elementen in dit venster overeenkomstig een bepaald patroon"
+msgstr "Kies elementen in dit venster overeenkomstig een bepaald patroon"
 
 #: src/file-manager/fm-directory-view.c:7479
 msgid "_Invert Selection"
@@ -6765,7 +6766,7 @@ msgstr "_Selectie omkeren"
 
 #: src/file-manager/fm-directory-view.c:7480
 msgid "Select all and only the items that are not currently selected"
-msgstr "Selecteer alleen die elementen die nu niet geselecteerd zijn"
+msgstr "Kies alleen die elementen die nu niet geselecteerd zijn"
 
 #: src/file-manager/fm-directory-view.c:7483
 msgid "D_uplicate"
@@ -6773,7 +6774,7 @@ msgstr "Duplicere_n"
 
 #: src/file-manager/fm-directory-view.c:7484
 msgid "Duplicate each selected item"
-msgstr "Dupliceer elk geselecteerd element"
+msgstr "Dupliceer elk gekozen element"
 
 #: src/file-manager/fm-directory-view.c:7487
 #: src/file-manager/fm-directory-view.c:9156
@@ -6784,7 +6785,7 @@ msgstr[1] "_Koppelingen maken"
 
 #: src/file-manager/fm-directory-view.c:7488
 msgid "Create a symbolic link for each selected item"
-msgstr "Maak een symbolische koppeling voor elk geselecteerd element"
+msgstr "Maak een symbolische koppeling voor elk gekozen element"
 
 #: src/file-manager/fm-directory-view.c:7491
 msgid "_Rename..."
@@ -6792,17 +6793,17 @@ msgstr "_Hernoemen…"
 
 #: src/file-manager/fm-directory-view.c:7492
 msgid "Rename selected item"
-msgstr "Hernoem geselecteerd element"
+msgstr "Hernoem gekozen element"
 
 #: src/file-manager/fm-directory-view.c:7500
 #: src/file-manager/fm-directory-view.c:9115
 msgid "Move each selected item to the Trash"
-msgstr "Gooi alle geselecteerde elementen in de prullenbak"
+msgstr "Gooi alle gekozen elementen in de prullenbak"
 
 #: src/file-manager/fm-directory-view.c:7504
 msgid "Delete each selected item, without moving to the Trash"
 msgstr ""
-"Verwijder elk geselecteerd element blijvend, zonder het in de prullenbak te "
+"Verwijder elk gekozen element blijvend, zonder het in de prullenbak te "
 "gooien."
 
 #: src/file-manager/fm-directory-view.c:7507
@@ -6848,58 +6849,58 @@ msgstr "Maak een permanente verbinding met deze server"
 
 #: src/file-manager/fm-directory-view.c:7535
 msgid "Mount the selected volume"
-msgstr "Koppel het geselecteerde medium aan"
+msgstr "Koppel het gekozen opslagmedium aan"
 
 #: src/file-manager/fm-directory-view.c:7539
 msgid "Unmount the selected volume"
-msgstr "Ontkoppel het geselecteerde medium"
+msgstr "Ontkoppel het gekozen opslagmedium"
 
 #: src/file-manager/fm-directory-view.c:7543
 msgid "Eject the selected volume"
-msgstr "Werp het geselecteerde medium uit"
+msgstr "Werp het gekozen opslagmedium uit"
 
 #: src/file-manager/fm-directory-view.c:7547
 msgid "Format the selected volume"
-msgstr "Formatteer het geselecteerde medium"
+msgstr "Formatteer het gekozen opslagmedium"
 
 #: src/file-manager/fm-directory-view.c:7551
 msgid "Start the selected volume"
-msgstr "Start het geselecteerde medium"
+msgstr "Start het gekozen opslagmedium"
 
 #: src/file-manager/fm-directory-view.c:7555
 #: src/file-manager/fm-directory-view.c:8596
 msgid "Stop the selected volume"
-msgstr "Stop het geselecteerde medium"
+msgstr "Zet het gekozen opslagmedium stil"
 
 #: src/file-manager/fm-directory-view.c:7559
 #: src/file-manager/fm-directory-view.c:7587
 #: src/file-manager/fm-directory-view.c:7668
 msgid "Detect media in the selected drive"
-msgstr "Media bespeuren in het geselecteerde station"
+msgstr "Media bespeuren in het gekozen station"
 
 #: src/file-manager/fm-directory-view.c:7563
 msgid "Mount the volume associated with the open folder"
-msgstr "Koppel het medium aan dat hoort bij de geopende map"
+msgstr "Koppel het opslagmedium aan dat hoort bij de geopende map"
 
 #: src/file-manager/fm-directory-view.c:7567
 msgid "Unmount the volume associated with the open folder"
-msgstr "Ontkoppel het medium dat hoort bij de geopende map"
+msgstr "Ontkoppel het opslagmedium dat hoort bij de geopende map"
 
 #: src/file-manager/fm-directory-view.c:7571
 msgid "Eject the volume associated with the open folder"
-msgstr "Werp het medium uit dat hoort bij de geopende map"
+msgstr "Werp het opslagmedium uit dat hoort bij de geopende map"
 
 #: src/file-manager/fm-directory-view.c:7575
 msgid "Format the volume associated with the open folder"
-msgstr "Formatteer het medium dat hoort bij de geopende map"
+msgstr "Formatteer het opslagmedium dat hoort bij de geopende map"
 
 #: src/file-manager/fm-directory-view.c:7579
 msgid "Start the volume associated with the open folder"
-msgstr "Start het medium dat hoort bij de geopende map"
+msgstr "Start het opslagmedium dat hoort bij de geopende map"
 
 #: src/file-manager/fm-directory-view.c:7583
 msgid "Stop the volume associated with the open folder"
-msgstr "Stop het medium dat hoort bij de geopende map"
+msgstr "Zet het opslagmedium stil dat hoort bij de geopende map"
 
 #: src/file-manager/fm-directory-view.c:7590
 msgid "Open File and Close window"
@@ -6947,7 +6948,7 @@ msgid ""
 "folder"
 msgstr ""
 "Verplaats of kopieer bestanden die eerder door een Knippen- of Kopiëren-"
-"opdracht waren geselecteerd, naar deze map"
+"opdracht waren gekozen, naar deze map"
 
 #: src/file-manager/fm-directory-view.c:7632
 msgid "Move this folder to the Trash"
@@ -6959,27 +6960,27 @@ msgstr "Verwijder deze map, zonder hem in de prullenbak te gooien."
 
 #: src/file-manager/fm-directory-view.c:7644
 msgid "Mount the volume associated with this folder"
-msgstr "Koppel het medium aan dat hoort bij deze map"
+msgstr "Koppel het opslagmedium aan dat hoort bij deze map"
 
 #: src/file-manager/fm-directory-view.c:7648
 msgid "Unmount the volume associated with this folder"
-msgstr "Ontkoppel het medium dat hoort bij deze map"
+msgstr "Ontkoppel het opslagmedium dat hoort bij deze map"
 
 #: src/file-manager/fm-directory-view.c:7652
 msgid "Eject the volume associated with this folder"
-msgstr "Werp het medium uit dat hoort bij deze map"
+msgstr "Werp het opslagmedium uit dat hoort bij deze map"
 
 #: src/file-manager/fm-directory-view.c:7656
 msgid "Format the volume associated with this folder"
-msgstr "Formatteer het medium dat hoort bij deze map"
+msgstr "Formatteer het opslagmedium dat hoort bij deze map"
 
 #: src/file-manager/fm-directory-view.c:7660
 msgid "Start the volume associated with this folder"
-msgstr "Start het medium dat hoort bij deze map"
+msgstr "Start het opslagmedium dat hoort bij deze map"
 
 #: src/file-manager/fm-directory-view.c:7664
 msgid "Stop the volume associated with this folder"
-msgstr "Stop het medium dat hoort bij deze map"
+msgstr "Zet het opslagmedium stil dat hoort bij deze map"
 
 #: src/file-manager/fm-directory-view.c:7673
 msgid "View or modify the properties of this folder"
@@ -7073,12 +7074,12 @@ msgstr[1] "Haal de gekozen elementen uit de prullenbak"
 #: src/file-manager/fm-directory-view.c:8567
 #: src/file-manager/fm-directory-view.c:8571
 msgid "Start the selected drive"
-msgstr "Start de geselecteerde schijf"
+msgstr "Start het gekozen station"
 
 #: src/file-manager/fm-directory-view.c:8369
 #: src/file-manager/fm-directory-view.c:8575
 msgid "Connect to the selected drive"
-msgstr "Verbind met het geselecteerde station"
+msgstr "Verbind met het gekozen station"
 
 #: src/file-manager/fm-directory-view.c:8372
 #: src/file-manager/fm-directory-view.c:8466
@@ -7089,7 +7090,7 @@ msgstr "Multischijfstation _starten"
 #: src/file-manager/fm-directory-view.c:8373
 #: src/file-manager/fm-directory-view.c:8579
 msgid "Start the selected multi-disk drive"
-msgstr "Start het geselecteerde multischijfstation"
+msgstr "Start het gekozen multischijfstation"
 
 #: src/file-manager/fm-directory-view.c:8376
 msgid "U_nlock Drive"
@@ -7098,16 +7099,16 @@ msgstr "Station _vrijgeven"
 #: src/file-manager/fm-directory-view.c:8377
 #: src/file-manager/fm-directory-view.c:8583
 msgid "Unlock the selected drive"
-msgstr "Geef het geselecteerde station vrij"
+msgstr "Geef het gekozen station vrij"
 
 #: src/file-manager/fm-directory-view.c:8390
 msgid "Stop the selected drive"
-msgstr "Stop het geselecteerde station"
+msgstr "Zet het gekozen station stil"
 
 #: src/file-manager/fm-directory-view.c:8394
 #: src/file-manager/fm-directory-view.c:8600
 msgid "Safely remove the selected drive"
-msgstr "Het geselecteerde station veilig verwijderen"
+msgstr "Het gekozen station veilig verwijderen"
 
 #: src/file-manager/fm-directory-view.c:8397
 #: src/file-manager/fm-directory-view.c:8491
@@ -7118,7 +7119,7 @@ msgstr "Ver_breken"
 #: src/file-manager/fm-directory-view.c:8398
 #: src/file-manager/fm-directory-view.c:8604
 msgid "Disconnect the selected drive"
-msgstr "Verbreek de verbinding met het geselecteerde station"
+msgstr "Verbreek de verbinding met het gekozen station"
 
 #: src/file-manager/fm-directory-view.c:8401
 #: src/file-manager/fm-directory-view.c:8495
@@ -7129,12 +7130,12 @@ msgstr "Multischijfstation _stoppen"
 #: src/file-manager/fm-directory-view.c:8402
 #: src/file-manager/fm-directory-view.c:8608
 msgid "Stop the selected multi-disk drive"
-msgstr "Stop het geselecteerde multischijfstation"
+msgstr "Zet het gekozen multischijfstation stil"
 
 #: src/file-manager/fm-directory-view.c:8406
 #: src/file-manager/fm-directory-view.c:8612
 msgid "Lock the selected drive"
-msgstr "Vergrendel het geselecteerde station"
+msgstr "Vergrendel het gekozen station"
 
 #: src/file-manager/fm-directory-view.c:8455
 #: src/file-manager/fm-directory-view.c:8459
@@ -7176,7 +7177,7 @@ msgstr "Vergrendel de schijf die hoort bij de geopende map"
 #: src/file-manager/fm-directory-view.c:8686
 #: src/file-manager/fm-directory-view.c:9024
 msgid "Browse in New _Window"
-msgstr "In _nieuw venster doorbladeren"
+msgstr "In _nieuw venster verkennen"
 
 #: src/file-manager/fm-directory-view.c:8692
 #: src/file-manager/fm-directory-view.c:9034
@@ -7188,7 +7189,7 @@ msgstr[1] "Mappen _verkennen"
 #: src/file-manager/fm-directory-view.c:8711
 #: src/file-manager/fm-directory-view.c:9065
 msgid "Browse in New _Tab"
-msgstr "In nieuw _tabblad doorbladeren"
+msgstr "In nieuw _tabblad verkennen"
 
 #: src/file-manager/fm-directory-view.c:8766
 #: src/file-manager/fm-directory-view.c:9110
@@ -7238,7 +7239,7 @@ msgstr[1] "Verken in %'d nieuwe tabbladen"
 
 #: src/file-manager/fm-directory-view.c:9111
 msgid "Delete all selected items permanently"
-msgstr "Verwijder alle geselecteerde elementen blijvend"
+msgstr "Verwijder alle gekozen elementen blijvend"
 
 #: src/file-manager/fm-directory-view.c:9171
 msgid "View or modify the properties of the open folder"
@@ -7508,7 +7509,7 @@ msgstr "Oorspronkelijke pictogram_groottes herstellen"
 
 #: src/file-manager/fm-icon-view.c:1717
 msgid "Restore each selected icon to its original size"
-msgstr "Zet elk pictogram terug op zijn oorspronkelijke grootte"
+msgstr "Zet elk gekozen pictogram terug op zijn oorspronkelijke grootte"
 
 #: src/file-manager/fm-icon-view.c:1721
 msgid "_Organize by Name"
@@ -7758,7 +7759,7 @@ msgstr "Omvang op schijf:"
 
 #: src/file-manager/fm-properties-window.c:3325
 msgid "Volume:"
-msgstr "Medium:"
+msgstr "Opslagmedium:"
 
 #: src/file-manager/fm-properties-window.c:3334
 msgid "Accessed:"
@@ -7933,7 +7934,7 @@ msgstr "De rechten van ‘%s’ konden niet worden bepaald."
 
 #: src/file-manager/fm-properties-window.c:4858
 msgid "The permissions of the selected file could not be determined."
-msgstr "De rechten van het geselecteerde bestand konden niet worden bepaald."
+msgstr "De rechten van het gekozen bestand konden niet worden bepaald."
 
 #: src/file-manager/fm-properties-window.c:5448
 msgid "Creating Properties window."
@@ -7941,7 +7942,7 @@ msgstr "Aanmaken eigenschappenvenster."
 
 #: src/file-manager/fm-properties-window.c:5743
 msgid "Select Custom Icon"
-msgstr "Aangepast pictogram selecteren"
+msgstr "Aangepast pictogram kiezen"
 
 #: src/file-manager/fm-tree-view.c:1712
 msgid "Tree"

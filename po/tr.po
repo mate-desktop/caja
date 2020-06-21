@@ -10,10 +10,10 @@
 # Kudret <kudretemre@hotmail.com.tr>, 2018
 # tarakbumba <tarakbumba@gmail.com>, 2018
 # Yaşar Çiv <yasarciv@protonmail.com>, 2018
-# Emre FIRAT <emrefirat93@gmail.com>, 2019
 # mauron, 2019
-# Butterfly <gokhanlnx@gmail.com>, 2019
 # Stefano Karapetsas <stefano@karapetsas.com>, 2019
+# Emre FIRAT <emrefirat93@gmail.com>, 2020
+# Butterfly <gokhanlnx@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -21,7 +21,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
 "POT-Creation-Date: 2020-01-10 11:11+0100\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2019\n"
+"Last-Translator: Butterfly <gokhanlnx@gmail.com>, 2020\n"
 "Language-Team: Turkish (https://www.transifex.com/mate/teams/13566/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -316,12 +316,18 @@ msgid ""
 " associated with them. It is also responsible for handling the icons on the "
 "MATE desktop. It works on local and remote file systems."
 msgstr ""
+"Caja, MATE masaüstü ortamının resmi dosya yöneticisidir. Dizinleri taramaya,"
+" dosyaları önizlemeye ve onlarla ilişkili uygulamaları başlatmaya imkân "
+"verir. Aynı zamanda MATE masaüstündeki simgeleri yönetmekle de yükümlüdür. "
+"Hem yerel hem de uzaktaki dosya sistemleri ile çalışır."
 
 #: data/caja.appdata.xml.in:16
 msgid ""
 "Caja is extensible through a plugin system, similar to that of GNOME "
 "Nautilus, of which Caja is a fork."
 msgstr ""
+"Caja, Caja'nın çatallandığı GNOME Nautilus'a benzer bir eklenti sistemi ile "
+"genişletilebilir."
 
 #: data/caja-autorun-software.desktop.in.in:3
 msgid "Autorun Prompt"
@@ -331,7 +337,7 @@ msgstr "Kendiliğinden Çalışma Sorusu"
 #. file name)!
 #: data/caja-autorun-software.desktop.in.in:7
 msgid "application-x-executable"
-msgstr ""
+msgstr "application-x-executable"
 
 #: data/caja-browser.desktop.in.in:4
 msgid "File Browser"
@@ -346,13 +352,13 @@ msgstr "Dosya yöneticisi ile dosya sistemine gözat"
 #: data/caja-browser.desktop.in.in:9 data/caja.desktop.in.in:7
 #: data/caja-file-management-properties.desktop.in.in:7
 msgid "system-file-manager"
-msgstr ""
+msgstr "system-file-manager"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-browser.desktop.in.in:15
 msgid "files;browser;manager;MATE;"
-msgstr ""
+msgstr "dosyalar;gözat;yönetici;MATE;"
 
 #: data/caja-computer.desktop.in.in:3 libcaja-private/caja-desktop-link.c:114
 #: src/caja-places-sidebar.c:513
@@ -370,13 +376,13 @@ msgstr ""
 #. file name)!
 #: data/caja-computer.desktop.in.in:8
 msgid "computer"
-msgstr ""
+msgstr "computer"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-computer.desktop.in.in:14
 msgid "browse;disks;folders;local;remote;computer;MATE;"
-msgstr ""
+msgstr "gözat;diskler;dizinler;yerel;uzak;bilgisayar;MATE;"
 
 #: data/caja.desktop.in.in:4
 msgid "File Manager"
@@ -395,6 +401,7 @@ msgstr "Dosya yönetici pencerelerinin işleyişini ve görünümünü değişti
 #: data/caja-file-management-properties.desktop.in.in:13
 msgid "file;manager;change;properties;behaviour;appearance;windows;MATE;"
 msgstr ""
+"dosya;yönetici;değişiklik;özellikler;davranış;görünüm;pencereler;MATE;"
 
 #: data/caja-folder-handler.desktop.in.in:4 libcaja-private/caja-autorun.c:580
 msgid "Open Folder"
@@ -404,7 +411,7 @@ msgstr "Dizin Aç"
 #. file name)!
 #: data/caja-folder-handler.desktop.in.in:10
 msgid "folder-open"
-msgstr ""
+msgstr "folder-open"
 
 #: data/caja-home.desktop.in.in:3 src/file-manager/fm-tree-view.c:1421
 msgid "Home Folder"
@@ -419,13 +426,13 @@ msgstr "Kişisel klasörünüzü açın"
 #. file name)!
 #: data/caja-home.desktop.in.in:8
 msgid "user-home"
-msgstr ""
+msgstr "user-home"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-home.desktop.in.in:14
 msgid "home;personal;folder;open;MATE;"
-msgstr ""
+msgstr "ev;bireysel;dizin;aç;MATE;"
 
 #: data/caja.xml.in:5
 msgid "Saved search"
@@ -443,13 +450,13 @@ msgstr "Yerimlerine ve yerel ağ konumlarına göz atın"
 #. file name)!
 #: data/mate-network-scheme.desktop.in.in:11
 msgid "network-workgroup"
-msgstr ""
+msgstr "network-workgroup"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-network-scheme.desktop.in.in:14
 msgid "bookmarks;browse;local;network;locations;MATE;"
-msgstr ""
+msgstr "yerimleri;gözat;yerel;ağ;konumlar;MATE;"
 
 #: eel/eel-canvas.c:1310 eel/eel-canvas.c:1311
 msgid "X"
@@ -1724,7 +1731,7 @@ msgstr "Dosyalar Siliniyor"
 #: libcaja-private/caja-file-operations.c:2157 src/caja-places-sidebar.c:2266
 #: src/caja-places-sidebar.c:2302
 msgid "It is now safe to remove the drive"
-msgstr ""
+msgstr "Sürücüyü çıkarmak artık güvenli"
 
 #: libcaja-private/caja-file-operations.c:2170
 msgid "Unable to eject %V"
@@ -1736,7 +1743,7 @@ msgstr "%V bağı kaldırılamadı"
 
 #: libcaja-private/caja-file-operations.c:2208 src/caja-places-sidebar.c:2336
 msgid "Writing data to the drive -- do not unplug"
-msgstr ""
+msgstr "Sürücüye veri yazılıyor -- çıkartmayınız"
 
 #: libcaja-private/caja-file-operations.c:2332
 msgid "Do you want to empty the trash before you unmount?"
@@ -2532,12 +2539,12 @@ msgstr "kuyruğa ekleniyor"
 #: libcaja-private/caja-progress-info.c:415
 #: libcaja-private/caja-progress-info.c:416
 msgid "Pause"
-msgstr ""
+msgstr "Beklet"
 
 #: libcaja-private/caja-progress-info.c:421
 #: libcaja-private/caja-progress-info.c:422
 msgid "Resume"
-msgstr ""
+msgstr "Devam"
 
 #: libcaja-private/caja-progress-info.c:609
 #, c-format
@@ -2553,7 +2560,7 @@ msgstr "İşlem tamamlandı"
 #: libcaja-private/caja-progress-info.c:806
 #: libcaja-private/caja-progress-info.c:807
 msgid "Queue"
-msgstr ""
+msgstr "Kuyruk"
 
 #: libcaja-private/caja-progress-info.c:1007
 #: libcaja-private/caja-progress-info.c:1028
@@ -5645,7 +5652,7 @@ msgstr "Küçük veya eşit"
 
 #: src/caja-query-editor.c:1084 src/caja-query-editor.c:1223
 msgid "Greater than or equal to"
-msgstr ""
+msgstr "Büyük veya eşit"
 
 #: src/caja-query-editor.c:1097
 msgid "1 Hour"
@@ -5949,6 +5956,8 @@ msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2020 The Caja authors"
 msgstr ""
+"Telif hakkı © 1999-2009 Nautilus hazırlayıcıları\n"
+"Telif hakkı © 2011-2020 Caja hazırlayıcıları"
 
 #: src/caja-window-menus.c:586
 msgid "translator-credits"
@@ -6231,7 +6240,7 @@ msgstr "Çöpü Boşalt"
 
 #: src/file-manager/fm-desktop-icon-view.c:886
 msgid "Desktop View"
-msgstr ""
+msgstr "Masaüstü Görünümü"
 
 #: src/file-manager/fm-desktop-icon-view.c:887
 #: src/file-manager/fm-directory-view.c:7691
@@ -6249,7 +6258,7 @@ msgstr "Masaüstü görünümü başlatılırken bir hata ile karşılaşıldı.
 
 #: src/file-manager/fm-desktop-icon-view.c:890
 msgid "Display this location with the desktop view."
-msgstr ""
+msgstr "Bu konumu masaüstü görünümü ile göster."
 
 #: src/file-manager/fm-directory-view.c:660
 #, c-format
@@ -7204,11 +7213,11 @@ msgstr "Komut"
 
 #: src/file-manager/fm-empty-view.c:397 src/file-manager/fm-empty-view.c:399
 msgid "Empty View"
-msgstr ""
+msgstr "Boş Görünüm"
 
 #: src/file-manager/fm-empty-view.c:398
 msgid "_Empty"
-msgstr ""
+msgstr "_Boş"
 
 #: src/file-manager/fm-empty-view.c:400
 msgid "The empty view encountered an error."

@@ -6,9 +6,9 @@
 # Translators:
 # Audrius Meskauskas, 2018
 # brennus <jonas.ska@gmail.com>, 2018
-# Džiugas Grėbliūnas <dziugas.grebliunas@gmail.com>, 2019
 # Stefano Karapetsas <stefano@karapetsas.com>, 2019
 # Moo, 2020
+# Džiugas Grėbliūnas <dziugas.grebliunas@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
 "POT-Creation-Date: 2020-01-10 11:11+0100\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Moo, 2020\n"
+"Last-Translator: Džiugas Grėbliūnas <dziugas.grebliunas@gmail.com>, 2020\n"
 "Language-Team: Lithuanian (https://www.transifex.com/mate/teams/13566/lt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -311,12 +311,18 @@ msgid ""
 " associated with them. It is also responsible for handling the icons on the "
 "MATE desktop. It works on local and remote file systems."
 msgstr ""
+"Caja yra oficiali failų tvarkytuvė MATE darbalaukiui. Ji leidžia naršyti "
+"katalogus, o taip pat peržiūrinėti failus ir vykdyti programas, susijusias "
+"su jais. Be to, programa yra atsakinga už piktogramų apdorojimą MATE "
+"darbalaukyje. Ji veikia vietinėse ir nuotolinėse failų sistemose."
 
 #: data/caja.appdata.xml.in:16
 msgid ""
 "Caja is extensible through a plugin system, similar to that of GNOME "
 "Nautilus, of which Caja is a fork."
 msgstr ""
+"Cają galima išplėsti papildinių sistema, panašia į GNOME Nautilaus, kurio "
+"atšaka yra Caja."
 
 #: data/caja-autorun-software.desktop.in.in:3
 msgid "Autorun Prompt"
@@ -347,7 +353,7 @@ msgstr "system-file-manager"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-browser.desktop.in.in:15
 msgid "files;browser;manager;MATE;"
-msgstr ""
+msgstr "failai;naršyklė;tvarkytuvė;MATE;"
 
 #: data/caja-computer.desktop.in.in:3 libcaja-private/caja-desktop-link.c:114
 #: src/caja-places-sidebar.c:513
@@ -371,7 +377,7 @@ msgstr "computer"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-computer.desktop.in.in:14
 msgid "browse;disks;folders;local;remote;computer;MATE;"
-msgstr ""
+msgstr "naršyklė;diskai;aplankai;vietiniai;nuotoliniai;kompiuteris;MATE;"
 
 #: data/caja.desktop.in.in:4
 msgid "File Manager"
@@ -389,7 +395,7 @@ msgstr "Keisti failų tvarkytuvės langų išvaizdą ir veikimą"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-file-management-properties.desktop.in.in:13
 msgid "file;manager;change;properties;behaviour;appearance;windows;MATE;"
-msgstr ""
+msgstr "failas;tvarkytuvė;keisti;savybės;elgsena;išvaizda;langai;MATE;"
 
 #: data/caja-folder-handler.desktop.in.in:4 libcaja-private/caja-autorun.c:580
 msgid "Open Folder"
@@ -420,7 +426,7 @@ msgstr "user-home"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/caja-home.desktop.in.in:14
 msgid "home;personal;folder;open;MATE;"
-msgstr ""
+msgstr "home;asmeninis;aplankas;atverti;MATE;"
 
 #: data/caja.xml.in:5
 msgid "Saved search"
@@ -444,7 +450,7 @@ msgstr "network-workgroup"
 #. localize the semicolons! The list MUST also end with a semicolon!
 #: data/mate-network-scheme.desktop.in.in:14
 msgid "bookmarks;browse;local;network;locations;MATE;"
-msgstr ""
+msgstr "žymės;naršyti;vietinį;tinklą;vietos;MATE;"
 
 #: eel/eel-canvas.c:1310 eel/eel-canvas.c:1311
 msgid "X"
@@ -1753,7 +1759,7 @@ msgstr "Nepavyko atjungi %V"
 
 #: libcaja-private/caja-file-operations.c:2208 src/caja-places-sidebar.c:2336
 msgid "Writing data to the drive -- do not unplug"
-msgstr ""
+msgstr "Rašomi duomenys į diską -- neištraukite"
 
 #: libcaja-private/caja-file-operations.c:2332
 msgid "Do you want to empty the trash before you unmount?"
@@ -3504,11 +3510,11 @@ msgstr "Pažymėjus, failų dydžiai bus rodomi IEC (1024) vienetais vietoje SI.
 
 #: libcaja-private/org.mate.caja.gschema.xml:264
 msgid "Whether to show icons in list view"
-msgstr ""
+msgstr "Ar rodyti piktogramas sąrašo rodinyje"
 
 #: libcaja-private/org.mate.caja.gschema.xml:265
 msgid "If set to true, show file icons in list view."
-msgstr ""
+msgstr "Jei teigiama, rodyti failų piktogramas sąrašo rodinyje."
 
 #: libcaja-private/org.mate.caja.gschema.xml:269
 msgid "Whether to show desktop notifications"
@@ -5671,7 +5677,7 @@ msgstr "Keitimo data"
 
 #: src/caja-query-editor.c:206
 msgid "Contained text"
-msgstr ""
+msgstr "Sudėtyje esantis tekstas"
 
 #: src/caja-query-editor.c:352
 msgid "Select folder to search in"
@@ -5818,7 +5824,7 @@ msgstr "500 MB"
 
 #: src/caja-query-editor.c:1346 src/caja-query-editor.c:1349
 msgid "Matches files that contains specified text."
-msgstr ""
+msgstr "Atitinka failus, kuriuose yra nurodytas tekstas."
 
 #: src/caja-query-editor.c:1503
 msgid "Remove this criterion from the search"
@@ -6045,6 +6051,8 @@ msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2020 The Caja authors"
 msgstr ""
+"Autorių teisės © 1999-2009 Nautilus autoriai\n"
+"Autorių teisės © 2011-2020 Caja autoriai"
 
 #: src/caja-window-menus.c:586
 msgid "translator-credits"
@@ -6330,7 +6338,7 @@ msgstr "Išvalyti šiukšlinę"
 
 #: src/file-manager/fm-desktop-icon-view.c:886
 msgid "Desktop View"
-msgstr ""
+msgstr "Darbalaukio rodinys"
 
 #: src/file-manager/fm-desktop-icon-view.c:887
 #: src/file-manager/fm-directory-view.c:7691
@@ -6348,7 +6356,7 @@ msgstr "Įjungus darbalaukio rodinį įvyko klaida."
 
 #: src/file-manager/fm-desktop-icon-view.c:890
 msgid "Display this location with the desktop view."
-msgstr ""
+msgstr "Rodyti šią vietą naudojant darbalaukio rodinį."
 
 #: src/file-manager/fm-directory-view.c:660
 #, c-format
@@ -7353,19 +7361,19 @@ msgstr "Komanda"
 
 #: src/file-manager/fm-empty-view.c:397 src/file-manager/fm-empty-view.c:399
 msgid "Empty View"
-msgstr ""
+msgstr "Tuščias rodinys"
 
 #: src/file-manager/fm-empty-view.c:398
 msgid "_Empty"
-msgstr ""
+msgstr "_Tuščia"
 
 #: src/file-manager/fm-empty-view.c:400
 msgid "The empty view encountered an error."
-msgstr ""
+msgstr "Glaustąjame rodinyje iškilo klaida."
 
 #: src/file-manager/fm-empty-view.c:401
 msgid "Display this location with the empty view."
-msgstr ""
+msgstr "Rodyti šią vietą naudojant tuščią rodinį."
 
 #: src/file-manager/fm-error-reporting.c:72
 #, c-format
@@ -8000,20 +8008,20 @@ msgstr "Rodyti medį"
 
 #: src/file-manager/fm-widget-view.c:443
 msgid "Widget View"
-msgstr ""
+msgstr "Valdiklio rodinys"
 
 #: src/file-manager/fm-widget-view.c:444
 msgid "_Widget View"
-msgstr ""
+msgstr "_Valdiklio rodinys"
 
 #: src/file-manager/fm-widget-view.c:445
 msgid "The widget view encountered an error."
-msgstr ""
+msgstr "Valdiklio rodinyje įvyko klaida."
 
 #: src/file-manager/fm-widget-view.c:446
 msgid "The widget view encountered an error while starting up."
-msgstr ""
+msgstr "Paleidžiant valdiklio rodinį įvyko klaida."
 
 #: src/file-manager/fm-widget-view.c:447
 msgid "Display this location with the widget view."
-msgstr ""
+msgstr "Rodyti šią vietą valdiklio rodinyje."

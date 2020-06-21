@@ -6,9 +6,9 @@
 # Translators:
 # Louis-Martin Carrière <louismc@gmail.com>, 2018
 # Lionel Brianto <kinobi@kinobiweb.com>, 2018
+# jeremy shields <jeremy.shields@orange.fr>, 2018
 # Scoubidou <david.vantyghem@free.fr>, 2018
 # Benjamin Teissier <enatheme@enatheme.org>, 2018
-# jeremy shields <jeremy.shields@orange.fr>, 2018
 # yoplait <yoplait@tememe.org>, 2018
 # Xorg, 2018
 # Nicolas Roelandt (Personnel), 2018
@@ -26,6 +26,9 @@
 # Stefano Karapetsas <stefano@karapetsas.com>, 2019
 # Jérôme JACQUIN <chatbada24@laposte.net>, 2019
 # Stéphane PETRUS <stephane.petrus@posteo.net>, 2019
+# ButterflyOfFire, 2020
+# Rox fr <roxfr@outlook.fr>, 2020
+# Laurent Napias, 2020
 # 
 msgid ""
 msgstr ""
@@ -33,7 +36,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
 "POT-Creation-Date: 2020-01-10 11:11+0100\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
-"Last-Translator: Stéphane PETRUS <stephane.petrus@posteo.net>, 2019\n"
+"Last-Translator: Laurent Napias, 2020\n"
 "Language-Team: French (https://www.transifex.com/mate/teams/13566/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -328,12 +331,19 @@ msgid ""
 " associated with them. It is also responsible for handling the icons on the "
 "MATE desktop. It works on local and remote file systems."
 msgstr ""
+"Caja est le gestionnaire de fichiers officiel pour le bureau MATE. Il permet"
+" de parcourir les répertoires, ainsi que de prévisualiser les fichiers et de"
+" lancer les applications qui leur sont associées. Il est également "
+"responsable de la gestion des icônes sur le bureau MATE. Il fonctionne sur "
+"les systèmes de fichiers locaux et distants."
 
 #: data/caja.appdata.xml.in:16
 msgid ""
 "Caja is extensible through a plugin system, similar to that of GNOME "
 "Nautilus, of which Caja is a fork."
 msgstr ""
+"Caja est extensible grâce à un système de plugins, similaire à celui de "
+"GNOME Nautilus, dont Caja est un fork."
 
 #: data/caja-autorun-software.desktop.in.in:3
 msgid "Autorun Prompt"
@@ -343,7 +353,7 @@ msgstr "Invite d'exécution automatique"
 #. file name)!
 #: data/caja-autorun-software.desktop.in.in:7
 msgid "application-x-executable"
-msgstr ""
+msgstr "application-x-executable"
 
 #: data/caja-browser.desktop.in.in:4
 msgid "File Browser"
@@ -358,7 +368,7 @@ msgstr "Parcourir le système de fichiers avec le gestionnaire de fichiers"
 #: data/caja-browser.desktop.in.in:9 data/caja.desktop.in.in:7
 #: data/caja-file-management-properties.desktop.in.in:7
 msgid "system-file-manager"
-msgstr ""
+msgstr "system-file-manager"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
@@ -418,7 +428,7 @@ msgstr "Ouvrir un dossier"
 #. file name)!
 #: data/caja-folder-handler.desktop.in.in:10
 msgid "folder-open"
-msgstr ""
+msgstr "folder-open"
 
 #: data/caja-home.desktop.in.in:3 src/file-manager/fm-tree-view.c:1421
 msgid "Home Folder"
@@ -433,7 +443,7 @@ msgstr "Ouvrir votre dossier personnel"
 #. file name)!
 #: data/caja-home.desktop.in.in:8
 msgid "user-home"
-msgstr ""
+msgstr "user-home"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
@@ -457,7 +467,7 @@ msgstr "Parcourir les emplacements mis en signets et du réseau local"
 #. file name)!
 #: data/mate-network-scheme.desktop.in.in:11
 msgid "network-workgroup"
-msgstr ""
+msgstr "network-workgroup"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
@@ -1751,6 +1761,7 @@ msgstr "Suppression des fichiers"
 #: src/caja-places-sidebar.c:2302
 msgid "It is now safe to remove the drive"
 msgstr ""
+"Vous pouvez maintenant retirer le périphérique de stockage en toute sécurité"
 
 #: libcaja-private/caja-file-operations.c:2170
 msgid "Unable to eject %V"
@@ -1763,6 +1774,7 @@ msgstr "Impossible de démonter %V"
 #: libcaja-private/caja-file-operations.c:2208 src/caja-places-sidebar.c:2336
 msgid "Writing data to the drive -- do not unplug"
 msgstr ""
+"Écriture de données sur le périphérique de stockage -- ne pas débrancher"
 
 #: libcaja-private/caja-file-operations.c:2332
 msgid "Do you want to empty the trash before you unmount?"
@@ -2576,12 +2588,12 @@ msgstr "mise en file"
 #: libcaja-private/caja-progress-info.c:415
 #: libcaja-private/caja-progress-info.c:416
 msgid "Pause"
-msgstr ""
+msgstr "Pause"
 
 #: libcaja-private/caja-progress-info.c:421
 #: libcaja-private/caja-progress-info.c:422
 msgid "Resume"
-msgstr ""
+msgstr "Reprendre"
 
 #: libcaja-private/caja-progress-info.c:609
 #, c-format
@@ -2597,7 +2609,7 @@ msgstr "Processus terminé"
 #: libcaja-private/caja-progress-info.c:806
 #: libcaja-private/caja-progress-info.c:807
 msgid "Queue"
-msgstr ""
+msgstr "File"
 
 #: libcaja-private/caja-progress-info.c:1007
 #: libcaja-private/caja-progress-info.c:1028
@@ -3484,11 +3496,12 @@ msgstr ""
 
 #: libcaja-private/org.mate.caja.gschema.xml:264
 msgid "Whether to show icons in list view"
-msgstr ""
+msgstr "Indique si les icônes doivent être affichées dans la liste"
 
 #: libcaja-private/org.mate.caja.gschema.xml:265
 msgid "If set to true, show file icons in list view."
 msgstr ""
+"Si la valeur est vraie, afficher les icônes de fichier dans la vue liste."
 
 #: libcaja-private/org.mate.caja.gschema.xml:269
 msgid "Whether to show desktop notifications"
@@ -4181,11 +4194,11 @@ msgstr "Éditer les signets"
 #: src/file-manager/fm-directory-view.c:1214
 #: src/file-manager/fm-properties-window.c:5233
 msgid "_Help"
-msgstr "_Aide"
+msgstr "Aid_e"
 
 #: src/caja-bookmarks-window.ui:61
 msgid "_Jump to"
-msgstr "_Aller à"
+msgstr "_Navigation"
 
 #: src/caja-bookmarks-window.ui:93 src/caja-file-management-properties.ui:321
 #: src/caja-property-browser.c:397 src/caja-window-menus.c:854
@@ -4674,7 +4687,7 @@ msgstr "Niveau de _zoom par défaut :"
 
 #: src/caja-file-management-properties.ui:844
 msgid "_Show icons"
-msgstr ""
+msgstr "_Afficher les icônes"
 
 #: src/caja-file-management-properties.ui:883
 msgid "<b>Tree View Defaults</b>"
@@ -5112,7 +5125,7 @@ msgstr "L'emplacement de l'historique n'existe pas."
 
 #: src/caja-navigation-window-menus.c:827
 msgid "_Go"
-msgstr "A_ller à"
+msgstr "_Navigation"
 
 #: src/caja-navigation-window-menus.c:828
 msgid "_Bookmarks"
@@ -5686,7 +5699,7 @@ msgstr "Heure de modification"
 
 #: src/caja-query-editor.c:206
 msgid "Contained text"
-msgstr ""
+msgstr "Contenu du texte"
 
 #: src/caja-query-editor.c:352
 msgid "Select folder to search in"
@@ -5833,7 +5846,7 @@ msgstr "500 MO"
 
 #: src/caja-query-editor.c:1346 src/caja-query-editor.c:1349
 msgid "Matches files that contains specified text."
-msgstr ""
+msgstr "Correspond aux fichiers contenant du texte spécifique."
 
 #: src/caja-query-editor.c:1503
 msgid "Remove this criterion from the search"
@@ -6064,6 +6077,8 @@ msgid ""
 "Copyright © 1999-2009 The Nautilus authors\n"
 "Copyright © 2011-2020 The Caja authors"
 msgstr ""
+"Copyright © 1999-2009 Auteurs de Nautilus\n"
+"Copyright © 2011-2012 Auteurs de Caja"
 
 #: src/caja-window-menus.c:586
 msgid "translator-credits"
@@ -6093,7 +6108,7 @@ msgstr "_Fichier"
 
 #: src/caja-window-menus.c:850
 msgid "_Edit"
-msgstr "_Editer"
+msgstr "_Édition"
 
 #: src/caja-window-menus.c:851
 msgid "_View"
@@ -6354,7 +6369,7 @@ msgstr "Vider la corbeille"
 
 #: src/file-manager/fm-desktop-icon-view.c:886
 msgid "Desktop View"
-msgstr ""
+msgstr "Vue du bureau"
 
 #: src/file-manager/fm-desktop-icon-view.c:887
 #: src/file-manager/fm-directory-view.c:7691
@@ -6373,7 +6388,7 @@ msgstr ""
 
 #: src/file-manager/fm-desktop-icon-view.c:890
 msgid "Display this location with the desktop view."
-msgstr ""
+msgstr "Afficher cet emplacement avec la vue du bureau."
 
 #: src/file-manager/fm-directory-view.c:660
 #, c-format
@@ -7347,19 +7362,19 @@ msgstr "Commande"
 
 #: src/file-manager/fm-empty-view.c:397 src/file-manager/fm-empty-view.c:399
 msgid "Empty View"
-msgstr ""
+msgstr "Vue vide"
 
 #: src/file-manager/fm-empty-view.c:398
 msgid "_Empty"
-msgstr ""
+msgstr "_Vide"
 
 #: src/file-manager/fm-empty-view.c:400
 msgid "The empty view encountered an error."
-msgstr ""
+msgstr "La vue vide a rencontré une erreur."
 
 #: src/file-manager/fm-empty-view.c:401
 msgid "Display this location with the empty view."
-msgstr ""
+msgstr "Afficher cet emplacement avec la vue vide."
 
 #: src/file-manager/fm-error-reporting.c:72
 #, c-format
@@ -8000,20 +8015,20 @@ msgstr "Afficher l'arborescence"
 
 #: src/file-manager/fm-widget-view.c:443
 msgid "Widget View"
-msgstr ""
+msgstr "Affichage du widget"
 
 #: src/file-manager/fm-widget-view.c:444
 msgid "_Widget View"
-msgstr ""
+msgstr "_Affichage du widget"
 
 #: src/file-manager/fm-widget-view.c:445
 msgid "The widget view encountered an error."
-msgstr ""
+msgstr "L'affichage du widget a rencontré une erreur."
 
 #: src/file-manager/fm-widget-view.c:446
 msgid "The widget view encountered an error while starting up."
-msgstr ""
+msgstr "L'affichage du widget a rencontré une erreur lors du démarrage."
 
 #: src/file-manager/fm-widget-view.c:447
 msgid "Display this location with the widget view."
-msgstr ""
+msgstr "Afficher cet emplacement avec la vue du widget."
