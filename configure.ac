@@ -215,12 +215,8 @@ if test "x$enable_packagekit" != "xno"; then
 fi
 
 dnl ==========================================================================
-
-dnl libegg
-LIBEGG_MODULES="gtk+-3.0"
-LIBEGG_CFLAGS="`$PKG_CONFIG --cflags $LIBEGG_MODULES`"
+PKG_CHECK_MODULES(LIBEGG, ice sm gtk+-3.0)
 AC_SUBST(LIBEGG_CFLAGS)
-LIBEGG_LIBS="`$PKG_CONFIG --libs $LIBEGG_MODULES`"
 AC_SUBST(LIBEGG_LIBS)
 
 dnl libcaja-extension
