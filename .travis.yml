@@ -27,7 +27,7 @@ script:
 
 notifications:
   irc:
-    if: branch = master AND
+    if: (tag OR branch = master) AND
         repo = mate-desktop/caja
     channels:
       - "irc.freenode.org#mate-dev"
