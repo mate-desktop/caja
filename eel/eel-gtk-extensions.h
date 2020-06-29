@@ -73,7 +73,6 @@ GtkWidget *           eel_image_menu_item_new_from_icon               (const gch
 GtkWidget *           eel_image_menu_item_new_from_surface              (cairo_surface_t    *icon_surface,
                                                                          const gchar        *label_name);
 
-gboolean              eel_dialog_page_scroll_event_callback           (GtkWidget            *widget,
-                                                                       GdkEventScroll       *event,
-                                                                       GtkWindow            *window);
+gboolean              eel_notebook_scroll_event_cb                    (GtkWidget            *widget,
+                                                                       GdkEventScroll       *event);
 #endif /* EEL_GTK_EXTENSIONS_H */

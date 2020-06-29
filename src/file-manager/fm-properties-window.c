@@ -5225,8 +5225,8 @@ create_properties_window (StartupData *startup_data)
         gtk_widget_add_events (GTK_WIDGET (window->details->notebook), GDK_SCROLL_MASK);
         g_signal_connect (window->details->notebook,
                           "scroll-event",
-                          G_CALLBACK (eel_dialog_page_scroll_event_callback),
-                          window);
+                          G_CALLBACK (eel_notebook_scroll_event_cb),
+                          NULL);
 
 	gtk_widget_show (GTK_WIDGET (window->details->notebook));
 	gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (window))),
