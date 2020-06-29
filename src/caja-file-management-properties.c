@@ -1246,10 +1246,11 @@ caja_file_management_properties_dialog_setup (GtkBuilder *builder, GtkWindow *wi
     }
 
     GtkWidget *notebook = GTK_WIDGET (gtk_builder_get_object (builder, "notebook1"));
-    gtk_widget_add_events (GTK_WIDGET (notebook), GDK_SCROLL_MASK);
-    g_signal_connect (GTK_WIDGET (notebook), "scroll-event",
-                      G_CALLBACK (eel_dialog_page_scroll_event_callback),
-                      window);
+    gtk_widget_add_events (notebook, GDK_SCROLL_MASK);
+    g_signal_connect (notebook,
+                      "scroll-event",
+                      G_CALLBACK (eel_notebook_scroll_event_cb),
+                      NULL);
 
     gtk_widget_show (dialog);
 }

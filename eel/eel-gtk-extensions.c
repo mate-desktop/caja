@@ -508,7 +508,8 @@ eel_image_menu_item_new_from_surface (cairo_surface_t *icon_surface,
 }
 
 gboolean
-eel_dialog_page_scroll_event_callback (GtkWidget *widget, GdkEventScroll *event, GtkWindow *window)
+eel_notebook_scroll_event_cb (GtkWidget       *widget,
+                              GdkEventScroll  *event)
 {
     GtkNotebook *notebook = GTK_NOTEBOOK (widget);
     GtkWidget *child, *event_widget, *action_widget;
@@ -517,51 +518,48 @@ eel_dialog_page_scroll_event_callback (GtkWidget *widget, GdkEventScroll *event,
     if (child == NULL)
         return FALSE;
 
-    event_widget = gtk_get_event_widget ((GdkEvent *) event);
+    event_widget = gtk_get_event_widget ((GdkEvent*) event);
 
     /* Ignore scroll events from the content of the page */
-    if (event_widget == NULL ||
-        event_widget == child ||
-        gtk_widget_is_ancestor (event_widget, child))
+    if (event_widget == NULL || event_widget == child || gtk_widget_is_ancestor (event_widget, child))
         return FALSE;
 
     /* And also from the action widgets */
     action_widget = gtk_notebook_get_action_widget (notebook, GTK_PACK_START);
-    if (event_widget == action_widget ||
-        (action_widget != NULL && gtk_widget_is_ancestor (event_widget, action_widget)))
+    if (event_widget == action_widget || (action_widget != NULL && gtk_widget_is_ancestor (event_widget, action_widget)))
         return FALSE;
+
     action_widget = gtk_notebook_get_action_widget (notebook, GTK_PACK_END);
-    if (event_widget == action_widget ||
-        (action_widget != NULL && gtk_widget_is_ancestor (event_widget, action_widget)))
+    if (event_widget == action_widget || (action_widget != NULL && gtk_widget_is_ancestor (event_widget, action_widget)))
         return FALSE;
 
     switch (event->direction) {
-    case GDK_SCROLL_RIGHT:
-    case GDK_SCROLL_DOWN:
-        gtk_notebook_next_page (notebook);
-        break;
-    case GDK_SCROLL_LEFT:
-    case GDK_SCROLL_UP:
-        gtk_notebook_prev_page (notebook);
-        break;
-    case GDK_SCROLL_SMOOTH:
-        switch (gtk_notebook_get_tab_pos (notebook)) {
-            case GTK_POS_LEFT:
-            case GTK_POS_RIGHT:
-                if (event->delta_y > 0)
-                    gtk_notebook_next_page (notebook);
-                else if (event->delta_y < 0)
-                    gtk_notebook_prev_page (notebook);
-                break;
-            case GTK_POS_TOP:
-            case GTK_POS_BOTTOM:
-                if (event->delta_x > 0)
-                    gtk_notebook_next_page (notebook);
-                else if (event->delta_x < 0)
-                    gtk_notebook_prev_page (notebook);
-                break;
+        case GDK_SCROLL_RIGHT:
+        case GDK_SCROLL_DOWN:
+            gtk_notebook_next_page (notebook);
+            break;
+        case GDK_SCROLL_LEFT:
+        case GDK_SCROLL_UP:
+            gtk_notebook_prev_page (notebook);
+            break;
+        case GDK_SCROLL_SMOOTH:
+            switch (gtk_notebook_get_tab_pos (notebook)) {
+                case GTK_POS_LEFT:
+                case GTK_POS_RIGHT:
+                    if (event->delta_y > 0)
+                        gtk_notebook_next_page (notebook);
+                    else if (event->delta_y < 0)
+                        gtk_notebook_prev_page (notebook);
+                    break;
+                case GTK_POS_TOP:
+                case GTK_POS_BOTTOM:
+                    if (event->delta_x > 0)
+                        gtk_notebook_next_page (notebook);
+                    else if (event->delta_x < 0)
+                        gtk_notebook_prev_page (notebook);
+                    break;
             }
-        break;
+            break;
     }
 
     return TRUE;
