@@ -2664,7 +2664,16 @@ should_show_accessed_date (FMPropertiesWindow *window)
 static gboolean
 should_show_modified_date (FMPropertiesWindow *window)
 {
-    return !is_multi_file_window (window);
+    CajaFile *file;
+
+    if (is_multi_file_window (window))
+        return FALSE;
+
+    file = get_original_file (window);
+    if ((file != NULL) && caja_file_can_unmount (file))
+        return FALSE;
+
+    return TRUE;
 }
 
 static gboolean
