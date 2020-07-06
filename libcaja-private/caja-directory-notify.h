@@ -22,6 +22,9 @@
    Author: Darin Adler <darin@bentspoon.com>
 */
 
+#ifndef __CAJA_DIRECTORY_NOTIFY_H__
+#define __CAJA_DIRECTORY_NOTIFY_H__
+
 #include <gdk/gdk.h>
 
 #include "caja-file.h"
@@ -67,3 +70,6 @@ void caja_directory_schedule_position_set    (GList        *position_setting_lis
  * it needs to be used for code like the thumbnail generation.
  */
 void caja_file_changed                       (CajaFile *file);
+
+#endif	/* __CAJA_DIRECTORY_NOTIFY_H__ */
+

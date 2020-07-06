@@ -23,6 +23,9 @@
    Author: Darin Adler <darin@bentspoon.com>
 */
 
+#ifndef __CAJA_LIB_SELF_CHECK_FUNCTIONS_H__
+#define __CAJA_LIB_SELF_CHECK_FUNCTIONS_H__
+
 #include <eel/eel-self-checks.h>
 
 void caja_run_lib_self_checks (void);
@@ -48,3 +51,6 @@ void caja_run_lib_self_checks (void);
 
 /* Generate prototypes for all the functions. */
 CAJA_LIB_FOR_EACH_SELF_CHECK_FUNCTION (EEL_SELF_CHECK_FUNCTION_PROTOTYPE)
+
+#endif	/* __CAJA_LIB_SELF_CHECK_FUNCTIONS_H__ */
+

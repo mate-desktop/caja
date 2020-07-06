@@ -1,4 +1,7 @@
 /* See https://gstreamer.freedesktop.org/documentation/plugin-development/advanced/media-types.html?gi-language=c#table-of-audio-types */
+#ifndef __CAJA_AUDIO_MIME_TYPES_H__
+#define __CAJA_AUDIO_MIME_TYPES_H__
+
 static const char* audio_mime_types[] =
 {
     "audio/3gpp",
@@ -43,3 +46,6 @@ static const char* audio_mime_types[] =
     "audio/x-xm",
     "application/x-flac",
 };
+
+#endif	/* __CAJA_AUDIO_MIME_TYPES_H__ */
+
