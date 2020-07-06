@@ -22,6 +22,9 @@
    Author: Darin Adler <darin@bentspoon.com>
 */
 
+#ifndef __CAJA_DIRECTORY_PRIVATE_H__
+#define __CAJA_DIRECTORY_PRIVATE_H__
+
 #include <gio/gio.h>
 #include <libxml/tree.h>
 
@@ -237,3 +240,6 @@ void               caja_directory_remove_file_from_work_queue     (CajaDirectory
 
 /* debugging functions */
 int                caja_directory_number_outstanding              (void);
+
+#endif	/* __CAJA_DIRECTORY_PRIVATE_H__ */
+

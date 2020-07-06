@@ -26,6 +26,9 @@
             Jasmine Hassan <jasmine.aura@gmail.com>
 */
 
+#ifndef __CAJA_DIRECTORY_BACKGROUND_H__
+#define __CAJA_DIRECTORY_BACKGROUND_H__
+
 #include "../eel/eel-background.h"
 
 #include "caja-file.h"
@@ -36,3 +39,6 @@ void     caja_connect_background_to_file_metadata    (GtkWidget         *widget,
                                                       GdkDragAction      default_drag_action);
 
 void     caja_connect_desktop_background_to_settings (CajaIconContainer *icon_container);
+
+#endif	/* __CAJA_DIRECTORY_BACKGROUND_H__ */
+

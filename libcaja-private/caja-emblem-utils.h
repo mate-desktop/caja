@@ -22,6 +22,9 @@
    Author: Alexander Larsson <alexl@redhat.com>
 */
 
+#ifndef __CAJA_EMBLEM_UTILS_H__
+#define __CAJA_EMBLEM_UTILS_H__
+
 #include <glib.h>
 #include <gio/gio.h>
 #include <gtk/gtk.h>
@@ -50,4 +53,7 @@ gboolean   caja_emblem_can_remove_emblem          (const char *keyword);
 gboolean   caja_emblem_can_rename_emblem          (const char *keyword);
 
 char *     caja_emblem_create_unique_keyword      (const char *base);
+
+
+#endif	/* __CAJA_EMBLEM_UTILS_H__ */
 
