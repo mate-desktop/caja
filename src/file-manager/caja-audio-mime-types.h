@@ -1,5 +1,4 @@
-/* generated with mime-types-include.sh in the totem module, don't edit or
-   commit in the caja module without filing a bug against totem */
+/* See https://gstreamer.freedesktop.org/documentation/plugin-development/advanced/media-types.html?gi-language=c#table-of-audio-types */
 static const char* audio_mime_types[] =
 {
     "audio/3gpp",
