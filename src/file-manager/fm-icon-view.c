@@ -2154,19 +2154,6 @@ static char **
 get_preview_argv (char *uri)
 {
     char *command;
-    char **argv;
-
-    command = g_find_program_in_path ("totem-audio-preview");
-
-    if (command)
-    {
-        argv = g_new (char *, 3);
-        argv[0] = command;
-        argv[1] = g_strdup (uri);
-        argv[2] = NULL;
-
-        return argv;
-    }
 
     command = g_find_program_in_path ("gst-launch-1.0");
 
@@ -2177,9 +2164,10 @@ get_preview_argv (char *uri)
 
     if (command)
     {
+        char **argv;
         int i;
 
-        argv = g_new (char *, 10);
+        argv = g_new (char *, 5);
         i = 0;
         argv[i++] = command;
         argv[i++] = g_strdup ("playbin");
