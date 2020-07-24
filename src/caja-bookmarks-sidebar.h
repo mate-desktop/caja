@@ -46,12 +46,12 @@ typedef struct
     GtkScrolledWindow parent;
     GtkTreeView      *tree_view;
     CajaWindowInfo   *window;
-    
+
     char             *current_uri;
     CajaBookmarkList *bookmarks;
 } CajaBookmarksSidebar;
 
 GType caja_bookmarks_sidebar_get_type (void);
-void caja_bookmarks_sidebar_register (void);
+void  caja_bookmarks_sidebar_register (void);
 
 #endif
