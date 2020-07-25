@@ -76,6 +76,7 @@
 #include "caja-self-check-functions.h"
 #include "caja-notes-viewer.h"
 #include "caja-emblem-sidebar.h"
+#include "caja-bookmarks-sidebar.h"
 #include "caja-image-properties-page.h"
 #include "caja-desktop-window.h"
 #include "caja-spatial-window.h"
@@ -2278,6 +2279,7 @@ caja_application_startup (GApplication *app)
     caja_history_sidebar_register ();
     caja_notes_viewer_register (); /* also property page */
     caja_emblem_sidebar_register ();
+    caja_bookmarks_sidebar_register ();
 
     /* register property pages */
     caja_image_properties_page_register ();
