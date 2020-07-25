@@ -2792,7 +2792,6 @@ eel_editable_label_move_cursor (EelEditableLabel    *label,
         case GTK_MOVEMENT_DISPLAY_LINES:
             new_pos = eel_editable_label_move_line (label, new_pos, count);
             break;
-            break;
         case GTK_MOVEMENT_PARAGRAPHS:
         case GTK_MOVEMENT_PAGES:
             break;
