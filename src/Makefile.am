@@ -62,6 +62,8 @@ caja_SOURCES = \
 	caja-application.h \
 	caja-bookmark-list.c \
 	caja-bookmark-list.h \
+	caja-bookmarks-sidebar.c \
+	caja-bookmarks-sidebar.h \
 	caja-bookmarks-window.c \
 	caja-bookmarks-window.h \
 	caja-connect-server-dialog.c \
