@@ -3278,8 +3278,8 @@ rightmost_in_top_row (CajaIconContainer *container,
     {
         return TRUE;
     }
-    return compare_icons_vertical (container, best_so_far, candidate) > 0;
-    return compare_icons_horizontal (container, best_so_far, candidate) < 0;
+    return ((compare_icons_vertical (container, best_so_far, candidate) > 0) &&
+            (compare_icons_horizontal (container, best_so_far, candidate) < 0));
 }
 
 static gboolean
