@@ -349,20 +349,28 @@ caja_drag_items_on_desktop (const GList *selection_list)
 GdkDragAction
 caja_drag_default_drop_action_for_netscape_url (GdkDragContext *context)
 {
-    /* Mozilla defaults to copy, but unless thats the
-       only allowed thing (enforced by ctrl) we want to ASK */
-    if (gdk_drag_context_get_suggested_action (context) == GDK_ACTION_COPY &&
-            gdk_drag_context_get_actions (context) != GDK_ACTION_COPY)
+    /* Mozilla defaults to copy, however by default caja creates a link
+     * if available.
+     *
+     * Enforced action X:
+     * ((actions & X) != 0) && (suggested_action == X)
+     *    - GDK_ACTION_LINK enforced by Alt
+     *    - GDK_ACTION_MOVE enforced by Shift
+     *    - GDK_ACTION_COPY enforced by Ctrl
+     */
+    GdkDragAction suggested_action = gdk_drag_context_get_suggested_action (context);
+    GdkDragAction actions = gdk_drag_context_get_actions (context);
+    if ((actions & GDK_ACTION_LINK) == GDK_ACTION_LINK)
     {
-        return GDK_ACTION_ASK;
+        return GDK_ACTION_LINK;
     }
-    else if (gdk_drag_context_get_suggested_action (context) == GDK_ACTION_MOVE)
+    else if (suggested_action == GDK_ACTION_MOVE)
     {
         /* Don't support move */
         return GDK_ACTION_COPY;
     }
 
-    return gdk_drag_context_get_suggested_action (context);
+    return suggested_action;
 }
 
 static gboolean
