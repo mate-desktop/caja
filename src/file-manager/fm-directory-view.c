@@ -10731,9 +10731,6 @@ fm_directory_view_handle_netscape_url_drop (FMDirectoryView  *view,
 		if (!eel_str_is_empty (link_name)) {
 			GdkScreen *screen;
 			int screen_num;
-			char *link_display_name;
-
-			link_display_name = g_strdup_printf (_("Link to %s"), link_name);
 
 			/* The filename can't contain slashes, strip em.
 			   (the basename of http://foo/ is http://foo/) */
@@ -10750,13 +10747,16 @@ fm_directory_view_handle_netscape_url_drop (FMDirectoryView  *view,
 			    g_ascii_strncasecmp (url, "ftp:", strlen ("ftp:")) == 0) {
 				caja_link_local_create (target_uri != NULL ? target_uri : container_uri,
 				                        link_name,
-				                        link_display_name,
+				                        link_name,
 				                        "applications-internet",
 				                        url,
 				                        &point,
 				                        screen_num,
 				                        TRUE);
 			} else {
+			        char *link_display_name;
+
+			        link_display_name = g_strdup_printf (_("Link to %s"), link_name);
 				caja_link_local_create (target_uri != NULL ? target_uri : container_uri,
 				                        link_name,
 				                        link_display_name,
@@ -10765,8 +10765,8 @@ fm_directory_view_handle_netscape_url_drop (FMDirectoryView  *view,
 				                        &point,
 				                        screen_num,
 				                        TRUE);
+				g_free (link_display_name);
 			}
-			g_free (link_display_name);
 		}
 		g_free (link_name);
 	} else {
