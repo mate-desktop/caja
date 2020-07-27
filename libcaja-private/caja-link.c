@@ -259,9 +259,9 @@ caja_link_local_create (const char     *directory_uri,
     g_free (real_directory_uri);
 
     contents = g_strdup_printf ("[Desktop Entry]\n"
-                                "Encoding=UTF-8\n"
-                                "Name=%s\n"
+                                "Version=1.0\n"
                                 "Type=Link\n"
+                                "Name=%s\n"
                                 "URL=%s\n"
                                 "%s%s\n",
                                 display_name,
