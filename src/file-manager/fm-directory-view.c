@@ -10745,15 +10745,27 @@ fm_directory_view_handle_netscape_url_drop (FMDirectoryView  *view,
 			screen = gtk_widget_get_screen (GTK_WIDGET (view));
 			screen_num = gdk_x11_screen_get_screen_number (screen);
 
-			caja_link_local_create (target_uri != NULL ? target_uri : container_uri,
-						    link_name,
-						    link_display_name,
-						    "mate-fs-bookmark",
-						    url,
-						    &point,
-						    screen_num,
-						    TRUE);
-
+			if (g_ascii_strncasecmp (url, "http:", strlen ("http:")) == 0 ||
+			    g_ascii_strncasecmp (url, "https:", strlen ("https:")) == 0 ||
+			    g_ascii_strncasecmp (url, "ftp:", strlen ("ftp:")) == 0) {
+				caja_link_local_create (target_uri != NULL ? target_uri : container_uri,
+				                        link_name,
+				                        link_display_name,
+				                        "applications-internet",
+				                        url,
+				                        &point,
+				                        screen_num,
+				                        TRUE);
+			} else {
+				caja_link_local_create (target_uri != NULL ? target_uri : container_uri,
+				                        link_name,
+				                        link_display_name,
+			                                "mate-fs-bookmark",
+				                        url,
+				                        &point,
+				                        screen_num,
+				                        TRUE);
+			}
 			g_free (link_display_name);
 		}
 		g_free (link_name);
