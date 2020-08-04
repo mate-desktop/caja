@@ -3347,7 +3347,7 @@ create_basic_page (FMPropertiesWindow *window)
 	{
 		append_blank_row (grid);
 	}
-	
+
 	if (should_show_accessed_date (window))
 	{
 		append_title_value_pair (window, grid, _("Accessed:"),
@@ -3355,7 +3355,7 @@ create_basic_page (FMPropertiesWindow *window)
 					 INCONSISTENT_STATE_STRING,
 					 FALSE);
 	}
-	
+
 	if (should_show_modified_date (window))
 	{
 		append_title_value_pair (window, grid, _("Modified:"),

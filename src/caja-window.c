@@ -320,7 +320,7 @@ caja_window_new_window (CajaWindow *window)
     current_slot = window->details->active_pane->active_slot;
     location = caja_window_slot_get_location (current_slot);
 
-    if (location != NULL) 
+    if (location != NULL)
     {
         CajaWindow *new_window;
         CajaWindowSlot *new_slot;
