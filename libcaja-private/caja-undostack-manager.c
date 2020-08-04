@@ -605,7 +605,7 @@ caja_undostack_manager_undo (CajaUndoStackManager * manager,
         caja_file_operations_delete (uris, NULL,
             undo_redo_done_delete_callback, action);
     	g_list_free_full (uris, g_object_unref);
- 
+
         break;
       case CAJA_UNDOSTACK_RESTOREFROMTRASH:
         uris = construct_gfile_list (action->destinations, action->dest_dir);

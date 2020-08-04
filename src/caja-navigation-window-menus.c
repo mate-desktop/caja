@@ -608,7 +608,7 @@ action_new_window_callback (GtkAction *action,
 {
     CajaWindow *current_window;
 
-    current_window = CAJA_WINDOW (user_data);   
+    current_window = CAJA_WINDOW (user_data);
     caja_window_new_window (current_window);
 }
 
