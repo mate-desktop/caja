@@ -37,7 +37,6 @@
 #include <stdlib.h>
 #include <pango/pango.h>
 
-#define GRADIENT_BAND_SIZE 4
 
 /**
  * eel_gradient_new

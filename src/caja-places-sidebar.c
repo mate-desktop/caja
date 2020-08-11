@@ -58,7 +58,7 @@
 #include "caja-window.h"
 
 #define EJECT_BUTTON_XPAD 6
-#define ICON_CELL_XPAD 6
+
 
 typedef struct
 {
@@ -209,7 +209,6 @@ typedef struct
 } CajaShortcutsModelFilterClass;
 
 #define CAJA_SHORTCUTS_MODEL_FILTER_TYPE (_caja_shortcuts_model_filter_get_type ())
-#define CAJA_SHORTCUTS_MODEL_FILTER(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), CAJA_SHORTCUTS_MODEL_FILTER_TYPE, CajaShortcutsModelFilter))
 
 GType _caja_shortcuts_model_filter_get_type (void);
 static void caja_shortcuts_model_filter_drag_source_iface_init (GtkTreeDragSourceIface *iface);

@@ -36,8 +36,6 @@
 
 #include "fm-icon-container.h"
 
-#define ICON_TEXT_ATTRIBUTES_NUM_ITEMS		3
-#define ICON_TEXT_ATTRIBUTES_DEFAULT_TOKENS	"size,date_modified,type"
 
 G_DEFINE_TYPE (FMIconContainer, fm_icon_container, CAJA_TYPE_ICON_CONTAINER);
 

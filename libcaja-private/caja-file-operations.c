@@ -186,9 +186,7 @@ typedef struct {
 #define RETRY _("_Retry")
 #define DELETE _("_Delete")
 #define DELETE_ALL _("Delete _All")
-#define REPLACE _("_Replace")
 #define REPLACE_ALL _("Replace _All")
-#define MERGE _("_Merge")
 #define MERGE_ALL _("Merge _All")
 #define COPY_FORCE _("Copy _Anyway")
 

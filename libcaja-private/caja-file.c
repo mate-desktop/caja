@@ -76,9 +76,6 @@
 #include <selinux/selinux.h>
 #endif
 
-/* Time in seconds to cache getpwuid results */
-#define GETPWUID_CACHE_TIME (5*60)
-
 #define ICON_NAME_THUMBNAIL_LOADING   "image-loading"
 
 #undef CAJA_FILE_DEBUG_REF
@@ -87,16 +84,11 @@
 #ifdef CAJA_FILE_DEBUG_REF_VALGRIND
 #include <valgrind/valgrind.h>
 #define DEBUG_REF_PRINTF VALGRIND_PRINTF_BACKTRACE
-#else
-#define DEBUG_REF_PRINTF printf
 #endif
 
 /* Files that start with these characters sort after files that don't. */
 #define SORT_LAST_CHAR1 '.'
 #define SORT_LAST_CHAR2 '#'
-
-/* Name of Caja trash directories */
-#define TRASH_DIRECTORY_NAME ".Trash"
 
 #define METADATA_ID_IS_LIST_MASK (1U<<31)
 

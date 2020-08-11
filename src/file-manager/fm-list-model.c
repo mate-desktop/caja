@@ -52,9 +52,6 @@ static GQuark attribute_name_q,
        attribute_modification_date_q,
        attribute_date_modified_q;
 
-/* msec delay after Loading... dummy row turns into (empty) */
-#define LOADING_TO_EMPTY_DELAY 100
-
 static guint list_model_signals[LAST_SIGNAL] = { 0 };
 
 static int fm_list_model_file_entry_compare_func (gconstpointer a,

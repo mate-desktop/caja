@@ -86,7 +86,6 @@ static void redraw_and_repick_if_mapped (EelCanvasItem *item);
 
 /* Some convenience stuff */
 #define GCI_UPDATE_MASK (EEL_CANVAS_UPDATE_REQUESTED | EEL_CANVAS_UPDATE_DEEP)
-#define GCI_EPSILON 1e-18
 
 enum
 {

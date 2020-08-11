@@ -43,12 +43,6 @@
 
 #include "caja-history-sidebar.h"
 
-#define CAJA_HISTORY_SIDEBAR_CLASS(klass) \
-  (G_TYPE_CHECK_CLASS_CAST ((klass), CAJA_TYPE_HISTORY_SIDEBAR, CajaHistorySidebarClass))
-#define CAJA_IS_HISTORY_SIDEBAR(obj) \
-  (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CAJA_TYPE_HISTORY_SIDEBAR))
-#define CAJA_IS_HISTORY_SIDEBAR_CLASS(klass) \
-  (G_TYPE_CHECK_CLASS_TYPE ((klass), CAJA_TYPE_HISTORY_SIDEBAR))
 
 typedef struct
 {

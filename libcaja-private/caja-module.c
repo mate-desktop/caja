@@ -32,9 +32,6 @@
 
 #define CAJA_TYPE_MODULE    	(caja_module_get_type ())
 #define CAJA_MODULE(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), CAJA_TYPE_MODULE, CajaModule))
-#define CAJA_MODULE_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST ((klass), CAJA_TYPE_MODULE, CajaModule))
-#define CAJA_IS_MODULE(obj)		(G_TYPE_INSTANCE_CHECK_TYPE ((obj), CAJA_TYPE_MODULE))
-#define CAJA_IS_MODULE_CLASS(klass)	(G_TYPE_CLASS_CHECK_CLASS_TYPE ((klass), CAJA_TYPE_MODULE))
 
 typedef struct _CajaModule        CajaModule;
 typedef struct _CajaModuleClass   CajaModuleClass;

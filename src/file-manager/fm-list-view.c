@@ -122,13 +122,6 @@ struct SelectionForeachData
     GtkTreeSelection *selection;
 };
 
-/*
- * The row height should be large enough to not clip emblems.
- * Computing this would be costly, so we just choose a number
- * that works well with the set of emblems we've designed.
- */
-#define LIST_VIEW_MINIMUM_ROW_HEIGHT	28
-
 /* We wait two seconds after row is collapsed to unload the subdirectory */
 #define COLLAPSE_TO_UNLOAD_DELAY 2
 

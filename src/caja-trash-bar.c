@@ -33,8 +33,6 @@
 #include "caja-trash-bar.h"
 #include "caja-window.h"
 
-#define CAJA_TRASH_BAR_GET_PRIVATE(o)\
-	(G_TYPE_INSTANCE_GET_PRIVATE ((o), CAJA_TYPE_TRASH_BAR, CajaTrashBarPrivate))
 
 enum
 {
