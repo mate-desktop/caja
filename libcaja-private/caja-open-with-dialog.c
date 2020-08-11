@@ -39,7 +39,6 @@
 #include "caja-signaller.h"
 
 #define sure_string(s)                    ((const char *)((s)!=NULL?(s):""))
-#define DESKTOP_ENTRY_GROUP		  "Desktop Entry"
 
 struct _CajaOpenWithDialogDetails
 {

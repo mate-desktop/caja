@@ -50,12 +50,6 @@
 
 #include "caja-bookmarks-sidebar.h"
 
-#define CAJA_BOOKMARKS_SIDEBAR_CLASS(klass) \
-  (G_TYPE_CHECK_CLASS_CAST ((klass), CAJA_TYPE_BOOKMARKS_SIDEBAR, CajaBookmarksSidebarClass))
-#define CAJA_IS_BOOKMARKS_SIDEBAR(obj) \
-  (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CAJA_TYPE_BOOKMARKS_SIDEBAR))
-#define CAJA_IS_BOOKMARKS_SIDEBAR_CLASS(klass) \
-  (G_TYPE_CHECK_CLASS_TYPE ((klass), CAJA_TYPE_BOOKMARKS_SIDEBAR))
 
 typedef struct
 {

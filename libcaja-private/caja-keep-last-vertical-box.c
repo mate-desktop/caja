@@ -31,8 +31,6 @@ static void	caja_keep_last_vertical_box_size_allocate 	  (GtkWidget 			    *widg
 
 G_DEFINE_TYPE (CajaKeepLastVerticalBox, caja_keep_last_vertical_box, GTK_TYPE_BOX)
 
-#define parent_class caja_keep_last_vertical_box_parent_class
-
 /* Standard class initialization function */
 static void
 caja_keep_last_vertical_box_class_init (CajaKeepLastVerticalBoxClass *klass)

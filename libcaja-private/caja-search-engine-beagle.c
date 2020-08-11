@@ -51,7 +51,6 @@ struct CajaSearchEngineBeagleDetails
 /* We dlopen() all the following from libbeagle at runtime */
 #define BEAGLE_HIT(x) ((BeagleHit *)(x))
 #define BEAGLE_REQUEST(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), beagle_request_get_type(), BeagleRequest))
-#define BEAGLE_QUERY_PART(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), beagle_query_part_get_type(), BeagleQueryPart))
 
 typedef enum
 {
