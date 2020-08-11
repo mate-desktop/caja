@@ -44,11 +44,6 @@
 #include <glib/gi18n-lib.h>
 #include <math.h>
 
-/* This number is fairly arbitrary. Long enough to show a pretty long
- * menu title, but not so long to make a menu grotesquely wide.
- */
-#define MAXIMUM_MENU_TITLE_LENGTH	48
-
 /* Used for window position & size sanity-checking. The sizes are big enough to prevent
  * at least normal-sized mate panels from obscuring the window at the screen edges.
  */
