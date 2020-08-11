@@ -36,8 +36,6 @@
 
 #define TIMED_WAIT_MINIMUM_DIALOG_WIDTH 300
 
-#define RESPONSE_DETAILS 1000
-
 typedef struct
 {
     EelCancelCallback cancel_callback;
