@@ -34,7 +34,8 @@ gboolean         caja_link_local_create                      (const char        
         const char        *target_uri,
         const GdkPoint    *point,
         int                screen,
-        gboolean           unique_filename);
+        gboolean           unique_filename,
+        GError           **error);
 gboolean         caja_link_local_set_text                    (const char        *uri,
         const char        *text);
 gboolean         caja_link_local_set_icon                    (const char        *uri,
