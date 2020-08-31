@@ -10732,6 +10732,8 @@ fm_directory_view_handle_netscape_url_drop (FMDirectoryView  *view,
 			GdkScreen *screen;
 			int screen_num;
 			char *link_display_name;
+			GError *error = NULL;
+			gboolean success;
 
 			link_display_name = g_strdup_printf (_("Link to %s"), link_name);
 
@@ -10745,14 +10747,27 @@ fm_directory_view_handle_netscape_url_drop (FMDirectoryView  *view,
 			screen = gtk_widget_get_screen (GTK_WIDGET (view));
 			screen_num = gdk_x11_screen_get_screen_number (screen);
 
-			caja_link_local_create (target_uri != NULL ? target_uri : container_uri,
-						    link_name,
-						    link_display_name,
-						    "mate-fs-bookmark",
-						    url,
-						    &point,
-						    screen_num,
-						    TRUE);
+			success = caja_link_local_create (target_uri != NULL ? target_uri : container_uri,
+			                                  link_name,
+			                                  link_display_name,
+			                                  "mate-fs-bookmark",
+			                                  url,
+			                                  &point,
+			                                  screen_num,
+			                                  TRUE,
+			                                  &error);
+			if (!success) {
+				if (error) {
+					eel_show_error_dialog (_("Link Creation Failed"),
+					                       error->message, NULL);
+					g_error_free (error);
+				} else {
+					gchar *error_message = g_strdup_printf (_("Cannot create the link to %s"), url);
+					eel_show_error_dialog (_("Link Creation Failed"),
+					                       error_message, NULL);
+					g_free (error_message);
+				}
+			}
 
 			g_free (link_display_name);
 		}

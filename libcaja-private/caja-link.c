@@ -197,7 +197,8 @@ caja_link_local_create (const char     *directory_uri,
                         const char     *target_uri,
                         const GdkPoint *point,
                         int             screen,
-                        gboolean        unique_filename)
+                        gboolean        unique_filename,
+                        GError        **error)
 {
     char *real_directory_uri;
     char *contents;
@@ -274,7 +275,7 @@ caja_link_local_create (const char     *directory_uri,
                                   contents, strlen (contents),
                                   NULL, FALSE,
                                   G_FILE_CREATE_NONE,
-                                  NULL, NULL, NULL))
+                                  NULL, NULL, error))
     {
         g_free (contents);
         g_object_unref (file);
