@@ -366,7 +366,7 @@ static void
 action_reload_callback (GtkAction *action,
                         gpointer user_data)
 {
-    caja_window_reload (CAJA_WINDOW (user_data));
+    caja_window_reload (CAJA_WINDOW (user_data), should_open_in_new_tab ());
 }
 
 static void
