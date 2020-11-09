@@ -37,7 +37,5 @@ xmlNodePtr eel_xml_get_root_child_by_name_and_property (xmlDocPtr   document,
         const char *child_name,
         const char *property_name,
         const char *property_value);
-xmlChar   *eel_xml_get_property_translated             (xmlNodePtr  parent,
-        const char *property_name);
 
 #endif /* EEL_XML_EXTENSIONS_H */

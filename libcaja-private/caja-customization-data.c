@@ -485,11 +485,11 @@ load_name_map_hash_table (CajaCustomizationData *data)
             {
                 char *filename, *display_name;
 
-                display_name = eel_xml_get_property_translated (current_node, "display_name");
+                display_name = xmlGetProp (current_node, "display_name");
                 filename = xmlGetProp (current_node, "filename");
                 if (display_name && filename)
                 {
-                    g_hash_table_replace (data->name_map_hash, g_strdup (filename), g_strdup (display_name));
+                    g_hash_table_replace (data->name_map_hash, g_strdup (filename), g_strdup (_(display_name)));
                 }
                 xmlFree (filename);
                 xmlFree (display_name);
