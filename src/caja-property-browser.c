@@ -2071,13 +2071,13 @@ make_properties_from_xml_node (CajaPropertyBrowser *property_browser,
             }
 
             color = xmlNodeGetContent (child_node);
-            name = eel_xml_get_property_translated (child_node, "name");
+            name = xmlGetProp (child_node, "name");
 
             /* make the image from the color spec */
             pixbuf = make_color_drag_image (property_browser, color, FALSE);
 
             /* make the tile from the pixmap and name */
-            new_property = labeled_image_new (name, pixbuf, color, PANGO_SCALE_LARGE);
+            new_property = labeled_image_new (_(name), pixbuf, color, PANGO_SCALE_LARGE);
 
             gtk_container_add (GTK_CONTAINER (property_browser->details->content_table), new_property);
             gtk_widget_show (new_property);
@@ -2266,14 +2266,14 @@ caja_property_browser_update_contents (CajaPropertyBrowser *property_browser)
             {
                 path = xmlGetProp (cur_node, "path");
                 mode = xmlGetProp (cur_node, "mode");
-                description = eel_xml_get_property_translated (cur_node, "description");
+                description = xmlGetProp (cur_node, "description");
                 type = xmlGetProp (cur_node, "type");
 
                 make_category (property_browser,
                                path,
                                mode,
                                cur_node,
-                               description);
+                               _(description));
                 caja_property_browser_set_drag_type (property_browser, type);
 
                 xmlFree (path);
@@ -2284,12 +2284,12 @@ caja_property_browser_update_contents (CajaPropertyBrowser *property_browser)
 
             if (!got_categories)
             {
-                display_name = eel_xml_get_property_translated (cur_node, "display_name");
+                display_name = xmlGetProp (cur_node, "display_name");
                 image = xmlGetProp (cur_node, "image");
 
                 make_category_link (property_browser,
                                     name,
-                                    display_name,
+                                    _(display_name),
                                     image,
                                     &group);
 
