@@ -272,11 +272,10 @@ caja_window_go_up_signal (CajaWindow *window, gboolean close_behind)
     return TRUE;
 }
 
-static gboolean
+static void
 caja_window_reload_signal (CajaWindow *window)
 {
     caja_window_reload (window, FALSE);
-    return TRUE;
 }
 
 void
@@ -487,7 +486,6 @@ void
 caja_window_reload (CajaWindow *window, gboolean new_tab)
 {
     CajaWindowSlot *slot;
-    GList *selection;
 
     g_assert (CAJA_IS_WINDOW (window));
 
@@ -502,7 +500,7 @@ caja_window_reload (CajaWindow *window, gboolean new_tab)
     }
     else
     {
-        caja_window_slot_reload (window->details->active_pane->active_slot);
+        caja_window_slot_reload (slot);
     }
 }
 
