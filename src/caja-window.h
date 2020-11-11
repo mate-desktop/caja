@@ -156,8 +156,8 @@ void             caja_window_prompt_for_location  (CajaWindow    *window,
         const char        *initial);
 void             caja_window_display_error        (CajaWindow    *window,
         const char        *error_msg);
-void		 caja_window_reload		      (CajaWindow	 *window);
-
+void             caja_window_reload               (CajaWindow    *window,
+        gboolean           new_tab);
 void             caja_window_allow_reload         (CajaWindow    *window,
         gboolean           allow);
 void             caja_window_allow_up             (CajaWindow    *window,
