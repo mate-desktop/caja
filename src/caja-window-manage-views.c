@@ -2394,11 +2394,3 @@ caja_window_slot_reload (CajaWindowSlot *slot)
     g_list_free_full (selection, g_object_unref);
 }
 
-void
-caja_window_reload (CajaWindow *window)
-{
-    g_assert (CAJA_IS_WINDOW (window));
-
-    caja_window_slot_reload (window->details->active_pane->active_slot);
-}
-

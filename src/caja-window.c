@@ -272,6 +272,12 @@ caja_window_go_up_signal (CajaWindow *window, gboolean close_behind)
     return TRUE;
 }
 
+static void
+caja_window_reload_signal (CajaWindow *window)
+{
+    caja_window_reload (window, FALSE);
+}
+
 void
 caja_window_new_tab (CajaWindow *window)
 {
@@ -473,6 +479,28 @@ caja_window_sync_allow_stop (CajaWindow *window,
 
         EEL_CALL_METHOD (CAJA_WINDOW_CLASS, window,
                          sync_allow_stop, (window, slot));
+    }
+}
+
+void
+caja_window_reload (CajaWindow *window, gboolean new_tab)
+{
+    CajaWindowSlot *slot;
+
+    g_assert (CAJA_IS_WINDOW (window));
+
+    slot = window->details->active_pane->active_slot;
+
+    if (new_tab && slot->location != NULL)
+    {
+        caja_window_slot_open_location_full (slot, slot->location,
+                                             CAJA_WINDOW_OPEN_ACCORDING_TO_MODE,
+                                             CAJA_WINDOW_OPEN_FLAG_NEW_TAB,
+                                             NULL, NULL, NULL);
+    }
+    else
+    {
+        caja_window_slot_reload (slot);
     }
 }
 
@@ -2220,6 +2248,6 @@ caja_window_class_init (CajaWindowClass *class)
                                   "prompt-for-location", 1,
                                   G_TYPE_STRING, "/");
 
-    class->reload = caja_window_reload;
+    class->reload = caja_window_reload_signal;
     class->go_up = caja_window_go_up_signal;
 }
