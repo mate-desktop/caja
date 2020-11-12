@@ -2,7 +2,7 @@
 
 #include "test.h"
 
-static const char pixbuf_name[] = "/usr/share/pixmaps/mate-globe.png";
+static const char icon_name[] = "gnome-globe";
 
 static void
 button_callback (GtkWidget *button,
@@ -61,10 +61,13 @@ main (int argc, char* argv[])
 	GtkWidget *labeled_image_window = NULL;
 	GtkWidget *labeled_image_button_window = NULL;
 	GdkPixbuf *pixbuf = NULL;
+	GtkIconTheme *icon_theme = NULL;
 
 	test_init (&argc, &argv);
 
-	if (1) pixbuf = test_pixbuf_new_named (pixbuf_name, 1.0);
+	icon_theme = gtk_icon_theme_get_default ();
+
+	if (1) pixbuf = gtk_icon_theme_load_icon (icon_theme, icon_name, 32, GTK_ICON_LOOKUP_USE_BUILTIN, NULL);
 	if (1) labeled_image_button_window = labeled_image_button_window_new ("LabeledImage in GtkButton Test", pixbuf);
 
 	eel_gdk_pixbuf_unref_if_not_null (pixbuf);
