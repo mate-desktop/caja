@@ -14,7 +14,7 @@ main (int argc, char* argv[])
 {
 	GdkPixbuf *pixbuf, *scaled;
 	GError *error;
-	struct timeval t1, t2;
+	gint64 t1, t2;
 	int i;
 
 	test_init (&argc, &argv);
@@ -36,35 +36,35 @@ main (int argc, char* argv[])
 		(double)gdk_pixbuf_get_width(pixbuf)/DEST_WIDTH,
 		(double)gdk_pixbuf_get_height(pixbuf)/DEST_HEIGHT);
 
-	gettimeofday(&t1, NULL);
+	t1 = g_get_monotonic_time ();
 	for (i = 0; i < N_SCALES; i++) {
 		scaled = eel_gdk_pixbuf_scale_down (pixbuf, DEST_WIDTH, DEST_HEIGHT);
 		g_object_unref (scaled);
 	}
-	gettimeofday(&t2, NULL);
-	g_print ("Time for eel_gdk_pixbuf_scale_down: %ld msecs\n",
-		 (t2.tv_sec - t1.tv_sec) * 1000 + (t2.tv_usec - t1.tv_usec) / 1000);
+	t2 = g_get_monotonic_time ();
+	g_print ("Time for eel_gdk_pixbuf_scale_down: %" G_GINT64_FORMAT " msecs\n",
+		 (t2 - t1) / G_TIME_SPAN_MILLISECOND);
 
 
 
-	gettimeofday(&t1, NULL);
+	t1 = g_get_monotonic_time ();
 	for (i = 0; i < N_SCALES; i++) {
 		scaled = gdk_pixbuf_scale_simple (pixbuf, DEST_WIDTH, DEST_HEIGHT, GDK_INTERP_NEAREST);
 		g_object_unref (scaled);
 	}
-	gettimeofday(&t2, NULL);
-	g_print ("Time for INTERP_NEAREST: %ld msecs\n",
-		 (t2.tv_sec - t1.tv_sec) * 1000 + (t2.tv_usec - t1.tv_usec) / 1000);
+	t2 = g_get_monotonic_time ();
+	g_print ("Time for INTERP_NEAREST: %" G_GINT64_FORMAT " msecs\n",
+		 (t2 - t1) / G_TIME_SPAN_MILLISECOND);
 
 
-	gettimeofday(&t1, NULL);
+	t1 = g_get_monotonic_time ();
 	for (i = 0; i < N_SCALES; i++) {
 		scaled = gdk_pixbuf_scale_simple (pixbuf, DEST_WIDTH, DEST_HEIGHT, GDK_INTERP_BILINEAR);
 		g_object_unref (scaled);
 	}
-	gettimeofday(&t2, NULL);
-	g_print ("Time for INTERP_BILINEAR: %ld msecs\n",
-		 (t2.tv_sec - t1.tv_sec) * 1000 + (t2.tv_usec - t1.tv_usec) / 1000);
+	t2 = g_get_monotonic_time ();
+	g_print ("Time for INTERP_BILINEAR: %" G_GINT64_FORMAT " msecs\n",
+		 (t2 - t1) / G_TIME_SPAN_MILLISECOND);
 
 	scaled = eel_gdk_pixbuf_scale_down (pixbuf, DEST_WIDTH, DEST_HEIGHT);
 	gdk_pixbuf_save (scaled, "eel_scaled.png", "png", NULL, NULL);

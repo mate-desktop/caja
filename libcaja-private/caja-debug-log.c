@@ -25,10 +25,13 @@
 #include <errno.h>
 #include <stdio.h>
 #include <string.h>
-#include <time.h>
-#include <sys/time.h>
 #include "caja-debug-log.h"
 #include "caja-file.h"
+
+#if !GLIB_CHECK_VERSION(2,65,2)
+#include <time.h>
+#include <sys/time.h>
+#endif
 
 #define DEFAULT_RING_BUFFER_NUM_LINES 1000
 
@@ -151,8 +154,13 @@ caja_debug_logv (gboolean is_milestone, const char *domain, const GList *uris, c
 {
     char *str;
     char *debug_str;
+#if GLIB_CHECK_VERSION(2,65,2)
+    char *date_str;
+    GDateTime* datetime;
+#else
     struct timeval tv;
     struct tm tm;
+#endif
 
     lock ();
 
@@ -160,10 +168,20 @@ caja_debug_logv (gboolean is_milestone, const char *domain, const GList *uris, c
         goto out;
 
     str = g_strdup_vprintf (format, args);
+
+#if GLIB_CHECK_VERSION(2,65,2)
+    datetime = g_date_time_new_now_local ();
+    date_str = g_date_time_format (datetime, "%Y/%m/%d %H:%M:%S.%f");
+    g_date_time_unref (datetime);
+    debug_str = g_strdup_printf ("%p %s (%s): %s",
+                                 g_thread_self (),
+                                 date_str,
+                                 domain,
+                                 str);
+    g_free (date_str);
+#else
     gettimeofday (&tv, NULL);
-
     tm = *localtime (&tv.tv_sec);
-
     debug_str = g_strdup_printf ("%p %04d/%02d/%02d %02d:%02d:%02d.%04d (%s): %s",
                                  g_thread_self (),
                                  tm.tm_year + 1900,
@@ -175,6 +193,7 @@ caja_debug_logv (gboolean is_milestone, const char *domain, const GList *uris, c
                                  (int) (tv.tv_usec / 100),
                                  domain,
                                  str);
+#endif
     g_free (str);
 
     if (uris)
