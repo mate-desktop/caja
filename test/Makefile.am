@@ -7,6 +7,7 @@ AM_CPPFLAGS =\
 	-DVERSION="\"$(VERSION)\"" \
 	-DCAJA_DATADIR=\""$(datadir)/caja"\" \
 	-DMATELOCALEDIR=\""$(prefix)/${DATADIRNAME}/locale"\" \
+	-DPIXBUFDIR=\""$(datadir)/pixmaps"\" \
 	$(NULL)
 
 LDADD =\

@@ -5,7 +5,7 @@
 
 #include "test.h"
 
-static const char pixbuf_name[] = "/usr/share/pixmaps/mate-about-logo.png";
+static const char pixbuf_name[] = PIXBUFDIR "/mate-logo-white.svg";
 
 static const char *names[] =
 {
