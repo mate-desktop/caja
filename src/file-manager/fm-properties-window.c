@@ -5769,8 +5769,8 @@ select_image_button_callback (GtkWidget *widget,
 						      "process-stop", GTK_RESPONSE_CANCEL,
 						      "document-open", GTK_RESPONSE_OK,
 						      NULL);
-		gtk_file_chooser_add_shortcut_folder (GTK_FILE_CHOOSER (dialog), "/usr/share/icons", NULL);
-		gtk_file_chooser_add_shortcut_folder (GTK_FILE_CHOOSER (dialog), "/usr/share/pixmaps", NULL);
+		gtk_file_chooser_add_shortcut_folder (GTK_FILE_CHOOSER (dialog), ICONDIR, NULL);
+		gtk_file_chooser_add_shortcut_folder (GTK_FILE_CHOOSER (dialog), PIXMAPDIR, NULL);
 		gtk_window_set_destroy_with_parent (GTK_WINDOW (dialog), TRUE);
 
 		filter = gtk_file_filter_new ();
