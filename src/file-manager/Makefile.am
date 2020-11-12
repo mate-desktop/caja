@@ -9,6 +9,8 @@ AM_CPPFLAGS = \
 	$(WARN_CFLAGS) \
 	-DCAJA_DATADIR=\""$(datadir)/caja"\" \
 	-DDATADIR=\""$(datadir)"\" \
+	-DICONDIR=\""$(datadir)/icons"\" \
+	-DPIXMAPDIR=\""$(datadir)/pixmaps"\" \
 	$(DISABLE_DEPRECATED_CFLAGS) \
 	$(NULL)
 
