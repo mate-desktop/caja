@@ -839,7 +839,7 @@ clear_keyboard_focus (CajaIconContainer *container)
     container->details->keyboard_focus = NULL;
 }
 
-static void inline
+static inline void
 emit_atk_focus_state_change (CajaIcon *icon, gboolean focused)
 {
     AtkObject *atk_object = atk_gobject_accessible_for_object (G_OBJECT (icon->item));
