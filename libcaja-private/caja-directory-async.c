@@ -3861,14 +3861,9 @@ is_link_trusted (CajaFile *file,
         return TRUE;
     }
 
-    if (caja_file_can_execute (file))
-    {
-        return TRUE;
-    }
-
     res = FALSE;
 
-    if (caja_file_is_local (file))
+    if (caja_file_can_execute (file) && caja_file_is_local (file))
     {
         GFile *location;
 
