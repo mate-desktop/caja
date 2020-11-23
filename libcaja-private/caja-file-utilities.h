@@ -48,7 +48,8 @@ gboolean caja_is_home_directory                  (GFile *dir);
 gboolean caja_is_home_directory_file             (GFile *dir,
         const char *filename);
 GMount * caja_get_mounted_mount_for_root         (GFile *location);
-gboolean caja_is_in_system_dir                   (GFile *location);
+gboolean caja_is_in_desktop_dir                  (GFile *file);
+gboolean caja_is_in_system_dir                   (GFile *file);
 char *   caja_get_pixmap_directory               (void);
 
 gboolean caja_should_use_templates_directory     (void);
