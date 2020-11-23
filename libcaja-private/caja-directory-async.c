@@ -3854,25 +3854,22 @@ static gboolean
 is_link_trusted (CajaFile *file,
                  gboolean is_launcher)
 {
-    gboolean res;
+    gboolean res = FALSE;
 
     if (!is_launcher)
     {
         return TRUE;
     }
 
-    res = FALSE;
-
     if (caja_file_can_execute (file) && caja_file_is_local (file))
     {
         GFile *location;
 
         location = caja_file_get_location (file);
-        res = caja_is_in_system_dir (location);
 
-        if (!res) {
-            res = is_trusted_system_desktop_file (location);
-        }
+        res = caja_is_in_system_dir (location) ||
+              is_trusted_system_desktop_file (location) ||
+              caja_is_in_desktop_dir (location);
 
         g_object_unref (location);
     }

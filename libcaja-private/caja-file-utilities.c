@@ -1134,6 +1134,31 @@ caja_is_in_system_dir (GFile *file)
     return res;
 }
 
+gboolean
+caja_is_in_desktop_dir (GFile *file)
+{
+    char *path;
+    char *dirname;
+    gboolean res = FALSE;
+
+    if (!g_file_is_native (file))
+    {
+        return res;
+    }
+
+    path = g_file_get_path (file);
+    dirname = g_path_get_dirname (path);
+    if (g_strcmp0 (dirname, g_get_user_special_dir (G_USER_DIRECTORY_DESKTOP)) == 0)
+    {
+        res = TRUE;
+    }
+
+    g_free (path);
+    g_free (dirname);
+
+    return res;
+}
+
 GHashTable *
 caja_trashed_files_get_original_directories (GList *files,
         GList **unhandled_files)
