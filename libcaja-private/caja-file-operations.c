@@ -65,6 +65,7 @@
 #include "caja-file-utilities.h"
 #include "caja-file-conflict-dialog.h"
 #include "caja-undostack-manager.h"
+#include "caja-metadata.h"
 
 /* TODO: TESTING!!! */
 
@@ -6694,6 +6695,12 @@ mark_desktop_file_trusted (CommonJob *common,
 			}
 	}
 	g_object_unref (info);
+
+	g_file_set_attribute_string (file,
+	                             "metadata::" CAJA_METADATA_KEY_TRUSTED_LAUNCHER, "true",
+	                             G_FILE_QUERY_INFO_NONE,
+	                             cancellable,
+	                             NULL);
  out:
 	;
 }
