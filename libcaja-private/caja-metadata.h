@@ -75,6 +75,8 @@
 #define CAJA_METADATA_KEY_SCREEN				"screen"
 #define CAJA_METADATA_KEY_EMBLEMS				"emblems"
 
+#define CAJA_METADATA_KEY_TRUSTED_LAUNCHER              "caja-trusted-launcher"
+
 guint caja_metadata_get_id (const char *metadata);
 
 #endif /* CAJA_METADATA_H */
