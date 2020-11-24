@@ -35,6 +35,7 @@
 #include "caja-file-attributes.h"
 #include "caja-file-private.h"
 #include "caja-file-utilities.h"
+#include "caja-metadata.h"
 #include "caja-signaller.h"
 #include "caja-global-preferences.h"
 #include "caja-link.h"
@@ -3870,6 +3871,13 @@ is_link_trusted (CajaFile *file,
         res = caja_is_in_system_dir (location) ||
               is_trusted_system_desktop_file (location) ||
               caja_is_in_desktop_dir (location);
+
+        if (!res)
+        {
+              res = caja_file_get_boolean_metadata (file,
+                                                    CAJA_METADATA_KEY_TRUSTED_LAUNCHER,
+                                                    FALSE);
+        }
 
         g_object_unref (location);
     }
