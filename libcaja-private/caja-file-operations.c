@@ -5884,6 +5884,7 @@ caja_file_operations_copy_move (const GList *item_uris,
 {
 	GList *locations;
 	GList *p;
+	GFile *src_dir;
 	GFile *dest;
 	GtkWindow *parent_window;
 	gboolean target_is_mapping;
@@ -5920,10 +5921,9 @@ caja_file_operations_copy_move (const GList *item_uris,
 		parent_window = (GtkWindow *)gtk_widget_get_ancestor (parent_view, GTK_TYPE_WINDOW);
 	}
 
-	if (copy_action == GDK_ACTION_COPY) {
-		GFile *src_dir;
+	src_dir = g_file_get_parent (locations->data);
 
-		src_dir = g_file_get_parent (locations->data);
+	if (copy_action == GDK_ACTION_COPY) {
 		if (target_dir == NULL ||
 		    (src_dir != NULL &&
 		     g_file_equal (src_dir, dest))) {
@@ -5938,10 +5938,6 @@ caja_file_operations_copy_move (const GList *item_uris,
 						       parent_window,
 						       done_callback, done_callback_data);
 		}
-		if (src_dir) {
-			g_object_unref (src_dir);
-		}
-
 	} else if (copy_action == GDK_ACTION_MOVE) {
 		if (g_file_has_uri_scheme (dest, "trash")) {
 			MoveTrashCBData *cb_data;
@@ -5953,7 +5949,7 @@ caja_file_operations_copy_move (const GList *item_uris,
 								  parent_window,
 								  (CajaDeleteCallback) callback_for_move_to_trash,
 								  cb_data);
-		} else {
+		} else if (src_dir == NULL || !g_file_equal (src_dir, dest)) {
 			caja_file_operations_move (locations,
 						       relative_item_points,
 						       dest,
@@ -5971,6 +5967,10 @@ caja_file_operations_copy_move (const GList *item_uris,
     	g_list_free_full (locations, g_object_unref);
 	if (dest) {
 		g_object_unref (dest);
+	}
+
+	if (src_dir) {
+		g_object_unref (src_dir);
 	}
 }
 
