@@ -813,8 +813,7 @@ caja_file_management_properties_dialog_setup_media_page (GtkBuilder *builder)
 skip:
         ;
     }
-    g_list_foreach (content_types, (GFunc) g_free, NULL);
-    g_list_free (content_types);
+    g_list_free_full (content_types, g_free);
 
     gtk_combo_box_set_model (GTK_COMBO_BOX (other_type_combo_box), GTK_TREE_MODEL (other_type_list_store));
 
