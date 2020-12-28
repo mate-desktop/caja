@@ -1229,7 +1229,7 @@ get_default_zoom_level (FMIconView *icon_view)
                                       (int *) &default_compact_zoom_level);
     }
 
-    return CLAMP (DEFAULT_ZOOM_LEVEL(icon_view), CAJA_ZOOM_LEVEL_SMALLEST, CAJA_ZOOM_LEVEL_LARGEST);
+    return MIN (DEFAULT_ZOOM_LEVEL(icon_view), CAJA_ZOOM_LEVEL_LARGEST);
 }
 
 static void
