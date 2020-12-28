@@ -13,7 +13,7 @@ extern "C" {
 
     /* Names for Caja's different zoom levels, from tiniest items to largest items */
     typedef enum {
-        CAJA_ZOOM_LEVEL_SMALLEST,
+        CAJA_ZOOM_LEVEL_SMALLEST = 0,
         CAJA_ZOOM_LEVEL_SMALLER,
         CAJA_ZOOM_LEVEL_SMALL,
         CAJA_ZOOM_LEVEL_STANDARD,
