@@ -26,9 +26,11 @@
 #include <cairo-gobject.h>
 
 #include <gdk/gdkkeysyms.h>
+#include <gdk/gdkx.h>
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 #include <gio/gio.h>
+#include <gio/gdesktopappinfo.h>
 #include <libnotify/notify.h>
 
 #include <eel/eel-debug.h>
@@ -1735,6 +1737,18 @@ check_visibility (GMount           *mount,
 
         if (*show_stop)
             *show_unmount = FALSE;
+
+        if (volume != NULL)
+        {
+            gchar *unix_device_id;
+            gchar *disks_path;
+
+            unix_device_id = g_volume_get_identifier (volume, G_VOLUME_IDENTIFIER_KIND_UNIX_DEVICE);
+            disks_path = g_find_program_in_path ("gnome-disks");
+            *show_format = (unix_device_id != NULL) && (disks_path != NULL);
+            g_free (unix_device_id);
+            g_free (disks_path);
+        }
     }
 
     if (volume != NULL)
@@ -2486,10 +2500,43 @@ rescan_shortcut_cb (GtkMenuItem           *item,
 }
 
 static void
-format_shortcut_cb (GtkMenuItem           *item,
+format_shortcut_cb (GtkMenuItem       *item,
                     CajaPlacesSidebar *sidebar)
 {
-    g_spawn_command_line_async ("gfloppy", NULL);
+    GAppInfo *app_info;
+    char *cmdline;
+    char *device_identifier;
+    char *xid_string;
+    gint xid;
+    GtkTreeIter iter;
+    GVolume *volume;
+
+    if (!get_selected_iter (sidebar, &iter))
+    {
+        return;
+    }
+
+    gtk_tree_model_get (GTK_TREE_MODEL (sidebar->filter_model), &iter,
+                        PLACES_SIDEBAR_COLUMN_VOLUME, &volume,
+                        -1);
+
+    device_identifier = g_volume_get_identifier (volume, G_VOLUME_IDENTIFIER_KIND_UNIX_DEVICE);
+    xid = (gint) gdk_x11_window_get_xid (gtk_widget_get_window (GTK_WIDGET (item)));
+    xid_string = g_strdup_printf ("%d", xid);
+
+    cmdline = g_strjoin (" ",
+                         "gnome-disks", "--format-device",
+                         "--block-device", device_identifier,
+                         "--xid", xid_string,
+                         NULL);
+
+    app_info = g_app_info_create_from_commandline (cmdline, NULL, 0, NULL);
+    g_app_info_launch (app_info, NULL, NULL, NULL);
+
+    g_free (cmdline);
+    g_free (device_identifier);
+    g_free (xid_string);
+    g_clear_object (&app_info);
 }
 
 static void
