@@ -13,9 +13,9 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: caja 1.23.2\n"
+"Project-Id-Version: caja 1.25.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
-"POT-Creation-Date: 2020-01-10 11:11+0100\n"
+"POT-Creation-Date: 2020-06-21 17:16+0200\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
 "Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2019\n"
 "Language-Team: Albanian (https://www.transifex.com/mate/teams/13566/sq/)\n"
@@ -296,7 +296,7 @@ msgstr "Fshij"
 
 #: data/caja.appdata.xml.in:7 data/caja-browser.desktop.in.in:3
 #: data/caja.desktop.in.in:3 data/caja-folder-handler.desktop.in.in:3
-#: src/caja-spatial-window.c:399 src/caja-window.c:167
+#: src/caja-spatial-window.c:403 src/caja-window.c:167
 #: src/caja-window-menus.c:574
 msgid "Caja"
 msgstr "Caja"
@@ -323,12 +323,6 @@ msgstr ""
 msgid "Autorun Prompt"
 msgstr "Konfermo ekzekutimin automatik"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/caja-autorun-software.desktop.in.in:7
-msgid "application-x-executable"
-msgstr ""
-
 #: data/caja-browser.desktop.in.in:4
 msgid "File Browser"
 msgstr "Shfletuesi i file"
@@ -336,13 +330,6 @@ msgstr "Shfletuesi i file"
 #: data/caja-browser.desktop.in.in:5
 msgid "Browse the file system with the file manager"
 msgstr "Shfleton file e sistemit me administruesin e file"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/caja-browser.desktop.in.in:9 data/caja.desktop.in.in:7
-#: data/caja-file-management-properties.desktop.in.in:7
-msgid "system-file-manager"
-msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
@@ -361,12 +348,6 @@ msgid ""
 msgstr ""
 "Shfleton të gjithë disqet dhe kartelat lokale dhe në distancë të arritshme "
 "nga ky kompjutër"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/caja-computer.desktop.in.in:8
-msgid "computer"
-msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
@@ -397,12 +378,6 @@ msgstr ""
 msgid "Open Folder"
 msgstr "Hap kartelën"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/caja-folder-handler.desktop.in.in:10
-msgid "folder-open"
-msgstr ""
-
 #: data/caja-home.desktop.in.in:3 src/file-manager/fm-tree-view.c:1421
 msgid "Home Folder"
 msgstr "Kartela personale"
@@ -411,12 +386,6 @@ msgstr "Kartela personale"
 #: src/caja-window-menus.c:935
 msgid "Open your personal folder"
 msgstr "Hap kartelën personale"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/caja-home.desktop.in.in:8
-msgid "user-home"
-msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
@@ -435,12 +404,6 @@ msgstr "Rrjeti"
 #: data/mate-network-scheme.desktop.in.in:4 src/caja-window-menus.c:945
 msgid "Browse bookmarked and local network locations"
 msgstr "Shfleton pozicionet e rrjetit lokal dhe në libërshënues"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/mate-network-scheme.desktop.in.in:11
-msgid "network-workgroup"
-msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
@@ -802,7 +765,7 @@ msgid "The group of the file."
 msgstr "Grupi i file."
 
 #: libcaja-private/caja-column-utilities.c:108
-#: src/file-manager/fm-properties-window.c:4788
+#: src/file-manager/fm-properties-window.c:4785
 msgid "Permissions"
 msgstr "Autorizimet"
 
@@ -844,7 +807,7 @@ msgid "The location of the file."
 msgstr "Pozicioni i skedarit."
 
 #: libcaja-private/caja-column-utilities.c:148
-#: src/caja-file-management-properties.ui:2551
+#: src/caja-file-management-properties.ui:2542
 msgid "Extension"
 msgstr ""
 
@@ -1006,206 +969,206 @@ msgstr "I pamundur riemërtimi i ikonës desktop"
 msgid "Unable to rename desktop file"
 msgstr "I pamundur riemërtimi i file desktop"
 
-#: libcaja-private/caja-file.c:4757
+#: libcaja-private/caja-file.c:4769
 msgid "today at 00:00:00 PM"
 msgstr "sot në 0.00.00"
 
-#: libcaja-private/caja-file.c:4758 src/caja-file-management-properties.c:532
+#: libcaja-private/caja-file.c:4770 src/caja-file-management-properties.c:509
 msgid "today at %-I:%M:%S %p"
 msgstr "sot në %-H.%M.%S"
 
-#: libcaja-private/caja-file.c:4760
+#: libcaja-private/caja-file.c:4772
 msgid "today at 00:00 PM"
 msgstr "sot në 0.00"
 
-#: libcaja-private/caja-file.c:4761
+#: libcaja-private/caja-file.c:4773
 msgid "today at %-I:%M %p"
 msgstr "sot më %-I:%M %p"
 
-#: libcaja-private/caja-file.c:4763
+#: libcaja-private/caja-file.c:4775
 msgid "today, 00:00 PM"
 msgstr "sot, 0.00"
 
-#: libcaja-private/caja-file.c:4764
+#: libcaja-private/caja-file.c:4776
 msgid "today, %-I:%M %p"
 msgstr "sot, %-H.%M"
 
-#: libcaja-private/caja-file.c:4766 libcaja-private/caja-file.c:4767
+#: libcaja-private/caja-file.c:4778 libcaja-private/caja-file.c:4779
 msgid "today"
 msgstr "sot"
 
-#: libcaja-private/caja-file.c:4776
+#: libcaja-private/caja-file.c:4788
 msgid "yesterday at 00:00:00 PM"
 msgstr "dje në 0.00.00"
 
-#: libcaja-private/caja-file.c:4777
+#: libcaja-private/caja-file.c:4789
 msgid "yesterday at %-I:%M:%S %p"
 msgstr "dje në %-H.%M.%S"
 
-#: libcaja-private/caja-file.c:4779
+#: libcaja-private/caja-file.c:4791
 msgid "yesterday at 00:00 PM"
 msgstr "dje në 0.00"
 
-#: libcaja-private/caja-file.c:4780
+#: libcaja-private/caja-file.c:4792
 msgid "yesterday at %-I:%M %p"
 msgstr "dje më %-I:%M %p"
 
-#: libcaja-private/caja-file.c:4782
+#: libcaja-private/caja-file.c:4794
 msgid "yesterday, 00:00 PM"
 msgstr "dje, 0.00"
 
-#: libcaja-private/caja-file.c:4783
+#: libcaja-private/caja-file.c:4795
 msgid "yesterday, %-I:%M %p"
 msgstr "dje, %-H.%M"
 
-#: libcaja-private/caja-file.c:4785 libcaja-private/caja-file.c:4786
+#: libcaja-private/caja-file.c:4797 libcaja-private/caja-file.c:4798
 msgid "yesterday"
 msgstr "dje"
 
-#: libcaja-private/caja-file.c:4797
+#: libcaja-private/caja-file.c:4809
 msgid "Wednesday, September 00 0000 at 00:00:00 PM"
 msgstr "Të mërkurën, 0 shtator 0000 në orën 0.00.00"
 
-#: libcaja-private/caja-file.c:4798
+#: libcaja-private/caja-file.c:4810
 msgid "%A, %B %-d %Y at %-I:%M:%S %p"
 msgstr "%A, %B %-d %Y më %-I:%M:%S %p"
 
-#: libcaja-private/caja-file.c:4800
+#: libcaja-private/caja-file.c:4812
 msgid "Mon, Oct 00 0000 at 00:00:00 PM"
 msgstr "Hën, 0 tet 0000 në orën 0.00.00"
 
-#: libcaja-private/caja-file.c:4801
+#: libcaja-private/caja-file.c:4813
 msgid "%a, %b %-d %Y at %-I:%M:%S %p"
 msgstr "%a, %-d %b %Y në %-H.%M.%S"
 
-#: libcaja-private/caja-file.c:4803
+#: libcaja-private/caja-file.c:4815
 msgid "Mon, Oct 00 0000 at 00:00 PM"
 msgstr "Hën, 0 tet në 0.00"
 
-#: libcaja-private/caja-file.c:4804
+#: libcaja-private/caja-file.c:4816
 msgid "%a, %b %-d %Y at %-I:%M %p"
 msgstr "%a, %-d %b %Y në %-H.%M"
 
-#: libcaja-private/caja-file.c:4806
+#: libcaja-private/caja-file.c:4818
 msgid "Oct 00 0000 at 00:00 PM"
 msgstr "0 tet 0000 në orën 0.00"
 
-#: libcaja-private/caja-file.c:4807
+#: libcaja-private/caja-file.c:4819
 msgid "%b %-d %Y at %-I:%M %p"
 msgstr "\"%-d %b %Y në %-H.%M"
 
-#: libcaja-private/caja-file.c:4809
+#: libcaja-private/caja-file.c:4821
 msgid "Oct 00 0000, 00:00 PM"
 msgstr "0 tet 0000, 0.00"
 
-#: libcaja-private/caja-file.c:4810
+#: libcaja-private/caja-file.c:4822
 msgid "%b %-d %Y, %-I:%M %p"
 msgstr "%-d %b %Y, %-H.%M"
 
-#: libcaja-private/caja-file.c:4812
+#: libcaja-private/caja-file.c:4824
 msgid "00/00/00, 00:00 PM"
 msgstr "00/00/00, 0.00"
 
-#: libcaja-private/caja-file.c:4813
+#: libcaja-private/caja-file.c:4825
 msgid "%m/%-d/%y, %-I:%M %p"
 msgstr "%-d/%m/%y, %-H.%M"
 
-#: libcaja-private/caja-file.c:4815
+#: libcaja-private/caja-file.c:4827
 msgid "00/00/00"
 msgstr "00/00/00"
 
-#: libcaja-private/caja-file.c:4816
+#: libcaja-private/caja-file.c:4828
 msgid "%m/%d/%y"
 msgstr "%d/%m/%y"
 
-#: libcaja-private/caja-file.c:5453
+#: libcaja-private/caja-file.c:5465
 msgid "Not allowed to set permissions"
 msgstr "Nuk lejohet përcaktimi i të drejtave"
 
-#: libcaja-private/caja-file.c:5747
+#: libcaja-private/caja-file.c:5759
 msgid "Not allowed to set owner"
 msgstr "Nuk lejohet përcaktimi i përdoruesit"
 
-#: libcaja-private/caja-file.c:5765
+#: libcaja-private/caja-file.c:5777
 #, c-format
 msgid "Specified owner '%s' doesn't exist"
 msgstr "Përdoruesi «%s» i specifikuar nuk ekziston"
 
-#: libcaja-private/caja-file.c:6027
+#: libcaja-private/caja-file.c:6039
 msgid "Not allowed to set group"
 msgstr "Nuk lejohet përcaktimi i grupit"
 
-#: libcaja-private/caja-file.c:6045
+#: libcaja-private/caja-file.c:6057
 #, c-format
 msgid "Specified group '%s' doesn't exist"
 msgstr "Grupi «%s» i specifikuar nuk ekziston"
 
-#: libcaja-private/caja-file.c:6199 src/file-manager/fm-directory-view.c:2397
+#: libcaja-private/caja-file.c:6211 src/file-manager/fm-directory-view.c:2397
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-file.c:6200
+#: libcaja-private/caja-file.c:6212
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-file.c:6201
+#: libcaja-private/caja-file.c:6213
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-file.c:6305
+#: libcaja-private/caja-file.c:6317
 msgid "%"
 msgstr "%"
 
-#: libcaja-private/caja-file.c:6306
+#: libcaja-private/caja-file.c:6318
 #, c-format
 msgid "%s (%s bytes)"
 msgstr "%s (%s byte)"
 
-#: libcaja-private/caja-file.c:6656 libcaja-private/caja-file.c:6680
+#: libcaja-private/caja-file.c:6668 libcaja-private/caja-file.c:6692
 msgid "? items"
 msgstr "? elementë"
 
-#: libcaja-private/caja-file.c:6662 libcaja-private/caja-file.c:6670
+#: libcaja-private/caja-file.c:6674 libcaja-private/caja-file.c:6682
 msgid "? bytes"
 msgstr "? byte"
 
-#: libcaja-private/caja-file.c:6685
+#: libcaja-private/caja-file.c:6697
 msgid "unknown type"
 msgstr "lloj i panjohur"
 
-#: libcaja-private/caja-file.c:6688
+#: libcaja-private/caja-file.c:6700
 msgid "unknown MIME type"
 msgstr "lloj MIME i panjohur"
 
-#: libcaja-private/caja-file.c:6702
-#: src/file-manager/fm-properties-window.c:1302
+#: libcaja-private/caja-file.c:6714
+#: src/file-manager/fm-properties-window.c:1299
 msgid "unknown"
 msgstr "e panjohur"
 
-#: libcaja-private/caja-file.c:6752
+#: libcaja-private/caja-file.c:6764
 msgid "program"
 msgstr "program"
 
-#: libcaja-private/caja-file.c:6772
+#: libcaja-private/caja-file.c:6784
 msgid "link"
 msgstr "lidhje"
 
-#: libcaja-private/caja-file.c:6778 libcaja-private/caja-file-operations.c:406
+#: libcaja-private/caja-file.c:6790 libcaja-private/caja-file-operations.c:406
 #: src/file-manager/fm-directory-view.c:10736
 #, c-format
 msgid "Link to %s"
 msgstr "Lidhje me %s"
 
-#: libcaja-private/caja-file.c:6794
+#: libcaja-private/caja-file.c:6806
 msgid "link (broken)"
 msgstr "lidhje (e shkëputur)"
 
@@ -1288,14 +1251,14 @@ msgstr "Skedarë origjinal"
 
 #: libcaja-private/caja-file-conflict-dialog.c:277
 #: libcaja-private/caja-file-conflict-dialog.c:316
-#: src/file-manager/fm-properties-window.c:3306
+#: src/file-manager/fm-properties-window.c:3303
 msgid "Size:"
 msgstr "Madhësia:"
 
 #: libcaja-private/caja-file-conflict-dialog.c:282
 #: libcaja-private/caja-file-conflict-dialog.c:321
 #: src/caja-connect-server-dialog.c:927
-#: src/file-manager/fm-properties-window.c:3288
+#: src/file-manager/fm-properties-window.c:3285
 msgid "Type:"
 msgstr "Lloji:"
 
@@ -2364,7 +2327,7 @@ msgid "Select an Application"
 msgstr "Zgjidh një aplikativ"
 
 #: libcaja-private/caja-open-with-dialog.c:868
-#: src/file-manager/fm-properties-window.c:5122
+#: src/file-manager/fm-properties-window.c:5119
 msgid "Open With"
 msgstr "Hap me"
 
@@ -2565,372 +2528,372 @@ msgstr "Kërko"
 msgid "Search for \"%s\""
 msgstr "Kërko «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1239
+#: libcaja-private/caja-undostack-manager.c:1212
 #, c-format
 msgid "Delete %d copied items"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1242
-#: libcaja-private/caja-undostack-manager.c:1252
-#: libcaja-private/caja-undostack-manager.c:1283
+#: libcaja-private/caja-undostack-manager.c:1215
+#: libcaja-private/caja-undostack-manager.c:1225
+#: libcaja-private/caja-undostack-manager.c:1256
 #, c-format
 msgid "Delete '%s'"
 msgstr "Fshi '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1249
+#: libcaja-private/caja-undostack-manager.c:1222
 #, c-format
 msgid "Delete %d duplicated items"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1260
+#: libcaja-private/caja-undostack-manager.c:1233
 #, c-format
 msgid "Move %d items back to '%s'"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1264
+#: libcaja-private/caja-undostack-manager.c:1237
 #, c-format
 msgid "Move '%s' back to '%s'"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1273
-#: libcaja-private/caja-undostack-manager.c:1440
+#: libcaja-private/caja-undostack-manager.c:1246
+#: libcaja-private/caja-undostack-manager.c:1413
 #, c-format
 msgid "Rename '%s' as '%s'"
 msgstr "Riemërto '%s' si '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1292
-#: libcaja-private/caja-undostack-manager.c:1487
+#: libcaja-private/caja-undostack-manager.c:1265
+#: libcaja-private/caja-undostack-manager.c:1460
 #, c-format
 msgid "Restore %d items from trash"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1300
+#: libcaja-private/caja-undostack-manager.c:1273
 #, c-format
 msgid "Restore '%s' to '%s'"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1311
+#: libcaja-private/caja-undostack-manager.c:1284
 #, c-format
 msgid "Move %d items back to trash"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1314
+#: libcaja-private/caja-undostack-manager.c:1287
 #, c-format
 msgid "Move '%s' back to trash"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1323
+#: libcaja-private/caja-undostack-manager.c:1296
 #, c-format
 msgid "Delete links to %d items"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1326
+#: libcaja-private/caja-undostack-manager.c:1299
 #, c-format
 msgid "Delete link to '%s'"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1336
+#: libcaja-private/caja-undostack-manager.c:1309
 #, c-format
 msgid "Restore original permissions of items enclosed in '%s'"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1344
+#: libcaja-private/caja-undostack-manager.c:1317
 #, c-format
 msgid "Restore original permissions of '%s'"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1353
+#: libcaja-private/caja-undostack-manager.c:1326
 #, c-format
 msgid "Restore group of '%s' to '%s'"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1363
+#: libcaja-private/caja-undostack-manager.c:1336
 #, c-format
 msgid "Restore owner of '%s' to '%s'"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1402
+#: libcaja-private/caja-undostack-manager.c:1375
 #, c-format
 msgid "Copy %d items to '%s'"
 msgstr "Kopjo %d elementet në '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1406
+#: libcaja-private/caja-undostack-manager.c:1379
 #, c-format
 msgid "Copy '%s' to '%s'"
 msgstr "Kopjo '%s' në '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1414
+#: libcaja-private/caja-undostack-manager.c:1387
 #, c-format
 msgid "Duplicate of %d items in '%s'"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1419
+#: libcaja-private/caja-undostack-manager.c:1392
 #, c-format
 msgid "Duplicate '%s' in '%s'"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1427
+#: libcaja-private/caja-undostack-manager.c:1400
 #, c-format
 msgid "Move %d items to '%s'"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1431
+#: libcaja-private/caja-undostack-manager.c:1404
 #, c-format
 msgid "Move '%s' to '%s'"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1449
+#: libcaja-private/caja-undostack-manager.c:1422
 #, c-format
 msgid "Create new file '%s' from template "
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1456
+#: libcaja-private/caja-undostack-manager.c:1429
 #, c-format
 msgid "Create an empty file '%s'"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1463
+#: libcaja-private/caja-undostack-manager.c:1436
 #, c-format
 msgid "Create a new folder '%s'"
 msgstr "Krijo një dosje të re '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1471
+#: libcaja-private/caja-undostack-manager.c:1444
 #, c-format
 msgid "Move %d items to trash"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1477
+#: libcaja-private/caja-undostack-manager.c:1450
 #, c-format
 msgid "Move '%s' to trash"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1490
+#: libcaja-private/caja-undostack-manager.c:1463
 #, c-format
 msgid "Restore '%s' from trash"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1499
+#: libcaja-private/caja-undostack-manager.c:1472
 #, c-format
 msgid "Create links to %d items"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1502
+#: libcaja-private/caja-undostack-manager.c:1475
 #, c-format
 msgid "Create link to '%s'"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1511
+#: libcaja-private/caja-undostack-manager.c:1484
 #, c-format
 msgid "Set permissions of items enclosed in '%s'"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1519
+#: libcaja-private/caja-undostack-manager.c:1492
 #, c-format
 msgid "Set permissions of '%s'"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1528
+#: libcaja-private/caja-undostack-manager.c:1501
 #, c-format
 msgid "Set group of '%s' to '%s'"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1538
+#: libcaja-private/caja-undostack-manager.c:1511
 #, c-format
 msgid "Set owner of '%s' to '%s'"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1570
+#: libcaja-private/caja-undostack-manager.c:1543
 #, c-format
 msgid "_Undo copy of %d item"
 msgid_plural "_Undo copy of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1575
+#: libcaja-private/caja-undostack-manager.c:1548
 #, c-format
 msgid "_Undo duplicate of %d item"
 msgid_plural "_Undo duplicate of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1580
+#: libcaja-private/caja-undostack-manager.c:1553
 #, c-format
 msgid "_Undo move of %d item"
 msgid_plural "_Undo move of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1585
+#: libcaja-private/caja-undostack-manager.c:1558
 #, c-format
 msgid "_Undo rename of %d item"
 msgid_plural "_Undo rename of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1589
+#: libcaja-private/caja-undostack-manager.c:1562
 msgid "_Undo creation of an empty file"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1592
+#: libcaja-private/caja-undostack-manager.c:1565
 msgid "_Undo creation of a file from template"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1596
+#: libcaja-private/caja-undostack-manager.c:1569
 #, c-format
 msgid "_Undo creation of %d folder"
 msgid_plural "_Undo creation of %d folders"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1601
+#: libcaja-private/caja-undostack-manager.c:1574
 #, c-format
 msgid "_Undo move to trash of %d item"
 msgid_plural "_Undo move to trash of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1606
+#: libcaja-private/caja-undostack-manager.c:1579
 #, c-format
 msgid "_Undo restore from trash of %d item"
 msgid_plural "_Undo restore from trash of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1611
+#: libcaja-private/caja-undostack-manager.c:1584
 #, c-format
 msgid "_Undo create link to %d item"
 msgid_plural "_Undo create link to %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1616
+#: libcaja-private/caja-undostack-manager.c:1589
 #, c-format
 msgid "_Undo delete of %d item"
 msgid_plural "_Undo delete of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1621
+#: libcaja-private/caja-undostack-manager.c:1594
 #, c-format
 msgid "Undo recursive change permissions of %d item"
 msgid_plural "Undo recursive change permissions of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1627
+#: libcaja-private/caja-undostack-manager.c:1600
 #, c-format
 msgid "Undo change permissions of %d item"
 msgid_plural "Undo change permissions of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1632
+#: libcaja-private/caja-undostack-manager.c:1605
 #, c-format
 msgid "Undo change group of %d item"
 msgid_plural "Undo change group of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1637
+#: libcaja-private/caja-undostack-manager.c:1610
 #, c-format
 msgid "Undo change owner of %d item"
 msgid_plural "Undo change owner of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1665
+#: libcaja-private/caja-undostack-manager.c:1638
 #, c-format
 msgid "_Redo copy of %d item"
 msgid_plural "_Redo copy of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1670
+#: libcaja-private/caja-undostack-manager.c:1643
 #, c-format
 msgid "_Redo duplicate of %d item"
 msgid_plural "_Redo duplicate of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1675
+#: libcaja-private/caja-undostack-manager.c:1648
 #, c-format
 msgid "_Redo move of %d item"
 msgid_plural "_Redo move of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1680
+#: libcaja-private/caja-undostack-manager.c:1653
 #, c-format
 msgid "_Redo rename of %d item"
 msgid_plural "_Redo rename of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1684
+#: libcaja-private/caja-undostack-manager.c:1657
 msgid "_Redo creation of an empty file"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1687
+#: libcaja-private/caja-undostack-manager.c:1660
 msgid "_Redo creation of a file from template"
 msgstr ""
 
-#: libcaja-private/caja-undostack-manager.c:1691
+#: libcaja-private/caja-undostack-manager.c:1664
 #, c-format
 msgid "_Redo creation of %d folder"
 msgid_plural "_Redo creation of %d folders"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1696
+#: libcaja-private/caja-undostack-manager.c:1669
 #, c-format
 msgid "_Redo move to trash of %d item"
 msgid_plural "_Redo move to trash of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1701
+#: libcaja-private/caja-undostack-manager.c:1674
 #, c-format
 msgid "_Redo restore from trash of %d item"
 msgid_plural "_Redo restore from trash of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1706
+#: libcaja-private/caja-undostack-manager.c:1679
 #, c-format
 msgid "_Redo create link to %d item"
 msgid_plural "_Redo create link to %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1711
+#: libcaja-private/caja-undostack-manager.c:1684
 #, c-format
 msgid "_Redo delete of %d item"
 msgid_plural "_Redo delete of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1716
+#: libcaja-private/caja-undostack-manager.c:1689
 #, c-format
 msgid "Redo recursive change permissions of %d item"
 msgid_plural "Redo recursive change permissions of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1722
+#: libcaja-private/caja-undostack-manager.c:1695
 #, c-format
 msgid "Redo change permissions of %d item"
 msgid_plural "Redo change permissions of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1727
+#: libcaja-private/caja-undostack-manager.c:1700
 #, c-format
 msgid "Redo change group of %d item"
 msgid_plural "Redo change group of %d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcaja-private/caja-undostack-manager.c:1732
+#: libcaja-private/caja-undostack-manager.c:1705
 #, c-format
 msgid "Redo change owner of %d item"
 msgid_plural "Redo change owner of %d items"
@@ -3815,71 +3778,71 @@ msgstr ""
 "kartelën\" tek preferimet. Kur futet një dispozitiv që korrespondon me këto "
 "lloj, do të hapet një dritare e kartelës."
 
-#: libegg/eggdesktopfile.c:166
+#: mate-submodules/libegg/eggdesktopfile.c:168
 msgid "File is not a valid .desktop file"
 msgstr "Skedari nuk është një skedar .desktop i vlefshëm"
 
-#: libegg/eggdesktopfile.c:189
+#: mate-submodules/libegg/eggdesktopfile.c:193
 #, c-format
 msgid "Unrecognized desktop file Version '%s'"
 msgstr "Version i pasaktë file desktop '%s'"
 
-#: libegg/eggdesktopfile.c:965
+#: mate-submodules/libegg/eggdesktopfile.c:975
 #, c-format
 msgid "Starting %s"
 msgstr "Fillo %s"
 
-#: libegg/eggdesktopfile.c:1107
+#: mate-submodules/libegg/eggdesktopfile.c:1117
 msgid "Application does not accept documents on command line"
 msgstr "Aplikacioni nuk pranon dokumente në rreshtin e komandës"
 
-#: libegg/eggdesktopfile.c:1175
+#: mate-submodules/libegg/eggdesktopfile.c:1185
 #, c-format
 msgid "Unrecognized launch option: %d"
 msgstr "Opsion i pasaktë nisje: %d"
 
-#: libegg/eggdesktopfile.c:1373
+#: mate-submodules/libegg/eggdesktopfile.c:1401
 msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
 msgstr "Nuk mund t'i kalohen URL-të e dokumenteve hyres desktopi 'Type=Link'"
 
-#: libegg/eggdesktopfile.c:1392
+#: mate-submodules/libegg/eggdesktopfile.c:1422
 msgid "Not a launchable item"
 msgstr "Nuk është një element i ekzekutueshëm"
 
-#: libegg/eggsmclient.c:233
+#: mate-submodules/libegg/eggsmclient.c:233
 msgid "Disable connection to session manager"
 msgstr "Çaktivizo lidhjen me menaxhuesin e seancës"
 
-#: libegg/eggsmclient.c:238
+#: mate-submodules/libegg/eggsmclient.c:238
 msgid "Specify file containing saved configuration"
 msgstr "Specifikon dokumentin që përmban konfiurimin e ruajtur"
 
-#: libegg/eggsmclient.c:238
+#: mate-submodules/libegg/eggsmclient.c:238
 msgid "FILE"
 msgstr "SKEDAR"
 
-#: libegg/eggsmclient.c:243
+#: mate-submodules/libegg/eggsmclient.c:243
 msgid "Specify session management ID"
 msgstr "Specifiko ID e menaxhuesit të seancës"
 
-#: libegg/eggsmclient.c:243
+#: mate-submodules/libegg/eggsmclient.c:243
 msgid "ID"
 msgstr "ID"
 
-#: libegg/eggsmclient.c:269
+#: mate-submodules/libegg/eggsmclient.c:269
 msgid "Session management options:"
 msgstr "Opsionet e menaxhimit të seancës:"
 
-#: libegg/eggsmclient.c:270
+#: mate-submodules/libegg/eggsmclient.c:270
 msgid "Show session management options"
 msgstr "Shfaq opsionet e menaxhimit të seancës"
 
-#: src/caja-application.c:554
+#: src/caja-application.c:555
 #, c-format
 msgid "Caja could not create the required folder \"%s\"."
 msgstr "Caja nuk mund të krijojë kartelën e duhur «%s»."
 
-#: src/caja-application.c:556
+#: src/caja-application.c:557
 msgid ""
 "Before running Caja, please create the following folder, or set permissions "
 "such that Caja can create it."
@@ -3887,12 +3850,12 @@ msgstr ""
 "Përpara se të ekzekutohet Caja, krijoni kartelën në vazhdim, ose përcaktoni "
 "të drejtat në menyrë që ta krijojë Caja."
 
-#: src/caja-application.c:561
+#: src/caja-application.c:562
 #, c-format
 msgid "Caja could not create the following required folders: %s."
 msgstr "Caja nuk mund të krijojë kartelat e duhura në vijim: %s."
 
-#: src/caja-application.c:563
+#: src/caja-application.c:564
 msgid ""
 "Before running Caja, please create these folders, or set permissions such "
 "that Caja can create them."
@@ -3900,45 +3863,49 @@ msgstr ""
 "Përpara se të ekzekutohet Caja, krijoni këto kartela, ose përcaktoni të "
 "drejtat në menyrë që t'i krijojë Caja."
 
-#: src/caja-application.c:1164 src/caja-places-sidebar.c:2223
+#: src/caja-application.c:1165 src/caja-places-sidebar.c:2223
 #: src/caja-places-sidebar.c:2255 src/caja-places-sidebar.c:2291
 #, c-format
 msgid "Unable to eject %s"
 msgstr "E pamundur nxjerrja jashtë e %s"
 
-#: src/caja-application.c:1792
+#: src/caja-application.c:1794
 msgid "--check cannot be used with other options."
 msgstr ""
 
-#: src/caja-application.c:1798
+#: src/caja-application.c:1800
 msgid "--quit cannot be used with URIs."
 msgstr ""
 
-#: src/caja-application.c:1805
+#: src/caja-application.c:1807
 msgid "--geometry cannot be used with more than one URI."
 msgstr ""
 
-#: src/caja-application.c:1869
+#: src/caja-application.c:1813
+msgid "--select must be used with at least an URI."
+msgstr ""
+
+#: src/caja-application.c:1927
 msgid "Perform a quick set of self-check tests."
 msgstr "Kryen një bashkësi me prova të shpejta auto-kontrolli."
 
-#: src/caja-application.c:1872
+#: src/caja-application.c:1930
 msgid "Show the version of the program."
 msgstr "Shfaq versionin e programit."
 
-#: src/caja-application.c:1874
+#: src/caja-application.c:1932
 msgid "Create the initial window with the given geometry."
 msgstr "Krijon dritaren kryesore me gjeometrinë e dhënë."
 
-#: src/caja-application.c:1874
+#: src/caja-application.c:1932
 msgid "GEOMETRY"
 msgstr "GJEOMETRIA"
 
-#: src/caja-application.c:1876
+#: src/caja-application.c:1934
 msgid "Only create windows for explicitly specified URIs."
 msgstr "Krijon vetëm dritaret për URL e specifikuara qartë."
 
-#: src/caja-application.c:1878
+#: src/caja-application.c:1936
 msgid ""
 "Do not manage the desktop (ignore the preference set in the preferences "
 "dialog)."
@@ -3946,29 +3913,33 @@ msgstr ""
 "Nuk menzhon hapësirën e punës (duke shpërfillur preferimet tek dialogu i "
 "rregullimeve)."
 
-#: src/caja-application.c:1880
+#: src/caja-application.c:1938
 msgid ""
 "Manage the desktop regardless of set preferences or environment (on new "
 "startup only)"
 msgstr ""
 
-#: src/caja-application.c:1882
+#: src/caja-application.c:1940
 msgid "Open URIs in tabs."
 msgstr ""
 
-#: src/caja-application.c:1884
+#: src/caja-application.c:1942
 msgid "Open a browser window."
 msgstr ""
 
-#: src/caja-application.c:1886
+#: src/caja-application.c:1944
 msgid "Quit Caja."
 msgstr "Mbyll Caja."
 
-#: src/caja-application.c:1887
+#: src/caja-application.c:1946
+msgid "Select specified URI in parent folder."
+msgstr ""
+
+#: src/caja-application.c:1947
 msgid "[URI...]"
 msgstr "[URI...]"
 
-#: src/caja-application.c:1898
+#: src/caja-application.c:1958
 msgid ""
 "\n"
 "\n"
@@ -4010,7 +3981,7 @@ msgstr ""
 "\n"
 "Nëse dyshohet, shtyp «Anullo»."
 
-#: src/caja-bookmarks-window.c:163 src/caja-file-management-properties.c:249
+#: src/caja-bookmarks-window.c:163 src/caja-file-management-properties.c:226
 #: src/caja-property-browser.c:1688 src/caja-window-menus.c:629
 #, c-format
 msgid ""
@@ -4033,7 +4004,7 @@ msgstr "Ndrysho libërshënuesit"
 #: src/caja-file-management-properties.ui:305 src/caja-location-dialog.c:192
 #: src/caja-property-browser.c:389 src/caja-window-menus.c:852
 #: src/file-manager/fm-directory-view.c:1214
-#: src/file-manager/fm-properties-window.c:5233
+#: src/file-manager/fm-properties-window.c:5229
 msgid "_Help"
 msgstr "_Ndihmë"
 
@@ -4044,7 +4015,7 @@ msgstr ""
 #: src/caja-bookmarks-window.ui:93 src/caja-file-management-properties.ui:321
 #: src/caja-property-browser.c:397 src/caja-window-menus.c:854
 #: src/file-manager/fm-list-view.c:2567
-#: src/file-manager/fm-properties-window.c:5238
+#: src/file-manager/fm-properties-window.c:5234
 msgid "_Close"
 msgstr "_Mbyll"
 
@@ -4122,7 +4093,7 @@ msgstr "Vazhdo"
 
 #: src/caja-connect-server-dialog.c:717 src/caja-location-dialog.c:105
 #: src/file-manager/fm-directory-view.c:1188
-#: src/file-manager/fm-properties-window.c:5475
+#: src/file-manager/fm-properties-window.c:5471
 msgid "There was an error displaying help."
 msgstr "Gabim gjatë shfaqjes së ndihmës."
 
@@ -4194,7 +4165,7 @@ msgstr ""
 "\n"
 "Shton një mount lidhje në server"
 
-#: src/caja-desktop-window.c:126 src/caja-desktop-window.c:319
+#: src/caja-desktop-window.c:128 src/caja-desktop-window.c:209
 #: src/caja-pathbar.c:1453 src/caja-places-sidebar.c:542
 msgid "Desktop"
 msgstr "Desktopi"
@@ -4273,7 +4244,7 @@ msgstr "Files e tërhequr nuk janë figura të vlefshme."
 msgid "The emblem cannot be added."
 msgstr "I pamundur shtimi i simbolit."
 
-#: src/caja-emblem-sidebar.c:1102 src/file-manager/fm-properties-window.c:3463
+#: src/caja-emblem-sidebar.c:1102 src/file-manager/fm-properties-window.c:3460
 msgid "Emblems"
 msgstr "Simbolet"
 
@@ -4284,13 +4255,13 @@ msgstr "Shfaq simbolet"
 #. Translators: this is referred to captions under icons.
 #. Translators: this is referred to the permissions
 #. * the user has in a directory.
-#: src/caja-file-management-properties.c:342
-#: src/file-manager/fm-properties-window.c:4239
-#: src/file-manager/fm-properties-window.c:4250
+#: src/caja-file-management-properties.c:319
+#: src/file-manager/fm-properties-window.c:4236
+#: src/file-manager/fm-properties-window.c:4247
 msgid "None"
 msgstr "Asgjë"
 
-#: src/caja-file-management-properties.c:646
+#: src/caja-file-management-properties.c:623
 msgid "About Extension"
 msgstr ""
 
@@ -4479,123 +4450,123 @@ msgstr "_Rregullo elementët:"
 msgid "Sort _folders before files"
 msgstr "Rreshto _kartelat përpara file"
 
-#: src/caja-file-management-properties.ui:493
+#: src/caja-file-management-properties.ui:494
 msgid "Show hidden files"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:508
+#: src/caja-file-management-properties.ui:510
 msgid "Show backup files"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:547
+#: src/caja-file-management-properties.ui:550
 msgid "<b>Icon View Defaults</b>"
 msgstr "<b>Preferimet e shfaqjes me ikona</b>"
 
-#: src/caja-file-management-properties.ui:577
+#: src/caja-file-management-properties.ui:580
 msgid "Default _zoom level:"
 msgstr "Niveli i paracaktuar i _zmadhimit:"
 
-#: src/caja-file-management-properties.ui:615
+#: src/caja-file-management-properties.ui:618
 msgid "_Use compact layout"
 msgstr "_Përdor paraqitje kompakte"
 
-#: src/caja-file-management-properties.ui:630
+#: src/caja-file-management-properties.ui:634
 msgid "_Text beside icons"
 msgstr "_Tekst në krah të ikonave"
 
-#: src/caja-file-management-properties.ui:669
+#: src/caja-file-management-properties.ui:674
 msgid "<b>Compact View Defaults</b>"
 msgstr "<b>Preferimet shfaqja kompakte</b>"
 
-#: src/caja-file-management-properties.ui:699
+#: src/caja-file-management-properties.ui:704
 msgid "_Default zoom level:"
 msgstr "Niveli i _paracaktuar i zmadhimit:"
 
-#: src/caja-file-management-properties.ui:737
+#: src/caja-file-management-properties.ui:742
 msgid "A_ll columns have the same width"
 msgstr "Të gjit_ha kollonat kanë të njëjtën gjerësi"
 
-#: src/caja-file-management-properties.ui:776
+#: src/caja-file-management-properties.ui:782
 msgid "<b>List View Defaults</b>"
 msgstr "<b>Preferimet e shfaqjes në formë liste</b>"
 
-#: src/caja-file-management-properties.ui:806
+#: src/caja-file-management-properties.ui:812
 msgid "D_efault zoom level:"
 msgstr "Niv_eli i paracaktuar i zmadhimit:"
 
-#: src/caja-file-management-properties.ui:844
+#: src/caja-file-management-properties.ui:850
 msgid "_Show icons"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:883
+#: src/caja-file-management-properties.ui:890
 msgid "<b>Tree View Defaults</b>"
 msgstr "<b>Preferimet e paraqitjes në formë peme</b>"
 
-#: src/caja-file-management-properties.ui:906
+#: src/caja-file-management-properties.ui:913
 msgid "Show _only folders"
 msgstr "Shfaq _vetëm kartelat"
 
-#: src/caja-file-management-properties.ui:941
+#: src/caja-file-management-properties.ui:949
 msgid "Views"
 msgstr "Shfaqje"
 
-#: src/caja-file-management-properties.ui:964
+#: src/caja-file-management-properties.ui:972
 msgid "<b>Behavior</b>"
 msgstr "<b>Sjellja</b>"
 
-#: src/caja-file-management-properties.ui:986
+#: src/caja-file-management-properties.ui:994
 msgid "_Single click to open items"
 msgstr "Klik i _vetëm për të hapur elementët"
 
-#: src/caja-file-management-properties.ui:1001
+#: src/caja-file-management-properties.ui:1010
 msgid "_Double click to open items"
 msgstr "_Dy klikime për të hapur elementët"
 
-#: src/caja-file-management-properties.ui:1018
+#: src/caja-file-management-properties.ui:1028
 msgid "Open each _folder in its own window"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:1057
+#: src/caja-file-management-properties.ui:1068
 msgid "<b>Executable Text Files</b>"
 msgstr "<b>File të ekzekutueshëm teksti</b>"
 
-#: src/caja-file-management-properties.ui:1080
+#: src/caja-file-management-properties.ui:1091
 msgid "_Run executable text files when they are opened"
 msgstr "Zb_ati file e ekzekutueshëm të tekstit kur hapen"
 
-#: src/caja-file-management-properties.ui:1095
+#: src/caja-file-management-properties.ui:1107
 msgid "_View executable text files when they are opened"
 msgstr "_Shfaq file e ekzekutueshëm të tekstit kur hapen"
 
-#: src/caja-file-management-properties.ui:1111
+#: src/caja-file-management-properties.ui:1124
 msgid "_Ask each time"
 msgstr "_Pyet çdo herë"
 
-#: src/caja-file-management-properties.ui:1151
+#: src/caja-file-management-properties.ui:1165
 msgid "<b>Trash</b>"
 msgstr "<b>Koshi</b>"
 
-#: src/caja-file-management-properties.ui:1174
+#: src/caja-file-management-properties.ui:1188
 msgid "Ask before _emptying the Trash or deleting files"
 msgstr "Të konfermohet z_brazja e koshit apo të eleminimi i file"
 
-#: src/caja-file-management-properties.ui:1189
+#: src/caja-file-management-properties.ui:1204
 msgid "Ask before moving files to the _Trash"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:1204
+#: src/caja-file-management-properties.ui:1220
 msgid "I_nclude a Delete command that bypasses Trash"
 msgstr "Pë_rfshi një komandë «Elimino» që kapërcen koshin"
 
-#: src/caja-file-management-properties.ui:1242
+#: src/caja-file-management-properties.ui:1259
 msgid "Behavior"
 msgstr "Sjellja"
 
-#: src/caja-file-management-properties.ui:1266
+#: src/caja-file-management-properties.ui:1283
 msgid "<b>Icon Captions</b>"
 msgstr "<b>Teksti i konave</b>"
 
-#: src/caja-file-management-properties.ui:1291
+#: src/caja-file-management-properties.ui:1308
 msgid ""
 "Choose the order of information to appear beneath icon names. More "
 "information will appear when zooming in closer."
@@ -4603,157 +4574,157 @@ msgstr ""
 "Zgjidh rradhën e shfaqjes së informacione nën emrat e ikonave. Me rritjen e "
 "zmadhimit do të shfaqen më shumë informacione."
 
-#: src/caja-file-management-properties.ui:1427
+#: src/caja-file-management-properties.ui:1444
 msgid "<b>Date</b>"
 msgstr "<b>Data</b>"
 
-#: src/caja-file-management-properties.ui:1451
+#: src/caja-file-management-properties.ui:1468
 msgid "_Format:"
 msgstr "_Formati:"
 
-#: src/caja-file-management-properties.ui:1498
+#: src/caja-file-management-properties.ui:1515
 msgid "<b>Size</b>"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:1515
+#: src/caja-file-management-properties.ui:1532
 msgid "_Show file sizes with IEC units"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:1546
+#: src/caja-file-management-properties.ui:1564
 msgid "Display"
 msgstr "Shfaq"
 
-#: src/caja-file-management-properties.ui:1570
+#: src/caja-file-management-properties.ui:1588
 msgid "<b>List Columns</b>"
 msgstr "<b>Kollonat e listës</b>"
 
-#: src/caja-file-management-properties.ui:1595
+#: src/caja-file-management-properties.ui:1613
 msgid "Choose the order of information to appear in the list view."
 msgstr ""
 "Zgjidh renditjen me të cilën informacionet do të shfaqjen në paraqitjen në "
 "formë liste."
 
-#: src/caja-file-management-properties.ui:1633
+#: src/caja-file-management-properties.ui:1651
 msgid "List Columns"
 msgstr "Kollonat e listës"
 
-#: src/caja-file-management-properties.ui:1657
+#: src/caja-file-management-properties.ui:1675
 msgid "<b>Text Files</b>"
 msgstr "<b>File teksti</b>"
 
-#: src/caja-file-management-properties.ui:1687
+#: src/caja-file-management-properties.ui:1705
 msgid "Show te_xt in icons:"
 msgstr "Shfaq te_kstin në ikona:"
 
-#: src/caja-file-management-properties.ui:1749
+#: src/caja-file-management-properties.ui:1767
 msgid "<b>Other Previewable Files</b>"
 msgstr "<b>File të tjerë të mundshëm</b>"
 
-#: src/caja-file-management-properties.ui:1779
+#: src/caja-file-management-properties.ui:1797
 msgid "Show _thumbnails:"
 msgstr "Shfaq _miniaturat:"
 
-#: src/caja-file-management-properties.ui:1824
+#: src/caja-file-management-properties.ui:1842
 msgid "_Only for files smaller than:"
 msgstr "_Vetëm për file më të vegjël se: "
 
-#: src/caja-file-management-properties.ui:1886
+#: src/caja-file-management-properties.ui:1904
 msgid "<b>Sound Files</b>"
 msgstr "<b>File audio</b>"
 
-#: src/caja-file-management-properties.ui:1916
+#: src/caja-file-management-properties.ui:1934
 msgid "Preview _sound files:"
 msgstr "Pamja e parë e file _sonorë:"
 
-#: src/caja-file-management-properties.ui:1978
+#: src/caja-file-management-properties.ui:1996
 msgid "<b>Folders</b>"
 msgstr "<b>Kartela</b>"
 
-#: src/caja-file-management-properties.ui:2008
+#: src/caja-file-management-properties.ui:2026
 msgid "Count _number of items:"
 msgstr "Numëro _numrin e elementëve:"
 
-#: src/caja-file-management-properties.ui:2069
+#: src/caja-file-management-properties.ui:2087
 msgid "Preview"
 msgstr "Shikoje"
 
-#: src/caja-file-management-properties.ui:2099
+#: src/caja-file-management-properties.ui:2117
 msgid "<b>Media Handling</b>"
 msgstr "<b>Trajtimi i suporteve</b>"
 
-#: src/caja-file-management-properties.ui:2124
+#: src/caja-file-management-properties.ui:2142
 msgid ""
 "Choose what happens when inserting media or connecting devices to the system"
 msgstr ""
 "Zgjidh veprimin për tu ndërmarrë kur futet një suport apo lidhen dispozitivë"
 " në sistem"
 
-#: src/caja-file-management-properties.ui:2147
+#: src/caja-file-management-properties.ui:2163
 msgid "CD _Audio:"
 msgstr "CD _audio:"
 
-#: src/caja-file-management-properties.ui:2161
+#: src/caja-file-management-properties.ui:2188
 msgid "_DVD Video:"
 msgstr "_DVD video:"
 
-#: src/caja-file-management-properties.ui:2202
+#: src/caja-file-management-properties.ui:2213
 msgid "_Music Player:"
 msgstr "Lexues _muzike:"
 
-#: src/caja-file-management-properties.ui:2232
+#: src/caja-file-management-properties.ui:2238
 msgid "_Photos:"
 msgstr "_Foto:"
 
-#: src/caja-file-management-properties.ui:2262
+#: src/caja-file-management-properties.ui:2263
 msgid "_Software:"
 msgstr "_Software:"
 
-#: src/caja-file-management-properties.ui:2321
+#: src/caja-file-management-properties.ui:2317
 msgid "<b>Other Media</b>"
 msgstr "<b>Suporte të tjerë</b>"
 
-#: src/caja-file-management-properties.ui:2346
+#: src/caja-file-management-properties.ui:2342
 msgid "Less common media formats can be configured here"
 msgstr "Konfiguro këtu formatet e suporteve jo tepër të zakonshëm"
 
-#: src/caja-file-management-properties.ui:2380
-msgid "Acti_on:"
-msgstr "Vep_rimi:"
-
-#: src/caja-file-management-properties.ui:2410
+#: src/caja-file-management-properties.ui:2363
 msgid "_Type:"
 msgstr "_Lloji:"
 
-#: src/caja-file-management-properties.ui:2452
+#: src/caja-file-management-properties.ui:2377
+msgid "Acti_on:"
+msgstr "Vep_rimi:"
+
+#: src/caja-file-management-properties.ui:2441
 msgid "_Never prompt or start programs on media insertion"
 msgstr "Mos kërko as_njëherë konfermë apo nis programe kur futen suporte"
 
-#: src/caja-file-management-properties.ui:2467
+#: src/caja-file-management-properties.ui:2457
 msgid "B_rowse media when inserted"
 msgstr "Sh_fleto suportet kur futen"
 
-#: src/caja-file-management-properties.ui:2489
+#: src/caja-file-management-properties.ui:2480
 msgid "Media"
 msgstr "Suporti"
 
-#: src/caja-file-management-properties.ui:2507
+#: src/caja-file-management-properties.ui:2498
 msgid "<b>Available _Extensions:</b>"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:2538
-#: src/caja-file-management-properties.ui:2562
+#: src/caja-file-management-properties.ui:2529
+#: src/caja-file-management-properties.ui:2550
 msgid "column"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:2588
+#: src/caja-file-management-properties.ui:2576
 msgid "_About Extension"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:2604
+#: src/caja-file-management-properties.ui:2592
 msgid "C_onfigure Extension"
 msgstr ""
 
-#: src/caja-file-management-properties.ui:2634
+#: src/caja-file-management-properties.ui:2622
 msgid "Extensions"
 msgstr "Prapashtesat"
 
@@ -4883,23 +4854,23 @@ msgstr ""
 "njëkohësisht."
 
 #: src/caja-information-panel.c:527
-#: src/file-manager/fm-properties-window.c:515
+#: src/file-manager/fm-properties-window.c:512
 msgid "Please drag just one image to set a custom icon."
 msgstr "Zvarrit vetëm një figurë për të caktuar një ikonë të personalizuar."
 
 #: src/caja-information-panel.c:554
-#: src/file-manager/fm-properties-window.c:526
+#: src/file-manager/fm-properties-window.c:523
 msgid "The file that you dropped is not local."
 msgstr "File i zvarritur nuk është lokal."
 
 #: src/caja-information-panel.c:555
-#: src/file-manager/fm-properties-window.c:527
-#: src/file-manager/fm-properties-window.c:533
+#: src/file-manager/fm-properties-window.c:524
+#: src/file-manager/fm-properties-window.c:530
 msgid "You can only use local images as custom icons."
 msgstr "Mund të përdoren vetëm figurat lokale si ikona të personalizuara."
 
 #: src/caja-information-panel.c:562
-#: src/file-manager/fm-properties-window.c:532
+#: src/file-manager/fm-properties-window.c:529
 msgid "The file that you dropped is not an image."
 msgstr "File i zvarritur nuk është një figurë."
 
@@ -4912,7 +4883,7 @@ msgstr "Mund të përdoren vetëm figurat si ikona të personalizuara."
 msgid "Open With %s"
 msgstr "Hap me %s"
 
-#: src/caja-location-bar.c:60 src/file-manager/fm-properties-window.c:3319
+#: src/caja-location-bar.c:60 src/file-manager/fm-properties-window.c:3316
 msgid "Location:"
 msgstr "Pozicioni:"
 
@@ -5005,7 +4976,7 @@ msgstr "Mbyll të gjitha dritaret e lundrimit"
 msgid "_Location..."
 msgstr "_Pozicioni..."
 
-#: src/caja-navigation-window-menus.c:847 src/caja-spatial-window.c:923
+#: src/caja-navigation-window-menus.c:847 src/caja-spatial-window.c:927
 msgid "Specify a location to open"
 msgstr "Përcakton një pozicion për tu hapur"
 
@@ -5033,19 +5004,19 @@ msgstr ""
 msgid "Go to the same location as in the extra pane"
 msgstr ""
 
-#: src/caja-navigation-window-menus.c:862 src/caja-spatial-window.c:936
+#: src/caja-navigation-window-menus.c:862 src/caja-spatial-window.c:940
 msgid "_Add Bookmark"
 msgstr "_Shto Libërshënues"
 
-#: src/caja-navigation-window-menus.c:863 src/caja-spatial-window.c:937
+#: src/caja-navigation-window-menus.c:863 src/caja-spatial-window.c:941
 msgid "Add a bookmark for the current location to this menu"
 msgstr "Shto një libërshënues për pozicionin aktual në këtë menu"
 
-#: src/caja-navigation-window-menus.c:866 src/caja-spatial-window.c:940
+#: src/caja-navigation-window-menus.c:866 src/caja-spatial-window.c:944
 msgid "_Edit Bookmarks..."
 msgstr "_Ndrysho libërshënues..."
 
-#: src/caja-navigation-window-menus.c:867 src/caja-spatial-window.c:941
+#: src/caja-navigation-window-menus.c:867 src/caja-spatial-window.c:945
 msgid "Display a window that allows editing the bookmarks in this menu"
 msgstr ""
 "Hap një dritare për të ndryshuar libërshënuesit personalë në këtë menu"
@@ -5124,7 +5095,7 @@ msgstr "Shtyll_a e gjëndjes"
 msgid "Change the visibility of this window's statusbar"
 msgstr "Ndyshon dukshmërinë e shtyllës së gjëndjes për këtë dritare"
 
-#: src/caja-navigation-window-menus.c:924 src/caja-spatial-window.c:944
+#: src/caja-navigation-window-menus.c:924 src/caja-spatial-window.c:948
 msgid "_Search for Files..."
 msgstr "_Kërko për file..."
 
@@ -5725,31 +5696,31 @@ msgstr "Kërko:"
 msgid "Close the side pane"
 msgstr "Mbyll panelin anësor"
 
-#: src/caja-spatial-window.c:920
+#: src/caja-spatial-window.c:924
 msgid "_Places"
 msgstr "_Rezervat"
 
-#: src/caja-spatial-window.c:922
+#: src/caja-spatial-window.c:926
 msgid "Open _Location..."
 msgstr "Hap _pozicionin..."
 
-#: src/caja-spatial-window.c:927
+#: src/caja-spatial-window.c:931
 msgid "Close P_arent Folders"
 msgstr "Mbyll kartelat e nivelit s_uperior"
 
-#: src/caja-spatial-window.c:928
+#: src/caja-spatial-window.c:932
 msgid "Close this folder's parents"
 msgstr "Mbyll \"prindërit\" e kësaj kartele"
 
-#: src/caja-spatial-window.c:932
+#: src/caja-spatial-window.c:936
 msgid "Clos_e All Folders"
 msgstr "Mby_ll të gjitha kartelat"
 
-#: src/caja-spatial-window.c:933
+#: src/caja-spatial-window.c:937
 msgid "Close all folder windows"
 msgstr "Mbyll të gjitha dritaret e kartelave"
 
-#: src/caja-spatial-window.c:945
+#: src/caja-spatial-window.c:949
 msgid "Locate documents and folders on this computer by name or content"
 msgstr ""
 "Gjej dokumenta dhe dosje në këtë kompjuter me anë të emrit apo përmbajtjes"
@@ -5912,8 +5883,8 @@ msgstr ""
 "Laurent Dhima <laurenti@alblinux.net>"
 
 #: src/caja-window-menus.c:589
-msgid "MATE Web Site"
-msgstr "MATE Faqja Internetit"
+msgid "Website"
+msgstr ""
 
 #: src/caja-window-menus.c:849
 msgid "_File"
@@ -7499,278 +7470,278 @@ msgstr "Paraqitja në formë liste ndeshi një gabim gjatë nisjes."
 msgid "Display this location with the list view."
 msgstr "Shfaq këtë pozicion me anë të paraqitjes në formë liste."
 
-#: src/file-manager/fm-properties-window.c:514
+#: src/file-manager/fm-properties-window.c:511
 msgid "You cannot assign more than one custom icon at a time!"
 msgstr ""
 "Nuk mund të caktohet më shumë se një ikonë të personalizuar në të njëjtën "
 "kohë!"
 
-#: src/file-manager/fm-properties-window.c:648
+#: src/file-manager/fm-properties-window.c:645
 msgid "_Name:"
 msgid_plural "_Names:"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/file-manager/fm-properties-window.c:1004
+#: src/file-manager/fm-properties-window.c:1001
 msgid "Properties"
 msgstr "Pronësitë"
 
-#: src/file-manager/fm-properties-window.c:1016
+#: src/file-manager/fm-properties-window.c:1013
 #, c-format
 msgid "%s Properties"
 msgstr "Pronësitë e %s"
 
-#: src/file-manager/fm-properties-window.c:1346
+#: src/file-manager/fm-properties-window.c:1343
 #, c-format
 msgctxt "MIME type description (MIME type)"
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: src/file-manager/fm-properties-window.c:1554
+#: src/file-manager/fm-properties-window.c:1551
 msgid "Cancel Group Change?"
 msgstr "Anullohet ndryshimi i grupit?"
 
-#: src/file-manager/fm-properties-window.c:1969
+#: src/file-manager/fm-properties-window.c:1966
 msgid "Cancel Owner Change?"
 msgstr "Anullohet ndryshimi i pronarit?"
 
-#: src/file-manager/fm-properties-window.c:2296
+#: src/file-manager/fm-properties-window.c:2293
 msgid "nothing"
 msgstr "asgjë"
 
-#: src/file-manager/fm-properties-window.c:2298
+#: src/file-manager/fm-properties-window.c:2295
 msgid "unreadable"
 msgstr "palexueshme"
 
-#: src/file-manager/fm-properties-window.c:2317
+#: src/file-manager/fm-properties-window.c:2314
 #, c-format
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/file-manager/fm-properties-window.c:2327
+#: src/file-manager/fm-properties-window.c:2324
 msgid "(some contents unreadable)"
 msgstr "(diçka nuk është e lexueshme)"
 
-#: src/file-manager/fm-properties-window.c:2344
+#: src/file-manager/fm-properties-window.c:2341
 msgid "Contents:"
 msgstr "Përmbajtja:"
 
 #. Translators: "used" refers to the capacity of the filesystem
-#: src/file-manager/fm-properties-window.c:3120
+#: src/file-manager/fm-properties-window.c:3117
 msgid "used"
 msgstr "përdorur"
 
 #. Translators: "free" refers to the capacity of the filesystem
-#: src/file-manager/fm-properties-window.c:3131
+#: src/file-manager/fm-properties-window.c:3128
 msgid "free"
 msgstr "e lirë"
 
-#: src/file-manager/fm-properties-window.c:3135
+#: src/file-manager/fm-properties-window.c:3132
 msgid "Total capacity:"
 msgstr "Kapaciteti gjithsej:"
 
-#: src/file-manager/fm-properties-window.c:3149
+#: src/file-manager/fm-properties-window.c:3146
 msgid "Filesystem type:"
 msgstr "Lloji i file të sistemit:"
 
-#: src/file-manager/fm-properties-window.c:3234
+#: src/file-manager/fm-properties-window.c:3231
 msgid "Basic"
 msgstr "Të përgjithshme"
 
-#: src/file-manager/fm-properties-window.c:3296
+#: src/file-manager/fm-properties-window.c:3293
 msgid "Link target:"
 msgstr "Lidhur me:"
 
-#: src/file-manager/fm-properties-window.c:3310
+#: src/file-manager/fm-properties-window.c:3307
 msgid "Size on Disk:"
 msgstr ""
 
-#: src/file-manager/fm-properties-window.c:3325
+#: src/file-manager/fm-properties-window.c:3322
 msgid "Volume:"
 msgstr "Volumi:"
 
-#: src/file-manager/fm-properties-window.c:3334
+#: src/file-manager/fm-properties-window.c:3331
 msgid "Accessed:"
 msgstr "Hyrja e fundit:"
 
-#: src/file-manager/fm-properties-window.c:3338
+#: src/file-manager/fm-properties-window.c:3335
 msgid "Modified:"
 msgstr "Modifikuar:"
 
-#: src/file-manager/fm-properties-window.c:3347
+#: src/file-manager/fm-properties-window.c:3344
 msgid "Free space:"
 msgstr "Hapësira e lirë:"
 
-#: src/file-manager/fm-properties-window.c:3875
+#: src/file-manager/fm-properties-window.c:3872
 msgid "_Read"
 msgstr "_Leximi"
 
-#: src/file-manager/fm-properties-window.c:3877
+#: src/file-manager/fm-properties-window.c:3874
 msgid "_Write"
 msgstr "_Shkrimi"
 
-#: src/file-manager/fm-properties-window.c:3879
+#: src/file-manager/fm-properties-window.c:3876
 msgid "E_xecute"
 msgstr "E_kzekutim"
 
 #. Translators: this gets concatenated to "no read",
 #. * "no access", etc. (see following strings)
-#: src/file-manager/fm-properties-window.c:4147
-#: src/file-manager/fm-properties-window.c:4158
-#: src/file-manager/fm-properties-window.c:4170
+#: src/file-manager/fm-properties-window.c:4144
+#: src/file-manager/fm-properties-window.c:4155
+#: src/file-manager/fm-properties-window.c:4167
 msgid "no "
 msgstr "jo "
 
-#: src/file-manager/fm-properties-window.c:4150
+#: src/file-manager/fm-properties-window.c:4147
 msgid "list"
 msgstr "lista"
 
-#: src/file-manager/fm-properties-window.c:4152
+#: src/file-manager/fm-properties-window.c:4149
 msgid "read"
 msgstr "lexim"
 
-#: src/file-manager/fm-properties-window.c:4161
+#: src/file-manager/fm-properties-window.c:4158
 msgid "create/delete"
 msgstr "krijim/eleminim"
 
-#: src/file-manager/fm-properties-window.c:4163
+#: src/file-manager/fm-properties-window.c:4160
 msgid "write"
 msgstr "shkrim"
 
-#: src/file-manager/fm-properties-window.c:4172
+#: src/file-manager/fm-properties-window.c:4169
 msgid "access"
 msgstr "futja"
 
-#: src/file-manager/fm-properties-window.c:4220
+#: src/file-manager/fm-properties-window.c:4217
 msgid "Access:"
 msgstr "Hyrja:"
 
-#: src/file-manager/fm-properties-window.c:4222
+#: src/file-manager/fm-properties-window.c:4219
 msgid "Folder access:"
 msgstr "Hyrja në kartelë:"
 
-#: src/file-manager/fm-properties-window.c:4224
+#: src/file-manager/fm-properties-window.c:4221
 msgid "File access:"
 msgstr "Hyrja në file:"
 
-#: src/file-manager/fm-properties-window.c:4242
+#: src/file-manager/fm-properties-window.c:4239
 msgid "List files only"
 msgstr "Shfaq vetëm listën e file"
 
-#: src/file-manager/fm-properties-window.c:4244
+#: src/file-manager/fm-properties-window.c:4241
 msgid "Access files"
 msgstr "Hyrje në file"
 
-#: src/file-manager/fm-properties-window.c:4246
+#: src/file-manager/fm-properties-window.c:4243
 msgid "Create and delete files"
 msgstr "Krijon dhe eleminon file"
 
-#: src/file-manager/fm-properties-window.c:4253
+#: src/file-manager/fm-properties-window.c:4250
 msgid "Read-only"
 msgstr "Vetëm lexim"
 
-#: src/file-manager/fm-properties-window.c:4255
+#: src/file-manager/fm-properties-window.c:4252
 msgid "Read and write"
 msgstr "Lexim dhe shkrim"
 
-#: src/file-manager/fm-properties-window.c:4320
+#: src/file-manager/fm-properties-window.c:4317
 msgid "Special flags:"
 msgstr "Flag specialë:"
 
-#: src/file-manager/fm-properties-window.c:4322
+#: src/file-manager/fm-properties-window.c:4319
 msgid "Set _user ID"
 msgstr "Përcakto ID e përdor_uesit"
 
-#: src/file-manager/fm-properties-window.c:4323
+#: src/file-manager/fm-properties-window.c:4320
 msgid "Set gro_up ID"
 msgstr "Përcakto ID e gr_upit"
 
-#: src/file-manager/fm-properties-window.c:4324
+#: src/file-manager/fm-properties-window.c:4321
 msgid "_Sticky"
 msgstr "Ngjitë_s"
 
-#: src/file-manager/fm-properties-window.c:4399
-#: src/file-manager/fm-properties-window.c:4591
+#: src/file-manager/fm-properties-window.c:4396
+#: src/file-manager/fm-properties-window.c:4588
 msgid "_Owner:"
 msgstr "Pr_onari:"
 
-#: src/file-manager/fm-properties-window.c:4407
-#: src/file-manager/fm-properties-window.c:4497
-#: src/file-manager/fm-properties-window.c:4600
+#: src/file-manager/fm-properties-window.c:4404
+#: src/file-manager/fm-properties-window.c:4494
+#: src/file-manager/fm-properties-window.c:4597
 msgid "Owner:"
 msgstr "Pronari:"
 
-#: src/file-manager/fm-properties-window.c:4431
-#: src/file-manager/fm-properties-window.c:4615
+#: src/file-manager/fm-properties-window.c:4428
+#: src/file-manager/fm-properties-window.c:4612
 msgid "_Group:"
 msgstr "_Grupi:"
 
-#: src/file-manager/fm-properties-window.c:4439
-#: src/file-manager/fm-properties-window.c:4498
-#: src/file-manager/fm-properties-window.c:4623
+#: src/file-manager/fm-properties-window.c:4436
+#: src/file-manager/fm-properties-window.c:4495
+#: src/file-manager/fm-properties-window.c:4620
 msgid "Group:"
 msgstr "Grupi:"
 
-#: src/file-manager/fm-properties-window.c:4463
+#: src/file-manager/fm-properties-window.c:4460
 msgid "Others"
 msgstr "Të tjerë"
 
-#: src/file-manager/fm-properties-window.c:4478
+#: src/file-manager/fm-properties-window.c:4475
 msgid "Execute:"
 msgstr "Ekzekutim"
 
-#: src/file-manager/fm-properties-window.c:4481
+#: src/file-manager/fm-properties-window.c:4478
 msgid "Allow _executing file as program"
 msgstr "Lejon _ekzekutimin e file si program"
 
-#: src/file-manager/fm-properties-window.c:4499
+#: src/file-manager/fm-properties-window.c:4496
 msgid "Others:"
 msgstr "Të tjerë:"
 
-#: src/file-manager/fm-properties-window.c:4639
+#: src/file-manager/fm-properties-window.c:4636
 msgid "Folder Permissions:"
 msgstr "Të drejta mbi kartelë:"
 
-#: src/file-manager/fm-properties-window.c:4646
+#: src/file-manager/fm-properties-window.c:4643
 msgid "File Permissions:"
 msgstr "Të drejta mbi file:"
 
-#: src/file-manager/fm-properties-window.c:4655
+#: src/file-manager/fm-properties-window.c:4652
 msgid "Text view:"
 msgstr "Simbolikë:"
 
-#: src/file-manager/fm-properties-window.c:4803
+#: src/file-manager/fm-properties-window.c:4800
 msgid "You are not the owner, so you cannot change these permissions."
 msgstr "Vetëm pronari i file mund të ndryshojë këto të drejta."
 
-#: src/file-manager/fm-properties-window.c:4823
+#: src/file-manager/fm-properties-window.c:4820
 msgid "SELinux context:"
 msgstr "Konteksti SELinux:"
 
-#: src/file-manager/fm-properties-window.c:4828
+#: src/file-manager/fm-properties-window.c:4825
 msgid "Last changed:"
 msgstr "Ndryshimi i fundit:"
 
-#: src/file-manager/fm-properties-window.c:4841
+#: src/file-manager/fm-properties-window.c:4838
 msgid "Apply Permissions to Enclosed Files"
 msgstr "Apliko të drejtat tek file e përfshirë"
 
-#: src/file-manager/fm-properties-window.c:4855
+#: src/file-manager/fm-properties-window.c:4852
 #, c-format
 msgid "The permissions of \"%s\" could not be determined."
 msgstr "Të drejtat e «%s» nuk mund të përcaktohen."
 
-#: src/file-manager/fm-properties-window.c:4858
+#: src/file-manager/fm-properties-window.c:4855
 msgid "The permissions of the selected file could not be determined."
 msgstr "Të drejtat e file të zgjedhur nuk mund të përcaktohen."
 
-#: src/file-manager/fm-properties-window.c:5448
+#: src/file-manager/fm-properties-window.c:5444
 msgid "Creating Properties window."
 msgstr "Krijimi i dritares së pronësive."
 
-#: src/file-manager/fm-properties-window.c:5743
+#: src/file-manager/fm-properties-window.c:5740
 msgid "Select Custom Icon"
 msgstr "Zgjidh ikonën e personalizuar"
 

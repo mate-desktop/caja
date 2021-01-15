@@ -18,9 +18,9 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: caja 1.23.2\n"
+"Project-Id-Version: caja 1.25.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
-"POT-Creation-Date: 2020-01-10 11:11+0100\n"
+"POT-Creation-Date: 2020-06-21 17:16+0200\n"
 "PO-Revision-Date: 2018-03-11 14:48+0000\n"
 "Last-Translator: Oleksii Khalikov <oleksii.khalikov@gmail.com>, 2020\n"
 "Language-Team: Ukrainian (https://www.transifex.com/mate/teams/13566/uk/)\n"
@@ -301,7 +301,7 @@ msgstr "Очистити"
 
 #: data/caja.appdata.xml.in:7 data/caja-browser.desktop.in.in:3
 #: data/caja.desktop.in.in:3 data/caja-folder-handler.desktop.in.in:3
-#: src/caja-spatial-window.c:399 src/caja-window.c:167
+#: src/caja-spatial-window.c:403 src/caja-window.c:167
 #: src/caja-window-menus.c:574
 msgid "Caja"
 msgstr "Caja"
@@ -334,12 +334,6 @@ msgstr ""
 msgid "Autorun Prompt"
 msgstr "Пропозиція автозапуску"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/caja-autorun-software.desktop.in.in:7
-msgid "application-x-executable"
-msgstr "application-x-executable"
-
 #: data/caja-browser.desktop.in.in:4
 msgid "File Browser"
 msgstr "Файловий переглядач"
@@ -347,13 +341,6 @@ msgstr "Файловий переглядач"
 #: data/caja-browser.desktop.in.in:5
 msgid "Browse the file system with the file manager"
 msgstr "Перегляд файлової системи упорядником файлів"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/caja-browser.desktop.in.in:9 data/caja.desktop.in.in:7
-#: data/caja-file-management-properties.desktop.in.in:7
-msgid "system-file-manager"
-msgstr "system-file-manager"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
@@ -372,12 +359,6 @@ msgid ""
 msgstr ""
 "Переглянути усі локальні та віддалені диски і теки, доступні з цього "
 "комп’ютера"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/caja-computer.desktop.in.in:8
-msgid "computer"
-msgstr "комп'ютер"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
@@ -408,12 +389,6 @@ msgstr ""
 msgid "Open Folder"
 msgstr "Відкрити теку"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/caja-folder-handler.desktop.in.in:10
-msgid "folder-open"
-msgstr "folder-open"
-
 #: data/caja-home.desktop.in.in:3 src/file-manager/fm-tree-view.c:1421
 msgid "Home Folder"
 msgstr "Домашня тека"
@@ -422,12 +397,6 @@ msgstr "Домашня тека"
 #: src/caja-window-menus.c:935
 msgid "Open your personal folder"
 msgstr "Відкрити Вашу особисту теку"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/caja-home.desktop.in.in:8
-msgid "user-home"
-msgstr "user-home"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
@@ -446,12 +415,6 @@ msgstr "Мережа"
 #: data/mate-network-scheme.desktop.in.in:4 src/caja-window-menus.c:945
 msgid "Browse bookmarked and local network locations"
 msgstr "Переглянути закладки та локальні мережеві адреси"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon
-#. file name)!
-#: data/mate-network-scheme.desktop.in.in:11
-msgid "network-workgroup"
-msgstr "network-workgroup"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
@@ -811,7 +774,7 @@ msgid "The group of the file."
 msgstr "Група файлу."
 
 #: libcaja-private/caja-column-utilities.c:108
-#: src/file-manager/fm-properties-window.c:4788
+#: src/file-manager/fm-properties-window.c:4785
 msgid "Permissions"
 msgstr "Права"
 
@@ -853,7 +816,7 @@ msgid "The location of the file."
 msgstr "Розташування файлу"
 
 #: libcaja-private/caja-column-utilities.c:148
-#: src/caja-file-management-properties.ui:2551
+#: src/caja-file-management-properties.ui:2542
 msgid "Extension"
 msgstr "Розширення"
 
@@ -1015,141 +978,141 @@ msgstr "Не вдається перейменувати desktop-піктогр�
 msgid "Unable to rename desktop file"
 msgstr "Не вдається перейменувати desktop-файл"
 
-#: libcaja-private/caja-file.c:4757
+#: libcaja-private/caja-file.c:4769
 msgid "today at 00:00:00 PM"
 msgstr "сьогодні о 00:00:00"
 
-#: libcaja-private/caja-file.c:4758 src/caja-file-management-properties.c:532
+#: libcaja-private/caja-file.c:4770 src/caja-file-management-properties.c:509
 msgid "today at %-I:%M:%S %p"
 msgstr "сьогодні о %-H:%M:%S %p"
 
-#: libcaja-private/caja-file.c:4760
+#: libcaja-private/caja-file.c:4772
 msgid "today at 00:00 PM"
 msgstr "сьогодні о 00:00"
 
-#: libcaja-private/caja-file.c:4761
+#: libcaja-private/caja-file.c:4773
 msgid "today at %-I:%M %p"
 msgstr "сьогодні о %-H:%M"
 
-#: libcaja-private/caja-file.c:4763
+#: libcaja-private/caja-file.c:4775
 msgid "today, 00:00 PM"
 msgstr "сьогодні, 00:00"
 
-#: libcaja-private/caja-file.c:4764
+#: libcaja-private/caja-file.c:4776
 msgid "today, %-I:%M %p"
 msgstr "сьогодні, %-H:%M %p"
 
-#: libcaja-private/caja-file.c:4766 libcaja-private/caja-file.c:4767
+#: libcaja-private/caja-file.c:4778 libcaja-private/caja-file.c:4779
 msgid "today"
 msgstr "сьогодні"
 
-#: libcaja-private/caja-file.c:4776
+#: libcaja-private/caja-file.c:4788
 msgid "yesterday at 00:00:00 PM"
 msgstr "вчора о 00:00:00"
 
-#: libcaja-private/caja-file.c:4777
+#: libcaja-private/caja-file.c:4789
 msgid "yesterday at %-I:%M:%S %p"
 msgstr "вчора о %-H:%M:%S"
 
-#: libcaja-private/caja-file.c:4779
+#: libcaja-private/caja-file.c:4791
 msgid "yesterday at 00:00 PM"
 msgstr "вчора о 00:00"
 
-#: libcaja-private/caja-file.c:4780
+#: libcaja-private/caja-file.c:4792
 msgid "yesterday at %-I:%M %p"
 msgstr "вчора о %-H:%M"
 
-#: libcaja-private/caja-file.c:4782
+#: libcaja-private/caja-file.c:4794
 msgid "yesterday, 00:00 PM"
 msgstr "вчора, 00:00"
 
-#: libcaja-private/caja-file.c:4783
+#: libcaja-private/caja-file.c:4795
 msgid "yesterday, %-I:%M %p"
 msgstr "вчора, %-H:%M"
 
-#: libcaja-private/caja-file.c:4785 libcaja-private/caja-file.c:4786
+#: libcaja-private/caja-file.c:4797 libcaja-private/caja-file.c:4798
 msgid "yesterday"
 msgstr "вчора"
 
-#: libcaja-private/caja-file.c:4797
+#: libcaja-private/caja-file.c:4809
 msgid "Wednesday, September 00 0000 at 00:00:00 PM"
 msgstr "Середа, Вересень 00 0000 о 00:00:00"
 
-#: libcaja-private/caja-file.c:4798
+#: libcaja-private/caja-file.c:4810
 msgid "%A, %B %-d %Y at %-I:%M:%S %p"
 msgstr "%A, %b %-d %Y в %-I:%M:%S %p"
 
-#: libcaja-private/caja-file.c:4800
+#: libcaja-private/caja-file.c:4812
 msgid "Mon, Oct 00 0000 at 00:00:00 PM"
 msgstr "Пнд, 00 Жов 0000 о 00:00:00"
 
-#: libcaja-private/caja-file.c:4801
+#: libcaja-private/caja-file.c:4813
 msgid "%a, %b %-d %Y at %-I:%M:%S %p"
 msgstr "%a, %-d %b %Y у %-H:%M:%S"
 
-#: libcaja-private/caja-file.c:4803
+#: libcaja-private/caja-file.c:4815
 msgid "Mon, Oct 00 0000 at 00:00 PM"
 msgstr "Пнд, 00 Жов 0000 о 00:00"
 
-#: libcaja-private/caja-file.c:4804
+#: libcaja-private/caja-file.c:4816
 msgid "%a, %b %-d %Y at %-I:%M %p"
 msgstr "%a, %-d %b %Y о %-H:%M"
 
-#: libcaja-private/caja-file.c:4806
+#: libcaja-private/caja-file.c:4818
 msgid "Oct 00 0000 at 00:00 PM"
 msgstr "00 Жов 0000 о 00:00"
 
-#: libcaja-private/caja-file.c:4807
+#: libcaja-private/caja-file.c:4819
 msgid "%b %-d %Y at %-I:%M %p"
 msgstr "%-d %b %Y о %-H:%M"
 
-#: libcaja-private/caja-file.c:4809
+#: libcaja-private/caja-file.c:4821
 msgid "Oct 00 0000, 00:00 PM"
 msgstr "Жов 00 0000, 00:00 ПП"
 
-#: libcaja-private/caja-file.c:4810
+#: libcaja-private/caja-file.c:4822
 msgid "%b %-d %Y, %-I:%M %p"
 msgstr "%-d %b %Y, %-H:%M"
 
-#: libcaja-private/caja-file.c:4812
+#: libcaja-private/caja-file.c:4824
 msgid "00/00/00, 00:00 PM"
 msgstr "00.00.00, 00:00 ПП"
 
-#: libcaja-private/caja-file.c:4813
+#: libcaja-private/caja-file.c:4825
 msgid "%m/%-d/%y, %-I:%M %p"
 msgstr "%-d.%m.%y, %-H:%M"
 
-#: libcaja-private/caja-file.c:4815
+#: libcaja-private/caja-file.c:4827
 msgid "00/00/00"
 msgstr "00/00/00"
 
-#: libcaja-private/caja-file.c:4816
+#: libcaja-private/caja-file.c:4828
 msgid "%m/%d/%y"
 msgstr "%d.%m.%y"
 
-#: libcaja-private/caja-file.c:5453
+#: libcaja-private/caja-file.c:5465
 msgid "Not allowed to set permissions"
 msgstr "Заборонено встановлювати права"
 
-#: libcaja-private/caja-file.c:5747
+#: libcaja-private/caja-file.c:5759
 msgid "Not allowed to set owner"
 msgstr "Заборонено встановлювати власника"
 
-#: libcaja-private/caja-file.c:5765
+#: libcaja-private/caja-file.c:5777
 #, c-format
 msgid "Specified owner '%s' doesn't exist"
 msgstr "Вказаний власник «%s» не існує"
 
-#: libcaja-private/caja-file.c:6027
+#: libcaja-private/caja-file.c:6039
 msgid "Not allowed to set group"
 msgstr "Заборонено встановлювати групу"
 
-#: libcaja-private/caja-file.c:6045
+#: libcaja-private/caja-file.c:6057
 #, c-format
 msgid "Specified group '%s' doesn't exist"
 msgstr "Вказана група «%s» не існує"
 
-#: libcaja-private/caja-file.c:6199 src/file-manager/fm-directory-view.c:2397
+#: libcaja-private/caja-file.c:6211 src/file-manager/fm-directory-view.c:2397
 #, c-format
 msgid "%'u item"
 msgid_plural "%'u items"
@@ -1158,7 +1121,7 @@ msgstr[1] "%'u об'єкти"
 msgstr[2] "%'u об'єктів"
 msgstr[3] "%'u об'єктів"
 
-#: libcaja-private/caja-file.c:6200
+#: libcaja-private/caja-file.c:6212
 #, c-format
 msgid "%'u folder"
 msgid_plural "%'u folders"
@@ -1167,7 +1130,7 @@ msgstr[1] "%'u теки"
 msgstr[2] "%'u тек"
 msgstr[3] "%'u тек"
 
-#: libcaja-private/caja-file.c:6201
+#: libcaja-private/caja-file.c:6213
 #, c-format
 msgid "%'u file"
 msgid_plural "%'u files"
@@ -1176,51 +1139,51 @@ msgstr[1] "%'u файли"
 msgstr[2] "%'u файлів"
 msgstr[3] "%'u файлів"
 
-#: libcaja-private/caja-file.c:6305
+#: libcaja-private/caja-file.c:6317
 msgid "%"
 msgstr "%"
 
-#: libcaja-private/caja-file.c:6306
+#: libcaja-private/caja-file.c:6318
 #, c-format
 msgid "%s (%s bytes)"
 msgstr "%s (%s байтів)"
 
-#: libcaja-private/caja-file.c:6656 libcaja-private/caja-file.c:6680
+#: libcaja-private/caja-file.c:6668 libcaja-private/caja-file.c:6692
 msgid "? items"
 msgstr "? об'єктів"
 
-#: libcaja-private/caja-file.c:6662 libcaja-private/caja-file.c:6670
+#: libcaja-private/caja-file.c:6674 libcaja-private/caja-file.c:6682
 msgid "? bytes"
 msgstr "? байтів"
 
-#: libcaja-private/caja-file.c:6685
+#: libcaja-private/caja-file.c:6697
 msgid "unknown type"
 msgstr "невідомий тип"
 
-#: libcaja-private/caja-file.c:6688
+#: libcaja-private/caja-file.c:6700
 msgid "unknown MIME type"
 msgstr "невідомий тип MIME"
 
-#: libcaja-private/caja-file.c:6702
-#: src/file-manager/fm-properties-window.c:1302
+#: libcaja-private/caja-file.c:6714
+#: src/file-manager/fm-properties-window.c:1299
 msgid "unknown"
 msgstr "Невідомо"
 
-#: libcaja-private/caja-file.c:6752
+#: libcaja-private/caja-file.c:6764
 msgid "program"
 msgstr "програма"
 
-#: libcaja-private/caja-file.c:6772
+#: libcaja-private/caja-file.c:6784
 msgid "link"
 msgstr "посилання"
 
-#: libcaja-private/caja-file.c:6778 libcaja-private/caja-file-operations.c:406
+#: libcaja-private/caja-file.c:6790 libcaja-private/caja-file-operations.c:406
 #: src/file-manager/fm-directory-view.c:10736
 #, c-format
 msgid "Link to %s"
 msgstr "Посилання на %s"
 
-#: libcaja-private/caja-file.c:6794
+#: libcaja-private/caja-file.c:6806
 msgid "link (broken)"
 msgstr "посилання (неправильне)"
 
@@ -1305,14 +1268,14 @@ msgstr "Початковий файл"
 
 #: libcaja-private/caja-file-conflict-dialog.c:277
 #: libcaja-private/caja-file-conflict-dialog.c:316
-#: src/file-manager/fm-properties-window.c:3306
+#: src/file-manager/fm-properties-window.c:3303
 msgid "Size:"
 msgstr "Розмір:"
 
 #: libcaja-private/caja-file-conflict-dialog.c:282
 #: libcaja-private/caja-file-conflict-dialog.c:321
 #: src/caja-connect-server-dialog.c:927
-#: src/file-manager/fm-properties-window.c:3288
+#: src/file-manager/fm-properties-window.c:3285
 msgid "Type:"
 msgstr "Тип:"
 
@@ -2428,7 +2391,7 @@ msgid "Select an Application"
 msgstr "Виберіть програму"
 
 #: libcaja-private/caja-open-with-dialog.c:868
-#: src/file-manager/fm-properties-window.c:5122
+#: src/file-manager/fm-properties-window.c:5119
 msgid "Open With"
 msgstr "Відкрити у програмі"
 
@@ -2631,181 +2594,181 @@ msgstr "Пошук"
 msgid "Search for \"%s\""
 msgstr "Пошук \"%s\""
 
-#: libcaja-private/caja-undostack-manager.c:1239
+#: libcaja-private/caja-undostack-manager.c:1212
 #, c-format
 msgid "Delete %d copied items"
 msgstr "Вилучити %d скопійованих елементів"
 
-#: libcaja-private/caja-undostack-manager.c:1242
-#: libcaja-private/caja-undostack-manager.c:1252
-#: libcaja-private/caja-undostack-manager.c:1283
+#: libcaja-private/caja-undostack-manager.c:1215
+#: libcaja-private/caja-undostack-manager.c:1225
+#: libcaja-private/caja-undostack-manager.c:1256
 #, c-format
 msgid "Delete '%s'"
 msgstr "Вилучити '%s'"
 
-#: libcaja-private/caja-undostack-manager.c:1249
+#: libcaja-private/caja-undostack-manager.c:1222
 #, c-format
 msgid "Delete %d duplicated items"
 msgstr "Вилучити %d дубльованих елементів"
 
-#: libcaja-private/caja-undostack-manager.c:1260
+#: libcaja-private/caja-undostack-manager.c:1233
 #, c-format
 msgid "Move %d items back to '%s'"
 msgstr "Перемістити %d елементів назад у «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1264
+#: libcaja-private/caja-undostack-manager.c:1237
 #, c-format
 msgid "Move '%s' back to '%s'"
 msgstr "Перемістити «%s» назад у «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1273
-#: libcaja-private/caja-undostack-manager.c:1440
+#: libcaja-private/caja-undostack-manager.c:1246
+#: libcaja-private/caja-undostack-manager.c:1413
 #, c-format
 msgid "Rename '%s' as '%s'"
 msgstr "Змінити назву «%s» на «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1292
-#: libcaja-private/caja-undostack-manager.c:1487
+#: libcaja-private/caja-undostack-manager.c:1265
+#: libcaja-private/caja-undostack-manager.c:1460
 #, c-format
 msgid "Restore %d items from trash"
 msgstr "Повернути %d елементів зі смітника"
 
-#: libcaja-private/caja-undostack-manager.c:1300
+#: libcaja-private/caja-undostack-manager.c:1273
 #, c-format
 msgid "Restore '%s' to '%s'"
 msgstr "Повернути «%s» до «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1311
+#: libcaja-private/caja-undostack-manager.c:1284
 #, c-format
 msgid "Move %d items back to trash"
 msgstr "Перемістити %d елементів назад у смітник"
 
-#: libcaja-private/caja-undostack-manager.c:1314
+#: libcaja-private/caja-undostack-manager.c:1287
 #, c-format
 msgid "Move '%s' back to trash"
 msgstr "Перемістити «%s» назад у смітник"
 
-#: libcaja-private/caja-undostack-manager.c:1323
+#: libcaja-private/caja-undostack-manager.c:1296
 #, c-format
 msgid "Delete links to %d items"
 msgstr "Вилучити посилання на %d елементів"
 
-#: libcaja-private/caja-undostack-manager.c:1326
+#: libcaja-private/caja-undostack-manager.c:1299
 #, c-format
 msgid "Delete link to '%s'"
 msgstr "Вилучити посилання на «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1336
+#: libcaja-private/caja-undostack-manager.c:1309
 #, c-format
 msgid "Restore original permissions of items enclosed in '%s'"
 msgstr "Повернути початкові права елементів, укладених у «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1344
+#: libcaja-private/caja-undostack-manager.c:1317
 #, c-format
 msgid "Restore original permissions of '%s'"
 msgstr "Повернути початкові права у «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1353
+#: libcaja-private/caja-undostack-manager.c:1326
 #, c-format
 msgid "Restore group of '%s' to '%s'"
 msgstr "Повернути групу «%s» на «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1363
+#: libcaja-private/caja-undostack-manager.c:1336
 #, c-format
 msgid "Restore owner of '%s' to '%s'"
 msgstr "Повернути власника «%s» на «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1402
+#: libcaja-private/caja-undostack-manager.c:1375
 #, c-format
 msgid "Copy %d items to '%s'"
 msgstr "Скопіювати %d елементів у «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1406
+#: libcaja-private/caja-undostack-manager.c:1379
 #, c-format
 msgid "Copy '%s' to '%s'"
 msgstr "Скопіювати «%s» у «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1414
+#: libcaja-private/caja-undostack-manager.c:1387
 #, c-format
 msgid "Duplicate of %d items in '%s'"
 msgstr "Дублікати %d елементів у «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1419
+#: libcaja-private/caja-undostack-manager.c:1392
 #, c-format
 msgid "Duplicate '%s' in '%s'"
 msgstr "Дублікат «%s» у «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1427
+#: libcaja-private/caja-undostack-manager.c:1400
 #, c-format
 msgid "Move %d items to '%s'"
 msgstr "Перемістити %d елементів у «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1431
+#: libcaja-private/caja-undostack-manager.c:1404
 #, c-format
 msgid "Move '%s' to '%s'"
 msgstr "Перемістити «%s» у «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1449
+#: libcaja-private/caja-undostack-manager.c:1422
 #, c-format
 msgid "Create new file '%s' from template "
 msgstr "Створити новий файл «%s» з шаблону"
 
-#: libcaja-private/caja-undostack-manager.c:1456
+#: libcaja-private/caja-undostack-manager.c:1429
 #, c-format
 msgid "Create an empty file '%s'"
 msgstr "Створити порожній файл «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1463
+#: libcaja-private/caja-undostack-manager.c:1436
 #, c-format
 msgid "Create a new folder '%s'"
 msgstr "Створити нову теку «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1471
+#: libcaja-private/caja-undostack-manager.c:1444
 #, c-format
 msgid "Move %d items to trash"
 msgstr "Перемістити %d елементів у смітник"
 
-#: libcaja-private/caja-undostack-manager.c:1477
+#: libcaja-private/caja-undostack-manager.c:1450
 #, c-format
 msgid "Move '%s' to trash"
 msgstr "Перемістити «%s» у смітник"
 
-#: libcaja-private/caja-undostack-manager.c:1490
+#: libcaja-private/caja-undostack-manager.c:1463
 #, c-format
 msgid "Restore '%s' from trash"
 msgstr "Повернути «%s» зі смітника"
 
-#: libcaja-private/caja-undostack-manager.c:1499
+#: libcaja-private/caja-undostack-manager.c:1472
 #, c-format
 msgid "Create links to %d items"
 msgstr "Створити посилання на %d елементів"
 
-#: libcaja-private/caja-undostack-manager.c:1502
+#: libcaja-private/caja-undostack-manager.c:1475
 #, c-format
 msgid "Create link to '%s'"
 msgstr "Створити посилання на «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1511
+#: libcaja-private/caja-undostack-manager.c:1484
 #, c-format
 msgid "Set permissions of items enclosed in '%s'"
 msgstr "Виставити права на елементи, укладені у «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1519
+#: libcaja-private/caja-undostack-manager.c:1492
 #, c-format
 msgid "Set permissions of '%s'"
 msgstr "Виставити права на «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1528
+#: libcaja-private/caja-undostack-manager.c:1501
 #, c-format
 msgid "Set group of '%s' to '%s'"
 msgstr "Виставити групу «%s» як «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1538
+#: libcaja-private/caja-undostack-manager.c:1511
 #, c-format
 msgid "Set owner of '%s' to '%s'"
 msgstr "Виставити власника «%s» як «%s»"
 
-#: libcaja-private/caja-undostack-manager.c:1570
+#: libcaja-private/caja-undostack-manager.c:1543
 #, c-format
 msgid "_Undo copy of %d item"
 msgid_plural "_Undo copy of %d items"
@@ -2814,7 +2777,7 @@ msgstr[1] "_Скасувати копіювання %d елементів"
 msgstr[2] "_Скасувати копіювання %d елементів"
 msgstr[3] "_Скасувати копіювання %d елементів"
 
-#: libcaja-private/caja-undostack-manager.c:1575
+#: libcaja-private/caja-undostack-manager.c:1548
 #, c-format
 msgid "_Undo duplicate of %d item"
 msgid_plural "_Undo duplicate of %d items"
@@ -2823,7 +2786,7 @@ msgstr[1] "_Скасувати дублювання %d елементів"
 msgstr[2] "_Скасувати дублювання %d елементів"
 msgstr[3] "_Скасувати дублювання %d елементів"
 
-#: libcaja-private/caja-undostack-manager.c:1580
+#: libcaja-private/caja-undostack-manager.c:1553
 #, c-format
 msgid "_Undo move of %d item"
 msgid_plural "_Undo move of %d items"
@@ -2832,7 +2795,7 @@ msgstr[1] "_Скасувати переміщення %d елементів"
 msgstr[2] "_Скасувати переміщення %d елементів"
 msgstr[3] "_Скасувати переміщення %d елементів"
 
-#: libcaja-private/caja-undostack-manager.c:1585
+#: libcaja-private/caja-undostack-manager.c:1558
 #, c-format
 msgid "_Undo rename of %d item"
 msgid_plural "_Undo rename of %d items"
@@ -2841,15 +2804,15 @@ msgstr[1] "_Скасувати зміну назв %d елементів"
 msgstr[2] "_Скасувати зміну назв %d елементів"
 msgstr[3] "_Скасувати зміну назв %d елементів"
 
-#: libcaja-private/caja-undostack-manager.c:1589
+#: libcaja-private/caja-undostack-manager.c:1562
 msgid "_Undo creation of an empty file"
 msgstr "_Скасувати створення порожнього файлу"
 
-#: libcaja-private/caja-undostack-manager.c:1592
+#: libcaja-private/caja-undostack-manager.c:1565
 msgid "_Undo creation of a file from template"
 msgstr "_Скасувати створення файлу з шаблону"
 
-#: libcaja-private/caja-undostack-manager.c:1596
+#: libcaja-private/caja-undostack-manager.c:1569
 #, c-format
 msgid "_Undo creation of %d folder"
 msgid_plural "_Undo creation of %d folders"
@@ -2858,7 +2821,7 @@ msgstr[1] "_Скасувати створення %d тек"
 msgstr[2] "_Скасувати створення %d тек"
 msgstr[3] "_Скасувати створення %d тек"
 
-#: libcaja-private/caja-undostack-manager.c:1601
+#: libcaja-private/caja-undostack-manager.c:1574
 #, c-format
 msgid "_Undo move to trash of %d item"
 msgid_plural "_Undo move to trash of %d items"
@@ -2867,7 +2830,7 @@ msgstr[1] "_Скасувати переміщення у смітник %d ел�
 msgstr[2] "_Скасувати переміщення у смітник %d елементів"
 msgstr[3] "_Скасувати переміщення у смітник %d елементів"
 
-#: libcaja-private/caja-undostack-manager.c:1606
+#: libcaja-private/caja-undostack-manager.c:1579
 #, c-format
 msgid "_Undo restore from trash of %d item"
 msgid_plural "_Undo restore from trash of %d items"
@@ -2876,7 +2839,7 @@ msgstr[1] "_Скасувати відновлення зі смітника %d �
 msgstr[2] "_Скасувати відновлення зі смітника %d елементів"
 msgstr[3] "_Скасувати відновлення зі смітника %d елементів"
 
-#: libcaja-private/caja-undostack-manager.c:1611
+#: libcaja-private/caja-undostack-manager.c:1584
 #, c-format
 msgid "_Undo create link to %d item"
 msgid_plural "_Undo create link to %d items"
@@ -2885,7 +2848,7 @@ msgstr[1] "_Скасувати створення посилання на %d е�
 msgstr[2] "_Скасувати створення посилання на %d елементів"
 msgstr[3] "_Скасувати створення посилання на %d елементів"
 
-#: libcaja-private/caja-undostack-manager.c:1616
+#: libcaja-private/caja-undostack-manager.c:1589
 #, c-format
 msgid "_Undo delete of %d item"
 msgid_plural "_Undo delete of %d items"
@@ -2894,7 +2857,7 @@ msgstr[1] "_Скасувати вилучення %d елементів"
 msgstr[2] "_Скасувати вилучення %d елементів"
 msgstr[3] "_Скасувати вилучення %d елементів"
 
-#: libcaja-private/caja-undostack-manager.c:1621
+#: libcaja-private/caja-undostack-manager.c:1594
 #, c-format
 msgid "Undo recursive change permissions of %d item"
 msgid_plural "Undo recursive change permissions of %d items"
@@ -2903,7 +2866,7 @@ msgstr[1] "Скасувати рекурсивну зміну прав %d еле
 msgstr[2] "Скасувати рекурсивну зміну прав %d елементів"
 msgstr[3] "Скасувати рекурсивну зміну прав %d елементів"
 
-#: libcaja-private/caja-undostack-manager.c:1627
+#: libcaja-private/caja-undostack-manager.c:1600
 #, c-format
 msgid "Undo change permissions of %d item"
 msgid_plural "Undo change permissions of %d items"
@@ -2912,7 +2875,7 @@ msgstr[1] "Скасувати зміну прав %d елементів"
 msgstr[2] "Скасувати зміну прав %d елементів"
 msgstr[3] "Скасувати зміну прав %d елементів"
 
-#: libcaja-private/caja-undostack-manager.c:1632
+#: libcaja-private/caja-undostack-manager.c:1605
 #, c-format
 msgid "Undo change group of %d item"
 msgid_plural "Undo change group of %d items"
@@ -2921,7 +2884,7 @@ msgstr[1] "Скасувати зміну групи %d елементів"
 msgstr[2] "Скасувати зміну групи %d елементів"
 msgstr[3] "Скасувати зміну групи %d елементів"
 
-#: libcaja-private/caja-undostack-manager.c:1637
+#: libcaja-private/caja-undostack-manager.c:1610
 #, c-format
 msgid "Undo change owner of %d item"
 msgid_plural "Undo change owner of %d items"
@@ -2930,7 +2893,7 @@ msgstr[1] "Скасувати зміну власника %d елементів"
 msgstr[2] "Скасувати зміну власника %d елементів"
 msgstr[3] "Скасувати зміну власника %d елементів"
 
-#: libcaja-private/caja-undostack-manager.c:1665
+#: libcaja-private/caja-undostack-manager.c:1638
 #, c-format
 msgid "_Redo copy of %d item"
 msgid_plural "_Redo copy of %d items"
@@ -2939,7 +2902,7 @@ msgstr[1] "_Повернути копіювання %d елементів"
 msgstr[2] "_Повернути копіювання %d елементів"
 msgstr[3] "_Повернути копіювання %d елементів"
 
-#: libcaja-private/caja-undostack-manager.c:1670
+#: libcaja-private/caja-undostack-manager.c:1643
 #, c-format
 msgid "_Redo duplicate of %d item"
 msgid_plural "_Redo duplicate of %d items"
@@ -2948,7 +2911,7 @@ msgstr[1] "_Повернути дублювання %d елементів"
 msgstr[2] "_Повернути дублювання %d елементів"
 msgstr[3] "_Повернути дублювання %d елементів"
 
-#: libcaja-private/caja-undostack-manager.c:1675
+#: libcaja-private/caja-undostack-manager.c:1648
 #, c-format
 msgid "_Redo move of %d item"
 msgid_plural "_Redo move of %d items"
@@ -2957,7 +2920,7 @@ msgstr[1] "_Повернути переміщення %d елементів"
 msgstr[2] "_Повернути переміщення %d елементів"
 msgstr[3] "_Повернути переміщення %d елементів"
 
-#: libcaja-private/caja-undostack-manager.c:1680
+#: libcaja-private/caja-undostack-manager.c:1653
 #, c-format
 msgid "_Redo rename of %d item"
 msgid_plural "_Redo rename of %d items"
@@ -2966,15 +2929,15 @@ msgstr[1] "_Повернути зміну назв %d елементів"
 msgstr[2] "_Повернути зміну назв %d елементів"
 msgstr[3] "_Повернути зміну назв %d елементів"
 
-#: libcaja-private/caja-undostack-manager.c:1684
+#: libcaja-private/caja-undostack-manager.c:1657
 msgid "_Redo creation of an empty file"
 msgstr "_Повернути створення порожнього файлу"
 
-#: libcaja-private/caja-undostack-manager.c:1687
+#: libcaja-private/caja-undostack-manager.c:1660
 msgid "_Redo creation of a file from template"
 msgstr "_Повернути створення файлу з шаблону"
 
-#: libcaja-private/caja-undostack-manager.c:1691
+#: libcaja-private/caja-undostack-manager.c:1664
 #, c-format
 msgid "_Redo creation of %d folder"
 msgid_plural "_Redo creation of %d folders"
@@ -2983,7 +2946,7 @@ msgstr[1] "_Повернути створення %d тек"
 msgstr[2] "_Повернути створення %d тек"
 msgstr[3] "_Повернути створення %d тек"
 
-#: libcaja-private/caja-undostack-manager.c:1696
+#: libcaja-private/caja-undostack-manager.c:1669
 #, c-format
 msgid "_Redo move to trash of %d item"
 msgid_plural "_Redo move to trash of %d items"
@@ -2992,7 +2955,7 @@ msgstr[1] "_Повернути переміщення у смітник %d ел�
 msgstr[2] "_Повернути переміщення у смітник %d елементів"
 msgstr[3] "_Повернути переміщення у смітник %d елементів"
 
-#: libcaja-private/caja-undostack-manager.c:1701
+#: libcaja-private/caja-undostack-manager.c:1674
 #, c-format
 msgid "_Redo restore from trash of %d item"
 msgid_plural "_Redo restore from trash of %d items"
@@ -3001,7 +2964,7 @@ msgstr[1] "_Повернути відновлення зі смітника %d �
 msgstr[2] "_Повернути відновлення зі смітника %d елементів"
 msgstr[3] "_Повернути відновлення зі смітника %d елементів"
 
-#: libcaja-private/caja-undostack-manager.c:1706
+#: libcaja-private/caja-undostack-manager.c:1679
 #, c-format
 msgid "_Redo create link to %d item"
 msgid_plural "_Redo create link to %d items"
@@ -3010,7 +2973,7 @@ msgstr[1] "_Повернути створення посилання на %d е�
 msgstr[2] "_Повернути створення посилання на %d елементів"
 msgstr[3] "_Повернути створення посилання на %d елементів"
 
-#: libcaja-private/caja-undostack-manager.c:1711
+#: libcaja-private/caja-undostack-manager.c:1684
 #, c-format
 msgid "_Redo delete of %d item"
 msgid_plural "_Redo delete of %d items"
@@ -3019,7 +2982,7 @@ msgstr[1] "_Повернути вилучення %d елементів"
 msgstr[2] "_Повернути вилучення %d елементів"
 msgstr[3] "_Повернути вилучення %d елементів"
 
-#: libcaja-private/caja-undostack-manager.c:1716
+#: libcaja-private/caja-undostack-manager.c:1689
 #, c-format
 msgid "Redo recursive change permissions of %d item"
 msgid_plural "Redo recursive change permissions of %d items"
@@ -3028,7 +2991,7 @@ msgstr[1] "Повернути рекурсивну зміну прав %d еле
 msgstr[2] "Повернути рекурсивну зміну прав %d елементів"
 msgstr[3] "Повернути рекурсивну зміну прав %d елементів"
 
-#: libcaja-private/caja-undostack-manager.c:1722
+#: libcaja-private/caja-undostack-manager.c:1695
 #, c-format
 msgid "Redo change permissions of %d item"
 msgid_plural "Redo change permissions of %d items"
@@ -3037,7 +3000,7 @@ msgstr[1] "Повернути зміну прав %d елементів"
 msgstr[2] "Повернути зміну прав %d елементів"
 msgstr[3] "Повернути зміну прав %d елементів"
 
-#: libcaja-private/caja-undostack-manager.c:1727
+#: libcaja-private/caja-undostack-manager.c:1700
 #, c-format
 msgid "Redo change group of %d item"
 msgid_plural "Redo change group of %d items"
@@ -3046,7 +3009,7 @@ msgstr[1] "Повернути зміну групи %d елементів"
 msgstr[2] "Повернути зміну групи %d елементів"
 msgstr[3] "Повернути зміну групи %d елементів"
 
-#: libcaja-private/caja-undostack-manager.c:1732
+#: libcaja-private/caja-undostack-manager.c:1705
 #, c-format
 msgid "Redo change owner of %d item"
 msgid_plural "Redo change owner of %d items"
@@ -3975,71 +3938,71 @@ msgstr ""
 "параметрах. При вставлянні носія з цими типами відкриватиметься вікно з "
 "текою."
 
-#: libegg/eggdesktopfile.c:166
+#: mate-submodules/libegg/eggdesktopfile.c:168
 msgid "File is not a valid .desktop file"
 msgstr "Файл не є коректним файлом .desktop"
 
-#: libegg/eggdesktopfile.c:189
+#: mate-submodules/libegg/eggdesktopfile.c:193
 #, c-format
 msgid "Unrecognized desktop file Version '%s'"
 msgstr "Невідома версія файлу .desktop «%s»"
 
-#: libegg/eggdesktopfile.c:965
+#: mate-submodules/libegg/eggdesktopfile.c:975
 #, c-format
 msgid "Starting %s"
 msgstr "Запускаю '%s'"
 
-#: libegg/eggdesktopfile.c:1107
+#: mate-submodules/libegg/eggdesktopfile.c:1117
 msgid "Application does not accept documents on command line"
 msgstr "Програма не може приймати документи з командного рядка"
 
-#: libegg/eggdesktopfile.c:1175
+#: mate-submodules/libegg/eggdesktopfile.c:1185
 #, c-format
 msgid "Unrecognized launch option: %d"
 msgstr "Невідомий параметр запуску: %d"
 
-#: libegg/eggdesktopfile.c:1373
+#: mate-submodules/libegg/eggdesktopfile.c:1401
 msgid "Can't pass document URIs to a 'Type=Link' desktop entry"
 msgstr "Неможливо передати URI документу у лейбу типу «Посилання»"
 
-#: libegg/eggdesktopfile.c:1392
+#: mate-submodules/libegg/eggdesktopfile.c:1422
 msgid "Not a launchable item"
 msgstr "Елемент не запускається"
 
-#: libegg/eggsmclient.c:233
+#: mate-submodules/libegg/eggsmclient.c:233
 msgid "Disable connection to session manager"
 msgstr "Заборонити під’єднання до керівника сеансів"
 
-#: libegg/eggsmclient.c:238
+#: mate-submodules/libegg/eggsmclient.c:238
 msgid "Specify file containing saved configuration"
 msgstr "Вказати файл, що містить збережені налаштування"
 
-#: libegg/eggsmclient.c:238
+#: mate-submodules/libegg/eggsmclient.c:238
 msgid "FILE"
 msgstr "ФАЙЛ"
 
-#: libegg/eggsmclient.c:243
+#: mate-submodules/libegg/eggsmclient.c:243
 msgid "Specify session management ID"
 msgstr "Визначити ідентифікатор для керівника сеансів"
 
-#: libegg/eggsmclient.c:243
+#: mate-submodules/libegg/eggsmclient.c:243
 msgid "ID"
 msgstr "ID"
 
-#: libegg/eggsmclient.c:269
+#: mate-submodules/libegg/eggsmclient.c:269
 msgid "Session management options:"
 msgstr "Параметри керування сеансом"
 
-#: libegg/eggsmclient.c:270
+#: mate-submodules/libegg/eggsmclient.c:270
 msgid "Show session management options"
 msgstr "Показати параметри взаємодії з керівником сеансів"
 
-#: src/caja-application.c:554
+#: src/caja-application.c:555
 #, c-format
 msgid "Caja could not create the required folder \"%s\"."
 msgstr "Caja не може створити необхідну теку \"%s\"."
 
-#: src/caja-application.c:556
+#: src/caja-application.c:557
 msgid ""
 "Before running Caja, please create the following folder, or set permissions "
 "such that Caja can create it."
@@ -4047,12 +4010,12 @@ msgstr ""
 "Створіть цю теку перед запуском Caja, або встановіть такі права, щоб Caja "
 "міг її створити."
 
-#: src/caja-application.c:561
+#: src/caja-application.c:562
 #, c-format
 msgid "Caja could not create the following required folders: %s."
 msgstr "Caja не може створити необхідні теки: %s."
 
-#: src/caja-application.c:563
+#: src/caja-application.c:564
 msgid ""
 "Before running Caja, please create these folders, or set permissions such "
 "that Caja can create them."
@@ -4060,55 +4023,59 @@ msgstr ""
 "Створіть ці теки перед запуском Caja, або встановіть такі права, щоб Caja "
 "міг їх створити."
 
-#: src/caja-application.c:1164 src/caja-places-sidebar.c:2223
+#: src/caja-application.c:1165 src/caja-places-sidebar.c:2223
 #: src/caja-places-sidebar.c:2255 src/caja-places-sidebar.c:2291
 #, c-format
 msgid "Unable to eject %s"
 msgstr "Не вдається витягнути %s"
 
-#: src/caja-application.c:1792
+#: src/caja-application.c:1794
 msgid "--check cannot be used with other options."
 msgstr ""
 "параметр --check не можливо використовувати разом з іншими параметрами."
 
-#: src/caja-application.c:1798
+#: src/caja-application.c:1800
 msgid "--quit cannot be used with URIs."
 msgstr "--quit не можливо використовувати з адресами (URI)."
 
-#: src/caja-application.c:1805
+#: src/caja-application.c:1807
 msgid "--geometry cannot be used with more than one URI."
 msgstr ""
 "параметр --geometry не можливо використовувати з більше ніж однією адресою "
 "(URI)."
 
-#: src/caja-application.c:1869
+#: src/caja-application.c:1813
+msgid "--select must be used with at least an URI."
+msgstr ""
+
+#: src/caja-application.c:1927
 msgid "Perform a quick set of self-check tests."
 msgstr "Здійснити швидку самоперевірку."
 
-#: src/caja-application.c:1872
+#: src/caja-application.c:1930
 msgid "Show the version of the program."
 msgstr "Показати версію програми."
 
-#: src/caja-application.c:1874
+#: src/caja-application.c:1932
 msgid "Create the initial window with the given geometry."
 msgstr "Створити початкове вікно з вказаною геометрією."
 
-#: src/caja-application.c:1874
+#: src/caja-application.c:1932
 msgid "GEOMETRY"
 msgstr "ГЕОМЕТРІЯ"
 
-#: src/caja-application.c:1876
+#: src/caja-application.c:1934
 msgid "Only create windows for explicitly specified URIs."
 msgstr "Створити вікна лише з точно наведеними URI."
 
-#: src/caja-application.c:1878
+#: src/caja-application.c:1936
 msgid ""
 "Do not manage the desktop (ignore the preference set in the preferences "
 "dialog)."
 msgstr ""
 "Не керувати стільницею (нехтувати параметр встановлений у вікні параметрів)"
 
-#: src/caja-application.c:1880
+#: src/caja-application.c:1938
 msgid ""
 "Manage the desktop regardless of set preferences or environment (on new "
 "startup only)"
@@ -4116,23 +4083,27 @@ msgstr ""
 "Керування стільницею незалежно від вказаних переваг або оточення (лише при "
 "новому запуску)"
 
-#: src/caja-application.c:1882
+#: src/caja-application.c:1940
 msgid "Open URIs in tabs."
 msgstr "Відкрити URI у вкладках."
 
-#: src/caja-application.c:1884
+#: src/caja-application.c:1942
 msgid "Open a browser window."
 msgstr "Відкрити вікно оглядача."
 
-#: src/caja-application.c:1886
+#: src/caja-application.c:1944
 msgid "Quit Caja."
 msgstr "Вийти з Caja."
 
-#: src/caja-application.c:1887
+#: src/caja-application.c:1946
+msgid "Select specified URI in parent folder."
+msgstr ""
+
+#: src/caja-application.c:1947
 msgid "[URI...]"
 msgstr "[URI...]"
 
-#: src/caja-application.c:1898
+#: src/caja-application.c:1958
 msgid ""
 "\n"
 "\n"
@@ -4174,7 +4145,7 @@ msgstr ""
 "\n"
 "Якщо є сумнів, натисніть Скасувати."
 
-#: src/caja-bookmarks-window.c:163 src/caja-file-management-properties.c:249
+#: src/caja-bookmarks-window.c:163 src/caja-file-management-properties.c:226
 #: src/caja-property-browser.c:1688 src/caja-window-menus.c:629
 #, c-format
 msgid ""
@@ -4197,7 +4168,7 @@ msgstr "Редагування закладок"
 #: src/caja-file-management-properties.ui:305 src/caja-location-dialog.c:192
 #: src/caja-property-browser.c:389 src/caja-window-menus.c:852
 #: src/file-manager/fm-directory-view.c:1214
-#: src/file-manager/fm-properties-window.c:5233
+#: src/file-manager/fm-properties-window.c:5229
 msgid "_Help"
 msgstr "_Допомога"
 
@@ -4208,7 +4179,7 @@ msgstr "_Перехід до"
 #: src/caja-bookmarks-window.ui:93 src/caja-file-management-properties.ui:321
 #: src/caja-property-browser.c:397 src/caja-window-menus.c:854
 #: src/file-manager/fm-list-view.c:2567
-#: src/file-manager/fm-properties-window.c:5238
+#: src/file-manager/fm-properties-window.c:5234
 msgid "_Close"
 msgstr "_Закрити"
 
@@ -4288,7 +4259,7 @@ msgstr "Продовжити"
 
 #: src/caja-connect-server-dialog.c:717 src/caja-location-dialog.c:105
 #: src/file-manager/fm-directory-view.c:1188
-#: src/file-manager/fm-properties-window.c:5475
+#: src/file-manager/fm-properties-window.c:5471
 msgid "There was an error displaying help."
 msgstr "Помилка показу довідки."
 
@@ -4360,7 +4331,7 @@ msgstr ""
 "\n"
 "Додати з'єднання для монтування тому з сервера"
 
-#: src/caja-desktop-window.c:126 src/caja-desktop-window.c:319
+#: src/caja-desktop-window.c:128 src/caja-desktop-window.c:209
 #: src/caja-pathbar.c:1453 src/caja-places-sidebar.c:542
 msgid "Desktop"
 msgstr "Стільниця"
@@ -4438,7 +4409,7 @@ msgstr "Перенесені файли не є правильними файл�
 msgid "The emblem cannot be added."
 msgstr "Емблема не може бути додана."
 
-#: src/caja-emblem-sidebar.c:1102 src/file-manager/fm-properties-window.c:3463
+#: src/caja-emblem-sidebar.c:1102 src/file-manager/fm-properties-window.c:3460
 msgid "Emblems"
 msgstr "Емблеми"
 
@@ -4449,13 +4420,13 @@ msgstr "Показати емблеми"
 #. Translators: this is referred to captions under icons.
 #. Translators: this is referred to the permissions
 #. * the user has in a directory.
-#: src/caja-file-management-properties.c:342
-#: src/file-manager/fm-properties-window.c:4239
-#: src/file-manager/fm-properties-window.c:4250
+#: src/caja-file-management-properties.c:319
+#: src/file-manager/fm-properties-window.c:4236
+#: src/file-manager/fm-properties-window.c:4247
 msgid "None"
 msgstr "Немає"
 
-#: src/caja-file-management-properties.c:646
+#: src/caja-file-management-properties.c:623
 msgid "About Extension"
 msgstr "Про розширення"
 
@@ -4644,123 +4615,123 @@ msgstr "_Впорядкувати елементи:"
 msgid "Sort _folders before files"
 msgstr "Розміщувати _теки перед файлами"
 
-#: src/caja-file-management-properties.ui:493
+#: src/caja-file-management-properties.ui:494
 msgid "Show hidden files"
 msgstr "Показати приховані файли"
 
-#: src/caja-file-management-properties.ui:508
+#: src/caja-file-management-properties.ui:510
 msgid "Show backup files"
 msgstr "Показати файли резервних копій"
 
-#: src/caja-file-management-properties.ui:547
+#: src/caja-file-management-properties.ui:550
 msgid "<b>Icon View Defaults</b>"
 msgstr "<b>Перегляд у вигляді піктограм</b>"
 
-#: src/caja-file-management-properties.ui:577
+#: src/caja-file-management-properties.ui:580
 msgid "Default _zoom level:"
 msgstr "Типове _мірило:"
 
-#: src/caja-file-management-properties.ui:615
+#: src/caja-file-management-properties.ui:618
 msgid "_Use compact layout"
 msgstr "_Стисле розташування"
 
-#: src/caja-file-management-properties.ui:630
+#: src/caja-file-management-properties.ui:634
 msgid "_Text beside icons"
 msgstr "_Текст поруч з піктограмами"
 
-#: src/caja-file-management-properties.ui:669
+#: src/caja-file-management-properties.ui:674
 msgid "<b>Compact View Defaults</b>"
 msgstr "<b>Компактний перегляд</b>"
 
-#: src/caja-file-management-properties.ui:699
+#: src/caja-file-management-properties.ui:704
 msgid "_Default zoom level:"
 msgstr "Т_иповий рівень припасовування:"
 
-#: src/caja-file-management-properties.ui:737
+#: src/caja-file-management-properties.ui:742
 msgid "A_ll columns have the same width"
 msgstr "_Усі стовпчики мають однакову ширину"
 
-#: src/caja-file-management-properties.ui:776
+#: src/caja-file-management-properties.ui:782
 msgid "<b>List View Defaults</b>"
 msgstr "<b>Перегляд у вигляді переліку</b>"
 
-#: src/caja-file-management-properties.ui:806
+#: src/caja-file-management-properties.ui:812
 msgid "D_efault zoom level:"
 msgstr "_Типове мірило:"
 
-#: src/caja-file-management-properties.ui:844
+#: src/caja-file-management-properties.ui:850
 msgid "_Show icons"
 msgstr "_Показати піктограми"
 
-#: src/caja-file-management-properties.ui:883
+#: src/caja-file-management-properties.ui:890
 msgid "<b>Tree View Defaults</b>"
 msgstr "<b>Перегляд у вигляді дерева</b>"
 
-#: src/caja-file-management-properties.ui:906
+#: src/caja-file-management-properties.ui:913
 msgid "Show _only folders"
 msgstr "Показувати _лише теки"
 
-#: src/caja-file-management-properties.ui:941
+#: src/caja-file-management-properties.ui:949
 msgid "Views"
 msgstr "Вигляд"
 
-#: src/caja-file-management-properties.ui:964
+#: src/caja-file-management-properties.ui:972
 msgid "<b>Behavior</b>"
 msgstr "<b>Поведінка</b>"
 
-#: src/caja-file-management-properties.ui:986
+#: src/caja-file-management-properties.ui:994
 msgid "_Single click to open items"
 msgstr "Активація елементів _одинарним клацанням"
 
-#: src/caja-file-management-properties.ui:1001
+#: src/caja-file-management-properties.ui:1010
 msgid "_Double click to open items"
 msgstr "_Подвійне клацання для відкривання"
 
-#: src/caja-file-management-properties.ui:1018
+#: src/caja-file-management-properties.ui:1028
 msgid "Open each _folder in its own window"
 msgstr "Відкривати кожну _теку у окремому вікні"
 
-#: src/caja-file-management-properties.ui:1057
+#: src/caja-file-management-properties.ui:1068
 msgid "<b>Executable Text Files</b>"
 msgstr "<b>Виконувані текстові файли</b>"
 
-#: src/caja-file-management-properties.ui:1080
+#: src/caja-file-management-properties.ui:1091
 msgid "_Run executable text files when they are opened"
 msgstr "_Запускати виконувані текстові файли при відкриванні"
 
-#: src/caja-file-management-properties.ui:1095
+#: src/caja-file-management-properties.ui:1107
 msgid "_View executable text files when they are opened"
 msgstr "П_оказувати виконувані текстові файли при їх відкриванні"
 
-#: src/caja-file-management-properties.ui:1111
+#: src/caja-file-management-properties.ui:1124
 msgid "_Ask each time"
 msgstr "Щораз запи_тувати"
 
-#: src/caja-file-management-properties.ui:1151
+#: src/caja-file-management-properties.ui:1165
 msgid "<b>Trash</b>"
 msgstr "<b>Смітник</b>"
 
-#: src/caja-file-management-properties.ui:1174
+#: src/caja-file-management-properties.ui:1188
 msgid "Ask before _emptying the Trash or deleting files"
 msgstr "Перепитувати перед спо_рожненням смітника чи вилученням файлів"
 
-#: src/caja-file-management-properties.ui:1189
+#: src/caja-file-management-properties.ui:1204
 msgid "Ask before moving files to the _Trash"
 msgstr "Запитувати перш ніж переміщувати файли у _Смітник"
 
-#: src/caja-file-management-properties.ui:1204
+#: src/caja-file-management-properties.ui:1220
 msgid "I_nclude a Delete command that bypasses Trash"
 msgstr "_Увімкнути команду вилучення оминаючи смітник"
 
-#: src/caja-file-management-properties.ui:1242
+#: src/caja-file-management-properties.ui:1259
 msgid "Behavior"
 msgstr "Поведінка"
 
-#: src/caja-file-management-properties.ui:1266
+#: src/caja-file-management-properties.ui:1283
 msgid "<b>Icon Captions</b>"
 msgstr "<b>Підписи до піктограм</b>"
 
-#: src/caja-file-management-properties.ui:1291
+#: src/caja-file-management-properties.ui:1308
 msgid ""
 "Choose the order of information to appear beneath icon names. More "
 "information will appear when zooming in closer."
@@ -4768,155 +4739,155 @@ msgstr ""
 "Виберіть порядок, у якому інформація буде виникати під назвами піктограм. Із"
 " збільшенням мірила буде з'являтися більше інформації."
 
-#: src/caja-file-management-properties.ui:1427
+#: src/caja-file-management-properties.ui:1444
 msgid "<b>Date</b>"
 msgstr "<b>Дата</b>"
 
-#: src/caja-file-management-properties.ui:1451
+#: src/caja-file-management-properties.ui:1468
 msgid "_Format:"
 msgstr "_Формат:"
 
-#: src/caja-file-management-properties.ui:1498
+#: src/caja-file-management-properties.ui:1515
 msgid "<b>Size</b>"
 msgstr "<b>Розмір</b>"
 
-#: src/caja-file-management-properties.ui:1515
+#: src/caja-file-management-properties.ui:1532
 msgid "_Show file sizes with IEC units"
 msgstr "_Показати розміри файлів у одиницях IEC"
 
-#: src/caja-file-management-properties.ui:1546
+#: src/caja-file-management-properties.ui:1564
 msgid "Display"
 msgstr "Зовнішній вигляд"
 
-#: src/caja-file-management-properties.ui:1570
+#: src/caja-file-management-properties.ui:1588
 msgid "<b>List Columns</b>"
 msgstr "<b>Стовпчики переліку</b>"
 
-#: src/caja-file-management-properties.ui:1595
+#: src/caja-file-management-properties.ui:1613
 msgid "Choose the order of information to appear in the list view."
 msgstr "Виберіть порядок, у якому інформація показуватиметься у переліку."
 
-#: src/caja-file-management-properties.ui:1633
+#: src/caja-file-management-properties.ui:1651
 msgid "List Columns"
 msgstr "Стовпчики переліку"
 
-#: src/caja-file-management-properties.ui:1657
+#: src/caja-file-management-properties.ui:1675
 msgid "<b>Text Files</b>"
 msgstr "<b>Текстові файли</b>"
 
-#: src/caja-file-management-properties.ui:1687
+#: src/caja-file-management-properties.ui:1705
 msgid "Show te_xt in icons:"
 msgstr "Показувати _текст у піктограмах:"
 
-#: src/caja-file-management-properties.ui:1749
+#: src/caja-file-management-properties.ui:1767
 msgid "<b>Other Previewable Files</b>"
 msgstr "<b>Інші переглядувані файли</b>"
 
-#: src/caja-file-management-properties.ui:1779
+#: src/caja-file-management-properties.ui:1797
 msgid "Show _thumbnails:"
 msgstr "Показувати _мініатюри:"
 
-#: src/caja-file-management-properties.ui:1824
+#: src/caja-file-management-properties.ui:1842
 msgid "_Only for files smaller than:"
 msgstr "_Лише для файлів менших "
 
-#: src/caja-file-management-properties.ui:1886
+#: src/caja-file-management-properties.ui:1904
 msgid "<b>Sound Files</b>"
 msgstr "<b>Звукові файли</b>"
 
-#: src/caja-file-management-properties.ui:1916
+#: src/caja-file-management-properties.ui:1934
 msgid "Preview _sound files:"
 msgstr "Попереднє прослуховування зв_укових файлів"
 
-#: src/caja-file-management-properties.ui:1978
+#: src/caja-file-management-properties.ui:1996
 msgid "<b>Folders</b>"
 msgstr "<b>Теки</b>"
 
-#: src/caja-file-management-properties.ui:2008
+#: src/caja-file-management-properties.ui:2026
 msgid "Count _number of items:"
 msgstr "Показувати _кількість елементів:"
 
-#: src/caja-file-management-properties.ui:2069
+#: src/caja-file-management-properties.ui:2087
 msgid "Preview"
 msgstr "Перегляд"
 
-#: src/caja-file-management-properties.ui:2099
+#: src/caja-file-management-properties.ui:2117
 msgid "<b>Media Handling</b>"
 msgstr "<b>Робота з носіями</b>"
 
-#: src/caja-file-management-properties.ui:2124
+#: src/caja-file-management-properties.ui:2142
 msgid ""
 "Choose what happens when inserting media or connecting devices to the system"
 msgstr ""
 "Виберіть, що має відбуватися при вставці носіїв чи приєднанні пристроїв до "
 "системи."
 
-#: src/caja-file-management-properties.ui:2147
+#: src/caja-file-management-properties.ui:2163
 msgid "CD _Audio:"
 msgstr "_Звукові КД:"
 
-#: src/caja-file-management-properties.ui:2161
+#: src/caja-file-management-properties.ui:2188
 msgid "_DVD Video:"
 msgstr "_Відео на DVD:"
 
-#: src/caja-file-management-properties.ui:2202
+#: src/caja-file-management-properties.ui:2213
 msgid "_Music Player:"
 msgstr "_Музичні програвачі:"
 
-#: src/caja-file-management-properties.ui:2232
+#: src/caja-file-management-properties.ui:2238
 msgid "_Photos:"
 msgstr "_Світлини:"
 
-#: src/caja-file-management-properties.ui:2262
+#: src/caja-file-management-properties.ui:2263
 msgid "_Software:"
 msgstr "П_рограми:"
 
-#: src/caja-file-management-properties.ui:2321
+#: src/caja-file-management-properties.ui:2317
 msgid "<b>Other Media</b>"
 msgstr "<b>Інші носії</b>"
 
-#: src/caja-file-management-properties.ui:2346
+#: src/caja-file-management-properties.ui:2342
 msgid "Less common media formats can be configured here"
 msgstr "Менш поширені види носіїв можна налаштувати тут."
 
-#: src/caja-file-management-properties.ui:2380
-msgid "Acti_on:"
-msgstr "Д_ія:"
-
-#: src/caja-file-management-properties.ui:2410
+#: src/caja-file-management-properties.ui:2363
 msgid "_Type:"
 msgstr "_Тип:"
 
-#: src/caja-file-management-properties.ui:2452
+#: src/caja-file-management-properties.ui:2377
+msgid "Acti_on:"
+msgstr "Д_ія:"
+
+#: src/caja-file-management-properties.ui:2441
 msgid "_Never prompt or start programs on media insertion"
 msgstr "_Ніколи не питати та не запускати програми при вставці носіїв"
 
-#: src/caja-file-management-properties.ui:2467
+#: src/caja-file-management-properties.ui:2457
 msgid "B_rowse media when inserted"
 msgstr "_Переглядати носії при вставлянні"
 
-#: src/caja-file-management-properties.ui:2489
+#: src/caja-file-management-properties.ui:2480
 msgid "Media"
 msgstr "Носії"
 
-#: src/caja-file-management-properties.ui:2507
+#: src/caja-file-management-properties.ui:2498
 msgid "<b>Available _Extensions:</b>"
 msgstr "<b>Доступні _розширення:</b>"
 
-#: src/caja-file-management-properties.ui:2538
-#: src/caja-file-management-properties.ui:2562
+#: src/caja-file-management-properties.ui:2529
+#: src/caja-file-management-properties.ui:2550
 msgid "column"
 msgstr "стовпчик"
 
-#: src/caja-file-management-properties.ui:2588
+#: src/caja-file-management-properties.ui:2576
 msgid "_About Extension"
 msgstr "_Про розширення"
 
-#: src/caja-file-management-properties.ui:2604
+#: src/caja-file-management-properties.ui:2592
 msgid "C_onfigure Extension"
 msgstr "На_лаштувати розширення"
 
-#: src/caja-file-management-properties.ui:2634
+#: src/caja-file-management-properties.ui:2622
 msgid "Extensions"
 msgstr "Розширення"
 
@@ -5048,23 +5019,23 @@ msgid "You cannot assign more than one custom icon at a time."
 msgstr "Не можливо призначати більше однієї нетипової піктограми одночасно."
 
 #: src/caja-information-panel.c:527
-#: src/file-manager/fm-properties-window.c:515
+#: src/file-manager/fm-properties-window.c:512
 msgid "Please drag just one image to set a custom icon."
 msgstr "Перетягніть лише одне зображення, щоб встановити іншу піктограму."
 
 #: src/caja-information-panel.c:554
-#: src/file-manager/fm-properties-window.c:526
+#: src/file-manager/fm-properties-window.c:523
 msgid "The file that you dropped is not local."
 msgstr "Вказаний файл не є локальним."
 
 #: src/caja-information-panel.c:555
-#: src/file-manager/fm-properties-window.c:527
-#: src/file-manager/fm-properties-window.c:533
+#: src/file-manager/fm-properties-window.c:524
+#: src/file-manager/fm-properties-window.c:530
 msgid "You can only use local images as custom icons."
 msgstr "Для піктограм можна використовувати лише локальні зображення."
 
 #: src/caja-information-panel.c:562
-#: src/file-manager/fm-properties-window.c:532
+#: src/file-manager/fm-properties-window.c:529
 msgid "The file that you dropped is not an image."
 msgstr "Вказаний файл не є зображенням."
 
@@ -5077,7 +5048,7 @@ msgstr "Можна використовувати лише зображення 
 msgid "Open With %s"
 msgstr "Відкрити у програмі %s"
 
-#: src/caja-location-bar.c:60 src/file-manager/fm-properties-window.c:3319
+#: src/caja-location-bar.c:60 src/file-manager/fm-properties-window.c:3316
 msgid "Location:"
 msgstr "Шлях:"
 
@@ -5172,7 +5143,7 @@ msgstr "Закрити усі вікна переглядача"
 msgid "_Location..."
 msgstr "_Адреса..."
 
-#: src/caja-navigation-window-menus.c:847 src/caja-spatial-window.c:923
+#: src/caja-navigation-window-menus.c:847 src/caja-spatial-window.c:927
 msgid "Specify a location to open"
 msgstr "Вкажіть адресу, яку потрібно відкрити"
 
@@ -5200,19 +5171,19 @@ msgstr "Т_е саме місце як у іншої панелі"
 msgid "Go to the same location as in the extra pane"
 msgstr "Перейти у те ж саме місце у додатковій панелі"
 
-#: src/caja-navigation-window-menus.c:862 src/caja-spatial-window.c:936
+#: src/caja-navigation-window-menus.c:862 src/caja-spatial-window.c:940
 msgid "_Add Bookmark"
 msgstr "_Додати закладку"
 
-#: src/caja-navigation-window-menus.c:863 src/caja-spatial-window.c:937
+#: src/caja-navigation-window-menus.c:863 src/caja-spatial-window.c:941
 msgid "Add a bookmark for the current location to this menu"
 msgstr "Додати закладку до поточного місця у це меню"
 
-#: src/caja-navigation-window-menus.c:866 src/caja-spatial-window.c:940
+#: src/caja-navigation-window-menus.c:866 src/caja-spatial-window.c:944
 msgid "_Edit Bookmarks..."
 msgstr "_Редагування закладок..."
 
-#: src/caja-navigation-window-menus.c:867 src/caja-spatial-window.c:941
+#: src/caja-navigation-window-menus.c:867 src/caja-spatial-window.c:945
 msgid "Display a window that allows editing the bookmarks in this menu"
 msgstr "Показати вікно, у якому можна буде виправити закладки цього меню"
 
@@ -5290,7 +5261,7 @@ msgstr "Рядок с_тану"
 msgid "Change the visibility of this window's statusbar"
 msgstr "Змінити видимість панелі стану цього вікна"
 
-#: src/caja-navigation-window-menus.c:924 src/caja-spatial-window.c:944
+#: src/caja-navigation-window-menus.c:924 src/caja-spatial-window.c:948
 msgid "_Search for Files..."
 msgstr "Шук_ати файли..."
 
@@ -5892,31 +5863,31 @@ msgstr "Пошук:"
 msgid "Close the side pane"
 msgstr "Закрити бічну панель"
 
-#: src/caja-spatial-window.c:920
+#: src/caja-spatial-window.c:924
 msgid "_Places"
 msgstr "_Місця"
 
-#: src/caja-spatial-window.c:922
+#: src/caja-spatial-window.c:926
 msgid "Open _Location..."
 msgstr "Відкрити _адресу..."
 
-#: src/caja-spatial-window.c:927
+#: src/caja-spatial-window.c:931
 msgid "Close P_arent Folders"
 msgstr "Закрити бать_ківську теку"
 
-#: src/caja-spatial-window.c:928
+#: src/caja-spatial-window.c:932
 msgid "Close this folder's parents"
 msgstr "Закрити батьківські теки цієї теки"
 
-#: src/caja-spatial-window.c:932
+#: src/caja-spatial-window.c:936
 msgid "Clos_e All Folders"
 msgstr "Закрити _усі теки"
 
-#: src/caja-spatial-window.c:933
+#: src/caja-spatial-window.c:937
 msgid "Close all folder windows"
 msgstr "Закрити усі вікна тек"
 
-#: src/caja-spatial-window.c:945
+#: src/caja-spatial-window.c:949
 msgid "Locate documents and folders on this computer by name or content"
 msgstr "Шукати документи та теки на цьому комп'ютері за назвою чи вмістом"
 
@@ -6078,8 +6049,8 @@ msgstr ""
 "Oleh Tsyupka <myr4yk@gmail.com>"
 
 #: src/caja-window-menus.c:589
-msgid "MATE Web Site"
-msgstr "Сайт MATE"
+msgid "Website"
+msgstr ""
 
 #: src/caja-window-menus.c:849
 msgid "_File"
@@ -7737,12 +7708,12 @@ msgstr "Помилка при запуску показу у вигляді пе
 msgid "Display this location with the list view."
 msgstr "Показати цю адресу у вигляді переліку."
 
-#: src/file-manager/fm-properties-window.c:514
+#: src/file-manager/fm-properties-window.c:511
 msgid "You cannot assign more than one custom icon at a time!"
 msgstr ""
 "Не можна пов'язати більш ніж з однією нетиповою піктограмою одночасно!"
 
-#: src/file-manager/fm-properties-window.c:648
+#: src/file-manager/fm-properties-window.c:645
 msgid "_Name:"
 msgid_plural "_Names:"
 msgstr[0] "_Ім'я:"
@@ -7750,38 +7721,38 @@ msgstr[1] "_Імена:"
 msgstr[2] "_Імена:"
 msgstr[3] "_Імена:"
 
-#: src/file-manager/fm-properties-window.c:1004
+#: src/file-manager/fm-properties-window.c:1001
 msgid "Properties"
 msgstr "Властивості"
 
-#: src/file-manager/fm-properties-window.c:1016
+#: src/file-manager/fm-properties-window.c:1013
 #, c-format
 msgid "%s Properties"
 msgstr "Властивості %s"
 
-#: src/file-manager/fm-properties-window.c:1346
+#: src/file-manager/fm-properties-window.c:1343
 #, c-format
 msgctxt "MIME type description (MIME type)"
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#: src/file-manager/fm-properties-window.c:1554
+#: src/file-manager/fm-properties-window.c:1551
 msgid "Cancel Group Change?"
 msgstr "Скасувати зміну групи?"
 
-#: src/file-manager/fm-properties-window.c:1969
+#: src/file-manager/fm-properties-window.c:1966
 msgid "Cancel Owner Change?"
 msgstr "Скасувати зміну власника?"
 
-#: src/file-manager/fm-properties-window.c:2296
+#: src/file-manager/fm-properties-window.c:2293
 msgid "nothing"
 msgstr "нічого"
 
-#: src/file-manager/fm-properties-window.c:2298
+#: src/file-manager/fm-properties-window.c:2295
 msgid "unreadable"
 msgstr "неможливо зчитати"
 
-#: src/file-manager/fm-properties-window.c:2317
+#: src/file-manager/fm-properties-window.c:2314
 #, c-format
 msgid "%'d item, with size %s (%s on disk)"
 msgid_plural "%'d items, totalling %s (%s on disk)"
@@ -7790,228 +7761,228 @@ msgstr[1] "%'d елементи, всього %s (%s на диску)"
 msgstr[2] "%'d елементів, всього %s (%s на диску)"
 msgstr[3] "%'d елементів, всього %s (%s на диску)"
 
-#: src/file-manager/fm-properties-window.c:2327
+#: src/file-manager/fm-properties-window.c:2324
 msgid "(some contents unreadable)"
 msgstr "(деякий вміст не зчитується)"
 
-#: src/file-manager/fm-properties-window.c:2344
+#: src/file-manager/fm-properties-window.c:2341
 msgid "Contents:"
 msgstr "Вміст:"
 
 #. Translators: "used" refers to the capacity of the filesystem
-#: src/file-manager/fm-properties-window.c:3120
+#: src/file-manager/fm-properties-window.c:3117
 msgid "used"
 msgstr "використовується"
 
 #. Translators: "free" refers to the capacity of the filesystem
-#: src/file-manager/fm-properties-window.c:3131
+#: src/file-manager/fm-properties-window.c:3128
 msgid "free"
 msgstr "вільно"
 
-#: src/file-manager/fm-properties-window.c:3135
+#: src/file-manager/fm-properties-window.c:3132
 msgid "Total capacity:"
 msgstr "Загальна місткість:"
 
-#: src/file-manager/fm-properties-window.c:3149
+#: src/file-manager/fm-properties-window.c:3146
 msgid "Filesystem type:"
 msgstr "Тип файлової системи:"
 
-#: src/file-manager/fm-properties-window.c:3234
+#: src/file-manager/fm-properties-window.c:3231
 msgid "Basic"
 msgstr "Основні"
 
-#: src/file-manager/fm-properties-window.c:3296
+#: src/file-manager/fm-properties-window.c:3293
 msgid "Link target:"
 msgstr "Мета посилання:"
 
-#: src/file-manager/fm-properties-window.c:3310
+#: src/file-manager/fm-properties-window.c:3307
 msgid "Size on Disk:"
 msgstr "Розмір на диску:"
 
-#: src/file-manager/fm-properties-window.c:3325
+#: src/file-manager/fm-properties-window.c:3322
 msgid "Volume:"
 msgstr "Том:"
 
-#: src/file-manager/fm-properties-window.c:3334
+#: src/file-manager/fm-properties-window.c:3331
 msgid "Accessed:"
 msgstr "Доступ:"
 
-#: src/file-manager/fm-properties-window.c:3338
+#: src/file-manager/fm-properties-window.c:3335
 msgid "Modified:"
 msgstr "Змінено:"
 
-#: src/file-manager/fm-properties-window.c:3347
+#: src/file-manager/fm-properties-window.c:3344
 msgid "Free space:"
 msgstr "Вільний простір:"
 
-#: src/file-manager/fm-properties-window.c:3875
+#: src/file-manager/fm-properties-window.c:3872
 msgid "_Read"
 msgstr "_Читання"
 
-#: src/file-manager/fm-properties-window.c:3877
+#: src/file-manager/fm-properties-window.c:3874
 msgid "_Write"
 msgstr "_Запис"
 
-#: src/file-manager/fm-properties-window.c:3879
+#: src/file-manager/fm-properties-window.c:3876
 msgid "E_xecute"
 msgstr "Ви_конання"
 
 #. Translators: this gets concatenated to "no read",
 #. * "no access", etc. (see following strings)
-#: src/file-manager/fm-properties-window.c:4147
-#: src/file-manager/fm-properties-window.c:4158
-#: src/file-manager/fm-properties-window.c:4170
+#: src/file-manager/fm-properties-window.c:4144
+#: src/file-manager/fm-properties-window.c:4155
+#: src/file-manager/fm-properties-window.c:4167
 msgid "no "
 msgstr "ні"
 
-#: src/file-manager/fm-properties-window.c:4150
+#: src/file-manager/fm-properties-window.c:4147
 msgid "list"
 msgstr "Перелік"
 
-#: src/file-manager/fm-properties-window.c:4152
+#: src/file-manager/fm-properties-window.c:4149
 msgid "read"
 msgstr "читання"
 
-#: src/file-manager/fm-properties-window.c:4161
+#: src/file-manager/fm-properties-window.c:4158
 msgid "create/delete"
 msgstr "створити/вилучити"
 
-#: src/file-manager/fm-properties-window.c:4163
+#: src/file-manager/fm-properties-window.c:4160
 msgid "write"
 msgstr "запис"
 
-#: src/file-manager/fm-properties-window.c:4172
+#: src/file-manager/fm-properties-window.c:4169
 msgid "access"
 msgstr "доступ"
 
-#: src/file-manager/fm-properties-window.c:4220
+#: src/file-manager/fm-properties-window.c:4217
 msgid "Access:"
 msgstr "Доступ:"
 
-#: src/file-manager/fm-properties-window.c:4222
+#: src/file-manager/fm-properties-window.c:4219
 msgid "Folder access:"
 msgstr "Доступ до теки:"
 
-#: src/file-manager/fm-properties-window.c:4224
+#: src/file-manager/fm-properties-window.c:4221
 msgid "File access:"
 msgstr "Доступ до файлу:"
 
-#: src/file-manager/fm-properties-window.c:4242
+#: src/file-manager/fm-properties-window.c:4239
 msgid "List files only"
 msgstr "Лише перелік файлів"
 
-#: src/file-manager/fm-properties-window.c:4244
+#: src/file-manager/fm-properties-window.c:4241
 msgid "Access files"
 msgstr "Доступ до файлів"
 
-#: src/file-manager/fm-properties-window.c:4246
+#: src/file-manager/fm-properties-window.c:4243
 msgid "Create and delete files"
 msgstr "Створення та вилучення файлів"
 
-#: src/file-manager/fm-properties-window.c:4253
+#: src/file-manager/fm-properties-window.c:4250
 msgid "Read-only"
 msgstr "Лише читання"
 
-#: src/file-manager/fm-properties-window.c:4255
+#: src/file-manager/fm-properties-window.c:4252
 msgid "Read and write"
 msgstr "Читання та запис"
 
-#: src/file-manager/fm-properties-window.c:4320
+#: src/file-manager/fm-properties-window.c:4317
 msgid "Special flags:"
 msgstr "Особливі ознаки:"
 
-#: src/file-manager/fm-properties-window.c:4322
+#: src/file-manager/fm-properties-window.c:4319
 msgid "Set _user ID"
 msgstr "Встановити ідентифікатор _користувача (SUID)"
 
-#: src/file-manager/fm-properties-window.c:4323
+#: src/file-manager/fm-properties-window.c:4320
 msgid "Set gro_up ID"
 msgstr "Встановити ідентифікатор _групи (SGID)"
 
-#: src/file-manager/fm-properties-window.c:4324
+#: src/file-manager/fm-properties-window.c:4321
 msgid "_Sticky"
 msgstr "_Липкість"
 
-#: src/file-manager/fm-properties-window.c:4399
-#: src/file-manager/fm-properties-window.c:4591
+#: src/file-manager/fm-properties-window.c:4396
+#: src/file-manager/fm-properties-window.c:4588
 msgid "_Owner:"
 msgstr "В_ласник:"
 
-#: src/file-manager/fm-properties-window.c:4407
-#: src/file-manager/fm-properties-window.c:4497
-#: src/file-manager/fm-properties-window.c:4600
+#: src/file-manager/fm-properties-window.c:4404
+#: src/file-manager/fm-properties-window.c:4494
+#: src/file-manager/fm-properties-window.c:4597
 msgid "Owner:"
 msgstr "Власник:"
 
-#: src/file-manager/fm-properties-window.c:4431
-#: src/file-manager/fm-properties-window.c:4615
+#: src/file-manager/fm-properties-window.c:4428
+#: src/file-manager/fm-properties-window.c:4612
 msgid "_Group:"
 msgstr "_Група:"
 
-#: src/file-manager/fm-properties-window.c:4439
-#: src/file-manager/fm-properties-window.c:4498
-#: src/file-manager/fm-properties-window.c:4623
+#: src/file-manager/fm-properties-window.c:4436
+#: src/file-manager/fm-properties-window.c:4495
+#: src/file-manager/fm-properties-window.c:4620
 msgid "Group:"
 msgstr "Група:"
 
-#: src/file-manager/fm-properties-window.c:4463
+#: src/file-manager/fm-properties-window.c:4460
 msgid "Others"
 msgstr "Інші:"
 
-#: src/file-manager/fm-properties-window.c:4478
+#: src/file-manager/fm-properties-window.c:4475
 msgid "Execute:"
 msgstr "Виконати:"
 
-#: src/file-manager/fm-properties-window.c:4481
+#: src/file-manager/fm-properties-window.c:4478
 msgid "Allow _executing file as program"
 msgstr "Дозволити _виконання файлу як програми"
 
-#: src/file-manager/fm-properties-window.c:4499
+#: src/file-manager/fm-properties-window.c:4496
 msgid "Others:"
 msgstr "Інші:"
 
-#: src/file-manager/fm-properties-window.c:4639
+#: src/file-manager/fm-properties-window.c:4636
 msgid "Folder Permissions:"
 msgstr "Права теки:"
 
-#: src/file-manager/fm-properties-window.c:4646
+#: src/file-manager/fm-properties-window.c:4643
 msgid "File Permissions:"
 msgstr "Права файлу:"
 
-#: src/file-manager/fm-properties-window.c:4655
+#: src/file-manager/fm-properties-window.c:4652
 msgid "Text view:"
 msgstr "Текстовий вигляд:"
 
-#: src/file-manager/fm-properties-window.c:4803
+#: src/file-manager/fm-properties-window.c:4800
 msgid "You are not the owner, so you cannot change these permissions."
 msgstr "Ви не власник, тож не можете змінювати ці права."
 
-#: src/file-manager/fm-properties-window.c:4823
+#: src/file-manager/fm-properties-window.c:4820
 msgid "SELinux context:"
 msgstr "Контекст SELinux:"
 
-#: src/file-manager/fm-properties-window.c:4828
+#: src/file-manager/fm-properties-window.c:4825
 msgid "Last changed:"
 msgstr "Остання зміна:"
 
-#: src/file-manager/fm-properties-window.c:4841
+#: src/file-manager/fm-properties-window.c:4838
 msgid "Apply Permissions to Enclosed Files"
 msgstr "Застосувати права до вкладених файлів"
 
-#: src/file-manager/fm-properties-window.c:4855
+#: src/file-manager/fm-properties-window.c:4852
 #, c-format
 msgid "The permissions of \"%s\" could not be determined."
 msgstr "Не вдається визначити права доступу \"%s\"."
 
-#: src/file-manager/fm-properties-window.c:4858
+#: src/file-manager/fm-properties-window.c:4855
 msgid "The permissions of the selected file could not be determined."
 msgstr "Не вдається визначити права доступу цього файлу."
 
-#: src/file-manager/fm-properties-window.c:5448
+#: src/file-manager/fm-properties-window.c:5444
 msgid "Creating Properties window."
 msgstr "Створення вікна властивостей."
 
-#: src/file-manager/fm-properties-window.c:5743
+#: src/file-manager/fm-properties-window.c:5740
 msgid "Select Custom Icon"
 msgstr "Вибрати нетипову піктограму"
 
