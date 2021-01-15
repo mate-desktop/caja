@@ -1,3 +1,47 @@
+### caja 1.25.1
+
+  * sync with transifex
+  * Remove warning -Wtype-limits
+  * caja-bookmarks-window: upgrade ui file
+  * caja-file-operations: Let user mark trusted launcher
+  * caja-directory-async: trust marked launchers
+  * gio set PATH "metadata::caja-trusted-launcher" true
+  * caja-directory-async: trust also launchers from user desktop
+  * caja-directory-async: trust only system launchers
+  * caja-file-management-properties: use g_list_free_full
+  * caja-icon-container: warning -Wold-style-declaration
+  * file-operations: don't attempt to move into the source dir
+  * test-eel-pixbuf-scale: Profile only the scaling functions just once
+  * Remove the use of the gettimeofday function
+  * test-eel-image-table: Fix the filename for the test image
+  * test-eel-image-table: Use the UTF-8 encoding for the file itself
+  * test-eel-labeled-image: Fix showing the image on the controls
+  * fm-properties-window: make the location of system folders portable
+  * Remove unused macros
+  * Duplicate tabs using the scroll wheel
+  * middle-clicking the reload button duplicates tab
+  * Fix i18n in backgrounds and emblems dialog
+  * fix distcheck error on archlinux and fedora
+  * use pango-devel as BR for fedora
+  * fm-directory-view: Error message when a link could not be created
+  * travis: use ubuntu:rolling tag to fix building
+  * eel-editable-label: Consecutive break/return statements are unnecessary
+  * tx: fix build error with Hebrew language
+  * Travis CI: debian build: add -Wunused-macros to CFLAGS
+  * Remove trailing spaces/tabs
+  * caja-dnd: Create links by default on dnd from Web Browsers
+  * Add a "Bookmarks" sidebar to Caja
+  * Guard block is missing
+  * caja-notebook: Add notebook scroll event
+  * fm-icon-view: totem-audio-preview was removed in totem 2.25.90
+  * caja-file-management-properties: Reduce the height of the dialog
+  * Remove unused variable from eel_notebook_scroll_event_cb
+  * fm-properties-window: Do not display Modified field for mounted points
+  * add required libraries for libegg
+  * caja properties-window: display dir last modified
+  * Travis CI: enable irc notifications with tagged commits
+  * update submodule
+
 ### caja 1.25.0
 
   * sync with transifex
